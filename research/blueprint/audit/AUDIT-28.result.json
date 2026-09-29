@@ -658,7 +658,7 @@
    }
   },
   "EllipticKTheory": {
-   "summary": "The elliptic-curve half of this roadmap is far better supplied than the K-theory half. Mathlib has Weierstrass curves in affine, projective and Jacobian models with the full point group, division polynomials, normal forms and reduction; Tau Ceti adds function-field isogenies with degree, separability, kernels, invariant differentials and Frobenius, a Riemann-Roch/divisor theory for function fields, and — the sharpest hit — a sorry-free proof that E(F) is the degree-zero divisor class group (WeierstrassCurve.Affine.pointEquivDegreeZeroDivisorClass) together with the Cl ≅ Pic⁰ ⊕ ℤ degree splitting and the principality of n(T)-n(O) at an n-torsion point. What is missing is everything K-theoretic: neither library has K₀ of a scheme, K₁, K₂, K₃, a localisation sequence, tame symbols, coniveau spectral sequences, Adams operations or projective-bundle theorems, and the only K-theory present is Tau Ceti's categorical K₀ of exact/abelian/triangulated categories, which is not applied to coherent sheaves. Also absent: the elliptic curve as a Scheme (Mathlib has the general Proj construction but no curve built from it), regular proper models of arithmetic surfaces, and Tate modules. E.2's Pic⁰(E) ≅ E(F) and E.7's torsion-divisor function are genuinely already built and the roadmap treats them as work to do.",
+   "summary": "The elliptic-curve half of this roadmap is far better supplied than the K-theory half. Mathlib has Weierstrass curves in affine, projective and Jacobian models with the full point group, division polynomials, normal forms and reduction; Tau Ceti adds function-field isogenies with degree, separability, kernels, invariant differentials and Frobenius, a Riemann-Roch/divisor theory for function fields, and — the sharpest hit — a sorry-free proof that E(F) is the degree-zero divisor class group of the function field (WeierstrassCurve.Affine.pointEquivDegreeZeroDivisorClass) together with the abstract Cl ≅ Pic⁰ ⊕ ℤ degree splitting and the principality of n(T)-n(O) at an n-torsion point. What is missing is everything K-theoretic: neither library has K₀ of a scheme, K₁, K₂, K₃, a localisation sequence, tame symbols, coniveau spectral sequences, Adams operations or projective-bundle theorems, and the only K-theory present is Tau Ceti's categorical K₀ of exact/abelian/triangulated categories, which is not applied to coherent sheaves. Also absent: the elliptic curve as a Scheme (Mathlib has the general Proj construction but no curve built from it), regular proper models of arithmetic surfaces, and Tate modules. E.7's torsion-divisor function is genuinely already built and the roadmap treats it as work to do. E.2's Pic⁰(E) ≅ E(F) is built only in its function-field divisor-class form: the comparison with line-bundle classes on the projective scheme is injective and tensor-compatible but not proved surjective, so E.2's Picard targets are partial and the layer is not built.",
    "layers": {
     "EllipticKTheory:E.1": {
      "verdict": "not built",
@@ -777,7 +777,7 @@
      ]
     },
     "EllipticKTheory:E.2": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "K₀(X) ≅ ℤ ⊕ Pic(X) for a connected regular noetherian curve (rank–determinant isomorphism)",
@@ -851,14 +851,14 @@
       },
       {
        "target": "Picard decomposition by degree on an elliptic curve with rational origin",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.classGroupAddEquivPicZeroProdInt",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Degree/Splitting.lean",
          "line": 227,
-         "fit": "more general"
+         "fit": "related"
         },
         {
          "name": "TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.classGroupQuotientPicZeroEquivIntOfWeightOne",
@@ -866,27 +866,41 @@
          "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Degree/Image/Splitting.lean",
          "line": 63,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.SchemeWeilDivisor.classGroupToLineBundleClass_injective",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/LineBundle.lean",
+         "line": 140,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.SchemeWeilDivisor.tensorProductSheafIso",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/TensorProduct.lean",
+         "line": 361,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti proves Cl(X) ≅ Pic⁰(X) × ℤ for an order system with a weight-one rational point, which is exactly the degree splitting of the Picard group at a rational origin, and in greater generality than the elliptic case. Sorry-free."
+       "note": "Tau Ceti proves Cl(X) ≅ Pic⁰(X) × ℤ for an abstract order system with a weight-one rational point (classGroupAddEquivPicZeroProdInt, sorry-free): a splitting of the divisor class group, more general than the elliptic case, but not a statement about line-bundle classes on a scheme. For a Noetherian integral scheme whose codimension-one local rings are DVRs, the map from the divisor class group to line-bundle classes is injective (classGroupToLineBundleClass_injective) and compatible with tensor products (tensorProductSheafIso); its file states that surjectivity is not proved. Outstanding for the line-bundle target: the dictionary between the projective elliptic scheme, its function field and its divisors, surjectivity of the divisor-to-line-bundle comparison, compatibility of the two degree maps, and the elliptic specialization. AlgebraicCurves owns the general regular-projective-curve/function-field dictionary (as E.1 records) and the Picard directions of ModularCurves/JacobianChallenge stay with their owners; E.2 supplies the elliptic specialization."
       },
       {
        "target": "Pic⁰(E) ≅ E(F)",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "WeierstrassCurve.Affine.pointEquivDegreeZeroDivisorClass",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/DivisorClass.lean",
          "line": 79,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "WeierstrassCurve.Affine.val_pointEquivDegreeZeroDivisorClass_some",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/DivisorClass.lean",
          "line": 88,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "WeierstrassCurve.Affine.degreeClass_divisorClass_pointPlace_sub_infinity",
@@ -894,9 +908,23 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/DivisorClass.lean",
          "line": 68,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.SchemeWeilDivisor.classGroupToLineBundleClass_injective",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/LineBundle.lean",
+         "line": 140,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.SchemeWeilDivisor.tensorProductSheafIso",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/TensorProduct.lean",
+         "line": 361,
+         "fit": "related"
         }
        ],
-       "note": "Fully proved and sorry-free: the points of a Weierstrass curve over a field with Dedekind coordinate ring are the degree-zero divisor classes of its function field, with the computation rule sending an affine point P to the class of (P)-(O). This is Silverman III.3.4, stated over an arbitrary field, and it uses the rational origin exactly as the layer requires. The roadmap does not record it."
+       "note": "Tau Ceti proves, sorry-free, that the points of a Weierstrass curve over a field with Dedekind coordinate ring are the degree-zero divisor classes of its function field, sending an affine point P to the class of (P)−(O) (Silverman III.3.4, over an arbitrary field, using the rational origin). This is the function-field form of the target; E.2 asks for Pic⁰ of line bundles on the projective scheme. The scheme-level comparison exists only as an injective, tensor-compatible map from divisor classes to line-bundle classes (classGroupToLineBundleClass_injective, tensorProductSheafIso), without surjectivity. Outstanding for the line-bundle target: the dictionary between the projective elliptic scheme, its function field and its divisors, surjectivity of the divisor-to-line-bundle comparison, compatibility of the two degree maps, and the elliptic specialization. AlgebraicCurves owns the general regular-projective-curve/function-field dictionary (as E.1 records) and the Picard directions of ModularCurves/JacobianChallenge stay with their owners; E.2 supplies the elliptic specialization."
       },
       {
        "target": "K₀(E) ≃ ℤ ⊕ ℤ ⊕ E(F) as a group, with tensor-product multiplication",
@@ -912,7 +940,7 @@
       },
       {
        "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
-       "note": "Layer 0 of the Tau Ceti EllipticCurves roadmap owns the identification of the point group with the degree-zero divisor class group and the principal-divisor characterisation (AEC III.3.4–5) — E.2's Pic⁰(E) ≅ E(F), which Tau Ceti has built."
+       "note": "Layer 0 of the Tau Ceti EllipticCurves roadmap owns the identification of the point group with the degree-zero divisor class group of the function field and the principal-divisor characterisation (AEC III.3.4–5), which Tau Ceti has built. E.2's Pic⁰(E) ≅ E(F) is the line-bundle form on the projective scheme; Layer 0 supplies its function-field divisor-class form, not the scheme comparison."
       },
       {
        "layer": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
@@ -2175,8 +2203,8 @@
        "note": "T.1:plus identifies K₂ = H₂(E(A),ℤ) with π₂ of the K-theory space — K.2's explicit K₂ identification."
       },
       {
-       "layer": "K3BlochGroups:V.4",
-       "note": "V.4 proves Suslin's exact sequence relating K₃^ind(F) to the Bloch group — K.2's explicit K₃ identification."
+       "layer": "K3BlochGroups:V.1",
+       "note": "V.1 proves K₃(A) ≅ H₃(St(A), ℤ) for a ring A (superperfection of the stable Steinberg group and Hurewicz), with its bar-cycle description, naturality under ring maps and compatibility with stabilisation — K.2's explicit K₃ identification. (V.4's Suslin sequence concerns K₃^ind of an infinite field and is a downstream refinement, not the supplier of this generic comparison.)"
       }
      ]
     },
@@ -2233,8 +2261,8 @@
        "note": "T.1:plus compares K₂ with H₂(E(A),ℤ) and identifies it with π₂ of the K-theory space — the explicit K₂ identification this stage lists. (Matsumoto's theorem is K2SymbolsBrauer T.2:symbols, not T.1:plus.)"
       },
       {
-       "layer": "K3BlochGroups:V.4",
-       "note": "V.4 proves Suslin's exact sequence 0 → Tor~(μ,μ) → K₃^ind(F) → B(F) → 0 with the degree-three map agreeing with V.1 — the explicit K₃ model this stage identifies."
+       "layer": "K3BlochGroups:V.1",
+       "note": "V.1 proves K₃(A) ≅ H₃(St(A), ℤ) with its bar-cycle model and naturality under ring maps — the explicit K₃ model this stage identifies. (V.4's sequence 0 → Tor~(μ,μ) → K₃^ind(F) → B(F) → 0 is the infinite-field indecomposable quotient, a downstream refinement rather than the generic supplier.)"
       }
      ]
     },
@@ -2867,9 +2895,30 @@
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
          "line": 127,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.DiscreteShortExact.explicitLongExact_H0A",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/LongExact.lean",
+         "line": 145,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.DiscreteShortExact.explicitLongExact_H2B",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/LongExact.lean",
+         "line": 546,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitH0IsoContinuousCohomology",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/ContinuousCohomologyIso.lean",
+         "line": 141,
+         "fit": "related"
         }
        ],
-       "note": "Continuous Galois cohomology of a profinite group with its long exact sequence is built in Tau Ceti on top of Mathlib's ContinuousCohomology, and the Kummer short exact sequence of discrete G_K-modules is available. K₃ with finite coefficients, the Bockstein and the Chern class do not exist; `Bockstein` has no hits in either library."
+       "note": "Canonical continuous cohomology (Mathlib's continuousCohomology) exists in every degree, with Tau Ceti's restriction map TauCeti.ContinuousCohomology.res. Tau Ceti's explicit discrete-coefficient model TauCeti.ContCohomology has the low-degree long exact sequence 0 → H⁰(A) → H⁰(B) → H⁰(C) → H¹(A) → H¹(B) → H¹(C) → H²(A) → H²(B) of a short exact sequence of discrete modules, proved at its eight nodes (LongExact.lean), and the Kummer short exact sequence of discrete G_K-modules (kummerShortExact, a DiscreteShortExact). The explicit model is compared with the canonical theory only in degree zero (explicitH0IsoContinuousCohomology); the positive-degree canonical comparison and any higher-degree exactness the consumer needs remain work for the ProfiniteCohomology owner. K₃ with finite coefficients, the Bockstein and the Chern class do not exist; `Bockstein` has no hits in either library."
       },
       {
        "target": "The finite set of excluded primes for a number field F and the CGZ injectivity/isomorphism results under hypotheses on n, roots of unity, the discriminant and K₂(O_F)",
