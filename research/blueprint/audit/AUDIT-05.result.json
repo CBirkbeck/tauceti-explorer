@@ -3,7 +3,7 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "tauceti:TauCetiRoadmap/PolynomialGaloisGroups": {
-   "summary": "The lower half of this roadmap is largely built, mostly in Tau Ceti's TauCeti/FieldTheory/GaloisGroups/ and TauCeti/GroupTheory/Perm/ (sorry-free): the degree/orbit/stabilizer dictionary, fullCycleType with a full API, the block↔intermediate-field order anti-isomorphism, 2-transitivity, the fibre-product description of Gal(pq), the whole discriminant layer (root-product formula, base change, discr ≠ 0 ↔ separable, δ = discrSqrt, the alternating-group test, the quadratic extension discrField, though without base-field functoriality or the worked cubic instances), factorDegrees with its API, Frobenius orbits over a finite field, general wreath products (without the primitivity theorem for the product action or the comparison with RegularWreathProduct), and the reference subgroups nTj for n ≤ 5. Mathlib contributes more than the roadmap's summary credits: block_stabilizerOrderIso (Wielandt 7.5) is already there, as is the whole Jordan file with the swap and 3-cycle theorems. Two items called absent have their ingredients in the libraries: the conjugate-field dictionary (IsGalois.map_fixingSubgroup, Subgroup.fixedField_map_conj, algHomAdjoinIntegralEquiv) and the root-enumeration facts of Layer 4 (Polynomial.splits_iff_card_roots, nodup_roots_iff_of_splits). Genuinely missing: everything specific to resolvents beyond the universal machinery — there is no ResolventSpec, none of the three registered invariants, no resolventCubic or resolventSextic, no factorization theorem, no Tschirnhaus transform, no quartic decision table and no quintic solvability criterion; Jordan's p-cycle theorem (still a TODO in Mathlib's Jordan.lean) and the imprimitivity wreath embedding; the whole of Layer 6 above the label definitions — HasGaloisLabel, the classification of transitive subgroups for n ≤ 5, and QuinticCertificate; the imported Dedekind statement and the membership statement of Layer 5; and all of Layer 9. Layer 9 has no declaration of any kind in the baseline.",
+   "summary": "The lower half of this roadmap is largely built, mostly in Tau Ceti's TauCeti/FieldTheory/GaloisGroups/ and TauCeti/GroupTheory/Perm/ (sorry-free): the degree/orbit/stabilizer dictionary, fullCycleType with a full API, the block↔intermediate-field order anti-isomorphism, 2-transitivity, the fibre-product description of Gal(pq), the whole discriminant layer (root-product formula, base change, discr ≠ 0 ↔ separable, δ = discrSqrt, the alternating-group test, the quadratic extension discrField, though without base-field functoriality or the worked cubic instances), factorDegrees with its API, Frobenius orbits over a finite field, general wreath products (without the primitivity theorem for the product action or the comparison with RegularWreathProduct), and the reference subgroups nTj for n ≤ 5. Mathlib contributes more than the roadmap's summary credits: block_stabilizerOrderIso (Wielandt 7.5) is already there, as is the whole Jordan file with the swap and 3-cycle theorems, and so is Equiv.Perm.partition, whose parts are exactly fullCycleType, with their sum and conjugacy invariance as a complete invariant (Equiv.Perm.partition_eq_of_isConj); Tau Ceti's fullCycleType names those parts and adds the transport, fixed-point-count and cycleType-comparison API. Two items called absent have their ingredients in the libraries: the conjugate-field dictionary (IsGalois.map_fixingSubgroup, Subgroup.fixedField_map_conj, algHomAdjoinIntegralEquiv) and the root-enumeration facts of Layer 4 (Polynomial.splits_iff_card_roots, nodup_roots_iff_of_splits). Genuinely missing: everything specific to resolvents beyond the universal machinery — there is no ResolventSpec, none of the three registered invariants, no resolventCubic or resolventSextic, no factorization theorem, no Tschirnhaus transform, no quartic decision table and no quintic solvability criterion; Jordan's p-cycle theorem (still a TODO in Mathlib's Jordan.lean) and the imprimitivity wreath embedding; the whole of Layer 6 above the label definitions — HasGaloisLabel, the classification of transitive subgroups for n ≤ 5, and QuinticCertificate; the imported Dedekind statement and the membership statement of Layer 5; and all of Layer 9. Layer 9 has no declaration of any kind in the baseline.",
    "layers": {
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial": {
      "verdict": "partly built",
@@ -52,7 +52,7 @@
       },
       {
        "target": "fullCycleType with its full API: simp form, sum, conjugacy invariance, permCongr naturality, comparison with cycleType, count of fixed points",
-       "library": "tauceti",
+       "library": "both",
        "declarations": [
         {
          "name": "Equiv.Perm.fullCycleType",
@@ -62,17 +62,24 @@
          "fit": "exact"
         },
         {
-         "name": "Equiv.Perm.sum_fullCycleType",
-         "library": "tauceti",
-         "file": "TauCeti/GroupTheory/Perm/Partition.lean",
-         "line": 286,
+         "name": "Equiv.Perm.partition",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Perm/Cycle/Type.lean",
+         "line": 571,
          "fit": "exact"
         },
         {
-         "name": "Equiv.Perm.fullCycleType_eq_cycleType_iff",
+         "name": "Equiv.Perm.partition_eq_of_isConj",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Perm/Cycle/Type.lean",
+         "line": 592,
+         "fit": "more general"
+        },
+        {
+         "name": "Equiv.Perm.fullCycleType_permCongr",
          "library": "tauceti",
          "file": "TauCeti/GroupTheory/Perm/Partition.lean",
-         "line": 325,
+         "line": 352,
          "fit": "exact"
         },
         {
@@ -81,16 +88,9 @@
          "file": "TauCeti/GroupTheory/Perm/Partition.lean",
          "line": 359,
          "fit": "exact"
-        },
-        {
-         "name": "Equiv.Perm.fullCycleType_permCongr",
-         "library": "tauceti",
-         "file": "TauCeti/GroupTheory/Perm/Partition.lean",
-         "line": 352,
-         "fit": "exact"
         }
        ],
-       "note": "Sixteen declarations in Partition.lean cover every bullet the layer lists — constructor, the identity value, the empty-type edge case, conjugacy invariance (fullCycleType_eq_of_isConj, fullCycleType_conj), inverse invariance, and the permCongr transport."
+       "note": "The invariant itself is in Mathlib: Tau Ceti's fullCycleType (Partition.lean:81) is a named wrapper of (Equiv.Perm.partition σ).parts, whose defining equation is Mathlib's Equiv.Perm.parts_partition (Mathlib/GroupTheory/Perm/Cycle/Type.lean:581). Mathlib's partition carries the sum as its parts_sum field and proves conjugacy invariance as a complete invariant (partition_eq_of_isConj, an iff), which is stronger than Tau Ceti's one-way fullCycleType_eq_of_isConj. Mathlib does not supply the rest of the requested API. Tau Ceti adds it in Partition.lean (sixteen declarations): the constructor, the identity value, the empty-type edge case, conjugacy invariance in fullCycleType form (fullCycleType_eq_of_isConj, fullCycleType_conj), inverse invariance, the permCongr transport, the fixed-point count and the comparison with cycleType. To keep five citations, sum_fullCycleType (Partition.lean:286) and fullCycleType_eq_cycleType_iff (Partition.lean:325) are named here rather than cited."
       },
       {
        "target": "Orbits and irreducible factors: the orbit of a root is the root set of its minimal polynomial, and the orbit quotient is in bijection with the distinct monic irreducible factors",
@@ -1458,7 +1458,7 @@
       },
       {
        "target": "Milestone 4: a coefficientwise Chinese remainder theorem realizing prescribed monic reductions at 2, 3 and 5 by one monic integral polynomial",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "ZMod.chineseRemainder",
@@ -1466,9 +1466,30 @@
          "file": "Mathlib/Data/ZMod/Basic.lean",
          "line": 889,
          "fit": "related"
+        },
+        {
+         "name": "Polynomial.lifts_and_natDegree_eq_and_monic",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Lifts.lean",
+         "line": 189,
+         "fit": "more general"
+        },
+        {
+         "name": "Polynomial.mem_lifts_of_surjective",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Lifts.lean",
+         "line": 88,
+         "fit": "related"
+        },
+        {
+         "name": "ZMod.prodEquivPi",
+         "library": "mathlib",
+         "file": "Mathlib/Data/ZMod/QuotientRing.lean",
+         "line": 78,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has the scalar CRT the layer cites, but nothing lifts it coefficientwise to monic polynomials of a fixed degree."
+       "note": "Mathlib supplies the monic, degree-preserving lift along ℤ → ZMod 30: every polynomial lies in lifts along a surjective ring hom (Polynomial.mem_lifts_of_surjective), and a monic polynomial that lifts has a monic lift of the same natDegree (Polynomial.lifts_and_natDegree_eq_and_monic). Besides the two-modulus ZMod.chineseRemainder that the layer cites, it has the scalar CRT for a finite pairwise-coprime family with its projection formula (ZMod.prodEquivPi). Missing: the coefficientwise assembly of a monic polynomial over ZMod 30 of the common prescribed degree n from the monic reductions of degree n at 2, 3 and 5, and the compatibility of those reductions with the lift. This remains an obligation; no such application is compiled in either library."
       },
       {
        "target": "Milestones 5 to 8: admissibility of 2, 3, 5 from base change of discr; irreducibility mod 2; the four group-theoretic steps; the small-n cases",
@@ -1524,7 +1545,7 @@
    }
   },
   "tauceti:TauCetiRoadmap/QuadraticFormInvariants": {
-   "summary": "The bottom of the roadmap is largely built and the top is not. Tau Ceti already has most of Layer 1 (hyperbolic plane, Witt decomposition for regular forms, Witt cancellation, reflections, Cartan–Dieudonné, Witt's extension theorem; missing are the decomposition of degenerate forms, Lam I.4.4 and the monotonicity of the Witt index under base change), almost all of Layer 0 (the square-class group with its multiplicative avatar and finiteness, Represents / unitValueSet with the representation criterion, the binary normal forms, the chain relation with Witt's chain-equivalence theorem, and RegularFormClass as the quotient), and the discriminant half of Layer 3 (discr, signedDiscr, the sum/product/scaling formulas, base change; not yet the Gram-determinant description), plus a substantial Layer 2 (quaternion norm form and pure norm form, Nrd multiplicativity, and the split cases (1,b), (a,−a), (a,b²) and the Steinberg relation as explicit AlgEquivs onto M₂(K)). Everything above that is absent: no Witt ring and no fundamental ideal, no Pfister forms, no quaternion symbol in Br(K), no Hasse or Clifford invariant, no Hilbert symbol, no quadratic defect, no local classification, no comparison of H²(G_K, μ₂) with the Brauer group, no cup-norm theorem, no Stiefel–Whitney classes and no Scharlau transfer — grep over both baselines for hasseInvariant, hilbertSymbol, wittRing, fundamentalIdeal, pfister, quadraticDefect and stiefelWhitney finds nothing. The substrates those layers consume are partly in place (Tau Ceti's BrauerGroup with its CommGroup structure and base change, the CentralSimple directory, the local-field normalized valuation, unit filtration, graded pieces and Teichmüller lift, the injective Kummer map into H¹ but not the Kummer isomorphism, since Hilbert 90 for G_K is missing, a low-degree continuous cup product and corestriction for an abstract open subgroup, Mathlib's Valuation.IsUniformizer, the odd-residue case of the local square theorem, and central simplicity of the Clifford algebra of a split even-dimensional form), so the missing work is the quadratic-form content itself rather than its foundations. One correction to the roadmap's own framing: Layer 2's centrality input is not entirely missing — TauCeti.Quaternion.instIsCentral proves ℍ[R] central, though only for the standard structure constants and not for ℍ[K,a,b].",
+   "summary": "The bottom of the roadmap is largely built and the top is not. Tau Ceti already has most of Layer 1 (hyperbolic plane, Witt decomposition for regular forms, Witt cancellation, reflections, Cartan–Dieudonné, Witt's extension theorem; missing are the decomposition of degenerate forms, Lam I.4.4 and the monotonicity of the Witt index under base change), almost all of Layer 0 (the square-class group with its multiplicative avatar and finiteness, Represents / unitValueSet with the representation criterion, the binary normal forms, the chain relation with Witt's chain-equivalence theorem, and RegularFormClass as the quotient), and the discriminant half of Layer 3 (discr, signedDiscr, the sum/product/scaling formulas, base change; not yet the Gram-determinant description), plus a substantial Layer 2 (quaternion norm form and pure norm form, Nrd multiplicativity, and the split cases (1,b), (a,−a), (a,b²) and the Steinberg relation as explicit AlgEquivs onto M₂(K)). Layer 3's binary quaternion lemma (⟨a,b⟩ ≅ ⟨c,d⟩ ⇒ ℍ[K,a,b] ≃ₐ[K] ℍ[K,c,d]) is not absent either: it composes from Mathlib's CliffordAlgebraQuaternion.equiv and CliffordAlgebra.equivOfIsometry and lacks only a named wrapper. Everything above that is absent: no Witt ring and no fundamental ideal, no Pfister forms, no quaternion symbol in Br(K), no Hasse or Clifford invariant, no Hilbert symbol, no quadratic defect, no local classification, no comparison of H²(G_K, μ₂) with the Brauer group, no cup-norm theorem, no Stiefel–Whitney classes and no Scharlau transfer — grep over both baselines for hasseInvariant, hilbertSymbol, wittRing, fundamentalIdeal, pfister, quadraticDefect and stiefelWhitney finds nothing. The substrates those layers consume are partly in place (Tau Ceti's BrauerGroup with its CommGroup structure and base change, the CentralSimple directory, the local-field normalized valuation, unit filtration, graded pieces and Teichmüller lift, the injective Kummer map into H¹ but not the Kummer isomorphism, since Hilbert 90 for G_K is missing, a low-degree continuous cup product and corestriction for an abstract open subgroup, Mathlib's Valuation.IsUniformizer, the odd-residue case of the local square theorem, and central simplicity of the Clifford algebra of a split even-dimensional form), so the missing work is the quadratic-form content itself rather than its foundations. One correction to the roadmap's own framing: Layer 2's centrality input is not entirely missing — TauCeti.Quaternion.instIsCentral proves ℍ[R] central, though only for the standard structure constants and not for ℍ[K,a,b].",
    "layers": {
     "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence": {
      "verdict": "partly built",
@@ -2291,24 +2312,45 @@
       },
       {
        "target": "The binary quaternion lemma: ⟨a,b⟩ ≅ ⟨c,d⟩ implies ℍ[K,a,b] ≃ₐ[K] ℍ[K,c,d]",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
+        {
+         "name": "CliffordAlgebraQuaternion.equiv",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/CliffordAlgebra/Equivs.lean",
+         "line": 318,
+         "fit": "more general"
+        },
+        {
+         "name": "CliffordAlgebra.equivOfIsometry",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+         "line": 382,
+         "fit": "more general"
+        },
+        {
+         "name": "CliffordAlgebraQuaternion.Q",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/CliffordAlgebra/Equivs.lean",
+         "line": 233,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.realCliffordZeroTwoEquivQuaternion",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+         "line": 698,
+         "fit": "special case"
+        },
         {
          "name": "QuaternionAlgebra.equivalent_normForm_weightedSumSquares",
          "library": "tauceti",
          "file": "TauCeti/Algebra/Quaternion/NormForm.lean",
          "line": 171,
          "fit": "related"
-        },
-        {
-         "name": "TauCeti.equivalent_binary_iff",
-         "library": "tauceti",
-         "file": "TauCeti/LinearAlgebra/QuadraticForm/Binary.lean",
-         "line": 233,
-         "fit": "related"
         }
        ],
-       "note": "Absent. Both of its inputs exist (the binary equivalence criterion and the identification of the quaternion norm form) but nothing produces an AlgEquiv from an isometry of binary forms — the layer calls this the one nontrivial input to the well-definedness of the Hasse invariant."
+       "note": "Composable from Mathlib, so no new norm-form proof is needed: ℍ[K,a,b] ≃ Cl(⟨a,b⟩) ≃ Cl(⟨c,d⟩) ≃ ℍ[K,c,d]. CliffordAlgebraQuaternion.equiv identifies the Clifford algebra of the binary form CliffordAlgebraQuaternion.Q a b on K × K with ℍ[K,a,0,b], and CliffordAlgebra.equivOfIsometry turns an isometry of quadratic forms into an algebra equivalence of Clifford algebras. The roadmap's ⟨a,b⟩ on Fin 2 → K is transported to CliffordAlgebraQuaternion.Q a b along LinearEquiv.finTwoArrow. The Mathlib declarations hold over any commutative ring with no unit or invertible-2 hypothesis; the roadmap keeps its own field and unit conventions. Tau Ceti already uses this pattern for ℍ[ℝ]: realCliffordZeroTwoEquivQuaternion is built from the coordinate isometry realCliffordZeroTwoIsometry (RealForm.lean:684). Missing: the short coordinate isometry and the composition, as a named lemma. The layer calls this lemma the one nontrivial input to the well-definedness of the Hasse invariant. The earlier inputs stay available: the identification of the quaternion norm form, and the binary equivalence criterion TauCeti.equivalent_binary_iff (TauCeti/LinearAlgebra/QuadraticForm/Binary.lean:233), which is named here to keep five citations."
       },
       {
        "target": "The two chain-induction lemmas for w ↦ ∏_{i<j} F (w i) (w j) into an abstract commutative monoid",
@@ -2461,14 +2503,14 @@
          "fit": "special case"
         },
         {
-         "name": "BrauerGroup",
+         "name": "CliffordAlgebraQuaternion.equiv",
          "library": "mathlib",
-         "file": "Mathlib/Algebra/BrauerGroup/Defs.lean",
-         "line": 99,
+         "file": "Mathlib/LinearAlgebra/CliffordAlgebra/Equivs.lean",
+         "line": 318,
          "fit": "related"
         }
        ],
-       "note": "Missing: the symbol itself and every one of its six properties. The carrier is in place — Tau Ceti supplies the CommGroup structure the layer expects from the semisimple-algebras roadmap, the 2-torsion criterion through Aᵒᵖ, and the nontriviality of [ℍ[ℝ]] — but nothing defines [(a,b)] for a general pair of units."
+       "note": "Missing: the symbol itself and every one of its six properties. The carrier is in place — Tau Ceti supplies the CommGroup structure the layer expects from the semisimple-algebras roadmap, the 2-torsion criterion through Aᵒᵖ, and the nontriviality of [ℍ[ℝ]] — but nothing defines [(a,b)] for a general pair of units. Rank-two support for the bullet on invariance under binary equivalence, which is Layer 3's binary quaternion lemma read in Br(K): that lemma composes from CliffordAlgebraQuaternion.equiv and CliffordAlgebra.equivOfIsometry (Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean:382). The symbol and this property are not assembled. Mathlib's BrauerGroup (Mathlib/Algebra/BrauerGroup/Defs.lean:99), the underlying carrier, is named here to keep five citations."
       },
       {
        "target": "The Hasse invariant s(q) = ∏_{i<j} [(aᵢ,aⱼ)] with its two formulas for ⊥ and scaling",
@@ -2486,13 +2528,6 @@
        "target": "The Clifford invariant: central simplicity of the Clifford algebra (even rank) and of its even subalgebra (odd rank), Equivalent-invariance, and the Lam V.3.20 comparison with s",
        "library": "partial",
        "declarations": [
-        {
-         "name": "CliffordAlgebra",
-         "library": "mathlib",
-         "file": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
-         "line": 74,
-         "fit": "related"
-        },
         {
          "name": "CliffordAlgebra.even",
          "library": "mathlib",
@@ -2520,9 +2555,16 @@
          "file": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
          "line": 382,
          "fit": "related"
+        },
+        {
+         "name": "CliffordAlgebraQuaternion.equiv",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/CliffordAlgebra/Equivs.lean",
+         "line": 318,
+         "fit": "related"
         }
        ],
-       "note": "In place: the Clifford algebra and its even subalgebra (Mathlib); the algebra equivalence induced by an isometry (Mathlib CliffordAlgebra.equivOfIsometry); central simplicity of CliffordAlgebra Q for even-dimensional forms with a polarization, i.e. split forms (Tau Ceti Spin/Structure.lean). Missing: central simplicity for every regular form of even rank and of the even subalgebra in odd rank, cliffordInvariant itself, and the Lam V.3.20 comparison with the Hasse invariant."
+       "note": "In place: the Clifford algebra and its even subalgebra (Mathlib); the algebra equivalence induced by an isometry (Mathlib CliffordAlgebra.equivOfIsometry); central simplicity of CliffordAlgebra Q for even-dimensional forms with a polarization, i.e. split forms (Tau Ceti Spin/Structure.lean). Missing: central simplicity for every regular form of even rank and of the even subalgebra in odd rank, cliffordInvariant itself, and the Lam V.3.20 comparison with the Hasse invariant. Its rank-two case is in Mathlib: CliffordAlgebraQuaternion.equiv identifies the Clifford algebra of the binary form ⟨a,b⟩ with ℍ[K,a,b]. The general comparison and cliffordInvariant are not assembled. The Clifford algebra itself (CliffordAlgebra, Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean:74) is named here to keep five citations."
       },
       {
        "target": "The I² homomorphism in six steps: additivity on I², the value on ⟨⟨a,b⟩⟩, vanishing on ⟨⟨a,b,c⟩⟩, generation, cliffordHomI2 and the quotient cliffordHomI2Bar on I²/I³",
@@ -2693,6 +2735,20 @@
        "note": "The uniformizer predicate exists in general: Mathlib's Valuation.IsUniformizer, with existence and the comparison to generators of the maximal ideal, applies to (valuation K) of a nonarchimedean local field (Tau Ceti uses it in NormalizedValuation.lean). Tau Ceti's normalizedValuation_irreducible and normalizedValuation_eq_one_iff connect Irreducible to the normalized valuation. Missing: IsUniformizer phrased as v_K(π) = 1 for the normalized valuation with its equivalence lemma, and the level e. There is no natCastValuation, dyadicLevel or absoluteRamificationIndex."
       },
       {
+       "target": "The square-class dictionary Subgroup.square Kˣ = (powMonoidHom 2).range, consumed",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.square_eq_powMonoidHom_two_range",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/PowMonoidHom.lean",
+         "line": 111,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built, and for every commutative group: TauCeti.square_eq_powMonoidHom_two_range states Subgroup.square G = (powMonoidHom 2 : G →* G).range for any CommGroup G, so it applies to Kˣ. The Tau Ceti name differs from the roadmap's contract name square_eq_range_powMonoidHom. TauCeti.powerSubgroup (TauCeti/Algebra/Group/PowerClassGroup.lean:34) is by definition this range at exponent n, and the Kummer map TauCeti.kummerClassMap (TauCeti/FieldTheory/GaloisCohomology/Kummer.lean:279) is stated on the quotient by it."
+      },
+      {
        "target": "The local square theorem in its sharp form, and the square-class counts in the 4·q^e form",
        "library": "partial",
        "declarations": [
@@ -2718,7 +2774,7 @@
          "fit": "related"
         }
        ],
-       "note": "Proved: the e = 0 case of the local square theorem, as U(K,1) ⊆ n-th powers for n invertible in 𝒪[K] (PowerSubgroup.lean), with openness and finite index of the power subgroup. Missing: the dyadic containment U(K, 2e+1) ⊆ (Kˣ)², its sharpness U(K, 2e) ⊄ (Kˣ)², and the counts 4 and 4·q^e (no card_squareClasses_of_isUnit or dyadic count in either library)."
+       "note": "Proved: the e = 0 case of the local square theorem, as U(K,1) ⊆ n-th powers for n invertible in 𝒪[K] (PowerSubgroup.lean), with openness and closedness of the power subgroup (isOpen_range_powMonoidHom_of_isUnit, isClosed_range_powMonoidHom_of_isUnit), and openness of any subgroup whose index is a unit of 𝒪[K] (isOpen_of_isUnit_index). That last result runs from index to openness; finite index of the power subgroup is not proved. Missing: the dyadic containment U(K, 2e+1) ⊆ (Kˣ)², its sharpness U(K, 2e) ⊄ (Kˣ)², finiteness of Kˣ/(Kˣ)² in the roadmap's characteristic-not-two local-field regimes (a statement separate from its order; no local-field power-quotient finiteness theorem exists, and Mathlib's Subgroup.finiteIndex_range_powMonoidHom_of_fg (Mathlib/GroupTheory/FiniteAbelian/Basic.lean:204) needs finite generation, which is not available as an instance for Kˣ), and the counts 4 and 4·q^e (no card_squareClasses_of_isUnit or dyadic count in either library)."
       },
       {
        "target": "The unramified quadratic extension in the norm-equation form 6B and 6C consume, and the norm group",
@@ -2987,9 +3043,16 @@
          "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
          "line": 292,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.square_eq_powMonoidHom_two_range",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Group/PowMonoidHom.lean",
+         "line": 111,
+         "fit": "related"
         }
        ],
-       "note": "Missing: the n = 2 specialization and its comparison with this roadmap's square-class group, and the map from H²(G_K, μ₂) into the cohomological Brauer group. The general-n Kummer map exists but is not specialized or connected to SquareClassGroup."
+       "note": "Missing: the n = 2 specialization and its comparison with this roadmap's square-class group, and the map from H²(G_K, μ₂) into the cohomological Brauer group. The general-n Kummer map TauCeti.kummerClassMap exists, on the quotient of Kˣ by TauCeti.powerSubgroup, which is by definition the range of powMonoidHom n. At n = 2, square_eq_powMonoidHom_two_range rewrites that subgroup as Subgroup.square Kˣ, which connects the domain of kummerClassMap K 2 with MultiplicativeSquareClassGroup at the level of subgroups. A subgroup equality is not the missing cohomological isomorphism: specializing the Kummer map still needs IsUnit (2 : K), the μ₂ ≃ ZMod 2 coefficient identification and surjectivity (Hilbert 90), and h2MuToUnits is still missing."
       },
       {
        "target": "The corestriction/transfer along a finite separable L/K, consumed",
@@ -3252,7 +3315,7 @@
    }
   },
   "tauceti:Completed/ContourIntegration": {
-   "summary": "Everything this completed roadmap asks for is built, sorry-free, in Tau Ceti under TauCeti/Analysis/Contour/ (123 files, about 1150 declarations, no sorry or axiom). That covers: piecewise-C¹ curves, immersions and ℤ-cycles; the PV-defined generalized winding number with integrality, homotopy invariance and vanishing on the unbounded component; the model sector and HW Props 2.2 and 2.3; residues via meromorphicOrderAt, polar-part decompositions, the circle and null-homologous classical residue theorems and the argument principle; the homology Cauchy theorem and integral formula by Dixon's argument, for curves and cycles; and HW Thm 3.3 with conditions (A′)/(B), in single-curve and cycle forms, plus the half-residue case, a simple-pole unconditional form, real-axis PV applications and the Dirichlet integral. Mathlib contributes only ingredients (circle/disc/annulus/rectangle Cauchy theory, the circle Cauchy integral formula, curve integrals with C²-homotopy invariance, meromorphicOrderAt, logDeriv). It has no winding number, principal value, residue, principal-part/Laurent-coefficient API (the README wrongly credits Mathlib with principal-part machinery), residue theorem, argument principle or homology Cauchy theorem. Genuinely missing, and outside the pinned scope: HW Thm 3.3 for accumulation-free singular sets and essential singularities (the residue is only meaningful at meromorphic points), cycle-level versions of Props 2.2/2.3, a cyclic re-basing lemma to remove the basepoint-off-singularity hypotheses, and a signed-curvature API.",
+   "summary": "Nearly everything this completed roadmap asks for is built, sorry-free, in Tau Ceti under TauCeti/Analysis/Contour/ (123 files, about 1150 declarations, no sorry or axiom). Two layers are only partly built: HW Props 2.2 (decomposition) and 2.3 are proved only for closed immersions whose basepoint avoids the point (Layer 1), and the arc FTC only for curves differentiable at every interior parameter (Layer 2). What is built covers: piecewise-C¹ curves, immersions and ℤ-cycles; the PV-defined generalized winding number with integrality, homotopy invariance and vanishing on the unbounded component; the model sector and HW Props 2.2 and 2.3 off the basepoint; residues via meromorphicOrderAt, polar-part decompositions, the circle and null-homologous classical residue theorems and the argument principle; the homology Cauchy theorem and integral formula by Dixon's argument, for curves and cycles; and HW Thm 3.3 with conditions (A′)/(B), in single-curve and cycle forms, plus the half-residue case, a simple-pole unconditional form, real-axis PV applications and the Dirichlet integral. Mathlib contributes only ingredients (circle/disc/annulus/rectangle Cauchy theory, the circle Cauchy integral formula, curve integrals with C²-homotopy invariance, meromorphicOrderAt, logDeriv). It has no winding number, principal value, residue, principal-part/Laurent-coefficient API (the README wrongly credits Mathlib with principal-part machinery), residue theorem, argument principle or homology Cauchy theorem. Genuinely missing within the roadmap's scope: a cyclic re-basing lemma (or a form of the statements that counts the join crossing once), needed for Layer 1's Props 2.2 and 2.3 as stated, since the basepoint restriction is pinned only for HW Thm 3.3; and the FTC for a general primitive along a piecewise-C¹ curve with corners (Layer 2). Missing and outside the pinned scope: HW Thm 3.3 for accumulation-free singular sets and essential singularities (the residue is only meaningful at meromorphic points), cycle-level versions of Props 2.2/2.3, and a signed-curvature API.",
    "layers": {
     "tauceti:Completed/ContourIntegration#layer-0-curves-cycles-and-the-generalized-winding-number": {
      "verdict": "built",
@@ -3576,7 +3639,7 @@
      "duplicates": []
     },
     "tauceti:Completed/ContourIntegration#layer-1-the-geometry-of-the-generalized-winding-number-hw-2": {
-     "verdict": "built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "Model sector (HW (2.4)): corner curve of two radii and an arc of opening α has n₀ = α/2π",
@@ -3685,7 +3748,7 @@
       },
       {
        "target": "HW Prop 2.2 (winding decomposition): n_{z₀}(Λ) = n_{z₀}(Λ̃) + Σ_ℓ α_ℓ/2π with Λ̃ avoiding z₀",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.Contour.IsPwC1ImmersionOn.exists_crossingDecomposition",
@@ -3716,11 +3779,11 @@
          "fit": "related"
         }
        ],
-       "note": "Hypotheses: IsPwC1ImmersionOn γ a b, a < b, γ a = γ b, and basepoint γ a ≠ s (a WLOG normalisation for a closed curve, but no cyclic re-basing lemma is provided). Λ̃ is the explicit circular-cap excision exciseCrossings γ s windows (closed, piecewise C¹, avoiding s); the angles are crossingAngle γ t over the canonical finite crossing set. The identity is at the level of winding numbers, for one curve (no cycle-level version)."
+       "note": "Hypotheses: IsPwC1ImmersionOn γ a b, a < b, γ a = γ b, and basepoint γ a ≠ s (no cyclic re-basing lemma is provided to remove it). Λ̃ is the explicit circular-cap excision exciseCrossings γ s windows (closed, piecewise C¹, avoiding s); the angles are crossingAngle γ t over the canonical finite crossing set. The identity is at the level of winding numbers, for one curve (no cycle-level version). Missing, so the target is partial: the case where the point is the basepoint, γ a = γ b = z₀, which HW Prop 2.2 as stated includes. It needs a cyclic re-basing lemma (the excised index integrals, hence windingNumber, are unchanged by a cyclic shift of a closed curve's parameter interval) or a form of the statement that counts the join crossing once. basepointAngle (TauCeti/Analysis/Contour/RegularityConditions.lean:121) exists, but it is used only by ConditionB and supplies no such lemma."
       },
       {
        "target": "HW Prop 2.3: for a closed piecewise-C^{1,1} immersion, n₀(Λ) = (1/2π)∫(xẏ − yẋ)/(x²+y²) dt with bounded integrand (no PV)",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.Contour.windingNumber_eq_real_integral_of_closed_interior_crossings",
@@ -3734,14 +3797,14 @@
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/Winding/RealIntegral/OnCurve.lean",
          "line": 444,
-         "fit": "more general"
+         "fit": "related"
         },
         {
          "name": "TauCeti.Contour.intervalIntegrable_realWindingIntegrand_of_interior_crossings",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Contour/Winding/RealIntegral/OnCurve.lean",
          "line": 456,
-         "fit": "more general"
+         "fit": "related"
         },
         {
          "name": "TauCeti.Contour.windingNumber_eq_real_integral_of_closed",
@@ -3758,7 +3821,7 @@
          "fit": "related"
         }
        ],
-       "note": "Needs IsPwC1ImmersionOn, closedness, basepoint γ a ≠ s, and only one-sided C^{1,1} (Lipschitz derivWithin) at each crossing, not global C^{1,1}; boundedness and integrability of the real integrand are proved, not assumed. The integrand realWindingIntegrand z v := (z⁻¹·v).im is defined at TauCeti/Analysis/Contour/Winding/Integrand.lean:31 (missing from the tsv because of its `public noncomputable def` prefix). No sorry."
+       "note": "Needs IsPwC1ImmersionOn, closedness, basepoint γ a ≠ s, and only one-sided C^{1,1} (Lipschitz derivWithin) at each crossing, not global C^{1,1}; boundedness and integrability of the real integrand are proved, not assumed. The integrand realWindingIntegrand z v := (z⁻¹·v).im is defined at TauCeti/Analysis/Contour/Winding/Integrand.lean:31 (missing from the tsv because of its `public noncomputable def` prefix). No sorry. The boundedness and integrability lemmas (OnCurve.lean:444, 456) need no closedness, but their h_interior hypothesis excludes a crossing at either endpoint, which for a closed curve is the basepoint restriction; so they are related, not more general. The main theorem weakens the regularity hypothesis but adds the basepoint restriction, so it is not ordered against the proposition either way. Missing, so the target is partial: the case where the point is the basepoint γ a = γ b, which HW Prop 2.3 as stated includes. It needs a cyclic re-basing lemma or a form of the statement that counts the join crossing once (basepointAngle is used only by ConditionB)."
       },
       {
        "target": "Crossing value: the real integrand tends to ½·k_Λ·|Λ̇| = (ẋÿ − ẏẍ)/(2(ẋ²+ẏ²)) at a crossing (C² near t̃)",
@@ -3818,11 +3881,11 @@
      ]
     },
     "tauceti:Completed/ContourIntegration#layer-2-residues-the-cauchy-primitive-and-the-classical-residue-theorem": {
-     "verdict": "built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "FTC along an arc: F' = f along the image of γ ⇒ ∮_γ f = F(γ b) − F(γ a); hence 0 for a closed curve",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.Contour.integral_comp_mul_deriv_eq_sub_of_hasDerivAt",
@@ -3846,21 +3909,21 @@
          "fit": "special case"
         },
         {
-         "name": "intervalIntegral.integral_eq_sub_of_hasDerivAt",
-         "library": "mathlib",
-         "file": "Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.lean",
-         "line": 1148,
-         "fit": "related"
-        },
-        {
          "name": "circleIntegral.integral_eq_zero_of_hasDerivWithinAt'",
          "library": "mathlib",
          "file": "Mathlib/MeasureTheory/Integral/CircleIntegral.lean",
          "line": 577,
          "fit": "special case"
+        },
+        {
+         "name": "MeasureTheory.integral_eq_of_hasDerivAt_off_countable",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Integral/DivergenceTheorem.lean",
+         "line": 406,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti asks HasDerivAt G (g (γ t)) (γ t) only at parameters in the open interval, plus continuity of G∘γ and integrability (weaker than a neighbourhood of the image). Mathlib has the real FTC and the circle case only. All three Tau Ceti forms (ArcFTC.lean:57, 70, 88) also need γ differentiable at every interior parameter. So they apply to arcs without corners, and a piecewise-C¹ curve with corners has to be split at its breakpoints first. No FTC for an arbitrary primitive along a piecewise-C¹ curve is packaged."
+       "note": "Tau Ceti asks HasDerivAt G (g (γ t)) (γ t) only at parameters in the open interval, plus continuity of G∘γ and integrability (weaker than a neighbourhood of the image). Mathlib has the real FTC (intervalIntegral.integral_eq_sub_of_hasDerivAt, Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.lean:1148, named here to keep five citations), its countable-exception form and the circle case only. All three Tau Ceti forms (ArcFTC.lean:57, 70, 88) also need γ differentiable at every interior parameter. So they apply to arcs without corners, and a piecewise-C¹ curve with corners has to be split at its breakpoints first. No FTC for an arbitrary primitive along a piecewise-C¹ curve is packaged. Missing, so the target is partial: the FTC for a general primitive along a piecewise-C¹ curve with corners (IsPiecewiseC1On γ a b, G ∘ γ continuous on [a, b], HasDerivAt G (g (γ t)) (γ t) at interior parameters, and interval integrability of t ↦ g (γ t) * deriv γ t, giving ∫ g (γ t) * deriv γ t = G (γ b) − G (γ a), and 0 for a closed curve). It is a short corollary of MeasureTheory.integral_eq_of_hasDerivAt_off_countable with TauCeti.Contour.IsPiecewiseC1On.exists_countable_differentiableAt (TauCeti/Analysis/Contour/PiecewiseC1On.lean:220). The continuity of the composed primitive and the integrability of the integrand must be kept as hypotheses or proved, not dropped."
       },
       {
        "target": "Cauchy's theorem for a contractible contour, reconciled with Mathlib's disc statements",
@@ -5484,7 +5547,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Both the Lp-vector and the explicit-function forms, so the Hermite and Chebyshev coe_ lemmas are specializations rather than re-derivations, as the layer requires."
+       "note": "Both the Lp-vector and the explicit-function forms. The Hermite coe lemmas (coe_hermiteHilbertBasis, coeFn_gaussianHermiteHilbertBasis) and the Chebyshev envelope basis's coeFn_chebyshevTEnvelopeHilbertBasis (Chebyshev/Envelope.lean:175) are specializations of these rather than re-derivations, as the layer requires. The Part C milestone chebyshevTHilbertBasis is not a bridge output: its coe_chebyshevTHilbertBasis comes from HilbertBasis.coe_mkOfOrthogonalEqBot (see the Part C milestone)."
       },
       {
        "target": "weightL2Isometry : L²(w·μ) ≃ₗᵢ L²(μ), multiplication by √w, over an arbitrary measurable space",
@@ -5748,21 +5811,28 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.normalizedChebyshevTLp",
-         "library": "tauceti",
-         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
-         "line": 262,
-         "fit": "related"
-        },
-        {
          "name": "TauCeti.orthonormal_normalizedChebyshevTLp",
          "library": "tauceti",
          "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
          "line": 336,
          "fit": "exact"
+        },
+        {
+         "name": "TauCeti.chebyshevTHilbertBasis_mapₗᵢ",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/WeightIsometry.lean",
+         "line": 126,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.chebyshevWeightL2Isometry",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/WeightIsometry.lean",
+         "line": 69,
+         "fit": "related"
         }
        ],
-       "note": "Named chebyshevTHilbertBasis; c₀ = π and cₙ = π/2 as specified, with the element-level pin. There is also a chebyshevWeightL2Isometry giving the envelope normalization on volume.restrict [-1,1]."
+       "note": "Named chebyshevTHilbertBasis; c₀ = π and cₙ = π/2 as specified, with the element-level pin. There is also a chebyshevWeightL2Isometry giving the envelope normalization on volume.restrict [-1,1]. Deviation from the roadmap's route: the basis is not assembled by B2. chebyshevTHilbertBasis is HilbertBasis.mkOfOrthogonalEqBot of orthonormal_normalizedChebyshevTLp (proved directly) and of the B1-based completeness. B2 is exercised on the Chebyshev side by chebyshevTEnvelopeHilbertBasis (Chebyshev/Envelope.lean:161), and chebyshevTHilbertBasis_mapₗᵢ identifies the two bases through chebyshevWeightL2Isometry. The deviation is in the assembly route, not a missing basis theorem, so library and verdict stay. normalizedChebyshevTLp (Chebyshev/Measure.lean:262) is named here to keep five citations."
       },
       {
        "target": "Completeness reusing B1 on the compactly supported measureT",
@@ -5950,7 +6020,7 @@
    }
   },
   "tauceti:TauCetiRoadmap/ConformalMapping": {
-   "summary": "This roadmap is essentially already built — not in Mathlib, but in Tau Ceti's own TauCeti/Analysis/Complex/Conformal/ (about 110 files, ~2600 declarations, no sorry and no axiom). Every L0–L4 summit exists as a named theorem: TauCeti.rouche, TauCeti.hurwitz, TauCeti.morera, TauCeti.localDegree, TauCeti.montel, TauCeti.vitali, the Schwarz–Pick/pseudo-hyperbolic and Poincaré-metric API with the full classification of Aut(𝔻) (TauCeti.unitDiscAut, TauCeti.mem_unitDiscAut_iff), TauCeti.riemannMapping with its normalized and uniqueness companions, and the reflection/Painlevé/monodromy package (TauCeti.exists_differentiableOn_eqOn_conj_of_symmetric, TauCeti.monodromy_theorem), including reflection across an analytic arc and across a circle. Mathlib still supplies only the Cauchy foundations the README credits it with — the open mapping theorem, AbsMax, Schwarz's lemma, BranchLogRoot, plus Complex.exists_injective_not_dense_image_deriv_ne_zero in RiemannMapping.lean — and MontelSpace remains the unrelated locally-convex notion. What is genuinely unfinished is at the top: L5 has Carathéodory's continuity theorem but not the closure homeomorphism (injectivity of the boundary extension on the circle is never established, only the reduction TauCeti.injOn_closure_of_injOn_frontier and the packaging TauCeti.closureHomeomorph), and L6 has the whole Schwarz–Christoffel apparatus — integrand, primitive, vertices, edges, the vertex at infinity, the polygon and its Jordan boundary — but not the statement that the map is a bijection of ℍ onto the polygon's interior, which SchwarzChristoffel/Infinity.lean explicitly leaves to later work.",
+   "summary": "This roadmap is essentially already built — not in Mathlib, but in Tau Ceti's own TauCeti/Analysis/Complex/Conformal/ (about 110 files, ~2600 declarations, no sorry and no axiom). Every L0–L4 summit exists as a named theorem: TauCeti.rouche, TauCeti.hurwitz, TauCeti.morera, TauCeti.localDegree, TauCeti.montel, TauCeti.vitali, the Schwarz–Pick/pseudo-hyperbolic and Poincaré-metric API with the full classification of Aut(𝔻) (TauCeti.unitDiscAut, TauCeti.mem_unitDiscAut_iff), TauCeti.riemannMapping with its normalized and uniqueness companions, and the reflection/Painlevé/monodromy package (TauCeti.exists_differentiableOn_eqOn_conj_of_symmetric, TauCeti.monodromy_theorem), including reflection across an analytic arc and across a circle. Mathlib still supplies only the Cauchy foundations the README credits it with — the open mapping theorem, AbsMax, Schwarz's lemma, BranchLogRoot — and MontelSpace remains the unrelated locally-convex notion. Its RiemannMapping.lean holds two module-private partial RMT steps, which no importer can name. L5 is complete for Jordan domains: Carathéodory's continuity theorem and the homeomorphism of closures (TauCeti.exists_homeomorph_closedBall_closure_of_isJordanCurve_frontier), with prime ends out of scope. What is genuinely unfinished is L6, which has the whole Schwarz–Christoffel apparatus — integrand, primitive, vertices, edges, the vertex at infinity, the polygon and its Jordan boundary — but not the statement that the map is a bijection of ℍ onto the polygon's interior, which SchwarzChristoffel/Infinity.lean explicitly leaves to later work.",
    "layers": {
     "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l0--the-local-mapping-engine": {
      "verdict": "built",
@@ -6296,7 +6366,7 @@
       },
       {
        "target": "The derivative form of Schwarz–Pick, and the rigidity/equality case",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.norm_deriv_div_one_sub_norm_sq_unitDiscStandardAutomorphismFormula_of_norm_lt_one",
@@ -6334,7 +6404,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Equality anywhere forces the map to be a disc automorphism — the rigidity half the Riemann mapping proof's maximizer argument relies on. Mathlib has only the derivative bound at the centre (Complex.norm_deriv_le_div_of_mapsTo_ball)."
+       "note": "The infinitesimal Schwarz–Pick inequality (norm_deriv_div_one_sub_norm_sq_le) and its attainment by the standard automorphisms (AutomorphismIsometry.lean:73) are proved. Rigidity is proved in the two-point form: equality of pseudoHyperbolicExpr or hyperbolicDist at one pair z ≠ w forces f ∈ Aut(𝔻). Missing: the derivative-form equality case at an arbitrary z ∈ 𝔻 (‖f′(z)‖(1 − ‖z‖²) = 1 − ‖f z‖² at one point forces f ∈ Aut(𝔻)). Mathlib has only the centre case, through dslope (Complex.affine_of_mapsTo_ball_of_norm_dslope_eq_div, Mathlib/Analysis/Complex/Schwarz.lean:291), and the derivative bound at the centre (Complex.norm_deriv_le_div_of_mapsTo_ball). This arbitrary-point derivative rigidity goes beyond the L2 stage text, which asks for Schwarz–Pick, the Poincaré metric and Aut(𝔻), so this partial target does not hold the L2 verdict back. It is recorded for whoever extends L2, and it is an assembly task. The Riemann mapping proof does not use it: its maximizer argument uses the strict Schwarz lemma for non-injective maps, TauCeti.norm_deriv_lt_one_of_not_injOn (Conformal/Schwarz.lean:89)."
       },
       {
        "target": "The hyperbolic (Poincaré) metric on 𝔻: distance, geodesics, length, the metric-space instance",
@@ -6464,7 +6534,7 @@
          "fit": "related"
         }
        ],
-       "note": "Stated exactly in the shape the generality bar prescribes: IsOpen Ω, IsSimplyConnected Ω (Mathlib's SimplyConnectedSpace ↥Ω, which carries nonemptiness), Ω ≠ univ, conclusion BijOn f Ω (ball 0 1) with DifferentiableOn and nonvanishing derivative. Sorry-free. Mathlib's RiemannMapping.lean holds only the two partial results cited, which are strictly weaker."
+       "note": "Stated exactly in the shape the generality bar prescribes: IsOpen Ω, IsSimplyConnected Ω (Mathlib's SimplyConnectedSpace ↥Ω, which carries nonemptiness), Ω ≠ univ, conclusion BijOn f Ω (ball 0 1) with DifferentiableOn and nonvanishing derivative. Sorry-free. Mathlib's RiemannMapping.lean holds only the two partial results cited, which are strictly weaker. Both are module-private at 082e2d3: the file is a module with no public section, and its docstring says the lemmas are private. So no importer can name them; they are prior art, not consumable API, and Tau Ceti re-derives the step in DiscInjection.lean."
       },
       {
        "target": "The biholomorphism packaging: holomorphic inverse, partial homeomorphism, homeomorphism of Ω with the disc",
@@ -6765,7 +6835,7 @@
      ]
     },
     "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l5--carathéodory-boundary-correspondence": {
-     "verdict": "partly built",
+     "verdict": "built",
      "targets": [
       {
        "target": "Carathéodory's continuity theorem: a conformal map of the disc onto a bounded Jordan domain extends continuously to the closed disc",
@@ -6804,8 +6874,22 @@
       },
       {
        "target": "The boundary correspondence: the extension carries frontier to frontier, and is a homeomorphism of the closures",
-       "library": "partial",
+       "library": "tauceti",
        "declarations": [
+        {
+         "name": "TauCeti.exists_homeomorph_closedBall_closure_of_isJordanCurve_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Jordan/Approach.lean",
+         "line": 213,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.injOn_closedBall_of_isJordanCurve_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Conformal/Jordan/Approach.lean",
+         "line": 198,
+         "fit": "exact"
+        },
         {
          "name": "TauCeti.image_frontier_eq_frontier_image",
          "library": "tauceti",
@@ -6826,23 +6910,9 @@
          "file": "TauCeti/Analysis/Complex/Conformal/BoundaryCorrespondence.lean",
          "line": 220,
          "fit": "exact"
-        },
-        {
-         "name": "TauCeti.injOn_closure_of_injOn_frontier",
-         "library": "tauceti",
-         "file": "TauCeti/Analysis/Complex/Conformal/ClusterSet.lean",
-         "line": 208,
-         "fit": "related"
-        },
-        {
-         "name": "TauCeti.not_eqOn_const_inter_sphere_of_injOn",
-         "library": "tauceti",
-         "file": "TauCeti/Analysis/Complex/Conformal/ArcConstancy.lean",
-         "line": 271,
-         "fit": "related"
         }
        ],
-       "note": "Missing: injectivity of the continuous extension on the bounding circle. closureHomeomorph takes that injectivity as a hypothesis, and injOn_closure_of_injOn_frontier reduces closed-disc injectivity to it, but no theorem in the baseline discharges it for a Jordan domain — so the milestone's 'homeomorphism of the closures' is proved only conditionally. Caratheodory.lean states this gap itself."
+       "note": "Built for Jordan domains. The continuous extension carries frontier onto frontier for bounded domains (image_frontier_eq_frontier_image). Boundary injectivity for the Riemann map of a Jordan domain is proved without a boundary-injectivity hypothesis: injOn_closedBall_of_isJordanCurve_frontier needs only holomorphy and injectivity inside, a bounded image with Jordan frontier, and a continuous agreeing extension. Its proof goes through preconnected approach regions (Janiszewski, Jordan/Approach.lean) and the inverse-cluster argument (injOn_closedBall_of_isPreconnected_image_approach, Inverse/BoundaryCluster.lean:229). exists_homeomorph_closedBall_closure_of_isJordanCurve_frontier then gives, for an open, simply connected, bounded Ω with Jordan frontier, a homeomorphism closedBall 0 1 ≃ₜ closure Ω extending the Riemann map. The 'What is not claimed' paragraph of Caratheodory.lean predates Approach.lean. The reduction lemmas injOn_closure_of_injOn_frontier (ClusterSet.lean:208) and not_eqOn_const_inter_sphere_of_injOn (ArcConstancy.lean:271) are named here to keep five citations."
       },
       {
        "target": "Prime ends (explicitly out of scope for the L5 milestone)",
@@ -6978,7 +7048,7 @@
          "fit": "related"
         }
        ],
-       "note": "Missing: the summit itself. The polygon is constructed and its boundary is identified with the range of the compactified boundary map (a Jordan curve when that map is injective), but no theorem says the primitive is a bijection of ℍ onto the polygon's interior; SchwarzChristoffel/Infinity.lean:39 records that 'identifying the image of the half-plane with its interior, is left to later work'. That identification is what needs L5's boundary correspondence, which is itself only conditional."
+       "note": "Missing: the summit itself. The polygon is constructed and its boundary is identified with the range of the compactified boundary map (a Jordan curve when that map is injective), but no theorem says the primitive is a bijection of ℍ onto the polygon's interior; SchwarzChristoffel/Infinity.lean:39 records that 'identifying the image of the half-plane with its interior, is left to later work'. That identification is what needs L5's boundary correspondence, which is available for Jordan domains (exists_homeomorph_closedBall_closure_of_isJordanCurve_frontier); the global injectivity of the Schwarz–Christoffel map and the identification of its image remain open."
       },
       {
        "target": "The converse direction: every polygon is the image of ℍ under such a map (the classical Schwarz–Christoffel theorem)",
