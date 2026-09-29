@@ -467,7 +467,7 @@
       },
       {
        "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-       "note": "Owns Tate's algorithm over a DVR, the algorithmic (Ogg) exponent v(Delta) - m + 1 and its identification with the ramification-theoretic conductor, and Neron-Ogg-Shafarevich; that identification is the elliptic-curve conductor comparison asked for here."
+       "note": "Supplies equation-level reduction, Tate's algorithm over a Henselian DVR with perfect residue field, the algorithmic (Ogg) exponent v(Delta) - m + 1, and Neron-Ogg-Shafarevich. It explicitly excludes identification of that exponent with the ramification-theoretic conductor (a 'separate, related project' upstream, EllipticCurves Layer 4); R01.3 must retain the elliptic conductor comparison, including the wild contributions at residue characteristics 2 and 3."
       }
      ]
     },
