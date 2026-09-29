@@ -6547,3 +6547,111 @@ example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
 example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
     (integralClearedEisensteinMoment 2 a 3).coeff 2=160 := sorry
 end SuggestedEisensteinClearingTests
+
+/-! ## Integral congruences for the full cleared Eisenstein series
+
+All divisibilities are in the p-adic integers or their power-series ring.
+Norms of measure operators are taken only after extension to the p-adic field.
+-/
+namespace DirichletPadic
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+
+lemma clearedEisensteinCoefficient_test_congr (a : U) (n r : ℕ) (f g : C(U,Z))
+    (hfg : ∀ u, (p : Z)^r ∣ f u-g u) :
+    (p : Z)^r ∣ (clearedEisensteinSeries p a).coeff n f-
+      (clearedEisensteinSeries p a).coeff n g := sorry
+
+def clearedEisensteinEvaluation (a : U) : AbstractMeasure U Z (PowerSeries Z) := sorry
+lemma clearedEisensteinEvaluation_coeff (a : U) (f : C(U,Z)) (n : ℕ) :
+    (clearedEisensteinEvaluation p a f).coeff n=(clearedEisensteinSeries p a).coeff n f := sorry
+lemma clearedEisensteinEvaluation_zero (a : U) : clearedEisensteinEvaluation p a 0=0 := sorry
+lemma clearedEisensteinEvaluation_add (a : U) (f g : C(U,Z)) :
+    clearedEisensteinEvaluation p a (f+g)=
+      clearedEisensteinEvaluation p a f+clearedEisensteinEvaluation p a g := sorry
+lemma clearedEisensteinEvaluation_smul (a : U) (c : Z) (f : C(U,Z)) :
+    clearedEisensteinEvaluation p a (c • f)=c • clearedEisensteinEvaluation p a f := sorry
+lemma clearedEisensteinEvaluation_continuous (a : U) :
+    Continuous (clearedEisensteinEvaluation p a) := sorry
+lemma clearedEisensteinEvaluation_unique (a : U) (F : AbstractMeasure U Z (PowerSeries Z))
+    (hF : ∀ f n, (F f).coeff n=(clearedEisensteinSeries p a).coeff n f) :
+    F=clearedEisensteinEvaluation p a := sorry
+lemma clearedEisensteinEvaluation_moment (a : U) (k : ℕ) :
+    clearedEisensteinEvaluation p a (j^k)=integralClearedEisensteinMoment p a k := sorry
+lemma clearedEisensteinEvaluation_test_congr (a : U) (r : ℕ) (f g : C(U,Z))
+    (hfg : ∀ u, (p : Z)^r ∣ f u-g u) :
+    PowerSeries.C ((p : Z)^r) ∣ clearedEisensteinEvaluation p a f-clearedEisensteinEvaluation p a g := sorry
+theorem integralClearedEisensteinMoment_weight_congr (a : U) (r e e' : ℕ) (hr : 0<r)
+    (he : Nat.ModEq (p^(r-1)*(p-1)) e e') :
+    PowerSeries.C ((p : Z)^r) ∣
+      integralClearedEisensteinMoment p a e'-integralClearedEisensteinMoment p a e := sorry
+theorem eisensteinAwaySeries_cleared_weight_congr (a : U) (ha : (a : Z)=(p+1 : ℕ))
+    (r e e' : ℕ) (hr : 0<r) (he : Nat.ModEq (p^(r-1)*(p-1)) e e') (n : ℕ) :
+    ‖2*((a : ℚ_[p])^(e'+1)-1)*
+        ((eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha e')).coeff n-
+      2*((a : ℚ_[p])^(e+1)-1)*
+        ((eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha e)).coeff n‖ ≤
+      (p : ℝ)^(-(r : ℤ)) := sorry
+end DirichletPadic
+
+namespace SuggestedEisensteinCongruenceTests
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open AbstractMeasure DirichletPadic
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+-- integral_constant_test_congruence
+example (a : U) (r : ℕ) (f g : C(U,Z)) (hfg : ∀ u, (p : Z)^r ∣ f u-g u) :
+    (p : Z)^r ∣ (clearedEisensteinSeries p a).coeff 0 f-
+      (clearedEisensteinSeries p a).coeff 0 g := sorry
+-- cleared_evaluation_zero
+example (a : U) : clearedEisensteinEvaluation p a 0=0 := sorry
+-- cleared_evaluation_constant
+example (a : U) (f : C(U,Z)) :
+    (clearedEisensteinEvaluation p a f).coeff 0=eisensteinWeightedNumerator p a f := sorry
+-- cleared_evaluation_first
+example (a : U) (f : C(U,Z)) :
+    (clearedEisensteinEvaluation p a f).coeff 1=2*((a : Z)*f a-f 1) := sorry
+-- cleared_evaluation_dyadic_cubic
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    (clearedEisensteinEvaluation 2 a
+      ((ContinuousMap.mk Units.val Units.continuous_val : C((ℤ_[2])ˣ,ℤ_[2]))^3)).coeff 1=160 := sorry
+-- full_coefficient_evaluation
+example (a : U) (f : C(U,Z)) (n : ℕ) :
+    (clearedEisensteinEvaluation p a f).coeff n=(clearedEisensteinSeries p a).coeff n f := sorry
+-- moment_evaluation_comparison
+example (a : U) (e : ℕ) :
+    clearedEisensteinEvaluation p a (j^e)=integralClearedEisensteinMoment p a e := sorry
+-- precision_zero_allowed
+example (a : U) (f g : C(U,Z)) :
+    PowerSeries.C (1 : Z) ∣ clearedEisensteinEvaluation p a f-clearedEisensteinEvaluation p a g := sorry
+-- uniform_eight_test_precision
+example (a : (ℤ_[2])ˣ) (f g : C((ℤ_[2])ˣ,ℤ_[2])) (h : ∀ u, (8 : ℤ_[2]) ∣ f u-g u) :
+    PowerSeries.C (8 : ℤ_[2]) ∣ clearedEisensteinEvaluation 2 a f-clearedEisensteinEvaluation 2 a g := sorry
+-- dyadic_full_weight_precision
+example (a : (ℤ_[2])ˣ) : PowerSeries.C (8 : ℤ_[2]) ∣
+    integralClearedEisensteinMoment 2 a 7-integralClearedEisensteinMoment 2 a 3 := sorry
+-- quinary_full_weight_precision
+example (a : (ℤ_[5])ˣ) : PowerSeries.C (25 : ℤ_[5]) ∣
+    integralClearedEisensteinMoment 5 a 23-integralClearedEisensteinMoment 5 a 3 := sorry
+-- tame_component_not_full_precision
+example (a : (ℤ_[5])ˣ) (ha : (a : ℤ_[5])=6) :
+    ¬ PowerSeries.C (25 : ℤ_[5]) ∣
+      integralClearedEisensteinMoment 5 a 7-integralClearedEisensteinMoment 5 a 3 := sorry
+-- cleared_constant_dyadic_precision
+example : ‖(-10400/3 : ℚ_[2])‖ ≤ (1/8 : ℝ) := sorry
+-- uncleared_constant_precision_loss
+example : ‖(-113/480 : ℚ_[2])‖=32 := sorry
+end SuggestedEisensteinCongruenceTests
