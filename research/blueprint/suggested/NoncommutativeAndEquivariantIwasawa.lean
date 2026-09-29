@@ -32,6 +32,8 @@ import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.NumberTheory.LSeries.HurwitzZetaValues
 import Mathlib.NumberTheory.Bernoulli
+import Mathlib.NumberTheory.Padics.PadicVal.Basic
+import Mathlib.Algebra.Polynomial.Basic
 import Mathlib.Data.Rat.Init
 
 namespace TauCeti.NoncommIwasawa
@@ -324,5 +326,43 @@ example : ∀ n : ZMod 9, n ^ 9 = n ^ 3 := by decide
 example : (2 : ZMod 15) ^ 10 ≠ 1 ∧ (2 : ZMod 3) ^ 10 = 1 ∧ (2 : ZMod 9) ^ 30 = 1 := by decide
 
 end NE7Tests
+
+/-
+NE.7 (checkpoint 8), Burns–Venjakob §§2–4, recorded as signatures (determinant functors and localized K₁ are requested
+from GeneralAlgebraicKTheory K.4):
+
+def LocalizedK1 (R) (Σ) := FreeAbelianGroup (Σ × Trivialisation) ⧸ relations (0)–(3)                     -- localized-k1
+def bockstein (i) : Tor_i^{Λ(G)}(T_ρ, A·) →+ Tor_{i−1}^{Λ(G)}(T_ρ, A·)                                    -- bockstein-homomorphism
+def IsSemisimpleAt (ρ) (A·) : Prop := ∀ i, IsTorsion (H^i (H_·(G, A·(ρ^*)), bockstein))                   -- semisimple-complexes
+def leadingTerm (A·) (a) (ρ) : Lˣ := (−1)^{r_G(A·)(ρ)} • (t(A·(ρ^*)) ∘ (L^n ⊗ a))                           -- leading-term
+theorem leadingTerm_eq (A· ∈ Σ_{S*} ∩ Σ^{ss−ρ}) : (A·, a)^*(ρ) = (ρ_* (ch (A·, a)))^*(0)                   -- leading-term-canonical-localization
+theorem ord_leadingTerm : χ_add(G, A·(ρ^*)) = ord_L ((A·, a)^*(ρ))                                        -- generalized-euler-characteristic
+-/
+
+/-! ## NE.7 (checkpoint 8): Burns–Venjakob §§2–4 -/
+
+namespace NE8Tests
+
+open Polynomial
+
+/-- `NE.2/determinant-functor` (Remark 2.4): for `A = ℤ_3/27`, the trivialisation from `0 → ℤ_3 --×27--> ℤ_3 → A → 0`
+has valuation `3 = length(A)`. -/
+example : padicValNat 3 27 = 3 := by
+  have := Fact.mk Nat.prime_three
+  rw [show (27 : ℕ) = 3 ^ 3 by norm_num, padicValNat.prime_pow]
+
+/-- `NE.7/leading-term-characteristic-series` (Proposition 3.8): the sign bookkeeping
+`(−1)^{r_Γ} · det(ε(0), (B_1)^{−1} = −1) = (−1)^{−1} · (−ε(0)) = ε(0)`. -/
+example (e : ℚ) : ((-1 : ℚ) ^ (-1 : ℤ)) * (-e) = e := by simp
+
+/-- `NE.7/semisimple-complexes` (finding E11): the extension `B = [Λ² --M--> Λ²]` of two copies of `[Λ --T--> Λ]` has
+`det M = T²`, and `M` at `T = 0` is the nilpotent `!![0, 1; 0, 0]`, whose kernel and cokernel are both one-dimensional
+(so the Bockstein complex of `B` is not acyclic). -/
+example : Matrix.det !![(X : ℚ[X]), 1; 0, X] = X ^ 2 ∧ (!![(0 : ℚ), 1; 0, 0] * !![(0 : ℚ), 1; 0, 0] = 0) := by
+  refine ⟨?_, ?_⟩
+  · simp [Matrix.det_fin_two, sq]
+  · ext i j; fin_cases i <;> fin_cases j <;> simp
+
+end NE8Tests
 
 end TauCeti.NoncommIwasawa

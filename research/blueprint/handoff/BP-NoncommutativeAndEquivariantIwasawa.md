@@ -1,6 +1,45 @@
-# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 7 (Claude Code cc-39fac3)
+# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 8 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 29 September 2026. Refs #1015; the bot confirmed the claim. **Status: partial.**
+
+## Checkpoint 8: Burns–Venjakob §§2–4 (11 nodes; NE.7 started)
+
+Read from the arXiv text layer: Burns–Venjakob, arXiv:math/0511672v2 (sha256 4b33fb11…c857bc), pp. 1–21.
+
+**Nodes:**
+- **NE.2:** `determinant-functor`; `localized-k1`.
+- **NE.7:**
+  - `bockstein-homomorphism`;
+  - `semisimple-complexes`;
+  - `canonical-trivialization`;
+  - `leading-term` (planet);
+  - `leading-term-characteristic-series`;
+  - `leading-term-canonical-localization`;
+  - `partial-derivative-interpretation`;
+  - `generalized-euler-characteristic` (planet);
+  - `fukaya-kato-zeta-isomorphism` (planet; a proposition).
+
+**NE.7 acceptance.** Three unit tests of `leading-term` cover it:
+- a pole of order 1 with leading term ε(0);
+- its shift, a zero with its Bockstein determinant;
+- a finite value, whose valuation is the Euler characteristic.
+
+**New request:** GeneralAlgebraicKTheory K.4 (Deligne's virtual objects and d_R). The Fukaya–Kato gap is extended to
+Proposition 1.3.7, Lemma 4.3.10 and Conjecture 2.3.2.
+
+**Finding E11** (error). "Σ_{A·} ⊂ Σ^{ss}" fails for the extension-closed Σ_{A·}; the counterexample is the
+square-zero extension of [Λ --T--> Λ]. The repair is closure under direct sums (iv′).
+
+**NE.7 remaining:**
+- Burns–Venjakob §5 (Tate motives, p-adic Stark at s = 1);
+- Burns–Venjakob §6 (critical motives with Néron–Tate and Nekovář heights);
+- exceptional zeros and Fitting invariants.
+
+**Checks.** `check_blueprint.py`: 99 nodes, 0 errors, 0 warnings. The Lean file compiles with exit 0 against the pinned
+Mathlib. It adds three checked tests in `NE8Tests`:
+- ord₃(27) = 3;
+- the sign in Proposition 3.8;
+- the E11 matrix.
 
 ## Checkpoint 7: Kakde §§6.2–6.13 and Theorem 11 (11 nodes)
 

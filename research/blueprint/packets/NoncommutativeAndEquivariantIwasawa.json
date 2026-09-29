@@ -13,7 +13,7 @@
   "NoncommutativeAndEquivariantIwasawa:NE.7"
  ],
  "status": "partial",
- "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain. Checkpoint 4 (cc-39fac3) plans CFKSV §4's integrality conjecture 4.8 with Lemma 4.9 (NE.3) and §5: the dual Selmer module, Conjectures 5.1–5.2 and the 𝔐_H(G) criteria (NE.4), and Conjectures 5.7–5.8 with Corollaries 5.9–5.10 and the X₁(11) check (NE.5). Conjectures are stated as propositions, never assumed. Checkpoint 5 reads Kakde §§1–4: admissible extensions and μ = 0, the complex C(F_∞/F), SK₁ and K′₁, ∂ surjective with p-torsion, the totally real main conjecture, the abelian × prime-to-p case from Deligne–Ribet and Wiles, the Burns–Kato patching principle, and the reductions to dimension one, to ℚ_p-elementary groups, the l-elementary case and the reduction to Δ × pro-p. Checkpoint 6 (cc-39fac3) reads Kakde §5 and §6.1: Λ_𝒪(G) as a twisted group ring over Λ_𝒪(Z), the congruence groups Φ^G, the additive theorem R[Conj Ḡ]^τ ≅ ψ^G, the logarithm on relative K₁ and the integral logarithm, the relation between θ^G and β^G, Theorems 52–53 (K′₁(Λ_𝒪(G)) ≅ Φ^G), Corollary 90, and the reduction of the main conjecture to (ζ_P) ∈ Φ^G_S with M1–M2 proved. Checkpoint 7 (cc-39fac3) completes the Kakde route: Kakde §§6.2–6.13 — Deligne–Ribet approximations, the basic congruences via Hilbert Eisenstein series and the q-expansion principle, M4 through the enlarged extension, Theorem 94, and Theorem 11 (the main conjecture for totally real fields, p odd, μ = 0). Findings E5–E10.",
+ "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain. Checkpoint 4 (cc-39fac3) plans CFKSV §4's integrality conjecture 4.8 with Lemma 4.9 (NE.3) and §5: the dual Selmer module, Conjectures 5.1–5.2 and the 𝔐_H(G) criteria (NE.4), and Conjectures 5.7–5.8 with Corollaries 5.9–5.10 and the X₁(11) check (NE.5). Conjectures are stated as propositions, never assumed. Checkpoint 5 reads Kakde §§1–4: admissible extensions and μ = 0, the complex C(F_∞/F), SK₁ and K′₁, ∂ surjective with p-torsion, the totally real main conjecture, the abelian × prime-to-p case from Deligne–Ribet and Wiles, the Burns–Kato patching principle, and the reductions to dimension one, to ℚ_p-elementary groups, the l-elementary case and the reduction to Δ × pro-p. Checkpoint 6 (cc-39fac3) reads Kakde §5 and §6.1: Λ_𝒪(G) as a twisted group ring over Λ_𝒪(Z), the congruence groups Φ^G, the additive theorem R[Conj Ḡ]^τ ≅ ψ^G, the logarithm on relative K₁ and the integral logarithm, the relation between θ^G and β^G, Theorems 52–53 (K′₁(Λ_𝒪(G)) ≅ Φ^G), Corollary 90, and the reduction of the main conjecture to (ζ_P) ∈ Φ^G_S with M1–M2 proved. Checkpoint 7 (cc-39fac3) completes the Kakde route: Kakde §§6.2–6.13 — Deligne–Ribet approximations, the basic congruences via Hilbert Eisenstein series and the q-expansion principle, M4 through the enlarged extension, Theorem 94, and Theorem 11 (the main conjecture for totally real fields, p odd, μ = 0). Findings E5–E10. Checkpoint 8 (cc-39fac3) starts NE.7 from Burns–Venjakob §§2–4: the determinant functor and localized K₁ (NE.2), Bockstein maps, semisimplicity, leading terms and their characteristic-series and cyclotomic-derivative interpretations, generalized Euler characteristics, and the Fukaya–Kato zeta isomorphism as a proposition; finding E11.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -310,7 +310,8 @@
    "url": "https://arxiv.org/pdf/math/0511672v2",
    "sha256": "4b33fb11251340c88a8f8a590d9f9296a413aadf4fae98968ea7191a14c857bc",
    "readSections": [
-    "2026-09-28 (cc-39fac3): §2.1–2.2 (determinant functors, the localized K₁ of Fukaya–Kato, the category Σ_S), pp. 4–7."
+    "2026-09-28 (cc-39fac3): §2.1–2.2 (determinant functors, the localized K₁ of Fukaya–Kato, the category Σ_S), pp. 4–7.",
+    "2026-09-29 (cc-39fac3, checkpoint 8): §1, §2 in full (reread), §3 in full (Definitions 3.2, 3.4, 3.7, 3.11, 3.12, 3.14, Lemmas 3.1, 3.6, 3.9, 3.13, 3.17, Propositions 3.8, 3.16, 3.19, Remarks 3.3, 3.5, 3.10, 3.15, 3.18, 3.20) and §4 (Conjecture 4.1), pp. 1–21."
    ]
   },
   {
@@ -5820,6 +5821,847 @@
    "planet": {
     "name": "Kakde's main conjecture for totally real fields"
    }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/determinant-functor",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "Determinant functors on perfect complexes",
+   "kind": "construction",
+   "statement": "For any ring R there is a Picard category 𝒞_R and a determinant functor d_R : (C^p(R), quasi-isomorphisms) → 𝒞_R with the properties d)–i) of Burns–Venjakob: d_R(C) ≅ d_R(C′)d_R(C″) for short exact sequences (taken as identifications); a canonical 1_R → d_R(C) for acyclic C; d_R(C[r]) = d_R(C)^{(−1)^r}; factorisation through, and unique extension to, (D^p(R), isomorphisms); d_R(C) ≅ d_R(H(C)) ≅ ∏_i d_R(H^i(C))^{(−1)^i} when C is cohomologically perfect (Knudsen's description); and base change along bimodules Y finitely generated projective over R′. Aut_{𝒞_R}(1_R) = K_1(R). For regular R property d) does not extend to arbitrary triangles unless R is regular (Remark 2.1).",
+   "hypotheses": [
+    "R an associative unital ring; C^p(R) bounded complexes of finitely generated projective left R-modules."
+   ],
+   "proofSteps": [
+    "𝒞_R is Deligne's category of virtual objects (the fundamental groupoid of the K-theory space of P(R)), and d_R sends a complex to the alternating product of its terms; Fukaya–Kato §1.2 and Knudsen give the construction.",
+    "Remark 2.3: for C = [P --φ--> P] the identification by the identity and the acyclicity isomorphism differ by d_R(φ)^{−1} ∈ K_1(R).",
+    "Remark 2.4: for a finite 𝒪-module A with a trivialisation from 0 → 𝒪^n → 𝒪^n → A → 0, the induced c ∈ L^× has ord_L(c) = length_𝒪(A), by elementary divisors."
+   ],
+   "acceptance": [
+    "The construction is requested from GeneralAlgebraicKTheory K.4, which owns C^p(R) and its K-theory; this node fixes the property list and conventions the Iwasawa-theoretic nodes use."
+   ],
+   "prerequisites": [
+    "GeneralAlgebraicKTheory:K.4",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/LocalizedK1",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§2.1, properties d)–i) and Remarks 2.1–2.4, pp. 3–5 (arXiv v2)",
+     "excerpt": "We ﬁrst recall that for any (associative unital) ring R there exists a Picard category CR and a determinant functor",
+     "match": "The property list d)–i) and Remarks 2.1–2.4."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.PicardCategory",
+     "role": "structure",
+     "statement": "The Picard category 𝒞_R with unit 1_R and Aut(1_R) = K_1(R)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.det",
+     "role": "constructor",
+     "statement": "d_R on C^p(R) and D^p(R)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.det_ses",
+     "role": "relation",
+     "statement": "d_R(C) = d_R(C′)d_R(C″) for short exact sequences."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.det_acyclic",
+     "role": "constructor",
+     "statement": "The trivialisation 1_R → d_R(C) of an acyclic complex."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.det_shift",
+     "role": "simp",
+     "statement": "d_R(C[r]) = d_R(C)^{(−1)^r}."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.det_cohomology",
+     "role": "equivalence",
+     "statement": "d_R(C) ≅ ∏ d_R(H^i(C))^{(−1)^i} for cohomologically perfect C."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.det_baseChange",
+     "role": "functoriality",
+     "statement": "Base change along a bimodule finitely generated projective on the left."
+    }
+   ],
+   "tests": [
+    {
+     "name": "field_case",
+     "kind": "value",
+     "statement": "R a field: 𝒞_R is graded lines, d_R(C) = ⊗ det(C^i)^{(−1)^i} and Aut(1_R) = R^×."
+    },
+    {
+     "name": "acyclic_two_term",
+     "kind": "value",
+     "statement": "R = ℚ_p, C = [ℚ_p --×2--> ℚ_p]: the two trivialisations differ by d(φ)^{−1} = 1/2 (Remark 2.3)."
+    },
+    {
+     "name": "length_valuation",
+     "kind": "value",
+     "statement": "A = ℤ_p/p³ from 0 → ℤ_p --×p³--> ℤ_p → A → 0: ord_p(c) = 3 = length(A) (Remark 2.4; suggested file)."
+    },
+    {
+     "name": "triangles_nonregular",
+     "kind": "non-example",
+     "statement": "For non-regular R, d) does not extend to all distinguished triangles (Remark 2.1)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.2/localized-k1",
+     "how": "the trivialisations a : 1_R → d_R(C) in the generators [C, a]"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/canonical-trivialization",
+     "how": "the Bockstein trivialisation t(A)"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/localized-k1",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "The localized K₁ of Fukaya and Kato",
+   "kind": "construction",
+   "statement": "For a full subcategory Σ of C^p(R) containing 0 and closed under quasi-isomorphism, shifts and direct sums ((i)–(iii), (iv′)), K_1(R, Σ) is the abelian group generated by symbols [C, a] with C ∈ Σ and a : 1_R → d_R(C), subject to [0, id] = 1, [C′, d_R(f)∘a] = [C, a] for quasi-isomorphisms f, [C, a] = [C′, a′][C″, a″] for short exact sequences in Σ, and [C[1], a^{−1}] = [C, a]^{−1} (Definition 2.5, after Fukaya–Kato). For a left denominator set S and Σ_S the complexes with R_S ⊗ C acyclic, [C, a] ↦ θ_{C,a} (the composite 1 → d(R_S ⊗ C) → 1) is an isomorphism ch_{R,Σ_S} : K_1(R, Σ_S) ≅ K_1(R_S) (Fukaya–Kato Proposition 1.3.7), and any Σ ⊆ Σ_S gives ch_{R,Σ} : K_1(R, Σ) → K_1(R_S).",
+   "hypotheses": [
+    "R a ring; S a left denominator set; Σ as stated. When Σ satisfies (iv) (closure under extensions) the definition is Fukaya–Kato's."
+   ],
+   "proofSteps": [
+    "Relation (3) follows from (0)–(2) (Remark 2.6).",
+    "ch_{R,Σ_S} is well defined because each relation is respected by base change to R_S and acyclicity; it is bijective by Fukaya–Kato Proposition 1.3.7 (see the gap on Fukaya–Kato)."
+   ],
+   "acceptance": [
+    "This supplies the NE.2 remaining item \"the Fukaya–Kato localized K_1(R, Σ_S) ≅ K_1(R_S)\"; the proof of bijectivity is cited to Fukaya–Kato.",
+    "For Σ_{A·} use the smallest subcategory with (i)–(iii) and (iv′) containing A·: the extension-closed version need not lie in Σ^{ss} (finding E11)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/determinant-functor",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-theorem",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/torsion-perfect-complexes"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/LocalizedK1",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§2.2, Definition 2.5, Remark 2.6 and the isomorphism ch_{R,Σ_S}, pp. 5–6 (arXiv v2)",
+     "excerpt": "The localized K1-group K1(R, Σ) is deﬁned to be the (multiplicatively written) abelian group",
+     "match": "Definition 2.5 (Fukaya–Kato, weakened to (iv′)), Remark 2.6 and the isomorphism ch_{R,Σ_S}."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.LocalizedK1",
+     "role": "constructor",
+     "statement": "K_1(R, Σ) by generators [C, a] and relations (0)–(3)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.LocalizedK1.mk",
+     "role": "constructor",
+     "statement": "The class [C, a]."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.LocalizedK1.mk_shift",
+     "role": "simp",
+     "statement": "[C[1], a^{−1}] = [C, a]^{−1}."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.chLocalized",
+     "role": "constructor",
+     "statement": "ch_{R,Σ} : K_1(R, Σ) → K_1(R_S) for Σ ⊆ Σ_S."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.chLocalized_bijective",
+     "role": "equivalence",
+     "statement": "ch_{R,Σ_S} is an isomorphism (Fukaya–Kato 1.3.7)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "two_term",
+     "kind": "value",
+     "statement": "R = Λ(Γ), S = Λ(Γ) ∖ pΛ(Γ), C = [Λ --×f--> Λ] with f ∈ S and a the identity trivialisation: ch([C, a]) = f^{±1} in Λ(Γ)_S^× (sign fixed by Remark 2.3)."
+    },
+    {
+     "name": "zero_complex",
+     "kind": "degenerate",
+     "statement": "[0, id] = 1."
+    },
+    {
+     "name": "not_extension_closed",
+     "kind": "non-example",
+     "statement": "Σ^{ss} satisfies (iv′) but not (iv), which is why Burns–Venjakob weaken (iv) to (iv′)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term",
+     "how": "the domain K_1(Λ(G), Σ) of the leading-term homomorphism"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-canonical-localization",
+     "how": "ch_{G,A·} into K_1(Λ(G)_{S*})"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/bockstein-homomorphism",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "Bockstein homomorphisms",
+   "kind": "construction",
+   "statement": "Let θ ∈ H^1(G, ℤ_p) = Hom_cont(G, ℤ_p) be G ↠ Γ → ℤ_p with γ ↦ 1; it corresponds to the extension 0 → ℤ_p → E_θ → ℤ_p → 0 with E_θ = ℤ_p² and G acting by (1 θ; 0 1), which gives θ : A· → A·[1] in D^b(Λ(G)). The Bockstein morphism in degree i is B_i = H^{−i}(θ_*) : Tor_i^{Λ(G)}(T_ρ, A·) → Tor_{i−1}^{Λ(G)}(T_ρ, A·), with T_ρ = 𝒪^n a right module through ρ^t. For G = Γ, the triangle A· --T--> A· → ℤ_p ⊗^L A· gives 0 → H^i(A·)_Γ … exact sequences (3), and B_i is the composite H_i(Γ, A·) → H^{−i+1}(A·)^Γ --κ--> H^{−i+1}(A·)_Γ → H_{i−1}(Γ, A·), with κ induced by the identity (Lemma 3.1); so (H_·(Γ, A·), B_·) is a complex (4).",
+   "hypotheses": [
+    "G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite."
+   ],
+   "proofSteps": [
+    "E_θ ∈ Ext^1_{Λ(G)}(ℤ_p, ℤ_p) ≅ H^1(G, ℤ_p) (NSW 5.2.14); tensoring A· with it gives the triangle defining θ.",
+    "Lemma 3.1: with cone(A·) = cone(T) and the quasi-isomorphism π : cone(A·) → A·_0, θ is (a, b) ↦ (b, 0) (Schneider); for a cycle ā lift to (a, b) with b = −T^{−1}d(a), and the class maps to −T^{−1}d(a), which is the stated composite."
+   ],
+   "acceptance": [
+    "The mapping-cone sign convention is BV's: d_cone = (d_B f; 0 −d_A)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/determinant-functor",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-set"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/LeadingTerms",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§§3.1–3.2, Lemma 3.1, pp. 7–9 (arXiv v2)",
+     "excerpt": "We refer to the map Bi := H−i(θ∗) as the Bockstein morphism (in degree i).",
+     "match": "§3.1, the definition of θ and B_i; §3.2, the cone, the sequences (3) and Lemma 3.1."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.thetaClass",
+     "role": "constructor",
+     "statement": "θ ∈ Hom_cont(G, ℤ_p) from the generator γ."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.cupTheta",
+     "role": "constructor",
+     "statement": "θ : A· → A·[1] in D^b(Λ(G))."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.bockstein",
+     "role": "constructor",
+     "statement": "B_i : Tor_i(T_ρ, A·) → Tor_{i−1}(T_ρ, A·)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.bockstein_eq_kappa",
+     "role": "characterisation",
+     "statement": "Lemma 3.1: for G = Γ, B_i factors through κ : H^{−i+1}(A·)^Γ → H^{−i+1}(A·)_Γ."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.bockstein_sq",
+     "role": "simp",
+     "statement": "B_{i−1} ∘ B_i = 0, so (H_·, B_·) is a complex."
+    }
+   ],
+   "tests": [
+    {
+     "name": "two_term_T",
+     "kind": "value",
+     "statement": "A· = [Λ(Γ) --T--> Λ(Γ)] in degrees −1, 0: H_1 = H_0 = ℤ_p and B_1 = −1 (proof of Proposition 3.8)."
+    },
+    {
+     "name": "acyclic_after_T",
+     "kind": "degenerate",
+     "statement": "If T acts invertibly on H^·(A·) the Bockstein complex is 0."
+    },
+    {
+     "name": "square_zero_extension",
+     "kind": "non-example",
+     "statement": "A· = [Λ² --((T,1),(0,T))--> Λ²] has H^0 = Λ/T² and κ = 0, so B_1 = 0 on H_1 = H_0 = ℤ_p (finding E11)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/semisimple-complexes",
+     "how": "semisimplicity is exactness of (H_·, B_·) up to torsion"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/canonical-trivialization",
+     "how": "d((H_·, 0)) = d((H_·, B_·))"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/semisimple-complexes",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "Semisimple complexes and the order r(ρ)",
+   "kind": "definition",
+   "statement": "A· ∈ C^p(Λ(Γ)) is semisimple if the Bockstein complex (H_·(Γ, A·), B_·) has ℤ_p-torsion (hence finite) cohomology; Σ^{ss} is the full subcategory of such complexes, and r_Γ(A·) = Σ_i (−1)^{i+1} dim_{ℚ_p}(H^i(A·)^Γ ⊗ ℚ_p) (Definition 3.2). Semisimple complexes have Λ(Γ)-torsion cohomology, and A· ∈ Σ^{ss} iff κ_i ⊗ ℚ_p is bijective in every degree, in which case r_Γ(A·) = Σ(−1)^{i+1} dim H^i(A·)_Γ ⊗ ℚ_p (Remark 3.3). For general G: A· is semisimple at ρ if (H_·(G, A·(ρ^*)), B_·) has ℤ_p-torsion cohomology (Definition 3.11), finite at ρ if H_·(G, A·(ρ^*)) is ℤ_p-torsion (Definition 3.12, so Σ^{fin−ρ} ⊆ Σ^{ss−ρ}), and r_G(A·)(ρ) = Σ(−1)^{i+1} dim_L(H^i(H, A·(ρ^*))^Γ ⊗ L). A· is semisimple at ρ iff A·_ρ = (Λ_𝒪(Γ) ⊗ 𝒪^n) ⊗^L A· is semisimple, with the same Bockstein maps and r_G(A·)(ρ) = r_Γ(A·_ρ) (Lemma 3.13). Over a discrete valuation ring with uniformizer T, a semisimple complex is a finite direct sum of [R --1--> R] and [R --T--> R] (Lemma 3.9).",
+   "hypotheses": [
+    "G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite."
+   ],
+   "proofSteps": [
+    "Remark 3.3(ii): Lemma 3.1 gives 0 → cok(κ_{−i}) → ker B_i/im B_{i+1} → ker(κ_{−i+1}) → 0.",
+    "Lemma 3.9: T kills H^·(A·); split off [R^d --H--> R^d] with H diagonal in {1, T} from the top degree and induct on length.",
+    "Lemma 3.13: 𝒪^n ⊗^L_{Λ(G)} A· ≅ 𝒪 ⊗^L_{Λ_𝒪(Γ)} A·_ρ, and Λ_𝒪(Γ) ⊗^L_{Λ(G)} A· ≅ 𝒪 ⊗^L_{Λ(H)} A·; the Bockstein map is functorial."
+   ],
+   "acceptance": [
+    "Σ^{ss} and Σ^{ss−ρ} satisfy (i)–(iii) and (iv′) but not (iv): they are not closed under extensions (finding E11)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/bockstein-homomorphism",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localized-k1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/LeadingTerms",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§3.2, Definition 3.2 and Remark 3.3, p. 9; §3.3, Definitions 3.11–3.12, Lemma 3.13; Lemma 3.9 (arXiv v2)",
+     "excerpt": "We shall say that a complex A· ∈ Cp(Λ(Γ)) is semisimple if the cohomology of the associated complex (4) is Zp-torsion",
+     "match": "Definitions 3.2, 3.11, 3.12, Remark 3.3, Lemmas 3.9 and 3.13."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.IsSemisimple",
+     "role": "constructor",
+     "statement": "The Bockstein complex has ℤ_p-torsion cohomology."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.IsSemisimpleAt",
+     "role": "constructor",
+     "statement": "Semisimple at ρ (Definition 3.11)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.IsFiniteAt",
+     "role": "constructor",
+     "statement": "Finite at ρ (Definition 3.12)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.orderAt",
+     "role": "constructor",
+     "statement": "r_G(A·)(ρ) ∈ ℤ."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.isSemisimple_iff_kappa",
+     "role": "characterisation",
+     "statement": "κ_i ⊗ ℚ_p bijective in every degree."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.IsFiniteAt.isSemisimpleAt",
+     "role": "relation",
+     "statement": "Σ^{fin−ρ} ⊆ Σ^{ss−ρ}."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.isSemisimpleAt_iff_twist",
+     "role": "equivalence",
+     "statement": "Lemma 3.13: reduction to Λ_𝒪(Γ) and A·_ρ."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.semisimple_dvr_decomposition",
+     "role": "characterisation",
+     "statement": "Lemma 3.9 over a discrete valuation ring."
+    }
+   ],
+   "tests": [
+    {
+     "name": "two_term_T",
+     "kind": "value",
+     "statement": "[Λ --T--> Λ] is semisimple with r_Γ = −1."
+    },
+    {
+     "name": "finite_at_trivial",
+     "kind": "value",
+     "statement": "[Λ --f--> Λ] with f(0) ≠ 0 is finite at ρ_triv, with r = 0."
+    },
+    {
+     "name": "square_zero_extension",
+     "kind": "non-example",
+     "statement": "[Λ² --((T,1),(0,T))--> Λ²] is an extension of two copies of [Λ --T--> Λ] but is not semisimple (E11)."
+    },
+    {
+     "name": "acyclic",
+     "kind": "degenerate",
+     "statement": "An acyclic complex is finite at every ρ, with r = 0."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term",
+     "how": "the domain of the leading term"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/generalized-euler-characteristic",
+     "how": "χ_add and χ_mult are defined on Σ^{ss−ρ}"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/canonical-trivialization",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "The Bockstein trivialisation t(A·)",
+   "kind": "construction",
+   "statement": "For A· ∈ Σ^{ss}, t(A·) : d_{ℤ_p}(ℤ_p ⊗^L_{Λ(Γ)} A·)_{ℚ_p} ≅ d((H_·(Γ, A·), 0))_{ℚ_p} = d((H_·(Γ, A·), B_·))_{ℚ_p} ≅ 1_{ℚ_p}, using property h) and then e) for the acyclic rational Bockstein complex (Definition 3.4, (5)). If ℚ_p ⊗^L A· is already acyclic, t(A·) is the acyclicity trivialisation (Remark 3.5). For an exact triangle A· → B· → C· of semisimple complexes, r_Γ(B·) = r_Γ(A·) + r_Γ(C·) and t(B·) = t(A·)t(C·) (Lemma 3.6). For general G, t(A·(ρ^*)) is the same composite (7) for 𝒪 ⊗^L_{Λ_𝒪(G)} A·(ρ^*), equal to t(A·_ρ) (Lemma 3.13).",
+   "hypotheses": [
+    "G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite."
+   ],
+   "proofSteps": [
+    "Definition: the rational Bockstein complex is acyclic by semisimplicity, so e) trivialises it; h) identifies ℤ_p ⊗^L A· with its cohomology complex.",
+    "Lemma 3.6 (\"easy and left to the reader\" in the source): the long exact sequence of the triangle is compatible with the Bockstein maps, so the alternating determinants multiply; ranks add.",
+    "Lemma 3.13(iii) transports Lemma 3.6 along A· ↦ A·_ρ."
+   ],
+   "acceptance": [
+    "Lemma 3.6 is stated without proof in the source; the proof step above is a sketch to be completed."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/semisimple-complexes",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/bockstein-homomorphism",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/determinant-functor"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/LeadingTerms",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§3.2, Definition 3.4, Remark 3.5 and Lemma 3.6, pp. 9–10; (7) in §3.3 (arXiv v2)",
+     "excerpt": "If A· ∈ Σss, then we obtain a canonical trivialization of Zp ⊗L Λ(Γ) A· by taking the composite",
+     "match": "Definition 3.4 with (5), Remark 3.5, Lemma 3.6, and (7)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.bocksteinTrivialization",
+     "role": "constructor",
+     "statement": "t(A·) : d(ℤ_p ⊗^L A·)_{ℚ_p} ≅ 1."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.bocksteinTrivialization_of_acyclic",
+     "role": "compatibility",
+     "statement": "Remark 3.5: the acyclicity trivialisation when ℚ_p ⊗^L A· is acyclic."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.bocksteinTrivialization_triangle",
+     "role": "relation",
+     "statement": "Lemma 3.6: t(B·) = t(A·)t(C·) and r adds."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.bocksteinTrivialization_twist",
+     "role": "compatibility",
+     "statement": "t(A·(ρ^*)) = t(A·_ρ)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "acyclic",
+     "kind": "degenerate",
+     "statement": "ℚ_p ⊗^L A· acyclic: t(A·) is the acyclicity isomorphism."
+    },
+    {
+     "name": "two_term_T",
+     "kind": "value",
+     "statement": "[Λ --T--> Λ]: t is the inverse of the Bockstein B_1 = −1 on ℚ_p (proof of Proposition 3.8)."
+    },
+    {
+     "name": "triangle_additivity",
+     "kind": "value",
+     "statement": "For [Λ --T--> Λ] ⊕ [Λ --T--> Λ], t is the product of the two trivialisations and r = −2."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term",
+     "how": "the second arrow in the definition of the leading term"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "The leading term at a representation",
+   "kind": "definition",
+   "statement": "For A· ∈ Σ^{ss−ρ} and a : 1_{Λ(G)} → d_{Λ(G)}(A·), the leading term (A·, a)^*(ρ) ∈ L^× is (−1)^{r_G(A·)(ρ)} times the element of L^× ≅ K_1(L) ≅ Aut(1_L) given by 1_L --L^n ⊗ a--> d_L(L^n ⊗^L_{Λ(G)} A·) --t(A·(ρ^*))--> 1_L (Definition 3.14; for G = Γ and ρ = ρ_triv, Definition 3.7). It gives a homomorphism (−)^*(ρ) : K_1(Λ(G), Σ) → L^× on subcategories Σ ⊆ Σ^{ss−ρ} with (i)–(iii), (iv′). If A· ∈ Σ^{fin−ρ}, the leading term is the value [A·, a](ρ) in the sense of Fukaya–Kato 4.1.5 (Remark 3.15).",
+   "hypotheses": [
+    "G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite."
+   ],
+   "proofSteps": [
+    "Well defined on K_1(Λ(G), Σ): relations (1) and (2) are respected by Lemma 3.13(iii) and Lemma 3.6, relation (0) trivially.",
+    "Compatibility of Definitions 3.7 and 3.14 for G = Γ, ρ = ρ_triv is immediate."
+   ],
+   "acceptance": [
+    "The acceptance case: A· = [R --T--> R] with a_ε from ε ∈ R^× has leading term ε(0) and order r = −1; its shift [R --T--> R][1] has order +1 and leading term ε(0)^{−1} (a vanishing case with its Bockstein determinant); [R --f--> R] with f(0) ≠ 0 is finite at ρ_triv with value f(0)^{±1} (a nonvanishing scalar specialisation).",
+    "BV define (−)^*(ρ) on K_1(Λ(G), Σ_{A·}) and claim Σ_{A·} ⊆ Σ^{ss−ρ}; that inclusion fails for the extension-closed Σ_{A·} (E11), so the domain is taken with (iv′)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/canonical-trivialization",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/semisimple-complexes",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localized-k1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/LeadingTerms",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§3.3, Definition 3.14 and Remark 3.15, pp. 14–15; Definition 3.7, p. 10 (arXiv v2)",
+     "excerpt": "we deﬁne the leading term (A·, a)∗(ρ) of the pair (A·, a) at ρ to be equal to",
+     "match": "Definitions 3.7 and 3.14 and Remark 3.15."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.leadingTerm",
+     "role": "constructor",
+     "statement": "(A·, a)^*(ρ) ∈ L^×."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.leadingTermHom",
+     "role": "constructor",
+     "statement": "(−)^*(ρ) : K_1(Λ(G), Σ) → L^× for Σ ⊆ Σ^{ss−ρ}."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.leadingTerm_mul",
+     "role": "relation",
+     "statement": "Multiplicative on the relations of K_1(Λ(G), Σ)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.leadingTerm_eq_value",
+     "role": "compatibility",
+     "statement": "Remark 3.15: the Fukaya–Kato value when A· is finite at ρ."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.leadingTerm_shift",
+     "role": "simp",
+     "statement": "The leading term of [A·[1], a^{−1}] is the inverse, with r negated."
+    }
+   ],
+   "tests": [
+    {
+     "name": "pole_case",
+     "kind": "value",
+     "statement": "A· = [Λ --T--> Λ], trivialisation a_ε: leading term ε(0), r = −1 (Proposition 3.8)."
+    },
+    {
+     "name": "zero_case",
+     "kind": "value",
+     "statement": "Its shift has r = +1 and leading term ε(0)^{−1}: a vanishing case with its Bockstein determinant."
+    },
+    {
+     "name": "finite_case",
+     "kind": "value",
+     "statement": "[Λ --f--> Λ] with f(0) ≠ 0 and the identity trivialisation: finite at ρ_triv, leading term the value, a unit multiple of f(0)^{±1} (Remark 2.3 fixes the sign of the exponent)."
+    },
+    {
+     "name": "not_semisimple",
+     "kind": "non-example",
+     "statement": "The square-zero extension of E11 is not semisimple, so no leading term is defined for it."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-characteristic-series",
+     "how": "comparison with F^*(0)"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/generalized-euler-characteristic",
+     "how": "ord_L and |·|_p of the leading term"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/fukaya-kato-zeta-isomorphism",
+     "how": "leading terms of the conjectural zeta isomorphisms (BV §§5–6)"
+    }
+   ],
+   "planet": {
+    "name": "Leading terms at representations"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-characteristic-series",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "Leading terms as leading coefficients of characteristic series",
+   "kind": "theorem",
+   "statement": "Let L = [A·, a] with A· ∈ Σ^{ss} for G = Γ, and ch_Γ : K_1(Λ(Γ), Σ^{ss}) → K_1(Q(Γ)) = Q(Γ)^×. Writing F = T^rG(T) with G(0) ∈ L^× (6), (i) r(ch_Γ(L)) = r_Γ(A·), and (ii) (−)^*(ρ_triv) = (−)^*(0) ∘ ch_Γ, where F^*(0) = G(0) (Proposition 3.8). The same holds with 𝒪, L, Λ_𝒪(Γ) and Q_𝒪(Γ) (Remark 3.10).",
+   "hypotheses": [
+    "G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite."
+   ],
+   "proofSteps": [
+    "Both maps factor through the localisation R = Λ(Γ)_𝔭 at the augmentation ideal, a discrete valuation ring with uniformizer T and residue field ℚ_p, and K_1(R, Ξ) for the semisimple complexes Ξ over R.",
+    "Lemma 3.9 reduces to A· = [R --a--> R] with a = 1 or T; the acyclic case is trivial.",
+    "For a = T and the trivialisation a_ε (ε ∈ R^×): ch_Γ(L_ε) = T^{−1}ε, so ch_Γ(L_ε)^*(0) = ε(0). The Bockstein B_1 is ℤ_p --(−1)--> ℤ_p, so the composite in the definition is ℚ_p --ε(0)--> ℚ_p --(B_1)^{−1} = −1--> ℚ_p, of determinant −ε(0); with r_Γ(A·) = −1 = r(ch_Γ(L_ε)) the sign (−1)^{−1} gives L_ε^*(ρ_triv) = ε(0)."
+   ],
+   "acceptance": [
+    "This is the acceptance example: order −1 with leading term ε(0)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/semisimple-complexes",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localized-k1",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/commutative-cyclic-comparison"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/LeadingTerms",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§3.2, Proposition 3.8 and Remark 3.10, pp. 11–12 (arXiv v2)",
+     "excerpt": "(Order of vanishing) For L := [A·, a] one has r(chΓ(L)) = rΓ(A·).",
+     "match": "Proposition 3.8 with its proof via Lemma 3.9, and Remark 3.10."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-canonical-localization",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "Leading terms on the canonical localisation",
+   "kind": "theorem",
+   "statement": "For A· ∈ Σ_{S*} ∩ Σ^{ss−ρ} and ch_{G,A·} : K_1(Λ(G), Σ_{A·}) → K_1(Λ(G)_{S*}), let ρ_* : K_1(Λ(G)_{S*}) → K_1(M_n(Q_𝒪(Γ))) ≅ Q_𝒪(Γ)^× be induced by g ↦ ρ(g)ḡ. Then (i) r_G(A·)(ρ) = r_Γ(A·_ρ) = r(ρ_*(ch_{G,A·}(A·))), and (ii) (−)^*(ρ) = (ρ_*(−))^*(0) ∘ ch_{G,A·} (Proposition 3.16). Accordingly F^*(ρ) := ρ_*(F)^*(0) for F ∈ K_1(Λ(G)_{S*}), and F(ρ) := F^*(ρ) when r(ρ_*(F)) = 0.",
+   "hypotheses": [
+    "G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite.",
+    "S, S* the canonical Ore sets of CFKSV."
+   ],
+   "proofSteps": [
+    "(i) from Lemma 3.13(i), H_i(H, A·(ρ^*)) = H^{−i}(A·_ρ), and Proposition 3.8.",
+    "(ii) by composing the square (Λ_𝒪(Γ) ⊗ 𝒪^n) ⊗ − over ch with the square of Proposition 3.8, as in Fukaya–Kato Lemma 4.3.10."
+   ],
+   "acceptance": [
+    "F(ρ) agrees with CFKSV's evaluation at ρ (NE.3/artin-evaluation) when r = 0.",
+    "The domain K_1(Λ(G), Σ_{A·}) is taken with (iv′), as in leading-term (E11)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-characteristic-series",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/saturated-ore-set",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localized-k1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/LeadingTerms",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§§3.4.1–3.4.2, Proposition 3.16, pp. 15–16 (arXiv v2)",
+     "excerpt": "Let A· be a complex which belongs to ΣS∗ ∩ Σss−ρ.",
+     "match": "The canonical Ore sets, ch_{G,A·}, ρ_* and Proposition 3.16 with its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/partial-derivative-interpretation",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "Leading terms as derivatives in the cyclotomic direction",
+   "kind": "lemma",
+   "statement": "Fix χ : G ↠ Γ → ℤ_p^× of infinite order, c_{χ,γ} = log_p(χ(γ)) ∈ ℚ_p^×, L = [A·, a] with A· ∈ Σ_{S*}, f_ρ(T) = ρ_*(ch_{G,A·}(L)) ∈ Q_𝒪(Γ)^×, and f_L(ρχ^s) = f_ρ(χ(γ)^s − 1), a p-adic meromorphic function of s ∈ ℤ_p. With r = r_G(A·)(ρ): (i) near 0, L^*(ρχ^s) = L(ρχ^s) = f_L(ρχ^s) for s ≠ 0; (ii) c_{χ,γ}^r L^*(ρ) is the leading coefficient at s = 0 of f_L(ρχ^s); (iii) if r ≥ 0, c_{χ,γ}^r L^*(ρ) = (1/r!)(d^r/ds^r) f_L(ρχ^s)|_{s=0} (Lemma 3.17). For χ = χ_cyc this is partial derivation in the cyclotomic direction (Remark 3.18).",
+   "hypotheses": [
+    "G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite."
+   ],
+   "proofSteps": [
+    "Near 0, f_{ρχ^s}(0) ∈ L^× for s ≠ 0 and f_{ρχ^s}(T) = f_ρ(χ(γ)^s(T + 1) − 1), so Proposition 3.16 gives (i).",
+    "Factor f_ρ = T^rG_ρ with G_ρ(0) = f_ρ^*(0); then f_ρ(χ(γ)^s − 1)/s^r = ((χ(γ)^s − 1)/s)^rG_ρ(χ(γ)^s − 1) → log_p(χ(γ))^rG_ρ(0)."
+   ],
+   "acceptance": [
+    "For r < 0 only the leading-coefficient statement (ii) holds."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-canonical-localization"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/LeadingTerms",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§3.4.3, Lemma 3.17 and Remark 3.18, pp. 16–17 (arXiv v2)",
+     "excerpt": "is the leading coeﬃcient at s = 0 of fL(ρχs)",
+     "match": "Lemma 3.17 with its proof and Remark 3.18."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/generalized-euler-characteristic",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "Generalized Euler–Poincaré characteristics",
+   "kind": "theorem",
+   "statement": "For A· ∈ Σ^{ss−ρ}, put H^i_B(G, −) = H^i((H_{−·}(G, −), B_{−·})), χ_add(G, A·(ρ^*)) = Σ_i (−1)^i length_𝒪 H^i_B(G, A·(ρ^*)) and χ_mult = (#κ_L)^{χ_add}. For any trivialisation a and L = [A·, a]: χ_add(G, A·(ρ^*)) = ord_L(L^*(ρ)) and χ_mult(G, A·(ρ^*)) = |L^*(ρ)|_p^{−[L:ℚ_p]} (Proposition 3.19). The Pontryagin dual of the Hochschild–Serre differentials used by Coates–Schneider–Sujatha and others is the Bockstein map, and when A·(ρ^*) ⊗ ℚ_p is acyclic this recovers CFKSV Theorem 3.6, Venjakob Proposition 6.3 and Fukaya–Kato Remark 4.1.13 (Remark 3.20).",
+   "hypotheses": [
+    "G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite."
+   ],
+   "proofSteps": [
+    "Lemma 3.13, property h) and regularity of 𝒪 give 1_𝒪 → d_𝒪(𝒪^n ⊗^L A·) ≅ ∏_i d_𝒪(H^i_B(G, A·(ρ^*)))^{(−1)^i}.",
+    "After ⊗L and acyclicity, the leading term is, modulo 𝒪^×, the product of the elements attached to the finite modules H^i_B, whose valuations are their lengths (Remark 2.4)."
+   ],
+   "acceptance": [
+    "This is the \"nonvanishing scalar specialisation\" of the acceptance when A· is finite at ρ: the value's valuation is the Euler characteristic."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/determinant-functor",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/euler-characteristic-evaluation"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/LeadingTerms",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§3.5, Proposition 3.19 and Remark 3.20, pp. 17–18 (arXiv v2)",
+     "excerpt": "Let ordL denote the valuation of L which takes the value 1 on any uniformizing parameter",
+     "match": "The definitions of χ_add, χ_mult, Proposition 3.19 and Remark 3.20."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Generalized Euler–Poincaré characteristic"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/fukaya-kato-zeta-isomorphism",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "The Fukaya–Kato global zeta isomorphism (as a proposition)",
+   "kind": "definition",
+   "statement": "For p odd, U = Spec ℤ[1/S] with S ⊇ {p, ∞}, a motive M over ℚ with a G_ℚ-stable lattice T_p of M_p, F_∞/ℚ a p-adic Lie extension with G = Gal(F_∞/ℚ), and 𝕋 = Λ(G) ⊗ T_p with the diagonal action g(x ⊗ y) = xḡ^{−1} ⊗ gy: the conjecture (Fukaya–Kato 2.3.2) asserts a unique isomorphism ζ_Λ(M) : 1_Λ → d_Λ(RΓ_c(U, 𝕋))^{−1} in 𝒞_Λ whose base change along every motivic ρ : G → GL_n(𝒪_λ) is the composite of ζ_K(M(ρ^*))_{K_λ} : 1 → Δ_K(M(ρ^*))_{K_λ} with the p-adic period-regulator ϑ_λ, where ζ_K(M(ρ^*)) is the isomorphism matching L^*_K(M(ρ^*)) through the period-regulator ϑ_∞ on the fundamental line Δ_K(M) = d(H^0_f(M))^{−1}d(H^1_f(M))d(H^0_f(M^*(1))^*)d(H^1_f(M^*(1))^*)^{−1}d(M_B^+)d(t_M)^{−1} (Conjecture 4.1). It implies the equivariant Tamagawa number conjecture of Burns–Flach. This is a proposition; no node assumes it.",
+   "hypotheses": [
+    "p odd; the finiteness of motivic cohomology, ϑ_∞ and ϑ_λ are themselves conjectural inputs (standard conjectures)."
+   ],
+   "proofSteps": [
+    "Definitions only: RΓ_c(U, 𝕋) is perfect over Λ(G) (Fukaya–Kato; NE.4), and the base change is property i) of the determinant functor."
+   ],
+   "acceptance": [
+    "Stated as a proposition with explicit conjectural inputs, like NE.5's conjectures; BV §§5–6 prove interpolation formulas for its leading terms (next checkpoint)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/determinant-functor",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex",
+    "ArithmeticGaloisDuality:R02.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/LeadingTerms",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§4, (8)–(14) and Conjecture 4.1, pp. 18–21 (arXiv v2)",
+     "excerpt": "There exists a (unique) isomorphism in CΛ",
+     "match": "§§4.1–4.3: compactly supported cohomology, the fundamental line, the period-regulators, and Conjecture 4.1 (Fukaya–Kato 2.3.2)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.fundamentalLine",
+     "role": "constructor",
+     "statement": "Δ_K(M), the fundamental line."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.PeriodRegulatorData",
+     "role": "structure",
+     "statement": "ϑ_∞ and ϑ_λ, recorded as data."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.FukayaKatoZetaConjecture",
+     "role": "constructor",
+     "statement": "The proposition of Conjecture 4.1 for (M, F_∞/ℚ)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.fukayaKato_implies_etnc",
+     "role": "relation",
+     "statement": "Conjecture 4.1 implies the equivariant Tamagawa number conjecture at finite level (cited)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "abelian_tate_motive",
+     "kind": "value",
+     "statement": "M = ℚ(1), F_∞ = ℚ(μ_{p^∞}): the conjecture specialises to the Iwasawa main conjecture with its interpolation (BV §5, next checkpoint)."
+    },
+    {
+     "name": "not_assumed",
+     "kind": "non-example",
+     "statement": "No theorem node takes Conjecture 4.1 as a hypothesis without naming it."
+    },
+    {
+     "name": "trivial_group",
+     "kind": "degenerate",
+     "statement": "G = 1 recovers the Bloch–Kato Tamagawa number conjecture for M, with ζ_K matching L^*(M)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term",
+     "how": "BV §§5–6: leading terms of ζ_Λ(M) at ρ"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture",
+     "how": "the totally real case as a special case"
+    }
+   ],
+   "planet": {
+    "name": "Fukaya–Kato zeta isomorphism"
+   }
   }
  ],
  "requests": [
@@ -5966,6 +6808,16 @@
    ],
    "status": "open",
    "note": "The L3 description assigns Hilbert Eisenstein series, the integral q-expansion principle and the constant-term argument to L3; its packet has not read L3 yet."
+  },
+  {
+   "supplier": "GeneralAlgebraicKTheory:K.4",
+   "need": "Deligne's Picard category of virtual objects of P(R) for a noncommutative ring R and the determinant functor d_R on (C^p(R), quasi-isomorphisms) with Burns–Venjakob's properties d)–i): additivity on short exact sequences, acyclicity trivialisations, shifts, extension to D^p(R), Knudsen's description of d_R(C) ≅ ∏ d_R(H^i(C))^{(−1)^i}, and base change; Aut(1_R) = K_1(R).",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/determinant-functor",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localized-k1"
+   ],
+   "status": "open",
+   "note": ""
   }
  ],
  "coverage": [
@@ -5988,12 +6840,12 @@
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
    "status": "partial",
    "remaining": [
-    "Classes of perfect S*-torsion complexes in relative K₀ and the Fukaya–Kato localized K₁(R, Σ_S) ≅ K₁(R_S) (Burns–Venjakob §2.2), with additivity on exact sequences and mapping cones.",
     "The groups with p-torsion, where modules must be replaced by perfect complexes.",
     "Vaserstein's theorem (units of a semilocal ring surject onto K₁) and Brumer's global dimension theorem are cited, not decomposed (sources not freely available).",
-    "Kakde's Lemma 5 (∂ surjective with p-torsion) is planned as boundary-surjective-p-torsion."
+    "Kakde's Lemma 5 (∂ surjective with p-torsion) is planned as boundary-surjective-p-torsion.",
+    "Classes of perfect S*-torsion complexes in relative K₀ with additivity on mapping cones."
    ],
-   "notes": "Checkpoint 2 (cc-39fac3): CFKSV §3 (Lemmas 3.1, 3.2, 3.5, Proposition 3.4, the definition of characteristic elements) and §4 (Lemma 4.1, Proposition 4.2 with Lemma 4.3, Theorem 4.4 with Lemmas 4.5–4.6): the localisation sequence, the boundary map with its sign, K₀ detection by finite-level characters, surjectivity of ∂_G, characteristic elements with their K₁(Λ(G)) ambiguity, semilocality of Λ(G)_S and the non-semilocal S* example, units surjecting onto K₁, and the commutative one-variable comparison."
+   "notes": "Checkpoint 2 (cc-39fac3): CFKSV §3 (Lemmas 3.1, 3.2, 3.5, Proposition 3.4, the definition of characteristic elements) and §4 (Lemma 4.1, Proposition 4.2 with Lemma 4.3, Theorem 4.4 with Lemmas 4.5–4.6): the localisation sequence, the boundary map with its sign, K₀ detection by finite-level characters, surjectivity of ∂_G, characteristic elements with their K₁(Λ(G)) ambiguity, semilocality of Λ(G)_S and the non-semilocal S* example, units surjecting onto K₁, and the commutative one-variable comparison. Checkpoint 8 adds the determinant functor (property list of Burns–Venjakob §2.1, construction requested from GeneralAlgebraicKTheory K.4) and the localized K₁ with ch_{R,Σ_S}."
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
@@ -6038,10 +6890,12 @@
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Burns–Venjakob arXiv math/0511672 §§3–5 (leading terms, descent)."
-   ]
+    "Burns–Venjakob §5 (the p-adic Stark conjecture at s = 1 as an interpolation formula for Tate motives) and §6 (critical motives: Néron–Tate and Nekovář heights).",
+    "Exceptional zeros and noncommutative Fitting invariants (primary sources to be chosen)."
+   ],
+   "notes": "Checkpoint 8 (cc-39fac3) plans Burns–Venjakob §3 and Conjecture 4.1 (9 nodes): Bockstein homomorphisms, semisimple complexes, the Bockstein trivialisation, leading terms (planet), their comparison with characteristic series and the canonical localisation, the cyclotomic-derivative interpretation, generalized Euler–Poincaré characteristics (planet), and the Fukaya–Kato zeta isomorphism as a proposition (planet). The acceptance examples (a pole of order 1 with leading term ε(0), its shift as a zero with its Bockstein determinant, and a finite value) are unit tests. Finding E11."
   }
  ],
  "gaps": [
@@ -6093,9 +6947,12 @@
    "neededBy": [
     "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime",
     "NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex",
-    "NoncommutativeAndEquivariantIwasawa:NE.6/l-elementary-case"
+    "NoncommutativeAndEquivariantIwasawa:NE.6/l-elementary-case",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localized-k1",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/fukaya-kato-zeta-isomorphism",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-canonical-localization"
    ],
-   "detail": "Kakde cites Fukaya–Kato, A formulation of conjectures on p-adic zeta functions in noncommutative Iwasawa theory (Proc. St. Petersburg Math. Soc. XII, 2006), for K₁(Λ(G)) ≅ lim K₁(Λ(G)/J^n) (Proposition 1.5.1), the pro-p kernel (Proposition 1.5.3), and the perfectness and base change of C(F_∞/F). Burns–Venjakob §§2–3 (arXiv, free) restate parts of this and are NE.7's source; they will be checked against these statements there."
+   "detail": "Kakde cites Fukaya–Kato, A formulation of conjectures on p-adic zeta functions in noncommutative Iwasawa theory (Proc. St. Petersburg Math. Soc. XII, 2006), for K₁(Λ(G)) ≅ lim K₁(Λ(G)/J^n) (Proposition 1.5.1), the pro-p kernel (Proposition 1.5.3), and the perfectness and base change of C(F_∞/F). Burns–Venjakob §§2–3 (arXiv, free) restate parts of this and are NE.7's source; they will be checked against these statements there. Checkpoint 8 adds the bijectivity of ch_{R,Σ_S} (Fukaya–Kato Proposition 1.3.7), their Lemma 4.3.10, and Conjecture 2.3.2 as restated by Burns–Venjakob."
   }
  ],
  "sourceIssues": [
@@ -6248,6 +7105,20 @@
     "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
     "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
    ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E11",
+   "source": "BURNS-VENJAKOB-2006",
+   "kind": "error",
+   "locator": "§2.2, last paragraph, p. 6 (arXiv v2), used in Definition 3.14, p. 14 (\"Since Σ_{A·} ⊂ Σ^{ss−ρ}\")",
+   "printed": "Σ is equal to smallest full subcategory Σ_{A·} of Cp(R) that contains A· and also satisﬁes the conditions (i), (ii), (iii) and (iv) that are described above. (With this deﬁnition, it is easily seen that Σ_{A·} ⊂ Σ^{ss}).",
+   "correction": "Take Σ_{A·} to be the smallest full subcategory containing A· that satisfies (i), (ii), (iii) and (iv′) (closure under direct sums, not extensions). It lies in Σ^{ss−ρ} whenever A· does, and Definition 3.14 and Propositions 3.16–3.19 go through with this domain.",
+   "reason": "Σ^{ss} is not closed under extensions (the source itself notes it fails (iv), Remark 3.5). For R = Λ(Γ) and A· = [R --T--> R] (semisimple, the example in the proof of Proposition 3.8), B· = [R² --M--> R²] with M = ((T, 1), (0, T)) is an extension 0 → A· → B· → A· → 0, so B· ∈ Σ_{A·}; but H^0(B·) ≅ R/T², κ_0 : (R/T²)^Γ → (R/T²)_Γ is zero, and the Bockstein complex of B· is ℤ_p in degrees 0 and 1 with zero differential, so B· ∉ Σ^{ss}.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv math/0511672: v2 (20 January 2006) is the version read; the published version (Documenta Math. Extra Volume Coates (2006), 165–209) was not compared."
+   ]
   }
  ],
  "sourceVersions": [
@@ -6256,6 +7127,12 @@
    "url": "https://arxiv.org/pdf/1008.0142v3",
    "read": "2026-09-29",
    "sha256": "5a05da0d58f2717422fb401510d9cad4aeeac707313929a796870b92e27ea45c"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0511672v2",
+   "read": "2026-09-29",
+   "sha256": "4b33fb11251340c88a8f8a590d9f9296a413aadf4fae98968ea7191a14c857bc"
   }
  ]
 }
