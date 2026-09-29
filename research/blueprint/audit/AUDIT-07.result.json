@@ -3,10 +3,10 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "ArithmeticStatistics": {
-   "summary": "Mathlib supplies Weil heights with the Northcott property, Hermite's finiteness theorem for number fields, lattice-point asymptotics for dilated regions (main term only) and the ideal-counting limit; Tau Ceti supplies the Mordell-Weil theorem over number fields, an explicit 2-Selmer group with the injection of E(K)/2E(K) and the rank bound 2^r * #E(K)[2] <= #Sel, an explicit Hermite count and genus theory for quadratic class groups. Genuinely missing: the invariant theory of binary forms and every orbit parametrization (Delone-Faddeev, Bhargava, the binary-quartic model of 2-Selmer elements), Davenport's lattice-point lemma with error term, cusp and uniformity (Ekedahl) estimates, any asymptotic count of fields or class-group moment, Sha and the full descent sequence, the Bhargava-Shankar average and all higher-moment, random-matrix and function-field statistics.",
+   "summary": "Mathlib supplies Weil heights with the Northcott property, Hermite's finiteness theorem for number fields, lattice-point asymptotics for dilated regions (main term only) and the ideal-counting limit; Tau Ceti supplies the Mordell-Weil theorem over number fields, an explicit 2-Selmer group with the injection of E(K)/2E(K) and the rank bound 2^r·#E(K)[2] ≤ #S for any finite subgroup S containing the descent image (finiteness of Sel₂ itself is not proved), an explicit Hermite count and genus theory for quadratic class groups. Genuinely missing: the invariant theory of binary forms and every orbit parametrization (Delone-Faddeev, Bhargava, the binary-quartic model of 2-Selmer elements), Davenport's lattice-point lemma with error term, cusp and uniformity (Ekedahl) estimates, any asymptotic count of fields or class-group moment, Sha and the full descent sequence, the Bhargava-Shankar average and all higher-moment, random-matrix and function-field statistics.",
    "layers": {
     "ArithmeticStatistics:ST.0": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Arithmetic families up to isomorphism (elliptic curves under admissible changes of variables; number fields as subfields of a fixed extension)",
@@ -121,7 +121,7 @@
       },
       {
        "target": "Finiteness at bounded height (Northcott property) before forming densities",
-       "library": "both",
+       "library": "partial",
        "declarations": [
         {
          "name": "Northcott",
@@ -135,21 +135,21 @@
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/Height/NumberField.lean",
          "line": 411,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "NumberField.finite_of_discr_bdd",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
          "line": 496,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le",
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
          "line": 172,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "WeierstrassCurve.Affine.finite_naiveHeight_le",
@@ -159,7 +159,7 @@
          "fit": "related"
         }
        ],
-       "note": "Northcott for number-field elements and Hermite's theorem (fields inside a fixed extension of Q with |disc| <= N) are in Mathlib, with an explicit count bound in Tau Ceti. Finiteness of curves or integral forms of bounded height is not stated, though it is elementary once those heights are defined."
+       "note": "Mathlib's Northcott class, Northcott for number-field elements and Hermite's theorem (fields inside a fixed extension of Q with |disc| <= N, with Tau Ceti's explicit count), and Tau Ceti's finiteness of points of bounded naive height on a fixed curve are present. Finiteness of ℚ-isomorphism classes of elliptic curves of bounded naive height (on the minimal-pair model, planned in tauceti:EllipticCurves Layer 8) and of GL₂(ℤ)-classes of integral binary quartic forms with (I,J) ≠ (0,0) of bounded H(I,J) are absent. The latter needs reduction theory (Bhargava–Shankar quote Borel–Harish-Chandra, Theorem 6.9), and the condition (I,J) ≠ (0,0) is needed: the forms nX⁴ all have I = J = 0 and lie in infinitely many GL₂(ℤ)-classes."
       },
       {
        "target": "Asymptotic densities of subfamilies ordered by height",
@@ -530,7 +530,7 @@
       },
       {
        "target": "Weak Mordell-Weil and Mordell-Weil over number fields; finiteness of the Selmer-type groups",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "WeierstrassCurve.Affine.finiteIndex_range_nsmulAddMonoidHom_two",
@@ -568,7 +568,7 @@
          "fit": "exact"
         }
        ],
-       "note": "E(K)/2E(K) finite and E(K) finitely generated are proved for every elliptic curve over a number field, and the finite group A(S,2) of S-unramified square classes contains the descent image. A semilocal comparison (unramified at every good completion implies S-unramified) is proved, but the inclusion of selmerGroup₂ in A(S,2), hence finiteness of selmerGroup₂ itself, is not stated."
+       "note": "E(K)/2E(K) finite and E(K) finitely generated are proved for every elliptic curve over a number field, and the finite group A(S,2) of S-unramified square classes contains the descent image. A semilocal comparison (unramified at every good completion implies S-unramified) is proved, but the inclusion of selmerGroup₂ in A(S,2), hence finiteness of selmerGroup₂ itself, is not stated. Finiteness of Sel₂ (selmerGroup₂) is absent; it is owned by tauceti:EllipticCurves Layer 7 (AEC X.4.2)."
       },
       {
        "target": "Rank bound from the Selmer group: 2^rank * #E(K)[2] <= #S for a finite S containing the descent image",
@@ -589,7 +589,7 @@
          "fit": "exact"
         }
        ],
-       "note": "The per-curve inequality is proved; the averaged form over a family is not."
+       "note": "Proved for every finite subgroup S containing im μ (e.g. A(S,2)); it gives 2^r·#E(K)[2] ≤ #Sel₂ only once Finite (selmerGroup₂ R Loc) is proved, which neither library states; the averaged form is absent."
       },
       {
        "target": "Local-solubility parametrization of Selmer elements by locally soluble integral binary quartic forms",
@@ -687,7 +687,7 @@
    }
   },
   "DiophantineApproximationAndTranscendence": {
-   "summary": "Mathlib already has most of DT.0 and part of DT.1: Weil heights with the product formula and Northcott, number-field places, continued fractions with Legendre's theorem, Dirichlet's approximation theorem, Minkowski's convex body theorem, Liouville's inequality with transcendence of Liouville numbers, LiouvilleWith exponents, Siegel's lemma over Z and over number fields, and Mahler measure. Only the analytic step of Lindemann-Weierstrass is present, and Tau Ceti adds finite generation of S-units. Genuinely missing: simultaneous Dirichlet approximation, an explicit Liouville constant, Thue and Roth, the subspace theorem and unit equations, Lindemann-Weierstrass itself (hence transcendence of e and pi), Gelfond-Schneider, Baker and Matveev bounds, p-adic logarithms, every effective application (Thue, Thue-Mahler, S-unit, exponential equations) and all of DT.5.",
+   "summary": "Mathlib already has most of DT.0 and part of DT.1: relative Weil heights over a number field with the product formula and fixed-field Northcott, number-field places, continued fractions with Legendre's theorem, Dirichlet's approximation theorem, Minkowski's convex body theorem, Liouville's inequality with transcendence of Liouville numbers, LiouvilleWith exponents, Siegel's lemma over Z and over number fields, and Mahler measure. Only the analytic step of Lindemann-Weierstrass is present, and Tau Ceti adds finite generation of S-units. Genuinely missing: extension-invariance of the absolute height and absolute heights of points, simultaneous Dirichlet approximation, an explicit Liouville constant, Thue and Roth, the subspace theorem and unit equations, Lindemann-Weierstrass itself (hence transcendence of e and pi), Gelfond-Schneider, Baker and Matveev bounds, p-adic logarithms, every effective application (Thue, Thue-Mahler, S-unit, exponential equations) and all of DT.5.",
    "layers": {
     "DiophantineApproximationAndTranscendence:DT.0": {
      "verdict": "partly built",
@@ -715,7 +715,7 @@
       },
       {
        "target": "Weil heights of algebraic numbers and points, normalized compatibly with the product formula and the denominator convention H(p/q) = max(|p|,|q|)",
-       "library": "mathlib",
+       "library": "partial",
        "declarations": [
         {
          "name": "Height.mulHeight₁",
@@ -725,25 +725,11 @@
          "fit": "exact"
         },
         {
-         "name": "Height.mulHeight",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/Height/Basic.lean",
-         "line": 233,
-         "fit": "exact"
-        },
-        {
          "name": "NumberField.absMulHeight₁",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/Height/NumberField.lean",
          "line": 137,
-         "fit": "exact"
-        },
-        {
-         "name": "NumberField.instAdmissibleAbsValues",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
-         "line": 78,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "Rat.mulHeight₁_eq_max",
@@ -751,9 +737,23 @@
          "file": "Mathlib/NumberTheory/Height/NumberField.lean",
          "line": 533,
          "fit": "exact"
+        },
+        {
+         "name": "NumberField.finite_setOfPred_mulHeight₁_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 411,
+         "fit": "special case"
+        },
+        {
+         "name": "Projectivization.mulHeight",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Projectivization.lean",
+         "line": 46,
+         "fit": "special case"
         }
        ],
-       "note": "Relative heights over any field with admissible absolute values, the absolute height of an algebraic number (normalized by the degree of Q(x)), Northcott, and the rational formula are all present."
+       "note": "Relative heights over any field with admissible absolute values (elements, tuples, projective points, with projective invariance), the number-field instance of admissible absolute values (product formula), Northcott for a fixed number field, and H(p/q) = max(|p|,|q|) are present. The absolute height absMulHeight₁ is only defined, via ℚ(x): there is no invariance under finite extension (H_K(x) = H(x)^[K:ℚ]), no absolute height of algebraic points, and no bounded-degree Northcott for heights (Mathlib's bounded-degree Northcott, Polynomial.finite_mahlerMeasure_le (Mathlib/NumberTheory/MahlerMeasure.lean:107), is for the Mahler measure of integer polynomials and is not related to heights). Also relevant, named here to keep five citations: Height.mulHeight (Mathlib/NumberTheory/Height/Basic.lean:233), the height of a tuple, and NumberField.instAdmissibleAbsValues (Mathlib/NumberTheory/Height/NumberField.lean:78)."
       },
       {
        "target": "Local absolute values of a number field and the product formula",
@@ -1053,7 +1053,7 @@
          "fit": "related"
         }
        ],
-       "note": "The S-unit group (Mathlib), its finite generation (Tau Ceti), Dirichlet's unit theorem (NumberField.Units.exist_unique_eq_mul_prod) and the Mason-Stothers theorem (the polynomial analogue of the unit equation) are present; no finiteness theorem for unit equations over number fields."
+       "note": "The S-unit group (Mathlib), its finite generation (Tau Ceti), Dirichlet's unit theorem (NumberField.Units.exist_unique_eq_mul_prod) and the Mason-Stothers theorem (the polynomial analogue of the unit equation) are present; no finiteness theorem for unit equations over number fields. The draft MordellLawrenceVenkatesh roadmap (not yet in the atlas) plans the two-variable case at LV.6 (Lawrence–Venkatesh Theorem 4.1: finitely many t with t and 1 − t in O_{K,S}^×) by the p-adic period-map method; the statement should be shared, not the higher-variable nondegenerate case."
       },
       {
        "target": "Decomposable form (norm form) equations under linear-independence and nondegeneracy hypotheses",
@@ -1904,9 +1904,16 @@
          "file": "TauCeti/Probability/Moments/Determinacy.lean",
          "line": 145,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.empiricalMeasureOfFintype_eq_map_uniformOn",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/EmpiricalMeasure.lean",
+         "line": 80,
+         "fit": "related"
         }
        ],
-       "note": "Convergence in distribution and Levy's continuity theorem are in Mathlib, and Tau Ceti proves moment determinacy for measures with exponential moments (the uniqueness half of the method of moments); nothing states limiting distributions of arithmetic functions or the dictionary with densities."
+       "note": "Convergence in distribution and Levy's continuity theorem are in Mathlib, and Tau Ceti proves moment determinacy for measures with exponential moments (the uniqueness half of the method of moments); nothing states limiting distributions of arithmetic functions or the dictionary with densities. Tau Ceti's empirical measures identify the law of a function on a finite uniform population with a ProbabilityMeasure."
       },
       {
        "target": "Independence of divisibility events, or an explicit comparison with an independent (Kubilius) model",
@@ -2003,8 +2010,16 @@
       {
        "target": "Weyl's criterion for uniform distribution modulo 1",
        "library": "absent",
-       "declarations": [],
-       "note": "No notion of equidistributed sequence in either library."
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.empiricalMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/EmpiricalMeasure.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "No equidistribution predicate or Weyl criterion in either library. Tau Ceti's empirical measures of sequences (empiricalMeasure x n uses the first n + 1 terms), with almost-sure weak convergence for conditionally i.i.d. sequences (TauCeti.Probability.ConditionallyIIDWith.tendsto_empiricalMeasure_ae, TauCeti/Probability/Exchangeability/ConditionallyIID/WeakConvergence.lean:75), are the carrier for one; the stochastic theorem does not give deterministic arithmetic equidistribution."
       },
       {
        "target": "Equidistribution of n*alpha for irrational alpha and of polynomial sequences (Weyl)",
@@ -2369,7 +2384,7 @@
       },
       {
        "target": "Level of distribution: control of sum_{d <= D} |R_d|",
-       "library": "partial",
+       "library": "absent",
        "declarations": [
         {
          "name": "SelbergSieve",
@@ -2377,9 +2392,16 @@
          "file": "Mathlib/NumberTheory/SelbergSieve.lean",
          "line": 77,
          "fit": "related"
+        },
+        {
+         "name": "BoundingSieve.errSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SelbergSieve.lean",
+         "line": 177,
+         "fit": "related"
         }
        ],
-       "note": "SelbergSieve carries a level parameter used to truncate the weights, but no level-of-distribution hypothesis or estimate on the remainder sum is defined."
+       "note": "SelbergSieve only adds a real parameter level with 1 ≤ level, which no definition or theorem uses (the Λ² weights carry no support condition); the only remainder-sum object is errSum = Σ_{d|P} |μ⁺(d)||R_d|. No level-of-distribution hypothesis or estimate is defined."
       },
       {
        "target": "Inclusion-exclusion (Legendre-Eratosthenes identity) for sifted sets",
@@ -2546,17 +2568,31 @@
       },
       {
        "target": "Duality principle for bilinear forms",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "Matrix.l2_opNorm_conjTranspose",
          "library": "mathlib",
          "file": "Mathlib/Analysis/CStarAlgebra/Matrix.lean",
          "line": 204,
+         "fit": "more general"
+        },
+        {
+         "name": "ContinuousLinearMap.adjoint",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/InnerProductSpace/Adjoint.lean",
+         "line": 114,
+         "fit": "more general"
+        },
+        {
+         "name": "Matrix.l2_opNorm_mulVec",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/CStarAlgebra/Matrix.lean",
+         "line": 222,
          "fit": "related"
         }
        ],
-       "note": "Only the abstract fact that a matrix and its conjugate transpose have the same l2 operator norm; no duality statement for large-sieve inequalities."
+       "note": "The duality principle is in Mathlib in operator form: ‖Aᴴ‖ = ‖A‖ for the l2 operator norm (scoped Matrix.Norms.L2Operator) of a finite matrix over ℝ or ℂ, and ‖T†‖ = ‖T‖ for bounded operators between Hilbert spaces (the adjoint is a conjugate-linear isometric equivalence). Only its restatement as the equivalence of the two quadratic-form inequalities used in large-sieve proofs is missing, with an explicit nonnegative constant D, the Euclidean norm and the conjugate transpose (not an entrywise matrix norm); the large-sieve matrix and its inequalities remain to be instantiated."
       },
       {
        "target": "Primitive-character reduction and conductor",
