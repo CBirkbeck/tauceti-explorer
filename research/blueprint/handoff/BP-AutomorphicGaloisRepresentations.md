@@ -1,13 +1,91 @@
-# Handoff: BP-AutomorphicGaloisRepresentations (fifth checkpoint)
+# Handoff: BP-AutomorphicGaloisRepresentations (sixth checkpoint)
 
 Agent: Claude Code, session cc-fb70e5. Refs #685.
 
 - Stages R19.1–R19.6 are all partial. The checker reports no errors and no warnings.
 - RS-12 is still **needs_changes**, so the current structure is used.
-- Checkpoints 1–4 were merged in #3857, #3859, #3866 and #3870. This checkpoint adds 8 nodes in R19.2, for 31 nodes
-  and 16 planets.
+- Checkpoints 1–5 were merged in #3857, #3859, #3866, #3870 and #3886.
+- This checkpoint adds 9 nodes in R19.1, for 40 nodes and 18 planets.
 
-## New in checkpoint 5: the proof of Carayol's Theorems (B) and (A)
+## New in checkpoint 6: the proof of the Deligne–Serre theorem
+
+**Source.** Deligne–Serre, *Formes modulaires de poids 1*, Ann. Sci. ÉNS 7 (1974). This is the Numdam PDF with sha256
+65b390f6…, the same file as before.
+- The text layer was used, with printed page = PDF page + 505 (PDF page 1 is the Numdam cover).
+- Every new excerpt was matched against its own page.
+- Read: §5 (5.1–5.6, pp. 518–520), 6.6–6.13 again (pp. 521–523), §7 (pp. 523–524), §8 (8.1–8.7, pp. 525–527) and the
+  bibliography.
+- The arithmetic of 5.2, 5.5, 7.2 (all four cases), 8.3, 8.5–8.6 and 8.7 was checked step by step. No mistakes were
+  found, so there are no new source issues.
+
+**Nodes (R19.1):**
+- `deligne-serre-condition-c` (definition). This is the condition C(η, M) of 7.1 together with semisimple subgroups.
+  - It has an API of 5 items and 5 unit tests.
+  - One test is a split Cartan subgroup against a cyclic group of the same order. It separates counting polynomials
+    from counting elements.
+- `mod-lambda-representation-of-a-mod-lambda-eigenform` (planet), Théorème 6.7.
+  - It has no node of its own before this checkpoint.
+  - The proof cites the R15.5 reduction and the eigenvalue-lifting nodes, and the R01.5 Lemme 6.13 node.
+- `rankin-bound-for-a-cuspidal-eigenform` (Prop. 5.1). Landau's lemma is Tau Ceti's `TauCeti.LSeries.landau`.
+- `weight-one-eigenvalues-outside-a-sparse-set` (Prop. 5.5).
+- `bounded-semisimple-subgroups-of-gl2` (planet), Prop. 7.2, all four Dickson cases.
+- `uniformly-bounded-residual-images-in-weight-one` (Lemmas 8.3–8.4).
+- `lifting-representations-of-groups-of-order-prime-to-l`. The source calls this 'un argument standard'. The proof
+  given here is Mathlib's Schur–Zassenhaus at each level followed by an inverse limit (Kőnig).
+- `weight-one-characteristic-zero-lift` (8.5–8.6).
+- `weight-one-cuspidal-irreducibility` (8.7).
+
+The weight-one node now has the full proof outline: the Eisenstein/cuspidal reduction, 8.1 and the chain above. Its
+hypothesis "only 8.1–8.4 were read" is gone.
+
+**Worked example throughout:** η(z)η(23z), of type (1, (−23/·)) on Γ₀(23).
+- Its q-expansion was computed to 400 terms. a_p = 0, 2 or −1 according as p is inert, splits into principal primes
+  (x² + xy + 6y²) or splits into non-principal primes. This holds for every p < 400, p ≠ 23.
+- Image S₃, and C(0, 3) with the polynomials (1 − T)², 1 − T² and 1 + T + T².
+- At ℓ = 3 the residual image has order 2, since 1 + T + T² ≡ (1 − T)² mod 3.
+
+**Requests (new):**
+- ArithmeticGaloisRepresentations R01.4: Dickson for semisimple subgroups (Serre 1972, §2, Props. 15–16).
+- ArithmeticGaloisRepresentations R01.5: recognition with finite image (Lemme 3.2), Lemme 6.13, and Frobenius elements
+  of finite images.
+- AutomorphicLFunctionsAndLocalFactors AL.3: Rankin's continuation of ζ(2s − 2k + 2)Σ|a_n|²n^{−s}.
+- Tau Ceti Chebotarev layer 10 (Čebotarev in Dirichlet density) and layer 3 (upper Dirichlet density).
+- Tau Ceti ModularForms layer 0: weight-one Eisenstein eigenvalues χ₁(p) + χ₂(p) (Hecke).
+
+Existing requests extended:
+- R01.1 and R15.5 now list the mod-λ node.
+- Tau Ceti ModularForms layer 4 now includes the newform reduction of 5.2 and lists the Rankin node.
+
+**Baseline.** 7 new declarations, each read in the pinned source:
+- Mathlib `Matrix.card_GL_field`, `Subgroup.exists_right_complement'_of_coprime`,
+  `nonempty_sections_of_finite_inverse_system`, `DirichletCharacter.LFunction_apply_one_ne_zero`,
+  `riemannZeta_residue_one` and `NumberField.Embeddings.finite_of_norm_le`;
+- Tau Ceti `TauCeti.LSeries.landau`.
+
+**Lean.**
+- New real definitions: `ConditionC` and `IsSemisimpleSubgroup`.
+- New statements: Proposition 7.2 (`card_le_of_conditionC`) and the lifting lemma (`exists_lift_of_not_dvd_card`).
+- New unit tests as `example`s.
+- Nine checked examples:
+  - |GL₂(F₃)| = 1·12 + 2·9 + 3·6 via `Matrix.card_GL_field`;
+  - the class-count identity;
+  - case (a) and case (c) of 7.2;
+  - the 5.5 density bound;
+  - E₄, E₆ mod small primes;
+  - (1 + T + T²)(1 − T) = 1 − T³ and 1 + T + T² ≡ (1 − T)² mod 3;
+  - |x + y|² = 2 + 2Re(xȳ) for 8.7;
+  - ℓ − 1 > 2 for ℓ ≥ 5, the lifting non-example.
+- The file compiles with `lake env lean` against Mathlib 082e2d3, with exit code 0. The only warnings are the 10
+  `sorry` stubs: the 4 existing ones and 6 new.
+
+**What remains in R19.1:**
+- the construction of nW_l (Bourbaki 355);
+- the coefficient-field descent;
+- Scholl's Kuga–Sato realisation (GH.0).
+
+The other stages are unchanged from checkpoint 5 (below).
+
+## Earlier in this job (checkpoint 5): the proof of Carayol's Theorems (B) and (A)
 
 **Source.** Carayol, Ann. Sci. ÉNS 19 (1986), the Numdam PDF (sha256 d4a5fb6b…, the same file as before; printed page = PDF
 page + 407). It was read on its text layer, with the formulas of 2.1.1, 3.1–3.3, 6.6–6.7, 10.6 and 11.2–11.3 checked on the
