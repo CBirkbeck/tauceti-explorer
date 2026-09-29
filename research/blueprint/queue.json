@@ -23454,12 +23454,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -63619,10 +63619,11 @@
     "COL-ATOBE-KONDO-YASUDA-22"
    ],
    "avoidAccountOf": "COL-ATOBE-KONDO-YASUDA-22",
-   "state": "external",
+   "state": "done",
    "timeout": 14400,
    "prompt": "research/blueprint/prompts/REV-COL-ATOBE-KONDO-YASUDA-22.md",
-   "note": "claimed on GitHub issue #3738"
+   "note": "deliverables arrived from an external worker on issue #3738",
+   "finishedAt": "2026-09-29T21:27:13Z"
   },
   {
    "id": "COL-BINYAMINI-22",
@@ -63727,9 +63728,10 @@
     "COL-GAN-HARRIS-SAWIN-ETAL-24"
    ],
    "avoidAccountOf": "COL-GAN-HARRIS-SAWIN-ETAL-24",
-   "state": "pending",
+   "state": "external",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-COL-GAN-HARRIS-SAWIN-ETAL-24.md"
+   "prompt": "research/blueprint/prompts/REV-COL-GAN-HARRIS-SAWIN-ETAL-24.md",
+   "note": "claimed on GitHub issue #3722"
   },
   {
    "id": "COL-LEMKEOLIVER-WANG-WOOD-25",
