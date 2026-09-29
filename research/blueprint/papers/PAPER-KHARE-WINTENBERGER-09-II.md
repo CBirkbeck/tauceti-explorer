@@ -1,0 +1,132 @@
+# Khare–Wintenberger, *Serre's modularity conjecture (II)*: extraction and routing
+
+Job PAPER-KHARE-WINTENBERGER-09-II. Claude Code, session `cc-48533a`, 29 September 2026.
+
+The machine-readable extraction is `PAPER-KHARE-WINTENBERGER-09-II.result.json`. It has 340 items (304 planned, 7 library, 29 missing), 11 routes, 6 prerequisite papers and 32 source issues.
+
+**Version read.** The authors' copy `proofs.pdf` from Khare's UCLA page: 98 pages, PDF dated 30 May 2009, SHA-256 `53f45f8b…c86ed4`, read in full. It is the file the atlas's GL2ModularityLifting, GlobalGaloisDeformations, LocalGaloisDeformationRings and PotentialModularityAndCompatibleSystems packets already cite, by hash.
+
+It contains the refereeing changes (§1.1 credits Diamond's observation on fixing determinants for p = 2), so it is taken to be the accepted version of Invent. Math. 178 (2009), 505–586. The Springer text could not be opened. Crossref registers no erratum. Locators are the copy's own pages.
+
+**How it was read.** Four readers each took one of §§1–3, 4–6, 7–8 and 9–10 and drafted items with exact statements, locators and a status against the atlas. The drafts were then merged, and the items that appeared in more than one part were removed. Every candidate source issue was checked again against the text before it was recorded, and every library citation against the declaration index at the pins.
+
+## What the paper proves
+
+KW II proves the two technical theorems stated in KW I:
+
+- **Theorem 4.1:** modularity lifting for lifts of modular residual representations. This includes the new 2-adic case, with non-solvable residual image.
+- **Theorem 5.1:** the existence of p-adic lifts of four prescribed types, placed in almost strictly compatible systems.
+
+The argument runs as follows.
+
+- **§2, framed deformation theory.** Kisin's framed deformation theory with fixed determinant: framed and unframed rings, quotients by free actions of diagonalisable groups, truncations and chunks, inertia-rigid deformations, and resolutions of framed deformations.
+- **§3, local deformation rings.** The rings at ∞, above p (low-weight crystalline, semistable weight 2, weight 2 crystalline over ℚ_p^{nr}(μ_p), ordinary) and away from p (inertia-rigid, and twists of semistable). Each is flat, of the expected relative dimension, with regular generic fibre (Theorem 3.1).
+- **§4, global rings.** Global deformation rings and their presentations over the completed tensor product of local rings. Wiles' formula with fixed determinant bounds the dimension from below (Proposition 4.5 and Corollary 4.7).
+- **§5, auxiliary primes.** Taylor–Wiles auxiliary primes, including the new twisting and class-group construction for p = 2 (§5.5).
+- **§6, potential modularity.** Taylor's potential modularity, extended with the local controls the later arguments need (Theorem 6.1).
+- **§7, quaternionic forms.** Forms on definite quaternion algebras over totally real fields, and ∆_Q-freeness in the presence of isotropy.
+- **§8, lifts with prescribed properties.** Level lowering and modular lifts with prescribed local properties, after an allowable solvable base change (Theorems 8.2 and 8.4).
+- **§9, R = T.** Taylor–Wiles–Kisin patching, with determinants fixed only locally when p = 2 (Propositions 9.2 and 9.3, Theorem 9.7).
+- **§10, the two theorems.**
+  - Finiteness of deformation rings from potential modularity (Theorem 10.1).
+  - KW I's Theorem 4.1.
+  - KW I's Theorem 5.1, through characteristic-zero points and compatible systems obtained by Brauer induction and Langlands base change.
+
+## What the atlas already has
+
+The atlas was organised around this paper, and almost every item has a node:
+
+- §3: LocalGaloisDeformationRings R08.1–R08.6. R08.6 exports Theorem 3.1, Propositions 3.2, 3.3 and 3.6, and Lemmas 3.7 and 3.9.
+- §§2 and 4–5: GlobalGaloisDeformations R04.1–R04.6, with Propositions 2.5–2.11 at R04.4 and Lemmas 5.1–5.12 at R04.5. The general commutative algebra is at DeformationAndDerivedPatchingAlgebra R03.
+- Theorem 6.1: PotentialModularityAndCompatibleSystems R23.3 and R23.5; Moret-Bailly is at R23.1.
+- §7: HilbertModularVarietiesAndShimuraCurves R18.3, R18.4 and R18.6, AutomorphicGaloisRepresentations R19.4–R19.5, and GL2ModularityLifting R22.2.
+- §9: GL2ModularityLifting R22.1–R22.6.
+- §10: PotentialModularityAndCompatibleSystems R24.1–R24.5.
+
+The duality inputs are ArithmeticGaloisDuality R02.4–R02.6 and Tau Ceti ClassFieldTheory Layer 5, and Chebotarev density is Tau Ceti's Chebotarev roadmap, Layer 10.
+
+Seven items are in the pinned libraries, all read at the pins:
+
+- Mathlib's `cyclotomicCharacter`;
+- Yoneda (`CategoryTheory.Coyoneda.fullyFaithful`, `Functor.CorepresentableBy`);
+- inflation–restriction (`groupCohomology.H1InfRes_exact`);
+- Weierstrass preparation (`PowerSeries.exists_isWeierstrassDivision`, `exists_isWeierstrassFactorization`);
+- Henselian rings;
+- an index lemma for normal subgroups;
+- Tau Ceti's theorem that characters determine representations (`Representation.nonempty_equiv_of_character_eq`).
+
+## Routes
+
+All 29 missing items go to existing layers as sources. None needs a Part II or a new roadmap: each is a general input that a planned layer already uses, or a result that the layer's text asks for but no node states.
+
+1. **DeformationAndDerivedPatchingAlgebra R03.1–R03.4** (10 items). The commutative algebra of complete Noetherian local 𝒪-algebras:
+   - relative tangent spaces, and the tangent space of a completed tensor product;
+   - Proposition 2.1 for non-Schur ρ̄, and deformation conditions relative to the hull;
+   - regularity descent along flat local maps and completions (Matsumura 28.M and 33.B), also for R^inv_∞[1/2] in Lemma 9.6(a);
+   - Chevalley's comparison of ideal topologies;
+   - the maximal ideals of R[1/p], and the Jacobson property (EGA IV 10.5.8);
+   - Corollary 2.3, that flat reduced quotients are determined by their points. Two nodes already invoke it without stating it.
+2. **LocalGaloisDeformationRings R08.4 and R08.6.** Lemma 3.8, the algebraisation step for the ordinary ring.
+3. **PadicHodgeTheory R06.4.** Lemma 3.5(ii), that semistable non-crystalline weight 2 is ordinary, for unramified F. The layer has it only for ℚ_p.
+4. **ArithmeticGaloisDuality R02.5.** Kummer theory over F^nr, which defines the finite cocycles of §3.2.5.
+5. **ArithmeticGaloisRepresentations R01.4.** Lemma 4.3(5): H¹(SL₂(𝔽_{2^r}), M₂(𝔽)) = 0 (Dickinson), and the list of submodules of Ad. GlobalGaloisDeformations already requests both from R01.4.
+6. **GlobalGaloisDeformations R04.5.** Lemma 4.3(4), the injection H¹(G_F, Z) → H¹(G_F, Ad), used when counting auxiliary primes for p = 2.
+7. **PotentialModularityAndCompatibleSystems R23.3, R23.5 and R24.1.** Three inputs:
+   - Khare's Lemma 2.2, recorded as unread at R23.3;
+   - Khare's Lemma 4.2, which kills the mod p ramification away from p; R24.1 uses it as a hypothesis and could not locate it;
+   - the dihedral-image step in the proof of Theorem 6.1.
+8. **InverseGaloisAndArithmeticFundamentalGroups IG.4.** The Grunwald–Wang theorem, used for p = 2 in Lemma 7.10 and Theorem 6.1(iii)(b). Tau Ceti's ClassFieldTheory excludes it, and GlobalGaloisDeformations R04.4 already names IG.4 as its owner.
+9. **HilbertModularVarietiesAndShimuraCurves R18.3.** Taylor's neatness lemma.
+10. **GL2ModularityLifting R22.1 and R22.4.** The arithmetic characters ψ of §8.1 and Lemma 7.10 (determinants), and Kisin's level raising via Ihara's lemma, with his quadratic-tower lemma.
+11. **SerreWeightAndLevelOptimisation R20.6** (5 items). Theorems 8.2 and 8.4, the weight-(p + 1) variant, and Lemma 8.3 with its decomposition 𝔽[ℙ¹(k_w)] ≅ 𝟙 ⊕ V. R20.6's text is to "supply the optimisation inputs used inside KW", and the GL2ModularityLifting R22.1 packet already requests these theorems from it. They are the totally real versions, after allowable base change, of results the layer so far states over ℚ.
+
+## Source issues
+
+There are 32 issues: 22 misprints, 8 gaps and 2 errors. Six affect a proof. None affects a stated theorem of KW I or KW II as they are used. Four were already recorded in the atlas:
+
+- GlobalGaloisDeformations/E2 (§2.1, "surjectivity" should be "injectivity");
+- PotentialModularityAndCompatibleSystems/E1 and /E2 (the pages of [33], and "part (c)" of Theorem 6.1);
+- AutomorphicGaloisRepresentations/E2 (the title of [53]).
+
+The rest are new.
+
+**The gaps and errors that affect proofs:**
+
+- **E29, proof of Theorem 10.1 (p. 91).** The comparison maps β : R_F^{ψ_F} → R^ψ_{ℚ,S} and α are asserted "by functoriality", but they do not exist integrally in general.
+  - Why they fail: Theorem 10.1 allows the semistable local ring at primes ℓ ≠ p. Its points have infinite inertia image at ℓ and stay ramified over every finite extension, while the ring over F admits only deformations unramified outside p. An example is ρ̄ from an elliptic curve with multiplicative reduction at ℓ and p ∤ v_ℓ(Δ).
+  - The repair: the choice of F kills only the ramification of the mod p universal representation τ. The comparison map exists into R̄^ψ_{ℚ,S}/(p), and that is all the finiteness argument needs.
+  - In the atlas: the node PotentialModularityAndCompatibleSystems:R24.1/kw-ii-theorem-10-1-finiteness-of-the-unframed-global-ring repeats the integral maps and should be corrected.
+- **E11, §3.3.3, the case p = 2 (p. 36).** ρ(σ) is given eigenvalues ε and ε⁻¹, but ρ(F) swaps the two eigenlines, so the tame relation requires ε^{q+1} = 1. That fails for every level-2 character of 2-power order when q ≡ 1 mod 4. Taking the eigenvalues ε and ε^q works in general. KW I's Theorem 5.1(4), with its parity condition, uses only q ≡ 3 mod 4, where the printed choice is correct.
+- **E19, Lemma 7.2(i), p > 2 (p. 61).** When ρ̄ is unramified at v and N(v) ≡ −1 mod p, the residual representation does not determine γ_v: γ and γη give the same ρ̄. So the argument that γ_v does not depend on f fails. This is the gap that Gee–Kisin, Appendix B.3, close in Kisin's §2.2 (GL2ModularityLifting/E4) by assuming N(v) ≢ −1 mod p.
+- **E17, Theorem 6.1(iii)(b).** The statement allows every ℓ_i ≠ p, but the proof, by successive Grunwald–Wang applications, treats only ℓ_i ≠ 2, p. Theorem 10.1 uses the statement at ℓ_i = 2 when p is odd.
+- **E14, proof of Lemma 4.6 (p. 44).** For p = 2 the cup product x_v ∪ h_v with h_v ∈ M₂(𝔽) is not defined. The independence of the choice of the g̃_v needs x_v ∈ L_v^⊥, a hypothesis the proof never invokes.
+- **E10, proof of Proposition 3.2(i).** It cites Proposition 2.2, which needs domains. The inertia-rigid rings are only known to be flat with components of relative dimension 3, and the reduction to components is not given.
+
+**Errors and gaps that affect nothing:**
+
+- **E8, error, §3.2.2(i).** The parenthesis "finite flat … can occur only when k = 2" is false for unramified ρ̄_v, which has k = p.
+- **E20, gap, Lemma 7.2.** At places of Σ above p the proof cites only [10] and [61], where Lemma 7.7 and Corollary 7.8 are needed.
+- **E23, gap, Lemma 7.1.** It is stated for compact U but applied through Corollary 7.5 to non-compact U when p = 2.
+- **E24, gap, §7.5.** The check that f_χ is again a form needs χ split at S, not only unramified.
+
+**Misprints.** Among them:
+
+- "Proposition 9.1" for Lemma 9.1, in three places;
+- a wrong superscript, F M_{n₀+1} for F M⁺_{n₀+1};
+- "§5.6" for §5.5.1;
+- "ω_p^{k−2}" in Corollary 7.8(ii), where k = 2 but the intended exponent is k(ρ̄) − 2;
+- ρ_F for ρ_{π′} in Theorem 8.4;
+- the truncated year of SGA 3 in [15] (1970).
+
+All are listed with their corrections in the JSON.
+
+## Prerequisite papers not yet covered by the atlas
+
+1. Böckle, *Presentations of universal deformation rings* (2007), doi:10.1017/CBO9780511721267.003.
+2. Dickinson, *On the modularity of certain 2-adic Galois representations* (Duke 2001), doi:10.1215/S0012-7094-01-10923-X.
+3. Skinner–Wiles, *Base change and a problem of Serre* (Duke 2001), doi:10.1215/S0012-7094-01-10712-6.
+4. Taylor, *On icosahedral Artin representations II* (Amer. J. Math. 2003), doi:10.1353/ajm.2003.0021.
+5. Artin–Tate, *Class Field Theory*, Chapter X (Grunwald–Wang).
+6. Wintenberger, *On p-adic geometric representations of G_ℚ* (Documenta 2006), doi:10.4171/dms/4/24.
+
+Every DOI was confirmed on Crossref. None of these papers was read for this job. Their statements here are the ones KW II cite.
