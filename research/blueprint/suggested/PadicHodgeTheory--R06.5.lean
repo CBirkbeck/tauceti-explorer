@@ -22,7 +22,8 @@ available at the pinned commits, so the theorems that need them are comments nam
 What is prototyped is the linear algebra those theorems compute:
 * the Kummer cocycle `c_q` and the representation `g ↦ !![χ g, c_q g; 0, 1]` of R06.6;
 * the normal form of the Tate curve's filtered `(φ, N)`-module and its L-invariant;
-* the ordinary/supersingular dichotomy of the Frobenius trace used in R06.5.
+* the ordinary/supersingular dichotomy of the Frobenius trace used in R06.5, for elliptic curves and for Δ;
+* the crystalline Frobenius polynomial of a newform and the sign of the Weil–Deligne relation.
 -/
 
 import Mathlib.NumberTheory.Cyclotomic.CyclotomicCharacter
@@ -215,6 +216,27 @@ example : ¬ IsOrdinaryTrace 19 0 := by decide
 /-- Acceptance: 11a1 at `p = 2` has `a_2 = -2`, supersingular. -/
 example : ¬ IsOrdinaryTrace 2 (-2) := by decide
 
+/-! ## R06.5 — modular forms (`PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes`) and the
+Weil–Deligne sign (`PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p`) -/
+
+/-- The crystalline Frobenius polynomial `X² − a_p X + ψ(p) p^{k−1}` of `D_cris(M_{g,λ})` at `p ∤ N`. -/
+noncomputable def frobCharpolyModular (a ψp : ℚ) (p k : ℕ) : Polynomial ℚ :=
+  Polynomial.X ^ 2 - Polynomial.C a * Polynomial.X + Polynomial.C (ψp * (p : ℚ) ^ (k - 1))
+
+/-- Acceptance: `Δ` is ordinary at `11` (`τ(11) = 534612 ≡ 1 mod 11`). -/
+example : IsOrdinaryTrace 11 534612 := by decide
+
+/-- Acceptance: `Δ` is not ordinary at `2` (`τ(2) = -24`). -/
+example : ¬ IsOrdinaryTrace 2 (-24) := by decide
+
+/-- Acceptance (Weil–Deligne sign): for the Tate curve, a geometric Frobenius `diag(p⁻¹, 1)` in the basis
+`(e, f)` and `N = !![0, 1; 0, 0]` satisfy `F N F⁻¹ = p⁻¹ N`, the relation Saito's §2 prints with `p` in place
+of `p⁻¹`. -/
+example (p : ℕ) [Fact p.Prime] :
+    !![(p : ℚ)⁻¹, 0; 0, 1] * !![(0 : ℚ), 1; 0, 0] * !![(p : ℚ), 0; 0, 1] =
+      (p : ℚ)⁻¹ • !![(0 : ℚ), 1; 0, 0] :=
+  sorry
+
 /-! ## Theorems needing objects of other roadmaps
 
 * `PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction`: not stated; needs étale and
@@ -239,7 +261,16 @@ example : ¬ IsOrdinaryTrace 2 (-2) := by decide
   `WeierstrassCurve.HasSplitMultiplicativeReduction` and `WeierstrassCurve.HasMultiplicativeReduction`
   with `V_p(E)` and `D_st`.
 * `PadicHodgeTheory:R06.6/local-global-compatibility-good-reduction`: not stated; needs Weil–Deligne
-  representations (R06.3, ArithmeticGaloisRepresentations R01.2) and `V_ℓ(A)`.
+  representations (R06.3, ArithmeticGaloisRepresentations R01.2) and `V_ℓ(A)`.* `PadicHodgeTheory:R06.5/modular-form-de-rham-realisation`: not stated; needs the premotive `M_g` and its
+  Kuga–Sato realisation (AutomorphicGaloisRepresentations R19.1) and `D_dR`.
+* `PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes`: only `frobCharpolyModular` and the ordinarity
+  tests above; the statement needs `M_{g,λ}` and `D_cris`.
+* `PadicHodgeTheory:R06.5/weight-two-modular-abelian-varieties`: not stated; needs `A_f` (ModularCurvesPartII R14.5)
+  with its Tate module.
+* `PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p`: not stated; needs local Langlands for
+  `GL_2` (GL2AutomorphicRepresentationsAndTransfer R16.3) and Weil–Deligne representations.
+* `PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p`: not stated; needs Shimura curves
+  (HilbertModularVarietiesAndShimuraCurves R18.2) and Carayol's representations.
 -/
 
 end TauCeti.PadicHodge

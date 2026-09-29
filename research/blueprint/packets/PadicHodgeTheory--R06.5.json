@@ -7,7 +7,7 @@
     "PadicHodgeTheory:R06.6"
   ],
   "status": "partial",
-  "summary": "P-adic Hodge theory and geometric comparison, part R06.5 (stages R06.5 and R06.6), first checkpoint, in 14 nodes. R06.5 applies the proper-smooth crystalline comparison of CohomologyComparisons CP.2 through the period functor D_cris, and plans the abelian-variety consequences: D_cris of abelian schemes dual to H^1_cris, de Rham-ness and Hodge–Tate weights 0, 1 of every V_p(A), Weil-pairing duality with the determinant test, and the good ordinary and supersingular elliptic curves (same Hodge filtration, different Frobenius). R06.6 plans the Kummer extensions of Q_p by Q_p(1) and their filtered (φ,N)-modules, the Tate curve (Tate module, D_st, L-invariant), the p-adic criterion of good reduction (Coleman–Iovita, via Grothendieck and Kisin), semistable reduction ⇒ semistable for abelian varieties (via Raynaud and Berger), elliptic curves with v(j) < 0, and local–global compatibility at good places. Eight new mistakes in the sources are recorded (five in Berger's survey, one in Brinon–Conrad, one in Coleman–Iovita, and Berger's misplaced Tate twist). Modular curves, Kuga–Sato varieties, Shimura curves and the modular-form compatibility of R19 remain.",
+  "summary": "P-adic Hodge theory and geometric comparison, part R06.5 (stages R06.5 and R06.6), second checkpoint, in 19 nodes. R06.5 applies the proper-smooth crystalline comparison of CohomologyComparisons CP.2 through D_cris and plans the abelian-variety consequences (D_cris of abelian schemes, Hodge–Tate weights, Weil-pairing duality, ordinary versus supersingular) and the modular-form applications: the de Rham realisation of a newform with weights 0 and 1 − k, crystallinity at p ∤ N with Frobenius polynomial X² − a_pX + ψ(p)p^{k−1} and the ordinary criterion, and the weight-two Barsotti–Tate and ordinary cases. R06.6 plans the Kummer extensions and the Tate curve, the p-adic good-reduction criterion, semistable reduction, elliptic curves with v(j) < 0, local–global compatibility at good places, and the R19 inputs: compatibility at p with local Langlands for modular forms (Scholl, Saito) and Saito's theorem for Hilbert modular forms. Eleven new mistakes are recorded (E40–E50); E48–E49 are corrected in Diamond–Flach–Guo's 2025 arXiv version. The endpoint-weight case and Saito's 1997 paper remain.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -90,6 +90,61 @@
       "readSections": [
         "Introduction (pp. 1–3)",
         "Chapter I, opening paragraphs (p. 3)"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "dfg-arxiv",
+      "title": "Adjoint motives of modular forms and the Tamagawa number conjecture",
+      "authors": "F. Diamond, M. Flach and L. Guo",
+      "edition": "arXiv:2512.02348v2 (11 Dec 2025), the authors' revised version of the Ann. Sci. ÉNS 37 (2004) article; printed page = PDF page.",
+      "url": "https://arxiv.org/abs/2512.02348v2",
+      "sha256": "0f4984acdabd2efd542aae932850da83c36ec023185a47f40c8ef5813bd21898",
+      "readSections": [
+        "Abstract and §0.2 (pp. 1–5)",
+        "§1.1 (pp. 6–8): conventions for Frobenius, D_crys, D_st, D_pst and Weil–Deligne representations",
+        "§5.4, Lemma 5.7 with proof (pp. 58–59)",
+        "§5.5 through Lemma 5.9 (pp. 59–61)",
+        "Lemma 8.13 with proof (p. 104)"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "dfg-asens",
+      "title": "The Tamagawa number conjecture of adjoint motives of modular forms",
+      "authors": "F. Diamond, M. Flach and L. Guo",
+      "edition": "Ann. Sci. École Norm. Sup. (4) 37 (2004), 663–727, the Numdam copy (65 pages; printed page = PDF page + 662).",
+      "url": "https://www.numdam.org/item/ASENS_2004_4_37_5_663_0/",
+      "sha256": "385dc212a14bf884a29564375cf6308f310feac2c0b634c418e7bb46d50472a3",
+      "readSections": [
+        "§1.1.1 (pp. 668–669)",
+        "§1.6.2–1.6.3 (pp. 683–684)"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "saito-hilbert",
+      "title": "Hilbert modular forms and p-adic Hodge theory",
+      "authors": "T. Saito",
+      "edition": "arXiv:math/0612077v2 (11 Dec 2006); published in Compositio Math. 145 (2009), 1081–1113 (not seen).",
+      "url": "https://arxiv.org/abs/math/0612077v2",
+      "sha256": "fb5b69b76d2257ce20f47366c4bd165ccdb571333e7f25a4ed6e92dbb4b55df7",
+      "readSections": [
+        "Introduction (pp. 1–2)",
+        "§1 opening (p. 2)",
+        "§2 with Theorems 0, 1, 2, Claim 1 and the remarks (pp. 8–13)"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "ddt",
+      "title": "Fermat's Last Theorem",
+      "authors": "H. Darmon, F. Diamond and R. Taylor",
+      "edition": "Authors' revised version dated 9 September 2007 (167 pages) of the article in Current Developments in Mathematics 1995; printed page = PDF page.",
+      "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf",
+      "sha256": "254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3",
+      "readSections": [
+        "§3.1: Theorem 3.1 with its proof and the paragraph after it (pp. 85–87)"
       ],
       "accessed": "2026-09-29"
     }
@@ -967,9 +1022,271 @@
           "match": "The ℓ ≠ p side at good places (Néron–Ogg–Shafarevich) against which the p-adic side is compared."
         }
       ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:R06.5/modular-form-de-rham-realisation",
+      "parentStageId": "PadicHodgeTheory:R06.5",
+      "realises": [
+        "PadicHodgeTheory:R06.5"
+      ],
+      "title": "The p-adic realisation of a modular form is de Rham, with Hodge–Tate weights 0 and 1 − k",
+      "kind": "theorem",
+      "statement": "Throughout: a newform g of weight k ≥ 2, level N and character ψ has coefficients in a number field K ⊂ C; λ is a place of K above the prime p, and M_g is the rank-two premotivic structure over K cut out of the parabolic cohomology of the modular curve with coefficients in Sym^{k−2} of the relative H^1 of the universal elliptic curve (equivalently of a Kuga–Sato variety) by the Hecke ideal of g, in the normalisation of Diamond–Flach–Guo (arXiv v2): ∧²M_g ≅ M_ψ(1 − k) and Frob_p denotes a geometric Frobenius. Its λ-adic realisation M_{g,λ} is the cohomological representation, and V_g := M_{g,λ}^∨ is the covariant one (det V_g = ψ^{−1}χ^{k−1}). Period functors are covariant and Hodge–Tate weights follow HT(χ) = +1. For every prime p and λ | p, M_{g,λ}|_{G_{Q_p}} is de Rham, and the comparison isomorphism identifies D_dR(M_{g,λ}) ≅ K_λ ⊗_K M_{g,dR} as filtered K_λ-spaces: Fil^0 = D_dR, Fil^{k−1} = K_λ·g (the line of g) and Fil^k = 0. Hence M_{g,λ} has Hodge–Tate weights 0 and 1 − k, V_g has Hodge–Tate weights 0 and k − 1, and the perfect alternating pairing ∧²M_{g,λ} ≅ K_λ(ψ)(1 − k) is compatible with D_dR (the filtration jumps add up to k − 1). For k = 2 the weights of V_g are {0, 1}, those of a Tate module.",
+      "hypotheses": [
+        "The construction of M_g (Hecke projector, parabolic cohomology with coefficients, its Kuga–Sato model and the rank-two statement) belongs to AutomorphicGaloisRepresentations R19.1 (request); Diamond–Flach–Guo Lemma 5.7 is quoted for rank two and Fil^{k−1} M_{g,dR} = Kg.",
+        "Diamond–Flach–Guo obtain the λ-adic–de Rham comparison from Faltings' theorem with coefficients; the proof below uses the smooth proper Kuga–Sato model instead, through the de Rham comparison of part P7."
+      ],
+      "proofSteps": [
+        "M_{g,λ} is the image of a Hecke idempotent (a correspondence) acting on H^{k−1}_et of a smooth proper Kuga–Sato variety over Q (Scholl; R19.1 request), and M_{g,dR} is the image of the same correspondence on H^{k−1}_dR.",
+        "The de Rham comparison for smooth proper varieties is compatible with correspondences (PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application (a), (b)), so it restricts to the summands: M_{g,λ} is de Rham and D_dR(M_{g,λ}) ≅ K_λ ⊗_K M_{g,dR} with the induced Hodge filtration.",
+        "Rank two and Fil^{k−1} M_{g,dR} = Kg (Diamond–Flach–Guo Lemma 5.7); the jumps are therefore 0 and k − 1, since the graded pieces of the Hodge filtration of the Kuga–Sato summand sit in degrees 0 and k − 1 only.",
+        "Weights are the negatives of the jumps (PadicHodgeTheory:R06.2/hodge-tate-weight-convention); V_g = M_{g,λ}^∨ has the negated weights (PadicHodgeTheory:R06.2/ddr-exact-strict-tensor).",
+        "The pairing ∧²M_g ≅ M_ψ(1 − k) respects the comparison isomorphisms (Diamond–Flach–Guo §3, pairings against Faltings' comparison), and D_dR(K_λ(ψ)(1 − k)) has its single jump at k − 1 = 0 + (k − 1)."
+      ],
+      "acceptance": [
+        "k = 2: M_{g,λ} ⊆ H^1_et(X_1(N)_{Q̄}, K_λ), weights 0 and −1, dual weights {0, 1} (PadicHodgeTheory:R06.5/weight-two-modular-abelian-varieties).",
+        "Δ (k = 12, N = 1): V_Δ has Hodge–Tate weights {0, 11}.",
+        "Non-example: a representation with Hodge–Tate weights {0, 1} and determinant of weight 2 is not a V_g (the determinant of V_g has weight k − 1 = 0 + (k − 1))."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.1",
+        "PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application",
+        "PadicHodgeTheory:R06.2/hodge-tate-weight-convention",
+        "PadicHodgeTheory:R06.2/ddr-exact-strict-tensor",
+        "PadicHodgeTheory:R06.2/period-functors"
+      ],
+      "sources": [
+        {
+          "sourceId": "dfg-arxiv",
+          "locator": "Lemma 5.7, p. 58 (arXiv v2)",
+          "match": "Rank two and the Hodge line of g."
+        },
+        {
+          "sourceId": "dfg-arxiv",
+          "locator": "§0.2, p. 4 (arXiv v2)",
+          "match": "The λ-adic–de Rham comparison for M_{N,k} is Faltings' theorem; Scholl's Kuga–Sato construction allows Tsuji's."
+        }
+      ],
       "planet": {
-        "name": "Local–global compatibility at good places"
+        "name": "de Rham comparison for modular forms"
       },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes",
+      "parentStageId": "PadicHodgeTheory:R06.5",
+      "realises": [
+        "PadicHodgeTheory:R06.5"
+      ],
+      "title": "Modular forms are crystalline at primes not dividing the level, with Frobenius polynomial X² − a_pX + ψ(p)p^{k−1}",
+      "kind": "theorem",
+      "statement": "Throughout: a newform g of weight k ≥ 2, level N and character ψ has coefficients in a number field K ⊂ C; λ is a place of K above the prime p, and M_g is the rank-two premotivic structure over K cut out of the parabolic cohomology of the modular curve with coefficients in Sym^{k−2} of the relative H^1 of the universal elliptic curve (equivalently of a Kuga–Sato variety) by the Hecke ideal of g, in the normalisation of Diamond–Flach–Guo (arXiv v2): ∧²M_g ≅ M_ψ(1 − k) and Frob_p denotes a geometric Frobenius. Its λ-adic realisation M_{g,λ} is the cohomological representation, and V_g := M_{g,λ}^∨ is the covariant one (det V_g = ψ^{−1}χ^{k−1}). Period functors are covariant and Hodge–Tate weights follow HT(χ) = +1. Let p ∤ N and λ | p. Then M_{g,λ}|_{G_{Q_p}} is crystalline, and the K_λ-linear map φ on D_cris(M_{g,λ}) has characteristic polynomial X² − a_p(g)X + ψ(p)p^{k−1}; D_cris(M_{g,λ}) is weakly admissible with t_H = t_N = k − 1. M_{g,λ}|_{G_{Q_p}} is ordinary iff a_p(g) is a λ-adic unit: then D_cris = D_0 ⊕ D_{k−1} into φ-stable lines of slopes 0 and k − 1, D_0 is a subobject, and M_{g,λ}|_{G_{Q_p}} has an unramified subrepresentation on which the geometric Frobenius acts by the unit root α of X² − a_pX + ψ(p)p^{k−1}; dually V_g|_{G_{Q_p}} has an unramified quotient. If a_p(g) is not a unit, both slopes are positive and M_{g,λ}|_{G_{Q_p}} has no unramified subrepresentation.",
+      "hypotheses": [
+        "Crystallinity and the Frobenius polynomial are Scholl's theorem, quoted from Diamond–Flach–Guo (arXiv v2, proof of Lemma 8.13) and not read in Scholl's paper; for p > k Diamond–Flach–Guo obtain the crystalline realisation from Faltings' comparison with coefficients.",
+        "The Eichler–Shimura relation used to compare with the ℓ-adic side is ModularCurvesPartII R14.6 (weight two) and R19.1 (request) for higher weight."
+      ],
+      "proofSteps": [
+        "A Kuga–Sato variety of level N has a smooth proper model over Z[1/N] on which the Hecke idempotent of g acts (Scholl; R19.1 request); PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction for this model, restricted to the summand, makes M_{g,λ}|_{G_{Q_p}} crystalline with D_cris equal to the g-part of H^{k−1}_cris of the special fibre.",
+        "Frobenius: Katz–Messing (PadicDifferentialEquationsAndRigidCohomology:RD.7/ell-adic-comparison-smooth-projective) identifies the characteristic polynomial of φ on the crystalline summand with that of a geometric Frobenius on the ℓ-adic summand, which is X² − a_pX + ψ(p)p^{k−1} by Eichler–Shimura (ModularCurvesPartII:R14.6/special-fibre-eichler-shimura for k = 2; R19.1 request).",
+        "t_N = v_p(ψ(p)p^{k−1}) = k − 1 = t_H (PadicHodgeTheory:R06.5/modular-form-de-rham-realisation).",
+        "Newton polygon: the root valuations are {0, k − 1} iff a_p is a unit and are both positive otherwise; the slope decomposition (PadicHodgeTheory:R06.2/slope-decomposition) and weak admissibility force (D_0)_{K} ≠ Fil^{k−1}, so D_0 has t_H = 0 = t_N and is a subobject, i.e. an unramified subrepresentation (PadicHodgeTheory:R06.2/crystalline-subobjects-strict, PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified (2)); a geometric Frobenius acts on it through φ, by α.",
+        "Consistency with local Langlands: PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p with π_p(g) unramified."
+      ],
+      "acceptance": [
+        "Δ (k = 12, N = 1): at p = 11, τ(11) = 534612 ≡ 1 mod 11, ordinary; at p = 2, τ(2) = −24, non-ordinary; at p = 2411, τ(2411) ≡ 0 mod 2411, non-ordinary (τ(p) mod p computed from the product formula by script).",
+        "11a1 (k = 2): ordinary at 3 (a_3 = −1), not at 2 or 19 (PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular).",
+        "Slopes: X² − a_pX + ψ(p)p^{k−1} has root valuations summing to k − 1 = t_H."
+      ],
+      "prerequisites": [
+        "PadicHodgeTheory:R06.5/modular-form-de-rham-realisation",
+        "PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7/ell-adic-comparison-smooth-projective",
+        "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura",
+        "AutomorphicGaloisRepresentations:R19.1",
+        "PadicHodgeTheory:R06.2/slope-decomposition",
+        "PadicHodgeTheory:R06.2/crystalline-subobjects-strict",
+        "PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified",
+        "PadicHodgeTheory:R06.2/weak-admissibility"
+      ],
+      "sources": [
+        {
+          "sourceId": "dfg-arxiv",
+          "locator": "Proof of Lemma 8.13, p. 104 (arXiv v2)",
+          "match": "X² − a_ℓX + ψ(ℓ)ℓ^{k−1} on the crystalline realisation (ℓ ∤ N, ℓ > k), after Scholl."
+        },
+        {
+          "sourceId": "ddt",
+          "locator": "Theorem 3.1(f) and its proof, pp. 86–87 (revision of 9 September 2007)",
+          "match": "Weight two: ordinary iff a_ℓ is a unit, with the unramified quotient given by the unit root."
+        }
+      ],
+      "planet": {
+        "name": "Crystalline at primes not dividing the level"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:R06.5/weight-two-modular-abelian-varieties",
+      "parentStageId": "PadicHodgeTheory:R06.5",
+      "realises": [
+        "PadicHodgeTheory:R06.5"
+      ],
+      "title": "Weight two: the Tate modules of modular abelian varieties at p",
+      "kind": "application",
+      "statement": "Let f be a newform of weight 2, level N and character ψ with coefficient field K_f, A_f = J_1(N)/p_fJ_1(N) the modular abelian variety (ModularCurvesPartII R14.5), λ | p a place of K_f and ρ_f = K_{f,λ} ⊗_{K_f ⊗ Q_p} V_p(A_f) its λ-adic representation (arithmetic Frobenius at ℓ ∤ Np of characteristic polynomial X² − a_ℓX + ℓψ(ℓ); Darmon–Diamond–Taylor Theorem 3.1). (a) If p ∤ N, A_f has good reduction at p, so ρ_f|_{G_{Q_p}} is crystalline with Hodge–Tate weights {0, 1} and comes from the p-divisible group of the Néron model: it is Barsotti–Tate. (b) Then ρ_f|_{G_{Q_p}} is ordinary iff a_p is a λ-adic unit, with unramified quotient on which the arithmetic Frobenius acts by the unit root of X² − a_pX + pψ(p). (c) If p ∥ N, p is odd and p does not divide the conductor of ψ, A_f has semistable reduction at p, ρ_f|_{G_{Q_p}} is semistable and not crystalline (N ≠ 0), ordinary, with unramified quotient on which Frobenius acts by a_p. (d) In general ρ_f|_{G_{Q_p}} is potentially semistable, and potentially Barsotti–Tate iff N = 0 on its Weil–Deligne representation.",
+      "hypotheses": [
+        "The comparison V_p(A_f) ≅ ⊕_{λ|p} ρ_{f,λ} and the characteristic polynomials are R19.1 and ModularCurvesPartII R14.5–R14.6; Darmon–Diamond–Taylor Theorem 3.1 is quoted for their form. Their \"good\" and \"ordinary\" are the finite flat and ordinary conditions of Wiles; (a)–(c) translate them into p-adic Hodge theory.",
+        "Semistable reduction of A_f at p ∥ N (Deligne–Rapoport) is requested from ModularCurvesPartII R13.5."
+      ],
+      "proofSteps": [
+        "(a): A_f has good reduction over Z[1/N] (ModularCurvesPartII:R14.5/modular-quotient); PadicHodgeTheory:R06.6/good-reduction-iff-crystalline (a) gives crystallinity with weights {0, 1}, and FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/abelian-scheme-torsion-finite-flat gives T_p(A_f) = T_p(𝒜_f[p^∞]); the K_f ⊗ Z_p-action splits it along λ | p (ModularCurvesPartII:R14.5/quotient-tate-exact).",
+        "(b): the Frobenius polynomial of D_cris is that of PadicHodgeTheory:R06.6/local-global-compatibility-good-reduction (b) applied to A_f; the slope argument of PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular (b) applies λ-componentwise.",
+        "(c): as ψ is unramified at p, A_f is a quotient of the Jacobian of the modular curve of level Γ_1(N/p) ∩ Γ_0(p), which has semistable reduction at p (Deligne–Rapoport; R13.5 request); PadicHodgeTheory:R06.6/semistable-reduction-semistable gives semistability; N ≠ 0 because π_p(f) is a twist of Steinberg (PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p), and the ordinary form is Darmon–Diamond–Taylor 3.1(g).",
+        "(d): PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p and PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion (b)."
+      ],
+      "acceptance": [
+        "11a1 = A_f for the newform of level 11: good at 3 (crystalline, ordinary), split multiplicative at 11 (case (c), PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module).",
+        "15a1 at 3: p ∥ 15, ψ trivial, case (c) with a_3 = −1 (non-split)."
+      ],
+      "prerequisites": [
+        "ModularCurvesPartII:R14.5/modular-quotient",
+        "ModularCurvesPartII:R14.5/quotient-tate-exact",
+        "PadicHodgeTheory:R06.6/good-reduction-iff-crystalline",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/abelian-scheme-torsion-finite-flat",
+        "PadicHodgeTheory:R06.6/local-global-compatibility-good-reduction",
+        "PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular",
+        "PadicHodgeTheory:R06.6/semistable-reduction-semistable",
+        "PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p",
+        "PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion",
+        "ModularCurvesPartII:R13.5",
+        "AutomorphicGaloisRepresentations:R19.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "ddt",
+          "locator": "Theorem 3.1(a), p. 86 (revision of 9 September 2007)",
+          "match": "ρ_f unramified outside Nℓ with Frobenius polynomial X² − a_pX + pψ(p)."
+        },
+        {
+          "sourceId": "ddt",
+          "locator": "Proof of Theorem 3.1, p. 87",
+          "match": "Good reduction of A_f at ℓ ∤ N; (g) from Deligne–Rapoport."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p",
+      "parentStageId": "PadicHodgeTheory:R06.6",
+      "realises": [
+        "PadicHodgeTheory:R06.6"
+      ],
+      "title": "Local–global compatibility at p for modular forms (Scholl, Saito)",
+      "kind": "theorem",
+      "statement": "Throughout: a newform g of weight k ≥ 2, level N and character ψ has coefficients in a number field K ⊂ C; λ is a place of K above the prime p, and M_g is the rank-two premotivic structure over K cut out of the parabolic cohomology of the modular curve with coefficients in Sym^{k−2} of the relative H^1 of the universal elliptic curve (equivalently of a Kuga–Sato variety) by the Hecke ideal of g, in the normalisation of Diamond–Flach–Guo (arXiv v2): ∧²M_g ≅ M_ψ(1 − k) and Frob_p denotes a geometric Frobenius. Its λ-adic realisation M_{g,λ} is the cohomological representation, and V_g := M_{g,λ}^∨ is the covariant one (det V_g = ψ^{−1}χ^{k−1}). Period functors are covariant and Hodge–Tate weights follow HT(χ) = +1. For every prime p and λ | p, M_{g,λ}|_{G_{Q_p}} is potentially semistable, and the Frobenius-semisimplification of its Weil–Deligne representation WD(M_{g,λ}|_{G_{Q_p}}) is K-rational and corresponds to π_p(g) under the local Langlands correspondence normalised as in Carayol. Hence the p-adic and ℓ-adic Frobenius-semisimple Weil–Deligne representations of g at p agree for every ℓ, and: (a) M_{g,λ}|_{G_{Q_p}} is crystalline iff π_p(g) is unramified (p ∤ N), recovering PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes; (b) it is semistable iff π_p(g) has nonzero Iwahori-fixed vectors (an unramified principal series or an unramified twist of Steinberg), for instance p ∥ N with ψ unramified at p, where N ≠ 0; (c) it is potentially crystalline iff π_p(g) is not a twist of Steinberg; (d) the inertial type of M_{g,λ}|_{G_{Q_p}} is that of π_p(g).",
+      "hypotheses": [
+        "Scholl proved the case p ∤ N and T. Saito (Invent. Math. 129, 1997) the general case; Saito's 1997 paper is not public and is not read here. The statement is quoted from Diamond–Flach–Guo (arXiv v2, §5.5) and the proof outline follows Saito's Hilbert-modular paper, which uses the same method (PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p).",
+        "This is a statement about newforms. It does not make an almost strictly compatible system strict, and it does not fix the Weil–Deligne parameter at the coefficient prime of a compatible system that is not known to come from a newform."
+      ],
+      "proofSteps": [
+        "Potential semistability: M_{g,λ} is a summand of the étale cohomology of a smooth proper Kuga–Sato variety, hence de Rham (PadicHodgeTheory:R06.5/modular-form-de-rham-realisation) and potentially semistable by the p-adic monodromy theorem (PadicHodgeTheory:R06.3/p-adic-monodromy-theorem).",
+        "Saito's method: over Z_p[ζ_{p^r}] the Kuga–Sato variety of full level p^r acquires a semistable model; Tsuji's C_st (CohomologyComparisons CP.4, request) identifies D_st with its log-crystalline (Hyodo–Kato) cohomology, and the Lefschetz trace formula, which has the same shape for log-crystalline and ℓ-adic cohomology, gives Tr WD_p(σ) = Tr WD_ℓ(σ) for σ in the positive part of the Weil group.",
+        "Monodromy: the weight spectral sequence (WeightsInEtaleCohomology R34.3, request) and the Weil conjectures show that the monodromy filtration is pure; with equal traces this forces N_p = 0 iff N_ℓ = 0, and then the Frobenius-semisimple representations agree (Saito's Lemma 1).",
+        "ℓ-adic side: Carayol's theorem (AutomorphicGaloisRepresentations R19.4, request) matches WD_ℓ with π_p(g) under local Langlands (GL2AutomorphicRepresentationsAndTransfer R16.3, request).",
+        "(a)–(c) from PadicHodgeTheory:R06.3/weil-deligne-descent (b): semistable iff inertia acts trivially on WD, crystalline iff moreover N = 0, potentially crystalline iff N = 0; π_p(g) has nonzero Iwahori-fixed vectors iff its parameter is unramified on inertia."
+      ],
+      "acceptance": [
+        "Δ at any p: π_p(Δ) is unramified, so V_Δ|_{G_{Q_p}} is crystalline for every p.",
+        "11a1 at 11 (weight two, p ∥ N): π_11 is Steinberg, WD has N ≠ 0: the Tate curve D_q (PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module).",
+        "A newform with supercuspidal π_p: WD irreducible, inertia acts through a nonabelian finite quotient, V_g is potentially crystalline but not semistable."
+      ],
+      "prerequisites": [
+        "PadicHodgeTheory:R06.5/modular-form-de-rham-realisation",
+        "PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes",
+        "PadicHodgeTheory:R06.3/p-adic-monodromy-theorem",
+        "PadicHodgeTheory:R06.3/weil-deligne-parameter",
+        "PadicHodgeTheory:R06.3/weil-deligne-descent",
+        "CohomologyComparisons:CP.4",
+        "WeightsInEtaleCohomology:R34.3",
+        "AutomorphicGaloisRepresentations:R19.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "AutomorphicGaloisRepresentations:R19.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "dfg-arxiv",
+          "locator": "§5.5, p. 60 (arXiv v2)",
+          "match": "D_pst(M_λ|G_p)^ss corresponds to π_p via local Langlands for all p and λ."
+        },
+        {
+          "sourceId": "dfg-arxiv",
+          "locator": "§5.5, p. 60 (arXiv v2)",
+          "match": "Attribution: Scholl at good primes, Saito in general."
+        },
+        {
+          "sourceId": "saito-hilbert",
+          "locator": "Abstract, p. 1 (arXiv v2)",
+          "match": "Saito's Hilbert paper refers to his 1997 paper for elliptic modular forms."
+        }
+      ],
+      "planet": {
+        "name": "Local–global compatibility at p for modular forms"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p",
+      "parentStageId": "PadicHodgeTheory:R06.6",
+      "realises": [
+        "PadicHodgeTheory:R06.6"
+      ],
+      "title": "Saito's theorem for Hilbert modular forms: potential semistability and compatibility with local Langlands",
+      "kind": "theorem",
+      "statement": "Let F be a totally real field of degree g > 1, f a normalised Hilbert eigen-newform of multiweight k = (k_1, …, k_g, w) (w ≥ k_i ≥ 2, k_i ≡ w mod 2) with coefficient field L(f), and assume, when g is even, that π_{f,v} is in the discrete series at some finite place v (Carayol's hypothesis). Let 𝔭 be a place of F above p and μ a place of L(f) above p, and ρ_{f,μ} the associated μ-adic representation (geometric Frobenius at 𝔭 ∤ nℓ with characteristic polynomial the Euler factor of f). Then (Theorem 1) ρ_{f,μ}|_{G_{F_𝔭}} is potentially semistable and its Frobenius-semisimple Weil–Deligne representation is isomorphic to σ̌_h(π_{f,𝔭}), the dual of the Hecke-normalised local Langlands parameter; and (Theorem 2) the monodromy filtration of the Weil–Deligne representations of ρ_{f,λ}|_{G_{F_𝔭}} (λ ∤ p) and of ρ_{f,μ}|_{G_{F_𝔭}} is pure of weight w − 1: an eigenvalue of a Frobenius lift has weight w − 1 if N = 0, and weight w − 2 on ker N and w on coker N if N ≠ 0. With the Weil–Deligne relation normalised as F N F^{−1} = N𝔭^{−1}·N for a geometric Frobenius F (not Saito's printed sign; sourceIssue PadicHodgeTheory/E50).",
+      "hypotheses": [
+        "The Shimura curves and their semistable models are HilbertModularVarietiesAndShimuraCurves R18.2 (request); Carayol's ℓ-adic theorem (Saito's Theorem 0) is AutomorphicGaloisRepresentations R19.4 (request).",
+        "Saito's proof of Proposition 1 (§10) and the construction of §§6–7 were read at statement level only."
+      ],
+      "proofSteps": [
+        "Carayol's construction: ρ_{f,λ} is cut out of H^1 of a Shimura curve with coefficients (§3), and Saito realises it in the étale cohomology of a Kuga–Sato analogue over the Shimura curve by algebraic correspondences (§§4–6).",
+        "The construction extends to semistable models (§7); Tsuji's semistable comparison (CohomologyComparisons CP.4, request) and the weight spectral sequence (WeightsInEtaleCohomology R34.3, request) compute traces and monodromy in terms of the reduction.",
+        "The Lefschetz trace formula, of the same form for ℓ-adic and crystalline cohomology, gives Claim 1(1): equal traces of the p-adic and ℓ-adic Weil–Deligne representations on the positive part of the Weil group; this includes potential semistability (Claim 1(0)).",
+        "Theorem 2 (purity) follows from the Weil conjectures and a vanishing of global sections; with equal traces it distinguishes N = 0 from N ≠ 0 by absolute values (Claim 1(2)), and Saito's Lemma 1 gives the isomorphism of Frobenius-semisimplifications.",
+        "Transport to local Langlands: Carayol's Theorem 0 on the ℓ-adic side (R19.4 request), normalised by σ̌_h (GL2AutomorphicRepresentationsAndTransfer R16.3, request); the Weil–Deligne functor is PadicHodgeTheory:R06.3/weil-deligne-parameter."
+      ],
+      "acceptance": [
+        "Unramified π_{f,𝔭}: ρ_{f,μ}|_{G_{F_𝔭}} is crystalline (N = 0, trivial inertia; PadicHodgeTheory:R06.3/weil-deligne-descent (b)).",
+        "Special π_{f,𝔭} (unramified twist of Steinberg): semistable, N ≠ 0, Frobenius weights w − 2 and w.",
+        "Sign check with the Tate curve over Q_p (w = 2): on H^1 = V_p(E_q)^∨ a geometric Frobenius acts by 1 on ker N and by p on coker N (weights 0 = w − 2 and 2 = w, as in Theorem 2), and N maps the p-eigenline to the 1-eigenline, so F N F^{−1} = p^{−1}N."
+      ],
+      "prerequisites": [
+        "HilbertModularVarietiesAndShimuraCurves:R18.2",
+        "AutomorphicGaloisRepresentations:R19.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "CohomologyComparisons:CP.4",
+        "WeightsInEtaleCohomology:R34.3",
+        "PadicHodgeTheory:R06.3/weil-deligne-parameter",
+        "PadicHodgeTheory:R06.3/weil-deligne-descent",
+        "PadicHodgeTheory:R06.3/p-adic-monodromy-theorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "saito-hilbert",
+          "locator": "Theorem 1, p. 12 (arXiv v2)",
+          "match": "Theorem 1."
+        },
+        {
+          "sourceId": "saito-hilbert",
+          "locator": "Theorem 2, p. 13 (arXiv v2)",
+          "match": "Theorem 2: purity of the monodromy filtration, weight w − 1."
+        },
+        {
+          "sourceId": "saito-hilbert",
+          "locator": "Introduction, p. 1 (arXiv v2)",
+          "match": "The method: comparison with the ℓ-adic side through traces and the monodromy-weight conjecture."
+        }
+      ],
       "implementationStatus": "unchecked"
     }
   ],
@@ -1042,28 +1359,85 @@
         "PadicHodgeTheory:R06.6/kummer-representations-semistable",
         "PadicHodgeTheory:R06.6/tate-curve-l-invariant"
       ]
+    },
+    {
+      "supplier": "AutomorphicGaloisRepresentations:R19.1",
+      "need": "For a newform g of weight k ≥ 2, level N, character ψ: the rank-two premotivic structure M_g (Betti, de Rham with Hodge filtration, λ-adic realisations) cut out of parabolic cohomology with Sym^{k−2} coefficients by the Hecke ideal of g, with Fil^{k−1}M_{g,dR} = Kg and ∧²M_g ≅ M_ψ(1 − k); its realisation as a summand of H^{k−1} of a smooth proper Kuga–Sato variety over Q with a smooth proper model over Z[1/N] and the Hecke idempotent as a correspondence (Scholl); the Eichler–Shimura relation giving the characteristic polynomial X² − a_pX + ψ(p)p^{k−1} of a geometric Frobenius at p ∤ Nℓ; and for k = 2 the identification V_p(A_f) ≅ ⊕_{λ|p} ρ_{f,λ}.",
+      "neededBy": [
+        "PadicHodgeTheory:R06.5/modular-form-de-rham-realisation",
+        "PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes",
+        "PadicHodgeTheory:R06.5/weight-two-modular-abelian-varieties",
+        "PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p"
+      ]
+    },
+    {
+      "supplier": "AutomorphicGaloisRepresentations:R19.4",
+      "need": "Carayol's theorem: for elliptic and Hilbert newforms (with his discrete-series hypothesis when [F : Q] is even), the Frobenius-semisimple Weil–Deligne representation of ρ_{f,λ}|_{G_{F_𝔭}}, 𝔭 ∤ ℓ, corresponds to π_{f,𝔭} under local Langlands (Hecke normalisation σ̌_h).",
+      "neededBy": [
+        "PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p",
+        "PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p"
+      ]
+    },
+    {
+      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+      "need": "The local Langlands correspondence for GL_2 over p-adic fields with its normalisations (Hecke σ_h, Carayol), matching unramified principal series with unramified parameters, twists of Steinberg with N ≠ 0, and supercuspidals with irreducible parameters; compatibility with twists and central characters.",
+      "neededBy": [
+        "PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p",
+        "PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R13.5",
+      "need": "Deligne–Rapoport: for p ∥ N the modular curve of level Γ_1(N/p) ∩ Γ_0(p) has a semistable model over Z_p, so its Jacobian and the quotients A_f of weight-two newforms of level N with character unramified at p have semistable reduction at p.",
+      "neededBy": [
+        "PadicHodgeTheory:R06.5/weight-two-modular-abelian-varieties"
+      ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.2",
+      "need": "Shimura curves attached to a quaternion algebra over a totally real F split at one real place, Carayol's integral models and the semistable models at primes of level p used by T. Saito (Hilbert modular forms and p-adic Hodge theory, §§4–7).",
+      "neededBy": [
+        "PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p"
+      ]
+    },
+    {
+      "supplier": "CohomologyComparisons:CP.4",
+      "need": "Tsuji's C_st: for a proper semistable scheme over O_K, H^i_et(X_K̄, Q_p) is semistable and D_st(H^i) ≅ the Hyodo–Kato cohomology with φ, N and the filtration from de Rham cohomology, compatibly with correspondences.",
+      "neededBy": [
+        "PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p",
+        "PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p"
+      ]
+    },
+    {
+      "supplier": "WeightsInEtaleCohomology:R34.3",
+      "need": "The Rapoport–Zink/Mokrane weight spectral sequences (ℓ-adic and log-crystalline) for semistable models and the Weil-conjecture purity input used to prove that the monodromy filtration of the modular-form summand is pure (Saito's Theorem 2).",
+      "neededBy": [
+        "PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p",
+        "PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p"
+      ]
     }
   ],
   "coverage": [
     {
       "stageId": "PadicHodgeTheory:R06.5",
       "status": "partial",
-      "note": "The abelian-variety applications are planned: the crystalline comparison for smooth proper O_K-schemes identified with D_cris (from CohomologyComparisons CP.2), D_cris of abelian schemes, de Rham-ness and Hodge–Tate weights of V_p(A), Weil-pairing duality with the determinant test, and the ordinary/supersingular example.",
+      "note": "The abelian-variety applications and the modular-curve and Kuga–Sato applications are planned: CP.2 read through D_cris, D_cris of abelian schemes, Hodge–Tate weights, Weil-pairing duality, the ordinary/supersingular example, the de Rham realisation of modular forms with weights 0 and 1 − k, crystallinity at p ∤ N with Frobenius polynomial X² − a_pX + ψ(p)p^{k−1} and the ordinary criterion, and the weight-two Barsotti–Tate and ordinary cases.",
       "remaining": [
-        "Modular curves, Kuga–Sato varieties and Shimura curves: V_f of a newform crystalline at p ∤ N with D_cris Frobenius polynomial X² − a_pX + χ(p)p^{k−1}, and the semistable and potentially semistable statements at p | N (Scholl, Faltings, T. Saito 1997). Not planned in this checkpoint.",
-        "The semistable geometric branch for general semistable models (CP.4 Hyodo–Kato comparison; WeightsInEtaleCohomology R34.3). Only abelian varieties are treated, through Raynaud (PadicHodgeTheory:R06.6/semistable-reduction-semistable).",
-        "The Berthelot–Breen–Messing comparison of H^1_cris with the Dieudonné module is quoted from Brinon–Conrad Remark 7.3.3, not read.",
+        "The endpoint-weight case consumed by R19.5 (k = p + 1 and weight p) is not planned; it is PadicHodgeTheory R06.4's weight-p branches applied to V_g.",
+        "The semistable geometric branch for general semistable models (CP.4 Hyodo–Kato; WeightsInEtaleCohomology R34.3) is used only through requests; the Shimura-curve de Rham realisation (Hodge filtration of Carayol's coefficient systems) is quoted from Saito at statement level.",
+        "Berthelot–Breen–Messing (Dieudonné module versus H^1_cris) is quoted from Brinon–Conrad Remark 7.3.3, not read.",
+        "Scholl's crystalline theorem and Frobenius polynomial are quoted through Diamond–Flach–Guo; Scholl's paper is not read.",
         "CP.2's remaining G_K- and Frobenius-compatibility is inherited by PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction."
       ]
     },
     {
       "stageId": "PadicHodgeTheory:R06.6",
       "status": "partial",
-      "note": "Kummer extensions and their D_st, the Tate curve (Tate module, filtered (φ,N)-module, L-invariant), the p-adic good-reduction criterion, semistable reduction for abelian varieties, all elliptic curves with v(j) < 0, and local–global compatibility at good places and at multiplicative elliptic places are planned.",
+      "note": "Kummer extensions and the Tate curve, the p-adic criterion of good reduction, semistable reduction, elliptic curves with v(j) < 0, local–global compatibility at good places for abelian varieties, and the R19 inputs for modular forms (Scholl, Saito) and Hilbert modular forms (Saito) are planned.",
       "remaining": [
-        "Local–global compatibility for modular forms (T. Saito 1997, Scholl) as consumed by AutomorphicGaloisRepresentations R19.5: needs the R06.5 modular-form application first.",
-        "Rank of N on D_st(V_p(A)) equal to the toric rank (Coleman–Iovita; Grothendieck's monodromy pairing) is left to NeronModelsAndSemistableAbelianVarieties R11.4–R11.5; only \"N = 0 iff good reduction\" is planned.",
-        "The converse semistable criterion (V_p(A) semistable ⇒ A has semistable reduction) is not planned.",
+        "T. Saito's 1997 paper (the elliptic case of the compatibility at p | N) is not public; the statement is quoted from Diamond–Flach–Guo and the proof follows the Hilbert-modular paper.",
+        "Rank of N on D_st(V_p(A)) equal to the toric rank is left to NeronModelsAndSemistableAbelianVarieties R11.4–R11.5.",
+        "The converse semistable criterion (V_p(A) semistable ⇒ semistable reduction) is not planned.",
         "Weil–Deligne comparison at p for abelian varieties with bad reduction other than multiplicative elliptic curves is not planned."
       ]
     }
@@ -1091,6 +1465,21 @@
         "PadicHodgeTheory:R06.6/tate-curve-tate-module"
       ],
       "detail": "Silverman, Advanced Topics V.3–V.5, is not public; the Tate-curve facts are requested from the Tau Ceti EllipticCurves Layer 4, which plans them. Berger II.4.1 states the isomorphism with E_q without the split hypothesis (sourceIssue PadicHodgeTheory/E43)."
+    },
+    {
+      "title": "Saito 1997 not public",
+      "neededBy": [
+        "PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p"
+      ],
+      "detail": "The elliptic case of compatibility at p | N (T. Saito, Invent. Math. 129 (1997), 607–620) is behind a paywall. The statement is quoted from Diamond–Flach–Guo §5.5 and Saito's Hilbert paper states that the method is the same; the node's proof outline follows the Hilbert paper. NEXT ACTION: look for an author copy on T. Saito's page (ms.u-tokyo.ac.jp/~t-saito/pp/)."
+    },
+    {
+      "title": "Scholl's Kuga–Sato motives not read",
+      "neededBy": [
+        "PadicHodgeTheory:R06.5/modular-form-de-rham-realisation",
+        "PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes"
+      ],
+      "detail": "Scholl, Motives for modular forms (Invent. Math. 100, 1990) supplies the smooth proper Kuga–Sato model over Z[1/N] and the crystalline Frobenius polynomial; both are quoted through Diamond–Flach–Guo and requested from R19.1."
     }
   ],
   "sourceIssues": [
@@ -1220,6 +1609,52 @@
         "arXiv:math/9701229: v1 only (the file has the Introduction and Chapter I)",
         "The Duke Math. J. 97 (1999) version was not seen"
       ]
+    },
+    {
+      "id": "PadicHodgeTheory/E48",
+      "source": "dfg-asens",
+      "kind": "misprint",
+      "locator": "§1.1.1, p. 669 (Ann. Sci. ÉNS 2004); checked on the page image",
+      "printed": "The source characterizes Mλ|Gp as crystalline precisely when WDp(Mλ) is unramified …; in that case it identifies WDp(Mλ) = Q_p^ur ⊗Qp Dcrys(Mλ), assigning to Frobp the action 1 ⊗ φ^{−1}.",
+      "correction": "With Frob_p the geometric Frobenius (p. 668), it acts via 1 ⊗ φ; equivalently the arithmetic Frobenius acts via 1 ⊗ φ^{−1}.",
+      "reason": "For V = Q_p(1), D_crys = Q_p t^{−1} with φ = p^{−1}, and the geometric Frobenius acts on the ℓ-adic Q_ℓ(1) by p^{−1}; with 1 ⊗ φ^{−1} it would act by p. For M_f, (18) gives the geometric Frobenius the characteristic polynomial X² − ψ(p)^{−1}a_pX + ψ(p)^{−1}p^{k−1}; with φ^{−1} this would make det φ of valuation 1 − k, while the Hodge jumps 0 and k − 1 force t_N = k − 1.",
+      "affects": "nothing",
+      "known": "corrected in the authors' arXiv version 2512.02348v2 (11 Dec 2025), §1.1, p. 6: Frob_p is geometric, φ_p = Frob_p^{−1}, and (ρ, N) with ρ(g) = gφ^{ν(g)}",
+      "searched": [
+        "arXiv:2512.02348v2 §1.1 (read)",
+        "Numdam page of the article (no erratum listed)"
+      ]
+    },
+    {
+      "id": "PadicHodgeTheory/E49",
+      "source": "dfg-asens",
+      "kind": "misprint",
+      "locator": "§1.6.3, p. 684 (Ann. Sci. ÉNS 2004); checked on the page image",
+      "printed": "The source attributes the case where λ does not divide p and p does not divide N to Eichler–Shimura relation (18); when λ divides p and p divides N, it credits Deligne, Langlands and Carayol [9]; the case λ|p, p ∉ S is attributed to Scholl [75].",
+      "correction": "\"for λ not dividing p and p dividing N, this is due to Deligne, Langlands and Carayol\".",
+      "reason": "Carayol's theorem concerns λ ∤ p; and λ | p with p | N lies in the excluded set S = S_N (primes dividing Nk!, p. 673), so the printed case is outside the statement.",
+      "affects": "nothing",
+      "known": "corrected in arXiv:2512.02348v2, §5.5, p. 60: \"by Langlands, Deligne and Carayol [Ca0] for λ ∤ p, and by Scholl [Scho2] and Saito [Sai] in general\"",
+      "searched": [
+        "arXiv:2512.02348v2 §5.5 (read)",
+        "Numdam page of the article (no erratum listed)"
+      ]
+    },
+    {
+      "id": "PadicHodgeTheory/E50",
+      "source": "saito-hilbert",
+      "kind": "misprint",
+      "locator": "§2, p. 9 and p. 12 (arXiv v2); checked on the page images",
+      "printed": "On p. 9, the source requires a nilpotent endomorphism N of V with ρ(σ)Nρ(σ)^{−1} = N𝔭^{n(σ)}N. It specifies n : W(F̄_𝔭/F_𝔭) → Z as the canonical surjection taking geometric Frobenius … to 1. On p. 12 it requires σN = N𝔭^{n(σ)}Nσ, citing φN = pNφ.",
+      "correction": "ρ(σ)Nρ(σ)^{−1} = N𝔭^{−n(σ)}N, and σN = N𝔭^{−n(σ)}Nσ since Nφ = pφN.",
+      "reason": "Fontaine's B_st satisfies Nφ = pφN (on u = log[p̃]: N(φu) = −p = pφ(Nu)), which gives F N F^{−1} = N𝔭^{−1}N for a geometric Frobenius F; this is Deligne's relation and the one forced by Grothendieck's ℓ-adic monodromy theorem. Saito's own Theorem 2 (p. 13: weight w − 2 on ker N, w on coker N; N: Gr_1^W(1) ≅ Gr_{−1}^W) also requires F N F^{−1} = N𝔭^{−1}N. The two printed relations are reversed consistently, so the construction and the theorems are unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:math/0612077 (v2 read; v1 not compared)",
+        "The Compositio Math. 145 (2009) text was not seen",
+        "T. Saito's page (ms.u-tokyo.ac.jp/~t-saito/pp/h.pdf) hosts the same preprint"
+      ]
     }
   ],
   "sourceVersions": [
@@ -1243,6 +1678,34 @@
       "citation": "R. Coleman and A. Iovita, The Frobenius and monodromy operators for curves and abelian varieties",
       "read": "2026-09-29",
       "sha256": "797d8361ffdb5db2460a5830ef913a8ea7d9cefc6803ae4b8265d651fa039530"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/2512.02348v2",
+      "citation": "F. Diamond, M. Flach and L. Guo, Adjoint motives of modular forms and the Tamagawa number conjecture",
+      "read": "2026-09-29",
+      "sha256": "0f4984acdabd2efd542aae932850da83c36ec023185a47f40c8ef5813bd21898"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/ASENS_2004_4_37_5_663_0/",
+      "citation": "F. Diamond, M. Flach and L. Guo, Ann. Sci. ÉNS 37 (2004)",
+      "read": "2026-09-29",
+      "sha256": "385dc212a14bf884a29564375cf6308f310feac2c0b634c418e7bb46d50472a3"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/math/0612077v2",
+      "citation": "T. Saito, Hilbert modular forms and p-adic Hodge theory",
+      "read": "2026-09-29",
+      "sha256": "fb5b69b76d2257ce20f47366c4bd165ccdb571333e7f25a4ed6e92dbb4b55df7"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf",
+      "citation": "H. Darmon, F. Diamond and R. Taylor, Fermat's Last Theorem",
+      "read": "2026-09-29",
+      "sha256": "254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3"
     }
   ]
 }
