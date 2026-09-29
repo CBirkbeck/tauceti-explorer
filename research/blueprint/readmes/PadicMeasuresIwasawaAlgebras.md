@@ -1,6 +1,158 @@
+# L4: the structure theory of Iwasawa modules (checkpoint L4-1)
+
+**Current checkpoint:** 369 unchecked nodes (21 new, all in L4). The 348 preceding nodes and 14 source findings are
+unchanged. The checkpoint adds one finding (E15), two outgoing requests and five L4 planets. L4 is now partial.
+
+**Sources.**
+- Neukirch–Schmidt–Wingberg, *Cohomology of Number Fields* (2nd ed., electronic version 2.3), Chapter V §1
+  (5.1.1–5.1.10) and §3 (5.3.1–5.3.20 with Exercises 1–4). These are free from the
+  [authors' page](https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/); printed page = PDF page − 14.
+- RJW §13.1 (Theorem 13.1, Definitions 13.3 and 13.5, Lemmas 13.4 and 13.6) and the proof of Lemma 10.7.
+
+**Mathlib already supplies**, so nothing here restates it:
+- Weierstrass division and preparation (`PowerSeries.exists_isWeierstrassDivision`,
+  `PowerSeries.exists_isWeierstrassFactorization`, `IsWeierstrassFactorization.unique`,
+  `IsWeierstrassFactorizationAt.algEquivQuotient`);
+- distinguished polynomials (`Polynomial.IsDistinguishedAt`);
+- the instances making R⟦X⟧ noetherian for noetherian R, and factorial for a principal ideal domain R;
+- lengths (`Module.length`), heights, reflexive modules and `IsRegularLocalRing`.
+
+What is new is the module theory on top of these.
+
+**Conventions.**
+- O is a complete discrete valuation ring with uniformizer ϖ and finite residue field, and Λ = O⟦T⟧.
+- The μ-part of the structure theorem uses powers of ϖ, not of p.
+- Pseudo-isomorphism is an equivalence relation only on finitely generated torsion modules.
+- The growth formula is stated for O = ℤ_p.
+
+## L4 declarations
+
+### NSW V §1: modules over a normal domain
+
+- **Duals and biduals** (`L4/bidual-intersection`; NSW 5.1.1–5.1.3). For M finitely generated torsion-free,
+  M⁺ = ⋂ M⁺_𝔭 and M⁺⁺ = ⋂ M_𝔭 over the height-one primes. M is reflexive iff M = ⋂ M_𝔭, and duals are reflexive.
+- **Definition: pseudo-null modules** (`IsPseudoNull`; node `L4/pseudo-null`; NSW 5.1.4). A pseudo-null module
+  vanishes at every prime of height ≤ 1.
+  - *API:*
+    - the annihilator criterion;
+    - pseudo-null modules are torsion;
+    - over a Dedekind domain, pseudo-null means zero;
+    - over a two-dimensional normal local ring with finite residue field, pseudo-null means finite;
+    - closure under submodules, quotients and extensions.
+  - *Unit tests:*
+    - Λ/(p, T) is pseudo-null;
+    - Λ/(p) is not (non-example);
+    - over ℤ_p, ℤ/p is not;
+    - ℤ_p⟦T₁, T₂⟧/(T₁, T₂) ≅ ℤ_p is pseudo-null but infinite (non-example: codimension two, not finiteness).
+- **Definition: pseudo-isomorphisms** (`IsPseudoIsomorphism`; node `L4/pseudo-isomorphism`; planet; NSW 5.1.5–5.1.6,
+  Remark 1 after 5.1.7, §3 Exercise 1). Kernel and cokernel are pseudo-null.
+  - *API:*
+    - the localisation criterion;
+    - Lemma 5.1.6 (multiplication by α);
+    - composition;
+    - reverse maps for torsion modules;
+    - finite kernel and cokernel over O⟦T⟧.
+  - *Unit tests:*
+    - p·: Λ/(T) → Λ/(T);
+    - 𝔪 ↪ Λ has no reverse pseudo-isomorphism (non-example);
+    - over a Dedekind domain, pseudo-isomorphisms are isomorphisms;
+    - agreement with RJW's definition.
+- **Theorem: torsion modules over a normal domain** (`L4/torsion-structure-normal-domain`; NSW 5.1.7).
+  - M ≈ T(M) ⊕ F(M), and T(M) ≈ ⊕ A/𝔭_i^{n_i} with unique data.
+  - This is the statement that applies to O⟦ℤ_p^d⟧ once its normality is supplied.
+- **The reflexive hull** (`L4/reflexive-hull`; NSW 5.1.8) and **reflexive modules over regular local rings**
+  (`L4/reflexive-free-over-regular-local`; NSW 5.1.9, after Diekert).
+- **Theorem: the structure theorem in dimension two** (`L4/structure-theorem-regular-dimension-two`; NSW 5.1.10).
+
+### NSW V §3 and RJW §13.1: O⟦T⟧-modules
+
+- **O⟦T⟧ is two-dimensional regular local** (`L4/iwasawa-algebra-regular-local`). Its height-one primes are (ϖ) and
+  (F) for irreducible distinguished F (`L4/height-one-primes`; NSW 5.3.7, generalised from ℤ_p).
+- **Comparison with Mathlib's Weierstrass theory** (`L4/weierstrass-adapter`; NSW 5.3.1–5.3.4). The only new clause
+  is that F is the characteristic polynomial of T on O⟦T⟧/(f).
+- **Nonzero power series** (`L4/nonzero-power-series-factorization`; RJW Lemma 10.7, NSW 5.3.4).
+  - f = ϖ^μ·F·u, uniquely, with at most deg F zeros in the open unit disc.
+  - The zero series is excluded.
+  - This serves ColemanPowerSeries L1.
+- **ω_n and ξ_n** (`L4/cyclotomic-weierstrass-polynomials`; NSW 5.3.5, 5.3.13).
+  - They are distinguished, with ω_n = ξ₀⋯ξ_n and ⋂ω_nΛ = 0.
+  - The identification O⟦T⟧/(ω_n) ≅ O[Γ/Γ_n] is requested from ProfiniteProPGroups Layer 9.
+- **Theorem: the structure theorem for Iwasawa modules** (`L4/iwasawa-module-structure-theorem`; planet; NSW 5.3.8,
+  RJW Theorem 13.1). M → Λ^r ⊕ ⊕Λ/(ϖ^{m_i}) ⊕ ⊕Λ/(F_j^{n_j}) has finite kernel and cokernel, with unique data.
+- **Definition: μ, λ and the characteristic polynomial** (node `L4/iwasawa-invariants`; planet; NSW 5.3.9 with
+  Remarks 1–3).
+  - *API:*
+    - `muInvariant`, `lambdaInvariant`, `charPoly`;
+    - λ = dim M ⊗ Frac O;
+    - F_M = charpoly of T;
+    - additivity and multiplicativity;
+    - finite ⇔ μ = λ = 0;
+    - r, μ and λ are independent of γ.
+  - *Unit tests:*
+    - Λ/(p);
+    - Λ/(T² + pT + p);
+    - Λ/(p, T);
+    - F_{M,γ} ≠ F_{M,γ²} for Λ/(T − p) (non-example, checked in the suggested file);
+    - μ(Λ/(ϖ)) = 1 over ℤ_p[√p].
+- **Definition: the characteristic ideal** (node `L4/characteristic-ideal`; planet).
+  - It is defined intrinsically from lengths at height-one primes. It is principal when A is factorial.
+  - It is multiplicative, pseudo-isomorphism invariant, and (f) on A/(f).
+  - It is A exactly for pseudo-null modules.
+  - On Λ it equals (ϖ^μF_M).
+  - *API:*
+    - behaviour under ring automorphisms (twisting, inversion, change of generator);
+    - finite flat base change;
+    - the norm formula under restriction of scalars from O⟦T⟧ to ℤ_p⟦T⟧, which serves NoncommutativeAndEquivariantIwasawa's request.
+  - *Unit tests:*
+    - char(Λ/(T² − p)) = (T² − p);
+    - char(Λ/(p, T)) = Λ but Fitt₀ = (p, T);
+    - Λ/(T²) and Λ/(T)² share (T²) but are not pseudo-isomorphic (non-example);
+    - over ℤ_p[i] with p ≡ 3 mod 4, Λ_O/(T − ip) has ℤ_p⟦T⟧-characteristic ideal (T² + p²).
+- **Construction: the isotypic decomposition** (node `L4/character-decomposition`; RJW Lemma 13.4 and
+  Definition 13.5). This covers Γ = H × ℤ_p with #H prime to p.
+  - *API:*
+    - the idempotents e_ω and their relations;
+    - the components M^{(ω)} and the decomposition;
+    - the product characteristic ideal.
+  - *Unit tests:*
+    - e_± = (1 ± h)/2 (checked);
+    - Teichmüller characters need no extension of ℤ_p;
+    - for H = C_p there are no idempotents (non-example);
+    - H = 1.
+- **M_δ, M₀ and M_cycl** (`L4/delta-and-cyclotomic-submodules`; NSW 5.3.11–5.3.16).
+- **Theorem: Iwasawa's growth formula** (`L4/iwasawa-growth-formula`; planet; NSW 5.3.17–5.3.18).
+  - #(M/(ω_n/ω_{n₀})M) = p^{μp^n+λn+ν} for n ≫ 0.
+  - Lemma 5.3.18 is checked for λ = 1, p = 3.
+- **Freeness criteria and the minimal resolution** (`L4/projective-dimension-and-resolution`; NSW 5.3.19–5.3.20).
+- **The Euler-characteristic formula** (`L4/finite-coinvariants-euler-characteristic`; NSW §3 Exercise 3, proof
+  supplied). #M^{Γ_n}/#M_{Γ_n} = p^{−μp^n}∏|F(ζ − 1)|_p.
+- **Finite quotients** (`L4/finite-quotient-criterion`). A module killed by ϖ^k and a distinguished F is finite.
+  This serves PadicHodgeRegulators L3.
+
+## Source finding E15
+
+RJW Theorem 13.1 and Definition 13.3 (published pp. 189–190; arXiv v2 p. 65) write the μ-part over O_L⟦T⟧ as Λ/(p^{n_i})
+and the characteristic ideal as (p^n)∏(f_j^{m_j}). For ramified L this is false. Over ℤ_p(√p), Λ/(√p) has length 1
+at the height-one prime (√p), while every module of the printed form has even length there. The correction is to
+replace p by a uniformizer ϖ. No erratum is listed on arXiv or on the MSP article page.
+
+## Requests and remaining L4 work
+
+**Requests:**
+- the coordinate O⟦Γ⟧ ≅ O⟦T⟧ (Tau Ceti ProfiniteProPGroups Layer 9);
+- Fitting ideals (Tau Ceti StableReduction Layer 1).
+
+**Remaining:**
+- the multivariable algebras O⟦T₁, …, T_d⟧ (noetherian, normal, dimension d + 1);
+- NSW 5.3.10, which needs topological Nakayama (owned by L5);
+- the twisting operators on Λ(Γ);
+- Jannsen's finer classification, which is not needed.
+
+## Preceding checkpoint
+
 # Residue-class restrictions of bounded p-adic measures
 
-**Current checkpoint:** 348 unchecked nodes: 2 definitions, 45 constructions, 221 lemmas, 50 theorems and 30 comparisons; 236 API items (233 on definitions/constructions), 239 packet tests (166 on definitions/constructions), 250 typed examples, 17 planets and 321 baseline references. All 332 predecessor nodes and 14 source
+**At that checkpoint:** 348 unchecked nodes: 2 definitions, 45 constructions, 221 lemmas, 50 theorems and 30 comparisons; 236 API items (233 on definitions/constructions), 239 packet tests (166 on definitions/constructions), 250 typed examples, 17 planets and 321 baseline references. All 332 predecessor nodes and 14 source
 findings are preserved. Eight gaps, no outgoing requests and zero closed stages
 remain. Every implementation status is unchecked.
 
