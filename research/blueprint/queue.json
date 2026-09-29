@@ -8946,7 +8946,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FARGUES-SCHOLZE-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4487"
   },
   {
    "id": "REV-PAPER-FARGUES-SCHOLZE-21",
@@ -9131,8 +9132,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KOLYVAGIN-90.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4500"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4500",
+   "finishedAt": "2026-09-29T16:15:48Z"
   },
   {
    "id": "REV-PAPER-KOLYVAGIN-90",
