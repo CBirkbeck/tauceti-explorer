@@ -150046,6 +150046,26 @@
    "reviewReason": "The review redid the n = 2 computation from (13) and the residue convention."
   },
   {
+   "id": "PotentialModularityAndCompatibleSystems/E1",
+   "kind": "misprint",
+   "locator": "Bibliography, reference [33], p. 96 of the author's preprint proofs.pdf",
+   "printed": "Serre’s modularity conjecture: the level one case. Duke Math. J. 134 (3) (2006), 534–567.",
+   "correction": "Duke Math. J. 134 (3) (2006), 557–589.",
+   "reason": "Khare's level-one paper occupies pp. 557–589 of Duke Math. J. 134 (2006), no. 3; Dieulefait–Pacetti's bibliography ([Kha06]) gives 557–589, and KW I's own citation of the paper does not conflict with it.",
+   "affects": "nothing",
+   "known": "new: present in the author's preprint; the Inventiones version was not obtained",
+   "searched": [
+    "The author's preprint proofs.pdf (the version read)",
+    "Invent. Math. 178 (2009) 505–586: not obtained"
+   ],
+   "owner": "PotentialModularityAndCompatibleSystems",
+   "file": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R24.3.json",
+   "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre's modularity conjecture (II), Author's preprint (proofs.pdf) of the paper published as Invent. Math. 178 (2009), 505–586. Locators give the preprint's page numbers (1–98), which are not the Inventiones pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PrismaticCohomology/E1",
    "kind": "misprint",
    "locator": "Remark 2.5 proof, printed p.14, description of the right arrow in the first square; arXiv:1905.08229v4 only",
