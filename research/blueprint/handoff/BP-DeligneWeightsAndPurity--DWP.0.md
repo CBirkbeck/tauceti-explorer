@@ -87,3 +87,68 @@ None found in the passages read.
 - **DWP.5 and DWP.6.** Weil II (1.2.2)–(1.2.3) sheaf predicates and §§1.3–1.5. The monodromy filtration of §1.6 is
   imported from LPV.1.
 - **DWP.10.** Generic weight transport and the acceptance suite, importing WC.5 and WC.3.
+
+# Checkpoint 2 (DWP.2, Weil I §3)
+
+Agent: Claude Code, session cc-fb70e5. Refs #706.
+
+- The packet now has 28 nodes and 8 planets. The checker reports no errors and no warnings.
+- DWP.2 is `source_decomposed`. The source is Weil I §3 (3.1)–(3.9), pp. 283–287, and Scholie (2.10), read in full.
+  The Numdam scan is the same file (SHA-256 8392b345…), and every excerpt was matched against its page.
+- RS-17 narrows DWP.2, and the plan follows its keeps.
+
+## What checkpoint 2 plans
+
+Kept from the integrated decomposition's ids:
+- `weights-and-l-functions-of-lisse-sheaves-on-curves` (planet);
+- `fundamental-estimate-theorem-3-2` (planet).
+
+Refined to declaration level from the decomposition's combined nodes:
+- `positivity-of-even-tensor-power-traces` (3.3);
+- `positive-local-factors` (3.4);
+- `radius-of-convergence-of-positive-products` (3.5);
+- `poles-of-positive-products` (3.6);
+- `coarse-bound-on-compact-cohomology` (3.8);
+- `coarse-bound-on-cohomology-of-the-projective-line` (3.9).
+
+New:
+- `open-subgroups-of-symplectic-groups-are-zariski-dense`;
+- `symplectic-coinvariants-of-even-tensor-powers`, the ℚ_ℓ descent bridge that RS-17 asks for;
+- `compact-cohomology-of-even-tensor-powers` (3.7).
+
+The decomposition's node `curve-duality-inputs-2-10-2-12` is not planned here. RS-17 imports smooth duality, so
+Weil I (2.10) and (2.12) are requested from EDC.2.
+
+## Requests (new)
+
+- SchemeAndStackFoundations SF.2: the trace formula (1.14.3). RS-17 names the CohomologicalPointCounting trace formula,
+  which has no roadmap stage here; SF.2 is the stage that integrates it.
+- EtaleDualityAndPerverseSheaves EDC.2: Weil I (2.10) and (2.12).
+- Tau Ceti SchurWeyl Layer 9: complex symplectic invariant theory.
+- Tau Ceti ReductiveGroups Layers 2–3: Zariski closure, Lie algebras, and connectedness of Sp.
+
+## Fixes to checkpoint 1
+
+- The `sourceVersions` entries now use the kind "published". Checkpoint 1 used "journal scan", which is not a protocol
+  value.
+
+## Suggested Lean file
+
+A section for Weil I §3 was added. It gives the sheaf-level signatures in a comment and proves in full:
+- Lemma 3.5 for two factors (`coeff_le_coeff_mul_of_nonneg`);
+- the arithmetic core of Lemma 3.3.
+
+Lemma 3.4 is stated. The file was compiled with `lake env lean` against Mathlib 082e2d3 and exited with code 0, with 32
+`sorry` warnings and no other messages.
+
+## Source issues
+
+None found in Weil I §3.
+
+## What remains
+
+- **DWP.1.** The curve and abelian-variety estimate. AbelianSchemesAndArithmeticModuli's field-level A6 (Rosati
+  positivity) is now planned in #3930 and can be imported.
+- **DWP.3 and DWP.4.** Weil I §§5–7.
+- **DWP.5 and DWP.6.** Weil II §§1.2–1.5, sheaf level.
+- **DWP.10.** The acceptance suite.

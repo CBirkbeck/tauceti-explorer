@@ -1,6 +1,6 @@
 /-
 Suggested Lean prototypes for the roadmap "Deligne weights, purity and the Weil bounds" (DeligneWeightsAndPurity),
-part DWP.0 (stages DWP.0–DWP.6 and DWP.10); this checkpoint plans stage DWP.0.
+part DWP.0 (stages DWP.0–DWP.6 and DWP.10); checkpoints 1–2 plan stages DWP.0 and DWP.2.
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/DeligneWeightsAndPurity--DWP.0.md` is definitive. The statements below suggest Lean forms so
@@ -23,8 +23,10 @@ import Mathlib.FieldTheory.Minpoly.Field
 import Mathlib.LinearAlgebra.Charpoly.Basic
 import Mathlib.LinearAlgebra.Dual.Defs
 import Mathlib.LinearAlgebra.Eigenspace.Basic
+import Mathlib.Algebra.Order.BigOperators.Ring.Finset
 import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.RingTheory.Polynomial.Basic
+import Mathlib.RingTheory.PowerSeries.Basic
 
 open Polynomial
 
@@ -307,5 +309,49 @@ theorem twist_tensor {W : Type*} [AddCommGroup W] [Module E W] (b c : Eˣ) (F : 
   sorry
 
 end Twist
+
+/-! ## Weil I §3 (`DeligneWeightsAndPurity:DWP.2/…`)
+
+The sheaf-level statements need lisse ℓ-adic sheaves on curves and their compact cohomology, which neither pinned
+library has. They are the node `weights-and-l-functions-of-lisse-sheaves-on-curves` (`LisseSheaf.HasWeight`,
+`LisseSheaf.lFunction`), Theorem 3.2, `compact-cohomology-of-even-tensor-powers` and Corollaries 3.8–3.9. Their
+suggested signatures are:
+
+  def LisseSheaf.HasWeight (F₀ : LisseSheaf U₀ ℚ_ℓ) (β : ℤ) : Prop :=
+    ∀ x : ClosedPoint U₀, IsPure ((q : ℝ) ^ x.deg) β (F₀.frob x)
+  theorem fundamental_estimate (F₀ : LisseSheaf U₀ ℚ_ℓ) (β : ℤ) (ψ : F₀ ⊗ F₀ ⟶ ℚ_ℓ(-β))
+      (hψ : ψ.Nondegenerate ∧ ψ.IsAlt) (hmono : IsOpen (F₀.geometricMonodromy : Set (Sp F₀.stalk ψ)))
+      (hrat : ∀ x, ∀ i, (F₀.frobCharpoly x).coeff i ∈ Set.range (algebraMap ℚ ℚ_ℓ)) : F₀.HasWeight β
+
+The power-series lemmas 3.3–3.5 are prototyped below. -/
+
+section WeilI3
+
+open PowerSeries
+
+/-- Lemma 3.5 for two factors: when `f` and `g` have nonnegative coefficients and `g(0) = 1`, the coefficients of `f`
+are bounded by those of `f * g`. The countable product follows by induction and passage to the limit. -/
+theorem coeff_le_coeff_mul_of_nonneg {f g : PowerSeries ℝ} (hf : ∀ n, 0 ≤ coeff n f)
+    (hg : ∀ n, 0 ≤ coeff n g) (hg0 : constantCoeff g = 1) (n : ℕ) :
+    coeff n f ≤ coeff n (f * g) := by
+  rw [PowerSeries.coeff_mul]
+  have hmem : ((n, 0) : ℕ × ℕ) ∈ Finset.antidiagonal n := by simp
+  have h0 : coeff 0 g = 1 := by simpa using hg0
+  calc coeff n f = coeff n f * coeff 0 g := by rw [h0, mul_one]
+    _ ≤ ∑ p ∈ Finset.antidiagonal n, coeff p.1 f * coeff p.2 g :=
+        Finset.single_le_sum (f := fun p : ℕ × ℕ => coeff p.1 f * coeff p.2 g)
+          (fun p _ => mul_nonneg (hf _) (hg _)) hmem
+
+/-- Lemma 3.3, its arithmetic core: `Tr(F_xⁿ, ⊗^{2k} F₀) = Tr(F_xⁿ, F₀)^{2k}` is a nonnegative rational number. -/
+theorem even_pow_nonneg (x : ℚ) (k : ℕ) : 0 ≤ x ^ (2 * k) := by
+  rw [pow_mul]; exact pow_nonneg (sq_nonneg x) k
+
+/-- Lemma 3.4: the exponential of a power series with nonnegative coefficients and no constant term has nonnegative
+coefficients. -/
+theorem coeff_exp_nonneg {f : PowerSeries ℚ} (hf : ∀ n, 0 ≤ coeff n f) (hf0 : constantCoeff f = 0) (n : ℕ) :
+    0 ≤ coeff n (PowerSeries.mk fun m => ∑ j ∈ Finset.range (m + 1), coeff m (f ^ j) / (j.factorial : ℚ)) := by
+  sorry
+
+end WeilI3
 
 end TauCeti.Weights

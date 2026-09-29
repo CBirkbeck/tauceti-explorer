@@ -4,21 +4,22 @@
 
 This document plans part DWP.0 of `DeligneWeightsAndPurity`. The part covers the numerical and linear-algebraic notion of weight (DWP.0), the initial Weil estimate for curves and abelian varieties (DWP.1), Weil I's fundamental estimate, rationality theorem and induction (DWP.2–DWP.4), the Weil II preparations on curves (DWP.5–DWP.6), and the arithmetic interfaces (DWP.10).
 
-This first checkpoint plans DWP.0 at declaration level, from Weil I §§1–2 and Weil II §1.2. DWP.0 is what the rest of the roadmap and its consumers import: Weil q-numbers, ι-weights, and the weights of a Frobenius acting on a finite-dimensional space. The other stages are recorded with the sources to read next.
+Checkpoint 1 plans DWP.0 at declaration level, from Weil I §§1–2 and Weil II §1.2: Weil q-numbers, ι-weights, and the weights of a Frobenius acting on a finite-dimensional space. Checkpoint 2 plans DWP.2, Weil I §3: the weight of a lisse sheaf on an open curve, the symplectic coinvariants of even tensor powers, the positivity lemmas, the fundamental estimate 3.2 and the coarse bounds 3.8–3.9. The other stages are recorded with the sources to read next.
 
 ## Scope and boundaries
 
 RS-17 is accepted. It keeps DWP.0 whole and makes it the single owner of the Weil-number and ι-weight definitions and of the Frobenius-equivariant reciprocal-spectrum linear algebra. It lists as former owners WeightsInEtaleCohomology R34.1 and R34.5, WeilConjectures WC.2 and DeligneWeightsAndPurity DWP.5. These now import from DWP.0.
 
-- WeilConjectures WC.3 owns the separation of the factors of a zeta function by weight, with their integrality and ℓ-independence. The node weight-decomposition decomposes one Frobenius module and does not do that.
-- WeilConjectures WC.2 owns the functional equation and its sign, including the parity of the multiplicity of ±√c for a self-pairing. The node reciprocal-pairing-of-eigenvalues is the generic linear algebra it imports.
-- The sheaf-level predicates of Weil II (1.2.2) (pointwise pure and mixed sheaves) are DWP.5's. They apply this stage's predicates at each closed point.
-- The monodromy filtration of Weil II §1.6 is LefschetzPencilsAndVanishingCycles LPV.1's, as RS-17's DWP.5 link records.
-- EtaleDualityAndPerverseSheaves EDC.0 supplies the coefficient conventions, including ℚ_ℓ(1) under geometric Frobenius.
+It narrows DWP.2 to Weil I 3.2 with its actual hypotheses: a fixed ℚ_ℓ model, open symplectic geometric monodromy, and rational local factors. Also retained are the ℚ_ℓ symplectic coinvariants, reached by a characteristic-zero descent from the complex invariant theory, the positivity and radius lemmas 3.3–3.6, and the coarse estimates 3.8–3.9.
+
+- WeilConjectures WC.3 owns the separation of the factors of a zeta function by weight, with their integrality and ℓ-independence. WC.2 owns the functional equation and its sign.
+- The sheaf-level predicates of Weil II (1.2.2) are DWP.5's. The curve case of Weil I (3.1) is planned in DWP.2, and DWP.5 must identify its predicate with it.
+- The monodromy filtration of Weil II §1.6 is LefschetzPencilsAndVanishingCycles LPV.1's.
+- Imports: the trace formula (1.14.3) from SchemeAndStackFoundations SF.2 (the CohomologicalPointCounting trace formula RS-17 names), Weil I (2.10) and (2.12) from EtaleDualityAndPerverseSheaves EDC.2, complex symplectic invariant theory from Tau Ceti SchurWeyl Layer 9, algebraic subgroups and Lie algebras from Tau Ceti ReductiveGroups Layers 2–3, and coefficient conventions from EDC.0.
 
 ## Conventions
 
-- q > 1 is real in the definitions; in the applications q = #k₀ = p^a, and at a closed point x, q_x = q^{deg x}.
+- q > 1 is real in the definitions. In the applications q = #k₀ = p^a, and at a closed point x, q_x = q^{deg x}.
 - Frobenius is the geometric Frobenius: ℚ_ℓ(1) has eigenvalue q⁻¹ and weight −2. Passing from k₀ to its extension of degree r replaces F by F^r and q by q^r.
 - Four notions are kept distinct: algebraicity over ℚ, integrality over ℤ, purity at every complex embedding (Weil q-numbers, integer weights), and ι-purity for one field homomorphism ι into ℂ (real weights, no algebraicity).
 - Eigenvalues are the roots of the characteristic polynomial in an algebraic closure, with multiplicities equal to the dimensions of generalized eigenspaces. No eigenbasis and no semisimplicity is assumed.
@@ -666,11 +667,336 @@ No nodes yet.
 
 ## DWP.2 Weil I's fundamental estimate, with its actual hypotheses
 
-No nodes yet.
+### Objects
 
-### What is missing
+#### Definition. The weight and the L-function of a lisse sheaf on an open curve
 
-- Not planned in checkpoint 1. The integrated decomposition data/decompositions/DeligneWeightsAndPurity.json has five DWP.2 nodes from Weil I §3. Refine them to declaration level under RS-17's keeps: open symplectic monodromy, the ℚ_ℓ coinvariant bridge, Lemmas 3.3–3.6 and Corollaries 3.8–3.9. Lemma 3.3 uses (1.5.3), which is this packet's node characteristic-power-series-and-traces.
+*Module* `TauCeti/Weights/WeilI/LisseSheaf.lean`. *Node* `DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves`.
+
+Let U₀ ⊆ ℙ¹ over 𝔽_q be the complement of a finite set of closed points, U = U₀ ⊗ 𝔽̄_q, and F₀ a lisse ℚ_ℓ-sheaf on U₀, with pullback F on U. For a closed point x ∈ |U₀|, write q_x = q^{deg x} and F_x for the geometric Frobenius at x acting on the stalk of F₀ at a geometric point over x. Its characteristic polynomial does not depend on the geometric point. F₀ has weight β ∈ ℤ if, for every x ∈ |U₀|, F_x is pure of weight β relative to q_x (node endomorphism-weights of DWP.0). The L-function is Z(U₀, F₀, t) = ∏_{x ∈ |U₀|} det(1 − F_x t^{deg x}, F₀)⁻¹ ∈ ℚ_ℓ[[t]] (Weil I (1.14.1)). For example ℚ_ℓ(r) has weight −2r.
+
+*Hypotheses.*
+
+- This is Weil I (3.1): all complex conjugates of the Frobenius eigenvalues, that is, Weil q_x-numbers. DWP.5 generalizes it to Weil II's pointwise purity on schemes of finite type and to real ι-weights, and must identify its predicate with this one on open subsets of ℙ¹.
+- F₀ has a fixed ℚ_ℓ-model, as RS-17 keeps. ℚ̄_ℓ enters only through the eigenvalues.
+- The geometric Frobenius is used (DWP.0 conventions).
+
+*API.*
+
+- `LisseSheaf.HasWeight` (*data*) — HasWeight F₀ β : Prop := ∀ x ∈ |U₀|, IsPure (q ^ deg x) β (frob x F₀).
+- `LisseSheaf.frobCharpoly` (*constructor*) — frobCharpoly F₀ x = det(1 − F_x t, F₀) ∈ ℚ_ℓ[t], independent of the geometric point over x.
+- `LisseSheaf.lFunction` (*constructor*) — lFunction F₀ : PowerSeries ℚ_ℓ := ∏_x (frobCharpoly F₀ x)(t^{deg x})⁻¹.
+- `LisseSheaf.HasWeight.tensor` (*compatibility*) — HasWeight F β → HasWeight G γ → HasWeight (F ⊗ G) (β + γ).
+- `LisseSheaf.HasWeight.dual` (*compatibility*) — HasWeight F β → HasWeight F^∨ (−β).
+- `LisseSheaf.hasWeight_tate` (*simp*) — HasWeight ℚ_ℓ(r) (−2r).
+
+*Used by.*
+
+- `DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2` — the conclusion of Theorem 3.2
+- `DeligneWeightsAndPurity:DWP.2/coarse-bound-on-compact-cohomology` — the local factors of the L-function
+- `DeligneWeightsAndPurity:DWP.4` — the weights of the pencil sheaves on an open subset of ℙ¹
+- `DeligneWeightsAndPurity:DWP.5` — the curve case of pointwise purity
+
+*Unit tests.* A wrong definition fails one of these.
+
+- `hasWeight_tate` (value) — ℚ_ℓ(r) on U₀ has weight −2r: F_x acts by q_x^{−r}.
+- `hasWeight_constant` (degenerate) — The constant sheaf ℚ_ℓ has weight 0, and the zero sheaf has every weight.
+- `not_hasWeight_two` (non-example) — For q = p odd, the geometrically constant rank-one sheaf on which F_x acts by 2^{deg x} has no weight, since 2 = p^{β/2} has no integer solution β. It is ι-pure of the real weight 2 log_p 2.
+- `lFunction_affine_line` (value) — Z(𝔸¹, ℚ_ℓ, t) = 1/(1 − qt).
+
+*Construction.*
+
+1. The Frobenius at x is well defined up to conjugacy in π₁(U₀) (Weil I (1.13), (1.15)), so its characteristic polynomial on F₀ is well defined.
+2. Weight: apply DWP.0/endomorphism-weights at each closed point with base q_x. Finite extension of 𝔽_q is handled by DWP.0/finite-field-base-extension-of-weights.
+3. L-function: a product over closed points of power series with constant term 1. It converges t-adically because there are finitely many closed points of each degree. The trace formula expressing it through H^i_c is requested from SchemeAndStackFoundations SF.2.
+
+*Acceptance.*
+
+- ℚ_ℓ(1) on 𝔾_m has weight −2, and Z(𝔾_m, ℚ_ℓ(1), t) = Z(𝔾_m, ℚ_ℓ, t/q) = (1 − t/q)/(1 − t).
+
+*Uses.* `DeligneWeightsAndPurity:DWP.0/endomorphism-weights`, `DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights`, `SchemeAndStackFoundations:SF.2`.
+
+*Planet:* Weight of a lisse sheaf on a curve.
+
+*Sources.*
+
+- La conjecture de Weil. I, §3, (3.1), p. 284: “Par exemple, Q^(r) est de poids — 2r.” The weight of a lisse sheaf on a curve; ℚ_ℓ(r) has weight −2r.
+- La conjecture de Weil. I, §3, (3.1), p. 283: “complément dans P1 d'un ensemble fini de” U₀ is the complement in ℙ¹ of finitely many closed points.
+
+### Theorems
+
+#### Lemma. Open subgroups of Sp(V)(ℚ_ℓ) are Zariski-dense
+
+*Module* `TauCeti/Weights/WeilI/Symplectic.lean`. *Node* `DeligneWeightsAndPurity:DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense`.
+
+Let V be a finite-dimensional ℚ_ℓ-vector space with a nondegenerate alternating form ψ, and H ⊆ Sp(V, ψ)(ℚ_ℓ) a subgroup open for the ℓ-adic topology. Then H is Zariski-dense in the algebraic group Sp(V, ψ). Consequently, for every algebraic representation W of Sp(V, ψ), such as ⊗^m V, the H-invariants and H-coinvariants of W are the Sp(V, ψ)-invariants and Sp(V, ψ)-coinvariants.
+
+*Hypotheses.*
+
+- Openness is for the ℓ-adic topology. RS-17 keeps it as the hypothesis of Theorem 3.2, rather than any weaker density statement.
+- Connectedness of Sp is essential: an open subgroup of O(V)(ℚ_ℓ) is dense only in the identity component.
+
+*Proof.*
+
+1. The Zariski closure Ĥ of H is an algebraic subgroup of Sp(V). Its ℚ_ℓ-points contain the open subgroup H, so its Lie algebra is sp(V) and dim Ĥ = dim Sp(V) (ReductiveGroups Layers 2–3).
+2. Sp(V) is connected, so Ĥ = Sp(V).
+3. A vector or functional fixed by H is fixed by its Zariski closure, because the action is algebraic.
+
+*Acceptance.*
+
+- Sp_{2g}(ℤ_ℓ) is open in Sp_{2g}(ℚ_ℓ) and Zariski-dense.
+- A finite subgroup of Sp(V)(ℚ_ℓ) is neither open nor Zariski-dense when dim V > 0.
+
+*Sources.*
+
+- La conjecture de Weil. I, §3, (3.7), p. 285: “est Zariski-dense dans Sp” π₁ is Zariski-dense in Sp.
+
+#### Theorem. Coinvariants of ⊗^{2k}V under the symplectic group, over ℚ_ℓ
+
+*Module* `TauCeti/Weights/WeilI/Symplectic.lean`. *Node* `DeligneWeightsAndPurity:DWP.2/symplectic-coinvariants-of-even-tensor-powers`.
+
+Let V be a ℚ_ℓ-vector space of dimension 2r ≥ 2 with a nondegenerate alternating form ψ : V ⊗ V → L, where L is one-dimensional (L = ℚ_ℓ(−β)). For a partition P of {1, …, 2k} into pairs {a_i, b_i} with a_i < b_i, let ψ_P : ⊗^{2k}V → L^{⊗k}, v₁ ⊗ … ⊗ v_{2k} ↦ ∏_i ψ(v_{a_i}, v_{b_i}). The ψ_P span the Sp(V, ψ)-invariant maps ⊗^{2k}V → L^{⊗k}. For a suitable subset 𝒫′ of the pair partitions, depending on dim V and k, the ψ_P with P ∈ 𝒫′ induce an isomorphism (⊗^{2k}V)_{Sp(V, ψ)} ≅ (L^{⊗k})^N with N = #𝒫′ ≥ 1. The isomorphism is compatible with every automorphism of V that multiplies ψ by a scalar, acting on L by that scalar.
+
+*Hypotheses.*
+
+- Over ℂ this is Weyl's first fundamental theorem for Sp (Brauer algebra), imported from Tau Ceti SchurWeyl Layer 9.
+- The passage to ℚ_ℓ is proved here, as RS-17 requires: the group Sp and the representation ⊗^{2k}V are defined over ℚ, and invariants of an algebraic group under flat base change of fields commute with extension of scalars. No statement about ℓ-adically open subgroups is transferred by extension of scalars.
+- For dim V ≥ 2k all (2k − 1)!! pair partitions are independent. For smaller V the ψ_P are dependent.
+
+*Proof.*
+
+1. Over ℂ: the Sp-invariant multilinear forms on V^{2k} are spanned by the ψ_P (SchurWeyl Layer 9).
+2. Descent to ℚ: choose a symplectic basis defined over ℚ. The invariants of Sp_{2r} over ℚ on (⊗^{2k}ℚ^{2r})^∨ span the complex invariants after ⊗ ℂ, since invariants commute with flat base change. So the ψ_P span over ℚ.
+3. Base change to ℚ_ℓ, by the same argument.
+4. Coinvariants are dual to the invariants of the dual representation, so choosing a basis 𝒫′ of the span gives the isomorphism, with N = dimension of the invariants.
+
+*Acceptance.*
+
+- dim V = 2, k = 1: (V ⊗ V)_{Sp} ≅ L through ψ, N = 1.
+- dim V = 2, k = 2: the invariants of SL₂ on ⊗⁴V have dimension 2 (the Catalan number C₂), while there are 3 pair partitions. The three ψ_P are dependent, and N = 2.
+
+*Sources.*
+
+- La conjecture de Weil. I, §3, (3.7), p. 285: “L'hypothèse (ii) assure que les coinvariants de” The coinvariants of π₁ are those of Sp, computed by Weyl's theorem.
+
+#### Theorem. Compact cohomology and the L-function of ⊗^{2k}F
+
+*Module* `TauCeti/Weights/WeilI/FundamentalEstimate.lean`. *Node* `DeligneWeightsAndPurity:DWP.2/compact-cohomology-of-even-tensor-powers`.
+
+Under the hypotheses of Theorem 3.2, with U affine and F₀ ≠ 0: H⁰_c(U, ⊗^{2k}F) = 0, H²_c(U, ⊗^{2k}F) ≅ ℚ_ℓ(−kβ − 1)^N with N ≥ 1 as Frobenius modules, and Z(U₀, ⊗^{2k}F₀, t) = det(1 − F^*t, H¹_c(U, ⊗^{2k}F)) / (1 − q^{kβ+1}t)^N. So Z(U₀, ⊗^{2k}F₀, t) is the Taylor expansion of a rational function whose only poles are at t = q^{−kβ−1}.
+
+*Hypotheses.*
+
+- U affine: shrinking U₀ changes neither the hypotheses nor the conclusion of Theorem 3.2.
+- Weil I (2.10) (H⁰_c = 0 on an affine curve; H²_c = coinvariants(−1)) is requested from EtaleDualityAndPerverseSheaves EDC.2. The trace formula (1.14.3) is requested from SchemeAndStackFoundations SF.2, which carries the CohomologicalPointCounting trace formula that RS-17 names.
+- Only the absolute value of the pole, |q^{−kβ−1}|, is used afterwards.
+
+*Proof.*
+
+1. H⁰_c(U, G) = 0 for a lisse G on the affine curve U (Weil I (2.10)(i), EDC.2).
+2. H²_c(U, G) = (G_ū)_{π₁(U, ū)}(−1) (Weil I (2.10)(ii), EDC.2), for G = ⊗^{2k}F.
+3. The geometric monodromy is open in Sp, so its coinvariants are the Sp-coinvariants (lemma open-subgroups-of-symplectic-groups-are-zariski-dense). These are ℚ_ℓ(−kβ)^N (theorem symplectic-coinvariants-of-even-tensor-powers), Frobenius-equivariantly because ψ is a morphism of sheaves into ℚ_ℓ(−β).
+4. Trace formula (1.14.3), requested from SF.2: Z = ∏_i det(1 − F^*t, H^i_c)^{(−1)^{i+1}}, and F^* = q^{kβ+1} on H²_c = ℚ_ℓ(−kβ − 1)^N.
+
+*Acceptance.*
+
+- For F₀ the first cohomology of a family of elliptic curves with non-constant j (weight 1, rank 2, ψ the Weil pairing into ℚ_ℓ(−1)) and k = 1: H²_c(U, ⊗²F) ≅ ℚ_ℓ(−2), N = 1, with a pole at t = q^{−2}.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves`, `DeligneWeightsAndPurity:DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense`, `DeligneWeightsAndPurity:DWP.2/symplectic-coinvariants-of-even-tensor-powers`, `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2`.
+
+*Sources.*
+
+- La conjecture de Weil. I, §3, (3.7), p. 285: “Cette fonction Z est donc le développement en série de Taylor d'une fonction rationnelle” Z(U₀, ⊗^{2k}F₀, t) is rational, with poles only at q^{−kβ−1}.
+- La conjecture de Weil. I, §2, Scholie (2.10), p. 282: “si X est affine.” H⁰_c vanishes on an affine curve.
+
+#### Lemma. Lemma 3.3: nonnegative rational log-derivatives of even tensor powers
+
+*Module* `TauCeti/Weights/WeilI/Positivity.lean`. *Node* `DeligneWeightsAndPurity:DWP.2/positivity-of-even-tensor-power-traces`.
+
+Under hypothesis (iii) of Theorem 3.2, for every even integer 2k and every x ∈ |U₀|, the power series t (d/dt) log det(1 − F_x t, ⊗^{2k}F₀)⁻¹ has nonnegative rational coefficients.
+
+*Hypotheses.*
+
+- Deligne's "positifs" means nonnegative.
+
+*Proof.*
+
+1. By (iii), det(1 − F_x t, F₀) ∈ ℚ[t], so Tr(F_x^n, F₀) ∈ ℚ for all n (DWP.0/characteristic-power-series-and-traces).
+2. Tr(F_x^n, ⊗^{2k}F₀) = Tr(F_x^n, F₀)^{2k} (mathlib:LinearMap.trace_tensorProduct' iterated), a nonnegative rational number.
+3. Apply Weil I (1.5.3), the identity (ii) of DWP.0/characteristic-power-series-and-traces.
+
+*Acceptance.*
+
+- F_x with eigenvalues ±i√q and 2k = 2: Tr(F_x^n) is 0 for odd n and ±2q^{n/2} for even n. The negative sign occurs for n ≡ 2 mod 4, but the squares 4q^n are nonnegative.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.0/characteristic-power-series-and-traces`, `mathlib:LinearMap.trace_tensorProduct'`.
+
+*Sources.*
+
+- La conjecture de Weil. I, §3, Lemme (3.3), p. 284: “est une série formelle à coefficients rationnels positifs.” The log-derivative has nonnegative rational coefficients.
+
+#### Lemma. Lemma 3.4: local factors of even tensor powers have nonnegative coefficients
+
+*Module* `TauCeti/Weights/WeilI/Positivity.lean`. *Node* `DeligneWeightsAndPurity:DWP.2/positive-local-factors`.
+
+Under hypothesis (iii) of Theorem 3.2, for every even 2k and x ∈ |U₀|, the local factor det(1 − F_x t^{deg x}, ⊗^{2k}F₀)⁻¹ ∈ ℚ[[t]] has constant term 1 and nonnegative coefficients.
+
+*Hypotheses.*
+
+- Substituting t^{deg x} for t preserves nonnegativity.
+
+*Proof.*
+
+1. log det(1 − F_x t, ⊗^{2k}F₀)⁻¹ has no constant term and nonnegative coefficients (lemma positivity-of-even-tensor-power-traces, divided termwise by n).
+2. The exponential of a power series with nonnegative coefficients and no constant term has nonnegative coefficients.
+3. Substitute t^{deg x}.
+
+*Acceptance.*
+
+- For F₀ = ℚ_ℓ(−1) and 2k = 2: the local factor is 1/(1 − q_x² t^{deg x}) = Σ q_x^{2m} t^{m deg x}.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.2/positivity-of-even-tensor-power-traces`.
+
+*Sources.*
+
+- La conjecture de Weil. I, §3, Lemme (3.4), p. 284: “est sans terme constant” The logarithm has no constant term; exponentiate.
+
+#### Lemma. Lemma 3.5: factors of a product of positive power series converge at least as far
+
+*Module* `TauCeti/Weights/WeilI/Positivity.lean`. *Node* `DeligneWeightsAndPurity:DWP.2/radius-of-convergence-of-positive-products`.
+
+Let (f_i) be a countable family of power series f_i = Σ_n a_{i,n} t^n with constant term 1 and nonnegative real coefficients, such that ord(f_i − 1) → ∞, and let f = ∏_i f_i = Σ_n a_n t^n. Then a_{i,n} ≤ a_n for all i and n. Hence the radius of absolute convergence of each f_i is at least that of f.
+
+*Hypotheses.*
+
+- Nonnegativity of all coefficients is essential; without it cancellation can make f converge further than a factor.
+
+*Proof.*
+
+1. Expanding the product, each coefficient a_n is a sum of nonnegative terms, one of which is a_{i,n}·1·1⋯.
+2. Comparison of power series with nonnegative coefficients gives the radii.
+
+*Acceptance.*
+
+- f₁ = 1/(1 − t) and f₂ = 1/(1 − t²): f = f₁f₂ has radius 1, and so do f₁ and f₂.
+- Without positivity: (1 − t) · 1/(1 − t) = 1 has infinite radius, while the second factor has radius 1.
+
+*Sources.*
+
+- La conjecture de Weil. I, §3, Lemme (3.5), p. 284: “et à coefficients réels positifs.” Power series with nonnegative real coefficients.
+
+#### Lemma. Lemma 3.6: poles of the factors lie no closer than the poles of the product
+
+*Module* `TauCeti/Weights/WeilI/Positivity.lean`. *Node* `DeligneWeightsAndPurity:DWP.2/poles-of-positive-products`.
+
+Under the hypotheses of Lemma 3.5, if f and all the f_i are Taylor expansions at 0 of meromorphic functions on ℂ, then inf{|z| : f_i has a pole at z} ≥ inf{|z| : f has a pole at z}.
+
+*Hypotheses.*
+
+- The functions used (local factors and the L-function of ⊗^{2k}F₀) are rational, hence meromorphic.
+
+*Proof.*
+
+1. For a function meromorphic on ℂ and holomorphic at 0, the radius of convergence of its Taylor series at 0 is the modulus of its nearest pole. The Taylor series converges on the largest disc of holomorphy, and cannot converge beyond a pole.
+2. Apply Lemma 3.5.
+
+*Acceptance.*
+
+- f₁ = 1/(1 − 2t) and f₂ = 1/(1 − t): the product f = f₁f₂ has its nearest pole at 1/2, and the pole of f₂ at 1 lies further out, as the lemma requires.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.2/radius-of-convergence-of-positive-products`.
+
+*Sources.*
+
+- La conjecture de Weil. I, §3, Lemme (3.6), p. 284: “Ces nombres sont en effet les rayons de convergence absolue.” The infima are the radii of absolute convergence.
+
+#### Theorem. Weil I, Theorem 3.2: the fundamental estimate
+
+*Module* `TauCeti/Weights/WeilI/FundamentalEstimate.lean`. *Node* `DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2`.
+
+Let U₀ ⊆ ℙ¹ over 𝔽_q be open, F₀ a lisse ℚ_ℓ-sheaf on U₀, and β ∈ ℤ. Assume (i) F₀ carries a nondegenerate alternating pairing ψ : F₀ ⊗ F₀ → ℚ_ℓ(−β); (ii) the image of the geometric fundamental group π₁(U, ū) in GL(F_ū) is an open subgroup of Sp(F_ū, ψ); (iii) for every x ∈ |U₀|, det(1 − F_x t, F₀) has rational coefficients. Then F₀ has weight β: every eigenvalue of every F_x is an algebraic number all of whose complex conjugates have absolute value q_x^{β/2}.
+
+*Hypotheses.*
+
+- (ii) is openness for the ℓ-adic topology in the symplectic group of ψ, as RS-17 keeps it.
+- (iii) is rationality of the Frobenius polynomials of the fixed ℚ_ℓ-sheaf.
+- One may assume U affine and F₀ ≠ 0.
+- No purity of cohomology is assumed: the estimate is proved directly from positivity and the poles of the L-function of the even tensor powers.
+
+*Proof.*
+
+1. Reduce to U affine and F₀ ≠ 0.
+2. Fix x of degree d and an eigenvalue α of F_x on F₀. By (iii), α is algebraic and every complex conjugate of α is again an eigenvalue. α^{2k} is an eigenvalue of F_x on ⊗^{2k}F₀ (DWP.0/spectra-of-tensor-products-and-duals). So the local factor det(1 − F_x t^d, ⊗^{2k}F₀)⁻¹ has a pole at every t with t^d = α^{−2k}.
+3. That local factor is one factor of Z(U₀, ⊗^{2k}F₀, t) = ∏_y (local factor at y). All the factors have nonnegative coefficients (lemma positive-local-factors), and Z is rational with poles only at q^{−kβ−1} (theorem compact-cohomology-of-even-tensor-powers). Lemma poles-of-positive-products gives |α|^{−2k/d} ≥ q^{−kβ−1}, that is, |α| ≤ q_x^{β/2 + 1/(2k)}.
+4. Letting k → ∞ gives |α| ≤ q_x^{β/2}.
+5. ψ is Frobenius-equivariant with values in ℚ_ℓ(−β), on which F_x acts by q_x^β. So q_x^β/α is also an eigenvalue (DWP.0/reciprocal-pairing-of-eigenvalues with c = q_x^β), and the previous step applied to it gives |α| ≥ q_x^{β/2}. The same argument applies to every complex conjugate of α.
+
+*Acceptance.*
+
+- The first cohomology of a family of elliptic curves over an open subset of ℙ¹ with non-constant j has weight 1, carries the Weil pairing, has monodromy open in SL₂ = Sp₂, and has rational Frobenius polynomials. Theorem 3.2 gives |a_x| ≤ 2√q_x at every fibre, compatibly with the Hasse bound of Tau Ceti EllipticCurves Layer 3.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves`, `DeligneWeightsAndPurity:DWP.2/compact-cohomology-of-even-tensor-powers`, `DeligneWeightsAndPurity:DWP.2/positive-local-factors`, `DeligneWeightsAndPurity:DWP.2/poles-of-positive-products`, `DeligneWeightsAndPurity:DWP.0/reciprocal-pairing-of-eigenvalues`, `DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals`, `DeligneWeightsAndPurity:DWP.0/weil-q-number`.
+
+*Planet:* Fundamental estimate.
+
+*Sources.*
+
+- La conjecture de Weil. I, §3, Théorème (3.2), p. 284: “Faisons les hypothèses suivantes” The hypotheses (i)–(iii).
+- La conjecture de Weil. I, §3, Théorème (3.2), p. 284: “est un sous-groupe ouvert du groupe symplectique” Hypothesis (ii): open symplectic monodromy.
+- La conjecture de Weil. I, §3, proof of (3.2), p. 285: “Faisant tendre k vers l'infini, on trouve que” The limit k → ∞.
+
+#### Theorem. Corollary 3.8: the coarse bound on H¹_c(U, F)
+
+*Module* `TauCeti/Weights/WeilI/CoarseBounds.lean`. *Node* `DeligneWeightsAndPurity:DWP.2/coarse-bound-on-compact-cohomology`.
+
+Under the hypotheses of Theorem 3.2, with U affine, every eigenvalue α of F^* on H¹_c(U, F) is an algebraic number, and every complex conjugate of α satisfies |α| ≤ q^{β/2 + 1}.
+
+*Hypotheses.*
+
+- The bound is coarse, not purity: purity of H¹ is proved in the induction of DWP.4.
+
+*Proof.*
+
+1. H⁰_c(U, F) = 0 (U affine), and H²_c(U, F) = (F_ū)_{π₁}(−1) = 0, since the standard representation of Sp has no coinvariants (lemma open-subgroups-of-symplectic-groups-are-zariski-dense). So by (1.14.3), Z(U₀, F₀, t) = det(1 − F^*t, H¹_c(U, F)).
+2. The left side has rational coefficients by its product expansion and (iii). So the polynomial on the right has rational coefficients, 1/α is a root, α is algebraic, and its conjugates are also eigenvalues.
+3. The Euler product converges absolutely for |t| < q^{−β/2−1}. With N = rank F and |α_{x,j}| = q_x^{β/2} (Theorem 3.2), for |t| = q^{−β/2−1−ε} one has Σ_{x,j} |α_{x,j} t^{deg x}| ≤ N Σ_x q_x^{−1−ε} ≤ N Σ_n q^n q^{−n(1+ε)} < ∞. Here 𝔸¹ has q^n points over 𝔽_{q^n}, hence at most q^n closed points of degree n.
+4. An absolutely convergent product of nonzero factors has no zero, so |1/α| ≥ q^{−β/2−1}.
+
+*Acceptance.*
+
+- β = 1 (a family of elliptic curves): every eigenvalue on H¹_c(U, F) satisfies |α| ≤ q^{3/2}.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2`, `DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves`, `DeligneWeightsAndPurity:DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense`, `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2`.
+
+*Sources.*
+
+- La conjecture de Weil. I, §3, Corollaire (3.8), p. 286: “Le premier membre est une série formelle à coefficients rationnels” Rationality of Z and the convergence argument.
+
+#### Theorem. Corollary 3.9: the two-sided coarse bound on H¹(ℙ¹, j_*F)
+
+*Module* `TauCeti/Weights/WeilI/CoarseBounds.lean`. *Node* `DeligneWeightsAndPurity:DWP.2/coarse-bound-on-cohomology-of-the-projective-line`.
+
+Let j : U → ℙ¹ be the inclusion. Under the hypotheses of Theorem 3.2, every eigenvalue α of F^* on H¹(ℙ¹, j_*F) is an algebraic number, and every complex conjugate of α satisfies q^{β/2} ≤ |α| ≤ q^{β/2 + 1}; in Deligne's notation q^{(β+1)/2 − 1/2} ≤ |α| ≤ q^{(β+1)/2 + 1/2}.
+
+*Hypotheses.*
+
+- Poincaré duality (2.12) for j_*F on ℙ¹ is requested from EtaleDualityAndPerverseSheaves EDC.2.
+
+*Proof.*
+
+1. The exact sequence 0 → j_!F → j_*F → j_*F/j_!F → 0 has a punctual third term, so H¹_c(U, F) → H¹(ℙ¹, j_*F) is surjective. Every α is therefore an eigenvalue on H¹_c(U, F), and Corollary 3.8 gives |α| ≤ q^{β/2+1}.
+2. Poincaré duality (2.12) pairs H¹(ℙ¹, j_*F) with H¹(ℙ¹, j_*F^∨(1)) into ℚ_ℓ, and ψ identifies F^∨ with F(β). So q^{β+1}/α is an eigenvalue (DWP.0/reciprocal-pairing-of-eigenvalues), and |q^{β+1}α⁻¹| ≤ q^{β/2+1} gives |α| ≥ q^{β/2}.
+
+*Acceptance.*
+
+- β = 1: every eigenvalue on H¹(ℙ¹, j_*F) satisfies q^{1/2} ≤ |α| ≤ q^{3/2}. Purity (|α| = q) is DWP.4's sharpening.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.2/coarse-bound-on-compact-cohomology`, `DeligneWeightsAndPurity:DWP.0/reciprocal-pairing-of-eigenvalues`, `EtaleDualityAndPerverseSheaves:EDC.2`.
+
+*Sources.*
+
+- La conjecture de Weil. I, §3, Corollaire (3.9), p. 286: “Un segment de la suite longue de cohomologie définie par la suite exacte courte” Surjectivity of H¹_c(U, F) → H¹(ℙ¹, j_*F).
+- La conjecture de Weil. I, §3, Corollaire (3.9), p. 287: “La dualité de Poincaré (2.12) assure que” The dual eigenvalue q^{β+1}/α.
 
 ## DWP.3 Pencil local-factor rationality and the radical quotient
 
@@ -715,6 +1041,11 @@ No nodes yet.
 ## Requests to other roadmaps
 
 - `EtaleDualityAndPerverseSheaves:EDC.0` — The coefficient conventions: ℚ_ℓ(1) as the Tate twist on which the geometric Frobenius of 𝔽_q acts by q⁻¹, compared with the inverse arithmetic Galois action on ℓ-power roots of unity, and extension of coefficients from finite extensions of ℚ_ℓ to ℚ̄_ℓ. Needed by `twisting-by-rank-one-characters`.
+- `SchemeAndStackFoundations:SF.2` — The Grothendieck–Lefschetz trace formula for lisse (and constructible) ℚ_ℓ-sheaves on a curve over 𝔽_q in the form of Weil I (1.14.3), Z(U₀, F₀, t) = ∏_i det(1 − F^*t, H^i_c(U, F))^{(−1)^{i+1}}, with finiteness of H^i_c. This is the CohomologicalPointCounting trace formula (TraceFormula Layer 14) that RS-17 names as DWP.2's supplier. Needed by `weights-and-l-functions-of-lisse-sheaves-on-curves`, `compact-cohomology-of-even-tensor-powers`, `coarse-bound-on-compact-cohomology`.
+- `EtaleDualityAndPerverseSheaves:EDC.2` — Weil I (2.10): for a smooth connected curve X over an algebraically closed field and a lisse ℚ_ℓ-sheaf F, H⁰_c(X, F) = 0 when X is affine and H²_c(X, F) = (F_x)_{π₁(X, x)}(−1). Weil I (2.12): Poincaré duality H¹(X̄, j_*F) × H¹(X̄, j_*F^∨(1)) → ℚ_ℓ on a smooth projective curve, Frobenius-equivariantly. Needed by `compact-cohomology-of-even-tensor-powers`, `coarse-bound-on-compact-cohomology`, `coarse-bound-on-cohomology-of-the-projective-line`.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra` — The first fundamental theorem for the complex symplectic group: the Sp(V)-invariant multilinear forms on V^{2k} are spanned by the pair contractions ψ_P (Brauer algebra), with the dimension of the invariants. Needed by `symplectic-coinvariants-of-even-tensor-powers`.
+- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components` — Zariski closure of a subgroup of the ℚ_ℓ-points of a linear algebraic group as an algebraic subgroup, and connectedness of Sp_{2g}. Needed by `open-subgroups-of-symplectic-groups-are-zariski-dense`.
+- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation` — The Lie algebra of an algebraic subgroup over ℚ_ℓ, and the fact that an algebraic subgroup whose ℚ_ℓ-points contain an ℓ-adically open subgroup of G(ℚ_ℓ) has full dimension. Needed by `open-subgroups-of-symplectic-groups-are-zariski-dense`.
 
 ## Library baseline
 
@@ -747,11 +1078,11 @@ Every Mathlib declaration below was read at the pinned commit and resolved by `#
 
 ## Sources
 
-- Pierre Deligne, *La conjecture de Weil. I*. Publ. Math. IHÉS 43 (1974), 273–307; Numdam scan with OCR, 36 PDF pages (printed page = PDF page + 271); locators give printed pages. https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf (SHA-256 `8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5`). Read: cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 1): §1 (1.1)–(1.15), pp. 273–279, including the proof of (1.7) ⇒ (1.6); §2 (2.1)–(2.14), pp. 280–283; §3 (3.1)–(3.6), pp. 283–284.
+- Pierre Deligne, *La conjecture de Weil. I*. Publ. Math. IHÉS 43 (1974), 273–307; Numdam scan with OCR, 36 PDF pages (printed page = PDF page + 271); locators give printed pages. https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf (SHA-256 `8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5`). Read: cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 1): §1 (1.1)–(1.15), pp. 273–279, including the proof of (1.7) ⇒ (1.6); §2 (2.1)–(2.14), pp. 280–283; §3 (3.1)–(3.6), pp. 283–284; cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 2): §3 (3.1)–(3.9) in full, pp. 283–287, and Scholie (2.10), p. 282.
 - Pierre Deligne, *La conjecture de Weil. II*. Publ. Math. IHÉS 52 (1980), 137–252; Numdam scan with OCR (printed page = PDF page + 135); locators give printed pages. https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf (SHA-256 `b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71`). Read: cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 1): (1.1.11)–(1.1.15), pp. 152–153; §1.2 (1.2.1)–(1.2.14), pp. 153–156; the opening of §1.3, pp. 156–157.
 
 ## Non-goals
 
-- Sheaf-level purity and mixedness (DWP.5), and any general weight theorem: this stage proves no purity of cohomology.
+- General sheaf-level purity and mixedness (DWP.5). Neither DWP.0 nor DWP.2 proves purity of cohomology: DWP.2 proves the weight of a symplectic sheaf and coarse bounds.
 - The separation and descent of zeta-function factors, their integrality and ℓ-independence (WC.3).
 - The monodromy filtration (LPV.1) and the sign of the functional equation (WC.2).
