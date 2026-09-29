@@ -2,10 +2,10 @@
 
 Job PAPER-FARGUES-FONTAINE-18. Claude Code, session `cc-48533a`, 29 September 2026. The machine-readable extraction is `PAPER-FARGUES-FONTAINE-18.result.json`:
 
-- 1106 items: 244 planned, 15 library, 847 missing;
+- 1109 items: 181 planned, 15 library, 913 missing (after the independent review; the extraction had 1106 items: 244 planned, 15 library, 847 missing);
 - 9 routes;
 - 11 prerequisite papers;
-- 186 source issues.
+- 220 source issues (186 from the extraction, 34 added by the review).
 
 **Version read.** The authors' copy `courbe.pdf`, dated 16 avril 2017, from the link in `papers.json`. It has Colmez's Préface (pp. 1–50) and Chapters 1–11 with the bibliography (pp. 51–389). Its SHA-256 is `cc159f38…922ca3`. The Astérisque 406 edition (2018, doi:10.24033/ast.1056) was not compared with it. Locators are the statement numbers and printed pages of the authors' copy.
 
@@ -114,7 +114,7 @@ Four missing directions are proposed as Part II's. Smaller groups of items go as
 
    RF0 constructs W_OE(R) for perfect R and is the layer these belong in.
 2. **Part II of RelativeFarguesFontaine: holomorphic functions of the variable π and the schematic curve over a perfect field** (315 items). This takes Chapters 1–3, 6 and 7, §§11.2.1–11.2.4, and the Préface's points about B_e and the points of X. No layer proves the zeros-of-functions theory. FarguesFontaineDiamonds F4 says it does not classify closed points for non-algebraically-closed F, and VB2:ampleness covers the schematic curve only at geometric points.
-3. **Part II of VectorBundlesAndIsocrystals** (218 items). It is merged with the existing VectorBundlesAndIsocrystalsPartII proposal from Colmez–Nizioł. It covers:
+3. **Part II of VectorBundlesAndIsocrystals** (244 items after the review). It joins the existing VectorBundlesAndIsocrystalsPartII proposal from Colmez–Nizioł, under that proposal's exact title. It covers:
    - the abstract Harder–Narasimhan and classification theory of Chapter 5;
    - the Banach–Colmez proof and X_Ē in Chapter 8;
    - Chapter 9's classification and π₁ over any perfect F, which VB0 explicitly leaves out;
@@ -137,7 +137,7 @@ Four missing directions are proposed as Part II's. Smaller groups of items go as
    - Sen's theorem, for R06.1;
    - Colmez–Fontaine's neighbouring representations and Berger's ∆(D), for R06.2;
    - Berger's monodromy for non-étale (φ,Γ)-modules, for R06.3.
-8. **Source: FarguesFontaineDiamonds F1 and F3** (3 items). The Préface's diamond identities, and Weinstein's π₁((E^◇ × C^◇)/φ) = G_E.
+8. **Source: VectorBundlesAndIsocrystals VB3 and VB3:general-BC** (4 items; replaced by the independent review). Colmez's Dimension (dim, ht) and the abelian category BC. The extraction's route here, to FarguesFontaineDiamonds F1 and F3, was rejected: F1 is for E = Q_p only and F3 computes no π₁. Its items went to route 1 (the diamond identity, with RF1) and route 3 (Weinstein's π₁ computations).
 9. **Source: PhiGammaModulesAndIwasawaCohomology PG.0 and PG.2** (2 items). The field of norms of the Kummer tower, and Cherbonnier–Colmez decompletion.
 
 Each Part II brief states its final theorems in the book's numbering, the coverage in order, the imports by title and id, the corrections to carry and the tests.
@@ -227,3 +227,39 @@ The 124 misprints that affect nothing are index, sign and reference slips. Among
 11. Hartl–Pink, *Vector bundles with a Frobenius structure on the punctured unit disc* (Compos. Math. 2004), doi:10.1112/S0010437X03000216.
 
 Kedlaya–Liu is already in `papers.json`. The DOIs were confirmed on Crossref. None of these papers was read for this job.
+
+## Corrections by the independent review
+
+REV-PAPER-FARGUES-FONTAINE-18 (Claude Code, session `cc-f805bf`, 29 September 2026) made these changes. The reasons are in `research/blueprint/reviews/REV-PAPER-FARGUES-FONTAINE-18.md`.
+
+- **Source issues.**
+  - A `review` verdict on each of E1–E186. All are confirmed except E64: Proposition 2.3.19 is openly left as an exercise and its proof is routine.
+  - Sixteen entries had a field corrected: E2, E5, E12, E25, E46, E57, E67, E88, E96, E109, E127, E138, E148, E164, E179 and E183.
+- **New issues E187–E220.** Eight affect a stated result:
+  - E187: Préface §2.5.2, I′ = ((p−1)/p)I;
+  - E193: Lemme 1.6.8 at ρ = 0;
+  - E198: Théorèmes 2.5.1(2) and 3.5.1(2), where the isomorphism is |Y_{I∖{0}}| ⥲ Spm(B_I);
+  - E199: Proposition 3.1.7, where L|F need not be Galois;
+  - E211: Théorème 6.4.4 needs the orbit hypothesis of 6.4.1;
+  - E215: Proposition 10.6.18(1) needs k_K algebraically closed;
+  - E218: Proposition 11.2.24 is false, since completion φ-Mod_{E^†} → φ-Mod_ℰ is not fully faithful;
+  - E219: Lemme 11.2.25 is false for a non-bijective φ.
+
+  The other 26 are misprints that affect nothing.
+- **Items.**
+  - New items 1107 (Préface Théorème 3.16, planned at RF0:annuli), 1108 (Remarque 1.4.4) and 1109 (Exemples 2.3.7 and 2.3.10).
+  - 44 statements, 4 locators and many notes corrected, notably items 67, 114, 209–219, 332, 333, 377, 493, 500, 523, 534, 611, 612, 633, 675, 705, 878, 902, 1062, 1087 and 1089, which now carry corrected statements.
+- **Statuses.**
+  - 65 planned items became missing, because the cited layer plans only a special case: 59, 68–71, 78, 80, 196, 201, 222, 223, 225, 230, 265, 270, 312, 333, 371, 452, 498, 510, 590, 592–595, 597, 599–603, 606, 608, 610, 619, 641, 647–652, 661, 774, 882, 903, 923, 924, 934, 964, 966, 979, 995, 998, 1000, 1019, 1052, 1054, 1059, 1065, 1067, 1071, 1088 and 1100.
+  - Item 707 became planned (VB2:ampleness).
+  - Items 392, 574, 607 and 883 had their planned lists corrected.
+- **Routes.**
+  - Route 1 gained RF1 and item 94.
+  - Route 2 gained Chapter 4.1 (405–415), items 1108–1109 and the status-corrected items of Chapters 1–3 and 11, and lost 707. Its brief now names imports by title and id, adds Tau Ceti Foundations of adic spaces Layer 6 and P7:annulus-foundations, and fixes the hypotheses of 3.5.1, 6.2.7 and 6.4.1.
+  - Route 3 takes the byte-identical title of the accepted VectorBundlesAndIsocrystalsPartII. It gained the Chapter 5 status corrections, 1019, 1085, 1086, 1099, 1100, 96 and 97, and lost 27, 28, 837 and 838.
+  - Route 4 lost 405–415 and gained 452, 498, 510 and 774. Its brief names one owner of the universal cover and the import directions.
+  - Route 5 gained the Chapter 10 status corrections and 1103. Its brief exports B-pairs and asks for one owner, with AdmissiblePairsAndPadicHodgeStructures, of lattices versus filtrations.
+  - Route 6 gained 59 and 1088, and lost 1085, 1086 and 1099.
+  - Route 8 (FarguesFontaineDiamonds F1/F3) was rejected and replaced by a VB3 and VB3:general-BC source route for 27, 28, 837 and 838.
+  - Route 9 lost 1103 and gained 78 and 80.
+- **Summary.** Updated with the new counts and the main findings.
