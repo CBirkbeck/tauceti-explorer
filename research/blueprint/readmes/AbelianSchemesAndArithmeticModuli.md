@@ -4,23 +4,23 @@
 
 This roadmap builds the dimension-general abelian-scheme library behind the Siegel, PEL and Hilbert modular varieties. It runs from abelian schemes and rigidity (A1), duals and polarizations (A2), quotients, torsion and pairings (A3) and degree-one realizations (A4), through complex uniformization (A5), to the arithmetic Hom groups and the moduli exports (A6).
 
-This first checkpoint plans the field-level core of A6, from Milne's *Abelian Varieties* §§10–14. That core extends Tau Ceti's field Hom/End API. It adds the Rosati involution of A2. These are the statements that DeligneWeightsAndPurity DWP.1, ModularCurvesPartII R14.2, FaltingsFinitenessAndIsogenyTheorems R28.1 and ArithmeticStatistics request.
+Checkpoint 1 plans the field-level core of A6 from Milne's *Abelian Varieties* §§10–14, extending Tau Ceti's field Hom/End API, together with the Rosati involution of A2. Checkpoint 2 plans A6's Weil restriction, from Poonen's *Rational Points on Varieties* §4.6 and the Stacks Project, as the atlas specifies.
 
 ## Scope and boundaries
 
 RS-02 is accepted. It makes this roadmap Part II of Tau Ceti's JacobianChallenge, extending the field-level abelian variety to abelian schemes over general bases.
 
-- The field-level carrier is Tau Ceti's `AbelianVariety K`: a proper, geometrically integral group scheme over `Spec K`, with the group `A ⟶ B`, the ring `End A`, `IsIsogeny`, `mulBy` and `prod`. Every A6 node extends this API.
-- The field dual, φ_L and polarizations are imported from JacobianChallenge Layer E, as RS-02 directs A2 to do. The relative dual and the polarization types are A2's.
-- Intersection numbers and degrees of finite morphisms are requested from SchemeAndStackFoundations SF.5.
-- Polarized moduli stacks are PELModuli's, and real multiplication is HilbertModularVarietiesAndShimuraCurves'. A6 exports to them and does not construct them.
+- The field-level carrier is Tau Ceti's `AbelianVariety K`: a proper, geometrically integral group scheme over `Spec K`, with the group `A ⟶ B`, the ring `End A`, `IsIsogeny`, `mulBy` and `prod`. Every field-level A6 node extends this API.
+- The field dual, φ_L and polarizations are imported from JacobianChallenge Layer E, as RS-02 directs A2 to do.
+- Algebraic spaces and representability are AlgebraicModuliForArithmeticGeometry R09.3's. The abelian-algebraic-space-to-scheme theorem is A2's.
+- Induction of Galois representations is ArithmeticGaloisRepresentations G7's.
 
 ## Conventions
 
-- k is a field and A an abelian variety over k of dimension g; End⁰(A) = End(A) ⊗ ℚ and Hom⁰ = Hom ⊗ ℚ.
-- ℓ is a prime different from char k, T_ℓA = lim A[ℓ^n](k^sep), and V_ℓA = T_ℓA ⊗ ℚ_ℓ.
-- deg α is the degree of α as a finite morphism when α is an isogeny, and 0 otherwise. P_α(r) = deg(α − r).
+- k is a field and A an abelian variety over k of dimension g; End⁰(A) = End(A) ⊗ ℚ.
+- ℓ is a prime different from char k, and T_ℓA = lim A[ℓ^n](k^sep).
 - A polarization is an isogeny λ : A → A^∨ that becomes φ_L for an ample L over k̄. The Rosati involution is α† = λ⁻¹α^∨λ.
+- Res_{S′/S} is Weil restriction along a finite locally free S′ → S, the functor T ↦ X(T ×_S S′).
 
 ## A0 Relative algebraic geometry for polarized moduli
 
@@ -241,6 +241,60 @@ Let A be an abelian variety of dimension g over a field k and α ∈ End(A). The
 
 - Abelian Varieties, §10, Theorem 10.9, p. 46: “There is a unique monic polynomial” Existence and uniqueness of P_α.
 - Abelian Varieties, §10, p. 48: “the characteristic polynomial of” P_α is called the characteristic polynomial, and Tr is read off it.
+
+#### Construction. Weil restriction along a finite locally free morphism
+
+*Module* `TauCeti/AlgebraicGeometry/WeilRestriction/Basic.lean`. *Node* `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`.
+
+Let S′ → S be finite locally free and X an S′-scheme (or algebraic space). The Weil restriction Res_{S′/S}(X) is the functor on S-schemes T ↦ X(T ×_S S′) = Hom_{S′}(T ×_S S′, X). It is an fppf sheaf, and it commutes with base change: Res_{S′×_S B/B}(X ×_S B) = B ×_S Res_{S′/S}(X) for every B → S. It is represented by an algebraic space over S. Representability by a scheme needs a further criterion (node weil-restriction-of-quasi-projective-schemes). When it is representable, Res_{S′/S}(X)(S) = X(S′).
+
+*Hypotheses.*
+
+- Algebraic-space representability is AlgebraicModuliForArithmeticGeometry R09.3's (Stacks 05YF), as RS-02 directs.
+- The morphism S′ → S must be finite locally free. For a non-flat S′ → S, T ↦ X(T ×_S S′) is not in general representable.
+
+*API.*
+
+- `weilRestriction` (*constructor*) — weilRestriction (f : S′ ⟶ S) [IsFiniteLocallyFree f] (X : Over S′) : AlgebraicSpace S.
+- `weilRestriction_points` (*characterisation*) — (weilRestriction f X)(T) ≃ (X)(T ×_S S′), naturally in T.
+- `weilRestriction_baseChange` (*compatibility*) — weilRestriction (f.baseChange B) (X ×_S B) ≅ B ×_S weilRestriction f X.
+- `weilRestriction_self` (*simp*) — weilRestriction (𝟙 S) X ≅ X.
+- `weilRestriction_prod` (*compatibility*) — weilRestriction commutes with fibre products over S′.
+
+*Used by.*
+
+- `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes` — scheme representability
+- `AbelianSchemesAndArithmeticModuli:A6/finite-etale-weil-restriction-of-abelian-schemes` — the abelian-scheme case
+- `AbelianSchemesAndArithmeticModuli:A6/tate-module-of-a-weil-restriction` — the Galois module of torsion points
+- `ShimuraData:D0` — restriction of scalars of algebraic groups
+
+*Unit tests.* A wrong definition fails one of these.
+
+- `weilRestriction_self_test` (degenerate) — Res_{S/S}(X) = X.
+- `weilRestriction_affine_explicit` (value) — Poonen's Example 4.6.2: Res_{ℚ(√2)/ℚ} of x₁x₂ + (5 + 7√2) = 0 is the surface y₁₁y₂₁ + 2y₁₂y₂₂ + 5 = 0, y₁₁y₂₂ + y₁₂y₂₁ + 7 = 0 in 𝔸⁴_ℚ.
+- `weilRestriction_points_S` (characterisation) — Res_{S′/S}(X)(S) = X(S′).
+- `not_cover_by_affines` (non-example) — Res_{ℂ/ℝ} of the two standard affine charts of ℙ¹_ℂ does not cover Res_{ℂ/ℝ}ℙ¹ (Poonen Exercise 4.8), so affine covers do not suffice to construct Res.
+
+*Construction.*
+
+1. Sheaf property: fppf descent for morphisms, applied to the base changes of an fppf covering of T (Stacks Lemma 97.11.1, Tag 05YB).
+2. Base change: immediate from the definition on functors, and hence as sheaves (Stacks 05YC).
+3. Algebraic space: by R09.3, Mor_S(S′, X) and Mor_S(S′, S′) are algebraic spaces, and Res_{S′/S}(X) is a fibre product of them (Stacks Lemma 97.11.4, Tag 05YE, and Proposition 97.11.5, Tag 05YF).
+
+*Acceptance.*
+
+- Res_{S/S}(X) = X. For S′ = S ⊔ S, Res_{S′/S}(X) = X₁ ×_S X₂, where X = X₁ ⊔ X₂ over the two copies.
+
+*Uses.* `AlgebraicModuliForArithmeticGeometry:R09.3`.
+
+*Planet:* Weil restriction.
+
+*Sources.*
+
+- Rational Points on Varieties, §4.6, Definition 4.6.1, p. 110: “is a k-scheme representing” The functor of points of the restriction of scalars.
+- Rational Points on Varieties, §4.6, Remark 4.6.6, p. 112: “One can generalize the notion of restriction of scalars to” Res_{S′/S} for S′ finite locally free over S.
+- The Stacks Project, Proposition 97.11.5 (Tag 05YF), Stacks Project, Tag 05YF (Proposition 97.11.5): “is finite locally free then” Res_{Z/B}(X) is an algebraic space for Z → B finite locally free.
+- The Stacks Project, Lemma 97.11.2 (Tag 05YC), Stacks Project, Tag 05YC (Lemma 97.11.2): “The equality as functors follows immediately from the definitions.” Compatibility with base change.
 
 ### Theorems
 
@@ -623,9 +677,120 @@ Let (A, λ) be a polarized abelian variety over k. (i) Aut(A, λ) = {α ∈ Aut(
 - Abelian Varieties, §14, Proposition 14.4, p. 62: “is equal to the identity.” (b): rigidity at level n ≥ 3.
 - Abelian Varieties, §14, Lemma 14.5, p. 63: “This is impossible because p is prime.” The root-of-unity lemma.
 
+#### Theorem. Weil restriction of quasi-projective varieties over fields is a scheme
+
+*Module* `TauCeti/AlgebraicGeometry/WeilRestriction/Basic.lean`. *Node* `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`.
+
+Let L/k be a finite extension of fields and X an L-variety in which every finite subset lies in an affine open (for instance X quasi-projective). Then Res_{L/k}(X) is represented by a k-scheme, a variety. For X affine it is affine, given by Poonen's explicit construction. In particular, for an abelian variety A over L, Res_{L/k}(A) is a k-scheme.
+
+*Hypotheses.*
+
+- The general criterion is Bosch–Lütkebohmert–Raynaud §7.6, Theorem 4, which Poonen cites and which was not read. The scheme-representability criterion is requested with the algebraic-space theory from AlgebraicModuliForArithmeticGeometry R09.3.
+- The affine-open hypothesis cannot be weakened to a cover by affines (Poonen Exercise 4.8).
+
+*Proof.*
+
+1. Affine case: choose a k-basis e_1, …, e_s of L and write x_i = Σ_j y_{ij}e_j. Each equation f_r becomes Σ_ℓ F_{rℓ}(y)e_ℓ, and Res X = Spec k[y_{ij}]/(F_{rℓ}).
+2. General case: glue the restrictions of affine opens containing the finite fibres of the points (BLR §7.6, Theorem 4, requested). Abelian varieties are projective, so the hypothesis holds.
+
+*Acceptance.*
+
+- X = 𝔸¹_L: Res_{L/k} 𝔸¹ = 𝔸^{[L:k]}_k.
+- X = 𝔾_{m,L}: Res_{L/k}𝔾_m is a k-torus of dimension [L:k] whose group of k-points is L^×.
+
+*Uses.* `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`, `AlgebraicModuliForArithmeticGeometry:R09.3`.
+
+*Sources.*
+
+- Rational Points on Varieties, §4.6, Proposition 4.6.3, p. 111: “If every ﬁnite subset of X is contained in some aﬃne open” Existence of Res_{L/k}X.
+- Rational Points on Varieties, §4.6, Remark 4.6.5, p. 111: “Any quasi-projective variety X over L satisﬁes” Quasi-projective varieties satisfy the hypothesis.
+
+#### Theorem. After base change to k̄, a separable Weil restriction is a product of conjugates
+
+*Module* `TauCeti/AlgebraicGeometry/WeilRestriction/Separable.lean`. *Node* `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`.
+
+Let L/k be a finite separable extension and X an L-variety with Res_{L/k}(X) representable. Then Res_{L/k}(X) ×_k k̄ ≅ ∏_{σ ∈ Hom_k(L, k̄)} X ×_{L,σ} k̄. When L/k is Galois with group G, Res_{L/k}(X)_L ≅ ∏_{σ∈G} σX. The Galois group Gal(k̄/k) acts on the right-hand side by permuting the factors through its action on Hom_k(L, k̄), compatibly with its action on each factor.
+
+*Hypotheses.*
+
+- Separability makes L ⊗_k k̄ ≅ ∏_σ k̄. For inseparable L/k the base change is not a product of copies of k̄ (Poonen Exercise 4.9).
+
+*Proof.*
+
+1. L ⊗_k k̄ ≅ ∏_{σ: L → k̄} k̄ by separability.
+2. Base change (weil-restriction-functor): Res_{L/k}(X) ×_k k̄ = Res_{L⊗k̄/k̄}(X ⊗_L (L ⊗ k̄)), and for a product of copies of k̄ the restriction is the product of the pieces.
+3. The Galois action permutes the embeddings σ.
+
+*Acceptance.*
+
+- L = ℚ(√2), X = 𝔾_m: Res(𝔾_m) ×_ℚ ℚ̄ ≅ 𝔾_m × 𝔾_m, with the Galois conjugation of √2 swapping the factors.
+
+*Uses.* `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`.
+
+*Sources.*
+
+- Rational Points on Varieties, Exercise 4.7, p. 113: “Assume that the k-variety X := ResL/k X” (Res_{L/k}X)_L ≅ ∏_{σ∈G} σX for L/k Galois.
+
+#### Theorem. Weil restriction along finite étale maps preserves abelian schemes; finite locally free does not
+
+*Module* `TauCeti/AlgebraicGeometry/AbelianScheme/WeilRestriction.lean`. *Node* `AbelianSchemesAndArithmeticModuli:A6/finite-etale-weil-restriction-of-abelian-schemes`.
+
+(i) Let S′ → S be finite étale of constant degree d and A an abelian scheme over S′ of relative dimension g. Then Res_{S′/S}(A) is an abelian scheme over S of relative dimension dg. (ii) This fails for finite locally free S′ → S: for D = k[ε]/(ε²) and an elliptic curve E/k, Res_{D/k}(E_D) is the tangent bundle of E, isomorphic by translation to E × Lie(E) ≅ E × 𝔾_a, which is not proper.
+
+*Hypotheses.*
+
+- The algebraic space Res_{S′/S}(A) (weil-restriction-functor) is a scheme by the abelian-algebraic-space-to-scheme theorem of A2 (Raynaud; Faltings–Chai I.1.9), with its stated base hypotheses. This is not an inference from properness of finite locally free morphisms.
+- (i) is the specified descent proof that the atlas asks for. (ii) is its negative acceptance example.
+
+*Proof.*
+
+1. Étale-locally on S, a finite étale S′ of degree d splits as ⊔_{i=1}^d S. Then Res_{S′/S}(A) = ∏_i A_i, a product of d abelian schemes, by weil-restriction-functor (base change and products).
+2. Properness, smoothness and geometrically connected fibres descend along the étale cover, and so does the group structure (Res of a group object is a group object).
+3. Res_{S′/S}(A) is an algebraic space (R09.3). An algebraic space that is étale-locally an abelian scheme is an abelian scheme by the A2 theorem under its base hypotheses.
+4. (ii): Res_{D/k}(X_D)(T) = X(T[ε]) = the tangent bundle T_X(T), the jet space of order 1 (Poonen Example 4.6.8). For a group E, translation trivializes it as E × Lie(E). The 𝔾_a factor is not proper.
+
+*Acceptance.*
+
+- S′ = Spec L → S = Spec K for a finite separable L/K: Res_{L/K}(A) is an abelian variety of dimension [L:K]·dim A.
+- E over k and D = k[ε]: Res_{D/k}(E_D)(k) = E(k[ε]) = E(k) × Lie(E), an extension of E by 𝔾_a, which is not proper.
+
+*Uses.* `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`, `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`, `AbelianSchemesAndArithmeticModuli:A2`.
+
+*Sources.*
+
+- Rational Points on Varieties, §4.6, Example 4.6.8, p. 112: “and is called the nth jet space of X” Res_{A/k}X_A for A = k[t]/(t^{n+1}) is the jet space.
+- The Stacks Project, Lemma 97.11.2 (Tag 05YC), Stacks Project, Tag 05YC (Lemma 97.11.2): “The equality as functors follows immediately from the definitions.” Base change used in the étale-local splitting.
+
+#### Theorem. T_ℓ(Res_{L/K} A) ≅ Ind_{G_L}^{G_K} T_ℓ(A)
+
+*Module* `TauCeti/AlgebraicGeometry/AbelianVariety/WeilRestriction/TateModule.lean`. *Node* `AbelianSchemesAndArithmeticModuli:A6/tate-module-of-a-weil-restriction`.
+
+Let L/K be a finite separable extension of fields, A an abelian variety over L, and ℓ ≠ char K. Choosing a separable closure K^s and an embedding L ⊂ K^s gives a G_K-equivariant isomorphism T_ℓ(Res_{L/K} A) ≅ Ind_{G_L}^{G_K} T_ℓ(A) = ℤ_ℓ[G_K] ⊗_{ℤ_ℓ[G_L]} T_ℓ(A). A different choice of embedding changes the isomorphism by the canonical isomorphism between the corresponding induced modules. For number fields, V_ℓ(Res_{L/K}A) is the induced Galois representation of V_ℓA.
+
+*Hypotheses.*
+
+- Induction and coinduction coincide for the finite-index subgroup G_L ⊆ G_K.
+- This field-level formula implies nothing about good reduction at ramified integral places, as the atlas warns.
+
+*Proof.*
+
+1. (Res A)(K^s) = A(K^s ⊗_K L) = ∏_{σ ∈ Hom_K(L, K^s)} A(K^s) through σ (node weil-restriction-over-a-separable-extension-splits).
+2. G_K acts on Hom_K(L, K^s) = G_K/G_L transitively, with stabilizer G_L of the chosen embedding. So the G_K-module (Res A)[ℓ^n](K^s) = ⊕_σ A[ℓ^n] is induced from the G_L-module A[ℓ^n](K^s).
+3. Pass to the inverse limit over n (ArithmeticGaloisRepresentations R01.6 for T_ℓA). Induction commutes with inverse limits of finite modules for finite index (G7 for induction of Galois representations).
+4. Changing the embedding by τ ∈ G_K conjugates G_L, and the induced modules are canonically isomorphic.
+
+*Acceptance.*
+
+- L = K × K (split, étale): T_ℓ(Res A) = T_ℓA ⊕ T_ℓA with trivial permutation. L/K quadratic: V_ℓ(Res A) = Ind V_ℓA has dimension 4 dim A.
+
+*Uses.* `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`, `ArithmeticGaloisRepresentations:R01.6`, `ArithmeticGaloisRepresentations:G7`.
+
+*Sources.*
+
+- Rational Points on Varieties, §4.6, p. 110: “We want to construct a k-variety X whose arithmetic over k mimics the” Res_{L/k}X(k) = X(L), the arithmetic of X over L seen over k.
+
 ### What is missing
 
-- Weil restriction along finite locally free S′ → S through AlgebraicModuliForArithmeticGeometry R09.3, the finite-étale preservation of abelian schemes, and T_ℓ(Res_{L/K} A) ≅ Ind T_ℓ(A) (Poonen, Rational points on varieties, §4.6).
 - Compatibility of the Hom/End API with relative dualization and geometric fibres.
 - The gaps recorded for Rosati positivity and for Poincaré reducibility over imperfect fields.
 
@@ -633,6 +798,9 @@ Let (A, λ) be a polarized abelian variety over k. (i) Aut(A, λ) = {α ∈ Aut(
 
 - `SchemeAndStackFoundations:SF.5` — The degree of a finite surjective morphism of integral varieties of the same dimension, multiplicative under composition. Intersection numbers (D₁ · … · D_g) of Cartier divisors on a projective variety of dimension g over a field, with (f^*D₁ · … · f^*D_g) = deg(f)(D₁ · … · D_g) for f finite surjective, and (D^{g−1} · E) > 0 for D ample and E effective nonzero. Needed by `degree-of-an-endomorphism`, `degree-is-a-polynomial-function`, `rosati-positivity`.
 - `tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties` — At field level: the dual abelian variety A^∨ with dual homomorphisms α^∨, (αβ)^∨ = β^∨α^∨ and biduality; φ_L : A → A^∨ for a line bundle L, an isogeny when L is ample; and polarizations (isogenies A → A^∨ that become φ_L for an ample L over k̄), as RS-02 directs A2 to import them. Needed by `poincare-complete-reducibility`, `degree-formulas-for-polarized-isogenies`, `rosati-involution`.
+- `AlgebraicModuliForArithmeticGeometry:R09.3` — Representability of Res_{S′/S}(X) by an algebraic space for S′ → S finite locally free (through the Mor-spaces, Stacks 05YF), and the scheme-representability criterion for Weil restriction of schemes in which every finite subset of a fibre lies in an affine open (BLR §7.6, Theorem 4). Needed by `weil-restriction-functor`, `weil-restriction-of-quasi-projective-schemes`.
+- `ArithmeticGaloisRepresentations:G7` — Induction of continuous Galois representations from a finite-index subgroup, with its independence of the chosen coset representatives up to canonical isomorphism. Needed by `tate-module-of-a-weil-restriction`.
+- `ArithmeticGaloisRepresentations:R01.6` — The Tate module T_ℓA of an abelian variety over a field, as a continuous Galois module. Needed by `tate-module-of-a-weil-restriction`.
 
 ## Gaps
 
@@ -640,9 +808,9 @@ Let (A, λ) be a polarized abelian variety over k. (i) Aut(A, λ) = {α ∈ Aut(
 - **Poincaré reducibility over imperfect fields.** The source constructs the complement B′ as a reduced connected component of a kernel and notes (footnote 10) that its geometric reducedness over an imperfect field is not proved. A proof covering imperfect fields has not been read.
 - **deg φ_L = χ(L)² is stated without proof.** Milne's Theorem 11.1 quotes Mumford's Riemann–Roch theorem for abelian varieties without proof. It belongs to A2, which is not yet planned.
 
-## Mistakes found in the source
+## Mistakes found in the sources
 
-These are recorded in the packet's `sourceIssues`. E1–E3 are new. E4–E6 are on the author's errata page and are listed because the nodes above use the corrected statements.
+These are recorded in the packet's `sourceIssues`. E1–E3 are new. E4–E6 are on Milne's errata page.
 
 - **E1** (error, §14, Proposition 14.4(b), p. 62; new). Add the hypothesis char k ∤ n, or require α to act as the identity on the finite group scheme A_n. A supersingular elliptic curve E over 𝔽̄_2 has E[4](k̄) = 0 and an automorphism group of order 24. Every automorphism preserves the principal polarization, so for n = 4 every automorphism acts as the identity on A_4(k^al), and not all are the identity. The proof uses Lemma 10.16 (through 8.12), which needs trivial action on the group scheme.
 - **E2** (error, §14, proof of Proposition 14.4(a), p. 62; new). The compact set is {α ∈ End(A) ⊗ ℝ : Tr(αα†) = 2g}, an ellipsoid by Theorem 14.3; its intersection with the discrete End(A) is finite. A nonzero real vector space is not compact. The finiteness argument needs a compact set containing Aut(A, λ).
@@ -664,8 +832,12 @@ These are recorded in the packet's `sourceIssues`. E1–E3 are new. E4–E6 are 
 ## Sources
 
 - J. S. Milne, *Abelian Varieties*. Course notes, version 2.00 (March 16, 2008), 172 pages; printed page = PDF page − 6; locators give printed pages and result numbers. https://www.jmilne.org/math/CourseNotes/AV.pdf (SHA-256 `f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef`). Read: cc-fb70e5, 2026-09-29 (checkpoint 1): contents and conventions, pp. iii–vi; §10 Endomorphisms, pp. 42–53, in full; §11, pp. 53–54; §12, pp. 54–56; §13 Weil pairings, pp. 57–61; §14 The Rosati involution, pp. 61–63; the author's errata page for v2.00.
+- Bjorn Poonen, *Rational Points on Varieties*. Graduate Studies in Mathematics 186 (AMS, 2017), the author's 'Unofficial version for incidental online use' (printed page = PDF page − 14). https://math.mit.edu/~poonen/papers/Qpoints.pdf (SHA-256 `42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579`). Read: cc-fb70e5, 2026-09-29 (checkpoint 2): §4.6 Restriction of scalars, pp. 110–112, and Exercises 4.7–4.9, p. 113.
+- The Stacks Project Authors, *The Stacks Project, Proposition 97.11.5 (Tag 05YF)*. Online, Chapter 97 (Criteria for Representability), Section 97.11; page as served on 2026-09-29. https://stacks.math.columbia.edu/tag/05YF (SHA-256 `8ed4998a7b5c461712ab767a2f60da8ccbe1d32e3b3474541e9be29068933770`). Read: cc-fb70e5, 2026-09-29: Proposition 97.11.5 with proof.
+- The Stacks Project Authors, *The Stacks Project, Lemma 97.11.2 (Tag 05YC)*. Online, Chapter 97, Section 97.11; page as served on 2026-09-29. https://stacks.math.columbia.edu/tag/05YC (SHA-256 `117af9e4a3a12d2f67d91a0beef9de6abe213719b6132cafcbbc20f36744fe0f`). Read: cc-fb70e5, 2026-09-29: Lemma 97.11.2 with proof; Section 97.11 (Tag 05Y8) and Lemma 97.11.1.
 
 ## Non-goals
 
 - Polarized moduli stacks and their compactifications (PELModuli, ShimuraCompactifications).
-- A second field-level dual or Picard construction: those are JacobianChallenge Layer E's.
+- A second field-level dual or Picard construction: these are JacobianChallenge Layer E's.
+- General algebraic-space representability: this is AlgebraicModuliForArithmeticGeometry R09.3's.

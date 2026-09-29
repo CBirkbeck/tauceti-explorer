@@ -12,7 +12,7 @@
     "AbelianSchemesAndArithmeticModuli:A6"
   ],
   "status": "partial",
-  "summary": "Abelian Schemes And Arithmetic Moduli (Part II of Tau Ceti's JacobianChallenge, RS-02 accepted), checkpoint 1, in 16 nodes. It plans the field-level core of A6 from Milne's Abelian Varieties §§10–14. It covers the degree and characteristic polynomial of an endomorphism, the ℓ-adic characterisation of P_α and its independence of ℓ, endomorphisms of simple varieties, Poincaré complete reducibility, finiteness and freeness of Hom, semisimplicity of End⁰, trace and degree through subfields, degree formulas for polarized isogenies, Rosati positivity and finiteness of automorphisms, and the Rosati involution (A2). Three new mistakes in the source are recorded. A0–A5 and the relative and Weil-restriction parts of A6 are not yet planned.",
+  "summary": "Abelian Schemes And Arithmetic Moduli (Part II of Tau Ceti's JacobianChallenge, RS-02 accepted), checkpoints 1–2, in 21 nodes. Checkpoint 1 plans the field-level core of A6 from Milne's Abelian Varieties §§10–14 (degree and characteristic polynomial, ℓ-independence, Poincaré reducibility, finiteness of Hom, semisimplicity, Rosati positivity) and the Rosati involution (A2), and records three new mistakes in the source. Checkpoint 2 plans A6's Weil restriction from Poonen §4.6 and the Stacks Project: the functor and its algebraic-space representability, the quasi-projective scheme case, the separable splitting, the finite-étale preservation of abelian schemes with the k[ε] counterexample, and T_ℓ(Res A) ≅ Ind T_ℓA. A0–A5 are not yet planned.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -78,6 +78,42 @@
       "sha256": "f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef",
       "readSections": [
         "cc-fb70e5, 2026-09-29 (checkpoint 1): contents and conventions, pp. iii–vi; §10 Endomorphisms, pp. 42–53, in full; §11, pp. 53–54; §12, pp. 54–56; §13 Weil pairings, pp. 57–61; §14 The Rosati involution, pp. 61–63; the author's errata page for v2.00"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "poonen-rational-points",
+      "title": "Rational Points on Varieties",
+      "authors": "Bjorn Poonen",
+      "edition": "Graduate Studies in Mathematics 186 (AMS, 2017), the author's 'Unofficial version for incidental online use' (printed page = PDF page − 14)",
+      "url": "https://math.mit.edu/~poonen/papers/Qpoints.pdf",
+      "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579",
+      "readSections": [
+        "cc-fb70e5, 2026-09-29 (checkpoint 2): §4.6 Restriction of scalars, pp. 110–112, and Exercises 4.7–4.9, p. 113"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "stacks-05YF",
+      "title": "The Stacks Project, Proposition 97.11.5 (Tag 05YF)",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online, Chapter 97 (Criteria for Representability), Section 97.11; page as served on 2026-09-29",
+      "url": "https://stacks.math.columbia.edu/tag/05YF",
+      "sha256": "8ed4998a7b5c461712ab767a2f60da8ccbe1d32e3b3474541e9be29068933770",
+      "readSections": [
+        "cc-fb70e5, 2026-09-29: Proposition 97.11.5 with proof"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "stacks-05YC",
+      "title": "The Stacks Project, Lemma 97.11.2 (Tag 05YC)",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online, Chapter 97, Section 97.11; page as served on 2026-09-29",
+      "url": "https://stacks.math.columbia.edu/tag/05YC",
+      "sha256": "117af9e4a3a12d2f67d91a0beef9de6abe213719b6132cafcbbc20f36744fe0f",
+      "readSections": [
+        "cc-fb70e5, 2026-09-29: Lemma 97.11.2 with proof; Section 97.11 (Tag 05Y8) and Lemma 97.11.1"
       ],
       "accessed": "2026-09-29"
     }
@@ -988,6 +1024,283 @@
       "planet": {
         "name": "Rosati involution"
       }
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor",
+      "parentStageId": "AbelianSchemesAndArithmeticModuli:A6",
+      "realises": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "title": "Weil restriction along a finite locally free morphism",
+      "kind": "construction",
+      "statement": "Let S′ → S be finite locally free and X an S′-scheme (or algebraic space). The Weil restriction Res_{S′/S}(X) is the functor on S-schemes T ↦ X(T ×_S S′) = Hom_{S′}(T ×_S S′, X). It is an fppf sheaf, and it commutes with base change: Res_{S′×_S B/B}(X ×_S B) = B ×_S Res_{S′/S}(X) for every B → S. It is represented by an algebraic space over S. Representability by a scheme needs a further criterion (node weil-restriction-of-quasi-projective-schemes). When it is representable, Res_{S′/S}(X)(S) = X(S′).",
+      "hypotheses": [
+        "Algebraic-space representability is AlgebraicModuliForArithmeticGeometry R09.3's (Stacks 05YF), as RS-02 directs.",
+        "The morphism S′ → S must be finite locally free. For a non-flat S′ → S, T ↦ X(T ×_S S′) is not in general representable."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.weilRestriction",
+          "role": "constructor",
+          "statement": "weilRestriction (f : S′ ⟶ S) [IsFiniteLocallyFree f] (X : Over S′) : AlgebraicSpace S."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.weilRestriction_points",
+          "role": "characterisation",
+          "statement": "(weilRestriction f X)(T) ≃ (X)(T ×_S S′), naturally in T."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.weilRestriction_baseChange",
+          "role": "compatibility",
+          "statement": "weilRestriction (f.baseChange B) (X ×_S B) ≅ B ×_S weilRestriction f X."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.weilRestriction_self",
+          "role": "simp",
+          "statement": "weilRestriction (𝟙 S) X ≅ X."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.weilRestriction_prod",
+          "role": "compatibility",
+          "statement": "weilRestriction commutes with fibre products over S′."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes",
+          "how": "scheme representability"
+        },
+        {
+          "where": "AbelianSchemesAndArithmeticModuli:A6/finite-etale-weil-restriction-of-abelian-schemes",
+          "how": "the abelian-scheme case"
+        },
+        {
+          "where": "AbelianSchemesAndArithmeticModuli:A6/tate-module-of-a-weil-restriction",
+          "how": "the Galois module of torsion points"
+        },
+        {
+          "where": "ShimuraData:D0",
+          "how": "restriction of scalars of algebraic groups"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.weilRestriction_self_test",
+          "kind": "degenerate",
+          "statement": "Res_{S/S}(X) = X."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.weilRestriction_affine_explicit",
+          "kind": "value",
+          "statement": "Poonen's Example 4.6.2: Res_{ℚ(√2)/ℚ} of x₁x₂ + (5 + 7√2) = 0 is the surface y₁₁y₂₁ + 2y₁₂y₂₂ + 5 = 0, y₁₁y₂₂ + y₁₂y₂₁ + 7 = 0 in 𝔸⁴_ℚ."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.weilRestriction_points_S",
+          "kind": "characterisation",
+          "statement": "Res_{S′/S}(X)(S) = X(S′)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.not_cover_by_affines",
+          "kind": "non-example",
+          "statement": "Res_{ℂ/ℝ} of the two standard affine charts of ℙ¹_ℂ does not cover Res_{ℂ/ℝ}ℙ¹ (Poonen Exercise 4.8), so affine covers do not suffice to construct Res."
+        }
+      ],
+      "proofSteps": [
+        "Sheaf property: fppf descent for morphisms, applied to the base changes of an fppf covering of T (Stacks Lemma 97.11.1, Tag 05YB).",
+        "Base change: immediate from the definition on functors, and hence as sheaves (Stacks 05YC).",
+        "Algebraic space: by R09.3, Mor_S(S′, X) and Mor_S(S′, S′) are algebraic spaces, and Res_{S′/S}(X) is a fibre product of them (Stacks Lemma 97.11.4, Tag 05YE, and Proposition 97.11.5, Tag 05YF)."
+      ],
+      "acceptance": [
+        "Res_{S/S}(X) = X. For S′ = S ⊔ S, Res_{S′/S}(X) = X₁ ×_S X₂, where X = X₁ ⊔ X₂ over the two copies."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§4.6, Definition 4.6.1, p. 110",
+          "excerpt": "is a k-scheme representing",
+          "match": "The functor of points of the restriction of scalars."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§4.6, Remark 4.6.6, p. 112",
+          "excerpt": "One can generalize the notion of restriction of scalars to",
+          "match": "Res_{S′/S} for S′ finite locally free over S."
+        },
+        {
+          "sourceId": "stacks-05YF",
+          "locator": "Stacks Project, Tag 05YF (Proposition 97.11.5)",
+          "excerpt": "is finite locally free then",
+          "match": "Res_{Z/B}(X) is an algebraic space for Z → B finite locally free."
+        },
+        {
+          "sourceId": "stacks-05YC",
+          "locator": "Stacks Project, Tag 05YC (Lemma 97.11.2)",
+          "excerpt": "The equality as functors follows immediately from the definitions.",
+          "match": "Compatibility with base change."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Weil restriction"
+      }
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes",
+      "parentStageId": "AbelianSchemesAndArithmeticModuli:A6",
+      "realises": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "title": "Weil restriction of quasi-projective varieties over fields is a scheme",
+      "kind": "theorem",
+      "statement": "Let L/k be a finite extension of fields and X an L-variety in which every finite subset lies in an affine open (for instance X quasi-projective). Then Res_{L/k}(X) is represented by a k-scheme, a variety. For X affine it is affine, given by Poonen's explicit construction. In particular, for an abelian variety A over L, Res_{L/k}(A) is a k-scheme.",
+      "hypotheses": [
+        "The general criterion is Bosch–Lütkebohmert–Raynaud §7.6, Theorem 4, which Poonen cites and which was not read. The scheme-representability criterion is requested with the algebraic-space theory from AlgebraicModuliForArithmeticGeometry R09.3.",
+        "The affine-open hypothesis cannot be weakened to a cover by affines (Poonen Exercise 4.8)."
+      ],
+      "proofSteps": [
+        "Affine case: choose a k-basis e_1, …, e_s of L and write x_i = Σ_j y_{ij}e_j. Each equation f_r becomes Σ_ℓ F_{rℓ}(y)e_ℓ, and Res X = Spec k[y_{ij}]/(F_{rℓ}).",
+        "General case: glue the restrictions of affine opens containing the finite fibres of the points (BLR §7.6, Theorem 4, requested). Abelian varieties are projective, so the hypothesis holds."
+      ],
+      "acceptance": [
+        "X = 𝔸¹_L: Res_{L/k} 𝔸¹ = 𝔸^{[L:k]}_k.",
+        "X = 𝔾_{m,L}: Res_{L/k}𝔾_m is a k-torus of dimension [L:k] whose group of k-points is L^×."
+      ],
+      "prerequisites": [
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§4.6, Proposition 4.6.3, p. 111",
+          "excerpt": "If every ﬁnite subset of X is contained in some aﬃne open",
+          "match": "Existence of Res_{L/k}X."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§4.6, Remark 4.6.5, p. 111",
+          "excerpt": "Any quasi-projective variety X over L satisﬁes",
+          "match": "Quasi-projective varieties satisfy the hypothesis."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits",
+      "parentStageId": "AbelianSchemesAndArithmeticModuli:A6",
+      "realises": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "title": "After base change to k̄, a separable Weil restriction is a product of conjugates",
+      "kind": "theorem",
+      "statement": "Let L/k be a finite separable extension and X an L-variety with Res_{L/k}(X) representable. Then Res_{L/k}(X) ×_k k̄ ≅ ∏_{σ ∈ Hom_k(L, k̄)} X ×_{L,σ} k̄. When L/k is Galois with group G, Res_{L/k}(X)_L ≅ ∏_{σ∈G} σX. The Galois group Gal(k̄/k) acts on the right-hand side by permuting the factors through its action on Hom_k(L, k̄), compatibly with its action on each factor.",
+      "hypotheses": [
+        "Separability makes L ⊗_k k̄ ≅ ∏_σ k̄. For inseparable L/k the base change is not a product of copies of k̄ (Poonen Exercise 4.9)."
+      ],
+      "proofSteps": [
+        "L ⊗_k k̄ ≅ ∏_{σ: L → k̄} k̄ by separability.",
+        "Base change (weil-restriction-functor): Res_{L/k}(X) ×_k k̄ = Res_{L⊗k̄/k̄}(X ⊗_L (L ⊗ k̄)), and for a product of copies of k̄ the restriction is the product of the pieces.",
+        "The Galois action permutes the embeddings σ."
+      ],
+      "acceptance": [
+        "L = ℚ(√2), X = 𝔾_m: Res(𝔾_m) ×_ℚ ℚ̄ ≅ 𝔾_m × 𝔾_m, with the Galois conjugation of √2 swapping the factors."
+      ],
+      "prerequisites": [
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "Exercise 4.7, p. 113",
+          "excerpt": "Assume that the k-variety X := ResL/k X",
+          "match": "(Res_{L/k}X)_L ≅ ∏_{σ∈G} σX for L/k Galois."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli:A6/finite-etale-weil-restriction-of-abelian-schemes",
+      "parentStageId": "AbelianSchemesAndArithmeticModuli:A6",
+      "realises": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "title": "Weil restriction along finite étale maps preserves abelian schemes; finite locally free does not",
+      "kind": "theorem",
+      "statement": "(i) Let S′ → S be finite étale of constant degree d and A an abelian scheme over S′ of relative dimension g. Then Res_{S′/S}(A) is an abelian scheme over S of relative dimension dg. (ii) This fails for finite locally free S′ → S: for D = k[ε]/(ε²) and an elliptic curve E/k, Res_{D/k}(E_D) is the tangent bundle of E, isomorphic by translation to E × Lie(E) ≅ E × 𝔾_a, which is not proper.",
+      "hypotheses": [
+        "The algebraic space Res_{S′/S}(A) (weil-restriction-functor) is a scheme by the abelian-algebraic-space-to-scheme theorem of A2 (Raynaud; Faltings–Chai I.1.9), with its stated base hypotheses. This is not an inference from properness of finite locally free morphisms.",
+        "(i) is the specified descent proof that the atlas asks for. (ii) is its negative acceptance example."
+      ],
+      "proofSteps": [
+        "Étale-locally on S, a finite étale S′ of degree d splits as ⊔_{i=1}^d S. Then Res_{S′/S}(A) = ∏_i A_i, a product of d abelian schemes, by weil-restriction-functor (base change and products).",
+        "Properness, smoothness and geometrically connected fibres descend along the étale cover, and so does the group structure (Res of a group object is a group object).",
+        "Res_{S′/S}(A) is an algebraic space (R09.3). An algebraic space that is étale-locally an abelian scheme is an abelian scheme by the A2 theorem under its base hypotheses.",
+        "(ii): Res_{D/k}(X_D)(T) = X(T[ε]) = the tangent bundle T_X(T), the jet space of order 1 (Poonen Example 4.6.8). For a group E, translation trivializes it as E × Lie(E). The 𝔾_a factor is not proper."
+      ],
+      "acceptance": [
+        "S′ = Spec L → S = Spec K for a finite separable L/K: Res_{L/K}(A) is an abelian variety of dimension [L:K]·dim A.",
+        "E over k and D = k[ε]: Res_{D/k}(E_D)(k) = E(k[ε]) = E(k) × Lie(E), an extension of E by 𝔾_a, which is not proper."
+      ],
+      "prerequisites": [
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits",
+        "AbelianSchemesAndArithmeticModuli:A2"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§4.6, Example 4.6.8, p. 112",
+          "excerpt": "and is called the nth jet space of X",
+          "match": "Res_{A/k}X_A for A = k[t]/(t^{n+1}) is the jet space."
+        },
+        {
+          "sourceId": "stacks-05YC",
+          "locator": "Stacks Project, Tag 05YC (Lemma 97.11.2)",
+          "excerpt": "The equality as functors follows immediately from the definitions.",
+          "match": "Base change used in the étale-local splitting."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli:A6/tate-module-of-a-weil-restriction",
+      "parentStageId": "AbelianSchemesAndArithmeticModuli:A6",
+      "realises": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "title": "T_ℓ(Res_{L/K} A) ≅ Ind_{G_L}^{G_K} T_ℓ(A)",
+      "kind": "theorem",
+      "statement": "Let L/K be a finite separable extension of fields, A an abelian variety over L, and ℓ ≠ char K. Choosing a separable closure K^s and an embedding L ⊂ K^s gives a G_K-equivariant isomorphism T_ℓ(Res_{L/K} A) ≅ Ind_{G_L}^{G_K} T_ℓ(A) = ℤ_ℓ[G_K] ⊗_{ℤ_ℓ[G_L]} T_ℓ(A). A different choice of embedding changes the isomorphism by the canonical isomorphism between the corresponding induced modules. For number fields, V_ℓ(Res_{L/K}A) is the induced Galois representation of V_ℓA.",
+      "hypotheses": [
+        "Induction and coinduction coincide for the finite-index subgroup G_L ⊆ G_K.",
+        "This field-level formula implies nothing about good reduction at ramified integral places, as the atlas warns."
+      ],
+      "proofSteps": [
+        "(Res A)(K^s) = A(K^s ⊗_K L) = ∏_{σ ∈ Hom_K(L, K^s)} A(K^s) through σ (node weil-restriction-over-a-separable-extension-splits).",
+        "G_K acts on Hom_K(L, K^s) = G_K/G_L transitively, with stabilizer G_L of the chosen embedding. So the G_K-module (Res A)[ℓ^n](K^s) = ⊕_σ A[ℓ^n] is induced from the G_L-module A[ℓ^n](K^s).",
+        "Pass to the inverse limit over n (ArithmeticGaloisRepresentations R01.6 for T_ℓA). Induction commutes with inverse limits of finite modules for finite index (G7 for induction of Galois representations).",
+        "Changing the embedding by τ ∈ G_K conjugates G_L, and the induced modules are canonically isomorphic."
+      ],
+      "acceptance": [
+        "L = K × K (split, étale): T_ℓ(Res A) = T_ℓA ⊕ T_ℓA with trivial permutation. L/K quadratic: V_ℓ(Res A) = Ind V_ℓA has dimension 4 dim A."
+      ],
+      "prerequisites": [
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "ArithmeticGaloisRepresentations:G7"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§4.6, p. 110",
+          "excerpt": "We want to construct a k-variety X whose arithmetic over k mimics the",
+          "match": "Res_{L/k}X(k) = X(L), the arithmetic of X over L seen over k."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -1007,6 +1320,28 @@
         "AbelianSchemesAndArithmeticModuli:A6/poincare-complete-reducibility",
         "AbelianSchemesAndArithmeticModuli:A6/degree-formulas-for-polarized-isogenies",
         "AbelianSchemesAndArithmeticModuli:A2/rosati-involution"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "need": "Representability of Res_{S′/S}(X) by an algebraic space for S′ → S finite locally free (through the Mor-spaces, Stacks 05YF), and the scheme-representability criterion for Weil restriction of schemes in which every finite subset of a fibre lies in an affine open (BLR §7.6, Theorem 4).",
+      "neededBy": [
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:G7",
+      "need": "Induction of continuous Galois representations from a finite-index subgroup, with its independence of the chosen coset representatives up to canonical isomorphism.",
+      "neededBy": [
+        "AbelianSchemesAndArithmeticModuli:A6/tate-module-of-a-weil-restriction"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.6",
+      "need": "The Tate module T_ℓA of an abelian variety over a field, as a continuous Galois module.",
+      "neededBy": [
+        "AbelianSchemesAndArithmeticModuli:A6/tate-module-of-a-weil-restriction"
       ]
     }
   ],
@@ -1057,7 +1392,6 @@
       "stageId": "AbelianSchemesAndArithmeticModuli:A6",
       "status": "partial",
       "remaining": [
-        "Weil restriction along finite locally free S′ → S through AlgebraicModuliForArithmeticGeometry R09.3, the finite-étale preservation of abelian schemes, and T_ℓ(Res_{L/K} A) ≅ Ind T_ℓ(A) (Poonen, Rational points on varieties, §4.6).",
         "Compatibility of the Hom/End API with relative dualization and geometric fibres.",
         "The gaps recorded for Rosati positivity and for Poincaré reducibility over imperfect fields."
       ]
@@ -1179,6 +1513,27 @@
       "citation": "J. S. Milne, Abelian Varieties, course notes v2.00 (2008)",
       "read": "2026-09-29",
       "sha256": "f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.mit.edu/~poonen/papers/Qpoints.pdf",
+      "citation": "Poonen, Rational Points on Varieties (GSM 186), unofficial online version",
+      "read": "2026-09-29",
+      "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/05YF",
+      "citation": "Stacks Project Tag 05YF",
+      "read": "2026-09-29",
+      "sha256": "8ed4998a7b5c461712ab767a2f60da8ccbe1d32e3b3474541e9be29068933770"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/05YC",
+      "citation": "Stacks Project Tag 05YC",
+      "read": "2026-09-29",
+      "sha256": "117af9e4a3a12d2f67d91a0beef9de6abe213719b6132cafcbbc20f36744fe0f"
     }
   ]
 }

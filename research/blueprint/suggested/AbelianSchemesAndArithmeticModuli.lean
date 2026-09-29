@@ -1,6 +1,6 @@
 /-
 Suggested Lean prototypes for the roadmap "Abelian Schemes And Arithmetic Moduli" (AbelianSchemesAndArithmeticModuli);
-this checkpoint plans the field-level core of stage A6 and the Rosati involution of stage A2.
+checkpoints 1–2 plan the field-level core of stage A6, its Weil restriction, and the Rosati involution of stage A2.
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md` is definitive. The statements below suggest Lean forms
@@ -96,5 +96,22 @@ example (n : ℚ) : (n • (1 : Matrix (Fin 2) (Fin 2) ℚ)).transpose = n • 1
 example : IsSemisimpleRing (ℚ × ℚ) := inferInstance
 
 example : IsSemisimpleRing (Matrix (Fin 2) (Fin 2) ℚ) := inferInstance
+
+/-! ## Weil restriction (`AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`, …)
+
+Suggested signatures (algebraic spaces are AlgebraicModuliForArithmeticGeometry R09.3's):
+
+  def weilRestriction {S S' : Scheme} (f : S' ⟶ S) [IsFiniteLocallyFree f] (X : Over S') : AlgebraicSpace S
+  theorem weilRestriction_isAbelianScheme [IsFinite f] [IsEtale f] (A : AbelianScheme S') :
+      IsAbelianScheme (weilRestriction f A)
+  theorem tateModule_weilRestriction (L K) [FiniteDimensional K L] [IsSeparable K L] (A : AbelianVariety L) :
+      TateModule ℓ (Res L K A) ≃ Representation.ind (G_L ≤ G_K) (TateModule ℓ A)
+-/
+
+/-- Test `weilRestriction_affine_explicit` (Poonen, Example 4.6.2): substituting `x = y₁ + y₂√2` turns products in
+`ℚ(√2)` into the two coordinate equations; the identity behind it. -/
+example {R : Type*} [CommRing R] (s a b c d : R) (hs : s ^ 2 = 2) :
+    (a + b * s) * (c + d * s) = (a * c + 2 * b * d) + (a * d + b * c) * s := by
+  linear_combination (b * d) * hs
 
 end TauCeti.AlgebraicGeometry.AbelianVariety
