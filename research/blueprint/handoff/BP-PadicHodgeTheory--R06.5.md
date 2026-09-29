@@ -1,97 +1,111 @@
-# Handoff: BP-PadicHodgeTheory--R06.5 (first checkpoint)
+# Handoff: BP-PadicHodgeTheory--R06.5 (second checkpoint)
 
 Agent: Claude Code, session cc-fb70e5. Refs #969.
 
-- Stages R06.5 and R06.6 of `PadicHodgeTheory`; part 1 is `PadicHodgeTheory--P7` (R06.1–R06.4, P7, P8), whose nodes this part imports.
-- RS-01 (accepted) keeps both stages unchanged, so the current structure is used.
-- 14 nodes: 11 theorems, 1 application, 1 construction, 1 definition; 15 API items, 10 unit tests, 9 planets (3 in R06.5, 6 in R06.6).
-- Both stages are partial. The checker reports no errors.
+- Stages R06.5 and R06.6 of `PadicHodgeTheory`. Part 1, `PadicHodgeTheory--P7` (R06.1–R06.4, P7, P8), is imported throughout. RS-01 keeps both stages unchanged.
+- Checkpoint 1 was merged in #3854 (14 nodes).
+- This checkpoint adds the modular-curve, Kuga–Sato and Shimura-curve applications, and the R19 inputs, in 5 nodes. The packet now has 19 nodes and 11 planets (5 in R06.5, 6 in R06.6).
+- Both stages remain partial. The checker reports no errors.
 
-## What is closed
+## New in this checkpoint
 
 R06.5:
 
-- `crystalline-comparison-good-reduction` (planet): CP.2's comparison read through D_cris, with the Hodge filtration and weights. This is the item CP.2 lists as remaining.
-- `abelian-scheme-dcris`: D_cris(V_p(A)) dual to H^1_cris; jumps −1 and 0. This answers MordellLawrenceVenkatesh LV.4 (g = 1).
-- `abelian-variety-hodge-tate-weights` (planet): V_p(A) is de Rham with weights 0 and 1 for every A.
-- `weil-pairing-duality`: duals, Tate twists and the determinant test.
-- `elliptic-curve-ordinary-supersingular` (planet): the roadmap's required example.
+- `modular-form-de-rham-realisation` (planet):
+  - M_{g,λ}|G_{Q_p} is de Rham, with D_dR = K_λ ⊗ M_{g,dR};
+  - Fil^{k−1} is the line of g;
+  - the Hodge–Tate weights are 0 and 1 − k (0 and k − 1 for V_g);
+  - the pairing ∧²M_g ≅ M_ψ(1 − k) is compatible with D_dR.
+- `modular-form-crystalline-good-primes` (planet):
+  - crystalline at p ∤ N, with φ-polynomial X² − a_pX + ψ(p)p^{k−1};
+  - weakly admissible with t_H = t_N = k − 1;
+  - ordinary iff a_p is a unit, in which case there is an unramified subrepresentation (unramified quotient of V_g).
+  - Checked on Δ at 11 (ordinary), 2 and 2411 (not ordinary).
+- `weight-two-modular-abelian-varieties`: A_f is Barsotti–Tate at p ∤ N, and ordinary iff a_p is a unit. At p ∥ N (p ∤ cond ψ) it is semistable and not crystalline. This translates Darmon–Diamond–Taylor 3.1(f)–(g) into p-adic Hodge theory.
 
 R06.6:
 
-- `kummer-representation` (construction) and `kummer-representations-semistable` (planet): every extension of Q_p by Q_p(1) is semistable, with explicit D_st for ramified K.
-- `tate-curve-tate-module` and `tate-curve-filtered-phi-n-module` (planet). The second discharges the hypothesis of P7's `R06.3/tate-curve-weil-deligne-example`.
-- `tate-curve-l-invariant` (definition, planet), with the classification of non-crystalline Kummer extensions by L.
-- `good-reduction-iff-crystalline` (planet): proved through Grothendieck's criterion and Kisin's lattice classification. This answers MordellLawrenceVenkatesh LV.1/LV.4 and NeronModels R11.5's p-adic input.
-- `semistable-reduction-semistable` (planet): via Raynaud and Berger's Théorème 6.2 (P7 R06.4).
-- `multiplicative-reduction-elliptic-curves`: split, non-split and additive cases with v(j) < 0.
-- `local-global-compatibility-good-reduction` (planet): the p-adic and ℓ-adic Weil–Deligne parameters agree at good places and at multiplicative elliptic places.
+- `modular-form-local-global-compatibility-at-p` (planet; it takes the planet slot of the abelian-variety node, since R06.6 is at six):
+  - WD(M_{g,λ}|G_{Q_p})^{F-ss} ↔ π_p(g) under local Langlands (Scholl, Saito);
+  - the crystalline, semistable and potentially crystalline criteria in terms of π_p;
+  - the guard against compatible systems that are not modular.
+- `hilbert-modular-form-compatibility-at-p`: T. Saito's Theorems 1–2 for Hilbert modular forms, through Shimura curves.
 
 ## What remains
 
-- **R06.5, modular forms.** The applications to modular curves, Kuga–Sato varieties and Shimura curves:
-  - V_f crystalline at p ∤ N with Frobenius polynomial X² − a_pX + χ(p)p^{k−1};
-  - the semistable and potentially semistable cases at p | N.
-  - Sources to find: Scholl (Invent. Math. 1990), Faltings, T. Saito (Invent. Math. 129, 1997; T_SAITO in the roadmap references).
-- **R06.6, R19 inputs.** Local–global compatibility for modular forms (Saito) as consumed by AutomorphicGaloisRepresentations R19.5.
-- **R06.6, converse.** The semistable criterion (V_p(A) semistable ⇒ semistable reduction), and the Weil–Deligne comparison for other bad reduction.
-- **R06.5, semistable models.** The general semistable geometric branch (CP.4 Hyodo–Kato; WeightsInEtaleCohomology R34.3).
+- **Endpoint weight (R19.5).** The case k = p + 1 or weight p is R06.4's weight-p branches applied to V_g; it is not planned.
+- **Saito 1997.** The elliptic case at p | N (Invent. Math. 129) is not public. It is quoted from Diamond–Flach–Guo §5.5, and the proof follows Saito's Hilbert paper. Next action: an author copy on T. Saito's page.
+- **Scholl 1990** (Kuga–Sato motives) is not read. It is quoted through Diamond–Flach–Guo and requested from R19.1.
+- **Carried over from checkpoint 1:**
+  - the rank of N equal to the toric rank (R11.4–R11.5);
+  - the converse semistable criterion;
+  - the Weil–Deligne comparison for other bad reduction;
+  - Berthelot–Breen–Messing.
 
-## Requests made
+## Requests
 
-- Tau Ceti EllipticCurves Layer 4: the Tate curve, its uniformisation, Tate's theorem with twists, potentially good ⇔ v(j) ≥ 0.
-- ArithmeticGaloisRepresentations R01.6: Tate modules, H^1 duality, the Weil determinant, P_v and base change.
-- AbelianSchemesAndArithmeticModuli A3 (Weil pairing) and A4 (Hodge exact sequence).
-- NeronModelsAndSemistableAbelianVarieties R11.1 (good reduction via Néron models) and R11.3 (Grothendieck's criterion at p, semistable reduction, Raynaud's uniformisation).
-- ClassicalAdicEtaleCohomology H5: Huber's algebraic–analytic comparison for proper smooth varieties, beyond curves.
-- ArithmeticGaloisDuality R02.1: Kummer theory in continuous cohomology.
+Made in checkpoint 1:
+
+- Tau Ceti EllipticCurves Layer 4;
+- ArithmeticGaloisRepresentations R01.6;
+- AbelianSchemesAndArithmeticModuli A3 and A4;
+- NeronModelsAndSemistableAbelianVarieties R11.1 and R11.3;
+- ClassicalAdicEtaleCohomology H5;
+- ArithmeticGaloisDuality R02.1.
+
+New in this checkpoint:
+
+- AutomorphicGaloisRepresentations R19.1 (M_g, Kuga–Sato, Eichler–Shimura, V_p(A_f)) and R19.4 (Carayol);
+- GL2AutomorphicRepresentationsAndTransfer R16.3 (local Langlands for GL_2);
+- ModularCurvesPartII R13.5 (Deligne–Rapoport);
+- HilbertModularVarietiesAndShimuraCurves R18.2 (Shimura curves and their semistable models);
+- CohomologyComparisons CP.4 (Tsuji);
+- WeightsInEtaleCohomology R34.3 (weight spectral sequence).
 
 ## Suggested Lean file
 
-It imports Mathlib only and was compiled with `lake env lean` against the Mathlib 082e2d3 build. It elaborates, with `sorry` as its only warning.
+It imports Mathlib only. It was compiled with `lake env lean` against the Mathlib 082e2d3 build, and `sorry` is its only warning.
 
-It prototypes:
+Checkpoint 2 adds:
 
-- the Kummer cocycle and representation;
-- the Tate-type normal form, its L-invariant and the isomorphism criterion;
-- the ordinary/supersingular trace dichotomy (three `decide` tests on 11a1).
+- the modular Frobenius polynomial;
+- two `decide` tests on Δ;
+- a matrix check of the Weil–Deligne sign, F N F⁻¹ = p⁻¹N.
 
-Theorems that need V_p(A), D_cris or the Tate curve are comments that name the missing object.
+## Source issues
 
-## Source issues (new, PadicHodgeTheory/E40–E47)
+**Checkpoint 1** (E40–E47):
 
-Berger's survey (arXiv v1):
+- Berger's survey: E40–E45;
+- Brinon–Conrad: E46;
+- Coleman–Iovita: E47.
 
-- E40: φ(Y) = Y^p should be φ(Y) = pY.
-- E41: an exponent n − 1 in the log[p̃] series should be n.
-- E42: the torsion index range 0 ≤ i, j < p^n − 1 should end at p^n − 1 inclusive.
-- E43: the isomorphism E ≅ E_q is claimed for all multiplicative reduction; it needs split reduction (15a1 at 3 is a counterexample).
-- E44: the "ℓ-invariant" log_p(q/p^{v_p(q)}) is not an invariant of V; the invariant is log_p(q)/v_p(q).
-- E45: Hom(T_pA, Z_p(1)) ≃ H^1 is off by a Tate twist.
+**Checkpoint 2** (all checked on the page images):
 
-Brinon–Conrad (2009 notes):
+- E48, Diamond–Flach–Guo (Ann. ÉNS 2004), p. 669: the geometric Frobenius is said to act on WD through φ^{−1}; it should be φ.
+- E49, Diamond–Flach–Guo (Ann. ÉNS 2004), p. 684: Carayol is credited with the case "λ dividing p and p dividing N"; it should read "λ not dividing p".
+- E50, T. Saito's Hilbert paper, pp. 9 and 12: the Weil–Deligne relation and φN = pNφ are both reversed. The correct relations are FNF^{−1} = N𝔭^{−1}N and Nφ = pφN; Saito's own Theorem 2 requires them.
 
-- E46: the Tate-curve parameter c_q = −λ(q) should be −λ(q)/ord_p(q).
-
-Coleman–Iovita (arXiv v1):
-
-- E47: "if" and "only if" are swapped in crediting Fontaine.
-
-All eight are recorded in the packet's sourceIssues.
+E48 and E49 are corrected in the authors' arXiv version 2512.02348v2 (2025).
 
 ## Sources
 
-All sources are public:
+Checkpoint 1:
 
 - Berger, arXiv:math/0210184v1;
-- Brinon–Conrad, math.stanford.edu/~conrad/papers/notes.pdf;
+- Brinon–Conrad, 2009 notes;
 - Coleman–Iovita, arXiv:math/9701229v1.
 
-Sources not read:
+Checkpoint 2:
 
-- Chapter II of Coleman–Iovita, which is absent from arXiv;
-- Berthelot–Breen–Messing;
-- Silverman's Advanced Topics;
-- Mazur–Tate–Teitelbaum.
+- Diamond–Flach–Guo: arXiv:2512.02348v2 and the Numdam copy of Ann. ÉNS 37 (2004);
+- T. Saito, arXiv:math/0612077v2;
+- Darmon–Diamond–Taylor, the 2007 revision on Darmon's page.
 
-The acceptance values (a_p of 11a1 and 15a1, and q and L of 11a1 at 11) come from a Python point count and q-expansion inversion run during the job; the script is not committed, and its results are recorded in the acceptance lists of the nodes.
+The acceptance values come from Python scripts run during the job:
+
+- a_p of 11a1 and 15a1;
+- q and L of 11a1 at 11;
+- τ(p) mod p for Δ.
+
+The scripts are not committed. Their results are recorded in the acceptance lists of the nodes.
