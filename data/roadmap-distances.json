@@ -21,7 +21,7 @@
   "judgeScale": 1.0,
   "tau": 1.5,
   "weights": {
-   "lnMissingTargets": 1.0047,
+   "lnMissingTargets": 1.0048,
    "depth": 0.036
   },
   "targetsPerUnauditedLayer": 4.06,
@@ -845,8 +845,8 @@
    "structure": {
     "layers": 10,
     "missingOwn": 10.0,
-    "missingLayers": 650.0,
-    "missingTargets": 2962.9,
+    "missingLayers": 651.0,
+    "missingTargets": 2965.9,
     "depth": 104,
     "suppliers": 110
    },
@@ -1452,7 +1452,7 @@
    "measurement": 6.61,
    "judgements": 7,
    "distance": 6.58,
-   "low": 5.74,
+   "low": 5.75,
    "high": 7.42,
    "basis": "judged",
    "usedBy": [
@@ -3445,7 +3445,7 @@
     "depth": 41,
     "suppliers": 31
    },
-   "measurement": 6.39,
+   "measurement": 6.4,
    "judgements": 11,
    "distance": 5.49,
    "low": 4.97,
