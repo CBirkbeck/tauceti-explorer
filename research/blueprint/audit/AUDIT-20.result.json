@@ -72,10 +72,10 @@
        "note": "`grep -rn -i 'additive polynomial'` returns nothing in either tree, and there is no ring map from `SkewPolynomial` to `Polynomial` or to endomorphisms of G_a sending τ to the q-power map. Tau Ceti has the additive group scheme over any commutative base with its p-power Frobenius endomorphism on points (`AdditiveGroup.frobeniusEnd`) and α_p as the kernel of Frobenius (`AlphaP.range_inclusion`), but End(G_a) is not made a ring and there is no theory of additive/F_q-linear polynomials."
       },
       {
-       "target": "Rank-r Drinfeld A-module: characteristic map A → L, deg φ_a = r·deg a, nonzero constant term",
+       "target": "Rank-r Drinfeld A-module: characteristic map ι: A → L, constant coefficient of φ_a equal to ι(a), and deg_τ φ_a = r·deg a for nonzero a with the chosen infinity normalization; generic and special characteristic retained separately",
        "library": "absent",
        "declarations": [],
-       "note": "No occurrence of `Drinfeld` in either library outside `CategoryTheory/Monoidal/Center.lean` (the Drinfeld centre of a monoidal category, an unrelated notion). The degree normalization at infinity is likewise absent."
+       "note": "No occurrence of `Drinfeld` in either library outside `CategoryTheory/Monoidal/Center.lean` (the Drinfeld centre of a monoidal category, an unrelated notion). The degree normalization at infinity is likewise absent. The constant coefficient of φ_a is ι(a), which vanishes for nonzero a in ker ι: for A = F_q[t], L = F_q, ι(t) = 0 and φ_t = τ is a rank-one Drinfeld module of special characteristic whose φ_t has zero constant coefficient (its t-kernel is the non-reduced group scheme Spec F_q[X]/(X^q)). Nonvanishing of the constant coefficient holds only for a ∉ ker ι. The τ-degree r·deg a is not the polynomial degree q^(r·deg a)."
       },
       {
        "target": "Morphisms, isogenies and kernels of Drinfeld modules as group schemes",
@@ -1703,11 +1703,11 @@
      "duplicates": [
       {
        "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
-       "note": "Owns local class field theory including the norm-subgroup correspondence; FA.4 specializes the same statement to F_{q^d}((t))."
+       "note": "Owns local class field theory through the class-formation machinery: the local Artin map and norm limitation for every nonarchimedean local field, the full norm-subgroup correspondence for finite extensions of Q_p, and for a general local field only the correspondence for subgroups of index prime to the residue characteristic. It exports no equal-characteristic p-primary existence theorem, so the overlap with FA.4 over F_{q^d}((t)) is the shared formalism and the prime-to-p correspondence; full p-primary existence (e.g. the cyclic degree-p extension given by X^p − X − t^(−1)) and the unrestricted norm-subgroup correspondence remain FA.4 work, using FA.3's Artin–Schreier–Witt theory."
       },
       {
        "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
-       "note": "Owns the global class formation and the Artin reciprocity map from ideles, which FA.4 restates for a function field."
+       "note": "Owns the global class formation and the Artin reciprocity map from ideles for number fields, built on number-field idele carriers and archimedean factors. For FA.4 it is the number-field analogue and a reusable abstract class-formation formalism; constructing the function-field arithmetic instance and its global reciprocity remains FA.4 work."
       },
       {
        "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
@@ -2843,7 +2843,7 @@
    }
   },
   "ExcursionOperatorsAndSpectralAction": {
-   "summary": "Almost nothing this roadmap states is in the pinned libraries; the one general construction present is Mathlib's centre of a category (`CategoryTheory.CatCenter`, with its linear scalar map), which ES0 would apply to D_lis(Bun_G). Its whole setting — lisse sheaves on Artin v-stacks, coherent Hecke kernels, the stack of Langlands parameters, the Bernstein centre, smooth representations of a p-adic group, local Langlands — is absent: `grep -rn -i` finds no `satake`, no `bernstein center`, no `Weil group`, no `local Langlands`, no `shtuka`, and the only `excursion` declarations in either tree are Tau Ceti's combinatorial excursion processes. What does exist is ambient machinery the roadmap would eventually sit on: Mathlib's condensed sets and modules with solidification (`Condensed`, `CondensedMod`, `CondensedMod.IsSolid`), derived and triangulated categories with Verdier localization, induced and coinduced representations with abelian Shapiro's lemma, dual root data (`RootPairing.flip`), the étale/pro-étale topologies with an ℓ-adic coefficient sheaf, and Haar measure; Tau Ceti's central simple algebras and Brauer group (including the division-algebra representative of a class), smooth discrete representations of a profinite group, Tate cohomology, and reductive group schemes with root data. The two most classically flavoured layers, ES7:function-field-automorphic and ES7:equal-characteristic, are the ones with the most usable inputs — division algebras, restricted products, Haar measure, function-field places — but neither their adelic constructions nor any of their theorems exist. Every layer is not built; ES0's centre target is partial.",
+   "summary": "Almost nothing this roadmap states is in the pinned libraries; the one general construction present is Mathlib's centre of a category (`CategoryTheory.CatCenter`, with its linear scalar map), which ES0 would apply to D_lis(Bun_G). Its whole setting — lisse sheaves on Artin v-stacks, coherent Hecke kernels, the stack of Langlands parameters, the Bernstein centre, the Bernstein decomposition and classification of smooth representations of a p-adic group, local Langlands — is absent: `grep -rn -i` finds no `satake`, no `bernstein center`, no `Weil group`, no `local Langlands`, no `shtuka`, and the only `excursion` declarations in either tree are Tau Ceti's combinatorial excursion processes. What does exist is ambient machinery the roadmap would eventually sit on: Mathlib's condensed sets and modules with solidification (`Condensed`, `CondensedMod`, `CondensedMod.IsSolid`), derived and triangulated categories with Verdier localization, induced and coinduced representations with abelian Shapiro's lemma, dual root data (`RootPairing.flip`), the étale/pro-étale topologies with an ℓ-adic coefficient sheaf, and Haar measure; Tau Ceti's central simple algebras and Brauer group (including the division-algebra representative of a class), the category of smooth discrete representations of an arbitrary topological group (`TauCeti.SmoothDiscreteTopRep`, equivalent to `TauCeti.DiscreteRep` by `TauCeti.discreteRepEquivSmoothTopRep`, with discrete coefficient modules), Tate cohomology, and reductive group schemes with root data. The two most classically flavoured layers, ES7:function-field-automorphic and ES7:equal-characteristic, are the ones with the most usable inputs — division algebras, restricted products, Haar measure, function-field places — but neither their adelic constructions nor any of their theorems exist. Every layer is not built; ES0's centre target is partial.",
    "layers": {
     "ExcursionOperatorsAndSpectralAction:ES0": {
      "verdict": "not built",
@@ -2886,9 +2886,30 @@
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
          "line": 254,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.SmoothDiscreteTopRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 537,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.DiscreteRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 550,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.discreteRepEquivSmoothTopRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 678,
+         "fit": "related"
         }
        ],
-       "note": "The Bernstein centre does not exist in either library (`grep -i 'bernstein center'` is empty; Tau Ceti's `Bernstein` names are Bernstein functions in analysis). Tau Ceti's `IsSmoothDiscrete` is the smoothness condition for a discrete module over a profinite group, the closest available notion of a smooth representation, but there is no category of smooth representations of a locally profinite group and no Bernstein decomposition."
+       "note": "The Bernstein centre does not exist in either library (`grep -i 'bernstein center'` is empty; Tau Ceti's `Bernstein` names are Bernstein functions in analysis). Tau Ceti has the ordinary smooth category for any topological group, hence for a locally profinite one: `IsSmoothDiscrete` (a discrete module with open stabilizers), its full subcategory `SmoothDiscreteTopRep` of topological representations, the category `DiscreteRep` of discrete modules with continuous actions, and the equivalence `discreteRepEquivSmoothTopRep` for a topological group. The coefficient module is discrete, which is what makes this the ordinary algebraic smooth category; it does not apply as such to C or Q_ℓ with their usual topologies. What is absent is the Bernstein decomposition and block classification, admissibility, and the comparison with the degree-zero centre of the enhanced D_lis(Bun_G)."
       },
       {
        "target": "Excursion operators from a finite leg set, an invariant function, coevaluation, a Weil tuple and evaluation",
