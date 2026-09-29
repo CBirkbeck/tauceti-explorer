@@ -10,7 +10,7 @@
   "SelmerIwasawaCohomology:L4"
  ],
  "status": "partial",
- "summary": "First checkpoint of the blueprint for Selmer groups, continuous integral cohomology and Iwasawa cohomology, within RS-08's boundaries. L0: the p-adic completion of a multiplicative group and its comparison with the tensor product (true for global units and S-units, false for local multiplicative groups and for F^×), the Kummer maps along the μ_{p^m} tower, the Mittag-Leffler bookkeeping, the identification H^1(G_K, ℤ_p(1)) ≅ lim K^×/(K^×)^{p^m} and its S-unit form H^1(G_{F,S}, ℤ_p(1)) ≅ ℤ_p ⊗ 𝓞_{F,S}^×. L2: the generic Selmer-kernel API (local conditions, strict and relaxed modifications, change of conditions, functoriality, propagation, the passage V → T, W with saturation), the unramified and Greenberg conditions, Galois Selmer groups, Pontryagin duals and coranks, and the elliptic p^∞-Selmer group. Two new findings in RJW are recorded. Second checkpoint: L1's parametric pairing lemmas (orthogonal complements, compatibility of the local pairings for T, V, W, W_M), and in L2 the dual Selmer structure, the unramified dimension count and bad-prime comparison terms, local duality for the finite conditions on V, T and W_M, Selmer groups as limits, and Poitou–Tate for Selmer groups (Rubin Theorem 7.3, Corollary 7.5), built on ArithmeticGaloisDuality R02.4's Poitou–Tate. Third checkpoint: L3 from Nekovář, Selmer complexes, 8.3–8.4 and Rubin Appendix B §§3–5: Iwasawa cohomology by corestriction, Shapiro's lemma over Λ with the inverse action, descent and control spectral sequences, the torsion criterion, universal norms, semilocal cohomology and the cyclotomic twist.",
+ "summary": "First checkpoint of the blueprint for Selmer groups, continuous integral cohomology and Iwasawa cohomology, within RS-08's boundaries. L0: the p-adic completion of a multiplicative group and its comparison with the tensor product (true for global units and S-units, false for local multiplicative groups and for F^×), the Kummer maps along the μ_{p^m} tower, the Mittag-Leffler bookkeeping, the identification H^1(G_K, ℤ_p(1)) ≅ lim K^×/(K^×)^{p^m} and its S-unit form H^1(G_{F,S}, ℤ_p(1)) ≅ ℤ_p ⊗ 𝓞_{F,S}^×. L2: the generic Selmer-kernel API (local conditions, strict and relaxed modifications, change of conditions, functoriality, propagation, the passage V → T, W with saturation), the unramified and Greenberg conditions, Galois Selmer groups, Pontryagin duals and coranks, and the elliptic p^∞-Selmer group. Two new findings in RJW are recorded. Second checkpoint: L1's parametric pairing lemmas (orthogonal complements, compatibility of the local pairings for T, V, W, W_M), and in L2 the dual Selmer structure, the unramified dimension count and bad-prime comparison terms, local duality for the finite conditions on V, T and W_M, Selmer groups as limits, and Poitou–Tate for Selmer groups (Rubin Theorem 7.3, Corollary 7.5), built on ArithmeticGaloisDuality R02.4's Poitou–Tate. Third checkpoint: L3 from Nekovář, Selmer complexes, 8.3–8.4 and Rubin Appendix B §§3–5: Iwasawa cohomology by corestriction, Shapiro's lemma over Λ with the inverse action, descent and control spectral sequences, the torsion criterion, universal norms, semilocal cohomology and the cyclotomic twist. Checkpoint 4 (cc-39fac3) starts L4 from RJW §§10.5, 13.5: Iwasawa cohomology of local units and the cyclotomic Euler system, Greenberg Selmer groups of Tate twists and X_∞^+, criticality of ℚ_p(n), the Iwasawa–Greenberg conjecture as a proposition with its even-twist case proved from Theorem 13.8, and the Bloch–Kato condition; findings E4–E5.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -230,12 +230,13 @@
    "id": "RJW-PADIC-L",
    "title": "An introduction to p-adic L-functions",
    "authors": "Joaquín Rodrigues Jacinto; Chris Williams",
-   "edition": "arXiv:2309.15692v2 (19 December 2024); the version in Essential Number Theory 4 (2025) was not accessed",
+   "edition": "arXiv:2309.15692v2 (19 December 2024); the published version (Essential Number Theory 4 (2025), 101–216) was compared at the loci of E4 and E5",
    "url": "https://arxiv.org/abs/2309.15692v2",
    "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
    "readSections": [
     "§10.5 ((10.5)–(10.8), Definition 10.16)",
-    "§13.5 (Definition 13.19, Remark 13.20, §13.5.2, Conjecture 13.21, Example 13.22)"
+    "§13.5 (Definition 13.19, Remark 13.20, §13.5.2, Conjecture 13.21, Example 13.22)",
+    "2026-09-29 (cc-39fac3, L4): §10.5 and §13.5 reread for L4; pages 52 and 71 rendered for E4 and E5, and the published pp. 171 and 197 compared."
    ]
   },
   {
@@ -299,6 +300,13 @@
    "citation": "J. Nekovář, Selmer complexes, Astérisque 310 (2006)",
    "read": "2026-09-29",
    "sha256": "61c84e5ad3252a2e520747215ac57a282addc2b58c824a3637bcd77bbe02153f"
+  },
+  {
+   "kind": "published",
+   "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
+   "citation": "J. Rodrigues Jacinto and C. Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), 101–216",
+   "read": "2026-09-29 (pp. 170–172, 196–198)",
+   "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6"
   }
  ],
  "nodes": [
@@ -2722,6 +2730,430 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L4/local-units-iwasawa-cohomology",
+   "parentStageId": "SelmerIwasawaCohomology:L4",
+   "realises": [
+    "SelmerIwasawaCohomology:L4"
+   ],
+   "title": "Local units and the cyclotomic Euler system in Iwasawa cohomology",
+   "kind": "lemma",
+   "statement": "For K_n = ℚ_p(μ_{p^n}), the local Kummer identifications K̂_n^× ≅ H^1(K_n, ℤ_p(1)) (p-adic completions; E1) intertwine norms with corestriction and give lim_n K̂_n^× ≅ lim_n H^1(K_n, ℤ_p(1)) = H^1_Iw(ℚ_p, ℤ_p(1)) (RJW (10.8), corrected). The inclusion of principal units gives κ : U_∞ → H^1_Iw(ℚ_p, ℤ_p(1)). The global classes z_m = δ(c_m) ∈ H^1(ℚ(μ_m), ℤ_p(1)) of the cyclotomic units c_m = (ξ_m^{−1} − 1)/(ξ_m − 1), m = Dp^n, satisfy cores(z_{mℓ}) = z_m for ℓ | m and (1 − Frob_ℓ^{−1})z_m for ℓ ∤ m, and their localisations at p along the tower m = Dp^n define a class in H^1_Iw(ℚ_p, ℤ_p(1)) (RJW §10.5, the cohomological reinterpretation of the Coleman map).",
+   "hypotheses": [
+    "p odd; D ≥ 1 prime to p; completions as in SelmerIwasawaCohomology L0."
+   ],
+   "proofSteps": [
+    "The finite-level Kummer isomorphisms K_n^×/(K_n^×)^{p^m} ≅ H^1(K_n, μ_{p^m}) commute with norm and corestriction; pass to the limit in m (L0/padic-kummer-identification, L0/local-completion) and then in n (L3/iwasawa-cohomology).",
+    "κ: U_∞ = lim U_n^1 maps to lim K̂_n^×; it is injective because each U_n^1 is ℤ_p-complete.",
+    "The corestriction relations are the Kummer images of the norm relations N(c_{mℓ}) = c_m (ℓ | m) and N(c_{mℓ}) = c_m^{1 − Frob_ℓ^{−1}} (ℓ ∤ m), which EulerSystemsCyclotomicMainConjecture L0 plans; RJW print the second as (1 − ℓ^{−1})c_m (finding E4).",
+    "Localisation at the place above p commutes with corestriction, so the classes loc_p(z_{Dp^n}) form an element of the limit."
+   ],
+   "acceptance": [
+    "Coleman's map Col′ and Perrin-Riou's big logarithm, which RJW mention after (10.8), are owned by ColemanPowerSeries and PadicHodgeRegulators; they are not planned here."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L0/padic-kummer-identification",
+    "SelmerIwasawaCohomology:L0/local-completion",
+    "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+    "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-kummer-classes",
+    "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-euler-system"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Greenberg",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§10.5, (10.5)–(10.8) and Definition 10.16, pp. 52–53 (arXiv v2); published pp. 170–172",
+     "match": "§10.5 up to the definition of H^1_Iw and the map κ; (10.7) and (10.8) are corrected as in E1, and the norm relation as in E4."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L4/tate-twist-greenberg-selmer",
+   "parentStageId": "SelmerIwasawaCohomology:L4",
+   "realises": [
+    "SelmerIwasawaCohomology:L4"
+   ],
+   "title": "Greenberg Selmer groups of Tate twists",
+   "kind": "theorem",
+   "statement": "Give V_n = ℚ_p(n) the filtration Fil^iℚ_p(n) = ℚ_p(n) for i ≤ n and 0 for i > n. Then L^Gr_{v_p} = H^1(K_∞^+, W_n) for n ≥ 1 and L^Gr_{v_p} = H^1_ur(K_∞^+, W_n) for n ≤ 0. Inflation–restriction gives H^1(F, W_n) = Hom_{cts,{±1}}(G_{F_∞}, W_n), and hence H^1_{L^Gr}(F, W_n) = Hom_cts(X_∞^{c=(−1)^n}, W_n) for n ≥ 1 and Hom_cts(Y_∞^{c=(−1)^n}, W_n) for n ≤ 0. Since (X_∞)^{c=1} ≅ X_∞^+, for even n > 0, H^1_{L^Gr}(F, W_n) = Hom_cts(X_∞^+, W_n), whose Pontryagin dual is X_∞^+(−n), the module X_∞^+ with its Λ(Γ^+)-action twisted by χ^{−n} (RJW §13.5.2, Example 13.22).",
+   "hypotheses": [
+    "p odd; F_∞ = ℚ(μ_{p^∞}), F = F_∞^+ = ℚ(μ_{p^∞})^+, Gal(F_∞/F) = {1, c}; K_∞^+ = ℚ_p(μ_{p^∞})^+ is the completion at the unique place v_p above p; χ is the cyclotomic character, T_n = ℤ_p(n), V_n = ℚ_p(n), W_n = (ℚ_p/ℤ_p)(n); X_∞ = Gal(M_∞/F_∞) and Y_∞ = Gal(L_∞/F_∞) for the maximal abelian pro-p extensions unramified outside p and everywhere unramified, with X_∞^+ = Gal(M_∞^+/F_∞^+) (IntegralIwasawaTheory L1)."
+   ],
+   "proofSteps": [
+    "Local condition: W_n/Fil^1W_n is 0 for n ≥ 1 and W_n for n ≤ 0, so L^Gr is everything or the unramified condition (L2/greenberg-condition).",
+    "G_{F_∞} acts trivially on W_n, so H^1(F_∞, W_n) = Hom_cts(G_{F_∞}, W_n); since #{1, c} = 2 is prime to p, inflation–restriction gives H^1(F, W_n) = Hom_cts(G_{F_∞}, W_n)^{{1,c}}.",
+    "A class is p-power torsion with abelian image, so it factors through the maximal abelian pro-p extension of F_∞; the unramified conditions away from p factor it through X_∞, and for n ≤ 0 the condition at p factors it through Y_∞.",
+    "c acts on W_n by (−1)^n and X_∞ = X_∞^{c=1} ⊕ X_∞^{c=−1} (p odd), so {±1}-equivariant homomorphisms are those on the (−1)^n-eigenspace; restriction identifies X_∞^{c=1} with X_∞^+.",
+    "Pontryagin duality with the contragredient action (L2/pontryagin-dual) turns Hom_cts(X_∞^+, W_n) into X_∞^+(−n)."
+   ],
+   "acceptance": [
+    "RJW write H^1_{L^Gr}(F_∞, W_n) for the group over F = F_∞^+ in steps (3)–(4), and \"n ≥ 0\" for n ≤ 0 (finding E5).",
+    "The odd-n and n ≤ 0 cases give the minus part of X_∞ and the parts of Y_∞; only even n > 0 recovers X_∞^+."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/greenberg-condition",
+    "SelmerIwasawaCohomology:L2/unramified-condition",
+    "SelmerIwasawaCohomology:L2/galois-selmer-group",
+    "SelmerIwasawaCohomology:L2/pontryagin-dual",
+    "SelmerIwasawaCohomology:L2/selmer-kernel",
+    "IntegralIwasawaTheory:L1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Greenberg",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§13.5.2, pp. 70–71 (arXiv v2); published pp. 196–197",
+     "match": "Steps (1)–(4) of §13.5.2 and the first sentence of Example 13.22."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Selmer groups of Tate twists"
+   }
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L4/criticality",
+   "parentStageId": "SelmerIwasawaCohomology:L4",
+   "realises": [
+    "SelmerIwasawaCohomology:L4"
+   ],
+   "title": "The Gamma factor, r_V and criticality",
+   "kind": "definition",
+   "statement": "For a p-adic representation V attached to an arithmetic object, with archimedean Euler factor L_∞(V, s) (a product of shifted Gamma functions without zeros), r_V is the order of the pole of L_∞(V, s) at s = 1, and V^∨ = Hom_cts(V, ℚ_p(1)) is the Tate dual. Greenberg's criticality hypothesis is r_V = r_{V^∨} = 0. For V = ℚ_p(n): L(V, s) = ζ(s − n) and L_∞(V, s) = π^{−(s−n)/2}Γ((s − n)/2), with poles at s = n, n − 2, …; so r_{ℚ_p(n)} = 1 if n is odd and positive and 0 otherwise, V^∨ = ℚ_p(1 − n), and ℚ_p(n) is critical exactly when n is even and positive or odd and negative (RJW Remark 13.23).",
+   "hypotheses": [
+    "V is given together with its Gamma factor; the general recipe from Hodge data is listed as remaining."
+   ],
+   "proofSteps": [
+    "r_{ℚ_p(n)}: s = 1 is a pole of Γ((s − n)/2) iff (1 − n)/2 ∈ {0, −1, −2, …} iff n is odd and n ≥ 1.",
+    "r_{ℚ_p(n)^∨} = r_{ℚ_p(1−n)} = 1 iff 1 − n is odd and positive iff n is even and n ≤ 0.",
+    "Both vanish iff (n even or n ≤ 0) and (n odd or n ≥ 1), i.e. n even with n ≥ 2, or n odd with n ≤ −1."
+   ],
+   "acceptance": [
+    "This is Greenberg's Gamma-factor notion; it agrees with Deligne's criticality for Tate twists (L(ℚ_p(n), 1) = ζ(1 − n) and L(ℚ_p(n)^∨, 1) = ζ(n) both critical)."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/pontryagin-dual"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Greenberg",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§13.5.3, pp. 71–72 (arXiv v2), with Remark 13.23; published pp. 197–198",
+     "match": "The definition of r_V, the example V = ℚ_p(n) and Remark 13.23."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Selmer.gammaFactor",
+     "role": "data",
+     "statement": "L_∞(V, s), part of the input data of V."
+    },
+    {
+     "name": "TauCeti.Selmer.poleOrderAtOne",
+     "role": "constructor",
+     "statement": "r_V, the order of the pole of L_∞(V, s) at s = 1."
+    },
+    {
+     "name": "TauCeti.Selmer.tateDual",
+     "role": "constructor",
+     "statement": "V^∨ = Hom_cts(V, ℚ_p(1))."
+    },
+    {
+     "name": "TauCeti.Selmer.IsGreenbergCritical",
+     "role": "constructor",
+     "statement": "r_V = 0 and r_{V^∨} = 0."
+    },
+    {
+     "name": "TauCeti.Selmer.poleOrderAtOne_tateTwist",
+     "role": "simp",
+     "statement": "r_{ℚ_p(n)} = 1 if n is odd and positive, 0 otherwise."
+    },
+    {
+     "name": "TauCeti.Selmer.isGreenbergCritical_tateTwist_iff",
+     "role": "characterisation",
+     "statement": "ℚ_p(n) is critical iff n is even and positive or odd and negative."
+    }
+   ],
+   "tests": [
+    {
+     "name": "twist_two",
+     "kind": "value",
+     "statement": "n = 2: r_V = r_{V^∨} = 0, so ℚ_p(2) is critical."
+    },
+    {
+     "name": "twist_zero",
+     "kind": "non-example",
+     "statement": "n = 0: r_{ℚ_p(1)} = 1, so ℚ_p is not critical, although Theorem 13.8 is its main conjecture (Remark 13.23)."
+    },
+    {
+     "name": "twist_one",
+     "kind": "non-example",
+     "statement": "n = 1: r_{ℚ_p(1)} = 1 (the pole of Γ(s/2 − 1/2) at s = 1)."
+    },
+    {
+     "name": "twist_minus_one",
+     "kind": "value",
+     "statement": "n = −1: critical (odd and negative)."
+    },
+    {
+     "name": "parity_table",
+     "kind": "value",
+     "statement": "For −6 ≤ n ≤ 6, criticality agrees with the parity rule (suggested file)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SelmerIwasawaCohomology:L4/greenberg-main-conjecture",
+     "how": "the hypotheses r_V and r_V = r_{V^∨} = 0 of Conjecture 13.21"
+    },
+    {
+     "where": "SelmerIwasawaCohomology:L4/greenberg-conjecture-tate-twists",
+     "how": "which Tate twists Greenberg's conjecture covers"
+    }
+   ]
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L4/greenberg-main-conjecture",
+   "parentStageId": "SelmerIwasawaCohomology:L4",
+   "realises": [
+    "SelmerIwasawaCohomology:L4"
+   ],
+   "title": "The Iwasawa–Greenberg main conjecture (as a proposition)",
+   "kind": "definition",
+   "statement": "Let V be a p-ordinary representation of G_ℚ (a saturated G_ℚ-stable filtration Fil^iV with I_{ℚ_p} acting on Fil^i/Fil^{i+1} by χ^i), T ⊆ V a G_ℚ-stable lattice and W = V/T, and suppose given a p-adic L-function L_p(V) in the fraction field of Λ(Γ^+) (conjectured by Coates–Perrin-Riou). The Iwasawa–Greenberg main conjecture for V is the conjunction of (i) the Λ(Γ^+)-corank of H^1_{L^Gr}(F, W) equals r_V, and (ii) if r_V = r_{V^∨} = 0, the characteristic ideal of the Pontryagin dual of H^1_{L^Gr}(F, W) is (L_p(V)) (RJW Conjecture 13.21, after Greenberg). These are propositions; no node assumes them, and the existence of L_p(V) is part of the data, not a theorem.",
+   "hypotheses": [
+    "V p-ordinary at p (Greenberg filtration, stable under G_{ℚ_p}; see E2); L_p(V) is supplied data."
+   ],
+   "proofSteps": [
+    "Definitions only: (i) uses the corank (L2/corank) and (ii) the characteristic ideal of a finitely generated torsion Λ(Γ^+)-module (PadicMeasuresIwasawaAlgebras L4, with the isotypic decomposition over Λ(Γ^+))."
+   ],
+   "acceptance": [
+    "The rank-zero characteristic-ideal statement (ii) and any positive-rank leading-term statement are distinct propositions; only (i) and (ii) are stated.",
+    "RJW state the conjecture over F = ℚ(μ_{p^∞})^+, not over the cyclotomic ℤ_p-extension used by Greenberg (their Remark 13.9)."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/greenberg-condition",
+    "SelmerIwasawaCohomology:L2/galois-selmer-group",
+    "SelmerIwasawaCohomology:L2/corank",
+    "SelmerIwasawaCohomology:L2/pontryagin-dual",
+    "SelmerIwasawaCohomology:L4/criticality",
+    "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+    "PadicMeasuresIwasawaAlgebras:L4/character-decomposition"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Greenberg",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§13.5.3, Conjecture 13.21, p. 71 (arXiv v2); published p. 197",
+     "match": "Conjecture 13.21 (i)–(ii) with the surrounding hypotheses of §13.5.3."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Selmer.PadicLFunctionDatum",
+     "role": "structure",
+     "statement": "An element L_p(V) of Frac Λ(Γ^+), recorded as data with its conjectural interpolation."
+    },
+    {
+     "name": "TauCeti.Selmer.GreenbergCorankConjecture",
+     "role": "constructor",
+     "statement": "Proposition (i): corank_{Λ(Γ^+)} H^1_{L^Gr}(F, W) = r_V."
+    },
+    {
+     "name": "TauCeti.Selmer.GreenbergCharIdealConjecture",
+     "role": "constructor",
+     "statement": "Proposition (ii): r_V = r_{V^∨} = 0 → char(H^1_{L^Gr}(F, W)^∨) = (L_p(V))."
+    },
+    {
+     "name": "TauCeti.Selmer.GreenbergMainConjecture",
+     "role": "constructor",
+     "statement": "The conjunction of (i) and (ii)."
+    },
+    {
+     "name": "TauCeti.Selmer.greenbergCharIdealConjecture_of_not_critical",
+     "role": "relation",
+     "statement": "(ii) holds vacuously when V is not critical."
+    }
+   ],
+   "tests": [
+    {
+     "name": "even_twist",
+     "kind": "value",
+     "statement": "V = ℚ_p(n), n even > 0: (ii) is the twisted Iwasawa main conjecture (greenberg-conjecture-tate-twists)."
+    },
+    {
+     "name": "trivial_rep",
+     "kind": "non-example",
+     "statement": "V = ℚ_p: r_{V^∨} = 1, so (ii) says nothing, although Theorem 13.8 is proved (Remark 13.23)."
+    },
+    {
+     "name": "not_a_theorem",
+     "kind": "non-example",
+     "statement": "For a general ordinary V neither (i) nor (ii) is known, and L_p(V) need not exist: the node records propositions only."
+    },
+    {
+     "name": "lattice_independence",
+     "kind": "degenerate",
+     "statement": "Changing T within V changes H^1_{L^Gr}(F, W) by a finite module, which changes neither the corank nor the characteristic ideal of the dual (L2/lattice-passage)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "AutomorphicPadicLFunctions:L5",
+     "how": "the Selmer side of the main conjectures it states"
+    },
+    {
+     "where": "ModularIwasawaMainConjectures:L0",
+     "how": "the Greenberg formulation for modular forms"
+    }
+   ],
+   "planet": {
+    "name": "Iwasawa–Greenberg main conjecture"
+   }
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L4/greenberg-conjecture-tate-twists",
+   "parentStageId": "SelmerIwasawaCohomology:L4",
+   "realises": [
+    "SelmerIwasawaCohomology:L4"
+   ],
+   "title": "Greenberg's conjecture for even Tate twists is the Iwasawa main conjecture",
+   "kind": "theorem",
+   "statement": "For V = ℚ_p(n) with n even and positive, V is critical and the Pontryagin dual of H^1_{L^Gr}(F, W_n) is X_∞^+(−n); Greenberg's p-adic L-function is the nth twist of the Kubota–Leopoldt p-adic zeta function; and Conjecture 13.21(ii) for V is equivalent to the Iwasawa main conjecture (RJW Theorem 13.8), hence holds (Example 13.22). Conjecture 13.21(i) holds as well, since X_∞^+ is Λ(Γ^+)-torsion. The case n = 0 is not covered: r_{ℚ_p(1)} = 1 (Remark 13.23).",
+   "hypotheses": [
+    "p odd; F_∞ = ℚ(μ_{p^∞}), F = F_∞^+ = ℚ(μ_{p^∞})^+, Gal(F_∞/F) = {1, c}; K_∞^+ = ℚ_p(μ_{p^∞})^+ is the completion at the unique place v_p above p; χ is the cyclotomic character, T_n = ℤ_p(n), V_n = ℚ_p(n), W_n = (ℚ_p/ℤ_p)(n); X_∞ = Gal(M_∞/F_∞) and Y_∞ = Gal(L_∞/F_∞) for the maximal abelian pro-p extensions unramified outside p and everywhere unramified, with X_∞^+ = Gal(M_∞^+/F_∞^+) (IntegralIwasawaTheory L1)."
+   ],
+   "proofSteps": [
+    "criticality gives r_V = r_{V^∨} = 0 for even n > 0; tate-twist-greenberg-selmer gives the dual X_∞^+(−n).",
+    "Twisting by χ^{−n} is a ring automorphism of Λ(Γ^+), and characteristic ideals transform by it (PadicMeasuresIwasawaAlgebras L4, characteristic-ideal); so char(X_∞^+(−n)) is the nth twist of char(X_∞^+).",
+    "Theorem 13.8 (EulerSystemsCyclotomicMainConjecture L3) identifies char(X_∞^+) with the ideal of the Kubota–Leopoldt ζ_p; twisting gives (ii).",
+    "(i): X_∞^+ is a finitely generated torsion Λ(Γ^+)-module (Iwasawa), so the corank is 0 = r_V."
+   ],
+   "acceptance": [
+    "This is the acceptance item \"RJW §13.5\" of the stage: the even-positive restriction is proved from the parity table, and n = 0 is excluded as the source says."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L4/tate-twist-greenberg-selmer",
+    "SelmerIwasawaCohomology:L4/criticality",
+    "SelmerIwasawaCohomology:L4/greenberg-main-conjecture",
+    "EulerSystemsCyclotomicMainConjecture:L3/cyclotomic-main-conjecture",
+    "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Greenberg",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§13.5.3, Example 13.22 and Remark 13.23, pp. 71–72 (arXiv v2); published pp. 197–198",
+     "match": "Example 13.22 (\"essentially a (twist of) Theorem 13.8\") and Remark 13.23; the twist bookkeeping is made explicit here."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L4/bloch-kato-condition",
+   "parentStageId": "SelmerIwasawaCohomology:L4",
+   "realises": [
+    "SelmerIwasawaCohomology:L4"
+   ],
+   "title": "The Bloch–Kato local condition on T and W",
+   "kind": "construction",
+   "statement": "For a finite place v above p and V a de Rham representation of G_{F_v}, H^1_f(F_v, V) = ker(H^1(F_v, V) → H^1(F_v, V ⊗ B_cris)) (supplied by PadicHodgeRegulators L1), and the Bloch–Kato condition on W = V/T is L^BK_v = im(H^1_f(F_v, V) → H^1(F_v, W)), with its preimage on T (RJW Definition 13.19(2)). At places not above p the condition is unramified. Greenberg and Bloch–Kato conditions coincide in some fundamental examples, but not in general (Remark 13.20).",
+   "hypotheses": [
+    "V a continuous representation of G_{F_v} on a finite-dimensional ℚ_p-vector space with a stable lattice T."
+   ],
+   "proofSteps": [
+    "Propagate the subspace H^1_f(F_v, V) ⊆ H^1(F_v, V) to T and W with L2/condition-propagation: the image in H^1(F_v, W) and the preimage in H^1(F_v, T).",
+    "Unramified at v ∤ p by definition; the global Selmer group is L2/galois-selmer-group for this Selmer structure."
+   ],
+   "acceptance": [
+    "The comparison with Greenberg's condition (Kato; Perrin-Riou §2.4.7) is not read and is listed as remaining; no universal equality is asserted."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/condition-propagation",
+    "SelmerIwasawaCohomology:L2/galois-selmer-group",
+    "SelmerIwasawaCohomology:L2/unramified-condition",
+    "PadicHodgeRegulators:L1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Greenberg",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§13.5.1, Definition 13.19(2) and Remark 13.20, p. 70 (arXiv v2); published p. 196",
+     "match": "Definition 13.19(2) and Remark 13.20."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Selmer.blochKatoCondition",
+     "role": "constructor",
+     "statement": "L^BK_v on W as the image of H^1_f(F_v, V)."
+    },
+    {
+     "name": "TauCeti.Selmer.blochKatoCondition_T",
+     "role": "constructor",
+     "statement": "The preimage on T."
+    },
+    {
+     "name": "TauCeti.Selmer.blochKatoStructure",
+     "role": "constructor",
+     "statement": "The Selmer structure with L^BK at v | p and unramified elsewhere."
+    },
+    {
+     "name": "TauCeti.Selmer.blochKatoCondition_eq_propagate",
+     "role": "compatibility",
+     "statement": "Agreement with L2/condition-propagation applied to H^1_f."
+    }
+   ],
+   "tests": [
+    {
+     "name": "trivial_coefficients",
+     "kind": "value",
+     "statement": "V = ℚ_p: H^1_f(F_v, ℚ_p) = H^1_ur(F_v, ℚ_p), so L^BK is the image of the unramified classes."
+    },
+    {
+     "name": "tate_twist_one",
+     "kind": "value",
+     "statement": "V = ℚ_p(1): H^1_f(F_v, ℚ_p(1)) is the image of 𝒪_{F_v}^× ⊗ ℚ_p under Kummer (Bloch–Kato), so L^BK on W is the image of the units."
+    },
+    {
+     "name": "not_greenberg_in_general",
+     "kind": "non-example",
+     "statement": "The Bloch–Kato and Greenberg conditions differ by exceptional factors in general; only their coincidence in special cases is recorded (Remark 13.20)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SelmerIwasawaCohomology:L4/greenberg-main-conjecture",
+     "how": "the Bloch–Kato variant of the Selmer side"
+    },
+    {
+     "where": "KatoEulerSystems:L4",
+     "how": "Bloch–Kato Selmer groups of modular forms"
+    }
+   ]
   }
  ],
  "requests": [
@@ -2769,7 +3201,8 @@
    "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
    "need": "Inflation–restriction for discrete continuous cohomology, 0 → H^1(G/H, M^H) → H^1(G, M) → H^1(H, M), and the H^1 of a procyclic group, H^1(Ẑ, C) ≅ C/(σ − 1)C by evaluation at a generator.",
    "neededBy": [
-    "SelmerIwasawaCohomology:L2/unramified-condition"
+    "SelmerIwasawaCohomology:L2/unramified-condition",
+    "SelmerIwasawaCohomology:L4/tate-twist-greenberg-selmer"
    ],
    "status": "open",
    "note": "Needed for the inflation description of H^1_ur."
@@ -2880,6 +3313,25 @@
    ],
    "status": "open",
    "note": ""
+  },
+  {
+   "supplier": "IntegralIwasawaTheory:L1",
+   "need": "X_∞ = Gal(M_∞/F_∞) and Y_∞ = Gal(L_∞/F_∞) for F_∞ = ℚ(μ_{p^∞}) (p-ramified and unramified maximal abelian pro-p extensions), their completed Galois action, the decomposition X_∞ = X_∞^{c=1} ⊕ X_∞^{c=−1} for p odd, and the identification X_∞^{c=1} ≅ X_∞^+ = Gal(M_∞^+/F_∞^+) (and likewise for Y_∞), as in RJW §13.2 and §13.5.2.",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L4/tate-twist-greenberg-selmer",
+    "SelmerIwasawaCohomology:L4/greenberg-conjecture-tate-twists"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "PadicHodgeRegulators:L1",
+   "need": "The Bloch–Kato finite condition H^1_f(K, V) = ker(H^1(K, V) → H^1(K, V ⊗ B_cris)) over finite extensions K of ℚ_p, with its value on ℚ_p and ℚ_p(1), for the Bloch–Kato Selmer structure of RJW Definition 13.19(2).",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L4/bloch-kato-condition"
+   ],
+   "status": "open",
+   "note": ""
   }
  ],
  "coverage": [
@@ -2921,10 +3373,14 @@
   },
   {
    "stageId": "SelmerIwasawaCohomology:L4",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "RJW §13.5.2 (X_∞^+ as a Greenberg Selmer group of Tate twists, with the parity restrictions) and Conjecture 13.21 with its hypotheses; finite Bloch–Kato and ordinary conditions after PadicHodgeRegulators L1; Burungale–Tian's bk-selmer and elliptic-bk-comparison items."
-   ]
+    "The Gamma factor L_∞(V, s) from Hodge data (Deligne's recipe) on the HodgeStructures carrier, so that criticality is computed rather than supplied.",
+    "The comparison of Bloch–Kato and Greenberg conditions with exceptional factors (Kato, Perrin-Riou §2.4.7), and lattice and local-condition changes with proof-level control and error terms.",
+    "The comparison with IntegralIwasawaTheory's exact sequence 0 → E^+/C^+ → U^+/C^+ → X^+ → Y^+ → 0, and the determinant/characteristic-ideal comparison under explicit perfectness and torsion hypotheses (PadicMeasuresIwasawaAlgebras L5).",
+    "Burungale–Tian's bk-selmer and elliptic-bk items."
+   ],
+   "notes": "Checkpoint 4 (cc-39fac3) plans RJW §10.5 and §13.5 (6 nodes): local units and the cyclotomic Euler system in Iwasawa cohomology, Greenberg Selmer groups of Tate twists (planet), Gamma-factor criticality, the Iwasawa–Greenberg main conjecture as a proposition (planet), its even-twist case from Theorem 13.8, and the Bloch–Kato condition. Findings E4–E5."
   }
  ],
  "gaps": [],
@@ -2974,6 +3430,38 @@
    "searched": [
     "research/errata/REGISTER.md: its entries for Rubin's Euler systems concern Chapter III §2.1 only",
     "the published monograph (Annals of Mathematics Studies 147, 2000) was not accessed; the author draft's chapter and section numbering agrees with it"
+   ]
+  },
+  {
+   "id": "SelmerIwasawaCohomology/E4",
+   "source": "RJW-PADIC-L",
+   "kind": "error",
+   "locator": "§10.5, the norm relations for c_m, p. 52 (arXiv v2); published p. 171",
+   "printed": "The source gives the norm N_{Q(µ_{mℓ})/Q(µ_m)}(c_{mℓ}) as c_m when ℓ | m, and as (1 − ℓ^{−1})c_m when ℓ ∤ m.",
+   "correction": "For ℓ ∤ m, N(c_{mℓ}) = c_m^{1 − Frob_ℓ^{−1}} = c_m / Frob_ℓ^{−1}(c_m), with Frob_ℓ ∈ Gal(ℚ(μ_m)/ℚ); after the Kummer map this gives the displayed cores(z_{mℓ}) = (1 − Frob_ℓ^{−1})z_m.",
+   "reason": "With ζ_{mℓ}^ℓ = ζ_m and ℓ ∤ m, the conjugates of ζ_{mℓ} over ℚ(μ_m) are ζ_m^{ℓ^{−1}}η for the primitive ℓth roots η, so N(1 − ζ_{mℓ}) = (1 − ζ_m)/(1 − Frob_ℓ^{−1}(ζ_m)). The factor is the Frobenius operator acting on the unit, not the scalar 1 − ℓ^{−1}. The justification that \"Frob_ℓ acts on ℤ_p(1) by ℓ\" does not apply to classes over ℚ(μ_m).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page: v2 (19 December 2024) is the latest version and has the same text.",
+    "Published version (Essential Number Theory 4 (2025)): same text at printed pp. 171 and 197.",
+    "The MSP article page https://msp.org/ent/2025/4-1/p03.xhtml links no erratum (checked 2026-09-29)."
+   ]
+  },
+  {
+   "id": "SelmerIwasawaCohomology/E5",
+   "source": "RJW-PADIC-L",
+   "kind": "misprint",
+   "locator": "§13.5.2, step (3), p. 71 (arXiv v2); published p. 197",
+   "printed": "The source declares the local condition at p empty when n ≥ 1, while for n ≥ 0 it requires σ to be unramified also at p.",
+   "correction": "for n ≤ 0 the local condition at p means σ is also unramified at p. In steps (3)–(4) the Selmer group written H^1_{L^Gr}(F_∞, W_n) is the one over F = F_∞^+ (as in Example 13.22).",
+   "reason": "The display just above gives L^Gr_{v_p} = H^1_ur(K_∞^+, W_n) exactly for n ≤ 0; for n ≥ 1 it is all of H^1. The equivariance under {±1} used in step (4) only makes sense over F_∞^+.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page: v2 (19 December 2024) is the latest version and has the same text.",
+    "Published version (Essential Number Theory 4 (2025)): same text at printed pp. 171 and 197.",
+    "The MSP article page https://msp.org/ent/2025/4-1/p03.xhtml links no erratum (checked 2026-09-29)."
    ]
   }
  ]

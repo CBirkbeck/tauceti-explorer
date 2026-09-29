@@ -1,6 +1,6 @@
 # Selmer groups, continuous integral cohomology and Iwasawa cohomology — blueprint
 
-This blueprint covers stages L0–L4, within the boundaries RS-08 accepted. Three checkpoints so far
+This blueprint covers stages L0–L4, within the boundaries RS-08 accepted. Four checkpoints so far
 plan:
 - **L0:** the p-adic Kummer identification, with its completions and inverse-limit bookkeeping;
 - **L1:** the parametric pairing lemmas (orthogonal complements, and the compatibility of the local
@@ -17,6 +17,8 @@ It follows these sources:
 
 - **L3** (third checkpoint): Iwasawa cohomology, from Nekovář's *Selmer complexes*, Chapter 8, and Rubin's
   Appendix B §§3–5.
+- **L4** (fourth checkpoint): Greenberg Selmer groups of Tate twists, criticality, the Iwasawa–Greenberg conjecture
+  and its even-twist case, and the Bloch–Kato condition, from RJW §§10.5, 13.5.
 
 L4 is not yet read.
 
@@ -331,6 +333,58 @@ descent of local classes (Rubin B.5.1–B.5.3). Infinite-level local conditions 
 **Theorem: the cyclotomic twist** (node `iwasawa-twist`). Cup product with (ζ_{p^n}^{⊗k}) gives an isomorphism
 H^q_Iw(T) ≅ H^q_Iw(T(k)) that is Tw_k-semilinear, with Tw_k(σ) = κ(σ)^{−k}σ. This is Burungale–Tian's (3.2).
 
+## L4. Arithmetic examples and conjectures (fourth checkpoint)
+
+Source: RJW §10.5 and §13.5 (arXiv v2 pp. 52–53 and 69–72). The published version was compared at the two findings.
+Library module: `TauCeti/NumberTheory/Selmer/Greenberg`.
+
+**Lemma: local units in Iwasawa cohomology** (`L4/local-units-iwasawa-cohomology`).
+- lim K̂_n^× ≅ H¹_Iw(ℚ_p, ℤ_p(1)), which is (10.8) with the completion of E1.
+- κ : U_∞ → H¹_Iw.
+- The Kummer classes z_m of the cyclotomic units, with cores(z_{mℓ}) = (1 − Frob_ℓ^{−1})z_m for ℓ ∤ m.
+- Their localisation at p in H¹_Iw.
+
+It cites EulerSystemsCyclotomicMainConjecture L0 for the classes. The norm relation printed as (1 − ℓ^{−1})c_m is
+corrected (E4).
+
+**Theorem: Greenberg Selmer groups of Tate twists** (`L4/tate-twist-greenberg-selmer`; planet).
+- With Fil^iℚ_p(n) = ℚ_p(n) for i ≤ n, the condition at p is everything for n ≥ 1 and unramified for n ≤ 0.
+- H¹_{L^Gr}(F, W_n) = Hom(X_∞^{c=(−1)^n}, W_n) for n ≥ 1, and Hom(Y_∞^{c=(−1)^n}, W_n) for n ≤ 0.
+- For even n > 0 this is Hom(X_∞^+, W_n), whose Pontryagin dual is X_∞^+(−n).
+
+X_∞ and Y_∞ are requested from IntegralIwasawaTheory L1.
+
+**Definition: criticality** (`IsGreenbergCritical`; node `L4/criticality`). r_V is the order of the pole of
+L_∞(V, s) at s = 1; V is critical when r_V = r_{V^∨} = 0.
+- *API:*
+  - the Gamma factor as data;
+  - r_V;
+  - the Tate dual;
+  - the Tate-twist formula;
+  - the parity characterisation.
+- *Unit tests:*
+  - ℚ_p(2) is critical;
+  - ℚ_p(0) and ℚ_p(1) are not (non-examples);
+  - ℚ_p(−1) is critical;
+  - the parity table for −6 ≤ n ≤ 6 (checked in the suggested file).
+
+**Definition: the Iwasawa–Greenberg main conjecture** (node `L4/greenberg-main-conjecture`; planet). RJW
+Conjecture 13.21 (i)–(ii), stated as propositions with the p-adic L-function as data.
+- *API:* the p-adic L-function datum, (i), (ii), and their conjunction.
+- *Unit tests:*
+  - the even twists;
+  - V = ℚ_p is not covered;
+  - it is not a theorem in general;
+  - lattice independence.
+
+**Theorem: the even-twist case** (`L4/greenberg-conjecture-tate-twists`; Example 13.22, Remark 13.23). For n even
+and positive, Conjecture 13.21 for ℚ_p(n) is the twist of Theorem 13.8, which EulerSystemsCyclotomicMainConjecture
+L3 proves, so it holds. n = 0 is excluded.
+
+**Construction: the Bloch–Kato condition** (`L4/bloch-kato-condition`; Definition 13.19(2)). The image of H¹_f in
+H¹(F_v, W), propagated with L2's condition-propagation. H¹_f is requested from PadicHodgeRegulators L1, and no
+comparison with Greenberg's condition is asserted (Remark 13.20).
+
 ## Source findings
 
 - **E1.** RJW (10.7)/(10.8) state F^× ⊗ ℤ_p ≅ H¹(F, ℤ_p(1)). With an algebraic tensor product
@@ -343,6 +397,10 @@ H^q_Iw(T) ≅ H^q_Iw(T(k)) that is Tw_k-semilinear, with Tw_k(σ) = κ(σ)^{−k
   is stable only under G_{ℚ_p}; V_pE of an ordinary non-CM curve has no G_ℚ-stable line.
 - **E3** (misprint, new). Rubin, proof of Theorem 7.3, p. 19: the map in the snake-lemma sequence is
   printed (loc^f_{Σ,Σ})^∨; it is (loc^f_{Σ,Σ_0})^∨.
+- **E4** (error, new). RJW §10.5, p. 52 (published p. 171): N(c_{mℓ}) = (1 − ℓ^{−1})c_m for ℓ ∤ m. It should be
+  c_m^{1 − Frob_ℓ^{−1}}; the factor is the Frobenius operator, not a scalar.
+- **E5** (misprint, new). RJW §13.5.2, step (3), p. 71 (published p. 197): "for n ≥ 0" should read n ≤ 0. The group
+  written over F_∞ is the one over F_∞^+.
 
 ## Requests
 
@@ -362,6 +420,8 @@ H^q_Iw(T) ≅ H^q_Iw(T(k)) that is Tw_k-semilinear, with Tw_k(σ) = κ(σ)^{−k
 - Tau Ceti LocalFieldsRamification Layer 1: the structure of K^×.
 - Tau Ceti GlobalNumberFields: Dirichlet's S-unit theorem.
 - Tau Ceti EllipticCurves Layer 7: finite-level Selmer and Ш.
+- `IntegralIwasawaTheory:L1`: X_∞, Y_∞ and their c-eigenspaces (L4).
+- `PadicHodgeRegulators:L1`: the Bloch–Kato condition H¹_f (L4).
 
 ## Acceptance
 
@@ -391,10 +451,13 @@ H^q_Iw(T) ≅ H^q_Iw(T(k)) that is Tw_k-semilinear, with Tw_k(σ) = κ(σ)^{−k
   - finite-slope and exceptional-zero correction complexes;
   - Selmer control theorems;
   - Burungale–Tian's lattice-independence item (Kato §12.2).
-- **L4:**
-  - RJW §13.5.2 and Conjecture 13.21;
-  - Bloch–Kato conditions;
-  - Burungale–Tian's bk-selmer and elliptic-bk-comparison items.
+- **L4 (partial):**
+  - the Gamma factor from Hodge data;
+  - the Bloch–Kato–Greenberg comparison with exceptional factors;
+  - lattice and local-condition changes with control;
+  - the comparison with IntegralIwasawaTheory's exact sequence;
+  - determinants (PadicMeasuresIwasawaAlgebras L5);
+  - Burungale–Tian's bk-selmer and elliptic-bk items.
 
 ## Sources
 

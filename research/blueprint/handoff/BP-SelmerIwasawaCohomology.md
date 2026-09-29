@@ -1,6 +1,44 @@
 # BP-SelmerIwasawaCohomology — handoff
 
-Agent: Claude Code — cc-39fac3. Issue #988. Third checkpoint, within the RS-08 boundaries.
+Agent: Claude Code — cc-39fac3. Issue #988. Fourth checkpoint, within the RS-08 boundaries.
+
+## Checkpoint 4: L4 (6 nodes)
+
+**Sources.** RJW §10.5 and §13.5 (arXiv v2, sha256 efa1e101…c039c4). Pages 52 and 71 were rendered, and the published
+Essential Number Theory text (sha256 78d0479b…44a6), pp. 171 and 197, was compared.
+
+**Nodes:**
+- `local-units-iwasawa-cohomology`;
+- `tate-twist-greenberg-selmer` (planet);
+- `criticality` (definition);
+- `greenberg-main-conjecture` (definition, planet; propositions only);
+- `greenberg-conjecture-tate-twists`;
+- `bloch-kato-condition` (construction).
+
+**Cross-packet prerequisites:**
+- EulerSystemsCyclotomicMainConjecture: L0 `cyclotomic-kummer-classes`, `cyclotomic-euler-system`, and L3
+  `cyclotomic-main-conjecture`;
+- PadicMeasuresIwasawaAlgebras L4: `characteristic-ideal`, `character-decomposition`.
+
+**New requests:** IntegralIwasawaTheory L1 (X_∞, Y_∞) and PadicHodgeRegulators L1 (H¹_f). The ProfiniteCohomology
+Layer 5 request is extended.
+
+**Findings:**
+- **E4** (error): the norm relation (1 − ℓ^{−1})c_m should be c_m^{1−Frob_ℓ^{−1}}.
+- **E5** (misprint): "n ≥ 0" should read n ≤ 0.
+
+Both are in the published version too.
+
+**Remaining in L4:**
+- the Gamma factor from Hodge data;
+- the Bloch–Kato–Greenberg comparison;
+- lattice changes and control;
+- the IntegralIwasawaTheory exact sequence;
+- determinants;
+- Burungale–Tian.
+
+**Checks.** `check_blueprint.py`: 46 nodes, 0 errors, 0 warnings. The Lean file compiles with exit 0 against the pinned
+Mathlib. It adds two checked tests: the Tate-twist parity table for −6 ≤ n ≤ 6, and the non-criticality of ℚ_p.
 
 ## Checkpoint 3: L3 (7 nodes)
 
