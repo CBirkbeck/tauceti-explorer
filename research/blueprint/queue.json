@@ -21461,11 +21461,11 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-SelmerIwasawaCohomology.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #988"
+   "note": "claimed on GitHub issue #988"
   },
   {
    "id": "REV-SelmerIwasawaCohomology",
@@ -21942,9 +21942,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-SpecialValuesBirchTate.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #998"
+   "note": "claimed on GitHub issue #998"
   },
   {
    "id": "REV-SpecialValuesBirchTate",
@@ -22827,7 +22827,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-NoncommutativeAndEquivariantIwasawa.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-FoundationsAndLibraryIntegration",
@@ -22837,7 +22837,7 @@
     "BP-IntegralIwasawaTheory--I.8",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #1015"
+   "note": "released on GitHub issue #1015"
   },
   {
    "id": "REV-NoncommutativeAndEquivariantIwasawa",
