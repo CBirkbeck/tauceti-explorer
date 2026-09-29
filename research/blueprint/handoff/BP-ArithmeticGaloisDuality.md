@@ -1,7 +1,45 @@
 # BP-ArithmeticGaloisDuality — handoff
 
-Agent: Claude Code — cc-39fac3. Issue #675. Second checkpoint, within the RS-08 boundaries, which
-its review accepted.
+Agent: Claude Code — cc-39fac3. Issue #675. Third checkpoint, within the RS-08 boundaries, which its
+review accepted.
+
+## Checkpoint 3: R02.2 (7 nodes)
+
+**Source:** Neukirch–Schmidt–Wingberg, *Cohomology of Number Fields*, electronic version 2.3 (sha256
+abbb7cde…dcb91), Chapter II §§1, 2, 4. The authors' errata file lists nothing for these sections. Also
+Rubin, Proposition B.2.5.
+
+**Nodes.**
+- `first-quadrant-spectral-sequence`: the convergent spectral sequence of a first-quadrant double
+  complex, on Mathlib's spectral objects. Mathlib's `IsFirstQuadrant` spectral sequence records no
+  abutment; the node supplies it.
+- `hochschild-serre-spectral-sequence` (planet): NSW (2.4.1), with the edge maps, the morphisms for
+  res/cor, and cup products.
+- `five-term-transgression` (planet): (2.4.3), identified with ProfiniteCohomology's transgression.
+- `transgression-cup-product` (planet): (2.4.4), d₂ = −u ∪. This covers Harpaz–Wittenberg item 148.
+- `hochschild-serre-degeneration`: (2.4.2), (2.4.5), (2.4.6), and Exercise 4.
+- `finite-index-descent` (planet): cor ∘ res, res ≅ invariants for n invertible, and prime-to-ℓ
+  injectivity. This is the maintainer's R02.2 item.
+- `compact-five-term`: Rubin B.2.5.
+
+**Requests served:**
+- ClassicalAdicEtaleCohomology H0, DiamondEtaleCohomology C8 and ExcursionOperatorsAndSpectralAction
+  ES7 (Hochschild–Serre for discrete torsion coefficients, edge maps).
+- SelmerIwasawaCohomology L2 (the cd ≤ 1 sequences for its unramified dimension count, PR #3893).
+
+**Remaining in R02.2:**
+- the full compact-coefficient spectral sequence (Jannsen §§2–3). Its Göttingen digitisation timed
+  out on 2026-09-29.
+- Harpaz–Wittenberg items 149–150 (Gille–Szamuely, not read). They follow from the degeneration node
+  for 1 → I → G_{F((t))} → G_F → 1.
+
+**Checks.**
+- `check_blueprint.py`: 55 nodes, 0 errors, 0 warnings.
+- The Lean file compiles with exit 0. Its new section states NSW (1.6.2) on Mathlib's
+  `groupCohomology` and the injectivity step, and sketches the spectral-sequence signatures in
+  comments.
+
+# Checkpoints 1–2
 
 ## What is done
 
