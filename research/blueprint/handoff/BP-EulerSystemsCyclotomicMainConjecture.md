@@ -1,5 +1,29 @@
 # BP-EulerSystemsCyclotomicMainConjecture — handoff
 
+## Checkpoint 3 (Claude Code, session cc-fb70e5, 29 September 2026): L2 source-decomposed (4 nodes)
+
+Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`, L1 is `partial`, and L3–L4 are `not_read`.
+
+**Source.** Rubin, *Euler systems* (the same PDF, SHA-256 de47655d…). Read: Chapter II §3 (printed pp. 26–29) and Chapter III §2.5–2.10 (pp. 37–39).
+
+**New L2 nodes (p odd, χ even, nontrivial, of order prime to p; no hypothesis on χ(p)):**
+- `iwasawa-hypotheses-cyclotomic`: Hyp(ℚ_∞, T*) with τ = 1, Hyp(ℚ_∞/ℚ), and no split primes. This gives Theorem II.3.3, char(X_∞) | ind_Λ(c).
+- `limit-unit-diagram`: Proposition III.2.6 (i)–(iii). Y_∞^χ/U_∞^χ is 0 or O according as χ(p) ≠ 1 or χ(p) = 1.
+- `lambda-index-of-cyclotomic-units`: ind_Λ(c) = char((E′_∞)^χ/C_{∞,χ}), which divides J·char(E_∞^χ/C_{∞,χ}).
+- `cyclotomic-iwasawa-divisibility` (planet): Theorem III.2.7, char(A_∞^χ) | char(E_∞^χ/C_{∞,χ}). The J² is removed through Leopoldt for L.
+
+**New requests:** EulerSystemsAndKolyvaginSystems ES.8 (Theorems II.3.2–3.4, Proposition II.3.7) and SelmerIwasawaCohomology L3 (Iwasawa cohomology, Corollary B.3.4). The IntegralIwasawaTheory L0 request now also asks for Iwasawa's rank-one theorem for Y_∞^χ ([Iw3] Theorem 25) and Leopoldt for real abelian fields.
+
+**Source issue E3 (new, misprint, affects nothing).** The proof of Theorem III.2.10 (p. 39) ends "proves the corollary"; it proves the theorem. It was found while reading ahead for L3.
+
+**For L3 (next):**
+- Corollary III.2.8 (equality, by the class number formula) holds for every even χ, including χ(p) = 1. This also fills L1's gap: Greenberg's descent to Corollary III.2.4 for ψ(p) = 1.
+- Also Theorem 2.9 (L_χ, char(U_∞^χ/C_{∞,χ}) = L_χΛ), Theorem 2.10, and RJW §13.
+
+**Lean.** One new checked example: coprime to J and dividing J²b implies dividing b. The file compiles with exit 0; the only warnings are the existing planned stubs.
+
+**Checks.** `check_blueprint --index`: 0 errors, 0 warnings. `check-files`: 0 problems. Every new excerpt was checked by script against its page's text.
+
 ## Checkpoint 2 (Claude Code, session cc-fb70e5, 29 September 2026): L1 planned (5 nodes)
 
 Refs #725; the bot confirmed the claim. **Status: partial.** L0 is `source_decomposed`, L1 is `partial`, and L2–L4 are `not_read`.

@@ -10,7 +10,7 @@
   "EulerSystemsCyclotomicMainConjecture:L4"
  ],
  "status": "partial",
- "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read. Checkpoint 2 plans L1: Theorem III.2.3 (|A_L^χ| divides [E_L^χ : C_{L,χ}] for p > 2, χ(p) ≠ 1) from Theorem II.2.2, with its hypotheses, vanishing error terms, the index of divisibility and the class-group Selmer group, and Corollary III.2.4 with its dependence on the ψ(p) = 1 components recorded.",
+ "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read. Checkpoint 2 plans L1: Theorem III.2.3 (|A_L^χ| divides [E_L^χ : C_{L,χ}] for p > 2, χ(p) ≠ 1) from Theorem II.2.2, with its hypotheses, vanishing error terms, the index of divisibility and the class-group Selmer group, and Corollary III.2.4 with its dependence on the ψ(p) = 1 components recorded. Checkpoint 3 plans L2: the Iwasawa-theoretic divisibility char(A_∞^χ) | char(E_∞^χ/C_{∞,χ}) (Rubin III.2.7), from Theorem II.3.3, Proposition III.2.6 and the Λ-index, with the augmentation corrections when χ(p) = 1.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -221,7 +221,8 @@
     "Chapter II §4, Definition 4.1, Proposition 4.2, Lemma 4.3 (pp. 30–31)",
     "Chapter III §1, Lemma 1.1 (p. 33)",
     "Chapter III §2.1–2.4, Remark 2.1, Definition 2.2, Theorem 2.3 with proof, Corollary 2.4 (pp. 33–36)",
-    "2026-09-29 (cc-fb70e5, checkpoint 2): Chapter I Lemma 3.2 and §6.2 Proposition 6.1, Definition 6.2 (printed pp. 4–5, 13–15); Chapter II §2 Hypotheses Hyp(K, T), Definition 2.1, Theorems 2.2–2.3, Remarks 2.4–2.9 (printed pp. 23–25); Chapter III §1 Lemma 1.1 and §2.1–2.5 (printed pp. 33–37)"
+    "2026-09-29 (cc-fb70e5, checkpoint 2): Chapter I Lemma 3.2 and §6.2 Proposition 6.1, Definition 6.2 (printed pp. 4–5, 13–15); Chapter II §2 Hypotheses Hyp(K, T), Definition 2.1, Theorems 2.2–2.3, Remarks 2.4–2.9 (printed pp. 23–25); Chapter III §1 Lemma 1.1 and §2.1–2.5 (printed pp. 33–37)",
+    "2026-09-29 (cc-fb70e5, checkpoint 3): Chapter II §3 (Hyp(K∞/K), Hyp(K∞, T), Definition 3.1, Theorems 3.2–3.4, Proposition 3.7, Theorem 3.8; printed pp. 26–29); Chapter III §2.5–2.10 (Proposition 2.6, Theorem 2.7, Corollary 2.8, Theorems 2.9–2.10; printed pp. 37–39)"
    ]
   },
   {
@@ -1979,12 +1980,202 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L2/iwasawa-hypotheses-cyclotomic",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L2",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L2"
+   ],
+   "title": "Hypotheses of the Iwasawa-theoretic Euler-system theorems over ℚ_∞",
+   "kind": "lemma",
+   "statement": "Let p an odd prime and χ : G_ℚ → O^× even, nontrivial, of finite order prime to p, with field L, Λ = O[[Gal(ℚ_∞/ℚ)]] and J = char(O) its augmentation ideal, and T* = O_{χ^{−1}}(1). The cyclotomic ℤ_p-extension ℚ_∞/ℚ has Gal ≅ ℤ_p, and no finite prime splits completely in it. Hyp(ℚ_∞, T*) holds with τ = 1, because rank_O T* = 1. Hyp(ℚ_∞/ℚ) holds because K = ℚ is totally real and Leopoldt's conjecture holds for ℚ. So Rubin's Theorem II.3.3 applies to the cyclotomic Euler system c: char(X_∞) divides ind_Λ(c).",
+   "hypotheses": [
+    "Theorems II.3.2–II.3.4 and Proposition II.3.7 are imported from EulerSystemsAndKolyvaginSystems ES.8.",
+    "Theorem II.3.3 itself also holds for p = 2 (Remark III.2.5), but p = 2 for the cyclotomic main conjecture is left to Greither (L4)."
+   ],
+   "proofSteps": [
+    "Rank one gives Hyp(ℚ_∞, T*)(i) with τ = 1 and (ii) trivially.",
+    "Rubin notes that Hyp(K_∞/K) is satisfied if K = ℚ; over ℚ, O_ℚ^× = {±1} is finite, so Leopoldt holds trivially.",
+    "Every finite prime q ≠ p is finitely decomposed in ℚ_∞ (Frob_q generates an open subgroup), and p is totally ramified."
+   ],
+   "acceptance": [
+    "χ need not satisfy χ(p) ≠ 1 here; the χ(p) = 1 case enters only through the augmentation terms (L2/cyclotomic-iwasawa-divisibility)."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L1/cyclotomic-hypotheses-and-error-terms",
+    "EulerSystemsAndKolyvaginSystems:ES.8",
+    "IntegralIwasawaTheory:I.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter II §3, Hypothesis Hyp(K∞/K), printed p. 27",
+     "match": "Hyp(ℚ_∞/ℚ)."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter II §3, Theorem 3.3, printed p. 28",
+     "match": "The imported theorem."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.7, printed p. 38",
+     "match": "Its application to T*."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L2/limit-unit-diagram",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L2",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L2"
+   ],
+   "title": "The limit of units, local units and cyclotomic units (Rubin, Proposition III.2.6)",
+   "kind": "theorem",
+   "statement": "Let p an odd prime and χ : G_ℚ → O^× even, nontrivial, of finite order prime to p, with field L, Λ = O[[Gal(ℚ_∞/ℚ)]] and J = char(O) its augmentation ideal. With A_∞, E_∞, C_{∞,χ}, U_∞, Y_∞ = lim (L_{n,p})^ and E′_∞ = lim (E′_n)^ (p-units) the norm inverse limits: (i) the restriction isomorphisms identify Λ{c_{ℚ_n}} ⊂ H¹_∞(ℚ, T*) ⊂ H¹_∞(ℚ_p, T*) ↠ H¹_{∞,s}(ℚ_p, T*) with C_{∞,χ} ⊂ (E′_∞)^χ ⊂ Y_∞^χ ↠ Y_∞^χ/U_∞^χ; (ii) Y_∞^χ/U_∞^χ ≅ ℤ_p[Δ/Δ_p]^χ, which is 0 if χ(p) ≠ 1 and O if χ(p) = 1; (iii) (E′_∞)^χ/E_∞^χ injects into O.",
+   "hypotheses": [
+    "The injectivity of (E′_∞)^χ → Y_∞^χ uses Leopoldt's conjecture for the real abelian field L (Brumer, Ax), which is known.",
+    "H¹_∞(ℚ, T*) = lim S^{p}(ℚ_n, T*) is Rubin's Corollary B.3.4, requested with SelmerIwasawaCohomology L3."
+   ],
+   "proofSteps": [
+    "The image of c_{ℚ_n} in (L_n^×)^χ is ξ_{n,χ} (Lemma II.4.3, as for (4)), which gives the left-hand isomorphism.",
+    "S^{p}(ℚ_n, T*) ≅ (E′_n)^χ by (3), and the local restriction isomorphisms H¹(ℚ_{n,p}, T*) ≅ (L_{n,p}^×)^χ ⊃ H¹_f ≅ U_n^χ give the rest.",
+    "(ii): L_{m,p}^×/U_m ≅ ⊕_{w|p} ℤ ≅ ℤ[Δ/Δ_p] compatibly with norms, and ℤ_p[Δ/Δ_p]^χ ≠ 0 exactly when χ is trivial on Δ_p, that is χ(p) = 1.",
+    "(iii): E_∞^χ is the kernel of (E′_∞)^χ → Y_∞^χ/U_∞^χ."
+   ],
+   "acceptance": [
+    "χ(p) ≠ 1: Y_∞^χ = U_∞^χ and (E′_∞)^χ = E_∞^χ.",
+    "χ(p) = 1: both quotients are at most O, and these are the augmentation corrections."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-units",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator",
+    "SelmerIwasawaCohomology:L3",
+    "IntegralIwasawaTheory:I.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, Proposition 2.6, printed p. 37",
+     "match": "Part (iii)."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Proposition 2.6, printed p. 38",
+     "match": "Part (ii)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L2/lambda-index-of-cyclotomic-units",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L2",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L2"
+   ],
+   "title": "The Λ-index of the cyclotomic Euler system",
+   "kind": "lemma",
+   "statement": "Let p an odd prime and χ : G_ℚ → O^× even, nontrivial, of finite order prime to p, with field L, Λ = O[[Gal(ℚ_∞/ℚ)]] and J = char(O) its augmentation ideal. Then (E′_∞)^χ is a torsion-free, finitely generated Λ-module of rank one, ind_Λ(c) = char((E′_∞)^χ/C_{∞,χ}), and ind_Λ(c) divides J·char(E_∞^χ/C_{∞,χ}).",
+   "hypotheses": [
+    "Y_∞^χ is torsion-free, finitely generated and of rank one over Λ (Iwasawa, [Iw3] Theorem 25). This is requested from IntegralIwasawaTheory; it is not read here."
+   ],
+   "proofSteps": [
+    "(E′_∞)^χ is a nonzero Λ-submodule of Y_∞^χ, so it inherits torsion-freeness and rank one.",
+    "Proposition III.2.6(i) identifies c_{ℚ,∞} with a generator of C_{∞,χ} inside (E′_∞)^χ ≅ H¹_∞(ℚ, T*). So ind_Λ(c) = {φ(c) : φ ∈ Hom_Λ(H¹_∞, Λ)} = char((E′_∞)^χ/C_{∞,χ}).",
+    "By Proposition III.2.6(iii), char((E′_∞)^χ/E_∞^χ) divides char(O) = J, and multiplicativity of char gives the divisibility."
+   ],
+   "acceptance": [
+    "χ(p) ≠ 1: (E′_∞)^χ = E_∞^χ and ind_Λ(c) = char(E_∞^χ/C_{∞,χ}) exactly."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L2/limit-unit-diagram",
+    "EulerSystemsCyclotomicMainConjecture:L2/iwasawa-hypotheses-cyclotomic",
+    "IntegralIwasawaTheory:L0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter II, Definition 3.1, printed p. 28",
+     "match": "The Λ-index."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.7, printed p. 38",
+     "match": "The index computation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-iwasawa-divisibility",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L2",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L2"
+   ],
+   "title": "Divisibility of characteristic ideals: char(A_∞^χ) divides char(E_∞^χ/C_{∞,χ}) (Rubin, Theorem III.2.7)",
+   "kind": "theorem",
+   "statement": "Let p an odd prime and χ : G_ℚ → O^× even, nontrivial, of finite order prime to p, with field L, Λ = O[[Gal(ℚ_∞/ℚ)]] and J = char(O) its augmentation ideal. Then char(A_∞^χ) divides char(E_∞^χ/C_{∞,χ}), where A_∞ = lim A_n is the inverse limit of the p-parts of the class groups of L_n. No hypothesis on χ(p) is needed.",
+   "hypotheses": [
+    "Theorem II.3.3 and Proposition II.3.7 are imported (ES.8). Hom_O(S(ℚ_∞, W), D) ≅ A_∞^χ is (5).",
+    "Leopoldt's conjecture for the real abelian field L is used to exclude J from char(A_∞^χ)."
+   ],
+   "proofSteps": [
+    "Theorem II.3.3 with Proposition II.3.7: char(Hom_O(S(ℚ_∞, W), D)) divides ind_Λ(c)·char(H¹_{∞,s}(ℚ_p, T*)).",
+    "ind_Λ(c) divides J·char(E_∞^χ/C_{∞,χ}) (L2/lambda-index-of-cyclotomic-units), and char(H¹_{∞,s}(ℚ_p, T*)) = char(Y_∞^χ/U_∞^χ) divides J (Proposition III.2.6(ii)). So char(A_∞^χ) divides J²·char(E_∞^χ/C_{∞,χ}).",
+    "J does not divide char(A_∞^χ). J | char(A_∞^χ) iff A_∞^χ/JA_∞^χ = Gal(M_∞/L_∞)^χ is infinite, with M_∞/L abelian. L is real abelian, so Leopoldt holds and L has no ℤ_p²-extension. So Gal(M_∞/L) has ℤ_p-rank one and [M_∞ : L_∞] is finite ([Iw3] §3.1).",
+    "Since J is a height-one prime of the UFD Λ, coprime to char(A_∞^χ), the J² can be removed."
+   ],
+   "acceptance": [
+    "χ(p) ≠ 1: the J-terms are units and step 3 is not needed.",
+    "χ(p) = 1: both J-factors are present and step 3 removes them. This is the augmentation correction the roadmap asks for."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L2/lambda-index-of-cyclotomic-units",
+    "EulerSystemsCyclotomicMainConjecture:L2/limit-unit-diagram",
+    "EulerSystemsCyclotomicMainConjecture:L2/iwasawa-hypotheses-cyclotomic",
+    "EulerSystemsCyclotomicMainConjecture:L1/selmer-is-class-group",
+    "EulerSystemsAndKolyvaginSystems:ES.8"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.7, printed p. 38",
+     "match": "The reduction to J ∤ char(A_∞^χ)."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.7, printed p. 38",
+     "match": "The Leopoldt step."
+    }
+   ],
+   "planet": {
+    "name": "Cyclotomic Iwasawa divisibility"
+   },
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
   {
    "supplier": "IntegralIwasawaTheory:L0",
-   "need": "The cyclotomic tower: a compatible system ζ_m (ζ_{mn}^n = ζ_m) in a fixed algebraic closure or ℂ; the fields ℚ(μ_m) = ℚ(ζ_m) with inclusions for m ∣ n; Gal(ℚ(μ_m)/ℚ) ≅ (ℤ/m)^× by σ_a(ζ_m) = ζ_m^a, compatible with restriction; the real subfields ℚ(μ_m)^+ and complex conjugation; the relative norms N_{ℚ(μ_n)/ℚ(μ_m)} and N_{ℚ(μ_m)/L} to subfields, with transitivity and Galois equivariance; the Galois action on L^× ⊗ O and on the global units E_L of subfields L; the fact that 1 − ζ_g is a unit when g is not a prime power; and the index formula making [E_L^χ : C_{L,χ}] finite for even χ ≠ 1. Also the Galois-module form of the unit theorem for totally real abelian L (E_L ⊗ ℚ ≅ augmentation quotient of ℚ[Δ]), and the analytic class number formula with Sinnott's index of cyclotomic units in ψ-parts.",
+   "need": "The cyclotomic tower: a compatible system ζ_m (ζ_{mn}^n = ζ_m) in a fixed algebraic closure or ℂ; the fields ℚ(μ_m) = ℚ(ζ_m) with inclusions for m ∣ n; Gal(ℚ(μ_m)/ℚ) ≅ (ℤ/m)^× by σ_a(ζ_m) = ζ_m^a, compatible with restriction; the real subfields ℚ(μ_m)^+ and complex conjugation; the relative norms N_{ℚ(μ_n)/ℚ(μ_m)} and N_{ℚ(μ_m)/L} to subfields, with transitivity and Galois equivariance; the Galois action on L^× ⊗ O and on the global units E_L of subfields L; the fact that 1 − ζ_g is a unit when g is not a prime power; and the index formula making [E_L^χ : C_{L,χ}] finite for even χ ≠ 1. Also the Galois-module form of the unit theorem for totally real abelian L (E_L ⊗ ℚ ≅ augmentation quotient of ℚ[Δ]), and the analytic class number formula with Sinnott's index of cyclotomic units in ψ-parts. Also Iwasawa's theorem that Y_∞^χ = lim (L_{n,p}^×)^χ is torsion-free of Λ-rank one ([Iw3] Theorem 25), and Leopoldt's conjecture for real abelian fields.",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number",
     "EulerSystemsCyclotomicMainConjecture:L0/p-extended-auxiliary-relation",
@@ -1995,7 +2186,8 @@
     "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator-unit",
     "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-units",
     "EulerSystemsCyclotomicMainConjecture:L1/chi-units-rank-one-and-index",
-    "EulerSystemsCyclotomicMainConjecture:L1/mazur-wiles-chi-equality"
+    "EulerSystemsCyclotomicMainConjecture:L1/mazur-wiles-chi-equality",
+    "EulerSystemsCyclotomicMainConjecture:L2/lambda-index-of-cyclotomic-units"
    ],
    "status": "open",
    "note": "RS-16 routes the global cyclotomic-unit definitions to IntegralIwasawaTheory:L0, which has no packet yet. The suggested file uses stand-ins zeta, Qmu, QmuPlus, unitsTensorRep only to state signatures."
@@ -2005,7 +2197,9 @@
    "need": "The cyclotomic ℤ_p-extension ℚ_∞/ℚ with layers ℚ_n ⊆ ℚ(μ_{p^{n+1}}) and Gal(ℚ_∞/ℚ) ≅ ℤ_p; decomposition groups: p totally ramified and every q ≠ p with infinite decomposition group; and L_n = Lℚ_n with Gal(L_n/ℚ_n) ≅ Gal(L/ℚ) when [L : ℚ] is prime to p.",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses",
-    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator"
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator",
+    "EulerSystemsCyclotomicMainConjecture:L2/iwasawa-hypotheses-cyclotomic",
+    "EulerSystemsCyclotomicMainConjecture:L2/limit-unit-diagram"
    ],
    "status": "open",
    "note": "Stage-level request; IntegralIwasawaTheory:I.1 is claimable as issue #759."
@@ -2064,6 +2258,21 @@
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L1/selmer-is-class-group"
    ]
+  },
+  {
+   "supplier": "EulerSystemsAndKolyvaginSystems:ES.8",
+   "need": "Rubin's Theorems II.3.2–II.3.4 and Proposition II.3.7 over a ℤ_p^d-extension K_∞/K in which no finite prime splits completely: X_∞ torsion, char(X_∞) | ind_Λ(c) under Hyp(K_∞, T) and Hyp(K_∞/K), and the exact sequence 0 → H¹_{∞,s}(K_p, T)/loc(H¹_∞) → Hom_O(S(K_∞, W*), D) → X_∞ → 0.",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L2/iwasawa-hypotheses-cyclotomic",
+    "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-iwasawa-divisibility"
+   ]
+  },
+  {
+   "supplier": "SelmerIwasawaCohomology:L3",
+   "need": "Iwasawa cohomology H¹_∞(K, T) = lim H¹(F, T) and its identification with lim S^{Σ}(F, T) (Rubin, Corollary B.3.4), and the local limits H¹_∞(K_p, T), H¹_{∞,s}(K_p, T).",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L2/limit-unit-diagram"
+   ]
   }
  ],
  "coverage": [
@@ -2083,10 +2292,9 @@
   },
   {
    "stageId": "EulerSystemsCyclotomicMainConjecture:L2",
-   "status": "not_read",
-   "remaining": [
-    "Read Rubin Chapter II §3 (Theorems 3.2–3.4, Hyp(K_∞/K)) and Chapter III §2.5–2.7 (Proposition 2.6 and the diagram of the local-global comparison, Theorem 2.7 with the augmentation correction when χ(p) = 1) and decompose char(A_∞^χ) ∣ char(E_∞^χ/C_{∞,χ}); import ES.8 and the Leopoldt input of IntegralIwasawaTheory:L4."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Checkpoint 3 plans Rubin's Theorem III.2.7 in 4 nodes: the hypotheses of Theorem II.3.3 over ℚ_∞ (imported from ES.8), Proposition III.2.6 (the limit unit diagram with the χ(p) = 1 augmentation terms), the Λ-index ind_Λ(c) = char((E′_∞)^χ/C_{∞,χ}), and the divisibility, with the removal of J² through Leopoldt's conjecture for L. Iwasawa's rank-one theorem for Y_∞^χ is requested."
   },
   {
    "stageId": "EulerSystemsCyclotomicMainConjecture:L3",
@@ -2143,6 +2351,20 @@
     "research/errata/REGISTER.md: several RJW entries (for example Definition 10.14/Theorem 10.15), none for §10.5",
     "the atlas text of stage EulerSystemsCyclotomicMainConjecture:L0 flags the torsion choice; it is not a published correction",
     "the published version (Essential Number Theory 4, 2025) was not accessed"
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E3",
+   "source": "RUBIN-ES",
+   "kind": "misprint",
+   "locator": "Chapter III, proof of Theorem 2.10, printed p. 39 (author draft of the 1999 AWS notes)",
+   "printed": "The proof says that Corollary 2.8 together with Theorem 2.9(ii) establishes the corollary.",
+   "correction": "Applying Corollary 2.8 and Theorem 2.9(ii) proves the theorem.",
+   "reason": "The statement being proved is Theorem 2.10; no corollary follows it. The exact sequence 0 → E_∞^χ/C_{∞,χ} → U_∞^χ/C_{∞,χ} → Z_∞^χ → A_∞^χ → 0, with char(A_∞^χ) = char(E_∞^χ/C_{∞,χ}) (Corollary 2.8) and char(U_∞^χ/C_{∞,χ}) = L_χΛ (Theorem 2.9(ii)), gives char(Z_∞^χ) = L_χΛ, which is Theorem 2.10.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The published monograph (Annals of Mathematics Studies 147, 2000) was not available to compare; the finding is scoped to the author draft."
    ]
   }
  ]

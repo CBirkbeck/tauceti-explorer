@@ -1,11 +1,12 @@
 # Euler systems and the unconditional cyclotomic main conjecture — blueprint
 
 This blueprint covers stages L0–L4. The first checkpoint decomposes **L0**, the Euler system of
-cyclotomic units and its χ-twist. The second plans **L1**'s finite-level class-group bound. It follows:
+cyclotomic units and its χ-twist. The second plans **L1**'s finite-level class-group bound, and the third plans **L2**'s
+Iwasawa-theoretic divisibility. It follows:
 - Rubin, *Euler systems*, Chapter III §2.1–2.4, with the Chapter I–II definitions they use;
 - Rodrigues Jacinto–Williams (RJW), *An introduction to p-adic L-functions*, §10.2 and §10.5.
 
-L1 is partial, and stages L2–L4 are not yet read.
+L1 is partial, L2 is source-decomposed, and stages L3–L4 are not yet read.
 
 ## Purpose
 
@@ -273,6 +274,28 @@ S_{Σ_p}(ℚ, W) = S(ℚ, W) ≅ Hom_O(A_L^χ, D).
 class-number-formula argument needs the bound for every even ψ ≠ 1 of Δ, and ψ(p) = 1 is covered only through the main
 conjecture (Remark 2.5). This is recorded as a gap.
 
+## Layer L2: Iwasawa divisibility (source-decomposed)
+
+Checkpoint 3 plans Rubin's Theorem III.2.7 for odd p and even χ ≠ 1 of order prime to p, with no hypothesis on χ(p).
+Rubin's Theorem II.3.3 and Proposition II.3.7 are imported from EulerSystemsAndKolyvaginSystems ES.8.
+
+**Lemma: the hypotheses over ℚ_∞** (node `iwasawa-hypotheses-cyclotomic`). Hyp(ℚ_∞, T*) holds with τ = 1, and
+Hyp(ℚ_∞/ℚ) holds over ℚ. No finite prime splits completely in ℚ_∞. So char(X_∞) divides ind_Λ(c).
+
+**Theorem: the limit unit diagram** (node `limit-unit-diagram`; Proposition III.2.6).
+- C_{∞,χ} ⊂ (E′_∞)^χ ⊂ Y_∞^χ ↠ Y_∞^χ/U_∞^χ matches the cohomological chain.
+- Y_∞^χ/U_∞^χ ≅ ℤ_p[Δ/Δ_p]^χ, which is 0 or O according as χ(p) ≠ 1 or χ(p) = 1.
+- (E′_∞)^χ/E_∞^χ ↪ O.
+
+**Lemma: the Λ-index** (node `lambda-index-of-cyclotomic-units`). Y_∞^χ is torsion-free of rank one (Iwasawa;
+requested). So ind_Λ(c) = char((E′_∞)^χ/C_{∞,χ}), which divides J·char(E_∞^χ/C_{∞,χ}).
+
+**Theorem: the divisibility** (node `cyclotomic-iwasawa-divisibility`; planet). char(A_∞^χ) divides
+char(E_∞^χ/C_{∞,χ}).
+- The Euler-system bound gives the divisibility up to J².
+- The J² is removed because J ∤ char(A_∞^χ). Leopoldt's conjecture for the real abelian L leaves no ℤ_p²-extension.
+- When χ(p) = 1, these are the augmentation corrections the roadmap asks for.
+
 ## Dependencies
 
 **Inside this roadmap.** L0 feeds L1: Theorem III.2.3 takes c_ℚ, C_{L,χ} and the Kummer classes.
@@ -312,7 +335,8 @@ conjecture (Remark 2.5). This is recorded as a gap.
   - the explicit derivative classes of the cyclotomic Euler system and their local conditions (Rubin IV–V applied
     to c);
   - Corollary III.2.4, which depends on [Ru3] or on L3 for the ψ(p) = 1 components (gap).
-- **L2:** Rubin II §3 and III §2.5–2.7, with the augmentation correction when χ(p) = 1.
+- **L2 is source-decomposed** (checkpoint 3). It depends on the ES.8, SelmerIwasawaCohomology L3 and IntegralIwasawaTheory
+  requests (Iwasawa's rank-one theorem for Y_∞^χ, Leopoldt for real abelian fields).
 - **L3:** Rubin III §2.8–2.10 and RJW §13 (Theorem 13.8, Proposition 13.13, Corollary 13.14).
 - **L4:** Greither, *Class groups of abelian fields, and the main conjecture*, §§1–4, including
   p = 2.
