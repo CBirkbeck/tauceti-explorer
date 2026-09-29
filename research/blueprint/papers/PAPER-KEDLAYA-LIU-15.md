@@ -1,9 +1,10 @@
-# PAPER-KEDLAYA-LIU-15 — extraction and routing (checkpoint 2: chapters 1–7)
+# PAPER-KEDLAYA-LIU-15 — extraction and routing
 
-Agent: Claude Code. Sessions: cc-58621d (checkpoint 1, chapters 1–3) and cc-fb70e5 (checkpoint 2,
-chapters 4–7). Issue: #4546. Status: **partial**. The two checkpoints cover the introduction and
-chapters 1–7; chapters 8–9 follow. The handoff note is
-`research/blueprint/handoff/PAPER-KEDLAYA-LIU-15.md`.
+Agent: Claude Code. Sessions: cc-58621d (checkpoint 1, chapters 1–3), cc-fb70e5 (checkpoint 2,
+chapters 4–7) and cc-48533a (checkpoint 3, chapters 8–9). Issue: #4546. Status: **complete**. The
+three checkpoints cover the introduction and chapters 1–9. The extraction has 409 items (23
+library, 171 planned, 215 missing), 25 routes, 5 prerequisite papers and 90 recorded mistakes. The
+handoff note records that nothing remains.
 
 ## Source
 
@@ -97,11 +98,61 @@ Checkpoint 2 extracts chapters 4–7:
   - splitting off a constant vertex, and the slope filtration where the polygon is constant;
   - pointwise detection of H^1 for negative slopes.
 
+Checkpoint 3 extracts chapters 8–9. Four readers read them in parallel (§§8.1–8.3, 8.4–8.6,
+8.7–8.9 and 9), each checking the existing extraction so as not to repeat an item of chapters 1–7:
+
+- **Chapter 8 (perfectoid spaces).**
+  - Spectral and locally spectral spaces, Hochster duality, the real quotient and taut spaces;
+    preadic and adic spaces, the étale and finite étale sites, and vector bundles on arbitrary
+    sheafy affinoids for the adic and finite étale topologies (§§8.1–8.2).
+  - Perfect, preperfectoid and perfectoid spaces, the sheaves of relative period rings on a perfect
+    adic space, and the global perfectoid correspondence (§8.3).
+  - Étale ℚ_p-local systems on preadic spaces, as descent data of isogeny ℤ_p-local systems (§8.4).
+  - Étale ℤ_{p^d}-, isogeny and (c, d)-local systems as étale, globally étale and globally pure
+    ϕ-modules over perfect rings and perfectoid spaces; purity in families; the Tate-curve
+    counterexamples (§8.5).
+  - Étale cohomology as ϕ-cohomology (§8.6).
+  - The relative Fargues–Fontaine curve FF_X, GAGA, the cohomology comparison and étale
+    functoriality (§8.7); ampleness on Proj(P_R), ample iff pointwise ample, and Conjecture 8.8.20
+    (§8.8); relative B-pairs (§8.9).
+- **Chapter 9 (relative (ϕ, Γ)-modules).**
+  - The pro-étale site of an arbitrary preadic space, its local systems and cohomology (§9.1).
+  - Perfectoid subdomains, the completed and tilted structure sheaves, pro-sheafy affinoids and
+    Kiehl glueing for the pro-étale topology (§9.2).
+  - The perfect period sheaves; étale local systems as étale ϕ^d-modules, vector bundles on FF_X and
+    B-pairs (§9.3); pro-étale cohomology as ϕ- and B-pair cohomology (§9.4).
+  - Over a p-adic field, Fontaine's, Cherbonnier–Colmez's and Berger's equivalences recovered on
+    the pro-étale site of Spa(K, o_K) (§9.5).
+
 ## What the libraries and the atlas already have
 
 The 172 items of checkpoint 1 are 18 library, 80 planned and 74 missing. The 56 items of checkpoint
-2 (items 173–228) are 28 planned and 28 missing, so the result has 228 items: 18 library, 108
-planned and 102 missing.
+2 (items 173–228) are 28 planned and 28 missing. The 181 items of checkpoint 3 (items 229–409) are 5
+library, 63 planned and 113 missing. So the result has 409 items: 23 library, 171 planned and 215
+missing.
+
+For chapters 8–9:
+
+- **Libraries.** Mathlib has spectral spaces, the constructible (patch) topology and the
+  pro-objects' dual (`CategoryTheory.Ind`); Tau Ceti proves that Spa(A, A⁺) is spectral
+  (`TauCeti.ValuationSpectrum.spectralSpace_spa_of_pairOfDefinition`). Nothing on local systems,
+  ϕ-modules or period sheaves is in either library.
+- **Planned.** Most of §§8.1–8.3 and §8.7:
+  - DiamondsAndVStacks D0 (locally spectral spaces, Hochster's limit lemma);
+  - AdicEtaleGeometry A1 (preadic spaces, étale sites, stable bases);
+  - AdicSpacesPartII R1 and R5 (classical points, Proposition 8.2.20, Theorem 8.2.22(c)–(d));
+  - ClassicalAdicEtaleCohomology H3 (taut spaces, the Berkovich comparison);
+  - PerfectoidSpaces P2–P3 (perfectoid spaces, tilting);
+  - RelativeFarguesFontaine RF0–RF4 and VectorBundlesAndIsocrystals VB0–VB2 (the curve FF_X, GAGA,
+    twists, the classification over a field, bundles as relative B-pairs);
+  - VB4 (local systems as slope-zero bundles, for a perfectoid base).
+
+  In chapter 9 the classical (ϕ, Γ) equivalences over a p-adic field are planned in
+  PhiGammaModulesAndIwasawaCohomology PG.1–PG.3, and Ax–Sen–Tate in PadicHodgeTheory R06.1.
+- **Missing.** The local-system side of chapter 8 (§§8.4–8.6), the ampleness theory beyond
+  positive twists and the relative B-pairs (§§8.8–8.9), the pro-étale site and structure sheaves
+  of a general preadic space (§§9.1–9.2), the relative period sheaves with their comparisons
+  (§§9.3–9.4), and Berger's B-pairs over a p-adic field (§9.5).
 
 - **Mathlib** has much of the commutative algebra: finite projective and faithfully flat modules,
   étale algebras and FÉt(R), henselian pairs in the root-lifting form, and effective faithfully flat
@@ -168,7 +219,7 @@ For chapters 4–7:
 
 ## Why these routes
 
-Every missing item extends a layer that exists, so all nineteen routes are `source` routes. Because
+Every missing item extends a layer that exists, so all twenty-five routes are `source` routes. Because
 the Tau Ceti AdicSpaces roadmap cannot be re-planned, adic-space additions go to its campaign Part
 II and to AdicEtaleGeometry.
 
@@ -293,7 +344,47 @@ Chapters 5–7 (checkpoint 2):
       the pointwise detection of H^1.
     - The route also names the two planned items (Theorem 7.4.5, Corollary 7.4.10).
 
-**Prerequisites.** Three works the paper builds on are not cited by the atlas:
+Chapters 8–9 (checkpoint 3). Ten existing routes receive items, and six routes are new.
+
+- **Route 1 (IG.0):** de Jong's étale fundamental groups of non-archimedean analytic spaces.
+- **Route 4 (TB.0):** the real quotient and taut spaces (Definition 8.2.11, Lemma 8.2.12).
+- **Route 5 (AdicSpacesPartII R0/R3):** vector bundles on an arbitrary sheafy affinoid for the adic
+  and finite étale topologies (Theorem 8.2.22(a)–(b)).
+- **Route 6 (AdicEtaleGeometry A1):** the pro-étale site of an arbitrary preadic space and its
+  structure sheaves (§§9.1–9.2), which the layers plan only for locally noetherian spaces.
+- **Route 11 (PerfectoidSpaces P2):** the global perfectoid correspondence (Theorem 8.3.5).
+- **Route 13 (PG.1):** the continuation of Katz's correspondence to local systems on perfectoid
+  spaces and on Spec(R) (Theorems 8.5.3–8.5.8), and étale cohomology as ϕ-cohomology (§8.6).
+- **Route 16 (AdicSpacesPartII R5):** preperfectoid and relatively perfectoid spaces (Definition
+  8.3.1), and Remark 9.2.13.
+- **Route 17 (RF0:annuli/RF1):** period sheaves on perfect adic spaces (Definition 8.3.4) and the
+  étale functoriality of FF_X (Lemma 8.7.15, Remark 8.7.16).
+- **Route 18 (VB2:ampleness):** the ampleness theory on Proj(P_R) (Remark 8.7.6, Definition 8.8.2 to
+  Lemma 8.8.8).
+- **Route 19 (VB4):** purity in families from the local-system side (§8.5, Lemma 8.6.3, with the
+  Tate-curve examples as tests), and pointwise ampleness (Definition 8.8.10 to Lemma 8.8.19).
+- **New route 20: DiamondsAndVStacks D0.** Hochster duality.
+- **New route 21: ClassicalAdicEtaleCohomology H0.** Étale ℚ_p-local systems on preadic spaces (§8.4).
+- **New route 22: RelativeFarguesFontaine RF2:untilts and RF4:vector-bundles.** The untilt divisor
+  in Proj(P_R), the relative rings B_e, B⁺_dR and B_dR, and B-pair cohomology (§8.9). Conjecture
+  8.8.20 is recorded there as a conjecture, not a target.
+- **New route 23: FoundationsAndLibraryIntegration LI.3.** Three standard inputs no layer states:
+  Yoneda Ext equals derived Ext, Čech computation of quasicoherent cohomology on separated schemes,
+  and Serre's criterion for affineness.
+- **New route 24: PadicHodgeTheory P8.** The relative period sheaves of §9.3 on the pro-étale site of
+  an arbitrary adic space over ℚ_p, and the comparisons of local systems with ϕ-modules, bundles on
+  FF_X and B-pairs, with their cohomology (§§9.3–9.4). VB4 plans only the perfectoid, slope-zero
+  case.
+- **New route 25: PhiGammaModulesAndIwasawaCohomology PG.2 and PG.3.** The extended-ring
+  (ϕ, Γ) equivalences, Berger's B-pairs over a p-adic field (Definition 9.5.7, Theorem 9.5.8) and the
+  compatibility with Herr's cohomology (Remark 9.5.9).
+
+**Prerequisites.** Five works the paper builds on are not cited by the atlas:
+
+- A. J. de Jong, *Étale fundamental groups of non-archimedean analytic spaces* (Compositio Math. 97,
+  1995), the source of the local systems of Definition 8.4.3 that are not isogeny ℤ_p-local systems;
+- L. Berger, *Construction de (φ,Γ)-modules : représentations p-adiques et B-paires* (Algebra Number
+  Theory 2, 2008, doi:10.2140/ant.2008.2.91), whose B-pairs §§8.9 and 9.3 generalize;
 
 - Kedlaya, *Nonarchimedean geometry of Witt vectors* (arXiv:1004.0466);
 - Kedlaya, *Slope filtrations for relative Frobenius* (Astérisque 319, arXiv:math/0609272), cited
@@ -390,6 +481,43 @@ of Proposition 6.2.4, and H^1(M(−n)) for H^1(M(n)) in Remark 7.4.12. Eleven ar
     second expression on the same line is right);
   - the proof of Corollary 7.4.11 writes H^1_ϕ(M) for H^1_{ϕ^a}(M).
 
+**Chapters 8–9.** Thirty-seven are recorded (E54–E90). Six are in the authors' errata:
+
+- E54 and E55, Definition 8.1.6 and Remark 8.1.7 (the false "Equivalently" sentence);
+- E56, the proof of Proposition 8.2.20 (the same as AdicEtaleGeometry/E21);
+- E57, Theorem 8.3.5, which inherits the unit-reduction requirement on primitive elements;
+- E71, the non-existent Theorem 6.2.9 cited in Theorem 8.6.4;
+- E80, "subodmains" in Proposition 9.2.6.
+
+A seventh erratum, the typo "spaceLet" in Definition 8.2.11, is not in v5 and is not recorded.
+Thirty-one are new:
+
+- **Theorem 8.5.8(b) is false as stated (E63).** It needs a *complete* subring, as Theorems 8.5.3(b)
+  and 8.5.6(b) have. For R₀ = K[T] inside the completed perfection of K⟨T⟩, the
+  Artin–Schreier–Witt torsor of [tT] is nontrivial over K[T] but splits over R.
+- **Proposition 8.2.14 (E59).** The real quotient does not determine A⁺:
+  Spa(K{T}, K{T}°) and Spa(K{T}, o_K + m_K·K{T}°) have the same real quotient but are not
+  isomorphic.
+- **Lemma 9.3.4 (E85).** The sheaf W(Ō⁺) is only almost acyclic on perfectoid subdomains. An
+  Artin–Schreier cover of an untilt of the completed perfection of F̄_p((t)) gives a nonzero H².
+- **Definition 9.2.12 (E84).** The example "A = K is pro-sheafy" fails for imperfect K of
+  characteristic p.
+- **The slope of L_X (E78).** With degrees of ϕ^a-modules divided by a, L_X has slope 1/a, not 1, in
+  Definition 8.8.18 and Lemma 8.8.19. Everything is right for a = 1.
+- **Conjecture 8.8.20(b) and Remark 8.8.21 (E79).** For t = f² over an algebraically closed field,
+  Z = Spec(B⁺_dR/ξ²) is not reduced, so it cannot be perfectoid, and the remark's claim that
+  Fargues–Fontaine settled the field case fails. The sections should have simple zeros.
+- **Gaps:**
+  - E58: Definition 8.2.16's surjectivity remark covers only rank-one points.
+  - E60: Definition 8.3.1's stable-basis claim is not fully supported.
+  - E68: Example 8.5.18 produces modules over sheaves, where Remark 7.3.5 needs them over rings
+    (Milnor patching fills this).
+  - E73–E75: the proofs of Lemma 8.8.4 and Proposition 8.8.6.
+  - E82 and E83: the proofs of Lemmas 9.2.5 and 9.2.8 in characteristic p.
+- **E62, Remark 8.4.8.** It claims that integral affinoid algebras have normal spectra; the nodal
+  cubic is a counterexample, and the remark's conclusion still holds.
+- **The rest are misprints.**
+
 ## Checks
 
 - `python3 scripts/check_paper.py` and `python3 research/blueprint/intake.py check-files` pass on
@@ -409,4 +537,9 @@ of Proposition 6.2.4, and H^1(M(−n)) for H^1(M(n)) in Remark 7.4.12. Eleven ar
   in `data/decompositions/`. A node counts as planning an item only if it states it; a node that
   imports or requests it does not count.
 - The arXiv id of *Slope filtrations for relative Frobenius* was taken from the arXiv API.
+- For checkpoint 3, chapters 8–9 were read from the v5 PDF text by four readers. Every finding's
+  printed text was compared with v5, and the errata of part II were matched against it; one erratum
+  that is not in v5 was left out. The central claims were checked again against the text: E79 on
+  Conjecture 8.8.20 and E85 on Lemma 9.3.4. Every planned stage id and cited declaration of the new
+  items was validated against `data/atlas.json` and the pinned index.
 - Nothing was compiled; a paper job has no Lean file.
