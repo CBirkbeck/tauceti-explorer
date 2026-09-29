@@ -1,0 +1,65 @@
+{
+  "paper": "PAPER-ATOBE-KONDO-YASUDA-22",
+  "status": "partial",
+  "requiresManualReview": true,
+  "agent": "ChatGPT Pro",
+  "session": "cgpt-20260926-qseries-a91f",
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33DB9D89FADFD4DA27852DE3C9C61DCD/S2050508622000178a.pdf/local-newforms-for-the-general-linear-groups-over-a-non-archimedean-local-field.pdf",
+      "read": "2026-09-26",
+      "sha256": null,
+      "identity": "Forum of Mathematics, Pi 10 (2022), e24, 1–56; DOI 10.1017/fmp.2022.17. The publisher PDF first page identifies the research article, authors, journal and pagination.",
+      "access": "Read the publisher PDF text layer at printed pages 1, 47–50 and 53–54. Page-image requests failed; the PDF bytes could not be downloaded. No visual inspection or independently calculated source hash is claimed. Prior workers’ hashes are not copied as this session’s measurements."
+    }
+  ],
+  "inputs": [
+    {
+      "path": "research/blueprint/collation/jobs/COL-ATOBE-KONDO-YASUDA-22.json",
+      "blobSha": "010af3c3b44882ff18d6d06a08a0a67518ff4bf0"
+    },
+    {
+      "path": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
+      "blobSha": "34248f38ebcd173f65c6a37182dfb0e7a28a862f"
+    }
+  ],
+  "findings": [
+    {
+      "id": "PAPER-ATOBE-KONDO-YASUDA-22/E1",
+      "outcome": "identical",
+      "published": "There exists a unique function",
+      "verdict": "The quoted fragment occurs in the published statement. E1 is not removed by publication. This collation does not independently adjudicate the alleged failure of uniqueness.",
+      "evidence": "Printed p. 48, Theorem 9.1, opening clause; conditions (1) and (2) follow it. Definition 9.2 also refers to the unique function. Text-layer check only."
+    },
+    {
+      "id": "PAPER-ATOBE-KONDO-YASUDA-22/E3",
+      "outcome": null,
+      "literalQuotationMatches": false,
+      "publishedStatementPresent": true,
+      "verdict": "UNRESOLVED CLASSIFICATION: the batch printed field is an editorial paraphrase, not a quotation. The underlying spanning assertion and counting argument are present. Calling the finding absent or preprint-only would misrepresent this comparison; calling its wording identical would also be false. Preserve E3 and obtain a literal quotation before assigning an outcome.",
+      "evidence": "Printed p. 47, Lemma 8.10 and its proof: spanning by the parameter-indexed functions, equality of parameter multisets, the displayed quotient by row permutations, and the bound by the number of choices of x. No distinct-parameter restriction is stated there.",
+      "remaining": "Replace the input paraphrase through the authorised record-maintenance workflow, then collate the replacement. This worker does not edit the input record."
+    },
+    {
+      "id": "PAPER-ATOBE-KONDO-YASUDA-22/E19",
+      "outcome": "identical",
+      "verdict": "The batch sentence occurs in the published conclusion, after normalising mathematical typography and line breaks. This verifies its version, not the validity of the existing gap allegation or falsity of Theorem 2.1.",
+      "evidence": "Printed p. 54, paragraph immediately after the proof of Proposition 9.6. The preceding paragraph explicitly invokes Theorem 9.1 uniqueness. No substantive wording difference was found."
+    }
+  ],
+  "handoff": {
+    "done": "Two literal comparisons recorded; one input-quotation defect isolated without changing the mathematical findings.",
+    "remaining": [
+      "Resolve E3’s non-literal input before assigning one of the three permitted outcomes.",
+      "Obtain the publisher PDF bytes, calculate their SHA-256 and inspect the relevant page images.",
+      "Run the repository test suite."
+    ],
+    "integration": "Checkpoint only. Do not ingest as a completed collation: E3 has no assigned outcome and the source hash is not verified. The draft PR intentionally prevents automatic intake."
+  },
+  "validation": {
+    "local": "JSON round trip; exactly the three batch IDs, without duplicates; two permitted completed outcomes; the sole unresolved outcome is explicitly explained; no absent or preprint-only result is asserted.",
+    "repositorySuite": "Not run: no runnable repository checkout was available. In particular, python3 -m unittest discover -s tests -p test_*.py was not executed against the repository.",
+    "lean": "Not applicable: this collation changes no Lean file."
+  }
+}
