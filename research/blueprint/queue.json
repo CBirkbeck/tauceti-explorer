@@ -9548,8 +9548,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KEDLAYA-LIU-15.md",
-   "state": "pending",
-   "note": "released on GitHub issue #4546"
+   "state": "external",
+   "note": "claimed on GitHub issue #4546"
   },
   {
    "id": "REV-PAPER-KEDLAYA-LIU-15",
@@ -9694,7 +9694,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LUST-STEVENS-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4589"
   },
   {
    "id": "REV-PAPER-LUST-STEVENS-20",
@@ -44122,8 +44123,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-08.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4003"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4003",
+   "finishedAt": "2026-09-29T17:07:20Z"
   },
   {
    "id": "RT-AUDIT-09",
