@@ -15452,9 +15452,9 @@
     "REV-RS-12~2"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentations.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #685"
+   "note": "claimed on GitHub issue #685"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentations",
@@ -16021,8 +16021,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalSerreModularity--R33.5",
    "prompt": "research/blueprint/prompts/REV-ClassicalSerreModularity--R33.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #371"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #371",
+   "finishedAt": "2026-09-29T01:14:53Z"
   },
   {
    "id": "BP-CohomologyComparisons",
