@@ -187,6 +187,40 @@ Skinner–Wiles Lemma 2.2 and Corollary 2.3, for ρ_0 = χ ⊕ 1 with χ ≠ 1 a
 𝒪[[x_1, …, x_{2d+2}]]/(f) if χ = ω or ω = 1, and 𝒪[[x_1, …, x_{2d+1}]] otherwise. R_ord is cut out of the versal ring by
 d + ε relations. This answers OrdinaryAutomorphicFormsAndModularityLifting R21.3's request, which named L8.
 
+### L7, CHT's local conditions (checkpoint 7)
+
+Source: Clozel–Harris–Taylor, Publ. Math. IHÉS 108 (2008), §§2.4.1, 2.4.2 and 2.4.5, read on the page images.
+
+**Construction: the Fontaine–Laffaille condition** (node `fontaine-laffaille-deformation-condition`; module
+`…/FontaineLaffaille`). This is for l = p and F_ṽ unramified. The category 𝓜𝓕_{𝒪,ṽ} carries the covariant functor 𝐆_ṽ.
+𝒟_ṽ consists of the lifts whose Artinian quotients lie in the image of 𝐆_ṽ, assuming multiplicity-one graded pieces. It is
+liftable (Lemma 2.4.1).
+- *API:* `FLModule`, `flFunctor`, `flFunctor_fullyFaithful`, `FLDeformation`, `.liftable`.
+- *Tests:* rank one; E[l]; a weight out of range; a repeated weight.
+
+**Theorem: tangent space and smoothness** (node `fontaine-laffaille-tangent-space-and-smoothness`). Lemma 2.4.2 and
+Corollaries 2.4.3–2.4.4, with Lemma 2.4.5:
+- dim L − dim H⁰ = [F_ṽ : ℚ_l]n(n − 1)/2;
+- R^{loc}/𝓘 is a power series ring in n² + [F_ṽ : ℚ_l]n(n − 1)/2 variables.
+
+**Construction: ordinary with fixed inertial characters** (node `ordinary-condition-fixed-inertial-characters`). This is
+§2.4.2: a full flag whose graded pieces have prescribed inertial characters χ_{v,i}, and Lemma 2.4.6. It uses the
+corrected genericity condition (2′), χ̄_j/χ̄_i ≠ 1, ε̄ for i < j (E2). It is the fibre of `ordinary-flag-scheme` over a
+fixed point of Λ_v.
+
+**Theorem: smoothness** (node `ordinary-fixed-inertial-characters-smoothness`). Lemmas 2.4.7–2.4.8 give the same count as
+the Fontaine–Laffaille case, under (2′).
+
+**Construction: discrete series away from l** (node `discrete-series-deformation-condition`; module `…/LocalAwayFromP`).
+Here n = md, and r̃_v satisfies conditions (1)–(3).
+- Lemma 2.4.23: r̃_v is induced.
+- Definition 2.4.24: gr^i ≅ gr⁰(i), and gr⁰|_I ≅ r̃_v|_I.
+- Lemmas 2.4.25–2.4.26: uniqueness, and a local deformation problem.
+- Its d = 1 case is compared with R08.2's Steinberg condition.
+
+**Theorem: smoothness** (node `discrete-series-smoothness`). Lemmas 2.4.27–2.4.30: liftable, a power series ring in n²
+variables, and dim L = dim H⁰; the Lean file checks the dimension identity.
+
 ## Layer R08.3 (partial): potentially semistable deformation rings
 
 Library module: `TauCeti/NumberTheory/GaloisDeformation/PotentiallySemistable`.
@@ -377,8 +411,11 @@ and [F_v : ℚ_p] > n(n + 1)/2 + 1.
   (see the packet's `gaps`).
 - **R08.5:** dyadic cases.
 - **R08.6:** exports.
-- **L7:** Fontaine–Laffaille conditions, and ordinary functors for nontrivial ρ̄ in rank n > 2. A gap remains: Thorne's
-  proof of ACC+ Proposition 6.2.10 (J. Amer. Math. Soc. 2015, not obtained). Geraghty §3 is still to be read.
+- **L7:** CHT's Fontaine–Laffaille, ordinary and discrete series conditions are planned (checkpoint 7). Still to do:
+  - ordinary functors whose characters vary, for nontrivial ρ̄ in rank n > 2 (Geraghty §3 is still to be read);
+  - the rank-n interface with R08.2.
+
+  A gap remains: Thorne's proof of ACC+ Proposition 6.2.10.
 - **L8 is source-decomposed** (checkpoint 6).
 
 ## Sources
@@ -407,3 +444,13 @@ and [F_v : ℚ_p] > n(n + 1)/2 + 1.
 level-two characters coincide and have niveau one, so the reduction is split, not of niveau two. arXiv v3 and the
 author's corrigendum add the missing family of strongly divisible modules. The main theorems, which are what R08.4 uses,
 are unaffected.
+
+**E2 (error, reaches a stated result): Clozel–Harris–Taylor §2.4.2, p. 37.** Condition 2 reads "for i < j the ratio
+χ̄_{v,i}/χ̄_{v,j} is neither trivial nor the cyclotomic character". The proofs of Lemmas 2.4.7–2.4.8 need the inverse
+ratio: χ̄_{v,i}ε/χ̄_{v,j} ≠ 1 (p. 39), and H²(G, χ̄_{v,0}^{−1}r̄′) = 0 (p. 40).
+- Counterexample to the printed version: r̄ = ω ⊕ 1 over ℚ_l, l > 3, with ω as the sub.
+- It satisfies the printed condition, but H²(G, k(ω)) ≠ 0.
+- There are 5 suitable first-order lifts instead of 4, so the ring is not a power series ring of the stated dimension.
+
+The plan uses the corrected condition χ̄_{v,j}/χ̄_{v,i} ≠ 1, ε̄. The section is not used in CHT's applications. No erratum
+was found.
