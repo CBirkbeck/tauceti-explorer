@@ -1,6 +1,6 @@
 # Birch–Tate and arithmetic special-value formulas
 
-This is the first blueprint checkpoint. It covers B.1 (the formula and its inputs), B.2 (sign and equivalent formulations), B.3 (ℚ and the real quadratic example ℚ(√5)) and B.7 (S-integers and Euler factors). Every declaration is a plan. B.1 is closed; B.2, B.3 and B.7 are partial; B.4–B.6 and B.8 are not read in this checkpoint.
+The first blueprint checkpoint covers B.1 (the formula and its inputs), B.2 (sign and equivalent formulations), B.3 (ℚ and the real quadratic example ℚ(√5)) and B.7 (S-integers and Euler factors). The second covers B.5: totally real abelian fields, with the 2-primary part from Kolster 1989 and Greither 1992. Every declaration is a plan. B.1 is closed, B.5 is source-decomposed, and B.2, B.3 and B.7 are partial. B.4, B.6 and B.8 are not read yet.
 
 ## Scope, ownership and conventions
 
@@ -604,11 +604,195 @@ Depends on: SpecialValuesBirchTate:B.1/birch-tate-formula, SpecialValuesBirchTat
 
 Source: kolster-park-city-2009, Lecture 1, §1, p. 8; Kbook.2013, VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515).
 
-## The layers not read in this checkpoint
+## Totally real abelian fields over Q (B.5)
+
+Kolster's note shows that Federer's 2-adic main conjecture gives the 2-part of the formula for every totally real field. The first four nodes follow it and are reusable in B.6. For a totally real field abelian over ℚ, Federer's conjecture follows from Greither's main conjecture for all p (EulerSystemsCyclotomicMainConjecture L4). The comparison is planned here, because neither paper writes it. The odd primes come from B.4, so the full formula follows for these fields.
+
+### Federer's main conjecture at 2 (Kolster, Conjecture 3)
+
+Declaration: TauCeti.BirchTate.FedererMainConjecture (definition). Node: SpecialValuesBirchTate:B.5/federer-main-conjecture. Planet: Federer's 2-adic main conjecture.
+
+Let F be a totally real number field. Put F_0 = F(√−1). Let e ≥ 2 be maximal with ζ_{2^e} ∈ F_0, F_n = F(ζ_{2^{n+e}}) for n ≥ 1, and F_∞ = ∪F_n, the cyclotomic ℤ_2-extension of F_0. Let Γ = Gal(F_∞/F_0) = Gal(F_∞^+/F) ≅ ℤ_2, with topological generator γ_0 and u ∈ ℤ_2^× defined by γ_0(ζ) = ζ^u on μ_{2^∞}, so u = 1 + 2^e·ε with ε ∈ ℤ_2^×. Let A_n^- be the kernel of the surjective norm from the 2-part A_n of the class group of F_n to that of F_n^+, A_∞^- = lim→ A_n^-, and Ǎ_∞^- = Hom_{ℤ_2}(A_∞^-, ℚ_2/ℤ_2) with (γφ)(x) = φ(γx). Let Λ = ℤ_2[[T]] with T = γ_0 − 1. Let f_F(T) ∈ Λ be the characteristic polynomial of Ǎ_∞^-, and G_F(T) ∈ Λ the unique power series with L_2(χ_0, s) = G_F(u^s − 1)/(u^s − u), where L_2(χ_0, s) is the 2-adic L-function of the trivial character χ_0 of Gal(F_0/F), that is, the 2-adic zeta function of F. G_F ∈ 2^{[F:ℚ]}Λ by Deligne–Ribet. FedererMainConjecture(F) is the proposition that G_F and 2^{[F:ℚ]}·f_F generate the same ideal of Λ.
+
+Hypotheses: Kolster does not state the Λ-action on the dual. The convention (γφ)(x) = φ(γx) fixed here is the one under which his twist f(u^{−1}(1 + T) − 1) for Ǎ_∞^-(−1) is right; with the contragredient action the twist would be f(u(1 + T) − 1).
+
+Proof or construction:
+
+1. Ǎ_∞^- is a finitely generated torsion Λ-module (IntegralIwasawaTheory I.2), so f_F is defined up to a unit of Λ, and the ideal (f_F) is well defined.
+2. G_F is unique: s ↦ u^s − 1 maps ℤ_2 onto 2^eℤ_2, and a power series vanishing on this infinite set of points of the open disc is zero.
+3. Another generator γ_0′ = γ_0^c (c ∈ ℤ_2^×) changes T by the automorphism 1 + T ↦ (1 + T)^c of Λ, and u by u^c. f_F and G_F transform by the same automorphism, up to units of Λ (for G_F the denominator changes by the unit ((1 + T)^c − u^c)/((1 + T) − u)), so the proposition does not depend on γ_0.
+
+The required uses are:
+
+- SpecialValuesBirchTate:B.5/federer-implies-two-primary-birch-tate: The hypothesis of Kolster's Theorem 5.
+- SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields: The conclusion derived from Greither's main conjecture.
+
+The API supplies:
+
+- TauCeti.BirchTate.kolsterTower (constructor): F_0 = F(√−1), e = max{a : ζ_{2^a} ∈ F_0} ≥ 2, F_n = F(ζ_{2^{n+e}}), Γ = Gal(F_∞/F_0) with generator γ_0 and u = κ(γ_0) ≡ 1 + 2^e mod 2^{e+1}.
+- TauCeti.BirchTate.minusClassModule (constructor): A_∞^- = lim→ ker(A_2(F_n) → A_2(F_n^+)) and its dual Ǎ_∞^-, a finitely generated torsion Λ-module.
+- TauCeti.BirchTate.minusCharSeries (data): f_F ∈ Λ, the characteristic polynomial of Ǎ_∞^-.
+- TauCeti.BirchTate.twoAdicZetaSeries (data): G_F ∈ Λ with L_2(χ_0, s) = G_F(u^s − 1)/(u^s − u); G_F ∈ 2^{[F:ℚ]}Λ.
+- TauCeti.BirchTate.FedererMainConjecture (relation): Ideal.span {G_F} = Ideal.span {2^{[F:ℚ]}·f_F} in ℤ_2⟦T⟧.
+
+Discriminating tests:
+
+- TauCeti.BirchTate.twoAdicZetaSeries_rat_valuation (value): F = ℚ: e = 2, A_∞^- = 0 (the class numbers of ℚ(ζ_{2^n}) are odd), so f = 1; G(u^{−1} − 1) = ζ_{ℚ,2}(−1)·(u^{−1} − u) = (1/12)(u^{−1} − u), and u^{−1} − u ~ 2³, so v_2(G(u^{−1} − 1)) = 1 = [ℚ:ℚ], as the conjecture predicts. For u = 5 the value is (1/12)(1/5 − 5) = −2/5.
+- TauCeti.BirchTate.twoAdicZetaSeries_sqrtTwo_valuation (value): F = ℚ(√2) = ℚ(ζ_8)^+: e = 3, F_∞ = ℚ(μ_{2^∞}), so f = 1. ζ_F(−1) = ζ(−1)·L(−1, χ_8) = (−1/12)(−B_{2,χ_8}/2) = 1/12 with B_{2,χ_8} = 2. L_2(χ_0, −1) = ζ_F(−1)·(1 − 2) and u^{−1} − u ~ 2⁴, so v_2(G(u^{−1} − 1)) = 2 = [F:ℚ].
+- TauCeti.BirchTate.not_federerMainConjecture_unnormalised_rat (non-example): Dropping 2^{[F:ℚ]} gives a false statement for F = ℚ: (G_ℚ) = (2) while (f) = (1).
+
+Acceptance:
+
+- The factor 2^{[F:ℚ]} is part of the conjecture: without it the statement fails already for F = ℚ.
+- The definition makes sense for every totally real F; B.5 proves it for F abelian over ℚ, and B.6 for all F.
+
+Depends on: IntegralIwasawaTheory:I.2, AutomorphicPadicLFunctions:L3.
+
+Library: `NumberField.IsTotallyReal`, `PowerSeries`, `PadicInt`, `Ideal.span`, `Module.finrank`.
+
+Source: KOLSTER-1989, Conjecture 3 and the definition of G(T), p. 250; KOLSTER-1989, the tower F_n, Γ, γ_0 and u, p. 248.
+
+### The 2-part of the tame kernel from the minus class module (Kolster, Theorem 1)
+
+Declaration: TauCeti.BirchTate.card_K2_two_part_eq (theorem). Node: SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa.
+
+Let F be a totally real number field, F_0 = F(√−1), e ≥ 2 maximal with ζ_{2^e} ∈ F_0, F_n = F(ζ_{2^{n+e}}) and F_∞ = ∪F_n, the cyclotomic ℤ_2-extension of F_0. Let Γ = Gal(F_∞/F_0) = Gal(F_∞^+/F) ≅ ℤ_2, with a topological generator γ_0, and u ∈ ℤ_2^× with γ_0(ζ) = ζ^u on μ_{2^∞}, so u = 1 + 2^e·ε with ε ∈ ℤ_2^×. Let A_n^- be the kernel of the surjective norm map from the 2-part A_n of the class group of F_n to that of F_n^+, A_∞^- = lim→ A_n^-, 𝒯 = lim← μ_{2^n}, Λ = ℤ_2[[T]] with T = γ_0 − 1, and f_F, G_F ∈ Λ as in Federer's main conjecture. Then |K_2(o_F)(2)| = 2^{[F:ℚ]}·|(𝒯 ⊗_{ℤ_2} A_∞^-)^Γ|, where K_2(o_F)(2) is the 2-primary part of K_2(o_F).
+
+Hypotheses: The theorem holds for every totally real F; abelian F is not needed. B.6 reuses it.
+
+Proof or construction:
+
+1. Kolster's exact sequence of finite groups (The structure of the 2-Sylow subgroup of K_2(o), II, K-theory 1 (1987), Theorem 3.7) is 0 → (μ_2 ⊗ U_∞^+)^Γ → K_2(o)(2) → (𝒯 ⊗ A_∞^-)^Γ → H¹(Γ, μ_2 ⊗ U_∞^+) → 0, where U_∞^+ = lim→ U_n^+. So the claim is |(μ_2 ⊗ U_∞^+)^Γ| = 2^{[F:ℚ]}·|H¹(Γ, μ_2 ⊗ U_∞^+)|.
+2. Let ℰ = U_∞^+/μ_2, the free part. The sequence 0 → μ_2 ⊗ μ_2 → μ_2 ⊗ U_∞^+ → μ_2 ⊗ ℰ → 0 shows that |(μ_2 ⊗ U_∞^+)^Γ|/|H¹(Γ, μ_2 ⊗ U_∞^+)| = |(μ_2 ⊗ ℰ)^Γ|/|H¹(Γ, μ_2 ⊗ ℰ)|.
+3. ℰ is free abelian, so squaring gives 0 → ℰ → ℰ → μ_2 ⊗ ℰ → 0 and a long exact cohomology sequence through H¹(Γ, ℰ) and H²(Γ, ℰ).
+4. Iwasawa (On cohomology groups of units for ℤ_p-extensions, Amer. J. Math. 105 (1983), Proposition 2) gives H¹(Γ, ℰ) ≅ B ⊕ (ℚ_2/ℤ_2)^r with B finite and H²(Γ, ℰ) ≅ (ℚ_2/ℤ_2)^{r−1}, for some 1 ≤ r ≤ d, where d is the number of dyadic primes of F_∞^+. With 2^s = |B[2]| = |B/2B|, this gives |(μ_2 ⊗ ℰ)^Γ|/|μ_2 ⊗ ℰ^Γ| = 2^{s+r} and |H¹(Γ, μ_2 ⊗ ℰ)| = 2^{s+r−1}.
+5. ℰ^Γ is free of rank [F:ℚ] − 1 by the unit theorem for the totally real F, so |μ_2 ⊗ ℰ^Γ| = 2^{[F:ℚ]−1}, and the ratio is 2^{[F:ℚ]}.
+
+Acceptance:
+
+- F = ℚ: A_∞^- = 0 and the formula gives |K_2(ℤ)(2)| = 2, matching K_2(ℤ) ≅ ℤ/2 (B.3).
+
+Depends on: SpecialValuesBirchTate:B.5/federer-main-conjecture, SpecialValuesBirchTate:B.1/birch-tate-formula, ArithmeticKTheory:N.6, IntegralIwasawaTheory:I.2.
+
+Library: `NumberField.Units.finrank_eq`, `NumberField.Units.rank`, `NumberField.IsTotallyReal.nrComplexPlaces_eq_zero`.
+
+Source: KOLSTER-1989, Theorem 1, p. 249; KOLSTER-1989, proof of Theorem 1, p. 249; KOLSTER-1989, proof of Theorem 1, p. 249.
+
+### The order of (𝒯 ⊗ A⁻_∞)^Γ from the characteristic polynomial (Kolster, Lemma 2)
+
+Declaration: TauCeti.BirchTate.card_twistedMinusInvariants (lemma). Node: SpecialValuesBirchTate:B.5/minus-module-coinvariant-order.
+
+Let F be a totally real number field, F_0 = F(√−1), e ≥ 2 maximal with ζ_{2^e} ∈ F_0, F_n = F(ζ_{2^{n+e}}) and F_∞ = ∪F_n, the cyclotomic ℤ_2-extension of F_0. Let Γ = Gal(F_∞/F_0) = Gal(F_∞^+/F) ≅ ℤ_2, with a topological generator γ_0, and u ∈ ℤ_2^× with γ_0(ζ) = ζ^u on μ_{2^∞}, so u = 1 + 2^e·ε with ε ∈ ℤ_2^×. Let A_n^- be the kernel of the surjective norm map from the 2-part A_n of the class group of F_n to that of F_n^+, A_∞^- = lim→ A_n^-, 𝒯 = lim← μ_{2^n}, Λ = ℤ_2[[T]] with T = γ_0 − 1, and f_F, G_F ∈ Λ as in Federer's main conjecture. Then |(𝒯 ⊗_{ℤ_2} A_∞^-)^Γ| ~ f_F(u^{−1} − 1), where a ~ b means that the 2-adic numbers a and b have the same 2-adic valuation.
+
+Proof or construction:
+
+1. With (γφ)(x) = φ(γx), the dual of 𝒯 ⊗ A_∞^- is Ǎ_∞^-(−1), and γ_0 acts on it as u·γ_0 does on Ǎ_∞^-. So its characteristic polynomial is f_F(u^{−1}(1 + T) − 1) (Lichtenbaum, Lemma 4.1).
+2. Pontryagin duality gives |(𝒯 ⊗ A_∞^-)^Γ| = |(Ǎ_∞^-(−1))_Γ|; this group is finite by Theorem 1.
+3. Ǎ_∞^- has no nonzero finite Λ-submodule (Federer). So Ǎ_∞^-(−1) has none, and its Γ-invariants, being finite, vanish.
+4. For a finitely generated torsion Λ-module M with M_Γ finite and M^Γ = 0, |M_Γ| ~ char_M(0). With M = Ǎ_∞^-(−1) this is f_F(u^{−1} − 1).
+
+Acceptance:
+
+- The lemma needs the dual Ǎ_∞^- to have no nonzero finite submodule. A_∞^- itself is a union of finite Λ-submodules whenever it is nonzero.
+
+Depends on: SpecialValuesBirchTate:B.5/federer-main-conjecture, SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa, IntegralIwasawaTheory:I.2, IntegralIwasawaTheory:L2.
+
+Source: KOLSTER-1989, Lemma 2 and its proof, p. 250.
+
+### Federer's conjecture implies the 2-part of Birch–Tate (Kolster, Theorem 5)
+
+Declaration: TauCeti.BirchTate.padicValNat_two_card_K2_of_federer (theorem). Node: SpecialValuesBirchTate:B.5/federer-implies-two-primary-birch-tate. Planet: Kolster's 2-primary Birch–Tate implication.
+
+Let F be a totally real number field with FedererMainConjecture(F). Then |K_2(o_F)| ~ w_2(F)·ζ_F(−1), that is, v_2(#K_2(o_F)) = v_2(w_2(F)) + v_2(|ζ_F(−1)|): the ℓ = 2 case of the primewise form of BirchTateFormula(F).
+
+Hypotheses: Kolster writes L_2(χ_0, −1) ~ ζ_e(−1); ζ_F(−1) is meant (source issue E1).
+
+Proof or construction:
+
+1. F is totally real, so it has a real place and is exceptional. N.4 (two-primary w-invariant, case (c) with i = 2, b = 1) gives w_2^{(2)}(F) = 2^{e+1}.
+2. u = 1 + 2^e·ε gives u^{−1} − u = (1 − u²)/u = −2^{e+1}ε(1 + 2^{e−1}ε)/u, and 1 + 2^{e−1}ε is odd since e ≥ 2. So w_2(F) ~ 2^{e+1} ~ u^{−1} − u.
+3. The trivial character's twist ω^{−2} is trivial, so L_2(χ_0, −1) = ζ_F(−1)·∏_{𝔭|2}(1 − N𝔭). Each factor is odd, so L_2(χ_0, −1) ~ ζ_F(−1).
+4. Hence w_2(F)·ζ_F(−1) ~ L_2(χ_0, −1)·(u^{−1} − u) = G_F(u^{−1} − 1). The conjecture gives ~ 2^{[F:ℚ]}·f_F(u^{−1} − 1), Lemma 2 gives ~ 2^{[F:ℚ]}·|(𝒯 ⊗ A_∞^-)^Γ|, and Theorem 1 gives ~ |K_2(o_F)|.
+5. Since u^{−1} − 1 ∈ 4ℤ_2, evaluation of G_F and f_F there converges, and the ideal equality gives equal valuations.
+
+Acceptance:
+
+- Only the 2-adic valuation is compared: the odd primes and the sign come from B.4 and B.2.
+
+Depends on: SpecialValuesBirchTate:B.5/federer-main-conjecture, SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa, SpecialValuesBirchTate:B.5/minus-module-coinvariant-order, SpecialValuesBirchTate:B.2/birch-tate-iff-valuations, ArithmeticKTheory:N.4/two-primary-w-invariant, ArithmeticKTheory:N.4/exceptional-fields-at-two, AutomorphicPadicLFunctions:L3.
+
+Source: KOLSTER-1989, Theorem 5, p. 250; KOLSTER-1989, proof of Theorem 5, p. 250.
+
+### Federer's conjecture for totally real abelian fields from Greither's main conjecture
+
+Declaration: TauCeti.BirchTate.federerMainConjecture_of_isAbelianGalois (comparison). Node: SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields.
+
+Let F be a totally real number field, abelian over ℚ. Then FedererMainConjecture(F) holds.
+
+Hypotheses: Neither Kolster nor Greither writes this comparison; Greither asserts the consequence. The steps below are the proof planned here. Greither's Theorem 3.2 needs the base field unramified at 2, which F need not be; the first step replaces F by such a field with the same F_∞.
+
+Proof or construction:
+
+1. Reduction to a field unramified at 2. F ⊂ ℚ(μ_{m2^∞}) with m odd, and F(μ_{2^∞}) = F′(μ_{2^∞}) for F′ = F(μ_{2^∞}) ∩ ℚ(μ_m), which is abelian and unramified at 2 but possibly imaginary (F = ℚ(√6) gives F′ = ℚ(√−3)). Put K_0 = F′(√−1), Δ′ = Gal(K_0/ℚ) ∋ j and Γ′ = Gal(K_∞/K_0) with generator γ′ and u′ = κ(γ′). Then F_∞ = K_∞ and Gal(F_∞/ℚ) = Δ′ × Γ′.
+2. Kolster's Γ = Gal(F_∞/F(√−1)) is procyclic and open, so Γ = {(φ(γ), γ) : γ ∈ Γ′^{2^b}} for some b ≥ 0 and some homomorphism φ: Γ′^{2^b} → Δ′ fixing √−1. Let γ_1 generate Γ′^{2^b}; then γ_0 = (φ(γ_1), γ_1) and u = u′^{2^b}. Gal(F_∞/F) = ⟨j⟩ × Γ, so the even characters of F are the products χ̌·ρ, with χ̌ an even character of Δ′ and ρ a character of Γ′ such that ρ(γ_1) = χ̌(φ(γ_1))^{−1}. Since φ fixes √−1, χ̌(φ(γ_1)) = χ(φ(γ_1))^{−1} for χ = ωχ̌^{−1}, so the condition is ρ(γ_1) = χ(φ(γ_1)). There are 2^b such ρ for each χ̌, so [F:ℚ] = 2^b·|Δ′|/2.
+3. Same module. A_∞^- is the direct limit over the common tower, so it is one ℤ_2[[Δ′ × Γ′]]-module; f_F is its dual's characteristic polynomial for the subgroup Γ. Minus parts taken as kernels of norms or as quotients by (1 + j) differ by finite groups, which do not change characteristic ideals. By Greither's Lemma 3.3, X = lim← A_2(K_n) is quasi-isomorphic to Ǎ_∞ with the action (σφ)(x) = φ(σx). So for each odd χ of Δ′, ℚ_2 ⊗ X_χ ≅ ℚ_2 ⊗ Ǎ_{∞,χ}^-.
+4. Zeros of f_F. μ(f_F) = 0 by Ferrero–Washington at p = 2 (IntegralIwasawaTheory L4). So f_F = unit·Q with Q distinguished, and the roots of Q are the eigenvalues minus 1 of γ_0 on ℂ_2 ⊗ Ǎ_∞^-. This space is the sum of its χ-isotypic parts, χ odd, and there γ_0 acts as χ(φ(γ_1))·γ_1. By Greither's Theorem 3.2, char(X_χ) = (½G_2(T′, χ̌)), with ½G_2(T′, 1)·(T′ − q_0) for χ = ω, where q_0 = u′ − 1. So the eigenvalues of γ_1 on the χ-part are 1 + y for the zeros y of G_2(·, χ̌), and those of γ_0 are χ(φ(γ_1))·(1 + y)^{2^b}, with multiplicity.
+5. Zeros of G_F. For abelian F, ζ_{F,2}(s) = ∏_ψ L_2(s, ψ) with the Euler factors at 2 removed. For ψ = χ̌ρ the twist by the second-kind character ρ substitutes the root of unity attached to ρ(γ′) into G_2(·, χ̌) (Washington, Theorem 7.10, with the convention fixed by DirichletPadicLFunctions L2). As a function of 1 + T = u^s = (u′^s)^{2^b}, the zeros of ∏_ρ L_2(s, χ̌ρ) over the 2^b admissible ρ are exactly the χ(φ(γ_1))·(1 + y)^{2^b}. The pole factors multiply to ∏_ρ(ζ_ρu′^s − u′) = ±(u^s − u), Kolster's denominator.
+6. μ-invariants. Each ½G_2(·, χ̌) has μ = 0, because X_χ is a quotient of X^- ⊗ ℤ_2(χ) and so is finitely generated over ℤ_2. Root-of-unity substitutions preserve μ, and there are [F:ℚ] pairs (χ̌, ρ), each contributing one factor 2. So G_F = 2^{[F:ℚ]}·unit·P with P distinguished.
+7. P and Q have the same roots with multiplicity, so (G_F) = (2^{[F:ℚ]}·f_F) in Λ, which is FedererMainConjecture(F).
+
+Acceptance:
+
+- The abelian hypothesis is on F/ℚ itself; the auxiliary field F′ is abelian because F is.
+- F = ℚ(√2): F′ = ℚ, b = 1 and φ is trivial; both sides are (2²) = (4), with f = 1.
+
+Depends on: SpecialValuesBirchTate:B.5/federer-main-conjecture, EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p, EulerSystemsCyclotomicMainConjecture:L4/greither-kummer-duality, EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts, IntegralIwasawaTheory:L4, DirichletPadicLFunctions:L2, AutomorphicPadicLFunctions:L3.
+
+Source: GREITHER-1992, §1, closing remark, p. 454; GREITHER-1992, §3, Lemma 3.3, p. 469; GREITHER-1992, §1, the Main Conjecture (= Theorem 3.2), p. 452.
+
+### The 2-part of the Birch–Tate formula for totally real abelian fields
+
+Declaration: TauCeti.BirchTate.padicValNat_two_card_K2_of_isAbelianGalois (theorem). Node: SpecialValuesBirchTate:B.5/two-part-birch-tate-abelian.
+
+Let F be a totally real number field, abelian over ℚ. Then v_2(#K_2(o_F)) = v_2(w_2(F)) + v_2(|ζ_F(−1)|).
+
+Proof or construction:
+
+1. Federer's conjecture holds for F by the comparison with Greither's main conjecture, and Kolster's Theorem 5 turns it into the valuation identity at 2.
+
+Acceptance:
+
+- F = ℚ(√2): w_2(F) = 48 and ζ_F(−1) = 1/12, so v_2(#K_2(ℤ[√2])) = 4 − 2 = 2.
+
+Depends on: SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields, SpecialValuesBirchTate:B.5/federer-implies-two-primary-birch-tate.
+
+Source: GREITHER-1992, §1, closing remark, p. 454; KOLSTER-1989, Theorem 5, p. 250.
+
+### The Birch–Tate formula for totally real abelian fields
+
+Declaration: TauCeti.BirchTate.birchTateFormula_of_isAbelianGalois (theorem). Node: SpecialValuesBirchTate:B.5/birch-tate-for-real-abelian-fields. Planet: Birch–Tate for totally real abelian fields.
+
+Let F be a totally real number field, abelian over ℚ. Then BirchTateFormula(F) holds: ζ_F(−1) = (−1)^{[F:ℚ]}·#K₂(𝓞_F)/w₂(F).
+
+Proof or construction:
+
+1. For odd ℓ the valuation identity is the odd-primary theorem (B.4). For abelian F its Iwasawa input is the Mazur–Wiles main conjecture.
+2. For ℓ = 2 it is the previous node.
+3. The primewise form (B.2/birch-tate-iff-valuations), with ζ_F(−1) ∈ ℚ and its sign, gives BirchTateFormula(F).
+
+Acceptance:
+
+- This is the historical endpoint the stage keeps separately available: it uses only the abelian main conjectures (Mazur–Wiles at odd ℓ, Greither at 2), not the modern all-prime theorem of B.6.
+- F = ℚ(√5) is abelian, and the formula gives #K₂(𝓞_F) = w₂(F)·ζ_F(−1) = 120·(1/30) = 4 (B.3).
+
+Depends on: SpecialValuesBirchTate:B.5/two-part-birch-tate-abelian, SpecialValuesBirchTate:B.4, SpecialValuesBirchTate:B.2/birch-tate-iff-valuations.
+
+Source: GREITHER-1992, §1, closing remark, p. 454.
+
+## The layers not read yet
 
 - **B.4.** Tate's K₂–Galois-cohomology comparison (K2SymbolsBrauer T.7, MotivicEtaleKTheory M.3), the localisation sequence to 𝓞_F[1/ℓ] (ArithmeticKTheory N.2), the Euler characteristic of IntegralIwasawaTheory I.5 and the ℓ-adic unit Nv − 1: plan the odd-primary valuation identity of B.2/birch-tate-iff-valuations from K-book VI.8.7 and Kolster Lecture 2 Theorem 3.3.
-- **B.5.** The totally real abelian case with its 2-primary part (Wiles for abelian F/ℚ, Kolster's appendix to Rognes–Weibel).
-- **B.6.** Kolster 1989 (Canad. Math. Bull. 32), Conjecture 3, Lemma 2 and Theorem 5, and the comparison table with IntegralIwasawaTheory I.9–I.10.
+- **B.6.** Federer's conjecture for every totally real field from IntegralIwasawaTheory I.9–I.10, with the comparison table. Kolster's Theorem 1, Lemma 2 and Theorem 5 are already planned in B.5 for every totally real field.
 - **B.8.** Lichtenbaum statements at all negative integers with BorelRegulators R.5's leading terms, and the motivic form (Kolster Conjectures 3.6–3.7).
 
 ## Requests to other roadmaps
@@ -616,6 +800,20 @@ Source: kolster-park-city-2009, Lecture 1, §1, p. 8; Kbook.2013, VI.8.6, Birch�
 - **AutomorphicLFunctionsAndLocalFactors:AL.1.** The Dedekind zeta function of a number field F continued to ℂ: a function ζ_F : ℂ → ℂ, holomorphic on ℂ ∖ {1}, equal to Mathlib's NumberField.dedekindZeta F on Re s > 1; and the completed function Λ_F(s) = |d_F|^{s/2} Γ_ℝ(s)^{r_1} Γ_ℂ(s)^{r_2} ζ_F(s), with Mathlib's Complex.Gammaℝ and Complex.Gammaℂ, holomorphic on ℂ ∖ {0, 1} and satisfying Λ_F(1 − s) = Λ_F(s). AL.1: 'Prove the global integral Euler factorization, continuation and functional equation using Poisson summation, retaining the trivial-character poles'; BorelRegulators R.5 imports the same objects from AL.1. Needed by: B.1/birch-tate-formula, B.2/zeta-via-reciprocal-gamma, B.2/zeta-minus-one-sign, B.3/dedekind-zeta-of-the-rationals, B.3/sqrt-five-zeta-factorisation, B.7/s-modified-dedekind-zeta.
 - **AutomorphicPadicLFunctions:L3.** For a totally real field F and k ≥ 1, ζ_F(1 − 2k) ∈ ℚ (Siegel–Klingen; the 'algebraicity of negative critical values' in L3's Deligne–Ribet construction), and the Deligne–Ribet integrality statement bounding the denominator of ζ_F(−1), proved independently of the Birch–Tate formula. Needed by: B.2/birch-tate-iff-valuations, B.2/denominator-consequence.
 - **K2SymbolsBrauer:T.5.** A certified presentation of the tame kernel K₂(𝓞_F) for F = ℚ(√5), 𝓞_F = ℤ[(1+√5)/2], giving #K₂(𝓞_F) = 4 (the group is (ℤ/2)²), proved without the Birch–Tate formula and in the format of ArithmeticKTheory N.8/certified-example-format. T.5 plans 'a certified tame-kernel presentation of a nontrivial arithmetic example'; ArithmeticKTheory N.8/real-quadratic-example-and-birch-tate asks for a real quadratic example, and this field serves both. Needed by: B.3/sqrt-five-birch-tate-check.
+
+### Requested for B.5 (checkpoint 2)
+
+- **AutomorphicPadicLFunctions:L3.** For a totally real field F and k ≥ 1, ζ_F(1 − 2k) ∈ ℚ (Siegel–Klingen; the 'algebraicity of negative critical values' in L3's Deligne–Ribet construction), and the Deligne–Ribet integrality statement bounding the denominator of ζ_F(−1), proved independently of the Birch–Tate formula. Also, at p = 2 for a totally real F: the 2-adic zeta function L₂(χ₀, s) = G_F(u^s − 1)/(u^s − u) with G_F ∈ 2^{[F:ℚ]}ℤ₂[[T]] (Deligne–Ribet), its interpolation L₂(χ₀, −1) = ζ_F(−1)·∏_{𝔭|2}(1 − N𝔭), and for F abelian over ℚ its factorisation ζ_{F,2}(s) = ∏_ψ L₂(s, ψ) into Kubota–Leopoldt L-functions. Needed by: B.2/birch-tate-iff-valuations, B.2/denominator-consequence, B.5/federer-main-conjecture, B.5/federer-implies-two-primary-birch-tate, B.5/federer-conjecture-for-abelian-fields.
+- **ArithmeticKTheory:N.6.** Kolster's exact sequence for a totally real field E (The structure of the 2-Sylow subgroup of K₂(o), II, K-theory 1 (1987), Theorem 3.7): 0 → (μ₂ ⊗ U_∞^+)^Γ → K₂(o)(2) → (𝒯 ⊗_{ℤ₂} A_∞^-)^Γ → H¹(Γ, μ₂ ⊗ U_∞^+) → 0, for the cyclotomic ℤ₂-tower F_n = E(ζ_{2^{n+e}}), as the 2-adic case of the stage's comparison of even K-groups with arithmetic cohomology. Needed by: B.5/tame-kernel-two-part-via-iwasawa.
+- **IntegralIwasawaTheory:I.2.** For a totally real E and p = 2, the cyclotomic tower F_n = E(ζ_{2^{n+e}}): the minus class module A_∞^- = lim→ ker(A(F_n) → A(F_n^+)) with its dual Ǎ_∞^- a finitely generated torsion ℤ₂[[T]]-module; Federer's theorem that Ǎ_∞^- has no nonzero finite Λ-submodule; and Iwasawa's Proposition 2 (Amer. J. Math. 105 (1983)) on H¹(Γ, ℰ) ≅ B ⊕ (ℚ₂/ℤ₂)^r and H²(Γ, ℰ) ≅ (ℚ₂/ℤ₂)^{r−1} for the free part ℰ of lim→ U_n^+. Needed by: B.5/federer-main-conjecture, B.5/tame-kernel-two-part-via-iwasawa, B.5/minus-module-coinvariant-order.
+- **IntegralIwasawaTheory:L2.** The coinvariant lemma: for a finitely generated torsion ℤ_p[[T]]-module M with M_Γ finite and M^Γ = 0, |M_Γ| ~ char_M(0); and the twist rule char(M(−1))(T) = char(M)(u^{−1}(1 + T) − 1) for the action (γφ)(x) = φ(γx) (Lichtenbaum, Lemma 4.1). Needed by: B.5/minus-module-coinvariant-order.
+- **IntegralIwasawaTheory:L4.** The Ferrero–Washington theorem at p = 2 for the cyclotomic ℤ₂-extension of an abelian field: μ(X^-) = 0. Needed by: B.5/federer-conjecture-for-abelian-fields.
+- **DirichletPadicLFunctions:L2.** Twists by characters of the second kind at p = 2: for χ of the first kind and ρ of finite order on Γ, L₂(s, χρ) = G₂(ζu^s − 1, χ)/(ζu^s − u)^{δ(χ)}, with ζ the root of unity attached to ρ(γ) and δ(χ) = 1 exactly for trivial χ (Washington, Theorem 7.10), with the convention for ζ (ρ(γ) or its inverse) fixed explicitly. Needed by: B.5/federer-conjecture-for-abelian-fields.
+
+## Source issues
+
+- **SpecialValuesBirchTate/E1** (misprint, affects nothing; proof of Theorem 5, p. 250 (Cambridge Core PDF of the published note)): printed “Since L₂(χ₀, −1) ~ ζ_e(−1), we get w₂(E)·ζ_E(−1) ~ …”. Correction: Since L₂(χ₀, −1) ~ ζ_E(−1), … e is the integer with F₀ = E(ζ_{2^e}); the zeta function is that of the base field E, as in Conjecture 4 and in the same line. L₂(χ₀, −1) = ζ_E(−1)·∏_{𝔭|2}(1 − N𝔭) with odd factors. Known: new.
+- **SpecialValuesBirchTate/E2** (misprint, affects nothing; before Lemma 2, p. 250): printed “Since A_∞^- has no non-trivial finite Λ-submodules (cf. [4]), the order of (𝒯 ⊗_{ℤ₂} A_∞^-)^Γ … is as usual determined by evaluating the characteristic polynomial at T = 0.”. Correction: Since Ǎ_∞^- has no non-trivial finite Λ-submodules (cf. [4]), … A_∞^- = lim→ A_n^- is a union of the images of the finite Λ-modules A_n^-, so it has nonzero finite Λ-submodules whenever it is nonzero. The evaluation argument needs the compact dual Ǎ_∞^- (hence Ǎ_∞^-(−1)) to have none, so that Ǎ_∞^-(−1)^Γ = 0 and |Ǎ_∞^-(−1)_Γ| ~ f(u^{−1} − 1). The OCR and the page image both show A_∞^- without the accent. Known: new.
 
 ## Gaps
 
@@ -627,8 +825,8 @@ Source: kolster-park-city-2009, Lecture 1, §1, p. 8; Kbook.2013, VI.8.6, Birch�
 - SpecialValuesBirchTate:B.2: partial. Rationality of ζ_F(−1) and Deligne–Ribet integrality are requested from AutomorphicPadicLFunctions L3; B.2/birch-tate-iff-valuations takes the rational value as a hypothesis until then.
 - SpecialValuesBirchTate:B.3: partial. #K₂(𝓞_{ℚ(√5)}) = 4 with its certificate (requested from K2SymbolsBrauer T.5). The factorisation ζ_F = ζ · L(χ_D) for a general quadratic field needs the Kronecker character of D as a Dirichlet character, which neither library has; only D = 5 is planned.
 - SpecialValuesBirchTate:B.4: not_read. Tate's K₂–Galois-cohomology comparison (K2SymbolsBrauer T.7, MotivicEtaleKTheory M.3), the localisation sequence to 𝓞_F[1/ℓ] (ArithmeticKTheory N.2), the Euler characteristic of IntegralIwasawaTheory I.5 and the ℓ-adic unit Nv − 1: plan the odd-primary valuation identity of B.2/birch-tate-iff-valuations from K-book VI.8.7 and Kolster Lecture 2 Theorem 3.3.
-- SpecialValuesBirchTate:B.5: not_read. The totally real abelian case with its 2-primary part (Wiles for abelian F/ℚ, Kolster's appendix to Rognes–Weibel).
-- SpecialValuesBirchTate:B.6: not_read. Kolster 1989 (Canad. Math. Bull. 32), Conjecture 3, Lemma 2 and Theorem 5, and the comparison table with IntegralIwasawaTheory I.9–I.10.
+- SpecialValuesBirchTate:B.5: source_decomposed. Checkpoint 2 decomposes B.5 from Kolster 1989 (the whole note) and Greither 1992: Federer's conjecture as a definition, Kolster's Theorem 1, Lemma 2 and Theorem 5, the comparison proving Federer's conjecture for totally real abelian F from Greither's Theorem 3.2 (with the reduction to a field unramified at 2, the norm from Λ′ to Λ, and Ferrero–Washington at (2)), and the Birch–Tate formula for totally real abelian fields. Kolster's Theorem 1, Lemma 2 and Theorem 5 hold for every totally real field and are reusable in B.6. Two source issues (E1–E2). Dependencies: the odd-primary input is stage B.4, taken as a stage prerequisite by the final node; Kolster's exact sequence (his 1987 Theorem 3.7), Iwasawa's 1983 Proposition 2 and Federer's no-finite-submodule theorem are requested from ArithmeticKTheory N.6 and IntegralIwasawaTheory I.2, and none of those papers is read here.
+- SpecialValuesBirchTate:B.6: not_read. Federer's conjecture for every totally real field from IntegralIwasawaTheory I.9–I.10, with the comparison table; Kolster's Theorem 1, Lemma 2 and Theorem 5 are planned in B.5.
 - SpecialValuesBirchTate:B.7: partial. That changing S commutes with the cohomological comparisons of B.4–B.6; this waits for those layers.
 - SpecialValuesBirchTate:B.8: not_read. Lichtenbaum statements at all negative integers with BorelRegulators R.5's leading terms, and the motivic form (Kolster Conjectures 3.6–3.7).
 
@@ -636,3 +834,5 @@ Source: kolster-park-city-2009, Lecture 1, §1, p. 8; Kbook.2013, VI.8.6, Birch�
 
 - Charles A. Weibel, *The K-book: An Introduction to Algebraic K-theory*, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013); printed page = PDF page − 8; accessed 2026-09-28. https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf (SHA-256 a04f53c9393b…). Read: VI.8.1–8.8 (PDF pp. 522–524, book pp. 514–516): Classical Data 8.1, the Birch–Tate Conjecture 8.6 and the paragraph after it, Wiles's Theorem 8.7 with its note, Theorem 8.8 and the first paragraph of its proof (the sign from the functional equation).
 - Manfred Kolster, *Special values of L-functions at negative integers*, Lecture notes, IAS/Park City Mathematics Series (author preprint, 2009, 22 pages); printed page = PDF page; accessed 2026-09-28. https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf (SHA-256 5772ace94ba4…). Read: Introduction (p. 3); Lecture 1 §1 through the imprimitive p-adic L-functions (pp. 5–8); Lecture 2 §3, Theorem 3.3 to the Motivic Lichtenbaum Conjecture 3.7 (pp. 15–16).
+- Manfred Kolster, *A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture*, Canad. Math. Bull. 32 (2) (1989), 248–251; Cambridge Core PDF, printed page = PDF page + 247 (SHA-256 6b8052fcbe89…). Read: the whole note.
+- Cornelius Greither, *Class groups of abelian fields, and the main conjecture*, Ann. Inst. Fourier 42 (1992), 449–499; Numdam scan, journal page = PDF page + 447 (SHA-256 8e4db9745569…). Read here: §1 (pp. 452–454) and Lemma 3.3 (p. 469); the whole article is decomposed in EulerSystemsCyclotomicMainConjecture L4.

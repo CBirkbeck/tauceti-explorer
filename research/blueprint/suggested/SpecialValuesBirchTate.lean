@@ -14,6 +14,9 @@ import Mathlib.NumberTheory.Cyclotomic.Basic
 import Mathlib.Analysis.SpecialFunctions.Gamma.Deligne
 import Mathlib.RingTheory.DedekindDomain.SInteger
 import Mathlib.RingTheory.Ideal.Norm.AbsNorm
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.FieldTheory.Galois.Abelian
 import TauCeti.NumberTheory.ArithmeticDirichletSeries.Trivial
 import TauCeti.NumberTheory.ArithmeticDirichletSeries.EulerProduct.Data
 import TauCeti.NumberTheory.NumberField.Quadratic.RingOfIntegers
@@ -27,7 +30,7 @@ and signatures. All proposed results are unproved prototypes at the pinned basel
 (Mathlib 082e2d3, Tau Ceti f790474); the file has not been compiled.
 
 Layers covered: B.1 (the formula), B.2 (sign and equivalent forms), B.3 (ℚ and ℚ(√5)),
-B.7 (S-integers and Euler factors).
+B.5 (totally real abelian fields, with the 2-primary part), B.7 (S-integers and Euler factors).
 
 Three objects are imported from other roadmaps and are not planned here. Until their owners
 land they appear below as placeholders named after the owners' planned declarations:
@@ -300,5 +303,97 @@ theorem birchTateFormula_iff_sInteger (S : Finset (HeightOneSpectrum (𝓞 F))) 
           (wInvariant 2 F : ℂ) := by sorry
 
 end SIntegers
+
+/-! ## B.5 Totally real abelian fields: the 2-primary part (Kolster 1989, Greither 1992) -/
+
+section TwoPrimary
+variable (F : Type*) [Field F] [NumberField F]
+
+/-- B.5/federer-main-conjecture: the pair `(e, u)` of Kolster's tower. Here `F₀ = F(√−1)`,
+`e = max {a | ζ_{2^a} ∈ F₀}`, `F_n = F(ζ_{2^{n+e}})`, and `γ₀(ζ) = ζ^u` on `μ_{2^∞}`. -/
+def kolsterTower (F : Type*) [Field F] [NumberField F] : ℕ × ℤ_[2] := sorry
+
+/-- The Pontryagin dual `Ǎ_∞⁻` of `A_∞⁻ = lim→ ker(A₂(F_n) → A₂(F_n⁺))` (IntegralIwasawaTheory I.2). -/
+def minusClassModule (F : Type*) [Field F] [NumberField F] : Type := sorry
+
+/-- `f_F`: the characteristic power series of `Ǎ_∞⁻` over `ℤ₂⟦T⟧`, `T = γ₀ − 1`. -/
+def minusCharSeries (F : Type*) [Field F] [NumberField F] : PowerSeries ℤ_[2] := sorry
+
+/-- `G_F` with `L₂(χ₀, s) = G_F(u^s − 1)/(u^s − u)` (AutomorphicPadicLFunctions L3). -/
+def twoAdicZetaSeries (F : Type*) [Field F] [NumberField F] : PowerSeries ℤ_[2] := sorry
+
+/-- Federer's main conjecture at 2 (Kolster, Conjecture 3). -/
+def FedererMainConjecture (F : Type*) [Field F] [NumberField F] : Prop :=
+  Ideal.span {twoAdicZetaSeries F} =
+    Ideal.span {(2 : PowerSeries ℤ_[2]) ^ Module.finrank ℚ F * minusCharSeries F}
+
+/-- `(𝒯 ⊗_{ℤ₂} A_∞⁻)^Γ`, a finite group. -/
+def twistedMinusInvariants (F : Type*) [Field F] [NumberField F] : Type := sorry
+
+/-- Evaluation `g ↦ g(u⁻¹ − 1)`, convergent because `u⁻¹ − 1 ∈ 4ℤ₂`. -/
+def kolsterEval (F : Type*) [Field F] [NumberField F] : PowerSeries ℤ_[2] →+* ℤ_[2] := sorry
+
+/-- B.5/tame-kernel-two-part-via-iwasawa (Kolster, Theorem 1), in valuation form. -/
+theorem card_K2_two_part_eq [IsTotallyReal F] :
+    padicValNat 2 (Nat.card (K2 (𝓞 F))) =
+      Module.finrank ℚ F + padicValNat 2 (Nat.card (twistedMinusInvariants F)) := by sorry
+
+/-- B.5/minus-module-coinvariant-order (Kolster, Lemma 2). -/
+theorem card_twistedMinusInvariants [IsTotallyReal F] :
+    padicValNat 2 (Nat.card (twistedMinusInvariants F)) =
+      (kolsterEval F (minusCharSeries F)).valuation := by sorry
+
+/-- B.5/federer-implies-two-primary-birch-tate (Kolster, Theorem 5). -/
+theorem padicValNat_two_card_K2_of_federer [IsTotallyReal F] (q : ℚ)
+    (hq : dedekindZetaCont F (-1) = q) (h : FedererMainConjecture F) :
+    (padicValNat 2 (Nat.card (K2 (𝓞 F))) : ℤ) =
+      padicValNat 2 (wInvariant 2 F) + padicValRat 2 |q| := by sorry
+
+/-- B.5/federer-conjecture-for-abelian-fields (from Greither's main conjecture). -/
+theorem federerMainConjecture_of_isAbelianGalois [IsTotallyReal F] [IsAbelianGalois ℚ F] :
+    FedererMainConjecture F := by sorry
+
+/-- B.5/two-part-birch-tate-abelian. -/
+theorem padicValNat_two_card_K2_of_isAbelianGalois [IsTotallyReal F] [IsAbelianGalois ℚ F]
+    (q : ℚ) (hq : dedekindZetaCont F (-1) = q) :
+    (padicValNat 2 (Nat.card (K2 (𝓞 F))) : ℤ) =
+      padicValNat 2 (wInvariant 2 F) + padicValRat 2 |q| := by sorry
+
+/-- B.5/birch-tate-for-real-abelian-fields. -/
+theorem birchTateFormula_of_isAbelianGalois [IsTotallyReal F] [IsAbelianGalois ℚ F] :
+    BirchTateFormula F := by sorry
+
+end TwoPrimary
+
+/-- Unit test: for `ℚ`, `v₂(G(u⁻¹ − 1)) = 1 = [ℚ:ℚ]`; with `u = 5`, `(1/12)(1/5 − 5) = −2/5`. -/
+theorem twoAdicZetaSeries_rat_valuation :
+    (kolsterEval ℚ (twoAdicZetaSeries ℚ)).valuation = 1 := by sorry
+
+/-- Unit test: for `ℚ(√2)`, `v₂(G(u⁻¹ − 1)) = 2 = [F:ℚ]`, from `ζ_F(−1) = 1/12` and `e = 3`. -/
+theorem twoAdicZetaSeries_sqrtTwo_valuation (F : Type*) [Field F] [NumberField F]
+    (hF : Module.finrank ℚ F = 2) (h2 : ∃ x : F, x ^ 2 = 2) :
+    (kolsterEval F (twoAdicZetaSeries F)).valuation = 2 := by sorry
+
+/-- Unit test: without the factor `2^{[F:ℚ]}` the conjecture fails for `ℚ`: `(G_ℚ) = (2) ≠ (1) = (f_ℚ)`. -/
+theorem not_federerMainConjecture_unnormalised_rat :
+    Ideal.span {twoAdicZetaSeries ℚ} ≠ Ideal.span {minusCharSeries ℚ} := by sorry
+
+/-- B.5, checked arithmetic: `1 − u² = −2^{e+1}·ε·(1 + 2^{e−1}ε)` for `u = 1 + 2^e ε` (here `e = k + 1`),
+so `u⁻¹ − u ~ 2^{e+1}` when `ε` is odd and `e ≥ 2`. -/
+example (k : ℕ) (ε : ℤ) : 1 - (1 + 2 ^ (k + 1) * ε) ^ 2 = -(2 ^ (k + 2)) * ε * (1 + 2 ^ k * ε) := by
+  ring
+
+/-- The cofactor `1 + 2^{e−1} ε` is odd once `e ≥ 2`. -/
+example (k : ℕ) (hk : 1 ≤ k) (ε : ℤ) : Odd (1 + 2 ^ k * ε) :=
+  ((Int.even_pow.mpr ⟨even_two, by omega⟩).mul_right ε).one_add
+
+/-- The `ℚ(√2)` values: `B_{2,χ₈} = 2`, so `ζ_{ℚ(√2)}(−1) = (−1/12)(−B_{2,χ₈}/2) = 1/12`, and for `ℚ` with
+`u = 5`: `ζ_{ℚ,2}(−1)(u⁻¹ − u) = (1/12)(1/5 − 5) = −2/5`. -/
+example : (8 : ℚ) * ((1 + 49 - 9 - 25) / 64 - (1 + 7 - 3 - 5) / 8) = 2 ∧
+    (-1 / 12 : ℚ) * (-(2 : ℚ) / 2) = 1 / 12 ∧ (1 / 12 : ℚ) * (1 / 5 - 5) = -2 / 5 := by
+  norm_num
+
+/-- The pole factors: `(x − u)(−x − u) = −(x² − u²)`, the case `2^b = 2` of `∏_ρ(ζ_ρ x − u′) = ±(x^{2^b} − u′^{2^b})`. -/
+example (x u : ℚ) : (x - u) * (-x - u) = -(x ^ 2 - u ^ 2) := by ring
 
 end TauCeti.BirchTate
