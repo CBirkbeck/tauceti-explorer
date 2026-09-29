@@ -2543,7 +2543,8 @@
    ],
    "avoidAccountOf": "PAPER-TEMKIN-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-TEMKIN-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1156"
   },
   {
    "id": "PAPER-CADORET-HUI-TAMAGAWA-17",
@@ -4306,8 +4307,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -5961,8 +5962,9 @@
    ],
    "avoidAccountOf": "PAPER-HANSEN-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-HANSEN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1341"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1341",
+   "finishedAt": "2026-09-29T12:33:08Z"
   },
   {
    "id": "PAPER-KISIN-PAPPAS-ZHOU-26",
@@ -40233,8 +40235,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-07.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3994"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3994",
+   "finishedAt": "2026-09-29T12:33:13Z"
   },
   {
    "id": "RT-RS-08",
