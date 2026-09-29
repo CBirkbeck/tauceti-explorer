@@ -1,6 +1,43 @@
-# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 3 (Claude Code cc-39fac3)
+# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 4 (Claude Code cc-39fac3)
 
-Claude Code, session `cc-39fac3`, 28 September 2026. Refs #1015; the bot confirmed the claim. **Status: partial.**
+Claude Code, session `cc-39fac3`, 28–29 September 2026. Refs #1015; the bot confirmed the claim. **Status: partial.**
+
+## Checkpoint 4: CFKSV §§4–5 (8 nodes)
+
+Read on the page images: CFKSV pp. 195–206, §4 from (91) and §5 in full.
+
+**Nodes:**
+- **NE.3:** `characteristic-element-integrality-conjecture` (definition): Conjecture 4.8 and Lemma 4.9.
+- **NE.4:**
+  - `gl2-dual-selmer-module` (construction);
+  - `mh-conjecture-and-mazur` (definition): Conjectures 5.1–5.2;
+  - `mh-criteria`: Lemmas 5.3–5.4, Corollary 5.5, Proposition 5.6 and the conductor-11 example.
+- **NE.5:**
+  - `gl2-padic-l-function-conjecture` (definition): Conjecture 5.7 with (101)–(107);
+  - `gl2-main-conjecture` (definition): Conjecture 5.8;
+  - `gl2-main-conjecture-consequences`: Corollaries 5.9–5.10;
+  - `gl2-main-conjecture-example-x1-11` (application).
+
+The conjectures are propositions: no node assumes one.
+
+**Coverage.** NE.4 and NE.5 are now `partial`. Still to do:
+- equivariant complexes;
+- Fukaya–Kato's formulation;
+- the abelian comparison with I.9.
+
+**New gaps:**
+- CFKSV §5's inputs (Coates–Howson, Venjakob, Schneps, Rubin, [16]);
+- the Dokchitser data.
+
+**New request:** ArithmeticGaloisDuality R02.4 (Selmer groups over infinite extensions).
+
+**Lean.** New checked tests:
+- (1 − uX)(1 − wX) = 1 − a_pX + pX²;
+- the X₁(11) valuations −1/2 + 3/2 + 2 = 3 and −3/2 + 5/2 = 1.
+
+**Totals.** 54 nodes, 13 planets, 9 requests and 4 gaps. `check_blueprint.py`: 0 errors, 0 warnings.
+
+## Checkpoint 3
 
 Checkpoint 3 plans NE.3 from CFKSV §3 (pp. 170–187). It has 10 nodes and 3 planets:
 - **Twists and Φ_ρ:** `twisted-module` (Lemma 3.2), `twist-homomorphism` (planet; (14)–(16)) and

@@ -198,4 +198,18 @@ example : (5 : ℕ) ^ 16 = 5 ^ 4 * (5 ^ 3) ^ 4 ∧ (5 : ℕ) ^ 8 = 5 ^ 4 * 5 ^ 4
 
 end NE3Tests
 
+namespace NE45Tests
+
+/-- `NE.5/gl2-padic-l-function-conjecture`: `1 − a_p X + p X² = (1 − u X)(1 − w X)` with `u + w = a_p`, `u w = p`. -/
+example {R : Type*} [CommRing R] (u w X : R) :
+    (1 - u * X) * (1 - w * X) = 1 - (u + w) * X + (u * w) * X ^ 2 := by
+  ring
+
+/-- `NE.5/gl2-main-conjecture-example-x1-11`: the 5-adic valuations of the right-hand side of (107) for `ρ₁`, `ρ₂`
+(L-value, local ε-factor, Euler-factor ratio) sum to `3` and `1`, matching Euler characteristics `5³` and `5`. -/
+example : (-1/2 : ℚ) + 3/2 + (1 - (-1)) = 3 ∧ (-3/2 : ℚ) + 5/2 + 0 = 1 := by
+  norm_num
+
+end NE45Tests
+
 end TauCeti.NoncommIwasawa
