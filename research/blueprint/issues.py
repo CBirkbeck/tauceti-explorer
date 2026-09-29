@@ -369,7 +369,18 @@ def main():
                 time.sleep(60 * (attempt + 1))
             if result.returncode != 0:
                 print("failed", job["id"], result.stderr.strip()[:200], flush=True); continue
-            mapping[job["id"]] = int(result.stdout.strip().rsplit("/", 1)[-1])
+            url = result.stdout.strip()
+            if not re.search(r"/issues/\d+$", url):
+                # gh can report success without printing the new issue's address. Look for it
+                # among the newest issues (listed directly, not through the lagging search
+                # index) before calling it failed, so that a rerun never duplicates it.
+                newest = subprocess.run(["gh", "issue", "list", "--state", "all", "--limit", "30", "--json", "number,title"],
+                                        capture_output=True, text=True, cwd=REPO)
+                found = [i["number"] for i in json.loads(newest.stdout or "[]") if i["title"] == title(job, roadmaps)]
+                if not found:
+                    print("failed", job["id"], "gh printed no issue address and no such issue exists", flush=True); continue
+                url = f"/issues/{found[0]}"
+            mapping[job["id"]] = int(url.rsplit("/", 1)[-1])
             mapping_path.write_text(json.dumps(mapping, indent=1) + "\n")
             print("created", job["id"], mapping[job["id"]], flush=True)
             time.sleep(args.pace)
