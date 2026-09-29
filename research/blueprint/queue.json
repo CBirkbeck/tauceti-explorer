@@ -9384,7 +9384,8 @@
    ],
    "avoidAccountOf": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4516"
   },
   {
    "id": "PAPER-SCHOLZE-17",
@@ -9649,8 +9650,9 @@
    ],
    "avoidAccountOf": "PAPER-KURINCZUK-SKODLERACK-STEVENS-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-KURINCZUK-SKODLERACK-STEVENS-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4586"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4586",
+   "finishedAt": "2026-09-29T19:48:49Z"
   },
   {
    "id": "PAPER-STEVENS-08",
