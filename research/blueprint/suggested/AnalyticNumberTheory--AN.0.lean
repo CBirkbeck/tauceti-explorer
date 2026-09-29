@@ -92,5 +92,44 @@ example (ε δ C : ℝ) (n : ℕ) (hn : 0 < n)
     (hc : C = (n : ℝ) ^ (δ - ε)) :
     (n.divisors.card : ℝ) ≤ (n : ℝ) ^ δ := by sorry
 
+/-! ### AN.4 checkpoint (cc-39fac3): checked normalisation examples -/
+
+namespace HeckeChecks
+
+open Real
+
+/-- `AN.4/landau-nonnegative-logarithm`: the trigonometric inequality behind the 3-4-1 argument. -/
+example (θ : ℝ) : 3 + 4 * cos θ + cos (2 * θ) = 2 * (1 + cos θ) ^ 2 := by
+  rw [cos_two_mul]; ring
+
+example (θ : ℝ) : 0 ≤ 3 + 4 * cos θ + cos (2 * θ) := by
+  rw [cos_two_mul]; nlinarith [sq_nonneg (1 + cos θ)]
+
+/-- `AN.4/hecke-nonvanishing-on-line-one`: the local factor of `ψ(s) = L(s,χ)ζ_K(s)/ζ_K(2s)` at a
+prime with `χ(𝔭) = 1`, in the variable `x = N𝔭^{-s}`. -/
+example (x : ℝ) (hx : x ≠ 1) :
+    (1 - x)⁻¹ * (1 - x)⁻¹ * (1 - x ^ 2) = (1 + x) / (1 - x) := by
+  have h1 : (1 - x) ≠ 0 := sub_ne_zero.mpr (Ne.symm hx)
+  field_simp
+  ring
+
+/-- At a prime with `χ(𝔭) = -1` the local factor of `ψ` is `1`. -/
+example (x : ℝ) (hx : x ≠ 1) (hx' : x ≠ -1) :
+    (1 + x)⁻¹ * (1 - x)⁻¹ * (1 - x ^ 2) = 1 := by
+  have h1 : (1 - x) ≠ 0 := sub_ne_zero.mpr (Ne.symm hx)
+  have h2 : (1 + x) ≠ 0 := by
+    intro h; apply hx'; linarith
+  field_simp
+  ring
+
+/-- `AN.4/dedekind-zeta-continuation-and-residue` for `K = ℚ(i)`: `r₁ = 0`, `r₂ = 1`, `h = R = 1`,
+`w = 4`, `|d| = 4` give `κ = π / 4`. -/
+example : (2 : ℝ) ^ 0 * (2 * π) ^ 1 * 1 * 1 / (4 * Real.sqrt 4) = π / 4 := by
+  have : Real.sqrt 4 = 2 := by
+    rw [show (4 : ℝ) = 2 ^ 2 by norm_num, Real.sqrt_sq (by norm_num : (0 : ℝ) ≤ 2)]
+  rw [this]; ring
+
+end HeckeChecks
+
 end TauCeti.AnalyticNumberTheory
 

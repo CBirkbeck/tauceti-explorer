@@ -15,7 +15,7 @@
   "status": "partial",
   "title": "Arithmetic Dirichlet series and Tauberian methods, Part II: analytic number theory and zeta functions",
   "extends": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
-  "summary": "A partial continuation of the reviewed decomposition under RS-07. Seven declaration-sized AN.5 nodes supply an explicit uniform divisor subpower estimate and its threshold adapters. Four inherited AN-owned records retain their IDs with narrower, corrected statements and explicit proof gaps. The six inherited zeta/Tate infrastructure records are preserved as provenance imports, not duplicated. AN.0, AN.1 and AN.6 are closed only because RS-07 drops them; all five surviving stages remain partial.",
+  "summary": "A partial continuation of the reviewed decomposition under RS-07. Seven declaration-sized AN.5 nodes supply an explicit uniform divisor subpower estimate and its threshold adapters. Four inherited AN-owned records retain their IDs with narrower, corrected statements and explicit proof gaps. The six inherited zeta/Tate infrastructure records are preserved as provenance imports, not duplicated. AN.0, AN.1 and AN.6 are closed only because RS-07 drops them; all five surviving stages remain partial. Checkpoint (cc-39fac3, 2026-09-29) plans AN.4's Hecke and Dedekind interfaces on top of AL.1: the Dedekind-zeta continuation and class number formula, the Hecke functional equation, nonvanishing on Re s = 1, and m-th root gluing (6 nodes).",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -208,6 +208,76 @@
         "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
         "provides": "Existing Riemann zeta as the zero-parameter Hurwitz-even specialization.",
         "checked": "Statement read at the pinned commit, source line 121."
+      },
+      {
+        "ref": "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/Uniqueness.lean",
+        "provides": "The identity theorem on a preconnected open set.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:Complex.Gammaℂ",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+        "provides": "Γ_ℂ(s) = 2(2π)^{−s}Γ(s).",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:Complex.Gammaℝ",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+        "provides": "Γ_ℝ(s) = π^{−s/2}Γ(s/2).",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:Complex.exp",
+        "kind": "irreducible_def",
+        "module": "Mathlib/Analysis/Complex/Exponential.lean",
+        "provides": "The complex exponential, for m-th roots exp((1/m)log g) on simply connected domains.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.LFunction_ne_zero_of_one_le_re",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+        "provides": "The K = ℚ case of Hecke nonvanishing on Re s ≥ 1.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:LSeries.positive",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/Positivity.lean",
+        "provides": "An L-series with nonnegative coefficients and a₁ > 0 is positive on reals beyond its abscissa.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:NumberField.dedekindZeta",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+        "provides": "The Dedekind zeta function as the ideal-counting L-series.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:NumberField.dedekindZeta_residue",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+        "provides": "The constant 2^{r₁}(2π)^{r₂}Rh/(w√|d|), Tate's κ.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+        "provides": "The residue of ζ_K at 1 as a one-sided real limit.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:Real.cos_two_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "cos 2θ = 2cos²θ − 1, for 3 + 4cos θ + cos 2θ = 2(1 + cos θ)².",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
       }
     ]
   },
@@ -236,7 +306,8 @@
         "Fresh: §§7.1–7.3, printed pp.43–45; §8.2 pp.48–49; §8.3 pp.50–51; Chapter 22 pp.127–130.",
         "Page images additionally checked for printed pp.45,50,127; author HTML parallel §§7.2,8.2,8.3,22.1 checked on 27 September for existing corrections.",
         "Chapters 5–6 and §8.1/exercises remain inherited-review provenance; Chapter 9 proof not freshly decomposed.",
-        "Fresh additionally: Lemma9.8 and Theorem9.9 final assembly, printed pp.56–58, and Chapter10 pp.59–63. Chapter10 proof references and prerequisite exercises are not decomposed."
+        "Fresh additionally: Lemma9.8 and Theorem9.9 final assembly, printed pp.56–58, and Chapter10 pp.59–63. Chapter10 proof references and prerequisite exercises are not decomposed.",
+        "2026-09-29 (cc-39fac3): §§3.3–3.4 (Lemma 3.6, Theorems 3.7–3.11), Exercises 3.6.1–3.6.5 and Chapter 22 re-read on the text layer; same sha256."
       ]
     },
     {
@@ -250,7 +321,8 @@
       "readSections": [
         "Fresh page-image read: scan pp.57–59, thesis pp.(4.23)–(4.25).",
         "Scan pp.53–56 inspected as unreliable OCR only; their detailed character/admissibility construction remains inherited-review provenance, not a fresh complete reading.",
-        "Inherited local/global analytic records retain reviewed locators; complete rereading and decomposition belongs to AL.0/AL.1."
+        "Inherited local/global analytic records retain reviewed locators; complete rereading and decomposition belongs to AL.0/AL.1.",
+        "2026-09-29 (cc-39fac3): physical pp. 15–27 and 40–59 read on page images for AL.1; §4.5 (pp. 53–59) used for the Hecke comparison."
       ]
     },
     {
@@ -707,11 +779,12 @@
         "At v∉S, compute the local integral as the convergent geometric series N(d_v)^(−1/2)∑_{j≥0}χ(v)^j N(v)^(−js).",
         "Import the AL.1 global zeta-integral factorization, with the AL.0 measures and Fourier convention, and multiply the local formulas.",
         "Use ADS Layer3 to identify the ideal Euler product with the absolutely convergent ideal series. Exact norm regrouping and admissibility hypotheses are required imports, not new carriers here.",
-        "The inherited completed functional equation is separated from this comparison and remains a named coverage gap; the local factors cannot simply be cancelled at their zeros."
+        "The completed functional equation is now AN.4/hecke-primitive-functional-equation, stated as an identity of meromorphic functions from AL.1/hecke-l-functional-equation; no local factor is cancelled at its zeros."
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.0",
-        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function"
       ],
       "acceptance": [
         "For K=ℚ and trivial c, the unramified arithmetic series is ζ with exactly the S Euler factors removed.",
@@ -747,12 +820,14 @@
       "proofSteps": [
         "Import arithmetic Frobenius and conjugacy independence from NumberFieldArithmetic Layer2. AN.4 must supply determinant Euler factors and direct-sum/induction identities.",
         "Import finite-group Artin rational induction; after clearing denominators express an m-fold representation as a virtual sum of induced one-dimensional characters.",
-        "Use ClassFieldTheory Layer11 and GlobalNumberFields Layer9 to identify one-dimensional factors with finite-order Hecke characters. Their near-line continuation/nonvanishing, including the pole at1 of the trivial character, remains an AN.4 analytic gap beyond the AL.1 functional equation.",
-        "On simply connected small zero-free neighbourhoods of the boundary, select the m-th root agreeing with the original Euler product on the right half-plane; prove that overlapping roots glue. This is a required lemma, not automatic global root extraction.",
+        "Use ClassFieldTheory Layer 11 and GlobalNumberFields Layer 9 to identify one-dimensional factors with finite-order Hecke characters; their continuation is AN.4/hecke-primitive-functional-equation and their boundary nonvanishing, with the pole at 1 of the trivial character, is AN.4/hecke-nonvanishing-on-line-one.",
+        "On small discs about points of the line, take the m-th root agreeing with the Euler product on Re s > 1 and glue (AN.4/mth-root-gluing).",
         "Separate the trivial summand to compute the pole order. Brauer integral induction can prove global meromorphy, whereas absence of extra poles is Artin holomorphy; the rational-root route here does not prove the global assertion."
       ],
       "prerequisites": [
-        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+        "AnalyticNumberTheory:AN.4/hecke-nonvanishing-on-line-one",
+        "AnalyticNumberTheory:AN.4/mth-root-gluing",
+        "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue"
       ],
       "acceptance": [
         "For the trivial representation recover ζ times the omitted local factors and a simple pole at1.",
@@ -778,6 +853,274 @@
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
         "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction"
       ]
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/landau-nonnegative-logarithm",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "realises": [
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "title": "Nonvanishing from a logarithm with nonnegative coefficients (Kedlaya Lemma 3.6)",
+      "kind": "lemma",
+      "statement": "Let f be meromorphic on a neighbourhood of {Re s ≥ L}, with at worst a simple pole at s = L and no other poles, and suppose log f(s) is given on Re s > L by a Dirichlet series Σ a_n n^{−s} with a_n ≥ 0 and abscissa of convergence ≤ L. Then f(s) ≠ 0 for every s with Re s ≥ L.",
+      "hypotheses": [
+        "Coefficients a_n real and nonnegative; the Dirichlet series may be indexed by ideals after regrouping by norm."
+      ],
+      "proofSteps": [
+        "For σ > L and real t: 3 log|f(σ)| + 4 log|f(σ + it)| + log|f(σ + 2it)| = Σ a_n n^{−σ}(3 + 4cos(t log n) + cos(2t log n)) ≥ 0, since 3 + 4cos θ + cos 2θ = 2(1 + cos θ)² ≥ 0; hence |f(σ)|³|f(σ + it)|⁴|f(σ + 2it)| ≥ 1.",
+        "If f(L + it) = 0 with t ≠ 0: as σ → L⁺, |f(σ)|³ = O((σ − L)^{−3}), |f(σ + it)|⁴ = O((σ − L)⁴) and f(σ + 2it) stays bounded (f is holomorphic at L + 2it), so the product tends to 0, a contradiction.",
+        "At s = L: if f has no pole there, f(σ) = exp(Σ a_n n^{−σ}) ≥ 1 for real σ > L, so f(L) ≥ 1."
+      ],
+      "prerequisites": [
+        "mathlib:riemannZeta_ne_zero_of_one_le_re",
+        "mathlib:Real.cos_two_mul"
+      ],
+      "acceptance": [
+        "Check the case f = ζ with L = 1: log ζ(s) = Σ_p Σ_k p^{−ks}/k has nonnegative coefficients, and the lemma gives Mathlib's riemannZeta_ne_zero_of_one_le_re.",
+        "Check the trigonometric identity 3 + 4cos θ + cos 2θ = 2(1 + cos θ)² (suggested file)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/HeckeDedekind",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.ne_zero_of_log_nonneg_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "§3.3, Lemma 3.6 and Exercise 3.6.1, printed pp. 19 and 21",
+          "excerpt": "represented by a Dirichlet series with abscissa of convergence",
+          "match": "Lemma 3.6, whose proof is left as Exercise 3.6.1 (hint: adapt the case f = ζ); the proof steps here are that adaptation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/ray-class-product-nonvanishing",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "realises": [
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "title": "The product of all ray class L-functions is nonzero on Re s ≥ 1",
+      "kind": "lemma",
+      "statement": "For a modulus 𝔪 of K, put f_𝔪(s) = ∏_χ L(s, χ) over all characters χ of Cl_𝔪(K). On Re s > 1, log f_𝔪(s) = Σ_{𝔭∤𝔪}Σ_{k≥1}(Σ_χ χ(𝔭^k))N𝔭^{−ks}/k, a Dirichlet series (after grouping by norm) with nonnegative coefficients, since Σ_χ χ(𝔭^k) is #Cl_𝔪(K) or 0. With the meromorphic continuation of each L(s, χ) (AN.4/hecke-primitive-functional-equation: entire for χ ≠ 1, a simple pole at 1 for χ = 1), f_𝔪 satisfies the hypotheses of landau-nonnegative-logarithm with L = 1, so f_𝔪(s) ≠ 0 for Re s ≥ 1.",
+      "hypotheses": [
+        "K a number field; 𝔪 a modulus (an integral ideal times a set of real places); χ a character of the ray class group Cl_𝔪(K) (finite order), identified with a finite-order idele-class character ω_χ by GlobalNumberFields Layer 9; L(s, χ) = Σ_{(𝔞,𝔪)=1} χ(𝔞)N𝔞^{−s} for Re s > 1."
+      ],
+      "proofSteps": [
+        "Euler product log for each L(s, χ) on Re s > 1 (absolute convergence, ArithmeticDirichletSeries Layer 3).",
+        "Orthogonality of characters of the finite abelian group Cl_𝔪(K).",
+        "Only χ = 1 contributes a pole, and it is simple (the Dedekind-zeta residue node, with finitely many Euler factors removed)."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.4/landau-nonnegative-logarithm",
+        "AnalyticNumberTheory:AN.4/hecke-primitive-functional-equation",
+        "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue"
+      ],
+      "acceptance": [
+        "Check K = ℚ, 𝔪 = N·∞: f_𝔪 is the product of all Dirichlet L-series of level N (Kedlaya Theorem 3.7)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/HeckeDedekind",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.rayClassProduct_ne_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "§3.3, Theorem 3.7 and (3.3.1), printed p. 19",
+          "excerpt": "which is a Dirichlet series with nonnegative real coeﬀicients",
+          "match": "Kedlaya proves the case K = ℚ; the same orthogonality argument applies to Cl_𝔪(K)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/hecke-nonvanishing-on-line-one",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "realises": [
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "title": "Hecke L-functions do not vanish on Re s = 1",
+      "kind": "theorem",
+      "statement": "For every character χ of Cl_𝔪(K): L(s, χ) ≠ 0 for Re s = 1, s ≠ 1; and L(1, χ) ≠ 0 if χ ≠ 1 (for χ = 1, L(s, 1) has a simple pole at s = 1).",
+      "hypotheses": [
+        "K a number field; 𝔪 a modulus (an integral ideal times a set of real places); χ a character of the ray class group Cl_𝔪(K) (finite order), identified with a finite-order idele-class character ω_χ by GlobalNumberFields Layer 9; L(s, χ) = Σ_{(𝔞,𝔪)=1} χ(𝔞)N𝔞^{−s} for Re s > 1."
+      ],
+      "proofSteps": [
+        "s ≠ 1: every factor of f_𝔪 is holomorphic at s, and f_𝔪(s) ≠ 0 (ray-class-product-nonvanishing).",
+        "s = 1, χ not real-valued: if L(1, χ) = 0 then L(1, χ̄) = 0, so f_𝔪 has two zeros against one simple pole at 1 and vanishes there — a contradiction (Kedlaya Theorem 3.10).",
+        "s = 1, χ ≠ 1 real-valued: if L(1, χ) = 0, ψ(s) = L(s, χ)ζ_K^𝔪(s)/ζ_K^𝔪(2s) is holomorphic on Re s > 1/2 with a zero at s = 1/2 (the pole of ζ_K^𝔪(2s)), but ψ(s) = ∏_{χ(𝔭)=1}(1 + N𝔭^{−s})/(1 − N𝔭^{−s}) has nonnegative coefficients and constant term 1, so its series converges and is ≥ 1 on s > 1/2 (Kedlaya Theorem 3.11; Mathlib LSeries.positive)."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.4/ray-class-product-nonvanishing",
+        "AnalyticNumberTheory:AN.4/landau-nonnegative-logarithm",
+        "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue",
+        "mathlib:LSeries.positive",
+        "mathlib:DirichletCharacter.LFunction_ne_zero_of_one_le_re"
+      ],
+      "acceptance": [
+        "Check K = ℚ against Mathlib: DirichletCharacter.LFunction_ne_zero_of_one_le_re.",
+        "Check the need for a separate argument at s = 1 for real χ: χ = χ̄ gives only one zero against the pole, so the product argument alone does not decide it."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/HeckeDedekind",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.heckeL_ne_zero_of_re_eq_one"
+      },
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "§3.3–§3.4, Theorems 3.8, 3.10 and 3.11, printed pp. 19–20",
+          "excerpt": "For any nonreal Dirichlet character",
+          "match": "The three steps for Dirichlet characters; the Hecke case follows the same steps with AL.1's continuation."
+        },
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "§22.5, Theorem 22.4, printed p. 129",
+          "excerpt": "One first proves the claim for",
+          "match": "Kedlaya records this Hecke input as the first step of Theorem 22.4, with a reference."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Hecke L-functions do not vanish on Re s = 1"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "realises": [
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "title": "Continuation, functional equation and residue of the Dedekind zeta function",
+      "kind": "theorem",
+      "statement": "Mathlib's ζ_K(s) = NumberField.dedekindZeta K (the ideal-counting L-series) extends meromorphically to ℂ with a single, simple pole at s = 1, whose residue is κ = 2^{r₁}(2π)^{r₂}hR/(w√|d_K|) = NumberField.dedekindZeta_residue K (the analytic class number formula). The completed function Λ_K(s) = |d_K|^{s/2}Γ_ℝ(s)^{r₁}Γ_ℂ(s)^{r₂}ζ_K(s) satisfies Λ_K(1 − s) = Λ_K(s); in particular ζ_K(−2) = 0.",
+      "hypotheses": [
+        "K a number field with r₁ real and r₂ complex places."
+      ],
+      "proofSteps": [
+        "Tate's standard f (AL.1/global-zeta-integral with Tate's measures): by Tate §4.5, ζ(f, |·|^s) = |d_K|^{−1/2}Γ_ℝ(s)^{r₁}((2π)^{1−s}Γ(s))^{r₂}ζ_K(s) for Re s > 1 (the finite local factors are N𝔡_v^{−1/2}(1 − N𝔭_v^{−s})^{−1}).",
+        "AL.1/tate-global-functional-equation: continuation, poles only at s = 0, 1, and Res_{s=1} = κf̂(0) with f̂(0) = ∏N𝔡_v^{−1/2} = |d_K|^{−1/2}; since Γ_ℝ(1) = 1 and (2π)^0Γ(1) = 1, Res_{s=1}ζ_K = κ (AL.1/idele-class-volume identifies κ with dedekindZeta_residue).",
+        "The functional equation ζ(f, c) = ζ(f̂, ĉ) with f̂_v = N𝔡_v^{−1/2}1_{𝔡_v^{−1}} rearranges to Λ_K(1 − s) = Λ_K(s) (using (2π)^{1−s}Γ(s) = π·Γ_ℂ(s)).",
+        "ζ_K(−2) = 0: Λ_K(−2) = Λ_K(3) is finite and Γ_ℝ has a pole at −2, and r₁ + r₂ ≥ 1.",
+        "The residue agrees with Mathlib's one-sided real limit NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume",
+        "mathlib:NumberField.dedekindZeta",
+        "mathlib:NumberField.dedekindZeta_residue",
+        "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+        "mathlib:Complex.Gammaℝ",
+        "mathlib:Complex.Gammaℂ"
+      ],
+      "acceptance": [
+        "Check K = ℚ: Λ_ℚ = completedRiemannZeta and the residue is 1 (Mathlib riemannZeta_residue_one).",
+        "Check an imaginary quadratic field, K = ℚ(i): κ = 2π·1·1/(4·2) = π/4 (r₂ = 1, h = 1, R = 1, w = 4, |d| = 4), the value of L(1, χ₋₄) = π/4."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/HeckeDedekind",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.dedekindZeta_meromorphic"
+      },
+      "sources": [
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "§4.4 Main Theorem 4.4.1 and §4.5, physical pp. 50–58 (read on page images, cc-39fac3)",
+          "excerpt": "Main Theorem",
+          "match": "The residue −κf(0), κf̂(0) and the comparison of ζ(f, c|·|^s) with the classical ζ(s, χ)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Analytic class number formula"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/hecke-primitive-functional-equation",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "realises": [
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "title": "The functional equation of Hecke L-functions as a meromorphic identity",
+      "kind": "theorem",
+      "statement": "For a finite-order character χ of Cl_𝔪(K), primitive of conductor 𝔣, with ω = ω_χ: L(s, χ) = ∏_{v∤∞, ω_v unramified}(1 − ω_v(ϖ_v)q_v^{−s})^{−1} continues meromorphically to ℂ, entire unless χ = 1, and Λ(s, χ) := ∏_{v|∞}L_v(s, ω_v)·L(s, χ) satisfies Λ(s, χ) = ε(s, ω)Λ(1 − s, χ̄) as an identity of meromorphic functions on ℂ, with ε(s, ω) = ε(1/2, ω)(|d_K|N𝔣)^{1/2−s}. For imprimitive χ mod 𝔪, L_𝔪(s, χ) = L(s, χ_prim)∏_{𝔭|𝔪, 𝔭∤𝔣}(1 − χ_prim(𝔭)N𝔭^{−s}) as meromorphic functions; the functional equation is stated for the primitive function only.",
+      "hypotheses": [
+        "K a number field; 𝔪 a modulus (an integral ideal times a set of real places); χ a character of the ray class group Cl_𝔪(K) (finite order), identified with a finite-order idele-class character ω_χ by GlobalNumberFields Layer 9; L(s, χ) = Σ_{(𝔞,𝔪)=1} χ(𝔞)N𝔞^{−s} for Re s > 1.",
+        "χ primitive of conductor 𝔣 for the functional equation."
+      ],
+      "proofSteps": [
+        "Λ(s, χ) is AL.1/completed-hecke-l-function for ω_χ: the finite ramified factors are 1, and the unramified ones match the Euler product (AN.4/hecke-L-function-euler-product-comparison).",
+        "AL.1/hecke-l-functional-equation gives Λ(s, ω) = ε(s, ω)Λ(1 − s, ω^{−1}) on ℂ and its poles; ω^{−1} = ω_{χ̄} for finite order.",
+        "The imprimitive relation multiplies by finitely many entire Euler polynomials; nothing is divided, so no zero of a local factor is cancelled."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor",
+        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+        "mathlib:DirichletCharacter.IsPrimitive.completedLFunction_one_sub"
+      ],
+      "acceptance": [
+        "Check K = ℚ and χ primitive Dirichlet of conductor N: Λ(s, χ) = gammaFactor χ s · LFunction χ s, and the identity has the shape of Mathlib's DirichletCharacter.IsPrimitive.completedLFunction_one_sub.",
+        "Check that an imprimitive character's L-function acquires zeros on Re s = 0 from the removed Euler factors, which is why the functional equation is stated only for the primitive function."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/HeckeDedekind",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.heckeL_functional_equation"
+      },
+      "sources": [
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "§4.5, physical pp. 57–59 (read on page images, cc-39fac3)",
+          "excerpt": "Analytic Continuation and Functional Equation",
+          "match": "Tate's derivation of Hecke's functional equation for ζ(s, χ)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Functional equation of Hecke L-functions"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/mth-root-gluing",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "realises": [
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "title": "Gluing m-th roots across the line Re s = 1",
+      "kind": "lemma",
+      "statement": "Let f be holomorphic and zero-free on {Re s > 1}, m ≥ 1, and U an open set containing {Re s = 1} ∖ {1} on which a holomorphic, zero-free g is given with g = f^m on U ∩ {Re s > 1}. Then f extends holomorphically (and zero-free) to {Re s > 1} ∪ U′ for an open U′ ⊇ {Re s = 1} ∖ {1}: on each disc D ⊆ U centred on the line there is a unique holomorphic h_D with h_D^m = g agreeing with f on the connected set D ∩ {Re s > 1}, and the h_D agree on overlaps.",
+      "hypotheses": [
+        "Discs D centred at points of Re s = 1 with D ⊆ U; D ∩ {Re s > 1} is a nonempty half-disc, hence connected."
+      ],
+      "proofSteps": [
+        "On the simply connected D, g has m holomorphic m-th roots, differing by m-th roots of unity; exactly one agrees with f at a point of D ∩ {Re s > 1}, hence on all of it (identity theorem on the connected half-disc).",
+        "On D ∩ D′ ∩ {Re s > 1} ≠ ∅ both roots equal f, so they agree on the connected D ∩ D′ (a lens, connected) by the identity theorem."
+      ],
+      "prerequisites": [
+        "mathlib:Complex.exp",
+        "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq"
+      ],
+      "acceptance": [
+        "Check that zero-freeness of g is needed: g = (s − 1 − i)·u with u a unit has no square root near 1 + i."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/HeckeDedekind",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.extend_of_pow_eq"
+      },
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "§22.5, proof of Theorem 22.4, printed p. 129",
+          "excerpt": "by choosing the right root, we get a",
+          "match": "The m-th root step of Theorem 22.4, stated and proved here in full."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -792,8 +1135,11 @@
       "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
       "need": "Canonical HeckeCharacter and unitaryPart, local components, finite conductor, finite-order/ray-class dictionary, and ideal-character coefficients with the exact arithmetic normalization used by Tate §4.5.",
       "neededBy": [
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy",
         "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
-        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+        "AnalyticNumberTheory:AN.4/hecke-nonvanishing-on-line-one",
+        "AnalyticNumberTheory:AN.4/hecke-primitive-functional-equation",
+        "AnalyticNumberTheory:AN.4/ray-class-product-nonvanishing"
       ]
     },
     {
@@ -805,17 +1151,20 @@
     },
     {
       "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.1",
-      "need": "Local and global Tate zeta integrals on the imported admissible class, Euler factorization with different and measure factors, meromorphic continuation, local gamma factors and global functional equation retaining the trivial-character residues. This does not by itself assert nonvanishing on Re(s)=1.",
+      "need": "Local and global Tate zeta integrals on the imported admissible class, Euler factorization with different and measure factors, meromorphic continuation, local gamma factors and global functional equation retaining the trivial-character residues. This does not by itself assert nonvanishing on Re(s)=1. Now planned (AL.1 checkpoint 2, #3918): AN.4 imports AL.1/global-zeta-integral, completed-hecke-l-function, tate-global-functional-equation, idele-class-volume, global-epsilon-factor and hecke-l-functional-equation.",
       "neededBy": [
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy",
+        "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue",
         "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
-        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+        "AnalyticNumberTheory:AN.4/hecke-primitive-functional-equation"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
       "need": "Ideal Euler-product/series identity under absolute convergence on Re(s)>1, including finite bad-prime omission and norm regrouping. General higher-dimensional Artin factors must not be put into the degree-one completely multiplicative ideal-weight carrier.",
       "neededBy": [
-        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison"
+        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+        "AnalyticNumberTheory:AN.4/ray-class-product-nonvanishing"
       ]
     },
     {
@@ -876,11 +1225,10 @@
       "stageId": "AnalyticNumberTheory:AN.4",
       "status": "partial",
       "remaining": [
-        "Hecke comparison construction and completed functional equation",
         "Artin arithmetic Euler factors and induction adapter",
-        "Hecke nonvanishing and local root gluing",
         "Three omitted analytic signatures"
-      ]
+      ],
+      "notes": "Checkpoint (cc-39fac3, 2026-09-29): with AL.1 planned (#3918), AN.4 adds the Dedekind-zeta continuation, functional equation and residue (analytic class number formula), the Hecke functional equation as a meromorphic identity, nonvanishing of Hecke L-functions on Re s = 1 via Kedlaya's Lemma 3.6 route, and the m-th root gluing lemma."
     },
     {
       "stageId": "AnalyticNumberTheory:AN.5",
@@ -928,25 +1276,11 @@
       "detail": "Restore the formerly bundled O(x exp(−c√log x)) conclusion as its own declaration after proving conjugation, a finite low-height contribution O(x^β0) with β0<1, a positive lower cutoff for ordinates, Σ1/|γ|=O(log²T), endpoint conversion and optimization. It is not a hidden conclusion of the retained explicit-formula node."
     },
     {
-      "title": "Hecke comparison construction and completed functional equation",
-      "neededBy": [
-        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison"
-      ],
-      "detail": "Read Tate scan53–56 from images; decompose ideal-character presentation, S-unit input, special local functions and Z1–Z3 verification, with AL.0/1 and GlobalNumberFields owners. Split the old functional equation into its own meromorphic identity with justified local-factor cancellation; no pointwise division across zeros."
-    },
-    {
       "title": "Artin arithmetic Euler factors and induction adapter",
       "neededBy": [
         "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
       ],
       "detail": "Plan the single Artin Euler-product carrier and full API/tests, convergence, determinant identities under direct sum and induction, and ramified inertia-invariant factors. Reuse NFA2 arithmetic Frobenius, RepresentationTheory/InductionRestriction6 virtual induction and CFT11 reciprocity. No arbitrary Frobenius lift acts canonically on the full ramified representation."
-    },
-    {
-      "title": "Hecke nonvanishing and local root gluing",
-      "neededBy": [
-        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
-      ],
-      "detail": "AL.1 continuation does not supply nonvanishing on Re(s)=1. Build AN.4's finite-order Hecke boundary theorem, trivial pole and compatible local m-th roots with gluing. Global meromorphy via Brauer induction and Artin holomorphy must be separated; no Artin conjecture is assumed."
     },
     {
       "title": "Remaining AN.2 source inputs",
