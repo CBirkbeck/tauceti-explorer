@@ -15599,9 +15599,9 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicLFunctionsAndLocalFactors.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #688"
+   "note": "claimed on GitHub issue #688"
   },
   {
    "id": "REV-AutomorphicLFunctionsAndLocalFactors",
@@ -19635,12 +19635,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-LocalGaloisDeformationRings.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #770"
+   "note": "released on GitHub issue #770"
   },
   {
    "id": "REV-LocalGaloisDeformationRings",
