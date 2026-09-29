@@ -887,6 +887,96 @@
       "source": "GeneralAlgebraicKTheory:K.4:construction",
       "target": "GeneralAlgebraicKTheory:K.3",
       "reason": "After the two explicitly recorded parent alignments, preserve the reviewed relative-S proof input to K.3/cofinality-degree-zero-correction; the proof is supplied before the later K.4 aggregation."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications",
+      "target": "K3BlochGroups:V.1",
+      "reason": "Forwarding for the narrowed H.1 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): K3BlochGroups V.1 relied on H.1, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+      "target": "K3BlochGroups:V.1",
+      "reason": "Forwarding for the narrowed H.2 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): K3BlochGroups V.1 relied on H.2, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "target": "K3BlochGroups:V.4",
+      "reason": "Forwarding for the narrowed H.3 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): K3BlochGroups V.4 relied on H.3, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "K3BlochGroups:V.4",
+      "reason": "Forwarding for the narrowed H.3 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): K3BlochGroups V.4 relied on H.3, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-3-subdivision-excision-and-mayer--vietoris",
+      "target": "K3BlochGroups:V.4",
+      "reason": "Forwarding for the narrowed H.3 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): K3BlochGroups V.4 relied on H.3, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "K3BlochGroups:V.4",
+      "reason": "Forwarding for the narrowed H.3 and H.6 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): K3BlochGroups V.4 relied on both, which now import this supplier's part rather than constructing it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "K3BlochGroups:V.4",
+      "reason": "Forwarding for the narrowed H.3 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): K3BlochGroups V.4 relied on H.3, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "K3BlochGroups:V.4",
+      "reason": "Forwarding for the narrowed H.3 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): K3BlochGroups V.4 relied on H.3, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "target": "K3BlochGroups:V.4",
+      "reason": "Forwarding for the narrowed H.3 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): K3BlochGroups V.4 relied on H.3, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "ArithmeticKTheory:N.5",
+      "reason": "Forwarding for the narrowed H.6 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): ArithmeticKTheory N.5 relied on H.6, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "ArithmeticKTheory:N.6",
+      "reason": "Forwarding for the narrowed H.6 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): ArithmeticKTheory N.6 relied on H.6, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "HabiroNumberFields:HB.1",
+      "reason": "Forwarding for the narrowed H.6 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): HabiroNumberFields HB.1 relied on H.6, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "HabiroNumberFields:HB.2",
+      "reason": "Forwarding for the narrowed H.6 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): HabiroNumberFields HB.2 relied on H.6, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "ArithmeticKTheory:N.5",
+      "reason": "Forwarding for the narrowed H.6 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): ArithmeticKTheory N.5 relied on H.6, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "ArithmeticKTheory:N.6",
+      "reason": "Forwarding for the narrowed H.6 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): ArithmeticKTheory N.6 relied on H.6, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "HabiroNumberFields:HB.1",
+      "reason": "Forwarding for the narrowed H.6 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): HabiroNumberFields HB.1 relied on H.6, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "HabiroNumberFields:HB.2",
+      "reason": "Forwarding for the narrowed H.6 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): HabiroNumberFields HB.2 relied on H.6, which now imports this supplier's part rather than constructing it."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "K3BlochGroups:V.4",
+      "reason": "Forwarding for the narrowed H.6 to a consumer added after the proposal's snapshot by a promoted blueprint (REV-RS-33 correction): K3BlochGroups V.4 relied on H.6, which now imports this supplier's part rather than constructing it."
     }
   ],
   "owners": [
@@ -1087,5 +1177,15 @@
         "HabiroRings:HR.2"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-33",
+    "date": "2026-09-29",
+    "notes": "Independent review by Claude Code, session cc-58621d, of the proposal by Codex session codex-a71f92 (#902), at main 1aa253a8. Read the member document in full, all twelve stage entries, the twenty-five owner records, the links, the family file and the report, and the anchor stages the proposal imports (AlgebraicTopology stages 1-5 and 8; UniversalCovers stages 2-4). The extension is well formed: the title is the anchor's title followed by Part II, the anchor becomes the first roadmap prerequisite (restructure.py applies extends to a Tau Ceti base, as for ModularCurvesPartII under RS-06), and no anchor stage has a StableHomotopyKTheory ancestor, so the extension starts where its base stops. The anchor stages do own what is imported: stage 2 local coefficient systems and twisted chains, stage 4 the skeletal exact couple and cellular comparison, stage 5 the disc-lifting Serre-fibration carrier and the homology Serre spectral sequence, stage 8 Kan homotopy groups, the cubical comparison, the based-pair sequence, Hurewicz and Whitehead. GeneralAlgebraicKTheory K.4:construction plans additivity and delooping, matching the two node-parent alignments the proposal records for integration; the node inversion they fix is real. Accepted RS-18's Z.1 and K.7 owners are consistent. On the current assembled atlas all links are acyclic. Correction: three blueprints promoted on 25 September, after the proposal's 21 September snapshot, added consumers of narrowed layers (K3BlochGroups V.1 and V.4, ArithmeticKTheory N.5 and N.6, HabiroNumberFields HB.1 and HB.2); the proposal's own direct-forwarding method is extended to them with 18 links. The link from UPSTREAM:Mathlib-homotopy-and-category-theory restates a sentinel already in H.1's requires and is skipped harmlessly. check_restructure.py passes. Report: research/blueprint/reviews/REV-RS-33.md.",
+    "corrections": [
+      "Added 18 forwarding links from the named suppliers of H.1, H.2, H.3 and H.6 to consumers that blueprints promoted after the proposal's snapshot added: K3BlochGroups V.1 and V.4, ArithmeticKTheory N.5 and N.6, HabiroNumberFields HB.1 and HB.2 (one link to V.4 serves both H.3 and H.6). All are shortcuts of existing paths; the 174 links remain acyclic.",
+      "Added this review object."
+    ]
+  }
 }
