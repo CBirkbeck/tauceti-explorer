@@ -9435,8 +9435,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SCHOLZE-WEINSTEIN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4540"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4540",
+   "finishedAt": "2026-09-29T16:40:24Z"
   },
   {
    "id": "REV-PAPER-SCHOLZE-WEINSTEIN-20",
@@ -9529,8 +9530,9 @@
    ],
    "avoidAccountOf": "PAPER-SCHOLZE-12",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHOLZE-12.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4545"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4545",
+   "finishedAt": "2026-09-29T16:40:29Z"
   },
   {
    "id": "PAPER-KEDLAYA-LIU-15",
@@ -9603,7 +9605,8 @@
    ],
    "avoidAccountOf": "PAPER-SCHOLZE-13",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHOLZE-13.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4549"
   },
   {
    "id": "DESIGN-LV",
