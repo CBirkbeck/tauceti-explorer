@@ -9474,8 +9474,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FARGUES-FONTAINE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4542"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4542",
+   "finishedAt": "2026-09-29T17:13:43Z"
   },
   {
    "id": "REV-PAPER-FARGUES-FONTAINE-18",
@@ -9624,7 +9625,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KURINCZUK-SKODLERACK-STEVENS-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4585"
   },
   {
    "id": "REV-PAPER-KURINCZUK-SKODLERACK-STEVENS-21",
