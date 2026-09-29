@@ -129635,6 +129635,45 @@
    "reviewReason": null
   },
   {
+   "id": "AutomorphicGaloisRepresentationsPartII/E3",
+   "kind": "misprint",
+   "locator": "§2.2.5, (2.2.6), p. 922; checked on the page image",
+   "printed": "Pv(X) = Xn −Tv,1Xn−1 + · · · + (−1)iqi(i−1)/2 v Tv,iXn−i + · · · · · · + qn(n−1)/2 v Tv,n",
+   "correction": "The last term is (−1)^n q_v^{n(n−1)/2} T_{v,n}, the i = n case of the general term.",
+   "reason": "For n = 1 the printed form gives X + T_{v,1} while the general term gives X − T_{v,1}, and the characteristic polynomial of the Frobenius on an unramified character χ is X − χ(ϖ_v). The proof of Theorem 2.3.5 (p. 938) prints the same polynomial with the last term (−1)^n q_v^{n(n−1)/2} T_{v,n}.",
+   "affects": "nothing",
+   "known": "new: present in the journal-paginated copy (Annals 197 (2023)); no erratum found",
+   "searched": [
+    "Ramanujan.pdf (Annals pagination)",
+    "p. 938, proof of Theorem 2.3.5, for the correct form"
+   ],
+   "owner": "AutomorphicGaloisRepresentationsPartII",
+   "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.6.json",
+   "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), 897–1113; the authors' copy Ramanujan.pdf, which carries the journal pagination (printed page = PDF page + 896)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AutomorphicGaloisRepresentationsPartII/E4",
+   "kind": "misprint",
+   "locator": "§2.2.5, (2.2.7) and the definition of P̃_{v,σ}, p. 922; Lemma 2.2.13(2), p. 927",
+   "printed": "(2.2.7) … + (−1)jqj(j−1)/2 v eTv,j + · · · ; ‹Pv,σ(X) = P2n i=0(−1)iev,i(σ)Xn−i ; (Lemma 2.2.13(2)) is equals P2n i=0(−1)iev,i(σ, eπv)Xn−i.",
+   "correction": "The general term of (2.2.7) is (−1)^j q_v^{j(j−1)/2} T̃_{v,j} X^{2n−j}, and both sums of degree 2n are Σ_{i=0}^{2n} (−1)^i e_{v,i} X^{2n−i}.",
+   "reason": "P̃_v is monic of degree 2n (its leading term X^{2n} is printed), so the i-th term must carry X^{2n−i}; with X^{n−i} the sum has negative exponents for i > n.",
+   "affects": "nothing",
+   "known": "new: present in the journal-paginated copy; no erratum found",
+   "searched": [
+    "Ramanujan.pdf (Annals pagination)"
+   ],
+   "owner": "AutomorphicGaloisRepresentationsPartII",
+   "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.6.json",
+   "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), 897–1113; the authors' copy Ramanujan.pdf, which carries the journal pagination (printed page = PDF page + 896)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AutomorphicLFunctionsAndLocalFactors/E1",
    "kind": "misprint",
    "locator": "Published 2004 chapter, p.110, Section 1 conductor paragraph; also preprint p.2",
