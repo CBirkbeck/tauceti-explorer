@@ -135038,6 +135038,174 @@
    "reviewReason": null
   },
   {
+   "id": "EulerSystemsCyclotomicMainConjecture/E4",
+   "kind": "misprint",
+   "locator": "§1, Remark b) after Theorem A, p. 453 (Numdam scan of the published article)",
+   "printed": "|A₂(F)_{χ₂}| = |A₂(L)^−| = 2·|2^{−1}B_{1,χ₂^{−1}}|₂·k_L",
+   "correction": "|A₂(F)_{χ₂}| = |A₂(L)^−| = 2·|2^{−1}B_{1,χ₂^{−1}}|₂^{d(χ₂)}·k_L, as restated on p. 482 (where k_L, which equals 1 here, is omitted).",
+   "reason": "With Greither's |a|₂ = 2^e for a = 2^e·u ∈ ℤ₂(χ), the exponent d(χ₂) is needed whenever ℤ₂(χ₂) ≠ ℤ₂. F = L = ℚ(ζ₅): χ₂ has order 4, d(χ₂) = 2, B_{1,χ₂^{−1}} = (−3 + i)/5 with v₂ = 1/2, so |½B|₂ = 2^{−1/2}. The printed right side is √2·k_L, not an integer; with the exponent it is 2·2^{−1} = 1 = |A₂(ℚ(ζ₅))|.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E5",
+   "kind": "error",
+   "locator": "§4, proof of Theorem 4.6, definition of the Gauss sum g, p. 490",
+   "printed": "Then g ∈ F. (This is an instance of the fact that for p arbitrary, g^{p−1} is in the decomposition field of p in ℚ(m).)",
+   "correction": "g lies in the decomposition field D of 2 in ℚ(μ_m), which contains F but can be larger. Replace g by g_F = N_{D/F}(g) ∈ F. The subsequent formulas μ(g) = m·Σ_δ Σ_{b mod m, σ_b ↦ δ}⟨b/m⟩·𝔭_{δ^{−1}} (up to the factor m, see E6) and λ_χ(g_χ) = Σ_{(b,m)=1} χ^{−1}(b)·log₂Γ₂(⟨b/m⟩)·(𝔭)_χ are the ones for g_F, so (G1), (G2) and Theorem 4.6 hold with g_F.",
+   "reason": "m = 217 = 7·31, χ = (quadratic character mod 7)·(cubic character mod 31): χ is odd, χ(2) = 1, and its fixed field F is cyclic of degree 6 and conductor 217 with 2 totally split, but D has degree 12. σ₁₂₀ fixes F (120 ≡ 1 mod 7, 120 ≡ 3³ mod 31). By Stickelberger, v_𝔓(g) = s(151) = 5 and v_{σ₁₂₀^{−1}𝔓}(g) = s(151·120 mod 32767) = 6 (binary digit sums, 2^{15} − 1 = 217·151), so σ₁₂₀(g) ≠ g. A numerical evaluation over 𝔽_{2^{15}} confirms |g(η^{−1}) − g(η^{−120})| ≈ 66, while g(η^{−1}) = g(η^{−2}).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E6",
+   "kind": "misprint",
+   "locator": "§4, (G1) and the formulas for μ(g), μ_χ(g_χ), pp. 490–491",
+   "printed": "(G1) g𝒪_{ℚ(m)} = 𝔭^{Σ_b Σ_{t=1}^{f} m⟨p^t/m⟩·σ_b^{−1}}; μ(g) = m·Σ_{δ∈Δ} Σ_{b mod m, σ_b ↦ δ} ⟨b/m⟩·𝔭_{δ^{−1}}; μ_χ(g_χ) = m·B_{1,χ^{−1}}·(𝔭)_χ",
+   "correction": "(g) = ∏_{b ∈ (ℤ/m)^×/⟨p⟩} (σ_b^{−1}𝔓)^{Σ_{t=1}^{f}⟨p^t b/m⟩} in ℚ(μ_m) (the inner term needs b, and the factor m belongs to g^m); correspondingly μ(g_F) and μ_χ(g_F) = B_{1,χ^{−1}}·(𝔭)_χ carry no factor m.",
+   "reason": "m = 7, F = ℚ(√−7), f = 3: |g|² = 8, so the norm of (g) from ℚ(μ₇) is 2⁹, and (g) = 𝔓·(σ₃^{−1}𝔓)² by the corrected formula. The printed exponent gives every conjugate of 𝔭 the exponent 2 + 4 + 1 = 7, norm 2^{42}. Stickelberger's theorem factors g^m with the factor m. m is odd, so the extra factor is a 2-adic unit and the orders in Theorem 4.6 are unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E7",
+   "kind": "misprint",
+   "locator": "§4, derivation of (G2), p. 491",
+   "printed": "This in turn equals log₂(u)G′₂(0, χ̌)(𝔭_χ) by the formula L′₂(s, χ̌) = G₂(u^s − 1, χ̌)",
+   "correction": "by the formula L₂(s, χ̌) = G₂(u^s − 1, χ̌)",
+   "reason": "Differentiating L₂(s, χ̌) = G₂(u^s − 1, χ̌) at s = 0 gives L′₂(0, χ̌) = log₂(u)·G′₂(0, χ̌), the step made. With the printed L′₂ on the left, s = 0 would give L′₂(0, χ̌) = G₂(0, χ̌), which is 0 in this case (the trivial zero).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E8",
+   "kind": "misprint",
+   "locator": "§4, Lemma 4.8, p. 491",
+   "printed": "Σ_{(b,m)=1} χ^{−1}(b)·ζ₂(b/s) = L₂(s, χ̌)",
+   "correction": "Σ_{(b,m)=1} χ^{−1}(b)·ζ₂(b, s) = L₂(s, χ̌)",
+   "reason": "ζ₂(b, s) is Gross's two-variable function, introduced in the preceding paragraph and used as ζ′₂(b, 0) in the display above; ζ₂(b/s) is not defined.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E9",
+   "kind": "misprint",
+   "locator": "§4, Theorem 4.12 (= Theorem C), p. 494",
+   "printed": "Then for all characters χ of Δ such that χ|Δ_p is faithful: |A′(F)_χ| = |½L_p(1, χ)|_p^{d(χ)}.",
+   "correction": "Then for all characters χ of Δ such that χ|Δ_0 ≠ ε and χ|Δ_p is faithful, as in Theorem C (p. 454).",
+   "reason": "The proof applies Theorem 4.11, which requires χ_0 = χ|Δ_0 ≠ 1. Without it the statement fails: for Δ_p = 1 and χ = 1 (faithful on the trivial group), A′(F)_χ has ℤ_p-rank one (the cyclotomic ℤ_p-extension), and L_p(s, 1) has a pole at s = 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E10",
+   "kind": "misprint",
+   "locator": "§4, Theorem 4.14, p. 495",
+   "printed": "|(E_F/C_F)_{χ′}| = |A(F)_{χ′}|·2^{d(χ′)|Δ_p|}·|(R : U)_{χ′}|",
+   "correction": "|(E_F/C_F)_{χ′}| = |A(F)_{χ′}|·|((ℤ_p/2ℤ_p)[Δ])_{χ′}|·|(R : U)_{χ′}|, where the middle factor is 2^{d(χ′)|Δ_p|} for p = 2 and 1 for odd p.",
+   "reason": "The section fixes an arbitrary prime p. For odd p the left side, |A(F)_{χ′}| and the generalised index |(R : U)_{χ′}| of ℤ_p-lattices are powers of p, so the printed identity would force 2^{d(χ′)|Δ_p|} to be a power of p. The proof's reformulation [e′(E_p/C_p)] = [e′A(F)] + [e′(ℤ_p/2)[Δ]] + [e′R/e′U] (p. 496) has the term [e′(ℤ_p/2)[Δ]], which is 0 for odd p, and the proof of Corollary 4.15 uses exactly that.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E11",
+   "kind": "error",
+   "locator": "§4, proof of Lemma 4.13, p. 495",
+   "printed": "Since there are no p-power roots of unity in F, (y_σ) is again a cocycle.",
+   "correction": "Since E_{(p^ν)}(F) contains no nontrivial p-power root of unity (for p = 2 because ν ≥ N ≥ 2 and −1 ≢ 1 mod 4), (y_σ) is again a cocycle.",
+   "reason": "The lemma allows p = 2, and every number field contains the 2-power root of unity −1, so the sentence is false for p = 2. The step only needs p^c-th roots to be unique inside E_{(p^ν)}(F), which holds because −1 ∉ E_{(2^ν)}(F) for ν ≥ 2; Greither's choice N ≥ 2 provides this.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ExponentialSumsAndCircleMethod/E1",
    "kind": "error",
    "locator": "Published §8.1 p.378 and its reuse on p.379; known source issue E2.",
