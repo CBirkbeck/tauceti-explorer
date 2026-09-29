@@ -9550,8 +9550,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KEDLAYA-LIU-15.md",
-   "state": "pending",
-   "note": "released on GitHub issue #4546"
+   "state": "external",
+   "note": "claimed on GitHub issue #4546"
   },
   {
    "id": "REV-PAPER-KEDLAYA-LIU-15",
@@ -9625,8 +9625,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KURINCZUK-SKODLERACK-STEVENS-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4585"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4585",
+   "finishedAt": "2026-09-29T17:49:33Z"
   },
   {
    "id": "REV-PAPER-KURINCZUK-SKODLERACK-STEVENS-21",
@@ -43721,8 +43722,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-03.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3998"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3998",
+   "finishedAt": "2026-09-29T17:49:38Z"
   },
   {
    "id": "RT-AUDIT-04",
@@ -46393,8 +46395,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-algebraicnt-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3960"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3960",
+   "finishedAt": "2026-09-29T17:49:41Z"
   },
   {
    "id": "RT-AREA-algebraicnt-2",
@@ -46616,7 +46619,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-arithmeticgeometry-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3962"
   },
   {
    "id": "RT-AREA-arithmeticgeometry-3",
