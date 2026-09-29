@@ -522,6 +522,18 @@ example (n : ℤ) : (∃ k : ℕ, (1 : ℤ) = n - 2 * k) ↔ (Odd n ∧ 1 ≤ n)
     rw [Int.toNat_of_nonneg (by omega)]
     omega
 
+/-- `L4/greither-stickelberger-image`, Lemma 2.15(a) before specialising: `(Σ_{a ≤ N} a·xᵃ)(1 − x)² =
+x(1 − (N + 1)x^N + N·x^{N+1})`; for `x^N = 1`, `x ≠ 1` this gives `Σ a·xᵃ = −N·x/(1 − x)`. -/
+example (x : ℚ) (N : ℕ) :
+    (∑ a ∈ Finset.range (N + 1), (a : ℚ) * x ^ a) * (1 - x) ^ 2 =
+      x * (1 - (N + 1) * x ^ N + N * x ^ (N + 1)) := by
+  induction N with
+  | zero => simp
+  | succ n ih =>
+    rw [Finset.sum_range_succ, add_mul, ih]
+    push_cast
+    ring
+
 end SuggestedTest
 
 end TauCeti.CyclotomicEulerSystem
