@@ -16492,9 +16492,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-DeligneWeightsAndPurity--DWP.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #706"
+   "note": "claimed on GitHub issue #706"
   },
   {
    "id": "REV-DeligneWeightsAndPurity--DWP.0",
@@ -22238,9 +22238,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-WeightsInEtaleCohomology.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #1004"
+   "note": "released on GitHub issue #1004"
   },
   {
    "id": "REV-WeightsInEtaleCohomology",
