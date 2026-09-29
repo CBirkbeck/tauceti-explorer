@@ -1,6 +1,24 @@
-# Handoff: BP-GL2ModularityLifting--R32.3 (first checkpoint)
+# Handoff: BP-GL2ModularityLifting--R32.3 (second checkpoint)
 
 Agent: Claude Code, session cc-fb70e5. Refs #736; the bot confirmed the claim. Date: 29 September 2026. **Status: partial.** RS-08 keeps all four stages unchanged.
+
+## Checkpoint 2: wired to part 1's R32.1–R32.2 (no new nodes)
+
+Part 1 (`GL2ModularityLifting--R22.1`, PR #3885, merged) now plans R32.1 (the statement table) and R32.2 (odd-prime de Rham lifting, p = 3 included). This checkpoint connects the two parts:
+- **R32.3–R32.5.** `dyadic-de-rham-modularity-lifting`, `pan-residually-reducible-fontaine-mazur` and `p-three-residually-reducible-branch` now cite `R32.1/lifting-statement-table` and say which proposition they prove: (b), (c) and (d).
+  - The dyadic node replaces its stage prerequisite R32.2 by `R32.1/non-solvable-residual-image`.
+- **R32.6/transfer-residually-irreducible-odd.** It now cites `R32.2/odd-prime-statement-over-q` and `R32.1/quadratic-cyclotomic-irreducibility` in place of the stage R32.2, with Tung's Theorem 4.7 (p. 15) as a source. The remaining item "p = 3 rests on Tung, statement only" is closed.
+- **R32.6/globalisation-dependency-audit** gains (e) and (f):
+  - (e) the odd-prime theorem is used only in its forms that assume ρ̄ modular: Kisin (2.2.18), Hu–Tan 6.3 and Tung 4.7.
+  - (f) Emerton's §7.3 uses Serre's conjecture, for promodularity only, and is not used. His §7.4, which completes Theorem 3.3.22, uses only an auxiliary CM-induced modular ρ̄ and the weight part of Serre's conjecture for it.
+  - New sources: Emerton lg.pdf (sha bf4f855…) and Hu–Tan arXiv v2 (sha d36f237…).
+- **Gap narrowed** to Tung's global inputs ([CEG+16], Emerton–Paškūnas, BLGG13 A.4.1) and Gee's Theorem 4.4.12, which Kisin's proof uses. The R31.6 request is narrowed to match, and a request to SerreWeightAndLevelOptimisation R20.6 is added.
+- **Locator corrected.** Checkpoint 1 recorded Tung's (ANT 2021) Theorem 1.2 as pp. 1–2. It is on p. 4. The source record now lists the pages read: pp. 1–2, 4 and 14–15.
+- **Finding resolved.** The OrdinaryAutomorphicFormsAndModularityLifting R21.5 finding below was fixed in PR #3881 (checkpoint 9 of that job).
+
+Checks: `check_blueprint` with the pinned index gives 0 errors and 0 warnings; `check-files` gives 0 problems; every new excerpt was checked by script against its page's text. The Lean file is unchanged.
+
+## Checkpoint 1
 
 ## Done (9 nodes, 4 planets)
 

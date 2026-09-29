@@ -9,7 +9,7 @@
   "GL2ModularityLifting:R32.6"
  ],
  "status": "partial",
- "summary": "GL₂ Modularity Lifting, part 2 (R32.3–R32.6), first checkpoint by Claude Code cc-fb70e5, in 9 nodes from the primary sources (Tung, Paškūnas, Pan, Skinner–Wiles, Dieulefait–Pacetti). R32.3: the 2-adic de Rham modularity lifting theorem (Tung's Theorem A, after Paškūnas' Theorem 1.1 with its local restriction). R32.4: Pan's residually reducible Fontaine–Mazur theorem (p odd, with the p = 3, ω exclusion) and his residually irreducible theorem, which uses Serre's conjecture. R32.5: the p = 3 branch imported from OrdinaryAutomorphicFormsAndModularityLifting, with the precise reason Pan does not cover it. R32.6: the three modularity-transfer statements, why de Rham lifting suffices for almost strictly compatible systems, and the globalisation dependency audit.",
+ "summary": "GL₂ Modularity Lifting, part 2 (R32.3–R32.6), first checkpoint by Claude Code cc-fb70e5, in 9 nodes from the primary sources (Tung, Paškūnas, Pan, Skinner–Wiles, Dieulefait–Pacetti). R32.3: the 2-adic de Rham modularity lifting theorem (Tung's Theorem A, after Paškūnas' Theorem 1.1 with its local restriction). R32.4: Pan's residually reducible Fontaine–Mazur theorem (p odd, with the p = 3, ω exclusion) and his residually irreducible theorem, which uses Serre's conjecture. R32.5: the p = 3 branch imported from OrdinaryAutomorphicFormsAndModularityLifting, with the precise reason Pan does not cover it. R32.6: the three modularity-transfer statements, why de Rham lifting suffices for almost strictly compatible systems, and the globalisation dependency audit. Checkpoint 2 wires the part to the statement table and the odd-prime lifting theorem of part R22.1 (R32.1–R32.2): R32.3–R32.5 prove its propositions (b)–(d), the odd-prime transfer cites R32.2/odd-prime-statement-over-q, and the dependency audit now covers the admissible forms of Kisin, Hu–Tan and Tung and Emerton's §§7.3–7.4.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -83,12 +83,41 @@
    "id": "TUNG-2021-P3",
    "title": "On the automorphy of 2-dimensional potentially semi-stable deformation rings of G_{Q_p}",
    "authors": "Shen-Ning Tung",
-   "edition": "Algebra Number Theory 15 (2021), no. 9, 2173–2194; arXiv:1803.07451v4 (21 March 2021, the latest version). Only the abstract and the statement of Theorem 1.2 were read.",
+   "edition": "Algebra Number Theory 15 (2021), no. 9, 2173–2194; arXiv:1803.07451v4 (21 March 2021, the latest version). The arXiv version was read; printed page = PDF page.",
    "url": "https://arxiv.org/pdf/1803.07451v4",
    "sha256": "22017bc9beb585c2aae5421d2fe1a8a9049d8a93e4f8bb8cf684149616db1ba2",
    "read": "2026-09-29",
    "readSections": [
-    "Abstract and Theorem 1.2 (pp. 1–2)"
+    "Abstract and introduction, with the Fontaine–Mazur theorem (pp. 1–2)",
+    "Theorem 1.2 (p. 4); checkpoint 1 recorded it as pp. 1–2, which is corrected here",
+    "Proposition 4.4, Remark 4.5, the proof of Theorem 1.2, Corollary 4.6, Theorem 4.7 and Remark 4.8 (pp. 14–15)"
+   ]
+  },
+  {
+   "id": "EMERTON-LGC-2011",
+   "title": "Local-global compatibility in the p-adic Langlands programme for GL₂/ℚ",
+   "authors": "Matthew Emerton",
+   "edition": "Preprint, draft of 23 March 2011, 119 pages, on Emerton's University of Chicago page; not published in a journal. Printed page = PDF page. The same file as GL2ModularityLifting part R22.1.",
+   "url": "http://www.math.uchicago.edu/~emerton/pdffiles/lg.pdf",
+   "sha256": "bf4f8556ef04be02daed0b1dba35c91ce4a7b2f4cbbf28d0d8351b1fc369eb13",
+   "read": "2026-09-29",
+   "readSections": [
+    "§1.2: Theorems 1.2.1, 1.2.3, 1.2.4, Corollary 1.2.2 and Remark 1.2.5 (pp. 3–5)",
+    "Theorem 3.3.22 (p. 28)",
+    "§§7.3–7.4 (pp. 95–98)"
+   ]
+  },
+  {
+   "id": "HU-TAN-2015",
+   "title": "The Breuil–Mézard conjecture for non-scalar split residual representations",
+   "authors": "Yongquan Hu and Fucheng Tan",
+   "edition": "Ann. Sci. Éc. Norm. Supér. (4) 48 (2015), no. 6, 1383–1421; arXiv:1309.1658v2 (13 November 2014). The arXiv version was read; printed page = PDF page. The same file as GL2ModularityLifting part R22.1.",
+   "url": "https://arxiv.org/pdf/1309.1658v2",
+   "sha256": "d36f237d7269e9dac7d32d80f1e4d6fe5c20b210ae067075b2dedb51e73d9bb2",
+   "read": "2026-09-29",
+   "readSections": [
+    "Abstract and introduction, Theorem 1.4 (pp. 1–5)",
+    "§6: Proposition 6.2, Theorem 6.3 and its proof (pp. 33–35)"
    ]
   }
  ],
@@ -105,7 +134,8 @@
    "hypotheses": [
     "this is a de Rham theorem with arbitrary distinct Hodge–Tate weights; it is not the potentially Barsotti–Tate theorem of the classical proof (Kisin's (0.1), GL2ModularityLifting:R22.6/kisin-dyadic-bt-lifting), and a regular de Rham representation is not Barsotti–Tate after renaming its weights",
     "residual modularity is a hypothesis; Tung notes that over ℚ it follows from Khare–Wintenberger and Kisin, but his proof does not use that (see R32.6/globalisation-dependency-audit)",
-    "non-solvable residual image replaces the cyclotomic irreducibility condition used for odd p"
+    "non-solvable residual image replaces the cyclotomic irreducibility condition used for odd p",
+    "It proves DyadicLifting, statement (b) of R32.1/lifting-statement-table; non-solvable image survives the solvable base changes of the proof (R32.1/non-solvable-residual-image)"
    ],
    "proofSteps": [
     "Paškūnas (Theorem 1.1): patch algebraic automorphic forms on definite quaternion algebras following Kisin and Khare–Wintenberger's dyadic patching, and deduce modularity from a weak Breuil–Mézard conjecture proved in his local part; hypothesis (iv) comes from that local part.",
@@ -118,9 +148,10 @@
    ],
    "prerequisites": [
     "GL2ModularityLifting:R22.6/kisin-dyadic-bt-lifting",
-    "GL2ModularityLifting:R32.2",
     "PadicLocalLanglandsForGL2Qp:R30.6",
-    "CompletedCohomologyAndLocalGlobalCompatibility:R31.5"
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
+    "GL2ModularityLifting:R32.1/lifting-statement-table",
+    "GL2ModularityLifting:R32.1/non-solvable-residual-image"
    ],
    "sources": [
     {
@@ -166,7 +197,8 @@
    "hypotheses": [
     "irreducibility of ρ is kept: ρ̄ being a sum of characters does not make ρ a sum of characters",
     "no residual modularity is assumed: residually reducible representations are handled with pseudo-representations",
-    "at p = 3 the case χ̄₁χ̄₂^{−1}|_{G_{ℚ₃}} = ω is excluded throughout the paper, for lack of p-adic local Langlands input (Pan's Theorems 3.4.5–3.4.6); Dieulefait–Pacetti quote the theorem only for p ≥ 5"
+    "at p = 3 the case χ̄₁χ̄₂^{−1}|_{G_{ℚ₃}} = ω is excluded throughout the paper, for lack of p-adic local Langlands input (Pan's Theorems 3.4.5–3.4.6); Dieulefait–Pacetti quote the theorem only for p ≥ 5",
+    "For p ≥ 5 it proves ResiduallyReducibleLifting p, statement (c) of R32.1/lifting-statement-table"
    ],
    "proofSteps": [
     "Follow Emerton's strategy: a 'big' R = T statement relating a global deformation ring of pseudo-characters with no condition at p to a localised Hecke algebra of completed cohomology (in fact a weaker statement), then classicality: a ρ occurring in completed cohomology with ρ|_{G_{ℚ_p}} irreducible, de Rham of distinct weights, comes from a classical eigenform up to twist.",
@@ -180,7 +212,8 @@
    "prerequisites": [
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-over-q",
     "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
-    "PadicLocalLanglandsForGL2Qp:R30.6"
+    "PadicLocalLanglandsForGL2Qp:R30.6",
+    "GL2ModularityLifting:R32.1/lifting-statement-table"
    ],
    "sources": [
     {
@@ -265,7 +298,8 @@
    "hypotheses": [
     "Skinner–Wiles' hypothesis (i) χ|_{D₃} ≠ 1 holds automatically for χ = χ̄₃, which is ramified at 3; Dieulefait–Pacetti print it as 'ρ|_{D₃} ≠ (1 0; 0 1)' (source issue OrdinaryAutomorphicFormsAndModularityLifting/E9)",
     "the ordinary hypothesis (ii) comes from the local crystalline/ordinary calculation OrdinaryAutomorphicFormsAndModularityLifting:R21.5/crystalline-reducible-reduction-is-ordinary (weights 2 ≤ k ≤ p + 1)",
-    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-at-three says Pan's theorem 'needs p ≥ 5'; Pan's statement is for all odd p, and the accurate reason is the exclusion above"
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-at-three says Pan's theorem 'needs p ≥ 5'; Pan's statement is for all odd p, and the accurate reason is the exclusion above",
+    "It proves OrdinaryThreeLifting, statement (d) of R32.1/lifting-statement-table"
    ],
    "proofSteps": [
     "Import Skinner–Wiles over ℚ and its p = 3 specialisation from OrdinaryAutomorphicFormsAndModularityLifting R21.5.",
@@ -279,7 +313,8 @@
    "prerequisites": [
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-at-three",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/crystalline-reducible-reduction-is-ordinary",
-    "GL2ModularityLifting:R32.4/pan-residually-reducible-fontaine-mazur"
+    "GL2ModularityLifting:R32.4/pan-residually-reducible-fontaine-mazur",
+    "GL2ModularityLifting:R32.1/lifting-statement-table"
    ],
    "sources": [
     {
@@ -316,9 +351,9 @@
    ],
    "title": "Modularity transfer along a congruence at an odd prime with cyclotomically irreducible residual representation",
    "kind": "theorem",
-   "statement": "Let p be odd and ρ, ρ′ : G_ℚ → GL₂(ℚ̄_p) continuous, odd, finitely ramified, with ρ̄ ≅ ρ̄′, ρ̄|_{G_{ℚ(√p*)}} absolutely irreducible, and ρ|_{G_{ℚ_p}}, ρ′|_{G_{ℚ_p}} de Rham with Hodge–Tate weights {0, k − 1}, {0, k′ − 1} (k, k′ > 1). Then ρ is modular if and only if ρ′ is. This is Dieulefait–Pacetti's Theorem 1.4 read as a transfer statement: if ρ is modular then ρ̄ = ρ̄′ is modular and Theorem 1.4 applies to ρ′. Its source is Kisin (k = 2, and the general case), with Emerton and Paškūnas removing the local–global hypothesis, Hu–Tan (p ≥ 5) and Tung (p = 3) removing the remaining local restriction.",
+   "statement": "Let p be odd and ρ, ρ′ : G_ℚ → GL₂(ℚ̄_p) continuous, odd, finitely ramified, with ρ̄ ≅ ρ̄′, ρ̄|_{G_{ℚ(√p*)}} absolutely irreducible, and ρ|_{G_{ℚ_p}}, ρ′|_{G_{ℚ_p}} de Rham with Hodge–Tate weights {0, k − 1}, {0, k′ − 1} (k, k′ > 1). Then ρ is modular if and only if ρ′ is. This is Dieulefait–Pacetti's Theorem 1.4 read as a transfer statement: if ρ is modular then ρ̄ = ρ̄′ is modular and Theorem 1.4 applies to ρ′. Its proof is R32.2/odd-prime-statement-over-q, for every odd p, 3 included: Kisin's Theorem (2.2.17), with Emerton's Theorem 3.3.22 removing his abelian hypothesis, and the Breuil–Mézard results of Paškūnas, Hu–Tan (p ≥ 5) and Tung (every p > 2) removing the local exclusion.",
    "hypotheses": [
-    "absolute irreducibility over ℚ(√p*) is equivalent to that over ℚ(ζ_p) (Dieulefait–Pacetti Lemma 1.13); it is the hypothesis in the combined theorem as Tung states it",
+    "absolute irreducibility over ℚ(√p*) is equivalent to that over ℚ(ζ_p) (Dieulefait–Pacetti Lemma 1.13, R32.1/quadratic-cyclotomic-irreducibility); it is the hypothesis in the combined theorem as Tung states it",
     "residual modularity is the only global modularity input; no Serre conjecture is used (R32.6/globalisation-dependency-audit)"
    ],
    "proofSteps": [
@@ -329,8 +364,9 @@
     "Non-example: ρ̄ bad dihedral (ρ̄|_{G_{ℚ(√p*)}} reducible) is excluded; Dieulefait–Pacetti avoid it by the Fontaine–Laffaille lemma (ClassicalSerreModularity R33.1)."
    ],
    "prerequisites": [
-    "GL2ModularityLifting:R32.2",
-    "PadicLocalLanglandsForGL2Qp:R30.6"
+    "PadicLocalLanglandsForGL2Qp:R30.6",
+    "GL2ModularityLifting:R32.2/odd-prime-statement-over-q",
+    "GL2ModularityLifting:R32.1/quadratic-cyclotomic-irreducibility"
    ],
    "sources": [
     {
@@ -342,6 +378,11 @@
      "sourceId": "TUNG-2021-DYADIC",
      "locator": "Introduction, the theorem of Kisin, Paškūnas, Hu–Tan and Tung, pp. 1–2 (arXiv v3)",
      "match": "The combined theorem and its hypotheses."
+    },
+    {
+     "sourceId": "TUNG-2021-P3",
+     "locator": "Theorem 4.7, p. 15 (arXiv v4)",
+     "match": "The combined theorem with ρ̄ modular as a hypothesis, for every odd p."
     }
    ],
    "uses": [
@@ -485,19 +526,21 @@
    ],
    "title": "Dependency audit: which globalisations in the lifting theorems use the general Serre theorem",
    "kind": "comparison",
-   "statement": "For the statements used by the modern proof of Serre's conjecture (Dieulefait–Pacetti Theorems 1.4–1.7) the proofs read here take residual modularity as a hypothesis or need none, and invoke no form of Serre's conjecture: (a) Tung's Theorem A (p = 2) assumes ρ̄ modular; Tung notes that over ℚ this follows from Khare–Wintenberger and Kisin, but uses Khare–Wintenberger II only for local deformation-ring results and potential-modularity constructions; (b) Paškūnas' Theorem 1.1 uses the Khare–Wintenberger and Kisin modularity lifting theorems in the Barsotti–Tate case as inputs, which are proved without Serre's conjecture; (c) Pan's Theorem 1.0.2 (residually reducible) uses Skinner–Wiles and a local result of Khare–Wintenberger II (Proposition 2.1), not Serre's conjecture; (d) Skinner–Wiles' theorem uses no residual modularity (R21.6/independence-from-serre of OrdinaryAutomorphicFormsAndModularityLifting). By contrast Pan's Theorem 1.0.4 (residually irreducible, without assuming ρ̄ modular) takes residual modularity from Khare–Wintenberger's Serre conjecture (Remark 8.0.4) and is not an admissible input.",
+   "statement": "For the statements used by the modern proof of Serre's conjecture (Dieulefait–Pacetti Theorems 1.4–1.7) the proofs read here take residual modularity as a hypothesis or need none, and invoke no form of Serre's conjecture: (a) Tung's Theorem A (p = 2) assumes ρ̄ modular; Tung notes that over ℚ this follows from Khare–Wintenberger and Kisin, but uses Khare–Wintenberger II only for local deformation-ring results and potential-modularity constructions; (b) Paškūnas' Theorem 1.1 uses the Khare–Wintenberger and Kisin modularity lifting theorems in the Barsotti–Tate case as inputs, which are proved without Serre's conjecture; (c) Pan's Theorem 1.0.2 (residually reducible) uses Skinner–Wiles and a local result of Khare–Wintenberger II (Proposition 2.1), not Serre's conjecture; (d) Skinner–Wiles' theorem uses no residual modularity (R21.6/independence-from-serre of OrdinaryAutomorphicFormsAndModularityLifting). By contrast Pan's Theorem 1.0.4 (residually irreducible, without assuming ρ̄ modular) takes residual modularity from Khare–Wintenberger's Serre conjecture (Remark 8.0.4) and is not an admissible input. (e) The odd-prime theorem is used only in the forms that assume ρ̄ modular: Kisin's Theorem (2.2.18), Hu–Tan's Theorem 6.3 and Tung's Theorem 4.7 (R32.1/residual-modularity-forms). Their introduction forms, and Hu–Tan's Theorem 1.4, take residual modularity from Khare–Wintenberger and are not used. (f) Emerton's Fontaine–Mazur route (Theorems 1.2.3–1.2.4) gets promodularity from Serre's conjecture (§7.3) and is not used. The one result used from Emerton, Theorem 3.3.22 on locally algebraic vectors, is completed in §7.4 by a global argument with an auxiliary modular ρ̄ induced from a Grössencharakter of an imaginary quadratic field, and the weight part of Serre's conjecture for that ρ̄. It does not use Khare–Wintenberger.",
    "hypotheses": [
-    "the proofs of Kisin (JAMS 2009), Emerton (2011), Hu–Tan (2015) and Tung (ANT 2021, p = 3) are not read; their statements assume residual modularity, and the audit of their globalisation steps is requested from CompletedCohomologyAndLocalGlobalCompatibility R31.6, which the atlas also charges with it",
+    "not audited here: the global inputs of Tung's Breuil–Mézard theorem (the patched modules of [CEG+16], Emerton–Paškūnas' faithfulness and Barnet-Lamb–Gee–Geraghty's Theorem A.4.1), and Gee's Theorem 4.4.12 of 'Automorphic lifts of prescribed types', which Kisin's proof of (2.2.17) uses. These are requested from CompletedCohomologyAndLocalGlobalCompatibility R31.5–R31.6 and SerreWeightAndLevelOptimisation R20.6",
     "'Khare–Wintenberger II' inputs are the local and patching results of that paper, which precede and do not use the full Serre theorem"
    ],
    "proofSteps": [
     "List the statements used (Dieulefait–Pacetti Theorems 1.4–1.7) and their sources.",
     "For each read source, locate every appeal to Khare–Wintenberger and classify it: residual modularity hypothesis, local deformation-ring result, patching or potential modularity, or the Serre conjecture itself.",
+    "For the odd-prime theorem, locate the form that assumes ρ̄ modular in each paper (GL2ModularityLifting part R22.1, R32.1/residual-modularity-forms). In Emerton, separate §7.3 (Serre's conjecture, for promodularity) from §7.4 (an auxiliary CM-induced modular ρ̄, for Theorem 3.3.22).",
     "Record the one appeal to the Serre conjecture found (Pan, Remark 8.0.4, for Theorem 1.0.4) and why it is not used."
    ],
    "acceptance": [
     "The audit must separate Pan's Theorem 1.0.2 (admissible) from Theorem 1.0.4 (not admissible).",
-    "An input whose statement assumes ρ̄ modular is admissible even though, over ℚ, that hypothesis is known through Serre's conjecture."
+    "An input whose statement assumes ρ̄ modular is admissible even though, over ℚ, that hypothesis is known through Serre's conjecture.",
+    "Emerton's Theorem 1.2.4 (not admissible) and his Theorem 3.3.22 (admissible) must be separated, although both are in the same paper."
    ],
    "prerequisites": [
     "GL2ModularityLifting:R32.3/dyadic-de-rham-modularity-lifting",
@@ -506,7 +549,9 @@
     "GL2ModularityLifting:R32.5/p-three-residually-reducible-branch",
     "GL2ModularityLifting:R32.6/transfer-residually-irreducible-odd",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/independence-from-serre",
-    "CompletedCohomologyAndLocalGlobalCompatibility:R31.6"
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.6",
+    "GL2ModularityLifting:R32.1/residual-modularity-forms",
+    "GL2ModularityLifting:R32.2/odd-prime-de-rham-lifting"
    ],
    "sources": [
     {
@@ -523,6 +568,21 @@
      "sourceId": "PAN-2022",
      "locator": "Remark 8.0.4, p. 125 (arXiv v2)",
      "match": "The appeal to Serre's conjecture, in the residually irreducible part only."
+    },
+    {
+     "sourceId": "EMERTON-LGC-2011",
+     "locator": "§7.3, proof of Theorem 1.2.3, p. 96",
+     "match": "Emerton's promodularity uses Serre's conjecture."
+    },
+    {
+     "sourceId": "EMERTON-LGC-2011",
+     "locator": "§7.4, completion of the proof of Theorem 3.3.22, p. 97",
+     "match": "Theorem 3.3.22 uses only an auxiliary modular ρ̄ and the weight part for it."
+    },
+    {
+     "sourceId": "HU-TAN-2015",
+     "locator": "Proof of Theorem 6.3, p. 35 (arXiv v2)",
+     "match": "Hu–Tan's Theorem 1.4 is Theorem 6.3 plus Khare–Wintenberger."
     }
    ],
    "uses": [
@@ -554,7 +614,7 @@
   },
   {
    "supplier": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6",
-   "need": "The audit of the globalisation steps in Kisin (JAMS 2009), Emerton (2011), Hu–Tan (2015) and Tung (ANT 2021), whose proofs are not read here: whether any step uses a restricted proved case or the general Serre theorem.",
+   "need": "The audit of the globalisation steps not checked here: the global inputs of Tung's Breuil–Mézard theorem (arXiv:1803.07451v4, §4: the patched modules of [CEG+16], Emerton–Paškūnas' faithfulness, Barnet-Lamb–Gee–Geraghty's Theorem A.4.1), and whether any of them uses the general Serre theorem rather than a restricted proved case. The statements of Kisin (JAMS 2009), Emerton (2011), Hu–Tan (2015) and Tung (ANT 2021) are now read (GL2ModularityLifting part R22.1, R32.1–R32.2).",
    "neededBy": [
     "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
     "GL2ModularityLifting:R32.4/pan-residually-irreducible-fontaine-mazur"
@@ -566,6 +626,13 @@
    "neededBy": [
     "GL2ModularityLifting:R32.6/de-rham-lifting-and-almost-strict-systems"
    ]
+  },
+  {
+   "supplier": "SerreWeightAndLevelOptimisation:R20.6",
+   "need": "Gee's Theorem 4.4.12 of 'Automorphic lifts of prescribed types' (Math. Ann. 350 (2011)), used in Kisin's proof of his Theorem (2.2.17), together with whether its proof uses Serre's conjecture (the same request is made by part R22.1 for R32.2/kisin-fontaine-mazur-totally-split).",
+   "neededBy": [
+    "GL2ModularityLifting:R32.6/globalisation-dependency-audit"
+   ]
   }
  ],
  "coverage": [
@@ -575,7 +642,7 @@
    "remaining": [
     "The proofs of Tung's Theorems A–C and of Paškūnas' Theorem 1.1 are summarised at the level of their strategy; their local and patching inputs are requested from R30.6 and R31.5."
    ],
-   "notes": "Planned: the 2-adic de Rham modularity lifting theorem, distinguished from Kisin's potentially Barsotti–Tate theorem of the classical proof."
+   "notes": "Planned: the 2-adic de Rham modularity lifting theorem, distinguished from Kisin's potentially Barsotti–Tate theorem of the classical proof. Checkpoint 2 links its theorem to the proposition it proves in part R22.1's statement table (R32.1)."
   },
   {
    "stageId": "GL2ModularityLifting:R32.4",
@@ -583,32 +650,31 @@
    "remaining": [
     "Pan's pseudo-deformation rings, reducibility ideals and the classicality argument are summarised, not decomposed; the completed-cohomology inputs are requested from R31.5."
    ],
-   "notes": "Planned: Pan's Theorems 1.0.2 and 1.0.4, with the p = 3 exclusion and the dependence of 1.0.4 on Serre's conjecture."
+   "notes": "Planned: Pan's Theorems 1.0.2 and 1.0.4, with the p = 3 exclusion and the dependence of 1.0.4 on Serre's conjecture. Checkpoint 2 links its theorem to the proposition it proves in part R22.1's statement table (R32.1)."
   },
   {
    "stageId": "GL2ModularityLifting:R32.5",
    "status": "source_decomposed",
    "remaining": [],
-   "notes": "Planned by importing Skinner–Wiles over ℚ and its p = 3 specialisation from OrdinaryAutomorphicFormsAndModularityLifting R21.5, with the precise reason Pan's theorem does not cover the branch and the twisting normalisation."
+   "notes": "Planned by importing Skinner–Wiles over ℚ and its p = 3 specialisation from OrdinaryAutomorphicFormsAndModularityLifting R21.5, with the precise reason Pan's theorem does not cover the branch and the twisting normalisation. Checkpoint 2 links its theorem to the proposition it proves in part R22.1's statement table (R32.1)."
   },
   {
    "stageId": "GL2ModularityLifting:R32.6",
    "status": "partial",
    "remaining": [
-    "The globalisation audit of Kisin, Emerton, Hu–Tan and Tung (p = 3) awaits CompletedCohomologyAndLocalGlobalCompatibility R31.6; only the read sources are audited here.",
-    "Transfer statements for the p = 3 residually irreducible case rest on Tung (ANT 2021), of which only the statement was read."
+    "The globalisation audit of Tung's global inputs ([CEG+16], Emerton–Paškūnas, BLGG13) awaits CompletedCohomologyAndLocalGlobalCompatibility R31.6, and that of Gee's Theorem 4.4.12 awaits SerreWeightAndLevelOptimisation R20.6."
    ],
-   "notes": "Planned: the three transfer statements, the almost-strict-compatibility explanation and the dependency audit of the read sources."
+   "notes": "Planned: the three transfer statements, the almost-strict-compatibility explanation and the dependency audit of the read sources. Checkpoint 2 cites part R22.1's R32.2 nodes for the odd-prime transfer (p = 3 included), and extends the audit to the admissible forms of Kisin, Hu–Tan and Tung and to Emerton's §§7.3–7.4."
   }
  ],
  "gaps": [
   {
-   "title": "Kisin, Emerton, Hu–Tan and Tung (p = 3) are not read",
+   "title": "Tung's global inputs and Gee's weight theorem are not audited",
    "neededBy": [
     "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
     "GL2ModularityLifting:R32.6/transfer-residually-irreducible-odd"
    ],
-   "detail": "Verified: the statements of Dieulefait–Pacetti Theorem 1.4 and of the combined theorem as Tung states it; Tung's Theorem A (p = 2) and Paškūnas' Theorem 1.1 with their use of Khare–Wintenberger; Pan's Theorems 1.0.2 and 1.0.4 with Remark 8.0.4. Not verified: the proofs of Kisin's JAMS 2009 theorem, Emerton's local–global compatibility, Hu–Tan's Breuil–Mézard theorem and Tung's p = 3 theorem, so the absence of an appeal to the general Serre theorem in them is not checked here. Requested from CompletedCohomologyAndLocalGlobalCompatibility R31.6."
+   "detail": "Verified in checkpoint 2, with part R22.1's R32.1–R32.2: the statements of Kisin's Theorem (2.2.17) (published (2.2.18)), Hu–Tan's Theorems 1.4 and 6.3, Tung's Theorems 1.2 and 4.7, and Emerton's Theorems 1.2.1–1.2.4 and 3.3.22. Each odd-prime theorem is used in the form that assumes ρ̄ modular. Emerton's §7.3 uses Serre's conjecture, for promodularity only, which is not used; his §7.4 uses an auxiliary CM-induced modular ρ̄. Not verified: the global inputs of Tung's Breuil–Mézard theorem ([CEG+16] patching, Emerton–Paškūnas, BLGG13 Theorem A.4.1), and Gee's Theorem 4.4.12 in Kisin's proof. Requested from CompletedCohomologyAndLocalGlobalCompatibility R31.6 and SerreWeightAndLevelOptimisation R20.6."
   }
  ],
  "sourceIssues": [],
@@ -654,6 +720,20 @@
    "citation": "Shen-Ning Tung, On the automorphy of 2-dimensional potentially semi-stable deformation rings of G_{Q_p}",
    "read": "2026-09-29",
    "sha256": "22017bc9beb585c2aae5421d2fe1a8a9049d8a93e4f8bb8cf684149616db1ba2"
+  },
+  {
+   "kind": "author copy",
+   "url": "http://www.math.uchicago.edu/~emerton/pdffiles/lg.pdf",
+   "citation": "Matthew Emerton, Local-global compatibility in the p-adic Langlands programme for GL₂/ℚ (draft of 23 March 2011)",
+   "read": "2026-09-29",
+   "sha256": "bf4f8556ef04be02daed0b1dba35c91ce4a7b2f4cbbf28d0d8351b1fc369eb13"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1309.1658v2",
+   "citation": "Yongquan Hu and Fucheng Tan, The Breuil–Mézard conjecture for non-scalar split residual representations",
+   "read": "2026-09-29",
+   "sha256": "d36f237d7269e9dac7d32d80f1e4d6fe5c20b210ae067075b2dedb51e73d9bb2"
   }
  ]
 }
