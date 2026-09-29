@@ -40,6 +40,18 @@ import Mathlib.RingTheory.Localization.FractionRing
 import Mathlib.Algebra.Polynomial.Eval.Defs
 import Mathlib.NumberTheory.Padics.Measure.AmiceTransform
 import Mathlib.RingTheory.PowerSeries.Exp
+import Mathlib.RingTheory.PowerSeries.WeierstrassPreparation
+import Mathlib.RingTheory.PowerSeries.Ideal
+import Mathlib.RingTheory.Length
+import Mathlib.RingTheory.Ideal.Height
+import Mathlib.RingTheory.RegularLocalRing.Defs
+import Mathlib.Algebra.Module.LocalizedModule.Basic
+import Mathlib.LinearAlgebra.Charpoly.Basic
+import Mathlib.Algebra.CharP.Lemmas
+import Mathlib.RingTheory.KrullDimension.Basic
+import Mathlib.Algebra.Module.Torsion.Basic
+import Mathlib.RingTheory.LocalRing.ResidueField.Defs
+import Mathlib.NumberTheory.Padics.PadicNorm
 
 /-!
 # Suggested Lean forms: Amice moments and admissible pseudomeasure evaluation
@@ -2985,3 +2997,143 @@ example : restrictResidue 3 ℤ 1 0
 example : PowerSeries.coeff 1 (restrictResidue 2 ℤ_[2] 2 1 (dirac ℤ_[2] 5)).amiceTransform = 5 := sorry
 end ResidueRestrictionTests
 end AbstractMeasure
+
+/-! ## L4: Weierstrass theory and the structure of Iwasawa modules (checkpoint L4-1)
+
+Signatures for NSW V §§1, 3 and RJW §13.1. Mathlib already supplies Weierstrass division and preparation
+(`PowerSeries.exists_isWeierstrassFactorization`, `PowerSeries.IsWeierstrassFactorization.unique`), noetherianity of
+`R⟦X⟧` and factoriality of `R⟦X⟧` for a principal ideal domain `R`; nothing here restates them. -/
+
+namespace TauCeti.Iwasawa
+
+open Polynomial
+
+section PseudoNull
+
+variable (A : Type*) [CommRing A] (M : Type*) [AddCommGroup M] [Module A M]
+
+/-- `L4/pseudo-null`: a finitely generated module is pseudo-null if it vanishes at every prime of height at most
+one (NSW (5.1.4)). -/
+def IsPseudoNull : Prop :=
+  Module.Finite A M ∧
+    ∀ 𝔭 : PrimeSpectrum A, 𝔭.asIdeal.height ≤ 1 → Subsingleton (LocalizedModule 𝔭.asIdeal.primeCompl M)
+
+/-- `L4/pseudo-null`: pseudo-null modules are torsion (NSW (5.1.4), Remark 2). -/
+theorem IsPseudoNull.isTorsion [IsDomain A] (h : IsPseudoNull A M) : Module.IsTorsion A M := sorry
+
+/-- `L4/pseudo-null`: over a two-dimensional noetherian integrally closed local domain with finite residue field,
+pseudo-null means finite (NSW (5.1.4), Remark 4). -/
+theorem isPseudoNull_iff_finite [IsDomain A] [IsNoetherianRing A] [IsIntegrallyClosed A] [IsLocalRing A]
+    [Finite (IsLocalRing.ResidueField A)] (hdim : ringKrullDim A = 2) [Module.Finite A M] :
+    IsPseudoNull A M ↔ Finite M := sorry
+
+variable {A M} {N : Type*} [AddCommGroup N] [Module A N]
+
+/-- `L4/pseudo-isomorphism`: kernel and cokernel are pseudo-null (NSW (5.1.5)). -/
+def IsPseudoIsomorphism (f : M →ₗ[A] N) : Prop :=
+  IsPseudoNull A (LinearMap.ker f) ∧ IsPseudoNull A (N ⧸ LinearMap.range f)
+
+end PseudoNull
+
+section CharacteristicIdeal
+
+variable (A : Type*) [CommRing A] [IsDomain A] [IsNoetherianRing A] [IsIntegrallyClosed A]
+  (M : Type*) [AddCommGroup M] [Module A M]
+
+/-- `L4/characteristic-ideal`: the divisor of a finitely generated torsion module, `𝔭 ↦ length_{A_𝔭} M_𝔭` at the
+height-one primes (zero elsewhere). -/
+noncomputable def charDivisor (𝔭 : PrimeSpectrum A) : ℕ∞ :=
+  if 𝔭.asIdeal.height = 1 then
+    Module.length (Localization.AtPrime 𝔭.asIdeal) (LocalizedModule 𝔭.asIdeal.primeCompl M)
+  else 0
+
+/-- `L4/characteristic-ideal`: over a unique factorisation domain the divisor is principal; `charIdeal` is the
+ideal it generates. -/
+noncomputable def charIdeal [UniqueFactorizationMonoid A] (M : Type*) [AddCommGroup M] [Module A M] : Ideal A :=
+  sorry
+
+/-- `L4/characteristic-ideal`: the value on a cyclic module. -/
+theorem charIdeal_quotient_span [UniqueFactorizationMonoid A] (f : A) (hf : f ≠ 0) :
+    charIdeal A (A ⧸ Ideal.span {f}) = Ideal.span {f} := sorry
+
+/-- `L4/characteristic-ideal`: finite modules over a two-dimensional local ring have unit characteristic ideal. -/
+theorem charIdeal_eq_top_of_isPseudoNull [UniqueFactorizationMonoid A] (h : IsPseudoNull A M) :
+    charIdeal A M = ⊤ := sorry
+
+end CharacteristicIdeal
+
+section IwasawaInvariants
+
+variable (p : ℕ) [Fact p.Prime] (M : Type*) [AddCommGroup M] [Module (PowerSeries ℤ_[p]) M]
+  [Module.Finite (PowerSeries ℤ_[p]) M]
+
+/-- `L4/iwasawa-invariants`: the μ-invariant (NSW (5.3.9)). -/
+noncomputable def muInvariant (M : Type*) [AddCommGroup M] [Module (PowerSeries ℤ_[p]) M] : ℕ := sorry
+
+/-- `L4/iwasawa-invariants`: the λ-invariant (NSW (5.3.9)). -/
+noncomputable def lambdaInvariant (M : Type*) [AddCommGroup M] [Module (PowerSeries ℤ_[p]) M] : ℕ := sorry
+
+/-- `L4/iwasawa-invariants`: the characteristic polynomial `F_{M,γ}`, a product of irreducible distinguished
+polynomials (NSW (5.3.9)). -/
+noncomputable def charPoly (M : Type*) [AddCommGroup M] [Module (PowerSeries ℤ_[p]) M] : ℤ_[p][X] := sorry
+
+theorem charPoly_isDistinguishedAt :
+    (charPoly p M).IsDistinguishedAt (IsLocalRing.maximalIdeal ℤ_[p]) := sorry
+
+/-- `L4/iwasawa-invariants`: a finitely generated torsion module is finite iff `μ = λ = 0` (NSW (5.3.9), Remark 2). -/
+theorem finite_iff_mu_lambda (hM : Module.IsTorsion (PowerSeries ℤ_[p]) M) :
+    Finite M ↔ muInvariant p M = 0 ∧ lambdaInvariant p M = 0 := sorry
+
+end IwasawaInvariants
+
+/-! ### Unit tests (checked) -/
+
+namespace L4Tests
+
+/-- `L4/cyclotomic-weierstrass-polynomials`: `ξ₁ = 1 + (1+T) + (1+T)² = T² + 3T + 3` for `p = 3`, a distinguished
+polynomial. -/
+example : (1 + (1 + X) + (1 + X) ^ 2 : ℤ[X]) = X ^ 2 + 3 * X + 3 := by ring
+
+/-- `L4/cyclotomic-weierstrass-polynomials`: `ω₁ = (1+T)² − 1 = T² + 2T` for `p = 2`. -/
+example : ((1 + X) ^ 2 - 1 : ℤ[X]) = X ^ 2 + 2 * X := by ring
+
+/-- `L4/cyclotomic-weierstrass-polynomials`: modulo `p`, `ω_n ≡ T^{p^n}` (here `p = 2`, `n = 2`). -/
+example : ((1 + X) ^ 4 - 1 : (ZMod 2)[X]) = X ^ 4 := by
+  have h := add_pow_char_pow (R := (ZMod 2)[X]) (p := 2) (n := 2) (1 : (ZMod 2)[X]) X
+  norm_num at h
+  rw [h]
+  ring
+
+/-- `L4/iwasawa-growth-formula` (Lemma 5.3.18, `λ = 1`): on `Λ/(T − 3)` (γ acting by `4`), `ξ₂ = Σ_{i<3} γ^{3i}` acts by
+`1 + 4³ + 4⁶ = 3 · 1387` with `3 ∤ 1387`, so `ξ₂ M = 3M`. -/
+example : (1 + 4 ^ 3 + 4 ^ 6 : ℤ) = 3 * 1387 ∧ ¬ (3 : ℤ) ∣ 1387 := by decide
+
+/-- `L4/finite-coinvariants-euler-characteristic`: for `M = Λ/(T − p)` and `n = 0`, `#M_Γ = p` and `M^Γ = 0`, and the
+formula's right side is `|F(0)|_p = |−p|_p = 1/p` (here `p = 3`). -/
+example : padicNorm 3 (-3 : ℚ) = 1 / 3 := by
+  have h := padicNorm.padicNorm_p (p := 3) (by norm_num)
+  rw [padicNorm.neg]
+  norm_num at h ⊢
+  exact h
+
+/-- `L4/iwasawa-invariants` (non-example): the characteristic polynomial depends on γ. For `M = Λ/(T − p)`
+(γ acting by `1 + p`), the generator `γ²` acts by `(1 + p)² = 1 + (2p + p²)`, so `F_{M,γ²} = T − (2p + p²)`. -/
+example (p : ℤ) : (1 + p) ^ 2 - 1 = 2 * p + p ^ 2 := by ring
+
+/-- `L4/character-decomposition` (`|H| = 2`, `p` odd): `e_± = (1 ± h)/2` are orthogonal idempotents. -/
+example (h : ℚ) (hh : h ^ 2 = 1) :
+    ((1 + h) / 2) ^ 2 = (1 + h) / 2 ∧ ((1 + h) / 2) * ((1 - h) / 2) = 0 ∧ (1 + h) / 2 + (1 - h) / 2 = 1 := by
+  refine ⟨?_, ?_, ?_⟩
+  · linear_combination (1 / 4 : ℚ) * hh
+  · linear_combination (-1 / 4 : ℚ) * hh
+  · ring
+
+/-- `L4/weierstrass-adapter`: Mathlib's preparation theorem is the adapter's source. -/
+example {A : Type*} [CommRing A] [IsLocalRing A] [IsAdicComplete (IsLocalRing.maximalIdeal A) A]
+    {g : PowerSeries A} (hg : g.map (IsLocalRing.residue A) ≠ 0) :
+    ∃ f h, g.IsWeierstrassFactorization f h :=
+  PowerSeries.exists_isWeierstrassFactorization hg
+
+end L4Tests
+
+end TauCeti.Iwasawa

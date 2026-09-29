@@ -1,3 +1,71 @@
+# BP-PadicMeasuresIwasawaAlgebras — L4-1: the structure theory of Iwasawa modules
+
+Agent: Claude Code — cc-39fac3. Date: 29 September 2026. Issue #555; the bot confirmed the claim (comment 5883687424).
+This continues the merged checkpoint above. No preceding node, baseline record or finding is removed or changed.
+
+## This checkpoint
+
+It adds 21 nodes, all in L4, taking L4 from `not_read` to `partial`:
+- 4 definitions: pseudo-null, pseudo-isomorphism, the invariants, and the characteristic ideal;
+- 1 construction (the isotypic decomposition);
+- 5 theorems, 10 lemmas and 1 comparison (Mathlib's Weierstrass theory).
+
+It also adds:
+- five planets: pseudo-isomorphism, the structure theorem for Iwasawa modules, μ and λ, the characteristic ideal, and
+  the growth formula;
+- two requests: Tau Ceti ProfiniteProPGroups Layer 9 for O⟦Γ⟧ ≅ O⟦T⟧, and StableReduction Layer 1 for Fitting ideals;
+- one source finding, E15.
+
+**Sources:**
+- NSW 2nd ed. v2.3 (sha256 abbb7cde…afdcb91), Chapter V §1 and §3 read in full;
+- RJW §13.1 and the proof of Lemma 10.7, in both the published version and arXiv v2.
+
+**E15** (error, affects a stated result). RJW Theorem 13.1 and Definition 13.3 use Λ/(p^{n_i}) and (p^n) over O_L⟦T⟧,
+where they need ϖ.
+- The counterexample is Λ/(√p) over ℤ_p(√p).
+- The published text and arXiv v2 agree.
+- No erratum is on arXiv or the MSP page.
+
+**Requests served:**
+- ColemanPowerSeries L1: `L4/nonzero-power-series-factorization`, with f ≠ 0 as its E10 asks.
+- NoncommutativeAndEquivariantIwasawa: characteristic ideals, the structure theorem, and the norm formula (API of
+  `L4/characteristic-ideal`).
+- PadicHodgeRegulators L3: `L4/finite-quotient-criterion`.
+
+**Reused rather than restated:**
+- Mathlib's Weierstrass division and preparation;
+- Mathlib's noetherian and UFD instances for R⟦X⟧;
+- `Module.length`, `Module.IsReflexive`, `IsRegularLocalRing`.
+
+## Checks
+
+- `check_blueprint.py`: 369 nodes, 0 errors, 0 warnings.
+- `intake.py check-files`: passed. Unit tests: 304 passed.
+- Lean: the new L4 block (namespace `TauCeti.Iwasawa`, with `L4Tests`), with its Mathlib imports, elaborates on its own
+  against the pinned Mathlib 082e2d3 with Lean 4.34.0-rc2. The exit code is 0, and the only warnings are proof
+  placeholders.
+  - Eight tests are proved:
+    - ξ₁ for p = 3 and ω₁ for p = 2;
+    - ω₂ ≡ T⁴ mod 2;
+    - Lemma 5.3.18 for λ = 1;
+    - |−3|₃ = 1/3;
+    - F_{M,γ²} for Λ/(T − p);
+    - the idempotents (1 ± h)/2;
+    - the Weierstrass-adapter restatement.
+  - The full suggested file imports two Tau Ceti modules whose builds were not available here, so it was not
+    re-elaborated as a whole.
+  - The preceding body is unchanged: 11 Mathlib imports were added, and the L4 block is appended.
+
+## Resume (L4)
+
+1. Supply the multivariable algebras O⟦T₁, …, T_d⟧: noetherian, regular local of dimension d + 1, hence factorial and
+   normal. Then instantiate `torsion-structure-normal-domain` and `characteristic-ideal` for O⟦ℤ_p^d⟧, with pseudo-null
+   meaning codimension ≥ 2.
+2. NSW 5.3.10 needs topological Nakayama. The L5 description owns it but comes after L4, so either plan it in L4 or
+   propose a restructure.
+3. Build the twisting operators γ ↦ κ(γ)γ and γ ↦ γ^{−1} on Λ(Γ) (L1), and consume them in `charIdeal_comap_ringEquiv`.
+4. L5 (determinants, specialisation, compact inverse-limit exactness) and L6 remain `not_read`.
+
 # BP-PadicMeasuresIwasawaAlgebras — residue restrictions
 
 Agent: Codex — codex-hjdg0j. Date: 28 September2026. Issue #555.
