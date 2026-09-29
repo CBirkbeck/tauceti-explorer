@@ -144690,6 +144690,86 @@
    "reviewReason": null
   },
   {
+   "id": "NoncommutativeAndEquivariantIwasawa/E1",
+   "kind": "misprint",
+   "locator": "Definition 49, p. 34 (arXiv v3)",
+   "printed": "The source abbreviates T_{P,N_GP} to T_P, T_{P,N_GP,S} to T_{P,S}, and \\widehat{T_{P,P′}} to \\widehat{T_P}.",
+   "correction": "The completed version should be \\widehat{T_{P,N_GP}}: \"(resp. T_{P,N_GP,S} and \\widehat{T_{P,N_GP}}) simply by T_P (resp. T_{P,S} and \\widehat{T_P})\".",
+   "reason": "T_P is the N_GP-trace image in all three settings, as the first two entries and the uses of pT̂_P in Definition 51 (M4) and Lemma 118 show; P′ is not bound in that sentence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E2",
+   "kind": "misprint",
+   "locator": "§5.3.1, p. 36; also Remark 59 (p. 38), the proof of Lemma 63 (p. 41), and pp. 47–51 (arXiv v3)",
+   "printed": "t^G_P : R[Cong(G)]^τ → R[P^ab]^τ",
+   "correction": "R[Conj(G)]^τ, the free R-module on the conjugacy classes of G (Lemma 43).",
+   "reason": "Only Conj(G) is defined (Remark 42, Lemma 43); the same map is written with Conj(G) in Definition 55 and Theorem 58.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E3",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 74, p. 50 (arXiv v3)",
+   "printed": "L(1 − v) = −(v + v²/2 + v³/3 + ···) + (ϕ(v)/p + ϕ(v)/2p + ···)",
+   "correction": "L(1 − v) = −(v + v²/2 + v³/3 + ···) + (ϕ(v)/p + ϕ(v²)/(2p) + ϕ(v³)/(3p) + ···)",
+   "reason": "L = log − (ϕ/p)log and log(1 − v) = −Σ_k v^k/k, so the second sum is (1/p)Σ_k ϕ(v^k)/k; the next line of the proof, Σ_k (v^{pk} − ϕ(v^k))/(pk), uses this corrected form.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E4",
+   "kind": "gap",
+   "locator": "Corollary 90, p. 65 (arXiv v3)",
+   "printed": "The source asserts an injection K′₁(Λ_O(G)) into K′₁(Λ_O(G)_S) when G is a compact Lie group over the p-adics admitting a quotient isomorphic to Z_p, and O consists of the integers of a finite extension of Q_p that is unramified.",
+   "correction": "No proof is printed; §6 begins directly after the statement. A proof: Theorems 52–53 give G pro-p of dimension one; the injectivity statements of Theorems 27, 33 and 36 give dimension one; Corollary 20 with the dimension-one case for each G/U gives the general case. The §4 reductions are written for O = Z_p only, so a larger unramified O needs them rerun over O.",
+   "reason": "For G that is not pro-p of dimension one, the statement needs the §4 reductions and a limit argument, which the text does not spell out; the plan records the reconstruction in node NE.6/k1-injects-localisation.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E1",
    "kind": "misprint",
    "locator": "§3.2, paragraph before Lemma 3.10, p. 41 (Numdam PDF page 38)",
@@ -153623,6 +153703,46 @@
    "owner": "SmallRamificationAndAbelianVarietyBaseCases",
    "file": "research/blueprint/packets/SmallRamificationAndAbelianVarietyBaseCases.json",
    "citation": "René Schoof, Abelian varieties over Q with bad reduction in one prime only, Compositio Math. 141 (2005), 847–868, doi:10.1112/S0010437X05001107; author-hosted copy of the published article; accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SpecialValuesBirchTate/E1",
+   "kind": "misprint",
+   "locator": "proof of Theorem 5, p. 250 (Cambridge Core PDF of the published note)",
+   "printed": "The source derives w₂(E)·ζ_E(−1) ~ … from the relation L₂(χ₀, −1) ~ ζ_e(−1).",
+   "correction": "Since L₂(χ₀, −1) ~ ζ_E(−1), …",
+   "reason": "e is the integer with F₀ = E(ζ_{2^e}); the zeta function is that of the base field E, as in Conjecture 4 and in the same line. L₂(χ₀, −1) = ζ_E(−1)·∏_{𝔭|2}(1 − N𝔭) with odd factors.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Cambridge Core article page for Canad. Math. Bull. 32 (1989) 248–251 (no erratum linked)",
+    "web search for an erratum to Kolster's note (none found)"
+   ],
+   "owner": "SpecialValuesBirchTate",
+   "file": "research/blueprint/packets/SpecialValuesBirchTate.json",
+   "citation": "Manfred Kolster, A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture, Canad. Math. Bull. 32 (2) (1989), 248–251; Cambridge Core PDF, 4 pages, printed page = PDF page + 247. Formulas were checked on the page images.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SpecialValuesBirchTate/E2",
+   "kind": "misprint",
+   "locator": "before Lemma 2, p. 250",
+   "printed": "Citing [4], the source rules out finite nonzero Λ-submodules in A_∞^-. It consequently obtains the size of (𝒯 ⊗_{ℤ₂} A_∞^-)^Γ … by substituting T = 0 into the characteristic polynomial.",
+   "correction": "Since Ǎ_∞^- has no non-trivial finite Λ-submodules (cf. [4]), …",
+   "reason": "A_∞^- = lim→ A_n^- is a union of the images of the finite Λ-modules A_n^-, so it has nonzero finite Λ-submodules whenever it is nonzero. The evaluation argument needs the compact dual Ǎ_∞^- (hence Ǎ_∞^-(−1)) to have none, so that Ǎ_∞^-(−1)^Γ = 0 and |Ǎ_∞^-(−1)_Γ| ~ f(u^{−1} − 1). The OCR and the page image both show A_∞^- without the accent.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Cambridge Core article page for Canad. Math. Bull. 32 (1989) 248–251 (no erratum linked)",
+    "web search for an erratum to Kolster's note (none found)"
+   ],
+   "owner": "SpecialValuesBirchTate",
+   "file": "research/blueprint/packets/SpecialValuesBirchTate.json",
+   "citation": "Manfred Kolster, A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture, Canad. Math. Bull. 32 (2) (1989), 248–251; Cambridge Core PDF, 4 pages, printed page = PDF page + 247. Formulas were checked on the page images.",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -172345,7 +172465,6 @@
   "KatoEulerSystems",
   "LanglandsParameterStacks",
   "ModularCurvesPartII",
-  "NoncommutativeAndEquivariantIwasawa",
   "RelativeFarguesFontaine",
   "RelativeFarguesFontaine",
   "VStackSheavesAndLisseCategories",
