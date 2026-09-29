@@ -154075,6 +154075,27 @@
    "reviewReason": null
   },
   {
+   "id": "SpecialValuesBirchTate/E6",
+   "kind": "error",
+   "locator": "Lecture 1, §2, p. 11 (author copy)",
+   "printed": "The resulting group H¹(o_F, ℤ(n)) is an analog of the group of units. It is a finitely generated abelian group of rank r₂ if n ≥ 3 is odd, r₁ + r₂ if n ≥ 2 is even",
+   "correction": "… of rank r₁ + r₂ if n ≥ 3 is odd, r₂ if n ≥ 2 is even",
+   "reason": "The same paragraph requires H¹(o_F, ℤ(n)) ⊗ ℤ_p ≅ H¹_ét(o′_F, ℤ_p(n)), whose rank is r₁ + r₂ for odd n and r₂ for even n by the notes' own Proposition 2.1(5) (p. 10); these are also Borel's ranks of K_{2n−1}(o_F) (p. 15). For F = ℚ and n = 2 the printed rank is 1, but H¹_ét(ℤ[1/p], ℤ_p(2)) is finite (r₂ = 0), matching K₃(ℤ) ≅ ℤ/48. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there)",
+    "the published volume (IAS/Park City Mathematics Series) was not accessed",
+    "research/errata/REGISTER.md: no entry for these notes"
+   ],
+   "owner": "SpecialValuesBirchTate",
+   "file": "research/blueprint/packets/SpecialValuesBirchTate.json",
+   "citation": "Manfred Kolster, Special values of L-functions at negative integers, Lecture notes, IAS/Park City Mathematics Series (author preprint, 2009, 22 pages); printed page = PDF page; accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "TropicalAndBerkovichArithmetic/E1",
    "kind": "error",
    "locator": "Definition/Exercise 2.1.1.1(iv), preprint p. 4 only",
