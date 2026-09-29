@@ -23,9 +23,23 @@
    "read": "2026-09-29",
    "sha256": "57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3",
    "citation": "arXiv:2301.10509v3 (27 March 2025), read completely; there is no published version."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2301.10509v1",
+   "read": "2026-09-29",
+   "sha256": "a381ba0766c86ed9a78fc91fb509d902e3a451fe7fed4b5e5b3de8d4b6d954ae",
+   "citation": "arXiv:2301.10509v1 (25 January 2023); compared by the review REV-PAPER-CARAIANI-NEWTON-23 at E1, E3, E9, E12, E14 and E16 only, which read the same there."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2301.10509v2",
+   "read": "2026-09-29",
+   "sha256": "830ed2db95c824b75368266ae33c63742a5bb17628c9828ed3393ab1005828b0",
+   "citation": "arXiv:2301.10509v2 (29 September 2023); compared by the review REV-PAPER-CARAIANI-NEWTON-23 at E1, E3, E9, E12, E14 and E16 only, which read the same there."
   }
  ],
- "summary": "Caraiani and Newton prove that every elliptic curve over an imaginary quadratic field F with X₀(15)(F) finite is modular (Theorem 1.1, including Q(√−d) for d = 1, 2, 3, 5), that 100% of Weierstrass equations over a Galois imaginary CM field without ζ₅ are modular (Theorem 1.2), and, as the key new input, local–global compatibility at p for Scholze's torsion Galois representations over CM fields in the crystalline and P-ordinary cases, with p small and ramified (Theorems 4.2.15 and 4.3.1). The route: P-ordinary Hida theory for the Betti cohomology of the unitary spaces and degree shifting at deep auxiliary level (§§2, 4), a determinant argument producing integral local lifts (§3), a potentially Barsotti–Tate automorphy lifting theorem for GL₂ over CM fields (§5), mod-3/mod-5 switching with Allen–Khare–Thorne (§6), and imaginary quadratic points on six modular curves of level 15 with Borel and Cartan structure (§7). The atlas plans the ten-author infrastructure (PotentialAutomorphyInfrastructure PA.0–PA.4, ArithmeticLocallySymmetricSpaces, IntegralHeckeAndGaloisDeterminants, IgusaVarietiesAndTorsionConcentration IG.7, local and global deformation rings) and modularity over Q, but only Fontaine–Laffaille and ordinary local–global compatibility. Two Part II routes carry the new mathematics: of PotentialAutomorphyInfrastructure (§§2–5) and of EllipticCurveModularity (§§6–7); four source routes add the paper to ArithmeticLocallySymmetricSpaces, IntegralHeckeAndGaloisDeterminants, LocalGaloisDeformationRings and EffectiveDiophantineMethods. Eleven misprints are recorded; none affects a result.",
+ "summary": "Caraiani and Newton prove that every elliptic curve over an imaginary quadratic field F with X₀(15)(F) finite is modular (Theorem 1.1, including Q(√−d) for d = 1, 2, 3, 5), that 100% of Weierstrass equations over a Galois imaginary CM field without ζ₅ are modular (Theorem 1.2), and, as the key new input, local–global compatibility at p for Scholze's torsion Galois representations over CM fields in the crystalline and P-ordinary cases, with p small and ramified (Theorems 4.2.15 and 4.3.1). The route: P-ordinary Hida theory for the Betti cohomology of the unitary spaces and degree shifting at deep auxiliary level (§§2, 4), a determinant argument producing integral local lifts (§3), a potentially Barsotti–Tate automorphy lifting theorem for GL₂ over CM fields (§5), mod-3/mod-5 switching with Allen–Khare–Thorne (§6), and imaginary quadratic points on six modular curves of level 15 with Borel and Cartan structure (§7). The atlas plans the ten-author infrastructure (PotentialAutomorphyInfrastructure PA.0–PA.4, ArithmeticLocallySymmetricSpaces, IntegralHeckeAndGaloisDeterminants, IgusaVarietiesAndTorsionConcentration IG.7, local and global deformation rings) and modularity over Q, but only Fontaine–Laffaille and ordinary local–global compatibility. Two Part II routes carry the new mathematics: of PotentialAutomorphyInfrastructure (§§2–5) and of EllipticCurveModularity (§§6–7); six source routes add the paper to ArithmeticLocallySymmetricSpaces, IntegralHeckeAndGaloisDeterminants, LocalGaloisDeformationRings, EffectiveDiophantineMethods, IgusaVarietiesAndTorsionConcentration (IG.7, added by the review) and ArithmeticGaloisRepresentations (R01.4, added by the review). Seventeen mistakes are recorded: sixteen misprints and one error (E12, found by the review: Lemma 5.6.5 fails when d = 3 and the projective image is A₄, leaving a gap in the proof of Theorem 5.2 for p ≡ 1 mod 3 that does not touch the elliptic-curve results).",
  "items": [
   {
    "id": "PAPER-CARAIANI-NEWTON-23/modular-elliptic-curve",
@@ -166,9 +180,10 @@
    "status": "planned",
    "library": [],
    "planned": [
-    "ArithmeticLocallySymmetricSpaces:ALS.1"
+    "ArithmeticLocallySymmetricSpaces:ALS.1",
+    "ArithmeticLocallySymmetricSpaces:ALS.6"
    ],
-   "note": "ALS.1: bounded finite projective models under finite-CW/neat hypotheses. Proof by a K_G-invariant triangulation, as [ACC+18, Lemma 2.1.7]; compact support via a triangulation of the boundary."
+   "note": "ALS.1: bounded finite projective models under finite-CW/neat hypotheses. Proof by a K_G-invariant triangulation, as [ACC+18, Lemma 2.1.7]; compact support via a triangulation of the boundary. Review (REV-PAPER-CARAIANI-NEWTON-23): ALS.1 gives projectivity over R only; ALS.6 plans 'finite-level descent and the finite-cover Hochschild–Serre'; added."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/completed-cohomology-at-S",
@@ -253,9 +268,10 @@
    "status": "planned",
    "library": [],
    "planned": [
-    "PotentialAutomorphyInfrastructure:PA.0"
+    "PotentialAutomorphyInfrastructure:PA.0",
+    "TorsionCohomologyInfrastructure:TC.3"
    ],
-   "note": "The unitary boundary argument of ACC+ (PA.0) uses this exact group and identification, following [ACC+18, §2.2.1]."
+   "note": "The unitary boundary argument of ACC+ (PA.0) uses this exact group and identification, following [ACC+18, §2.2.1]. Review (REV-PAPER-CARAIANI-NEWTON-23): TC.3 plans 'symplectic/unitary parabolics whose Levi contains a restriction of scalars of GL_n', as for the accepted ACC+ items 36 and 44; added."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/dual-weyl-modules",
@@ -314,9 +330,10 @@
    "status": "planned",
    "library": [],
    "planned": [
-    "IntegralHeckeAndGaloisDeterminants:IHG.3"
+    "IntegralHeckeAndGaloisDeterminants:IHG.3",
+    "TorsionCohomologyInfrastructure:TC.3"
    ],
-   "note": "IHG.3 normalizes the spherical Hecke polynomials integrally. The printed (2.1.6) omits X^{2n−j} in its general term (source issue E11)."
+   "note": "IHG.3 normalizes the spherical Hecke polynomials integrally. The printed (2.1.6) omits X^{2n−j} in its general term (source issue E11). Review (REV-PAPER-CARAIANI-NEWTON-23): TC.3 added for P̃_v, as for the accepted ACC+ item 44."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/prop-2-1-14",
@@ -438,7 +455,7 @@
    "planned": [
     "IntegralHeckeAndGaloisDeterminants:IHG.5"
    ],
-   "note": "IHG.5 specializes determinants to residual semisimple representations; the non-Eisenstein condition is ACC+'s."
+   "note": "IHG.5 specializes determinants to residual semisimple representations; the non-Eisenstein condition is ACC+'s. Review (REV-PAPER-CARAIANI-NEWTON-23): IHG.5 holds it through the accepted ACC+ route 3 (ACC+ item 70); the stage text itself does not define it."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/thm-2-1-24",
@@ -516,12 +533,10 @@
    "name": "Torsion vanishing: middle degree cohomology and its boundary",
    "statement": "Under the assumptions on F of thm-2-1-26, let m̃ ⊂ T̃^T(K̃,λ̃) be maximal with ρ̄_{m̃} decomposed generic, and d = dim_C X̃_{K̃}. Then there are T̃^T-equivariant morphisms H^d(X̃_{K̃}, V_λ̃[1/p])_{m̃} ↩ H^d(X̃_{K̃}, V_λ̃)_{m̃} ↠ H^d(∂X̃_{K̃}, V_λ̃)_{m̃} (the first injective, the second surjective).",
    "locator": "Theorem 2.1.28, p.25",
-   "status": "planned",
+   "status": "missing",
    "library": [],
-   "planned": [
-    "IgusaVarietiesAndTorsionConcentration:IG.7"
-   ],
-   "note": "From [CS24, Thm. 1.1] as in [ACC+18, Thm. 4.3.3]; the hypotheses [F⁺ : Q] > 1 and 'ρ̄_{m̃} of length at most two' are removed by [Kos21, Theorem 1.4]. IG.7 exports ACC+ Theorem 4.3.3 under the length ≤ 2 hypothesis; Koshikawa's removal of it is not planned and is recorded among the prerequisites."
+   "planned": [],
+   "note": "From [CS24, Thm. 1.1] as in [ACC+18, Thm. 4.3.3]; the hypotheses [F⁺ : Q] > 1 and 'ρ̄_{m̃} of length at most two' are removed by [Kos21, Theorem 1.4]. IG.7 exports ACC+ Theorem 4.3.3 under the length ≤ 2 hypothesis; Koshikawa's removal of it is not planned and is recorded among the prerequisites. Review (REV-PAPER-CARAIANI-NEWTON-23): changed from planned to missing. IG.7 exports ACC+ Theorem 4.3.3 for ρ_m of length at most two and with [F⁺:Q] > 1; the paper needs the form without both hypotheses (F⁺ = Q for F imaginary quadratic), from [Kos21, Thm. 1.4]. Routed as a source for IG.7 (route 7)."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/p-ordinary-finite-level",
@@ -791,23 +806,23 @@
    "id": "PAPER-CARAIANI-NEWTON-23/chi-character",
    "kind": "definition",
    "name": "The modulus-type character χ of M(L)",
-   "statement": "χ : M(L) → O^× is χ(m) = Nm_{L/Q_p} det_L(Ad(m)|_{Lie U(L)})^{−1} · |Nm_{L/Q_p} det_L(Ad(m)|_{Lie U(L)})|_p.",
+   "statement": "χ : M(L) → O^× is χ(m) = Nm_{L/Q_p} det_L(Ad(m)|_{Lie U(L)})^{−1} / |Nm_{L/Q_p} det_L(Ad(m)|_{Lie U(L)})|_p.",
    "locator": "§2.3.1, p.37",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": ""
+   "note": "Review (REV-PAPER-CARAIANI-NEWTON-23): the page image of p.37 prints a quotient by the p-adic absolute value; the extraction had a product, which does not land in O^×. Corrected."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/lem-2-3-8",
    "kind": "theorem",
    "name": "P-ordinary part of an inflation from the Levi",
-   "statement": "For π ∈ D⁺_sm(M(L), O/ϖ^m) there is a natural isomorphism ord RΓ(U₀, Inf^{M(L)⁺⋉U₀}_{M(L)⁺} π) ≅ O/ϖ^m(χ) ⊗ π[−rk_{Z_p}U₀] in D⁺_sm(M(L)⁺, O/ϖ^m).",
-   "locator": "Lemma 2.3.8, pp.37–38",
+   "statement": "For π ∈ D⁺_sm(M(L), O/ϖ^m) there is a natural isomorphism ord RΓ(U₀, Inf^{M(L)⁺⋉U₀}_{M(L)⁺} π) ≅ O/ϖ^m(χ) ⊗ π[−rk_{Z_p}U₀] in D⁺_sm(M(L)⁺, O/ϖ^m). Corollary 2.3.10: for π ∈ D⁺_sm(M(L), O/ϖ^m), ord RΓ(U₀, I_id(Inf^{P(L)}_{M(L)} π)) ≅ O/ϖ^m(χ) ⊗ π[−rk_{Z_p}U₀] in D⁺_sm(M(L)⁺, O/ϖ^m), where I_id is the identity Bruhat stratum and I°_id its restriction to M(L)⁺ ⋉ U₀ (Remark 2.3.9).",
+   "locator": "Lemma 2.3.8, pp.37–38; Remark 2.3.9 and Corollary 2.3.10, p.38",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The ordinary parts of H^i(U₀, O/ϖ^m) vanish below the top degree [ACC+18, Lemma 5.3.7], and H^{rk}(U₀,O/ϖ^m) ≅ O/ϖ^m(χ) [Eme10b, Props. 3.5.6, 3.5.10], as [Hau16, Prop. 3.1.8]. Remark 2.3.9 and Corollary 2.3.10: the same for the identity cell I_id(Inf π)."
+   "note": "The ordinary parts of H^i(U₀, O/ϖ^m) vanish below the top degree [ACC+18, Lemma 5.3.7], and H^{rk}(U₀,O/ϖ^m) ≅ O/ϖ^m(χ) [Eme10b, Props. 3.5.6, 3.5.10], as [Hau16, Prop. 3.1.8]. Remark 2.3.9 and Corollary 2.3.10: the same for the identity cell I_id(Inf π). Review (REV-PAPER-CARAIANI-NEWTON-23): Corollary 2.3.10, the w = id input to Proposition 2.3.11, was only in the note; it is now part of the statement and locator."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/prop-2-3-11",
@@ -847,11 +862,11 @@
    "kind": "theorem",
    "name": "Tensor identity for smooth induction",
    "statement": "For π₁ ∈ Rep_sm(K_P, O/ϖ^m) and π₂ ∈ Rep_sm(K, O/ϖ^m) valued in a finite free O/ϖ^m-module, f ⊗ v ↦ (g ↦ f(g) ⊗ π₂(g)v) is a natural isomorphism (Ind^K_{K_P} π₁) ⊗ π₂ ≅ Ind^K_{K_P}(π₁ ⊗ Res^K_{K_P} π₂) in Rep_sm(K, O/ϖ^m).",
-   "locator": "Lemma 2.3.15, pp.40–41",
+   "locator": "Lemma 2.3.15, p.41",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": ""
+   "note": "Review (REV-PAPER-CARAIANI-NEWTON-23): locator corrected: p.40 only announces the lemma; statement and proof are on p.41."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/lem-2-3-17",
@@ -873,7 +888,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Reduce to M ⊂ N; Artin–Rees [AM16, Cor. 10.10], in Mathlib as Ideal.exists_pow_inf_eq_pow_smul, gives p^{m+k}N ∩ M ⊆ p^mM. The subquotient statement itself is not in the libraries."
+   "note": "Reduce to M ⊂ N; Artin–Rees [AM16, Cor. 10.10], in Mathlib as Ideal.exists_pow_inf_eq_pow_smul, gives p^{m+k}N ∩ M ⊆ p^mM. The subquotient statement itself is not in the libraries. Review (REV-PAPER-CARAIANI-NEWTON-23): its input, the Artin–Rees lemma, is in the libraries (mathlib:Ideal.exists_pow_inf_eq_pow_smul; tauceti:TauCeti.ArtinRees.exists_controlled_lift); the subquotient statement itself is not."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/Q-ordinary-hecke",
@@ -953,7 +968,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "[Bou98, Ch. III, §4, Ex. 5(a)]: reduce to the finite commutative subalgebra generated by one lift, a product of Henselian local rings. Mathlib lifts idempotents only along nilpotent kernels (exists_isIdempotentElem_eq_of_ker_isNilpotent); the Henselian integral case is missing."
+   "note": "[Bou98, Ch. III, §4, Ex. 5(a)]: reduce to the finite commutative subalgebra generated by one lift, a product of Henselian local rings. Mathlib lifts idempotents only along nilpotent kernels (exists_isIdempotentElem_eq_of_ker_isNilpotent); the Henselian integral case is missing. Review (REV-PAPER-CARAIANI-NEWTON-23): Mathlib lifts idempotents only across a nilpotent kernel (CompleteOrthogonalIdempotents.lift_of_isNilpotent_ker), not over a Henselian base; still missing."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/lem-3-2-2",
@@ -1013,9 +1028,10 @@
    "library": [],
    "planned": [
     "LocalGaloisDeformationRings:L8",
-    "LocalGaloisDeformationRings:R08.3"
+    "LocalGaloisDeformationRings:R08.3",
+    "LocalGaloisDeformationRings:L7"
    ],
-   "note": "L8 treats ordinary flags versus determinant-ordinary conditions; R08.3 fixed Hodge type."
+   "note": "L8 treats ordinary flags versus determinant-ordinary conditions; R08.3 fixed Hodge type. Review (REV-PAPER-CARAIANI-NEWTON-23): L7 plans 'ordinary deformation functors with a full invariant flag and specified graded characters'; added."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/lem-3-3-2",
@@ -1103,12 +1119,12 @@
    "id": "PAPER-CARAIANI-NEWTON-23/lem-4-1-5",
    "kind": "theorem",
    "name": "The Siegel stratum as an induction at S̄₁",
-   "statement": "With λ̃ as in thm-4-1-3, RΓ((𝔛_P × G̃(𝔸_{F⁺,f}))/P(𝔸_{F⁺,f}), V_λ̃/ϖ^m) ≅ Ind^{G̃_{S̄₁}×G̃⁰_{S̄₁}}_{P_{S̄₁}×P⁰_{S̄₁}} RΓ(𝔛_P, V_λ̃/ϖ^m) in D⁺_sm(G̃_{S̄₁} × G̃⁰_{S̄₁}, O/ϖ^m).",
+   "statement": "With λ̃ as in thm-4-1-3, RΓ((𝔛_P × G̃(𝔸_{F⁺,f}))/P(𝔸_{F⁺,f}), V_λ̃/ϖ^m) ≅ Ind^{G̃^{S̄₁}×G̃⁰_{S̄₁}}_{P^{S̄₁}×P⁰_{S̄₁}} RΓ(𝔛_P, V_λ̃/ϖ^m) in D⁺_sm(G̃^{S̄₁} × G̃⁰_{S̄₁}, O/ϖ^m), where G̃^{S̄₁} is the adelic group away from S̄₁ and G̃⁰_{S̄₁} = ∏_{v̄∈S̄₁} G̃(O_{F⁺_{v̄}}).",
    "locator": "Lemma 4.1.5, p.55",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "lem-2-3-14 with the Iwasawa decomposition, lem-2-1-8 and lem-2-3-15."
+   "note": "lem-2-3-14 with the Iwasawa decomposition, lem-2-1-8 and lem-2-3-15. Review (REV-PAPER-CARAIANI-NEWTON-23): the first factor is G̃^{S̄₁} (away from S̄₁), a superscript, as printed on p.55; corrected."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/lem-4-1-6",
@@ -1275,7 +1291,7 @@
    "planned": [
     "PotentialAutomorphyInfrastructure:PA.0"
    ],
-   "note": "[ACC+18, Def. 4.3.5]; the CTG hypothesis enters ACC+'s boundary argument (PA.0) through [ACC+18, Thm. 2.4.11]."
+   "note": "[ACC+18, Def. 4.3.5]; the CTG hypothesis enters ACC+'s boundary argument (PA.0) through [ACC+18, Thm. 2.4.11]. Review (REV-PAPER-CARAIANI-NEWTON-23): PA holds it through the accepted ACC+ route 2 (ACC+ item 119)."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/prop-4-2-11",
@@ -1303,12 +1319,12 @@
    "id": "PAPER-CARAIANI-NEWTON-23/sub-lemma-1-twist",
    "kind": "theorem",
    "name": "A twisting character separating local constituents",
-   "statement": "In the proof of prop-4-2-13, possibly after enlarging O, there is a continuous character ψ̄ : G_F → k^×, unramified at S_p and with ρ̄_{m̃(ψ)} decomposed generic, such that (1) the irreducible constituents of ρ̄_{m(ψ)}|_{G_{F_ṽ}} are disjoint from those of ρ̄^{∨,c}_{m(ψ)}(1−2n)|_{G_{F_ṽ}}; (2) for all 1 ≤ i ≤ r the irreducible constituents of r̄^i_{1,ψ} coincide with those of ρ̄_{m(ψ)}|_{G_{F_ṽ}}.",
+   "statement": "In the proof of prop-4-2-13, possibly after enlarging O, there is a continuous character ψ̄ : G_F → k^×, unramified at S_p and with ρ̄_{m̃(ψ)} decomposed generic, such that (1) the irreducible constituents of ρ̄_{m(ψ)}|_{G_{F_ṽ}} are disjoint from those of ρ̄^{∨,c}_{m(ψ)}(1−2n)|_{G_{F_ṽ}}; (2) for every factor i of Ã(ψ)[1/p] = ∏_{i=1}^{r} E (p.69; this r is not the r of n = n₁ + ⋯ + n_r) the irreducible constituents of r̄^i_{1,ψ} coincide with those of ρ̄_{m(ψ)}|_{G_{F_ṽ}}.",
    "locator": "Sub-lemma 1 in the proof of Proposition 4.2.13, pp.70–71",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Grunwald–Wang: prescribe ψ̄(Art(ϖ_ṽ)), ψ̄(Art(ϖ_{ṽc})) of large coprime orders, locally trivial at a decomposed generic prime; then the determinant identity (4.2.5) forces J_i = ∅."
+   "note": "Grunwald–Wang: prescribe ψ̄(Art(ϖ_ṽ)), ψ̄(Art(ϖ_{ṽc})) of large coprime orders, locally trivial at a decomposed generic prime; then the determinant identity (4.2.5) forces J_i = ∅. Review (REV-PAPER-CARAIANI-NEWTON-23): the index i runs over the factors of Ã(ψ)[1/p], made explicit."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/thm-4-2-15",
@@ -1352,7 +1368,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Remarks 5.2.1–5.2.3: (5b) can be replaced using thm-4-2-15; the inverse-cyclotomic determinant (as in [AKT23]) handles p = 3 with image SL₂(F₃); a Fontaine–Laffaille n-dimensional variant strengthening [ACC+18, Thm. 6.1.1] would follow from thm-4-2-15 (not proved in the paper)."
+   "note": "Remarks 5.2.1–5.2.3: (5b) can be replaced using thm-4-2-15; the inverse-cyclotomic determinant (as in [AKT23]) handles p = 3 with image SL₂(F₃); a Fontaine–Laffaille n-dimensional variant strengthening [ACC+18, Thm. 6.1.1] would follow from thm-4-2-15 (not proved in the paper). Review (REV-PAPER-CARAIANI-NEWTON-23): the printed proof has a gap when p ≡ 1 mod 3, [F₁(ζ_p) : F₁] = 3 and the projective image of ρ̄ is A₄ (source issue E12, proof-thm-5-2); the cases p = 3, 5 used in §6 are unaffected."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/global-deformation-problems",
@@ -1373,7 +1389,7 @@
    "kind": "definition",
    "name": "Local lifting rings used for GL₂ (fixed determinant, level raising, Barsotti–Tate, ordinary)",
    "statement": "For p odd and ψ a fixed determinant: R^ψ_v (lifts of ρ̄|_{G_{F_v}} of determinant ψ; formally smooth of relative dimension 3 over O when v ∉ S_p and H²(F_v, ad⁰ρ̄) = 0); level-raising rings R^{ψ,χ}_v for q_v ≡ 1 mod p, ρ̄|_{G_{F_v}} trivial and χ : O^×_{F_v} → O^× trivial mod ϖ, classifying lifts with det ψ and char_{ρ(σ)}(X) = (X − χ(Art^{−1}σ))(X − χ^{−1}ψ(Art^{−1}σ)) for σ ∈ I_{F_v} ([AKT23, §A.1.2]); Barsotti–Tate rings R^{ψ,BT}_v = R^{cris,(0,0),ψ}_{ρ̄_v} for v | p (ψ|_{G_{F_v}} crystalline of weight 1); and, for ψ = ε^{−1}_p with ρ̄|_{G_{F_v}} and ε_p|_{G_{F_v}} trivial, the ordinary ring R^△_v := R^{△,(0,0),ψ}_v.",
-   "locator": "§5.3 and §5.3.1, pp.75",
+   "locator": "§5.3 and §5.3.1, p.75",
    "status": "planned",
    "library": [],
    "planned": [
@@ -1436,7 +1452,7 @@
    "id": "PAPER-CARAIANI-NEWTON-23/patching-axioms",
    "kind": "definition",
    "name": "Abstract patching data with two sets of local conditions",
-   "statement": "S_∞ = O[[X₁,…,X_r]] with augmentation ideal a_∞; perfect complexes C_∞, C′_∞ of S_∞-modules with a fixed isomorphism C_∞ ⊗^L S_∞/ϖ ≅ C′_∞ ⊗^L S_∞/ϖ; finite S_∞-subalgebras T_∞ ⊂ End_{D(S_∞)}(C_∞), T′_∞ ⊂ End(C′_∞) with the same image T̄_∞ mod ϖ; Noetherian complete local S_∞-algebras R_∞, R′_∞ with surjections R_∞ ↠ T_∞/I_∞, R′_∞ ↠ T′_∞/I′_∞ (I nilpotent); an isomorphism R_∞/ϖ ≅ R′_∞/ϖ compatible with the actions on H^*(C_∞ ⊗^L S_∞/ϖ)/(Ī_∞ + Ī′_∞); integers q₀ and l₀ ≥ 0. Assumption 5.4.1: (1) dim R_∞ = dim R′_∞ = dim S_∞ − l₀ and dim R_∞/ϖ = dim S_∞ − l₀ − 1; (2) each generic point of Spec R_∞/ϖ specializes unique generic points of Spec R_∞ and Spec R′_∞, both equidimensional with generic points of characteristic 0; (3) H^*(C_∞ ⊗^L S_∞/a_∞)[1/p] ≠ 0, concentrated in [q₀, q₀ + l₀]; (4) a fixed characteristic-0 point x ∈ Spec(T_∞/a_∞T_∞).",
+   "statement": "S_∞ = O[[X₁,…,X_r]] with augmentation ideal a_∞; perfect complexes C_∞, C′_∞ of S_∞-modules with a fixed isomorphism C_∞ ⊗^L S_∞/ϖ ≅ C′_∞ ⊗^L S_∞/ϖ; finite S_∞-subalgebras T_∞ ⊂ End_{D(S_∞)}(C_∞), T′_∞ ⊂ End(C′_∞) with the same image T̄_∞ mod ϖ; Noetherian complete local S_∞-algebras R_∞, R′_∞ with surjections R_∞ ↠ T_∞/I_∞, R′_∞ ↠ T′_∞/I′_∞ (I nilpotent); an isomorphism R_∞/ϖ ≅ R′_∞/ϖ compatible with the actions on H^*(C_∞ ⊗^L S_∞/ϖ)/(Ī_∞ + Ī′_∞); integers q₀ and l₀ ≥ 0. Assumption 5.4.1: (1) dim R_∞ = dim R′_∞ = dim S_∞ − l₀ and dim R_∞/ϖ = dim R′_∞/ϖ = dim S_∞ − l₀ − 1; (2) each generic point of Spec R_∞/ϖ is the specialization of unique generic points of Spec R_∞ and of Spec R′_∞, and Spec R_∞, Spec R′_∞ are both equidimensional with generic points of characteristic 0; (3) H^*(C_∞ ⊗^L S_∞/a_∞)[1/p] ≠ 0, concentrated in [q₀, q₀ + l₀]; (4) a fixed characteristic-0 point x ∈ Spec(T_∞/a_∞T_∞).",
    "locator": "§5.4, Assumption 5.4.1, pp.77–78",
    "status": "planned",
    "library": [],
@@ -1444,18 +1460,18 @@
     "PotentialAutomorphyInfrastructure:PA.3",
     "DeformationAndDerivedPatchingAlgebra:P8"
    ],
-   "note": "PA.3 compares patched complexes for two systems of local conditions agreeing modulo a coefficient ideal; P8 patches complexes with cohomology in several degrees. The 'behaviour of components' axiom (2) is the new input for local rings with two components."
+   "note": "PA.3 compares patched complexes for two systems of local conditions agreeing modulo a coefficient ideal; P8 patches complexes with cohomology in several degrees. The 'behaviour of components' axiom (2) is the new input for local rings with two components. Review (REV-PAPER-CARAIANI-NEWTON-23): Assumption 5.4.1 (1)–(2) reworded as printed on p.78: the special-fibre point is the specialization of the generic points, and both special fibres have dimension dim S_∞ − l₀ − 1."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/prop-5-4-2",
    "kind": "theorem",
    "name": "Automorphic components propagate through the special fibre",
-   "statement": "Under Assumption 5.4.1, with Supp_{R_∞}(H^*(C_∞)) = Spec T_∞: (1) there is an irreducible component C_a ⊂ Spec R_∞ containing the automorphic point x with C_a ⊂ Spec T_∞; (2) if C_a ⊂ Spec T_∞ is such a component and C ⊂ Spec R_∞ is an irreducible component such that C ∩ Spec(R_∞/ϖ) and C_a ∩ Spec(R_∞/ϖ) contain generic points x_C, x_a generalizing to the same generic point x′ of Spec R′_∞, then C ⊂ Spec T_∞.",
+   "statement": "Under Assumption 5.4.1, with Supp_{R_∞}(H^*(C_∞)) = Spec T_∞: (1) there is an irreducible component C_a ⊂ Spec R_∞ containing the automorphic point x with C_a ⊂ Spec T_∞; (2) if C_a ⊂ Spec T_∞ is an irreducible component of Spec R_∞ which contains x and C ⊂ Spec R_∞ is an irreducible component such that C ∩ Spec(R_∞/ϖ) and C_a ∩ Spec(R_∞/ϖ) contain generic points x_C, x_a generalizing to the same generic point x′ of Spec R′_∞, then C ⊂ Spec T_∞.",
    "locator": "§5.4, Proposition 5.4.2, pp.78–79",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "H^*(C_{∞,a_∞}) is concentrated in degree q₀ + l₀ and Cohen–Macaulay ([CG18, Lemma 6.2], as [ACC+18, Prop. 6.3.8]); lengths of complexes [ACC+18, Lemma 6.3.7] carried through R′_∞. PA.3 plans the support implication for derived Ihara avoidance in ACC+'s form; this component-wise version is imported by BCG+25."
+   "note": "H^*(C_{∞,a_∞}) is concentrated in degree q₀ + l₀ and Cohen–Macaulay ([CG18, Lemma 6.2], as [ACC+18, Prop. 6.3.8]); lengths of complexes [ACC+18, Lemma 6.3.7] carried through R′_∞. PA.3 plans the support implication for derived Ihara avoidance in ACC+'s form; this component-wise version is imported by BCG+25. Review (REV-PAPER-CARAIANI-NEWTON-23): part (2) requires C_a to contain x, as printed on p.78; added."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/cor-5-4-3",
@@ -1582,12 +1598,12 @@
    "id": "PAPER-CARAIANI-NEWTON-23/lem-5-6-5",
    "kind": "theorem",
    "name": "A reducibility criterion for mod-p representations (variant of DDT 4.11)",
-   "statement": "Let G be finite, p odd, ρ : G → GL₂(F̄_p) with det ρ of order d > 1, and suppose (tr ρ(g))² = (1 + det ρ(g))² whenever det ρ(g) ≠ 1. Then ρ|_{ker(det ρ)} is reducible.",
+   "statement": "Corrected statement (source issue E12): let G be finite, p odd, ρ : G → GL₂(F̄_p) with det ρ of order d > 1, and suppose (tr ρ(g))² = (1 + det ρ(g))² whenever det ρ(g) ≠ 1. Then ρ|_{ker(det ρ)} is reducible, unless d = 3 and the projective image of ρ is A₄; in that case ρ|_{ker(det ρ)} has projective image Z/2 × Z/2 and is absolutely irreducible. (Printed: the conclusion without the exception.)",
    "locator": "Lemma 5.6.5, pp.85–86",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "[DDT97, Lemma 4.11] except d = 3; then Z ⊂ ker det ρ, the projective image surjects to C_d, and by Dickson ρ is reducible or the projective image is A₄, whose Klein four subgroup gives reducibility on ker det ρ."
+   "note": "[DDT97, Lemma 4.11] except d = 3; then Z ⊂ ker det ρ, the projective image surjects to C_d, and by Dickson ρ is reducible or the projective image is A₄, whose Klein four subgroup gives reducibility on ker det ρ. Review (REV-PAPER-CARAIANI-NEWTON-23): the printed lemma is false for d = 3 (E12): G = SL₂(F₃) ≅ 2T ⊂ SL₂(F̄_p), p ≥ 5, twisted by a cubic character through 2T → C₃ satisfies (5.6.1), while ker det ρ = Q₈ acts irreducibly. The d ≠ 3 cases ([DDT97, Lemma 4.11]) stand."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/proof-thm-5-2",
@@ -1598,7 +1614,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": ""
+   "note": "Review (REV-PAPER-CARAIANI-NEWTON-23): the choice of v₀, v₀′ with H²(F_{1,v₀}, ad⁰ρ̄) = 0 rests on Lemma 5.6.5, which fails when [F₁(ζ_p) : F₁] = 3 and ρ̄ has projective image A₄ (possible only for p ≡ 1 mod 3; E12). In that case every unramified Frobenius has eigenvalue ratio det^{±1} or q_v ≡ 1 mod p, so no such place exists and the printed proof does not cover it. The applications use p ∈ {3, 5}, where d divides 2 or 4, so Theorems 6.1, 7.1, 1.1 and 1.2 are unaffected."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/thm-6-1",
@@ -1653,7 +1669,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "From the proof of [AKT23, Cor. 9.14]: r̄_{E,5}(G_{F(ζ₅)}) = SL₂(F₅); compare [G : H] with [F(ζ₅) : F] according to the order 2 or 4 of det."
+   "note": "From the proof of [AKT23, Cor. 9.14]: r̄_{E,5}(G_{F(ζ₅)}) = SL₂(F₅); compare [G : H] with [F(ζ₅) : F] according to the order 2 or 4 of det. Review (REV-PAPER-CARAIANI-NEWTON-23): moved from route 2 to route 8, a source for ArithmeticGaloisRepresentations R01.4 ('finite-subgroup facts of GL₂/PGL₂ … behaviour under restriction to cyclotomic fields'), as the accepted ACC+ item 300."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/prop-6-1-5",
@@ -1696,10 +1712,11 @@
    "locator": "§6.2, Lemma 6.2.1, p.90",
    "status": "library",
    "library": [
-    "mathlib:Subgroup.goursat_surjective"
+    "mathlib:Subgroup.goursat_surjective",
+    "mathlib:Subgroup.goursatFst_prod_goursatSnd_le"
    ],
    "planned": [],
-   "note": "Mathlib states it for arbitrary groups (Mathlib/GroupTheory/Goursat.lean:104), with the normal subgroups I.goursatFst, I.goursatSnd."
+   "note": "Mathlib states it for arbitrary groups (Mathlib/GroupTheory/Goursat.lean:104), with the normal subgroups I.goursatFst, I.goursatSnd. Review (REV-PAPER-CARAIANI-NEWTON-23): checked at Mathlib 082e2d3 (Mathlib/GroupTheory/Goursat.lean:85, 104): goursatFst = {g : (g,1) ∈ I} is the paper's H ∩ G₁, and the two lemmas give the graph description, for arbitrary groups."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/lem-6-2-2",
@@ -1710,7 +1727,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Galois closure L̃ of the projective kernel field embeds Gal(L̃₁/F(ζ_p)) into a product of two copies of Gal(L₁/F(ζ_p)) with surjective projections; Goursat gives τ with both components non-identity of order prime to p (Dickson or [Ser72, Prop. 15]); a rational prime l with Frob_l = τ (Chebotarev) splits completely in F, l ≡ 1 mod p, and the Frobenius images are regular semisimple."
+   "note": "Galois closure L̃ of the projective kernel field embeds Gal(L̃₁/F(ζ_p)) into a product of two copies of Gal(L₁/F(ζ_p)) with surjective projections; Goursat gives τ with both components non-identity of order prime to p (Dickson or [Ser72, Prop. 15]); a rational prime l with Frob_l = τ (Chebotarev) splits completely in F, l ≡ 1 mod p, and the Frobenius images are regular semisimple. Review (REV-PAPER-CARAIANI-NEWTON-23): moved from route 2 to route 8, a source for ArithmeticGaloisRepresentations R01.4 ('finite-subgroup facts of GL₂/PGL₂ … behaviour under restriction to cyclotomic fields'), as the accepted ACC+ item 300."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/thm-7-1",
@@ -1732,7 +1749,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "[FLHS15, Lemma 2.2] and the proof of [FLHS15, Prop. 4.1(b)]."
+   "note": "[FLHS15, Lemma 2.2] and the proof of [FLHS15, Prop. 4.1(b)]. Review (REV-PAPER-CARAIANI-NEWTON-23): moved from route 2 to route 8, a source for ArithmeticGaloisRepresentations R01.4 ('finite-subgroup facts of GL₂/PGL₂ … behaviour under restriction to cyclotomic fields'), as the accepted ACC+ item 300."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/modular-curves-X(H)",
@@ -1743,7 +1760,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Notation of [FLHS15, §2.2]. Tau Ceti's ModularCurves roadmap plans Katz–Mazur Γ_H quotient problems and coarse moduli over Z[1/N], not these Cartan-level curves with explicit models."
+   "note": "Notation of [FLHS15, §2.2]. Tau Ceti's ModularCurves roadmap plans Katz–Mazur Γ_H quotient problems and coarse moduli over Z[1/N], not these Cartan-level curves with explicit models. Review (REV-PAPER-CARAIANI-NEWTON-23): Tau Ceti ModularCurves layer 9 (9A–9D) plans the affine quotients Y_H; layer 10 compactifies only diamond quotients, and ModularCurvesPartII R13.4a only full, Γ₁ and Γ₀ level. Stays missing."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/cor-7-1-2",
@@ -1872,13 +1889,10 @@
    "name": "Box’s relative symmetric-square Chabauty set-up",
    "statement": "For X/Q smooth projective geometrically irreducible with Jacobian J and a degree-2 map π : X → C: primes p₁,…,p_r of good reduction for C and X; divisors D₁,…,D_n generating a finite-index subgroup G ⊂ J(Q) with φ : Zⁿ ↠ G; I ≥ 1 with I·J(Q) ⊂ G; a finite set L ⊂ X^{(2)}(Q) with base point ∞ ∈ L, L = L^pb ⊔ L^npb (pulled back from C(Q) or not); L^good_i ⊂ L the points where [Box21, Thm. 2.1] (unique in its residue class mod p_i) or, for x = π^*(P) with P ∈ C(Q), [Box21, Thm. 2.4] (every point of the residue class is pulled back) applies; ι(x) = I([x] − ∞) and its reductions ι_p : X^{(2)}(F_p) → J(F_p); M^bad_i := ι^{−1}_{p_i}(red_{p_i}(G)) − red_{p_i}(L^good_i).",
    "locator": "§7.4, pp.98–99",
-   "status": "planned",
+   "status": "missing",
    "library": [],
-   "planned": [
-    "EffectiveDiophantineMethods:ED.4",
-    "EffectiveDiophantineMethods:ED.5"
-   ],
-   "note": "Following [Box21, §2.4] and Siksek's relative symmetric power Chabauty [Sik09]. ED.4 plans classical Chabauty–Coleman and ED.5 the Mordell–Weil sieve with reduction maps from the Jacobian subgroup; neither names symmetric powers, so this is routed as a source for them."
+   "planned": [],
+   "note": "Following [Box21, §2.4] and Siksek's relative symmetric power Chabauty [Sik09]. ED.4 plans classical Chabauty–Coleman and ED.5 the Mordell–Weil sieve with reduction maps from the Jacobian subgroup; neither names symmetric powers, so this is routed as a source for them. Review (REV-PAPER-CARAIANI-NEWTON-23): changed from planned to missing: ED.4 plans classical Chabauty–Coleman on a curve with rank r < g and ED.5 the Mordell–Weil sieve; neither plans symmetric powers or the relative (bi-elliptic) version. It stays in route 3, which widens those layers."
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/prop-7-4-1",
@@ -1945,6 +1959,45 @@
    "library": [],
    "planned": [],
    "note": "All relevant points map to rational points of X(ns3,ns5), except P₁, P₂ over Q(√−55) and their conjugates, which have rational j-invariant."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/blght-lemma-3-3",
+   "kind": "theorem",
+   "name": "Irreducible components of completed tensor products of local lifting rings",
+   "statement": "Let A₁, …, A_r be complete local Noetherian O-algebras with residue field k, each O-flat and equidimensional, all of whose irreducible components (and those of their special fibres) are geometrically irreducible. Then the irreducible components of A₁ ⊗̂_O ⋯ ⊗̂_O A_r are exactly the Spec of the completed tensor products of irreducible components of the factors, and likewise for the special fibres ([BLGHT11, Lemma 3.3]).",
+   "locator": "§5.6, proof of Proposition 5.6.1, p.85",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "note": "Added by the review REV-PAPER-CARAIANI-NEWTON-23: used to verify Assumption 5.4.1 for R_∞, R′_∞ and to compare C and C_a. Planned as for the accepted PAPER-BOXER-CALEGARI-GEE-ETAL-25 item 122 (R03.6: 'supported on a specified union of components')."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/solvable-base-change-descent",
+   "kind": "theorem",
+   "name": "Solvable base change and descent of automorphy for GL₂ over CM fields",
+   "statement": "Let F be a CM field, F′/F a finite solvable Galois extension of CM fields, and π a regular algebraic cuspidal automorphic representation of GL_n(𝔸_F). (1) There is a regular algebraic automorphic representation π_{F′} of GL_n(𝔸_{F′}), the base change, with r_ι(π_{F′}) ≅ r_ι(π)|_{G_{F′}}, cuspidal when r_ι(π)|_{G_{F′}} is irreducible. (2) If ρ : G_F → GL_n(Q̄_p) is continuous with ρ|_{G_{F′}} irreducible and automorphic, then ρ is automorphic ([ACC+18, Prop. 6.5.13], after Arthur–Clozel).",
+   "locator": "§5.6, end of the proof of Theorem 5.2, pp.86–87; proof of Theorem 6.1, p.90",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+    "ModularityAndLanglandsExtensions:ML.5"
+   ],
+   "note": "Added by the review REV-PAPER-CARAIANI-NEWTON-23. R17.4 plans 'cyclic and solvable base change … Iterate to solvable extensions' for GL₂; ML.5 holds ACC+ Proposition 6.5.13 (accepted ACC+ items 268, 269)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/akt-tw-primes",
+   "kind": "theorem",
+   "name": "Taylor–Wiles data for GL₂ over CM fields without enormous image (Allen–Khare–Thorne)",
+   "statement": "Let F be an imaginary CM field, p odd, and ρ̄ : G_F → GL₂(k) continuous with ρ̄|_{G_{F(ζ_p)}} absolutely irreducible and, if p = 5 and the projective image of ρ̄(G_{F(ζ₅)}) is PSL₂(F₅), the field cut out by the projective image of ρ̄ not containing ζ₅. Then for every N ≥ 1 there is a Taylor–Wiles datum (Q_N, (α_v)_{v∈Q_N}) of level N (Definition 5.3.5) of size q independent of N, killing the relevant dual Selmer group ([AKT23, Prop. A.6]), used with [ACC+18, §6.4] as in the proof of [AKT23, Thm. A.7].",
+   "locator": "§5.6, p.85",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by the review REV-PAPER-CARAIANI-NEWTON-23. R04.5, G7 and PA.4 plan Taylor–Wiles primes under adequacy or enormous image; the p = 3, 5 images (SL₂(F₃), PSL₂(F₅)) that AKT23 treat are not planned. Routed with route 1."
   }
  ],
  "prerequisites": [
@@ -2124,10 +2177,11 @@
     "PAPER-CARAIANI-NEWTON-23/prop-5-6-3",
     "PAPER-CARAIANI-NEWTON-23/lem-5-6-4",
     "PAPER-CARAIANI-NEWTON-23/lem-5-6-5",
-    "PAPER-CARAIANI-NEWTON-23/proof-thm-5-2"
+    "PAPER-CARAIANI-NEWTON-23/proof-thm-5-2",
+    "PAPER-CARAIANI-NEWTON-23/akt-tw-primes"
    ],
-   "brief": "Starts where Reusable infrastructure for potential automorphy over CM fields (PotentialAutomorphyInfrastructure) stops. PA.1 and PA.2 plan local–global compatibility at p for the torsion Galois representations of Scholze only in the Fontaine–Laffaille and Borel-ordinary cases of Allen et al. (ACC+); this Part II proves it in the crystalline and P-ordinary cases with p small and arbitrarily ramified, and the potentially Barsotti–Tate automorphy lifting theorem it enables, following §§2–5 of Caraiani–Newton, 'On the modularity of elliptic curves over imaginary quadratic fields', arXiv:2301.10509v3 (27 March 2025).\n\nFinal theorems, as the paper states them. (a) Theorem 4.2.15: F imaginary CM containing an imaginary quadratic field, p split in an imaginary quadratic subfield, T ⊇ S_p with T = T^c and every v ∉ T of residue characteristic ℓ either with no ℓ-adic place in T and ℓ unramified in F or ℓ split in an imaginary quadratic subfield; K ⊂ GL_n(𝔸_{F,f}) good, hyperspecial off T; distinct p-adic places v̄, v̄′ of F⁺ with Σ_{v̄″≠v̄,v̄′}[F⁺_{v̄″}:Q_p] ≥ ½[F⁺:Q]; λ dominant; a parabolic Q_{v̄} ⊂ P_{v̄} of type (cr-ord) partition (n,1,…,1), (ord) B_{2n} or (cr) the Siegel parabolic, K_{v̄} = 𝒬_{v̄} ∩ G(F⁺_{v̄}); m non-Eisenstein, ρ̄_m decomposed generic, [K ν(ϖ) K] ∉ m. Then there are N = N(n,[F⁺:Q]), J^N = 0 and ρ_m over T^{Q_{v̄},{v̄}-ord}(RΓ(X_K,V_λ)_m)/J with unramified characteristic polynomials P_v(X), such that R^□_{ρ̄_m|G_{F_v}} → T/J factors through R^{△,λ_ṽ} at ṽ and R^{cris,λ_ṽc} at ṽ^c (cr-ord), through R^{△,λ_v} (ord), or through R^{cris,λ_v} (cr); Corollary 4.2.16 with fixed determinant when p ∤ n. (b) Theorem 4.3.1: for F totally real or CM, π cuspidal regular algebraic of weight λ on GL_n(𝔸_F), v | p with π unramified at v and v^c, r_ι(π) irreducible and decomposed generic, r_ι(π)|_{G_{F_v}} and |_{G_{F_{v^c}}} are crystalline with labelled Hodge–Tate weights λ_{ιτ,n} < … < λ_{ιτ,1} + n − 1. (c) Theorem 5.2: potentially Barsotti–Tate automorphy lifting for ρ : G_F → GL₂(Q̄_p), F imaginary CM, p odd, det ρ = ε_p^{−1}, all labelled Hodge–Tate weights (0,1), ρ̄ decomposed generic with ρ̄|_{G_{F(ζ_p)}} irreducible, the p = 5 condition, and a weight-0 π on PGL₂(𝔸_F) with ρ̄ ≅ r̄_ι(π) matching ordinarity at potentially crystalline places and ι-ordinary and non-potentially-crystalline at the others.\n\nLayers to plan. (1) The topological adelic formalism for completed cohomology at a set S of p-adic places (imported from ArithmeticLocallySymmetricSpaces, extended by the source route of this paper to ALS.3/ALS.6). (2) P-ordinary Hida theory for the Betti cohomology of the unitary spaces X̃_{K̃} at Siegel-parahoric and Q-parahoric levels: Hecke algebras of the monoids Δ̃^Q and their rescaled actions, the P-ordinary functors RΓ(U⁰,−)^{ord}, ord_b, ord₀ and their dual versions, independence of level (Cor. 2.2.9) and of weight (Props. 2.2.15, 2.2.17). This generalises PA.2's Borel-ordinary functor, which it imports and specialises to. (3) The P-ordinary part of a parabolic induction (Prop. 2.3.11, Cor. 2.3.12) via the Bruhat filtration (Hauseux) and Emerton's ordinary parts, and the cohomology of induced spaces (Lemma 2.3.14). (4) The splitting of RΓ(U₀, O/ϖ^m) at deep level (Lemma 2.3.17) and the Artin–Rees subquotient lemma. (5) The Galois side: Q-ordinary automorphic representations have block-triangular Galois representations with crystalline diagonal blocks and determined determinants (Theorem 3.1.2, from Lemma 3.1.3, Newton above Hodge). (6) The completed boundary computation (Theorem 4.1.3, Cor. 4.1.9) and degree shifting at deep auxiliary level (Props. 4.2.2, 4.2.4, 4.2.6, 4.2.8) with the spectral-sequence comparison and descending induction that replace ACC+'s hypothesis p > n², p unramified. (7) Torsion local–global compatibility (Prop. 4.2.13, with its twisting Sub-lemma) and Theorems 4.2.15 and 4.3.1. (8) GL₂/PGL₂ patching with local rings having two components (Assumption 5.4.1, Prop. 5.4.2, Cor. 5.4.3), the special case Prop. 5.6.1 and the solvable base change of Theorem 5.2 (Lemma 5.6.5).\n\nImports: PotentialAutomorphyInfrastructure PA.0–PA.4 (integral cohomology interface, Weyl modules, Borel-ordinary theory, derived support, auxiliary primes); ArithmeticLocallySymmetricSpaces ALS.1–ALS.6; IgusaVarietiesAndTorsionConcentration IG.7 (Caraiani–Scholze concentration; the paper uses Koshikawa to drop the length-two hypothesis); IntegralHeckeAndGaloisDeterminants IHG.0–IHG.5; TorsionCohomologyInfrastructure TC.2–TC.3; AutomorphicGaloisRepresentationsPartII AG2.2, AG2.5, AG2.7; LocalGaloisDeformationRings R08.2–R08.4, L7, L8 (with this paper's source items); GlobalGaloisDeformations R04.1–R04.5; DeformationAndDerivedPatchingAlgebra P8–P9. Allen–Khare–Thorne (Camb. J. Math. 11, 2023) supplies the PGL₂ cohomology at non-neat level and the Taylor–Wiles and base-change steps; it is a prerequisite paper. Coordinate with the sibling Part IIs of the same parent: WeightZeroCrystallineAutomorphyLifting (PAPER-BOXER-CALEGARI-GEE-ETAL-25) imports this paper's Theorems 4.2.15 and 4.3.1, Lemma 5.3.3, Proposition 5.4.2 and Corollary 5.4.3, which are owned here; AutomorphyLiftingBeyondTaylorWiles (Calegari–Geraghty) records subsequent work including this local–global compatibility. Hevesi (arXiv:2311.13514) extends Theorem 4.2.15 to the potentially semistable case; plan the crystalline case first and keep the interface open for it. Acceptance tests: n = 2 with λ trivial and p = 3, 5 ramified in F (the case used for elliptic curves); the three parabolic cases; the dual-coefficient degree shifting for q < ⌊d/2⌋.",
-   "reason": "PA.1 and PA.2 plan local–global compatibility at p only in the Fontaine–Laffaille and Borel-ordinary cases, and nothing in the atlas plans P-ordinary Hida theory for the unitary Betti cohomology, degree shifting at deep auxiliary level, crystalline local–global compatibility for torsion classes, or the potentially Barsotti–Tate lifting theorem over CM fields. A Part II of PotentialAutomorphyInfrastructure; make_queue folds it with the sibling Part IIs of that parent into DESIGN-PotentialAutomorphyInfrastructurePartII (pending). PAPER-BOXER-CALEGARI-GEE-ETAL-25 already imports this paper's results into its WeightZeroCrystallineAutomorphyLifting."
+   "brief": "Starts where Reusable infrastructure for potential automorphy over CM fields (PotentialAutomorphyInfrastructure) stops. PA.1 and PA.2 plan local–global compatibility at p for the torsion Galois representations of Scholze only in the Fontaine–Laffaille and Borel-ordinary cases of Allen et al. (ACC+); this Part II proves it in the crystalline and P-ordinary cases with p small and arbitrarily ramified, and the potentially Barsotti–Tate automorphy lifting theorem it enables, following §§2–5 of Caraiani–Newton, 'On the modularity of elliptic curves over imaginary quadratic fields', arXiv:2301.10509v3 (27 March 2025).\n\nFinal theorems, as the paper states them. (a) Theorem 4.2.15: F imaginary CM containing an imaginary quadratic field, p split in an imaginary quadratic subfield, T ⊇ S_p with T = T^c and every v ∉ T of residue characteristic ℓ either with no ℓ-adic place in T and ℓ unramified in F or ℓ split in an imaginary quadratic subfield; K ⊂ GL_n(𝔸_{F,f}) good, hyperspecial off T; distinct p-adic places v̄, v̄′ of F⁺ with Σ_{v̄″≠v̄,v̄′}[F⁺_{v̄″}:Q_p] ≥ ½[F⁺:Q]; λ dominant; a parabolic Q_{v̄} ⊂ P_{v̄} of type (cr-ord) partition (n,1,…,1), (ord) B_{2n} or (cr) the Siegel parabolic, K_{v̄} = 𝒬_{v̄} ∩ G(F⁺_{v̄}); m non-Eisenstein, ρ̄_m decomposed generic, [K ν(ϖ) K] ∉ m. Then there are N = N(n,[F⁺:Q]), J^N = 0 and ρ_m over T^{Q_{v̄},{v̄}-ord}(RΓ(X_K,V_λ)_m)/J with unramified characteristic polynomials P_v(X), such that R^□_{ρ̄_m|G_{F_v}} → T/J factors through R^{△,λ_ṽ} at ṽ and R^{cris,λ_ṽc} at ṽ^c (cr-ord), through R^{△,λ_v} (ord), or through R^{cris,λ_v} (cr); Corollary 4.2.16 with fixed determinant when p ∤ n. (b) Theorem 4.3.1: for F totally real or CM, π cuspidal regular algebraic of weight λ on GL_n(𝔸_F), v | p with π unramified at v and v^c, r_ι(π) irreducible and decomposed generic, r_ι(π)|_{G_{F_v}} and |_{G_{F_{v^c}}} are crystalline with labelled Hodge–Tate weights λ_{ιτ,n} < … < λ_{ιτ,1} + n − 1. (c) Theorem 5.2: potentially Barsotti–Tate automorphy lifting for ρ : G_F → GL₂(Q̄_p), F imaginary CM, p odd, det ρ = ε_p^{−1}, all labelled Hodge–Tate weights (0,1), ρ̄ decomposed generic with ρ̄|_{G_{F(ζ_p)}} irreducible, the p = 5 condition, and a weight-0 π on PGL₂(𝔸_F) with ρ̄ ≅ r̄_ι(π) matching ordinarity at potentially crystalline places and ι-ordinary and non-potentially-crystalline at the others.\n\nLayers to plan. (1) The topological adelic formalism for completed cohomology at a set S of p-adic places (imported from ArithmeticLocallySymmetricSpaces, extended by the source route of this paper to ALS.3/ALS.6). (2) P-ordinary Hida theory for the Betti cohomology of the unitary spaces X̃_{K̃} at Siegel-parahoric and Q-parahoric levels: Hecke algebras of the monoids Δ̃^Q and their rescaled actions, the P-ordinary functors RΓ(U⁰,−)^{ord}, ord_b, ord₀ and their dual versions, independence of level (Cor. 2.2.9) and of weight (Props. 2.2.15, 2.2.17). This generalises PA.2's Borel-ordinary functor, which it imports and specialises to. (3) The P-ordinary part of a parabolic induction (Prop. 2.3.11, Cor. 2.3.12) via the Bruhat filtration (Hauseux) and Emerton's ordinary parts, and the cohomology of induced spaces (Lemma 2.3.14). (4) The splitting of RΓ(U₀, O/ϖ^m) at deep level (Lemma 2.3.17) and the Artin–Rees subquotient lemma. (5) The Galois side: Q-ordinary automorphic representations have block-triangular Galois representations with crystalline diagonal blocks and determined determinants (Theorem 3.1.2, from Lemma 3.1.3, Newton above Hodge). (6) The completed boundary computation (Theorem 4.1.3, Cor. 4.1.9) and degree shifting at deep auxiliary level (Props. 4.2.2, 4.2.4, 4.2.6, 4.2.8) with the spectral-sequence comparison and descending induction that replace ACC+'s hypothesis p > n², p unramified. (7) Torsion local–global compatibility (Prop. 4.2.13, with its twisting Sub-lemma) and Theorems 4.2.15 and 4.3.1. (8) GL₂/PGL₂ patching with local rings having two components (Assumption 5.4.1, Prop. 5.4.2, Cor. 5.4.3), the special case Prop. 5.6.1 and the solvable base change of Theorem 5.2 (Lemma 5.6.5).\n\nImports: PotentialAutomorphyInfrastructure PA.0–PA.4 (integral cohomology interface, Weyl modules, Borel-ordinary theory, derived support, auxiliary primes; PA.2's Borel-ordinary functor and its maps on parabolic induction are the B-case of layer (2) and are imported, not re-planned); Hida and Coleman families (PadicFamilies L0a, the group-independent ordinary projector); ArithmeticLocallySymmetricSpaces ALS.1–ALS.6; IgusaVarietiesAndTorsionConcentration IG.7 (Caraiani–Scholze concentration; the paper uses Koshikawa to drop the length-two hypothesis); IntegralHeckeAndGaloisDeterminants IHG.0–IHG.5; TorsionCohomologyInfrastructure TC.2–TC.3; AutomorphicGaloisRepresentationsPartII AG2.2, AG2.5, AG2.7; LocalGaloisDeformationRings R08.2–R08.4, L7, L8 (with this paper's source items); GlobalGaloisDeformations R04.1–R04.5; DeformationAndDerivedPatchingAlgebra P8–P9 and R03.3, R03.6 (components of completed tensor products, [BLGHT11, Lemma 3.3]); IgusaVarietiesAndTorsionConcentration IG.7 as widened by this paper's route 7 (Theorem 2.1.28 without the length-two and [F⁺:Q] > 1 hypotheses); GL₂ automorphic representations and transfer (GL2AutomorphicRepresentationsAndTransfer R17.4) and ModularityAndLanglandsExtensions ML.5 for solvable base change and descent ([ACC+18, Prop. 6.5.13]). The layer (8) also owns Allen–Khare–Thorne's Taylor–Wiles data without enormous image ([AKT23, Prop. A.6]). Lemma 5.6.5 is false as printed when d = 3 and the projective image is A₄ (source issue E12): state it with that exception, and either restrict Theorem 5.2 to exclude p ≡ 1 mod 3 with [F₁(ζ_p):F₁] = 3 and projective image A₄, or supply another argument for the auxiliary places v₀, v₀′ there; the cases p = 3, 5 used by the elliptic-curve Part II are unaffected. Allen–Khare–Thorne (Camb. J. Math. 11, 2023) supplies the PGL₂ cohomology at non-neat level and the Taylor–Wiles and base-change steps; it is a prerequisite paper. Coordinate with the sibling Part IIs of the same parent: WeightZeroCrystallineAutomorphyLifting (PAPER-BOXER-CALEGARI-GEE-ETAL-25) imports this paper's Theorems 4.2.15 and 4.3.1, Lemma 5.3.3, Proposition 5.4.2 and Corollary 5.4.3, which are owned here; AutomorphyLiftingBeyondTaylorWiles (Calegari–Geraghty) records subsequent work including this local–global compatibility. Hevesi (arXiv:2311.13514) extends Theorem 4.2.15 to the potentially semistable case; plan the crystalline case first and keep the interface open for it. Acceptance tests: n = 2 with λ trivial and p = 3, 5 ramified in F (the case used for elliptic curves); the three parabolic cases; the dual-coefficient degree shifting for q < ⌊d/2⌋.",
+   "reason": "PA.1 and PA.2 plan local–global compatibility at p only in the Fontaine–Laffaille and Borel-ordinary cases, and nothing in the atlas plans P-ordinary Hida theory for the unitary Betti cohomology, degree shifting at deep auxiliary level, crystalline local–global compatibility for torsion classes, or the potentially Barsotti–Tate lifting theorem over CM fields. A Part II of PotentialAutomorphyInfrastructure; make_queue folds it with the sibling Part IIs of that parent into DESIGN-PotentialAutomorphyInfrastructurePartII (pending). PAPER-BOXER-CALEGARI-GEE-ETAL-25 already imports this paper's results into its WeightZeroCrystallineAutomorphyLifting. Review: accepted. Allen–Khare–Thorne's Taylor–Wiles data were added; the brief now names PA.2 as the imported Borel case, PadicFamilies L0a, R03.3/R03.6, R17.4, ML.5 and route 7, and records the gap E12 in the proof of Theorem 5.2."
   },
   {
    "route": "part-ii",
@@ -2143,13 +2197,10 @@
     "PAPER-CARAIANI-NEWTON-23/cor-6-1-1",
     "PAPER-CARAIANI-NEWTON-23/cor-6-1-2",
     "PAPER-CARAIANI-NEWTON-23/lem-6-1-3",
-    "PAPER-CARAIANI-NEWTON-23/lem-6-1-4",
     "PAPER-CARAIANI-NEWTON-23/prop-6-1-5",
     "PAPER-CARAIANI-NEWTON-23/prop-6-1-6",
     "PAPER-CARAIANI-NEWTON-23/lem-6-1-7",
-    "PAPER-CARAIANI-NEWTON-23/lem-6-2-2",
     "PAPER-CARAIANI-NEWTON-23/thm-7-1",
-    "PAPER-CARAIANI-NEWTON-23/lem-7-1-1",
     "PAPER-CARAIANI-NEWTON-23/modular-curves-X(H)",
     "PAPER-CARAIANI-NEWTON-23/cor-7-1-2",
     "PAPER-CARAIANI-NEWTON-23/prop-7-1-3",
@@ -2167,8 +2218,8 @@
     "PAPER-CARAIANI-NEWTON-23/prop-7-4-5",
     "PAPER-CARAIANI-NEWTON-23/cor-7-4-6"
    ],
-   "brief": "Starts where Modularity and modular parametrisations of elliptic curves over Q (EllipticCurveModularity) stops: that roadmap proves modularity over Q; this Part II proves the modularity of elliptic curves over imaginary quadratic and imaginary CM fields, following §§6–7 of Caraiani–Newton, 'On the modularity of elliptic curves over imaginary quadratic fields', arXiv:2301.10509v3 (27 March 2025).\n\nFinal theorems, as the paper states them. A curve E/F is modular if it has CM or r^∨_{E,p} ≅ r_{π,ι} for a cuspidal regular algebraic π of GL₂(𝔸_F) of weight 0. (a) Theorem 6.1: F imaginary CM with ζ₅ ∉ F; if r̄_{E,3} (resp. r̄_{E,5}) is decomposed generic and absolutely irreducible on G_{F(ζ₃)} (resp. G_{F(ζ₅)}), E is modular. (b) Corollary 6.1.1: for F imaginary quadratic, absolute irreducibility of r̄_{E,3}|_{G_{F(ζ₃)}} or r̄_{E,5}|_{G_{F(ζ₅)}} suffices (Lemma 6.2.2: over quadratic fields this implies decomposed genericity, via Goursat and Chebotarev). (c) Corollary 6.1.2: for F imaginary CM Galois over Q with ζ₅ ∉ F, 100% of Weierstrass equations over F, ordered by height, define modular curves. (d) Theorem 7.1: for F imaginary quadratic, E is modular if G_F acts irreducibly on E[5], or irreducibly on E[3] with image not the normalizer of a split Cartan. (e) Corollary 7.1.2 (Theorem 1.1): if X₀(15)(F) is finite, every E/F is modular.\n\nLayers to plan. (1) Mod-3 and mod-5 switching with prescribed reduction types at p (Props. 6.1.5, 6.1.6, after Allen–Khare–Thorne 9.12–9.15), with Hilbert irreducibility and weak approximation, and the local properties of the auxiliary automorphic representation (Lemmas 6.1.3, 6.1.7, 6.1.4). (2) Theorem 6.1 by applying the potentially Barsotti–Tate lifting theorem of the PotentialAutomorphyInfrastructure Part II proposed by this paper (Theorem 5.2), and solvable descent. (3) Group theory: Lemma 7.1.1 on images whose restriction to F(ζ_p) is absolutely reducible (normalizers of Cartan subgroups). (4) Modular curves X(H), X(H₁,H₂) for Borel and Cartan level at 3 and 5 with explicit models and j-maps (Prop. 7.1.3), and the imaginary quadratic points of X(b3,b5), X(s3,b5) (torsion growth, Kwon), X(ns3°,b5) (genus one, rational divisor classes, Prop. 7.2.2, Prop. 7.2.4), X(b3,ns5) (genus 2, Jacobian Z/2 ⊕ Z/10, Prop. 7.3.3), X(ns3°,ns5) and X(s3,ns5) (bi-elliptic plane quartics over X(ns3,ns5) = 225A1, Props. 7.4.3–7.4.5 by relative symmetric-square Chabauty and a Mordell–Weil sieve). (5) The modularity of the curves attached to these points: rational j-invariant, Q-curves, and the explicit LMFDB curves 4050.1-c3 over Q(√−1) and 8100.2-a2 over Q(√−11), with the certificates each computation needs.\n\nImports: Tau Ceti's EllipticCurves and ModularCurves (layers 9–10 for Γ_H quotients and coarse moduli); InverseGaloisAndArithmeticFundamentalGroups IG.2 (Hilbert irreducibility); EffectiveDiophantineMethods ED.4–ED.6 (Chabauty–Coleman, the Mordell–Weil sieve and reproducible certificates, with this paper's relative symmetric-power method as a source); Chebotarev; the PotentialAutomorphyInfrastructure Part II for Theorem 5.2; Allen–Khare–Thorne and Freitas–Le Hung–Siksek (Invent. Math. 201, 2015) as prerequisite papers. Coordinate with the sibling Part II EllipticModularityEffectiveComparisons (Bennett–Siksek). Magma computations (files at github.com/jjmnewton/modularity-iqf) are inputs to verify, not theorems: each model, Mordell–Weil group and sieve needs a checkable certificate. Acceptance tests: F = Q(√−1), Q(√−2), Q(√−3), Q(√−5); the Q(√−11) and Q(√−55) points; a field where X₀(15) has positive rank as a negative test of Theorem 1.1's hypothesis.",
-   "reason": "EllipticCurveModularity proves modularity only over Q, and no atlas layer plans modularity over other number fields, mod-3/mod-5 switching over CM fields, or the quadratic points of modular curves with Cartan level. A Part II of that roadmap, as the maintainer's note asks; make_queue folds it with Bennett–Siksek's EllipticModularityEffectiveComparisons into DESIGN-EllipticCurveModularityPartII (pending)."
+   "brief": "Starts where Modularity and modular parametrisations of elliptic curves over Q (EllipticCurveModularity) stops: that roadmap proves modularity over Q; this Part II proves the modularity of elliptic curves over imaginary quadratic and imaginary CM fields, following §§6–7 of Caraiani–Newton, 'On the modularity of elliptic curves over imaginary quadratic fields', arXiv:2301.10509v3 (27 March 2025).\n\nFinal theorems, as the paper states them. A curve E/F is modular if it has CM or r^∨_{E,p} ≅ r_{π,ι} for a cuspidal regular algebraic π of GL₂(𝔸_F) of weight 0. (a) Theorem 6.1: F imaginary CM with ζ₅ ∉ F; if r̄_{E,3} (resp. r̄_{E,5}) is decomposed generic and absolutely irreducible on G_{F(ζ₃)} (resp. G_{F(ζ₅)}), E is modular. (b) Corollary 6.1.1: for F imaginary quadratic, absolute irreducibility of r̄_{E,3}|_{G_{F(ζ₃)}} or r̄_{E,5}|_{G_{F(ζ₅)}} suffices (Lemma 6.2.2: over quadratic fields this implies decomposed genericity, via Goursat and Chebotarev). (c) Corollary 6.1.2: for F imaginary CM Galois over Q with ζ₅ ∉ F, 100% of Weierstrass equations over F, ordered by height, define modular curves. (d) Theorem 7.1: for F imaginary quadratic, E is modular if G_F acts irreducibly on E[5], or irreducibly on E[3] with image not the normalizer of a split Cartan. (e) Corollary 7.1.2 (Theorem 1.1): if X₀(15)(F) is finite, every E/F is modular.\n\nLayers to plan. (1) Mod-3 and mod-5 switching with prescribed reduction types at p (Props. 6.1.5, 6.1.6, after Allen–Khare–Thorne 9.12–9.15), with Hilbert irreducibility and weak approximation, and the local properties of the auxiliary automorphic representation (Lemmas 6.1.3, 6.1.7, 6.1.4). (2) Theorem 6.1 by applying the potentially Barsotti–Tate lifting theorem of the PotentialAutomorphyInfrastructure Part II proposed by this paper (Theorem 5.2), and solvable descent. (3) Group theory: Lemmas 6.1.4, 6.2.2 and 7.1.1 (images whose restriction to F(ζ_p) is absolutely reducible lie in normalizers of Cartan subgroups; over quadratic F this irreducibility gives decomposed genericity) are imported from ArithmeticGaloisRepresentations R01.4 (route 8 of this paper), with Goursat's lemma from Mathlib (Subgroup.goursat_surjective). (4) Modular curves X(H), X(H₁,H₂) for Borel and Cartan level at 3 and 5 with explicit models and j-maps (Prop. 7.1.3), and the imaginary quadratic points of X(b3,b5), X(s3,b5) (torsion growth, Kwon), X(ns3°,b5) (genus one, rational divisor classes, Prop. 7.2.2, Prop. 7.2.4), X(b3,ns5) (genus 2, Jacobian Z/2 ⊕ Z/10, Prop. 7.3.3), X(ns3°,ns5) and X(s3,ns5) (bi-elliptic plane quartics over X(ns3,ns5) = 225A1, Props. 7.4.3–7.4.5 by relative symmetric-square Chabauty and a Mordell–Weil sieve). (5) The modularity of the curves attached to these points: rational j-invariant, Q-curves, and the explicit LMFDB curves 4050.1-c3 over Q(√−1) and 8100.2-a2 over Q(√−11), with the certificates each computation needs.\n\nImports: Tau Ceti's EllipticCurves and ModularCurves (tauceti:TauCetiRoadmap/ModularCurves layer 5C for the twisted curve Y(ρ̄), extended here from Q to the field L of Propositions 6.1.5–6.1.6; layer 9 for the affine quotients Y_H; the compactifications X(H₁,H₂) at Cartan level are planned here, since layer 10 and ModularCurvesPartII R13.4a compactify only diamond, full, Γ₁ and Γ₀ level); Tau Ceti GlobalNumberFields layer 1 (weak approximation); ArithmeticGaloisRepresentations R01.4 (route 8); GL2AutomorphicRepresentationsAndTransfer R17.4 (solvable base change and descent); the accepted Part II EllipticCurveModularityPartIIGL2TypeAbelianVarieties (Khare–Wintenberger, modularity of abelian varieties of GL₂-type over Q) for the Q-curves of Corollaries 7.2.5 and 7.3.4, with base change and twisting for curves with rational j-invariant; InverseGaloisAndArithmeticFundamentalGroups IG.2 (Hilbert irreducibility); EffectiveDiophantineMethods ED.4–ED.6 (Chabauty–Coleman, the Mordell–Weil sieve and reproducible certificates, with this paper's relative symmetric-power method as a source); Chebotarev; the PotentialAutomorphyInfrastructure Part II for Theorem 5.2; Allen–Khare–Thorne and Freitas–Le Hung–Siksek (Invent. Math. 201, 2015) as prerequisite papers. Coordinate with the sibling Part II EllipticModularityEffectiveComparisons (Bennett–Siksek). Magma computations (files at github.com/jjmnewton/modularity-iqf) are inputs to verify, not theorems: each model, Mordell–Weil group and sieve needs a checkable certificate. Acceptance tests: F = Q(√−1), Q(√−2), Q(√−3), Q(√−5); the Q(√−11) and Q(√−55) points; a field where X₀(15) has positive rank as a negative test of Theorem 1.1's hypothesis. The final theorems (Theorems 1.1, 1.2, 6.1 and 7.1) are the source-scoped endpoints that ModularityAndLanglandsExtensions ML.1 registers ('modularity over totally real/CM fields with source-scoped restrictions'); this Part II proves them, and ML.1 cites it rather than re-planning the proof.",
+   "reason": "EllipticCurveModularity proves modularity only over Q, and no atlas layer plans modularity over other number fields, mod-3/mod-5 switching over CM fields, or the quadratic points of modular curves with Cartan level. A Part II of that roadmap, as the maintainer's note asks; make_queue folds it with Bennett–Siksek's EllipticModularityEffectiveComparisons into DESIGN-EllipticCurveModularityPartII (pending). Review: accepted. ModularityAndLanglandsExtensions ML.1 only registers source-scoped modularity endpoints over CM fields and owns none of the switching or quadratic-point mathematics, so the proof belongs here and ML.1 registers the result. Lemmas 6.1.4, 6.2.2 and 7.1.1 moved to route 8 (R01.4); the imports now name ModularCurves 5C and 9, GlobalNumberFields, R17.4 and the GL₂-type Part II for Q-curves."
   },
   {
    "route": "source",
@@ -2182,7 +2233,7 @@
     "PAPER-CARAIANI-NEWTON-23/prop-7-4-1",
     "PAPER-CARAIANI-NEWTON-23/thm-7-4-2"
    ],
-   "reason": "ED.4 plans Chabauty–Coleman and ED.5 the Mordell–Weil sieve with reduction maps from a finite-index Jacobian subgroup and an exhaustive candidate certificate. Box's relative symmetric-square Chabauty (after Siksek) and its sieve criterion (Theorem 7.4.2 = [Box21, Thm. 2.6]) are the degree-two, relative version of that method; the paper is a source for those layers (the blueprint job BP-EffectiveDiophantineMethods is pending)."
+   "reason": "ED.4 plans Chabauty–Coleman and ED.5 the Mordell–Weil sieve with reduction maps from a finite-index Jacobian subgroup and an exhaustive candidate certificate. Box's relative symmetric-square Chabauty (after Siksek) and its sieve criterion (Theorem 7.4.2 = [Box21, Thm. 2.6]) are the degree-two, relative version of that method; the paper is a source for those layers (the blueprint job BP-EffectiveDiophantineMethods is pending). Review: accepted as a source route. ED.4 and ED.5 plan classical Chabauty–Coleman and the Mordell–Weil sieve over Q; the set-up item was cited as planned there and is now missing, since neither layer names symmetric powers. The relative symmetric-square method widens those layers."
   },
   {
    "route": "source",
@@ -2241,6 +2292,31 @@
     "PAPER-CARAIANI-NEWTON-23/lem-2-1-9"
    ],
    "reason": "ALS.3 owns Hecke correspondences on complexes with their derived coherence and ALS.6 the tower API for completed cohomology. §2.1 sets these up with the adelic groups carrying their locally profinite topology (the limit spaces 𝔛̄_G with free actions of good subgroups), compares this with the discrete set-up of Newton–Thorne (Lemma 2.1.5), and proves the projection formulas (Lemmas 2.1.8, 2.1.9) that make completed cohomology independent of the weight."
+  },
+  {
+   "route": "source",
+   "roadmap": "IgusaVarietiesAndTorsionConcentration",
+   "stages": [
+    "IgusaVarietiesAndTorsionConcentration:IG.7"
+   ],
+   "items": [
+    "PAPER-CARAIANI-NEWTON-23/thm-2-1-28"
+   ],
+   "reason": "Added by the review REV-PAPER-CARAIANI-NEWTON-23. IG.7 owns the localized concentration theorem and 'the reusable source inequalities on the unitary arithmetic quotient', exported as ACC+ Theorem 4.3.3 with ρ_m of length at most two and [F⁺:Q] > 1. Theorem 2.1.28 is the same statement with both hypotheses removed by Koshikawa [Kos21, Thm. 1.4] (arXiv:2106.10602, already among the prerequisites); it is needed for F⁺ = Q. It widens IG.7 rather than starting a new layer."
+  },
+  {
+   "route": "source",
+   "roadmap": "ArithmeticGaloisRepresentations",
+   "stages": [
+    "ArithmeticGaloisRepresentations:R01.4",
+    "ArithmeticGaloisRepresentations:G7"
+   ],
+   "items": [
+    "PAPER-CARAIANI-NEWTON-23/lem-6-1-4",
+    "PAPER-CARAIANI-NEWTON-23/lem-6-2-2",
+    "PAPER-CARAIANI-NEWTON-23/lem-7-1-1"
+   ],
+   "reason": "Added by the review REV-PAPER-CARAIANI-NEWTON-23. R01.4 is to 'Prove the finite-subgroup facts of GL₂/PGL₂ used in the source arguments, including dihedral and exceptional images, normal subgroups, and behaviour under restriction to cyclotomic fields'; Lemma 7.1.1 (Cartan normalizers), Lemma 6.1.4 (the projective mod-5 field and ζ₅) and Lemma 6.2.2 (decomposed genericity over quadratic fields, via Goursat and Chebotarev; G7 holds the decomposed-generic API) are such facts, as the accepted ACC+ item 300 (Lemma 7.1.5) was routed."
   }
  ],
  "sourceIssues": [
@@ -2257,7 +2333,12 @@
     "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
     "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
     "Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the 300-dpi page image of p.52: parts (1), (3) and (5) of Theorem 3.3.3 print the tensor product over R^{st,λ_v} (resp. R^{cris,λ_v}, R^{△,λ_v}) along ζ, which is a map from R^□; as printed, (1) is circular. The same bullets print 'if and only ρ'. arXiv v1 and v2 read the same.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/E2",
@@ -2272,7 +2353,12 @@
     "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
     "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
     "Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p.52: R^{△,λ_v,ψ} is printed as R^{cris,λ_v} ⊗ R^{□,ψ}, which would make it equal to the crystalline fixed-determinant ring; Lemma 3.3.6 and §5.3.1 use the semistable-ordinary one.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/E3",
@@ -2287,7 +2373,12 @@
     "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
     "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
     "Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p.44: 'σ ∈ S_n' for an m-dimensional r. The same statement also writes τ : F ↪ Q̄_p and 'the ramification degree of F/Q_p' where F_v is meant; the item already uses F_v.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/E4",
@@ -2302,7 +2393,12 @@
     "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
     "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
     "Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the images of pp.89–90: both propositions print E_{F_w} for a curve E over L; the proof of 6.1.5 speaks of E_{L_w}.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/E5",
@@ -2317,7 +2413,12 @@
     "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
     "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
     "Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p.93: the paragraph on X(s3,b5), with Legendre form y² = x(x+1)(x+16), states the torsion-growth claim for X₀(15). The correction is right; the preceding paragraph already lists Q(√−1) and Q(√5) for X₀(15).",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/E6",
@@ -2332,12 +2433,17 @@
     "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
     "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
     "Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p.31: the target carries a stray λ as a subscript; Lemma 2.1.12 and the proof of Proposition 2.2.15 give V_{λ_τ̃} ⊗ V_{−w_{0,n}λ_{τ̃c}}.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/E7",
    "kind": "misprint",
-   "locator": "Proposition 2.1.14, p.18, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "locator": "Proposition 2.1.14, pp.18–19, in arXiv:2301.10509v3 (27 March 2025); page image checked",
    "printed": "The source identifies S : H(G̃(F⁺_v), G̃(O_{F⁺_v})) → H(G(F⁺_v), G(O_{F⁺_v})) as the homomorphism introduced in the closing passage of §2.1.1.",
    "correction": "defined at the end of §2.1.2",
    "reason": "The unnormalised Satake transform 𝒮 = r_M ∘ r_P is defined on p.15, at the end of §2.1.2, just before §2.1.11; §2.1.1 is about locally symmetric spaces.",
@@ -2347,7 +2453,12 @@
     "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
     "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
     "Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the images of pp.18–19: the printed 'end of §2.1.1' (a hyperlink) is on p.19; 𝒮 = r_M ∘ r_P is defined on p.15 at the end of §2.1.2. The locator now reads pp.18–19.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/E8",
@@ -2362,7 +2473,12 @@
     "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
     "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
     "Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p.21: α_λ^{Q_v̄}(x)^{−1} is printed; α is a character of the monoid, evaluated at g as in (2.1.7).",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/E9",
@@ -2377,7 +2493,12 @@
     "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
     "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
     "Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the images of pp.100–101: G₁ ⊂ Jac_{C₁}(Q) appears three times for C₂ (statement (3), last line of the proof, proof of 7.4.5). With 2Jac_{C₂}(Q) ⊂ ⟨G₂, T⟩ and T ≅ Z/2 ⊕ Z/10, 10Jac_{C₂}(Q) ⊂ ⟨5G₂, 5T⟩ = ⟨5G₂, Jac_{C₂}(Q)[2]⟩, so G₂ is meant.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/E10",
@@ -2392,7 +2513,12 @@
     "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
     "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
     "Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p.62: the even case sums [F⁺_{v̄″}:Q_p] over v̄ ∉ S̄.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23/E11",
@@ -2407,7 +2533,132 @@
     "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
     "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
     "Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p.18: the general term of (2.1.6) lacks X^{2n−j}; (2.1.5) has X^{n−i}.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E12",
+   "kind": "error",
+   "locator": "Lemma 5.6.5 and its proof, pp.85–86, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "The source concludes reducibility of ρ̄|_{ker(det ρ̄)}. Invoking Dickson’s classification, it gives two possibilities: reducible ρ̄ or G′ ≅ A₄. For the second possibility it puts G₁ = ker(det ρ̄), states ρ̄(G₁)/ρ̄(Z) ≅ Z/2 × Z/2, and derives reducibility of ρ̄|_{ker(det ρ̄)} from this.",
+   "correction": "The conclusion holds except when d = 3 and the projective image is A₄; then ρ̄|_{ker(det ρ̄)} has projective image Z/2 × Z/2 and is absolutely irreducible. The end of the proof of Theorem 5.2 (p.87), which uses the lemma to find g ∈ ρ̄(G_{F₁}) with det g ≠ 1 and eigenvalue ratio ≠ (det g)^{±1}, needs another argument in that case.",
+   "reason": "For p odd, a Klein four subgroup of PGL₂(F̄_p) does not fix a line (it would embed in the cyclic group F̄_p^× of a Borel modulo scalars), so its preimage acts irreducibly. Counterexample for every p ≥ 5: let G = 2T ≅ SL₂(F₃) ⊂ SL₂(F̄_p), χ : G → C₃ → F̄_p^× its cubic character (kernel Q₈), and ρ̄ = incl ⊗ χ. Then det ρ̄ = χ² has order 3. An element g ∉ Q₈ has order 3 or 6, with eigenvalues χ(g)ω, χ(g)ω² or −χ(g)ω, −χ(g)ω² (ω a primitive cube root of 1), so one eigenvalue is ±1, which is equivalent to (5.6.1). But ker det ρ̄ = Q₈ acts irreducibly (i and j anticommute). Checked by hand and by a brute-force computation over F₇. The hypotheses of Theorem 5.2 allow this residual image when p ≡ 1 mod 3 (for instance p = 7 and F ⊇ Q(√−7), so that [F(ζ₇):F] = 3); there no unramified place has H²(F_v, ad⁰ρ̄) = 0. The cases d ≠ 3 ([DDT97, Lemma 4.11]) and hence p = 3, 5, which is all §§6–7 use, are unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv lists v1 (25 January 2023), v2 (29 September 2023) and v3 (27 March 2025); v3 is the latest, and the passage reads the same in v1 and v2.",
+    "2026-09-29: a Crossref bibliographic search for the title and authors finds no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found by this review and checked on the page images of pp.85–86 and by the counterexample above. Lemma 5.6.5 is false as stated; Theorem 5.2 is not shown false, but its printed proof has a gap for p ≡ 1 mod 3, [F₁(ζ_p):F₁] = 3 and projective image A₄. Theorems 1.1, 1.2, 6.1 and 7.1 use only p = 3, 5 and are unaffected.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E13",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.3.2, p.51, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "The source calls every F^i_B weakly admissible and asserts F^i_B/F^{i+1}_B = D_st(χ_{i,B}), with χ_{i,B} : G_{F_v} → E^× a crystalline character.",
+   "correction": "F^i_B/F^{i−1}_B = D_st(χ_{i,B}) (with F^0_B = 0) for a crystalline character χ_{i,B} : G_{F_v} → B^×",
+   "reason": "The filtration is increasing: F^i_B is spanned by the generalized eigenspaces with slope ≤ v_i, so F^i_B ⊂ F^{i+1}_B and the graded pieces are F^i_B/F^{i−1}_B; the weights (λ_{τ,n+1−i} + i − 1) attached to v_i fit this. The characters take values in B^×, since D_st(ρ_B) is a B-module.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv lists v1 (25 January 2023), v2 (29 September 2023) and v3 (27 March 2025); v3 is the latest.",
+    "2026-09-29: a Crossref bibliographic search for the title and authors finds no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p.51.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E14",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.2.2, third claim, p.48, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "The source invokes Prop. 3.2.1, taking S = Ã.",
+   "correction": "We apply Lemma 3.2.1 with S = Ã",
+   "reason": "The idempotent-lifting statement over a Henselian base is Lemma 3.2.1 (p.47); there is no Proposition 3.2.1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv lists v1 (25 January 2023), v2 (29 September 2023) and v3 (27 March 2025); v3 is the latest.",
+    "2026-09-29: a Crossref bibliographic search for the title and authors finds no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the text and page image of p.48.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E15",
+   "kind": "misprint",
+   "locator": "§5.6, before Proposition 5.6.2, p.83, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "The source specifies a maximal ideal m ⊂ T^{Q_{S̄_p},S̄_p−ord}_{G}(C•(K,O)) whose representation ρ̄_m : G_{F,T} → GL_n(Q̄_p) obeys ρ̄_m ≅ r̄_ι(π).",
+   "correction": "ρ̄_m : G_{F,T} → GL₂(k)",
+   "reason": "ρ̄_m is the residual representation of a maximal ideal of a PGL₂ Hecke algebra (n = 2), with values in the residue field, as the next paragraph ('the residue field of m is equal to k') uses.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv lists v1 (25 January 2023), v2 (29 September 2023) and v3 (27 March 2025); v3 is the latest.",
+    "2026-09-29: a Crossref bibliographic search for the title and authors finds no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p.83.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E16",
+   "kind": "misprint",
+   "locator": "End of the proof of Theorem 5.2, choice of V, p.86, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "The source asserts the existence of a rational prime q ≠ p for which ρ̄ is decomposed generic, with every q-adic place of K belonging to V.",
+   "correction": "V contains all q-adic places of F",
+   "reason": "V is a set of finite places of F, and no field K is in play at this point of the proof.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv lists v1 (25 January 2023), v2 (29 September 2023) and v3 (27 March 2025); v3 is the latest.",
+    "2026-09-29: a Crossref bibliographic search for the title and authors finds no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p.86.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E17",
+   "kind": "misprint",
+   "locator": "§7.1, definition of X(H₁,H₂), p.93, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "The source imposes containment of η^{−1} r̄_{E,p}(G_F) η in H_i for i = 1, 2.",
+   "correction": "such that the image of G_F under r̄_{E,p₁} × r̄_{E,p₂}, conjugated by η, lies in H₁ × H₂ (that is, η_i^{−1} r̄_{E,p_i}(G_F) η_i ⊂ H_i for the components η_i of η)",
+   "reason": "η is a product of isomorphisms F²_{p_i} ≅ E[p_i](Q̄) and H_i ⊂ GL₂(F_{p_i}); the prime must be p_i.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv lists v1 (25 January 2023), v2 (29 September 2023) and v3 (27 March 2025); v3 is the latest.",
+    "2026-09-29: a Crossref bibliographic search for the title and authors finds no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p.93.",
+    "by": "REV-PAPER-CARAIANI-NEWTON-23"
+   }
   }
  ]
 }
