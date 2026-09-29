@@ -1,58 +1,87 @@
-# Handoff: BP-AutomorphicGaloisRepresentations (second checkpoint)
+# Handoff: BP-AutomorphicGaloisRepresentations (third checkpoint)
 
 Agent: Claude Code, session cc-fb70e5. Refs #685.
 
-- Stages R19.1–R19.6, all partial. The checker reports no errors.
+- Stages R19.1–R19.6 are all partial. The checker reports no errors and no warnings.
 - RS-12 is still **needs_changes**, so the current structure is used.
-- Checkpoint 1 was merged in #3857 (13 nodes). This checkpoint adds 5 nodes, for 18 nodes and 12 planets.
+- Checkpoint 1 was merged in #3857 (13 nodes) and checkpoint 2 in #3859 (18 nodes). This checkpoint adds 3 nodes in R19.6, for 21
+  nodes and 14 planets.
 
 ## New in this checkpoint
 
-- `R19.6/hecke-algebra-representation-quaternionic` (planet): ρ_m: G_F → GL_2(T_ψ(U)_m) for a definite quaternion algebra over an even-degree totally real F (KW II §9.1).
-  - Built from the eigenform representations over T_m ⊗ E and Carayol's descent.
-  - Characterised by the Eichler–Shimura relation.
-  - Its specialisations are the ρ_f, and the map R^ψ_S → T_m follows.
-  - The level-11, p = 5 Eisenstein ideal is the non-example.
-- `R19.4/quaternionic-sigma-place-local-form` (KW II Lemma 7.2): a fixed unramified γ_v with ρ_f|_{D_v} ≅ (χ_pγ_v ∗; 0 γ_v) for all eigenforms in the localisation, with γ_v² = ψ_v.
-- `R19.5/hilbert-local-behaviour-at-p` (KW II Lemma 7.7 and Corollary 7.8, after Kisin and Saito):
-  - crystalline of weight k when π_v is unramified, with the ordinary form;
-  - potentially Barsotti–Tate at Γ_1(v) level;
-  - Steinberg gives semistable, non-crystalline.
-- `R19.2/wiles-ordinary-hilbert-representation` (planet): Wiles' representations of nearly ordinary Hilbert forms (Skinner–Wiles (3.2)).
-- `R19.4/nearly-ordinary-hilbert-compatibility-away-from-p`: Skinner–Wiles (3.3).
+All three nodes are for F = ℚ in weight two. They come from Darmon–Diamond–Taylor, *Fermat's Last Theorem* (2007 revision), which
+was already a source.
 
-These answer GL2ModularityLifting R22.1's two requests (ρ_m with local conditions away from p and at p) and OrdinaryAutomorphicFormsAndModularityLifting's R19.2 and R19.4 requests. OAFML's Hida-family construction (3.4)–(3.5) stays their node `R21.3/hida-family-representation`.
+- `R19.6/full-weight-two-hecke-algebra-and-its-galois-representations` (construction).
+  - Sources: DDT §4.1 and Lemmas 1.37–1.39.
+  - The full Hecke algebra 𝕋 of Γ_H(N) acts faithfully and is finite free.
+  - T_ℓ(J_Γ) ⊗ ℚ_ℓ is free of rank two over 𝕋_{ℚ_ℓ}, which gives ρ_𝔭 over 𝕋_K/𝔭 and, for ℓ odd, the residual ρ_𝔪.
+  - Its non-example shows that 𝕋_K is not reduced. At Γ₀(88), T₂ acts on the old space of 11a1 through K[u]/(u²(u² + 2u + 2)).
+- `R19.6/hecke-algebra-representation-classical` (planet).
+  - Source: DDT Lemma 3.27, under the hypotheses (a)–(e) of §3.3.
+  - It constructs ρ^mod_Σ : G_ℚ → GL₂(𝕋_Σ) over the reduced Hecke algebra, using complex conjugation and the matrix-entry
+    argument. It also gives the surjection R_Σ ↠ 𝕋_Σ and properties (b) and (c).
+  - Acceptance: DDT Example 3.28, 57B at ℓ = 3.
+  - It is the F = ℚ counterpart of the quaternionic node, and it avoids Carayol's descent.
+- `R19.6/reduced-hecke-algebra-as-a-localisation` (planet).
+  - Sources: DDT Lemma 4.6 and Proposition 4.7, due to Wiles.
+  - It proves 𝕋_Σ ≅ 𝕋_𝔪 at level N_Σ = ℓ^δ N(ρ̄) ∏_{p∈Σ−{ℓ}} p².
+  - A hypothesis explains why u_p = 0 is a simple root in every case (p ∤ N_f, p ∥ N_f, p² | N_f).
+  - Acceptance: ρ̄_{11a1,3} with Σ = {2} at level 44. The level-88 contrast shows why the exponent is 2.
+
+Other changes:
+
+- The R19.6 coverage record is updated. Its stale item on V_ℓ(A_f) is removed, since checkpoint 2 read DDT Lemma 1.48 for it.
+- The stale gap "The weight-two decomposition of V_l(A_f) has no source read" is removed for the same reason.
+- A new gap records that DDT leave Lemma 3.27(a)–(c) as an exercise.
+- The roadmap document is regenerated for these sections. The node sections use the same renderer format as before.
 
 ## What remains
 
 - **R19.1:** integral lattices of M_g (DFG §6.4); Deligne–Serre §8; Scholl's Kuga–Sato realisation (GH.0 request).
-- **R19.2:** Carayol §§1–12 and the bad-reduction paper; Wiles 1988 [W2] (quoted through Skinner–Wiles).
+- **R19.2:** Carayol §§1–12 and the bad-reduction paper; Wiles 1988 [W2], which is quoted through Skinner–Wiles.
 - **R19.3:** Saito's proof of purity; the compatible-system carrier (R24.5).
 - **R19.4:** Carayol's proof; the comparison of σ with Saito's σ̌_h.
-- **R19.5:** the endpoint weight; Kisin's corollary (JAMS 2008), quoted through KW II.
+- **R19.5:** the endpoint weight; Kisin's corollary (JAMS 2008), which is quoted through KW II.
 - **R19.6:**
   - Carayol's descent (Contemp. Math. 165, not public), matched with Chenevier's Theorem B plus the IHG.1 residue-field descent;
-  - Galois representations over Hecke algebras for the classical modular curve (F = Q), which the KW II §7 setting excludes because it needs [F : Q] even.
+  - the determinant law over a non-reduced localised Hecke algebra, for general level;
+  - the type-Σ verification in DDT Lemma 3.27 (the gap);
+  - the Taylor–Wiles variant 𝕋_Q (DDT Proposition 4.10), whose consumer is GL2ModularityLifting R22.2.
 
 ## Requests made in this checkpoint
 
-GL2AutomorphicRepresentationsAndTransfer R17.3 (Jacquet–Langlands with local functoriality). The requests from checkpoint 1 are listed in the packet.
+- ModularCurvesPartII R14.2: 𝕋_ℤ on J_Γ and T_ℓ(J_Γ), faithfulness, freeness, and rank two over 𝕋_ℚ.
+- GlobalGaloisDeformations R04.3: R_Σ for type-Σ liftings.
+- SerreWeightAndLevelOptimisation R20.6: DDT Theorem 3.15.
+- AlgebraicModularFormsAndSerreWeights R15.2: the generation Lemma 4.1.
+- Tau Ceti ModularForms layer 4: the newform decomposition and the old-space polynomial.
+
+The existing R01.1 and R01.6 requests now also list the new construction.
 
 ## Suggested Lean file
 
-It imports Mathlib only. It was compiled with `lake env lean` against the Mathlib 082e2d3 build, and `sorry` is its only warning.
+It imports Mathlib only. It was compiled with `lake env lean` against the Mathlib 082e2d3 build, with exit code 0. Its only
+warnings are the `sorry` placeholders of the planned declarations.
 
-Checkpoint 2 adds comments naming the objects the new theorem nodes need, and one acceptance example.
+This checkpoint adds checks on:
+
+- the 57B trace table (every pair is congruent mod 3);
+- σ₀(8) = 4, and the square of u(u² + 2u + 2) against u²(u² + 2u + 2);
+- N_Σ = 44 and the simple root at u = 0 mod 3.
+
+It also replaces the one `sorry` in an example by a proof, `mul_self_eq_one_iff`.
 
 ## Source issues
 
-- E1: Deligne, Bourbaki 355, Proposition 3.15 (checkpoint 1).
-- E2: KW II reference [53] gives math/0612077 as "Modular forms and p-adic Hodge theory". The preprint is "Hilbert modular forms and p-adic Hodge theory"; the given title is Saito's 1997 paper. It affects nothing.
-- Note for PadicHodgeTheory/E50: the decomposition reviewer had already flagged its Weil–Deligne half, so its "known" field should say so.
+None new. E1 and E2 are unchanged. The note for PadicHodgeTheory/E50 (its Weil–Deligne half was already flagged by the
+decomposition reviewer) still waits for that packet's next checkpoint.
 
 ## Sources
 
-New in this checkpoint:
+Darmon–Diamond–Taylor was re-downloaded and its SHA-256 matches the packet's record (254f6e29…). Newly read:
 
-- Khare–Wintenberger II (authors' final version). Its SHA-256 matches the GL2ModularityLifting copy. The UCLA server's TLS chain is incomplete, so it was fetched without certificate verification and checked against that hash.
-- Skinner–Wiles (Numdam), same file as OAFML's.
+- §1.6, Lemmas 1.37–1.39 (pp. 40–42);
+- §3.3 (pp. 93–95), with hypothesis (c), det ρ̄ = ε, checked on the page image;
+- §4.1 (pp. 106–111);
+- §4.2 (pp. 112–113).
