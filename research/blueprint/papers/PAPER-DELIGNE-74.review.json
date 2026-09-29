@@ -1,0 +1,32 @@
+{
+ "paper": "PAPER-DELIGNE-74",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. WC.1 owns the zeta-function API over F_q (Euler product, point counts, rationality over Q), and the Hasse–Weil zeta function (1.1.1), of which Z(X₀, t) is the finite-field specialisation via (1.1.3), is the definition it starts from. WC.5 plans point-count bounds from the Riemann hypothesis; Theorem (8.1) for smooth complete intersections, with the cohomology of complete intersections (only the primitive middle part survives), is a worked corollary of exactly that estimate."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. DWP.2 and DWP.3 plan Weil I's Theorems 3.2 and 6.2 from this paper. The four missing inputs (Zariski density of an open subgroup of Sp(Q_ℓ), H⁰_c = 0 on an affine curve, the count of closed points in the proof of (3.8) — with the correction of E16, count on P¹ — and the homotopy exact sequence for π₁(U₀) → Ẑ) are steps of those proofs and belong there."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. LPV.2 asks to 'Verify the n mod 4 sign table against complex comparison', which is what the complex model of (4.1) supplies (I checked the table on p. 287 is internally consistent: Tδ = δ ± (δ,δ)δ gives −δ for n ≡ 0, 2 and δ for n odd). LPV.0 owns the henselian-trait set-up that (4.2)'s description of sheaves by specialization data belongs to; (5.1)–(5.2) are the complex counterparts of LPV.3–LPV.4; Remark (5.12) is a worked instance for LPV.4."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept, with a note for the design job. FF.2 plans 'polynomial/rational exponential-sum bounds via curves and l-adic trace functions' with Deligne as a selected source, and §8.4–8.13 is the complete proof of Theorem 8.4. One input, the Grothendieck–Ogg–Shafarevich formula (s8-GOS-formula), is a general theorem that no atlas stage plans (I searched for Ogg, Shafarevich and Euler–Poincaré); routing it here with its only consumer is acceptable, but FF.2's design must either plan it or propose it to an étale-cohomology roadmap."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. R01.3 plans Artin and Swan conductors from the ramification filtration; Lemmas 8.12–8.13 (an Artin–Schreier character T^p − T = y⁻¹ with v(y) = d prime to p has conductor d + 1, so ℱ_j has Swan conductor d at ∞) are its natural worked example, after Serre (1961)."
+  }
+ ],
+ "notes": "Independent review by Claude Code, session cc-fb70e5 (29 September 2026), of the extraction by Claude Code cc-f805bf (PR #4551, issue #4492); cc-fb70e5 appears nowhere in its files. The Numdam scan (SHA-256 8392b345…42e5) and Goncharov's translation (SHA-256 44bb5bd0…5c78) match the recorded hashes. Every page of the scan (pp. 273–307) was read on page images. The 208 items were compared with the text; a scripted check confirmed the page of every numbered statement in a locator (the one apparent mismatch, Lemma (6.7), is stated on p. 297 and only referred to on p. 296). The one library item's four Tau Ceti declarations were opened at f790474 and provide it; the stage texts behind the five routes were read. E1–E4 and E6–E15 confirmed on page images; E5 rejected (the deduction of Lie(image) = ⟨N_s⟩ is standard via the Zariski closure and Chevalley's theorem in characteristic 0); E2's 'known' now cites the translation's footnote 10; new E16 (error, affects nothing: the closed-point count in the proof of (3.8) is made on the affine line, but U₀ ⊂ P¹ may contain ∞; counterexample q = 2, ε = 5) added and confirmed. Not checked: the Springer PDF of the same article (the Numdam scan is the published text)."
+}
