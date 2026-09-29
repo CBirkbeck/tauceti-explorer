@@ -403,7 +403,12 @@ def main():
 
 
 STATE_LABELS = ("state:available", "state:blocked", "state:claimed", "state:running", "state:submitted", "state:done")
-CLOSE_WHEN_DONE = {"review", "classify", "naming", "status", "assembly", "plan"}
+# A finished job's issue closes, except where the orchestrator still has to promote the work
+# into the atlas: a blueprint, design or link map closes once promotion sets "integrated",
+# because a refused promotion is reported on its issue. Every other kind has nothing left
+# to do on its issue once its deliverables are on main (papers feed design jobs, red-team
+# findings FIX jobs, errata the register, restructures their revisions).
+AWAIT_INTEGRATION = {"blueprint", "design", "link"}
 
 
 DECOMPOSED = ("source_decomposed", "closed")
@@ -492,7 +497,7 @@ def transition(job, labels, complete, is_ready):
     elif state == "external" and "state:available" in labels:
         state = "pending"
     if state == "done":
-        return state, "state:done" if (job["kind"] in CLOSE_WHEN_DONE or job.get("integrated")) else "state:submitted"
+        return state, "state:done" if (job["kind"] not in AWAIT_INTEGRATION or job.get("integrated")) else "state:submitted"
     if state == "external":
         return state, "state:submitted" if "state:submitted" in labels else "state:claimed"
     if state == "pending":
