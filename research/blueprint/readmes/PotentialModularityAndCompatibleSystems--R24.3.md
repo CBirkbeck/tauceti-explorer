@@ -1,14 +1,14 @@
 # Potential modularity and compatible systems — part R24.3: prescribed lifts, the lifting interface and compatible systems — blueprint
 
 This part covers stages R24.3–R24.6 of PotentialModularityAndCompatibleSystems, including the operations sub-layer
-R24.5:operations. After the first checkpoint:
+R24.5:operations. After the third checkpoint:
 
 | Stage | Coverage |
 |---|---|
 | R24.3 | `source_decomposed`: Böckle, KW Annals, the lifts of KW I Theorem 5.1, Snowden |
 | R24.4 | `source_decomposed`: KW I Theorem 4.1 |
 | R24.5 | `source_decomposed`: the Brauer system, almost strict compatibility, KW I Theorem 5.1 |
-| R24.5:operations | `partial`: definitions and rank-2 operations |
+| R24.5:operations | `partial`: rank-n weakly compatible systems, their predicates and operations (L-functions of systems not planned) |
 | R24.6 | `source_decomposed`: changing residual characteristic |
 
 No integrated decomposition exists for this roadmap. RS-06 and RS-08 keep these stages unchanged and route their
@@ -28,6 +28,9 @@ Suppliers:
 - **Böckle**, the appendix to Khare's Invent. Math. 154 (2003) paper.
 - **Dieulefait–Pacetti**, arXiv v2: §§1.3–1.4.
 - **Snowden**, arXiv:0905.4266v1: §7.
+- **Barnet-Lamb–Gee–Geraghty–Taylor**, *Potential automorphy and change of weight* (arXiv:1010.2561v1): §5.1 and
+  Lemma 5.2.1 (checkpoint 3).
+- **Taylor**, *On the meromorphic continuation of degree two L-functions* (Documenta 2006): §6 (checkpoint 3).
 
 ## Purpose
 
@@ -89,6 +92,22 @@ Khare's paper with Böckle's appendix ([26]).
     - the weight convention.
 - **`system-operations`.** Twisting, restriction and induction preserve each kind of compatibility. Irreducibility,
   regularity and purity are not automatic.
+- **Checkpoint 3: rank n** (RS-12 is accepted; "early R24.5:operations owns the carrier and generic operations").
+  - **`weakly-compatible-system-rank-n`** (definition). BLGGT's 5-tuple (M, S, {Q_v}, {r_λ}, {H_τ}), and Taylor's rank-d
+    systems over ℚ. It is the common carrier; its members are representations, not only traces.
+    - *API:* `WeaklyCompatibleSystem` with `rank`, `charpoly_frob`, `deRham`, `ofCompatibleSystem`, `ofNewform`.
+    - *Tests:* the cyclotomic system; Δ; the carrier stores representations; enlarging S.
+  - **`compatible-system-predicates`** (definition). These are separate predicates, kept apart from Khare–Wintenberger's
+    local ones:
+    - regular and extremely regular, and totally odd;
+    - essentially conjugate self-dual, and its totally odd form;
+    - irreducible on a density-one set;
+    - strictly compatible, pure and strictly pure;
+    - automorphic.
+  - **`linear-algebra-operations-on-systems`.** ⊕, ⊗, duals, Sym^k, ∧^k, restriction and induction, applied member by
+    member. A preservation table records what each keeps: regularity fails for ⊗, and irreducibility fails for restriction.
+  - **`rank-two-reducibility-independent-of-lambda`.** Taylor's Lemma 6.5, and BLGGT Lemma 5.2.1 (the component group is
+    independent of λ; its Larsen–Pink input is a gap).
 
 ## Layer R24.5: compatible systems from potential modularity
 
@@ -136,14 +155,11 @@ packet records only almost strict compatibility.
 
 ## Remaining work
 
-- **R24.5:operations:** rank n and polarised systems, with tensor, dual and symmetric/exterior powers (RS-12 is not
-  accepted).
+- **R24.5:operations:** the L-functions, ε-factors and Γ-factors of a system (BLGGT §5.1) and BLGGT's §§5.2–5.4 lemmas
+  beyond Lemma 5.2.1 are not planned. Larsen–Pink Proposition 6.14 is a gap.
 - **Gaps:** Savitt's residual weights (requested from AlgebraicModularFormsAndSerreWeights R15.4); Dieulefait 2004 and
   Gee 2011 were not read.
-- **A duplication to resolve in ClassicalSerreModularity:** part R26.1 carries the reviewed decomposition node
-  `R26.1/bockle-appendix-minimal-deformation-ring-presentation`. RS-06 makes R24.3 the owner of Böckle's appendix, and
-  RS-06 links R24.3 → R26.1, so that node should become an import of `R24.3/bockle-presentation` and
-  `R24.3/bockle-minimal-r-equals-t`.
+- **Resolved:** ClassicalSerreModularity part R26.1 now imports Böckle's appendix from here (its checkpoint 2, #3865).
 
 ## Sources
 
@@ -156,3 +172,7 @@ packet records only almost strict compatibility.
 - G. Böckle, *Appendix 1: On the isomorphism R_∅ → T_∅*, to C. Khare, Invent. Math. 154 (2003).
 - L. V. Dieulefait and A. M. Pacetti, *A simplified proof of Serre's conjecture*, arXiv:2108.07577v2 (2022).
 - A. Snowden, *On two dimensional weight two odd representations of totally real fields*, arXiv:0905.4266v1 (2009).
+- T. Barnet-Lamb, T. Gee, D. Geraghty and R. Taylor, *Potential automorphy and change of weight*, Ann. of Math. 179
+  (2014), 501–609 (arXiv:1010.2561v1).
+- R. Taylor, *On the meromorphic continuation of degree two L-functions*, Documenta Math. Extra Volume Coates (2006),
+  729–779.
