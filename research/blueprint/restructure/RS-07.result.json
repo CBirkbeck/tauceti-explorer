@@ -58,14 +58,8 @@
       "reason": "Consume existing nonvanishing and the anchor's generic Wiener-Ikehara and psi/theta/pi transfer. Neither an upstream zero-free line nor a fixed-modulus asymptotic supplies a uniform modulus estimate."
     },
     "AnalyticNumberTheory:AN.3": {
-      "action": "narrow",
-      "keeps": "Zero counting with multiplicity, explicit formulas with test-function and endpoint conditions, zero-density and basic mean-value estimates, and source-scoped short-interval/uniform progression applications (including the small-modulus input needed by SV.3). Attach RH/GRH statements from AN.6 here, using the existing RH proposition where applicable, without assuming them.",
-      "suppliedBy": [
-        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
-        "SieveMethodsAndPrimePatterns:SV.2",
-        "UPSTREAM:Mathlib-RiemannHypothesis"
-      ],
-      "reason": "Perron inversion belongs to ADS Layer 6; large-sieve/bilinear inequalities belong to SV.2; Bombieri-Vinogradov belongs to SV.3. Remove the old AN.3 -> SV.2 edge before adding SV.2 -> AN.3: the latter supplies the large-sieve route to zero density. A proof of a quantitative theorem must retain its actual constants and range."
+      "action": "keep",
+      "reason": "Kept whole for now, per red-team finding RT-RS-07/1. The accepted narrowing of this layer names SV.2 as a supplier of the large-sieve route to zero density. That is only sound together with an atomic replacement of the prerequisite AnalyticNumberTheory:AN.3 -> SieveMethodsAndPrimePatterns:SV.2 by SV.2 -> AN.3. scripts/restructure.py cannot delete a stage edge: it applied the narrowing, then skipped the SV.2 -> AN.3 link because the old edge closes a cycle, leaving the layer narrowed with a supplier it cannot import. So this proposal withholds the whole dependent narrowing, and with it the reverse link. Both remain the accepted target and are recorded verbatim in RS-07.md, section 'Red-team fix: the AN.3 narrowing is withheld'. They go live together with the edge deletion, in one maintainer integration once the tooling can apply it atomically; the same mechanism is RT-RS-15/1. Until then the layer keeps its full text and the existing AN.3 -> SV.2 prerequisite stays. Independently of the deletion, AN.3 still receives the RH/GRH statement register of the dropped AN.6, using the existing RH proposition without assuming it. It consumes Perron inversion from ArithmeticDirichletSeries Layer 6 through the retained link, and Bombieri-Vinogradov stays with SV.3 (owners)."
     },
     "AnalyticNumberTheory:AN.4": {
       "action": "narrow",
@@ -197,7 +191,7 @@
         "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
         "UPSTREAM:Mathlib-ArithmeticFunction-LSeries-Abel"
       ],
-      "reason": "Consume primitive-character/conductor/orthogonality APIs, not a new character carrier. Delete the old requires AN.3: this foundational inequality stage does not depend on zero-density estimates. Its exports may instead be consumed by AN.3; BV remains downstream in SV.3."
+      "reason": "Consume primitive-character/conductor/orthogonality APIs, not a new character carrier. The accepted plan deletes the old requires AN.3, since this foundational inequality stage does not depend on zero-density estimates, and lets AN.3 consume its exports instead. That replacement is atomic, and it is withheld with the AN.3 narrowing (RT-RS-07/1; RS-07.md, section 'Red-team fix: the AN.3 narrowing is withheld') until the maintainer's integration can delete the old edge. Until then the existing AN.3 -> SV.2 prerequisite stays, and this proposal adds no SV.2 -> AN.3 link. BV remains downstream in SV.3."
     },
     "SieveMethodsAndPrimePatterns:SV.3": {
       "action": "keep",
@@ -267,11 +261,6 @@
       "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
       "target": "AnalyticNumberTheory:AN.3",
       "reason": "Consume the proved Perron kernel and arithmetic summation; residues and zero sums are new explicit-formula work."
-    },
-    {
-      "source": "SieveMethodsAndPrimePatterns:SV.2",
-      "target": "AnalyticNumberTheory:AN.3",
-      "reason": "Large-sieve and bilinear estimates for the selected zero-density/mean-value route; apply only after deleting the old reverse AN.3 -> SV.2 edge."
     },
     {
       "source": "UPSTREAM:Mathlib-RiemannHypothesis",
