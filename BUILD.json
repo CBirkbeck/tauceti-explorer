@@ -367,8 +367,8 @@
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 58,
   "bibliographicSources": 46,
-  "roadmapEdges": 1645,
-  "stageEdges": 7841,
+  "roadmapEdges": 1646,
+  "stageEdges": 7855,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -493,8 +493,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 29913959,
-  "htmlSha256": "06f7e1e53721c283ecedea18316c9eb6831f27aff5567049c90040e52e4d3baa",
+  "htmlBytes": 29925741,
+  "htmlSha256": "68b41ee4ee2e154fe3413182c0c44145317020a6119caf8b53f98cbfe2dade23",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -525,8 +525,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "dc7d9fcabc7f48f283cde98cbe56efcf48450291471d826036c60eee4b77b6a0",
-    "data/galaxy-layout.json": "d36eb9d7a38c5e6e3ccd31e31ffbf9849ce192348586cc0fd60d2451ce568cf3",
+    "data/roadmap-distances.json": "e4010726a2a8067a88048ea717a528835f2a72df58ab4e3c474c24338cbed5c4",
+    "data/galaxy-layout.json": "5819700c42706680215d1174116a6e3de4ff9824193ec8ee842f907c065e5871",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -678,6 +678,8 @@
     "data/restructure/RS-19.result.json": "4c4e23596364cf51e0629e6fb42e72043ca9e52bb8afb87210bace8b987ebb7a",
     "data/restructure/RS-22.md": "a71ec9e46134af1542271262b14da388e1bdb38e6ab0cf194eb7961a4cc2acca",
     "data/restructure/RS-22.result.json": "6ebb865c5d9a273d72af9564125e1b779d1250d830c8d32d226001d9551f72e9",
+    "data/restructure/RS-23.md": "3b42a658708e0fbbae096319073b59741a558f5d9df2a2e32ae6f4a3a0d40bd4",
+    "data/restructure/RS-23.result.json": "412e0a564dc41e311e8913fe8591f7ca0c91393da200885a3c7b988f6342747d",
     "data/restructure/RS-24.md": "f482ae94acaa7f7ec371c8472d4ad2bb3dd93be06ed9a0d628cf6155f91bf50f",
     "data/restructure/RS-24.result.json": "d3e408505fabd957339d6bbe5f2f972b9b908a928bcc4688dc0f7dc4ee9d4ba8",
     "data/restructure/RS-25.md": "0fb65543bc1079607c3b20ad431417b8859e1af7b984bd3a28a7ce22ac1534a6",
