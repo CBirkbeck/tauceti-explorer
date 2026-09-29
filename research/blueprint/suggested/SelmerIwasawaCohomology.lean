@@ -12,7 +12,7 @@ This file is a prototype in the form of upstream's `Suggested.lean`. Every proof
 statements elaborate against Mathlib at the pinned commit. The complete targets, with sources, API
 outlines and unit tests, are in the blueprint packet and the roadmap document.
 
-This first checkpoint covers:
+The first two checkpoints cover:
 * **L0**: the `p`-adic completion `lim_m Aˣ/(Aˣ)^{p^m}` of a multiplicative group, its comparison
   with `ℤ_p ⊗ A` for finitely generated `A` (global units, `S`-units), and its failure for local
   multiplicative groups and for `Fˣ`; the Kummer statements are recorded as comments, since they
@@ -20,7 +20,9 @@ This first checkpoint covers:
   available;
 * **L2**: the generic Selmer-kernel API over arbitrary coefficient modules (local conditions,
   strict and relaxed modifications, change of conditions, propagation along maps of coefficients,
-  the passage `V → T, V → W` by inverse image and image), and the Pontryagin dual with its corank.
+  the passage `V → T, V → W` by inverse image and image), and the Pontryagin dual with its corank;
+* **L1**: orthogonal complements under a bilinear pairing, with the image/preimage rule, and
+  **L2**: the dual local conditions of a Selmer structure (second checkpoint).
 
 The Galois-cohomological carriers (`H¹(G_{K,Σ}, M)`, `H¹(K_v, M)`, restriction to decomposition and
 inertia groups) are imported from Tau Ceti's ProfiniteCohomology for discrete coefficients and
@@ -310,6 +312,114 @@ theorem selmer_pInfty_eq : Sel_{p^∞}(E/F) = galoisSelmer F Σ E[p^∞] (fun v 
 ```
 -/
 
+/-! ## L1: orthogonal complements (the parametric pairing lemmas)
+
+These are stated for an arbitrary bilinear pairing; the local Tate pairings of Rubin's Theorem 4.1
+(`H¹(K, T) × H¹(K, W^*) → D` and its variants) are imported from `ArithmeticGaloisDuality:R02.4`. -/
+
+section Orthogonal
+
+variable {R : Type*} [CommRing R] {X X' Y : Type*} [AddCommGroup X] [Module R X]
+  [AddCommGroup X'] [Module R X'] [AddCommGroup Y] [Module R Y]
+
+/-- **`L1/orthogonal-complement`**: `F^⊥ = {x' | b(F, x') = 0}` (Mazur–Rubin, Definition 1.6). -/
+def orthogonal (b : X →ₗ[R] X' →ₗ[R] Y) (F : Submodule R X) : Submodule R X' :=
+  ⨅ x ∈ F, LinearMap.ker (b x)
+
+/-- API: membership. -/
+theorem mem_orthogonal (b : X →ₗ[R] X' →ₗ[R] Y) (F : Submodule R X) (x' : X') :
+    x' ∈ orthogonal b F ↔ ∀ x ∈ F, b x x' = 0 := by
+  simp [orthogonal, Submodule.mem_iInf]
+
+/-- API: `F ↦ F^⊥` is antitone. -/
+theorem orthogonal_antitone (b : X →ₗ[R] X' →ₗ[R] Y) : Antitone (orthogonal b) := sorry
+
+/-- API: strict ↦ relaxed. -/
+theorem orthogonal_bot (b : X →ₗ[R] X' →ₗ[R] Y) : orthogonal b ⊥ = ⊤ := sorry
+
+/-- A perfect pairing: both curried maps are bijective. -/
+def IsPerfect (b : X →ₗ[R] X' →ₗ[R] Y) : Prop :=
+  Function.Bijective b ∧ Function.Bijective b.flip
+
+/-- API: relaxed ↦ strict, for a perfect pairing. -/
+theorem orthogonal_top (b : X →ₗ[R] X' →ₗ[R] Y) (hb : IsPerfect b) : orthogonal b ⊤ = ⊥ := sorry
+
+/-- API: the image rule for adjoint maps, `(π F)^⊥ = ι^{-1}(F^⊥)`. -/
+theorem orthogonal_map_eq_comap {Z Z' : Type*} [AddCommGroup Z] [Module R Z] [AddCommGroup Z']
+    [Module R Z'] (b : X →ₗ[R] X' →ₗ[R] Y) (bZ : Z →ₗ[R] Z' →ₗ[R] Y) (π : X →ₗ[R] Z)
+    (ι : Z' →ₗ[R] X') (hadj : ∀ x z', bZ (π x) z' = b x (ι z')) (F : Submodule R X) :
+    orthogonal bZ (F.map π) = (orthogonal b F).comap ι := by
+  ext z'
+  simp [mem_orthogonal, hadj]
+
+/-- API: double orthogonal, for a perfect pairing of finite modules. -/
+theorem orthogonal_orthogonal [Finite X] [Finite X'] (b : X →ₗ[R] X' →ₗ[R] Y) (hb : IsPerfect b)
+    (F : Submodule R X) : orthogonal b.flip (orthogonal b F) = F := sorry
+
+/-- API: `F^⊥ = F'` gives a perfect pairing `(X/F) × F' → Y`. -/
+theorem quotientPairing_perfect (b : X →ₗ[R] X' →ₗ[R] Y) (hb : IsPerfect b) (F : Submodule R X) :
+    ∃ c : (X ⧸ F) →ₗ[R] (orthogonal b F) →ₗ[R] Y,
+      Function.Injective c ∧ ∀ x (y : orthogonal b F), c (F.mkQ x) y = b x y := sorry
+
+end Orthogonal
+
+/-- API (`card_mul_card_orthogonal`): over `ℤ/n`, a perfect pairing into `ℤ/n` of finite modules
+satisfies `#F · #F^⊥ = #X`. -/
+theorem card_mul_card_orthogonal {n : ℕ} [NeZero n] {X X' : Type*} [AddCommGroup X]
+    [Module (ZMod n) X] [AddCommGroup X'] [Module (ZMod n) X'] [Finite X] [Finite X']
+    (b : X →ₗ[ZMod n] X' →ₗ[ZMod n] ZMod n) (hb : IsPerfect b) (F : Submodule (ZMod n) X) :
+    Nat.card F * Nat.card (orthogonal b F) = Nat.card X := sorry
+
+/-! ## L2: dual Selmer structures (Mazur–Rubin, Definitions 2.1 and 2.5) -/
+
+section DualStructure
+
+variable {R : Type*} [CommRing R] {ι : Type*} {Y : Type*} [AddCommGroup Y] [Module R Y]
+
+namespace SelmerData
+
+/-- **`L2/dual-selmer-structure`**: the dual local conditions on `D'` (e.g. the data for `T^*`)
+under local pairings `b v : H¹(K_v, T) × H¹(K_v, T^*) → Y`. -/
+def dualCond (D D' : SelmerData R ι) (b : ∀ v, D.loc v →ₗ[R] D'.loc v →ₗ[R] Y) :
+    ∀ v, Submodule R (D'.loc v) :=
+  fun v => orthogonal (b v) (D.cond v)
+
+/-- The dual Selmer data: the same global module and localisations as `D'`, with the dual
+conditions. -/
+def dualOf (D D' : SelmerData R ι) (b : ∀ v, D.loc v →ₗ[R] D'.loc v →ₗ[R] Y) : SelmerData R ι :=
+  D'.withCond (dualCond D D' b)
+
+/-- API (`dual_modify`): relaxing at `B` dualises to making the dual strict at `B`. -/
+theorem dualCond_relax (D D' : SelmerData R ι) (b : ∀ v, D.loc v →ₗ[R] D'.loc v →ₗ[R] Y)
+    (hb : ∀ v, IsPerfect (b v)) (B : Set ι) [DecidablePred (· ∈ B)] (v : ι) (hv : v ∈ B) :
+    dualCond (D.relax B) D' b v = ⊥ := sorry
+
+/-- API (`dual_dual`): dualising twice returns the conditions, for finite local modules. -/
+theorem dualCond_dualCond (D D' : SelmerData R ι) (b : ∀ v, D.loc v →ₗ[R] D'.loc v →ₗ[R] Y)
+    (hb : ∀ v, IsPerfect (b v)) [∀ v, Finite (D.loc v)] [∀ v, Finite (D'.loc v)] (v : ι) :
+    orthogonal (b v).flip (dualCond D D' b v) = D.cond v := sorry
+
+end SelmerData
+
+end DualStructure
+
+/-! Signatures on the Galois carriers (sketched):
+
+```
+/-- L1/lattice-pairing-compatibility -/
+theorem localPairing_compat (c : H¹(K, T)) (d : H¹(K, V^*)) : ⟪φ c, d⟫_V = ⟪c, φ^* d⟫_T
+/-- L2/unramified-dimension-count (ℓ ≠ p) -/
+theorem finrank_unramified : finrank ℚ_p (H¹_ur(K, V)) = finrank ℚ_p (V^{G_K})
+/-- L2/finite-unramified-comparison -/
+def badPrimeTerm : H¹_f(K, T) ⧸ H¹_ur(K, T) ≃ (W^I ⧸ (W^I)_div)^{Fr=1}
+/-- L2/finite-condition-lattice-duality -/
+theorem orthogonal_finite : orthogonal (localPairing K T) (H¹_f(K, T)) = H¹_f(K, W^*)
+/-- L2/selmer-structure-poitou-tate (Rubin I.7.3) -/
+theorem locS_image_orthogonal : orthogonal (Σ_v ⟪,⟫_v) (loc^s (S^Σ(K, W_M))) = loc^f (S_{Σ₀}(K, W^*_M))
+theorem card_strict_eq_card_coker (h : S_Σ(K, W^*_M) = 0) : #S_{Σ₀}(K, W^*_M) = #coker loc^s
+```
+-/
+
 /-! ## Unit tests -/
 
 namespace SuggestedTest
@@ -360,6 +470,22 @@ example : corank p (ℤ_[p] ⧸ Ideal.span {(p : ℤ_[p])}) = 0 := sorry
 
 /-- The corank of `ℤ_p²` is two. -/
 example : corank p (Fin 2 → ℤ_[p]) = 2 := sorry
+
+/-- Duality: the orthogonal of the strict condition is relaxed. -/
+example {R X X' Y : Type*} [CommRing R] [AddCommGroup X] [Module R X] [AddCommGroup X']
+    [Module R X'] [AddCommGroup Y] [Module R Y] (b : X →ₗ[R] X' →ₗ[R] Y) :
+    orthogonal b ⊥ = ⊤ := orthogonal_bot b
+
+/-- Non-example: for the zero pairing every condition has orthogonal everything. -/
+example {R X X' Y : Type*} [CommRing R] [AddCommGroup X] [Module R X] [AddCommGroup X']
+    [Module R X'] [AddCommGroup Y] [Module R Y] (F : Submodule R X) :
+    orthogonal (0 : X →ₗ[R] X' →ₗ[R] Y) F = ⊤ := by
+  ext x'
+  simp [mem_orthogonal]
+
+/-- The standard pairing on `ℤ/p` is perfect, so `(ℤ/p)^⊥ = 0`. -/
+example (p : ℕ) [Fact p.Prime] :
+    orthogonal (LinearMap.mul (ZMod p) (ZMod p)) ⊤ = ⊥ := sorry
 
 end SuggestedTest
 

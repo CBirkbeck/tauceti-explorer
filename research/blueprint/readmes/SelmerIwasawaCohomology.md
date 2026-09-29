@@ -1,16 +1,21 @@
 # Selmer groups, continuous integral cohomology and Iwasawa cohomology — blueprint
 
-This blueprint covers stages L0–L4, within the boundaries RS-08 accepted. This first checkpoint plans:
+This blueprint covers stages L0–L4, within the boundaries RS-08 accepted. Two checkpoints so far
+plan:
 - **L0:** the p-adic Kummer identification, with its completions and inverse-limit bookkeeping;
-- **L2:** the generic Selmer-kernel API, with its standard local conditions.
+- **L1:** the parametric pairing lemmas (orthogonal complements, and the compatibility of the local
+  pairings for T, V, W and W_M);
+- **L2:** the generic Selmer-kernel API with its standard local conditions. The second checkpoint adds
+  the dual Selmer structure, local duality for the finite conditions with the bad-prime comparison
+  terms, and Poitou–Tate for Selmer groups.
 
 It follows these sources:
-- Rubin, *Euler systems*: Chapter I §§2, 3, 5 and 6, and Appendix B §2.
+- Rubin, *Euler systems*: Chapter I §§2–7, and Appendix B §2.
 - Mazur–Rubin, *Controlling Selmer groups in the higher core rank case*: §§1–3.
 - Rodrigues Jacinto–Williams (RJW), *An introduction to p-adic L-functions*: §10.5 and §13.5.
 - Burungale–Tian, *A rank zero p-converse*, as the maintainer asked.
 
-L1, L3 and L4 are not yet read.
+L3 and L4 are not yet read.
 
 ## Purpose
 
@@ -28,14 +33,20 @@ roadmap supplies:
 **Imported from other owners.**
 - ArithmeticGaloisDuality R02.1 owns compact-coefficient cohomology, derived limits and the lim¹
   sequence.
-- R02.3 owns G_{F,S} and global finiteness; D7 owns compact support and derived duality.
+- R02.3 owns G_{F,S} and global finiteness; R02.4 owns Poitou–Tate duality and reciprocity; D7 owns
+  compact support and derived duality.
 - Tau Ceti ProfiniteCohomology owns discrete cohomology: Layer 5 exact sequences, Layer 6
   corestriction and Layer 9 finite-level Kummer theory and Hilbert 90.
 
 **Kept here.**
 - **L0:** the tower-compatible identification H¹(F, ℤ_p(1)) ≅ lim F^×/(F^×)^{p^m} with its
   hypotheses, and the completion-versus-tensor comparisons.
-- **L2:** the generic Selmer kernel, local conditions and mapping fibre.
+- **L1:** annihilator, saturation and pairing comparisons for the stated coefficient modules. RS-08
+  asks for the parametric pairing lemmas before L2 instantiates named conditions. Since L2 depends on
+  L1 in the stage graph, the annihilators of the named conditions are planned in L2, where those
+  conditions are defined.
+- **L2:** the generic Selmer kernel, local conditions and mapping fibre, and the duality of Selmer
+  structures.
 
 ## What the libraries supply
 
@@ -128,6 +139,35 @@ units-kummer item.
 - For G_{F,S}, the H¹ system is finite.
 - For the full G_F of a number field, H¹(G_F, μ_{p^m}) is infinite and no shortcut is available.
 
+## L1. Local and global duality
+
+Module `TauCeti/NumberTheory/Selmer/Duality`, namespace `TauCeti.Selmer`. These are the parametric
+lemmas; the named conditions are instantiated in L2.
+
+**Construction: orthogonal complements** (`orthogonal`; node `orthogonal-complement`; planet
+"Orthogonal local conditions"). For a pairing b : X × X′ → Y of O-modules, F^⊥. Applied to the local
+Tate pairings of Rubin's Theorem 4.1, this is Mazur–Rubin's dual local condition F^*.
+
+*API.*
+- `orthogonal_antitone`.
+- `orthogonal_top` and `orthogonal_bot`: relaxed and strict are swapped.
+- `orthogonal_orthogonal`: F^⊥⊥ = F for perfect pairings of finite modules, of Φ-spaces, and of
+  finitely generated against cofinitely generated modules.
+- `orthogonal_map_eq_comap` and `orthogonal_comap_eq_map`: the image and preimage rules for adjoint
+  maps.
+- `card_mul_card_orthogonal`: #F · #F^⊥ = #X.
+- `quotientPairing_perfect`: (X/F) × F^⊥ is perfect.
+
+*Unit tests.*
+- X^⊥ = 0 and 0^⊥ = X′.
+- The standard pairing on (ℤ/p)².
+- Over ℚ_ℓ with ℓ ≢ 1 mod p, H¹(ℚ_ℓ, ℤ/p) is all unramified, and its complement H¹_ur(ℚ_ℓ, μ_p) is 0.
+- Non-example: the zero pairing.
+
+**Lemma: compatibility of the local pairings** (node `lattice-pairing-compatibility`).
+⟨φ(c), d⟩ = ⟨c, φ^*(d)⟩ along T → V and V^* → W^*, and the same along T ↠ W_M and W^*_M ↪ W^*. The
+perfectness of the local pairings is imported from ArithmeticGaloisDuality R02.4.
+
 ## L2. Selmer structures and duals
 
 Module `TauCeti/NumberTheory/Selmer/Basic`.
@@ -190,6 +230,62 @@ contragredient action. As a ℤ_p[[Γ]]-module it is twisted by the involution �
 of E[p^∞] with the Kummer images as local conditions. It sits in 0 → E(F) ⊗ ℚ_p/ℤ_p → Sel →
 Ш[p^∞] → 0.
 
+### Duality of Selmer structures (second checkpoint)
+
+Module `TauCeti/NumberTheory/Selmer/Duality`.
+
+**Construction: dual Selmer structures** (`SelmerStructure.dual`; node `dual-selmer-structure`;
+planet). Mazur–Rubin Definitions 2.1 and 2.5: Σ(F^*) = Σ(F), and H¹_{F^*}(K_q, T^*) =
+H¹_F(K_q, T)^⊥.
+
+*API.*
+- `dual_dual`.
+- `dual_modify`: strict and relaxed modifications swap.
+- `dual_induced`: the dual of the structure on T/IT is the structure on T^*[I].
+- `rubin_dual`: Rubin's S^Σ(K, W_M) and S_Σ(K, W^*_M) are dual.
+
+*Unit tests.*
+- Relaxed at Σ is dual to strict at Σ, whose Selmer module is Ш¹_Σ.
+- The finite condition at q ∤ p is self-dual for unramified T.
+- Archimedean conditions vanish for p odd.
+- Non-example: enlarging Σ(F^*) with relaxed conditions.
+
+**Lemma: unramified dimensions** (node `unramified-dimension-count`). For ℓ ≠ p, dim H¹_ur(K, V) =
+dim V^{G_K} and dim H¹/H¹_ur = dim H²(K, V) (Rubin Corollary 3.3).
+
+**Lemma: bad-prime comparison terms** (node `finite-unramified-comparison`). For ℓ ≠ p and
+𝒲 = W^I/(W^I)_div:
+- H¹_f(W) = H¹_ur(W)_div;
+- H¹_ur(W)/H¹_f(W) ≅ 𝒲/(Fr − 1)𝒲 and H¹_f(T)/H¹_ur(T) ≅ 𝒲^{Fr=1};
+- the two agree when T is unramified;
+- H¹_f(W_M) is the image of H¹_f(T).
+
+At an archimedean place the conditions are 0, everything and W^G/MW^G (Rubin Lemmas 3.5 and 3.8,
+Remark 3.7).
+
+**Theorem: duality for the finite condition on V** (node `finite-condition-rational-duality`).
+Rubin Proposition 4.2.
+
+**Theorem: duality for the finite conditions on T and W_M** (node
+`finite-condition-lattice-duality`; planet). H¹_f(K, T) and H¹_f(K, W^*) are exact orthogonal
+complements, and so are H¹_f(K, W_M) and H¹_f(K, W^*_M). At ℓ = p this needs the chosen orthogonal
+pair (Rubin Proposition 4.3; Mazur–Rubin Proposition 1.7(i)).
+
+**Lemma: Selmer groups as limits** (node `selmer-limits`). S^Σ(K, T) = lim S^Σ(K, W_M) and S^Σ(K, W)
+= colim S^Σ(K, W_M), with the finiteness statements. S^Σ(K, W_M) ↠ S^Σ(K, W)[M], and this fails for
+S_Σ (Rubin Proposition 5.6, Lemmas 5.4 and 5.7, Remark 5.5).
+
+**Theorem: Poitou–Tate for Selmer groups** (node `selmer-structure-poitou-tate`; planet). For
+Σ_0 ⊆ Σ:
+- the images of S^Σ(K, W_M) in ⊕ H¹_s and of S_{Σ_0}(K, W^*_M) in ⊕ H¹_f are exact orthogonal
+  complements;
+- |S_{Σ_0}(K, W^*_M)| = |coker loc^s| when S_Σ(K, W^*_M) = 0 (Rubin Theorem 7.3, Remark 7.4).
+
+The proof uses ArithmeticGaloisDuality R02.4's Poitou–Tate, not only the local pairings.
+
+**Theorem: the limit form** (node `selmer-poitou-tate-limit`). S(K, W^*)/S_{Σ_p}(K, W^*) ≅
+Hom_O(coker(loc^s_{Σ_p}), D), with the lim¹ bookkeeping explicit (Rubin Corollary 7.5).
+
 ## Source findings
 
 - **E1.** RJW (10.7)/(10.8) state F^× ⊗ ℤ_p ≅ H¹(F, ℤ_p(1)). With an algebraic tensor product
@@ -200,12 +296,22 @@ of E[p^∞] with the Kummer images as local conditions. It sits in 0 → E(F) �
   The target must be the completion, and the passage to the limit needs lim¹ μ_{p^m} = 0.
 - **E2.** RJW Definition 13.19 asks for a G_ℚ-invariant ordinary filtration. Greenberg's filtration
   is stable only under G_{ℚ_p}; V_pE of an ordinary non-CM curve has no G_ℚ-stable line.
+- **E3** (misprint, new). Rubin, proof of Theorem 7.3, p. 19: the map in the snake-lemma sequence is
+  printed (loc^f_{Σ,Σ})^∨; it is (loc^f_{Σ,Σ_0})^∨.
 
 ## Requests
 
 - `ArithmeticGaloisDuality:R02.1`: compact coefficients, the Milnor sequence, H¹(T) → H¹(V) →
   H¹(W).
-- `ArithmeticGaloisDuality:R02.3`: G_{F,S}, localisations and the S-unit Kummer sequence.
+- `ArithmeticGaloisDuality:R02.3`: G_{F,S}, localisations, finiteness of H¹ and the S-unit Kummer
+  sequence. It is served by `restricted-ramification-group`, `localisation-maps`, `h1-finite` and
+  `s-unit-kummer-sequence`.
+- `ArithmeticGaloisDuality:R02.4`: local Tate duality for V, W_M and T × W^* (Rubin Theorem 4.1); its
+  `poitou-tate` and `restricted-product-cohomology` nodes are cited directly.
+- `ArithmeticGaloisDuality:R02.2`: Hochschild–Serre for the inertia and unramified quotients.
+- Tau Ceti ProfiniteCohomology Layers 11 and 12: cohomological dimension 1, and cup-product
+  naturality.
+- Tau Ceti LocalFieldsRamification Layer 4: the tame quotient of inertia.
 - Tau Ceti ProfiniteCohomology Layer 9: Hilbert 90, the Kummer isomorphism and its squares.
 - Tau Ceti ProfiniteCohomology Layer 5: inflation–restriction.
 - Tau Ceti LocalFieldsRamification Layer 1: the structure of K^×.
@@ -220,12 +326,17 @@ of E[p^∞] with the Kummer images as local conditions. It sits in 0 → E(F) �
 - The change-of-conditions sequence.
 - Propagation and saturation.
 - The corank of Sel_{p^∞}.
+- Dual local conditions defined for the named local Tate pairing, with F^⊥⊥ = F.
+- Poitou–Tate for Selmer groups proved from global duality, with the lim¹ terms explicit in the limit
+  form.
 
 ## Remaining work
 
 - **L0:** compatibility of the identification with cup products and with Shapiro's lemma.
-- **L1:** annihilators and saturation of the L2 conditions under local duality (Mazur–Rubin
-  Proposition 1.7, Rubin I §§4, 7), and the Selmer-complex duality map from D7.
+- **L1:**
+  - the Selmer-complex duality map from D7, which is not yet planned there;
+  - the annihilators of the Greenberg conditions (Nekovář, *Selmer complexes*, §6.7). The transverse
+    condition and the finite–singular comparison belong to EulerSystemsAndKolyvaginSystems ES.1.
 - **L2:**
   - the Selmer complex as a mapping fibre (Nekovář, Selmer complexes) with its H⁰ conditions;
   - primitive/imprimitive sequences and lattice-change formulas.

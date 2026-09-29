@@ -1,61 +1,71 @@
 # BP-SelmerIwasawaCohomology — handoff
 
-Agent: Claude Code — cc-39fac3. Issue #988. First checkpoint, within the RS-08 boundaries, which
+Agent: Claude Code — cc-39fac3. Issue #988. Second checkpoint, within the RS-08 boundaries, which
 its review accepted.
 
 ## What is done
 
-The packet has 23 nodes:
-- 10 constructions, 10 lemmas, 2 theorems and 1 comparison;
-- 42 API items and 34 unit tests;
-- 6 planets;
+The packet has 33 nodes:
+- 12 constructions, 14 lemmas, 6 theorems and 1 comparison;
+- 58 API items and 42 unit tests;
+- 10 planets;
 - 25 baseline declarations;
-- 7 requests and no gaps.
+- 12 requests and no gaps.
 
-**L0 (partial).**
-- p-adic completion, and its comparison with the tensor product: true for units and S-units, false
-  for local fields and for F^×.
-- The Kummer maps along the μ_{p^m} tower, from Tau Ceti's δ⁰ naturality.
-- The limit Kummer map.
-- Mittag-Leffler for roots of unity.
-- H¹(G_K, ℤ_p(1)) ≅ lim K^×/(K^×)^{p^m}.
-- H¹(G_{F,S}, ℤ_p(1)) ≅ ℤ_p ⊗ 𝓞_{F,S}^×.
-- The record of which inverse-limit hypotheses hold.
+**L0 (partial, first checkpoint).**
+- p-adic completion, true against the tensor product for units and S-units, and false for local
+  fields and for F^×.
+- The Kummer maps along the μ_{p^m} tower, and the limit Kummer map.
+- H¹(G_K, ℤ_p(1)) ≅ lim K^×/(K^×)^{p^m}, and H¹(G_{F,S}, ℤ_p(1)) ≅ ℤ_p ⊗ 𝓞_{F,S}^×.
+- The inverse-limit record.
 
-L0 still needs the compatibility of the identification with cup products and with Shapiro's
-isomorphism, both RS-08 "keeps".
+**L1 (partial, this checkpoint).** RS-08 asks L1 to state the parametric pairing lemmas before L2
+instantiates named conditions, and L2 depends on L1 in the stage graph. L1 therefore holds:
+- `orthogonal-complement`: F^⊥ under a pairing, with double orthogonal, image/preimage, counting,
+  and the quotient pairing. It is Mazur–Rubin's dual local condition.
+- `lattice-pairing-compatibility`: the local pairings for T, V, W and W_M are compatible (Rubin
+  Proposition 4.3's squares).
 
-**L2 (partial).**
-- Selmer data and the Selmer kernel.
-- Change of conditions and functoriality.
-- Propagation, and the passage V → T, W with saturation.
-- The unramified and Greenberg conditions.
-- Galois Selmer groups.
-- Pontryagin duals with the contragredient action, and coranks.
-- The elliptic p^∞-Selmer group.
+**L2 (partial).** From the first checkpoint:
+- Selmer data and the Selmer kernel;
+- change of conditions, functoriality and propagation;
+- the passage V → T, W;
+- the unramified and Greenberg conditions;
+- Galois Selmer groups;
+- Pontryagin duals and coranks;
+- the elliptic Selmer group.
 
-L2 still needs the Selmer complex as a mapping fibre (Nekovář), primitive/imprimitive sequences and
-lattice-change formulas.
+New in this checkpoint:
+- `dual-selmer-structure` (Mazur–Rubin Definitions 2.1, 2.5).
+- `unramified-dimension-count` (Rubin Corollary 3.3).
+- `finite-unramified-comparison`: the bad-prime comparison terms (Rubin Lemmas 3.5 and 3.8,
+  Remark 3.7).
+- `finite-condition-rational-duality` (Proposition 4.2).
+- `finite-condition-lattice-duality` (Proposition 4.3; Mazur–Rubin Proposition 1.7(i)).
+- `selmer-limits` (Proposition 5.6, Lemmas 5.4 and 5.7, Remark 5.5).
+- `selmer-structure-poitou-tate` (Theorem 7.3, Remark 7.4), built on ArithmeticGaloisDuality
+  R02.4's `poitou-tate`.
+- `selmer-poitou-tate-limit` (Corollary 7.5).
 
-**L1, L3, L4:** not read. Their coverage records name the sections, including the maintainer's
-Burungale–Tian items that belong there.
+**L3 and L4:** not read.
 
 ## Source findings
 
-Both are new; the register was checked.
-- **E1.** RJW (10.7)/(10.8): F^× ⊗ ℤ_p ≅ H¹(F, ℤ_p(1)) is false with the algebraic tensor product.
-  The map is not surjective for number fields and not injective for p-adic fields. The correct
-  target is the completion.
-- **E2.** RJW Definition 13.19 asks for a G_ℚ-invariant ordinary filtration. It must be
-  G_{ℚ_p}-invariant; V_pE is the counterexample.
+- E1 and E2 (RJW) are unchanged.
+- **E3** (misprint, new). In Rubin's proof of Theorem 7.3, p. 19, the snake-lemma map is printed
+  (loc^f_{Σ,Σ})^∨; it is (loc^f_{Σ,Σ_0})^∨. The register's Rubin entries cover only Chapter III §2.1.
 
 ## Requests
 
-- ArithmeticGaloisDuality R02.1 and R02.3.
-- Tau Ceti ProfiniteCohomology Layers 5 and 9.
-- Tau Ceti LocalFieldsRamification Layer 1.
-- Tau Ceti GlobalNumberFields: the S-unit theorem.
-- Tau Ceti EllipticCurves Layer 7.
+- **ArithmeticGaloisDuality R02.4** (new): local Tate duality for V, W_M and T × W^* (Rubin Theorem
+  4.1). Its `poitou-tate`, `restricted-product-cohomology` and `unramified-exact-annihilators`
+  nodes are cited directly.
+- **ArithmeticGaloisDuality R02.2** (new): Hochschild–Serre for inertia.
+- **ArithmeticGaloisDuality R02.1 and R02.3**: extended; the nodes `tate-inverse-limit`,
+  `continuous-section-long-exact`, `lattice-torsion-sequence`, `lim-one-six-term`,
+  `mittag-leffler-lim-one` and `h1-finite` are cited.
+- **Tau Ceti** ProfiniteCohomology Layers 11 and 12, and LocalFieldsRamification Layer 4 (new).
+- The requests of the first checkpoint are kept.
 
 The Tau Ceti stages are carried in `requests` with `neededBy`, because the checker reads `tauceti:`
 prerequisites as declarations.
@@ -66,20 +76,37 @@ prerequisites as declarations.
 are `sorry` warnings. It was a single run of the pinned Lean v4.34.0-rc2 against the prebuilt Mathlib
 at 082e2d3, with no lake.
 
-The file imports Mathlib only. It states the completion, Selmer-kernel, condition, dual and corank
-declarations. The Kummer, Galois-Selmer, inflation and Λ-dual signatures are recorded in a comment
-block: they are stated against Tau Ceti and the requested suppliers, and no Tau Ceti build at
-f790474 exists on this server.
+The new part defines:
+- `orthogonal`, with `mem_orthogonal`, the image rule `orthogonal_map_eq_comap`, and the
+  zero-pairing test, all proved;
+- `IsPerfect`, the counting lemma over ℤ/n, and the quotient pairing;
+- the dual conditions `SelmerData.dualCond` and `dualOf`, with the relaxed/strict swap and the double
+  dual.
+
+The Galois-carrier statements (Rubin 4.2, 4.3, 7.3) are sketched in a comment block.
 
 ## Checks
 
-- `scripts/check_blueprint.py` with the pinned index: 23 nodes, 0 errors, 0 warnings.
-- `intake.py check-files`: 4 files, 0 problems.
+- `scripts/check_blueprint.py` with the pinned index: 33 nodes, 0 errors, 0 warnings.
+- `intake.py check-files`: see the pull request.
+
+## What remains
+
+- **L0:** cup-product and Shapiro compatibilities.
+- **L1:**
+  - the Selmer-complex duality map from ArithmeticGaloisDuality D7;
+  - the Greenberg-condition annihilators (Nekovář, *Selmer complexes*, §6.7).
+  - The transverse condition and the finite–singular comparison are EulerSystemsAndKolyvaginSystems
+    ES.1's.
+- **L2:**
+  - the Selmer complex as a mapping fibre (Nekovář);
+  - primitive/imprimitive sequences and lattice-change formulas.
+- **L3, L4:** as in the coverage records.
 
 ## Sources
 
 **Read**, with hashes in `sourceVersions`:
-- Rubin, *Euler systems* (author draft): I §§2, 3.1–3.2, 5, 6.2–6.3, and Appendix B §2.
+- Rubin, *Euler systems* (author draft): I §§2–7 and Appendix B §2.
 - Mazur–Rubin, arXiv:1312.4052v1: §§1–3.
 - RJW, arXiv:2309.15692v2: §10.5 and §13.5.
 - Burungale–Tian, arXiv:2506.03465v2: §§1–3.
@@ -87,5 +114,4 @@ f790474 exists on this server.
 **Not accessed:**
 - the published versions;
 - Greenberg, *Iwasawa theory for p-adic representations* (1989);
-- Nekovář, *Selmer complexes* (Numdam; this is the source for the mapping-fibre construction the
-  continuation needs).
+- Nekovář, *Selmer complexes*.
