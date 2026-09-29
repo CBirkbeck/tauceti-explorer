@@ -195,6 +195,17 @@
    "readSections": [
     "2026-09-29 (cc-39fac3, checkpoint 8): Chapter II, Propositions 9.6–9.8 and the definition of Eisenstein primes, p. 96, on the page image."
    ]
+  },
+  {
+   "id": "PAN-2022",
+   "title": "The Fontaine–Mazur conjecture in the residually reducible case",
+   "authors": "Lue Pan",
+   "edition": "J. Amer. Math. Soc. 35 (2022); arXiv:1901.07166v2 (the latest version). The arXiv version was read; locators give its PDF pages.",
+   "url": "https://arxiv.org/pdf/1901.07166v2",
+   "sha256": "590171129d28a65749cf92b1f6099dbacaa90cc6698828f0a4dfd3da943f4824",
+   "readSections": [
+    "2026-09-29 (cc-fb70e5, checkpoint 9): Introduction, Theorem 1.0.2 and the paragraph after it (p. 3)."
+   ]
   }
  ],
  "nodes": [
@@ -4318,19 +4329,22 @@
    ],
    "title": "The residually reducible p = 3 branch (Dieulefait–Pacetti Theorem 1.7)",
    "kind": "theorem",
-   "statement": "Let ρ : G_ℚ → GL₂(ℚ̄₃) be continuous, irreducible, odd and finitely ramified, with ρ̄^{ss} ≅ 1 ⊕ χ̄₃ (the mod-3 cyclotomic character), ρ|_{I₃} ≅ (∗ ∗; 0 1) and det ρ = ψχ₃^{k−1} (k ≥ 2, ψ of finite order). Then ρ is modular of weight k. This is R21.5/theorem-a-over-q at p = 3 with χ = χ̄₃: hypothesis (i), χ̄₃|_{D₃} ≠ 1, holds automatically because χ̄₃ is ramified at 3. Pan's residually reducible theorem needs p ≥ 5, so it does not cover this case.",
+   "statement": "Let ρ : G_ℚ → GL₂(ℚ̄₃) be continuous, irreducible, odd and finitely ramified, with ρ̄^{ss} ≅ 1 ⊕ χ̄₃ (the mod-3 cyclotomic character), ρ|_{I₃} ≅ (∗ ∗; 0 1) and det ρ = ψχ₃^{k−1} (k ≥ 2, ψ of finite order). Then ρ is modular of weight k. This is R21.5/theorem-a-over-q at p = 3 with χ = χ̄₃: hypothesis (i), χ̄₃|_{D₃} ≠ 1, holds automatically because χ̄₃ is ramified at 3. Pan's residually reducible theorem does not cover this case: his Theorem 1.0.2 holds for every odd p, but at p = 3 it excludes exactly χ̄₁χ̄₂^{−1}|_{G_{ℚ₃}} = ω, and here χ̄₁χ̄₂^{−1} = χ̄₃^{∓1} restricts to ω on G_{ℚ₃}. Dieulefait–Pacetti quote Pan only for p ≥ 5.",
    "hypotheses": [
     "DP print the second hypothesis as \"ρ|_{D₃} ≠ (1 0; 0 1)\"; it transcribes Skinner–Wiles' (i), χ|_{D_p} ≠ 1, and is automatic (source issue OrdinaryAutomorphicFormsAndModularityLifting/E9)",
     "the ordinary hypothesis is supplied in DP Paso 6 by R21.5/crystalline-reducible-reduction-is-ordinary with k ∈ {2, 4}",
-    "GL2ModularityLifting R32.5 consumes this node for the modern proof's p = 3 branch"
+    "GL2ModularityLifting R32.5 consumes this node for the modern proof's p = 3 branch",
+    "Pan's p = 3 exclusion is the reason this branch still needs Skinner–Wiles; GL2ModularityLifting:R32.5/p-three-residually-reducible-branch records the same reading"
    ],
    "proofSteps": [
     "Specialise R21.5/theorem-a-over-q to p = 3, χ = χ̄₃.",
-    "χ̄₃ is odd and ramified at 3."
+    "χ̄₃ is odd and ramified at 3.",
+    "Check that ω² = 1 mod 3, so χ̄₁χ̄₂^{−1}|_{G_{ℚ₃}} = ω for either ordering of 1 ⊕ χ̄₃; this puts ρ outside Pan's Theorem 1.0.2."
    ],
    "acceptance": [
     "Check χ̄₃(c) = −1 and χ̄₃|_{I₃} ≠ 1",
-    "Check that DP's Theorem 1.7 conclusion (modular of weight k) matches"
+    "Check that DP's Theorem 1.7 conclusion (modular of weight k) matches",
+    "Check that Pan's Theorem 1.0.2 excludes this ρ̄^{ss} at p = 3"
    ],
    "prerequisites": [
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-over-q"
@@ -4354,6 +4368,11 @@
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "Paso 6, p. 14",
      "match": "The check DP make for the second hypothesis, unnecessary once it is read as χ̄₃|_{D₃} ≠ 1."
+    },
+    {
+     "sourceId": "PAN-2022",
+     "locator": "Introduction, Theorem 1.0.2, p. 3 (arXiv v2)",
+     "match": "Pan's p = 3 exclusion (the extraction garbles χ̄₁χ̄₂^{−1} and ≠); it is exactly the case ρ̄^{ss} ≅ 1 ⊕ χ̄₃."
     }
    ],
    "implementationStatus": "unchecked"
@@ -6302,6 +6321,13 @@
    "citation": "Mazur, Modular curves and the Eisenstein ideal, Publ. Math. IHÉS 47 (1977), 33–186 (Numdam)",
    "read": "2026-09-29",
    "sha256": "c20c7e73be20d6cc961127504b6be019f7707e0ee6154ba1fac0bbfd5973be8a"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1901.07166v2",
+   "citation": "Pan, The Fontaine–Mazur conjecture in the residually reducible case, arXiv:1901.07166v2 (J. Amer. Math. Soc. 35 (2022), not obtained)",
+   "read": "2026-09-29",
+   "sha256": "590171129d28a65749cf92b1f6099dbacaa90cc6698828f0a4dfd3da943f4824"
   }
  ]
 }

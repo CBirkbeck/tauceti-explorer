@@ -1,6 +1,6 @@
 # Ordinary automorphic forms and ordinary modularity lifting — blueprint
 
-This blueprint covers stages R21.1–R21.6. After eight checkpoints, **R21.1, R21.2 and R21.6 are source-decomposed**;
+This blueprint covers stages R21.1–R21.6. After nine checkpoints, **R21.1, R21.2 and R21.6 are source-decomposed**;
 R21.3, R21.4 and R21.5 are partial. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
 - R21.1 only applies the ordinary projector to actual arithmetic modules;
 - R21.2 keeps the nearly ordinary and Eisenstein statements that Skinner–Wiles need beyond cuspidal Hida theory;
@@ -26,6 +26,9 @@ Checkpoint 8 adds three sources for the classical Hida family over ℚ and the r
 - Emerton–Pollack–Weston, *Variation of Iwasawa invariants in Hida families* (arXiv:math/0404484v1), §§2.1–2.3;
 - Hida, *Iwasawa modules attached to congruences of cusp forms* (Ann. Sci. ÉNS 1986), Corollary 3.7;
 - Mazur, *Modular curves and the Eisenstein ideal* (Publ. Math. IHÉS 47), Proposition II.9.7.
+
+Checkpoint 9 adds Pan, *The Fontaine–Mazur conjecture in the residually reducible case* (arXiv:1901.07166v2),
+Theorem 1.0.2, to correct why his theorem misses the p = 3 branch.
 
 ## Purpose
 
@@ -634,8 +637,12 @@ introduction:
   Skinner–Wiles 2001, planned in checkpoint 7 below.
 
 **Theorem: the p = 3 branch** (node `theorem-a-at-three`). This is Dieulefait–Pacetti's Theorem 1.7: ρ̄^{ss} ≅ 1 ⊕ χ̄₃,
-ordinary at 3. Hypothesis (i) is automatic because χ̄₃ is ramified at 3 (source issue E9). Pan's theorem (p ≥ 5) does not
-cover this case.
+ordinary at 3. Hypothesis (i) is automatic because χ̄₃ is ramified at 3 (source issue E9).
+- Pan's residually reducible theorem does not cover this case (corrected in checkpoint 9). His Theorem 1.0.2 holds for
+  every odd p, but at p = 3 it excludes exactly χ̄₁χ̄₂^{−1}|_{G_{ℚ₃}} = ω (p. 3 of arXiv:1901.07166v2).
+- Here χ̄₁χ̄₂^{−1} = χ̄₃^{∓1}, and ω² = 1 mod 3, so the restriction is ω for either ordering.
+- Dieulefait–Pacetti quote Pan only for p ≥ 5. The earlier text said Pan's theorem needs p ≥ 5, which is not what
+  he proves.
 
 ### Checkpoint 7: Skinner–Wiles 2001, Theorems 5.1 and 5.2
 
@@ -822,3 +829,5 @@ No erratum to Skinner–Wiles 2001 was found on its Numdam page or by a web sear
 - H. Hida, *Iwasawa modules attached to congruences of cusp forms*, Ann. Sci. École Norm. Sup. (4) 19 (1986), 231–273
   (Numdam open access).
 - B. Mazur, *Modular curves and the Eisenstein ideal*, Publ. Math. IHÉS 47 (1977), 33–186 (Numdam open access).
+- L. Pan, *The Fontaine–Mazur conjecture in the residually reducible case*, J. Amer. Math. Soc. 35 (2022)
+  (arXiv:1901.07166v2).
