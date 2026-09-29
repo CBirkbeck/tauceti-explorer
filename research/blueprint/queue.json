@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -43719,7 +43719,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-03.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3998"
   },
   {
    "id": "RT-AUDIT-04",
@@ -47105,8 +47106,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3966"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3966",
+   "finishedAt": "2026-09-29T17:42:43Z"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -47343,7 +47345,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3969"
   },
   {
    "id": "RT-AREA-modeltheory",
