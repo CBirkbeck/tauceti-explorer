@@ -44773,8 +44773,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4011"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4011",
+   "finishedAt": "2026-09-29T17:32:57Z"
   },
   {
    "id": "RT-AUDIT-17",
@@ -44938,7 +44939,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4013"
   },
   {
    "id": "RT-AUDIT-19",
@@ -47101,7 +47103,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3966"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -47822,8 +47825,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-etale.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3978"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3978",
+   "finishedAt": "2026-09-29T17:33:01Z"
   },
   {
    "id": "RT-AREA-motives",
