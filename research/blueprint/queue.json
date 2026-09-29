@@ -17909,12 +17909,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R22.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "released on GitHub issue #735"
+   "note": "claimed on GitHub issue #735"
   },
   {
    "id": "REV-GL2ModularityLifting--R22.1",
@@ -20882,12 +20882,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R23.1.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #976"
+   "note": "released on GitHub issue #976"
   },
   {
    "id": "REV-PotentialModularityAndCompatibleSystems--R23.1",
@@ -20931,12 +20931,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R24.3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "released on GitHub issue #977"
+   "note": "claimed on GitHub issue #977"
   },
   {
    "id": "REV-PotentialModularityAndCompatibleSystems--R24.3",
