@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -9005,8 +9005,9 @@
    ],
    "avoidAccountOf": "PAPER-CARAIANI-NEWTON-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-CARAIANI-NEWTON-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4491"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4491",
+   "finishedAt": "2026-09-29T20:19:00Z"
   },
   {
    "id": "PAPER-DELIGNE-74",
@@ -9349,7 +9350,8 @@
    ],
    "avoidAccountOf": "PAPER-RODRIGUES-JACINTO-WILLIAMS-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-RODRIGUES-JACINTO-WILLIAMS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4513"
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24",
@@ -47306,8 +47308,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3968"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3968",
+   "finishedAt": "2026-09-29T20:19:04Z"
   },
   {
    "id": "RT-AREA-langlands-3",
