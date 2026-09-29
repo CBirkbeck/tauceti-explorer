@@ -92,7 +92,7 @@
     },
     "HabiroCohomologyFoundations:HQ.5": {
       "action": "narrow",
-      "keeps": "Algebraic existence results: dimension-dependent small-prime inversion with the partial-operad arity condition, scheme descent and smooth-proper perfectness over the Habiro completion of the localized base; condition (R), the regular-higher-power case of Theorem 4.22(a), and the qualified functor of Theorem 4.29 with its actual uniqueness hypotheses and finite-order/action comparisons. Retain the completed finite-etale cohomology export to HR.6, completion comparisons and imported HR.5 Taylor maps; keep Meyer–Wagner Lemma 3.17 as the named proof input requiring source verification at blueprint time.",
+      "keeps": "Algebraic existence results: dimension-dependent small-prime inversion with the partial-operad arity condition, scheme descent and smooth-proper perfectness over the Habiro completion of the localized base; condition (R), the regular-higher-power case of Theorem 4.22(a), and the qualified functor of Theorem 4.29 with its actual uniqueness hypotheses and finite-order/action comparisons. Retain the completed finite-etale cohomology export to HR.6, completion comparisons and imported HR.5 Taylor maps; keep Meyer–Wagner Lemma 3.16 (arXiv:2410.23115v4, pp. 38–40; Wagner v2 cites it as \"[MW24, Lemma 3.17]\", and Lemma 3.17 of v4 is the auxiliary p-torsion-freeness lemma) as the named proof input.",
       "suppliedBy": [
         "HabiroCohomologyFoundations:HQ.5-trace",
         "HabiroRings:HR.5"
