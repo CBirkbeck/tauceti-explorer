@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-09-28T14:36:38Z",
- "exported_at": "2026-09-28T14:36:38Z",
+ "cutoff": "2026-09-29T01:22:46Z",
+ "exported_at": "2026-09-29T01:22:46Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 136,
-  "recent": 4260,
-  "total": 8765,
+  "open": 120,
+  "recent": 4291,
+  "total": 8840,
   "unattributed": {
-   "no_label": 1089,
+   "no_label": 1090,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    659,
    1080,
    1649,
-   173
+   248
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "126ff20cb9b0037fd7d1757258e1cdbb9b85f95a",
+ "roadmap_head": "912674d40e532a3bb9e9029fc768bd87a68d0481",
  "rows": [
   {
    "activity": {
-    "last": "2026-09-28T13:06:53Z",
-    "open": 5,
-    "recent": 125,
-    "since_report": 9,
-    "total": 356,
+    "last": "2026-09-28T17:06:42Z",
+    "open": 3,
+    "recent": 126,
+    "since_report": 11,
+    "total": 358,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      31,
      19,
      42,
-     4
+     6
     ]
    },
    "assessment": {
@@ -258,7 +258,7 @@
    "activity": {
     "last": "2026-09-28T10:37:14Z",
     "open": 1,
-    "recent": 68,
+    "recent": 64,
     "since_report": 8,
     "total": 116,
     "weekly": [
@@ -401,11 +401,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T06:08:25Z",
-    "open": 7,
-    "recent": 45,
-    "since_report": 5,
-    "total": 45,
+    "last": "2026-09-28T14:37:55Z",
+    "open": 6,
+    "recent": 46,
+    "since_report": 6,
+    "total": 46,
     "weekly": [
      0,
      0,
@@ -422,7 +422,7 @@
      2,
      18,
      22,
-     3
+     4
     ]
    },
    "assessment": {
@@ -751,7 +751,7 @@
    "activity": {
     "last": "2026-09-27T10:49:29Z",
     "open": 0,
-    "recent": 86,
+    "recent": 85,
     "since_report": 56,
     "total": 111,
     "weekly": [
@@ -879,11 +879,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T10:27:29Z",
+    "last": "2026-09-28T18:37:22Z",
     "open": 0,
-    "recent": 50,
-    "since_report": 6,
-    "total": 50,
+    "recent": 51,
+    "since_report": 7,
+    "total": 51,
     "weekly": [
      0,
      0,
@@ -900,7 +900,7 @@
      5,
      24,
      18,
-     3
+     4
     ]
    },
    "assessment": {
@@ -930,21 +930,21 @@
     "Layer 14"
    ],
    "layer_lines": [
-    526,
-    723,
-    842,
-    1070,
-    1275,
-    1526,
-    1900,
-    2243,
-    2456,
-    2721,
-    3170,
-    3470,
-    3662,
-    4177,
-    4353
+    567,
+    764,
+    883,
+    1111,
+    1316,
+    1567,
+    1941,
+    2284,
+    2497,
+    2762,
+    3211,
+    3511,
+    3703,
+    4220,
+    4401
    ],
    "layers": [
     "Layer 0: permutation triples",
@@ -968,7 +968,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/BelyiMaps/README.md",
-   "readme_sha": "aa0c15ddf76c861f3aaf17456c0f2e0e9a6d41ed6e1901c4bfc569ac31d9b395",
+   "readme_sha": "2db3e2605a91577d356a0e545018db2d5a2b164650d2f164dcc80d5b9dd44b02",
    "retired": null,
    "states": [
     "unassessed",
@@ -1023,11 +1023,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-26T07:20:56Z",
+    "last": "2026-09-29T00:12:33Z",
     "open": 0,
-    "recent": 106,
-    "since_report": 0,
-    "total": 144,
+    "recent": 115,
+    "since_report": 9,
+    "total": 153,
     "weekly": [
      0,
      0,
@@ -1044,7 +1044,7 @@
      11,
      32,
      19,
-     0
+     9
     ]
    },
    "assessment": {
@@ -1137,11 +1137,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T08:15:11Z",
-    "open": 1,
-    "recent": 89,
-    "since_report": 60,
-    "total": 89,
+    "last": "2026-09-28T22:17:38Z",
+    "open": 2,
+    "recent": 90,
+    "since_report": 61,
+    "total": 90,
     "weekly": [
      0,
      0,
@@ -1158,7 +1158,7 @@
      17,
      22,
      33,
-     2
+     3
     ]
    },
    "assessment": {
@@ -1277,11 +1277,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T08:37:41Z",
-    "open": 5,
-    "recent": 122,
-    "since_report": 11,
-    "total": 122,
+    "last": "2026-09-29T00:46:49Z",
+    "open": 6,
+    "recent": 126,
+    "since_report": 15,
+    "total": 126,
     "weekly": [
      0,
      0,
@@ -1298,7 +1298,7 @@
      8,
      23,
      84,
-     3
+     7
     ]
    },
    "assessment": {
@@ -1637,11 +1637,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T05:56:38Z",
+    "last": "2026-09-28T19:36:02Z",
     "open": 2,
-    "recent": 60,
-    "since_report": 58,
-    "total": 76,
+    "recent": 61,
+    "since_report": 59,
+    "total": 77,
     "weekly": [
      0,
      0,
@@ -1658,7 +1658,7 @@
      5,
      19,
      25,
-     3
+     4
     ]
    },
    "assessment": {
@@ -1769,11 +1769,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T10:26:36Z",
+    "last": "2026-09-29T00:56:31Z",
     "open": 0,
-    "recent": 68,
-    "since_report": 5,
-    "total": 94,
+    "recent": 69,
+    "since_report": 6,
+    "total": 95,
     "weekly": [
      0,
      0,
@@ -1790,7 +1790,7 @@
      11,
      11,
      32,
-     2
+     3
     ]
    },
    "assessment": {
@@ -1896,11 +1896,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T08:15:12Z",
-    "open": 3,
+    "last": "2026-09-28T18:22:35Z",
+    "open": 2,
     "recent": 172,
-    "since_report": 10,
-    "total": 403,
+    "since_report": 13,
+    "total": 406,
     "weekly": [
      0,
      0,
@@ -1917,7 +1917,7 @@
      62,
      24,
      36,
-     3
+     6
     ]
    },
    "assessment": {
@@ -2040,11 +2040,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T14:15:56Z",
-    "open": 1,
-    "recent": 78,
-    "since_report": 16,
-    "total": 278,
+    "last": "2026-09-28T23:33:14Z",
+    "open": 0,
+    "recent": 80,
+    "since_report": 19,
+    "total": 281,
     "weekly": [
      0,
      9,
@@ -2061,7 +2061,7 @@
      9,
      15,
      37,
-     4
+     7
     ]
    },
    "assessment": {
@@ -2269,11 +2269,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T07:31:48Z",
-    "open": 6,
-    "recent": 77,
-    "since_report": 12,
-    "total": 147,
+    "last": "2026-09-28T22:25:28Z",
+    "open": 4,
+    "recent": 79,
+    "since_report": 15,
+    "total": 150,
     "weekly": [
      5,
      11,
@@ -2290,7 +2290,7 @@
      19,
      24,
      19,
-     7
+     10
     ]
    },
    "assessment": {
@@ -2803,11 +2803,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T09:29:50Z",
+    "last": "2026-09-28T20:06:11Z",
     "open": 1,
     "recent": 59,
-    "since_report": 52,
-    "total": 172,
+    "since_report": 53,
+    "total": 173,
     "weekly": [
      23,
      11,
@@ -2824,7 +2824,7 @@
      6,
      11,
      33,
-     1
+     2
     ]
    },
    "assessment": {
@@ -3119,11 +3119,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T12:32:57Z",
+    "last": "2026-09-29T01:17:59Z",
     "open": 0,
-    "recent": 16,
+    "recent": 21,
     "since_report": null,
-    "total": 68,
+    "total": 73,
     "weekly": [
      0,
      0,
@@ -3140,7 +3140,7 @@
      4,
      1,
      0,
-     5
+     10
     ]
    },
    "assessment": {
@@ -3325,11 +3325,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T14:09:49Z",
+    "last": "2026-09-28T19:27:40Z",
     "open": 4,
-    "recent": 73,
-    "since_report": 26,
-    "total": 73,
+    "recent": 74,
+    "since_report": 27,
+    "total": 74,
     "weekly": [
      0,
      0,
@@ -3346,7 +3346,7 @@
      6,
      19,
      33,
-     15
+     16
     ]
    },
    "assessment": {
@@ -3436,7 +3436,7 @@
   {
    "activity": {
     "last": "2026-09-28T05:58:21Z",
-    "open": 1,
+    "open": 2,
     "recent": 2,
     "since_report": null,
     "total": 2,
@@ -3525,11 +3525,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T12:41:22Z",
-    "open": 2,
-    "recent": 212,
-    "since_report": 7,
-    "total": 474,
+    "last": "2026-09-28T16:28:32Z",
+    "open": 3,
+    "recent": 211,
+    "since_report": 8,
+    "total": 475,
     "weekly": [
      0,
      0,
@@ -3546,7 +3546,7 @@
      59,
      53,
      48,
-     4
+     5
     ]
    },
    "assessment": {
@@ -3763,11 +3763,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T12:31:28Z",
-    "open": 6,
-    "recent": 108,
-    "since_report": 18,
-    "total": 109,
+    "last": "2026-09-28T18:54:24Z",
+    "open": 0,
+    "recent": 116,
+    "since_report": 26,
+    "total": 117,
     "weekly": [
      0,
      0,
@@ -3784,7 +3784,7 @@
      13,
      40,
      42,
-     5
+     13
     ]
    },
    "assessment": {
@@ -3880,11 +3880,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T09:31:30Z",
+    "last": "2026-09-28T23:01:01Z",
     "open": 2,
     "recent": 54,
-    "since_report": 4,
-    "total": 165,
+    "since_report": 5,
+    "total": 166,
     "weekly": [
      3,
      19,
@@ -3901,7 +3901,7 @@
      5,
      18,
      16,
-     2
+     3
     ]
    },
    "assessment": {
@@ -3967,11 +3967,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T13:06:53Z",
-    "open": 3,
-    "recent": 52,
-    "since_report": 50,
-    "total": 78,
+    "last": "2026-09-28T18:43:31Z",
+    "open": 2,
+    "recent": 53,
+    "since_report": 51,
+    "total": 79,
     "weekly": [
      0,
      0,
@@ -3988,7 +3988,7 @@
      4,
      18,
      18,
-     3
+     4
     ]
    },
    "assessment": {
@@ -4119,11 +4119,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T12:51:39Z",
-    "open": 3,
-    "recent": 37,
-    "since_report": 15,
-    "total": 37,
+    "last": "2026-09-29T00:12:33Z",
+    "open": 1,
+    "recent": 39,
+    "since_report": 17,
+    "total": 39,
     "weekly": [
      0,
      0,
@@ -4140,7 +4140,7 @@
      0,
      0,
      33,
-     4
+     6
     ]
    },
    "assessment": {
@@ -4224,11 +4224,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T11:14:56Z",
-    "open": 3,
-    "recent": 71,
-    "since_report": 64,
-    "total": 158,
+    "last": "2026-09-28T19:35:44Z",
+    "open": 2,
+    "recent": 72,
+    "since_report": 4,
+    "total": 160,
     "weekly": [
      1,
      13,
@@ -4245,15 +4245,15 @@
      10,
      18,
      34,
-     2
+     4
     ]
    },
    "assessment": {
-    "detail": null,
+    "detail": "the report changed after the transcription was made",
     "notes": {},
-    "reason": "ok",
+    "reason": "transcription-retired",
     "remaining": {},
-    "source": "hand-read"
+    "source": null
    },
    "completed": false,
    "id": "TauCetiRoadmap/PDE",
@@ -4287,56 +4287,120 @@
    "parent_id": null,
    "readme": "TauCetiRoadmap/PDE/README.md",
    "readme_sha": "ed2de35c8da6c952cbae2728ccc368987ad7c9dd8616bc4f42da7cfa568d09aa",
-   "retired": null,
+   "retired": {
+    "states": [
+     "partial",
+     "partial",
+     "partial",
+     "done",
+     "untouched",
+     "untouched"
+    ],
+    "to_sha": "bc61e7b"
+   },
    "states": [
-    "partial",
-    "partial",
-    "partial",
-    "done",
-    "untouched",
-    "untouched"
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Meyers-Serrin and the density gap.",
-      "text": "Convolution with a smooth compactly supported kernel is known to commute with the weak derivative; what remains is `C^∞ ∩ W^{k,p}` density, which needs no boundary regularity and would let `W^{k,p}(Ω)` statements be checked on smooth functions alone."
-     },
-     {
-      "name": "Trace and extension on `W^{1,p}(Ω)`.",
-      "text": "Only zero-extension out of `W^{1,p}_0(Ω)` exists. A trace with kernel `W^{1,p}_0` and an extension into `W^{1,p}(ℝⁿ)` for Lipschitz `∂Ω` would carry Rellich, and the spectral package with it, to the full space."
-     },
-     {
-      "name": "The mean-value property on `ℝⁿ`.",
-      "text": "Harnack and the strong maximum principle are still planar, resting on Mathlib's complex harmonic theory; the `n`-dimensional mean-value characterisation is the single result that would lift both."
-     },
-     {
-      "name": "`-ΔG = δ`.",
-      "text": "The kernel and its sphere flux are done; the distributional identity, then Green's function, Poisson kernel and Perron's method, are the rest of Lane C."
+      "name": "De Giorgi-Nash-Moser.",
+      "text": "Caccioppoli for truncations and the iteration lemma are in place, so local boundedness of weak subsolutions is the next step, with Hölder continuity and the weak Harnack inequality behind it. The weak maximum principle still carries a drift-smallness hypothesis `βP < λ` the iteration will need removed."
      },
      {
       "name": "Interior `H²` regularity.",
-      "text": "The first step of Lane E, by difference quotients, and what would upgrade the weak solutions now in hand. Schauder and De Giorgi-Nash-Moser beyond it wait on Lane B."
+      "text": "Difference quotients and their uniform bounds are proved; what remains is turning them into second weak derivatives of Lane D's solutions."
+     },
+     {
+      "name": "Meyers-Serrin, trace and extension.",
+      "text": "Density is known on `ℝⁿ` and locally inside `Ω`; on a general domain it needs no boundary regularity. A trace with kernel `W^{1,p}_0` and an extension into `W^{1,p}(ℝⁿ)` need Lipschitz `∂Ω`, and would carry Rellich, and the spectral package, to the full space."
+     },
+     {
+      "name": "`-ΔG = δ` and the Green's function in `n` dimensions.",
+      "text": "The Newtonian kernel, its sphere flux and the planar Green's function are done; the distributional identity would make the potential-theoretic Dirichlet solution, and Perron's method, available in every dimension."
+     },
+     {
+      "name": "Calderón-Zygmund.",
+      "text": "The decomposition, singular integral operators and BMO have not begun, and are the prerequisite for Lane E's `W^{2,p}` and Schauder estimates. Riesz-Thorin is absent too."
      }
     ],
-    "glance": "Lane D, linear elliptic existence by the energy method, is complete through the spectrum: the Dirichlet problem has a unique weak solution, the Fredholm alternative holds, and the Dirichlet eigenfunctions form an orthonormal basis of `L²(Ω)`. Lane A is done for the zero-boundary spaces `W^{k,p}_0(Ω)` and thin for `W^{k,p}(Ω)`, which has no density theorem, trace or extension. Lane C is still partly planar and has no Green's function; Lane B stops at the maximal function; Lanes E and F are untouched.",
+    "glance": "Lane D, linear elliptic existence by the energy method, is complete from the weak formulation through to the Dirichlet spectrum, and Lane C's maximum principles and Harnack inequality now hold in every dimension, not only the plane. Lane A has its embeddings and a truncation calculus but no trace, extension or general density theorem; Lane B stops at the maximal function; Lane E has only first estimates, Lane F nothing.",
     "inherited": false,
     "path": "TauCetiRoadmap/PDE/STATUS.md",
     "progress_path": "TauCetiRoadmap/PDE/PROGRESS.md",
-    "report_sha": "97673cb72cb294b43bdf7de6a1deaa897dbcf65e5ed0fca5ca0d8b1ec324c9ef",
-    "to_sha": "bc61e7b32c7365b0385fec726d9d4bc2ec787dea",
-    "ts": "2026-09-07T01:04:50Z"
+    "report_sha": "d120770eab6387409d97d7b055972a1c0e356ea3368d861225930b10ca6adf2c",
+    "to_sha": "8339b5a9999c7fe7c83ad0ac2b89c5a2754fd8c8",
+    "ts": "2026-09-28T06:14:44Z"
    },
    "title": "partial differential equations",
    "topic": "Analysis"
   },
   {
+   "activity": null,
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/PeripheralActions",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5"
+   ],
+   "layer_lines": [
+    145,
+    191,
+    294,
+    354,
+    489,
+    518
+   ],
+   "layers": [
+    "Layer 0: peripheral systems",
+    "Layer 1: the peripheral product identity",
+    "Layer 2: the peripheral-power theorem",
+    "Layer 3: the group of peripheral automorphisms",
+    "Layer 4: the dyadic instance",
+    "Layer 5: what the arithmetic route adds, and where it lives"
+   ],
+   "links": [],
+   "name": "PeripheralActions",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/PeripheralActions/README.md",
+   "readme_sha": "8c021ac61ad9bfe9be447af6c451d309c5ff67884b49e4524d06106b690778b5",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "peripheral actions on free pro-`p` groups",
+   "topic": "Unsorted"
+  },
+  {
    "activity": {
-    "last": "2026-09-28T07:31:32Z",
+    "last": "2026-09-28T17:40:18Z",
     "open": 5,
     "recent": 60,
-    "since_report": 56,
-    "total": 60,
+    "since_report": 57,
+    "total": 61,
     "weekly": [
      0,
      0,
@@ -4353,7 +4417,7 @@
      8,
      23,
      18,
-     3
+     4
     ]
    },
    "assessment": {
@@ -4447,9 +4511,55 @@
    "topic": "Number theory"
   },
   {
+   "activity": null,
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/ProfiniteArithmetic",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3"
+   ],
+   "layer_lines": [
+    219,
+    330,
+    437,
+    570
+   ],
+   "layers": [
+    "Layer 0: the ring structure on the profinite integers",
+    "Layer 1: profinite powers and `ℤ_ℓ`-powers",
+    "Layer 2: continuous automorphisms and outer automorphisms",
+    "Layer 3: the closed lower central series and its graded Lie ring"
+   ],
+   "links": [],
+   "name": "ProfiniteArithmetic",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/ProfiniteArithmetic/README.md",
+   "readme_sha": "40b35091ae14fe4526f5a9a9af67374955e9e77cf838dc3d6738cab947c2bbc0",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "profinite integers, profinite powers, and continuous automorphisms",
+   "topic": "Unsorted"
+  },
+  {
    "activity": {
     "last": "2026-09-28T08:51:01Z",
-    "open": 2,
+    "open": 3,
     "recent": 83,
     "since_report": 12,
     "total": 116,
@@ -4601,11 +4711,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T09:38:33Z",
-    "open": 9,
-    "recent": 138,
-    "since_report": 30,
-    "total": 140,
+    "last": "2026-09-28T23:59:21Z",
+    "open": 7,
+    "recent": 149,
+    "since_report": 41,
+    "total": 151,
     "weekly": [
      0,
      0,
@@ -4622,7 +4732,7 @@
      10,
      16,
      96,
-     11
+     22
     ]
    },
    "assessment": {
@@ -4734,7 +4844,7 @@
   {
    "activity": {
     "last": "2026-09-28T12:25:14Z",
-    "open": 1,
+    "open": 2,
     "recent": 72,
     "since_report": 21,
     "total": 72,
@@ -4865,11 +4975,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T07:54:42Z",
-    "open": 3,
-    "recent": 9,
+    "last": "2026-09-28T16:10:57Z",
+    "open": 2,
+    "recent": 11,
     "since_report": null,
-    "total": 9,
+    "total": 11,
     "weekly": [
      0,
      0,
@@ -4886,7 +4996,7 @@
      0,
      0,
      5,
-     4
+     6
     ]
    },
    "assessment": {
@@ -4951,11 +5061,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T12:25:14Z",
-    "open": 7,
-    "recent": 321,
-    "since_report": 21,
-    "total": 950,
+    "last": "2026-09-28T22:42:56Z",
+    "open": 6,
+    "recent": 313,
+    "since_report": 23,
+    "total": 952,
     "weekly": [
      22,
      19,
@@ -4972,7 +5082,7 @@
      65,
      73,
      69,
-     7
+     9
     ]
    },
    "assessment": {
@@ -5081,11 +5191,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T10:30:40Z",
+    "last": "2026-09-29T00:56:29Z",
     "open": 20,
-    "recent": 372,
-    "since_report": 42,
-    "total": 1027,
+    "recent": 367,
+    "since_report": 46,
+    "total": 1031,
     "weekly": [
      0,
      0,
@@ -5102,7 +5212,7 @@
      69,
      62,
      150,
-     10
+     14
     ]
    },
    "assessment": {
@@ -6544,11 +6654,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T06:48:15Z",
+    "last": "2026-09-28T23:48:00Z",
     "open": 1,
-    "recent": 54,
-    "since_report": 10,
-    "total": 54,
+    "recent": 56,
+    "since_report": 12,
+    "total": 56,
     "weekly": [
      0,
      0,
@@ -6565,7 +6675,7 @@
      8,
      20,
      24,
-     2
+     4
     ]
    },
    "assessment": {
@@ -7095,11 +7205,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T12:32:57Z",
+    "last": "2026-09-29T01:17:59Z",
     "open": 0,
-    "recent": 16,
-    "since_report": 14,
-    "total": 68,
+    "recent": 21,
+    "since_report": 19,
+    "total": 73,
     "weekly": [
      0,
      0,
@@ -7116,7 +7226,7 @@
      4,
      1,
      0,
-     5
+     10
     ]
    },
    "assessment": {
@@ -7295,11 +7405,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T05:56:02Z",
-    "open": 5,
-    "recent": 26,
-    "since_report": 19,
-    "total": 116,
+    "last": "2026-09-29T00:25:10Z",
+    "open": 4,
+    "recent": 27,
+    "since_report": 20,
+    "total": 117,
     "weekly": [
      2,
      14,
@@ -7316,7 +7426,7 @@
      8,
      3,
      6,
-     2
+     3
     ]
    },
    "assessment": {
