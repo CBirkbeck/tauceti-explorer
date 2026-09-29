@@ -18,6 +18,10 @@ import Mathlib.RingTheory.Support
 import Mathlib.RingTheory.Valuation.Discrete.IsDiscreteValuationRing
 import Mathlib.RingTheory.Valuation.ValuationSubring
 import TauCeti.RingTheory.DedekindDomain.IntegralClosure
+import Mathlib.Data.Finset.Prod
+import Mathlib.Data.Finset.Image
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NormNum
 
 open scoped TensorProduct
 open IsLocalRing
@@ -254,3 +258,43 @@ lemma nonfaithful_character_nonoccurrence {k : Type*} [Field k] :
 end RegressionExamples
 
 end TauCeti.EigenvalueLifting
+
+/-! ## R15.4 and R15.6 (checkpoint 2)
+
+The weight recipe (`TauCeti.SerreWeight.serreWeight` and its API), the peu/très ramifiée branch, the dyadic dichotomy
+and the R15.6 notions (`TauCeti.ResidualModularity.IsSType`, `ArisesFrom`, `IsModular`, `modpCuspForms`) need local
+Galois representations of `ℚ_p` with their inertia and Kummer data (ArithmeticGaloisRepresentations R01.2,
+FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.5) and the representations attached to newforms
+(AutomorphicGaloisRepresentations R19.1), none of which are at the pinned commits; they are not stated here. The
+examples below check the arithmetic of the recipe. They import Mathlib only and were compiled as a separate file
+against Mathlib `082e2d3`.
+
+Checks of Serre's weight recipe (AlgebraicModularFormsAndSerreWeights R15.4, R15.6). -/
+
+namespace TauCeti.SerreWeight.SuggestedTest
+
+/-- Test `serreWeight_level_two_p5`: `p = 5`, level 2, `(a, b) = (1, 3)`: `k = 1 + pa + b = 9`, and Serre's
+(2.2.5) `k = k' + a(p + 1)` with `k' = 1 + (b − a) = 3`. -/
+example : 1 + 5 * 1 + 3 = 9 ∧ 9 = (1 + (3 - 1)) + 1 * (5 + 1) := by norm_num
+
+/-- Test `serreWeight_wild_generic`: `p = 5`, `α = 1`, `β = 3`: `k = 1 + 5·1 + 3 = 9`. -/
+example : 1 + 5 * min 1 3 + max 1 3 = 9 := by norm_num
+
+/-- The très ramifiée weight `(α + 1)(p + 1)` is the peu ramifiée weight `2 + α(p + 1)` plus `p − 1`, and
+both are `≡ 2 + 2α` modulo `p − 1` (determinant parity). -/
+example (α p : ℤ) : (α + 1) * (p + 1) = (2 + α * (p + 1)) + (p - 1) := by ring
+
+/-- `k − 1 ≡ a + b (mod p − 1)` when `k = 1 + pa + b`: the difference is `(p − 1)a`. -/
+example (a b p : ℤ) : (1 + p * a + b) - 1 - (a + b) = (p - 1) * a := by ring
+
+/-- Test `serreWeight_wild_p2`: at `p = 2` (`α = 0`, `β = 1`) the peu ramifiée weight is `2 + 0 · 3 = 2` and the
+très ramifiée correction `+2` gives `4`. -/
+example : 2 + 0 * (2 + 1) = 2 ∧ 2 + 0 * (2 + 1) + 2 = 4 := by norm_num
+
+/-- Serre 2.6 for `p = 3`: the weights `1 + a₀ + 3a₁` with `0 ≤ a₀, a₁ ≤ 2`, `a₁ ≤ a₀ + 1`, in `[2, 8]`, are
+`2, 3, 4, 5, 6, 8`. -/
+example : (((Finset.range 3 ×ˢ Finset.range 3).filter (fun t : ℕ × ℕ => t.2 ≤ t.1 + 1)).image
+      (fun t => 1 + t.1 + 3 * t.2)).filter (fun k => 2 ≤ k ∧ k ≤ 8) = {2, 3, 4, 5, 6, 8} := by
+  decide
+
+end TauCeti.SerreWeight.SuggestedTest
