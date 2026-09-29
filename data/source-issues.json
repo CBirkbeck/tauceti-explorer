@@ -144891,6 +144891,126 @@
    "reviewReason": null
   },
   {
+   "id": "NoncommutativeAndEquivariantIwasawa/E5",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 104, display (21) and the next line, p. 74 (arXiv v3)",
+   "printed": "(21) Σ_y (Δ^{u^p}_P(δ(y)∘ver^{P′}_P, 1 − k) − Δ^u_{P′}(δ(y), 1 − pk))κ(y)^{−k}y",
+   "correction": "Σ_y (Δ^{u^p}_P(δ(y), 1 − k) − Δ^u_{P′}(δ(y)∘ver^{P′}_P, 1 − pk))κ(y)^{−k}y, the difference of (19) and (20); the following line likewise needs δ(y)∘ver^{P′}_P in the P′-term.",
+   "reason": "(19) has Δ^{u^p}_P(δ(y), 1 − k) and (20) has Δ^u_{P′}(δ(y)∘ver^{P′}_P, 1 − pk); δ(y)∘ver^{P′}_P is a function on U_{P′}^ab, so it cannot be the argument of Δ_P. The orbit computation two lines later uses the corrected form.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E6",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 106, the W_GP-orbit sum, p. 75 (arXiv v3)",
+   "printed": "Σ_{g∈W_GP/(W_GP)_y} Δ^v_P(δ(gyg^{−1}), 1 − p)κ(gyg^{−1})^{−k}(gyg^{−1} − ω^k_P(gyg^{−1}))",
+   "correction": "Δ^v_P(δ(gyg^{−1}), 1 − k)",
+   "reason": "The terms come from (23), where the value is at 1 − k; the next line of the proof, after Lemma 103, has Δ^v_P(δ(y), 1 − k).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E7",
+   "kind": "error",
+   "locator": "Proofs of Propositions 116 (p. 84) and 117 (p. 85) (arXiv v3)",
+   "printed": "As 2^{−r_P} ≡ 2^{−r_P/p} (mod r_P) and r_P ≥ |(W_GP)_y|,",
+   "correction": "Use 2^{−r_P} ≡ 2^{−r_P/p} (mod p^{v_p(r_P)}), which holds because r_P − r_P/p = (r_P/p)(p − 1) is divisible by φ(p^{v_p(r_P)}), and the divisibility |(W_GP)_y| | p^{v_p(r_P)}, which holds because |(W_GP)_y| is a power of p dividing |W_GP|, which divides d_P = [F_P : F], which divides r_P. Proposition 117 needs the same repair with |(N_GP′/P)_y|.",
+   "reason": "The congruence modulo r_P fails when r_P has a prime factor other than p: for [F : ℚ] = 5, p = 3 and d_P = 3, r_P = 15 and 2^{−15} ≡ 2^{−5} (mod 15) would need 2^{10} ≡ 1 (mod 15), but 2^{10} ≡ 4. An inequality r_P ≥ |(W_GP)_y| does not give a congruence modulo |(W_GP)_y| in any case. The p-part version suffices for the conclusion.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E8",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 117, the constant-term identity, p. 85 (arXiv v3)",
+   "printed": "c(0, E) − N(α_p)^{−pd_{P′}}c(0, α, E) = 2^{−r_P}Δ^{u^{pd_{P′}}}_P(δ(y), 1 − k) − 2^{−r_{P′}}Δ^{u^{d_{P′}}}_{P′}(δ(y), 1 − pk)",
+   "correction": "N(α_p)^{−pd_{P′}k} in the exponent, and δ(y)∘ϕ in the P′-term: … − 2^{−r_{P′}}Δ^{u^{d_{P′}}}_{P′}(δ(y)∘ϕ, 1 − pk).",
+   "reason": "E has weight pd_{P′}k, and the second Eisenstein series in E is G_{pk,δ(y)∘ϕ}, as in the definition of E and in (28).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E9",
+   "kind": "misprint",
+   "locator": "§6.13.3, second congruence of the logarithm computation, p. 89 (arXiv v3)",
+   "printed": "Σ_{P′}((pϕ(ζ_{P′}) − Σ_{k=0}^{p−1}ω^k_P(ζ_{P′}))/ζ_P)",
+   "correction": "Σ_{P′}((pϕ(ζ_{P′}) − Σ_{k=0}^{p−1}ω^k_P(ϕ(ζ_{P′})))/ζ_P); in the next line Σ_{k−0} should read Σ_{k=0}.",
+   "reason": "The step replaces pζ_P − Σ_kω^k_P(ζ_P) using (34), whose right side involves ω^k_P(ϕ(ζ_{P′})); the third line combines the two fractions with numerator pϕ(ζ_{P′}) − Σ_kω^k_P(ϕ(ζ_{P′})).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E10",
+   "kind": "gap",
+   "locator": "§6.13, the construction of F̃_∞ (pp. 86–87, arXiv v3)",
+   "printed": "we extend our ﬁeld slightly to F̃∞ ⊃ F∞ such that F̃∞/F is an admissible p-adic Lie extension satisfying µ = 0 hypothesis",
+   "correction": "Supply the two facts: K ⊆ ℚ(μ_l) of degree |Ḡ| is totally real, because |Ḡ| is odd and divides l − 1, hence divides (l − 1)/2; and μ = 0 for F̃_∞ follows from μ = 0 for F_∞, because the vanishing of μ is inherited by finite p-extensions (Iwasawa). The prime l must also be added to Σ.",
+   "reason": "§6.13.1 defines F̃ = KF and F̃_∞ = F̃F_∞ and states the Galois group, but gives no argument for admissibility (total reality of F̃) or for the μ = 0 hypothesis (Definition 8) for F̃_∞/F, both of which Proposition 93 needs.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E1",
    "kind": "misprint",
    "locator": "§3.2, paragraph before Lemma 3.10, p. 41 (Numdam PDF page 38)",
