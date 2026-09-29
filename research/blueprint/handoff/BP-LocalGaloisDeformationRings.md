@@ -1,9 +1,39 @@
-# BP-LocalGaloisDeformationRings: R08.1–R08.4 and L8, parts of R08.6 and L7 (checkpoint 6)
+# BP-LocalGaloisDeformationRings: R08.1–R08.4 and L8, parts of R08.6 and L7 (checkpoint 7)
 
-Claude Code — session `cc-39fac3`, 28 September 2026. Refs #770. **Status: partial.**
+Claude Code — session `cc-39fac3`, 28–29 September 2026. Refs #770. **Status: partial.**
 - R08.1, R08.2, R08.3, R08.4 and L8 are `source_decomposed`.
 - R08.6 and L7 are `partial`.
 - R08.5 is `not_read`.
+
+## Checkpoint 7: CHT's local conditions in L7 (6 nodes)
+
+**Source.** CHT, Publ. Math. IHÉS 108 (Numdam, sha 9d3b707…): §2.4.1 (pp. 33–37), §2.4.2 (pp. 37–40) and §2.4.5
+(pp. 47–53), read on the page images.
+
+**Nodes:**
+- the Fontaine–Laffaille condition (construction) and its tangent space and smoothness;
+- ordinary deformations with fixed inertial characters (construction) and their smoothness;
+- discrete series deformations away from l (construction) and their smoothness.
+
+The three constructions have 5 API items and 4 tests each.
+
+**E2 (error).** CHT §2.4.2's condition 2 has the ratio inverted relative to the proofs of Lemmas 2.4.7–2.4.8.
+- For r̄ = ω ⊕ 1 with ω as the sub, the printed condition holds, but the ring is not smooth of the stated dimension:
+  there are 5 first-order lifts rather than 4.
+- The plan uses the corrected condition (2′).
+- No erratum was found.
+
+**L7 remaining:**
+- ordinary functors with varying characters for nontrivial ρ̄ in rank n > 2 (Geraghty §3);
+- the rank-n interface with R08.2;
+- the Thorne gap.
+
+**Lean.** New checked tests:
+- the Fontaine–Laffaille count at n = 2;
+- the discrete-series identity m(n − m) + (n − m)² + (m² − 1) + (m(n − m) + 1) = n²;
+- the E2 count 1 + 1 + 3 = 5 ≠ 4.
+
+**Totals.** 64 nodes, 27 planets, 10 requests, 2 gaps and 2 source issues. `check_blueprint.py`: 0 errors, 0 warnings.
 
 ## Checkpoint 6: L8 (6 nodes) and L7 ordinary flags (3 nodes)
 

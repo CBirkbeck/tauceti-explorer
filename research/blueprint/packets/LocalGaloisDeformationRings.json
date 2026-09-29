@@ -13,7 +13,7 @@
   "LocalGaloisDeformationRings:R08.6"
  ],
  "status": "partial",
- "summary": "Blueprint for local Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans R08.1 as RS-08 keeps it: the G_K specialisations of GlobalGaloisDeformations R04.1's functors — the local framed deformation ring, its tangent and obstruction description with the dimension bound from local Tate duality and the local Euler characteristic, fixing the determinant, forgetting the framing, the archimedean rings (formally smooth for odd p; the explicit odd ring 𝒪[[·]]/(a² + bc − 1) at p = 2), and change of coefficients. Stages L7, L8 and R08.2–R08.6 remain. Checkpoint 2 adds R08.2 (places away from p): tame splitting, unramified and minimally ramified lifts and rings, unrestricted rings and their components, fixed inertial types, Taylor–Wiles local rings, Steinberg lifts with monodromy, and Ihara-avoidance components (CHT08, Taylor II, Gee §3.29–3.38). Checkpoint 3 plans R08.3 (Kisin's potentially semistable deformation rings: types, the semistable and Hodge-type quotients, pst rings of fixed type with their crystalline loci and reduced p-torsion-free integral rings, filtered (φ, N)-module deformation theory, Kisin's dimension formula with generic smoothness, smoothness for potentially crystalline rings, and change of coefficients). It also plans L7's bounded-height lattice moduli (Kisin, JAMS 2008, §1), which RS-08 makes L7 own. R08.3 and L7 are partial. Checkpoint 4 plans R08.6's exports for KW II §3 (11 nodes): smooth resolutions (Proposition 2.12), the local conditions, the archimedean, Fontaine–Laffaille, weight-two, ordinary (Proposition 3.6), semistable, endpoint and away-from-p rings with their dimensions, the completed tensor product (Proposition 3.2) and local nonemptiness, which also closes R08.3. Checkpoint 5 plans R08.4 (12 nodes): flat deformation rings, the moduli of finite flat models (L7 with height 1), Raynaud's case, the generic fibre, Kisin's resolution with its local structure, components through the special fibre, ordinary types, the rank-two connectedness and component comparison of Kisin's Moduli paper, and Savitt's weight-two rings. Checkpoint 6 plans L8 (source_decomposed) from ACC+ §6.2.6 — Λ_v, the determinant-ordinary rings, Lemmas 6.2.9 and 6.2.11, the point criteria and Proposition 6.2.12 — and adds to L7 the ordinary flag scheme and its image R^△_v, ACC+ Proposition 6.2.10 (source proof a gap: Thorne 2015 not obtained) and Skinner–Wiles' residually split nearly ordinary rings.",
+ "summary": "Blueprint for local Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans R08.1 as RS-08 keeps it: the G_K specialisations of GlobalGaloisDeformations R04.1's functors — the local framed deformation ring, its tangent and obstruction description with the dimension bound from local Tate duality and the local Euler characteristic, fixing the determinant, forgetting the framing, the archimedean rings (formally smooth for odd p; the explicit odd ring 𝒪[[·]]/(a² + bc − 1) at p = 2), and change of coefficients. Stages L7, L8 and R08.2–R08.6 remain. Checkpoint 2 adds R08.2 (places away from p): tame splitting, unramified and minimally ramified lifts and rings, unrestricted rings and their components, fixed inertial types, Taylor–Wiles local rings, Steinberg lifts with monodromy, and Ihara-avoidance components (CHT08, Taylor II, Gee §3.29–3.38). Checkpoint 3 plans R08.3 (Kisin's potentially semistable deformation rings: types, the semistable and Hodge-type quotients, pst rings of fixed type with their crystalline loci and reduced p-torsion-free integral rings, filtered (φ, N)-module deformation theory, Kisin's dimension formula with generic smoothness, smoothness for potentially crystalline rings, and change of coefficients). It also plans L7's bounded-height lattice moduli (Kisin, JAMS 2008, §1), which RS-08 makes L7 own. R08.3 and L7 are partial. Checkpoint 4 plans R08.6's exports for KW II §3 (11 nodes): smooth resolutions (Proposition 2.12), the local conditions, the archimedean, Fontaine–Laffaille, weight-two, ordinary (Proposition 3.6), semistable, endpoint and away-from-p rings with their dimensions, the completed tensor product (Proposition 3.2) and local nonemptiness, which also closes R08.3. Checkpoint 5 plans R08.4 (12 nodes): flat deformation rings, the moduli of finite flat models (L7 with height 1), Raynaud's case, the generic fibre, Kisin's resolution with its local structure, components through the special fibre, ordinary types, the rank-two connectedness and component comparison of Kisin's Moduli paper, and Savitt's weight-two rings. Checkpoint 6 plans L8 (source_decomposed) from ACC+ §6.2.6 — Λ_v, the determinant-ordinary rings, Lemmas 6.2.9 and 6.2.11, the point criteria and Proposition 6.2.12 — and adds to L7 the ordinary flag scheme and its image R^△_v, ACC+ Proposition 6.2.10 (source proof a gap: Thorne 2015 not obtained) and Skinner–Wiles' residually split nearly ordinary rings. Checkpoint 7 plans CHT §§2.4.1, 2.4.2 and 2.4.5 in L7: Fontaine–Laffaille, ordinary (fixed inertial characters) and discrete series deformation conditions with their smoothness and tangent-space counts.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -97,7 +97,10 @@
    "read": "2026-09-28",
    "readSections": [
     "§2.4.3 Unrestricted deformations, Lemma 2.4.9, p. 40",
-    "§2.4.4 Minimal deformations, Lemmas 2.4.10–2.4.22, pp. 41–47"
+    "§2.4.4 Minimal deformations, Lemmas 2.4.10–2.4.22, pp. 41–47",
+    "§2.4.1 Crystalline (Fontaine–Laffaille) deformations, Lemmas 2.4.1–2.4.5, pp. 33–37 (checkpoint 7, on the page images)",
+    "§2.4.2 Ordinary deformations, Lemmas 2.4.6–2.4.8, pp. 37–40 (checkpoint 7)",
+    "§2.4.5 Discrete series deformations, Lemmas 2.4.22–2.4.30, pp. 47–53 (checkpoint 7)"
    ]
   },
   {
@@ -3426,6 +3429,474 @@
    "planet": {
     "name": "Determinant-ordinary versus flag-ordinary components"
    }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L7/fontaine-laffaille-deformation-condition",
+   "parentStageId": "LocalGaloisDeformationRings:L7",
+   "realises": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "title": "The Fontaine–Laffaille deformation condition",
+   "kind": "construction",
+   "statement": "Let l = p, F_ṽ unramified over ℚ_l, and K (the coefficient field, integers 𝒪, residue field k) containing the images of all embeddings F_ṽ ↪ K̄. Let 𝓜𝓕_{𝒪,ṽ} be the category of finite 𝒪_{F_ṽ} ⊗_{ℤ_l} 𝒪-modules M with a decreasing filtration by direct summands, Fil⁰M = M, Fil^{l−1}M = 0, and Fr ⊗ 1-linear Φ^i : Fil^iM → M with Φ^i|_{Fil^{i+1}M} = lΦ^{i+1} and Σ_i Φ^i Fil^iM = M, and 𝓜𝓕_{k,ṽ} its objects killed by λ. The covariant Fontaine–Laffaille functor 𝐆_ṽ(M) = U_S(Hom(M, F_ṽ/𝒪_{F,ṽ}{l − 2}))(2 − l) is exact, fully faithful and 𝒪-linear into finite 𝒪-modules with continuous G_{F_ṽ}-action, with essential image closed under subobjects and quotients, Ext¹_{𝓜𝓕} ↪ Ext¹_{𝒪[G]} and Hom_{𝓜𝓕} ≅ H⁰(G, Hom). Assume r̄|_{G_{F_ṽ}} is in the essential image of 𝐆_ṽ with dim_k(gr^i 𝐆_ṽ^{−1}(r̄) ⊗_{𝒪_{F_ṽ},τ̃} 𝒪) ≤ 1 for every i and τ̃. The Fontaine–Laffaille deformation problem 𝒟_ṽ consists of the lifts r of r̄ to R such that r ⊗_R R′ lies in the essential image of 𝐆_ṽ for every Artinian quotient R′ of R; its tangent space L_ṽ is the image of Ext¹_{𝓜𝓕_{k,ṽ}}(𝐆_ṽ^{−1}(r̄), 𝐆_ṽ^{−1}(r̄)) ↪ H¹(G_{F_ṽ}, ad r̄). (Lemma 2.4.1.) 𝒟_ṽ is liftable.",
+   "hypotheses": [
+    "l = p, F_ṽ/ℚ_l unramified; Hodge–Tate weights in the Fontaine–Laffaille range [0, l − 2] and multiplicity-free for each embedding",
+    "CHT use a covariant normalisation of Fontaine–Laffaille's contravariant U_S; the sign conventions are PadicHodgeTheory R06.4/fontaine-laffaille-sign-dictionary"
+   ],
+   "proofSteps": [
+    "𝒟_ṽ is a local deformation problem because the essential image of 𝐆_ṽ is closed under subobjects, quotients and the fibre products of the Schlessinger conditions (CHT, first observed by Ramakrishna).",
+    "Lemma 2.4.1: given r over R/I (𝔪_R I = 0), write M = 𝐆_ṽ^{−1}(r), M_τ̃ its τ̃-parts with jumps m_{τ̃,0} < ⋯ < m_{τ̃,n−1}; N_τ̃ = Rⁿ with Fil^j N_τ̃ = R^i for m_{τ̃,n−i} ≥ j > m_{τ̃,n−1−i}; lift the Φ^{m_{τ̃,i}} by reverse recursion on i so that Φ^{m_{τ̃,i}}|_{Fil^{m_{τ̃,i+1}}} = l^{m_{τ̃,i+1}−m_{τ̃,i}}Φ^{m_{τ̃,i+1}}; Nakayama gives an object N of 𝓜𝓕_{𝒪,ṽ}, and 𝐆_ṽ(N) lifts r."
+   ],
+   "acceptance": [
+    "The multiplicity-one hypothesis on the graded pieces is what makes the filtration jumps m_{τ̃,i} strictly increasing; do not drop it."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+    "PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison",
+    "PadicHodgeTheory:R06.4/fontaine-laffaille-sign-dictionary"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FontaineLaffaille",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.1, p. 33",
+     "excerpt": "which will play the key role in this section.",
+     "match": "The category 𝓜𝓕_{𝒪,ṽ} and the functor 𝐆_ṽ."
+    },
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.1, 𝒟_ṽ and Lemma 2.4.1, p. 35",
+     "excerpt": "(This was ﬁrst observed by Ramakrishna [Ra1].)",
+     "match": "The deformation problem, its tangent space, and Lemma 2.4.1."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:L7/fontaine-laffaille-tangent-space-and-smoothness",
+     "how": "the tangent-space count and smoothness."
+    },
+    {
+     "where": "GlobalGaloisDeformations:G7",
+     "how": "local conditions at v | l in the CHT/Taylor-II patching arguments."
+    },
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "smooth local rings of known dimension for the patching count."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.FLModule",
+     "role": "structure",
+     "statement": "Objects of 𝓜𝓕_{𝒪,ṽ}: filtered 𝒪_{F_ṽ} ⊗ 𝒪-modules with the Φ^i."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.flFunctor",
+     "role": "constructor",
+     "statement": "𝐆_ṽ(M) = U_S(Hom(M, F_ṽ/𝒪_{F,ṽ}{l − 2}))(2 − l)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.flFunctor_fullyFaithful",
+     "role": "characterisation",
+     "statement": "𝐆_ṽ is exact and fully faithful, with image closed under subobjects and quotients."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.FLDeformation",
+     "role": "data",
+     "statement": "The condition 𝒟_ṽ on lifts."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.FLDeformation.liftable",
+     "role": "characterisation",
+     "statement": "Lemma 2.4.1."
+    }
+   ],
+   "tests": [
+    {
+     "name": "fl_rank_one",
+     "kind": "example",
+     "statement": "For n = 1 the tangent space is the unramified classes H¹(G/I, ad r̄) (Corollary 2.4.4)."
+    },
+    {
+     "name": "fl_elliptic_curve",
+     "kind": "example",
+     "statement": "E[l] for E with good reduction at an unramified l ≥ 3: weights {0, 1} are in range and multiplicity-free."
+    },
+    {
+     "name": "fl_weight_out_of_range",
+     "kind": "example",
+     "statement": "A crystalline character with Hodge–Tate weight l − 1 is outside 𝓜𝓕 (Fil^{l−1}M = 0 is required)."
+    },
+    {
+     "name": "fl_repeated_weight",
+     "kind": "example",
+     "statement": "r̄ = ε ⊕ ε violates the multiplicity-one hypothesis for n = 2."
+    }
+   ]
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L7/fontaine-laffaille-tangent-space-and-smoothness",
+   "parentStageId": "LocalGaloisDeformationRings:L7",
+   "realises": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "title": "Fontaine–Laffaille deformations: tangent space and smoothness (CHT Lemma 2.4.2, Corollaries 2.4.3–2.4.4, Lemma 2.4.5)",
+   "kind": "theorem",
+   "statement": "(Lemma 2.4.2.) For M, N in 𝓜𝓕_{k,ṽ} there is an exact sequence 0 → Hom_{𝓜𝓕}(M, N) → Fil⁰Hom(M, N) → Hom_{Fr⊗1}(gr M, N) → Ext¹_{𝓜𝓕}(M, N) → 0, the middle map sending β to (βΦ^i_M − Φ^i_Nβ). (Corollary 2.4.3.) dim_k L_ṽ − dim_k H⁰(G_{F_ṽ}, ad r̄) = [F_ṽ : ℚ_l]·n(n − 1)/2, and R_ṽ^{loc}/𝓘_ṽ is a power series ring over 𝒪 in n² + [F_ṽ : ℚ_l]·n(n − 1)/2 variables. (Corollary 2.4.4.) If n = 1 then L_ṽ = H¹(G_{F_ṽ}/I_{F_ṽ}, ad r̄). (Lemma 2.4.5.) If r̄|_{G_{F_ṽ}} = ⊕ s̄_i then H¹(G, ad r̄) = ⊕_{i,j} H¹(G, Hom(s̄_i, s̄_j)) and L_ṽ = ⊕_{i,j}(L_ṽ)_{i,j}, the images of Ext¹_{𝓜𝓕}(𝐆^{−1}(s̄_i), 𝐆^{−1}(s̄_j)).",
+   "hypotheses": [
+    "the hypotheses of L7/fontaine-laffaille-deformation-condition"
+   ],
+   "proofSteps": [
+    "Lemma 2.4.2: an extension E of M by N in 𝓜𝓕 splits as filtered modules, E = N ⊕ M, with Φ^i_E = (Φ^i_N α_i; 0 Φ^i_M); two such α are equivalent exactly when they differ by βΦ_M − Φ_Nβ for a filtration-preserving β.",
+    "Corollary 2.4.3: decompose by τ̃; dim Fil⁰Hom(𝐆^{−1}(r̄)_τ̃, 𝐆^{−1}(r̄)_τ̃) = n(n + 1)/2 by the multiplicity-one hypothesis and dim Hom(gr 𝐆^{−1}(r̄)_τ̃, 𝐆^{−1}(r̄)_{τ̃∘Fr^{−1}}) = n²; the second part from the first, Lemma 2.4.1 and the dimension formula for liftable problems (GlobalGaloisDeformations, CHT Definition 2.2.2).",
+    "Corollary 2.4.4: L_ṽ ⊇ H¹(G/I, ad r̄), and the dimensions agree.",
+    "Lemma 2.4.5: 'clear' from additivity of Ext."
+   ],
+   "acceptance": [
+    "Check the count at n = 2, F_ṽ = ℚ_l: L_ṽ has dimension dim H⁰(ad r̄) + 1, and R^{loc}/𝓘 has 5 variables (checked in the Lean file)."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:L7/fontaine-laffaille-deformation-condition",
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FontaineLaffaille",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.1, Lemma 2.4.2, p. 35",
+     "excerpt": "We will need to calculate",
+     "match": "Lemma 2.4.2."
+    },
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.1, proof of Lemma 2.4.2 and Corollary 2.4.3, p. 36",
+     "excerpt": "The lemma now follows easily.",
+     "match": "Lemma 2.4.2 proved; Corollary 2.4.3."
+    },
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.1, Corollary 2.4.4 and Lemma 2.4.5, p. 37",
+     "excerpt": "The next lemma is clear.",
+     "match": "Lemma 2.4.5."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L7/ordinary-condition-fixed-inertial-characters",
+   "parentStageId": "LocalGaloisDeformationRings:L7",
+   "realises": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "title": "Ordinary deformations with fixed inertial characters on a full flag (CHT §2.4.2)",
+   "kind": "construction",
+   "statement": "Let l = p and choose characters χ_{v,i} : G_{F_ṽ} → 𝒪^× (i = 0, …, n − 1) such that (1) r̄ has a decreasing filtration {Fil̄^i} by k[G_{F_ṽ}]-submodules with gr̄^i r̄ ≅ k(χ_{v,i}), and (2′) for i < j, χ̄_{v,j}/χ̄_{v,i} is neither trivial nor the mod-l cyclotomic character ε̄ (the condition the proofs use; CHT print the inverse ratio, source issue LocalGaloisDeformationRings/E2). Then {Fil̄^i} is unique. 𝒟_v consists of the lifts r of r̄ to R such that Rⁿ has a decreasing filtration {Fil^i} by R[G_{F_ṽ}]-submodules with Fil^i ⊗_R k ≅ Fil̄^i and I_{F_ṽ} acting on gr^iRⁿ by χ_{v,i}; the Fil^i are then free direct summands and gr^iRⁿ ≅ R(χ′_i) with χ′_i an unramified twist of χ_{v,i} reducing to χ_{v,i} mod λ. (Lemma 2.4.6.) (1) Such a filtration is unique; (2) for R ↪ S injective in 𝒞_𝒪 and r over R with (S, r) ∈ 𝒟_v, (Fil^i_S ∩ Rⁿ) ⊗_R S ≅ Fil^i_S; (3) 𝒟_v is a local deformation problem.",
+   "hypotheses": [
+    "condition (2′) is CHT's 'easiest possible case' with the ratio the proofs need; they note it can be weakened but not how far, and that the section is not needed for their modularity applications",
+    "CHT print (2) as 'χ̄_{v,i}/χ̄_{v,j} is neither trivial nor the cyclotomic character' (i < j), which allows χ̄_{v,j}/χ̄_{v,i} = ε̄; then Lemma 2.4.8 fails (E2)",
+    "this fixes the characters on inertia; L7/ordinary-flag-scheme (ACC+ §6.2.6) lets the characters vary over Λ_v, and CHT's 𝒟_v is its fibre over the point of Λ_v given by the χ_{v,i}|_{I}"
+   ],
+   "proofSteps": [
+    "Lemma 2.4.6 (1)–(2): by induction reduce to Fil^{n−1}; choose σ_i with χ̄_{v,i}(σ_i) ≠ χ̄_{v,n−1}(σ_i), factor the characteristic polynomial P_i of r(σ_i) by Hensel as R_i(X)Q_i(X) with R_i lifting (X − χ̄_{v,n−1}(σ_i))^{a_i}, and set e = Π_i Q_i(r(σ_i)); e kills gr^i for i ≤ n − 2 and is an isomorphism on Fil^{n−1}, so Fil^{n−1} = eRⁿ.",
+    "(3) from (1) and (2) with the conditions of CHT Definition 2.2.2."
+   ],
+   "acceptance": [
+    "Check that the filtration is determined by the characters: condition (2) forbids equal residual characters, so e separates the pieces."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+    "LocalGaloisDeformationRings:L7/ordinary-flag-scheme"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Ordinary",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.2, the characters χ_{v,i}, p. 37",
+     "excerpt": "This section is not required for our appli- cations to modularity lifting theorems and the Sato–Tate conjecture",
+     "match": "The set-up of §2.4.2."
+    },
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.2, 𝒟_v and Lemma 2.4.6, p. 38",
+     "excerpt": "The second of these two conditions can be weakened, but we have not been able to determine exactly how far.",
+     "match": "The remark on condition (2); 𝒟_v and Lemma 2.4.6."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:L7/ordinary-fixed-inertial-characters-smoothness",
+     "how": "liftability and the power series ring."
+    },
+    {
+     "where": "GlobalGaloisDeformations:G7",
+     "how": "ordinary local conditions in rank n with fixed Hodge–Tate data."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+     "how": "comparison with Skinner–Wiles' nearly ordinary rings (characters varying)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.OrdinaryFixedInertia",
+     "role": "data",
+     "statement": "The condition 𝒟_v with its characters χ_{v,i}."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.OrdinaryFixedInertia.filtration",
+     "role": "constructor",
+     "statement": "The filtration Fil^i of a lift in 𝒟_v."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.OrdinaryFixedInertia.filtration_unique",
+     "role": "characterisation",
+     "statement": "Lemma 2.4.6(1)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.OrdinaryFixedInertia.filtration_baseChange",
+     "role": "compatibility",
+     "statement": "Lemma 2.4.6(2)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.OrdinaryFixedInertia.isLocalDeformationProblem",
+     "role": "instance",
+     "statement": "Lemma 2.4.6(3)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ord_n1",
+     "kind": "example",
+     "statement": "For n = 1, 𝒟_v is the lifts with inertial character χ_{v,0}."
+    },
+    {
+     "name": "ord_n2_distinct",
+     "kind": "example",
+     "statement": "For n = 2 and r̄ = (χ̄_0 *; 0 χ̄_1) with χ̄_0/χ̄_1 ≠ 1, ω, the filtration is the unique line with character χ̄_0."
+    },
+    {
+     "name": "ord_cyclotomic_ratio_excluded",
+     "kind": "example",
+     "statement": "r̄ = ω ⊕ 1 on G_{ℚ_l} with ω on the sub (χ̄_1 = ω, χ̄_0 = 1, l > 3) satisfies CHT's printed (2) but not (2′); there H²(G, k(ω)) ≠ 0 and the ring is not formally smooth (E2)."
+    },
+    {
+     "name": "ord_vs_flag_scheme",
+     "kind": "example",
+     "statement": "The lifts in 𝒟_v are the points of L7/ordinary-flag-scheme's image over the fixed characters."
+    }
+   ]
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L7/ordinary-fixed-inertial-characters-smoothness",
+   "parentStageId": "LocalGaloisDeformationRings:L7",
+   "realises": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "title": "Ordinary deformations with fixed inertial characters are formally smooth (CHT Lemmas 2.4.7–2.4.8)",
+   "kind": "theorem",
+   "statement": "Under (2′): (Lemma 2.4.7.) 𝒟_v is liftable. (Lemma 2.4.8.) R_v^{loc}/𝓘_v is a power series ring over 𝒪 in n² + [F_ṽ : ℚ_l]·n(n − 1)/2 variables, and dim_k L_v − dim_k H⁰(G_{F_ṽ}, ad r̄) = [F_ṽ : ℚ_l]·n(n − 1)/2.",
+   "hypotheses": [
+    "conditions (1) and (2′) of L7/ordinary-condition-fixed-inertial-characters; with CHT's printed (2) both lemmas can fail (E2)"
+   ],
+   "proofSteps": [
+    "Lemma 2.4.7: lift the filtration by reverse induction on i, each step an extension of gr̃^i by Fil̃^{i+1}; the obstruction lies in H²(G, Hom(gr^ir̄, Fil^{i+1}r̄)) ⊗ I, dual by local duality to H⁰(G, Hom(Fil^{i+1}r̄, gr^ir̄)(1)), which vanishes because χ̄_{v,i}ε/χ̄_{v,j} ≠ 1 for j > i.",
+    "Lemma 2.4.8: count lifts to k[ε]/(ε²): after putting r̄ in the Borel B_n, the lifts map onto the flags lifting Fil̄ with kernel the 'suitable' lifts to B_n(k[ε]/(ε²)), of dimension n(n + 1)/2 + [F_ṽ : ℚ_l]n(n − 1)/2 by induction on n: the new column is a fibre of Z¹(G, χ̄_{v,0}^{−1}r̄′ ⊗ k[ε]/(ε²)) ↠ Z¹(G, χ̄_{v,0}^{−1}r̄′) of dimension (1 + [F_ṽ : ℚ_l])(n − 1), by the local Euler characteristic and H²(G, χ̄_{v,0}^{−1}r̄′) = 0."
+   ],
+   "acceptance": [
+    "The dimension equals that of the Fontaine–Laffaille condition (Corollary 2.4.3); check both counts at n = 2 in the Lean file."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:L7/ordinary-condition-fixed-inertial-characters",
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Ordinary",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.2, proof of Lemma 2.4.7, p. 39",
+     "excerpt": "and this latter group vanishes, because, for",
+     "match": "The vanishing of the obstruction."
+    },
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.2, proof of Lemma 2.4.8, p. 40",
+     "excerpt": "We will prove this by induction on",
+     "match": "The induction on n."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L7/discrete-series-deformation-condition",
+   "parentStageId": "LocalGaloisDeformationRings:L7",
+   "realises": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "title": "Discrete series deformations away from l (CHT §2.4.5)",
+   "kind": "construction",
+   "statement": "Let l ≠ p, n = md and r̃_v : G_{F_ṽ} → GL_d(𝒪) continuous with (1) r̃_v ⊗ k absolutely irreducible, (2) every irreducible subquotient of (r̃_v ⊗ k)|_{I_{F_ṽ}} absolutely irreducible, and (3) r̃_v ⊗ k ≇ r̃_v ⊗ k(i) for i = 1, …, m. (Lemma 2.4.23.) r̃_v ≅ Ind_{G_{F′_ṽ}}^{G_{F_ṽ}} s_v for the unramified F′_ṽ of degree d₁ and s_v with s_v|_I ⊗ k absolutely irreducible and not conjugate-isomorphic; a lift ρ with ρ|_I ≅ r̃_v|_I ⊗ R is Ind(s_v ⊗ R(χ)) for a unique unramified χ; and Z_{GL_d(R)}(r̃_v(I)) ↠ Z_{GL_d(R/I)}(r̃_v(I)). (Definition 2.4.24.) ρ : G_{F_ṽ} → GL_n(R) is r̃_v-discrete series if it has a decreasing filtration {Fil^i} by R-direct summands with gr^iρ ≅ (gr⁰ρ)(i) for i = 1, …, m − 1 and (gr⁰ρ)|_I ≅ r̃_v|_I ⊗ R. (Lemma 2.4.25.) The filtration is unique. (Lemma 2.4.26.) If r̄ is r̃_v-discrete series, its r̃_v-discrete series lifts form a local deformation problem 𝒟_v.",
+   "hypotheses": [
+    "l ≠ p; condition (2) 'is probably unnecessary' (CHT) but simplifies the section",
+    "for d = 1, m = n and r̃_v trivial this is a Steinberg-type condition; compare R08.2/steinberg-condition (Taylor II's D^{Stein}), which instead fixes characteristic polynomials and takes the flat closure"
+   ],
+   "proofSteps": [
+    "Lemma 2.4.23: an irreducible r̄₁ ⊂ r̃_v|_I ⊗ k extends to its stabiliser H (H/I pro-cyclic), r̃_v ⊗ k ≅ Ind_H r̄₁, and the decomposition r̃_v|_I = r₁ ⊕ ⋯ ⊕ r_{d₁} lifts modulo λ^t by induction since H¹(I, Hom(r̄_i, r̄_j)) = 0 for i ≠ j.",
+    "Lemma 2.4.25: the residual twists ε^i are distinct for i = 1, …, m, so the gr⁰ of two filtrations agree and Fil^i is recovered by reverse induction as the maximal submodule with the prescribed subquotients.",
+    "Lemma 2.4.26: the conditions of CHT Definition 2.2.2, using Lemmas 2.1.8, 2.1.9, 2.4.23(3) and 2.4.25."
+   ],
+   "acceptance": [
+    "Check the case d = 1, m = n = 2 against the Steinberg condition of R08.2 at the level of k[ε]/(ε²)-points."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+    "LocalGaloisDeformationRings:R08.2/steinberg-condition"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalAwayFromP",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.5, the set-up, p. 47",
+     "excerpt": "Discrete series deformations. — Let n = md be a factorisation and let",
+     "match": "The set-up and conditions (1)–(3)."
+    },
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.5, Definition 2.4.24, p. 49",
+     "excerpt": "We will say that",
+     "match": "r̃_v-discrete series lifts."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:L7/discrete-series-smoothness",
+     "how": "liftability and smoothness."
+    },
+    {
+     "where": "GlobalGaloisDeformations:G7",
+     "how": "local conditions at places where π_v is discrete series (CHT, Taylor II)."
+    },
+    {
+     "where": "LocalGaloisDeformationRings:R08.2/ihara-avoidance-components",
+     "how": "comparison with the Steinberg components of Taylor II."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.DiscreteSeriesType",
+     "role": "structure",
+     "statement": "(m, d, r̃_v) with conditions (1)–(3)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.IsDiscreteSeriesLift",
+     "role": "data",
+     "statement": "Definition 2.4.24: the filtration with gr^i ≅ gr⁰(i) and gr⁰|_I ≅ r̃_v|_I ⊗ R."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.IsDiscreteSeriesLift.filtration_unique",
+     "role": "characterisation",
+     "statement": "Lemma 2.4.25."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.discreteSeriesDeformation",
+     "role": "instance",
+     "statement": "Lemma 2.4.26: a local deformation problem."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.DiscreteSeriesType.induced",
+     "role": "characterisation",
+     "statement": "Lemma 2.4.23: r̃_v ≅ Ind s_v."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ds_steinberg",
+     "kind": "example",
+     "statement": "d = 1, m = n, r̃_v trivial: the unipotent-monodromy (Steinberg) lifts with Frobenius eigenvalues α, qα, …, q^{n−1}α."
+    },
+    {
+     "name": "ds_m1",
+     "kind": "example",
+     "statement": "m = 1: lifts with ρ|_I ≅ r̃_v|_I ⊗ R, i.e. minimally ramified type r̃_v."
+    },
+    {
+     "name": "ds_condition3_fails",
+     "kind": "example",
+     "statement": "If q ≡ 1 mod l then k(1) ≅ k and condition (3) fails for i = 1."
+    },
+    {
+     "name": "ds_induced_type",
+     "kind": "example",
+     "statement": "d = 2 with r̃_v induced from the unramified quadratic extension (a supercuspidal type)."
+    }
+   ]
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L7/discrete-series-smoothness",
+   "parentStageId": "LocalGaloisDeformationRings:L7",
+   "realises": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "title": "Discrete series deformations are formally smooth of relative dimension n² (CHT Lemmas 2.4.27–2.4.30)",
+   "kind": "theorem",
+   "statement": "(Lemma 2.4.27.) 𝒟_v is liftable. (Lemma 2.4.28.) R_v^{loc}/𝓘_v is a power series ring in n² variables over 𝒪. (Corollary 2.4.29.) dim_k L_v = dim_k H⁰(G_{F_ṽ}, ad r̄). (Lemma 2.4.30.) If d = 1 and m = n, with Fil¹ ad r̄ the endomorphisms x with x Fil^i r̄ ⊂ Fil^{i+1} r̄, then L_v = H¹(G/I, k1_n) ⊕ ker(H¹(G, ad⁰r̄) → H¹(G, ad r̄/Fil¹ ad r̄)).",
+   "hypotheses": [
+    "r̄ is r̃_v-discrete series (L7/discrete-series-deformation-condition)"
+   ],
+   "proofSteps": [
+    "Lemma 2.4.27: induction on m; the obstruction to extending a lift of r/Fil^{m−1}r lies in H², which by local duality is controlled by H⁰(G, Hom(gr⁰r′, r′/Fil^{m−1}r′)(2 − m)), and H⁰(G, Hom(gr⁰, gr^i)(2 − m)) = 0 for i = 0, …, m − 3.",
+    "Lemma 2.4.28: the space of r̃_v-discrete series liftings to k[ε]/(ε²) has dimension m(n − m) + (n − m)² + (m² − 1) + (m(n − m) + 1) = n², by induction on m and the local Euler characteristic.",
+    "Corollary 2.4.29 from Lemma 2.4.28; Lemma 2.4.30 'self-explanatory'."
+   ],
+   "acceptance": [
+    "Check the dimension identity m(n − m) + (n − m)² + (m² − 1) + (m(n − m) + 1) = n² in the Lean file."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:L7/discrete-series-deformation-condition",
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalAwayFromP",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.5, Lemma 2.4.27, p. 51",
+     "excerpt": "For the rest of this section we will assume that",
+     "match": "Lemma 2.4.27."
+    },
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.5, proof of Lemma 2.4.28, p. 52",
+     "excerpt": "We will prove by induction on",
+     "match": "The dimension count."
+    },
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.5, Lemma 2.4.30, p. 53",
+     "excerpt": "The next lemma is self-explanatory.",
+     "match": "Lemma 2.4.30."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -3574,11 +4045,10 @@
    "stageId": "LocalGaloisDeformationRings:L7",
    "status": "partial",
    "remaining": [
-    "Fontaine–Laffaille deformation conditions in the unramified small-weight range, with tangent spaces (the stage text); Gee Theorem 3.28 is quoted in R08.3/pcris-generic-smooth only.",
-    "Ordinary deformation functors with a full invariant flag, and the rank-n interface with R08.2's conditions away from p.",
+    "The rank-n interface of the ordinary conditions with R08.2's conditions away from p, and ordinary functors whose characters vary (beyond CHT's fixed inertial characters and ACC+ §6.2.6).",
     "Ordinary deformation functors for nontrivial ρ̄ in rank n > 2 under genericity hypotheses, and Thorne's and Geraghty's proofs behind ACC+ Proposition 6.2.10 (gap)."
    ],
-   "notes": "Checkpoint 3 plans the bounded-height lattice part of L7 that RS-08 assigns to it and R08.3 and R08.4 import (Kisin, JAMS 2008, §1): lattices of finite E-height and the projective moduli 𝓛^{≤h} with its scheme-theoretic image, closed immersion after inverting p and universal module. Checkpoint 6 adds the ordinary flag scheme 𝒢_v and its image ring R^△_v (ACC+ §6.2.6), the trivial-residual structure theorem (ACC+ Proposition 6.2.10, with its source proof a gap) and Skinner–Wiles' residually split nearly ordinary rings (Lemma 2.2, Corollary 2.3)."
+   "notes": "Checkpoint 3 plans the bounded-height lattice part of L7 that RS-08 assigns to it and R08.3 and R08.4 import (Kisin, JAMS 2008, §1): lattices of finite E-height and the projective moduli 𝓛^{≤h} with its scheme-theoretic image, closed immersion after inverting p and universal module. Checkpoint 6 adds the ordinary flag scheme 𝒢_v and its image ring R^△_v (ACC+ §6.2.6), the trivial-residual structure theorem (ACC+ Proposition 6.2.10, with its source proof a gap) and Skinner–Wiles' residually split nearly ordinary rings (Lemma 2.2, Corollary 2.3). Checkpoint 7 plans CHT §2.4 (6 nodes): the Fontaine–Laffaille deformation condition with its tangent space and smoothness (§2.4.1, n² + [F_ṽ : ℚ_l]n(n − 1)/2 variables), ordinary deformations with fixed inertial characters on a full flag (§2.4.2, the same count), and discrete series deformations away from l (§2.4.5, n² variables)."
   },
   {
    "stageId": "LocalGaloisDeformationRings:L8",
@@ -3618,6 +4088,21 @@
     "arXiv:math/0404327v3, Remark 1.7, read 2026-09-28."
    ],
    "note": "Recorded so that formalisers use the corrected Theorem 6.12(4); the nodes of this packet use only Theorems 6.22–6.24."
+  },
+  {
+   "id": "LocalGaloisDeformationRings/E2",
+   "source": "CHT08",
+   "kind": "error",
+   "affects": "a stated result",
+   "locator": "§2.4.2, condition 2 on the characters χ_{v,i}, p. 37, against the proofs of Lemmas 2.4.7 and 2.4.8, pp. 39–40 (read on the page images)",
+   "printed": "2. If χ̄_{v,i} denotes the reduction of χ_{v,i} modulo λ then for i < j the ratio χ̄_{v,i}/χ̄_{v,j} is neither trivial nor the cyclotomic character.",
+   "correction": "For i < j the ratio χ̄_{v,j}/χ̄_{v,i} is neither trivial nor the cyclotomic character (equivalently χ̄_{v,i}/χ̄_{v,j} ≠ 1, ε̄^{−1}).",
+   "reason": "The proof of Lemma 2.4.7 needs H⁰(G, Hom_k(Fil^{i+1}r̄, gr^i r̄)(1)) = 0 and states it holds 'because, for j > i, χ̄_{v,i}ε/χ̄_{v,j} ≠ 1'; the proof of Lemma 2.4.8 needs H²(G, χ̄_{v,0}^{−1}r̄′) = 0. Both are χ̄_{v,j}/χ̄_{v,i} ≠ ε̄ for i < j, which the printed condition does not give. Counterexample to the printed version: n = 2, F_ṽ = ℚ_l, l > 3, r̄ = ω ⊕ 1 with the ω-line as Fil¹ (χ_{v,1} = ε, χ_{v,0} = 1). Then χ̄_{v,0}/χ̄_{v,1} = ω^{−1} is neither trivial nor cyclotomic, but H²(G_{ℚ_l}, k(ω)) ≅ H⁰(G_{ℚ_l}, k)^∨ ≠ 0; the suitable lifts to B₂(k[ε]/(ε²)) form a space of dimension 1 + 1 + 3 = 5 rather than n(n + 1)/2 + [F_ṽ : ℚ_l]n(n − 1)/2 = 4 (the fibre of Z¹ has dimension (n − 1) + [F_ṽ : ℚ_l](n − 1) + dim H² = 3), so dim_k L_v − dim_k H⁰(ad r̄) = 2 and R^{loc}/𝓘 is not a power series ring in 5 variables. This is the familiar non-smoothness of ordinary weight-two deformations when the sub-character is the cyclotomic character times the quotient; the section is not used by CHT's applications.",
+   "known": "new: no erratum found (Numdam item page; a web search for an erratum to CHT §2.4.2, 29 September 2026)",
+   "searched": [
+    "the Numdam item page for Publ. Math. IHÉS 108 (2008), 1–181",
+    "a web search for an erratum or corrigendum to Clozel–Harris–Taylor §2.4.2 (29 September 2026): none found"
+   ]
   }
  ],
  "sourceVersions": [
