@@ -33217,7 +33217,8 @@
     "REV-PAPER-BERGSTROM-FABER-PAYNE-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BERGSTROM-FABER-PAYNE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4519"
   },
   {
    "id": "REV-RT-PAPER-BERGSTROM-FABER-PAYNE-24",
@@ -34647,8 +34648,9 @@
     "REV-PAPER-TEMKIN-17"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-TEMKIN-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4522"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4522",
+   "finishedAt": "2026-09-29T23:11:26Z"
   },
   {
    "id": "REV-RT-PAPER-TEMKIN-17",
