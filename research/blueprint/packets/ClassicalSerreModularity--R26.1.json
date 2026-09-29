@@ -13,7 +13,7 @@
   "ClassicalSerreModularity:R27.2"
  ],
  "status": "partial",
- "summary": "Checkpoint 1 of the R26.1 part (Claude Code cc-39fac3), under the accepted RS-06. It carries the ten reviewed nodes of the integrated decomposition for these stages, with their excerpts re-verified against the sources, re-homes the KW I prime estimates to R27.2 as RS-06 directs, and decomposes Khare's level-one paper (arXiv math/0504080v1) §§2–7 for R26.2–R26.6: the flatness method and Böckle's criterion, minimal weight-2 lifts, the smooth local ring at q (Böckle's Hensel computation) and nebentype lifts, compatible systems with the residual weights j + 2 or q + 1 − j, Khare's prime estimate, weight twisting and the interval containment (checked in Lean), an explicit well-founded induction on the weight bound, the degenerate branches, the small-weight table and the assembly of the proof with Corollaries 1.2 and 1.3. Two source issues in Khare's small-weight table (E1, E2).",
+ "summary": "Checkpoint 1 of the R26.1 part (Claude Code cc-39fac3), under the accepted RS-06. It carries the ten reviewed nodes of the integrated decomposition for these stages, with their excerpts re-verified against the sources, re-homes the KW I prime estimates to R27.2 as RS-06 directs, and decomposes Khare's level-one paper (arXiv math/0504080v1) §§2–7 for R26.2–R26.6: the flatness method and Böckle's criterion, minimal weight-2 lifts, the smooth local ring at q (Böckle's Hensel computation) and nebentype lifts, compatible systems with the residual weights j + 2 or q + 1 − j, Khare's prime estimate, weight twisting and the interval containment (checked in Lean), an explicit well-founded induction on the weight bound, the degenerate branches, the small-weight table and the assembly of the proof with Corollaries 1.2 and 1.3. Two source issues in Khare's small-weight table (E1, E2). Checkpoint 2 aligns the part with PotentialModularityAndCompatibleSystems part R24.3: the Böckle node becomes R26.1's application contract (the appendix's statements are planned at R24.3 and GlobalGaloisDeformations R04.3, as RS-06 directs); stage-level prerequisites on that roadmap become its node ids; R27.1 and R27.2 are source_decomposed (Lemma 8.2 and the insertion are in part R27.3; KW I Theorems 4.1 and 5.1 in R24.4 and R24.5), and the KW II gap is closed.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -170,29 +170,30 @@
    "realises": [
     "ClassicalSerreModularity:R26.1"
    ],
-   "title": "Bockle's appendix: presentation of the minimal deformation ring and R_empty = T_empty",
+   "title": "Böckle's appendix as Khare uses it: the application contract",
    "kind": "theorem",
-   "statement": "Proposition 1: let rho and a set X of deformation conditions be given, S a finite set of places outside which deformations of type X are unramified. Assume (a) for l in S minus {p, infinity} the local ring R_{X,l} is a complete intersection, flat over Z_p, of relative dimension h^0(G_l, Ad_X(rho)) - Delta_l, and (b) R_{X,p} is a complete intersection, flat over Z_p, of relative dimension h^0(G_p, Ad_X(rho)) + 1 + d - Delta_p. With Delta the sum of the Delta_l, then R_X is isomorphic to O[[x_1,...,x_{n+d}]]/(f_1,...,f_{n+Delta}). Corollary 1: each of R_empty and R_Q^{alpha-new} has a presentation with m <= n relations. Lemma 2: a CNL O-algebra finite over O with a presentation having m <= n relations is a complete intersection, finite flat over O. Corollary 2: if R_Q is finite over O then R_empty is a complete intersection, finite flat over O. Theorem 1: if for some auxiliary set Q of primes one has an isomorphism R_Q -> T_Q of finite flat W(k)-algebras, then the canonical morphism R_empty -> T_empty of minimal rings is an isomorphism as well.",
+   "statement": "Khare's level-one argument applies Böckle's appendix to the minimal deformation ring R_∅ and to R_Q^{α-new}, and this node records exactly what must be verified for that application. The presentation (Proposition 1), Lemma 2 (finite with no more relations than variables gives a finite flat complete intersection) and Theorem 1 (an auxiliary R_Q ≅ T_Q gives R_∅ ≅ T_∅) are PotentialModularityAndCompatibleSystems R24.3/bockle-presentation, /finite-presentation-complete-intersection and /bockle-minimal-r-equals-t, with the generic presentation at GlobalGaloisDeformations R04.3. The contract: (i) ρ̄ is odd (used once, in the Euler-characteristic count); (ii) Corollary 1 — Δ_ℓ = 0 in the four cases used: no ramification allowed at ℓ, no condition at ℓ, the minimal condition at a prime where ρ̄ ramifies, and the Q-new condition at a prime of Q (where R_{X,ℓ} = 𝒪⟦T⟧, implicitly shown by Ramakrishna); at p, Δ_p = 0 for finite or Selmer conditions (Darmon–Diamond–Taylor §2) except when ρ̄|_{G_p} is decomposable and flat, where Lemma 1 (after Ramakrishna's thesis) gives R = W(k)⟦X₁, X₂⟧; (iii) Corollary 2: R_Q finite over 𝒪 makes R_∅ a finite flat complete intersection; (iv) Theorem 1 needs T_Q reduced (the choice of Q) and Carayol's conductor theorem. The statement is a contract, not a second proof of the appendix.",
    "hypotheses": [
     "d and Ad_X(rho) are tied to whether X fixes a determinant: d = 0 and Ad_X = Ad^0 if the determinant is fixed, otherwise d = 1 and Ad_X = Ad",
     "Proposition 1's proof uses that rho is ODD, through the formula of [1], Lem. 5.5(ii); oddness is not decorative here",
-    "Lemma 2's proof needs O a discrete valuation ring and R finitely generated as an O-module, so that R/(pi) is finite local over k and the ideal has height n+1",
     "Theorem 1's proof needs T_Q and T_empty finite flat over W(k) ('standard fact') and reduced - T_Q by the choice of Q - and uses Carayol [3] (Ann. ENS 1986) to conclude that a newform unramified at the primes of Q has conductor prime to Q",
-    "the case where rho restricted to a decomposition group at p is decomposable and flat is NOT covered by the generic computation Delta_p = 0 and is handled by a separate Lemma 1 following Ramakrishna's thesis"
+    "the case where rho restricted to a decomposition group at p is decomposable and flat is NOT covered by the generic computation Delta_p = 0 and is handled by a separate Lemma 1 following Ramakrishna's thesis",
+    "RS-06 moves the generic presentation to GlobalGaloisDeformations R04.3 and the prescribed-lift application to PotentialModularityAndCompatibleSystems R24.3; this node keeps its id and the contract (checkpoint 2)"
    ],
    "proofSteps": [
-    "Proposition 1: choose an auxiliary set S_aux, present each R_{X,l} with n_l generators, count relations j_l, and use the global-to-local presentation theorem ([1], Thm 5.6) plus the oddness formula to get n + Delta = j.",
-    "Corollary 1 follows by verifying hypotheses (a),(b) in the four cases (i)-(iv) listed, citing [1] Thm 2.4, Thm 3.8, Lem. 3.10/Rem. 3.11, and for the Q-new condition the smoothness R_{X,l} = O[[T]], which the appendix says is 'implicitly shown' in [8] = Ramakrishna, Annals 156 (2002); at p, Delta_p = 0 is quoted from Darmon-Diamond-Taylor [5], Sect. 2, except in the decomposable flat case, where Lemma 1 (from Ramakrishna's thesis and Conrad [4], Thm 1.8(ii), Lem. 3.4, sections 4-5) gives R = W(k)[[X_1, X_2]] by a rigid-analytic fibre argument.",
-    "Lemma 2: A = O[[x_1,...,x_n]] is regular local of dimension n+1; finiteness of R over O makes R/(pi) a finite local k-algebra, so the ideal (pi, f_1, ..., f_m) has height n+1, which with m <= n forces m = n (the appendix attributes this to 'the Krull intersection theorem'; the step is Krull's height theorem); by Matsumura Thm 17.4 pi, f_1, ..., f_n is a regular sequence, hence R is a complete intersection and pi is a nonzerodivisor on R, so R is flat over O.",
-    "Theorem 1: all four rings in the square R_Q -> T_Q, R_empty -> T_empty are finite flat over W(k) by Corollary 2 and the standard finiteness of Hecke algebras, so it suffices to check the bottom map after tensoring with K; T_Q tensor K and T_empty tensor K are products of copies of Kbar indexed by the sets M_Q, M_empty of normalized eigenforms (of level l^delta N(rho-bar) Q, resp. without Q) lifting rho-bar; a form in M_Q minus M_empty obtained from R_empty would be unramified at the places dividing Q, forcing its conductor prime to Q by Carayol [3], a contradiction."
+    "Verify (i)–(iv) for Khare's minimal and Q-new conditions, case by case as in Corollary 1 and Lemma 1.",
+    "Apply PotentialModularityAndCompatibleSystems R24.3/bockle-presentation, /finite-presentation-complete-intersection and /bockle-minimal-r-equals-t.",
+    "Lemma 1 (decomposable flat at p): the flat lifts of determinant ε are reducible (Conrad), the tangent space has dimension 2, and a rigid-analytic fibre argument shows the ideal of relations is 0."
    ],
    "acceptance": [
     "Check that the oddness of rho is used exactly once, in the dimension count of Proposition 1, and that removing it breaks n + Delta = j",
     "Check the excluded decomposable-and-flat case at p against Lemma 1 rather than assuming Delta_p = 0 uniformly"
    ],
    "prerequisites": [
-    "GlobalGaloisDeformations:R04.3/local-to-global-presentation",
-    "DeformationAndDerivedPatchingAlgebra:R03.3"
+    "PotentialModularityAndCompatibleSystems:R24.3/bockle-presentation",
+    "PotentialModularityAndCompatibleSystems:R24.3/finite-presentation-complete-intersection",
+    "PotentialModularityAndCompatibleSystems:R24.3/bockle-minimal-r-equals-t",
+    "GlobalGaloisDeformations:R04.3/local-to-global-presentation"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/SerreConjecture/LevelOneLifts",
@@ -242,7 +243,8 @@
    ],
    "prerequisites": [
     "ClassicalSerreModularity:R26.1/bockle-appendix-minimal-deformation-ring-presentation",
-    "PotentialModularityAndCompatibleSystems:R24.3",
+    "PotentialModularityAndCompatibleSystems:R24.3/kw-annals-minimal-lifts",
+    "PotentialModularityAndCompatibleSystems:R24.3/finite-presentation-complete-intersection",
     "PotentialModularityAndCompatibleSystems:R24.5",
     "GL2ModularityLifting:R22.1"
    ],
@@ -404,8 +406,9 @@
    "prerequisites": [
     "ClassicalSerreModularity:R26.2/minimal-weight-two-lift",
     "ClassicalSerreModularity:R26.2/nebentype-lift-at-q",
-    "PotentialModularityAndCompatibleSystems:R24.5",
-    "PotentialModularityAndCompatibleSystems:R24.6",
+    "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system",
+    "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
+    "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
     "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings"
    ],
    "library": {
@@ -831,7 +834,8 @@
     "ClassicalSerreModularity:R26.6/level-one-proof-assembly",
     "ClassicalSerreModularity:R26.4/level-one-lifting-lemma",
     "ClassicalSerreModularity:R26.4/local-reducibility-ordinary",
-    "PotentialModularityAndCompatibleSystems:R24.6",
+    "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
+    "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a"
    ],
    "library": {
@@ -917,7 +921,8 @@
     "ClassicalSerreModularity:R26.6/corollary-1-2-proof",
     "ClassicalSerreModularity:R27.1/good-dihedral-prime-definition",
     "ClassicalSerreModularity:R27.2/hypotheses-Lr-Wr-and-Dr",
-    "PotentialModularityAndCompatibleSystems:R24.6",
+    "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+    "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a"
    ],
    "library": {
@@ -1064,8 +1069,8 @@
    "prerequisites": [
     "ClassicalSerreModularity:R27.1/good-dihedral-prime-definition",
     "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
-    "PotentialModularityAndCompatibleSystems:R24.3",
-    "PotentialModularityAndCompatibleSystems:R24.6"
+    "PotentialModularityAndCompatibleSystems:R24.3/required-lift-types",
+    "PotentialModularityAndCompatibleSystems:R24.6/residual-members"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/SerreConjecture/GoodDihedral",
@@ -1305,7 +1310,9 @@
     "ClassicalSerreModularity:R27.2/hypotheses-Lr-Wr-and-Dr",
     "ClassicalSerreModularity:R27.2/prime-gap-estimates-driving-the-weight-recursion",
     "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
-    "PotentialModularityAndCompatibleSystems:R24.6",
+    "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+    "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1",
+    "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
    ],
    "library": {
@@ -1340,32 +1347,10 @@
  ],
  "requests": [
   {
-   "supplier": "PotentialModularityAndCompatibleSystems:R24.3",
-   "need": "The Khare–Wintenberger lifting method (KW Annals §2: Lemma 2.4 and Theorem 2.1) and prescribed local lifts.",
-   "neededBy": [
-    "ClassicalSerreModularity:R26.2/lifting-method-flatness",
-    "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved"
-   ],
-   "status": "open"
-  },
-  {
    "supplier": "PotentialModularityAndCompatibleSystems:R24.5",
    "need": "Taylor's potential modularity over totally real Galois fields of even degree for ρ̄ with non-solvable image, with ordinary (resp. crystalline) cuspidal π of the prescribed type, and the resulting compatible systems (Brauer induction and Arthur–Clozel).",
    "neededBy": [
-    "ClassicalSerreModularity:R26.2/lifting-method-flatness",
-    "ClassicalSerreModularity:R26.2/compatible-system-lifts"
-   ],
-   "status": "open"
-  },
-  {
-   "supplier": "PotentialModularityAndCompatibleSystems:R24.6",
-   "need": "Compatible systems of weight 2 and their residual members at other primes, with the inertial Weil–Deligne parameter and Barsotti–Tate properties (KW Annals Theorem 3.1; KW I Theorem 5.1).",
-   "neededBy": [
-    "ClassicalSerreModularity:R26.2/compatible-system-lifts",
-    "ClassicalSerreModularity:R26.6/corollary-1-2-proof",
-    "ClassicalSerreModularity:R26.6/corollary-8-1-ii-and-the-statement-W1",
-    "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
-    "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction"
+    "ClassicalSerreModularity:R26.2/lifting-method-flatness"
    ],
    "status": "open"
   },
@@ -1418,14 +1403,6 @@
    "need": "Minimal R = T over totally real fields (Fujiwara; Taylor §3) for ρ̄|_{G_F} with non-solvable image.",
    "neededBy": [
     "ClassicalSerreModularity:R26.2/lifting-method-flatness"
-   ],
-   "status": "open"
-  },
-  {
-   "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
-   "need": "Complete intersections with at most as many relations as variables (Böckle Lemma 2).",
-   "neededBy": [
-    "ClassicalSerreModularity:R26.1/bockle-appendix-minimal-deformation-ring-presentation"
    ],
    "status": "open"
   },
@@ -1504,35 +1481,24 @@
   },
   {
    "stageId": "ClassicalSerreModularity:R27.1",
-   "status": "partial",
-   "remaining": [
-    "The later prime-insertion application (existence of good dihedral primes by Chebotarev, KW I §4–5 / KW II) RS-06 places here."
-   ],
-   "notes": "Definition 2.1, Lemma 6.3, Dickson and Lemmas 6.1–6.2 (carried, re-verified)."
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Definition 2.1, Lemma 6.3, Dickson and Lemmas 6.1–6.2 (carried, re-verified). Checkpoint 2: the Chebotarev choice of auxiliary primes (KW I Lemma 8.2) and the good-dihedral insertion are planned under R27.1 in part R27.3 (R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes, R27.1/good-dihedral-prime-insertion), which discharges the remaining item."
   },
   {
    "stageId": "ClassicalSerreModularity:R27.2",
-   "status": "partial",
-   "remaining": [
-    "KW I Theorems 4.1 and 5.1 are proved in KW II (unread; gap carried from the decomposition)."
-   ],
-   "notes": "(L_r), (W_r), (D_r), the KW I §7 prime estimates (re-homed from R26.3) and Theorem 3.2."
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "(L_r), (W_r), (D_r), the KW I §7 prime estimates (re-homed from R26.3) and Theorem 3.2. Checkpoint 2: KW I Theorems 4.1 and 5.1 are now planned by PotentialModularityAndCompatibleSystems part R24.3 (R24.4/kw-theorem-4-1, R24.5/kw-theorem-5-1-systems, from KW II §10), and Theorem 3.2 cites them; Savitt's residual weights are requested there from AlgebraicModularFormsAndSerreWeights R15.4."
   }
  ],
  "gaps": [
-  {
-   "title": "KW I Theorems 4.1 and 5.1 are unproved inputs: their proofs are in KW II, which was not read",
-   "neededBy": [
-    "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction"
-   ],
-   "detail": "Verified: the full statements of Theorem 4.1 (two cases, p = 2 and p > 2) and Theorem 5.1 (the compatible-system existence statement and its four refinements), together with the definitions of compatible, strictly compatible and almost strictly compatible systems and of minimal lifts, all read literally at pp. 6-10 of the KW I preprint. Not verified: any of their proofs. The source states plainly 'Theorems 4.1 and 5.1 are proved in the second part, cf. [23]'. KW II is present in the library as references/papers/SS_KW2.pdf with extracted text; in this pass only its title page, abstract and table of contents were opened. This is the single largest unread boundary of this packet and it sits under every stage of the R27 strand. Next source action: read KW II sections 3 (deformation rings for GL_2), 4-5 (the R = T statements), and the sections proving Theorem 5.1's parts (3) and (4) with the Savitt weight computations."
-  },
   {
    "title": "Savitt's residual weight computations behind Theorem 5.1(3) and (4)",
    "neededBy": [
     "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction"
    ],
-   "detail": "Verified: KW I's Remark after Theorem 5.1 attributes the computation of the residual Serre weights in parts (3) and (4) to Savitt, Corollary 6.15 (1) and (2) and Remark 6.17. Not verified: those statements. The whole weight bookkeeping of the inductive step in 8.2 rests on them. The library contains references/papers/ADD_SAVITT05.pdf, 'On a conjecture of Conrad, Diamond, and Taylor (corrected author version)', which is the paper cited; it was not opened. Next source action: open ADD_SAVITT05.pdf, confirm it contains Corollary 6.15 and Remark 6.17, and transcribe the weight formulas i+2 / q+1-i and q+1-(i-j) / i-j / q."
+   "detail": "Verified: KW I's Remark after Theorem 5.1 attributes the computation of the residual Serre weights in parts (3) and (4) to Savitt, Corollary 6.15 (1) and (2) and Remark 6.17. Not verified: those statements. The whole weight bookkeeping of the inductive step in 8.2 rests on them. The library contains references/papers/ADD_SAVITT05.pdf, 'On a conjecture of Conrad, Diamond, and Taylor (corrected author version)', which is the paper cited; it was not opened. Next source action: open ADD_SAVITT05.pdf, confirm it contains Corollary 6.15 and Remark 6.17, and transcribe the weight formulas i+2 / q+1-i and q+1-(i-j) / i-j / q. Checkpoint 2: PotentialModularityAndCompatibleSystems R24.5/kw-theorem-5-1-systems now states the weights and requests Savitt's computations from AlgebraicModularFormsAndSerreWeights R15.4."
   },
   {
    "title": "KW I Lemma 6.2(ii) is reported incomplete by a later source",

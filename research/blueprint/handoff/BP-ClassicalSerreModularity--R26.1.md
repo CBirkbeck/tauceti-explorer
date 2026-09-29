@@ -1,10 +1,35 @@
-# BP-ClassicalSerreModularity--R26.1: checkpoint 1 (Claude Code cc-39fac3)
+# BP-ClassicalSerreModularity--R26.1: checkpoint 2 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 29 September 2026. Refs #694; the bot confirmed the claim. **Status: partial.**
-- R26.1–R26.4 and R26.6 are `source_decomposed`.
-- R26.5, R27.1 and R27.2 are `partial`.
+- R26.1–R26.4, R26.6, R27.1 and R27.2 are `source_decomposed`.
+- R26.5 is `partial`.
 
-## What this checkpoint did
+## Checkpoint 2: alignment with PotentialModularityAndCompatibleSystems part R24.3
+
+1. **The Böckle node became an application contract.** RS-06 moves the generic presentation to GlobalGaloisDeformations
+   R04.3 and the prescribed-lift application to PotentialModularityAndCompatibleSystems R24.3. Part R24.3 (PR #3864) now
+   plans Böckle's Proposition 1, Lemma 2 and Theorem 1. `R26.1/bockle-appendix-minimal-deformation-ring-presentation`
+   keeps its id and states only Khare's application contract:
+   - oddness;
+   - Δ_ℓ = 0 in the four cases of Corollary 1;
+   - Lemma 1 at a decomposable flat p;
+   - T_Q reduced, and Carayol.
+
+   It imports the R24.3 nodes. The direction R24.3 → R26.1 is the one RS-06 records, so there is no cycle.
+2. **Stage prerequisites became node ids.** Six nodes that cited PotentialModularityAndCompatibleSystems R24.3, R24.5 or
+   R24.6 as stages now cite the exact nodes: `required-lift-types`, `kw-annals-minimal-lifts`,
+   `finite-presentation-complete-intersection`, `brauer-induction-system`, `almost-strict-compatibility`,
+   `kw-theorem-5-1-systems`, `kw-theorem-4-1`, `residual-members` and `linked-systems-modularity-transfer`. The requests
+   to R24.3 and R24.6 are dropped; the one to R24.5 stays for Taylor's potential modularity.
+3. **R27.1 and R27.2 are `source_decomposed`.**
+   - Part R27.3 (PR #3858) plans KW I Lemma 8.2 and the good-dihedral insertion under R27.1.
+   - KW I Theorems 4.1 and 5.1 are R24.4 and R24.5, so the gap "KW I Theorems 4.1 and 5.1 are unproved inputs" is
+     closed.
+   - The Savitt gap now points to R24.5's request.
+
+`check_blueprint.py`: 0 errors, 0 warnings. The suggested Lean file is unchanged and still compiles.
+
+## Checkpoint 1
 
 1. **Carried the reviewed decomposition.** The integrated decomposition (data/decompositions/ClassicalSerreModularity.json)
    has ten nodes in this part's scope, and all are carried with their statements.
@@ -58,6 +83,5 @@ tests. It compiles with 0 errors, 0 warnings and no `sorry`.
 
 ## What a continuation should do
 
-1. **R27.1:** the existence of good dihedral primes (the Chebotarev insertion step) from KW I §4–5 and KW II.
-2. **R27.2:** KW II's proofs of Theorems 4.1 and 5.1. KW II is on the authors' page (proofs.pdf), with the same TLS caveat.
-3. **R26.5:** optionally, split the §6.1 rows into per-row nodes.
+1. **R26.5:** optionally, split the §6.1 rows into per-row nodes. This is the only `partial` stage left.
+2. Items 1 and 2 of checkpoint 1's list (R27.1 insertion; KW II) are done: see checkpoint 2.
