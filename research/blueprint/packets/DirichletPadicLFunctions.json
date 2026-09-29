@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all385 predecessor nodes whole. Nine L4 nodes construct the actual arithmetic moment map, denominator-localized constant, injective total-quotient comparison and admissible evaluation, and identify the constant with the classical modular coefficient through a common rational number. One existing level-zero character API is promoted to an L2 prerequisite. All16 findings and three supplier requests remain unchanged; seven gaps and zero closed stages remain.",
+  "summary": "Partial continuation preserving all395 predecessor nodes whole. Eight L4 nodes assemble the full denominator-localized and total-quotient Eisenstein series, compare their images and admissible specializations, and realize the entire classical and arithmetic q-expansions through one rational power series. The existing integral-coefficient evaluator API is promoted unchanged. All16 findings and three requests remain whole; seven gaps and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3003,6 +3003,20 @@
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The native inclusion Z_p→Q_p preserves and reflects nonzero elements.",
         "checked": "Full native declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on29September2026. The complete native away-localization probe checks fraction evaluation, its total-quotient image and injection, rational sign normalization and the zero-denominator boundary."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map_comp",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Coefficient maps of native power series preserve composition of semiring homomorphisms.",
+        "checked": "Full native declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on29September2026. The complete native power-series probe checks assembly, coefficient maps, restoration of a constant and uniqueness."
+      },
+      {
+        "ref": "mathlib:Rat.cast_injective",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Rat/Cast/CharZero.lean",
+        "provides": "The rational cast into a characteristic-zero division ring is injective; applied to C for uniqueness of the common rational power series.",
+        "checked": "Full native declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on29September2026. The complete native power-series probe checks assembly, coefficient maps, restoration of a constant and uniqueness."
       }
     ]
   },
@@ -25947,6 +25961,503 @@
       "acceptance": [
         "Classical modularity is claimed only for the existing even-weight w≥4 object. The extra arithmetic values at small weights are not promoted to classical modular forms."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-away-integral-evaluation",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Integral coefficients under admissible evaluation",
+      "kind": "lemma",
+      "statement": "For canonical a, k≥0 and every actual μ∈M, E_(a,k)(alg μ)=ι(μ(j^k)).",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p,U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied commutative convolution algebra. Q=FractionRing M is the total quotient, without a domain or field assumption.",
+        "For u∈U use Δ_u=2·eisensteinTwistedDenominator p u and the native S_u=Localization.Away(Δ_u). Write A₀,u^away=eisensteinAwayConstant p u, A₀=localizedEisensteinConstant p and A_n=positiveEisensteinMeasure p n for n∈N+. For a with value p+1, J_a:S_a→Q and E_(a,k):S_a→Q_p are the preceding actual ring homomorphisms."
+      ],
+      "proofSteps": [
+        "Promote the existing all-integral-coefficient API of the admissible evaluator, keeping its suggested signature unchanged.",
+        "Unfold the existing native Away.lift and use its coefficient agreement. The already promoted ordinary moment-map evaluation identifies its value with the included integral moment."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/eisenstein-away-evaluation",
+        "DirichletPadicLFunctions:L4/eisenstein-moment-hom-evaluation",
+        "mathlib:IsLocalization.Away.lift_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FullEisensteinSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwayMoment_algebraMap"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
+          "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedFullEisensteinTests.integral_coefficient_evaluator",
+          "kind": "compatibility",
+          "statement": "The equality holds for every actual integral measure, at all nonnegative test exponents."
+        }
+      ],
+      "acceptance": [
+        "A coefficient in the localization is distinguished from its original integral measure, and the evaluator is not applied to all of Q."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-away-series",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The full Eisenstein series over the denominator localization",
+      "kind": "construction",
+      "statement": "Define E_u^away∈S_u[[q]] by coefficient0 equal to A₀,u^away and coefficient n>0 equal to alg(A_n).",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p,U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied commutative convolution algebra. Q=FractionRing M is the total quotient, without a domain or field assumption.",
+        "For u∈U use Δ_u=2·eisensteinTwistedDenominator p u and the native S_u=Localization.Away(Δ_u). Write A₀,u^away=eisensteinAwayConstant p u, A₀=localizedEisensteinConstant p and A_n=positiveEisensteinMeasure p n for n∈N+. For a with value p+1, J_a:S_a→Q and E_(a,k):S_a→Q_p are the preceding actual ring homomorphisms."
+      ],
+      "proofSteps": [
+        "Use native PowerSeries.mk on the coefficient function which branches on0<n. The positive case supplies the native positive natural index to the existing coefficient measure; degree0 uses the preceding actual away-localized constant.",
+        "Native coeff_mk yields both coefficient APIs. Equality of series follows from native PowerSeries.ext, splitting the natural index into0 and a positive natural. No summability or convergence claim is needed for a formal power series.",
+        "The all-index coefficient formula is promoted to the next node for the image and specialization proofs. The first coefficient is1 because A_1 is the unit Dirac measure; this follows directly from its one-divisor construction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/eisenstein-away-constant",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-measure",
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FullEisensteinSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwaySeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
+          "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedFullEisensteinTests.away_constant_coefficient",
+          "kind": "characterisation",
+          "statement": "Degree0 is exactly the actual localized constant A₀,u^away."
+        },
+        {
+          "name": "SuggestedFullEisensteinTests.away_first_coefficient",
+          "kind": "computation",
+          "statement": "The coefficient of q is1 in S_u."
+        },
+        {
+          "name": "SuggestedFullEisensteinTests.away_positive_coefficient",
+          "kind": "compatibility",
+          "statement": "Each positive coefficient is the canonical image of the existing A_n."
+        }
+      ],
+      "acceptance": [
+        "The positive truncation is no longer substituted for the full source series. This is a native formal power series, without a claim of affinoid realization."
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.eisensteinAwaySeries_coeff",
+          "role": "data",
+          "statement": "Coefficient n is alg(A_n) when0<n and A₀,u^away otherwise. Promoted to full-eisenstein-away-coefficients."
+        },
+        {
+          "name": "DirichletPadic.eisensteinAwaySeries_coeff_zero",
+          "role": "simp",
+          "statement": "Coefficient0 equals A₀,u^away."
+        },
+        {
+          "name": "DirichletPadic.eisensteinAwaySeries_coeff_pos",
+          "role": "simp",
+          "statement": "For n∈N+, coefficient n equals alg(A_n)."
+        },
+        {
+          "name": "DirichletPadic.eisensteinAwaySeries_unique",
+          "role": "characterisation",
+          "statement": "The displayed constant and all positive coefficients uniquely determine E_u^away."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Theorem8.2",
+          "how": "Supplies the full formal coefficient family before its image in the source total quotient."
+        },
+        {
+          "where": "Coefficientwise admissible specialization",
+          "how": "Its coefficients all lie in the domain of one actual denominator-localized ring map."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-away-coefficients",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "All coefficients of the denominator-localized family",
+      "kind": "lemma",
+      "statement": "For all n≥0, coeff_n(E_u^away)=alg(A_n) if0<n and equals A₀,u^away otherwise.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p,U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied commutative convolution algebra. Q=FractionRing M is the total quotient, without a domain or field assumption.",
+        "For u∈U use Δ_u=2·eisensteinTwistedDenominator p u and the native S_u=Localization.Away(Δ_u). Write A₀,u^away=eisensteinAwayConstant p u, A₀=localizedEisensteinConstant p and A_n=positiveEisensteinMeasure p n for n∈N+. For a with value p+1, J_a:S_a→Q and E_(a,k):S_a→Q_p are the preceding actual ring homomorphisms."
+      ],
+      "proofSteps": [
+        "Unfold the native PowerSeries.mk construction and apply coeff_mk.",
+        "The positive proof in the native N+ index is irrelevant, so this agrees exactly with the original A_n constructor. The complementary natural-number case is n=0."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-away-series",
+        "mathlib:PowerSeries.coeff_mk"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FullEisensteinSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwaySeries_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
+          "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedFullEisensteinTests.coefficient_zero_formula",
+          "kind": "degenerate",
+          "statement": "The all-index formula at0 retains A₀,u^away."
+        }
+      ],
+      "acceptance": [
+        "The coefficient formula is uniform in n and keeps the constant distinct from the positive native measure coefficients."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-total-series",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The full Eisenstein series in the total quotient",
+      "kind": "construction",
+      "statement": "Define E∈Q[[q]] with coefficient0=A₀ and coefficient n>0=i(A_n).",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p,U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied commutative convolution algebra. Q=FractionRing M is the total quotient, without a domain or field assumption.",
+        "For u∈U use Δ_u=2·eisensteinTwistedDenominator p u and the native S_u=Localization.Away(Δ_u). Write A₀,u^away=eisensteinAwayConstant p u, A₀=localizedEisensteinConstant p and A_n=positiveEisensteinMeasure p n for n∈N+. For a with value p+1, J_a:S_a→Q and E_(a,k):S_a→Q_p are the preceding actual ring homomorphisms."
+      ],
+      "proofSteps": [
+        "Use the same native coefficient constructor, now in the actual total quotient of M. The constant is the previously constructed localizedEisensteinConstant, not a new abstract coefficient.",
+        "Native coeff_mk provides the constant and positive coefficient formulas; native PowerSeries.ext gives uniqueness.",
+        "The first coefficient equals i(δ_1)=1. No ordinary-pseudomeasure condition is imposed on coefficient0; the confirmed source correction E54 continues to govern its interpretation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/localized-eisenstein-constant",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-measure",
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FullEisensteinSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.totalEisensteinSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
+          "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedFullEisensteinTests.total_constant_coefficient",
+          "kind": "characterisation",
+          "statement": "The total-quotient series has the actual A₀ as its constant."
+        },
+        {
+          "name": "SuggestedFullEisensteinTests.total_first_coefficient",
+          "kind": "computation",
+          "statement": "Its first positive coefficient is1."
+        },
+        {
+          "name": "SuggestedFullEisensteinTests.total_unique_coefficients",
+          "kind": "characterisation",
+          "statement": "The actual constant and every included positive A_n uniquely determine the series."
+        }
+      ],
+      "acceptance": [
+        "The source Q(U)[[q]] carrier is realized by native FractionRing M and PowerSeries. Its ordinary-character evaluation is supplied through a separate admissible representative."
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.totalEisensteinSeries_coeff",
+          "role": "data",
+          "statement": "Coefficient n is i(A_n) for0<n and A₀ otherwise."
+        },
+        {
+          "name": "DirichletPadic.totalEisensteinSeries_coeff_zero",
+          "role": "simp",
+          "statement": "Coefficient0=A₀."
+        },
+        {
+          "name": "DirichletPadic.totalEisensteinSeries_coeff_pos",
+          "role": "simp",
+          "statement": "Every positive coefficient is i(A_n)."
+        },
+        {
+          "name": "DirichletPadic.totalEisensteinSeries_unique",
+          "role": "characterisation",
+          "statement": "The coefficient formulas determine E uniquely."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Theorem8.2 displayed source series",
+          "how": "Realizes the displayed total-quotient-valued series with the corrected constant."
+        },
+        {
+          "where": "Image of the admissible family",
+          "how": "Receives the entire actual away-localized series under the native coefficient map."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-fraction-image",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The full family maps to the source series",
+      "kind": "comparison",
+      "statement": "For a with value p+1, PowerSeries.map(J_a)(E_a^away)=E in Q[[q]].",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p,U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied commutative convolution algebra. Q=FractionRing M is the total quotient, without a domain or field assumption.",
+        "For u∈U use Δ_u=2·eisensteinTwistedDenominator p u and the native S_u=Localization.Away(Δ_u). Write A₀,u^away=eisensteinAwayConstant p u, A₀=localizedEisensteinConstant p and A_n=positiveEisensteinMeasure p n for n∈N+. For a with value p+1, J_a:S_a→Q and E_(a,k):S_a→Q_p are the preceding actual ring homomorphisms."
+      ],
+      "proofSteps": [
+        "Apply native PowerSeries.ext and coeff_map. At degree0 use the existing eisenstein-away-constant-image node.",
+        "At a positive degree use the exact all-index away coefficient formula. The native Away.lift coefficient agreement sends alg(A_n) to i(A_n).",
+        "Unfold the total-series coefficient construction and use coeff_mk to identify the result at every index. A complete native assembly lemma checks coefficient maps commute with the same0/positive split."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-away-coefficients",
+        "DirichletPadicLFunctions:L4/full-eisenstein-total-series",
+        "DirichletPadicLFunctions:L4/eisenstein-away-constant-image",
+        "DirichletPadicLFunctions:L4/eisenstein-away-inclusion",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:PowerSeries.ext",
+        "mathlib:IsLocalization.Away.lift_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FullEisensteinSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwaySeries_toFraction"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
+          "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedFullEisensteinTests.image_is_full_total_series",
+          "kind": "compatibility",
+          "statement": "The entire away-localized family maps to the actual total-quotient series, including its constant."
+        }
+      ],
+      "acceptance": [
+        "This identifies a representative on which admissible specialization is defined; it does not extend that specialization over Q."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-admissible-specialization",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The full admissible specialization",
+      "kind": "theorem",
+      "statement": "For canonical a and every k≥0, E_a^away mapped coefficientwise by E_(a,k) equals C(E_(a,k)(A₀,a^away)) plus the Z→Q_p coefficient map of the existing positiveEisensteinSeries evaluated at j^k.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p,U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied commutative convolution algebra. Q=FractionRing M is the total quotient, without a domain or field assumption.",
+        "For u∈U use Δ_u=2·eisensteinTwistedDenominator p u and the native S_u=Localization.Away(Δ_u). Write A₀,u^away=eisensteinAwayConstant p u, A₀=localizedEisensteinConstant p and A_n=positiveEisensteinMeasure p n for n∈N+. For a with value p+1, J_a:S_a→Q and E_(a,k):S_a→Q_p are the preceding actual ring homomorphisms."
+      ],
+      "proofSteps": [
+        "Use native coefficient extensionality and the exact all-index away coefficient formula.",
+        "At degree0, the existing positive-series coefficient theorem gives0; the constant-series coefficient is precisely the new admissible constant value.",
+        "At a positive degree, the constant-series coefficient is0. Apply the promoted eisenstein-away-integral-evaluation node to A_n. The existing positive-series coefficient theorem identifies the other side with the same A_n(j^k), included into Q_p.",
+        "No new positive-series constructor, measure-valued power-series topology, or finite-support approximation is needed. This is a whole formal-series equality for all nonnegative exponents."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-away-coefficients",
+        "DirichletPadicLFunctions:L4/eisenstein-away-integral-evaluation",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-series-coeff",
+        "mathlib:PowerSeries.ext",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_zero_C",
+        "mathlib:PowerSeries.coeff_C_of_ne_zero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FullEisensteinSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwaySeries_specialize"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
+          "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedFullEisensteinTests.specialization_retains_constant",
+          "kind": "computation",
+          "statement": "At p=2,k=3 the specialized coefficient0 is−7/240."
+        },
+        {
+          "name": "SuggestedFullEisensteinTests.specialization_prime_coefficient_survives",
+          "kind": "non-example",
+          "statement": "At the same data the coefficient of q² is1, not0."
+        },
+        {
+          "name": "SuggestedFullEisensteinTests.specialization_dyadic_sixth_coefficient",
+          "kind": "computation",
+          "statement": "The coefficient of q⁶ is1+3³=28."
+        }
+      ],
+      "acceptance": [
+        "The test exponent for classical weightw is w−1. Degree0 is not silently deleted and coefficients with p-divisible index survive stabilization."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-common-series",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The common rational Eisenstein q-expansion",
+      "kind": "comparison",
+      "statement": "For every even w≥4 and canonical a there exists a unique F∈ℚ[[q]] whose separate images in C[[q]] and Q_p[[q]] are the actual q-expansion of pStabilizedEisenstein(p,w) and PowerSeries.map(E_(a,w−1))(E_a^away), respectively.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p,U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied commutative convolution algebra. Q=FractionRing M is the total quotient, without a domain or field assumption.",
+        "For u∈U use Δ_u=2·eisensteinTwistedDenominator p u and the native S_u=Localization.Away(Δ_u). Write A₀,u^away=eisensteinAwayConstant p u, A₀=localizedEisensteinConstant p and A_n=positiveEisensteinMeasure p n for n∈N+. For a with value p+1, J_a:S_a→Q and E_(a,k):S_a→Q_p are the preceding actual ring homomorphisms.",
+        "The rational coefficient field is ℚ. The classical q-expansion has period1."
+      ],
+      "proofSteps": [
+        "Use the existing positive-eisenstein-series-modular-comparison to choose its unique integral positive series I∈ℤ[[q]], whose complex image is the classical q-expansion minus its constant, and whose Z_p image is the positive measure-valued series at j^(w−1).",
+        "Let c=−(1−p^(w−1))B_w/(2w)∈ℚ. The preceding common-constant theorem identifies its separate complex and p-adic images. Define F=C(c)+PowerSeries.map(Int.castRingHom ℚ)(I).",
+        "Use native map_add, map_C and map_comp. The complex image restores the removed constant, giving the full classical q-expansion. The p-adic image is the full admissible specialization by the previous whole-series theorem.",
+        "The integer maps through ℚ and through Z_p agree after mapping to Q_p by ordinary preservation of integer casts. No ℚ→Z_p map or scalar tower through it is introduced.",
+        "For uniqueness, the canonical rational-to-complex map is injective by native Rat.cast_injective; PowerSeries.map_injective then shows any series with the stated complex image equals F. A complete native restoration and uniqueness probe checks these coefficient-map arguments."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-admissible-specialization",
+        "DirichletPadicLFunctions:L4/eisenstein-away-classical-constant",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-series-modular-comparison",
+        "mathlib:PowerSeries.map_C",
+        "mathlib:PowerSeries.map_comp",
+        "mathlib:PowerSeries.map_injective",
+        "mathlib:Rat.cast_injective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FullEisensteinSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinSeries_common"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
+          "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedFullEisensteinTests.common_whole_dyadic_series",
+          "kind": "compatibility",
+          "statement": "At p=2,w=4 the full classical and arithmetic series are the separate images of a unique rational power series."
+        },
+        {
+          "name": "SuggestedFullEisensteinTests.common_whole_ternary_series",
+          "kind": "compatibility",
+          "statement": "The same whole-series comparison holds at p=3,w=4."
+        }
+      ],
+      "acceptance": [
+        "The common rational series compares all coefficients at once. It does not identify C and Q_p or prove geometric weight-space or Hida–Coleman control."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-index-invariance",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Index invariance of the full family",
+      "kind": "lemma",
+      "statement": "For every u∈U and n≥0, coeff_(pn)(E_u^away)=coeff_n(E_u^away).",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p,U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied commutative convolution algebra. Q=FractionRing M is the total quotient, without a domain or field assumption.",
+        "For u∈U use Δ_u=2·eisensteinTwistedDenominator p u and the native S_u=Localization.Away(Δ_u). Write A₀,u^away=eisensteinAwayConstant p u, A₀=localizedEisensteinConstant p and A_n=positiveEisensteinMeasure p n for n∈N+. For a with value p+1, J_a:S_a→Q and E_(a,k):S_a→Q_p are the preceding actual ring homomorphisms."
+      ],
+      "proofSteps": [
+        "For n=0 both indices are0, so both sides are the same actual localized constant.",
+        "For n>0, p is positive and both indices correspond to native positive naturals. Use the exact away-series coefficient formula and the existing positive-eisenstein-remove-p theorem A_(pn)=A_n.",
+        "Iterate the equality for prime powers. The coefficient of q is1 by the one-divisor formula, so every coefficient at p^r is1. This excludes interpreting p-stabilization as deletion of all p-divisible Fourier indices."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-away-coefficients",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-remove-p"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FullEisensteinSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwaySeries_coeff_mul_p"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
+          "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedFullEisensteinTests.index_invariance_includes_zero",
+          "kind": "degenerate",
+          "statement": "Index invariance includes0 without forcing its coefficient to vanish."
+        },
+        {
+          "name": "SuggestedFullEisensteinTests.prime_power_coefficient_survives",
+          "kind": "non-example",
+          "statement": "Every coefficient at p^r, including r=0, equals1."
+        }
+      ],
+      "acceptance": [
+        "This is a coefficient identity. No new generic Hecke operator or modular-form carrier is defined."
+      ]
     }
   ],
   "requests": [
@@ -26009,7 +26520,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "The arithmetic constant now has an actual representative in Localization.Away(2d_(p+1)), an injective map to the native total quotient taking it to A₀, and admissible ring evaluators for every nonnegative moment. Its even-weight values agree with the actual classical constant through one rational element. Next assemble the full power series over this denominator localization using the existing positive integral coefficients, prove its image has constant A₀ and positive coefficients i(A_n), and compare the whole specialized series with the classical p-stabilized q-expansion. The PMIA completed-algebra, general coefficient-field and generic character-twist requests remain open. Smoothing independence beyond the canonical parameter, pole/ordinary-pseudomeasure exclusion, constant-term congruences and tame-character families remain explicit work; geometric realization stays with PadicFamilies.",
+        "The full arithmetic family is now assembled over the native denominator localization, its coefficientwise image is the actual total-quotient series, and every even-weight specialization at least4 agrees with the actual classical p-stabilized q-expansion through a unique rational series. Next expose uniform denominator clearing of the whole family by Δ_(p+1), and the resulting precisely qualified constant/full-series congruence statements. The PMIA generic character-twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. Smoothing independence beyond the canonical parameter, actual pole and ordinary-pseudomeasure exclusion, the tame-character family and full source extraction remain explicit work; PadicFamilies owns geometric realization.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -26040,7 +26551,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "The arithmetic constant now has an actual representative in Localization.Away(2d_(p+1)), an injective map to the native total quotient taking it to A₀, and admissible ring evaluators for every nonnegative moment. Its even-weight values agree with the actual classical constant through one rational element. Next assemble the full power series over this denominator localization using the existing positive integral coefficients, prove its image has constant A₀ and positive coefficients i(A_n), and compare the whole specialized series with the classical p-stabilized q-expansion. The PMIA completed-algebra, general coefficient-field and generic character-twist requests remain open. Smoothing independence beyond the canonical parameter, pole/ordinary-pseudomeasure exclusion, constant-term congruences and tame-character families remain explicit work; geometric realization stays with PadicFamilies. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "The full arithmetic family is now assembled over the native denominator localization, its coefficientwise image is the actual total-quotient series, and every even-weight specialization at least4 agrees with the actual classical p-stabilized q-expansion through a unique rational series. Next expose uniform denominator clearing of the whole family by Δ_(p+1), and the resulting precisely qualified constant/full-series congruence statements. The PMIA generic character-twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. Smoothing independence beyond the canonical parameter, actual pole and ordinary-pseudomeasure exclusion, the tame-character family and full source extraction remain explicit work; PadicFamilies owns geometric realization. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -26341,45 +26852,45 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 prior findings and sourceVersions remain whole, including the previously recorded external E54 correction boundary. No new source finding or independent verdict.",
+    "sourceIssues": "All16 findings and sourceVersions remain whole; the previously corrected external E54 boundary persists. No new source finding or independent verdict.",
     "validation": {
-      "nodes": 395,
+      "nodes": 403,
       "kinds": {
         "definition": 1,
-        "lemma": 179,
-        "construction": 45,
-        "theorem": 105,
-        "comparison": 65
+        "lemma": 182,
+        "construction": 47,
+        "theorem": 106,
+        "comparison": 67
       },
-      "api": 366,
-      "packetTests": 615,
-      "definitionConstructionTests": 207,
-      "typedExamples": 618,
+      "api": 374,
+      "packetTests": 631,
+      "definitionConstructionTests": 213,
+      "typedExamples": 634,
       "planets": 24,
-      "baseline": 427,
-      "preservedWholeNodes": 385,
-      "preservedBaseline": 420,
+      "baseline": 429,
+      "preservedWholeNodes": 395,
+      "preservedBaseline": 427,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 10,
-      "newNamedDeclarations": 21,
-      "newTypedTests": 22,
+      "newNodes": 8,
+      "newNamedDeclarations": 14,
+      "newTypedTests": 16,
       "requests": 3,
       "gaps": 7,
       "closedStages": 0,
-      "reachableNodes": 570,
-      "dependencyEdges": 2696,
+      "reachableNodes": 578,
+      "dependencyEdges": 2735,
       "acyclic": true,
-      "baselineLeaves": 544,
+      "baselineLeaves": 546,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 164124,
+      "readerWords": 167403,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1203,
+      "compilerWarnings": 1233,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -26388,24 +26899,22 @@
       "pinnedMathlibModules": 3596,
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
-      "scratchCompleteDefinitions": 0,
+      "scratchCompleteDefinitions": 1,
       "scratchCompleteLemmas": 5,
-      "scratchMathlibModules": 1111,
+      "scratchMathlibModules": 1138,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "admissibleDenominators": 224,
-        "localizedConstantValues": 224,
-        "classicalEvenWeights": 105,
-        "zeroExponentValues": 7,
-        "oddWeightZeros": 105,
-        "wrongShiftNegativeControls": 105,
-        "missingHalfNegativeControls": 105,
-        "inverseCoordinateObstructions": 7,
-        "identityParameterObstructions": 7,
-        "ringAdditionControls": 224,
-        "ringMultiplicationControls": 224
+        "fullCoefficientComparisons": 2925,
+        "constantComparisons": 45,
+        "positiveIntegralCoefficients": 2880,
+        "uniformClearingIntegrality": 2925,
+        "indexInvariance": 1485,
+        "primeCoefficientSurvival": 45,
+        "wrongWeightShiftControls": 45,
+        "omittedConstantControls": 45,
+        "erasedPrimeCoefficientControls": 45
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": []
@@ -26413,14 +26922,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1203,
-      "sha256": "52f0897d9e363485d058a8dc2eebca4c003c7e3f4e056760d0ba06a06bd5d2f1",
+      "warnings": 1233,
+      "sha256": "c90b004dfddff69476249fa2abd1c6822f0216ad553cda8a8573298fa3072c0f",
       "nativeProbe": {
         "completeLemmas": 5,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "b255f18a247360b5a5afd1bda866753cd10530a0793fe68653c0b1eef42f4a3d"
+        "sha256": "b1d439e47217493de15c1bfe2365a589f43ed167b851daab9bf15cffd5214bbf"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -26489,16 +26998,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "26e55b0efb6627e36be8bdcc0b7473fc68eef714f603e173d646d7cb0fbe402f",
+          "sourceSha256": "52f0897d9e363485d058a8dc2eebca4c003c7e3f4e056760d0ba06a06bd5d2f1",
           "modules": 3568,
-          "warnings": 1160,
+          "warnings": 1203,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "67dd3fe889e52160bc2bb8b87b817429a6e9f0aa",
+      "base": "674ee48cf0e3ad062e3e5029caf075a450ad5a77",
       "unchangedInputs": 57,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -31203,6 +31712,45 @@
         "ringMultiplicationControls": 224
       },
       "numericalMethod": "Exact rational Bernoulli recurrence and arithmetic in the one-denominator localization. Classical comparisons use only even weights at least4. The negative controls detect omitting the factor2 or shifting the test exponent incorrectly, and exhibit the inverse-coordinate and identity-parameter denominator obstructions. They do not define evaluation on all total fractions or prove a general pole theorem."
+    },
+    "fullEisensteinSeries": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4680,
+      "previousHead": "9a556d4744cc891052580dc0d2fc674fabcf674f",
+      "previousMerge": "f9e71590b12789581d1a52bcbff5ce4067b63459",
+      "preservedWholeNodes": 395,
+      "preservedBaseline": 427,
+      "preservedFindings": 16,
+      "newNodes": 8,
+      "reading": "Complete published159–160 and the corrected E54 boundary were read during this continuation. The old positive-series constructor, coefficient theorem and unique-integer-series modular comparison were read whole with exact suggested signatures. The exact positive integral coefficient constructor and p-index invariance were checked. The current actual localized constant, away-localization image and evaluator signatures were checked. Native PowerSeries.mk, coeff_mk, ext, map, coeff_map, map_C, map_comp, map_injective and Rat.cast_injective were read at the pin.",
+      "boundary": "The full arithmetic family is now assembled over the native denominator localization, its coefficientwise image is the actual total-quotient series, and every even-weight specialization at least4 agrees with the actual classical p-stabilized q-expansion through a unique rational series. Next expose uniform denominator clearing of the whole family by Δ_(p+1), and the resulting precisely qualified constant/full-series congruence statements. The PMIA generic character-twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. Smoothing independence beyond the canonical parameter, actual pole and ordinary-pseudomeasure exclusion, the tame-character family and full source extraction remain explicit work; PadicFamilies owns geometric realization.",
+      "inputBase": "69cc59b01bcbf41bc0311a00b3f5913019aae78f",
+      "sourceBoundary": "All16 findings and sourceVersions remain whole; the previously corrected external E54 boundary persists. No new source finding or independent verdict.",
+      "publication": {
+        "base": "674ee48cf0e3ad062e3e5029caf075a450ad5a77",
+        "unchangedInputs": 57,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "fullCoefficientComparisons": 2925,
+        "constantComparisons": 45,
+        "positiveIntegralCoefficients": 2880,
+        "uniformClearingIntegrality": 2925,
+        "indexInvariance": 1485,
+        "primeCoefficientSurvival": 45,
+        "wrongWeightShiftControls": 45,
+        "omittedConstantControls": 45,
+        "erasedPrimeCoefficientControls": 45
+      },
+      "numericalMethod": "Exact rational Bernoulli recurrence and integer divisor sums. For each of45 even-weight/prime pairs, compare all65 coefficients from0 through64 with the classical p-stabilization formula and check integrality after the explicit common denominator. Negative controls omit the constant, erase the coefficient at p, or use weight instead of weight minus1. These finite truncations do not prove the general full-series theorem or geometric-family assertions."
     }
   },
   "requestResolutions": [
