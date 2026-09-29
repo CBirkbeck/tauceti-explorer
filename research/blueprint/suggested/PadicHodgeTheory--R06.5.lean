@@ -234,8 +234,26 @@ example : ¬ IsOrdinaryTrace 2 (-24) := by decide
 of `p⁻¹`. -/
 example (p : ℕ) [Fact p.Prime] :
     !![(p : ℚ)⁻¹, 0; 0, 1] * !![(0 : ℚ), 1; 0, 0] * !![(p : ℚ), 0; 0, 1] =
-      (p : ℚ)⁻¹ • !![(0 : ℚ), 1; 0, 0] :=
-  sorry
+      (p : ℚ)⁻¹ • !![(0 : ℚ), 1; 0, 0] := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
+
+/-! ## R06.5 — the endpoint weights (`PadicHodgeTheory:R06.5/modular-form-endpoint-weights`) -/
+
+/-- Acceptance, case (b): for `k = p` an ordinary `V_g` reduces to constituents unramified on inertia, since
+`ω^{p−1} = 1`: every unit of `𝔽₅` satisfies `x⁴ = 1`. -/
+example : ∀ x : ZMod 5, x ≠ 0 → x ^ 4 = 1 := by decide
+
+/-- Acceptance, case (b): the weight-5 newform `η(z)⁴η(2z)²η(4z)⁴` of level 4 has `a₅ = −14`, a 5-adic unit. -/
+example : (-14 : ZMod 5) ≠ 0 := by decide
+
+/-- Acceptance, case (b): `a₃ = 0` for `η(z)³η(7z)³` because `3` is inert in `ℚ(√−7)`: `−7` is not a square
+modulo `3`. -/
+example : ∀ x : ZMod 3, x ^ 2 ≠ -7 := by decide
+
+/-- Acceptance, case (c): for `k = p + 1` the ordinary reductions are extensions by unramified twists of
+`ω^p = ω`, as `x^{11} = x` on `𝔽₁₁`; `Δ` at `11` is such a case (`τ(11) = 534612 ≡ 1 mod 11`). -/
+example : (∀ x : ZMod 11, x ^ 11 = x) ∧ 534612 % 11 = 1 := by decide
 
 /-! ## Theorems needing objects of other roadmaps
 
