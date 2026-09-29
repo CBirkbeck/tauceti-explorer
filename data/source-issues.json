@@ -148342,6 +148342,27 @@
    "reviewReason": null
   },
   {
+   "id": "PadicMeasuresIwasawaAlgebras/E15",
+   "kind": "error",
+   "locator": "Theorem 13.1, printed p. 189 / PDF 90, and Definition 13.3, printed p. 190 / PDF 91; the same text in arXiv v2 PDF 65.",
+   "printed": "M ∼ Λ^r ⊕ (⊕_{i=1}^s Λ/(p^{n_i})) ⊕ (⊕_{j=1}^t Λ/(f_j(T)^{m_j})) … Ch_Λ(M) = (p^n) ∏_{j=1}^t (f_j^{m_j})",
+   "correction": "Over Λ = O_L⟦T⟧ the μ-part is ⊕ Λ/(ϖ^{n_i}) for a uniformizer ϖ of O_L, and Ch_Λ(M) = (ϖ^n)∏(f_j^{m_j}). The printed forms are right when L/ℚ_p is unramified (then p is a uniformizer).",
+   "reason": "Take L = ℚ_p(√p), ϖ = √p, M = Λ/(ϖ). The prime (ϖ) has height one, and the length of M at (ϖ) is 1. Pseudo-isomorphism (finite kernel and cokernel) preserves lengths at height-one primes. Λ/(p^n) = Λ/(ϖ^{2n}) has length 2n at (ϖ), Λ/(f^m) with f distinguished has length 0 there, and Λ^r is not torsion. So M is not pseudo-isomorphic to any module of the printed form, and (p^n) cannot equal (ϖ) = Ch_Λ(M). The cited Washington Theorem 13.12 is over ℤ_p⟦T⟧. RJW's distinguished polynomials use the maximal ideal 𝔭 (fraktur), while the μ-part uses the roman p, as the rendered pages show.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page: v2 (19 December 2024) is the latest version and carries the same text.",
+    "The published text (Essential Number Theory 4 (2025)) was read at the locator: same statement.",
+    "The MSP article page https://msp.org/ent/2025/4-1/p03.xhtml links no erratum or correction (checked 2026-09-29)."
+   ],
+   "owner": "PadicMeasuresIwasawaAlgebras",
+   "file": "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PerfectoidQuotients/E1",
    "kind": "misprint",
    "locator": "Corollary 7.3 proof, p.56, arXiv v4",
