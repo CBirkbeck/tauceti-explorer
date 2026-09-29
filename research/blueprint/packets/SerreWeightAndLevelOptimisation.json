@@ -103,9 +103,12 @@
     "§0 Introduction and notation",
     "§1 Removing 2 from the level at the expense of the weight (Proposition 1.3)",
     "§2 Multiplicity one and the main level-lowering theorem (Theorem 2.8 and its remarks)",
-    "§3 Deduction of the full level-lowering conjecture where multiplicity one is known"
+    "§3 Deduction of the full level-lowering conjecture where multiplicity one is known",
+    "§1 Proposition 1.1 with its four-step proof, Lemma 1.2, Proposition 1.3 (pp. 2–4)",
+    "§3 Theorems 3.1 and 3.2 with proofs and remarks (pp. 9–10) (Claude Code cc-fb70e5)"
    ],
-   "accessed": "2026-09-24"
+   "accessed": "2026-09-24",
+   "sha256": "39d48668b1a223d1167ec139ef01d6f4d48f76194f36c8d4c0b9d4a894685d0e"
   },
   {
    "id": "bs2020",
@@ -783,6 +786,168 @@
      "match": "Khare–Wintenberger's identification of the missing case: ρ̄|_{D₂} scalar with non-dihedral projective image, completed by their Theorem 1.2(2)."
     }
    ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.5/buzzard-removing-two-from-the-level",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.5",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.5"
+   ],
+   "title": "Removing 2 from the level of a mod 2 representation, and weights 2 and 3 at odd level (Buzzard §1)",
+   "kind": "theorem",
+   "statement": "Let ρ : Gal(Q̄/ℚ) → GL₂(F̄₂) be continuous and irreducible, and N odd. (Proposition 1.1) If ρ is modular of level 2ⁿN for some n ≥ 0, then ρ is modular of level N, with no control of the weight. (Lemma 1.2) ρ is modular of weight 2 and level 2N if and only if it is modular of weight 3 and level N. (Proposition 1.3) If ρ is modular of level 2ⁿN then (a) ρ is modular of some weight 2 ≤ k ≤ 3 and level N; (b) ρ is modular of weight 2 and level N if and only if ρ is finite at 2; (c) if ρ is not finite at 2, then ρ is modular of weight 2 and level 2N, and of weight 3 and level N. Here \"modular\" means arising from a characteristic-zero eigenform.",
+   "hypotheses": [
+    "ℓ = 2 throughout; all forms are characteristic-zero forms, and mod 2 eigenforms are lifted by Deligne–Serre Lemme 6.11",
+    "Lemma 1.2 rests on Gross [G], Proposition 8.18 for N ≥ 5 (not read); for N < 5 there are no forms of weight 2 and level 2N nor of weight 3 and level N",
+    "Proposition 1.3(a) uses Edixhoven's Theorem 3.4 (Katz forms), which lowers the weight to at most 3 because the mod 2 cyclotomic character is trivial, and Edixhoven's [E2] Lemma 1.9 to pass between Katz forms and reductions in weights 2 and 3"
+   ],
+   "proofSteps": [
+    "Proposition 1.1, step 1: twist by a 2-power character ψ with χ₂ψ² trivial on 1 + 4ℤ to reach Γ₁(4N) ∩ Γ₀(2^m).",
+    "Step 2: if the 2-part of the character has order 2, multiply by the weight-1 theta series E = ∑q^{m²+n²} ≡ 1 mod 2 of level 4, and lift by Deligne–Serre, reaching Γ₁(N) ∩ Γ₀(2^m).",
+    "Step 3: lower m to 1 with U₂ applied to a Galois conjugate of f₂², as in Ribet's Theorem 2.1.",
+    "Step 4: pass to Γ₁(N) by the trace of f₃g^{2^j} with g = E₄(z) − 16E₄(2z), whose W-transform is ≡ 0 mod 64 (Serre's method in LNM 350, §3.2).",
+    "Proposition 1.3: combine 1.1 with Edixhoven's Theorem 3.4 and multiplication by the Hasse invariant for (a); (b) and (c) from the finite/non-finite dichotomy and Lemma 1.2."
+   ],
+   "acceptance": [
+    "For ρ finite at 2 the weight is 2 and the level is N; for ρ not finite at 2 both (weight 2, level 2N) and (weight 3, level N) occur, matching Edixhoven's k(ρ) = 3 in the second case of his Remark 4.4.",
+    "Step 2's theta series E = 1 + 4(q + q² + q⁴ + 2q⁵ + …) is ≡ 1 mod 2 (checked in the suggested Lean file for the displayed coefficients)."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.4/strip-ell-power-from-level",
+    "AlgebraicModularFormsAndSerreWeights:R15.3/weight-reduction-to-at-most-p-plus-one",
+    "AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma",
+    "AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one"
+   ],
+   "sources": [
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§1, Proposition 1.1, p. 2 of the DVI",
+     "match": "Removing 2 from the level, losing the weight."
+    },
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§1, Lemma 1.2 and Proposition 1.3, p. 4 of the DVI",
+     "match": "Weight 3 at level N versus weight 2 at level 2N, and the finite/non-finite dichotomy."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SerreWeightAndLevelOptimisation:R20.5/buzzard-weight-and-level-mod-two",
+     "how": "the weight and the removal of 2 in Theorem 3.2"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.5/buzzard-level-lowering-to-the-conductor",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.5",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.5"
+   ],
+   "title": "Level lowering for ℓ = 2 to the conductor, assuming multiplicity one and not induced from ℚ(i) (Buzzard, Theorem 3.1)",
+   "kind": "theorem",
+   "statement": "Let ρ : Gal(Q̄/ℚ) → GL₂(F̄₂) be irreducible and modular, coming from a normalised cuspidal eigenform f ∈ S₂(Γ₁(M); Q̄₂). Assume ρ satisfies multiplicity one and is not induced from ℚ(i), and let N be the conductor of ρ (prime to 2). Then there is a normalised eigenform g ∈ S₂(Γ₁(N′); Q̄₂) giving rise to ρ, where N′ = N if ρ is finite at 2 and N′ = 2N otherwise; if M is odd, a₂(g) ≡ a₂(f) mod λ may be arranged.",
+   "hypotheses": [
+    "multiplicity one, which Buzzard's Proposition 2.4 shows to be a mild hypothesis, and ρ not induced from ℚ(i); the scalar local case at 2 is R20.5/dyadic-scalar-multiplicity-one-obstruction",
+    "the method is Carayol's [C], with Theorem 2.8 (R20.5/buzzard-mod-two-level-lowering) removing the one obstruction at ℓ = 2",
+    "case (iv) is \"a little more subtle\": the source sketches a Jacquet–Langlands switch (Diamond–Taylor Theorem 9) and leaves an alternative to the reader"
+   ],
+   "proofSteps": [
+    "By Proposition 1.3 assume M odd if ρ is finite at 2 and 2 ∥ M otherwise; Carayol shows N | M, so N′ | M.",
+    "For each odd prime p dividing M/N′, Carayol's classification of the local component π_p gives four cases: (i) principal series with a tamely ramified character of unramified reduction, (ii) unramified special, (iii) a special representation twisted by such a character, (iv) supercuspidal induced from such a character of the unramified quadratic extension of ℚ_p.",
+    "Case (ii) is Theorem 2.8. In case (i), an unramified character reduces to (ii) by Carayol's lemma, and a ramified one is removed by twisting by a character of conductor p agreeing with its inverse on tame inertia. Case (iii) is removed by a twist of 2-power order.",
+    "Case (iv): pass to the quaternion algebra ramified at p by Jacquet–Langlands, apply the analogue of Carayol's lemma (Diamond–Taylor, Theorem 9), and return to level dividing M/p.",
+    "Induct on the number of such primes, preserving a₂ mod λ."
+   ],
+   "acceptance": [
+    "An irreducible ρ with scalar image at 2 is outside the hypotheses (multiplicity one is not known there).",
+    "If ρ is finite at 2 the final level is the odd conductor N, and 2N otherwise."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-mod-two-level-lowering",
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-removing-two-from-the-level",
+    "SerreWeightAndLevelOptimisation:R20.2/serre-level",
+    "SerreWeightAndLevelOptimisation:R20.4/nebentypus-congruent-character",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§3, Theorem 3.1, p. 9 of the DVI",
+     "match": "The hypotheses and conclusion of Theorem 3.1."
+    },
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§3, proof of Theorem 3.1, p. 9 of the DVI",
+     "match": "Carayol's four local cases and their treatment."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SerreWeightAndLevelOptimisation:R20.5/buzzard-weight-and-level-mod-two",
+     "how": "the not-induced branch of Theorem 3.2"
+    },
+    {
+     "where": "SerreWeightAndLevelOptimisation:R20.6",
+     "how": "the dyadic case of the level-optimisation exports"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.5/buzzard-weight-and-level-mod-two",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.5",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.5"
+   ],
+   "title": "Mod 2 representations arise in weight 2 or 3 at the conductor, including the ℚ(i)-induced branch (Buzzard, Theorem 3.2)",
+   "kind": "theorem",
+   "statement": "Let ρ : Gal(Q̄/ℚ) → GL₂(F̄₂) be irreducible and modular and satisfy multiplicity one. Put k = 2 if ρ is finite at 2 and k = 3 otherwise, and let N be the conductor of ρ. Then there is a normalised eigenform g ∈ S_k(Γ₁(N); Q̄₂) giving rise to ρ. The ℚ(i)-induced case is treated separately: if ρ is induced from a character of Gal(Q̄/ℚ(i)), lift the character to one of odd order with values in Q̄₂^×; the induced characteristic-zero representation comes from a classical weight-1 cusp form of level 4N, and Proposition 1.3 then gives level N and weight k, with no level-lowering theorem needed. If moreover ρ is not induced from ℚ(i) and is finite at 2, g can be chosen with Serre's predicted character (Buzzard's Corollary 2.7). When ρ is not finite at 2, Serre's original weight is 4 (he wanted the character to have odd order, hence even weight), which explains the second case of Edixhoven's Remark 4.4 (k(ρ) = 3, k_ρ = 4).",
+   "hypotheses": [
+    "multiplicity one is assumed in both branches",
+    "the modularity of the induced representation from ℚ(i) is classical (weight-one theta series of a Hecke character), requested from GL2AutomorphicRepresentationsAndTransfer R17.5",
+    "the character statement uses Buzzard's Corollary 2.7, which is not planned as a node"
+   ],
+   "proofSteps": [
+    "ℚ(i)-induced branch: lift the character, take the weight-1 form of level 4N, and apply Proposition 1.3 (R20.5/buzzard-removing-two-from-the-level).",
+    "Otherwise: by Proposition 1.3(c) ρ is modular of weight 2 and some level; Theorem 3.1 (R20.5/buzzard-level-lowering-to-the-conductor) gives level N′ = N or 2N in weight 2; Lemma 1.2 converts weight 2, level 2N to weight 3, level N."
+   ],
+   "acceptance": [
+    "ρ finite at 2: weight 2 and level N, Edixhoven's k(ρ) = k_ρ = 2.",
+    "ρ not finite at 2: weight 3 and level N, Edixhoven's k(ρ) = 3, while Serre's k_ρ = 4 (AlgebraicModularFormsAndSerreWeights:R15.4/edixhoven-weight-k-rho-and-its-comparison-with-serre-k)."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-removing-two-from-the-level",
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-level-lowering-to-the-conductor",
+    "AlgebraicModularFormsAndSerreWeights:R15.4/edixhoven-weight-k-rho-and-its-comparison-with-serre-k",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.5"
+   ],
+   "sources": [
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§3, Theorem 3.2, p. 10 of the DVI",
+     "match": "The weight and level statement."
+    },
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§3, proof of Theorem 3.2, p. 10 of the DVI",
+     "match": "The separate ℚ(i)-induced branch."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ClassicalSerreModularity R27.4–R27.6",
+     "how": "weight and level at p = 2 in the strong form"
+    },
+    {
+     "where": "SerreWeightAndLevelOptimisation:R20.6",
+     "how": "the case table for the dyadic completion"
+    }
+   ],
+   "planet": {
+    "name": "Mod 2 weight and level (Buzzard)"
+   },
    "implementationStatus": "unchecked"
   },
   {
@@ -2084,10 +2249,10 @@
    "stageId": "SerreWeightAndLevelOptimisation:R20.5",
    "status": "partial",
    "remaining": [
-    "The source's §3 analysis of the Q(i)-induced representations, which Theorem 2.8 explicitly excludes and which RS-06 requires as a separate branch.",
     "Wiese's assigned weight-one theorem, for the comparison RS-06 asks for. The public Wiese paper obtained ('Dihedral Galois representations and Katz modular forms', arXiv:math/0402163) extracted only partially and the weight-one theorem to compare against has not been pinned.",
     "The exact list of weak-to-classical-strong implications that this layer is to assemble.",
-    "Khare–Wintenberger I §1's exception is now read and cited in R20.5/dyadic-scalar-multiplicity-one-obstruction (ρ̄|_{D₂} scalar with non-dihedral projective image)."
+    "Khare–Wintenberger I §1's exception is now read and cited in R20.5/dyadic-scalar-multiplicity-one-obstruction (ρ̄|_{D₂} scalar with non-dihedral projective image).",
+    "Buzzard's Corollary 2.7 (Serre's predicted character in the finite, non-Q(i)-induced case) and Proposition 2.4 (the mildness of multiplicity one) are cited, not planned as nodes; Gross's Proposition 8.18, behind Lemma 1.2, is not read."
    ]
   },
   {
@@ -2162,6 +2327,20 @@
    "need": "The regular stable model of X₁(pN) over ℤ_p[ζ_p] whose special fibre is the union of two Igusa curves I and E meeting at the supersingular points (Katz–Mazur, Chapter 13), with the Hecke and inertia actions on its Picard scheme, as used in Edixhoven's §6 proof of Fontaine's theorem.",
    "neededBy": [
     "SerreWeightAndLevelOptimisation:R20.3/local-form-of-supersingular-eigenforms"
+   ]
+  },
+  {
+   "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+   "need": "Jacquet–Langlands between GL₂ and the quaternion algebra ramified at an odd prime p, with the analogue of Carayol's lemma on the quaternion side (Diamond–Taylor, Theorem 9), for the supercuspidal case (iv) of Buzzard's Theorem 3.1.",
+   "neededBy": [
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-level-lowering-to-the-conductor"
+   ]
+  },
+  {
+   "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+   "need": "The weight-one theta series of an odd-order character of Gal(Q̄/ℚ(i)) with values in Q̄₂^×: the induced representation arises from a classical weight-1 cusp form of level 4N (Buzzard, proof of Theorem 3.2).",
+   "neededBy": [
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-weight-and-level-mod-two"
    ]
   }
  ],

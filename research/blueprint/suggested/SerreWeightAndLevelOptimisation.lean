@@ -534,3 +534,25 @@ example : (534612 : ℕ) ^ 2 % 11 = 1 ∧ 534612 % 11 = 1 := by norm_num
 example : 1 + 11 * 0 + 1 + (11 - 1) = 12 := by norm_num
 
 end TauCeti.SerreWeightLevel.WeightTest
+
+/-! ## R20.5 — Buzzard §1 and §3 (checkpoint by Claude Code cc-fb70e5)
+
+`buzzard-removing-two-from-the-level`, `buzzard-level-lowering-to-the-conductor` and `buzzard-weight-and-level-mod-two`
+need characteristic-zero eigenforms with their mod 2 representations; they are not stated here. The examples below
+check arithmetic used in their proofs and acceptance tests. They import Mathlib only and were compiled as a separate
+file against Mathlib `082e2d3`.
+-/
+
+
+namespace TauCeti.SerreWeightLevel.BuzzardTest
+
+/-- `R20.5/buzzard-removing-two-from-the-level`, step 2: the theta series `E = ∑ q^{m²+n²} = 1 + 4(q + q² + q⁴ + 2q⁵
++ …)` is `≡ 1 mod 2`, so multiplying by it does not change a form mod 2; step 4: `g = E₄(z) − 16E₄(2z)` has constant
+term `1 − 16 = −15`, odd. -/
+example : (4 * 1) % 2 = 0 ∧ (4 * 2) % 2 = 0 ∧ (1 - 16 : ℤ) = -15 ∧ (-15 : ℤ) % 2 = 1 := by norm_num
+
+/-- `R20.5/buzzard-weight-and-level-mod-two`: at `p = 2`, Edixhoven's `k(ρ) = 1 + 2·0 + 1 + (2 − 1) = 3` in the
+non-finite wild case, while Serre's `k_ρ = 4`. -/
+example : 1 + 2 * 0 + 1 + (2 - 1) = 3 := by norm_num
+
+end TauCeti.SerreWeightLevel.BuzzardTest
