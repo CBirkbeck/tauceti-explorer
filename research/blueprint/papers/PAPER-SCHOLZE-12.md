@@ -5,10 +5,10 @@ Peter Scholze, *Perfectoid spaces*, [Publications mathématiques de l'IHÉS 116 
 Extraction by Claude Code, session `cc-39fac3`, 29 September 2026 (issue #4544). Status: **complete**. Every missing item is routed once.
 
 The machine-readable extraction is [PAPER-SCHOLZE-12.result.json](PAPER-SCHOLZE-12.result.json). It has:
-- 153 items: 13 library, 106 planned, 34 missing;
+- 153 items: 13 library, 112 planned, 28 missing (after the independent review; the extraction had 106 planned and 34 missing);
 - 6 routes: four sources of existing layers and two Part IIs, one of which coalesces with a pending candidate;
 - 15 prerequisite entries;
-- 11 recorded mistakes (8 misprints, 3 gaps), four of them already in the atlas.
+- 11 recorded mistakes (8 misprints, 3 gaps), four of them already in the atlas; the review confirmed 9 and rejected E5 and E9.
 
 ## Sources read
 
@@ -95,15 +95,15 @@ The comparison of adic spectra with Berkovich spectra by rank-one points is Trop
 
 ## Routes
 
-1. **Source of PerfectoidSpaces P1 and P3** (3 missing). Three statements fall outside the decomposition's nodes but inside its layers:
+1. **Source of PerfectoidSpaces P1 and P3** (3 items, all planned by the PerfectoidSpaces packet; see the review's corrections). Three statements fall outside the decomposition's nodes but inside its layers:
    - Remark 5.14, that W(R) is the unique flat p-adically complete lift of a perfect 𝔽_p-algebra (P1);
    - the invariance of absolute Galois groups under completion and perfection, which Theorem 1.1 and the proof of Theorem 9.6 use silently (P3);
    - Remark 1.11, recovering Faltings's form of almost purity from Theorem 7.9 (P3).
-2. **Source of AdicSpacesPartII R0–R2** (3 missing). AdicSpacesPartII is the declared successor of the Tau Ceti adic-space roadmap for morphisms, analytification and formal models. It gets three recalled results no layer owns:
+2. **Source of AdicSpacesPartII R0–R2** (1 missing and 2 planned, after the review). AdicSpacesPartII is the declared successor of the Tau Ceti adic-space roadmap for morphisms, analytification and formal models. It gets three recalled results; its packet already plans the second and third:
    - the universal property of maps into an affinoid adic space (Proposition 2.19);
    - Huber's equivalence between quasiseparated rigid-analytic varieties and adic spaces locally of finite type (Theorem 2.21);
    - the specialisation map and X ≅ lim_𝔛 𝔛 over formal models (Theorem 2.22). AdicEtaleGeometry A2 already warns that a Raynaud equivalence must not be assumed; this makes it a task.
-3. **Source of TropicalAndBerkovichArithmetic TB.0** (1 missing). Tautness and the global equivalence between Hausdorff strictly analytic Berkovich spaces and taut adic spaces of locally finite type (Theorem 2.24). TB.0 already plans the affinoid comparison.
+3. **Source of TropicalAndBerkovichArithmetic TB.0** (1 missing). Tautness and the global equivalence between Hausdorff strictly analytic Berkovich spaces and taut adic spaces of locally finite type (Theorem 2.24). TB.0 already plans the affinoid comparison. The review rejected this route: ClassicalAdicEtaleCohomology H3 plans the item.
 4. **Source of AdicEtaleGeometry A1** (2 missing). A1 owns points of adic étale sites as field pairs (K, K⁺). It receives the description of points of Spa as maps to complete affinoid fields (Proposition 2.27) and of specialisation by inclusion of valuation rings (Proposition 2.29).
 5. **Part II `AnalyticToricGeometryNonarchimedeanPartII`** (16 missing), coalescing with the candidate of the same id proposed by PAPER-BINDA-KATO-VEZZANI-25.
    - That route was held by its review for lacking construction leaves (BKV gap G12): generic-base toric gluing, invariant divisors, integral models and the approximation argument.
@@ -128,11 +128,11 @@ The comparison of adic spectra with Berkovich spectra by rank-one points is Trop
 2. Lemma 7.3(i), (iii) print the surjectivity for |X ×_Z Y| → |X| ×_{|Z|} |Y| instead of X ×_Y Z (E2, already in the atlas as PerfectoidSpaces/E22). Lemma 7.3(iii) also writes "over k" for "over K" (E3).
 3. The proof of Lemma 6.13(iv) says "zero" for "empty" (E4, already PerfectoidSpaces/E14).
 4. Two gaps already recorded in the atlas:
-   - Theorem 1.1 silently passes from ℚ_p(p^{1/p^∞}) and 𝔽_p((t)) to their completions (E5, PerfectoidSpaces/E23);
+   - Theorem 1.1 silently passes from ℚ_p(p^{1/p^∞}) and 𝔽_p((t)) to their completions (E5, PerfectoidSpaces/E23; both rejected on review, since the reduction is standard);
    - "the rest is easy" in Theorem 4.17 hides an almost-Nakayama argument (E6, PerfectoidSpaces/E4).
 5. The published proof sketch of Theorem 2.22 writes Spa(R[1/p], R) where k may have characteristic p, so R[1/ϖ] is meant (E7).
 6. Lemma 9.5 uses an integer i it never introduces (E8).
-7. Theorem 1.5 is stated for the affine line but only the unit-disc case is proved, in Theorem 8.5(iii) (E9, a gap with a routine fix).
+7. Theorem 1.5 is stated for the affine line but only the unit-disc case is proved, in Theorem 8.5(iii) (E9, a gap with a routine fix). The review rejected E9: Theorem 8.5(iii) for the complete fan of ℙ¹, restricted to 𝔸¹, is Theorem 1.5.
 8. The proof of Proposition 5.23 takes a "finitely generated R°-subalgebra" where a finite R°-module is needed for integrality and boundedness (E10).
 9. The proof of Proposition 8.7 calls a section of 𝒪(p^N D) a "regular function" (E11).
 
@@ -150,3 +150,23 @@ The following papers are not yet in the atlas's paper batches:
 - Bosch–Lütkebohmert, BGR, Tate, Berkovich, and Hochster.
 
 Kedlaya–Liu and Deligne's *Weil II*, which the paper also uses, are already in batch 5.
+
+## Corrections by the independent review
+
+REV-PAPER-SCHOLZE-12 (Claude Code, session `cc-fb70e5`, 29 September 2026) made these changes:
+
+- **Six items are now planned.** Blueprint packets on main already plan them. The extraction checked the stage texts and the 33-node decomposition, which the 324-node PerfectoidSpaces packet has replaced.
+  - Item 2 (Galois groups under completion and perfection): PerfectoidSpaces:P3, node P3/fontaine-wintenberger.
+  - Item 5 (Remark 1.11, Faltings's almost purity): PerfectoidSpaces:P3, an acceptance criterion of P3/almost-purity-theorem.
+  - Item 71 (Remark 5.14, W(R) as the unique deformation): PerfectoidSpaces:P1, an acceptance criterion of P1/cotangent-complex-vanishing-mod-varpi.
+  - Item 25 (Huber's rigid–adic comparison): AdicSpacesPartII:R1, nodes R1/rigid-adic-comparison-functor, R1/rigid-adic-quasi-separated-equivalence and R1/rigid-adic-topos-equivalence.
+  - Item 26 (formal models and X ≅ lim 𝔛): AdicSpacesPartII:R2, nodes R2/specialisation-map (v) and R2/raynaud-theorem (e).
+  - Item 27 (taut spaces and Berkovich spaces): ClassicalAdicEtaleCohomology:H3, nodes H3/taut-spaces-and-morphisms and H3/berkovich-taut-comparison (a).
+- **Routes.**
+  - Route 3 is rejected: its only item is planned by H3.
+  - Routes 1 and 2 remain source routes. They now name planned items as well as, for route 2, the missing item 23. Their reasons are rewritten.
+- **Briefs.**
+  - Route 5 now imports affine toric charts over base rings and their face open immersions from ShimuraCompactifications C0, and obtains Theorem 1.5 from Theorem 8.5(iii) for ℙ¹.
+  - Route 6 now says the Galois-group invariance is planned in P3.
+- **Notes.** Items 4, 120 and 145 have updated notes.
+- **Mistakes.** Every source issue has a review verdict. E5 and E9 are rejected; the other nine are confirmed.
