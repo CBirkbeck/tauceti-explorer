@@ -167,7 +167,7 @@
          "fit": "related"
         }
        ],
-       "note": "Over an affine base Tau Ceti has Cartier duality with biduality and base change, constant groups, μ_n = D(ℤ/n), kernels and fppf quotient sheaves. Missing: the non-affine base, representability of quotients, exactness, the duality (ℤ/N)ᴰ ≅ μ_N and Deligne's theorem. Details under 0B."
+       "note": "Over an affine base Tau Ceti has Cartier duality with biduality and base change, constant groups, μ_n = D(ℤ/n), kernels and fppf quotient sheaves. Missing: Cartier duality, constant and diagonalizable groups and quotients over a non-affine base (kernels exist there as pullbacks in Grp (Over S)), representability of quotients, exactness, the duality (ℤ/N)ᴰ ≅ μ_N, Deligne's theorem, and the scheme-level cancellation for local finite presentation. Details under 0B."
       },
       {
        "target": "0C: affine quotients by finite groups with universal property and finiteness, finite group-scheme torsors, SGA 3 V 4.1 quotients by finite locally free equivalence relations",
@@ -209,7 +209,7 @@
          "fit": "related"
         }
        ],
-       "note": "Morphisms spread out and descend; objects do not. Details under 0E."
+       "note": "Morphisms spread out and descend. Affine finitely presented algebras, and smooth or étale ones, spread out to finitely generated subrings; the polarised curve and its data do not. Details under 0E."
       },
       {
        "target": "0F: Weil restriction along finite locally free maps and the Hom-schemes it represents",
@@ -256,6 +256,10 @@
       {
        "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
        "note": "Owns the Galois-category equivalence for finite étale covers (0D)."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+       "note": "Plans the Hopf-algebra / affine-group-scheme anti-equivalence, 0B's first item. Tau Ceti's commHopfAlgCatOpEquivAffineGroupSchemeCat was built as that layer's deliverable; this records shared completed work, not a request to build a second equivalence."
       }
      ]
     },
@@ -286,9 +290,23 @@
          "file": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
          "line": 65,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.InvertibleSheaf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.SheafOfModules.isInvertible",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+         "line": 55,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti's CartierDivisor is the group of global sections of 𝒦ˣ/𝒪ˣ on an integral scheme: absolute, not effective, and not flat over a base. Mathlib has ideal sheaves and closed subschemes but no invertible-ideal (effective Cartier) predicate, absolute or relative."
+       "note": "Tau Ceti's CartierDivisor is the group of global sections of 𝒦ˣ/𝒪ˣ on an integral scheme: absolute, not effective, and not flat over a base. Mathlib has ideal sheaves and closed subschemes but no invertible-ideal (effective Cartier) predicate, absolute or relative. The Jacobian Challenge invertible-sheaf object exists in Tau Ceti: InvertibleSheaf, the full category of invertible (locally free of rank one) sheaves on any scheme. Neither library views an ideal sheaf as an 𝒪_X-module, so the bridge from an effective Cartier divisor's ideal sheaf to that carrier, and the invertible-ideal predicate, are still missing."
       },
       {
        "target": "Fibre criterion: over a locally noetherian S, with C/S flat and locally of finite type and D ⊆ C closed, finitely presented and S-flat, D is relative effective Cartier iff every geometric fibre is; plus the limit/descent version",
@@ -480,9 +498,44 @@
          "file": "TauCeti/Algebra/AlgebraicGroup/Isogeny/Kernel.lean",
          "line": 84,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.instHasLimitsOfShapeGrp",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Cartesian/GrpLimits.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.instCartesianMonoidalCategoryOverScheme",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Pullbacks.lean",
+         "line": 711,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Over.instBraidedPullback",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Cartesian/Over.lean",
+         "line": 198,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GroupScheme.baseChangePointMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/BaseChange.lean",
+         "line": 142,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GroupScheme.baseChangePointMulEquiv_pointMap",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/BaseChange.lean",
+         "line": 185,
+         "fit": "related"
         }
        ],
-       "note": "For affine group schemes over Spec R, Tau Ceti builds the kernel as the closed subgroup cut out by the kernel Hopf ideal, with the pullback square against the identity section and coordinate ring K ⊗_H R. The kernel of a central isogeny over a noetherian base is shown finite locally free. Missing: kernels of homomorphisms of non-affine group schemes (such as E ⟶ E′) over a general base, and a base-change theorem for them."
+       "note": "For affine group schemes over Spec R, Tau Ceti builds the kernel as the closed subgroup cut out by the kernel Hopf ideal, with the pullback square against the identity section and coordinate ring K ⊗_H R. The kernel of a central isogeny over a noetherian base is shown finite locally free. Over any base S, Grp (Over S) has pullbacks created by the forgetful functor (Mathlib). So the kernel of an arbitrary homomorphism f, including E ⟶ E′, exists as the pullback of f along the unit section, with underlying scheme G ×_H S. Base change is (Over.pullback g).mapGrp, and Tau Ceti identifies point groups before and after arbitrary base change, compatibly with homomorphisms. None of this makes an arbitrary kernel finite locally free. Missing: a named kernel with its fibre-over-the-unit description, and a stated base-change isomorphism."
       },
       {
        "target": "fppf quotient G/C by a closed finite locally free subgroup, representable under 0C's hypotheses, with an fppf-exact sequence",
@@ -550,9 +603,23 @@
          "file": "TauCeti/Algebra/AlgebraicGroup/ConstantGroup/Scheme.lean",
          "line": 232,
          "fit": "special case"
+        },
+        {
+         "name": "AlgebraicGeometry.sigmaSpec",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Limits.lean",
+         "line": 595,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.instIsIsoSchemeSigmaSpecOfFinite",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Limits.lean",
+         "line": 629,
+         "fit": "related"
         }
        ],
-       "note": "Over Spec R and for a finite group G, Tau Ceti has the constant group scheme, its coordinate ring identified with functions G → R, and finiteness and étaleness. Missing: the construction over a non-affine base S and its description as the coproduct ⨆_{g∈G} S."
+       "note": "Over Spec R and for a finite group G, Tau Ceti has the constant group scheme, its coordinate ring identified with functions G → R, and finiteness and étaleness. Over Spec R, Mathlib's sigmaSpec (an isomorphism for finite index sets) together with functionAlgEquiv identifies the underlying scheme with ∐_{g∈G} Spec R by composition, though no lemma states it. Missing: the construction over a non-affine base S, and the coproduct description there."
       },
       {
        "target": "Diagonalizable group scheme D_S(M) = Spec 𝒪_S[M], and μ_N = D_S(ℤ/N)",
@@ -656,6 +723,27 @@
        "library": "absent",
        "declarations": [],
        "note": "No statement about multiplication by the rank on a finite flat group scheme exists (searched: killed, Deligne, Oort, annihilat)."
+      },
+      {
+       "target": "Local finite presentation of an S-morphism between S-schemes locally of finite presentation (the cancellation lemma the stage attributes to Mathlib), registered as an instance for isogenies and the other finite locally free carriers",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "RingHom.FinitePresentation.of_comp_finiteType",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/FinitePresentation.lean",
+         "line": 442,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.MorphismProperty.IsStableUnderBaseChange.hasOfPostcompProperty_monomorphisms",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/MorphismProperty/Limits.lean",
+         "line": 277,
+         "fit": "related"
+        }
+       ],
+       "note": "At the pin there is no scheme-level cancellation lemma for LocallyOfFinitePresentation. Mathlib has the ring-level lemma (a composite of finite presentation whose first map is of finite type), and, for properties stable under base change, cancellation of postcomposition by monomorphisms, but not the unrestricted statement for an arbitrary S-morphism. So the stage's 'Mathlib's cancellation lemma' is not available, and the roadmap's attribution needs a maintainer correction. The scheme lemma must be proved affine-locally from the ring lemma, using that local finite presentation implies local finite type for the second map."
       }
      ],
      "duplicates": [
@@ -670,6 +758,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
        "note": "Owns kernels and the fppf sheaf quotient G/H, with representability as a separate theorem; Tau Ceti's kernelSpec and fppfQuotientSheaf were built against it."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+       "note": "Plans the Hopf-algebra / affine-group-scheme anti-equivalence, 0B's first item. Tau Ceti's commHopfAlgCatOpEquivAffineGroupSchemeCat was built as that layer's deliverable; this records shared completed work, not a request to build a second equivalence."
       }
      ]
     },
@@ -865,9 +957,23 @@
          "file": "Mathlib/RingTheory/Etale/Finite.lean",
          "line": 161,
          "fit": "related"
+        },
+        {
+         "name": "Algebra.IsFiniteSplit.exists_tensorProduct_of_etale",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/TotallySplit.lean",
+         "line": 145,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.IsFiniteSplit.algHomEquivPrimeSpectrum",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/TotallySplit.lean",
+         "line": 105,
+         "fit": "related"
         }
        ],
-       "note": "Over a separably closed field Mathlib proves a finite étale algebra is a finite product of copies of the field, and that étale algebras over any field are finite products of finite separable extensions. The scheme-level fibre count is not stated."
+       "note": "Over a separably closed field Mathlib proves a finite étale algebra is a finite product of copies of the field, and that étale algebras over any field are finite products of finite separable extensions. The scheme-level fibre count is not stated. Mathlib also proves that a finite étale algebra of constant rank becomes finite split after a finite étale faithfully flat extension, that finite étale algebras over a separably closed field are finite split, and that for a finite split algebra the algebra maps to the base correspond to prime ideals (TotallySplit.lean). Identifying the n-fold product also uses a rank comparison. This is the étale-local triviality behind fibre counts; the scheme-level rank/cardinality statement is still not packaged."
       },
       {
        "target": "Descent for finite étale schemes along fpqc covers",
@@ -885,6 +991,13 @@
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Etale/Descent.lean",
          "line": 78,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.IsFiniteSplit.exists_tensorProduct_of_etale",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/TotallySplit.lean",
+         "line": 145,
          "fit": "related"
         }
        ],
@@ -920,9 +1033,31 @@
       },
       {
        "target": "The equivalence preserves products and transports group objects, commutative group objects, homomorphisms and alternating pairings",
-       "library": "absent",
-       "declarations": [],
-       "note": "Depends on the equivalence above; no transport of group objects or pairings exists."
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Equivalence.mapGrp",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Grp.lean",
+         "line": 775,
+         "fit": "more general"
+        },
+        {
+         "name": "CategoryTheory.Equivalence.mapCommGrp",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/CommGrp_.lean",
+         "line": 296,
+         "fit": "more general"
+        },
+        {
+         "name": "CategoryTheory.Functor.Monoidal.ofChosenFiniteProducts",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Cartesian/Basic.lean",
+         "line": 948,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib transports group objects, commutative group objects and their homomorphisms along any equivalence of cartesian monoidal categories. Equivalence.mapGrp and Equivalence.mapCommGrp do this, with the monoidal and braided structures supplied by Functor.Monoidal.ofChosenFiniteProducts from preservation of finite products, and equivalences preserve products. So this target becomes an application once the equivalence of the previous target exists. Missing: that concrete finite-étale / absolute-Galois equivalence, the transport of alternating pairings, and their scheme and category identifications."
       }
      ],
      "duplicates": [
@@ -959,9 +1094,23 @@
          "file": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
          "line": 49,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.GaloisDescent.span_invariants_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisDescent/Span.lean",
+         "line": 38,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GaloisDescent.liftBaseChange_injective_of_invariant",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisDescent/Injective.lean",
+         "line": 42,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib proves that extension of scalars along a faithfully flat ring map is comonadic, the Amitsur equalizer A = eq(B ⇉ B ⊗_A B), and the general IsStack formalism. Its own docstring leaves effective descent for modules as a TODO, and no stack instance for affine schemes or algebras exists."
+       "note": "Mathlib proves that extension of scalars along a faithfully flat ring map is comonadic, the Amitsur equalizer A = eq(B ⇉ B ⊗_A B), and the general IsStack formalism. Its own docstring leaves effective descent for modules as a TODO, and no stack instance for affine schemes or algebras exists. Tau Ceti proves Galois descent for semilinear representations over a finite Galois field extension, without finite dimensionality: the invariants span, and scalar extension of the invariants is injective. This is useful special-case linear algebra for the finite-Galois field case. It is not general fpqc effective descent of affine schemes: descent of multiplication, units, algebra maps and naturality must still be supplied."
       },
       {
        "target": "Descent of sections and morphisms along fpqc and fppf covers",
@@ -1070,9 +1219,30 @@
          "file": "Mathlib/AlgebraicGeometry/AffineTransitionLimit.lean",
          "line": 1336,
          "fit": "related"
+        },
+        {
+         "name": "Algebra.Presentation.tensorModelOfHasCoeffsEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Extension/Presentation/Core.lean",
+         "line": 207,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.Smooth.exists_subalgebra_fg",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Smooth/NoetherianDescent.lean",
+         "line": 214,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.Etale.exists_subalgebra_fg",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Smooth/NoetherianDescent.lean",
+         "line": 287,
+         "fit": "related"
         }
        ],
-       "note": "For a cofiltered limit of qcqs schemes with affine transition maps, Mathlib shows that morphisms to a locally finitely presented target factor through a finite stage, and that two morphisms agreeing on the limit agree at a finite stage. Missing: descending the objects themselves (curve, polarisation, group law, subgroup, level data) to a finite stage."
+       "note": "For a cofiltered limit of qcqs schemes with affine transition maps, Mathlib shows that morphisms to a locally finitely presented target factor through a finite stage, and that two morphisms agreeing on the limit agree at a finite stage. Mathlib also spreads out affine objects. A finitely presented algebra has a finitely presented model over any subring containing the coefficients of a presentation, with the scalar-extension comparison. Smooth and étale algebras have smooth, resp. étale, models over finitely generated subalgebras of the ground ring, with the ℤ case by specialization. Missing: models at a finite stage of the non-affine data, namely the polarised relative curve and the group law, subgroup and level data on it."
       },
       {
        "target": "The agreement locus of two finitely presented morphisms is representable and contains the original base after enlargement",
@@ -1336,12 +1506,16 @@
        "note": "Derives Weierstrass equations from the ℓ(iP) = i ladder over a field (1C's fibrewise construction)."
       },
       {
-       "layer": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
-       "note": "Owns cohomology and base change and Grauert's theorem (1C's inputs)."
-      },
-      {
        "layer": "ModularCurvesPartII:R13.1",
        "note": "Constructs generalised elliptic curves and is required to prove compatibility with this roadmap's elliptic-scheme object on the smooth locus, so it shares Layer 1's carrier from the degenerate side."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+       "note": "Plans, over a field and at the equation level, the theorem that every pointed isomorphism of Weierstrass models is a VariableChange: the shared field case of 1C's classification theorem. ModularCurves additionally needs arbitrary-base descent and uniqueness on projective models."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+       "note": "Plans Aut(E, O), the units of End, identified with the stabiliser of the curve in VariableChange: the automorphism case of the same classification over a field."
       }
      ]
     },
@@ -1482,15 +1656,44 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/PointPlace.lean",
          "line": 327,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 69,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.pointCount_eq_card_point_add_one_of_isSingular",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/SingularPointCount.lean",
+         "line": 84,
+         "fit": "related"
         }
        ],
-       "note": "The affine-chart half is in Tau Ceti: for any R-algebra A, solutions of the base-changed equation give R-algebra maps from the coordinate ring (evalAlgHom), and conversely. Mathlib identifies projective and affine point classes over a field, and Tau Ceti identifies points with degree-one places. The projective model and the section at infinity are missing."
+       "note": "The affine-chart half is in Tau Ceti: for any R-algebra A, solutions of the base-changed equation give R-algebra maps from the coordinate ring (evalAlgHom), and conversely. Mathlib identifies projective and affine point classes over a field, and Tau Ceti identifies points with degree-one places. The projective model and the section at infinity are missing. For item 1's caveat about singular models, Tau Ceti's pointCount counts all affine solutions plus the point at infinity, unlike Affine.Point, which uses nonsingular points. For elliptic W the usual equality holds, and SingularPointCount compares the two over a finite field at a specified rational singular point."
       },
       {
        "target": "Over a local ring, points as unimodular homogeneous triples; over a ring with trivial Picard group, the same after trivialising the line bundle",
        "library": "absent",
-       "declarations": [],
-       "note": "Mathlib's projective point classes are defined only over fields, and there is no functor-of-points description of projective space over a ring."
+       "declarations": [
+        {
+         "name": "CommRing.Pic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 429,
+         "fit": "related"
+        },
+        {
+         "name": "CommRing.Pic.mk_eq_one_iff_free",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 494,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's projective point classes are defined only over fields, and there is no functor-of-points description of projective space over a ring. Mathlib has the Picard group of a ring, trivial for local and semilocal rings (instances at PicardGroup.lean:536 and :545), and an invertible module is free exactly when its class is trivial. That is the affine trivialisation input of items 2 and 3; it constructs neither projective-model T-points nor the arbitrary-base line-bundle description."
       },
       {
        "target": "Over an arbitrary base T, T-points as a line bundle with three generating sections satisfying the cubic, up to isomorphism, proved by Zariski descent",
@@ -1554,7 +1757,7 @@
       },
       {
        "target": "Action of a variable change on x, y and on the invariant differential",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "WeierstrassCurve.Affine.invariantDifferential",
@@ -1562,9 +1765,30 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
          "line": 105,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.variableChange_equation",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Formula/VariableChange.lean",
+         "line": 142,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.variableChange_nonsingular",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Formula/VariableChange.lean",
+         "line": 195,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.equivVariableChange",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/VariableChange.lean",
+         "line": 167,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti's invariant differential lives in the Kähler differentials of the function field, and no variable-change transformation law for it is stated."
+       "note": "The action on x, y is present at the equation level. Over any commutative ring, (x, y) ↦ (u²x + r, u³y + u²sx + t) carries solutions and nonsingular solutions of C • W to those of W. Over a field it induces the point-group isomorphism, in the direction from the changed equation to the original one. The action on the invariant differential is absent: Tau Ceti's ω lives in the Kähler differentials of the function field, and no variable-change law for it is stated. The intrinsic projective-model classification is also additional work."
       },
       {
        "target": "The relative effective Cartier divisor [0], its multiples, and the line bundles ℒ_n = 𝒪_E(n[0])",
@@ -1606,7 +1830,7 @@
          "fit": "related"
         }
        ],
-       "note": "The fibrewise count exists in function-field language: Riemann–Roch, and ℓ(nP) = n at a rational place of a genus-one function field. Tau Ceti also has absolute sheaf cohomology Hⁱ(X, M). Missing: the comparison with sheaf cohomology on a curve, higher direct images, local freeness of pushforwards, and cohomology and base change."
+       "note": "The fibrewise count exists in function-field language: Riemann–Roch, and ℓ(nP) = n at a rational place of a genus-one function field. Tau Ceti also has absolute sheaf cohomology Hⁱ(X, M). Missing: the comparison with sheaf cohomology on a curve, higher direct images, local freeness of pushforwards, and cohomology and base change. JacobianChallenge Layer C supplies cohomology and base change and Grauert's theorem, which 1C consumes as a declared dependency: a supplier, not a duplicate."
       },
       {
        "target": "Positive-degree theorem: for M invertible of constant positive fibre degree d, R¹π_*M = 0 and π_*M is locally free of rank d with base change; for d = 1 the evaluation section cuts out a unique section, compatibly with base change and fppf descent",
@@ -1639,9 +1863,16 @@
          "file": "TauCeti/FieldTheory/FunctionField/Consequences/HighDegree.lean",
          "line": 125,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.exists_poles_eq_natCast_zsmul_ofPoint",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Consequences/HighDegree.lean",
+         "line": 281,
+         "fit": "related"
         }
        ],
-       "note": "Not even the field case exists: Tau Ceti's own docstring names ℓ(nP) = n as the input for constructing Weierstrass coordinates, but no construction derives a Weierstrass equation from a genus-one function field."
+       "note": "Over a field Tau Ceti supplies the coordinates. For a function field with IsIntegrallyClosedIn k F and n ≥ 2g, there is a function with pole divisor exactly nP at a degree-one place P, so in genus one there are x and y with poles exactly 2P and 3P. But no relation in pole order six, basis or presentation is derived: Tau Ceti's own docstring names ℓ(nP) = n as the input for constructing Weierstrass coordinates, but no construction derives a Weierstrass equation from a genus-one function field."
       },
       {
        "target": "Classification: every pointed isomorphism of projective Weierstrass models over the same base is induced by a unique variable change, over an arbitrary base by descent",
@@ -1674,12 +1905,16 @@
        "note": "Its acceptance instance turns ℓ(n·[0]) = n into h⁰(X_F, 𝒪(n·[0])) = n on a genus-one curve: the fibre of 1C's rank computation."
       },
       {
-       "layer": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
-       "note": "Owns proper-flat pushforward, cohomology and base change and Grauert's theorem, which 1C consumes for π_*ℒ_n."
-      },
-      {
        "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
        "note": "Builds Rⁱf_*, cohomology and base change and Grauert's theorem over locally noetherian bases for relative curves, the same package 1C needs."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+       "note": "Plans, over a field and at the equation level, the theorem that every pointed isomorphism of Weierstrass models is a VariableChange: the shared field case of 1C's classification theorem. ModularCurves additionally needs arbitrary-base descent and uniqueness on projective models."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+       "note": "Plans Aut(E, O), the units of End, identified with the stabiliser of the curve in VariableChange: the automorphism case of the same classification over a field."
       }
      ]
     },
@@ -2083,9 +2318,44 @@
          "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Fundamental.lean",
          "line": 77,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.finrank_intermediateRing_eq_degree",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Rank.lean",
+         "line": 182,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.moduleProjective_intermediateRing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Rank.lean",
+         "line": 203,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.sum_ramificationIdx_mul_inertiaDeg_eq_degree",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Rank.lean",
+         "line": 239,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.moduleFinite_intermediateRing_of_isElliptic",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Finite.lean",
+         "line": 144,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.flat_iff_torsion_eq_bot",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/TorsionFree.lean",
+         "line": 138,
+         "fit": "related"
         }
        ],
-       "note": "The ring-level core is in Mathlib: for a finite flat algebra over a domain the fibre dimension at every prime equals the generic rank, and Σ e·f equals that rank. Tau Ceti has Σ e·f = [F′:F] for separable function-field extensions. The scheme-level statement for curves is absent."
+       "note": "The ring-level core is in Mathlib: for a finite flat algebra over a domain the fibre dimension at every prime equals the generic rank, and Σ e·f equals that rank. Tau Ceti has Σ e·f = [F′:F] for separable function-field extensions. The scheme-level statement for curves is absent. For isogenies φ: W₁ → W₂ of Weierstrass curves over a field, Tau Ceti proves the affine-chart ring-level form without any separability hypothesis, so the inseparable [N] and Frobenius are included. The ring of functions on W₁ regular away from φ⁻¹(O₂) is module-finite over W₂.CoordinateRing for elliptic source curves. It has rank deg φ under the compatible algebra and scalar-tower structures, and is projective over the Dedekind coordinate ring. Σ e·f = deg φ holds under the finite-flat prime-fibre hypotheses of that theorem. Mathlib's torsion-free-implies-flat criterion over Dedekind domains supplies flatness. This is neither an unconditional projectivity statement for singular equations nor the finite-flat theorem for smooth projective curves."
       },
       {
        "target": "Curve-flatness lemma: a finite morphism between S-smooth relative curves whose geometric fibres all have the same length is finite locally free (local flatness criterion and noetherian approximation); applied to [N]",
@@ -2232,9 +2502,23 @@
          "file": "Mathlib/RingTheory/Norm/Defs.lean",
          "line": 61,
          "fit": "related"
+        },
+        {
+         "name": "ClassGroup.relNorm",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/ClassGroup/RelNorm.lean",
+         "line": 143,
+         "fit": "related"
+        },
+        {
+         "name": "ClassGroup.equivPic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 876,
+         "fit": "related"
         }
        ],
-       "note": "Neither library defines norms of line bundles. Mathlib's Algebra.norm is the determinant of multiplication and is 1 by convention when there is no finite basis, so it does not cover projective non-free algebras."
+       "note": "Only the Dedekind case exists, on isomorphism classes. Tau Ceti's ClassGroup.relNorm is defined for finite torsion-free extensions of Dedekind domains, where extension followed by the norm is the rank-th power, and Mathlib identifies class groups with Picard groups (ClassGroup.equivPic). There is no norm functor on invertible sheaves along finite locally free morphisms, and no tower or arbitrary-base-change law. Mathlib's Algebra.norm is the determinant of multiplication and is 1 by convention when there is no finite basis, so it does not cover projective non-free algebras."
       },
       {
        "target": "The C-linearisation of Nm_pr₂(a^*𝒪_E(3[0])), its cocycle law and relative ampleness; a C-invariant affine cover from norm sections",
@@ -2361,9 +2645,30 @@
          "file": "TauCeti/AlgebraicGeometry/LineBundle/Class.lean",
          "line": 49,
          "fit": "related"
+        },
+        {
+         "name": "CommRing.Pic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 429,
+         "fit": "related"
+        },
+        {
+         "name": "CommRing.Pic.mapAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 553,
+         "fit": "related"
+        },
+        {
+         "name": "CommRing.Pic.functor",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 604,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti has only the commutative monoid of isomorphism classes of line bundles on a single scheme (inverses not yet constructed). No Picard functor, relative or absolute, exists."
+       "note": "Tau Ceti has only the commutative monoid of isomorphism classes of line bundles on a single scheme (inverses not yet constructed). Mathlib has the Picard group of a commutative semiring, with scalar-extension maps and the absolute functor R ↦ Pic R, that is T ↦ Pic(T) on affine T. Neither library has the relative fppf Picard functor of E/S, its rigidification or its degree-zero subfunctor. Mathlib's relPic, the kernel of a pullback, is not that relative quotient sheaf."
       },
       {
        "target": "λ_E : E ≅ Pic⁰_{E/S}, P ↦ 𝒪_E([P] − [0]): representability of the degree-zero subfunctor by E, as a group-scheme isomorphism with base change, with inverse from degree-one rigidified line bundles",
@@ -2503,9 +2808,23 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/TorsionDivisor.lean",
          "line": 42,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.eval",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
+         "line": 118,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.exists_linearlyEquivalent_disjoint_support",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/DisjointSupport.lean",
+         "line": 54,
+         "fit": "related"
         }
        ],
-       "note": "Neither side exists. Tau Ceti has only the first input of the divisor construction (n(T) − n(O) is principal for an n-torsion point T); the Elliptic Curves roadmap's weilPairing is a roadmap stub, not a library declaration."
+       "note": "Neither side exists. Tau Ceti has three of the five named inputs of the divisor construction, at the function-field level. First, n(T) − n(O) is principal at an n-torsion point T. Second, evaluation f(D) on divisors: Divisor.eval is total, and its product/norm interpretation needs the admissibility hypotheses, units at the support and finite residue extensions. Third, the moving lemma, avoiding a specified finite set of places. Weil reciprocity, the pairing and any relative-scheme version are absent; the Elliptic Curves roadmap's weilPairing is a roadmap stub, not a library declaration."
       }
      ],
      "duplicates": [
@@ -2532,9 +2851,30 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
          "line": 191,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.frobeniusTrace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 97,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_frobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Basic.lean",
+         "line": 149,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean",
+         "line": 96,
+         "fit": "related"
         }
        ],
-       "note": "Over a field Tau Ceti has the degree on the equation-level Hom carrier (zero map of degree 0). No trace and no scheme-level degree function exist."
+       "note": "Over a field Tau Ceti has the degree on the equation-level Hom carrier (zero map of degree 0). The only trace is the finite-field Frobenius trace a_q = q + 1 − #E(𝔽_q). Together with deg π_q = q and deg(1 − π_q) = #E(𝔽_q), this gives the degree expression for tr π_q on an elliptic Weierstrass equation. That is a numeric definition plus degree identities, not a characteristic polynomial or a general trace API. No trace of a general endomorphism and no scheme-level degree function exist."
       },
       {
        "target": "α̂ = [tr α] − α, α² − [tr α]α + [deg α] = 0 and (tr α)² ≤ 4 deg α, in the forms of KM 2.6.2–2.7",
@@ -2574,9 +2914,16 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
          "line": 222,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.eq_one_or_eq_negVariableChange_of_smul_eq",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+         "line": 178,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti proves Aut(E) ≅ ℤ/2 over a field when j ∉ {0, 1728}. There is no statement about automorphisms acting on torsion (Serre's lemma) and nothing over a base."
+       "note": "Tau Ceti proves that for an elliptic Weierstrass equation over any integral domain with j ∉ {0, 1728}, the stabiliser of E in VariableChange is ±1 (autGroupMulEquiv and the dichotomy eq_one_or_eq_negVariableChange_of_smul_eq). This is stable under injective base change. It does not show that every scheme automorphism is a variable change, and it does not cover the exceptional j. There is no statement about automorphisms acting on torsion (Serre's lemma), and nothing over non-domain or scheme bases."
       },
       {
        "target": "Regression: integral Drinfeld full-level rigidity fails; on a supersingular curve over F̄_p, (0,0) is a [Γ(p)]-structure fixed by [−1]",
@@ -2593,6 +2940,14 @@
       {
        "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
        "note": "Proves π_q² − [a_q]π_q + [q] = 0 and a_q² ≤ 4q from the degree form: the Frobenius instance of 2F's characteristic polynomial and inequality."
+      },
+      {
+       "layer": "PELModuli:M2",
+       "note": "Shares 2F's full-level rigidity assertion: in relative dimension one with principal polarisation and sufficiently rigid prime-to-characteristic full level, an automorphism fixing the level structure is trivial (KM 2.7.1). The broad 'rigidifying level' does not on its own supply every KM 2.7.1–2.7.4 variant, in particular the separate semi-Borel threshold."
+      },
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.5",
+       "note": "Its auxiliary prime-to-characteristic level rigidification includes the same full-level rigidity assertion for elliptic curves (KM 2.7.1). The other KM 2.7.1–2.7.4 variants remain 2F's."
       }
      ]
     },
@@ -2979,9 +3334,23 @@
          "file": "Mathlib/AlgebraicGeometry/EllipticCurve/VariableChange.lean",
          "line": 57,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Universal.specialize",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Universal.lean",
+         "line": 353,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.map_specialize",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Universal.lean",
+         "line": 367,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti has the universal Weierstrass curve over ℤ[A₁,…,A₆] as an equation (without Δ inverted), and Mathlib has the variable-change group. There is no scheme W_R, action groupoid or presentation theorem, and 1C's classification and presentation theorems, on which 4B rests, are absent."
+       "note": "Tau Ceti has the universal Weierstrass curve over ℤ[A₁,…,A₆] as an equation (without Δ inverted), with the specialisation map showing that every Weierstrass curve over a commutative ring is a base change of it (Universal.specialize, map_specialize), and Mathlib has the variable-change group. Inversion of the discriminant and its universal property are not constructed. There is no scheme W_R, action groupoid or presentation theorem, and 1C's classification and presentation theorems, on which 4B rests, are absent."
       }
      ],
      "duplicates": []
@@ -3094,9 +3463,23 @@
          "file": "Mathlib/AlgebraicGeometry/Properties.lean",
          "line": 376,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.finrank_zariskiTangentSpace_eq_coheight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/TangentSpace/Basic.lean",
+         "line": 71,
+         "fit": "related"
+        },
+        {
+         "name": "MvPolynomial.isRegularRing_of_isRegularRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RegularLocalRing/Polynomial.lean",
+         "line": 108,
+         "fit": "related"
         }
        ],
-       "note": "Only invariance of regular local rings under ring isomorphism, and the identification of the stalk's dimension with the coheight of the point. Mathlib's TODO says regular local rings are not yet shown to be regular rings under its definition; nothing on completions or étale maps exists."
+       "note": "Only invariance of regular local rings under ring isomorphism, and the identification of the stalk's dimension with the coheight of the point. Mathlib's TODO says regular local rings are not yet shown to be regular rings under its definition; nothing on completions or étale maps exists. Tau Ceti computes the Zariski tangent-space dimension at a point with regular local ring as its coheight, and Mathlib proves polynomial rings in finitely many variables over a regular ring are regular, the input for affine rigidifier bases. There is still no regular-scheme predicate, and the strict-henselization, completion and openness package is absent."
       },
       {
        "target": "Openness of the regular locus for schemes locally of finite type over an excellent base",
@@ -3367,8 +3750,16 @@
       {
        "target": "Surjectivity of det_N by lifting geometric points; the relative symplectic-frame carrier finite étale and surjective over μ_N^prim × Ell",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent in both libraries."
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.card_ker_mulByIntIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/KernelCard.lean",
+         "line": 117,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent in both libraries. The equation-level count #E[n](k) = n² over an algebraically closed field with n invertible is in Tau Ceti (card_ker_mulByIntIsogeny); the group structure (ℤ/N)², the basis and the relative lifting are absent."
       }
      ],
      "duplicates": [
@@ -3563,9 +3954,23 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Basic.lean",
          "line": 58,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.formalPointHom",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Hom.lean",
+         "line": 149,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.range_formalPointHomAdicCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean",
+         "line": 158,
+         "fit": "related"
         }
        ],
-       "note": "Only the coordinate formal group law of a Weierstrass equation exists. Details under 7C."
+       "note": "Only the coordinate formal group law of a Weierstrass equation exists. Details under 7C. Tau Ceti also makes the adic-ideal points of this law an additive group (FormalGroupPoint), under its complete linear-topology, adic-ideal, field-algebra, ellipticity and auxiliary-parameter hypotheses. It proves the parametrisation into E(K) additive and injective. Over a Dedekind adic completion the auxiliary assumption is removed, and the range theorem says the image consists of zero and the points whose x-coordinate has a pole; reading this as E₁(K_v) is the classical interpretation, not a proved comparison with an intrinsic reduction map. This is point-level compatibility with the group law, not the intrinsic completion of E/S."
       },
       {
        "target": "7D: universal deformations of elliptic curves over W(k)[[T]]",
@@ -3668,10 +4073,6 @@
       {
        "layer": "AlgebraicModuliForArithmeticGeometry:R09.6",
        "note": "Relates the deformation functor at a geometric point to the completed local ring of the constructed scheme or stack: the general form of 7B's comparison."
-      },
-      {
-       "layer": "DeformationAndDerivedPatchingAlgebra:R03.2",
-       "note": "Owns Schlessinger's criterion and prorepresenting objects versus hulls, the representability input 7B uses."
       }
      ]
     },
@@ -3702,9 +4103,23 @@
          "file": "Mathlib/RingTheory/FormalGroup/Basic.lean",
          "line": 56,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.formalPointHom",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Hom.lean",
+         "line": 149,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.range_formalPointHomAdicCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean",
+         "line": 158,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti builds the commutative formal group law of a Weierstrass curve over any commutative ring, from the chord construction in the parameter z = −x/y, on Mathlib's FormalGroup, with base change. It is a coordinate construction on an equation, not the intrinsic completion of E/S along its zero section."
+       "note": "Tau Ceti builds the commutative formal group law of a Weierstrass curve over any commutative ring, from the chord construction in the parameter z = −x/y, on Mathlib's FormalGroup, with base change. It is a coordinate construction on an equation, not the intrinsic completion of E/S along its zero section. Tau Ceti also makes the adic-ideal points of this law an additive group (FormalGroupPoint), under its complete linear-topology, adic-ideal, field-algebra, ellipticity and auxiliary-parameter hypotheses. It proves the parametrisation into E(K) additive and injective. Over a Dedekind adic completion the auxiliary assumption is removed, and the range theorem says the image consists of zero and the points whose x-coordinate has a pole; reading this as E₁(K_v) is the classical interpretation, not a proved comparison with an intrinsic reduction map. This is point-level compatibility with the group law, not the intrinsic completion of E/S."
       },
       {
        "target": "A parameter (trivialisation of the conormal line) gives an isomorphism of the completed local ring with A[[X]]; change of parameter X ↦ uX + ⋯; coordinate formulae stated equivariantly",
@@ -3730,8 +4145,16 @@
       {
        "target": "In a chosen coordinate the completed divisor n[0] is (Xⁿ = 0); the formal p-series related to Frobenius and Verschiebung",
        "library": "absent",
-       "declarations": [],
-       "note": "Neither library has a multiplication-by-p series of a formal group or a Verschiebung."
+       "declarations": [
+        {
+         "name": "FormalGroup.Point",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/FormalGroup/Basic.lean",
+         "line": 126,
+         "fit": "related"
+        }
+       ],
+       "note": "The [p]-series exists only implicitly, as p • X in Mathlib's AddMonoid structure on FormalGroup.Point (the universal point over Unit), with no name or lemmas. Neither library has a Verschiebung, relates the p-series to Frobenius, or identifies the completed n[0] with (Xⁿ = 0)."
       }
      ],
      "duplicates": [
@@ -4116,8 +4539,16 @@
       {
        "target": "Geometric fibres prime power by prime power: subgroups of (ℤ/N)² away from the characteristic; the unique rank-pⁿ subgroup ker(Fⁿ) of E[pⁿ] in the supersingular case; the subgroups μ_{pᵃ} × p^{n−b}(ℤ/pⁿ), a + b = n, in the ordinary case; coprime assembly via 3A",
        "library": "absent",
-       "declarations": [],
-       "note": "Needs PD-4, PD-5 and the 3A product theorems, all absent."
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.card_ker_mulByIntIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/KernelCard.lean",
+         "line": 117,
+         "fit": "related"
+        }
+       ],
+       "note": "Needs PD-4, PD-5 and the 3A product theorems, all absent. Away from the characteristic, Tau Ceti has the equation-level count: for an elliptic Weierstrass equation over an algebraically closed field and n invertible there, the multiplication-by-n kernel has |n|² points (card_ker_mulByIntIsogeny). Cardinality alone does not give E[N](k) ≅ (ℤ/N)². That structure theorem, its scheme-theoretic form, the subgroup count, the level-basis argument and the characteristic-p cases are absent."
       }
      ],
      "duplicates": []
@@ -4417,8 +4848,16 @@
       {
        "target": "(𝒫_{E/S})/H ⟶ (𝒫/H)_{E/S} is bijective on geometric points, and an isomorphism if |H| is invertible or the action is free; the ℤ[x], x ↦ −x regression example",
        "library": "absent",
-       "declarations": [],
-       "note": "Neither library has a base-change theorem for invariant rings when |H| is invertible (searched: Reynolds, invariant with baseChange)."
+       "declarations": [
+        {
+         "name": "Representation.isProj_averageMap",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Invariants.lean",
+         "line": 142,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's Reynolds operator Representation.averageMap, with isProj_averageMap, exhibits the invariants as the image of a projection when |G| is invertible, for a representation over a commutative ring; for conditions stated only after extension, first localize where the order is invertible. Neither library states the resulting base change of invariant rings, which also needs compatibility of scalar extension with the action and the algebra structure. The free and radicial cases are absent."
       },
       {
        "target": "Finiteness of 𝒫 ⟶ 𝒫/H under finite type; normality of 𝒫/H when 𝒫 is normal; finiteness of 𝒫/H over Ell/R for noetherian R",
@@ -4458,9 +4897,16 @@
          "file": "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/Galois/BaseChange.lean",
          "line": 98,
          "fit": "related"
+        },
+        {
+         "name": "Representation.isProj_averageMap",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Invariants.lean",
+         "line": 142,
+         "fit": "related"
         }
        ],
-       "note": "The flat case is within reach: the invariant ring is the equalizer of two algebra maps into a finite product, and Mathlib proves that equalizers of algebra maps commute with flat base change. Tau Ceti proves base change of invariants only for twisted group algebras under a finite Galois extension. The invertible-order, free and radicial statements are absent."
+       "note": "The flat case is within reach: the invariant ring is the equalizer of two algebra maps into a finite product, and Mathlib proves that equalizers of algebra maps commute with flat base change. Tau Ceti proves base change of invariants only for twisted group algebras under a finite Galois extension. The invertible-order, free and radicial statements are absent. Mathlib's Reynolds operator Representation.averageMap, with isProj_averageMap, exhibits the invariants as the image of a projection when |G| is invertible, for a representation over a commutative ring; for conditions stated only after extension, first localize where the order is invertible. Neither library states the resulting base change of invariant rings, which also needs compatibility of scalar extension with the action and the algebra structure."
       },
       {
        "target": "Application to Drinfeld full level: after inverting N, identification with the fppf sheaf quotient of the naive ordered-basis problem, kept distinct from the orbit presheaf and the coarse quotient",
@@ -4513,7 +4959,12 @@
        "note": "Absent in both libraries; Tau Ceti's diamond operators act on analytic modular forms only."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "ModularCurvesPartII:R14.1",
+       "note": "Constructs the diamond operators on the moduli objects from the moduli interpretation; 9B records the same action P ↦ aP."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/ModularCurves#9c-axiomatic-regularity-of-quotients": {
      "verdict": "not built",
@@ -4565,8 +5016,16 @@
       {
        "target": "KM 8.1.5: M(𝒫)/H ≅ M(𝒫/H) compatibly with classifying maps; KM 8.1.6: M(𝒫 ⊗_R R′) ≅ M(𝒫) ⊗_R R′ if 𝒫 is representable, R ⟶ R′ is flat, 6 is invertible, or 𝒫 = 𝒫′/G with |G| invertible in R′",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent in both libraries."
+       "declarations": [
+        {
+         "name": "Representation.isProj_averageMap",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Invariants.lean",
+         "line": 142,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent in both libraries. Mathlib's Reynolds operator Representation.averageMap, with isProj_averageMap, exhibits the invariants as the image of a projection when |G| is invertible, for a representation over a commutative ring; for conditions stated only after extension, first localize where the order is invertible. Neither library states the resulting base change of invariant rings, which also needs compatibility of scalar extension with the action and the algebra structure. The free and radicial cases are absent."
       }
      ],
      "duplicates": [
@@ -4600,9 +5059,16 @@
          "file": "Mathlib/AlgebraicGeometry/EllipticCurve/VariableChange.lean",
          "line": 246,
          "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.AffineSpace.homOverEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/AffineSpace.lean",
+         "line": 152,
+         "fit": "related"
         }
        ],
-       "note": "The j-invariant of a Weierstrass equation and its invariance under variable changes are in Mathlib; the morphism from the moduli problem is not."
+       "note": "The j-invariant of a Weierstrass equation and its invariance under variable changes are in Mathlib; the morphism from the moduli problem is not. Mathlib identifies S-morphisms to 𝔸(n; S) with n-tuples of global sections, the form in which a glued j(E/S) ∈ Γ(S, 𝒪_S) becomes a morphism to 𝔸¹. The gluing of j from local Weierstrass equations, the morphism of moduli problems and its descent to the coarse space are absent."
       },
       {
        "target": "Two elliptic curves over an algebraically closed field with the same j-invariant are isomorphic (Silverman III.1.4(b)), and every j occurs",
@@ -4716,9 +5182,16 @@
          "file": "TauCeti/NumberTheory/Modular/Stabilizer.lean",
          "line": 116,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.ModularGroup.card_stabilizer_ρ",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Modular/Stabilizer.lean",
+         "line": 123,
+         "fit": "related"
         }
        ],
-       "note": "Only the generic case is proved: Aut(E) ≅ ℤ/2 over a field (any characteristic) when j ∉ {0, 1728}. The exceptional orders are not computed; Tau Ceti's stabiliser orders 4 and 6 in SL₂(ℤ) are the analytic, characteristic-zero shadow."
+       "note": "Only the generic case is proved: Aut(E) ≅ ℤ/2 for an elliptic Weierstrass equation over any integral domain (in particular any field, in every characteristic) when j ∉ {0, 1728}. The exceptional orders are not computed; Tau Ceti's stabiliser orders 4 and 6 in SL₂(ℤ) are the analytic, characteristic-zero shadow."
       },
       {
        "target": "For N ≥ 3: M([Γ₀(N)]) ⊗ ℤ[1/N] ≅ Y_full(N)/B via flat coarse base change, KM 7.4.2(4), coarse-quotient compatibility and full-level representability, with its coarse universal property",
@@ -4897,6 +5370,13 @@
          "file": "TauCeti/NumberTheory/Modular/Stabilizer.lean",
          "line": 116,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.ModularGroup.card_stabilizer_ρ",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Modular/Stabilizer.lean",
+         "line": 123,
+         "fit": "related"
         }
        ],
        "note": "Only Aut(E) ≅ ℤ/2 for j ∉ {0, 1728} is proved, and Tau Ceti's level-one stabiliser orders are analytic. The exceptional automorphism groups in characteristics 2 and 3 are not computed; Tau Ceti's QuadraticTwist.lean notes that Aut can be larger at j ∈ {0, 1728} and claims nothing there."
@@ -4941,7 +5421,7 @@
          "fit": "related"
         }
        ],
-       "note": "Some supplier ingredients exist in Tau Ceti for function fields: the different divisor, Dedekind's theorem (e ≤ d + 1, with equality in the tame case), lower ramification groups G_i, Ω[F/k] of dimension one, and a truncated Euler characteristic of a sheaf over a field. Missing: Hilbert's different formula, any form of the Hurwitz genus formula (named only as a future consumer in a docstring), constancy of χ in families, and the modular application."
+       "note": "Some supplier ingredients exist in Tau Ceti for function fields: the different divisor, Dedekind's theorem (e ≤ d + 1, with equality in the tame case), lower ramification groups G_i, Ω[F/k] of dimension one, and a truncated Euler characteristic of a sheaf over a field. Missing: Hilbert's different formula, any form of the Hurwitz genus formula (named only as a future consumer in a docstring), constancy of χ in families, and the modular application. AlgebraicCurves Layers 7 and 8 are the declared suppliers of the different, Dedekind's theorem, the Hurwitz formula and Hilbert's different formula; Layer 10 keeps the modular assembly and the constancy of Euler characteristics."
       },
       {
        "target": "G = (ℤ/N)ˣ/±1 is cyclic of order (N−1)/2 for prime N, with a unique subgroup H of order gcd(N−1, 12)/2",
@@ -4969,6 +5449,48 @@
        "library": "absent",
        "declarations": [],
        "note": "Neither library has miracle flatness or any modular curve over ℤ[1/N]."
+      },
+      {
+       "target": "The projective j-line ℙ¹_j over ℤ[1/N] (Proj of ℤ[1/N][X₀,X₁] graded by degree), its affine chart 𝔸¹_j = D₊(X₁) and the infinity section ∞ = V₊(X₁), with 𝔸¹_j the open complement of ∞",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MvPolynomial.gradedAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+         "line": 615,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Proj.awayι",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Basic.lean",
+         "line": 186,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Proj.affineOpenCover",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Basic.lean",
+         "line": 336,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Proj.instIsProperToSpecZeroOfFiniteTypeSubtypeMemOfNatNat",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Proper.lean",
+         "line": 372,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.AffineSpace",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/AffineSpace.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the degree grading on a polynomial ring and its Proj. Proj is proper over Spec of its degree-zero part (for a finite-type degree-zero algebra) and covered by the open immersions Proj.awayι, and affine space exists. Missing are a named ℙ¹, the identification of the degree-zero ring with the base and of the chosen chart with 𝔸¹, and the section ∞ with its open complement. The later Layer 10 targets assume this carrier."
       }
      ],
      "duplicates": [
@@ -4985,20 +5507,16 @@
        "note": "Constructs coarse compactified curves at all levels and proves agreement with Layer 10 for prime N ≥ 5 diamond quotients by uniqueness of normalisation."
       },
       {
-       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
-       "note": "Declared supplier of the different divisor, Dedekind's different theorem and the Hurwitz genus formula consumed in item 3."
-      },
-      {
-       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
-       "note": "Declared supplier of the lower-numbering ramification groups and Hilbert's different formula d = Σ(|G_i| − 1) consumed in item 3."
-      },
-      {
        "layer": "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
        "note": "Computes the cusp count and the elliptic-point counts ε₂, ε₃ of congruence subgroups analytically: the characteristic-zero counterpart of item 2's cusp count and item 3's inertia over j = 1728 and 0."
       },
       {
        "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
        "note": "Owns the Tate curve as an equation with its coefficients defined as explicit q-series over ℤ⟦q⟧, together with the point-level Galois-equivariant uniformisation L^× / q^ℤ ≅ E_q(L), and defers the scheme packaging to a scheme-facing roadmap: the equation-level half of item 2's Tate curve over ℤ[1/N]((q))."
+      },
+      {
+       "layer": "ModularCurvesPartII:R14.1",
+       "note": "Owns (RS-06) the algebraic diamond operators on this roadmap's moduli objects and their extension to compactifications. This is the same output as Layer 10's extension, at prime level, of the (ℤ/N)ˣ/±1 action along X₁(N) → X₀(N) and the quotient X₂(N) = X₁(N)/H. RS-06's ownership boundaries and the prime-level hypotheses stand; the Shimura quotient and ramification package is not identified with R14.1."
       }
      ]
     }
