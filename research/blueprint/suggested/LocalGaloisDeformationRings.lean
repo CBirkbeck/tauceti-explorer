@@ -195,3 +195,38 @@ example (n m : ℤ) : m * (n - m) + (n - m) ^ 2 + (m ^ 2 - 1) + (m * (n - m) + 1
 example : 1 + 1 + 3 = 5 ∧ 2 * (2 + 1) / 2 + 1 * (2 * (2 - 1) / 2) = 4 := by decide
 
 end TauCeti.GaloisDeformation.Local.SuggestedTest
+
+/-! ## R08.5 (checkpoint 8): Kisin's 2-adic rings -/
+
+namespace TauCeti.GaloisDeformation.Local.R085Test
+
+/-- `R08.5/kisin-local-rings-p2-comparison` (Kisin 2.5.6, trivial `V_𝔽`): the universal odd lift
+`c ↦ !![1 + x, y; z, -1 - x]` has determinant `−1` exactly on `x² + 2x + yz = 0`. -/
+example {R : Type*} [CommRing R] (x y z : R) :
+    Matrix.det !![1 + x, y; z, -1 - x] = -1 - (x ^ 2 + 2 * x + y * z) := by
+  simp [Matrix.det_fin_two]
+  ring
+
+/-- `R08.5/kisin-local-rings-p2-comparison` (Kisin 2.5.6, unipotent `V_𝔽`): for `c ↦ !![1 + x, 1 + y; z, -1 - x]` the
+relation is `x² + 2x + yz + z = 0`. -/
+example {R : Type*} [CommRing R] (x y z : R) :
+    Matrix.det !![1 + x, 1 + y; z, -1 - x] = -1 - (x ^ 2 + 2 * x + y * z + z) := by
+  simp [Matrix.det_fin_two]
+  ring
+
+/-- `R08.5/kisin-local-rings-p2-comparison`: on the relation, the lift squares to the identity, so it is a
+representation of `Gal(ℂ/ℝ)`. -/
+example {R : Type*} [CommRing R] (x y z : R) (h : x ^ 2 + 2 * x + y * z = 0) :
+    !![1 + x, y; z, -1 - x] * !![1 + x, y; z, -1 - x] = 1 := by
+  ext i j
+  fin_cases i <;> fin_cases j
+  · simp [Matrix.mul_apply, Fin.sum_univ_two]
+    linear_combination h
+  · simp [Matrix.mul_apply, Fin.sum_univ_two]
+    ring
+  · simp [Matrix.mul_apply, Fin.sum_univ_two]
+    ring
+  · simp [Matrix.mul_apply, Fin.sum_univ_two]
+    linear_combination h
+
+end TauCeti.GaloisDeformation.Local.R085Test

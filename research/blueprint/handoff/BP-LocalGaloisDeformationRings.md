@@ -1,9 +1,38 @@
-# BP-LocalGaloisDeformationRings: R08.1–R08.4 and L8, parts of R08.6 and L7 (checkpoint 7)
+# BP-LocalGaloisDeformationRings: R08.1–R08.4 and L8, parts of R08.5, R08.6 and L7 (checkpoint 8)
 
 Claude Code — session `cc-39fac3`, 28–29 September 2026. Refs #770. **Status: partial.**
 - R08.1, R08.2, R08.3, R08.4 and L8 are `source_decomposed`.
-- R08.6 and L7 are `partial`.
-- R08.5 is `not_read`.
+- R08.5, R08.6 and L7 are `partial`.
+
+## Checkpoint 8: Kisin's 2-adic rings in R08.5 (8 nodes)
+
+**Source.** Kisin, *Modularity of 2-adic Barsotti–Tate representations*, author's DVI serre2.dvi (sha256
+a11fdea3…97bf7d), §2, pp. 19–35. It was read through the DVI text extraction.
+
+**Nodes:**
+- `connected-kisin-modules-with-coefficients` (construction; 6 API items, 4 tests);
+- `etale-multiplicative-parts`;
+- `connected-model-moduli`;
+- `flat-connected-deformation-ring` (planet);
+- `rank-two-type-v`;
+- `rank-two-connected-components` (planet);
+- `ordinary-deformations-p2`;
+- `kisin-local-rings-p2-comparison` (comparison with R08.1–R08.2).
+
+**New request:** FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4, for Kisin §1: connected Kisin modules classify
+connected finite flat group schemes at p = 2. The Pappas–Rapoport local-model gap is extended to Deligne–Pappas's use in
+2.3.9(3).
+
+**Source findings:** none. The 2.5.4 tangent computation splits ad = E′ ⊕ ad⁰ only over characteristic 0, which is
+legitimate at p = 2.
+
+**R08.5 remaining:**
+- KW II's endpoint and dyadic calculations beyond Kisin §2;
+- KW I Theorem 4.1's endpoint weights.
+
+**Checks.** `check_blueprint.py`: 72 nodes, 0 errors, 0 warnings. The Lean file compiles with exit 0 against the pinned
+Mathlib. It adds three checked tests for Kisin 2.5.6: the two determinant relations, and that the lift squares to the
+identity.
 
 ## Checkpoint 7: CHT's local conditions in L7 (6 nodes)
 

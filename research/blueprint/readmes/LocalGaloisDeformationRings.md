@@ -4,8 +4,8 @@ This blueprint covers stages L7, L8 and R08.1–R08.6, within the boundaries of 
 blueprint now plans **R08.1 (unrestricted local rings)** and **R08.2 (places away from p)**, both source-decomposed. It
 also plans **R08.3 (potentially semistable rings)** and **R08.4 (finite-flat and Barsotti–Tate components)**, both
 source-decomposed, and the **bounded-height lattice moduli and ordinary flag rings of L7** and **KW II's local exports in
-R08.6**, both partial. **L8 (ordinary flags versus determinant ordinary conditions)** is source-decomposed. R08.5 is not
-yet read.
+R08.6**, both partial. **L8 (ordinary flags versus determinant ordinary conditions)** is source-decomposed. **R08.5
+(dyadic and endpoint cases)** is partial: Kisin's 2-adic paper §2 is planned (checkpoint 8).
 
 ## Purpose and ownership (RS-08)
 
@@ -322,6 +322,47 @@ and they match the unramified sub and quotient of the Galois representation.
 - So the Breuil–Mézard conjecture holds for k = 2 with τ tame.
 - R08.6/export-weight-two-irreducible now cites this node.
 
+## Layer R08.5 (partial): the 2-adic rings of Kisin (checkpoint 8)
+
+Source: Kisin, *Modularity of 2-adic Barsotti–Tate representations*, author's DVI (serre2.dvi), §2, pp. 19–35. The p = 2
+classification of connected finite flat group schemes by connected Kisin modules (Kisin §1) is requested from
+FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4. Library module:
+`TauCeti/NumberTheory/GaloisDeformation/FiniteFlatTwoAdic`.
+
+**Construction: connected Kisin modules with coefficients** (`KisinModuleCoeff`; node
+`R08.5/connected-kisin-modules-with-coefficients`; 2.1.1–2.1.7).
+- (Mod/𝔖)_A and the connected condition ψ_n(𝔐) ⊆ (p, u)φ^{n*}(𝔐).
+- The étale and multiplicative objects.
+- The groupoids D_{V_𝔽}, D_{M_𝔽}, D_{𝔖,M_𝔽} ⊇ D^c.
+- *Unit tests:* three rank-one φ's (étale, multiplicative, and the cyclotomic pE(u)/E(0)), and the p odd versus p = 2
+  non-example.
+
+**Lemmas:**
+- Étale and multiplicative parts, with "connected iff the étale part vanishes" and open–closedness (`etale-multiplicative-parts`;
+  2.1.8–2.1.10).
+- Moduli of connected models (`connected-model-moduli`, Proposition 2.1.12).
+
+**Theorem: flat connected deformation rings at p = 2** (node `R08.5/flat-connected-deformation-ring`; planet; §2.2).
+- Closedness and openness are 2.2.2.
+- The generic fibre is smooth (2.2.3).
+- Θ is an isomorphism after inverting p (2.2.7).
+
+**Lemma: type v and the determinant** (`rank-two-type-v`; 2.3.1–2.3.4). det H = pE(u)/E(0)·w; a connected module of type
+v has no multiplicative part; and the determinant condition holds.
+
+**Theorem: components of 2-adic Barsotti–Tate rings** (node `R08.5/rank-two-connected-components`; planet; 2.3.9, 2.3.11,
+2.3.13).
+- The local rings are those of Hilbert modular varieties (Deligne–Pappas; this extends the local-model gap).
+- R^{fl,c,ψ,□}[1/p] is formally smooth of dimension 3 + [K : ℚ_p], and connected when k = 𝔽_p or the action is trivial.
+
+**Theorem: ordinary rings at p = 2** (node `R08.5/ordinary-deformations-p2`; §2.4, for general K). H¹_f is right exact,
+the ordinary flag scheme is projective, the points are crystalline (χη ∗; 0 η^{−1}), and the ring is a domain except in
+the split case.
+
+**Comparison** (node `R08.5/kisin-local-rings-p2-comparison`; §2.5). Kisin's rings away from 2 and at ∞ are R08.1–R08.2's
+nodes with p = 2 allowed. Lean checks the archimedean relations x² + 2x + yz = 0 and x² + 2x + yz + z = 0, and that the
+lift squares to the identity.
+
 ## Layer R08.6 (partial): KW II's local exports
 
 Library module: `TauCeti/NumberTheory/GaloisDeformation/LocalExports`.
@@ -409,7 +450,7 @@ and [F_v : ℚ_p] > n(n + 1)/2 + 1.
 - **R08.6:** KW I's types, the good-dihedral type, the dyadic transition and the modern de Rham applications.
 - **R08.4 is source-decomposed** (checkpoint 5). One gap remains: Pappas–Rapoport local models, which no roadmap plans
   (see the packet's `gaps`).
-- **R08.5:** dyadic cases.
+- **R08.5 (partial):** KW II's endpoint and dyadic calculations beyond Kisin §2, and KW I Theorem 4.1's endpoint weights.
 - **R08.6:** exports.
 - **L7:** CHT's Fontaine–Laffaille, ordinary and discrete series conditions are planned (checkpoint 7). Still to do:
   - ordinary functors whose characters vary, for nontrivial ρ̄ in rank n > 2 (Geraghty §3 is still to be read);
@@ -435,6 +476,8 @@ and [F_v : ℚ_p] > n(n + 1)/2 + 1.
   *Potential automorphy over CM fields*, arXiv:1812.09999v2 (Ann. of Math. 197 (2023)), §6.2.6.
 - C. M. Skinner and A. J. Wiles, *Residually reducible representations and modular forms*, Publ. Math. IHÉS 89 (1999),
   Lemma 2.2 and Corollary 2.3 (Numdam).
+- M. Kisin, *Modularity of 2-adic Barsotti–Tate representations*, Invent. Math. 178 (2009): the author's preprint DVI
+  (serre2.dvi), §2.
 - D. Savitt, *On a conjecture of Conrad, Diamond, and Taylor*, Duke Math. J. 128 (2005): arXiv:math/0404327v3, the
   author's corrected version (Remark 1.7).
 
