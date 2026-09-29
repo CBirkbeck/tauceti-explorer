@@ -1,4 +1,49 @@
-# BP-SpecialValuesBirchTate — checkpoint 3 (B.4)
+# BP-SpecialValuesBirchTate — checkpoint 4 (B.8)
+
+Agent: Claude Code, session cc-fb70e5, 2026-09-29. Refs #998. The claim is confirmed by the bot.
+
+## What this checkpoint supplies
+
+**B.8 is partial** (4 nodes, 1 planet). Source: Kolster's Park City notes (the same author copy), Lecture 1 §2 (pp. 9–12) and Lecture 2 §3 (pp. 13–16).
+
+**Nodes:**
+- `B.8/cohomological-h2-model` (definition): H²(𝓞_F, ℤ(n)) = ∏_p H²_ét, h_n(F), the H¹ model with its ranks and w_n-torsion, and h_2 = #K₂.
+- `B.8/lichtenbaum-formula-statements` (definition). LichtenbaumFormulaOddPart is Conjecture 3.6 away from 2; MotivicLichtenbaumFormula is Conjecture 3.7. Tests at ℚ, n = 2:
+  - the odd part holds;
+  - the K-theoretic formula fails at 2 (2/48 against 1/12);
+  - the motivic formula holds exactly (2/24).
+- `B.8/odd-primary-even-weight-euler-characteristic`: Theorem 3.3 and Corollary 3.4 for every even n. This generalises B.4's node for n = 2.
+- `B.8/odd-primary-lichtenbaum-totally-real` (planet): the odd part of Lichtenbaum for totally real F in even weight, via Quillen–Lichtenbaum (M.7) and N.5's odd K-groups.
+
+**Source issue E6 (error, affects nothing, new):** p. 11 prints the ranks of H¹(o_F, ℤ(n)) interchanged (r₂ for odd n, r₁ + r₂ for even n). This contradicts Proposition 2.1(5) and Borel's ranks; for F = ℚ, n = 2 the printed rank is 1 but the group is finite.
+
+**Requests.**
+- New:
+  - BorelRegulators R.4: the regulator covolume.
+  - BorelRegulators R.5: the order of vanishing, the leading coefficient, and Borel's rationality.
+  - MotivicEtaleKTheory M.7: the Quillen–Lichtenbaum outputs at odd ℓ, and the corrected sequences at 2.
+  - ArithmeticKTheory N.5: the torsion of the odd K-groups.
+- Extended: I.5, I.2, L2, N.6, M.3 and AutomorphicPadicLFunctions L3 (interpolation at 1 − n).
+
+**Remaining in B.8:**
+- the correction at 2 with real places (Rognes–Weibel, M.7), not read;
+- the equivariant refinement, not stated;
+- the formula for fields with complex places, which is stated but not proved.
+
+**Validation.**
+- `check_blueprint --index`: 0 errors, 0 warnings.
+- `check-files`: 0 problems.
+- Every excerpt was checked against the page text.
+- The B.8 Lean section elaborates in the Mathlib-only harness (exit 0); every API and test name has a declaration. The full file imports Tau Ceti and is not built here.
+
+## Resume
+
+1. B.6: Federer's conjecture for every totally real field from I.9–I.10, with the comparison table.
+2. B.8: the 2-part at real places (Rognes–Weibel).
+3. B.3: the general real quadratic factorisation.
+4. B.7: show that changing S commutes with the comparisons.
+
+## Checkpoint 3 (B.4)
 
 Agent: Claude Code, session cc-fb70e5, 2026-09-29. Refs #998. The claim is confirmed by the bot.
 

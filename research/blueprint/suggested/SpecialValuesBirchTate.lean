@@ -32,7 +32,7 @@ and signatures. All proposed results are unproved prototypes at the pinned basel
 
 Layers covered: B.1 (the formula), B.2 (sign and equivalent forms), B.3 (ℚ and ℚ(√5)),
 B.4 (the odd-primary theorem), B.5 (totally real abelian fields, with the 2-primary part),
-B.7 (S-integers and Euler factors).
+B.7 (S-integers and Euler factors), B.8 (the Lichtenbaum statements and their odd part in even weight).
 
 Three objects are imported from other roadmaps and are not planned here. Until their owners
 land they appear below as placeholders named after the owners' planned declarations:
@@ -356,6 +356,97 @@ example (ℓ f : ℕ) (hℓ : 2 ≤ ℓ) (hf : 1 ≤ f) : ¬ ℓ ∣ ℓ ^ f - 1
 
 /-- B.4 acceptance: `ℚ(√5)`, `w₂ = 120`, `ζ(−1) = 1/30`, so `120 · (1/30) = 4` has no odd part. -/
 example : (120 : ℚ) * (1 / 30) = 4 := by norm_num
+
+/-! ## B.8 Lichtenbaum formulas (Kolster, Park City notes, Conjectures 3.6–3.7, Theorem 3.3) -/
+
+/-- `H²(𝓞_F, ℤ(n)) = ∏_p H²_ét(𝓞_F[1/p], ℤ_p(n))`, a finite group (ArithmeticKTheory N.6). -/
+def etaleH2Model (F : Type*) [Field F] [NumberField F] (n : ℕ) : Type := sorry
+
+/-- `h_n(F) = #H²(𝓞_F, ℤ(n))`. -/
+def hInvariant (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℕ := Nat.card (etaleH2Model F n)
+
+/-- `H¹(𝓞_F, ℤ(n))`, with `H¹ ⊗ ℤ_p ≅ H¹_ét(𝓞_F[1/p], ℤ_p(n))`. -/
+def etaleH1Model (F : Type*) [Field F] [NumberField F] (n : ℕ) : Type := sorry
+
+/-- BorelRegulators R.5: the leading coefficient `ζ*_F(1 − n)`. -/
+def zetaLeadingCoeff (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℝ := sorry
+
+/-- BorelRegulators R.4: Borel's regulator covolume `R_n^B(F)` (`= 1` in rank zero). -/
+def borelRegulator (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℝ := sorry
+
+/-- The ratio `ζ*_F(1 − n)/R_n^B(F)`, rational by Borel's theorem (R.5). -/
+def borelRatio (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℚ := sorry
+
+/-- `#K_i(𝓞_F)` and `#K_i(𝓞_F)_tors` for the higher K-groups (ArithmeticKTheory N.3, N.5). -/
+def cardK (F : Type*) [Field F] [NumberField F] (i : ℕ) : ℕ := sorry
+def cardKTorsion (F : Type*) [Field F] [NumberField F] (i : ℕ) : ℕ := sorry
+
+/-- B.8/lichtenbaum-formula-statements: Conjecture 3.6 away from 2. -/
+def LichtenbaumFormulaOddPart (F : Type*) [Field F] [NumberField F] (n : ℕ) : Prop :=
+  ∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ 2 →
+    padicValRat ℓ (borelRatio F n) =
+      (padicValNat ℓ (cardK F (2 * n - 2)) : ℤ) - padicValNat ℓ (cardKTorsion F (2 * n - 1))
+
+/-- The ℤ-rank and torsion order of `H¹(𝓞_F, ℤ(n))`. -/
+def etaleH1ModelRank (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℕ := sorry
+def etaleH1ModelTorsionCard (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℕ := sorry
+
+/-- B.8/lichtenbaum-formula-statements: Conjecture 3.7 (motivic), with `R_n^M` from BorelRegulators. -/
+def MotivicLichtenbaumFormula (F : Type*) [Field F] [NumberField F] (n : ℕ) (motivicRegulator : ℝ) : Prop :=
+  |zetaLeadingCoeff F n| = (hInvariant F n : ℝ) / etaleH1ModelTorsionCard F n * motivicRegulator
+
+section Lichtenbaum
+variable (F : Type*) [Field F] [NumberField F]
+
+/-- B.8/odd-primary-even-weight-euler-characteristic (Kolster, Theorem 3.3, Corollary 3.4). -/
+theorem padicValRat_zeta_one_sub_eq_etale [IsTotallyReal F] (n : ℕ) (hn : 2 ≤ n) (he : Even n)
+    (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : ℓ ≠ 2) (q : ℚ) (hq : dedekindZetaCont F (1 - n) = q) :
+    padicValRat ℓ |q| =
+      (padicValNat ℓ (hInvariant F n) : ℤ) - padicValNat ℓ (wInvariant n F) := by sorry
+
+/-- B.8/odd-primary-lichtenbaum-totally-real. -/
+theorem lichtenbaumFormulaOddPart_of_isTotallyReal [IsTotallyReal F] (n : ℕ) (hn : 2 ≤ n)
+    (he : Even n) : LichtenbaumFormulaOddPart F n := by sorry
+
+/-- `rank H¹(𝓞_F, ℤ(n)) = r₁ + r₂` for odd `n`, `r₂` for even `n` (Kolster p. 11 prints them interchanged, E6). -/
+theorem rank_etaleH1Model (n : ℕ) (hn : 2 ≤ n) :
+    etaleH1ModelRank F n = if Odd n then nrRealPlaces F + nrComplexPlaces F else nrComplexPlaces F := by sorry
+
+/-- `#H¹(𝓞_F, ℤ(n))_tors = w_n(F)`. -/
+theorem card_torsion_etaleH1Model (n : ℕ) (hn : 2 ≤ n) :
+    etaleH1ModelTorsionCard F n = wInvariant n F := by sorry
+
+/-- `h₂(F) = #K₂(𝓞_F)` (Tate). -/
+theorem hInvariant_two : hInvariant F 2 = Nat.card (K2 (𝓞 F)) := by sorry
+
+/-- For totally real `F`, the odd part of Lichtenbaum at `n = 2` is the odd part of Birch–Tate. -/
+theorem lichtenbaumFormulaOddPart_two_iff [IsTotallyReal F] (q : ℚ) (hq : dedekindZetaCont F (-1) = q) :
+    LichtenbaumFormulaOddPart F 2 ↔ ∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ 2 →
+      (padicValNat ℓ (Nat.card (K2 (𝓞 F))) : ℤ) = padicValNat ℓ (wInvariant 2 F) + padicValRat ℓ |q| := by
+  sorry
+
+end Lichtenbaum
+
+/-- Unit tests for B.8 (values from Tate, Lee–Szczarba and N.4). -/
+theorem hInvariant_two_rat (h : Nat.card (K2 (𝓞 ℚ)) = 2) : hInvariant ℚ 2 = 2 := by sorry
+theorem rank_etaleH1Model_rat_two : etaleH1ModelRank ℚ 2 = 0 := by sorry
+theorem card_torsion_etaleH1Model_rat_two (hw : wInvariant 2 ℚ = 24) :
+    etaleH1ModelTorsionCard ℚ 2 = 24 ∧ etaleH1ModelTorsionCard ℚ 2 ≠ 48 := by sorry
+theorem lichtenbaumFormulaOddPart_rat_two (hK2 : cardK ℚ 2 = 2) (hK3 : cardKTorsion ℚ 3 = 48)
+    (hr : borelRatio ℚ 2 = -1 / 12) : LichtenbaumFormulaOddPart ℚ 2 := by sorry
+theorem not_lichtenbaum_rat_two_at_two : (2 : ℚ) / 48 ≠ |(-1 : ℚ) / 12| := by sorry
+theorem motivicLichtenbaumFormula_rat_two (hz : zetaLeadingCoeff ℚ 2 = -1 / 12) (hh : hInvariant ℚ 2 = 2)
+    (ht : etaleH1ModelTorsionCard ℚ 2 = 24) : MotivicLichtenbaumFormula ℚ 2 1 := by sorry
+theorem lichtenbaumFormulaOddPart_rat_four (hK7 : cardKTorsion ℚ 7 = 240) (hr : borelRatio ℚ 4 = 1 / 120)
+    (h : LichtenbaumFormulaOddPart ℚ 4) (ℓ : ℕ) (hℓ : ℓ.Prime) (h2 : ℓ ≠ 2) :
+    padicValNat ℓ (cardK ℚ 6) = 0 := by sorry
+
+/-- B.8 test: for `ℚ` and `n = 2` the K-theoretic formula fails at `2` (`2/48 ≠ 1/12`), while the motivic one
+holds with `#H¹_tors = w₂(ℚ) = 24` (`2/24 = 1/12`). -/
+example : (2 : ℚ) / 48 ≠ 1 / 12 ∧ (2 : ℚ) / 24 = 1 / 12 := by norm_num
+
+/-- B.8 test: for `ℚ` and `n = 4`, `w₄(ℚ) · ζ(−3) = 240 · (1/120) = 2`, so the odd part of `#K₆(ℤ)` is `1`. -/
+example : (240 : ℚ) * (1 / 120) = 2 := by norm_num
 
 /-! ## B.5 Totally real abelian fields: the 2-primary part (Kolster 1989, Greither 1992) -/
 
