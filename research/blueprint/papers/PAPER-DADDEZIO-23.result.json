@@ -1,0 +1,1106 @@
+{
+ "paper": "PAPER-DADDEZIO-23",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Parabolicity conjecture of F-isocrystals",
+  "authors": "Marco D'Addezio",
+  "venue": "Annals of Mathematics 198 (2023), no. 2, 619–656",
+  "doi": "10.4007/annals.2023.198.2.3",
+  "arxiv": "2012.12879",
+  "url": "https://arxiv.org/abs/2012.12879v4",
+  "readSections": [
+   "arXiv 2012.12879v4 (8 February 2023, 'final version, to appear in Annals of Mathematics'), read in full: 30 pages, SHA-256 f92379bec97564edc2b89f86f6bfc5c271abdc31c5d17cb9ba93b58e204a07a8, fetched from https://arxiv.org/pdf/2012.12879v4 on 29 September 2026. The Annals article (received 13 February 2021, revised 7 January 2023, accepted 6 February 2023, online 31 August 2023) is not freely served; v4 postdates acceptance. Item locators are v4's pages; every recorded mistake was checked on a page image."
+  ]
+ },
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2012.12879v4",
+   "read": "2026-09-29",
+   "sha256": "f92379bec97564edc2b89f86f6bfc5c271abdc31c5d17cb9ba93b58e204a07a8"
+  },
+  {
+   "kind": "published",
+   "citation": "Ann. of Math. 198 (2023), no. 2, 619–656, doi:10.4007/annals.2023.198.2.3; the Annals site serves no free PDF, so it was not read",
+   "read": "2026-09-29"
+  }
+ ],
+ "summary": "D'Addezio proves Crew's parabolicity conjecture: for an overconvergent F-isocrystal M† with constant slopes on a smooth variety over a perfect field, the monodromy group of the underlying convergent isocrystal is the stabiliser in G(M†, η) of the slope filtration, hence parabolic when M† is semisimple. The key input is the minimal-slope property of †-hulls (Theorem 4.1.3): the smallest overconvergent subobject containing N has the same minimal-slope part as N. It is proved for curves at the generic point with de Jong's reverse slope filtration, and in higher dimension through a new Lefschetz theorem for docile overconvergent F-isocrystals, whose proof uses the curve case and monodromy groups of isocrystals with a punctual Q_p^ur-lattice. Applications: semisimplicity of Gr^S R^1f_crys for abelian schemes over finite fields, finiteness of separable p-power torsion, Kedlaya's conjecture, strong multiplicity one by minimal-slope Hecke eigenvalues (with Abe's correspondence), and the PBS filtration. The foundations are planned in PadicDifferentialEquationsAndRigidCohomology RD.1–RD.3; the curve case coalesces with PAPER-TSUZUKI-23's minimal-slope Part II, and the monodromy theory becomes a new Part II. Nine mistakes are recorded, one a gap in the proof of Proposition 4.2.12 (whose theorem is independently in Tsuzuki).",
+ "items": [
+  {
+   "id": "PAPER-DADDEZIO-23/1",
+   "kind": "definition",
+   "name": "Convergent and overconvergent isocrystals with Frobenius structure",
+   "statement": "For X smooth over a perfect field k of characteristic p, Isoc(X) = Crys(X)[1/p] (crystals of coherent O_{X,crys}-modules up to isogeny) and Isoc†(X) the overconvergent isocrystals over X/K(k); an F^n-structure is an isomorphism (F^n)*M ≅ M, giving F^n-Isoc(X) and F^n-Isoc†(X), and F^∞-Isoc(X) := 2-colim_n F^n-Isoc(X). F^n-Isoc(X) is equivalent to convergent F^n-isocrystals.",
+   "locator": "§2.2, p. 6 (arXiv v4)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.3"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/2",
+   "kind": "theorem",
+   "name": "Full faithfulness of overconvergent-to-convergent restriction (Kedlaya)",
+   "statement": "The restriction functor α : Isoc†(X)_F → Isoc(X)_F on isocrystals admitting some Frobenius structure is fully faithful; M ∈ Isoc(X)_F is †-extendable if it lies in the essential image, with †-extension M† unique up to isomorphism ([Ked07], [DE22, Cor. 5.7]).",
+   "locator": "§2.2, p. 6; Theorem 1.1.1 discussion, p. 2 (arXiv v4)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.3"
+   ],
+   "note": "RD.3 states full faithfulness 'only in the proven source range'; PAPER-TSUZUKI-23/099 marks the same theorem planned there."
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/3",
+   "kind": "theorem",
+   "name": "Dieudonné–Manin classification",
+   "statement": "Over an algebraically closed perfect field, an F-isocrystal is, after passing to a power of Frobenius, a direct sum of rank-one objects (K(Ω), p^sσ), s ∈ Z.",
+   "locator": "Proof of Lemma 3.1.5, p. 8; Lemma 4.2.7, p. 15 (arXiv v4)",
+   "status": "planned",
+   "library": [
+    "mathlib:WittVector.Isocrystal",
+    "mathlib:WittVector.isocrystal_classification"
+   ],
+   "planned": [
+    "VectorBundlesAndIsocrystals:VB0"
+   ],
+   "note": "Mathlib has the rank-one classification; the general classification is VB0's."
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/4",
+   "kind": "definition",
+   "name": "(φ, ∇)-modules over E, E† and the generic point",
+   "statement": "O_E = (W[t]_{(p)})^∧, O_{E†} ⊂ O_E the series converging on some annulus ∗ ≤ |t| < 1, with Frobenius lift φ(t) = t^p and derivation ∂_t; a (φ, ∇)-module over E or E† is a finite-dimensional space with a φ-linear isomorphism and a connection with ∇∘φ = pt^{p−1}φ∘∇. F-Isoc(k(t)) and F-Isoc†(k(t)) are the (φ, ∇)-modules over E and E†; over K⟨u⟩ and K⟨u⟩† they are F-Isoc(A^1_k) and F-Isoc†(A^1_k).",
+   "locator": "Definition 4.2.1, p. 13; §4.2.9, p. 15 (arXiv v4)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/5",
+   "kind": "definition",
+   "name": "Tannaka groups of the subcategory spanned by an object",
+   "statement": "For an object A of a Tannakian category, ⟨A⟩ is the Tannakian subcategory it spans (closed under subobjects) and G(A, ω) the Tannaka group of ⟨A⟩ for a fibre functor ω; H^0(A) = Hom(1, A); the socle and socle filtration of A.",
+   "locator": "§2.1, p. 5 (arXiv v4)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/6",
+   "kind": "theorem",
+   "name": "Parabolic subgroups of reductive groups",
+   "statement": "A parabolic subgroup of a connected reductive group is connected ([Bor91, Thm. 11.16]) and contains a maximal torus; the centraliser of a torus is reductive ([Bor91, Cor. 11.12]); a finite normal subgroup of a connected group is central, and the centre of a connected reductive group lies in every maximal torus.",
+   "locator": "Proofs of Propositions 4.3.4–4.3.5, p. 19; Theorem 5.1.6, p. 25 (arXiv v4)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/7",
+   "kind": "theorem",
+   "name": "Weil's Riemann hypothesis for abelian varieties",
+   "statement": "Frobenius eigenvalues on H^1 of an abelian variety over a finite field are Weil numbers of weight 1, and the monodromy of the associated overconvergent F-isocrystal is pure.",
+   "locator": "Proofs of Theorems 5.1.6 and 5.2.2, pp. 25–26 (arXiv v4)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "WeightsInEtaleCohomology:R34.2"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/8",
+   "kind": "theorem",
+   "name": "Slope filtration after removing a divisor",
+   "statement": "After removing a divisor of X, an F^n-isocrystal has constant slopes and acquires the slope filtration 0 = S_0 ⊊ S_1 ⊊ ··· ⊊ S_m = M with S_i/S_{i−1} isoclinic of slope s_i and s_1 < ··· < s_m ([Kat79, Cor. 2.3.1, 2.6.2], [dO99, Thm. 4.1], [Ked22, Thm. 3.12, Cor. 4.2]).",
+   "locator": "§2.2, p. 6 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/9",
+   "kind": "theorem",
+   "name": "Theorem 4.1.6 (Kedlaya): restriction to a dense open",
+   "statement": "For U ⊆ X dense open: (i) F-Isoc(X) → F-Isoc(U) is fully faithful; (ii) F-Isoc†(X) → F-Isoc†(U) is fully faithful and closed under subquotients ([Ked07, Thm. 5.2.1, Prop. 5.3.1], [Ked08, Thm. 4.2.1], [DK17, Thm. 2.2.3]).",
+   "locator": "Theorem 4.1.6, p. 12 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/10",
+   "kind": "theorem",
+   "name": "Generic full faithfulness and freeness (Kedlaya)",
+   "statement": "F-Isoc†(k(t)) → F-Isoc(k(t)) is fully faithful ([Ked04, Thm. 5.1]); (φ, ∇)-modules over K⟨u⟩ and K⟨u⟩† are free ([Ked04, Prop. 6.6, Thm. 6.7]); and E ⊗_{E†} E†_alg → E_alg is injective ([Ked04, Prop. 4.1]).",
+   "locator": "§4.2, pp. 13, 15–16 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/11",
+   "kind": "theorem",
+   "name": "Theorem 4.2.6 (de Jong): reverse slope filtration",
+   "statement": "A φ-module M†_alg over E†_alg has a reverse slope filtration 0 = S^rev_0 ⊊ ··· ⊊ S^rev_m = M†_alg with (S^rev_i/S^rev_{i−1}) ⊗ E_alg ≅ S_{m+1−i}(M_alg)/S_{m−i}(M_alg) (corrected index, see E3); if M†_alg is isoclinic of slope s/r then, after scaling s and r, M†_alg[p^{1/r}] has a basis with φ(v_i) = p^{s/r}v_i ([deJ98, Prop. 5.5], extended to O†_{E_alg}).",
+   "locator": "Theorem 4.2.6, pp. 14–15 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/12",
+   "kind": "theorem",
+   "name": "Unit-root F-isocrystals and p-adic lisse sheaves (Crew)",
+   "statement": "For every n there is a fully faithful Q_{p^n}-linear ⊗-functor LS(X, Q_{p^n}) → F^n-Isoc(X) with essential image the unit-root F^n-isocrystals ([Cre87, Thm. 2.1]).",
+   "locator": "Proof of Proposition 3.3.4, p. 11; Theorem 5.3.3, p. 27 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/13",
+   "kind": "definition",
+   "name": "Docile overconvergent isocrystals",
+   "statement": "For X = Y ∖ D with Y smooth proper and D a simple normal crossing divisor, an overconvergent isocrystal is docile if it has unipotent monodromy along D ([Ked07, Def. 4.4.2]); docile objects are stable under sums, tensor products, duals and subquotients ([Ked07, Prop. 3.2.20]), and rank-one docile objects have zero residues, hence are unramified.",
+   "locator": "Definition 4.4.1, p. 19; proof of Corollary 4.4.8, p. 22 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/14",
+   "kind": "theorem",
+   "name": "Semistable reduction for overconvergent F-isocrystals (Kedlaya)",
+   "statement": "After a generically finite étale alteration, an overconvergent F-isocrystal becomes docile along a simple normal crossing boundary of a smooth compactification ([Ked11, Thm. 2.4.4]).",
+   "locator": "§4.4.11, p. 23 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/15",
+   "kind": "theorem",
+   "name": "R^1f_crys of an abelian scheme is overconvergent (Étesse)",
+   "statement": "For an abelian scheme f : A → X over a smooth variety over a finite field, R^1f_{crys*}O_{A,crys} is †-extendable ([Ete02, Thm. 7]).",
+   "locator": "Proof of Theorem 5.1.6, p. 25 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/16",
+   "kind": "theorem",
+   "name": "Crystalline Dieudonné module of A[p^∞] (Berthelot–Breen–Messing)",
+   "statement": "For an abelian scheme A → X, R^1f_{crys*}O_{A,crys} is the crystalline Dieudonné module of A[p^∞] ([BBM82, Thm. 2.5.6(ii)]), and its unit-root part is the Dieudonné module of the étale quotient A[p^∞]^ét.",
+   "locator": "Proof of Theorem 5.1.6, p. 25 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/17",
+   "kind": "theorem",
+   "name": "Homomorphisms of Barsotti–Tate groups (de Jong)",
+   "statement": "Over a finitely generated field E of characteristic p, End(A) ⊗ Z_p → End of the Dieudonné crystal of A[p^∞] is an isomorphism, so an idempotent of End(M†, Φ†) gives one of End(A) ⊗ Q_p ([deJ98, Thm. 2.6]).",
+   "locator": "Proof of Theorem 5.2.2, p. 26 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/18",
+   "kind": "theorem",
+   "name": "Chebotarev density for schemes of finite type over F_q (Serre)",
+   "statement": "A semisimple continuous representation of π_1^ét of a normal scheme of finite type over F_q is determined by its Frobenius traces at all but finitely many closed points ([Ser66, Thm. 7]).",
+   "locator": "Proof of Theorem 5.3.3, p. 27 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/19",
+   "kind": "theorem",
+   "name": "Langlands correspondence for isocrystals (Abe)",
+   "statement": "For a curve X over F_q, every Q̄_p-linear cuspidal automorphic representation π of GL_r(A) corresponds to an irreducible Q̄_p-linear overconvergent F-isocrystal on a dense open of X with matching Frobenius and Hecke eigenvalues ([Abe18]).",
+   "locator": "Proof of Theorem 5.3.3, p. 27 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/20",
+   "kind": "definition",
+   "name": "†-hull of a sub-F^n-isocrystal",
+   "statement": "For an inclusion (N, Φ_N) ⊆ (M, Φ_M) of F^n-isocrystals, the †-hull N̄ is the smallest †-extendable subobject of M containing N (it exists since the category of isocrystals is artinian).",
+   "locator": "Definitions 1.2.1 and 4.1.1, pp. 3, 11 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/21",
+   "kind": "definition",
+   "name": "The minimal-slope property MS",
+   "statement": "For †-extendable (M, Φ_M) with constant slopes, MS(M, Φ_M) says S_1(N) = S_1(N̄) for every sub-F^n-isocrystal N; MS(X) says MS holds for every n and every †-extendable F^n-isocrystal over X.",
+   "locator": "Notation 4.1.2, p. 11 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/22",
+   "kind": "theorem",
+   "name": "Lemmas 4.1.4–4.1.8: reductions for MS",
+   "statement": "To prove MS(X) one may take n = 1 (4.1.4) and check isoclinic sub-F-isocrystals only (4.1.5); MS(M|_U) implies MS(M) for U ⊆ X dense open, since †-hulls commute with restriction (4.1.7); for a finite étale Galois cover f : Y → X, MS(f*M) implies MS(M) and MS(f_*M) implies MS(M) (4.1.8).",
+   "locator": "Lemmas 4.1.4, 4.1.5, 4.1.7, 4.1.8, pp. 12–13 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/23",
+   "kind": "theorem",
+   "name": "Proposition 4.2.2 (Kedlaya, Tsuzuki): MS at the generic point",
+   "statement": "If N ⊆ M is an inclusion of (φ, ∇)-modules over E and M is †-extendable, then S_1(N) = S_1(N̄).",
+   "locator": "Proposition 4.2.2, p. 14; proof §4.2.8, p. 15 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/24",
+   "kind": "theorem",
+   "name": "Construction 4.2.3 and Lemma 4.2.4: the †-hull by duality",
+   "statement": "With Q† the image of (M†)^∨ → N^∨, one has N ⊆ Q^∨ ⊆ M, and Q^∨ is the †-hull of N in M: the unique submodule containing N and coming from some N̄† ⊆ M† with (N̄†)^∨ → N^∨ injective.",
+   "locator": "Construction 4.2.3 and Lemma 4.2.4, p. 14 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/25",
+   "kind": "construction",
+   "name": "Rings O_{E_alg}, O†_{E_alg} and their fraction fields",
+   "statement": "O_{E_alg} = W(k(t)^alg), with elements Σ [f_i]p^i; O†_{E_alg} ⊆ O_{E_alg} the series whose t-adic valuations of f_i are bounded below by a linear function of i, Frobenius-stable; E†_alg and E_alg their fraction fields (inside de Jong's Γ_{2,c} and Γ_2).",
+   "locator": "Definition 4.2.5, p. 14 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/26",
+   "kind": "theorem",
+   "name": "Lemma 4.2.7: maps to isoclinic modules",
+   "statement": "If M† is a φ-module over E†, N an isoclinic φ-module over E of slope s/r and ψ : M → N a morphism whose restriction to M† is injective, then the maximal slope of M is s/r and rk(S_m(M)/S_{m−1}(M)) ≤ rk(N).",
+   "locator": "Lemma 4.2.7, p. 15 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/27",
+   "kind": "construction",
+   "name": "Integral models A_n, B_n, B̃_n of overconvergent rings",
+   "statement": "A_n is the image of W⟨u_1, …, u_n⟩ → W⟨u⟩, u_i ↦ ū_i := pu^i; B_n ⊆ O_E the image of (A_n[t])_{m_n} with m_n = (p, t, ū_1, …, ū_n); B′_n = A_n[t]/(ū_1t − p) and B̃_n = (B′_n)_{m_n}, with B̃_n ↠ B_n killed by p^{n−1}; colim A_n[1/p] = K⟨u⟩† and colim (B_n)^∧[1/p] = colim (B̃_n)^∧[1/p] = E†.",
+   "locator": "§4.2.9, pp. 15–16 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/28",
+   "kind": "theorem",
+   "name": "Lemmas 4.2.10–4.2.11",
+   "statement": "(W⟨u⟩ ⊗̂_{A_n} B̃_n)^∧[1/p] → E is injective (4.2.10); if the p^∞-torsion of an A_n-module M is killed by p^s, so is Tor_1^{A_n}(B′_n, M) (4.2.11).",
+   "locator": "Lemmas 4.2.10–4.2.11, p. 16 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/29",
+   "kind": "theorem",
+   "name": "Proposition 4.2.12: †-hulls commute with passing to the generic point",
+   "statement": "If N ⊆ M are (φ, ∇)-modules over K⟨u⟩ with M †-extendable and of constant slopes, then N̄ ⊗ E is the †-hull of N ⊗ E in M ⊗ E.",
+   "locator": "Proposition 4.2.12, pp. 16–17 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The printed proof has a gap (E5); the statement is not in doubt, see Tsuzuki [Tsu23]."
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/30",
+   "kind": "theorem",
+   "name": "Étale covers of the affine line (Kedlaya)",
+   "statement": "Every smooth curve over a perfect field of characteristic p has a dense open admitting a finite étale morphism to A^1_k ([Ked05, Thm. 1]).",
+   "locator": "Proof of Theorem 4.2.13, p. 17 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/31",
+   "kind": "theorem",
+   "name": "Theorem 4.2.13: MS for curves",
+   "statement": "A smooth curve X over a perfect field k satisfies MS(X) (also [Tsu23, Prop. 6.1]).",
+   "locator": "Theorem 4.2.13, p. 17 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/32",
+   "kind": "theorem",
+   "name": "Theorem 4.4.2 (Abe–Esnault): Lefschetz full faithfulness for docile isocrystals",
+   "statement": "If Y ⊆ P^d_k is smooth connected projective of dimension ≥ 2, D a simple normal crossing divisor, and C ⊆ Y a smooth curve which is a complete intersection of hypersurfaces meeting D transversally, then Isoc†(Y ∖ D)^doc → Isoc†(C ∖ D)^doc is fully faithful ([AE19, Cor. 2.4]).",
+   "locator": "Theorem 4.4.2, pp. 19–20 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/33",
+   "kind": "definition",
+   "name": "Crew's monodromy groups G(M, η) and G(M†, η)",
+   "statement": "For X connected and η a perfect point with fibre functor ω_η, G(M, η) is the Tannaka group of ⟨M⟩ ⊆ Isoc(X) and G(M†, η) that of ⟨M†⟩ ⊆ Isoc†(X); they agree with Crew's DGal(M, η) and DGal(M†, η), and G(M, η) ⊆ G(M†, η) ⊆ GL(M_η).",
+   "locator": "§1.1, p. 2; §2.2, p. 6 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/34",
+   "kind": "definition",
+   "name": "Observable functors and scalar extension of Tannakian categories",
+   "statement": "An exact functor Ψ : C → D of Tannakian categories is observable iff every subquotient of an object in its essential image embeds into an object of the essential image ([DE22, Prop. A.3]); the criteria of [DE22, §A] for closed immersions and faithful flatness of the induced map of Tannaka groups, and scalar extension of K-linear Tannakian categories along L/K ([Del89, §4.4], [Sta08, Thm. 3.1.3]).",
+   "locator": "§2.1, pp. 5–6 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/35",
+   "kind": "definition",
+   "name": "Isocrystals with punctual Q_p^ur-structure",
+   "statement": "Assuming F̄_p ⊆ k, for a geometric point η of X an isocrystal with Q_p^ur-structure is (M, V_M) with V_M ⊆ ω_η(M) a Q_p^ur-lattice (V_M ⊗ K(Ω) = ω_η(M)); morphisms respect the lattices; this gives Isoc_{Q_p^ur}(X, η).",
+   "locator": "Hypothesis 3.1.1 and Definition 3.1.2, p. 7 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/36",
+   "kind": "theorem",
+   "name": "Lemma 3.1.3: isocrystals with Q_p^ur-structure form a neutral Tannakian category",
+   "statement": "If X is geometrically connected, Isoc_{Q_p^ur}(X, η) is a Q_p^ur-linear neutral Tannakian category with unit (O_{X/K}, Q_p^ur), dual lattice V_{M^∨} = {f : f(V_M) ⊆ Q_p^ur} and fibre functor (M, V_M) ↦ V_M.",
+   "locator": "Lemma 3.1.3, p. 7 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/37",
+   "kind": "construction",
+   "name": "Dieudonné–Manin Q_p^ur-structure and the functor Λ_η",
+   "statement": "For an F^n-isocrystal over an algebraically closed Ω, ω_{Q_p^ur}(M, Φ_M) = {v : Φ^i v = p^j v for some (i, j)} is a Q_p^ur-lattice of M (Lemma 3.1.5); this gives a fibre functor ω_{η,Q_p^ur} on F^∞-Isoc(X) and Λ_η : F^∞-Isoc(X) → Isoc_{Q_p^ur}(X, η), whose essential image consists of the isocrystals with Dieudonné–Manin Q_p^ur-structure.",
+   "locator": "Construction 3.1.4–Definition 3.1.6, pp. 7–8 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/38",
+   "kind": "theorem",
+   "name": "Remark 3.1.7: a Q_p^ur-linear cohomology theory",
+   "statement": "For a variety X over any field of characteristic p, the spaces ω_{Q_p^ur}(H^i_rig(X_{k^alg}/K(k^alg))) and their compact-support variants form a Q_p^ur-linear cohomology theory with Poincaré duality and Künneth, answering Serre's obstruction minimally.",
+   "locator": "Remark 3.1.7, p. 8 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/39",
+   "kind": "theorem",
+   "name": "Lemmas 3.2.1–3.2.3: trivial subobjects, uniqueness and socles",
+   "statement": "The maximal trivial subobject of an F^n-isocrystal is Φ-stable, so H^0(M, V_M) ⊗ K ≅ H^0(M) (3.2.1); a semisimple isocrystal has at most one Dieudonné–Manin Q_p^ur-structure and it decomposes isotypically (3.2.2); the socle of an isocrystal with Dieudonné–Manin structure inherits one, and (M, V_M) semisimple implies M semisimple (3.2.3).",
+   "locator": "Lemmas 3.2.1–3.2.3, pp. 8–9 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/40",
+   "kind": "theorem",
+   "name": "Propositions 3.2.4–3.2.5: subquotients and observability of Λ_η",
+   "statement": "Each irreducible subquotient of an isocrystal with Dieudonné–Manin Q_p^ur-structure inherits one (3.2.4); Λ_η is observable, and fully faithful on unit-root objects when k = k^alg (3.2.5); the same holds for overconvergent objects.",
+   "locator": "Propositions 3.2.4–3.2.5, p. 9 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/41",
+   "kind": "theorem",
+   "name": "Proposition 3.2.8: homotopy exact sequences of monodromy groups",
+   "statement": "For a †-extendable F^n-isocrystal there is a commutative diagram with exact rows 1 → G(M, V_M, η) → G(M, Φ^∞_M, η) → G(M, Φ^∞_M, η)^cst → 1 and its overconvergent analogue, the first two vertical maps closed embeddings and the last faithfully flat (an isomorphism by Remark 3.2.9).",
+   "locator": "Definition 3.2.7, Proposition 3.2.8 and Remark 3.2.9, pp. 9–10 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/42",
+   "kind": "theorem",
+   "name": "Lemma 3.3.1 and Proposition 3.3.2: base change of monodromy groups",
+   "statement": "With Isoc_{Q_p^ur}(X, η)_F the Tannakian subcategory spanned by the image of Λ_η (Definition 3.2.6), Isoc_{Q_p^ur}(X, η)_F → Isoc(X) is K/Q_p^ur-fully faithful and preserves semisimplicity, and Isoc_{Q_p^ur}(X, η)_F ⊗_{Q_p^ur} K → Isoc(X)_F is an equivalence; so G(M, η) ≅ G(M, V_M, η) ⊗_{Q_p^ur} K.",
+   "locator": "Definition 3.2.6, p. 9; Lemma 3.3.1 and Proposition 3.3.2, pp. 10–11 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/43",
+   "kind": "theorem",
+   "name": "Proposition 3.3.4 and Corollary 3.3.6: étale isocrystals and lisse sheaves",
+   "statement": "If k = k^alg, LS(X, Q_p^ur) is equivalent to the étale isocrystals with Q_p^ur-structure (Definition 3.3.3), F^∞-Isoc^ét(X) to Q-graded lisse Q_p^ur-sheaves (Remark 3.3.5), and an étale path from η to η′ induces isomorphisms of G(M, Φ^∞_M, ·) and G(M, V_M, ·).",
+   "locator": "Definition 3.3.3–Corollary 3.3.6, p. 11 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/44",
+   "kind": "theorem",
+   "name": "Chevalley's theorem",
+   "statement": "A closed subgroup H of an algebraic group G is the stabiliser of a line in some finite-dimensional representation of G.",
+   "locator": "Proofs of Propositions 4.3.2 and 5.1.4, pp. 18, 25 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/45",
+   "kind": "theorem",
+   "name": "Parabolics from filtrations (Saavedra)",
+   "statement": "An exact ⊗-filtration of a fibre functor indexed by (1/r)Z defines a quasi-cocharacter λ : G_m^{1/∞} → G, and for reductive G the subgroup P_G(λ) of ⊗-automorphisms preserving the filtration is parabolic ([Saa72, §2.1, Prop. 2.2.5]).",
+   "locator": "Definition 4.3.1, pp. 17–18 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/46",
+   "kind": "definition",
+   "name": "The slope quasi-cocharacter λ and P_G(λ)",
+   "statement": "For (M†, Φ†_M) with constant slopes, r the lcm of the slope denominators, the subspaces of slope ≤ s/r of ω_{η,Q_p^ur} form an exact ⊗-filtration S̃_•; it defines λ : G_m^{1/∞} ↠ G_m^{1/r} → G = G(M†, Φ^{†,∞}_M, η), and P_G(λ) is its stabiliser.",
+   "locator": "Definition 4.3.1, pp. 17–18 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/47",
+   "kind": "theorem",
+   "name": "Proposition 4.3.2: MS implies parabolicity for F^∞-monodromy",
+   "statement": "If MS(X) holds then H := G(M, Φ^∞_M, η) equals P_G(λ); in particular H is parabolic in G when G is reductive.",
+   "locator": "Proposition 4.3.2, p. 18 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/48",
+   "kind": "theorem",
+   "name": "Proposition 4.3.4: component groups agree",
+   "statement": "If every dense open of X satisfies MS, then π_0(G(M, Φ^∞_M, η)) = π_0(G(M†, Φ^{†,∞}_M, η)) canonically.",
+   "locator": "§4.3.3 and Proposition 4.3.4, pp. 18–19 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/49",
+   "kind": "theorem",
+   "name": "Proposition 4.3.5: †-extendable rank-one objects are overconvergently generated",
+   "statement": "Under §4.3.3, if (L, Φ^∞_L) ∈ ⟨M, Φ^∞_M⟩ is a †-extendable rank-one F^∞-isocrystal then (L†, Φ^{†,∞}_L) ∈ ⟨M†, Φ^{†,∞}_M⟩.",
+   "locator": "Proposition 4.3.5, p. 19 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/50",
+   "kind": "theorem",
+   "name": "Corollary 4.3.6",
+   "statement": "Under §4.3.3, G(M, η) = G(M†, η) ∩ (G(M, Φ^∞_M, η) ⊗_{Q_p^ur} K).",
+   "locator": "Corollary 4.3.6, p. 19 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/51",
+   "kind": "theorem",
+   "name": "Lemma 4.4.5 (Pink, Serre): curves preserving the monodromy of a lisse sheaf",
+   "statement": "For a lisse Q_p-sheaf V on smooth connected X there is a connected finite Galois étale cover X̃ → X such that for every smooth connected curve C ⊆ X with X̃ ×_X C connected, ⟨V⟩ → ⟨V|_C⟩ is an equivalence (via a finite quotient detecting surjectivity, [Ser89, §10.6], [Kat90, 8.18.3]).",
+   "locator": "Lemma 4.4.5, p. 20 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/52",
+   "kind": "theorem",
+   "name": "Lemmas 4.4.6–4.4.7: curves preserving ramification of rank-one objects",
+   "statement": "For X smooth connected, D ⊆ X an irreducible divisor and V lisse on X ∖ D, there are a dense smooth open D′ ⊆ D and a conic closed Z ⊆ TX ×_X D′ of codimension 1 in every fibre such that for every smooth curve C meeting D′ at x with T_xC ⊄ Z_x, every rank-one L ∈ ⟨V⟩ ramified along D stays ramified at x (4.4.6, a variant of [Dri12, Lem. 5.1]); cyclic quotients of a closed subgroup H of a commutative profinite Π lift to Π → Π_tors × Π/p^nΠ when (H ∩ p^nΠ) ⊆ pH (4.4.7).",
+   "locator": "Lemmas 4.4.6–4.4.7, pp. 20–21 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/53",
+   "kind": "theorem",
+   "name": "Corollary 4.4.8: characters of docile monodromy",
+   "statement": "For X as in §4.3.3 with a smooth compactification by a simple normal crossing divisor and (M†, Φ†_M) docile, the characters of G(M†, V†_M) are the unramified characters of G(M, V_M).",
+   "locator": "Corollary 4.4.8, p. 22 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/54",
+   "kind": "theorem",
+   "name": "Theorem 4.4.9: Bertini with tangency conditions",
+   "statement": "For Y ⊆ P^d_{k^alg} smooth connected projective of dimension ≥ 2, D a divisor, D′ ⊆ D open, Z ⊆ TY ×_Y D′ conic closed of codimension 1 in each fibre, U ⊆ Y dense open and Ũ → U connected finite étale, there is a smooth complete-intersection curve C meeting D transversally, with C ×_U Ũ connected and non-empty, meeting each component D′_i with tangent directions not all in Z (via Jouanolou [Jou83, Thm. 6.3]).",
+   "locator": "Theorem 4.4.9, p. 22 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/55",
+   "kind": "theorem",
+   "name": "Theorem 4.4.3 (Theorem 1.3.1): Lefschetz theorem for docile overconvergent F^n-isocrystals",
+   "statement": "If Y ⊆ P^d_{k^alg} is smooth connected projective of dimension ≥ 2, D a simple normal crossing divisor and (M†, Φ†_M) an overconvergent F^n-isocrystal on X := Y ∖ D docile along D, there is a smooth connected curve C ⊆ X meeting the open where the slopes are constant such that ⟨M†⟩ → ⟨M†|_C⟩ is an equivalence of categories.",
+   "locator": "Theorem 4.4.3, p. 20; proof §4.4.10, pp. 22–23 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/56",
+   "kind": "theorem",
+   "name": "Theorem 4.1.3 (Theorem 1.2.2): minimal slopes of †-hulls",
+   "statement": "Every smooth variety X over a perfect field k satisfies MS(X): if N ⊆ M are F^n-isocrystals with M †-extendable of constant slopes, then S_1(N) = S_1(N̄).",
+   "locator": "Theorem 4.1.3, p. 12; proof §4.4.11, p. 23 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/57",
+   "kind": "theorem",
+   "name": "Theorem 4.4.12 (Theorem 1.1.1): the parabolicity conjecture",
+   "statement": "Let X be smooth geometrically connected over a perfect field with a perfect point η and M† an overconvergent F^n-isocrystal with constant slopes. Then G(M, η) ⊆ G(M†, η) is the stabiliser of the slope filtration of M_η; if M† is semisimple, G(M, η) is a parabolic subgroup of G(M†, η).",
+   "locator": "Theorem 4.4.12, pp. 23–24; Theorem 1.1.1, p. 2 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/58",
+   "kind": "definition",
+   "name": "Arithmetic monodromy groups over a finite field",
+   "statement": "Over F_{p^n} with a rational point x, G(M, Φ_M, x) and G(M†, Φ†_M, x) are the automorphism groups of ω_x on ⟨M, Φ_M⟩ and ⟨M†, Φ†_M⟩, fitting into exact sequences with the geometric groups G(M, x), G(M†, x) and the constant quotients ([AD22, Prop. 2.2.4]).",
+   "locator": "Definition 5.1.1 and (5.1.1), p. 24 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/59",
+   "kind": "theorem",
+   "name": "Theorem 5.1.2 and Proposition 5.1.3: parabolicity over finite fields",
+   "statement": "If (M, Φ_M) has constant slopes then G(M, Φ_M, x) = P_G(λ), parabolic when M† is semisimple; for any overconvergent F^n-isocrystal π_0(G(M, Φ_M, x)) = π_0(G(M†, Φ†_M, x)) and the constant parts agree.",
+   "locator": "Theorem 5.1.2 and Proposition 5.1.3, p. 24 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/60",
+   "kind": "theorem",
+   "name": "Proposition 5.1.4 and Corollary 5.1.5: the graded pieces and Cartan subgroups",
+   "statement": "With (N, Φ_N) = Gr^S_•(M, Φ_M), G(N, Φ_N, x) = Z_G(λ), and G(N, Φ_N, x)° contains a Cartan subgroup of G(M†, Φ†_M, x)°.",
+   "locator": "Proposition 5.1.4 and Corollary 5.1.5, p. 25 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/61",
+   "kind": "theorem",
+   "name": "Reductivity and twist classes of monodromy groups (D'Addezio)",
+   "statement": "For pure overconvergent F-isocrystals over a finite field the geometric monodromy group G(M†, x) is reductive ([D'Ad20, Cor. 3.5.2(ii)]); after a finite extension G(M†, Φ†_M) is connected ([D'Ad20, Prop. 3.3.4]), and the rank of the group of twist classes equals the dimension of the centre ([D'Ad20, Cor. 3.4.8]).",
+   "locator": "Proofs of Theorems 5.1.6 and 5.2.2, pp. 25–26 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/62",
+   "kind": "theorem",
+   "name": "Theorem 5.1.6 (Theorem 1.1.2): semisimplicity for abelian schemes",
+   "statement": "Let X be smooth over a finite field and f : A → X an abelian scheme with constant slopes. Then Gr^S_•(R^1f_{crys*}O_{A,crys}) is semisimple; in particular R^1f_{ét*}Q_p is a semisimple lisse Q_p-sheaf.",
+   "locator": "Theorem 5.1.6, p. 25 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/63",
+   "kind": "theorem",
+   "name": "Corollary 5.2.1: maximal-slope isoclinic subobjects are †-extendable",
+   "statement": "For a †-extendable F^n-isocrystal over smooth X, every isoclinic subobject of maximal slope is †-extendable.",
+   "locator": "Corollary 5.2.1, p. 25 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/64",
+   "kind": "definition",
+   "name": "Albert types and the Cadoret–Tamagawa criterion",
+   "statement": "Albert's classification of endomorphism algebras of simple abelian varieties (types I–IV); for geometrically simple A, a factor of type IV follows once the centre of G(M†, Φ†_M)° has dimension ≥ 2 ([CT20, Lem. 10.5]).",
+   "locator": "Theorem 5.2.2 and its proof, p. 26 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/65",
+   "kind": "theorem",
+   "name": "Theorem 5.2.2 (Theorem 1.1.3): finiteness of separable p-power torsion",
+   "statement": "Let E be finitely generated over F_p and A an abelian variety over E. Then A(E^sep)[p^∞] is finite if End(A) ⊗ Q_p is a division algebra, or if End(A) ⊗ Q has no factor of Albert type IV.",
+   "locator": "Theorem 5.2.2, p. 26 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/66",
+   "kind": "theorem",
+   "name": "Corollary 5.3.1 (Corollary 1.1.4): Kedlaya's conjecture",
+   "statement": "Over smooth connected X over a perfect field, two irreducible overconvergent F^n-isocrystals with constant slopes whose minimal-slope parts (S_1(M_i), Φ|) are isomorphic are isomorphic.",
+   "locator": "Corollary 5.3.1, p. 27 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/67",
+   "kind": "theorem",
+   "name": "Corollary 5.3.2: minimal-slope parts of irreducibles are irreducible",
+   "statement": "If (M†, Φ†_M) is an irreducible overconvergent F^n-isocrystal with constant slopes then (S_1(M), Φ_M|) is irreducible.",
+   "locator": "Corollary 5.3.2, p. 27 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/68",
+   "kind": "theorem",
+   "name": "Theorem 5.3.3 (Theorem 1.1.5): strong multiplicity one by minimal-slope Hecke eigenvalues",
+   "statement": "Let X be a smooth connected curve over a finite field, A its adeles and r ≥ 1. The isomorphism class of a Q̄_p-linear cuspidal automorphic representation of GL_r(A) is determined by its Hecke eigenvalues of minimal slope at all but finitely many closed points.",
+   "locator": "Theorem 5.3.3, p. 27 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/69",
+   "kind": "theorem",
+   "name": "Definition 5.4.1 and Corollary 5.4.2: the PBS filtration",
+   "statement": "A †-extendable F^n-isocrystal is PBS if on every connected open the isoclinic subobjects have minimal generic slope (dual to Tsuzuki's PBQ). Over a smooth connected variety over a perfect field, every †-extendable M has a unique filtration by †-extendable subobjects with PBS graded pieces of minimal generic slopes t_1 > ··· > t_r (extending [Tsu23, Thm. 3.27]).",
+   "locator": "Definition 5.4.1 and Corollary 5.4.2, p. 28 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/70",
+   "kind": "theorem",
+   "name": "Definition 5.4.3 and Corollary 5.4.4: minimal †-compactifications",
+   "statement": "A †-compactification of (N, Φ_N) is a †-extendable M with ι : N ↪ M and N̄ = M; if N is isoclinic and embeds into a †-extendable F^n-isocrystal, it has a minimal (weakly final) †-compactification.",
+   "locator": "Definition 5.4.3 and Corollary 5.4.4, p. 28 (arXiv v4)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "R. Crew, F-isocrystals and their monodromy groups, Ann. Sci. ÉNS 25 (1992), 429–464",
+   "link": "10.24033/asens.1655",
+   "why": "The monodromy groups and the question the paper answers."
+  },
+  {
+   "citation": "K. S. Kedlaya, Full faithfulness for overconvergent F-isocrystals, in Geometric Aspects of Dwork Theory (2004), 819–836",
+   "link": "10.1515/9783110198133.2.819",
+   "why": "Generic full faithfulness and freeness over K⟨u⟩."
+  },
+  {
+   "citation": "K. S. Kedlaya, Semistable reduction for overconvergent F-isocrystals I, Compos. Math. 143 (2007), 1164–1212",
+   "link": "10.1112/s0010437x07002886",
+   "why": "Docility, Theorem 4.1.6 and full faithfulness."
+  },
+  {
+   "citation": "K. S. Kedlaya, Semistable reduction for overconvergent F-isocrystals IV, Compos. Math. 147 (2011), 467–523",
+   "link": "10.1112/s0010437x10005142",
+   "why": "Semistable reduction in §4.4.11."
+  },
+  {
+   "citation": "K. S. Kedlaya, More étale covers of affine spaces in positive characteristic, J. Algebraic Geom. 14 (2005), 187–192",
+   "link": "10.1090/s1056-3911-04-00381-9",
+   "why": "Reduction of curves to A^1."
+  },
+  {
+   "citation": "K. S. Kedlaya, Notes on isocrystals, J. Number Theory 237 (2022), 353–394",
+   "link": "10.1016/j.jnt.2021.12.004",
+   "why": "Convergence of F^n-isocrystals and slope filtrations."
+  },
+  {
+   "citation": "N. Tsuzuki, Minimal slope conjecture of F-isocrystals, Invent. Math. 231 (2023), 39–109",
+   "link": "10.1007/s00222-022-01146-5",
+   "why": "MS for curves, PBQ filtration, Kedlaya's conjecture over finite fields."
+  },
+  {
+   "citation": "T. Abe and H. Esnault, A Lefschetz theorem for overconvergent isocrystals with Frobenius structure, Ann. Sci. ÉNS 52 (2019), 1243–1264",
+   "link": "10.24033/asens.2408",
+   "why": "Theorem 4.4.2."
+  },
+  {
+   "citation": "A. J. de Jong, Homomorphisms of Barsotti–Tate groups and crystals in positive characteristic, Invent. Math. 134 (1998), 301–333",
+   "link": "10.1007/s002220050266",
+   "why": "Reverse slope filtration and Theorem 2.6."
+  },
+  {
+   "citation": "T. Abe, Langlands correspondence for isocrystals and the existence of crystalline companions for curves, J. Amer. Math. Soc. 31 (2018), 921–1057",
+   "link": "10.1090/jams/898",
+   "why": "Theorem 5.3.3."
+  },
+  {
+   "citation": "M. D'Addezio, The monodromy groups of lisse sheaves and overconvergent F-isocrystals, Selecta Math. 26 (2020)",
+   "link": "10.1007/s00029-020-00569-3",
+   "why": "Reductivity and twist classes."
+  },
+  {
+   "citation": "E. Ambrosi and M. D'Addezio, Maximal tori of monodromy groups of F-isocrystals and an application to abelian varieties, Algebraic Geom. 9 (2022), 633–650",
+   "link": "10.14231/ag-2022-019",
+   "why": "The exact sequence (5.1.1)."
+  },
+  {
+   "citation": "M. D'Addezio and H. Esnault, On the universal extensions in Tannakian categories, IMRN 2022, 14008–14033",
+   "link": "10.1093/imrn/rnab107",
+   "why": "Observable functors and full faithfulness."
+  },
+  {
+   "citation": "N. Saavedra Rivano, Catégories Tannakiennes, LNM 265, Springer (1972)",
+   "link": "10.1007/BFb0059108",
+   "why": "Filtrations, quasi-cocharacters and parabolics."
+  },
+  {
+   "citation": "J.-Y. Étesse, Descente étale des F-isocristaux surconvergents et rationalité des fonctions L de schémas abéliens, Ann. Sci. ÉNS 35 (2002), 575–603",
+   "link": "10.1016/s0012-9593(02)01099-6",
+   "why": "Theorem 7, overconvergence of R^1f_crys."
+  },
+  {
+   "citation": "P. Berthelot, L. Breen and W. Messing, Théorie de Dieudonné cristalline II, LNM 930, Springer (1982)",
+   "link": "10.1007/bfb0093025",
+   "why": "Theorem 2.5.6."
+  },
+  {
+   "citation": "V. Drinfeld, On a conjecture of Deligne, Moscow Math. J. 12 (2012), 515–542",
+   "link": "10.17323/1609-4514-2012-12-3-515-542",
+   "why": "Lemma 5.1, the model for Lemma 4.4.6."
+  }
+ ],
+ "routes": [
+  {
+   "route": "source",
+   "roadmap": "PadicDifferentialEquationsAndRigidCohomology",
+   "stages": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.2",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.3"
+   ],
+   "items": [
+    "PAPER-DADDEZIO-23/8",
+    "PAPER-DADDEZIO-23/9",
+    "PAPER-DADDEZIO-23/10",
+    "PAPER-DADDEZIO-23/11",
+    "PAPER-DADDEZIO-23/12",
+    "PAPER-DADDEZIO-23/13",
+    "PAPER-DADDEZIO-23/14",
+    "PAPER-DADDEZIO-23/15"
+   ],
+   "reason": "RD.1 owns Frobenius slope filtrations, RD.2 unipotent local monodromy with its logarithmic extensions, and RD.3 overconvergent isocrystals with their restriction to convergent ones. The paper's cited foundations — generic slope filtrations, Kedlaya's full faithfulness at the generic point and on dense opens, de Jong's reverse filtration, Crew's unit-root correspondence, docility and semistable reduction, Étesse's overconvergence of R^1f_crys — are theorems of those layers, as PAPER-TSUZUKI-23 routes the same inputs there."
+  },
+  {
+   "route": "source",
+   "roadmap": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "stages": [
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+   ],
+   "items": [
+    "PAPER-DADDEZIO-23/16",
+    "PAPER-DADDEZIO-23/17"
+   ],
+   "reason": "R07.2 owns Dieudonné theory over perfect fields; the crystalline Dieudonné module of A[p^∞] over a smooth base (BBM) and de Jong's full faithfulness for Barsotti–Tate groups over function fields continue that layer to families."
+  },
+  {
+   "route": "source",
+   "roadmap": "AnalyticNumberTheory",
+   "stages": [
+    "AnalyticNumberTheory:AN.4"
+   ],
+   "items": [
+    "PAPER-DADDEZIO-23/18"
+   ],
+   "reason": "AN.4 owns Chebotarev density; Serre's version for schemes of finite type over F_q is routed there, as PAPER-SCHMIDT-STIX-16 did."
+  },
+  {
+   "route": "part-ii",
+   "parent": "GlobalShtukasAndFunctionFieldLanglands",
+   "roadmap": "GlobalShtukasPartIICrystallineCompanions",
+   "title": "Global shtukas and Langlands over function fields, Part II: the Langlands correspondence for isocrystals and crystalline companions",
+   "area": "functionfields",
+   "items": [
+    "PAPER-DADDEZIO-23/19"
+   ],
+   "brief": "This route coalesces with the GlobalShtukasPartIICrystallineCompanions candidate proposed by PAPER-ABE-18 (same id, title, parent and area) and keeps its brief. PAPER-DADDEZIO-23 consumes Abe's Theorem 4.2.2 exactly as that brief states it: every Q̄_p-linear cuspidal automorphic representation of GL_r(A) over a function field corresponds to an irreducible overconvergent F-isocrystal on a dense open with matching Frobenius and Hecke eigenvalues. It adds no target; its consumer is the strong multiplicity one theorem by minimal-slope Hecke eigenvalues (PAPER-DADDEZIO-23, Theorem 5.3.3), which lives in PadicDifferentialEquationsPartIIMonodromyGroups and imports the correspondence from here.",
+   "reason": "Abe's correspondence is the final theorem of that proposed Part II; routing it anywhere else would duplicate it."
+  },
+  {
+   "route": "part-ii",
+   "parent": "PadicDifferentialEquationsAndRigidCohomology",
+   "roadmap": "PadicDifferentialEquationsPartIIMinimalSlope",
+   "title": "P-adic differential equations, rigid cohomology and p-adic weights, Part II: PBQ filtrations and minimal slopes",
+   "area": "padic",
+   "items": [
+    "PAPER-DADDEZIO-23/20",
+    "PAPER-DADDEZIO-23/21",
+    "PAPER-DADDEZIO-23/22",
+    "PAPER-DADDEZIO-23/23",
+    "PAPER-DADDEZIO-23/24",
+    "PAPER-DADDEZIO-23/25",
+    "PAPER-DADDEZIO-23/26",
+    "PAPER-DADDEZIO-23/27",
+    "PAPER-DADDEZIO-23/28",
+    "PAPER-DADDEZIO-23/29",
+    "PAPER-DADDEZIO-23/30",
+    "PAPER-DADDEZIO-23/31",
+    "PAPER-DADDEZIO-23/32"
+   ],
+   "brief": "This route coalesces with PadicDifferentialEquationsPartIIMinimalSlope as proposed by PAPER-TSUZUKI-23 (same id, title, parent and area) and keeps its brief. D'Addezio (Ann. of Math. 198 (2023)) adds a second proof of the curve case of the minimal slope property: the †-hull N̄ of a sub-F^n-isocrystal (Definition 4.1.1), the property MS (Notation 4.1.2) and its reductions to n = 1, isoclinic subobjects, dense opens and finite étale Galois covers (Lemmas 4.1.4–4.1.8); the generic statement S_1(N) = S_1(N̄) over E (Proposition 4.2.2) via the dual construction of the hull (Lemma 4.2.4), de Jong's reverse slope filtration and Lemma 4.2.7; the integral models A_n, B_n, B̃_n and Lemmas 4.2.10–4.2.11; the comparison of hulls with the generic point (Proposition 4.2.12, whose printed proof needs the repair noted in PAPER-DADDEZIO-23/E5, or Tsuzuki's route); and Theorem 4.2.13, MS for smooth curves over a perfect field, reduced to A^1 by Kedlaya's étale covers. The Abe–Esnault Lefschetz full-faithfulness theorem for docile isocrystals (AE19, Cor. 2.4) is recorded here next to Tsuzuki's Abe–Esnault curve input. The higher-dimensional MS theorem of D'Addezio belongs to PadicDifferentialEquationsPartIIMonodromyGroups, which imports this roadmap; nothing here may import it back. Import the parent's slope filtrations (RD.1), local monodromy (RD.2) and overconvergent coefficient categories (RD.3).",
+   "reason": "The curve case of MS and its generic-point proof are exactly the minimal-slope theory that PAPER-TSUZUKI-23's Part II owns; a second roadmap for the same theorem would duplicate it."
+  },
+  {
+   "route": "part-ii",
+   "parent": "PadicDifferentialEquationsAndRigidCohomology",
+   "roadmap": "PadicDifferentialEquationsPartIIMonodromyGroups",
+   "title": "P-adic differential equations, rigid cohomology and p-adic weights, Part II: monodromy groups of F-isocrystals and the parabolicity conjecture",
+   "area": "padic",
+   "items": [
+    "PAPER-DADDEZIO-23/33",
+    "PAPER-DADDEZIO-23/34",
+    "PAPER-DADDEZIO-23/35",
+    "PAPER-DADDEZIO-23/36",
+    "PAPER-DADDEZIO-23/37",
+    "PAPER-DADDEZIO-23/38",
+    "PAPER-DADDEZIO-23/39",
+    "PAPER-DADDEZIO-23/40",
+    "PAPER-DADDEZIO-23/41",
+    "PAPER-DADDEZIO-23/42",
+    "PAPER-DADDEZIO-23/43",
+    "PAPER-DADDEZIO-23/44",
+    "PAPER-DADDEZIO-23/45",
+    "PAPER-DADDEZIO-23/46",
+    "PAPER-DADDEZIO-23/47",
+    "PAPER-DADDEZIO-23/48",
+    "PAPER-DADDEZIO-23/49",
+    "PAPER-DADDEZIO-23/50",
+    "PAPER-DADDEZIO-23/51",
+    "PAPER-DADDEZIO-23/52",
+    "PAPER-DADDEZIO-23/53",
+    "PAPER-DADDEZIO-23/54",
+    "PAPER-DADDEZIO-23/55",
+    "PAPER-DADDEZIO-23/56",
+    "PAPER-DADDEZIO-23/57",
+    "PAPER-DADDEZIO-23/58",
+    "PAPER-DADDEZIO-23/59",
+    "PAPER-DADDEZIO-23/60",
+    "PAPER-DADDEZIO-23/61",
+    "PAPER-DADDEZIO-23/62",
+    "PAPER-DADDEZIO-23/63",
+    "PAPER-DADDEZIO-23/64",
+    "PAPER-DADDEZIO-23/65",
+    "PAPER-DADDEZIO-23/66",
+    "PAPER-DADDEZIO-23/67",
+    "PAPER-DADDEZIO-23/68",
+    "PAPER-DADDEZIO-23/69",
+    "PAPER-DADDEZIO-23/70"
+   ],
+   "brief": "Extend P-adic differential equations, rigid cohomology and p-adic weights (PadicDifferentialEquationsAndRigidCohomology) by the Tannakian monodromy theory of F-isocrystals, following D'Addezio, Parabolicity conjecture of F-isocrystals (Ann. of Math. 198 (2023), 619–656). Final theorems: Theorem 4.4.12 (Crew's parabolicity conjecture: G(M, η) ⊆ G(M†, η) is the stabiliser of the slope filtration of M_η, and is parabolic when M† is semisimple); Theorem 4.1.3 (every smooth variety over a perfect field satisfies MS); Theorem 4.4.3 (a Lefschetz curve C with ⟨M†⟩ ≃ ⟨M†|_C⟩ for docile M†); Theorem 5.1.6 (semisimplicity of Gr^S R^1f_crys for abelian schemes over finite fields); Theorem 5.2.2 (finiteness of A(E^sep)[p^∞]); Corollary 5.3.1 (Kedlaya's conjecture) and Theorem 5.3.3 (multiplicity one by minimal-slope Hecke eigenvalues); Corollaries 5.4.2 and 5.4.4 (PBS filtration, minimal †-compactifications). Layers: (1) Crew's monodromy groups, observable functors and scalar extension; (2) isocrystals with punctual Q_p^ur-structure, Dieudonné–Manin structures, Λ_η, the exact sequences of Proposition 3.2.8 and the base change G(M, η) = G(M, V_M, η) ⊗ K; (3) the slope quasi-cocharacter, Saavedra's P_G(λ), Chevalley's theorem and Propositions 4.3.2–4.3.5; (4) the Lefschetz theorem through Lemmas 4.4.5–4.4.7, Corollary 4.4.8 and a Bertini theorem with tangency conditions; (5) MS in all dimensions and parabolicity; (6) the applications over finite and finitely generated fields. Import MS for curves and the Abe–Esnault Lefschetz theorem from PadicDifferentialEquationsPartIIMinimalSlope; slope filtrations, full faithfulness, docility and semistable reduction from RD.1–RD.3; Dieudonné–Manin from VectorBundlesAndIsocrystals VB0; Tannaka groups from MotivesAndAlgebraicCycles MC.6; parabolic subgroups from the Tau Ceti ReductiveGroups Layer 7; crystalline Dieudonné theory from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2; weights of abelian varieties from WeightsInEtaleCohomology R34.2; Chebotarev from AnalyticNumberTheory AN.4; Abe's correspondence from GlobalShtukasPartIICrystallineCompanions.",
+   "reason": "No layer or proposal plans Crew's monodromy groups of F-isocrystals or their parabolicity; the ℓ-adic monodromy continuations (GlobalShtukasPartIICompanions) treat lisse sheaves. The theory builds on the parent's coefficient categories and on the minimal-slope Part II, and the higher-dimensional MS theorem must sit here rather than there, because its proof uses the monodromy groups and the Lefschetz theorem (a roadmap cycle otherwise)."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-DADDEZIO-23/E1",
+   "kind": "misprint",
+   "locator": "§2.2, p. 6 (arXiv v4)",
+   "printed": "We write Isoc(X)_F (resp. Isoc†(X)_F) for the subcategory of Isoc(X) (resp. Isoc†(X)_F) spanned by those isocrystals",
+   "correction": "for the subcategory of Isoc(X) (resp. Isoc†(X)) spanned by those isocrystals",
+   "reason": "Isoc†(X)_F is being defined as a subcategory; it cannot be a subcategory of itself.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2023.198.2.3, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2023.198.2.3)",
+    "The Annals article page https://annals.math.princeton.edu/2023/198-2/p03, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2012.12879: v1 (23 December 2020), v2 (5 April 2022), v3 (25 May 2022) and v4 (8 February 2023, 'final version, to appear in Annals', two days after acceptance); v4 has the recorded passages. The published PDF is not freely served and was not compared"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/E2",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.1.3, p. 7 (arXiv v4)",
+   "printed": "the Q_p^ur-linear subspace V_{M^∨} ⊆ ω_x(M^∨) corresponding to those morphisms f ∈ Hom(ω_x(M), K) such that f(V) ⊆ Q_p^ur",
+   "correction": "V_{M^∨} ⊆ ω_η(M^∨) corresponding to those f ∈ Hom(ω_η(M), K(Ω)) with f(V_M) ⊆ Q_p^ur",
+   "reason": "The lemma is about (X, η) with ω_η valued in K(Ω)-vector spaces; no point x or subspace V is defined.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2023.198.2.3, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2023.198.2.3)",
+    "The Annals article page https://annals.math.princeton.edu/2023/198-2/p03, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2012.12879: v1 (23 December 2020), v2 (5 April 2022), v3 (25 May 2022) and v4 (8 February 2023, 'final version, to appear in Annals', two days after acceptance); v4 has the recorded passages. The published PDF is not freely served and was not compared"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/E3",
+   "kind": "misprint",
+   "locator": "Theorem 4.2.6(i), p. 14 (arXiv v4)",
+   "printed": "(S^rev_i(M†_alg)/S^rev_{i−1}(M†_alg)) ⊗_{E†_alg} E_alg is isomorphic to S_{m−i}(M_alg)/S_{m−i−1}(M_alg).",
+   "correction": "is isomorphic to S_{m+1−i}(M_alg)/S_{m−i}(M_alg)",
+   "reason": "For i = 1 the printed index gives S_{m−1}/S_{m−2}, but the proof of Lemma 4.2.7 (p. 15) uses that S^rev_1 has the maximal slope and rank rk(S_m/S_{m−1}); for i = m the printed right side S_0/S_{−1} is undefined.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2023.198.2.3, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2023.198.2.3)",
+    "The Annals article page https://annals.math.princeton.edu/2023/198-2/p03, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2012.12879: v1 (23 December 2020), v2 (5 April 2022), v3 (25 May 2022) and v4 (8 February 2023, 'final version, to appear in Annals', two days after acceptance); v4 has the recorded passages. The published PDF is not freely served and was not compared"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/E4",
+   "kind": "misprint",
+   "locator": "Theorem 4.2.6(ii), p. 14 (arXiv v4)",
+   "printed": "If M† is isoclinic of slope s/r, after possibly multiplying s and r by some positive integer, the φ-module M†_alg[p^{1/r}] admits a basis",
+   "correction": "If M†_alg is isoclinic of slope s/r",
+   "reason": "The theorem concerns a φ-module M†_alg over E†_alg; no M† is introduced, and Lemma 4.2.7 applies (ii) to S^rev_1(M†_alg).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2023.198.2.3, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2023.198.2.3)",
+    "The Annals article page https://annals.math.princeton.edu/2023/198-2/p03, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2012.12879: v1 (23 December 2020), v2 (5 April 2022), v3 (25 May 2022) and v4 (8 February 2023, 'final version, to appear in Annals', two days after acceptance); v4 has the recorded passages. The published PDF is not freely served and was not compared"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/E5",
+   "kind": "gap",
+   "locator": "Proof of Proposition 4.2.12, p. 17 (arXiv v4)",
+   "printed": "Since Q_{W,n} is compact for the induced metric and f_n is injective, we have that inf{‖f_n(m)‖ | m ∈ Q_{W,n} ∖ pQ_{W,n}} = p^{−s_n} for some s_n ≥ 0. … this implies that the p^∞-torsion of the quotient R_{W,n} := P_W/f(Q_{W,n}) is killed by p^{s_n}.",
+   "correction": "The infimum can be 0 and the p^∞-torsion of R_{W,n} can be unbounded, so Lemma 4.2.11 does not apply as stated; the injectivity of (Q_{W,n} ⊗_{A_n} B̃_n)^∧[1/p] → (P_W ⊗_{A_n} B̃_n)^∧[1/p] needs another argument. Theorem 4.2.13, which this proposition serves, is proved independently in [Tsu23, Prop. 6.1].",
+   "reason": "Take N = M the trivial rank-one module, so Q_{W,n} = A_n·e, P_W = W⟨u⟩·e and f_n the inclusion (any choice of lattices is a scalar multiple). With ū_n = pu^n, the element ū_n^j = p^ju^{nj} is not in pA_n, since every element of A_n has u^{nj}-coefficient of valuation at least j, but ‖ū_n^j‖ = p^{−j} → 0. So the infimum is 0; correspondingly u^{nj} is p^j-torsion and not p^{j−1}-torsion in W⟨u⟩/A_n. Compactness does not help: pQ_{W,n} is not open in Q_{W,n} for the metric induced from P_W (and Q_{W,n} is not compact when k is infinite).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2023.198.2.3, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2023.198.2.3)",
+    "The Annals article page https://annals.math.princeton.edu/2023/198-2/p03, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2012.12879: v1 (23 December 2020), v2 (5 April 2022), v3 (25 May 2022) and v4 (8 February 2023, 'final version, to appear in Annals', two days after acceptance); v4 has the recorded passages. The published PDF is not freely served and was not compared"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/E6",
+   "kind": "misprint",
+   "locator": "Before Corollary 4.4.8, p. 22 (arXiv v4)",
+   "printed": "We suppose that X admits a smooth compactification X ⊆ Y ⊆ P^d_k and Y ∖ X is a simple normal divisor of D.",
+   "correction": "Y ∖ X is a simple normal crossing divisor D",
+   "reason": "D is not defined otherwise; Corollary 4.4.8 speaks of M† docile along D = Y ∖ X.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2023.198.2.3, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2023.198.2.3)",
+    "The Annals article page https://annals.math.princeton.edu/2023/198-2/p03, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2012.12879: v1 (23 December 2020), v2 (5 April 2022), v3 (25 May 2022) and v4 (8 February 2023, 'final version, to appear in Annals', two days after acceptance); v4 has the recorded passages. The published PDF is not freely served and was not compared"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/E7",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.4.3 (§4.4.10), p. 23 (arXiv v4)",
+   "printed": "By Lemma 4.4.6, there exists a dense open D′_S ⊆ D_S and a conic closed subscheme Z ⊆ TX ×_X D′_S",
+   "correction": "Apply Lemma 4.4.6 on Y (with V on U = Y ∖ D_S) to each irreducible component of D_S, giving Z ⊆ TY ×_Y D′_S",
+   "reason": "D_S = Y ∖ U contains D = Y ∖ X, so D′_S does not lie in X; Theorem 4.4.9, which is applied next, takes Z ⊆ TY ×_Y D′, and Lemma 4.4.6 is stated for an irreducible divisor.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2023.198.2.3, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2023.198.2.3)",
+    "The Annals article page https://annals.math.princeton.edu/2023/198-2/p03, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2012.12879: v1 (23 December 2020), v2 (5 April 2022), v3 (25 May 2022) and v4 (8 February 2023, 'final version, to appear in Annals', two days after acceptance); v4 has the recorded passages. The published PDF is not freely served and was not compared"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/E8",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.4.12, p. 24 (arXiv v4)",
+   "printed": "Since G(M, η) ⊆ G(M†, η) is a normal subgroup, this implies that G(M, η) = G(M†, η) ∩ G(M, Φ^∞_M, η) ⊗ K is a parabolic subgroup of G(M†, η).",
+   "correction": "Since G(M†, η) is a normal subgroup of G(M†, Φ^{†,∞}_M, η) ⊗ K, …",
+   "reason": "G(M, η) is being shown to be parabolic in G(M†, η), and a proper parabolic subgroup is not normal. What the step uses is that the geometric group G(M†, η) is normal in the arithmetic group (the second exact row of Proposition 3.2.8), so the intersection of the parabolic G(M, Φ^∞_M, η) ⊗ K with it is parabolic in G(M†, η).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2023.198.2.3, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2023.198.2.3)",
+    "The Annals article page https://annals.math.princeton.edu/2023/198-2/p03, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2012.12879: v1 (23 December 2020), v2 (5 April 2022), v3 (25 May 2022) and v4 (8 February 2023, 'final version, to appear in Annals', two days after acceptance); v4 has the recorded passages. The published PDF is not freely served and was not compared"
+   ]
+  },
+  {
+   "id": "PAPER-DADDEZIO-23/E9",
+   "kind": "misprint",
+   "locator": "End of the proof of Corollary 5.4.4, p. 28 (arXiv v4)",
+   "printed": "M′_1 := M_1/(M_1 ∩ N̄) ≃ M/N̄ ≃ M_2/(M_2 ∩ N̄) =: M′_2. Therefore, (M′_1, Φ_{M′_1}) and (M′_2, Φ_{M′_2}) endowed with the morphisms ι_{M′_1} and ι_{M′_2}, satisfy all the desired properties.",
+   "correction": "The composite isomorphism M′_1 ≃ M′_2 carries ι_{M′_1} to −ι_{M′_2}; compose it with −1 (or embed N anti-diagonally) to get an isomorphism of †-compactifications.",
+   "reason": "N sits diagonally as (ι_{M_1}(n), ι_{M_2}(n)) ∈ N ⊆ N̄, so in M/N̄ the classes of (ι_{M_1}(n), 0) and (0, ι_{M_2}(n)) are negatives.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2023.198.2.3, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2023.198.2.3)",
+    "The Annals article page https://annals.math.princeton.edu/2023/198-2/p03, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2012.12879: v1 (23 December 2020), v2 (5 April 2022), v3 (25 May 2022) and v4 (8 February 2023, 'final version, to appear in Annals', two days after acceptance); v4 has the recorded passages. The published PDF is not freely served and was not compared"
+   ]
+  }
+ ]
+}
