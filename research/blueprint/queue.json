@@ -9685,8 +9685,9 @@
    ],
    "avoidAccountOf": "PAPER-STEVENS-08",
    "prompt": "research/blueprint/prompts/REV-PAPER-STEVENS-08.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4588"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4588",
+   "finishedAt": "2026-09-29T18:53:50Z"
   },
   {
    "id": "PAPER-LUST-STEVENS-20",
