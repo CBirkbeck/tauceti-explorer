@@ -1272,6 +1272,20 @@
             "readSections": "PDF147–148 (Appendix B set-up and Proposition B.0.1; page image of PDF148 read): the same equations and parameter convention as the published version; the matrix A has the constant c12."
           }
         ]
+      },
+      {
+        "agent": "Claude Code",
+        "session": "cc-58621d",
+        "date": "2026-09-29",
+        "main": "Published PDF (sha256 e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd) freshly read at PDF163–180 (§8 in full: Conjectures 8.1.1 and 8.1.5, §§8.2–8.6 with all proofs), with the cited statements PDF40–44 (Lemma 2.3.4, Proposition 2.3.7, Definition 2.3.10), PDF52–53 (§2.6), PDF127–130 (Definition 6.2.1, Propositions 6.2.3–6.2.7), PDF150–151 (Theorem 7.3.2) and PDF155–159 (§7.4 set-up, Theorem 7.4.2, Remark 7.4.3, Lemma 7.4.4). Page images of PDF173 and 176–179 read.",
+        "sources": [
+          {
+            "title": "arXiv 2007.05398v2",
+            "url": "https://arxiv.org/pdf/2007.05398v2",
+            "sha256": "3cdae0b192d3ba8d75391fbd2bf40264e23c9d9c69d536ad30b50dddda0d61af",
+            "readSections": "PDF127 (Lemma 8.4.9 and its proof; the definition of S_{Λ,t}) and PDF130 (the proof of Corollary 8.5.2): the same text as the published version at the E117 and E118 locators."
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -1294,7 +1308,7 @@
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Partial extraction: 779 items (146 library, 48 planned, 585 missing), 26 routes and 116 unreviewed source findings. This continuation corrects the coefficient/prime hypotheses behind the Section5 Kisin uniqueness results, separates the unrestricted rank-one scalar contraction, supplies an acyclic semisimplicity repair using WE19, and propagates the bounds through Section7.2. The generic-adjoint argument is supplied in all ranks with its rank-one odd-prime exception E110; finite-length Hom comparison is decomposed through a simultaneous H0/H1 induction. Eight new items K55–K58, L143, Z142 and G67–G68 retain existing owners. All inherited IDs, statuses and source data are preserved. The internal graph has 1,226 edges and is acyclic; this is not recursive proof closure. Twelve recorded gaps remain, including later rank-one propagation, external suppliers, regularity and the U/G/B/Z/P outline queues. No formal implementation or independent review is asserted. A further checkpoint (cc-fb70e5) records E111: Proposition B.0.1(4) fails on the line a = 0 inside V. A later one (cc-39fac3) certifies Q06 (t^3 in the Jacobian ideal) over Z[a,b][1/(aP)] with multiplier 2a(a−2)^2(a−b)(b−1), and shows that the specializations used downstream all have a a unit, so Corollary B.0.5 keeps r = 3. A second cc-39fac3 checkpoint certifies the Q13 Gröbner basis uniformly over V, in the two cells (a−b)(a−1) ≠ 1 and = 1, with Cohen–Macaulay leading-term schemes in every characteristic. It records E112, the misprinted exceptional locus, and E113: Table 1 and the special-fibre component list fail on a = 0, a(b−1) = b and (a−b)(a−1) = 1, without affecting the downstream uses. A third cc-39fac3 checkpoint certifies, uniformly over V, Proposition B.0.1(2)'s minimal primes (the special fibre is doubled along (c22, c13, c12)) and B.0.1(3)'s flatness (the chart is free over X × V), and shows that the normalization's special fibre is reduced. A fourth cc-39fac3 checkpoint certifies Table 1 at every point of V off the three E113 curves. A further cc-39fac3 step decomposes the Kummer-tower field inputs into Z143–Z145 (p > 2), routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, and removes that gap. A cc-58621d step settles Q03, the last uncertified Appendix B claim. Proposition B.0.1(1)'s equations are the chart's for the monodromy parameter Diag(−a, −b, 0), the negative of (3.1)'s (E114). They present the chart only where a is also invertible (E115), and the displayed matrix has vc12 for c12 (E116). With these corrections B.0.1(1) is proved over Z[1/7!][a, b][1/(aP)], every Appendix B claim is certified or corrected, and the appendix-certificates gap is closed; the downstream uses are unaffected. A second cc-58621d step gives the 26 §3 theorem items (U05–U45) source-level proof steps and prerequisite edges; the graph stays acyclic. A third cc-58621d step adds proof steps for K45–K48, P17 and Z01.",
+  "summary": "Partial extraction: 779 items (146 library, 48 planned, 585 missing), 26 routes and 118 unreviewed source findings. This continuation corrects the coefficient/prime hypotheses behind the Section5 Kisin uniqueness results, separates the unrestricted rank-one scalar contraction, supplies an acyclic semisimplicity repair using WE19, and propagates the bounds through Section7.2. The generic-adjoint argument is supplied in all ranks with its rank-one odd-prime exception E110; finite-length Hom comparison is decomposed through a simultaneous H0/H1 induction. Eight new items K55–K58, L143, Z142 and G67–G68 retain existing owners. All inherited IDs, statuses and source data are preserved. The internal graph has 1,226 edges and is acyclic; this is not recursive proof closure. Twelve recorded gaps remain, including later rank-one propagation, external suppliers, regularity and the U/G/B/Z/P outline queues. No formal implementation or independent review is asserted. A further checkpoint (cc-fb70e5) records E111: Proposition B.0.1(4) fails on the line a = 0 inside V. A later one (cc-39fac3) certifies Q06 (t^3 in the Jacobian ideal) over Z[a,b][1/(aP)] with multiplier 2a(a−2)^2(a−b)(b−1), and shows that the specializations used downstream all have a a unit, so Corollary B.0.5 keeps r = 3. A second cc-39fac3 checkpoint certifies the Q13 Gröbner basis uniformly over V, in the two cells (a−b)(a−1) ≠ 1 and = 1, with Cohen–Macaulay leading-term schemes in every characteristic. It records E112, the misprinted exceptional locus, and E113: Table 1 and the special-fibre component list fail on a = 0, a(b−1) = b and (a−b)(a−1) = 1, without affecting the downstream uses. A third cc-39fac3 checkpoint certifies, uniformly over V, Proposition B.0.1(2)'s minimal primes (the special fibre is doubled along (c22, c13, c12)) and B.0.1(3)'s flatness (the chart is free over X × V), and shows that the normalization's special fibre is reduced. A fourth cc-39fac3 checkpoint certifies Table 1 at every point of V off the three E113 curves. A further cc-39fac3 step decomposes the Kummer-tower field inputs into Z143–Z145 (p > 2), routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, and removes that gap. A cc-58621d step settles Q03, the last uncertified Appendix B claim. Proposition B.0.1(1)'s equations are the chart's for the monodromy parameter Diag(−a, −b, 0), the negative of (3.1)'s (E114). They present the chart only where a is also invertible (E115), and the displayed matrix has vc12 for c12 (E116). With these corrections B.0.1(1) is proved over Z[1/7!][a, b][1/(aP)], every Appendix B claim is certified or corrected, and the appendix-certificates gap is closed; the downstream uses are unaffected. A second cc-58621d step gives the 26 §3 theorem items (U05–U45) source-level proof steps and prerequisite edges; the graph stays acyclic. A third cc-58621d step adds proof steps for K45–K48, P17 and Z01. A fourth cc-58621d step adds proof steps for the 28 §8 B items and records E117, a failed step in the proof of Corollary 8.5.2 that is repaired through the patching functor at ρ̄^ss, and E118, a missing depth condition in the proof of Lemma 8.4.9 for large weights.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -12436,7 +12450,17 @@
           "where": "not cited later",
           "how": "Theorem 8.3.5(1) (B15) proves Conjecture 8.1.5 for the versal ring R_∞ = R^□_ρ̄ ⊗̂ R^p of the patching functor (PDF169). This remark moves the statement to any other versal ring, e.g. R^□_ρ̄. Corollary 8.5.2 does not need it, since it goes through global cycles."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Let R_1 and R_2 be versal rings for X_n at ρ̄, with their versal maps. Choose, as the remark says, a common formally smooth covering: a complete local noetherian ring R_12 with residue field F and formally smooth maps R_i → R_12 compatible with the versal maps to X_n. One way is to complete Spf R_1 ×_{X_n} Spf R_2 at the point over ρ̄ in both factors. Each R_i → R_12 is then a power series extension, R_12 ≅ R_i[[x_1, …, x_{r_i}]].",
+        "Put R^alg_12 := R_12 ⊗_{R_i} R^alg_i; both choices of i give the completed pullback of X_{n,red}. R^alg_i → R^alg_12 is a power series extension. Minimal primes correspond (p ↦ pR^alg_12, prime because (R^alg_i/p)[[x]] is a domain), and the localized map at a minimal prime is flat with a field as closed fibre, so generic lengths are preserved. So pullback is a bijection Z[Spec R^alg_i] ≅ Z[Spec R^alg_12] of top-dimensional cycles. It preserves effectivity and composes with i^*_i to give the pullback from X_{n,red} to R^alg_12.",
+        "Given effective cycles Z_σ(ρ̄) on Spec R^alg_1 satisfying Conjecture 8.1.5, pull them back to R^alg_12 and transport them to R^alg_2 through the bijection for i = 2. They stay effective. The equations hold on R^alg_2, because both sides are pullbacks of the same cycles on X_{n,red} and the bijection is injective."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B06"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B53",
@@ -12451,7 +12475,17 @@
           "where": "not cited later",
           "how": "It places Conjecture 8.1.5 (B06) relative to the literature, and the introduction's Conjecture 1.5.1 is written in this framed form."
         }
-      ]
+      ],
+      "proofSteps": [
+        "The framed deformation ring R^□_ρ̄ is a versal ring of X_n at ρ̄ ([22]); take R^ver = R^□_ρ̄. ϖ vanishes on the reduced substack X_{n,red}, so R^alg_ρ̄ is a quotient of R^□_ρ̄/ϖ. Z_{λ,τ}(ρ̄) is the cycle of R^{□,λ+η,τ}_ρ̄/ϖ, supported on Spec R^alg_ρ̄ (B06, [75, Tag 0DRD]).",
+        "Let S be the set of all minimal types, so N_τ = 0 and r(τ) = σ(τ) (Remark 1.5.2(2)). The equations of Conjecture 8.1.5 are then the potentially crystalline equations of the [23]-style conjecture, which the paper states as Conjecture 1.5.1 (PDF 15) with cycles in Spec R^□_ρ̄/ϖ. Pushforward along the closed immersion Spec R^alg_ρ̄ ⊂ Spec R^□_ρ̄/ϖ is injective on cycles and turns solutions of Conjecture 8.1.5 into solutions of those equations. The only added requirement is that each Z_σ(ρ̄) be effective.",
+        "The converse needs the [23] cycles to be supported on Spec R^alg_ρ̄. That holds when the equations determine them, for instance when S is a Breuil–Mézard system (Remark 8.1.3, B04), since then each Z_σ(ρ̄) is a rational combination of the Z_{λ,τ}(ρ̄). The remark does not say which reading it intends. It also does not restate [23, Conjecture 4.2.1]; the comparison here is with the paper's own rendering, Conjecture 1.5.1."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B06"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B07",
@@ -12522,7 +12556,18 @@
       "locator": "Proposition8.2.1 PDF165",
       "statement": "Geometric Breuil–Mézard for S implies the versal form at every residual point, by pullback preserving multiplicities.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Let (Z_σ) be effective cycles on X_{n,red} satisfying Conjecture 8.1.1 for S. For ρ̄ ∈ X_n(F) put Z_σ(ρ̄) := i^*_ρ̄(Z_σ) in Z[Spec R^alg_ρ̄].",
+        "i^*_ρ̄ is additive, and it takes effective cycles to effective cycles because it preserves multiplicities ([75, Tag 0DRD]; B05). By definition i^*_ρ̄(Z_{λ,τ}) = Z_{λ,τ}(ρ̄), the cycle of R^{ver,λ+η,τ}_{ρ̄,F}.",
+        "Applying i^*_ρ̄ to Z_{λ,τ} = Σ_σ [σ̄(λ,τ):σ] Z_σ gives the versal equation for each (λ+η,τ) ∈ S, with effective Z_σ(ρ̄). This is Conjecture 8.1.5 at ρ̄."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B06"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B09",
@@ -12593,7 +12638,17 @@
       "locator": "Lemma8.2.2 PDF166",
       "statement": "If P meets all components of S, i_P^* is injective on their integral span and detects effectivity. This does not by itself construct global cycles from arbitrary locally chosen cycles.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Fix x ∈ P and an irreducible component C of X_{n,red}. Each component of Spec R^alg_x lies over exactly one component of X_{n,red}, since flat maps send generic points to generic points. So i^*_x(C) is supported on the components of Spec R^alg_x lying over C, and it is nonzero exactly when x ∈ C ([75, Tag 0DRD]). C is reduced and X_{n,red} is of finite type over F, hence excellent, so the pullback of C is reduced: each of these components has multiplicity one. Pullbacks of distinct components share no component.",
+        "Injectivity. Let Z = Σ a_C C ∈ Z[C(S)] be nonzero and choose C with a_C ≠ 0. Since P meets all components of S, some x ∈ P lies on C. The coefficient in i^*_x(Z) of any component over C is a_C ≠ 0, so i^*_P(Z) ≠ 0.",
+        "Effectivity. If Z is effective, so is each i^*_x(Z). If a_C < 0 and x ∈ P ∩ C, then i^*_x(Z) has the coefficient a_C < 0 on a component over C. The same computation for Z ∈ Q ⊗ Z[C(S)] shows that Z is integral once every i^*_x(Z) is; the proof of Theorem 8.3.5(2) uses this."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B09"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B11",
@@ -12602,7 +12657,19 @@
       "locator": "Proposition 8.2.3, PDF166",
       "statement": "Proposition 8.2.3. Let S be a set of extremal types and P ⊂ X_n(F) a subset. Assume (1) P meets all components of S; and (2) Conjecture 8.1.5 holds for S and all x ∈ P, with cycles Z_σ(x) for each σ ∈ JH(σ̄(S)) and x ∈ P. Then for each σ ∈ JH(σ̄(S)) there is at most one cycle Z_σ in Z[X_{n,red}] such that the support of Z_σ is contained in the support of Z_{λ,τ} for some (λ+η,τ) ∈ S and, for each x ∈ P, i^*_x(Z_σ) = Z_σ(x). If all such cycles exist, then they satisfy the conclusion of Conjecture 8.1.1. Here P meets all components of S if every irreducible component of X_{n,red} in the support of some X^{λ+η,τ}, (λ+η,τ) ∈ S, meets P. Proof (PDF166): uniqueness is Lemma 8.2.2 (B10). For effectivity, suppose an irreducible C has a negative coefficient in Z_σ. Some x ∈ P lies on C, and then i^*_x(Z_σ) is not effective ([75, Tag 0DRD]), which contradicts the effectivity of Z_σ(x). The equality Z_{λ,τ} = Σ_σ [σ̄(λ,τ):σ] Z_σ follows again from Lemma 8.2.2.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "A cycle whose support lies in the support of some Z_{λ,τ}, (λ+η,τ) ∈ S, belongs to Z[C(S)]. If Z_σ and Z′_σ both have the stated properties, Z_σ − Z′_σ ∈ Z[C(S)] pulls back to 0 at every x ∈ P. So it is 0 by Lemma 8.2.2 (B10). This is uniqueness.",
+        "Effectivity. If C has a negative coefficient in Z_σ, choose x ∈ P ∩ C (P meets all components of S). Then i^*_x(Z_σ) = Z_σ(x) has a negative coefficient (B10, [75, Tag 0DRD]), contradicting the effectivity of Z_σ(x) in Conjecture 8.1.5.",
+        "Equations. For (λ+η,τ) ∈ S, both Z_{λ,τ} and Σ_σ [σ̄(λ,τ):σ] Z_σ lie in Z[C(S)]; the sum runs over σ ∈ JH(σ̄(λ,τ)) ⊂ JH(σ̄(S)), where Z_σ exists by assumption. At x ∈ P they pull back to Z_{λ,τ}(x) and Σ_σ [σ̄(λ,τ):σ] Z_σ(x), which are equal by Conjecture 8.1.5 at x. Lemma 8.2.2 gives the equation on X_{n,red}, which is Conjecture 8.1.1 for S."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B10"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B54",
@@ -12617,7 +12684,18 @@
           "where": "PDF166, before Lemma 8.2.2",
           "how": "\"In fact, the converse of this statement is true (see Remark 8.2.4)\". This is a forward reference only; no proof uses the remark."
         }
-      ]
+      ],
+      "proofSteps": [
+        "X_{n,red} is a reduced algebraic stack of finite type over the perfect field F, so its smooth locus is open and dense. For each C ∈ C(S) choose, after enlarging F if necessary, a smooth point x_C of X_{n,red} on C; a smooth point lies on only one component. Then P = {x_C} meets all components of S. The components of each X^{λ+η,τ}_F are components of X_{n,red}, since the dimensions agree ([22]).",
+        "At a smooth point, R^alg_{x_C} is formally smooth over F, so it is a power series ring and a domain. Hence i^*_{x_C}(C) = [Spec R^alg_{x_C}] and i^*_{x_C}(C′) = 0 for C′ ≠ C. So i^*_P : Z[C(S)] → ∏_C Z[Spec R^alg_{x_C}] ≅ ∏_C Z reads off coefficients and is an isomorphism.",
+        "Suppose Conjecture 8.1.5 holds at every x_C. Write Z_σ(x_C) = a_{σ,C}[Spec R^alg_{x_C}] with a_{σ,C} ≥ 0 and set Z_σ := Σ_C a_{σ,C} C. If σ ∈ JH(σ̄(λ,τ)) with (λ+η,τ) ∈ S, the versal equation with effective terms gives Z_σ(x_C) ≤ Z_{λ,τ}(x_C) for all C, so the support of Z_σ lies in that of Z_{λ,τ}. Proposition 8.2.3 (B11) then gives Conjecture 8.1.1 for S. The construction of [22, §8.3] is not reread here."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B11"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B12",
@@ -12821,7 +12899,21 @@
       "locator": "Theorem8.3.5(1) PDF168–169",
       "statement": "If every x in P has a minimal patching functor for S, then the versal equations hold with Z_sigma(x)=Z(M_infty^x(sigma)). The rank-one generic support condition is used for equality with the ring cycle.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The statement is pointwise, so take P = {ρ̄}. A minimal patching functor M_∞ for ρ̄ and S (Definition 6.2.1(I), (IV)) has R^p formally smooth over O. So R_∞ = R^□_ρ̄ ⊗̂_O R^p is a versal ring for X_n at ρ̄, and the cycles are taken in Spec R^alg for this versal ring. By Remark 8.1.6(1) (B52) the choice does not matter.",
+        "Fix (λ+η,τ) ∈ S and a lattice σ°(λ,τ). By exactness, M_∞(σ̄(λ,τ)) = M_∞(σ°(λ,τ))/ϖ. M_∞(σ°(λ,τ)) is maximal Cohen–Macaulay over R_∞(λ,τ) (Definition 6.2.1(1)), and by minimality for S its generic fibre is locally free of rank one over R_∞(λ,τ)[1/p]. So [23, Lemma 2.2.10] gives Z(M_∞(σ̄(λ,τ))) = Z(R_∞(λ,τ)/ϖ) = Z_{λ,τ}(ρ̄), the cycle of R^{ver,λ+η,τ}_{ρ̄,F} for R^ver = R_∞.",
+        "Filter σ̄(λ,τ) by its Jordan–Hölder factors. Exactness of M_∞, and additivity of cycles for modules supported in dimension at most that of Spec R_∞(λ,τ)_F ([23, Lemma 2.2.7]), give Z(M_∞(σ̄(λ,τ))) = Σ_σ [σ̄(λ,τ):σ] Z(M_∞(σ)). Each Z(M_∞(σ)) is the cycle of a module, hence effective. So Z_σ(ρ̄) := Z(M_∞(σ)) satisfies Conjecture 8.1.5 at ρ̄ for S."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P08"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B16",
@@ -12830,7 +12922,25 @@
       "locator": "Theorem8.3.5(2) PDF168–171",
       "statement": "In addition to B15, assume P meets every S component and S_tilde containing S is a relative P-BM system. Every relatively generic sigma has a unique effective global cycle with the required support and local pullbacks, giving geometric BM for S_P. Construction first inverts the type matrix rationally and then truncates components; versal detection proves integrality and effectivity.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Fix an (S, Ŝ)-generic σ, and choose d_σ and n^σ_{λ,τ} as in Definition 8.3.3(1) for a set Ŝ_elim witnessing that Ŝ is a P-Breuil–Mézard system. Put Z_σ := tr_{σ,S}((1/d_σ) Σ_{(λ+η,τ)∈Ŝ} n^σ_{λ,τ} Z_{λ,τ}), a cycle with rational coefficients (tr_{σ,S} as in B18). σ ∈ JH(σ̄(λ_0,τ_0)) for some (λ_0+η,τ_0) ∈ S, and every component that tr_{σ,S} keeps lies in the support of Z_{λ_0,τ_0}. So Z_σ satisfies the support condition and lies in Q ⊗ Z[C(S)].",
+        "Fix x ∈ P. In the Grothendieck group, d_σ[σ] − Σ_Ŝ n^σ_{λ,τ}[σ̄(λ,τ)] is supported on (P, Ŝ_elim)-irrelevant weights, and M^x_∞ kills each of them (Remark 8.3.2, B12). By exactness, d_σ Z_σ(x) = Σ_Ŝ n^σ_{λ,τ} Z(M^x_∞(σ̄(λ,τ))). Now apply tr_{σ,S}(x), which fixes the left side by Lemma 8.3.7 (B44).",
+        "For (λ+η,τ) ∈ Ŝ ∖ S, Lemma 8.3.6 (B18) gives tr_{σ,S}(Z_{λ,τ}) = 0, so tr_{σ,S}(x) kills i^*_x(Z_{λ,τ}) = Z_{λ,τ}(x). It also kills the effective cycle Z(M^x_∞(σ̄(λ,τ))), which is at most Z_{λ,τ}(x) when N_τ = 0 (E83). For (λ+η,τ) ∈ S, Z(M^x_∞(σ̄(λ,τ))) = Z_{λ,τ}(x) by part (1) (B15). Hence d_σ Z_σ(x) = Σ_S n^σ_{λ,τ} tr_{σ,S}(x)(Z_{λ,τ}(x)) = Σ_Ŝ n^σ_{λ,τ} tr_{σ,S}(x)(i^*_x Z_{λ,τ}) = i^*_x(d_σ Z_σ). This is the display on PDF 170; its last equality uses Lemma 8.3.6 once more, since Z_σ is defined with a sum over Ŝ.",
+        "So i^*_x(Z_σ) = Z_σ(x) is integral and effective for every x ∈ P. P meets all components of S and Z_σ ∈ Q ⊗ Z[C(S)], so Lemma 8.2.2 (B10) makes Z_σ integral and effective. Uniqueness follows as in Proposition 8.2.3 (B11).",
+        "Conjecture 8.1.1 for S_P. If (λ+η,τ) ∈ S_P, every σ ∈ JH(σ̄(λ,τ)) is (S, Ŝ)-generic, so Z_σ exists. Both sides of Z_{λ,τ} = Σ_σ [σ̄(λ,τ):σ] Z_σ lie in Z[C(S)], and they have equal pullbacks at every x ∈ P by part (1). Lemma 8.2.2 gives the equation, with effective Z_σ."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B44"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B17",
@@ -12839,7 +12949,16 @@
       "locator": "Theorem 8.3.5(3), PDF 168; proof PDF 169",
       "statement": "Let P ⊂ X_n(F) and let S be a set of extremal types (λ+η, τ). Suppose that for each x ∈ P there is a minimal patching functor M^x_∞ for x and S, that P meets all components of S, and that Ŝ is a P-Breuil–Mézard system containing S, and let Z_σ ∈ Z[X_{n,red}], for (S, Ŝ)-generic σ, be the cycles of Theorem 8.3.5(2). Then for each (S, Ŝ)-generic σ, the cycle Z_σ does not depend on the choice of the patching functors M^x_∞ for x ∈ P. In particular, the cycle Z(M^x_∞(σ)) in R^alg_x depends only on the versal ring R^x_∞ of X_n at x (and not on other data in M^x_∞).",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The formula defining Z_σ in the proof of part (2) (B16) involves only S, Ŝ, the integers d_σ and n^σ_{λ,τ}, and the global cycles Z_{λ,τ}. No patching functor enters it.",
+        "For every choice of minimal patching functors M^x_∞ (x ∈ P), the proof of part (2) gives i^*_x(Z_σ) = Z(M^x_∞(σ)). So Z_σ is the unique cycle of part (2) for every choice, and it does not depend on the choice. By the same uniqueness it does not depend on d_σ and n^σ_{λ,τ} either.",
+        "Hence Z(M^x_∞(σ)) = i^*_x(Z_σ), where i^*_x is pullback along the versal ring R^x_∞ supplied by M^x_∞. It depends only on that versal ring (with its versal map to X_n), not on the rest of M^x_∞."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B16"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B38",
@@ -12854,7 +12973,22 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B42",
           "how": "Theorem 8.4.10(4) is deduced from Theorem 8.3.5(4) with P = P_ss, S = S_{Λ,t}, Ŝ = Ŝ_{Λ,t} (proof, PDF 174)."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Let (Z^BM_κ) be cycles satisfying Conjecture 8.1.1 for Ŝ_elim. Ŝ_elim is a Breuil–Mézard system, so every Serre weight lies in JH(σ̄(Ŝ_elim)). The linear map φ: [κ] ↦ Z^BM_κ is then fixed on a finite-index subgroup by φ([σ̄(λ,τ)]) = Z_{λ,τ} for (λ+η,τ) ∈ Ŝ_elim, so these cycles are unique (Remark 8.1.3, B04). Extend φ Q-linearly.",
+        "With the Ŝ-sums of E75, put σ_irr := [σ] − d_σ^{-1} Σ_Ŝ n^σ_{λ,τ}[σ̄(λ,τ)] and Z^BM_{σ_irr} := φ(σ_irr) = Z^BM_σ − d_σ^{-1} Σ_Ŝ n^σ_{λ,τ} Z_{λ,τ}; the second expression uses Ŝ ⊂ Ŝ_elim. By Definition 8.3.3(1), σ_irr is supported on (P, Ŝ_elim)-irrelevant weights.",
+        "Claim 1: tr_{σ,S}(Z^BM_σ) = Z^BM_σ. Let C_{σ′} occur in Z^BM_σ, and let (λ+η,τ) ∈ Ŝ with σ ∈ JH(σ̄(λ,τ)). The global equation for (λ+η,τ) ∈ Ŝ_elim has effective terms, so C_{σ′} ≤ Z^BM_σ ≤ Z_{λ,τ}. Hence σ Ŝ-covers σ′. This is the argument of Lemma 8.3.7 run globally, where no rank condition is needed.",
+        "Claim 2: tr_{σ,S}(Z^BM_κ) = 0 for each (P, Ŝ_elim)-irrelevant κ, so tr_{σ,S}(Z^BM_{σ_irr}) = 0 by linearity. For x ∈ P choose (λ_x+η,τ_x) ∈ Ŝ_elim with κ ∈ JH(σ̄(λ_x,τ_x)) and R^{λ_x+η,τ_x}_x = 0, so x ∉ X^{λ_x+η,τ_x}. Then Z^BM_κ ≤ Z_{λ_x,τ_x}, so no component in the support of Z^BM_κ contains a point of P. A component C_{σ′} kept by tr_{σ,S} lies in X^{λ_0+η,τ_0}_F for some (λ_0+η,τ_0) ∈ S containing σ. So it is in C(S) and meets P, and it is not in the support of Z^BM_κ.",
+        "So Z^BM_σ = tr_{σ,S}(Z^BM_{σ_irr} + d_σ^{-1} Σ_Ŝ n^σ_{λ,τ} Z_{λ,τ}) = tr_{σ,S}(d_σ^{-1} Σ_Ŝ n^σ_{λ,τ} Z_{λ,τ}) = Z_σ. This is the chain on PDF 171."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B18"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B18",
@@ -12941,7 +13075,20 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B38",
           "how": "In the proof of Theorem 8.3.5(4) (PDF 171), tr_{σ,S}(Z^BM_σ) = Z^BM_σ 'follows from the proof of Lemma 8.3.7'."
         }
-      ]
+      ],
+      "proofSteps": [
+        "tr_{σ,S}(x) keeps exactly the components of Spec R^alg_x lying over components C_{σ′} with σ Ŝ-covering σ′. This is because each component of Spec R^alg_x lies over exactly one component of X_{n,red} (B10), and i^*_x ∘ tr_{σ,S} = tr_{σ,S}(x) ∘ i^*_x (B18). So it suffices to show that every component of Z_σ(x) lies over such a C_{σ′}.",
+        "Let C_{σ′}(x) be a component of Z_σ(x) over C_{σ′}, and let (λ+η,τ) ∈ Ŝ with σ ∈ JH(σ̄(λ,τ)). By exactness and effectivity, Z_σ(x) = Z(M^x_∞(σ)) ≤ Z(M^x_∞(σ̄(λ,τ))). If (λ+η,τ) ∈ S, the right side equals Z_{λ,τ}(x) by part (1) (B15). If (λ+η,τ) ∈ Ŝ ∖ S, it is at most Z_{λ,τ}(x) because M^x_∞(σ°(λ,τ))[1/p] has rank at most one (Definition 6.2.1(I)). That bound is available only when N_τ = 0 (E83); the printed '(by (1))' covers only types in S.",
+        "So C_{σ′}(x) ≤ Z_{λ,τ}(x) = i^*_x(Z_{λ,τ}). Since C_{σ′}(x) lies over C_{σ′} only, C_{σ′} ≤ Z_{λ,τ}, i.e. C_{σ′} ⊂ X^{λ+η,τ}_F. This holds for every such (λ+η,τ), so σ Ŝ-covers σ′, and tr_{σ,S}(x) keeps C_{σ′}(x)."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P05"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B19",
@@ -13025,7 +13172,18 @@
       "locator": "Lemma 8.4.2, PDF 172",
       "statement": "Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0, and let Ŝ_{Λ,t,elim} be as in §8.4. Suppose that ρ̄ ∈ X_n(F) is such that ρ̄|_{I_K} is a (6n−2)-generic tame inertial F-type for K. If σ ∉ W^?(ρ̄|_{I_K}), then σ is (ρ̄, Ŝ_{Λ,t,elim})-irrelevant.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Read the hypothesis as σ ∉ W^?(ρ̄|_{I_K}) (E76). ρ̄|_{I_K} is tame, hence semisimple, and equals ρ̄^ss|_{I_K}.",
+        "The input is the proof of [56, Corollary 4.2.4], which Proposition 6.2.3 (P09) also uses. As the paper uses it: for ρ̄^ss|_{I_K} (6n−2)-generic and σ ∉ W^?(ρ̄^ss), that proof supplies a tame inertial type τ with σ ∈ JH(σ̄(τ)) such that ρ̄ has no potentially crystalline lift of type (η, τ), i.e. R^{η,τ}_ρ̄ = 0. LLHLM23 does not reproduce that argument; it is an external input.",
+        "The type (η, τ) has N_τ = 0, so it is minimal and hence extremal, and ρ_τ is tame. So (η, τ) ∈ Ŝ_{Λ,t,elim} (§8.4, PDF 171; B19). Conditions (1) and (2) of Definition 8.3.1 hold for this type, so σ is (ρ̄, Ŝ_{Λ,t,elim})-irrelevant."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N62"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B39",
@@ -13044,7 +13202,22 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B42",
           "how": "For Theorem 8.4.10(4), Ŝ_{Λ,t} must be a (P_ss, S′)-Breuil–Mézard system for the given Breuil–Mézard system S′ ⊇ Ŝ_{Λ,t,elim}. This follows from this lemma, because (P, S_elim)-irrelevance only grows with S_elim (Definition 8.3.1)."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Fix a Serre weight σ. The decomposition map is surjective ([72, Theorem 33]), so [σ] = Σ_R n^σ_R [R̄], with R running over irreducible E-representations of GL_n(k), inflated to GL_n(O_K). Take d_σ = 1, n^σ_{0,τ} := n^σ_{σ(τ)} for each 2n-generic tame τ, and n^σ_{λ,τ} := 0 for every other type in Ŝ_{Λ,t}. The class to examine is [σ] − Σ_τ n^σ_{σ(τ)}[σ̄(τ)], with τ running once over the 2n-generic tame types (E77).",
+        "Each irreducible R occurs in some Deligne–Lusztig representation R′ ([19, Corollary 7.7]). If R′ could be taken 2n-generic, R′ would be irreducible (N34), so R = σ(τ) for a 2n-generic tame τ, and its term has been subtracted. So each weight κ left in the class lies in JH(R̄′) for some Deligne–Lusztig R′ that is not 2n-generic.",
+        "By Lemma 2.3.4 (N38) with λ = 0, a (4n−2)-deep constituent would force R′ to be (4n−2−2h_η) = 2n-generic, so κ is not (4n−2)-deep. For x ∈ P_ss, x|_{I_K} is (6n−2)-generic, so the weights in W^?(x|_{I_K}) are (5n−1)-deep (Proposition 2.6.2, N64). Hence κ ∉ W^?(x|_{I_K}) for every x ∈ P_ss.",
+        "Lemma 8.4.2 (B20), which the printed proof uses without citing it, makes κ (x, Ŝ_{Λ,t,elim})-irrelevant for every x ∈ P_ss, i.e. (P_ss, Ŝ_{Λ,t,elim})-irrelevant. This is Definition 8.3.3(1) for Ŝ_{Λ,t}."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N64"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B21",
@@ -13053,7 +13226,20 @@
       "locator": "Lemma8.4.5 PDF172",
       "statement": "If sigma is (3n-1)-deep and S_tilde-covers kappa, then sigma covers kappa in the finite-group sense of Definition2.3.10. This requires component upper bounds and the genericity comparison, not an identification of the two definitions in all ranges.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "σ is (3n−1)-deep, hence 3h_η-deep, so covering in the sense of Definition 2.3.10 (N45) is defined. It requires that every 2h_η-generic Deligne–Lusztig representation containing σ also contain σ′. These representations are the σ(τ) for (2n−2)-generic tame inertial types τ.",
+        "Let τ be (2n−2)-generic with σ ∈ JH(σ̄(τ)). Proposition 2.3.7 (N40) writes σ = F(w̃_1, w̃(τ)w̃_2^{-1}(0)) with ⟨w̃_2^{-1}(0), α^∨⟩ ≤ h_η. So the depth of τ is at least that of σ minus h_η, i.e. (3n−1) − (n−1) = 2n. Hence (η, τ) ∈ Ŝ_{Λ,t}, which contains all 2n-generic tame types.",
+        "Because σ Ŝ_{Λ,t}-covers σ′, C_{σ′} ⊂ X^{η,τ}_F. τ is 2(h_η+1) = 2n-generic, so Remark 7.4.3(3) (G59) applies and gives σ′ ∈ JH(σ̄(τ)). As τ was arbitrary, σ covers σ′."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N45"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B22",
@@ -13124,7 +13310,20 @@
       "locator": "Lemma 8.4.8, PDF 172–173",
       "statement": "Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0, and let S_{Λ,t} ⊂ Ŝ_{Λ,t} be as in §8.4. If σ is generic (Definition 8.4.6), then σ is (S_{Λ,t}, Ŝ_{Λ,t})-generic (for any set Λ as above).",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Let σ be generic (Definition 8.4.6, B22). Then σ ∈ JH(σ̄(τ_0)) for some (η, τ_0) ∈ S_{{0},t}, and S_{{0},t} ⊂ S_{Λ,t} because 0 ∈ Λ. So σ ∈ JH(σ̄(S_{Λ,t})), as (S_{Λ,t}, Ŝ_{Λ,t})-genericity requires.",
+        "Every type in Ŝ_{Λ,t} ∖ S_{Λ,t} has the form (η, τ) with τ 2n-generic. Suppose σ Ŝ_{Λ,t}-covers σ′ and C_{σ′} ⊂ X^{η,τ}_F for such a type. σ is (6n−2)-deep (Remark 8.4.7(1)), so Lemma 8.4.5 (B21) shows that σ covers σ′. Remark 7.4.3(3) (G59; τ is 2n-generic) gives σ′ ∈ JH(σ̄(τ)).",
+        "By Definition 8.4.6, σ covers no constituent of σ̄(τ′) for (η, τ′) ∈ Ŝ_{{0},t} ∖ S_{{0},t}. Since (η, τ) ∈ Ŝ_{{0},t}, it lies in S_{{0},t} ⊂ S_{Λ,t}, contradicting (η, τ) ∉ S_{Λ,t}. So σ is Ŝ_{Λ,t}-disjoint from Ŝ_{Λ,t} ∖ S_{Λ,t}, i.e. (S_{Λ,t}, Ŝ_{Λ,t})-generic."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G59"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B40",
@@ -13143,7 +13342,23 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B31",
           "how": "The proof of Corollary 8.5.2 (PDF 176) uses Lemma 8.2.2 at P_ss to deduce Z_σ = 0 from i_x^*(Z_σ) = 0 for all x ∈ P_ss. That step needs P_ss to meet the relevant components."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Let C_σ be a component of X^{λ+η,τ}_F with (λ+η, τ) ∈ S_{Λ,t} (E41). The printed proof gets σ ∈ JH(σ̄(λ,τ)) from Remark 7.4.3(3) (G59). That remark needs τ to be 2(h_{λ+η}+1)-generic, which the (6n−2+h_{λ+η})-genericity in S_{Λ,t} gives only when h_{λ+η} ≤ 6n−4 (E118).",
+        "When σ ∈ JH(σ̄(λ,τ)), the printed construction applies. Proposition 2.3.7 (N40, N72), with a (6n−2+h_{λ+η})-generic presentation of τ, gives a λ-compatible presentation (w̃, w̃(τ)w̃_2^{-1}(0)) of σ with w̃ ↑ t_λ w̃_h^{-1} w̃_2. Take ρ̄ semisimple with w̃(ρ̄|_{I_K}) = w̃(τ)w̃_2^{-1}ww̃ for a suitable w ∈ W. The paper asserts that this presentation is (6n−2)-generic (compare Proposition 2.1.12(4), N21), so ρ̄ ∈ P_ss. Since w̃(ρ̄)w̃^{-1}(0) = w̃(τ)w̃_2^{-1}(0), σ ∈ W_obv(ρ̄|_{I_K}), and Proposition 7.4.7(1) (G37; σ is (6n−2)-deep) gives ρ̄ ∈ C_σ.",
+        "A repair valid for every Λ. C_σ is closed and nonempty, so after enlarging F it has a point ρ̄. It also contains ρ̄^ss: scaling the extension classes of ρ̄ gives an A^1-family with fibre ρ̄ away from 0 and ρ̄^ss at 0. ρ̄^ss is a tame point of X^{λ+η,τ}(F), so it is (6n−2)-generic by the second sentence of the lemma (B41). Hence ρ̄^ss ∈ P_ss ∩ C_σ."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N72"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B41",
@@ -13158,7 +13373,19 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B36",
           "how": "Remark 8.6.4 (PDF 179) takes any tame ρ̄ on C_σ′, for σ′ covered by a generic σ. Such C_σ′ lies in X^{η,τ}_F with (η,τ) ∈ S_{{0},t} ⊆ S_{Λ,t} (Remark 8.4.7(2), Theorem 7.4.2). This sentence then puts ρ̄ in P_ss, where Theorem 8.4.10(2) gives i_ρ̄^*(Z_κ) = Z(M^ρ̄_∞(κ)). The use is implicit: the text layer has no citation of Lemma 8.4.9."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Let (λ+η, τ) ∈ S_{Λ,t} and let ρ̄ ∈ X^{λ+η,τ}(F) be tame, i.e. ρ̄ = ρ̄^ss (§5.5, PDF 122). Twist so that the weights of λ+η lie in [0, h] with h = h_{λ+η}. Then τ is (6n−2+h)-generic, in particular (h+2)-generic.",
+        "Proposition 7.2.3 (G18) identifies X^{λ+η,τ} with the corresponding stack of Kisin modules. So ρ̄|_{G_{K∞}} ≅ T^*_dd(M) for some M ∈ Y^{≤λ+η,τ}(F′), F′/F finite.",
+        "Corollary 5.5.10 (K44), with m = 6n−2+h ≥ h+1, gives T^*_dd(M)^ss = ρ̄^ss|_{G_{K∞}} a (6n−2)-generic lowest alcove presentation. By Definition 5.5.1 (K37), ρ̄ is (6n−2)-generic, so ρ̄ ∈ P_ss. This is the argument of E78; the printed proof does not address this sentence."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K44"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B24",
@@ -13167,7 +13394,22 @@
       "locator": "Theorem8.4.10(1) PDF173–174",
       "statement": "For semisimple (6n-2)-generic rho there exists a minimal patching functor for S_{Lambda,t}, and its module cycles satisfy the versal BM equations. The domain theorem and detectability upgrade generic rank at most one to rank exactly one.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Let ρ̄ be semisimple and (6n−2)-generic, hence 4n-generic. Proposition 6.2.6 (P12) gives a weak minimal, detectable, potentially diagonalizable patching functor M_∞ for ρ̄ (p ∤ 2n in this range; P17). The claim is that M_∞ is minimal for S_{Λ,t} in the sense of Definition 6.2.1(IV).",
+        "Let (λ+η, τ) ∈ S_{Λ,t}, twisted so that λ_j ∈ [0, h_λ]^n. τ is P_{λ+η,e}-generic and (6n−2+h_{λ+η})-generic, so Theorem 7.3.2(2) (G30) makes the versal ring R^{λ+η,τ}_ρ̄ at the semisimple point ρ̄ a domain or zero. Hence R_∞(λ,τ) = R^{λ+η,τ}_ρ̄ ⊗̂_O R^p is a domain or zero, R^p being a power series ring over O.",
+        "τ is max{2n, h_λ+n−1}-generic, so Proposition 6.2.7 (P13) applies: M_∞(σ°(λ,τ)) ≠ 0 exactly when R_∞(λ,τ) ≠ 0. In that case M_∞(σ°(λ,τ)) is maximal Cohen–Macaulay over the O-flat domain R_∞(λ,τ). So it has no p-torsion, and its generic fibre is nonzero.",
+        "Spec R_∞(λ,τ)[1/p] is irreducible, hence connected. By minimality (Definition 6.2.1(I), N_τ = 0), M_∞(σ°(λ,τ))[1/p] is locally free of rank at most one on it, and it is nonzero, so the rank is exactly one. This is condition (IV). Theorem 8.3.5(1) (B15) then gives the versal equations with Z_σ(ρ̄) := Z(M_∞(σ))."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P13"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B25",
@@ -13176,7 +13418,24 @@
       "locator": "Theorem8.4.10(2) PDF173–174",
       "statement": "For each generic sigma there is a unique cycle with support among C_kappa covered by sigma and pullbacks equal to all chosen minimal patching cycles at P_ss. These cycles are effective by the preceding abstract theorem.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Apply Theorem 8.3.5(2) (B16) with P = P_ss, S = S_{Λ,t} and Ŝ = Ŝ_{Λ,t}. The chosen M^x_∞ are minimal for x and S_{Λ,t}, and they exist by part (1) (B24). P_ss meets all components of S_{Λ,t} (Lemma 8.4.9, B40). Ŝ_{Λ,t} ⊇ S_{Λ,t} is a (P_ss, Ŝ_{Λ,t,elim})-Breuil–Mézard system (Lemma 8.4.4, B39). Every type in Ŝ_{Λ,t} has N_τ = 0, so the rank condition of E83 holds.",
+        "A generic σ is (S_{Λ,t}, Ŝ_{Λ,t})-generic (Lemma 8.4.8, B23). Theorem 8.3.5(2) gives an effective Z_σ = tr_{σ,S}(Σ_Ŝ n^σ_{λ,τ} Z_{λ,τ}) (d_σ = 1) with i^*_x(Z_σ) = Z(M^x_∞(σ)) for all x ∈ P_ss. It also gives Conjecture 8.1.1 for S_P, and S_P contains S_{P,Λ,t} by Lemma 8.4.8. The printed statement omits these conclusions, which later results use (E82).",
+        "Support. tr_{σ,S} keeps only C_κ with σ Ŝ_{Λ,t}-covering κ. σ is (6n−2)-deep (Remark 8.4.7(1)), so Lemma 8.4.5 (B21) shows that σ covers κ. For uniqueness among cycles supported on {C_κ : σ covers κ}, take (η, τ_0) ∈ S_{{0},t} with σ ∈ JH(σ̄(τ_0)). Each κ covered by σ lies in JH(σ̄(τ_0)) (Definition 2.3.10), so C_κ ⊂ X^{η,τ_0}_F (Lemma 7.4.4, G53). These C_κ therefore lie in C(S_{Λ,t}), and Lemma 8.2.2 (B10) with P = P_ss gives uniqueness."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B23",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G53"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B26",
@@ -13185,7 +13444,19 @@
       "locator": "Theorem 8.4.10(3), PDF 173; proof PDF 174; alternative proof §8.6.1, PDF 177–179",
       "statement": "Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0, with S_{Λ,t} and P_ss as in §8.4. For each x ∈ P_ss choose a minimal patching functor M^x_∞ for x and S_{Λ,t} (these exist by Theorem 8.4.10(1)), and for generic σ let Z_σ be the cycle of Theorem 8.4.10(2). For generic σ, the cycle Z_σ does not depend on the choice of the patching functors M^x_∞ for x ∈ P_ss. For generic σ and semisimple (6n−2)-generic ρ̄ with minimal patching functor M^ρ̄_∞ for ρ̄ and S_{Λ,t}, Z(M^ρ̄_∞(σ)) depends only on the versal ring R_∞ (i.e., it is the pullback to R_∞ of a cycle that is independent of M^ρ̄_∞).",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The first assertion is Theorem 8.3.5(3) (B17) for the data of part (2) (B25). Z_σ = tr_{σ,S}(Σ_Ŝ n^σ_{λ,τ} Z_{λ,τ}) involves no patching functor, and the uniqueness in part (2) removes the dependence on the choices.",
+        "Let ρ̄ be semisimple and (6n−2)-generic, so ρ̄ ∈ P_ss, and let M^ρ̄_∞ be any minimal patching functor for ρ̄ and S_{Λ,t}. Use it as the choice at x = ρ̄, with arbitrary choices at the other points of P_ss (part (1), B24). Part (2) gives Z(M^ρ̄_∞(σ)) = i^*_ρ̄(Z_σ). This is the pullback, along the versal ring R_∞ of M^ρ̄_∞, of a cycle that does not depend on M^ρ̄_∞.",
+        "§8.6.1 gives a second proof. The induction on the ρ̄-defect (B34–B36, with E21) shows directly that the generic part of Z(M^ρ̄_∞(σ)) depends only on R_∞."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B36"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B42",
@@ -13200,7 +13471,21 @@
           "where": "Remark 1.5.10(1), PDF 19",
           "how": "The introduction claims, citing Theorem 8.4.10, that cycles from any extension of Theorem 1.5.9 to a spanning set must agree with the constructed Z_σ for sufficiently generic σ."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Let Ŝ′ be a Breuil–Mézard system containing Ŝ_{Λ,t,elim} for which Conjecture 8.1.1 holds. Apply Theorem 8.3.5(4) (B38) with P = P_ss, S = S_{Λ,t}, Ŝ = Ŝ_{Λ,t} and Ŝ_elim = Ŝ′. Here Ŝ_{Λ,t} ⊂ Ŝ_{Λ,t,elim} ⊂ Ŝ′, because 2n-generic tame types are tame.",
+        "Ŝ_{Λ,t} is a (P_ss, Ŝ_{Λ,t,elim})-Breuil–Mézard system (Lemma 8.4.4, B39). Irrelevance is monotone in the elimination set: a witness type in Ŝ_{Λ,t,elim} lies in Ŝ′ (Definition 8.3.1, B12). So the same integers make Ŝ_{Λ,t} a (P_ss, Ŝ′)-Breuil–Mézard system.",
+        "The other hypotheses are those of part (2): minimal patching functors from part (1) (B24), and P_ss meeting all components (B40). Lemma 8.4.8 (B23) makes each generic σ (S_{Λ,t}, Ŝ_{Λ,t})-generic. Theorem 8.3.5(4) then gives Z_σ = Z^BM_σ, the cycles of Conjecture 8.1.1 for Ŝ′; these are unique because Ŝ′ is a Breuil–Mézard system."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B23",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B40"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B27",
@@ -13368,7 +13653,18 @@
       "locator": "Remark8.4.14 PDF175",
       "statement": "For a finite product of unramified local fields, completed tensor products of patching functors and uniqueness give the corresponding product structure of the generic cycles.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "For O_p = ∏_v O_{K_v}, each K_v/Q_p finite unramified, the stack, Serre weights, types and versal rings are products: X_{n,red} = ∏_v X_{n,red,v}, σ = ⊗_v σ_v, C_σ = ∏_v C_{σ_v} and R^alg_x = ⊗̂_v R^alg_{x_v}. Theorem 8.4.10 for O_p has the same proof (the remark's 'evident generalization'; compare Remark 7.4.3(5), G56, for the component theorem).",
+        "Given minimal patching functors M^{x_v}_∞ for the factors, their completed tensor product is a minimal patching functor for x = (x_v) and the product type set; the remark asserts this without proof. The cycle of a completed tensor product of modules is the external product of their cycles, since ⊗̂ over F is exact and generic lengths multiply. So Z(⊗̂_v M^{x_v}_∞(σ_v)) = ⊠_v Z(M^{x_v}_∞(σ_v)) = i^*_x(⊠_v Z_{σ_v}).",
+        "⊠_v Z_{σ_v} is supported on products of C_{κ_v} with σ_v covering κ_v; the remark uses implicitly that covering is factorwise for product groups. By the uniqueness in Theorem 8.4.10(2) for O_p, it equals Z_{⊗σ_v}, and part (3) allows the product functors to be used. This is the product structure the remark states."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G56"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B30",
@@ -13397,7 +13693,26 @@
       "locator": "Corollary8.5.2 PDF176; stated in the introduction as Theorems 1.2.3 and 1.5.3 (PDF 6, 16)",
       "statement": "For finite dominant Lambda containing zero, let h=max_{lambda in Lambda,alpha} <lambda,alpha^vee> and m=max{2h+2h_eta,6n-2}. If rho_ss inertia has parameters generic for Q_{Λ,e} P_m, with the sufficient corrected Q_{Λ,e} of B30 replacing the printed P_{P,Λ,e}^η (E79–E80), cycles on the chosen algebraic versal ring satisfy Z(R^{lambda+eta,tau}_{rho,F})=sum_sigma [r(tau) tensor V(lambda):sigma]Z_sigma(rho) for every lambda in Lambda and every tame Weil–Deligne type. The virtual type r(tau) may have signed coefficients. Genuine noncrystalline semistable types have zero relevant rings in this range; this is not a geometric domain theorem for wild rho.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Define Z_σ(ρ̄) := i^*_ρ̄(Z_σ) for generic σ, with Z_σ from Theorem 8.4.10(2) for Λ (B25), and Z_σ(ρ̄) := 0 otherwise. Take τ with N_τ = 0 and (λ+η, τ) ∈ S_{P,Λ,t}. Then r(τ) = σ(τ) (the semisimple case of [74]), all constituents of σ̄(λ,τ) are generic, and Z_{λ,τ} = Σ_σ [σ̄(λ,τ):σ] Z_σ holds globally (E82). Pulling back by i^*_ρ̄ (Proposition 8.2.1, B08) gives (8.2).",
+        "Fix λ ∈ Λ and a tame Weil–Deligne type τ with (λ+η, τ) ∉ S_{P,Λ,t}. The paper uses that r(τ) is then a virtual combination of σ(τ′) for inertial types τ′ (N_{τ′} = 0) with (λ+η, τ′) ∉ S_{P,Λ,t} ([74, §4.2]). If N_τ ≠ 0, the inertial restriction has a repeated character, so it is not 1-generic (K45). It suffices to show that R^{λ+η,⪯τ}_ρ̄ = 0, and that Z_σ(ρ̄) = 0 for σ ∈ JH(σ̄(λ,τ′)) and every such τ′.",
+        "Rings. By [29, Lemma 5] it suffices to treat ρ̄^ss, so assume ρ̄ semisimple. Suppose ρ_τ is (h_Λ+h_η+1)-generic. Then N_τ = 0, since a regular inertial restriction admits no nonzero monodromy. Lemma 8.5.1 (B30, with the corrected Q_{Λ,e}) and (λ+η, τ) ∉ S_{P,Λ,t} give w̃(ρ̄,τ) ∉ Adm(λ+η) for every λ-compatible presentation. So R^{λ+η,τ}_ρ̄ = 0 by Corollary 5.5.8 (K42), whose (h+1)-genericity hypothesis is this one after twisting.",
+        "If ρ_τ is not (h_Λ+h_η+1)-generic, pass to an unramified extension K′/K over which τ is a principal series type. The vanishing follows from a 'mild strengthening' of [29, Proposition 7], replacing [−n+1, 0] and a^i_j ∈ [0, n−1] by [−h_Λ−h_η+1, 0] and a^i_j ∈ [0, h_Λ+h_η−1]. This is where m ≥ 2h_Λ+2h_η is used. The paper asserts the strengthening without proof, so it is an external input.",
+        "Cycles, repaired (E117). Let σ ∈ JH(σ̄(λ,τ′)) be generic and suppose i^*_ρ̄(Z_σ) ≠ 0. Then ρ̄ lies on a component of the support of Z_σ, and so does ρ̄^ss, since a closed substack contains the semisimplifications of its points. ρ̄^ss ∈ P_ss because m ≥ 6n−2. For a minimal patching functor M_∞ for ρ̄^ss and S_{Λ,t} (B24), i^*_{ρ̄^ss}(Z_σ) = Z(M_∞(σ)) ≠ 0 (B25, B26). By exactness M_∞(σ°(λ,τ′)) ≠ 0. It is supported on X_∞(λ,τ′) (Definition 6.2.1(1)), so R^{λ+η,τ′}_{ρ̄^ss} ≠ 0, contradicting steps 3–4. Both sides of (8.2) therefore vanish."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P04"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B32",
@@ -13406,7 +13721,27 @@
       "locator": "Proposition8.6.1 PDF177",
       "statement": "For generic sigma, the coefficient of C_sigma in Z_sigma is one. The argument uses a specially chosen obvious semisimple point where the crystalline deformation ring is formally smooth and a detectable minimal patching functor is nonzero.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Let σ be generic and take (η, τ_0) ∈ S_{{0},t} with σ ∈ JH(σ̄(τ_0)). Use the presentation (w̃, ω) of σ from Proposition 2.3.7 (N40), with ω = w̃(τ_0)w̃_2^{-1}(0), and take ρ̄ semisimple with w̃(ρ̄) = t_ω w̃. Then σ ∈ W_obv(ρ̄) (Definition 2.6.3, N65), and Proposition 7.4.7(1) (G37) gives ρ̄ ∈ C_σ. Also t_ω w̃ = w̃(τ_0)·(w̃_2^{-1}uw̃) for some u ∈ W, so ρ̄ ∈ P_ss as in Lemma 8.4.9 (B40, with λ = 0). The printed proof starts from any ζ-compatible presentation; this choice makes ρ̄ ∈ P_ss, which the rest of the proof needs, evident.",
+        "Let τ be the type with w̃(τ) = t_ω w_0 w̃_h w̃ = t_{ω−η} w̃ (as w̃_h = w_0 t_{−η}). Then σ ∈ JH(σ̄(τ)) via the pair (w̃, w̃_h w̃) in (2.8), and τ is 2n-generic. σ is generic and covers itself, so (η, τ) ∉ Ŝ_{{0},t} ∖ S_{{0},t}, i.e. (η, τ) ∈ S_{{0},t}. By Theorem 7.4.2 (G34), C_σ is a component of X^{η,τ}_F, so 0 < i^*_ρ̄(C_σ) ≤ i^*_ρ̄(Z_{η,τ}).",
+        "w̃(ρ̄,τ) = w̃(τ)^{-1}w̃(ρ̄) = t_{w^{-1}(η)}, with w the image of w̃ in W. So R^{η,τ}_ρ̄ is formally smooth ([56, Theorem 3.4.1], an external input). The special fibre of its versal ring is then a power series ring over F, so i^*_ρ̄(Z_{η,τ}) is one irreducible cycle of multiplicity one, and it equals i^*_ρ̄(C_σ).",
+        "The proof of Theorem 8.4.10(1) (B24) gives a detectable minimal patching functor M_∞ for ρ̄ and S_{Λ,t} (P07). σ ∈ W_obv(ρ̄), so M_∞(σ) ≠ 0; being maximal Cohen–Macaulay on its support, it has Z(M_∞(σ)) ≠ 0. By Theorem 8.4.10(1)–(2) (B24, B25), 0 < i^*_ρ̄(Z_σ) = Z(M_∞(σ)) ≤ Z_{η,τ}(ρ̄) = i^*_ρ̄(C_σ). The right side is irreducible of multiplicity one, so i^*_ρ̄(Z_σ) = i^*_ρ̄(C_σ).",
+        "Pullbacks of distinct components through ρ̄ have disjoint supports, with components of multiplicity one (B10, [75, Tag 0DRD]). So the coefficient of C_σ in Z_σ is 1."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N65",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P07"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B33",
@@ -13415,7 +13750,19 @@
       "locator": "Proposition8.6.2 PDF177",
       "statement": "The generic Z_sigma form a basis of the integral span of the generic C_sigma, via the covering partial order and a unipotent triangular transition matrix.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The generic Serre weights form a finite set. Covering is a partial order on 3h_η-deep weights (Remark 2.3.11, N74), and generic weights are (6n−2)-deep. Fix a total order refining covering.",
+        "For generic σ, the support of Z_σ lies in {C_κ : σ covers κ} (Theorem 8.4.10(2), B25), and each such κ is generic (Remark 8.4.7(2), B22). The coefficient of C_σ is 1 (Proposition 8.6.1, B32). So Z_σ = C_σ + Σ_{κ<σ} a_{σκ} C_κ with integers a_{σκ}.",
+        "The matrix expressing the Z_σ in the C_σ, over generic weights, is unitriangular, hence invertible over Z. The C_σ are distinct components ([22]), so the Z_σ form a Z-basis of the span of the generic C_σ."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B32",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N74"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B34",
@@ -13491,7 +13838,24 @@
       "locator": "Proposition8.6.3 PDF178",
       "statement": "For compatible 2n-generic tame rho,tau with relative shape in Adm_reg(eta), the factorization w2^-1 w0 w1 determines a unique constituent in W?(rho) intersect JH(barsigma(tau)) maximizing defect.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "κ is a candidate. The factorization w̃(ρ̄,τ) = w̃_2^{-1}w_0w̃_1 (Remark 2.1.8, N13) has w̃_1 ↑ w̃_h^{-1}w̃_2. So (w̃_h^{-1}w̃_2, w̃_1) is a pair in (2.14), and κ ∈ W^?(ρ̄) (Proposition 2.6.2, N63). Also w̃(ρ̄)w̃_1^{-1}(0) = w̃(τ)w̃_2^{-1}w_0(0) = w̃(τ)w̃_2^{-1}(0), and (w̃_h^{-1}w̃_2, w̃_2) is an admissible pair for η. So κ ∈ JH(σ̄(τ)) (Proposition 2.3.7, N40).",
+        "Let σ ∈ W^?(ρ̄) ∩ JH(σ̄(τ)) have compatible presentation (w̃, ω). Proposition 2.6.4 (N67, N68) gives s̃_1, s̃_2 ∈ W̃^+ and s ∈ W with s̃_1 ↑ w̃ ↑ w̃_h^{-1}s̃_2 and w̃_2^{-1}w_0w̃_1 = s̃_2^{-1}ss̃_1. Wang's theorem gives s̃_2 ≤ w̃_hw̃. Lemma 2.1.4 (N07) gives (w̃_hw̃)^{-1}w_0s̃_1 ≥ s̃_2^{-1}w_0s̃_1 and ℓ(s̃_2^{-1}ss̃_1) ≤ ℓ(s̃_2^{-1}w_0s̃_1).",
+        "Hence δ_ρ̄(σ) = ℓ(t_η) − ℓ((w̃_hw̃)^{-1}w_0s̃_1) ≤ ℓ(t_η) − ℓ(s̃_2^{-1}w_0s̃_1) ≤ ℓ(t_η) − ℓ(s̃_2^{-1}ss̃_1) = ℓ(t_η) − ℓ(w̃_2^{-1}w_0w̃_1) = δ_ρ̄(κ), the last computed from the pair (w̃_h^{-1}w̃_2, w̃_1) of κ.",
+        "Equality in the first step, between Bruhat-comparable elements of equal length, gives s̃_2 = w̃_hw̃; equality in the second gives s = w_0. Uniqueness of the factorization (Proposition 2.1.5, N08) then gives s̃_1 = w̃_1 and s̃_2 = w̃_2. So w̃ = w̃_h^{-1}w̃_2, ω = w̃(ρ̄)w̃_1^{-1}(0) and σ ≅ κ, and κ is the unique maximizer."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N63",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N67",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N68"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B36",
@@ -13562,7 +13926,29 @@
       "locator": "Proposition 8.6.5, PDF179–180",
       "statement": "Proposition 8.6.5. Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0. Suppose there are two collections of effective cycles Z_σ, Z′_σ ∈ Z[X_{n,red}], one for each Serre weight σ, such that Z_{λ,τ} = Σ_σ [σ̄(λ,τ):σ] Z_σ and Z_{λ,τ} = Σ_σ [σ̄(λ,τ):σ] Z′_σ for any λ ∈ Λ and any tame inertial type τ which is P_{P,Λ,e}-generic. Let σ_0 be a Serre weight with the following property: for any pair of tame types τ_1, τ_2 such that JH(σ̄(τ_1)) ∩ JH(σ̄(τ_2)) ≠ ∅ and κ ∈ JH(σ̄(τ_1)) for some κ covered by σ_0, τ_2 is P_{P,Λ,e}-generic. Then for each semisimple ρ̄ ∈ X_n(F), Z_{σ_0}(ρ̄) = Z′_{σ_0}(ρ̄). In particular, Z_{σ_0} = Z′_{σ_0}. Here P_{P,Λ,e} = ∏_{λ∈Λ} ∏_{j∈J} P̃^{(λ+η−w_0(η))_j}_{η,e} (§8.4.1, PDF174). A tame type is P-generic when it has a lowest alcove presentation (s, μ−η) with μ P-generic, as in Corollary 8.4.12. Z_σ(ρ̄) = i^*_ρ̄(Z_σ).",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Call σ very generic if it satisfies the displayed condition; only cycles that occur in the given equations matter. For a cycle Z of X_{n,red}, Z^{v.gen} removes the components C_κ with κ not very generic. P_{P,Λ,e}-generic types are (7n−3)-deep, since P_{P,Λ,e} contains the unshifted factor of P̃_{η,e} = P_{η,e}P_{7n−3} (λ = 0, ν = 0).",
+        "The four observations on PDF 180. (a) If every tame τ with σ ∈ JH(σ̄(τ)) is P_{P,Λ,e}-generic, the equations for these (η, τ) give Z_σ ≤ Z_{η,τ}. So the support of Z_σ lies in ∩_τ X^{η,τ}_F = ∪_{σ covers κ} C_κ (Theorem 7.4.2, G34; Definition 2.3.10, N45). As in Remark 8.6.4, a tame ρ̄ with Z_σ(ρ̄) ≠ 0 then has σ ∈ W^?(ρ̄) (Proposition 2.3.12(3), N47; Remark 4.7.4(2), M50; Theorem 4.7.6(2), M36). (b) If ρ̄ is tame and Z_σ(ρ̄)^{v.gen} ≠ 0, choose a P_{P,Λ,e}-generic τ_1 with σ ∈ JH(σ̄(τ_1)). Theorem 7.4.2 gives a very generic κ ∈ JH(σ̄(τ_1)), so (a) applies to σ and σ ∈ W^?(ρ̄). (c) Z_σ^{v.gen} = Z_σ for very generic σ, as weights covered by σ are very generic. (d) If Z_τ does not occur in the equations, Z_σ^{v.gen} = 0 for σ ∈ JH(σ̄(τ)).",
+        "Fix a very generic σ_0 and a tame ρ̄ on some C_κ with κ covered by σ_0. C_κ lies in X^{η,τ}_F for any type τ containing κ (Lemma 7.4.4, G53), and such τ are P_{P,Λ,e}-generic, hence (7n−3)-deep. So ρ̄ is (6n−2)-generic by the argument of Lemma 8.4.9 (B41). In particular the defect function on W^?(ρ̄) and Proposition 8.6.3 are available; the printed proof does not say this.",
+        "Rerun the induction on δ_ρ̄ from the alternative proof of Theorem 8.4.10(3) (B36, with (8.3) excluding κ = σ, E21), using the very generic part in place of the generic part. For δ_ρ̄(σ) = 0 use w̃(τ) = w̃(ρ̄)t_{−w^{-1}(η)} and Corollary 2.6.5 (N69). For δ_ρ̄(σ) > 0 use w̃(τ) = w̃(ρ̄)(w̃_hw̃)^{-1}w_0w̃_1 and Proposition 8.6.3 (B35, B34). Observations (b)–(d) replace Proposition 6.2.3 and the three bullets of that proof. This gives a recursive formula for Z_σ(ρ̄)^{v.gen} in terms of the i^*_ρ̄(Z_{η,τ})^{v.gen}, which is the same for both families.",
+        "So Z_{σ_0}(ρ̄) = Z_{σ_0}(ρ̄)^{v.gen} = Z′_{σ_0}(ρ̄) by (c). If ρ̄ lies on no C_κ with κ covered by σ_0, both pullbacks vanish by (a). Globally, both cycles are supported on {C_κ : σ_0 covers κ} (a), and each such C_κ contains a semisimple point (the semisimplification of any of its points, as in B40). So the argument of Lemma 8.2.2 (B10), applied to these points and components, gives Z_{σ_0} = Z′_{σ_0}."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B35",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G53",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M50",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N47",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N69"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B55",
@@ -13577,7 +13963,19 @@
           "where": "Introduction, PDF19 (after Theorem 1.5.9)",
           "how": "\"…they do determine a subset of Z_σ for which σ is sufficiently generic, cf. Proposition 8.6.5 and Remark 8.6.6.\""
         }
-      ]
+      ],
+      "proofSteps": [
+        "Very genericity of σ_0 is a condition on every type τ_2 sharing a constituent with a type τ_1 that contains a weight κ covered by σ_0. Fix a presentation (w̃, ω) of σ_0 and use presentations compatible with it throughout. A weight κ covered by σ_0 lies in JH(σ̄(τ)) for every 2h_η-generic type τ containing σ_0 (Definition 2.3.10, N45).",
+        "Proposition 2.3.7 (N40) relates the parameter of a type to those of its constituents: they differ by s(w̃_2^{-1}(0)), where s is the finite part of w̃(τ) and |⟨w̃_2^{-1}(0), α^∨⟩| ≤ h_η. Chain σ_0 → τ → κ → τ_1 → (shared constituent) → τ_2. The parameter of τ_2 is then ω + ν with ν in a finite set B ⊂ X^*(T) that depends only on n.",
+        "So one can take Q(X) := ∏_{ν∈B} P_{P,Λ,e}(X + ν), times a P_m factor for the depths used in the first two steps. Q-genericity of ω then makes every τ_2 P_{P,Λ,e}-generic. Shifts must be applied with the sign of E80, not as f^ω in (8.1). The remark fixes neither B nor m, so a blueprint must."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N46"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V01",
@@ -28323,6 +28721,34 @@
         "29 September 2026: the Crossref record of doi:10.1007/s00222-022-01163-4 has no update-to, updated-by or relation entries.",
         "29 September 2026: the author page https://math.rice.edu/~bl70/ links LocModels.pdf (sha256 e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd) with no correction; its only correction link is for the Harder–Narasimhan article."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E117",
+      "kind": "error",
+      "locator": "Proof of Corollary 8.5.2, last paragraph, published PDF176 (page image checked); arXiv v2 PDF130 prints the same text.",
+      "printed": "The source obtains i^*_x(Z_σ) ≤ i^*_x(Z_{η,τ′}) for every x ∈ P_ss from Theorem 8.4.10(2). If all i^*_x(Z_{η,τ′}) vanish, Lemma 8.2.2 gives Z_σ zero. Otherwise, Theorem 7.4.2(1) gives i^*_x(Z_{λ+τ}) nonzero for some x ∈ P_ss, and Lemma 8.5.1 yields (λ+η, τ) ∈ S_{P,Λ,t}, producing a contradiction.",
+      "correction": "Argue at ρ̄ itself; only i^*_ρ̄(Z_σ) = 0 is needed. If i^*_ρ̄(Z_σ) ≠ 0, then ρ̄ lies on a component of the support of Z_σ, and so does ρ̄^ss (the component is closed and contains the semisimplifications of its points). ρ̄^ss ∈ P_ss, since m ≥ 6n−2. For a minimal patching functor M_∞ for ρ̄^ss and S_{Λ,t}, Theorem 8.4.10(2) gives i^*_{ρ̄^ss}(Z_σ) = Z(M_∞(σ)) ≠ 0. By exactness M_∞(σ°(λ,τ)) ≠ 0, and it is supported on X_∞(λ,τ) (Definition 6.2.1(1)), so R^{λ+η,τ}_{ρ̄^ss} ≠ 0. This contradicts the vanishing proved in the preceding paragraphs of the proof.",
+      "reason": "Lemma 8.5.1 needs the residual type to be P^η_{P,Λ,e}-generic. The corollary assumes this of ρ̄, but a point x ∈ P_ss is only (6n−2)-generic, so the lemma cannot be applied at x. Theorem 7.4.2(1) likewise needs τ to be max{2(h+1), 4n+h}-deep, which is not known here. The first case never occurs: Z_{η,τ′} ≥ C_σ because C_σ is a component of X^{η,τ′}_F (Theorem 7.4.2, (η,τ′) ∈ S_{{0},t}), and P_ss meets C_σ (Lemma 8.4.9). So the paragraph always relies on the invalid step. It never uses ρ̄, and it would show that no type outside S_{P,Λ,t} has a generic constituent; nothing in §8 supports that. The corrected argument gives exactly what the corollary needs.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "29 September 2026: arXiv 2007.05398v2 (15 June 2022, the latest version; sha256 3cdae0b192d3ba8d75391fbd2bf40264e23c9d9c69d536ad30b50dddda0d61af), PDF130: the same paragraph.",
+        "29 September 2026: the Crossref record of doi:10.1007/s00222-022-01163-4 has no update-to, updated-by or relation entries."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E118",
+      "kind": "gap",
+      "locator": "Proof of Lemma 8.4.9, first sentence, published PDF173 (page image checked), with the definition of S_{Λ,t}, PDF171, and Remark 7.4.3(3), PDF158; arXiv v2 PDF127 prints the same text.",
+      "printed": "The source invokes Remark 7.4.3(3) to infer σ ∈ JH(σ̄(λ,τ)) when C_σ is a component of X^{λ+η,τ} and (λ+η, τ) ∈ S_{Λ,τ}.",
+      "correction": "Either add 2(h_{λ+η}+1)-genericity to the definition of S_{Λ,t} (for instance by taking P_{λ+η,e} divisible by P_{2h_{λ+η}+2}, which Theorem 7.3.2(2) allows), or derive the first sentence of the lemma from the second (E78). A component C_σ contains, with any point ρ̄, its semisimplification: C_σ is closed, and scaling the extension classes of ρ̄ gives an A^1-family with fibre ρ̄ away from 0 and ρ̄^ss at 0. ρ̄^ss is a tame point of X^{λ+η,τ}, hence (6n−2)-generic, so ρ̄^ss ∈ P_ss ∩ C_σ.",
+      "reason": "Remark 7.4.3(3) is stated for μ 2(h+1)-deep, where the weight has been twisted into [0, h] (§7.4 set-up, PDF156); here h = h_{λ+η}. S_{Λ,t} only requires τ to be (6n−2+h_{λ+η})-generic, and 2(h+1) ≤ 6n−2+h exactly when h ≤ 6n−4. Λ is an arbitrary finite set of dominant weights, so types with h_{λ+η} ≥ 6n−3 occur. For them the printed proof does not show that every component of X^{λ+η,τ}_F is a C_σ with σ ∈ JH(σ̄(λ,τ)), which its construction needs. Theorem 8.4.10 uses this sentence (P_ss meets all components of S_{Λ,t}) through Theorem 8.3.5(2).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "29 September 2026: arXiv 2007.05398v2 (sha256 3cdae0b192d3ba8d75391fbd2bf40264e23c9d9c69d536ad30b50dddda0d61af), PDF127: the same proof and the same definition of S_{Λ,t}.",
+        "29 September 2026: the Crossref record of doi:10.1007/s00222-022-01163-4 has no update-to, updated-by or relation entries."
+      ]
     }
   ],
   "gaps": [
@@ -33675,7 +34101,8 @@
     "ccE94dc5KummerTowerSource": "29 September 2026, issue 1254 (Claude Code, cc-e94dc5): Z143's source is confirmed at the original. Lemma 5.1.2 of Liu, Compositio Math. 144 (2008), pp. 82–83, states exactly Z143's three assertions for p ≥ 3 and proves them; Remark 5.1.3 and Lemma 8.0.4 of Liu's Annales paper describe p = 2. The previous locator attributed the lemma to the Annales paper, which only cites it; the locator and note are corrected. No item id, status, route or finding changed; one prerequisite is added. check_paper.py and intake check-files pass.",
     "ccC58621dQ03": "29 September 2026, issue 1254 (Claude Code, cc-58621d): Q03 (Proposition B.0.1(1)) is resolved. Appendix B's equations are the chart's for the monodromy term g·Diag(−a, −b, 0)·g^{−1}, the negative of (3.1)'s parameter (E114), and they present the chart only over Z[a, b][1/(aP)] (E115); the displayed matrix has vc12 for c12 (E116). Singular: exact ideal equality at five sample points; generic-point check over Q(a, b); an explicit cofactor certificate for the six solved coefficients; primality of (F1, F2, F3) over Q(a, b). New findings E114–E116; Q03's statement, proof steps and note are rewritten; sourceData.appendixB.q03Resolution is added. The appendix-certificates gap is closed and removed: every Appendix B claim is now certified over Z[a, b][1/(aP)] or corrected (E111–E116). No other item, status or route changed. check_paper.py and intake check-files pass.",
     "ccC58621dUOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): the 26 §3 theorem items without an outline (U05–U45) now carry source-level proofSteps, prerequisites and proofProvenance, read from the published PDF55–80 with the corrections E7–E12 applied. The internal prerequisite graph gains 60 edges and remains acyclic (1,290 edges). No new finding: §3 was re-read in full and its recorded findings (E7–E12, E43, E44, E85, E86) cover what was found. Remaining theorem items without proof steps: A 56, B 28, G 39, K 4, L 138, P 1, Z 1 (L items are library citations). No status, route or finding changed. check_paper.py and intake check-files pass.",
-    "ccC58621dKPZOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): K45–K48, P17 and Z01 now carry proofSteps and proofProvenance (4 new prerequisite edges; the graph stays acyclic). K45 gets a direct base-p digit proof from (2.12) of \"1-generic implies regular\"; K46–K48 follow §5.5 (PDF121–125) with the E19 repair; P17 follows the recorded n ≥ 2 correction; Z01 outlines the source proof of Boixeda Alvarez, Theorem 3.1, from its main text. Remaining theorem items without proof steps: A 56, B 28, G 39, L 138. No status, route or finding changed. check_paper.py and intake check-files pass."
+    "ccC58621dKPZOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): K45–K48, P17 and Z01 now carry proofSteps and proofProvenance (4 new prerequisite edges; the graph stays acyclic). K45 gets a direct base-p digit proof from (2.12) of \"1-generic implies regular\"; K46–K48 follow §5.5 (PDF121–125) with the E19 repair; P17 follows the recorded n ≥ 2 correction; Z01 outlines the source proof of Boixeda Alvarez, Theorem 3.1, from its main text. Remaining theorem items without proof steps: A 56, B 28, G 39, L 138. No status, route or finding changed. check_paper.py and intake check-files pass.",
+    "ccC58621dBOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): the 28 §8 theorem items without an outline (B08, B10, B11, B15–B17, B20, B21, B23–B26, B29, B31–B33, B35, B37–B42, B44, B52–B55) now carry source-level proofSteps, prerequisites and proofProvenance, read from the published PDF163–180 with E21, E41 and E75–E83 applied; page images of PDF173 and 176–179 were checked. The internal prerequisite graph gains 147 edges and stays acyclic (1,441 edges). Two new findings: E117 (the last paragraph of the proof of Corollary 8.5.2 applies Lemma 8.5.1 at points of P_ss, which are not known to satisfy its hypothesis; the repaired argument works at ρ̄^ss through the patching functor's support) and E118 (the proof of Lemma 8.4.9 cites Remark 7.4.3(3), which needs 2(h_{λ+η}+1)-depth; S_{Λ,t} gives this only when h_{λ+η} ≤ 6n−4, and the first sentence of the lemma follows from the second by semisimplification). Both were compared with arXiv v2, which prints the same text. Remaining theorem items without proof steps: A 56, G 39, L 138 (L items are library citations). No status or route changed. check_paper.py and intake check-files pass."
   },
   "definitionApiGroups": [
     {

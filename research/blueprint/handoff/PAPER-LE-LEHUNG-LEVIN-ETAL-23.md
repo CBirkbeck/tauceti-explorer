@@ -1,5 +1,36 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (B-outline step).
+**Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 118 findings
+(E117 and E118 are new), 12 gaps. No Lean deliverable or compilation. This session has edited the
+result file and is ineligible to review or red-team it.
+
+## Completed here
+
+- **The B queue is done.** The 28 §8 theorem items without an outline now carry `proofSteps`,
+  `prerequisites` and `proofProvenance`. They were read from the published PDF163–180, with E21, E41
+  and E75–E83 applied. There are 147 new internal edges, and the graph stays acyclic at 1,441 edges.
+- **E117.** The last paragraph of the proof of Corollary 8.5.2 applies Lemma 8.5.1 at points of P_ss,
+  which do not satisfy its hypothesis. The repair works at ρ̄^ss through the patching functor's
+  support axiom. B31's steps use it.
+- **E118.** Lemma 8.4.9 cites Remark 7.4.3(3), whose depth condition S_{Λ,t} does not give when
+  h_{λ+η} > 6n−4. The first sentence follows from the second by semisimplification. B40's steps use
+  this.
+- Both findings were checked against arXiv v2 and Crossref.
+
+## Resume from here
+
+1. **The remaining no-outline queues:** the A (56) and G (39) theorem items without `proofSteps`. The
+   L items (138) are library citations.
+2. **The remaining gaps**, as listed in the Q03 step below.
+3. **External inputs.** B20 ([56, Corollary 4.2.4]), B31 (the strengthening of [29, Proposition 7])
+   and B32 ([56, Theorem 3.4.1]) rest on cited proofs that the paper does not reproduce. They belong
+   with the other supplier boundaries.
+
+---
+
+# Previous checkpoint (cc-58621d, K/P/Z-outline step)
+
 Claude Code — cc-58621d; issue 1254; 29 September 2026 (K/P/Z-outline step).
 **Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 116 findings,
 12 gaps. No Lean deliverable or compilation. This session has edited the result file and is
