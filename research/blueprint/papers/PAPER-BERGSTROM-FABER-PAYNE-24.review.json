@@ -1,0 +1,32 @@
+{
+ "paper": "PAPER-BERGSTROM-FABER-PAYNE-24",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. MotivicStructuresInModuliOfCurves is the new roadmap proposed by PAPER-CANNING-LARSON-PAYNE-24 (route 1, accepted by its review) with the same id, title ('Tautological rings and motivic structures in the cohomology of moduli of stable curves') and area; DESIGN-MotivicStructuresInModuliOfCurves is pending, and its brief already asks for 'the vanishing of the low-degree Borel–Moore homology of M_{g,n} proved by Bergström–Faber–Payne'. The atlas has no moduli of curves, so the 49 moduli-theoretic items belong there. The brief lists the final theorems and imports the point-counting tools from WeilConjectures, the weight spectral sequence from DWP.8 and the elementary lemmas from FF and GN."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. WC.1 plans the zeta function's disjoint-union and open–closed factorizations and consumes the determinant formula; Behrend's stack point counts, the Vakil–Wood inverse-zeta formula and the Hasse–Weil sieve are extensions of exactly that interface. WC.2 owns Poincaré duality, WC.4 the Betti comparison in families, and WC.5:power-sum-converse is the finite-spectrum lemma that van den Bogaart–Edixhoven's Lemma 4.1 is. All five stage ids resolve."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. DWP.8 owns weight filtrations of mixed ℓ-adic complexes; the Galois-equivariant weight spectral sequence of a normal crossings compactification is its geometric instance. The stage id resolves."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. FF.1 plans characters and elementary sums (the quadratic-character correlation by interpolation) and FF.3 polynomial factorization and point counting (the squarefree count via f = h·m²). Both stage ids resolve."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. GN.2 integrates the classification of quadratic forms by discriminant and local invariants 'with characteristic restrictions'; the three PGL₄(F_q)-orbits of reduced irreducible quadric surfaces and their automorphism orders are its finite-field case. The stage id resolves."
+  }
+ ],
+ "notes": "Items. arXiv:2206.07759v2 (17 October 2023, posted after acceptance; SHA-256 36beb2d3… matches) was read in full; the Annals 2024 article is not openly available, so findings stay scoped to v2 as recorded. Every numbered proposition, theorem, lemma, corollary, definition and example is in an item locator (Example 7.8 inside 'Examples 7.7–7.9'); the remarks left out (1.7, 1.8, 2.2, 2.3, 2.5, 7.2, 8.9, 8.10) are commentary, and 8.9's strategy is carried by item section-10. The statements match the text. Independent exact recomputation (SymPy) by this review: (6) against |GL₂(F_q)|·q³, 2|PGL₂(F_{q²})| and 2|PGL₂(F_q)|²; the inverse zeta coefficients of P¹, (Q^con)^sm, Q^nsp and Q^spl; the n = 0, 1, 2 assemblies of §10 from Propositions 5.1, 8.1–8.7 and 9.6, which give #M̄_{4,n} in all degrees ≥ (9+n)/2 as in Theorem 1.4; the Theorem 1.5 subtractions for n = 1, 2, 3 (χ values 2, −2, −10); Proposition 5.1 by expanding in q + 1 − #C (by hand); and Remark 8.11's orbit-type formula, which equals (q+1)²q²(q−1)² exactly. All agree with the paper. Statuses. The library citations resolve at Mathlib 082e2d3 (quadraticChar, quadraticChar_sum_zero with its ringChar ≠ 2 hypothesis matching the paper's odd-q proof, Matrix.card_GL_field). The six planned items hold against SF.2, WC.1, WC.3 and WC.4. No library has point counts of stacks, zeta functions or moduli of curves. Mistakes. E1–E6 confirmed on the page images; E5 against Getzler–Kapranov's arXiv v2 and E6 against the arXiv API. No further mistake was found. The arXiv listing shows v2 as the last version (29 September 2026). check_paper.py passes."
+}
