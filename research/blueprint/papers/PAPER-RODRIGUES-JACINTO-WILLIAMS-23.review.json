@@ -1,0 +1,42 @@
+{
+ "paper": "PAPER-RODRIGUES-JACINTO-WILLIAMS-23",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. PadicMeasuresIwasawaAlgebras was designed from §§3–4 of these notes and owns the missing items. L0 owns the duals and bounded measures: 'Equip the dual with the operator-norm and weak topologies separately. Establish precisely the completeness and compactness statements'. So it takes reflexivity of B* for the weak topology (item 74) and the unbounded Haar distribution (item 84). The integer topological generator of ℤ_p^× (item 148) is L3's 'change of generator'. Lemma 11.2, Λ(Γ)^+ ≅ Λ(Γ^+) (item 369), is L1's 'functoriality, augmentation'. Tau Ceti's ker_mapDomainRingHom_eq_span is its finite-level input, now cited. Lemma 11.3 (item 370) is L3's positive-moment separation with a parity split. Item 147 is now library (Mathlib FiniteCyclic), so it drops out of the planned list. No Tau Ceti roadmap is re-planned."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. DirichletPadicLFunctions' layer texts are written against the notes; L4's acceptance is 'all named results in RJW §§2–8 except Theorem 6.7'. The transcendence of L(θ,1) (item 246) is an L0 corollary of Leopoldt's formula, Mathlib's LFunction_apply_one_ne_zero and Baker's theorem from DiophantineApproximationAndTranscendence:DT.3. DT.3 must export the inhomogeneous form, β_0 + Σβ_i log α_i ≠ 0 for algebraic β_i, and not only lower bounds; its text ('Baker-type explicit lower bounds … The linear form must be nonzero') covers this. The obstruction for k ↦ p^k (item 285) is L4's motivation, and it is stated with the corrected hypothesis k_n ≡ k mod (p − 1) (E53). The planned items named are those the layers plan without nodes."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept as a source route with no missing item. ColemanPowerSeries L4 ('Cyclotomic units and inverse-limit generators … Conclude Theorem 12.23') has no packet nodes, and §§10–12 of the notes are its source. The route now also carries new item 540, the norm compatibility of the cyclotomic unit groups behind Definition 11.8, which L4 plans ('Prove its membership, norm compatibility, finite-level spanning'). The sign correction Col(c(a)) = −θ_aζ_p (E57, E76) is already in node L2 ('Col_0(c(a)) = −([a]−1) zeta_p')."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept as corrected. IntegralIwasawaTheory L0–L4 are 'the notes' layers', and only L0 has nodes. The one item routed as missing, Vandiver's conjecture (item 462), is planned: packet node ArithmeticKTheory:N.7/vandiver-separation states it ('State the conjecture in both forms'). It is now planned and has left the route. The remaining 33 planned items (𝒳_∞, 𝒴_∞, (13-1), control, Corollary 13.16, Theorem 13.11, Appendix A) take the notes as their blueprint source, with the corrections E77–E83 and E90–E98."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. The three items are planned in EulerSystemsCyclotomicMainConjecture: the unconditional Main Conjecture (L3–L4) and the Euler-system definitions of Definition 10.16 and B.3 (L0). Node L0/cyclotomic-euler-system already uses Rubin's c̃_m, which is the corrected E60."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept with the reason corrected. The Mazur–Tate–Teitelbaum p-adic BSD conjecture (item 36) and Schneider's theorem that the main conjecture implies it when the height is nondegenerate (item 37) are planned nowhere; a search of stage texts and packets for MTT, p-adic BSD, trivial or exceptional zero and Schneider found none. They are consequences of this roadmap's main conjectures, so L5 ('Consequences and integrity tests … Define the Greenberg and Coates–Perrin-Riou conjectural generalizations from RJW as mathematical propositions with all their inputs') is the right home, and no new roadmap is needed for two statements stated without proof in a remark. The extraction said that 'no atlas layer builds' the p-adic height pairing. That is wrong. The accepted Part II SelmerComplexesAndPadicHeights (review of PAPER-DISEGNI-LIU-24) plans Nekovář's height pairing, whose ordinary elliptic-curve case is the Mazur–Tate/Schneider height, and Tau Ceti EllipticCurves Layer 4 builds the Tate curve for q_E. The reason now names these imports, and L5 defines only the ℒ-invariant log_p q_E / ord_p q_E itself."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept. LocallyAnalyticDistributions L3 plans weight space as p − 1 discs, Amice's description of measures on ℤ_p^× and the Mellin transform ('For Z_p^× and odd p obtain p−1 components … Prove the Mellin transform'). Item 241 now excludes the trivial character for a pseudomeasure."
+  }
+ ],
+ "notes": "Verdict accept after in-place corrections. The PDF at https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf, fetched 29 September 2026, has SHA-256 78d0479b…44a6, matching the record; arXiv v2 is the latest version, and no erratum was found on the journal page or in Crossref. All 103 recorded source issues are confirmed at their locators, and E60's correction is revised. Seven new mistakes are added and confirmed on page images: E104 (gap, Lemma 5.10's divergent geometric series), E105 (misprint, Lemma 10.11(iii) ring), E106 (gap, §12.1 stability of 𝒰_{∞,1}), E107 (gap, Proposition 11.5), E108 (gap, Corollary 13.16(iii)), E109 (misprint, r_2 in Appendix A) and E110 (misprint, v_p(α)). None is an error in a stated result. Two statuses change: item 147 becomes library and item 462 planned. Item 540 is added. Seventeen statements, sixteen locators, several notes and two route reasons are corrected; the full list is in the Corrections section of the extraction report and in REV-PAPER-RODRIGUES-JACINTO-WILLIAMS-23.md. check_paper.py reports ok."
+}
