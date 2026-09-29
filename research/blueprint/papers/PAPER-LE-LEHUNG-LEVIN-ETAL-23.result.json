@@ -1229,7 +1229,7 @@
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Partial extraction: 776 items (146 library, 48 planned, 582 missing), 25 routes and 111 unreviewed source findings. This continuation corrects the coefficient/prime hypotheses behind the Section5 Kisin uniqueness results, separates the unrestricted rank-one scalar contraction, supplies an acyclic semisimplicity repair using WE19, and propagates the bounds through Section7.2. The generic-adjoint argument is supplied in all ranks with its rank-one odd-prime exception E110; finite-length Hom comparison is decomposed through a simultaneous H0/H1 induction. Eight new items K55–K58, L143, Z142 and G67–G68 retain existing owners. All inherited IDs, statuses and source data are preserved. The internal graph has 1,226 edges and is acyclic; this is not recursive proof closure. Fourteen recorded gaps remain, including Kummer-tower field inputs, later rank-one propagation, external suppliers, regularity, Appendix B certificates and the U/G/B/Z/P outline queues. No formal implementation or independent review is asserted. A further checkpoint (cc-fb70e5) records E111: Proposition B.0.1(4) fails on the line a = 0 inside V. A later one (cc-39fac3) certifies Q06 (t^3 in the Jacobian ideal) over Z[a,b][1/(aP)] with multiplier 2a(a−2)^2(a−b)(b−1), and shows that the specializations used downstream all have a a unit, so Corollary B.0.5 keeps r = 3.",
+  "summary": "Partial extraction: 776 items (146 library, 48 planned, 582 missing), 25 routes and 113 unreviewed source findings. This continuation corrects the coefficient/prime hypotheses behind the Section5 Kisin uniqueness results, separates the unrestricted rank-one scalar contraction, supplies an acyclic semisimplicity repair using WE19, and propagates the bounds through Section7.2. The generic-adjoint argument is supplied in all ranks with its rank-one odd-prime exception E110; finite-length Hom comparison is decomposed through a simultaneous H0/H1 induction. Eight new items K55–K58, L143, Z142 and G67–G68 retain existing owners. All inherited IDs, statuses and source data are preserved. The internal graph has 1,226 edges and is acyclic; this is not recursive proof closure. Fourteen recorded gaps remain, including Kummer-tower field inputs, later rank-one propagation, external suppliers, regularity, Appendix B certificates and the U/G/B/Z/P outline queues. No formal implementation or independent review is asserted. A further checkpoint (cc-fb70e5) records E111: Proposition B.0.1(4) fails on the line a = 0 inside V. A later one (cc-39fac3) certifies Q06 (t^3 in the Jacobian ideal) over Z[a,b][1/(aP)] with multiplier 2a(a−2)^2(a−b)(b−1), and shows that the specializations used downstream all have a a unit, so Corollary B.0.5 keeps r = 3. A second cc-39fac3 checkpoint certifies the Q13 Gröbner basis uniformly over V, in the two cells (a−b)(a−1) ≠ 1 and = 1, with Cohen–Macaulay leading-term schemes in every characteristic. It records E112, the misprinted exceptional locus, and E113: Table 1 and the special-fibre component list fail on a = 0, a(b−1) = b and (a−b)(a−1) = 1, without affecting the downstream uses.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -15411,7 +15411,9 @@
         "Read Cohen-Macaulayness off the leading ideal, list the special-fibre components of the normalization, and observe by inspection that the special fibre is generically reduced. Generically reduced together with S1, which Cohen-Macaulayness supplies, gives reduced.",
         "For O-flatness argue by contradiction from topological flatness: a global function not divisible by pi but with pi-power torsion would be nilpotent, and reducing mod pi would produce a non-zero nilpotent on the reduced special fibre.",
         "Conclude normality from O-flat with reduced special fibre, which is what makes the finite birational map of Q07 the normalization map and is the input Q10 needs.",
-        "Blueprint obligation: the Groebner basis is computed with (a,b) specialized into a field, so it certifies one fibre and not the family. Supply a comprehensive (parametric) Groebner system over Z[a,b][1/P] with its exceptional denominator locus made explicit, or replace this step by a direct verification of Serre's R1 and S2."
+        "Blueprint obligation: the Groebner basis is computed with (a,b) specialized into a field, so it certifies one fibre and not the family. Supply a comprehensive (parametric) Groebner system over Z[a,b][1/P] with its exceptional denominator locus made explicit, or replace this step by a direct verification of Serre's R1 and S2. Discharged (cc-39fac3, 29 September 2026), as a two-cell comprehensive Gröbner system in sourceData.appendixB.q13ComprehensiveGroebner. The order is degrevlex with W > c12 > c13 > d21 > c22 > d31 > d33; it is the only one of degrevlex, deglex and lex for which every printed leading term is the left-most one. The eleven printed polynomials form a Gröbner basis of the specialized ideal (t = 0) in every field of characteristic > 7 and at every (a,b) with P(a,b) ≠ 0. There are two cells. Where L8 = (a−b)(a−1) − 1 ≠ 0, the leading terms are as printed. On L8 = 0 the 8th element's leading term is its second monomial d21·d31·d33. The paper's condition for this exception is misprinted (E112). In each cell every leading coefficient is a unit of the base ring, which is Z[1/7!][a,b][1/(P·L8)], resp. Z[1/7!][a,1/(a−1)][1/P] with b = a − 1/(a−1). All 55 S-polynomials reduce to zero by division that only inverts leading coefficients. The seven generators reduce to zero, and each basis element lies in the ideal with cofactors over that ring. So the statement specializes to every point of V.",
+        "Cohen–Macaulayness of the leading-term schemes (cc-39fac3), for both cells and every characteristic. The two monomial ideals have 11 generators, dimension 3 and projective dimension 4 (Betti numbers of the ideal 11, 24, 19, 5 generically; 11, 24, 18, 4 on L8 = 0). These are computed from the integral homology of the upper Koszul complexes at all points of the lcm lattice (Miller–Sturmfels Theorem 1.34), none of which has torsion. So S/in(I) is Cohen–Macaulay over every field, and the flat Gröbner degeneration gives Cohen–Macaulayness of the special fibre, as the source says.",
+        "The component list of PDF206, used for generic reducedness, is right generically but not on the line a = 0 (E113). Over Q(a,b), on the curves (a−b)(a−1) = 1, a(b−1) = b and 2a(b−1) = 2b−1, and on a = 0, the specialized ideal is radical, and it equals the intersection of the printed ideals (Singular). On a = 0 the 7th printed ideal is not prime: it splits into (c22, c13, c12, (b−1)W + (b+1)d31) and (c22, c13, c12, W + d21·d33). The special fibre is still reduced there, so the normality argument is unaffected. These are function-field and sample-point checks, not a uniform certificate of reducedness."
       ],
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q05",
@@ -15432,7 +15434,8 @@
         "Record that the source calls this decomposition 'a direct computation in Macaulay 2', so it carries the same evidential status as Q06 and the Gröbner computation in Q13.",
         "For each of the seven components of the special fibre, pull back along the normalization map and decompose the preimage, separating the unique maximal-dimensional component from the lower-dimensional extras.",
         "Blueprint obligation: re-derive each row from the Groebner data of Q08 rather than transcribing it, and keep the table only as a cross-check.",
-        "Note the blast radius: Q10 consumes one row of this table set-theoretically, so an error in a single row is confined to that component's unibranch analysis and does not invalidate the others."
+        "Note the blast radius: Q10 consumes one row of this table set-theoretically, so an error in a single row is confined to that component's unibranch analysis and does not invalidate the others.",
+        "Re-derivation (cc-39fac3, 29 September 2026): over Q(a,b), the minimal primes of the specialized normalization ideal plus each of the seven special-fibre primes coincide with the corresponding row of Table 1, and in every row the first ideal is the unique one of maximal dimension 3 (Singular minimal_associated_primes). The table is not uniform over V (E113). On a(b−1) = b, the lower-dimensional ideal of rows 2 and 5 lies inside the main component. On (a−b)(a−1) = 1 the same holds for row 7. On a = 0, row 4's preimage has two components rather than one. These were confirmed at the generic point of each curve and at explicit points over Q and F_101 with P ≠ 0; on 2a(b−1) = 2b−1 all rows hold. Q10 consumes only row 4 and the fibre over z~, and every specialization used downstream has a a unit (Q06), so the consumers are unaffected."
       ],
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q07",
@@ -15451,7 +15454,7 @@
         "Use Q13 (Proposition B.0.2(2)) to know that pi: U(z~,lambda,grad)^{nm}_{(a,b,0)} -> U(z~,lambda,grad)_{(a,b,0)} is the normalization map, not merely a finite birational one.",
         "For the first claim, show pi^{-1}(z~) is set-theoretically a singleton; unibranchness at z~ is then immediate.",
         "For the second claim, let C be the component cut out by (c22,c13,c12). By the corresponding row of Table 1, at the set-theoretic level pi^{-1}(C) -> C is identified with Z -> A^3_F, (d21,d31,d33,W) |-> (d21,d31,d33), where Z is the subscheme of A^4_F cut out by the displayed quadratic relation in W.",
-        "That quadric is irreducible, so the map is a double cover of A^3_F, hence generically finite etale of degree two. Every point off the branch locus has two preimages and so is not geometrically unibranch, and those points are Zariski dense in C.",
+        "Write the quadric as W^2 + (γ d21 d33 + α d31) W + β d21 d31 d33, with β = b(a−b−1)/((b−1)(a−b)) a unit. Its discriminant is nonzero, and it is a square exactly when β = αγ, which on V means a = 0, since β − αγ is a unit multiple of a(a−2) (cc-39fac3). So for a ≠ 0 the quadric is irreducible and the map is a double cover of A^3_F, generically finite étale of degree two. Every point off the branch locus has two preimages and so is not geometrically unibranch, and those points are Zariski dense in C. On a = 0 the quadric splits into the sheets W = −d21 d33 and W = −((b+1)/(b−1)) d31 (E113). Each maps isomorphically onto C, so points off their intersection still have two preimages, and the conclusion survives with a changed proof. Downstream specializations have a a unit (Q06).",
         "The hypotheses p > 7 and invertibility of the seven factors of P are used, not incidental: they keep P a unit and 2 invertible, without which the degree-two cover argument does not run.",
         "State the conclusion precisely. This refutes a blanket unibranch expectation on the special fibre; it says nothing against the first claim, and z~ itself remains unibranch."
       ],
@@ -27795,6 +27798,36 @@
         "29 September 2026: author page https://math.rice.edu/~bl70/ links LocModels.pdf for this article with no correction link (its correction link is for the Harder–Narasimhan article).",
         "29 September 2026: arXiv https://arxiv.org/abs/2007.05398 lists v2 (15 June 2022) as latest; this passage was not compared in v2. The finding is unreviewed and this bounded search does not establish priority."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E112",
+      "kind": "misprint",
+      "locator": "Proof of Proposition B.0.2(2), published PDF205 (page image checked); the 8th Gröbner basis element is displayed on the same page, and the 6th generator of the ideal on PDF204.",
+      "printed": "The source says each polynomial’s first term is its leading monomial, except that vanishing of (a − b)((a − 1) − 1) makes the 8th generator’s first monomial zero and its second monomial leading.",
+      "correction": "except when (a − b)(a − 1) − 1 vanishes. The first coefficient of the 8th element is b((a − b)(a − 1) − 1) = b(a(a − b) − a + b − 1).",
+      "reason": "The displayed 8th element begins b((a−b)(a−1)−1)W d21 d33, and the 6th generator of the ideal on PDF204 has the same coefficient b(a(a−b)−a+b−1). The printed condition equals (a−b)(a−2), a factor of P, so read literally the exception never occurs on V. Yet the actual coefficient vanishes on the curve (a−b)(a−1) = 1, which meets V (for example (a,b) = (3, 5/2), with P ≠ 0). On that curve the left-most monomial is absent, and the leading term is the second monomial d21 d31 d33. A Singular/Sage check found the printed list is a Gröbner basis in both cells (sourceData.appendixB.q13ComprehensiveGroebner). So the proof's conclusion stands; only the stated exceptional locus is wrong.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "29 September 2026: Crossref record of doi:10.1007/s00222-022-01163-4 has no update-to or updated-by relation, and a Crossref query for works updating this DOI returns none.",
+        "29 September 2026: author page https://math.rice.edu/~bl70/ links LocModels.pdf for this article with no correction link (per the E111 search the same day).",
+        "29 September 2026: arXiv v2 (https://arxiv.org/pdf/2007.05398v2, SHA-256 prefix 3cdae0b1, the latest version) has the same passage at PDF150–151, read on the page image. The finding is unreviewed and this bounded search does not establish priority."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E113",
+      "kind": "error",
+      "locator": "Proposition B.0.2(3) and Table 1, published PDF204 and PDF207 (rotated page image read); the component list in the proof of B.0.2(2), PDF206; the proof of Corollary B.0.4(2), PDF208.",
+      "printed": "Part (3) says that, under U(z̃,λ,∇_(a,b,0))^nm_F → U(z̃,λ,∇_(a,b,0))_F, each irreducible component of U(z̃,λ,∇_(a,b,0))_F pulls back to components listed in Table 1. It describes the map as a double cover of A^3_F given by an irreducible quadric.",
+      "correction": "State Table 1, the PDF206 component list and the irreducibility of the quadric for (a,b) off three curves in V. The main (maximal-dimensional) component of every row is correct on all of V except on a = 0 in row 4. On a = 0, row 4's preimage and the 7th component of the PDF206 list split into (c22, c13, c12, (b−1)W + (b+1)d31) and (c22, c13, c12, W + d21 d33). On a(b−1) = b, the second ideal of rows 2 and 5 lies inside the first, so those preimages are irreducible. On (a−b)(a−1) = 1 the same holds for row 7. Corollary B.0.4(2) still holds on a = 0, because the two sheets give two preimages off their intersection. Every specialization used downstream has a a unit (Q06), and Q10 uses only row 4.",
+      "reason": "Over Q(a,b), the minimal primes of the specialized normalization ideal plus each special-fibre prime match Table 1. The splitting on a = 0 follows from the quadric's discriminant, which is a square exactly when β = αγ; β − αγ is a unit multiple of a(a−2). The splitting and the two collapses were confirmed with Singular (passagemath-singular 10.8.12, minimal_associated_primes). This was done at the generic point of each curve, and at (a,b) = (0,5), (3/2,3) and (3,5/2) over Q and over F_101, all with P ≠ 0. At the control point (5,−4) every row matches.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "29 September 2026: Crossref record of doi:10.1007/s00222-022-01163-4 has no update-to or updated-by relation, and a Crossref query for works updating this DOI returns none.",
+        "29 September 2026: author page https://math.rice.edu/~bl70/ links LocModels.pdf for this article with no correction link (per the E111 search the same day).",
+        "29 September 2026: arXiv v2 (https://arxiv.org/pdf/2007.05398v2, SHA-256 prefix 3cdae0b1, the latest version) has the same passage at PDF150–151, read on the page image. The finding is unreviewed and this bounded search does not establish priority."
+      ]
     }
   ],
   "gaps": [
@@ -28262,7 +28295,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q09",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q13"
       ],
-      "detail": "Equations and all Table1 rows are transcribed. Q(a,b) consistency checks passed, including Jacobian t^3 membership. Prove uniform statements over Z[a,b,1/P], control denominator exceptional loci, certify minimal primes and specialized Groebner cases. Rational generic checks do not establish all allowed characteristics or all parameter specializations. Update (cc-fb70e5, 29 September 2026): Q06 now has an exact integral certificate over Z[a,b][1/(aP·(a+b−1)·C)] (sourceData.appendixB.q06Certificate), and the printed Q06 fails at a = 0 (E111); still open: a certificate over Z[a,b][1/(aP)], minimal primes and specialized Groebner cases for Q08/Q09/Q13, and whether downstream specializations avoid a ≡ 0. Update (cc-39fac3, 29 September 2026): Q06 is certified over Z[a,b][1/(aP)] (sourceData.appendixB.q06CertificateAP, multiplier 2a(a−2)^2(a−b)(b−1)), and the downstream specializations all have a a unit (Lemma 7.3.1, Definition 2.1.10), so E111 does not reach Corollary B.0.5. Still open: minimal primes (Q04), the Gröbner basis of the specialized normalization ideal uniformly over the allowed (a,b) and characteristics (Q13's proof, PDF205), and the Table 1 row derivations (Q09)."
+      "detail": "Equations and all Table1 rows are transcribed. Q(a,b) consistency checks passed, including Jacobian t^3 membership. Prove uniform statements over Z[a,b,1/P], control denominator exceptional loci, certify minimal primes and specialized Groebner cases. Rational generic checks do not establish all allowed characteristics or all parameter specializations. Update (cc-fb70e5, 29 September 2026): Q06 now has an exact integral certificate over Z[a,b][1/(aP·(a+b−1)·C)] (sourceData.appendixB.q06Certificate), and the printed Q06 fails at a = 0 (E111); still open: a certificate over Z[a,b][1/(aP)], minimal primes and specialized Groebner cases for Q08/Q09/Q13, and whether downstream specializations avoid a ≡ 0. Update (cc-39fac3, 29 September 2026): Q06 is certified over Z[a,b][1/(aP)] (sourceData.appendixB.q06CertificateAP, multiplier 2a(a−2)^2(a−b)(b−1)), and the downstream specializations all have a a unit (Lemma 7.3.1, Definition 2.1.10), so E111 does not reach Corollary B.0.5. Still open: minimal primes (Q04), the Gröbner basis of the specialized normalization ideal uniformly over the allowed (a,b) and characteristics (Q13's proof, PDF205), and the Table 1 row derivations (Q09). Update (cc-39fac3, 29 September 2026, second checkpoint): the Q13 Gröbner basis is certified uniformly over V as a two-cell comprehensive Gröbner system (sourceData.appendixB.q13ComprehensiveGroebner), and the leading-term schemes are Cohen–Macaulay in every characteristic. Table 1 and the PDF206 component list are re-derived over Q(a,b), but fail on three curves in V (E113); the printed exceptional locus is misprinted (E112). Still open: a uniform (all-specialization) certificate for reducedness, and for the Table 1 rows off the exceptional curves; the Q04 minimal primes over Z[a,b][1/P]."
     },
     {
       "id": "remaining-proof-leaves",
@@ -28609,6 +28642,77 @@
           "M145": "(2*(a - 2)*(b - 1))*d21*t + ((a - 2)*(b + 1))*c22*d31",
           "M234": "(-2*(a - 2)*(a - 2*b + 1))*d21*t + (-(a - 2)*(2*b - 1))*c22*d21*d33 + (2*(a - 2)*(a - b - 1))*c22*d31"
         }
+      },
+      "q13ComprehensiveGroebner": {
+        "by": "Claude Code, cc-39fac3, 29 September 2026",
+        "ideal": "partialNormalizationEquations with t = 0, in F[W,c12,c13,d21,c22,d31,d33] with (a,b) specialized, P(a,b) ≠ 0 and char F > 7",
+        "order": "degrevlex with W > c12 > c13 > d21 > c22 > d31 > d33 (deglex and lex fail the printed left-most leading terms)",
+        "basis": [
+          "W*c22",
+          "(a-1)*(a-2)*b*c13*d21 + (a-2)*(a-1)*(a-b-1)*c12*d31 - (a-1)*b*(a-b-2)*c22*d33",
+          "-(a-2)*(a-1)*(a-b)*W*c12 - (a-2)*(a-1)*(a-b-1)*c12*d31",
+          "-(a-1)*b*(-a+b+1)*c22*d31*d33",
+          "(a-2)*(a-1)*(a-b-1)*c12*d31*d33 + (a-2)*(a-1)**2*(b-1)*(a-b)*W*c13 + (a-2)*(a-1)*(a-b-1)*(a*(b-1)-b)*c13*d31",
+          "(a-b-2)*c12*c22*d33 - (a-2)*c13*c22",
+          "b*c12*d21*d33 - (a-1)*(a-b)*W*c12 - (a-2)*(a-b-1)*c12*d31 - b*c22*d33",
+          "b*((a-b)*(a-1)-1)*W*d21*d33 + (a-1)*b*(a-b-1)*d21*d31*d33 + (a-1)*(b-1)*(a-b)*W**2 + (a-b-1)*(a*(b-1)-b)*W*d31",
+          "(a-2)*(a-1)*(a-b-1)*c13*c22*d31",
+          "(a-2)*(a-1)*(a-b-1)*c12*c22*d31",
+          "(a-2)*(a-1)**2*(b-1)*(a-b)**2*W**2*c13 + (a-2)*(a-1)*(2*a*(b-1)-2*b+1)*(a-b-1)*(a-b)*W*c13*d31 + (a-2)*(a-1)*(a*(b-1)-b)*(-a+b+1)**2*c13*d31**2"
+        ],
+        "basisSource": "Transcribed from the published PDF205 and checked on its page image; arXiv v2 PDF150 is identical.",
+        "cells": [
+          {
+            "condition": "L8 = (a−b)(a−1) − 1 ≠ 0",
+            "baseRing": "Z[1/7!][a,b][1/(P·L8)]",
+            "leadingMonomials": [
+              "W*c22",
+              "c13*d21",
+              "W*c12",
+              "c22*d31*d33",
+              "c12*d31*d33",
+              "c12*c22*d33",
+              "c12*d21*d33",
+              "W*d21*d33",
+              "c13*c22*d31",
+              "c12*c22*d31",
+              "W^2*c13"
+            ],
+            "leadingIdealBetti": "11, 24, 19, 5 (ideal), pd(S/in) = 4, dim 3"
+          },
+          {
+            "condition": "L8 = 0, i.e. b = a − 1/(a−1)",
+            "baseRing": "Z[1/7!][a,1/(a−1)][1/P(a, a − 1/(a−1))]",
+            "leadingMonomials": [
+              "W*c22",
+              "c13*d21",
+              "W*c12",
+              "c22*d31*d33",
+              "c12*d31*d33",
+              "c12*c22*d33",
+              "c12*d21*d33",
+              "d21*d31*d33",
+              "c13*c22*d31",
+              "c12*c22*d31",
+              "W^2*c13"
+            ],
+            "leadingIdealBetti": "11, 24, 18, 4 (ideal), pd(S/in) = 4, dim 3"
+          }
+        ],
+        "checks": "In each cell every leading coefficient is a unit of the base ring. All 55 S-polynomials reduce to zero by plain division by the list, inverting only leading coefficients. Every quotient coefficient lies in the base ring: its denominator's irreducible factors are among the factors of P, L8 (resp. a−1) and primes ≤ 7, and the checker was tested on negative controls. The seven generators reduce to zero, and each basis element is in the ideal via a Singular lift whose cofactor coefficients lie in the base ring. These are standard representations, so the basis specializes to a Gröbner basis at every point of the cell. Cohen–Macaulayness: integral homology of the upper Koszul complexes at all points of the lcm lattice (75 and 73 points) has no torsion, so the Betti numbers and pd = 4 = codim hold in every characteristic.",
+        "tools": "passagemath-singular 10.8.12 (Singular via Sage), plain Python for the division and Smith normal forms over Z."
+      },
+      "table1Rederivation": {
+        "by": "Claude Code, cc-39fac3, 29 September 2026",
+        "method": "For each special-fibre prime P_k (specialFiberMinimalPrimes), compare the minimal associated primes of (normalization ideal at t = 0) + P_k with the Table 1 row (normalizationFiberComponents) plus the normalization ideal; Singular minimal_associated_primes.",
+        "generic": "Over Q(a,b) all seven rows match, and the first ideal of each row is the unique one of dimension 3. On the curve 2a(b−1) = 2b−1 all rows match too.",
+        "exceptions": {
+          "a = 0": "row 4 splits: (c22,c13,c12,(b−1)W+(b+1)d31), (c22,c13,c12,W+d21*d33)",
+          "a(b−1) = b": "rows 2 and 5: the second ideal lies inside the first; the preimage is irreducible",
+          "(a−b)(a−1) = 1": "row 7: the second ideal lies inside the first; the preimage is irreducible"
+        },
+        "points": "Confirmed over Q and F_101 at (a,b) = (0,5), (3/2,3), (3,5/2), all with P ≠ 0; control (5,−4) matches every row. See E113.",
+        "componentsCheck": "The specialized ideal equals the intersection of the seven PDF206 ideals and is radical over Q(a,b), on the three curves above and on a = 0 (where the 7th ideal is not prime)."
       }
     }
   },
@@ -31268,7 +31372,7 @@
   "validation": {
     "lean": "No Lean file required or compiled; no formalization claim.",
     "correctionChecks": "Exact Python integer/Fraction regression assertions passed for star reversal (2500 products), GL2 central shifts/tensor factors, contraction valuations, tame unipotent counterexample, genericity-depth example and appendix exceptional coefficients; downstream Hodge-bound comparison checked on2431 regular tuples.",
-    "appendixChecks": "SymPy1.14.0 over Q(a,b): all7 special-fibre ideals annihilate the3 equations; ten Table1 ambient ideals kill all7 normalization equations, while the double-cover row retains its quadratic relation; all7 relations vanish after W=-t*d21/c22 in Frac(R); t^3 is in the Jacobian ideal of the chart quotient. These are consistency checks, not uniform integral certificates. 29 September 2026 (cc-fb70e5): exact tracked-Buchberger certificate for t^3 ∈ H with integral numerators and denominator lcm 2a(a−2)^6(a−1)^3(a−b)^6(b−1)^6(a−b−2)^3(a+b−1)^6C^3; t^2 ∉ H generically; explicit singular point with t = 1 on a = 0 (E111). 29 September 2026 (cc-39fac3): Singular (passagemath-singular 10.8.12) and SymPy 1.14.0. 2a(a−2)^2(a−b)(b−1)t^3 lies in the ideal of F1–F3 and six minors over Z (exact expansion). Over Q, (H + (F) : t^3) ∩ Q[a,b] = (a(a−2)^2(a−b)(b−1)). t^3 ∈ H + (F) and t^2 ∉ over Q[a,b][1/(aP)]; no t^k (k ≤ 6) over Q[a,b][1/P].",
+    "appendixChecks": "SymPy1.14.0 over Q(a,b): all7 special-fibre ideals annihilate the3 equations; ten Table1 ambient ideals kill all7 normalization equations, while the double-cover row retains its quadratic relation; all7 relations vanish after W=-t*d21/c22 in Frac(R); t^3 is in the Jacobian ideal of the chart quotient. These are consistency checks, not uniform integral certificates. 29 September 2026 (cc-fb70e5): exact tracked-Buchberger certificate for t^3 ∈ H with integral numerators and denominator lcm 2a(a−2)^6(a−1)^3(a−b)^6(b−1)^6(a−b−2)^3(a+b−1)^6C^3; t^2 ∉ H generically; explicit singular point with t = 1 on a = 0 (E111). 29 September 2026 (cc-39fac3): Singular (passagemath-singular 10.8.12) and SymPy 1.14.0. 2a(a−2)^2(a−b)(b−1)t^3 lies in the ideal of F1–F3 and six minors over Z (exact expansion). Over Q, (H + (F) : t^3) ∩ Q[a,b] = (a(a−2)^2(a−b)(b−1)). t^3 ∈ H + (F) and t^2 ∉ over Q[a,b][1/(aP)]; no t^k (k ≤ 6) over Q[a,b][1/P]. 29 September 2026 (cc-39fac3, second checkpoint): the printed Q13 basis is a Gröbner basis for degrevlex in both cells L8 ≠ 0 and L8 = 0, with all denominators units (55 S-pairs). The leading ideals are Cohen–Macaulay over every field (torsion-free upper Koszul homology). Table 1 rows match over Q(a,b), with exceptions on a = 0, a(b−1) = b and (a−b)(a−1) = 1 (E113) confirmed over Q and F_101.",
     "continuation": "Paper/intake validators; unique item/finding IDs; one route per missing item; all 83 definition API references; acyclic recorded item dependencies. Exact Fraction/integer checks: 576 precision-recurrence steps, 210 Newton corrections, 175 precision-loss examples and 5 tensor zero-divisor identities. Reproducible code in report. No Lean compilation. Earlier CAS checks are inherited, not rerun.",
     "completeLocalContinuation": "Paper/intake validators, exact ID and source-finding preservation, one route per missing item, definition API coverage and DAG checks. Fresh SymPy/integer/Fraction diagnostics: 8 symbolic saturation ideals, 1 unsaturated-torsion control, 2600 generic jet products, 24336 transition products, 24336 associativity triples, 5624 box-filtration monomials, 144 adic-topology bounds and 48 denominator controls. Code reproduced in report. These diagnostics do not prove the general theorem; previous appendix CAS/precision checks inherited, not rerun. No Lean file compiled.",
     "completionAtomContinuation": {
@@ -32738,7 +32842,8 @@
       "intake": "Paper checker and three-deliverable intake check-files pass (0 problems)."
     },
     "claudeCcD67081FineOwnership": "Claude Code — cc-d67081, 24 September 2026, issue 1254: the fine-ownership half of the per-item library/planned audit, which the preceding cc-d67081 checkpoint left open after verifying that the citations resolve. Question asked of each item: does the cited declaration actually PROVIDE the item's statement, hypotheses included, rather than merely exist? Method: all 146 library items and their 224 citations were resolved to a file and line in the pinned trees (Mathlib 082e2d3, Tau Ceti f790474), the declaration's own binders were read together with every `variable` line in scope at that line, and each was compared against the item statement. Result: 143 of 146 hold as stated; one citation defect found and corrected (L75); two items carried stale notes calling correct citations unverified, now discharged by opening the sources (L55, L77). L75 cited IsGδ.baireSpace_of_t2Space_locallyCompactSpace, which is the Gδ-SUBSET theorem at Topology/Baire/LocallyCompactRegular.lean:62, for an item stating that the SPACE is Baire; the declaration that provides it is the instance BaireSpace.of_t2Space_locallyCompactSpace at line 23 of the same file, which the Gδ lemma's own proof invokes at line 64. Citation replaced. L55's Module.Flat.instTensorProduct is the anonymous instance at Flat/Basic.lean:232 giving Flat S (M ⊗[R] N), with Mathlib's own `example ... := inferInstance` at line 242 and the Stability.lean:91 comment naming it; L77's HenselianRing.is_henselian is the class field at Henselian.lean:96 and IsAdicComplete.henselianRing the instance at line 170. All three are absent from the declarations index only because anonymous instances and structure fields are not indexed. Planned half: all 48 planned items were checked against the full text of every stage they name (not the truncated extract). All 48 hold. The three that most needed it were confirmed against explicit stage text: Z23/Z28/Z96 route to ModularCurves 4D, which owns in terms 'preservation and reflection of regularity and dimension under completion of noetherian local rings'; Z49 and Z80 route to AdicSpaces Layer 0, whose 0.5 lists as separate milestones 'Weierstrass division and preparation over a complete rank-one nonarchimedean field' and 'Noetherianity of K⟨X₁,…,Xₙ⟩ for such a field K'. Contract tests: Z106, Z111 and Z120 now carry both api and unitTests, so that resume item is closed. Measured coverage over the 174 definition/construction items: 90 carry the contract (9 in the item, 84 through definitionApiGroups) and 84 carry api with no unitTests and belong to no group. PROTOCOL section 16 imposes no api/tests requirement on paper items, so this is this extraction's own convention rather than a checker or protocol gap; the 84 are named in the handoff. No Lean was compiled and no item status, route, statement or locator changed.",
-    "cc39fac3AppendixB": "29 September 2026, issue 1254: Q06 certified over Z[a,b][1/(aP)] and the E111 downstream question settled from Remark 3.3.2 (PDF62), Lemma 7.3.1 (PDF150), Definition 2.1.10 (PDF33), Proposition 3.3.9 (PDF68–69), Proposition 7.1.10 (PDF138) and Corollary B.0.5 (PDF208), read in the published PDF with the SHA-256 recorded in source. Only Q06, Q11, E111, the appendix-certificates gap, sourceData.appendixB and the summary were edited; no item status or route changed. No Lean file."
+    "cc39fac3AppendixB": "29 September 2026, issue 1254: Q06 certified over Z[a,b][1/(aP)] and the E111 downstream question settled from Remark 3.3.2 (PDF62), Lemma 7.3.1 (PDF150), Definition 2.1.10 (PDF33), Proposition 3.3.9 (PDF68–69), Proposition 7.1.10 (PDF138) and Corollary B.0.5 (PDF208), read in the published PDF with the SHA-256 recorded in source. Only Q06, Q11, E111, the appendix-certificates gap, sourceData.appendixB and the summary were edited; no item status or route changed. No Lean file.",
+    "cc39fac3AppendixBQ13": "29 September 2026, issue 1254, second checkpoint: Q13's comprehensive Gröbner system, Cohen–Macaulayness of both leading-term ideals in every characteristic, the Table 1 and PDF206 re-derivation, and findings E112–E113. Read: PDF203–208 of the published PDF (page images of PDF204, PDF205 and PDF207), and arXiv v2 PDF150–151. Only Q09, Q10 and Q13, the two new findings, sourceData.appendixB, the appendix-certificates gap, validation and the summary were edited; no item status or route changed. No Lean file."
   },
   "definitionApiGroups": [
     {
