@@ -2,7 +2,7 @@
 Suggested Lean prototypes for the roadmap "Lefschetz pencils, nearby cycles and vanishing cycles"
 (LefschetzPencilsAndVanishingCycles), part LPV.0 (layers LPV.0–LPV.6); checkpoint 1 carries the SGA 7 XIII/XV
 nearby-cycle nodes and plans Deligne's Weil I §§4–5; checkpoint 2 plans SGA 7 XII (quadrics) and XV §1 (ordinary
-quadratic points).
+quadratic points); checkpoint 3 plans XV §2 (cones and the standard quadratic degeneration).
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/LefschetzPencilsAndVanishingCycles--LPV.0.md` is definitive. The statements below suggest
@@ -62,6 +62,7 @@ import Mathlib.Algebra.CharP.Lemmas
 import Mathlib.Tactic.Ring
 import Mathlib.LinearAlgebra.QuadraticForm.Radical
 import Mathlib.Data.Matrix.Mul
+import Mathlib.Data.ZMod.Basic
 
 namespace TauCeti.AlgebraicGeometry.LefschetzPencil
 
@@ -191,3 +192,15 @@ example (q : ℤ) : (1 + q + q ^ 2) + q = (1 + q) ^ 2 ∧ (1 + q + q ^ 2) - q = 
 end Tables
 
 end TauCeti.AlgebraicGeometry.Quadric
+
+namespace TauCeti.AlgebraicGeometry.VanishingCycles
+
+/-- Test `variation_even_sign`: in XV (2.2.5.6), for ε(σ) = −1 the coefficient ((ε(σ) − 1)/2)(−1)^m is (−1)^{m+1},
+which is the sign of Weil I (4.1) for n = 2m (−, + for n ≡ 0, 2 mod 4). -/
+example (m : ℕ) : (-1 : ℤ) * (-1) ^ m = (-1) ^ (m + 1) := by ring
+
+/-- Test `delta_characterisation_composite`: in ℤ/15, u = 4 satisfies u² = 1 but u ≠ ±1, so (δ, δ) = (−1)^m·2 does not
+characterise ±δ for Λ = ℤ/15 (source issue E11 on SGA 7 XV 2.2.6). -/
+example : (4 : ZMod 15) ^ 2 = 1 ∧ (4 : ZMod 15) ≠ 1 ∧ (4 : ZMod 15) ≠ -1 := by decide
+
+end TauCeti.AlgebraicGeometry.VanishingCycles
