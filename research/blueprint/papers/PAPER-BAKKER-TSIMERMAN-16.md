@@ -79,7 +79,7 @@ Whole-tree searches for gonality, Hwang, Riemann–Hurwitz, plurisubharmonicity,
 
 The entire upstream FuchsianOrbifolds and nearby EllipticCurves documents were read, with the relevant ModularCurves leaves, AlgebraicCurves dictionary, ComplexComparisonPartII stages, SchemeAndStackFoundations stages and AutomorphicSpectralTheory document. Reviewed audits checked include all Fuchsian rows, ConformalMapping's built metric stage, AlgebraicCurves Layers 4/5/7, ModularCurves 0D/2B/2E/5B/9D, all ModularCurvesPartII rows, C4, SF.1/SF.4/SF.5, IG.0/IG.3 and AS.0–AS.6. The six existing new-roadmap definitions and available packets were screened; no existing gonality/current-theory packet supplies these missing targets.
 
-The principal Fuchsian/modular neighborhood audit read all 65 touching stage edges, 51 matching link entries and 21 overlap entries. A further scan read the 31 edges involving AutomorphicSpectralTheory or SF.4; no matching entries appeared in the local link maps. The refreshed EllipticCurves link on checked main was also read. No upstream roadmap is modified, no consumer→supplier cycle is introduced, and the retired FoundationsAndLibraryIntegration roadmap is not cited as a supplier.
+The principal Fuchsian/modular neighborhood audit read all 65 touching stage edges, 51 matching link entries and 21 overlap entries. A further scan read the 31 edges involving AutomorphicSpectralTheory or SF.4; no matching entries appeared in the local link maps. The refreshed EllipticCurves link on checked main was also read. No upstream roadmap is modified, no consumer→supplier cycle is introduced (as first submitted, route 4 would have introduced SF.5 → SF.4; repaired after RT-PAPER-BAKKER-TSIMERMAN-16/4, see below), and the retired FoundationsAndLibraryIntegration roadmap is not cited as a supplier.
 
 Atlas snapshot: `3a9e9d7877bad538bc4e0ed202e88b8bc0fef8f0`; main checked through `2048fe0190965aa95663c9cbac2a16efb6054d64`. The mathematical atlas, authoritative roadmap descriptions and reviewed coverage data were unchanged in that comparison. Newly promoted restructurings were screened; accepted RS-29 preserves the general finite-étale IG.0 work while importing the field case from ModularCurves 0D and the abstract Galois-category theorem from Mathlib. The updated protocol's promotion rules do not authorize this worker to apply restructurings.
 
@@ -88,7 +88,7 @@ Atlas snapshot: `3a9e9d7877bad538bc4e0ed202e88b8bc0fef8f0`; main checked through
 1. **Source → ModularCurvesPartII** (8 missing items). Projective-level comparison, generalized-elliptic boundary data and Hecke cycle degree calculations fit R12.2/R12.3/R12.4, R13.1–R13.3/R13.4a and R14.1. They are specializations of existing ownership, not new full-level moduli foundations. The generic push–pull item is already planned.
 2. **Part II → FuchsianOrbifolds**, proposed `HyperbolicCurveVolumesAndGonality` (26). Own the reusable analytic cycle/current and point/diagonal/conjugate-diagonal estimates, conformal area and gonality API. Import quotient charts, polygon geometry, degree theory and algebraization. Its final estimates explicitly retain radius and proper-intersection hypotheses.
 3. **Part II → upstream ModularCurves**, proposed `GeometricFreyMazur` (59). A sibling extension importing the existing ModularCurvesPartII, not replacing it. Own the modular quantitative geometry, four-stratum ramification argument, actual-isogeny descent and final corollaries. It consumes the generic analytic and spectral estimates rather than rebuilding them.
-4. **Source → SF.4** (2). The resolution of 1/n(1,a) and contraction of −1 curves are named surface cases of existing birational ownership. BT is the application source, not a complete proof of those constructions.
+4. **Part II → SchemeAndStackFoundations**, proposed `SchemeAndStackFoundationsPartIIComplexSurfaceContractions` (2). The resolution of 1/n(1,a) and the contraction of −1 curves need SF.5's surface intersections, so they come after SF.5, importing SF.4's birational constructions. This replaces the original source route into SF.4, which would have required the reverse edge SF.5 → SF.4 (RT-PAPER-BAKKER-TSIMERMAN-16/4). BT is the application source, not a complete proof of those constructions.
 5. **Part II → AutomorphicSpectralTheory**, proposed `CongruenceSpectralGap` (1). The reusable 21/100 bound is beyond AS's spectral decomposition. Selberg's stronger 1/4 conjecture is not a target asserted proved. LRS's Maass symmetric-square input is not supplied by the currently named Jacquet–Langlands/cyclic R17 transfers; the brief explicitly requires locating/routing that prerequisite, not pretending an existing theorem supplies it.
 
 These proposed roadmap IDs are design destinations, not already existing stages. The briefs specify imports, final statements, construction-level APIs, tests and proof-source acquisition. Definition items include proposed API/test outlines, clearly marked unexecuted.
@@ -113,3 +113,16 @@ The independent review (REV-PAPER-BAKKER-TSIMERMAN-16, `research/blueprint/revie
 - **New items:** eight supporting items (113–120) were added.
 
 Where the text above counts items, the corrected JSON is authoritative. It has 120 items: 6 library, 8 planned and 106 missing.
+
+## Red-team fixes (29 September 2026)
+
+Claude Code, session `cc-39fac3`, fixing the four confirmed findings of RT-PAPER-BAKKER-TSIMERMAN-16 (issue #3953). Details are in `research/blueprint/redteam/RT-PAPER-BAKKER-TSIMERMAN-16.fixes.md`.
+
+1. **The two maps (item 118, with 29 and 38–40).**
+   - γ_p := i_{p*} : PSL₂(Z) → Γ(2,3,p) keeps its kernel K_p, the normal closure of T^p (= the unipotents of Γ(p)), so K_p ⊆ Γ(p).
+   - The quotient Γ(2,3,p) → G⁰(p) ≅ PSL₂(F_p) is now a separately named q_p, with kernel Ξ(p) = γ_p(Γ(p)), and reduction mod p is q_p ∘ γ_p.
+   - Integral matrices enter through their class [M] ∈ PSL₂(Z).
+2. **The CM hypothesis (item 113).** The coset criterion now assumes (x, y) ∈ CM, a common nonidentity stabilizer, before inferring that g normalizes it. The translated j = 1728 example is recorded as a negative test.
+3. **Positivity of δ (items 38–40, 13).** The parameter is 0 < δ < 1/2, fixed before p, with constants depending on δ. For fixed δ < 0 the standalone statements fail at the identity.
+4. **Construction order (route 4, items 101 and 108).** They move from a source of SF.4 to a Part II of SchemeAndStackFoundations placed after SF.5 (`SchemeAndStackFoundationsPartIIComplexSurfaceContractions`). The GeometricFreyMazur brief now imports it. The existing SF.4 → SF.5 order is unchanged.
+
