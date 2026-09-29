@@ -1,8 +1,73 @@
-# BP-GL2ModularityLifting--R22.1: R22.1–R22.6 (checkpoint 3)
+# BP-GL2ModularityLifting--R22.1: R22.1–R22.6 and R32.1–R32.2 (checkpoint 4)
 
-Claude Code — session `cc-39fac3`, 28 September 2026. Refs #735. **Status: partial.**
-- R22.1–R22.6 are `source_decomposed`.
-- R32.1 and R32.2 are `not_read`.
+Claude Code — session `cc-fb70e5`, 29 September 2026 (checkpoint 4); checkpoints 1–3 by session `cc-39fac3`. Refs #735.
+**Status: partial.**
+- R22.1–R22.6, R32.1 and R32.2 are `source_decomposed`.
+- Every stage in scope is now source-decomposed. The packet status stays `partial`, following the practice of the other
+  packets; the maintainer can decide when to send it to review.
+
+## Checkpoint 4: R32.1–R32.2 (11 nodes, 4 planets)
+
+**Sources:**
+- Dieulefait–Pacetti (sha 0c6850d…), §1.2, Lemma 1.13 and every appeal to Theorem 1.4 in §2.
+- Kisin, *The Fontaine–Mazur conjecture for GL₂*: fmc.dvi on his Harvard page (sha 663d83e…), read through a DVI
+  extraction (introduction, §1.2, §1.7, §2.2).
+- Gee–Kisin, arXiv:1208.3179v5 (sha 65cb579…), Appendix B.
+- Emerton, lg.pdf (sha bf4f855…), §1.2, Theorem 3.3.22 and §§7.3–7.4.
+- Paškūnas, arXiv:1209.5205v3 (sha fce17b3…), §1.
+- Hu–Tan, arXiv:1309.1658v2 (sha d36f237…), §1 and §6.
+- Tung, arXiv:1803.07451v4 (sha 22017bc…), introduction, Theorem 1.2 and §4.
+
+**R32.1 (6 nodes):**
+- `lifting-statement-table` (definition, planet): DP Theorems 1.4–1.7 as four Props.
+- `quadratic-cyclotomic-irreducibility`: DP Lemma 1.13.
+- `non-solvable-residual-image`.
+- `hodge-tate-and-oddness-normalisation`.
+- `residual-modularity-forms` (comparison): every source states its theorem twice, once assuming ρ̄ modular and once
+  taking residual modularity from Khare–Wintenberger. Only the first form is admissible.
+- `exceptional-local-cases` (comparison): the local exclusions of Kisin, Emerton, Paškūnas, Hu–Tan and Tung, and how they
+  are removed.
+
+**R32.2 (5 nodes):**
+- `kisin-multiplicity-criterion` (planet): Kisin (2.2.10), (2.2.14) and (2.2.16), as Gee–Kisin B.5.1 corrects them.
+- `kisin-fontaine-mazur-totally-split` (planet): Kisin (2.2.17), printed (2.2.18).
+- `odd-prime-de-rham-lifting` (planet): Tung 4.7 and Hu–Tan 6.3, every odd p including 3.
+- `odd-prime-statement-over-q`: DP 1.4 over ℚ.
+- `application-requirements`: every use of DP 1.4, including the p = 3 uses in Paso 3 and Lemma 2.3.
+
+**Findings:**
+- **E2–E6: Kisin's FM paper.** Gee–Kisin Appendix B already corrects all five, and each was checked in the DVI. The most
+  serious is E6: Lemma (2.2.1) is false.
+- **E7 and E8: new citation slips in DP.**
+  - E7: the Emerton theorem that removes Kisin's (1.2.6) is 3.3.22, not 1.2.1.
+  - E8: the theorems DP cite take residual modularity from Khare–Wintenberger. The admissible forms are Kisin (2.2.18),
+    Hu–Tan 6.3 and Tung 4.7.
+- **Audit points** for R31.6 and R32.6/globalisation-dependency-audit:
+  - Emerton's promodularity (Theorem 1.2.3, §7.3) uses Serre's conjecture. His §7.4 (Theorem 3.3.22) uses only an
+    auxiliary CM-induced modular ρ̄ and the weight part for it.
+  - Tung's Theorem 1.2 rests on [CEG+16] patching, Emerton–Paškūnas and BLGG13 A.4.1. These are requested from R31.5 and
+    were not checked.
+
+**New requests:**
+- PadicLocalLanglandsForGL2Qp R30.6: Breuil–Mézard for p > 2, Kisin's local inequality, and Emerton 3.3.22.
+- CompletedCohomologyAndLocalGlobalCompatibility R31.5: Tung's global inputs.
+- SerreWeightAndLevelOptimisation R20.6: Gee's Theorem 4.4.12.
+
+**For the part R32.3 packet (#736).** Its nodes `R32.3/dyadic-de-rham-modularity-lifting` and
+`R32.6/transfer-residually-irreducible-odd` have the stage `GL2ModularityLifting:R32.2` as a prerequisite. They can now
+cite `R32.2/odd-prime-de-rham-lifting` and `R32.2/odd-prime-statement-over-q`. Its gap "Kisin, Emerton, Hu–Tan and Tung
+(p = 3) are not read" is partly closed here: the statements and Emerton's §7 are read, and Tung's global inputs remain.
+
+**Lean.** 13 new checked examples:
+- p* = −3 at p = 3, and p* ≡ 1 mod 4;
+- 5 ∤ |S₄|, and S₅ is not solvable;
+- −1 ≠ 1 in 𝔽_p for p > 2, while −1 = 1 in 𝔽₂;
+- Hodge–Tate weight normalisation, and x² = 1 on 𝔽₃^×;
+- the invariance of tr²/det under central scaling (the E6 step);
+- 19² = 1 in 𝔽₅ (E4);
+- the bad-dihedral primes in Paso 1, and w ≥ 5.
+
+The signatures of the new declarations are in the comment block. The file compiles with 0 errors and 0 warnings.
 
 This works within RS-08, whose review accepted it. It also follows RS-23 for the split with
 HilbertModularVarietiesAndShimuraCurves R18.3.
@@ -128,9 +193,8 @@ prebuilt Mathlib 082e2d3 oleans, with 0 errors and 0 warnings.
 2. **R22.4.** Components and nonminimal levels: Gee's 𝒮′_Q trick and Taylor's Ihara avoidance, with
    LocalGaloisDeformationRings R08.2/ihara-avoidance-components.
 3. **Done in checkpoint 3:** R22.5 and R22.6.
-4. **R32.1 and R32.2.** These are the statement table and odd-prime regular de Rham lifting. They need Pan (JAMS 2022, p ≥ 5 residually
-   reducible), the ordinary p = 3 theorem, and Kisin/Emerton → Paškūnas, Hu–Tan, Tung for regular de Rham lifting,
-   including p = 3.
+4. **Done in checkpoint 4:** R32.1 and R32.2. What is left is supplier work: the three requests above, and the audit of
+   Tung's global inputs (R31.6).
 
 ## Sources read
 
@@ -140,3 +204,4 @@ prebuilt Mathlib 082e2d3 oleans, with 0 errors and 0 warnings.
 - KW I (authors' version): Theorem 4.1 and §9.
 - Kisin, Annals (DVI): introduction, §3.3, §3.4 (3.4.11)–(3.4.12) and §3.5.
 - Kisin, 2-adic (DVI): introduction, (3.2.9), and §3.3.
+- Checkpoint 4: the sources listed in its section above.

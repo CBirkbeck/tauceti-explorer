@@ -1,7 +1,7 @@
 # Deformation-to-Hecke maps, patching and the GL₂ lifting theorems (layers R22.1–R22.6)
 
-*GL₂ modularity lifting, part 1 (R22.1–R22.6, R32.1–R32.2). Checkpoints 1–3 plan R22.1–R22.6; R32.1 and R32.2 are not
-yet read.*
+*GL₂ modularity lifting, part 1 (R22.1–R22.6, R32.1–R32.2). Checkpoints 1–3 plan R22.1–R22.6; checkpoint 4 plans R32.1
+and R32.2.*
 
 ## Purpose
 
@@ -50,6 +50,15 @@ Hypothesis (H) of KW I.
   - GL2AutomorphicRepresentationsAndTransfer R17.4: solvable base change and descent of modularity.
   - FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4: crystalline with Hodge–Tate weights {0, 1} is Barsotti–Tate.
   - SerreWeightAndLevelOptimisation R20.6: Kisin's type and level changes of quaternionic eigenforms.
+- **New imports (checkpoint 4):**
+  - PadicLocalLanglandsForGL2Qp R30.6: the Breuil–Mézard conjecture in cycle form for p > 2 (Paškūnas, Hu–Tan, Tung),
+    Kisin's local inequality through Colmez's functor, and Emerton's Theorem 3.3.22.
+  - CompletedCohomologyAndLocalGlobalCompatibility R31.5: the global inputs of Tung's proof (patched modules on unitary
+    groups, Emerton–Paškūnas faithfulness, Barnet-Lamb–Gee–Geraghty Theorem A.4.1).
+  - SerreWeightAndLevelOptimisation R20.6: Gee's Theorem 4.4.12 on modularity of prescribed weight.
+  - Dickson's classification (ClassicalSerreModularity R27.1), the p-adic monodromy theorem (PadicHodgeTheory R06.3),
+    potentially semistable deformation rings (LocalGaloisDeformationRings R08.3), and the coefficient-prime behaviour of
+    ρ_f (AutomorphicGaloisRepresentations R19.5), all as packet nodes.
 
 ## Sources
 
@@ -62,6 +71,21 @@ Hypothesis (H) of KW I.
 - M. Kisin, *Moduli of finite flat group schemes, and modularity*, Ann. of Math. 170 (2009), and *Modularity of 2-adic
   Barsotti–Tate representations*, Invent. Math. 178 (2009): the author's preprints (DVI files on his Harvard page), read
   through a text extraction.
+- Checkpoint 4 (R32.1–R32.2):
+  - L. V. Dieulefait and A. M. Pacetti, *A simplified proof of Serre's conjecture*, arXiv:2108.07577v2: §1.2, Lemma 1.13
+    and every appeal to Theorem 1.4 in §2.
+  - M. Kisin, *The Fontaine–Mazur conjecture for GL₂*, J. Amer. Math. Soc. 22 (2009): the author's preprint (fmc.dvi),
+    introduction, §1.2, §1.7 and §2.2. In §2.2 some items are numbered one lower than in print: Theorem (2.2.17) is the
+    published (2.2.18).
+  - T. Gee and M. Kisin, *The Breuil–Mézard conjecture for potentially Barsotti–Tate representations*, Forum Math. Pi 2
+    (2014), arXiv:1208.3179v5: Appendix B, "Errata for [Kis09a]".
+  - M. Emerton, *Local-global compatibility in the p-adic Langlands programme for GL₂/ℚ* (preprint, 2011): §1.2,
+    Theorem 3.3.22, and §§7.3–7.4.
+  - V. Paškūnas, *On the Breuil–Mézard conjecture*, Duke Math. J. 164 (2015), arXiv:1209.5205v3: §1.
+  - Y. Hu and F. Tan, *The Breuil–Mézard conjecture for non-scalar split residual representations*, Ann. Sci. ÉNS 48
+    (2015), arXiv:1309.1658v2: §1 and §6.
+  - S.-N. Tung, *On the automorphy of 2-dimensional potentially semi-stable deformation rings of G_{ℚ_p}*, Algebra Number
+    Theory 15 (2021), arXiv:1803.07451v4: introduction, Theorem 1.2 and §4.
 
 ## Layer R22.1: minimal deformation-to-Hecke maps
 
@@ -258,6 +282,87 @@ must match at Σ, away from Σ and in ordinarity at v | 2, with ρ̄|G_{F_v} tri
 - Potentially crystalline of weight 2 means potentially Barsotti–Tate (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4).
 - KW I §9 uses (H) only at p = 2.
 
+## Layer R32.1: the statement table
+
+Library module: `TauCeti/NumberTheory/ModularityLifting/StatementTable`.
+
+**Definition: the statement table** (node `lifting-statement-table`; planet). Dieulefait–Pacetti's Theorems 1.4–1.7 become
+four propositions, with their hypotheses as printed. Each is proved in its own layer:
+- `OddPrimeLifting p` (p odd): odd, ρ̄|G_{ℚ(√p*)} absolutely irreducible, de Rham with weights {0, k − 1}, ρ̄ modular. R32.2.
+- `DyadicLifting`: p = 2, odd, de Rham, ρ̄ modular with non-solvable image. R32.3.
+- `ResiduallyReducibleLifting p` (p ≥ 5): irreducible, odd, de Rham, ρ̄^{ss} a sum of two characters. R32.4.
+- `OrdinaryThreeLifting`: p = 3, ρ̄^{ss} ≅ 1 ⊕ χ̄₃, ordinary at 3, det ρ = ψχ₃^{k−1}. R32.5. DP's further hypothesis
+  ρ|D₃ ≠ (1 0; 0 1) is automatic (OrdinaryAutomorphicFormsAndModularityLifting/E9).
+
+**Lemma: ℚ(√p*) against ℚ(ζ_p)** (node `quadratic-cyclotomic-irreducibility`; DP Lemma 1.13). For odd ρ̄ and odd p, ρ̄ is
+irreducible over ℚ(√p*) exactly when it is irreducible over ℚ(ζ_p).
+- If ρ̄|G_{ℚ(ζ_p)} is reducible, the image of ρ̄ is solvable.
+- In the dihedral case, the index-two subgroup ⟨H, ρ̄(σ²)⟩ lies in the torus.
+- A₄ and S₄ are excluded because p ∤ 24.
+- p = 3 is trivial, since ℚ(√−3) = ℚ(ζ₃).
+
+**Lemma: non-solvable image** (node `non-solvable-residual-image`). Non-solvable image survives every solvable base change
+and gives absolute irreducibility over every ℚ(ζ_{p^n}).
+
+**Lemma: twists and oddness** (node `hodge-tate-and-oddness-normalisation`).
+- Distinct weights normalise to {0, k − 1}.
+- "Modular up to twist" with weights {0, k − 1} means modular of weight k.
+- For odd p, ρ̄ odd forces ρ odd. For p = 2 it does not.
+
+**Comparison: which forms assume ρ̄ modular** (node `residual-modularity-forms`). Every source prints its theorem twice:
+- with ρ̄ modular as a hypothesis: Kisin (2.2.17), Hu–Tan 6.3, Tung 4.7, DP 1.4;
+- with only ρ̄ odd, and residual modularity from Khare–Wintenberger: the introduction theorems of Kisin and Tung,
+  Hu–Tan 1.4, and Emerton 1.2.4. Emerton's promodularity, Theorem 1.2.3, invokes Serre's conjecture in §7.3.
+
+Only the first kind is admissible in a proof of Serre's conjecture.
+
+**Comparison: the local exclusions at p** (node `exceptional-local-cases`).
+- Kisin excludes ρ̄_p ≅ (ωχ ∗; 0 χ), and needs ρ semistable over an abelian extension.
+- Kisin's (1.2.7) has extra p = 3 exceptions.
+- Emerton excludes χ ⊗ (1 ∗; 0 ω).
+- Paškūnas (p ≥ 5, scalar endomorphisms), Hu–Tan (p ≥ 5, split non-scalar) and Tung (every p > 2) remove the
+  exclusions. Emerton's Theorem 3.3.22 removes the abelian condition.
+- The p = 3 case ρ̄_p a twist of an extension of 1 by ω is due to Tung alone.
+
+## Layer R32.2: odd-prime de Rham lifting
+
+Library module: `TauCeti/NumberTheory/ModularityLifting/DeRhamLifting`.
+
+**Theorem: Kisin's multiplicity criterion** (node `kisin-multiplicity-criterion`; planet). This is Kisin (2.2.10),
+(2.2.14) and (2.2.16), as corrected by Gee–Kisin Appendix B.
+- M∞ is faithful over R̄∞ exactly when e(R̄∞/π) ≤ 2^{−|R|} e(M∞/π). R is the set of auxiliary places where ρ̄(Frob_v)
+  has equal eigenvalues.
+- The graded pieces of M∞ have multiplicities e_Σ ∏ μ_{n,m}, so Breuil–Mézard at every v | p gives faithfulness.
+- The corrections are N(v) ≢ −1 at Σ, the factors at Σ, and the withdrawn Lemma (2.2.1) (E4–E6).
+
+**Theorem: Kisin's Fontaine–Mazur theorem** (node `kisin-fontaine-mazur-totally-split`; planet; (2.2.17), printed
+(2.2.18)). For F totally real with p split, assume:
+- ρ is semistable over an abelian extension, with distinct weights;
+- ρ̄ is modular and irreducible over F(ζ_p);
+- ρ̄|G_{F_v} ≇ (ωχ ∗; 0 χ).
+
+The proof uses base change, Gee's weight theorem (requested), the local inequality through Colmez's functor (requested),
+the multiplicity criterion, and descent.
+
+**Theorem: de Rham lifting at odd p** (node `odd-prime-de-rham-lifting`; planet; Tung 4.7, Hu–Tan 6.3). The hypotheses are
+ρ̄ modular, ρ̄|G_{F(ζ_p)} absolutely irreducible, and ρ potentially semistable with distinct weights. There is no local
+restriction, and p = 3 is included.
+- The local input is Breuil–Mézard for every p > 2 (Tung Theorem 1.2), requested from R30.6.
+- Tung's global inputs (patched modules on unitary groups, Emerton–Paškūnas, Barnet-Lamb–Gee–Geraghty) are requested from
+  R31.5.
+
+**Theorem: DP's Theorem 1.4 at every odd p** (node `odd-prime-statement-over-q`). F = ℚ, with ℚ(√p*) converted to ℚ(ζ_p),
+de Rham converted to potentially semistable, and the twist normalised. Semistable non-crystalline weight two, such as a
+Tate curve at p, needs this theorem: Kisin's Annals theorem covers only potentially Barsotti–Tate lifts.
+
+**Application: the hypotheses at each use** (node `application-requirements`). DP apply Theorem 1.4 at:
+- w (Paso 1), q (Paso 2), each odd ramified p_i (Paso 3), N (Paso 5) and 5 (Paso 6);
+- 3 in Lemma 2.3.
+
+At each use the residual image, the weights {0, k − 1} or {0, 1} (de Rham, not necessarily crystalline), oddness and
+residual modularity are checked. No ordinarity is needed. The p = 3 uses (Paso 3, Lemma 2.3) are why the p = 3 theorem
+is needed.
+
 ## Mistakes found in the sources
 
 **E1 (misprint, reaches nothing): Kisin, 2-adic paper, Theorems (0.9)(2) and (3.3.5)(2), in the preprint read.** They say
@@ -266,7 +371,41 @@ version of (0.1), which says potentially Barsotti–Tate. Condition (3) and the 
 matching nontrivial types; for a Barsotti–Tate ρ, potentially ordinary would just mean ordinary. The published version was
 not accessible.
 
+**E2–E6 (already corrected in print): Kisin, *The Fontaine–Mazur conjecture for GL₂*, in the preprint read.** Gee–Kisin's
+Appendix B, "Errata for [Kis09a]", corrects five points. Each was checked at its place in the DVI:
+- **E2 (error, reaches the proof).** Lemma (1.7.5) claims that (1.7.6) is a closed immersion. It is only a homeomorphism
+  onto its image, so the formal smoothness claim is dropped, and the exception in Corollary (1.7.14) changes (B.1).
+- **E3 (gap).** Lemma (1.7.4): the line L_A is unique only when G_{ℚ_p}, and not just inertia, acts on it by ω₁ (B.2).
+- **E4 (gap).** §2.2 needs N(v) ≢ −1 (mod p) at the ramified places Σ. Otherwise the character γ_v is not determined
+  (B.3).
+- **E5 (gap).** The proof of Proposition (2.2.14) uses irreducibility and generic reducedness of R̄_v/π at v ∈ Σ, which
+  (1.7.14) does not give (B.4).
+- **E6 (error, reaches the proof).** Lemma (2.2.1) is false. The step "gg′ has the same property" fails: for central ρ̄(g),
+  the left side of (2.2.2) does not change, but the right side does. Gee–Kisin give two repairs, one with ranks 2^{|R|}
+  (B.5).
+
+Gee–Kisin state that the main theorems are unaffected. R32.2 uses the corrected statements.
+
+**E7 (misprint, reaches nothing): Dieulefait–Pacetti, proof of Theorem 1.4.** They say that Kisin's Hypothesis (1.2.6) "is
+removed in [Eme11, Theorem 1.2.1]". The result that removes it is Emerton's Theorem 3.3.22 on locally algebraic vectors, as
+his Remark 1.2.5 explains. Theorem 1.2.1 is local–global compatibility for promodular V.
+
+**E8 (misprint, reaches nothing): Dieulefait–Pacetti, proof of Theorem 1.4.** They cite Kisin's and Tung's introduction
+theorems and Hu–Tan's Theorem 1.4. These assume only that ρ̄ is odd, and get its modularity from Khare–Wintenberger. A proof
+of Serre's conjecture must use the forms that assume ρ̄ modular: Kisin (2.2.18), Hu–Tan 6.3 and Tung 4.7. Theorem 1.4
+itself assumes ρ̄ modular, so the conclusion stands.
+
 ## Remaining work
 
 - **R22.5 and R22.6 are source-decomposed** (checkpoint 3), subject to the requested inputs listed above.
-- **R32.1–R32.2:** the modern statement table and odd-prime regular de Rham lifting.
+- **R32.1 and R32.2 are source-decomposed** (checkpoint 4). They depend on these requests:
+  - PadicLocalLanglandsForGL2Qp R30.6: the Breuil–Mézard conjecture and the local inequality;
+  - CompletedCohomologyAndLocalGlobalCompatibility R31.5: Tung's global inputs;
+  - SerreWeightAndLevelOptimisation R20.6: Gee's weight theorem.
+- The part R32.3 packet cites the stage R32.2 in two nodes, `R32.3/dyadic-de-rham-modularity-lifting` and
+  `R32.6/transfer-residually-irreducible-odd`. They can now cite `R32.2/odd-prime-statement-over-q` and
+  `R32.2/odd-prime-de-rham-lifting`.
+- That packet's gap on reading Kisin, Emerton, Hu–Tan and Tung is partly closed here:
+  - their statements are read;
+  - Emerton's §7.4 uses no Khare–Wintenberger;
+  - Tung's global inputs remain for R31.6.

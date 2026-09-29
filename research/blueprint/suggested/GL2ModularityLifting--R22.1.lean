@@ -7,9 +7,13 @@ import Mathlib.Data.ZMod.Basic
 import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.Tactic.LinearCombination
+import Mathlib.Data.Fintype.Perm
+import Mathlib.GroupTheory.Solvable
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.NormNum
 
 /-!
-# Suggested Lean forms: GL₂ modularity lifting, R22.1–R22.6 (GL2ModularityLifting, part R22.1)
+# Suggested Lean forms: GL₂ modularity lifting, R22.1–R22.6 and R32.1–R32.2 (GL2ModularityLifting, part R22.1)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`GL2ModularityLifting`) is definitive. The statements below suggest Lean forms, so that
@@ -63,6 +67,38 @@ theorem kisin_2adic (hns : ¬ IsSolvable (ρbar.image)) (hmod : IsModular ρbar)
     (hord : ∀ v ∣ 2, PotOrdinary ρ v → F_v = ℚ_2) : IsModular ρ
 theorem hypothesisH (ρ : GaloisRep ℚ 𝒪 2) (hodd : det ρ c = -1) (hns : ¬ IsSolvable (ρbar.image))
     (hmod : IsModular ρbar) (hwt : PotCrystalline ρ 2 ∧ HodgeTate ρ = {0, 1}) : IsModular ρ
+-- R32.1/lifting-statement-table (Dieulefait–Pacetti Theorems 1.4–1.7 as propositions)
+def pStar (p : ℕ) : ℤ := (-1) ^ ((p - 1) / 2) * p
+def OddPrimeLifting (p : ℕ) : Prop :=
+  ∀ (ρ : GaloisRep ℚ (AlgebraicClosure ℚ_[p]) 2) (k : ℕ), IsOdd ρ → FinitelyRamified ρ →
+    AbsIrred (ρ.reduce.restrict ℚ⟮√(pStar p)⟯) → DeRhamWithWeights ρ p {0, k - 1} → 1 < k →
+    IsModular ρ.reduce → IsModularOfWeight ρ k
+def DyadicLifting : Prop      -- p = 2, ρ odd, de Rham {0, k − 1}, ρbar modular with ¬ IsSolvable (image)
+def ResiduallyReducibleLifting (p : ℕ) (hp : 5 ≤ p) : Prop  -- ρ irreducible odd, ρbar^ss = χ₁ ⊕ χ₂
+def OrdinaryThreeLifting : Prop  -- p = 3, ρbar^ss = 1 ⊕ χ̄₃, ρ|I₃ ≅ (∗ ∗; 0 1), det ρ = ψ χ₃^(k−1)
+-- R32.1/quadratic-cyclotomic-irreducibility (DP Lemma 1.13)
+theorem absIrred_sqrt_iff_cyclotomic (hp : Odd p) (hodd : IsOdd ρbar) :
+    AbsIrred (ρbar.restrict ℚ⟮√(pStar p)⟯) ↔ AbsIrred (ρbar.restrict (CyclotomicField p ℚ))
+-- R32.1/non-solvable-residual-image
+theorem absIrred_restrict_of_not_solvable (h : ¬ Group.IsSolvable ρbar.image) (K : Type*) [SolvableGaloisExt ℚ K] :
+    ¬ Group.IsSolvable (ρbar.restrict K).image ∧ AbsIrred (ρbar.restrict K)
+-- R32.1/hodge-tate-and-oddness-normalisation
+theorem isOdd_of_reduce_isOdd (hp : 2 < p) (h : IsOdd ρ.reduce) : IsOdd ρ
+theorem isModularOfWeight_of_twist (hwt : DeRhamWithWeights ρ p {0, k - 1}) (g : Eigenform k') (χ : FiniteOrderTimesCyclo)
+    (h : ρ ≅ g.rep ⊗ χ) : IsModularOfWeight ρ k
+-- R32.2/kisin-multiplicity-criterion (Kisin (2.2.10), (2.2.14), (2.2.16); Gee–Kisin Lemma B.5.1)
+theorem patched_faithful_iff (d : KisinPatchingDatum F D σ ψ) :
+    Module.Faithful d.Rbar d.M ↔ e (d.Rbar ⧸ π) * 2 ^ d.R.card ≤ e (d.M ⧸ π) (d.Rbar ⧸ π)
+theorem patched_faithful_of_breuilMezard (d : KisinPatchingDatum F D σ ψ) (hBM : ∀ v ∣ p, BreuilMezard (d.local v)) :
+    Module.Faithful d.Rbar d.M
+-- R32.2/kisin-fontaine-mazur-totally-split, odd-prime-de-rham-lifting, odd-prime-statement-over-q
+theorem kisin_fm (hp : 2 < p) (hF : TotallySplit F p) (habel : ∀ v ∣ p, SemistableOverAbelian ρ v)
+    (hHT : ∀ v ∣ p, DistinctHT ρ v) (hmod : IsModular ρbar) (hirr : AbsIrred (ρbar.restrict F⟮ζ_p⟯))
+    (hloc : ∀ v ∣ p, ∀ χ, ¬ (ρbar.restrict (F_v v) ≅ upperTri (ω * χ) χ)) : IsModular ρ
+theorem deRham_lifting_odd (hp : Odd p) (hF : TotallySplit F p) (hmod : IsModular ρbar)
+    (hirr : AbsIrred (ρbar.restrict F⟮ζ_p⟯)) (hpst : ∀ v ∣ p, PotSemistable ρ v ∧ DistinctHT ρ v) :
+    IsModularUpToTwist ρ
+theorem oddPrimeLifting (hp : Odd p) : OddPrimeLifting p
 ```
 -/
 
@@ -107,5 +143,57 @@ example (t : ℕ) : Fintype.card (Fin t → ZMod 2) = 2 ^ t := by
 even. -/
 example {R : Type*} [CommRing R] (ψc : R) (h : (-1) * ψc = -1) : ψc = 1 := by
   linear_combination -h
+
+/-- `R32.1/lifting-statement-table`: `p* = (−1)^((p−1)/2) p` is `−3` at `p = 3`, so
+`ℚ(√p*) = ℚ(√−3) = ℚ(ζ₃)`. -/
+example : (-1 : ℤ) ^ ((3 - 1) / 2) * 3 = -3 := by norm_num
+
+/-- `R32.1/lifting-statement-table`: `p* ≡ 1 (mod 4)` for the odd primes `3, 5, 7, 11, 13`. -/
+example : ∀ p ∈ ({3, 5, 7, 11, 13} : Finset ℕ), ((-1 : ℤ) ^ ((p - 1) / 2) * p) % 4 = 1 := by
+  decide
+
+/-- `R32.1/quadratic-cyclotomic-irreducibility`: for `p ≥ 5`, `p ∤ |S₄| = 24`, so `A₄` and `S₄`
+have no element of order `p`. -/
+example : ¬ (5 ∣ Fintype.card (Equiv.Perm (Fin 4))) := by
+  rw [Fintype.card_perm, Fintype.card_fin]; decide
+
+/-- `R32.1/non-solvable-residual-image`: `S₅` is not solvable; the dyadic hypothesis asks for such
+an image. -/
+example : ¬ Group.IsSolvable (Equiv.Perm (Fin 5)) := Equiv.Perm.not_isSolvable_fin_5
+
+/-- `R32.1/hodge-tate-and-oddness-normalisation`: for odd `p`, `−1 ≠ 1` in `𝔽_p`, so `ρ̄` odd
+forces `ρ` odd; at `p = 2`, `−1 = 1`. -/
+example : (-1 : ZMod 3) ≠ 1 := by decide
+example : (-1 : ZMod 2) = 1 := by decide
+example (p : ℕ) [Fact (2 < p)] : (-1 : ZMod p) ≠ 1 := ZMod.neg_one_ne_one
+
+/-- `R32.1/hodge-tate-and-oddness-normalisation`: Hodge–Tate weights `{a, b}` with `a < b`
+twist to `{0, k − 1}` with `k = b − a + 1 ≥ 2`. -/
+example (a b : ℤ) (h : a < b) : 2 ≤ (b - a) + 1 := by omega
+
+/-- `R32.1/exceptional-local-cases`, `R32.5`: every nonzero element of `𝔽₃` squares to `1`, so
+`ω² = 1` at `p = 3` and `χ̄₃^{−1} = χ̄₃`. -/
+example : ∀ x : ZMod 3, x ≠ 0 → x ^ 2 = 1 := by decide
+
+/-- `R32.2/kisin-multiplicity-criterion` (Gee–Kisin B.5): for a central `z`, `tr²/det` of `z·g′`
+equals that of `g′`, so replacing `g′` by `gg′` leaves the left side of (2.2.2) unchanged. -/
+example {K : Type*} [Field K] (z a b : K) (hz : z ≠ 0) :
+    (z * a + z * b) ^ 2 / (z * a * (z * b)) = (a + b) ^ 2 / (a * b) := by
+  rcases eq_or_ne a 0 with rfl | ha
+  · simp
+  rcases eq_or_ne b 0 with rfl | hb
+  · simp
+  field_simp
+
+/-- `R32.2/kisin-multiplicity-criterion` (Gee–Kisin B.3): with `N(v) = 19 ≡ −1 (mod 5)`,
+`ω(Frob_v)² = 1`, so `γ̄_v` and `γ̄_v ω` both fit an extension of `γ̄` by `γ̄(1)`. -/
+example : ((19 : ZMod 5)) ^ 2 = 1 := by decide
+
+/-- `R32.2/application-requirements`: in Paso 1, `w > 2k` with `k = 3` and `w = 7` avoids the
+bad dihedral primes `2k − 3 = 3` and `2k − 1 = 5` of Lemma 1.14. -/
+example : (7 : ℕ) ≠ 2 * 3 - 3 ∧ (7 : ℕ) ≠ 2 * 3 - 1 := by decide
+
+/-- `R32.2/application-requirements`: `w > 2k ≥ 4` gives `w ≥ 5`, the range of Theorem 1.6. -/
+example (w k : ℕ) (hk : 2 ≤ k) (hw : 2 * k < w) : 5 ≤ w := by omega
 
 end TauCeti.ModularityLifting.SuggestedTest
