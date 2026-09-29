@@ -5,10 +5,10 @@ Jochen Koenigsmann, *Defining Z in Q*, [Ann. of Math. 183 (2016), 73–93](https
 Extraction by Claude Code, session `cc-39fac3`, 29 September 2026 (issue #1174). Status: **complete**. Every missing item is routed once.
 
 The machine-readable extraction is [PAPER-KOENIGSMANN-16.result.json](PAPER-KOENIGSMANN-16.result.json). It has:
-- 41 items: 5 library, 6 planned, 30 missing;
-- 2 source routes, both into LogicAndDefinabilityInNumberTheory (LD.4 and LD.0);
+- 42 items: 6 library, 5 planned, 31 missing (after the review's corrections; the extraction had 41: 5 library, 6 planned, 30 missing);
+- 2 source routes, both into LogicAndDefinabilityInNumberTheory (LD.4 with 30 items and LD.0 with 1);
 - 7 prerequisite entries;
-- 4 recorded source issues (1 error, 3 misprints).
+- 7 recorded source issues (3 errors, 4 misprints), all confirmed by the independent review.
 
 ## Sources read
 
@@ -52,11 +52,13 @@ Corollary 22 gives an ∀∃-definition of Z with one universal quantifier.
   - Lagrange's four squares;
   - localisations, Jacobson radicals, p-adic valuations and quaternion algebras.
 
+  Tau Ceti provides weak approximation at finitely many places of a number field, `TauCeti.GlobalNumberFields.weakApproximation_denseRange` (item 11, corrected from planned by the review).
+
   Koenigsmann's H_{a,b} is `QuaternionAlgebra ℚ a 0 b`, since Mathlib's algebra has i² = a + b·i.
-- **Planned (6 items).**
-  - The explicit Hilbert symbols of Q (Observation 5) and Hilbert reciprocity: ClassicalArithmeticCompletion CA.1.
+- **Planned (5 items).**
+  - The explicit Hilbert symbols of Q (Observation 5) and Hilbert reciprocity: Tau Ceti's QuadraticFormInvariants 6C (its items 9, 10, 12 and 14), with ClassicalArithmeticCompletion CA.1 kept as a second reference.
   - Quaternion splitting, the norm criterion and local Hilbert symbols: Tau Ceti's QuadraticFormInvariants, layers 2 and 6c.
-  - Hasse–Minkowski for representations and weak approximation (Fact (e) and the approximation arguments): Tau Ceti's GlobalQuadraticForms, layers 4 and 6.
+  - Hasse–Minkowski for representations and the quadratic Hasse norm theorem (Fact (e) and Proposition 21(e)): Tau Ceti's GlobalQuadraticForms, layers 6 and 4.
   - MRDP, which Corollary 3 needs: LD.4.
 - **Not planned anywhere.** Everything specific to the paper:
   - the quaternion trace sets and Poonen's local lemmas;
@@ -69,7 +71,7 @@ Corollary 22 gives an ∀∃-definition of Z with one universal quantifier.
 
 ## Routes
 
-### Route 1: source → LogicAndDefinabilityInNumberTheory, LD.4 (27 items)
+### Route 1: source → LogicAndDefinabilityInNumberTheory, LD.4 (30 items)
 
 LD.4, "Diophantine definability and undecidability", formalises r.e. sets, Diophantine representations and MRDP. Its specification says: "Record other-field variants individually", and "Integer undecidability is not copied to rational or arbitrary number fields; each transfer needs its own interpretation theorem."
 - Koenigsmann's paper is the standard source for such a variant over Q:
@@ -91,7 +93,7 @@ The route also records the stage's dependencies on:
 
 A blueprint pass should keep the four steps as separate layers of nodes. Proposition 6 alone needs Poonen's Facts (a)–(d) and the explicit Hilbert symbols at 2 and ∞.
 
-### Route 2: source → LogicAndDefinabilityInNumberTheory, LD.0 (3 items)
+### Route 2: source → LogicAndDefinabilityInNumberTheory, LD.0 (1 item)
 
 §4 is model theory of Th(Q): the preservation criterion for existential definability, closure properties of models, and failure of model completeness. LD.0, "Languages and interpretations", is where elementary extensions and substructures live, with Mathlib's `ElementaryEmbedding` and `ElementarySubstructure` as the library base.
 - Proposition 23(d) and Remark 24 depend on Theorem 1 and on MRDP (route 1).
@@ -120,3 +122,22 @@ All four were checked on the page images of the published PDF. The first two are
 | E4 | misprint | p. 90, Corollary 22 | The formula uses R^{[k]}_p for k = 1, 3, 5, 7, but the published text only defines R^{[1]}_{p,q}. For k = 1 it should be S_p (Definition 19, Lemma 20). In v2 the set was called R^{[1]}_p, so the published rename to S_p missed the corollary. |
 
 I also verified Observation 5's list of the 16 pairs of square classes (a, b) with 2 ∈ Δ_{a,b}. It is exactly the set of pairs with Hilbert symbol (a, b)₂ = −1.
+
+## Corrections by the independent review
+
+The review `REV-PAPER-KOENIGSMANN-16` (Claude Code, session `cc-fb70e5`, 29 September 2026) accepts the extraction and made these changes in place:
+
+- **Item 11** (weak approximation) is `library`, not `planned`: Tau Ceti's pin has `TauCeti.GlobalNumberFields.weakApproximation_denseRange`. The name no longer mentions strong approximation, which the paper never uses.
+- **Items 8 and 9** (explicit Hilbert symbols, Hilbert reciprocity) now cite QuadraticFormInvariants 6C first, which plans exactly these statements; **item 10** also cites GlobalQuadraticForms layer 4 for the Hasse norm half.
+- **Items 40 and 41** (Proposition 23, Remark 24) moved from route 2 to route 1. They use Theorem 1 and MRDP, and LD.4 requires LD.0, so routing them to LD.0 would have reversed that dependency. Route 2 keeps the general preservation criterion (item 39).
+- **New item 42**: the closure properties of diophantine subsets of Q (conjunction, disjunction, x ≠ 0, x ≥ 0, recursive enumerability), which every "is diophantine" claim in the paper uses. It is routed to LD.4.
+- **Item 26** states Lemma 13's "In particular" with the missing hypothesis Δ_{a,b} ≠ ∅ (E5). Notes were added to items 2, 36, 39 and 40.
+- **Three new source issues**, each confirmed on the page images:
+
+| id | kind | where | finding |
+|----|------|-------|---------|
+| E5 | error | p. 82, Lemma 13, "In particular" | For a = b = 1, Δ = ∅, T = Q and J_{1,1} = Q, which is not the Jacobson radical {0} of Q. The hypothesis Δ_{a,b} ≠ ∅ is missing; nothing afterwards uses the empty case. |
+| E6 | error | p. 89, proof of Proposition 21(d) | "{x : P^{[3]}(x) = ∅} = {±1, ±2}P₁P₅P₇ = ⋃_{k=1,5,7} Φ′_kΦ′_k" is false (35, −1, 2 are on the left only). The correct identity is {±1, ±2}·(Q^×)²·Φ′₅Φ′₅·Φ′₇Φ′₇, which is still diophantine, so (d) holds. |
+| E7 | misprint | p. 90, proof of Proposition 21(e) | It cites "Observation 5(b) and (c)", but Observation 5 has no lettered parts; the odd-prime and archimedean clauses are meant. |
+
+E1's collation note is corrected: arXiv v2 has the table on its p. 7.
