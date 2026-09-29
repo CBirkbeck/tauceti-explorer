@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all412 predecessor nodes whole. Seven L4 nodes construct the full cleared q-expansion measure, prove its all-coefficient integral test congruences and full weight congruences, and transfer them to the admissible field-valued series with exact denominator factors. All16 findings and three requests remain whole; seven gaps and zero closed stages remain.",
+  "summary": "Partial continuation preserving all419 predecessor nodes whole. Seven L4 nodes give the full coefficient quotient formula, denominator variation, uniform bounds, precise loss after division, strict local denominator stability, the fixed-denominator estimate and the comparison for rational classical q-expansions. All16 findings and three requests remain whole; seven gaps and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3038,6 +3038,34 @@
         "module": "Mathlib/Data/Nat/Totient.lean",
         "provides": "For nonzero n, the finite cardinality of the native unit group of ZMod n equals Nat.totient n.",
         "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on29September2026; instantiated by the complete native congruence probe."
+      },
+      {
+        "ref": "mathlib:eq_div_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/GroupWithZero/Units/Basic.lean",
+        "provides": "For a nonzero denominator in a group with zero, equality with a quotient is equivalent to the corresponding multiplication equality.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on29September2026. The complete native precision probe instantiates all four declarations."
+      },
+      {
+        "ref": "mathlib:norm_div",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Field/Basic.lean",
+        "provides": "In a normed division ring the norm of a quotient is the quotient of the norms.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on29September2026. The complete native precision probe instantiates all four declarations."
+      },
+      {
+        "ref": "mathlib:div_sub_div",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Field/Basic.lean",
+        "provides": "Difference of two quotients over nonzero denominators in a field as one quotient.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on29September2026. The complete native precision probe instantiates all four declarations."
+      },
+      {
+        "ref": "mathlib:Padic.norm_eq_of_norm_sub_lt_right",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "provides": "Two p-adic numbers have the same norm when their difference has norm strictly smaller than the second number.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on29September2026. The complete native precision probe instantiates all four declarations."
       }
     ]
   },
@@ -27489,6 +27517,374 @@
       "acceptance": [
         "The statement is a uniform coefficient norm bound for the full admissible family with its exact clearing factors. A precision-loss formula after division remains separate; no field divisibility or unqualified cancellation is substituted."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-coefficient-quotient",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The exact quotient of each full coefficient",
+      "kind": "lemma",
+      "statement": "For canonical a and all e,n≥0, coeff_n(F_e)=ι(coeff_n(N_(a,e)))/D_e in Q_p, where ι:Z→Q_p is the canonical inclusion.",
+      "hypotheses": [
+        "p is any prime, including2. Let Z=Z_p, U=Zˣ, N_(a,e)=integralClearedEisensteinMoment p a e∈Z[[q]], and D_e=2(a^(e+1)−1)∈Q_p. The integral numerator series and actual coefficient maps are the preceding constructions.",
+        "For canonical a with underlying value p+1, F_e=PowerSeries.map(eisensteinAwayMoment p a ha e)(eisensteinAwaySeries p a) is the actual full admissible arithmetic series. Its constant is included. The existing moment-denominator theorem gives D_e≠0 for every natural exponent e.",
+        "All norms in these estimates are coefficient norms in Q_p or real numbers. No supremum norm on the power-series carrier, field structure on the measure total quotient, or map ℚ→Z_p is assumed."
+      ],
+      "proofSteps": [
+        "Take coefficient n in the existing full-eisenstein-cleared-specialization equality. Native coeff_map and coeff_C_mul give D_e coeff_n(F_e)=ι(coeff_n(N_(a,e))).",
+        "Use the exact nonvanishing supplied by eisenstein-moment-denominator. Native eq_div_iff and commutativity rearrange this scalar equality to the displayed quotient.",
+        "The complete native scaled-value lemma checks the division step. This operates on the actual admissible series and does not extend its evaluator over the whole total quotient."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-cleared-specialization",
+        "DirichletPadicLFunctions:L4/eisenstein-moment-denominator",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:eq_div_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinPrecision",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwaySeries_coeff_eq_integral_div"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
+          "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinPrecisionTests.full_coefficient_quotient",
+          "kind": "compatibility",
+          "statement": "At p=2,a=3,e=3 every full coefficient is its included integral numerator divided by160."
+        }
+      ],
+      "acceptance": [
+        "The formula holds for n=0 and e=0 as well. Its denominator is a field unit by nonvanishing, without claiming it is an integral unit."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-denominator-weight-congruence",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Variation of the explicit arithmetic denominator",
+      "kind": "lemma",
+      "statement": "For every a∈U, r≥1 and e,e′≥0 with e≡e′ modulo p^(r−1)(p−1), ‖D_e′−D_e‖≤p^(−r). No canonical-parameter condition is required here.",
+      "hypotheses": [
+        "p is any prime, including2. Let Z=Z_p, U=Zˣ, N_(a,e)=integralClearedEisensteinMoment p a e∈Z[[q]], and D_e=2(a^(e+1)−1)∈Q_p. The integral numerator series and actual coefficient maps are the preceding constructions.",
+        "For canonical a with underlying value p+1, F_e=PowerSeries.map(eisensteinAwayMoment p a ha e)(eisensteinAwaySeries p a) is the actual full admissible arithmetic series. Its constant is included. The existing moment-denominator theorem gives D_e≠0 for every natural exponent e.",
+        "All norms in these estimates are coefficient norms in Q_p or real numbers. No supremum norm on the power-series carrier, field structure on the measure total quotient, or map ℚ→Z_p is assumed."
+      ],
+      "proofSteps": [
+        "Take coefficient1 in the existing full integral weight-congruence theorem. A quotient-series witness and native coeff_C_mul give divisibility by p^r of that integral coefficient difference.",
+        "The promoted integral moment coefficient formula evaluates the first coefficient measure on j^e. The promoted cleared-series coefficient formula identifies this measure with Δ_a A_1. Unfold the one-divisor construction of A_1 to obtain the convolution identity, so it is Δ_a=2d_a.",
+        "Linearity and the existing shifted-denominator moment theorem give the integral value2(a^(e+1)−1). This uses explicit constructor formulas and promoted nodes, not an unlisted first-coefficient API.",
+        "Native norm/ideal equivalence and principal-ideal divisibility translate the integral difference into the bound. PadicInt.norm_def preserves it after inclusion into Q_p. This proof also covers a=1, when both denominators vanish."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-cleared-eisenstein-weight-congruence",
+        "DirichletPadicLFunctions:L4/integral-cleared-eisenstein-moment-coefficients",
+        "DirichletPadicLFunctions:L4/integral-cleared-eisenstein-coefficients",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-measure",
+        "DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-moment",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:PadicInt.norm_le_pow_iff_mem_span_pow",
+        "mathlib:Ideal.mem_span_singleton",
+        "mathlib:PadicInt.norm_def"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinPrecision",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinDenominator_weight_congr"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
+          "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinPrecisionTests.denominator_dyadic_variation",
+          "kind": "computation",
+          "statement": "At p=2,a=3,e=3,e′=7,r=3 the difference13120−160 has norm at most1/8."
+        }
+      ],
+      "acceptance": [
+        "The weight factor itself varies with controlled precision. It is not treated as a fixed constant when comparing different specializations."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-coefficient-bound",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "A uniform bound for the full specialized coefficients",
+      "kind": "lemma",
+      "statement": "For canonical a and every e,n≥0, ‖coeff_n(F_e)‖≤1/‖D_e‖.",
+      "hypotheses": [
+        "p is any prime, including2. Let Z=Z_p, U=Zˣ, N_(a,e)=integralClearedEisensteinMoment p a e∈Z[[q]], and D_e=2(a^(e+1)−1)∈Q_p. The integral numerator series and actual coefficient maps are the preceding constructions.",
+        "For canonical a with underlying value p+1, F_e=PowerSeries.map(eisensteinAwayMoment p a ha e)(eisensteinAwaySeries p a) is the actual full admissible arithmetic series. Its constant is included. The existing moment-denominator theorem gives D_e≠0 for every natural exponent e.",
+        "All norms in these estimates are coefficient norms in Q_p or real numbers. No supremum norm on the power-series carrier, field structure on the measure total quotient, or map ℚ→Z_p is assumed."
+      ],
+      "proofSteps": [
+        "Use the exact coefficient-quotient theorem. Its numerator is the inclusion of an actual coefficient in Z.",
+        "Native PadicInt.norm_le_one and norm_def bound that included numerator by1. Native norm_div and nonnegativity of the denominator norm give the reciprocal-denominator bound.",
+        "The estimate is uniform in the coefficient index and includes the constant. A complete native lemma checks this scalar norm argument. No optimality is asserted."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-coefficient-quotient",
+        "mathlib:PadicInt.norm_le_one",
+        "mathlib:PadicInt.norm_def",
+        "mathlib:norm_div"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinPrecision",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwaySeries_coeff_norm_le"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
+          "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinPrecisionTests.uniform_dyadic_bound",
+          "kind": "computation",
+          "statement": "For p=2,a=3,e=3 all full coefficient norms are at most32, including the constant−7/240."
+        }
+      ],
+      "acceptance": [
+        "This is a coefficientwise bound. It does not install a normed structure on the formal series or assert all coefficients integral before division."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-quotient-precision",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Precision after division by the arithmetic denominators",
+      "kind": "theorem",
+      "statement": "For canonical a, r≥1 and e≡e′ modulo p^(r−1)(p−1), every coefficient satisfies ‖coeff_n(F_e′)−coeff_n(F_e)‖≤p^(−r)/(‖D_e‖‖D_e′‖).",
+      "hypotheses": [
+        "p is any prime, including2. Let Z=Z_p, U=Zˣ, N_(a,e)=integralClearedEisensteinMoment p a e∈Z[[q]], and D_e=2(a^(e+1)−1)∈Q_p. The integral numerator series and actual coefficient maps are the preceding constructions.",
+        "For canonical a with underlying value p+1, F_e=PowerSeries.map(eisensteinAwayMoment p a ha e)(eisensteinAwaySeries p a) is the actual full admissible arithmetic series. Its constant is included. The existing moment-denominator theorem gives D_e≠0 for every natural exponent e.",
+        "All norms in these estimates are coefficient norms in Q_p or real numbers. No supremum norm on the power-series carrier, field structure on the measure total quotient, or map ℚ→Z_p is assumed."
+      ],
+      "proofSteps": [
+        "Write x and y for the included integral numerator coefficients at e and e′, and d=D_e, d′=D_e′. The quotient theorem gives the difference y/d′−x/d. The denominator theorem supplies d,d′≠0.",
+        "Both ‖x‖ and ‖d‖ are at most1: x comes from Z, and d is the inclusion of2(a^(e+1)−1) in Z. The cleared-field congruence gives ‖y−x‖≤p^(−r) after using the exact full clearing identities. The denominator variation theorem gives ‖d−d′‖≤p^(−r), with norm invariance under negation.",
+        "Use native div_sub_div and commutative ring algebra to rewrite the numerator as (y−x)d+x(d−d′). Native Padic.nonarchimedean bounds its norm by the maximum of the two summand norms, each at most p^(−r).",
+        "Native norm_div and multiplicativity of the norm divide that bound by ‖d‖‖d′‖. A complete native quotient-difference lemma proves exactly this inference with its nonzero denominator and norm hypotheses.",
+        "At p=2,a=3,e=3,e′=7,r=3 the denominator valuations are5 and6. The bound is256, while the actual constant difference has norm32. The weaker bound is intentional and need not be sharp."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-coefficient-quotient",
+        "DirichletPadicLFunctions:L4/eisenstein-moment-denominator",
+        "DirichletPadicLFunctions:L4/full-eisenstein-cleared-field-congruence",
+        "DirichletPadicLFunctions:L4/full-eisenstein-cleared-specialization",
+        "DirichletPadicLFunctions:L4/eisenstein-denominator-weight-congruence",
+        "mathlib:PadicInt.norm_le_one",
+        "mathlib:PadicInt.norm_def",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:Padic.nonarchimedean",
+        "mathlib:div_sub_div",
+        "mathlib:norm_div"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinPrecision",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwaySeries_weight_precision"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
+          "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinPrecisionTests.dyadic_quotient_precision",
+          "kind": "computation",
+          "statement": "For p=2,a=3,e=3,e′=7 the norm of every coefficient difference is at most256."
+        },
+        {
+          "name": "SuggestedEisensteinPrecisionTests.distinct_denominator_norms",
+          "kind": "non-example",
+          "statement": "The same two denominators have norms1/32 and1/64; their norms cannot be identified without a neighborhood hypothesis."
+        }
+      ],
+      "acceptance": [
+        "The exact dependence on both denominators states the loss of precision. Cancelling an integral congruence without this loss would give a false constant-term bound."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-denominator-local-norm",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Constant denominator norm in a strict weight neighborhood",
+      "kind": "lemma",
+      "statement": "For a∈U and the preceding r,e,e′ congruence hypotheses, if p^(−r)<‖D_e‖, then ‖D_e′‖=‖D_e‖.",
+      "hypotheses": [
+        "p is any prime, including2. Let Z=Z_p, U=Zˣ, N_(a,e)=integralClearedEisensteinMoment p a e∈Z[[q]], and D_e=2(a^(e+1)−1)∈Q_p. The integral numerator series and actual coefficient maps are the preceding constructions.",
+        "For canonical a with underlying value p+1, F_e=PowerSeries.map(eisensteinAwayMoment p a ha e)(eisensteinAwaySeries p a) is the actual full admissible arithmetic series. Its constant is included. The existing moment-denominator theorem gives D_e≠0 for every natural exponent e.",
+        "All norms in these estimates are coefficient norms in Q_p or real numbers. No supremum norm on the power-series carrier, field structure on the measure total quotient, or map ℚ→Z_p is assumed."
+      ],
+      "proofSteps": [
+        "The denominator variation theorem bounds ‖D_e′−D_e‖ by p^(−r). Compose this weak inequality with the strict neighborhood hypothesis.",
+        "Native Padic.norm_eq_of_norm_sub_lt_right identifies the two norms. Its proof and strict inequality were read at the pin and checked by a complete native lemma.",
+        "The strictness cannot be removed: at p=3,a=4,e=0,e′=2,r=1 the threshold is1/3=‖6‖, but D_2=126 has norm1/9. No canonical parameter is needed for the general norm implication, although the examples use one."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/eisenstein-denominator-weight-congruence",
+        "mathlib:Padic.norm_eq_of_norm_sub_lt_right"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinPrecision",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinDenominator_norm_eq"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
+          "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinPrecisionTests.stable_ternary_denominator",
+          "kind": "computation",
+          "statement": "At p=3,a=4,e=3,e′=9,r=2 the two denominator norms agree."
+        },
+        {
+          "name": "SuggestedEisensteinPrecisionTests.strict_neighborhood_required",
+          "kind": "non-example",
+          "statement": "At p=3,a=4,e=0,e′=2,r=1 the denominator norms of6 and126 differ, at the equality boundary of the proposed threshold."
+        }
+      ],
+      "acceptance": [
+        "The radius condition is strict and explicit. This is a local numerical statement, without a new weight-space object."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-local-precision",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Precision on a neighborhood with fixed denominator norm",
+      "kind": "theorem",
+      "statement": "For canonical a, the preceding weight congruence, and p^(−r)<‖D_e‖, every coefficient difference satisfies ‖coeff_n(F_e′)−coeff_n(F_e)‖≤p^(−r)/‖D_e‖².",
+      "hypotheses": [
+        "p is any prime, including2. Let Z=Z_p, U=Zˣ, N_(a,e)=integralClearedEisensteinMoment p a e∈Z[[q]], and D_e=2(a^(e+1)−1)∈Q_p. The integral numerator series and actual coefficient maps are the preceding constructions.",
+        "For canonical a with underlying value p+1, F_e=PowerSeries.map(eisensteinAwayMoment p a ha e)(eisensteinAwaySeries p a) is the actual full admissible arithmetic series. Its constant is included. The existing moment-denominator theorem gives D_e≠0 for every natural exponent e.",
+        "All norms in these estimates are coefficient norms in Q_p or real numbers. No supremum norm on the power-series carrier, field structure on the measure total quotient, or map ℚ→Z_p is assumed."
+      ],
+      "proofSteps": [
+        "Apply the full quotient-precision theorem, which retains both denominator norms.",
+        "Use the preceding local denominator-norm theorem to replace ‖D_e′‖ by ‖D_e‖. The product is its square by the native power definition.",
+        "At p=3,a=4,e=3,e′=57,r=4 both norms are1/3 and the strict threshold1/81<1/3 holds. The displayed bound is1/9; the exact constant difference attains this bound."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-quotient-precision",
+        "DirichletPadicLFunctions:L4/eisenstein-denominator-local-norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinPrecision",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwaySeries_local_weight_precision"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
+          "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinPrecisionTests.local_ternary_precision",
+          "kind": "computation",
+          "statement": "At p=3,a=4,e=3,e′=57 every coefficient difference has norm at most1/9."
+        }
+      ],
+      "acceptance": [
+        "The denominator loss is fixed in this neighborhood. This coefficientwise estimate supplies a precise arithmetic form of weight variation without claiming geometric family realization."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/classical-rational-eisenstein-precision",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Precision for the rational classical q-expansions",
+      "kind": "comparison",
+      "statement": "Let a be canonical, r≥1, and w,w′≥4 even with w−1≡w′−1 modulo p^(r−1)(p−1). If F,G∈ℚ[[q]] have complex images equal to the actual classical p-stabilized q-expansions of weights w,w′, then every n satisfies ‖ι_Q(G_n−F_n)‖≤p^(−r)/(‖2(a^w−1)‖‖2(a^w′−1)‖) in Q_p.",
+      "hypotheses": [
+        "p is any prime, including2. Let Z=Z_p, U=Zˣ, N_(a,e)=integralClearedEisensteinMoment p a e∈Z[[q]], and D_e=2(a^(e+1)−1)∈Q_p. The integral numerator series and actual coefficient maps are the preceding constructions.",
+        "For canonical a with underlying value p+1, F_e=PowerSeries.map(eisensteinAwayMoment p a ha e)(eisensteinAwaySeries p a) is the actual full admissible arithmetic series. Its constant is included. The existing moment-denominator theorem gives D_e≠0 for every natural exponent e.",
+        "All norms in these estimates are coefficient norms in Q_p or real numbers. No supremum norm on the power-series carrier, field structure on the measure total quotient, or map ℚ→Z_p is assumed."
+      ],
+      "proofSteps": [
+        "For each weight use the existing full-eisenstein-common-series theorem to obtain the unique rational series whose separate complex and p-adic images are the actual classical and arithmetic q-expansions.",
+        "The assumed complex image of F agrees with that common series. Native Rat.cast_injective and PowerSeries.map_injective identify them. Do the same for G. Consequently their separate Q_p images are exactly F_(w−1) and F_(w′−1).",
+        "Apply the full quotient-precision theorem at exponents w−1,w′−1. Preservation of subtraction and native coeff_map identify the coefficient difference with ι_Q(G_n−F_n). Since both weights are at least4, the natural identities (w−1)+1=w and (w′−1)+1=w′ rewrite the two denominator exponents.",
+        "This compares rational coefficients by their specified embeddings. It constructs no new rational series, identifies no complex field with Q_p, and uses no rational-to-integral p-adic map."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-common-series",
+        "DirichletPadicLFunctions:L4/full-eisenstein-quotient-precision",
+        "mathlib:Rat.cast_injective",
+        "mathlib:PowerSeries.map_injective",
+        "mathlib:PowerSeries.coeff_map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinPrecision",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rationalEisensteinSeries_weight_precision"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
+          "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinPrecisionTests.classical_rational_precision",
+          "kind": "compatibility",
+          "statement": "At p=2 and weights4,8, any rational series with the specified actual complex q-expansions have Q_2 coefficient differences bounded by256."
+        }
+      ],
+      "acceptance": [
+        "The modular-form carriers and their q-expansions are the existing native constructions. The arithmetic exponent remains weight minus1."
+      ]
     }
   ],
   "requests": [
@@ -27551,7 +27947,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "The full integral numerator series now has arbitrary continuous-test congruences and weight congruences for modulus p^(r−1)(p−1), with the constant included and the exact clearing factors retained in its full field-valued comparison. Next quantify the precision loss for the uncleared full family by its nonzero weight-dependent denominators, and compare the arithmetic congruences with the common rational classical q-expansions. The PMIA generic character-twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. Smoothing independence beyond the canonical parameter, actual pole and ordinary-pseudomeasure exclusion, the tame-character family and full source extraction remain explicit work; PadicFamilies owns geometric realization.",
+        "Full arithmetic specializations now have uniform coefficient bounds, explicit precision loss through both denominators, and a sharper fixed-denominator estimate on a strict neighborhood. The same estimate holds for the specified rational classical q-expansions under their separate embeddings. Next establish smoothing-parameter comparison beyond the canonical p+1 representative and the precise character-twist/pole boundary, using supplier results or recording exact missing inputs. The existing PMIA generic character-twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. The tame-character Eisenstein family and full source extraction remain explicit work; PadicFamilies owns geometric realization.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -27582,7 +27978,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "The full integral numerator series now has arbitrary continuous-test congruences and weight congruences for modulus p^(r−1)(p−1), with the constant included and the exact clearing factors retained in its full field-valued comparison. Next quantify the precision loss for the uncleared full family by its nonzero weight-dependent denominators, and compare the arithmetic congruences with the common rational classical q-expansions. The PMIA generic character-twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. Smoothing independence beyond the canonical parameter, actual pole and ordinary-pseudomeasure exclusion, the tame-character family and full source extraction remain explicit work; PadicFamilies owns geometric realization. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "Full arithmetic specializations now have uniform coefficient bounds, explicit precision loss through both denominators, and a sharper fixed-denominator estimate on a strict neighborhood. The same estimate holds for the specified rational classical q-expansions under their separate embeddings. Next establish smoothing-parameter comparison beyond the canonical p+1 representative and the precise character-twist/pole boundary, using supplier results or recording exact missing inputs. The existing PMIA generic character-twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. The tame-character Eisenstein family and full source extraction remain explicit work; PadicFamilies owns geometric realization. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -27883,45 +28279,45 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 findings and sourceVersions remain whole. Existing E54 and the earlier qualified Kummer findings retain their scope. No new source issue or independent verdict is added.",
+    "sourceIssues": "All16 findings and sourceVersions remain whole; the confirmed E54 and qualified Kummer boundaries remain explicit. No new source issue or independent verdict.",
     "validation": {
-      "nodes": 419,
+      "nodes": 426,
       "kinds": {
         "definition": 1,
-        "lemma": 188,
+        "lemma": 192,
         "construction": 50,
-        "theorem": 110,
-        "comparison": 70
+        "theorem": 112,
+        "comparison": 71
       },
       "api": 390,
-      "packetTests": 661,
+      "packetTests": 670,
       "definitionConstructionTests": 224,
-      "typedExamples": 664,
+      "typedExamples": 673,
       "planets": 24,
-      "baseline": 432,
-      "preservedWholeNodes": 412,
-      "preservedBaseline": 429,
+      "baseline": 436,
+      "preservedWholeNodes": 419,
+      "preservedBaseline": 432,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 7,
-      "newNamedDeclarations": 12,
-      "newTypedTests": 14,
+      "newNamedDeclarations": 7,
+      "newTypedTests": 9,
       "requests": 3,
       "gaps": 7,
       "closedStages": 0,
-      "reachableNodes": 594,
-      "dependencyEdges": 2831,
+      "reachableNodes": 601,
+      "dependencyEdges": 2870,
       "acyclic": true,
-      "baselineLeaves": 549,
+      "baselineLeaves": 553,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 174876,
+      "readerWords": 177827,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1290,
+      "compilerWarnings": 1306,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -27930,21 +28326,20 @@
       "pinnedMathlibModules": 3596,
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
-      "scratchCompleteDefinitions": 1,
-      "scratchCompleteLemmas": 5,
-      "scratchMathlibModules": 1965,
+      "scratchCompleteDefinitions": 0,
+      "scratchCompleteLemmas": 4,
+      "scratchMathlibModules": 1498,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "weightPairs": 144,
-        "fullCoefficientCongruences": 9360,
-        "constantCongruences": 144,
-        "positiveCongruences": 9216,
-        "residueUnitPowers": 2512,
-        "nonzeroDifferences": 9292,
-        "tameOnlyFailures": 1,
-        "dyadicPrecisionLoss": 1
+        "weightPairs": 208,
+        "denominatorVariations": 208,
+        "coefficientBounds": 27040,
+        "quotientPrecisionBounds": 13520,
+        "stableDenominatorPairs": 116,
+        "localPrecisionBounds": 7540,
+        "strictBoundaryControls": 13
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": []
@@ -27952,14 +28347,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1290,
-      "sha256": "f4e01812e8393312ad2049ec4672eac547c8de3d621ccf488cceb5bdcb18f4ed",
+      "warnings": 1306,
+      "sha256": "7fab4918cbe5efa2a997b6be642ba4423ee21c2cc42b7b6e0c57328862a70b69",
       "nativeProbe": {
-        "completeLemmas": 5,
+        "completeLemmas": 4,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "b68d13fd8c8823cbf9883dc5f0612121a5ca56422d1a03f4b9281bb0ac7e3df2"
+        "sha256": "09c970d97c55940aa3a9c2ac724be762dbd6f8b345a84add46dee63c8ebd4d7d"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -28028,16 +28423,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "04d914758f7c61801c6bc12cd3a3f216849779cb9559b39e908f578064d3a584",
+          "sourceSha256": "f4e01812e8393312ad2049ec4672eac547c8de3d621ccf488cceb5bdcb18f4ed",
           "modules": 3568,
-          "warnings": 1264,
+          "warnings": 1290,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "46a7e79705e0b3bb7c2a9485f78e056ef8977bfc",
+      "base": "6b5768428b2a8c641186164f6bc0802294035089",
       "unchangedInputs": 57,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -32857,6 +33252,43 @@
         "dyadicPrecisionLoss": 1
       },
       "numericalMethod": "Exact rational Bernoulli recurrence through208, integer divisor sums, and modular powering on every finite residue unit. For three primes, three positive precisions, eight starting exponents and two period increments, compare65 coefficients of the full integral moment series, including its actual Bernoulli numerator at0. Divisibility is checked by rational p-adic valuation, with zero differences handled explicitly. Controls preserve the tame and precision factors and exhibit the loss on division. Finite checks are not the general proofs."
+    },
+    "fullEisensteinPrecision": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4689,
+      "previousHead": "6ed7c8fe55ed21586dcab2f725c41a16904ff338",
+      "previousMerge": "06090ef189c9e8237de1cf348ae42eca07214e7a",
+      "preservedWholeNodes": 419,
+      "preservedBaseline": 432,
+      "preservedFindings": 16,
+      "newNodes": 7,
+      "reading": "The current full clearing, full integral congruence and common rational-series interfaces were checked. The full eisenstein-moment-denominator node was reread, including its canonical parameter and exact nonvanishing. Published159–160 and the reviewed library audit were read earlier in this continuation. Native eq_div_iff, div_sub_div, norm_div, Padic.nonarchimedean and Padic.norm_eq_of_norm_sub_lt_right were read in full with ambient hypotheses at the pin. The complete native proof handles the quotient estimate, scalar clearing and strict norm stability.",
+      "boundary": "Full arithmetic specializations now have uniform coefficient bounds, explicit precision loss through both denominators, and a sharper fixed-denominator estimate on a strict neighborhood. The same estimate holds for the specified rational classical q-expansions under their separate embeddings. Next establish smoothing-parameter comparison beyond the canonical p+1 representative and the precise character-twist/pole boundary, using supplier results or recording exact missing inputs. The existing PMIA generic character-twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. The tame-character Eisenstein family and full source extraction remain explicit work; PadicFamilies owns geometric realization.",
+      "inputBase": "6b5768428b2a8c641186164f6bc0802294035089",
+      "sourceBoundary": "All16 findings and sourceVersions remain whole; the confirmed E54 and qualified Kummer boundaries remain explicit. No new source issue or independent verdict.",
+      "publication": {
+        "base": "6b5768428b2a8c641186164f6bc0802294035089",
+        "unchangedInputs": 57,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "weightPairs": 208,
+        "denominatorVariations": 208,
+        "coefficientBounds": 27040,
+        "quotientPrecisionBounds": 13520,
+        "stableDenominatorPairs": 116,
+        "localPrecisionBounds": 7540,
+        "strictBoundaryControls": 13
+      },
+      "numericalMethod": "Exact rational Bernoulli recurrence through208, integer depleted divisor sums and exact p-adic norms as powers of p. For208 prime/precision/exponent pairs, test65 coefficients of the original rational series. Independently test integrality after multiplication, individual reciprocal-denominator bounds, denominator variation, the product-denominator precision bound, and the fixed-denominator bound under its strict neighborhood hypothesis. Equality at the neighborhood boundary is separately checked and cannot replace the strict hypothesis. No floating-point rounding is used."
     }
   },
   "requestResolutions": [
