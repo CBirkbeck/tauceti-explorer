@@ -43203,8 +43203,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-15.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4010"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4010",
+   "finishedAt": "2026-09-29T13:44:11Z"
   },
   {
    "id": "RT-AUDIT-16",
@@ -43691,7 +43692,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4016"
   },
   {
    "id": "RT-AUDIT-22",
@@ -44648,8 +44650,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-computational.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3956"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3956",
+   "finishedAt": "2026-09-29T13:44:14Z"
   },
   {
    "id": "RT-AREA-finitefields",
@@ -46223,8 +46226,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3977"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3977",
+   "finishedAt": "2026-09-29T13:44:18Z"
   },
   {
    "id": "RT-AREA-etale",
