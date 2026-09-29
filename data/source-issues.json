@@ -153790,6 +153790,69 @@
    "reviewReason": null
   },
   {
+   "id": "SpecialValuesBirchTate/E3",
+   "kind": "misprint",
+   "locator": "Lecture 2, §3, after the Motivic Lichtenbaum Conjecture 3.7, p. 16 (author copy)",
+   "printed": "With Bloch-Kato assumed, the source reports that the conjecture holds for totally real abelian F when the integer n ≥ 2 is even, citing Theorem 3.4; it also mentions some further cases.",
+   "correction": "(cp. Corollary 3.4)",
+   "reason": "The notes have no Theorem 3.4; the statement for totally real F and even n ≥ 2 is Corollary 3.4 (p. 15), and the numbered items of §3 are Proposition 3.1, Proposition 3.2, Theorem 3.3, Corollary 3.4 and Conjectures 3.5–3.7.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there)",
+    "the published volume (IAS/Park City Mathematics Series) was not accessed",
+    "research/errata/REGISTER.md: no entry for these notes"
+   ],
+   "owner": "SpecialValuesBirchTate",
+   "file": "research/blueprint/packets/SpecialValuesBirchTate.json",
+   "citation": "Manfred Kolster, Special values of L-functions at negative integers, Lecture notes, IAS/Park City Mathematics Series (author preprint, 2009, 22 pages); printed page = PDF page; accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SpecialValuesBirchTate/E4",
+   "kind": "misprint",
+   "locator": "Lecture 1, §2, p. 9 (author copy)",
+   "printed": "The source identifies H⁰_ét(o′_F, ℚ_p/ℤ_p(n)) = H⁰(f, ℚ_p/ℤ_p(n)) with the torsion part of H¹_ét(o′_F, ℤ_p(n)).",
+   "correction": "… = H⁰(F, ℚ_p/ℤ_p(n))",
+   "reason": "F is the number field; f is not defined in the notes (checked on the page image).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there)",
+    "the published volume (IAS/Park City Mathematics Series) was not accessed",
+    "research/errata/REGISTER.md: no entry for these notes"
+   ],
+   "owner": "SpecialValuesBirchTate",
+   "file": "research/blueprint/packets/SpecialValuesBirchTate.json",
+   "citation": "Manfred Kolster, Special values of L-functions at negative integers, Lecture notes, IAS/Park City Mathematics Series (author preprint, 2009, 22 pages); printed page = PDF page; accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SpecialValuesBirchTate/E5",
+   "kind": "error",
+   "locator": "Lecture 1, §2, p. 9 (author copy)",
+   "printed": "For arbitrary n ∈ ℤ, the source obtains a long cohomology sequence from 0 → ℤ_p(n) → ℚ_p(n) → ℚ_p(n)/ℤ_p(n) → 0. It concludes that H¹_ét(o′_F, ℤ_p(n)) has torsion part isomorphic to H⁰_ét(o′_F, ℚ_p/ℤ_p(n)).",
+   "correction": "The isomorphism H¹_ét(o′_F, ℤ_p(n))_tors ≅ H⁰_ét(o′_F, ℚ_p/ℤ_p(n)) holds for n ≠ 0. In general H¹_tors is H⁰(ℚ_p/ℤ_p(n)) modulo its maximal divisible subgroup.",
+   "reason": "By the preceding sentence the kernel of δ₁ is the maximal divisible subgroup of H⁰(ℚ_p/ℤ_p(n)). For n = 0 this is all of H⁰(o′_F, ℚ_p/ℤ_p) = ℚ_p/ℤ_p, while H¹_ét(o′_F, ℤ_p) = Hom_cts(G_F^{(p)}, ℤ_p) is torsion-free. For n ≠ 0 the cyclotomic character has infinite image, so H⁰ is finite and the isomorphism holds. The notes use it only for n ≥ 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there)",
+    "the published volume (IAS/Park City Mathematics Series) was not accessed",
+    "research/errata/REGISTER.md: no entry for these notes"
+   ],
+   "owner": "SpecialValuesBirchTate",
+   "file": "research/blueprint/packets/SpecialValuesBirchTate.json",
+   "citation": "Manfred Kolster, Special values of L-functions at negative integers, Lecture notes, IAS/Park City Mathematics Series (author preprint, 2009, 22 pages); printed page = PDF page; accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "TropicalAndBerkovichArithmetic/E1",
    "kind": "error",
    "locator": "Definition/Exercise 2.1.1.1(iv), preprint p. 4 only",
