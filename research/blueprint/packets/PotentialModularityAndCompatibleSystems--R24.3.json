@@ -1,0 +1,1549 @@
+{
+ "roadmapId": "PotentialModularityAndCompatibleSystems",
+ "protocol": "blueprint-v1",
+ "part": "R24.3",
+ "scope": [
+  "PotentialModularityAndCompatibleSystems:R24.3",
+  "PotentialModularityAndCompatibleSystems:R24.4",
+  "PotentialModularityAndCompatibleSystems:R24.5",
+  "PotentialModularityAndCompatibleSystems:R24.5:operations",
+  "PotentialModularityAndCompatibleSystems:R24.6"
+ ],
+ "status": "partial",
+ "summary": "Checkpoint 1 of the R24.3 part (Claude Code cc-39fac3). No integrated decomposition exists; RS-06 and RS-08 keep these stages and route their consumers (ClassicalSerreModularity R26–R33, SmallRamification R25.5). 22 nodes. R24.3: Böckle's presentation, his Lemma 2 (finite plus no more relations than variables gives a finite flat complete intersection) and Theorem 1, KW Annals Theorem 3.3, the lift types of KW I Theorem 5.1 (definition with API and tests) and its four constructions from KW II §10.3.1, the application table, and Snowden's prescribed-type lifts for the modern route. R24.4: KW I Theorem 4.1 from KW II §10.2. R24.5: the Brauer system through a potentially modular lift, its almost strict compatibility, KW I Theorem 5.1 and Dieulefait's families. R24.5:operations: compatible systems with separate strict/almost strict/plain predicates, and twist, restriction, induction. R24.6: residual members, what almost strictness gives at the coefficient prime, and linked systems. Finiteness (R24.1) and points (R24.2) belong to part R23.1. One source issue (a page range in KW II's bibliography).",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:RingTheory.Sequence.IsRegular",
+    "module": "Mathlib/RingTheory/Regular/RegularSequence",
+    "provides": "regular sequences on a module (Böckle's Lemma 2 uses a regular system of parameters)"
+   },
+   {
+    "ref": "mathlib:IsLocalRing",
+    "module": "Mathlib/RingTheory/LocalRing/Defs",
+    "provides": "local rings (complete noetherian local 𝒪-algebras)"
+   },
+   {
+    "ref": "mathlib:ringKrullDim",
+    "module": "Mathlib/RingTheory/KrullDimension/Basic",
+    "provides": "Krull dimension, for the height count in Lemma 2"
+   },
+   {
+    "ref": "mathlib:Module.Flat",
+    "module": "Mathlib/RingTheory/Flat/Basic",
+    "provides": "flatness over 𝒪 (torsion-freeness over a DVR)"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "kw-serre-modularity-II",
+   "title": "Serre's modularity conjecture (II)",
+   "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+   "edition": "Author's preprint (proofs.pdf) of the paper published as Invent. Math. 178 (2009), 505–586. Locators give the preprint's page numbers (1–98), which are not the Inventiones pages",
+   "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+   "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, part R24.3): contents; §6 (Theorem 6.1 and proof, pp. 53–57); §8 (Lemma 8.1, §8.2 with Theorem 8.2, §8.3 lifting data, Theorem 8.4 and proof, pp. 69–78); §9.2 (Theorem 9.7, pp. 89–90); §10 (Theorem 10.1, §§10.2–10.3, pp. 90–94); the bibliography."
+   ]
+  },
+  {
+   "id": "kw-serre-modularity-I",
+   "title": "Serre's modularity conjecture (I)",
+   "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+   "edition": "Author's preprint (results.pdf) of the paper published as Invent. Math. 178 (2009), 485–504. Locators give the preprint's page numbers",
+   "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+   "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, part R24.3): §§4–5 (Theorems 4.1 and 5.1, the definitions of compatible systems and minimal lifts, the Remarks, pp. 6–10), §8.2 (p. 15), §10.1 (p. 20)."
+   ]
+  },
+  {
+   "id": "kw-annals-2009",
+   "title": "On Serre's conjecture for 2-dimensional mod p representations of Gal(Q̄/Q)",
+   "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+   "edition": "Annals of Mathematics 169 (2009), 229–253, published version. Locators give printed pages",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v169-n1-p05.pdf",
+   "sha256": "154c0c2a2245e50cb2be3c82705f9176fe0e9b597424236ddca11299d38cdb22",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, part R24.3): §1 (pp. 229–233), §2 (Theorem 2.1, pp. 234–237), §3.1–3.2 (Definition 3.1, Theorem 3.3, Propositions 3.4–3.5, Lemma 3.6, Theorem 3.7, pp. 237–241)."
+   ]
+  },
+  {
+   "id": "bockle-appendix-2003",
+   "title": "Appendix 1: On the isomorphism R_∅ → T_∅",
+   "authors": "Gebhard Böckle",
+   "edition": "Appendix to Chandrashekhar Khare, 'On isomorphisms between deformation rings and Hecke rings', Invent. Math. 154 (2003); the author's file. Locators give its own page numbers 1–6",
+   "url": "https://arith-geom.github.io/ag-comp-arith-geom/assets/img/fileadmin/groups/arithgeo/templates/data/Gebhard_Boeckle/KhareAppboeckleNew2.pdf",
+   "sha256": "67de08f6a1958d6c350d6de0ad70839cc737cc14c9c3636ab68fb1bd638202de",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, part R24.3): the whole appendix (Theorem 1, Proposition 1, Lemma 1, Corollaries 1–2, Lemma 2, the proof of Theorem 1)."
+   ]
+  },
+  {
+   "id": "dieulefait-pacetti",
+   "title": "A simplified proof of Serre's conjecture",
+   "authors": "Luis Victor Dieulefait and Ariel Martín Pacetti",
+   "edition": "arXiv:2108.07577v2, 3 May 2022. Locators give the arXiv version's page numbers",
+   "url": "https://arxiv.org/pdf/2108.07577v2",
+   "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, part R24.3): §1.3–1.4 (Theorem 1.9, Definition 1.10, Theorem 1.11, Remark 4, pp. 5–7) and Paso 5 (p. 14)."
+   ]
+  },
+  {
+   "id": "snowden-2009",
+   "title": "On two dimensional weight two odd representations of totally real fields",
+   "authors": "Andrew Snowden",
+   "edition": "arXiv:0905.4266v1 (2009). Locators give the arXiv page numbers",
+   "url": "https://arxiv.org/pdf/0905.4266v1",
+   "sha256": "b0c0008a55489b000d6a7b2004f6412c8829243b7254ba0efe152ac6e5fc06a2",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, part R24.3): §7 (lifting problems, Theorems 7.2.1 and 7.6.1, Proposition 7.7.1, pp. 20–23) and the conditions (A1), (A2) of §3."
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.3/bockle-presentation",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.3"
+   ],
+   "title": "Böckle's presentation of a global deformation ring (Proposition 1 of the appendix)",
+   "kind": "theorem",
+   "statement": "Let ρ̄ : G_ℚ → GL₂(k) be odd and absolutely irreducible, X a set of local deformation conditions, unramified outside a finite set S, and d ∈ {0, 1}, Ad_X = Ad⁰ρ̄ if X fixes the determinant (d = 0) and Ad_X = Adρ̄ otherwise (d = 1). Suppose (a) for ℓ ∈ S ∖ {p, ∞} the local ring R_{X,ℓ} is a complete intersection, flat over ℤ_p, of relative dimension h⁰(G_ℓ, Ad_X) − Δ_ℓ, and (b) R_{X,p} is a complete intersection, flat over ℤ_p, of relative dimension h⁰(G_p, Ad_X) + 1 + d − Δ_p. Then with Δ = ΣΔ_ℓ, R_X ≅ 𝒪⟦x₁, …, x_{n+d}⟧/(f₁, …, f_{n+Δ}) for some n. In particular, when Δ ≤ 0 (for instance minimal conditions, where Δ_ℓ = 0) the ring has at most as many relations as variables (Böckle's Corollary 1; KW Annals Proposition 3.4: W⟦X₁, …, X_r⟧/(f₁, …, f_s) with r ≥ s).",
+   "hypotheses": [
+    "oddness of ρ̄ enters through the global Euler characteristic (Böckle's formula [1, Lemma 5.5(ii)])",
+    "the local hypotheses are hypotheses: they are supplied by LocalGaloisDeformationRings (R08.6), not proved here",
+    "this is a presentation, not a lift-existence theorem: finiteness over 𝒪 must be added (R24.1)"
+   ],
+   "proofSteps": [
+    "Choose auxiliary primes S_aux (Böckle [1], Corollary 6.4) and local presentations R_{X,ℓ} = 𝒪⟦X_{ℓ,1}, …⟧/J_ℓ.",
+    "Böckle [1], Theorem 5.6: R_X ≅ 𝒪⟦x₁, …, x_{n+d}⟧/J with J generated by at most Σ j_ℓ elements.",
+    "Count n + d from the tangent space with the global Euler characteristic (oddness) to get n + Δ = Σ j_ℓ."
+   ],
+   "acceptance": [
+    "Check the count on the minimal case: every Δ_ℓ = 0, so the number of relations is at most the number of variables",
+    "Check the sign convention for d and Ad_X against GlobalGaloisDeformations R04.3's presentation"
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.3/local-to-global-presentation",
+    "GlobalGaloisDeformations:R04.3/relative-tangent-space",
+    "LocalGaloisDeformationRings:R08.6/kw-local-conditions"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/PrescribedLifts",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "bockle-appendix-2003",
+     "locator": "Proposition 1, p. 2",
+     "match": "The statement begins."
+    },
+    {
+     "sourceId": "bockle-appendix-2003",
+     "locator": "Proposition 1, p. 2",
+     "match": "The presentation."
+    },
+    {
+     "sourceId": "bockle-appendix-2003",
+     "locator": "Proof of Proposition 1, p. 2",
+     "match": "Where oddness enters."
+    },
+    {
+     "sourceId": "kw-annals-2009",
+     "locator": "Proposition 3.4, printed p. 240",
+     "match": "KW Annals' form of it for minimal lifts."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.3/finite-presentation-complete-intersection",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.3"
+   ],
+   "title": "Finite plus few relations gives a finite flat complete intersection (Böckle's Lemma 2)",
+   "kind": "lemma",
+   "statement": "Let 𝒪 be a discrete valuation ring and R a complete noetherian local 𝒪-algebra, finitely generated as an 𝒪-module, with a presentation R ≅ 𝒪⟦x₁, …, x_n⟧/(f₁, …, f_m) with m ≤ n. Then m = n, (π, f₁, …, f_n) is a regular sequence, and R is a complete intersection, finite and flat over 𝒪; in particular R[1/π] ≠ 0, so R has a point over the integers of a finite extension of Frac 𝒪.",
+   "hypotheses": [
+    "finiteness over 𝒪 is essential: 𝒪⟦x⟧/(0) has m = 0 ≤ n = 1 but is not finite, and is not a complete intersection of dimension 1 over 𝒪 in the required sense",
+    "this is the commutative-algebra core of \"finiteness plus presentation gives lifts\"; KW II use the same principle in the form of their Corollary 4.7 (R24.2)"
+   ],
+   "proofSteps": [
+    "A = 𝒪⟦x₁, …, x_n⟧ is regular local of dimension n + 1; R/(π) is finite over k, so I = (π, f₁, …, f_m) has height n + 1, which forces m = n.",
+    "In a regular local ring a system of parameters is a regular sequence, so (π, f₁, …, f_n) is regular: R is a complete intersection and π is a nonzerodivisor on R, i.e. R is flat over 𝒪."
+   ],
+   "acceptance": [
+    "Check the height count on n = 1: 𝒪⟦x⟧/(x² − π) is finite free of rank 2 over 𝒪",
+    "Check that m < n is impossible for finite R (the Krull height argument)"
+   ],
+   "prerequisites": [
+    "mathlib:RingTheory.Sequence.IsRegular",
+    "mathlib:IsLocalRing",
+    "mathlib:ringKrullDim",
+    "mathlib:Module.Flat"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/PrescribedLifts",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "bockle-appendix-2003",
+     "locator": "Lemma 2, p. 5",
+     "match": "The lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.3/bockle-minimal-r-equals-t",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.3"
+   ],
+   "title": "Böckle's Theorem 1: an auxiliary R_Q ≅ T_Q gives the minimal R_∅ ≅ T_∅",
+   "kind": "theorem",
+   "statement": "In the setting of Khare's Inventiones 154 (2003) paper, suppose that for some auxiliary set of primes Q the map R_Q → T_Q is an isomorphism of finite flat W(k)-algebras. Then the canonical map R_∅ → T_∅ of minimal rings is an isomorphism. This is NOT an unconditional lift-existence theorem: the presentation comes from GlobalGaloisDeformations R04 and the auxiliary R_Q ≅ T_Q from GL2ModularityLifting R22.",
+   "hypotheses": [
+    "R_Q → R_∅ is surjective, so finiteness of R_Q gives finiteness of R_∅",
+    "T_Q and T_∅ are reduced and finite flat; the comparison is made on geometric points of the generic fibre"
+   ],
+   "proofSteps": [
+    "Corollary 1 and Lemma 2 (R24.3/finite-presentation-complete-intersection): R_∅ and R_Q are complete intersections, finite flat over 𝒪.",
+    "Compare the diagram R_Q ≅ T_Q → R_∅ → T_∅ after ⊗K: a point of R_∅ ⊗ K not in T_∅ ⊗ K would be a form f ∈ M_Q ∖ M_∅ whose ρ_f is unramified at Q, contradicting Carayol's conductor theorem."
+   ],
+   "acceptance": [
+    "Check the role of reducedness of T_Q (the choice of Q) in the generic-fibre comparison",
+    "Check that the argument uses Carayol's local-global compatibility at the primes of Q"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.3/bockle-presentation",
+    "PotentialModularityAndCompatibleSystems:R24.3/finite-presentation-complete-intersection",
+    "GL2ModularityLifting:R22.3/minimal-ring-finite",
+    "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/PrescribedLifts",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "bockle-appendix-2003",
+     "locator": "Theorem 1, p. 1",
+     "match": "The theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.3/kw-annals-minimal-lifts",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.3"
+   ],
+   "title": "Minimally ramified lifts (Khare–Wintenberger, Annals, Theorem 3.3)",
+   "kind": "theorem",
+   "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽) be of S-type with p > 2, ρ̄|_{ℚ(µ_p)} absolutely irreducible, 2 ≤ k(ρ̄) ≤ p + 1 and k(ρ̄) ≠ p. Then ρ̄ has a lift that is minimally ramified at every prime; when k(ρ̄) = p + 1 it may be chosen of crystalline type (Hodge–Tate weights (0, p)) or of semistable type (weight 2). Proof: the minimal deformation ring R^univ has a presentation with r ≥ s (Böckle, Proposition 3.4), is finite over W (Proposition 3.8: Lemma 3.6 reduces finiteness to finiteness of the universal mod-p image, which follows from Taylor's potential modularity and Fujiwara's R = T over a totally real F), hence is finite flat and a complete intersection (Theorem 3.7), so it has a point in characteristic zero. This is the method suggested in the Remark in §5.2 of Khare's Inventiones 154 (2003) paper, which the later KW II Theorem 5.1 generalises.",
+   "hypotheses": [
+    "k(ρ̄) ≠ p: the local ring at p in that weight is not covered by the Fontaine–Laffaille and Ramakrishna/Taylor inputs used here",
+    "at k(ρ̄) = p + 1 the crystalline local ring R_{p,crys} is formally smooth of dimension 1 (Böckle; KW Annals Proposition 3.5)",
+    "the rationality of the lifts is not controlled"
+   ],
+   "proofSteps": [
+    "Local rings: flat complete intersections of the right dimension (Ramakrishna, Taylor; R_{p,crys} by Proposition 3.5).",
+    "Proposition 3.4 (R24.3/bockle-presentation) and Lemma 3.6 (finiteness criterion).",
+    "Proposition 3.8: finiteness via potential modularity (R23) and R = T over F (R22).",
+    "Theorem 3.7 by R24.3/finite-presentation-complete-intersection, then a point."
+   ],
+   "acceptance": [
+    "Check that k(ρ̄) = p is really excluded and not merely unused",
+    "Check the two types at k(ρ̄) = p + 1 against LocalGaloisDeformationRings R08.6/export-endpoint-weight"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.3/bockle-presentation",
+    "PotentialModularityAndCompatibleSystems:R24.3/finite-presentation-complete-intersection",
+    "LocalGaloisDeformationRings:R08.6/export-endpoint-weight",
+    "GL2ModularityLifting:R22.3/minimal-ring-finite",
+    "PotentialModularityAndCompatibleSystems:R24.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/PrescribedLifts",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-annals-2009",
+     "locator": "Theorem 3.3, printed p. 239",
+     "match": "The theorem."
+    },
+    {
+     "sourceId": "kw-annals-2009",
+     "locator": "Introduction, printed p. 231",
+     "match": "The method: finiteness then flatness."
+    },
+    {
+     "sourceId": "kw-annals-2009",
+     "locator": "Introduction, printed p. 231",
+     "match": "The pinned earlier input (Remark in §5.2 of Khare 2003)."
+    },
+    {
+     "sourceId": "kw-annals-2009",
+     "locator": "Lemma 3.6, printed p. 241",
+     "match": "The finiteness criterion."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Minimal lifts (KW Annals Theorem 3.3)"
+   }
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.3/required-lift-types",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.3"
+   ],
+   "title": "Lifts of required type (KW I Theorem 5.1 (1)–(4))",
+   "kind": "definition",
+   "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽) be of S-type with 2 ≤ k(ρ̄) ≤ p + 1 if p > 2, non-solvable image if p = 2, and ρ̄|_{ℚ(µ_p)} absolutely irreducible if p > 2. A lift ρ : G_ℚ → GL₂(𝒪′) of ρ̄ is of required type (i) if: (1) (k(ρ̄) = 2 when p = 2) ρ is minimally ramified at every ℓ ≠ p and crystalline of weight k(ρ̄) at p; (2) ρ has weight 2, is minimally ramified at ℓ ≠ p, and its inertial Weil–Deligne parameter at p is (ω_p^{k(ρ̄)−2} ⊕ 1, 0), or (id, N) with N ≠ 0 nilpotent when k(ρ̄) = p + 1 (k(ρ̄) = 4 if p = 2); (3) for an odd q ∥ N(ρ̄) with p | q − 1, ρ̄|_{I_q} = (χ ∗; 0 1): ρ is as in (2) at p and minimal at ℓ ≠ p, q, and ρ|_{I_q} ≅ (χ′ ∗; 0 1) for a character χ′ = ω_q^i (0 < i ≤ q − 2) lifting χ, with i even if p = 2; (4) for q ≠ p with ρ̄|_{D_q} ≅ (χ_p ∗; 0 1) up to unramified twist and p | q + 1: ρ is as in (2) at p and minimal at ℓ ≠ p, q, and ρ|_{I_q} ≅ χ′ ⊕ χ′^q for a level-2 character χ′ = ω_{q,2}^iω_{q,2}^{qj} of p-power order, with i + j even if p = 2. \"Minimal\" is in the sense of Diamond §3 (KW II §3.3.1 at p = 2). Lifts of required type are the 𝒪′-points of R̄^ψ_S for the corresponding local conditions (GlobalGaloisDeformations R04.6).",
+   "hypotheses": [
+    "the parity conditions at p = 2 make the lift odd (Remark after KW I Theorem 5.1)",
+    "in (4), characters χ′ of p-power order and level 2 exist unless p = 2 and v₂(q + 1) = 1",
+    "if q ∥ N(ρ̄) and p ∤ q − 1, every geometric lift with q ∥ N(ρ) is minimal at q, so (3) needs p | q − 1",
+    "the local condition at each place is one of LocalGaloisDeformationRings R08.6/kw-local-conditions"
+   ],
+   "proofSteps": [
+    "Translate each type into local conditions: minimal (R08.6 inertia-rigid) away from p and q; (A), (B) or (C) at p; abelian with fixed inertial character (3) or non-abelian of level two (4) at q.",
+    "Identify the lifts with 𝒪′-points of R̄^ψ_S by R04.6/factorization-through-local-conditions."
+   ],
+   "acceptance": [
+    "Check that the determinant of a lift of each type is ψχ_p for the character ψ fixed by the type",
+    "Check the existence condition for level-2 characters of 2-power order: v₂(q + 1) ≥ 2"
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.6/kw-local-conditions",
+    "GlobalGaloisDeformations:R04.6/kw-deformation-data",
+    "GlobalGaloisDeformations:R04.6/factorization-through-local-conditions",
+    "AlgebraicModularFormsAndSerreWeights:R15.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/PrescribedLifts",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Theorem 5.1, p. 9 of the preprint",
+     "match": "Type (1)."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Theorem 5.1, p. 9 of the preprint",
+     "match": "Type (3) begins."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Theorem 5.1(4), p. 10 of the preprint",
+     "match": "Type (4) needs p | q + 1."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Remark after Theorem 5.1, p. 10",
+     "match": "Existence of level-2 characters."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Lifts of required type"
+   },
+   "uses": [
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-1-minimal-crystalline",
+     "how": "type (1): minimal crystalline lifts"
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two",
+     "how": "type (2): weight-two lifts"
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-3-level-one-type-at-q",
+     "how": "type (3): the level-one character at q"
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-4-level-two-type-at-q",
+     "how": "type (4): the level-two (good-dihedral) character at q"
+    },
+    {
+     "where": "ClassicalSerreModularity:R27.1/good-dihedral-prime-insertion",
+     "how": "type (4) inserts a good dihedral prime"
+    },
+    {
+     "where": "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction",
+     "how": "types (2)–(4) in the weight recursion"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.CompatibleSystems.RequiredLiftType",
+     "role": "structure",
+     "statement": "the case (1)–(4) with its auxiliary data (q, χ′) and the fixed character ψ"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.RequiredLiftType.localCondition",
+     "role": "projection",
+     "statement": "the local condition X_v of LocalGaloisDeformationRings R08.6 at each v ∈ S"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.RequiredLiftType.ring",
+     "role": "constructor",
+     "statement": "the ring R̄^ψ_S of GlobalGaloisDeformations R04.6 for these conditions"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.RequiredLiftType.points_iff",
+     "role": "equivalence",
+     "statement": "𝒪′-points of the ring ↔ lifts of the required type"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.RequiredLiftType.det",
+     "role": "simp",
+     "statement": "every lift of the type has determinant ψχ_p"
+    }
+   ],
+   "tests": [
+    {
+     "name": "type3_parity_p2",
+     "kind": "non-example",
+     "statement": "p = 2, q = 5: χ′ = ω₅ has i = 1 odd and is excluded; ω₅² (i = 2) is allowed"
+    },
+    {
+     "name": "type4_level_two_exists",
+     "kind": "example",
+     "statement": "p = 2: q = 7 has v₂(8) = 3 ≥ 2, so level-2 characters of 2-power order exist; q = 5 has v₂(6) = 1 and none exist (checked in Lean)"
+    },
+    {
+     "name": "type2_steinberg",
+     "kind": "degenerate",
+     "statement": "k(ρ̄) = p + 1: the inertial parameter is (id, N ≠ 0), a Steinberg type"
+    },
+    {
+     "name": "type3_needs_p_divides",
+     "kind": "non-example",
+     "statement": "p = 3, q = 5: 3 ∤ 4 = q − 1, so type (3) is unavailable and every lift with 5 ∥ N(ρ) is minimal at 5"
+    }
+   ]
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-1-minimal-crystalline",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.3"
+   ],
+   "title": "KW I Theorem 5.1(1): minimal crystalline lifts",
+   "kind": "theorem",
+   "statement": "Under KW I Theorem 5.1's hypotheses on ρ̄, and k(ρ̄) = 2 if p = 2, ρ̄ has a lift of required type (1): minimally ramified at every prime ≠ p and crystalline of weight k(ρ̄) at p.",
+   "hypotheses": [
+    "at p = 2 only k(ρ̄) = 2 is allowed: type (A) at p = 2 is crystalline of weight 2 only",
+    "k(ρ̄) = p is allowed here, unlike KW Annals Theorem 3.3: KW II's local rings include it"
+   ],
+   "proofSteps": [
+    "The local conditions of the type are nonempty (LocalGaloisDeformationRings R08.6/local-nonemptiness).",
+    "R̄^ψ_S is finite over 𝒪 (R24.1, KW II Theorem 10.1) and has dimension ≥ 1 (GlobalGaloisDeformations R04.3/global-dimension-lower-bound).",
+    "So it has an 𝒪′-point (R24.2, KW II Corollary 4.7), which is a lift of the required type (KW II §10.3.1)."
+   ],
+   "acceptance": [
+    "Check the local condition at p is type (A) of weight k(ρ̄)",
+    "Check minimality at every ℓ ≠ p is inertia-rigid"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.3/required-lift-types",
+    "LocalGaloisDeformationRings:R08.6/local-nonemptiness",
+    "GlobalGaloisDeformations:R04.3/global-dimension-lower-bound",
+    "GlobalGaloisDeformations:R04.6/factorization-through-local-conditions",
+    "PotentialModularityAndCompatibleSystems:R24.1",
+    "PotentialModularityAndCompatibleSystems:R24.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/PrescribedLifts",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Theorem 5.1(1), p. 9 of the preprint",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.3.1, p. 92 of the preprint",
+     "match": "The existence argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.3"
+   ],
+   "title": "KW I Theorem 5.1(2): minimal weight-two lifts",
+   "kind": "theorem",
+   "statement": "Under KW I Theorem 5.1's hypotheses, ρ̄ has a lift of required type (2): weight 2, minimally ramified at ℓ ≠ p, with inertial Weil–Deligne parameter (ω^{k(ρ̄)−2} ⊕ 1, 0) at p, or (id, N ≠ 0) when k(ρ̄) = p + 1 (k(ρ̄) = 4 at p = 2).",
+   "hypotheses": [
+    "at p = 2 with k(ρ̄) = 4 the local condition is type (C): semistable non-crystalline of weight 2"
+   ],
+   "proofSteps": [
+    "The local conditions of the type are nonempty (LocalGaloisDeformationRings R08.6/local-nonemptiness).",
+    "R̄^ψ_S is finite over 𝒪 (R24.1, KW II Theorem 10.1) and has dimension ≥ 1 (GlobalGaloisDeformations R04.3/global-dimension-lower-bound).",
+    "So it has an 𝒪′-point (R24.2, KW II Corollary 4.7), which is a lift of the required type (KW II §10.3.1)."
+   ],
+   "acceptance": [
+    "Check the (B)/(C) local condition at p according to k(ρ̄)",
+    "Check that the lift is odd at p = 2"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.3/required-lift-types",
+    "LocalGaloisDeformationRings:R08.6/local-nonemptiness",
+    "GlobalGaloisDeformations:R04.3/global-dimension-lower-bound",
+    "GlobalGaloisDeformations:R04.6/factorization-through-local-conditions",
+    "PotentialModularityAndCompatibleSystems:R24.1",
+    "PotentialModularityAndCompatibleSystems:R24.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/PrescribedLifts",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Theorem 5.1(2), p. 9 of the preprint",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.3.1, p. 92 of the preprint",
+     "match": "The existence argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-3-level-one-type-at-q",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.3"
+   ],
+   "title": "KW I Theorem 5.1(3): a prescribed level-one type at q",
+   "kind": "theorem",
+   "statement": "Under KW I Theorem 5.1's hypotheses, with q ∥ N(ρ̄) odd, p | q − 1 and χ′ = ω_q^i (i even if p = 2) lifting χ, ρ̄ has a lift of required type (3). If the residual representation ρ̄_q of the resulting system is irreducible, it has Serre weight i + 2 or q + 1 − i up to twist (R24.5/kw-theorem-5-1-systems).",
+   "hypotheses": [
+    "the local condition at q is abelian with fixed inertial character χ′ (LocalGaloisDeformationRings R08.6/export-away-from-p (b))"
+   ],
+   "proofSteps": [
+    "The local conditions of the type are nonempty (LocalGaloisDeformationRings R08.6/local-nonemptiness).",
+    "R̄^ψ_S is finite over 𝒪 (R24.1, KW II Theorem 10.1) and has dimension ≥ 1 (GlobalGaloisDeformations R04.3/global-dimension-lower-bound).",
+    "So it has an 𝒪′-point (R24.2, KW II Corollary 4.7), which is a lift of the required type (KW II §10.3.1)."
+   ],
+   "acceptance": [
+    "Check that χ′ reduces to χ",
+    "Check the parity condition at p = 2"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.3/required-lift-types",
+    "LocalGaloisDeformationRings:R08.6/local-nonemptiness",
+    "GlobalGaloisDeformations:R04.3/global-dimension-lower-bound",
+    "GlobalGaloisDeformations:R04.6/factorization-through-local-conditions",
+    "PotentialModularityAndCompatibleSystems:R24.1",
+    "PotentialModularityAndCompatibleSystems:R24.2",
+    "LocalGaloisDeformationRings:R08.6/export-away-from-p"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/PrescribedLifts",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Theorem 5.1(3), p. 9 of the preprint",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.3.1, p. 92 of the preprint",
+     "match": "The existence argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-4-level-two-type-at-q",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.3"
+   ],
+   "title": "KW I Theorem 5.1(4): a prescribed level-two type at q",
+   "kind": "theorem",
+   "statement": "Under KW I Theorem 5.1's hypotheses, with ρ̄|_{D_q} ≅ (χ_p ∗; 0 1) up to unramified twist and p | q + 1, and a level-2 character χ′ = ω_{q,2}^iω_{q,2}^{qj} of p-power order (i + j even if p = 2), ρ̄ has a lift of required type (4). This is the construction that inserts a good dihedral prime (ClassicalSerreModularity R27.1).",
+   "hypotheses": [
+    "the local condition at q is non-abelian of level two with F_v = ℚ_q (LocalGaloisDeformationRings R08.6/export-away-from-p (b))",
+    "such χ′ exist unless p = 2 and v₂(q + 1) = 1"
+   ],
+   "proofSteps": [
+    "The local conditions of the type are nonempty (LocalGaloisDeformationRings R08.6/local-nonemptiness).",
+    "R̄^ψ_S is finite over 𝒪 (R24.1, KW II Theorem 10.1) and has dimension ≥ 1 (GlobalGaloisDeformations R04.3/global-dimension-lower-bound).",
+    "So it has an 𝒪′-point (R24.2, KW II Corollary 4.7), which is a lift of the required type (KW II §10.3.1)."
+   ],
+   "acceptance": [
+    "Check that the residual type at q is ρ̄|_{I_q}",
+    "Check the parity condition at p = 2"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.3/required-lift-types",
+    "LocalGaloisDeformationRings:R08.6/local-nonemptiness",
+    "GlobalGaloisDeformations:R04.3/global-dimension-lower-bound",
+    "GlobalGaloisDeformations:R04.6/factorization-through-local-conditions",
+    "PotentialModularityAndCompatibleSystems:R24.1",
+    "PotentialModularityAndCompatibleSystems:R24.2",
+    "LocalGaloisDeformationRings:R08.6/export-away-from-p"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/PrescribedLifts",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Theorem 5.1(4), p. 10 of the preprint",
+     "match": "The hypothesis p | q + 1."
+    },
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.3.1, p. 92 of the preprint",
+     "match": "The existence argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-application-table",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.3"
+   ],
+   "title": "Where the lifts of KW I Theorem 5.1 are used",
+   "kind": "application",
+   "statement": "The applications, with the type used: KW I §8.1 (Theorem 3.1, killing ramification): (1). §8.2 (Theorem 3.2): mod 3 — (2) then (4) with χ′ = ω_{3,2}²; mod 5 — (2) then (3) with χ′ = ω₅²; inductive step — (2) then (3) with χ′ = ω_P^i for the i of §7. §8.3 (Corollary 8.1): (1). §8.4 (Theorem 3.4): (2) then (4) at the good dihedral prime q. §9 (Theorem 9.1): (2), and (4) with the order-3 type at 2. KW Annals Theorem 3.3 is the minimal case (1) for k(ρ̄) ≠ p. The modern route (Dieulefait–Pacetti Theorem 1.9) uses (1)–(3) as KW I Theorem 5.1 and a general prescribed-type statement (4) from Gee and Snowden (R24.3/modern-prescribed-type-lifts).",
+   "hypotheses": [
+    "each application must check the hypotheses of its type before requesting a global point: the residual shape at q, p | q ± 1, and the parity at p = 2"
+   ],
+   "proofSteps": [
+    "Tabulate from KW I §§8–9 and Dieulefait–Pacetti §§1–2."
+   ],
+   "acceptance": [
+    "Check each row's local hypotheses in the consuming node of ClassicalSerreModularity",
+    "Check that no application needs a type not listed in R24.3/required-lift-types"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-1-minimal-crystalline",
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two",
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-3-level-one-type-at-q",
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-4-level-two-type-at-q",
+    "PotentialModularityAndCompatibleSystems:R24.3/kw-annals-minimal-lifts"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/PrescribedLifts",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Proof of Theorem 1.9, p. 6 of the arXiv version",
+     "match": "The modern route's attribution."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.3/modern-prescribed-type-lifts",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.3"
+   ],
+   "title": "Weight-two lifts with prescribed types (Snowden Theorem 7.2.1; Gee)",
+   "kind": "theorem",
+   "statement": "Let F be totally real and ρ̄ : G_F → GL₂(𝔽̄_p) odd with (A1) ρ̄|_{G_{F(ζ_p)}} absolutely irreducible and (A2) if p = 5 and the projective image is PGL₂(𝔽₅) then [F(ζ₅) : F] = 4. For a lifting problem P = (Σ, ψ, t, {τ_v}) — Σ containing the ramified places and those above p, ψ of finite order with det ρ̄ = ψ̄χ̄_p, a definite type t(v) and an inertial type τ_v at each v ∈ Σ — there are finitely many solutions (weight-two lifts with these data), and a solution exists iff a local solution exists (Theorem 7.2.1). If t is a definite type function on Σ′ ⊆ Σ compatible with ρ̄, then ρ̄ has a weight-two lift unramified outside Σ with determinant ψχ_p and type t on Σ′ (Theorem 7.6.1). Over F = ℚ, (A2) is automatic, and this gives Dieulefait–Pacetti Theorem 1.9(4) (crystalline at p if k(ρ̄) = 2, Steinberg if k(ρ̄) = p + 1). It is used only by the modern route.",
+   "hypotheses": [
+    "nonemptiness of the local type must be proved before a global point is requested: here, the local solution; Snowden proves every residual local representation has a lift of some definite type with the same conductor (Proposition 7.7.1)",
+    "\"inertial type\" forgets the monodromy operator; \"type\" records it (Snowden §7.1)",
+    "the finiteness input is the analogue of R24.1 (potential modularity with R = T)"
+   ],
+   "proofSteps": [
+    "Snowden Theorem 6.1.1 (finiteness of the global ring with the chosen local rings) and the local rings of definite type (Propositions 7.3.1, 7.4.1).",
+    "A local solution makes the local rings nonzero; a global point of R† is a solution."
+   ],
+   "acceptance": [
+    "Check (A2) over ℚ: [ℚ(ζ₅) : ℚ] = 4",
+    "Check that DP Theorem 1.9(4)'s \"compatible inertial type\" is Snowden's local solution condition"
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.6",
+    "PotentialModularityAndCompatibleSystems:R24.1",
+    "PotentialModularityAndCompatibleSystems:R24.2",
+    "LocalGaloisDeformationRings:R08.6/local-nonemptiness"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/PrescribedLifts",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "snowden-2009",
+     "locator": "Theorem 7.2.1, p. 21 of arXiv:0905.4266v1",
+     "match": "The theorem."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Theorem 1.9(4), p. 6 of the arXiv version",
+     "match": "The form DP use."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.4",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.4"
+   ],
+   "title": "From \"ρ̄ modular\" to the residual hypotheses (α) and (β)",
+   "kind": "lemma",
+   "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽) be of S-type and modular, with KW I Theorem 4.1's image hypotheses. Then ρ̄ arises from S_{k(ρ̄)}(Γ₁(N)) for some N prime to p and from S₂(Γ₁(Np)) (weight part of Serre's conjecture: Gross's Theorem 13.10, Coleman–Voloch, and Gross's Propositions 8.13 and 8.18); so after an allowable base change F/ℚ (solvable, totally real, unramified or split at p as required), ρ̄|_{G_F} satisfies (α) and (β) for p > 2, and (α) when p = k(ρ̄) = 2 and (β) for p = 2.",
+   "hypotheses": [
+    "the hypothesis N > 4 of Gross may be assumed, since the level need not be optimal",
+    "for k = p KW II do not need Gross (see the Remark in §10.2)",
+    "these are exactly the residual inputs of GL2ModularityLifting R22.5/R22.6 (Theorem 9.7)"
+   ],
+   "proofSteps": [
+    "Weight part of Serre's conjecture for modular ρ̄ (SerreWeightAndLevelOptimisation R20.6; AlgebraicModularFormsAndSerreWeights R15.4).",
+    "Base change of the corresponding forms along the allowable F (GL2AutomorphicRepresentationsAndTransfer R17.4)."
+   ],
+   "acceptance": [
+    "Check the p = 2 cases: (α) only when k(ρ̄) = 2, (β) for k(ρ̄) = 2 and 4",
+    "Check that the base change keeps ρ̄|_{G_F(µ_p)} absolutely irreducible (resp. non-solvable at p = 2)"
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.5/kw-residual-modularity",
+    "SerreWeightAndLevelOptimisation:R20.6",
+    "AlgebraicModularFormsAndSerreWeights:R15.4",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+    "GL2ModularityLifting:R22.5/solvable-base-change-reduction"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/LiftingInterface",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.2, p. 92 of the preprint",
+     "match": "The residual hypotheses from modularity."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.4",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.4"
+   ],
+   "title": "KW I Theorem 4.1: modularity lifting over ℚ",
+   "kind": "theorem",
+   "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽) be modular, with non-solvable image if p = 2 and ρ̄|_{ℚ(µ_p)} absolutely irreducible if p > 2. (1) (p = 2) An odd, finitely ramified 2-adic lift ρ that is crystalline of weight 2 at 2, or semistable of weight 2 at 2 (only when k(ρ̄) = 4), is modular. (2) (p > 2) A finitely ramified p-adic lift that is (i) crystalline of weight k with 2 ≤ k ≤ p + 1, or (ii) potentially semistable of weight 2 at p, is modular. Proof: (α), (β) from R24.4/alpha-beta-from-residual-modularity; after an allowable base change F/ℚ, ρ|_{G_F} satisfies the lifting data (A), (B) or (C) and Theorem 9.7 (GL2ModularityLifting R22.5 for p > 2, R22.6 for p = 2) makes it modular; solvable descent (Langlands) returns to ℚ.",
+   "hypotheses": [
+    "p = 2: non-solvable image, and the semistable case only in residual weight 4",
+    "p > 2: cyclotomic absolute irreducibility, and the crystalline weight interval 2 ≤ k ≤ p + 1 or potentially semistable weight 2",
+    "several cases were known before (Diamond–Flach–Guo for k ≤ p − 1; Kisin for k = p + 1 non-ordinary and for potentially Barsotti–Tate; Diamond, Wiles and Taylor–Wiles for semistable weight 2; Dickinson partially at p = 2); KW II need only 4.1(1) and 4.1(2)(i) at k = p"
+   ],
+   "proofSteps": [
+    "Residual inputs (α), (β).",
+    "Allowable base change F/ℚ (GL2ModularityLifting R22.5/solvable-base-change-reduction).",
+    "Theorem 9.7 over F.",
+    "Descent to ℚ."
+   ],
+   "acceptance": [
+    "Check that the potentially semistable weight-2 case at p > 2 is covered by (B) or (C) after base change",
+    "Check that at p = 2 the semistable case requires ρ̄ not finite at 2"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
+    "GL2ModularityLifting:R22.5/kw-odd-prime-lifting",
+    "GL2ModularityLifting:R22.6/kw-dyadic-lifting",
+    "GL2ModularityLifting:R22.5/solvable-base-change-reduction",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/LiftingInterface",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Theorem 4.1, p. 7 of the preprint",
+     "match": "Case (2)."
+    },
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.2, p. 92 of the preprint",
+     "match": "The earlier cases."
+    },
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.2, p. 92 of the preprint",
+     "match": "The derivation."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "KW I Theorem 4.1 (modularity lifting over ℚ)"
+   }
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "Compatible systems: strict, almost strict, and plain",
+   "kind": "definition",
+   "statement": "For a number field E and number field F, an E-rational two-dimensional strictly compatible system (ρ_ι) of G_F consists of: for each prime ℓ and embedding ι : E ↪ ℚ̄_ℓ, a continuous semisimple geometric ρ_ι : G_F → GL₂(ℚ̄_ℓ); for each prime 𝔮 of F a Frobenius-semisimple Weil–Deligne representation r_𝔮 with values in GL₂(E), unramified for almost all 𝔮, such that for every ℓ and ι the Weil–Deligne parameter of ρ_ι|_{D_𝔮} is conjugate to r_𝔮 (for 𝔮 above ℓ too, via Fontaine); and integers a ≥ b with Hodge–Tate weights (a, b). It is regular if a ≠ b. It is almost strictly compatible if (ii) b) is only required for 𝔮 not above ℓ and, for 𝔮 above ℓ: when ρ̄_ι is irreducible, ρ_ι is geometric of weights (a, b) with (ii) b); and when ℓ ≠ 2 and r_𝔮 is unramified, ρ_ι|_{D_𝔮} is crystalline of weights (a, b). It is compatible if the ρ_ι are only continuous, semisimple and finitely ramified, with (ii) b) away from ℓ and crystalline of weights (a, b) at 𝔮 | ℓ for ℓ ≫ 0. Dieulefait–Pacetti's Definition 1.10 is the same notion as a 5-tuple (K, S, {Q_ℓ(x)}, {ρ_𝔭}, k).",
+   "hypotheses": [
+    "the local predicates (strict, almost strict, plain) are kept separate; almost strictness gives no Weil–Deligne information at 𝔮 | ℓ when ρ̄_ι is reducible and r_𝔮 is ramified",
+    "rank 2 here; the general rank-n and polarised versions are the operations sub-layer's generalisation"
+   ],
+   "proofSteps": [
+    "Definitions only; the existence theorems are R24.5."
+   ],
+   "acceptance": [
+    "Check that a newform of weight k ≥ 2 gives a strictly compatible system (Deligne, Carayol, Saito)",
+    "Check that the almost strict predicate is strictly weaker: it says nothing at 𝔮 = ℓ when ρ̄_ι is reducible and r_𝔮 is ramified"
+   ],
+   "prerequisites": [
+    "PadicHodgeTheory:R06.3/weil-deligne-parameter",
+    "ArithmeticGaloisRepresentations:R01.2",
+    "ArithmeticGaloisRepresentations:R01.5",
+    "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "§5, p. 7 of the preprint",
+     "match": "Strict compatibility."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "§5, p. 8 of the preprint",
+     "match": "Almost strict compatibility."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Definition 1.10 and after, p. 7 of the arXiv version",
+     "match": "DP's version."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system",
+     "how": "the object constructed"
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
+     "how": "change of residual characteristic"
+    },
+    {
+     "where": "ClassicalSerreModularity:R33.1/paso-1-weight-two-system",
+     "how": "the systems propagated in the modern route"
+    },
+    {
+     "where": "ClassicalSerreModularity:R27.3/theorem-3-1-killing-ramification",
+     "how": "the systems of KW I"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.CompatibleSystems.CompatibleSystem",
+     "role": "structure",
+     "statement": "E, the family ρ_ι, the Weil–Deligne data r_𝔮 and the weights (a, b)"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.CompatibleSystem.IsStrict",
+     "role": "data",
+     "statement": "compatibility with r_𝔮 at every 𝔮, including 𝔮 above ℓ"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.CompatibleSystem.IsAlmostStrict",
+     "role": "data",
+     "statement": "the two conditions at 𝔮 | ℓ (irreducible residual, or ℓ ≠ 2 and r_𝔮 unramified)"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.CompatibleSystem.IsRegular",
+     "role": "data",
+     "statement": "a ≠ b"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.CompatibleSystem.IsStrict.isAlmostStrict",
+     "role": "relation",
+     "statement": "strict ⇒ almost strict ⇒ compatible"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.CompatibleSystem.ofNewform",
+     "role": "constructor",
+     "statement": "the strictly compatible system of a newform of weight k ≥ 2"
+    }
+   ],
+   "tests": [
+    {
+     "name": "newform_is_strict",
+     "kind": "example",
+     "statement": "the system of Δ (level 1, weight 12) is strictly compatible with weights (11, 0), regular"
+    },
+    {
+     "name": "weight_one_irregular",
+     "kind": "degenerate",
+     "statement": "a weight-one newform gives an irregular system, a = b = 0"
+    },
+    {
+     "name": "almost_strict_not_strict",
+     "kind": "non-example",
+     "statement": "at 𝔮 = ℓ with ρ̄_ι reducible and r_𝔮 ramified, almost strictness asserts nothing about ρ_ι|_{D_𝔮}"
+    },
+    {
+     "name": "hodge_tate_weights_convention",
+     "kind": "example",
+     "statement": "weight a + 1 when b = 0: a newform of weight k gives (a, b) = (k − 1, 0)"
+    }
+   ]
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/system-operations",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "Twisting, restriction and induction of compatible systems",
+   "kind": "theorem",
+   "statement": "Let (ρ_ι) be an E-rational compatible system of G_F of rank n (strict, almost strict or plain). (i) For an E-rational system of characters (χ_ι) (for instance the ℓ-adic incarnations of a Hecke character of type A₀), (ρ_ι ⊗ χ_ι) is a system of the same kind, with r_𝔮 ⊗ χ_𝔮. (ii) For F′/F finite, (ρ_ι|_{G_{F′}}) is a system of the same kind with the restricted Weil–Deligne data. (iii) For F/F₀ finite, (Ind_{G_F}^{G_{F₀}} ρ_ι) is a system of rank n[F : F₀] with the induced Weil–Deligne data. (iv) Virtual combinations Σ n_i Ind(χ_i ⊗ ρ_i) have well-defined traces at almost all Frobenius elements; whether they are true representations is a separate statement (R24.5/brauer-induction-system). Irreducibility, regularity and purity are NOT preserved automatically: restriction can make a system reducible, and induction changes the Hodge–Tate multiset.",
+   "hypotheses": [
+    "strict compatibility at 𝔮 | ℓ is preserved by (i)–(iii) because Weil–Deligne parameters of de Rham representations commute with twisting, restriction and induction (PadicHodgeTheory R06.3)",
+    "this layer takes a system as input and does not assume R24.5's two-dimensional existence theorem"
+   ],
+   "proofSteps": [
+    "Local-global compatibility of each operation with Weil–Deligne parameters (ArithmeticGaloisRepresentations R01.2, PadicHodgeTheory R06.3).",
+    "Recognition by Frobenius polynomials (ArithmeticGaloisRepresentations R01.5) for (iv)."
+   ],
+   "acceptance": [
+    "Check that Ind of a rank-2 system from a quadratic field has rank 4 and Hodge–Tate weights doubled in multiplicity",
+    "Check that restriction of an irreducible system induced from K to G_K is reducible"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+    "PadicHodgeTheory:R06.3/weil-deligne-parameter",
+    "ArithmeticGaloisRepresentations:R01.2",
+    "ArithmeticGaloisRepresentations:R01.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.3.2, p. 93 of the preprint",
+     "match": "The operations used: induction, twist, restriction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "The compatible system through a potentially modular lift, by Brauer induction",
+   "kind": "construction",
+   "statement": "Let ρ : G_ℚ → GL₂(𝒪) be a lift such that ρ|_{G_F} ≅ ρ_{π,ι_p} for a holomorphic cuspidal π over a totally real Galois F/ℚ (R23.4 or Theorem 9.7). By Brauer's theorem write 1_G = Σ n_i Ind_{G_i}^G χ_i with G = Gal(F/ℚ), G_i = Gal(F/F_i) solvable and χ_i characters. By Langlands' solvable base change there are π_i over F_i with ρ_{π_i,ι_p} = ρ|_{G_{F_i}}. For every ℓ and ι : ℚ̄ ↪ ℚ̄_ℓ put ρ_ι = Σ n_i Ind_{G_{F_i}}^{G_ℚ}(χ_i ⊗ ρ_{π_i,ι}). Then ρ_ι is a true two-dimensional representation, its Frobenius traces agree with those of ρ at almost all primes, it does not depend on the choices, and for every F′ ⊆ F with F/F′ solvable, ρ_ι|_{G_{F′}} is the representation of the automorphic form attached to ρ|_{G_{F′}}.",
+   "hypotheses": [
+    "the virtual combination is a true representation by the argument of Theorem 5.1 of Khare's level-one paper (Taylor's method): a virtual representation whose restriction to each G_{F_i} is true and whose trace is that of a two-dimensional representation is itself one",
+    "independence of choices: two such systems have equal traces at almost all Frobenius elements, hence are isomorphic (Brauer–Nesbitt)"
+   ],
+   "proofSteps": [
+    "Brauer's induction theorem for G = Gal(F/ℚ).",
+    "Solvable base change (GL2AutomorphicRepresentationsAndTransfer R17.4).",
+    "The virtual combination; its restriction to each G_{F_i} is true; conclude it is true.",
+    "Trace comparison and Brauer–Nesbitt for independence."
+   ],
+   "acceptance": [
+    "Check the degenerate case of solvable Gal(F/ℚ): Brauer's theorem is not needed, F_i = ℚ, and ρ_ι is the system of the form over ℚ obtained by solvable descent",
+    "Check that the Hodge–Tate weights of ρ_ι are those of ρ"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+    "PotentialModularityAndCompatibleSystems:R24.5/system-operations",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+    "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+    "PotentialModularityAndCompatibleSystems:R23.4",
+    "ArithmeticGaloisRepresentations:R01.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.3.2, p. 93 of the preprint",
+     "match": "The construction."
+    },
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.3.2, p. 93 of the preprint",
+     "match": "True representations."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Compatible systems by Brauer induction"
+   },
+   "uses": [
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
+     "how": "the system whose compatibility is proved"
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+     "how": "the systems of KW I Theorem 5.1"
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.5/dieulefait-families",
+     "how": "Dieulefait's families for a given lift"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.CompatibleSystems.brauerSystem",
+     "role": "constructor",
+     "statement": "ρ_ι = Σ n_i Ind(χ_i ⊗ ρ_{π_i,ι}) from the Brauer data and the base-changed π_i"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.brauerSystem_isTrue",
+     "role": "characterisation",
+     "statement": "the virtual representation is a true two-dimensional representation"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.brauerSystem_trace",
+     "role": "compatibility",
+     "statement": "Tr ρ_ι(Frob_q) = Tr ρ(Frob_q) for almost all q"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.brauerSystem_unique",
+     "role": "extensionality",
+     "statement": "independent of the Brauer data and of the π_i"
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.brauerSystem_restrict",
+     "role": "compatibility",
+     "statement": "restriction to G_{F′} with F/F′ solvable is automorphic"
+    }
+   ],
+   "tests": [
+    {
+     "name": "brauer_trivial_F",
+     "kind": "degenerate",
+     "statement": "F = ℚ: 1_G = Ind 1, and ρ_ι = ρ_{π,ι} is the system of π itself"
+    },
+    {
+     "name": "brauer_quadratic_coefficients",
+     "kind": "example",
+     "statement": "G = ℤ/2: the regular character (2, 0) minus the sign character (1, −1) is the trivial character (1, 1), i.e. 1_G = Ind_1^G 1 − ε (checked in Lean)"
+    },
+    {
+     "name": "brauer_virtual_nonexample",
+     "kind": "non-example",
+     "statement": "the virtual character 3·1 − ε of ℤ/2 has degree 2 but value 4 at the generator, more than its degree, so it is not a character: degree 2 alone does not make a virtual representation true (checked in Lean)"
+    },
+    {
+     "name": "brauer_trace_agreement",
+     "kind": "example",
+     "statement": "for an elliptic curve E/ℚ with F = ℚ the construction returns the ℓ-adic Tate modules of E"
+    }
+   ]
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "The Brauer system is almost strictly compatible",
+   "kind": "theorem",
+   "statement": "The system (ρ_ι) of R24.5/brauer-induction-system is almost strictly compatible. For a prime q, let F(q) ⊆ F be the decomposition field at a prime Q | q, π_q the local component at Q of the form attached to ρ|_{G_{F(q)}}, and r_q its Frobenius-semisimple Weil–Deligne parameter. (a) For q ≠ ℓ, the Weil–Deligne parameter of ρ_ι|_{D_q} is r_q (Carayol, Taylor). (b) For q = ℓ ≠ 2 with r_q unramified, it is r_q and ρ_ι|_{D_q} is crystalline (Breuil, Berger). (c) For q = ℓ with ρ̄_ι irreducible, it is r_q (Kisin's potentially semistable deformation rings, after moving to a field F′ linearly disjoint from the kernel of ρ̄_ι). Strict compatibility would follow from Kisin's result without the irreducibility hypothesis; KW II correct an earlier claim of strictness on this point.",
+   "hypotheses": [
+    "(c) needs ρ̄_ι irreducible, because Kisin's theorem does; this is the whole difference between almost strict and strict",
+    "the case q = ℓ = 2 with r_q unramified and ρ̄_ι reducible is not covered"
+   ],
+   "proofSteps": [
+    "(a) Carayol and Taylor's local-global compatibility over F(q) (AutomorphicGaloisRepresentations R19.2, R19.4).",
+    "(b) Breuil and Berger at an unramified coefficient prime (R19.5).",
+    "(c) Kisin, with F′ from potential modularity chosen linearly disjoint from ker ρ̄_ι."
+   ],
+   "acceptance": [
+    "Check each case against R24.5/compatible-system's almost strict predicate",
+    "Check that KW II's remark withdrawing strictness (Wintenberger, Documenta 2006) is reflected: only almost strictness is claimed"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system",
+    "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+    "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility",
+    "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.3.2, p. 93",
+     "match": "(a)."
+    },
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.3.2, p. 94",
+     "match": "(b)."
+    },
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.3.2, p. 94",
+     "match": "(c)."
+    },
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.3.2, p. 93",
+     "match": "The authors' correction of the earlier strictness claim."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "KW I Theorem 5.1: almost strictly compatible systems through prescribed lifts",
+   "kind": "theorem",
+   "statement": "Let ρ̄ satisfy KW I Theorem 5.1's hypotheses. For each i ∈ {1, 2, 3, 4} (with the conditions of that type) there are a number field E and an E-rational almost strictly compatible, irreducible, odd system (ρ_ι) lifting ρ̄ whose p-adic member is a lift of required type (i). In case (3), if the residual representation ρ̄_q is irreducible it has Serre weight i + 2 or q + 1 − i up to twist; in case (4), if q is odd and ρ̄_q is irreducible, its weight is q + 1 − (i − j) or i − j when i > j + 1, and q when i = j + 1 (Savitt, Corollary 6.15 and Remark 6.17).",
+   "hypotheses": [
+    "the residual weight computations (3), (4) use almost strict compatibility at q and Savitt's computations of reductions of potentially Barsotti–Tate representations of tame type (requested)",
+    "at p = 2 there is no Savitt reference, which is why KW I Theorem 9.1 needs its ad hoc argument",
+    "F. Diamond's list: the possible (i, j) are j = m(q + 1)/p^r − 1, i = q − 1 − j for 0 < m < p^r/2, so i = j + 1 does not occur"
+   ],
+   "proofSteps": [
+    "The p-adic lift of type (i) (R24.3).",
+    "Potential modularity of the lift over a Galois F, via Theorem 9.7 as in the proof of Theorem 10.1.",
+    "The Brauer system and its almost strict compatibility.",
+    "Residual weights at q from almost strict compatibility and Savitt (and Saito for (4))."
+   ],
+   "acceptance": [
+    "Check Diamond's list on p = 3, q = 5: r = v₃(6) = 1, m = 1 gives j = 1, i = 3",
+    "Check that the system is odd and irreducible (each member irreducible, Taylor)"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-1-minimal-crystalline",
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two",
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-3-level-one-type-at-q",
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-4-level-two-type-at-q",
+    "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system",
+    "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
+    "AlgebraicModularFormsAndSerreWeights:R15.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Theorem 5.1, p. 9 of the preprint",
+     "match": "The theorem."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Remark after Theorem 5.1, p. 10",
+     "match": "Savitt."
+    },
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "§10.3.2, p. 94",
+     "match": "Residual weights."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "KW I Theorem 5.1 (compatible systems)"
+   }
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/dieulefait-families",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "Dieulefait: a given lift lies in an almost strictly compatible system (DP Theorem 1.11)",
+   "kind": "theorem",
+   "statement": "Let ρ : G_ℚ → GL₂(K_λ) be odd, irreducible, continuous, finitely ramified and de Rham at p with Hodge–Tate weights {0, k − 1}, k > 1, with ρ̄|_{G_{ℚ(ζ_p)}} absolutely irreducible (non-solvable image if p = 2). Then ρ is part of a rank-2 almost strictly compatible system. Proof: potential modularity of the given lift (R23.4) over a totally real Galois F, then the Brauer system and its almost strict compatibility (R24.5). This is the form the modern route uses.",
+   "hypotheses": [
+    "it is a statement about a given lift, not about the existence of one: the lift is supplied (by R24.3 or otherwise)",
+    "Dieulefait's paper (Crelle 577, 2004) was not read; the proof is KW II's §10.3.2 argument applied to a given lift"
+   ],
+   "proofSteps": [
+    "R23.4: ρ|_{G_F} modular for some totally real Galois F.",
+    "R24.5/brauer-induction-system and R24.5/almost-strict-compatibility."
+   ],
+   "acceptance": [
+    "Check that de Rham with Hodge–Tate weights {0, k − 1} is what R23.4 needs",
+    "Check the p = 2 hypothesis (non-solvable image) against R23.4"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.4",
+    "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system",
+    "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Theorem 1.11, p. 7 of the arXiv version",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Proof of Theorem 1.11, p. 7",
+     "match": "Attribution to Dieulefait."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.6",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.6"
+   ],
+   "title": "Residual members of a compatible system",
+   "kind": "lemma",
+   "statement": "Let (ρ_ι) be an E-rational almost strictly compatible, irreducible, odd two-dimensional system of G_ℚ with weights (a, b), and ρ̄_ι the semisimplified reductions. (i) det ρ̄_ι is the reduction of det ρ_ι, and ρ̄_ι is odd. (ii) ρ̄_ι is absolutely irreducible for almost all ι (bounded conductor, fixed Hodge–Tate weights). (iii) For q ≠ ℓ, the Artin conductor of ρ̄_ι at q divides that of r_q, so N(ρ̄_ι) divides the prime-to-ℓ conductor of the system; the prime divisors of N(ρ̄_ι) are among the ramified primes of the system other than ℓ. (iv) If ρ(I_q) is finite of order prime to ℓ (for instance a dihedral group of order 2t^a with t ≠ ℓ), reduction is injective on it, so ρ̄_ι|_{I_q} has the same shape. (v) If ℓ is outside the ramification set, ℓ ≠ 2 and a − b + 1 ≤ ℓ − 1, then ρ_ι is crystalline at ℓ and k(ρ̄_ι) = a − b + 1 up to twist (Fontaine–Laffaille).",
+   "hypotheses": [
+    "(ii) is the argument KW I give at the start of the proof of Theorem 10.1",
+    "(iv) is the reduction step in the proof of KW I Lemma 6.3",
+    "(v) needs the Fontaine–Laffaille range; at the endpoint weights one uses the endpoint arguments instead"
+   ],
+   "proofSteps": [
+    "(i), (iii): reduction of a lattice; conductors only drop under reduction (ArithmeticGaloisRepresentations R01.3).",
+    "(ii): only finitely many semisimple ρ̄ of bounded conductor and weights can be reducible for infinitely many ι.",
+    "(iv): the kernel of GL₂(𝒪) → GL₂(𝔽) is pro-ℓ.",
+    "(v): almost strict compatibility at ℓ and Fontaine–Laffaille."
+   ],
+   "acceptance": [
+    "Check (iii) on a system with a Steinberg prime q whose reduction mod ℓ becomes unramified at q (level lowering)",
+    "Check (iv) on a dihedral inertia image of order 2·7 reduced modulo 3"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+    "ArithmeticGaloisRepresentations:R01.3",
+    "ArithmeticGaloisRepresentations:R01.4",
+    "PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences",
+    "AlgebraicModularFormsAndSerreWeights:R15.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/ChangeOfPrime",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Proof of Theorem 10.1, p. 20 of the preprint",
+     "match": "(ii)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.6/local-compatibility-at-the-coefficient-prime",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.6",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.6"
+   ],
+   "title": "What an almost strict system says at its own coefficient prime",
+   "kind": "theorem",
+   "statement": "Let (ρ_ι) be almost strictly compatible with Weil–Deligne data r_q and ι above ℓ = q. Exactly the following are available at D_ℓ: (a) if ρ̄_ι is irreducible, ρ_ι|_{D_ℓ} is de Rham (geometric) of weights (a, b) with Weil–Deligne parameter r_ℓ; (b) if ℓ ≠ 2 and r_ℓ is unramified, ρ_ι|_{D_ℓ} is crystalline of weights (a, b) (with parameter r_ℓ); (c) otherwise — ρ̄_ι reducible and r_ℓ ramified, or ℓ = 2 with ρ̄_ι reducible — only that ρ_ι|_{D_ℓ} is de Rham of weights (a, b) (for a system built as in R24.5, from potential automorphy). In case (c) no Weil–Deligne comparison may be assumed; a residually reducible modularity lifting theorem needing only the de Rham property (Pan) is what the modern route uses there (Dieulefait–Pacetti Paso 5).",
+   "hypotheses": [
+    "this enumerates the hypotheses under which local compatibility is valid when the new coefficient prime was already ramified: only (a) and (b)",
+    "silently restoring the Weil–Deligne assertion in case (c) would prove strict compatibility, which KW II withdraw"
+   ],
+   "proofSteps": [
+    "(a), (b) from the definition (R24.5/compatible-system) and R24.5/almost-strict-compatibility.",
+    "(c): the de Rham property comes from the automorphic origin of the system over a solvable extension."
+   ],
+   "acceptance": [
+    "Check DP Paso 5 case (1): N ramified in the system and ρ̄_N reducible is case (c)",
+    "Check KW I §8.4: the auxiliary prime p′ is outside the ramification set, so case (b) applies"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+    "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
+    "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
+    "PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/ChangeOfPrime",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "§5, p. 8 of the preprint",
+     "match": "The almost strict conditions."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Paso 5, p. 14 of the arXiv version",
+     "match": "The modern route in case (c)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Local compatibility at the coefficient prime"
+   }
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.6",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.6"
+   ],
+   "title": "Linked systems and modularity transfer",
+   "kind": "lemma",
+   "statement": "(i) A compatible system is modular if and only if one of its members is (Dieulefait–Pacetti Remark 4): if ρ_λ ≅ ρ_{f,λ} for a newform f, the strictly compatible system of f has the same Frobenius traces at almost all primes as every member, so each member is ρ_{f,ι} by Brauer–Nesbitt (and Chebotarev). (ii) Two systems (ρ_ι), (ρ′_ι) are linked at λ if ρ̄_λ ≅ ρ̄′_λ. If (ρ′_ι) is modular and ρ_λ satisfies the hypotheses of a modularity lifting theorem with residual input ρ̄_λ (KW I Theorem 4.1, R24.4; or the modern theorems of GL2ModularityLifting R32.6), then (ρ_ι) is modular. This is how modularity moves along the chains of KW I §§8–9 and of the modern route.",
+   "hypotheses": [
+    "(ii) needs the lifting theorem's residual hypotheses at λ (non-solvable image at 2, cyclotomic irreducibility at odd λ)",
+    "the transfer is along a single residual representation; the conductor and weight of the two systems may differ"
+   ],
+   "proofSteps": [
+    "(i): Deligne's strictly compatible system for f and Brauer–Nesbitt.",
+    "(ii): modularity of ρ̄′_λ = ρ̄_λ, then the lifting theorem."
+   ],
+   "acceptance": [
+    "Check (ii) in KW I §8.2's inductive step: (ρ_ι) and (ρ′_ι) linked at ℓ",
+    "Check that the lifting theorem used at each link has its residual hypotheses"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+    "ArithmeticGaloisRepresentations:R01.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/ChangeOfPrime",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "§8.2, p. 15 of the preprint",
+     "match": "Linked systems."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Remark 4, p. 7 of the arXiv version",
+     "match": "(i)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "LocalGaloisDeformationRings:R08.6",
+   "need": "Snowden's local deformation rings of definite type (Propositions 7.3.1 and 7.4.1 of arXiv:0905.4266): nonzero, of the right dimension, for every definite type compatible with ρ̄|_{G_{F_v}}, including v | p (weight two), with the existence of a definite-type lift of the same conductor (Proposition 7.7.1).",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.3/modern-prescribed-type-lifts"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "SerreWeightAndLevelOptimisation:R20.6",
+   "need": "The weight part of Serre's conjecture for modular ρ̄ as KW II §10.2 uses it: ρ̄ arises from S_{k(ρ̄)}(Γ₁(N)) with p ∤ N and from S₂(Γ₁(Np)) (Gross, Theorem 13.10 and Propositions 8.13, 8.18; Coleman–Voloch).",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "AlgebraicModularFormsAndSerreWeights:R15.4",
+   "need": "Serre weights of residual representations for the weight bookkeeping of KW I Theorem 5.1(3),(4), with Savitt's computation of the reductions of potentially Barsotti–Tate representations of tame type (Duke 128 (2005), Corollary 6.15 and Remark 6.17).",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
+    "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+    "PotentialModularityAndCompatibleSystems:R24.6/residual-members"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "AlgebraicModularFormsAndSerreWeights:R15.6",
+   "need": "The definitions of S-type, k(ρ̄), N(ρ̄) and \"modular\" used in KW I Theorems 4.1 and 5.1.",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.3/required-lift-types"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+   "need": "Langlands' solvable base change and descent for Hilbert modular forms, as used in KW II §§9–10 (descent of modularity along allowable base changes; the π_i of the Brauer argument).",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
+    "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1",
+    "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:R01.2",
+   "need": "Weil–Deligne parameters of ℓ-adic representations and their compatibility with twist, restriction and induction.",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+    "PotentialModularityAndCompatibleSystems:R24.5/system-operations"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:R01.3",
+   "need": "Artin conductors and their behaviour under reduction.",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.6/residual-members"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:R01.4",
+   "need": "Residual images: absolute irreducibility and oddness of residual members.",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.6/residual-members"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:R01.5",
+   "need": "Recognition of semisimple representations by Frobenius polynomials (Brauer–Nesbitt with Chebotarev).",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+    "PotentialModularityAndCompatibleSystems:R24.5/system-operations",
+    "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system",
+    "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer"
+   ],
+   "status": "open"
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "PotentialModularityAndCompatibleSystems:R24.3",
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Böckle's presentation, Lemma 2 and Theorem 1 (the pinned earlier input) with KW Annals Theorem 3.3; the lift types of KW I Theorem 5.1 and its four constructions from KW II §10.3.1 (finiteness R24.1, dimension from GlobalGaloisDeformations R04.3, points R24.2, local nonemptiness from LocalGaloisDeformationRings R08.6); the application table; Snowden's prescribed-type lifts for the modern route."
+  },
+  {
+   "stageId": "PotentialModularityAndCompatibleSystems:R24.4",
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "KW I Theorem 4.1 from KW II §10.2: the residual inputs (α), (β) from modularity, then Theorem 9.7 (GL2ModularityLifting R22.5/R22.6) after an allowable base change and descent."
+  },
+  {
+   "stageId": "PotentialModularityAndCompatibleSystems:R24.5",
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "KW II §10.3.2: the Brauer system through a potentially modular lift, its almost strict compatibility (with the authors' withdrawal of strictness), KW I Theorem 5.1 with the residual weights (Savitt requested), and Dieulefait's families in the form of DP Theorem 1.11."
+  },
+  {
+   "stageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+   "status": "partial",
+   "remaining": [
+    "Rank-n and polarised systems with tensor products, duals and symmetric and exterior powers (RS-12 is not yet accepted; the operations layer is planned only as far as rank 2 needs)."
+   ],
+   "notes": "The definition of compatible systems with the strict, almost strict and plain predicates kept separate, and twisting, restriction and induction."
+  },
+  {
+   "stageId": "PotentialModularityAndCompatibleSystems:R24.6",
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Residual members (determinant, oddness, irreducibility for almost all ι, conductor, inertia, weight), what almost strictness gives at the coefficient prime (including the de Rham-only case used by the modern route), and linked systems."
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Savitt's residual weight computations are requested, not planned",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems"
+   ],
+   "detail": "Verified: KW I and KW II attribute the residual weights of Theorem 5.1(3),(4) to Savitt, Duke 128 (2005), Corollary 6.15 and Remark 6.17 (and T. Saito for (4)). Not verified: Savitt's statements. No stage names Savitt; the request goes to AlgebraicModularFormsAndSerreWeights R15.4, which owns Serre weights."
+  },
+  {
+   "title": "Dieulefait 2004 and Gee 2011 were not read",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.5/dieulefait-families",
+    "PotentialModularityAndCompatibleSystems:R24.3/modern-prescribed-type-lifts"
+   ],
+   "detail": "Verified: Dieulefait–Pacetti's statements of Theorems 1.9(4) and 1.11 and their attributions; Snowden's Theorems 7.2.1 and 7.6.1 (read). Not verified: Dieulefait, Crelle 577 (2004), Theorem 1.1, and Gee, Math. Ann. 350 (2011). The nodes give KW II's and Snowden's arguments, which suffice."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PotentialModularityAndCompatibleSystems/E1",
+   "source": "kw-serre-modularity-II",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "Bibliography, reference [33], p. 96 of the author's preprint proofs.pdf",
+   "printed": "The bibliography locates the paper on the level one case of Serre’s modularity conjecture in Duke Math. J., volume 134, issue (3), year (2006), pages 534–567.",
+   "correction": "Duke Math. J. 134 (3) (2006), 557–589.",
+   "reason": "Khare's level-one paper occupies pp. 557–589 of Duke Math. J. 134 (2006), no. 3; Dieulefait–Pacetti's bibliography ([Kha06]) gives 557–589, and KW I's own citation of the paper does not conflict with it.",
+   "known": "new: present in the author's preprint; the Inventiones version was not obtained",
+   "searched": [
+    "The author's preprint proofs.pdf (the version read)",
+    "Invent. Math. 178 (2009) 505–586: not obtained"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "author copy",
+   "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+   "citation": "Khare–Wintenberger, Serre's modularity conjecture (II), author's preprint of Invent. Math. 178 (2009) 505–586",
+   "read": "2026-09-29",
+   "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4"
+  }
+ ]
+}
