@@ -25140,9 +25140,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-LefschetzPencilsAndVanishingCycles--LPV.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #768"
+   "note": "claimed on GitHub issue #768"
   },
   {
    "id": "REV-LefschetzPencilsAndVanishingCycles--LPV.0",
