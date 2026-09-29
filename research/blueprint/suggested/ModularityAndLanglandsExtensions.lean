@@ -2,6 +2,8 @@ import Mathlib.Data.Finset.Powerset
 import Mathlib.Data.ZMod.Basic
 import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.Tactic.IntervalCases
+import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+import Mathlib.Tactic.NormNum.Prime
 
 /-!
 # Suggested Lean forms: ModularityAndLanglandsExtensions (checkpoint 1: ML.0, ML.2)
@@ -78,5 +80,21 @@ example (w : ℤ) : ({0, 1, 5} : Finset ℤ).image (fun h => w - h) ≠ {0, 1, 5
   have hw' : w = a := by omega
   subst hw'
   rcases ha with rfl | rfl | rfl <;> revert hw <;> decide
+
+/-! ### Checkpoint 2 (ML.3): symmetric powers and Sato–Tate -/
+
+/-- `ML.3/steinberg-level-raising` (NT I Theorem 7.1) needs a prime `p ≡ 1 (mod 48·n!)`; for `n = 3`,
+`48·3! = 288` and `577 = 2·288 + 1` is prime. -/
+example : 48 * Nat.factorial 3 = 288 ∧ 577 % 288 = 1 ∧ Nat.Prime 577 := by
+  refine ⟨by decide, by decide, by norm_num⟩
+
+/-- `ML.3/sato-tate-elliptic-curves`: the Sato–Tate density `(2/π) sin² θ` has total mass one, since
+`∫₀^π sin² θ dθ = π / 2`. -/
+example : ∫ θ in (0 : ℝ)..Real.pi, Real.sin θ ^ 2 = Real.pi / 2 := by
+  rw [integral_sin_sq]
+  simp
+
+/-- `ML.3/accessible-regular-refinement`: the ratio `α/β = -1` is `2`-regular but not `3`-regular. -/
+example : ((-1 : ℤ) ^ 1 ≠ 1) ∧ (-1 : ℤ) ^ 2 = 1 := by decide
 
 end TauCeti.PotentialAutomorphy.SuggestedTest

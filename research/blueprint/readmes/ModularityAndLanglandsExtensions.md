@@ -10,7 +10,7 @@ normalisation and version registers.
 | ML.0 | `partial`: BLGGT normalisation register, v1 → v4 version register |
 | ML.1 | `not_read` |
 | ML.2 | `partial`: BLGGT §§1.4, 2.1–2.4, 3, 4, 5.4–5.5 (30 nodes) |
-| ML.3 | `not_read` |
+| ML.3 | `partial`: Newton–Thorne I, II (statement level); Sato–Tate for elliptic curves over ℚ |
 | ML.4 | `not_read` |
 | ML.5 | `not_read` |
 
@@ -97,7 +97,44 @@ v4 adds §2.2 (lemmas on automorphy) and §5.2 (rational compatible systems). PM
 - `irreducibility-density-one` (Theorem 5.5.2). Uses the Rankin–Selberg pole at s = 1.
 - `decomposition-into-irreducible-systems` (Theorem 5.5.3).
 
-## Mistakes found in the source (BLGGT arXiv v4)
+## Layer ML.3: symmetric powers and Sato–Tate (`TauCeti/NumberTheory/SymmetricPower/…`)
+
+Checkpoint 2 (cc-39fac3). Sources:
+- Newton–Thorne, *Symmetric power functoriality for holomorphic modular forms* I (arXiv:1912.11261v3) and II (arXiv:2009.07180v2);
+- Kedlaya's notes, Chapter 24.
+
+The Newton–Thorne proofs are recorded at statement and architecture level; see the gap.
+
+**Definitions.**
+- **`symmetric-power-lifting`**. Π on GL_n(𝔸_ℚ) with rec(Π_v) = Sym^{n−1}rec(π_v), and the Galois criterion through ML.2's `automorphic-galois-representation`.
+  - *API:* `SymPowerLift`, `of_galois`, `unique`, `twist`, `lFunction`.
+  - *Tests:* Sym¹π = π; Gelbart–Jacquet; the non-cuspidal CM case; n = 1.
+- **`accessible-regular-refinement`**. Accessible refinements are subquotients of the Jacquet module; n-regular means (χ₁/χ₂)^i ≠ 1 for i < n. An accessible refinement exists iff π_l is not supercuspidal.
+  - *Tests:* unramified; Steinberg; supercuspidal; α/β = −1.
+
+**NT I.**
+- **`eigenvariety-propagation`** (Theorem 2.33, planet). Automorphy of Sym^{n−1} is constant on eigencurve components.
+- `buzzard-kilford-eigencurve`: the annuli X_i with slope i·v₂(w).
+- **`level-one-ping-pong`** (Theorem D, planet).
+- `reducible-deformation-finiteness` (Theorem 5.2).
+- `steinberg-level-raising` (Theorems 4.1, 6.1, 7.1).
+- `one-level-one-symmetric-power` (Theorem E): a theta-series congruence, small image, large p.
+- **`level-one-symmetric-powers`** (Theorem A, planet).
+- `n-regular-congruences` (Proposition 8.3).
+- `non-supercuspidal-symmetric-powers` (Theorem B, Corollary C).
+
+**NT II.**
+- **`symmetric-power-automorphy-lifting`** (Theorem 2.1, planet). Patching P → R with regularity of Spec P at Sym^{n−1}r_{π′}, with no dual Selmer killing.
+- **`non-cm-symmetric-powers`** (Theorem A, Corollary B, planet).
+- `cm-and-weight-one-symmetric-powers` (Theorem A.1).
+
+**Sato–Tate.**
+- `l-function-equidistribution-criterion` (Kedlaya Theorem 24.2 and the Weyl criterion).
+- **`sato-tate-elliptic-curves`** (planet). K = SU(2), irreducible representations Sym^n, and L(Sym^nE, s + n/2) entire and nonvanishing on Re s ≥ 1. Potential automorphy (ML.2) would already suffice.
+
+## Mistakes found in the sources
+
+### BLGGT arXiv v4
 
 - **E1 (p. 32).** The polarized-automorphic parity condition is written with µ ("µ_v(−1) = (−1)^n … replacing µ by µδ_{F/F⁺}") where the pair's character is χ.
 - **E2 (§4.5, pp. 59–61).** Index and reference slips:
@@ -109,6 +146,14 @@ v4 adds §2.2 (lemmas on automorphy) and §5.2 (rational compatible systems). PM
 
 All three are misprints that change no stated result. The Annals version could not be collated.
 
+### Kedlaya, Notes on analytic number theory, Chapter 24
+
+- **E4 (p. 134, misprint).** The definition of complex multiplication is reversed: "the only endomorphisms … are multiplication by integers" defines not having CM.
+- **E5 (Theorem 24.6, p. 135, error).**
+  - Clozel–Harris–Shepherd-Barron–Taylor give meromorphic continuation, holomorphic and nonvanishing on Re s ≥ 1 + n/2. They do not give holomorphy on ℂ, which is Newton–Thorne 2021.
+  - The abscissa is 1 + n/2, not 3/2, and the shift is n/2, not 1/2.
+- **E6 (Conjecture 24.3, p. 134, misprint).** "at most c values of i with N(x_i) ≤ c" should read N(x_i) = n.
+
 ## Remaining work
 
 - **ML.0:** registers for Newton–Thorne, Arthur/Mok/KMSW.
@@ -118,9 +163,16 @@ All three are misprints that change no stated result. The Annals version could n
   - BLGGT Appendix A;
   - v4 §5.2 (rational compatible systems), which belongs to PM R24.5;
   - the cited Thorne, GHTT and BLGHT11 proofs.
-- **ML.3–ML.5:** not read.
+- **ML.3:**
+  - the Newton–Thorne proofs;
+  - ACC+ Sato–Tate over CM fields;
+  - the Hilbert case (Newton–Thorne, arXiv:2212.03595).
+- **ML.4–ML.5:** not read. ML.3's residual automorphy of theta-series symmetric powers uses ML.4's classification (gap).
 - The unreviewed EXT-12 draft is a lead for ML.1, ML.3 and ML.4.
 
 ## Sources
 
 - T. Barnet-Lamb, T. Gee, D. Geraghty and R. Taylor, *Potential automorphy and change of weight*, arXiv:1010.2561v4 (9 December 2013), sha256 c953df6…; Ann. of Math. (2) 179 (2014), 501–609. arXiv v1 (sha 697e2d3…) was compared for the version register.
+- J. Newton and J. A. Thorne, *Symmetric power functoriality for holomorphic modular forms*, arXiv:1912.11261v3 (sha256 6d50b55…), Publ. Math. IHÉS 134 (2021).
+- J. Newton and J. A. Thorne, *Symmetric power functoriality for holomorphic modular forms, II*, arXiv:2009.07180v2 (sha256 0f08214…), Publ. Math. IHÉS 134 (2021).
+- K. S. Kedlaya, *Notes on analytic number theory* (21 December 2025), Chapter 24.
