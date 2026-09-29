@@ -237,17 +237,24 @@
        "library": "partial",
        "declarations": [
         {
-         "name": "IsDedekindDomain.HeightOneSpectrum.completionAlgHom",
-         "library": "tauceti",
-         "file": "TauCeti/NumberTheory/NumberField/LocalGlobal/Completion.lean",
+         "name": "NumberField.FinitePlace.equivHeightOneSpectrum_symm_apply_algebraMap",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Completion/FinitePlace.lean",
+         "line": 478,
+         "fit": "special case"
+        },
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.valuation_liesOver",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/RamificationInertia/Valuation.lean",
          "line": 57,
          "fit": "related"
         },
         {
-         "name": "NumberField.InfinitePlace.comap",
+         "name": "NumberField.InfinitePlace.comap_apply",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
-         "line": 47,
+         "line": 60,
          "fit": "related"
         },
         {
@@ -258,21 +265,14 @@
          "fit": "related"
         },
         {
-         "name": "IsDedekindDomain.HeightOneSpectrum.completionAlgHom_comp",
+         "name": "IsDedekindDomain.HeightOneSpectrum.completionAlgHom",
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/NumberField/LocalGlobal/Completion.lean",
-         "line": 147,
-         "fit": "related"
-        },
-        {
-         "name": "IsDedekindDomain.HeightOneSpectrum.valuation_liesOver",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/RamificationInertia/Valuation.lean",
          "line": 57,
          "fit": "related"
         }
        ],
-       "note": "The ingredients are present: comap of infinite places and `mult_mul_finrank` at the archimedean places, and at finite places Mathlib's `valuation_liesOver` (`v.valuation K x ^ e = w.valuation L x`) with the completion algebra map and its tower compatibility. But there is no theorem relating `normalizedAbsValue` over L at w to `normalizedAbsValue` over K at w|K with the local degree as exponent; nothing in `Global/Places/` mentions a finite extension."
+       "note": "Finite places: Mathlib proves |x|_w = |x|_v^(e·f) (`NumberField.FinitePlace.equivHeightOneSpectrum_symm_apply_algebraMap`) for the normalized adic absolute value, which is what `normalizedAbsValue (Sum.inl v)` is by `rfl` (`normalizedAbsValue_inl`); `valuation_liesOver` is the same statement at the level of valuations. Infinite places: `comap_apply` with `mult_mul_finrank` gives the formula with exponent [L_w : K_v]. Missing: the statement for `normalizedAbsValue` on `Place L` and `Place K`, and at finite places the identification of e·f with `Module.finrank (v.adicCompletion K) (w.adicCompletion L)`."
       }
      ],
      "duplicates": [
@@ -1028,7 +1028,7 @@
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding/FundamentalCone.lean",
          "line": 179,
-         "fit": "special case"
+         "fit": "related"
         },
         {
          "name": "NumberField.mixedEmbedding.logMap",
@@ -1045,7 +1045,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib has the trivial-modulus case (`fundamentalCone`, for the full unit group, with measurability), but no fundamental domain for the congruence unit subgroup carrying prescribed signs, and no Lipschitz-parametrizability of its frontier."
+       "note": "Mathlib has `fundamentalCone` with measurability, but it is a fundamental domain for (𝓞 K)ˣ modulo torsion and is stable under the torsion (`torsion_smul_mem_of_mem`). A set meeting each (𝓞 K)ˣ-orbit once is a 1/w_K part of it, so the trivial modulus does not recover `fundamentalCone`, and the torsion of the congruence unit group must be divided out in the main term, as Mathlib's ideal count divides by `torsionOrder K`. There is no fundamental domain for the congruence unit subgroup carrying prescribed signs, and no Lipschitz-parametrizability of its frontier."
       },
       {
        "target": "3D: `rayClassIdealCountingFunction`, `rayClassIdealMainTerm` and the export `rayClassIdealCount` with a uniform exponent δ > 0",
@@ -1137,35 +1137,35 @@
          "fit": "exact"
         },
         {
+         "name": "RestrictedProduct.evalRingHom",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+         "line": 346,
+         "fit": "more general"
+        },
+        {
+         "name": "RestrictedProduct.single",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+         "line": 483,
+         "fit": "more general"
+        },
+        {
+         "name": "RestrictedProduct.isOpenEmbedding_structureMap",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 383,
+         "fit": "more general"
+        },
+        {
          "name": "IsDedekindDomain.FiniteAdeleRing.ofAdicCompletion",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
          "line": 190,
          "fit": "exact"
-        },
-        {
-         "name": "IsDedekindDomain.HeightOneSpectrum.Support.finite",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
-         "line": 51,
-         "fit": "related"
-        },
-        {
-         "name": "RestrictedProduct",
-         "library": "mathlib",
-         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
-         "line": 79,
-         "fit": "more general"
-        },
-        {
-         "name": "IsDedekindDomain.FiniteAdeleRing.forall_algebraMap_mem_adicCompletionIntegers_iff",
-         "library": "tauceti",
-         "file": "TauCeti/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
-         "line": 51,
-         "fit": "related"
         }
        ],
-       "note": "The carrier is Mathlib's and is by definition a `RestrictedProduct` with a `DFunLike` projection, but the file is 200 lines: there is no integral subring, no single-place support API, and only the one TauCeti lemma characterising everywhere-integral principal adeles."
+       "note": "The carrier is a `RestrictedProduct`, and Mathlib's general API gives projections (`evalRingHom`), single-place elements (`single`, the additive form of `mulSingle`, with `singleAddMonoidHom` and `single_mul`) and the open integral part (`structureMap`, `isOpenEmbedding_structureMap`). Mathlib specialises only the multiplicative single-place map to `FiniteAdeleRing` (`ofAdicCompletion`), Tau Ceti adds `forall_algebraMap_mem_adicCompletionIntegers_iff` for everywhere-integral principal adeles, and there is no integral subring as a `Subring`. Missing: the specialisation of this API to `FiniteAdeleRing` and its simp API."
       },
       {
        "target": "local compactness of the finite adele ring",
@@ -1212,9 +1212,16 @@
          "file": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
          "line": 166,
          "fit": "exact"
+        },
+        {
+         "name": "RestrictedProduct.unitsEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Units.lean",
+         "line": 84,
+         "fit": "more general"
         }
        ],
-       "note": "Mathlib has the unit criterion and the embedding of `Kˣ`, but not the topology on the unit group or its restricted-product description."
+       "note": "Mathlib has the unit criterion (`isUnit_iff`), the embedding of `Kˣ`, the units topology by instance, and the algebraic restricted-product description `RestrictedProduct.unitsEquiv`, through which `unitsEquiv_finite_valued_eq_one` is stated. Missing: that `unitsEquiv` is a homeomorphism for the restricted-product topology on Πʳ v, [(K_v)ˣ, (O_v)ˣ], and the topological-group API of the finite ideles."
       },
       {
        "target": "agreement of the diagonal embedding with the finite completion maps",
@@ -1646,6 +1653,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
        "note": "Needs the open-subgroup/ray-subgroup dictionary for the existence theorem; it consumes this layer rather than restating it."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+       "note": "Plans `isOpen_raySubgroup` and `finiteIndex_raySubgroup` for the same `RaySubgroup 𝔪`. Openness is this layer's target, and finite index follows from `rayClassQuotient`'s surjectivity, `ker_rayClassQuotient` and `finite_rayClassGroup`, so Class Field Theory should consume both from here, as it already consumes `ker_rayClassQuotient`."
       }
      ]
     },
@@ -1654,8 +1665,22 @@
      "targets": [
       {
        "target": "`adeleExtension`, `finiteAdeleExtension`, `infiniteAdeleExtension` as continuous ring homomorphisms, with `adeleExtension_algebraMap`",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
+        {
+         "name": "RestrictedProduct.mapAlongRingHom",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+         "line": 458,
+         "fit": "more general"
+        },
+        {
+         "name": "RestrictedProduct.mapAlong_continuous",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 655,
+         "fit": "more general"
+        },
         {
          "name": "IsDedekindDomain.HeightOneSpectrum.completionAlgHom",
          "library": "tauceti",
@@ -1664,21 +1689,21 @@
          "fit": "related"
         },
         {
-         "name": "IsDedekindDomain.HeightOneSpectrum.continuous_completionAlgHom",
+         "name": "IsDedekindDomain.HeightOneSpectrum.adicCompletionExtension_mem_adicCompletionIntegers",
          "library": "tauceti",
-         "file": "TauCeti/NumberTheory/NumberField/LocalGlobal/Completion.lean",
-         "line": 77,
+         "file": "TauCeti/RingTheory/DedekindDomain/AdicCompletionExtension.lean",
+         "line": 393,
          "fit": "related"
         },
         {
-         "name": "NumberField.InfinitePlace.comap",
+         "name": "NumberField.LiesOver.completionMap",
          "library": "mathlib",
-         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
-         "line": 47,
+         "file": "Mathlib/NumberTheory/NumberField/Completion/LiesOverInstances.lean",
+         "line": 31,
          "fit": "related"
         }
        ],
-       "note": "TauCeti has the placewise map `K_v → L_w` with continuity and tower compatibility, which is the local input, but no extension map on adele rings is assembled."
+       "note": "`finiteAdeleExtension` is `RestrictedProduct.mapAlongRingHom` along `HeightOneSpectrum.under` (whose fibres are finite by `primesOver_finite`, so it tends cofinite to cofinite) with the local maps `completionAlgHom`, which preserve integers (`adicCompletionExtension_mem_adicCompletionIntegers`); its continuity is `mapAlong_continuous` with `continuous_completionAlgHom`. `infiniteAdeleExtension` is the finite product of Mathlib's archimedean `LiesOver.completionMap`, continuous by `continuous_completionMap`. Missing: the assembled maps, `adeleExtension_algebraMap` and the 𝔸_K-algebra structure on 𝔸_L."
       },
       {
        "target": "the placewise Galois action on adeles, with continuity",
@@ -2233,7 +2258,7 @@
          "fit": "more general"
         }
        ],
-       "note": "The one Mathlib input the layer names, `InfinitePlace.IsReal.comap`, exists; everything built on it does not. For `Hom.mapPic` alone Mathlib's `CommRing.Pic.mapRingHom` already induces `Pic R →* Pic S` along any ring homomorphism (through `ClassGroup.equivPic` for orders), so the layer's warning that an arbitrary ring homomorphism induces no map applies to `NarrowPic` but not to `Pic`; `NumberFieldOrder.Hom`, `pos_of_totallyPos`, `mapNarrowPic` and `narrowToPic_natural` are absent."
+       "note": "The one Mathlib input the layer names, `InfinitePlace.IsReal.comap`, exists; everything built on it does not. Mathlib's `CommRing.Pic.mapRingHom` gives `Pic` functoriality along any ring homomorphism (through `ClassGroup.equivPic` for orders). Any ring homomorphism between orders of number fields is injective (a nonzero prime of the source contains a nonzero integer, which cannot map to 0 in characteristic zero) and extends uniquely to the fraction fields, where it preserves total positivity (`IsReal.comap`), so the narrow half is also induced by an arbitrary ring homomorphism. The roadmap's warning is false for both; `NumberFieldOrder.Hom` is a convenient packaging, since the field embedding it carries is determined by the ring map, not a mathematical necessity. `NumberFieldOrder.Hom`, `pos_of_totallyPos`, `mapNarrowPic` and `narrowToPic_natural` are absent."
       },
       {
        "target": "the ℚ(∛2) regression example: `A = 8ℤ + 2ℤα + 2ℤα²` proper but noninvertible in `O = ℤ + 2ℤα + 2ℤα²`",
@@ -2260,7 +2285,7 @@
    }
   },
   "tauceti:TauCetiRoadmap/GlobalQuadraticForms": {
-   "summary": "Layer 0 is built except the Hasse-invariant and real-signature compatibilities of localization, and Layer 1 is most of the way there; everything from Layer 2 on is blocked on one missing supplier. TauCeti's TauCeti/NumberTheory/QuadraticForm/Global/ carries exactly the objects Layer 0 prescribes: atFinitePlace, atRealPlace and the complex base change as definitions around QuadraticForm.baseChange on genuine tensor products, with evaluation, diagonal-localization and discriminant-localization lemmas; the four local predicates IsLocallyIsotropic, LocallyRepresents, LocallyRepresentsScalar and LocallyEquivalent, computed rather than stored, with all their implications and the equal-rank consequence; the \"adjoining a complex clause changes nothing\" lemmas; and the tower comparison atFinitePlaceBaseChange that the quaternary case of 5.1 needs. Complex-place automaticity is proved over any algebraically closed field in TauCeti/LinearAlgebra/QuadraticForm/Complex.lean. For Layer 1, Mathlib now has the signature carrier (sigPos, sigNeg, with the uniqueness half of Sylvester's law) and TauCeti has real classification by signature, the realizing form realSignatureForm, and the scaling and orthogonal-sum API; only the determinant-sign formula, base change along two representatives of a real place, and the Hasse sign of the signature form are missing. The block is the local invariants: there is no Hilbert symbol, no localHasse, no local classification of quadratic forms over a nonarchimedean local field and no Witt ring anywhere in the baseline, so Layer 2 cannot define finiteHasse, Layer 3 cannot define its carrier, Layer 4 cannot state the Hilbert product formula or sign prescription, and Layers 5 to 9 - Hasse-Minkowski itself, representation and isometry, existence from admissible systems, the classification, and every worked example - are absent. The field-generic tools those proofs need are in place in TauCeti (Witt cancellation, the Witt extension theorem, hyperbolic planes and their universality, binary normal forms, representation, diagonalization), as is the weak approximation theorem Layer 4.1 is the vector form of; but the two global inputs the roadmap pins, the idele-class norm index and the Hilbert product formula, belong to Class Field Theory and are absent, and the global square theorem and sign prescription cannot be proved without them.",
+   "summary": "Layer 0 is built except the Hasse-invariant and real-signature compatibilities of localization and the real-place half of the tower comparison, and Layer 1 is most of the way there; from Layer 2 on, most targets wait on two missing suppliers, and several can be built now. TauCeti's TauCeti/NumberTheory/QuadraticForm/Global/ carries exactly the objects Layer 0 prescribes: atFinitePlace, atRealPlace and the complex base change as definitions around QuadraticForm.baseChange on genuine tensor products, with evaluation, diagonal-localization and discriminant-localization lemmas; the four local predicates IsLocallyIsotropic, LocallyRepresents, LocallyRepresentsScalar and LocallyEquivalent, computed rather than stored, with all their implications and the equal-rank consequence; the \"adjoining a complex clause changes nothing\" lemmas; and the tower comparison at finite places, atFinitePlaceBaseChange (the real-place comparison, which the quaternary case of 5.1 also needs, is missing). Complex-place automaticity is proved over any algebraically closed field in TauCeti/LinearAlgebra/QuadraticForm/Complex.lean. For Layer 1, Mathlib now has the signature carrier (sigPos, sigNeg, with the uniqueness half of Sylvester's law) and TauCeti has real classification by signature, the realizing form realSignatureForm, and the scaling and orthogonal-sum API; only the determinant-sign formula, base change along two representatives of a real place, and the Hasse sign of the signature form are missing. The first missing supplier is Quadratic Form Invariants, which owns the local invariants: there is no hilbertSymbol, no localHasse, no local classification of quadratic forms over a nonarchimedean local field and no wittRing anywhere in the baseline, so Layer 2 cannot define finiteHasse, Layer 3 cannot construct globalInvariants Q (3.3), Layer 4 cannot state the Hilbert product formula or sign prescription, and Layers 5 to 9 - Hasse-Minkowski itself, representation and isometry, existence from admissible systems, the classification, and every worked example - are absent. The second is Class Field Theory, which owns the two global inputs the roadmap pins: the idele-class norm index card_ideleClassNormQuotient, with the idele norm maps and isGlobalNorm_iff_isLocalNormEverywhere, and hilbertProductFormula. Both are absent, and the global square theorem and sign prescription cannot be proved without them. What needs neither supplier can be built now: the 3.1 carrier GlobalFormInvariants (every field type exists: ℕ, TauCeti.SquareClassGroup K, a {±1}-valued function on the finite places and an ℕ-valued function on the real places) and the 3.2 definition IsAdmissible, whose five conditions are explicit (only 3.3 needs finiteHasse); the 4.1 vector weak approximation, from weakApproximation_denseRange with DenseRange.piMap; 4.5 away from the dyadic places; the field-generic quaternary descent (O'Meara 58:7) and O'Meara 42:12 of 5.1, whose tools are in TauCeti (Witt cancellation, the Witt extension theorem, hyperbolic planes and their universality, binary normal forms, representation, diagonalization); and Layer 7's rank-zero class.",
    "layers": {
     "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension": {
      "verdict": "partly built",
@@ -2305,7 +2330,49 @@
          "fit": "exact"
         }
        ],
-       "note": "Built on genuine tensor products over K (the file says so explicitly), with the evaluation lemmas, the diagonal-localization computation for all three kinds of place, and regularity preservation (`Nondegenerate.atComplexEmbedding`)."
+       "note": "Built on genuine tensor products over K (the file says so explicitly), with the evaluation lemmas, the diagonal-localization computation for all three kinds of place, and regularity preservation (`Nondegenerate.atComplexEmbedding`). The place and completion vocabulary is consumed from Global Number Fields Layer 0, not restated."
+      },
+      {
+       "target": "0.1 basic API: scalar extension of an isometry and of a representation, compatibility with `prod`, negation and scaling, preservation of rank and regularity",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "QuadraticMap.IsometryEquiv.baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/BaseChange.lean",
+         "line": 108,
+         "fit": "more general"
+        },
+        {
+         "name": "QuadraticMap.IsRepresentedBy.baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/BaseChange.lean",
+         "line": 326,
+         "fit": "more general"
+        },
+        {
+         "name": "QuadraticForm.baseChangeProd",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/BaseChange.lean",
+         "line": 248,
+         "fit": "more general"
+        },
+        {
+         "name": "QuadraticForm.baseChange_smul",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/BaseChange.lean",
+         "line": 306,
+         "fit": "more general"
+        },
+        {
+         "name": "QuadraticForm.Nondegenerate.baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/BaseChange.lean",
+         "line": 412,
+         "fit": "more general"
+        }
+       ],
+       "note": "Proved for `QuadraticForm.baseChange` along any algebra (`IsRepresentedBy.baseChange` along a flat one, `Nondegenerate.baseChange` for a finite-dimensional space over a field with 2 invertible); the localizations are that base change by `atFinitePlace_def`, `atRealPlace_def` and `atComplexEmbedding_def`. Negation is `baseChange_neg` (:292), representation of a scalar is `Represents.baseChange` (:200) and equivalence is `Equivalent.baseChange` (:195); rank is Mathlib's `Module.finrank_baseChange`."
       },
       {
        "target": "0.1 compatibility of the discriminant with localization",
@@ -2338,9 +2405,16 @@
          "file": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
          "line": 1280,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.RegularFormClass.discr",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/RegularFormClass/Discriminant.lean",
+         "line": 95,
+         "fit": "related"
         }
        ],
-       "note": "All three cases proved; the Hasse-invariant and real-signature halves of this API item are blocked on the missing supplier invariants."
+       "note": "All three cases proved; the Hasse-invariant and real-signature halves of this API item are blocked on the missing supplier invariants. Mathlib's `QuadraticForm.discr` is the Gram determinant for a chosen basis, valued in K, not a class in the square-class group; the discriminant class these statements concern is `TauCeti.RegularFormClass.discr`."
       },
       {
        "target": "0.1 compatibility of the Hasse invariant with localization",
@@ -2379,21 +2453,21 @@
       },
       {
        "target": "0.1 the tower item: for `w ∣ v`, the localization of `Q ⊗_K L` at `w` is the base change of `Q_v` along `K_v → L_w`",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "QuadraticForm.atFinitePlaceBaseChange",
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/QuadraticForm/Global/CompletionTower.lean",
          "line": 43,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "QuadraticForm.atFinitePlaceBaseChange_tmul",
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/QuadraticForm/Global/CompletionTower.lean",
          "line": 92,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "IsDedekindDomain.HeightOneSpectrum.completionAlgHom",
@@ -2401,9 +2475,16 @@
          "file": "TauCeti/NumberTheory/NumberField/LocalGlobal/Completion.lean",
          "line": 57,
          "fit": "related"
+        },
+        {
+         "name": "NumberField.InfinitePlace.comap_embedding_of_isReal",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
+         "line": 92,
+         "fit": "related"
         }
        ],
-       "note": "Exactly the one item the layer says needs a tower map, built on the Number Field Arithmetic `completionAlgHom`; it is what the quaternary case of 5.1 consumes."
+       "note": "Built at finite places on Number Field Arithmetic's `completionAlgHom` (`atFinitePlaceBaseChange`, with its value on pure tensors). Missing: the real-place comparison `atRealPlace (Q.baseChange L) w ≃ atRealPlace Q (w.comap (algebraMap K L))` for a real place w of L, which the quaternary case of 5.1 needs whenever K(√d) has real places; Mathlib's `comap_embedding_of_isReal` gives the identity of embeddings it rests on."
       },
       {
        "target": "0.2 `IsLocallyIsotropic`, `LocallyRepresents`, `LocallyRepresentsScalar`, `LocallyEquivalent`, with invariance and implications",
@@ -2491,10 +2572,6 @@
       }
      ],
      "duplicates": [
-      {
-       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
-       "note": "Shares the place and completion vocabulary and the comparison of `v.adicCompletion K` with local-field data; this layer consumes that and adds only the quadratic-form scalar extension."
-      },
       {
        "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
        "note": "Says it will integrate Witt groups, discriminants, Clifford/Hasse invariants, local classification and Hasse-Minkowski, plus lattices and genera: it covers this entire roadmap as one specification stage, and adds the integral theory this one excludes."
@@ -2598,9 +2675,16 @@
          "file": "TauCeti/LinearAlgebra/QuadraticForm/Real.lean",
          "line": 144,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.RegularFormClass.discr",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/RegularFormClass/Discriminant.lean",
+         "line": 95,
+         "fit": "related"
         }
        ],
-       "note": "Not found: `Real.lean` computes `sigPos` and `sigNeg` of the standard signature form but no statement relates the sign of the discriminant to the negative index."
+       "note": "Not found: `Real.lean` computes `sigPos` and `sigNeg` of the standard signature form but no statement relates the sign of the discriminant to the negative index. Its sign at a real place is basis-independent; Mathlib's `QuadraticForm.discr` is the Gram determinant for a chosen basis, valued in the base field, and the basis-free class is `TauCeti.RegularFormClass.discr`. Quadratic Form Invariants Layer 3 owns the discriminant; this layer relates its sign at a real place to the signature."
       },
       {
        "target": "1.2 real classification by signature, and realization of every `(p,q)` by `p⟨1⟩ ⊥ q⟨−1⟩`",
@@ -2668,10 +2752,6 @@
      ],
      "duplicates": [
       {
-       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group",
-       "note": "Owns the discriminant and the classical invariants; the real-signature invariant is stated here and the two must agree at a real place."
-      },
-      {
        "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
        "note": "Says it will integrate Witt groups, discriminants, Clifford/Hasse invariants, local classification and Hasse-Minkowski, plus lattices and genera: it covers this entire roadmap as one specification stage, and adds the integral theory this one excludes."
       }
@@ -2699,11 +2779,11 @@
          "fit": "exact"
         },
         {
-         "name": "QuadraticMap.orthogonalDetSquareClass",
+         "name": "TauCeti.RegularFormClass.discr_baseChange",
          "library": "tauceti",
-         "file": "TauCeti/LinearAlgebra/QuadraticForm/DetSquareClass.lean",
-         "line": 36,
-         "fit": "related"
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/RegularFormClass/BaseChange.lean",
+         "line": 334,
+         "fit": "more general"
         },
         {
          "name": "QuadraticForm.discr",
@@ -2713,7 +2793,7 @@
          "fit": "related"
         }
        ],
-       "note": "Proved for finite, real and complex places: the discriminant of the localization is the image of the global discriminant under the place map."
+       "note": "Proved for finite, real and complex places: the discriminant of the localization is the image of the global discriminant under the place map. Mathlib's `QuadraticForm.discr` is the Gram determinant for a chosen basis, valued in K, not a class in the square-class group; the discriminant class these statements concern is `TauCeti.RegularFormClass.discr`."
       },
       {
        "target": "2.1 `finiteHasse Q v` from the supplier's `localHasse`, with independence of diagonalization and compatibility with sum, negation, scaling and isometry",
@@ -2758,10 +2838,6 @@
      ],
      "duplicates": [
       {
-       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-       "note": "Owns the Hilbert symbol and `localHasse`, which this roadmap consumes; neither exists in the baseline, which is why every Hasse-invariant milestone here is blocked."
-      },
-      {
        "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
        "note": "Says it will integrate Witt groups, discriminants, Clifford/Hasse invariants, local classification and Hasse-Minkowski, plus lattices and genera: it covers this entire roadmap as one specification stage, and adds the integral theory this one excludes."
       }
@@ -2775,21 +2851,35 @@
        "library": "absent",
        "declarations": [
         {
-         "name": "QuadraticForm.discr",
-         "library": "mathlib",
-         "file": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
-         "line": 1280,
+         "name": "TauCeti.SquareClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/SquareClassGroup/Basic.lean",
+         "line": 44,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.RegularFormClass.discr",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/RegularFormClass/Discriminant.lean",
+         "line": 95,
          "fit": "related"
         },
         {
-         "name": "QuadraticForm.sigPos",
+         "name": "RingHom.squareClassMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/SquareClassGroup/Multiplicative.lean",
+         "line": 148,
+         "fit": "related"
+        },
+        {
+         "name": "sigPos",
          "library": "mathlib",
          "file": "Mathlib/LinearAlgebra/QuadraticForm/Signature.lean",
          "line": 65,
          "fit": "related"
         }
        ],
-       "note": "Absent; two of the four fields have carriers (the discriminant and the positive index) and two do not."
+       "note": "Absent as a structure. Every field type is available: ℕ for the rank; `TauCeti.SquareClassGroup K` for the discriminant class (the target of `TauCeti.RegularFormClass.discr`, with `RingHom.squareClassMap` for restriction to one place); a {±1}-valued function on `HeightOneSpectrum (𝓞 K)` for the finite Hasse signs; and an ℕ-valued function on the real places, with Mathlib's `sigPos` as the value for a form. Only the structure and its API (extensionality, finite support, local triples) are missing."
       },
       {
        "target": "3.2 `GlobalFormInvariants.IsAdmissible` with its five conditions, including the two small-rank realization exceptions",
@@ -2813,10 +2903,6 @@
       }
      ],
      "duplicates": [
-      {
-       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-       "note": "Owns the Hilbert symbol and `localHasse`, which this roadmap consumes; neither exists in the baseline, which is why every Hasse-invariant milestone here is blocked."
-      },
       {
        "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
        "note": "Says it will integrate Witt groups, discriminants, Clifford/Hasse invariants, local classification and Hasse-Minkowski, plus lattices and genera: it covers this entire roadmap as one specification stage, and adds the integral theory this one excludes."
@@ -2845,7 +2931,7 @@
          "fit": "related"
         }
        ],
-       "note": "The scalar statement it is derived from is proved in TauCeti with exactly the name the layer cites; the vector form on a finite-dimensional space is not stated anywhere."
+       "note": "The scalar statement it is derived from is proved in TauCeti with exactly the name the layer cites; the vector form on a finite-dimensional space is not stated anywhere. The scalar theorem is supplied by Global Number Fields Layer 1 (`weakApproximation_denseRange`, built), and the vector form follows from it with Mathlib's `DenseRange.piMap`."
       },
       {
        "target": "4.2 the global square theorem: a square at almost every finite place is a global square",
@@ -2879,7 +2965,7 @@
          "fit": "related"
         }
        ],
-       "note": "Absent. There is no Hilbert symbol in either library, so neither the product formula nor the existence half (sign prescription) can be stated; the layer is explicit that the existence half needs the norm index and is not a corollary of reciprocity."
+       "note": "Absent. There is no Hilbert symbol in either library, so neither the product formula nor the existence half (sign prescription) can be stated; the layer is explicit that the existence half needs the norm index and is not a corollary of reciprocity. Quadratic Form Invariants 6C owns the Hilbert symbol, and Class Field Theory Layer 14 owns `hilbertProductFormula` in cohomological form; 4.4 transports it to the norm-equation symbol."
       },
       {
        "target": "4.5 openness and continuity: continuity of a base-changed form in coordinates, `(K_vˣ)²` open, `ℝˣ² = ℝ_{>0}` open, stability of represented values under squares",
@@ -2905,25 +2991,26 @@
          "file": "TauCeti/NumberTheory/QuadraticForm/Global/Localization.lean",
          "line": 261,
          "fit": "related"
+        },
+        {
+         "name": "QuadraticMap.represents_mul_sq_iff",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/Representation.lean",
+         "line": 282,
+         "fit": "more general"
+        },
+        {
+         "name": "QuadraticMap.mem_unitValueSet_mul_sq_iff",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/Representation.lean",
+         "line": 289,
+         "fit": "more general"
         }
        ],
-       "note": "TauCeti proves openness of the n-th power subgroup of a local field when n is a unit of the integers, which gives `(K_vˣ)²` open at odd residue characteristic; the dyadic case is exactly the missing regime of the Local Fields roadmap's Layer 1, and the two continuity items are not stated."
+       "note": "TauCeti proves openness of the n-th power subgroup of a local field when n is a unit of the integers, which gives `(K_vˣ)²` open at odd residue characteristic; the dyadic case is exactly the missing regime of the Local Fields roadmap's Layer 1, and the two continuity items are not stated. Stability of represented values under multiplication by a unit square is built over any commutative ring (`represents_mul_sq_iff`, `mem_unitValueSet_mul_sq_iff`), so the missing items are the dyadic openness of (K_vˣ)² and the two continuity items."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
-       "note": "Supplies `weakApproximation_denseRange`, which 4.1 is the vector form of; that supplier is built."
-      },
-      {
-       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
-       "note": "Owns `hilbertProductFormula` in cohomological form; 4.4's localized product formula is the transport of it to the norm-equation symbol, and the roadmaps agree on that division."
-      },
-      {
-       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-       "note": "Owns the Hilbert symbol and `localHasse`, which this roadmap consumes; neither exists in the baseline, which is why every Hasse-invariant milestone here is blocked."
-      }
-     ]
+     "duplicates": []
     },
     "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy": {
      "verdict": "not built",
@@ -2988,7 +3075,7 @@
          "fit": "related"
         }
        ],
-       "note": "The tower base change the descent needs is built (0.1), and so are the representation and hyperbolic-plane criteria the descent proof uses; neither named lemma is stated."
+       "note": "The field-generic descent (O'Meara 58:7) and O'Meara 42:12 have their inputs built, the representation and hyperbolic-plane criteria the descent proof uses, but neither named lemma is stated. The local-to-global use of the descent needs the tower base change of 0.1 at every place of K(√d), and that is built at finite places only (`atFinitePlaceBaseChange`); the real-place comparison is missing."
       },
       {
        "target": "5.2 the finiteness boundary: why rank four is not the general induction, with the ⟨1,1⟩ over ℚ witness",
@@ -3042,10 +3129,6 @@
       {
        "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
        "note": "Says it will integrate Witt groups, discriminants, Clifford/Hasse invariants, local classification and Hasse-Minkowski, plus lattices and genera: it covers this entire roadmap as one specification stage, and adds the integral theory this one excludes."
-      },
-      {
-       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-       "note": "Owns the Hilbert symbol and `localHasse`, which this roadmap consumes; neither exists in the baseline, which is why every Hasse-invariant milestone here is blocked."
       }
      ]
     },
@@ -3218,10 +3301,6 @@
      ],
      "duplicates": [
       {
-       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-       "note": "Owns the Hilbert symbol and `localHasse`, which this roadmap consumes; neither exists in the baseline, which is why every Hasse-invariant milestone here is blocked."
-      },
-      {
        "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
        "note": "Says it will integrate Witt groups, discriminants, Clifford/Hasse invariants, local classification and Hasse-Minkowski, plus lattices and genera: it covers this entire roadmap as one specification stage, and adds the integral theory this one excludes."
       }
@@ -3268,7 +3347,7 @@
        "target": "8.3 injectivity of the global-to-local Witt map",
        "library": "absent",
        "declarations": [],
-       "note": "Absent, and explicitly gated on the supplier's `wittRing`, which does not exist: grep for `wittRing` in a quadratic-form sense returns nothing."
+       "note": "Absent, and explicitly gated on the supplier's `wittRing` (Quadratic Form Invariants Layer 4), which does not exist: grep for `wittRing` in a quadratic-form sense returns nothing."
       },
       {
        "target": "8.4 `equivalent_of_locallyEquivalent`, the SO-kernel consequence",
@@ -3293,10 +3372,6 @@
       }
      ],
      "duplicates": [
-      {
-       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal",
-       "note": "Owns `wittRing` and the fundamental ideal; 8.3 is explicitly gated on that supplier and defines no stand-in."
-      },
       {
        "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
        "note": "Says it will integrate Witt groups, discriminants, Clifford/Hasse invariants, local classification and Hasse-Minkowski, plus lattices and genera: it covers this entire roadmap as one specification stage, and adds the integral theory this one excludes."
@@ -3366,7 +3441,7 @@
    }
   },
   "tauceti:TauCetiRoadmap/LocalFieldsRamification": {
-   "summary": "The libraries have the foundational half of this roadmap and essentially none of the ramification theory. Mathlib supplies IsNonarchimedeanLocalField with its consequences (discrete valuation ring of integers, finite residue field, compact integers, value group isomorphic to Z^m0), the instance for Q_p, the spectral norm and Krasner's lemma, Eisenstein polynomials, differentIdeal with its unramified criterion and tower transitivity, a general arithmetic Frobenius IsArithFrobAt for invariant extensions, the inertia subgroup of a valuation subring, and finite fields. TauCeti adds, sorry-free, the normalized valuation and absolute value with a full API, the unit filtration with both membership forms and all its point-set properties, both graded pieces separately, the Teichmuller lift with its uniqueness characterisation and mu_{q-1} = k^x, Henselianity of the integer ring, openness and closedness of the power subgroup in the prime-to-residue-characteristic regime, and the separable-closure comparison that Layer 4 asks for as its ambient model. What is genuinely missing is large and coherent: the whole finite-extension package of Layer 0 (no finiteExtensionNormedField, no finiteExtensionValuativeRel, no uniqueness of the extended valuation, no intrinsic e and f, no natCastValuation, no absoluteRamificationIndex), the structure of K^x as Z x O^x and O^x as mu x U(1), the local logarithm on deep units and every consequence of it (the power-class counts, the mixed-characteristic openness regime, the deep-units-are-squares threshold and its sharpness), all of Layer 2 (the local unramified predicate, the residue correspondence, frobeniusAlgEquiv, K_f, K^ur, the norm group and the norm-equation criterion), and all of Layers 3 and 4. In particular Mathlib defines no higher ramification group in either numbering - RingTheory/Valuation/RamificationGroup.lean stops at the inertia subgroup - TauCeti has lower-numbering groups only for places of function fields (TauCeti.Place.ramificationGroup), and there is no Herbrand function, no Hasse-Arf, no tame/wild predicate, no local monogenicity, no tame character and no Iwasawa presentation. Of the pro-p supplier this roadmap type-checks against, TauCeti already has the Sylow half under TauCeti names (TauCeti.IsProP, IsProPSylow, exists_isProPSylow, IsProP.exists_le_isProPSylow, IsProPSylow.eq_of_normal); IsProPSylow.map_of_surjective, freeProfiniteGroup and presentedProfiniteGroup do not exist.",
+   "summary": "The libraries have the foundational half of this roadmap and essentially none of the ramification theory. Mathlib supplies IsNonarchimedeanLocalField with its consequences (discrete valuation ring of integers, finite residue field, compact integers, value group isomorphic to Z^m0), the instance for Q_p, the spectral norm and Krasner's lemma, Eisenstein polynomials, differentIdeal with its unramified criterion and tower transitivity, a general arithmetic Frobenius IsArithFrobAt for invariant extensions, the inertia subgroup of a valuation subring, and finite fields. TauCeti adds, sorry-free, the normalized valuation and absolute value with a full API, the unit filtration with both membership forms and all its point-set properties, both graded pieces separately, the Teichmuller lift with its uniqueness characterisation and mu_{q-1} = k^x, Henselianity of the integer ring, openness and closedness of the power subgroup in the prime-to-residue-characteristic regime, and the separable-closure comparison that Layer 4 asks for as its ambient model. What is genuinely missing is large and coherent: the whole finite-extension package of Layer 0 (no finiteExtensionNormedField, no finiteExtensionValuativeRel, no uniqueness of the extended valuation, no intrinsic e and f at the local-field level (Valuation.ordIndex and TauCeti.Place give them in equal characteristic only), no natCastValuation, no absoluteRamificationIndex), the structure of K^x as Z x O^x and O^x as mu x U(1), the local logarithm on deep units and every consequence of it (the power-class counts, the mixed-characteristic openness regime, the deep-units-are-squares threshold and its sharpness), all of Layer 2 (the local unramified predicate, the residue correspondence, frobeniusAlgEquiv, K_f, K^ur, the norm group and the norm-equation criterion), and all of Layers 3 and 4. In particular Mathlib defines no higher ramification group in either numbering - RingTheory/Valuation/RamificationGroup.lean stops at the inertia subgroup - TauCeti has lower-numbering groups only for places trivial on a constant subfield (TauCeti.Place.ramificationGroup), which include equal-characteristic local fields but not mixed-characteristic ones, and there is no Herbrand function, no Hasse-Arf, no tame/wild predicate, no local monogenicity, no tame character and no Iwasawa presentation. Of the pro-p supplier this roadmap type-checks against, TauCeti already has the Sylow half under TauCeti names (TauCeti.IsProP, IsProPSylow, exists_isProPSylow, IsProP.exists_le_isProPSylow, IsProPSylow.eq_of_normal); IsProPSylow.map_of_surjective, freeProfiniteGroup and presentedProfiniteGroup do not exist.",
    "layers": {
     "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions": {
      "verdict": "partly built",
@@ -3556,9 +3631,16 @@
          "file": "Mathlib/Analysis/Normed/Unbundled/SpectralNorm.lean",
          "line": 770,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.instMulActionAlgEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Galois.lean",
+         "line": 90,
+         "fit": "special case"
         }
        ],
-       "note": "Mathlib proves uniqueness in its absolute-value form (`spectralNorm_unique_field_norm_ext`: over a complete nonarchimedean base, every absolute value on an algebraic extension that extends the norm is the spectral norm) and has the decomposition and inertia subgroups of a valuation subring, which presuppose the action. Missing: the uniqueness statements the layer names (`Valuation.IsEquiv` of extended valuations, equality of `ValuativeRel` structures) and the induced map `Gal(L/K) → Gal(𝓀[L]/𝓀[K])` for local fields."
+       "note": "Mathlib proves uniqueness in its absolute-value form (`spectralNorm_unique_field_norm_ext`: over a complete nonarchimedean base, every absolute value on an algebraic extension that extends the norm is the spectral norm) and has the decomposition and inertia subgroups of a valuation subring, which presuppose the action. Missing: the uniqueness statements the layer names (`Valuation.IsEquiv` of extended valuations, equality of `ValuativeRel` structures) and the induced map `Gal(L/K) → Gal(𝓀[L]/𝓀[K])` for local fields. For places trivial on a constant subfield (`TauCeti.Place`), which include equal-characteristic local fields but not mixed-characteristic ones, TauCeti has the action of the automorphism group on places (`TauCeti.Place.instMulActionAlgEquiv`)."
       },
       {
        "target": "finite extensions III: `IsNonarchimedeanLocalField L`, `Algebra 𝒪[K] 𝒪[L]`, `Algebra 𝓀[K] 𝓀[L]`, freeness of 𝒪[L], `integerRing_eq_integralClosure`, the intermediate-field adapters",
@@ -3579,32 +3661,32 @@
        "library": "partial",
        "declarations": [
         {
-         "name": "Ideal.ramificationIdx",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
-         "line": 52,
-         "fit": "related"
-        },
-        {
-         "name": "Ideal.inertiaDeg",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/RamificationInertia/Inertia.lean",
-         "line": 44,
-         "fit": "related"
-        },
-        {
-         "name": "Ideal.sum_ramification_inertia",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/RamificationInertia/Basic.lean",
-         "line": 614,
+         "name": "Valuation.ordIndex",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Valuation/Discrete/Normalize.lean",
+         "line": 55,
          "fit": "more general"
         },
         {
-         "name": "Ideal.ramificationIdx_algebra_tower",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/RamificationInertia/Ramification.lean",
-         "line": 422,
-         "fit": "related"
+         "name": "TauCeti.Place.ramificationIdx",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 294,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Fundamental.lean",
+         "line": 77,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Place.ramificationIdx_restrict_mul",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Tower.lean",
+         "line": 80,
+         "fit": "special case"
         },
         {
          "name": "Ideal.sum_ramification_inertia_eq_finrank",
@@ -3614,7 +3696,7 @@
          "fit": "more general"
         }
        ],
-       "note": "Mathlib proves the fundamental identity for any finite flat extension of a domain (`Ideal.sum_ramification_inertia_eq_finrank`, the current form of the deprecated Dedekind-domain `sum_ramification_inertia`), which specialises to `e·f = [L:K]` once one knows `primesOver 𝓂[K] 𝒪[L]` is a singleton; but that singleton lemma, the intrinsic value-group definition of `e`, `inertiaDegree` for local fields, and the comparison lemmas are all missing."
+       "note": "The intrinsic index construction exists in TauCeti for any ℤᵐ⁰-valued valuation (`Valuation.ordIndex`, with its tower lemma `ordIndex_eq_mul_of_forall_ord_eq`), and the whole e/f package exists for places trivial on a constant subfield (`TauCeti.Place`), which include equal-characteristic local fields but not mixed-characteristic ones: `ramificationIdx` as an `ordIndex` with ord_L = e·ord_K (`ord_algebraMap_restrict`), `relativeDegree` as a residue finrank, e·f ≤ [L:K] (`ramificationIdx_mul_relativeDegree_le_finrank`), the fundamental identity for separable extensions, and tower multiplicativity of e and f (`ramificationIdx_restrict_mul`, `relativeDegree_restrict_mul`). Mathlib proves the fundamental identity for any finite flat extension of a domain (`Ideal.sum_ramification_inertia_eq_finrank`), which specialises to e·f = [L:K] once `primesOver 𝓂[K] 𝒪[L]` is known to be a singleton. Missing: that singleton lemma, and `ramificationIndex K L` and `inertiaDegree K L` at the `IsNonarchimedeanLocalField` level, which covers mixed characteristic (define `ramificationIndex K L` through `Valuation.ordIndex` and prove a comparison with `TauCeti.Place.ramificationIdx` in equal characteristic), with the comparison lemmas against `Ideal.ramificationIdx` and `Ideal.inertiaDeg`."
       },
       {
        "target": "`natCastValuation K n` and `absoluteRamificationIndex K p`, with `absoluteRamificationIndex_eq_natCastValuation` and tower multiplicativity",
@@ -3642,7 +3724,7 @@
       },
       {
        "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
-       "note": "Defines e(P'|P) and f(P'|P) for an extension of function fields with tower multiplicativity — the same invariants over a global function field rather than at a local field, a parallel development."
+       "note": "Defines e(P'|P) and f(P'|P) for an extension of function fields with tower multiplicativity. Tau Ceti builds these invariants for places trivial on a constant subfield (`TauCeti.Place`), which include equal-characteristic local fields but not mixed-characteristic ones, so the two layers meet in equal characteristic, where this layer's intrinsic e and f should be compared with `TauCeti.Place.ramificationIdx` and `relativeDegree`; mixed characteristic is this layer's alone."
       }
      ]
     },
@@ -3689,7 +3771,7 @@
          "fit": "exact"
         }
        ],
-       "note": "The whole API list is present, including `isOpen_unitFiltration`, `isCompact_unitFiltration`, `unitFiltration_antitone`, `relIndex_unitFiltration_one_zero` (= q−1) and `relIndex_unitFiltration_succ_succ` (= q); only the covariant `map_unitFiltration_le K L i` contract along an extension is missing, since Layer 0's extension package is."
+       "note": "The API list is present, including `isOpen_unitFiltration`, `isCompact_unitFiltration`, `unitFiltration_antitone`, `relIndex_unitFiltration_one_zero` (= q−1) and `relIndex_unitFiltration_succ_succ` (= q); two API items are missing, both needing Layer 0's extension package: the covariant contract `map_unitFiltration_le K L i`, and stability of U(L,i) under every K-automorphism of a Galois extension L/K (it needs the action of L ≃ₐ[K] L on 𝒪[L] from Layer 0.II), which Layer 3 consumes."
       },
       {
        "target": "graded pieces: `U(K,0)/U(K,1) ≃* 𝓀[K]ˣ` and, for i ≥ 1, `U(K,i)/U(K,i+1) ≃* 𝓀[K]⁺`, kept separate",
@@ -3969,7 +4051,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib has the general mechanism: for a finite group acting with invariants, `Ideal.Quotient.stabilizerHom` onto the residue automorphisms is surjective with kernel the inertia subgroup, so the decomposition group modulo inertia is the residue Galois group; TauCeti has the same equivalence for places of a *function* field. The local-field statement is not there: it needs the invariant-extension structure on 𝒪[L]/𝒪[K], which waits on Layer 0's finite-extension package."
+       "note": "Mathlib has the general mechanism: for a finite group acting with invariants, `Ideal.Quotient.stabilizerHom` onto the residue automorphisms is surjective with kernel the inertia subgroup, so the decomposition group modulo inertia is the residue Galois group; TauCeti has the same equivalence for places trivial on a constant subfield (`TauCeti.Place`), which include equal-characteristic local fields but not mixed-characteristic ones. The statement at the `IsNonarchimedeanLocalField` level, which covers mixed characteristic, is not there: it needs the invariant-extension structure on 𝒪[L]/𝒪[K], which waits on Layer 0's finite-extension package."
       },
       {
        "target": "the Frobenius element `frobeniusAlgEquiv`, cyclicity of order f, and `valuation_frobeniusAlgEquiv_sub_pow`",
@@ -4093,7 +4175,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib has Eisenstein polynomials with irreducibility, and TauCeti proves the Eisenstein ⇒ totally ramified direction for places of a function field; the local-field equivalence and the L/L₀/K factorization are absent."
+       "note": "Mathlib has Eisenstein polynomials with irreducibility, and TauCeti proves the Eisenstein ⇒ totally ramified direction for places trivial on a constant subfield (`TauCeti.Place`), which include equal-characteristic local fields but not mixed-characteristic ones; the local-field equivalence and the L/L₀/K factorization are absent."
       },
       {
        "target": "`IsTamelyRamified` / `IsWildlyRamified`, and: totally + tamely ramified of degree e ⟹ L = K(α) with α^e a uniformizer; the Galois criterion μ_e ⊆ K; `Gal(L/K) ↪ μ_e`",
@@ -4155,7 +4237,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib's `RingTheory/Valuation/RamificationGroup.lean` contains only the decomposition and inertia subgroups, the `i = 0` step, and defines no higher ramification group in either numbering. TauCeti has the lower-numbering groups `G_i(P)` only for places of a function field (`TauCeti.Place.ramificationGroup`, normal, antitone, `G_0` the inertia group, eventually trivial), where the valuation is trivial on a constant subfield, so they do not cover mixed-characteristic local fields; the local filtration, its real index and its subgroup compatibility are absent."
+       "note": "Mathlib's `RingTheory/Valuation/RamificationGroup.lean` contains only the decomposition and inertia subgroups, the `i = 0` step, and defines no higher ramification group in either numbering. TauCeti has the lower-numbering groups `G_i(P)` at integer index for places trivial on a constant subfield (`TauCeti.Place`), which include equal-characteristic local fields but not mixed-characteristic ones (`TauCeti.Place.ramificationGroup`: normal, antitone, `G_0` the inertia group, eventually trivial); the filtration at the `IsNonarchimedeanLocalField` level, its real index and its subgroup compatibility are absent."
       },
       {
        "target": "lower numbering is not compatible with quotients, with the ℚ_2(ζ_8) witness",
@@ -4189,7 +4271,7 @@
          "fit": "related"
         }
        ],
-       "note": "The target graded pieces are built (Layer 1), but the local embeddings out of the ramification quotients do not exist because the local ramification groups do not. For places of a function field TauCeti has the positive-level half: `ramificationResidueHom` with kernel the next group (`ker_ramificationResidueHom`), so `G_{i+1}/G_{i+2}` is abelian and elementary abelian in characteristic p; the tame character `θ_0` and the action formula are absent there too."
+       "note": "The target graded pieces are built (Layer 1), but the local embeddings out of the ramification quotients do not exist because the local ramification groups do not. For places trivial on a constant subfield (`TauCeti.Place`), which include equal-characteristic local fields but not mixed-characteristic ones, TauCeti has the positive-level half: `ramificationResidueHom` with kernel the next group (`ker_ramificationResidueHom`), so `G_{i+1}/G_{i+2}` is abelian and elementary abelian in characteristic p; the tame character `θ_0` and the action formula are absent there too."
       },
       {
        "target": "Herbrand functions φ, ψ, `herbrandOrderIso`, the upper numbering `G^u`, the quotient theorem and tower transitivity",
@@ -4227,28 +4309,35 @@
          "fit": "more general"
         },
         {
-         "name": "not_dvd_differentIdeal_iff",
+         "name": "pow_sub_one_dvd_differentIdeal",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/DedekindDomain/Different.lean",
-         "line": 912,
-         "fit": "exact"
+         "line": 742,
+         "fit": "more general"
         },
         {
-         "name": "differentIdeal_eq_differentIdeal_mul_differentIdeal",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/DedekindDomain/Different.lean",
-         "line": 571,
-         "fit": "exact"
+         "name": "TauCeti.not_pow_ramificationIdx_dvd_differentIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/Different.lean",
+         "line": 121,
+         "fit": "more general"
         },
         {
-         "name": "conductor_mul_differentIdeal",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/DedekindDomain/Different.lean",
-         "line": 637,
-         "fit": "related"
+         "name": "TauCeti.relDiscr",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/Discriminant/Basic.lean",
+         "line": 35,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.multiplicity_differentIdeal_tower",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/Different/Tower.lean",
+         "line": 60,
+         "fit": "more general"
         }
        ],
-       "note": "Mathlib's `differentIdeal` is defined for an extension of integral domains, with the unramified criterion (`not_dvd_differentIdeal_iff`) and transitivity in towers, both of which the layer asks for and both of which are more general than the local statement. Missing: the local exponents `d(L/K)`, `δ(L/K)`, `δ = f·d`, the Hilbert formula `d = Σ(#G_i − 1)`, the tame equality and the wild bounds."
+       "note": "Mathlib's `differentIdeal` is defined for an extension of integral domains, with the unramified criterion (`not_dvd_differentIdeal_iff`, :912) and transitivity in towers (`differentIdeal_eq_differentIdeal_mul_differentIdeal`, :571), both more general than the local statement. At Dedekind level the libraries already give d ≥ e − 1 (`pow_sub_one_dvd_differentIdeal`), d = e − 1 for a tame prime with separable residue extension (with `TauCeti.not_pow_ramificationIdx_dvd_differentIdeal`), the discriminant ideal as the relative norm of the different (`TauCeti.relDiscr`) with its ramification criterion (`TauCeti.dvd_relDiscr_iff_exists_not_isUnramifiedAt`), and the tower law for the different exponent (`TauCeti.multiplicity_differentIdeal_tower`); they apply to 𝒪[K] → 𝒪[L] once Layer 0.III supplies the algebra, finiteness and torsion-freeness. Missing: the local exponents d(L/K) and δ(L/K), δ = f·d, the Hilbert formula, the converse d = e − 1 ⇒ tame (equivalently the wild bound e ≤ d), and the mixed-characteristic upper bound."
       }
      ],
      "duplicates": [
@@ -4427,7 +4516,7 @@
    }
   },
   "tauceti:TauCetiRoadmap/Multiquadratic": {
-   "summary": "This roadmap is built, end to end, in Tau Ceti, and its own summary is out of date: it says multiquadratic extensions and genus theory are \"entirely absent upstream\", which is true of Mathlib but not of TauCeti, where TauCeti/NumberTheory/Multiquadratic/ carries about a hundred files covering all four layers, sorry-free. Layer 0's square-class descent, the 2^n degree theorem, the abelian exponent-2 Galois group with the explicit sign-pattern isomorphism Gal ≅ (Z/2)^n, and the intermediate-field/F_2-subspace correspondence are all present, generalised beyond the stated case to an arbitrary base field and index type. Layer 1's splitting law and the Legendre-vector Frobenius are proved, as are the prime-discriminant and fundamental-discriminant packages the layer warns about, and exists_transversal_family has been migrated. Layer 2's elementary-two quotient (kept explicitly distinct from the 2-torsion subgroup, with the equal-cardinality theorem), units_sq_index_le and the ambiguous class number formula are all there. Layer 3's summit is reached: the genus field is characterised by a universal property, the prime-discriminant compositum is proved to have it in both signatures, the narrow class group and narrow genus field exist (the layer says \"Mathlib has neither\", which remains true of Mathlib only), Gal(K_gen/K) is identified with the elementary-two quotient of the narrow class group compatibly with the ideal-theoretic Artin map, and the 2-rank formula 2-rank Cl+(K) = t-1 is proved for either signature, with the ordinary rank pinned to t-1 or t-2 and the roadmap's own counterexample Q(sqrt 3) recorded as a theorem. Nothing in this roadmap is genuinely missing.",
+   "summary": "This roadmap is built, end to end, in Tau Ceti, and its own summary is out of date: it says multiquadratic extensions and genus theory are \"entirely absent upstream\", which is true of Mathlib but not of TauCeti, where TauCeti/NumberTheory/Multiquadratic/ carries about a hundred files covering all four layers, sorry-free. Layer 0's square-class descent, the 2^n degree theorem, the abelian exponent-2 Galois group with the explicit sign-pattern isomorphism Gal ≅ (Z/2)^n, and the intermediate-field/F_2-subspace correspondence are all present, generalised beyond the stated case to an arbitrary base field and index type. Layer 1's splitting law and the Legendre-vector Frobenius are proved, as are the prime-discriminant and fundamental-discriminant packages the layer warns about, and exists_transversal_family has been migrated. Layer 2's elementary-two quotient (kept explicitly distinct from the 2-torsion subgroup, with the equal-cardinality theorem), units_sq_index_le and the ambiguous class number formula are all there. Layer 3's summit is reached: the genus field is characterised by a universal property, the prime-discriminant compositum is proved to be the genus field for imaginary K (isGenusField_candidateGenusField) and the narrow genus field for either signature (isNarrowGenusField_candidateGenusField); for real K the genus field is its maximal totally real subfield, the fixed field of complex conjugation (isGenusField_candidateGenusFieldReal, fixedField_zpowers_candidateGenusFieldConj); the narrow class group and narrow genus field exist (the layer says \"Mathlib has neither\", which remains true of Mathlib only), Gal(K_gen/K) is identified with the elementary-two quotient of the narrow class group compatibly with the ideal-theoretic Artin map, and the 2-rank formula 2-rank Cl+(K) = t-1 is proved for either signature, with the ordinary rank pinned to t-1 or t-2 and the roadmap's own counterexample Q(sqrt 3) recorded as a theorem. Nothing in this roadmap is genuinely missing.",
    "layers": {
     "tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field": {
      "verdict": "built",
@@ -4989,10 +5078,10 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.Multiquadratic.genusPrimeDiscriminants",
+         "name": "TauCeti.Multiquadratic.isNarrowGenusField_candidateGenusField",
          "library": "tauceti",
-         "file": "TauCeti/NumberTheory/Multiquadratic/CandidateGenusField/Basic.lean",
-         "line": 64,
+         "file": "TauCeti/NumberTheory/Multiquadratic/Unramified/NarrowGenusField.lean",
+         "line": 140,
          "fit": "exact"
         },
         {
@@ -5008,9 +5097,16 @@
          "file": "TauCeti/NumberTheory/Multiquadratic/Unramified/Maximality.lean",
          "line": 176,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Multiquadratic.exists_squarefree_root_adjoin_range_eq_top_of_isUnramifiedIn_over_quadratic",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/Unramified/Basic.lean",
+         "line": 64,
+         "fit": "more general"
         }
        ],
-       "note": "`candidateGenusField` is by construction the prime-discriminant compositum, so Layer 0 applies to it directly; `Unramified/Maximality.lean` proves it is the largest such field."
+       "note": "`candidateGenusField` is by construction the prime-discriminant compositum, so Layer 0 applies to it directly. The target as worded holds for imaginary K (`isGenusField_candidateGenusField`), and for real K only for the narrow genus field (`isNarrowGenusField_candidateGenusField`): `Unramified/Maximality.lean` proves the compositum is the largest abelian extension unramified over K at the finite places, which is the narrow genus field. For real K the ordinary genus field is `candidateGenusFieldReal` (CandidateGenusField/Real/Basic.lean:66), the maximal totally real subfield of the compositum, not the compositum itself; ℚ(√3) is a counterexample the library proves (`twoRank_eq_zero_of_minpoly_eq_X_sq_sub_three`: disc 12 = (−4)(−3), so the compositum ℚ(i, √3) has degree 2 over K, while the genus field is K). That the real genus field is multiquadratic follows from `exists_squarefree_root_adjoin_range_eq_top_of_isUnramifiedIn_over_quadratic` together with `isUnramifiedIn_candidateGenusFieldReal` (Real/Basic.lean:201), but it is not stated as a named theorem."
       },
       {
        "target": "`Gal(K_gen/K) ≅ Cl(K)/Cl(K)²` (and the narrow version), including the inversion/commutator argument",
@@ -5164,13 +5260,17 @@
       {
        "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
        "note": "Builds the Hilbert class field and other class fields from global class field theory; the genus field of a quadratic field is the subfield of the Hilbert class field fixed by `Cl(K)²`, so that layer subsumes this one abstractly, but this layer's explicit multiquadratic construction is independent and already complete."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+       "note": "Plans the narrow class group with its surjection to the class group and its kernel formula. This is the same object as this layer's narrow class group, built once as `NumberField.NarrowClassGroup` (TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean:83), which Global Number Fields identifies with its ray class group at `narrowModulus` (`TauCeti.GlobalNumberFields.narrowEquivNarrowClassGroup`)."
       }
      ]
     }
    }
   },
   "tauceti:TauCetiRoadmap/NumberFieldArithmetic": {
-   "summary": "Most of this roadmap is already built, in Tau Ceti, and its summary (\"nothing instantiates the Frobenius API for number fields; Mathlib/RingTheory/Frobenius.lean has no reverse dependencies\") is out of date: TauCeti now instantiates it in full. Layer 2 is essentially complete - relative Frobenius existence, uniqueness and Subsingleton at unramified primes, artinSymbol with its whole comparison API, the restriction theorem IsArithFrobAt.restrictNormal, the tower formula exists_isArithFrobAt_pow_inertiaDeg, and the ideal-theoretic artinHomAway with all five named contract declarations spelled exactly as the roadmap freezes them - with only the place-dependent complexConjugationAt of 2.7 missing (Mathlib has the CM specialisation and, for any Galois extension, the conjugation element at a ramified place with its stabilizer {1, σ}, but not the named element or its covariance and restriction). Layer 4 is nearly built: relDiscr is a named definition at Dedekind generality, with non-vanishing, the reconciliation with NumberField.discr, the tower formula, the IsUnramifiedAt ramification criterion, ramifiedSupport with both membership characterisations, discr_smulTower and Stickelberger's congruence; missing are the stated localization theorem relDiscr_localization (every step of its chain exists: Mathlib's Algebra.trace_localization and Ideal.spanIntNorm_localization, TauCeti's map_differentIdeal_eq_differentIdeal), the adapter artinHomAway_ramifiedSupport and tower monotonicity of ramifiedSupport. Layer 1 has 1.2, 1.4 (the double-coset bijection with its value formula, naturality and invariant indices), 1.1 except the decomposition-group criterion over a general base (it is proved over ℚ only), and part of 1.3; Layer 3 has 3.1 to 3.5, 3.6 except the converse of irreducible_map_of_irreducible_minpoly, and 3.8; Layer 7 has 7.3 and the consumed part of 7.2, but not its splitting law for 2 by d mod 8. Mathlib supplies the substrate throughout: IsArithFrobAt, KummerDedekind, differentIdeal with transitivity, Ideal.relNorm, IsDecompositionField/IsInertiaField, sign_discr, the regulator API, and Dirichlet's unit theorem. What is genuinely missing is the completion dictionary and everything downstream of it. Layer 5 has only 5.1 (which is fully built, with the residue field and its cardinality), most of 5.2 (completionAlgHom with continuity, its continuous universal property and tower composition, but no Module.Finite, valuation-order comparison or ValuativeExtension instance), and the first step of 5.7 (TauCeti's adicCompletionIntegersExtension restricts the completion map to the integer rings, with no algebra instance or integral-closure package); 5.3 to 5.6 and 5.8 to 5.10 - the semilocal equivalence, norm and trace over the places above v, the invariant matching, decompositionHom, local monogenicity at the completion, the localization of the different and the discriminant valuation - do not exist. Layer 6 is entirely absent and cannot be stated, because its supplier (the local lower ramification filtration) does not exist either; the only ramification filtration in the baseline is TauCeti's for places of a function field. Also missing: 1.5 (totally split in the Galois closure and in composita), 3.7 (Dedekind's criterion), 3.9 and 3.10 (Dedekind's theorem on cycle types, though the fullCycleType bookkeeping it needs is built), 3.11 (common index divisors), 7.1 (the subfield dictionary), 7.4 (explicit unit certification, so no exact regulator at positive rank), and Layer 8's label predicate and worked suite.",
+   "summary": "Most of this roadmap is already built, in Tau Ceti, and its summary (\"nothing instantiates the Frobenius API for number fields; Mathlib/RingTheory/Frobenius.lean has no reverse dependencies\") is out of date: TauCeti now instantiates it in full. Layer 2 is essentially complete - relative Frobenius existence, uniqueness and Subsingleton at unramified primes, artinSymbol with its whole comparison API, the restriction theorem IsArithFrobAt.restrictNormal, the tower formula exists_isArithFrobAt_pow_inertiaDeg, and the ideal-theoretic artinHomAway with all five named contract declarations spelled exactly as the roadmap freezes them - with only the place-dependent complexConjugationAt of 2.7 missing (Mathlib has the CM specialisation and, for any Galois extension, the conjugation element at a ramified place with its stabilizer {1, σ}, but not the named element or its covariance and restriction). Layer 4 is nearly built: relDiscr is a named definition at Dedekind generality, with non-vanishing, the reconciliation with NumberField.discr, the tower formula, the IsUnramifiedAt ramification criterion, ramifiedSupport with both membership characterisations, discr_smulTower and Stickelberger's congruence; missing are the stated localization theorem relDiscr_localization (every step of its chain exists: Mathlib's Algebra.trace_localization and Ideal.spanIntNorm_localization, TauCeti's map_differentIdeal_eq_differentIdeal), the adapter artinHomAway_ramifiedSupport and tower monotonicity of ramifiedSupport. Layer 1 has 1.2, 1.4 (the double-coset bijection with its value formula, naturality and the e·f index; the e-index and the sum identity are missing), 1.1 except the decomposition-group criterion over a general base (it is proved over ℚ only), and part of 1.3 (its Dedekind-generic statements are missing, because Mathlib's decomposition-field half assumes Ring.HasFiniteQuotients and TauCeti's inertia-field half a perfect residue field); Layer 3 has 3.1 to 3.5, 3.6 except the converse of irreducible_map_of_irreducible_minpoly, and 3.8; Layer 7 has 7.3 and the consumed part of 7.2, but not its splitting law for 2 by d mod 8. Mathlib supplies the substrate throughout: IsArithFrobAt, KummerDedekind, differentIdeal with transitivity, Ideal.relNorm, IsDecompositionField/IsInertiaField, sign_discr, the regulator API, and Dirichlet's unit theorem. What is genuinely missing is the completion dictionary and everything downstream of it. Layer 5 has only 5.1 (which is fully built, with the residue field and its cardinality), most of 5.2 (completionAlgHom with continuity, its continuous universal property and tower composition, but no valuation-order comparison or ValuativeExtension instance; Module.Finite follows from Mathlib's instance), and the first step of 5.7 (TauCeti's adicCompletionIntegersExtension restricts the completion map to the integer rings, with no algebra instance or integral-closure package); 5.3 to 5.6 and 5.8 to 5.10 - the semilocal equivalence, norm and trace over the places above v, the invariant matching, decompositionHom, local monogenicity at the completion, the localization of the different and the discriminant valuation - do not exist. Layer 6 is not built: the local lower filtration it imports does not exist, so 6.1, the comparison in 6.2, and 6.3 to 6.5 cannot be stated; the global groups themselves are Mathlib's Ideal.inertia of Q^(i+1), with conjugation, containment in the stabilizer and normality. Also missing: 1.5 (totally split in the Galois closure and in composita), 3.7 (Dedekind's criterion), 3.9 and 3.10 (Dedekind's theorem on cycle types, though the fullCycleType bookkeeping it needs is built), 3.11 (common index divisors), 7.1 (the subfield dictionary), 7.4 (explicit unit certification, so no exact regulator at positive rank), and Layer 8's label predicate and worked suite.",
    "layers": {
     "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary": {
      "verdict": "partly built",
@@ -5250,18 +5350,11 @@
        "library": "partial",
        "declarations": [
         {
-         "name": "IsDecompositionField",
+         "name": "IsDecompositionField.primesOver_eq_singleton",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/RamificationInertia/HilbertTheory.lean",
-         "line": 58,
-         "fit": "related"
-        },
-        {
-         "name": "IsInertiaField",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/RamificationInertia/HilbertTheory.lean",
-         "line": 72,
-         "fit": "related"
+         "line": 258,
+         "fit": "exact"
         },
         {
          "name": "TauCeti.IsInertiaField.primesOver_eq_singleton",
@@ -5271,25 +5364,32 @@
          "fit": "exact"
         },
         {
+         "name": "IsDecompositionField.ramificationIdx_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/RamificationInertia/HilbertTheory.lean",
+         "line": 328,
+         "fit": "special case"
+        },
+        {
+         "name": "IsDecompositionField.rank_right",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/RamificationInertia/HilbertTheory.lean",
+         "line": 190,
+         "fit": "special case"
+        },
+        {
          "name": "TauCeti.IsInertiaField.ramificationIdx_eq_one",
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/RamificationInertia/HilbertTheory.lean",
          "line": 143,
-         "fit": "exact"
-        },
-        {
-         "name": "TauCeti.IsInertiaField.inertiaDeg_eq_inertiaDegIn",
-         "library": "tauceti",
-         "file": "TauCeti/NumberTheory/RamificationInertia/HilbertTheory.lean",
-         "line": 156,
-         "fit": "exact"
+         "fit": "special case"
         }
        ],
-       "note": "Mathlib has the two field predicates and its `HilbertTheory.lean` the decomposition-field half; TauCeti adds the inertia-field half (uniqueness of the prime above, e and f under the inertia field). Missing: the separable-degree statements `[T:Z] = f_sep` and the `f_ins` bookkeeping, which is the part the layer says survives without residue separability."
+       "note": "Mathlib has the two field predicates (`IsDecompositionField`, `IsInertiaField`), and TauCeti adds the inertia-field half. Only the two `primesOver_eq_singleton` statements hold at the roadmap's generality. Mathlib's decomposition-field e/f/degree statements (`IsDecompositionField.ramificationIdx_eq`, `inertiaDeg_eq` (:341), `rank_right`, and `IsInertiaField.rank_left` (:206) and `rank_decompositionField` (:230)) assume `Ring.HasFiniteQuotients A`, i.e. finite residue fields, which the roadmap rules out for statements that hold without them; TauCeti's inertia-field e and f (`TauCeti.IsInertiaField.ramificationIdx_eq_one` and `inertiaDeg_eq_inertiaDegIn` (:156)) assume that the residue field of p is perfect, which is stronger than the clean corollary's `Algebra.IsSeparable (A ⧸ p) (B ⧸ P)`. Missing: (i) e(P∩Z/p) = f(P∩Z/p) = 1 and [Z:K] = g without finite residue fields; (ii) [T:Z] = f_sep and the f_ins bookkeeping; (iii) the clean corollary under `Algebra.IsSeparable (A ⧸ p) (B ⧸ P)` rather than a perfect or finite residue field."
       },
       {
-       "target": "1.4 `doubleCosetEquiv : DoubleCoset.Quotient H D ≃ primesOver p (𝓞 L)` with the value formula, naturality, and the invariant formulas e·f = |HσD|/|H| = [σDσ⁻¹ : H ∩ σDσ⁻¹]",
-       "library": "tauceti",
+       "target": "1.4 `doubleCosetEquiv : DoubleCoset.Quotient H D ≃ primesOver p (𝓞 L)` with the value formula, naturality, and the invariant formulas e·f = |HσD|/|H| = [σDσ⁻¹ : H ∩ σDσ⁻¹], under residue separability e(𝔮_σ/p) = [σIσ⁻¹ : H ∩ σIσ⁻¹], and Σ_σ |HσD|/|H| = [L:K]",
+       "library": "partial",
        "declarations": [
         {
          "name": "Ideal.doubleCosetQuotientEquivPrimesOver",
@@ -5320,14 +5420,14 @@
          "fit": "exact"
         },
         {
-         "name": "Ideal.card_doubleCosetQuotient_eq_card_primesOver",
+         "name": "NumberField.ramificationIdx_under_eq_one_iff_inertia_le",
          "library": "tauceti",
-         "file": "TauCeti/NumberTheory/RamificationInertia/DoubleCoset/Basic.lean",
-         "line": 165,
-         "fit": "exact"
+         "file": "TauCeti/NumberTheory/NumberField/Inertia.lean",
+         "line": 117,
+         "fit": "related"
         }
        ],
-       "note": "The bijection, its value `HσD ↦ σQ ∩ 𝓞 L`, the functoriality square for `H ≤ H'`, the count, and the `e·f` relative-index formula are all present; `Ideal.inertiaDeg_under_fixedField_eq_relIndex` gives the separate residue-degree index."
+       "note": "The bijection, its value `HσD ↦ σQ ∩ 𝓞 L`, the functoriality square for `H ≤ H'`, the count (`card_doubleCosetQuotient_eq_card_primesOver`) and the e·f relative-index formula are present; `Ideal.inertiaDeg_under_fixedField_eq_relIndex` gives the residue-degree index only at unramified primes (it assumes `Algebra.IsUnramifiedAt`). Missing: the inertia-index formula e(𝔮_σ/p) = [σIσ⁻¹ : H ∩ σIσ⁻¹] under residue separability (the nearest is `NumberField.ramificationIdx_under_eq_one_iff_inertia_le`, over ℚ and only the criterion for e = 1) and the double-coset sum identity Σ_σ |HσD|/|H| = [L:K]."
       },
       {
        "target": "1.5 `p` totally split in L ⟺ totally split in the Galois closure; the compositum statements for splitting and for unramifiedness",
@@ -5574,7 +5674,7 @@
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/NumberField/Frobenius.lean",
          "line": 184,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "IsCyclotomicExtension.Rat.galEquivZMod",
@@ -5582,9 +5682,16 @@
          "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Galois.lean",
          "line": 60,
          "fit": "related"
+        },
+        {
+         "name": "NumberField.isArithFrobAt_multiquadratic_eq_one_iff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/Frobenius.lean",
+         "line": 66,
+         "fit": "more general"
         }
        ],
-       "note": "The cyclotomic identification is proved through the cyclotomic character `autToPow` rather than `galEquivZMod` verbatim; the quadratic criterion is exactly the landed theorem the layer names."
+       "note": "The cyclotomic identification is proved through the cyclotomic character `autToPow` rather than `galEquivZMod` verbatim; the quadratic criterion `Frob Q = 1 ↔ legendreSym p d = 1` is the singleton case of `NumberField.isArithFrobAt_multiquadratic_eq_one_iff`, which is proved from the landed square-root computation `isArithFrobAt_apply_sqrt_eq_self_iff` that the layer names as its input."
       },
       {
        "target": "2.7 `complexConjugationAt w hw : L ≃ₐ[K] L` at a selected complex place, with its full API",
@@ -5913,9 +6020,23 @@
          "file": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
          "line": 134,
          "fit": "related"
+        },
+        {
+         "name": "Polynomial.Monic.discr_mul",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
+         "line": 196,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.Monic.separable_map_zmod_iff_not_dvd_discr",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
+         "line": 526,
+         "fit": "related"
         }
        ],
-       "note": "Absent; the discriminant-resultant factorization it needs is available in Mathlib."
+       "note": "Absent; the discriminant–resultant product formula it needs is Tau Ceti's `Polynomial.Monic.discr_mul` (Mathlib has no formula for disc(fg)), and the separability of f mod p is `Polynomial.Monic.separable_map_zmod_iff_not_dvd_discr`."
       },
       {
        "target": "3.11 common index divisors and the counting obstruction to monogenicity",
@@ -6204,14 +6325,14 @@
          "fit": "exact"
         },
         {
-         "name": "IsDedekindDomain.HeightOneSpectrum.completionIsScalarTower",
-         "library": "tauceti",
-         "file": "TauCeti/NumberTheory/NumberField/LocalGlobal/Completion.lean",
-         "line": 122,
-         "fit": "exact"
+         "name": "NumberField.HeightOneSpectrum.instFiniteAdicCompletionRingOfIntegers",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Completion/FinitePlace.lean",
+         "line": 522,
+         "fit": "more general"
         }
        ],
-       "note": "Built in part: the map, continuity, the continuous universal property (the uniqueness statement), the tower equation, and the scalar-tower and continuous-scalar instances in a named scope. Missing: `Module.Finite K_v L_w` for this instance (in neither library), `completionAlgHom_vle_iff_vle` and the packaged `ValuativeExtension` instance. TauCeti's parallel Dedekind-general `adicCompletionExtension` does carry `valued_adicCompletionExtension`, v_w(x) = v_v(x)^e, from which the valuation-order comparison follows."
+       "note": "Built in part: the map, continuity, the continuous universal property (the uniqueness statement), the tower equation, and the scalar-tower and continuous-scalar instances (`completionIsScalarTower`, :122, and `completionContinuousSMul`, :135) scoped in `AdicCompletionExtension`. `Module.Finite K_v L_w` then holds by instance inference under `open scoped AdicCompletionExtension`: Mathlib's instance (FinitePlace.lean:522, auto-named `instFiniteAdicCompletionRingOfIntegers`) needs exactly an algebra structure, `ContinuousSMul` and `IsScalarTower K K_v L_w`, which the scoped instances supply. Missing: `completionAlgHom_vle_iff_vle` and the packaged `ValuativeExtension` instance. TauCeti's parallel Dedekind-general `adicCompletionExtension` does carry `valued_adicCompletionExtension`, v_w(x) = v_v(x)^e, from which the valuation-order comparison follows."
       },
       {
        "target": "5.3 `semilocalEquiv v : K_v ⊗[K] L ≃ₐ[K_v] ∏_{w ∣ v} L_w` with the pure-tensor formula and `Σ_{w∣v} [L_w:K_v] = [L:K]`",
@@ -6407,35 +6528,42 @@
        "library": "partial",
        "declarations": [
         {
+         "name": "Ideal.inertia",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Defs.lean",
+         "line": 154,
+         "fit": "more general"
+        },
+        {
+         "name": "Ideal.inertia_smul",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Pointwise.lean",
+         "line": 159,
+         "fit": "related"
+        },
+        {
+         "name": "Ideal.inertia_le_stabilizer",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Pointwise.lean",
+         "line": 167,
+         "fit": "related"
+        },
+        {
+         "name": "Ideal.instNormalSubtypeMemSubgroupStabilizerInertia",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Pointwise.lean",
+         "line": 173,
+         "fit": "related"
+        },
+        {
          "name": "TauCeti.Place.ramificationGroup",
          "library": "tauceti",
          "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
          "line": 109,
          "fit": "related"
-        },
-        {
-         "name": "TauCeti.Place.ramificationGroup_zero",
-         "library": "tauceti",
-         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
-         "line": 143,
-         "fit": "related"
-        },
-        {
-         "name": "TauCeti.Place.normal_ramificationGroup",
-         "library": "tauceti",
-         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
-         "line": 172,
-         "fit": "related"
-        },
-        {
-         "name": "Ideal.inertia",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/Ideal/Defs.lean",
-         "line": 154,
-         "fit": "related"
         }
        ],
-       "note": "No ramification group for a prime of a number field exists; the closest object in the baseline is the function-field one just cited, which has the same defining shape (`σ` acts trivially modulo the (i+1)-st power) and the same basic API, so the number-field version is a transcription rather than new mathematics — but the comparison theorem with a local filtration has no target."
+       "note": "The global groups exist in Mathlib: `Ideal.inertia` is defined for an arbitrary ideal, so (Q^(i+1)).inertia (L ≃ₐ[K] L) is literally {σ | ∀ x, σ x − x ∈ Q^(i+1)}, with conjugation covariance (`inertia_smul`, using g • Q^(i+1) = (g • Q)^(i+1)), containment in the stabilizer (`inertia_le_stabilizer`; since (Q^(i+1)).inertia ≤ Q.inertia ≤ stabilizer Q, the stabilizer condition in the roadmap's definition is automatic) and normality in the stabilizer of the ideal (the instance at Pointwise.lean:173); G_0 = Q.inertia by `pow_one`. Missing: the named `ramificationGroup` with its equality to that term, G_0 = Q.inertia as a lemma, normality inside stabilizer Q (the instance gives it inside the stabilizer of Q^(i+1)), eventual triviality, the ℚ(i) example, and the comparison theorem `mem_ramificationGroup_iff_mem_lowerRamificationGroup`, which is blocked on 6.1's local filtration. `TauCeti.Place.ramificationGroup` is the parallel for places trivial on a constant subfield."
       },
       {
        "target": "6.3 the different-exponent formula `v_Q(𝔡) = Σ_{i≥0}(#G_i − 1)`",
@@ -6736,7 +6864,7 @@
          "fit": "exact"
         }
        ],
-       "note": "This is a bookkeeping table rather than a theorem, and most of its 'general' rows are discharged by declarations that exist: degree, signature, signed discriminant, root discriminant, ramified primes (`ramifiedSupport`/`ramifiedPrimes`), unramified factorization (2.3 + 3.6), unit rank and torsion order, zeta residue, subfields (pending 7.1), monogenicity criteria, CM and totally-real flags, and the narrow class group with `toClassGroup` and finiteness. The rows it marks 'worked only' or 'none' — Frobenius cycle type (3.9), fundamental units and regulator (7.4), the subfield dictionary (7.1) — are exactly the ones that are still missing."
+       "note": "This is a bookkeeping table rather than a theorem, and most of its 'general' rows are discharged by declarations that exist: degree, signature, signed discriminant, root discriminant, ramified primes (`ramifiedSupport`/`ramifiedPrimes`), unramified factorization (2.3 + 3.6), unit rank and torsion order, zeta residue, subfields (pending 7.1), monogenicity criteria, CM and totally-real flags, and the narrow class group with `toClassGroup` and finiteness. Rows whose supplying milestone is still missing: Frobenius cycle type (3.9), subfields (7.1), fundamental units and regulator (7.4), factorization at ramified p (6.4), local algebras at a ramified prime (5.3), and common index divisors (3.11). The rows marked 'none' are out of scope, not gaps."
       },
       {
        "target": "8.3 the worked suite of five fields (2.2.5.1, 2.0.4.1, 4.0.125.1, 3.1.23.1, 3.1.503.1)",
@@ -6781,7 +6909,7 @@
     "target": "functoriality of the local absolute values under a finite extension, with local degrees in the exponents",
     "was": "partial; ingredients cited without the finite-place valuation comparison",
     "now": "partial; added Mathlib IsDedekindDomain.HeightOneSpectrum.valuation_liesOver",
-    "why": "valuation_liesOver (Mathlib/NumberTheory/RamificationInertia/Valuation.lean:57) is the finite-place half of the functoriality at the level of valuations, v(x)^e = w(x); only the passage to normalized absolute values (absNorm w = absNorm v ^ f) is missing."
+    "why": "valuation_liesOver (Mathlib/NumberTheory/RamificationInertia/Valuation.lean:57) is the finite-place half of the functoriality at the level of valuations, v(x)^e = w(x); the passage to normalized absolute values, |x|_w = |x|_v^(e·f), is also in Mathlib (NumberField.FinitePlace.equivHeightOneSpectrum_symm_apply_algebraMap), so what is missing is the statement for normalizedAbsValue on Place L and Place K (corrected under RT-AUDIT-04/1)."
    },
    {
     "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
