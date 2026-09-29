@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -9661,8 +9661,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-STEVENS-08.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4587"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4587",
+   "finishedAt": "2026-09-29T17:44:56Z"
   },
   {
    "id": "REV-PAPER-STEVENS-08",
@@ -44047,8 +44048,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-07.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4002"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4002",
+   "finishedAt": "2026-09-29T17:45:01Z"
   },
   {
    "id": "RT-AUDIT-08",
@@ -46307,7 +46309,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-analytic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3959"
   },
   {
    "id": "RT-AREA-algebraicnt-1",
