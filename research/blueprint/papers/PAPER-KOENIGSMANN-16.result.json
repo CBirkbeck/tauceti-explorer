@@ -1,0 +1,563 @@
+{
+ "paper": "PAPER-KOENIGSMANN-16",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "agent": "Claude Code",
+ "session": "cc-39fac3",
+ "source": {
+  "title": "Defining Z in Q",
+  "authors": "Jochen Koenigsmann",
+  "venue": "Annals of Mathematics 183 (2016), no. 1, 73–93",
+  "doi": "10.4007/annals.2016.183.1.2",
+  "arxiv": "1011.3424v2",
+  "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p02-p.pdf",
+  "sha256": "f26c2e155d025978045a0c68073505631677624ef4d6f9b461640c6fbe1d3c93",
+  "version": "Published article, Ann. of Math. 183 (2016) 73–93 (21 pages), read completely; arXiv:1011.3424v2 collated where noted. Locators are journal pages.",
+  "readSections": [
+   "2026-09-29: the published article, all 21 pages (§§1–4 and references), read completely; arXiv:1011.3424v2 (sha256 6f10efdd…) collated at the finding locators.",
+   "Poonen, arXiv:math/0703907v1, §4 read to identify the formula that Step 1 simplifies."
+  ]
+ },
+ "summary": "Koenigsmann proves that Z is definable in Q by a universal first-order formula (Theorem 1), so Q \\ Z is diophantine and Th_∀∃(Q) is undecidable, and gives an ∀∃-definition with one universal quantifier. The proof refines Poonen's quaternion-trace sets T_{a,b} = ∩_{p∈Δ_{a,b}} Z_(p), uses quadratic reciprocity to single out each Z_(p) by rings R^{[k]}_p, R^{[1]}_{p,q} chosen by the class of p mod 8, defines the Jacobson radicals of these semilocal rings existentially, and turns existential definitions of J(R) into universal definitions of R. It also shows that non-squares and non-norms from quadratic fields are diophantine by elementary means, and records closure properties of models of Th(Q). The atlas plans the arithmetic inputs (Hilbert symbols, reciprocity, quaternion splitting, Hasse–Minkowski, approximation) and MRDP; the definability results themselves are routed to LogicAndDefinabilityInNumberTheory LD.4, and the model theory of §4 to LD.0.",
+ "items": [
+  {
+   "id": "PAPER-KOENIGSMANN-16/1",
+   "kind": "definition",
+   "name": "First-order ring language and definable subsets of Q",
+   "statement": "L_ring = {+, ·; 0, 1}; a subset of Qⁿ is (first-order) definable if it is the solution set of an L_ring-formula with parameters; it is diophantine (existentially definable) if the formula is ∃x̄ f = 0 for a polynomial f with integer coefficients, and universally definable if the formula has the shape ∀x̄ g ≠ 0.",
+   "locator": "§1, p. 73; Theorem 1",
+   "status": "library",
+   "library": [
+    "mathlib:FirstOrder.Language.ring",
+    "mathlib:Set.Definable",
+    "mathlib:FirstOrder.Language.BoundedFormula.IsExistential",
+    "mathlib:FirstOrder.Language.BoundedFormula.IsUniversal"
+   ],
+   "note": "Mathlib has the ring language, definable sets and existential/universal bounded formulas; the arithmetic special cases (diophantine subsets of Q, the ∀∃-quantifier classes) are LD.0/LD.4 interfaces over them."
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/2",
+   "kind": "theorem",
+   "name": "Matiyasevich (MRDP): the existential theory of Z is undecidable",
+   "statement": "Every recursively enumerable subset of Zⁿ is diophantine in Z; in particular Th_∃(Z) (and Hilbert's tenth problem over Z) is undecidable.",
+   "locator": "§1, p. 73; used for Corollary 3 and Remark 24 and in Proposition 23(d)",
+   "status": "planned",
+   "planned": [
+    "LogicAndDefinabilityInNumberTheory:LD.4"
+   ],
+   "note": "Mathlib has the Diophantine carrier and Pell/exponential steps (Dioph.pell_dioph) but not MRDP; LD.4 plans the complete MRDP chain."
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/3",
+   "kind": "theorem",
+   "name": "Quadratic reciprocity with its supplements",
+   "statement": "For distinct odd primes p, q: (p/q)(q/p) = (−1)^{(p−1)(q−1)/4}; (−1/p) = (−1)^{(p−1)/2}; (2/p) = (−1)^{(p²−1)/8}.",
+   "locator": "§2, Propositions 10(c), 16, 21(b), Lemma 20",
+   "status": "library",
+   "library": [
+    "mathlib:legendreSym.quadratic_reciprocity",
+    "mathlib:ZMod.exists_sq_eq_two_iff",
+    "mathlib:ZMod.exists_sq_eq_neg_one_iff"
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/4",
+   "kind": "theorem",
+   "name": "Dirichlet's theorem on primes in progressions (used to choose auxiliary primes)",
+   "statement": "For coprime a, m there are infinitely many primes p ≡ a (mod m); used to choose primes q ≡ 3 mod 8 with prescribed Legendre symbols modulo finitely many primes (Corollary 11, Lemma 20, Proposition 21(b)).",
+   "locator": "§2, proofs of Corollary 11, Lemma 20(b), Proposition 21(b)",
+   "status": "library",
+   "library": [
+    "mathlib:Nat.forall_exists_prime_gt_and_eq_mod"
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/5",
+   "kind": "theorem",
+   "name": "Lagrange's four-square theorem",
+   "statement": "Every nonnegative rational is a sum of four rational squares; used to neutralise the factors a + Σxᵢ² and b + Σxᵢ² of the Step 1 polynomial when a ≤ 0 or b ≤ 0.",
+   "locator": "§2, Step 1 formula, p. 79",
+   "status": "library",
+   "library": [
+    "mathlib:Nat.sum_four_squares"
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/6",
+   "kind": "definition",
+   "name": "The semilocal rings Z_(p), Jacobson radicals and quaternion algebras",
+   "statement": "Z_(p) = Z_p ∩ Q, the localisation of Z at p, with residue map φ_p; the Jacobson radical J(R) of a ring; the quaternion algebra H_{a,b} = Q⟨α, β⟩/(α² = a, β² = b, αβ = −βα).",
+   "locator": "§2, Definition 4, Step 3",
+   "status": "library",
+   "library": [
+    "mathlib:Localization.AtPrime",
+    "mathlib:Ideal.jacobson",
+    "mathlib:QuaternionAlgebra",
+    "mathlib:padicValRat"
+   ],
+   "note": "Mathlib's QuaternionAlgebra R a b c has i² = a + b·i and j² = c, so Koenigsmann's H_{a,b} is QuaternionAlgebra ℚ a 0 b (notation ℍ[ℚ, a, b]). Z_(p) is the localisation of Z at the prime ideal (p), a subring of Q only after the IsLocalization identification."
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/7",
+   "kind": "theorem",
+   "name": "Local splitting of quaternion algebras and the norm criterion",
+   "statement": "For a, b ∈ Q^×, the set Δ_{a,b} of places where H_{a,b} does not split is finite, and Δ_{a,b} = ∅ iff a is a norm from Q(√b) (a ∈ N(b)); p ∈ Δ_{a,b} iff the Hilbert symbol (a, b)_p = −1.",
+   "locator": "§2, Definition 4 (second bullet) and Observation 5",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry"
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/8",
+   "kind": "theorem",
+   "name": "Explicit Hilbert symbols of Q (Observation 5)",
+   "statement": "For odd p, a = p^α u, b = p^β v with u, v units: (a, b)_p = (−1)^{αβ(p−1)/2}(u/p)^β(v/p)^α; for p = 2: (a, b)_2 = (−1)^{ε(u)ε(v) + αω(v) + βω(u)} with ε(u) = (u−1)/2, ω(u) = (u²−1)/8 mod 2; for p = ∞: (a,b)_∞ = −1 iff a < 0 and b < 0. Equivalently p ∈ Δ_{a,b} exactly in the listed cases; at 2 the 16 pairs of square classes listed in Observation 5 (verified here: they are exactly the pairs with (a,b)_2 = −1).",
+   "locator": "§2, Observation 5 and proof, pp. 75–76",
+   "status": "planned",
+   "planned": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/9",
+   "kind": "theorem",
+   "name": "Hilbert reciprocity",
+   "statement": "For a, b ∈ Q^×, ∏_{p ∈ P ∪ {∞}} (a, b)_p = 1.",
+   "locator": "§2, proof of Proposition 16(a)",
+   "status": "planned",
+   "planned": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/10",
+   "kind": "theorem",
+   "name": "Hasse–Minkowski for representations, and the Hasse norm theorem for quadratic fields",
+   "statement": "A nondegenerate quadratic form over Q represents c ∈ Q iff it does over every Q_p and R; in particular x ∈ S_{a,b}(Q) iff x ∈ S_{a,b}(Q_p) for all p ∈ Δ_{a,b} (Fact (e)), and c ∈ N(b) iff c is a local norm everywhere.",
+   "locator": "§2, Fact (e) p. 77; Proposition 21(e)",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry"
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/11",
+   "kind": "theorem",
+   "name": "Weak (and strong) approximation in Q",
+   "statement": "Finitely many p-adic and real conditions on an element of Q can be met simultaneously (used throughout: Proposition 6, Remark 8(a), Lemmas 13 and 14).",
+   "locator": "§2, proofs of Proposition 6, Remark 8(a), Lemmas 13–14",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas"
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/12",
+   "kind": "theorem",
+   "name": "Observation 0",
+   "statement": "If Z is existentially definable in Q, then it is also universally definable: Q \\ Z = {x | ∃m, n, a, b ∈ Z: n ≠ 0, ±1, am + bn = 1, m = xn} is then diophantine.",
+   "locator": "§1, Observation 0, p. 74",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/13",
+   "kind": "theorem",
+   "name": "Theorem 1: Z is universally definable in Q",
+   "statement": "There is n ≥ 1 and g ∈ Z[t; x₁, …, x_n] such that for every t ∈ Q: t ∈ Z iff ∀x₁ … ∀x_n ∈ Q, g(t; x₁, …, x_n) ≠ 0. Moreover no quantifier-free formula defines Z in Q.",
+   "locator": "§1, Theorem 1, p. 74; proof §2, Proposition 18(c), p. 86",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/14",
+   "kind": "theorem",
+   "name": "Corollary 2 and 2′: Q \\ Z is diophantine",
+   "statement": "Q \\ Z is diophantine in Q; equivalently there is an affine variety V over Q and a morphism π: V → A¹ with π(V(Q)) = Q \\ Z.",
+   "locator": "§1, Corollaries 2 and 2′, p. 74",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/15",
+   "kind": "theorem",
+   "name": "Corollary 3 and 3′: Th_∀∃(Q) is undecidable",
+   "statement": "The set of true ∀∃-sentences of Q in L_ring is undecidable; equivalently no algorithm decides, for a Q-morphism π: V → W of affine varieties, whether V(Q) → W(Q) is surjective.",
+   "locator": "§1, Corollaries 3 and 3′, p. 74",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/16",
+   "kind": "definition",
+   "name": "Quaternion trace sets S_{a,b}, T_{a,b} and Δ_{a,b}",
+   "statement": "For a, b ∈ Q^×: Δ_{a,b} ⊆ P ∪ {∞} is the set of places where H_{a,b} ⊗ Q_p ≇ M₂(Q_p); S_{a,b} = {2x₁ | ∃x₂, x₃, x₄: x₁² − ax₂² − bx₃² + abx₄² = 1} (traces of norm-one elements); T_{a,b} = S_{a,b} + S_{a,b}; S_{a,b}(Q_p), T_{a,b}(Q_p) likewise over Q_p (T differs from Poonen's by omitting {0, …, 2309}).",
+   "locator": "§2, Definition 4, p. 75",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/17",
+   "kind": "theorem",
+   "name": "Poonen's local facts (a), (b), (d) and Fact (c)",
+   "statement": "(a) p ∉ Δ_{a,b} ⇒ S_{a,b}(Q_p) = Q_p; (b) p ∈ Δ_{a,b} ⇒ φ_p^{-1}(U_p) ⊆ S_{a,b}(Q_p) ⊆ Z_p, where U_p = {s ∈ F_p | x² − sx + 1 irreducible over F_p}; (c) S_{a,b}(R) = R if a > 0 or b > 0, and [−2, 2] if a, b < 0; (d) F_p = U_p + U_p for p > 11. (U₂ = {1}, U₃ = {0}, U₅ = {1,4}, U₇ = {0,3,4}, U₁₁ = {0,1,5,6,10}.)",
+   "locator": "§2, Facts (a)–(d), p. 77 ([Poo09a, Lemmas 2.1, 2.3])",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/18",
+   "kind": "theorem",
+   "name": "Proposition 6: T_{a,b} = ∩_{p ∈ Δ_{a,b}} Z_(p)",
+   "statement": "For a, b ∈ Q^×, T_{a,b} = ∩_{p ∈ Δ_{a,b}} Z_(p), where Z_(∞) := {x ∈ Q : −4 ≤ x ≤ 4} and an empty intersection is Q.",
+   "locator": "§2, Proposition 6 and proof, pp. 76–78 (with the table for p = 2 corrected, E1)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/19",
+   "kind": "theorem",
+   "name": "A ∀∃-definition of Z with a degree-8 polynomial (Poonen's Theorem 4.1, simplified)",
+   "statement": "Z = ∩_{l ∈ P} Z_(l) = ∩_{a,b>0} T_{a,b}; hence t ∈ Z iff ∀a, b ∃x₁, …, x₄, y₂, y₃, y₄: (a + Σxᵢ²)(b + Σxᵢ²)[(x₁² − ax₂² − bx₃² + abx₄² − 1)² + ((t − 2x₁)² − 4ay₂² − 4by₃² + 4aby₄² − 4)²] = 0. The paper states that this lowers the degree of Poonen's polynomial from 9244 to 8: the polynomial has degree 8 in the quantified variables x₁, …, x₄, y₂, y₃, y₄ (total degree 12 when a, b and t are counted).",
+   "locator": "§2, Step 1, p. 79",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/20",
+   "kind": "definition",
+   "name": "The existentially defined rings R^{[k]}_p and R^{[1]}_{p,q}",
+   "statement": "For p, q ∈ Q^×: R^{[3]}_p = T_{−1,−p} + T_{2,−p}; R^{[5]}_p = T_{−2,−p} + T_{2,−p}; R^{[7]}_p = T_{−1,−p} + T_{−2,p}; R^{[1]}_{p,q} = T_{−2p,q} + T_{2p,q}. These are uniformly diophantine in the parameters.",
+   "locator": "§2, Definition 7 and Remark 8(b), p. 79",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/21",
+   "kind": "theorem",
+   "name": "Remark 8(a): sums of T-sets",
+   "statement": "For a, b, c, d ∈ Q^× with at least one positive, T_{a,b} + T_{c,d} = ∩_{l ∈ Δ_{a,b} ∩ Δ_{c,d}} Z_(l).",
+   "locator": "§2, Remark 8(a) and proof, pp. 79–80",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/22",
+   "kind": "definition",
+   "name": "Prime sets P^{[k]}, P(p), P^{[k]}(p), P(p, q)",
+   "statement": "P^{[k]} = {l ∈ P | l ≡ k mod 8} (k = 1, 3, 5, 7); P(p) = {l ∈ P | v_l(p) odd}; P^{[k]}(p) = P(p) ∩ P^{[k]}; P(p, q) = Δ_{−2p,q} ∩ Δ_{2p,q}.",
+   "locator": "§2, Definition 9, p. 80",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/23",
+   "kind": "theorem",
+   "name": "Proposition 10: identification of the R-rings",
+   "statement": "(a) Z_(2) = T_{3,3} + T_{2,5}. (b) For k = 3, 5, 7 and p ∈ Q^×: R^{[k]}_p = ∩_{l ∈ P^{[k]}(p)} Z_(l) if p ≡ k (mod 8Z_(2)), and otherwise either this or ∩_{l ∈ P^{[k]}(p) ∪ {2}} Z_(l); in particular R^{[k]}_p = Z_(p) for a prime p ≡ k mod 8. (c) For p ≡ 1, q ≡ 3 (mod 8Z_(2)), R^{[1]}_{p,q} = ∩_{l ∈ P(p,q)} Z_(l); in particular R^{[1]}_{p,q} = Z_(p) for primes p ≡ 1, q ≡ 3 mod 8 with (p/q) = −1.",
+   "locator": "§2, Proposition 10 and proof, pp. 80–81 (proof misprints E2)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/24",
+   "kind": "theorem",
+   "name": "Corollary 11: an ∀∃-definition through the R-rings",
+   "statement": "Z = Z_(2) ∩ ∩_{p,q ∈ Q^×} (R^{[3]}_p ∩ R^{[5]}_p ∩ R^{[7]}_p ∩ R^{[1]}_{p,q}).",
+   "locator": "§2, Corollary 11, p. 81",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/25",
+   "kind": "definition",
+   "name": "The sets T^×_{a,b}, I^c_{a,b} and J_{a,b}",
+   "statement": "T^×_{a,b} = {u ∈ T_{a,b} | ∃v ∈ T_{a,b}, uv = 1}; I^c_{a,b} = c·Q²·T^×_{a,b} ∩ (1 − Q²·T^×_{a,b}); J_{a,b} = (I^a_{a,b} + I^a_{a,b}) ∩ (I^b_{a,b} + I^b_{a,b}); {(a, b, x) | x ∈ J_{a,b}} is diophantine.",
+   "locator": "§2, Definition 12, pp. 81–82",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/26",
+   "kind": "theorem",
+   "name": "Lemma 13: T^×, I^c and J explicitly",
+   "statement": "(a) T^×_{a,b} = ∩_{l∈Δ_{a,b}} Z^×_(l) if ∞ ∉ Δ_{a,b}, and ([−4, −1/4] ∪ [1/4, 4]) ∩ ∩_{l ∈ Δ_{a,b} \\ {∞}} Z^×_(l) otherwise; (b) I^c_{a,b} = {0} ∪ {y ∈ Q^× | v_l(y) odd and positive for l ∈ Δ_{a,b} ∩ P(c), v_l(y), v_l(1 − y) even for l ∈ Δ_{a,b} \\ (P(c) ∪ {∞})}; (c) I^c_{a,b} + I^c_{a,b} = ∩_{l ∈ Δ_{a,b} ∩ P(c)} lZ_(l); (d) J_{a,b} = ∩_{l∈Δ} lZ_(l) with Δ = Δ_{a,b} \\ {2, ∞} if 2 ∈ Δ_{a,b} and v₂(a), v₂(b) are even, and Δ_{a,b} \\ {∞} otherwise. In particular, when ∞ ∉ Δ_{a,b} (and 2 ∉ Δ_{a,b} or v₂(a) or v₂(b) odd), T^× is the unit group and J_{a,b} the Jacobson radical of T_{a,b}.",
+   "locator": "§2, Lemma 13 and proof, pp. 82–83",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/27",
+   "kind": "theorem",
+   "name": "Lemma 14: Jacobson radicals of sums",
+   "statement": "For a, b, c, d ∈ Q^×, one positive, Δ := Δ_{a,b} ∩ Δ_{c,d} ∌ 2 and R = ∩_{l∈Δ} Z_(l): J_{a,b} + J_{c,d} = ∩_{l∈Δ} lZ_(l); if Δ ≠ ∅ this is J(R).",
+   "locator": "§2, Lemma 14 and proof, p. 83",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/28",
+   "kind": "theorem",
+   "name": "Corollary 15: the sets Φ_k and Ψ, and diophantine Jacobson radicals",
+   "statement": "Φ_k = {p ∈ Q_{>0} | p ≡ k (mod 8Z_(2)), P(p) ⊆ P^{[1]} ∪ P^{[k]}}, Ψ = {(p, q) ∈ Φ₁ × Φ₃ | p ∈ 2(Q^×)²(1 + J(R^{[3]}_q))}. (a) Φ_k is diophantine; (b) for k = 3, 5, 7 and p ∈ Φ_k: P^{[k]}(p) ≠ ∅ and {0} ≠ J(R^{[k]}_p) = J_{−1,−p} + J_{2,−p}, J_{−2,−p} + J_{2,−p}, J_{−1,−p} + J_{−2,p} respectively, uniformly diophantine in p; (c) Ψ is diophantine.",
+   "locator": "§2, Corollary 15 and proof, p. 84",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/29",
+   "kind": "theorem",
+   "name": "Proposition 16: the case p ∈ Φ₁",
+   "statement": "For (p, q) ∈ Ψ: (a) P(p, q) ≠ ∅; (b) J(R^{[1]}_{p,q}) = J_{−2p,q} + J_{2p,q}; (c) {(p, q, x) | (p, q) ∈ Ψ, x ∈ J(R^{[1]}_{p,q})} is diophantine.",
+   "locator": "§2, Proposition 16 and proof, p. 85",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/30",
+   "kind": "theorem",
+   "name": "Lemma 17: from existential to universal",
+   "statement": "For a semilocal R = ∩_{l∈Δ} Z_(l) ⊆ Q (Δ finite) let R̃ = {x ∈ Q | ¬∃y ∈ J(R), xy = 1}. (a) If J(R) is diophantine then R̃ is universally definable; (b) R̃ = ∪_{l∈Δ} Z_(l) if Δ ≠ ∅; (c) R̃ = R for R = Z_(p).",
+   "locator": "§2, Step 4, Lemma 17 and proof, p. 85",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/31",
+   "kind": "theorem",
+   "name": "Proposition 18: the universal definition",
+   "statement": "(a) Z = Z̃_(2) ∩ ∩_{k=3,5,7} ∩_{p∈Φ_k} R̃^{[k]}_p ∩ ∩_{(p,q)∈Ψ} R̃^{[1]}_{p,q}; (b) t ∈ Z iff t ∈ Z̃_(2) ∧ ∀p ⋀_{k=3,5,7}(t ∈ R̃^{[k]}_p ∨ p ∉ Φ_k) ∧ ∀p, q (t ∈ R̃^{[1]}_{p,q} ∨ (p, q) ∉ Ψ), a universal formula; (c) Theorem 1.",
+   "locator": "§2, Proposition 18 and proof, p. 86",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/32",
+   "kind": "theorem",
+   "name": "Definition 19 and Lemma 20: the sets S_p",
+   "statement": "For p ∈ Φ₁, S_p = {x | ∃q: (p, q) ∈ Ψ, q ∈ (R^{[1]}_{p,q})^×, x ∈ R^{[1]}_{p,q}}. (a) S_p is diophantine; (b) S_p = ∪_{l ∈ P(p)} Z_(l) (∅ if p is a square); (c) S_p = Z_(p) for a prime p ≡ 1 mod 8.",
+   "locator": "§3, Definition 19 and Lemma 20, pp. 86–87",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/33",
+   "kind": "theorem",
+   "name": "Proposition 21(a): disjointness of prime sets is diophantine",
+   "statement": "For fixed k ∈ {3, 5, 7}, the property 'x, y ∈ Φ_k and P^{[k]}(x) ∩ P^{[k]}(y) = ∅' is diophantine.",
+   "locator": "§3, Proposition 21(a), p. 87",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/34",
+   "kind": "theorem",
+   "name": "Proposition 21(b): non-squares are diophantine (elementary proof)",
+   "statement": "The set Q \\ Q² (restricted to Q^×) is diophantine: x ∉ Q² iff x < 0, or v₂(x) is odd, or ∃p ∈ Φ₃ with x ∈ 2·(Q^×)²·(1 + J(R^{[3]}_p)).",
+   "locator": "§3, Proposition 21(b) and proof, p. 88 (misprint E3); also [Poo09b]",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/35",
+   "kind": "theorem",
+   "name": "Proposition 21(c): 'x ≡ k and x ∉ Φ_k' is diophantine",
+   "statement": "For fixed k ∈ {1, 3, 5, 7}, the property 'x ≡ k (mod 8Z_(2)) and x ∉ Φ_k' is diophantine.",
+   "locator": "§3, Proposition 21(c), pp. 88–89",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/36",
+   "kind": "theorem",
+   "name": "Proposition 21(d): 'P^{[k]}(x) = ∅' is diophantine",
+   "statement": "For fixed k ∈ {3, 5, 7}, the property P^{[k]}(x) = ∅ is diophantine.",
+   "locator": "§3, Proposition 21(d), p. 89",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/37",
+   "kind": "theorem",
+   "name": "Proposition 21(e): non-norms from quadratic fields are diophantine",
+   "statement": "The set of (x, y) ∈ (Q^×)² with x ∉ N(y), the image of the norm Q(√y) → Q, is diophantine (explicit formula with a₃ = a₅ = 2, a₇ = −1).",
+   "locator": "§3, Proposition 21(e) and proof, pp. 89–90",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/38",
+   "kind": "theorem",
+   "name": "Corollary 22: an ∀∃-definition with one universal quantifier",
+   "statement": "For t ∈ Q: t ∈ Z iff ∀p (t ∈ Z_(2) ∧ (p ∈ Q²·(2 + 4Z_(2)) ∨ ⋁_{k=1,3,5,7}(p ≠ 0 ∧ p ∈ Q²·(k + 8Z_(2)) ∧ (p ∉ Φ_k ∨ p ∈ Q² ∨ (p ∈ Φ_k \\ Q² ∧ t ∈ R_k(p)))))), where R_k(p) = R^{[k]}_p for k = 3, 5, 7 and R_1(p) = S_p (the printed formula writes R^{[k]}_p also for k = 1, E4).",
+   "locator": "§3, Corollary 22 and proof, pp. 90–91",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/39",
+   "kind": "theorem",
+   "name": "The model-theoretic criterion for existential definability of Z",
+   "statement": "Z is diophantine in Q iff for all models Q* ⊆ Q** of Th(Q) (as L_ring-substructures) the rings of integers satisfy Z* ⊆ Z** ([PD11, Lemma 3.1.6]).",
+   "locator": "§4, p. 91",
+   "status": "missing",
+   "note": "Mathlib has elementary embeddings and substructures (FirstOrder.Language.ElementaryEmbedding) but not this preservation criterion."
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/40",
+   "kind": "theorem",
+   "name": "Proposition 23: closure properties of models of Th(Q)",
+   "statement": "For models Q* ⊆ Q** of Th(Q) with rings of integers Z*, Z**: (a) Z** ∩ Q* ⊆ Z*; (b) Z** ∩ Q* is integrally closed in Q*; (c) (Q**)ⁿ ∩ Q* = (Q*)ⁿ for all n (via [CTVG14]); (d) if Z is diophantine in Q then Z** ∩ Q* = Z* and Q* is algebraically closed in Q**.",
+   "locator": "§4, Proposition 23 and proof, pp. 91–92",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/41",
+   "kind": "theorem",
+   "name": "Remark 24: Th(Q) is not model complete",
+   "statement": "There are models Q* ⊆ Q** of Th(Q) with Q* not existentially closed in Q**, because not every definable subset of Q is diophantine (an undecidable r.e. set has a definable, non-diophantine complement).",
+   "locator": "§4, Remark 24, p. 92",
+   "status": "missing"
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "B. Poonen, Characterizing integers among rational numbers with a universal-existential formula, Amer. J. Math. 131 (2009), 675–682",
+   "link": "arXiv:math/0703907",
+   "why": "Source of Facts (a), (b), (d) (Lemmas 2.1, 2.3) and of the ∀∃-definition that Step 1 simplifies."
+  },
+  {
+   "citation": "B. Poonen, The set of nonsquares in a number field is Diophantine, Math. Res. Lett. 16 (2009), 165–170",
+   "link": "doi:10.4310/MRL.2009.v16.n1.a16",
+   "why": "The first proof of Proposition 21(b), via Châtelet surfaces."
+  },
+  {
+   "citation": "J.-L. Colliot-Thélène and J. Van Geel, Le complémentaire des puissances n-ièmes dans un corps de nombres est un ensemble diophantien, Compositio Math. 151 (2015)",
+   "link": "arXiv:1401.0915",
+   "why": "Used in Proposition 23(c): non-n-th powers are diophantine in number fields."
+  },
+  {
+   "citation": "J. Park, A universal first-order formula defining the ring of integers in a number field, Math. Res. Lett. 20 (2013), 961–980",
+   "link": "doi:10.4310/MRL.2013.v20.n5.a12",
+   "why": "Generalizes Theorem 1 to every number field (footnote 1); the natural sequel for LD.4."
+  },
+  {
+   "citation": "J. Robinson, Definability and decision problems in arithmetic, J. Symbolic Logic 14 (1949), 98–114",
+   "link": "doi:10.2307/2266510",
+   "why": "The first first-order definition of Z in Q (an ∀∃∀-formula)."
+  },
+  {
+   "citation": "G. Cornelissen and K. Zahidi, Elliptic divisibility sequences and undecidable problems about rational points, J. reine angew. Math. 613 (2007), 1–33",
+   "link": "doi:10.1515/CRELLE.2007.089",
+   "why": "The earlier conditional proof of Corollary 3."
+  },
+  {
+   "citation": "A. Prestel and C. N. Delzell, Mathematical Logic and Model Theory: A Brief Introduction, Springer Universitext (2011)",
+   "link": "doi:10.1007/978-1-4471-2176-3",
+   "why": "Lemma 3.1.6, the preservation criterion for existential definability used in §4."
+  }
+ ],
+ "routes": [
+  {
+   "route": "source",
+   "roadmap": "LogicAndDefinabilityInNumberTheory",
+   "stages": [
+    "LogicAndDefinabilityInNumberTheory:LD.4"
+   ],
+   "items": [
+    "PAPER-KOENIGSMANN-16/12",
+    "PAPER-KOENIGSMANN-16/13",
+    "PAPER-KOENIGSMANN-16/14",
+    "PAPER-KOENIGSMANN-16/15",
+    "PAPER-KOENIGSMANN-16/16",
+    "PAPER-KOENIGSMANN-16/17",
+    "PAPER-KOENIGSMANN-16/18",
+    "PAPER-KOENIGSMANN-16/19",
+    "PAPER-KOENIGSMANN-16/20",
+    "PAPER-KOENIGSMANN-16/21",
+    "PAPER-KOENIGSMANN-16/22",
+    "PAPER-KOENIGSMANN-16/23",
+    "PAPER-KOENIGSMANN-16/24",
+    "PAPER-KOENIGSMANN-16/25",
+    "PAPER-KOENIGSMANN-16/26",
+    "PAPER-KOENIGSMANN-16/27",
+    "PAPER-KOENIGSMANN-16/28",
+    "PAPER-KOENIGSMANN-16/29",
+    "PAPER-KOENIGSMANN-16/30",
+    "PAPER-KOENIGSMANN-16/31",
+    "PAPER-KOENIGSMANN-16/32",
+    "PAPER-KOENIGSMANN-16/33",
+    "PAPER-KOENIGSMANN-16/34",
+    "PAPER-KOENIGSMANN-16/35",
+    "PAPER-KOENIGSMANN-16/36",
+    "PAPER-KOENIGSMANN-16/37",
+    "PAPER-KOENIGSMANN-16/38"
+   ],
+   "reason": "LD.4 is the atlas's layer for Diophantine definability and undecidability, and its specification asks that other-field variants be recorded individually rather than copied from the integers. Koenigsmann's universal definition of Z in Q (with Robinson's and Poonen's ∀∃-definitions as predecessors), the diophantine sets it produces (Q \\ Z, non-squares, non-norms), and the undecidability of Th_∀∃(Q) are exactly such a variant. Its inputs are already planned: Hilbert symbols and reciprocity in ClassicalArithmeticCompletion:CA.1, quaternion splitting and local Hilbert symbols in Tau Ceti's QuadraticFormInvariants, Hasse–Minkowski, local–global norms and approximation in Tau Ceti's GlobalQuadraticForms, and MRDP in LD.4 itself. The paper-specific material — the quaternion trace sets S_{a,b}, T_{a,b} with Poonen's local lemmas, the R-rings, the existential Jacobson radicals and the existential-to-universal step — is elementary and belongs with its only consumer, so a separate roadmap is not warranted."
+  },
+  {
+   "route": "source",
+   "roadmap": "LogicAndDefinabilityInNumberTheory",
+   "stages": [
+    "LogicAndDefinabilityInNumberTheory:LD.0"
+   ],
+   "items": [
+    "PAPER-KOENIGSMANN-16/39",
+    "PAPER-KOENIGSMANN-16/40",
+    "PAPER-KOENIGSMANN-16/41"
+   ],
+   "reason": "Section 4 is model theory of Th(Q): elementary extensions, the preservation criterion for existential definability and model completeness. LD.0 (languages, structures, interpretations, elementary extensions and transfer) is where these interfaces live; Mathlib's ElementaryEmbedding and ElementarySubstructure are its library base. The results depend on Theorem 1 (routed to LD.4) and on Colliot-Thélène–Van Geel for (c)."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-KOENIGSMANN-16/E1",
+   "kind": "error",
+   "locator": "Ann. of Math. 183 (2016), published version, Proof of Proposition 6, table for p = 2, row (6, 15), p. 78",
+   "printed": "(a, b) = (6, 15): x₂ = 1, x₃ = 1, x₄ = 0",
+   "correction": "Take x₂ = x₃ = x₄ = 1 (then −6 − 15 + 90 = 69 ≡ −3 mod 8).",
+   "reason": "The table must give −a·x₂² − b·x₃² + ab·x₄² ≡ −3 (mod 8Z₂). For the printed row, −6 − 15 = −21 ≡ 3 (mod 8), not −3 ≡ 5. Every other row satisfies the congruence (checked in exact arithmetic), and so does the corrected row; the inclusion 4 + 8Z₂ ⊆ S_{6,15}(Q₂) and Proposition 6 are unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the Annals article page (annals.math.princeton.edu/2016/183-1/p02) lists no erratum, and a web search for an erratum or corrigendum to 'Defining Z in Q' found none. Not an exhaustive novelty claim.",
+    "2026-09-29: arXiv:1011.3424v2 (13 Nov 2013, the last arXiv version, earlier than the published text) collated: the same table row (6, 15) with x₂, x₃, x₄ = 1, 1, 0 appears on its p. 5."
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/E2",
+   "kind": "misprint",
+   "locator": "Ann. of Math. 183 (2016), published version, Proof of Proposition 10(b), p. 81",
+   "printed": "The source defines R^{[5]}_p := T_{−2p,−p} + T_{2p,−p} = … as well as R^{[7]}_p := T_{−p,−p} + T_{2p,p} = … .",
+   "correction": "R^{[5]}_p := T_{−2,−p} + T_{2,−p} and R^{[7]}_p := T_{−1,−p} + T_{−2,p}, as in Definition 7.",
+   "reason": "Definition 7 (p. 79) and the recollection on p. 84 define R^{[5]}_p = T_{−2,−p} + T_{2,−p} and R^{[7]}_p = T_{−1,−p} + T_{−2,p}, and the same displays compute with Δ_{−2,−p} ∩ Δ_{2,−p} and Δ_{−1,−p} ∩ Δ_{−2,p}. The printed subscripts (−2p, −p), (2p, −p), (−p, −p), (2p, p) are different quaternion algebras; for instance (−p, −p) always has the same Hilbert symbols as (−p, −1). Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the Annals article page (annals.math.princeton.edu/2016/183-1/p02) lists no erratum, and a web search for an erratum or corrigendum to 'Defining Z in Q' found none. Not an exhaustive novelty claim.",
+    "2026-09-29: arXiv:1011.3424v2 (13 Nov 2013, the last arXiv version, earlier than the published text) collated: the same subscripts appear in its proof of Proposition 10(b), p. 10."
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/E3",
+   "kind": "misprint",
+   "locator": "Ann. of Math. 183 (2016), published version, Proof of Proposition 21(b), '⇐' direction, p. 88",
+   "printed": "From l ≡ 3 mod 8 the source deduces (2/l) = 1, and then concludes 2 ∉ (Q_l^×)².",
+   "correction": "(2/l) = −1.",
+   "reason": "For a prime l ≡ 3 mod 8 the second supplement gives (2/l) = −1; the conclusion 2 ∉ (Q_l^×)² requires exactly this, and the '⇒' direction on the same page uses (2/p) = −1 for p ≡ 3 mod 8. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the Annals article page (annals.math.princeton.edu/2016/183-1/p02) lists no erratum, and a web search for an erratum or corrigendum to 'Defining Z in Q' found none. Not an exhaustive novelty claim.",
+    "2026-09-29: arXiv:1011.3424v2 (13 Nov 2013, the last arXiv version, earlier than the published text) collated: its proof of the same statement (p. 18) reads (2/l) = −1 correctly; the slip entered with the published rewording."
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/E4",
+   "kind": "misprint",
+   "locator": "Ann. of Math. 183 (2016), published version, Corollary 22, displayed formula, p. 90",
+   "printed": "… ∨ ⋁_{k=1,3,5,7} ( … ∧ ((p ∉ Φ_k) ∨ p ∈ Q² ∨ (p ∈ Φ_k \\ Q² ∧ t ∈ R^{[k]}_p)))",
+   "correction": "For k = 1 the last conjunct must read t ∈ S_p (Definition 19, Lemma 20).",
+   "reason": "In the published text R^{[1]} is only defined with two parameters, R^{[1]}_{p,q} (Definition 7). The proof cites Lemma 20, whose set S_p = ∪_{l∈P(p)} Z_(l) is the one-parameter replacement for p ∈ Φ₁ and gives Z_(p) for primes p ≡ 1 mod 8. With S_p for k = 1 the formula has one universal quantifier and defines Z, as claimed.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the Annals article page (annals.math.princeton.edu/2016/183-1/p02) lists no erratum, and a web search for an erratum or corrigendum to 'Defining Z in Q' found none. Not an exhaustive novelty claim.",
+    "2026-09-29: arXiv:1011.3424v2 (13 Nov 2013, the last arXiv version, earlier than the published text) collated: there the one-parameter set is itself called R^{[1]}_p (its Lemma 19, p. 16, with a footnote on the notation), so its Corollary 21 is consistent; the published text renamed the set S_p (Definition 19) but kept R^{[k]}_p for k = 1 in Corollary 22."
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p02-p.pdf",
+   "read": "2026-09-29",
+   "sha256": "f26c2e155d025978045a0c68073505631677624ef4d6f9b461640c6fbe1d3c93",
+   "citation": "Koenigsmann, Ann. of Math. 183 (2016) 73–93, publisher PDF (open), read completely."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1011.3424v2",
+   "read": "2026-09-29",
+   "sha256": "6f10efddacba619eb816610b4a79edb28e6110f8b15d8d5813985eae1b58c541",
+   "citation": "arXiv:1011.3424v2, collated at the finding locators."
+  }
+ ],
+ "gaps": []
+}
