@@ -1513,10 +1513,22 @@ readings on a curve with `ord_q(Δ) = ℓ`, so an implementation that follows th
 fails a test rather than silently computing the wrong level.
 
 **The manifest, not an edge.** RS-06 requires a case table showing how the classical Serre
-roadmap supplies the dyadic completion, and requires that the table be a manifest and not a
-proof prerequisite of the early exports. The table is listed in this layer's remaining work and
-will be written as per-case hypotheses; the full unconditional Serre theorem stays with the
-classical roadmap.
+roadmap supplies the dyadic completion, as a manifest and not a proof prerequisite of the early exports. The fourth
+checkpoint writes it (`R20.6/strong-form-case-table`), with per-case hypotheses:
+
+| Case | Supplier of weight k(ρ̄) and level N(ρ̄) | Hypotheses | Status |
+|---|---|---|---|
+| (1) p ≥ 5 | Ribet level lowering, Carayol, Edixhoven, Ribet 3.3 | none beyond S-type | R20 |
+| (2) p = 3 | level and weight: R20; character: Carayol needs ℓ ≥ 5 | N(ρ̄) odd: KW I 1.2(1) | R27 (odd N); R20 obligation (even N) |
+| (3) p = 2, not scalar, not ℚ(i), k = 2 | Buzzard 3.2 + Cor. 2.7 | multiplicity one (Prop. 2.4) | R20 |
+| (4) p = 2, not scalar, not ℚ(i), k = 4 | Buzzard 3.2 (weight 3) + Hasse invariant | multiplicity one; modularity from KW §9 + Kisin | R20 (modularity from R27.5) |
+| (5) p = 2, induced from ℚ(i) | Buzzard §3 theta branch | — | R20 |
+| (6) p = 2, scalar, dihedral | Wiese | — | R20.5 obligation |
+| (7) p = 2, scalar, not dihedral | KW I 1.2(2) (k = 2 by the scalar lemma) | — | R27.4 (the dyadic completion) |
+
+A scalar dyadic restriction is unramified (`R20.6/scalar-dyadic-restriction-is-unramified`), so case (7) has
+k(ρ̄) = 2, which is why KW I Theorem 1.2(2) covers it. Edixhoven's weight-one refinement at 2 is not claimed (KW
+record it as unknown). The R27 rows name their supplier without making it a prerequisite, so R20 → R27 stays acyclic.
 
 **Coverage status: `partial`.**
 
@@ -1636,8 +1648,91 @@ With E, ℓ, M₀, f and λ as in the previous node, let p be a rational prime. 
 **Sources.**
 - Michael A. Bennett and Samir Siksek, *A conjecture of Erdős, supersingular primes and short character sums* — §2, Lemma 2.1(i) and (ii), p. 359. The statement of both parts of Lemma 2.1, including (ii): if p ∤ ℓM₀ and p ∥ M then p + 1 ≡ ±c_p (mod λ).
 
+#### `R20.6/scalar-dyadic-restriction-is-unramified` — A mod 2 representation that is scalar at 2 is unramified at 2, so its Serre weight is 2
+
+*lemma*
+
+Let ρ̄ : Gal(Q̄/Q) → GL(2, F̄₂) be continuous and suppose ρ̄(D₂) consists of scalar matrices, D₂ a decomposition group at 2. Then ρ̄|_{D₂} = χ·Id for a character χ : D₂ → F̄₂^× that is unramified. Hence ρ̄ is unramified at 2, finite at 2, and k(ρ̄) = 2.
+
+**Hypotheses.**
+
+- ArithmeticGaloisRepresentations R01.6 supplies Serre's k(ρ̄) at p = 2 (2 if finite at 2, 4 otherwise) and local class field theory for ℚ₂.
+
+**Construction or proof, in steps.**
+
+1. Scalar image means ρ̄|_{D₂} = χ·Id for a continuous χ : D₂ → F̄₂^×. Its image is finite and of odd order, since every element of F̄₂^× has odd order.
+2. χ factors through D₂^{ab}, the profinite completion of ℚ₂^× = 2^ℤ × {±1} × (1 + 4ℤ₂). A finite quotient of odd order kills {±1} × (1 + 4ℤ₂) = ℤ₂^×, which is {±1} times a pro-2 group, so χ factors through ℚ₂^×/ℤ₂^× ≅ 2^ℤ.
+3. Hence χ is unramified, and ρ̄ is unramified at 2. An unramified representation is finite at 2 (it comes from an étale group scheme), so k(ρ̄) = 2.
+
+**Acceptance tests.**
+
+- This is why KW I's Theorem 1.2(2), a statement about k(ρ̄) = 2, covers the whole scalar dyadic case.
+- The lemma says nothing about Edixhoven's weight-one refinement, which KW record as open at 2.
+
+**Dependencies.**
+
+- On other roadmaps, by stage id: `ArithmeticGaloisRepresentations:R01.6`
+
+**Sources.**
+
+- Kevin Buzzard, *On level-lowering for mod 2 representations* — §0 Introduction, the scalar case, p. 1. The scalar dyadic case singled out by Buzzard.
+- Chandrashekhar Khare and Jean-Pierre Wintenberger, *Serre's modularity conjecture (I)* — §1, after Theorem 1.2, p. 2. KW's Theorem 1.2(2), the weight-two case, fills this case.
+
+#### `R20.6/strong-form-case-table` — The case table: from modularity to Serre's weight and level, and where the dyadic completion comes from
+
+*comparison*
+
+Let ρ̄ : Gal(Q̄/Q) → GL(2, F) be of S-type (continuous, absolutely irreducible, odd) in characteristic p, and assume ρ̄ is modular. The table below shows, case by case, which theorem gives that ρ̄ arises from S_{k(ρ̄)}(Γ₁(N(ρ̄))), and with what hypotheses. 'R20' means this roadmap's optimisation nodes; 'R27' means ClassicalSerreModularity. Modularity itself (the weak conjecture) is R27's (KW I Theorems 1.2 and 9.1, with Kisin's Hypothesis (H)).
+
+(1) p ≥ 5, any N(ρ̄). R20: level by R20.2/descend-to-serre-level, R20.2/twist-away-ramified-character and R20.4/strip-ell-power-from-level; character by R20.4/nebentypus-congruent-character; weight by R20.3/edixhoven-weight-theorem with R20.3/ribet-four-level-sets.
+
+(2) p = 3. R20 supplies the level (Mazur's principle, Theorem 1.5 and the stripping step are valid for odd ℓ) and the weight (Edixhoven), but not Carayol's character step or Ribet's Theorems 2.2 and 3.3, which need ℓ ≥ 5 or N > 3. For N(ρ̄) odd, R27 supplies the refined form directly (KW I Theorem 1.2(1)). For N(ρ̄) even, the character at ℓ = 3 remains an R20 obligation (see the hypotheses).
+
+(3) p = 2, ρ̄|_{D₂} not scalar, not induced from ℚ(i), k(ρ̄) = 2. R20: Buzzard's Theorem 3.2 (multiplicity one by his Proposition 2.4) gives weight 2 and level N(ρ̄), with Serre's character by Corollary 2.7.
+
+(4) p = 2, ρ̄|_{D₂} not scalar, not induced from ℚ(i), k(ρ̄) = 4. R20: Buzzard's Theorem 3.2 gives weight 3 and level N(ρ̄); multiplying by the Hasse invariant (weight p − 1 = 1) gives weight 4, Serre's original k(ρ̄). Modularity is R27.5's input (KW I §9, Kisin).
+
+(5) p = 2, ρ̄ induced from ℚ(i). R20: Buzzard's §3 theta-series branch (R20.5/buzzard-weight-and-level-mod-two).
+
+(6) p = 2, ρ̄|_{D₂} scalar, projective image dihedral. Wiese's weight-one theorem, an R20.5 obligation.
+
+(7) p = 2, ρ̄|_{D₂} scalar, projective image not dihedral. Here k(ρ̄) = 2 by the previous node. R27 supplies it: KW I Theorem 1.2(2) (R27.4). This is the dyadic completion.
+
+Not in the table: Edixhoven's refinement at p = 2 (ρ̄ unramified at 2 iff it arises from a Katz form of weight 1), which KW record as not known.
+
+**Hypotheses.**
+
+- RS-06 asks for this as a manifest with per-case hypotheses, not as a proof edge. Accordingly the R27 rows are not prerequisites of this node: rows (2) (odd N), (4) (modularity) and (7) name R27 as supplier, and no export of this roadmap depends on them. This keeps R20 → R27 acyclic.
+- Row (2): Buzzard's introduction says the weak and strong conjectures are equivalent for every odd ℓ, which includes ℓ = 3, citing 'the work of many people'. The planned R20 nodes cover ℓ = 3 only for level and weight. The character step at ℓ = 3 (Diamond's refinement) is not read, so it is recorded as an R20 obligation.
+- Row (6): Wiese's theorem is R20.5's recorded obligation (the public version was not pinned).
+
+**Construction or proof, in steps.**
+
+1. Rows (1), (3), (4) and (5): the named R20 nodes apply, with the hypotheses listed. Row (4) also uses the Hasse-invariant step of Proposition 1.3's proof: a mod 2 Katz form of weight 3 times the Hasse invariant has weight 4 and the same q-expansion, and it lifts to characteristic 0 (Edixhoven's Lemma 1.9).
+2. Row (7): by the scalar lemma, ρ̄ is unramified at 2 and k(ρ̄) = 2, so KW I Theorem 1.2(2) applies. It gives S₂(Γ₁(N(ρ̄))) directly, without multiplicity one.
+3. Row (2) with N(ρ̄) odd: KW I Theorem 1.2(1) gives S_{k(ρ̄)}(Γ₁(N(ρ̄))) directly.
+4. Completeness: every S-type ρ̄ has p ≥ 5, p = 3 or p = 2. For p = 2 it is either induced from ℚ(i), or not; if not, ρ̄|_{D₂} is either scalar (rows (6), (7), by projective image) or not (rows (3), (4), by k(ρ̄) ∈ {2, 4}). Rows (3) and (4) need multiplicity one, which Buzzard's Proposition 2.4 provides exactly when ρ̄|_{D₂} is not scalar.
+
+**Acceptance tests.**
+
+- Test: p = 2 and ρ̄ = E[2] for E = X₀(11) (11a1). E has no rational 2-torsion and discriminant −11⁵, which is not a square, so ρ̄ has image S₃ and is absolutely irreducible; it is induced from ℚ(√−11), not ℚ(i). E has good supersingular reduction at 2 (a₂ = −2), so ρ̄|_{I₂} acts through the level-2 fundamental character (order 3) and is not scalar. It is finite at 2, so k(ρ̄) = 2, and N(ρ̄) = 11 (2 ∤ ord₁₁(Δ) = 5). Row (3) applies and gives the newform of X₀(11) in S₂(Γ₀(11)).
+- Rows (6) and (2) with even N(ρ̄) are the only cases left as R20 obligations; the table says so.
+
+**Dependencies.**
+
+- Inside this roadmap: `R20.6/scalar-dyadic-restriction-is-unramified`, `R20.2/descend-to-serre-level`, `R20.2/twist-away-ramified-character`, `R20.4/strip-ell-power-from-level`, `R20.4/nebentypus-congruent-character`, `R20.3/edixhoven-weight-theorem`, `R20.3/ribet-four-level-sets`, `R20.5/buzzard-weight-and-level-mod-two`, `R20.5/buzzard-multiplicity-one`, `R20.5/buzzard-carayol-lemma-mod-two`, `R20.5/buzzard-removing-two-from-the-level`, `R20.5/dyadic-scalar-multiplicity-one-obstruction`
+
+**Sources.**
+
+- Chandrashekhar Khare and Jean-Pierre Wintenberger, *Serre's modularity conjecture (I)* — §1, Theorem 1.2 and the remark after it, p. 2. The dyadic completion.
+- Chandrashekhar Khare and Jean-Pierre Wintenberger, *Serre's modularity conjecture (I)* — §1, the strong form in the sense of Edixhoven, p. 3. What is not claimed at 2.
+- Chandrashekhar Khare and Jean-Pierre Wintenberger, *Serre's modularity conjecture (I)* — §3, Theorem 3.4 and its remark, p. 6. (D_r) and the cases it yields.
+- Chandrashekhar Khare and Jean-Pierre Wintenberger, *Serre's modularity conjecture (I)* — §9, Theorem 9.1, p. 18. Modularity for p = 2, k = 4 and for p odd, N even.
+- Kevin Buzzard, *On level-lowering for mod 2 representations* — §1, proof of Proposition 1.3, p. 4. The weight 3 to weight 4 step.
+- Kevin Buzzard, *On level-lowering for mod 2 representations* — §3, Remark after Theorem 3.2, p. 10. Serre's weight 4 against weight 3 at p = 2.
+
 **Remaining in this layer.**
-- The case table showing how the classical Serre roadmap supplies the dyadic completion. RS-06 requires it as a manifest that is not a proof prerequisite of the early exports, so it must be written as a table with per-case hypotheses rather than as an edge.
+- Two rows of the case table rest on unread inputs: (2) the character step at ℓ = 3 for even N(ρ̄) (Diamond's refinement), and (6) Wiese's weight-one theorem.
 - The conditional cases needed inside the downstream stages R22, R26, R27 and R33, each to be stated with the hypotheses that consumer has proved.
 - The comparison of the reduced level M₀ with the prime-to-ℓ Artin conductor, stated as an obligation in the M₀ node's api but not yet proved; the paper extraction's own note warns they need not agree when ℓ divides the elliptic conductor.
 
