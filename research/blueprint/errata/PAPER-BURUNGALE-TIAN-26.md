@@ -147,26 +147,6 @@ These are exactly the cases the paper needs. Theorem 1.2 uses p = 2 for the cong
 
 **Correction.** Read ψ : A_K^×/K^× → C^×. Its values on ideals prime to the conductor lie in K, as in Kato 15.7.
 
-## Added by FIX-RT-PAPER-BURUNGALE-TIAN-26
-
-The red team RT-PAPER-BURUNGALE-TIAN-26 found four more points, confirmed by its review. The fix numbers them E16–E19.
-
-## E16. exp* injectivity at the centre (gap; affects nothing)
-
-The last paragraph of the proof of Theorem 3.1 infers ord_{s=k/2}L(s,f)=0 from (3.3) and Kato's reciprocity law. This also needs H¹_g = H¹_f at the centre, so that exp* is injective on H¹/H¹_f. It holds for every p by Kato (14.10.4)–(14.10.5) and Bloch–Kato Cor. 3.8.4; Kato Lemma 14.18 covers only p∤N, p>k.
-
-## E17. Remark 3.6(ii) (gap; affects nothing)
-
-The first sentence is asserted without proof, and "positive proportion" read over all twists does not give the second. What is needed, and true, is that descending twists have density zero (item `twist-descent-thin`).
-
-## E18. The sum-of-two-cubes result is uncited (misprint; affects nothing)
-
-§1.0.3 attributes the result to "Alpoge–Bhargava–Shnidman" without a reference. The name is Alpöge, and the source is arXiv:2210.10730, *Integers expressible as the sum of two rational cubes*, whose appendix by Burungale and Skinner proves the rank-one 2-converse.
-
-## E19. The journal's online abstract (misprint; affects nothing)
-
-The abstract on the Annals article page reads "… = 0 and the for the p^∞-Selmer group"; "and the" should be deleted. It is not in arXiv v1 or v2. The typeset article was not read.
-
 ## Not recorded
 
 - **Remark 2.2.** "The conjecture is still open for p non-split in K" may be too strong when the Galois group G_{p∞f} has no p-torsion. Johnson-Leung–Kings alone also leave split p = 2, 3 open, which Oukhaba–Viguié later settled. This was not settled here.

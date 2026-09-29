@@ -6,7 +6,7 @@ Fixer: Claude Code, session `cc-fb70e5`, 29 September 2026 (issue #3973, job FIX
 - 27 are applied. Finding 25 is left to the maintainer, since it asks for a convention.
 - Files changed:
   - `papers/PAPER-BURUNGALE-TIAN-26.result.json` and `.md`;
-  - `errata/PAPER-BURUNGALE-TIAN-26.json` and `.md`;
+  - `errata/PAPER-BURUNGALE-TIAN-26.json`. Its companion `errata/PAPER-BURUNGALE-TIAN-26.md` is not a deliverable of this job, so the prose for E16–E19 is under "Errata report text for the maintainer" below.
   - route 5 of `papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json`;
   - route 8 of `papers/PAPER-CASTELLA-ETAL-22.result.json`.
 - `PAPER-KOYMANS-PAGANO.result.json` needs no change: the new route 9 copies its Smith-method Part II's id, title and area, so the two coalesce.
@@ -127,7 +127,7 @@ Route 8's reason and the last paragraph of its brief describe RankOneConverse as
 
 ## /28 (low, missing): fixed
 
-Appended the two entries to errata/PAPER-BURUNGALE-TIAN-26.json as E18 (the uncited Alpöge–Bhargava–Shnidman result; arXiv:2210.10730 checked) and E19 (the Annals online abstract), since E16 and E17 were already taken by findings 7 and 10; added the searched line to E12; explained all four new entries in errata/PAPER-BURUNGALE-TIAN-26.md.
+Appended the two entries to errata/PAPER-BURUNGALE-TIAN-26.json as E18 (the uncited Alpöge–Bhargava–Shnidman result; arXiv:2210.10730 checked) and E19 (the Annals online abstract), since E16 and E17 were already taken by findings 7 and 10; added the searched line to E12; wrote prose for all four new entries in the section "Errata report text for the maintainer" below.
 
 ## check_errata
 
@@ -144,3 +144,27 @@ check_errata.py failed on origin/main's errata file already: E1 quotes a stated 
   It should get one owner for all p.
 - **/25.** Choose a convention for the title of a Part II whose parent an RS extension retitled. Then apply it together to BT route 8, the RankOneConverse routes, and the other affected part-ii routes, before their design jobs are queued.
 - **/16.** The owner of the potential-good-reduction input (Rubin 5.22, used by BKLOS Theorem 11.2) was not identified. Route 3's reason names it only as an import.
+
+## Errata report text for the maintainer
+
+`errata/PAPER-BURUNGALE-TIAN-26.md` is not a deliverable of this job, and the intake refused a change to it. The following sections belong before its "Not recorded" section:
+
+> ## Added by FIX-RT-PAPER-BURUNGALE-TIAN-26
+>
+> The red team RT-PAPER-BURUNGALE-TIAN-26 found four more points, confirmed by its review. The fix numbers them E16–E19.
+>
+> ## E16. exp* injectivity at the centre (gap; affects nothing)
+>
+> The last paragraph of the proof of Theorem 3.1 infers ord_{s=k/2}L(s,f)=0 from (3.3) and Kato's reciprocity law. This also needs H¹_g = H¹_f at the centre, so that exp* is injective on H¹/H¹_f. It holds for every p by Kato (14.10.4)–(14.10.5) and Bloch–Kato Cor. 3.8.4; Kato Lemma 14.18 covers only p∤N, p>k.
+>
+> ## E17. Remark 3.6(ii) (gap; affects nothing)
+>
+> The first sentence is asserted without proof, and "positive proportion" read over all twists does not give the second. What is needed, and true, is that descending twists have density zero (item `twist-descent-thin`).
+>
+> ## E18. The sum-of-two-cubes result is uncited (misprint; affects nothing)
+>
+> §1.0.3 attributes the result to "Alpoge–Bhargava–Shnidman" without a reference. The name is Alpöge, and the source is arXiv:2210.10730, *Integers expressible as the sum of two rational cubes*, whose appendix by Burungale and Skinner proves the rank-one 2-converse.
+>
+> ## E19. The journal's online abstract (misprint; affects nothing)
+>
+> The abstract on the Annals article page reads "… = 0 and the for the p^∞-Selmer group"; "and the" should be deleted. It is not in arXiv v1 or v2. The typeset article was not read.
