@@ -9550,8 +9550,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KEDLAYA-LIU-15.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4546"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4546",
+   "finishedAt": "2026-09-29T18:28:06Z"
   },
   {
    "id": "REV-PAPER-KEDLAYA-LIU-15",
