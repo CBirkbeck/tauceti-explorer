@@ -9005,7 +9005,8 @@
    ],
    "avoidAccountOf": "PAPER-CARAIANI-NEWTON-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-CARAIANI-NEWTON-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4491"
   },
   {
    "id": "PAPER-DELIGNE-74",
@@ -9309,8 +9310,9 @@
    ],
    "avoidAccountOf": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01",
    "prompt": "research/blueprint/prompts/REV-PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4511"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4511",
+   "finishedAt": "2026-09-29T20:05:06Z"
   },
   {
    "id": "PAPER-RODRIGUES-JACINTO-WILLIAMS-23",
