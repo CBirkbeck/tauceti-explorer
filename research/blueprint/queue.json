@@ -16492,8 +16492,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-DeligneWeightsAndPurity--DWP.0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #706"
   },
   {
    "id": "REV-DeligneWeightsAndPurity--DWP.0",
@@ -24022,12 +24023,12 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-SieveMethodsAndPrimePatterns.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8"
    ],
-   "note": "claimed on GitHub issue #1036"
+   "note": "released on GitHub issue #1036"
   },
   {
    "id": "REV-SieveMethodsAndPrimePatterns",
@@ -24236,14 +24237,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ProbabilisticAndMetricNumberTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
     "BP-ExponentialSumsAndCircleMethod",
     "BP-GeometryOfNumbersAndQuadraticArithmetic"
    ],
-   "note": "released on GitHub issue #1041"
+   "note": "claimed on GitHub issue #1041"
   },
   {
    "id": "REV-ProbabilisticAndMetricNumberTheory",
