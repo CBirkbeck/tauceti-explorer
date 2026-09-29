@@ -1,6 +1,43 @@
-# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 4 (Claude Code cc-39fac3)
+# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 5 (Claude Code cc-39fac3)
 
-Claude Code, session `cc-39fac3`, 28–29 September 2026. Refs #1015; the bot confirmed the claim. **Status: partial.**
+Claude Code, session `cc-39fac3`, 29 September 2026. Refs #1015; the bot confirmed the claim. **Status: partial.**
+
+## Checkpoint 5: Kakde §§1–4 (11 nodes)
+
+Read from the arXiv text layer: Kakde, arXiv:1008.0142v3 (sha256 5a05da0d…ea45c), pp. 1–30.
+
+**Nodes:**
+- **NE.2:** `boundary-surjective-p-torsion` (Lemma 5).
+- **NE.3:** `k1-prime` (Definitions 6–7, Lemma 19, Corollary 20).
+- **NE.4:** `admissible-extension` (Definitions 1 and 8, Lemma 9); `totally-real-iwasawa-complex` (planet).
+- **NE.5:** `totally-real-main-conjecture` (planet), a proposition.
+- **NE.6:**
+  - `abelian-case` (planet);
+  - `burns-kato-patching`;
+  - `reduction-to-dimension-one` (planet);
+  - `reduction-to-qp-elementary` (planet);
+  - `l-elementary-case`;
+  - `reduction-to-p-elementary` (planet).
+
+**New requests:**
+- AutomorphicPadicLFunctions L3 (Deligne–Ribet).
+- IntegralIwasawaTheory I.5 (Wiles).
+- Tau Ceti InductionRestriction Layer 6 (Brauer induction).
+- ArithmeticGaloisDuality R02.4 (extended; cohomological-dimension-bound is cited).
+
+**New gaps:**
+- Oliver's *Whitehead groups of finite groups*.
+- Fukaya–Kato §1.
+
+Neither is freely available.
+
+**NE.6 remaining:**
+- Kakde §§5–6 (pp. 30–90): the congruence description of K′₁ for one-dimensional pro-p groups, the logarithms, the
+  θ–β relation, Theorems 52–53, and the Deligne–Ribet congruences, Proposition 93 and Theorem 94.
+- The final theorem.
+- Ritter–Weiss.
+
+**Checks.** `check_blueprint.py`: 65 nodes, 0 errors, 0 warnings. The Lean file compiles with exit 0 against the pinned Mathlib; it adds two checked tests (the Theorem 16 averaging for ℤ/2, and Lemma 31 for |C| = 9).
 
 ## Checkpoint 4: CFKSV §§4–5 (8 nodes)
 
