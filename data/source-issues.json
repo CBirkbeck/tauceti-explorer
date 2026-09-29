@@ -145289,6 +145289,63 @@
    "reviewReason": null
   },
   {
+   "id": "NoncommutativeAndEquivariantIwasawa/E12",
+   "kind": "error",
+   "locator": "arXiv v2 and the authors' final version, §5.3, Corollary 5.7 and proof, p. 27",
+   "printed": "The source claims that Leopoldt’s conjecture for E at p supplies, for each Qp-rational character ρ of Ḡ, a natural number nρ with the stated property. In the proof it invokes Artin’s Induction Theorem to obtain a natural number nρ for Qp-rational ρ such that nρ·ρ = ∑H nH·indGH 1H.",
+   "correction": "Restrict to ℚ-valued (rational) characters ρ, for which Artin's induction theorem gives n_ρρ = Σ n_H Ind_H 1_H; for ℚ_p-valued characters with non-rational values the proof does not apply.",
+   "reason": "Every permutation character Ind_H 1_H is ℚ-valued, so an integer combination of them is ℚ-valued; a character of ℤ/3 with values in ℚ(ζ₃) ⊂ ℚ_p (p ≡ 1 mod 3) is ℚ_p-rational but n·ρ is never ℚ-valued. Artin's theorem as cited (Tate, Chapitre II, Théorème 1.2) concerns ℚ-rational characters.",
+   "affects": "a stated result",
+   "known": "new (the authors' final version has the same text)",
+   "searched": [
+    "2026-09-29: arXiv math/0511672 (v1, v2 listed); the authors' final version on O. Venjakob's page (sha 3b59955e…) has the same wording; the Documenta Math. article page now redirects to EMS Press and could not be fetched."
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E13",
+   "kind": "misprint",
+   "locator": "arXiv v2 and the authors' final version, §6.1, definition of Γ^*, p. 28",
+   "printed": "Γ∗(−j) := Γ(j) = (j − 1)! if j > 0, lims→j(s − j)Γ(s) = (−1)^j((−j)!)^{−1} if j ≤ 0",
+   "correction": "Γ^*(j) := Γ(j) for j > 0 and Res_{s=j}Γ(s) = (−1)^j((−j)!)^{−1} for j ≤ 0.",
+   "reason": "The right-hand sides are functions of j (and the residue formula is the residue of Γ at s = j ≤ 0), and the next line uses Γ^*(j) in Γ_L(V) = ∏Γ^*(j)^{−h(−j)}; with the printed left-hand side, Γ^*(−j) for j > 0 would be (j − 1)!, contradicting the residue at negative arguments.",
+   "affects": "nothing",
+   "known": "new (the authors' final version has the same text)",
+   "searched": [
+    "2026-09-29: as for E12."
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E14",
+   "kind": "misprint",
+   "locator": "arXiv v2 and the authors' final version, §6.3, Proposition 6.6, p. 32",
+   "printed": "The source labels both assertions (i): SCU(ˆTcyc,ρ, Tcyc,ρ) ∈ Σss is equivalent to (F); assuming (F), it gives rΓ(…) = dimL H1f(Q,W).",
+   "correction": "The second item is (ii).",
+   "reason": "Two consecutive items are numbered (i).",
+   "affects": "nothing",
+   "known": "new (the authors' final version has the same text)",
+   "searched": [
+    "2026-09-29: as for E12."
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E1",
    "kind": "misprint",
    "locator": "§3.2, paragraph before Lemma 3.10, p. 41 (Numdam PDF page 38)",
