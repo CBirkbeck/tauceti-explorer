@@ -129617,6 +129617,63 @@
    "reviewReason": null
   },
   {
+   "id": "AutomorphicLFunctionsAndLocalFactors/E3",
+   "kind": "misprint",
+   "locator": "Published 2004 chapter, §4, p. 128, the two sentences after Theorem 4.3",
+   "printed": "The source refers to (3.13) as the local functional equation and credits Proposition3.7 with the explicit expression for ε_v(s,ω_v,ψ_v).",
+   "correction": "Read (3.23) for (3.13), and Proposition 3.8 for Proposition 3.7.",
+   "reason": "(3.13) is the computation c = −1 in the unramified example (p. 120); the displayed equation z₀(1 − s, ω_v^{−1})^ = ε_v z₀(s, ω_v) is (3.23), Corollary 3.7 on p. 123. Corollary 3.7 states the functional equation without values; the explicit ε-factors are Proposition 3.8 on p. 124.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the publisher chapter page https://link.springer.com/chapter/10.1007/978-0-8176-8226-2_6 (no correction entry); the author pages checked on 2026-09-27 for E1 list no erratum; a web search for errata to Kudla's Tate's-thesis chapter found none."
+   ],
+   "owner": "AutomorphicLFunctionsAndLocalFactors",
+   "file": "research/blueprint/packets/AutomorphicLFunctionsAndLocalFactors.json",
+   "citation": "Stephen S. Kudla, Tate’s Thesis, Chapter 6, An Introduction to the Langlands Program, Birkhäuser 2004, pp.109–131; published chapter scan",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AutomorphicLFunctionsAndLocalFactors/E4",
+   "kind": "misprint",
+   "locator": "Published 2004 chapter, §3, Remark after Proposition 3.5, pp. 121–122, (3.22)",
+   "printed": "The source places the poles, when F=ℝ, at −r∈ℤ_{≤0}, imposing r≡a mod2. Its residue identity reads Res_{s=−r}z(s,ω)=c_rD^rδ₀.",
+   "correction": "In the chapter's convention ω(x) = x^{−a} (3.18), for which L(s, ω) = π^{−s/2}Γ(s/2) for both a (3.19): the poles are at s = −r with r ≡ 0 mod 2, and the residue is c_r D^{a+r}δ₀ ∈ S′(ωω_{−r}) (the constant term extends x^{−a−r}d^×x). The printed statement is right for the other common normalisation ω = sgn^a.",
+   "reason": "For a = 1, Proposition 3.5 gives z(s, x^{−1}; x e^{−πx²}) = ∫ e^{−πx²}|x|^s d^×x = π^{−s/2}Γ(s/2), with poles at s = 0, −2, −4, …, not at odd −r. Directly, the Taylor term f^{(k)}(0)x^k/k! contributes ∫_{|x|<1} x^{k−1}|x|^{s−1}dx, nonzero only for k odd, with a pole at s = 1 − k and a residue proportional to f^{(k)}(0), i.e. to D^{a+r}δ₀ with r = k − 1 even. This matches the chapter's own complex statement, residue D^{a+r}D̄^{b+r}δ₀, and the eigencharacter: D^{a+r}δ₀ ∈ S′(x^{−a−r}) = S′(x^{−a}|x|^{−r}) for r even.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the publisher chapter page (no correction entry); the lecture preprint was not collated for this remark (read only through p. 9); a web search for errata to the chapter found none."
+   ],
+   "owner": "AutomorphicLFunctionsAndLocalFactors",
+   "file": "research/blueprint/packets/AutomorphicLFunctionsAndLocalFactors.json",
+   "citation": "Stephen S. Kudla, Tate’s Thesis, Chapter 6, An Introduction to the Langlands Program, Birkhäuser 2004, pp.109–131; published chapter scan",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AutomorphicLFunctionsAndLocalFactors/E5",
+   "kind": "misprint",
+   "locator": "Original 1950 thesis scan, §2.5 \"k 𝔭-adic\", physical p. 26, printed (2.19), the sentence before \"Explicit Expressions for ρ(c)\"",
+   "printed": "The source describes f̂_n as the indicator function of 1+𝔭^n multiplied by N𝔡^(−1/2)N𝔭^n.",
+   "correction": "f̂_n is N𝔡^{+1/2}N𝔭^n times the characteristic function of 1 + 𝔭^n.",
+   "reason": "Physical p. 24 states f̂_n(ξ) = (N𝔡)^{+1/2}(N𝔭)^n for ξ ≡ 1 mod 𝔭^n and proves it as the measure of 𝔡^{−1}𝔭^{−n}, which is N𝔡^{−1/2}·N𝔡·N𝔭^n; the next line on p. 26 uses N𝔡^{1/2}N𝔭^n; and only +1/2 gives the stated ρ(c|·|^s) = N(𝔡𝔣)^{s−1/2}ρ₀(c).",
+   "affects": "nothing",
+   "known": "new (the 1967 Cassels–Fröhlich reprint was not collated)",
+   "searched": [
+    "2026-09-29: a web search for errata or misprint lists for Tate's thesis found none; the 1967 reprint (Algebraic Number Theory, Chapter XV) is not freely available and was not checked; Kudla 2004 uses its own normalisation (3.31) and does not reproduce this display."
+   ],
+   "owner": "AutomorphicLFunctionsAndLocalFactors",
+   "file": "research/blueprint/packets/AutomorphicLFunctionsAndLocalFactors.json",
+   "citation": "John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions, Princeton doctoral thesis, May 1950; original thesis scan, not the 1967 reprint",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AutomorphicPadicLFunctions/E1",
    "kind": "gap",
    "locator": "arXiv v3, Section 9.2.2 and Proposition 9.3, p.31; cancellation in Proposition 9.6, p.32",
