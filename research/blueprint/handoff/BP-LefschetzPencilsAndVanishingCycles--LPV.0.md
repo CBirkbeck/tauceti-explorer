@@ -73,3 +73,72 @@ It was compiled with `lake env lean` against Mathlib 082e2d3: exit 0, with 2 `so
 - SGA 7 II: IAS Number12.pdf (SHA-256 recomputed; it matches the decomposition's record).
 
 No mistakes were found in the passages read.
+
+# Checkpoint 2 (SGA 7 XII and XV §1: the quadric side of LPV.2)
+
+Agent: Claude Code, session cc-fb70e5. Refs #768.
+
+## State
+
+- The packet has 39 nodes, 9 requests and 8 source issues. The checker reports no errors and no warnings.
+- Thirteen new LPV.2 nodes come from SGA 7 II, read on page images because the OCR is unreliable:
+  - Exposé XII (*Quadriques*, pp. 1–20), read in full;
+  - Exposé XV §1 (pp. 1–12), read in full.
+- Every excerpt was transcribed from the rendered page, and each `match` says so.
+
+## Planned in this checkpoint
+
+- **Quadratic forms (XII §1):**
+  - ordinary quadratic forms, including the characteristic-2 distinction. For V ≠ 0 over a field, ordinary is Mathlib's
+    `QuadraticMap.Nondegenerate`, and this is a comparison test;
+  - the étale-local normal form;
+  - the discriminant double cover Z(X), from the centre of C⁺(Q), with the parity criterion 1.12 for the two families
+    of generatrices.
+- **Smooth quadrics (XII §2).**
+- **Cohomology (XII §3):**
+  - the cohomology of smooth quadrics, Theorem 3.3, with the point count 3.4;
+  - affine quadrics, Table 3.7, including the classes δ and δ′ with Tr(δ²) = (−1)^m·2. This is the source of the value
+    of (δ, δ) used in XV 3.2.1 and Weil I (4.1).
+- **Ordinary quadratic points (XV §1):**
+  - ordinary and non-degenerate quadratic points (1.2.1–1.2.2) and the Tjurina module (1.2.7–1.2.8);
+  - the Tougeron–Artin implicit function theorem and Elkik's versal deformations, whose proofs SGA 7 cites and does not
+    give;
+  - the canonical form (1.2.6), the local equation Q − b = 0 of a family (1.3.2) and openness (1.3.4).
+- **Links to checkpoint 1:**
+  - the Lefschetz-pencil and existence nodes now depend on the ordinary-quadratic-point node instead of the stage;
+  - the carried XV 3.x nodes now depend on the local equation and on the affine-quadric computation;
+  - the checkpoint-1 gap "ordinary quadratic points are not yet a node" is closed.
+
+## Mistakes in the source (sourceIssues E1–E8)
+
+All eight are misprints in SGA 7 II, each confirmed on a zoomed page image. A web search found no errata list for
+LNM 340.
+
+1. XII 1.1 b) prints "card(A) = 2" for "car(A) = 2".
+2. XII 1.2 prints the upper summation limit m − 1 for m, which makes the normal form degenerate.
+3. XII 3.1 prints R¹p_* for R²p_*.
+4. The proof of XII 3.3 (a) prints P^{m+1} for P^{2m+1}.
+5. XII 3.6 prints "r = 2m + 1" for "n = 2m + 1".
+6. XII 3.6 refers to "3.5.3", which does not exist; (3.6.3) is meant.
+7. XV 1.3.2 (ii) prints x₀ for x₀², which makes the equation smooth.
+8. XV §1 has a stray "=" in (4.2.1) and stale "4.x" cross-references.
+
+They are also recorded in the local published-errata log.
+
+## What remains
+
+- **LPV.2:**
+  - SGA 7 XV §2 (the cohomology of the cone and the local computation 2.2.1–2.2.7), PDF pages 185–195;
+  - steps (C) onward of the proof of XV 3.3.5–3.3.6.
+- **LPV.0, LPV.1 and LPV.3–LPV.6:** as after checkpoint 1. SGA 7 XVII begins at PDF page 220 and XVIII at PDF page 262.
+
+## Suggested Lean file
+
+The file gains a `TauCeti.AlgebraicGeometry.Quadric` section:
+
+- `IsOrdinary`, defined by XII 1.1 over a field;
+- `isOrdinary_iff_nondegenerate` against Mathlib's `QuadraticMap.Nondegenerate`, as `sorry`;
+- three proved tests: Tr(δ²) = ±2 from the two Gram matrices of XII 3.3 (iii)(b), and the point counts of split and
+  nonsplit quadric surfaces.
+
+It was compiled with `lake env lean` against Mathlib 082e2d3: exit 0, with 3 `sorry` warnings.

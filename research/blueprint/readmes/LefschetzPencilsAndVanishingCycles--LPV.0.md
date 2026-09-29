@@ -2,9 +2,15 @@
 
 ## Purpose
 
-This roadmap builds the geometric inputs of Deligne's proof of the Weil conjectures and of the campaign's degeneration arguments. It starts with nearby and vanishing cycles over a henselian trait (LPV.0), their inertia actions (LPV.1) and their computation at an ordinary quadratic singularity, which is the Picard–Lefschetz formula (LPV.2). It then treats Lefschetz pencils and their existence (LPV.3), the vanishing part of the middle cohomology of a pencil (LPV.4), and the irreducibility and open-image theorems for its monodromy (LPV.5). Perverse nearby cycles (LPV.6) are the last layer of this part. The invariant-cycle and semistable-curve exports (LPV.7) are part LPV.7.
+This roadmap builds the geometric inputs of Deligne's proof of the Weil conjectures and of the campaign's degeneration arguments. It starts with nearby and vanishing cycles over a henselian trait (LPV.0) and their inertia actions (LPV.1). LPV.2 computes them at an ordinary quadratic singularity, which gives the Picard–Lefschetz formula. It then treats Lefschetz pencils and their existence (LPV.3), the vanishing part of the middle cohomology of a pencil (LPV.4), and the irreducibility and open-image theorems for its monodromy (LPV.5). Perverse nearby cycles (LPV.6) are the last layer of this part. The invariant-cycle and semistable-curve exports (LPV.7) are part LPV.7.
 
-Checkpoint 1 carries the reviewed decomposition of SGA 7 XIII and XV (nearby cycles, variation, the local computations at an ordinary quadratic point), keeping its node identifiers, which other packets already cite. It adds Deligne's *La conjecture de Weil. I* §§4–5, the source the stages cite for LPV.2–LPV.5.
+Checkpoint 1 carries the reviewed decomposition of SGA 7 XIII and XV, keeping its node identifiers, which other packets already cite. It adds Deligne's *La conjecture de Weil. I* §§4–5, the source the stages cite for LPV.2–LPV.5.
+
+Checkpoint 2 plans the quadric side of LPV.2 from SGA 7 XII (*Quadriques*) and XV §1:
+
+- ordinary quadratic forms, with the characteristic-2 distinction the stage asks for;
+- smooth quadrics, their cohomology, and the class δ of the affine quadric with Tr(δ²) = (−1)^m·2;
+- ordinary quadratic points, with their canonical forms and local equations in families.
 
 ## Scope and boundaries
 
@@ -17,7 +23,7 @@ RS-17 is accepted. It keeps LPV.0, LPV.2, LPV.3 and LPV.5 and narrows three laye
 Other suppliers:
 
 - Étale sheaves, derived direct images and the base-change theorems come from SchemeAndStackFoundations SF.2.
-- Poincaré duality and the trace come from EDC.2.
+- Poincaré duality, cycle classes and Gysin sequences come from EDC.2 and EDC.3.
 - Étale fundamental groups, inertia, the tame quotient and Abhyankar's lemma come from InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.1.
 - DeligneWeightsAndPurity (DWP.3) consumes LPV.3–LPV.5 over 𝔽_q; ClassicalAdicEtaleCohomology H1 consumes LPV.0.
 
@@ -25,6 +31,7 @@ Other suppliers:
 
 - S is a henselian trait with closed point s, generic point η, geometric generic point η̄ and inertia group I. ℓ is a prime invertible on S.
 - RΨ and RΦ are the nearby- and vanishing-cycle functors of SGA 7 XIII. The vanishing triangle is sp^* i^*K → RΨ_η(K_η) → RΦ(K) →.
+- A quadratic form Q on V of rank r has polar form Φ(x, y) = Q(x + y) − Q(x) − Q(y). It is *ordinary* when its quadric is smooth. SGA 7 XII writes n for the rank.
 - A Lefschetz degeneration of relative dimension n has n = 2m or 2m + 1, and its vanishing cycle is δ ∈ H^n(X_η̄, ℚ_ℓ)(m). The pairing (x, y) is Tr(x ∪ y).
 - t_ℓ : I → ℤ_ℓ(1) is the tame character. For p ≠ 2, ε is the character of order 2 of I.
 - In a pencil, U = D − S is the smooth locus, u ∈ U is a base point, and E ⊂ H^n(X_u, ℚ_ℓ) is the vanishing subspace.
@@ -320,13 +327,222 @@ Other suppliers:
 
 ## LPV.1 Inertia, variation and the monodromy operator
 
-No nodes in this checkpoint.
+No nodes yet.
 
 ### What is missing
 
 - The canonical and variation morphisms on cohomology, the monodromy operator N as a finite logarithm with its independence of the tame generator (N : V → V(−1)), geometric quasi-unipotence (SGA 7 I) and the monodromy filtration (Weil II 1.6–1.7) are not planned. The variation morphism itself is in LPV.0, and the tame character is requested from ArithmeticGaloisRepresentations:R01.2, as RS-17 directs.
 
 ## LPV.2 Ordinary quadratic singularities and Picard–Lefschetz
+
+### Objects
+
+#### Definition. Ordinary quadratic forms
+
+*Module* `TauCeti/AlgebraicGeometry/Quadric/OrdinaryForm.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-form`.
+
+Let S = Spec A, V a locally free A-module of rank r and Q a quadratic form on V, with polar form Φ(x, y) = Q(x + y) − Q(x) − Q(y). Q is nowhere zero if the values Q(v) generate the unit ideal; then Q = 0 defines a subscheme of P(V*) (EGA convention), flat and purely of relative dimension r − 2 over S, the quadric of Q. Q is ordinary if it is nowhere zero and its quadric is smooth over S; this can be checked after base change to fields. Over a field: (a) if r is even or the characteristic is not 2, Q is ordinary if and only if Φ is nondegenerate; (b) if r is odd and the characteristic is 2, Q is ordinary if and only if the kernel N of the alternating form Φ has dimension one and Q does not vanish on N. For V ≠ 0 over a field, ordinary is Mathlib's QuadraticMap.Nondegenerate (radical zero and polar kernel of rank at most one), which follows Elman–Karpenko–Merkurjev.
+
+*Hypotheses.*
+
+- The case r = 0 is excluded: the zero form on the zero module is not nowhere zero.
+- Condition (b) is for characteristic 2; the source prints card(A) = 2 (source issue E1).
+
+*API.*
+
+- `IsOrdinary` (*data*) — IsOrdinary Q : Prop — Q nowhere zero with smooth quadric.
+- `IsOrdinary.baseChange` (*compatibility*) — Ordinary is stable under base change and can be checked on the fibres at points of S.
+- `isOrdinary_iff_polar_nondegenerate` (*characterisation*) — Over a field with r even or 2 ≠ 0: IsOrdinary Q ↔ (polarBilin Q).Nondegenerate.
+- `isOrdinary_iff_of_char_two` (*characterisation*) — Over a field of characteristic 2 with r odd: IsOrdinary Q ↔ finrank (ker Φ) = 1 ∧ Q ≠ 0 on ker Φ.
+- `isOrdinary_iff_nondegenerate` (*equivalence*) — Over a field with V ≠ 0: IsOrdinary Q ↔ QuadraticMap.Nondegenerate Q.
+
+*Used by.*
+
+- `LefschetzPencilsAndVanishingCycles:LPV.2/smooth-quadric` — a smooth quadric is locally the quadric of an ordinary form
+- `LefschetzPencilsAndVanishingCycles:LPV.2/normal-form-of-ordinary-quadratic-forms` — the étale-local normal form
+- `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point` — the leading term of an ordinary quadratic point
+- `LefschetzPencilsAndVanishingCycles:LPV.3/lefschetz-pencil` — condition (C) of a Lefschetz pencil, through ordinary quadratic points
+
+*Unit tests.* A wrong definition fails one of these.
+
+- `isOrdinary_xy_add_sq_char_two` (value) — Characteristic 2, r = 3, Q = xy + z²: ker Φ = k·e_z and Q(e_z) = 1, so Q is ordinary (the conic xy = z² is smooth).
+- `not_isOrdinary_sum_sq_char_two` (non-example) — Characteristic 2, r = 2, Q = x² + y² = (x + y)²: Φ = 0 and the quadric is a double point, so Q is not ordinary.
+- `isOrdinary_rank_one` (degenerate) — r = 1, Q = ax² with a a unit: the quadric is empty and Q is ordinary in every characteristic.
+- `isOrdinary_iff_nondegenerate_test` (comparison) — Over a field and for V ≠ 0, IsOrdinary Q agrees with Mathlib's QuadraticMap.Nondegenerate Q: in characteristic 2 the alternating Φ has kernel of dimension ≡ r mod 2, so rank ≤ 1 forces 0 or 1 according to the parity of r.
+
+*Construction.*
+
+1. Smoothness of the quadric is the Jacobian criterion: the quadric is singular at [v] exactly when Q(v) = 0 and Φ(v, ·) = 0, that is, when v is a nonzero vector of the radical.
+2. Hence over a field, ordinary means that no nonzero v has Q(v) = 0 and Φ(v, ·) = 0. If 2 ≠ 0 then Q(v) = Φ(v, v)/2, so this is nondegeneracy of Φ.
+3. In characteristic 2, Φ is alternating, so dim ker Φ ≡ r mod 2. For r even the condition forces ker Φ = 0; for r odd it forces dim ker Φ = 1 with Q nonzero on it. This is the Mathlib condition (radical ⊥, rank ker Φ ≤ 1).
+
+*Acceptance.*
+
+- xy + z² in characteristic 2 is ordinary; x² + y² in characteristic 2 is not; ax² is ordinary.
+
+*Uses.* `mathlib:QuadraticMap.Nondegenerate`, `mathlib:QuadraticMap.polarBilin`, `SchemeAndStackFoundations:SF.0`.
+
+*Planet:* Ordinary quadratic form.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, 1.1, p. 2: “La forme Q est dite ordinaire si elle n'est nulle en aucun point de S et que la quadrique qu'elle définit est lisse sur S.” The definition. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, 1.1 a), p. 2: “a) pour n pair ou car(A) ≠ 2 : Q ordinaire ⟺ Q non dégénéré ;” The criterion for even rank or characteristic not 2 (XII writes n for the rank). Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, 1.1 b), p. 2: “le noyau N de la forme bilinéaire (alternée) associée Φ est de dimension un, et que Q n'est pas nul sur N.” The criterion in characteristic 2 and odd rank. Transcribed from the page image.
+
+#### Construction. The discriminant double cover of an even-dimensional quadric
+
+*Module* `TauCeti/AlgebraicGeometry/Quadric/Discriminant.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/discriminant-double-cover-of-an-even-quadric`.
+
+Let Q be nondegenerate on V locally free of rank 2m > 0 over A. The centre Z(Q) of the even Clifford algebra C⁺(Q) is a finite étale A-algebra of rank 2, and C⁺(Q) is an Azumaya algebra over Z(Q) (XII 1.5); C⁺(Q) depends only on the quadric Q = 0 in P(V*) (XII 1.3). A totally isotropic direct summand W of rank m defines an idempotent e(W) ∈ Z(Q) (XII 1.6–1.7), and over a field e(W₁) = e(W₂) if and only if dim(W₁/W₁ ∩ W₂) is even (XII 1.12). For a smooth quadric X/S of dimension n = 2m > 0 this gives an étale double cover Z(X) → S (Z(X) = X for n = 0), and the generatrices (linear subspaces of dimension m of P(X) inside X) form a smooth projective S-scheme Gén(X) whose Stein factorisation is e : Gén(X) → Z(X) (XII 2.7–2.8).
+
+*Hypotheses.*
+
+- Even rank; for rank 2 in characteristic not 2, Z(Q) is the discriminant algebra.
+
+*API.*
+
+- `evenCliffordCentre` (*constructor*) — Z(Q), the centre of CliffordAlgebra.even Q.
+- `evenCliffordCentre_isEtale` (*characterisation*) — Z(Q) is finite étale of rank 2 over A, and C⁺(Q) is Azumaya over Z(Q).
+- `lagrangianIdempotent` (*constructor*) — e(W) ∈ Z(Q) for W totally isotropic of rank m.
+- `lagrangianIdempotent_eq_iff` (*characterisation*) — Over a field, e(W₁) = e(W₂) ↔ Even (finrank (W₁ ⧸ W₁ ⊓ W₂)).
+- `discriminantCover` (*constructor*) — Z(X) → S for a smooth quadric of even dimension, with e : Gén(X) → Z(X) the Stein factorisation.
+
+*Used by.*
+
+- `LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-smooth-quadrics` — the cycle-class map cℓ : ℤ_ℓ^{Z(X)} → R^n p_*ℤ_ℓ(m)
+- `LefschetzPencilsAndVanishingCycles:LPV.2/even-relative-dimension-variation-3-2` — the quadratic character ε_x of the even case is the monodromy on Z(X)
+- `LefschetzPencilsAndVanishingCycles:LPV.2/local-picard-lefschetz-formula` — the character ε of case (B)
+
+*Unit tests.* A wrong definition fails one of these.
+
+- `evenCliffordCentre_hyperbolic` (value) — V = Ae ⊕ Af with Q(xe + yf) = xy: C⁺(Q) = Z(Q) ≅ A × A, and the isotropic lines Ae and Af give the two idempotents fe and ef = 1 − fe (XII 1.12, proof).
+- `evenCliffordCentre_discriminant` (value) — Over a field of characteristic not 2, Q = x² − dy²: C⁺(Q) = k ⊕ k·e₁e₂ with (e₁e₂)² = d, so Z(Q) ≅ k[t]/(t² − d), split if and only if d is a square.
+- `evenCliffordCentre_eq_mathlib` (comparison) — C⁺(Q) is Mathlib's CliffordAlgebra.even Q.
+- `lagrangianIdempotent_sum` (characterisation) — For an orthogonal sum, e(W₁ ⊕ W₂) = e(W₁)e(W₂) + (1 − e(W₁))(1 − e(W₂)) (XII 1.10.1): the sections add as ℤ/2-torsors, not as idempotents.
+
+*Construction.*
+
+1. Étale locally Q is split (normal form); for a split decomposition V = W₁ ⊕ W₂ into totally isotropic summands, C(Q) ≅ End(ΛW₁) as ℤ/2-graded algebras, and C⁺(Q) ≅ End(ΛW₁)⁺ × End(ΛW₁)⁻ has centre A × A (XII 1.4).
+2. Descent gives Z(Q) étale of rank 2 and C⁺(Q) Azumaya over it (XII 1.5).
+3. The idempotent e(W₁, W₂) depends only on W₁ by a connectedness argument on the affine space of complements (XII 1.6), giving e(W).
+4. 1.12 reduces by the addition formula (1.10.1) to dim V = 2, where it is the computation e(Ae) = fe, e(Af) = ef.
+5. For a smooth quadric, C⁺ of the ambient form descends to C⁺(X) (XII 2.6); its centre is Z(X). Gén(X) is covered by affine spaces of generatrices disjoint from a given one, hence smooth, and its geometric fibres over Z(X) are connected by reduction to P¹ × P¹ (XII 2.8).
+
+*Acceptance.*
+
+- n = 2: X ≅ P¹ × P¹, Gén(X) is two copies of P¹ (the two rulings) and Z(X) is two points.
+- n = 0: Z(X) = X, a double cover.
+
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-form`, `LefschetzPencilsAndVanishingCycles:LPV.2/normal-form-of-ordinary-quadratic-forms`, `mathlib:CliffordAlgebra.even`, `SchemeAndStackFoundations:SF.0`.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, Proposition 1.5, p. 5: “le centre Z(Q) de C⁺(Q) est une algèbre étale localement libre de rang 2 sur A et C⁺(Q) est une algèbre d'Azumaya sur Z(Q).” The centre of the even Clifford algebra. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, Proposition 1.12, p. 8: “Alors, e(W₁) = e(W₂) si et seulement si dim(W₁/W₁ ∩ W₂) est pair.” The parity criterion for the two families. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, Proposition 2.8, p. 13: “Sous les hypothèses de 2.7, p : Gén(X) → S est projectif et lisse, et (2.7.1) est sa factorisation de Stein.” The generatrices and their Stein factorisation through Z(X). Transcribed from the page image.
+
+#### Definition. Smooth quadrics over a base
+
+*Module* `TauCeti/AlgebraicGeometry/Quadric/Smooth.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/smooth-quadric`.
+
+Over an algebraically closed field k, a smooth quadric of dimension n is a k-scheme isomorphic to the subscheme Q = 0 of P(V*), dim V = n + 2, for Q an ordinary quadratic form. Over a scheme S, a smooth quadric of dimension n is a proper smooth S-scheme whose geometric fibres are smooth quadrics. For n = 0 it is an étale double cover of S, for n = 1 a Severi–Brauer scheme of relative dimension 1, and for n = 2 its geometric fibres are P¹ × P¹. Étale locally on S it is the quadric of an ordinary form in a projective space P(X) that depends only on X/S; Ω^n_{X/S} ≅ O(−n) has ample inverse.
+
+*Hypotheses.*
+
+- The ambient Severi–Brauer scheme P(X) is canonical (XII 2.6), so no embedding is part of the data.
+
+*API.*
+
+- `IsSmoothQuadric` (*data*) — IsSmoothQuadric (f : X ⟶ S) (n : ℕ) : Prop — proper, smooth, geometric fibres smooth quadrics of dimension n.
+- `isSmoothQuadric_of_isOrdinary` (*constructor*) — The quadric of an ordinary form of rank n + 2 is a smooth quadric of dimension n.
+- `ambientProjective` (*constructor*) — P(X), a Severi–Brauer S-scheme with X ⊂ P(X) a relative divisor of degree 2.
+- `isSmoothQuadric_zero_iff` (*characterisation*) — A smooth quadric of dimension 0 is the same as an étale double cover.
+- `canonical_iso` (*characterisation*) — Ω^n_{X/S} ≅ O_X(−n).
+
+*Used by.*
+
+- `LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-smooth-quadrics` — the cohomology of smooth quadrics
+- `LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-affine-quadrics` — affine quadrics X − (X ∩ H)
+- `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2` — the projectivised tangent cone at an ordinary quadratic point
+
+*Unit tests.* A wrong definition fails one of these.
+
+- `smoothQuadric_dim_zero` (degenerate) — n = 0 over an algebraically closed field: X ≅ Spec k ⊔ Spec k.
+- `smoothQuadric_dim_two` (value) — n = 2: xy = zw in P³ is P¹ × P¹ (Segre).
+- `smoothQuadric_real_conic` (value) — n = 1 over ℝ: x² + y² + z² = 0 is a smooth conic without real points, a nontrivial Severi–Brauer curve.
+- `not_smoothQuadric_cone` (non-example) — The cone xy = z² in P³ (a form of rank 3 in 4 variables) is singular at (0:0:0:1); the form is not ordinary.
+
+*Construction.*
+
+1. Over k algebraically closed, Remark 2.2 identifies n = 0, 1, 2 and Lemma 2.3 computes Ω^n ≅ O(−n), Pic and the vanishing of H^i(O) and H^1(O(1)).
+2. Over S, Pic_{X/S} is étale locally constant (H¹(O) = H²(O) = 0), so étale locally there is L with L^{⊗n} matching Ω^n; p_*L is locally free of rank n + 2 and X ⊂ P(p_*L) is the quadric of an ordinary form, unique up to a unit (XII 2.5).
+3. P(p_*L) does not depend on L (XII 2.6), and descends to the Severi–Brauer scheme P(X).
+
+*Acceptance.*
+
+- The three low-dimensional cases of Remark 2.2 and the real conic.
+
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-form`, `SchemeAndStackFoundations:SF.0`.
+
+*Planet:* Smooth quadric.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, 2.1, p. 9: “Une quadrique lisse de dimension n sur k est un schéma X sur k isomorphe au sous-schéma de P(V*) défini par l'équation Q=0, pour Q une forme quadratique ordinaire sur k.” Smooth quadrics over an algebraically closed field. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, Définition 2.4, p. 10: “Une quadrique lisse de dimension n sur un schéma S est un S-schéma f : X → S, propre et lisse sur S, dont les fibres géométriques sont des quadriques lisses.” The relative definition. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, 2.4, p. 10: “Pour n = 0, une quadrique lisse de dimension 0 sur S n'est autre qu'un revêtement étale double de S.” The case n = 0. Transcribed from the page image.
+
+#### Definition. Ordinary and non-degenerate quadratic points
+
+*Module* `TauCeti/AlgebraicGeometry/QuadraticPoint/Basic.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point`.
+
+Let y be a closed point of a scheme Y of finite type over a field k of characteristic p, and n = dim_y Y. For k algebraically closed, y is an ordinary quadratic point of Y if Ô_{Y,y} ≅ k[[x₁, …, x_{n+1}]]/(f) with f = Q(x) + (terms of order > 2) and Q an ordinary quadratic form in n + 1 variables. For general k, y is an ordinary quadratic point if the points of Y ⊗_k k̄ over y are. Replacing ordinary by nondegenerate gives a non-degenerate quadratic point; y is non-degenerate if and only if it is ordinary and p ≠ 2 or n is odd. An ordinary quadratic point with p = 2 and n even is called degenerate.
+
+*Hypotheses.*
+
+- The quadratic part Q is well defined up to linear change of variables because f has no linear term.
+
+*API.*
+
+- `IsOrdinaryQuadraticPoint` (*data*) — IsOrdinaryQuadraticPoint (Y : Scheme) (y : Y) : Prop, for Y locally of finite type over a field.
+- `IsNondegenerateQuadraticPoint` (*data*) — The same with the leading form nondegenerate.
+- `isNondegenerate_iff` (*characterisation*) — IsNondegenerateQuadraticPoint Y y ↔ IsOrdinaryQuadraticPoint Y y ∧ (p ≠ 2 ∨ Odd n).
+- `isOrdinaryQuadraticPoint_baseChange` (*compatibility*) — The notion is geometric: it holds at y if and only if it holds at the points over y after any field extension.
+- `isOrdinaryQuadraticPoint_cone` (*example*) — The vertex of the affine cone of an ordinary form in n + 1 variables is an ordinary quadratic point (XV 1.2.3–1.2.4).
+
+*Used by.*
+
+- `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2` — the hypothesis of SGA 7 XV 3.1.1
+- `LefschetzPencilsAndVanishingCycles:LPV.2/lefschetz-degeneration-specialization-sequence` — the singular point of a Lefschetz degeneration
+- `LefschetzPencilsAndVanishingCycles:LPV.3/lefschetz-pencil` — condition (C) of a Lefschetz pencil
+- `LefschetzPencilsAndVanishingCycles:LPV.2/canonical-form-of-an-ordinary-quadratic-point` — the canonical forms 1.2.3–1.2.4
+
+*Unit tests.* A wrong definition fails one of these.
+
+- `node_isOrdinary` (value) — The node xy = 0 in 𝔸² (n = 1): Q = xy is ordinary and nondegenerate in every characteristic.
+- `doublePoint_char_two` (value) — n = 0, Y = Spec k[x]/(x²): Q = x² is ordinary in every characteristic, so the origin is ordinary; it is non-degenerate if and only if p ≠ 2, and for p = 2 it is degenerate.
+- `cusp_not_ordinary` (non-example) — The cusp y² = x³ (n = 1): the quadratic part y² in two variables is not ordinary (its quadric is a double point of P¹), so the cusp is not an ordinary quadratic point.
+- `smooth_point_not_quadratic` (degenerate) — A smooth point is not an ordinary quadratic point: its Zariski tangent space has dimension n, not n + 1.
+
+*Construction.*
+
+1. The quadratic part of f is determined up to linear change of coordinates and multiplication by a unit, and ordinary is invariant under both.
+2. The criterion for non-degeneracy is XII 1.1 applied to the form in n + 1 variables: ordinary and nondegenerate agree unless p = 2 and n + 1 is odd.
+
+*Acceptance.*
+
+- The node, the double point in both characteristics, the cusp and a smooth point.
+
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-form`, `SchemeAndStackFoundations:SF.0`.
+
+*Planet:* Ordinary quadratic singularity.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, Définition 1.2.1, p. 4: “on dit que y est un point quadratique ordinaire de Y si le complété Ô_{Y,y} de l'anneau local de Y en y est isomorphe au quotient de k[[x₁,...,x_{n+1}]] par l'idéal engendré par une seule série formelle f” The definition over an algebraically closed field. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, 1.2.2, pp. 4–5: “Pour que y soit un point quadratique non dégénéré de Y, il faut et il suffit qu'il soit un point quadratique ordinaire et que soit p ≠ 2, soit n est impair.” Non-degenerate quadratic points. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, Exemple 1.2.4, p. 5: “y₀ est un point quadratique ordinaire du sous-schéma Y₀ de E^{n+1}_k d'équation Q = 0.” The degenerate model (x₀² − a) + Σ a_ij x_i x_j in characteristic 2. Transcribed from the page image.
 
 ### Theorems
 
@@ -352,7 +568,7 @@ No nodes in this checkpoint.
 - Outside E (points where the generic fibre is not smooth nearby) the vanishing cycles vanish (2.2.4).
 - For n = 0 the rank is 2 (two points degenerating to one).
 
-*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle`.
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle`, `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point`, `LefschetzPencilsAndVanishingCycles:LPV.2/local-equation-of-a-family-at-an-ordinary-quadratic-point`, `LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-affine-quadrics`.
 
 *Sources.*
 
@@ -384,7 +600,7 @@ Notation of 3.1 with n = 2m, S strictly henselian (general case by descent). Pro
 - For v(b) even the local monodromy is trivial in even relative dimension; for v(b) odd it is the reflection σ(δ) = −δ (when ε_x(σ) = −1).
 - Sign convention: (δ,δ) = (−1)^m·2 fixes δ up to sign; the n mod 4 sign table of the stage must be checked against this normalisation.
 
-*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2`, `LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism`.
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2`, `LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism`, `LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-affine-quadrics`, `LefschetzPencilsAndVanishingCycles:LPV.2/discriminant-double-cover-of-an-even-quadric`.
 
 *Sources.*
 
@@ -416,7 +632,7 @@ Notation of 3.1 with n = 2m, S strictly henselian (general case by descent). Pro
 - The formula has the sign (−1)^{m+1} and the twist A(m); the quadratic character is replaced by the Kummer character c_b of −b.
 - The 'δ = 0' case of the stage (exceptional skyscraper in degree n+1) is not in the read part; 3.1.2(ii) shows R^nΦ vanishes outside E.
 
-*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2`, `LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism`, `ArithmeticGaloisRepresentations:R01.2`.
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2`, `LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism`, `ArithmeticGaloisRepresentations:R01.2`, `LefschetzPencilsAndVanishingCycles:LPV.2/local-equation-of-a-family-at-an-ordinary-quadratic-point`, `LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-affine-quadrics`.
 
 *Sources.*
 
@@ -525,12 +741,268 @@ Let S be the spectrum of a henselian discrete valuation ring A with algebraicall
 - La conjecture de Weil. I, §4, (4.4) a), p. 289: “Ces résultats apportent les informations suivantes” Case δ ≠ 0: constancy for i ≠ n and R^n f_* = j_*j^*R^n f_*.
 - La conjecture de Weil. I, §4, (4.4) b), p. 289: “C'est là un cas exceptionnel” Case δ = 0, only for n odd, with the skyscraper sequence in degree n + 1 (read on the page image).
 
+#### Theorem. Étale-local normal form of an ordinary quadratic form
+
+*Module* `TauCeti/AlgebraicGeometry/Quadric/OrdinaryForm.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/normal-form-of-ordinary-quadratic-forms`.
+
+Let Q be an ordinary quadratic form on a locally free A-module V of rank r = 2m (resp. r = 2m + 1). Étale locally on Spec A, V has a basis e₁, …, e_r with Q(Σ xᵢeᵢ) = Σ_{i=1}^{m} x_i x_{i+m} (resp. Σ_{i=1}^{m} x_i x_{i+m} + λx²_{2m+1} with λ invertible).
+
+*Hypotheses.*
+
+- The source prints the upper summation limit m − 1 (source issue E2).
+
+*Proof.*
+
+1. Induction on m; m = 0 is clear (r = 1 gives Q = λx², λ a unit because Q is nowhere zero).
+2. For m > 0 the quadric is smooth with nonempty geometric fibres, so it has sections étale locally: an e ∈ V nowhere zero with Q(e) = 0.
+3. e is nowhere in the kernel of Φ (the quadric is smooth at [e]), so locally there is f′ with Φ(e, f′) = 1; put f = −Q(f′)e + f′, so that Q(e) = Q(f) = 0 and Φ(e, f) = 1.
+4. V = V₁ ⊕ V₂ with V₁ = Ae + Af hyperbolic and V₂ = V₁^⊥, on which Q is ordinary of rank r − 2; apply the induction hypothesis to V₂.
+
+*Acceptance.*
+
+- r = 2: Q = x₁x₂; r = 3: Q = x₁x₂ + λx₃², which over a separably closed field of characteristic not 2 is equivalent to x² + y² + z².
+
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-form`, `SchemeAndStackFoundations:SF.0`.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, Proposition 1.2, p. 2: “Si Q est ordinaire et si n = 2m (resp. n = 2m +1), alors, localement pour la topologie étale sur S, V admet une base e telle que” The statement; the formulas are on p. 3. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, proof of 1.2, p. 3: “Prouvons 1.2 par récurrence sur m.” The inductive proof by splitting off a hyperbolic plane. Transcribed from the page image.
+
+#### Theorem. The ℓ-adic cohomology of a smooth quadric
+
+*Module* `TauCeti/AlgebraicGeometry/Quadric/Cohomology.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-smooth-quadrics`.
+
+Let p : X → S be a smooth quadric of dimension n and ℓ a prime invertible on S, with hyperplane class η ∈ H⁰(S, R²p_*ℤ_ℓ(1)). (i) R^{2i+1}p_*ℤ_ℓ = 0. (ii) For 0 ≤ 2i < n (resp. n < 2i ≤ 2n), R^{2i}p_*ℤ_ℓ(i) is canonically the constant sheaf ℤ_ℓ, generated by η^i (resp. η^i/2). (iii) For n = 2m, the cycle-class map cℓ : ℤ_ℓ^{Z(X)} → R^n p_*ℤ_ℓ(m) of the generatrices is an isomorphism, and for disjoint sections α, β of Z(X): (a) η^m = cℓ(α) + cℓ(β); (b) for m even, Tr(cℓ(α)²) = Tr(cℓ(β)²) = 1 and cℓ(α)cℓ(β) = 0, and for m odd, cℓ(α)² = cℓ(β)² = 0 and Tr(cℓ(α)cℓ(β)) = 1; (c) η·(cℓ(α) − cℓ(β)) = 0. Consequently, over 𝔽_q, #X(𝔽_q) = Σ_{i=0}^{n} q^i for n odd and Σ_{i=0}^{n} q^i + εq^m for n = 2m, with ε = 1 if X has a rational generatrix and ε = −1 otherwise.
+
+*Hypotheses.*
+
+- The source writes η ∈ H⁰(S, R¹p_*ℤ_ℓ(1)) in 3.1 (source issue E3); η lives in degree 2.
+
+*Proof.*
+
+1. (i) and (ii) are the cohomology of smooth complete intersections (SGA 7 XI 1.6, 2.6): weak Lefschetz and Poincaré duality, with η^i/2 in the upper half because a hyperplane section of a quadric has degree 2.
+2. (iii) is étale local, so reduce to S = Spec k, k algebraically closed, and X : Σ_{i=0}^{m} x_i x_{i+m+1} = 0 in P^{2m+1}.
+3. (a): η^m is the class of the linear section x_i = 0 (0 ≤ i < m), which is the union of the generatrices D₁ : x_i = 0 (0 ≤ i ≤ m) and D₂ : x_i = 0 (0 ≤ i < m), x_{2m+1} = 0; dim D₁/(D₁ ∩ D₂) = 1 is odd, so e(D₁) ≠ e(D₂) by XII 1.12.
+4. (b): disjoint generatrices have product 0 and generatrices meeting transversally in a point have Tr = 1; XII 1.12 decides, according to the parity of m, whether such pairs lie in the same family.
+5. (c): by (ii) it suffices that Tr(η^m(cℓ(α) − cℓ(β))) = Tr(cℓ(α)² − cℓ(β)²) = 0.
+6. cℓ is an isomorphism because the Gram matrices [[1, 0], [0, 1]] and [[0, 1], [1, 0]] have determinant ±1 and R^n p_*ℤ_ℓ(m) has rank 2.
+7. The point count is the Lefschetz trace formula with these eigenvalues; Frobenius swaps α and β exactly when X has no rational generatrix.
+
+*Acceptance.*
+
+- n = 2, X = P¹ × P¹: the two rulings have square 0 and product 1 (m = 1 odd); #X(𝔽_q) = (1 + q)² when split and 1 + q² for the nonsplit form (Weil restriction of P¹ from 𝔽_{q²}).
+- n = 0: two points, Tr(cℓ(α)²) = 1 (m = 0 even), #X(𝔽_q) = 1 + ε ∈ {0, 2}.
+
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/smooth-quadric`, `LefschetzPencilsAndVanishingCycles:LPV.2/discriminant-double-cover-of-an-even-quadric`, `EtaleDualityAndPerverseSheaves:EDC.2`, `EtaleDualityAndPerverseSheaves:EDC.3`, `EtaleDualityAndPerverseSheaves:EDC.4`.
+
+*Planet:* Cohomology of quadrics.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, Théorème 3.3, p. 14: “Soit p : X → S une quadrique lisse de dimension n sur S et ℓ un nombre premier inversible sur S” The theorem; (ii)–(iii) are on p. 15. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, Théorème 3.3 (iii)(b), p. 15: “pour m impair : cℓ(α)² = cℓ(β)² = 0 , Tr(cℓ(α).cℓ(β)) = 1.” The intersection form on the two generatrix classes, m odd. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, Vérification 3.4, p. 17: “Compte tenu de 3.3, la formule des traces de Lefschetz donne la formule classique” The point count over 𝔽_q. Transcribed from the page image.
+
+#### Theorem. Cohomology of affine quadrics and the vanishing class δ
+
+*Module* `TauCeti/AlgebraicGeometry/Quadric/Cohomology.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-affine-quadrics`.
+
+Let X be the smooth quadric over S of an ordinary form Q on V of rank n + 2, H a hyperplane of P(V*) meeting X transversally, Y = X ∩ H (a smooth quadric of dimension n − 1), X° = X − Y and f : X° → S. For n = 2m the primitive part of R^n p_*ℤ_ℓ(m) is the orthogonal of η^m, generated by cℓ(α) − cℓ(β), and the primitive quotient is R^n p_*ℤ_ℓ(m)/ℤ_ℓη^m. The cohomology of X° is torsion-free, with nonzero Betti numbers b₀ = b_n = 1, and with compact support b_{2n} = b_n = 1 (b₀ = 2 for n = 0). For n = 2m > 0, R^n f_!ℤ_ℓ(m) is the primitive part and R^n f_*ℤ_ℓ(m) the primitive quotient of R^{2m}p_*ℤ_ℓ(m); for n = 2m + 1, R^n f_!ℤ_ℓ(m) is the primitive quotient and R^n f_*ℤ_ℓ(m + 1) the primitive part of R^{2m}q_*ℤ_ℓ(m). Locally these have natural generators defined up to sign, δ with compact support and δ′ without. The forget-supports map φ : R^n f_!ℤ_ℓ → R^n f_*ℤ_ℓ is 0 for n odd and sends ±δ to ±2δ′ for n even > 0; Tr(δδ′) = ±1, and Tr(δ²) = 0 for n = 2m + 1 and (−1)^m·2 for n = 2m.
+
+*Hypotheses.*
+
+- n > 0 for the exact sequences; n = 0 gives Y = ∅ and X° = X.
+
+*Proof.*
+
+1. The localisation sequence … → R^i f_!ℤ_ℓ → R^i p_*ℤ_ℓ → R^i q_*ℤ_ℓ → … and its dual Gysin sequence … → R^{i−2}q_*ℤ_ℓ(−1) → R^i p_*ℤ_ℓ → R^i f_*ℤ_ℓ → … (XII 3.6.2–3.6.3).
+2. By Theorem 3.3 the restriction r_i is an isomorphism for i ≠ n, 2n (n even) and i ≠ n − 1 (n odd). For n = 2m, r_n(cℓ(α)) = ½η^m, so r_n is onto with kernel the primitive part; for n = 2m + 1, r_{2m}(η^m) = η^m, so r_{2m} is injective with cokernel the primitive quotient.
+3. Hence R^i f_!ℤ_ℓ = 0 for i ≠ n, 2n and is a twisted constant sheaf of rank 1 in degrees n and 2n; dually R^i f_*ℤ_ℓ = 0 for i ≠ 0, n, f_*ℤ_ℓ = ℤ_ℓ and R^n f_*ℤ_ℓ has rank 1.
+4. n = 2m: δ maps to ±(cℓ(α) − cℓ(β)), so Tr(δ²) = cℓ(α)² − 2cℓ(α)cℓ(β) + cℓ(β)², which is 1 + 1 − 0 = 2 for m even and 0 + 0 − 2 = −2 for m odd (Theorem 3.3 (iii)(b)); ±φ(δ) is twice ±δ′.
+5. n = 2m + 1: δ = ∂cℓ(α) and δ² = ∂(cℓ(α)·∂cℓ(α)) = 0, so φ(δ) = 0; δ′ maps to ±(cℓ(α) − cℓ(β)) in R^{2m}q_*ℤ_ℓ(m) and Tr(δδ′) = ±1.
+
+*Acceptance.*
+
+- n = 1: X° = P¹ minus two points ≅ 𝔾_m, H¹_c and H¹ of rank 1, φ = 0, Tr(δ²) = 0.
+- n = 2: Tr(δ²) = −2, the self-intersection of the vanishing sphere of a surface node; over ℂ, Σ z_i² = 1 is diffeomorphic to the tangent bundle of a sphere (XII 3.8).
+
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/cohomology-of-smooth-quadrics`, `LefschetzPencilsAndVanishingCycles:LPV.2/smooth-quadric`, `EtaleDualityAndPerverseSheaves:EDC.2`, `EtaleDualityAndPerverseSheaves:EDC.3`.
+
+*Planet:* Vanishing cycle of the affine quadric.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, 3.5, p. 17: “on appellera partie primitive de Rⁿf_*ℤ_ℓ(m) l'orthogonal de ηᵐ” The primitive part and quotient. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, 3.6, p. 18: “Pour n pair, l'homomorphisme de restriction r_i est un isomorphisme pour i ≠ n,2n ; pour n impair, c'est un isomorphisme pour i ≠ n-1.” The restriction maps in the localisation sequence. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XII, Table 3.7, p. 20: “Ces groupes ont, localement, des générateurs naturels définis au signe près, notés δ pour les groupes de cohomologie à support propre et δ' pour les autres.” The generators δ, δ′; the table's values of Tr(δδ′) and Tr(δ²) were read on the page image. Transcribed from the page image.
+
+#### Lemma. The Tjurina module of an ordinary quadratic point
+
+*Module* `TauCeti/AlgebraicGeometry/QuadraticPoint/Basic.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/tjurina-module-of-an-ordinary-quadratic-point`.
+
+Let y be an ordinary quadratic point of Y/k with k(y) purely inseparable over k, and T¹_{Y/k} = O_Y/J the quotient by the Jacobian ideal (XV 1.1.1). Near y, T¹_{Y/k} is monogenic and concentrated at y, of rank 1 over k if y is non-degenerate (so k(y) = k), and of rank 2 if y is degenerate (p = 2, n = 2m), in which case k(y) = k or k(y) ≅ k(√a) with a ∈ k − k².
+
+*Hypotheses.*
+
+- k(y) purely inseparable over k; the general case reduces to it through the largest separable subextension of k(y).
+
+*Proof.*
+
+1. Both assertions can be checked over k̄ after completion at y.
+2. Non-degenerate: with f = Q + (order > 2), the ∂f/∂x_i generate the maximal ideal by Nakayama, so k[[x]]/(f, ∂f/∂x_i) = k.
+3. Degenerate: in suitable coordinates f = x₀² + Σ_{i=1}^{m} x_i x_{i+m} + R with R of order ≥ 3. The ideal (f, ∂f/∂x_i) equals (x₀², x_i (i ≠ 0)) by Nakayama, because ∂f/∂x_i ≡ x_{i+m} and ∂f/∂x_{i+m} ≡ x_i modulo q·n + (x₀²); so the quotient is k[x₀]/(x₀²), of dimension 2.
+4. A radicial subscheme of rank 2 of affine space lies on a unique line (XV 1.2.9–1.2.10), which gives k(y) = k or k(√a).
+
+*Acceptance.*
+
+- n = 0, Y = Spec k[x]/(x²): T¹ = k[x]/(x², 2x) has dimension 1 for p ≠ 2 and 2 for p = 2.
+
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point`.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, Lemme 1.2.7, p. 6: “est monogène, concentré en y et de rang 1 sur k . En particulier k(y) = k .” The non-degenerate case (the source writes J^n_{Y/k} here). Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, Lemme 1.2.8, p. 7: “est monogène, concentré en y et de rang 2 sur k .” The degenerate case p = 2, n even. Transcribed from the page image.
+
+#### Theorem. The Tougeron–Artin implicit function theorem over a henselian local ring
+
+*Module* `TauCeti/RingTheory/Henselian/ImplicitFunction.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/tougeron-artin-implicit-function-theorem`.
+
+Let A be a henselian local ring, S = Spec A, and f : X → S locally cut out by p equations in 𝔸^{n+p}_S, with Jacobian ideal J^n(X/S) generated by the p × p minors of (∂f_i/∂x_j). Let a and I be proper ideals of A with I of finite type, δ′ ⊂ J^n(X/S) an ideal sheaf, and s ∈ X(A/I) a section over S/I; write s*δ′² for the preimage in A of the ideal s*δ′² of A/I. If (s*δ′²)·a ⊃ I, there is a section s₁ ∈ X(A) congruent to s modulo (s*δ′)·a.
+
+*Hypotheses.*
+
+- A henselian; the formal analogue is Bourbaki, Algèbre commutative III §4 no. 6, and the henselian case is Artin, Publ. Math. IHÉS 36, Lemma 5.10, neither read here.
+
+*Proof.*
+
+1. Reduce to the standard Newton iteration: an approximate solution whose error lies in the square of the Jacobian ideal times a lifts to a true solution congruent modulo the Jacobian ideal times a.
+2. Over a henselian local ring, the Newton iteration converges in the sense that the relevant étale neighbourhood has a section (Hensel's lemma in several variables).
+
+*Acceptance.*
+
+- p = 1, X : g(x) = 0 in 𝔸¹_S with g′(s) a unit (δ′ = (g′)): a root modulo I lifts to a root in A, which is Hensel's lemma.
+
+*Uses.* `mathlib:HenselianLocalRing`.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, Théorème 1.1.2 (Tougeron-Artin), p. 2: “Soient S le spectre d'un anneau local hensélien A , f : X → S un morphisme comme en 1.1.1., a et I deux idéaux de A distincts de A” The statement, continued on p. 3. Transcribed from the page image.
+
+#### Theorem. Existence of versal henselian deformations of an isolated singularity (Elkik)
+
+*Module* `TauCeti/AlgebraicGeometry/Deformation/Versal.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/elkik-versal-henselian-deformations`.
+
+Let S be the spectrum of a henselian local ring with closed point s, X′₀ a k(s)-scheme of finite type smooth outside a closed point x₀, and X₀ its henselisation at x₀. A henselian S-deformation of X₀ is (X, T) with T local henselian essentially of finite presentation over S with the same residue field, X local henselian flat and essentially of finite presentation over T, and an isomorphism of the special fibre with X₀. There is a versal henselian S-deformation of X₀, unique up to non-unique isomorphism. For S noetherian, (X, T) is versal if and only if it induces a minimally versal formal deformation over the completion of T.
+
+*Hypotheses.*
+
+- Versal: (a) Hom from a deformation over T′ lifts along closed embeddings T′′ → T′; (b) on T′ = Spec k(s)[ε]/(ε²) the pullback map to isomorphism classes of deformations is bijective (XV 1.1.3).
+
+*Proof.*
+
+1. The source refers the proof to R. Elkik (séminaire de l'ENS, 1971/72), which was not read; the oral seminar proved only the complete-intersection case, which suffices here and was not published.
+2. For the hypersurface singularities used below (an ordinary quadratic point), the versal deformation is written explicitly in XV 1.3.1: Σ a_ij x_i x_j − b = 0 over A{b}, resp. (x₀² − a) + Σ a_ij x_i x_j + bx₀ + c = 0 over A{b, c}.
+
+*Acceptance.*
+
+- The ordinary quadratic point has a one-parameter versal deformation Q − b = 0 (non-degenerate case) and a two-parameter one in the degenerate case, matching the ranks 1 and 2 of T¹ in the Tjurina-module lemma.
+
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/tjurina-module-of-an-ordinary-quadratic-point`, `mathlib:HenselianLocalRing`.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, Théorème 1.1.4 (R. Elkik), p. 4: “Il existe une S-déformation hensélienne verselle de X₀ (et une seule à isomorphisme non unique près).” The existence and uniqueness statement. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, 1.1.4, p. 4: “Pour la démonstration de ce théorème délicat, on renvoie à R. Elkik (séminaire de l'ENS, 1971/72).” The proof is not in SGA 7. Transcribed from the page image.
+
+#### Theorem. Canonical form of an ordinary quadratic point up to henselisation
+
+*Module* `TauCeti/AlgebraicGeometry/QuadraticPoint/CanonicalForm.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/canonical-form-of-an-ordinary-quadratic-point`.
+
+Let y be an ordinary quadratic point of a k-scheme Y and k′ the largest separable subextension of k(y). There are a k′-scheme Y₀ ⊂ 𝔸^{n+1}_{k′}, either the cone Q = 0 of a nondegenerate form with y₀ the origin (1.2.3), or, for p = 2 and n = 2m, the scheme (x₀² − a) + Σ_{0<i≤j≤2m} a_ij x_i x_j = 0 with the 2m-variable form nondegenerate and y₀ = (√a, 0, …, 0) (1.2.4), and a k-isomorphism between the henselisations Y_(y) and Y₀(y₀). The same holds for the affine quadric of a non-homogeneous quadratic form with an ordinary singular point, by an affine change of variables (XV 1.2.12).
+
+*Hypotheses.*
+
+- When a ∉ k², k(y₀) = k(√a) is purely inseparable of degree 2 over k.
+
+*Proof.*
+
+1. Pass to an étale neighbourhood of y that is a k′-scheme, reducing to k(y) purely inseparable over k.
+2. dim (Ω¹_{Y/k})_y = n + 1 (check over k̄ after completion), so near y, Y is cut out by one equation f in a smooth k-scheme Z of dimension n + 1.
+3. Non-degenerate case: then k(y) = k (Tjurina-module lemma); choose étale coordinates x_i at y with f = Q(x) + (order > 2), so Q(x_i) ∈ m³ on Y. The ideal generated by the ∂Q/∂X_i pulls back to m, and the implicit function theorem (a = m, δ′ = J) gives x′_i ≡ x_i mod m² on Y_(y) with Q(x′_i) = 0, which is the isomorphism.
+4. Degenerate case: k(y) = k(√a); the radicial rank-2 subscheme defined by J lies on a line (XV 1.2.9–1.2.10), giving coordinates in which f = (x₀² − a) + Σ a_ij x_i x_j + R; one checks Q(x_i) ≡ 0 mod δ²q on Y (XV 1.2.11.1) and concludes by the implicit function theorem.
+
+*Acceptance.*
+
+- The node xy = 0 is the cone of x₁x₂; y² = x² + x³ at the origin (p ≠ 2) is étale locally the node.
+
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point`, `LefschetzPencilsAndVanishingCycles:LPV.2/tjurina-module-of-an-ordinary-quadratic-point`, `LefschetzPencilsAndVanishingCycles:LPV.2/tougeron-artin-implicit-function-theorem`, `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-form`.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, Théorème 1.2.6, p. 5: “Il existe alors un k'-schéma Y₀ ⊂ E^{n+1}_{k'} du type 1.2.3. ou 1.2.4., et un k-isomorphisme φ entre l'hensélisé Y_(y) de Y en y et l'hensélisé Y₀(y₀) de Y₀ en y₀ .” The canonical form. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, proof of 1.2.6, p. 7: “D'après le théorème des fonctions implicites 1.1.2.” The non-degenerate case through the implicit function theorem. Transcribed from the page image.
+
+#### Theorem. Local equation of a flat family at an ordinary quadratic point
+
+*Module* `TauCeti/AlgebraicGeometry/QuadraticPoint/Family.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/local-equation-of-a-family-at-an-ordinary-quadratic-point`.
+
+Let S = Spec A be henselian local with closed point s, f : X → S flat of finite presentation, and x a closed point of X_s at which X_s has an ordinary quadratic singularity, with k(x) purely inseparable over k(s) and X_s of dimension n. (i) If x is non-degenerate, there are a nondegenerate quadratic form Q in n + 1 variables over A and b in the maximal ideal such that the henselisation of X at x is isomorphic to the henselisation at the origin of Q − b = 0 in 𝔸^{n+1}_S. (ii) If x is degenerate (n = 2m, char k(s) = 2), there is Q(x) = x₀² + bx₀ + c + Σ_{1≤i≤j≤2m} a_ij x_i x_j over A with b in the maximal ideal and the 2m-variable form nondegenerate, such that the henselisation of X at x is isomorphic to that of Q = 0 at (√c, 0, …, 0). The isomorphism can be chosen to extend a given one on the special fibre, lifting its coefficients (XV 1.3.3).
+
+*Hypotheses.*
+
+- The source prints x₀ for x₀² in the formula of (ii) (source issue E7).
+
+*Proof.*
+
+1. By the canonical-form theorem, the special fibre at x is the model 1.2.3 or 1.2.4.
+2. By XV 1.3.1, the versal henselian deformation of that model over S is Σ a_ij x_i x_j − b = 0 over A{b} (non-degenerate) or (x₀² − a) + Σ a_ij x_i x_j + bx₀ + c = 0 over A{b, c} (degenerate), a consequence of Elkik's theorem and explicit computations (SGA 7 VI 6).
+3. X/S is pulled back from the versal deformation along a local morphism S → T, which specialises b (and c) to elements of A.
+
+*Acceptance.*
+
+- A family of curves acquiring a node: xy = b with b ∈ m_A; for a regular total space b is a uniformiser, which is the b(x) of XV 3.3.1.
+
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/canonical-form-of-an-ordinary-quadratic-point`, `LefschetzPencilsAndVanishingCycles:LPV.2/elkik-versal-henselian-deformations`, `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point`.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, Corollaire 1.3.2 (i), p. 11: “le S-schéma hensélisé de X en x soit isomorphe à l'hensélisé en l'origine du sous-schéma de E^{n+1}_S d'équation (1.3.1(i)) Q − b = 0 .” The non-degenerate case. Transcribed from the page image.
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, Remarque 1.3.3, p. 12: “on peut prendre Q = x₀² + bx₀ + c + Σ a_ij x_i x_j , avec c ≡ ā mod l'idéal maximal.” The degenerate case with the square present, and the choice extending a given special-fibre isomorphism. Transcribed from the page image.
+
+#### Theorem. Non-smooth points near an ordinary quadratic point are ordinary quadratic
+
+*Module* `TauCeti/AlgebraicGeometry/QuadraticPoint/Family.lean`. *Node* `LefschetzPencilsAndVanishingCycles:LPV.2/non-smooth-points-near-an-ordinary-quadratic-point`.
+
+In the situation of the local-equation theorem, there is a neighbourhood U of x in X such that every point of U at which f is not smooth is an ordinary quadratic point of its fibre.
+
+*Hypotheses.*
+
+- f flat of finite presentation; x an ordinary quadratic point of X_s with k(x) purely inseparable over k(s).
+
+*Proof.*
+
+1. Work on the local model Q − b = 0 (resp. x₀² + bx₀ + c + Σ a_ij x_i x_j = 0).
+2. Non-degenerate case: f fails to be smooth exactly where all ∂Q/∂x_i vanish and Q = b, that is, at the origin over V(b); the fibre there is the cone Q = 0, an ordinary quadratic point.
+3. Degenerate case: the singular locus is the section x_i = 0 (i ≥ 1), x₀ with x₀² + bx₀ + c = 0 and b = 0 there; each such point is of type 1.2.4 in its fibre.
+
+*Acceptance.*
+
+- In a Lefschetz pencil the singular points of the fibres near x_s are x_s itself, as condition (B) requires.
+
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.2/local-equation-of-a-family-at-an-ordinary-quadratic-point`, `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point`.
+
+*Sources.*
+
+- Groupes de monodromie en géométrie algébrique (SGA 7 II), Exposé XV, Corollaire 1.3.4, p. 12: “Il existe un voisinage U de x dans X tel que les points de non lissité de f contenus dans U soient des points quadratiques ordinaires de leur fibre.” The statement. Transcribed from the page image.
+
 ### What is missing
 
-- SGA 7 XV §1 (ordinary quadratic singularities, canonical forms) and §2 (cohomology of the cone, 2.2.1–2.2.7) are not read; they carry the local computation behind XV 3.1.2, 3.2.1 and 3.3, and the identification of the middle map of Weil I (4.3.3).
+- SGA 7 XV §2 (cohomology of the cone, 2.1–2.2.7) is not read; it carries the local computation behind XV 3.1.2, 3.2.1 and 3.3 and the identification of the middle map of Weil I (4.3.3).
 - The proof of XV 3.3.5–3.3.6 is read only through steps (A)–(B); the mixed-characteristic step (C) and XIV 2.1/3.2.11 are not read.
-- The characteristic-2 case with n even is excluded by Weil I and is not planned; compatibility with a finite extension of the trait is not planned.
-- Planned in this checkpoint: the proper-family form of the local theory (Weil I 4.2–4.4), including δ = 0; the n mod 4 sign table of Weil I (4.1) was checked against XV 3.2.1 and 3.3.
+- The characteristic-2 case with n even is planned at the level of ordinary versus degenerate points (XII 1.1, XV 1.2.2, 1.2.8, 1.3.2(ii)), but its cohomology (the Picard–Lefschetz formula for p = 2, n even) is excluded by Weil I and not planned; compatibility with a finite extension of the trait is not planned.
+- Planned: the proper-family form of the local theory (Weil I 4.2–4.4), including δ = 0; quadratic forms, smooth quadrics and their cohomology, including δ with Tr(δ²) = (−1)^m·2 (XII); ordinary quadratic points, their canonical forms and local equations in families (XV §1).
 
 ## LPV.3 Existence of sufficiently ample Lefschetz pencils
 
@@ -545,7 +1017,7 @@ Let k be algebraically closed of characteristic p, P a projective space of dimen
 *Hypotheses.*
 
 - Transversality of A means A ∩ X is smooth of codimension 2 in X, or empty.
-- Ordinary quadratic singular points are LPV.2's notion (SGA 7 XV §1).
+- Ordinary quadratic singular points are those of the LPV.2 node ordinary-quadratic-point (SGA 7 XV 1.2.1).
 
 *API.*
 
@@ -580,7 +1052,7 @@ Let k be algebraically closed of characteristic p, P a projective space of dimen
 
 - A line in P² (no singular fibre), the quadric surface (two nodal fibres, δ = 0), the cubic surface (twelve nodal fibres), and the Hermitian curve, where condition (C) fails in the original embedding.
 
-*Uses.* `EtaleDualityAndPerverseSheaves:EDC.4`, `LefschetzPencilsAndVanishingCycles:LPV.2`.
+*Uses.* `EtaleDualityAndPerverseSheaves:EDC.4`, `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point`, `LefschetzPencilsAndVanishingCycles:LPV.2/non-smooth-points-near-an-ordinary-quadratic-point`.
 
 *Planet:* Lefschetz pencil.
 
@@ -661,7 +1133,7 @@ Let k be algebraically closed of characteristic p, P a projective space of dimen
 
 - The Hermitian curve of degree q + 1 in characteristic p odd has no Lefschetz pencil of lines, while a general pencil of conics (r = 2) is Lefschetz.
 
-*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.3/lefschetz-pencil`, `LefschetzPencilsAndVanishingCycles:LPV.3/dual-variety`, `LefschetzPencilsAndVanishingCycles:LPV.2`, `SchemeAndStackFoundations:SF.0`.
+*Uses.* `LefschetzPencilsAndVanishingCycles:LPV.3/lefschetz-pencil`, `LefschetzPencilsAndVanishingCycles:LPV.3/dual-variety`, `LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point`, `SchemeAndStackFoundations:SF.0`.
 
 *Planet:* Existence of Lefschetz pencils.
 
@@ -1070,7 +1542,7 @@ Let (X_t)_{t∈D} be a Lefschetz pencil of hyperplane sections of X as in the Le
 
 ## LPV.6 Perverse nearby cycles and comparison interfaces
 
-No nodes in this checkpoint.
+No nodes yet.
 
 ### What is missing
 
@@ -1079,13 +1551,14 @@ No nodes in this checkpoint.
 ## Requests to other roadmaps
 
 - `ArithmeticGaloisRepresentations:R01.2` — The tame character t_ℓ : I → ℤ_ℓ(1) of the inertia group of a henselian discretely valued field whose residue field is separably closed of characteristic p ≠ ℓ (p = 0 allowed): σ ↦ (σ(π^{1/ℓ^k})/π^{1/ℓ^k})_k for a uniformiser π, independent of π and of the chosen roots, continuous, surjective and trivial on wild inertia; its reductions mod ℓ^k are the Kummer characters ε_π^{(ℓ^k)} of SGA 7 XV 3.3.2, and for p ≠ 2 the tame quotient has a unique character ε of order 2. RS-17 makes R01.2 the owner of this carrier. Needed by `local-picard-lefschetz-formula`, `odd-relative-dimension-picard-lefschetz-3-3`, `kazhdan-margulis-open-image`.
-- `EtaleDualityAndPerverseSheaves:EDC.2` — For Y smooth, proper and connected of dimension n over an algebraically closed field, ℓ invertible: the trace Tr : H^{2n}(Y, ℚ_ℓ(n)) ≅ ℚ_ℓ, perfectness of the cup-product pairing H^i(Y) ⊗ H^{2n−i}(Y) → ℚ_ℓ(−n) with its graded symmetry (alternating in the middle degree when that degree is odd), and the relative trace R^{2n} f_*ℚ_ℓ(n) ≅ ℚ_ℓ for f smooth and proper with connected fibres, compatible with base change, so that monodromy preserves the pairing. Needed by `lefschetz-degeneration-specialization-sequence`, `direct-images-at-a-lefschetz-degeneration`, `vanishing-quotient-and-its-pairing`, `vanishing-cycles-are-conjugate`.
-- `EtaleDualityAndPerverseSheaves:EDC.4` — The blow-up of a smooth variety along a smooth closed subvariety of codimension 2 is smooth; for X ⊂ P smooth and a codimension-2 linear subspace A transverse to X, the incidence variety {(x, t) ∈ X × D : x ∈ H_t} over the dual line D is Bl_{A∩X} X. Needed by `lefschetz-pencil`.
+- `EtaleDualityAndPerverseSheaves:EDC.2` — For Y smooth, proper and connected of dimension n over an algebraically closed field, ℓ invertible: the trace Tr : H^{2n}(Y, ℚ_ℓ(n)) ≅ ℚ_ℓ, perfectness of the cup-product pairing H^i(Y) ⊗ H^{2n−i}(Y) → ℚ_ℓ(−n) with its graded symmetry (alternating in the middle degree when that degree is odd), and the relative trace R^{2n} f_*ℚ_ℓ(n) ≅ ℚ_ℓ for f smooth and proper with connected fibres, compatible with base change, so that monodromy preserves the pairing. Needed by `lefschetz-degeneration-specialization-sequence`, `direct-images-at-a-lefschetz-degeneration`, `vanishing-quotient-and-its-pairing`, `vanishing-cycles-are-conjugate`, `cohomology-of-smooth-quadrics`, `cohomology-of-affine-quadrics`.
+- `EtaleDualityAndPerverseSheaves:EDC.4` — The blow-up of a smooth variety along a smooth closed subvariety of codimension 2 is smooth; for X ⊂ P smooth and a codimension-2 linear subspace A transverse to X, the incidence variety {(x, t) ∈ X × D : x ∈ H_t} over the dual line D is Bl_{A∩X} X. Also the cohomology of smooth complete intersections in projective space (weak Lefschetz and Poincaré duality, SGA 7 XI 1.6 and 2.6), as used for smooth quadrics. Needed by `lefschetz-pencil`, `cohomology-of-smooth-quadrics`.
 - `SchemeAndStackFoundations:SF.2` — Étale sheaves and the derived category D⁺(X_ét, A) for a torsion ring A with ℓ invertible, Rf_*, the proper base change theorem (SGA 4 XII 5.1, including H^i(X, F) = H^i(X_s, F) for X proper over a henselian local scheme) and the smooth base change theorem (SGA 4 XVI 1.2); for f smooth and proper, R^i f_*ℚ_ℓ lisse with fibres H^i of the geometric fibres; ℚ_ℓ-coefficients as limits of ℤ/ℓ^k-coefficients. Needed by `henselian-trait-conventions-and-galois-sheaves`, `functor-psi-and-functorialities`, `derived-nearby-cycles-RPsi-and-vanishing-triangle`, `derived-functorialities-and-specialization-sequence`, `lefschetz-degeneration-specialization-sequence`, `cohomology-sheaves-of-a-lefschetz-pencil`.
-- `SchemeAndStackFoundations:SF.0` — Projective space P^N_k and its dual as schemes, linear subspaces and the Grassmannian of codimension-2 subspaces, the Veronese embedding of degree r, projective tangent spaces and the Jacobian criterion for smoothness of hyperplane sections, and projective bundles over a variety. Needed by `dual-variety`, `existence-of-lefschetz-pencils`.
+- `SchemeAndStackFoundations:SF.0` — Projective space P^N_k and its dual as schemes, linear subspaces and the Grassmannian of codimension-2 subspaces, the Veronese embedding of degree r, projective tangent spaces and the Jacobian criterion for smoothness of hyperplane sections, and projective bundles over a variety. Also smooth morphisms and their étale-local sections when the geometric fibres are nonempty, henselisations and completions of local rings, and Severi–Brauer schemes. Needed by `dual-variety`, `existence-of-lefschetz-pencils`, `ordinary-quadratic-form`, `normal-form-of-ordinary-quadratic-forms`, `discriminant-double-cover-of-an-even-quadric`, `smooth-quadric`, `ordinary-quadratic-point`.
 - `EtaleDualityAndPerverseSheaves:EDC.1` — Rf^! for quasi-finite (and separated finite-type) morphisms with the adjunction Rf_! ⊣ Rf^!, as used in SGA 7 XIII 2.1.6–2.1.7 for the functorialities of RΨ. Needed by `derived-functorialities-and-specialization-sequence`.
 - `InverseGaloisAndArithmeticFundamentalGroups:IG.0` — The étale fundamental group π₁(X, u) of a connected scheme with its fibre functor, étale paths between geometric points (change of base point), the equivalence between lisse ℚ_ℓ-sheaves and continuous representations of π₁, and π₁(P¹_k) = 1 for k algebraically closed, so that a lisse sheaf on P¹_k is constant. Needed by `cohomology-sheaves-of-a-lefschetz-pencil`, `vanishing-subspace`, `bertini-surjectivity-on-fundamental-groups`.
 - `InverseGaloisAndArithmeticFundamentalGroups:IG.1` — Inertia subgroups of π₁ at the points of a finite set S ⊂ P¹_k and at the generic point of a prime divisor, all conjugate for a given divisor; the tame quotient π₁^t; Grothendieck's theorem (SGA 1 XIII 2.12) that π₁^t(P¹_k − S) is a quotient of the profinite completion of ⟨γ_s (s ∈ S) | ∏ γ_s = 1⟩ with γ_s generating an inertia group at s; and Abhyankar's lemma (SGA 1 XIII 5.3) for covers tamely ramified along a smooth divisor. Needed by `vanishing-cycles-are-conjugate`, `monodromy-generated-by-local-transvections`.
+- `EtaleDualityAndPerverseSheaves:EDC.3` — Cycle classes of smooth closed subschemes (the generatrices of a quadric) in H^{2c}(X, ℤ_ℓ(c)), with the trace of a product of two classes computed by intersection (0 for disjoint, 1 for a transversal point), and the Gysin sequence … → H^{i−2}(Y, ℤ_ℓ(−1)) → H^i(X, ℤ_ℓ) → H^i(X − Y, ℤ_ℓ) → … for a smooth divisor Y ⊂ X, in families over S. Needed by `cohomology-of-smooth-quadrics`, `cohomology-of-affine-quadrics`.
 
 ## Gaps
 
@@ -1097,17 +1570,30 @@ No nodes in this checkpoint.
 - **SGA 7 XVIII (global theory of pencils) not read.** Weil I (5.8) gives the ℓ-adic statements and says that the transposition of Lefschetz's results 'se fait par des arguments standards', naming the tame lifting, Bertini and Abhyankar's lemma. The proof steps here follow Weil I's complex proofs (5.3)–(5.5) with those replacements. SGA 7 XVIII, where (5.13) D) places the proofs, was not read.
 - **Bertini's irreducibility theorem.** Step (i) of the Bertini node uses the irreducibility of the preimage of a general line under a finite morphism from an irreducible variety (Jouanolou, Théorèmes de Bertini et applications), not read. Step (ii), reducing from all of π₁ to the image in GL(𝒢_u) by a Frattini argument, is this packet's; Weil I states only the complex surjectivity.
 - **ℓ-adic Lie theory for compact subgroups.** Weil I (5.10) asserts that a compact subgroup of Sp(ℚ_ℓ) is ℓ-adic analytic, and openness follows once its Lie algebra is sp. The closed-subgroup theorem, uniform open subgroups and the Lie lattice log H₀ (Lazard; Serre, Lie Algebras and Lie Groups, Part II) were not read, and no roadmap stage plans ℓ-adic analytic groups in this generality, so the compact-subgroup lemma is planned here with outlined proof steps.
-- **Ordinary quadratic singular points are not yet a node.** The definition (SGA 7 XV §1, with the characteristic-2 distinction between a nonsingular quadric and a nondegenerate polar form) belongs to LPV.2 and was not read. The Lefschetz-pencil node refers to stage LPV.2 for it; Mathlib's QuadraticMap.Nondegenerate covers the quadratic-form half.
+- **Tougeron–Artin and Elkik are cited, not proved, in SGA 7.** XV 1.1.2 refers to Artin, Algebraic approximation of structures over complete local rings (Publ. Math. IHÉS 36), Lemma 5.10, and XV 1.1.4 to Elkik's 1971/72 ENS seminar; neither was read. The explicit versal deformations of XV 1.3.1 are said to follow from Elkik's theorem and computations in SGA 7 VI 6, also not read.
+- **Cohomology of smooth complete intersections (SGA 7 XI).** Theorem 3.3 (i)–(ii) are quoted 'pour mémoire' from SGA 7 XI 1.6 and 2.6, which were not read; they are requested from EDC.4 with the weak Lefschetz theorem.
 
 ## Mistakes found in the sources
 
-None in the passages read for this checkpoint. Several checks were made against the page images:
+These are recorded in the packet's `sourceIssues`. All eight are misprints in SGA 7 II, found on the page images. No errata list for the volume was found. The planned statements use the corrected forms.
 
-- The twists in Weil I (4.3) are consistent: t_ℓ(σ)(x, δ)δ ∈ H^n(X_η̄)(2m + 1 − n) = H^n(X_η̄) for n = 2m + 1.
+- **E1** (misprint, Exposé XII, 1.1 b), p. 2; affects nothing). Printed: “b) pour n impair et card(A) = 2 : Q est ordinaire si et seulement si …”. Correction: b) pour n impair et car(A) = 2 : …. Case a) is 'n pair ou car(A) ≠ 2', so b) is its complement, characteristic 2; with card(A) = 2 the dichotomy would cover only the field with two elements.
+- **E2** (misprint, Exposé XII, Proposition 1.2, p. 3; affects a stated result). Printed: “Q(Σ_1^n x_i e_i) = Σ_1^{m−1} x_i x_{i+m} (resp. Σ_1^{m−1} x_i x_{i+m} + λx²_{2m+1})”. Correction: Σ_{i=1}^{m} x_i x_{i+m} (resp. Σ_{i=1}^{m} x_i x_{i+m} + λx²_{2m+1}), or equivalently sums from 0 to m − 1 with the basis indexed from 0. With the basis e₁, …, e_n and i from 1 to m − 1, the variables x_m and x_{2m} do not occur and the displayed form is degenerate, contradicting ordinarity; the inductive proof splits off m hyperbolic planes.
+- **E3** (misprint, Exposé XII, 3.1, p. 14; affects nothing). Printed: “η ∈ H⁰(S, R¹p_*ℤ_ℓ(1))”. Correction: η ∈ H⁰(S, R²p_*ℤ_ℓ(1)). η is the image of c₁(O(1)) ∈ H²(X, ℤ_ℓ(1)), as the next sentence of 3.1 says ('l'image dans H⁰(S, R²p_*ℤ_ℓ(1))').
+- **E4** (misprint, Exposé XII, proof of 3.3, formula (a), p. 15; affects nothing). Printed: “la quadrique d'équation Σ_0^m x_i x_{i+m+1} = 0 dans P^{m+1}(k)”. Correction: dans P^{2m+1}(k). The quadric has dimension n = 2m and the equation uses the variables x₀, …, x_{2m+1}.
+- **E5** (misprint, Exposé XII, 3.6, p. 18; affects nothing). Printed: “Pour r = 2m + 1, r_{2m}(η^m) = η^m”. Correction: Pour n = 2m + 1. The paragraph treats n even and then n odd; r denotes the restriction maps r_i.
+- **E6** (misprint, Exposé XII, 3.6, p. 18; affects nothing). Printed: “Par dualité, ou à l'aide de 3.5.3, on montre de même …”. Correction: à l'aide de (3.6.3). Exposé XII has no 3.5.3; the dual Gysin sequence (3.6.3) is the one that computes R^i f_*ℤ_ℓ.
+- **E7** (misprint, Exposé XV, Corollaire 1.3.2 (ii), display (4.14.2), p. 11; affects a stated result). Printed: “Q(X) = x₀ + bx₀ + c + Σ_{1≤i≤j≤2m} a_ij x_i x_j”. Correction: Q(X) = x₀² + bx₀ + c + Σ_{1≤i≤j≤2m} a_ij x_i x_j. Without the square the equation is smooth at every point; the versal deformation of 1.3.1 (ii) and Remarque 1.3.3 both have x₀².
+- **E8** (misprint, Exposé XV, 1.2.1 and proof of 1.2.6, pp. 4 and 6; affects nothing). Printed: “(4.2.1) f(X) = Q(X) = + termes d'ordre > 2; 'Soit Y₀ défini par Q comme en 4.3.'”. Correction: f(X) = Q(X) + termes d'ordre > 2, and 'comme en 1.2.3'. The stray '=' breaks the formula, and the references numbered 4.x (also the label (4.14.2) in 1.3.2) point to a numbering of the exposé that no longer exists; 1.2.3 is the cone Q = 0 used in the proof.
+
+No mistakes were found in Weil I §§4–5. Several checks were made against the page images:
+
+- The twists in (4.3) are consistent.
 - The sign table of (4.1) agrees with SGA 7 XV 3.2.1 and 3.3.
-- The degree-(n + 1) sequences of (4.4) b) and (5.8) b) agree with each other.
+- The degree-(n + 1) sequences of (4.4) b) and (5.8) b) agree.
+- Tr(δ²) = (−1)^m·2 in SGA 7 XII Table 3.7 is consistent with XII 3.3 (iii)(b).
 
-Weil I (5.10) says that the Lie algebra 𝔏 of the monodromy group is generated by the N_s. This follows only after the fact, from 𝔤_S ⊂ 𝔏 ⊂ sp. The Kazhdan–Margulis node therefore argues with 𝔤_S, the Lie algebra generated by the N_s, and does not use the claim.
+Weil I (5.10) says that the Lie algebra of the monodromy group is generated by the N_s. This follows only after the fact. The Kazhdan–Margulis node therefore argues with the Lie algebra generated by the N_s and does not use the claim.
 
 ## Library baseline
 
@@ -1119,14 +1605,18 @@ Weil I (5.10) says that the Lie algebra 𝔏 of the monodromy group is generated
 - `LieModule.IsIrreducible` (Mathlib/Algebra/Lie/Semisimple/Defs.lean) — A nontrivial Lie module whose only Lie submodules are ⊥ and ⊤.
 - `IsNilpotent.exp` (Mathlib/RingTheory/Nilpotent/Exp.lean) — The finite exponential ∑ aⁱ/i! of a nilpotent element of a ℚ-algebra; for N² = 0 it is 1 + N.
 - `ValuationSubring.inertiaSubgroup` (Mathlib/RingTheory/Valuation/RamificationGroup.lean) — The inertia subgroup of the decomposition group of a valuation subring: the kernel of the action on its residue field.
+- `QuadraticMap.Nondegenerate` (Mathlib/LinearAlgebra/QuadraticForm/Radical.lean) — A quadratic map is nondegenerate if its radical is 0 and the kernel of its polar form has rank ≤ 1 (Elman–Karpenko–Merkurjev II §7).
+- `QuadraticMap.polarBilin` (Mathlib/LinearAlgebra/QuadraticForm/Basic.lean) — The polar bilinear map (x, y) ↦ Q(x + y) − Q(x) − Q(y).
+- `CliffordAlgebra.even` (Mathlib/LinearAlgebra/CliffordAlgebra/Even.lean) — The even subalgebra C⁺(Q) of the Clifford algebra of a quadratic form.
+- `HenselianLocalRing` (Mathlib/RingTheory/Henselian.lean) — A local ring in which simple roots of monic polynomials modulo the maximal ideal lift.
 
 ## Sources
 
 - Pierre Deligne, *La conjecture de Weil. I*. Publ. Math. IHÉS 43 (1974), 273–307; Numdam scan with OCR, 36 PDF pages (printed page = PDF page + 271); locators give printed pages. https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf (SHA-256 `8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5`). Read: cc-fb70e5, 2026-09-29 (part LPV.0, checkpoint 1): §4 (4.1)–(4.4) and §5 (5.1)–(5.13), pp. 287–294, in full; the displays of (4.1), (4.3.3), (4.4), (5.7), (5.8) and (5.9)–(5.11) were read on page images.
-- Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, *Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340*. Springer 1973; IAS author-archive scan with OCR (the OCR is poor: symbols ~, @, 4 replace accents and Greek letters; statements were reconstructed from the surrounding French text and the numbered cross-references). https://publications.ias.edu/sites/default/files/Number12.pdf (SHA-256 `fa679debfc8ada3232d7e752a1837fc6ce474488e20a44d7641cf296876e1297`). Read: Exposé XIII: Introduction (transcendental picture, Construction 0.1), 0.2 conventions, §1.1 (1.1.1-1.1.3), §1.2 (1.2.1-1.2.9), §1.3 (1.3.1-1.3.10), §1.4 (1.4.1-1.4.3), §2.1 (2.1.1-2.1.8); §2.2-2.4 not read; Exposé XV: table of contents; §3.1 (3.1.1-3.1.2 with proof sketch), §3.2 (3.2.1-3.2.3), §3.3 (3.3.1-3.3.4, statements of 3.3.5-3.3.6 and steps (A)-(B) of the proof); §§1-2 and the rest of the proof of 3.3.5-3.3.6 not read; cc-fb70e5, 2026-09-29 (part LPV.0, checkpoint 1): file re-downloaded and its SHA-256 recomputed; the volume contains Exposés XII–XXII (XVII begins at PDF page 220). No new passage was read; the Exposé XIII and XV excerpts are carried from the reviewed decomposition, whose reviewer read them on rendered page images..
+- Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, *Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340*. Springer 1973; IAS author-archive scan with OCR (the OCR is poor: symbols ~, @, 4 replace accents and Greek letters; statements were reconstructed from the surrounding French text and the numbered cross-references). https://publications.ias.edu/sites/default/files/Number12.pdf (SHA-256 `fa679debfc8ada3232d7e752a1837fc6ce474488e20a44d7641cf296876e1297`). Read: Exposé XIII: Introduction (transcendental picture, Construction 0.1), 0.2 conventions, §1.1 (1.1.1-1.1.3), §1.2 (1.2.1-1.2.9), §1.3 (1.3.1-1.3.10), §1.4 (1.4.1-1.4.3), §2.1 (2.1.1-2.1.8); §2.2-2.4 not read; Exposé XV: table of contents; §3.1 (3.1.1-3.1.2 with proof sketch), §3.2 (3.2.1-3.2.3), §3.3 (3.3.1-3.3.4, statements of 3.3.5-3.3.6 and steps (A)-(B) of the proof); §§1-2 and the rest of the proof of 3.3.5-3.3.6 not read; cc-fb70e5, 2026-09-29 (part LPV.0, checkpoint 1): file re-downloaded and its SHA-256 recomputed; the volume contains Exposés XII–XXII (XVII begins at PDF page 220). No new passage was read; the Exposé XIII and XV excerpts are carried from the reviewed decomposition, whose reviewer read them on rendered page images.; cc-fb70e5, 2026-09-29 (part LPV.0, checkpoint 2): Exposé XII (Quadriques) §§1–3, pp. 1–20, in full, and Exposé XV §1 (1.1–1.3), pp. 1–12, in full. The OCR of this scan is unreliable, so every statement and excerpt was read on page images (XII = PDF pages 70–89, XV = PDF pages 173–195)..
 
 ## Non-goals
 
-- A second construction of étale cohomology, Poincaré duality or étale fundamental groups. These come from SF.2, EDC.2 and IG.0–IG.1.
+- A second construction of étale cohomology, Poincaré duality, cycle classes or étale fundamental groups. These come from SF.2, EDC.2–EDC.3 and IG.0–IG.1.
 - Weights. No Frobenius-weight statement enters LPV.0–LPV.5, and DWP owns the weight estimates.
 - The invariant-cycle theorems and semistable-curve exports. These are part LPV.7.
