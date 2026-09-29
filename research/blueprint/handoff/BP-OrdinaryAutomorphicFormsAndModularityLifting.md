@@ -1,8 +1,54 @@
-# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.2 source-decomposed; R21.1 and R21.3–R21.6 partial (checkpoint 7)
+# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.1, R21.2, R21.6 source-decomposed; R21.3–R21.5 partial (checkpoint 8)
 
 Claude Code — session `cc-39fac3`, 29 September 2026. Refs #962. **Status: partial.**
-- R21.2 is `source_decomposed`.
-- R21.1 and R21.3–R21.6 are `partial`.
+- R21.1, R21.2 and R21.6 are `source_decomposed`.
+- R21.3–R21.5 are `partial`.
+
+## Checkpoint 8: the classical Hida family over ℚ and the required examples (4 nodes)
+
+**Sources:**
+- Emerton–Pollack–Weston (arXiv:math/0404484v1, sha d2d3fa5…), §§2.1–2.3;
+- Hida, ASENS 19 (Numdam, sha a52ea23…), Corollary 3.7;
+- Mazur, IHÉS 47 (Numdam, sha c20c7e7…), Proposition II.9.7, read on the page image.
+
+**R21.6 (4 nodes):**
+- `hida-family-galois-representation-over-q` (construction, planet; 7 API items, 4 tests): EPW Theorem 2.3.1 and
+  Propositions 2.3.2–2.3.5.
+- `ordinary-newform-lies-in-a-hida-family`: EPW §2.1 with Hida Corollary 3.7, applied to the export.
+- `required-examples-x0-11-at-five` (application): Mazur's Eisenstein ideal at N = 11. It gives an ordinary weight-2
+  form, a split p-distinguished residual representation, the irreducibility check (1 ⊕ ε₅), and the family's weights.
+- `required-examples-p-distinguishedness` (application): automatic in even weight; fails for χ_{−23} at 3.
+
+**Ownership.**
+- PadicFamilies L0 owns the Hecke side: T_N, T^new_N and Hida's primitive components. A request lists EPW Theorem
+  2.1.2, Definition 2.2.1/Theorem 2.2.2 and Hida Corollary 3.7.
+- PadicFamilies L4's RS-08 note sends the ordinary big Galois representation here.
+
+**R21.1 closed** as `source_decomposed`. Its two remaining items are not needed:
+- Skinner–Wiles do not use the modular-curve or indefinite H¹ towers, which PadicFamilies L1 applies for EPW;
+- odd-degree F is handled by base change to an even-degree E (Theorem A) or L (the Main Theorem).
+
+**Lean.** New checked tests:
+- n = 5, and a_5 ≡ 1 mod 5;
+- ω has order 4 mod 5;
+- the family's weights k ≡ 2 mod 4;
+- 5 | a_5² at new weight k > 2;
+- parity for automatic distinguishedness;
+- −23 ≡ 1 mod 3.
+
+The file compiles with 0 errors, 0 warnings and no `sorry`.
+
+**Totals.** 88 nodes, 29 planets, 24 requests, 5 gaps and 15 source issues. `check_blueprint.py`: 0 errors, 0 warnings.
+
+## What a continuation should do (after checkpoint 8)
+
+1. **E11** (Skinner–Wiles 2001, the CM-split dihedral case). It is partly known: KW I cite Skinner's unpublished
+   correction, *Nearly ordinary deformations of residually dihedral representations* (2009 preprint), and E11's `known`
+   field now says so. Obtain that preprint if it is readable. PotentialModularityAndCompatibleSystems R23.3 now depends on
+   it for Taylor's theorems (PR #3875). Either bound the dihedral locus, or plan Taylor 2006's alternative through
+   Skinner–Wiles 1999.
+2. **The Washington and Waldschmidt gaps.**
+3. **Skinner–Wiles' Duke base-change paper,** which needs an owner.
 
 ## Checkpoint 7: Skinner–Wiles 2001, irreducible residual representations (14 nodes)
 

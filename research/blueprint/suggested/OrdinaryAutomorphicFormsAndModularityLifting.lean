@@ -254,4 +254,35 @@ example (d r : ℕ) (hr : d ≤ 2 * r) : d - r ≤ d / 2 := by
 example {K : Type*} [Field K] (δ : K) : Matrix.trace !![δ, 0; 0, δ⁻¹] = δ + δ⁻¹ := by
   simp [Matrix.trace_fin_two]
 
+/-! ### Checkpoint 8: the classical Hida family and the required examples -/
+
+/-- `R21.6/required-examples-x0-11-at-five`: `n = numerator((11 − 1)/12) = 5` (Mazur II.9.7). -/
+example : (11 - 1) / Nat.gcd (11 - 1) 12 = 5 := by decide
+
+/-- `a_5 ≡ 1 + 5 ≡ 1 (mod 5)`: the form of level 11 is ordinary at `5`. -/
+example : ((1 + 5 : ℕ) : ZMod 5) = 1 := by decide
+
+/-- `ω` is nontrivial of order `4` on `(ℤ/5)^×`, so the residual characters `1` and `ω` differ on `I_5`. -/
+example : (2 : ZMod 5) ^ 2 ≠ 1 ∧ (2 : ZMod 5) ^ 4 = 1 := by decide
+
+/-- The family's character `ω^{2−k}` at `p = 5` is trivial exactly when `4 ∣ k − 2`. -/
+example (k : ℕ) (hk : 2 ≤ k) : 4 ∣ k - 2 ↔ k % 4 = 2 := by omega
+
+/-- A form new at `5` of weight `k > 2` with trivial character has `a_5² = 5^{k−2}`, divisible by `5`. -/
+example (k : ℕ) (hk : 3 ≤ k) : 5 ∣ 5 ^ (k - 2) := dvd_pow_self 5 (by omega)
+
+/-- `R21.6/required-examples-p-distinguishedness` (a): for `p` odd and `k` even, `(p − 1) ∤ (k − 1)`. -/
+example (p k : ℕ) (hp : Odd p) (hk : Even k) (hk2 : 2 ≤ k) : ¬ (p - 1) ∣ (k - 1) := by
+  intro h
+  have h1 : Even (p - 1) := by
+    obtain ⟨a, rfl⟩ := hp
+    exact ⟨a, by omega⟩
+  have h2 : Odd (k - 1) := by
+    obtain ⟨b, rfl⟩ := hk
+    exact ⟨b - 1, by omega⟩
+  exact (Nat.not_even_iff_odd.mpr h2) (even_iff_two_dvd.mpr (h1.two_dvd.trans h))
+
+/-- (b): `−23 ≡ 1 (mod 3)`, a square, so `3` splits in `ℚ(√−23)` and `χ_{−23}(Frob_3) = 1`. -/
+example : ((-23 : ℤ) : ZMod 3) = 1 := by decide
+
 end TauCeti.OrdinaryModularity.SuggestedTest

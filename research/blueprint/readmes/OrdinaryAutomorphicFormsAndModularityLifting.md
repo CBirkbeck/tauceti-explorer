@@ -1,7 +1,7 @@
 # Ordinary automorphic forms and ordinary modularity lifting — blueprint
 
-This blueprint covers stages R21.1–R21.6. After seven checkpoints, **R21.2 is source-decomposed**; R21.1, R21.3, R21.4,
-R21.5 and R21.6 are partial. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
+This blueprint covers stages R21.1–R21.6. After eight checkpoints, **R21.1, R21.2 and R21.6 are source-decomposed**;
+R21.3, R21.4 and R21.5 are partial. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
 - R21.1 only applies the ordinary projector to actual arithmetic modules;
 - R21.2 keeps the nearly ordinary and Eisenstein statements that Skinner–Wiles need beyond cuspidal Hida theory;
 - R21.3 keeps the ordinary Galois families and deformation rings, in the pseudo-representation formalism the source
@@ -21,6 +21,11 @@ Checkpoint 7 adds C. M. Skinner and A. J. Wiles, *Nearly ordinary deformations o
 representations*, Ann. Fac. Sci. Toulouse Math. (6) 10 (2001), 185–215 (Numdam open access, read in full on the page
 images). It is the residually irreducible companion of the 1999 paper. No stage owned it before; it is now planned
 across R21.3–R21.5, next to the 1999 argument it adapts.
+
+Checkpoint 8 adds three sources for the classical Hida family over ℚ and the required examples:
+- Emerton–Pollack–Weston, *Variation of Iwasawa invariants in Hida families* (arXiv:math/0404484v1), §§2.1–2.3;
+- Hida, *Iwasawa modules attached to congruences of cusp forms* (Ann. Sci. ÉNS 1986), Corollary 3.7;
+- Mazur, *Modular curves and the Eisenstein ideal* (Publ. Math. IHÉS 47), Proposition II.9.7.
 
 ## Purpose
 
@@ -672,6 +677,54 @@ with its level").
 Theorem A contains no node of ClassicalSerreModularity and no residually irreducible modularity assertion. Residual
 modularity is by Eisenstein congruences (R21.2). So the theorems can initialise Serre's conjecture without circularity.
 
+### Checkpoint 8: the classical Hida family over ℚ and the required examples
+
+Library modules: `…/HidaFamilyOverQ` and `…/Exports`.
+
+**Construction: the Galois representation of a Hida family over ℚ** (node `hida-family-galois-representation-over-q`;
+planet "Galois representations of Hida families over ℚ"). This is EPW Theorem 2.3.1. There is ρ : G_ℚ → GL₂(T^new_N ⊗_Λ L)
+such that:
+- ρ is unramified outside Np;
+- charpoly(Frob_ℓ) = X² − T_ℓX + ⟨ℓ⟩ℓ^{−1};
+- ρ is absolutely irreducible, and its determinant is ⟨·⟩(·)^{−1};
+- its I_p-coinvariants are free of rank one, with Frob_p acting by U_p.
+
+The node also includes EPW's further results:
+- Proposition 2.3.2 (the tame conductor is N);
+- Proposition 2.3.3 (inertia invariants specialise);
+- Theorem 2.3.4 (ρ̄_m with its ordinary shape);
+- Proposition 2.3.5 (the integral model when ρ̄_m is irreducible, by Carayol).
+
+The Hecke side (T_N, T^new_N and Hida's primitive components) is requested from PadicFamilies L0, the owner of Hida
+families. PadicFamilies L4's RS-08 note assigns this Galois side to the present roadmap. R21.3's
+`hida-family-representation` covers only even-degree F.
+- *API:* `hidaFamilyRep` with `_charpoly`, `_det`, `_ordinary`, `_tameConductor`, `_integral`, `_specialise`.
+- *Tests:*
+  - the weight-2 point of the X₀(11) family;
+  - the determinant at weight k;
+  - no integral model on the Eisenstein component;
+  - the ordinary quotient.
+
+**Theorem: the exported newform lies in a Hida family** (node `ordinary-newform-lies-in-a-hida-family`).
+- For p ≥ 5, an ordinary newform of weight k ≥ 2, or its ordinary p-stabilisation, is a classical point of a unique
+  primitive component (EPW §2.1; Hida Corollary 3.7).
+- The family's representation specialises to ρ_{f,λ} there.
+- For the export, ordinarity of f follows from ρ|_{I_p} ≅ (∗ ∗; 0 1) by the ordinarity criterion (PadicHodgeTheory R06.4).
+
+**Application: X₀(11) at p = 5** (node `required-examples-x0-11-at-five`). Mazur's Proposition II.9.7 gives
+T/𝔍 ≅ ℤ/5 with n = numerator(10/12) = 5. So a_ℓ ≡ 1 + ℓ mod 5 for ℓ ≠ 11, and:
+- a_5 ≡ 1, so the form is ordinary at 5;
+- ρ̄^{ss} ≅ 1 ⊕ ω is split and p-distinguished, since ω is odd and ramified;
+- Theorem A over ℚ applies;
+- 1 ⊕ ε₅ shows that irreducibility cannot be dropped;
+- in the Hida family through f_α, the weights k ≡ 2 mod 4 have trivial character and are 5-old for k > 2.
+
+The Lean file checks the numerology.
+
+**Application: when p-distinguishedness holds and fails** (node `required-examples-p-distinguishedness`).
+- For ψ unramified at p and k even, the residual characters differ on I_p, so (i) is automatic (compare E9).
+- For χ_{−23} at p = 3, 3 splits in ℚ(√−23), so χ_{−23}|_{D_3} = 1 and Theorem A says nothing.
+
 ## Mistakes found in the sources
 
 **E1 (misprint, reaches nothing): Skinner–Wiles §3.2, before Lemma 3.10, p. 41.** "makes Λ_𝒪 a free Λ′_𝒪-module of
@@ -717,6 +770,10 @@ No erratum was found on Numdam or in the Crossref record of doi:10.1007/BF026988
 The plan assumes the bound as hypothesis (b) of Proposition 4.1 and (iii) of Theorem 5.1. Whether Theorems 5.1–5.2 fail
 in these cases was not examined.
 
+The problem is partly known. Khare–Wintenberger I (p. 16 of their preprint) cite C. Skinner, *Nearly ordinary
+deformations of residually dihedral representations* ("to appear"; a 2009 preprint in Allen, arXiv:1301.1113), as "a
+correction to" this paper. That correction was not obtained.
+
 **E12 (misprint, reaches nothing): p. 191.** [Wal] is not in the bibliography (pp. 214–215). It is the [Wal] of
 Skinner–Wiles 1999, Waldschmidt.
 
@@ -734,10 +791,11 @@ No erratum to Skinner–Wiles 2001 was found on its Numdam page or by a web sear
 
 ## Remaining work
 
-- **R21.1 is partial.** Still to do:
-  - apply the projector to the modular-curve H¹ towers (ModularCurvesPartII R14.3; Hida 1986) and to the indefinite
-    Hilbert and Shimura-curve cohomology (R18.4);
-  - odd-degree F.
+- **R21.1 is source-decomposed** (checkpoint 8).
+  - Skinner–Wiles never use the modular-curve or indefinite Hilbert H¹ towers. The ordinary modular-curve towers are
+    PadicFamilies L1's.
+  - Odd-degree F never needs the Λ-adic statements: Theorem A passes to an even-degree permissible E, and the Main
+    Theorem needs only L of even degree.
 - **R21.2 is source-decomposed** (checkpoint 3).
 - **R21.3 is partial.** The L8 determinant-versus-flag comparison is now planned in LocalGaloisDeformationRings L8, and
   is recorded here only when a consumer needs it.
@@ -747,8 +805,7 @@ No erratum to Skinner–Wiles 2001 was found on its Numdam page or by a web sear
   - Washington's and Waldschmidt's theorems (gaps);
   - Skinner–Wiles 2001 for a dihedral ρ̄^{ss} induced from a quadratic extension with a complex place (E11);
   - Skinner–Wiles, *Base change and a problem of Serre* (Duke Math. J. 107 (2001)), a gap.
-- **R21.6 is partial.** It still needs the classical ordinary (Hida) family over ℚ for later p-adic L-function work,
-  together with R21.1's modular-curve remainder (Hida 1986).
+- **R21.6 is source-decomposed** (checkpoint 8). The Hecke side of the ℚ family is requested from PadicFamilies L0.
 
 ## Sources
 
@@ -760,3 +817,8 @@ No erratum to Skinner–Wiles 2001 was found on its Numdam page or by a web sear
 - C. Khare, *Serre's modularity conjecture: the level one case*, Duke Math. J. 134 (2006) (arXiv:math/0504080v1).
 - C. M. Skinner and A. J. Wiles, *Nearly ordinary deformations of irreducible residual representations*, Ann. Fac. Sci.
   Toulouse Math. (6) 10 (2001), 185–215 (Numdam open access).
+- M. Emerton, R. Pollack and T. Weston, *Variation of Iwasawa invariants in Hida families*, Invent. Math. 163 (2006),
+  523–580 (arXiv:math/0404484v1).
+- H. Hida, *Iwasawa modules attached to congruences of cusp forms*, Ann. Sci. École Norm. Sup. (4) 19 (1986), 231–273
+  (Numdam open access).
+- B. Mazur, *Modular curves and the Eisenstein ideal*, Publ. Math. IHÉS 47 (1977), 33–186 (Numdam open access).
