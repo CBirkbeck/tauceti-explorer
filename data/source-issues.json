@@ -144333,6 +144333,46 @@
    "reviewReason": null
   },
   {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E9",
+   "kind": "misprint",
+   "locator": "Theorem 1.7, second hypothesis, p. 4 of arXiv:2108.07577v2 (on the page image), and its check in Paso 6, p. 14",
+   "printed": "ρss ≃1 ⊕χ3, • ρ|D3̸ = ( 1 0 0 1 ), … Since Serre’s weight is not 3, the image of ˜ρ3|D3 is non-trivial",
+   "correction": "χ̄₃|_{D₃} ≠ 1, i.e. Skinner–Wiles' condition (i) χ|_{D_p} ≠ 1 for ρ̄^{ss} ≅ 1 ⊕ χ. It holds automatically, because χ̄₃ is ramified at 3, so the check in Paso 6 is unnecessary.",
+   "reason": "DP prove Theorem 1.7 by \"See [SW99] Theorem in the third page\", the theorem of Skinner–Wiles' introduction (Publ. IHÉS 89, p. 6), whose hypotheses are ρ̄^{ss} ≅ 1 ⊕ χ, (i) χ|_{D_p} ≠ 1, (ii) ρ|_{I_p} ≅ (∗ ∗; 0 1), (iii) det ρ = ψε^{k−1}, odd. DP's first, third and fourth bullets are these; the second replaces (i) by a condition on ρ|_{D₃} itself, which (without a bar, as printed) holds for every ρ with Hodge–Tate weights {0, k − 1}, k ≥ 2. Theorem 1.7 as printed remains true, since its first hypothesis implies (i).",
+   "affects": "nothing",
+   "known": "new: present in arXiv v2; the arXiv listing records no journal reference",
+   "searched": [
+    "arXiv:2108.07577 listing (v1 of 17 Aug 2021, v2 of 3 May 2022); v2 read",
+    "no published version identified from the arXiv listing"
+   ],
+   "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
+   "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2, 3 May 2022. Locators give the arXiv version's page numbers",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E10",
+   "kind": "misprint",
+   "locator": "Proposition 3.4 and its proof, pp. 8–9 of arXiv:math/0310275v1",
+   "printed": "Proposition 3.4. — If α ∈mE and γ, η ∈ΓK then Gγ",
+   "correction": "γ, η ∈ Γ_{ℚ_p}.",
+   "reason": "K is not defined anywhere in the paper; the group acting throughout (§2.2, Lemma 3.2, Proposition 3.3, Definition 3.6) is Γ_{ℚ_p} = Gal(ℚ_p(µ_{p^∞})/ℚ_p). The proof of Proposition 3.4 repeats Γ_K.",
+   "affects": "nothing",
+   "known": "new: present in arXiv v1; the Math. Ann. version was not obtained",
+   "searched": [
+    "arXiv:math/0310275 (v1 only)",
+    "Math. Ann. 329 (2004) 365–377: not obtained"
+   ],
+   "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
+   "citation": "Laurent Berger, Hanfeng Li and Hui June Zhu, Construction of some families of 2-dimensional crystalline representations, arXiv:math/0310275v1 (17 October 2003), the preprint of Math. Ann. 329 (2004), 365–377. Locators give the arXiv page numbers",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "OverconvergentAutomorphicForms/E1",
    "kind": "misprint",
    "locator": "§6.1, Definition 6.1, printed p. 1756 (PDF p. 49); same in arXiv v4",
