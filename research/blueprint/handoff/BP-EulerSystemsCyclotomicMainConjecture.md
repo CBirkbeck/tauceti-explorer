@@ -1,5 +1,35 @@
 # BP-EulerSystemsCyclotomicMainConjecture — handoff
 
+## Checkpoint 4 (Claude Code, session cc-fb70e5, 29 September 2026): L3 planned (4 nodes)
+
+Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`, L1 and L3 are `partial`, and L4 is `not_read`.
+
+**Sources.**
+- Rubin III §2.8–2.10 (the same PDF as before).
+- RJW arXiv v2 (SHA-256 efa1e101…): §7 (Theorem 7.1, Lemma 7.2), §11.2–11.3, Theorem 12.23, §13.1–13.4.
+- RJW's Proposition 13.13 and Corollary 13.14 carry three findings already in the register: PadicMeasuresIwasawaAlgebras/E5 (the quotient orientation), E6 (Mittag-Leffler) and E7 (the Leopoldt rank). The nodes use the corrected forms. No new source issue.
+
+**New L3 nodes:**
+- `galois-unit-four-term-sequence`: RJW 13.13–13.14, with the E5 orientation and the E6 compactness repair.
+- `trivial-character-component`: e₁X⁺ = e₁Y⁺ = 0. The unit value −(1 − p⁻¹)log_p(a) of ([a] − [1])ζ_p at the trivial character (RJW 7.1(ii), 7.2(ii)) makes e₁(I(Γ⁺)ζ_p) the unit ideal.
+- `componentwise-iwasawa-equality`: Rubin III.2.8, with a new gap. The finite-layer stabilisation is cited by Rubin to [MW] and Lang's appendix, neither read.
+- `cyclotomic-main-conjecture` (planet): RJW 13.8 for every odd p, and Rubin III.2.10 in χ-parts. The Vandiver statement 13.11 is not asserted.
+
+**New requests:**
+- ColemanPowerSeries L4: RJW 12.23 and Rubin III.2.9(ii).
+- DirichletPadicLFunctions L1: ζ_p as a pseudo-measure and its residue.
+- Extended: IntegralIwasawaTheory L0 (class number formula, control, char multiplicativity) and the ClassFieldTheory layer (Washington Corollary 13.6).
+
+**L1's Corollary III.2.4 gap** is annotated. At the Iwasawa level the equality needs no condition on χ(p); Greenberg's descent is still unread.
+
+**Lean.** Two new checked examples, the valuation bookkeeping and the cancellation step. The file compiles with exit 0; the only warnings are the existing planned stubs.
+
+**Checks.** `check_blueprint --index`: 0 errors, 0 warnings. `check-files`: 0 problems. Every new excerpt was checked by script against its page's text.
+
+**Next.**
+- L3: the odd-character/class-group and Greenberg Selmer formulations (RJW §13.5).
+- L4: Greither (Numdam), including p = 2.
+
 ## Checkpoint 3 (Claude Code, session cc-fb70e5, 29 September 2026): L2 source-decomposed (4 nodes)
 
 Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`, L1 is `partial`, and L3–L4 are `not_read`.

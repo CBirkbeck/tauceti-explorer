@@ -10,7 +10,7 @@
   "EulerSystemsCyclotomicMainConjecture:L4"
  ],
  "status": "partial",
- "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read. Checkpoint 2 plans L1: Theorem III.2.3 (|A_L^χ| divides [E_L^χ : C_{L,χ}] for p > 2, χ(p) ≠ 1) from Theorem II.2.2, with its hypotheses, vanishing error terms, the index of divisibility and the class-group Selmer group, and Corollary III.2.4 with its dependence on the ψ(p) = 1 components recorded. Checkpoint 3 plans L2: the Iwasawa-theoretic divisibility char(A_∞^χ) | char(E_∞^χ/C_{∞,χ}) (Rubin III.2.7), from Theorem II.3.3, Proposition III.2.6 and the Λ-index, with the augmentation corrections when χ(p) = 1.",
+ "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read. Checkpoint 2 plans L1: Theorem III.2.3 (|A_L^χ| divides [E_L^χ : C_{L,χ}] for p > 2, χ(p) ≠ 1) from Theorem II.2.2, with its hypotheses, vanishing error terms, the index of divisibility and the class-group Selmer group, and Corollary III.2.4 with its dependence on the ψ(p) = 1 components recorded. Checkpoint 3 plans L2: the Iwasawa-theoretic divisibility char(A_∞^χ) | char(E_∞^χ/C_{∞,χ}) (Rubin III.2.7), from Theorem II.3.3, Proposition III.2.6 and the Λ-index, with the augmentation corrections when χ(p) = 1. Checkpoint 4 plans L3: the four-term sequence with the register's corrections, the trivial component, the componentwise equality and the main conjecture for odd p, with the local-unit theorem requested from ColemanPowerSeries L4 and the finite-layer stabilisation recorded as a gap.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -222,7 +222,8 @@
     "Chapter III §1, Lemma 1.1 (p. 33)",
     "Chapter III §2.1–2.4, Remark 2.1, Definition 2.2, Theorem 2.3 with proof, Corollary 2.4 (pp. 33–36)",
     "2026-09-29 (cc-fb70e5, checkpoint 2): Chapter I Lemma 3.2 and §6.2 Proposition 6.1, Definition 6.2 (printed pp. 4–5, 13–15); Chapter II §2 Hypotheses Hyp(K, T), Definition 2.1, Theorems 2.2–2.3, Remarks 2.4–2.9 (printed pp. 23–25); Chapter III §1 Lemma 1.1 and §2.1–2.5 (printed pp. 33–37)",
-    "2026-09-29 (cc-fb70e5, checkpoint 3): Chapter II §3 (Hyp(K∞/K), Hyp(K∞, T), Definition 3.1, Theorems 3.2–3.4, Proposition 3.7, Theorem 3.8; printed pp. 26–29); Chapter III §2.5–2.10 (Proposition 2.6, Theorem 2.7, Corollary 2.8, Theorems 2.9–2.10; printed pp. 37–39)"
+    "2026-09-29 (cc-fb70e5, checkpoint 3): Chapter II §3 (Hyp(K∞/K), Hyp(K∞, T), Definition 3.1, Theorems 3.2–3.4, Proposition 3.7, Theorem 3.8; printed pp. 26–29); Chapter III §2.5–2.10 (Proposition 2.6, Theorem 2.7, Corollary 2.8, Theorems 2.9–2.10; printed pp. 37–39)",
+    "2026-09-29 (cc-fb70e5, checkpoint 4): Chapter III §2.8–2.10 (Corollary 2.8, Theorems 2.9–2.10; printed pp. 38–39)"
    ]
   },
   {
@@ -234,7 +235,8 @@
    "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
    "readSections": [
     "§10.1–10.2, Theorem 10.2, Example 10.2 (c_n(a)) and Lemma 10.3 (pp. 47–48)",
-    "§10.5, the Kummer map (10.5)–(10.7), the elements c_m, Definition 10.16 (pp. 52–53)"
+    "§10.5, the Kummer map (10.5)–(10.7), the elements c_m, Definition 10.16 (pp. 52–53)",
+    "2026-09-29 (cc-fb70e5, checkpoint 4): §7 Theorem 7.1 and Lemma 7.2 (pp. 40–41); §11.2–11.3 (Proposition 11.5, Theorem 11.9; pp. 55–57); Theorem 12.23 (p. 64); §13.1–13.4 (Lemma 13.6, Theorem 13.8, Theorem 13.11, Definition 13.12, Proposition 13.13, Corollary 13.14; pp. 65–68), with the register's corrections PadicMeasuresIwasawaAlgebras/E5–E7"
    ]
   }
  ],
@@ -2170,12 +2172,196 @@
     "name": "Cyclotomic Iwasawa divisibility"
    },
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L3/galois-unit-four-term-sequence",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L3",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L3"
+   ],
+   "title": "The four-term sequence 0 → E⁺/C⁺ → U⁺/C⁺ → X⁺ → Y⁺ → 0 (RJW 13.13–13.14, corrected)",
+   "kind": "lemma",
+   "statement": "Let p an odd prime, F_n = ℚ(μ_{p^n}), F_∞^+ = ∪F_n^+, G^+ = Γ^+ = Gal(F_∞^+/ℚ), Λ = Λ(Γ^+), and U^+_{∞,1}, E^+_{∞,1}, C^+_{∞,1} the limits of the principal local units, the closures of the global units and of the cyclotomic units in them (RJW Definitions 11.8, 13.12). Let X_∞^+ = Gal(M_∞^+/F_∞^+) and Y_∞^+ = Gal(L_∞^+/F_∞^+), where M_∞^+ (resp. L_∞^+) is the maximal abelian pro-p extension of F_∞^+ unramified outside p (resp. unramified). Then there is an exact sequence of Λ-modules 0 → E^+_{∞,1} → U^+_{∞,1} → Gal(M_∞^+/L_∞^+) → 0 (Proposition 13.13). Hence Gal(M_∞^+/L_∞^+) ≅ U^+_{∞,1}/E^+_{∞,1} ≅ (U^+_{∞,1}/C^+_{∞,1})/(E^+_{∞,1}/C^+_{∞,1}), and 0 → E^+_{∞,1}/C^+_{∞,1} → U^+_{∞,1}/C^+_{∞,1} → X_∞^+ → Y_∞^+ → 0 is exact (Corollary 13.14).",
+   "hypotheses": [
+    "RJW's proof prints Gal(M_∞^+/L_∞^+) ≅ E/U ≅ (E/C)/(U/C); the quotients must be reversed, to U/E ≅ (U/C)/(E/C) (PadicMeasuresIwasawaAlgebras/E5). The stated sequence of Corollary 13.14 is unaffected.",
+    "RJW justify exactness of the inverse limit by 'finitely generated ℤ_p-modules (so satisfy the Mittag-Leffler condition)'. That implication is false in general (PadicMeasuresIwasawaAlgebras/E6: ℤ_p with multiplication by p). The repair used here is compactness: the finite-level modules are compact Hausdorff and the transition maps are continuous, so lim is exact.",
+    "E_n → U_n is injective by Leopoldt's conjecture for F_n^+, known by Brumer (RJW's printed rank r₁ + r₂ − 1 = p^{n−1}(p − 1)/2 should read p^{n−1}(p − 1)/2 − 1: PadicMeasuresIwasawaAlgebras/E7).",
+    "The finite-level sequence 0 → E^+_{n,1} → U^+_{n,1} → Gal(M_n^+/L_n^+) → 0 is global class field theory (Washington, Corollary 13.6), requested with the Tau Ceti ClassFieldTheory layer."
+   ],
+   "proofSteps": [
+    "Class field theory at level n: the Artin map identifies Gal(M_n^+/L_n^+) with U^+_{n,1} modulo the closure of the global units. The kernel is E^+_{n,1}, by Leopoldt.",
+    "Pass to the limit over n. The modules are compact and the transitions continuous, so the limit of the short exact sequences is exact (the E6 repair).",
+    "Galois theory gives 0 → Gal(M_∞^+/L_∞^+) → X_∞^+ → Y_∞^+ → 0. With C ⊆ E ⊆ U, the first and third isomorphism theorems give U/E ≅ (U/C)/(E/C), which yields the four-term sequence."
+   ],
+   "acceptance": [
+    "The orientation check: the printed E/U is not a quotient, since E ⊆ U."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L2/limit-unit-diagram",
+    "IntegralIwasawaTheory:L0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "Proposition 13.13 and its proof, p. 68 (arXiv v2)",
+     "match": "The finite-level sequence."
+    },
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "Proof of Proposition 13.13, p. 68 (arXiv v2)",
+     "match": "The limit step, repaired by compactness (E6)."
+    },
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "Corollary 13.14 and its proof, p. 68 (arXiv v2)",
+     "match": "The four-term sequence; the quotient orientation is corrected (E5)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L3/trivial-character-component",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L3",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L3"
+   ],
+   "title": "The trivial-character component of the main conjecture",
+   "kind": "lemma",
+   "statement": "Let p an odd prime, F_n = ℚ(μ_{p^n}), F_∞^+ = ∪F_n^+, G^+ = Γ^+ = Gal(F_∞^+/ℚ), Λ = Λ(Γ^+), and U^+_{∞,1}, E^+_{∞,1}, C^+_{∞,1} the limits of the principal local units, the closures of the global units and of the cyclotomic units in them (RJW Definitions 11.8, 13.12), and let e₁ be the idempotent of the trivial character of Δ^+ = Gal(ℚ(μ_p)^+/ℚ), so e₁Λ = ℤ_p[[Γ₀]] with Γ₀ ≅ ℤ_p. Then e₁X_∞^+ = e₁Y_∞^+ = 0, and e₁(I(Γ^+)ζ_p) = e₁Λ. So both sides of the main conjecture have trivial component the unit ideal. The pole of ζ_p at the trivial character is cancelled by the augmentation ideal: for a topological generator a of ℤ_p^×, the value of ([a] − [1])ζ_p at the trivial character is −(1 − p^{−1})·log_p(a), a p-adic unit.",
+   "hypotheses": [
+    "ζ_{p,p−1} has a simple pole at s = 1 with residue (1 − p^{−1}) (RJW Theorem 7.1(ii)), and lim_{s→1}(s − 1)^{−1}(⟨a⟩^{1−s} − 1) = −log_p(a) (Lemma 7.2(ii)).",
+    "log_p(a) has valuation exactly 1 when a generates ℤ_p^× (p odd), so (1 − p^{−1})log_p(a) ∈ ℤ_p^×."
+   ],
+   "proofSteps": [
+    "e₁X_∞^+ is the Galois group over ℚ_∞ of the maximal abelian pro-p extension of ℚ_∞ unramified outside p. Its Γ₀-coinvariants form the Galois group of the maximal abelian pro-p extension of ℚ unramified outside p over ℚ_∞, which is trivial by Kronecker–Weber for odd p. By Nakayama, e₁X_∞^+ = 0, and so its quotient e₁Y_∞^+ = 0.",
+    "The value of ([a] − [1])ζ_p at the trivial character is the numerator of (7.1) at s = 1, namely the residue (1 − p^{−1}) times −log_p(a). This is a unit, so ([a] − [1])ζ_p is a unit of the local ring e₁Λ, and e₁(I(Γ^+)ζ_p) = e₁Λ."
+   ],
+   "acceptance": [
+    "e₁ζ_p itself is not in e₁Λ (it has a pole); only I(Γ^+)ζ_p is an ideal of Λ (RJW Proposition 11.5).",
+    "With e₁X_∞^+ = e₁Y_∞^+ = 0, the four-term sequence gives e₁(E/C) ≅ e₁(U/C) ≅ e₁Λ/e₁(I(Γ^+)ζ_p) = 0."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L3/galois-unit-four-term-sequence",
+    "IntegralIwasawaTheory:I.1",
+    "DirichletPadicLFunctions:L1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "Theorem 7.1(ii), p. 40 (arXiv v2)",
+     "match": "The residue."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L3/componentwise-iwasawa-equality",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L3",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L3"
+   ],
+   "title": "Equality of characteristic ideals: char(Y_∞^χ) = char(E_∞^χ/C_{∞,χ}) (Rubin, Corollary III.2.8)",
+   "kind": "theorem",
+   "statement": "Let p be odd and χ an even nontrivial character of order prime to p, with field L. Then char(A_∞^χ) = char(E_∞^χ/C_{∞,χ}). For L = ℚ(μ_p)^+ and all even χ ≠ 1 of Δ^+ at once, char(Y_∞^+) = char(E^+_{∞,1}/C^+_{∞,1}) away from the trivial component; the trivial components vanish on both sides (L3/trivial-character-component).",
+   "hypotheses": [
+    "Rubin's proof is one line: it cites [MW] §1.6 and [Ru3] p. 414 (Lang's Cyclotomic Fields, appendix), which are not read. See the L3 gap.",
+    "The roadmap requires the product-over-characters calculation, coefficient valuations and finite-layer error terms with their stabilisation. The finite-layer input is the class number formula [E_n^+ : C_n^+] = h_n^+ for ℚ(μ_{p^n})^+ (Washington Theorem 8.2), requested from IntegralIwasawaTheory."
+   ],
+   "proofSteps": [
+    "For every even χ ≠ 1 of Δ^+, char(Y_∞^χ) divides char(E_∞^χ/C_{∞,χ}) (L2/cyclotomic-iwasawa-divisibility). Here χ(p) = 0, since p divides the conductor.",
+    "Take the product over χ. The p-parts of h_n^+ and [E_n^+ : C_n^+] agree at every layer. By Iwasawa's control theorem for Y (Y_n = (Y_∞)_{Γ_n} up to bounded error, p totally ramified) and the corresponding control for E/C, the Iwasawa invariants of ∏_χ char(Y_∞^χ) and ∏_χ char(E_∞^χ/C_{∞,χ}) agree. So the two products are equal.",
+    "Equality of the product together with the divisibility of each factor gives equality of each factor. This is the step the roadmap flags: total cardinalities alone would not suffice."
+   ],
+   "acceptance": [
+    "A component-by-component equality does not follow from the totals without step 1's divisibilities."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-iwasawa-divisibility",
+    "EulerSystemsCyclotomicMainConjecture:L3/trivial-character-component",
+    "IntegralIwasawaTheory:L0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, Corollary 2.8 and its proof, printed p. 38",
+     "match": "The argument, cited."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L3/cyclotomic-main-conjecture",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L3",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L3"
+   ],
+   "title": "The Iwasawa main conjecture over ℚ for odd p (RJW Theorem 13.8; Rubin Theorem III.2.10)",
+   "kind": "theorem",
+   "statement": "Let p an odd prime, F_n = ℚ(μ_{p^n}), F_∞^+ = ∪F_n^+, G^+ = Γ^+ = Gal(F_∞^+/ℚ), Λ = Λ(Γ^+), and U^+_{∞,1}, E^+_{∞,1}, C^+_{∞,1} the limits of the principal local units, the closures of the global units and of the cyclotomic units in them (RJW Definitions 11.8, 13.12). Then X_∞^+ is a finitely generated torsion Λ(Γ^+)-module and char_{Λ(Γ^+)}(X_∞^+) = I(Γ^+)ζ_p (RJW Theorem 13.8). In χ-components: for even χ ≠ 1 of order prime to p, char(Z_∞^χ) = L_χΛ, where Z_∞ is the Galois group of the maximal abelian p-extension of L_∞ unramified outside p (Rubin Theorem III.2.10). This holds for every odd p, unconditionally. The stronger statement X_∞^+ ≅ Λ(Γ^+)/I(Γ^+)ζ_p (RJW Theorem 13.11) is not asserted; it needs p to be a Vandiver prime.",
+   "hypotheses": [
+    "The local-unit theorem U^+_{∞,1}/C^+_{∞,1} ≅ Λ(Γ^+)/I(Γ^+)ζ_p through the Coleman map (RJW Theorem 12.23(ii), Iwasawa) is requested from ColemanPowerSeries L4.",
+    "Y_∞^+ is finitely generated and torsion (Iwasawa), requested with IntegralIwasawaTheory."
+   ],
+   "proofSteps": [
+    "Take characteristic ideals in the four-term sequence (L3/galois-unit-four-term-sequence). char is multiplicative (RJW Lemma 13.6), so char(E/C)·char(X_∞^+) = char(U/C)·char(Y_∞^+).",
+    "char(U/C) = I(Γ^+)ζ_p (Theorem 12.23(ii)), and char(E/C) = char(Y_∞^+) (L3/componentwise-iwasawa-equality), which is nonzero since Y_∞^+ is torsion. Cancel in the domain components of Λ.",
+    "Torsion: U/C ≅ Λ/I(Γ^+)ζ_p is torsion because ζ_p ≠ 0, and Y_∞^+ is torsion, so X_∞^+ is torsion. The trivial component is handled by L3/trivial-character-component.",
+    "χ-form: the sequence 0 → E_∞^χ/C_{∞,χ} → U_∞^χ/C_{∞,χ} → Z_∞^χ → A_∞^χ → 0 with Corollary III.2.8 and char(U_∞^χ/C_{∞,χ}) = L_χΛ (Theorem III.2.9(ii)) gives Theorem III.2.10."
+   ],
+   "acceptance": [
+    "Without the Vandiver hypothesis only characteristic ideals are compared, not modules.",
+    "p = 2 is not covered here (Greither, L4)."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L3/galois-unit-four-term-sequence",
+    "EulerSystemsCyclotomicMainConjecture:L3/componentwise-iwasawa-equality",
+    "EulerSystemsCyclotomicMainConjecture:L3/trivial-character-component",
+    "ColemanPowerSeries:L4",
+    "IntegralIwasawaTheory:L0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "Theorem 13.8, p. 67 (arXiv v2)",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "Theorem 13.11, p. 67 (arXiv v2)",
+     "match": "The Vandiver case, not asserted here."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, Theorem 2.10 and its proof, printed p. 39",
+     "match": "The χ-component form."
+    }
+   ],
+   "planet": {
+    "name": "Iwasawa main conjecture"
+   },
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
   {
    "supplier": "IntegralIwasawaTheory:L0",
-   "need": "The cyclotomic tower: a compatible system ζ_m (ζ_{mn}^n = ζ_m) in a fixed algebraic closure or ℂ; the fields ℚ(μ_m) = ℚ(ζ_m) with inclusions for m ∣ n; Gal(ℚ(μ_m)/ℚ) ≅ (ℤ/m)^× by σ_a(ζ_m) = ζ_m^a, compatible with restriction; the real subfields ℚ(μ_m)^+ and complex conjugation; the relative norms N_{ℚ(μ_n)/ℚ(μ_m)} and N_{ℚ(μ_m)/L} to subfields, with transitivity and Galois equivariance; the Galois action on L^× ⊗ O and on the global units E_L of subfields L; the fact that 1 − ζ_g is a unit when g is not a prime power; and the index formula making [E_L^χ : C_{L,χ}] finite for even χ ≠ 1. Also the Galois-module form of the unit theorem for totally real abelian L (E_L ⊗ ℚ ≅ augmentation quotient of ℚ[Δ]), and the analytic class number formula with Sinnott's index of cyclotomic units in ψ-parts. Also Iwasawa's theorem that Y_∞^χ = lim (L_{n,p}^×)^χ is torsion-free of Λ-rank one ([Iw3] Theorem 25), and Leopoldt's conjecture for real abelian fields.",
+   "need": "The cyclotomic tower: a compatible system ζ_m (ζ_{mn}^n = ζ_m) in a fixed algebraic closure or ℂ; the fields ℚ(μ_m) = ℚ(ζ_m) with inclusions for m ∣ n; Gal(ℚ(μ_m)/ℚ) ≅ (ℤ/m)^× by σ_a(ζ_m) = ζ_m^a, compatible with restriction; the real subfields ℚ(μ_m)^+ and complex conjugation; the relative norms N_{ℚ(μ_n)/ℚ(μ_m)} and N_{ℚ(μ_m)/L} to subfields, with transitivity and Galois equivariance; the Galois action on L^× ⊗ O and on the global units E_L of subfields L; the fact that 1 − ζ_g is a unit when g is not a prime power; and the index formula making [E_L^χ : C_{L,χ}] finite for even χ ≠ 1. Also the Galois-module form of the unit theorem for totally real abelian L (E_L ⊗ ℚ ≅ augmentation quotient of ℚ[Δ]), and the analytic class number formula with Sinnott's index of cyclotomic units in ψ-parts. Also Iwasawa's theorem that Y_∞^χ = lim (L_{n,p}^×)^χ is torsion-free of Λ-rank one ([Iw3] Theorem 25), and Leopoldt's conjecture for real abelian fields. Also: the class number formula [E_n^+ : C_n^+] = h_n^+ for ℚ(μ_{p^n})^+ (Washington Theorem 8.2), Iwasawa's control theorem for Y_∞ and its finite generation and torsion, and the multiplicativity of characteristic ideals (RJW Lemma 13.6).",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number",
     "EulerSystemsCyclotomicMainConjecture:L0/p-extended-auxiliary-relation",
@@ -2187,7 +2373,10 @@
     "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-units",
     "EulerSystemsCyclotomicMainConjecture:L1/chi-units-rank-one-and-index",
     "EulerSystemsCyclotomicMainConjecture:L1/mazur-wiles-chi-equality",
-    "EulerSystemsCyclotomicMainConjecture:L2/lambda-index-of-cyclotomic-units"
+    "EulerSystemsCyclotomicMainConjecture:L2/lambda-index-of-cyclotomic-units",
+    "EulerSystemsCyclotomicMainConjecture:L3/componentwise-iwasawa-equality",
+    "EulerSystemsCyclotomicMainConjecture:L3/cyclotomic-main-conjecture",
+    "EulerSystemsCyclotomicMainConjecture:L3/galois-unit-four-term-sequence"
    ],
    "status": "open",
    "note": "RS-16 routes the global cyclotomic-unit definitions to IntegralIwasawaTheory:L0, which has no packet yet. The suggested file uses stand-ins zeta, Qmu, QmuPlus, unitsTensorRep only to state signatures."
@@ -2199,7 +2388,8 @@
     "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses",
     "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator",
     "EulerSystemsCyclotomicMainConjecture:L2/iwasawa-hypotheses-cyclotomic",
-    "EulerSystemsCyclotomicMainConjecture:L2/limit-unit-diagram"
+    "EulerSystemsCyclotomicMainConjecture:L2/limit-unit-diagram",
+    "EulerSystemsCyclotomicMainConjecture:L3/trivial-character-component"
    ],
    "status": "open",
    "note": "Stage-level request; IntegralIwasawaTheory:I.1 is claimable as issue #759."
@@ -2237,9 +2427,10 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
-   "need": "Over ℚ: the ray class field modulo m∞ is ℚ(μ_m) and modulo m is ℚ(μ_m)^+, and the maximal p-subextension ℚ(q) of the ray class field modulo q lies in ℚ(μ_q).",
+   "need": "Over ℚ: the ray class field modulo m∞ is ℚ(μ_m) and modulo m is ℚ(μ_m)^+, and the maximal p-subextension ℚ(q) of the ray class field modulo q lies in ℚ(μ_q). Also the idelic form over F_n^+: Gal(M_n^+/L_n^+) ≅ U^+_{n,1}/(closure of global units) (Washington Corollary 13.6).",
    "neededBy": [
-    "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses"
+    "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses",
+    "EulerSystemsCyclotomicMainConjecture:L3/galois-unit-four-term-sequence"
    ],
    "status": "open",
    "note": "Used only to match Rubin's Remark II.1.3 fields with the cyclotomic fields."
@@ -2273,6 +2464,20 @@
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L2/limit-unit-diagram"
    ]
+  },
+  {
+   "supplier": "ColemanPowerSeries:L4",
+   "need": "Iwasawa's theorem through the Coleman map (RJW Theorem 12.23): 0 → U_{∞,1}/C_{∞,1} → Λ(Γ)/I(Γ)ζ_p → ℤ_p(1) → 0, and U^+_{∞,1}/C^+_{∞,1} ≅ Λ(Γ^+)/I(Γ^+)ζ_p; and Rubin's Theorem III.2.9(ii), char(U_∞^χ/C_{∞,χ}) = L_χΛ.",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L3/cyclotomic-main-conjecture"
+   ]
+  },
+  {
+   "supplier": "DirichletPadicLFunctions:L1",
+   "need": "The Kubota–Leopoldt pseudo-measure ζ_p with I(Γ)ζ_p ⊂ Λ(Γ) (RJW Proposition 11.5) and its residue at the trivial character (RJW Theorem 7.1(ii), Lemma 7.2(ii)).",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L3/trivial-character-component"
+   ]
   }
  ],
  "coverage": [
@@ -2298,10 +2503,12 @@
   },
   {
    "stageId": "EulerSystemsCyclotomicMainConjecture:L3",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Read Rubin Chapter III §2.8–2.10 (Corollary 2.8, Theorem 2.9, Theorem 2.10) and RJW §13 (Theorem 13.8, Proposition 13.13, Corollary 13.14) and decompose the equality, the local-unit theorem from ColemanPowerSeries:L4, the four-term sequence and the trivial-character component; RJW's Proposition 13.13 inverse-limit step needs the corrected argument recorded in the register."
-   ]
+    "The finite-layer stabilisation in Corollary III.2.8 (see the gap): [MW] §1.6 and Lang's appendix are not read.",
+    "The equivalent odd-character/class-group formulation (reflection) and the Tate-twisted Greenberg Selmer formulation (RJW §13.5) are not yet planned."
+   ],
+   "notes": "Checkpoint 4 plans L3 in 4 nodes: the corrected four-term sequence (RJW 13.13–13.14 with register corrections E5–E6), the trivial-character component (the residue of ζ_p against the augmentation ideal), the componentwise equality (Rubin III.2.8, with its finite-layer stabilisation recorded as a gap), and the main conjecture char(X_∞^+) = I(Γ^+)ζ_p for every odd p (RJW 13.8, Rubin III.2.10), without the Vandiver statement 13.11. The local-unit theorem is requested from ColemanPowerSeries L4."
   },
   {
    "stageId": "EulerSystemsCyclotomicMainConjecture:L4",
@@ -2317,7 +2524,14 @@
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L1/mazur-wiles-chi-equality"
    ],
-   "detail": "Rubin proves Corollary III.2.4 by citing [Ru3] Theorem 4.2, which is not public and not read here. The analytic-class-number-formula argument he describes needs the divisibility |A_L^ψ| ∣ [E_L^ψ : C_{L,ψ}] for every even character ψ ≠ 1 of Δ, and Theorem III.2.3 supplies it only when ψ(p) ≠ 1. For ψ(p) = 1, Rubin's Remark 2.5 points to Greenberg's deduction from the main conjecture (Theorem III.2.10). The node is planned with that route, which makes L1's equality depend on L3; the finite-level divisibility (Theorem III.2.3) does not."
+   "detail": "Rubin proves Corollary III.2.4 by citing [Ru3] Theorem 4.2, which is not public and not read here. The analytic-class-number-formula argument he describes needs the divisibility |A_L^ψ| ∣ [E_L^ψ : C_{L,ψ}] for every even character ψ ≠ 1 of Δ, and Theorem III.2.3 supplies it only when ψ(p) ≠ 1. For ψ(p) = 1, Rubin's Remark 2.5 points to Greenberg's deduction from the main conjecture (Theorem III.2.10). The node is planned with that route, which makes L1's equality depend on L3; the finite-level divisibility (Theorem III.2.3) does not. Checkpoint 4: at the Iwasawa level the equality (Corollary III.2.8) needs no hypothesis on χ(p), so the ψ(p) = 1 components are available from L3; Greenberg's descent ([Gr1] §5) from Theorem III.2.10 to the finite level is still not read."
+  },
+  {
+   "title": "The finite-layer stabilisation behind the characteristic-ideal equality is cited, not read",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L3/componentwise-iwasawa-equality"
+   ],
+   "detail": "Rubin's Corollary III.2.8 is proved by citing [MW] §1.6 and [Ru3] p. 414 (Lang, Cyclotomic Fields, appendix); neither is read. The node plans the argument (componentwise divisibility from L2, the class number formula h_n^+ = [E_n^+ : C_n^+] at each layer, control of Y and of E/C with bounded errors, and equality of Iwasawa invariants of the products), but the control of E_∞/C_∞ at finite layers and the bound on its errors are not decomposed from a read source."
   }
  ],
  "sourceIssues": [

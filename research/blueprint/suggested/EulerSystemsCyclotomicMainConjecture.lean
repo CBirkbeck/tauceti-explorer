@@ -1,4 +1,5 @@
 import Mathlib.NumberTheory.Cyclotomic.Gal
+import Mathlib.Tactic.NormNum
 import Mathlib.RingTheory.Coprime.Lemmas
 import Mathlib.Data.ZMod.Basic
 import Mathlib.NumberTheory.Cyclotomic.PrimitiveRoots
@@ -468,6 +469,16 @@ example (q a b : ℕ) (h : a ≤ b) : q ^ a ∣ q ^ b := pow_dvd_pow q h
 /-- `L2/cyclotomic-iwasawa-divisibility`, the last step: if `a` is coprime to `J` and `a ∣ J² b`, then `a ∣ b`. -/
 example {R : Type*} [CommRing R] (a b j : R) (h : IsCoprime a j) (hd : a ∣ j ^ 2 * b) : a ∣ b :=
   (h.pow_right (n := 2)).dvd_of_dvd_mul_left hd
+
+/-- `L3/trivial-character-component`: `log_p(a)` has valuation exactly one for a topological generator of `ℤ_p^×`,
+so `(1 − p⁻¹)·log_p(a)` is a unit; the valuation bookkeeping `−1 + 1 = 0`. -/
+example : (-1 : ℤ) + 1 = 0 := by norm_num
+
+/-- `L3/cyclotomic-main-conjecture`: cancelling a nonzero factor in a domain,
+`char(E/C) · char(X) = char(U/C) · char(Y)` with `char(E/C) = char(Y) ≠ 0` gives `char(X) = char(U/C)`. -/
+example {R : Type*} [CommRing R] [IsDomain R] (e x u : R) (he : e ≠ 0) (h : e * x = u * e) : x = u := by
+  have : e * x = e * u := by rw [h, mul_comm]
+  exact mul_left_cancel₀ he this
 
 end SuggestedTest
 
