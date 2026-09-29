@@ -13,7 +13,7 @@
   "GL2ModularityLifting:R32.2"
  ],
  "status": "partial",
- "summary": "Blueprint for GL₂ modularity lifting (part 1: R22.1–R22.6, R32.1–R32.2), within RS-08 (accepted). Checkpoint 1 plans R22.1 and R22.2 from KW II §§7 and 9 and Gee §5. R22.1 covers the minimal-level data (definite quaternion algebra, level, weight and non-Eisenstein 𝔪 from a π fitting the lifting data), the identification of the local problem satisfied by every Hecke eigensystem at each place of S, the deformation-to-Hecke map R̄^ψ_S → 𝕋_ψ(U)_𝔪, its surjectivity from Frobenius traces, and the framed Hecke algebra and module. R22.2 covers auxiliary levels at Taylor–Wiles places with Δ_v = Δ′_v/(N-torsion) for the isotropy exponent N, Hecke algebras at level Q with the eigenvalue choice, agreement of the diamond and Galois actions of Δ_Q, freeness over 𝒪[Δ_Q] with control back to level U, the module system for patching, and the p = 2 twists of forms. Quaternionic forms, the freeness criterion and the dyadic twist are imported from HilbertModularVarietiesAndShimuraCurves (R18.3 via R18.6), Galois representations over Hecke algebras from AutomorphicGaloisRepresentations R19.6, and the global rings from GlobalGaloisDeformations R04.4–R04.6. Checkpoint 2 plans R22.3 (patching data, patched ring and module, support by depth, finiteness of the minimal ring, generic-fibre R = T; KW II Proposition 9.2 and Gee §5.6) and R22.4 (Taylor's Ihara-avoidance pair, transfer of support mod λ, modularity from full support, integral R = T for smooth or Cohen–Macaulay local rings), reusing DeformationAndDerivedPatchingAlgebra R03.6. Checkpoint 3 plans R22.5 (7 nodes: residual hypotheses (α)/(β), solvable base change, KW II Theorem 9.7 for odd p, Kisin's component patching and potentially Barsotti–Tate theorem, Gee's Fontaine–Laffaille theorem, the ordinary overlap with R21.4) and R22.6 (8 nodes: oddness at 2, KW II's dyadic patching with its torus, torsor and R = T, Theorem 9.7 at p = 2, Kisin's 2-adic component criterion and Barsotti–Tate theorem, and Hypothesis (H)).",
+ "summary": "Blueprint for GL₂ modularity lifting (part 1: R22.1–R22.6, R32.1–R32.2), within RS-08 (accepted). Checkpoint 1 plans R22.1 and R22.2 from KW II §§7 and 9 and Gee §5. R22.1 covers the minimal-level data (definite quaternion algebra, level, weight and non-Eisenstein 𝔪 from a π fitting the lifting data), the identification of the local problem satisfied by every Hecke eigensystem at each place of S, the deformation-to-Hecke map R̄^ψ_S → 𝕋_ψ(U)_𝔪, its surjectivity from Frobenius traces, and the framed Hecke algebra and module. R22.2 covers auxiliary levels at Taylor–Wiles places with Δ_v = Δ′_v/(N-torsion) for the isotropy exponent N, Hecke algebras at level Q with the eigenvalue choice, agreement of the diamond and Galois actions of Δ_Q, freeness over 𝒪[Δ_Q] with control back to level U, the module system for patching, and the p = 2 twists of forms. Quaternionic forms, the freeness criterion and the dyadic twist are imported from HilbertModularVarietiesAndShimuraCurves (R18.3 via R18.6), Galois representations over Hecke algebras from AutomorphicGaloisRepresentations R19.6, and the global rings from GlobalGaloisDeformations R04.4–R04.6. Checkpoint 2 plans R22.3 (patching data, patched ring and module, support by depth, finiteness of the minimal ring, generic-fibre R = T; KW II Proposition 9.2 and Gee §5.6) and R22.4 (Taylor's Ihara-avoidance pair, transfer of support mod λ, modularity from full support, integral R = T for smooth or Cohen–Macaulay local rings), reusing DeformationAndDerivedPatchingAlgebra R03.6. Checkpoint 3 plans R22.5 (7 nodes: residual hypotheses (α)/(β), solvable base change, KW II Theorem 9.7 for odd p, Kisin's component patching and potentially Barsotti–Tate theorem, Gee's Fontaine–Laffaille theorem, the ordinary overlap with R21.4) and R22.6 (8 nodes: oddness at 2, KW II's dyadic patching with its torus, torsor and R = T, Theorem 9.7 at p = 2, Kisin's 2-adic component criterion and Barsotti–Tate theorem, and Hypothesis (H)). Checkpoint 4 plans R32.1 and R32.2 from Dieulefait–Pacetti §1.2, Kisin's Fontaine–Mazur paper (with Gee–Kisin's errata), Emerton, Paškūnas, Hu–Tan and Tung. R32.1 is a statement table: the four lifting theorems of the modern proof as propositions, the elementary implications between residual-image, twist and oddness formulations, which forms assume residual modularity, and the local exclusions at p. R32.2 proves the odd-prime de Rham lifting theorem for every odd p, p = 3 included, through Kisin's multiplicity criterion and the Breuil–Mézard input (requested from PadicLocalLanglandsForGL2Qp R30.6), and checks its hypotheses at every use in Dieulefait–Pacetti's proof.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -45,6 +45,34 @@
     "module": "Mathlib/Algebra/Polynomial/Splits.lean",
     "provides": "Splitting of polynomials (Hensel factorisation of X² − T_vX + N(v)ψ(π_v)).",
     "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:Group.IsSolvable",
+    "kind": "class",
+    "module": "Mathlib/GroupTheory/Solvable.lean",
+    "provides": "Solvable groups.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-29)"
+   },
+   {
+    "ref": "mathlib:Group.isSolvable_of_ker_le_range",
+    "kind": "theorem",
+    "module": "Mathlib/GroupTheory/Solvable.lean",
+    "provides": "An extension of solvable groups is solvable.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-29)"
+   },
+   {
+    "ref": "mathlib:Group.isSolvable_of_isSolvable_injective",
+    "kind": "theorem",
+    "module": "Mathlib/GroupTheory/Solvable.lean",
+    "provides": "A subgroup (injective image) of a solvable group is solvable.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-29)"
+   },
+   {
+    "ref": "mathlib:ZMod.neg_one_ne_one",
+    "kind": "theorem",
+    "module": "Mathlib/Data/ZMod/Basic.lean",
+    "provides": "−1 ≠ 1 in ZMod n for n > 2.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-29)"
    }
   ]
  },
@@ -123,6 +151,102 @@
     "§3.3, Proposition (3.3.1) (statement and the end of its proof) and Lemma (3.3.4), pp. 62–64",
     "§3.4, Theorem (3.4.11) and Lemma (3.4.12), pp. 69–70",
     "§3.5, (3.5.4)–(3.5.8), pp. 72–75"
+   ]
+  },
+  {
+   "id": "DIEULEFAIT-PACETTI",
+   "title": "A simplified proof of Serre's conjecture",
+   "authors": "Luis Victor Dieulefait and Ariel Martín Pacetti",
+   "edition": "arXiv:2108.07577v2 (3 May 2022); printed page = PDF page. The same file as ClassicalSerreModularity, OrdinaryAutomorphicFormsAndModularityLifting and GL2ModularityLifting part R32.3.",
+   "url": "https://arxiv.org/pdf/2108.07577v2",
+   "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
+   "read": "2026-09-29",
+   "readSections": [
+    "§1.2, Theorems 1.4–1.7 with their proofs (pp. 4–5)",
+    "Remark 2 (p. 5)",
+    "Lemmas 1.13–1.14 (pp. 8–9)",
+    "§2, every appeal to Theorem 1.4 (pp. 10–15), including Lemma 2.3 (pp. 12–13)"
+   ]
+  },
+  {
+   "id": "KISIN-FM-2009",
+   "title": "The Fontaine–Mazur conjecture for GL₂",
+   "authors": "Mark Kisin",
+   "edition": "Author's preprint as a DVI file on Kisin's Harvard page (fmc.dvi), read through a text extraction of the DVI; printed page = DVI page. Published as J. Amer. Math. Soc. 22 (2009), no. 3, 641–690, which was not read. In §2.2 the DVI's (2.2.9), Lemma (2.2.10), Proposition (2.2.14), Corollary (2.2.16) and Theorem (2.2.17) are cited by Gee–Kisin, Hu–Tan and Tung as (2.2.10), (2.2.11), (2.2.15), (2.2.17) and (2.2.18).",
+   "url": "https://people.math.harvard.edu/~kisin/dvifiles/fmc.dvi",
+   "sha256": "663d83eba34d147b58823b23d63c007f79be47a29054902032d3325a83920d50",
+   "read": "2026-09-29",
+   "readSections": [
+    "Introduction (pp. 1–4)",
+    "(1.2.3)–(1.2.8) (pp. 8–9)",
+    "Lemmas (1.7.4)–(1.7.5) and Corollary (1.7.14) (pp. 30–34)",
+    "(2.1.2) (p. 36)",
+    "§2.2: conditions (1)–(4), Lemma (2.2.1), (2.2.9), Lemma (2.2.10), Proposition (2.2.14), Corollary (2.2.16), Theorem (2.2.17) with its proof (pp. 38–46)"
+   ]
+  },
+  {
+   "id": "TUNG-2021-P3",
+   "title": "On the automorphy of 2-dimensional potentially semi-stable deformation rings of G_{Q_p}",
+   "authors": "Shen-Ning Tung",
+   "edition": "Algebra Number Theory 15 (2021), no. 9, 2173–2194; arXiv:1803.07451v4 (21 March 2021, the latest version). The arXiv version was read; printed page = PDF page.",
+   "url": "https://arxiv.org/pdf/1803.07451v4",
+   "sha256": "22017bc9beb585c2aae5421d2fe1a8a9049d8a93e4f8bb8cf684149616db1ba2",
+   "read": "2026-09-29",
+   "readSections": [
+    "Abstract and introduction, with the Fontaine–Mazur theorem (pp. 1–2)",
+    "Theorem 1.2 (p. 4)",
+    "Proposition 4.4, Remark 4.5, the proof of Theorem 1.2, Corollary 4.6, Theorem 4.7 and Remark 4.8 (pp. 14–15)"
+   ]
+  },
+  {
+   "id": "HU-TAN-2015",
+   "title": "The Breuil–Mézard conjecture for non-scalar split residual representations",
+   "authors": "Yongquan Hu and Fucheng Tan",
+   "edition": "Ann. Sci. Éc. Norm. Supér. (4) 48 (2015), no. 6, 1383–1421; arXiv:1309.1658v2 (13 November 2014). The arXiv version was read; printed page = PDF page.",
+   "url": "https://arxiv.org/pdf/1309.1658v2",
+   "sha256": "d36f237d7269e9dac7d32d80f1e4d6fe5c20b210ae067075b2dedb51e73d9bb2",
+   "read": "2026-09-29",
+   "readSections": [
+    "Abstract and introduction, Theorem 1.4 (pp. 1–5)",
+    "§6: set-up, Proposition 6.2, Theorem 6.3 and its proof (pp. 33–35)"
+   ]
+  },
+  {
+   "id": "PASKUNAS-BM-2015",
+   "title": "On the Breuil–Mézard conjecture",
+   "authors": "Vytautas Paškūnas",
+   "edition": "Duke Math. J. 164 (2015), no. 2, 297–359; arXiv:1209.5205v3 (20 March 2014). The arXiv version was read; printed page = PDF page.",
+   "url": "https://arxiv.org/pdf/1209.5205v3",
+   "sha256": "fce17b369313877b7efedab0844e8ece721a0c249dee1ef212f1d1303fc82c18",
+   "read": "2026-09-29",
+   "readSections": [
+    "Abstract and §1, Theorem 1.1 and the discussion after it (pp. 1–3)"
+   ]
+  },
+  {
+   "id": "EMERTON-LGC-2011",
+   "title": "Local-global compatibility in the p-adic Langlands programme for GL₂/ℚ",
+   "authors": "Matthew Emerton",
+   "edition": "Preprint, draft of 23 March 2011, 119 pages, on Emerton's University of Chicago page; not published in a journal. Printed page = PDF page.",
+   "url": "http://www.math.uchicago.edu/~emerton/pdffiles/lg.pdf",
+   "sha256": "bf4f8556ef04be02daed0b1dba35c91ce4a7b2f4cbbf28d0d8351b1fc369eb13",
+   "read": "2026-09-29",
+   "readSections": [
+    "§1.1–1.2: Conjecture 1.1.1, Theorems 1.2.1, 1.2.3, 1.2.4, Corollary 1.2.2 and Remark 1.2.5 (pp. 2–5)",
+    "Theorem 3.3.22 (p. 28)",
+    "§7.3–7.4 (pp. 95–98)"
+   ]
+  },
+  {
+   "id": "GEE-KISIN-2014",
+   "title": "The Breuil–Mézard conjecture for potentially Barsotti–Tate representations",
+   "authors": "Toby Gee and Mark Kisin",
+   "edition": "Forum Math. Pi 2 (2014), e1; arXiv:1208.3179v5 (12 June 2026). Only Appendix B, 'Errata for [Kis09a]', was read; printed page = PDF page.",
+   "url": "https://arxiv.org/pdf/1208.3179v5",
+   "sha256": "65cb5797bbe10e328843b5fdc73f2623c80e19fa89ceb72ce6cd296881eb68f9",
+   "read": "2026-09-29",
+   "readSections": [
+    "Appendix B, B.1–B.5 with Lemmas B.5.1–B.5.2 (pp. 38–40)"
    ]
   }
  ],
@@ -2304,6 +2428,785 @@
    "planet": {
     "name": "Hypothesis (H)"
    }
+  },
+  {
+   "id": "GL2ModularityLifting:R32.1/lifting-statement-table",
+   "parentStageId": "GL2ModularityLifting:R32.1",
+   "realises": [
+    "GL2ModularityLifting:R32.1"
+   ],
+   "title": "The statement table: the four lifting theorems of the modern proof as propositions",
+   "kind": "definition",
+   "statement": "For a prime p and a continuous ρ : G_ℚ → GL₂(ℚ̄_p) ramified at finitely many primes, with residual representation ρ̄, define four propositions. They follow Dieulefait–Pacetti's Theorems 1.4–1.7; 'modular of weight k' means ρ ≅ ρ_g for a cuspidal eigenform g of weight k. (a) OddPrimeLifting p, for p odd: if ρ is odd, ρ̄|G_{ℚ(√p*)} is absolutely irreducible, where p* = (−1)^{(p−1)/2}p, ρ|G_{ℚ_p} is de Rham with Hodge–Tate weights {0, k − 1}, k > 1, and ρ̄ ≅ ρ̄_f for a newform f, then ρ is modular of weight k. (b) DyadicLifting, p = 2: if ρ is odd, ρ|G_{ℚ₂} is de Rham with Hodge–Tate weights {0, k − 1}, k > 1, and ρ̄ is modular with non-solvable image, then ρ is modular of weight k. (c) ResiduallyReducibleLifting p, for p ≥ 5: if ρ is irreducible and odd, ρ|G_{ℚ_p} is de Rham with Hodge–Tate weights {0, k − 1}, k > 1, and ρ̄^{ss} ≅ χ₁ ⊕ χ₂, then ρ is modular of weight k. (d) OrdinaryThreeLifting, p = 3: if ρ is irreducible and odd, ρ̄^{ss} ≅ 1 ⊕ χ̄₃, ρ|I₃ ≅ (∗ ∗; 0 1) and det ρ = ψχ₃^{k−1} with k ≥ 2, then ρ is modular of weight k. Dieulefait–Pacetti print a further hypothesis in (d), ρ|D₃ ≠ (1 0; 0 1). It is Skinner–Wiles' χ|D₃ ≠ 1, which holds automatically for χ = χ̄₃ (OrdinaryAutomorphicFormsAndModularityLifting/E9). R32.2 proves (a) for every odd p, R32.3 proves (b), R32.4 proves (c), and R32.5 proves (d).",
+   "hypotheses": [
+    "Only the forms that assume ρ̄ modular are declared (R32.1/residual-modularity-forms); (c) and (d) need no residual modularity.",
+    "'de Rham', Hodge–Tate weights and p-adic Hodge types are LocalGaloisDeformationRings R08.3/hodge-and-galois-types; ρ_g is de Rham at p with Hodge–Tate weights {0, k − 1} by AutomorphicGaloisRepresentations R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime.",
+    "A residual modularity witness is actual eigenform data, as in R22.1/minimal-level-data."
+   ],
+   "proofSteps": [
+    "State (a)–(d) as Props with Dieulefait–Pacetti's hypotheses, reading the residual image condition over ℚ(√p*) as printed.",
+    "Record which node proves each: R32.2/odd-prime-statement-over-q, R32.3/dyadic-de-rham-modularity-lifting, R32.4/pan-residually-reducible-fontaine-mazur (with OrdinaryAutomorphicFormsAndModularityLifting R21.5 for Skinner–Wiles), and R32.5/p-three-residually-reducible-branch."
+   ],
+   "acceptance": [
+    "(a) is stated at p = 3: none of its hypotheses restricts p ≥ 5.",
+    "(c) is stated only for p ≥ 5. At p = 3 the case ρ̄^{ss} ≅ 1 ⊕ χ̄₃ is (d); Pan's Theorem 1.0.2 excludes it (R32.5).",
+    "A statement that assumes only that ρ̄ is odd, and takes its modularity from Khare–Wintenberger, is not in the table."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.3/hodge-and-galois-types",
+    "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
+    "GL2ModularityLifting:R22.1/minimal-level-data"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/StatementTable",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "api": [
+    {
+     "name": "TauCeti.ModularityLifting.pStar",
+     "role": "constructor",
+     "statement": "p* = (−1)^{(p−1)/2} p for odd p; ℚ(√p*) is the quadratic subfield of ℚ(ζ_p)."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.OddPrimeLifting",
+     "role": "structure",
+     "statement": "OddPrimeLifting p : Prop, statement (a)."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.DyadicLifting",
+     "role": "structure",
+     "statement": "DyadicLifting : Prop, statement (b)."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.ResiduallyReducibleLifting",
+     "role": "structure",
+     "statement": "ResiduallyReducibleLifting p : Prop for p ≥ 5, statement (c)."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.OrdinaryThreeLifting",
+     "role": "structure",
+     "statement": "OrdinaryThreeLifting : Prop, statement (d), without the automatic hypothesis χ̄₃|D₃ ≠ 1."
+    }
+   ],
+   "tests": [
+    {
+     "name": "pStar_three",
+     "kind": "example",
+     "statement": "p* = −3 at p = 3, so ℚ(√p*) = ℚ(ζ₃)."
+    },
+    {
+     "name": "pStar_mod_four",
+     "kind": "characterisation",
+     "statement": "p* ≡ 1 (mod 4) for odd p (checked for p = 3, 5, 7, 11, 13), so ℚ(√p*) is unramified at 2."
+    },
+    {
+     "name": "residuallyReducible_not_at_three",
+     "kind": "non-example",
+     "statement": "ResiduallyReducibleLifting is not stated at p = 3; OrdinaryThreeLifting covers ρ̄^{ss} ≅ 1 ⊕ χ̄₃ there."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R32.2/odd-prime-statement-over-q",
+     "how": "proves OddPrimeLifting p for every odd p"
+    },
+    {
+     "where": "ClassicalSerreModularity:R33.1",
+     "how": "the modern proof cites (a)–(d) through Dieulefait–Pacetti Theorems 1.4–1.7"
+    }
+   ],
+   "planet": {
+    "name": "Statement table of the modern lifting theorems"
+   },
+   "sources": [
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Theorem 1.4, p. 4 (arXiv v2)",
+     "excerpt": "Theorem 1.4. Let p be an odd prime and ρ : GalQ → GL2 (Qp ) be a continuous, odd Galois representation ramified at finitely many primes",
+     "match": "Statement (a)."
+    },
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Theorem 1.5, p. 4 (arXiv v2)",
+     "excerpt": "The residual representation ρ is modular and has non-solvable image.",
+     "match": "Statement (b)."
+    },
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Theorem 1.6, p. 4 (arXiv v2)",
+     "excerpt": "The semisimplification of ρ is a sum of two characters χ1 ⊕ χ2 .",
+     "match": "Statement (c), for p ≥ 5."
+    },
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Theorem 1.7, p. 4 (arXiv v2)",
+     "excerpt": "Theorem 1.7. Let ρ : GalQ → GL2 (Q3 ) be a continuous, irreducible odd Galois representation",
+     "match": "Statement (d)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R32.1/quadratic-cyclotomic-irreducibility",
+   "parentStageId": "GL2ModularityLifting:R32.1",
+   "realises": [
+    "GL2ModularityLifting:R32.1"
+   ],
+   "title": "Irreducibility over ℚ(√p*) is irreducibility over ℚ(ζ_p) (Dieulefait–Pacetti Lemma 1.13)",
+   "kind": "lemma",
+   "statement": "Let p be an odd prime and ρ̄ : G_ℚ → GL₂(𝔽̄_p) continuous and odd. Then ρ̄|G_{ℚ(√p*)} is irreducible if and only if ρ̄|G_{ℚ(ζ_p)} is irreducible. The coefficients are algebraically closed, so irreducible means absolutely irreducible. Statement (a) of the table therefore agrees with the hypothesis 'ρ̄|G_{ℚ(ζ_p)} absolutely irreducible' used by Kisin, Hu–Tan and Tung.",
+   "hypotheses": [
+    "Dickson's classification of the finite subgroups of PGL₂(𝔽̄_p) is ClassicalSerreModularity R27.1/dickson-and-the-dyadic-solvable-refinement.",
+    "For p = 3, ℚ(√−3) = ℚ(ζ₃) and there is nothing to prove."
+   ],
+   "proofSteps": [
+    "(2) ⇒ (1): ℚ(√p*) ⊂ ℚ(ζ_p).",
+    "Converse, for p ≥ 5 and ρ̄ irreducible (otherwise both conditions fail). If H = ρ̄(G_{ℚ(ζ_p)}) is reducible, then H lies in a Borel subgroup and G/H is cyclic, where G = Im ρ̄. So G is solvable: it lies in a Borel subgroup (excluded), in the normaliser N of a split torus T, or its projective image is A₄ or S₄.",
+    "Case N. N has no element of order p, so the reducible H is abelian. H is normal in G, and no subgroup ⟨(a 0; 0 a), (0 1; 1 0)⟩ is, so H ⊂ T. Let σ generate Gal(ℚ(ζ_p)/ℚ). Then G = ⟨H, ρ̄(σ)⟩ is non-abelian, so ρ̄(σ) ∉ T, and ρ̄(σ²) ∈ T. Hence ρ̄(G_{ℚ(√p*)}) = ⟨H, ρ̄(σ²)⟩ ⊂ T is reducible.",
+    "Case A₄ or S₄. Since p ∤ 24, the reducible H is a sum of two characters, so its projective image is an abelian normal subgroup with cyclic quotient. S₄ has no such subgroup. For A₄ it would be the Klein group, but the image of T in PGL₂(𝔽̄_p) has only one element of order 2."
+   ],
+   "acceptance": [
+    "p = 3: trivial.",
+    "Bad dihedral: ρ̄ = Ind_{ℚ(√p*)}^{ℚ} θ is reducible on both fields.",
+    "The case A₄/S₄ uses p ∤ 24, that is p ≥ 5."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R32.1/lifting-statement-table",
+    "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/StatementTable",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Lemma 1.13, p. 8 (arXiv v2)",
+     "excerpt": "Then the following are equivalent: (1) ρ̄|GalQ(√p⋆ ) is irreducible, (2) ρ̄|GalQ(ζp ) is irreducible.",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Proof of Lemma 1.13, p. 8 (arXiv v2)",
+     "excerpt": "Clearly the second condition implies the first one.",
+     "match": "The proof, whose steps are followed."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R32.2/odd-prime-statement-over-q",
+     "how": "converts DP's hypothesis into the one Kisin, Hu–Tan and Tung assume"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R32.1/non-solvable-residual-image",
+   "parentStageId": "GL2ModularityLifting:R32.1",
+   "realises": [
+    "GL2ModularityLifting:R32.1"
+   ],
+   "title": "Consequences of non-solvable residual image",
+   "kind": "lemma",
+   "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽̄_p) be continuous with non-solvable image, for any prime p, including p = 2. Then: (i) ρ̄ is absolutely irreducible; (ii) for every finite Galois extension K/ℚ with solvable Galois group, ρ̄|G_K has non-solvable image and is absolutely irreducible; (iii) in particular ρ̄|G_{ℚ(ζ_{p^n})} is absolutely irreducible for every n, and for odd p the residual hypothesis of statement (a) holds. So the dyadic hypothesis of statement (b) survives the solvable base changes of Kisin's and Paškūnas' proofs.",
+   "hypotheses": [
+    "Solvability is Mathlib's Group.IsSolvable. Subgroups and extensions: Group.isSolvable_of_isSolvable_injective and Group.isSolvable_of_ker_le_range."
+   ],
+   "proofSteps": [
+    "A reducible subgroup of GL₂(𝔽̄_p) lies in a Borel subgroup, which is solvable; this gives (i).",
+    "Im(ρ̄|G_K) is normal in Im ρ̄, with quotient a quotient of Gal(K/ℚ). If it were solvable, Im ρ̄ would be solvable. Then apply (i) to ρ̄|G_K; this gives (ii).",
+    "ℚ(ζ_{p^n})/ℚ is abelian, and ℚ(√p*) ⊂ ℚ(ζ_p); this gives (iii)."
+   ],
+   "acceptance": [
+    "p = 2: GL₂(𝔽₂) ≅ S₃ is solvable, so statement (b) excludes it, while SL₂(𝔽₄) ≅ A₅ is not solvable.",
+    "The converse fails: an absolutely irreducible dihedral ρ̄ has solvable image."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R32.1/lifting-statement-table",
+    "mathlib:Group.IsSolvable",
+    "mathlib:Group.isSolvable_of_ker_le_range",
+    "mathlib:Group.isSolvable_of_isSolvable_injective"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/StatementTable",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Theorem 1.5, p. 4 (arXiv v2)",
+     "excerpt": "The residual representation ρ is modular and has non-solvable image.",
+     "match": "The hypothesis whose consequences are recorded."
+    },
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Proof of Theorem 1.5, p. 4 (arXiv v2)",
+     "excerpt": "See [Kis09b, Theorem 0.1] for k = 2 and ρ potentially Barsotti-Tate, [Paš16, Theorem 1.1] and [Tun21b, Theorem A] for the general case.",
+     "match": "The proofs that base-change it."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R32.3/dyadic-de-rham-modularity-lifting",
+     "how": "the dyadic hypothesis after solvable base change"
+    },
+    {
+     "where": "GL2ModularityLifting:R32.2/application-requirements",
+     "how": "DP Lemma 2.3 applies Theorem 1.4 at 3 to a ρ̄₃ with non-solvable image"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R32.1/hodge-tate-and-oddness-normalisation",
+   "parentStageId": "GL2ModularityLifting:R32.1",
+   "realises": [
+    "GL2ModularityLifting:R32.1"
+   ],
+   "title": "Twists, Hodge–Tate normalisation and oddness of lifts",
+   "kind": "lemma",
+   "statement": "The Hodge–Tate weight of the cyclotomic character ε is 1. (i) If ρ|G_{ℚ_p} is de Rham with distinct Hodge–Tate weights a < b, then ρ ⊗ ε^{−a} has weights {0, k − 1} with k = b − a + 1 ≥ 2. (ii) Suppose ρ has weights {0, k − 1} and ρ ≅ ρ_g ⊗ χ, with g an eigenform of weight k′ and χ = ε^m μ for a finite-order μ; this is the sense of 'up to twist' in Kisin, Hu–Tan and Tung. Then m = 0 and k′ = k, and ρ ≅ ρ_{g⊗μ} with g ⊗ μ an eigenform of weight k. So 'modular up to twist' is DP's 'matches a weight k modular form'. (iii) For odd p, if ρ̄ is odd then ρ is odd: det ρ(c) = ±1, and its reduction is −1 ≠ 1 in 𝔽̄_p. For p = 2 this fails, and oddness of ρ is a separate hypothesis (R22.6/dyadic-oddness).",
+   "hypotheses": [
+    "ρ_g ⊗ ε^m μ has Hodge–Tate weights {m, m + k′ − 1} (AutomorphicGaloisRepresentations R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime).",
+    "Twisting an eigenform by a Dirichlet character gives an eigenform of the same weight."
+   ],
+   "proofSteps": [
+    "(i) Hodge–Tate weights shift by −a under ⊗ ε^{−a}.",
+    "(ii) Compare {m, m + k′ − 1} with {0, k − 1}: then m = 0 and k′ = k.",
+    "(iii) c² = 1 gives det ρ(c) ∈ {±1}, and its reduction det ρ̄(c) = −1 ≠ 1 when p is odd."
+   ],
+   "acceptance": [
+    "Hodge–Tate weights {3, 7} normalise to {0, 4}, so k = 5.",
+    "p = 3: −1 ≠ 1 in 𝔽₃.",
+    "p = 2: diag(1, −1) is odd and reduces to the identity (R22.6/dyadic-oddness)."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R32.1/lifting-statement-table",
+    "LocalGaloisDeformationRings:R08.3/hodge-and-galois-types",
+    "GL2ModularityLifting:R22.6/dyadic-oddness",
+    "mathlib:ZMod.neg_one_ne_one"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/StatementTable",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "TUNG-2021-P3",
+     "locator": "Theorem 4.7 (1), p. 15 (arXiv v4)",
+     "excerpt": "is modular (thus ρ and ρ̄ are odd).",
+     "match": "(iii), as Tung uses it."
+    },
+    {
+     "sourceId": "KISIN-FM-2009",
+     "locator": "Introduction, the main theorem, p. 2 (DVI)",
+     "excerpt": "is potentially semi-stable with distinct Hodge-Tate weights.",
+     "match": "The 'distinct weights' form, normalised by (i)."
+    },
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Remark 2, p. 5 (arXiv v2)",
+     "excerpt": "is equivalent to the veracity of the twist of ρ by ψ.",
+     "match": "DP's convention on twists."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R32.2/odd-prime-statement-over-q",
+     "how": "converts the 'up to twist' conclusion into weight k"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R32.1/residual-modularity-forms",
+   "parentStageId": "GL2ModularityLifting:R32.1",
+   "realises": [
+    "GL2ModularityLifting:R32.1"
+   ],
+   "title": "Which forms of the lifting theorems assume residual modularity",
+   "kind": "comparison",
+   "statement": "Each modern odd-prime lifting theorem is printed in two forms. (i) Forms that assume ρ̄ modular: Kisin's Theorem (2.2.17) (published (2.2.18)), Hu–Tan's Theorem 6.3, Tung's Theorem 4.7 and Dieulefait–Pacetti's Theorem 1.4. (ii) Forms that assume only ρ̄ odd, and take its modularity from Khare–Wintenberger's proof of Serre's conjecture: Kisin's introduction theorem, Hu–Tan's Theorem 1.4, Tung's introduction theorem, and Emerton's Theorem 1.2.4. Emerton's Theorem 1.2.4 gets promodularity from his Theorem 1.2.3, whose proof (§7.3) invokes Serre's conjecture. Only form (i) can serve in a proof of Serre's conjecture, so the statement table declares only form (i). Dieulefait–Pacetti cite the form-(ii) theorems (source issue GL2ModularityLifting/E8), but their Theorem 1.4 assumes ρ̄ modular, and its proof runs through form (i).",
+   "hypotheses": [
+    "R32.6/globalisation-dependency-audit carries the audit of the proofs. This node fixes which statements are admissible."
+   ],
+   "proofSteps": [
+    "For each paper, locate the theorem that assumes ρ̄ modular, and the step that deduces the introduction theorem from it by Khare–Wintenberger.",
+    "Kisin: (2.2.17) and the sentence of the introduction on Khare–Wintenberger. Hu–Tan: Theorem 6.3 and the last line of its proof. Tung: Theorem 4.7, obtained by the method of Kisin and Hu–Tan. Emerton: Theorem 1.2.3 and §7.3."
+   ],
+   "acceptance": [
+    "Hu–Tan's Theorem 1.4 is their Theorem 6.3 plus Khare–Wintenberger.",
+    "Emerton's Corollary 1.2.2 assumes V promodular, and his route to promodularity uses Serre's conjecture, so his Fontaine–Mazur route is not used.",
+    "Tung's Theorem 4.7 covers p = 3."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R32.1/lifting-statement-table"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/StatementTable",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FM-2009",
+     "locator": "Introduction, p. 2 (DVI)",
+     "excerpt": "is odd, implies that it is modular.",
+     "match": "Kisin's introduction theorem takes residual modularity from Khare–Wintenberger."
+    },
+    {
+     "sourceId": "KISIN-FM-2009",
+     "locator": "Theorem (2.2.17) (2), p. 45 (DVI)",
+     "excerpt": "is modular and ¯ ρ |F(ζp ) is absolutely irre- ducible.",
+     "match": "The form that assumes ρ̄ modular."
+    },
+    {
+     "sourceId": "HU-TAN-2015",
+     "locator": "Proof of Theorem 6.3, p. 35 (arXiv v2)",
+     "excerpt": "needs that ρ is modular, which is the main result of [17], [18].",
+     "match": "Theorem 1.4 is Theorem 6.3 plus Khare–Wintenberger."
+    },
+    {
+     "sourceId": "TUNG-2021-P3",
+     "locator": "Theorem 4.7, p. 15 (arXiv v4)",
+     "excerpt": "Following from the method of [Kis09, Theorem 2.2.18] and [HT15, Theorem 6.3], we obtain the Fontaine-Mazur conjecture below.",
+     "match": "Tung's form that assumes ρ̄ modular."
+    },
+    {
+     "sourceId": "EMERTON-LGC-2011",
+     "locator": "§7.3, proof of Theorem 1.2.3, p. 96",
+     "excerpt": "implies that V is modular, and thus we may apply the results (and more generally the methods) of Böckle [4]",
+     "match": "Emerton's promodularity uses Serre's conjecture."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
+     "how": "the list of admissible statements the audit checks"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R32.1/exceptional-local-cases",
+   "parentStageId": "GL2ModularityLifting:R32.1",
+   "realises": [
+    "GL2ModularityLifting:R32.1"
+   ],
+   "title": "The local exclusions at p in the odd-prime sources, and how they are removed",
+   "kind": "comparison",
+   "statement": "For odd p, write ρ̄_p = ρ̄|G_{ℚ_p}. The sources exclude, as printed: (i) Kisin, in the introduction theorem and in (2.2.17)(3): ρ̄_p ≅ (ωχ ∗; 0 χ) for some character χ, where ∗ may be zero; and, in the introduction theorem and (2.2.17)(1), any ρ that is not semistable over an abelian extension of ℚ_p. The latter is where his Hypothesis (1.2.6) is known (Theorem (1.2.8), from Colmez and Berger–Breuil). (ii) Kisin (1.2.7): the lattice Π of (1.2.6) is constructed for every V except, at p = 3, ρ̄_p ≅ (ω ∗; 0 1) ⊗ χ or Ind ω₂² ⊗ χ. (iii) Emerton, Theorem 1.2.1 and Corollary 1.2.2: ρ̄_p ≅ χ ⊗ (1 ∗; 0 ω), where ∗ may be zero. (iv) Paškūnas (Duke 2015): p ≥ 5 and End(ρ̄_p) scalar; his result is new only for ρ̄_p ≅ (ω ∗; 0 1) ⊗ χ. (v) Hu–Tan: p ≥ 5; new only for ρ̄_p ≅ χ ⊗ (1 ⊕ ω). (vi) Tung: p > 2 and every ρ̄_p; new for p = 3 and ρ̄_p a twist of an extension of 1 by ω. Emerton's Theorem 3.3.22 gives the locally algebraic vectors of every de Rham V with distinct weights, which removes the abelian condition in (i). Tung's Theorem 1.2, the Breuil–Mézard conjecture for every ρ̄_p and every p > 2, removes the exclusions of (i) and (ii). Pan's p = 3 exclusion, χ̄₁χ̄₂^{−1}|G_{ℚ₃} = ω, is of another kind: it is a residually reducible global case, covered by R32.5.",
+   "hypotheses": [
+    "The local theorems (Breuil–Mézard in cycle form, Colmez's functor, locally algebraic vectors) are requested from PadicLocalLanglandsForGL2Qp R30.6."
+   ],
+   "proofSteps": [
+    "Tabulate each source's exclusion with its locator.",
+    "For each ρ̄_p, name a source that covers it: p ≥ 5 by Kisin, Paškūnas and Hu–Tan; p = 3 by Tung."
+   ],
+   "acceptance": [
+    "p = 3, ρ̄_p = 1 ⊕ ω: excluded by (i) and (iii), covered only by (vi).",
+    "p ≥ 5, ρ̄_p = 1 ⊕ ω: excluded by (i) and (iii), covered by (v) and (vi).",
+    "p ≥ 5, ρ̄_p absolutely irreducible: covered by Kisin together with Emerton's Theorem 3.3.22."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R32.1/lifting-statement-table",
+    "PadicLocalLanglandsForGL2Qp:R30.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/StatementTable",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FM-2009",
+     "locator": "Introduction, the main theorem (2)–(4), p. 2 (DVI)",
+     "excerpt": "becomes semi-stable over an abelian extension of ℚp .",
+     "match": "Exclusion (i)."
+    },
+    {
+     "sourceId": "KISIN-FM-2009",
+     "locator": "(1.2.7), p. 9 (DVI)",
+     "excerpt": "except when p = 3 and the mod p representation attached to V has the form",
+     "match": "Exclusion (ii)."
+    },
+    {
+     "sourceId": "PASKUNAS-BM-2015",
+     "locator": "Abstract, p. 1 (arXiv v3)",
+     "excerpt": "and the representation has scalar endomorphisms",
+     "match": "Range (iv)."
+    },
+    {
+     "sourceId": "HU-TAN-2015",
+     "locator": "Introduction, after Theorem 1.4, p. 5 (arXiv v2)",
+     "excerpt": "Thus the only new case proved here is when",
+     "match": "Range (v)."
+    },
+    {
+     "sourceId": "TUNG-2021-P3",
+     "locator": "Remark 4.8, p. 15 (arXiv v4)",
+     "excerpt": "The result is new when p = 3 and ρ̄|GFv is a twist of an extension 1 by ω for some v|p.",
+     "match": "Range (vi)."
+    },
+    {
+     "sourceId": "EMERTON-LGC-2011",
+     "locator": "Theorem 3.3.22, p. 28",
+     "excerpt": "is a G-equivariant isomorphism B(VE )l.alg",
+     "match": "Removes the abelian condition."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R32.2/odd-prime-de-rham-lifting",
+     "how": "why the combined theorem has no local restriction at p"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R32.2/kisin-multiplicity-criterion",
+   "parentStageId": "GL2ModularityLifting:R32.2",
+   "realises": [
+    "GL2ModularityLifting:R32.2"
+   ],
+   "title": "Kisin's multiplicity criterion for faithfulness of the patched module, as corrected by Gee–Kisin",
+   "kind": "theorem",
+   "statement": "Let p be odd and F totally real with p split completely. Let D/F be a totally definite quaternion algebra ramified at a set Σ of finite places prime to p, with N(v) ≢ −1 (mod p) for v ∈ Σ. Let M∞ be the patched module over R̄∞ = R̄^{□,ψ}_{Σ_p}[[x₁, …, x_g]], built from S_{σ,ψ}(U, 𝒪)_𝔪 with σ = ⊗_{v|p} σ(k_v, τ_v) ⊗ det^{w_v}. Here R̄_v is the ring of extensions of γ_v by γ_v(1) for v ∈ Σ, and the potentially semistable ring of type (k_v, τ_v, ψ) for v | p. Let R be the set of v ∈ S ∖ Σ_p at which ρ̄(Frob_v) has equal eigenvalues. Then M∞ is faithful over R̄∞ ⟺ e(R̄∞/π) = 2^{−|R|} e(M∞/π, R̄∞/π) ⟺ e(R̄∞/π) ≤ 2^{−|R|} e(M∞/π, R̄∞/π). When these hold, every deformation ρ of ρ̄ of the given local types (ρ|I_v an extension of γ_v by γ_v(1) at v ∈ Σ, potentially semistable of type (k_v, τ_v, ψ) at v | p) is modular. Moreover, filtering by the Jordan–Hölder factors of σ, each graded piece of M∞ has multiplicity e_Σ ∏_{v|p} μ_{n_{i,v}, m_{i,v}}(ρ̄|G_{F_v}). So the Breuil–Mézard equality e(R̄_v/π) = μ_Aut(k_v, τ_v, ρ̄|G_{F_v}) at every v | p gives faithfulness.",
+   "hypotheses": [
+    "Kisin's statements are used as Gee–Kisin Appendix B corrects them: N(v) ≢ −1 (mod p) at v ∈ Σ (B.3, source issue E4); R̄_v/π irreducible and generically reduced at v ∈ Σ (B.4, E5); and the rank 2^{|R|} in place of rank one, with Lemma (2.2.1) withdrawn (B.5, E6).",
+    "The Breuil–Mézard multiplicities, and the Hilbert–Samuel and cycle formalism, are requested from PadicLocalLanglandsForGL2Qp R30.6.",
+    "The patching itself is R22.3 and R22.5/component-patching, with the local rings of LocalGaloisDeformationRings R08.3."
+   ],
+   "proofSteps": [
+    "Patch the modules at level U_{Q_n} as in R22.3, with the local rings R̄_v (Kisin (2.2.5)–(2.2.8)).",
+    "M∞ is finite flat over 𝒪[[Δ∞]], so its support is a union of components of R̄∞, each surjecting onto Spec 𝒪[[Δ∞]]. At minimal primes M∞ has rank 2^{|R|} (Gee–Kisin Lemma B.5.1, by local–global compatibility at v ∤ p and the monodromy–weight conjecture at Steinberg places).",
+    "Faithful ⟺ Spec 𝕋∞ = Spec R̄∞ ⟺ equality of multiplicities, since 𝕋∞ is a union of components of R̄∞.",
+    "Graded pieces: Kisin Proposition (2.2.14) (published (2.2.15)), with B.4 for v ∈ Σ.",
+    "Breuil–Mézard at each v | p gives the reverse inequality, hence faithfulness (Corollary (2.2.16), published (2.2.17))."
+   ],
+   "acceptance": [
+    "With R = ∅ this is Kisin's printed Lemma (2.2.10), with rank one.",
+    "A place v ∈ Σ with N(v) ≡ −1 (mod p) is excluded (B.3). Base change reduces to N(v) ≡ 1.",
+    "The global argument alone gives only e(𝕋∞/π) ≤ e(R̄∞/π); the reverse inequality is the local input."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.3/patched-ring-and-module",
+    "GL2ModularityLifting:R22.3/patched-support",
+    "GL2ModularityLifting:R22.5/component-patching",
+    "LocalGaloisDeformationRings:R08.3/pst-deformation-ring",
+    "LocalGaloisDeformationRings:R08.3/pst-generic-fibre",
+    "PadicLocalLanglandsForGL2Qp:R30.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/DeRhamLifting",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FM-2009",
+     "locator": "§2.2, before Lemma (2.2.10), p. 42 (DVI)",
+     "excerpt": "reduced to showing that M∞ is a faithful",
+     "match": "The criterion."
+    },
+    {
+     "sourceId": "KISIN-FM-2009",
+     "locator": "Corollary (2.2.16), p. 45 (DVI)",
+     "excerpt": "Then M∞ is a faithful",
+     "match": "Faithfulness from the local multiplicities."
+    },
+    {
+     "sourceId": "GEE-KISIN-2014",
+     "locator": "Appendix B, B.5, p. 39 (arXiv v5)",
+     "excerpt": "Lemma (2.2.1) is not correct; there are some ρ with small image which provide counterexamples.",
+     "match": "The correction behind the 2^{|R|} version."
+    },
+    {
+     "sourceId": "GEE-KISIN-2014",
+     "locator": "Appendix B, B.3, p. 38 (arXiv v5)",
+     "excerpt": "add the condition that N(v)",
+     "match": "The condition at v ∈ Σ."
+    }
+   ],
+   "planet": {
+    "name": "Kisin's multiplicity criterion"
+   },
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R32.2/kisin-fontaine-mazur-totally-split",
+     "how": "faithfulness of M∞"
+    },
+    {
+     "where": "GL2ModularityLifting:R32.2/odd-prime-de-rham-lifting",
+     "how": "the global half of the argument Hu–Tan and Tung reuse"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R32.2/kisin-fontaine-mazur-totally-split",
+   "parentStageId": "GL2ModularityLifting:R32.2",
+   "realises": [
+    "GL2ModularityLifting:R32.2"
+   ],
+   "title": "Kisin's Fontaine–Mazur theorem over totally split fields (Theorem (2.2.17))",
+   "kind": "theorem",
+   "statement": "Let p > 2, F totally real with p totally split, and ρ : G_{F,S} → GL₂(𝒪) continuous with: (1) for every v | p, ρ|G_{F_v} becomes semistable over an abelian extension of F_v and has distinct Hodge–Tate weights; (2) ρ̄ is modular and ρ̄|G_{F(ζ_p)} is absolutely irreducible; (3) for every v | p, ρ̄|G_{F_v} ≇ (ωχ ∗; 0 χ) for all characters χ. Then ρ is modular. This is Theorem (2.2.17) of the preprint, (2.2.18) in print. The abelian condition in (1) is where Kisin's Hypothesis (1.2.6) is known (Theorem (1.2.8)). Emerton's Theorem 3.3.22 establishes (1.2.6) for every de Rham type, which removes the condition (Emerton, Remark 1.2.5).",
+   "hypotheses": [
+    "Gee's Theorem 4.4.12 of 'Automorphic lifts of prescribed types' makes ρ̄ modular of weight σ once μ_Aut ≠ 0. It is requested from SerreWeightAndLevelOptimisation R20.6.",
+    "The choice of U and of the auxiliary primes follows Gee–Kisin B.5 (source issue E6), not Kisin's Lemma (2.2.1).",
+    "The local inequality e(R̄_v/π) ≤ μ_Aut (Kisin §§1.6–1.7, through Colmez's functor and (1.2.6)) is requested from PadicLocalLanglandsForGL2Qp R30.6."
+   ],
+   "proofSteps": [
+    "Make a quadratic base change so that [F : ℚ] is even, and let D be the definite quaternion algebra split at all finite places.",
+    "The existence of ρ gives μ_Aut(k_v, τ_v, ρ̄ ⊗ ω^{−w_v}) ≠ 0 (Kisin (1.7.2), (1.7.8), (1.7.9)). Gee's theorem then makes ρ̄ modular of weight σ.",
+    "Kisin's local inequality e(R̄_v/π) ≤ μ_Aut and R32.2/kisin-multiplicity-criterion give faithfulness, so ρ is modular at the auxiliary level (Corollary (2.2.16)).",
+    "Level raising and lowering at v ∤ p, and descent by the base change arguments of Kisin's Annals §3.5 (R22.5/solvable-base-change-reduction)."
+   ],
+   "acceptance": [
+    "F = ℚ with ρ̄ modular: this is the introduction theorem without its appeal to Khare–Wintenberger.",
+    "Excluded: ρ̄|G_{ℚ_p} ≅ 1 ⊕ ω (χ = 1, ∗ = 0). Hu–Tan (p ≥ 5) and Tung (p = 3) cover it.",
+    "Numbering: the published version is (2.2.18), the DVI's is (2.2.17)."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R32.2/kisin-multiplicity-criterion",
+    "GL2ModularityLifting:R22.5/solvable-base-change-reduction",
+    "GL2ModularityLifting:R32.1/exceptional-local-cases",
+    "LocalGaloisDeformationRings:R08.3/pst-deformation-ring",
+    "PadicLocalLanglandsForGL2Qp:R30.6",
+    "SerreWeightAndLevelOptimisation:R20.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/DeRhamLifting",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FM-2009",
+     "locator": "Theorem (2.2.17), p. 45 (DVI)",
+     "excerpt": "Let F be a totally real field where p is totally split",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "KISIN-FM-2009",
+     "locator": "Proof of Theorem (2.2.17), p. 46 (DVI)",
+     "excerpt": "It follows from the result of Gee [Ge, Thm. 4.4.12]",
+     "match": "Gee's weight result in the proof."
+    },
+    {
+     "sourceId": "KISIN-FM-2009",
+     "locator": "Hypothesis (1.2.6), p. 9 (DVI)",
+     "excerpt": "Then there exists an admissible",
+     "match": "The hypothesis the abelian condition supplies."
+    },
+    {
+     "sourceId": "EMERTON-LGC-2011",
+     "locator": "Theorem 3.3.22, p. 28",
+     "excerpt": "is a G-equivariant isomorphism B(VE )l.alg",
+     "match": "Removes the abelian condition."
+    }
+   ],
+   "planet": {
+    "name": "Kisin's Fontaine–Mazur theorem"
+   },
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R32.2/odd-prime-de-rham-lifting",
+     "how": "the base change and descent that Hu–Tan's and Tung's proofs follow"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R32.2/odd-prime-de-rham-lifting",
+   "parentStageId": "GL2ModularityLifting:R32.2",
+   "realises": [
+    "GL2ModularityLifting:R32.2"
+   ],
+   "title": "Modularity lifting for de Rham representations at odd p (Kisin, Emerton, Paškūnas, Hu–Tan, Tung)",
+   "kind": "theorem",
+   "statement": "Let p be an odd prime, F a totally real field in which p splits completely, and ρ : G_{F,S} → GL₂(𝒪) continuous with: (1) ρ̄ modular, so that ρ and ρ̄ are odd; (2) ρ̄|G_{F(ζ_p)} absolutely irreducible; (3) ρ|G_{F_v} potentially semistable with distinct Hodge–Tate weights for every v | p. Then, up to twist, ρ comes from a Hilbert modular eigenform. This is Tung's Theorem 4.7, and for p ≥ 5 Hu–Tan's Theorem 6.3. It has no local restriction at p, and it includes p = 3.",
+   "hypotheses": [
+    "The local input is the Breuil–Mézard conjecture in cycle form for every ρ̄_v and every p-adic Hodge type, for p > 2. This is Tung's Theorem 1.2; for p ≥ 5 it also follows from Kisin, Paškūnas' Theorem 1.1 and Hu–Tan. It is requested from PadicLocalLanglandsForGL2Qp R30.6, which is charged with exactly these statements.",
+    "Tung's proof of Theorem 1.2 uses: the patched modules M∞ of [CEG+16] on definite unitary groups; Emerton–Paškūnas' faithfulness of R∞ on M∞; and, on the reducible locus, Barnet-Lamb–Gee–Geraghty's Theorem A.4.1. They are requested from CompletedCohomologyAndLocalGlobalCompatibility R31.5. Whether their globalisations avoid Serre's conjecture is not checked here (R31.6; R32.6/globalisation-dependency-audit)."
+   ],
+   "proofSteps": [
+    "Breuil–Mézard for every ρ̄_v, v | p (Tung Theorem 1.2).",
+    "With it, the argument of R32.2/kisin-multiplicity-criterion makes M∞ faithful (Hu–Tan Proposition 6.2). This gives modularity when ρ|I_v is an extension of γ_v by γ_v(1) at every v ∈ Σ (Hu–Tan, proof of Theorem 6.3, citing Kisin 2.2.11).",
+    "The general case follows by the base change arguments of Kisin's Theorem (2.2.18) (R32.2/kisin-fontaine-mazur-totally-split)."
+   ],
+   "acceptance": [
+    "p = 3, ρ̄|G_{ℚ₃} ≅ (ω ∗; 0 1) ⊗ χ: covered (Tung, Remark 4.8).",
+    "p ≥ 5, ρ̄|G_{ℚ_p} ≅ χ ⊗ (1 ⊕ ω): covered (Hu–Tan).",
+    "Non-example: ρ̄|G_{F(ζ_p)} reducible (bad dihedral) is not covered."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R32.2/kisin-multiplicity-criterion",
+    "GL2ModularityLifting:R32.2/kisin-fontaine-mazur-totally-split",
+    "GL2ModularityLifting:R32.1/exceptional-local-cases",
+    "GL2ModularityLifting:R32.1/residual-modularity-forms",
+    "PadicLocalLanglandsForGL2Qp:R30.6",
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/DeRhamLifting",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "TUNG-2021-P3",
+     "locator": "Theorem 4.7, p. 15 (arXiv v4)",
+     "excerpt": "is modular (thus ρ and ρ̄ are odd).",
+     "match": "The statement, for every odd p."
+    },
+    {
+     "sourceId": "TUNG-2021-P3",
+     "locator": "Theorem 1.2, p. 4 (arXiv v4)",
+     "excerpt": "Assume p > 2. For each smooth irreducible",
+     "match": "The local input."
+    },
+    {
+     "sourceId": "HU-TAN-2015",
+     "locator": "Theorem 6.3, p. 35 (arXiv v2)",
+     "excerpt": "Let F be a totally real field in which p splits. Let ρ",
+     "match": "The p ≥ 5 statement."
+    },
+    {
+     "sourceId": "HU-TAN-2015",
+     "locator": "§6, p. 33 (arXiv v2)",
+     "excerpt": "we mean the corrected version given in [13, Appendix B]",
+     "match": "Kisin's §2 as corrected by Gee–Kisin."
+    }
+   ],
+   "planet": {
+    "name": "de Rham modularity lifting at odd primes"
+   },
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R32.2/odd-prime-statement-over-q",
+     "how": "the case F = ℚ"
+    },
+    {
+     "where": "GL2ModularityLifting:R32.6/transfer-residually-irreducible-odd",
+     "how": "the transfer along congruences at odd primes"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R32.2/odd-prime-statement-over-q",
+   "parentStageId": "GL2ModularityLifting:R32.2",
+   "realises": [
+    "GL2ModularityLifting:R32.2"
+   ],
+   "title": "Dieulefait–Pacetti's Theorem 1.4 holds at every odd prime, including 3",
+   "kind": "theorem",
+   "statement": "OddPrimeLifting p (R32.1/lifting-statement-table (a)) holds for every odd prime p. Let ρ : G_ℚ → GL₂(ℚ̄_p) be continuous, odd and finitely ramified, with ρ̄|G_{ℚ(√p*)} absolutely irreducible, ρ|G_{ℚ_p} de Rham with Hodge–Tate weights {0, k − 1}, k > 1, and ρ̄ ≅ ρ̄_f. Then ρ ≅ ρ_g for an eigenform g of weight k. The case p = 3 is proved, not assumed.",
+   "hypotheses": [
+    "de Rham representations are potentially semistable (PadicHodgeTheory R06.3/p-adic-monodromy-theorem)."
+   ],
+   "proofSteps": [
+    "ρ̄|G_{ℚ(ζ_p)} is absolutely irreducible (R32.1/quadratic-cyclotomic-irreducibility).",
+    "ρ takes values in GL₂(𝒪) for the ring of integers 𝒪 of a finite extension of ℚ_p, by compactness, and is unramified outside a finite S. It is potentially semistable at p, with distinct weights because k > 1.",
+    "Apply R32.2/odd-prime-de-rham-lifting with F = ℚ: ρ ≅ ρ_g ⊗ χ.",
+    "Normalise the twist (R32.1/hodge-tate-and-oddness-normalisation (ii)): ρ ≅ ρ_{g′} with g′ of weight k."
+   ],
+   "acceptance": [
+    "p = 3: the hypothesis is over ℚ(√−3) = ℚ(ζ₃).",
+    "k = 2 with ρ|G_{ℚ_p} semistable and not crystalline, such as the p-adic Tate module of an elliptic curve with multiplicative reduction at p: covered. This is not a potentially Barsotti–Tate case, so Kisin's Annals theorem (R22.5/kisin-potentially-bt-lifting) does not reach it."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R32.2/odd-prime-de-rham-lifting",
+    "GL2ModularityLifting:R32.1/quadratic-cyclotomic-irreducibility",
+    "GL2ModularityLifting:R32.1/hodge-tate-and-oddness-normalisation",
+    "GL2ModularityLifting:R32.1/lifting-statement-table",
+    "PadicHodgeTheory:R06.3/p-adic-monodromy-theorem"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/DeRhamLifting",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Theorem 1.4 and its proof, p. 4 (arXiv v2)",
+     "excerpt": "is removed in [Eme11, Theorem 1.2.1] and in [Paš15, Theorem 1.1]. Our precise statement incorporates the results in [HT15, Theorem 1.4], where the other hypothesis in Kisin’s article is removed for p ≥ 5",
+     "match": "DP's attributions, corrected in E7 and E8."
+    },
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Proof of Theorem 1.4, p. 4 (arXiv v2)",
+     "excerpt": "(main theorem) where it is removed for p = 3",
+     "match": "The p = 3 case, from Tung."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ClassicalSerreModularity:R33.1",
+     "how": "every application of Dieulefait–Pacetti's Theorem 1.4"
+    },
+    {
+     "where": "GL2ModularityLifting:R32.6/transfer-residually-irreducible-odd",
+     "how": "the transfer statement it rereads"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R32.2/application-requirements",
+   "parentStageId": "GL2ModularityLifting:R32.2",
+   "realises": [
+    "GL2ModularityLifting:R32.2"
+   ],
+   "title": "The hypotheses of Theorem 1.4 at each use in Dieulefait–Pacetti's proof",
+   "kind": "application",
+   "statement": "Dieulefait–Pacetti apply Theorem 1.4 at: w in Paso 1; q in Paso 2; each odd p_i of the ramification set in Paso 3, which may be 3; 3 in Lemma 2.3; N in Paso 5; 5 in Paso 6; and odd characteristic in the final step. At each use the hypotheses of OddPrimeLifting hold. (i) Residual image. In Paso 1, w > 2k and Lemma 1.14 (a bad dihedral ρ̄_w needs w ∈ {2k(ρ̄) − 3, 2k(ρ̄) − 1}). In Pasos 2–3, the good-dihedral prime N (Lemma 2.1). In Lemma 2.3, non-solvable image (R32.1/non-solvable-residual-image). In Pasos 5–6, the case split 'irreducible and not bad-dihedral'. R32.1/quadratic-cyclotomic-irreducibility turns each into the ℚ(ζ_p) form. (ii) Weights. The members have Hodge–Tate weights {0, k − 1}, or {0, 1} for the weight-two lifts, which need not be crystalline at the coefficient prime: they are only de Rham, as in Paso 1 and Paso 3. (iii) Determinant. Only oddness is needed; det ρ = ψε^{k−1} with ψ of finite order is odd. (iv) Ordinarity. There is no requirement, because the odd-prime theorem has no local restriction at p. (v) Residual modularity comes from the congruent member already known to be modular, or from Langlands–Tunnell (Theorem 1.3) when the image is solvable. In the residually reducible case at w, Theorem 1.6 applies, since w > 2k ≥ 4 gives w ≥ 5. At p = 3 (Paso 3, Lemma 2.3), the de Rham weight-two lifts need not be potentially Barsotti–Tate, and ρ̄|G_{ℚ₃} may be a twist of an extension of 1 by ω. This is where the p = 3 theorem of Tung is used.",
+   "hypotheses": [
+    "The compatible systems and their local behaviour at the coefficient prime are PotentialModularityAndCompatibleSystems R24.5–R24.6; the uses themselves are planned in ClassicalSerreModularity R33.1–R33.3."
+   ],
+   "proofSteps": [
+    "List every appeal to Theorem 1.4 in §2 (pp. 10–15).",
+    "For each, check (i)–(v) against the lemma or case split it cites."
+   ],
+   "acceptance": [
+    "k = 3, w = 7: 7 ∉ {3, 5}, so ρ̄₇ is not bad dihedral.",
+    "w > 2k ≥ 4 gives w ≥ 5, the range of Theorem 1.6.",
+    "Lemma 2.3 is an application of Theorem 1.4 at p = 3, so the p ≥ 5 results alone would not suffice."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R32.2/odd-prime-statement-over-q",
+    "GL2ModularityLifting:R32.1/quadratic-cyclotomic-irreducibility",
+    "GL2ModularityLifting:R32.1/non-solvable-residual-image",
+    "ClassicalSerreModularity:R33.3/dp-dyadic-transition-and-the-order-three-type"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/DeRhamLifting",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "§2, Paso 1, p. 10 (arXiv v2)",
+     "excerpt": "Lemma 1.14 implies that",
+     "match": "The residual-image check in Paso 1."
+    },
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "§2, Paso 1, p. 10 (arXiv v2)",
+     "excerpt": "since Theorem 1.4 implies that",
+     "match": "The transfer along a congruence."
+    },
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Proof of Lemma 2.3, p. 13 (arXiv v2)",
+     "excerpt": "Modularity of the system {ρ′ℓ } is equivalent to that of {ρℓ } by Theorem 1.4.",
+     "match": "The use at p = 3."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ClassicalSerreModularity:R33.1",
+     "how": "the hypothesis check at each congruence of the modern proof"
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -2450,6 +3353,36 @@
    ],
    "status": "open",
    "note": "A narrower form of the existing R19.6 request."
+  },
+  {
+   "supplier": "PadicLocalLanglandsForGL2Qp:R30.6",
+   "need": "The local inputs of odd-prime de Rham lifting, each with its hypotheses: (1) the Breuil–Mézard conjecture in cycle form for every ρ̄ : G_{ℚ_p} → GL₂(k) and every p-adic Hodge type, for p > 2 (Tung, arXiv:1803.07451v4, Theorem 1.2; for p ≥ 5 Paškūnas, Duke 164 (2015), Theorem 1.1, End ρ̄ = k, and Hu–Tan, ÉNS 48 (2015), split non-scalar ρ̄), with the Hilbert–Samuel multiplicity and cycle formalism it is stated in; (2) Kisin's local inequality e(R̄_v/π) ≤ μ_Aut through Colmez's functor (Kisin, JAMS 22 (2009), §§1.6–1.7, as corrected by Gee–Kisin Appendix B.1–B.2); (3) Kisin's Hypothesis (1.2.6) for every de Rham type (Emerton, lg.pdf, Theorem 3.3.22, with Colmez's Theorem VI.6.50 for the crystabelline and semistable cases).",
+   "neededBy": [
+    "GL2ModularityLifting:R32.1/exceptional-local-cases",
+    "GL2ModularityLifting:R32.2/kisin-multiplicity-criterion",
+    "GL2ModularityLifting:R32.2/kisin-fontaine-mazur-totally-split",
+    "GL2ModularityLifting:R32.2/odd-prime-de-rham-lifting"
+   ],
+   "status": "open",
+   "note": "R30.6 is charged with 'the precise Paškūnas, Hu–Tan and Tung statements needed by R32, including the dyadic and p = 3 cases'."
+  },
+  {
+   "supplier": "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
+   "need": "The global inputs of Tung's proof of the Breuil–Mézard conjecture (arXiv:1803.07451v4, §§3–4): the patched module M∞ of Caraiani–Emerton–Gee–Geraghty–Paškūnas–Shin on definite unitary groups with its projectivity; Emerton–Paškūnas' faithfulness of R∞ on M∞; and the automorphy of components in the reducible locus through Barnet-Lamb–Gee–Geraghty Theorem A.4.1 (Tung Proposition 4.4). Their auxiliary globalisations are to be checked for independence from Serre's conjecture (R31.6).",
+   "neededBy": [
+    "GL2ModularityLifting:R32.2/odd-prime-de-rham-lifting"
+   ],
+   "status": "open",
+   "note": "Emerton's §7.4, by contrast, needs only an auxiliary CM-induced modular ρ̄ and the weight part of Serre's conjecture for it (SerreWeightAndLevelOptimisation R20.3); it uses no Khare–Wintenberger."
+  },
+  {
+   "supplier": "SerreWeightAndLevelOptimisation:R20.6",
+   "need": "Gee, Automorphic lifts of prescribed types (Math. Ann. 350 (2011)), Theorem 4.4.12, as Kisin uses it in the proof of his Theorem (2.2.17): over a totally real F with p split, if ρ̄ is modular with ρ̄|G_{F(ζ_p)} absolutely irreducible and μ_Aut(k_v, τ_v, ρ̄|G_{F_v}) ≠ 0 at every v | p, then ρ̄ is modular of weight σ = ⊗_v σ(k_v, τ_v).",
+   "neededBy": [
+    "GL2ModularityLifting:R32.2/kisin-fontaine-mazur-totally-split"
+   ],
+   "status": "open",
+   "note": "Gee's paper was not read here."
   }
  ],
  "coverage": [
@@ -2491,17 +3424,15 @@
   },
   {
    "stageId": "GL2ModularityLifting:R32.1",
-   "status": "not_read",
-   "remaining": [
-    "Source-decompose stage R32.1."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Planned in 6 nodes (checkpoint 4). The four statements of Dieulefait–Pacetti's Theorems 1.4–1.7 as propositions; the ℚ(√p*) and ℚ(ζ_p) irreducibility conditions (DP Lemma 1.13); consequences of non-solvable image; twist and Hodge–Tate normalisation and oddness of lifts; which forms assume residual modularity; and the local exclusions at p in Kisin, Emerton, Paškūnas, Hu–Tan and Tung, with how they are removed."
   },
   {
    "stageId": "GL2ModularityLifting:R32.2",
-   "status": "not_read",
-   "remaining": [
-    "Source-decompose stage R32.2."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Planned in 5 nodes (checkpoint 4): Kisin's multiplicity criterion as corrected by Gee–Kisin Appendix B; Kisin's Theorem (2.2.17) over totally split fields; the combined odd-prime theorem (Tung Theorem 4.7, Hu–Tan Theorem 6.3), which includes p = 3; DP's Theorem 1.4 over ℚ; and the hypothesis check at every use in DP's proof, including the p = 3 uses in Paso 3 and Lemma 2.3. The local Breuil–Mézard statements are requested from PadicLocalLanglandsForGL2Qp R30.6, Tung's global inputs from CompletedCohomologyAndLocalGlobalCompatibility R31.5, and Gee's weight theorem from SerreWeightAndLevelOptimisation R20.6. Five errors in Kisin's paper already corrected by Gee–Kisin (E2–E6) and two citation slips in DP (E7–E8) are recorded."
   }
  ],
  "gaps": [],
@@ -2521,6 +3452,110 @@
     "The Crossref record of the Inventiones article was not consulted for the theorem text, which is behind the publisher's paywall; the finding is scoped to the preprint."
    ],
    "note": "The version of record may already read 'potentially Barsotti–Tate'."
+  },
+  {
+   "id": "GL2ModularityLifting/E2",
+   "source": "KISIN-FM-2009",
+   "kind": "error",
+   "locator": "Lemma (1.7.5), last paragraph of the proof, p. 31, and Corollary (1.7.14), last sentence, p. 34, in the author's preprint (DVI)",
+   "printed": "we have just seen that (1.7.6) is a closed immersion which is an isomorphism at any minimal prime of 𝔭. … In particular, R^{□,ψ}_cr(k, τ, ρ̄) is formally smooth over 𝒪 except if k = p and ρ̄ ∼ (μλ 0; 0 μλ′) ⊗ ω^m",
+   "correction": "(1.7.6) is only a homeomorphism onto its image, an isomorphism over the generic points, and it may have non-reduced fibres. Delete the claim of Lemma (1.7.5) that the reduced ring of R^ord is formally smooth. In (1.7.14), replace 'unless ρ̄ ∼ (μλ 0; 0 μλ′) ⊗ ω^m' by 'unless ρ̄ ∼ (μλ ∗; 0 μλ′) ⊗ ω^m and either the class of ∗ is trivial, or λ = λ′'. The multiplicity μ_{n,m}(ρ̄) of (1.1.6) with n = p − 2 and λ = λ′ is 1, 2 or 4, as ∗ is non-trivial and ramified, non-trivial and unramified, or trivial (Sander).",
+   "reason": "The argument before the sentence shows that (1.7.6) is surjective and an isomorphism at the minimal primes, not that it is a closed immersion. Gee–Kisin B.1 locate the mistake at this sentence.",
+   "affects": "the proof",
+   "known": "Gee–Kisin, The Breuil–Mézard conjecture for potentially Barsotti–Tate representations, Appendix B, B.1 (arXiv:1208.3179v5, p. 38), which says the change does not affect the main theorems",
+   "searched": [
+    "Gee–Kisin, arXiv:1208.3179v5, Appendix B 'Errata for [Kis09a]', which corrects this item.",
+    "Kisin's preprint page (people.math.harvard.edu/~kisin/preprints.html), checked 2026-09-29: it links only the DVI, with no list of corrections."
+   ]
+  },
+  {
+   "id": "GL2ModularityLifting/E3",
+   "source": "KISIN-FM-2009",
+   "kind": "gap",
+   "locator": "Proof of Lemma (1.7.4), p. 30, in the author's preprint (DVI)",
+   "printed": "the set of framed deformations VA of V𝔽 such that VA has a Gℚp-stable A-line LA ⊂ VA … on which Iℚp acts via ω1|Iℚp. Since ω1 ≠ ω2 one sees easily that if LA exists it is unique",
+   "correction": "Add the condition that G_{ℚ_p} acts on L_A ⊗_A 𝔽 via ω₁.",
+   "reason": "The hypothesis ω₁ω₂^{−1} ∉ {1, ω, ω^{−1}} allows ω₁ω₂^{−1} to be a non-trivial unramified character. Then ω₁|I = ω₂|I, and a line with inertia acting by ω₁|I need not be unique; the added condition restores uniqueness.",
+   "affects": "the proof",
+   "known": "Gee–Kisin, Appendix B, B.2 (arXiv:1208.3179v5, p. 38)",
+   "searched": [
+    "Gee–Kisin, arXiv:1208.3179v5, Appendix B 'Errata for [Kis09a]', which corrects this item.",
+    "Kisin's preprint page (people.math.harvard.edu/~kisin/preprints.html), checked 2026-09-29: it links only the DVI, with no list of corrections."
+   ]
+  },
+  {
+   "id": "GL2ModularityLifting/E4",
+   "source": "KISIN-FM-2009",
+   "kind": "gap",
+   "locator": "§2.2, the conditions (1)–(4) (p. 38) and the character γ_v of (2.2.9) (p. 41), in the author's preprint (DVI); published (2.2.10)",
+   "printed": "For v ∤ p let γv : GFv → 𝒪^× be the unramified character such that γv² = ψ|GFv, and ρ̄|GFv is an extension of γv by γv(1).",
+   "correction": "Add to (2.2) the condition N(v) ≢ −1 (mod p) for v ∈ Σ; in the applications one can reach N(v) ≡ 1 (mod p) by base change.",
+   "reason": "If ρ̄|G_{F_v} ≅ γ̄ ⊕ γ̄ω and N(v) ≡ −1 (mod p), then ω(Frob_v)² = 1. So γ̄′ = γ̄ω also presents ρ̄|G_{F_v} as an extension of γ̄′ by γ̄′(1), and γ_v is not determined by the printed conditions.",
+   "affects": "the proof",
+   "known": "Gee–Kisin, Appendix B, B.3 (arXiv:1208.3179v5, p. 38)",
+   "searched": [
+    "Gee–Kisin, arXiv:1208.3179v5, Appendix B 'Errata for [Kis09a]', which corrects this item.",
+    "Kisin's preprint page (people.math.harvard.edu/~kisin/preprints.html), checked 2026-09-29: it links only the DVI, with no list of corrections."
+   ]
+  },
+  {
+   "id": "GL2ModularityLifting/E5",
+   "source": "KISIN-FM-2009",
+   "kind": "gap",
+   "locator": "Proof of Proposition (2.2.14), p. 45, in the author's preprint (DVI); published (2.2.15)",
+   "printed": "By (1.7.14), R̄^i_∞ is irreducible and generically reduced.",
+   "correction": "Also prove that for v ∈ Σ the rings R̄^{□,ψ}_v/π are irreducible and generically reduced. The proof is that of Lemma (1.7.5), using the formal smoothness of Kisin's Annals Lemma 2.6.3 and the fact that the representation at a generic point of Spec R̄^{□,ψ}_v/π is not scalar.",
+   "reason": "R̄^i_∞ is a completed tensor product that includes the factors R̄_v for v ∈ Σ, and (1.7.14) concerns only the factors at v | p.",
+   "affects": "the proof",
+   "known": "Gee–Kisin, Appendix B, B.4 (arXiv:1208.3179v5, p. 39)",
+   "searched": [
+    "Gee–Kisin, arXiv:1208.3179v5, Appendix B 'Errata for [Kis09a]', which corrects this item.",
+    "Kisin's preprint page (people.math.harvard.edu/~kisin/preprints.html), checked 2026-09-29: it links only the DVI, with no list of corrections."
+   ]
+  },
+  {
+   "id": "GL2ModularityLifting/E6",
+   "source": "KISIN-FM-2009",
+   "kind": "error",
+   "locator": "Lemma (2.2.1) and its proof, pp. 38–39, in the author's preprint (DVI)",
+   "printed": "If g′ ∈ G is any element satisfying (2.2.2), such that ρ̄(g) has distinct eigenvalues, then gg′ has the same property and ω is non-trivial on one of g′ and gg′.",
+   "correction": "Lemma (2.2.1) is false for some ρ̄ with small image. Either (p > 3) require that p split completely in F, drop (2.1.2), and take U_v maximal compact at every v, so that (2.2)(4) is vacuous; or (any p) keep (2.1.2), weaken (2.2)(4) to '1 − N(v) ∈ 𝔽^× and the eigenvalue ratio is not N(v)^{±1}', and count ranks 2^{|R|} (Gee–Kisin Lemmas B.5.1–B.5.2). The printed 'ρ̄(g)' in the quoted sentence should be ρ̄(g′).",
+   "reason": "ρ̄(g) = z is central, so tr ρ̄(gg′)²/det ρ̄(gg′) = tr ρ̄(g′)²/det ρ̄(g′). The left side of (2.2.2) is unchanged, but the right side (1 + ω(gg′))²/ω(gg′) changes with ω(g). So (2.2.2) for g′ does not give it for gg′.",
+   "affects": "the proof",
+   "known": "Gee–Kisin, Appendix B, B.5 (arXiv:1208.3179v5, pp. 39–40), which gives both repairs",
+   "searched": [
+    "Gee–Kisin, arXiv:1208.3179v5, Appendix B 'Errata for [Kis09a]', which corrects this item.",
+    "Kisin's preprint page (people.math.harvard.edu/~kisin/preprints.html), checked 2026-09-29: it links only the DVI, with no list of corrections."
+   ]
+  },
+  {
+   "id": "GL2ModularityLifting/E7",
+   "source": "DIEULEFAIT-PACETTI",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1.4, p. 4, arXiv:2108.07577v2",
+   "printed": "the second one (related to a compatibility between classical and p-adic local Langlands correspondence, as explained in Hypothesis (1.2.6) of [Kis09a]) is removed in [Eme11, Theorem 1.2.1] and in [Paš15, Theorem 1.1].",
+   "correction": "Emerton's result that removes Kisin's Hypothesis (1.2.6) is his Theorem 3.3.22 (the locally algebraic vectors of B(V) for de Rham V with distinct weights), used through Kisin's argument, as Emerton's Remark 1.2.5 explains. Theorem 1.2.1 is his local–global compatibility for promodular V, and is not needed.",
+   "reason": "Emerton's Remark 1.2.5 says that Kisin's theorem follows from the p-adic local Langlands correspondence with the compatibility of (1.2.6), and that Theorem 3.3.22 supplies the missing potentially crystalline, non-crystabelline case. Theorem 1.2.1 has hypotheses (V promodular, V̄|G_{ℚ_p} ≇ χ ⊗ (1 ∗; 0 ε)) that Kisin's theorem does not.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The arXiv abstract page of 2108.07577, checked 2026-09-29: versions v1 and v2 only, and no journal reference.",
+    "Emerton's preprint, Remark 1.2.5 and Theorem 3.3.22 (pp. 5, 28)."
+   ]
+  },
+  {
+   "id": "GL2ModularityLifting/E8",
+   "source": "DIEULEFAIT-PACETTI",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1.4, p. 4, arXiv:2108.07577v2",
+   "printed": "the general case follows from [Kis09a] (also stated as Theorem in the second page). … Our precise statement incorporates the results in [HT15, Theorem 1.4], where the other hypothesis in Kisin’s article is removed for p ≥ 5 together with [Tun21a] (main theorem) where it is removed for p = 3.",
+   "correction": "Cite the forms that assume ρ̄ modular: Kisin's Theorem (2.2.18) (the DVI's (2.2.17)), Hu–Tan's Theorem 6.3 and Tung's Theorem 4.7. The cited introduction theorems assume only that ρ̄ is odd, and take its modularity from Khare–Wintenberger.",
+   "reason": "Kisin's introduction says that by Khare–Wintenberger the hypothesis that ρ̄ is odd implies that it is modular. Hu–Tan's proof of Theorem 1.4 says that for it one needs only that ρ̄ is modular, which is the main result of Khare–Wintenberger. A proof of Serre's conjecture can use only the forms that assume ρ̄ modular, and Theorem 1.4 as stated assumes it, so the conclusion stands.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The arXiv abstract page of 2108.07577, checked 2026-09-29: versions v1 and v2 only, and no journal reference."
+   ]
   }
  ],
  "sourceVersions": [
@@ -2530,6 +3565,55 @@
    "citation": "Kisin, Modularity of 2-adic Barsotti–Tate representations, preprint DVI (TeX output 2008-10-21); published in Invent. Math. 178 (2009), 587–634, not read",
    "read": "2026-09-28",
    "sha256": "a11fdea301d662ada1cd675bea21a89ba9ab0a75955e496e4a1bcdecab97bf7d"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2108.07577v2",
+   "citation": "Dieulefait–Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2 (3 May 2022); no journal reference on arXiv",
+   "read": "2026-09-29",
+   "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://people.math.harvard.edu/~kisin/dvifiles/fmc.dvi",
+   "citation": "Kisin, The Fontaine–Mazur conjecture for GL₂, preprint DVI; published in J. Amer. Math. Soc. 22 (2009), 641–690, not read",
+   "read": "2026-09-29",
+   "sha256": "663d83eba34d147b58823b23d63c007f79be47a29054902032d3325a83920d50"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1803.07451v4",
+   "citation": "Tung, On the automorphy of 2-dimensional potentially semi-stable deformation rings of G_{Q_p}, arXiv:1803.07451v4 (Algebra Number Theory 15 (2021), not obtained)",
+   "read": "2026-09-29",
+   "sha256": "22017bc9beb585c2aae5421d2fe1a8a9049d8a93e4f8bb8cf684149616db1ba2"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1309.1658v2",
+   "citation": "Hu–Tan, The Breuil–Mézard conjecture for non-scalar split residual representations, arXiv:1309.1658v2 (Ann. Sci. ÉNS 48 (2015), not obtained)",
+   "read": "2026-09-29",
+   "sha256": "d36f237d7269e9dac7d32d80f1e4d6fe5c20b210ae067075b2dedb51e73d9bb2"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1209.5205v3",
+   "citation": "Paškūnas, On the Breuil–Mézard conjecture, arXiv:1209.5205v3 (Duke Math. J. 164 (2015), not obtained)",
+   "read": "2026-09-29",
+   "sha256": "fce17b369313877b7efedab0844e8ece721a0c249dee1ef212f1d1303fc82c18"
+  },
+  {
+   "kind": "author copy",
+   "url": "http://www.math.uchicago.edu/~emerton/pdffiles/lg.pdf",
+   "citation": "Emerton, Local-global compatibility in the p-adic Langlands programme for GL₂/ℚ, preprint (draft of 23 March 2011)",
+   "read": "2026-09-29",
+   "sha256": "bf4f8556ef04be02daed0b1dba35c91ce4a7b2f4cbbf28d0d8351b1fc369eb13"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1208.3179v5",
+   "citation": "Gee–Kisin, The Breuil–Mézard conjecture for potentially Barsotti–Tate representations, arXiv:1208.3179v5 (Forum Math. Pi 2 (2014), not obtained)",
+   "read": "2026-09-29",
+   "sha256": "65cb5797bbe10e328843b5fdc73f2623c80e19fa89ceb72ce6cd296881eb68f9"
   }
  ]
 }
