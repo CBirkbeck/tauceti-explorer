@@ -10,7 +10,7 @@
   "PotentialModularityAndCompatibleSystems:R24.6"
  ],
  "status": "partial",
- "summary": "Checkpoint 1 of the R24.3 part (Claude Code cc-39fac3). No integrated decomposition exists; RS-06 and RS-08 keep these stages and route their consumers (ClassicalSerreModularity R26–R33, SmallRamification R25.5). 22 nodes. R24.3: Böckle's presentation, his Lemma 2 (finite plus no more relations than variables gives a finite flat complete intersection) and Theorem 1, KW Annals Theorem 3.3, the lift types of KW I Theorem 5.1 (definition with API and tests) and its four constructions from KW II §10.3.1, the application table, and Snowden's prescribed-type lifts for the modern route. R24.4: KW I Theorem 4.1 from KW II §10.2. R24.5: the Brauer system through a potentially modular lift, its almost strict compatibility, KW I Theorem 5.1 and Dieulefait's families. R24.5:operations: compatible systems with separate strict/almost strict/plain predicates, and twist, restriction, induction. R24.6: residual members, what almost strictness gives at the coefficient prime, and linked systems. Finiteness (R24.1) and points (R24.2) belong to part R23.1. One source issue (a page range in KW II's bibliography). Checkpoint 2 corrects the attribution of the Remark in §5.2 that KW Annals cite: it is in [27] = Khare–Ramakrishna (Invent. Math. 154 (2003) 179–198), not in Khare's paper with Böckle's appendix [26] (found while carrying the draft EXT-12 in part R23.1).",
+ "summary": "Checkpoint 1 of the R24.3 part (Claude Code cc-39fac3). No integrated decomposition exists; RS-06 and RS-08 keep these stages and route their consumers (ClassicalSerreModularity R26–R33, SmallRamification R25.5). 22 nodes. R24.3: Böckle's presentation, his Lemma 2 (finite plus no more relations than variables gives a finite flat complete intersection) and Theorem 1, KW Annals Theorem 3.3, the lift types of KW I Theorem 5.1 (definition with API and tests) and its four constructions from KW II §10.3.1, the application table, and Snowden's prescribed-type lifts for the modern route. R24.4: KW I Theorem 4.1 from KW II §10.2. R24.5: the Brauer system through a potentially modular lift, its almost strict compatibility, KW I Theorem 5.1 and Dieulefait's families. R24.5:operations: compatible systems with separate strict/almost strict/plain predicates, and twist, restriction, induction. R24.6: residual members, what almost strictness gives at the coefficient prime, and linked systems. Finiteness (R24.1) and points (R24.2) belong to part R23.1. One source issue (a page range in KW II's bibliography). Checkpoint 2 corrects the attribution of the Remark in §5.2 that KW Annals cite: it is in [27] = Khare–Ramakrishna (Invent. Math. 154 (2003) 179–198), not in Khare's paper with Böckle's appendix [26] (found while carrying the draft EXT-12 in part R23.1). Checkpoint 3 (cc-39fac3) plans the rank-n layer R24.5:operations now that RS-12 is accepted: weakly compatible systems (BLGGT §5.1; Taylor 2006 §6), their predicates, the linear-algebra operations with what they preserve, and Taylor's Lemma 6.5 with BLGGT Lemma 5.2.1.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -102,6 +102,28 @@
    "sha256": "b0c0008a55489b000d6a7b2004f6412c8829243b7254ba0efe152ac6e5fc06a2",
    "readSections": [
     "2026-09-29 (cc-39fac3, part R24.3): §7 (lifting problems, Theorems 7.2.1 and 7.6.1, Proposition 7.7.1, pp. 20–23) and the conditions (A1), (A2) of §3."
+   ]
+  },
+  {
+   "id": "blggt-2014",
+   "title": "Potential automorphy and change of weight",
+   "authors": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor",
+   "edition": "arXiv:1010.2561v1 (2010), 68 pages; published in Ann. of Math. (2) 179 (2014), 501–609. Page numbers are those of the arXiv v1 PDF (printed page = PDF page).",
+   "url": "https://arxiv.org/pdf/1010.2561v1",
+   "sha256": "697e2d318887d8eb940b914101bbcebcde9aaffb296ad95db45b328408df5fe6",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, part R24.3 checkpoint 3): §5.1 in full and §5.2 through Lemma 5.2.1 and Proposition 5.2.2, pp. 51–55."
+   ]
+  },
+  {
+   "id": "taylor-2006-meromorphic-continuation",
+   "title": "On the meromorphic continuation of degree two L-functions",
+   "authors": "Richard Taylor",
+   "edition": "Documenta Mathematica, Extra Volume: John H. Coates' Sixtieth Birthday (2006), 729–779; EMS Press open-access chapter file. Locators give the printed Documenta pages (printed page = PDF page + 728).",
+   "url": "https://ems.press/content/book-chapter-files/27484",
+   "sha256": "6ec26bfc12e1cf38d410b36c18f985e2fb26c1cb1bb03d6e5197ccf58f92c51c",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, part R24.3 checkpoint 3): §6, pp. 771–775 (Theorem 6.1, Corollaries 6.2–6.4, rank d weakly compatible systems, Lemma 6.5, Theorem 6.6 with proof), on the page images."
    ]
   }
  ],
@@ -1391,6 +1413,337 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "Rank-n weakly compatible systems of l-adic representations",
+   "kind": "definition",
+   "statement": "Let F be a number field. A rank n weakly compatible system of l-adic representations ℛ of G_F defined over M is a 5-tuple (M, S, {Q_v(X)}, {r_λ}, {H_τ}): M a number field; S a finite set of primes of F; for each prime v ∉ S a monic degree-n Q_v(X) ∈ M[X]; for each prime λ of M (residue characteristic l) a continuous semisimple r_λ : G_F → GL_n(M̄_λ) such that for v ∉ S with v ∤ l, r_λ is unramified at v and r_λ(Frob_v) has characteristic polynomial Q_v(X), and for v | l, r_λ|_{G_{F_v}} is de Rham, and crystalline if v ∉ S; and for each τ : F ↪ M̄ a multiset H_τ of n integers with HT_τ(r_λ) = H_τ for every M̄ ↪ M̄_λ over M. Rank 1 systems are weakly compatible systems of characters. Over ℚ this is Taylor's 'rank d weakly compatible system' with Hodge numbers {n_1, …, n_d} (Documenta 2006, p. 773), who asks only for crystallinity at l ∉ S and Hodge–Tate numbers at every λ. The rank-2 systems of R24.5/compatible-system (Khare–Wintenberger, Dieulefait–Pacetti) carry Weil–Deligne data r_𝔮 at every prime and are compared with these through R24.5/compatible-system-predicates ('strictly compatible').",
+   "hypotheses": [
+    "RS-12: this node is the common carrier; it contains representations at the coefficient places, not only common traces, and the weak, almost-strict and strict conditions stay separate predicates",
+    "M-rationality of Frobenius polynomials and independence of the Hodge–Tate multisets are part of the data, not theorems"
+   ],
+   "proofSteps": [
+    "Definition; the only verification is that each condition is stable under the choice of M̄ ↪ M̄_λ (conjugation).",
+    "A newform of weight k ≥ 2 gives a rank-2 system with S the primes dividing the level (Deligne; AutomorphicGaloisRepresentations R19.1)."
+   ],
+   "acceptance": [
+    "Frobenius-polynomial recognition (ArithmeticGaloisRepresentations R01.5) identifies each r_λ only up to isomorphism: it gives no canonical basis or lattice (RS-12 uniqueness contract).",
+    "Check that the rank-2 systems of R24.5/compatible-system with Hodge–Tate weights (a, b) are weakly compatible with H_τ = {a, b} and S the ramified primes."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+    "ArithmeticGaloisRepresentations:R01.5",
+    "PadicHodgeTheory:R06.3/weil-deligne-parameter"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "blggt-2014",
+     "locator": "§5.1, definition of a weakly compatible system, p. 51 (arXiv v1; printed page = PDF page)",
+     "match": "The 5-tuple (M, S, {Q_v}, {r_λ}, {H_τ}), displayed above this sentence."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§6, rank d weakly compatible systems over ℚ, p. 773 (PDF page 45)",
+     "match": "Taylor's version over ℚ with Hodge numbers."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates",
+     "how": "the predicates are properties of this carrier."
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems",
+     "how": "the operations act on it."
+    },
+    {
+     "where": "AutomorphicGaloisRepresentations:R19.3",
+     "how": "the eigenform family instance (RS-12)."
+    },
+    {
+     "where": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+     "how": "the higher-rank instances (RS-12)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem",
+     "role": "structure",
+     "statement": "(M, S, Q_v, r_λ, H_τ) with the compatibility conditions."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem.rank",
+     "role": "projection",
+     "statement": "The rank n."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem.charpoly_frob",
+     "role": "characterisation",
+     "statement": "For v ∉ S, v ∤ l: r_λ unramified at v with charpoly r_λ(Frob_v) = Q_v."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem.deRham",
+     "role": "characterisation",
+     "statement": "r_λ|_{G_{F_v}} de Rham for v | l, crystalline for v ∉ S."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem.ofCompatibleSystem",
+     "role": "coercion",
+     "statement": "A rank-2 system of R24.5/compatible-system as a weakly compatible system."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem.ofNewform",
+     "role": "constructor",
+     "statement": "The system of a newform of weight k ≥ 2."
+    }
+   ],
+   "tests": [
+    {
+     "name": "wcs_cyclotomic",
+     "kind": "example",
+     "statement": "The cyclotomic characters ε_l form a rank-1 system over ℚ with S = ∅, Q_p(X) = X − p and H = {−1} (in the convention with HT(ε) = −1)."
+    },
+    {
+     "name": "wcs_newform_delta",
+     "kind": "example",
+     "statement": "Δ gives a rank-2 system over ℚ with S = ∅, Q_p(X) = X² − τ(p)X + p^{11} and H = {0, 11} (up to the sign convention)."
+    },
+    {
+     "name": "wcs_not_just_traces",
+     "kind": "example",
+     "statement": "Two systems with the same Q_v are isomorphic member by member only up to conjugation; the carrier stores the r_λ themselves."
+    },
+    {
+     "name": "wcs_S_enlarge",
+     "kind": "example",
+     "statement": "Enlarging S gives an equivalent system (fewer polynomials, same representations)."
+    }
+   ]
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "Predicates on weakly compatible systems: regular, strictly compatible, pure, self-dual, irreducible, automorphic",
+   "kind": "definition",
+   "statement": "For ℛ = (M, S, {Q_v}, {r_λ}, {H_τ}) of rank n over F: ℛ is regular if every H_τ has distinct elements; extremely regular if moreover some H_τ has no two distinct sub-multisets of equal size and equal sum; (n = 1, F totally real) totally odd if r_λ(c_v) = −1 for all infinite v; (F CM or totally real) (ℛ, ℳ) is essentially conjugate self-dual for a character system ℳ of G_{F⁺} if every (r_λ, μ_λ) is, and ℛ is totally odd essentially conjugate self-dual if such ℳ exists with every (r_λ, μ_λ) totally odd; irreducible if r_λ is irreducible for all λ above a set of rational primes of Dirichlet density 1; strictly compatible if for each finite v there is a Weil–Deligne representation WD_v(ℛ) over M̄ with ς WD_v(ℛ) ≅ WD(r_λ|_{G_{F_v}})^{F-ss} for λ not above the residue characteristic of v; pure of weight w if every root α of Q_v (v ∉ S) has |ια|² = (#k(v))^w and H_{cτ} = {w − h : h ∈ H_τ}; strictly pure if strictly compatible with each WD_v(ℛ) pure of weight w; automorphic if there is a regular algebraic cuspidal π of GL_n(𝔸_F) with rec(π_v|det|_v^{(1−n)/2})(Frob_v) of characteristic polynomial ι(Q_v) for v ∉ S. Over ℚ, Taylor's 'strongly compatible' is 'strictly compatible', and his rank-2 'regular' means distinct Hodge numbers and det ρ_λ(c) = −1.",
+   "hypotheses": [
+    "these are predicates with their own preservation hypotheses (R24.5/linear-algebra-operations-on-systems), not fields of the carrier (RS-12)",
+    "the rank-2 'strict' and 'almost strict' of R24.5/compatible-system are Khare–Wintenberger's local predicates at 𝔮 | ℓ; BLGGT's 'strictly compatible' asks WD_v(ℛ) only at λ ∤ residue characteristic of v; keep all of them separate",
+    "the partial and completed L-functions, ε-factors and Γ-factors of a system (BLGGT pp. 52–53) are not planned here (recorded as remaining)"
+   ],
+   "proofSteps": [
+    "Definitions; independence of choices: det r_λ(c_v) = ±1 is independent of λ, and by purity n odd with v real forces w even (BLGGT p. 53)."
+   ],
+   "acceptance": [
+    "Check that a newform of weight k gives a strictly pure, regular, irreducible (Ribet), automorphic rank-2 system of weight k − 1.",
+    "Check that 'irreducible' is a density-one condition: for rank 2 over ℚ it is equivalent to irreducibility at one λ (R24.5/rank-two-reducibility-independent-of-lambda)."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
+    "PadicHodgeTheory:R06.3/weil-deligne-parameter"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "blggt-2014",
+     "locator": "§5.1, the subsidiary definitions, p. 51 (arXiv v1; printed page = PDF page)",
+     "match": "Regular, extremely regular, totally odd, essentially conjugate self-dual, irreducible."
+    },
+    {
+     "sourceId": "blggt-2014",
+     "locator": "§5.1, strict compatibility and purity, p. 52 (arXiv v1; printed page = PDF page)",
+     "match": "Strictly compatible, pure, strictly pure."
+    },
+    {
+     "sourceId": "blggt-2014",
+     "locator": "§5.1, automorphy, p. 53 (arXiv v1; printed page = PDF page)",
+     "match": "Automorphic systems."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§6, Taylor's remark on motives, p. 773 (PDF page 45)",
+     "match": "Strong compatibility and rank-2 regularity over ℚ."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems",
+     "how": "which predicates each operation preserves."
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.5/rank-two-reducibility-independent-of-lambda",
+     "how": "the notion of an irreducible rank-2 system over ℚ."
+    },
+    {
+     "where": "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity",
+     "how": "the requested carrier with its local predicates."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem.IsRegular",
+     "role": "data",
+     "statement": "Distinct Hodge–Tate numbers for every τ."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem.IsStrictlyCompatible",
+     "role": "data",
+     "statement": "A Weil–Deligne representation WD_v(ℛ) matching every r_λ at v, λ ∤ residue characteristic of v."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem.IsPure",
+     "role": "data",
+     "statement": "Weight-w purity of the Q_v and the symmetry H_{cτ} = w − H_τ."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem.IsEssentiallySelfDual",
+     "role": "data",
+     "statement": "Essential conjugate self-duality with a character system of G_{F⁺}, and its totally odd version."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem.IsIrreducible",
+     "role": "data",
+     "statement": "Irreducible for λ above a density-one set of primes."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem.IsAutomorphic",
+     "role": "data",
+     "statement": "Frobenius polynomials of a regular algebraic cuspidal π."
+    }
+   ],
+   "tests": [
+    {
+     "name": "pred_newform",
+     "kind": "example",
+     "statement": "A newform of weight k ≥ 2 is regular, strictly pure of weight k − 1, irreducible and automorphic."
+    },
+    {
+     "name": "pred_regular_fails",
+     "kind": "example",
+     "statement": "ε ⊕ ε is not regular (H = {−1, −1})."
+    },
+    {
+     "name": "pred_odd_purity",
+     "kind": "example",
+     "statement": "For n odd and v real, purity forces w even (BLGGT p. 53)."
+    },
+    {
+     "name": "pred_strict_vs_almost_strict",
+     "kind": "example",
+     "statement": "An almost strictly compatible rank-2 system (Khare–Wintenberger) need not be strictly compatible in either sense at 𝔮 | ℓ."
+    }
+   ]
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "Linear-algebra operations on weakly compatible systems and what they preserve",
+   "kind": "theorem",
+   "statement": "Direct sums, tensor products, duals, symmetric and exterior powers, restriction and induction of weakly compatible systems are weakly compatible, by applying the operation to each r_λ: for example ℛ^∨ = (M, S, {X^nQ_v(0)^{−1}Q_v(X^{−1})}, {r_λ^∨}, {−H_τ}); for F′/F finite, ℛ|_{G_{F′}} has S^{(F′)} the primes above S, H^{(F′)}_τ = H_{τ|_F} and Q^{(F′)}_v with roots α^{[k(v):k(v|_F)]} for α the roots of Q_{v|_F}. Preservation: strict compatibility and (strict) purity are preserved by all of these (weights add under ⊗, change sign under duality, scale under Sym^k and ∧^k); regularity is preserved by duality and restriction but not in general by ⊗, Sym^k or induction (Hodge–Tate multisets can collide); irreducibility is preserved by duality but not by restriction; automorphy is preserved by duality and restriction to solvable extensions, and by the other operations only under the corresponding functoriality (not assumed).",
+   "hypotheses": [
+    "weak compatibility of each operation uses only that de Rham, crystalline and Hodge–Tate data are preserved by the corresponding operations on representations (PadicHodgeTheory R06.3) and that characteristic polynomials of ⊗, ∨, Sym, ∧ and induced representations are determined by those of the factors",
+    "extends R24.5/system-operations (twists, restriction, induction at rank n) by the linear-algebra operations; automorphy statements are recorded only where a source theorem supplies them"
+   ],
+   "proofSteps": [
+    "Apply the operation member by member; compute Frobenius polynomials from Q_v (resultant-type formulas for ⊗, Sym, ∧; X^nQ_v(0)^{−1}Q_v(X^{−1}) for the dual; roots raised to the residue degree for restriction).",
+    "Strict compatibility: Weil–Deligne representations commute with each operation, and Frobenius-semisimplification with ⊗.",
+    "Counterexamples to preservation: (1 ⊕ ε) ⊗ (1 ⊕ ε^{−1}) contains 1 ⊕ 1 and is not regular although both factors are; restriction of an irreducible system induced from K to G_K is reducible."
+   ],
+   "acceptance": [
+    "Check the dual's Frobenius polynomial in rank 2: X² − aX + b ↦ X² − (a/b)X + 1/b.",
+    "Check that H_τ(Sym² ℛ) = {2h₁, h₁ + h₂, 2h₂} and that regularity can fail for Sym² when h₁ + h₂ collides — it cannot for rank 2 with h₁ ≠ h₂."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates",
+    "PotentialModularityAndCompatibleSystems:R24.5/system-operations",
+    "PadicHodgeTheory:R06.3/weil-deligne-parameter",
+    "ArithmeticGaloisRepresentations:R01.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "blggt-2014",
+     "locator": "§5.1, operations, p. 51 (arXiv v1; printed page = PDF page)",
+     "match": "Operations member by member, with the dual as the example."
+    },
+    {
+     "sourceId": "blggt-2014",
+     "locator": "§5.1, restriction, p. 53 (arXiv v1; printed page = PDF page)",
+     "match": "ℛ|_{G_{F′}} with S^{(F′)}, H^{(F′)}_τ and Q^{(F′)}_v (continued on p. 54)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/rank-two-reducibility-independent-of-lambda",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "Reducibility of rank-2 systems over ℚ does not depend on λ, and the component group of a system",
+   "kind": "theorem",
+   "statement": "(Taylor 2006, Lemma 6.5.) If ℛ/ℚ is a rank-2 weakly compatible system and ρ_λ is absolutely reducible for one λ, then ρ_λ is absolutely reducible for all λ; ℛ is called reducible if so, irreducible otherwise. (BLGGT Lemma 5.2.1.) For any weakly compatible system ℛ of G_F, with G_λ the Zariski closure of r_λ(G_F) and G_λ⁰ its identity component, there is a finite Galois F¹/F such that for all λ the map G_F → G_λ(M̄_λ) induces Gal(F¹/F) ≅ G_λ/G_λ⁰.",
+   "hypotheses": [
+    "Lemma 6.5 is 'an easy consequence of the characterisation of one-dimensional Hodge–Tate representations of G_ℚ' (they are finite-order characters times powers of the cyclotomic character), so the constituents of a reducible member form rank-1 systems whose Frobenius polynomials are then shared by every member",
+    "Lemma 5.2.1 is Serre's argument as in Larsen–Pink, Proposition 6.14, not read here (a gap)"
+   ],
+   "proofSteps": [
+    "Lemma 6.5: a reducible ρ_λ has Hodge–Tate characters ψ ε^a, ψ′ ε^b with ψ, ψ′ of finite order, so Q_p(X) = (X − ψ(p)p^a)(X − ψ′(p)p^b) for almost all p, and every ρ_{λ′} with these Frobenius polynomials is reducible by Brauer–Nesbitt and Chebotarev.",
+    "Lemma 5.2.1: replace 𝒢, ρ_l, G_l⁰, ℚ_l, ℚ by G_F, r_λ, G_λ⁰, M̄_λ, M in Larsen–Pink §6."
+   ],
+   "acceptance": [
+    "Check Lemma 6.5 on the system of a CM newform: irreducible at every λ, although it becomes reducible on restriction to the CM field."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates",
+    "ArithmeticGaloisRepresentations:R01.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§6, before Lemma 6.5, p. 773 (PDF page 45)",
+     "match": "The proof indication for Lemma 6.5."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§6, after Lemma 6.5, p. 774 (PDF page 46)",
+     "match": "Reducible and irreducible rank-2 systems."
+    },
+    {
+     "sourceId": "blggt-2014",
+     "locator": "§5.2, Lemma 5.2.1, p. 54 (arXiv v1; printed page = PDF page)",
+     "match": "Lemma 5.2.1 and its proof by reference."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -1498,9 +1851,10 @@
    "stageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
    "status": "partial",
    "remaining": [
-    "Rank-n and polarised systems with tensor products, duals and symmetric and exterior powers (RS-12 is not yet accepted; the operations layer is planned only as far as rank 2 needs)."
+    "The L-functions, ε-factors and Γ-factors of a system (BLGGT §5.1, pp. 52–53) and BLGGT Proposition 5.2.2 and §§5.3–5.4 (irreducibility of residual members, big image) are not planned here.",
+    "Larsen–Pink Proposition 6.14 behind BLGGT Lemma 5.2.1 (gap)."
    ],
-   "notes": "The definition of compatible systems with the strict, almost strict and plain predicates kept separate, and twisting, restriction and induction."
+   "notes": "The definition of compatible systems with the strict, almost strict and plain predicates kept separate, and twisting, restriction and induction. Checkpoint 3 (RS-12 accepted: 'early R24.5:operations owns the carrier and generic operations') adds the rank-n carrier (BLGGT §5.1, Taylor 2006 §6), the predicates (regular, strictly compatible, pure, essentially conjugate self-dual, irreducible, automorphic) kept separate from Khare–Wintenberger's local predicates, the linear-algebra operations with a preservation table, and Taylor's Lemma 6.5 with BLGGT Lemma 5.2.1."
   },
   {
    "stageId": "PotentialModularityAndCompatibleSystems:R24.6",
@@ -1524,6 +1878,13 @@
     "PotentialModularityAndCompatibleSystems:R24.3/modern-prescribed-type-lifts"
    ],
    "detail": "Verified: Dieulefait–Pacetti's statements of Theorems 1.9(4) and 1.11 and their attributions; Snowden's Theorems 7.2.1 and 7.6.1 (read). Not verified: Dieulefait, Crelle 577 (2004), Theorem 1.1, and Gee, Math. Ann. 350 (2011). The nodes give KW II's and Snowden's arguments, which suffice."
+  },
+  {
+   "title": "BLGGT Lemma 5.2.1 rests on Larsen–Pink, Proposition 6.14 (Serre's argument), not read",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.5/rank-two-reducibility-independent-of-lambda"
+   ],
+   "detail": "Verified: BLGGT p. 54 prove Lemma 5.2.1 by 'the same as the proof of Proposition 6.14 of [LP92]' (Larsen–Pink, Invent. Math. 107 (1992)), with the listed substitutions. The Larsen–Pink paper was not read."
   }
  ],
  "sourceIssues": [
@@ -1550,6 +1911,20 @@
    "citation": "Khare–Wintenberger, Serre's modularity conjecture (II), author's preprint of Invent. Math. 178 (2009) 505–586",
    "read": "2026-09-29",
    "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1010.2561v1",
+   "citation": "Barnet-Lamb, Gee, Geraghty, Taylor, Potential automorphy and change of weight, arXiv:1010.2561v1 (Ann. of Math. 179 (2014))",
+   "read": "2026-09-29",
+   "sha256": "697e2d318887d8eb940b914101bbcebcde9aaffb296ad95db45b328408df5fe6"
+  },
+  {
+   "kind": "published",
+   "url": "https://ems.press/content/book-chapter-files/27484",
+   "citation": "Taylor, On the meromorphic continuation of degree two L-functions, Doc. Math. Extra Vol. Coates (2006), 729–779",
+   "read": "2026-09-29",
+   "sha256": "6ec26bfc12e1cf38d410b36c18f985e2fb26c1cb1bb03d6e5197ccf58f92c51c"
   }
  ]
 }
