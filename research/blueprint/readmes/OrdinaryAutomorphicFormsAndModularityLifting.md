@@ -1,6 +1,6 @@
 # Ordinary automorphic forms and ordinary modularity lifting — blueprint
 
-This blueprint covers stages R21.1–R21.6. After six checkpoints, **R21.2 is source-decomposed**; R21.1, R21.3, R21.4,
+This blueprint covers stages R21.1–R21.6. After seven checkpoints, **R21.2 is source-decomposed**; R21.1, R21.3, R21.4,
 R21.5 and R21.6 are partial. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
 - R21.1 only applies the ordinary projector to actual arithmetic modules;
 - R21.2 keeps the nearly ordinary and Eisenstein statements that Skinner–Wiles need beyond cuspidal Hida theory;
@@ -16,6 +16,11 @@ Checkpoint 6 adds three sources:
   Math. Ann. 329 (2004)), for the crystalline-to-ordinary criterion;
 - Dieulefait–Pacetti (arXiv:2108.07577v2), for the p = 3 branch;
 - Khare (arXiv:math/0504080v1), for how the level-one argument uses Skinner–Wiles.
+
+Checkpoint 7 adds C. M. Skinner and A. J. Wiles, *Nearly ordinary deformations of irreducible residual
+representations*, Ann. Fac. Sci. Toulouse Math. (6) 10 (2001), 185–215 (Numdam open access, read in full on the page
+images). It is the residually irreducible companion of the 1999 paper. No stage owned it before; it is now planned
+across R21.3–R21.5, next to the 1999 argument it adapts.
 
 ## Purpose
 
@@ -66,7 +71,12 @@ Neither Mathlib nor Tau Ceti has definite quaternionic forms, Hilbert modular fo
     Lemma 2.2, Corollary 2.3);
   - **GlobalGaloisDeformations R04.3 (R21.3):** Mazur's unframed presentation for a Schur residual representation;
   - **ArithmeticGaloisDuality R02.3 (R21.3):** the global Euler characteristic formula;
-  - **DeformationAndDerivedPatchingAlgebra R03.2 (R21.3):** Schlessinger's criteria.
+  - **DeformationAndDerivedPatchingAlgebra R03.2 (R21.3):** Schlessinger's criteria;
+  - **LocalGaloisDeformationRings L8 (checkpoint 7):** the nearly ordinary ring of a nonsplit ρ₀|_{D_v} with distinct
+    characters;
+  - **SerreWeightAndLevelOptimisation R20.6 (checkpoint 7):** Diamond's Theorem 6.4 (The refined conjecture of Serre),
+    a χ₂-good nearly ordinary lift of a modular p-distinguished ρ̄ over ℚ.
+- **GlobalGaloisDeformations R04.2 (checkpoint 7):** Carayol's trace theorem (`carayol-trace-theorem`).
 
 ## Conventions
 
@@ -383,6 +393,58 @@ twist multiplies T_0(𝔭_i) by Ψ_P(λ_{𝔭_i}); the source prints the inverse
 - Reducible primes with finite-order determinant have dimension ≤ δ_F + dim H_Σ.
 - Diagonal deformations have dimension ≤ 1 + 2δ_F, or ≤ δ_F with finite-order determinant.
 
+### Checkpoint 7: deformations and Hecke rings for irreducible ρ₀ (Skinner–Wiles 2001, §§2–3)
+
+Library modules: `TauCeti/NumberTheory/OrdinaryModularity/IrreducibleDeformations` and `…/IrreducibleHecke`.
+
+**Definition: deformation data for irreducible ρ₀** (node `irreducible-deformation-datum`).
+- *Residual conditions (2.1):* ρ₀ absolutely irreducible and odd; ρ₀|_{D_i} ≅ (χ^{(i)}_1 *; 0 χ^{(i)}_2) with
+  χ^{(i)}_1 ≠ χ^{(i)}_2, possibly nonsplit; ρ₀|_{D_v} ≅ (1 *; 0 ω^{−1}) at ramified v ∤ p.
+- *Data:* 𝒟 = (𝒪, Σ, ℳ). A lift of type 𝒟 is nearly ordinary with the χ^{(i)}_1-line as sub, and unipotent on I_w for
+  w ∈ ℳ. The universal ring is R_𝒟, and R_{𝒟_Q} ≅ R^min_{𝒟_Q} ⊗ 𝒪[N_Σ] (2.2) as in 1999.
+- *API:* `IrreducibleResidual`, `IrreducibleDatum`, `IsOfIrreducibleType`, `irreducibleUniversalRing` with its universal
+  property and the minimal twist.
+- *Tests:*
+  - ρ₀ is of type 𝒟;
+  - a lift with the labels exchanged is not of type 𝒟;
+  - shrinking (Σ, ℳ) gives a surjection;
+  - dihedral ρ₀ are allowed.
+
+**Theorem: the presentation** (node `irreducible-presentation-bound`). This is Proposition 2.1:
+R_𝒟 ≅ 𝒪[[x_1, …, x_g]]/(f_1, …, f_r) with g − r ≥ d + δ_F − 2t − 3#ℳ. The proof is the 1999 one; the only new input is
+the nearly ordinary ring of a nonsplit ρ₀|_{D_i}, requested from LocalGaloisDeformationRings L8.
+
+**Lemma: dihedral deformations** (node `dihedral-deformation-dimension`). This covers (2.3)–(2.4), the universal dihedral
+deformation Ind Ψ_Σ, and Lemma 2.2 with a correction. A dihedral prime q ∋ p with finite-order determinant has
+dim R_𝒟/q ≤ δ⁻_{F′}.
+- If F′ is totally real, δ⁻_{F′} ≤ d/2 (Waldschmidt, a gap).
+- If F′ is CM, δ⁻_{F′} = d. The printed bound d/2 then fails when the places above p split in F′ (source issue E11).
+
+**Lemma: trace generation** (node `irreducible-trace-generation`). This is Lemma 2.3: R_{𝒟_Q} is generated over Λ_𝒪 by
+the traces of Frobenius (Carayol, GlobalGaloisDeformations R04.2).
+
+**Construction: the Galois representation over T_∞(U, 𝒪)_m** (node `integral-hecke-galois-representation`).
+- If ρ_m is irreducible, ρ_{U,m} takes values in GL₂(T_∞(U, 𝒪)_m), which is then a Λ_𝒪-algebra.
+- Lemma 3.3: T(ℓ)-generation, and freeness of M_∞(U)_m for small U.
+- This assumes (H_even).
+
+**Construction: permissible levels and Hecke rings** (node `irreducible-permissible-hecke-rings`).
+- A permissible m has ρ_m ≅ ρ₀ and T_0(𝔭_i) ≡ χ^{(i)}_2(λ_{𝔭_i}), and it is unique.
+- The levels U_{𝒟_Q} have four local shapes.
+- (H_def) is assumed.
+- The ring T_{𝒟_Q} carries ρ^mod_{𝒟_Q}, with modules M_{𝒟_Q}, M⁺_{𝒟_Q} and the quotient T^min_{𝒟_Q}.
+
+**Theorem: R_{𝒟_Q} ↠ T_{𝒟_Q}** (node `irreducible-hecke-surjection`). This is Proposition 3.4. The proof checks the type
+at each minimal prime:
+- the determinant is unramified at Q, by Proposition 3.2 and local–global compatibility;
+- the ordinary shape at v_i follows from (3.2)(vi);
+- at w ∈ ℳ, the lift is unipotent by the Type A argument and a lattice argument.
+
+Trace generation then gives surjectivity.
+
+**Lemma 3.5** (node `irreducible-minimal-hecke-quotient`). T_{𝒟_Q} ≅ T^min_{𝒟_Q} ⊗ 𝒪[N_Σ]; T^min is finite, reduced and
+torsion-free over Λ_𝒪; and trace ρ(σ_w) acts on M_{𝒟_Q} as δ_w + δ_w^{−1}.
+
 ## Layer R21.4: pro-modularity and R = T (partial)
 
 Library module: `TauCeti/NumberTheory/OrdinaryModularity/ProModularity`. The source is Skinner–Wiles §§4.1–4.3 and
@@ -474,6 +536,31 @@ ordinary of type 𝒟, with det ρ = ψε^μ, μ ≥ 1. If ρ admits a solvable,
 - Wiles' ρ_π;
 - solvable base change (requested from GL2AutomorphicRepresentationsAndTransfer R17.4).
 
+### Checkpoint 7: pro-modularity and R = T for irreducible ρ₀ (Skinner–Wiles 2001, §§4, 6–8)
+
+Library module: `TauCeti/NumberTheory/OrdinaryModularity/IrreducibleRT`.
+
+**Definition: good pairs, nice primes, (P)** (node `irreducible-good-pair-and-nice-primes`). (F, ρ₀) is good if
+d/2 > 2 + 2t + 7#ℳ₀, d_i > 2 + 2t + 7#ℳ₀, and (H_even) and (H_def) hold. Nice primes are defined by (4.2). Property (P):
+every prime below a nice prime is pro-modular. One property replaces the 1999 pair (P1), (P2).
+
+**Theorem: pro-modularity** (node `irreducible-pro-modularity`). This is Proposition 4.1, with two hypotheses its proof
+needs and its statement omits:
+- (a) d/2 > 2 + 2t + 7#(Σ ∖ 𝒫), a bound on Σ (source issue E14);
+- (b) the dihedral locus has dimension at most d/2 (source issue E11).
+
+The three-step proof follows the 1999 one through Corollary A.2. The Lean file checks each inequality, and that (4.1)
+alone does not give the general step.
+
+**Theorem: Selmer groups and auxiliary primes** (node `irreducible-selmer-auxiliary-primes`). This is Lemma 7.1 and
+Proposition 7.2, proved exactly as the 1999 Lemma 6.3 and Proposition 6.10, with the unipotent local condition at
+ramified w ∤ p.
+
+**Theorem: R = T at nice primes** (node `irreducible-nice-prime-r-equals-t`). This is Propositions 8.1–8.2. The rings
+R^{(N)}_a and modules M^{(N)}_a are built from the sets Q_N. They satisfy (6.2)–(6.8), and Proposition 6.1 (the 1999
+patching theorem with R^{tr} = R) gives the complete intersection and freeness. The congruences of 1999 §3.8 give every 𝒟
+and property (P).
+
 ## Layer R21.5: Skinner–Wiles' theorems (partial)
 
 Library module: `TauCeti/NumberTheory/OrdinaryModularity/SkinnerWiles`.
@@ -539,11 +626,33 @@ introduction:
 - *Conclusion:* ρ is modular of weight k.
 - It is Theorem A with F = ℚ; both abelian hypotheses are automatic there.
 - Khare quotes it for the residually reducible degenerate branches. His residually irreducible degenerate branch uses
-  Skinner–Wiles 2001, which no stage owns (a gap).
+  Skinner–Wiles 2001, planned in checkpoint 7 below.
 
 **Theorem: the p = 3 branch** (node `theorem-a-at-three`). This is Dieulefait–Pacetti's Theorem 1.7: ρ̄^{ss} ≅ 1 ⊕ χ̄₃,
 ordinary at 3. Hypothesis (i) is automatic because χ̄₃ is ramified at 3 (source issue E9). Pan's theorem (p ≥ 5) does not
 cover this case.
+
+### Checkpoint 7: Skinner–Wiles 2001, Theorems 5.1 and 5.2
+
+**Theorem: lifting for irreducible residual representations** (node `nearly-ordinary-irreducible-lifting`; planet
+"Skinner–Wiles lifting theorem (irreducible residual)"). This is Theorem 5.1 over totally real F.
+- *Hypotheses:* ρ satisfies (5.1): irreducible, odd, finitely ramified, det ρ = ψε^μ, nearly ordinary at every v | p. Also
+  (i) ρ̄^{ss} is irreducible and D_i-distinguished, and (ii) there is a nearly ordinary π₀ with ρ_{π₀} a χ₂-good lift.
+- *Conclusion:* ρ ≅ ρ_π.
+- *Proof:* base change to L by Skinner–Wiles' Duke paper (a gap), make (L, ρ₀) good, then apply Propositions 4.1 and
+  8.2, Hida's Proposition 3.2 and solvable descent.
+- *Extra hypothesis:* (iii) ρ̄^{ss} is not induced from a quadratic extension with a complex place. The printed proof
+  does not cover that case (E11).
+- It serves GL2ModularityLifting R22.1 and PotentialModularityAndCompatibleSystems R23.3.
+
+**Theorem: over ℚ** (node `nearly-ordinary-irreducible-lifting-over-q`; planet "Skinner–Wiles over ℚ (irreducible
+residual)"). This is Theorem 5.2 and the theorem of the introduction:
+- *Hypotheses:* ρ̄^{ss} irreducible and modular, (χ_1/χ_2)|_{D_p} ≠ 1, ρ|_{I_p} ≅ (∗ ∗; 0 1), det ρ = ψε^{k−1} odd.
+- *Conclusion:* ρ is modular.
+- It covers ρ̄^{ss} reducible over ℚ(ζ_p), the cases Wiles and Diamond exclude.
+- Hypothesis (ii) of Theorem 5.1 comes from Diamond's Theorem 6.4, requested from SerreWeightAndLevelOptimisation R20.6.
+- With E11, it excludes ρ̄^{ss} induced from an imaginary quadratic field. Khare's branch with p ≡ 3 mod 4 (ρ̄ induced
+  from ℚ(√−p)) needs E11 resolved.
 
 ## Layer R21.6: ordinary-family outputs and independence (partial)
 
@@ -556,6 +665,8 @@ with its level").
 - In particular a ρ unramified outside p and crystalline at p gives f ∈ S_k(SL₂(ℤ)), the witness R25.5 needs.
 - *Consumers:* ClassicalSerreModularity R26, R27.1 and R33.1, GL2ModularityLifting R32.1 and R32.5,
   PotentialModularityAndCompatibleSystems R23.4, and SmallRamificationAndAbelianVarietyBaseCases R25.5.
+- Since checkpoint 7 the export also covers the residually irreducible theorem
+  (`nearly-ordinary-irreducible-lifting-over-q`).
 
 **Comparison: independence from Serre's conjecture** (node `independence-from-serre`). The prerequisite closure of
 Theorem A contains no node of ClassicalSerreModularity and no residually irreducible modularity assertion. Residual
@@ -595,6 +706,32 @@ defined in the paper.
 
 No erratum was found on Numdam or in the Crossref record of doi:10.1007/BF02698855.
 
+**E11 (gap, reaches a stated result): Skinner–Wiles 2001, before Lemma 2.2, p. 191.** "By [Wal] we know that
+δ⁻_{F′} ≤ d/2" holds for F′ totally real, where the minus part of the units has rank d. It fails for F′ CM:
+- The minus part of the units is then finite, and the minus local units above p have rank d, so δ⁻_{F′} = d.
+- If every v | p splits in F′ and ℳ = ∅, the anticyclotomic deformation Ind(ψ̃₀ψ⁻) is of type 𝒟 and has finite-order
+  determinant. Its dihedral locus has dimension d, so Lemma 2.2's d/2 is false.
+- The proof of Proposition 4.1 uses the d/2 bound three times: step one and step three on p. 200, and the general step
+  on p. 202.
+
+The plan assumes the bound as hypothesis (b) of Proposition 4.1 and (iii) of Theorem 5.1. Whether Theorems 5.1–5.2 fail
+in these cases was not examined.
+
+**E12 (misprint, reaches nothing): p. 191.** [Wal] is not in the bibliography (pp. 214–215). It is the [Wal] of
+Skinner–Wiles 1999, Waldschmidt.
+
+**E13 (misprint, reaches nothing): p. 200.** "#ℳ_c" and "ρ_{𝒟_c}" should read #ℳ₀ and ρ_{𝒟₀}. These are 1999 notation.
+
+**E14 (gap, reaches the proof): Proposition 4.1, p. 202.** "the dimension of Q₂ is at least d − 7·#Σ − 1. It follows
+from this and from (4.1) that the dimension of Q₂ is at least d/2 + 1." But (4.1) bounds only #ℳ₀.
+- For example, d = 40, t = 1 and ℳ₀ = ∅ satisfy (4.1), while #Σ = 4 gives 11 < 21.
+- The step needs d/2 > 2 + 2t + 7#(Σ ∖ 𝒫).
+- Theorem 5.1 imposes d_L/2 > 2 + 7#Σ_L, so it is unaffected.
+
+**E15 (misprint, reaches nothing): p. 202.** "As ρ satisfies (4.1i,ii)" should read (5.1i,ii).
+
+No erratum to Skinner–Wiles 2001 was found on its Numdam page or by a web search.
+
 ## Remaining work
 
 - **R21.1 is partial.** Still to do:
@@ -605,10 +742,11 @@ No erratum was found on Numdam or in the Crossref record of doi:10.1007/BF026988
 - **R21.3 is partial.** The L8 determinant-versus-flag comparison is now planned in LocalGaloisDeformationRings L8, and
   is recorded here only when a consumer needs it.
 - **R21.4 is partial.** Only the Raynaud gap remains. The verification of (5.10)–(5.11) and §8.3's commutative algebra
-  are summarised inside the proof steps.
+  are summarised inside the proof steps, as are Skinner–Wiles 2001's references to the 1999 §7.
 - **R21.5 is partial.** Still to do:
   - Washington's and Waldschmidt's theorems (gaps);
-  - Skinner–Wiles 2001, used by Khare for the residually irreducible degenerate branch (a gap: no stage owns it).
+  - Skinner–Wiles 2001 for a dihedral ρ̄^{ss} induced from a quadratic extension with a complex place (E11);
+  - Skinner–Wiles, *Base change and a problem of Serre* (Duke Math. J. 107 (2001)), a gap.
 - **R21.6 is partial.** It still needs the classical ordinary (Hida) family over ℚ for later p-adic L-function work,
   together with R21.1's modular-curve remainder (Hida 1986).
 
@@ -620,3 +758,5 @@ No erratum was found on Numdam or in the Crossref record of doi:10.1007/BF026988
   Ann. 329 (2004), 365–377 (arXiv:math/0310275v1).
 - L. V. Dieulefait and A. M. Pacetti, *A simplified proof of Serre's conjecture*, arXiv:2108.07577v2 (2022).
 - C. Khare, *Serre's modularity conjecture: the level one case*, Duke Math. J. 134 (2006) (arXiv:math/0504080v1).
+- C. M. Skinner and A. J. Wiles, *Nearly ordinary deformations of irreducible residual representations*, Ann. Fac. Sci.
+  Toulouse Math. (6) 10 (2001), 185–215 (Numdam open access).
