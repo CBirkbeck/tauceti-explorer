@@ -4,7 +4,7 @@ Christophe Breuil, Brian Conrad, Fred Diamond and Richard Taylor, J. Amer. Math.
 
 Extraction by Claude Code, session `cc-fb70e5`, 29 September 2026 (issue #4510). Status: **complete**. `check_paper.py` passes.
 
-The extraction has 124 items: 17 planned and 107 missing; the pinned libraries have none of them. Every missing item is routed once, along eight routes (one Part II and seven source routes).
+The extraction has 126 items: 12 planned and 114 missing; the pinned libraries have none of them. Every missing item is routed once, along nine routes (two Part II and seven source routes). These counts include the independent review's corrections (last section).
 
 ## What the paper proves
 
@@ -67,8 +67,9 @@ The pinned declaration index (Mathlib 082e2d3, Tau Ceti f790474) has nothing on 
    - §5: Breuil modules killed by ℓ, the monodromy operator, rank-one and rank-two classification, syntomic construction, base change, descent data, Lemma 5.7.1.
 5. **Source: LocalGaloisDeformationRings R08.3, R08.6.** ℓ-types, the type quotients R^D, (weak) acceptability, Conjecture 1.1.1, and the functors D^S with tangent spaces H¹_S.
 6. **Source: GL2ModularityLifting R22.5.** Theorems 1.4.1–1.4.2 (lifting for arbitrary (extended) types under admittance and weak acceptability) and the [CDT] corrigenda of §10.
-7. **Source: GL2AutomorphicRepresentationsAndTransfer R16.3.** σ_τ and Lemma 1.2.1.
-8. **Source: PadicLocalLanglandsForGL2Qp R30.5.** Admittance, the mod-ℓ representations of GL₂(Z_ℓ), U₀(ℓ) and its normaliser, and Conjecture 1.3.1.
+7. **Part II: SmoothRepresentationsPartII** (coalescing with the accepted Part II of Smooth representations of local groups). σ_τ, σ_{τ′} and Lemma 1.2.1. The extraction routed them to GL2AutomorphicRepresentationsAndTransfer R16.3; the review moved them to the accepted owner of types.
+8. **Source: PadicLocalLanglandsForGL2Qp R30.2, R30.5.** Admittance, the mod-ℓ representations of GL₂(Z_ℓ), U₀(ℓ) and its normaliser, and Conjecture 1.3.1.
+9. **Source: InverseGaloisAndArithmeticFundamentalGroups IG.2.** Ekedahl's effective Hilbert irreducibility theorem, used in the proof of Theorem 2.2.1 (added by the review).
 
 ## Prerequisites not covered by the atlas
 
@@ -91,7 +92,7 @@ Khare–Wintenberger I and II are already in the paper list.
 
 ## Source issues
 
-Eight misprints, each checked on the page image. None affects a result, and all are new: Crossref has no update for the DOI, and the AMS page lists no erratum.
+Twelve misprints, each checked on the page image (E1–E8 found by the extraction, E9–E12 by the independent review). None affects a result, and all are new: Crossref has no update for the DOI, and the AMS page lists no erratum.
 
 | id | where | slip |
 | --- | --- | --- |
@@ -103,6 +104,10 @@ Eight misprints, each checked on the page image. None affects a result, and all 
 | E6 | §7.4, p.910 | second γ̂₃(e′_ω) formula is the one for γ̂₃(e′₁) |
 | E7 | §5.2, p.888 | G(k′; r, a; s, b; f) := G_π(M(k′; r, a; s, b; f)), parameters in the wrong order |
 | E8 | References, p.939 | Tate and Tunnell both labelled [T] |
+| E9 | §6.4, p.902 | uniformiser π = α/β for (α − 1)/β (α³ = 4 is a unit) |
+| E10 | §7.4, p.910 | γ̂₃(e₁) printed with g_{γ₃}e′_ω for g_{γ₃}e_ω |
+| E11 | Proof of Lemma 7.2.6, p.908 | evaluated on ue′ + (b + b′u)e, copied from Lemma 7.2.5, for u²e′ + (b + b′u)ue |
+| E12 | Theorem 4.6.3, p.878 | ρ mod (T²) for ρ_N mod (T²) |
 
 **Corrigenda to [CDT].** §10 of this paper records the authors' corrigenda to [CDT]. They are errata to another paper, so they are recorded in item `cdt-corrigenda` and in the errata log rather than as source issues of this paper. The significant ones are:
 - the false semisimplicity claim on p.532;
@@ -116,3 +121,25 @@ Eight misprints, each checked on the page image. None affects a result, and all 
 - Statements were checked against the text of the published PDF.
 - Planned statuses cite the stage texts of data/atlas.json on origin/main, 29 September 2026.
 - Library searches used the pinned declaration index.
+
+## Corrections by the independent review
+
+REV-PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01 (Claude Code, session `cc-f805bf`, 29 September 2026) made these changes:
+
+- A `review` verdict on each of E1–E8; all are confirmed on the page images of the published PDF (SHA-256 `1e34130e…4cf2`, the recorded hash).
+- New misprints E9–E12, each confirmed on the page image:
+  - E9: in §6.4 the uniformiser π = α/β has negative valuation; (α − 1)/β is meant.
+  - E10: in §7.4, γ̂₃(e₁) is printed with e′_ω for e_ω.
+  - E11: the proof of Lemma 7.2.6 evaluates on ue′ + (b + b′u)e for u²e′ + (b + b′u)ue.
+  - E12: in Theorem 4.6.3, ρ is printed for ρ_N.
+- Item `local-field-F-3` now uses π = (α − 1)/β. Item `descent-data-group-schemes` now states the cocycle condition as printed: [gh] = (^g[h])∘[g].
+- Statuses changed from planned to missing:
+  - `breuil-modules`, `thm-5-1-3` and `thm-5-6-1`: R07.4 plans Breuil–Kisin modules, not Breuil's S-modules. They stay in route 4.
+  - `mod-l-reps-compact`: R07.5 is Galois-side. Route 8 now also names R30.2.
+  - `conj-1-3-1`: R30.5 plans Paškūnas's multiplicity statements, not this conjecture.
+- Two cited theorems the proofs rest on are added as missing items:
+  - `tate-p-divisible` ([T, Thm. 4]), routed with route 4 to R07.1;
+  - `ekedahl-hilbert-irreducibility` ([E, Thm. 1.3]), on a new route 9 to InverseGaloisAndArithmeticFundamentalGroups IG.2.
+- Route 7 (σ_τ and Lemma 1.2.1) changed from a source route to GL2AutomorphicRepresentationsAndTransfer R16.3 into a Part II route coalescing with SmoothRepresentationsPartII. That accepted Part II owns types, and its GL₂ types layer comes from PAPER-NEWTON-THORNE-21-B route 3.
+- Route 1's brief now separates the I₃-condition of Theorems 2.1.2 and 2.1.4 from the G₃-condition of Theorem 2.1.6. Its imports now name route 7's owner, R07.1 (Tate), IG.2 (Ekedahl) and Tau Ceti ClassFieldTheory layer 5 (local Tate duality).
+- Notes on `three-case-strategy`, `lem-4-7-1`, `conclusion-7-4`, `lem-7-2-6` and `thm-4-6-3`, and the summary's route and misprint counts, are updated to match.
