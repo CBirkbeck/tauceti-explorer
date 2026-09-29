@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all 346 predecessor nodes whole. Four L2 nodes compare actual prime-power moments with complex special values through a common coefficient field, reindex positive weights, remove an explicitly nonzero smoothing factor and establish independence of eligible smoothing quotients. All 16 source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
+  "summary": "Partial continuation preserving all 350 predecessor nodes whole. Five L2 nodes construct the actual arithmetic character on units, prove positive-weight nontriviality, identify the intrinsic numerator’s character value with a shifted ordinary moment, evaluate the two-Dirac denominator and compare the resulting algebraic value with the complex L-function. All 16 findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2884,6 +2884,20 @@
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Complex.lean",
         "provides": "A complex power with natural exponent agrees with ordinary natural exponentiation.",
         "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 29 September 2026. The complete native Mellin and power probes elaborate without placeholders."
+      },
+      {
+        "ref": "mathlib:one_lt_pow₀",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Order/GroupWithZero/Basic.lean",
+        "provides": "A power with nonzero natural exponent of an element greater than one is greater than one under the stated ordered-monoid hypotheses; used on natural numbers before injective casting.",
+        "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 29 September 2026; positive-weight native probe compiles without placeholders."
+      },
+      {
+        "ref": "mathlib:ZMod.natCast_self",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "The natural modulus maps to zero in its own residue ring, including modulus zero.",
+        "checked": "Complete native statement read at the same pinned Mathlib commit on 29 September 2026; the principal-unit residue probe compiles without placeholders."
       }
     ]
   },
@@ -23188,6 +23202,402 @@
       "acceptance": [
         "Independence is proved for eligible evaluated quotients. Generic measure-algebra denominator regularity and character evaluation of the existing pseudomeasure remain separate interfaces."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/prime-power-arithmetic-character",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Arithmetic characters on p-adic units",
+      "kind": "construction",
+      "statement": "Construct κ_n,χ,w:ContinuousMonoidHom U R with κ(u)=χ(red_n(u))x_R(u)^w.",
+      "hypotheses": [
+        "p is any prime, Z=Z_p and U=Zˣ with their existing topology. R is a normed commutative Z-algebra with bounded scalar action; this gives the continuous scalar action needed for the algebra map. χ is the native DirichletCharacter R (p^n), with n≥0, and w≥0 is a natural weight.",
+        "Write c=primePowerCharacter(p,n,χ), the existing continuous lift on Z, and x_R(z)=algebraMap_(Z→R)(z). Define κ_n,χ,w on U by κ(u)=c(u)x_R(u)^w. The object is a native ContinuousMonoidHom U R. No primitivity, nonprincipal-character assumption, ultrametric field, complete coefficient ring or new character carrier is required for this constructor."
+      ],
+      "proofSteps": [
+        "Restrict the existing primePowerCharacter to U along the continuous Units.val map. Multiply it pointwise by the w-th power of the coefficient-algebra image of Units.val.",
+        "Use the existing lift’s value at 1 and multiplicativity, together with the native algebra-map laws, to prove the two monoid-homomorphism axioms. Continuity follows from continuity of the lift, Units.val and algebraMap, followed by finite multiplication and powers. A complete native constructor checks precisely this assembly from a given continuous multiplicative lift.",
+        "At a unit u represented by a natural a, the existing natural-value API and preservation of natural casts give κ(u)=χ(a)a^w. At −1 use the native reduction ring homomorphism and algebra-map negation. At w=0 the result is the restricted finite-order character; at n=0 that character is constant 1, so κ(u)=x_R(u)^w.",
+        "For the unit represented by a=1+p^(n+1), its residue modulo p^n is 1. Native ZMod.natCast_self and the successor power identity prove χ(a)=1, including n=0. Thus κ(u)=a^w; a complete native finite-residue lemma verifies the reduction.",
+        "The arithmetic power is taken on the actual unit, not on a chosen finite residue representative. Exact controls multiply integer lifts before taking powers; positive-weight κ is not claimed to factor through the same finite quotient as χ."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/prime-power-character",
+        "mathlib:ContinuousMonoidHom",
+        "mathlib:continuous_algebraMap",
+        "mathlib:PadicInt.toZModPow",
+        "mathlib:ZMod.natCast_self"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticCharacters",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.primePowerArithmeticCharacter"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem 5.1 and its character convention, published 139 / PDF 40; equation (5-1), published 140 / PDF 41; full proof of Theorem 5.1, published 143 / PDF 44. Complete published 139–143 freshly read in the preceding checkpoint on 29 September 2026.",
+          "excerpt": "By definition",
+          "match": "Worker decomposition of the actual arithmetic character, inverse-unit numerator and two-Dirac denominator used in the final proof. The source positive conductor and positive weight are retained in the moment shift; the constructor itself permits both zero boundaries. Comparisons use native continuous monoid homomorphisms and existing actual measures, with separate coefficient embeddings for complex values. No generic field-valued pseudomeasure evaluator is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedArithmeticCharacterTests.character_identity",
+          "kind": "characterisation",
+          "statement": "Every constructed character maps the unit 1 to 1."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.level_zero_weight_zero",
+          "kind": "degenerate",
+          "statement": "At level zero and weight zero the constructed character is the trivial continuous monoid homomorphism."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.level_zero_square",
+          "kind": "compatibility",
+          "statement": "At level zero and weight two its value is exactly x_R(u)²."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.principal_sign",
+          "kind": "computation",
+          "statement": "For p=3, the principal character modulo 3 and weight one give κ(−1)=−1."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.quadratic_weight_one_sign",
+          "kind": "computation",
+          "statement": "For quadratic χ modulo 3 with χ(2)=−1 and weight one, κ(−1)=1."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.quadratic_weight_zero_sign",
+          "kind": "computation",
+          "statement": "The same character at weight zero gives κ(−1)=−1."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.dyadic_quadratic_sign",
+          "kind": "computation",
+          "statement": "For quadratic χ modulo 4 with χ(3)=−1 and weight one, κ(−1)=1."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.dyadic_one_add_pow",
+          "kind": "computation",
+          "statement": "At p=2,n=1,w=2, the unit represented by 5 has κ-value 25."
+        }
+      ],
+      "acceptance": [
+        "The constructor includes level zero and weight zero, while its later nontriviality and inverse-weight formulas retain their additional hypotheses."
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.primePowerArithmeticCharacter_apply",
+          "role": "characterisation",
+          "statement": "κ(u)=primePowerCharacter(p,n,χ)(u)·x_R(u)^w."
+        },
+        {
+          "name": "DirichletPadic.primePowerArithmeticCharacter_nat",
+          "role": "compatibility",
+          "statement": "For a unit represented by natural a, κ(u)=χ(a)a^w."
+        },
+        {
+          "name": "DirichletPadic.primePowerArithmeticCharacter_neg_one",
+          "role": "data",
+          "statement": "κ(−1)=χ(−1)(−1)^w."
+        },
+        {
+          "name": "DirichletPadic.primePowerArithmeticCharacter_zero_weight",
+          "role": "simp",
+          "statement": "At weight zero, κ.toContinuousMap is the restriction of the existing lifted character to U."
+        },
+        {
+          "name": "DirichletPadic.primePowerArithmeticCharacter_zero_level",
+          "role": "simp",
+          "statement": "At level zero, κ(u)=x_R(u)^w."
+        },
+        {
+          "name": "DirichletPadic.primePowerArithmeticCharacter_one_add_pow",
+          "role": "data",
+          "statement": "For u represented by 1+p^(n+1), κ(u)=(1+p^(n+1))^w."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Theorem 5.1",
+          "how": "Provides the actual character χ(x)x^w appearing in the unit-domain integral."
+        },
+        {
+          "where": "Existing numerator and denominator measures",
+          "how": "Supplies the exact continuous test for their coefficient-valued evaluations."
+        },
+        {
+          "where": "PMIA pseudomeasure character specialization",
+          "how": "Gives the native character carrier that a suitable coefficient-specific evaluator must consume; a general K-valued evaluator remains a separate supplier obligation."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/prime-power-arithmetic-character-nontrivial",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Nontriviality in positive arithmetic weight",
+      "kind": "theorem",
+      "statement": "If R is nontrivial of characteristic zero and w>0, κ_n,χ,w≠1 for every n≥0 and every χ.",
+      "hypotheses": [
+        "p is any prime, Z=Z_p and U=Zˣ with their existing topology. R is a normed commutative Z-algebra with bounded scalar action; this gives the continuous scalar action needed for the algebra map. χ is the native DirichletCharacter R (p^n), with n≥0, and w≥0 is a natural weight.",
+        "Write c=primePowerCharacter(p,n,χ), the existing continuous lift on Z, and x_R(z)=algebraMap_(Z→R)(z). Define κ_n,χ,w on U by κ(u)=c(u)x_R(u)^w. The object is a native ContinuousMonoidHom U R. No primitivity, nonprincipal-character assumption, ultrametric field, complete coefficient ring or new character carrier is required for this constructor.",
+        "Additionally R is nontrivial and CharZero, and the natural weight satisfies w>0. No primitivity or nonprincipality of χ is required."
+      ],
+      "proofSteps": [
+        "Set a=1+p^(n+1). Since p is prime and n+1>0, p∤a, so the existing p-adic unit criterion gives a unit u whose underlying p-adic integer is a.",
+        "The constructor’s principal-unit API gives κ(u)=a^w. The natural number a is greater than 1, and native one_lt_pow₀ gives a^w>1 because w≠0.",
+        "Characteristic zero makes natural casts injective, hence (a:R)^w≠1. A complete native proof verifies this natural-power step. If κ were the trivial monoid homomorphism, evaluating at u would contradict the computed value.",
+        "The same witness works at n=0, including p=2, because its exponent is n+1. Weight zero is not covered; the principal character then gives an actual trivial character."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/prime-power-arithmetic-character",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:one_lt_pow₀"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticCharacters",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.primePowerArithmeticCharacter_ne_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem 5.1 and its character convention, published 139 / PDF 40; equation (5-1), published 140 / PDF 41; full proof of Theorem 5.1, published 143 / PDF 44. Complete published 139–143 freshly read in the preceding checkpoint on 29 September 2026.",
+          "excerpt": "By definition",
+          "match": "Worker decomposition of the actual arithmetic character, inverse-unit numerator and two-Dirac denominator used in the final proof. The source positive conductor and positive weight are retained in the moment shift; the constructor itself permits both zero boundaries. Comparisons use native continuous monoid homomorphisms and existing actual measures, with separate coefficient embeddings for complex values. No generic field-valued pseudomeasure evaluator is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedArithmeticCharacterTests.positive_weight_nontrivial",
+          "kind": "compatibility",
+          "statement": "At positive weight one the principal level-p character still gives a nontrivial arithmetic character."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.dyadic_positive_zero_level",
+          "kind": "compatibility",
+          "statement": "At p=2 and level zero, weight one gives a nontrivial arithmetic character."
+        }
+      ],
+      "acceptance": [
+        "Nontriviality is proved by a concrete principal-unit value, not by assuming χ is nonprincipal or the whole unit group is procyclic."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-numerator-character-shift",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Character values of the inverse-weighted numerator",
+      "kind": "theorem",
+      "statement": "For n≥1 and w≥1, I_U,R(intrinsicSmoothedNumerator(p,a))(κ_n,χ,w)=twistedSmoothedMeasure(p,n,χ,a)(x_R^(w−1)).",
+      "hypotheses": [
+        "p is any prime, Z=Z_p and U=Zˣ with their existing topology. R is a normed commutative Z-algebra with bounded scalar action; this gives the continuous scalar action needed for the algebra map. χ is the native DirichletCharacter R (p^n), with n≥0, and w≥0 is a natural weight.",
+        "Write c=primePowerCharacter(p,n,χ), the existing continuous lift on Z, and x_R(z)=algebraMap_(Z→R)(z). Define κ_n,χ,w on U by κ(u)=c(u)x_R(u)^w. The object is a native ContinuousMonoidHom U R. No primitivity, nonprincipal-character assumption, ultrametric field, complete coefficient ring or new character carrier is required for this constructor.",
+        "R is additionally complete and ultrametric, as required by the actual coefficient-extension maps. The natural smoothing parameter a satisfies p∤a. Require n≥1 and w≥1, but allow every character, including principal ones."
+      ],
+      "proofSteps": [
+        "Pull the ambient continuous test F(z)=primePowerCharacter(p,n,χ)(z)x_R(z)^w back along Units.val. The constructor identifies that pullback with κ.toContinuousMap.",
+        "Apply native AbstractMeasure.map_apply and the existing intrinsic-numerator-extension-inclusion comparison. Thus the left side equals the coefficient extension of smoothedNumerator evaluated at F.",
+        "Unfold the existing smoothedNumerator as inverseWeight(smoothedMeasure). Import PMIA coefficient-extension-weight and inverse-weight-evaluation. The resulting test is algebraMap(PadicInt.inv z) times primePowerCharacter(z)x_R(z)^w.",
+        "On units, native PadicInt.inv_mul and norm_units give inverse cancellation, lowering the power to w−1. On nonunits, prime-power-character-support gives zero because n≥1. A complete native proof checks the unit identity and its extension to every z for any multiplier vanishing on nonunits.",
+        "The remaining test is primePowerCharacter(z)x_R(z)^(w−1). The existing twistedSmoothedMeasure_apply identifies its integral with the actual ordinary moment. This argument needs no primitivity, root of unity or nonzero Gauss sum.",
+        "At n=0 the nonunit multiplier is 1 and this argument fails. For p=3,a=2,w=1 the intrinsic numerator value is 0, whereas the level-zero twist has total mass +1/2 from the existing constant coefficient choose(2,2)/2. This exact counterexample prevents dropping the positive-level condition."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/prime-power-arithmetic-character",
+        "DirichletPadicLFunctions:L2/prime-power-character-support",
+        "DirichletPadicLFunctions:L2/twisted-smoothed-measure",
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-extension-inclusion",
+        "DirichletPadicLFunctions:L1/smoothed-numerator",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:PadicInt.inv_mul",
+        "mathlib:PadicInt.norm_units"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticCharacters",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.extend_intrinsicSmoothedNumerator_character"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem 5.1 and its character convention, published 139 / PDF 40; equation (5-1), published 140 / PDF 41; full proof of Theorem 5.1, published 143 / PDF 44. Complete published 139–143 freshly read in the preceding checkpoint on 29 September 2026.",
+          "excerpt": "By definition",
+          "match": "Worker decomposition of the actual arithmetic character, inverse-unit numerator and two-Dirac denominator used in the final proof. The source positive conductor and positive weight are retained in the moment shift; the constructor itself permits both zero boundaries. Comparisons use native continuous monoid homomorphisms and existing actual measures, with separate coefficient embeddings for complex values. No generic field-valued pseudomeasure evaluator is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedArithmeticCharacterTests.numerator_one_parameter",
+          "kind": "degenerate",
+          "statement": "At smoothing parameter a=1 the actual intrinsic numerator evaluates to zero on every arithmetic character."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.principal_numerator_second",
+          "kind": "computation",
+          "statement": "At p=3,a=2, the principal character modulo 3 and weight two give the intrinsic numerator value 1/2 in Q_3."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.level_zero_shift_fails",
+          "kind": "non-example",
+          "statement": "At p=3,a=2,w=1, the level-zero intrinsic value is 0 but the level-zero twisted mass is +1/2."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.numerator_quadratic_weight_one",
+          "kind": "computation",
+          "statement": "For quadratic modulus 3 and a=4, with the explicit coefficient/root/Gauss hypotheses, the actual intrinsic numerator character value at weight one is 1."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.numerator_quadratic_weight_three",
+          "kind": "computation",
+          "statement": "For the same data, the actual intrinsic numerator character value at weight three is −14."
+        }
+      ],
+      "acceptance": [
+        "The domain of the left measure is U and that of the right measure is Z. They are connected by the stated pushforward and test-function identity, not treated as the same measure."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/two-dirac-arithmetic-character",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The arithmetic smoothing denominator value",
+      "kind": "lemma",
+      "statement": "If u∈U is represented by a natural number a, then I_U,R(δ_u−δ_1)(κ_n,χ,w)=χ(a)a^w−1.",
+      "hypotheses": [
+        "p is any prime, Z=Z_p and U=Zˣ with their existing topology. R is a normed commutative Z-algebra with bounded scalar action; this gives the continuous scalar action needed for the algebra map. χ is the native DirichletCharacter R (p^n), with n≥0, and w≥0 is a natural weight.",
+        "Write c=primePowerCharacter(p,n,χ), the existing continuous lift on Z, and x_R(z)=algebraMap_(Z→R)(z). Define κ_n,χ,w on U by κ(u)=c(u)x_R(u)^w. The object is a native ContinuousMonoidHom U R. No primitivity, nonprincipal-character assumption, ultrametric field, complete coefficient ring or new character carrier is required for this constructor.",
+        "R is additionally complete and ultrametric. The equality (u:Z)=(a:Z) is explicit. No positive-level, positive-weight, characteristic-zero or denominator-nonvanishing condition is required for this evaluation."
+      ],
+      "proofSteps": [
+        "The existing unit coefficient-extension construction preserves addition and Z-scalars, and sends each integral Dirac mass to the same Dirac mass with coefficients R. Use scalar −1 to transport subtraction.",
+        "Native Dirac evaluation gives κ(u)−κ(1). The native monoid homomorphism maps 1 to 1; the natural-unit API gives κ(u)=χ(a)a^w. A complete native lemma checks evaluation of this actual two-Dirac measure.",
+        "At u=1 the value is zero. It is also zero for the principal character at weight zero. For p=3 with quadratic χ modulo 3, a=2,w=1 gives −3; at p=2 with quadratic χ modulo 4, a=3,w=1 gives −4.",
+        "This computes the image of the source denominator. It does not assert that coefficient extension preserves convolution or that δ_u−δ_1 is regular in the integral measure algebra."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/prime-power-arithmetic-character",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-coefficient-extension",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticCharacters",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.extend_twoDirac_arithmeticCharacter"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem 5.1 and its character convention, published 139 / PDF 40; equation (5-1), published 140 / PDF 41; full proof of Theorem 5.1, published 143 / PDF 44. Complete published 139–143 freshly read in the preceding checkpoint on 29 September 2026.",
+          "excerpt": "By definition",
+          "match": "Worker decomposition of the actual arithmetic character, inverse-unit numerator and two-Dirac denominator used in the final proof. The source positive conductor and positive weight are retained in the moment shift; the constructor itself permits both zero boundaries. Comparisons use native continuous monoid homomorphisms and existing actual measures, with separate coefficient embeddings for complex values. No generic field-valued pseudomeasure evaluator is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedArithmeticCharacterTests.denominator_identity",
+          "kind": "degenerate",
+          "statement": "The difference of the two identity Dirac masses has arithmetic character value zero."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.denominator_trivial_weight",
+          "kind": "degenerate",
+          "statement": "For the principal character at weight zero, every two-Dirac denominator evaluates to zero."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.ternary_denominator",
+          "kind": "computation",
+          "statement": "Quadratic modulus 3, a=2 and weight one give denominator −3."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.dyadic_denominator",
+          "kind": "computation",
+          "statement": "Quadratic modulus 4, a=3 and weight one give denominator −4."
+        }
+      ],
+      "acceptance": [
+        "The evaluated factor is χ(a)a^w−1 with no additional scalar a. Its vanishing and regularity are distinct questions."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-numerator-common-character-value",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Algebraic interpolation of the intrinsic numerator",
+      "kind": "comparison",
+      "statement": "For w≥1, b=(χ(a)a^w−1)(−q^(w−1)/w Σ_rχ(r)B_w(r.val/q)) in E maps to (χC(a)a^w−1)L(χC,1−w) in C and to I_U,K(λ_a)(κ_n,χK,w) in K. If χ(a)a^w−1≠0, the unsmoothed finite value maps to L(χC,1−w) and to the quotient of that actual numerator value by χK(a)a^w−1.",
+      "hypotheses": [
+        "Use all the exact hypotheses of prime-power-common-positive-weight: p prime, n≥1, q=p^n, a natural with p∤a, w≥1, characteristic-zero common field E with rational algebra and separate embeddings ιC:E→C and ιK:E→K. K is a complete ultrametric normed Z_p-algebra field with bounded scalar action, CharZero and rational algebra. χK=χ.ringHomComp(ιK) is primitive; retain the primitive q-th root ε in K, explicitly nonzero Gauss sum and hD:IsUnit(q:K).",
+        "χC=χ.ringHomComp(ιC), λ_a is the existing intrinsicSmoothedNumerator, and κ is the preceding actual arithmetic character. No complex root of unity or ambient field identification is imposed. The quotient API additionally assumes the displayed smoothing factor is nonzero in E."
+      ],
+      "proofSteps": [
+        "Apply prime-power-common-positive-weight to its explicit b. Its complex image is already the required native L-value with the smoothing factor, and its arithmetic image is the actual twisted ordinary moment of order w−1.",
+        "Use intrinsic-numerator-character-shift with χK to identify that ordinary moment with evaluation of the existing coefficient-extended intrinsic numerator at the actual arithmetic character.",
+        "For the quotient API, the common field embedding into K is injective, so it transports the stated nonzero smoothing factor. Divide the arithmetic equality by that nonzero factor and use the preceding unsmoothed finite Bernoulli transport for the complex value.",
+        "The two-Dirac node identifies the denominator with exactly the source denominator’s character value. Connecting this ratio to a pseudomeasure evaluator still requires an evaluator with the displayed coefficient type. The current PMIA unitCharacterEval only accepts Z_p-valued characters and returns Q_p; this node does not infer its generalization.",
+        "The quadratic modulus 3 weight-one example has common smoothed value 1 and unsmoothed value 1/3. Its coefficient-field and primitive-root/Gauss hypotheses remain visible in the typed tests."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/intrinsic-numerator-character-shift",
+        "DirichletPadicLFunctions:L2/two-dirac-arithmetic-character",
+        "DirichletPadicLFunctions:L2/prime-power-common-positive-weight",
+        "DirichletPadicLFunctions:L2/prime-power-quotient-common-value"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticCharacters",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicSmoothedNumerator_common_character_value"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem 5.1 and its character convention, published 139 / PDF 40; equation (5-1), published 140 / PDF 41; full proof of Theorem 5.1, published 143 / PDF 44. Complete published 139–143 freshly read in the preceding checkpoint on 29 September 2026.",
+          "excerpt": "By definition",
+          "match": "Worker decomposition of the actual arithmetic character, inverse-unit numerator and two-Dirac denominator used in the final proof. The source positive conductor and positive weight are retained in the moment shift; the constructor itself permits both zero boundaries. Comparisons use native continuous monoid homomorphisms and existing actual measures, with separate coefficient embeddings for complex values. No generic field-valued pseudomeasure evaluator is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedArithmeticCharacterTests.common_numerator_zero_value",
+          "kind": "computation",
+          "statement": "For quadratic modulus 3 and a=4 at weight one, the element 1 maps to 3L(χC,0) and the actual intrinsic numerator value."
+        },
+        {
+          "name": "SuggestedArithmeticCharacterTests.common_numerator_quotient",
+          "kind": "computation",
+          "statement": "For the same data the element 1/3 maps to L(χC,0) and the actual intrinsic numerator value divided by 3."
+        }
+      ],
+      "acceptance": [
+        "This completes the numerator/denominator value comparison under explicit hypotheses, while the final general coefficient-field pseudomeasure evaluation remains open."
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.intrinsicSmoothedNumerator_quotient_common_character_value",
+          "role": "compatibility",
+          "statement": "Under χ(a)a^w−1≠0 in E, the unsmoothed finite Bernoulli value has complex image L(χC,1−w) and arithmetic image I_U,K(λ_a)(κ)/(χK(a)a^w−1)."
+        }
+      ]
     }
   ],
   "requests": [
@@ -23220,7 +23630,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "Actual prime-power smoothed moments now share explicit algebraic values with the complex L-function, origin derivatives and signed normalized Mellin values through separate coefficient embeddings. Positive weights and quotient independence under nonzero smoothing factors are stated. Next connect the actual inverse-unit weighted numerator to these shifted moments, and the actual two-Dirac denominator to its character value; then apply the existing pseudomeasure evaluation only for the coefficient types its supplier supports. Its current character evaluator is Z_p-character/Q_p-valued, so a general K-valued evaluation must be supplied by the owner before it is used. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open."
+        "The actual arithmetic character on units, its nontriviality at positive weight, the inverse-weighted intrinsic numerator evaluation and the two-Dirac denominator value are now explicit. Their common algebraic value gives the source smoothed L-value and its eligible quotient. Next connect the numerator of the actual kubotaLeopoldtPseudomeasure to this ratio via the existing natural-parameter identification, and use only a character evaluator supplied for the actual coefficient type. The current PMIA evaluator is restricted to Z_p-valued characters with Q_p output; its general coefficient-field extension must be requested from the owner before general K-valued interpolation is claimed. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open."
       ]
     },
     {
@@ -23254,7 +23664,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "Actual prime-power smoothed moments now share explicit algebraic values with the complex L-function, origin derivatives and signed normalized Mellin values through separate coefficient embeddings. Positive weights and quotient independence under nonzero smoothing factors are stated. Next connect the actual inverse-unit weighted numerator to these shifted moments, and the actual two-Dirac denominator to its character value; then apply the existing pseudomeasure evaluation only for the coefficient types its supplier supports. Its current character evaluator is Z_p-character/Q_p-valued, so a general K-valued evaluation must be supplied by the owner before it is used. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open."
+      "detail": "The actual arithmetic character on units, its nontriviality at positive weight, the inverse-weighted intrinsic numerator evaluation and the two-Dirac denominator value are now explicit. Their common algebraic value gives the source smoothed L-value and its eligible quotient. Next connect the numerator of the actual kubotaLeopoldtPseudomeasure to this ratio via the existing natural-parameter identification, and use only a character evaluator supplied for the actual coefficient type. The current PMIA evaluator is restricted to Z_p-valued characters with Q_p output; its general coefficient-field extension must be requested from the owner before general K-valued interpolation is claimed. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -23554,41 +23964,41 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All 16 preceding source findings and sourceVersions remain whole; no new finding or independent verdict.",
     "validation": {
-      "nodes": 350,
+      "nodes": 355,
       "kinds": {
         "definition": 1,
-        "lemma": 161,
-        "construction": 34,
-        "theorem": 99,
-        "comparison": 55
+        "lemma": 162,
+        "construction": 35,
+        "theorem": 101,
+        "comparison": 56
       },
-      "api": 313,
-      "packetTests": 503,
-      "definitionConstructionTests": 168,
-      "typedExamples": 506,
+      "api": 320,
+      "packetTests": 524,
+      "definitionConstructionTests": 176,
+      "typedExamples": 527,
       "planets": 24,
-      "baseline": 410,
-      "preservedWholeNodes": 346,
+      "baseline": 412,
+      "preservedWholeNodes": 350,
       "preservedBaseline": 410,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 4,
-      "newNamedDeclarations": 6,
-      "newTypedTests": 16,
+      "newNodes": 5,
+      "newNamedDeclarations": 12,
+      "newTypedTests": 21,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0,
-      "reachableNodes": 525,
-      "dependencyEdges": 2490,
+      "reachableNodes": 530,
+      "dependencyEdges": 2516,
       "acyclic": true,
-      "baselineLeaves": 527,
+      "baselineLeaves": 529,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
-      "readerWords": 141559,
+      "readerWords": 144811,
       "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 1010,
+      "compilerWarnings": 1043,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -23597,20 +24007,20 @@
       "pinnedMathlibModules": 3596,
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
-      "scratchCompleteDefinitions": 0,
+      "scratchCompleteDefinitions": 1,
       "scratchCompleteLemmas": 5,
-      "scratchMathlibModules": 2072,
+      "scratchMathlibModules": 1765,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "finiteValueTransports": 360,
-        "signedValueTransports": 360,
-        "quotientRecoveries": 360,
-        "smoothingIndependence": 180,
-        "positiveWeightReindexings": 360,
-        "oneParameterExcluded": 54,
-        "quarticOrientationChecks": 6
+        "characterProducts": 460,
+        "inverseWeightShifts": 370,
+        "principalUnitWitnesses": 30,
+        "numeratorValues": 72,
+        "twoDiracValues": 72,
+        "levelZeroFailures": 15,
+        "measureBoundaryValues": 2
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": []
@@ -23618,14 +24028,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1010,
-      "sha256": "2ee19c2425177821672eef5a8b314fd4c6672a140de9e4123975666ec6f06d7f",
+      "warnings": 1043,
+      "sha256": "7558eec44948f88b01d7834a36c7b6ece92e52ee95de3281be8595e1362fd313",
       "nativeProbe": {
         "completeLemmas": 5,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "99511314c82d5eda1f064ccef096892030f397b7313e6bb0c94886639bcffd88"
+        "sha256": "2ae71ac380443c71254fca237c94bd645d606efd9174caee093f27567b33e83f"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -23694,16 +24104,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "d5eab0a8ba162a515df5d1fde9ccfef8dfd9b4916f27fea27191dd111beefc14",
+          "sourceSha256": "2ee19c2425177821672eef5a8b314fd4c6672a140de9e4123975666ec6f06d7f",
           "modules": 3568,
-          "warnings": 988,
+          "warnings": 1010,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "052250053cd25eda0b663863d7df6dc9fbe0d68e",
+      "base": "87252c87590db050c5d65596a1c915010083e8fe",
       "unchangedInputs": 54,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -28146,6 +28556,43 @@
         "quarticOrientationChecks": 6
       },
       "numericalMethod": "Exact rational arithmetic in cyclotomic quotient fields at character conductors 3, 4, 5, 8 and 9, plus the nonreal quartic character modulo 5 in Q(i). For every Galois automorphism of each coefficient field, transport finite Bernoulli values and compare with independently computed formal moments via Stirling conversion through order 8. Divide only nonzero smoothing factors; compare two parameters, signed values and positive-weight reindexings. These are finite algebraic models of coefficient transport, not constructions of p-adic embeddings or numerical analytic proofs."
+    },
+    "arithmeticCharacters": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4653,
+      "previousHead": "5af013de2680eed4e96b47c0d51c68561f9a784b",
+      "previousMerge": "88c84f5dfba1f18d75e78919aad2458d0f3567c9",
+      "preservedWholeNodes": 350,
+      "preservedBaseline": 410,
+      "preservedFindings": 16,
+      "newNodes": 5,
+      "reading": "Complete published pages 139–143 were read in the immediate predecessor on 29 September 2026, including the full proof of Theorem 5.1. The actual numerator, coefficient-extension inclusion and arithmetic-twist signatures were read; whole PMIA coefficient-extension-weight, integral-unit-coefficient-extension, integral-unit-extension-inclusion and actual-unit-character-ratio nodes and their APIs were checked. Native ContinuousMonoidHom, continuous_algebraMap, PadicInt inverse/unit norm statements, ZMod.natCast_self, one_lt_pow₀ and actual measure pushforward/Dirac statements were read with ambient hypotheses. The zero-level counterexample was checked against the existing positive +1/2 smoothing constant, and all native and finite checks pass. No new source finding or complete extraction is claimed.",
+      "boundary": "The actual arithmetic character on units, its nontriviality at positive weight, the inverse-weighted intrinsic numerator evaluation and the two-Dirac denominator value are now explicit. Their common algebraic value gives the source smoothed L-value and its eligible quotient. Next connect the numerator of the actual kubotaLeopoldtPseudomeasure to this ratio via the existing natural-parameter identification, and use only a character evaluator supplied for the actual coefficient type. The current PMIA evaluator is restricted to Z_p-valued characters with Q_p output; its general coefficient-field extension must be requested from the owner before general K-valued interpolation is claimed. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open.",
+      "inputBase": "87252c87590db050c5d65596a1c915010083e8fe",
+      "sourceBoundary": "All 16 preceding source findings and sourceVersions remain whole; no new finding or independent verdict.",
+      "publication": {
+        "base": "87252c87590db050c5d65596a1c915010083e8fe",
+        "unchangedInputs": 54,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "characterProducts": 460,
+        "inverseWeightShifts": 370,
+        "principalUnitWitnesses": 30,
+        "numeratorValues": 72,
+        "twoDiracValues": 72,
+        "levelZeroFailures": 15,
+        "measureBoundaryValues": 2
+      },
+      "numericalMethod": "Exact rational cyclotomic arithmetic for primitive characters of conductors 3, 4, 5, 8 and 9, including a nonreal quartic character modulo 5. Integer lifts are multiplied before evaluating the arithmetic power, so these controls do not falsely make the positive-weight character factor through a finite residue group. Check unit and nonunit inverse-weight identities, principal-unit witnesses, the two-Dirac value and finite formal moments through weight 6. Separate exact level-zero controls detect failure off the units and the actual +1/2 raw mass versus zero intrinsic first moment. These finite checks supplement the native constructor and pointwise proofs; they do not prove measure comparison or analytic interpolation."
     }
   },
   "requestResolutions": [
