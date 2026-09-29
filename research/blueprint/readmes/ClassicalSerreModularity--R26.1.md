@@ -1,6 +1,6 @@
 # Classical Serre modularity — part R26.1: the level-one theorem and the good-dihedral set-up — blueprint
 
-This part covers stages R26.1–R26.6 and R27.1–R27.2 of ClassicalSerreModularity. After the first checkpoint:
+This part covers stages R26.1–R26.6 and R27.1–R27.2 of ClassicalSerreModularity. After the second checkpoint:
 
 | Stage | Coverage |
 |---|---|
@@ -10,8 +10,8 @@ This part covers stages R26.1–R26.6 and R27.1–R27.2 of ClassicalSerreModular
 | R26.4 | `source_decomposed`: degenerate branches |
 | R26.5 | `partial`: the small-weight table |
 | R26.6 | `source_decomposed`: the proof and its corollaries |
-| R27.1 | `partial`: good dihedral primes |
-| R27.2 | `partial`: (L_r), (W_r), (D_r) and Theorem 3.2 |
+| R27.1 | `source_decomposed`: good dihedral primes (with part R27.3's two R27.1 nodes) |
+| R27.2 | `source_decomposed`: (L_r), (W_r), (D_r) and Theorem 3.2 |
 
 The accepted restructuring RS-06 narrows each stage:
 - **R26.1** states the level-one target and Corollary 1.2 with every source hypothesis; their proofs are R26.6.
@@ -45,8 +45,16 @@ hypotheses (L_r), (W_r), (D_r) and the reduction to weight two that the rest of 
   unramified at p.
 - **`corollary-1-2-conductor-a-prime-and-its-corrected-proof`.** This is Corollary 1.2, with KW I's removal of p > 2 and
   their corrected reference.
-- **`bockle-appendix-minimal-deformation-ring-presentation`.** Böckle's Proposition 1 presentation and Theorem 1. Oddness
-  enters the proof.
+- **`bockle-appendix-minimal-deformation-ring-presentation`** (restated at checkpoint 2). This is the application
+  contract for Böckle's appendix as Khare uses it:
+  - oddness;
+  - Δ_ℓ = 0 in Corollary 1's four cases;
+  - Lemma 1 for decomposable flat ρ̄|_{G_p};
+  - T_Q reduced, and Carayol.
+
+  The appendix's statements themselves are planned where RS-06 puts them: PotentialModularityAndCompatibleSystems
+  R24.3/bockle-presentation, /finite-presentation-complete-intersection and /bockle-minimal-r-equals-t, with the generic
+  presentation at GlobalGaloisDeformations R04.3.
 
 ## Layer R26.2: prescribed lifts (`…/LevelOneLifts`)
 
@@ -137,9 +145,10 @@ Both issues are in arXiv v1; the Duke version was not obtained.
 ## Remaining work
 
 - **R26.5:** a per-row split of the solvable and unramified sub-branches.
-- **R27.1:** existence of good dihedral primes, the prime-insertion application.
-- **R27.2:** KW I Theorems 4.1 and 5.1 are proved in KW II, which is unread (a carried gap), and so are Savitt's
-  residual weights.
+- **R27.1 is done (checkpoint 2).** Lemma 8.2 and the prime insertion are planned under R27.1 in part R27.3.
+- **R27.2 is done (checkpoint 2).** KW I Theorems 4.1 and 5.1 are PotentialModularityAndCompatibleSystems
+  R24.4/kw-theorem-4-1 and R24.5/kw-theorem-5-1-systems (part R24.3, from KW II §10). Savitt's residual weights are
+  requested there.
 - **Carried gaps:**
   - the edition discrepancy of the level-one source;
   - KW I's references to the published numbering of Khare's paper;
