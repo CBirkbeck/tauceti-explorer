@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all433 predecessor nodes whole. Seven L4 nodes construct evaluation for arbitrary character-admissible smoothing parameters, prove the common Bernoulli constant and full-series independence, and transfer the unique rational classical comparison. All16 findings and three requests remain whole; seven gaps and zero closed stages remain.",
+  "summary": "Partial continuation preserving all440 predecessor nodes whole. Seven L4 nodes compare doubled constant values with shifted arithmetic moments, reflect alleged ordinary clearing relations through the native localization, and exclude ordinary pseudomeasure membership, integral representation and bounded field-measure realization. All16 findings and three requests remain whole; seven gaps and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -29175,6 +29175,397 @@
       "acceptance": [
         "The comparison includes the actual constant and every positive coefficient. No rational-to-Z_p map, complex-to-Q_p map or geometric family assertion is introduced."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-double-constant-moment",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The doubled constant is the shifted arithmetic moment",
+      "kind": "lemma",
+      "statement": "For every canonical a and e≥0, 2E_(a,e)(A₀,a^away)=positivePseudoMoment(p,e+1,ζ_p).",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing supplied commutative convolution ring. Q=FractionRing M is the native total quotient and i:M→Q its canonical injection, with no domain or field hypothesis on M.",
+        "A₀=localizedEisensteinConstant p is the existing actual constant. For canonical a with value p+1, S_a is its doubled shifted-denominator localization, J_a:S_a→Q the existing injective ring map, E_(a,e):S_a→Q_p its actual moment evaluator, and A₀,a^away its representative.",
+        "j:U→Z and t:U→Q_p are the native continuous coordinate tests. The ordinary pseudomeasure submodule is the supplied Iwasawa.pseudomeasures(diracHom)Q, defined using δ_g−1. Norms of field measures below belong to their existing continuous linear functional, not to a new norm on the weak measure carrier."
+      ],
+      "proofSteps": [
+        "The existing constant-value theorem expresses E_(a,e)(A₀,a^away) as the Q_p image of−(1−p^e)B_(e+1)/(2(e+1)). Multiply by2 in Q_p.",
+        "The existing actual arithmetic positive-Bernoulli theorem at degree e+1 expresses its positivePseudoMoment as−(1−p^e) times the image of B_(e+1)/(e+1). This degree is positive for every e≥0.",
+        "Preservation of rational arithmetic and cancellation of the nonzero integer2 in Q_p identify the expressions. The complete native doubled-scalar lemma checks the factor2. No division by2 in Z_p or its measure ring is used.",
+        "At e=0 both sides vanish through the Euler factor. At p=2,e=3 the doubled value is−7/120; at p=3,e=1 it is1/6."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/eisenstein-away-constant-value",
+        "DirichletPadicLFunctions:L1/arithmetic-positive-bernoulli"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinObstruction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwayMoment_double_constant"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
+          "excerpt": "A0 is a pseudomeasure",
+          "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinObstructionTests.double_constant_dyadic",
+          "kind": "computation",
+          "statement": "The doubled p=2,e=3 constant is−7/120."
+        },
+        {
+          "name": "SuggestedEisensteinObstructionTests.double_constant_ternary",
+          "kind": "computation",
+          "statement": "The doubled p=3,e=1 constant is1/6."
+        },
+        {
+          "name": "SuggestedEisensteinObstructionTests.double_constant_zero_exponent",
+          "kind": "degenerate",
+          "statement": "The doubled exponent0 constant is0, agreeing with the actual first arithmetic moment."
+        }
+      ],
+      "acceptance": [
+        "This compares actual admissible evaluations. It is not an unconditional construction of the missing total-quotient character-twist equivalence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-ordinary-clearing-candidate",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Moments forced by an ordinary clearing candidate",
+      "kind": "lemma",
+      "statement": "If g∈U and μ∈M satisfy i(μ)=i(δ_g−1)A₀, then for every e≥0 and canonical a, ι(μ(j^e))=(g^e−1)E_(a,e)(A₀,a^away).",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing supplied commutative convolution ring. Q=FractionRing M is the native total quotient and i:M→Q its canonical injection, with no domain or field hypothesis on M.",
+        "A₀=localizedEisensteinConstant p is the existing actual constant. For canonical a with value p+1, S_a is its doubled shifted-denominator localization, J_a:S_a→Q the existing injective ring map, E_(a,e):S_a→Q_p its actual moment evaluator, and A₀,a^away its representative.",
+        "j:U→Z and t:U→Q_p are the native continuous coordinate tests. The ordinary pseudomeasure submodule is the supplied Iwasawa.pseudomeasures(diracHom)Q, defined using δ_g−1. Norms of field measures below belong to their existing continuous linear functional, not to a new norm on the weak measure carrier."
+      ],
+      "proofSteps": [
+        "The existing J_a is injective, sends every alg(ν) to i(ν), and sends A₀,a^away to A₀. Rewrite the assumed equality as equality of the J_a-images of alg(μ) and alg(δ_g−1)A₀,a^away.",
+        "Injectivity reflects this to an equality inside S_a. Apply E_(a,e), using multiplicativity. The complete native reflection lemma verifies this argument for actual ring homomorphisms with precisely the coefficient-agreement and injectivity hypotheses.",
+        "The promoted all-integral evaluation theorem identifies the first factor with the included test moment of δ_g−1. Native Dirac evaluation gives g^e; the supplied convolution identity is δ_1, which gives1. Hence this factor is g^e−1.",
+        "The same promoted agreement identifies the left side with ι(μ(j^e)). Evaluation has occurred exclusively inside S_a, after reflecting the Q-equality; no map from arbitrary total fractions to Q_p is assumed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/eisenstein-away-inclusion",
+        "DirichletPadicLFunctions:L4/eisenstein-away-constant-image",
+        "DirichletPadicLFunctions:L4/eisenstein-away-integral-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinObstruction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.localizedEisensteinConstant_clearing_candidate"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
+          "excerpt": "A0 is a pseudomeasure",
+          "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinObstructionTests.identity_clearing_candidate_moments",
+          "kind": "degenerate",
+          "statement": "A candidate clearing the ordinary identity factor has every moment0."
+        },
+        {
+          "name": "SuggestedEisensteinObstructionTests.arbitrary_clearing_candidate_moments",
+          "kind": "characterisation",
+          "statement": "For any g, a candidate’s e-th moment has the ordinary factor g^e−1, without the source’s shifted exponent."
+        }
+      ],
+      "acceptance": [
+        "The hypothesis is an alleged integral representative, not an existence assertion. Ordinary and shifted clearing factors are kept distinct."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-sign-clearing-candidate",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The sign factor forces negative arithmetic moments",
+      "kind": "lemma",
+      "statement": "If i(μ)=i(δ_−1−1)A₀ and k>0, then ι(μ(j^(2k−1)))=−positivePseudoMoment(p,2k,ζ_p).",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing supplied commutative convolution ring. Q=FractionRing M is the native total quotient and i:M→Q its canonical injection, with no domain or field hypothesis on M.",
+        "A₀=localizedEisensteinConstant p is the existing actual constant. For canonical a with value p+1, S_a is its doubled shifted-denominator localization, J_a:S_a→Q the existing injective ring map, E_(a,e):S_a→Q_p its actual moment evaluator, and A₀,a^away its representative.",
+        "j:U→Z and t:U→Q_p are the native continuous coordinate tests. The ordinary pseudomeasure submodule is the supplied Iwasawa.pseudomeasures(diracHom)Q, defined using δ_g−1. Norms of field measures below belong to their existing continuous linear functional, not to a new norm on the weak measure carrier."
+      ],
+      "proofSteps": [
+        "Choose the supplied canonical unit a=p+1 and apply the ordinary-clearing candidate theorem at g=−1 and e=2k−1.",
+        "Since k>0, the natural number2k−1 is odd. Its ordinary factor is (−1)^(2k−1)−1=−2 in Q_p.",
+        "The doubled-constant comparison at that exponent has degree (2k−1)+1=2k. Substitute it to identify−2 times the constant value with the negative actual positive arithmetic moment.",
+        "The complete native sign-clearing lemma checks the parity and multiplication step. For even test exponents the ordinary sign factor is0 instead, as recorded by a separate control."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/eisenstein-ordinary-clearing-candidate",
+        "DirichletPadicLFunctions:L4/eisenstein-double-constant-moment",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinObstruction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.localizedEisensteinConstant_sign_candidate"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
+          "excerpt": "A0 is a pseudomeasure",
+          "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinObstructionTests.sign_candidate_second_shift",
+          "kind": "computation",
+          "statement": "At k=1 the candidate’s first moment is the negative actual second arithmetic moment."
+        },
+        {
+          "name": "SuggestedEisensteinObstructionTests.sign_candidate_even_test_zero",
+          "kind": "degenerate",
+          "statement": "At every even test exponent the candidate’s ordinary sign-cleared moment is0."
+        }
+      ],
+      "acceptance": [
+        "The dyadic sign factor−2 is retained. It need not be an integral unit for the norm obstruction."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-sign-clearing-not-integral",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The ordinary sign factor does not clear the constant",
+      "kind": "theorem",
+      "statement": "The actual element i(δ_−1−1)A₀ does not belong to Set.range(i).",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing supplied commutative convolution ring. Q=FractionRing M is the native total quotient and i:M→Q its canonical injection, with no domain or field hypothesis on M.",
+        "A₀=localizedEisensteinConstant p is the existing actual constant. For canonical a with value p+1, S_a is its doubled shifted-denominator localization, J_a:S_a→Q the existing injective ring map, E_(a,e):S_a→Q_p its actual moment evaluator, and A₀,a^away its representative.",
+        "j:U→Z and t:U→Q_p are the native continuous coordinate tests. The ordinary pseudomeasure submodule is the supplied Iwasawa.pseudomeasures(diracHom)Q, defined using δ_g−1. Norms of field measures below belong to their existing continuous linear functional, not to a new norm on the weak measure carrier."
+      ],
+      "proofSteps": [
+        "Suppose an integral representative μ exists. Put k=p−1, which is positive by primality. The preceding candidate theorem identifies its moment at exponent2(p−1)−1 with the negative actual arithmetic moment at degree2(p−1).",
+        "The existing arithmetic-positive-moment-norm theorem applies because p−1 divides2(p−1). It gives norm at least p for this actual moment.",
+        "But μ(j^(2(p−1)−1)) is an element of Z_p. Native PadicInt.norm_le_one and norm_def bound its image norm by1; negation leaves the norm unchanged.",
+        "Primality gives p>1, contradicting these two bounds. The complete native integral-value-obstruction lemma checks this step for every prime, including2.",
+        "For p=2 the witness exponent is1 and the forced value is−1/12, of norm4. For p=3 the chosen uniform witness exponent is3 and the value is13/60, of norm3."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/eisenstein-sign-clearing-candidate",
+        "DirichletPadicLFunctions:L1/arithmetic-positive-moment-norm",
+        "mathlib:PadicInt.norm_le_one",
+        "mathlib:PadicInt.norm_def"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinObstruction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.localizedEisensteinConstant_sign_not_integral"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
+          "excerpt": "A0 is a pseudomeasure",
+          "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinObstructionTests.sign_clearing_dyadic_not_integral",
+          "kind": "non-example",
+          "statement": "At p=2 the ordinary sign-cleared total-quotient element has no integral measure representative."
+        },
+        {
+          "name": "SuggestedEisensteinObstructionTests.sign_clearing_ternary_not_integral",
+          "kind": "non-example",
+          "statement": "The same obstruction holds at p=3."
+        }
+      ],
+      "acceptance": [
+        "This excludes an actual integral representative in the native total quotient. A finite numerical table alone is not used as the general proof."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-not-ordinary-pseudomeasure",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The corrected constant is not an ordinary pseudomeasure",
+      "kind": "theorem",
+      "statement": "For every prime p, A₀∉Iwasawa.pseudomeasures(diracHom)Q.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing supplied commutative convolution ring. Q=FractionRing M is the native total quotient and i:M→Q its canonical injection, with no domain or field hypothesis on M.",
+        "A₀=localizedEisensteinConstant p is the existing actual constant. For canonical a with value p+1, S_a is its doubled shifted-denominator localization, J_a:S_a→Q the existing injective ring map, E_(a,e):S_a→Q_p its actual moment evaluator, and A₀,a^away its representative.",
+        "j:U→Z and t:U→Q_p are the native continuous coordinate tests. The ordinary pseudomeasure submodule is the supplied Iwasawa.pseudomeasures(diracHom)Q, defined using δ_g−1. Norms of field measures below belong to their existing continuous linear functional, not to a new norm on the weak measure carrier."
+      ],
+      "proofSteps": [
+        "Assume ordinary pseudomeasure membership. Apply the supplier’s promoted mem_pseudomeasures_iff characterization.",
+        "At the actual unit−1 it supplies μ∈M with i(μ)=i(δ_−1−1)A₀.",
+        "This contradicts the preceding sign-clearing nonintegrality theorem. The argument uses the ordinary pseudomeasure definition exactly as supplied.",
+        "The earlier shifted clearing theorem i(2(uδ_u−1))A₀=i(n_u) remains unchanged. At u=−1 its numerator is0; this is a different factor and gives no ordinary membership."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/eisenstein-sign-clearing-not-integral",
+        "PadicMeasuresIwasawaAlgebras:L3/pseudomeasure-membership"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinObstruction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.localizedEisensteinConstant_not_pseudomeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
+          "excerpt": "A0 is a pseudomeasure",
+          "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinObstructionTests.dyadic_not_ordinary_pseudomeasure",
+          "kind": "non-example",
+          "statement": "The actual dyadic constant is outside the ordinary pseudomeasure submodule."
+        },
+        {
+          "name": "SuggestedEisensteinObstructionTests.ternary_not_ordinary_pseudomeasure",
+          "kind": "non-example",
+          "statement": "The actual ternary constant is outside the ordinary pseudomeasure submodule."
+        }
+      ],
+      "acceptance": [
+        "This directly supports the already confirmed E54 correction without introducing a duplicate source finding or asserting an independent review. The generic twist request remains open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-constant-not-integral",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The corrected constant is not an integral measure",
+      "kind": "theorem",
+      "statement": "For every prime p, A₀∉Set.range(i).",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing supplied commutative convolution ring. Q=FractionRing M is the native total quotient and i:M→Q its canonical injection, with no domain or field hypothesis on M.",
+        "A₀=localizedEisensteinConstant p is the existing actual constant. For canonical a with value p+1, S_a is its doubled shifted-denominator localization, J_a:S_a→Q the existing injective ring map, E_(a,e):S_a→Q_p its actual moment evaluator, and A₀,a^away its representative.",
+        "j:U→Z and t:U→Q_p are the native continuous coordinate tests. The ordinary pseudomeasure submodule is the supplied Iwasawa.pseudomeasures(diracHom)Q, defined using δ_g−1. Norms of field measures below belong to their existing continuous linear functional, not to a new norm on the weak measure carrier."
+      ],
+      "proofSteps": [
+        "If A₀=i(ν) for an actual ν∈M, the integral convolution-ring product μ=(δ_−1−1)ν satisfies i(μ)=i(δ_−1−1)A₀ by multiplicativity of i.",
+        "This contradicts sign-clearing nonintegrality. The complete native nonintegral-clearing lemma checks this purely ring-theoretic implication.",
+        "The conclusion concerns the exact existing localized constant, with all factors2 retained. It is stronger than merely observing that some rational presentation has a denominator."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/eisenstein-sign-clearing-not-integral",
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinObstruction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.localizedEisensteinConstant_not_integral"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
+          "excerpt": "A0 is a pseudomeasure",
+          "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinObstructionTests.constant_not_any_integral_image",
+          "kind": "non-example",
+          "statement": "Every actual μ∈M has i(μ)≠A₀."
+        }
+      ],
+      "acceptance": [
+        "No domain assumption on M and no cancellation of a torsion denominator is introduced."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-constant-no-field-measure",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "No bounded field measure has all the constant values",
+      "kind": "theorem",
+      "statement": "For canonical a there is no μ∈D(U,Q_p) with μ(t^e)=E_(a,e)(A₀,a^away) for every e≥0.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing supplied commutative convolution ring. Q=FractionRing M is the native total quotient and i:M→Q its canonical injection, with no domain or field hypothesis on M.",
+        "A₀=localizedEisensteinConstant p is the existing actual constant. For canonical a with value p+1, S_a is its doubled shifted-denominator localization, J_a:S_a→Q the existing injective ring map, E_(a,e):S_a→Q_p its actual moment evaluator, and A₀,a^away its representative.",
+        "j:U→Z and t:U→Q_p are the native continuous coordinate tests. The ordinary pseudomeasure submodule is the supplied Iwasawa.pseudomeasures(diracHom)Q, defined using δ_g−1. Norms of field measures below belong to their existing continuous linear functional, not to a new norm on the weak measure carrier."
+      ],
+      "proofSteps": [
+        "Suppose such a native field-valued measure μ exists and put B=‖AbstractMeasure.toCLMEquiv μ‖. Native compactness of U and PadicInt.norm_le_one imply ‖t^e‖≤1 for every e.",
+        "Native ContinuousMap.norm_le and ContinuousLinearMap.le_opNorm_of_le give ‖μ(t^e)‖≤B uniformly. A complete native field-measure-power-bound proof checks these exact carriers and topologies.",
+        "For each positive n, set e=n−1. The doubled-constant comparison and the assumed moment agreement give positivePseudoMoment(p,n,ζ_p)=2μ(t^(n−1)). Therefore all these actual positive arithmetic moments have norm at most ‖2‖B.",
+        "Apply the previously proved arithmetic-unbounded-moments theorem at the real bound ‖2‖B. Its positive witness contradicts the uniform inequality. A complete native doubled-moments-obstruction lemma verifies the contradiction, including the exponent shift.",
+        "This excludes field-valued measures of arbitrary finite operator norm, not just integral measures. It does not identify coefficient extension with scalar extension or infer an analytic pole order or residue."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/eisenstein-double-constant-moment",
+        "DirichletPadicLFunctions:L1/arithmetic-unbounded-moments",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:ContinuousLinearMap.le_opNorm_of_le",
+        "mathlib:PadicInt.compactSpace",
+        "mathlib:PadicInt.norm_le_one",
+        "mathlib:PadicInt.norm_def"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinObstruction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwayConstant_no_field_measure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
+          "excerpt": "A0 is a pseudomeasure",
+          "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinObstructionTests.field_measure_fails_some_exponent",
+          "kind": "characterisation",
+          "statement": "Every native field-valued measure disagrees with the actual constant evaluator at some natural exponent."
+        },
+        {
+          "name": "SuggestedEisensteinObstructionTests.dyadic_identity_atom_fails",
+          "kind": "non-example",
+          "statement": "The Q_2 identity atom has first moment1, while the actual exponent1 constant value is1/24."
+        }
+      ],
+      "acceptance": [
+        "The boundedness argument uses the existing continuous functional norm. The weak measure carrier is not assigned a new norm topology."
+      ]
     }
   ],
   "requests": [
@@ -29237,7 +29628,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "All smoothing parameters with a nonzero chosen arithmetic denominator now have an actual native Away evaluator and the same full field specialization, including the unique common rational classical series. Measure-ring regularity and character admissibility remain separate conditions. Next establish the corrected source constant’s ordinary-pseudomeasure exclusion by an actual clearing or moment obstruction, without assuming the missing generic twist equivalence. Generic coefficient-field evaluation, character-twist equivalence and completed-algebra supplier requests remain open. Tame-character Eisenstein families and full source extraction remain explicit work; PadicFamilies owns geometric realization.",
+        "The actual corrected Eisenstein constant is now proved outside both the ordinary pseudomeasure submodule and the integral measure image, using the negative-identity ordinary clearing factor at every prime. No bounded Q_p-valued measure has all its arithmetic values. Analytic pole order and residue still require their own constructions and are not inferred from unboundedness. Generic coefficient-field evaluation, character-twist equivalence and completed-algebra supplier requests remain open. Tame-character Eisenstein families and full source extraction remain explicit work; PadicFamilies owns geometric realization.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -29268,7 +29659,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "All smoothing parameters with a nonzero chosen arithmetic denominator now have an actual native Away evaluator and the same full field specialization, including the unique common rational classical series. Measure-ring regularity and character admissibility remain separate conditions. Next establish the corrected source constant’s ordinary-pseudomeasure exclusion by an actual clearing or moment obstruction, without assuming the missing generic twist equivalence. Generic coefficient-field evaluation, character-twist equivalence and completed-algebra supplier requests remain open. Tame-character Eisenstein families and full source extraction remain explicit work; PadicFamilies owns geometric realization. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "The actual corrected Eisenstein constant is now proved outside both the ordinary pseudomeasure submodule and the integral measure image, using the negative-identity ordinary clearing factor at every prime. No bounded Q_p-valued measure has all its arithmetic values. Analytic pole order and residue still require their own constructions and are not inferred from unboundedness. Generic coefficient-field evaluation, character-twist equivalence and completed-algebra supplier requests remain open. Tame-character Eisenstein families and full source extraction remain explicit work; PadicFamilies owns geometric realization. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -29569,45 +29960,45 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 source findings and sourceVersions remain whole, including confirmed E54 and all previous qualifications. No new source finding or independent verdict.",
+    "sourceIssues": "All16 source findings and sourceVersions remain whole. This directly proves the obstruction underlying the already confirmed E54 correction; no duplicate finding or independent verdict is added.",
     "validation": {
-      "nodes": 440,
+      "nodes": 447,
       "kinds": {
         "definition": 1,
-        "lemma": 195,
+        "lemma": 198,
         "construction": 52,
-        "theorem": 115,
+        "theorem": 119,
         "comparison": 77
       },
       "api": 400,
-      "packetTests": 695,
+      "packetTests": 709,
       "definitionConstructionTests": 231,
-      "typedExamples": 698,
+      "typedExamples": 712,
       "planets": 24,
       "baseline": 436,
-      "preservedWholeNodes": 433,
+      "preservedWholeNodes": 440,
       "preservedBaseline": 436,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 7,
-      "newNamedDeclarations": 10,
-      "newTypedTests": 15,
+      "newNamedDeclarations": 7,
+      "newTypedTests": 14,
       "requests": 3,
       "gaps": 7,
       "closedStages": 0,
-      "reachableNodes": 615,
-      "dependencyEdges": 2952,
+      "reachableNodes": 622,
+      "dependencyEdges": 2978,
       "acyclic": true,
       "baselineLeaves": 553,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 184205,
+      "readerWords": 187443,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1352,
+      "compilerWarnings": 1373,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -29617,22 +30008,18 @@
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 5,
-      "scratchMathlibModules": 1185,
+      "scratchCompleteLemmas": 7,
+      "scratchMathlibModules": 1905,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "parameterMoments": 1848,
-        "admissibleFractions": 1596,
-        "excludedDenominators": 252,
-        "identityExclusions": 168,
-        "negativeEvenAdmissible": 84,
-        "negativeOddExcluded": 84,
-        "fullSpecializedCoefficients": 52668,
-        "parameterPairCoefficients": 525492,
-        "classicalEvenCoefficients": 22869,
-        "wrongExponentControls": 168
+        "doubledMomentIdentities": 660,
+        "signMomentIdentities": 330,
+        "uniformIntegralObstructions": 11,
+        "shiftedSignZeroControls": 330,
+        "growingConstantNorms": 9,
+        "evenExponentZeroControls": 330
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": []
@@ -29640,14 +30027,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1352,
-      "sha256": "74aa450e301caf0bdf0f3c900ced4d414b2503db8af2fd7477aa0e7fe76eaeb3",
+      "warnings": 1373,
+      "sha256": "04045cbe532421dfb80a648818eb95e6475c191b9fae17e103a3da977588bcea",
       "nativeProbe": {
-        "completeLemmas": 5,
+        "completeLemmas": 7,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "d2bc7fd7dab1b67a88c01fd0604fe372cfb89e3f4ea7d469f4867eda7da6d3a6"
+        "sha256": "3ddf8fac5f2c88392d50f3a09df27ee6f0e758aad18fa1abb5433c10799130ac"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -29716,16 +30103,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "12a8da13bfe0f28f89a05e8baa25d5326c4e32f8f68a4fe3d95b0e829df39d5b",
+          "sourceSha256": "74aa450e301caf0bdf0f3c900ced4d414b2503db8af2fd7477aa0e7fe76eaeb3",
           "modules": 3568,
-          "warnings": 1327,
+          "warnings": 1352,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "17377be30228d633515d38be831cc8f94cbcbd97",
+      "base": "42d3b530a800843f17e9e70700ac43992729a6c8",
       "unchangedInputs": 57,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -34661,6 +35048,42 @@
         "wrongExponentControls": 168
       },
       "numericalMethod": "Exact rational Bernoulli recurrence through24 and integer unit parameters at seven primes. For every admissible parameter, positive coefficients are computed by the actual doubled two-Dirac convolution sum before division and compared with depleted divisor sums. Pairwise whole truncated series and the rational classical coefficients are checked separately. Identity and both parity cases of negative identity are checked before division. Shifted-exponent negative controls distinguish the weightw from its required test exponentw−1. Finite controls do not prove the general roadmap assertions or measure-ring regularity."
+    },
+    "eisensteinObstruction": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4693,
+      "previousHead": "f27de791bdd32b125c6baafe6ed1007b59b3ff34",
+      "previousMerge": "956e2da4c5ea031eac509d380961228f1763d6d5",
+      "preservedWholeNodes": 440,
+      "preservedBaseline": 436,
+      "preservedFindings": 16,
+      "newNodes": 7,
+      "reading": "Published119–120 were reread completely;129–130 and159–160 were read whole in preceding4693 in this continuation. The complete supplier pseudomeasure and promoted membership nodes and their actual Lean interfaces were read. Old arithmetic norm, growth, unboundedness and field-measure-obstruction nodes were inspected. Native integral-norm, parity, compact-test and continuous-functional norm statements were checked. Seven complete native lemmas verify the reflection through an injective ring map, scalar and sign identities, nonintegral-clearing implication, integral-value contradiction and bounded-field-measure contradiction. No new baseline declaration is needed.",
+      "boundary": "The actual corrected Eisenstein constant is now proved outside both the ordinary pseudomeasure submodule and the integral measure image, using the negative-identity ordinary clearing factor at every prime. No bounded Q_p-valued measure has all its arithmetic values. Analytic pole order and residue still require their own constructions and are not inferred from unboundedness. Generic coefficient-field evaluation, character-twist equivalence and completed-algebra supplier requests remain open. Tame-character Eisenstein families and full source extraction remain explicit work; PadicFamilies owns geometric realization.",
+      "inputBase": "42d3b530a800843f17e9e70700ac43992729a6c8",
+      "sourceBoundary": "All16 source findings and sourceVersions remain whole. This directly proves the obstruction underlying the already confirmed E54 correction; no duplicate finding or independent verdict is added.",
+      "publication": {
+        "base": "42d3b530a800843f17e9e70700ac43992729a6c8",
+        "unchangedInputs": 57,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "doubledMomentIdentities": 660,
+        "signMomentIdentities": 330,
+        "uniformIntegralObstructions": 11,
+        "shiftedSignZeroControls": 330,
+        "growingConstantNorms": 9,
+        "evenExponentZeroControls": 330
+      },
+      "numericalMethod": "Exact rational Bernoulli recurrence through200, exact integer p-adic valuations and rational norms. Eleven prime witnesses use exponent2(p−1)−1; the sign-cleared value is minus the actual Bernoulli interpolation expression and its norm exceeds1. Separate even-exponent and shifted-sign zero controls prevent ordinary and shifted clearing factors from being confused. Nine growing constant norms illustrate the bounded-field-measure obstruction; the general proof uses the previously established unboundedness and native operator norm, not these finite controls."
     }
   },
   "requestResolutions": [
