@@ -11,7 +11,7 @@
     "WeightsInEtaleCohomology:R34.6"
   ],
   "status": "partial",
-  "summary": "Weights and purity in étale cohomology (RS-17: DeligneWeightsAndPurity, Part II), checkpoint 1, in 7 nodes. R34.1 is planned in full as the representation-convention adapter over DeligneWeightsAndPurity DWP.0. It covers arithmetic and geometric Frobenius, Galois representations pure of weight w and with integral Frobenius polynomials outside T (MordellLawrenceVenkatesh's request), stability under linear algebra, restriction and induction, the chosen-embedding comparison, and the non-examples showing that finite dimensionality forces neither algebraicity nor purity. R34.2's H¹-versus-Tate-module adapter for abelian varieties over 𝔽_q is planned. R34.3–R34.6 are not yet planned.",
+  "summary": "Weights and purity in étale cohomology (RS-17: DeligneWeightsAndPurity, Part II), checkpoints 1–2, in 9 nodes. R34.1 is planned in full as the representation-convention adapter over DWP.0. R34.2 is planned in full as the curve and abelian-variety adapter over DWP.1. It covers Frobenius on V_ℓA against H¹ over finite fields, purity and integrality of H^i of abelian varieties and curves with good reduction (the export to FaltingsFinitenessAndIsogenyTheorems R28.4), and point counts and traces at good places with the genus-one agreement. R34.3–R34.6 are not yet planned.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -72,7 +72,8 @@
       "url": "https://arxiv.org/abs/1807.02721",
       "sha256": "e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b",
       "readSections": [
-        "cc-fb70e5, 2026-09-29: §2.3–§2.5, pp. 9–14 (Lemmas 2.3–2.10)"
+        "cc-fb70e5, 2026-09-29: §2.3–§2.5, pp. 9–14 (Lemmas 2.3–2.10)",
+        "cc-fb70e5, 2026-09-29 (checkpoint 2): §3.1–§3.2, pp. 15–16"
       ],
       "accessed": "2026-09-29"
     },
@@ -84,7 +85,8 @@
       "url": "https://www.jmilne.org/math/CourseNotes/AV.pdf",
       "sha256": "f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef",
       "readSections": [
-        "cc-fb70e5, 2026-09-29: Chapter I §12, pp. 54–56; Chapter II §1, pp. 75–78"
+        "cc-fb70e5, 2026-09-29: Chapter I §12, pp. 54–56; Chapter II §1, pp. 75–78",
+        "cc-fb70e5, 2026-09-29 (checkpoint 2): Chapter I §17, pp. 69–71"
       ],
       "accessed": "2026-09-29"
     }
@@ -550,6 +552,102 @@
       "planet": {
         "name": "Tate module versus H¹"
       }
+    },
+    {
+      "id": "WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction",
+      "parentStageId": "WeightsInEtaleCohomology:R34.2",
+      "realises": [
+        "WeightsInEtaleCohomology:R34.2"
+      ],
+      "title": "Tate modules and H^i of abelian varieties and curves with good reduction are pure and integral",
+      "kind": "theorem",
+      "statement": "Let A be an abelian variety of dimension g over a number field K with good reduction outside a finite set T of finite places, and p a prime. Then ρ = H¹(A_K̄, ℚ_p) = (V_pA)^∨ is pure of weight 1 outside T ∪ {v | p} with integral Frobenius polynomials. At v ∉ T ∪ {v | p}, P_v(ρ, X) = P_{π_{A_v}}(X), the characteristic polynomial of the Frobenius endomorphism of the reduction A_v, independently of p. V_pA itself is pure of weight −1 there and not integral. For 0 ≤ i ≤ 2g, H^i(A_K̄, ℚ_p) = ∧^i H¹ is pure of weight i and integral, with P_v the characteristic polynomial of π_{A_v} on ∧^i. The same holds for H¹ of a smooth projective geometrically connected curve over K with good reduction outside T, through its Jacobian.",
+      "hypotheses": [
+        "Good reduction at v ∤ p means that A has an abelian scheme model over O_v (the Néron model, Milne I.17). Néron–Ogg–Shafarevich then makes V_pA unramified at v; the criterion and the specialization isomorphism are NeronModelsAndSemistableAbelianVarieties R11.5's.",
+        "Geometric convention (R34.1). The dual V_pA has weight −1 and Frobenius polynomials with denominators q_v, which is the H¹-versus-Tate-dual distinction that RS-17 asks R34.2 to keep.",
+        "This is the export to FaltingsFinitenessAndIsogenyTheorems R28.4 that RS-17 names, with no Weil II input and no decomposition theorem."
+      ],
+      "proofSteps": [
+        "Unramifiedness: at v ∉ T with v ∤ p, A has good reduction, so V_pA is unramified at v (Néron–Ogg–Shafarevich, NeronModelsAndSemistableAbelianVarieties R11.5).",
+        "Specialization: the reduction map gives a D_v-equivariant isomorphism V_pA ≅ V_p(A_v), under which Frob_v^arith acts as π_{A_v} (R11.5, with the finite-field conventions of the node frobenius-on-tate-modules-and-first-cohomology).",
+        "So the geometric Frobenius on H¹ has characteristic polynomial P_{π_{A_v}} ∈ ℤ[X] (AbelianSchemesAndArithmeticModuli A6/characteristic-polynomial-of-an-endomorphism), whose roots are Weil q_v-numbers of weight 1 (DeligneWeightsAndPurity DWP.1/weil-estimate-for-abelian-varieties). It is independent of p, since P_{π_{A_v}} is defined without p.",
+        "V_pA = (H¹)^∨: weight −1 (R34.1 purity-under-linear-algebra-operations, duals); the roots q_v^{−1/2}·(unit) are not algebraic integers.",
+        "∧^i H¹ = H^i(A) (Milne I.12.1): a subquotient of the tensor power H¹^{⊗i}, pure of weight i and integral (R34.1).",
+        "Curves: H¹(C) = H¹(J) Galois-equivariantly, and J has good reduction outside T when C does (DeligneWeightsAndPurity DWP.1/weights-of-the-cohomology-of-curves)."
+      ],
+      "acceptance": [
+        "E/ℚ: y² = x³ − x has good reduction outside {2}. At ℓ = 3, P_3(H¹, X) = X² + 3: weight 1, integral. On V_pE the polynomial is X² + 1/3.",
+        "det H¹(A) = ∧^{2g}H¹ = ℚ_p(−g): weight 2g, with P_v = X − q_v^g."
+      ],
+      "prerequisites": [
+        "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology",
+        "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
+        "WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations",
+        "DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties",
+        "DeligneWeightsAndPurity:DWP.1/weights-of-the-cohomology-of-curves",
+        "AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism",
+        "NeronModelsAndSemistableAbelianVarieties:R11.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "lawrence-venkatesh",
+          "locator": "§3.1, (3.2), p. 16",
+          "excerpt": "we denote by ρy the representation of the",
+          "match": "The Galois representation on the étale cohomology of a fibre."
+        },
+        {
+          "sourceId": "milne-abelian-varieties",
+          "locator": "Chapter II, Remark 1.6(a), p. 78",
+          "excerpt": "We have actually proved the following",
+          "match": "The characteristic polynomials of π on ∧^r T_ℓA."
+        },
+        {
+          "sourceId": "milne-abelian-varieties",
+          "locator": "Chapter I, Remark 17.2, p. 70",
+          "excerpt": "is called the N´eron model of A",
+          "match": "Good reduction through the Néron model."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Purity of Tate modules"
+      }
+    },
+    {
+      "id": "WeightsInEtaleCohomology:R34.2/good-reduction-point-counts-and-traces",
+      "parentStageId": "WeightsInEtaleCohomology:R34.2",
+      "realises": [
+        "WeightsInEtaleCohomology:R34.2"
+      ],
+      "title": "Point counts and traces of Frobenius at good places, and the genus-one agreement",
+      "kind": "theorem",
+      "statement": "Let A/K and T be as in purity-of-tate-modules-with-good-reduction, v ∉ T ∪ {v | p} with residue field of size q_v, and α_1, …, α_{2g} the roots of P_v(H¹, X). Then #A_v(𝔽_{q_v^m}) = ∏_i(1 − α_i^m) for all m ≥ 1, and |#A_v(𝔽_{q_v^m}) − q_v^{mg}| ≤ 2g·q_v^{m(g−1/2)} + (2^{2g} − 2g − 1)q_v^{m(g−1)}. For an elliptic curve E/K, Tr(Frob_v^geom | H¹) = a_v := q_v + 1 − #E_v(k_v), and |a_v| ≤ 2√q_v, in agreement with the Hasse bound of Tau Ceti EllipticCurves Layer 3.",
+      "hypotheses": [
+        "The point counts are those of the reduction A_v over k_v. They are imported from DeligneWeightsAndPurity DWP.1 (point-counts-of-abelian-varieties, compatibility-with-the-hasse-bound), not reproved.",
+        "The trace a_v is of the geometric Frobenius on H¹. On V_pE the trace is a_v/q_v."
+      ],
+      "proofSteps": [
+        "P_v(H¹, X) = P_{π_{A_v}}(X) (node purity-of-tate-modules-with-good-reduction).",
+        "DWP.1/point-counts-of-abelian-varieties applied to A_v over k_v gives the counts and the bound.",
+        "For g = 1: P_{π}(X) = X² − a_vX + q_v with a_v = q_v + 1 − #E_v(k_v) (DWP.1/compatibility-with-the-hasse-bound), and the trace of the geometric Frobenius on H¹ is a_v."
+      ],
+      "acceptance": [
+        "E/ℚ: y² = x³ − x at ℓ = 5: #E(𝔽_5) = 8, so a_5 = −2 and |−2| ≤ 2√5."
+      ],
+      "prerequisites": [
+        "WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction",
+        "DeligneWeightsAndPurity:DWP.1/point-counts-of-abelian-varieties",
+        "DeligneWeightsAndPurity:DWP.1/compatibility-with-the-hasse-bound"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-abelian-varieties",
+          "locator": "Chapter II, proof of Theorem 1.1, p. 76",
+          "excerpt": "The Riemann hypothesis shows that each term",
+          "match": "The bound on #A(𝔽_{q^m})."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -588,6 +686,13 @@
       "neededBy": [
         "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology"
       ]
+    },
+    {
+      "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "need": "The Néron–Ogg–Shafarevich criterion (an abelian variety over a number field with good reduction at v ∤ p has V_pA unramified at v), and the D_v-equivariant specialization isomorphism V_pA ≅ V_p(A_v), under which the arithmetic Frobenius acts as the Frobenius endomorphism of A_v.",
+      "neededBy": [
+        "WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction"
+      ]
     }
   ],
   "coverage": [
@@ -598,10 +703,8 @@
     },
     {
       "stageId": "WeightsInEtaleCohomology:R34.2",
-      "status": "partial",
-      "remaining": [
-        "The H¹-versus-Tate-module adapter is planned. Still to be planned: the all-power point-count bounds |#A(𝔽_{q^m}) − q^{mg}| ≤ 2g·q^{m(g−1/2)} + (2^{2g} − 2g − 1)q^{m(g−1)} (Milne II.1.1) and the genus-one agreement, importing DWP.1's weight once DWP.1 is planned; and the export to FaltingsFinitenessAndIsogenyTheorems R28.4."
-      ]
+      "status": "source_decomposed",
+      "remaining": []
     },
     {
       "stageId": "WeightsInEtaleCohomology:R34.3",
