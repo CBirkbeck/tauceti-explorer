@@ -1,5 +1,39 @@
 # BP-EulerSystemsCyclotomicMainConjecture — handoff
 
+## Checkpoint 8 (Claude Code, session cc-fb70e5, 29 September 2026): Greither §2 decomposed (6 nodes)
+
+Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`; L1, L3 and L4 are `partial`.
+
+**Source.** Greither 1992, §2 in full (pp. 455–468), from the same Numdam scan. Formulas were checked on the page images of pp. 455–456, 459–460, 462–463 and 465–467.
+
+**New L4 nodes:**
+- `greither-semilocal-norm-descent`: Lemmas 2.1–2.2 and the Corollary.
+- `greither-circular-unit-limit`: Lemma 2.3, with Sinnott's remarks.
+- `greither-coleman-sequence-all-p`: Theorems 2.4–2.6 and Corollary 2.7, over unramified 𝒪 and with p = 2.
+- `greither-semilocal-coleman-map`: Theorem 2.8, Lemma 2.9 and Proposition 2.10.
+- `greither-circular-unit-generators`: Lemma 2.11 and Corollary 2.12.
+- `greither-stickelberger-image`: Theorem 2.13, Lemma 2.15 and the evaluation proof.
+
+`greither-semilocal-units` (Corollary 2.14) now depends on these.
+
+**Corrections to earlier checkpoints.** The checkpoint 5 L4 statements wrote K_n = F(μ_{p^{n+1}}), which is wrong at p = 2 (it gives K_0 = F). They now use Greither's K_n = F(ζ_{2p^{n+1}}). The ColemanPowerSeries L4 request no longer asks for Greither's §2. Coleman's own theorems (Division values, Theorem 2.2, Theorem 16 and Corollary 17; Local units mod circular units, Lemma 2 and Theorem 3) are requested from ColemanPowerSeries L1 and L3 for unramified 𝒪, including p = 2.
+
+**Source issues (new):**
+- E14: Lemma 2.11 writes F′ = F ∩ ℚ(M), with M undefined.
+- E15: Lemma 2.15(b) needs ζ_m^p in its second term. Checked numerically in four cases; the proof's own computation has ζ_m^p.
+- E16: R is 𝒪[[Γ′]] on p. 460 but ℤ_p[[Γ′]] from Lemma 2.11 on.
+
+**Observation, not a source issue.** For F/F′ unramified above p the semilocal units are cohomologically trivial, so the norm in Lemma 2.1 is an isomorphism. Greither's bound is weaker than necessary but correct.
+
+**Lean.** One new checked example: the polynomial identity behind Lemma 2.15(a), (Σ_{a≤N} a·x^a)(1 − x)² = x(1 − (N + 1)x^N + N·x^{N+1}). The file compiles with exit 0; the only warnings are the existing planned stubs.
+
+**Checks.** `check_blueprint --index`: 0 errors, 0 warnings. `check-files`: 0 problems. Every new excerpt was checked by script.
+
+**Next.**
+- L4: §3's Lemmas 3.11–3.13, and the (G2) gap.
+- L3: the finite-layer stabilisation gap.
+- L1: the derivative classes.
+
 ## Checkpoint 7 (Claude Code, session cc-fb70e5, 29 September 2026): L3's equivalent formulations (2 nodes)
 
 Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`; L1, L3 and L4 are `partial`. L3's only remaining item is the finite-layer stabilisation gap.
