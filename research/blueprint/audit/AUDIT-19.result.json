@@ -2839,7 +2839,7 @@
    }
   },
   "FiniteFieldsAndCharacterSums": {
-   "summary": "Mathlib already contains most of FF.0 and FF.1, which the roadmap describes as things to build. For FF.0 it has classification and cardinality of finite fields, Frobenius generating the cyclic Galois group, subfields by divisibility (with Tau Ceti's uniqueness of the subfield of each order), explicit trace and norm formulas with surjectivity, and the normal basis theorem. For FF.1 it has additive and multiplicative characters with zero extension and the primitive trace character, the row orthogonality relations (with Tau Ceti supplying the column relation for every finite commutative group valued in a domain with enough roots of unity, hence for F_q^×), and Gauss and Jacobi sums with g(χ)g(χ⁻¹) = q, J = gg/g, J·J(χ⁻¹,φ⁻¹) = q and g^n = χ(−1)q∏J. Genuinely missing there: tensor decompositions, certified computable presentations and the Hasse–Davenport relations. FF.2 is unbuilt (no Weil or Deligne bounds, Kloosterman sums or trace functions). FF.3 has only ingredients: unique factorisation, the X^{q^n} − X irreducibility criterion, Tau Ceti's factor-degree certificates, and Hensel for simple roots over ℤ_p; there are no factoring or point-counting algorithms. FF.4 has only truncated Witt vectors (implicit Galois rings), linear codes with generator matrices, and finite abelian Fourier analysis; linearised and permutation polynomials, recurring-sequence correlation, evaluation/BCH/AG codes and finite upper half-planes are absent. FF.5 is a handoff. FF.1's Gauss/Jacobi sums restate CA.1, FF.3's certified factorisation restates CN.1, and FF.4's additive polynomials restate DM.0.",
+   "summary": "Mathlib already contains most of FF.0 and FF.1, which the roadmap describes as things to build. For FF.0 it has classification and cardinality of finite fields, Frobenius generating the cyclic Galois group, subfields by divisibility (with Tau Ceti's uniqueness of the subfield of each order), explicit trace and norm formulas with surjectivity, and the normal basis theorem. For FF.1 it has additive and multiplicative characters with zero extension and the primitive trace character, the row orthogonality relations (with Tau Ceti supplying the column relation for every finite commutative group valued in a domain with enough roots of unity, hence for F_q^×), and Gauss and Jacobi sums with g(χ,ψ)·g(χ⁻¹,ψ⁻¹) = q for χ nontrivial and ψ primitive (with ψ fixed the product is g(χ,ψ)·g(χ⁻¹,ψ) = χ(−1)q), and, for a fixed primitive ψ, J(χ,φ) = g(χ,ψ)g(φ,ψ)/g(χφ,ψ), J(χ,φ)·J(χ⁻¹,φ⁻¹) = q and g(χ,ψ)^n = χ(−1)q∏J. Genuinely missing there: tensor decompositions, certified computable presentations and the Hasse–Davenport relations. FF.2 is unbuilt (no Weil or Deligne bounds, Kloosterman sums or trace functions). FF.3 has only ingredients: unique factorisation, the X^{q^n} − X irreducibility criterion, Tau Ceti's factor-degree certificates, and Hensel for simple roots over ℤ_p; there are no factoring or point-counting algorithms. FF.4 has only truncated Witt vectors (implicit Galois rings), linear codes with generator matrices, and finite abelian Fourier analysis; linearised and permutation polynomials, recurring-sequence correlation, evaluation/BCH/AG codes and finite upper half-planes are absent. FF.5 is a handoff. FF.1's Gauss/Jacobi sums restate CA.1, FF.3's certified factorisation restates CN.1, and FF.4's additive polynomials restate DM.0.",
    "layers": {
     "FiniteFieldsAndCharacterSums:FF.0": {
      "verdict": "partly built",
@@ -3267,7 +3267,7 @@
        "note": "Not present in either library; a grep for Weil bound and Kloosterman found nothing. Mathlib has only the Gauss-sum evaluation g(χ,ψ)·g(χ⁻¹,ψ⁻¹) = q, the input for the monomial sums ∑ψ(ax^d)."
       },
       {
-       "target": "Weil bounds for multiplicative character sums |∑_x χ(f(x))| ≤ (m − 1)√q when f is not an ord(χ)-th power, and for mixed sums",
+       "target": "Weil bounds for multiplicative character sums: for a multiplicative character χ of F_q of order e > 1 (complex-valued, extended by χ(0) = 0) and a nonzero f ∈ F_q[X] that is not of the form c·h^e with c ∈ F_q^× and h ∈ F_q[X] (equivalently, f is not an e-th power in F̄_q[X]), |∑_{x∈F_q} χ(f(x))| ≤ (m − 1)√q, where m is the number of distinct roots of f in F̄_q; and, as a separate statement with its own hypotheses, the mixed bound |∑_{x∈F_q} χ(f(x))ψ(g(x))| ≤ (m + n − 1)√q for a nontrivial additive character ψ, g ∈ F_q[X] of degree n ≥ 1 prime to p, any multiplicative character χ (zero-extended) and nonzero f with m distinct roots in F̄_q",
        "library": "absent",
        "declarations": [
         {
@@ -3285,7 +3285,7 @@
          "fit": "related"
         }
        ],
-       "note": "Only the special case f = x(1 − x) exists, through Jacobi sums (J·J(χ⁻¹,φ⁻¹) = q), plus the vanishing of the full quadratic-character sum."
+       "note": "Only the special case f = x(1 − x) exists, through Jacobi sums (J·J(χ⁻¹,φ⁻¹) = q), plus the vanishing of the full quadratic-character sum. The degenerate multiplicative class is the constant multiples c·h^e (c ∈ F_q^×), not only the e-th powers in F_q[X]: the two descriptions in the target agree because F_q is perfect, so in f = c·∏π_i^{a_i} with distinct monic irreducible π_i every root of π_i is simple and has multiplicity a_i in f, and f is an e-th power in F̄_q[X] exactly when e divides every a_i. The mixed bound needs no non-degeneracy of f because p ∤ n = deg g. The FF.2 packet plans these statements with the same hypotheses as FF.2/weil-bound-multiplicative, FF.2/multiplicative-perfect-power-sum and FF.2/weil-bound-mixed."
       },
       {
        "target": "Bounds for rational-function exponential sums via curves (Kloosterman-type sums)",
@@ -3315,10 +3315,10 @@
        "note": "Neither library has ℓ-adic sheaves, trace functions or compact-support cohomology."
       },
       {
-       "target": "Degenerate cases tested: Artin–Schreier-trivial phases and multiplicative perfect powers receive no square-root bound",
+       "target": "Degenerate cases tested: Artin–Schreier-trivial phases and multiplicative perfect powers, including constant multiples c·h^e with c ∈ F_q^× of e-th powers (e = ord(χ)), receive no square-root bound",
        "library": "absent",
        "declarations": [],
-       "note": "Not present in either library."
+       "note": "Not present in either library. For a multiplicative character χ of order e, the polynomials excluded from the square-root bound are all f = c·h^e with c ∈ F_q^× and h ∈ F_q[X], for which ∑_{x∈F_q} χ(f(x)) = χ(c)·#{x : h(x) ≠ 0}; e-th powers in F_q[X] are only the case c ∈ (F_q^×)^e. Rejection test: over F_5 with χ the quadratic character, f = 2X² is not a square in F_5[X] (2 is not a square in F_5), yet ∑_x χ(2x²) = 0 − 1 − 1 − 1 − 1 = −4, while f has m = 1 distinct root in F̄_5, so (m − 1)√5 = 0, and even (deg f − 1)√5 = √5 < 4. A cubic character with f = X² is the opposite test: X² is a perfect power but not c·h³, and ∑_x χ(x²) = ∑_x χ²(x) = 0. The FF.2 packet plans these cases as FF.2/multiplicative-perfect-power-sum and FF.2/artin-schreier-trivial-sum."
       }
      ],
      "duplicates": []
