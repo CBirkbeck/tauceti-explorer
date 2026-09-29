@@ -1,5 +1,45 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (A-outline step).
+**Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 120 findings
+(E119 and E120 are new), 12 gaps. No Lean deliverable or compilation. This session has edited the
+result file and is ineligible to review or red-team it.
+
+## Completed here
+
+- **The A queue is done.** The 56 Appendix A theorem items without an outline now carry
+  `proofSteps`, `prerequisites` and `proofProvenance`. They were read from Appendix A (PDF187–201) and
+  the sources it cites, with the recorded findings applied: Thorne, CHT, Bellaïche–Chenevier, BLGGT,
+  Labesse, Mœglin–Waldspurger and EGH. There are 32 new internal edges, and the graph stays acyclic
+  at 1,600 edges. Every theorem item outside the library-cited L list now has proof steps.
+- **E119.** A misprint in the published CHT, in the proof of Lemma 2.1.9: a direct-limit arrow where
+  the inverse limit is meant.
+- **E120.** §A.4 asserts that pr S(U₁(Q), W)_{m_Q} is free over O[Δ_Q]. The proof it follows,
+  Thorne's Theorem 6.8(ii), omits that pr S is a direct summand; A33 supplies the step.
+- **Records corrected:**
+  - E49–E51's page range for BLGGT l = p II, now 165–179;
+  - three more rank slips in E50;
+  - A81's locator, now §1.8.2.
+
+## Resume from here
+
+1. **The remaining gaps**, as listed in the Q03 step below.
+2. **External inputs.** The items import these theorems rather than prove them:
+   - B20, B31 and B32 (§8), and §7's imports: Kisin [48], [49]; Emerton–Gee [22]; [56, Proposition
+     3.1.2];
+   - Appendix A's imports:
+     - Thorne's Proposition 4.4 and §5;
+     - CHT's Proposition 3.4.4 and Corollary 2.3.5;
+     - Bellaïche–Chenevier's Theorem 1.2;
+     - BLGGT's Theorem 1.1 (l = p, II) and Theorem 2.1.1 (Annals 179);
+     - Labesse's Corollary 5.3, Mœglin–Waldspurger's main theorem and EGH's Theorem 7.2.1.
+3. Construction and definition items were not in the queues. Across the paper 78 constructions and 89
+   definitions have no steps, including 18 and 6 in Appendix A.
+
+---
+
+# Previous checkpoint (cc-58621d, G-outline step)
+
 Claude Code — cc-58621d; issue 1254; 29 September 2026 (G-outline step).
 **Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 118 findings,
 12 gaps. No Lean deliverable or compilation. This session has edited the result file and is
