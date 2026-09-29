@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -156,7 +157,7 @@ The findings (research/blueprint/redteam/{RT}.result.json, verified in research/
 {FINDINGS}
 Apply each fix to the files it names: correct the statement, claim, owner, route or node; add missing mathematics where the finding says it belongs (a node or a `requests` entry in the owning packet, or a note for the maintainer in your report when it needs a new roadmap). New nodes follow PROTOCOL.md and research/blueprint/UPSTREAM_GUIDE.md like any other (statement, locator, prerequisites, API and unit tests). Keep every file valid under its checker (scripts/check_blueprint.py, check_links.py, check_restructure.py, check_paper.py). Write research/blueprint/redteam/{RT}.fixes.md: for each finding, what you changed, or why you did not.
 Edit only the files the findings name, the target's files, your report and your scratch directory.
-""" + CHECK_INPUTS
+{ELSEWHERE}""" + CHECK_INPUTS
 
 ERRATA_TEMPLATE = HEADER + """
 JOB: record the mistakes in a published source that earlier work on it found (PROTOCOL.md section 18).
@@ -471,6 +472,19 @@ def area_parts(members, links, size=8):
             left.remove(best)
         parts.append(sorted(part))
     return parts
+
+
+FINDING_PATH = re.compile(r"research/[A-Za-z0-9_./~+-]+\.(?:json|md|lean|tex|txt|py)")
+
+
+def finding_files(findings):
+    """The files some findings name: those a worker's pull request may change, and those
+    outside the swarm's output paths, which it may not. A finding's "where" is a location,
+    often a path followed by an item or a section, so only the paths in it count."""
+    from intake import file_problems
+    paths = sorted({p for f in findings for p in FINDING_PATH.findall(f.get("where") or "")})
+    editable = [p for p in paths if not file_problems(p, "{}")]
+    return editable, [p for p in paths if p not in editable]
 
 
 def confirmed_findings(rt):
@@ -968,7 +982,10 @@ def main():
                 break
             text = RS_REVISION.format(ROUND=round_no, BASE=job_id, REVIEW=reviewed_by, OUTPUT=output, REPORT=report, JOB=revision)
             add({"id": revision, "kind": "restructure", "priority": 0, "order": 20 + number, "name": family["name"],
-                 "roadmapIds": members, "anchors": [a["id"] for a in family["anchors"]], "outputs": [output, report], "after": [reviewed_by]},
+                 "roadmapIds": members, "anchors": [a["id"] for a in family["anchors"]],
+                 # The proposal is revised in place, so its files exist from the start: the round's
+                 # own deliverable is the handoff note saying what it changed.
+                 "outputs": [output, report, f"research/blueprint/handoff/{revision}.md"], "after": [reviewed_by]},
                 text + RESTRUCTURE_TEMPLATE.format(**fill, JOB=revision, **fields))
             add({"id": "REV-" + revision, "kind": "review", "priority": 0, "order": 20 + number, "name": family["name"], "roadmapIds": members,
                  "outputs": [f"research/blueprint/reviews/REV-{revision}.md", output], "after": [revision], "avoidAccountOf": revision},
@@ -1038,11 +1055,14 @@ def main():
              "avoidAccountOf": rt, "independentOf": [rt] + independent}, REDTEAM_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + rt, RT=rt, TARGET=fields.get("TARGET", target)))
         findings = confirmed_findings(rt)
         if findings:
-            files = sorted({f["where"] for f in findings if f["where"].startswith("research/") and "/" in f["where"]})
+            files, elsewhere = finding_files(findings)
             listed = "\n".join(f"- {f['id']} ({f['severity']}, {f['kind']}) at {f['where']}: {f['claim']} Fix: {f['fix']}" for f in findings)
             add({"id": "FIX-" + rt, "kind": "fix", "priority": 1, "order": order, "name": name, "target": target, "roadmapIds": roadmap_ids,
                  "outputs": [f"research/blueprint/redteam/{rt}.fixes.md"] + [f for f in files if f not in fields.get("OUTPUTS", [])] + fields.get("OUTPUTS", []),
-                 "after": []}, FIX_TEMPLATE.format(**fill, JOB="FIX-" + rt, RT=rt, FILE=rt, TARGET=fields.get("TARGET", target), FINDINGS=listed))
+                 "after": []}, FIX_TEMPLATE.format(**fill, JOB="FIX-" + rt, RT=rt, FILE=rt, TARGET=fields.get("TARGET", target), FINDINGS=listed,
+                                    ELSEWHERE=(f"These files are outside the swarm's output paths, so a pull request may not change them: "
+                                               f"{', '.join(elsewhere)}. For a finding in one, say in your report exactly what change it needs, "
+                                               f"for the maintainer.\n" if elsewhere else "")))
 
     kind_word = {"audit": "library audit", "restructure": "restructuring proposal", "link": "link map", "paper": "paper extraction",
                  "design": "new roadmap", "blueprint": "blueprint"}
