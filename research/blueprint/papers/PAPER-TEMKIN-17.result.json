@@ -358,7 +358,7 @@
    "statement": "l/k is tame iff l_i/k_i and l̃_i/k̃_i are tame and |l_i^×|/|k_i^×| has no nontrivial p-torsion (p = exp.char(k̃)); the last condition can be omitted when p_i = p.",
    "locator": "Ann. of Math. 186 (2017), §2.6.2, Lemma 2.6.3(ii) and proof, pp. 111–112",
    "status": "missing",
-   "note": "Routed to the valued-fields Part II."
+   "note": "The last step of the printed proof writes 'p = char(K̃_i) divides [L̃_i : K̃_i]'; when p_i = 1 the field K̃_i has characteristic 0, and the prime that matters is the residue characteristic p of K̃_i's own valuation (sourceIssues E4). The conclusion holds. Routed to the valued-fields Part II."
   },
   {
    "id": "PAPER-TEMKIN-17/cor-2-6-4",
@@ -430,7 +430,7 @@
    "statement": "Let X be a scheme with a nowhere dense closed subset Z, admitting a finite-type morphism to a qe scheme S with dim S ≤ 3. Then there is a projective char(X)-alteration b : X′ → X with X′ regular and b⁻¹(Z) an snc divisor; if S = Spec k with k perfect, b can be chosen separable.",
    "locator": "Ann. of Math. 186 (2017), §1.2.4, Theorem 1.2.5, p. 99; proof §4.3.2, p. 124",
    "status": "missing",
-   "note": "Proof: shrink S so that char(S) = char(X) (char(S) ∖ char(X) is finite for dominant f), then Cossart–Piltant and Theorem 4.3.1(i),(iii). Routed to the prime-to-degree alterations Part II."
+   "note": "Proof: shrink S so that char(S) = char(X) (char(S) ∖ char(X) is finite for dominant f), then Cossart–Piltant and Theorem 4.3.1(i),(iii). Routed to the prime-to-degree alterations Part II. Projectivity of b comes from Theorem 4.3.1(ii): universal P-resolvability (§4.1.4), which §4.3.2 cites through 4.3.1(i), does not include projectivity, so the blueprint should derive the first claim from (ii) (noted by REV-PAPER-TEMKIN-17)."
   },
   {
    "id": "PAPER-TEMKIN-17/theorem-1-2-9",
@@ -786,7 +786,12 @@
    "searched": [
     "2026-09-29: the Annals article is freely available at annals.math.princeton.edu (SHA-256 1f4ac06f…) and was read; arXiv:1508.06255v2 (21 Feb 2017, 'final version') was compared: same statements and numbering, and E1–E3 are present in both.",
     "2026-09-29: the Annals page and Crossref list no erratum. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page images of pp. 121–122. Theorem 4.2.1 assumes only char(X) ⊆ P, and Step 4 applies Theorem 3.3.6 to S̄ → S, which yields a P^w_{S̄/S}-alteration with P^w_{S̄/S} ⊆ char(S), not ⊆ P. In the ℓ′ case of [IT14b, Th. 3.4] the Sylow trick needed tameness only over X, so char(X) ⊆ {ℓ}′ sufficed there; distillation of the whole of S̄ → S does not have that locality. The theorem is applied only in Theorem 4.3.1, where char(S) ⊆ P, so no main result is affected; 'the proof' is the right scope. The proposed repair over S₀ (removing the finitely many fibres over char(S) ∖ char(X), as in §4.3.2) is plausible, but it is a sketch and the blueprint should prove it or restate the theorem with char(S) ⊆ P.",
+    "by": "REV-PAPER-TEMKIN-17"
+   }
   },
   {
    "id": "PAPER-TEMKIN-17/E2",
@@ -800,7 +805,12 @@
    "searched": [
     "2026-09-29: the Annals article is freely available at annals.math.princeton.edu (SHA-256 1f4ac06f…) and was read; arXiv:1508.06255v2 (21 Feb 2017, 'final version') was compared: same statements and numbering, and E1–E3 are present in both.",
     "2026-09-29: the Annals page and Crossref list no erratum. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 120: 'The direct implication is obvious, so let us prove the inverse one', followed by an argument that proves L/K S-tame ⇒ L′/K S′-tame, and ends with 'since L is the composite of L₁, …, L_n, the extension L/K is tame', where the composite of the conjugates is L′. The printed 'lie in S′' for valuations on L_i should also be S. Same text in arXiv v2, p. 20.",
+    "by": "REV-PAPER-TEMKIN-17"
+   }
   },
   {
    "id": "PAPER-TEMKIN-17/E3",
@@ -814,7 +824,31 @@
    "searched": [
     "2026-09-29: the Annals article is freely available at annals.math.princeton.edu (SHA-256 1f4ac06f…) and was read; arXiv:1508.06255v2 (21 Feb 2017, 'final version') was compared: same statements and numbering, and E1–E3 are present in both.",
     "2026-09-29: the Annals page and Crossref list no erratum. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 112: Corollary 2.5.6 (p. 110) is a single statement, and the proof of Theorem 2.6.6 cites 'Corollary 2.5.6(ii)'. Same in arXiv v2, p. 13.",
+    "by": "REV-PAPER-TEMKIN-17"
+   }
+  },
+  {
+   "id": "PAPER-TEMKIN-17/E4",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.6.3(ii), last paragraph, p. 112 (published version; page image checked); same in arXiv:1508.06255v2, p. 13",
+   "printed": "If p|eLi/Ki, we are done; otherwise p|fLi/Ki. In the latter case, p = char(K̃i) divides [L̃i : K̃i]. Since K̃i = (K̃i)u, as was observed above, this implies that L̃i/K̃i is not tame.",
+   "correction": "'p, the residual characteristic exponent of the valued field K̃_i (that is, exp.char of the residue field of K), divides [L̃_i : K̃_i]'. The field K̃_i itself has characteristic p_i, which is 1 when i < n.",
+   "reason": "In §2.6.2, p_i = exp.char(k̃_i) equals 1 for i < n and p for i ≥ n. When p_i = 1 the reduction to this case is reachable: L_i/K_i is then automatically tame and defectless, so [L : K] = e_{L_i/K_i}·f_{L_i/K_i}, and p can divide f with p ∤ e. For example, take K̃_i strictly henselian of mixed characteristic (0, p) and L̃_i a degree-p extension of it. Then char(K̃_i) = 0 ≠ p. The argument survives with the corrected reading: K̃_i = (K̃_i)^u has separably closed residue field of characteristic p, so an extension of degree divisible by p cannot be tame.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "29 September 2026: the Annals article page https://annals.math.princeton.edu/2017/186-1/p03 lists no erratum; the Crossref record of doi:10.4007/annals.2017.186.1.3 has no update-to or updated-by relation, and a Crossref search for works updating it returns none.",
+    "29 September 2026: arXiv https://arxiv.org/abs/1508.06255 lists v2 (21 February 2017) as the last version; the same sentence is on its p. 13."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found and checked by this review on the page image of p. 112.",
+    "by": "REV-PAPER-TEMKIN-17"
+   }
   }
  ],
  "sourceVersions": [
