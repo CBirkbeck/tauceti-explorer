@@ -726,7 +726,7 @@ SOFTWARE.
 <aside id="inspector" class="inspector" aria-label="Selected item details" hidden><div class="inspector-bar"><span id="selection-kind">Roadmap</span><button id="close-inspector" class="icon-button" aria-label="Close details">×</button></div><div id="inspector-content"></div></aside>
 </div>
 <dialog id="reader"><header class="reader-header"><h2 id="reader-title"></h2><div><button id="download-readme" class="quiet">Download .md</button><a id="open-source" class="quiet" target="_blank" rel="noopener">Source file ↗</a><button id="close-reader" class="icon-button" aria-label="Close full roadmap">×</button></div></header><div class="reader-layout"><nav id="reader-toc" aria-label="Roadmap contents"></nav><article id="reader-body" class="md-content"></article></div></dialog>
-<dialog id="help"><div class="help-inner"><button id="close-help" class="icon-button close-dialog" aria-label="Close help">×</button><h2>How the atlas works</h2><p>The atlas is one universe. Zoom in and it becomes more specific; zoom out and it becomes more general. The address bar and breadcrumbs follow the camera.</p><ol class="cosmic-guide"><li><strong>Galaxies are mathematical areas.</strong> From the universe you see the areas named and each roadmap as a point.</li><li><strong>Constellations are roadmaps.</strong> Inside a galaxy each roadmap resolves into a small figure of stars.</li><li><strong>Stars are layers.</strong> Inside a constellation each star is a mathematical topic with its name.</li><li><strong>Planets are the mathematics.</strong> A layer's definitions, theorems and constructions orbit its star. Select a planet to read its statement and references.</li><li><strong>Diamonds are papers.</strong> A research paper sits on the rim of the roadmap it builds on most. It fills from the centre as the layers it needs are formalised, and unlocks, solid white, once every one of them is.</li></ol><p>Scroll or pinch to zoom and drag to pan. Click an object to travel to it; the back control above the map steps out one level, and your browser's back button also works. Press ⌘K or Ctrl K to search.</p><h3>Colours</h3><p>Progress is brightness. A layer, roadmap or area recorded as not started is grey; once work on it is recorded it is red, warming through salmon to bright white when complete, so a galaxy brightens as its roadmaps fill in. Tau Ceti's own roadmaps take each layer's state (done, partial, untouched or not yet assessed) from the Progress page of the Tau Ceti site, refreshed daily. Objects with no recorded status are open rings and are counted under “no progress data” in Mission status; they are never shown as started or as zero percent. Dashed outlines mark areas that have no roadmap yet. Planets are coloured by kind: definitions, theorems and constructions; a dashed planet is a reviewed refinement read from the primary sources.</p><h3>Connections</h3><p>Nothing is linked until you ask. Select a roadmap to see its links to other roadmaps, select a star to see the prerequisites and consumers of that layer, and hover an area heading to see the routes between areas. Select a link to see the two things it joins, the prerequisite first; either name takes you there. The Links tab lists the layer pairs behind each roadmap link. Related-plan links can be switched on and carry no prerequisite claim.</p><p class="scope-note">The roadmap texts are embedded, so the page works offline. Administrative tasks stay in the full source and in the totals but are not drawn as stars. Progress changes and pins are saved in this browser only and never edit the Tau Ceti repositories. Recorded statuses are dated snapshots.</p><button id="start-exploring" class="primary">Close</button></div></dialog>
+<dialog id="help"><div class="help-inner"><button id="close-help" class="icon-button close-dialog" aria-label="Close help">×</button><h2>How the atlas works</h2><p>The atlas is one universe. Zoom in and it becomes more specific; zoom out and it becomes more general. The address bar and breadcrumbs follow the camera.</p><ol class="cosmic-guide"><li><strong>Galaxies are mathematical areas.</strong> From the universe you see the areas named and each roadmap as a point.</li><li><strong>Constellations are roadmaps.</strong> Inside a galaxy each roadmap resolves into a small figure of stars.</li><li><strong>Stars are layers.</strong> Inside a constellation each star is a mathematical topic with its name.</li><li><strong>Planets are the mathematics.</strong> A layer's definitions, theorems and constructions orbit its star. Select a planet to read its statement and references.</li><li><strong>Diamonds are papers.</strong> A research paper sits on the rim of the roadmap it builds on most. It fills from the bottom as the layers it needs are formalised and is full once they all are; it unlocks, solid white, when every roadmap it calls for is in the atlas too. Select it to see a line from each roadmap it builds on.</li></ol><p>Scroll or pinch to zoom and drag to pan. Click an object to travel to it; the back control above the map steps out one level, and your browser's back button also works. Press ⌘K or Ctrl K to search.</p><h3>Colours</h3><p>Progress is brightness. A layer, roadmap or area recorded as not started is grey; once work on it is recorded it is red, warming through salmon to bright white when complete, so a galaxy brightens as its roadmaps fill in. Tau Ceti's own roadmaps take each layer's state (done, partial, untouched or not yet assessed) from the Progress page of the Tau Ceti site, refreshed daily. Objects with no recorded status are open rings and are counted under “no progress data” in Mission status; they are never shown as started or as zero percent. Dashed outlines mark areas that have no roadmap yet. Planets are coloured by kind: definitions, theorems and constructions; a dashed planet is a reviewed refinement read from the primary sources.</p><h3>Connections</h3><p>Nothing is linked until you ask. Select a roadmap to see its links to other roadmaps, select a star to see the prerequisites and consumers of that layer, and hover an area heading to see the routes between areas. Select a link to see the two things it joins, the prerequisite first; either name takes you there. The Links tab lists the layer pairs behind each roadmap link. Related-plan links can be switched on and carry no prerequisite claim.</p><p class="scope-note">The roadmap texts are embedded, so the page works offline. Administrative tasks stay in the full source and in the totals but are not drawn as stars. Progress changes and pins are saved in this browser only and never edit the Tau Ceti repositories. Recorded statuses are dated snapshots.</p><button id="start-exploring" class="primary">Close</button></div></dialog>
 <dialog id="progress-dialog"><div class="help-inner"><button id="close-progress" class="icon-button close-dialog" aria-label="Close progress">×</button><h2>Your progress</h2><p>Open a layer star, choose its status in the details panel and add a note. Updates change its colour and are saved locally. “Use recorded status” removes an override.</p><p id="storage-status"></p><div class="button-row"><button id="download-offline" class="secondary">Download offline atlas</button><button id="export-progress" class="primary">Export progress</button><button id="import-progress" class="secondary">Import progress</button></div><input type="file" id="progress-file" accept="application/json,.json" hidden><p class="detail-note">An imported file restores local updates. Recorded source reports stay embedded separately. These controls never edit the Tau Ceti repositories.</p></div></dialog>
 <dialog id="stats-dialog"><div class="stats-inner"><button id="close-stats" class="icon-button close-dialog" aria-label="Close mission status">×</button><h2>Mission status</h2><p id="stats-scope" class="stats-scope"></p><div id="stats-summary" class="stats-summary"></div><div id="stats-sources" class="stats-sources"></div><h3>By area</h3><div id="area-progress" class="area-progress"></div><p class="detail-note">Counts use the smallest tracked layers; parent headings and collections are counted once. “Complete” means recorded complete or marked complete in this browser. Source reports are dated snapshots, not a fresh verification of the code. Layers without recorded status stay in the totals and have no colour on the map.</p></div></dialog>
 <div id="toast" role="status" aria-live="polite"></div>
@@ -1560,6 +1560,7 @@ SOFTWARE.
       fields, galaxies: populated, constellations, stars, planets, artefacts, byId, bounds, aspect, core, layout: radial ? 'radial' : 'areas',
       routes: routesBetween(populated, constellations, input.constellationEdges),
       constellationEdges: input.constellationEdges.filter(edge => constellationById.has(edge.source) && constellationById.has(edge.target)),
+      artefactEdges: (input.artefactEdges || []).filter(edge => constellationById.has(edge.source) && byId.has(edge.target)),
       starEdges: input.starEdges.filter(edge => starIds.has(edge.source) && starIds.has(edge.target)),
       relatedEdges: (input.relatedEdges || []).filter(edge => constellationById.has(edge.source) && constellationById.has(edge.target))
     };
@@ -2119,17 +2120,26 @@ SOFTWARE.
 
     renderArtefacts(items, k, active) {
       // A paper is a small diamond, the same size on screen at any zoom. It
-      // fills from the centre, in the progress colour, as the layers it needs
-      // are formalised; once it is unlocked it is solid white with a halo.
+      // fills from the bottom, in the progress colour, as the layers it needs
+      // are formalised, and is full once they all are; once it is unlocked it
+      // is solid white with a halo.
       const diamond = s => `M0,${-s}L${s * .72},0L0,${s}L${-s * .72},0Z`, filled = d => Math.max(0, Math.min(100, progressValue(d.progress) || 0));
+      // The part of the diamond below a level that rises from its bottom corner (fraction 0) to its top (1).
+      const level = (s, f) => {
+        if (f <= 0) return null;
+        if (f >= 1) return diamond(s);
+        const w = s * .72, y = s - 2 * s * f, half = w * (1 - Math.abs(y) / s);
+        return y >= 0 ? `M0,${s}L${half},${y}L${-half},${y}Z` : `M0,${s}L${w},0L${half},${y}L${-half},${y}L${-w},0Z`;
+      };
       const join = this.layers.artefact.selectAll('g.tau-artefact').data(items, d => d.id);
       join.exit().remove();
       const enter = join.enter().append('g').attr('class', 'tau-node tau-artefact').attr('data-node-id', d => d.id).attr('data-level', 'artefact')
         .attr('tabindex', 0).attr('role', 'button').attr('aria-label', d => normalizeText(d.label) + '. Paper' + (d.progressLabel ? ', ' + d.progressLabel : ''));
       enter.append('circle').attr('class', 'tau-hit').attr('r', this.isCoarse ? 14 : 10);
       enter.append('path').attr('class', 'tau-artefact-halo').attr('d', diamond(9.5)).attr('fill', 'none').attr('stroke', '#ffffff').attr('stroke-width', 1).attr('opacity', .45);
-      enter.append('path').attr('class', 'tau-artefact-body').attr('d', diamond(6)).attr('stroke-width', 1.3);
+      enter.append('path').attr('class', 'tau-artefact-body').attr('d', diamond(6)).attr('stroke', 'none');
       enter.append('path').attr('class', 'tau-artefact-fill');
+      enter.append('path').attr('class', 'tau-artefact-outline').attr('d', diamond(6)).attr('fill', 'none').attr('stroke-width', 1.3);
       enter.append('circle').attr('class', 'tau-ring tau-select-ring').attr('r', 11).attr('fill', 'none').attr('stroke', ACCENT).attr('stroke-width', 1.5);
       enter.append('title');
       this.bindInteractions(enter);
@@ -2138,9 +2148,10 @@ SOFTWARE.
         .attr('data-progress', d => progressValue(d.progress)).attr('data-unlocked', d => d.unlocked ? 'true' : 'false');
       all.select('title').text(d => normalizeText(d.label) + (d.progressLabel ? '\n' + d.progressLabel : '') + '\nClick to read about the paper');
       all.select('.tau-artefact-halo').attr('display', d => d.unlocked ? null : 'none');
-      all.select('.tau-artefact-body').attr('fill', d => d.unlocked ? '#ffffff' : BACKGROUND).attr('stroke', d => d.unlocked ? '#ffffff' : progressColor(filled(d)));
-      all.select('.tau-artefact-fill').attr('d', d => diamond(6 * Math.sqrt(filled(d) / 100))).attr('fill', d => progressColor(filled(d)))
+      all.select('.tau-artefact-body').attr('fill', d => d.unlocked ? '#ffffff' : BACKGROUND);
+      all.select('.tau-artefact-fill').attr('d', d => level(6, filled(d) / 100)).attr('fill', d => progressColor(filled(d)))
         .attr('display', d => d.unlocked || !filled(d) ? 'none' : null);
+      all.select('.tau-artefact-outline').attr('stroke', d => d.unlocked ? '#ffffff' : progressColor(filled(d)));
       all.select('.tau-select-ring').attr('opacity', d => active === d.id ? 1 : 0);
     }
 
@@ -2276,6 +2287,16 @@ SOFTWARE.
             links.push({ id: 'related:' + index, ...curve(a, b, 0), arrow: false, reference: true, level: 'constellation', source: edge.source, target: edge.target });
           });
         }
+        // A paper draws a line from each roadmap it builds on, like the lines between roadmaps,
+        // ending at the rim of its diamond (which keeps its size on screen) rather than under it.
+        if (activeNode.level === 'artefact') (universe.artefactEdges || []).forEach((edge, index) => {
+          if (edge.target !== activeNode.id) return;
+          const a = universe.byId.get(edge.source), b = universe.byId.get(edge.target);
+          if (!a || !b) return;
+          const dx = b.x - a.x, dy = b.y - a.y, length = Math.max(1e-6, Math.hypot(dx, dy)), gap = Math.min(length / 2, 11 / k);
+          links.push({ id: 'paper:' + index, ...curve(a, { x: b.x - dx / length * gap, y: b.y - dy / length * gap }, Math.min(40, length * .1)), arrow: true,
+            reference: false, level: 'artefact', source: edge.source, target: edge.target, count: edge.count, whole: edge.whole });
+        });
         if (activeNode.level === 'galaxy') this.layers.route.selectAll('path.tau-route').attr('opacity', d => d.source === activeNode.id || d.target === activeNode.id ? .6 : 0);
       }
       if (!activeNode || activeNode.level !== 'galaxy') this.layers.route.selectAll('path.tau-route').attr('opacity', 0);
@@ -2299,7 +2320,7 @@ SOFTWARE.
         .on('mouseenter', d => { if (!graph.isCoarse && !graph.pointerResting(d3.event)) { graph.hoveredLinkId = d.id; graph.scheduleRender(); } })
         .on('mouseleave', () => { if (!graph.isCoarse) { graph.hoveredLinkId = null; graph.scheduleRender(); } })
         .merge(hits).attr('d', d => d.path).attr('data-source', d => d.source).attr('data-target', d => d.target)
-        .attr('aria-label', d => `${d.reference ? 'Related plans' : 'Prerequisite'}: ${name(d.source)} to ${name(d.target)}`);
+        .attr('aria-label', d => `${d.reference ? 'Related plans' : d.level === 'artefact' ? 'Needed by the paper' : 'Prerequisite'}: ${name(d.source)} to ${name(d.target)}`);
       this.renderLinkCard(links.find(link => link.id === chosen), name, k);
     }
 
@@ -2312,8 +2333,9 @@ SOFTWARE.
       const g = card.enter().append('g').attr('class', 'tau-link-card').merge(card);
       g.selectAll('*').remove();
       const font = this.isCoarse ? 13 : 12, pad = 8, line = font + 7;
-      const caption = link.reference ? 'Related plans' : `${link.level === 'star' ? 'Layer' : 'Roadmap'} prerequisite` +
-        (link.count ? ` · ${link.count} layer link${link.count === 1 ? '' : 's'}` : '');
+      const caption = link.reference ? 'Related plans' : link.level === 'artefact'
+        ? 'Needed by the paper · ' + (link.whole ? 'the whole roadmap' : link.count ? `${link.count} layer${link.count === 1 ? '' : 's'}` : 'the roadmap it builds on most')
+        : `${link.level === 'star' ? 'Layer' : 'Roadmap'} prerequisite` + (link.count ? ` · ${link.count} layer link${link.count === 1 ? '' : 's'}` : '');
       const ends = [[link.source, link.reference ? '' : ''], [link.target, link.reference ? '↔ ' : '→ ']];
       const box = g.append('rect').attr('class', 'tau-link-card-box').attr('rx', 4);
       g.append('text').attr('class', 'tau-link-card-caption').attr('x', pad).attr('y', pad + 9).attr('font-size', 9).text(caption);
@@ -3644,7 +3666,10 @@ function universeInput(){
  const present=id=>ids.has(id)||gaps.some(a=>a.id===id);
  const groupsWithProgress=allGroups.map(g=>{const p=summarize(roadmaps.filter(r=>r.group===g.id));return {...g,progress:aggregateProgress(p),progressLabel:aggregateProgressLabel(p,'layers complete')};});
  const artefacts=(DATA.papers||[]).filter(p=>ids.has(p.home)).map(p=>({id:p.id,label:p.label,home:p.home,...paperProgress(p)}));
- return {layout:LAYOUT,groups:groupsWithProgress,fields:DATA.fields||[],artefacts,constellations,stars:starMap,planets:planetMap,starEdges,planetEdges,constellationEdges,relatedEdges:[...relatedEdges,...contextEdges].filter(e=>present(e.source)&&present(e.target))};
+ // A paper's lines come from the roadmaps its panel lists under "Builds on": the one it sits beside, any it needs
+ // whole, and the owners of the layers it needs, each with the number of its layers the paper needs.
+ const artefactEdges=[];for(const a of artefacts){const p=papers.get(a.id),count=new Map();for(const sid of p.needs||[]){const o=stages.get(sid)?.owner;if(o)count.set(o,(count.get(o)||0)+1);}for(const r of new Set([p.home,...(p.roadmaps||[]),...count.keys()]))if(ids.has(r))artefactEdges.push({source:r,target:a.id,count:count.get(r)||0,whole:(p.roadmaps||[]).includes(r)});}
+ return {layout:LAYOUT,groups:groupsWithProgress,fields:DATA.fields||[],artefacts,artefactEdges,constellations,stars:starMap,planets:planetMap,starEdges,planetEdges,constellationEdges,relatedEdges:[...relatedEdges,...contextEdges].filter(e=>present(e.source)&&present(e.target))};
 }
 function buildUniverse(force){
  const key=[state.origin,state.activity,state.unmapped,[...pins].join(',')].join('|');
