@@ -9434,8 +9434,9 @@
    ],
    "avoidAccountOf": "PAPER-SCHOLZE-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHOLZE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4539"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4539",
+   "finishedAt": "2026-09-29T22:11:56Z"
   },
   {
    "id": "PAPER-SCHOLZE-WEINSTEIN-20",
@@ -23459,12 +23460,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -34927,7 +34928,8 @@
     "REV-PAPER-KOENIGSMANN-16"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KOENIGSMANN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4524"
   },
   {
    "id": "REV-RT-PAPER-KOENIGSMANN-16",
