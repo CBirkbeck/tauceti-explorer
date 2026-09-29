@@ -42323,7 +42323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-04.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3999"
   },
   {
    "id": "RT-AUDIT-05",
@@ -43358,8 +43359,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4012"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4012",
+   "finishedAt": "2026-09-29T13:39:19Z"
   },
   {
    "id": "RT-AUDIT-18",
@@ -43521,8 +43523,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4014"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4014",
+   "finishedAt": "2026-09-29T13:39:24Z"
   },
   {
    "id": "RT-AUDIT-20",
@@ -46215,7 +46218,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3977"
   },
   {
    "id": "RT-AREA-etale",
