@@ -1856,7 +1856,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MASSER-ZANNIER-20.md",
-   "state": "pending",
+   "state": "external",
    "note": "claimed on GitHub issue #1121"
   },
   {
@@ -31207,8 +31207,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-10.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #890"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #890",
+   "finishedAt": "2026-09-29T09:52:01Z"
   },
   {
    "id": "PLANETS-11",
