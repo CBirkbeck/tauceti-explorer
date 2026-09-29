@@ -10,7 +10,7 @@
   "EulerSystemsCyclotomicMainConjecture:L4"
  ],
  "status": "partial",
- "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read. Checkpoint 2 plans L1: Theorem III.2.3 (|A_L^χ| divides [E_L^χ : C_{L,χ}] for p > 2, χ(p) ≠ 1) from Theorem II.2.2, with its hypotheses, vanishing error terms, the index of divisibility and the class-group Selmer group, and Corollary III.2.4 with its dependence on the ψ(p) = 1 components recorded. Checkpoint 3 plans L2: the Iwasawa-theoretic divisibility char(A_∞^χ) | char(E_∞^χ/C_{∞,χ}) (Rubin III.2.7), from Theorem II.3.3, Proposition III.2.6 and the Λ-index, with the augmentation corrections when χ(p) = 1. Checkpoint 4 plans L3: the four-term sequence with the register's corrections, the trivial component, the componentwise equality and the main conjecture for odd p, with the local-unit theorem requested from ColemanPowerSeries L4 and the finite-layer stabilisation recorded as a gap. Checkpoint 5 starts L4 from Greither (Ann. Inst. Fourier 1992): χ-parts for all p, semilocal units modulo circular units, the real main conjecture for all p including 2, Kummer duality, and the main conjecture with the one-half normalisation. Checkpoint 6 plans Greither §4: Theorem B (= 4.1) at p = 2 through the χ(2) ≠ 1 case and the trivial-zero case (Lemma 4.2–Theorem 4.6 with the Gauss-sum computation), Theorem A (the Iwasawa–Leopoldt conjecture at p = 2), Theorems 4.11 and C for real fields, and the Gras conjecture (4.14–4.15). It records eight source issues, E4–E11. E5 is an error in the proof of Theorem 4.6: the Gauss sum lies in the decomposition field of 2, not in F, and its norm to F repairs the proof. E11 is a false sentence in the proof of Lemma 4.13 at p = 2 whose step survives. The rest are misprints. Checkpoint 7 completes L3's formulations. The odd-character form follows from Theorem 13.8 by Kummer duality. The Tate-twisted Greenberg Selmer form (RJW §13.5) is planned for every n: Greenberg's corank statement for all n, and the characteristic ideals in the critical cases (even n ≥ 2 and odd n ≤ −1). For even n this includes the twisted augmentation factor that RJW's Example 13.22 leaves implicit. Two new misprints are recorded, E12 and E13. Checkpoint 8 decomposes Greither §2, the semilocal units and circular units for every p. It covers the norm descent with bounded errors, the circular-unit limit, Coleman's sequences over unramified coefficients including p = 2, one generator per character, and the Stickelberger image of the circular units. Three new misprints are recorded, E14–E16.",
+ "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read. Checkpoint 2 plans L1: Theorem III.2.3 (|A_L^χ| divides [E_L^χ : C_{L,χ}] for p > 2, χ(p) ≠ 1) from Theorem II.2.2, with its hypotheses, vanishing error terms, the index of divisibility and the class-group Selmer group, and Corollary III.2.4 with its dependence on the ψ(p) = 1 components recorded. Checkpoint 3 plans L2: the Iwasawa-theoretic divisibility char(A_∞^χ) | char(E_∞^χ/C_{∞,χ}) (Rubin III.2.7), from Theorem II.3.3, Proposition III.2.6 and the Λ-index, with the augmentation corrections when χ(p) = 1. Checkpoint 4 plans L3: the four-term sequence with the register's corrections, the trivial component, the componentwise equality and the main conjecture for odd p, with the local-unit theorem requested from ColemanPowerSeries L4 and the finite-layer stabilisation recorded as a gap. Checkpoint 5 starts L4 from Greither (Ann. Inst. Fourier 1992): χ-parts for all p, semilocal units modulo circular units, the real main conjecture for all p including 2, Kummer duality, and the main conjecture with the one-half normalisation. Checkpoint 6 plans Greither §4: Theorem B (= 4.1) at p = 2 through the χ(2) ≠ 1 case and the trivial-zero case (Lemma 4.2–Theorem 4.6 with the Gauss-sum computation), Theorem A (the Iwasawa–Leopoldt conjecture at p = 2), Theorems 4.11 and C for real fields, and the Gras conjecture (4.14–4.15). It records eight source issues, E4–E11. E5 is an error in the proof of Theorem 4.6: the Gauss sum lies in the decomposition field of 2, not in F, and its norm to F repairs the proof. E11 is a false sentence in the proof of Lemma 4.13 at p = 2 whose step survives. The rest are misprints. Checkpoint 7 completes L3's formulations. The odd-character form follows from Theorem 13.8 by Kummer duality. The Tate-twisted Greenberg Selmer form (RJW §13.5) is planned for every n: Greenberg's corank statement for all n, and the characteristic ideals in the critical cases (even n ≥ 2 and odd n ≤ −1). For even n this includes the twisted augmentation factor that RJW's Example 13.22 leaves implicit. Two new misprints are recorded, E12 and E13. Checkpoint 8 decomposes Greither §2, the semilocal units and circular units for every p. It covers the norm descent with bounded errors, the circular-unit limit, Coleman's sequences over unramified coefficients including p = 2, one generator per character, and the Stickelberger image of the circular units. Three new misprints are recorded, E14–E16. Checkpoint 9 decomposes the rest of Greither §3: the p = 2 Chebotarev step, the finite-level links, and the inductive Kolyvagin argument proving Theorem 3.1. One new misprint is recorded, E17.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -269,7 +269,8 @@
     "§3: Theorems 3.1–3.2, Lemma 3.3, Proposition 3.4, the proof of 3.1 ⇒ 3.2, Lemmas 3.5–3.6, Theorem 3.7 with Claims (a)–(c), Corollary 3.8, Lemmas 3.9–3.10 (pp. 468–475)",
     "§1: Remarks a)–b) after Theorem A, Theorem B and the deduction of Theorem A from B, Theorem C (pp. 453–454)",
     "§4: Theorem 4.1 and both cases of its proof, Lemma 4.2–Theorem 4.6, Proposition 4.7, (G1)–(G2), Lemmas 4.8–4.10, Theorem 4.11, Theorem 4.12, Lemma 4.13, Theorem 4.14, Corollary 4.15 and the proof of 4.14 (pp. 482–497); formulas checked on the page images of pp. 453, 482–483, 486–488 and 490–495",
-    "§2 in full: Lemmas 2.1–2.3, Theorems 2.4, 2.6, 2.8, Lemmas 2.5, 2.9, Corollary 2.7, Proposition 2.10, Lemma 2.11, Corollary 2.12, Theorem 2.13 with its proof, Corollary 2.14, Lemma 2.15 (pp. 455–468); formulas checked on the page images of pp. 455–456, 459, 462–463 and 465–467"
+    "§2 in full: Lemmas 2.1–2.3, Theorems 2.4, 2.6, 2.8, Lemmas 2.5, 2.9, Corollary 2.7, Proposition 2.10, Lemma 2.11, Corollary 2.12, Theorem 2.13 with its proof, Corollary 2.14, Lemma 2.15 (pp. 455–468); formulas checked on the page images of pp. 455–456, 459, 462–463 and 465–467",
+    "§3 from Lemma 3.5 to the end of the proof of Theorem 3.1 (pp. 470–482), with the formulas of pp. 475–481 checked on the page images"
    ]
   }
  ],
@@ -2619,14 +2620,15 @@
    "statement": "Let p any prime (p = 2 included), F/ℚ abelian and unramified at p, K_n = F(ζ_{2p^{n+1}}) (so K_0 = F(√−1) when p = 2), K_∞ = ∪K_n, Δ′ = Gal(K_0/ℚ), Γ = Gal(K_∞/K_0) ≅ ℤ_p, and Λ_χ = ℤ_p(χ)[[T]]. For every even character ρ ≠ 1 of K_0, the characteristic ideal of the Λ_ρ-module X_ρ (X = lim A_p(K_n)) divides the characteristic ideal of (E_∞/C_∞)_ρ, where E_∞ is the limit of the pro-p parts of the closures of the global units. For ρ = 1 both are (1). Equality holds, as a by-product of the proof of Theorem 3.2. X and E_∞/C_∞ may be replaced by their plus parts.",
    "hypotheses": [
     "The proof is Kolyvagin–Rubin's Euler system of circular units (Rubin, Invent. Math. 103 (1991)). Every circular number starts an Euler system (Greither §3, via Lemma 2.3).",
-    "For p = 2, Rubin's Chebotarev step (his Theorem 3.1) is replaced by Greither's Theorem 3.7. It needs M ≥ 4 and loses a factor 2^{c+2}, where 2^c is the 2-part of cond(K), or a factor 4 at the layers K_n. Claims (a)–(c): the degree [H ∩ K′ : K] ≤ 2^c, Gal(H ∩ K″/K) is killed by 2^{c+1}, and the Kummer cokernel is killed by 2.",
+    "For p = 2, Rubin's Chebotarev step is replaced by Greither's Theorem 3.7 (L4/greither-chebotarev-at-two), which loses a factor 2^{c+2}, or 4 at the layers K_n^+.",
     "Factors of p and (γ − 1) accumulate through Lemmas 3.9–3.13; they are removed at the end using μ = 0 (Ferrero–Washington) and Leopoldt for real abelian fields."
    ],
    "proofSteps": [
-    "Lemmas 3.5–3.6: Rubin's maps φ_ℓ and the Euler-system identities, verbatim.",
-    "Theorem 3.7 and Corollary 3.8: primes ℓ with prescribed Frobenius on the Hilbert class field and on the Kummer extension, with the p = 2 factors.",
-    "Lemmas 3.9–3.10: the finite-level maps E_n → Λ_{ρ,n} and A_n → ⊕Λ_ρ/(g_i), with constants c₁, c₂ independent of n.",
-    "Lemmas 3.11–3.13: the inductive Kolyvagin argument, giving char(X_ρ) | p^a(γ − 1)^b·char((E_∞/C_∞)_ρ). Then μ = 0 and Leopoldt remove p^a and (γ − 1)^b."
+    "Reduce to plus parts and to even χ ≠ 1: for χ = 1, X_χ is quasi-isomorphic to lim A(ℚ_ν) = 0.",
+    "Fix n, K = K_n^+, h a power of p with h ≥ |Λ_{n,χ}/(H_χ)|, |Λ_{n,χ}/(ord Δ)|, |Λ_{n,χ}/(p)|, and M = |A_χ|·h^{3k+ck+1} with c = max(c_1, c_2). By Lemma 3.10 choose c_i ∈ A_χ with τ_n(c_i) = p^{c_2} in the i-th place; then p^{c_2}·Ann(c_i in A_χ/(c_1, …, c_{i−1})) ⊆ g_iΛ_{n,χ}. By Lemma 3.9 choose a circular unit ξ with ϑ_n(ξ) = (γ − 1)²p^{c_1}H_χ, and an Euler system starting with ξ.",
+    "Construct primes λ_1, …, λ_{k+1} of K inductively (Corollary 3.8, Lemmas 3.12–3.13) with [λ_i]_χ = p²c_i, ℓ_i ∈ 𝒮_{M,K}, v_{λ_1}(κ_{ℓ_1}) = unit·|Δ|·(γ − 1)²p^{2+c_1}H_χ, and for 2 ≤ i ≤ k + 1: g_{i−1}·v_{λ_i}(κ_{r_i}) = unit·|Δ|·p^{2+c_2}(γ − 1)^{2^{i−1}}·v_{λ_{i−1}}(κ_{r_{i−1}}). At step i, apply Lemma 3.12 with η = (γ − 1)^{2^{i−1}} and E = p^{c_2}; its hypothesis (iii) is the bound on N = (γ − 1)^{2^{i−1}}(𝒥_{ℓ_{i−1}}/(M, (κ_{r_{i−1}})_{[ℓ_{i−1}]})), where Greither prints the exponent as 2^t (source issue E17).",
+    "Multiplying out gives g_1⋯g_k·v_{λ_{k+1}}(κ_{r_{k+1}}) = |Δ|^{k+1}p^{k(2+c_2)+(2+c_1)}(γ − 1)^{2^{k+1}}·H_χ = η·H_χ in Λ_{n,χ}/(M). So g divides ηH_χ in Λ_{n,χ}/(p^n) for every n, and hence in Λ_χ (as in Rubin).",
+    "By Lemma 3.11 and μ = 0 (Ferrero–Washington), η acts on X_χ with finite kernel and cokernel, so η and g are coprime in ℚ_pΛ_χ: p^N = aη + bg. Hence g | p^N·H_χ, and since μ = 0, p ∤ g, so g | H_χ."
    ],
    "acceptance": [
     "For odd p and p ∤ [F : ℚ] this is Rubin's III.2.7 (L2/cyclotomic-iwasawa-divisibility).",
@@ -2636,7 +2638,11 @@
     "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
     "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-iwasawa-divisibility",
     "EulerSystemsAndKolyvaginSystems:ES.8",
-    "IntegralIwasawaTheory:L0"
+    "IntegralIwasawaTheory:L0",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chebotarev-at-two",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-finite-level-links",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-kolyvagin-step",
+    "IntegralIwasawaTheory:L4"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EulerSystem/Greither",
@@ -2672,6 +2678,24 @@
      "locator": "§3, the proof strategy, p. 470",
      "excerpt": "As the proof wears on,",
      "match": "The accumulated factors and their removal."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§3, the induction, p. 480",
+     "excerpt": "We shall use Thm. 3.7 to construct inductively prime ideals",
+     "match": "The induction."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§3, the end of the proof, p. 481",
+     "excerpt": "From this it follows as in Rubin [19] that g divides",
+     "match": "g | ηH_χ."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§3, the end of the proof, p. 482",
+     "excerpt": "From this one easily finds that g divides",
+     "match": "Removing p and γ − 1."
     }
    ],
    "implementationStatus": "unchecked"
@@ -3789,6 +3813,160 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-chebotarev-at-two",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "Kolyvagin primes with prescribed class and Kummer symbol, including p = 2 (Greither, Theorem 3.7 and Corollary 3.8)",
+   "kind": "theorem",
+   "statement": "Let K/ℚ be real abelian, G = Gal(K/ℚ), M a power of p (M ≥ 4 if p = 2), c ∈ A(K), W ⊆ K^×/K^{×M} a finite ℤ[G]-submodule and ψ: W → (ℤ/M)[G] a G-homomorphism; let 2^c be the exact power of 2 dividing cond(K). Then there are infinitely many primes λ of K such that, with ℓ the rational prime below λ and the bracketed factors present only for p = 2: (1) [λ] = [2^{c+2}]·c in A(K); (2) ℓ ≡ 1 mod M and ℓ splits completely in K; (3) (w)_ℓ = 0 in 𝒥_ℓ/M𝒥_ℓ for all w ∈ W, and there is u ∈ (ℤ/M)^× with φ_ℓ(w) = [2^{c+2}]·u·ψ(w)λ for all w ∈ W. (Complement) For K = K_ν^+ and p = 2 the factor 2^{c+2} may be replaced by 4. (Corollary 3.8) For K = K_ν^+ and every p, the conclusions hold with [λ] = p²·c and φ_ℓ(w) = p²·u·ψ(w)λ. Here 𝒥_ℓ is the group of divisors above ℓ and φ_ℓ: (𝒪_K/ℓ)^× → 𝒥_ℓ/M𝒥_ℓ is Rubin's map (Lemma 3.5).",
+   "hypotheses": [
+    "For odd p this is Rubin's Theorem 3.1 (The main conjecture, appendix to Lang's Cyclotomic Fields), requested with EulerSystemsAndKolyvaginSystems ES.4 (ES.1's Chebotarev step). Lemmas 3.5 (the map φ_ℓ) and 3.6 (the Euler-system identities (κ_r)_ℓ = 0 for ℓ ∤ r and (κ_{ℓr′})_ℓ = φ_ℓ(κ_{r′})) are Rubin's Lemmas 2.3 and 2.4.",
+    "H is the 2-class field of K in the wide sense, so Gal(H/K) ≅ A(K); the Chebotarev input and the class field theory are requested (IntegralIwasawaTheory L1 and the Tau Ceti ClassFieldTheory request)."
+   ],
+   "proofSteps": [
+    "Claim (a): [H ∩ K′ : K] ≤ 2^c, and H ∩ K′ = K for K = K_ν^+. If c > 0, 2 ramifies in K/ℚ with exponent at most 2^{c−1}, so the primes above 2 ramify in K′/K with exponent at least M/2^c. For K = K_ν^+ the only subfield of K′ unramified everywhere over K is K.",
+    "Claim (b): Gal(H ∩ K″/K) is killed by 2^{c+1} (by 2 for K = K_ν^+). Complex conjugation j of K′ acts as −1 on Gal(K″/K′) and trivially on Gal(HK′/K′), so K″ ∩ HK′/K′ is 2-elementary; combine with (a).",
+    "Claim (c): the Kummer injection Gal(K″/K′) → Hom(W, μ_M) has cokernel killed by 2. The kernel U of K^×/K^{×M} → K′^×/K′^{×M} embeds in H¹(K′/K, μ_M). With Z = K(μ_4) ∩ K′, either Z = K and |U| ≤ 2, or U is a Klein four group bounded by |H¹(K′/Z, μ_M)|·|H¹(Z/K, μ_M)| ≤ 4.",
+    "Core: the square Gal(K″H/K) → Gal(K″/K), Gal(H/K) → Gal(K″ ∩ H/K) is cartesian, with lower right term killed by 2^{c+1}. With ι: (ℤ/M)[G] → μ_M, ι(1) = ζ_M and ι(g) = 0 for g ≠ 1, 2ιψ lifts to γ ∈ Gal(K″/K′) by (c). Choose δ ∈ Gal(K″H/K) with δ|K″ = 2^{c+1}γ and δ|H = 2^{c+1}·(c's Artin symbol). Chebotarev gives infinitely many degree-one primes λ with Frobenius δ.",
+    "δ is trivial on K′, so ℓ ≡ 1 mod M; its class on H gives (1). Comparing 'w is an M-th power mod λ' through γ and through φ_ℓ gives φ_ℓ(w) = 2^{c+2}·u·ψ(w)λ, as in Rubin, p. 403.",
+    "Complement: for K = K_ν^+, 2 replaces 2^{c+1} in the construction of δ, so the factor becomes 4. Corollary 3.8: for odd p, replace c by p²c and ψ by p²ψ in Rubin's theorem."
+   ],
+   "acceptance": [
+    "p = 2 loses only a bounded power of 2 (4 at the layers K_ν^+), which the final argument absorbs."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "EulerSystemsAndKolyvaginSystems:ES.4",
+    "IntegralIwasawaTheory:L1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§3, Rubin's maps and Euler systems, p. 471",
+     "excerpt": "We point out the probably well-known fact that every",
+     "match": "Every circular number starts an Euler system."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§3, proof of Theorem 3.7, p. 472",
+     "excerpt": "Consider the following fields where H is the 2-class",
+     "match": "The fields K′ = K(μ_M), K″ = K′(W^{1/M}), H."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§3, proof of Theorem 3.7, p. 473",
+     "excerpt": "Now the core of the argument runs as follows",
+     "match": "The cartesian diagram and the choice of δ."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§3, Corollary 3.8, p. 474",
+     "excerpt": "It is convenient to restate 3.7 in the",
+     "match": "Corollary 3.8."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-finite-level-links",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "Links between the Iwasawa modules and the finite layers, with bounded constants (Greither, Lemmas 3.9–3.11)",
+   "kind": "lemma",
+   "statement": "Let F/ℚ be abelian and unramified at p, K_n = F(ζ_{2p^{n+1}}), Δ = Gal(K_0^+/ℚ), G_n = Gal(K_n^+/ℚ), Γ_n = Gal(K_n^+/K_0^+), γ a generator of Γ = lim Γ_n and γ_n = γ^{p^n}. Write X = lim A(K_n^+), and E_∞, C_∞ for the plus-part limits of the global units and circular units. For an even character χ ≠ 1 of Δ put Λ_χ = ℤ_p(χ)[[T]], Λ_{n,χ} = Λ_χ/(1 − γ_n), and let H_χ generate char((E_∞/C_∞)_χ). Fix a quasi-isomorphism X_χ → ⊕_{i=1}^k Λ_χ/(g_i), so that char(X_χ) = (g) with g = g_1⋯g_k. (Lemma 3.9) There are c_1 = c_1(F) and G_n-maps ϑ_n: E_{n,χ} → Λ_{n,χ} with (γ − 1)²p^{c_1}·H_χ·Λ_{n,χ} ⊆ ϑ_n(im C_{n,χ}) ⊆ p^{−c_1}·H_χ·Λ_{n,χ}. (Lemma 3.10) There are c_2 = c_2(F) and G_n-maps τ_n: A_{n,χ} → ⊕_i Λ_{n,χ}/(g_i) with p^{c_2}·coker(τ_n) = 0. (Lemma 3.11) γ − 1 acts on X with finite kernel and cokernel.",
+   "hypotheses": [
+    "Rubin's Lemma 1.2 (Invent. Math. 93 (1988)) bounds (γ − 1)Ĥ^i(Γ_{mn}, E_m) for i ∈ {−1, 0} uniformly. Greither notes that its hypothesis '[K_0^+ : ℚ] prime to p' is not used in full: it suffices that the primes above p are totally ramified in K_∞^+/K_0^+ and that K_0^+ is linearly disjoint from the cyclotomic ℤ_p-extension of ℚ. Requested with IntegralIwasawaTheory L2."
+   ],
+   "proofSteps": [
+    "Lemma 3.9. The sequence 0 → lim H^{−1}(Γ_{mn}, E_m) → (E_∞)_{1−γ_n} → E_n → lim H⁰(Γ_{mn}, E_m) → 0 has outer terms killed by (γ − 1)p^κ.",
+    "V_χ(U_∞) is free cyclic over ℚ_p ⊗ Λ_χ (proof of Corollary 2.14), hence so is V_χ(E_∞). This gives α: E_{∞,χ} → Λ_χ with finite cokernel and kernel killed by a power of p.",
+    "A Tor argument gives 0 → A_n → (E_{∞,χ})_{1−γ_n} → E_{n,χ} → B_n → 0 with (γ − 1)p^{c′} killing A_n and B_n. Maps ϑ_n then fit a square with (γ − 1)²p^{2c′}α on top (Rubin, p. 705).",
+    "H_χ·(α(E_{∞,χ})/α(im C_{∞,χ})) is finite, so p^sH_χ ∈ α(im C_{∞,χ}), giving (γ − 1)²p^{s+2c′}H_χΛ_{n,χ} ⊆ ϑ_n(im C_{n,χ}). Also p^{s′}·im C_{∞,χ} ⊆ H_χE_{∞,χ}, because ℚ_pE_{∞,χ} is cyclic. Take c_1 = max(s′, s + 2c′).",
+    "Lemma 3.11. X is finitely generated Λ-torsion, so it suffices that Z = X/(γ − 1)X is finite. Z is the Galois group of the maximal unramified p-extension N of K_∞^+ that is abelian over K_0^+. N is unramified outside p and is a compositum of finitely many ℤ_p-extensions and a finite extension. By Leopoldt for the real abelian K_0^+ its only ℤ_p-extension is K_∞^+, so N/K_∞^+ is finite.",
+    "Lemma 3.10. By Washington, p. 278, A_n ≅ X/Y_n with Y_n = ((1 − γ_n)/(1 − γ))·Y_0 and (γ − 1)X ⊆ Y_0 ⊆ X. So the kernel of X/(1 − γ_n)X → A_n is a quotient of Y_0/(γ − 1)X, which is finite by 3.11. The kernels are bounded, the same holds on χ-parts (Tor), and τ_n comes from the quasi-isomorphism."
+   ],
+   "acceptance": [
+    "The constants c_1, c_2 depend on F only, not on n; this is what the induction needs."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-semilocal-units",
+    "IntegralIwasawaTheory:L2",
+    "IntegralIwasawaTheory:L4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§3, Lemmas 3.9–3.10, p. 475",
+     "excerpt": "We need two lemmas providing the link with the finite levels.",
+     "match": "Lemmas 3.9 and 3.10."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§3, Lemma 3.11 and the proof of 3.10, p. 477",
+     "excerpt": "Back to the proof of 3.10",
+     "match": "The proof of Lemma 3.10."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-kolyvagin-step",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "The Kolyvagin step and the Maschke lift (Greither, Lemmas 3.12–3.13)",
+   "kind": "lemma",
+   "statement": "(Lemma 3.12) Let K/ℚ be real abelian, G = Gal(K/ℚ), Δ ⊆ G, χ a character of Δ, M a power of p, r = ℓ_1⋯ℓ_ν ∈ 𝒮_{M,K}, ℓ = ℓ_ν, λ a prime of K above ℓ, and c = [λ] ∈ A = A(K). Let B ⊆ A be generated by the classes of the primes above ℓ_1, …, ℓ_{ν−1}. Let x ∈ K^×/K^{×M} with (x)_{[q]} = 0 for every prime q ∤ r, and W its ℤ_p[G]-span. Suppose E, g, η ∈ ℤ_p[G] satisfy (i) E·Ann((c)_χ ∈ (A/B)_χ) ⊆ g·(ℤ_p[G])_χ; (ii) (ℤ_p[G])_χ/(g) is finite; (iii) M ≥ |A_χ|·|η·((𝒥_ℓ/M𝒥_ℓ)/(W)_{[ℓ]})_χ|. Then there is a G-homomorphism ψ: W_χ → (ℤ/M)[G]_χ with (g·ψ(x)λ)_χ = E·η·(x_{[ℓ]})_χ. (Lemma 3.13) For a ℤ_p[Δ]-module N and π: N → N_χ the projection, there is a ℤ_p[Δ]-map ε_χ: N_χ → N with π∘ε_χ = |Δ|·id.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Lemma 3.12. Choose a lift β of x and write (β)_{[ℓ]} = v_λ(β)λ, where ℓ splits totally in K. Since M·A_χ = 0 by (iii), the image of (β)_{[ℓ]} in (A/B)_χ is that of the principal ideal (β), hence trivial. So v_λ(β) kills (c)_χ, and by (i) E·v_λ(β)_χ = g·δ in R = (ℤ_p[G])_χ.",
+    "Division by g is unique in R, which has no ℤ_p-torsion and R/(g) finite by (ii). Define ψ(ρx) = ηρδ mod MR. Then g·ψ(x)λ = η·E·v_λ(β) = E·η·(x)_{[ℓ]}.",
+    "Well-definedness: if ρx = 0, then ρβ = y^M. By (iii) and h = |A_χ|, ηρ kills M·h^{−1}(𝒥_ℓ/M𝒥_ℓ)_χ ≅ R/hR, so h | ηρ in R/MR. Writing (y) over the primes q, multiplying by η and passing to (A/B)_χ shows that η·v_λ(y) kills c_χ. By (i), E·η·v_λ(y)_χ ∈ gR, hence E·η·v_λ(ρx) ∈ MgR, and ηρδ ∈ MR.",
+    "Lemma 3.13 (Maschke): reduce to N = ℤ_p[Δ], N_χ = ℤ_p(χ); with f a ℤ_p-linear section of π, ε_χ(y) = Σ_{δ∈Δ} δf(δ^{−1}y)."
+   ],
+   "acceptance": [
+    "The factor |Δ| from 3.13 and the factors p² from Corollary 3.8 are what the induction accumulates."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chebotarev-at-two",
+    "EulerSystemsAndKolyvaginSystems:ES.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§3, before Lemma 3.12, p. 477",
+     "excerpt": "It is modeled after",
+     "match": "After Rubin's Lemma 7.1."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§3, Lemma 3.13, p. 479",
+     "excerpt": "This can always be achieved at the cost of a factor",
+     "match": "The factor |Δ| from Maschke."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -3859,7 +4037,8 @@
    "need": "The two Kummer squares of Layer 9 at μ_{p^N}: kummerIso_norm (corestriction corresponds to the norm N_{L/K}) and kummerIso_res (restriction corresponds to the inclusion) for finite separable L/K with a chosen embedding, together with Hilbert 90 surjectivity.",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-kummer-classes",
-    "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-euler-system"
+    "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-euler-system",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chebotarev-at-two"
    ],
    "status": "open",
    "note": "Tau Ceti at the pin has kummerMap and its kernel but not the norm square."
@@ -3870,7 +4049,8 @@
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses",
     "EulerSystemsCyclotomicMainConjecture:L3/galois-unit-four-term-sequence",
-    "EulerSystemsCyclotomicMainConjecture:L4/greither-split-units-quotient"
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-split-units-quotient",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chebotarev-at-two"
    ],
    "status": "open",
    "note": "Used only to match Rubin's Remark II.1.3 fields with the cyclotomic fields."
@@ -3880,7 +4060,9 @@
    "need": "Rubin's Theorem II.2.2 as ES.4 specifies it: for p > 2 and T satisfying Hyp(K, T), ℓ_O(S_{Σ_p}(K, W*)) ≤ ind_O(c) + n_W + n*_W for every Euler system c, with the error terms n_W, n*_W defined through Ω = K(1)K(W)K(μ_{p^∞}, (O_K^×)^{1/p^∞}), and with its ES.1 (Chebotarev, auxiliary primes) and ES.3 (derivative classes) inputs.",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L1/cyclotomic-hypotheses-and-error-terms",
-    "EulerSystemsCyclotomicMainConjecture:L1/kolyvagin-class-group-divisibility"
+    "EulerSystemsCyclotomicMainConjecture:L1/kolyvagin-class-group-divisibility",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chebotarev-at-two",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-kolyvagin-step"
    ]
   },
   {
@@ -3929,17 +4111,19 @@
     "EulerSystemsCyclotomicMainConjecture:L4/greither-split-units-quotient",
     "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-real-fields",
     "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-transfer",
-    "EulerSystemsCyclotomicMainConjecture:L3/tate-twisted-selmer-formulation"
+    "EulerSystemsCyclotomicMainConjecture:L3/tate-twisted-selmer-formulation",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chebotarev-at-two"
    ],
    "status": "open"
   },
   {
    "supplier": "IntegralIwasawaTheory:L2",
-   "need": "The coinvariant lemma: for a finitely generated torsion Λ_χ = ℤ_p(χ)[[T]]-module M with char(M) = (f) and M/TM finite, |M/TM| = |f(0)|_p^{d(χ)}·|M^{T=0}| (Coates, p-adic L-functions and Iwasawa theory, Lemma 9); and Washington's construction on pp. 277–278 (the module Y_0, the exact sequence 0 → ((1 − γ_n)/(1 − γ))·Y_0/(1 − γ_n)X → X/(1 − γ_n)X → A(K_n) → 0, and Z = Y_0/(1 − γ)X spanned by the inertia commutators) for a cyclotomic ℤ_p-extension in which p is not totally split.",
+   "need": "The coinvariant lemma: for a finitely generated torsion Λ_χ = ℤ_p(χ)[[T]]-module M with char(M) = (f) and M/TM finite, |M/TM| = |f(0)|_p^{d(χ)}·|M^{T=0}| (Coates, p-adic L-functions and Iwasawa theory, Lemma 9); and Washington's construction on pp. 277–278 (the module Y_0, the exact sequence 0 → ((1 − γ_n)/(1 − γ))·Y_0/(1 − γ_n)X → X/(1 − γ_n)X → A(K_n) → 0, and Z = Y_0/(1 − γ)X spanned by the inertia commutators) for a cyclotomic ℤ_p-extension in which p is not totally split. Also Rubin's Lemma 1.2 (Invent. Math. 93 (1988)): uniform bounds on (γ − 1)Ĥ^i(Γ_{mn}, E_m), i ∈ {−1, 0}, under Greither's weakened hypotheses.",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L4/greither-split-prime-divisor-classes",
     "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-reduction",
-    "EulerSystemsCyclotomicMainConjecture:L4/greither-relative-class-group-bound"
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-relative-class-group-bound",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-finite-level-links"
    ],
    "status": "open"
   },
@@ -3948,7 +4132,9 @@
    "need": "Leopoldt's conjecture for abelian number fields (Brumer), in the two forms Greither's §4 uses: for F real abelian and p unramified, (1 − e_ε)A′(F) is finite and A′(F) has ℤ_p-rank one; and for F abelian there is N ≥ 2 such that every unit ≡ 1 mod p^{N+1} is the p-th power of a unit (Lemma 4.13).",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-real-fields",
-    "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-transfer"
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-transfer",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-finite-level-links",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-real-main-conjecture"
    ],
    "status": "open"
   },
@@ -4030,11 +4216,10 @@
    "stageId": "EulerSystemsCyclotomicMainConjecture:L4",
    "status": "partial",
    "remaining": [
-    "§3's Lemmas 3.11–3.13 (the inductive Kolyvagin argument with the constants) are summarised, not decomposed.",
     "Theorem 4.1 for odd p (Mazur–Wiles, Solomon) is cited by Greither and not planned here; the odd-p class-group formulation belongs with L3's remaining RJW §13.5.",
     "The Gross–Koblitz, Ferrero–Greenberg and non-vanishing inputs of (G2) are a gap."
    ],
-   "notes": "Checkpoint 5 plans Greither §§1–3 in 5 nodes: the χ-part functor for all p with the p = 2 property (g), the semilocal-unit theorem (2.13–2.14), the real main conjecture for all p (3.1) with the p = 2 Chebotarev modification (3.7), Kummer duality (3.3–3.4), and the main conjecture for all p with the one-half normalisation (3.2). Checkpoint 6 plans Greither §4 in 11 nodes: Lemma 4.2–Corollary 4.3, the trivial-zero reduction (4.4, 4.5, (***)), Proposition 4.7, the Gauss-sum vectors ((G1), (G2), 4.8) with the norm to F, the trivial-zero formula (4.9, 4.10, 4.6), Theorem B (= 4.1) at p = 2, Theorem A with Remarks a)–b), Theorem 4.11, Lemma 4.13, Theorem C (= 4.12) and the Gras conjecture (4.14–4.15). Eight source issues (E4–E11); E5 is an error in the proof of 4.6. Greither's closing remark that the 2-adic main conjecture gives the 2-part of Birch–Tate for real abelian fields (via Kolster) is not asserted. Checkpoint 8 decomposes Greither §2 in 6 nodes: the norm descent with bounded errors (2.1–2.2), the generators of the circular-unit limit (2.3), Coleman's sequences over unramified coefficients including p = 2 (2.4–2.8, 2.9–2.10), one generator per character (2.11–2.12) and the Stickelberger image (2.13, 2.15). greither-semilocal-units now rests on these. Coleman's own theorems are requested from ColemanPowerSeries L1 and L3. Source issues E14–E16."
+   "notes": "Checkpoint 5 plans Greither §§1–3 in 5 nodes: the χ-part functor for all p with the p = 2 property (g), the semilocal-unit theorem (2.13–2.14), the real main conjecture for all p (3.1) with the p = 2 Chebotarev modification (3.7), Kummer duality (3.3–3.4), and the main conjecture for all p with the one-half normalisation (3.2). Checkpoint 6 plans Greither §4 in 11 nodes: Lemma 4.2–Corollary 4.3, the trivial-zero reduction (4.4, 4.5, (***)), Proposition 4.7, the Gauss-sum vectors ((G1), (G2), 4.8) with the norm to F, the trivial-zero formula (4.9, 4.10, 4.6), Theorem B (= 4.1) at p = 2, Theorem A with Remarks a)–b), Theorem 4.11, Lemma 4.13, Theorem C (= 4.12) and the Gras conjecture (4.14–4.15). Eight source issues (E4–E11); E5 is an error in the proof of 4.6. Greither's closing remark that the 2-adic main conjecture gives the 2-part of Birch–Tate for real abelian fields (via Kolster) is not asserted. Checkpoint 8 decomposes Greither §2 in 6 nodes: the norm descent with bounded errors (2.1–2.2), the generators of the circular-unit limit (2.3), Coleman's sequences over unramified coefficients including p = 2 (2.4–2.8, 2.9–2.10), one generator per character (2.11–2.12) and the Stickelberger image (2.13, 2.15). greither-semilocal-units now rests on these. Coleman's own theorems are requested from ColemanPowerSeries L1 and L3. Source issues E14–E16. Checkpoint 9 decomposes the rest of §3: Theorem 3.7 and Corollary 3.8 (Chebotarev at p = 2 with Claims (a)–(c)), Lemmas 3.9–3.11 (finite-level links with constants independent of n) and Lemmas 3.12–3.13 (the Kolyvagin step and the Maschke lift). greither-real-main-conjecture now carries the full induction. Source issue E17."
   }
  ],
  "gaps": [
@@ -4308,6 +4493,22 @@
    "printed": "DEFINITION. — R = 𝒪[[Γ′]] (p. 460); … V_χ(C_∞) = V_χ(R[Δ])·(η_m)_χ (Lemma 2.11(b)); … Then Γ′ = Φ × Γ and R ≅ ℤ_p[[Γ]][Φ] ≅ ℤ_p[[T]][Φ] (p. 465)",
    "correction": "From Lemma 2.11 on, R stands for ℤ_p[[Γ′]] ≅ ℤ_p[[Γ]][Φ]; the ring 𝒪[[Γ′]] of p. 460 is ℤ_p[[Γ′]] ⊗ 𝒪.",
    "reason": "In Lemma 2.11(b) V_χ(R[Δ]) must act on V_χ(C_∞), and 𝒪 does not act on the circular units. On p. 465 R ≅ ℤ_p[[Γ]][Φ] holds only for R = ℤ_p[[Γ′]]. Theorem 2.6 (𝒱 = R·(1 − X)) needs R = 𝒪[[Γ′]], or equivalently the ℤ_p[[Γ′]]-span of 𝒪·(1 − X), which is how the proof of Corollary 2.12 uses it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E17",
+   "source": "GREITHER-1992",
+   "kind": "misprint",
+   "locator": "§3, proof of Theorem 3.1, the module N, p. 480 (Numdam scan of the published article)",
+   "printed": "It follows that the Λ_{nχ}-module N = (γ − 1)^{2^t}(𝒥_{ℓ_{i−1}}/(M, (κ_{r_{i−1}})_{[ℓ_{i−1}]})) is cyclic and annihilated by dH_χ.",
+   "correction": "N = (γ − 1)^{2^{i−1}}(𝒥_{ℓ_{i−1}}/(M, (κ_{r_{i−1}})_{[ℓ_{i−1}]}))",
+   "reason": "No t is defined in §3; §2's t ∈ {1, 2} does not fit. N is the module in hypothesis (iii) of Lemma 3.12, applied on p. 481 with η = (γ − 1)^{2^{i−1}}. The preceding line shows that v_{λ_{i−1}}(κ_{r_{i−1}}) divides (γ − 1)^{2^{i−1}}·d·H_χ with d free of γ − 1, which is why N is killed by dH_χ. Checked on the page image.",
    "affects": "nothing",
    "known": "new",
    "searched": [

@@ -1,5 +1,33 @@
 # BP-EulerSystemsCyclotomicMainConjecture — handoff
 
+## Checkpoint 9 (Claude Code, session cc-fb70e5, 29 September 2026): the rest of Greither §3 (3 nodes)
+
+Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`; L1, L3 and L4 are `partial`.
+
+**Source.** Greither 1992, §3 from Lemma 3.5 to the end of the proof of Theorem 3.1 (pp. 470–482), from the same Numdam scan. The formulas on pp. 475–481 were checked on the page images, and the exponent bookkeeping of the induction was rechecked.
+
+**New L4 nodes:**
+- `greither-chebotarev-at-two`: Theorem 3.7, its Complement and Corollary 3.8, with Claims (a)–(c).
+- `greither-finite-level-links`: Lemmas 3.9–3.11.
+- `greither-kolyvagin-step`: Lemmas 3.12–3.13.
+
+`greither-real-main-conjecture` (Theorem 3.1) now carries the whole induction and depends on these three nodes.
+
+**Source issue E17 (misprint, new):** on p. 480, N = (γ − 1)^{2^t}(…) should read (γ − 1)^{2^{i−1}}(…). No t is defined there, and Lemma 3.12 is applied with η = (γ − 1)^{2^{i−1}}.
+
+**Requests.**
+- Extended: IntegralIwasawaTheory L2 (Rubin's 1988 Lemma 1.2).
+- Consumers added: IntegralIwasawaTheory L1 and L4, ES.4, and the Tau Ceti ClassFieldTheory and ProfiniteCohomology requests.
+
+**Lean.** One new checked example, the exponent sum Σ_{i<k} 2^{i+1} + 2 = 2^{k+1} used in the induction. The file compiles with exit 0; the only warnings are the existing planned stubs.
+
+**Checks.** `check_blueprint --index`: 0 errors, 0 warnings. `check-files`: 0 problems. Every new excerpt was checked by script.
+
+**Next.**
+- L4: the (G2) Gross–Koblitz gap.
+- L3: the finite-layer stabilisation gap ([MW] §1.6 or Lang's appendix).
+- L1: the derivative classes (Rubin IV–V).
+
 ## Checkpoint 8 (Claude Code, session cc-fb70e5, 29 September 2026): Greither §2 decomposed (6 nodes)
 
 Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`; L1, L3 and L4 are `partial`.
