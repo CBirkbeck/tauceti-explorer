@@ -1,6 +1,6 @@
 # Modular symbols and analytic p-adic L-functions of modular forms — blueprint
 
-This blueprint covers stages L0–L4. After five checkpoints, **L0–L3 are source-decomposed** and L4 is partial.
+This blueprint covers stages L0–L4. After six checkpoints, **L0–L3 are source-decomposed** and L4 is partial.
 
 L0 plans Pollack–Stevens' **Hom-side (cohomological) modular symbols** for arbitrary coefficient modules. These are what
 L2's distribution-valued symbols need. The homological side is imported from Tau Ceti's ModularForms roadmap,
@@ -15,6 +15,8 @@ The sources are:
 - **Wiese:** the course notes *Computational Arithmetic of Modular Forms*, arXiv:1809.04645v1, §§1, 4–7.
 - **Pollack:** the Arizona Winter School 2011 notes, §§2 and 6.
 - **Bellaïche:** *Critical p-adic L-functions*, arXiv:0912.2925v1, §1.4 (published in Invent. Math. 189 (2012)).
+- **Pollack (Duke 2003):** *On the p-adic L-function of a modular form at a supersingular prime*, §§1–5 and §7, for
+  L4's supersingular theory (checkpoint 6).
 
 ## Purpose
 
@@ -450,6 +452,37 @@ Library module: `TauCeti/NumberTheory/ModularSymbols/Examples`.
 e_p(α, ϕt^j) = (1 − ϕ(p)p^j/α)(1 − ϕ̄(p)ε(p)p^{k−j}/α). The first factor comes from the distribution (L2) and the second
 from the p-stabilisation (L1), since ε(p)p^{k−j}/α = β/p^{j+1}.
 
+The rest of this layer is from Pollack's Duke paper (checkpoint 6). Pollack's weight k is this roadmap's k + 2.
+
+**Theorem: tame twists** (node `tame-twist-p-adic-l-function`; Pollack §2.2–2.3).
+- The measure μ^±_{f,α}(a + p^nMℤ_{p,M}) = α^{−n}λ^±(a, p^nM) − ε(p)p^kα^{−n−1}λ^±(a, p^{n−1}M) on ℤ_{p,M}^×, with M prime
+  to p, is h-admissible.
+- Its L-function L_p(f, α, ψ, T) at a tame character ψ interpolates L(fϕ^{−1}, j + 1) for ϕ of conductor p^νM. The
+  multiplier is α^{−ν}(1 − ϕ^{−1}(p)ε(p)p^{k−j}/α)(1 − ϕ(p)p^j/α), the Gauss sum is τ(ϕ^{−1}), and the value is unique
+  among O(log^h) functions (Proposition 2.11).
+
+**Theorem: both refinements at a supersingular prime** (node `supersingular-refinements`). If v_p(a_p) > 0, both roots
+have slope in (0, k + 1), so both L-functions exist.
+- Different slopes: one of them has infinitely many zeros (Mazur, Theorem 3.3).
+- a_p = 0 (Perrin-Riou, Theorem 3.5): L_p(α₁) = G⁺ + G⁻α₁, where G⁺ is forced to vanish at ζ_{p^{2n}} − 1 and G⁻ at
+  ζ_{p^{2n−1}} − 1. Both L-functions have infinitely many zeros when α₁ ∉ K(ψ).
+- Elliptic curves (Corollary 3.6): a_p = 0 for p ≥ 5; at p = 2, 3 the ratio α₁/α₂ is a fourth or sixth root of unity.
+
+**Construction: the half-logarithms** (node `half-logarithms`; planet). The two series are infinite products of cyclotomic
+polynomials:
+- log⁺_{p,j} = (1/p)∏Φ_{2n}(γ^{−j}(1 + T))/p and log⁻_{p,j} = (1/p)∏Φ_{2n−1}(γ^{−j}(1 + T))/p, with log^±_p = ∏_{j=0}^{k};
+- their zeros are exactly the forced zeros of G^±;
+- p²·log⁺_{p,j}·log⁻_{p,j} = log_p(γ^{−j}(1 + T))/(γ^{−j}(1 + T) − 1), and log^±_p ∼ log_p(1 + T)^{(k+1)/2};
+- for k = 0 they satisfy a functional equation, and their values at ζ − 1 are explicit (Lemma 4.7).
+
+**Theorem: the ± decomposition** (node `plus-minus-decomposition`; planet). For a_p = 0,
+L_p(f, α, ψ, T) = L⁺_p·log⁺_p + L⁻_p·log⁻_p·α with bounded L^±_p (Theorem 5.1); for p = 2, log⁺ and log⁻ swap. For
+elliptic curves, L^±_p ∈ ℤ_p[[T]], with an extra 1/2 at p = 2 (Theorem 5.6, Remark 5.7).
+
+**Application: supersingular examples** (node `supersingular-examples`). X₀(11) has a₂ = −2 and a₁₉ = a₂₉ = 0.
+- At p = 2 the roots −1 ± i have slope 1/2 and ratio −i, so Corollary 3.6 applies but Theorem 5.1 does not.
+- At p = 19, ±√−19 ∉ ℚ₁₉, so both L-functions have infinitely many zeros, and L^±₁₉ ∈ ℤ₁₉[[T]].
+
 ## Mistakes found in the sources
 
 **E1 (error, reaches a stated result): the sign in Pollack–Stevens Theorem 2.6 and Corollary 2.7 (p. 12).** The same
@@ -501,10 +534,12 @@ that of the other refinement. Only arXiv v1 was read; the Inventiones text was n
 - **L2 is source-decomposed.** It depends on LocallyAnalyticDistributions L0 and L2 and on ModularForms Layers 4–5,
   all requested, and cites LocallyAnalyticDistributions L4 nodes directly.
 - **L3 is source-decomposed.** It depends on PadicFamilies L3 (requested; its nodes are cited directly).
-- **L4 is partial.** Still to read:
-  - tame twists, coefficient embeddings (Galois-conjugate forms and periods) and primitive/imprimitive level change with
-    the ℓ-Euler factors (Mazur–Tate–Teitelbaum; RJW §§6–8);
-  - both refinements at a good supersingular prime, with a worked example.
+- **L4 is partial.** Checkpoint 6 plans tame twists and the supersingular theory: both refinements, the half-logarithms,
+  the ± decomposition, and X₀(11) at p = 2 and p = 19. Still to read:
+  - coefficient embeddings (Galois-conjugate forms and periods) and primitive/imprimitive level change with the ℓ-Euler
+    factors. Mazur–Tate–Teitelbaum is not read; RJW §§6–8, suggested earlier, are on the Kubota–Leopoldt function and do
+    not cover this.
+  - a decomposition at supersingular primes with a_p ≠ 0 (p = 2, 3), in the style of Sprung's ♯/♭.
 
 ## Sources
 
@@ -514,3 +549,5 @@ that of the other refinement. Only arXiv v1 was read; the Inventiones text was n
 - R. Pollack, *Overconvergent modular symbols*, Arizona Winter School 2011 lecture notes.
 - J. Rodrigues Jacinto and C. Williams, *An introduction to p-adic L-functions*, arXiv:2309.15692v2 (2024), Theorem B.1.
 - J. Bellaïche, *Critical p-adic L-functions*, arXiv:0912.2925v1 (2009); Invent. Math. 189 (2012) 1–60.
+- R. Pollack, *On the p-adic L-function of a modular form at a supersingular prime*, Duke Math. J. 118 (2003) 523–558
+  (author's copy of the published article).

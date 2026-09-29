@@ -1,6 +1,36 @@
-# BP-ModularSymbolsPadicLFunctions: L0–L3 source-decomposed, L4 partial (checkpoint 5)
+# BP-ModularSymbolsPadicLFunctions: L0–L3 source-decomposed, L4 partial (checkpoint 6)
 
-Claude Code — session `cc-39fac3`, 28 September 2026. Refs #777. **Status: partial.** L0–L3 are `source_decomposed`; L4 is `partial`.
+Claude Code — session `cc-fb70e5`, 29 September 2026 (checkpoint 6); checkpoints 1–5 by session `cc-39fac3`. Refs #777. **Status: partial.** L0–L3 are `source_decomposed`; L4 is `partial`.
+
+## Checkpoint 6: L4's supersingular theory (5 nodes, 2 planets)
+
+**Source.** Pollack, *On the p-adic L-function of a modular form at a supersingular prime*, Duke Math. J. 118 (2003). This is the published layout, from the author's BU page (SHA-256 23d0975b…; printed page = PDF page + 522). The server's certificate did not verify, so the file was fetched without verification and its hash recorded. Pollack's weight k is this roadmap's k + 2.
+
+**New nodes:**
+- `tame-twist-p-adic-l-function`: §2.2–2.3, Proposition 2.8 and Proposition 2.11 (measures on ℤ_{p,M}^×, tame twists). This closes the "tame twists" part of the L4 remaining item.
+- `supersingular-refinements`: Theorems 3.3 (Mazur) and 3.5 (Perrin-Riou), and Corollary 3.6.
+- `half-logarithms` (construction, planet; 5 API items, 4 tests): Lemma 4.1, Corollaries 4.2–4.3, Lemmas 4.5–4.7.
+- `plus-minus-decomposition` (planet): Theorems 5.1 and 5.6, with Remark 5.7.
+- `supersingular-examples`: X₀(11) at p = 2 (a₂ = −2, roots −1 ± i, ratio −i; Corollary 3.6 only) and at p = 19 (a₁₉ = 0, Theorem 5.6). The coefficients were computed from the eta-product to q⁶⁰: a₁₉ = a₂₉ = 0.
+
+**Still open in L4:**
+- Coefficient embeddings and primitive/imprimitive level change (Mazur–Tate–Teitelbaum is not read).
+- a_p ≠ 0 supersingular decompositions (Sprung).
+- The earlier pointer to RJW §§6–8 was wrong: those sections are on Kubota–Leopoldt. The coverage now says so.
+
+**No new source issues.** Lemma 4.7's exponents p^{−(n+1)/2} and p^{−n/2−1} look off by one at first. They are right, because of the leading 1/p in Lemma 4.1's definition, and the node records that factor.
+
+**Lean.** Seven new checked examples, and the whole suggested file compiles with exit 0:
+- p ≥ 5, p | a and a² < 4p give a = 0 (the Hasse argument of Corollary 3.6);
+- −1 + i is a root of X² + 2X + 2, of norm 2, with (−1 + i)·i = −1 − i;
+- the Lemma 4.7 exponent bookkeeping.
+
+**Checks.**
+- `check_blueprint --index`: 0 errors, 0 warnings.
+- `check-files`: 0 problems.
+- Every new excerpt was checked by script against its page's text.
+
+## Checkpoint 5 (cc-39fac3)
 
 ## Checkpoint 5: L3 (6 nodes, 1 planet) and L4 (2 nodes)
 
