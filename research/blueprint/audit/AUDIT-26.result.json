@@ -3,7 +3,7 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "ModularIwasawaMainConjectures": {
-   "summary": "Nothing in either library bears directly on these main conjectures: there are no Galois representations attached to modular forms, Tate modules or Galois action on torsion of elliptic curves, Greenberg or signed Selmer groups, Iwasawa cohomology, characteristic ideals, Poitou–Tate duality, zeta elements, Coleman maps, Hida families or p-adic L-functions. The nearest material is Tau Ceti's descent-style 2-Selmer groups of elliptic curves over number fields, Mathlib's reduction types (good, multiplicative, additive) and continuous group cohomology. Everything is genuinely missing, including the formulations of L0. Several statements are also owned by other roadmaps: FW Theorems 1.7–1.8 by AutomorphicCongruences L4, BCS Theorem 1.1.2 by AutomorphicCongruences L5b, and L6's branch theorems by HeegnerPointEulerSystems HE.8b and RankZeroOneBSD BSD.6a/BSD.7a; L6 itself is integration.",
+   "summary": "Nothing in either library bears directly on these main conjectures: there are no Galois representations attached to modular forms, Tate modules or Galois action on torsion of elliptic curves, Greenberg or signed Selmer groups, Iwasawa cohomology, characteristic ideals, Poitou–Tate duality, zeta elements, Coleman maps, Hida families or p-adic L-functions. The nearest material is Tau Ceti's descent-style 2-Selmer groups of elliptic curves over number fields, Mathlib's reduction types (good, multiplicative, additive) and continuous group cohomology. Everything is genuinely missing, including the formulations of L0. Several statements are also owned by other roadmaps: FW Theorems 1.7–1.8 by AutomorphicCongruences L4, BCS Theorem 1.1.2 by AutomorphicCongruences L5b, and L6's branch theorems by HeegnerPointEulerSystems HE.8b and RankZeroOneBSD BSD.6a/BSD.7a; L6 proves the map-level comparisons that carry them into L0's formulations; only its source concordance is bookkeeping.",
    "layers": {
     "ModularIwasawaMainConjectures:L0": {
      "verdict": "not built",
@@ -244,19 +244,19 @@
      ]
     },
     "ModularIwasawaMainConjectures:L6": {
-     "verdict": "process",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Map-level identifications of coefficient rings, contragredient actions, primitive/imprimitive local conditions, p-adic periods and the BDP square convention, used to re-export the anticyclotomic, Eisenstein and supersingular branch theorems",
        "library": "absent",
        "declarations": [],
-       "note": "Interface work over theorems owned by HE.8b, BSD.6a and BSD.7a; none of the objects exists in the libraries."
+       "note": "L6's own comparison theorems: the identifications of coefficient rings (O against the completed unramified extension), contragredient actions, primitive/imprimitive local conditions, p-adic periods and the BDP square convention that transport the branch theorems proved in HE.8b, BSD.6a and BSD.7a into L0's formulations. The completed-coefficient, local-condition and period comparison packages these need exist in neither library (generic coefficient rings and scalar maps do)."
       },
       {
        "target": "Comparison of the anticyclotomic characteristic equality over its completed unramified coefficient ring with the Heegner-index square, after the local logarithm and duality maps",
        "library": "absent",
        "declarations": [],
-       "note": "Not present."
+       "note": "Not present; needs the local logarithm and duality maps, none of which exists."
       },
       {
        "target": "Replacement-source concordance for withdrawn preprints and the staged import order",
@@ -1028,7 +1028,7 @@
    }
   },
   "PadicHodgeRegulators": {
-   "summary": "The libraries hold only foundational fragments: Mathlib's B_dR^+ and B_dR (completions of W(R♭)[1/p] along ker θ, with Fontaine's θ surjective), Witt-vector Teichmüller and Frobenius maps, arithmetic Frobenius elements, the classification of one-dimensional isocrystals, continuous group cohomology and Nakayama; Tau Ceti adds the Teichmüller lift and unit filtration of a local field and the Kummer map Kˣ → H¹(G_K, μ_n). Genuinely missing are Coleman integration and p-adic polylogarithms, étale and syntomic regulators, K₃ of local fields and the unramified theorem K₃(L;ℤ_p) ≅ p²O_L, the decomposition F ⊗ ℚ_p ≅ ∏ F_v, B_cris, B_st and the period functors, Bloch–Kato exponentials, (φ,Γ)-modules, Perrin-Riou's big logarithm, the Lei–Loeffler–Zerbes Coleman maps and the de Rham regulator. L0 is integration only (it imports PadicHodgeTheory R06.1–R06.2); D.2 overlaps MotivicEtaleKTheory M.8, D.3 overlaps KTheoryFiniteLocalFields L.6 and D.5 overlaps EllipticRegulators ER.8.",
+   "summary": "The libraries hold only foundational fragments: Mathlib's B_dR^+ and B_dR (completions of W(R♭)[1/p] along ker θ, with Fontaine's θ surjective), Witt-vector Teichmüller and Frobenius maps, arithmetic Frobenius elements, the classification of one-dimensional isocrystals, continuous group cohomology and Nakayama; Tau Ceti adds the Teichmüller lift and unit filtration of a local field and the Kummer map Kˣ → H¹(G_K, μ_n). Genuinely missing are Coleman integration and p-adic polylogarithms, étale and syntomic regulators, K₃ of local fields and the unramified theorem K₃(L;ℤ_p) ≅ p²O_L, the decomposition F ⊗ ℚ_p ≅ ∏ F_v, B_cris, B_st and the period functors, Bloch–Kato exponentials, (φ,Γ)-modules, Perrin-Riou's big logarithm, the Lei–Loeffler–Zerbes Coleman maps and the de Rham regulator. L0 is integration only (it imports PadicHodgeTheory R06.1–R06.2); D.2 overlaps MotivicEtaleKTheory M.8 and K3BlochGroups V.6, D.3 overlaps KTheoryFiniteLocalFields L.6 and L.7, D.4 overlaps NumberFieldArithmetic Layer 5 (5.3) and KTheoryFiniteLocalFields L.7, and D.5 overlaps EllipticRegulators ER.8.",
    "layers": {
     "PadicHodgeRegulators:D.1": {
      "verdict": "partly built",
@@ -1191,6 +1191,10 @@
       {
        "layer": "MotivicEtaleKTheory:M.8",
        "note": "Also constructs étale Chern classes on K-theory and their compatibilities with norms, residues and products."
+      },
+      {
+       "layer": "K3BlochGroups:V.6",
+       "note": "Proves that D's p-adic regulator agrees with the abstract K-theory regulator under the rational, integral and finite-coefficient Bloch/K₃ comparisons: the degree-three, weight-two dilogarithm comparison of D.2's fourth target, planned in both stages with no edge between them. The rational, integral-torsion and finite-coefficient versions keep their distinct hypotheses, and D.2's scalar/Frobenius normalization stays with D.2."
       }
      ]
     },
@@ -1240,6 +1244,10 @@
       {
        "layer": "KTheoryFiniteLocalFields:L.6",
        "note": "Also identifies K_{2j−1}(L;ℤ_p) for finite extensions of ℚ_p via Galois cohomology and computes its rank [L:ℚ_p], the first step of this layer's proof."
+      },
+      {
+       "layer": "KTheoryFiniteLocalFields:L.7",
+       "note": "States that the completed K₃ model used by D's unramified p>3 theorem is established there; D.3's first target also defines K₃(L;ℤ_p) by derived p-completion with the product comparison. D.3 keeps its unramified p > 3 regulator theorem."
       }
      ]
     },
@@ -1263,9 +1271,16 @@
          "file": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
          "line": 328,
          "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.adicCompletionExtension",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/AdicCompletionExtension.lean",
+         "line": 282,
+         "fit": "related"
         }
        ],
-       "note": "Completions at finite places exist, and Mathlib proves AdicCompletion I R ⊗_R M ≅ AdicCompletion I M for a finite module over a Noetherian ring, which gives ℤ_p ⊗_ℤ 𝒪_F as the p-adic completion of 𝒪_F; the remaining content — the decomposition of that completion as the product over the places v | p and the field-level form F ⊗ ℚ_p ≅ ∏_{v|p} F_v — is not proved."
+       "note": "Completions at finite places exist, and Mathlib proves AdicCompletion I R ⊗_R M ≅ AdicCompletion I M for a finite module over a Noetherian ring, which gives ℤ_p ⊗_ℤ 𝒪_F as the p-adic completion of 𝒪_F; the remaining content — the decomposition of that completion as the product over the places v | p and the field-level form F ⊗ ℚ_p ≅ ∏_{v|p} F_v — is not proved. Tau Ceti has the continuous component maps K_v → L_w (adicCompletionExtension, unique among continuous extensions of K → L under its Dedekind, fraction-field and LiesOver hypotheses); the product equivalence itself is planned by NumberFieldArithmetic 5.3."
       },
       {
        "target": "Localisation map from global K₃, compatibility with all local embeddings, and application of D.3",
@@ -1294,7 +1309,16 @@
        "note": "Not present."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+       "note": "Milestone 5.3 constructs semilocalEquiv v : K_v ⊗[K] L ≃ₐ[K_v] ∏_{w|v} L_w for every finite separable extension of number fields, with its pure-tensor formula and Σ[L_w:K_v] = [L:K]; the case K = ℚ, v = (p) is D.4's F ⊗ ℚ_p ≅ ∏_{v|p} F_v, without the unramified hypothesis."
+      },
+      {
+       "layer": "KTheoryFiniteLocalFields:L.7",
+       "note": "Proves compatibility of local restriction/transfer and arithmetic Chern classes with completion of a number field at a finite place and states that it supplies D's regulator map: the localisation, local-embedding and norm/trace compatibility of D.4's second and third targets. Frobenius compatibility, the torsion/denominator statements and the Habiro export remain D.4's."
+      }
+     ]
     },
     "PadicHodgeRegulators:D.5": {
      "verdict": "not built",
@@ -1882,9 +1906,16 @@
          "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
          "line": 93,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.MonoidAlgebra.augmentation",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/MonoidAlgebra/Exactness.lean",
+         "line": 55,
+         "fit": "related"
         }
        ],
-       "note": "Dirac measures exist for abstract measures but not in a completed group ring."
+       "note": "Dirac measures exist for abstract measures but not in a completed group ring. The finite-level augmentation of R[G] exists in Tau Ceti; not for R[[G]]."
       },
       {
        "target": "Universal property for continuous actions on complete separated linearly topologized modules with open G-stable submodules",
@@ -2071,14 +2102,21 @@
          "fit": "exact"
         },
         {
-         "name": "PadicInt.ext_mahler",
+         "name": "PowerSeries.binomialSeries",
          "library": "mathlib",
-         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
-         "line": 409,
-         "fit": "exact"
+         "file": "Mathlib/RingTheory/PowerSeries/Binomial.lean",
+         "line": 47,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.binomialSeries_add",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Binomial.lean",
+         "line": 61,
+         "fit": "related"
         }
        ],
-       "note": "Coefficient extraction, injectivity (complete ultrametric normed coefficients) and determination by the values on binomial polynomials are proved; multiplicativity and the transform of Dirac measures are missing because convolution is not defined."
+       "note": "Coefficient extraction, injectivity (complete ultrametric normed coefficients) and determination by the values on binomial polynomials are proved; the last also uses Mahler's theorem PadicInt.ext_mahler (Mathlib/NumberTheory/Padics/MahlerBasis.lean:409), moved here from the declarations to respect the five-declaration limit. The Dirac transform A(δ_x) = (1+X)^x is a short consequence of coeff_amiceTransform, dirac_apply, mahler_apply and binomialSeries_coeff (Mathlib/RingTheory/PowerSeries/Binomial.lean:51; ℤ_p is a BinomialRing), for measures valued in a topological commutative ℤ_p-algebra, and binomialSeries_add gives the product rule on Dirac measures; neither is stated, and multiplicativity for general convolution is missing because convolution is not defined."
       },
       {
        "target": "Extension of the Mahler–Amice theory to ℤ_p^d",
@@ -2183,8 +2221,23 @@
       {
        "target": "For procyclic G: principal augmentation ideal, the existence/uniqueness statements of RJW §§3–4 and change of generator",
        "library": "absent",
-       "declarations": [],
-       "note": "Not present; Tau Ceti's augmentation ideals are those of Hopf algebras and A∞-algebras, not of group rings."
+       "declarations": [
+        {
+         "name": "TauCeti.MonoidAlgebra.ker_augmentation_eq_span",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/MonoidAlgebra/Exactness.lean",
+         "line": 87,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.MonoidAlgebra.ker_mapDomainRingHom_eq_span",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/MonoidAlgebra/Exactness.lean",
+         "line": 166,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the finite-level group-ring augmentation over any ring, with its kernel generated by the [g] − 1, and the kernel of R[G] → R[H] induced by a homomorphism q : G → H from a group to a monoid generated by the [k] − 1, k ∈ ker q (for instance R[G] → R[G/N] with N normal); nothing for the completed O[[G]], its principal augmentation ideal for procyclic G, the RJW existence/uniqueness statements or change of generator."
       },
       {
        "target": "ℤ_2^× = {±1} × (1 + 4ℤ_2) treated as a non-procyclic group",
@@ -2302,9 +2355,30 @@
          "file": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
          "line": 51,
          "fit": "related"
+        },
+        {
+         "name": "ringKrullDim_quotient_span_singleton_succ_eq_ringKrullDim_of_mem_nonZeroDivisors",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/Regular.lean",
+         "line": 174,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.eq_span_insert_X_of_X_mem_of_span_eq",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Ideal.lean",
+         "line": 69,
+         "fit": "related"
+        },
+        {
+         "name": "IsRegularLocalRing.of_spanFinrank_maximalIdeal_le",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+         "line": 63,
+         "fit": "related"
         }
        ],
-       "note": "Only dim R + 1 ≤ dim R⟦X⟧ is proved, and regularity is only known for local PIDs; the equality dim O[[T]] = 2 and regularity are missing."
+       "note": "Neither dim O⟦T⟧ = 2 nor regularity is stated, but both are short compositions of available results, not a named power-series theorem. Mathlib's dim R/(x) + 1 = dim R for a nonzerodivisor x in the maximal ideal of a Noetherian local ring, applied to x = X with O⟦X⟧/(X) ≅ O and dim O = 1 for the DVR O, gives dimension two; the maximal ideal is span{X, C ϖ} by eq_span_insert_X_of_X_mem_of_span_eq, so of_spanFinrank_maximalIdeal_le gives regularity. Mathlib's regularity results cover local PIDs and polynomial rings over regular rings, not power series."
       },
       {
        "target": "Finite free remainders: O[[T]]/(g) ≅ O[T]/(f) for the distinguished polynomial f, free of rank deg f",
@@ -2357,9 +2431,23 @@
          "file": "Mathlib/RingTheory/OrderOfVanishing/Basic.lean",
          "line": 36,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.principalDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Principal/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.ord",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/OrderOfVanishing.lean",
+         "line": 52,
+         "fit": "related"
         }
        ],
-       "note": "Module lengths and orders of vanishing exist; characteristic ideals do not."
+       "note": "Module lengths and orders of vanishing exist; characteristic ideals do not. Principal divisors div(f) on Noetherian integral schemes (OrderSystem.principalDivisor with Scheme.ord) give the characteristic divisor of Λ/(f) for nonzero f once lengths at height-one primes are compared with orders of vanishing; that comparison, and characteristic ideals of general modules, are missing."
       },
       {
        "target": "μ- and λ-invariants (μ via v_ϖ) and the class-number growth normalization for O = ℤ_p",
@@ -2410,8 +2498,36 @@
       },
       {
        "target": "Height-one divisors on O[[ℤ_p^d]]; pseudo-null means codimension at least two",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.SchemeWeilDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Basic.lean",
+         "line": 47,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.ofScheme",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Principal.lean",
+         "line": 129,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.principalDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Principal/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.ord",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/OrderOfVanishing.lean",
+         "line": 52,
+         "fit": "related"
+        },
         {
          "name": "MvPowerSeries.isNoetherianRing",
          "library": "mathlib",
@@ -2420,7 +2536,7 @@
          "fit": "related"
         }
        ],
-       "note": "Only Noetherianity of power series in finitely many variables is available."
+       "note": "Tau Ceti has Weil divisors (finite ℤ-sums of codimension-one points) on any scheme and principal divisors on Noetherian integral schemes via Mathlib's Scheme.ord; applied to Spec O⟦T₁,…,T_d⟧, which is Noetherian (MvPowerSeries.isNoetherianRing) and integral, they give height-one divisors and div(f) for nonzero f. Missing: the identification of the completed group algebra O[[ℤ_p^d]] with this power-series model, divisors of general modules (Σ length(M_P)·P, including the comparison of length with order for Λ/(f)), and pseudo-nullity."
       }
      ],
      "duplicates": [
