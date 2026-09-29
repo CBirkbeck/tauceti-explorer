@@ -4696,3 +4696,150 @@ example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPri
     (h1 : ¬p∣1) : (twistedSmoothedMeasure p n χ 1 h1).amiceTransform = 0 := sorry
 end SuggestedGaussFractionTests
 end DirichletPadic
+
+/-! ## Pure prime-power interpolation through the formal finite kernel -/
+namespace DirichletPadic
+open scoped AbstractMeasure BigOperators
+open AbstractMeasure PowerSeries
+
+section FiniteResolvents
+variable (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+
+lemma primePowerGauss_resolvent_reindex (n : ℕ)
+    (χ : DirichletCharacter K (p^n)) (e : AddChar (ZMod (p^n)) K)
+    (a : ℕ) (ha : ¬p∣a) :
+    (∑ c : ZMod (p^n), χ⁻¹ c • ((C (e c)*(1+X))^a-1)⁻¹) =
+      χ (a : ZMod (p^n)) •
+        ∑ c : ZMod (p^n), χ⁻¹ c • (C (e c)*(1+X)^a-1)⁻¹ := sorry
+
+lemma primePowerGauss_resolvent_subst (n : ℕ) (hn : 1≤n)
+    (χ : DirichletCharacter K (p^n)) (ε : K) (hε : IsPrimitiveRoot ε (p^n))
+    (a : ℕ) :
+    subst ((1+X : K⟦X⟧)^a-1)
+        (∑ c : ZMod (p^n), χ⁻¹ c • (C (ε^c.val)*(1+X)-1)⁻¹) =
+      ∑ c : ZMod (p^n), χ⁻¹ c • (C (ε^c.val)*(1+X)^a-1)⁻¹ := sorry
+end FiniteResolvents
+
+section PrimePowerInterpolation
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [Algebra ℤ_[p] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[p] K]
+
+theorem twistedSmoothedMeasure_amice_tameSeries (n : ℕ) (hn : 1≤n)
+    (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (ε : K) (hε : IsPrimitiveRoot ε (p^n))
+    (hG : gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+    (hD : IsUnit ((p^n : ℕ) : K)) (a : ℕ) (ha : ¬p∣a) :
+    (twistedSmoothedMeasure p n χ a ha).amiceTransform =
+      -tameSeries χ hD + C ((a : K)*χ (a : ZMod (p^n))) *
+        subst ((1+X : K⟦X⟧)^a-1) (tameSeries χ hD) := sorry
+
+variable [CharZero K] [Algebra ℚ K]
+
+theorem twistedSmoothedMeasure_exp_coeff (n : ℕ) (hn : 1≤n)
+    (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (ε : K) (hε : IsPrimitiveRoot ε (p^n))
+    (hG : gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+    (hD : IsUnit ((p^n : ℕ) : K)) (a : ℕ) (ha : ¬p∣a) (k : ℕ) :
+    coeff k (subst (exp K-1) (twistedSmoothedMeasure p n χ a ha).amiceTransform) =
+      (1-χ (a : ZMod (p^n))*(a : K)^(k+1)) * ((p^n : ℕ) : K)^k /
+        ((k+1).factorial : K) * ∑ b : ZMod (p^n),
+          χ b * algebraMap ℚ K ((Polynomial.bernoulli (k+1)).eval (b.val/(p^n) : ℚ)) := sorry
+
+theorem twistedSmoothedMeasure_ordinary_moment (n : ℕ) (hn : 1≤n)
+    (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (ε : K) (hε : IsPrimitiveRoot ε (p^n))
+    (hG : gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+    (hD : IsUnit ((p^n : ℕ) : K)) (a : ℕ) (ha : ¬p∣a) (k : ℕ) :
+    twistedSmoothedMeasure p n χ a ha
+      (((ContinuousMap.id ℤ_[p]) • (1 : C(ℤ_[p],K)))^k) =
+      (1-χ (a : ZMod (p^n))*(a : K)^(k+1)) * ((p^n : ℕ) : K)^k /
+        (k+1) * ∑ b : ZMod (p^n),
+          χ b * algebraMap ℚ K ((Polynomial.bernoulli (k+1)).eval (b.val/(p^n) : ℚ)) := sorry
+end PrimePowerInterpolation
+
+namespace SuggestedPrimePowerMomentTests
+section Algebra
+variable {K : Type*} [Field K]
+-- reindex_one
+example (χ : DirichletCharacter K (3^1)) (e : AddChar (ZMod (3^1)) K) :
+    (∑ c : ZMod (3^1), χ⁻¹ c • ((C (e c)*(1+X))^1-1)⁻¹) =
+      ∑ c : ZMod (3^1), χ⁻¹ c • (C (e c)*(1+X)-1)⁻¹ := sorry
+-- reindex_character_factor
+example (χ : DirichletCharacter K (3^2)) (e : AddChar (ZMod (3^2)) K)
+    (z : K) (hz : χ 2 = z) :
+    (∑ c : ZMod (3^2), χ⁻¹ c • ((C (e c)*(1+X))^2-1)⁻¹) =
+      z • ∑ c : ZMod (3^2), χ⁻¹ c • (C (e c)*(1+X)^2-1)⁻¹ := sorry
+-- subst_one
+example (χ : DirichletCharacter K (3^1)) (ε : K) :
+    subst ((1+X : K⟦X⟧)^1-1)
+      (∑ c : ZMod (3^1), χ⁻¹ c • (C (ε^c.val)*(1+X)-1)⁻¹) =
+      ∑ c : ZMod (3^1), χ⁻¹ c • (C (ε^c.val)*(1+X)-1)⁻¹ := sorry
+-- subst_zero_index
+example (χ : DirichletCharacter K (3^1)) (a : ℕ) :
+    subst ((1+X : K⟦X⟧)^a-1)
+      (χ⁻¹ (0 : ZMod (3^1)) • ((1+X : K⟦X⟧)-1)⁻¹) = 0 := sorry
+end Algebra
+
+section General
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [Algebra ℤ_[p] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[p] K]
+variable (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+  (ε : K) (hε : IsPrimitiveRoot ε (p^n))
+  (hG : gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+  (hD : IsUnit ((p^n : ℕ) : K))
+include hn hχ hε hG
+-- formal_one_smoothing
+example (h1 : ¬p∣1) :
+    (twistedSmoothedMeasure p n χ 1 h1).amiceTransform =
+      -tameSeries χ hD + tameSeries χ hD := sorry
+-- formal_mass_factor
+example (a : ℕ) (ha : ¬p∣a) :
+    twistedSmoothedMeasure p n χ a ha 1 =
+      ((a : K)*χ (a : ZMod (p^n))-1) * constantCoeff (tameSeries χ hD) := sorry
+variable [CharZero K] [Algebra ℚ K]
+-- exponential_one_smoothing
+example (h1 : ¬p∣1) (k : ℕ) :
+    coeff k (subst (exp K-1) (twistedSmoothedMeasure p n χ 1 h1).amiceTransform) = 0 := sorry
+-- ordinary_one_smoothing
+example (h1 : ¬p∣1) (k : ℕ) :
+    twistedSmoothedMeasure p n χ 1 h1
+      (((ContinuousMap.id ℤ_[p]) • (1 : C(ℤ_[p],K)))^k) = 0 := sorry
+end General
+
+section QuadraticThree
+variable {K : Type*} [NormedField K] [Algebra ℤ_[3] K] [CharZero K] [Algebra ℚ K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[3] K]
+variable (χ : DirichletCharacter K (3^1)) (hχ : χ.IsPrimitive) (h2 : χ 2 = -1)
+  (ε : K) (hε : IsPrimitiveRoot ε (3^1))
+  (hG : gaussSum χ⁻¹ (AddChar.zmodChar (3^1) hε.pow_eq_one) ≠ 0)
+include hχ h2 hε hG
+-- exponential_three_second
+example : coeff 2 (subst (exp K-1)
+    (twistedSmoothedMeasure 3 1 χ 4 (by norm_num)).amiceTransform) = -7 := sorry
+-- ordinary_three_mass
+example : twistedSmoothedMeasure 3 1 χ 4 (by norm_num) 1 = 1 := sorry
+-- ordinary_three_second
+example : twistedSmoothedMeasure 3 1 χ 4 (by norm_num)
+    (((ContinuousMap.id ℤ_[3]) • (1 : C(ℤ_[3],K)))^2) = -14 := sorry
+end QuadraticThree
+
+section QuadraticFour
+variable {K : Type*} [NormedField K] [Algebra ℤ_[2] K] [CharZero K] [Algebra ℚ K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[2] K]
+variable (χ : DirichletCharacter K (2^2)) (hχ : χ.IsPrimitive) (h3 : χ 3 = -1)
+  (ε : K) (hε : IsPrimitiveRoot ε (2^2))
+  (hG : gaussSum χ⁻¹ (AddChar.zmodChar (2^2) hε.pow_eq_one) ≠ 0)
+include hχ h3 hε hG
+-- exponential_four_second
+example : coeff 2 (subst (exp K-1)
+    (twistedSmoothedMeasure 2 2 χ 3 (by norm_num)).amiceTransform) = 7 := sorry
+-- ordinary_four_mass
+example : twistedSmoothedMeasure 2 2 χ 3 (by norm_num) 1 = -2 := sorry
+-- ordinary_four_second
+example : twistedSmoothedMeasure 2 2 χ 3 (by norm_num)
+    (((ContinuousMap.id ℤ_[2]) • (1 : C(ℤ_[2],K)))^2) = 14 := sorry
+end QuadraticFour
+end SuggestedPrimePowerMomentTests
+end DirichletPadic

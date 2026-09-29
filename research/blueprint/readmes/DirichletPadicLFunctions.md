@@ -11047,3 +11047,158 @@ Four complete native lemmas verify the nonidentity smoothing power, the finite t
 Exact cyclotomic controls at conductors2,3,4,5,8,9 check75 nonidentity smoothing powers,75 denominator pairs,675 two-fraction coefficients,12 identity-root failures,15 zero-index weights,135 normalized Gauss coefficients and25 one-parameter cancellations. Exact arithmetic in Q[X]/Phi_(p^n), for conductors2,3,4,5,8,9. Independently expand the earlier finite-polynomial quotient and each of the two inverses through degree8, certifying constant inverses by rational Gaussian elimination. Check every nonzero residue and three p-coprime smoothing parameters. The identity-root control uses the native totalized power-series inverse convention and records its disagreement with the actual pole-cancelled quotient; the primitive-character Gauss sum removes that term by its zero weight. No analytic approximation or Laurent inversion is used. The largest observed discrepancy is 0 (exact cyclotomic coefficient comparisons).
 
 All54 captured inputs remain unchanged during this checkpoint.
+
+
+## Pure prime-power smoothed moments
+
+Partial continuation preserving all329 predecessor nodes whole. Five L2 nodes reindex the arithmetic Gauss resolvent, justify its legal substitution, compare the actual prime-power twist with the formal finite kernel, and derive exponential coefficients and ordinary moments. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.
+
+On 29 September 2026, complete published pages 140–142/PDF41–43 were freshly read from the hash-verified published RJW PDF. They contain the arithmetic Gauss transform, its two-fraction specialization, Lemma5.5 and its complete proof. The existing source findings E1 and E11 qualify its proof displays and remain unchanged. Fresh complete native readings cover inverse character values, multiplication by a unit as a bijection, legal substitution and composition, transport of a unit-series inverse, rescaling the exponential, coefficient rescaling and factorial cancellation. The exact existing PMIA algebra-ordinary-moment-exp node and signature were read with their hypotheses.
+
+### Reindexing the smoothing resolvent
+
+`DirichletPadicLFunctions:L2/prime-power-resolvent-reindex` — `DirichletPadic.primePowerGauss_resolvent_reindex`
+
+For any native additive character e on ZMod q and p∤a, Σ_c χ⁻¹(c) • ((C(e(c))Y)^a−1)⁻¹ = χ(a) • Σ_c χ⁻¹(c) • (C(e(c))Y^a−1)⁻¹.
+
+**Hypotheses:** p is a prime, including2; n≥0, q=p^n, K is a field, χ is the native DirichletCharacter K q and Y=1+T in the actual K[[T]]. No new character, Gauss-sum or formal-series carrier is introduced. e:AddChar(ZMod q,K) and a∈N with p∤a. This finite algebraic equality does not require χ primitive, n≥1, a primitive root, a Gauss denominator or a topology on K.
+
+**Proof:**
+
+1. Since p∤a, a is coprime to p^n, so the native ZMod unit criterion represents its residue by a unit u. Multiplication c↦u c is a bijection of all residues, including the nonunits.
+2. Native additive-character natural-scalar compatibility gives e(a c)=e(c)^a. Consequently the left denominator equals C(e(a c))Y^a−1; this is only finite ring algebra and does not cancel an inverse.
+3. The native inverse-character identity and χ(u)≠0 give χ(u)χ⁻¹(u c)=χ⁻¹(c), including zero/nonunit values. Rewrite each weight using this identity and change the finite summation index by the unit bijection. The factor is χ(a), not its inverse.
+4. A complete native proof verifies the weighted reindexing for arbitrary finite commutative monoids, fields and modules. Only this arithmetic resolvent application is planned here; no second generic Gauss or Fourier theory is introduced.
+
+**Prerequisites:** `mathlib:ZMod.isUnit_iff_coprime`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:AddChar.map_nsmul_eq_pow`, `mathlib:MulChar.inv_apply_eq_inv'`, `mathlib:MulChar.apply_ne_zero_iff`, `mathlib:Units.mulLeft_bijective`.
+
+**Tests:**
+
+- `SuggestedPrimePowerMomentTests.reindex_one` (degenerate): For a=1 at modulus3 the reindexing equality has factor1.
+- `SuggestedPrimePowerMomentTests.reindex_character_factor` (compatibility): At modulus9 and a=2, if the actual character has χ(2)=z then the factor is z; the exact order-three control distinguishes z from z⁻¹.
+
+**Acceptance:** No denominator is cancelled in this node. Native totalized inverses therefore cause no missing identity-root case.
+
+**Source:** §5.1, displayed Fχ,a and fχ,a after Lemma5.4, published141/PDF42; Lemma5.5 and equation(5-2), published141–142/PDF42–43. Complete published140–142 freshly read on29September2026. Worker formal-algebra decomposition of the source pure prime-power smoothing and ordinary-moment formula. The character reindexing retains χ(a), the change of variable supplies a^k in addition to the outer a, and the existing finite Bernoulli kernel fixes the sign. The source complex Mellin and L-value comparisons are not asserted here. Existing source findings remain whole.
+
+### Substitution in the weighted Gauss resolvent
+
+`DirichletPadicLFunctions:L2/prime-power-resolvent-substitution` — `DirichletPadic.primePowerGauss_resolvent_subst`
+
+For n≥1 and a primitive q-th root ε, substitution T↦Y^a−1 sends Σ_cχ⁻¹(c) • (C(ε^(c.val))Y−1)⁻¹ to Σ_cχ⁻¹(c) • (C(ε^(c.val))Y^a−1)⁻¹.
+
+**Hypotheses:** p is a prime, including2; n≥0, q=p^n, K is a field, χ is the native DirichletCharacter K q and Y=1+T in the actual K[[T]]. No new character, Gauss-sum or formal-series carrier is introduced. Require n≥1 and a primitive q-th root ε in K; a is any natural number, including0. χ need not be primitive, and no nonzero Gauss-sum or p∤a hypothesis is required.
+
+**Proof:**
+
+1. The substitution σ=Y^a−1 has constant coefficient0, so the native substAlgHom is available and preserves finite sums and scalar multiplication.
+2. For c≠0, native bounds on the canonical residue and primitive-root nonidentity give ε^(c.val)≠1. Both the original denominator and its image under σ have constant coefficient ε^(c.val)−1≠0.
+3. Apply substAlgHom to the original denominator times its native inverse equalling1. Constant-coefficient preservation and native inverse cancellation identify the substituted inverse with the inverse of the substituted denominator. A complete native proof verifies this unit-inverse transport inside K[[T]], with no field structure on that series ring.
+4. Substitution sends Y to Y^a. For c=0, q>1 implies χ⁻¹(0)=0, and both weighted summands are zero before any inverse cancellation. Combine the terms by finite linearity.
+
+**Prerequisites:** `mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'`, `mathlib:PowerSeries.substAlgHom`, `mathlib:PowerSeries.coe_substAlgHom`, `mathlib:PowerSeries.substAlgHom_X`, `mathlib:PowerSeries.subst_C`, `mathlib:PowerSeries.constantCoeff_subst_of_constantCoeff_zero`, `mathlib:PowerSeries.mul_inv_cancel`, `mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt`, `mathlib:ZMod.val_ne_zero`, `mathlib:ZMod.val_lt`, `mathlib:MulChar.map_zero`.
+
+**Tests:**
+
+- `SuggestedPrimePowerMomentTests.subst_one` (degenerate): For a=1 at modulus3, σ=T and the weighted resolvent is unchanged.
+- `SuggestedPrimePowerMomentTests.subst_zero_index` (degenerate): At modulus3 the substituted zero-residue weighted inverse is0 for every a, including0.
+
+**Acceptance:** The substitution has zero constant coefficient. This does not extend generic root-of-unity substitution for arbitrary bounded transforms or assert a Laurent inverse at T=0.
+
+**Source:** §5.1, displayed Fχ,a and fχ,a after Lemma5.4, published141/PDF42; Lemma5.5 and equation(5-2), published141–142/PDF42–43. Complete published140–142 freshly read on29September2026. Worker formal-algebra decomposition of the source pure prime-power smoothing and ordinary-moment formula. The character reindexing retains χ(a), the change of variable supplies a^k in addition to the outer a, and the existing finite Bernoulli kernel fixes the sign. The source complex Mellin and L-value comparisons are not asserted here. Existing source findings remain whole.
+
+### The prime-power twist and the formal finite kernel
+
+`DirichletPadicLFunctions:L2/prime-power-amice-formal-kernel` — `DirichletPadic.twistedSmoothedMeasure_amice_tameSeries`
+
+A_τ = −F + C(aχ(a))·subst(Y^a−1)(F).
+
+**Hypotheses:** p is any prime, n≥1 and q=p^n. K is a complete ultrametric normed field with its displayed Z_p-algebra and bounded scalar action. χ is a native primitive DirichletCharacter K q. Choose a primitive q-th root ε in K, put e=AddChar.zmodChar(q,ε), and retain explicitly G=gaussSum(χ⁻¹,e)≠0. Let a∈N with p∤a, and hD:IsUnit(q:K). τ=twistedSmoothedMeasure(p,n,χ,a) is the actual preceding arithmetic measure. F=tameSeries(χ,hD) is only the existing formal finite kernel. Its definition needs q invertible in K and does not need p∤q. The actual tameMeasure, whose construction requires p-coprime modulus, is not instantiated at q=p^n. All inverses of series mean the native field-coefficient inverse.
+
+**Proof:**
+
+1. Start with twisted-smoothed-gauss-fractions. Separate its two finite sums, retaining the negative sign and scalar a in the second term.
+2. Apply prime-power-resolvent-reindex to the second sum and prime-power-resolvent-substitution to express its remaining resolvent as legal substitution of the first resolvent.
+3. Use the already proved tame-gauss-series at D=q. Its normalization is F=−G⁻¹ times the first weighted resolvent. Linearity of the substitution algebra homomorphism yields A_τ=−F+aχ(a)subst(Y^a−1)F.
+4. Only the formal finite kernel is used at the prime-power modulus. The hypotheses q>1 and q a unit in K match the existing theorem exactly; the incompatible p-coprimality hypothesis of the actual tame-measure construction is never invoked. The final expression is independent of the chosen root because it is expressed using F.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/twisted-smoothed-gauss-fractions`, `DirichletPadicLFunctions:L2/prime-power-resolvent-reindex`, `DirichletPadicLFunctions:L2/prime-power-resolvent-substitution`, `DirichletPadicLFunctions:L2/tame-gauss-series`, `mathlib:PowerSeries.substAlgHom`.
+
+**Tests:**
+
+- `SuggestedPrimePowerMomentTests.formal_one_smoothing` (degenerate): For a=1 the actual transform equals −F+F=0.
+- `SuggestedPrimePowerMomentTests.formal_mass_factor` (compatibility): The actual total mass is (aχ(a)−1)·constantCoeff(F).
+
+**Acceptance:** All root and Gauss assumptions remain visible. No analytic exponential or comparison of complex and p-adic fields is used.
+
+**Source:** §5.1, displayed Fχ,a and fχ,a after Lemma5.4, published141/PDF42; Lemma5.5 and equation(5-2), published141–142/PDF42–43. Complete published140–142 freshly read on29September2026. Worker formal-algebra decomposition of the source pure prime-power smoothing and ordinary-moment formula. The character reindexing retains χ(a), the change of variable supplies a^k in addition to the outer a, and the existing finite Bernoulli kernel fixes the sign. The source complex Mellin and L-value comparisons are not asserted here. Existing source findings remain whole.
+
+### Exponential coefficients of the prime-power twist
+
+`DirichletPadicLFunctions:L2/prime-power-exponential-coefficients` — `DirichletPadic.twistedSmoothedMeasure_exp_coeff`
+
+For every k≥0, coeff_k(A_τ(exp(T)−1))=(1−χ(a)a^(k+1)) q^k S_(χ,k)/(k+1)!.
+
+**Hypotheses:** p is any prime, n≥1 and q=p^n. K is a complete ultrametric normed field with its displayed Z_p-algebra and bounded scalar action. χ is a native primitive DirichletCharacter K q. Choose a primitive q-th root ε in K, put e=AddChar.zmodChar(q,ε), and retain explicitly G=gaussSum(χ⁻¹,e)≠0. Let a∈N with p∤a, and hD:IsUnit(q:K). τ=twistedSmoothedMeasure(p,n,χ,a) is the actual preceding arithmetic measure. F=tameSeries(χ,hD) is only the existing formal finite kernel. Its definition needs q invertible in K and does not need p∤q. The actual tameMeasure, whose construction requires p-coprime modulus, is not instantiated at q=p^n. All inverses of series mean the native field-coefficient inverse. For exponential coefficients and ordinary moments additionally assume CharZero K and the displayed rational algebra. Put S_(χ,k)=Σ_(b∈ZMod q)χ(b)·algebraMap_(Q→K)(B_(k+1)(b.val/q)), with the existing rational Polynomial.bernoulli convention. The monomial test is x_K^k, where x_K(t) is the displayed Z_p-algebra image of t. No Q→Z_p→K compatibility tower or complex-to-p-adic cast is imposed.
+
+**Proof:**
+
+1. The native conductor_one identity and primitivity at q>1 imply χ≠1, so the existing tame-exponential-coefficients theorem applies to F and hD.
+2. Both exp(T)−1 and Y^a−1 have zero constant coefficient. Native substitution composition, exp_pow_eq_rescale_exp and rescale_eq_subst identify subst(exp−1)(subst(Y^a−1)F) with rescale(a)(subst(exp−1)F). This identity is also checked by a complete native proof.
+3. Apply coeff_k to the preceding actual Amice comparison. Native coeff_rescale contributes a^k in addition to the outer scalar aχ(a), giving (−1+χ(a)a^(k+1)) times the exponential coefficient of F.
+4. Insert the existing coefficient −q^k S_(χ,k)/(k+1)!. Its minus sign changes the prefactor to1−χ(a)a^(k+1). Complete native algebra checks this coefficient scaling without any analytic convergence argument.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/prime-power-amice-formal-kernel`, `DirichletPadicLFunctions:L2/tame-exponential-coefficients`, `mathlib:DirichletCharacter.conductor_one`, `mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'`, `mathlib:PowerSeries.subst_comp_subst_apply`, `mathlib:PowerSeries.exp_pow_eq_rescale_exp`, `mathlib:PowerSeries.rescale_eq_subst`, `mathlib:PowerSeries.coeff_rescale`, `mathlib:PowerSeries.substAlgHom`.
+
+**Tests:**
+
+- `SuggestedPrimePowerMomentTests.exponential_one_smoothing` (degenerate): At a=1 all exponential coefficients vanish.
+- `SuggestedPrimePowerMomentTests.exponential_three_second` (computation): For quadratic χ modulo3 with χ(2)=−1 and a=4, the degree-two exponential coefficient is−7, under the displayed field, root and Gauss assumptions.
+- `SuggestedPrimePowerMomentTests.exponential_four_second` (computation): For quadratic χ modulo4 with χ(3)=−1 and a=3, the degree-two exponential coefficient is7 under the same applicable assumptions.
+
+**Acceptance:** The factorial denominator is(k+1)!, not k+1. The character factor is χ(a), and the power of a is k+1.
+
+**Source:** §5.1, displayed Fχ,a and fχ,a after Lemma5.4, published141/PDF42; Lemma5.5 and equation(5-2), published141–142/PDF42–43. Complete published140–142 freshly read on29September2026. Worker formal-algebra decomposition of the source pure prime-power smoothing and ordinary-moment formula. The character reindexing retains χ(a), the change of variable supplies a^k in addition to the outer a, and the existing finite Bernoulli kernel fixes the sign. The source complex Mellin and L-value comparisons are not asserted here. Existing source findings remain whole.
+
+### Ordinary moments of the prime-power smoothed measure
+
+`DirichletPadicLFunctions:L2/prime-power-ordinary-moments` — `DirichletPadic.twistedSmoothedMeasure_ordinary_moment`
+
+For every k≥0, τ(x_K^k)=(1−χ(a)a^(k+1)) q^k S_(χ,k)/(k+1).
+
+**Hypotheses:** p is any prime, n≥1 and q=p^n. K is a complete ultrametric normed field with its displayed Z_p-algebra and bounded scalar action. χ is a native primitive DirichletCharacter K q. Choose a primitive q-th root ε in K, put e=AddChar.zmodChar(q,ε), and retain explicitly G=gaussSum(χ⁻¹,e)≠0. Let a∈N with p∤a, and hD:IsUnit(q:K). τ=twistedSmoothedMeasure(p,n,χ,a) is the actual preceding arithmetic measure. F=tameSeries(χ,hD) is only the existing formal finite kernel. Its definition needs q invertible in K and does not need p∤q. The actual tameMeasure, whose construction requires p-coprime modulus, is not instantiated at q=p^n. All inverses of series mean the native field-coefficient inverse. For exponential coefficients and ordinary moments additionally assume CharZero K and the displayed rational algebra. Put S_(χ,k)=Σ_(b∈ZMod q)χ(b)·algebraMap_(Q→K)(B_(k+1)(b.val/q)), with the existing rational Polynomial.bernoulli convention. The monomial test is x_K^k, where x_K(t) is the displayed Z_p-algebra image of t. No Q→Z_p→K compatibility tower or complex-to-p-adic cast is imposed.
+
+**Proof:**
+
+1. Apply the exact PMIA algebra-ordinary-moment-exp comparison to the actual K-valued arithmetic measure τ: its ordinary k-th moment is k! times the k-th coefficient of A_τ(exp−1). The bounded scalar action supplies the required continuous scalar action.
+2. Insert prime-power-exponential-coefficients. Native factorial_succ gives(k+1)!=(k+1)k!, and characteristic zero permits cancellation of k! and k+1. A complete native field proof checks the cancellation, including k=0.
+3. The result is an equality in K involving finite rational Bernoulli polynomial evaluations and the given character values. The moment uses the actual coefficient-algebra monomial, not an unequipped function x↦x with the wrong codomain.
+4. Exact cyclotomic controls independently compute the Mahler coefficients from the earlier actual finite-polynomial Gauss formula, convert them to ordinary moments by Stirling numbers, and compare with the displayed Bernoulli expression through degree8. These finite controls supplement the general proof outline; they do not replace the measure moment theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/prime-power-exponential-coefficients`, `PadicMeasuresIwasawaAlgebras:L2/algebra-ordinary-moment-exp`, `mathlib:Nat.factorial_succ`.
+
+**Tests:**
+
+- `SuggestedPrimePowerMomentTests.ordinary_one_smoothing` (degenerate): At a=1 every actual ordinary moment vanishes.
+- `SuggestedPrimePowerMomentTests.ordinary_three_mass` (computation): For quadratic χ modulo3, χ(2)=−1 and a=4, the total mass is1.
+- `SuggestedPrimePowerMomentTests.ordinary_three_second` (computation): For the same character and smoothing parameter, the ordinary second moment is−14.
+- `SuggestedPrimePowerMomentTests.ordinary_four_mass` (computation): For quadratic χ modulo4, χ(3)=−1 and a=3, the total mass is−2.
+- `SuggestedPrimePowerMomentTests.ordinary_four_second` (computation): For the same modulus4 character and smoothing parameter, the ordinary second moment is14.
+
+**Acceptance:** The four numeric values retain the displayed coefficient-field, primitive-root and nonzero-Gauss assumptions. No unproved embedding or descent to a field lacking those roots is used. The source L-value expression still requires a common-field comparison.
+
+**Source:** §5.1, displayed Fχ,a and fχ,a after Lemma5.4, published141/PDF42; Lemma5.5 and equation(5-2), published141–142/PDF42–43. Complete published140–142 freshly read on29September2026. Worker formal-algebra decomposition of the source pure prime-power smoothing and ordinary-moment formula. The character reindexing retains χ(a), the change of variable supplies a^k in addition to the outer a, and the existing finite Bernoulli kernel fixes the sign. The source complex Mellin and L-value comparisons are not asserted here. Existing source findings remain whole.
+
+**Remaining:** The actual pure prime-power smoothed twist now has an explicit finite Bernoulli formula for every nonnegative ordinary moment, under the displayed primitive-character, primitive-root and nonzero-Gauss conditions. Next compare the complex smoothed Gauss kernel with −tameComplexKernel(t)+aχ(a)tameComplexKernel(a t), instantiate its normalized Mellin transform and express the pure prime-power special values through an explicit common coefficient field. Generic primitive Gauss nonvanishing, analytic p-adic branches, p-adic logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open.
+
+### Pure prime-power smoothed moments validation
+
+All 329 predecessor nodes, 390 baseline records, 16 findings and sourceVersions remain whole. This checkpoint adds 5 nodes, 5 named suggested declarations and 14 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 509 reachable nodes, 2412 edges and 514 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 937 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Five complete native lemmas verify finite inverse-character reindexing, transport of a unit-series inverse through zero-constant substitution, exponential substitution composition, the smoothing coefficient factor and factorial cancellation. The probe elaborates against 1726 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact cyclotomic controls check87 character reindexing terms,135 reindexed resolvent coefficients,648 inverse-substitution coefficients,135 actual-Gauss/formal-kernel coefficients,135 Bernoulli exponential coefficients,135 ordinary moments,45 a=1 zeros and four quadratic numeric values. Exact rational cyclotomic quotient arithmetic at conductors 3, 4, 5, 8 and 9, including the order-three character modulo 9. Expand the actual additive finite-polynomial Gauss formula independently of the formal tame kernel and compare coefficients through degree 8. Reindex every character weight; check unit inverse substitution coefficientwise; compute ordinary moments by Stirling conversion from Mahler coefficients and independently from rational Bernoulli polynomial evaluations. No finite sampling grid is used as a substitute for an actual moment, and no complex-to-p-adic cast is used. The largest observed discrepancy is 0 (exact arithmetic).
+
+Eight captured inputs changed since PR3309. The updated WORKERS memory, timeout and disk rules were read and applied. PMIA grows from332 to369 nodes and LAD from186 to199, preserving all old nodes whole; every consumed supplier node is unchanged. The PMIA suggested file preserves all old lines in order, adding imports and independent residue-restriction/L4 declarations. The compiled332-node artifact is reused; no new supplier declaration is called and compilation against the369-node source is not claimed. The changed multiquadratic and elliptic-curve link files contain no Dirichlet link in either revision. Global errata register changes do not alter this packet’s16 findings or sourceVersions.
