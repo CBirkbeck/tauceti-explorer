@@ -135296,6 +135296,27 @@
    "reviewReason": null
   },
   {
+   "id": "EulerSystemsCyclotomicMainConjecture/E17",
+   "kind": "misprint",
+   "locator": "§3, proof of Theorem 3.1, the module N, p. 480 (Numdam scan of the published article)",
+   "printed": "The source concludes that N = (γ − 1)^{2^t}(𝒥_{ℓ_{i−1}}/(M, (κ_{r_{i−1}})_{[ℓ_{i−1}]})) is a cyclic Λ_{nχ}-module killed by dH_χ.",
+   "correction": "N = (γ − 1)^{2^{i−1}}(𝒥_{ℓ_{i−1}}/(M, (κ_{r_{i−1}})_{[ℓ_{i−1}]}))",
+   "reason": "No t is defined in §3; §2's t ∈ {1, 2} does not fit. N is the module in hypothesis (iii) of Lemma 3.12, applied on p. 481 with η = (γ − 1)^{2^{i−1}}. The preceding line shows that v_{λ_{i−1}}(κ_{r_{i−1}}) divides (γ − 1)^{2^{i−1}}·d·H_χ with d free of γ − 1, which is why N is killed by dH_χ. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ExponentialSumsAndCircleMethod/E1",
    "kind": "error",
    "locator": "Published §8.1 p.378 and its reuse on p.379; known source issue E2.",
