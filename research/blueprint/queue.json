@@ -22831,7 +22831,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-NoncommutativeAndEquivariantIwasawa.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-FoundationsAndLibraryIntegration",
@@ -22841,7 +22841,7 @@
     "BP-IntegralIwasawaTheory--I.8",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #1015"
+   "note": "released on GitHub issue #1015"
   },
   {
    "id": "REV-NoncommutativeAndEquivariantIwasawa",
