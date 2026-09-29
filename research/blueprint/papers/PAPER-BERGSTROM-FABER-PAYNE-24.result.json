@@ -1002,7 +1002,12 @@
    "searched": [
     "2026-09-29: arXiv:2206.07759 v2 (17 Oct 2023, 'minor revisions, to appear in Ann. Math.') is the latest arXiv version; the Annals article (199 (2024) 1323–1365, doi:10.4007/annals.2024.199.3.7) has no free PDF (the Annals page links none) and was not collated.",
     "2026-09-29: Crossref records no update or erratum relation, and the Annals page lists none. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 6: the hypothesis concerns one M̄_{4,n}, and Proposition 3.1 with s = 9 + 2n and Poincaré duality (2d − s = 9) gives odd vanishing up to degree 9 for M̄_{4,n} only; the statement for all M̄_{g,n} is Theorem 1.1 via §2's induction.",
+    "by": "REV-PAPER-BERGSTROM-FABER-PAYNE-24"
+   }
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/E2",
@@ -1016,7 +1021,12 @@
    "searched": [
     "2026-09-29: arXiv:2206.07759 v2 (17 Oct 2023, 'minor revisions, to appear in Ann. Math.') is the latest arXiv version; the Annals article (199 (2024) 1323–1365, doi:10.4007/annals.2024.199.3.7) has no free PDF (the Annals page links none) and was not collated.",
     "2026-09-29: Crossref records no update or erratum relation, and the Annals page lists none. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 6: the display has o(p^{md/2}), which the hypothesis o(p^{ms/2}) with s ≥ d does not give; the next sentence applies [vdBE05, Lemma 4.1] with s, so o(p^{ms/2}) is meant.",
+    "by": "REV-PAPER-BERGSTROM-FABER-PAYNE-24"
+   }
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/E3",
@@ -1030,7 +1040,12 @@
    "searched": [
     "2026-09-29: arXiv:2206.07759 v2 (17 Oct 2023, 'minor revisions, to appear in Ann. Math.') is the latest arXiv version; the Annals article (199 (2024) 1323–1365, doi:10.4007/annals.2024.199.3.7) has no free PDF (the Annals page links none) and was not collated.",
     "2026-09-29: Crossref records no update or erratum relation, and the Annals page lists none. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 24 and recomputed by this review: palindromic #M̄_{4,3} minus Proposition 9.6's #∂M̄_{4,3} is q¹² + 4q¹¹ + 7q¹⁰ − 4q⁹ − 13q⁸ + 4q⁷ + (B − 10606)q⁶ − 11q³ + 2q² + 2q − 1, with zero q⁵ and q⁴ coefficients (both 8296 − 8296 and 3977 − 3977). With B = 10605 this is Theorem 1.5 and its value at q = 1 is −10 = χ(M_{4,3}).",
+    "by": "REV-PAPER-BERGSTROM-FABER-PAYNE-24"
+   }
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/E4",
@@ -1044,7 +1059,12 @@
    "searched": [
     "2026-09-29: arXiv:2206.07759 v2 (17 Oct 2023, 'minor revisions, to appear in Ann. Math.') is the latest arXiv version; the Annals article (199 (2024) 1323–1365, doi:10.4007/annals.2024.199.3.7) has no free PDF (the Annals page links none) and was not collated.",
     "2026-09-29: Crossref records no update or erratum relation, and the Annals page lists none. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 5: the vanishing range (2) is Proposition 2.1, and the paper has no Proposition 2.",
+    "by": "REV-PAPER-BERGSTROM-FABER-PAYNE-24"
+   }
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/E5",
@@ -1058,7 +1078,12 @@
    "searched": [
     "2026-09-29: arXiv:2206.07759 v2 (17 Oct 2023, 'minor revisions, to appear in Ann. Math.') is the latest arXiv version; the Annals article (199 (2024) 1323–1365, doi:10.4007/annals.2024.199.3.7) has no free PDF (the Annals page links none) and was not collated.",
     "2026-09-29: Crossref records no update or erratum relation, and the Annals page lists none. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 21 and in Getzler–Kapranov, arXiv:dg-ga/9408003v2, read by this review: Theorem 8.13 is Ch(MV) = Log(exp(Δ) Exp(Ch V)), and §8 of that paper has no Theorem 8.3; the paper itself cites 8.13 on pp. 23 and 25.",
+    "by": "REV-PAPER-BERGSTROM-FABER-PAYNE-24"
+   }
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/E6",
@@ -1072,7 +1097,12 @@
    "searched": [
     "2026-09-29: arXiv:2206.07759 v2 (17 Oct 2023, 'minor revisions, to appear in Ann. Math.') is the latest arXiv version; the Annals article (199 (2024) 1323–1365, doi:10.4007/annals.2024.199.3.7) has no free PDF (the Annals page links none) and was not collated.",
     "2026-09-29: Crossref records no update or erratum relation, and the Annals page lists none. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 31; the arXiv API returns Wong's 'An algorithm to compute fundamental classes of spin components of strata of differentials' as 2211.16061v1.",
+    "by": "REV-PAPER-BERGSTROM-FABER-PAYNE-24"
+   }
   }
  ],
  "sourceVersions": [
