@@ -11971,6 +11971,321 @@
    "reviewReason": "I checked this on the p. 44 image and in main.tex l. 2777: '$Z^0_\\der\\coloneqq Z^0\\cap G_\\der=K^0_Z\\cap K^0_\\der$'. Here G_der := G_der(R), the full real points, which can be disconnected. I checked the first reading's example: G = (SO(2) × SO(3,1))/μ_2 with μ_2 = ⟨(−1,−1)⟩, a connected reductive group over R. The centre is (SO(2) × μ_2)/μ_2 ≅ SO(2), so Z = Z^0 ≅ S¹. The derived group SO(3,1) maps isomorphically into G, since (1 × SO(3,1)) ∩ μ_2 = 1, so G_der = SO(3,1) and G^0_der = SO^+(3,1). The class [(−1,1)] = [(1,−1)] lies in Z^0 ∩ G_der. As an element of SO(3,1) it is −1, which reverses time orientation and so is not in SO^+(3,1). Hence Z^0 ∩ G_der has order 2, while K^0_Z ∩ K^0_der ⊆ Z^0 ∩ G^0_der = {1}, so the printed equality fails. With Z^0 ∩ G^0_der, which is contained in K^0 because it is a finite central subgroup of G^0, the equality holds, and (A.4) holds: S¹ × SO^+(3,1) → G^0 is bijective. The printed group does not even embed in Z^0 × G^0_der. The printed '= K^0_Z ∩ K^0_der' and the use in (A.4)–(A.5) make the intended group clear, so this is a misprint."
   },
   {
+   "id": "PAPER-BHARGAVA-25/E1",
+   "kind": "misprint",
+   "locator": "§1, Methods and sketch of proof, p. 7 (arXiv v3)",
+   "printed": "may be proven using the work of Liebeck and Saxl [29] and Guralnick and Magaard [26]",
+   "correction": "Guralnick and Magaard [21]",
+   "reason": "[21] is Guralnick–Magaard, On the minimal degree of a primitive permutation group, as cited on pp. 3 and 9; [26] is Lazard–McCallum, Iterated discriminants.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E2",
+   "kind": "misprint",
+   "locator": "After Corollary 6, p. 5 (arXiv v3)",
+   "printed": "This improves upon the bound N_n(G, H) = O_ε(n^{3n/4+1/4+ε}) as obtained in [27, Theorem 1.2].",
+   "correction": "N_n(G, H) = O_ε(H^{3n/4+1/4+ε})",
+   "reason": "A count of polynomials of height ≤ H is bounded by a power of H; n^{…} does not depend on H.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E3",
+   "kind": "misprint",
+   "locator": "After Corollary 5, p. 4 (arXiv v3)",
+   "printed": "This improves upon the bound N_p(C_p, H) = O(H^{3−2/p} log^{p−1} B)",
+   "correction": "O(H^{3−2/p} log^{p−1} H)",
+   "reason": "B is not defined in the paper; the height parameter is H throughout.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E4",
+   "kind": "misprint",
+   "locator": "Theorem 7, p. 5 (arXiv v3)",
+   "printed": "Then N_n(G_1 × ··· × G_k, H) = O(H^{max{α_1,…,α_k}} log^{s−1} H)",
+   "correction": "Then N_n(G, H) = O(H^{max{α_1,…,α_k}} log^{s−1} H)",
+   "reason": "The hypothesis is about an intransitive G that is a subdirect product of G_1, …, G_k, and the proof (§8, p. 30) begins 'if f is a polynomial counted by N_n(G, H)'; the full product G_1 × ··· × G_k is only one such G.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E5",
+   "kind": "gap",
+   "locator": "Proof of Theorem 16, inequality (6), pp. 10–11 (arXiv v3)",
+   "printed": "If m and k are even and y = m/2, then f(m, k, y) = … Otherwise, σ has at least one fixed point on {1, …, m}, say m; … f(m, k, y) = f(m − 1, k − 1, y) + f(m − 1, k, y) and thus by the induction hypothesis …",
+   "correction": "Treat the fixed-point-free case with k odd separately (then no k-subset is σ-invariant, so f = C(m, k) ≥ (4/5)C(m, k)), and run the induction over 1 ≤ k ≤ m/2 with (m, k) = (4, 2) excluded: at m = 2k, f(2k, k, y) = 2f(2k − 1, k − 1, y) by complementation when σ has a fixed point, and C(2k, k) − C(k, k/2) ≥ (4/5)C(2k, k) for even k ≥ 4 when it has none.",
+   "reason": "'Otherwise' also covers m even, y = m/2, k odd, where σ has no fixed point. And for m = 2k + 1 the step invokes (6) at (m − 1, k) = (2k, k), outside the stated range 1 ≤ k < m/2; (6) fails at (4, 2, 2) (f = 4 < 4.8), though the step only reaches (2k, k) for k ≥ 3, where the complementation argument proves it. (6) itself was checked by enumeration for all m ≤ 14, and Theorem 16 is unaffected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E6",
+   "kind": "error",
+   "locator": "§5, choice of δ, p. 23, and Case II, p. 24 (arXiv v3)",
+   "printed": "Let δ > 0 be a small constant, say 1/(2n). … = O(H^{n−1}) for n ≥ 6. … = O(H^{n−1}) for n = 4, 5.",
+   "correction": "Take δ = min{1/(2n), 1/60}: Case II needs δ < 1/11 for n = 4 and δ < 0.0169 for n = 6, and Case I needs δ < 1/(2n − 1) for Corollary 33; Case III works for every small δ > 0. n = 3 is not covered by §5's Case II and follows from Theorem 2 with a(A_3) = 1/2.",
+   "reason": "Case II needs (1 + δ)(n + 2)/2 + 1 − (2 + 2δ)/(n(n − 1)) < n − 1 (there is a factor log^{n−1} H). With δ = 1/(2n) the left side is 5.2611 for n = 6, and the quartic–quintic version 3 + 2δ − (2 + 2δ)/12 is 3.0625 for n = 4, both above n − 1. For n = 3 the Schmidt version gives 3.53 > 2 and the quartic/quintic count does not apply.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E7",
+   "kind": "misprint",
+   "locator": "§5 Case II, p. 24 (arXiv v3)",
+   "printed": "can be used to handle the case n = 5 as well: the estimate O((H^{(2+2δ)(n+2)/4}) for the number of possible K",
+   "correction": "to handle the cases n = 4, 5 as well: the estimate O(H^{(2+2δ)(n+2)/4})",
+   "reason": "The parenthesis is unbalanced, and the display it introduces is concluded 'for n = 4, 5', using both [4] and [5].",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E8",
+   "kind": "misprint",
+   "locator": "§5 Case III, p. 25 (arXiv v3)",
+   "printed": "f(x) = x^n + a_{n−1}x + a_n, which has discriminant n^n a_n^{n−1} − (n − 1)^{n−1}(−a_{n−1})^n",
+   "correction": "discriminant (−1)^{n(n−1)/2}[n^n a_n^{n−1} − (n − 1)^{n−1}(−a_{n−1})^n]",
+   "reason": "For n = 2, x² + ax + b has discriminant a² − 4b, the negative of the printed 4b − a²; symbolic computation for n = 2, …, 7 gives the printed value exactly when n ≡ 0, 1 (mod 4). Only the non-vanishing of DD is used, so nothing depends on the sign.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E9",
+   "kind": "error",
+   "locator": "§6, choice of δ and Case I, p. 26 (arXiv v3)",
+   "printed": "Let 0 < δ < 1/(n − 1) be any constant … By Proposition 26, we obtain the same estimate O(c^{ω(D)}H^n/D) for the number of monic integer polynomials",
+   "correction": "Let 0 < δ < 1/(2n − 1); by Corollary 33 (Proposition 30 for monic polynomials) we obtain …",
+   "reason": "Proposition 26 concerns binary forms; the monic count is Corollary 33, which needs δ < 1/(2n − 1): its error term C^{n−1/2+ε}/D is below H^n/D only when C < H^{n/(n−1/2)} = H^{1+1/(2n−1)}. For 1/(2n − 1) ≤ δ < 1/(n − 1) the step fails; nothing else requires δ that large, so taking δ smaller repairs it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E10",
+   "kind": "gap",
+   "locator": "§6 Case III, subcase (ii), pp. 27–28 (arXiv v3)",
+   "printed": "Vk is contained in the zero set of k polynomials g1, g2, …, gk on A^n … we may take these k polynomials to be Disc(f) and its first k − 1 derivatives with respect to a_n. By elimination theory / taking successive resultants, we may assume that g_i only involves the variables a_1, …, a_{n−k+i}. … The number of values of a_1, …, a_{n−k+i} such that g_1 = ··· = g_i = 0 is O(H^{n−k})",
+   "correction": "Let Z_i ⊂ A^{n−k+i} be the Zariski closure of the projection of V_k to the first n − k + i coordinates (dimension ≤ n − k), define W_i through membership in Z_i, and choose g_{i+1} vanishing on Z_{i+1} but on no component of Z_i × A^1; integral points of Z_i in the box are O(H^{n−k}).",
+   "reason": "Successive resultants can vanish identically, and the count O(H^{n−k}) needs dim{g_1 = ··· = g_i = 0} ≤ n − k in A^{n−k+i}, which the stated choice does not give; Disc(f) and its a_n-derivatives also involve a_n, not only a_1, …, a_{n−k+i}. The estimate (24) holds with the choice above.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E11",
+   "kind": "error",
+   "locator": "§6 Conclusion, p. 28, and Theorem 2, p. 3 (arXiv v3)",
+   "printed": "where b = (c − 1) − (c − n)(1 − 1/k)/(a(G) + 1 − 1/k − u) < c. … N_n(G, H) = O(min{H^{n+1−k} + H^{n−(n−1)(1−1/k)/(a(G)+1−1/k−u)} log^b H, …})",
+   "correction": "b = (c − 1)(1 − θ) + (n − 1)θ with θ = (1 − 1/k)/(a(G) + 1 − 1/k − u), which lies between c − 1 and n − 1 but can exceed c; Theorem 2 holds with log^{max(b, c)} H (or log^{max(c, n−1)} H) in place of log^c H.",
+   "reason": "b < c iff (n − c)θ < 1. For AGL(2, 3) on n = 9 letters, ind = 3, c = q(3, 6) = 3 and a(G) = 11/4 − 1 + 1/3 + ε from Theorem 20, so θ ≈ 0.2437 and b ≈ 3.46 > 3, while the middle exponent 7.05 exceeds n + 1 − k = 7. Only the power of log H changes; every corollary has room in the exponent of H.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E12",
+   "kind": "error",
+   "locator": "§7, proof of Corollary 3(a), third display, p. 29 (arXiv v3)",
+   "printed": "N_n(G, H) ≪ H^{n+1−5} + H^{n−(n−1)(1−1/5)/((n+2)/4−u+ε)} log^c H ≪ H^{n−3} if n ≥ 28.",
+   "correction": "With ind(G) ≥ 5 and a(G) from Theorem 20 the bound H^{n−3} holds only for n ≥ 46; for 28 ≤ n ≤ 45 use the elemental/non-elemental split as for n ≥ 53: elemental G have ind(G) ≥ ⌈3n/14⌉ ≥ 6 (Theorem 13) and non-elemental G have a(G) = 4 by (8).",
+   "reason": "(n − 1)(4/5)/((n + 2)/4 − u) is 2.8805 at n = 28 and first exceeds 3 at n = 46. With the split, every 28 ≤ n ≤ 59 was checked exactly (at n = 28 the elemental exponent is n − 3.0005), so the statement of Corollary 3(a) at 28 stands.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E13",
+   "kind": "error",
+   "locator": "Corollary 3(a), p. 4; §1, p. 4; §7, proof, p. 29 (arXiv v3)",
+   "printed": "N_n(G, H) = O(H^{n−3.5}) for all n ≥ 53 … Hence, if G is a primitive permutation group on n ≥ 53 letters, then N_n(G, H) ≪ H^{n+1−13} + H^{n−(n−1)(1−1/13)/((n+2)/4−u+ε)} log^c H ≪ H^{n−3.5} when G is elemental",
+   "correction": "The argument gives O(H^{n−3.5}) for n ≥ 56; for n = 53, 54, 55 it needs ind(G) ≥ 14 for elemental G, which Remark 14 does not provide.",
+   "reason": "With k = 13 the saving (n − 1)(12/13)/((n + 2)/4 − u) is 3.4910, 3.4946 and 3.4981 at n = 53, 54, 55, below 3.5, and first exceeds 3.5 at n = 56. Remark 14 gives only ind(G) ≥ ⌈7n/30⌉ = 13 there. The non-elemental case is fine. The CFSG-free threshold 1090 is unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E14",
+   "kind": "misprint",
+   "locator": "§7, (28), p. 29 (arXiv v3)",
+   "printed": "N_n(G, H) ≪ H^{n+1−7} + H^{n−(n−1)(1−1/7)/(4−u)} log^c H ≪ H^{n−6}",
+   "correction": "denominator a(G) + 1 − 1/7 − u = 34/7 − u with a(G) = 4",
+   "reason": "Theorem 2's denominator is a(G) + 1 − 1/ind(G) − u; the first term H^{n−6} dominates with either denominator, so the bound stands.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E15",
+   "kind": "error",
+   "locator": "Corollary 6, p. 4, and its justification, p. 5 (arXiv v3)",
+   "printed": "Corollary 6 Let G be a regular permutation group with |G| = n. Then N_n(G, H) = O(H^{3n/11 + 1.164}). … Corollary 6 follows from Theorem 2 by setting a(G) = 3/8 + ε … and setting ind(G) = (p−1)n/p where p is the smallest prime dividing n.",
+   "correction": "True as derived for regular G with n > 4 and every prime factor of n at least 5; for n = 2 it is false, and for n ≥ 3 divisible by 2 or 3 Theorem 2 gives only O(H^{n/p+1}) from its first term.",
+   "reason": "The derivation drops Theorem 2's term H^{n+1−ind(G)} = H^{n/p+1}, which exceeds H^{3n/11+1.164} whenever p ≤ 3 (e.g. H^4 against H^{2.8} for n = 6, H^4 against H^{3.62} for n = 9); the constant 1.164 is the largest excess of the middle term over 3n/11 for n ≥ 5, attained at n = 6. Ellenberg–Venkatesh's 3/8 needs |G| > 4 ([18, Prop. 2.8]; Prop. 1.3 of the published version says n > 4). For n = 2, G = C_2 is regular and every irreducible monic quadratic has it, so N_2(C_2, H) ≍ H², above H^{1.709}.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
+    "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
+   ],
+   "owner": "PAPER-BHARGAVA-25",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+   "citation": "Manjul Bhargava, \"Galois groups of random integer polynomials and van der Waerden's Conjecture\", Annals of Mathematics 201 (2025), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-BHARGAVA-GROSS-WANG-17/E1",
    "kind": "error",
    "locator": "Proof of Theorem 28, p.19 (arXiv v2)",
@@ -115366,6 +115681,306 @@
    "owner": "PAPER-WOOD-19",
    "file": "research/blueprint/papers/PAPER-WOOD-19.result.json",
    "citation": "Melanie Matchett Wood, \"Nonabelian Cohen–Lenstra moments\", Duke Mathematical Journal (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E1",
+   "kind": "error",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), proof of Proposition 3.6, first case, p. 16; page image checked",
+   "printed": "We first assume that tr(A^{K/k})_K ≠ A. By Corollary 3.5(i), there is k_{A,X} := k_A ∈ I(K/k) such that for any k′ ∈ I(K/k), tr(A^{K/k′})_K = A if and only if k_{A,X} ⊆ k′. Since Stab⁰(X) = 0 and T_A(X) = A, X is special for A/K/k′ if and only if k_{A,X} ⊆ k′.",
+   "correction": "Only 'X special for k′ ⇒ k_A ⊆ k′' holds: X ⊆ tr(A^{K/k′})_K + a + C with C ⊆ Stab⁰(X) = 0 and T_X = A forces tr(A^{K/k′})_K = A. For k′ ⊇ k_A, choose an isogeny Φ : A → A₀ ⊗_{k_A} K with A₀ over k_A and run the second case over the base k_A: Φ(X) is special for k′ iff it is defined over k′, iff k′ contains the field k_{Φ(X)⊆(A₀)_K} ∈ I(K/k_A) of Corollary 3.5(ii) for K/k_A. Take k_{A,X} to be that field, which contains k_A.",
+   "reason": "The converse fails. Take char k ≠ 2, K an algebraic closure of k(s, t), k′ the algebraic closure of k(s) in K, and A = E ⊗_{k′} K with E : y² = x(x−1)(x−s). A has trivial K/k-trace (j(E) ∉ k), so this is the first case, and k_A = k′. Let P ∈ A(K) have x(P) = t and X = {P}. Then Stab⁰(X) = 0, and T_X = A because P is not torsion (torsion points lie in E(k′)). The printed claim makes X special for A/K/k′, but specialness would give P ∈ E(k′) + A_tor = E(k′), whereas x(P) = t ∉ k′. The proposition itself holds by the corrected argument, and Proposition 3.1 uses only its statement.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E2",
+   "kind": "gap",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), Proposition 5.4 and its proof, pp. 25–26; page image checked",
+   "printed": "Proposition 5.4. For any t ∈ A′(K̄)_tor ∖ A′_{e+1}(K̄), every irreducible component of the fiber f⁻¹(t) ⊂ (X_{r−1} × X)_{K̄} has canonical height 0 in (A × A)_{K̄}. … Let 𝒯 be a torsion multi-section of 𝒜′ → S of order non-divisible by char K. Then 𝒯 → S is finite and étale, and 𝒯 is a smooth projective curve over k.",
+   "correction": "State Proposition 5.4 for t of order prime to char k. §5.3 needs only these: prime-to-p torsion points are Zariski dense in A′, and so are those off the proper closed subset A′_{e+1}.",
+   "reason": "The proof applies Proposition 2.1 with V = 𝒯, whose hypothesis V ∩ Y_{e+1} ⊆ V^sm is met by smoothness of 𝒯. That is available only when the order is prime to the characteristic (𝒜′[m] étale), and the proof says nothing about other t. The statement for all t is true a posteriori from Theorem 1.1, but it is not proved where it is stated.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E3",
+   "kind": "gap",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), §5.3, induction step, pp. 26–27; page image checked",
+   "printed": "By Proposition 5.4, for any t ∈ A′(K̄)_tor ∖ A′_{e+1}(K̄), every irreducible component of the fiber f⁻¹(t) ⊂ (X_{r−1} × X)_{K̄} has canonical height 0 in A × A. Note that every irreducible component of f⁻¹(t) has dimension e < dim X. By induction, it is torsion in A × A.",
+   "correction": "Add the converse of Lemma 5.2: a closed subvariety Z with ĥ(Z) = 0 contains a dense set of small points (Gubler, Invent. Math. 169 (2007), Cor. 4.4: ĥ_L(X) = 0 iff e₁(X, L) = 0). Then the induction hypothesis, Theorem 1.1 for A × A (which again satisfies (a)–(d)) in dimension e < dim X, applies to each component.",
+   "reason": "The induction hypothesis is Theorem 1.1, whose hypothesis is a dense set of small points. Proposition 5.4 gives only canonical height 0, and Lemma 5.2 is the opposite implication. The paper cites only the fundamental inequality (Gub07, Lemma 4.1), not the corollary that supplies this step.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E4",
+   "kind": "error",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), Lemma 5.3, p. 23; page image checked",
+   "printed": "Lemma 5.3. There is a unique integer r ≥ 1 such that dim X_{r−1} < dim X_r and X_r is a torsion subvariety of A.",
+   "correction": "Assume dim X ≥ 1. (For X a torsion point x, X_m = {mx} has dimension 0 for every m, so no such r exists.)",
+   "reason": "With X₀ = {0}, the proof's r is the first index at which X′_m = X_m − m x₀ stabilizes; when dim X = 0 that index is 0. A torsion point does contain a dense set of small points, so it satisfies the lemma's standing hypotheses. §5.3 applies the lemma only when dim X > 0 and treats dim X = 0 by Northcott, so Theorem 1.1 is unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E5",
+   "kind": "gap",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), Lemma 3.7 and its proof, pp. 16–18; with the proof of Proposition 3.1, p. 18",
+   "printed": "Then there are infinitely many intermediate fields k′ of K/k, algebraically closed in K and of transcendence degree 1 over k, together with a geometrically integral subvariety H in S_{k′} … Choose (H₁, k₁), (H₂, k₂) as in Lemma 3.7 such that k₁ ≠ k₂.",
+   "correction": "Fix s₀ with div(s₀) geometrically integral. Since dim S ≥ 2 and M is very ample, a general linear projection of S to P² is dominant, so there are s₁, s₂ ∈ Γ(S, M) with s₁/s₀ and s₂/s₀ algebraically independent over k. The pencils ⟨s₀, s₁⟩ and ⟨s₀, s₂⟩ give k₁ = k(s₁/s₀) ≠ k₂ = k(s₂/s₀), and varying s₂ gives infinitely many.",
+   "reason": "The proof constructs k′ = k(P¹) from a single pencil and never explains why the fields are infinitely many or why two distinct ones exist. Proposition 3.1 needs k₁ ≠ k₂ (then k₁ ∩ k₂ = k).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E6",
+   "kind": "misprint",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), proof of Proposition 2.4, p. 10; page image checked",
+   "printed": "Let V₁, …, V_m be the proper components of H₁ ∩ ⋯ ∩ H_r ∩ X with multiplicities m₁, …, m_r. … m_i is the multiplicity of V_i in (Σ_{i=1}^{l} n_j X_j) ∩ H_r. … (H₁ ⋯ H_r · X)^prop = Σ_{i=1}^{m} m_i V_i ≤ (Σ_{j=1}^{l} n_j X_j) ∩ H_r ≤ H₁ ⋯ H_{r−1} · V · H_r.",
+   "correction": "… with multiplicities m₁, …, m_m; … in (Σ_{j=1}^{l} n_j X_j) ∩ H_r; … ≤ H₁ ⋯ H_{r−1} · X · H_r.",
+   "reason": "The bound comes from Σ n_j X_j ≤ H₁ ⋯ H_{r−1} · X and Lemma 2.3 applied with H_r, so the right-hand side is H₁ ⋯ H_r · X, the statement's; V is undefined there. The other two slips are index misprints.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E7",
+   "kind": "misprint",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), proof of Proposition 2.1, p. 12; page image checked",
+   "printed": "Finally, by Proposition 2.4, since O_B(f*H_i) for i = 1, …, r are generated by global sections, we get",
+   "correction": "since O_B(g*H_i) for i = 1, …, r are generated by global sections",
+   "reason": "Proposition 2.4 is applied on B to the divisors g*H_i; f*H_i lives on X.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E8",
+   "kind": "misprint",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), proof of Corollary 3.5, p. 15; page image checked",
+   "printed": "By Proposition 3.2, k′ ∩ k_A ⊆ I.",
+   "correction": "By Proposition 3.2, k′ ∩ k_A ∈ I.",
+   "reason": "I is a set of fields and the conclusion is that the field k′ ∩ k_A belongs to it; minimality of trdeg(k_A/k) then gives k_A ⊆ k′.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E9",
+   "kind": "misprint",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), proof of Lemma 3.7, p. 17; page image checked",
+   "printed": "Let π₁ : S × P¹_k → P¹_k be the projection to the first factor and π₂ : S × P¹_k → P¹_k be the projection to the second factor.",
+   "correction": "π₁ : S × P¹_k → S.",
+   "reason": "The first factor is S.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E10",
+   "kind": "misprint",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), proof of Proposition 3.1, p. 19; page image checked",
+   "printed": "By trdeg(k_i/k) = 1, we have k_{A,X} ⊄ k_i for at least one i ∈ {1, 2}. Then X is special for A/K/k_i for that i. This is a contradiction.",
+   "correction": "Then X is not special for A/K/k_i for that i (Proposition 3.6), contradicting the previous paragraph.",
+   "reason": "By Proposition 3.6, k_{A,X} ⊄ k_i means X is not special over k_i, which contradicts the specialness established just before.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E11",
+   "kind": "misprint",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), proof of Proposition 4.2, p. 21; page image checked",
+   "printed": "For the left-hand side, by the decomposition 2ℒ = (ℒ + [−1]*ℒ) + (ℒ − [−1]*ℒ) again, we can assume that ℒ is either symmetric case or anti-symmetric. Then [m]*ℳ ≃ m^i ℳ for i = 1, 2.",
+   "correction": "… by the decomposition 2ℳ = (ℳ + [−1]*ℳ) + (ℳ − [−1]*ℳ), we can assume that ℳ is either symmetric or anti-symmetric. Then [m]*ℳ ≃ m^i ℳ with i = 2 or 1 (Lemma 4.1(1)).",
+   "reason": "ℒ is symmetric by hypothesis; the decomposition is needed for the rigidified ℳ, as the next sentence shows.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E12",
+   "kind": "misprint",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), proof of Lemma 5.3, p. 24; page image checked",
+   "printed": "where p₁ : B × C → B and p₂ : B × C → B are the projections.",
+   "correction": "p₂ : B × C → C.",
+   "reason": "L₂ lives on C.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E13",
+   "kind": "misprint",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), proof of Proposition 5.4, p. 26; page image checked",
+   "printed": "Σ_{i=1}^{n} m_i[𝒵_i] · [ℒ_ℬ]^{e+1} ≤ a h*[𝒯] · [𝒴] · [ℒ_ℬ]^{e+1} = a [h*ℒ_{𝒜′}]^{dim A′} · [ℒ_ℬ]^{e+1} · [𝒴].",
+   "correction": "Σ m_i[𝒵_i] · [ℒ_ℬ]^{e+1} ≤ h*[𝒯] · [𝒴] · [ℒ_ℬ]^{e+1} = a [h*ℒ_{𝒜′}]^{dim A′} · [ℒ_ℬ]^{e+1} · [𝒴].",
+   "reason": "The factor a enters once, through [𝒯] ≡ a[ℒ_{𝒜′}]^{dim A′}; the printed middle term has it twice. Harmless since a > 0 and the conclusion is vanishing.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E14",
+   "kind": "misprint",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), proof of Proposition 5.4, p. 26; page image checked",
+   "printed": "Then we have [𝒴] · [ℒ_ℬ]^{dim 𝒴} = 0. This forces [𝒵_i] · [ℒ_ℬ]^{e+1}, and thus h_{ℒ_ℬ}(Z_i) = 0.",
+   "correction": "This forces [𝒵_i] · [ℒ_ℬ]^{e+1} = 0, and thus h_{ℒ_ℬ}(Z_i) = 0.",
+   "reason": "The '= 0' is missing; each term is ≥ 0 by nefness and their weighted sum is ≤ 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E15",
+   "kind": "misprint",
+   "locator": "arXiv:2108.09722v1 (22 Aug 2021), §1.1, the paragraph after (1.2) and display (1.3), p. 2; page image checked",
+   "printed": "… but is independent of the integral model (𝒜, m, ℒ) … (1.3) h^M_{(𝒜,m,ℒ)}(X′) := h^M_{(𝒜,m,ℒ)}(X)",
+   "correction": "(𝒜, π, ℒ) in both places.",
+   "reason": "The integral model was defined as the triple (𝒜, π, ℒ) with π : 𝒜 → S.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
+    "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-XIE-YUAN-22",
+   "file": "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
