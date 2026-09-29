@@ -1286,6 +1286,12 @@
             "readSections": "PDF127 (Lemma 8.4.9 and its proof; the definition of S_{Λ,t}) and PDF130 (the proof of Corollary 8.5.2): the same text as the published version at the E117 and E118 locators."
           }
         ]
+      },
+      {
+        "agent": "Claude Code",
+        "session": "cc-58621d",
+        "date": "2026-09-29",
+        "main": "Published PDF (sha256 e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd) freshly read at PDF132–162 (§7 in full: §7.1 Theorem 7.1.1 to Proposition 7.1.10 with proofs; §7.2 Theorem 7.2.2, Proposition 7.2.3, Lemmas 7.2.5–7.2.6, Proposition 7.2.7; §7.3 Theorem 7.3.2 with its proof and Lemma 7.3.5; §7.4 Proposition 7.4.1 to Proposition 7.4.7 with proofs)."
       }
     ],
     "smoothLocusContinuation": {
@@ -1308,7 +1314,7 @@
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Partial extraction: 779 items (146 library, 48 planned, 585 missing), 26 routes and 118 unreviewed source findings. This continuation corrects the coefficient/prime hypotheses behind the Section5 Kisin uniqueness results, separates the unrestricted rank-one scalar contraction, supplies an acyclic semisimplicity repair using WE19, and propagates the bounds through Section7.2. The generic-adjoint argument is supplied in all ranks with its rank-one odd-prime exception E110; finite-length Hom comparison is decomposed through a simultaneous H0/H1 induction. Eight new items K55–K58, L143, Z142 and G67–G68 retain existing owners. All inherited IDs, statuses and source data are preserved. The internal graph has 1,226 edges and is acyclic; this is not recursive proof closure. Twelve recorded gaps remain, including later rank-one propagation, external suppliers, regularity and the U/G/B/Z/P outline queues. No formal implementation or independent review is asserted. A further checkpoint (cc-fb70e5) records E111: Proposition B.0.1(4) fails on the line a = 0 inside V. A later one (cc-39fac3) certifies Q06 (t^3 in the Jacobian ideal) over Z[a,b][1/(aP)] with multiplier 2a(a−2)^2(a−b)(b−1), and shows that the specializations used downstream all have a a unit, so Corollary B.0.5 keeps r = 3. A second cc-39fac3 checkpoint certifies the Q13 Gröbner basis uniformly over V, in the two cells (a−b)(a−1) ≠ 1 and = 1, with Cohen–Macaulay leading-term schemes in every characteristic. It records E112, the misprinted exceptional locus, and E113: Table 1 and the special-fibre component list fail on a = 0, a(b−1) = b and (a−b)(a−1) = 1, without affecting the downstream uses. A third cc-39fac3 checkpoint certifies, uniformly over V, Proposition B.0.1(2)'s minimal primes (the special fibre is doubled along (c22, c13, c12)) and B.0.1(3)'s flatness (the chart is free over X × V), and shows that the normalization's special fibre is reduced. A fourth cc-39fac3 checkpoint certifies Table 1 at every point of V off the three E113 curves. A further cc-39fac3 step decomposes the Kummer-tower field inputs into Z143–Z145 (p > 2), routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, and removes that gap. A cc-58621d step settles Q03, the last uncertified Appendix B claim. Proposition B.0.1(1)'s equations are the chart's for the monodromy parameter Diag(−a, −b, 0), the negative of (3.1)'s (E114). They present the chart only where a is also invertible (E115), and the displayed matrix has vc12 for c12 (E116). With these corrections B.0.1(1) is proved over Z[1/7!][a, b][1/(aP)], every Appendix B claim is certified or corrected, and the appendix-certificates gap is closed; the downstream uses are unaffected. A second cc-58621d step gives the 26 §3 theorem items (U05–U45) source-level proof steps and prerequisite edges; the graph stays acyclic. A third cc-58621d step adds proof steps for K45–K48, P17 and Z01. A fourth cc-58621d step adds proof steps for the 28 §8 B items and records E117, a failed step in the proof of Corollary 8.5.2 that is repaired through the patching functor at ρ̄^ss, and E118, a missing depth condition in the proof of Lemma 8.4.9 for large weights.",
+  "summary": "Partial extraction: 779 items (146 library, 48 planned, 585 missing), 26 routes and 118 unreviewed source findings. This continuation corrects the coefficient/prime hypotheses behind the Section5 Kisin uniqueness results, separates the unrestricted rank-one scalar contraction, supplies an acyclic semisimplicity repair using WE19, and propagates the bounds through Section7.2. The generic-adjoint argument is supplied in all ranks with its rank-one odd-prime exception E110; finite-length Hom comparison is decomposed through a simultaneous H0/H1 induction. Eight new items K55–K58, L143, Z142 and G67–G68 retain existing owners. All inherited IDs, statuses and source data are preserved. The internal graph has 1,226 edges and is acyclic; this is not recursive proof closure. Twelve recorded gaps remain, including later rank-one propagation, external suppliers, regularity and the U/G/B/Z/P outline queues. No formal implementation or independent review is asserted. A further checkpoint (cc-fb70e5) records E111: Proposition B.0.1(4) fails on the line a = 0 inside V. A later one (cc-39fac3) certifies Q06 (t^3 in the Jacobian ideal) over Z[a,b][1/(aP)] with multiplier 2a(a−2)^2(a−b)(b−1), and shows that the specializations used downstream all have a a unit, so Corollary B.0.5 keeps r = 3. A second cc-39fac3 checkpoint certifies the Q13 Gröbner basis uniformly over V, in the two cells (a−b)(a−1) ≠ 1 and = 1, with Cohen–Macaulay leading-term schemes in every characteristic. It records E112, the misprinted exceptional locus, and E113: Table 1 and the special-fibre component list fail on a = 0, a(b−1) = b and (a−b)(a−1) = 1, without affecting the downstream uses. A third cc-39fac3 checkpoint certifies, uniformly over V, Proposition B.0.1(2)'s minimal primes (the special fibre is doubled along (c22, c13, c12)) and B.0.1(3)'s flatness (the chart is free over X × V), and shows that the normalization's special fibre is reduced. A fourth cc-39fac3 checkpoint certifies Table 1 at every point of V off the three E113 curves. A further cc-39fac3 step decomposes the Kummer-tower field inputs into Z143–Z145 (p > 2), routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, and removes that gap. A cc-58621d step settles Q03, the last uncertified Appendix B claim. Proposition B.0.1(1)'s equations are the chart's for the monodromy parameter Diag(−a, −b, 0), the negative of (3.1)'s (E114). They present the chart only where a is also invertible (E115), and the displayed matrix has vc12 for c12 (E116). With these corrections B.0.1(1) is proved over Z[1/7!][a, b][1/(aP)], every Appendix B claim is certified or corrected, and the appendix-certificates gap is closed; the downstream uses are unaffected. A second cc-58621d step gives the 26 §3 theorem items (U05–U45) source-level proof steps and prerequisite edges; the graph stays acyclic. A third cc-58621d step adds proof steps for K45–K48, P17 and Z01. A fourth cc-58621d step adds proof steps for the 28 §8 B items and records E117, a failed step in the proof of Corollary 8.5.2 that is repaired through the patching functor at ρ̄^ss, and E118, a missing depth condition in the proof of Lemma 8.4.9 for large weights. A fifth cc-58621d step adds proof steps for the 39 §7 G items; only the A items (and the library-cited L items) remain without an outline.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -10459,7 +10465,19 @@
       "locator": "Theorem7.1.1 PDF132",
       "statement": "For M over a finite flat O-algebra of height [0,h] with tame descent, there is a unique derivation extending N_nabla on M^rig[1/L], zero modulo u' and satisfying N phi=E phi N. The lattice M^rig is stable precisely when T_dd^*(M)[1/p] extends to a potentially crystalline GK representation of type tau and Hodge–Tate weights in [0,h]. This imports Kisin [48].",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Work over a finite flat O-algebra Λ and M ∈ Y^{[0,h],τ}(Λ) (K03, K04). Existence and uniqueness of the derivation N_{M^rig} on M^rig[1/λ] over N_∇, with N φ = E(u′) φ N and N ≡ 0 mod u′, is the case R = Λ of Proposition 7.1.3(1) (G65), since O^rig_{K′} ⊗_{Z_p} Λ = O^rig_{K′,Λ}. The paper cites Kisin [48, Corollary 1.3.15] for it.",
+        "Stability of M^rig under N_{M^rig} is equivalent to V = T^*_dd(M)[1/p] extending to a potentially crystalline G_K-representation that becomes crystalline over L′. Kisin's result has no descent data; the descent data are handled by the full faithfulness of restriction from crystalline G_{L′}-representations to G_{L′∞}-representations ([48, Corollary 2.1.14]). The Hodge–Tate weights lie in [0, h] because M has height at most h.",
+        "The inertial type is τ: D_pst(V) ≅ ((M/u′M)[1/p])^∨ as I_K-representations, and M/u′M carries the type τ by the definition of Y^{[0,h],τ} (K04)."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G65",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K04"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G03",
@@ -10612,7 +10630,19 @@
       "locator": "Proposition7.1.4 PDF134–135",
       "statement": "Over finite flat O coefficients, monodromy holds iff all derivatives of L^(h-1)N_infty at E=0 of orders 0 through h-2 vanish for every embedding. Frobenius compatibility propagates the criterion to the other zeros of L. The h=1 range is empty.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Let Λ be finite flat over O, M ∈ Y^{[0,h],τ}(Λ) with an eigenbasis β, and N_∞ the matrices of Proposition 7.1.3 (G40), so λ^{h−1}N_∞ ∈ Mat_n(O^rig_Λ). Over Λ[1/p] the zeros of E(u′) = u′^{e′} + p are simple, and λ = ∏_{k≥0} φ^k(E/p) vanishes to order one along each zero of each φ^k(E).",
+        "Forward direction. If M^rig is N-stable (Definition 7.1.2, G03), then N_∞ ∈ Mat_n(O^rig_Λ). So λ^{h−1}N_∞ vanishes to order at least h−1 along E(u′) = 0, and its derivatives of orders 0, …, h−2 vanish there.",
+        "Reverse direction. Multiply (7.3) by λ^{h−1} = (E/p)^{h−1}φ(λ)^{h−1}: λ^{h−1}N^{(j′)} = p^{1−h}E^h C φ(λ^{h−1}N^{(j′−1)})C^{−1} + λ^h u′(dC/du′)C^{−1}, since N_∇ = −u′λ d/du′. At a zero of φ^m(E) with m ≥ 1, C^{−1} is regular and the last term vanishes to order h. By induction on m, λ^{h−1}N_∞ vanishes to order h−1 along every φ^m(E) = 0 once it does along E = 0. Hence λ^{h−1}N_∞ ∈ λ^{h−1}Mat_n(O^rig_Λ), i.e. N_∞ is integral and M^rig is N-stable.",
+        "For h = 1 the range 0 ≤ t ≤ h−2 is empty. Then Proposition 7.1.3 already gives N_∞ ∈ Mat_n(O^rig_Λ), and the monodromy condition always holds."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G65"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G06",
@@ -10621,7 +10651,19 @@
       "locator": "Corollary7.1.5 PDF135",
       "statement": "When M is free over the allowed R, the criterion defines a basis-independent Zariski closed locus in Spec R[1/p], compatible with base change among these pairs.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "M is free with an eigenbasis β. By Proposition 7.1.3 (G40), each entry of (d/du′)^t|_{E(u′)=0}(λ^{h−1}N_∞^{(j′)}) is an element of R[1/p][u′]/E(u′), which is free over R[1/p] with basis 1, u′, …, u′^{e′−1}. The coordinates of all these entries, for 0 ≤ t ≤ h−2 and j′ ∈ J′, generate an ideal of R[1/p], which cuts out a Zariski closed subset.",
+        "Independence of β. A change of eigenbasis by X^{(j′)} ∈ GL_n(R[[u′]]) replaces N_∞ by Ad(X)(N_∞) − Xλu′(d/du′)(X^{−1}). After multiplying by λ^{h−1}, the second term is λ^h times an integral matrix, so its derivatives of order at most h−2 vanish along E = 0. Conjugation by the invertible X preserves the vanishing of those derivatives (Leibniz rule). So the ideal does not change.",
+        "Base change. The recursion defining N_∞ (G04) commutes with base change, so compatible eigenbases give literally the same generators after any base change R → R′ within the hypotheses."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K05"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G07",
@@ -10843,7 +10885,19 @@
       "locator": "Remark7.1.9, published PDF138",
       "statement": "If p>h-2, vanishing of the derivatives is equivalent to divisibility by (v+p)^(h-1), and hence to (e'v A'-A Diag(s_or^-1 a'))A^-1 in (v+p)^-1 L^+M. The corresponding local-model parameter is -(s_or^-1 a')/e'.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Write F = Σ_m a_m(v+p)^m ∈ R[[v+p]]. Then (d/dv)^t F|_{v=−p} = t!·a_t. For t ≤ h−2 < p, t! is a unit in the Z_p-algebra R, so the derivatives of orders 0, …, h−2 vanish exactly when a_0 = … = a_{h−2} = 0, i.e. F ∈ (v+p)^{h−1}R[[v+p]].",
+        "Apply this to the generators (d/dv)^t(v^{−δ_{k>l}}P_N(A^{(j′)})_{kl})|_{v=−p} of I_{M,β,∇1} (Definition 7.1.8, G09). With D = Diag((s_{or,j′})^{−1}(a^{(j′)})), one has −P_N(A)(v+p)^{−h} = (e′vA′ − AD)A^{−1} + D, and D is constant diagonal. So I_{M,β,∇1} cuts out the locus where (e′v(d/dv)A^{(j′)} − A^{(j′)}D)(A^{(j′)})^{−1} ∈ (v+p)^{−1}L^+M(R), which is (7.7).",
+        "(7.7) depends only on the image of j′ in J. Dividing by the unit e′ turns it into condition (4.1) (M02) with parameter a = −(s_{or,j′})^{−1}(a^{(j′)})/e′ and t = −p, a specialization of (3.1) (U15)."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U15"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G11",
@@ -10854,8 +10908,18 @@
       "status": "missing",
       "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G44"
-      ]
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G44",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G43"
+      ],
+      "proofSteps": [
+        "Assemble the proof on PDF138–140 from its three parts. First, the descent-removed identity (7.6) and the tail estimate (7.8) (G42). Second, over R/I_{M,∇∞}[1/p], the Euler derivatives (v d/dv)^t at v = −p of −φ(λ)^hP_N(A) + Σ_{i≥1}φ^{i+1}(λ)^hZ_i vanish for 0 ≤ t ≤ h−2 (7.9), because I_{M,∇∞} (G07) imposes Proposition 7.1.4's condition and u′ is invertible modulo E(u′).",
+        "The tail and its Euler derivatives lie in p^{m+2−h}R, while φ(λ) is a unit at v = −p whose derivatives lie in p^{p−1}Z_p. This gives (7.10): (v d/dv)^t(P_N(A))|_{v=−p} ∈ p^{m+2−h}R modulo I_{M,∇∞}[1/p] (G43).",
+        "Converting Euler derivatives to ordinary ones, and dividing out the v in the lower-triangular entries, loses t + 1 more powers of p. Since R/I_{M,∇∞} ⊂ R/I_{M,∇∞}[1/p] by O-flatness, each generator of I_{M,β,∇1} (G09) lies in (I_{M,∇∞}, p^{m−2h+3}) (G44). The statement is integral for m ≥ 2h−3 and is a containment, not an equality. For h ≤ 1 there are no generators."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G12",
@@ -11071,7 +11135,17 @@
       "locator": "Theorem 7.2.2(1), PDF142; setup PDF141",
       "statement": "Theorem 7.2.2(1). Let tau be a tame inertial type for K, h >= 0 and lambda in X_*(T^vee)^J dominant, and let ? in {[0,h], <=lambda, lambda}. Then the stack X^{?,tau} is a p-adic formal algebraic stack, flat and topologically of finite type over Spf O. Furthermore, X^{?,tau} is analytically unramified. Here X^{lambda,tau} is the unique closed formal substack of X_n that is O-flat and whose Lambda-points, for finite flat O-algebras Lambda, are the G_K-representations on rank n projective Lambda-modules that become potentially crystalline of Hodge-Tate weight lambda and inertial type tau after inverting p ([22, Thm 4.8.12]). The convention is that the cyclotomic character has weight +1, so this is X^{-w0(lambda),tau} of [22] (Warning 7.2.1). X^{[0,h],tau} is defined in the same way with Hodge-Tate weights in [0,h], and X^{<=lambda,tau} ⊂ X^{[0,h],tau} is the scheme-theoretic union of the X^{lambda',tau} for dominant lambda' <= lambda. Proof: the first half is [22, Thm 4.8.12] (printed [23], E32). The second half (analytic unramifiedness) is proved together with part (2), from part (3) and [49, Thm 3.3.8].",
       "status": "missing",
-      "note": "Route owner: WeightZeroCrystallineLiftingRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: WeightZeroCrystallineLiftingRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "First half. [22, Theorem 4.8.12] (printed [23], E32) makes X^{λ,τ} a p-adic formal algebraic stack, flat and topologically of finite type over Spf O. Only finitely many λ′ satisfy λ′ ≤ λ or λ′_j ∈ [0, h]^n, and a scheme-theoretic union of finitely many O-flat closed substacks is O-flat (its ring embeds in the product). So the same holds for ? = [0, h] and ≤ λ.",
+        "Second half. By [28, Definition 8.22], X^{?,τ} is analytically unramified if and only if its versal rings at finite type points are reduced. By part (3) (G46) these are the rings R^{?,τ}_ρ̄, which are reduced by Kisin [49, Theorem 3.3.8]; for the unions they are reduced as reduced unions."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G46"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G45",
@@ -11086,7 +11160,16 @@
           "where": "G15 (Theorem 7.2.2(1), second half)",
           "how": "An O-flat chart ring R with R[1/p] regular is reduced, which gives analytic unramifiedness of X^{?,tau}."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Let Spf R → X^{?,τ} be smooth, with R topologically of finite type. R[1/p] is Jacobson, and its maximal ideals correspond to O′-points of Spf R for finite extensions E′/E. So it suffices to show regularity of the local rings of R[1/p] at those points.",
+        "Such a point reduces to a finite type point ρ̄ of X^{?,τ}. The completion of R there is formally smooth over the versal ring R^{?,τ}_ρ̄ (part (3), G46). R is excellent, so regularity of R[1/p] at the point follows from regularity of R^{?,τ}_ρ̄[1/p] at the corresponding point.",
+        "R^{λ′,τ}_ρ̄[1/p] is regular by Kisin [49, Theorem 3.3.8]. For the unions ? = [0, h] or ≤ λ, the generic fibre is the disjoint union of the loci of the individual Hodge types λ′, because Hodge–Tate weights are locally constant on it, so it is regular too."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G46"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G46",
@@ -11109,7 +11192,16 @@
           "where": "§8.1 (B05, PDF164)",
           "how": "With R^ver = R^square_rhobar, the fibre product Spf R^ver ×_{X_n} X^{lambda+eta,tau} is the framed potentially crystalline deformation ring, which is a versal ring of X^{lambda+eta,tau}."
         }
-      ]
+      ],
+      "proofSteps": [
+        "The framed deformation ring R^□_ρ̄ is a versal ring of X_n at ρ̄ ([22]). The closed substack X^{?,τ} ⊂ X_n (G13) pulls back to a closed formal subscheme Spf R^□_ρ̄/I.",
+        "[22, Proposition 4.8.10] (printed [23], E32) identifies R^□_ρ̄/I with the potentially crystalline deformation ring R^{?,τ}_ρ̄. It is O-flat, and its Λ-points for finite flat Λ are exactly the potentially crystalline lifts of type (?, τ), which characterizes that ring. The unions ? = [0, h] and ≤ λ give the corresponding reduced unions of rings. This is an imported theorem; the paper does not reprove it."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G13"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G16",
@@ -11118,7 +11210,15 @@
       "locator": "Theorem7.2.2(4) PDF142",
       "statement": "X^{lambda,tau} is equidimensional of dimension 1+sum_j dim(P_{lambda_j}\\GL_n), with the Hodge convention that epsilon has weight +1. Translation to [22] replaces lambda by -w0(lambda).",
       "status": "missing",
-      "note": "Route owner: WeightZeroCrystallineLiftingRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: WeightZeroCrystallineLiftingRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "[22, Theorem 4.8.14] (printed [23], E32) makes the Emerton–Gee stack of Hodge type λ′ and type τ equidimensional of dimension 1 + Σ_j dim(P_{λ′_j}\\GL_n). The 1 is the Spf O direction.",
+        "By Warning 7.2.1, X^{λ,τ} here is the Emerton–Gee stack for −w_0(λ), since the cyclotomic character has weight +1 here and −1 there. P_{−w_0λ_j} is conjugate to the opposite parabolic of P_{λ_j}, so the flag varieties have the same dimension, and the formula is unchanged."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G13"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G17",
@@ -11217,7 +11317,13 @@
       "locator": "Lemma7.2.5 PDF144",
       "statement": "A map of finite type O/varpi^a schemes inducing a bijection on A-points for every local Artinian A with finite residue field is an isomorphism. The proof uses infinitesimal smoothness, quasi-finiteness, and the étale monomorphism criterion.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Finite type O/ϖ^a-schemes are Jacobson, so their closed points are dense, and the residue fields at closed points are finite.",
+        "Bijectivity on A-points, for local Artinian A with finite residue field, gives the infinitesimal lifting property at closed points, so f is smooth ([75, Tag 02HY]). It is also quasi-finite, since its fibres over closed points are single points. Hence f is étale, and its diagonal Δ_f : Y → Y ×_Z Y is an open immersion.",
+        "Δ_f is surjective on closed points (injectivity on F′-points), so the open immersion Δ_f contains every closed point and is an isomorphism; f is a monomorphism. An étale monomorphism is an open immersion ([75, Tag 025F]). This one contains every closed point (surjectivity on F′-points), so it is an isomorphism."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G20",
@@ -11226,7 +11332,17 @@
       "locator": "Lemma 7.2.6(1), PDF144; proof (reduction and first case) PDF144",
       "statement": "Lemma 7.2.6, case (1). Let f: Y -> Z be a monomorphism of p-adic formal algebraic stacks topologically of finite type over Spf O, and assume that Z is flat over Spf O. Assume that Z is analytically unramified and that, for any finite flat O-algebra Lambda, f: Y(Lambda) -> Z(Lambda) is essentially surjective. Then f is an isomorphism. Proof: the problem is smooth-local on Z, so one may take Z = Spf B with B p-adically complete, topologically of finite type and O-flat; then Y is a formal scheme ([75, Tag 0B89]). B is reduced, Z_p-flat and Nagata. By [2, Lemma 4.1.2], every map B -> A to a local Artinian O-algebra with finite residue field factors through B -> Lambda for a finite flat O-algebra Lambda, so Y(A) -> Z(A) is an equivalence. Lemma 7.2.5 then makes every base change to O/varpi^a an isomorphism.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The question is smooth-local on Z. So take Z = Spf B with B p-adically complete, topologically of finite type and O-flat. Then Y is a formal algebraic space, in fact a formal scheme ([75, Tag 0B89]). B is reduced (Z analytically unramified), Z_p-flat, and Nagata (B p-adically complete with B/p Nagata [63]).",
+        "Let A be local Artinian with finite residue field and x : B → A. x factors through B/m^k, where m is the maximal ideal of B lying under the maximal ideal of A; it is open, the residue field being finite (E64). By [2, Lemma 4.1.2], B → B/m^k factors through a continuous map B → Λ with Λ finite flat over O. The hypothesis and full faithfulness (f is a monomorphism) lift x to Y(Λ) ≅ Z(Λ). So Y(A) → Z(A) is an equivalence.",
+        "For each a ≥ 1, Lemma 7.2.5 (G19) applies to Y_{O/ϖ^a} → Z_{O/ϖ^a} = Spec B/ϖ^a and makes it an isomorphism. Hence f is an isomorphism."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G19"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G47",
@@ -11241,7 +11357,16 @@
           "where": "G21 (Proposition 7.2.7 proof, PDF145)",
           "how": "K^{[0,h],tau} -> X^{[0,h],tau} is a closed immersion (Proposition 5.4.3) into an O-flat, analytically unramified stack (G15). The lemma reduces the isomorphism to essential surjectivity on O'-points, which is supplied by Kisin's Breuil-Kisin lattices."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Reduce as in case (1) to Z = Spf B with B O-flat, p-adically complete and topologically of finite type. f is a closed immersion, so Y = Spf B/J.",
+        "The residue fields of B[1/p] at maximal ideals are finite extensions E′ of E, and every map B[1/p] → E′ comes from a map B → O′. So the hypothesis puts J[1/p] in every maximal ideal of B[1/p].",
+        "B[1/p] is Jacobson and reduced (Z is analytically unramified), so J[1/p] = 0, and J = 0 because B is O-flat."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G14"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G48",
@@ -11256,7 +11381,13 @@
           "where": "G25 and G62 (Proposition 7.2.12 proof, PDF148)",
           "how": "Gives Z ≅ Y^{[0,h],tau,nabla_infty}, where Z is the associated reduced formal substack: the map is a closed immersion that is essentially surjective on finite flat points."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Reduce to Z = Spf B with B O-flat, p-adically complete and topologically of finite type, and Y = Spf B/J (f a closed immersion). No reducedness of B is assumed.",
+        "For a maximal ideal m of B[1/p] and a ≥ 1, B[1/p]/m^a is finite dimensional over E. The map B → B[1/p]/m^a factors through a finite flat O-algebra Λ with Λ[1/p] = B[1/p]/m^a. By hypothesis it factors through B/J. So J[1/p] ⊂ ∩_a m^a, and by Krull's intersection theorem J[1/p]_m = 0.",
+        "This holds for every maximal ideal m, so J[1/p] = 0, and J = 0 because B is O-flat."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G21",
@@ -11736,7 +11867,25 @@
       "locator": "Theorem7.3.2(1) PDF151–155",
       "statement": "For regular dominant lambda_j in [0,h]^n and an (h+2)-lowest-alcove presentation of tau, there is N_sing depending only on the set of lambda_j, not p, such that N_sing-depth supplies the diagonal closed immersion from the true-monodromy formal chart to the naive differential formal chart. It lifts the mod-p map using Elkik approximation and is not canonical or required to commute with the ambient triangle.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Let μ be M-deep with M ≥ 2h−3. Theorem 5.3.3 (K22) makes U(z̃, ≤λ)^∧p = Spf R classify objects of Y^{≤λ,τ} with a z̃-gauge basis. This gives the universal (M, β) over R and the matrices A^{(j)}.",
+        "U(z̃, ≤λ, ∇_{τ,∞}) = Spf R/I_{M,∇∞} (G07, G17). By Remark 7.1.9 (G10) and the definition of a_τ (G26), U^nv(z̃, ≤λ, ∇_{a_τ})^∧p = Spf R/I_{M,β,∇1}. Proposition 7.1.10 (G11) gives I_{M,β,∇1} ⊂ (I_{M,∇∞}, p^N) with N = M − 2h + 3. So for each j the map Spec R/(I_{M,∇∞}, p^N) → U^nv_X(z̃_j, ≤λ_j, ∇) is defined over the point (−p, a_{τ,j}) of A^1 × A^n.",
+        "R/I_{M,∇∞} is p-adically complete and p-torsion free. By Proposition 3.3.9 (U24), Elkik's approximation, there is N_sing depending only on {λ_j} such that for M ≥ 2 max_j h_{λ_j} + N_sing each f_j mod p lifts to f̃_j : Spec R/I_{M,∇∞} → U^nv_X(z̃_j, ≤λ_j, ∇). The torus factor lifts because T^{∨,J} is smooth over Z. Their product maps Spec R/I_{M,∇∞} to (∏_j T^∨ × U^nv_X(z̃_j, ≤λ_j, ∇))_O along (−p, a_τ).",
+        "By Remark 4.1.4 (M05), U^nv(z̃, ≤λ, ∇_{a_τ}) = M^nv_J(≤λ, ∇_{a_τ}) ∩ U(z̃, ≤λ). Since R/I_{M,∇∞} is O-flat and p-adically complete, f̃ factors through U^nv(z̃, ≤λ, ∇_{a_τ}) and its p-adic completion: this is the diagonal dotted arrow. It is a closed immersion because it is one modulo p (topological Nakayama). It is noncanonical and need not make the triangle commute (Warning 7.3.3(2))."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U24"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G29",
@@ -11745,7 +11894,26 @@
       "locator": "Theorem7.3.2(2), first conclusion PDF151–155; stated in the introduction as Theorems 1.2.1 and 1.4.3 (PDF 5, 11)",
       "statement": "There is a nonzero integral polynomial P depending only on {lambda_j} and the ramification index e of O, not p, such that P-genericity of the presentation makes the vertical map between the framed X_reg chart and the p-completed regular differential chart an isomorphism. All marked solid pullback squares and torus torsors are part of the construction; the isomorphism is not a global canonical gluing over O.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The diagonal arrow (G28) induces the vertical one. U_reg(z̃, ≤λ, ∇_{a_τ})^∧p is the maximal closed p-adic formal subscheme of U^nv(z̃, ≤λ, ∇_{a_τ})^∧p that is O-flat and equidimensional of dimension 1 + #J·dim_E(B\\GL_n)_E + n#J. X^{≤λ,τ}_reg(z̃) has both properties (Theorem 7.2.2, G15 and G16, plus the torus). Write Spf B and Spf A for the two; the vertical arrow is a surjection B ↠ A.",
+        "Theorem 3.7.1 (U40, U41) for each regular λ′ ≤ λ gives P ∈ Z[X_1, …, X_n], depending only on e and {λ_j}. If P(a_{τ,j}) ≢ 0 mod p for all j, then M(λ′, ∇_{a_τ}) is the base change of M_{X,J}(λ′, ∇) along (−p, a_τ), O-flat by Remark 3.5.6 (U45). Each O(U(z̃, λ′, ∇_{a_τ})^∧p) is then a domain, and U(z̃, λ′, ∇_{a_τ}) is unibranch at z̃. Lemma 7.3.1 (G26) gives a_{τ,j} ≡ s_j^{−1}(μ_j + η_j) mod ϖ, so taking the product of P over the finitely many s ∈ W turns this into a polynomial condition on μ alone.",
+        "If U(z̃, λ′, ∇_{a_τ}) ≠ ∅ then Y^{≤λ′,τ}(z̃)_F ≠ ∅, so z̃ ∈ Adm^∨(λ′) (Corollary 5.3.5, K24). So B, a reduced union of these domains, has at most #{λ′ ≤ λ regular dominant : z̃ ∈ Adm^∨(λ′)} minimal primes. For M ≥ max{4n+h, 2h+3}, Lemma 7.3.5 (G31) gives A at least that many, since distinct λ′ give distinct components.",
+        "Hence ker(B ↠ A) lies in every minimal prime of the reduced ring B, so it is zero and B ≅ A. The isomorphism is chart-wise; no global canonical gluing over O is asserted."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G31",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U45"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G30",
@@ -11754,7 +11922,21 @@
       "locator": "Theorem7.3.2(2), second conclusion PDF151–155; also Remark 7.3.4 (PDF 152); stated in the introduction as Theorem 1.5.5 (PDF 17)",
       "statement": "Under G29, for every regular dominant lambda'<=lambda and every semisimple residual GK representation rho, every corresponding versal ring of X^{lambda',tau} is a domain or zero. No assertion for arbitrary wild residual representations. Products over finitely many unramified local fields retain the theorem by Remark7.3.4.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Enlarge F so that ρ̄ ∈ X_n(F). For regular dominant λ′ ≤ λ, let n_{λ′} be the number of minimal primes of a versal ring of X^{λ′,τ} at ρ̄; it does not depend on the versal ring.",
+        "If ρ̄ ∈ X^{≤λ′,τ}(F), Proposition 5.5.7 (K41) and the uniqueness of Proposition 5.4.3 (K29) make its Breuil–Kisin module M_ρ̄ semisimple of some shape z̃. So M_ρ̄ lifts to T^{∨,J}(F)z̃ ⊂ U(z̃, ≤λ′)(F), and through the isomorphism of G29 a versal ring of X^{≤λ′,τ}_reg at ρ̄ is also a versal ring of U_reg(z̃, ≤λ′, ∇_{a_τ}) at z̃.",
+        "By the unibranch statement of Theorem 3.7.1 (U40), that ring has exactly #{λ″ ≤ λ′ regular dominant : z̃ ∈ Adm^∨(λ″)} minimal primes. X^{≤λ′,τ}_reg is the scheme-theoretic union of the X^{λ″,τ}, each equidimensional of the same dimension, and no two share a component. So Σ_{λ″≤λ′} n_{λ″} = #{λ″ ≤ λ′ : z̃ ∈ Adm^∨(λ″)} (7.14). If ρ̄ ∉ X^{≤λ′,τ}(F), both sides are 0 by Lemma 7.3.5 (G31).",
+        "Induction on #{λ″ ≤ λ′} gives n_{λ′} ∈ {0, 1}, with n_{λ′} = 1 exactly when z̃ ∈ Adm^∨(λ′). So every versal ring of X^{λ′,τ} at a semisimple ρ̄ is 0 or a domain. Nothing is claimed at non-semisimple ρ̄. By Remark 7.3.4 the proof carries over verbatim to products over S_p."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G31",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U40"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G31",
@@ -11763,7 +11945,19 @@
       "locator": "Lemma7.3.5 PDF152",
       "statement": "For regular lambda'_j in [0,h']^n and a (4n+h')-generic lowest-alcove presentation, X^{lambda',tau}(z) is nonempty iff z lies in Adm^vee(lambda'). The nonempty direction imports potentially diagonalizable obvious-weight lifts and the detectability criterion, not just existence of a Kisin lattice.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "(⇐) For z̃ ∈ Adm^∨(λ′), let M_z̃ ∈ Y^{≤λ′,τ}(z̃)(F) be the Breuil–Kisin module whose partial Frobenius matrices in an eigenbasis are A^{(j)} = z̃_j. ρ̄ = T^*_dd(M_z̃) is semisimple as a G_{K∞}-representation, hence as a G_K-representation. It is 4n-generic by Corollary 5.5.10 (K44), since τ is (4n+h′)-generic.",
+        "By Proposition 5.5.7 (K41), resting on [56, Corollary 3.2.17], ρ̄|_{I_K} has a (λ′−η)-compatible lowest alcove presentation with w̃(ρ̄, τ) ∈ Adm(λ′). This is condition (4) of Proposition 6.2.7 (P13) for the weight λ′ − η. So condition (3) holds: ρ̄ has a potentially crystalline lift of Hodge–Tate weight λ′ and type τ. This step uses the potentially diagonalizable lifts of obvious weights and detectability behind P13, not merely the existence of a Kisin lattice. The lift gives a point of X^{λ′,τ}(z̃) over ρ̄.",
+        "(⇒) If X^{λ′,τ}(z̃) ≠ ∅, then Y^{≤λ′,τ}(z̃) ≠ ∅, and z̃ ∈ Adm^∨(λ′) by Corollary 5.3.5 (K24)."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K44",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P13"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G32",
@@ -11841,7 +12035,18 @@
       "locator": "Proposition7.4.1 PDF157",
       "statement": "Under the standing (h+2)-generic setup and the additional (2h-2)-depth bound, the framed X^{<=lambda,tau}_F closed immersion in M_J(<=lambda)_F factors through M_J^naive(<=lambda,nabla a_tau)_F.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The claim is local, so check it on each affine open U(z̃, ≤λ)_F of M_J(≤λ)_F, where X^{≤λ,τ}_F ≅ Y^{≤λ,τ,∇∞}_F (Proposition 7.2.3, G18, in the standing (h+2)-generic setting) is cut out by I_{M,∇∞} in the chart of Theorem 5.3.3 (K22).",
+        "μ is (2h−2)-deep, so Proposition 7.1.10 (G11) gives I_{M,β,∇1} ⊂ (I_{M,∇∞}, p^{m−2h+3}) with m − 2h + 3 ≥ 1. So I_{M,β,∇1} ⊂ (I_{M,∇∞}, p). Modulo p, the equations of M^nv_J(≤λ, ∇_{a_τ}) (Remark 7.1.9, G10) therefore vanish on X^{≤λ,τ}_F ∩ U(z̃, ≤λ)_F, which is the required factorization."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K22"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G34",
@@ -11850,7 +12055,16 @@
       "locator": "Theorem 7.4.2(1), PDF157; proof PDF161; stated in the introduction as Theorem 1.4.5 (PDF 13)",
       "statement": "Theorem 7.4.2(1). Setting of §7.4: K/Q_p is finite unramified and zeta in X^*(Z) is an algebraic central character. Let lambda in X_*(T)^J be regular dominant with lambda_j in [0,h]^n for all j in J, and let tau be a tame inertial type with lowest alcove presentation (s,mu), so tau = tau(s, mu+eta), that is (lambda-eta)-compatible with zeta. Assume that mu is max{2(h+1), 4n+h}-deep. Then X^{<=lambda,tau}_{reg,red} = X^{lambda,tau}_red = ∪_sigma C_sigma, where the union runs over all Serre weights sigma in JH(W(lambda-eta) ⊗ sigmabar(tau)). Here X^{<=lambda,tau}_reg is the scheme-theoretic union of the X^{lambda',tau} over regular dominant lambda' <= lambda (§7.3), 'red' denotes the underlying reduced algebraic stack, and C_sigma = X_{EG,n,red}^{sigma^vee ⊗ det^{n-1}} ⊂ X_{n,red}. Proof: from Corollary 7.4.5, since X^{<=lambda,tau}_{reg,red} and X^{lambda,tau}_red are equidimensional of dimension d_J = #J·dim(B\\GL_n).",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "X^{≤λ,τ}_{reg,red} and X^{λ,τ}_red are equidimensional of dimension d_J. They are the reduced special fibres of the O-flat stacks X^{λ′,τ}, for regular λ′ ≤ λ, of dimension 1 + d_J (Theorem 7.2.2(4), G16, with the torus accounted for).",
+        "By Corollary 7.4.5 (G54), their d_J-dimensional components are exactly the C_σ with σ ∈ JH(W(λ−η) ⊗ σ̄(τ)). So both equal ∪_σ C_σ. In particular X^{λ′,τ}_red ⊂ X^{λ,τ}_red for every regular λ′ ≤ λ."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G54"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G54",
@@ -11869,7 +12083,18 @@
           "where": "G35 (Theorem 7.4.2(2) proof, PDF161)",
           "how": "C_sigma occurs as an irreducible component of X^{<=lambda,tau}_red."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Lower bound. By Lemma 7.4.4 (G53), each C_σ with σ ∈ JH(W(λ−η) ⊗ σ̄(τ)) lies in X^{λ,τ}. These are distinct d_J-dimensional components of X_{n,red}, because Emerton–Gee's labelling is injective. So X^{λ,τ}_red has at least #JH(W(λ−η) ⊗ σ̄(τ)) components of dimension d_J.",
+        "Upper bound. Proposition 7.4.1 (G33) embeds the T^{∨,J}-torsor X̃^{≤λ,τ}_F over X^{≤λ,τ}_F as a closed subscheme of M̃^nv_J(≤λ, ∇_{a_τ})_F. By Theorem 4.6.2 (M30), the top-dimensional components of the latter are the translates C̃^ζ_σ w̃*(τ)^{−1}, σ ∈ JH(W(λ−η) ⊗ σ̄(τ)). The theorem's hypothesis is used in E15's repaired form, max{2n, h_λ+n−1}-generic, which max{2(h+1), 4n+h}-depth implies. So X^{≤λ,τ}_red has at most that many d_J-dimensional components.",
+        "X^{λ,τ}_red ⊂ X^{≤λ,τ}_red, so equality holds at each stage: the d_J-dimensional components of both are exactly these C_σ."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G33",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G53",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M30"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G55",
@@ -11884,7 +12109,19 @@
           "where": "G34 (Theorem 7.4.2(1))",
           "how": "Strengthens the equality from the regular union X^{<=lambda,tau}_{reg,red} to X^{<=lambda,tau}_red. Remark 7.4.3(4) is not cited later in the paper."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Conditional statement: assume that M^nv_J(≤λ, ∇_{a_τ})_F is equidimensional of dimension d_J. Remark 4.6.3(1) (M49) asserts this without proof (E70).",
+        "X̃^{≤λ,τ}_red is a closed subscheme of M̃^nv_J(≤λ, ∇_{a_τ})_F (Proposition 7.4.1, G33). By Lemma 7.4.4 (G53) it contains every translate C̃^ζ_σ w̃*(τ)^{−1}, σ ∈ JH. Under the assumption these are all the components (Theorem 4.6.2, M30), so X̃^{≤λ,τ}_red and M̃^nv_F have the same underlying reduced scheme.",
+        "Descending along the T^{∨,J}-torsor gives X^{≤λ,τ}_red = ∪_σ C_σ, and X^{≤λ,τ}_F is equidimensional. The conclusion is only as strong as the assumed equidimensionality."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G33",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G53",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M49"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G56",
@@ -11899,7 +12136,17 @@
           "where": "Lemma 9.1.10 proof, PDF185",
           "how": "'Theorem 7.4.2(1) implies (after taking products as in Remark 7.4.3(5)) that the irreducible components of Spec R^tau_rhobar are ...' for the product of local deformation rings."
         }
-      ]
+      ],
+      "proofSteps": [
+        "For finitely many finite unramified extensions F_v^+ of Q_p, the stacks, local models and charts of Theorem 7.4.2 are products over v ∈ S_p (as in Remark 7.3.4 for §7.3). Proposition 7.4.1, Lemma 7.4.4, Corollary 7.4.5 and the proof of Theorem 7.4.2 then run factorwise with (λ_v, τ_v) satisfying the hypotheses for each v.",
+        "The components of X^{F_p^+}_{n,red} = ∏_v X^{F_v^+}_{n,red} are the products ∏_vC_{σ_v}, indexed by σ = ⊗_vσ_v (§7.4, PDF155). The paper asserts this and the 'evident generalization' without proof. A blueprint must supply it: it holds when the factors' components are geometrically irreducible, which the product labelling presupposes.",
+        "With that input, parts (1) and (2) hold for the products, with σ running over ∏_v JH(W(λ_v−η) ⊗ σ̄(τ_v)) and the diagram (7.17) the product of the factors' diagrams."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G35"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G35",
@@ -11908,7 +12155,25 @@
       "locator": "Theorem 7.4.2(2) and diagram (7.17), PDF158; proof PDF161",
       "statement": "Theorem 7.4.2(2), under the hypotheses of Theorem 7.4.2 (G34). For each sigma in JH(W(lambda-eta) ⊗ sigmabar(tau)) there is a local model diagram (7.17). Its top row is Ctilde_sigma ↪ Xtilde^{<=lambda,tau}_F ↪ Mtilde^nv_J(<=lambda, nabla_{a_tau})_F ↪ Mtilde_J(<=lambda)_F ↪ Fltilde^{[0,h]}_{J,wtilde*(tau)}, the last arrow being r_{wtilde*(tau)}. An isomorphism Ctilde_sigma ≅ Ctilde^zeta_sigma is compatible with the closed immersion Ctilde^zeta_sigma ↪ Fltilde^{[0,h]}_{J,wtilde*(tau)}. The bottom row is C_sigma ↪ X^{<=lambda,tau}_F ↪ Y^{<=lambda,tau}_F ↪ [Fltilde^{[0,h]}_{J,wtilde*(tau)} / T^{vee,J}_F-conj] ↪ Phi-Mod^{et,n}_{K,F}. The vertical maps are Ctilde_sigma -> C_sigma, Xtilde^{<=lambda,tau}_F -> X^{<=lambda,tau}_F, pi_{(s,mu)}: Mtilde_J(<=lambda)_F -> Y^{<=lambda,tau}_F, and Fltilde -> [Fltilde/T^{vee,J}_F-conj]. The diagram satisfies three conditions. First, Ctilde_sigma is defined so that all rectangles are Cartesian and all vertical arrows are T^{vee,J}_F-torsors. Second, all hooked arrows are closed immersions. Third, the bottom diagonal map is the canonical composition C_sigma ↪ X_n -> Phi-Mod^{et,n}_{K,F}. Here wtilde*(tau) = s^{-1} t_{mu+eta}, Xtilde^{<=lambda,tau}_F is the pullback of X^{<=lambda,tau}_F along pi_{(s,mu)}, and Ctilde^zeta_sigma is the pullback to Fltilde of C^zeta_sigma (Definition 4.6.1). Proof: C_sigma is a component of X^{<=lambda,tau}_red, so Ctilde_sigma is a top-dimensional component of Mtilde^nv. By Theorem 4.6.2 it therefore equals Ctilde^zeta_{sigma'} wtilde*(tau)^{-1} for some sigma' in JH(W(lambda-eta) ⊗ sigmabar(tau)). Choose a point of Ctilde_sigma of the form (7.15) that lies over U^zeta_{sigma'} (Lemma 7.4.6). By Lemma 7.2.10(2) and (4), its G_{K_infty}-flag is G_K-stable, which gives kappa - kappa' in (p - pi)X^0(T) and hence sigma' = sigma.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Construct the diagram. Pull X^{≤λ,τ}_F back along the T^{∨,J}-torsor π_{(s,μ)} : M̃_J(≤λ)_F → Y^{≤λ,τ}_F of Theorem 5.3.3 (K22) to get X̃^{≤λ,τ}_F, and C_σ to get C̃_σ. All rectangles are then Cartesian and all vertical arrows torsors. The closed immersions are C_σ ↪ X^{≤λ,τ}_F (a component, by Theorem 7.4.2(1), G34), X^{≤λ,τ}_F ↪ Y^{≤λ,τ}_F (Proposition 7.2.3, G18), X̃ ↪ M̃^nv (Proposition 7.4.1, G33), and the local model maps of K22 and (7.16).",
+        "C_σ is a component of X^{≤λ,τ}_red, so C̃_σ is a top-dimensional component of M̃^nv_J(≤λ, ∇_{a_τ})_F. By Theorem 4.6.2 (M30, with E15's repaired bound), C̃_σ = C̃^ζ_{σ′}w̃*(τ)^{−1} for some σ′ ∈ JH(W(λ−η) ⊗ σ̄(τ)).",
+        "Show σ′ = σ. Take the open U^ζ_{σ′} of Lemma 7.4.6 (G36), and a point x ∈ C_σ(F̄) of the form (7.15) lying over it; such points are dense. σ is 4n-deep (proof of G53), so ρ_x is at least 4n-generic and ad(ρ_x) is cyclotomic free (G49; rank ≥ 2 or p > 2, E110). By Lemma 7.2.10(4) (G51), every G_{K∞}-stable flag of ρ_x is G_K-stable, so the flag of Lemma 7.4.6 is the unique G_K-stable flag of (7.15).",
+        "Comparing graded characters gives ∏_jω^{(κ_j+η_j)_i} = ∏_jω^{(κ′_j+η_j)_i} for all i. So κ − κ′ ∈ (p−π)X^*(T), and as both are p-restricted, κ − κ′ ∈ (p−π)X^0(T), i.e. σ ≅ σ′. Hence C̃_σ·r_{w̃*(τ)} = C̃^ζ_σ, compatibly with the closed immersion into Fl̃^{[0,h]}_{J,w̃*(τ)}. The bottom diagonal map is the canonical C_σ ↪ X_n → Φ-Mod^{ét,n}_{K,F}."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G33",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G49",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G53",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M30"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G57",
@@ -11927,7 +12192,18 @@
           "where": "G32 (api local_model_quotient)",
           "how": "Identifies C_sigma with the quotient of the lifted local-model component by the shifted T^vee conjugation action."
         }
-      ]
+      ],
+      "proofSteps": [
+        "From diagram (7.17) (G35): C_σ = [C̃_σ/T^{∨,J}_F-conj], and C̃_σ = C̃^ζ_σ w̃*(τ)^{−1}. So C_σ = [C̃^ζ_σ/T^{∨,J}_F-conj] as subfunctors of Φ-Mod^{ét,n}_{K,F}, through ι_{w̃*(τ)}. The left side is Emerton–Gee's component, defined without choices, so the right side depends only on ζ, not on (λ, s, μ).",
+        "With the choices, C_σ = [T^{∨,J}_FC^ζ_σ w̃*(τ)^{−1} /_{(s,μ)} T^{∨,J}]. T^{∨,J}_FC^ζ_σ w̃*(τ)^{−1} is a component of the deformed affine Springer fibre cut out in Fl̃^J by (v d/dv g)g^{−1} + Ad(g)(Diag(s^{−1}(μ+η))) ∈ (1/v)Lie I_F. This is the corrected display (E69): the naive monodromy condition (4.1) (M02) over F with a ≡ s^{−1}(μ+η) = a_τ mod ϖ (Lemma 7.3.1, G26).",
+        "So C_σ is, smooth-locally through the torus torsor and quotient, isomorphic to a component of a deformed affine Springer fibre (Frenkel–Zhu [32]), which is the equisingularity claim."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G35",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M02"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G58",
@@ -11950,7 +12226,24 @@
           "where": "Lemma A.2.1 proof, PDF188",
           "how": "Cited to conclude sigma in JH(sigmabar(tau)) when C_sigma(rhobar) lies in Spec R^{eta,tau}_rhobar/varpi; that content is also the upper bound of Remark 7.4.3(3) (G59)."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Suppose C_σ ⊂ X^{≤λ,τ} with τ 2(h+1)-generic; the proof of Theorem 7.4.2(2) (G35) uses the depth 4n+h only to know that. For regular λ with λ_j ∈ [0, h]^n one has h ≥ n−1. So 2(h+1)-genericity implies max{2n, h_λ + n − 1}-genericity, E15's repaired hypothesis of Theorem 4.6.2 (M30).",
+        "By Proposition 7.4.1 (G33, which needs 2h−2 ≤ 2(h+1)), C̃_σ is a d_J-dimensional irreducible closed subscheme of M̃^nv_J(≤λ, ∇_{a_τ})_F, hence a top-dimensional component, of the form C̃^ζ_{σ′}w̃*(τ)^{−1} (M30).",
+        "The identification σ′ = σ runs as in G35. It uses Lemma 7.4.6 (G36) and Lemma 7.2.10(4) (G51). These apply because σ′ ∈ JH(W(λ−η) ⊗ σ̄(τ)) is (h+2)-deep by Proposition 2.3.7 (N40), so the (7.15) points are 2-generic (with E110's guard). So C̃_σ ≅ C̃^ζ_σ.",
+        "Examples. Any component of X^{η,τ}_F with τ 2n-generic (h = n−1, 2(h+1) = 2n). And any (3n−1)-deep σ = F(κ): τ(1, κ) is 2n-generic (Proposition 2.4.5, N55) and C_σ ⊂ X^{η,τ(1,κ)} (Lemma 6.2.8, P14), as in the proof of Proposition 7.4.7."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G33",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G35",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P14"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G59",
@@ -11973,7 +12266,21 @@
           "where": "Lemma 8.4.9 proof, PDF173",
           "how": "A component C_sigma of X^{lambda+eta,tau} has sigma in JH(sigmabar(lambda,tau))."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Assume only that μ is 2(h+1)-deep. X^{λ,τ} ⊂ X^{≤λ,τ}_reg, since λ is regular. X^{≤λ,τ}_reg is equidimensional of dimension 1 + d_J (G16), so every component of X^{≤λ,τ}_{reg,red} has dimension d_J.",
+        "By Proposition 7.4.1 (G33) each such component pulls back to a top-dimensional component of M̃^nv_J(≤λ, ∇_{a_τ})_F. That is C̃^ζ_σw̃*(τ)^{−1} for some σ ∈ JH(W(λ−η) ⊗ σ̄(τ)) (Theorem 4.6.2, M30, applicable because 2(h+1)-depth implies E15's bound, as in G58).",
+        "Its image is an Emerton–Gee component C_κ, and κ = σ by the flag comparison of G35 (Lemma 7.4.6, G36, and Lemma 7.2.10(4), G51). This needs only the (7.15) points to be 2-generic, and σ is (h+2)-deep by Proposition 2.3.7 (N40). Hence X^{λ,τ}_red ⊂ X^{≤λ,τ}_{reg,red} ⊂ ∪_σ C_σ. The depth 4n+h enters only through Lemma 7.4.4's weight elimination and obvious-weight modularity, which give the lower bound."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G33",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G36",
@@ -11982,7 +12289,21 @@
       "locator": "Lemma7.4.6 PDF159–161",
       "statement": "For an (n-1)-deep weight with compatible lowest-alcove presentation, the component C_sigma^zeta has an explicitly chosen dense affine open whose associated étale phi modules carry a full flag with diagonal inertia characters determined by kappa+eta. Cyclotomic-free full faithfulness then identifies this flag with the GK flag and fixes the component label.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Write w̃ = t_{η_w}w, so κ_j = w_{j−1}(ω_j) + pη_{w_{j−1}} − η_j. The triples (w̃_1, w̃_2, s̃) with w̃_1 = w̃, w̃_2 = w̃_hw̃_1 and s̃w̃_2^{−1}(0) = ω (7.18) are in bijection with W^J. Choose the one with w_js_j^{−1}w_{j−1}^{−1} = 1 for all j (7.19), writing s̃ = t_νs. Then w̃_2^{−1}w_0w̃_1 = t_{w^{−1}(η)}.",
+        "Take U^ζ_σ = ∏_j S°_F((w̃_{2,j}^{−1}w_0w̃_{1,j})^*)s̃^*_j ∩ Fl^{∇0}, an open affine of C^ζ_σ (with C^ζ_σ as in (4.11) and Theorem 4.3.9, M25). A point x of C̃^ζ_σ over U^ζ_σ is represented, by Proposition 4.2.13 (M15), Corollary 4.2.16 (M17) and w t_{w^{−1}η} ∈ W̃^+, by matrices C^{(j)} = D_jv^{w_j(η_j)}w_j^{−1}N_jw_js^*_j. Here N_j is unipotent lower triangular and D_j ∈ T^∨(F).",
+        "φ-conjugation by (w_j) gives C′^{(j)} = w_jC^{(j)}w_{j−1}^{−1} = B_jv^{η_j + w_{j−1}ν_j}, with B_j lower triangular with constant diagonal (using s^*_j = s_j^{−1}ν_j and (7.19)). So M_x has a filtration by rank-one étale φ-modules. V^*_K(M_x) has a G_{K∞}-stable complete flag with gr_i|_{I_K} ≅ ∏_j ω_{K,σ_j}^{(η_j + w_{j−1}ν_j)_i} ([56, Proposition 3.1.2], with Remark 5.1.7(5)'s change τ(s^*, μ^*) → τ(s^{−1}, μ); K07).",
+        "(7.18) and (7.19) give ν_j = ω_j − w_{j−1}^{−1}(η_j − η_{w_j}), hence η_j + w_{j−1}(ν_j) = w_{j−1}(ω_j) + η_{w_j}. Since ω_{K,σ_j}^p = ω_{K,σ_{j−1}}, ∏_j ω^{(κ_j+η_j)_i} = ∏_j ω^{(w_{j−1}(ω_j)+pη_{w_{j−1}})_i} = ∏_j ω^{(w_{j−1}(ω_j)+η_{w_j})_i}. So the graded pieces are the characters χ_1, …, χ_n of the statement (E71: n × n)."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M29"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G37",
@@ -11991,7 +12312,22 @@
       "locator": "Proposition 7.4.7(1), PDF162",
       "statement": "Proposition 7.4.7(1). Let sigma be a (3n-1)-deep Serre weight with lowest alcove presentation (wtilde_1, omega), and let rhobar be a tame n-dimensional representation of G_K that is 2n-generic. If sigma in W_obv(rhobar), then rhobar in C_sigma. Proof, whose first steps are shared with parts (2) and (3): let sigma = F(kappa) and tau = tau(1,kappa). Lemma 6.2.8 gives C_sigma ⊂ X^{eta,tau}, and Proposition 2.4.5 makes tau 2n-generic because kappa is (3n-1)-deep. Remark 7.4.3(2), printed as (3), then gives a diagram (7.17) with Ctilde_sigma ≅ Ctilde^zeta_sigma. By Propositions 5.5.2 and 5.5.7, rhobar in C_sigma if and only if rhobar has a lowest alcove presentation with wtilde*(rhobar) in C^zeta_sigma. Part (1) follows from Theorem 4.7.6(1).",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Let σ = F(κ) be (3n−1)-deep and τ = τ(1, κ). By Lemma 6.2.8 (P14, with E20's sign convention), every ρ̄ of the form (7.15) for σ, with χ_i|_{I_K} = ∏_jω^{(κ_j+η_j)_i} (E72), has a potentially crystalline lift of type (η, τ). Such ρ̄ are dense in C_σ, so C_σ ⊂ X^{η,τ}.",
+        "τ(1, κ) is 2n-generic by Proposition 2.4.5 (N55), since κ is (3n−1)-deep. So Remark 7.4.3(2) (G58; printed '(3)', E73) gives a diagram (7.17) with C̃_σ ≅ C̃^ζ_σ.",
+        "For tame (semisimple), 2n-generic ρ̄, Propositions 5.5.2 (K38) and 5.5.7 (K41) show that ρ̄ ∈ C_σ if and only if ρ̄ has a lowest alcove presentation with w̃^*(ρ̄) ∈ C̃^ζ_σ, equivalently w̃^*(ρ̄) ∈ C^ζ_σ.",
+        "If σ ∈ W_obv(ρ̄), Theorem 4.7.6(1) (M35) puts w̃^*(ρ̄) in C^ζ_σ, so ρ̄ ∈ C_σ (E74 matches the items)."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M35",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P14"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G60",
@@ -12006,7 +12342,20 @@
           "where": "Lemma 9.1.9 proof, PDF184",
           "how": "For Q-generic mu, the compatible presentation of each sigma in W^?(rhobar|I_{Q_p}) satisfies the polynomial hypothesis, so rhobar in C_sigma. This gives W^? ⊂ W^g_gen."
         }
-      ]
+      ],
+      "proofSteps": [
+        "The reduction is that of Proposition 7.4.7(1) (G37): C_σ ⊂ X^{η,τ(1,κ)} with τ(1, κ) 2n-generic, the diagram (7.17) with C̃_σ ≅ C̃^ζ_σ (G58), and ρ̄ ∈ C_σ ⟺ w̃^*(ρ̄) ∈ C^ζ_σ (K38, K41).",
+        "If σ ∈ W^?(ρ̄) and P_{w̃_{1,j}}(ω_j) ≢ 0 mod p for all j (the polynomials of Proposition 4.7.3, M33), Theorem 4.7.6(3) (M37) puts w̃^*(ρ̄) in C^ζ_σ. So ρ̄ ∈ C_σ (E74: item (2) comes from Theorem 4.7.6(3))."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M33",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M37"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G61",
@@ -12021,7 +12370,19 @@
           "where": "Lemma 9.1.9 proof, PDF184",
           "how": "W^g_gen(rhobar) ⊂ W^?(rhobar|I_{Q_p}) for 4n-generic rhobar."
         }
-      ]
+      ],
+      "proofSteps": [
+        "The reduction is that of Proposition 7.4.7(1) (G37): ρ̄ ∈ C_σ ⟺ w̃^*(ρ̄) ∈ C^ζ_σ for tame 2n-generic ρ̄, through the diagram (7.17) of Remark 7.4.3(2) (G58) and Propositions 5.5.2 and 5.5.7 (K38, K41).",
+        "If ρ̄ ∈ C_σ, then w̃^*(ρ̄) ∈ C^ζ_σ, and Theorem 4.7.6(2) (M36) gives σ ∈ W^?(ρ̄) (E74: item (3) comes from Theorem 4.7.6(2))."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M36"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B01",
@@ -19516,7 +19877,13 @@
       ],
       "proofOutline": "For the difference X of two solutions, X_j=E Ad(C_j)φ(X_(j−1)). Since E and C_j are units/matrices over R[1/p][[u′]], simultaneous divisibility of all X_j by u′^a implies simultaneous divisibility by u′^(pa). Start with a=1; separatedness of formal power series forces every X_j=0. This uses the cyclic system, not an equation with X_j in both slots.",
       "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Let (N_j) and (N′_j) solve the recurrence with N_j(0) = N′_j(0) = 0. Their difference X_j satisfies X_j = E(u′)Ad(C_j)(φ(X_{j−1})), with the Frobenius input at j−1 (E37), and X_j ≡ 0 mod u′.",
+        "C_j is invertible over R[1/p][[u′]], since E^hC_j^{−1} is integral and E is a unit there. So Ad(C_j) and multiplication by E(u′) preserve u′-adic order. If every X_j lies in u′^kMat_n(R[1/p][[u′]]) with k ≥ 1, then φ(X_{j−1}) lies in u′^{pk} ⊂ u′^{k+1}, and so does X_j.",
+        "By induction every X_j is divisible by every power of u′, hence 0."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G39",
@@ -19531,7 +19898,13 @@
       ],
       "proofOutline": "At i=0 the expression is φ(L^h)u′/p^h · C′_j E^h C_j^−1. For the inductive step use L=(E/p)φ(L) to rewrite the increment as E^h/p^(h−1) C_j φ(L^(h−1)(N_(i,j−1)−N_(i−1,j−1)))C_j^−1. The two height-integral matrices preserve integrality, Frobenius multiplies u′-order by p, and the displayed denominator increases by h−1.",
       "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Base case i = 0. N_1 = −N_∇(C_j)C_j^{−1} = λu′(dC_j/du′)C_j^{−1}. Using λ = (E/p)φ(λ), λ^{h−1}N_1 = φ(λ)^h(u′/p^h)(dC_j/du′)(E^hC_j^{−1}). This lies in (u′/p^h)φ(λ^h)Mat_n(R[[u′]]), because C_j and E^hC_j^{−1} are integral (height condition).",
+        "Inductive step. From the recursion, λ^{h−1}(N_{i+1} − N_i)^{(j)} = p^{1−h}E^hC_jφ(λ^{h−1}(N_i − N_{i−1})^{(j−1)})C_j^{−1}. By induction and φ(u′^{p^{i−1}}) = u′^{p^i}, this lies in u′^{p^i}/p^{1+(h−1)(i+1)}·φ^{i+1}(λ)^hMat_n(R[[u′]]).",
+        "Here φ^{i+1}(λ^h) = φ^{i+1}(λ)^h (E89)."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G40",
@@ -19548,7 +19921,14 @@
       ],
       "proofOutline": "Convergence: by (7.4) (G39), λ^{h−1}(N_{i+1}^{(j′)} − N_i^{(j′)}) ∈ ((u′)^{p^i}/p^{1+(h−1)(i+1)}) φ^{i+1}(λ^h) Mat_n(R[[u′]]). Since λ is a unit of R[1/p][[u′]] (constant term 1), the increments tend to 0 u′-adically. Passing to the limit in the recurrence shows that N_∞^{(j′)} solves (7.3), so it is the unique solution (G38). Analyticity: it suffices that ψ = Σ_i (u′)^{p^i}/p^{1+(h−1)(i+1)} · φ^{i+1}(λ^h) f_i(u′), with f_i ∈ R[[u′]], lies in the image of R[[x,y]][1/p] (x ↦ u′, y ↦ u′^m/p) for each m. Once e′p^{i+1} ≥ m, φ^{i+1}(λ) = ∏_{k≥i+1}(1 + u′^{e′p^k}/p) lies in Z_p[[u′, u′^m/p]], and (u′)^{p^i}/p^{1+(h−1)(i+1)} f_i ∈ (u′)^i R[[u′, u′^m/p]] for i large relative to m. The finitely many remaining terms lie in O^rig_R because λ ∈ O^rig_{K′}. The printed ψ has φ^{i+1}(λ) and Z_p[[(u′)^m/p]], a misprint recorded in S5. Identification: the matrices N_∞^{(j′)} define a derivation of M^{rig,(j′)}[1/λ] over N_∇ that satisfies (7.2) and vanishes mod u′. It is therefore N_{M^rig} (G65), by the uniqueness argument (G38).",
       "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Convergence. By (7.4) (G39), the increments N_{i+1} − N_i lie in u′^{p^i}·(R[1/p][[u′]]-matrices). Each u′-adic coefficient receives contributions from only finitely many i, so N_i^{(j′)} converges u′-adically in Mat_n(R[1/p][[u′]]) to N_∞^{(j′)}.",
+        "The limit solves (7.3), since φ and multiplication are u′-adically continuous, and vanishes modulo u′, as each N_i does.",
+        "Analyticity. By (7.4) it suffices that ψ = Σ_i u′^{p^i}p^{−1−(h−1)(i+1)}φ^{i+1}(λ)f_i with f_i ∈ R[[u′]] lies in O^rig_R. For each m, ψ lies in the image of R[[x, y]][1/p] under x ↦ u′, y ↦ u′^m/p: φ^{i+1}(λ) ∈ Z_p[[u′, u′^m/p]] once e′p^{i+1} ≥ m (E89), and the remaining factor lies in u′^iR[[u′, u′^m/p]] for i large relative to m. So λ^{h−1}N_∞ ∈ Mat_n(O^rig_R).",
+        "Identification. The derivation with matrices N_∞^{(j′)} satisfies (7.2) and vanishes mod u′, so by the uniqueness of Proposition 7.1.3(1) (G65, G38) it is N_{M^rig}. This clause is proved after G65, in the order G65's note gives."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G65",
@@ -19576,7 +19956,13 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G38",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G40",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G01"
-      ]
+      ],
+      "proofSteps": [
+        "Work Zariski-locally on Spf R, where M has an eigenbasis β. O^rig_R is a Zariski sheaf, since the adic spaces involved are sheafy [44, Theorem 2.2]. Any derivation N over N_∇ is (W(k′) ⊗ R)-linear, so it preserves each M^{rig,(j′)}. Its matrices N^{(j′)} satisfy (7.3) and vanish modulo u′.",
+        "Uniqueness. The system (7.3) has at most one solution, even in Mat_n(R[1/p][[u′]])^{J′} (G38; E37 for the index).",
+        "Existence. The limit N_∞ of Proposition 7.1.3(2) (convergence and analyticity clauses of G40) solves (7.3) and lies in λ^{−(h−1)}Mat_n(O^rig_R). Set N(Σ f_kβ_k) = Σ(N_∇(f_k)β_k + f_kN_∞β_k); it is a derivation over N_∇ on M^rig[1/λ], satisfies (7.2) and vanishes modulo u′. Uniqueness glues the local derivations."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G41",
@@ -19591,7 +19977,13 @@
       ],
       "proofOutline": "Iterate the affine recurrence and telescope successive increments. The Frobenius-twisted linear map is E Ad(C_j)φ with cyclic embedding shift. Expanding its i-th iterate gives the two opposite matrix orders; scalar E factors commute, matrix factors generally do not. G39 justifies passage from finite expansion to the analytic limit.",
       "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Put N_1^{(j)} = λu′(dC_j/du′)C_j^{−1} = −N_∇(C_j)C_j^{−1}, so the recursion reads N_i^{(j)} = N_1^{(j)} + E·C_jφ(N_{i−1}^{(j−1)})C_j^{−1}.",
+        "Unroll it: E is central, and φ is multiplicative. By induction, N_i^{(j)} = N_1^{(j)} + Σ_{l=1}^{i−1}(∏_{k=0}^{l−1}φ^k(C_{j−k}))φ^l(N_1^{(j−l)})(∏_{k=l−1}^{0}φ^k(E C_{j−k}^{−1})). The first product is in increasing k and the second in decreasing k.",
+        "Letting i → ∞ (G40) gives (7.5)."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G42",
@@ -19603,11 +19995,19 @@
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G41",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K02",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K05"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K06"
       ],
       "proofOutline": "Remove descent with the conjugating monomial/permutation matrix using (5.4). The derivative of that conjugation contributes [D_j,A_j]; the derivative of v gives e′v. Apply the recurrence to each Frobenius-transformed error. Entrywise exponent bounds use m+1≤〈μ+η,α∨〉≤p−m−1 and the integral height conditions. The exponent is 1+m(1+p+⋯+p^(i−1)), not (m+1)(1+p+⋯+p^(i−1)); this distinction is retained for the coefficient estimates.",
       "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Multiply (7.5) (G41) by p^hλ^{h−1} and use λ = (E/p)φ(λ) with E = v + p, v = u′^{e′}. This gives p^hλ^{h−1}N_∞^{(j)} = φ(λ)^hu′(dC_j/du′)(v+p)^hC_j^{−1} + Σ_{i≥1}X_i^{(j)}, with X_i as displayed on PDF137.",
+        "Remove the descent data (K06, (5.4); [59, p. 52]): conjugating by Ad((s′_{or,j})^{−1}u′^{−a′_j}) turns C into A. This gives (7.6), with P_N(A_j) = (−e′vA′_j − [D_j, A_j])(v+p)^hA_j^{−1} ∈ L^+M(R) ([59, Lemma 5.4]) and Z_i = Ad(…)(X_i/φ^{i+1}(λ)^h).",
+        "From the definitions, Z_i^{(j)} = p^{1−h}A_jAd(s_j^{−1}v^{μ_j+η_j})(φ(Z_{i−1}^{(j−1)}))(v+p)^hA_j^{−1} for i ≥ 1, and Z_0 = −P_N(A_j) ∈ (v+p)^{−1}L^+M(R).",
+        "Induct using m + 1 ≤ ⟨μ + η, α^∨⟩ ≤ p − m − 1 for the m-deep presentation. Each step multiplies the v-adic order by p through φ and gains at least m from Ad(v^{μ+η}) on the off-diagonal part, with a factor p^{1−h}. This gives Z_i ∈ p^{−i(h−1)}v^{1+m(p^i−1)/(p−1)}Mat_n(R[[v+p]]) (7.8)."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G43",
@@ -19623,7 +20023,13 @@
       ],
       "proofOutline": "Put D=v d/dv. If F∈v^M R[[v+p]], then D^tF|_(−p)∈p^M R, because Euler differentiation preserves the v^M factor. For k≥1, φ^k(L)(−p) is a p-adic unit, and its positive Euler derivatives are in p^(p−1)Z_p. The ith tail term has valuation at least 1+m(p^i−1)/(p−1)−i(h−1), whose minimum is its i=1 value m+2−h and which tends to infinity. Leibniz gives the same bound for Euler derivatives. Work modulo the saturated true ideal, and recursively divide by the unit φ(L)^h to solve for the derivatives of P_N.",
       "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Over R/I_{M,∇∞}[1/p], (d/du′)^t|_{E=0}(λ^{h−1}N_∞) = 0 for 0 ≤ t ≤ h−2 (Proposition 7.1.4, G05, and G07). u′ is invertible modulo E(u′), so the same holds for u′d/du′ and after applying the unit conjugation Ad((s′_{or})^{−1}u′^{−a′}). Since u′d/du′ = e′v d/dv with e′ a unit, (7.6) gives (7.9): (v d/dv)^t|_{v=−p}(−φ(λ)^hP_N(A) + Σ_{i≥1}φ^{i+1}(λ)^hZ_i) = 0.",
+        "(v d/dv)^t|_{v=−p}φ^k(λ) ∈ p^{p−1}Z_p for t, k ≥ 1, and φ(λ)(−p) is a unit: each factor φ^n(E/p)(−p) = 1 ± p^{p^n−1}. Also, if F ∈ v^MMat_n(R[[v+p]]) then (v d/dv)^tF|_{v=−p} ∈ p^MR.",
+        "With (7.8) (G42), the i-th tail term contributes p^{1+m(p^i−1)/(p−1)−i(h−1)}, which is smallest at i = 1: p^{m+2−h}. Since p − 1 ≥ m + 2 − h for an m-deep presentation, (7.10) follows: (v d/dv)^t|_{v=−p}P_N(A) ∈ p^{m+2−h}R modulo I_{M,∇∞}[1/p], for 0 ≤ t ≤ h−2."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G44",
@@ -19634,11 +20040,18 @@
       "status": "missing",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G43",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G09"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G07"
       ],
       "proofOutline": "The Stirling-number identity (v d/dv)^t=Σ_{a≤t}S(t,a)v^a(d/dv)^a has leading coefficient1. Induction on t converts the Euler bound to the ordinary derivative bound m+2−h−t after evaluating v=−p and dividing by p^t in the generic fiber. For k>l put P=vQ and use P^(t)=vQ^(t)+tQ^(t−1), losing at most one further p power. The k≤l entries satisfy the stronger bound and thus the displayed common bound. Finally R/I_nabla∞ is O-flat, so an equality with integral p-power error in its localization descends to the integral quotient.",
       "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "(v d/dv)^t − v^t(d/dv)^t is a Z-linear combination of operators v^a(d/dv)^b with a, b < t. Dividing by v^t = (−p)^t at v = −p, induction on t turns (7.10) (G43) into (d/dv)^t|_{v=−p}P_N(A) ∈ p^{m+1−(h−1)−t}R modulo I_{M,∇∞}[1/p].",
+        "Use (d/dv)^t v = t(d/dv)^{t−1} + v(d/dv)^t to pass to v^{−δ_{k>l}}P_N(A)_{kl}, losing one more p. The lower-triangular entries of P_N(A) have a factor v, so the expression before evaluation is integral. So (d/dv)^t|_{v=−p}(v^{−δ_{k>l}}P_N(A)_{kl}) ∈ p^{m−(h−1)−t}R modulo I_{M,∇∞}[1/p].",
+        "This element lies in R, and R/I_{M,∇∞} ⊂ R/I_{M,∇∞}[1/p] because R/I_{M,∇∞} is O-flat (G07). So it lies in (I_{M,∇∞}, p^{m−(h−1)−t}) ⊂ (I_{M,∇∞}, p^{m−2h+3}) for t ≤ h−2. These are the generators of I_{M,β,∇1} (G09)."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
@@ -24168,7 +24581,20 @@
           "where": "G55 (Remark 7.4.3(4))",
           "how": "Shows that Xtilde^{<=lambda,tau}_red exhausts the top-dimensional components of the naive local model."
         }
-      ]
+      ],
+      "proofSteps": [
+        "By Proposition 2.3.7 (N40, N41), with the η-shift, σ ∈ JH(W(λ−η) ⊗ σ̄(τ)) is 4n-deep, because μ is (4n+h)-deep and the constituents lose at most h.",
+        "So every ρ̄ of the form (7.15) for σ is 4n-generic. Proposition 6.2.9 (P15, P16) then gives such ρ̄ a potentially crystalline lift of type (λ, τ), so ρ̄ ∈ X^{λ,τ}(F̄).",
+        "Such points are dense in C_σ (G32; Emerton–Gee's description of the components, with the errata of E28). X^{λ,τ} is closed, so C_σ ⊂ X^{λ,τ} ⊂ X^{≤λ,τ}. The printed proof's 'any such ρ̄ of lies' is a harmless typo."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G32",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P16"
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N80",
@@ -34102,7 +34528,8 @@
     "ccC58621dQ03": "29 September 2026, issue 1254 (Claude Code, cc-58621d): Q03 (Proposition B.0.1(1)) is resolved. Appendix B's equations are the chart's for the monodromy term g·Diag(−a, −b, 0)·g^{−1}, the negative of (3.1)'s parameter (E114), and they present the chart only over Z[a, b][1/(aP)] (E115); the displayed matrix has vc12 for c12 (E116). Singular: exact ideal equality at five sample points; generic-point check over Q(a, b); an explicit cofactor certificate for the six solved coefficients; primality of (F1, F2, F3) over Q(a, b). New findings E114–E116; Q03's statement, proof steps and note are rewritten; sourceData.appendixB.q03Resolution is added. The appendix-certificates gap is closed and removed: every Appendix B claim is now certified over Z[a, b][1/(aP)] or corrected (E111–E116). No other item, status or route changed. check_paper.py and intake check-files pass.",
     "ccC58621dUOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): the 26 §3 theorem items without an outline (U05–U45) now carry source-level proofSteps, prerequisites and proofProvenance, read from the published PDF55–80 with the corrections E7–E12 applied. The internal prerequisite graph gains 60 edges and remains acyclic (1,290 edges). No new finding: §3 was re-read in full and its recorded findings (E7–E12, E43, E44, E85, E86) cover what was found. Remaining theorem items without proof steps: A 56, B 28, G 39, K 4, L 138, P 1, Z 1 (L items are library citations). No status, route or finding changed. check_paper.py and intake check-files pass.",
     "ccC58621dKPZOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): K45–K48, P17 and Z01 now carry proofSteps and proofProvenance (4 new prerequisite edges; the graph stays acyclic). K45 gets a direct base-p digit proof from (2.12) of \"1-generic implies regular\"; K46–K48 follow §5.5 (PDF121–125) with the E19 repair; P17 follows the recorded n ≥ 2 correction; Z01 outlines the source proof of Boixeda Alvarez, Theorem 3.1, from its main text. Remaining theorem items without proof steps: A 56, B 28, G 39, L 138. No status, route or finding changed. check_paper.py and intake check-files pass.",
-    "ccC58621dBOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): the 28 §8 theorem items without an outline (B08, B10, B11, B15–B17, B20, B21, B23–B26, B29, B31–B33, B35, B37–B42, B44, B52–B55) now carry source-level proofSteps, prerequisites and proofProvenance, read from the published PDF163–180 with E21, E41 and E75–E83 applied; page images of PDF173 and 176–179 were checked. The internal prerequisite graph gains 147 edges and stays acyclic (1,441 edges). Two new findings: E117 (the last paragraph of the proof of Corollary 8.5.2 applies Lemma 8.5.1 at points of P_ss, which are not known to satisfy its hypothesis; the repaired argument works at ρ̄^ss through the patching functor's support) and E118 (the proof of Lemma 8.4.9 cites Remark 7.4.3(3), which needs 2(h_{λ+η}+1)-depth; S_{Λ,t} gives this only when h_{λ+η} ≤ 6n−4, and the first sentence of the lemma follows from the second by semisimplification). Both were compared with arXiv v2, which prints the same text. Remaining theorem items without proof steps: A 56, G 39, L 138 (L items are library citations). No status or route changed. check_paper.py and intake check-files pass."
+    "ccC58621dBOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): the 28 §8 theorem items without an outline (B08, B10, B11, B15–B17, B20, B21, B23–B26, B29, B31–B33, B35, B37–B42, B44, B52–B55) now carry source-level proofSteps, prerequisites and proofProvenance, read from the published PDF163–180 with E21, E41 and E75–E83 applied; page images of PDF173 and 176–179 were checked. The internal prerequisite graph gains 147 edges and stays acyclic (1,441 edges). Two new findings: E117 (the last paragraph of the proof of Corollary 8.5.2 applies Lemma 8.5.1 at points of P_ss, which are not known to satisfy its hypothesis; the repaired argument works at ρ̄^ss through the patching functor's support) and E118 (the proof of Lemma 8.4.9 cites Remark 7.4.3(3), which needs 2(h_{λ+η}+1)-depth; S_{Λ,t} gives this only when h_{λ+η} ≤ 6n−4, and the first sentence of the lemma follows from the second by semisimplification). Both were compared with arXiv v2, which prints the same text. Remaining theorem items without proof steps: A 56, G 39, L 138 (L items are library citations). No status or route changed. check_paper.py and intake check-files pass.",
+    "ccC58621dGOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): the 39 §7 theorem items without an outline (G02, G05, G06, G10, G11, G15, G16, G19, G20, G28–G31, G33–G48, G53–G61 and G65) now carry source-level proofSteps, prerequisites and proofProvenance, read from the published PDF132–162 with E15, E20, E28, E32, E37, E64, E69–E74, E89 and E110 applied. The internal prerequisite graph gains 127 edges and stays acyclic (1,568 edges). No new finding: §7 was re-read and its recorded findings cover what was found. Two implicit steps are made explicit: Theorem 7.3.2(2)'s polynomial condition on μ is the product of Theorem 3.7.1's P over the finitely many s_j^{-1}(μ_j+η_j) (Lemma 7.3.1); and Remark 7.4.3(2) needs h ≥ n−1, which regularity of λ ∈ [0,h]^n forces, to meet E15's repaired bound. Remaining theorem items without proof steps: A 56, L 138 (L items are library citations). No status, route or finding changed. check_paper.py and intake check-files pass."
   },
   "definitionApiGroups": [
     {
