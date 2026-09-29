@@ -365,4 +365,19 @@ example : Matrix.det !![(X : ℚ[X]), 1; 0, X] = X ^ 2 ∧ (!![(0 : ℚ), 1; 0, 
 
 end NE8Tests
 
+/-! ## NE.7 (checkpoint 9): Burns–Venjakob §§5–6 -/
+
+namespace NE9Tests
+
+/-- `NE.7/local-epsilon-isomorphism`: `Γ^*(3) = 2! = 2` and `Γ^*(-2) = (-1)^{-2}/2! = 1/2`, the residue of `Γ` at `-2`
+(finding E13 fixes the printed `Γ^*(−j)`). -/
+example : (Nat.factorial 2 : ℚ) = 2 ∧ ((-1 : ℚ) ^ (2 : ℕ)) / (Nat.factorial 2 : ℚ) = 1 / 2 := by
+  refine ⟨by norm_num [Nat.factorial], by norm_num [Nat.factorial]⟩
+
+/-- `NE.7/padic-stark-conjecture`, trivial character with `S = {2, 3}`: the S-truncated residue is
+`(1 - 1/2)(1 - 1/3) = 1/3` on both sides. -/
+example : (1 - (1 : ℚ) / 2) * (1 - 1 / 3) = 1 / 3 := by norm_num
+
+end NE9Tests
+
 end TauCeti.NoncommIwasawa

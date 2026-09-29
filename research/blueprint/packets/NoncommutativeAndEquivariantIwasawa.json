@@ -13,7 +13,7 @@
   "NoncommutativeAndEquivariantIwasawa:NE.7"
  ],
  "status": "partial",
- "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain. Checkpoint 4 (cc-39fac3) plans CFKSV §4's integrality conjecture 4.8 with Lemma 4.9 (NE.3) and §5: the dual Selmer module, Conjectures 5.1–5.2 and the 𝔐_H(G) criteria (NE.4), and Conjectures 5.7–5.8 with Corollaries 5.9–5.10 and the X₁(11) check (NE.5). Conjectures are stated as propositions, never assumed. Checkpoint 5 reads Kakde §§1–4: admissible extensions and μ = 0, the complex C(F_∞/F), SK₁ and K′₁, ∂ surjective with p-torsion, the totally real main conjecture, the abelian × prime-to-p case from Deligne–Ribet and Wiles, the Burns–Kato patching principle, and the reductions to dimension one, to ℚ_p-elementary groups, the l-elementary case and the reduction to Δ × pro-p. Checkpoint 6 (cc-39fac3) reads Kakde §5 and §6.1: Λ_𝒪(G) as a twisted group ring over Λ_𝒪(Z), the congruence groups Φ^G, the additive theorem R[Conj Ḡ]^τ ≅ ψ^G, the logarithm on relative K₁ and the integral logarithm, the relation between θ^G and β^G, Theorems 52–53 (K′₁(Λ_𝒪(G)) ≅ Φ^G), Corollary 90, and the reduction of the main conjecture to (ζ_P) ∈ Φ^G_S with M1–M2 proved. Checkpoint 7 (cc-39fac3) completes the Kakde route: Kakde §§6.2–6.13 — Deligne–Ribet approximations, the basic congruences via Hilbert Eisenstein series and the q-expansion principle, M4 through the enlarged extension, Theorem 94, and Theorem 11 (the main conjecture for totally real fields, p odd, μ = 0). Findings E5–E10. Checkpoint 8 (cc-39fac3) starts NE.7 from Burns–Venjakob §§2–4: the determinant functor and localized K₁ (NE.2), Bockstein maps, semisimplicity, leading terms and their characteristic-series and cyclotomic-derivative interpretations, generalized Euler characteristics, and the Fukaya–Kato zeta isomorphism as a proposition; finding E11.",
+ "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain. Checkpoint 4 (cc-39fac3) plans CFKSV §4's integrality conjecture 4.8 with Lemma 4.9 (NE.3) and §5: the dual Selmer module, Conjectures 5.1–5.2 and the 𝔐_H(G) criteria (NE.4), and Conjectures 5.7–5.8 with Corollaries 5.9–5.10 and the X₁(11) check (NE.5). Conjectures are stated as propositions, never assumed. Checkpoint 5 reads Kakde §§1–4: admissible extensions and μ = 0, the complex C(F_∞/F), SK₁ and K′₁, ∂ surjective with p-torsion, the totally real main conjecture, the abelian × prime-to-p case from Deligne–Ribet and Wiles, the Burns–Kato patching principle, and the reductions to dimension one, to ℚ_p-elementary groups, the l-elementary case and the reduction to Δ × pro-p. Checkpoint 6 (cc-39fac3) reads Kakde §5 and §6.1: Λ_𝒪(G) as a twisted group ring over Λ_𝒪(Z), the congruence groups Φ^G, the additive theorem R[Conj Ḡ]^τ ≅ ψ^G, the logarithm on relative K₁ and the integral logarithm, the relation between θ^G and β^G, Theorems 52–53 (K′₁(Λ_𝒪(G)) ≅ Φ^G), Corollary 90, and the reduction of the main conjecture to (ζ_P) ∈ Φ^G_S with M1–M2 proved. Checkpoint 7 (cc-39fac3) completes the Kakde route: Kakde §§6.2–6.13 — Deligne–Ribet approximations, the basic congruences via Hilbert Eisenstein series and the q-expansion principle, M4 through the enlarged extension, Theorem 94, and Theorem 11 (the main conjecture for totally real fields, p odd, μ = 0). Findings E5–E10. Checkpoint 8 (cc-39fac3) starts NE.7 from Burns–Venjakob §§2–4: the determinant functor and localized K₁ (NE.2), Bockstein maps, semisimplicity, leading terms and their characteristic-series and cyclotomic-derivative interpretations, generalized Euler characteristics, and the Fukaya–Kato zeta isomorphism as a proposition; finding E11. Checkpoint 9 (cc-39fac3) completes Burns–Venjakob in NE.7 (§5 Tate motives, §6 critical motives).",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -262,6 +262,20 @@
     "module": "Mathlib/FieldTheory/Finite/Basic.lean",
     "provides": "expand p f = f^p over ℤ/p (Lemma 72).",
     "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Complex.Gamma",
+    "kind": "def",
+    "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+    "provides": "The Gamma function, for Γ^*(j) and its residues.",
+    "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3)."
+   },
+   {
+    "ref": "mathlib:Padic",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+    "provides": "The p-adic numbers ℚ_p.",
+    "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3)."
    }
   ]
  },
@@ -311,7 +325,8 @@
    "sha256": "4b33fb11251340c88a8f8a590d9f9296a413aadf4fae98968ea7191a14c857bc",
    "readSections": [
     "2026-09-28 (cc-39fac3): §2.1–2.2 (determinant functors, the localized K₁ of Fukaya–Kato, the category Σ_S), pp. 4–7.",
-    "2026-09-29 (cc-39fac3, checkpoint 8): §1, §2 in full (reread), §3 in full (Definitions 3.2, 3.4, 3.7, 3.11, 3.12, 3.14, Lemmas 3.1, 3.6, 3.9, 3.13, 3.17, Propositions 3.8, 3.16, 3.19, Remarks 3.3, 3.5, 3.10, 3.15, 3.18, 3.20) and §4 (Conjecture 4.1), pp. 1–21."
+    "2026-09-29 (cc-39fac3, checkpoint 8): §1, §2 in full (reread), §3 in full (Definitions 3.2, 3.4, 3.7, 3.11, 3.12, 3.14, Lemmas 3.1, 3.6, 3.9, 3.13, 3.17, Propositions 3.8, 3.16, 3.19, Remarks 3.3, 3.5, 3.10, 3.15, 3.18, 3.20) and §4 (Conjecture 4.1), pp. 1–21.",
+    "2026-09-29 (cc-39fac3, checkpoint 9): §5 and §6 in full (Lemma 5.1, Conjecture 5.2, Remarks 5.3–5.4, Theorem 5.5, Remark 5.6, Corollary 5.7, Conjecture 6.1, Lemma 6.2, Examples 6.3, 6.5, 6.9, Propositions 6.4, 6.6, Theorem 6.7 with proof, Remark 6.8), pp. 21–36; page images of p. 28 and p. 33."
    ]
   },
   {
@@ -6662,6 +6677,535 @@
    "planet": {
     "name": "Fukaya–Kato zeta isomorphism"
    }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/leopoldt-tate-motive-descent",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "Descent for the Tate motive at ρ under Leopoldt (BV Lemma 5.1)",
+   "kind": "lemma",
+   "statement": "Fix ρ ∈ R_{ℂ_p}(Ḡ) with Leopoldt's conjecture valid at ρ, i.e. (ℚ_p ⊗ ker λ_p)^ρ = 0 for λ_p : O_E[1/p]^× ⊗ ℤ_p → ∏_{w|p}E_w^× ⊗̂ ℤ_p. (i) (H^i_c(U, 𝕋_E) ⊗ ℚ_p)^ρ is (cok λ_p ⊗ ℚ_p)^ρ for i = 2, (ℚ_p)^ρ for i = 3, and 0 otherwise. (ii) RΓ_c(U, 𝕋) ∈ Σ_{ss−ρ} and r_G(RΓ_c(U, 𝕋))(ρ) = ⟨ρ, 1⟩ = dim_{ℂ_p}(ℚ_p)^ρ. (iii) Under (i), the Bockstein morphism (B²)^ρ : H²_c → H³_c is induced by log_{p,γ,E} : ∏_{w|p}E_w^× ⊗̂ ℤ_p → ℤ_p, (e_w) ↦ −Σ_w c_γ^{−1}log_p(N_{E_w/ℚ_p}(e_w)).",
+   "hypotheses": [
+    "p odd; F_∞/ℚ totally real Galois, containing ℚ_cyc, unramified outside a finite set S ∋ p, with G = Gal(F_∞/ℚ) a compact p-adic Lie group, H = Gal(F_∞/ℚ_cyc), Γ = G/H; E ⊆ F_∞ finite over ℚ with E ∩ ℚ_cyc = ℚ and E_w ∩ ℚ_{p,cyc} = ℚ_p for w | p (condition (15)); Ḡ = Gal(E/ℚ); 𝕋 = Λ(G) with σ acting by multiplication by χ_cyc(σ̄)σ̄^{−1}; U = Spec ℤ[1/S]; c_γ = c_{χ_cyc,γ}."
+   ],
+   "proofSteps": [
+    "(i): the triangle RΓ_c(U, 𝕋_E) → RΓ(U, 𝕋_E) → ⊕_{ℓ∈S}RΓ(ℚ_ℓ, 𝕋_E) with H^i(O_E[1/S], ℤ_p(1)) and H^i(E_w, ℤ_p(1)); H²_c ⊗ ℚ_p ≅ cok λ_p ⊗ ℚ_p always, and (H¹_c ⊗ ℚ_p)^ρ = 0 iff (ker λ_p ⊗ ℚ_p)^ρ = 0 since E is totally real.",
+    "(ii): (15) gives Gal(E_cyc/ℚ) ≅ Γ × Ḡ; RΓ_c(U, 𝕋)_ρ ≅ O^n ⊗ RΓ_c(U, 𝕋_{E_cyc}) (18), and Lemma 3.13 with the semisimplicity criterion of Remark 3.3(ii).",
+    "(iii): compare the global Bockstein with the local ones B¹_w through the triangle, then with B¹_p on RΓ(ℚ_{p,cyc}, ℤ_p(1)), which is c_γ^{−1}·log_p."
+   ],
+   "acceptance": [
+    "Check the trivial character ρ = 1 with E = ℚ: ⟨1, 1⟩ = 1, cok λ_p = (ℚ_p^× ⊗̂ ℤ_p)/⟨p⟩ ≅ 1 + pℤ_p, so cok λ_p ⊗ ℚ_p ≅ ℚ_p via log_p, and the Bockstein is −c_γ^{−1}log_p."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/bockstein-homomorphism",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/semisimple-complexes",
+    "Polylogarithms:P.6/leopoldt-statement",
+    "mathlib:Padic"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TateMotive",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§5.1, Lemma 5.1 and proof, pp. 22–24 (arXiv v2)",
+     "excerpt": "Leopoldt’s conjecture (for the",
+     "match": "Leopoldt's conjecture as injectivity of λ_p, and Lemma 5.1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-conjecture",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "The p-adic Stark conjecture at s = 1 (Serre; BV Conjecture 5.2)",
+   "kind": "definition",
+   "statement": "For ρ ∈ R_{ℂ_p}(Ḡ), let L_{p,S}(s, ρ) be Greenberg's S-truncated p-adic Artin L-function (L_{p,S}(n, ρ) = L_S(n, ρω^{n−1}) for n < 0) and L^*_{p,S}(1, ρ) := lim_{s→1}(s − 1)^{⟨ρ,1⟩}L_{p,S}(s, ρ). Let μ_∞ : ℂ ⊗ log_∞(O_E^×) ≅ ℂ ⊗ E₀ (E₀ the trace-zero part of E) and μ_p : ℚ_p ⊗ log_∞(O_E^×) ≅ ℚ_p ⊗ E₀ the maps induced by exp_∞ followed by λ_p and log_p (19). The conjecture P-Stark(ρ) asserts that L^*_{p,S}(1, ρ) is the leading term of L_{p,S}(s, ρ) at s = 1 and, for every ℚ[Ḡ]-isomorphism g : E₀ → O_E^× ⊗ ℚ, L^*_{p,S}(1, ρ)/det_{ℂ_p}((ℂ_p ⊗ μ_p) ∘ (ℂ_p ⊗ g))^ρ = L^*_S(1, ρ)/det_ℂ(μ_∞ ∘ (ℂ ⊗ g))^ρ, the two sides compared through a fixed j : ℂ_p ≅ ℂ.",
+   "hypotheses": [
+    "p odd; F_∞/ℚ totally real Galois, containing ℚ_cyc, unramified outside a finite set S ∋ p, with G = Gal(F_∞/ℚ) a compact p-adic Lie group, H = Gal(F_∞/ℚ_cyc), Γ = G/H; E ⊆ F_∞ finite over ℚ with E ∩ ℚ_cyc = ℚ and E_w ∩ ℚ_{p,cyc} = ℚ_p for w | p (condition (15)); Ḡ = Gal(E/ℚ); 𝕋 = Λ(G) with σ acting by multiplication by χ_cyc(σ̄)σ̄^{−1}; U = Spec ℤ[1/S]; c_γ = c_{χ_cyc,γ}.",
+    "A fixed isomorphism j : ℂ_p ≅ ℂ."
+   ],
+   "proofSteps": [
+    "Well-definedness: log_∞(O_E^×) is a lattice in ℝ ⊗ E₀ (Dirichlet), so μ_∞ is an isomorphism; (19) factors through ℚ_p ⊗ E₀, so μ_p is an isomorphism under Leopoldt.",
+    "Independence of g: changing g multiplies both determinants by the same algebraic number det(ℚ ⊗ h)^ρ."
+   ],
+   "acceptance": [
+    "Check that Remark 5.3's point is recorded: Tate's formulation (Chapter VI §5) is imprecise about \"log U\" and μ_p, and BV's statement is the clarification."
+   ],
+   "prerequisites": [
+    "AutomorphicPadicLFunctions:L3",
+    "Polylogarithms:P.6/leopoldt-statement"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TateMotive",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§5.2, Conjecture 5.2 and Remark 5.3, pp. 24–25 (arXiv v2)",
+     "excerpt": "This conjecture is the ‘ p-adic Stark conjecture at",
+     "match": "Greenberg's L_{p,S}, the maps μ_∞, μ_p and Conjecture 5.2."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation",
+     "how": "the hypothesis of Theorem 5.5"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.PadicStarkAtOne",
+     "role": "data",
+     "statement": "The proposition P-Stark(ρ) for ρ ∈ R_{ℂ_p}(Ḡ)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.padicStark_indep_g",
+     "role": "characterisation",
+     "statement": "The identity does not depend on the choice of g."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.padicStark_add",
+     "role": "compatibility",
+     "statement": "P-Stark is additive in ρ (both sides are multiplicative in ρ)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.padicStark_induction",
+     "role": "compatibility",
+     "statement": "P-Stark is inductive: P-Stark(Ind ρ) ⇔ P-Stark(ρ) for subfields."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.padicStark_permutation",
+     "role": "relation",
+     "statement": "P-Stark(Ind_J^{Ḡ}1_J) ⇔ the p-adic class number formula for E^J (padic-stark-permutation-case)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.NoncommIwasawa.padicStark_trivial",
+     "kind": "example",
+     "statement": "ρ = 1, E = ℚ: ⟨1, 1⟩ = 1 and P-Stark(1) is Res_{s=1}ζ_{p,S}(s) = (1 − p^{−1})·∏_{ℓ∈S∖{p}}(1 − ℓ^{−1}), the S-truncated Kubota–Leopoldt residue."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.padicStark_quadratic",
+     "kind": "example",
+     "statement": "E real quadratic, ρ the quadratic character: both sides involve log_p ε resp. log|ε| of a fundamental unit (Leopoldt's p-adic class number formula)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.padicStark_no_zero",
+     "kind": "example",
+     "statement": "ρ with ⟨ρ, 1⟩ = 0 (nontrivial irreducible): the leading term is the value L_{p,S}(1, ρ)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.padicStark_needs_leopoldt",
+     "kind": "example",
+     "statement": "If Leopoldt fails at ρ, μ_p is not an isomorphism and the determinant on the left vanishes: the conjecture then predicts a higher-order zero, not the stated identity."
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-permutation-case",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "The p-adic Stark conjecture for permutation characters (BV Remark 5.4, after Colmez)",
+   "kind": "theorem",
+   "statement": "For a subgroup J ⊆ Ḡ and ρ = Ind_J^{Ḡ}1_J, P-Stark(ρ) holds iff the residue at s = 1 of the p-adic zeta function of E^J is nonzero and equal to 2^{[E^J:ℚ]−1}hR_p e_p/√|d|, with e_p = ∏_{v|p}(1 − Nv^{−1}); by Colmez this holds iff Leopoldt's conjecture holds for E^J. Leopoldt for E implies it for every E^J.",
+   "hypotheses": [
+    "p odd; F_∞/ℚ totally real Galois, containing ℚ_cyc, unramified outside a finite set S ∋ p, with G = Gal(F_∞/ℚ) a compact p-adic Lie group, H = Gal(F_∞/ℚ_cyc), Γ = G/H; E ⊆ F_∞ finite over ℚ with E ∩ ℚ_cyc = ℚ and E_w ∩ ℚ_{p,cyc} = ℚ_p for w | p (condition (15)); Ḡ = Gal(E/ℚ); 𝕋 = Λ(G) with σ acting by multiplication by χ_cyc(σ̄)σ̄^{−1}; U = Spec ℤ[1/S]; c_γ = c_{χ_cyc,γ}."
+   ],
+   "proofSteps": [
+    "Inductivity of L-functions reduces ρ = Ind 1_J to the Dedekind and p-adic zeta functions of E^J; the complex side is the analytic class number formula (AnalyticNumberTheory AN.4).",
+    "Colmez 1988 (the p-adic class number formula for totally real fields; cited, requested from AutomorphicPadicLFunctions L3)."
+   ],
+   "acceptance": [
+    "Check E^J = ℚ: the formula reduces to Res_{s=1}ζ_p(s) = 1 − 1/p (Kubota–Leopoldt)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-conjecture",
+    "AutomorphicPadicLFunctions:L3",
+    "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TateMotive",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§5.2, Remark 5.4, p. 25 (arXiv v2)",
+     "excerpt": "the residue at s = 1 of the p-adic zeta function of the",
+     "match": "Remark 5.4 (with Tate's remark p. 138 and Colmez)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "Interpolation formula for the Tate motive (BV Theorem 5.5)",
+   "kind": "theorem",
+   "statement": "If P-Stark(ρ) holds for all ρ ∈ R_{ℂ_p}(Ḡ), then for each ρ: RΓ_c(U, 𝕋) ∈ Σ_{ss−ρ}, r_G(RΓ_c(U, 𝕋))(ρ) = ⟨ρ, 1⟩, and c_γ^{⟨ρ,1⟩}·ζ_{Λ(G)}(𝕋)^*(ρ) = L^*_{p,S}(1, ρ) (20), where ζ_{Λ(G)}(𝕋) is the Fukaya–Kato zeta isomorphism for M = h⁰(Spec E)(1). By Lemma 3.17 the left side is the leading term at s = 0 of s ↦ f_𝓛(ρχ_cyc^s) for 𝓛 = [RΓ_c(U, 𝕋), ζ_{Λ(G)}(𝕋)].",
+   "hypotheses": [
+    "p odd; F_∞/ℚ totally real Galois, containing ℚ_cyc, unramified outside a finite set S ∋ p, with G = Gal(F_∞/ℚ) a compact p-adic Lie group, H = Gal(F_∞/ℚ_cyc), Γ = G/H; E ⊆ F_∞ finite over ℚ with E ∩ ℚ_cyc = ℚ and E_w ∩ ℚ_{p,cyc} = ℚ_p for w | p (condition (15)); Ḡ = Gal(E/ℚ); 𝕋 = Λ(G) with σ acting by multiplication by χ_cyc(σ̄)σ̄^{−1}; U = Spec ℤ[1/S]; c_γ = c_{χ_cyc,γ}.",
+    "The Fukaya–Kato isomorphism ζ_{Λ(G)}(𝕋) (Conjecture 4.1) is assumed to exist."
+   ],
+   "proofSteps": [
+    "P-Stark implies Leopoldt for E (padic-stark-permutation-case), so Lemma 5.1(ii) gives the semisimplicity and the rank.",
+    "For M = h⁰(Spec E)(1): H¹_f(M) = O_E^× ⊗ ℚ, H⁰_f(M^*(1)) = ℚ, t_M = E and the other terms vanish; ζ_K(M([ρ]^*))_{K_λ} is the composite (21) (multiplication by L^*_S(1, ρ), the regulator sequence (22), Lemma 5.1(i) with the p-adic logarithm (23)).",
+    "t(RΓ_c(U, 𝕋)(ρ^*)) is the composite (24) with −c_γ^{−1}log_{p,γ,E} (Lemma 5.1(iii)); the sign (−1)^{⟨ρ,1⟩} of Definition 3.14 cancels the −1 of the trace diagram, giving (25).",
+    "The correction factor ξ equals det(μ_p ∘ g)^ρ/det(μ_∞ ∘ g)^ρ (26), and P-Stark turns (25) into (20)."
+   ],
+   "acceptance": [
+    "Check the trivial character: (20) says c_γ·ζ_{Λ(G)}(𝕋)^*(1) is the residue of ζ_{p,S} at s = 1, the Kubota–Leopoldt p-adic class number formula for ℚ.",
+    "Check the leading-term interpretation (Remark 5.6): both sides are leading terms of p-adic meromorphic functions, at s = 1 and s = 0 respectively."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/leopoldt-tate-motive-descent",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-conjecture",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-permutation-case",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/fukaya-kato-zeta-isomorphism",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/partial-derivative-interpretation"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TateMotive",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§5.3, Theorem 5.5 and proof, pp. 25–27 (arXiv v2)",
+     "excerpt": "We now reinterpret the equality of Con",
+     "match": "Theorem 5.5, Remark 5.6 and the proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Interpolation formula for Tate motives"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation-rational",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "The interpolation formula for ℚ-rational characters under Leopoldt (BV Corollary 5.7, corrected scope)",
+   "kind": "theorem",
+   "statement": "If Leopoldt's conjecture holds for E at p, then for every ℚ-valued character ρ of Ḡ there is n_ρ ≥ 1 with (c_γ^{⟨ρ,1⟩}·ζ_{Λ(G)}(𝕋)^*(ρ))^{n_ρ} = L^*_{p,S}(1, ρ)^{n_ρ}; for a permutation character one can take n_ρ = 1. (BV state this for \"ℚ_p-rational\" characters; the proof covers ℚ-valued ones, see NoncommutativeAndEquivariantIwasawa/E12.)",
+   "hypotheses": [
+    "p odd; F_∞/ℚ totally real Galois, containing ℚ_cyc, unramified outside a finite set S ∋ p, with G = Gal(F_∞/ℚ) a compact p-adic Lie group, H = Gal(F_∞/ℚ_cyc), Γ = G/H; E ⊆ F_∞ finite over ℚ with E ∩ ℚ_cyc = ℚ and E_w ∩ ℚ_{p,cyc} = ℚ_p for w | p (condition (15)); Ḡ = Gal(E/ℚ); 𝕋 = Λ(G) with σ acting by multiplication by χ_cyc(σ̄)σ̄^{−1}; U = Spec ℤ[1/S]; c_γ = c_{χ_cyc,γ}.",
+    "Leopoldt's conjecture for E at p; the Fukaya–Kato isomorphism exists."
+   ],
+   "proofSteps": [
+    "Artin's induction theorem: for ℚ-valued ρ, n_ρ·ρ = Σ_H n_H·Ind_H^{Ḡ}1_H with integers n_H (Tate, Chapitre II, Théorème 1.2).",
+    "Both sides of (20) are additive and inductive in ρ; padic-stark-permutation-case (via Colmez) gives (20) for each Ind_H 1_H under Leopoldt."
+   ],
+   "acceptance": [
+    "Check the scope: the permutation characters Ind_H 1_H are ℚ-valued, so only ℚ-valued n_ρ·ρ are ℤ-combinations of them; a ℚ_p-valued cubic character (p ≡ 1 mod 3) is not."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-permutation-case"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TateMotive",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§5.3, Corollary 5.7 and proof, p. 27 (arXiv v2)",
+     "excerpt": "If Leopoldt’s conjecture is valid for E at p, then for every",
+     "match": "Corollary 5.7 and its proof by Artin induction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/local-epsilon-isomorphism",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "The local ε-isomorphism ε_{p,L}(V) and Fukaya–Kato's local conjecture (BV §6.1, Conjecture 6.1)",
+   "kind": "definition",
+   "statement": "Fix t = (t_n) a generator of ℤ_p(1) and ψ_p : ℚ_p → Q̄_p^× with kernel ℤ_p, 1/p^n ↦ t_n. For a de Rham L-representation V of G_{ℚ_p}, with L̃ = Q̂_p^nr ⊗ L, Γ^*(j) = Γ(j) = (j − 1)! for j > 0 and Res_{s=j}Γ(s) = (−1)^j((−j)!)^{−1} for j ≤ 0, h(j) = dim_L gr^jD_dR(V) and Γ_L(V) = ∏_j Γ^*(j)^{−h(−j)}, ε_{p,L}(V) : 1_{L̃} → (d_L(RΓ(ℚ_p, V))d_L(V))_{L̃} is the product of Γ_L(V), η_l(V)·η_l(V^*(1))^* and Fukaya–Kato's ε_dR(V) : 1 → d(V)d(D_dR(V))^{−1} (which involves Deligne's ε(D_pst(V))). Conjecture 6.1 (Fukaya–Kato 3.4.3): for 𝕋 = Λ ⊗ T there is a unique ε_{p,Λ}(𝕋) : 1_{Λ̃} → (d_Λ(RΓ(ℚ_p, 𝕋))d_Λ(𝕋))_{Λ̃} (Λ̃ = W(F̄_p)⟦G⟧) whose base change along each ρ : G → GL_n(O) is ε_{p,L}(T(ρ^*)).",
+   "hypotheses": [
+    "L/ℚ_p finite; V de Rham; the Haar measure and t are fixed and suppressed."
+   ],
+   "proofSteps": [
+    "Definitions; ε_dR(V) exists by Fukaya–Kato Proposition 3.3.5 (cited, source not freely available)."
+   ],
+   "acceptance": [
+    "Check the Γ-factor convention on V = ℚ_p(1): D_dR has one jump at j = −1, so Γ_L(V) = Γ^*(1)^{−1} = 1; on V = ℚ_p it is Γ^*(0)^{−1} = 1."
+   ],
+   "prerequisites": [
+    "PadicHodgeTheory:R06.3/weil-deligne-parameter",
+    "mathlib:Complex.Gamma"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CriticalMotives",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§6.1, pp. 28–29, and Conjecture 6.1 (arXiv v2)",
+     "excerpt": "is a local integrality statement",
+     "match": "The local ε-isomorphism and Conjecture 6.1 (the Γ^* display is corrected, E13)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/critical-motive-interpolation",
+     "how": "the factors (45), (46), (48), (49) of the leading term"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.localEpsilon",
+     "role": "constructor",
+     "statement": "ε_{p,L}(V) = Γ_L(V)·η_l(V)η_l(V^*(1))^*·ε_dR(V)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.gammaStar",
+     "role": "constructor",
+     "statement": "Γ^*(j): Γ(j) for j > 0, the residue of Γ at j for j ≤ 0."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.gammaL",
+     "role": "constructor",
+     "statement": "Γ_L(V) = ∏_j Γ^*(j)^{−h(−j)}."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.LocalEpsilonConjecture",
+     "role": "data",
+     "statement": "Conjecture 6.1: ε_{p,Λ}(𝕋) interpolating ε_{p,L}(T(ρ^*))."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.localEpsilon_baseChange",
+     "role": "compatibility",
+     "statement": "L_n ⊗_Λ ε_{p,Λ}(𝕋) = ε_{p,L}(T(ρ^*)) (the defining property)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.NoncommIwasawa.gammaStar_pos",
+     "kind": "example",
+     "statement": "Γ^*(3) = 2! = 2."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.gammaStar_nonpos",
+     "kind": "example",
+     "statement": "Γ^*(−2) = (−1)^{−2}/2! = 1/2 = Res_{s=−2}Γ(s) (suggested file)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.gammaL_trivial",
+     "kind": "example",
+     "statement": "V = ℚ_p: h(0) = 1, so Γ_L(V) = Γ^*(0)^{−1} = 1."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.gammaStar_not_gamma",
+     "kind": "example",
+     "statement": "Γ^* is not Γ at j ≤ 0, where Γ has poles; the residue is used instead."
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/dabrowski-panchishkin-selmer-complexes",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "Dabrowski–Panchishkin representations and their Selmer complexes (BV §6.2, Lemma 6.2)",
+   "kind": "definition",
+   "statement": "A representation W of G_ℚ satisfies (DP) if it is de Rham and has a G_{ℚ_p}-subrepresentation Ŵ with D⁰_dR(Ŵ) = t_p(W) := D_dR(W)/D⁰_dR(W); then 0 → Ŵ → W → W̃ → 0 with D⁰_dR(Ŵ) = t_p(W̃) = 0, and Z = W^*(1) satisfies (DP) with Ẑ = W̃^*(1). The Selmer complexes SC_U(Ŵ, W) and SC(Ŵ, W) are the mapping fibres of RΓ(U, W) → RΓ(ℚ_p, W/Ŵ) ⊕ ⊕_{ℓ∈S_f∖S_p}RΓ(ℚ_ℓ, W) (resp. RΓ_{/f}(ℚ_ℓ, W) with RΓ_{/f} = cone(RΓ_f → RΓ)). Conditions: (A1) P_ℓ(W, 1)P_ℓ(Z, 1) ≠ 0 for ℓ ∈ S_f ∖ S_p; (B1) P_p(W, 1)P_p(Z, 1) ≠ 0; (C1) P_p(W̃, 1)P_p(Z̃, 1) ≠ 0 (each with equivalent forms). Lemma 6.2: under (A1) the complexes at ℓ ≠ p are acyclic; under (C1), RΓ_{/f}(ℚ_p, X) ≅ RΓ(ℚ_p, X̃) and RΓ_f(ℚ_p, X) ≅ RΓ(ℚ_p, X̂); under both, SC_U(Ŵ, W) ≅ RΓ_f(ℚ, W).",
+   "hypotheses": [
+    "W a finite-dimensional L-representation of G_{ℚ,S}; P_ℓ(V, u) = det(1 − φ_ℓu | V^{I_ℓ}) (ℓ ≠ p), det(1 − φ_pu | D_cris(V)) (ℓ = p), φ geometric Frobenius."
+   ],
+   "proofSteps": [
+    "(A1): local duality and the Euler characteristic formula make RΓ(ℚ_ℓ, X) acyclic.",
+    "(C1): complexes of vector spaces are quasi-isomorphic to their cohomology, and RΓ(ℚ_p, X̂) ≅ RΓ_f(ℚ_p, X̂) ≅ RΓ_f(ℚ_p, X) (Fukaya–Kato 4.1.7); compare the two triangles.",
+    "(iii) from (i), (ii) and the definitions."
+   ],
+   "acceptance": [
+    "Check Example 6.3: for an abelian variety A/ℚ with good ordinary reduction at p, W = V_p(A)(ρ^*) satisfies (DP), (A1), (B1), (C1); with split multiplicative reduction (B1) fails."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2",
+    "PadicHodgeTheory:R06.3/weil-deligne-parameter"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CriticalMotives",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§6.2, conditions (DP), (A1)–(C3), (27)–(29), Lemma 6.2, pp. 29–30 (arXiv v2)",
+     "excerpt": "condition of Dabrowski-Panchiskin",
+     "match": "The (DP) condition, the Selmer complexes and Lemma 6.2."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/height-pairing-bockstein",
+     "how": "the Selmer complex whose Bockstein is the height"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7/critical-motive-interpolation",
+     "how": "the Selmer complexes SC_U(𝕋̂, 𝕋) and SC(𝕋̂, 𝕋)"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.IsDabrowskiPanchishkin",
+     "role": "data",
+     "statement": "(DP): de Rham with Ŵ ⊆ W, D⁰_dR(Ŵ) = t_p(W)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.selmerComplexU",
+     "role": "constructor",
+     "statement": "SC_U(Ŵ, W) as a mapping fibre."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.selmerComplex",
+     "role": "constructor",
+     "statement": "SC(Ŵ, W) with the RΓ_{/f} conditions at ℓ ≠ p."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.selmerComplexU_iso_f",
+     "role": "characterisation",
+     "statement": "Under (A1) and (C1), SC_U(Ŵ, W) ≅ RΓ_f(ℚ, W)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.isDabrowskiPanchishkin_dual",
+     "role": "compatibility",
+     "statement": "W (DP) ⇒ W^*(1) (DP) with Ẑ = W̃^*(1)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.NoncommIwasawa.dp_ordinary_abelian",
+     "kind": "example",
+     "statement": "A/ℚ good ordinary at p: Ŵ is the Kummer part of V_p(A)(1)|_{G_{ℚ_p}} (Example 6.3)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.dp_multiplicative_fails_B1",
+     "kind": "example",
+     "statement": "E with split multiplicative reduction at p: P_p(W, 1) = 0 for W = V_p(E)(1), so (B1) fails (exceptional zero)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.dp_trivial",
+     "kind": "example",
+     "statement": "W = ℚ_p(1): Ŵ = W, W̃ = 0."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.dp_not_de_rham",
+     "kind": "example",
+     "statement": "A non-de Rham W does not satisfy (DP)."
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/height-pairing-bockstein",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "Nekovář's p-adic height as a Bockstein map; semisimplicity iff non-degenerate (BV §6.2, Propositions 6.4, 6.6)",
+   "kind": "theorem",
+   "statement": "Nekovář's height h_p(W) : H¹_f(ℚ, W) × H¹_f(ℚ, Z) → L (his h̃_{π,1,1}, agreeing up to sign with Schneider, Perrin-Riou, Mazur–Tate and Zarhin) has adjoint equal to H¹_f(ℚ, W) ≅ H¹(SC_U) →^B H²(SC_U) ≅ H²_f(ℚ, W) ≅ H¹_f(ℚ, Z)^* with B the Bockstein of SC_U(𝕋̂_{cyc,ρ}, 𝕋_{cyc,ρ}) (32)–(33). Descent (Proposition 6.4, Fukaya–Kato 1.6.5): L_n ⊗_{Λ,ρ} commutes with RΓ(U, ·), RΓ_c(U, ·), RΓ(ℚ_ℓ, ·) and SC_U, and with RΓ_f(ℚ_ℓ, ·) for ℓ ∉ Υ ∪ S_p, while SC descends only up to the triangle (34) over ℓ ∈ Υ. Proposition 6.6: under (A1), (C1) and (D2), SC_U(𝕋̂_{cyc,ρ}, 𝕋_{cyc,ρ}) ∈ Σ_ss iff h_p(W) is non-degenerate (F), and then r_Γ = dim_L H¹_f(ℚ, W).",
+   "hypotheses": [
+    "W = N_λ = V ⊗ [ρ]^*_λ for a motive M satisfying (DP) and a critical twist; (D2): H⁰_f(ℚ, W) = H⁰_f(ℚ, Z) = 0; Υ the primes ℓ ≠ p of infinite ramification in F_∞."
+   ],
+   "proofSteps": [
+    "(32)–(33): Nekovář, Selmer Complexes, the sentence after (11.1.3.2) and Theorem 11.3.9 (cited, gap).",
+    "Proposition 6.6: under (D2), H^i(SC_U(Ŵ, W)) = 0 for i ≠ 1, 2, and semisimplicity is the invertibility of the Bockstein in degree 1, which is (F)."
+   ],
+   "acceptance": [
+    "Check Example 6.5: for an abelian variety over ℚ, (D1) and (D2) hold, but non-degeneracy (F) is open except Bertrand's CM result."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/dabrowski-panchishkin-selmer-complexes",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/bockstein-homomorphism",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/semisimple-complexes",
+    "SelmerIwasawaCohomology:L2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CriticalMotives",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§6.2, (32)–(34), Propositions 6.4 and 6.6, pp. 31–33 (arXiv v2)",
+     "excerpt": "It follows from the construction of Nekov",
+     "match": "The Bockstein description of the height, descent, and Proposition 6.6."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.7/critical-motive-interpolation",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "title": "Interpolation formula for critical motives (BV Theorem 6.7)",
+   "kind": "theorem",
+   "statement": "Assume W satisfies (A1), (B1), (C1), (D1) and (F), and that ζ_Λ(M) (Conjecture 4.1) and ε_{p,Λ}(𝕋̂) (Conjecture 6.1) exist. Then SC_U(𝕋̂, 𝕋) and SC(𝕋̂, 𝕋) belong to Σ_ss, r = r_G(SC_U)(ρ) = r_G(SC)(ρ) = dim_L H¹_f(ℚ, W), and the leading term 𝓛^*(ρ) (resp. 𝓛_U^*(ρ)) of the Fukaya–Kato p-adic L-function equals (−1)^r·L^*_{K,B}(M(ρ^*))/(Ω_∞(M(ρ^*))R_∞(M(ρ^*)))·Ω_p(M(ρ^*))R_p(M(ρ^*))·Γ(V̂)^{−1}·P_{L,p}(Ŵ^*(1), 1)/P_{L,p}(Ŵ, 1) (38), with L^*_{K,B} truncated at B = Υ ∪ S_p (resp. B = S ∖ S_∞), Ω_∞, R_∞ the archimedean period and regulator (42)–(43), Ω_p the p-adic period (46) and R_p = det h_p(W) (50).",
+   "hypotheses": [
+    "The hypotheses of height-pairing-bockstein and of Fukaya–Kato's Conjectures 4.1 and 6.1."
+   ],
+   "proofSteps": [
+    "Model: Fukaya–Kato Theorem 4.2.26 (as amplified by Venjakob, proof of Theorem 6.4). Choose good bases γ, δ of M_B^+ and t_M and bases P^∨, P of H¹_f(N), H¹_f(N^*(1)); can = can_{γ′,δ′}·can_{P^∨,P} identifies ζ_K(N) with L^*_K(M)/(Ω_∞R_∞)·can.",
+    "𝓛_U^*(ρ) is the product of the factors (44)–(50): the complex leading term over Ω_∞R_∞; Γ_L(Ŵ)^{−1}; the p-adic period Ω_p; the Euler factors at ℓ ≠ p; {P_{L,p}(W, u)P_{L,p}(Ŵ, u)^{−1}}_{u=1}; P_{L,p}(Ŵ^*(1), 1); and the p-adic regulator R_p = det h_p(W), which is t(SC_U(ρ^*)) by height-pairing-bockstein.",
+    "For 𝓛^*(ρ) use the triangle SC_U(Ŵ, W) → L_n ⊗ SC(𝕋̂, 𝕋) → ⊕_{S_f∖(S_p∪Υ)}RΓ_f(ℚ_ℓ, W) and L^*_{K,Υ′} = L^*_{K,B′}∏_{B∖Υ}P_{L,ℓ}(W, 1)^{−1}."
+   ],
+   "acceptance": [
+    "Check Remark 6.8: without (B1), replace P_{L,p}(Ŵ, 1) by the leading coefficient of P_{L,p}(Ŵ, p^s) at s = 0 (the exceptional-zero situation).",
+    "Check Example 6.9: for an elliptic curve and F_∞ = ℚ(E[p^∞]), (38) predicts the leading terms of the CFKSV p-adic L-function 𝓛_E at Artin characters with non-degenerate heights."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/height-pairing-bockstein",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/local-epsilon-isomorphism",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/dabrowski-panchishkin-selmer-complexes",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/fukaya-kato-zeta-isomorphism",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CriticalMotives",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "BURNS-VENJAKOB-2006",
+     "locator": "§6.3, Theorem 6.7, Remark 6.8, proof and Example 6.9, pp. 33–36 (arXiv v2)",
+     "excerpt": "The formulas of Theorem 6.7 generalize the formulas obtained",
+     "match": "Theorem 6.7 with its proof and Remark 6.8."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Interpolation formula for critical motives"
+   }
   }
  ],
  "requests": [
@@ -6818,6 +7362,24 @@
    ],
    "status": "open",
    "note": ""
+  },
+  {
+   "supplier": "AutomorphicPadicLFunctions:L3",
+   "need": "Greenberg's S-truncated p-adic Artin L-functions L_{p,S}(s, ρ) for totally real fields (Brauer induction from the Deligne–Ribet and Cassou-Noguès p-adic L-functions), with the interpolation L_{p,S}(n, ρ) = L_S(n, ρω^{n−1}) for n < 0; and Colmez's p-adic class number formula for the residue at s = 1 of the p-adic zeta function of a totally real field. Used for BV Conjecture 5.2 and Remark 5.4.",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-conjecture",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-permutation-case"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "SelmerIwasawaCohomology:L2",
+   "need": "Nekovář's Selmer complexes as mapping fibres RΓ(U, W) → ⊕_v RΓ(ℚ_v, W)/U_v^+ with explicit local conditions (Greenberg-type at p), their base change along Λ → O^n and Nekovář's p-adic height pairing (Selmer Complexes §11) with its Bockstein description; used for BV §6.",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/dabrowski-panchishkin-selmer-complexes",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/height-pairing-bockstein"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
@@ -6892,10 +7454,9 @@
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
    "status": "partial",
    "remaining": [
-    "Burns–Venjakob §5 (the p-adic Stark conjecture at s = 1 as an interpolation formula for Tate motives) and §6 (critical motives: Néron–Tate and Nekovář heights).",
     "Exceptional zeros and noncommutative Fitting invariants (primary sources to be chosen)."
    ],
-   "notes": "Checkpoint 8 (cc-39fac3) plans Burns–Venjakob §3 and Conjecture 4.1 (9 nodes): Bockstein homomorphisms, semisimple complexes, the Bockstein trivialisation, leading terms (planet), their comparison with characteristic series and the canonical localisation, the cyclotomic-derivative interpretation, generalized Euler–Poincaré characteristics (planet), and the Fukaya–Kato zeta isomorphism as a proposition (planet). The acceptance examples (a pole of order 1 with leading term ε(0), its shift as a zero with its Bockstein determinant, and a finite value) are unit tests. Finding E11."
+   "notes": "Checkpoint 8 (cc-39fac3) plans Burns–Venjakob §3 and Conjecture 4.1 (9 nodes): Bockstein homomorphisms, semisimple complexes, the Bockstein trivialisation, leading terms (planet), their comparison with characteristic series and the canonical localisation, the cyclotomic-derivative interpretation, generalized Euler–Poincaré characteristics (planet), and the Fukaya–Kato zeta isomorphism as a proposition (planet). The acceptance examples (a pole of order 1 with leading term ε(0), its shift as a zero with its Bockstein determinant, and a finite value) are unit tests. Finding E11. Checkpoint 9 (cc-39fac3): Burns–Venjakob §§5–6 (9 nodes): Lemma 5.1, the p-adic Stark conjecture at s = 1, the permutation case (Colmez), Theorem 5.5 and Corollary 5.7 (scope corrected, E12), the local ε-isomorphism and Conjecture 6.1, Dabrowski–Panchishkin Selmer complexes, heights as Bocksteins, and Theorem 6.7."
   }
  ],
  "gaps": [
@@ -6953,6 +7514,15 @@
     "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-canonical-localization"
    ],
    "detail": "Kakde cites Fukaya–Kato, A formulation of conjectures on p-adic zeta functions in noncommutative Iwasawa theory (Proc. St. Petersburg Math. Soc. XII, 2006), for K₁(Λ(G)) ≅ lim K₁(Λ(G)/J^n) (Proposition 1.5.1), the pro-p kernel (Proposition 1.5.3), and the perfectness and base change of C(F_∞/F). Burns–Venjakob §§2–3 (arXiv, free) restate parts of this and are NE.7's source; they will be checked against these statements there. Checkpoint 8 adds the bijectivity of ch_{R,Σ_S} (Fukaya–Kato Proposition 1.3.7), their Lemma 4.3.10, and Conjecture 2.3.2 as restated by Burns–Venjakob."
+  },
+  {
+   "title": "BV §6 rests on unread Fukaya–Kato and Nekovář results",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.7/local-epsilon-isomorphism",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/height-pairing-bockstein",
+    "NoncommutativeAndEquivariantIwasawa:NE.7/critical-motive-interpolation"
+   ],
+   "detail": "Fukaya–Kato (Proposition 3.3.5 for ε_dR, Conjecture 3.4.3, Proposition 1.6.5, Proposition 4.2.17, Theorem 4.2.26) and Nekovář, Selmer Complexes (Theorem 11.3.9 and the construction of h̃_{π,1,1}) are cited by Burns–Venjakob and not read; Fukaya–Kato is not freely available."
   }
  ],
  "sourceIssues": [
@@ -7119,6 +7689,48 @@
    "searched": [
     "arXiv math/0511672: v2 (20 January 2006) is the version read; the published version (Documenta Math. Extra Volume Coates (2006), 165–209) was not compared."
    ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E12",
+   "source": "BURNS-VENJAKOB-2006",
+   "kind": "error",
+   "locator": "arXiv v2 and the authors' final version, §5.3, Corollary 5.7 and proof, p. 27",
+   "printed": "If Leopoldt’s conjecture is valid for E at p, then for every Qp-rational character ρ of Ḡ there exists a natural number nρ such that … Proof. If ρ is Qp-rational, then Artin’s Induction Theorem implies the existence of a natural number nρ such that … nρ·ρ = ∑H nH·indGH 1H",
+   "correction": "Restrict to ℚ-valued (rational) characters ρ, for which Artin's induction theorem gives n_ρρ = Σ n_H Ind_H 1_H; for ℚ_p-valued characters with non-rational values the proof does not apply.",
+   "reason": "Every permutation character Ind_H 1_H is ℚ-valued, so an integer combination of them is ℚ-valued; a character of ℤ/3 with values in ℚ(ζ₃) ⊂ ℚ_p (p ≡ 1 mod 3) is ℚ_p-rational but n·ρ is never ℚ-valued. Artin's theorem as cited (Tate, Chapitre II, Théorème 1.2) concerns ℚ-rational characters.",
+   "affects": "a stated result",
+   "known": "new (the authors' final version has the same text)",
+   "searched": [
+    "2026-09-29: arXiv math/0511672 (v1, v2 listed); the authors' final version on O. Venjakob's page (sha 3b59955e…) has the same wording; the Documenta Math. article page now redirects to EMS Press and could not be fetched."
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E13",
+   "source": "BURNS-VENJAKOB-2006",
+   "kind": "misprint",
+   "locator": "arXiv v2 and the authors' final version, §6.1, definition of Γ^*, p. 28",
+   "printed": "Γ∗(−j) := Γ(j) = (j − 1)! if j > 0, lims→j(s − j)Γ(s) = (−1)^j((−j)!)^{−1} if j ≤ 0",
+   "correction": "Γ^*(j) := Γ(j) for j > 0 and Res_{s=j}Γ(s) = (−1)^j((−j)!)^{−1} for j ≤ 0.",
+   "reason": "The right-hand sides are functions of j (and the residue formula is the residue of Γ at s = j ≤ 0), and the next line uses Γ^*(j) in Γ_L(V) = ∏Γ^*(j)^{−h(−j)}; with the printed left-hand side, Γ^*(−j) for j > 0 would be (j − 1)!, contradicting the residue at negative arguments.",
+   "affects": "nothing",
+   "known": "new (the authors' final version has the same text)",
+   "searched": [
+    "2026-09-29: as for E12."
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E14",
+   "source": "BURNS-VENJAKOB-2006",
+   "kind": "misprint",
+   "locator": "arXiv v2 and the authors' final version, §6.3, Proposition 6.6, p. 32",
+   "printed": "(i) SCU(ˆTcyc,ρ, Tcyc,ρ) ∈ Σss if and only if the condition (F) holds. (i) if (F) holds, we have rΓ(…) = dimL H1f(Q,W).",
+   "correction": "The second item is (ii).",
+   "reason": "Two consecutive items are numbered (i).",
+   "affects": "nothing",
+   "known": "new (the authors' final version has the same text)",
+   "searched": [
+    "2026-09-29: as for E12."
+   ]
   }
  ],
  "sourceVersions": [
@@ -7133,6 +7745,13 @@
    "url": "https://arxiv.org/pdf/math/0511672v2",
    "read": "2026-09-29",
    "sha256": "4b33fb11251340c88a8f8a590d9f9296a413aadf4fae98968ea7191a14c857bc"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.mathi.uni-heidelberg.de/~otmar/papervenjakob/bock-final.pdf",
+   "read": "2026-09-29",
+   "sha256": "3b59955e39bf8d432aab1a413b992e3ee31222b5cc9fe07a5ada3af1e294e84c",
+   "citation": "Burns–Venjakob, authors' final version (Documenta Math. Extra Volume Coates (2006) 165–209); collated for E12–E14."
   }
  ]
 }
