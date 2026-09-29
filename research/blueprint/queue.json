@@ -14519,8 +14519,9 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/BP-AbelianSchemesAndArithmeticModuli.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #666"
   },
   {
    "id": "REV-AbelianSchemesAndArithmeticModuli",
@@ -19782,9 +19783,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R12.1.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #773"
+   "note": "released on GitHub issue #773"
   },
   {
    "id": "REV-ModularCurvesPartII--R12.1",
@@ -24021,12 +24022,12 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-SieveMethodsAndPrimePatterns.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8"
    ],
-   "note": "released on GitHub issue #1036"
+   "note": "claimed on GitHub issue #1036"
   },
   {
    "id": "REV-SieveMethodsAndPrimePatterns",
