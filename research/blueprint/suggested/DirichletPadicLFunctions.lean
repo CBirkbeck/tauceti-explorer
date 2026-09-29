@@ -5626,3 +5626,156 @@ end Three
 end SuggestedPseudomeasureCharacterTests
 end
 end DirichletPadic
+
+/-! ## The tame zeta measure on the actual multiplicative unit group -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure BigOperators
+open AbstractMeasure
+section IntrinsicTameZeta
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "U" => (ℤ_[p])ˣ
+local notation "uMap" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,ℤ_[p]))
+
+def intrinsicTameZetaMeasure (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) : D(U,K) := sorry
+
+lemma intrinsicTameZetaMeasure_eq_restrict (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    intrinsicTameZetaMeasure η hD hpD = restrictUnits p K (tameZetaMeasure η hD hpD) := sorry
+
+lemma intrinsicTameZetaMeasure_one_level (η : DirichletCharacter K 1)
+    (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p∣1) :
+    intrinsicTameZetaMeasure η hD hpD = 0 := sorry
+
+lemma intrinsicTameZetaMeasure_unique (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) (ν : D(U,K))
+    (hν : map uMap ν = tameZetaMeasure η hD hpD) :
+    ν=intrinsicTameZetaMeasure η hD hpD := sorry
+
+lemma map_intrinsicTameZetaMeasure (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    map uMap (intrinsicTameZetaMeasure η hD hpD) = tameZetaMeasure η hD hpD := sorry
+
+theorem intrinsicTameZetaMeasure_character (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) :
+    intrinsicTameZetaMeasure η hD hpD (primePowerArithmeticCharacter p n χ w).toContinuousMap =
+    tameZetaMeasure η hD hpD
+      (primePowerCharacter p n χ * (⟨fun z : ℤ_[p] => (algebraMap ℤ_[p] K z)^w,
+        by fun_prop⟩ : C(ℤ_[p],K))) := sorry
+
+lemma intrinsicTameZetaMeasure_characterIntegral (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) :
+    characterIntegralAlgHom (primePowerArithmeticCharacter p n χ w)
+      (intrinsicTameZetaMeasure η hD hpD) =
+    tameZetaMeasure η hD hpD
+      (primePowerCharacter p n χ * (⟨fun z : ℤ_[p] => (algebraMap ℤ_[p] K z)^w,
+        by fun_prop⟩ : C(ℤ_[p],K))) := sorry
+
+theorem intrinsicTameZetaMeasure_norm_le (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    ‖toCLMEquiv (intrinsicTameZetaMeasure η hD hpD)‖ ≤ 1 := sorry
+
+lemma intrinsicTameZetaMeasure_apply_norm_le (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) (f : C(U,K)) :
+    ‖intrinsicTameZetaMeasure η hD hpD f‖ ≤ ‖f‖ := sorry
+
+variable [CharZero K] [Algebra ℚ K]
+theorem intrinsicTameZetaMeasure_common_character_value
+    {E : Type*} [Field E] [CharZero E] [Algebra ℚ E]
+    (n : ℕ) (χ : DirichletCharacter E (p^n)) (η : DirichletCharacter E D) (hη : η≠1)
+    (ιC : E →+* ℂ) (ιK : E →+* K) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (w : ℕ) (hw : 1≤w) :
+    let θ : DirichletCharacter E (D*p^n) :=
+      η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    let b : E := (1-θ (p : ZMod (D*p^n))*(p : E)^(w-1)) *
+      (-((D*p^n : ℕ) : E)^(w-1)/w * ∑ a : ZMod (D*p^n), θ a *
+        algebraMap ℚ E ((Polynomial.bernoulli w).eval (a.val/(D*p^n) : ℚ)))
+    ιC b = (1-(θ.ringHomComp ιC) (p : ZMod (D*p^n))*(p : ℂ)^(w-1)) *
+      DirichletCharacter.LFunction (θ.ringHomComp ιC) (1-(w : ℂ)) ∧
+    ιK b = intrinsicTameZetaMeasure (η.ringHomComp ιK) hD hpD
+      (primePowerArithmeticCharacter p n (χ.ringHomComp ιK) w).toContinuousMap := sorry
+end IntrinsicTameZeta
+
+namespace SuggestedIntrinsicTameTests
+section General
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+-- arithmetic_unit_test_formula
+example (n w : ℕ) (χ : DirichletCharacter K (p^n)) (u : (ℤ_[p])ˣ) :
+    primePowerArithmeticCharacter p n χ w u =
+      primePowerCharacter p n χ (u : ℤ_[p])*(algebraMap ℤ_[p] K (u : ℤ_[p]))^w := sorry
+-- arithmetic_unit_weight_zero_formula
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (u : (ℤ_[p])ˣ) :
+    primePowerArithmeticCharacter p n χ 0 u = primePowerCharacter p n χ (u : ℤ_[p]) := sorry
+-- trivial_tame_level
+example (η : DirichletCharacter K 1) (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p∣1) :
+    intrinsicTameZetaMeasure η hD hpD = 0 := sorry
+-- zero_test
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    intrinsicTameZetaMeasure η hD hpD 0 = 0 := sorry
+-- unique_pushforward
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (ν : D((ℤ_[p])ˣ,K))
+    (hν : map (⟨Units.val,Units.continuous_val⟩ : C((ℤ_[p])ˣ,ℤ_[p])) ν =
+      tameZetaMeasure η hD hpD) : ν=intrinsicTameZetaMeasure η hD hpD := sorry
+-- inclusion_all_tests
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (f : C(ℤ_[p],K)) :
+    intrinsicTameZetaMeasure η hD hpD
+      (f.comp (⟨Units.val,Units.continuous_val⟩ : C((ℤ_[p])ˣ,ℤ_[p]))) =
+      tameZetaMeasure η hD hpD f := sorry
+-- inclusion_identity_test
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    intrinsicTameZetaMeasure η hD hpD 1 = tameZetaMeasure η hD hpD 1 := sorry
+-- zero_weight_character
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) :
+    intrinsicTameZetaMeasure η hD hpD (primePowerArithmeticCharacter p n χ 0).toContinuousMap =
+      tameZetaMeasure η hD hpD (primePowerCharacter p n χ) := sorry
+-- zero_level_zero_weight_mass
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    intrinsicTameZetaMeasure η hD hpD
+      (primePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) 0).toContinuousMap =
+      intrinsicTameZetaMeasure η hD hpD 1 := sorry
+-- matching_coefficient_algebra_hom
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (n w : ℕ) (χ : DirichletCharacter K (p^n)) :
+    characterIntegralAlgHom (primePowerArithmeticCharacter p n χ w) (intrinsicTameZetaMeasure η hD hpD) =
+      intrinsicTameZetaMeasure η hD hpD (primePowerArithmeticCharacter p n χ w).toContinuousMap := sorry
+-- total_mass_bound
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    ‖intrinsicTameZetaMeasure η hD hpD 1‖ ≤ 1 := sorry
+-- norm_bound_all_tests
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (f : C((ℤ_[p])ˣ,K)) : ‖intrinsicTameZetaMeasure η hD hpD f‖ ≤ ‖f‖ := sorry
+end General
+
+section DyadicQuadratic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+variable (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+  (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2∣3)
+include hη
+-- first_unit_moment
+example :
+    intrinsicTameZetaMeasure η hD hpD
+      (primePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap = 2/3 := sorry
+-- quadratic_product_weight_two
+example (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) :
+    intrinsicTameZetaMeasure η hD hpD (primePowerArithmeticCharacter 2 2 χ 2).toContinuousMap = -2 := sorry
+-- quadratic_product_weight_four
+example (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) :
+    intrinsicTameZetaMeasure η hD hpD (primePowerArithmeticCharacter 2 2 χ 4).toContinuousMap = 46 := sorry
+-- principal_positive_level_first
+example :
+    intrinsicTameZetaMeasure η hD hpD
+      (primePowerArithmeticCharacter 2 1 (1 : DirichletCharacter ℚ_[2] (2^1)) 1).toContinuousMap = 2/3 := sorry
+end DyadicQuadratic
+end SuggestedIntrinsicTameTests
+end
+end DirichletPadic
