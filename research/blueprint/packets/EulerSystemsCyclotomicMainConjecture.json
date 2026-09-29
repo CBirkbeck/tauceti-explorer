@@ -10,7 +10,7 @@
   "EulerSystemsCyclotomicMainConjecture:L4"
  ],
  "status": "partial",
- "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read. Checkpoint 2 plans L1: Theorem III.2.3 (|A_L^χ| divides [E_L^χ : C_{L,χ}] for p > 2, χ(p) ≠ 1) from Theorem II.2.2, with its hypotheses, vanishing error terms, the index of divisibility and the class-group Selmer group, and Corollary III.2.4 with its dependence on the ψ(p) = 1 components recorded. Checkpoint 3 plans L2: the Iwasawa-theoretic divisibility char(A_∞^χ) | char(E_∞^χ/C_{∞,χ}) (Rubin III.2.7), from Theorem II.3.3, Proposition III.2.6 and the Λ-index, with the augmentation corrections when χ(p) = 1. Checkpoint 4 plans L3: the four-term sequence with the register's corrections, the trivial component, the componentwise equality and the main conjecture for odd p, with the local-unit theorem requested from ColemanPowerSeries L4 and the finite-layer stabilisation recorded as a gap. Checkpoint 5 starts L4 from Greither (Ann. Inst. Fourier 1992): χ-parts for all p, semilocal units modulo circular units, the real main conjecture for all p including 2, Kummer duality, and the main conjecture with the one-half normalisation.",
+ "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read. Checkpoint 2 plans L1: Theorem III.2.3 (|A_L^χ| divides [E_L^χ : C_{L,χ}] for p > 2, χ(p) ≠ 1) from Theorem II.2.2, with its hypotheses, vanishing error terms, the index of divisibility and the class-group Selmer group, and Corollary III.2.4 with its dependence on the ψ(p) = 1 components recorded. Checkpoint 3 plans L2: the Iwasawa-theoretic divisibility char(A_∞^χ) | char(E_∞^χ/C_{∞,χ}) (Rubin III.2.7), from Theorem II.3.3, Proposition III.2.6 and the Λ-index, with the augmentation corrections when χ(p) = 1. Checkpoint 4 plans L3: the four-term sequence with the register's corrections, the trivial component, the componentwise equality and the main conjecture for odd p, with the local-unit theorem requested from ColemanPowerSeries L4 and the finite-layer stabilisation recorded as a gap. Checkpoint 5 starts L4 from Greither (Ann. Inst. Fourier 1992): χ-parts for all p, semilocal units modulo circular units, the real main conjecture for all p including 2, Kummer duality, and the main conjecture with the one-half normalisation. Checkpoint 6 plans Greither §4: Theorem B (= 4.1) at p = 2 through the χ(2) ≠ 1 case and the trivial-zero case (Lemma 4.2–Theorem 4.6 with the Gauss-sum computation), Theorem A (the Iwasawa–Leopoldt conjecture at p = 2), Theorems 4.11 and C for real fields, and the Gras conjecture (4.14–4.15). It records eight source issues, E4–E11. E5 is an error in the proof of Theorem 4.6: the Gauss sum lies in the decomposition field of 2, not in F, and its norm to F repairs the proof. E11 is a false sentence in the proof of Lemma 4.13 at p = 2 whose step survives. The rest are misprints.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -251,7 +251,9 @@
     "Introduction with the Definition of χ-parts and (a)–(g) (pp. 449–451)",
     "§1: the Main Conjecture (= Theorem 3.2), Theorems A–C stated (pp. 452–454)",
     "§2: the setting, Lemma 2.1, Theorem 2.13 and Corollary 2.14 (pp. 454–455, 465)",
-    "§3: Theorems 3.1–3.2, Lemma 3.3, Proposition 3.4, the proof of 3.1 ⇒ 3.2, Lemmas 3.5–3.6, Theorem 3.7 with Claims (a)–(c), Corollary 3.8, Lemmas 3.9–3.10 (pp. 468–475)"
+    "§3: Theorems 3.1–3.2, Lemma 3.3, Proposition 3.4, the proof of 3.1 ⇒ 3.2, Lemmas 3.5–3.6, Theorem 3.7 with Claims (a)–(c), Corollary 3.8, Lemmas 3.9–3.10 (pp. 468–475)",
+    "§1: Remarks a)–b) after Theorem A, Theorem B and the deduction of Theorem A from B, Theorem C (pp. 453–454)",
+    "§4: Theorem 4.1 and both cases of its proof, Lemma 4.2–Theorem 4.6, Proposition 4.7, (G1)–(G2), Lemmas 4.8–4.10, Theorem 4.11, Theorem 4.12, Lemma 4.13, Theorem 4.14, Corollary 4.15 and the proof of 4.14 (pp. 482–497); formulas checked on the page images of pp. 453, 482–483, 486–488 and 490–495"
    ]
   }
  ],
@@ -2662,12 +2664,601 @@
     "name": "Main conjecture for all p (Greither)"
    },
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-split-prime-divisor-classes",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "Classes of the primes above p, and injectivity of E⁺ → E (Greither, Lemma 4.2 and Corollary 4.3)",
+   "kind": "lemma",
+   "statement": "Let p be a prime and F an imaginary abelian field such that p splits completely in F, every prime of F above p is totally ramified in the cyclotomic ℤ_p-extension F_∞/F, and μ_{p^∞}(F_∞) is finite; let Δ = Gal(F/ℚ), j complex conjugation and Γ = Gal(F_∞/F). Let B_n be the subgroup of the divisor group of F_n generated by the primes above p, D_n its image in A_n = A_p(F_n), D_∞ = lim D_n, and D_∞^+ the same for F_n^+. Then D_∞/im D_∞^+ ≅ ℤ_p[Δ]/(1 + j)ℤ_p[Δ] as ℤ_p[Δ][[Γ]]-modules, with Γ acting trivially on the right (Lemma 4.2). For p = 2, with X = lim A_n, E = X/D_∞ ≅ lim A_n/D_n (a quotient of class groups, not a unit group) and E^+ the same for F^+, the canonical map E^+ → E is injective (Corollary 4.3).",
+   "hypotheses": [
+    "Lemma 4.2 uses only the three hypotheses above (Greither's parenthesis before the lemma), so it holds for every p; Corollary 4.3 is stated for p = 2."
+   ],
+   "proofSteps": [
+    "Fix a norm-coherent sequence 𝔭_n of primes above p in F_n, and let h be the p-class number of F. The projective system B_n/(hB_0 + B_n^+) is isomorphic to (ℤ/hp^nℤ)[Δ]/(1 + j) via 1 ↦ 𝔭_n; hB_0 maps to 0 in D_n.",
+    "It is enough that the kernels of α_n: B_n/(hB_0 + B_n^+) → D_n/im D_n^+ have bounded order, which follows from |D_n|/|D_n^+| ≥ const·p^{n|Δ|/2}.",
+    "Apply the ambiguous-class formula for a cyclic extension K/F′ (Lang, Cyclotomic Fields II, Chapter 13 §4, formulas (2)–(3)) to (F_n, F) and (F_n^+, F^+). The products of ramification indices are e(F_n/F) = p^{n|Δ|} and e(F_n^+/F^+) = p^{n|Δ|/2}. The two unit norm indices differ by a bounded factor because F has only finitely many p-power roots of unity.",
+    "The kernels have bounded order and the limit ℤ_p[Δ]/(1 + j) is ℤ_p-torsion-free, so lim α_n is an isomorphism.",
+    "Corollary 4.3: from the rows 0 → D_∞^± → X^± → E^± → 0 it suffices that D_∞ ∩ im X^+ = im D_∞^+. On Q = (D_∞ ∩ im X^+)/im D_∞^+, j acts as +1 (Q lies in the image of X^+) and as −1 (Q lies in D_∞/im D_∞^+ ≅ ℤ_2[Δ]/(1 + j)). That module has no 2-torsion, so Q = 0."
+   ],
+   "acceptance": [
+    "Γ acts trivially on D_∞/im D_∞^+, so for odd χ its χ-part has characteristic ideal (T) over Λ_χ (used in the trivial-zero reduction)."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "IntegralIwasawaTheory:L1",
+    "IntegralIwasawaTheory:L2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Lemma 4.2, p. 484",
+     "match": "The start of the proof."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Corollary 4.3, p. 485",
+     "match": "The end of the proof of 4.3."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-reduction",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "The trivial-zero reduction when χ(2) = 1 (Greither, Lemma 4.4, Proposition 4.5 and (***))",
+   "kind": "lemma",
+   "statement": "Let p = 2, F an imaginary abelian field unramified at 2 with Δ = Gal(F/ℚ) = Δ_2 × Δ_0, Δ_2 cyclic and |Δ_0| odd, j complex conjugation, F_n the layers of the cyclotomic ℤ_2-extension, A_n = A_2(F_n), and χ an odd character of Δ, injective on Δ, with χ(2) = 1 (so 2 splits completely in F) and ξ = χ|Δ_0 nontrivial; χ̌ = ωχ^{−1} and Λ_χ = ℤ_2(χ)[[T]]. Let E_n = A_n/D_n and E_n^+ = A_n^+/D_n^+. For a module M and x ∈ ℤ_2[[Γ]] write M_x = M/xM, and M^{(x)} for the kernel of x. Let γ generate Γ and T = γ − 1. Define Z and Z^+ as the kernels in the rows 0 → Z^+ → (E^+)_{1−γ} → E_0^+ → 0 and 0 → Z → E_{1−γ} → E_0 → 0, with vertical maps α, β and ε. Then: (Lemma 4.4) if Z/im Z^+ is finite, |ker β| ≤ |(E/E^+)^{(1−γ)}| < ∞; (Proposition 4.5) |½G′_2(0, χ̌)|_2^{d(χ)} ≤ (|E_{0ξ}|/|E^+_{0ξ}|)·|(Z/Z^+)_ξ|, where ′ = d/dT; and hence (***) |A(F)_χ| = |(A_0)_ξ|/|(A_0^+)_ξ| ≥ |½G′_2(0, χ̌)|_2^{d(χ)}·|(Z/im Z^+)_ξ|^{−1}·|(D_0)_ξ|/|(D_0^+)_ξ|.",
+   "hypotheses": [
+    "Greither writes |x|_p = p^{v(x)} with v(p) = 1, so |x|_p^{d(χ)} is the order of ℤ_p(χ)/xℤ_p(χ); an inequality between such orders is a divisibility of 2-powers.",
+    "|Δ_0| is odd, so (·)_ξ is exact on ℤ_2[Δ_0]-modules, and (**) and Lemma 4.4 hold after taking ξ-parts."
+   ],
+   "proofSteps": [
+    "(**) The snake lemma, with |E_0|·|E_0^+|^{−1} = |coker ε|·|ker ε|^{−1}, gives |(E/E^+)_{1−γ}| = |coker β| ≤ |ker β|·|E_0|·|E_0^+|^{−1}·|Z/im Z^+|; the inequality drops |ker α|^{−1}.",
+    "Lemma 4.4. The norm F_n → F_n^+ gives β′ with β′β = 2, so ker β is killed by 2. It is finite because E^+, a quotient of X^+, is finitely generated over ℤ_2. Since E_0 is finite, the hypothesis makes (E/E^+)_{1−γ} finite, so T has finite kernel and cokernel on E/E^+. The sequence Tor^Λ(Λ/(T), E/E^+) → (E^+)_{1−γ} → E_{1−γ} → (E/E^+)_{1−γ} → 0 bounds ker β by the Tor term, which is (E/E^+)^{(1−γ)}.",
+    "Proposition 4.5. Corollary 4.3 and the snake lemma give 0 → (D_∞/D_∞^+)_ξ → (X/im X^+)_ξ → (E/E^+)_ξ → 0, and ξ may be replaced by χ in all three terms. char((D_∞/D_∞^+)_χ) = (T) by Lemma 4.2, and char((X/im X^+)_χ) = (½G_2(T, χ̌)) by Theorem 3.2. So ½G_2(T, χ̌) is divisible by T, the trivial zero forced by χ(2) = 1, and char((E/E^+)_χ) = (½G_2(T, χ̌)·T^{−1}).",
+    "The coinvariant lemma (Coates, Lemma 9) gives |coker β_ξ| = |(E/E^+)_{ξ,1−γ}| = |(E/E^+)^{(1−γ)}_ξ|·|½G′_2(0, χ̌)|_2^{d(χ)}. Combine this with (**) and the ξ-version of Lemma 4.4. If (Z/Z^+)_ξ is infinite, the proposition is trivial.",
+    "(***) |E_0|/|E_0^+| = |A_0|·|A_0^+|^{−1}·|D_0|^{−1}·|D_0^+|, also in ξ-parts. Since ξ is nontrivial, (A_0^+)_ξ → A_{0ξ} and (D_0^+)_ξ → D_{0ξ} are injective, and |(A_0)_ξ|/|(A_0^+)_ξ| = |A(F)_χ|."
+   ],
+   "acceptance": [
+    "The inequality bounds |A(F)_χ| from below. The trivial-zero formula identifies the right side of (***) with |½B_{1,χ^{−1}}|_2^{d(χ)}."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-split-prime-divisor-classes",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "IntegralIwasawaTheory:L2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, Convention and Remark before Lemma 4.4, p. 486",
+     "match": "ξ-parts are exact because |Δ_0| is odd."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Proposition 4.5, p. 487",
+     "match": "T divides ½G_2(T, χ̌)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-split-units-quotient",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "Z/Z⁺ as a quotient of 2-adic semilocal units (Greither, Proposition 4.7)",
+   "kind": "lemma",
+   "statement": "Let p = 2, F an imaginary abelian field unramified at 2 with Δ = Gal(F/ℚ) = Δ_2 × Δ_0, Δ_2 cyclic and |Δ_0| odd, j complex conjugation, F_n the layers of the cyclotomic ℤ_2-extension, A_n = A_2(F_n), and χ an odd character of Δ, injective on Δ, with χ(2) = 1 (so 2 splits completely in F) and ξ = χ|Δ_0 nontrivial; χ̌ = ωχ^{−1} and Λ_χ = ℤ_2(χ)[[T]]. With Z, Z^+ as in the trivial-zero reduction, fix a prime 𝔭 of F above 2. The primes above 2 are 𝔭_δ = 𝔭^δ (δ ∈ Δ), and (ℚ_2 ⊗ F)^× = (ℚ_2^×)^Δ. Let V = {±1} × 2^ℤ ⊂ ℚ_2^×, N(F) = (ℚ_2 ⊗ F)^×/closure(O_F[1/2]^×)·V^Δ, and N(F^+) the same with Δ^+ = Δ/{1, j}. N(F) is a quotient of (ℤ_2^×)^Δ. Then (a) there is a natural isomorphism Z_ξ ≅ N(F)_ξ, and likewise Z^+_ξ ≅ N(F^+)_ξ; (b) (Z/im Z^+)_χ ≅ (N(F)/N(F^+))_χ ≅ N(F)_χ.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Let L be the maximal unramified abelian 2-extension of F_∞ in which every prime above 2 splits completely, so Gal(L/F_∞) ≅ E = X/D_∞ by class field theory. Let L_0 be the same over F, so Gal(L_0/F) ≅ E_0. Put M = L ∩ F^ab, G = Gal(L/F) and G/G′ = Gal(M/F).",
+    "Claim: Gal(M/L_0) ≅ N(F). M is the maximal abelian 2-ramified 2-extension of F that is unramified over F_∞ and in which every prime above 2 has inertial degree one. It corresponds to a closed subgroup H of C_2(F) = J_F/F^×·∏_{q∤2}U_q. Decomposition equals inertia at each 𝔭_δ, which forces (2·u_δ^{−1})^{(δ)} ∈ H with u_δ ∈ {±1}, and M/F_∞ unramified gives (−1)^{(δ)} ∈ H. So H is the image of V^Δ.",
+    "Hence Gal(M/F) = C_2(F)/im V^Δ, and 0 → N(F) → G/G′ → E_0 → 0 is exact.",
+    "With 0 → E_{1−γ} → G/G′ → Γ → 0 (Washington, Lemma 13.14) and Δ acting trivially on Γ, Γ_ξ = 0. So E_{ξ,1−γ} ≅ (G/G′)_ξ, and N(F)_ξ ≅ ker(E_{ξ,1−γ} → E_{0ξ}) = Z_ξ. This is (a); the argument for F^+ is the same.",
+    "(b) Naturality of (a) for F and F^+ gives (Z/im Z^+)_ξ ≅ (N(F)/N(F^+))_ξ. Since j acts as −1 on the right side, ξ may be replaced by χ on both sides."
+   ],
+   "acceptance": [
+    "Γ carries the trivial Δ-action, so Γ_ξ = 0 for ξ ≠ 1; this is where the nontriviality of ξ enters."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-reduction",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "IntegralIwasawaTheory:L1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, before Proposition 4.7, p. 488",
+     "match": "N(F) is a quotient of (ℤ_2^×)^Δ."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Proposition 4.7(a), p. 489",
+     "match": "The second exact sequence."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-gauss-sum-vectors",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "The Gauss-sum 2-unit with its valuation and logarithm vectors (Greither, (G1), (G2) and Lemma 4.8)",
+   "kind": "construction",
+   "statement": "Let p = 2, F an imaginary abelian field unramified at 2 with Δ = Gal(F/ℚ) = Δ_2 × Δ_0, Δ_2 cyclic and |Δ_0| odd, j complex conjugation, F_n the layers of the cyclotomic ℤ_2-extension, A_n = A_2(F_n), and χ an odd character of Δ, injective on Δ, with χ(2) = 1 (so 2 splits completely in F) and ξ = χ|Δ_0 nontrivial; χ̌ = ωχ^{−1} and Λ_χ = ℤ_2(χ)[[T]]. Let W = O_F[1/2]^×/O_{F^+}[1/2]^×. Let M be the free ℤ_2-module on the 𝔭_δ modulo the span of the 𝔭_δ + 𝔭_{δj}, so M ≅ ℤ_2[Δ]/(1 + j). Define μ: W → M, u ↦ Σ_δ v_{𝔭_δ}(u)·𝔭_δ, and λ: W → 4M, u ↦ Σ_δ log_2(u^{δ^{−1}})·𝔭_δ, where log_2: F → F_𝔭 = ℚ_2 and log_2(ℤ_2^×) = 4ℤ_2. Let m be the conductor of F (odd), 𝔓 a prime of ℚ(μ_m) above 𝔭, f = ord(2 mod m), η the m-th power residue symbol at 𝔓, ψ the nontrivial additive character of 𝔽_2, and g = −Σ_a η^{−1}(a)ψ(Tr a) the Gauss sum. Let D be the decomposition field of 2 in ℚ(μ_m), so F ⊆ D and g ∈ D, and put g_F = N_{D/F}(g) ∈ F, a 2-unit. With ⟨g_F⟩ its ℤ_2Δ-span in W: (G1) μ_χ(g_F) = B_{1,χ^{−1}}·(𝔭)_χ (Stickelberger); (G2) λ_χ(g_F) = 4·G′_2(0, χ̌)·unit·(𝔭)_χ, by Gross–Koblitz, Ferrero–Greenberg and Lemma 4.8 (Σ_{(b,m)=1} χ^{−1}(b)ζ_2(b, s) = L_2(s, χ̌) as meromorphic functions on ℤ_2), with L_2(s, χ̌) = G_2(u^s − 1, χ̌) and log_2(u) associated to 4. Both μ_χ(g_F) and λ_χ(g_F) are nonzero.",
+   "hypotheses": [
+    "Greither takes g itself and asserts g ∈ F. In general g lies only in D, and D can be larger than F (source issue E5). Its norm g_F is what his sums over all b with (b, m) = 1 compute, and it equals g when F = D.",
+    "Greither's (G1) and μ_χ carry an extra factor m and drop b from the exponent (source issue E6). m is odd, so this does not change any 2-adic order."
+   ],
+   "proofSteps": [
+    "g is fixed by σ_2, since Tr(a²) = Tr(a) (Frobenius invariance), so g ∈ D, where 2 splits completely. F ⊆ D because 2 splits completely in F.",
+    "(G1) By Stickelberger's theorem at p = 2, (g) = ∏_{b ∈ (ℤ/m)^×/⟨2⟩} (σ_b^{−1}𝔓)^{Σ_{t=1}^{f}⟨2^t b/m⟩}. Taking N_{D/F} collects all b with σ_b|_F = δ: μ(g_F) = Σ_δ Σ_{b mod m, σ_b ↦ δ} ⟨b/m⟩·𝔭_{δ^{−1}}, and μ_χ(g_F) = (Σ_b ⟨b/m⟩χ^{−1}(b))·(𝔭)_χ = B_{1,χ^{−1}}·(𝔭)_χ, since χ has conductor m.",
+    "(G2) λ_χ(g_F) = (Σ_δ log_2(g_F^δ)·χ^{−1}(δ))·(𝔭)_χ. Gross–Koblitz writes each conjugate of g as a product of Morita Γ_2-values, so this is Σ_{(b,m)=1} χ^{−1}(b)·log_2 Γ_2(⟨b/m⟩)·(𝔭)_χ. Ferrero–Greenberg (Gross [10], p. 993) turns it into Σ_{(b,m)=1} χ^{−1}(b)·ζ′_2(b, 0)·(𝔭)_χ.",
+    "Lemma 4.8 identifies the last sum with L′_2(0, χ̌)·(𝔭)_χ. It suffices to check s = 1 − n for odd n ∈ ℕ, using the definitions (Washington, Chapter 5; Gross [10], p. 989). Then L′_2(0, χ̌) = log_2(u)·G′_2(0, χ̌), and log_2(u) is associated to 4.",
+    "μ_χ(g_F) ≠ 0 because B_{1,χ^{−1}} ≠ 0 for odd χ. λ_χ(g_F) ≠ 0 by Gross [10], 1.15, a consequence of his Conjecture 2.12, which he proves for abelian fields."
+   ],
+   "acceptance": [
+    "The index computations in the trivial-zero formula use only the ℤ_2(χ)-lines spanned by μ_χ(g_F) and λ_χ(g_F), so units (including m) do not matter."
+   ],
+   "prerequisites": [
+    "FiniteFieldsAndCharacterSums:FF.1/stickelberger-relation",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "DirichletPadicLFunctions:L3"
+   ],
+   "api": [
+    {
+     "name": "twoUnitQuotient",
+     "role": "constructor",
+     "statement": "W = O_F[1/2]^×/O_{F^+}[1/2]^×, a ℤΔ-module with ℚ_2 ⊗ W ≅ ℚ_2Δ/(1 + j)."
+    },
+    {
+     "name": "primeDivisorModule",
+     "role": "constructor",
+     "statement": "M = ℤ_2[Δ]/(1 + j) on the classes of the 𝔭_δ; M_χ ≅ ℤ_2(χ) by (𝔭)_χ ↦ 1."
+    },
+    {
+     "name": "valuationVector",
+     "role": "constructor",
+     "statement": "μ(u) = Σ_δ v_{𝔭_δ}(u)·𝔭_δ, a ℤΔ-linear map W → M."
+    },
+    {
+     "name": "logVector",
+     "role": "constructor",
+     "statement": "λ(u) = Σ_δ log_2(u^{δ^{−1}})·𝔭_δ, a ℤΔ-linear map W → 4M."
+    },
+    {
+     "name": "gaussSumNorm",
+     "role": "constructor",
+     "statement": "g_F = N_{D/F}(g) for the Gauss sum g = −Σ_a η^{−1}(a)ψ(Tr a) ∈ D."
+    },
+    {
+     "name": "valuationVector_gaussSumNorm",
+     "role": "characterisation",
+     "statement": "(G1) μ_χ(g_F) = B_{1,χ^{−1}}·(𝔭)_χ."
+    },
+    {
+     "name": "logVector_gaussSumNorm",
+     "role": "characterisation",
+     "statement": "(G2) λ_χ(g_F) = 4·G′_2(0, χ̌)·unit·(𝔭)_χ."
+    }
+   ],
+   "tests": [
+    {
+     "name": "logVector.test_kernel",
+     "kind": "value",
+     "statement": "log_2 kills V = {±1} × 2^ℤ and log_2(ℤ_2^×) = log_2(1 + 4ℤ_2) = 4ℤ_2, so λ lands in 4M."
+    },
+    {
+     "name": "gaussSum.test_conductor_seven",
+     "kind": "value",
+     "statement": "m = 7, F = D = ℚ(√−7), f = 3: |g|² = 8 and (g) = 𝔭·𝔭̄², so μ(g) = 𝔭 + 2𝔭̄ = −𝔭 in M, and μ_χ(g) = −(𝔭)_χ = B_{1,χ}·(𝔭)_χ with B_{1,χ} = −1 for the quadratic character χ."
+    },
+    {
+     "name": "gaussSum.test_not_in_F",
+     "kind": "non-example",
+     "statement": "m = 217 = 7·31, χ = (quadratic character mod 7)·(cubic character mod 31), odd with χ(2) = 1, F its sextic field: σ_120 fixes F but σ_120(g) ≠ g (v_𝔓(g) = s(151) = 5, v_{σ_120^{−1}𝔓}(g) = s(18120) = 6 in binary digit sums), so g ∉ F and the norm g_F is needed."
+    }
+   ],
+   "uses": [
+    {
+     "where": "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-formula",
+     "how": "the lines λ_χ⟨g_F⟩ and μ_χ⟨g_F⟩ whose indices give G′_2(0, χ̌) and B_{1,χ^{−1}}"
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, definitions before (G1), p. 490",
+     "match": "The definitions of W, M, μ, λ."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, the Gauss sum, p. 490",
+     "match": "Greither's claim g ∈ F, corrected here (source issue E5)."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, (G2), p. 491",
+     "match": "The derivation of (G2)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-formula",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "The trivial-zero formula (Greither, Lemmas 4.9–4.10 and Theorem 4.6)",
+   "kind": "theorem",
+   "statement": "Let p = 2, F an imaginary abelian field unramified at 2 with Δ = Gal(F/ℚ) = Δ_2 × Δ_0, Δ_2 cyclic and |Δ_0| odd, j complex conjugation, F_n the layers of the cyclotomic ℤ_2-extension, A_n = A_2(F_n), and χ an odd character of Δ, injective on Δ, with χ(2) = 1 (so 2 splits completely in F) and ξ = χ|Δ_0 nontrivial; χ̌ = ωχ^{−1} and Λ_χ = ℤ_2(χ)[[T]]. With Z, Z^+, D_0 as in the trivial-zero reduction and μ, λ as in the Gauss-sum construction: (Lemma 4.9) |coker(λ_χ: W′_χ → 4ℤ_2(χ))| = |(Z/im Z^+)_χ|, where W′_χ is the 2-adic completion of W_χ modulo 2-torsion, of rank one over ℤ_2(χ); (Lemma 4.10) |coker μ_χ| = |(D_0/im D_0^+)_χ|; and (Theorem 4.6) |½G′_2(0, χ̌)|_2^{d(χ)}·|(Z/im Z^+)_ξ|^{−1}·|(D_0)_ξ|/|(D_0^+)_ξ| = |½B_{1,χ^{−1}}|_2^{d(χ)}.",
+   "hypotheses": [],
+   "proofSteps": [
+    "ℚ_2 ⊗ W ≅ ℚ_2Δ/(1 + j), so ℚ_2 ⊗ W_χ ≅ ℚ_2(χ), and λ_χ, μ_χ induce monomorphisms W′_χ → M_χ ≅ ℤ_2(χ).",
+    "Lemma 4.9. Compare W′_χ → 4ℤ_2(χ) with V^Δ → ((ℚ_2F)^×/(ℚ_2F^+)^×)_χ → 4ℤ_2(χ), where λ′ is λ on (ℚ_2^×)^Δ. Since ker(log_2: ℚ_2^× → 4ℤ_2) = V, the lower sequence is exact. So coker λ_χ ≅ (N(F)/N(F^+))_χ, which is (Z/im Z^+)_χ by Proposition 4.7(b).",
+    "Lemma 4.10. The definition of μ gives coker μ ≅ D_0/im D_0^+ naturally.",
+    "Theorem 4.6. |(Z/im Z^+)_χ|^{−1}·|(D_0/im D_0^+)_χ| = |coker λ_χ|^{−1}·|coker μ_χ|. Computing both indices through the lines spanned by λ_χ(⟨g_F⟩) and μ_χ(⟨g_F⟩), the factors |W′_χ/⟨g_F⟩| cancel, and (G1), (G2) give |G′_2(0, χ̌)|_2^{−d(χ)}·|B_{1,χ^{−1}}|_2^{d(χ)}. Multiplying by |½|_2^{d(χ)} on both sides and using injectivity of (D_0^+)_ξ → D_{0ξ} gives 4.6."
+   ],
+   "acceptance": [
+    "The ½ cancels between the two sides of 4.6; the content is |(Z/im Z^+)_χ|^{−1}·|(D_0/im D_0^+)_χ| = |G′_2(0, χ̌)|_2^{−d(χ)}·|B_{1,χ^{−1}}|_2^{d(χ)}."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-split-units-quotient",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-gauss-sum-vectors",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-split-prime-divisor-classes"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, reduction to Theorem 4.6, p. 488",
+     "match": "Theorem 4.6 suffices for Theorem 4.1."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Theorem 4.6, p. 492",
+     "match": "The end of the proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-relative-class-group-bound",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "|A₂(F)_χ| is divisible by |½B_{1,χ⁻¹}|^{d(χ)} (Greither, Theorem 4.1 = Theorem B)",
+   "kind": "theorem",
+   "statement": "Let p = 2 and F an imaginary abelian field unramified at 2 with Δ = Gal(F/ℚ) = Δ_2 × Δ_0 and Δ_2 cyclic. For every odd character χ of Δ, |A_2(F)_χ| ≥ |½B_{1,χ^{−1}}|_2^{d(χ)}, that is, the 2-power |A_2(F)_χ| is divisible by |½B_{1,χ^{−1}}|_2^{d(χ)} = 2^{d(χ)·v_2(½B_{1,χ^{−1}})}. Here A_2(F)_χ ≅ (A_2(F)/im A_2(F^+))_χ ≅ A_2(F)^−_χ, since χ is odd and the norm A_2(F) → A_2(F^+) is onto.",
+   "hypotheses": [
+    "Greither states Theorem 4.1 for every p and χ faithful on Δ_p. For odd p he cites Mazur–Wiles (|Δ| prime to p) and Solomon (general case), neither read here, and says the argument below works for all p. The node is the case p = 2 (Theorem B), where every odd χ is faithful on the cyclic Δ_2."
+   ],
+   "proofSteps": [
+    "χ(j) = −1 makes χ injective on Δ_2, so ker χ ⊂ Δ_0. Replace F by the fixed field of ker χ, so that χ is injective on Δ.",
+    "Case χ(2) ≠ 1. Let D be the decomposition group of 2 in Δ, Δ̄ = Δ/D, γ a topological generator of Γ and γ_n = γ^{p^n}. As in Washington p. 278 there is an exact sequence 0 → ((1 − γ_n)/(1 − γ))·Y_0/(1 − γ_n)X → X/(1 − γ_n)X → A(K_n) → 0, whose first term is a quotient of Z = Y_0/(1 − γ)X.",
+    "With L and G = Gal(L/F) as on Washington p. 277, 𝔓 a prime of L above a divisor 𝔭 of p and σ a generator of its inertia group, Z is the ℤ_p-span of the z_τ = [σ^τσ^{−1}] (τ ∈ Gal(L/ℚ)). z_τ = 0 for τ ∈ G, so Z is a quotient of the augmentation ideal of ℤ_pΔ; it is cyclic because Δ_p is cyclic, and D acts trivially, so Z is a quotient of ℤ_pΔ̄. Taking χ-parts gives (ℤ_pΔ̄)_χ → X_χ/(1 − γ_n)X_χ → A(K_n)_χ → 0. The Frobenius at 2 acts on the left term trivially and by χ(2), so that term is cyclic over ℤ_2(χ), killed by 1 − χ(2), of order at most |1 − χ(2)|_2^{d(χ)}.",
+    "char(X_χ) = (½G_2(T, χ̌)) by Theorem 3.2, and ½G_2(T, χ̌)|_{T=0} = ½L_2(0, χ̌) = −½(1 − χ^{−1}(2))B_{1,χ^{−1}} ≠ 0. The coinvariant lemma (Coates, Lemma 9) gives |X_χ/(1 − γ)X_χ| ≥ |½G_2(0, χ̌)|_2^{d(χ)}, and |1 − χ(2)|_2 = |1 − χ^{−1}(2)|_2. So |A(F)_χ| ≥ |½B_{1,χ^{−1}}|_2^{d(χ)}.",
+    "Case χ(2) = 1. Then 2 splits completely in F. (***) of the trivial-zero reduction and Theorem 4.6 give |A(F)_χ| ≥ |½G′_2(0, χ̌)|_2^{d(χ)}·|(Z/im Z^+)_ξ|^{−1}·|(D_0)_ξ|/|(D_0^+)_ξ| = |½B_{1,χ^{−1}}|_2^{d(χ)}."
+   ],
+   "acceptance": [
+    "When χ is not of 2-power order, equality holds; this is Theorem A.",
+    "For χ of 2-power order, |A(F)_χ| = 2·|½B_{1,χ^{−1}}|_2^{d(χ)} (p. 482), strictly larger than the bound."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-reduction",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-formula",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "IntegralIwasawaTheory:L2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, before the proof of Theorem 4.1, p. 482",
+     "match": "The proof is written for p = 2."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Theorem 4.1, p. 483",
+     "match": "The two cases χ(2) ≠ 1 and χ(2) = 1."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, the case χ(2) ≠ 1, p. 484",
+     "match": "The coinvariant lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-iwasawa-leopoldt-two",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "The Iwasawa–Leopoldt conjecture at p = 2 (Greither, Theorem A)",
+   "kind": "theorem",
+   "statement": "Let F/ℚ be an imaginary abelian field unramified at 2 with Galois group Δ = Δ_2 × Δ_0, Δ_2 cyclic and |Δ_0| odd. For every odd 2-adic character χ of Δ that is not of 2-power order (that is, χ|Δ_0 ≠ ε), |A_2(F)^−_χ| = |½B_{1,χ^{−1}}|_2^{d(χ)}, where A_2(F)^− = {x ∈ A_2(F): x^j = −x}, d(χ) = [ℤ_2(χ):ℤ_2] and |a|_2 = 2^e for a = 2^e·u ∈ ℤ_2(χ) with u a unit. For the single odd character χ_2 of 2-power order (up to ℚ_2-conjugacy), with L the fixed field of Δ_0, |A_2(F)_{χ_2}| = |A_2(L)^−| = 2·|½B_{1,χ_2^{−1}}|_2^{d(χ_2)}·k_L, where k_L = |ker(A_2(L^+) → A_2(L))| = 1. Consequently (1 − e_ε)A_2(F)^− is annihilated by ½ times the images in (1 − e_ε)ℤ_2[Δ]/(1 + j) of the Stickelberger elements of F, which sharpens Stickelberger's theorem at 2.",
+   "hypotheses": [
+    "The characters χ are taken up to ℚ_2-conjugacy, and each class contributes one factor with exponent d(χ)."
+   ],
+   "proofSteps": [
+    "For each odd χ with χ|Δ_0 ≠ ε, |A_2(F)^−_χ| = |(A_2(F)/im A_2(F^+))_χ|. For a cyclic 2-group Δ_2 the minus quotient ℤ_2(χ_0)[Δ_2]/(1 + j) is the domain ℤ_2(χ); see the χ-parts node, property (g).",
+    "The analytic class number formula for F and for L (with Q_L = 1 and w_L = 2) and k_F = k_L give |(1 − e_ε)A_2(F)^−| = ∏ |½B_{1,χ^{−1}}|_2^{d(χ)} over the odd χ with χ|Δ_0 ≠ ε, modulo ℚ_2-conjugacy. The same product of the |A_2(F)^−_χ| equals |(1 − e_ε)A_2(F)^−|, because ξ-parts are exact.",
+    "Theorem B bounds each factor below; the products agree, so every factor is an equality.",
+    "k_L = 1. Every nontrivial subgroup of the cyclic 2-group Gal(L/ℚ) contains j, and some odd prime ℓ ramifies in L, so L/L^+ is ramified above ℓ. L is unramified at 2, so i ∉ L, and μ(L)/μ(L)² is generated by −1. Let 𝔞 be a class of L^+ with 𝔞O_L = (α). Then α/ᾱ is a unit of absolute value 1 everywhere, so a root of unity. If α/ᾱ = ζ² = ζ/ζ̄, then α/ζ ∈ L^+ generates 𝔞, which is trivial. Otherwise α can be rescaled so that ᾱ = −α. Then δ = α² ∈ L^+, L = L^+(√δ) and δO_{L^+} = 𝔞², so v_𝔮(δ) is even at every 𝔮 above ℓ. This contradicts the ramification of L/L^+ above ℓ.",
+    "The annihilation statement: for (1 − e_ε)A_2(F)^− the χ-parts are cyclic of order |½B_{1,χ^{−1}}|_2^{d(χ)}, the χ-component of ½ times a Stickelberger element."
+   ],
+   "acceptance": [
+    "Examples show some condition on Δ_2 is necessary (Greither, Remark a)).",
+    "F = ℚ(ζ_5): χ_2 of order 4, d(χ_2) = 2, B_{1,χ_2^{−1}} = (−3 + i)/5, so 2·|½B|_2^2 = 2·2^{−1} = 1 = |A_2(ℚ(ζ_5))|."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-relative-class-group-bound",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "IntegralIwasawaTheory:L0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§1, Remark a) after Theorem A, p. 453",
+     "match": "The Stickelberger consequence."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§1, Remark b) after Theorem A, p. 453",
+     "match": "The 2-power-order character; the printed formula lacks the exponent d(χ_2) (source issue E4)."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§1, Theorem B implies Theorem A, p. 454",
+     "match": "The deduction."
+    }
+   ],
+   "planet": {
+    "name": "Iwasawa–Leopoldt conjecture at p = 2 (Greither A)"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-real-fields",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "Ray class groups of real abelian fields and ½L_p(1, χ) (Greither, Theorem 4.11)",
+   "kind": "theorem",
+   "statement": "Let F be a real abelian field and p a prime unramified in F, with Δ = Gal(F/ℚ) = Δ_p × Δ_0 and Δ_p the p-part. Let A′(F) = lim_ν C_{(p^ν)}(F), where C_{(p^ν)}(F) is the p-part of the ray class group modulo p^ν. Let e = e_ε = |Δ_0|^{−1}Σ_{δ∈Δ_0}δ. Then (1 − e)A′(F) is finite, and for every character χ_0 ≠ 1 of Δ_0, |A′(F)_{χ_0}| = ∏_{χ|Δ_0 = χ_0} |½L_p(1, χ)|_p^{d(χ)}, the product over the characters χ of Δ restricting to χ_0, taken up to conjugacy over ℚ_p(χ_0). Equivalently, as in the proof, the product runs over all such χ with exponent d(χ_0).",
+   "hypotheses": [
+    "Leopoldt's conjecture for F and p (true for abelian F) is used to identify A′(F) with Y/TY and to make (1 − e)A′(F) finite."
+   ],
+   "proofSteps": [
+    "Y = lim A′(F_n) is the Galois group of the maximal abelian p-ramified p-extension of F_∞, a Λ_Δ-module with A′(F) ≅ Y/TY. Define T̂ by 1 + T̂ = u·(1 + T)^{−1}. By Theorem 3.2 and Proposition 3.4, char_{Λ_χ}(Y_χ) = ½G_p(T̂, χ)Λ_χ for every χ, so char_{Λ_{χ_0}}(Y_{χ_0}) = (∏_χ ½G_p(T̂, χ)) over χ|Δ_0 = χ_0.",
+    "Let δ(χ_0) be the order of the T-coinvariants of the torsion of Y_{χ_0}. Iwasawa theory gives |A′_{χ_0}| = ∏_χ |½G_p(T̂, χ)|_{T=0}|_p^{d(χ_0)}·δ(χ_0) = ∏_χ |½L_p(1, χ)|_p^{d(χ_0)}·δ(χ_0).",
+    "It suffices that ∏_{χ_0 ≠ 1}|A′_{χ_0}| = ∏_{χ|Δ_0 ≠ 1}|½L_p(1, χ)|_p; then every δ(χ_0) = 1. The left side is |(1 − e)A′| = |A′(F)|/|A′(L)|, with L the fixed field of Δ_0.",
+    "0 → (1 − e)(U_F/Ē_F) → (1 − e)A′(F) → (1 − e)A(F) → 0, and |(1 − e)(U_F/Ē_F)| = p^{−[F:ℚ]+[L:ℚ]}·R_p(F)·R_p(L)^{−1}. The proof compares log_p: (1 − e)U_F → (1 − e)p(ℤ_p ⊗ O_F), whose kernel and cokernel have equal order (1 for odd p, 2^{g(F)−g(L)} for p = 2, g the number of primes above 2), and uses (1 − e)Ē_F ∩ ker log_p = 0.",
+    "The p-adic class number formula for F and for L (Washington, Theorem 5.24) gives the quotient (2p)^{…}·(d(F)/d(L))^{1/2}·∏(1 − p^{−1}χ(p))^{−1}·½L_p(1, χ). F and L are unramified at p and χ(p) ≠ 0, so its p-value is that of ∏_{χ|Δ_0 ≠ 1}½L_p(1, χ)."
+   ],
+   "acceptance": [
+    "Every δ(χ_0) = 1: the torsion of Y_{χ_0} has trivial T-coinvariants for χ_0 ≠ 1.",
+    "For p = 2 the kernel and cokernel of log_2 on (1 − e)U_F both have order 2^{g(F)−g(L)}; for odd p both are trivial."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-kummer-duality",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "IntegralIwasawaTheory:L1",
+    "IntegralIwasawaTheory:L4",
+    "DirichletPadicLFunctions:L3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Theorem 4.11, p. 493",
+     "match": "The coinvariant step."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Theorem 4.11, p. 494",
+     "match": "The p-adic class number formula."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-transfer",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "Norm and inclusion maps on p-adic ray class groups (Greither, Lemma 4.13)",
+   "kind": "lemma",
+   "statement": "Let F/K be a p-extension of cyclic number fields that are unramified above p, with C = Gal(F/K). There are Galois-equivariant homomorphisms α: A′(F) → A′(K), induced by N_{F/K}, and β: A′(K) → A′(F), induced by K ⊂ F, such that α is surjective, β is injective, and βα is multiplication by the norm element Σ_{σ∈C}σ.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Gal(F/ℚ) is cyclic and generated by inertia groups, so some prime ℓ ≠ p ramifies totally in F/ℚ. Hence F/K has no p-ramified subextension, and α is onto.",
+    "For a divisor 𝔪 of K, ker(C_𝔪(K) → C_𝔪(F)) embeds into H¹(C, E_𝔪(F)) with E_𝔪(F) = ker(O_F^× → (O_F/𝔪O_F)^×). Since lim is left exact, it suffices that lim_ν H¹(C, E_{(p^ν)}(F)) = 0.",
+    "Leopoldt's conjecture for p and F gives N ≥ 2 such that every x ∈ E_{(p^{N+1})}(F) is a p-th power of a unit y, and y ∈ E_{(p^N)}(F) because p is unramified in F.",
+    "Let p^c = |C| and ν ≥ N. Every 1-cocycle x = (x_σ) in Z¹(C, E_{(p^{ν+c})}(F)) has x_σ = y_σ^{p^c} with y_σ ∈ E_{(p^ν)}(F). E_{(p^ν)}(F) contains no nontrivial p-power root of unity: for odd p because F is unramified at p, and for p = 2 because −1 ≢ 1 mod 4 and ν ≥ 2. So (y_σ) is again a cocycle, and the image of x in H¹(C, E_{(p^ν)}(F)) is divisible by p^c, hence zero."
+   ],
+   "acceptance": [
+    "For p = 2 the field F contains −1. The cocycle step needs ν ≥ N ≥ 2, not the absence of 2-power roots of unity from F that Greither states (source issue E11)."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L1",
+    "IntegralIwasawaTheory:L4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Lemma 4.13, p. 495",
+     "match": "The maps α and β."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Lemma 4.13, p. 495",
+     "match": "The use of Leopoldt's conjecture."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-real-iwasawa-leopoldt",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "The real analogue of the Iwasawa–Leopoldt conjecture (Greither, Theorem 4.12 = Theorem C)",
+   "kind": "theorem",
+   "statement": "Let F be a real abelian field and p a prime unramified in F, with Δ = Gal(F/ℚ) = Δ_p × Δ_0 and Δ_p cyclic. For every character χ of Δ with χ|Δ_0 ≠ ε (the order of χ is not a power of p) and χ|Δ_p faithful, |A′(F)_χ| = |½L_p(1, χ)|_p^{d(χ)}. Here A′(F) is the p-part of the projective limit of the ray class groups C_{(p^ν)}(F); A′(F) is infinite, but (1 − e_ε)A′(F) is finite.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Let χ′ = χ|Δ_0 ≠ 1. If Δ_p = 1, the statement is Theorem 4.11. Otherwise let C be the subgroup of Δ_p of order p, and F_1 its fixed field.",
+    "Lemma 4.13 gives α: A′(F) → A′(F_1) onto and β: A′(F_1) → A′(F) injective with βα = N_C.",
+    "If Δ_p = ⟨σ⟩ has order p^k, then N_C = Φ_{p^k}(σ), and for χ faithful on Δ_p, A′(F)_χ = A′(F)_{χ′}/Φ_{p^k}(σ)A′(F)_{χ′} (Φ_{p^k} is irreducible over the unramified ℚ_p(χ′)). Since α is onto and β injective, N_C·A′(F)_{χ′} = β(A′(F_1)_{χ′}) ≅ A′(F_1)_{χ′}, so |A′(F)_χ| = |A′(F)_{χ′}|/|A′(F_1)_{χ′}| (Solomon, Corollary II.1).",
+    "A character of F is a character of F_1 exactly when it is not faithful on Δ_p. By Theorem 4.11 the quotient is ∏|½L_p(1, ξ)|_p^{d(χ′)} over the ξ with ξ|Δ_0 = χ′ that are faithful on Δ_p. These ξ are the ℚ_p(χ′)-conjugates of χ, so the product is |½L_p(1, χ)|_p^{d(χ)}."
+   ],
+   "acceptance": [
+    "χ|Δ_0 ≠ ε is needed: for Δ_p = 1 and χ = 1, A′(F)_χ has ℤ_p-rank one and L_p(s, 1) has a pole at s = 1."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-real-fields",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-transfer",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§1, Theorem C, p. 454",
+     "match": "Theorem C with χ|Δ_0 ≠ ε."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, Theorem 4.12, p. 494",
+     "match": "Theorem 4.12; its printed hypothesis omits χ|Δ_0 ≠ ε (source issue E9)."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Theorem 4.12, p. 494",
+     "match": "The order of the χ-part."
+    }
+   ],
+   "planet": {
+    "name": "Real Iwasawa–Leopoldt analogue (Greither C)"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-gras-conjecture",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L4"
+   ],
+   "title": "Units modulo circular units and the Gras conjecture (Greither, Theorem 4.14 and Corollary 4.15)",
+   "kind": "theorem",
+   "statement": "Let F/ℚ be real abelian with Δ = Gal(F/ℚ) = Δ_p × Δ_0 and Δ_p cyclic, and p unramified in F. Let 𝒞_F be Sinnott's group of circular units of F, E_F the unit group, C_F = 𝒞_F ∩ E_F, and (·)_p the p-adic completion. For every nontrivial character χ′ of Δ_0, |(E_F/C_F)_{p,χ′}| = |A(F)_{χ′}|·|((ℤ_p/2ℤ_p)[Δ])_{χ′}|·|(R : U)_{χ′}|, where R = ℤ[Δ] and U are as in Sinnott, and |((ℤ_p/2ℤ_p)[Δ])_{χ′}| is 2^{d(χ′)|Δ_p|} for p = 2 and 1 for odd p. If |Δ| is prime to p, then [E_{F,p}/C̄_{F,p}] = [A(F)] in the Grothendieck group K_0 of finite ℤ_p[Δ]-modules, where C̄_F is Sinnott's larger group of circular units. In particular, for p = 2 and |Δ| odd, E_F/C̄_F and A_2(F) have isomorphic composition series as ℤ_2[Δ]-modules (the Gras conjecture).",
+   "hypotheses": [
+    "Sinnott's (R : U) is a generalised index of lattices, so |(R : U)_{χ′}| can be a negative power of p.",
+    "Greither prints the middle factor as 2^{d(χ′)|Δ_p|} for every p. His proof gives [e′(ℤ_p/2)[Δ]], which is 0 for odd p; the node states the corrected factor."
+   ],
+   "proofSteps": [
+    "Let e′ = 1 − e_ε. The statement is equivalent to [e′(E_p/C_p)] = [e′A(F)] + [e′(ℤ_p/2)[Δ]] + [e′R/e′U] in K_0(ℤ_p[Δ]). R_{χ′} = ℤ_p(χ′)[Δ_p] is local, so the class of an R_{χ′}-module is determined by its order.",
+    "Let 𝒪 be ℤ_p with all character values adjoined. Theorem 4.11 gives [𝒪 ⊗ e′A′(F)] = Σ_χ[𝒪_χ/(½L_p(1, χ))] − [e′U_p : e′E_p] over the χ nontrivial on Δ_0. Since [E_p/C_p] = [U_p/C_p] − [U_p/E_p] and K_0(ℤ_pΔ) → K_0(𝒪Δ) is injective, it remains to prove (*) for [𝒪 ⊗ e′(U_p/C_p)].",
+    "(*) follows Sinnott §4 with p-adic L-functions: the logarithmic embedding λ: 𝒪 ⊗ U_p → p𝒪^{(Δ)}, u ↦ Σ_δ log_p(u^{δ^{−1}})·δ, gives [𝒪 ⊗ e′(U_p/C_p)] = [e′p𝒪^{(Δ)}/λ(e′C_p)], and Sinnott's Proposition 4.2 and its corollary, rewritten with L_p(1, χ), give λ(e′C_p) = e′ω′U. With R_{χ′} = ∏_χ 𝒪 the maximal order, [e′p𝒪R/e′ω′𝒪R] = [∏_χ 𝒪/(½L_p(1, χ))], and the three formulas combine to (*).",
+    "Corollary 4.15. If |Δ| is prime to p, then ℤ_pR = ℤ_pU, so [E_p/C_p] = [A(F)] + [(1 − e_ε)(ℤ_p/2)[Δ]]. For odd p that term vanishes and C̄_F/C_F is 2-elementary. For p = 2, every totally positive element of C_F is a square in E_F (Sinnott, p. 209, with (2, |Δ|) = 1), so C̄_F/C_F ≅ (1 − e_ε)(ℤ/2)[Δ], which cancels the extra term."
+   ],
+   "acceptance": [
+    "For odd p the factor |((ℤ_p/2ℤ_p)[Δ])_{χ′}| is 1: both sides of 4.14 are then powers of p."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-real-fields",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "IntegralIwasawaTheory:L0",
+    "DirichletPadicLFunctions:L3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Greither",
+    "namespace": "TauCeti.CyclotomicEulerSystem.Greither"
+   },
+   "sources": [
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, Theorem 4.14, p. 495",
+     "match": "Theorem 4.14; its printed factor 2^{d(χ′)|Δ_p|} is corrected for odd p (source issue E10)."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Corollary 4.15, p. 496",
+     "match": "Corollary 4.15."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, proof of Theorem 4.14, p. 497",
+     "match": "Sinnott's §4 with p-adic L-functions."
+    }
+   ],
+   "planet": {
+    "name": "Gras conjecture for real abelian fields (Greither)"
+   },
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
   {
    "supplier": "IntegralIwasawaTheory:L0",
-   "need": "The cyclotomic tower: a compatible system ζ_m (ζ_{mn}^n = ζ_m) in a fixed algebraic closure or ℂ; the fields ℚ(μ_m) = ℚ(ζ_m) with inclusions for m ∣ n; Gal(ℚ(μ_m)/ℚ) ≅ (ℤ/m)^× by σ_a(ζ_m) = ζ_m^a, compatible with restriction; the real subfields ℚ(μ_m)^+ and complex conjugation; the relative norms N_{ℚ(μ_n)/ℚ(μ_m)} and N_{ℚ(μ_m)/L} to subfields, with transitivity and Galois equivariance; the Galois action on L^× ⊗ O and on the global units E_L of subfields L; the fact that 1 − ζ_g is a unit when g is not a prime power; and the index formula making [E_L^χ : C_{L,χ}] finite for even χ ≠ 1. Also the Galois-module form of the unit theorem for totally real abelian L (E_L ⊗ ℚ ≅ augmentation quotient of ℚ[Δ]), and the analytic class number formula with Sinnott's index of cyclotomic units in ψ-parts. Also Iwasawa's theorem that Y_∞^χ = lim (L_{n,p}^×)^χ is torsion-free of Λ-rank one ([Iw3] Theorem 25), and Leopoldt's conjecture for real abelian fields. Also: the class number formula [E_n^+ : C_n^+] = h_n^+ for ℚ(μ_{p^n})^+ (Washington Theorem 8.2), Iwasawa's control theorem for Y_∞ and its finite generation and torsion, and the multiplicativity of characteristic ideals (RJW Lemma 13.6).",
+   "need": "The cyclotomic tower: a compatible system ζ_m (ζ_{mn}^n = ζ_m) in a fixed algebraic closure or ℂ; the fields ℚ(μ_m) = ℚ(ζ_m) with inclusions for m ∣ n; Gal(ℚ(μ_m)/ℚ) ≅ (ℤ/m)^× by σ_a(ζ_m) = ζ_m^a, compatible with restriction; the real subfields ℚ(μ_m)^+ and complex conjugation; the relative norms N_{ℚ(μ_n)/ℚ(μ_m)} and N_{ℚ(μ_m)/L} to subfields, with transitivity and Galois equivariance; the Galois action on L^× ⊗ O and on the global units E_L of subfields L; the fact that 1 − ζ_g is a unit when g is not a prime power; and the index formula making [E_L^χ : C_{L,χ}] finite for even χ ≠ 1. Also the Galois-module form of the unit theorem for totally real abelian L (E_L ⊗ ℚ ≅ augmentation quotient of ℚ[Δ]), and the analytic class number formula with Sinnott's index of cyclotomic units in ψ-parts. Also Iwasawa's theorem that Y_∞^χ = lim (L_{n,p}^×)^χ is torsion-free of Λ-rank one ([Iw3] Theorem 25), and Leopoldt's conjecture for real abelian fields. Also: the class number formula [E_n^+ : C_n^+] = h_n^+ for ℚ(μ_{p^n})^+ (Washington Theorem 8.2), Iwasawa's control theorem for Y_∞ and its finite generation and torsion, and the multiplicativity of characteristic ideals (RJW Lemma 13.6). Also, for Greither's §4: the analytic class number formula for the minus part of an imaginary abelian field in χ-parts, h^− = Q·w·∏_{χ odd}(−½B_{1,χ}), with Q_L = 1 for the fields of Theorem A; and Sinnott's circular units 𝒞_F, C̄_F, the index (R : U) and his §4 computation (Proposition 4.2 and its corollary), with the fact that every totally positive element of C_F is a square in E_F when [F : ℚ] is odd (Sinnott, p. 209).",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number",
     "EulerSystemsCyclotomicMainConjecture:L0/p-extended-auxiliary-relation",
@@ -2685,7 +3276,9 @@
     "EulerSystemsCyclotomicMainConjecture:L3/galois-unit-four-term-sequence",
     "EulerSystemsCyclotomicMainConjecture:L4/greither-real-main-conjecture",
     "EulerSystemsCyclotomicMainConjecture:L4/greither-kummer-duality",
-    "EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p"
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-iwasawa-leopoldt-two",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-gras-conjecture"
    ],
    "status": "open",
    "note": "RS-16 routes the global cyclotomic-unit definitions to IntegralIwasawaTheory:L0, which has no packet yet. The suggested file uses stand-ins zeta, Qmu, QmuPlus, unitsTensorRep only to state signatures."
@@ -2736,10 +3329,11 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
-   "need": "Over ℚ: the ray class field modulo m∞ is ℚ(μ_m) and modulo m is ℚ(μ_m)^+, and the maximal p-subextension ℚ(q) of the ray class field modulo q lies in ℚ(μ_q). Also the idelic form over F_n^+: Gal(M_n^+/L_n^+) ≅ U^+_{n,1}/(closure of global units) (Washington Corollary 13.6).",
+   "need": "Over ℚ: the ray class field modulo m∞ is ℚ(μ_m) and modulo m is ℚ(μ_m)^+, and the maximal p-subextension ℚ(q) of the ray class field modulo q lies in ℚ(μ_q). Also the idelic form over F_n^+: Gal(M_n^+/L_n^+) ≅ U^+_{n,1}/(closure of global units) (Washington Corollary 13.6). Also the idèlic correspondence for F abelian: the maximal abelian 2-ramified 2-extension with prescribed inertia corresponds to a closed subgroup of C_2(F) = J_F/F^×·∏_{q∤2}U_q (Greither, Proposition 4.7).",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses",
-    "EulerSystemsCyclotomicMainConjecture:L3/galois-unit-four-term-sequence"
+    "EulerSystemsCyclotomicMainConjecture:L3/galois-unit-four-term-sequence",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-split-units-quotient"
    ],
    "status": "open",
    "note": "Used only to match Rubin's Remark II.1.3 fields with the cyclotomic fields."
@@ -2790,6 +3384,46 @@
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L3/trivial-character-component"
    ]
+  },
+  {
+   "supplier": "IntegralIwasawaTheory:L1",
+   "need": "Class field theory for Greither's §4 Iwasawa modules: for an abelian field F and its cyclotomic ℤ_p-extension, Gal(L/F_∞) ≅ X/D_∞ for the maximal unramified abelian p-extension L in which the primes above p split completely; the maximal abelian p-ramified pro-p extension of F_∞ with Galois group Y and, for real F, A′(F) ≅ Y/TY, where A′(F) = lim C_{(p^ν)}(F) is the limit of the p-parts of the ray class groups; the idèle class group C_2(F) = J_F/F^×·∏_{q∤2}U_q; the exact sequence 0 → E_{1−γ} → G/G′ → Γ → 0 (Washington, Lemma 13.14); and the ambiguous-class formula for cyclic extensions (Lang, Cyclotomic Fields II, Chapter 13 §4, (2)–(3)).",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-split-prime-divisor-classes",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-split-units-quotient",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-real-fields",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-transfer"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "IntegralIwasawaTheory:L2",
+   "need": "The coinvariant lemma: for a finitely generated torsion Λ_χ = ℤ_p(χ)[[T]]-module M with char(M) = (f) and M/TM finite, |M/TM| = |f(0)|_p^{d(χ)}·|M^{T=0}| (Coates, p-adic L-functions and Iwasawa theory, Lemma 9); and Washington's construction on pp. 277–278 (the module Y_0, the exact sequence 0 → ((1 − γ_n)/(1 − γ))·Y_0/(1 − γ_n)X → X/(1 − γ_n)X → A(K_n) → 0, and Z = Y_0/(1 − γ)X spanned by the inertia commutators) for a cyclotomic ℤ_p-extension in which p is not totally split.",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-split-prime-divisor-classes",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-reduction",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-relative-class-group-bound"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "IntegralIwasawaTheory:L4",
+   "need": "Leopoldt's conjecture for abelian number fields (Brumer), in the two forms Greither's §4 uses: for F real abelian and p unramified, (1 − e_ε)A′(F) is finite and A′(F) has ℤ_p-rank one; and for F abelian there is N ≥ 2 such that every unit ≡ 1 mod p^{N+1} is the p-th power of a unit (Lemma 4.13).",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-real-fields",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-transfer"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "DirichletPadicLFunctions:L3",
+   "need": "For Greither's §4: L_p(s, χ) = G_p(u^s − 1, χ) with G_p the Iwasawa power series (Washington, Theorem 7.10), including p = 2 and the trivial zero of G₂(T, χ̌) at T = 0 when χ(2) = 1; Leopoldt's formula for L_p(1, χ) and the p-adic class number formula (Washington, Theorem 5.24) for a real abelian field unramified at p, with the p-adic regulator R_p(F).",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-gauss-sum-vectors",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-real-fields",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-gras-conjecture"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
@@ -2828,9 +3462,10 @@
    "remaining": [
     "§2 in detail (Lemmas 2.1–2.3 with the bounded errors when p divides the group order, Coleman's Theorems 2.4 and 2.8, Lemma 2.5–Proposition 2.10, Lemmas 2.11–2.12 and 2.15) is summarised in greither-semilocal-units, not decomposed.",
     "§3's Lemmas 3.11–3.13 (the inductive Kolyvagin argument with the constants) are summarised, not decomposed.",
-    "§4: Theorems A, B (= 4.1) and C (= 4.12) on χ-parts of class groups, the Gras conjecture (4.14–4.15), and Lemmas 4.2–4.13 are not yet planned."
+    "Theorem 4.1 for odd p (Mazur–Wiles, Solomon) is cited by Greither and not planned here; the odd-p class-group formulation belongs with L3's remaining RJW §13.5.",
+    "The Gross–Koblitz, Ferrero–Greenberg and non-vanishing inputs of (G2) are a gap."
    ],
-   "notes": "Checkpoint 5 plans Greither §§1–3 in 5 nodes: the χ-part functor for all p with the p = 2 property (g), the semilocal-unit theorem (2.13–2.14), the real main conjecture for all p (3.1) with the p = 2 Chebotarev modification (3.7), Kummer duality (3.3–3.4), and the main conjecture for all p with the one-half normalisation (3.2)."
+   "notes": "Checkpoint 5 plans Greither §§1–3 in 5 nodes: the χ-part functor for all p with the p = 2 property (g), the semilocal-unit theorem (2.13–2.14), the real main conjecture for all p (3.1) with the p = 2 Chebotarev modification (3.7), Kummer duality (3.3–3.4), and the main conjecture for all p with the one-half normalisation (3.2). Checkpoint 6 plans Greither §4 in 11 nodes: Lemma 4.2–Corollary 4.3, the trivial-zero reduction (4.4, 4.5, (***)), Proposition 4.7, the Gauss-sum vectors ((G1), (G2), 4.8) with the norm to F, the trivial-zero formula (4.9, 4.10, 4.6), Theorem B (= 4.1) at p = 2, Theorem A with Remarks a)–b), Theorem 4.11, Lemma 4.13, Theorem C (= 4.12) and the Gras conjecture (4.14–4.15). Eight source issues (E4–E11); E5 is an error in the proof of 4.6. Greither's closing remark that the 2-adic main conjecture gives the 2-part of Birch–Tate for real abelian fields (via Kolster) is not asserted."
   }
  ],
  "gaps": [
@@ -2847,6 +3482,14 @@
     "EulerSystemsCyclotomicMainConjecture:L3/componentwise-iwasawa-equality"
    ],
    "detail": "Rubin's Corollary III.2.8 is proved by citing [MW] §1.6 and [Ru3] p. 414 (Lang, Cyclotomic Fields, appendix); neither is read. The node plans the argument (componentwise divisibility from L2, the class number formula h_n^+ = [E_n^+ : C_n^+] at each layer, control of Y and of E/C with bounded errors, and equality of Iwasawa invariants of the products), but the control of E_∞/C_∞ at finite layers and the bound on its errors are not decomposed from a read source."
+  },
+  {
+   "title": "The Gross–Koblitz and Ferrero–Greenberg evaluations and Gross's non-vanishing are cited, not planned",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-gauss-sum-vectors",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-formula"
+   ],
+   "detail": "(G2) rests on three results from Gross, p-adic L-series at s = 0 (J. Math. Soc. Japan 1981), none read here: the Gross–Koblitz formula expressing the Gauss sums through Morita's Γ₂; the Ferrero–Greenberg formula L′₂(0, χ̌) = Σ χ^{−1}(b)ζ′₂(b, 0) as used on p. 993; and the non-vanishing λ_χ(g) ≠ 0 (Gross 1.15, from his Conjecture 2.12, proved there for abelian fields). No roadmap plans them: FiniteFieldsAndCharacterSums plans Stickelberger's theorem (FF.1) but not Gross–Koblitz, and DirichletPadicLFunctions plans L_p(s, χ) but not its derivative at s = 0. Lemma 4.8 (\"easily done, using the definitions\") is planned here as a proof step."
   }
  ],
  "sourceIssues": [
@@ -2894,6 +3537,134 @@
    "known": "new",
    "searched": [
     "The published monograph (Annals of Mathematics Studies 147, 2000) was not available to compare; the finding is scoped to the author draft."
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E4",
+   "source": "GREITHER-1992",
+   "kind": "misprint",
+   "locator": "§1, Remark b) after Theorem A, p. 453 (Numdam scan of the published article)",
+   "printed": "|A₂(F)_{χ₂}| = |A₂(L)^−| = 2·|2^{−1}B_{1,χ₂^{−1}}|₂·k_L",
+   "correction": "|A₂(F)_{χ₂}| = |A₂(L)^−| = 2·|2^{−1}B_{1,χ₂^{−1}}|₂^{d(χ₂)}·k_L, as restated on p. 482 (where k_L, which equals 1 here, is omitted).",
+   "reason": "With Greither's |a|₂ = 2^e for a = 2^e·u ∈ ℤ₂(χ), the exponent d(χ₂) is needed whenever ℤ₂(χ₂) ≠ ℤ₂. F = L = ℚ(ζ₅): χ₂ has order 4, d(χ₂) = 2, B_{1,χ₂^{−1}} = (−3 + i)/5 with v₂ = 1/2, so |½B|₂ = 2^{−1/2}. The printed right side is √2·k_L, not an integer; with the exponent it is 2·2^{−1} = 1 = |A₂(ℚ(ζ₅))|.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E5",
+   "source": "GREITHER-1992",
+   "kind": "error",
+   "locator": "§4, proof of Theorem 4.6, definition of the Gauss sum g, p. 490",
+   "printed": "The source concludes g ∈ F, citing the general assertion that, for arbitrary p, g^{p−1} belongs to the decomposition field associated with p in ℚ(m).",
+   "correction": "g lies in the decomposition field D of 2 in ℚ(μ_m), which contains F but can be larger. Replace g by g_F = N_{D/F}(g) ∈ F. The subsequent formulas μ(g) = m·Σ_δ Σ_{b mod m, σ_b ↦ δ}⟨b/m⟩·𝔭_{δ^{−1}} (up to the factor m, see E6) and λ_χ(g_χ) = Σ_{(b,m)=1} χ^{−1}(b)·log₂Γ₂(⟨b/m⟩)·(𝔭)_χ are the ones for g_F, so (G1), (G2) and Theorem 4.6 hold with g_F.",
+   "reason": "m = 217 = 7·31, χ = (quadratic character mod 7)·(cubic character mod 31): χ is odd, χ(2) = 1, and its fixed field F is cyclic of degree 6 and conductor 217 with 2 totally split, but D has degree 12. σ₁₂₀ fixes F (120 ≡ 1 mod 7, 120 ≡ 3³ mod 31). By Stickelberger, v_𝔓(g) = s(151) = 5 and v_{σ₁₂₀^{−1}𝔓}(g) = s(151·120 mod 32767) = 6 (binary digit sums, 2^{15} − 1 = 217·151), so σ₁₂₀(g) ≠ g. A numerical evaluation over 𝔽_{2^{15}} confirms |g(η^{−1}) − g(η^{−120})| ≈ 66, while g(η^{−1}) = g(η^{−2}).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E6",
+   "source": "GREITHER-1992",
+   "kind": "misprint",
+   "locator": "§4, (G1) and the formulas for μ(g), μ_χ(g_χ), pp. 490–491",
+   "printed": "(G1) g𝒪_{ℚ(m)} = 𝔭^{Σ_b Σ_{t=1}^{f} m⟨p^t/m⟩·σ_b^{−1}}; μ(g) = m·Σ_{δ∈Δ} Σ_{b mod m, σ_b ↦ δ} ⟨b/m⟩·𝔭_{δ^{−1}}; μ_χ(g_χ) = m·B_{1,χ^{−1}}·(𝔭)_χ",
+   "correction": "(g) = ∏_{b ∈ (ℤ/m)^×/⟨p⟩} (σ_b^{−1}𝔓)^{Σ_{t=1}^{f}⟨p^t b/m⟩} in ℚ(μ_m) (the inner term needs b, and the factor m belongs to g^m); correspondingly μ(g_F) and μ_χ(g_F) = B_{1,χ^{−1}}·(𝔭)_χ carry no factor m.",
+   "reason": "m = 7, F = ℚ(√−7), f = 3: |g|² = 8, so the norm of (g) from ℚ(μ₇) is 2⁹, and (g) = 𝔓·(σ₃^{−1}𝔓)² by the corrected formula. The printed exponent gives every conjugate of 𝔭 the exponent 2 + 4 + 1 = 7, norm 2^{42}. Stickelberger's theorem factors g^m with the factor m. m is odd, so the extra factor is a 2-adic unit and the orders in Theorem 4.6 are unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E7",
+   "source": "GREITHER-1992",
+   "kind": "misprint",
+   "locator": "§4, derivation of (G2), p. 491",
+   "printed": "The source identifies this expression with log₂(u)G′₂(0, χ̌)(𝔭_χ), invoking L′₂(s, χ̌) = G₂(u^s − 1, χ̌).",
+   "correction": "by the formula L₂(s, χ̌) = G₂(u^s − 1, χ̌)",
+   "reason": "Differentiating L₂(s, χ̌) = G₂(u^s − 1, χ̌) at s = 0 gives L′₂(0, χ̌) = log₂(u)·G′₂(0, χ̌), the step made. With the printed L′₂ on the left, s = 0 would give L′₂(0, χ̌) = G₂(0, χ̌), which is 0 in this case (the trivial zero).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E8",
+   "source": "GREITHER-1992",
+   "kind": "misprint",
+   "locator": "§4, Lemma 4.8, p. 491",
+   "printed": "Σ_{(b,m)=1} χ^{−1}(b)·ζ₂(b/s) = L₂(s, χ̌)",
+   "correction": "Σ_{(b,m)=1} χ^{−1}(b)·ζ₂(b, s) = L₂(s, χ̌)",
+   "reason": "ζ₂(b, s) is Gross's two-variable function, introduced in the preceding paragraph and used as ζ′₂(b, 0) in the display above; ζ₂(b/s) is not defined.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E9",
+   "source": "GREITHER-1992",
+   "kind": "misprint",
+   "locator": "§4, Theorem 4.12 (= Theorem C), p. 494",
+   "printed": "For every character χ of Δ whose restriction χ|Δ_p is faithful, the source asserts |A′(F)_χ| = |½L_p(1, χ)|_p^{d(χ)}.",
+   "correction": "Then for all characters χ of Δ such that χ|Δ_0 ≠ ε and χ|Δ_p is faithful, as in Theorem C (p. 454).",
+   "reason": "The proof applies Theorem 4.11, which requires χ_0 = χ|Δ_0 ≠ 1. Without it the statement fails: for Δ_p = 1 and χ = 1 (faithful on the trivial group), A′(F)_χ has ℤ_p-rank one (the cyclotomic ℤ_p-extension), and L_p(s, 1) has a pole at s = 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E10",
+   "source": "GREITHER-1992",
+   "kind": "misprint",
+   "locator": "§4, Theorem 4.14, p. 495",
+   "printed": "|(E_F/C_F)_{χ′}| = |A(F)_{χ′}|·2^{d(χ′)|Δ_p|}·|(R : U)_{χ′}|",
+   "correction": "|(E_F/C_F)_{χ′}| = |A(F)_{χ′}|·|((ℤ_p/2ℤ_p)[Δ])_{χ′}|·|(R : U)_{χ′}|, where the middle factor is 2^{d(χ′)|Δ_p|} for p = 2 and 1 for odd p.",
+   "reason": "The section fixes an arbitrary prime p. For odd p the left side, |A(F)_{χ′}| and the generalised index |(R : U)_{χ′}| of ℤ_p-lattices are powers of p, so the printed identity would force 2^{d(χ′)|Δ_p|} to be a power of p. The proof's reformulation [e′(E_p/C_p)] = [e′A(F)] + [e′(ℤ_p/2)[Δ]] + [e′R/e′U] (p. 496) has the term [e′(ℤ_p/2)[Δ]], which is 0 for odd p, and the proof of Corollary 4.15 uses exactly that.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E11",
+   "source": "GREITHER-1992",
+   "kind": "error",
+   "locator": "§4, proof of Lemma 4.13, p. 495",
+   "printed": "The source concludes that (y_σ) remains a cocycle because F contains no p-power roots of unity.",
+   "correction": "Since E_{(p^ν)}(F) contains no nontrivial p-power root of unity (for p = 2 because ν ≥ N ≥ 2 and −1 ≢ 1 mod 4), (y_σ) is again a cocycle.",
+   "reason": "The lemma allows p = 2, and every number field contains the 2-power root of unity −1, so the sentence is false for p = 2. The step only needs p^c-th roots to be unique inside E_{(p^ν)}(F), which holds because −1 ∉ E_{(2^ν)}(F) for ν ≥ 2; Greither's choice N ≥ 2 provides this.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
    ]
   }
  ]

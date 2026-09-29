@@ -2,8 +2,8 @@
 
 This blueprint covers stages L0–L4. The first checkpoint decomposes **L0**, the Euler system of
 cyclotomic units and its χ-twist. The second plans **L1**'s finite-level class-group bound, the third plans **L2**'s
-Iwasawa-theoretic divisibility, the fourth plans **L3**, the main conjecture for odd p, and the fifth starts **L4**
-(Greither, all p). It follows:
+Iwasawa-theoretic divisibility, the fourth plans **L3**, the main conjecture for odd p, the fifth starts **L4**
+(Greither, all p), and the sixth plans Greither's class-group theorems (§4). It follows:
 - Rubin, *Euler systems*, Chapter III §2.1–2.4, with the Chapter I–II definitions they use;
 - Rodrigues Jacinto–Williams (RJW), *An introduction to p-adic L-functions*, §10.2 and §10.5.
 
@@ -343,6 +343,54 @@ char((E_∞/C_∞)_ρ) for every even ρ ≠ 1, including at p = 2.
 **Theorem: the main conjecture for all p** (node `greither-main-conjecture-all-p`; planet; Theorem 3.2). For every odd
 χ ≠ ω, char(X_χ) = (½G_p(T, χ̌)). The ½ matters only at p = 2.
 
+Checkpoint 6 plans §4, the consequences for class groups. Greither's |x|_p = p^{v(x)} measures orders, so
+|x|_p^{d(χ)} is the order of ℤ_p(χ)/x.
+
+**Theorem B at p = 2** (node `greither-relative-class-group-bound`; Theorem 4.1). For F imaginary abelian,
+unramified at 2, with Δ_2 cyclic, |A_2(F)_χ| is divisible by |½B_{1,χ^{−1}}|_2^{d(χ)} for every odd χ. The proof
+splits on χ(2):
+- χ(2) ≠ 1: Washington's inertia module and the coinvariant lemma.
+- χ(2) = 1, the trivial zero, in four nodes:
+  - `greither-split-prime-divisor-classes` (Lemma 4.2, Corollary 4.3): the classes of the primes above 2 give
+    D_∞/D_∞^+ ≅ ℤ_2Δ/(1 + j), with characteristic ideal (T).
+  - `greither-trivial-zero-reduction` (Lemma 4.4, Proposition 4.5, (***)): |A(F)_χ| is bounded below by
+    |½G′_2(0, χ̌)|^{d(χ)} times a correction by Z/Z^+ and D_0/D_0^+.
+  - `greither-split-units-quotient` (Proposition 4.7): Z/Z^+ is a quotient N(F) of 2-adic semilocal units.
+  - `greither-gauss-sum-vectors` (construction; (G1), (G2), Lemma 4.8) and `greither-trivial-zero-formula`
+    (Lemmas 4.9–4.10, Theorem 4.6): the valuation and logarithm vectors of a Gauss sum turn the correction into
+    |½B_{1,χ^{−1}}|^{d(χ)}.
+
+The Gauss sum lies in the decomposition field D of 2 in ℚ(μ_m), not in F as Greither says (source issue E5). For
+m = 217 the fixed field F of an odd sextic character with χ(2) = 1 is strictly smaller than D, and σ_120 fixes F but
+moves g. The node uses the norm N_{D/F}(g); Greither's sums over all b prime to m are the ones for this norm, so
+Theorem 4.6 is unaffected. The Gross–Koblitz and Ferrero–Greenberg inputs, and Gross's non-vanishing, are a gap.
+
+**Theorem A** (node `greither-iwasawa-leopoldt-two`; planet). |A_2(F)^−_χ| = |½B_{1,χ^{−1}}|_2^{d(χ)} for every
+odd χ not of 2-power order. The divisibilities of Theorem B and the analytic class number formula give it. For the
+2-power-order character the order is 2·|½B_{1,χ_2^{−1}}|_2^{d(χ_2)}·k_L with k_L = 1. The printed Remark b) omits the
+exponent (E4); ℚ(ζ_5) shows it is needed.
+
+**Real fields.**
+- `greither-ray-class-real-fields` (Theorem 4.11): the χ_0-parts of the p-adic ray class group A′(F) have order
+  ∏|½L_p(1, χ)|_p^{d(χ)}. This uses the main conjecture, Kummer duality, the p-adic class number formula and Leopoldt.
+- `greither-ray-class-transfer` (Lemma 4.13): norm and inclusion maps with βα = N_C.
+- `greither-real-iwasawa-leopoldt` (planet; Theorem C = 4.12): |A′(F)_χ| = |½L_p(1, χ)|_p^{d(χ)} for χ|Δ_0 ≠ ε
+  and χ faithful on Δ_p. Theorem 4.12 as printed drops χ|Δ_0 ≠ ε (E9).
+- `greither-gras-conjecture` (planet; Theorem 4.14, Corollary 4.15): |(E/C)_{χ′}| = |A(F)_{χ′}|·
+  |((ℤ_p/2)[Δ])_{χ′}|·|(R : U)_{χ′}|. For |Δ| prime to p, [E/C̄] = [A(F)] in K_0(ℤ_p[Δ]), which is Gras's
+  conjecture. The printed factor 2^{d(χ′)|Δ_p|} is right only for p = 2 (E10).
+
+**Source issues E4–E11** (Greither; none was previously corrected):
+- E4: Remark b), the missing exponent d(χ_2).
+- E5 (error, affects the proof): g ∈ F fails; use N_{D/F}(g).
+- E6: (G1) has an extra factor m and drops b.
+- E7: L′_2 for L_2 in the formula L_2(s, χ̌) = G_2(u^s − 1, χ̌).
+- E8: ζ_2(b/s) for ζ_2(b, s) in Lemma 4.8.
+- E9: Theorem 4.12's missing hypothesis.
+- E10: Theorem 4.14's factor for odd p.
+- E11 (error, affects nothing): "no p-power roots of unity in F" is false at p = 2, but the step survives since
+  N ≥ 2.
+
 ## Dependencies
 
 **Inside this roadmap.** L0 feeds L1: Theorem III.2.3 takes c_ℚ, C_{L,χ} and the Kummer classes.
@@ -361,11 +409,17 @@ char((E_∞/C_∞)_ρ) for every even ρ ≠ 1, including at p = 2.
   - H¹(F, ℤ_p(1)) as a limit, with the Kummer identification;
   - the restriction isomorphism (3).
 - Tau Ceti ProfiniteCohomology Layer 9: the Kummer norm square `kummerIso_norm`.
-- Tau Ceti ClassFieldTheory Layer 12: the ray class fields of ℚ.
+- Tau Ceti ClassFieldTheory Layer 12: the ray class fields of ℚ, and the idèlic correspondence of Proposition 4.7.
+- `IntegralIwasawaTheory:L1`, `L2` and `L4` (checkpoint 6):
+  - the class field theory of Greither §4;
+  - the coinvariant lemma and Washington's pp. 277–278;
+  - Leopoldt for abelian fields.
+- `DirichletPadicLFunctions:L3` (checkpoint 6): L_p(s, χ) = G_p(u^s − 1, χ) and the p-adic class number formula.
 
 **Imported nodes.**
 - `DirichletPadicLFunctions:L1/arithmetic-pseudomeasure` (θ_a).
 - `PadicMeasuresIwasawaAlgebras:L1/finite-projection-algebra-map`, `dirac-hom` and `unit-reduction`.
+- `FiniteFieldsAndCharacterSums:FF.1/stickelberger-relation` (Stickelberger's theorem, for (G1)).
 
 ## Acceptance
 
@@ -386,11 +440,16 @@ char((E_∞/C_∞)_ρ) for every even ρ ≠ 1, including at p = 2.
   requests (Iwasawa's rank-one theorem for Y_∞^χ, Leopoldt for real abelian fields).
 - **L3 (partial, checkpoint 4):** the main conjecture is planned. Remaining: the finite-layer stabilisation of Corollary
   III.2.8 (gap), and the odd-character/class-group and Greenberg Selmer formulations (RJW §13.5).
-- **L4 (partial, checkpoint 5):** Greither §§1–3 are planned. Remaining: §2's lemmas and Coleman theory in detail,
-  §3's Lemmas 3.11–3.13, and §4 (Theorems A, B, C on χ-parts of class groups, and the Gras conjecture).
+- **L4 (partial, checkpoints 5–6):** Greither §§1–4 are planned. Remaining:
+  - §2's lemmas and Coleman theory in detail;
+  - §3's Lemmas 3.11–3.13;
+  - the Gross–Koblitz gap in (G2);
+  - Theorem 4.1 for odd p, which Greither cites to Mazur–Wiles and Solomon.
 
 ## Sources
 
 - K. Rubin, *Euler systems*, author draft of Annals of Mathematics Studies 147 (2000), from the 1999
   Arizona Winter School notes.
 - J. Rodrigues Jacinto and C. Williams, *An introduction to p-adic L-functions*, arXiv:2309.15692v2.
+- C. Greither, *Class groups of abelian fields, and the main conjecture*, Ann. Inst. Fourier 42 (1992), 449–499
+  (Numdam scan).

@@ -1,5 +1,59 @@
 # BP-EulerSystemsCyclotomicMainConjecture — handoff
 
+## Checkpoint 6 (Claude Code, session cc-fb70e5, 29 September 2026): L4, Greither §4 planned (11 nodes)
+
+Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`; L1, L3 and L4 are `partial`.
+
+**Source.** Greither 1992, the same Numdam scan (SHA-256 8e4db974…). Read: §1 Remarks a)–b), the deduction of A from B, and Theorem C (pp. 453–454); §4 in full (pp. 482–497). Formulas were checked on the page images, since the OCR garbles them.
+
+**New L4 nodes:**
+- Theorem B (= 4.1) at p = 2 in six nodes:
+  - `greither-split-prime-divisor-classes` (Lemma 4.2, Corollary 4.3);
+  - `greither-trivial-zero-reduction` (Lemma 4.4, Proposition 4.5, (***));
+  - `greither-split-units-quotient` (Proposition 4.7);
+  - `greither-gauss-sum-vectors` (construction: (G1), (G2), Lemma 4.8);
+  - `greither-trivial-zero-formula` (Lemmas 4.9–4.10, Theorem 4.6);
+  - `greither-relative-class-group-bound` (4.1, both cases of χ(2)).
+- `greither-iwasawa-leopoldt-two` (planet): Theorem A with Remarks a)–b). k_L = 1 is proved in the node, because L/L^+ is ramified at an odd prime.
+- `greither-ray-class-real-fields` (Theorem 4.11) and `greither-ray-class-transfer` (Lemma 4.13).
+- `greither-real-iwasawa-leopoldt` (planet): Theorem C = 4.12.
+- `greither-gras-conjecture` (planet): 4.14–4.15.
+
+**Source issues E4–E11 (new; no corrigendum on Numdam, Centre Mersenne or the web):**
+- E4: Remark b) (p. 453) is missing the exponent d(χ₂); ℚ(ζ₅) shows it is needed.
+- E5 (error, affects the proof): "Then g ∈ F" (p. 490) is false. The Gauss sum lies in the decomposition field D of 2. For m = 217 with an odd sextic χ, χ(2) = 1, σ₁₂₀ fixes F but not g. This was checked by Stickelberger digit sums (5 against 6) and numerically over 𝔽_{2^{15}}. The node uses N_{D/F}(g), which is what Greither's sums over all b compute.
+- E6: (G1) has an extra factor m and drops b in the exponent. m is odd, so this is harmless.
+- E7: "L′₂(s, χ̌) = G₂(u^s − 1, χ̌)" should read L₂.
+- E8: ζ₂(b/s) should read ζ₂(b, s).
+- E9: Theorem 4.12 omits χ|Δ₀ ≠ ε, which Theorem C has.
+- E10: Theorem 4.14's factor 2^{d(χ′)|Δ_p|} is wrong for odd p; the correct factor is |((ℤ_p/2)[Δ])_{χ′}|.
+- E11 (error, affects nothing): "no p-power roots of unity in F" is false at p = 2, but the cocycle step survives since N ≥ 2.
+
+All are also logged in the swarm's published-errata list.
+
+**New gap.** The Gross–Koblitz and Ferrero–Greenberg inputs and Gross's λ_χ ≠ 0 behind (G2) are cited to Gross 1981 and not planned by any roadmap.
+
+**New requests:**
+- IntegralIwasawaTheory L1: the class field theory of §4.
+- IntegralIwasawaTheory L2: the coinvariant lemma and Washington pp. 277–278.
+- IntegralIwasawaTheory L4: Leopoldt for abelian fields.
+- DirichletPadicLFunctions L3: L_p(s, χ) = G_p(u^s − 1, χ) and the p-adic class number formula.
+
+**Extended requests:** IntegralIwasawaTheory L0 (the minus class number formula; Sinnott's circular units and index) and the Tau Ceti ClassFieldTheory request (idèlic, for Proposition 4.7). Stickelberger is imported as `FiniteFieldsAndCharacterSums:FF.1/stickelberger-relation`.
+
+**Lean.** Three new checked examples:
+- Solomon's order identity |A/βα(A)|·|B| = |A|;
+- Φ_{p^{k+1}} as the norm element;
+- the ℚ(ζ₅) Bernoulli computation for E4.
+
+The file compiles with exit 0; the only warnings are the existing planned stubs.
+
+**Checks.** `check_blueprint --index`: 0 errors, 0 warnings. `check-files`: 0 problems. Every new excerpt was checked by script against its page's text.
+
+**Next for L4.**
+- §2's lemmas and §3's Lemmas 3.11–3.13 in detail.
+- The (G2) gap.
+
 ## Checkpoint 5 (Claude Code, session cc-fb70e5, 29 September 2026): L4 started from Greither §§1–3 (5 nodes)
 
 Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`; L1, L3 and L4 are `partial`.
