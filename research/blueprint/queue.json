@@ -33758,7 +33758,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BAKKER-TSIMERMAN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3953"
   },
   {
    "id": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16",
@@ -34209,7 +34210,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-MARTIN-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3955"
   },
   {
    "id": "RT-PAPER-LIU-WOOD-ZUREICKBROWN-24",
@@ -35219,8 +35221,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3957"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3957",
+   "finishedAt": "2026-09-29T11:33:32Z"
   },
   {
    "id": "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
