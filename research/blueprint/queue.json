@@ -4308,8 +4308,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -40957,8 +40957,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-28.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3996"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3996",
+   "finishedAt": "2026-09-29T12:47:29Z"
   },
   {
    "id": "RT-RS-29",
