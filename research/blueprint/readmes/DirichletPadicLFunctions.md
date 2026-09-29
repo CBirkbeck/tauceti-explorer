@@ -12877,3 +12877,325 @@ Five complete native lemmas check clearing and uniqueness of a fraction with reg
 Exact rational controls check168 denominator moments,168 nonzero doubled denominators,168 integral weighted numerator values and168 normalized constant ratios across seven primes and exponents0–23. Seven zero-mass boundaries,77 odd-weight vanishings,84 nonzero even-weight constants, one dyadic nonunit control and four explicit values also pass. Exact rational Bernoulli recurrence and integer arithmetic; tests the displayed numerator, shifted denominator and quotient normalization. These are finite controls, not a definition of evaluation on the total quotient ring or a proof of the general identities. The largest observed discrepancy is 0.
 
 The initial57-input capture had empty delta. During publication only the global source-issue JSON and errata register changed; the16 Dirichlet findings remain identical, and all supplier, source-review and other guarded inputs are unchanged. PMIA remains369 nodes with its preserved compiled332-node interface; no new supplier declaration is called or compilation of the full369-node source claimed.
+
+
+## Admissible Eisenstein constant evaluation and classical comparison
+
+Partial continuation preserving all385 predecessor nodes whole. Nine L4 nodes construct the actual arithmetic moment map, denominator-localized constant, injective total-quotient comparison and admissible evaluation, and identify the constant with the classical modular coefficient through a common rational number. One existing level-zero character API is promoted to an L2 prerequisite. All16 findings and three supplier requests remain unchanged; seven gaps and zero closed stages remain.
+
+The published constant-term and evaluation passages were read completely during the immediately preceding checkpoint. Whole existing shifted-denominator, weighted-numerator, localized-constant and classical p-stabilized constant nodes and exact signatures were read. The PMIA characterIntegralAlgHom and its ambient hypotheses were read, along with the existing level-zero arithmetic-character API. Native Localization.Away, Submonoid.mem_powers, Away.lift and coefficient agreement, localization uniqueness and injection criterion, and the p-adic nonzero inclusion lemma were read at the pin. Five complete native proofs validate the localization interfaces.
+
+### The level-zero arithmetic character
+
+`DirichletPadicLFunctions:L2/arithmetic-character-zero-level` — `DirichletPadic.primePowerArithmeticCharacter_zero_level`
+
+For every modulus-one character χ and w≥0, κ_(0,χ,w)(u)=algebraMap(Z,R)(u)^w.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing topologies and supplied actual commutative convolution algebra. Q=FractionRing M is the native total quotient, not an assumed field. j∈C(U,Z) is the unit coordinate. Use the existing d_a=eisensteinTwistedDenominator p a and n_a=eisensteinWeightedNumerator p a. Write Δ_a=2d_a and S_a=Localization.Away(Δ_a), the existing localization at the submonoid of powers of Δ_a. The notation does not define another carrier. For this promoted result only, R is any normed commutative Z-algebra with bounded scalar action. No completeness, field or characteristic-zero hypothesis is added.
+
+**Proof:**
+
+1. Promote the existing level-zero API of the arithmetic-character constructor without altering its suggested signature.
+2. Use the exact arithmetic-character pointwise formula. The native modulus-one ring is subsingleton and its sole element is a unit, so the native multiplicative character has value1. This leaves the coordinate power, including exponent0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value`, `DirichletPadicLFunctions:L2/prime-power-character`.
+
+**Tests:**
+
+- `SuggestedEisensteinAwayTests.zero_level_coordinate_character` (compatibility): Over Z itself the level-zero character evaluates to the native coordinate power.
+
+**Acceptance:** This gives a precise graph prerequisite for the ordinary moment homomorphism. It uses the displayed modulus-one character, not a conductor change.
+
+**Source:** §5.1, Theorem 5.1 and its character convention, published 139 / PDF 40; equation (5-1), published 140 / PDF 41; full proof of Theorem 5.1, published 143 / PDF 44. Complete published 139–143 freshly read in the preceding checkpoint on 29 September 2026. Worker decomposition of the actual arithmetic character, inverse-unit numerator and two-Dirac denominator used in the final proof. The source positive conductor and positive weight are retained in the moment shift; the constructor itself permits both zero boundaries. Comparisons use native continuous monoid homomorphisms and existing actual measures, with separate coefficient embeddings for complex values. No generic field-valued pseudomeasure evaluator is inferred.
+
+### The arithmetic moment ring homomorphism
+
+`DirichletPadicLFunctions:L4/eisenstein-moment-hom` — `DirichletPadic.eisensteinMomentHom`
+
+For k≥0 define f_k:M→+*Q_p by composing the supplied characterIntegralAlgHom at κ_(0,1,k):U→Z with the native inclusion Z→Q_p.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing topologies and supplied actual commutative convolution algebra. Q=FractionRing M is the native total quotient, not an assumed field. j∈C(U,Z) is the unit coordinate. Use the existing d_a=eisensteinTwistedDenominator p a and n_a=eisensteinWeightedNumerator p a. Write Δ_a=2d_a and S_a=Localization.Away(Δ_a), the existing localization at the submonoid of powers of Δ_a. The notation does not define another carrier.
+
+**Proof:**
+
+1. Use the actual arithmetic coordinate character at level0 and the supplied matching-coefficient characterIntegralAlgHom. Forget its algebra structure to a ring homomorphism, then compose with algebraMap Z Q_p.
+2. The promoted level-zero character formula identifies its test with j^k pointwise. The all-measure evaluation formula is promoted to the next node.
+3. Native Dirac evaluation gives f_k(δ_u)=u^k. At k=0 the test is1 and this is the ordinary total-mass ring map on integral measures. No extension to Q is made.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/arithmetic-character-zero-level`, `PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom`, `mathlib:PadicInt.algebraMap_apply`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Uses:**
+
+- RJW Theorem8.2(b): The evaluation test for weightw is j^(w−1).
+- Admissible denominator localization: This actual ring map supplies the native localization lift after its denominator image is proved nonzero.
+
+**API:**
+
+- `DirichletPadic.eisensteinMomentHom_def` (constructor): f_k is algebraMap Z Q_p composed with the ring homomorphism underlying characterIntegralAlgHom κ_(0,1,k).
+- `DirichletPadic.eisensteinMomentHom_apply` (data): f_k(μ)=ι(μ(j^k)) for all μ. Promoted to eisenstein-moment-hom-evaluation.
+- `DirichletPadic.eisensteinMomentHom_dirac` (simp): f_k(δ_u)=u^k.
+- `DirichletPadic.eisensteinMomentHom_zero_weight` (compatibility): f_0(μ)=ι(μ(1)).
+
+**Tests:**
+
+- `SuggestedEisensteinAwayTests.moment_zero_is_mass` (degenerate): f_0(μ) is the Q_p image of μ(1).
+- `SuggestedEisensteinAwayTests.moment_identity_atom` (computation): f_k(δ_1)=1 for every k.
+- `SuggestedEisensteinAwayTests.moment_sign_atom` (computation): f_k(δ_−1)=(-1)^k, including dyadic coefficients.
+
+**Acceptance:** This concrete arithmetic composite uses the existing general character-integration API; it does not replan a generic coefficient-extension functor.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained. Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted.
+
+### Evaluation of the arithmetic moment map
+
+`DirichletPadicLFunctions:L4/eisenstein-moment-hom-evaluation` — `DirichletPadic.eisensteinMomentHom_apply`
+
+For every k≥0 and actual integral unit measure μ, f_k(μ)=ι(μ(j^k)).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing topologies and supplied actual commutative convolution algebra. Q=FractionRing M is the native total quotient, not an assumed field. j∈C(U,Z) is the unit coordinate. Use the existing d_a=eisensteinTwistedDenominator p a and n_a=eisensteinWeightedNumerator p a. Write Δ_a=2d_a and S_a=Localization.Away(Δ_a), the existing localization at the submonoid of powers of Δ_a. The notation does not define another carrier.
+
+**Proof:**
+
+1. Unfold the arithmetic composite. The supplied character-integral construction has underlying map μ↦μ(κ.toContinuousMap).
+2. Use the promoted level-zero formula and continuous-map extensionality to replace the test by j^k. The native coefficient map is precisely the canonical p-adic inclusion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-moment-hom`, `DirichletPadicLFunctions:L2/arithmetic-character-zero-level`, `PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom`, `mathlib:PadicInt.algebraMap_apply`.
+
+**Tests:**
+
+- `SuggestedEisensteinAwayTests.moment_arbitrary_integral_test` (characterisation): The formula holds for an arbitrary actual μ and every k, including0.
+
+**Acceptance:** The formula is on integral measures, before any localization.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained. Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted.
+
+### Admissibility of every nonnegative moment
+
+`DirichletPadicLFunctions:L4/eisenstein-moment-denominator` — `DirichletPadic.eisensteinMomentHom_denominator_ne_zero`
+
+For a∈U with value p+1 and every k≥0, f_k(Δ_a)=2(a^(k+1)−1) is nonzero in Q_p.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing topologies and supplied actual commutative convolution algebra. Q=FractionRing M is the native total quotient, not an assumed field. j∈C(U,Z) is the unit coordinate. Use the existing d_a=eisensteinTwistedDenominator p a and n_a=eisensteinWeightedNumerator p a. Write Δ_a=2d_a and S_a=Localization.Away(Δ_a), the existing localization at the submonoid of powers of Δ_a. The notation does not define another carrier. The canonical parameter condition a=p+1 is required. The map f_k alone is defined on all integral measures.
+
+**Proof:**
+
+1. Apply the exact all-measure evaluation to Δ_a. Multiplication by2 in the measure ring is addition twice, so evaluation is twice the moment of d_a.
+2. The preceding shifted-denominator moment formula gives2(a^(k+1)−1). The supplied one-add-prime positive-power theorem makes a^(k+1)−1 nonzero in Z.
+3. Native PadicInt.coe_ne_zero transports nonvanishing to Q_p. Characteristic zero gives2≠0, and the field has no zero divisors. This includes k=0, when the value is2p.
+4. Use native isUnit_iff_ne_zero only in Q_p to obtain the unit required by Away.lift. Nothing implies this denominator is a unit in Z.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-moment-hom-evaluation`, `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-moment`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers`, `mathlib:PadicInt.coe_ne_zero`, `mathlib:isUnit_iff_ne_zero`.
+
+**Tests:**
+
+- `SuggestedEisensteinAwayTests.denominator_mass_nonzero` (computation): At k=0 the denominator image is2p.
+- `SuggestedEisensteinAwayTests.denominator_dyadic_fourth_weight` (computation): At p=2,a=3,k=3 the denominator image is160, nonzero in Q_2.
+
+**Acceptance:** An inverse-coordinate test would instead give2(a·a⁻¹−1)=0, so that test is outside this lift. The finite negative control records this obstruction without claiming a pole theorem.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained. Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted.
+
+### The constant in its denominator localization
+
+`DirichletPadicLFunctions:L4/eisenstein-away-constant` — `DirichletPadic.eisensteinAwayConstant`
+
+For each u∈U define A₀,u^away=mk′_(S_u)(n_u,Δ_u), using Δ_u∈Submonoid.powers(Δ_u).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing topologies and supplied actual commutative convolution algebra. Q=FractionRing M is the native total quotient, not an assumed field. j∈C(U,Z) is the unit coordinate. Use the existing d_a=eisensteinTwistedDenominator p a and n_a=eisensteinWeightedNumerator p a. Write Δ_a=2d_a and S_a=Localization.Away(Δ_a), the existing localization at the submonoid of powers of Δ_a. The notation does not define another carrier.
+
+**Proof:**
+
+1. Use the existing Localization.Away carrier, with its native commutative-ring and algebra instances. Its denominator certificate is native Submonoid.mem_powers.
+2. The localization defining relation gives alg(Δ_u)A₀,u^away=alg(n_u); the native fraction equality criterion gives uniqueness. No regularity hypothesis is needed to form this localization.
+3. The value u=1 is an intentional non-example for specialization: d_1=0 directly from its two-Dirac definition, and localizing at0 collapses the ring. The map to the intended total quotient and all evaluations therefore impose the canonical a=p+1 condition.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/weighted-eisenstein-numerator`, `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator`, `mathlib:Localization.Away`, `mathlib:Submonoid.mem_powers`, `mathlib:IsLocalization.mk'`, `mathlib:IsLocalization.mk'_spec'`, `mathlib:IsLocalization.eq_mk'_iff_mul_eq`.
+
+**Uses:**
+
+- Admissible Eisenstein evaluation: Gives an actual element in the domain of the denominator-localized evaluator.
+- Comparison to the total quotient: Its native localization image is the existing A₀; it is not a renamed arbitrary total fraction.
+
+**API:**
+
+- `DirichletPadic.eisensteinAwayConstant_def` (constructor): A₀,u^away=mk′_(S_u)(n_u,Δ_u).
+- `DirichletPadic.eisensteinAwayConstant_clearing` (relation): alg(Δ_u)A₀,u^away=alg(n_u) in S_u.
+- `DirichletPadic.eisensteinAwayConstant_unique` (universal-property): Every element with this clearing equation equals A₀,u^away.
+
+**Tests:**
+
+- `SuggestedEisensteinAwayTests.away_fraction_definition` (characterisation): The representative is exactly the native localization fraction with numerator n_u and denominator Δ_u.
+- `SuggestedEisensteinAwayTests.away_clearing_characterizes` (characterisation): The displayed clearing equation determines the element in S_u.
+- `SuggestedEisensteinAwayTests.identity_parameter_collapses_localization` (non-example): For u=1, the denominator localization has0=1; this parameter cannot define an admissible field specialization.
+
+**Acceptance:** The carrier is Mathlib Localization.Away. The constructor does not postulate a field or a second measure algebra.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained. Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted.
+
+### Embedding the denominator localization
+
+`DirichletPadicLFunctions:L4/eisenstein-away-inclusion` — `DirichletPadic.eisensteinAwayToFraction`
+
+For a with value p+1 define J_a:S_a→+*Q by native Away.lift of the canonical map i:M→Q. The resulting ring map is injective.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing topologies and supplied actual commutative convolution algebra. Q=FractionRing M is the native total quotient, not an assumed field. j∈C(U,Z) is the unit coordinate. Use the existing d_a=eisensteinTwistedDenominator p a and n_a=eisensteinWeightedNumerator p a. Write Δ_a=2d_a and S_a=Localization.Away(Δ_a), the existing localization at the submonoid of powers of Δ_a. The notation does not define another carrier. a has value p+1. The previous regularity theorem places Δ_a in nonZeroDivisors M.
+
+**Proof:**
+
+1. Native IsLocalization.map_units makes i(Δ_a) a unit in Q. Apply Away.lift and retain its exact coefficient agreement J_a(alg μ)=i(μ).
+2. For injectivity use the native criterion injective_iff_map_algebraMap_eq on the powers submonoid. An equality of original coefficients in S_a maps to an equality in Q; conversely an equality in Q gives equality in M by native IsFractionRing.injective and then equality in S_a.
+3. The constant-image API is promoted to the following node. The complete native probe checks the map and injection for an arbitrary commutative ring with a regular denominator.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-regular`, `mathlib:IsLocalization.Away.lift`, `mathlib:IsLocalization.Away.lift_eq`, `mathlib:IsLocalization.map_units`, `mathlib:IsLocalization.injective_iff_map_algebraMap_eq`, `mathlib:IsFractionRing.injective`.
+
+**Uses:**
+
+- The existing localized Eisenstein constant: Identifies the admissible representative with that exact total-quotient element.
+- Uniqueness of admissible representatives: Ensures the localized representative is uniquely determined by its image in Q.
+
+**API:**
+
+- `DirichletPadic.eisensteinAwayToFraction_def` (constructor): J_a is the native Away.lift of i using the exact regularity certificate.
+- `DirichletPadic.eisensteinAwayToFraction_algebraMap` (compatibility): J_a(alg μ)=i(μ).
+- `DirichletPadic.eisensteinAwayToFraction_injective` (extensionality): J_a is injective.
+- `DirichletPadic.eisensteinAwayToFraction_constant` (compatibility): J_a(A₀,a^away)=A₀. Promoted to eisenstein-away-constant-image.
+
+**Tests:**
+
+- `SuggestedEisensteinAwayTests.inclusion_integral_numerator` (compatibility): J_a sends the included arithmetic numerator to its canonical total-quotient image.
+- `SuggestedEisensteinAwayTests.inclusion_detects_equality` (characterisation): J_a(x)=J_a(y) if and only if x=y.
+- `SuggestedEisensteinAwayTests.inclusion_unit` (compatibility): J_a preserves1.
+
+**Acceptance:** The existence and injectivity hold without M being a domain or Q being a field.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained. Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted.
+
+### The actual total-quotient image of the constant
+
+`DirichletPadicLFunctions:L4/eisenstein-away-constant-image` — `DirichletPadic.eisensteinAwayToFraction_constant`
+
+For canonical a, J_a(A₀,a^away)=localizedEisensteinConstant p.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing topologies and supplied actual commutative convolution algebra. Q=FractionRing M is the native total quotient, not an assumed field. j∈C(U,Z) is the unit coordinate. Use the existing d_a=eisensteinTwistedDenominator p a and n_a=eisensteinWeightedNumerator p a. Write Δ_a=2d_a and S_a=Localization.Away(Δ_a), the existing localization at the submonoid of powers of Δ_a. The notation does not define another carrier.
+
+**Proof:**
+
+1. Apply J_a to the defining fraction or its clearing relation. Native Away.lift_eq identifies the numerator and denominator images.
+2. Use the existing localized-eisenstein-clearing uniqueness theorem to identify the result with A₀. The factor2 is part of Δ_a throughout.
+3. The complete native fraction-image lemma checks the same argument using eq_mk′_iff_mul_eq for arbitrary commutative rings.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-away-inclusion`, `DirichletPadicLFunctions:L4/eisenstein-away-constant`, `DirichletPadicLFunctions:L4/localized-eisenstein-clearing`, `mathlib:IsLocalization.Away.lift_eq`, `mathlib:IsLocalization.eq_mk'_iff_mul_eq`.
+
+**Tests:**
+
+- `SuggestedEisensteinAwayTests.inclusion_is_actual_constant` (compatibility): The image is the existing A₀ in FractionRing M, not a newly postulated symbol.
+
+**Acceptance:** Admissible evaluation below is attached to this actual representative; no map on all of Q is inferred.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained. Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted.
+
+### The admissible moment evaluator
+
+`DirichletPadicLFunctions:L4/eisenstein-away-evaluation` — `DirichletPadic.eisensteinAwayMoment`
+
+For canonical a and k≥0 define E_(a,k):S_a→+*Q_p by native Away.lift of f_k, using f_k(Δ_a)≠0. It is the unique ring map extending f_k.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing topologies and supplied actual commutative convolution algebra. Q=FractionRing M is the native total quotient, not an assumed field. j∈C(U,Z) is the unit coordinate. Use the existing d_a=eisensteinTwistedDenominator p a and n_a=eisensteinWeightedNumerator p a. Write Δ_a=2d_a and S_a=Localization.Away(Δ_a), the existing localization at the submonoid of powers of Δ_a. The notation does not define another carrier.
+
+**Proof:**
+
+1. The denominator-nonvanishing node and native isUnit_iff_ne_zero provide the exact unit hypothesis. Apply Away.lift on S_a, not on Q.
+2. Its coefficient agreement gives E_(a,k)(alg μ)=ι(μ(j^k)), using the promoted all-measure moment evaluation.
+3. For any other ring map F with the same agreement on every original μ, use the native localization lift_unique theorem. Thus the extension is unique on its displayed domain.
+4. The constant-value API is promoted to the following theorem. This construction uses only the matching-coefficient character homomorphism followed by Z→Q_p, so it does not discharge either earlier general PMIA coefficient-field or twist request.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-moment-denominator`, `DirichletPadicLFunctions:L4/eisenstein-moment-hom-evaluation`, `mathlib:IsLocalization.Away.lift`, `mathlib:IsLocalization.Away.lift_eq`, `mathlib:IsLocalization.lift_unique`, `mathlib:isUnit_iff_ne_zero`.
+
+**Uses:**
+
+- RJW Theorem8.2(b): Provides a genuine evaluator for the constant at each required arithmetic test.
+- Full coefficientwise family comparison: The ring structure will permit coefficientwise specialization of a native power series over S_a.
+
+**API:**
+
+- `DirichletPadic.eisensteinAwayMoment_def` (constructor): E_(a,k)=Away.lift(Δ_a,f_k) with the proved unit image.
+- `DirichletPadic.eisensteinAwayMoment_algebraMap` (compatibility): E_(a,k)(alg μ)=ι(μ(j^k)).
+- `DirichletPadic.eisensteinAwayMoment_unique` (universal-property): Any ring map extending f_k is E_(a,k).
+- `DirichletPadic.eisensteinAwayMoment_constant` (data): E_(a,k)(A₀,a^away)=ι_Q(−(1−p^k)B_(k+1)/(2(k+1))). Promoted to eisenstein-away-constant-value.
+
+**Tests:**
+
+- `SuggestedEisensteinAwayTests.evaluator_integral_measure` (compatibility): For every actual μ the evaluator agrees with its included k-th moment.
+- `SuggestedEisensteinAwayTests.evaluator_unit` (computation): E_(a,k)(1)=1.
+- `SuggestedEisensteinAwayTests.evaluator_unique_extension` (characterisation): The all-coefficient agreement uniquely determines the ring map on S_a.
+
+**Acceptance:** The evaluator domain remains S_a. Inverting unrelated regular elements would need new unit-image hypotheses and is not done.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained. Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted.
+
+### The admissible Bernoulli constant value
+
+`DirichletPadicLFunctions:L4/eisenstein-away-constant-value` — `DirichletPadic.eisensteinAwayMoment_constant`
+
+For every k≥0, E_(a,k)(A₀,a^away)=ι_Q(−(1−p^k)B_(k+1)/(2(k+1))).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing topologies and supplied actual commutative convolution algebra. Q=FractionRing M is the native total quotient, not an assumed field. j∈C(U,Z) is the unit coordinate. Use the existing d_a=eisensteinTwistedDenominator p a and n_a=eisensteinWeightedNumerator p a. Write Δ_a=2d_a and S_a=Localization.Away(Δ_a), the existing localization at the submonoid of powers of Δ_a. The notation does not define another carrier.
+
+**Proof:**
+
+1. Apply the evaluator to the localization fraction. Map its clearing relation and divide only by the already proved nonzero value f_k(Δ_a). A complete native proof obtains the fraction value f_k(n_a)/f_k(Δ_a).
+2. The exact weighted-numerator moment is (1−p^k)(1−a^(k+1))ι_Q(B_(k+1)/(k+1)); the shifted denominator moment is2(a^(k+1)−1). Cancel the nonzero factor a^(k+1)−1, retaining the minus sign and the factor2.
+3. The remaining rational expression maps naturally into Q_p. The native field proof checks the sign and factor2 cancellation without replacing any denominator by a unit in Z.
+4. At k=0 the Euler factor gives0. Even positive k give the odd-weight Bernoulli zeros. At p=2,k=3 the value is−7/240, which need not lie in Z_2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-away-evaluation`, `DirichletPadicLFunctions:L4/eisenstein-away-constant`, `DirichletPadicLFunctions:L4/eisenstein-moment-hom-evaluation`, `DirichletPadicLFunctions:L4/eisenstein-moment-denominator`, `DirichletPadicLFunctions:L4/weighted-eisenstein-numerator-moment`, `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-moment`, `mathlib:IsLocalization.mk'_spec'`, `mathlib:IsLocalization.Away.lift_eq`, `mathlib:eq_div_iff_mul_eq`.
+
+**Tests:**
+
+- `SuggestedEisensteinAwayTests.constant_zero_exponent` (degenerate): At test exponent0 the actual admissible value is0.
+- `SuggestedEisensteinAwayTests.constant_dyadic_weight_four` (computation): At p=2,test exponent3, the value is−7/240 in Q_2.
+- `SuggestedEisensteinAwayTests.constant_odd_weight_three` (degenerate): At test exponent2 the value vanishes for every p.
+
+**Acceptance:** This is a value of an actual ring map on the denominator-localized representative whose image is A₀. It does not assert an integral constant measure.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained. Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted.
+
+### The common classical and arithmetic Eisenstein constant
+
+`DirichletPadicLFunctions:L4/eisenstein-away-classical-constant` — `DirichletPadic.eisensteinAwayConstant_classical`
+
+For even w≥4 let c=−(1−p^(w−1))B_w/(2w)∈Q. Then E_(a,w−1)(A₀,a^away)=ι_Qp(c) and the constant coefficient of the existing classical pStabilizedEisenstein p w is ι_C(c).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing topologies and supplied actual commutative convolution algebra. Q=FractionRing M is the native total quotient, not an assumed field. j∈C(U,Z) is the unit coordinate. Use the existing d_a=eisensteinTwistedDenominator p a and n_a=eisensteinWeightedNumerator p a. Write Δ_a=2d_a and S_a=Localization.Away(Δ_a), the existing localization at the submonoid of powers of Δ_a. The notation does not define another carrier. w is an even natural number with w≥4. The classical object is the existing native modular form at Γ_0(p), with the period-one UpperHalfPlane.qExpansion. No identification or embedding between C and Q_p is used.
+
+**Proof:**
+
+1. Apply the preceding admissible value theorem at test exponent w−1. Since w≥4, its Bernoulli index (w−1)+1 equals w.
+2. Use the existing p-stabilized-zeta-constant theorem for the actual classical modular form. Its rational constant is exactly c, with the factor2 and Euler factor retained.
+3. Keep the two equalities as images of the same rational element. The separate constant-image node identifies the arithmetic representative with the already constructed element of Q.
+4. The dyadic and ternary weight-four controls give−7/240 and−13/120 in both respective coefficient fields. This is the constant comparison; whole-series assembly and the generic twist equivalence remain separate work.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-away-constant-value`, `DirichletPadicLFunctions:L4/eisenstein-away-constant-image`, `DirichletPadicLFunctions:L4/p-stabilized-zeta-constant`.
+
+**Tests:**
+
+- `SuggestedEisensteinAwayTests.common_dyadic_classical_constant` (computation): At p=2,w=4 both values are the separate images of−7/240.
+- `SuggestedEisensteinAwayTests.common_ternary_classical_constant` (computation): At p=3,w=4 both values are the separate images of−13/120.
+
+**Acceptance:** Classical modularity is claimed only for the existing even-weight w≥4 object. The extra arithmetic values at small weights are not promoted to classical modular forms.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained. Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted.
+
+**Remaining:** The arithmetic constant now has an actual representative in Localization.Away(2d_(p+1)), an injective map to the native total quotient taking it to A₀, and admissible ring evaluators for every nonnegative moment. Its even-weight values agree with the actual classical constant through one rational element. Next assemble the full power series over this denominator localization using the existing positive integral coefficients, prove its image has constant A₀ and positive coefficients i(A_n), and compare the whole specialized series with the classical p-stabilized q-expansion. The PMIA completed-algebra, general coefficient-field and generic character-twist requests remain open. Smoothing independence beyond the canonical parameter, pole/ordinary-pseudomeasure exclusion, constant-term congruences and tame-character families remain explicit work; geometric realization stays with PadicFamilies.
+
+### Admissible Eisenstein constant evaluation and classical comparison validation
+
+All 385 predecessor nodes, 420 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 10 nodes, 21 named suggested declarations and 22 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 570 reachable nodes, 2696 edges and 544 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 1203 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Five complete native lemmas prove the away-localized fraction value, its image in a native total quotient, injectivity of that comparison, the sign and factor2 cancellation, and collapse of localization at0. They work over arbitrary commutative rings, using a field only for value normalization. The probe elaborates against 1111 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact controls check224 nonzero denominator images and224 localized constant values over seven primes and exponents0–31, including105 classical even-weight comparisons. They also check224 addition and224 multiplication formulas, seven zero-exponent values,105 odd-weight zeros,105 wrong-shift and105 missing-half negative controls, and seven each inverse-coordinate and identity-parameter obstructions. Exact rational Bernoulli recurrence and arithmetic in the one-denominator localization. Classical comparisons use only even weights at least4. The negative controls detect omitting the factor2 or shifting the test exponent incorrectly, and exhibit the inverse-coordinate and identity-parameter denominator obstructions. They do not define evaluation on all total fractions or prove a general pole theorem. The largest observed discrepancy is 0.
+
+The initial57-input capture changed only the two global errata files. All16 Dirichlet findings were compared and remain identical. Supplier packets, the three guarded paper-review/extraction files and all other inputs are unchanged. PMIA remains369 nodes preserving its compiled332-node interface; no new supplier declaration is called or compilation of the full369-node source claimed.
