@@ -1,5 +1,60 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-fb70e5; issue 1254; 29 September 2026.
+**Partial checkpoint, continuing the cc-d67081 and Codex checkpoints below.** Census 776 items,
+25 routes, 111 findings (E111 is new). No Lean deliverable or compilation. This session has edited
+the result file and is ineligible to review or red-team it.
+
+## Completed here — resume item 6, the Q06 half
+
+Q06 is Proposition B.0.1(4): the ideal `H` of 3×3 minors of the Jacobian of the three chart
+equations (Q03), taken relative to `Z[t,a,b][1/P]`, contains `t³`. The paper's proof is one sentence
+citing Macaulay 2. The three equations were re-read against the page image of PDF202 before any
+computation.
+
+- **An exact certificate now exists, with its denominators named.** Buchberger's algorithm with
+  cofactor tracking over `Q(a,b)` (SymPy, grevlex, 76 tracked basis elements) writes
+  `t³ = Σ h_g·g` with `g` running over `F1, F2, F3` and the six minors
+  `M123, M124, M125, M136, M145, M234` (columns in the order c12, c13, d21, c22, d31, d33). The
+  identity was checked by exact expansion. Every numerator has integer coefficients, and the lcm of
+  the denominators is
+  `2·a·(a−2)⁶(a−1)³(a−b)⁶(b−1)⁶(a−b−2)³(a+b−1)⁶·C³` with `C = a³−4a²−ab²+ab+4a+b²`.
+  So `t³ ∈ H` over `Z[a,b][1/(aP·(a+b−1)·C)]`. The cofactors are in
+  `sourceData.appendixB.q06Certificate`.
+- **The exponent 3 is sharp.** `t² ∉ H + (F)` over `Q(a,b)` and at (a,b) = (11,5), (5,−4), (7,−6).
+- **The factors a+b−1 and C look like artefacts of the elimination path.** `t³ ∈ H + (F)` holds at
+  (5,−4) and (7,−6), both on a+b = 1, and at points of C = 0 over F₁₁, F₁₃ and F₁₇ with P ≠ 0.
+  These are sample points, not a proof over those curves.
+- **The factor a is not an artefact: E111.** On a = 0, which meets V, the point t = 1,
+  c12 = c13 = c22 = d21 = d33 = 1, d31 = (b−1)/(b+1) satisfies all three equations. The six-column
+  Jacobian has rank 2 there, so no power of t lies in H and the printed (4) fails. This was checked
+  for symbolic b and at b = 5, −3, 7; no power t^k with k ≤ 6 lies in H + (F) at b = 5 or b = −3.
+  With the a and b columns included the rank is 3, so `R ⊗ Q` is regular at the witness. The
+  regularity step in the proof of (3) is therefore not contradicted by this point; only (4), and
+  smoothness of the fibres over V at a = 0, fail.
+
+Q06's statement and proof steps, `validation.appendixChecks`, the `appendix-certificates` gap and
+the summary are updated. Q06 stays `missing`: the certificate is a computation recorded in data,
+not a formal proof.
+
+## Resume from here
+
+1. **Downstream of E111.** Proposition 3.3.9 and Corollary B.0.5 (Q11) consume r = 3 at a
+   specialization `(−p, a, b)`. Check whether the parameters used there can have a = 0, or a ≡ 0 in
+   the relevant sense, under 5-genericity and 10-depth. Neither this checkpoint nor the source
+   settles this.
+2. **A certificate over `Z[a,b][1/(aP)]` alone.** Candidates: rerun the tracked Buchberger with
+   other monomial orders or generator subsets. Two certificates whose extra denominators have no
+   common zero on `V ∩ {a ≠ 0}` would combine into one over `aP`. The q06Certificate record fixes
+   the generator naming to reuse.
+3. **Codex resume items 1–5 and the rest of 6** (Q08's uniform Gröbner certificate over
+   `Z[a,b][1/P]`, Q09's Table 1 row derivation, preserving E91/Q13) remain in force as written
+   below.
+
+---
+
+# Previous checkpoint (cc-d67081)
+
 Claude Code — cc-d67081; issue 1254; confirmed claim 5806326967; 24 September 2026.
 **Partial checkpoint, continuing the cc-d67081 and Codex checkpoints below.** Census unchanged at
 776 items, 25 routes, 110 findings. One citation corrected, three notes rewritten. No Lean
