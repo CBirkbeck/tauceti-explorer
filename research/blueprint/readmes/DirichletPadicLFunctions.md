@@ -14128,3 +14128,212 @@ Four complete native lemmas prove the reciprocal-denominator coefficient bound, 
 Exact controls check208 denominator variations,27040 coefficient bounds and13520 quotient precision bounds. There are116 stable-neighborhood pairs with7540 local coefficient estimates and13 equality-boundary controls where denominator norms differ. The ternary constant example attains its stated bound1/9. Exact rational Bernoulli recurrence through208, integer depleted divisor sums and exact p-adic norms as powers of p. For208 prime/precision/exponent pairs, test65 coefficients of the original rational series. Independently test integrality after multiplication, individual reciprocal-denominator bounds, denominator variation, the product-denominator precision bound, and the fixed-denominator bound under its strict neighborhood hypothesis. Equality at the neighborhood boundary is separately checked and cannot replace the strict hypothesis. No floating-point rounding is used. The largest observed discrepancy is 0.
 
 The initial57-input capture differs only in the global source-issue aggregate and errata register. All16 own aggregate records were compared recursively and are identical. All suppliers and source-review inputs are unchanged. Current369-node PMIA preserves the compiled332-node interface, with no new supplier declaration or claim of full369-node compilation.
+
+
+## All-unit clearing and regular smoothing-parameter independence
+
+Partial continuation preserving all426 predecessor nodes whole. Seven L4 nodes prove the shifted cross-numerator identity, all-unit constant and full-series clearing, independence of regular fraction representatives, and their actual away-localization maps and full-series images. All16 findings and three requests remain whole; seven gaps and zero closed stages remain.
+
+The complete old all-unit cross-numerator and canonical away-inclusion nodes were reread. Supplier weight, weight-evaluation, weight-pushforward, convolution-evaluation and right-convolution-evaluation were read whole, preserving the ordered iterated-integral convention. Published131 and139 were reread;159–160 was read earlier in this continuation. Native localization fraction criteria were reread, and the existing regular-fraction/unit-cancellation probe was inspected. Four complete new native lemmas verify the coordinate test identity, unit cancellation, regular fraction equality and actual Away fraction image. No new baseline declaration is needed.
+
+### The shifted cross-numerator identity
+
+`DirichletPadicLFunctions:L4/weighted-eisenstein-cross` — `DirichletPadic.eisensteinWeightedNumerator_cross`
+
+For every u,v∈U, d_v n_u=d_u n_v in the actual integral convolution ring M.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z are the existing native carriers with the supplied commutative convolution algebra. Q=FractionRing M is the actual total quotient with canonical map i; no domain or field assumption is made. For u∈U write λ_u=padicIntrinsicNumerator p u, n_u=eisensteinWeightedNumerator p u=weight(j)(λ_u), d_u=eisensteinTwistedDenominator p u=uδ_u−1, and Δ_u=2d_u. The unit coordinate is j. A₀ is the existing localizedEisensteinConstant built with the canonical parameter p+1. S_u=Localization.Away(Δ_u), A₀,u^away, E_u^away, the total series E and the integral numerator series N_u are the preceding actual constructions. A regular parameter means precisely Δ_u∈nonZeroDivisors M; no such condition is imposed in the all-unit clearing statements.
+
+**Proof:**
+
+1. Apply the existing linear operator weight(j) to the exact all-unit identity (δ_v−δ_1)λ_u=(δ_u−δ_1)λ_v supplied by padic-intrinsic-cross. Linearity distributes it over subtraction.
+2. At an arbitrary continuous test f, the supplied convolution-evaluation and right-convolution-evaluation formulas followed by native Dirac evaluation give (δ_v μ)(f)=μ(y↦f(vy)).
+3. Weight evaluation replaces f by jf. The pointwise identity j(vy)=v·j(y) identifies this test with v times j(y)f(vy). Pull the scalar through the integral linear functional. Hence the weighted translated term evaluates as vδ_v(weight(j)μ). A complete native test-function lemma verifies this equality for an actual integral measure.
+4. The identity atom acts as the convolution identity. Thus the two sides become (vδ_v−1)n_u and (uδ_u−1)n_v. Unfold the existing d and n constructors and use measure extensionality. No generic multiplicativity or ring-equivalence claim for weight(j) is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-intrinsic-cross`, `DirichletPadicLFunctions:L4/weighted-eisenstein-numerator`, `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator`, `PadicMeasuresIwasawaAlgebras:L2/weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/convolution-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/right-convolution-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/convolution-algebra`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Tests:**
+
+- `SuggestedEisensteinParameterTests.shifted_cross_orientation` (characterisation): The factor indexed by v multiplies n_u and the factor indexed by u multiplies n_v, for every unit pair.
+
+**Acceptance:** The factors are shifted by their scalar unit values. Replacing d_u by δ_u−1 gives the wrong moment factors. The generic character-twist supplier request remains open.
+
+**Source:** Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained. Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure.
+
+### The constant clears at every unit parameter
+
+`DirichletPadicLFunctions:L4/localized-eisenstein-all-unit-clearing` — `DirichletPadic.localizedEisensteinConstant_clearing_all`
+
+For every u∈U, i(Δ_u)A₀=i(n_u) in Q.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z are the existing native carriers with the supplied commutative convolution algebra. Q=FractionRing M is the actual total quotient with canonical map i; no domain or field assumption is made. For u∈U write λ_u=padicIntrinsicNumerator p u, n_u=eisensteinWeightedNumerator p u=weight(j)(λ_u), d_u=eisensteinTwistedDenominator p u=uδ_u−1, and Δ_u=2d_u. The unit coordinate is j. A₀ is the existing localizedEisensteinConstant built with the canonical parameter p+1. S_u=Localization.Away(Δ_u), A₀,u^away, E_u^away, the total series E and the integral numerator series N_u are the preceding actual constructions. A regular parameter means precisely Δ_u∈nonZeroDivisors M; no such condition is imposed in the all-unit clearing statements.
+
+**Proof:**
+
+1. Choose the existing unit a with value p+1. Its doubled shifted denominator Δ_a is regular, so native IsLocalization.map_units makes i(Δ_a) invertible in Q.
+2. The existing canonical localized-eisenstein-clearing equality gives i(Δ_a)A₀=i(n_a), after rewriting preservation of2 and multiplication.
+3. Multiply the shifted cross-numerator identity by2 to obtain Δ_a n_u=Δ_u n_a. Map it into Q. Multiply the desired equality by i(Δ_a), commute the factors and use the canonical clearing equality followed by this cross identity.
+4. Cancel only the unit i(Δ_a), with native IsUnit.mul_right_inj. The complete native all-parameter clearing lemma checks exactly this cancellation in a commutative target ring.
+5. For u=1 both numerator and shifted denominator vanish. For u=−1 the weighted numerator vanishes, so i(Δ_−1) annihilates A₀. Neither statement permits cancellation of that parameter’s denominator.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/weighted-eisenstein-cross`, `DirichletPadicLFunctions:L4/localized-eisenstein-clearing`, `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-regular`, `DirichletPadicLFunctions:L4/weighted-eisenstein-numerator`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`, `mathlib:IsLocalization.map_units`, `mathlib:IsUnit.mul_right_inj`.
+
+**Tests:**
+
+- `SuggestedEisensteinParameterTests.all_parameter_identity_clearing` (degenerate): The u=1 clearing equation has zero left side and zero numerator.
+- `SuggestedEisensteinParameterTests.torsion_parameter_annihilates_constant` (non-example): For u=−1, i(Δ_−1)A₀=0; the all-unit theorem does not authorize cancellation of this torsion denominator.
+
+**Acceptance:** All parameters clear the same actual A₀ by their doubled shifted factors. Ordinary pseudomeasure membership concerns different factors and does not follow.
+
+**Source:** Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained. Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure.
+
+### Independence of the regular smoothing representative
+
+`DirichletPadicLFunctions:L4/localized-eisenstein-regular-fraction` — `DirichletPadic.localizedEisensteinConstant_regular_fraction`
+
+For any u with Δ_u∈nonZeroDivisors M, the native fraction mk′_Q(n_u,Δ_u) equals the existing A₀.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z are the existing native carriers with the supplied commutative convolution algebra. Q=FractionRing M is the actual total quotient with canonical map i; no domain or field assumption is made. For u∈U write λ_u=padicIntrinsicNumerator p u, n_u=eisensteinWeightedNumerator p u=weight(j)(λ_u), d_u=eisensteinTwistedDenominator p u=uδ_u−1, and Δ_u=2d_u. The unit coordinate is j. A₀ is the existing localizedEisensteinConstant built with the canonical parameter p+1. S_u=Localization.Away(Δ_u), A₀,u^away, E_u^away, the total series E and the integral numerator series N_u are the preceding actual constructions. A regular parameter means precisely Δ_u∈nonZeroDivisors M; no such condition is imposed in the all-unit clearing statements.
+
+**Proof:**
+
+1. The all-unit clearing theorem supplies i(Δ_u)A₀=i(n_u). The displayed regularity certificate makes Δ_u an admissible denominator for the native total quotient.
+2. Use native IsLocalization.eq_mk′_iff_mul_eq and commutativity to identify A₀ with the native fraction. A complete native fraction-comparison lemma verifies the argument.
+3. Consequently any two regular smoothing parameters give the same total-quotient element. The construction does not reselect A₀ or modify the preceding canonical constructor.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/localized-eisenstein-all-unit-clearing`, `mathlib:IsLocalization.mk'`, `mathlib:IsLocalization.eq_mk'_iff_mul_eq`.
+
+**Tests:**
+
+- `SuggestedEisensteinParameterTests.canonical_fraction_comparison` (compatibility): For a with value p+1, the comparison recovers the existing canonical fraction with its exact regularity certificate.
+
+**Acceptance:** Regularity is an explicit hypothesis on the actual measure-ring denominator. A nonzero scalar moment alone is not used as a regularity certificate.
+
+**Source:** Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained. Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure.
+
+### Uniform full-series clearing at every parameter
+
+`DirichletPadicLFunctions:L4/full-eisenstein-all-unit-clearing` — `DirichletPadic.clearedEisensteinSeries_toFraction_all`
+
+For every u∈U, PowerSeries.map(i)(N_u)=C(i Δ_u)E in Q[[q]].
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z are the existing native carriers with the supplied commutative convolution algebra. Q=FractionRing M is the actual total quotient with canonical map i; no domain or field assumption is made. For u∈U write λ_u=padicIntrinsicNumerator p u, n_u=eisensteinWeightedNumerator p u=weight(j)(λ_u), d_u=eisensteinTwistedDenominator p u=uδ_u−1, and Δ_u=2d_u. The unit coordinate is j. A₀ is the existing localizedEisensteinConstant built with the canonical parameter p+1. S_u=Localization.Away(Δ_u), A₀,u^away, E_u^away, the total series E and the integral numerator series N_u are the preceding actual constructions. A regular parameter means precisely Δ_u∈nonZeroDivisors M; no such condition is imposed in the all-unit clearing statements.
+
+**Proof:**
+
+1. Apply native PowerSeries.ext, coeff_map and coeff_C_mul. In degree0, use the all-unit clearing equality for the same A₀.
+2. At each positive degree, the promoted integral numerator-series coefficient formula gives Δ_u A_n. The total-series constructor gives i(A_n). Multiplicativity of i identifies the two sides.
+3. The native coefficient construction and coeff_mk handle the zero/positive split. This extends the old canonical-parameter full-series clearing theorem while retaining it unchanged.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/localized-eisenstein-all-unit-clearing`, `DirichletPadicLFunctions:L4/integral-cleared-eisenstein-coefficients`, `DirichletPadicLFunctions:L4/full-eisenstein-total-series`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.coeff_C_mul`, `mathlib:PowerSeries.coeff_mk`.
+
+**Tests:**
+
+- `SuggestedEisensteinParameterTests.all_parameter_full_clearing` (compatibility): The same actual total series clears to the constructed N_u for every unit parameter, without a regularity hypothesis on that parameter.
+
+**Acceptance:** This is an equality after multiplication. It does not assume every away localization embeds into the total quotient.
+
+**Source:** Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained. Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure.
+
+### Embedding a regular smoothing localization
+
+`DirichletPadicLFunctions:L4/regular-eisenstein-away-inclusion` — `DirichletPadic.regularEisensteinAwayToFraction`
+
+For u∈U and h_u:Δ_u∈nonZeroDivisors M, define J_u:S_u→+*Q by the native Away.lift of i. This map is injective and specializes to the previous canonical map.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z are the existing native carriers with the supplied commutative convolution algebra. Q=FractionRing M is the actual total quotient with canonical map i; no domain or field assumption is made. For u∈U write λ_u=padicIntrinsicNumerator p u, n_u=eisensteinWeightedNumerator p u=weight(j)(λ_u), d_u=eisensteinTwistedDenominator p u=uδ_u−1, and Δ_u=2d_u. The unit coordinate is j. A₀ is the existing localizedEisensteinConstant built with the canonical parameter p+1. S_u=Localization.Away(Δ_u), A₀,u^away, E_u^away, the total series E and the integral numerator series N_u are the preceding actual constructions. A regular parameter means precisely Δ_u∈nonZeroDivisors M; no such condition is imposed in the all-unit clearing statements.
+
+**Proof:**
+
+1. Native IsLocalization.map_units applied to the exact regular-denominator subtype makes i(Δ_u) a unit. Native Away.lift constructs the actual ring map; Away.lift_eq gives J_u(alg μ)=i(μ).
+2. Use native injective_iff_map_algebraMap_eq and IsFractionRing.injective, as for the earlier canonical map, to obtain injectivity. An equality in Q between original coefficients reflects to M, hence to S_u.
+3. For canonical a=p+1, unfold both map constructors. They are native lifts of the same ring map at the same denominator; proof irrelevance identifies their regularity certificates. This yields the exact canonical compatibility API.
+4. The constant-image API is promoted below. It uses the all-parameter fraction comparison. No new localization carrier or generic localization theory is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/localized-eisenstein-regular-fraction`, `DirichletPadicLFunctions:L4/eisenstein-away-inclusion`, `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-regular`, `mathlib:IsLocalization.Away.lift`, `mathlib:IsLocalization.Away.lift_eq`, `mathlib:IsLocalization.map_units`, `mathlib:IsLocalization.injective_iff_map_algebraMap_eq`, `mathlib:IsFractionRing.injective`.
+
+**Uses:**
+
+- Regular smoothing-parameter comparison: Places different native denominator localizations inside the same total quotient.
+- Full source-series identification: Identifies every regular-parameter localized family with the existing total Eisenstein series.
+
+**API:**
+
+- `DirichletPadic.regularEisensteinAwayToFraction_def` (constructor): J_u is the native Away.lift of i using the supplied regularity certificate.
+- `DirichletPadic.regularEisensteinAwayToFraction_algebraMap` (compatibility): J_u(alg μ)=i(μ) for every μ∈M.
+- `DirichletPadic.regularEisensteinAwayToFraction_injective` (extensionality): The coefficient map J_u is injective.
+- `DirichletPadic.regularEisensteinAwayToFraction_canonical` (compatibility): For canonical a, J_a agrees exactly with the preceding canonical Away-to-fraction map.
+- `DirichletPadic.regularEisensteinAwayToFraction_constant` (compatibility): J_u(A₀,u^away)=A₀. Promoted to regular-eisenstein-away-constant-image.
+
+**Tests:**
+
+- `SuggestedEisensteinParameterTests.regular_map_integral_coefficients` (compatibility): For every actual μ∈M the map sends alg(μ) to i(μ).
+- `SuggestedEisensteinParameterTests.regular_map_preserves_one` (computation): The map sends1 to1 in the native total quotient.
+- `SuggestedEisensteinParameterTests.regular_map_canonical_compatibility` (compatibility): For a with value p+1 this map is exactly the previous eisensteinAwayToFraction.
+
+**Acceptance:** The carrier Q remains the total quotient of a commutative ring. No field or integral-domain hypothesis is introduced.
+
+**Source:** Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained. Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure.
+
+### The constant image for every regular parameter
+
+`DirichletPadicLFunctions:L4/regular-eisenstein-away-constant-image` — `DirichletPadic.regularEisensteinAwayToFraction_constant`
+
+For every regular parameter u, J_u(A₀,u^away)=A₀.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z are the existing native carriers with the supplied commutative convolution algebra. Q=FractionRing M is the actual total quotient with canonical map i; no domain or field assumption is made. For u∈U write λ_u=padicIntrinsicNumerator p u, n_u=eisensteinWeightedNumerator p u=weight(j)(λ_u), d_u=eisensteinTwistedDenominator p u=uδ_u−1, and Δ_u=2d_u. The unit coordinate is j. A₀ is the existing localizedEisensteinConstant built with the canonical parameter p+1. S_u=Localization.Away(Δ_u), A₀,u^away, E_u^away, the total series E and the integral numerator series N_u are the preceding actual constructions. A regular parameter means precisely Δ_u∈nonZeroDivisors M; no such condition is imposed in the all-unit clearing statements.
+
+**Proof:**
+
+1. Unfold the existing away-constant fraction and the new native lift. Map its native clearing equation through J_u, using lift_eq on the original integral coefficients.
+2. The complete native regular-away-fraction lemma identifies this image with mk′_Q(n_u,Δ_u). Apply the preceding regular-fraction comparison to obtain the same actual A₀.
+3. Promote the constructor API unchanged. The assertion remains conditional on regularity in M and is not inferred merely from a chosen character denominator being nonzero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/regular-eisenstein-away-inclusion`, `DirichletPadicLFunctions:L4/eisenstein-away-constant`, `DirichletPadicLFunctions:L4/localized-eisenstein-regular-fraction`, `mathlib:IsLocalization.mk'_spec'`, `mathlib:IsLocalization.eq_mk'_iff_mul_eq`, `mathlib:IsLocalization.Away.lift_eq`.
+
+**Tests:**
+
+- `SuggestedEisensteinParameterTests.regular_constant_image` (compatibility): The image is the existing localizedEisensteinConstant, independent of the chosen regular parameter.
+
+**Acceptance:** The comparison uses actual native fraction and lift formulas, not an assumed identification of two independently named constants.
+
+**Source:** Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained. Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure.
+
+### The full family is independent of the regular representative
+
+`DirichletPadicLFunctions:L4/regular-eisenstein-full-series-image` — `DirichletPadic.regularEisensteinAwaySeries_toFraction`
+
+For every regular parameter u, PowerSeries.map(J_u)(E_u^away)=E in Q[[q]].
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z are the existing native carriers with the supplied commutative convolution algebra. Q=FractionRing M is the actual total quotient with canonical map i; no domain or field assumption is made. For u∈U write λ_u=padicIntrinsicNumerator p u, n_u=eisensteinWeightedNumerator p u=weight(j)(λ_u), d_u=eisensteinTwistedDenominator p u=uδ_u−1, and Δ_u=2d_u. The unit coordinate is j. A₀ is the existing localizedEisensteinConstant built with the canonical parameter p+1. S_u=Localization.Away(Δ_u), A₀,u^away, E_u^away, the total series E and the integral numerator series N_u are the preceding actual constructions. A regular parameter means precisely Δ_u∈nonZeroDivisors M; no such condition is imposed in the all-unit clearing statements.
+
+**Proof:**
+
+1. Use native PowerSeries.ext and coeff_map. At degree0 apply the promoted regular constant-image theorem.
+2. At a positive degree use the promoted all-index away-series coefficient theorem. Native Away.lift_eq sends the included existing A_n to its image under i.
+3. The actual total-series coefficient constructor and coeff_mk identify the result with E at every index. Thus all regular-parameter representatives have the same full total-quotient image.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/regular-eisenstein-away-constant-image`, `DirichletPadicLFunctions:L4/regular-eisenstein-away-inclusion`, `DirichletPadicLFunctions:L4/full-eisenstein-away-coefficients`, `DirichletPadicLFunctions:L4/full-eisenstein-total-series`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.coeff_mk`, `mathlib:IsLocalization.Away.lift_eq`.
+
+**Tests:**
+
+- `SuggestedEisensteinParameterTests.regular_full_family_image` (compatibility): The whole localized series maps to the same totalEisensteinSeries, including its actual constant.
+
+**Acceptance:** The statement generalizes the earlier canonical map without changing its interface. Specialization at arbitrary admissible noncanonical characters remains a separate step.
+
+**Source:** Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained. Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure.
+
+**Remaining:** Every unit now gives the exact shifted clearing identity for the same actual Eisenstein constant and full total series. Every regular smoothing parameter gives the same native fraction and the same full-series image. Next construct evaluation for arbitrary smoothing parameters with an explicitly nonzero chosen character denominator, compare it with the canonical admissible family, and keep that condition distinct from measure-ring regularity. The PMIA generic character-twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. Actual pole and ordinary-pseudomeasure exclusion, the tame-character Eisenstein family and full source extraction remain explicit work; PadicFamilies owns geometric realization.
+
+### All-unit clearing and regular smoothing-parameter independence validation
+
+All 426 predecessor nodes, 436 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 7 nodes, 11 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 608 reachable nodes, 2918 edges and 553 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 1327 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Four complete native lemmas check coordinate translation on an actual integral measure test, cancellation of only the canonical regular factor, equality of regular total fractions, and the image of an actual Away fraction under its lift. The probe elaborates against 1772 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact controls check1848 parameter moments and integral numerators,21048 shifted cross relations,1848 all-parameter clearing equations,1596 scalar admissible ratios and60984 full cleared coefficients. They include168 identity cases,168 negative-identity cases and756 wrong-shift controls. Exact rational Bernoulli recurrence through24, integer parameter powers and finite depleted divisor sums. Every retained integer parameter is a p-adic unit; identity and negative identity are included. Cross relations and clearing are checked before division. Scalar ratio comparisons are performed only when the character denominator is nonzero; they do not assert measure-ring regularity. Full cleared positive coefficients are independently computed from the two-Dirac convolution formula. Wrong unshifted denominators are explicit negative controls. The largest observed discrepancy is 0.
+
+The initial57-input capture has empty delta. All supplier, source-review and other guarded inputs match the predecessor. Current369-node PMIA preserves the compiled332-node interface; no new supplier declaration is used or full369-node compilation claimed.
