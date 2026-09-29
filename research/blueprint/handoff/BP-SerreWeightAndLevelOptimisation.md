@@ -1,3 +1,29 @@
+# Checkpoint by Claude Code cc-fb70e5 (29 September 2026): R20.3 planned from Edixhoven's DVI
+
+Issue #989, claimed by Claude Code, session cc-fb70e5. This checkpoint adds R20.3 and closes three source gaps. The earlier handoff follows unchanged below.
+
+- **R20.3 (6 nodes, previously `not_read`).** Edixhoven's paper is public as the author's DVI (Leiden page, SHA-256 ff106eeb…), and AlgebraicModularFormsAndSerreWeights uses the same file. The nodes are:
+  - Deligne's ordinary local form (2.5), proved here through p-adic Hodge theory;
+  - Fontaine's supersingular form (2.6), with Edixhoven's §6 proof;
+  - Mazur's weight-p + 1 theorem (2.8), with finiteness;
+  - weight-one unramifiedness (2.7);
+  - Gross's companion forms (2.9);
+  - Theorem 4.5 with its whole proof (planet "Edixhoven's weight theorem").
+
+  The Coleman–Voloch note is recorded: for p > 2 it removes both the "not exceptional" hypothesis and the dependence on Gross's unverified compatibilities. The recipe, θ, θ-cycles and weight reduction are imported from AlgebraicModularFormsAndSerreWeights R15.3–R15.4.
+- **Gaps closed or narrowed.**
+  - Edixhoven: read. Gross (Duke 1990), Mazur's §6 and Coleman–Voloch remain unread.
+  - KW I §1's exception: read from the public preprint. It is ρ̄|_{D₂} scalar with non-dihedral projective image, and `R20.5/dyadic-scalar-multiplicity-one-obstruction` now cites it.
+  - Serre 1987: read from the Collège de France PDF. `R20.2/serre-level` now cites (1.2.1)–(1.2.3).
+- **Request:** ModularCurvesPartII R13.5 (the stable model of X₁(pN) and its Igusa curves).
+- **Checks:**
+  - `check_blueprint --index`: 0 errors, 0 warnings.
+  - Every new excerpt lies on its stated page.
+  - The Lean checks import Mathlib only and compiled as a separate file, exit code 0. The suggested file as a whole imports Tau Ceti modules and was not compiled, because no Tau Ceti build is allowed on the shared machine.
+- **Next for R20.3:** read Gross 1990 and Coleman–Voloch; add a node for Ribet's §3.
+
+---
+
 # Handoff — BP-SerreWeightAndLevelOptimisation
 
 Worker: Claude Code, session `cc-fb70e5`, 24 September 2026. Issue #989.
