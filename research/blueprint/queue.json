@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -43723,7 +43723,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-12.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4007"
   },
   {
    "id": "RT-AUDIT-13",
@@ -44456,8 +44457,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4016"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4016",
+   "finishedAt": "2026-09-29T14:33:15Z"
   },
   {
    "id": "RT-AUDIT-22",
@@ -44735,7 +44737,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4018"
   },
   {
    "id": "RT-AUDIT-26",
@@ -45197,7 +45200,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-31.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4025"
   },
   {
    "id": "RT-AUDIT-34",
@@ -46656,8 +46660,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-modeltheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3970"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3970",
+   "finishedAt": "2026-09-29T14:33:18Z"
   },
   {
    "id": "RT-AREA-algebraicgeometry",
