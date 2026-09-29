@@ -4965,3 +4965,109 @@ example (χ : DirichletCharacter ℂ 4) (hχ : χ 3 = -1) :
 end SuggestedSmoothedComplexTests
 end
 end DirichletPadic
+
+/-! ## Mellin continuation of the smoothed character kernel -/
+namespace DirichletPadic
+noncomputable section
+open Set Filter Asymptotics
+open scoped BigOperators
+variable {D : ℕ} [NeZero D]
+
+theorem smoothedCharacterKernel_mellin_convergent (χ : DirichletCharacter ℂ D)
+    (hχ : χ ≠ 1) (a : ℕ) (ha : 0<a) {s : ℂ} (hs : 0<s.re) :
+    MellinConvergent (smoothedCharacterKernel χ a) s := sorry
+
+theorem smoothedCharacterKernel_mellin_eq_gamma_LFunction (χ : DirichletCharacter ℂ D)
+    (hχ : χ ≠ 1) (a : ℕ) (ha : 0<a) {s : ℂ} (hs : 1<s.re) :
+    mellin (smoothedCharacterKernel χ a) s = χ (-1)*Complex.Gamma s *
+      (1-χ (a : ZMod D)*(a : ℂ)^(1-s))*χ.LFunction s := sorry
+
+theorem smoothedCharacterKernel_mellin_entire (χ : DirichletCharacter ℂ D)
+    (hχ : χ ≠ 1) (a : ℕ) (ha : 0<a) :
+    Differentiable ℂ (normalizedMellinContinuation (smoothedCharacterKernel χ a)) := sorry
+
+theorem smoothedCharacterKernel_normalized_eq_LFunction (χ : DirichletCharacter ℂ D)
+    (hχ : χ ≠ 1) (a : ℕ) (ha : 0<a) (s : ℂ) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ a) s =
+      χ (-1)*(1-χ (a : ZMod D)*(a : ℂ)^(1-s))*χ.LFunction s := sorry
+
+theorem smoothedCharacterKernel_mellin_neg_nat (χ : DirichletCharacter ℂ D)
+    (hχ : χ ≠ 1) (a : ℕ) (ha : 0<a) (k : ℕ) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ a) (-(k : ℂ)) =
+      (-1 : ℂ)^k*(χ (a : ZMod D)*(a : ℂ)^(k+1)-1)*χ.LFunction (-(k : ℂ)) := sorry
+
+theorem smoothedGaussKernel_normalized_eq_LFunction (p : ℕ) [Fact p.Prime]
+    (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter ℂ (p^n)) (hχ : χ.IsPrimitive)
+    (ε : ℂ) (hε : IsPrimitiveRoot ε (p^n))
+    (hG : gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+    (a : ℕ) (ha : ¬p∣a) (s : ℂ) :
+    normalizedMellinContinuation (fun t : ℝ =>
+      (gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one))⁻¹ *
+      ∑ c : ZMod (p^n), χ⁻¹ c *
+        ((ε^c.val*(Real.exp t : ℂ)-1)⁻¹ -
+          (a : ℂ)*((ε^c.val)^a*(Real.exp ((a : ℝ)*t) : ℂ)-1)⁻¹)) s =
+      χ (-1)*(1-χ (a : ZMod (p^n))*(a : ℂ)^(1-s))*χ.LFunction s := sorry
+
+namespace SuggestedSmoothedMellinTests
+-- convergence_at_one
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    MellinConvergent (smoothedCharacterKernel χ 4) 1 := sorry
+-- convergence_nonunit_parameter
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    MellinConvergent (smoothedCharacterKernel χ 3) (1/2) := sorry
+-- raw_three_at_two
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    mellin (smoothedCharacterKernel χ 4) 2 = (-3/4 : ℂ)*χ.LFunction 2 := sorry
+-- raw_four_at_two
+example (χ : DirichletCharacter ℂ 4) (hχ : χ 3 = -1) :
+    mellin (smoothedCharacterKernel χ 3) 2 = (-4/3 : ℂ)*χ.LFunction 2 := sorry
+-- entire_at_zero
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    DifferentiableAt ℂ (normalizedMellinContinuation (smoothedCharacterKernel χ 4)) 0 := sorry
+-- entire_at_one
+example (χ : DirichletCharacter ℂ 4) (hχ : χ 3 = -1) :
+    DifferentiableAt ℂ (normalizedMellinContinuation (smoothedCharacterKernel χ 3)) 1 := sorry
+-- normalized_one_parameter
+example (χ : DirichletCharacter ℂ D) (s : ℂ) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ 1) s = 0 := sorry
+-- normalized_nonunit_parameter
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) (s : ℂ) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ 3) s = -χ.LFunction s := sorry
+-- normalized_three_at_one
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ 4) 1 = 0 := sorry
+-- normalized_four_at_one
+example (χ : DirichletCharacter ℂ 4) (hχ : χ 3 = -1) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ 3) 1 = -2*χ.LFunction 1 := sorry
+-- normalized_three_at_two
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ 4) 2 = (-3/4 : ℂ)*χ.LFunction 2 := sorry
+-- normalized_four_at_two
+example (χ : DirichletCharacter ℂ 4) (hχ : χ 3 = -1) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ 3) 2 = (-4/3 : ℂ)*χ.LFunction 2 := sorry
+-- negative_zero_three
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ 4) 0 = 1 := sorry
+-- negative_zero_four
+example (χ : DirichletCharacter ℂ 4) (hχ : χ 3 = -1) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ 3) 0 = -2 := sorry
+-- negative_two_three
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ 4) (-2) = -14 := sorry
+-- negative_two_four
+example (χ : DirichletCharacter ℂ 4) (hχ : χ 3 = -1) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ 3) (-2) = 14 := sorry
+-- negative_one_five
+example (χ : DirichletCharacter ℂ 5) (hχ : χ 2 = -1) :
+    normalizedMellinContinuation (smoothedCharacterKernel χ 6) (-1) = 14 := sorry
+-- gauss_one_parameter
+example (p : ℕ) [Fact p.Prime] (n : ℕ) (χ : DirichletCharacter ℂ (p^n))
+    (ε : ℂ) (hε : IsPrimitiveRoot ε (p^n)) (s : ℂ) :
+    normalizedMellinContinuation (fun t : ℝ =>
+      (gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one))⁻¹ *
+      ∑ c : ZMod (p^n), χ⁻¹ c *
+        ((ε^c.val*(Real.exp t : ℂ)-1)⁻¹ -
+          (1 : ℂ)*((ε^c.val)^1*(Real.exp ((1 : ℝ)*t) : ℂ)-1)⁻¹)) s = 0 := sorry
+end SuggestedSmoothedMellinTests
+end
+end DirichletPadic
