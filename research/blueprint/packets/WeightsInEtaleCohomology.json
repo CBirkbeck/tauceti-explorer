@@ -1,0 +1,667 @@
+{
+  "roadmapId": "WeightsInEtaleCohomology",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "WeightsInEtaleCohomology:R34.1",
+    "WeightsInEtaleCohomology:R34.2",
+    "WeightsInEtaleCohomology:R34.3",
+    "WeightsInEtaleCohomology:R34.4",
+    "WeightsInEtaleCohomology:R34.5",
+    "WeightsInEtaleCohomology:R34.6"
+  ],
+  "status": "partial",
+  "summary": "Weights and purity in étale cohomology (RS-17: DeligneWeightsAndPurity, Part II), checkpoint 1, in 7 nodes. R34.1 is planned in full as the representation-convention adapter over DeligneWeightsAndPurity DWP.0. It covers arithmetic and geometric Frobenius, Galois representations pure of weight w and with integral Frobenius polynomials outside T (MordellLawrenceVenkatesh's request), stability under linear algebra, restriction and induction, the chosen-embedding comparison, and the non-examples showing that finite dimensionality forces neither algebraicity nor purity. R34.2's H¹-versus-Tate-module adapter for abelian varieties over 𝔽_q is planned. R34.3–R34.6 are not yet planned.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:IsArithFrobAt",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/Frobenius.lean",
+        "provides": "σ ∈ G is an arithmetic Frobenius at a prime Q of S (G finite acting on S with fixed ring R) if σx ≡ x^{#(R/Q∩R)} mod Q.",
+        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3) and resolved by #check, 2026-09-29"
+      },
+      {
+        "ref": "mathlib:IsArithFrobAt.mul_inv_mem_inertia",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Frobenius.lean",
+        "provides": "Two arithmetic Frobenius elements at Q differ by an element of the inertia subgroup of Q.",
+        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3) and resolved by #check, 2026-09-29"
+      },
+      {
+        "ref": "mathlib:IsArithFrobAt.conj",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Frobenius.lean",
+        "provides": "If σ is a Frobenius at Q, then τστ⁻¹ is a Frobenius at τ • Q: conjugacy across the primes above v.",
+        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3) and resolved by #check, 2026-09-29"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "deligne-weil-i",
+      "title": "La conjecture de Weil. I",
+      "authors": "Pierre Deligne",
+      "edition": "Publ. Math. IHÉS 43 (1974), 273–307; Numdam scan with OCR (printed page = PDF page + 271)",
+      "url": "https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf",
+      "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5",
+      "readSections": [
+        "cc-fb70e5, 2026-09-29: §1 (1.13)–(1.15), pp. 278–279"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "deligne-weil-ii",
+      "title": "La conjecture de Weil. II",
+      "authors": "Pierre Deligne",
+      "edition": "Publ. Math. IHÉS 52 (1980), 137–252; Numdam scan with OCR (printed page = PDF page + 135)",
+      "url": "https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf",
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
+      "readSections": [
+        "cc-fb70e5, 2026-09-29: (1.1.10)–(1.1.15), pp. 151–153; §1.2 (1.2.1)–(1.2.8), pp. 153–155"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "lawrence-venkatesh",
+      "title": "Diophantine problems and p-adic period mappings",
+      "authors": "Brian Lawrence and Akshay Venkatesh",
+      "edition": "arXiv:1807.02721v3 (25 Oct 2019; published in Invent. Math. 221 (2020)); printed page = PDF page",
+      "url": "https://arxiv.org/abs/1807.02721",
+      "sha256": "e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b",
+      "readSections": [
+        "cc-fb70e5, 2026-09-29: §2.3–§2.5, pp. 9–14 (Lemmas 2.3–2.10)"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "milne-abelian-varieties",
+      "title": "Abelian Varieties",
+      "authors": "J. S. Milne",
+      "edition": "Course notes, version 2.00 (March 16, 2008); printed page = PDF page − 6",
+      "url": "https://www.jmilne.org/math/CourseNotes/AV.pdf",
+      "sha256": "f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef",
+      "readSections": [
+        "cc-fb70e5, 2026-09-29: Chapter I §12, pp. 54–56; Chapter II §1, pp. 75–78"
+      ],
+      "accessed": "2026-09-29"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "WeightsInEtaleCohomology:R34.1/arithmetic-and-geometric-frobenius",
+      "parentStageId": "WeightsInEtaleCohomology:R34.1",
+      "realises": [
+        "WeightsInEtaleCohomology:R34.1"
+      ],
+      "title": "Arithmetic and geometric Frobenius, and the Frobenius polynomial of a Galois representation",
+      "kind": "definition",
+      "statement": "For a finite field k = 𝔽_q with algebraic closure k̄, the arithmetic Frobenius φ ∈ Gal(k̄/k) is x ↦ x^q and the geometric Frobenius is F = φ⁻¹; either one topologically generates Gal(k̄/k). Let K be a number field, v a finite place with residue field of size q_v, and ρ : G_K → GL(V) a continuous representation on a finite-dimensional vector space over a field E of characteristic 0, unramified at v. Then ρ(Frob_v^geom) is well defined up to conjugacy, where Frob_v^geom is any element of a decomposition group at v mapping to F. So is its characteristic polynomial P_v(ρ, T) = det(T − ρ(Frob_v^geom)). The arithmetic polynomial det(T − ρ(Frob_v^arith)) has the inverse roots, and equals P_v(ρ^∨, T) for the contragredient ρ^∨.",
+      "hypotheses": [
+        "Weights in this roadmap and in DeligneWeightsAndPurity use the geometric Frobenius (Weil I (1.15)). With the arithmetic convention every weight changes sign; ℚ_ℓ(1) has geometric weight −2 and arithmetic weight +2.",
+        "Unramified at v means that the inertia group at v acts trivially. Without it ρ(Frob_v) depends on the choice of Frobenius modulo inertia.",
+        "Changing the place above v or the decomposition group conjugates ρ(Frob_v^geom), so only its conjugacy class and characteristic polynomial are defined."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Weights.GaloisRep.frobCharpoly",
+          "role": "constructor",
+          "statement": "frobCharpoly ρ v (hv : ρ.IsUnramifiedAt v) : E[X] := charpoly (ρ (Frob_v^geom)), independent of the choices."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.frobCharpoly_arith",
+          "role": "compatibility",
+          "statement": "charpoly (ρ (Frob_v^arith)) = frobCharpoly ρ^∨ v."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.frobCharpoly_roots_inv",
+          "role": "characterisation",
+          "statement": "The roots of charpoly (ρ (Frob_v^arith)) are the inverses of those of frobCharpoly ρ v."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.frobCharpoly_conj",
+          "role": "simp",
+          "statement": "frobCharpoly (g • ρ) v = frobCharpoly ρ v for conjugate representations."
+        }
+      ],
+      "uses": [
+        {
+          "where": "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
+          "how": "purity and integrality are conditions on P_v(ρ, T)"
+        },
+        {
+          "where": "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology",
+          "how": "geometric Frobenius on H¹ against the Frobenius endomorphism"
+        },
+        {
+          "where": "MordellLawrenceVenkatesh:LV.1/hodge-weight-pure-representation",
+          "how": "Frob_v^geom in the purity hypothesis"
+        },
+        {
+          "where": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+          "how": "Frobenius polynomials of Tate modules at good primes"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Weights.frobCharpoly_cyclotomic",
+          "kind": "value",
+          "statement": "P_v(ℚ_ℓ(1), T) = T − q_v⁻¹ for v ∤ ℓ: the cyclotomic character sends Frob_v^arith to q_v."
+        },
+        {
+          "name": "TauCeti.Weights.frobCharpoly_trivial",
+          "kind": "degenerate",
+          "statement": "For the trivial representation of rank d, P_v = (T − 1)^d at every v."
+        },
+        {
+          "name": "TauCeti.Weights.not_unramified_cyclotomic_at_l",
+          "kind": "non-example",
+          "statement": "At v | ℓ the cyclotomic character is ramified, so ρ(Frob_v) is not defined on ℚ_ℓ(1)."
+        },
+        {
+          "name": "TauCeti.Weights.frobCharpoly_arith_elliptic",
+          "kind": "value",
+          "statement": "For E with good reduction at v ∤ ℓ, the arithmetic Frobenius on H¹ = V_ℓ(E)^∨ has characteristic polynomial T² − (a_v/q_v)T + 1/q_v, the inverse roots of T² − a_vT + q_v."
+        }
+      ],
+      "proofSteps": [
+        "For a finite Galois extension through which a finite quotient of ρ factors, Frobenius elements exist (mathlib:IsArithFrobAt.exists_of_isInvariant). Two of them differ by inertia (mathlib:IsArithFrobAt.mul_inv_mem_inertia), and they are conjugate across the primes above v (mathlib:IsArithFrobAt.conj).",
+        "For the continuous ρ of G_K, the Frobenius class modulo inertia and the independence of choices come from ArithmeticGaloisRepresentations R01.1–R01.2 (continuous representations; decomposition and inertia groups).",
+        "Geometric Frobenius is the inverse of the arithmetic one, so the characteristic polynomials have inverse roots, and (ρ(g)⁻¹)^* on V^* computes the contragredient (DWP.0/spectra-of-tensor-products-and-duals)."
+      ],
+      "acceptance": [
+        "The ℓ-adic cyclotomic character χ_ℓ satisfies χ_ℓ(Frob_v^arith) = q_v for v ∤ ℓ, so P_v(ℚ_ℓ(1), T) = T − q_v⁻¹.",
+        "For an elliptic curve E/K with good reduction at v ∤ ℓ: P_v(H¹, T) = T² − a_vT + q_v on H¹ = V_ℓ(E)^∨, and P_v(V_ℓE, T) = T² − (a_v/q_v)T + 1/q_v."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.1",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "mathlib:IsArithFrobAt",
+        "mathlib:IsArithFrobAt.mul_inv_mem_inertia",
+        "mathlib:IsArithFrobAt.conj"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§1, (1.15), p. 279",
+          "excerpt": "Ceci amène à définir le Frobenius géométrique",
+          "match": "The geometric Frobenius is the inverse of the substitution x ↦ x^q."
+        },
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "§1.1, (1.1.13), p. 152",
+          "excerpt": "étant la puissance entière",
+          "match": "The Frobenius at a point of degree d maps to the d-th power."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Arithmetic and geometric Frobenius"
+      }
+    },
+    {
+      "id": "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
+      "parentStageId": "WeightsInEtaleCohomology:R34.1",
+      "realises": [
+        "WeightsInEtaleCohomology:R34.1"
+      ],
+      "title": "Galois representations pure of weight w, and with integral Frobenius polynomials, outside T",
+      "kind": "definition",
+      "statement": "Let K be a number field, T a finite set of finite places, and ρ : G_K → GL(V) a continuous representation on a finite-dimensional ℚ_p-vector space (or over a finite extension E of ℚ_p). ρ is pure of weight w outside T if it is unramified at every finite v ∉ T and, for each such v, every root of P_v(ρ, T) is a Weil q_v-number of weight w. Equivalently, (V ⊗ Ē, ρ(Frob_v^geom)) is pure of weight w relative to q_v in the sense of DWP.0. ρ has integral Frobenius polynomials outside T if P_v(ρ, T) ∈ ℤ[T] for every v ∉ T. For a field embedding ι : Ē → ℂ, ρ is ι-pure of real weight w outside T if the eigenvalues of every ρ(Frob_v^geom), v ∉ T, have ι-weight w relative to q_v.",
+      "hypotheses": [
+        "The geometric Frobenius convention of the node arithmetic-and-geometric-frobenius is used; the arithmetic convention negates w.",
+        "Integrality is a separate predicate. ℚ_p(1) is pure of weight −2 outside {v | p}, and its Frobenius polynomials T − q_v⁻¹ are not integral.",
+        "Places above p are allowed outside T only if ρ is unramified there. For ℚ_p(n), n ≠ 0, T must contain the places above p."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Weights.GaloisRep.IsPureOutside",
+          "role": "data",
+          "statement": "IsPureOutside ρ T w : Prop := ∀ v ∉ T, ρ.IsUnramifiedAt v ∧ IsPure (q_v : ℝ) w (ρ (Frob_v^geom))."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.HasIntegralFrobOutside",
+          "role": "data",
+          "statement": "HasIntegralFrobOutside ρ T : Prop := ∀ v ∉ T, ∃ P : ℤ[X], (P.map (Int.castRingHom E)) = frobCharpoly ρ v."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.IsIotaPureOutside",
+          "role": "data",
+          "statement": "IsIotaPureOutside ρ T ι w : Prop, the ι-weight version with w : ℝ."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.IsPureOutside.mono",
+          "role": "compatibility",
+          "statement": "T ⊆ T′ → IsPureOutside ρ T w → IsPureOutside ρ T′ w."
+        },
+        {
+          "name": "TauCeti.Weights.GaloisRep.IsPureOutside.weight_unique",
+          "role": "characterisation",
+          "statement": "V ≠ 0 → IsPureOutside ρ T w → IsPureOutside ρ T w′ → w = w′."
+        }
+      ],
+      "uses": [
+        {
+          "where": "WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations",
+          "how": "stability of the predicates"
+        },
+        {
+          "where": "WeightsInEtaleCohomology:R34.1/purity-under-restriction-and-induction",
+          "how": "change of field"
+        },
+        {
+          "where": "MordellLawrenceVenkatesh:LV.1/faltings-finiteness",
+          "how": "Faltings' finiteness for pure integral representations"
+        },
+        {
+          "where": "MordellLawrenceVenkatesh:LV.1/hodge-weight-pure-representation",
+          "how": "the purity hypothesis"
+        },
+        {
+          "where": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+          "how": "pure integral Tate modules"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Weights.isPureOutside_tate",
+          "kind": "value",
+          "statement": "ℚ_p(n) is pure of weight −2n outside the places above p."
+        },
+        {
+          "name": "TauCeti.Weights.isPureOutside_trivial",
+          "kind": "degenerate",
+          "statement": "The trivial representation is pure of weight 0 outside ∅, with integral Frobenius polynomials."
+        },
+        {
+          "name": "TauCeti.Weights.not_integral_tate_one",
+          "kind": "non-example",
+          "statement": "ℚ_p(1) is pure of weight −2 but not integral: P_v = T − q_v⁻¹. Purity does not imply integrality."
+        },
+        {
+          "name": "TauCeti.Weights.not_isPureOutside_sum",
+          "kind": "non-example",
+          "statement": "ℚ_p ⊕ ℚ_p(1) is pure of no weight: its eigenvalues have weights 0 and −2."
+        }
+      ],
+      "proofSteps": [
+        "Purity: apply DWP.0/endomorphism-weights to ρ(Frob_v^geom) at each v ∉ T with base q_v. It is well defined because the characteristic polynomial is (node arithmetic-and-geometric-frobenius).",
+        "Integrality: P_v(ρ, T) ∈ ℤ[T]. When P_v has rational coefficients, this holds exactly when every root is an algebraic integer, since P_v is monic.",
+        "ι-purity: DWP.0/iota-weight on each eigenvalue."
+      ],
+      "acceptance": [
+        "ℚ_p(n) is pure of weight −2n outside {v | p}. It has integral Frobenius polynomials exactly when n ≤ 0.",
+        "For an elliptic curve E over K with good reduction outside T ∌ v | p: H¹ = V_p(E)^∨ is pure of weight 1 outside T ∪ {v | p} and integral (R34.2, DWP.1)."
+      ],
+      "prerequisites": [
+        "WeightsInEtaleCohomology:R34.1/arithmetic-and-geometric-frobenius",
+        "DeligneWeightsAndPurity:DWP.0/endomorphism-weights",
+        "DeligneWeightsAndPurity:DWP.0/weil-q-number",
+        "DeligneWeightsAndPurity:DWP.0/iota-weight"
+      ],
+      "sources": [
+        {
+          "sourceId": "lawrence-venkatesh",
+          "locator": "§2.3, Lemma 2.3, p. 9",
+          "excerpt": "ρ is pure of weight w, i.e. for every prime",
+          "match": "Pure of weight w: all roots of the Frobenius polynomial are algebraic of absolute value q_℘^{w/2}."
+        },
+        {
+          "sourceId": "lawrence-venkatesh",
+          "locator": "§2.3, Lemma 2.3, p. 9",
+          "excerpt": "is unramiﬁed outside S, and",
+          "match": "Unramified outside a finite set."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Pure Galois representations"
+      }
+    },
+    {
+      "id": "WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations",
+      "parentStageId": "WeightsInEtaleCohomology:R34.1",
+      "realises": [
+        "WeightsInEtaleCohomology:R34.1"
+      ],
+      "title": "Purity and integrality under subquotients, sums, duals, tensor products, determinants and Tate twists",
+      "kind": "theorem",
+      "statement": "Let ρ and ρ′ be pure of weights w and w′ outside T. Then: subrepresentations and quotients of ρ are pure of weight w outside T, and ρ is pure iff a subrepresentation and its quotient are; ρ ⊕ ρ″ is pure of weight w if ρ″ is; the contragredient ρ^∨ is pure of weight −w; ρ ⊗ ρ′ is pure of weight w + w′; det ρ is pure of weight w·dim V; and the twist ρ(n) = ρ ⊗ ℚ_p(n) is pure of weight w − 2n outside T ∪ {v | p}. Integral Frobenius polynomials are preserved by subquotients, direct sums, tensor products, determinants and twists ρ(n) with n ≤ 0. They are not preserved by duals or by twists ρ(n) with n > 0.",
+      "hypotheses": [
+        "Dual means contragredient.",
+        "The twist enlarges T by the places above p, where ℚ_p(n) is ramified for n ≠ 0.",
+        "For integrality of subquotients, the Frobenius polynomial of a subquotient divides that of ρ in ℚ[T]. A monic divisor in ℚ[T] of a monic integer polynomial has integer coefficients (Gauss)."
+      ],
+      "proofSteps": [
+        "Purity is checked eigenvalue by eigenvalue at each v ∉ T: DWP.0/purity-under-subquotients-and-extensions for subquotients and sums, DWP.0/spectra-of-tensor-products-and-duals for ⊗, contragredient and det, and DWP.0/twisting-by-rank-one-characters for twists.",
+        "Integrality: the roots of P_v are algebraic integers. Products of algebraic integers are algebraic integers, which handles ⊗ and det. Roots of subquotients are among those of ρ. For duals, inverses of algebraic integers need not be integral (q_v⁻¹).",
+        "Gauss's lemma: a monic factor in ℚ[T] of a monic polynomial in ℤ[T] lies in ℤ[T]."
+      ],
+      "acceptance": [
+        "H¹(E) ⊗ H¹(E) of an elliptic curve is pure of weight 2 and integral. Its dual is pure of weight −2 and is not integral.",
+        "det H¹(E) = ℚ_p(−1): weight 2 = 1·2, integral."
+      ],
+      "prerequisites": [
+        "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
+        "DeligneWeightsAndPurity:DWP.0/purity-under-subquotients-and-extensions",
+        "DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals",
+        "DeligneWeightsAndPurity:DWP.0/twisting-by-rank-one-characters",
+        "DeligneWeightsAndPurity:DWP.0/weil-number-arithmetic"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "§1.2, Stabilités (1.2.5)(ii), p. 154",
+          "excerpt": "Le produit tensoriel de deux faisceaux ponctuellement purs de poids n et m est ponctuel-",
+          "match": "Weights add under tensor product."
+        },
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "§1.2, Stabilités (1.2.5)(ii), p. 154",
+          "excerpt": "faisceau lisse ponctuellement pur de poids n est ponctuellement",
+          "match": "The dual of a pure object of weight n has weight −n."
+        },
+        {
+          "sourceId": "lawrence-venkatesh",
+          "locator": "§2.4, p. 13",
+          "excerpt": "purity passes to subrepresentations",
+          "match": "Purity passes to subrepresentations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeightsInEtaleCohomology:R34.1/purity-under-restriction-and-induction",
+      "parentStageId": "WeightsInEtaleCohomology:R34.1",
+      "realises": [
+        "WeightsInEtaleCohomology:R34.1"
+      ],
+      "title": "Purity and integrality under restriction to G_L and induction from G_L",
+      "kind": "theorem",
+      "statement": "Let L/K be a finite extension of number fields and T a finite set of places of K. (i) If ρ is pure of weight w outside T, then ρ|G_L is pure of weight w outside the set T_L of places above T, with integral Frobenius polynomials if ρ has them. (ii) If ρ is a representation of G_L pure of weight w outside T_L, then Ind_{G_L}^{G_K} ρ is pure of weight w outside T ∪ {v ramified in L}, with integral Frobenius polynomials if ρ has them. Here P_v(Ind ρ, T) = ∏_{u | v} P_u(ρ, T^{f(u|v)}) for v unramified in L and outside T.",
+      "hypotheses": [
+        "Restriction: Frob_u^geom = (Frob_v^geom)^{f(u|v)} in a decomposition group at u, and q_u = q_v^{f(u|v)}.",
+        "Induction needs v unramified in L, so that Ind ρ is unramified at v; the ramified places are added to T."
+      ],
+      "proofSteps": [
+        "Restriction: ρ(Frob_u^geom) = ρ(Frob_v^geom)^{f}, and pure of weight w relative to q_v implies pure of weight w relative to q_v^f (DWP.0/finite-field-base-extension-of-weights). Integral polynomials stay integral, since the roots are powers of algebraic integers.",
+        "Induction, Frobenius formula: by Mackey's formula over the double cosets D_v \\ G_K / G_L, which correspond to the places u | v, the restriction of Ind ρ to D_v is ⊕_u Ind_{D_u}^{D_v} ρ|D_u. On each summand Frob_v acts as a cyclic block whose f-th power is Frob_u, so the characteristic polynomial is P_u(ρ, T^{f}) (ArithmeticGaloisRepresentations R01.2 for decomposition groups).",
+        "Weights: the roots of P_u(ρ, T^f) are the f-th roots β of the roots α of P_u. From |β|^f = |α| = q_u^{w/2} = q_v^{fw/2} one gets |β| = q_v^{w/2} for every complex conjugate (DWP.0/weil-number-base-extension). β is algebraic, and integral if α is."
+      ],
+      "acceptance": [
+        "K = ℚ, L = ℚ(i), ρ the trivial character of G_L: Ind ρ = 1 ⊕ χ_{−4}, pure of weight 0 outside {2}. At p ≡ 3 mod 4, P_p = T² − 1 = P_u(1, T²), with one place u of degree 2."
+      ],
+      "prerequisites": [
+        "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
+        "DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights",
+        "DeligneWeightsAndPurity:DWP.0/weil-number-base-extension",
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "§1.2, Stabilités (1.2.5)(i), p. 154",
+          "excerpt": "image directe par un morphisme fini.",
+          "match": "Stability under inverse image and finite direct image: restriction and induction."
+        },
+        {
+          "sourceId": "lawrence-venkatesh",
+          "locator": "§2.5, proof of Lemma 2.10, p. 14",
+          "excerpt": "We apply Lemma 2.9 to",
+          "match": "Purity used for an induced representation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeightsInEtaleCohomology:R34.1/frobenius-eigenvalues-need-not-be-algebraic",
+      "parentStageId": "WeightsInEtaleCohomology:R34.1",
+      "realises": [
+        "WeightsInEtaleCohomology:R34.1"
+      ],
+      "title": "Finite dimensionality implies neither algebraicity nor purity",
+      "kind": "theorem",
+      "statement": "Let k = 𝔽_q and ℓ ∤ q. For every u ∈ ℤ_ℓ^× there is a unique continuous character χ_u : Gal(k̄/k) → ℤ_ℓ^× with χ_u(F) = u. ℤ_ℓ^× contains elements transcendental over ℚ. For such u, (ℚ_ℓ, χ_u) is a continuous one-dimensional representation whose Frobenius eigenvalue is not algebraic, so it is pure of no weight, although it is ι-pure of the real weight 2 log_q |ι(u)| for each ι. For ℓ odd, u = 2 and q an odd prime, χ_u is algebraic but pure of no integer weight.",
+      "hypotheses": [
+        "This is R34.1's acceptance statement: purity and algebraicity are theorems about particular representations (DWP), not consequences of continuity and finite dimension.",
+        "u must be an ℓ-adic unit for continuity on the compact group Gal(k̄/k). A Weil-group representation (Weil II (1.1.10)) allows any u ∈ ℚ̄_ℓ^×."
+      ],
+      "proofSteps": [
+        "Gal(k̄/k) ≅ Ẑ, topologically generated by F. n ↦ u^n extends continuously to Ẑ because ℤ_ℓ^× is profinite: u^{(ℓ−1)ℓ^m} → 1 as m → ∞, and ℤ_ℓ^× ≅ μ_{ℓ−1} × (1 + ℓℤ_ℓ) for ℓ odd.",
+        "ℤ_ℓ^× is uncountable and the algebraic numbers are countable, so transcendental units exist; for instance 1 + ℓt with t ∈ ℤ_ℓ transcendental.",
+        "A Weil q-number is algebraic (DWP.0/weil-q-number), so χ_u is pure of no weight. Its ι-weight is defined for every ι (DWP.0/iota-weight).",
+        "u = 2: if |2| = q^{w/2} with q an odd prime, then 4 = q^w, impossible for integer w."
+      ],
+      "acceptance": [
+        "u = 1 + ℓ is algebraic (rational) and has ι-weight 2 log_q(1 + ℓ) for every ι; it is pure of no weight unless 1 + ℓ is a power of √q."
+      ],
+      "prerequisites": [
+        "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
+        "DeligneWeightsAndPurity:DWP.0/iota-weight"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "§1.2, (1.2.6), p. 154",
+          "excerpt": "est alors automatiquement algébrique, sans quoi",
+          "match": "Algebraicity is a consequence of purity at every ι, and fails without it."
+        },
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "§1.2, Variante (1.2.3), p. 154",
+          "excerpt": "On leur transporte la terminologie (1.2.2).",
+          "match": "The weight terminology for representations of Gal(k̄/k)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeightsInEtaleCohomology:R34.1/purity-at-every-embedding-versus-a-chosen-embedding",
+      "parentStageId": "WeightsInEtaleCohomology:R34.1",
+      "realises": [
+        "WeightsInEtaleCohomology:R34.1"
+      ],
+      "title": "Purity against a chosen embedding versus all embeddings",
+      "kind": "theorem",
+      "statement": "Let ρ be as in pure-and-integral-galois-representations, with coefficients in ℚ̄_p. (i) ρ is pure of weight w outside T iff it is ι-pure of weight w outside T for every field isomorphism ι : ℚ̄_p ≅ ℂ. (ii) If every P_v(ρ, T), v ∉ T, has coefficients in a number field E ⊂ ℚ̄_p, then ρ is pure of weight w outside T iff, for every embedding σ : E → ℂ, all roots of σ(P_v(ρ, T)) have absolute value q_v^{w/2}. (iii) ι-purity for one ι implies neither: it constrains only the embedding ι|_E.",
+      "hypotheses": [
+        "(i) needs #ℚ̄_p = 𝔠, which DWP.0/embeddings-into-the-complex-numbers proves.",
+        "(ii) is the form in which purity is checked for compatible systems with coefficients in a number field."
+      ],
+      "proofSteps": [
+        "(i): apply DWP.0/weil-number-iff-iota-pure-for-every-iota to each eigenvalue at each v ∉ T.",
+        "(ii): the roots of P_v lie in a finite extension of E. Their complex conjugates are the roots of σ(P_v) for the embeddings σ, so this is the definition of a Weil q_v-number (DWP.0/weil-q-number).",
+        "(iii): take P_v = T − (1 + √2) with E = ℚ(√2). An ι with ι(√2) = √2 gives ι-weight 2 log_{q_v}(1 + √2); one with ι(√2) = −√2 gives the negative. 1 + √2 is not a Weil number, so no single ι decides purity. When P_v has rational coefficients, a single ι already sees every conjugate."
+      ],
+      "acceptance": [
+        "For H¹ of an elliptic curve with CM by E = ℚ(i), P_v has coefficients in ℚ ⊂ E, and the check over the two embeddings of E reduces to one."
+      ],
+      "prerequisites": [
+        "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
+        "DeligneWeightsAndPurity:DWP.0/weil-number-iff-iota-pure-for-every-iota",
+        "DeligneWeightsAndPurity:DWP.0/weil-q-number"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "§1.2, (1.2.6), p. 154",
+          "excerpt": "est alors automatiquement algébrique, sans quoi",
+          "match": "Purity for every ι gives algebraicity and all-embeddings purity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology",
+      "parentStageId": "WeightsInEtaleCohomology:R34.2",
+      "realises": [
+        "WeightsInEtaleCohomology:R34.2"
+      ],
+      "title": "Frobenius on V_ℓA and on H¹: the conventions for abelian varieties over 𝔽_q",
+      "kind": "theorem",
+      "statement": "Let A be an abelian variety of dimension g over 𝔽_q, π_A its q-Frobenius endomorphism, and ℓ ∤ q. (i) The arithmetic Frobenius φ acts on A(𝔽̄_q) as π_A, hence on V_ℓA as V_ℓ(π_A); the geometric Frobenius acts by V_ℓ(π_A)⁻¹. (ii) Under the Galois-equivariant isomorphism H¹(A_{𝔽̄_q}, ℚ_ℓ) ≅ Hom(V_ℓA, ℚ_ℓ), the geometric Frobenius on H¹ has characteristic polynomial P_{π_A}, the characteristic polynomial of the endomorphism π_A. (iii) So H¹ is pure of weight w iff V_ℓA, with the geometric Frobenius, is pure of weight −w; DWP.1 supplies w = 1. (iv) For an elliptic curve, P_{π}(T) = T² − aT + q with a = q + 1 − #E(𝔽_q), in agreement with Tau Ceti EllipticCurves Layer 3.",
+      "hypotheses": [
+        "The Frobenius endomorphism π_A is a morphism of 𝔽_q-varieties. The arithmetic Frobenius φ is an automorphism of the coefficient field. They agree on 𝔽̄_q-points, and this is the only place the two are identified.",
+        "H¹ versus the Tate module: H¹ is the ℚ_ℓ-dual of V_ℓA, and the contragredient of the geometric Frobenius on V_ℓA is π_A's transpose. This is where sign conventions for weights are most often lost.",
+        "The weight 1 of H¹ is DeligneWeightsAndPurity DWP.1's theorem, requested here, not reproved."
+      ],
+      "proofSteps": [
+        "π_A is the identity on the topological space and f ↦ f^q on functions, so on points (x_i) ↦ (x_i^q), which is φ.",
+        "V_ℓ(π_A) has characteristic polynomial P_{π_A} (AbelianSchemesAndArithmeticModuli A6/characteristic-polynomial-on-tate-module).",
+        "The geometric Frobenius on V_ℓA is V_ℓ(π_A)⁻¹. On the dual H¹ = Hom(V_ℓA, ℚ_ℓ), the contragredient of V_ℓ(π_A)⁻¹ is V_ℓ(π_A)^T (DWP.0/spectra-of-tensor-products-and-duals), with characteristic polynomial P_{π_A}. The isomorphism H¹ ≅ Hom(V_ℓA, ℚ_ℓ) is AbelianSchemesAndArithmeticModuli A4's (Milne 12.1, 12.5).",
+        "Weights: the eigenvalues on V_ℓA are the inverses of those on H¹.",
+        "Elliptic curves: P_π(1) = deg(1 − π) = #E(𝔽_q) and P_π(0) = deg π = q."
+      ],
+      "acceptance": [
+        "E: y² = x³ − x over 𝔽_3: #E(𝔽_3) = 4, a = 0, P_π = T² + 3; on H¹ the geometric Frobenius has eigenvalues ±i√3, weight 1, and on V_ℓE ∓i/√3, weight −1."
+      ],
+      "prerequisites": [
+        "WeightsInEtaleCohomology:R34.1/arithmetic-and-geometric-frobenius",
+        "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
+        "AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module",
+        "DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals",
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "DeligneWeightsAndPurity:DWP.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-abelian-varieties",
+          "locator": "Chapter II, §1, p. 75",
+          "excerpt": "is deﬁned to be the identity",
+          "match": "The Frobenius map of a variety over 𝔽_q is the identity on the space and f ↦ f^q on functions."
+        },
+        {
+          "sourceId": "milne-abelian-varieties",
+          "locator": "Chapter II, §1, proof of Theorem 1.1, p. 76",
+          "excerpt": "Recall (10.20) that a1; :::; a2g can be interpreted as the eigenvalues of",
+          "match": "The roots of P_π are the eigenvalues of π on T_ℓA."
+        },
+        {
+          "sourceId": "milne-abelian-varieties",
+          "locator": "Chapter I, Remark 12.5, p. 56",
+          "excerpt": "is compatible with the natural actions of Gal",
+          "match": "The comparison with H¹ is Galois-equivariant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Tate module versus H¹"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.1",
+      "need": "Continuous representations of the absolute Galois group of a number field on finite-dimensional ℚ_p- (and E-) vector spaces, with finite Galois factorization and invariant lattices.",
+      "neededBy": [
+        "WeightsInEtaleCohomology:R34.1/arithmetic-and-geometric-frobenius"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.2",
+      "need": "Decomposition and inertia groups at a finite place for G_K (independent of the choice of place above), unramified representations, the Frobenius class modulo inertia, and the relation Frob_u = Frob_v^{f(u|v)} for a finite extension, with Mackey's formula for induced representations at a decomposition group.",
+      "neededBy": [
+        "WeightsInEtaleCohomology:R34.1/arithmetic-and-geometric-frobenius",
+        "WeightsInEtaleCohomology:R34.1/purity-under-restriction-and-induction"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.6",
+      "need": "The ℓ-adic Tate module T_ℓA of an abelian variety over a finite field, with its Galois action, and the Frobenius endomorphism π_A acting on it.",
+      "neededBy": [
+        "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology"
+      ]
+    },
+    {
+      "supplier": "AbelianSchemesAndArithmeticModuli:A4",
+      "need": "For an abelian variety A over a field k and ℓ ≠ char k: the Galois-equivariant isomorphism H¹_ét(A_{k^sep}, ℤ_ℓ) ≅ Hom(T_ℓA, ℤ_ℓ) (Milne, Abelian Varieties, 12.1 and 12.5).",
+      "neededBy": [
+        "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology"
+      ]
+    },
+    {
+      "supplier": "DeligneWeightsAndPurity:DWP.1",
+      "need": "The Weil estimate for abelian varieties over 𝔽_q: every root of P_{π_A} has absolute value q^{1/2} at every complex embedding (H¹ pure of weight 1).",
+      "neededBy": [
+        "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "WeightsInEtaleCohomology:R34.1",
+      "status": "source_decomposed",
+      "remaining": []
+    },
+    {
+      "stageId": "WeightsInEtaleCohomology:R34.2",
+      "status": "partial",
+      "remaining": [
+        "The H¹-versus-Tate-module adapter is planned. Still to be planned: the all-power point-count bounds |#A(𝔽_{q^m}) − q^{mg}| ≤ 2g·q^{m(g−1/2)} + (2^{2g} − 2g − 1)q^{m(g−1)} (Milne II.1.1) and the genus-one agreement, importing DWP.1's weight once DWP.1 is planned; and the export to FaltingsFinitenessAndIsogenyTheorems R28.4."
+      ]
+    },
+    {
+      "stageId": "WeightsInEtaleCohomology:R34.3",
+      "status": "not_read",
+      "remaining": [
+        "Not planned in checkpoint 1: the arithmetic degeneration adapter over LefschetzPencilsAndVanishingCycles LPV.0–LPV.2 and LPV.7 (RS-17 keeps)."
+      ]
+    },
+    {
+      "stageId": "WeightsInEtaleCohomology:R34.4",
+      "status": "not_read",
+      "remaining": [
+        "Not planned in checkpoint 1: the pencil hypothesis adapter over LPV.3–LPV.5 and EDC.4."
+      ]
+    },
+    {
+      "stageId": "WeightsInEtaleCohomology:R34.5",
+      "status": "not_read",
+      "remaining": [
+        "Not planned in checkpoint 1. RS-17 moves the Weil II theorems of the integrated decomposition's R34.5 nodes (3.3.1, 3.3.3–3.3.6, 3.4.1) to DeligneWeightsAndPurity DWP.7–DWP.8. R34.5 keeps the arithmetic realization: Kuga–Sato and weight-two Jacobian cohomology, projectors, and Hecke and Galois actions."
+      ]
+    },
+    {
+      "stageId": "WeightsInEtaleCohomology:R34.6",
+      "status": "not_read",
+      "remaining": [
+        "Not planned in checkpoint 1: the eigenform and local–global export over DWP.10 and R34.5."
+      ]
+    }
+  ],
+  "gaps": [],
+  "sourceIssues": [],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf",
+      "citation": "Deligne, La conjecture de Weil. I, Publ. Math. IHÉS 43 (1974)",
+      "read": "2026-09-29",
+      "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf",
+      "citation": "Deligne, La conjecture de Weil. II, Publ. Math. IHÉS 52 (1980)",
+      "read": "2026-09-29",
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/1807.02721",
+      "citation": "Lawrence–Venkatesh, arXiv:1807.02721v3",
+      "read": "2026-09-29",
+      "sha256": "e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.jmilne.org/math/CourseNotes/AV.pdf",
+      "citation": "Milne, Abelian Varieties v2.00",
+      "read": "2026-09-29",
+      "sha256": "f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef"
+    }
+  ]
+}
