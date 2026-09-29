@@ -1,4 +1,53 @@
-# BP-SpecialValuesBirchTate — checkpoint 4 (B.8)
+# BP-SpecialValuesBirchTate — checkpoint 5 (B.6)
+
+Agent: Claude Code, session cc-fb70e5, 2026-09-29. Refs #998. The claim is confirmed by the bot.
+
+## What this checkpoint supplies
+
+**B.6 is partial** (5 nodes, 1 planet). Sources:
+- Kurihara, *On class groups and Iwasawa modules of CM-fields* (author copy 2025, the catalogue copy, SHA-256 22ebb98e…), §4 in full.
+- Kolster 1989 (as in B.5).
+
+**Nodes:**
+- `B.6/kurihara-kolster-series-dictionary`: G_F(T) = (T + 1 − u)·g(u(1 + T)^{−1} − 1), i.e. (G_F) = ι_u((γ − 1)g). It is proved from the two interpolation properties at even n and the Weierstrass identity theorem, and checked at s = −1 for ℚ.
+- `B.6/kurihara-main-conjecture-over-f`: char X_{F_∞,S} = ((γ − 1)g), from Kurihara's Theorem 4.1 with k = F (I.9) and his remark at the augmentation prime.
+- `B.6/kolster-kurihara-comparison-table`: the table the stage asks for, entries (a)–(h), tested on ℚ.
+- `B.6/federer-conjecture-all-totally-real`.
+- `B.6/birch-tate-all-totally-real` (planet): the Birch–Tate conjecture for every totally real field.
+
+**The table.** The entries are:
+- (a) the module comparison, with the factor 2^{[F:ℚ]};
+- (b) Kummer duality at 2, with Kurihara's order-2 cokernel;
+- (c) Burns–Flach compact support;
+- (d) the specialisation κ²;
+- (e) H³ = ℤ_2 against Kolster's pole factor;
+- (f) the real places, contributing (Λ/2)^{[F:ℚ]};
+- (g) the S-Euler factors;
+- (h) the identification of W₂.
+
+(c), (d), (e), (g) and (h) are proved here or by named suppliers. (a), (b) and (f) are the 'equality comparison to Kurihara' proof obligation, and are requested from IntegralIwasawaTheory I.10, whose stated scope it is.
+
+**No new source issues** in Kurihara §4.
+
+**Requests.**
+- New:
+  - IntegralIwasawaTheory I.9: Kurihara 4.1 at p = 2, k = F.
+  - IntegralIwasawaTheory I.10: the module comparison.
+- Consumer added: AutomorphicPadicLFunctions L3.
+
+**Validation.**
+- `check_blueprint --index`: 0 errors, 0 warnings.
+- `check-files`: 0 problems.
+- Every excerpt was checked against the page text.
+- The B.6 Lean section elaborates in the Mathlib-only harness (exit 0). The full file imports Tau Ceti.
+
+## Resume
+
+1. B.8: the 2-part at real places (Rognes–Weibel).
+2. B.3: the general real quadratic factorisation (Kronecker character).
+3. B.7: show that changing S commutes with the comparisons.
+
+## Checkpoint 4 (B.8)
 
 Agent: Claude Code, session cc-fb70e5, 2026-09-29. Refs #998. The claim is confirmed by the bot.
 

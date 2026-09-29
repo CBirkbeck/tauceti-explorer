@@ -13,7 +13,7 @@
     "SpecialValuesBirchTate:B.8"
   ],
   "status": "partial",
-  "summary": "First checkpoint (B.1, B.2, B.3, B.7). B.1: the Birch–Tate formula as a proposition over imported K₂(𝓞_F) (K2SymbolsBrauer T.1), w₂(F) (ArithmeticKTheory N.4) and the continued ζ_F (requested from AL.1). B.2: the sign of ζ_F(−1) from the functional equation through the reciprocal gamma factors (Γ_ℝ(−1) = −2π, ζ_F(2) ≥ 1), the failure of the formula with a complex place, the absolute-value and primewise forms, the rational reconstruction lemma, and the denominator consequence. B.3: ζ_ℚ = riemannZeta, Birch–Tate for ℚ from independent values, and ℚ(√5) (ζ = ζ·L(χ₅), ζ(−1) = 1/30, w₂ = 120; #K₂ = 4 requested). B.7: the S-modified zeta function on Tau Ceti's Euler-product API, #K₂(𝓞_{F,S}) and the S-integral formula. The K-book's 'pole of order r₂ at −1' is already recorded as ArithmeticKTheory/E18 and is read as a zero. B.4–B.6 and B.8 are not read. Checkpoint 2 plans B.5 from Kolster 1989 and Greither 1992. Federer's 2-adic main conjecture implies the 2-part of the formula for every totally real field (Kolster's Theorems 1 and 5 and Lemma 2). Greither's main conjecture gives Federer's conjecture for every totally real abelian field, through a comparison planned here, so the full Birch–Tate formula follows for these fields with the odd-primary theorem of B.4. Kolster's note has two misprints (E1–E2). Checkpoint 3 plans B.4: the odd-primary Birch–Tate formula for every totally real field, from Wiles's main conjecture through Kolster's Theorem 3.3 at χ = 1, n = 2, Tate's K₂–étale comparison and the identification of w₂'s ℓ-part with the torsion of H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)). With B.5 this completes the Birch–Tate formula for totally real abelian fields. Three new issues in the Park City notes (E3–E5). Checkpoint 4 plans B.8's statement infrastructure. It covers the cohomological models of H¹ and H², and the Lichtenbaum formulas in K-theoretic form away from 2 and in motivic form. It also proves the odd part of the Lichtenbaum formula for totally real fields in even weight, from Kolster's Theorem 3.3 for every even n and Quillen–Lichtenbaum. One new issue in the Park City notes, E6: the ranks on p. 11 are interchanged.",
+  "summary": "First checkpoint (B.1, B.2, B.3, B.7). B.1: the Birch–Tate formula as a proposition over imported K₂(𝓞_F) (K2SymbolsBrauer T.1), w₂(F) (ArithmeticKTheory N.4) and the continued ζ_F (requested from AL.1). B.2: the sign of ζ_F(−1) from the functional equation through the reciprocal gamma factors (Γ_ℝ(−1) = −2π, ζ_F(2) ≥ 1), the failure of the formula with a complex place, the absolute-value and primewise forms, the rational reconstruction lemma, and the denominator consequence. B.3: ζ_ℚ = riemannZeta, Birch–Tate for ℚ from independent values, and ℚ(√5) (ζ = ζ·L(χ₅), ζ(−1) = 1/30, w₂ = 120; #K₂ = 4 requested). B.7: the S-modified zeta function on Tau Ceti's Euler-product API, #K₂(𝓞_{F,S}) and the S-integral formula. The K-book's 'pole of order r₂ at −1' is already recorded as ArithmeticKTheory/E18 and is read as a zero. B.4–B.6 and B.8 are not read. Checkpoint 2 plans B.5 from Kolster 1989 and Greither 1992. Federer's 2-adic main conjecture implies the 2-part of the formula for every totally real field (Kolster's Theorems 1 and 5 and Lemma 2). Greither's main conjecture gives Federer's conjecture for every totally real abelian field, through a comparison planned here, so the full Birch–Tate formula follows for these fields with the odd-primary theorem of B.4. Kolster's note has two misprints (E1–E2). Checkpoint 3 plans B.4: the odd-primary Birch–Tate formula for every totally real field, from Wiles's main conjecture through Kolster's Theorem 3.3 at χ = 1, n = 2, Tate's K₂–étale comparison and the identification of w₂'s ℓ-part with the torsion of H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)). With B.5 this completes the Birch–Tate formula for totally real abelian fields. Three new issues in the Park City notes (E3–E5). Checkpoint 4 plans B.8's statement infrastructure. It covers the cohomological models of H¹ and H², and the Lichtenbaum formulas in K-theoretic form away from 2 and in motivic form. It also proves the odd part of the Lichtenbaum formula for totally real fields in even weight, from Kolster's Theorem 3.3 for every even n and Quillen–Lichtenbaum. One new issue in the Park City notes, E6: the ranks on p. 11 are interchanged. Checkpoint 5 plans B.6. Kurihara's p-adic zeta function and Kolster's power series are related by (G_F) = ι_u((γ − 1)g). Kurihara's theorem at p = 2 gives char X_{F_∞,S} = ((γ − 1)g), and the comparison table with Kolster's formulation is tested on ℚ. This gives Federer's conjecture and the Birch–Tate formula for every totally real field. The module comparison of the table is requested from IntegralIwasawaTheory I.10.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -549,6 +549,18 @@
       "readSections": [
         "§1: the Main Conjecture (= Theorem 3.2) and the closing remark on Birch–Tate (pp. 452–454)",
         "§3: Lemma 3.3 (p. 469). The whole article is decomposed in EulerSystemsCyclotomicMainConjecture L4, whose nodes are imported."
+      ]
+    },
+    {
+      "id": "KURIHARA-2025",
+      "title": "On class groups and Iwasawa modules of CM-fields",
+      "authors": "Masato Kurihara",
+      "edition": "Author copy (2025), 37 pages, printed page = PDF page; the copy in the programme's reference catalogue.",
+      "url": "https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf",
+      "sha256": "22ebb98ed24bcebe814ea2f6ba6b4681d7dbafd309b55f06b02f5807fec8ff33",
+      "read": "2026-09-29",
+      "readSections": [
+        "§4 in full: §4.1 the formulation (pp. 22–24), Theorem 4.1, §4.2 the proof with Lemma 4.2 and the three remarks, Corollary 4.3 (pp. 24–28), §4.3 Proposition 4.4 (p. 28)"
       ]
     }
   ],
@@ -2639,6 +2651,227 @@
         "name": "Odd-primary Lichtenbaum formula (totally real)"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.6/kurihara-kolster-series-dictionary",
+      "parentStageId": "SpecialValuesBirchTate:B.6",
+      "realises": [
+        "SpecialValuesBirchTate:B.6"
+      ],
+      "title": "Kurihara's p-adic zeta function and Kolster's power series",
+      "kind": "lemma",
+      "statement": "Let F be a totally real number field, p = 2, S = S_2 ∪ S_∞ the dyadic and infinite places of F, F_∞/F the cyclotomic ℤ_2-extension (Kolster's F_∞^+), Λ = ℤ_2[[Gal(F_∞/F)]] = ℤ_2[[T]] with T = γ − 1, and K_∞ = F(μ_{2^∞}) (Kolster's F_∞). Choose γ to be the restriction of Kolster's γ_0 ∈ Gal(K_∞/F(√−1)), so that u = κ(γ_0). Let g = g_{F_∞/F,S} be Kurihara's Deligne–Ribet pseudo-measure, with (γ − 1)g ∈ Λ, and ι_u the automorphism of Λ with γ ↦ κ(γ)γ^{−1}, i.e. T ↦ u(1 + T)^{−1} − 1. Let X_{F_∞,S} be the Galois group of the maximal abelian pro-2 extension of F_∞ unramified outside S. Then Kolster's G_F satisfies G_F(T) = (T + 1 − u)·g(u(1 + T)^{−1} − 1) in Λ. Equivalently (G_F) = ι_u((γ − 1)g)·Λ.",
+      "hypotheses": [
+        "S-truncation: Kurihara's L_S removes the Euler factors at the dyadic places, as Kolster's 2-adic L-function does."
+      ],
+      "proofSteps": [
+        "Kurihara (§4.1): κ^nψ(g_{K_∞/F,S}) = L_S(1 − n, ψ) for finite-order ψ and n ≥ 1. For even n, κ^n is trivial on complex conjugation, so it factors through Gal(F_∞/F). With ψ = 1, κ^n(g) = g(u^n − 1) = ζ_{F,S}(1 − n).",
+        "Kolster: L_2(χ_0, 1 − n) = ζ_{F,S}(1 − n) for even n (ω^{−n} = 1), and L_2(χ_0, s) = G(u^s − 1)/(u^s − u). So G(u^{1−n} − 1) = (u^{1−n} − u)·g(u^n − 1) for every even n ≥ 2.",
+        "h(T) = (T + 1 − u)·g(u(1 + T)^{−1} − 1) = −(1 + T)·ι_u((γ − 1)g) lies in Λ, and at T = u^{1−n} − 1 it equals (u^{1−n} − u)·g(u^n − 1).",
+        "G and h agree at the infinitely many points u^{1−n} − 1 (n even), which accumulate at u − 1 ∈ 4ℤ_2. A nonzero element of ℤ_2[[T]] has finitely many zeros in the open disc (Weierstrass), so G = h."
+      ],
+      "acceptance": [
+        "F = ℚ: G(u^{−1} − 1) = ζ_{ℚ,S}(−1)·(u^{−1} − u) and g(u² − 1) = ζ_{ℚ,S}(−1) = (1 − 2)ζ(−1) = 1/12; with u = 5 these are −2/5 and 1/12, and (u^{−1} − u)·(1/12) = −2/5."
+      ],
+      "prerequisites": [
+        "SpecialValuesBirchTate:B.5/federer-main-conjecture",
+        "IntegralIwasawaTheory:I.9",
+        "AutomorphicPadicLFunctions:L3",
+        "mathlib:PowerSeries"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/BirchTateTwoPrimary",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.twoAdicZetaSeries_eq_kurihara"
+      },
+      "sources": [
+        {
+          "sourceId": "KURIHARA-2025",
+          "locator": "§4.1, the p-adic L-function g_{K∞/k,S}, p. 23",
+          "match": "The set-up of §4.1, with p = 2 allowed."
+        },
+        {
+          "sourceId": "KOLSTER-1989",
+          "locator": "Conjecture 3 and the definition of G(T), p. 250",
+          "match": "Kolster's G with L₂(χ₀, s) = G(u^s − 1)/(u^s − u)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.6/kurihara-main-conjecture-over-f",
+      "parentStageId": "SpecialValuesBirchTate:B.6",
+      "realises": [
+        "SpecialValuesBirchTate:B.6"
+      ],
+      "title": "Kurihara's main conjecture for the trivial extension at p = 2",
+      "kind": "theorem",
+      "statement": "Let F be a totally real number field, p = 2, S = S_2 ∪ S_∞ the dyadic and infinite places of F, F_∞/F the cyclotomic ℤ_2-extension (Kolster's F_∞^+), Λ = ℤ_2[[Gal(F_∞/F)]] = ℤ_2[[T]] with T = γ − 1, and K_∞ = F(μ_{2^∞}) (Kolster's F_∞). Choose γ to be the restriction of Kolster's γ_0 ∈ Gal(K_∞/F(√−1)), so that u = κ(γ_0). Let g = g_{F_∞/F,S} be Kurihara's Deligne–Ribet pseudo-measure, with (γ − 1)g ∈ Λ, and ι_u the automorphism of Λ with γ ↦ κ(γ)γ^{−1}, i.e. T ↦ u(1 + T)^{−1} − 1. Let X_{F_∞,S} be the Galois group of the maximal abelian pro-2 extension of F_∞ unramified outside S. Then X_{F_∞,S} is a finitely generated torsion Λ-module and char_Λ(X_{F_∞,S}) = ((γ − 1)·g).",
+      "hypotheses": [
+        "This is I.9's theorem with k = F and F/k trivial, as the stage prescribes."
+      ],
+      "proofSteps": [
+        "Kurihara's Theorem 4.1: Det(RΓ_c(𝒪_{F_∞,S}, ℤ_2(1)))^{−1} = gΛ. The complex has H² = X_{F_∞,S} and H³ = ℤ_2, both torsion.",
+        "Λ = ℤ_2[[T]] is a UFD, so characteristic ideals are read off at height-one primes 𝔭. For 𝔭 ≠ (T), (ℤ_2)_𝔭 = 0 and Fitt((X)_𝔭) = gΛ_𝔭. At 𝔭 = (T), (ℤ_2)_𝔭 = ℚ_2 and Fitt((X)_𝔭) = (γ − 1)gΛ_𝔭 (Kurihara's first remark).",
+        "Hence char(X_{F_∞,S}) = ((γ − 1)g)."
+      ],
+      "acceptance": [
+        "For p = 2 the factor 2 lost in Lemma 4.2(1) is a finite module and does not affect characteristic ideals."
+      ],
+      "prerequisites": [
+        "IntegralIwasawaTheory:I.9"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/BirchTateTwoPrimary",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.char_X_eq_kurihara"
+      },
+      "sources": [
+        {
+          "sourceId": "KURIHARA-2025",
+          "locator": "§4.2, Theorem 4.1, p. 24",
+          "match": "Theorem 4.1, for every p including 2."
+        },
+        {
+          "sourceId": "KURIHARA-2025",
+          "locator": "§4.2, the remarks after the proof, p. 27",
+          "match": "(γ − 1)g at the augmentation prime."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.6/kolster-kurihara-comparison-table",
+      "parentStageId": "SpecialValuesBirchTate:B.6",
+      "realises": [
+        "SpecialValuesBirchTate:B.6"
+      ],
+      "title": "The comparison table between Kurihara's and Kolster's formulations",
+      "kind": "comparison",
+      "statement": "Let F be a totally real number field, p = 2, S = S_2 ∪ S_∞ the dyadic and infinite places of F, F_∞/F the cyclotomic ℤ_2-extension (Kolster's F_∞^+), Λ = ℤ_2[[Gal(F_∞/F)]] = ℤ_2[[T]] with T = γ − 1, and K_∞ = F(μ_{2^∞}) (Kolster's F_∞). Choose γ to be the restriction of Kolster's γ_0 ∈ Gal(K_∞/F(√−1)), so that u = κ(γ_0). Let g = g_{F_∞/F,S} be Kurihara's Deligne–Ribet pseudo-measure, with (γ − 1)g ∈ Λ, and ι_u the automorphism of Λ with γ ↦ κ(γ)γ^{−1}, i.e. T ↦ u(1 + T)^{−1} − 1. Let X_{F_∞,S} be the Galois group of the maximal abelian pro-2 extension of F_∞ unramified outside S. Let Ǎ_∞^- and f_F be Kolster's minus class module and its characteristic polynomial (B.5). The comparison consists of the following entries, each with a map-level theorem:\n(a) Module: char(ι_u·X_{F_∞,S}) = (2^{[F:ℚ]}·f_F), where ι_u·X is X with γ acting through κ(γ)γ^{−1}.\n(b) Dual and twist: Kummer duality between X_{F_∞,S} and the minus part of lim→ A(F(μ_{2^n})), with Kurihara's Lemma 4.2(1) injection of cokernel order 2 at p = 2, and finite modules discarded.\n(c) Compact support: C = RΓ_c(𝒪_{F_∞,S}, ℤ_2(1)) of Burns–Flach, with H²(C) = X_{F_∞,S} and H³(C) = ℤ_2.\n(d) Specialisation: the character κ² (s = −1), g(u² − 1) = ζ_{F,S}(−1), against Kolster's evaluation G(u^{−1} − 1).\n(e) Trivial-character term: H³(C) = ℤ_2 gives the factor (γ − 1), which ι_u turns into Kolster's (T + 1 − u).\n(f) Real places: the [F:ℚ] real places of F, each split completely in F_∞, give (Λ/2)^{[F:ℚ]} in X_{F_∞,S}, the factor 2^{[F:ℚ]}.\n(g) S-Euler factors: ζ_{F,S}(−1) = ζ_F(−1)·∏_{v|2}(1 − Nv), with odd factors.\n(h) W₂: w₂^{(2)}(F) = 2^{e+1} ~ u^{−1} − u.",
+      "hypotheses": [
+        "Entries (a), (b) and (f) are the 'equality comparison to Kurihara' that the stage calls a proof obligation. They are requested from IntegralIwasawaTheory I.10, whose stated scope is this comparison ('agreement of twists, duality, omitted primes, finite modules, and real-place conventions'). They are not proved here. Entries (c), (d), (e), (g) and (h) are proved in this packet or by the named suppliers.",
+        "Kolster's no-finite-submodule input (B.5/minus-module-coinvariant-order) is a separate proof obligation, requested from IntegralIwasawaTheory I.2."
+      ],
+      "proofSteps": [
+        "(c) and (e): Kurihara §4.1 and the previous node; ι_u(γ − 1) = −γ^{−1}(γ − u).",
+        "(d): the dictionary lemma, since κ²(g) = g(u² − 1).",
+        "(g): each 1 − Nv is odd.",
+        "(h): the proof of Kolster's Theorem 5 (B.5).",
+        "(f), heuristic for the requested theorem: complex conjugation at each real place of F_n gives an element of order 2 in the S-ramified Galois group. There are [F:ℚ]·[F_n:F] such places, permuted freely by Gal(F_n/F), which gives a quotient (Λ/2)^{[F:ℚ]} and μ = [F:ℚ].",
+        "Test on ℚ: Ǎ_∞^- = 0, so f = 1. G_ℚ ~ 2 (B.5's test), so the dictionary and Kurihara give char(X_{ℚ_∞,{2,∞}}) = (2) = (2^{[ℚ:ℚ]}·f). This matches entry (f): one real place, μ = 1."
+      ],
+      "acceptance": [
+        "The table is tested on ℚ before being applied in general, as the stage requires."
+      ],
+      "prerequisites": [
+        "SpecialValuesBirchTate:B.6/kurihara-kolster-series-dictionary",
+        "SpecialValuesBirchTate:B.6/kurihara-main-conjecture-over-f",
+        "SpecialValuesBirchTate:B.5/federer-main-conjecture",
+        "SpecialValuesBirchTate:B.5/federer-implies-two-primary-birch-tate",
+        "IntegralIwasawaTheory:I.10",
+        "ArithmeticKTheory:N.4/two-primary-w-invariant"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/BirchTateTwoPrimary",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.kurihara_kolster_comparison"
+      },
+      "sources": [
+        {
+          "sourceId": "KURIHARA-2025",
+          "locator": "§4.2, Lemma 4.2(1), p. 25",
+          "match": "The order-2 cokernel at p = 2."
+        },
+        {
+          "sourceId": "KURIHARA-2025",
+          "locator": "§4.1, the complex RΓc, p. 22",
+          "match": "The compact-support convention of §4."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.6/federer-conjecture-all-totally-real",
+      "parentStageId": "SpecialValuesBirchTate:B.6",
+      "realises": [
+        "SpecialValuesBirchTate:B.6"
+      ],
+      "title": "Federer's conjecture for every totally real field",
+      "kind": "theorem",
+      "statement": "Let F be a totally real number field. Then FedererMainConjecture(F) holds.",
+      "hypotheses": [
+        "For F abelian over ℚ this is also B.5/federer-conjecture-for-abelian-fields, the independent second proof the stage keeps."
+      ],
+      "proofSteps": [
+        "By the dictionary, (G_F) = ι_u((γ − 1)g).",
+        "By Kurihara over F, ((γ − 1)g) = char(X_{F_∞,S}), so (G_F) = char(ι_u·X_{F_∞,S}).",
+        "By the comparison table (a), char(ι_u·X_{F_∞,S}) = (2^{[F:ℚ]}·f_F)."
+      ],
+      "acceptance": [
+        "F = ℚ: both sides are (2)."
+      ],
+      "prerequisites": [
+        "SpecialValuesBirchTate:B.6/kurihara-kolster-series-dictionary",
+        "SpecialValuesBirchTate:B.6/kurihara-main-conjecture-over-f",
+        "SpecialValuesBirchTate:B.6/kolster-kurihara-comparison-table",
+        "SpecialValuesBirchTate:B.5/federer-main-conjecture"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/BirchTateTwoPrimary",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.federerMainConjecture_of_isTotallyReal"
+      },
+      "sources": [
+        {
+          "sourceId": "KURIHARA-2025",
+          "locator": "§4.2, Theorem 4.1, p. 24",
+          "match": "The input over an arbitrary totally real base."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.6/birch-tate-all-totally-real",
+      "parentStageId": "SpecialValuesBirchTate:B.6",
+      "realises": [
+        "SpecialValuesBirchTate:B.6"
+      ],
+      "title": "The Birch–Tate formula for every totally real field",
+      "kind": "theorem",
+      "statement": "Let F be a totally real number field. Then BirchTateFormula(F) holds: ζ_F(−1) = (−1)^{[F:ℚ]}·#K₂(𝓞_F)/w₂(F).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Odd ℓ: B.4/odd-primary-birch-tate.",
+        "ℓ = 2: Federer's conjecture (previous node) and Kolster's Theorem 5 (B.5).",
+        "The primewise form (B.2) with the rationality and sign of ζ_F(−1)."
+      ],
+      "acceptance": [
+        "For F abelian this agrees with B.5/birch-tate-for-real-abelian-fields, which is the second proof.",
+        "ℚ, ℚ(√5), ℚ(√2): 1/12 = 2/24, 1/30 = 4/120, 1/12 = 4/48 (up to the sign (−1)^{[F:ℚ]})."
+      ],
+      "prerequisites": [
+        "SpecialValuesBirchTate:B.4/odd-primary-birch-tate",
+        "SpecialValuesBirchTate:B.5/federer-implies-two-primary-birch-tate",
+        "SpecialValuesBirchTate:B.6/federer-conjecture-all-totally-real",
+        "SpecialValuesBirchTate:B.2/birch-tate-iff-valuations"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/BirchTateTwoPrimary",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.birchTateFormula_of_isTotallyReal"
+      },
+      "sources": [
+        {
+          "sourceId": "KOLSTER-1989",
+          "locator": "Theorem 5, p. 250",
+          "match": "Kolster's implication, applied to every totally real F."
+        }
+      ],
+      "planet": {
+        "name": "Birch–Tate conjecture (totally real)"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -2664,7 +2897,8 @@
         "SpecialValuesBirchTate:B.5/federer-implies-two-primary-birch-tate",
         "SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields",
         "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta",
-        "SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic"
+        "SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic",
+        "SpecialValuesBirchTate:B.6/kurihara-kolster-series-dictionary"
       ]
     },
     {
@@ -2762,6 +2996,21 @@
       "neededBy": [
         "SpecialValuesBirchTate:B.8/odd-primary-lichtenbaum-totally-real"
       ]
+    },
+    {
+      "supplier": "IntegralIwasawaTheory:I.9",
+      "need": "Kurihara's Theorem 4.1 at p = 2 with k = F totally real and F/k trivial, S = S_2 ∪ S_∞: Det(RΓ_c(𝒪_{F_∞,S}, ℤ_2(1)))^{−1} = g_{F_∞/F,S}Λ, H² = X_{F_∞,S}, H³ = ℤ_2, and the resulting char(X_{F_∞,S}) = ((γ − 1)g_{F_∞/F,S}); with the interpolation κ^nψ(g) = L_S(1 − n, ψ).",
+      "neededBy": [
+        "SpecialValuesBirchTate:B.6/kurihara-kolster-series-dictionary",
+        "SpecialValuesBirchTate:B.6/kurihara-main-conjecture-over-f"
+      ]
+    },
+    {
+      "supplier": "IntegralIwasawaTheory:I.10",
+      "need": "The comparison with Kolster's classical formulation at p = 2 (the stage's own item): for F totally real, char(ι_u·X_{F_∞,S_2∪S_∞}) = (2^{[F:ℚ]}·f_F), where f_F is the characteristic polynomial of the dual Ǎ_∞^- of Kolster's norm-kernel minus class module over F(μ_{2^∞}). This includes the Kummer duality at 2 with Kurihara's Lemma 4.2(1) cokernel, the real-place submodule (Λ/2)^{[F:ℚ]}, and the discarding of finite modules.",
+      "neededBy": [
+        "SpecialValuesBirchTate:B.6/kolster-kurihara-comparison-table"
+      ]
     }
   ],
   "coverage": [
@@ -2799,11 +3048,11 @@
     },
     {
       "stageId": "SpecialValuesBirchTate:B.6",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Kolster 1989 (Canad. Math. Bull. 32), Conjecture 3, Lemma 2 and Theorem 5, and the comparison table with IntegralIwasawaTheory I.9–I.10."
+        "Entries (a), (b) and (f) of the comparison table (the module comparison with the factor 2^{[F:ℚ]}, the Kummer duality at 2 and the real-place submodule) are requested from IntegralIwasawaTheory I.10, not proved here."
       ],
-      "notes": "Kolster 1989 is now read in full (B.5): its Theorem 1, Lemma 2 and Theorem 5 are planned there for every totally real field, so B.6 needs only Federer's conjecture from IntegralIwasawaTheory I.9–I.10."
+      "notes": "Checkpoint 5 plans B.6 from Kurihara's §4 and Kolster 1989. It covers the dictionary (G_F) = ι_u((γ − 1)g_{F_∞/F,S}), Kurihara's theorem for the trivial extension (char X_{F_∞,S} = ((γ − 1)g)), the comparison table (a)–(h) tested on ℚ, Federer's conjecture for every totally real F, and the Birch–Tate formula for every totally real field (planet), with B.5 kept as the independent abelian proof."
     },
     {
       "stageId": "SpecialValuesBirchTate:B.7",
@@ -2957,6 +3206,13 @@
       "citation": "Cornelius Greither, Ann. Inst. Fourier 42 (1992), 449–499 (Numdam scan)",
       "read": "2026-09-29",
       "sha256": "8e4db974556923a9532151657039d50b34028254f13fc2f1541f449bb50623da"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf",
+      "citation": "Masato Kurihara, On class groups and Iwasawa modules of CM-fields (2025)",
+      "read": "2026-09-29",
+      "sha256": "22ebb98ed24bcebe814ea2f6ba6b4681d7dbafd309b55f06b02f5807fec8ff33"
     }
   ]
 }

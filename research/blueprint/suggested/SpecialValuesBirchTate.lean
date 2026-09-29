@@ -32,7 +32,8 @@ and signatures. All proposed results are unproved prototypes at the pinned basel
 
 Layers covered: B.1 (the formula), B.2 (sign and equivalent forms), B.3 (ℚ and ℚ(√5)),
 B.4 (the odd-primary theorem), B.5 (totally real abelian fields, with the 2-primary part),
-B.7 (S-integers and Euler factors), B.8 (the Lichtenbaum statements and their odd part in even weight).
+B.6 (every totally real field, through Kurihara's theorem), B.7 (S-integers and Euler factors),
+B.8 (the Lichtenbaum statements and their odd part in even weight).
 
 Three objects are imported from other roadmaps and are not planned here. Until their owners
 land they appear below as placeholders named after the owners' planned declarations:
@@ -539,5 +540,46 @@ example : (8 : ℚ) * ((1 + 49 - 9 - 25) / 64 - (1 + 7 - 3 - 5) / 8) = 2 ∧
 
 /-- The pole factors: `(x − u)(−x − u) = −(x² − u²)`, the case `2^b = 2` of `∏_ρ(ζ_ρ x − u′) = ±(x^{2^b} − u′^{2^b})`. -/
 example (x u : ℚ) : (x - u) * (-x - u) = -(x ^ 2 - u ^ 2) := by ring
+
+/-! ## B.6 Every totally real field (Kurihara's Theorem 4.1 at `p = 2`) -/
+
+/-- Kurihara's pseudo-measure `g = g_{F_∞/F,S}`, through `(γ − 1)g ∈ ℤ₂⟦T⟧` (IntegralIwasawaTheory I.9). -/
+def kuriharaSeriesTimesAugmentation (F : Type*) [Field F] [NumberField F] : PowerSeries ℤ_[2] := sorry
+
+/-- The automorphism `ι_u` of `ℤ₂⟦T⟧`, `T ↦ u(1 + T)⁻¹ − 1`. -/
+def twistInverse (F : Type*) [Field F] [NumberField F] : PowerSeries ℤ_[2] ≃+* PowerSeries ℤ_[2] := sorry
+
+/-- The characteristic power series of `ι_u·X_{F_∞,S}` (IntegralIwasawaTheory I.9–I.10). -/
+def twistedSRamifiedCharSeries (F : Type*) [Field F] [NumberField F] : PowerSeries ℤ_[2] := sorry
+
+section AllTotallyReal
+variable (F : Type*) [Field F] [NumberField F]
+
+/-- B.6/kurihara-kolster-series-dictionary: `(G_F) = ι_u((γ − 1)g)`. -/
+theorem twoAdicZetaSeries_eq_kurihara [IsTotallyReal F] :
+    Ideal.span {twoAdicZetaSeries F} = Ideal.span {twistInverse F (kuriharaSeriesTimesAugmentation F)} := by
+  sorry
+
+/-- B.6/kurihara-main-conjecture-over-f: `char(ι_u·X_{F_∞,S}) = ι_u((γ − 1)g)`. -/
+theorem char_X_eq_kurihara [IsTotallyReal F] :
+    Ideal.span {twistedSRamifiedCharSeries F} =
+      Ideal.span {twistInverse F (kuriharaSeriesTimesAugmentation F)} := by sorry
+
+/-- B.6/kolster-kurihara-comparison-table, entry (a): `char(ι_u·X_{F_∞,S}) = (2^{[F:ℚ]}·f_F)` (I.10). -/
+theorem kurihara_kolster_comparison [IsTotallyReal F] :
+    Ideal.span {twistedSRamifiedCharSeries F} =
+      Ideal.span {(2 : PowerSeries ℤ_[2]) ^ Module.finrank ℚ F * minusCharSeries F} := by sorry
+
+/-- B.6/federer-conjecture-all-totally-real. -/
+theorem federerMainConjecture_of_isTotallyReal [IsTotallyReal F] : FedererMainConjecture F := by sorry
+
+/-- B.6/birch-tate-all-totally-real: the Birch–Tate conjecture. -/
+theorem birchTateFormula_of_isTotallyReal [IsTotallyReal F] : BirchTateFormula F := by sorry
+
+end AllTotallyReal
+
+/-- B.6 test on `ℚ` with `u = 5`: `ζ_{ℚ,S}(−1) = (1 − 2)·(−1/12) = 1/12` and `(u⁻¹ − u)·(1/12) = −2/5`, of `2`-adic
+valuation `1 = [ℚ:ℚ]`. -/
+example : (1 - 2 : ℚ) * (-1 / 12) = 1 / 12 ∧ ((1 : ℚ) / 5 - 5) * (1 / 12) = -2 / 5 := by norm_num
 
 end TauCeti.BirchTate
