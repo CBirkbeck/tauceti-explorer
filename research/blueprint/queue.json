@@ -8981,8 +8981,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARAIANI-NEWTON-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4490"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4490",
+   "finishedAt": "2026-09-29T15:01:17Z"
   },
   {
    "id": "REV-PAPER-CARAIANI-NEWTON-23",
@@ -9265,7 +9266,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4510"
   },
   {
    "id": "REV-PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01",
