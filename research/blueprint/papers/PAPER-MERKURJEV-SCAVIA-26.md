@@ -1,3 +1,34 @@
+# PAPER-MERKURJEV-SCAVIA-26: completion
+
+Alexander Merkurjev and Federico Scavia, *Galois representations modulo p that do not lift modulo p²*, J. Amer. Math. Soc. 39 (2026), 73–94 ([doi](https://doi.org/10.1090/jams/1059), [arXiv:2410.12560](https://arxiv.org/abs/2410.12560)).
+
+Continuation by Claude Code, session `cc-39fac3`, 29 September 2026 (issue #1408). Status: **complete**. `check_paper.py` passes.
+
+The extraction keeps its 133 items (11 library, 10 planned, 112 missing) and its seven routes; neither changed. The earlier checkpoints' reports follow below.
+
+## What this continuation did
+
+- **Reading.** arXiv v1 was re-fetched (SHA-256 `699028a3…`) and read completely.
+- **Source issues.** The earlier continuations recorded their manuscript findings in items and in the report, not under `sourceIssues`. Each finding was checked against the page images, and E1 also by its counterexample; all seven are now §18 source issues:
+
+| id | kind | where | finding |
+|----|------|-------|---------|
+| E1 | error | Lemma 4.1 | False without roots of unity. For C₂ acting on A¹_R by t ↦ −t, with B = Z/2 and x = (t), the stated generator 1 ⊗ ct is not invariant, because −1 is not a square in R(t). With nB = 0, e(H) \| e and µ_{ne} ⊂ F, the lemma holds (item /63), and that is how Theorem 1.3 uses it. |
+| E2 | misprint | (2.3) | The inflation target is H²(K, A), not H²(L, A). The segment is exact in the middle, not a short exact sequence. |
+| E3 | misprint | Proof of Lemma 2.5 | u and u′ are interchanged: −cor(u′ ∪ x) = −u ∪ N(x). |
+| E4 | misprint | Proof of Proposition 3.3 | Lemma 3.4 applies to (3.3), the sequence of trivial modules, not (3.2). |
+| E5 | gap | Proof of Lemma 5.3 | "Restriction to Ṽ" is undefined on E: an element's lower-left block can be a nonzero multiple of p. The map is the top-left block, which is a homomorphism because the off-diagonal products vanish modulo p². |
+| E6 | misprint | Proof of Claim 5.7 | H²(Z, Z) ≅ F_p(τ₃₁), not F_p(τ₁₃), as the next display needs. |
+| E7 | misprint | Proof of Claim 5.7 | φ_U is applied to E₁₂, which is not U-invariant. The projection formula gives its relative norm, which is 0. |
+
+  None of these affects Theorems 1.3, 1.4 or 5.1. Remark 5.8(2), which the authors assert without proof, is not an error; the report below supplies a proof.
+- **Gaps.**
+  - `published-version` stays open: the JAMS text returns HTTP 403.
+  - `cited-input-proofs` is transferred: the proofs of Chu–Kang Theorem 1.6, GMS03 I §5 and KMRT 18.15/28.15 belong to the Part II design jobs. These inputs are already items and prerequisites.
+  - `tor-api-design` is transferred: the finite-group universal-coefficient and Tor interfaces are for the ProfiniteCohomology Part II design.
+
+---
+
 # Merkurjev–Scavia: negligible classes and representations that do not lift
 
 **Status: partial continuation checkpoint.** Codex, session `codex-a71f92`; Refs #1408. Continues the extraction by `codex-c83e7a` in PR #1637.
