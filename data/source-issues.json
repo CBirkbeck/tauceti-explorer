@@ -126061,6 +126061,24 @@
    "reviewReason": "Found and checked on the page by the reviewing slice F1."
   },
   {
+   "id": "AlgebraicModularFormsAndSerreWeights/E1",
+   "kind": "error",
+   "locator": "2.4, Remarques (1), printed p. 186",
+   "correction": "… et l'on a alors m = 1 ou m = 2 si p > 2, et m = 1, 2 ou 3 si p = 2.",
+   "reason": "For p = 2 the Kummer classes live in K₀^*/K₀^{*2}, whose unit part is larger than for odd p (there is no isomorphism D^*/D^{*p} ≅ F̄_p as in Edixhoven (8.5.1)), and the Frobenius-compatibility equations 8.4.2 allow a third independent class; Edixhoven's Proposition 8.5 states m ∈ {1, 2} for p > 2 and m ∈ {1, 2, 3} for p = 2. The weight k does not depend on m, so the recipe is unaffected.",
+   "affects": "nothing",
+   "known": "Edixhoven, The weight in Serre's conjectures on modular forms, Invent. Math. 109 (1992), Proposition 8.5 (\"Compare [26], §2.4, Remarques\")",
+   "searched": [
+    "Edixhoven, weight.dvi (sha256 ff106eeb…), §8.4–8.5"
+   ],
+   "owner": "AlgebraicModularFormsAndSerreWeights",
+   "file": "research/blueprint/packets/AlgebraicModularFormsAndSerreWeights.json",
+   "citation": "Jean-Pierre Serre, Sur les representations modulaires de degre 2 de Gal(Qbar/Q), Duke Math. J. 54 (1987), 179-230; read from the library PDF via its text layer (OCR: rho prints as 'p', phi as 'p', epsilon as 'e', ell as '1'); locators give printed journal pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AnalyticNumberTheory/E1",
    "kind": "error",
    "locator": "Published §8.1 p.378 and its reuse on p.379; known source issue E2.",
