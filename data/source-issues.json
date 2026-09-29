@@ -142490,6 +142490,26 @@
    "reviewReason": null
   },
   {
+   "id": "LocalGaloisDeformationRings/E2",
+   "kind": "error",
+   "locator": "§2.4.2, condition 2 on the characters χ_{v,i}, p. 37, against the proofs of Lemmas 2.4.7 and 2.4.8, pp. 39–40 (read on the page images)",
+   "printed": "Condition 2 takes χ̄_{v,i} to be χ_{v,i} reduced modulo λ. Whenever i < j, it excludes both the trivial character and the cyclotomic character as values of χ̄_{v,i}/χ̄_{v,j}.",
+   "correction": "For i < j the ratio χ̄_{v,j}/χ̄_{v,i} is neither trivial nor the cyclotomic character (equivalently χ̄_{v,i}/χ̄_{v,j} ≠ 1, ε̄^{−1}).",
+   "reason": "The proof of Lemma 2.4.7 needs H⁰(G, Hom_k(Fil^{i+1}r̄, gr^i r̄)(1)) = 0 and states it holds 'because, for j > i, χ̄_{v,i}ε/χ̄_{v,j} ≠ 1'; the proof of Lemma 2.4.8 needs H²(G, χ̄_{v,0}^{−1}r̄′) = 0. Both are χ̄_{v,j}/χ̄_{v,i} ≠ ε̄ for i < j, which the printed condition does not give. Counterexample to the printed version: n = 2, F_ṽ = ℚ_l, l > 3, r̄ = ω ⊕ 1 with the ω-line as Fil¹ (χ_{v,1} = ε, χ_{v,0} = 1). Then χ̄_{v,0}/χ̄_{v,1} = ω^{−1} is neither trivial nor cyclotomic, but H²(G_{ℚ_l}, k(ω)) ≅ H⁰(G_{ℚ_l}, k)^∨ ≠ 0; the suitable lifts to B₂(k[ε]/(ε²)) form a space of dimension 1 + 1 + 3 = 5 rather than n(n + 1)/2 + [F_ṽ : ℚ_l]n(n − 1)/2 = 4 (the fibre of Z¹ has dimension (n − 1) + [F_ṽ : ℚ_l](n − 1) + dim H² = 3), so dim_k L_v − dim_k H⁰(ad r̄) = 2 and R^{loc}/𝓘 is not a power series ring in 5 variables. This is the familiar non-smoothness of ordinary weight-two deformations when the sub-character is the cyclotomic character times the quotient; the section is not used by CHT's applications.",
+   "affects": "a stated result",
+   "known": "new: no erratum found (Numdam item page; a web search for an erratum to CHT §2.4.2, 29 September 2026)",
+   "searched": [
+    "the Numdam item page for Publ. Math. IHÉS 108 (2008), 1–181",
+    "a web search for an erratum or corrigendum to Clozel–Harris–Taylor §2.4.2 (29 September 2026): none found"
+   ],
+   "owner": "LocalGaloisDeformationRings",
+   "file": "research/blueprint/packets/LocalGaloisDeformationRings.json",
+   "citation": "Laurent Clozel, Michael Harris and Richard Taylor, Automorphy for some l-adic lifts of automorphic mod l Galois representations, Publications mathématiques de l'IHÉS 108 (2008), 1–181; open access on Numdam. Printed page = PDF page.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "LocallyAnalyticDistributions/E1",
    "kind": "error",
    "locator": "Published Lemma A3.1, printed432/PDF16; also author-copy PDF22–23. Display notation checked on both page images.",
