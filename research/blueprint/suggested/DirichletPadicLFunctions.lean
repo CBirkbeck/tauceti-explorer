@@ -6829,3 +6829,130 @@ example (u : U) (hu : Δ u ∈ nonZeroDivisors M) :
 example (u : U) (hu : Δ u ∈ nonZeroDivisors M) :
     (eisensteinAwaySeries p u).map (regularEisensteinAwayToFraction p u hu)=totalEisensteinSeries p := sorry
 end SuggestedEisensteinParameterTests
+
+/-! ## Evaluation at every character-admissible smoothing parameter
+
+The nonvanishing condition is on the image of the doubled shifted denominator.
+It does not assert regularity of that denominator in the integral measure ring.
+-/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "d" => (fun u : U => 2*eisensteinTwistedDenominator p u)
+local notation "S" => (fun u : U => Localization.Away (d u))
+
+lemma eisensteinMomentHom_denominator (u : U) (e : ℕ) :
+    eisensteinMomentHom p e (d u)=2*((u : ℚ_[p])^(e+1)-1) := sorry
+def admissibleEisensteinAwayMoment (u : U) (e : ℕ)
+    (h : 2*((u : ℚ_[p])^(e+1)-1)≠0) : S u →+* ℚ_[p] := sorry
+lemma admissibleEisensteinAwayMoment_def (u : U) (e : ℕ)
+    (h : 2*((u : ℚ_[p])^(e+1)-1)≠0) :
+    admissibleEisensteinAwayMoment p u e h = IsLocalization.Away.lift (d u)
+      (isUnit_iff_ne_zero.mpr (by rw [eisensteinMomentHom_denominator]; exact h)) := sorry
+lemma admissibleEisensteinAwayMoment_algebraMap (u : U) (e : ℕ)
+    (h : 2*((u : ℚ_[p])^(e+1)-1)≠0) (μ : M) :
+    admissibleEisensteinAwayMoment p u e h (algebraMap M (S u) μ)=(μ (j^e) : ℚ_[p]) := sorry
+lemma admissibleEisensteinAwayMoment_unique (u : U) (e : ℕ)
+    (h : 2*((u : ℚ_[p])^(e+1)-1)≠0) (F : S u →+* ℚ_[p])
+    (hF : ∀ μ : M, F (algebraMap M (S u) μ)=eisensteinMomentHom p e μ) :
+    F=admissibleEisensteinAwayMoment p u e h := sorry
+lemma admissibleEisensteinAwayMoment_canonical (a : U) (ha : (a : Z)=(p+1 : ℕ))
+    (e : ℕ) (h : 2*((a : ℚ_[p])^(e+1)-1)≠0) :
+    admissibleEisensteinAwayMoment p a e h=eisensteinAwayMoment p a ha e := sorry
+lemma admissibleEisensteinAwayMoment_constant (u : U) (e : ℕ)
+    (h : 2*((u : ℚ_[p])^(e+1)-1)≠0) :
+    admissibleEisensteinAwayMoment p u e h (eisensteinAwayConstant p u)=
+      algebraMap ℚ ℚ_[p] (-(1-(p : ℚ)^e)*bernoulli (e+1)/(2*(e+1))) := sorry
+lemma admissibleEisensteinSeries_canonical (u : U) (e : ℕ)
+    (h : 2*((u : ℚ_[p])^(e+1)-1)≠0) (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    (eisensteinAwaySeries p u).map (admissibleEisensteinAwayMoment p u e h)=
+      (eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha e) := sorry
+lemma admissibleEisensteinSeries_independent (u v : U) (e : ℕ)
+    (hu : 2*((u : ℚ_[p])^(e+1)-1)≠0) (hv : 2*((v : ℚ_[p])^(e+1)-1)≠0) :
+    (eisensteinAwaySeries p u).map (admissibleEisensteinAwayMoment p u e hu)=
+      (eisensteinAwaySeries p v).map (admissibleEisensteinAwayMoment p v e hv) := sorry
+theorem admissibleEisensteinSeries_common (u : U) (w : ℕ) (hw : 4≤w) (he : Even w)
+    (h : 2*((u : ℚ_[p])^((w-1)+1)-1)≠0) :
+    ∃! F : PowerSeries ℚ,
+      F.map (algebraMap ℚ ℂ)=UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein p w hw) ∧
+      F.map (algebraMap ℚ ℚ_[p])=
+        (eisensteinAwaySeries p u).map (admissibleEisensteinAwayMoment p u (w-1) h) := sorry
+end DirichletPadic
+
+namespace SuggestedAdmissibleEisensteinTests
+open scoped AbstractMeasure
+open AbstractMeasure DirichletPadic
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "d" => (fun u : U => 2*eisensteinTwistedDenominator p u)
+local notation "S" => (fun u : U => Localization.Away (d u))
+-- identity_is_never_admissible
+example (e : ℕ) : eisensteinMomentHom p e (d 1)=0 := sorry
+-- negative_parameter_even_exponent
+example (e : ℕ) (he : Even e) : eisensteinMomentHom p e (d (-1))= -4 := sorry
+-- negative_parameter_odd_exponent
+example (e : ℕ) (he : Odd e) : eisensteinMomentHom p e (d (-1))=0 := sorry
+-- noncanonical_ternary_denominator
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3])=2) :
+    eisensteinMomentHom 3 1 (2*eisensteinTwistedDenominator 3 u)=6 := sorry
+-- admissible_evaluator_one
+example (u : U) (e : ℕ) (h : 2*((u : ℚ_[p])^(e+1)-1)≠0) :
+    admissibleEisensteinAwayMoment p u e h 1=1 := sorry
+-- admissible_evaluator_integral_agreement
+example (u : U) (e : ℕ) (h : 2*((u : ℚ_[p])^(e+1)-1)≠0) (μ : M) :
+    admissibleEisensteinAwayMoment p u e h (algebraMap M (S u) μ)=(μ (j^e) : ℚ_[p]) := sorry
+-- admissible_evaluator_unique_extension
+example (u : U) (e : ℕ) (h : 2*((u : ℚ_[p])^(e+1)-1)≠0) (F : S u →+* ℚ_[p])
+    (hF : ∀ μ : M, F (algebraMap M (S u) μ)=eisensteinMomentHom p e μ) :
+    F=admissibleEisensteinAwayMoment p u e h := sorry
+-- admissible_evaluator_canonical
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) (e : ℕ)
+    (h : 2*((a : ℚ_[p])^(e+1)-1)≠0) :
+    admissibleEisensteinAwayMoment p a e h=eisensteinAwayMoment p a ha e := sorry
+-- admissible_integral_dirac
+example (u v : U) (e : ℕ) (h : 2*((u : ℚ_[p])^(e+1)-1)≠0) :
+    admissibleEisensteinAwayMoment p u e h (algebraMap M (S u) (dirac Z v))=(v : ℚ_[p])^e := sorry
+-- noncanonical_ternary_constant
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3])=2) (h : 2*((u : ℚ_[3])^2-1)≠0) :
+    admissibleEisensteinAwayMoment 3 u 1 h (eisensteinAwayConstant 3 u)=1/12 := sorry
+-- noncanonical_dyadic_constant
+example (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2])=5) (h : 2*((u : ℚ_[2])^4-1)≠0) :
+    admissibleEisensteinAwayMoment 2 u 3 h (eisensteinAwayConstant 2 u)= -7/240 := sorry
+-- admissible_torsion_zero_constant
+example (h : 2*(((-1 : U) : ℚ_[p])^3-1)≠0) :
+    admissibleEisensteinAwayMoment p (-1) 2 h (eisensteinAwayConstant p (-1))=0 := sorry
+-- admissible_full_canonical_comparison
+example (u : U) (e : ℕ) (h : 2*((u : ℚ_[p])^(e+1)-1)≠0)
+    (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    (eisensteinAwaySeries p u).map (admissibleEisensteinAwayMoment p u e h)=
+      (eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha e) := sorry
+-- admissible_full_parameter_independence
+example (u v : U) (e : ℕ)
+    (hu : 2*((u : ℚ_[p])^(e+1)-1)≠0) (hv : 2*((v : ℚ_[p])^(e+1)-1)≠0) :
+    (eisensteinAwaySeries p u).map (admissibleEisensteinAwayMoment p u e hu)=
+      (eisensteinAwaySeries p v).map (admissibleEisensteinAwayMoment p v e hv) := sorry
+-- noncanonical_common_dyadic_series
+example (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2])=5) (h : 2*((u : ℚ_[2])^4-1)≠0) :
+    ∃! F : PowerSeries ℚ,
+      F.map (algebraMap ℚ ℂ)=UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein 2 4 (by decide)) ∧
+      F.map (algebraMap ℚ ℚ_[2])=
+        (eisensteinAwaySeries 2 u).map (admissibleEisensteinAwayMoment 2 u 3 h) := sorry
+end SuggestedAdmissibleEisensteinTests

@@ -14337,3 +14337,218 @@ Four complete native lemmas check coordinate translation on an actual integral m
 Exact controls check1848 parameter moments and integral numerators,21048 shifted cross relations,1848 all-parameter clearing equations,1596 scalar admissible ratios and60984 full cleared coefficients. They include168 identity cases,168 negative-identity cases and756 wrong-shift controls. Exact rational Bernoulli recurrence through24, integer parameter powers and finite depleted divisor sums. Every retained integer parameter is a p-adic unit; identity and negative identity are included. Cross relations and clearing are checked before division. Scalar ratio comparisons are performed only when the character denominator is nonzero; they do not assert measure-ring regularity. Full cleared positive coefficients are independently computed from the two-Dirac convolution formula. Wrong unshifted denominators are explicit negative controls. The largest observed discrepancy is 0.
 
 The initial57-input capture has empty delta. All supplier, source-review and other guarded inputs match the predecessor. Current369-node PMIA preserves the compiled332-node interface; no new supplier declaration is used or full369-node compilation claimed.
+
+
+## Character-admissible smoothing and full specialization independence
+
+Partial continuation preserving all433 predecessor nodes whole. Seven L4 nodes construct evaluation for arbitrary character-admissible smoothing parameters, prove the common Bernoulli constant and full-series independence, and transfer the unique rational classical comparison. All16 findings and three requests remain whole; seven gaps and zero closed stages remain.
+
+Published129–130 and159–160 were reread completely, retaining the existing qualifications to Remark3.35 and Theorem8.2(a). The old moment homomorphism and all-measure evaluation, weighted numerator, canonical evaluator, constant value, full coefficients and common rational-series nodes were inspected. Native Away.lift, lift_eq and IsLocalization.lift_unique were reread at the pin. Five complete native lemmas verify agreement, uniqueness, fraction evaluation, exact cancellation and comparison of full mapped series. No new baseline declaration is needed.
+
+### The character image of every smoothing denominator
+
+`DirichletPadicLFunctions:L4/eisenstein-all-parameter-denominator` — `DirichletPadic.eisensteinMomentHom_denominator`
+
+For every u∈U and e≥0, f_e(Δ_u)=2(u^(e+1)−1)=D(u,e).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing actual commutative convolution algebra. j is the unit coordinate and f_e=eisensteinMomentHom p e is the supplied matching-coefficient character-integral map followed by Z→Q_p. For u∈U write Δ_u=2·eisensteinTwistedDenominator p u and n_u=eisensteinWeightedNumerator p u. S_u=Localization.Away(Δ_u), A₀,u^away and E_u^away are the existing native localization, constant and full power series. For e≥0 set D(u,e)=2(u^(e+1)−1) in Q_p. Character admissibility means exactly D(u,e)≠0. It neither assumes nor proves Δ_u∈nonZeroDivisors M. Canonical a means the existing unit with value p+1.
+
+**Proof:**
+
+1. Apply the existing all-measure moment formula to Δ_u. Evaluation of scalar multiplication by the integer2 is linear, so this is twice the included e-th moment of the shifted denominator.
+2. The promoted shifted-denominator moment theorem gives u^(e+1)−1 in Z. Map into Q_p, preserving the integer2, subtraction and powers. No restriction to the canonical parameter is needed.
+3. For u=1 the image is always0. For u=−1, it is−4 if e is even and0 if e is odd; characteristic0 makes the even case nonzero even when p=2. These are image calculations, not regularity assertions in M.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-moment-hom-evaluation`, `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-moment`, `mathlib:PadicInt.algebraMap_apply`.
+
+**Tests:**
+
+- `SuggestedAdmissibleEisensteinTests.identity_is_never_admissible` (non-example): The identity parameter has denominator image0 at every exponent.
+- `SuggestedAdmissibleEisensteinTests.negative_parameter_even_exponent` (computation): For even e the negative-identity parameter has denominator image−4, including p=2.
+- `SuggestedAdmissibleEisensteinTests.negative_parameter_odd_exponent` (non-example): For odd e the negative-identity parameter has denominator image0.
+- `SuggestedAdmissibleEisensteinTests.noncanonical_ternary_denominator` (computation): At p=3,u=2,e=1 the image is6.
+
+**Acceptance:** The exponent is e+1 because the denominator is shifted. The canonical nonvanishing theorem is retained unchanged.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained. Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a).
+
+### Evaluation at an arbitrary admissible smoothing parameter
+
+`DirichletPadicLFunctions:L4/admissible-eisenstein-away-evaluation` — `DirichletPadic.admissibleEisensteinAwayMoment`
+
+For u,e and h:D(u,e)≠0, define E_(u,e,h):S_u→+*Q_p as the native Away.lift of f_e. It is the unique extension of f_e to this localization.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing actual commutative convolution algebra. j is the unit coordinate and f_e=eisensteinMomentHom p e is the supplied matching-coefficient character-integral map followed by Z→Q_p. For u∈U write Δ_u=2·eisensteinTwistedDenominator p u and n_u=eisensteinWeightedNumerator p u. S_u=Localization.Away(Δ_u), A₀,u^away and E_u^away are the existing native localization, constant and full power series. For e≥0 set D(u,e)=2(u^(e+1)−1) in Q_p. Character admissibility means exactly D(u,e)≠0. It neither assumes nor proves Δ_u∈nonZeroDivisors M. Canonical a means the existing unit with value p+1.
+
+**Proof:**
+
+1. Rewrite the image of Δ_u by the preceding denominator formula. Native isUnit_iff_ne_zero turns h into the exact IsUnit hypothesis needed by Away.lift.
+2. Construct the actual ring homomorphism on S_u. Away.lift_eq gives agreement on every integral coefficient. Compose with the existing all-measure moment formula; this API is promoted in the following node.
+3. Unfold Away.lift to native IsLocalization.lift. Its constructor provides invertible images for every power of Δ_u. Native lift_unique, with that same power-submonoid certificate, proves uniqueness for any map agreeing with f_e on all original coefficients. A complete native lemma checks this exact interface.
+4. For canonical a, both this map and the previous eisensteinAwayMoment are lifts of the same f_e at the same denominator. Their proof arguments agree by proof irrelevance, giving canonical compatibility. The constant-value API is promoted below.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-all-parameter-denominator`, `DirichletPadicLFunctions:L4/eisenstein-moment-hom-evaluation`, `DirichletPadicLFunctions:L4/eisenstein-away-evaluation`, `mathlib:IsLocalization.Away.lift`, `mathlib:IsLocalization.Away.lift_eq`, `mathlib:IsLocalization.lift_unique`, `mathlib:isUnit_iff_ne_zero`.
+
+**Uses:**
+
+- Parameter-independent Eisenstein specialization: Evaluates the actual full family on every displayed admissible smoothing localization.
+- RJW Theorem8.2(b): Supplies a valid arithmetic evaluation with an explicit denominator condition.
+
+**API:**
+
+- `DirichletPadic.admissibleEisensteinAwayMoment_def` (constructor): The map is the native Away.lift of f_e, using the displayed nonzero denominator image.
+- `DirichletPadic.admissibleEisensteinAwayMoment_algebraMap` (compatibility): E_(u,e,h)(alg μ)=ι(μ(j^e)). Promoted to admissible-eisenstein-integral-agreement.
+- `DirichletPadic.admissibleEisensteinAwayMoment_unique` (universal-property): Any ring map S_u→Q_p extending f_e equals E_(u,e,h).
+- `DirichletPadic.admissibleEisensteinAwayMoment_canonical` (compatibility): For a=p+1 the map agrees with eisensteinAwayMoment p a ha e.
+- `DirichletPadic.admissibleEisensteinAwayMoment_constant` (data): The constant image is the same rational Bernoulli value. Promoted to admissible-eisenstein-constant-value.
+
+**Tests:**
+
+- `SuggestedAdmissibleEisensteinTests.admissible_evaluator_one` (computation): The constructed ring map sends1 to1.
+- `SuggestedAdmissibleEisensteinTests.admissible_evaluator_integral_agreement` (compatibility): It agrees with the included e-th moment of every actual integral measure.
+- `SuggestedAdmissibleEisensteinTests.admissible_evaluator_unique_extension` (characterisation): All-coefficient agreement determines the extension uniquely on S_u.
+- `SuggestedAdmissibleEisensteinTests.admissible_evaluator_canonical` (compatibility): At a with value p+1 it equals the previous canonical evaluator.
+
+**Acceptance:** No total-quotient evaluator is constructed. The general coefficient-field supplier request remains open. No regularity certificate in M is required by this constructor.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained. Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a).
+
+### Agreement on every integral coefficient
+
+`DirichletPadicLFunctions:L4/admissible-eisenstein-integral-agreement` — `DirichletPadic.admissibleEisensteinAwayMoment_algebraMap`
+
+For every actual μ∈M and admissible (u,e,h), E_(u,e,h)(alg μ)=ι(μ(j^e)).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing actual commutative convolution algebra. j is the unit coordinate and f_e=eisensteinMomentHom p e is the supplied matching-coefficient character-integral map followed by Z→Q_p. For u∈U write Δ_u=2·eisensteinTwistedDenominator p u and n_u=eisensteinWeightedNumerator p u. S_u=Localization.Away(Δ_u), A₀,u^away and E_u^away are the existing native localization, constant and full power series. For e≥0 set D(u,e)=2(u^(e+1)−1) in Q_p. Character admissibility means exactly D(u,e)≠0. It neither assumes nor proves Δ_u∈nonZeroDivisors M. Canonical a means the existing unit with value p+1.
+
+**Proof:**
+
+1. Unfold the actual Away.lift. Native lift_eq evaluates it on algebraMap μ as f_e(μ).
+2. Apply the promoted all-measure moment formula. A complete native agreement lemma verifies the original-coefficient computation before any particular Eisenstein coefficient is substituted.
+3. In particular native Dirac evaluation gives u-independent values v^e on the image of δ_v. This is the uniform positive-coefficient comparison used below.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/admissible-eisenstein-away-evaluation`, `DirichletPadicLFunctions:L4/eisenstein-moment-hom-evaluation`, `mathlib:IsLocalization.Away.lift_eq`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Tests:**
+
+- `SuggestedAdmissibleEisensteinTests.admissible_integral_dirac` (compatibility): The image of the included atom δ_v is v^e for every unit v.
+
+**Acceptance:** This promotes the construction API at every actual integral measure, with no assumption that a chosen coefficient generates the measure ring.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained. Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a).
+
+### The constant value is independent of admissible smoothing
+
+`DirichletPadicLFunctions:L4/admissible-eisenstein-constant-value` — `DirichletPadic.admissibleEisensteinAwayMoment_constant`
+
+For every admissible (u,e,h), E_(u,e,h)(A₀,u^away)=ι_Q(−(1−p^e)B_(e+1)/(2(e+1))).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing actual commutative convolution algebra. j is the unit coordinate and f_e=eisensteinMomentHom p e is the supplied matching-coefficient character-integral map followed by Z→Q_p. For u∈U write Δ_u=2·eisensteinTwistedDenominator p u and n_u=eisensteinWeightedNumerator p u. S_u=Localization.Away(Δ_u), A₀,u^away and E_u^away are the existing native localization, constant and full power series. For e≥0 set D(u,e)=2(u^(e+1)−1) in Q_p. Character admissibility means exactly D(u,e)≠0. It neither assumes nor proves Δ_u∈nonZeroDivisors M. Canonical a means the existing unit with value p+1.
+
+**Proof:**
+
+1. Use the actual away-constant fraction and apply the ring map to its native mk′ clearing equation. The complete native fraction lemma gives f_e(n_u)/f_e(Δ_u), dividing only by h.
+2. Substitute the promoted weighted-numerator moment (1−p^e)(1−u^(e+1))ι_Q(B_(e+1)/(e+1)) and the new denominator formula2(u^(e+1)−1).
+3. The nonzero product h implies that both2 and u^(e+1)−1 are nonzero in Q_p. Cancel the latter and retain the minus sign and factor2. The complete native cancellation lemma checks this algebra in a field under exactly the product-nonvanishing hypothesis.
+4. Preservation of rational casts identifies the result with the displayed rational expression. At p=3,u=2,e=1 the numerator is1/2 and denominator6, giving1/12. At p=2,u=5,e=3 they are−182/5 and1248, giving−7/240.
+5. The negative-identity parameter is admitted at even exponents; its weighted numerator and constant value both vanish. The identity parameter and negative identity at odd exponents fail the hypothesis and are not assigned a value by this construction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/admissible-eisenstein-away-evaluation`, `DirichletPadicLFunctions:L4/admissible-eisenstein-integral-agreement`, `DirichletPadicLFunctions:L4/eisenstein-away-constant`, `DirichletPadicLFunctions:L4/weighted-eisenstein-numerator-moment`, `DirichletPadicLFunctions:L4/eisenstein-all-parameter-denominator`, `mathlib:IsLocalization.mk'_spec'`, `mathlib:IsLocalization.Away.lift_eq`, `mathlib:eq_div_iff`.
+
+**Tests:**
+
+- `SuggestedAdmissibleEisensteinTests.noncanonical_ternary_constant` (computation): At p=3,u=2,e=1 the constant is1/12.
+- `SuggestedAdmissibleEisensteinTests.noncanonical_dyadic_constant` (computation): At p=2,u=5,e=3 the constant is−7/240.
+- `SuggestedAdmissibleEisensteinTests.admissible_torsion_zero_constant` (degenerate): At the negative-identity parameter and exponent2 the admissible constant is0.
+
+**Acceptance:** Cancellation occurs only after evaluation in Q_p. It does not imply regularity or cancellation of the same measure-ring denominator.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained. Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a).
+
+### Every admissible parameter gives the canonical full series
+
+`DirichletPadicLFunctions:L4/admissible-eisenstein-full-canonical` — `DirichletPadic.admissibleEisensteinSeries_canonical`
+
+For admissible (u,e,h) and canonical a, map(E_(u,e,h))(E_u^away)=map(eisensteinAwayMoment(a,e))(E_a^away) in Q_p[[q]].
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing actual commutative convolution algebra. j is the unit coordinate and f_e=eisensteinMomentHom p e is the supplied matching-coefficient character-integral map followed by Z→Q_p. For u∈U write Δ_u=2·eisensteinTwistedDenominator p u and n_u=eisensteinWeightedNumerator p u. S_u=Localization.Away(Δ_u), A₀,u^away and E_u^away are the existing native localization, constant and full power series. For e≥0 set D(u,e)=2(u^(e+1)−1) in Q_p. Character admissibility means exactly D(u,e)≠0. It neither assumes nor proves Δ_u∈nonZeroDivisors M. Canonical a means the existing unit with value p+1.
+
+**Proof:**
+
+1. Apply native PowerSeries.ext and coeff_map. At degree0 the promoted coefficient formula reduces both sides to their actual away constants.
+2. Use the new arbitrary-parameter constant-value theorem and the old canonical constant-value theorem. They give the same rational Bernoulli expression.
+3. At every positive index, the promoted full-series coefficient formula gives the included same actual measure A_n on each side. The new all-integral agreement and the old promoted canonical integral-evaluation theorem give the same included moment A_n(j^e).
+4. The complete native mapped-full-series lemma checks the zero/positive coefficient argument even when the two source coefficient rings differ. No identification between S_u and S_a or embedding into the total quotient is needed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/admissible-eisenstein-constant-value`, `DirichletPadicLFunctions:L4/eisenstein-away-constant-value`, `DirichletPadicLFunctions:L4/admissible-eisenstein-integral-agreement`, `DirichletPadicLFunctions:L4/eisenstein-away-integral-evaluation`, `DirichletPadicLFunctions:L4/full-eisenstein-away-coefficients`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.coeff_map`.
+
+**Tests:**
+
+- `SuggestedAdmissibleEisensteinTests.admissible_full_canonical_comparison` (compatibility): The whole series, including degree0, agrees with the previous canonical arithmetic family.
+
+**Acceptance:** Equality is in the common target Q_p[[q]]; the two denominator-localization carriers remain distinct.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained. Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a).
+
+### The specialized family is independent of smoothing
+
+`DirichletPadicLFunctions:L4/admissible-eisenstein-full-independent` — `DirichletPadic.admissibleEisensteinSeries_independent`
+
+For u,v admissible at the same exponent e, map(E_(u,e))(E_u^away)=map(E_(v,e))(E_v^away).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing actual commutative convolution algebra. j is the unit coordinate and f_e=eisensteinMomentHom p e is the supplied matching-coefficient character-integral map followed by Z→Q_p. For u∈U write Δ_u=2·eisensteinTwistedDenominator p u and n_u=eisensteinWeightedNumerator p u. S_u=Localization.Away(Δ_u), A₀,u^away and E_u^away are the existing native localization, constant and full power series. For e≥0 set D(u,e)=2(u^(e+1)−1) in Q_p. Character admissibility means exactly D(u,e)≠0. It neither assumes nor proves Δ_u∈nonZeroDivisors M. Canonical a means the existing unit with value p+1.
+
+**Proof:**
+
+1. Choose the existing canonical unit a with value p+1 using the supplied one-add-prime-unit construction.
+2. Apply the preceding full canonical comparison once to u and once to v, with the same a and exponent. Transitivity with the second equality reversed identifies the two full target power series.
+3. Each map retains its own admissibility proof and domain. The argument also applies when a parameter is torsion but its chosen character denominator is nonzero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/admissible-eisenstein-full-canonical`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`.
+
+**Tests:**
+
+- `SuggestedAdmissibleEisensteinTests.admissible_full_parameter_independence` (compatibility): Any two parameters admissible at the same moment exponent give equal full field power series.
+
+**Acceptance:** This is independence of arithmetic specialization. It does not assert isomorphic source localizations or regularity of every admissible measure denominator.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained. Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a).
+
+### The common rational classical series for every admissible parameter
+
+`DirichletPadicLFunctions:L4/admissible-eisenstein-common-classical` — `DirichletPadic.admissibleEisensteinSeries_common`
+
+For even w≥4 and u admissible at e=w−1, there exists a unique F∈ℚ[[q]] whose complex image is the actual period1 q-expansion of pStabilizedEisenstein(p,w) and whose Q_p image is map(E_(u,w−1))(E_u^away).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing actual commutative convolution algebra. j is the unit coordinate and f_e=eisensteinMomentHom p e is the supplied matching-coefficient character-integral map followed by Z→Q_p. For u∈U write Δ_u=2·eisensteinTwistedDenominator p u and n_u=eisensteinWeightedNumerator p u. S_u=Localization.Away(Δ_u), A₀,u^away and E_u^away are the existing native localization, constant and full power series. For e≥0 set D(u,e)=2(u^(e+1)−1) in Q_p. Character admissibility means exactly D(u,e)≠0. It neither assumes nor proves Δ_u∈nonZeroDivisors M. Canonical a means the existing unit with value p+1.
+
+**Proof:**
+
+1. Choose the supplied canonical unit a=p+1. The previous full-eisenstein-common-series theorem gives a unique rational series with the actual classical q-expansion and the canonical arithmetic specialization.
+2. The new full canonical comparison at the exact exponent w−1 identifies the admissible-u specialization with the canonical specialization. Substitute this equality in the second component of the existing property.
+3. Both existence and uniqueness transfer along that equality; the complex comparison and its injective rational coefficient map remain unchanged. The positive coefficient exponent is w−1, while the denominator exponent is (w−1)+1=w because w≥4.
+4. At p=2,u=5,w=4 the common constant is−7/240 and all positive coefficients are the existing depleted divisor sums. Separate rational coefficient maps are used for C and Q_p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/admissible-eisenstein-full-canonical`, `DirichletPadicLFunctions:L4/full-eisenstein-common-series`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`.
+
+**Tests:**
+
+- `SuggestedAdmissibleEisensteinTests.noncanonical_common_dyadic_series` (compatibility): The p=2,u=5,w=4 full specialization and actual classical q-expansion are separate images of a unique rational power series.
+
+**Acceptance:** The comparison includes the actual constant and every positive coefficient. No rational-to-Z_p map, complex-to-Q_p map or geometric family assertion is introduced.
+
+**Source:** Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained. Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a).
+
+**Remaining:** All smoothing parameters with a nonzero chosen arithmetic denominator now have an actual native Away evaluator and the same full field specialization, including the unique common rational classical series. Measure-ring regularity and character admissibility remain separate conditions. Next establish the corrected source constant’s ordinary-pseudomeasure exclusion by an actual clearing or moment obstruction, without assuming the missing generic twist equivalence. Generic coefficient-field evaluation, character-twist equivalence and completed-algebra supplier requests remain open. Tame-character Eisenstein families and full source extraction remain explicit work; PadicFamilies owns geometric realization.
+
+### Character-admissible smoothing and full specialization independence validation
+
+All 433 predecessor nodes, 436 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 7 nodes, 10 named suggested declarations and 15 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 615 reachable nodes, 2952 edges and 553 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 1352 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Five complete native lemmas verify the actual Away lift on integral coefficients, its unique extension, the value of its native fraction, cancellation under the exact denominator-image condition, and equality of full mapped series over different source coefficient rings. The probe elaborates against 1185 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact controls check1848 parameter moments,1596 admissible ratios,52668 full specialized coefficients,525492 pairwise coefficient comparisons and22869 classical even-weight coefficients. They include168 identity exclusions,84 admissible negative-identity cases,84 excluded negative-identity cases and168 exponent-shift controls. Exact rational Bernoulli recurrence through24 and integer unit parameters at seven primes. For every admissible parameter, positive coefficients are computed by the actual doubled two-Dirac convolution sum before division and compared with depleted divisor sums. Pairwise whole truncated series and the rational classical coefficients are checked separately. Identity and both parity cases of negative identity are checked before division. Shifted-exponent negative controls distinguish the weightw from its required test exponentw−1. Finite controls do not prove the general roadmap assertions or measure-ring regularity. The largest observed discrepancy is 0.
+
+The initial57-input capture has empty delta. All supplier, source-review and other guarded inputs match the predecessor. Current369-node PMIA preserves the compiled332-node interface; no new supplier declaration is used or full369-node compilation claimed.
