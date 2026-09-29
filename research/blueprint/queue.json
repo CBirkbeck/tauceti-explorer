@@ -48144,7 +48144,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-geomlanglands.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3981"
   },
   {
    "id": "RT-AREA-commutative",
