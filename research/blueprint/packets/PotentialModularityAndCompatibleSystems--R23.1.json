@@ -13,7 +13,7 @@
   "PotentialModularityAndCompatibleSystems:R24.2"
  ],
  "status": "partial",
- "summary": "Checkpoint 1 of the R23.1 part (Claude Code cc-39fac3). It builds on the unreviewed draft research/expansion/external/EXT-12 as a lead: 15 of its nodes are carried for R23.1 (Moret-Bailly II), R23.3 (KW II Theorem 6.1, KW Annals Theorem 2.1), R24.1 and R24.2, with excerpts re-verified against the sha-matched copies, converted to the blueprint format (prerequisites, API and tests for the definition and constructions), and with two draft nodes dropped because GlobalGaloisDeformations R04.6 and LocalGaloisDeformationRings R08.6 already plan them. Four nodes are new: the deduction of Taylor's Theorem G from Moret-Bailly (closing the draft's gap), potential modularity of a given lift (R23.4), control of the extension (R23.5), and the exports and noncircularity table (R23.6). Taylor's moduli problem (R23.2) and his potential-modularity theorems are deferred to page-image verification. Two misprints (KW II's \"part (c)\" for (iii)(b); Moret-Bailly's \"Lemme 3.30.2\"). Checkpoint 2 (cc-39fac3) carries ten more EXT-12 draft nodes for R23.2 and R23.3 (Taylor 2002 §1 and Taylor 2006 §§4–5), re-verified on the page images: Taylor's auxiliary data, Lemmas 1.1–1.5, the local points and the Moret-Bailly point, Taylor 2006 Lemmas 4.4–4.5, the modularity of the auxiliary abelian variety, Theorem 1.6 with Corollary 1.7, and Proposition 4.1, Corollary 4.6 and Theorem 5.7. The moduli spaces themselves are requested from HilbertModularVarietiesAndShimuraCurves H6 (RS-23). Taylor's use of Skinner–Wiles 2001 falls in the case of OrdinaryAutomorphicFormsAndModularityLifting/E11 (a gap). E4–E6: misprints in Taylor's preprint (Lemma 1.5's ω for ω^{−1}, an index in Lemma 1.1's proof, λ for λ₀ and ℚ(α) for ℚ(β_v)).",
+ "summary": "Checkpoint 1 of the R23.1 part (Claude Code cc-39fac3). It builds on the unreviewed draft research/expansion/external/EXT-12 as a lead: 15 of its nodes are carried for R23.1 (Moret-Bailly II), R23.3 (KW II Theorem 6.1, KW Annals Theorem 2.1), R24.1 and R24.2, with excerpts re-verified against the sha-matched copies, converted to the blueprint format (prerequisites, API and tests for the definition and constructions), and with two draft nodes dropped because GlobalGaloisDeformations R04.6 and LocalGaloisDeformationRings R08.6 already plan them. Four nodes are new: the deduction of Taylor's Theorem G from Moret-Bailly (closing the draft's gap), potential modularity of a given lift (R23.4), control of the extension (R23.5), and the exports and noncircularity table (R23.6). Taylor's moduli problem (R23.2) and his potential-modularity theorems are deferred to page-image verification. Two misprints (KW II's \"part (c)\" for (iii)(b); Moret-Bailly's \"Lemme 3.30.2\"). Checkpoint 2 (cc-39fac3) carries ten more EXT-12 draft nodes for R23.2 and R23.3 (Taylor 2002 §1 and Taylor 2006 §§4–5), re-verified on the page images: Taylor's auxiliary data, Lemmas 1.1–1.5, the local points and the Moret-Bailly point, Taylor 2006 Lemmas 4.4–4.5, the modularity of the auxiliary abelian variety, Theorem 1.6 with Corollary 1.7, and Proposition 4.1, Corollary 4.6 and Theorem 5.7. The moduli spaces themselves are requested from HilbertModularVarietiesAndShimuraCurves H6 (RS-23). Taylor's use of Skinner–Wiles 2001 falls in the case of OrdinaryAutomorphicFormsAndModularityLifting/E11 (a gap). E4–E6: misprints in Taylor's preprint (Lemma 1.5's ω for ω^{−1}, an index in Lemma 1.1's proof, λ for λ₀ and ℚ(α) for ℚ(β_v)). Checkpoint 3 (cc-39fac3) plans Taylor 2006 §5 and the §1 lemmas it uses (six R23.3 nodes, Theorem 5.7 now separate), corrects checkpoint 2's reading of Taylor's [SW1] (it is Skinner–Wiles' Duke base-change paper, not their 1999 paper), and notes Skinner's unpublished correction for the dihedral case.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -84,7 +84,8 @@
    "url": "https://ems.press/content/book-chapter-files/27484",
    "sha256": "6ec26bfc12e1cf38d410b36c18f985e2fb26c1cb1bb03d6e5197ccf58f92c51c",
    "readSections": [
-    "2026-09-29 (cc-39fac3, part R23.1 checkpoint 2): Theorems 3.2–3.3 and §4 in full, pp. 755–763 (Proposition 4.1, Lemmas 4.2–4.5 with proofs, the moduli space X, the twists X_{R,ψ}, X_ρ̄ and X_Dih, Corollary 4.6); Lemma 5.6 and Theorem 5.7 with its proof, pp. 770–771; Corrections to [Tay4], pp. 776–777; all on the page images. Lemmas 5.1–5.5 not read."
+    "2026-09-29 (cc-39fac3, part R23.1 checkpoint 2): Theorems 3.2–3.3 and §4 in full, pp. 755–763 (Proposition 4.1, Lemmas 4.2–4.5 with proofs, the moduli space X, the twists X_{R,ψ}, X_ρ̄ and X_Dih, Corollary 4.6); Lemma 5.6 and Theorem 5.7 with its proof, pp. 770–771; Corrections to [Tay4], pp. 776–777; all on the page images. Lemmas 5.1–5.5 not read.",
+    "2026-09-29 (cc-39fac3, part R23.1 checkpoint 3): §1, Lemmas 1.3–1.4 and Corollary 1.5 with the Hecke algebras and ρ_𝔪 (pp. 740–743); §5 in full (pp. 763–771: the set-up with η̄^i, 𝐔 and 𝐕, the pairing, I^i, Lemma 5.1, Corollary 5.2, Lemmas 5.3–5.6, Corollary 5.5, Theorem 5.7); the bibliography entries [SW1], [SW2], [W1], [Bu], [CDT]; all on the page images."
    ]
   }
  ],
@@ -851,7 +852,8 @@
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
     "PotentialModularityAndCompatibleSystems:R23.2",
     "PotentialModularityAndCompatibleSystems:R23.3/taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l",
-    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l"
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one"
    ],
    "planet": {
     "name": "Potential modularity (KW II Theorem 6.1)"
@@ -929,7 +931,8 @@
    "prerequisites": [
     "PotentialModularityAndCompatibleSystems:R23.2",
     "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l",
-    "PotentialModularityAndCompatibleSystems:R23.3/taylor-lemma-1-5-ordinary-shape-of-the-lambda-adic-tate-module-at-l"
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-lemma-1-5-ordinary-shape-of-the-lambda-adic-tate-module-at-l",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one"
    ]
   },
   {
@@ -2036,24 +2039,20 @@
    "realises": [
     "PotentialModularityAndCompatibleSystems:R23.3"
    ],
-   "title": "Taylor 2006 Proposition 4.1, Corollary 4.6 and Theorem 5.7: potential modularity with l split completely when rho-bar|G_l is irreducible",
+   "title": "Taylor 2006 Proposition 4.1 and Corollary 4.6: potential modularity with l split completely when rho-bar|G_l is irreducible",
    "kind": "theorem",
-   "statement": "(Proposition 4.1) Let l > 2 and rho-bar: G_Q -> GL_2(F_l-bar) continuous odd with rho-bar|I_l ~ omega_2^{k-1} ⊕ omega_2^{l(k-1)} for some 2 <= k <= l. Then there are a Galois totally real field F of even degree in which l splits completely, a regular algebraic cuspidal pi of GL_2(A_F) and lambda: M_pi -> Q_l-bar with rho-bar|G_F ~ rho-bar_{pi,lambda}, pi_∞ of weight 2, and for each x | l, WD_lambda(pi_x) tamely ramified with WD_lambda(pi_x)|I_x = omega_2^{k-(l+1)} ⊕ omega_2^{lk-(l+1)}. (Corollary 4.6) One may moreover make the central character of pi^{∞,l} unramified (Langlands base change). (Theorem 5.7) Let l > 3 and rho-bar: G_Q -> GL_2(F_l-bar) continuous irreducible odd with rho-bar|G_l irreducible. Then there are a Galois totally real F of even degree in which l splits completely and a regular algebraic cuspidal pi with rho-bar|G_F ~ rho-bar_{pi,lambda}, pi_∞ of weight k_rho (Serre's weight) and pi_x unramified at every finite place x.",
+   "statement": "(Proposition 4.1) Let l > 2 and rho-bar: G_Q -> GL_2(F_l-bar) continuous odd with rho-bar|I_l ~ omega_2^{k-1} ⊕ omega_2^{l(k-1)} for some 2 <= k <= l. Then there are a Galois totally real field F of even degree in which l splits completely, a regular algebraic cuspidal pi of GL_2(A_F) and lambda: M_pi -> Q_l-bar with rho-bar|G_F ~ rho-bar_{pi,lambda}, pi_∞ of weight 2, and for each x | l, WD_lambda(pi_x) tamely ramified with WD_lambda(pi_x)|I_x = omega_2^{k-(l+1)} ⊕ omega_2^{lk-(l+1)}. (Corollary 4.6) One may moreover make the central character of pi^{∞,l} unramified (Langlands base change). Theorem 5.7 is R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one.",
    "hypotheses": [
     "Proposition 4.1: l > 2, 2 <= k <= l, niveau-2 irreducible restriction to G_l",
-    "Theorem 5.7: l > 3; KW II note that p = 3 is excluded in section 5 of [59] and lift the restriction via Lemma 2.2 of Khare [33] (unread)",
     "the proof of Proposition 4.1 imports Skinner-Wiles [SW2] Theorem 5.1 (or [SW1] + Theorem 3.3 + descent) and the theory of complex multiplication",
-    "Theorem 5.7's proof uses Lemmas 1.3, 5.3 and 5.6 of the same paper, which were not read",
-    "Proposition 4.1 applies [SW2] Theorem 5.1 (Skinner–Wiles 2001) to T_{℘₁}B, whose residual representation Ind_{G_{FM}}^{G_F}(χ_{℘₁} mod ℘₁) is induced from the CM field FM with p₁ split (p₁ splits in the Hilbert class field of M): again the case of OrdinaryAutomorphicFormsAndModularityLifting/E11; Taylor gives an alternative, 'the main theorem of [SW1], theorem 3.3 of this paper and a standard descent argument'"
+    "Proposition 4.1 applies [SW2] Theorem 5.1 (Skinner–Wiles 2001) to T_{℘₁}B, whose residual representation Ind_{G_{FM}}^{G_F}(χ_{℘₁} mod ℘₁) is induced from the CM field FM with p₁ split (p₁ splits in the Hilbert class field of M): again the case of OrdinaryAutomorphicFormsAndModularityLifting/E11; Taylor gives an alternative, 'the main theorem of [SW1], theorem 3.3 of this paper and a standard descent argument', where [SW1] is Skinner–Wiles, Base change and a problem of Serre (Duke 2001) and Theorem 3.3 is his crystalline R = T theorem for residual representations irreducible over F(√((−1)^{(l−1)/2}l))"
    ],
    "proofSteps": [
     "Proposition 4.1: auxiliary choices (M imaginary quadratic with l inert, p_1, p_2, E, chi of Lemma 4.3), moduli space X and its twists X_rho, X_Dih; Lemmas 4.4-4.5 and Moret-Bailly give F Galois totally real of even degree split at l, p_1, p_2 and B/F with B[lambda] realising rho-bar and B[wp_i] realising Ind_{G_M}^{G_Q}(chi_{wp_i} mod wp_i).",
     "T_lambda B is unramified above p_1 (inertia has both l-power and p_2-power order), so B is semistable above p_1; T_wp1 B is ordinary above p_1; inertia above l acts on T_wp1 B by omega~_2^{k-(l+1)} ⊕ omega~_2^{lk-(l+1)}; since Ind (chi_{wp_1}) is modular, [SW2] Theorem 5.1 gives pi of weight 2 with rho_{pi,wp_1} ~ T_wp1 B, hence rho_{pi,lambda} ~ T_lambda B.",
-    "Corollary 4.6 by Langlands base change.",
-    "Theorem 5.7: twist rho-bar by epsilon^{-c} so that 2 <= k_rho - c(l+1) <= l; Lemma 5.6 gives F and pi of weight k_rho - c(l+1) unramified at all finite places; Lemma 1.3 gives a Hecke eigensystem phi with rho_phi ≅ (rho-bar ⊗ epsilon^{-c})|G_F; Lemma 5.3 concludes (not read)."
+    "Corollary 4.6 by Langlands base change."
    ],
    "acceptance": [
-    "Check the weight bookkeeping in Theorem 5.7: k_rho - c(l+1) lies in [2, l] for the c chosen from Serre's definition",
     "Confirm that 'l splits completely in F' is what KW II need to take F split above p when rho-bar|D_p is irreducible"
    ],
    "prerequisites": [
@@ -2083,23 +2082,289 @@
      "locator": "Corollary 4.6, p. 763",
      "excerpt": "Using Langlands base change [Langl] we immediately obtain the following corollary.",
      "match": "Corollary 4.6 via base change."
-    },
-    {
-     "sourceId": "taylor-2006-meromorphic-continuation",
-     "locator": "Theorem 5.7, p. 770",
-     "excerpt": "Finally we have the following version of our potential version of Serre’s conjecture.",
-     "match": "Theorem 5.7 (l > 3, rho-bar|G_l irreducible)."
-    },
-    {
-     "sourceId": "taylor-2006-meromorphic-continuation",
-     "locator": "proof of Theorem 5.7, p. 771",
-     "excerpt": "The theorem now follows from lemma 5.3.",
-     "match": "The unread lemmas on which Theorem 5.7 rests."
     }
    ],
    "implementationStatus": "unchecked",
    "planet": {
     "name": "Potential modularity with l split (Taylor 2006)"
+   }
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.3"
+   ],
+   "title": "Taylor 2006 Lemma 1.3: definite quaternionic forms, cuspidal representations and their Galois representations",
+   "kind": "theorem",
+   "statement": "Let F be totally real of even degree, D the quaternion algebra over F ramified exactly at the infinite places, (k⃗, w⃗) a weight with k_σ ≥ 2 and w = k_σ − 1 + 2w_σ independent of σ, and ψ : 𝔸_F^×/F^× → (ℚ̄_l)^× continuous with ψ(a) = (Na)^{1−w} on an open subgroup of F_l^×. (Lemma 1.3.) (1) S_{(k⃗,w⃗),ℚ̄_l,ψ}(U_l) is a semisimple admissible representation of GL₂(𝔸_F^{∞,l}) with U^l-invariants S_{(k⃗,w⃗),ℚ̄_l,ψ}(U_l × U^l); (2) after ⊗_{ℚ̄_l,i} ℂ its quotient by the 'triv' subspace (functions factoring through the reduced norm, nonzero only in parallel weight 2) is ⊕_π π^{∞,l} ⊗ π_l^{U_l} over regular algebraic cuspidal π of GL₂(𝔸_F) of weight (k⃗, w⃗) and central character ψ_i; (3)–(4) the same at weight 2 over all U, with the one-dimensional characters χ, χ² = ψ, added. Consequently (p. 742) the Hecke algebra h_{(k⃗,w⃗),ψ}(U_H(𝔫)) carries a continuous ρ : G_F → GL₂(h ⊗ ℚ̄_l) unramified at x ∤ 𝔫l with tr ρ(Frob_x) = T_x and det ρ = ε(ψ ∘ Art^{−1}); for a non-Eisenstein maximal ideal 𝔪 it descends to ρ_𝔪 : G_F → GL₂(h_𝔪) (pseudo-representations, or Carayol), and h_𝔪 is generated by the 𝐔_{ϖ_x} for x | 𝔫, x ∤ l, and the T_x for almost all x ∤ 𝔫l.",
+   "hypotheses": [
+    "the proof is 'everything now follows from the Jacquet–Langlands theorem' (requested from GL2AutomorphicRepresentationsAndTransfer R17.3); the Galois representations are Taylor's [Tay1] (Invent. Math. 98, 1989), requested from AutomorphicGaloisRepresentations R19.2",
+    "used in Theorem 5.7 to pass from π to a mod-l Hecke eigensystem φ with non-Eisenstein kernel"
+   ],
+   "proofSteps": [
+    "Write S_{(k⃗,w⃗)}(U_l) ≅ Hom_{D_∞^×}(W_{τ_∞}^∨, C^∞(D^×\\(D ⊗ 𝔸)^×/U_l, ψ_∞)) (p. 741) and apply Jacquet–Langlands.",
+    "Galois representation: Lemma 1.3 and [Tay1] give ρ with the stated traces and determinant; ρ_𝔪 by pseudo-representations or Carayol (GlobalGaloisDeformations R04.2/carayol-trace-theorem) for non-Eisenstein 𝔪; generation by Chebotarev."
+   ],
+   "acceptance": [
+    "Check that the 'triv' part is exactly the one-dimensional representations, present only in parallel weight 2."
+   ],
+   "prerequisites": [
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+    "AutomorphicGaloisRepresentations:R19.2",
+    "GlobalGaloisDeformations:R04.2/carayol-trace-theorem"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/TaylorWeights",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§1, Lemma 1.3, p. 740 (PDF page 12)",
+     "excerpt": "Then we have the following assertions.",
+     "match": "Lemma 1.3 (1)–(2); (3)–(4) on p. 741."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§1, proof of Lemma 1.3, p. 741 (PDF page 13)",
+     "excerpt": "Everything now follows from the Jacquet-Langlands theorem.",
+     "match": "The proof."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§1, the representations ρ and ρ_𝔪, p. 742 (PDF page 14)",
+     "excerpt": "From the theory of pseudo-representations (or otherwise, see [Ca2]) we deduce",
+     "match": "ρ_𝔪 over the non-Eisenstein localisation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.3"
+   ],
+   "title": "Taylor 2006 Lemma 1.4 and Corollary 1.5: Fontaine–Laffaille shape at split places above l",
+   "kind": "theorem",
+   "statement": "(Lemma 1.4.) Let x ∤ 𝔫 be a split place of F above l with 2 ≤ k_x ≤ l − 1, 𝔪 a non-Eisenstein maximal ideal of h_{(k⃗,w⃗),ψ}(U_H(𝔫)) and I an open ideal of h_𝔪. Then ((ρ_𝔪 ⊗ ε^{−w_x}) mod I)|_{G_x} is 𝕄(D) for an object D of 𝓜𝓕_{F_x,𝒪,k_x} with D ≠ D⁰ ≠ (0). (Corollary 1.5.) Hence ρ̄_𝔪|_{I_x} ∼ ω₂^{k_x−1+(l+1)w_x} ⊕ ω₂^{l(k_x−1)+(l+1)w_x} or ρ̄_𝔪|_{G_x} ∼ (ω^{k_x+w_x−1} *; 0 ω^{w_x}) on inertia.",
+   "hypotheses": [
+    "2 ≤ k_x ≤ l − 1 and x split: the Fontaine–Laffaille range",
+    "for π discrete series at some finite place the crystallinity is attributed to Carayol's construction and Faltings, 'presumably', with Harris–Taylor Theorem VII.1.9 as a definite reference"
+   ],
+   "proofSteps": [
+    "Reduce to a cuspidal π with π_x unramified: ρ_{π,λ} is crystalline at x with Hodge–Tate numbers −w_τ, 1 − k_τ − w_τ (AutomorphicGaloisRepresentations R19.5), so Fontaine–Laffaille gives 𝕄(D).",
+    "Corollary 1.5 from Fontaine–Laffaille Theorem 5.3, Proposition 7.8 and Theorem 8.4 (PadicHodgeTheory R06.4)."
+   ],
+   "acceptance": [
+    "Check the two shapes at k_x = 2, w_x = 0: ω₂ ⊕ ω₂^l, or (ω *; 0 1)."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations",
+    "PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison",
+    "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/TaylorWeights",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§1, proof of Corollary 1.5, p. 743 (PDF page 15)",
+     "excerpt": "This follows easilly from the above lemma together with theorem 5.3, proposition 7.8 and theorem 8.4 of [FL].",
+     "match": "Corollary 1.5 from Fontaine–Laffaille (the source prints \"easilly\")."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-5-1-corollary-5-2-weight-reduction",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.3"
+   ],
+   "title": "Taylor 2006 Lemma 5.1 and Corollary 5.2: from level U₀(𝔫, l) with character η̄^i to weight i + 2",
+   "kind": "theorem",
+   "statement": "Let l > 3 split completely in F (even degree), 0 ≤ i ≤ l − 2, η̄^i the character of U₀(𝔫, l)/U₁(𝔫, l) sending u to (Nd mod l)^i, and S_{η̄^i,ψ}(U₀(𝔫, l)) the definite quaternionic forms with that character. Filtering the induced representation I^i = ⊗_{x|l} I^i_x by 0 → Symm^i → I^i_x → Symm^{l−1−i} ⊗ det^i → 0 gives subspaces S_{η̄^i,ψ,T} for sets T of places above l, with S_{η̄^i,ψ,∅} ≅ S_{i+2,F̄_l,ψ}(U_H(𝔫)). (Lemma 5.1, a variant of an unpublished result of Buzzard.) For x ∉ T there is an injection κ_x : S_{T∪{x}}/S_T ↪ S_{T∪{x}}, equivariant for T_y, S_y (y ∤ l𝔫) and 𝐔_{ϖ_x} (x | 𝔫), whose composite with the projection is 𝐕_{ϖ_x}. (Corollary 5.2.) There is a natural surjection h_{η̄^i,F̄_l,ψ}(U₀(𝔫, l)) ↠ h_{i+2,F̄_l,ψ}(U_H(𝔫)) on the T_y, S_y and 𝐔_{ϖ_x}; if 𝔪 is a maximal ideal such that for every x | l, 𝐕_{ϖ_x} lies in every maximal ideal of h″ above 𝔪, then h_{i+2,F̄_l,ψ}(U_H(𝔫))_𝔪 ≠ 0. This holds when 𝔪 is non-Eisenstein and ρ̄_φ|_{G_x} ≁ (εχ₁ *; 0 ω^iχ₂) with χ₁, χ₂ unramified, for all x | l.",
+   "hypotheses": [
+    "if φ(𝐔_{ϖ_x}) ≠ 0 then ρ̄_φ|_{G_x} ∼ (χ₁ *; 0 χ₂) with χ₂ unramified and χ₂(Frob_x) = φ(𝐔_{ϖ_x}) (Wiles 1988, cited as [W1]; AutomorphicGaloisRepresentations R19.2); by the perfect pairing and adjoints, φ(𝐕_{ϖ_x}) ≠ 0 gives the dual shape (εχ₁ *; 0 ω^iχ₂)",
+    "Buzzard's thesis (The levels of modular representations, Cambridge 1995) is cited for the unpublished original; the variant is proved in full here"
+   ],
+   "proofSteps": [
+    "Identify the exact sequence 0 → S_T → S_{T∪{x}} → S_{T∪{x}}/S_T → 0 with 0 → S_{τ_T}(U₀(T)) → S_{τ_{T∪{x}}}(U₀(T ∪ {x})) → S_{τ_{T,x}}(U₀(T)) → 0 (maps α, β); define κ(f)(g) = f(gγ)(1, 0)_x with γ = diag(1, ϖ_x); it is well defined, injective and equivariant, and κ ∘ β = 𝐕_{ϖ_x} by the computation with u(s, 1).",
+    "Corollary 5.2: take T minimal with S_T(U₀(𝔫, l))_𝔪 ≠ 0; if T ≠ ∅, minimality makes 𝐕_{ϖ_x} an isomorphism on S_T,𝔪, contradicting 𝐕_{ϖ_x} ∈ every maximal ideal above 𝔪; so T = ∅ and S_{i+2}(U_H(𝔫))_𝔪 ≠ 0."
+   ],
+   "acceptance": [
+    "The source's condition is '𝐕_{ϖ_x} ∈ 𝔪″_x' for every 𝔪″_x above 𝔪 (so 𝐕_{ϖ_x} is not invertible); do not read it as ∉."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations",
+    "AutomorphicGaloisRepresentations:R19.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/TaylorWeights",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§5, the pairing and the operators 𝐔, 𝐕, p. 764 (PDF page 36)",
+     "excerpt": "This is easily seen to be a perfect pairing.",
+     "match": "The duality used for 𝐕_{ϖ_x}."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§5, Lemma 5.1, p. 765 (PDF page 37)",
+     "excerpt": "The following lemma is a variant of an unpublished result of Buzzard (see [Bu]).",
+     "match": "Lemma 5.1."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§5, Corollary 5.2, p. 767 (PDF page 39)",
+     "excerpt": "There is a natural surjection",
+     "match": "Corollary 5.2."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§5, Corollary 5.2, p. 767 (PDF page 39)",
+     "excerpt": "This assumption will be veriﬁed if",
+     "match": "The sufficient condition (non-Eisenstein, not of the dual ordinary shape)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-5-3-weight-shift",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.3"
+   ],
+   "title": "Taylor 2006 Lemma 5.3: raising the weight by l + 1 with a cyclotomic twist",
+   "kind": "lemma",
+   "statement": "(Lemma 5.3.) Let l split completely in F. If k ≥ 2 and φ : h_{k,F̄_l,ψ}(U₀) → F̄_l is a homomorphism, there is Dφ : h_{k+l+1,F̄_l,ψ(ε∘Art^{−1})}(U₀) → F̄_l with (Dφ)(T_y) = φ(T_y)(Ny) and (Dφ)(S_y) = φ(S_y)(Ny)² for all y ∤ l.",
+   "hypotheses": [
+    "l splits completely in F, so each k(x) = F_l for x | l"
+   ],
+   "proofSteps": [
+    "Twist by g ↦ ||N det g||(N det g_l)^{−1}: S_{k,ψ}(U₀) → S_{τ_k ⊗ (N det), ψ(ε∘Art^{−1})}(U₀), which multiplies T_y by Ny and S_y by (Ny)².",
+    "By Taylor's Lemma 1.1 it suffices to embed Symm^{k−2}(k(x)²) ⊗ det into Symm^{k+l−1}(k(x)²) GL₂(𝒪_{F,x})-equivariantly; multiplication by X^lY − XY^l does it, since (aX + cY)^l(bX + dY) − (aX + cY)(bX + dY)^l = (ad − bc)(X^lY − XY^l) over F_l."
+   ],
+   "acceptance": [
+    "Check the identity (aX + cY)^l(bX + dY) − (aX + cY)(bX + dY)^l = (ad − bc)(X^lY − XY^l) over F_l: it uses a^l = a for a ∈ F_l, checked in the suggested Lean file at l = 5."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/TaylorWeights",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§5, proof of Lemma 5.3, p. 768 (PDF page 40)",
+     "excerpt": "Because l splits completely in F such an embedding simply results from multiplication by",
+     "match": "The embedding by X^lY − XY^l."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemmas-5-4-5-6-weight-and-level",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.3"
+   ],
+   "title": "Taylor 2006 Lemma 5.4, Corollary 5.5 and Lemma 5.6: potential modularity in weight k, unramified everywhere",
+   "kind": "theorem",
+   "statement": "Let l > 3 and ρ̄ : G_ℚ → GL₂(F̄_l) continuous and odd with ρ̄|_{I_l} ∼ ω₂^{k−1} ⊕ ω₂^{l(k−1)} for some 2 ≤ k ≤ l. (Lemma 5.4.) There are a Galois totally real F in which l splits completely, and a regular algebraic cuspidal π with ρ̄|_{G_F} ∼ ρ̄_{π,λ}, π_∞ of weight 2 and the conductor of π_x dividing x for x | l. (Corollary 5.5.) Moreover π_x can be taken unramified at every finite x ∤ l. (Lemma 5.6.) Then F (of even degree) and π can be chosen with π_∞ of weight k and π_x unramified at every finite place.",
+   "hypotheses": [
+    "Lemma 5.4 imports Conrad–Diamond–Taylor, JAMS 12 (1999), Lemmas 3.1.1 and 4.2.4 (the types Θ(χ_k) and their Jordan–Hölder factors), which were not read (a gap)",
+    "Corollary 5.5 combines Lemma 5.4 with 'the main theorem of [SW1]', which in Taylor 2006 is Skinner–Wiles, Base change and a problem of Serre (Duke Math. J. 107 (2001)), not read (a gap)"
+   ],
+   "proofSteps": [
+    "Lemma 5.4: from Corollary 4.6 (the existing node), Lemma 1.3 and Conrad–Diamond–Taylor 4.2.4 get φ₁ : h_{Θ_k,𝒪,ψ₀}(U_{H₀}(𝔫₀)) → F̄_l, non-Eisenstein, with ρ̄_{φ₁} ∼ ρ̄|_{G_F}; the Jordan–Hölder factors R_T of Θ_k (CDT 3.1.1) and Corollary 1.5 force T = ∅, so φ₁ factors through weight k; the first part of Corollary 5.2 gives φ₀ at level U_{H₀}(𝔫₀) with character η̄^{k−2}.",
+    "Corollary 5.5: the main theorem of [SW1] (Skinner–Wiles' base change) removes the ramification away from l.",
+    "Lemma 5.6: from Corollary 5.5, ψ₀ with ε(ψ₀ ∘ Art^{−1}) = det ρ_{π,λ}, a φ₀ : h_{η̄^{k−2},F̄_l,ψ₀}(U₀(𝒪_F, l)) → F̄_l non-Eisenstein with ρ̄_{φ₀} ∼ ρ̄|_{G_F}; Corollary 5.2 factors it through h_{k,F̄_l,ψ₀}(U₀)."
+   ],
+   "acceptance": [
+    "Check the weight range 2 ≤ k ≤ l against Corollary 1.5's 2 ≤ k_x ≤ l − 1 (k = l gives only T = ∅)."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-5-1-corollary-5-2-weight-reduction",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/TaylorWeights",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§5, Corollary 5.5, p. 769 (PDF page 41)",
+     "excerpt": "Combining the lemma 5.4 with the main theorem of [SW1]",
+     "match": "Corollary 5.5 uses [SW1] = Skinner–Wiles, Base change and a problem of Serre."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§5, proof of Lemma 5.6, p. 770 (PDF page 42)",
+     "excerpt": "By corollary 5.2 this factors through",
+     "match": "Lemma 5.6 from Corollary 5.2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.3"
+   ],
+   "title": "Taylor 2006 Theorem 5.7: potential modularity in Serre's weight, unramified everywhere",
+   "kind": "theorem",
+   "statement": "(Theorem 5.7.) Let l > 3 and ρ̄ : G_ℚ → GL₂(F̄_l) continuous, irreducible and odd with ρ̄|_{G_l} irreducible. There are a Galois totally real F of even degree in which l splits completely and a regular algebraic cuspidal π of GL₂(𝔸_F) with ρ̄|_{G_F} ∼ ρ̄_{π,λ}, π_∞ of weight k_ρ̄ (Serre's weight) and π_x unramified at every finite place.",
+   "hypotheses": [
+    "l > 3; KW II note that p = 3 is excluded in §5 and lift the restriction via Lemma 2.2 of Khare's level-one paper (unread, a gap)"
+   ],
+   "proofSteps": [
+    "Choose 0 ≤ c < l − 1 with 2 ≤ k_ρ̄ − c(l + 1) ≤ l and (ρ̄ ⊗ ε^{−c})|_{I_l} ∼ ω₂^{k_ρ̄−1−c(l+1)} ⊕ ω₂^{l(k_ρ̄−1)−c(l+1)}.",
+    "Lemma 5.6 gives F and π of weight k_ρ̄ − c(l + 1), unramified at all finite places, for ρ̄ ⊗ ε^{−c}.",
+    "Lemma 1.3 gives φ : h_{k_ρ̄−c(l+1),F̄_l,ψ}(U₀) → F̄_l with non-Eisenstein kernel and ρ̄_φ ≅ (ρ̄ ⊗ ε^{−c})|_{G_F}.",
+    "Apply Lemma 5.3 c times to reach weight k_ρ̄ − c(l + 1) + c(l + 1) = k_ρ̄ and untwist."
+   ],
+   "acceptance": [
+    "Check the weight bookkeeping: k_ρ̄ − c(l + 1) ∈ [2, l] and c applications of D restore k_ρ̄ (checked in the Lean file)."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemmas-5-4-5-6-weight-and-level",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-5-3-weight-shift",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/TaylorWeights",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§5, Theorem 5.7, p. 770 (PDF page 42)",
+     "excerpt": "Finally we have the following version of our potential version of",
+     "match": "Theorem 5.7."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "§5, proof of Theorem 5.7, p. 771 (PDF page 43)",
+     "excerpt": "The theorem now follows from lemma 5.3.",
+     "match": "The last step of the proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Potential modularity in Serre's weight (Taylor 2006)"
    }
   }
  ],
@@ -2174,6 +2439,23 @@
     "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l"
    ],
    "status": "open"
+  },
+  {
+   "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+   "need": "The Jacquet–Langlands correspondence for the definite quaternion algebra over a totally real field of even degree, in the form of Taylor 2006 Lemma 1.3: S_{(k⃗,w⃗),ℚ̄_l,ψ}(U_l) modulo its one-dimensional part is ⊕ π^{∞,l} ⊗ π_l^{U_l} over regular algebraic cuspidal π of weight (k⃗, w⃗) and central character ψ_i.",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "AutomorphicGaloisRepresentations:R19.2",
+   "need": "Galois representations of Hilbert modular forms (Taylor, Invent. Math. 98 (1989)) on the definite quaternionic Hecke algebras, with trace and determinant, and Wiles' ordinary shape (Invent. Math. 94 (1988)): if φ(𝐔_{ϖ_x}) ≠ 0 then ρ̄_φ|_{G_x} ∼ (χ₁ *; 0 χ₂) with χ₂ unramified and χ₂(Frob_x) = φ(𝐔_{ϖ_x}).",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-5-1-corollary-5-2-weight-reduction"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
@@ -2198,10 +2480,11 @@
    "status": "partial",
    "remaining": [
     "Theorem 1.6's soluble-image branch (Tunnell; Rogawski–Tunnell) is requested from GL2AutomorphicRepresentationsAndTransfer R17.5.",
-    "Corollary 1.7 has no printed proof (gap); Taylor 2006 Lemmas 1.3, 5.3 and 5.6 are unread (gap).",
-    "The use of Skinner–Wiles 2001 in the case of OrdinaryAutomorphicFormsAndModularityLifting/E11 (gap)."
+    "Corollary 1.7 has no printed proof (gap); Khare's Lemma 2.2 and Conrad–Diamond–Taylor 3.1.1, 4.2.4 are unread (gap).",
+    "The use of Skinner–Wiles 2001 in the case of OrdinaryAutomorphicFormsAndModularityLifting/E11 (gap).",
+    "Skinner–Wiles, Base change and a problem of Serre (Duke 2001), used by Taylor 2006 Corollary 5.5 (gap)."
    ],
-   "notes": "KW II Theorem 6.1 and KW Annals Theorem 2.1 (carried, re-verified). Checkpoint 2 carries the draft's four Taylor nodes: Lemma 1.5, the modularity of the auxiliary abelian variety and its transfer to ρ̄, Theorem 1.6 with Corollary 1.7, and Taylor 2006 Proposition 4.1, Corollary 4.6 and Theorem 5.7; KW II Theorem 6.1 and KW Annals Theorem 2.1 now cite them."
+   "notes": "KW II Theorem 6.1 and KW Annals Theorem 2.1 (carried, re-verified). Checkpoint 2 carries the draft's four Taylor nodes: Lemma 1.5, the modularity of the auxiliary abelian variety and its transfer to ρ̄, Theorem 1.6 with Corollary 1.7, and Taylor 2006 Proposition 4.1, Corollary 4.6 and Theorem 5.7; KW II Theorem 6.1 and KW Annals Theorem 2.1 now cite them. Checkpoint 3 plans Taylor 2006 §5 and the §1 lemmas it uses (6 nodes): Lemma 1.3 with the Hecke-algebra Galois representations, Lemma 1.4 with Corollary 1.5, Lemma 5.1 with Corollary 5.2, Lemma 5.3, Lemmas 5.4–5.6 with Corollary 5.5, and Theorem 5.7, now its own node."
   },
   {
    "stageId": "PotentialModularityAndCompatibleSystems:R23.4",
@@ -2246,12 +2529,13 @@
    "detail": "Verified: the places where each import is invoked (Remarque 1.4: Chow's lemma EGA II 5.6; Lemme 2.3: Bertini, Jouanolou ch. I thm 6.3; 3.4: representability of Pic via Murre, SGA 6 XII 1.5; Lemme 3.10.2: Altman-Kleiman, Compactifying the Picard scheme I-II; Lemme 3.8: strong approximation, Cassels-Fröhlich II section 15, extended by the source 'immédiatement' from R to a projective R-module; Lemme 3.10.4: Dirichlet unit lattice, Cassels-Fröhlich II section 18; Lemme 3.6: vanishing of R^1 by duality on the Gorenstein X-bar). Not verified: any of these imported statements; none of the cited books was read. Next action: assign them to foundational suppliers (SchemeAndStackFoundations, AlgebraicModuliForArithmeticGeometry for Pic and Chow, ClassicalArithmeticCompletion or AnalyticNumberTheory for strong approximation and S-units) and check each supplier stage text before linking."
   },
   {
-   "title": "Taylor 2006 Lemmas 1.3, 5.3, 5.6 (used for Theorem 5.7) and Khare's Lemma 2.2 (p = 3) are unread",
+   "title": "Khare's Lemma 2.2 (p = 3) and Conrad–Diamond–Taylor Lemmas 3.1.1 and 4.2.4 (used by Taylor 2006 §5) are unread",
    "neededBy": [
     "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F",
-    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l"
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemmas-5-4-5-6-weight-and-level",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one"
    ],
-   "detail": "Verified: Theorem 5.7's printed proof (p. 771) cites Lemmas 5.6, 1.3 and 5.3; KW II (p. 56) says p = 3 is excluded in section 5 of [59] and lifted by Lemma 2.2 of [33] = Khare, Serre's modularity conjecture: the level one case (Duke 134). Not verified: these lemmas. The library copy of [33] is arXiv:math/0504080v1, whose numbering was reported by an earlier review to differ from the Duke version. Next action: read Taylor 2006 section 5 (pp. 763-770) in the downloaded copy, and obtain the Duke version of Khare's paper."
+   "detail": "Verified: Theorem 5.7's printed proof (p. 771) cites Lemmas 5.6, 1.3 and 5.3; KW II (p. 56) says p = 3 is excluded in section 5 of [59] and lifted by Lemma 2.2 of [33] = Khare, Serre's modularity conjecture: the level one case (Duke 134). Not verified: these lemmas. The library copy of [33] is arXiv:math/0504080v1, whose numbering was reported by an earlier review to differ from the Duke version. Next action: read Taylor 2006 section 5 (pp. 763-770) in the downloaded copy, and obtain the Duke version of Khare's paper. Checkpoint 3 read and planned Taylor 2006 Lemmas 1.3, 1.4, 5.1, 5.3, 5.4, 5.6 and Corollaries 1.5, 5.2, 5.5; what remains unread is Khare's Lemma 2.2 and the two Conrad–Diamond–Taylor lemmas (JAMS 12 (1999)) that Lemma 5.4 uses."
   },
   {
    "title": "KW II Theorem 8.2 and the Gross/Coleman-Voloch weight results are imported into Theorem 6.1",
@@ -2280,7 +2564,7 @@
     "PotentialModularityAndCompatibleSystems:R23.3/modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar",
     "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l"
    ],
-   "detail": "Verified on the page images: Taylor 2002 (printed p. 15) applies Theorem 5.1 of [SW3] to T_℘A with residual representation (Ind_{G_L}^{G_F} ψ̄)|_{G_E}, L totally imaginary with every place above p split (printed p. 9); Taylor 2006 (pp. 762–763) applies Theorem 5.1 of [SW2] to T_{℘₁}B with residual Ind_{G_{FM}}^{G_F}(χ_{℘₁}), M imaginary quadratic and p₁ split. Both residual representations are induced from a CM field in which the places above p split, where Skinner–Wiles 2001's Lemma 2.2 bound fails (OrdinaryAutomorphicFormsAndModularityLifting/E11), so the planned R21.5 theorem excludes them. Taylor 2006 names an alternative through Skinner–Wiles 1999, its Theorem 3.3 and descent; for Taylor 2002 a lifting theorem assuming residual irreducibility over E(ζ_p) might serve (L ⊄ F(ζ_p) is part of Taylor's choice). Not checked."
+   "detail": "Verified on the page images: Taylor 2002 (printed p. 15) applies Theorem 5.1 of [SW3] to T_℘A with residual representation (Ind_{G_L}^{G_F} ψ̄)|_{G_E}, L totally imaginary with every place above p split (printed p. 9); Taylor 2006 (pp. 762–763) applies Theorem 5.1 of [SW2] to T_{℘₁}B with residual Ind_{G_{FM}}^{G_F}(χ_{℘₁}), M imaginary quadratic and p₁ split. Both residual representations are induced from a CM field in which the places above p split, where Skinner–Wiles 2001's Lemma 2.2 bound fails (OrdinaryAutomorphicFormsAndModularityLifting/E11), so the planned R21.5 theorem excludes them. Taylor 2006 names an alternative: 'the main theorem of [SW1], theorem 3.3 of this paper and a standard descent argument', where [SW1] is Skinner–Wiles, Base change and a problem of Serre (Duke 2001, itself unread) and Theorem 3.3 is a crystalline R = T theorem for residual representations irreducible over F(√((−1)^{(l−1)/2}l)) (checkpoint 2 misread [SW1] as Skinner–Wiles 1999); for Taylor 2002 a lifting theorem assuming residual irreducibility over E(ζ_p) might serve (L ⊄ F(ζ_p) is part of Taylor's choice). Not checked. The issue is partly known: Khare–Wintenberger I cite C. Skinner, 'Nearly ordinary deformations of residually dihedral representations' ('to appear'; a 2009 preprint), as a correction to Skinner–Wiles 2001; it was not obtained."
   },
   {
    "title": "Taylor 2002 Lemma 1.3 and Corollary 1.7 have no printed proofs",
@@ -2289,6 +2573,13 @@
     "PotentialModularityAndCompatibleSystems:R23.3/taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l"
    ],
    "detail": "Verified on the page images: Lemma 1.3 (printed p. 12) is 'proved in the same way as lemma 1.2 but is much easier so we leave the details to the reader'; Corollary 1.7 (printed p. 16) is stated without proof."
+  },
+  {
+   "title": "Skinner–Wiles, Base change and a problem of Serre (Duke 2001), used by Taylor 2006 Corollary 5.5, is unread and has no owner",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemmas-5-4-5-6-weight-and-level"
+   ],
+   "detail": "Verified: Taylor 2006, p. 769, obtains Corollary 5.5 by 'combining the lemma 5.4 with the main theorem of [SW1]', [SW1] = Skinner–Wiles, Duke Math. J. 107 (2001), 15–25 (p. 778). The same paper is a gap of OrdinaryAutomorphicFormsAndModularityLifting (used in Skinner–Wiles 2001 Theorem 5.1) and is used by Taylor's KW Annals Theorem 2.1; it is not freely readable."
   }
  ],
  "sourceIssues": [

@@ -1,5 +1,6 @@
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Linarith
+import Mathlib.Data.ZMod.Basic
 
 /-!
 # Suggested Lean forms: PotentialModularityAndCompatibleSystems, part R23.1 (R23.1–R24.2)
@@ -75,5 +76,16 @@ example (l n : ℕ) (hn1 : 1 ≤ n) (hn : n < l - 1) (h : (l - 1) ∣ (n - 1)) :
   · omega
   · have := Nat.le_of_dvd hpos h
     omega
+
+/-! ### Checkpoint 3: Taylor 2006 §5 -/
+
+/-- `R23.3/taylor-2006-lemma-5-3-weight-shift`: the identity
+`(aX + cY)^l (bX + dY) − (aX + cY)(bX + dY)^l = (ad − bc)(X^l Y − X Y^l)` over `𝔽_l` rests on `a^l = a`. -/
+example : ∀ a : ZMod 5, a ^ 5 = a := by decide
+
+/-- `R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one`: `c` applications of the weight shift by `l + 1`
+restore Serre's weight. -/
+example (k c l : ℕ) (h : 2 + c * (l + 1) ≤ k) : k - c * (l + 1) + c * (l + 1) = k :=
+  Nat.sub_add_cancel (le_trans (Nat.le_add_left _ _) h)
 
 end TauCeti.PotentialModularity.SuggestedTest
