@@ -1,7 +1,8 @@
-# PAPER-KEDLAYA-LIU-15 — extraction and routing (checkpoint 1: chapters 1–3)
+# PAPER-KEDLAYA-LIU-15 — extraction and routing (checkpoint 2: chapters 1–7)
 
-Agent: Claude Code. Session: cc-58621d. Issue: #4546. Status: **partial**. This checkpoint covers
-the introduction and chapters 1–3; chapters 4–9 follow. The handoff note is
+Agent: Claude Code. Sessions: cc-58621d (checkpoint 1, chapters 1–3) and cc-fb70e5 (checkpoint 2,
+chapters 4–7). Issue: #4546. Status: **partial**. The two checkpoints cover the introduction and
+chapters 1–7; chapters 8–9 follow. The handoff note is
 `research/blueprint/handoff/PAPER-KEDLAYA-LIU-15.md`.
 
 ## Source
@@ -29,7 +30,7 @@ Kedlaya and Liu develop relative p-adic Hodge theory from Witt vectors and nonar
 - descriptions of étale Z_p- and Q_p-local systems, and of their pro-étale cohomology, on perfectoid
   and analytic spaces through ϕ-modules.
 
-This checkpoint extracts the three foundational chapters:
+Checkpoint 1 extracted the three foundational chapters:
 
 - **Chapter 1 (commutative algebra and descent).** It covers:
   - finite projective and faithfully flat modules;
@@ -61,9 +62,46 @@ This checkpoint extracts the three foundational chapters:
     finite étale algebras;
   - descent of the perfectoid property, and preperfectoid algebras.
 
+Checkpoint 2 extracts chapters 4–7:
+
+- **Chapter 4 (slope theory over an analytic field).** A review, mostly with proofs by reference to
+  Kedlaya's earlier papers:
+  - the Robba ring ℛ_K and its bounded and integral subrings over a discretely valued field;
+  - Kedlaya's slope filtration theorem;
+  - the extended Robba rings ℛ̃_L of a perfect analytic field L: they are Bézout, with Newton
+    polygons of elements and Frobenius invariants;
+  - the slope filtration and Dieudonné–Manin classification over ℛ̃_L;
+  - the embedding ℛ_K → ℛ̃_L.
+
+  Remarks 4.2.19 and 4.3.6 correct two of Kedlaya's earlier papers, not this one.
+- **Chapter 5 (relative Robba rings).** For a perfect uniform Banach F_p-algebra R:
+  - the rings ℛ̃^{int,r}_R, ℛ̃^{bd,r}_R, ℛ̃^{[s,r]}_R, ℛ̃^r_R, ℛ̃_R and ℛ̃⁺_R, cut out of W(R) by
+    the norms λ(α^r);
+  - their topologies, units, intersections and splittings;
+  - their sheaf property and Kiehl glueing over Spa(R, R⁺) and over covers of the interval;
+  - Rodriguez's theorem that they are relatively perfectoid;
+  - the maps between their Gel'fand spectra and that of R, and the radius fibration;
+  - finite étale algebras over them, and almost purity proved through Witt vectors.
+- **Chapter 6 (ϕ-modules and vector bundles).**
+  - ϕ^a-modules over these rings, and ϕ^a-bundles glued over annuli;
+  - ampleness of 𝒪(1): large twists are globally generated with surjective ϕ^a − 1;
+  - the graded ring P of Frobenius eigenvectors, and the equivalence between ϕ^a-modules and
+    vector bundles on Proj(P), the relative Fargues–Fontaine curve;
+  - the Prüfer property over a field;
+  - ϕ-cohomology computed on an annulus.
+- **Chapter 7 (slopes in families).**
+  - rank, degree and slope as functions on ℳ(R);
+  - pure models, the openness of the pure and étale loci, and the equivalence of pointwise purity
+    with purity;
+  - semicontinuity and boundedness of the slope polygon;
+  - splitting off a constant vertex, and the slope filtration where the polygon is constant;
+  - pointwise detection of H^1 for negative slopes.
+
 ## What the libraries and the atlas already have
 
-The 172 items of this checkpoint are 18 library, 80 planned and 74 missing.
+The 172 items of checkpoint 1 are 18 library, 80 planned and 74 missing. The 56 items of checkpoint
+2 (items 173–228) are 28 planned and 28 missing, so the result has 228 items: 18 library, 108
+planned and 102 missing.
 
 - **Mathlib** has much of the commutative algebra: finite projective and faithfully flat modules,
   étale algebras and FÉt(R), henselian pairs in the root-lifting form, and effective faithfully flat
@@ -101,9 +139,36 @@ The 172 items of this checkpoint are 18 library, 80 planned and 74 missing.
   - VectorBundlesAndIsocrystals VB0 and PhiGammaModulesAndIwasawaCohomology PG.0 plan semilinear
     ϕ-actions.
 
+For chapters 4–7:
+
+- **Libraries.** Neither library has Robba rings, ϕ-modules over them or slope theory, so none of
+  these items is `library`.
+- **PadicDifferentialEquationsAndRigidCohomology RD.0–RD.2** plans all fifteen items of chapter 4:
+  - RD.0 plans the rings: Robba rings, extended Robba rings, Bézout and Newton polygons;
+  - RD.1 and RD.2 plan the slope theory: HN polygons, the slope filtration theorem,
+    Dieudonné–Manin, special and generic polygons, and descent to the bounded ring.
+
+  The RD packet already records the corrections of Remark 4.2.19 among its findings on *Slope
+  filtrations revisited*.
+- **RelativeFarguesFontaine RF0:integral-Y** plans the lifting of rational localizations of the base
+  (Fargues–Scholze II.1.3).
+- **PerfectoidSpaces** plans almost mathematics (P0) and almost purity (P3).
+- **VectorBundlesAndIsocrystals VB1 and VB2:ampleness, with RelativeFarguesFontaine RF1 and RF3,**
+  plan most of chapter 6:
+  - ϕ-bundles as vector bundles on X_S;
+  - ampleness;
+  - the graded ring and the comparison with the Proj curve;
+  - ϕ-cohomology on annuli.
+
+  They do this for a perfectoid S; the paper does it for any perfect uniform R.
+- **VB4** plans semicontinuity of the HN polygon (Theorem 7.4.5) and the filtration on
+  constant-polygon loci (Corollary 7.4.10), from Fargues–Scholze II.2.19. **VB1** and VB4 give
+  rank, degree and slope. **RD.2** gives the special-above-generic comparison (Proposition 7.4.3),
+  which the paper cites from *Slope filtrations revisited*.
+
 ## Why these routes
 
-Every missing item extends a layer that exists, so all sixteen routes are `source` routes. Because
+Every missing item extends a layer that exists, so all nineteen routes are `source` routes. Because
 the Tau Ceti AdicSpaces roadmap cannot be re-planned, adic-space additions go to its campaign Part
 II and to AdicEtaleGeometry.
 
@@ -181,6 +246,11 @@ Chapter 3:
      unchanged by perfection);
    - the descent direction (Proposition 3.5.9 with Lemma 3.5.8, and Proposition 3.6.22);
    - Ω_{o_L/o_K} = 0 over a perfectoid field.
+
+   Checkpoint 2 adds the period-ring side from §5.5: finite étale algebras over R, W(R), ℛ̃^int_R
+   and the ϕ^{−1}-equivariant ones over ℛ̃^{int,r}_R correspond, compatibly with the untilt. The
+   route also names P3's almost purity theorem, which the paper proves from this comparison
+   (Theorem 5.5.9).
 13. **PhiGammaModulesAndIwasawaCohomology PG.1** receives Katz's correspondence over a perfect ring,
     with its lemmas and the Lang-torsor variant. PG.1 proves Fontaine's étale equivalence over a
     field; §3.2 is the same equivalence over any perfect F_p-algebra, which the later chapters use
@@ -195,10 +265,46 @@ Chapter 3:
     sheafiness, finite étale extensions and tensor products. R5 builds sousperfectoid spaces, the
     later class with the same purpose.
 
-**Prerequisites.** Kedlaya, *Nonarchimedean geometry of Witt vectors* (arXiv:1004.0466). The other
-works these chapters rely on are already cited in the atlas: Bhatt–Scholze, Henkel,
+Chapters 5–7 (checkpoint 2):
+
+17. **RelativeFarguesFontaine RF0:annuli and RF1** receive the relative extended Robba rings of
+    chapter 5: seventeen items, and one planned item named as a source.
+    - RF0:annuli builds the annulus rings of a perfectoid S as rational localizations of
+      Spa W(R⁺). RF1 glues Y_S and forms X_S.
+    - The paper builds the same rings for any perfect uniform R from the norms of route 14. It
+      proves what the curve needs from them: topologies and units, intersections and splittings,
+      the sheaf and Kiehl-glueing properties, relative perfectoidness (Rodriguez), the maps of
+      Gel'fand spectra and the radius fibration, finite étale functoriality, and reduction modulo
+      a primitive element.
+    - Lemma 6.1.4 (generation of the global sections of a ϕ-bundle) belongs with the glueing.
+    - The layers state none of this for a general perfect uniform R.
+18. **VectorBundlesAndIsocrystals VB2:ampleness** receives two facts about the Proj description
+    that the layer does not state:
+    - for an analytic field the rings P[f^{−1}]_0 are Prüfer, so coherent sheaves correspond to
+      finitely presented ϕ-modules (Theorem 6.3.14);
+    - the norms on twisted invariants, which define continuous group actions (Lemma 6.3.17,
+      Definition 6.3.18), used in §9.
+19. **VectorBundlesAndIsocrystals VB4** receives the eight missing items of chapter 7.
+    - VB4 proves semicontinuity and the constant-polygon filtration for perfectoid S through
+      Banach–Colmez spaces.
+    - The paper proves them for any perfect uniform R by spreading a good basis from a point of
+      ℳ(R). That needs the approximation lemmas, pure models and the openness of the pure locus,
+      the boundedness of the polygon, the splitting at a constant vertex of a varying polygon, and
+      the pointwise detection of H^1.
+    - The route also names the two planned items (Theorem 7.4.5, Corollary 7.4.10).
+
+**Prerequisites.** Three works the paper builds on are not cited by the atlas:
+
+- Kedlaya, *Nonarchimedean geometry of Witt vectors* (arXiv:1004.0466);
+- Kedlaya, *Slope filtrations for relative Frobenius* (Astérisque 319, arXiv:math/0609272), cited
+  fourteen times in chapters 4–7;
+- R. Rodriguez's thesis *Preperfectoid algebras* (UC San Diego, 2014), the source of Theorem 5.3.9.
+  Its eScholarship PDF refused the download (HTTP 403), so it was not read.
+
+The other works these chapters rely on are already cited in the atlas: Bhatt–Scholze, Henkel,
 Buzzard–Verberkmoes, Mihara, Berkovich, Bosch–Güntzer–Remmert, Gabber–Ramero, Katz (p-adic
-properties of modular schemes), Scholze and Scholze–Weinstein.
+properties of modular schemes), Scholze, Scholze–Weinstein, Kedlaya (*Slope filtrations revisited*
+and the local monodromy paper), Fargues–Fontaine, Hartl–Pink and Kiehl.
 
 ## Mistakes
 
@@ -260,6 +366,30 @@ Five are new:
   localizations of a preperfectoid algebra are preperfectoid, needs one more step: base change to K
   commutes with rational localization, and Theorem 3.6.14(c) applies.
 
+**Chapters 4–7.** Fifteen are recorded (E39–E53). Four are in the authors' errata: the proof of
+Corollary 5.2.12 (an index), the proof of Lemma 5.5.5 (ȳ_0 for x̄_0), the matrix 1 + X in the proof
+of Proposition 6.2.4, and H^1(M(−n)) for H^1(M(n)) in Remark 7.4.12. Eleven are new:
+
+- **Lemma 4.2.10 is false for general a and L.** It says that the ϕ^a-invariants of ℰ̃_L and ℛ̃_L
+  are the unramified extension of Q_p with residue field F_{p^a}. They are W(L^{ϕ^a})[p^{−1}]. For
+  L the completed perfection of F_p((t)) and a = 2 this is Q_p, since the solutions of x^{p²} = x
+  in L are 0 and roots of unity of order prime to p, which inject into the residue field F_p. The
+  uses of the lemma take a = 1 or L algebraically closed, so no other result is affected.
+- **Proof of Proposition 6.2.4.** The exponent s, which already names the endpoint rq^{−1/2} of the
+  interval, is used where the exponent u of the chosen element [π̄^u] is meant. So w_j = [π̄^u]v_j
+  + Σ X_{ij}v_i with error bound ε α(π̄)^{ut}. This compounds the known erratum in the same proof.
+- **Proofs of Lemmas 5.2.8 and 5.2.10.** Reversed signs: z = y − x and y = z − x where x − y and
+  x − z are meant.
+- **Proofs of Propositions 5.5.3 and 5.5.4.** A module over FÉt(ℛ̃^{int,r}_R) where a module over
+  ℛ̃^{int,r}_R is meant; a case list repeats ℛ̃^bd in place of ℛ̃^{bd,r}.
+- **Proof of Lemma 5.5.5.** ℛ̃^I_{R^+}/(z) for ℛ̃^I_R/(z), and x ∈ W(R^+)[p^{−1}] for x ∈ W(R^+).
+- **Remark 5.1.6.** The lift should lie in ℛ̃^{int,r}_R, not ℛ̃^{int,r}_S.
+- **Chapter 7:**
+  - Lemma 7.1.1 lets ϕ act where ϕ^a is meant;
+  - the proof of Lemma 7.1.2 defines F_{l+1} = U_{l+1}^{−1}Fϕ^a(U_l) where ϕ^a(U_{l+1}) is meant (the
+    second expression on the same line is right);
+  - the proof of Corollary 7.4.11 writes H^1_ϕ(M) for H^1_{ϕ^a}(M).
+
 ## Checks
 
 - `python3 scripts/check_paper.py` and `python3 research/blueprint/intake.py check-files` pass on
@@ -273,4 +403,10 @@ Five are new:
   declarations present in the pinned index, and each citation was read at its file and line.
 - The Remark 3.1.17 finding was checked against arXiv:1111.4914 (*Perfectoid spaces*) and
   arXiv:1303.5948 (the survey).
+- For checkpoint 2, chapters 4–7 were read in the LaTeX source, with every finding's printed text
+  compared with the v5 PDF page it cites.
+- Planned statuses come from every packet in `research/blueprint/packets/` and every decomposition
+  in `data/decompositions/`. A node counts as planning an item only if it states it; a node that
+  imports or requests it does not count.
+- The arXiv id of *Slope filtrations for relative Frobenius* was taken from the arXiv API.
 - Nothing was compiled; a paper job has no Lean file.
