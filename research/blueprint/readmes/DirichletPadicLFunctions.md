@@ -11202,3 +11202,205 @@ Five complete native lemmas verify finite inverse-character reindexing, transpor
 Exact cyclotomic controls check87 character reindexing terms,135 reindexed resolvent coefficients,648 inverse-substitution coefficients,135 actual-Gauss/formal-kernel coefficients,135 Bernoulli exponential coefficients,135 ordinary moments,45 a=1 zeros and four quadratic numeric values. Exact rational cyclotomic quotient arithmetic at conductors 3, 4, 5, 8 and 9, including the order-three character modulo 9. Expand the actual additive finite-polynomial Gauss formula independently of the formal tame kernel and compare coefficients through degree 8. Reindex every character weight; check unit inverse substitution coefficientwise; compute ordinary moments by Stirling conversion from Mahler coefficients and independently from rational Bernoulli polynomial evaluations. No finite sampling grid is used as a substitute for an actual moment, and no complex-to-p-adic cast is used. The largest observed discrepancy is 0 (exact arithmetic).
 
 Eight captured inputs changed since PR3309. The updated WORKERS memory, timeout and disk rules were read and applied. PMIA grows from332 to369 nodes and LAD from186 to199, preserving all old nodes whole; every consumed supplier node is unchanged. The PMIA suggested file preserves all old lines in order, adding imports and independent residue-restriction/L4 declarations. The compiled332-node artifact is reused; no new supplier declaration is called and compilation against the369-node source is not claimed. The changed multiquadratic and elliptic-curve link files contain no Dirichlet link in either revision. Global errata register changes do not alter this packet’s16 findings or sourceVersions.
+
+
+## The smoothed complex character kernel
+
+Partial continuation preserving all334 predecessor nodes whole. Six L2 nodes construct the root-free complex smoothed kernel, establish real analyticity, higher derivatives, origin L-values and exponential derivative decay, and compare with the source prime-power Gauss expression. All16 source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.
+
+The immediate predecessor’s complete published140–142/PDF41–43 reading is retained, and complete published143/PDF44 was freshly read on29September2026, including Remark5.6, the full proof of Theorem5.1 and Theorem5.7/Remark5.8. The exact existing complex-kernel construction, regularity, origin-derivative and derivative-decay nodes and signatures were read whole. Native higher-derivative statements were checked with their codomains: the scaling proof uses the vector-valued scalar-action theorem for R→C. Native Big-O composition, positive scaling, constant multiplication and addition were read at the pin. No new source finding or full-paper extraction is claimed.
+
+### The smoothed complex character kernel
+
+`DirichletPadicLFunctions:L2/smoothed-complex-character-kernel` — `DirichletPadic.smoothedCharacterKernel`
+
+Define g(t)=−f(t)+aχ(a)f(a t) using the existing smooth complex finite-character kernel f, including its specified value at t=0.
+
+**Hypotheses:** D is a positive natural modulus, represented by NeZero D; χ is the native DirichletCharacter C D; a is a natural number. Put f=tameComplexKernel χ and g=smoothedCharacterKernel χ a. Both are actual functions R→C, and every derivative is taken over R. χ(a) means evaluation at the residue of a in ZMod D. No p-adic topology or scalar action on C is assumed.
+
+**Proof:**
+
+1. Use the actual native real and complex carriers and the existing tameComplexKernel. The definition is a finite linear combination and real-variable composition; no infinite power series, Gauss denominator or new special-function carrier is used.
+2. The existing tameComplexKernel_zero gives g(0)=(aχ(a)−1)(−D⁻¹Σ_bχ(b)b.val). Thus the value at the removable point is fixed by the constructor, not by a separate choice of extension.
+3. At a=1, χ(1)=1 and the two terms cancel. At a=0 the second term vanishes and g=−f. These identities hold for every character, including principal characters. They do not authorize the nonprincipal L-value comparison for principal inputs.
+4. For D=1 the existing f is identically zero. For quadratic χ modulo3 and a=4 the value at zero is1; modulo4 with a=3 it is−2. These distinguish the coefficient aχ(a) and the leading negative sign.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-complex-kernel`.
+
+**Uses:**
+
+- RJW Lemma5.5 and proof of Theorem5.1: The complex kernel supplies derivatives matching the smoothed arithmetic moments.
+- smoothed-complex-gauss-comparison: Identify the root-free smooth function with the exact displayed Gauss expression.
+- Smoothed Mellin comparison: Global smoothness and derivative decay supply the existing normalized Mellin continuation interface.
+
+**API:**
+
+- `DirichletPadic.smoothedCharacterKernel_def` (characterisation): Expose g(t)=−f(t)+aχ(a)f(a t).
+- `DirichletPadic.smoothedCharacterKernel_zero` (simp): g(0)=(aχ(a)−1)(−D⁻¹Σ_bχ(b)b.val).
+- `DirichletPadic.smoothedCharacterKernel_one` (simp): g_1 is the zero function.
+- `DirichletPadic.smoothedCharacterKernel_zero_parameter` (simp): g_0(t)=−f(t) for all real t.
+
+**Tests:**
+
+- `SuggestedSmoothedComplexTests.kernel_level_one` (degenerate): The unique character modulo1 with a=3 gives the zero function.
+- `SuggestedSmoothedComplexTests.kernel_quadratic_three_mass` (computation): For quadratic χ modulo3 with χ(2)=−1, g_4(0)=1.
+- `SuggestedSmoothedComplexTests.kernel_quadratic_four_mass` (computation): For quadratic χ modulo4 with χ(3)=−1, g_3(0)=−2.
+- `SuggestedSmoothedComplexTests.kernel_one_parameter` (degenerate): For every χ, g_1 is identically zero.
+- `SuggestedSmoothedComplexTests.kernel_zero_parameter` (degenerate): For quadratic χ modulo3, g_0(0)=−1/3.
+
+**Acceptance:** The definition allows a=0 and principal characters, while the downstream source Gauss and L-function comparisons state their narrower hypotheses.
+
+**Source:** §5.1, the displayed complex fχ,a after Lemma5.4, published141/PDF42; Lemma5.5 and equation(5-2), published141–142/PDF42–43; Remark5.6 and the complete proof of Theorem5.1, published143/PDF44. Complete140–142 read in the immediate predecessor and complete143 freshly read on29September2026. Worker decomposition of the source complex smoothed kernel through the existing tameComplexKernel. The finite Gauss expression is compared only under the displayed primitive/root/nonzero-Gauss conditions. General real analyticity, higher derivatives and decay are justified using the actual complex-valued kernel and pinned real-variable calculus. No p-adic structure on C or field-identification convention is assumed; existing E1 and E11 remain unchanged.
+
+### Regularity of the smoothed character kernel
+
+`DirichletPadicLFunctions:L2/smoothed-complex-regularity` — `DirichletPadic.smoothedCharacterKernel_analyticAt`
+
+For every real t, g is real analytic at t, and g is globally C∞ over R.
+
+**Hypotheses:** D is a positive natural modulus, represented by NeZero D; χ is the native DirichletCharacter C D; a is a natural number. Put f=tameComplexKernel χ and g=smoothedCharacterKernel χ a. Both are actual functions R→C, and every derivative is taken over R. χ(a) means evaluation at the residue of a in ZMod D. No p-adic topology or scalar action on C is assumed.
+
+**Proof:**
+
+1. The existing tame-complex-regularity theorem makes f real analytic at every point. Compose it with the real-linear scaling t↦a t.
+2. Multiply this composition by the fixed complex scalar aχ(a), subtract f and use native analytic closure under composition and ring operations. The operations are over R, even though the values lie in C.
+3. Apply the existing analytic-to-ContDiff interface on the real line. The same proof includes a=0, t=0 and principal χ; no denominator cancellation is needed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/smoothed-complex-character-kernel`, `DirichletPadicLFunctions:L2/tame-complex-regularity`, `mathlib:AnalyticAt.comp`, `mathlib:AnalyticOnNhd.contDiff`.
+
+**API:**
+
+- `DirichletPadic.smoothedCharacterKernel_contDiff` (compatibility): The actual function g is globally C∞ over R.
+
+**Tests:**
+
+- `SuggestedSmoothedComplexTests.regularity_principal_origin` (compatibility): The principal character modulo3 with a=2 gives a real-analytic kernel at0.
+
+**Acceptance:** This is analyticity in the real variable t; it is not a claim that the kernel extends to an entire function of complex t.
+
+**Source:** §5.1, the displayed complex fχ,a after Lemma5.4, published141/PDF42; Lemma5.5 and equation(5-2), published141–142/PDF42–43; Remark5.6 and the complete proof of Theorem5.1, published143/PDF44. Complete140–142 read in the immediate predecessor and complete143 freshly read on29September2026. Worker decomposition of the source complex smoothed kernel through the existing tameComplexKernel. The finite Gauss expression is compared only under the displayed primitive/root/nonzero-Gauss conditions. General real analyticity, higher derivatives and decay are justified using the actual complex-valued kernel and pinned real-variable calculus. No p-adic structure on C or field-identification convention is assumed; existing E1 and E11 remain unchanged.
+
+### Higher derivatives of the smoothed kernel
+
+`DirichletPadicLFunctions:L2/smoothed-complex-higher-derivatives` — `DirichletPadic.smoothedCharacterKernel_iteratedDeriv`
+
+For every k≥0 and real t, g^(k)(t)=−f^(k)(t)+a^(k+1)χ(a)f^(k)(a t).
+
+**Hypotheses:** D is a positive natural modulus, represented by NeZero D; χ is the native DirichletCharacter C D; a is a natural number. Put f=tameComplexKernel χ and g=smoothedCharacterKernel χ a. Both are actual functions R→C, and every derivative is taken over R. χ(a) means evaluation at the residue of a in ZMod D. No p-adic topology or scalar action on C is assumed.
+
+**Proof:**
+
+1. Use global C∞ regularity of f to meet the native order-k differentiability hypotheses for the two summands.
+2. Apply iteratedDeriv_comp_const_smul to f:R→C, with real scaling a. This yields a^k acting by the real scalar action on C. The similarly named iteratedDeriv_comp_const_mul is restricted to scalar-valued functions and is not the interface used here.
+3. Convert the real scalar action through the ordinary real-to-complex inclusion, then use native higher-derivative addition, negation and constant complex multiplication. Multiplying by the outer aχ(a) gives a^(k+1)χ(a).
+4. Two complete native lemmas verify the R→C scaling formula and the full linear-combination derivative. The case k=0 reduces to the actual definition, including a=0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/smoothed-complex-character-kernel`, `DirichletPadicLFunctions:L2/smoothed-complex-regularity`, `mathlib:iteratedDeriv_comp_const_smul`, `mathlib:iteratedDeriv_add`, `mathlib:iteratedDeriv_neg`, `mathlib:iteratedDeriv_const_mul_field`.
+
+**Tests:**
+
+- `SuggestedSmoothedComplexTests.derivative_order_zero` (compatibility): The order-zero formula is exactly the constructor at every real t.
+- `SuggestedSmoothedComplexTests.derivative_one_parameter` (degenerate): Every derivative of g_1 is the zero function.
+
+**Acceptance:** The exponent is k+1. The native calculus is over R with complex codomain throughout.
+
+**Source:** §5.1, the displayed complex fχ,a after Lemma5.4, published141/PDF42; Lemma5.5 and equation(5-2), published141–142/PDF42–43; Remark5.6 and the complete proof of Theorem5.1, published143/PDF44. Complete140–142 read in the immediate predecessor and complete143 freshly read on29September2026. Worker decomposition of the source complex smoothed kernel through the existing tameComplexKernel. The finite Gauss expression is compared only under the displayed primitive/root/nonzero-Gauss conditions. General real analyticity, higher derivatives and decay are justified using the actual complex-valued kernel and pinned real-variable calculus. No p-adic structure on C or field-identification convention is assumed; existing E1 and E11 remain unchanged.
+
+### Smoothed origin derivatives and Dirichlet values
+
+`DirichletPadicLFunctions:L2/smoothed-complex-origin-values` — `DirichletPadic.smoothedCharacterKernel_iteratedDeriv_zero_eq_LFunction`
+
+If χ≠1, then for every k≥0, g^(k)(0)=(χ(a)a^(k+1)−1)L(χ,−k); the same formula holds for the derivative within[0,∞).
+
+**Hypotheses:** D is a positive natural modulus, represented by NeZero D; χ is the native DirichletCharacter C D; a is a natural number. Put f=tameComplexKernel χ and g=smoothedCharacterKernel χ a. Both are actual functions R→C, and every derivative is taken over R. χ(a) means evaluation at the residue of a in ZMod D. No p-adic topology or scalar action on C is assumed. Require χ≠1. Primitivity and a primitive root are not needed for this root-free complex comparison; a may be0. L is exactly the existing native DirichletCharacter.LFunction.
+
+**Proof:**
+
+1. Evaluate smoothed-complex-higher-derivatives at0 and use a·0=0. This gives the factor χ(a)a^(k+1)−1 times f^(k)(0).
+2. Import tame-complex-origin-derivatives and its LFunction comparison, which already handles every k≥0, including the separate native k=0 special-value convention. No new special-value theorem or L-function carrier is introduced.
+3. Global smoothness and native iteratedDerivWithin_eq_iteratedDeriv identify the derivative within[0,∞), including its endpoint, with the ordinary derivative.
+4. Equivalently insert the existing finite Bernoulli value for f^(k)(0). Exact controls compute the same derivatives from the formal finite kernel through degree8. In particular the quadratic examples give−14 at modulus3,a=4,k=2;14 at modulus4,a=3,k=2; and−14 at modulus5,a=6,k=1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/smoothed-complex-higher-derivatives`, `DirichletPadicLFunctions:L2/smoothed-complex-regularity`, `DirichletPadicLFunctions:L2/tame-complex-origin-derivatives`, `mathlib:iteratedDerivWithin_eq_iteratedDeriv`.
+
+**API:**
+
+- `DirichletPadic.smoothedCharacterKernel_iteratedDerivWithin_zero_eq_LFunction` (compatibility): The same value holds for the k-th real derivative within[0,∞) at0.
+
+**Tests:**
+
+- `SuggestedSmoothedComplexTests.derivative_quadratic_three_second` (computation): For quadratic χ modulo3 and a=4, g″(0)=−14.
+- `SuggestedSmoothedComplexTests.derivative_quadratic_four_second` (computation): For quadratic χ modulo4 and a=3, g″(0)=14.
+- `SuggestedSmoothedComplexTests.derivative_even_character_first` (computation): For quadratic χ modulo5, χ(2)=−1, and a=6, g′(0)=−14.
+
+**Acceptance:** The ordinary derivative has factor−(1−χ(a)a^(k+1)); the extra(−1)^k belongs to the normalized Mellin value, which is not asserted here.
+
+**Source:** §5.1, the displayed complex fχ,a after Lemma5.4, published141/PDF42; Lemma5.5 and equation(5-2), published141–142/PDF42–43; Remark5.6 and the complete proof of Theorem5.1, published143/PDF44. Complete140–142 read in the immediate predecessor and complete143 freshly read on29September2026. Worker decomposition of the source complex smoothed kernel through the existing tameComplexKernel. The finite Gauss expression is compared only under the displayed primitive/root/nonzero-Gauss conditions. General real analyticity, higher derivatives and decay are justified using the actual complex-valued kernel and pinned real-variable calculus. No p-adic structure on C or field-identification convention is assumed; existing E1 and E11 remain unchanged.
+
+### Decay of all smoothed kernel derivatives
+
+`DirichletPadicLFunctions:L2/smoothed-complex-derivative-decay` — `DirichletPadic.smoothedCharacterKernel_within_decay`
+
+If χ≠1 and a>0, every fixed-order derivative of g within[0,∞) is O(exp(−t)) as t→+∞.
+
+**Hypotheses:** D is a positive natural modulus, represented by NeZero D; χ is the native DirichletCharacter C D; a is a natural number. Put f=tameComplexKernel χ and g=smoothedCharacterKernel χ a. Both are actual functions R→C, and every derivative is taken over R. χ(a) means evaluation at the residue of a in ZMod D. No p-adic topology or scalar action on C is assumed. Require χ≠1 and the natural smoothing parameter a>0, hence a≥1. The implicit bound may depend on χ,a and the derivative order.
+
+**Proof:**
+
+1. The existing tame-complex-derivative-decay theorem gives O(exp(−t)) for every within derivative of f. Global smoothness identifies it with the ordinary derivative on the positive half-line.
+2. Positive scaling sends t→+∞ to a t→+∞. Apply native IsBigO.comp_tendsto to obtain the scaled bound O(exp(−a t)). Since a≥1, exp(−a t)≤exp(−t) for t≥0; native IsBigO.of_bound yields the desired rate1. A complete native proof checks the scaling and exponential comparison.
+3. Use smoothed-complex-higher-derivatives, native constant-multiple bounds and addition of bounds. The constants−1 and a^(k+1)χ(a) change only the implied bound.
+4. Identify ordinary and within derivatives of g on the positive half-line using its global smoothness. Eventual equality at +∞ transfers the bound to the exact derivative function required by normalized Mellin continuation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/smoothed-complex-higher-derivatives`, `DirichletPadicLFunctions:L2/smoothed-complex-regularity`, `DirichletPadicLFunctions:L2/tame-complex-derivative-decay`, `mathlib:Asymptotics.IsBigO.comp_tendsto`, `mathlib:Filter.tendsto_const_mul_atTop_of_pos`, `mathlib:Asymptotics.IsBigO.of_bound`, `mathlib:Asymptotics.IsBigO.const_mul_left`, `mathlib:Asymptotics.IsBigO.add`, `mathlib:iteratedDerivWithin_eq_iteratedDeriv`.
+
+**Tests:**
+
+- `SuggestedSmoothedComplexTests.decay_one_parameter` (degenerate): All within derivatives of g_1 satisfy the bound because they are zero.
+- `SuggestedSmoothedComplexTests.decay_quadratic_three` (compatibility): For quadratic χ modulo3 and a=4, g(t) tends to0 as t→+∞.
+
+**Acceptance:** Rate1 uses a positive natural parameter; no uniform bound across derivative orders or characters is claimed.
+
+**Source:** §5.1, the displayed complex fχ,a after Lemma5.4, published141/PDF42; Lemma5.5 and equation(5-2), published141–142/PDF42–43; Remark5.6 and the complete proof of Theorem5.1, published143/PDF44. Complete140–142 read in the immediate predecessor and complete143 freshly read on29September2026. Worker decomposition of the source complex smoothed kernel through the existing tameComplexKernel. The finite Gauss expression is compared only under the displayed primitive/root/nonzero-Gauss conditions. General real analyticity, higher derivatives and decay are justified using the actual complex-valued kernel and pinned real-variable calculus. No p-adic structure on C or field-identification convention is assumed; existing E1 and E11 remain unchanged.
+
+### The source complex smoothed Gauss formula
+
+`DirichletPadicLFunctions:L2/smoothed-complex-gauss-comparison` — `DirichletPadic.smoothedCharacterKernel_eq_gauss`
+
+For q=p^n, g(t)=G⁻¹Σ_(c∈ZMod q)χ⁻¹(c)[(ε^(c.val)exp(t)−1)⁻¹−a((ε^(c.val))^a exp(a t)−1)⁻¹] for every real t, including0.
+
+**Hypotheses:** p is prime, n≥1, q=p^n, χ is the native primitive DirichletCharacter C q, ε is a primitive q-th root in C, and e=AddChar.zmodChar(q,ε). Retain G=gaussSum(χ⁻¹,e)≠0. The natural a satisfies p∤a. Use the actual root-free smoothedCharacterKernel χ a and ordinary complex inverses.
+
+**Proof:**
+
+1. Apply complex-gauss-kernel-comparison to f(t) and f(a t). Its normalization is f=−G⁻¹ times the weighted resolvent, so the constructor gives the first positive resolvent minus aχ(a) times the resolvent at a t.
+2. The residue of a is a unit modulo p^n. Reindex the second finite sum by c↦a c and use χ(a)χ⁻¹(a c)=χ⁻¹(c). Additive-character natural-scalar compatibility identifies ε^((a c).val) with(ε^(c.val))^a. A complete native complex-character proof checks the reindexing factor.
+3. Native finite algebra then gives the displayed two-fraction formula. Existing complex-gauss-denominator proves every nonzero-residue denominator is nonzero for all real t, including0. For the second denominator use the nonzero residue a c and input a t. The c=0 term vanishes by χ⁻¹(0)=0 before cancellation.
+4. For a=1 the terms cancel. Exact cyclotomic controls compare the two expressions at exp(t)=1/2,1,2,3, treating t=0 through the constructor’s finite value. For quadratic χ modulo3,a=4 the value at log2 is−2/39; modulo4,a=3 it is−10/13.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/smoothed-complex-character-kernel`, `DirichletPadicLFunctions:L2/complex-gauss-kernel-comparison`, `DirichletPadicLFunctions:L2/complex-gauss-denominator`, `mathlib:ZMod.isUnit_iff_coprime`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:Units.mulLeft_bijective`, `mathlib:MulChar.inv_apply_eq_inv'`, `mathlib:MulChar.apply_ne_zero_iff`, `mathlib:MulChar.map_zero`, `mathlib:AddChar.zmodChar_apply`, `mathlib:AddChar.map_nsmul_eq_pow`.
+
+**Tests:**
+
+- `SuggestedSmoothedComplexTests.gauss_one_parameter` (degenerate): For a=1 the displayed Gauss expression is0.
+- `SuggestedSmoothedComplexTests.gauss_zero_residue` (degenerate): At modulus3 the c=0 summand is0 at every real t, including0.
+- `SuggestedSmoothedComplexTests.kernel_quadratic_three_log_two` (computation): For quadratic χ modulo3 and a=4, g(log2)=−2/39.
+- `SuggestedSmoothedComplexTests.kernel_quadratic_four_log_two` (computation): For quadratic χ modulo4 and a=3, g(log2)=−10/13.
+
+**Acceptance:** The identity holds at the removable point and for negative real t. It does not identify formal evaluation with an analytic series or identify complex and p-adic fields. Generic primitive Gauss nonvanishing remains explicit.
+
+**Source:** §5.1, the displayed complex fχ,a after Lemma5.4, published141/PDF42; Lemma5.5 and equation(5-2), published141–142/PDF42–43; Remark5.6 and the complete proof of Theorem5.1, published143/PDF44. Complete140–142 read in the immediate predecessor and complete143 freshly read on29September2026. Worker decomposition of the source complex smoothed kernel through the existing tameComplexKernel. The finite Gauss expression is compared only under the displayed primitive/root/nonzero-Gauss conditions. General real analyticity, higher derivatives and decay are justified using the actual complex-valued kernel and pinned real-variable calculus. No p-adic structure on C or field-identification convention is assumed; existing E1 and E11 remain unchanged.
+
+**Remaining:** The root-free complex smoothed character kernel is now constructed, real analytic at every point, equipped with all-order derivatives and source special values at0, proved to have exponential derivative decay for positive natural smoothing parameters, and compared with the exact primitive p-power Gauss expression. Next instantiate the existing normalized Mellin continuation: prove raw convergence and the half-plane χ(−1)Γ(s)(1−χ(a)a^(1−s))L(χ,s) identity using native positive scaling, then continue it and state the normalized negative values. Compare the actual p-adic moment formula with these complex values through an explicit common coefficient field. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open.
+
+### The smoothed complex character kernel validation
+
+All 334 predecessor nodes, 397 baseline records, 16 findings and sourceVersions remain whole. This checkpoint adds 6 nodes, 12 named suggested declarations and 17 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 515 reachable nodes, 2447 edges and 522 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 964 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Four complete native lemmas verify real-to-complex input scaling for higher derivatives, the smoothed derivative formula, preservation of exponential decay under scaling by a≥1, and complex inverse-character finite reindexing. The probe elaborates against 1880 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact cyclotomic controls verify60 kernel/Gauss values,288 nonzero denominator pairs,135 origin derivatives,20 a=1 zeros,20 a=0 values, five quadratic origin values and two exact values at log2. Exact arithmetic in rational cyclotomic quotient fields at conductors3,4,5,8,9. Set exp(t) to1/2,1,2,3 and compare the root-free complex kernel with the finite Gauss two-fraction expression; exp(a t) is the exact rational power. At t=0 evaluate the existing smooth extension by its finite character sum. Compare ordinary derivatives through degree8 using Stirling conversion of formal Taylor coefficients against independently evaluated rational Bernoulli polynomials. These are finite algebraic controls of the real-analytic formulas, not numerical complex approximations or proofs of decay. The largest observed discrepancy is 0 (exact arithmetic).
+
+Only the two global errata-register inputs changed since PR4640; all16 Dirichlet findings were compared and remain identical. Every supplier and other captured input is unchanged. PMIA is still369 nodes with the preserved compiled332-node interface; no new supplier declaration is called or full369-node compilation claimed.
