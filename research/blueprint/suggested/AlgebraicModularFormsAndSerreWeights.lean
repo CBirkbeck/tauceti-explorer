@@ -298,3 +298,25 @@ example : (((Finset.range 3 ×ˢ Finset.range 3).filter (fun t : ℕ × ℕ => t
   decide
 
 end TauCeti.SerreWeight.SuggestedTest
+
+/-! ## R15.1–R15.3 (checkpoint 3)
+
+Katz's forms (`TauCeti.KatzModularForms.omega`, `forms`, `heckeT`) and the mod p operations
+(`TauCeti.ModPModularForms.hasseInvariant`, `filtration`, `theta`) need the compactified moduli schemes, the Tate curve
+and the Hecke correspondences (ModularCurvesPartII R12.5, R13.2, R13.3, R14.1), which are not at the pinned commits;
+they are not stated here. The examples below check the q-expansion arithmetic. They import Mathlib only and were
+compiled as a separate file against Mathlib `082e2d3`.
+-/
+
+
+namespace TauCeti.ModPModularForms.SuggestedTest
+
+/-- Test `hasse_E4_mod5` and Deligne's congruence `A = E_{p−1} mod p` (Katz 2.1): the non-constant coefficients of
+`E₄ = 1 + 240∑σ₃q^n`, `E₆ = 1 − 504∑σ₅q^n`, `E₁₀ = 1 − 264∑σ₉q^n` and `E₁₂ = 1 + (65520/691)∑σ₁₁q^n` are divisible by
+`p = 5, 7, 11, 13` respectively (and `691` is prime to `13`), so each reduces to the constant `1`. -/
+example : 240 % 5 = 0 ∧ 504 % 7 = 0 ∧ 264 % 11 = 0 ∧ 65520 % 13 = 0 ∧ 691 % 13 ≠ 0 := by norm_num
+
+/-- Test `theta_qexp`: the `q²`-coefficient of `θΔ` is `2 · τ(2) = −48 ≡ 2 (mod 5)`. -/
+example : (2 * (-24) : ℤ) % 5 = 2 := by norm_num
+
+end TauCeti.ModPModularForms.SuggestedTest

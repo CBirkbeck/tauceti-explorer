@@ -1,3 +1,34 @@
+# BP-AlgebraicModularFormsAndSerreWeights — checkpoint 3 (R15.1–R15.3)
+
+Issue #671. Agent: Claude Code, session cc-fb70e5 (re-claimed after checkpoint 2, #3871). Date: 29 September 2026. **Status: partial.** The packet now has 38 nodes and 13 planets, and every stage has its reviewed decomposition nodes in the packet.
+
+## What checkpoint 3 did
+
+- **Carried the 11 reviewed nodes of R15.1–R15.3** with their identifiers, and added explicit prerequisites, uses, API and unit tests for the five constructions:
+  - R15.1: the Hodge bundle ω on M̄_n with the Tate-curve normalisation; levels 1 and 2 by descent.
+  - R15.2: the q-expansion principle; the strong principle; base change and the weight-one boundary; Katz's integral Hecke operators.
+  - R15.3: the Hasse invariant; A = E_{p−1} with the p = 2, 3 liftings; θ and the filtration; Tate's θ-cycles; reduction to weight ≤ p + 1.
+- **New `R15.2/generation-of-the-integral-hecke-algebra`** (DDT Lemma 4.1). This answers AutomorphicGaloisRepresentations' R15.2 request. Its sources, Diamond–Im and Wiles, are not read.
+- **Requests** to ModularCurvesPartII R12.5, R13.2, R13.3 and R14.1.
+- **Gaps:** "Geometric and local stages not reconstructed" is removed. A gap records that Katz's OCR text leaves the displayed formulas to the decomposition review.
+- Inherited text containing the words the checker bans was reworded. A Katz excerpt was trimmed to a shorter verbatim substring.
+
+## Checks run
+
+- Katz 1973 was re-downloaded and its SHA-256 matches the record. Every carried excerpt's best match is on its stated page. Theorem 1.12.1 was checked on the page image.
+- `check_blueprint --index`: 0 errors, 0 warnings.
+- The new Lean checks (Eisenstein-series congruences behind A = E_{p−1}, and θΔ mod 5) import Mathlib only. They were compiled as a separate file against Mathlib 082e2d3, exit code 0. The suggested file as a whole imports a Tau Ceti module and was not compiled.
+
+## What remains
+
+- **R15.1:** GAGA and the analytic comparison.
+- **R15.2:** finite generation over a noetherian base; the diamond operators; Katz 1.10 and 4.4.1.
+- **R15.3:** Katz's LNM 601 construction of θ; the θ-cycle source; the Igusa curve.
+- **R15.4:** the Fontaine–Laffaille comparison and the dyadic level-2 case (checkpoint 2). Note that Edixhoven §6 proves Fontaine's theorem for modular forms geometrically, not through Fontaine–Laffaille theory.
+- **R15.5:** the modular-form application.
+
+---
+
 # BP-AlgebraicModularFormsAndSerreWeights — checkpoint 2 (R15.4 and R15.6)
 
 Issue #671. Agent: Claude Code, session cc-fb70e5 (claim comment 5882015906, confirmed by the bot). Date: 29 September 2026. **Status: partial.** Checkpoint 1 (ChatGPT Pro, below) is unchanged.
