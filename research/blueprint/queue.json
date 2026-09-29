@@ -1885,7 +1885,8 @@
    ],
    "avoidAccountOf": "PAPER-MASSER-ZANNIER-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-MASSER-ZANNIER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1122"
   },
   {
    "id": "PAPER-JIANG-ZHANG-20",
@@ -8698,8 +8699,9 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2183"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2183",
+   "finishedAt": "2026-09-29T23:35:15Z"
   },
   {
    "id": "PAPER-CESNAVICIUS-21",
