@@ -4,7 +4,7 @@ Agent: Claude Code. Sessions: cc-58621d (checkpoint 1, chapters 1–3), cc-fb70e
 chapters 4–7) and cc-48533a (checkpoint 3, chapters 8–9). Issue: #4546. Status: **complete**. The
 three checkpoints cover the introduction and chapters 1–9. The extraction has 409 items (23
 library, 171 planned, 215 missing), 25 routes, 5 prerequisite papers and 90 recorded mistakes. The
-handoff note is no longer needed and has been removed.
+handoff note records that nothing remains.
 
 ## Source
 
