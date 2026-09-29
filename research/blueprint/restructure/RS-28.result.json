@@ -5,7 +5,7 @@
       "action": "extend",
       "extends": "tauceti:TauCetiRoadmap/ClassFieldTheory",
       "title": "Class field theory, Part II: higher local fields and higher reciprocity",
-      "reason": "Begin with the ordinary local and number-field class-field-theory exports, retaining all eight stable HL layers. Add residue towers and higher topology, higher local/global reciprocity, and the equal-characteristic p-primary existence omitted by the base. The base is the first roadmap prerequisite; the function-field global branch is imported from FA.4."
+      "reason": "Begin with the ordinary local and number-field class-field-theory exports, retaining all eight stable HL layers. Add residue towers and higher topology, and higher local/global reciprocity. The equal-characteristic p-primary local existence omitted by the base is imported from FunctionFieldArithmetic:FA.4, which owns it (RS-04), as is the function-field global branch. The base is recorded as the declared base ('extends', with its declared roadmap edge), which is how the atlas carries the first prerequisite of section 15; the build sorts prerequisite lists alphabetically."
     }
   },
   "layers": {
@@ -30,7 +30,7 @@
     },
     "HigherLocalFieldsAndHigherClassFieldTheory:HL.2": {
       "action": "narrow",
-      "keeps": "Retain higher-field invariant maps, their degrees and Tate twists, higher-field cohomological-dimension calculations and finite-coefficient duality in each specified characteristic regime. Use the imported continuous cohomology, all-degree change-of-groups/cup-product API and dimension definitions. Retain local Artin–Schreier–Witt/logarithmic coefficient interfaces and wild pairings not supplied by the cited regimes, built on CR.4 ordinary de Rham–Witt and the M.5d differential theorem. Import ordinary local invariants and the local duality statements actually provided by CFT Layer 5; prove n=1 comparison on precisely their common hypotheses. Retain the equal-characteristic two-dimensional residue-pairing test. Do not infer a wild theorem from roots-of-unity Kummer theory or equate nondegeneracy with topological perfectness.",
+      "keeps": "Retain higher-field invariant maps, their degrees and Tate twists, higher-field cohomological-dimension calculations and finite-coefficient duality in each specified characteristic regime. Use the imported continuous cohomology, all-degree change-of-groups/cup-product API and dimension definitions. Retain the higher-field Artin–Schreier–Witt/logarithmic pairings and wild duality not supplied by the cited regimes. They are built on KTheoryFiniteLocalFields:L.5's logarithmic/DVR de Rham–Witt comparison for complete discrete valuation fields and CR.4's ordinary de Rham–Witt complexes; that comparison itself is L.5's, not this layer's. Use M.5d only for what it owns: the prime-power Bockstein induction and the filtered-colimit and inseparable/characteristic reductions. The residue-characteristic Bloch–Gabber–Kato identification K^M_n(F)/p^r ≅ W_rΩ^n_{F,log}, which these pairings need, has no owner in the atlas. M.5d keeps it separate, and L.5's comparison is an input to it rather than the theorem. It is requested from the layer that is to own it (L.5 widened, or a new layer; see RS-28.md), and is neither proved here nor taken from M.5d. Import ordinary local invariants and the local duality statements actually provided by CFT Layer 5; prove n=1 comparison on precisely their common hypotheses. Retain the equal-characteristic two-dimensional residue-pairing test. Do not infer a wild theorem from roots-of-unity Kummer theory or equate nondegeneracy with topological perfectness.",
       "suppliedBy": [
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
@@ -38,19 +38,21 @@
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
         "CrystallineCohomology:CR.4",
-        "MotivicEtaleKTheory:M.5d"
+        "MotivicEtaleKTheory:M.5d",
+        "KTheoryFiniteLocalFields:L.5"
       ],
-      "reason": "CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+      "reason": "CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery; CR.4 owns ordinary de Rham–Witt; L.5 owns the logarithmic/DVR de Rham–Witt comparison; M.5d owns its prime-power Bockstein induction and reductions, not the Bloch–Gabber–Kato differential theorem, which it keeps separate and which is requested (RS-28.md). Higher-field invariants and wild duality remain here."
     },
     "HigherLocalFieldsAndHigherClassFieldTheory:HL.3": {
       "action": "narrow",
-      "keeps": "Retain higher-dimensional Milnor-K reciprocity, finite-extension norm functoriality, finite abelian norm-subgroup correspondence, and the exact source-qualified kernel/completion theorem. At n=1 use the existing finite and absolute local Artin maps and arithmetic Frobenius normalization, with a map-level comparison under K_1^M(F)=F^×. Import the full mixed-characteristic correspondence and the equal-characteristic prime-to-p correspondence from CFT Layer 8. Own the missing equal-characteristic p-primary local existence, its combination into the full correspondence, and injectivity/completion results for the same existing Artin map, using HL.2 wild coefficients. Retain the two-dimensional unramified constant-field Frobenius and norm-index test; never identify a raw Milnor group with the profinite Galois target solely from density.",
+      "keeps": "Retain higher-dimensional Milnor-K reciprocity, finite-extension norm functoriality, finite abelian norm-subgroup correspondence, and the exact source-qualified kernel/completion theorem. At n=1 use the existing finite and absolute local Artin maps and arithmetic Frobenius normalization, with a map-level comparison under K_1^M(F)=F^×. Import the full mixed-characteristic correspondence and the equal-characteristic prime-to-p correspondence from CFT Layer 8. Import the equal-characteristic p-primary local existence, and the resulting injectivity/completion of the same existing Artin map, from FunctionFieldArithmetic:FA.4, which owns full equal-characteristic local and global function-field reciprocity (RS-04). Combine it with the CFT Layer 8 ranges into the full one-dimensional correspondence used at n=1, without reproving it. Retain the two-dimensional unramified constant-field Frobenius and norm-index test; never identify a raw Milnor group with the profinite Galois target solely from density.",
       "suppliedBy": [
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence"
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+        "FunctionFieldArithmetic:FA.4"
       ],
-      "reason": "The anchor constructs one-dimensional reciprocity in all characteristics, but excludes equal-characteristic p-primary existence and injectivity. Only the latter and the higher-dimensional theory are new."
+      "reason": "The anchor constructs one-dimensional reciprocity in all characteristics, but excludes equal-characteristic p-primary existence and injectivity; FunctionFieldArithmetic:FA.4 owns those, since RS-28 may not move mathematics out of a roadmap outside its family (RT-RS-28/2). Only the higher-dimensional theory is new here."
     },
     "HigherLocalFieldsAndHigherClassFieldTheory:HL.4": {
       "action": "narrow",
@@ -91,7 +93,7 @@
     {
       "source": "CrystallineCohomology:CR.4",
       "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
-      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery; CR.4 owns ordinary de Rham–Witt; L.5 owns the logarithmic/DVR de Rham–Witt comparison; M.5d owns its prime-power Bockstein induction and reductions, not the Bloch–Gabber–Kato differential theorem, which it keeps separate and which is requested (RS-28.md). Higher-field invariants and wild duality remain here."
     },
     {
       "source": "CrystallineCohomology:CR.4",
@@ -110,6 +112,11 @@
     },
     {
       "source": "FunctionFieldArithmetic:FA.4",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "reason": "Equal-characteristic p-primary local existence and the resulting injectivity/completion of the existing Artin map are owned by FA.4 (full equal-characteristic local and global function-field reciprocity, RS-04); HL.3 imports them for the full one-dimensional correspondence at n=1 and does not reprove them."
+    },
+    {
+      "source": "FunctionFieldArithmetic:FA.4",
       "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
       "reason": "Imported prerequisite: The two dimension-one global branches have distinct owners. The anchor is a number-field roadmap, whereas FA.4 supplies curves over finite fields; higher-global reciprocity remains HL.6."
     },
@@ -119,11 +126,6 @@
       "reason": "Preserve the imported part of the HL.6 interface used by HL.7; the surviving HL.6 to HL.7 edge still supplies the new higher-field comparison."
     },
     {
-      "source": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
-      "target": "FunctionFieldArithmetic:FA.4",
-      "reason": "FA.4 specializes ordinary local reciprocity before its independent global construction. Import the anchor local map and existing correspondence, with HL.3 supplying precisely the missing equal-characteristic p-primary existence/injectivity; FA.4 owns the specialization comparison and global theory."
-    },
-    {
       "source": "K2SymbolsBrauer:T.2:symbols",
       "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
       "reason": "Imported prerequisite: The explicit K2 roadmap already states the all-degree algebraic theory; HL.1 adds higher-field topology and iteration/comparison on a residue tower."
@@ -204,9 +206,14 @@
       "reason": "Preserve the imported part of the HL.4 interface used by HL.7; the surviving HL.4 to HL.7 edge still supplies the new higher-field comparison."
     },
     {
+      "source": "KTheoryFiniteLocalFields:L.5",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "reason": "L.5 owns the logarithmic/DVR de Rham–Witt comparison for complete discrete valuation fields; HL.2 builds its higher-field Artin–Schreier–Witt pairings and wild duality on it and does not own the comparison."
+    },
+    {
       "source": "MotivicEtaleKTheory:M.5d",
       "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
-      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery; CR.4 owns ordinary de Rham–Witt; L.5 owns the logarithmic/DVR de Rham–Witt comparison; M.5d owns its prime-power Bockstein induction and reductions, not the Bloch–Gabber–Kato differential theorem, which it keeps separate and which is requested (RS-28.md). Higher-field invariants and wild duality remain here."
     },
     {
       "source": "MotivicEtaleKTheory:M.5d",
@@ -246,7 +253,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
       "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
-      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery; CR.4 owns ordinary de Rham–Witt; L.5 owns the logarithmic/DVR de Rham–Witt comparison; M.5d owns its prime-power Bockstein induction and reductions, not the Bloch–Gabber–Kato differential theorem, which it keeps separate and which is requested (RS-28.md). Higher-field invariants and wild duality remain here."
     },
     {
       "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
@@ -255,13 +262,8 @@
     },
     {
       "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
-      "target": "FunctionFieldArithmetic:FA.4",
-      "reason": "FA.4 specializes ordinary local reciprocity before its independent global construction. Import the anchor local map and existing correspondence, with HL.3 supplying precisely the missing equal-characteristic p-primary existence/injectivity; FA.4 owns the specialization comparison and global theory."
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
       "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
-      "reason": "Imported prerequisite: The anchor constructs one-dimensional reciprocity in all characteristics, but excludes equal-characteristic p-primary existence and injectivity. Only the latter and the higher-dimensional theory are new."
+      "reason": "Imported prerequisite: The anchor constructs one-dimensional reciprocity in all characteristics, but excludes equal-characteristic p-primary existence and injectivity, which FunctionFieldArithmetic:FA.4 supplies. Only the higher-dimensional theory is new here."
     },
     {
       "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
@@ -275,13 +277,8 @@
     },
     {
       "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
-      "target": "FunctionFieldArithmetic:FA.4",
-      "reason": "FA.4 specializes ordinary local reciprocity before its independent global construction. Import the anchor local map and existing correspondence, with HL.3 supplying precisely the missing equal-characteristic p-primary existence/injectivity; FA.4 owns the specialization comparison and global theory."
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
       "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
-      "reason": "Imported prerequisite: The anchor constructs one-dimensional reciprocity in all characteristics, but excludes equal-characteristic p-primary existence and injectivity. Only the latter and the higher-dimensional theory are new."
+      "reason": "Imported prerequisite: The anchor constructs one-dimensional reciprocity in all characteristics, but excludes equal-characteristic p-primary existence and injectivity, which FunctionFieldArithmetic:FA.4 supplies. Only the higher-dimensional theory is new here."
     },
     {
       "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
@@ -295,13 +292,8 @@
     },
     {
       "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
-      "target": "FunctionFieldArithmetic:FA.4",
-      "reason": "FA.4 specializes ordinary local reciprocity before its independent global construction. Import the anchor local map and existing correspondence, with HL.3 supplying precisely the missing equal-characteristic p-primary existence/injectivity; FA.4 owns the specialization comparison and global theory."
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
       "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
-      "reason": "Imported prerequisite: The anchor constructs one-dimensional reciprocity in all characteristics, but excludes equal-characteristic p-primary existence and injectivity. Only the latter and the higher-dimensional theory are new."
+      "reason": "Imported prerequisite: The anchor constructs one-dimensional reciprocity in all characteristics, but excludes equal-characteristic p-primary existence and injectivity, which FunctionFieldArithmetic:FA.4 supplies. Only the higher-dimensional theory is new here."
     },
     {
       "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
@@ -346,7 +338,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
       "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
-      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery; CR.4 owns ordinary de Rham–Witt; L.5 owns the logarithmic/DVR de Rham–Witt comparison; M.5d owns its prime-power Bockstein induction and reductions, not the Bloch–Gabber–Kato differential theorem, which it keeps separate and which is requested (RS-28.md). Higher-field invariants and wild duality remain here."
     },
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
@@ -356,7 +348,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
       "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
-      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery; CR.4 owns ordinary de Rham–Witt; L.5 owns the logarithmic/DVR de Rham–Witt comparison; M.5d owns its prime-power Bockstein induction and reductions, not the Bloch–Gabber–Kato differential theorem, which it keeps separate and which is requested (RS-28.md). Higher-field invariants and wild duality remain here."
     },
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
@@ -366,7 +358,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
       "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
-      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery; CR.4 owns ordinary de Rham–Witt; L.5 owns the logarithmic/DVR de Rham–Witt comparison; M.5d owns its prime-power Bockstein induction and reductions, not the Bloch–Gabber–Kato differential theorem, which it keeps separate and which is requested (RS-28.md). Higher-field invariants and wild duality remain here."
     },
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
@@ -376,7 +368,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
       "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
-      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery; CR.4 owns ordinary de Rham–Witt; L.5 owns the logarithmic/DVR de Rham–Witt comparison; M.5d owns its prime-power Bockstein induction and reductions, not the Bloch–Gabber–Kato differential theorem, which it keeps separate and which is requested (RS-28.md). Higher-field invariants and wild duality remain here."
     },
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
@@ -464,8 +456,15 @@
       ]
     },
     {
-      "target": "Prime-power norm-residue and characteristic-p differential comparison in the scope of M.5d",
+      "target": "Prime-power Bockstein induction and the filtered-colimit and inseparable/characteristic reductions of the norm-residue comparison, in the scope of M.5d (not the Bloch–Gabber–Kato differential theorem, which M.5d keeps separate)",
       "owner": "MotivicEtaleKTheory:M.5d",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2"
+      ]
+    },
+    {
+      "target": "Logarithmic/DVR de Rham–Witt comparison for complete discrete valuation fields",
+      "owner": "KTheoryFiniteLocalFields:L.5",
       "formerly": [
         "HigherLocalFieldsAndHigherClassFieldTheory:HL.2"
       ]
@@ -474,31 +473,21 @@
       "target": "Finite ordinary local reciprocity and arithmetic Frobenius normalization",
       "owner": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
       "formerly": [
-        "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
-        "FunctionFieldArithmetic:FA.4"
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.3"
       ]
     },
     {
       "target": "Absolute ordinary local Artin map with finite restrictions and norm-kernel description",
       "owner": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
       "formerly": [
-        "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
-        "FunctionFieldArithmetic:FA.4"
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.3"
       ]
     },
     {
       "target": "Full mixed-characteristic and prime-to-p equal-characteristic local existence/correspondence",
       "owner": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
       "formerly": [
-        "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
-        "FunctionFieldArithmetic:FA.4"
-      ]
-    },
-    {
-      "target": "Equal-characteristic p-primary local existence and resulting injectivity/completion of the existing Artin map",
-      "owner": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
-      "formerly": [
-        "FunctionFieldArithmetic:FA.4"
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.3"
       ]
     },
     {
