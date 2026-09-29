@@ -3,7 +3,7 @@
  "protocol": "blueprint-v1",
  "part": null,
  "status": "partial",
- "summary": "First packet for AdditiveCombinatorics. It exists to discharge contract 2 of the predecessor's handoff, which declined to create one because \"a narrow replacing packet would displace the nine accepted Green–Tao nodes without their required statement-level reconciliation\". So this packet preserves those nine nodes — accepted by independent-review-REVIEW-EXT-08-EXT-16 on 2026-09-16 against Green–Tao arXiv:math/0404188v6 — with their ids, statements, hypotheses, proof steps, acceptance tests and source locators byte-identical, and adds exactly what a decomposition lacks and a packet needs: `realises` and `prerequisites` on all nine, and an `api`, `uses` and unit tests on the two definitions and the one construction. The chain runs from the Gowers uniformity norms and the k-pseudorandomness conditions, through the generalised von Neumann estimate and the Koopman–von Neumann decomposition, to the relative Szemerédi theorem, and then from the W-trick and the Goldston–Yildirim majorant to the prime-progressions endgame. Szemerédi's theorem itself is imported and not proved: the source says so, and the gap records it. AC.0, AC.1 and AC.5 have no nodes, and the reviewed audit's duplicate findings are carried as requests rather than planned here. No layer is closed.",
+ "summary": "First packet for AdditiveCombinatorics. It exists to discharge contract 2 of the predecessor's handoff, which declined to create one because \"a narrow replacing packet would displace the nine accepted Green–Tao nodes without their required statement-level reconciliation\". So this packet preserves those nine nodes — accepted by independent-review-REVIEW-EXT-08-EXT-16 on 2026-09-16 against Green–Tao arXiv:math/0404188v6 — with their ids, statements, hypotheses, proof steps, acceptance tests and source locators byte-identical, and adds exactly what a decomposition lacks and a packet needs: `realises` and `prerequisites` on all nine, and an `api`, `uses` and unit tests on the two definitions and the one construction. The chain runs from the Gowers uniformity norms and the k-pseudorandomness conditions, through the generalised von Neumann estimate and the Koopman–von Neumann decomposition, to the relative Szemerédi theorem, and then from the W-trick and the Goldston–Yildirim majorant to the prime-progressions endgame. Szemerédi's theorem itself is imported and not proved: the source says so, and the gap records it. AC.0, AC.1 and AC.5 have no nodes, and the reviewed audit's duplicate findings are carried as requests rather than planned here. No layer is closed. AC.1 now decomposes Gowers–Green–Manners–Tao's proof of Marton's conjecture in characteristic 2 (18 nodes: Shannon entropy and the entropic Ruzsa calculus, the τ-minimization argument, the entropic PFR theorem and PFR with C = 12).",
  "scope": [
   "AdditiveCombinatorics:AC.0",
   "AdditiveCombinatorics:AC.1",
@@ -162,6 +162,55 @@
     "module": "Mathlib/Combinatorics/Additive/RuzsaCovering.lean",
     "provides": "If #(A * B) ≤ K #B with B nonempty, some F ⊆ A with #F ≤ K has A ⊆ F * (B / B). The index lists only this multiplicative declaration; its @[to_additive] twin ruzsa_covering_add is Ruzsa's covering lemma.",
     "checked": "Read at the Mathlib pin 082e2d37 on 2026-09-28."
+   },
+   {
+    "ref": "mathlib:Real.negMulLog",
+    "kind": "def",
+    "module": "Mathlib/Analysis/SpecialFunctions/Log/NegMulLog.lean",
+    "provides": "negMulLog x = −x log x, the summand of Shannon entropy.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-29."
+   },
+   {
+    "ref": "mathlib:Real.concaveOn_negMulLog",
+    "kind": "lemma",
+    "module": "Mathlib/Analysis/SpecialFunctions/Log/NegMulLog.lean",
+    "provides": "negMulLog is concave on [0, ∞): the Jensen input for H ≤ log|S| and I ≥ 0.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-29."
+   },
+   {
+    "ref": "mathlib:ProbabilityTheory.cond",
+    "kind": "def",
+    "module": "Mathlib/Probability/ConditionalProbability.lean",
+    "provides": "The conditional measure μ[|s] = (μ s)⁻¹ • μ.restrict s.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-29."
+   },
+   {
+    "ref": "mathlib:ProbabilityTheory.IndepFun",
+    "kind": "def",
+    "module": "Mathlib/Probability/Independence/Basic.lean",
+    "provides": "Independence of two random variables.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-29."
+   },
+   {
+    "ref": "mathlib:ProbabilityTheory.uniformOn",
+    "kind": "def",
+    "module": "Mathlib/Probability/UniformOn.lean",
+    "provides": "The uniform probability measure on a finite set (counting measure conditioned on it).",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-29."
+   },
+   {
+    "ref": "mathlib:MeasureTheory.Measure.map",
+    "kind": "irreducible_def",
+    "module": "Mathlib/MeasureTheory/Measure/Map.lean",
+    "provides": "Pushforward of a measure; the distribution of a random variable.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-29."
+   },
+   {
+    "ref": "mathlib:MeasureTheory.Measure.prod",
+    "kind": "irreducible_def",
+    "module": "Mathlib/MeasureTheory/Measure/Prod.lean",
+    "provides": "Product measure: the joint law of independent copies.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-29."
    }
   ]
  },
@@ -195,6 +244,20 @@
     "Not read by this session. The predecessor records reading physical PDF pp. 34–38 (notes 2 printed pp. 8–12), §6 and the opening §7 transition, on 2026-09-27; the sha256 above is its record. This packet transfers the findings E1–E3 with their ids unchanged, as that handoff directs, and makes no claim to have re-read the passages.",
     "Read by cc-fb70e5 on 2026-09-28, the file's sha256 re-verified as above: physical pp. 34–36 (notes 2 printed pp. 8–10) — the bi-character and its canonical dual-group alternative, normalised counting measure, the Fourier identities of Exercise 3 (inversion, Parseval, Plancherel, convolution, reflection) and their application to χ_A up to the fourth moment. These pages carry the AC.0 citations; nothing beyond them was read for AC.0.",
     "Re-read by cc-fb70e5 on 2026-09-28 (same file, sha256 re-verified): equations (1)–(5) on printed pp. 9–10 (physical pp. 35–36), for the AC.0 indicator estimates."
+   ]
+  },
+  {
+   "id": "GGMT-2025",
+   "title": "On a conjecture of Marton",
+   "authors": "W. T. Gowers, Ben Green, Freddie Manners, Terence Tao",
+   "edition": "Annals of Mathematics 201 (2025), no. 2, 515–549 (subscriber-only at the publisher; not read). Read: the authors' accepted manuscript (CC BY, Oxford Research Archive), collated with arXiv:2311.05762v2.",
+   "url": "https://ora.ox.ac.uk/objects/uuid:b9008ecd-9716-491e-9365-eee8d47d12e7/files/sdr26z060n",
+   "sha256": "9f1a17d63157d95a44378291b58f2e0d605cb0062a41a6ca82dc7b65b11e2b10",
+   "accessed": "2026-09-29",
+   "readSections": [
+    "2026-09-29 (cc-39fac3): the whole accepted manuscript, §§1–7 and Appendices A–B, pp. 1–33. Every AC.1 node cites its pages.",
+    "Findings E5 and E6 were checked on page images of the manuscript and are present in arXiv v2 (sha256 1e3e7bfb…).",
+    "Not read: the companion papers [6] (bounded torsion), [9] (sumsets and entropy revisited), Tao [37], and Liao [18]; Corollaries 1.4–1.7 and Theorem 1.3 depend on them and are not planned."
    ]
   }
  ],
@@ -1725,6 +1788,981 @@
     "module": "TauCeti.Combinatorics.Additive.Fourier",
     "namespace": "TauCeti.AdditiveFourier"
    }
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/shannon-entropy",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Shannon entropy, conditional entropy and mutual information",
+   "kind": "definition",
+   "statement": "For a random variable X with values in a finite type, H[X] = Σ_x p_X(x) log(1/p_X(x)) (natural logarithm), computed from the distribution. H[X|Y] = Σ_y p_Y(y) H[X|Y=y], I[X : Y] = H[X] + H[Y] − H[X,Y], and I[X : Y|Z] = Σ_z p_Z(z) I[(X|Z=z) : (Y|Z=z)].",
+   "hypotheses": [
+    "All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.",
+    "Mathlib has only the binary entropy function; this node is the general carrier, built on Real.negMulLog and ProbabilityTheory.cond. The planned names follow the Lean formalization of this paper (teorth.github.io/pfr), which is not a pinned library."
+   ],
+   "prerequisites": [
+    "mathlib:Real.negMulLog",
+    "mathlib:ProbabilityTheory.cond",
+    "mathlib:MeasureTheory.Measure.map",
+    "mathlib:ProbabilityTheory.IndepFun",
+    "mathlib:Real.concaveOn_negMulLog",
+    "mathlib:ProbabilityTheory.uniformOn"
+   ],
+   "proofSteps": [
+    "Define measureEntropy μ = Σ_s negMulLog(μ{s}) for a measure on a finite type, entropy X μ = measureEntropy(μ.map X), and the conditional and mutual versions as displayed.",
+    "Jensen (concavity of negMulLog): H[X] ≤ log|S| with equality exactly for the uniform distribution (A.1); and max_x p_X(x) ≥ e^{−H[X]} (A.2).",
+    "Chain rule H[X,Y] = H[X|Y] + H[Y] (A.3), by expanding p_{X,Y} = p_Y·p_{X|Y}.",
+    "I[X : Y] ≥ 0 with equality iff X, Y are independent (Jensen), giving (A.4)–(A.5). Conditioning and summing gives submodularity H[X|Y,Z] ≤ H[X|Z] (A.6)–(A.7), and I[X : Y|Z] ≥ 0 with the formula (A.9).",
+    "Invariance of entropy under injective relabelling, and H[U_s] = log|s| for the uniform distribution on a finite set."
+   ],
+   "acceptance": [
+    "The source recalls these facts in Appendix A and uses them throughout; none is specific to additive combinatorics."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/Entropy/Basic",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "entropy"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "Appendix A, (A.1)–(A.9), pp. 27–28 (AAM)",
+     "excerpt": "In this appendix we record some standard inequalities regarding Shannon entropy",
+     "match": "The definitions and standard inequalities."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.EntropicPFR.measureEntropy",
+     "role": "data",
+     "statement": "The entropy Σ_s −μ{s} log μ{s} of a measure on a finite type."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.condEntropy",
+     "role": "data",
+     "statement": "H[X|Y] = Σ_y p_Y(y) H[X|Y=y]."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.mutualInfo",
+     "role": "data",
+     "statement": "I[X : Y] = H[X] + H[Y] − H[X,Y]."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.condMutualInfo",
+     "role": "data",
+     "statement": "I[X : Y|Z] = Σ_z p_Z(z) I[(X|Z=z) : (Y|Z=z)]."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.entropy_le_log_card",
+     "role": "other",
+     "statement": "(A.1): H[X] ≤ log|S|."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.measureEntropy_eq_log_card_iff",
+     "role": "characterisation",
+     "statement": "(A.1): equality iff the distribution is uniform."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.exists_measure_singleton_ge",
+     "role": "other",
+     "statement": "(A.2): some value has probability at least e^{−H}."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.entropy_pair_eq_condEntropy_add",
+     "role": "relation",
+     "statement": "(A.3): the chain rule."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.condEntropy_le_entropy",
+     "role": "relation",
+     "statement": "(A.5): conditioning does not increase entropy."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.entropy_pair_eq_add_iff",
+     "role": "characterisation",
+     "statement": "(A.4): H[X,Y] = H[X] + H[Y] iff X and Y are independent."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.condEntropy_pair_le",
+     "role": "relation",
+     "statement": "(A.6): submodularity."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.condMutualInfo_nonneg",
+     "role": "other",
+     "statement": "(A.8): I[X : Y|Z] ≥ 0."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.entropy_comp_of_injective",
+     "role": "simp",
+     "statement": "Injective relabelling preserves entropy."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.measureEntropy_uniformOn",
+     "role": "simp",
+     "statement": "The uniform distribution on a nonempty finite set s has entropy log|s|."
+    }
+   ],
+   "tests": [
+    {
+     "name": "entropy_const",
+     "kind": "degenerate",
+     "statement": "A constant random variable has entropy 0."
+    },
+    {
+     "name": "entropy_uniform_bool",
+     "kind": "computation",
+     "statement": "The uniform distribution on Bool has entropy log 2."
+    },
+    {
+     "name": "mutualInfo_self",
+     "kind": "characterisation",
+     "statement": "I[X : X] = H[X]: a variable carries all of its own information."
+    },
+    {
+     "name": "mutualInfo_indep",
+     "kind": "compatibility",
+     "statement": "Independent X, Y (Mathlib's IndepFun) have I[X : Y] = 0."
+    }
+   ],
+   "uses": [
+    {
+     "where": "AdditiveCombinatorics:AC.1/entropic-ruzsa-distance",
+     "how": "The entropic Ruzsa distance is a combination of entropies."
+    },
+    {
+     "where": "Gowers–Green–Manners–Tao §§2–7 and Appendix A",
+     "how": "Every estimate is an entropy inequality."
+    }
+   ],
+   "planet": {
+    "name": "Shannon entropy and mutual information"
+   }
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/entropic-ruzsa-distance",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Entropic Ruzsa distance",
+   "kind": "definition",
+   "statement": "For probability distributions μ, ν on a finite abelian group G, d[μ; ν] = H[X′ − Y′] − ½H[X′] − ½H[Y′], where X′ ∼ μ and Y′ ∼ ν are independent (1.1). For random variables d[X; Y] = d[p_X; p_Y] depends only on the two distributions. The conditional distance is d[X|Z; Y|W] = Σ_{z,w} p_Z(z)p_W(w) d[(X|Z=z); (Y|W=w)] (A.14).",
+   "hypotheses": [
+    "All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.",
+    "X and Y need not be independent, or even defined on the same space."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/shannon-entropy",
+    "mathlib:MeasureTheory.Measure.prod"
+   ],
+   "proofSteps": [
+    "Define rdist(μ, ν) from the distribution of p.1 − p.2 under μ ⊗ ν, and condRdist as displayed.",
+    "Symmetry: X′ − Y′ and Y′ − X′ have the same entropy. Nonnegativity and |H[X] − H[Y]| ≤ 2d[X; Y] follow from max(H[X], H[Y]) ≤ H[X − Y] for independent X, Y (A.10)–(A.12).",
+    "For independent X, Y on one space, d[X; Y] = H[X − Y] − ½H[X] − ½H[Y]; for independent copies, the conditional distance is H[X′ − Y′|Z′, W′] − ½H[X′|Z′] − ½H[Y′|W′] (A.15).",
+    "Translation invariance, and d[U_H; U_H] = 0 because U_H − U_H′ is again uniform on H."
+   ],
+   "acceptance": [
+    "d[X; X] = 0 only when X is uniform on a coset of a subgroup (Lemma 2.2), and d[X; Y] = 0 can hold for different distributions (p. 4)."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/Entropy/RuzsaDistance",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "rdist"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§1, (1.1) and the following remarks, p. 4 (AAM)",
+     "excerpt": "A crucial notion is the entropic Ruzsa distance between random variables.",
+     "match": "The definition and its basic properties."
+    },
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "Appendix A, (A.10)–(A.15), pp. 29–30 (AAM)",
+     "excerpt": "We will also need conditional variants of the distance.",
+     "match": "The conditional distance and the standard inequalities."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.EntropicPFR.condRdist",
+     "role": "data",
+     "statement": "The conditional distance (A.14)."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.rdist_symm",
+     "role": "relation",
+     "statement": "d[μ; ν] = d[ν; μ]."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.rdist_nonneg",
+     "role": "other",
+     "statement": "d[μ; ν] ≥ 0."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.abs_measureEntropy_sub_le",
+     "role": "other",
+     "statement": "(A.12): |H[μ] − H[ν]| ≤ 2d[μ; ν]."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.rdist_map_eq_of_indepFun",
+     "role": "characterisation",
+     "statement": "For independent X, Y on one space, d[X; Y] = H[X − Y] − ½H[X] − ½H[Y]."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.rdist_map_add_const",
+     "role": "simp",
+     "statement": "Translating one distribution does not change the distance."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.rdist_uniformOn_self",
+     "role": "example",
+     "statement": "d[U_H; U_H] = 0 for a subgroup H."
+    }
+   ],
+   "tests": [
+    {
+     "name": "rdist_dirac_zero",
+     "kind": "degenerate",
+     "statement": "Two point masses at 0 are at distance 0."
+    },
+    {
+     "name": "rdist_cosets",
+     "kind": "characterisation",
+     "statement": "Uniform distributions on two cosets a + H, b + H are at distance 0 although they differ: the distance is not a metric on distributions."
+    },
+    {
+     "name": "rdist_three_points",
+     "kind": "non-example",
+     "statement": "X uniform on {0, e₁, e₂} ⊂ 𝔽₂² has d[X; X] = (2/3)log(3/2) > 0: a 'distance' of a variable from itself need not vanish. (Checked numerically: 0.2703…)"
+    }
+   ],
+   "uses": [
+    {
+     "where": "Gowers–Green–Manners–Tao Theorem 1.8 and §§2–7",
+     "how": "The quantity decreased by the compression argument."
+    },
+    {
+     "where": "AdditiveCombinatorics:AC.1/tau-functional",
+     "how": "τ is built from three distances."
+    }
+   ],
+   "planet": {
+    "name": "Entropic Ruzsa distance"
+   }
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/entropic-ruzsa-triangle",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Entropic Ruzsa triangle inequality (A.13)",
+   "kind": "theorem",
+   "statement": "For probability distributions on a finite abelian group, d[X; Y] ≤ d[X; Z] + d[Z; Y]; equivalently H[X − Y] ≤ H[X − Z] + H[Z − Y] − H[Z] for independent X, Y, Z.",
+   "hypotheses": [
+    "All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/entropic-ruzsa-distance"
+   ],
+   "proofSteps": [
+    "Submodularity (A.6): H[Y − Z|X − Y] ≥ H[Y − Z|X − Y, Y] = H[Z|X, Y] = H[Z], using independence.",
+    "H[Y − Z|X − Y] = H[X − Z, Y − Z] − H[X − Y] ≤ H[X − Z] + H[Y − Z] − H[X − Y] by (A.5). Combine; the half-entropies in d cancel."
+   ],
+   "acceptance": [
+    "The independence of X and Y is not used (source remark, after [9])."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/Entropy/RuzsaDistance",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "rdist_triangle"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "Appendix A, (A.13) and its proof, pp. 29–30 (AAM)",
+     "excerpt": "The most important property of the Ruzsa distance is the (Ruzsa) triangle inequality",
+     "match": "The inequality and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/madiman-inequality",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Madiman's inequality (Lemma A.1)",
+   "kind": "lemma",
+   "statement": "For independent X, Y, Z in a finite abelian group, H[X + Y + Z] − H[X + Y] ≤ H[Y + Z] − H[Y].",
+   "hypotheses": [
+    "All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.",
+    "An entropy analogue of Plünnecke's inequality; it generalizes Kaimanovich–Vershik."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/shannon-entropy"
+   ],
+   "proofSteps": [
+    "By (A.9), I[X : Z|X+Y+Z] = H[X, X+Y+Z] + H[Z, X+Y+Z] − H[X, Z, X+Y+Z] − H[X+Y+Z].",
+    "By independence (A.4): H[X, X+Y+Z] = H[X] + H[Y+Z], H[Z, X+Y+Z] = H[Z] + H[X+Y], and H[X, Z, X+Y+Z] = H[X] + H[Y] + H[Z]. The claim becomes I[X : Z|X+Y+Z] ≥ 0 (A.8)."
+   ],
+   "acceptance": [
+    "Z = 0 gives an equality."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/Entropy/RuzsaDistance",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "entropy_add_add_sub_le"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "Appendix A, Lemma A.1 and proof, p. 30 (AAM); (5.5), p. 20",
+     "excerpt": "The ﬁrst is an inequality of Madiman",
+     "match": "The lemma and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/entropic-bsg",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Entropic Balog–Szemerédi–Gowers lemma (Lemma A.2)",
+   "kind": "theorem",
+   "statement": "Let (A, B) be a G²-valued random variable and Z = A + B. Then Σ_z p_Z(z) d[(A|Z=z); (B|Z=z)] ≤ 3I[A : B] + 2H[Z] − H[A] − H[B].",
+   "hypotheses": [
+    "All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.",
+    "A, B are jointly distributed, not assumed independent; 2H[Z] − H[A] − H[B] is not 2d[A; B]."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/shannon-entropy",
+    "AdditiveCombinatorics:AC.1/entropic-ruzsa-distance"
+   ],
+   "proofSteps": [
+    "Take (A₁, B₁), (A₂, B₂) conditionally independent trials of (A, B) relative to Z; then H[A₁, B₁, A₂, B₂] = 2H[A,B] − H[Z] (A.17), and the left side is H[A₁ − B₂|Z] − ½H[A₁|Z] − ½H[B₂|Z] (A.18).",
+    "Submodularity (A.19): H[A₁ − B₂] + H[A₁ − B₂, A₁, B₁] ≤ H[A₁ − B₂, A₁] + H[A₁ − B₂, B₁]. The second term is 2H[A,B] − H[Z]; each term on the right is at most H[A] + H[B], using A₁ − B₂ = A₂ − B₁ (A.20)–(A.22).",
+    "So H[A₁ − B₂|Z] ≤ H[A₁ − B₂] ≤ 2I[A : B] + H[Z], and H[A₁|Z] = H[B₂|Z] = H[A] + H[B] − I[A : B] − H[Z]."
+   ],
+   "acceptance": [
+    "The source improves the constants of Tao's entropic BSG [37, Lemma 3.3]."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/Entropy/RuzsaDistance",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "sum_rdist_cond_le"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "Appendix A, Lemma A.2 and proof, pp. 30–32 (AAM)",
+     "excerpt": "The next lemma is not quite in the literature but is very closely related to the entropic version of the Balog–Szemer´edi–Gowers lemma",
+     "match": "The lemma and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Entropic Balog–Szemerédi–Gowers lemma"
+   }
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/fibring-lemma",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "The fibring lemma (Proposition 4.1)",
+   "kind": "theorem",
+   "statement": "Let π: H → H′ be a homomorphism of finite abelian groups and Z₁, Z₂ H-valued random variables. Then d[Z₁; Z₂] ≥ d[π(Z₁); π(Z₂)] + d[Z₁|π(Z₁); Z₂|π(Z₂)]. If Z₁, Z₂ are independent, the difference is I[Z₁ − Z₂ : (π(Z₁), π(Z₂)) | π(Z₁ − Z₂)] (4.1).",
+   "hypotheses": [
+    "All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/entropic-ruzsa-distance",
+    "AdditiveCombinatorics:AC.1/shannon-entropy"
+   ],
+   "proofSteps": [
+    "Take Z₁, Z₂ independent. By (A.15), d[Z₁|π(Z₁); Z₂|π(Z₂)] = H[Z₁ − Z₂|π(Z₁), π(Z₂)] − ½H[Z₁|π(Z₁)] − ½H[Z₂|π(Z₂)] ≤ H[Z₁ − Z₂|π(Z₁ − Z₂)] − … by submodularity.",
+    "H[Z₁ − Z₂|π(Z₁ − Z₂)] = H[Z₁ − Z₂] − H[π(Z₁ − Z₂)] and H[Zᵢ|π(Zᵢ)] = H[Zᵢ] − H[π(Zᵢ)], so the bound is d[Z₁; Z₂] − d[π(Z₁); π(Z₂)].",
+    "The slack is H[A|B] − H[A|B,C] = I[A : C|B] with A = Z₁ − Z₂, B = π(Z₁ − Z₂), C = (π(Z₁), π(Z₂)), and C determines B."
+   ],
+   "acceptance": [
+    "π = 0 gives d[Z₁|0; Z₂|0] = d[Z₁; Z₂]; π = id gives d[Z₁; Z₂] ≥ d[Z₁; Z₂] + 0."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/Entropy/RuzsaDistance",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "rdist_eq_fibring"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§4, Proposition 4.1 and proof, pp. 16–17 (AAM)",
+     "excerpt": "Here we record the ﬁbring lemma",
+     "match": "The proposition, with its explicit error term."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Fibring lemma"
+   }
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/fibring-corollary",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Fibring for four independent variables (Corollary 4.2)",
+   "kind": "lemma",
+   "statement": "For independent Y₁, Y₂, Y₃, Y₄ in a finite abelian group, d[Y₁ − Y₃; Y₂ − Y₄] + d[Y₁|Y₁ − Y₃; Y₂|Y₂ − Y₄] + I[Y₁ − Y₂ : Y₂ − Y₄ | Y₁ − Y₂ − Y₃ + Y₄] = d[Y₁; Y₂] + d[Y₃; Y₄].",
+   "hypotheses": [
+    "All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.",
+    "In characteristic 2 every sign may be replaced by + (Remark 4.3)."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/fibring-lemma"
+   ],
+   "proofSteps": [
+    "Apply Proposition 4.1 with H = G × G, H′ = G, π(x, y) = x − y, Z₁ = (Y₁, Y₃), Z₂ = (Y₂, Y₄); by independence d[Z₁; Z₂] = d[Y₁; Y₂] + d[Y₃; Y₄].",
+    "Once π(Z₁) = Y₁ − Y₃ is fixed, Z₁ and Y₁ determine each other; so d[Z₁|π(Z₁); Z₂|π(Z₂)] = d[Y₁|Y₁ − Y₃; Y₂|Y₂ − Y₄].",
+    "The conditioning variable in (4.1) is π(Z₁ − Z₂) = π(Z₁) − π(Z₂) = Y₁ − Y₂ − Y₃ + Y₄; the source prints π(Z₁) + π(Z₂) (E5). Given it, Y₁ − Y₂ determines Y₃ − Y₄, and Y₂ − Y₄ determines Y₁ − Y₃."
+   ],
+   "acceptance": [
+    "(Y₁, Y₂, Y₃, Y₄) = (X₁, X₂, X̃₂, X̃₁) gives (5.1); (X₂, X₁, X̃₂, X̃₁) gives the identity of §6."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/Entropy/RuzsaDistance",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "fibring_four"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§4, Corollary 4.2 and proof, p. 17 (AAM)",
+     "excerpt": "We extract the speciﬁc special case of this result that we will need in our arguments.",
+     "match": "The corollary; the conditioning sign is corrected (E5)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/conditional-distance-bound",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Conditioning costs at most half the mutual information (Lemma 5.2)",
+   "kind": "lemma",
+   "statement": "d[X|Z; Y|W] ≤ d[X; Y] + ½I[X : Z] + ½I[Y : W].",
+   "hypotheses": [
+    "All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/entropic-ruzsa-distance",
+    "AdditiveCombinatorics:AC.1/shannon-entropy"
+   ],
+   "proofSteps": [
+    "With independent copies, d[X|Z; Y|W] = H[X′ − Y′|Z′, W′] − ½H[X′|Z′] − ½H[Y′|W′] ≤ H[X′ − Y′] − ½H[X′|Z′] − ½H[Y′|W′] by (A.5), which is d[X′; Y′] + ½I[X′ : Z′] + ½I[Y′ : W′]."
+   ],
+   "acceptance": [
+    "Z, W constant gives equality."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/Entropy/RuzsaDistance",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "condRdist_le"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§5, Lemma 5.2 and proof, p. 19 (AAM)",
+     "excerpt": "The ﬁrst is a bound relating conditioned and unconditioned variants of the Ruzsa distance.",
+     "match": "The lemma and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/distance-sum-bounds",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Distances to sums and to fibres (Lemma 5.3)",
+   "kind": "lemma",
+   "statement": "For Y, Z independent: d[X; Y − Z] − d[X; Y] ≤ ½(H[Y − Z] − H[Y]) = ½d[Y; Z] + ¼H[Z] − ¼H[Y] (5.6), and d[X; Y|Y − Z] − d[X; Y] ≤ ½(H[Y − Z] − H[Z]) = ½d[Y; Z] + ¼H[Y] − ¼H[Z] (5.7).",
+   "hypotheses": [
+    "All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/madiman-inequality",
+    "AdditiveCombinatorics:AC.1/conditional-distance-bound"
+   ],
+   "proofSteps": [
+    "(5.6): take X independent of (Y, Z); then d[X; Y − Z] − d[X; Y] = H[X − Y + Z] − H[X − Y] − ½H[Y − Z] + ½H[Y], and Madiman's inequality with Y replaced by −Y bounds the first difference by H[Y − Z] − H[Y].",
+    "(5.7): I[Y : Y − Z] = H[Y − Z] − H[Z]; apply Lemma 5.2 to (X, trivial) and (Y, Y − Z)."
+   ],
+   "acceptance": [
+    "The source thanks Floris van Doorn for a sign correction to this statement found in the Lean formalization (footnote 7)."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/Entropy/RuzsaDistance",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "rdist_sub_sub_le"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§5, Lemma 5.3 and proof, pp. 20–21 (AAM)",
+     "excerpt": "Let X, Y, Z be random variables taking values in some abelian group, and with Y, Z independent.",
+     "match": "The lemma and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/distance-fibre-sum-bound",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Distance to a fibre of a double sum (Lemma 7.1)",
+   "kind": "lemma",
+   "statement": "For Y, Z, Z′ independent: d[X; Y − Z|Y − Z − Z′] − d[X; Y] ≤ ½(H[Y − Z − Z′] + H[Y − Z] − H[Y] − H[Z′]).",
+   "hypotheses": [
+    "All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/distance-sum-bounds"
+   ],
+   "proofSteps": [
+    "(5.7) with Y ↦ Y − Z and Z ↦ Z′ gives d[X; Y − Z|Y − Z − Z′] − d[X; Y − Z] ≤ ½(H[Y − Z − Z′] − H[Z′]); add (5.6)."
+   ],
+   "acceptance": [
+    "Used six times in (7.3)."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/Entropy/RuzsaDistance",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "condRdist_sub_sub_le"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§7, Lemma 7.1 and proof, p. 23 (AAM)",
+     "excerpt": "Let us begin by recording an inequality which will be used several times",
+     "match": "The lemma and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/hundred-percent-case",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Distance zero means cosets of one subgroup (Lemma 2.2)",
+   "kind": "lemma",
+   "statement": "If d[X₁; X₂] = 0, there is a subgroup H ≤ G such that p_{X₁} and p_{X₂} are translates of U_H; in particular d[X₁; U_H] = d[X₂; U_H] = 0.",
+   "hypotheses": [
+    "All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.",
+    "G is any finite abelian group; the source states it for G = 𝔽₂ⁿ."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/entropic-ruzsa-distance",
+    "AdditiveCombinatorics:AC.1/shannon-entropy"
+   ],
+   "proofSteps": [
+    "For independent copies, H[X₁′ − X₂′] ≥ H[X₁′ − X₂′|X₂′] = H[X₁′] and likewise H[X₂′]; averaging gives d ≥ 0, so equality holds in both, and X₁′ − X₂′ is independent of X₂′ and of X₁′. Hence p_{X₁ − s₂} = p_{X₁ − X₂} = p_{s₁ − X₂} for s₁, s₂ in the supports (2.4).",
+    "Let H = Sym(X₁) = Sym(X₂) = Sym(X₁ − X₂), the stabilizer of the distribution under translation; it is a subgroup contained in S − S. From (2.4), S₁ − S₁ = S₂ − S₂ = H.",
+    "H[X₁] = H[X₁ + U_H] ≥ log|H| by (A.11), while H[X₁] ≤ log|S₁| ≤ log|S₁ − S₁| = log|H|. Equality throughout forces X₁ uniform on S₁ = a₁ + H; likewise X₂."
+   ],
+   "acceptance": [
+    "A Dirac mass is uniform on a coset of the trivial subgroup."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/Entropy/RuzsaDistance",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "exists_subgroup_of_rdist_eq_zero"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§2, Lemma 2.2 and proof, pp. 7–8 (AAM)",
+     "excerpt": "In order to deduce Theorem 1.8 from Proposition 2.1 we will use the ‘100 percent’ case of our main theorem",
+     "match": "The lemma and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/tau-functional",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "The functional τ and its minimizers",
+   "kind": "definition",
+   "statement": "For η > 0 and fixed reference distributions X₁⁰, X₂⁰ on G = 𝔽₂ⁿ, τ[X₁; X₂] = d[X₁; X₂] + ηd[X₁⁰; X₁] + ηd[X₂⁰; X₂] (2.1). A τ-minimizer is a pair of probability distributions minimizing τ; the source uses η = 1/9.",
+   "hypotheses": [
+    "τ depends only on the distributions of X₁, X₂; the references are never modified.",
+    "In Lean, G is a finite ℤ/2-module; the definition makes sense for any finite abelian group."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/entropic-ruzsa-distance"
+   ],
+   "proofSteps": [
+    "Define tau and IsTauMinimizer on probability measures.",
+    "Existence: the pairs of probability distributions on the finite set G form a compact set, and d is continuous, so τ attains its minimum.",
+    "(2.3): τ[X₂⁰; X₁⁰] = (1 + 2η)d[X₁⁰; X₂⁰], by symmetry of d.",
+    "The conditioned form (3.15): minimality gives d[X₁′|Y₁; X₂′|Y₂] ≥ k − η(d[X₁⁰; X₁′|Y₁] − d[X₁⁰; X₁]) − η(d[X₂⁰; X₂′|Y₂] − d[X₂⁰; X₂]), by applying (3.12) to each pair of fibres and averaging."
+   ],
+   "acceptance": [
+    "The argument is not constructive because of the compactness step; Remark 2.3 sketches an algorithmic variant with worse constants."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/PFR/CharTwo",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "tau"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§2, (2.1)–(2.3) and the proof of Theorem 1.8, pp. 6–9 (AAM)",
+     "excerpt": "For the rest of the paper, η will denote the constant 1 9.",
+     "match": "The functional and its minimizers."
+    },
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§3, (3.12) and (3.15), pp. 14–15 (AAM)",
+     "excerpt": "Multiplying by pY1(y1)pY2(y2) and summing, we have",
+     "match": "The conditioned form of minimality."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.EntropicPFR.IsTauMinimizer",
+     "role": "data",
+     "statement": "(μ₁, μ₂) are probability measures minimizing τ."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.MinimizerSetup",
+     "role": "data",
+     "statement": "The setting of Sections 5–7: a τ-minimizer (μ₁, μ₂) for η = 1/9 with four independent variables X₁, X₂, X̃₁, X̃₂ of laws μ₁, μ₂, μ₁, μ₂ on one probability space."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.exists_isTauMinimizer",
+     "role": "other",
+     "statement": "A minimizer exists."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.tau_swap",
+     "role": "example",
+     "statement": "(2.3): τ[X₂⁰; X₁⁰] = (1 + 2η)d[X₁⁰; X₂⁰]."
+    },
+    {
+     "name": "TauCeti.EntropicPFR.IsTauMinimizer.condRdist_ge",
+     "role": "relation",
+     "statement": "(3.15): minimality in conditioned form."
+    }
+   ],
+   "tests": [
+    {
+     "name": "tau_uniform_self",
+     "kind": "computation",
+     "statement": "With every distribution equal to U_H, τ = 0."
+    },
+    {
+     "name": "not_isTauMinimizer_zero",
+     "kind": "non-example",
+     "statement": "The zero measure is not a minimizer: minimizers are probability measures, and the formula would otherwise give junk values."
+    },
+    {
+     "name": "tau_nonneg",
+     "kind": "characterisation",
+     "statement": "τ ≥ 0 for probability measures and η ≥ 0."
+    }
+   ],
+   "uses": [
+    {
+     "where": "AdditiveCombinatorics:AC.1/tau-decrement",
+     "how": "Proposition 2.1 is stated for τ-minimizers."
+    },
+    {
+     "where": "AdditiveCombinatorics:AC.1/entropic-pfr",
+     "how": "Theorem 1.8 is deduced by taking a τ-minimizer."
+    }
+   ]
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/first-estimate",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "First estimate: I₁ ≤ 2ηk (Section 5)",
+   "kind": "lemma",
+   "statement": "In the minimizer setting, I₁ = I[X₁ + X₂ : X̃₁ + X₂ | S] ≤ 2ηk (3.13), and H[S] ≤ ½H[X₁] + ½H[X₂] + (2 + η)k − I₁ (5.8).",
+   "hypotheses": [
+    "G is an elementary abelian 2-group (a finite ℤ/2-module, i.e. 𝔽₂ⁿ); η = 1/9; ρ₁, ρ₂ are the reference distributions X₁⁰, X₂⁰; (μ₁, μ₂) minimizes τ; X₁, X₂, X̃₁, X̃₂ are independent with X₁, X̃₁ ∼ μ₁ and X₂, X̃₂ ∼ μ₂; k = d[X₁; X₂] and S = X₁ + X₂ + X̃₁ + X̃₂."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/fibring-corollary",
+    "AdditiveCombinatorics:AC.1/tau-functional",
+    "AdditiveCombinatorics:AC.1/distance-sum-bounds",
+    "AdditiveCombinatorics:AC.1/conditional-distance-bound"
+   ],
+   "proofSteps": [
+    "Corollary 4.2 with (Y₁, Y₂, Y₃, Y₄) = (X₁, X₂, X̃₂, X̃₁) gives d[X₁ + X̃₂; X₂ + X̃₁] + d[X₁|X₁ + X̃₂; X₂|X₂ + X̃₁] + I₁ = 2k (5.1).",
+    "Minimality (3.12), (3.15) bounds each distance below by k − η(…) (5.2). Lemma 5.3 bounds each bracket: the four differences are ½k ± ¼(H[X₂] − H[X₁]), and they add in pairs to k (5.3), (5.4). So I₁ ≤ 2ηk.",
+    "Subtracting (5.2) from (5.1) and using (5.4) gives d[X₁ + X̃₂; X₂ + X̃₁] ≤ (1 + η)k − I₁, which is (5.8) because H[X₁ + X̃₂] = H[X₂ + X̃₁] = k + ½H[X₁] + ½H[X₂]."
+   ],
+   "acceptance": [
+    "Only I₁ = O(ηk) is needed for some constant in Theorem 1.8 (Remark 5.1)."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/PFR/CharTwo",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "first_estimate"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§5, (5.1)–(5.8), pp. 18–21 (AAM)",
+     "excerpt": "In this section we establish the upper bound (3.13)",
+     "match": "The estimate and the entropy bound (5.8)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/second-estimate",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Second estimate: the bound (3.14) on I₂ (Section 6)",
+   "kind": "lemma",
+   "statement": "In the minimizer setting, I₂ = I[X₁ + X₂ : X₁ + X̃₁ | S] ≤ 2ηk + 2η(2ηk − I₁)/(1 − η).",
+   "hypotheses": [
+    "G is an elementary abelian 2-group (a finite ℤ/2-module, i.e. 𝔽₂ⁿ); η = 1/9; ρ₁, ρ₂ are the reference distributions X₁⁰, X₂⁰; (μ₁, μ₂) minimizes τ; X₁, X₂, X̃₁, X̃₂ are independent with X₁, X̃₁ ∼ μ₁ and X₂, X̃₂ ∼ μ₂; k = d[X₁; X₂] and S = X₁ + X₂ + X̃₁ + X̃₂.",
+    "By symmetry I₃ = I[X̃₁ + X₂ : X₁ + X̃₁ | S] equals I₂."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/fibring-corollary",
+    "AdditiveCombinatorics:AC.1/tau-functional",
+    "AdditiveCombinatorics:AC.1/distance-sum-bounds",
+    "AdditiveCombinatorics:AC.1/first-estimate"
+   ],
+   "proofSteps": [
+    "Corollary 4.2 with (X₂, X₁, X̃₂, X̃₁) gives d[X₁ + X̃₁; X₂ + X̃₂] + d[X₁|X₁ + X̃₁; X₂|X₂ + X̃₂] + I₂ = 2k.",
+    "Minimality and Lemma 5.3 (each bracket at most ½d[Xᵢ; Xᵢ]) give I₂ ≤ η(d[X₁; X₁] + d[X₂; X₂]) (6.4) and d[X₁ + X̃₁; X₂ + X̃₂] ≥ k − (η/2)(d[X₁; X₁] + d[X₂; X₂]) (6.5).",
+    "Expanding the same distance and using (5.8) gives d[X₁ + X̃₁; X₂ + X̃₂] ≤ (2 + η)k − ½(d[X₁; X₁] + d[X₂; X₂]) − I₁; with (6.5), d[X₁; X₁] + d[X₂; X₂] ≤ 2k + 2(2ηk − I₁)/(1 − η) (6.6), and (6.4) concludes."
+   ],
+   "acceptance": [
+    "The Ruzsa triangle inequality would give the weaker bound 4ηk."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/PFR/CharTwo",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "second_estimate"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§6, (6.1)–(6.6), pp. 21–23 (AAM)",
+     "excerpt": "In this section we establish the upper bound (3.14)",
+     "match": "The estimate and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/endgame-lemma",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "The endgame construction (Lemma 7.2)",
+   "kind": "lemma",
+   "statement": "Let G = 𝔽₂ⁿ and (T₁, T₂, T₃) be G³-valued with T₁ + T₂ + T₃ = 0, and δ = Σ_{i<j} I[Tᵢ : Tⱼ]. Then there are T₁′, T₂′ with d[T₁′; T₂′] + η(d[X₁⁰; T₁′] − d[X₁⁰; X₁]) + η(d[X₂⁰; T₂′] − d[X₂⁰; X₂]) ≤ δ + (η/3)(δ + Σ_{i=1}^{2} Σ_{j=1}^{3} (d[Xᵢ⁰; Tⱼ] − d[Xᵢ⁰; Xᵢ])).",
+   "hypotheses": [
+    "The source writes I[Tᵢ; Tⱼ] in (7.5) for the mutual information I[Tᵢ : Tⱼ] (E6).",
+    "η ≥ 0 and the references X₁⁰, X₂⁰ and X₁, X₂ are as in the τ setting."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/entropic-bsg",
+    "AdditiveCombinatorics:AC.1/conditional-distance-bound",
+    "AdditiveCombinatorics:AC.1/entropic-ruzsa-distance"
+   ],
+   "proofSteps": [
+    "Entropic BSG with (A, B) = (T₁, T₂) (so A + B = T₃): Σ_t p_{T₃}(t) d[(T₁|T₃=t); (T₂|T₃=t)] ≤ 3I[T₁ : T₂] + 2H[T₃] − H[T₁] − H[T₂] = δ, because each pair of the Tᵢ determines the third.",
+    "Lemma 5.2: d[X₁⁰; T₁|T₃] − d[X₁⁰; X₁] ≤ d[X₁⁰; T₁] − d[X₁⁰; X₁] + ½I[T₁ : T₃], and likewise for T₂.",
+    "Choose t₃ minimizing ψ[(T₁|T₃=t₃); (T₂|T₃=t₃)] (7.7). Do the same for all six permutations and average: each Tⱼ occurs twice in each position, and the mutual-information terms average to δ/3."
+   ],
+   "acceptance": [
+    "If δ = 0 the Tᵢ are pairwise independent and two of them already work, by (3.9)."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/PFR/CharTwo",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "exists_endgame_pair"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§7, Lemma 7.2 and proof, pp. 25–26 (AAM)",
+     "excerpt": "We recommend that the reader ﬁrst work through this proof in the case δ = 0",
+     "match": "The lemma and its proof; (7.5) notation corrected (E6)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/tau-decrement",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "A τ-minimizer has distance zero (Proposition 2.1)",
+   "kind": "lemma",
+   "statement": "Let η = 1/9. If (X₁, X₂) minimizes τ, then d[X₁; X₂] = 0. Equivalently (Proposition 2.1), if d[X₁; X₂] > 0 there are X₁′, X₂′ with τ[X₁′; X₂′] < τ[X₁; X₂].",
+   "hypotheses": [
+    "G is an elementary abelian 2-group (a finite ℤ/2-module, i.e. 𝔽₂ⁿ); η = 1/9; ρ₁, ρ₂ are the reference distributions X₁⁰, X₂⁰; (μ₁, μ₂) minimizes τ; X₁, X₂, X̃₁, X̃₂ are independent with X₁, X̃₁ ∼ μ₁ and X₂, X̃₂ ∼ μ₂; k = d[X₁; X₂] and S = X₁ + X₂ + X̃₁ + X̃₂."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/first-estimate",
+    "AdditiveCombinatorics:AC.1/second-estimate",
+    "AdditiveCombinatorics:AC.1/endgame-lemma",
+    "AdditiveCombinatorics:AC.1/distance-fibre-sum-bound",
+    "AdditiveCombinatorics:AC.1/tau-functional"
+   ],
+   "proofSteps": [
+    "Set U = X₁ + X₂, V = X̃₁ + X₂, W = X₁ + X̃₁; then I₁ = I[U : V|S], I₂ = I[W : U|S], I₃ = I[V : W|S], and by the two estimates their sum is at most 6ηk − ((1 − 5η)/(1 − η))(2ηk − I₁) (7.2).",
+    "Six applications of Lemma 7.1 and (5.8) give Σ_{i,A∈{U,V,W}} (d[Xᵢ⁰; A|S] − d[Xᵢ⁰; Xᵢ]) ≤ (6 − 3η)k + 3(2ηk − I₁) (7.3); for W the distance to X₂⁰ is computed through W′ = X₂ + X̃₂ = W + S.",
+    "Characteristic 2: U + V + W = 0 (7.4). Apply Lemma 7.2 to (U, V, W | S = s), then minimality (3.12), and average over s: k ≤ δ̃ + (η/3)(δ̃ + Σ(…)) (7.8).",
+    "Combine: k ≤ (8η + η²)k − c(2ηk − I₁) with c ≥ 0 when η(2η + 17) ≤ 3, and 2ηk − I₁ ≥ 0 by (3.13). For η = 1/9, 8η + η² = 73/81 < 1, so k = 0."
+   ],
+   "acceptance": [
+    "Over ℤ the statement fails: discrete Gaussians are near-minimal (p. 14); the characteristic-2 identity (7.4) is essential."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/PFR/CharTwo",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "rdist_eq_zero_of_isTauMinimizer"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§2, Proposition 2.1, p. 7; §7, pp. 23–27 (AAM)",
+     "excerpt": "Here is the main result from which we will deduce Theorem 1.8.",
+     "match": "The proposition and the endgame computation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/entropic-pfr",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Entropic polynomial Freiman–Ruzsa theorem (Theorem 1.8)",
+   "kind": "theorem",
+   "statement": "Let G = 𝔽₂ⁿ and X₁⁰, X₂⁰ G-valued random variables. There is a subgroup H ≤ G with d[X₁⁰; U_H] + d[X₂⁰; U_H] ≤ 11d[X₁⁰; X₂⁰]; moreover each of d[X₁⁰; U_H], d[X₂⁰; U_H] is at most 6d[X₁⁰; X₂⁰].",
+   "hypotheses": [
+    "U_H is the uniform distribution on H. In Lean, G is a finite ℤ/2-module."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/tau-functional",
+    "AdditiveCombinatorics:AC.1/tau-decrement",
+    "AdditiveCombinatorics:AC.1/hundred-percent-case",
+    "AdditiveCombinatorics:AC.1/entropic-ruzsa-triangle"
+   ],
+   "proofSteps": [
+    "Take a τ-minimizer (X₁, X₂) (compactness). By Proposition 2.1, d[X₁; X₂] = 0, so Lemma 2.2 gives H with d[X₁; U_H] = d[X₂; U_H] = 0.",
+    "The triangle inequality gives d[Xᵢ⁰; U_H] = d[Xᵢ⁰; Xᵢ], so η(d[X₁⁰; U_H] + d[X₂⁰; U_H]) = τ[X₁; X₂] ≤ τ[X₂⁰; X₁⁰] = (1 + 2η)d[X₁⁰; X₂⁰] (2.3). With η = 1/9 this is 11d[X₁⁰; X₂⁰].",
+    "|d[X₁⁰; U_H] − d[X₂⁰; U_H]| ≤ d[X₁⁰; X₂⁰] by the triangle inequality, so each is at most 6d[X₁⁰; X₂⁰]."
+   ],
+   "acceptance": [
+    "X₁⁰ = X₂⁰ uniform on a subgroup H gives H itself, with all distances 0."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/PFR/CharTwo",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "entropic_pfr"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§1, Theorem 1.8, p. 5; §2, its proof, pp. 8–9 (AAM)",
+     "excerpt": "One consequence of the investigation in [9] was another equivalent formulation of the PFR conjecture.",
+     "match": "The theorem and its deduction from Proposition 2.1."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Entropic polynomial Freiman–Ruzsa theorem"
+   }
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.1/marton-conjecture",
+   "parentStageId": "AdditiveCombinatorics:AC.1",
+   "realises": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "title": "Marton's conjecture in characteristic 2 (Theorem 1.2)",
+   "kind": "theorem",
+   "statement": "If A ⊆ 𝔽₂ⁿ is nonempty with |A + A| ≤ K|A|, then A is covered by at most 2K¹² cosets of some subgroup H ≤ 𝔽₂ⁿ of size at most |A|.",
+   "hypotheses": [
+    "C = 12 comes from C′ = 11 in Theorem 1.8. Liao's refinement (C = 11, then 9) is not planned."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.1/entropic-pfr",
+    "AdditiveCombinatorics:AC.1/entropic-ruzsa-distance",
+    "AdditiveCombinatorics:AC.1/shannon-entropy",
+    "mathlib:Finset.ruzsa_covering_mul"
+   ],
+   "proofSteps": [
+    "With U_A uniform on A, H[U_A] = log|A| and H[U_A + U_A′] ≤ log|A + A|, so d[U_A; U_A] ≤ log K. Theorem 1.8 gives H with d[U_A; U_H] ≤ ½C′ log K (B.1), hence |log|H| − log|A|| ≤ C′ log K (B.2).",
+    "(B.1) says H[U_A − U_H] ≤ ½log(|A||H|) + ½C′ log K; by (A.2) some x₀ has |A ∩ (H + x₀)| ≥ K^{−C′/2}|A|^{1/2}|H|^{1/2}.",
+    "Ruzsa covering (Mathlib ruzsa_covering_mul, additive form) covers A by at most K|A|/|A ∩ (H + x₀)| ≤ K^{C′/2+1}(|A|/|H|)^{1/2} translates of (A ∩ (H + x₀)) − (A ∩ (H + x₀)) ⊆ H.",
+    "If |H| ≤ |A| this is at most K^{C′+1} by (B.2). Otherwise cover H by at most 2|H|/|A| cosets of a subgroup H′ with |H′| ≤ |A|, giving at most 2K^{C′/2+1}(|H|/|A|)^{1/2} ≤ 2K^{C′+1} cosets."
+   ],
+   "acceptance": [
+    "If A is a subgroup, K = 1 and one coset suffices.",
+    "Conversely, a cover by r cosets of H with |H| ≤ |A| gives |A + A| ≤ (r(r−1)/2 + 1)|A|, so the theorem is polynomially sharp (p. 1).",
+    "The factor 2 is needed when A is most of a subgroup (footnote 1)."
+   ],
+   "library": {
+    "module": "TauCeti/Combinatorics/Additive/PFR/CharTwo",
+    "namespace": "TauCeti.EntropicPFR",
+    "name": "pfr"
+   },
+   "sources": [
+    {
+     "sourceId": "GGMT-2025",
+     "locator": "§1, Conjecture 1.1 and Theorem 1.2, pp. 1–2; Appendix B, pp. 32–33 (AAM)",
+     "excerpt": "Conjecture 1.1 is true with C = 12.",
+     "match": "The theorem and the deduction from Theorem 1.8."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Marton's conjecture in characteristic 2"
+   }
   }
  ],
  "coverage": [
@@ -1739,9 +2777,11 @@
   },
   {
    "stageId": "AdditiveCombinatorics:AC.1",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Balog-Szemeredi-Gowers, Freiman-type inverse theorems, Bohr sets, density increments: no source read. Green-Tao does not use any of these."
+    "Gowers–Green–Manners–Tao is decomposed: Shannon entropy, the entropic Ruzsa distance and calculus (triangle, Madiman, entropic BSG, fibring), the τ-minimization argument of §§2–7, Theorem 1.8 (entropic PFR) and Theorem 1.2 (Marton's conjecture in characteristic 2, C = 12).",
+    "The combinatorial Balog–Szemerédi–Gowers theorem, Freiman's theorem over ℤ and in bounded torsion (GGMT [6]), Bohr-set size/regularity and density increments, and the consequences Theorem 1.3 and Corollaries 1.4–1.7 (which rest on unread references [7], [9], [31]) remain.",
+    "The large-spectrum and Bohr-set material in the readme has no packet nodes yet."
    ]
   },
   {
@@ -1862,6 +2902,13 @@
     "AdditiveCombinatorics:AC.4/w-trick-and-goldston-yildirim-majorant"
    ],
    "detail": "Added in review (REVIEW-EXT-08-EXT-16). The proof of Proposition 9.10 (printed p. 41) handles coincident shifts h_i through the bound ||nu||_infinity << exp(C log N/log log N), obtained 'by standard estimates for the maximal order of the divisor function d(n)', with no proof or reference; this fixes the choice tau(0) := exp(C m log N/log log N). The estimate d(n) <= exp(C log n/log log n) is not decomposed in any EXT-08 packet. Next action: identify a supplier stage or acquire and read a source proof of d(n) <= exp(C log n/log log n); no such proof was located in the supplied library."
+  },
+  {
+   "title": "Consequences of Marton's conjecture rest on unread references",
+   "neededBy": [
+    "AdditiveCombinatorics:AC.1"
+   ],
+   "detail": "Theorem 1.3 (weak PFR over ℤ^D, via Green–Manners–Tao [9, Theorem 1.11]), Corollary 1.4 (Ruzsa [30], [7]), Corollary 1.5 (Samorodnitsky [31]), Corollary 1.6 (the U³ inverse theorem [12, 19, 31]) and Corollary 1.7 (Mudgal [25]) are stated in the source with proofs by reference only. None is planned; the Lean formalization at teorth.github.io/pfr covers Theorem 1.3 and Corollaries 1.4–1.5 and could guide a later checkpoint."
   }
  ],
  "sourceIssues": [
@@ -1926,6 +2973,36 @@
    "searched": [
     "The compilation itself, which has no errata section; the 254A course archive was not reachable from this server (certificate verification fails, as E1 records)."
    ]
+  },
+  {
+   "id": "AdditiveCombinatorics/E5",
+   "source": "GGMT-2025",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 4.2, p. 17 of the accepted manuscript (arXiv v2 §4)",
+   "printed": "I[Z1 − Z2 : (π(Z1), π(Z2)) | π(Z1) + π(Z2)] = I[(Y1 − Y2, Y3 − Y4) : (Y1 − Y3, Y2 − Y4) | Y1 − Y2 − Y3 + Y4]",
+   "correction": "The conditioning variable is π(Z1 − Z2) = π(Z1) − π(Z2), as in (4.1).",
+   "reason": "Corollary 4.2 is stated for an arbitrary abelian group, and (4.1) conditions on π(Z1 − Z2). The right-hand side as printed, Y1 − Y2 − Y3 + Y4, equals π(Z1) − π(Z2) = (Y1 − Y3) − (Y2 − Y4), not π(Z1) + π(Z2) = Y1 − Y3 + Y2 − Y4. The two agree only in characteristic 2 (Remark 4.3). Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2311.05762v2 and the accepted manuscript both contain the passage.",
+    "2026-09-29: the Annals article page gives no erratum; the published text was not read. Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "AdditiveCombinatorics/E6",
+   "source": "GGMT-2025",
+   "kind": "misprint",
+   "locator": "Lemma 7.2, display (7.5), p. 25 of the accepted manuscript (arXiv v2)",
+   "printed": "δ := Σ_{1⩽i<j⩽3} I[Ti; Tj].",
+   "correction": "δ := Σ_{1⩽i<j⩽3} I[Ti : Tj], the mutual information.",
+   "reason": "The paper writes mutual information with a colon, I[X : Y], and reserves the semicolon for the distance d[X; Y]; the proof of Lemma 7.2 evaluates δ as a sum of mutual informations. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2311.05762v2 and the accepted manuscript both contain the passage.",
+    "2026-09-29: the Annals article page gives no erratum; the published text was not read. Not an exhaustive novelty claim."
+   ]
   }
  ],
  "sourceVersions": [
@@ -1935,6 +3012,20 @@
    "citation": "Terence Tao, Lecture notes 2 for 254A, within the undated 118-page compilation hosted by the CMU course. Not identified with Tao–Vu's published book.",
    "read": "2026-09-27",
    "sha256": "961b333259ff9db8289e6e8a59c10a7a418d6709694fc99f33252ee91694ffe9"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://ora.ox.ac.uk/objects/uuid:b9008ecd-9716-491e-9365-eee8d47d12e7/files/sdr26z060n",
+   "read": "2026-09-29",
+   "sha256": "9f1a17d63157d95a44378291b58f2e0d605cb0062a41a6ca82dc7b65b11e2b10",
+   "citation": "Gowers–Green–Manners–Tao, author accepted manuscript of Ann. of Math. 201 (2025) 515–549, read completely. The published version was not acquired (subscriber-only); findings E5–E6 are scoped to this manuscript and arXiv v2."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2311.05762v2",
+   "read": "2026-09-29",
+   "sha256": "1e3e7bfbc440f95b60202024c0d1e995e8a98dc2f5370bead60b47861d90e1b3",
+   "citation": "arXiv:2311.05762v2, checked at the finding locators."
   }
  ],
  "implementationStatus": "unchecked"
