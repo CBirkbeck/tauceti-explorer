@@ -4,22 +4,27 @@
 
 This document plans part GH.0 of `GeneralizedHeegnerCycles`. The part runs from the geometry that carries generalized Heegner cycles, the variety X_r = W_r × A^r with its projectors (GH.0), through the cycles, their Abel–Jacobi images and local conditions (GH.1–GH.4), to Kolyvagin systems, Selmer consequences and Hida-family variation (GH.5–GH.7).
 
-This first checkpoint plans GH.0 from Bertolini–Darmon–Prasanna §§1.4 and 2.1–2.2: the CM elliptic curve and its Hodge splitting, the projectors ε_A and ε_X, the cohomology of X_r cut out by ε_X, and its self-duality.
+Checkpoint 1 plans GH.0 from Bertolini–Darmon–Prasanna (BDP) §§1.4 and 2.1–2.2. Checkpoint 2 plans the core of GH.1 from BDP §§2.3 and 3.1–3.4: the cycles Δ_φ, their field of definition and homological triviality, and the étale and p-adic Abel–Jacobi maps.
 
 ## Scope and boundaries
 
 The RS-06 owner table (accepted) assigns the finite-level modular universal-family cohomological carrier (the Kuga–Sato variety W_r, its projector ε_W and the symmetric-power local systems) to ModularCurvesPartII R14.3, which formerly sat under GH.0. GH.0 imports W_r and ε_W from there and keeps the CM factor A^r, the combined projector ε_X, and the identification of ε_X H^{2r+1}(X_r).
 
-- CM curves come from HeegnerPointEulerSystems HE.1 and ComplexMultiplicationAndExplicitReciprocity CM.1.
-- Correspondences come from MotivicEtaleKTheory M.4.
-- Künneth comes from SchemeAndStackFoundations SF.2, and Poincaré duality from EtaleDualityAndPerverseSheaves EDC.2.
-- The GeneralizedHeegnerCycles family is not in an accepted restructure. RS-04 mentions it and has no accepted review, so the current structure is used.
+GH.1 imports the following:
+- the CM descent, from HeegnerPointEulerSystems HE.1;
+- cycle classes and the Gysin sequence, from EtaleDualityAndPerverseSheaves EDC.3;
+- Galois cohomology, from SelmerIwasawaCohomology L0;
+- Faltings' crystalline comparison, D_cris and Nekovář's H¹_f theorem, from PadicHodgeTheory R06.2, R06.5 and R06.6.
+
+The GeneralizedHeegnerCycles family is not in an accepted restructure. RS-04 mentions it and has no accepted review, so the current structure is used.
 
 ## Conventions
 
 - K is imaginary quadratic with Hilbert class field H. A/H has End_H(A) = O_K, with [α]^*ω = αω on differentials.
 - C = X₁(N) with N > 4. W_r is the canonical desingularization of the r-fold fibre product of the universal generalized elliptic curve. X_r = W_r × A^r, of dimension 2r + 1.
-- ε_A = (1/(2^r r!)) Σ_{ξ∈Ξ_r} j(ξ)ξ, ε_X = ε_W ε_A, with denominators inverted in ℤ[1/(2N·r!)].
+- ε_A = (1/(2^r r!)) Σ_{ξ∈Ξ_r} j(ξ)ξ and ε_X = ε_W ε_A, with denominators inverted in ℤ[1/(2N·r!)].
+- Δ_φ = ε_X Υ_φ, with Υ_φ = Graph(φ)^r.
+- AJ^et takes values in H¹(F, ε_X H^{2r+1}(X̄_r, ℚ_p)(r + 1)), and AJ_F in (S_{r+2} ⊗ Sym^r H¹_dR(A))^∨.
 
 ## GH.0 Kuga–Sato geometry and coefficient projectors
 
@@ -279,11 +284,299 @@ Poincaré duality on the smooth proper (2r + 1)-dimensional X_r restricts to a p
 
 ## GH.1 Algebraic cycles and Abel–Jacobi realizations
 
-No nodes yet.
+### Objects
+
+#### Definition. The sets Isog_c^N(A) of CM isogenies of conductor c with kernel prime to A[N]
+
+*Module* `TauCeti/GeneralizedHeegner/Cycles/Isogenies.lean`. *Node* `GeneralizedHeegnerCycles:GH.1/isogenies-of-conductor-c-prime-to-n`.
+
+Assume the Heegner hypothesis: there is an ideal 𝔑 ⊂ O_K with O_K/𝔑 ≅ ℤ/Nℤ. Fix A with End(A) = O_K and a Γ₁(N)-level structure t_A ∈ A[𝔑] over the field H̃ ⊇ H over which A[𝔑] becomes constant. Isog(A) is the set of isomorphism classes of pairs (φ, A′) with φ : A → A′ an isogeny over K̄. (φ, A′) has conductor c if End(A′) = O_c = ℤ + cO_K. Isog^N(A) consists of the pairs with ker φ ∩ A[N] = 0, and Isog_c^N(A) = Isog_c(A) ∩ Isog^N(A). For (φ, A′) ∈ Isog^N(A), (A′, φ(t_A)) is a Γ₁(N)-structure and determines a point P_{A′} of C = X₁(N). The semigroup P(O_c) of invertible O_c-ideals prime to cN acts on Isog_c^N(A) by 𝔞 ⋆ (φ, A′) = (φ_𝔞φ, A′/A′[𝔞]).
+
+*Hypotheses.*
+
+- The kernel condition ker φ ∩ A[N] = 0 makes φ(t_A) a point of exact order N.
+- The conductor c is determined by End(A′), an order of K.
+
+*API.*
+
+- `IsogPair` (*structure*) — IsogPair A : a pair (A′, φ : A ⟶ A′) up to isomorphism under A.
+- `IsogPair.conductor` (*constructor*) — conductor : IsogPair A → ℕ, with End A′ ≅ ℤ + conductor · O_K.
+- `IsogPair.IsPrimeToN` (*data*) — IsPrimeToN N p : ker p.φ ⊓ A[N] = ⊥.
+- `IsogPair.point` (*constructor*) — point (p : IsogPair A) (h : p.IsPrimeToN N) : X₁(N)(K̄), the point (A′, φ(t_A)).
+- `IsogPair.idealAction` (*constructor*) — 𝔞 ⋆ p for 𝔞 an invertible O_c-ideal prime to cN.
+
+*Used by.*
+
+- `GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycle` — the cycles Δ_φ are indexed by Isog_c^N(A)
+- `GeneralizedHeegnerCycles:GH.1/field-of-definition-of-generalized-heegner-cycles` — the Galois action on Isog_c^N(A)
+- `GeneralizedHeegnerCycles:GH.2` — ring-class traces over P(O_c)-orbits
+
+*Unit tests.* A wrong definition fails one of these.
+
+- `identity_conductor_one` (degenerate) — The identity pair (id, A) has conductor 1 and is prime to N.
+- `conductor_of_quotient` (value) — For A = ℂ/O_K, the isogeny z ↦ cz : ℂ/O_K → ℂ/O_c has conductor c, and it is prime to N when (c, N) = 1.
+- `not_primeToN_kernel_meets` (non-example) — The isogeny A → A/A[𝔑] is not in Isog^N(A): its kernel is A[𝔑] ⊂ A[N].
+- `heegner_hypothesis_i` (value) — For K = ℚ(i) and N = 5, 𝔑 = (2 + i) satisfies O_K/𝔑 ≅ ℤ/5ℤ.
+
+*Construction.*
+
+1. The endomorphism ring of an isogenous curve is an order of K, hence O_c for a unique c ≥ 1.
+2. φ is injective on A[N] and t_A has order N, so φ(t_A) has order N.
+3. The action: 𝔞 prime to cN gives φ_𝔞 : A′ → A′/A′[𝔞], with kernel prime to N, and conductor c is preserved (the descent and CM facts are HeegnerPointEulerSystems HE.1's).
+
+*Acceptance.*
+
+- K = ℚ(i), N = 5 = (2 + i)(2 − i): 𝔑 = (2 + i), with O_K/𝔑 ≅ ℤ/5ℤ.
+- For A = ℂ/O_K, z ↦ cz defines an isogeny ℂ/O_K → ℂ/O_c with cyclic kernel c⁻¹O_c/O_K ≅ ℤ/cℤ, and End(ℂ/O_c) = O_c: a pair of conductor c.
+
+*Uses.* `GeneralizedHeegnerCycles:GH.0/cm-elliptic-curve-and-its-hodge-splitting`, `HeegnerPointEulerSystems:HE.1`.
+
+*Sources.*
+
+- Generalized Heegner cycles and p-adic Rankin L-series, §1.4, Assumption 1.9, p. 1053: “There is an ideal N of OK of norm N such that” The Heegner hypothesis.
+- Generalized Heegner cycles and p-adic Rankin L-series, §1.4, p. 1053: “is said to be of conductor c if” Conductor of a pair (φ, A′).
+- Generalized Heegner cycles and p-adic Rankin L-series, §1.4, p. 1054: “is an isogeny whose kernel intersects” Isog^N(A): kernel meets A[N] trivially.
+
+#### Construction. The generalized Heegner cycle Δ_φ = ε_X Υ_φ
+
+*Module* `TauCeti/GeneralizedHeegner/Cycles/Basic.lean`. *Node* `GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycle`.
+
+For (φ, A′) ∈ Isog^N(A), the pair (A′, φ(t_A)) gives an embedding ι_{A′} : (A′)^r → W_r onto the fibre of W_r over P_{A′}. Let Υ_φ be the image of Graph(φ)^r ⊂ (A × A′)^r ≅ (A′)^r × A^r in X_r = W_r × A^r under ι_{A′} × id. It is a codimension-(r + 1) cycle. The generalized Heegner cycle is Δ_φ := ε_X Υ_φ ∈ CH^{r+1}(X_r)_ℚ, supported on the fibre π_r^{−1}(P_{A′}) ≅ (A′)^r × A^r. For r = 0, Δ_φ is the CM point P_{A′} of C, and it is replaced by P_{A′} − ∞ for a cusp ∞.
+
+*Hypotheses.*
+
+- ε_X has denominators 2N·r! (GH.0), so Δ_φ is a class with ℚ-coefficients. It becomes integral after multiplying by (2N·r!)^2, which an integral theory must track.
+- Graph(φ)^r has dimension r in the 2r-dimensional fibre, so it has codimension r + 1 in X_r (dimension 2r + 1).
+
+*API.*
+
+- `upsilon` (*constructor*) — upsilon (p : IsogPair A) (h : p.IsPrimeToN N) : AlgebraicCycle (X r) (r + 1).
+- `gHC` (*constructor*) — gHC p h := (epsX r).act (upsilon p h) : CH^{r+1}(X r) ⊗ ℚ.
+- `gHC_support` (*characterisation*) — the support of gHC p h lies in (X.proj r)⁻¹(p.point h).
+- `gHC_idealAction` (*compatibility*) — gHC (𝔞 ⋆ p) is the image of gHC p under the correspondence induced by φ_𝔞.
+
+*Used by.*
+
+- `GeneralizedHeegnerCycles:GH.1/homological-triviality-of-generalized-heegner-cycles` — cl(Δ_φ) = 0
+- `GeneralizedHeegnerCycles:GH.1/etale-abel-jacobi-map` — AJ^et(Δ_φ)
+- `GeneralizedHeegnerCycles:GH.2` — ring-class traces of Δ_φ
+- `GeneralizedHeegnerCycles:GH.4` — the p-adic Abel–Jacobi formula for Δ_φ
+
+*Unit tests.* A wrong definition fails one of these.
+
+- `gHC_r_zero` (degenerate) — r = 0: Δ_φ = P_{A′}, replaced by P_{A′} − ∞ to make it null-homologous.
+- `upsilon_codim` (value) — Υ_φ has codimension r + 1 in X r (dimension 2r + 1).
+- `gHC_not_integral` (non-example) — Δ_φ is a ℚ-cycle: for r ≥ 1 the projector ε_X has denominator 2, so Δ_φ need not be the class of an integral cycle.
+- `gHC_support_fibre` (value) — For the identity pair, Δ_1 is supported on the fibre A^r × A^r over P_A.
+
+*Construction.*
+
+1. ι_{A′} identifies (A′)^r with the fibre of the fibre-power E^r over P_{A′}, which lies in the smooth locus of W_r since P_{A′} is not a cusp.
+2. Graph(φ) ⊂ A × A′ is a curve. Its r-th power is an r-dimensional subvariety of (A × A′)^r, reordered as (A′)^r × A^r.
+3. Apply the correspondence ε_X (GH.0) on Chow groups with ℚ-coefficients (MotivicEtaleKTheory M.4). ε_X preserves the fibres of π_r, so the support stays in π_r^{−1}(P_{A′}).
+
+*Acceptance.*
+
+- r = 1: Υ_φ = Graph(φ) ⊂ A′ × A = the fibre of E × A over P_{A′}, a curve in the threefold X_1.
+
+*Uses.* `GeneralizedHeegnerCycles:GH.1/isogenies-of-conductor-c-prime-to-n`, `GeneralizedHeegnerCycles:GH.0/generalized-kuga-sato-variety-and-its-projector`, `MotivicEtaleKTheory:M.4`.
+
+*Planet:* Generalized Heegner cycle.
+
+*Sources.*
+
+- Generalized Heegner cycles and p-adic Rankin L-series, §2.3, p. 1062: “We associate to any” The cycle Υ_φ = Graph(φ)^r.
+- Generalized Heegner cycles and p-adic Rankin L-series, §2.3, p. 1063: “is supported on the ﬁber” Δ_φ = ε_X Υ_φ is supported on the fibre over P_{A′}, in CH^{r+1}(X_r)_ℚ.
+
+#### Construction. BDP Definition 3.1: the étale Abel–Jacobi map on ε_X-cycles supported on a fibre
+
+*Module* `TauCeti/GeneralizedHeegner/AbelJacobi/Etale.lean`. *Node* `GeneralizedHeegnerCycles:GH.1/etale-abel-jacobi-map`.
+
+Let F ⊇ H be a field of characteristic 0, P ∈ C(F) a non-cuspidal point, X_P = π_r^{−1}(P) and X_r^♮ = X_r − X_P. For r ≥ 1, the Gysin sequence projected by ε_X gives an exact sequence of G_F-representations 0 → ε_X H^{2r+1}(X̄_r, ℚ_p)(r + 1) → ε_X H^{2r+1}(X̄_r^♮, ℚ_p)(r + 1) → ε_X H^{2r}(X̄_P, ℚ_p)(r) → 0. For a null-homologous Δ = ε_X Δ supported on X_P, the pullback of this sequence along ℚ_p → ε_X H^{2r}(X̄_P)(r), 1 ↦ cl_P(Δ), is an extension V_Δ, and AJ^et_F(Δ) ∈ Ext(ℚ_p, ε_X H^{2r+1}(X̄_r)(r + 1)) = H¹(F, ε_X H^{2r+1}(X̄_r, ℚ_p)(r + 1)) is its class. This agrees, after applying ε_X, with the general étale Abel–Jacobi map defined through the support of Δ (BDP Remark 3.2, following Nekovář).
+
+*Hypotheses.*
+
+- The exactness uses r ≥ 1: ε_X H^{2r−1}(X_P)(r) = 0, and ε_X H^{2r}(X_P)(r)^0 = ε_X H^{2r}(X_P)(r) because ε_X H^{2r+2}(X_r) = 0.
+- The target is the rational Galois cohomology of the ε_X-part. An integral version needs a G_F-stable lattice and control of the denominators of ε_X; that is GH.1 work still to be planned.
+
+*API.*
+
+- `ajEt` (*constructor*) — ajEt F : CH^{r+1}(X r)_{0,ℚ}(F) →ₗ[ℚ] H¹(G_F, epsX H^{2r+1}_et(X̄ r, ℚ_p)(r+1)).
+- `ajEt_fibre` (*characterisation*) — for Δ supported on X_P, ajEt F Δ is the class of the pullback of the Gysin extension along cl_P(Δ).
+- `ajEt_galois` (*compatibility*) — ajEt (σ Δ) = σ_* (ajEt Δ) for σ ∈ Aut(F/F₀).
+- `ajEt_restrict` (*compatibility*) — ajEt F′ (Δ ⊗ F′) = res_{F′/F} (ajEt F Δ).
+
+*Used by.*
+
+- `GeneralizedHeegnerCycles:GH.1/p-adic-abel-jacobi-map` — AJ_F = J ∘ comp ∘ AJ^et
+- `GeneralizedHeegnerCycles:GH.2` — the global classes and their local conditions
+- `GeneralizedHeegnerCycles:GH.5` — classes feeding the Kolyvagin system
+
+*Unit tests.* A wrong definition fails one of these.
+
+- `ajEt_zero` (degenerate) — ajEt F 0 = 0: the split extension.
+- `ajEt_r_zero_kummer` (value) — For r = 0, ajEt (P − ∞) is the Kummer class of the image of P − ∞ in J₁(N)(F) ⊗ ℚ_p.
+- `not_ajEt_non_null_homologous` (non-example) — The construction needs cl(Δ) = 0 in H^{2r+2}(X̄_r): for a cycle with nonzero class, the pullback does not land in ε_X H^{2r}(X̄_P)(r)^0 and no extension of ℚ_p is defined.
+- `ajEt_restrict_test` (characterisation) — Restriction to a finite extension F′/F commutes with ajEt.
+
+*Construction.*
+
+1. Gysin sequence for the smooth divisor X_P ⊂ X_r with complement X_r^♮, twisted by (r + 1) (EDC.3).
+2. Apply ε_X, which preserves X_P and X_r^♮ because it preserves the fibres of π_r. Then ε_X H^{2r−1}(X_P) = 0 (the ε_W part of the cohomology of a single fibre lives in degree r), and ε_X H^{2r+2}(X_r) = 0, giving the short exact sequence.
+3. cl_P(Δ) ∈ ε_X H^{2r}(X̄_P)(r). Pull back along the map sending 1 to it; the class in Ext¹ = H¹ of Galois cohomology (SelmerIwasawaCohomology L0) is AJ^et_F(Δ).
+4. Compatibility with the general definition: Nekovář's argument, Proposition II.2.4 of his work, as BDP Remark 3.2 says.
+
+*Acceptance.*
+
+- r = 0 analogue: for P − ∞ on a curve, AJ^et is the Kummer class of the point of the Jacobian.
+
+*Uses.* `GeneralizedHeegnerCycles:GH.1/homological-triviality-of-generalized-heegner-cycles`, `GeneralizedHeegnerCycles:GH.0/cohomology-of-the-generalized-kuga-sato-variety`, `EtaleDualityAndPerverseSheaves:EDC.3`, `SelmerIwasawaCohomology:L0`.
+
+*Planet:* Étale Abel–Jacobi map.
+
+*Sources.*
+
+- Generalized Heegner cycles and p-adic Rankin L-series, §3.1, p. 1065: “Consider the following Gysin sequence in p-adic étale cohomology” The Gysin sequence (3.1.1).
+- Generalized Heegner cycles and p-adic Rankin L-series, §3.1, Definition 3.1, p. 1066: “sends the class of the null-homologous codimension-.r C 1/ cycle” AJ^et_F as the class of the pulled-back extension.
+- Generalized Heegner cycles and p-adic Rankin L-series, §3.1, Remark 3.2, p. 1067: “It can be checked, following the argument that is explained in” Compatibility with the general definition.
+
+#### Construction. The p-adic Abel–Jacobi map AJ_F : CH^{r+1}(X_r)_{0,ℚ}(F) → (S_{r+2}(Γ, F) ⊗ Sym^r H¹_dR(A/F))^∨
+
+*Module* `TauCeti/GeneralizedHeegner/AbelJacobi/PAdic.lean`. *Node* `GeneralizedHeegnerCycles:GH.1/p-adic-abel-jacobi-map`.
+
+Let F be a finite unramified extension of ℚ_p over which C and X_r have smooth proper models (for (φ, A′) ∈ Isog_c^N(A) with p ∤ cNd_K, the completion of H̃·H_c at a place above p). By Nekovář and Nizioł, AJ^et_F takes values in H¹_f = Ext_cris(ℚ_p, ε_X H^{2r+1}_et(X̄_r)(r + 1)). Faltings' crystalline comparison identifies this with Ext_ffm(F, ε_X H^{2r+1}_dR(X_r/F)(r + 1)), and Proposition 3.5 (weight −1) with ε_X H^{2r+1}_dR(r + 1)/Fil⁰ = (Fil^{r+1} ε_X H^{2r+1}_dR(X_r/F))^∨, by Poincaré duality. By GH.0 the latter is (S_{r+2}(Γ, F) ⊗ Sym^r H¹_dR(A/F))^∨. AJ_F is the composite.
+
+*Hypotheses.*
+
+- F unramified over ℚ_p with good reduction of C and X_r (p ∤ cNd_K). The comparison and Nekovář's theorem are imported from PadicHodgeTheory R06.5–R06.6.
+- H = ε_X H^{2r+1}_dR(r + 1) has weight −1 < 0, as Proposition 3.5 requires.
+
+*API.*
+
+- `ajP` (*constructor*) — ajP F : CH^{r+1}(X r)_{0,ℚ}(F) →ₗ[ℚ] Module.Dual F (S_{r+2}(Γ, F) ⊗ Sym^r H¹_dR(A/F)).
+- `ajP_eq` (*characterisation*) — ajP F = J ∘ comp ∘ ajEt F.
+- `ajP_eval` (*characterisation*) — ajP F Δ (ω_f ⊗ α) = ⟨η^hol − η^frob, ω_f ∧ α⟩ for the filtered Frobenius extension of Δ.
+- `ajEt_mem_H1f` (*characterisation*) — ajEt F Δ ∈ H¹_f(F, epsX H^{2r+1}(r+1)).
+
+*Used by.*
+
+- `GeneralizedHeegnerCycles:GH.4` — the p-adic Abel–Jacobi formula AJ_F(Δ_φ)(ω_f ∧ ω^jη^{r−j})
+- `GeneralizedHeegnerCycles:GH.2` — local conditions at p
+
+*Unit tests.* A wrong definition fails one of these.
+
+- `ajP_zero` (degenerate) — ajP F 0 = 0.
+- `ajP_r_zero_coleman` (value) — For r = 0, ajP F (P − ∞) (ω_f) is the Coleman integral ∫_∞^P ω_f.
+- `not_ajP_ramified` (non-example) — For F ramified over ℚ_p, or X_r with bad reduction, the crystalline comparison does not apply, and the construction must be replaced by the semistable one (as in Iovita–Spieß).
+- `ajP_target_dim` (characterisation) — The target has dimension (r + 1)·dim S_{r+2}(Γ, F).
+
+*Construction.*
+
+1. AJ^et_F(CH^{r+1}_0) ⊆ H¹_f (Nekovář, Theorem 3.1.1; Nizioł), requested from PadicHodgeTheory R06.6.
+2. Faltings: ε_X H^{2r+1}_et(X̄_r)(r + 1) is crystalline with D_cris equal to ε_X H^{2r+1}_dR(X_r/F)(r + 1) (R06.5). D_cris is fully faithful, and surjectivity onto Ext_ffm comes from the Bloch–Kato exponential (BDP Corollary 3.4; R06.2).
+3. Proposition 3.5 with H = ε_X H^{2r+1}_dR(r + 1) of weight −1.
+4. Poincaré duality makes Fil¹ε_X H^{2r+1}(r) and Fil⁰ε_X H^{2r+1}(r + 1) exact annihilators, so H/Fil⁰H = (Fil^{r+1} ε_X H^{2r+1}_dR)^∨ (GH.0/self-duality-of-the-projected-cohomology).
+5. Fil^{r+1} ε_X H^{2r+1}_dR = S_{r+2}(Γ, F) ⊗ Sym^r H¹_dR(A) (GH.0/cohomology-of-the-generalized-kuga-sato-variety).
+
+*Acceptance.*
+
+- r = 0: AJ_F(P − ∞)(ω_f) = ∫_∞^P ω_f, the Coleman integral, which BDP §3.6 recovers.
+
+*Uses.* `GeneralizedHeegnerCycles:GH.1/etale-abel-jacobi-map`, `GeneralizedHeegnerCycles:GH.1/extensions-of-filtered-frobenius-modules`, `GeneralizedHeegnerCycles:GH.0/cohomology-of-the-generalized-kuga-sato-variety`, `GeneralizedHeegnerCycles:GH.0/self-duality-of-the-projected-cohomology`, `PadicHodgeTheory:R06.5`, `PadicHodgeTheory:R06.2`, `PadicHodgeTheory:R06.6`.
+
+*Planet:* p-adic Abel–Jacobi map.
+
+*Sources.*
+
+- Generalized Heegner cycles and p-adic Rankin L-series, §3.2, p. 1067: “The extension F is a ﬁnite unramiﬁed extension of Qp.” Hypotheses on F.
+- Generalized Heegner cycles and p-adic Rankin L-series, §3.2, Theorem 3.3, p. 1068: “is crystalline, and there is a canon-” Faltings' crystalline comparison.
+- Generalized Heegner cycles and p-adic Rankin L-series, §3.4, p. 1069: “whose elements correspond to crystalline exten-” AJ^et lands in H¹_f = Ext_cris.
+- Generalized Heegner cycles and p-adic Rankin L-series, §3.4, p. 1070: “The p-adic Abel–Jacobi map, denoted AJF , is the diagonal map in the diagram” Definition of AJ_F.
+
+### Theorems
+
+#### Theorem. BDP Remark 2.6: the field of definition of Δ_φ
+
+*Module* `TauCeti/GeneralizedHeegner/Cycles/Basic.lean`. *Node* `GeneralizedHeegnerCycles:GH.1/field-of-definition-of-generalized-heegner-cycles`.
+
+If (φ, A′) ∈ Isog_c^N(A), then Δ_φ is defined over the compositum H̃·H_c of the abelian extension H̃/K over which (A, t_A) is defined with the ring class field H_c of conductor c. So the Δ_φ are defined over abelian extensions of K.
+
+*Hypotheses.*
+
+- The descent of the pair (φ, A′) to H_c, compatibly with the level structure, is the main theorem of complex multiplication, imported from HeegnerPointEulerSystems HE.1.
+
+*Proof.*
+
+1. The CM main theorem makes (A′, φ(t_A)) and φ defined over H̃·H_c for (φ, A′) of conductor c (HE.1).
+2. W_r, A and ε_X are defined over H (GH.0), so ι_{A′}, Υ_φ and Δ_φ are defined over H̃·H_c.
+
+*Acceptance.*
+
+- c = 1: Δ_φ is defined over H̃, the field of definition of A[𝔑].
+
+*Uses.* `GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycle`, `HeegnerPointEulerSystems:HE.1`.
+
+*Sources.*
+
+- Generalized Heegner cycles and p-adic Rankin L-series, §2.3, Remark 2.6, p. 1063: “deﬁned over abelian extensions of K” Δ_φ is defined over H̃·H_c.
+
+#### Theorem. BDP Proposition 2.7: Δ_φ is homologically trivial
+
+*Module* `TauCeti/GeneralizedHeegner/Cycles/Basic.lean`. *Node* `GeneralizedHeegnerCycles:GH.1/homological-triviality-of-generalized-heegner-cycles`.
+
+For r ≥ 1, the cycle class of Δ_φ in ε_X H^{2r+2}(X_r) vanishes in every cohomology theory (de Rham, étale, Betti), so Δ_φ ∈ CH^{r+1}(X_r)_{0,ℚ}. For r = 0, P_{A′} − ∞ is homologically trivial.
+
+*Hypotheses.*
+
+- The vanishing of ε_X H^{2r+2}(X_r) is the only input for r ≥ 1.
+- The cycle class map commutes with correspondences (EtaleDualityAndPerverseSheaves EDC.3).
+
+*Proof.*
+
+1. cl(Δ_φ) = cl(ε_X Υ_φ) = ε_X cl(Υ_φ) ∈ ε_X H^{2r+2}(X_r) (EDC.3).
+2. ε_X H^{2r+2}(X_r) = 0 for r ≥ 1 (GH.0/cohomology-of-the-generalized-kuga-sato-variety).
+3. r = 0: a degree-zero divisor on a curve is homologically trivial.
+
+*Acceptance.*
+
+- r = 1: cl(Δ_φ) ∈ ε_X H⁴(E × A) = 0.
+
+*Uses.* `GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycle`, `GeneralizedHeegnerCycles:GH.0/cohomology-of-the-generalized-kuga-sato-variety`, `EtaleDualityAndPerverseSheaves:EDC.3`.
+
+*Sources.*
+
+- Generalized Heegner cycles and p-adic Rankin L-series, §2.3, Proposition 2.7, p. 1063: “is homologically trivial on” Δ_φ is homologically trivial.
+
+#### Lemma. BDP Proposition 3.5: Ext of the unit by a filtered Frobenius module of negative weight
+
+*Module* `TauCeti/GeneralizedHeegner/AbelJacobi/FilteredFrobenius.lean`. *Node* `GeneralizedHeegnerCycles:GH.1/extensions-of-filtered-frobenius-modules`.
+
+Let F be a finite unramified extension of ℚ_p, and H a filtered Frobenius module over F of strictly negative weight, so that H^{Φ=1} = 0. Then Ext¹_ffm(F, H) ≅ H/Fil⁰H, by E ↦ η_E^hol − η_E^frob, where η_E^hol ∈ Fil⁰E and η_E^frob ∈ E^{Φ=1} both lift 1 ∈ F.
+
+*Hypotheses.*
+
+- The weight hypothesis is used to make E^{Φ=1} → F an isomorphism, and to make the class independent of the lift η^frob.
+
+*Proof.*
+
+1. Since H^{Φ=1} = 0, the map E^{Φ=1} → F^{Φ=1} = F is injective, and it is surjective because the extension of φ-modules splits (Φ − 1 is bijective on H by the weight hypothesis). This gives a φ-module splitting E = H ⊕ F with η^frob = (0, 1).
+2. The filtration on E is determined by Fil⁰E = Fil⁰H + F·η^hol, with η^hol = (h, 1). Two choices give the same filtration iff h − h′ ∈ Fil⁰H.
+3. Hence the class of h in H/Fil⁰H classifies the extension.
+
+*Acceptance.*
+
+- H = F(1), the Tate twist of weight −2 (Fil⁰H = 0): Ext¹_ffm(F, F(1)) ≅ F.
+
+*Sources.*
+
+- Generalized Heegner cycles and p-adic Rankin L-series, §3.3, p. 1068: “Let H be a ﬁltered Frobenius module of strictly negative weight” The setting of Proposition 3.5.
+- Generalized Heegner cycles and p-adic Rankin L-series, §3.3, Proposition 3.5, p. 1069: “yields an isomorphism” Ext_ffm(F, H) = H/Fil⁰H.
 
 ### What is missing
 
-- Not planned in checkpoint 1. The integrated decomposition's node GH.1/generalized-heegner-cycles-and-their-abel-jacobi-images is to be refined, starting from BDP §2.3 (Δ_φ = ε_X Υ_φ, Remark 2.6, Proposition 2.7) and §3 (Abel–Jacobi maps).
+- The integral version: a G_F-stable lattice in ε_X H^{2r+1}(r + 1), the comparison with the chosen lattice in V_f(r) ⊗ χ, and bounds on the denominators 2N·r! of ε_X, as the atlas asks.
+- The de Rham and syntomic realization beyond the p-adic Abel–Jacobi map (BDP §3.5 onwards: the Coleman primitive, §§3.6–3.8), which feeds GH.4.
+- BDP §2.4, the relation with classical Heegner cycles on W_{2r} through the correspondence Π. BDP leave this calculation to the reader, so it would need its own source.
 
 ## GH.2 Ring-class trace, congruence and local conditions
 
@@ -336,17 +629,23 @@ No nodes yet.
 ## Requests to other roadmaps
 
 - `ModularCurvesPartII:R14.3` — The higher-weight universal-family carrier that RS-06's owner table assigns to R14.3: the canonical desingularization W_r of the r-fold fibre product of the universal generalized elliptic curve over X₁(N) (N > 4), its projector ε_W = ε_W^{(2)}ε_W^{(1)} with denominators N^r and 2^r r!, Scholl's theorem ε_W H^*(W_r) = H¹_par(C, L_r) in degree r + 1 (de Rham, étale and Betti), its Hodge filtration (Fil^{r+1} = S_{r+2}), the Hecke action, and the newform summand V_f. Needed by `generalized-kuga-sato-variety-and-its-projector`, `cohomology-of-the-generalized-kuga-sato-variety`, `self-duality-of-the-projected-cohomology`.
-- `HeegnerPointEulerSystems:HE.1` — An elliptic curve A over the Hilbert class field H of K with End_H(A) = O_K, and its descent by the main theorem of complex multiplication. Needed by `cm-elliptic-curve-and-its-hodge-splitting`.
+- `HeegnerPointEulerSystems:HE.1` — An elliptic curve A over the Hilbert class field H of K with End_H(A) = O_K, and its descent by the main theorem of complex multiplication. The descent of CM isogeny pairs (φ, A′) of conductor c with Γ₁(N)-structure to H̃·H_c (main theorem of complex multiplication), and the action of invertible O_c-ideals. Needed by `cm-elliptic-curve-and-its-hodge-splitting`, `field-of-definition-of-generalized-heegner-cycles`, `isogenies-of-conductor-c-prime-to-n`.
 - `ComplexMultiplicationAndExplicitReciprocity:CM.1` — Elliptic CM: the O_K-action on an elliptic curve with CM by O_K, normalized on invariant differentials, with automorphism factors for j = 0 and 1728. Needed by `cm-elliptic-curve-and-its-hodge-splitting`.
-- `MotivicEtaleKTheory:M.4` — Chow groups with rational coefficients, the ring of correspondences CH^{dim X}(X × X)_ℚ and its action on cohomology by functoriality, with transposition. Needed by `cm-projector-and-symmetric-power`, `generalized-kuga-sato-variety-and-its-projector`.
+- `MotivicEtaleKTheory:M.4` — Chow groups with rational coefficients, the ring of correspondences CH^{dim X}(X × X)_ℚ and its action on cohomology by functoriality, with transposition. The action of correspondences on CH^{r+1}(X_r)_ℚ, used to project cycles. Needed by `cm-projector-and-symmetric-power`, `generalized-kuga-sato-variety-and-its-projector`, `generalized-heegner-cycle`.
 - `SchemeAndStackFoundations:SF.2` — The Künneth decomposition for de Rham and étale cohomology of products of smooth proper varieties over a field of characteristic 0, compatible with correspondences acting on each factor. Needed by `cohomology-of-the-generalized-kuga-sato-variety`.
 - `EtaleDualityAndPerverseSheaves:EDC.2` — Poincaré duality for smooth proper varieties, H^i × H^{2d−i} → ℚ_p(−d), Galois-equivariantly, with ⟨εx, y⟩ = ⟨x, ε^t y⟩ for correspondences. Needed by `self-duality-of-the-projected-cohomology`.
+- `EtaleDualityAndPerverseSheaves:EDC.3` — Étale cycle classes, their compatibility with correspondences, and the Gysin sequence for a smooth divisor in a smooth proper variety. Needed by `homological-triviality-of-generalized-heegner-cycles`, `etale-abel-jacobi-map`.
+- `SelmerIwasawaCohomology:L0` — Continuous Galois cohomology H¹(F, V) of p-adic representations and its identification with Ext¹(ℚ_p, V) in the category of continuous representations. Needed by `etale-abel-jacobi-map`.
+- `PadicHodgeTheory:R06.5` — Faltings' crystalline comparison theorem for smooth proper varieties with good reduction over a finite unramified extension F of ℚ_p: H^i_et(X̄, ℚ_p) is crystalline and D_cris(H^i_et(X̄, ℚ_p)) ≅ H^i_dR(X/F) as filtered Frobenius modules, functorially in correspondences. Needed by `p-adic-abel-jacobi-map`.
+- `PadicHodgeTheory:R06.2` — D_cris, full faithfulness on crystalline representations, and the identification Ext_cris(ℚ_p, V) ≅ Ext_ffm(F, D_cris(V)) through the Bloch–Kato exponential. Needed by `p-adic-abel-jacobi-map`.
+- `PadicHodgeTheory:R06.6` — Nekovář's and Nizioł's theorem: the étale Abel–Jacobi image of a null-homologous cycle on a smooth proper variety with good reduction lies in H¹_f. Needed by `p-adic-abel-jacobi-map`.
 
 ## Sources
 
-- Massimo Bertolini, Henri Darmon and Kartik Prasanna (with an appendix by Brian Conrad), *Generalized Heegner cycles and p-adic Rankin L-series*. Duke Math. J. 162 (2013), no. 6, 1033–1148, published version from H. Darmon's page (116 pages; printed page = PDF page + 1032). https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf (SHA-256 `223bfdad6571c211a1b3e11c4688f2831f06a642eafef7c3552c9506a7188fbc`). Read: cc-fb70e5, 2026-09-29 (part GH.0, checkpoint 1): §1.4, pp. 1051–1053; §2.1–§2.3, pp. 1055–1063, in full.
+- Massimo Bertolini, Henri Darmon and Kartik Prasanna (with an appendix by Brian Conrad), *Generalized Heegner cycles and p-adic Rankin L-series*. Duke Math. J. 162 (2013), no. 6, 1033–1148, published version from H. Darmon's page (116 pages; printed page = PDF page + 1032). https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf (SHA-256 `223bfdad6571c211a1b3e11c4688f2831f06a642eafef7c3552c9506a7188fbc`). Read: cc-fb70e5, 2026-09-29 (part GH.0, checkpoint 1): §1.4, pp. 1051–1053; §2.1–§2.3, pp. 1055–1063, in full; cc-fb70e5, 2026-09-29 (part GH.0, checkpoint 2): §1.4 Isogenies, pp. 1053–1054; §2.3–§2.4, pp. 1062–1064; §3.1–§3.4, pp. 1064–1070.
 
 ## Non-goals
 
 - The Kuga–Sato variety W_r, its projector ε_W and Scholl's theorem: these are ModularCurvesPartII R14.3's.
 - Integral models over ℤ[1/N] (Conrad's appendix): GH.0 works over fields of characteristic 0.
+- p-adic Hodge theory itself (PadicHodgeTheory): GH.1 uses the comparison theorems as stated.

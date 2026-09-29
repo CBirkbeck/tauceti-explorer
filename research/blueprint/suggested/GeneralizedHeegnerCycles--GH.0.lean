@@ -1,6 +1,6 @@
 /-
 Suggested Lean prototypes for the roadmap "Generalized Heegner cycles and their Iwasawa variation"
-(GeneralizedHeegnerCycles), part GH.0 (stages GH.0–GH.7); this checkpoint plans stage GH.0.
+(GeneralizedHeegnerCycles), part GH.0 (stages GH.0–GH.7); checkpoints 1–2 plan stage GH.0 and the core of GH.1.
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/GeneralizedHeegnerCycles--GH.0.md` is definitive. The statements below suggest Lean forms so
@@ -56,5 +56,19 @@ example (r : ℕ) : (r + 1) + r = 2 * r + 1 := by omega
 `μ₂^r × S_r`, modelled here with `μ₂ ≃ Bool`. -/
 example (r : ℕ) : Fintype.card ((Fin r → Bool) × Equiv.Perm (Fin r)) = 2 ^ r * r.factorial := by
   simp [Fintype.card_prod, Fintype.card_perm]
+
+/-! ## GH.1: cycles and Abel–Jacobi maps (`GeneralizedHeegnerCycles:GH.1/…`)
+
+Suggested signatures on the geometric carriers (not importable here):
+
+  structure IsogPair (A : CMCurve K H) where (A' : EllipticCurve K̄) (φ : A ⟶ A')
+  def gHC (p : IsogPair A) (h : p.IsPrimeToN N) : CH (X r) (r + 1) ⊗ ℚ := (epsX r).act (upsilon p h)
+  theorem gHC_homologically_trivial (hr : 1 ≤ r) : cycleClass (gHC p h) = 0
+  def ajEt (F) : CH0 (X r) (r + 1) F →ₗ[ℚ] H1 (G F) (epsX • H (2*r+1) (X r) (r+1))
+  def ajP (F) [IsUnramified ℚ_[p] F] : CH0 (X r) (r + 1) F →ₗ[ℚ] Module.Dual F (S (r+2) Γ F ⊗ Sym r (H1dR A F))
+-/
+
+/-- Test `upsilon_codim`: `Υ_φ` has dimension `r` in `X_r` of dimension `2r + 1`, hence codimension `r + 1`. -/
+example (r : ℕ) : (2 * r + 1) - r = r + 1 := by omega
 
 end TauCeti.GeneralizedHeegner
