@@ -38080,8 +38080,9 @@
     "REV-PAPER-MERKURJEV-SCAVIA-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4530"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4530",
+   "finishedAt": "2026-09-29T23:43:20Z"
   },
   {
    "id": "REV-RT-PAPER-MERKURJEV-SCAVIA-26",
@@ -39844,7 +39845,8 @@
     "REV-PAPER-KOYMANS-PAGANO"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KOYMANS-PAGANO.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4338"
   },
   {
    "id": "REV-RT-PAPER-KOYMANS-PAGANO",
