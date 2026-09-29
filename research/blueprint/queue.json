@@ -19337,8 +19337,9 @@
    ],
    "avoidAccountOf": "RS-09",
    "prompt": "research/blueprint/prompts/REV-RS-09.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #817"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #817",
+   "finishedAt": "2026-09-29T21:02:43Z"
   },
   {
    "id": "RS-10",
@@ -20397,7 +20398,8 @@
    ],
    "avoidAccountOf": "RS-27",
    "prompt": "research/blueprint/prompts/REV-RS-27.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #853"
   },
   {
    "id": "RS-28",
