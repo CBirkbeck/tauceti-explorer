@@ -2543,8 +2543,9 @@
    ],
    "avoidAccountOf": "PAPER-TEMKIN-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-TEMKIN-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1156"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1156",
+   "finishedAt": "2026-09-29T12:40:33Z"
   },
   {
    "id": "PAPER-CADORET-HUI-TAMAGAWA-17",
@@ -4599,7 +4600,8 @@
    ],
    "avoidAccountOf": "PAPER-XIE-YUAN-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-XIE-YUAN-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1271"
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22",
