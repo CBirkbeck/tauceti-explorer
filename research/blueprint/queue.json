@@ -15899,9 +15899,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R26.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #694"
+   "note": "claimed on GitHub issue #694"
   },
   {
    "id": "REV-ClassicalSerreModularity--R26.1",
@@ -20175,13 +20175,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-OrdinaryAutomorphicFormsAndModularityLifting.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #962"
+   "note": "released on GitHub issue #962"
   },
   {
    "id": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
