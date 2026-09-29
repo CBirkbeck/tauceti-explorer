@@ -1,4 +1,5 @@
 import Mathlib.NumberTheory.Cyclotomic.Gal
+import Mathlib.RingTheory.Coprime.Lemmas
 import Mathlib.Data.ZMod.Basic
 import Mathlib.NumberTheory.Cyclotomic.PrimitiveRoots
 import Mathlib.RingTheory.Norm.Transitivity
@@ -463,6 +464,10 @@ example (p : ℕ) [Fact (2 < p)] : (1 : ZMod p) ≠ -1 := fun h => ZMod.neg_one_
 /-- `L1/kolyvagin-class-group-divisibility`: over a DVR with residue field of size `q`, `|B| = q^{ℓ_O(B)}`, so
 `ℓ(A) ≤ ℓ(E/C)` gives `|A| ∣ |E/C|`; the arithmetic of powers. -/
 example (q a b : ℕ) (h : a ≤ b) : q ^ a ∣ q ^ b := pow_dvd_pow q h
+
+/-- `L2/cyclotomic-iwasawa-divisibility`, the last step: if `a` is coprime to `J` and `a ∣ J² b`, then `a ∣ b`. -/
+example {R : Type*} [CommRing R] (a b j : R) (h : IsCoprime a j) (hd : a ∣ j ^ 2 * b) : a ∣ b :=
+  (h.pow_right (n := 2)).dvd_of_dvd_mul_left hd
 
 end SuggestedTest
 
