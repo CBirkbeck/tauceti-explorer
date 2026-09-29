@@ -1,6 +1,6 @@
 # Modular forms — Hecke theory, newforms, and L-functions, Part II: Geometric reduction, Serre weights and eigenvalue lifting
 
-**Base:** `tauceti:TauCetiRoadmap/ModularForms`. **Ownership:** accepted RS-06, reviewed in `REV-RS-06.md`. **Checkpoint:** partial, for issue #671 (checkpoint 1: ChatGPT Pro, R15.5; checkpoint 2: Claude Code cc-fb70e5, R15.4 and R15.6). This document does not declare any of the six stages closed. It expands the algebraic core of R15.5; its stage-specific continuation requirements are part of the specification, not claims that the omitted proofs have been supplied.
+**Base:** `tauceti:TauCetiRoadmap/ModularForms`. **Ownership:** accepted RS-06, reviewed in `REV-RS-06.md`. **Checkpoint:** partial, for issue #671 (checkpoint 1: ChatGPT Pro, R15.5; checkpoint 2: Claude Code cc-fb70e5, R15.4 and R15.6; checkpoint 3: Claude Code cc-fb70e5, R15.1–R15.3). This document does not declare any of the six stages closed. It expands the algebraic core of R15.5; its stage-specific continuation requirements are part of the specification, not claims that the omitted proofs have been supplied.
 
 The reviewed decomposition remains the source register for the full roadmap. The node `AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma` keeps its identifier. Its new prerequisite nodes expose the algebra hidden inside the old single-node outline. The other reviewed nodes must be retained or explicitly refined on continuation; this checkpoint must not be promoted as a complete replacement of that decomposition.
 
@@ -18,6 +18,111 @@ The input residual eigenvector is nonzero. The output integral eigenvector is no
 
 **Required comparisons and acceptance.** State coefficient extension as a map before asserting a base-change isomorphism. Record the necessary cohomology/base-change assumptions and the stabilizer action. The analytic comparison must agree with the existing analytic modular-form carrier, including q-expansion normalizations. Test low-level stabilizers and restriction to a Tate-curve chart. This stage's reviewed source decomposition has not been reconstructed into a complete blueprint by this checkpoint.
 
+Checkpoint 3 carries the reviewed decomposition's nodes for this stage with explicit prerequisites.
+
+### Construction. The invertible sheaf omega on the compactified level-n moduli scheme, normalized at the Tate curve
+
+*Module* `TauCeti/NumberTheory/ModularForms/Katz.lean`. *Node* `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`.
+
+For n >= 3 (the range in which Katz 1.4 has the level-n moduli problem represented by the smooth affine curve M_n over Z[1/n]; levels 1 and 2 are treated by descent in 1.8-1.10) there is a unique invertible sheaf omega on the compactified modular scheme Mbar_n over Z[1/n] whose restriction to M_n is omega_{E/M_n} for the universal elliptic curve with level-n structure, and whose sections over the completion Z[1/n, zeta_n][[q]] at each cusp are exactly the Z[1/n, zeta_n][[q]]-multiples of the canonical differential of the Tate curve. Katz asserts, citing his Appendix A1.3.17 and Deligne's Bourbaki expose 355 ([7]) rather than proving it in 1.5, that the Kodaira-Spencer map extends to an isomorphism omega^{tensor 2} = Omega^1_{Mbar_n / Z[1/n]}(log(cusps)), and over Z[1/n, zeta_n][[q]] the square of the canonical differential of Tate(q^n) corresponds to n dq/q. A modular form of level n and weight k holomorphic at infinity over a Z[1/n]-algebra R_0, resp. with coefficients in a Z[1/n]-module K, is a global section of omega^{tensor k} on Mbar_n tensor R_0, resp. an element of H^0(Mbar_n, omega^{tensor k} tensor_{Z[1/n]} K).
+
+*Hypotheses.*
+
+- n >= 3: Katz 1.4 states representability of the level-n moduli problem only for n >= 3, and 1.10 says that modular schemes of level 1 and 2 do not exist as fine moduli schemes
+- n invertible on the base: all schemes are over Z[1/n]
+- the universal object is an elliptic curve with level-n structure on M_n, extended to the compactification Mbar_n by Tate curves at the cusps
+- the cusp normalization is fixed by the Tate curve Tate(q^n) over Z[1/n, zeta_n][[q]] together with its canonical differential
+- the Kodaira-Spencer identification carries the factor n: the square of the canonical differential on Tate(q^n) corresponds to n dq/q, not to dq/q
+
+*API.*
+
+- `TauCeti.KatzModularForms.omega` (*constructor*) — The invertible sheaf ω on M̄_n (n ≥ 3) extending ω_{E/M_n}, normalised at each cusp by the canonical differential of the Tate curve.
+- `TauCeti.KatzModularForms.omega_cusp` (*characterisation*) — Over Z[1/n, ζ_n][[q]] at a cusp, the sections of ω are the multiples of ω_can on Tate(q^n).
+- `TauCeti.KatzModularForms.kodairaSpencer` (*characterisation*) — ω^{⊗2} ≅ Ω¹_{M̄_n/Z[1/n]}(log cusps), with ω_can^{⊗2} ↦ n·dq/q (asserted by Katz with references).
+- `TauCeti.KatzModularForms.forms` (*constructor*) — S(K, n, k) = H⁰(M̄_n, ω^{⊗k} ⊗_{Z[1/n]} K), forms holomorphic at ∞ with coefficients in K.
+
+*Unit tests.*
+
+- `TauCeti.KatzModularForms.delta_section` (example) — Δ = q∏(1 − q^m)^{24} is a nowhere-vanishing section of ω^{⊗12} on M_n and has a simple zero at each cusp of level one.
+- `TauCeti.KatzModularForms.omega_needs_level_three` (degenerate) — For n = 1, 2 the moduli problem is not representable (the automorphism −1), so ω is not defined this way; levels 1 and 2 go through R15.1/level-one-and-two-by-descent-with-explicit-inverted-primes.
+- `TauCeti.KatzModularForms.omega_sq_not_omega1` (non-example) — ω^{⊗2} is Ω¹ with logarithmic poles at the cusps, not Ω¹ itself: weight-2 cusp forms, not all weight-2 forms, are the regular differentials.
+
+*Construction.*
+
+1. Katz 1.5 constructs omega by the stated two conditions (restriction to M_n, and prescribed sections at each cusp) and asserts uniqueness.
+2. The extension of the Kodaira-Spencer isomorphism omega^{tensor 2} = Omega^1(log cusps) across the cusps is quoted with the references (cf. A1.3.17 and [7]), [7] = Deligne, Formes modulaires et representations l-adiques, Bourbaki expose 355; no proof is given in 1.5. Katz records the explicit q-form of the identification for Tate(q^n).
+3. Modular forms holomorphic at infinity are then defined as sections of omega^{tensor k}, with coefficients in an arbitrary Z[1/n]-module K by tensoring the sheaf.
+
+*Acceptance.*
+
+- Check that the section of omega^{tensor 2} corresponding to dq/q on Tate(q^n) is n^{-1} times the square of the canonical differential, so that the normalization constant n appears where it must in the comparison with Omega^1(log)
+- Check the sheaf condition at a cusp by verifying that a section with q-expansion in q Z[1/n, zeta_n][[q]] is the same thing as a section of omega^{tensor k} vanishing along that cusp
+
+*Used by.*
+
+- AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem — forms are sections of ω^{⊗k} on M̄_n and have q-expansions at the cusps
+- AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one — A is a section of ω^{⊗(p−1)}
+
+*Uses.* `ModularCurvesPartII:R13.2`, `ModularCurvesPartII:R13.3`, `ModularCurvesPartII:R12.5`.
+
+*Planet:* Katz modular forms.
+
+*Sources.*
+
+- p-adic properties of modular schemes and modular forms, Chapter 1, 1.5, printed p. 83 (Ka-15): “There is a unique invertible sheaf _~ on ~n whose restriction to Mn is _~E/Mn ... and whose sections over the completion Z[1/n~n][[q]] at each cusp are precisely the Z[1/n,~n][[q]] multiples of the canonical differential of the Tare curve.” Literal statement of the defining property and uniqueness of omega used above (OCR renders omega as '_~' and Mbar_n as '~n').
+- p-adic properties of modular schemes and modular forms, Chapter 1, 1.5, printed p. 83 (Ka-15): “and, in fact, over Z[l/n~n][[q]] , the "square" of the canonical differential on Tate(q n) corresponds to n- dq q” Fixes the normalization constant n in the Kodaira-Spencer comparison, which the roadmap's normalization conventions require to be retained.
+- p-adic properties of modular schemes and modular forms, 1.4, printed p. 81 (Ka-13): “For each integer n >= 3, the functor "isomorphism classes of elliptic curves with level n structure" is representable” The level hypothesis n >= 3 under which Mbar_n and omega exist (text layer prints the inequality as 'n _> 3'). Added by the reviewer.
+
+### Construction. Level one and level two forms as invariants of a rigidifying cover, with the primes that must be inverted
+
+*Module* `TauCeti/NumberTheory/ModularForms/Katz.lean`. *Node* `AlgebraicModularFormsAndSerreWeights:R15.1/level-one-and-two-by-descent-with-explicit-inverted-primes`.
+
+For n = 1, 2 the module S(K, n, k) of weight-k forms holomorphic at infinity with coefficients in a Z[1/n]-module K is defined not as sections over a coarse space but by descent from the rigid levels (Katz 1.9): for n = 2 as the subgroup of H^0(Mbar_4, omega^{tensor k} tensor_{Z[1/4]} K) invariant under the matrices of GL_2(Z/4Z) that are congruent to 1 mod 2, and for n = 1 as the fibre product of the level-3 and level-4 modules over the level-12 module. Base change then holds in the form: Thm 1.8.1, for every ring R_0 in which 2 is invertible and every k >= 1, the canonical map S(Z,2,k) tensor_Z R_0 -> S(R_0,2,k) is an isomorphism (printed with S(Z,2,k); since level-2 forms live over Z[1/2] this is read as S(Z[1/2],2,k)); Thm 1.8.2, for every ring R_0 in which 2 and 3 are invertible and every k >= 1, the canonical map S(Z,1,k) tensor_Z R_0 -> S(R_0,1,k) is an isomorphism, the proof passing through the intermediate isomorphism S(Z[1/6],1,k) tensor_{Z[1/6]} R_0 -> S(R_0,1,k). Remark 1.8.2.2 states that Theorem 1.8.2 (level one) becomes false when 2 and 3 are not excluded; the source makes no corresponding failure statement for level two.
+
+*Hypotheses.*
+
+- for level 2: 2 invertible in R_0; for level 1: 2 and 3 invertible in R_0
+- the descent uses that the relevant rigidifying groups (order 16 for the mod-2 congruence subgroup of GL_2(Z/4Z), 96 for GL_2(Z/4Z), 48 for GL_2(Z/3Z)) have order invertible after inverting 2 and 3, so an averaging projector exists
+- level-two forms of odd weight vanish because the automorphism -1 of an elliptic curve fixes the level-two structure
+- the base-change theorems 1.8.1–1.8.2 rest on the base-change theorem at the rigid levels, R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary, which is planned in the following stage
+
+*API.*
+
+- `TauCeti.KatzModularForms.formsLevelTwo` (*constructor*) — S(K, 2, k) = the invariants in S(K, 4, k) of the matrices of GL₂(Z/4Z) congruent to 1 mod 2.
+- `TauCeti.KatzModularForms.formsLevelOne` (*constructor*) — S(K, 1, k) = the fibre product of S(K, 3, k) and S(K, 4, k) over S(K, 12, k).
+- `TauCeti.KatzModularForms.formsLevelTwo_baseChange` (*characterisation*) — S(Z[1/2], 2, k) ⊗ R₀ ≅ S(R₀, 2, k) when 2 ∈ R₀^× and k ≥ 1 (Theorem 1.8.1).
+- `TauCeti.KatzModularForms.formsLevelOne_baseChange` (*characterisation*) — S(Z, 1, k) ⊗ R₀ ≅ S(R₀, 1, k) when 2, 3 ∈ R₀^× and k ≥ 1 (Theorem 1.8.2).
+
+*Unit tests.*
+
+- `TauCeti.KatzModularForms.levelOne_E4` (example) — E₄ = 1 + 240∑σ₃(m)q^m lies in S(Z[1/6], 1, 4).
+- `TauCeti.KatzModularForms.levelOne_baseChange_fails_at_2_3` (non-example) — Remark 1.8.2.2: over F₂ or F₃ there are level-one forms that are not reductions of forms over Z (the Hasse invariant of weight 1 over F₂, weight 2 over F₃), so Theorem 1.8.2 fails without inverting 2 and 3.
+- `TauCeti.KatzModularForms.levelOne_via_rigid` (compatibility) — A level-one form is determined by its images at levels 3 and 4, which agree at level 12.
+
+*Construction.*
+
+1. Katz Thm 1.8.1: level-two forms over R_0 containing 1/2 are exactly the level-four forms invariant under the mod-2 congruence subgroup of GL_2(Z/4Z); that group has order 16, a power of 2, so the averaging projector applies to the level-four base-change isomorphism of Thm 1.7.1.
+2. Katz Thm 1.8.2: over a ring R_0 containing 1/6 the same projector argument (GL(2,Z/4Z) of order 96 = 32 x 3, GL(2,Z/3Z) of order 48 = 16 x 3) gives S(Z[1/6],1,k) tensor R_0 = S(R_0,1,k); the passage from Z[1/6] down to Z uses that for any ring R, S(R,1,k) is the fibre product of the diagram 1.8.2.1 (a level-3 form over R[1/3] and a level-4 form over R[1/2] inducing the same level-12 form over R[1/12]) and that this diagram and its fibre product commute with the flat extension Z -> Z[1/6].
+3. Katz Remark 1.8.2.2 exhibits the failure without inverting 2 and 3: over F_p the Hasse invariant is a nonzero level-one form of weight p-1 holomorphic at infinity, while over Z there are no nonzero level-one forms of weight 1 or 2 holomorphic at infinity; likewise A.Delta is a level-one cusp form of weight 13 over F_2 (resp. 14 over F_3) which is not the reduction of a form over Z.
+
+*Acceptance.*
+
+- Verify that the Hasse invariant in weight p-1 for p = 2, 3 is a counterexample to level-one base change from Z (Remark 1.8.2.2), so that no argument in the roadmap silently descends omega^{tensor k} to the coarse j-line at those primes
+- Verify that S(R_0, 2, k) = 0 for odd k when 2 is invertible in R_0
+
+*Used by.*
+
+- AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem — the level-1 and level-2 q-expansion principle (Corollary 1.9.1) tests at a single cusp
+- AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one — A is a level-one form, defined through these descents
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`.
+
+*Sources.*
+
+- p-adic properties of modular schemes and modular forms, Theorem 1.8.1 and its proof, printed pp. 85-86 (Ka-17/18): “Let R be any ring in which 2 is invertible. For every integer k > i , the canonical map S(Z,2,k) ... > S(Ro,2,k ) is an isomorphism.” Level-two base change with the exact hypothesis that 2 is invertible; OCR prints 'k >= 1' as 'k > i'.
+- p-adic properties of modular schemes and modular forms, Remark 1.8.2.2, printed p. 86 (Ka-18): “The above theorem becomes f~se when we do not exclude the primes 2 and 3. For over the finite field l~p , the Hasse invariant A i_ss a modular form of level one and weight p-I , holomorphic at ~ . But over ~- there are no non-zero modular forms over Z of level one, holomorphic at ~ , of weight either one or two.” Explicit failure of level-one base change at p = 2 and p = 3, which is the source basis for treating small levels by descent rather than on the coarse curve.
+- p-adic properties of modular schemes and modular forms, Theorem 1.8.2 and its proof, printed pp. 86-87 (Ka-18/19): “Let R_o be any ring in which 2 and 3 are invertible. For every integer k >= 1, the canonical map S(Z,1,k) tensor_Z R_o --> S(R_o,1,k) is an isomorphism.” Checked on the page image: the level-one theorem is stated over Z, not only over Z[1/6]. Added by the reviewer.
+
 ## R15.2 — q-expansions, integral structures and Hecke actions
 
 **Required construction.** Establish section detection at the actual required cusps and the integral version. Compare geometric Hecke actions with the arithmetic normalization of ModularForms. Separate integral Hecke-algebra finiteness from the existence of a particular lattice in a space of forms: the ModularForms weight-at-least-two symbol argument does not, by itself, provide that lattice.
@@ -26,11 +131,397 @@ The input residual eigenvector is nonzero. The output integral eigenvector is no
 
 **Acceptance.** Test reduction of a characteristic-zero form separately from lifting a characteristic-p form. Check all-cusp integrality and the exact operator family. These are open supplier obligations, recorded in the packet's requests, rather than hypotheses silently built into a generic object called a modular form.
 
+Checkpoint 3 carries the reviewed decomposition's nodes for this stage with explicit prerequisites, and adds the generation lemma for the integral Hecke algebra.
+
+### Theorem. The q-expansion principle at level n >= 3 and its underlying vanishing theorem
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem`.
+
+Let n >= 3, K a Z[1/n]-module, and f a modular form of level n and weight k holomorphic at infinity with coefficients in K. (Vanishing) If on each of the phi(n) connected components of Mbar_n tensor_{Z[1/n]} Z[1/n, zeta_n] there is at least one cusp at which the q-expansion of f vanishes identically, then f = 0. (q-expansion principle) If L is a Z[1/n]-submodule of K and on each of those phi(n) components there is at least one cusp at which all q-coefficients of f lie in L tensor_{Z[1/n]} Z[1/n, zeta_n], then f is a modular form with coefficients in L. For n = 1, 2 the same conclusion holds after testing at a single cusp (one cusp when n = 1, one of the three cusps when n = 2).
+
+*Hypotheses.*
+
+- n >= 3 for the stated component-wise form; n = 1 or 2 for Cor. 1.9.1, where the modules S(K, n, k) are the descent-theoretic ones
+- K is a Z[1/n]-module and L a Z[1/n]-submodule; no flatness or finiteness on K is assumed
+- the test cusps must meet every one of the phi(n) geometric connected components of Mbar_n over Z[1/n, zeta_n]; a single cusp does not suffice at level n >= 3
+
+*Proof outline.*
+
+1. Katz derives Cor. 1.6.2 from Thm 1.6.1 by applying the latter to the image of f in (K/L) tensor omega^{tensor k}, using the cohomology sequence attached to 0 -> L -> K -> K/L -> 0 and the sheaf sequence 1.6.2.1.
+2. Proof of Theorem 1.6.1 (pp. 84-85): replacing K by the ring of dual numbers D(K) = Z[1/n] + K reduces to K a Z[1/n]-algebra; commutation of quasi-coherent cohomology with inductive limits reduces to K finitely generated, then noetherian local; faithful flatness of completion reduces to K complete noetherian local, and Grothendieck's comparison theorem to K artin local. By Krull's intersection theorem f vanishes on an open neighbourhood of a test cusp on each connected component of Mbar_n tensor K tensor Z[1/n, zeta_n], hence on an open dense set. If f were nonzero it would be supported on a closed set Z containing no maximal point; at a maximal point z of Z every element of the maximal ideal is a zero-divisor, so z has depth zero, contradicting that Mbar_n tensor K, smooth over the artin ring K, is Cohen-Macaulay and only its maximal points have depth zero. Imported standard results: Grothendieck comparison (formal functions), Krull intersection theorem, depth of Cohen-Macaulay schemes.
+3. Cor. 1.9.1 transports the statement to levels 1 and 2 through the descent/fibre-product definitions 1.9.0.0 and 1.9.0.1.
+
+*Acceptance.*
+
+- Exhibit a nonzero level-n form whose q-expansion vanishes at one cusp but not on all phi(n) components, showing that the component hypothesis is not removable
+- Check the integrality direction: a form over Q whose q-expansion at the tested cusps lies in Z[1/n, zeta_n] is a form over Z[1/n]
+
+*Used by.*
+
+- AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions — Hecke operators are defined over any coefficient module through q-expansions
+- AutomorphicGaloisRepresentations R19.1 — integral de Rham lattices of modular forms (Diamond–Flach–Guo Lemma 4.12)
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`, `AlgebraicModularFormsAndSerreWeights:R15.1/level-one-and-two-by-descent-with-explicit-inverted-primes`.
+
+*Planet:* q-expansion principle.
+
+*Sources.*
+
+- p-adic properties of modular schemes and modular forms, Theorem 1.6.1 and Corollary 1.6.2, printed pp. 83-84 (Ka-15/16): “Suppose that on each of the q~(n) connected components of Mn ... there is at least one cusp at which the q-expsmsion of f vanishes identically. ~l~en f = 0 .” The literal hypothesis 'on each of the phi(n) connected components ... at least one cusp' that this node retains.
+- p-adic properties of modular schemes and modular forms, Corollary 1.9.1, printed p. 88 (Ka-20): “Let n=l or 2, K a Z[1/n]-module, and L C K a Z[1/n] submodule. ... Suppose that at one of the cusps (for n=l , there is only one, j =~ , while for n=2 there are three, k = O,l,~ ), the q-coefficients of f all lie in L . Then f is a modular form with coefficients in L .” The level 1 and 2 form of the principle, where a single cusp suffices.
+- p-adic properties of modular schemes and modular forms, Proof of Theorem 1.6.1, printed pp. 84-85 (Ka-16/17): “As Mn tensor K is smooth over an artin local ring K, it is Cohen-Macaulay, and hence only its maximal points have depth zero.” The depth argument that completes the vanishing proof, now recorded in the proof steps. Added by the reviewer.
+
+### Theorem. Strong q-expansion principle: finitely many coefficients may be ignored, at the cost of a hypothesis on multiplication by p for (p-1) | k
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.2/strong-q-expansion-principle-with-its-divisibility-hypothesis`.
+
+Let n, k >= 1 and let K be a Z[1/n]-module such that for every prime p with (p-1) | k multiplication by p is injective on K. If f is a modular form of level n and weight k holomorphic at infinity with coefficients in K and all its q-expansions are polynomials in q, then f = 0. Consequently (strong q-expansion principle), with a = product of the primes p such that (p-1) | k, K a Z[1/an]-module and L a Z[1/an]-submodule, if at each cusp all but finitely many q-expansion coefficients of f lie in L tensor Z[1/n, zeta_n], then f is a modular form with coefficients in L. The proof admits Result 1.12.0 (a special case of Swinnerton-Dyer's structure theorem, proved in Katz 4.4.1): if K is a field of characteristic p not dividing n, f has level n >= 1 and weight k >= 1, (p-1) does not divide k, and all q-expansions of f at the cusps of Mbar_n tensor K(zeta_n) are constants, then f = 0.
+
+*Hypotheses.*
+
+- the divisibility hypothesis is indexed by the weight: only the primes p with (p-1) | k are constrained, and for the corollary those primes are inverted
+- the conclusion of Thm 1.12.1 concerns forms whose q-expansions at every cusp are polynomials, not merely bounded
+- the proof reduces to n >= 3 via the level 1 and 2 descriptions 1.9.0.0/1.9.1.1, then to artin local K, then to K a field
+- Result 1.12.0 is admitted, not proved, in 1.12 (its proof is in 4.4.1); as printed its hypothesis 'characteristic p, p-1 does not divide k' does not literally cover a field of characteristic 0, which the field case of the induction also needs (reviewer observation)
+
+*Proof outline.*
+
+1. Katz reduces to n >= 3, then replaces K by K[1/a] (legitimate because K -> K[1/a] is injective by hypothesis) and views f as a form of level a n.
+2. He then reduces to K artin local by a filtration argument and induces on the length, the base case being K a field.
+3. Over a field one takes a basis f_1, ..., f_r of the finite-dimensional space of such forms, lets N be the maximal degree of their polynomial q-expansions, chooses a prime l not dividing n with l > N, and uses stability of the space under T_l (1.11) to write T_l(F) = C.F for the column F = (f_i); comparing coefficients of q^i in (A_{il} + l^{k-1} A_{i/l}) = C A_i gives A_i = 0 for i >= 1 because il > N and il^2 > N, so every q-expansion is constant, and Result 1.12.0 gives f_i = 0. The artin-local case follows by induction on the nilpotence of the maximal ideal using the cohomology sequence 1.6.2.2.
+4. Cor. 1.12.2 follows by applying the theorem to the image of f in K/L.
+
+*Acceptance.*
+
+- Check that for k with (p-1) | k and K = Z/p the conclusion fails, so the hypothesis on multiplication by p is used and not cosmetic
+- Check the corollary on a concrete eigenform whose first few coefficients are not integral but whose tail is
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem`.
+
+*Sources.*
+
+- p-adic properties of modular schemes and modular forms, Theorem 1.12.1, printed p. 94 (Ka-26): “Suppose that for every prime p such that p-!Ik , the endomorphism "multiplication b y p" is injective on K . Then if all the q-expansions of f are polynomials in q , f = 0 .” The literal divisibility hypothesis '(p-1) | k' (printed 'p-!Ik') retained in the statement.
+- p-adic properties of modular schemes and modular forms, Corollary 1.12.2, printed p. 95 (Ka-27): “(Strong q-expansion principle) Let n, k >= i , and let a = II p . Let K be a [i/an]-module of which L C K is a Z[i/an]-sub-module, and f a modular form of level n and weight k, holomorphic at ~ , such that at each cusp, all but finitely many of its q-expansion coefficients lie in L” Literal statement of the corollary with the ring Z[1/an] in which the primes p with (p-1)|k have been inverted.
+- p-adic properties of modular schemes and modular forms, 1.12, Result 1.12.0, printed p. 93 (Ka-25) and p. 94 (Ka-26): “In this section we will admit the following result, a special case of Swinnerton-Dyer's structure theorem” The theorem depends on an admitted result whose proof lies outside the sections read. Added by the reviewer.
+
+### Theorem. Base change for spaces of modular forms, and the unresolved weight-one case for n >= 12
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary`.
+
+Let n >= 3 and suppose either k >= 2, or k = 1 and n <= 11. Then for any Z[1/n]-module K the canonical map K tensor H^0(Mbar_n, omega^{tensor k}) -> H^0(Mbar_n, K tensor omega^{tensor k}) is an isomorphism. The proof is by H^1(Mbar_n, omega^{tensor k}) = 0, which follows from Riemann-Roch once deg(omega^{tensor k}) > 2g-2 on each geometric component, using omega^{tensor 2} = Omega^1(log cusps) and the fact that each component of Mbar_n tensor Z[1/n, zeta_n] contains a cusp. By the Remark after the theorem, for n >= 12 the sheaf omega has degree <= 2g-2 on each component, with equality only for n = 12, and Katz does not know whether formation of weight-one forms of level n >= 12 commutes with base change (the printed inequality is 'n >= 12', checked on the page image; the text layer reads 'n > 12').
+
+*Hypotheses.*
+
+- n >= 3, so that Mbar_n is a scheme and the universal curve exists
+- k >= 2, or k = 1 with 3 <= n <= 11; the weight-one case with n >= 12 (including n = 12) is not covered
+- the vanishing argument needs each connected component of Mbar_n tensor Z[1/n, zeta_n] to contain at least one cusp
+
+*Proof outline.*
+
+1. Katz Thm 1.7.1 reduces base change to H^1(Mbar_n, omega^{tensor k}) = 0 by the standard cohomology and base-change theorems.
+2. For k >= 2 the isomorphism omega^{tensor 2} = Omega^1_{Z[1/n]}(log(cusps)) plus the presence of a cusp on each component gives deg(omega^{tensor k}) > 2g-2, hence the vanishing by Riemann-Roch.
+3. For k = 1 and 3 <= n <= 11 the source asserts that 'explicit calculation shows' deg(omega) > 2g-2 on each component (the calculation is not displayed); for n >= 12 the Remark gives deg(omega) <= 2g-2 with equality only at n = 12, and the argument stops.
+4. Katz's Remark after Thm 1.7.1 states the open case: weight one and level n >= 12.
+
+*Acceptance.*
+
+- Check deg(omega) against 2g-2 on a component of Mbar_n for n = 11, 12, 13 and confirm that strict inequality holds for n = 11 and fails for n = 12 (equality) and n = 13 (strict reverse inequality)
+- Check, for every consumer that needs finite freeness of a module of forms, whether it actually uses this theorem; the Deligne-Serre application 6.10 works with classical forms on Gamma_0(N) with coefficients in O_lambda and does not cite it
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`.
+
+*Sources.*
+
+- p-adic properties of modular schemes and modular forms, Theorem 1.7.1 and the following Remark, printed p. 85 (Ka-17): “Let n ~ 3 ~ and suppose either that k ~ 2 o~r that k= i and n ! ii . Then for any Z[i/n]-module K , the canonical map ... is an isomorphism.” Literal hypotheses n >= 3 and (k >= 2 or (k = 1 and n <= 11)) retained in the node statement.
+- p-adic properties of modular schemes and modular forms, Remark following Theorem 1.7.1, printed p. 85 (Ka-17): “The author does not know whether or not the formation of modular forms of weight one and level n >= 12 commutes with base change.” Records the exact boundary of the base-change theorem in weight one. The page image shows 'n >= 12' (underlined inequality); the drafter's excerpt 'n > 12' was an artefact of the text layer and was corrected by the reviewer.
+
+### Construction. Hecke operators defined over arbitrary coefficient modules by their q-expansion formula
+
+*Module* `TauCeti/NumberTheory/ModularForms/Katz.lean`. *Node* `AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions`.
+
+For a prime l not dividing n and invertible in the base ring R, Katz defines (1.11.0.2) (T_l f)(E/R, omega, alpha_n) = l^{k-1} times the sum over the l+1 subgroups H of order l of f(E_{R'}/H, pi-check^*(omega), pi(alpha_n)), using the level structure pi(alpha_n) with pi o alpha_n = pi(alpha_n) o pi (and explicitly not the other natural choice alpha_n o pi-check = l.pi(alpha_n)). If f(Tate(q^n), omega_can, alpha_n) = sum_i a_i(alpha_n) q^i, then (Formula 1.11.1) T_l f has q-expansion coefficients b_i(alpha_n) = l^{k-1} a_{i/l}(alpha_n') + a_{li}(alpha_n''), with a_{i/l} = 0 unless l | i, where alpha_n' is the unique level-n structure on Tate(q^n) with phi_l^*(alpha_n') = pi_l(alpha_n) (phi_l: q -> q^l, pi_l the projection Tate(q^n) -> Tate(q^n)/mu_l = Tate(q^{nl})) and alpha_n'' = i_l^*(pi_0(alpha_n)) is obtained from pi_0(alpha_n) on Tate(q^{n/l}) by the extension of scalars q^{1/l} -> q. T_l preserves holomorphy at infinity, cuspidality and polynomiality of q-expansions. For n >= 2 and k >= 2 (or 3 <= n <= 11 and k >= 1), for any prime l not dividing n and any Z[1/n]-module K, there is a unique endomorphism of the space of weight-k level-n forms holomorphic at infinity with coefficients in K realizing this formula. For k >= 2, level one and any prime l, there is a unique such endomorphism on level-one forms with coefficients in any Z-module K.
+
+*Hypotheses.*
+
+- for Prop. 1.11.3: l prime with l not dividing n, and (n >= 2 with k >= 2) or (3 <= n <= 11 with k >= 1)
+- for Cor. 1.11.4: level one, k >= 2, and K an arbitrary Z-module - in particular l may divide the residue characteristic of K
+- existence over K is deduced from existence over Z[1/n] via base change, and descent of the operator from Z[1/n l] to Z[1/n] uses the q-expansion principle
+
+*API.*
+
+- `TauCeti.KatzModularForms.heckeT` (*constructor*) — T_l for l ∤ n invertible in R, by (1.11.0.2): l^{k−1} ∑_H f(E/H, π̌^*ω, π(α_n)).
+- `TauCeti.KatzModularForms.heckeT_qExpansion` (*characterisation*) — b_i(α_n) = l^{k−1} a_{i/l}(α′_n) + a_{li}(α″_n) (Formula 1.11.1).
+- `TauCeti.KatzModularForms.heckeT_integral` (*characterisation*) — For k ≥ 2 (or 3 ≤ n ≤ 11, k ≥ 1) T_l is an endomorphism of forms with coefficients in any Z[1/n]-module K (Corollary 1.11.4).
+
+*Unit tests.*
+
+- `TauCeti.KatzModularForms.heckeT_delta` (example) — For Δ and l = 2: b₁ = a₂ = τ(2) = −24, so T₂Δ = −24Δ.
+- `TauCeti.KatzModularForms.heckeT_other_normalisation` (non-example) — Using the level structure α_n ∘ π̌ = l·π(α_n) instead of π(α_n) gives the operator twisted by the diamond operator ⟨l⟩, not T_l.
+- `TauCeti.KatzModularForms.heckeT_level_divisible` (degenerate) — For l | n the formula is not defined (l must be prime to the level); U_l is a different operator.
+
+*Construction.*
+
+1. Katz computes the effect of the l-isogenies of the Tate curve on level structures and on omega_can (1.11.0.3 and 1.11.0.4: pi-check^*(omega_can) = omega_can on Tate(q^{nl}) for H = mu_l, and = l.omega_can for the subgroups H_i) and obtains Formula 1.11.1 with the modified level structures alpha_n' and alpha_n''.
+2. Cor. 1.11.2 reads off preservation of holomorphy, cuspidality and polynomial q-expansions from the formula.
+3. Prop. 1.11.3: by the base-changing theorem (1.7.1 for n >= 3; for n = 2 the level-two theorem 1.8.1 is the one available) one reduces to K = Z[1/n]; T_l exists a priori over Z[1/nl], but its q-expansions have coefficients in Z[1/n, zeta_n], so 1.6.2 and 1.9.1 place T_l f in forms over Z[1/n].
+4. Cor. 1.11.4 handles level one by writing level-one forms as a fibre product over two coprime auxiliary levels n, m >= 3 both prime to l.
+
+*Acceptance.*
+
+- Check that the term l^{k-1} a_{i/l} is evaluated at the modified level structure alpha_n' and the term a_{li} at alpha_n'', as in (1.11.1.2), and that with the other natural choice alpha_n o pi-check = l.pi(alpha_n) the formula would change by the action of l on level structures
+- Check that the mod p reduction of T_l for l = p agrees with Serre's U_p on q-expansions, using k >= 2
+
+*Used by.*
+
+- AlgebraicModularFormsAndSerreWeights:R15.2/generation-of-the-integral-hecke-algebra — the generators T_n and ⟨d⟩ of the Hecke algebra
+- AlgebraicModularFormsAndSerreWeights:R15.3/theta-operator-filtration-and-hecke-commutation — T_l^*(θf) = l θ(T_l^* f)
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem`, `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`, `ModularCurvesPartII:R14.1`.
+
+*Sources.*
+
+- p-adic properties of modular schemes and modular forms, Formula 1.11.1 (1.11.1.2), printed p. 92 (Ka-24): “b_i(alpha_n) = l^{k-1} a_{i/l}(alpha_n') + a_{li}(alpha_n'') (with the convention that a_{i/l} = 0 unless l|i).” The literal q-expansion formula for T_l, transcribed from the page image (the text layer garbles the primes on alpha_n). The drafter's reading a_{i/l}(l alpha_n) + a_{li}(alpha_n) was corrected by the reviewer.
+- p-adic properties of modular schemes and modular forms, Corollary 1.11.4, printed p. 93 (Ka-25): “Let k > 2 . For any prime ~, and any Z-module K, there is a necessarily unique endomorphism of the space of modular forms of weight k and level one, holomorphic at ~ , whose effect on the q-expansion is that given by the formulas (1.11.1.O-2).” Integral Hecke operators on level-one forms with arbitrary Z-module coefficients, the form needed for reduction mod p; OCR prints 'k >= 2' as 'k > 2'.
+- p-adic properties of modular schemes and modular forms, 1.11.0.0-1.11.0.2, printed p. 90 (Ka-22): “There is another "natural" choice of level n structure on E_R'/H, namely alpha_n o pi-check = l.pi(alpha_n), which we will not use.” Fixes which level structure enters the definition of T_l. Added by the reviewer.
+
+### Lemma. Generators of the integral weight-two Hecke algebra of Γ_H(N)
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.2/generation-of-the-integral-hecke-algebra`.
+
+Let Γ = Γ_H(N), let 𝕋_ℤ ⊂ End(S₂(Γ)) be generated by the T_n (n ≥ 1) and the ⟨d⟩ (d ∈ (ℤ/Nℤ)^×), and 𝕋_R = 𝕋_ℤ ⊗ R. (a) 𝕋_R is generated as an R-algebra by the T_n for all n ≥ 1, and also by the T_p for all primes p together with the ⟨d⟩. (b) If D is a positive integer prime to N, and either D is odd or 2 is invertible in R, then 𝕋_R is generated by the T_n with (n, D) = 1, and also by the T_p for p ∤ D together with the ⟨d⟩.
+
+*Hypotheses.*
+
+- (b) needs D odd or 2 ∈ R^×; the source attributes (a) to Diamond–Im, Proposition 3.5.1, and (b) to Wiles (Annals 1995), p. 491, neither of which was read
+- weight two and the groups Γ_H(N) only, as in the source
+
+*Proof outline.*
+
+1. (a): T_n for composite n is a polynomial in the T_p and ⟨d⟩ by the Hecke relations T_{mn} = T_mT_n for (m, n) = 1 and T_{p^{r+1}} = T_pT_{p^r} − p⟨p⟩T_{p^{r−1}} (p ∤ N), T_{p^r} = T_p^r (p | N); and ⟨d⟩ lies in the algebra generated by the T_n since ℓ⟨ℓ⟩ = T_ℓ² − T_{ℓ²} for primes ℓ ≡ d mod N, ℓ ∤ N, choosing two such primes with coprime values of ℓ (Dirichlet).
+2. (b): the diamond operators are recovered from T_ℓ with ℓ ∤ DN in the same way, using the hypothesis on 2 for the coprimality step; then the T_p with p | D are expressed through the duality of 𝕋 with the forms (the pairing (T, f) ↦ a₁(Tf)), as in Wiles' argument (not read).
+
+*Acceptance.*
+
+- N = 11, Γ = Γ₀(11): S₂ is one-dimensional and 𝕋_ℤ = ℤ is generated by T₂ alone (T₂ acts by −2 on 11a1 and ℤ[−2] = ℤ).
+- For D = 2 and R = ℤ (2 not invertible, D even) part (b) does not apply: the generation by the T_n with n odd is not asserted.
+
+*Used by.*
+
+- AutomorphicGaloisRepresentations:R19.6/reduced-hecke-algebra-as-a-localisation — 𝕋_Σ contains κ(T_ℓ) when δ = 0 (Darmon–Diamond–Taylor Proposition 4.7)
+- AutomorphicGaloisRepresentations:R19.6/full-weight-two-hecke-algebra-and-its-galois-representations — the restriction to 𝕋^{(D)} in the oldform comparison
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions`.
+
+*Sources.*
+
+- Fermat's Last Theorem, §4.1, Lemma 4.1, p. 107 (revision of 9 September 2007): “TR is generated as an R-algebra by either of the following” Parts (a) and (b), with the references [DI] Proposition 3.5.1 and [W3] p. 491.
+
 ## R15.3 — Characteristic-p operations
 
 The required objects are the Hasse invariant, Frobenius/Verschiebung operations and theta, with their q-expansion formulas, Hecke compatibilities and filtration consequences. Import the Igusa geometry from its owner rather than reconstructing it. The source proof for each operation must state its characteristic and level assumptions; characteristics two and three require their own checks. Ordinary complex differentiation or a Witt-vector identity is not already the modular characteristic-p operator.
 
 The accepted scope still requires explicit Hasse q-expansion and theta-on-a-known-form tests. This checkpoint supplies no replacement for the reviewed Katz/Edixhoven construction nodes and no assertion that their low-characteristic cases are resolved.
+
+Checkpoint 3 carries the reviewed decomposition's nodes for this stage with explicit prerequisites.
+
+### Construction. The Hasse invariant as a level-one weight-(p-1) form over F_p with q-expansion 1
+
+*Module* `TauCeti/NumberTheory/ModularForms/ModP.lean`. *Node* `AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one`.
+
+Let R be an F_p-algebra and E/R an elliptic curve. Absolute Frobenius induces a p-linear endomorphism of H^1(E, O_E); if omega is a basis of omega_{E/R} with dual basis eta of H^1(E, O_E), define A(E, omega) in R by F_abs(eta) = A(E, omega) eta. Then A(E, k omega) = k^{1-p} A(E, omega) for k in R^*, so A is a modular form of level one and weight p-1 over F_p. Intrinsically A is the section of omega_{E/R}^{tensor (p-1)} corresponding to the R-linear map F_abs: (H^1(E,O_E))^{tensor p} -> H^1(E, O_E). A is holomorphic at infinity and A(Tate(q), omega_can) = 1.
+
+*Hypotheses.*
+
+- R is an F_p-algebra (p = 0 in R); the construction is purely characteristic p
+- omega must be a basis of omega_{E/R}, so the scalar A(E, omega) is defined only after a trivialization, the weight p-1 transformation law being exactly the resulting ambiguity
+- holomorphy at infinity uses that the Tate curve over F_p((q)) extends to a plane curve over F_p[[q]] whose dualizing sheaf has omega_can as a basis
+
+*API.*
+
+- `TauCeti.ModPModularForms.hasseInvariant` (*constructor*) — A(E, ω) ∈ R defined by F_abs(η) = A(E, ω)η, η dual to ω, for E over an F_p-algebra R.
+- `TauCeti.ModPModularForms.hasseInvariant_weight` (*characterisation*) — A(E, λω) = λ^{1−p}A(E, ω): A is a level-one form of weight p − 1 over F_p.
+- `TauCeti.ModPModularForms.hasseInvariant_tate` (*simp*) — A(Tate(q), ω_can) = 1.
+
+*Unit tests.*
+
+- `TauCeti.ModPModularForms.hasse_E4_mod5` (example) — p = 5: A = E₄ mod 5, as E₄ = 1 + 240∑σ₃(m)q^m and 5 | 240 (checked in the suggested Lean file).
+- `TauCeti.ModPModularForms.hasse_no_level_one_lift_p2` (non-example) — p = 2: A does not lift to a level-one form holomorphic at ∞ over ℚ ∩ ℤ₂ (Katz 2.1); it lifts only at level 3 ≤ n ≤ 11, n odd.
+- `TauCeti.ModPModularForms.hasse_weight_zero_filtration` (degenerate) — A has q-expansion 1, the q-expansion of the constant form of weight 0, so its filtration is w(A) = 0.
+
+*Construction.*
+
+1. Katz 2.0 defines A(E, omega) by F_abs(eta) = A(E, omega) eta and computes A(E, k omega) = k^{1-p} A(E, omega) from p-linearity of F_abs, which is exactly the weight p-1 transformation law.
+2. He reinterprets F_abs as an R-linear map on the p-th tensor power, exhibiting A as a section of omega^{tensor (p-1)}.
+3. Holomorphy at infinity is proved twice: first by extending Tate(q) over F_p((q)) to a plane curve C over F_p[[q]] whose dualizing sheaf has omega_can as a basis, so A(Tate(q), omega_can) is the matrix of F_abs on H^1(C, O_C) and lies in F_p[[q]]; second by the invariant-derivation computation (H^1(E, O_E) is the tangent space, F_abs acts by the p-th iterate of an invariant derivation, D(t) = 1+t, D^p = D, hence F_abs^*(eta_can) = eta_can for the dual basis eta_can). Only the second computation gives the value A(Tate(q), omega_can) = 1.
+
+*Acceptance.*
+
+- Verify A(Tate(q), omega_can) = 1 directly from the invariant derivation D dual to omega_can = dt/(1+t)
+- Verify that the vanishing locus of A is the supersingular locus, by checking A(E, omega) = 0 exactly when F_abs is zero on H^1(E, O_E) (a standard characterization not stated in the passage 2.0 read here)
+
+*Used by.*
+
+- AlgebraicModularFormsAndSerreWeights:R15.3/theta-operator-filtration-and-hecke-commutation — the filtration w(f) is defined by division by A
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`, `AlgebraicModularFormsAndSerreWeights:R15.1/level-one-and-two-by-descent-with-explicit-inverted-primes`.
+
+*Planet:* Hasse invariant.
+
+*Sources.*
+
+- p-adic properties of modular schemes and modular forms, 2.0, printed p. 97 (Ka-29): “whence A(E,k~) = KI-P.A(E,~) , which shows that A(E,~) is a modular form of level one and weight p-i defined over ]Fp” Literal derivation of the weight p-1 transformation law from p-linearity of absolute Frobenius.
+- p-adic properties of modular schemes and modular forms, 2.0, printed pp. 97-98 (Ka-29/30): “hence D^p = D, hence F*_abs(eta_can) = eta_can, and A(Tate(q), omega_can) = 1.” The normalization A(Tate(q), omega_can) = 1 at the cusp; the page image shows the Frobenius acting on the dual basis eta_can of H^1, not on omega_can. Corrected by the reviewer.
+
+### Theorem. A = E_{p-1} mod p for p >= 5, and the explicit level-n liftings of A required at p = 2, 3
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.3/deligne-congruence-and-the-explicit-p-equals-2-3-liftings`.
+
+For even k >= 4 the Eisenstein series E_k = 1 - (2k/B_k) sum sigma_{k-1}(n) q^n is defined over Q by the q-expansion principle 1.9.1. For k = p-1 with p >= 5 the p-adic ordinal of -2(p-1)/B_{p-1} is 1, so E_{p-1} has q-expansion coefficients in Q intersect Z_p and reduces mod p to a level-one weight-(p-1) form over F_p with constant q-expansion 1; since A also has q-expansion 1 and the same weight, A = E_{p-1} mod p. For p = 2 and p = 3 it is not possible to lift A to a level-one form holomorphic at infinity over Q intersect Z_p. Instead, for p = 2 and 3 <= n <= 11 with n odd, A lifts to a weight-1 level-n form holomorphic at infinity over Z[1/n], and for p = 3 and any n >= 3 with 3 not dividing n, A lifts to a weight-2 level-n form over Z[1/n], both by Theorem 1.7.1 (the following sentence, choosing the lifting E_{p-1}, prints the p = 3 range as n >= 2, 3 not dividing n). By the Remark, for p = 2 a lifting of A to level n over Z[1/n] exists for n = 3, 5, 7, 9, 11 and hence for any n divisible by one of 3, 5, 7, 11; Katz does not know whether A lifts to level n for other n (even n = 13), and notes that E_4 = 1 + 240 sum sigma_3(n) q^n provides a level-one lifting to Z of A^4 when p = 2 and of A^2 when p = 3.
+
+*Hypotheses.*
+
+- p >= 5 for the level-one congruence A = E_{p-1} mod p; the argument needs E_{p-1} to be p-integral and to reduce to the constant 1
+- the identification of two forms with equal q-expansion uses the level-one q-expansion principle, Cor. 1.9.1
+- the p = 2 lifting is produced by Thm 1.7.1 for odd n with 3 <= n <= 11 and then, by the Remark, for every n divisible by one of 3, 5, 7, 11; for other n it is open in the source. The p = 3 lifting is in weight 2, where Thm 1.7.1 applies for all n >= 3 with 3 not dividing n
+
+*Proof outline.*
+
+1. Katz 2.1 computes the q-expansion of E_k and its field of definition, then observes that for k = p-1 with p > 3 the p-adic ordinal of 2(p-1)/B_{p-1} is 1, so E_{p-1} has p-integral coefficients and reduces to the constant 1.
+2. Since A also has q-expansion 1 (node hasse-invariant-as-a-form-of-weight-p-minus-one) and both have weight p-1 and level one, they agree by the q-expansion principle.
+3. For p = 2, 3 Katz states that A admits no level-one holomorphic lifting and produces the level-n liftings from Thm 1.7.1 in the indicated weight and level ranges, flagging explicitly that the case p = 2, n = 13 is unknown to him.
+
+*Acceptance.*
+
+- Check the von Staudt-Clausen computation ord_p(B_{p-1}) = -1 for p >= 5, hence ord_p(2(p-1)/B_{p-1}) = 1, so that E_{p-1} is p-integral with constant term 1 and all other coefficients divisible by p
+- Check that at p = 2 and p = 3 the roadmap's characteristic-p operations are stated with an explicitly chosen lifting E_{p-1} of level n, and never through a division by p-1 or by 6
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one`, `AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem`.
+
+*Sources.*
+
+- p-adic properties of modular schemes and modular forms, 2.1, printed p. 98 (Ka-30): “Thus it makes sense to reduce Ep-i modulo p , obtaining a modular form over ]Fp , whose q-expansion is the constant I. Hence A = Ep_ I mod p , because both are modular forms of the same weight with the same q-expansions.” Literal statement of Deligne's congruence together with the q-expansion argument used to prove it.
+- p-adic properties of modular schemes and modular forms, 2.1, printed pp. 98-99 (Ka-30/31): “For p = 2 and 3, it is not possible to lift A to a modular form of level one, holomorphic at infinity, over Q intersect Z_p. However, for p = 2 and 3 <= n <= 11, 2 does not divide n, we may lift A to a modular form of level n and weight 1,” The literal exceptional treatment at p = 2 and p = 3 with its level range, transcribed from the page image (the text layer drops the inequality signs).
+- p-adic properties of modular schemes and modular forms, Remark in 2.1, printed p. 99 (Ka-31): “For p = 2, there exists a lifting of A to a modular form of level n over Z[1/n] for n = 3, 5, 7, 9, 11, and hence for any n divisible by one of 3, 5, 7, 11. But the author does not know whether A lifts to a form of level n for other n (even for n = 13!).” The full Remark: the p = 2 lifting extends to every n divisible by 3, 5, 7 or 11, and is open only for the remaining n. Extended by the reviewer.
+
+### Construction. The theta operator, the filtration w(f), and their Hecke commutation relations
+
+*Module* `TauCeti/NumberTheory/ModularForms/ModP.lean`. *Node* `AlgebraicModularFormsAndSerreWeights:R15.3/theta-operator-filtration-and-hecke-commutation`.
+
+Let M(N) = direct sum over k >= 0 of M(N, k), the graded F_p-bar-algebra of mod p modular forms of level N. The filtration of f in M(N, k) is w(f) = min{ k - i(p-1) : f is in A^i M(N, k - i(p-1)) } where A is the Hasse invariant; equivalently w(f) is the least k' such that some form of weight k' has, at some cusp, the same q-expansion as f. This equivalence rests on the fact that the kernel of the q-expansion map M(N) -> F_p-bar[[q]] at any cusp is the ideal generated by A - 1. There is a derivation theta: M(N) -> M(N) raising degrees by p+1 whose effect on q-expansions at all cusps is q d/dq. If f in M(N, k) has filtration k and p does not divide k, then w(theta f) = k + p + 1. If f is in M(N, pk) and theta f = 0, then f = g^p for a unique g in M(N, k). The Hecke commutation is T_l^*(theta f) = l theta(T_l^* f), so in particular T_p^*(theta f) = 0, and if f is an eigenform of type (N, k, eps) with eigenvalues a_l then theta f is an eigenform of type (N, k+p+1, eps) with eigenvalues l a_l, whence rho_{theta f} = rho_f tensor chi.
+
+*Hypotheses.*
+
+- forms are Katz mod p modular forms of level N with p not dividing N, in Edixhoven's sense of section 2.1 of the source
+- the filtration statement w(theta f) = k + p + 1 needs both w(f) = k and p not dividing k
+- the identification of the kernel of the q-expansion map with the ideal (A-1) is imported from Katz's work on mod p modular forms, cited as [15], section 1
+- Edixhoven takes the Hasse invariant A from Katz-Mazur ([16], section 12.4) as the form of type (1, p-1) with q-expansion 1 at all cusps, and notes that forms of weights k and k' with the same q-expansion at a cusp have k = k' mod (p-1)
+
+*API.*
+
+- `TauCeti.ModPModularForms.filtration` (*constructor*) — w(f) = min{k − i(p − 1) : f ∈ A^i M(N, k − i(p − 1))}.
+- `TauCeti.ModPModularForms.theta` (*constructor*) — The derivation θ : M(N) → M(N) of degree p + 1 acting by q d/dq on every q-expansion.
+- `TauCeti.ModPModularForms.theta_filtration` (*characterisation*) — If w(f) = k and p ∤ k then w(θf) = k + p + 1.
+- `TauCeti.ModPModularForms.theta_hecke` (*compatibility*) — T_l^*(θf) = l θ(T_l^* f); hence ρ_{θf} = ρ_f ⊗ χ for an eigenform f.
+
+*Unit tests.*
+
+- `TauCeti.ModPModularForms.theta_qexp` (example) — θ(∑a_nq^n) = ∑ n a_n q^n; for Δ mod 5 the coefficient of q² in θΔ is 2·τ(2) = −48 ≡ 2 (checked in the suggested Lean file).
+- `TauCeti.ModPModularForms.theta_kills_pth_powers` (non-example) — θ(g^p) = 0 although g^p ≠ 0: θ is not injective, and the kernel in weight pk consists of p-th powers.
+- `TauCeti.ModPModularForms.theta_hasse` (degenerate) — θA = 0, as A has constant q-expansion 1.
+
+*Construction.*
+
+1. Edixhoven 3.1 records the two equivalent descriptions of the filtration and reduces the equivalence to the description of the kernel of the q-expansion map as the ideal generated by A - 1.
+2. He states Katz's construction of theta as a derivation of the graded algebra raising degree by p+1 and acting as q d/dq on q-expansions at all cusps.
+3. The commutation relation T_l^*(theta f) = l theta(T_l^* f) is stated in 3.1, not proved there (the construction of theta is attributed to Katz [15]); taking l = p gives T_p^*(theta f) = p theta(T_p^* f) = 0 because p = 0 in F_p-bar. Edixhoven also notes that theta preserves cusp forms.
+4. The eigenvalue statement l a_l is the twist by the cyclotomic character, which is what makes rho_{theta f} = rho_f tensor chi.
+
+*Acceptance.*
+
+- Check theta on a known level-one form (for instance Delta at p = 5) and confirm both the weight shift by p+1 and the eigenvalue shift a_l -> l a_l
+- Check that theta f = 0 forces f to be a p-th power and that the induced weight divides by p as stated
+
+*Used by.*
+
+- AlgebraicModularFormsAndSerreWeights:R15.3/theta-cycles-and-the-small-characteristic-tables — θ-cycles are the sequences of filtrations of θ^i f
+- AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases — Serre's twisting formula (2.2.5) matches w(θf) = w(f) + p + 1
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one`, `AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions`, `AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem`.
+
+*Sources.*
+
+- The weight in Serre's conjectures on modular forms, 3.1, p. 7 of the DVI: “there exists a derivation # : M (N ) -> M (N ) that increases degrees by p+ 1 and whose effect on q-expansions (at all cusps) is qd/dq” Literal construction of theta with its degree shift and its effect on q-expansions; '#' is the conversion's rendering of theta.
+- The weight in Serre's conjectures on modular forms, 3.1, p. 7 of the DVI: “If f # M (N, k) has filtration k, and p# |k, then #f has filtration k+ p+ 1. If f # M (N, pk) and #f = 0, then f = gp for a unique g # M (N, k). The commutation relations of # with the Hecke operators are: Tl*(#f ) = l #(Tl*f ).” The exact filtration hypothesis 'p does not divide k' and the Hecke commutation relation retained above.
+
+### Theorem. Tate's theta-cycles, with the p > 3 classification and the explicit p = 2 and p = 3 tables
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.3/theta-cycles-and-the-small-characteristic-tables`.
+
+For a homogeneous f in M(N) with theta f nonzero, the theta-cycle of f is the sequence (w(theta f), ..., w(theta^{p-1} f)). Up to cyclic permutation a theta-cycle is always of one of the two displayed shapes: (k, k+p+1, ..., k+(p-2)(p+1)) when k = 2 mod p, and (k, k+p+1, ..., k+(p-k_0)(p+1), k_1, k_1+p+1, ..., k_1+(k_0-3)(p+1)) when k = k_0 mod p with 3 <= k_0 <= (p+3)/2 and k_1 = k + p + 3 - 2 k_0 - this classification being asserted at least for p > 3. For p = 2 the only possibility is (k) with k = 0 mod 2; for p = 3 the possibilities are (k, k+4) with k = 2 mod 3 and (k, k) with k = 0 mod 3. For a cuspidal eigenform of type (N, k, eps) with 1 <= k <= p+1 and w(f) = k, the cycle is given by the case table of Prop. 3.3, which splits on whether a_p = 0 and has explicit small-characteristic variants for p = 2 and p = 3.
+
+*Hypotheses.*
+
+- theta f nonzero, so that the cycle is defined
+- the general classification is asserted 'at least for p > 3', with p = 2 and p = 3 listed separately; the published proof cited is for level 1 ([13], section 7)
+- Prop. 3.3 requires f cuspidal, an eigenform of type (N, k, eps) with 1 <= k <= p+1 and with filtration equal to k, i.e. f not divisible by the Hasse invariant
+
+*Proof outline.*
+
+1. Edixhoven 3.2 states the classification of theta-cycles as 'straightforward but surprising', without proof, and attributes a proof in the level-one case to [13] = Jochnowitz, The local components of the Hecke algebra mod l, section 7; he also notes that always w(theta^p f) = w(theta f).
+2. Prop. 3.3 deduces the case table from that classification, with the single exception a_p nonzero and k = p, where one must exclude w(theta f) = 3; Edixhoven argues that w(theta f) = 3 would force w(theta^{p-1} f) = p = w(f), hence f - theta^{p-1} f = V_p g for a nonzero g of weight 1, hence f a linear combination of A g and V_p g and w(theta f) = p+2, a contradiction.
+3. Note that w(theta^{p-1} f) = w(f) holds only when the q-expansion of f at some cusp has a_{p n} = 0 for all n, which the source records explicitly.
+
+*Acceptance.*
+
+- Reproduce the p = 3 table entries (5,9), (6,2), (3,3) for a_3 = 0 and (5,9), (6,6), (5,9), (8,12) for a_3 nonzero on explicit eigenforms of level N prime to 3
+- Confirm the p = 2 table of Prop. 3.3: for a_2 = 0 the cycles are (4) for k = 1 and (2) for k = 2, and k = 3 does not occur; for a_2 nonzero they are (4), (4), (6) for k = 1, 2, 3; so no p > 3 formula is used at p = 2
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.3/theta-operator-filtration-and-hecke-commutation`.
+
+*Planet:* Tate's θ-cycles.
+
+*Sources.*
+
+- The weight in Serre's conjectures on modular forms, 3.2, p. 7 of the DVI: “where 3 # k0 # (p + 3)/2 and k1 = k + p + 3 - 2k0 , at least for p > 3. A proof of this fact for level 1 can be found in [13 ], S7. For p = 2 the only possibility is (k) with k # 0 (2).” The literal restriction 'at least for p > 3' and the separate p = 2 statement, both retained.
+- The weight in Serre's conjectures on modular forms, Proposition 3.3 and its proof, pp. 8-9 of the DVI: “Let f be a cuspidal eigenform of type (N, k, #) with 1 # k # p+ 1, with eigenvalues al and with w(f ) = k. Then the #-cycle of f is given as follows:” The hypotheses of Prop. 3.3, including w(f) = k, which the node keeps.
+
+### Theorem. Every mod p eigensystem comes, up to a theta-twist, from weight at most p+1
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.3/weight-reduction-to-at-most-p-plus-one`.
+
+Let f be an eigenform of some type (N, k, eps). Then there exist integers i and k' with 0 <= i <= p-1 and k' <= p+1 and an eigenform g of type (N, k', eps) such that f and theta^i g have the same eigenvalues for all T_l^* with l different from p. Edixhoven's proof (section 7) is modular-form theoretic and stated for arbitrary p: for N >= 5 prime to p it combines the long exact cohomology sequence of multiplication by the Hasse invariant 7.1.1 on X_1(N)_{F_p-bar}, Prop. 7.2 (an element B of the space S(N, p+1) of forms on the supersingular points inducing Hecke-twisted isomorphisms S(N, k) -> S(N, k+p+1)) and Prop. 7.3 (Hecke compatibility of the boundary map S(N, k) -> M^0(N, p+1-k)^dual obtained from Serre duality and Kodaira-Spencer); N = 2, 3, 4 and N = 1 with p > 3 are treated by taking G-invariants on X(4) or X(3) for a group G of order prime to p; the remaining cases N = 1, p = 2 or 3 are referred to Serre [25], Theoreme 3 (Asterisque 24-25), which was not read.
+
+*Hypotheses.*
+
+- the conclusion controls the eigenvalues only away from p: the T_l^* for l different from p
+- the source states the range 0 <= i <= p-1; since l^{p-1} = 1 in F_p for l different from p, only i mod (p-1) affects the eigenvalues away from p (reviewer remark, not in the source)
+- the cohomological proof is run at level N >= 5; N = 2, 3, 4, and N = 1 with p > 3, are obtained via G-invariants with p not dividing #G; N = 1 with p = 2 or 3 is an unread import from Serre [25], Theoreme 3
+
+*Proof outline.*
+
+1. Edixhoven Thm 3.4 states the result; the alternative, previously unpublished, argument uses the Jordan-Holder filtration of Sym^{k-2} F for the p-torsion F of the universal elliptic curve, with successive quotients Sym^i F tensor (det F)^{tensor j}, 0 <= i <= p-1, 0 <= j <= p-2, illustrated by the exact sequence 0 -> F -> Sym^p F -> Sym^{p-2} F tensor det F -> 0.
+2. Edixhoven's own proof is given in section 7: Prop. 7.2 produces B in S(N, p+1) with T_l^*(Bf) = l B T_l^*(f) (three constructions: Robert [23] Thm B, E_{p+1} mod p for p >= 5; the Kodaira-Spencer image of the simple zero of A; Katz [15]), Prop. 7.3 shows via Lemma 7.4 (compatibility of Kodaira-Spencer with isogenies) that the map Phi: S(N, k) -> M^0(N, k')^dual, k' = p+1-k, intertwines T_l^* with l^{k-1} T_l^{*dual}, and 7.5 assembles these with the long exact sequence of 7.1.1 and the fact that duality on finite-length F_p-bar[T_l]-modules preserves supports.
+3. The first published proof for p >= 5 is attributed to Ash-Stevens, [1], Thms 3.4 and 3.5.
+4. 7.5, small levels: for N = 4 or 2 (so p odd) M(N, k) = H^0(X, omega^k)^G with X = X(4) and G a subgroup of SL_2(Z/4Z) of order prime to p; for N = 3 the same with X(3); for N = 1 and p > 3 with G = SL_2(Z/3Z) or SL_2(Z/4Z); G-invariants are exact and the exact sequence 7.5.1 is G-equivariant. For N = 1 and p = 2 or 3 the source refers to Serre [25], Theoreme 3.
+
+*Acceptance.*
+
+- Check on an example of weight k > p+1 that the produced pair (i, k') satisfies rho_f = rho_g tensor chi^i
+- Check that the statement is only about eigenvalues away from p, by exhibiting a case where a_p(f) and a_p(theta^i g) differ
+
+*Used by.*
+
+- SerreWeightAndLevelOptimisation R20.3 — the first step of Edixhoven's proof of Theorem 4.5
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.3/theta-cycles-and-the-small-characteristic-tables`, `AlgebraicModularFormsAndSerreWeights:R15.3/theta-operator-filtration-and-hecke-commutation`, `AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions`.
+
+*Planet:* Weight reduction to at most p + 1.
+
+*Sources.*
+
+- The weight in Serre's conjectures on modular forms, Theorem 3.4, p. 9 of the DVI: “Let f be an eigenform of some type (N, k, #), then there exist integers i and k# with 0 # i # p- 1, k# # p + 1 and an eigenform g of type (N, k#, #) such that f and #ig have the same eigenvalues for all Tl* (l #= p).” Literal statement including the restriction to l different from p.
+- The weight in Serre's conjectures on modular forms, 7.5 Proof of Theorem 3.4, p. 25 of the DVI: “Theorem 3.4 is a consequence of the existence of the long exact cohomology sequence of 7.1.1 combined with Propositions 7.2 and 7.3, if N # 5. We are now left with the cases” Records that the proof is run for N >= 5 and that the small levels need a separate argument.
+- The weight in Serre's conjectures on modular forms, 7.5, p. 26 of the DVI: “Theorem 3.4 now follows by taking G-invariants, except for N = 1 and p = 2 or 3. For these remaining two cases we refer to [25], Theoreme 3.” The level-one characteristic-2 and -3 cases rest on an unread import. Added by the reviewer.
 
 ## R15.4 — The local Serre recipe
 
@@ -655,6 +1146,8 @@ Let rho: G_Q -> GL(V) = GL_2(F_p-bar) be continuous with (3.2.1) rho irreducible
 The eight baseline declarations listed in the packet were read in their actual files at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` or Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. In particular, `IsDiscreteValuationRing.exists_lift_of_le_one` concerns bounded elements of an **existing fraction field**; it is not an existence theorem for a new DVR or a substitute for the normalization argument. No unchecked search hit is promoted to a verified baseline declaration.
 
 **Checkpoint 2 sources.** Serre, *Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)*, Duke Math. J. 54 (1987); Edixhoven, *The weight in Serre's conjectures on modular forms* (author's DVI); Raynaud, *Schémas en groupes de type (p, …, p)*, Bull. SMF 102 (1974); and Khare–Wintenberger, *Serre's modularity conjecture (I)* (authors' preprint). Each was downloaded again and its SHA-256 matches the record. All 33 carried excerpts and the 4 new ones were compared with the extracted text: Edixhoven's text was extracted from the DVI, which renders Greek letters as placeholders. The excerpts match exactly or up to OCR and rendering, and they lie on the pages given. Serre's printed page is the PDF page + 178, and Raynaud's is the PDF page + 239.
+
+**Checkpoint 3 sources.** Katz, *p-adic properties of modular schemes and modular forms*, LNM 350 (1973), from Katz's page: its SHA-256 matches the record. Its text layer is OCR, but every carried excerpt's best match lies on the page its locator gives, where Katz's page marks Ka-n are PDF pages. Theorem 1.12.1 was checked on the page image (printed p. 94). Edixhoven §§3 and 7 are carried as reviewed. Darmon–Diamond–Taylor Lemma 4.1 (p. 107) is the source of the new generation lemma. Its references, Diamond–Im and Wiles, are not read.
 
 **Source issue E1.** Serre's Remark (1) in 2.4 (p. 186) says that m = 1 or 2 in the très ramifiée case. For p = 2, m = 3 also occurs (Edixhoven, Proposition 8.5). This correction is known. The weight does not depend on m.
 
