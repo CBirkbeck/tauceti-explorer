@@ -150029,6 +150029,45 @@
    "reviewReason": "The review redid the n = 2 computation from (13) and the residue convention."
   },
   {
+   "id": "PotentialModularityAndCompatibleSystems/E2",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 10.1, p. 91 of the author's preprint proofs.pdf",
+   "printed": "The proof chooses F using Theorem 6.1(c), requiring its completion at ℓi to contain Fℓi.",
+   "correction": "\"… choosing F as in part (iii) b) of Theorem 6.1 …\"",
+   "reason": "In Theorem 6.1 (p. 54) the clause about completions containing prescribed local extensions F_{ℓ_i} is (iii) b); (iii) c) makes F split at p when p > 2 and k(ρ̄) = p + 1. The proof needs the local extensions.",
+   "affects": "nothing",
+   "known": "new: present in the author's preprint; the Inventiones version was not obtained",
+   "searched": [
+    "The author's preprint proofs.pdf (the version read)",
+    "Invent. Math. 178 (2009) 505–586: not obtained"
+   ],
+   "owner": "PotentialModularityAndCompatibleSystems",
+   "file": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R23.1.json",
+   "citation": "Chandrashekhar Khare, Jean-Pierre Wintenberger, Serre's modularity conjecture (II), Author's preprint (proofs.pdf, 98 pages, own pagination) of the paper published in Invent. Math. 178 (2009), 505-586 (catalogue id SS_KW2). Locators are the preprint's printed page numbers; the Inventiones pagination was not compared.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems/E3",
+   "kind": "misprint",
+   "locator": "Lemme 3.10.2, printed p. 192 (Numdam scan of Ann. Sci. ÉNS 22 (1989))",
+   "printed": "The source labels the statement Lemme 3.30.2 and takes a locally compact field F and a proper, regular curve C.",
+   "correction": "LEMME 3.10.2",
+   "reason": "The lemma sits in 3.10 between 3.10.1 and 3.10.3, and the plan of the paper on p. 182 cites it as (3.10.2) (compactness of Jacobians); there is no §3.30.",
+   "affects": "nothing",
+   "known": "new: present in the published article (Numdam scan)",
+   "searched": [
+    "The Numdam item page for 10.24033/asens.1582 (no erratum listed)"
+   ],
+   "owner": "PotentialModularityAndCompatibleSystems",
+   "file": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R23.1.json",
+   "citation": "Laurent Moret-Bailly, Groupes de Picard et problèmes de Skolem II, Ann. Sci. École Norm. Sup. (4) 22 (1989), no. 2, 181-194; Numdam scan with OCR text layer (catalogue id ADD_MORET_BAILLY_II). The OCR drops or mangles Sigma, Omega, script S and inequality signs; every displayed condition used below was re-read on page images. Locators are printed journal pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PotentialModularityAndCompatibleSystems/E1",
    "kind": "misprint",
    "locator": "Bibliography, reference [33], p. 96 of the author's preprint proofs.pdf",
