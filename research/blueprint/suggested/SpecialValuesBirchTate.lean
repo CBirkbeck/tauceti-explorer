@@ -17,6 +17,7 @@ import Mathlib.RingTheory.Ideal.Norm.AbsNorm
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.FieldTheory.Galois.Abelian
+import Mathlib.RingTheory.Localization.Away.Basic
 import TauCeti.NumberTheory.ArithmeticDirichletSeries.Trivial
 import TauCeti.NumberTheory.ArithmeticDirichletSeries.EulerProduct.Data
 import TauCeti.NumberTheory.NumberField.Quadratic.RingOfIntegers
@@ -30,7 +31,8 @@ and signatures. All proposed results are unproved prototypes at the pinned basel
 (Mathlib 082e2d3, Tau Ceti f790474); the file has not been compiled.
 
 Layers covered: B.1 (the formula), B.2 (sign and equivalent forms), B.3 (ℚ and ℚ(√5)),
-B.5 (totally real abelian fields, with the 2-primary part), B.7 (S-integers and Euler factors).
+B.4 (the odd-primary theorem), B.5 (totally real abelian fields, with the 2-primary part),
+B.7 (S-integers and Euler factors).
 
 Three objects are imported from other roadmaps and are not planned here. Until their owners
 land they appear below as placeholders named after the owners' planned declarations:
@@ -303,6 +305,57 @@ theorem birchTateFormula_iff_sInteger (S : Finset (HeightOneSpectrum (𝓞 F))) 
           (wInvariant 2 F : ℂ) := by sorry
 
 end SIntegers
+
+/-! ## B.4 The odd-primary theorem (Wiles; Kolster, Park City notes, Theorem 3.3) -/
+
+/-- `H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2))`, a finite group (ArithmeticKTheory N.6). -/
+def etaleH2 (F : Type*) [Field F] [NumberField F] (ℓ : ℕ) : Type := sorry
+
+/-- `H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2))` (ArithmeticKTheory N.6). -/
+def etaleH1 (F : Type*) [Field F] [NumberField F] (ℓ : ℕ) : Type := sorry
+
+section OddPrimary
+variable (F : Type*) [Field F] [NumberField F] (ℓ : ℕ)
+
+/-- B.4/k2-ell-part-unchanged-by-inverting-ell. -/
+theorem padicValNat_card_K2_localization [Fact ℓ.Prime] :
+    padicValNat ℓ (Nat.card (K2 (Localization.Away (ℓ : 𝓞 F)))) =
+      padicValNat ℓ (Nat.card (K2 (𝓞 F))) := by sorry
+
+/-- B.4/k2-ell-part-as-etale-cohomology (Tate), in valuation form. -/
+theorem K2_tensor_padic_equiv_etale [Fact ℓ.Prime] (hℓ : ℓ ≠ 2) :
+    padicValNat ℓ (Nat.card (K2 (𝓞 F))) = padicValNat ℓ (Nat.card (etaleH2 F ℓ)) := by sorry
+
+/-- B.4/w2-ell-part-as-etale-cohomology: for totally real `F`, `H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)) ≅ W₂(F)_ℓ`. -/
+theorem card_etaleH1_torsion_eq_wInvariant [Fact ℓ.Prime] (hℓ : ℓ ≠ 2) [IsTotallyReal F] :
+    Nat.card (etaleH1 F ℓ) = ℓ ^ padicValNat ℓ (wInvariant 2 F) := by sorry
+
+/-- B.4/etale-euler-characteristic-and-zeta (Kolster, Theorem 3.3 at `χ = 1`, `n = 2`). -/
+theorem padicValRat_zeta_neg_one_eq_etale [Fact ℓ.Prime] (hℓ : ℓ ≠ 2) [IsTotallyReal F] (q : ℚ)
+    (hq : dedekindZetaCont F (-1) = q) :
+    padicValRat ℓ |q| =
+      (padicValNat ℓ (Nat.card (etaleH2 F ℓ)) : ℤ) - padicValNat ℓ (wInvariant 2 F) := by sorry
+
+/-- B.4/odd-primary-birch-tate (Wiles). -/
+theorem padicValNat_card_K2_odd [Fact ℓ.Prime] (hℓ : ℓ ≠ 2) [IsTotallyReal F] (q : ℚ)
+    (hq : dedekindZetaCont F (-1) = q) :
+    (padicValNat ℓ (Nat.card (K2 (𝓞 F))) : ℤ) =
+      padicValNat ℓ (wInvariant 2 F) + padicValRat ℓ |q| := by sorry
+
+end OddPrimary
+
+/-- B.4, checked arithmetic: for `v ∣ ℓ` the norm `Nv = ℓ^f` gives `ℓ ∤ Nv − 1`, so inverting `ℓ` does not change
+the `ℓ`-part of `#K₂` (B.7's factor `∏ (Nv − 1)`). -/
+example (ℓ f : ℕ) (hℓ : 2 ≤ ℓ) (hf : 1 ≤ f) : ¬ ℓ ∣ ℓ ^ f - 1 := by
+  intro h
+  have h1 : ℓ ∣ ℓ ^ f := dvd_pow_self ℓ (by omega)
+  have h2 : 1 ≤ ℓ ^ f := Nat.one_le_pow _ _ (by omega)
+  have : ℓ ∣ ℓ ^ f - (ℓ ^ f - 1) := Nat.dvd_sub h1 h
+  rw [Nat.sub_sub_self h2] at this
+  exact absurd (Nat.le_of_dvd one_pos this) (by omega)
+
+/-- B.4 acceptance: `ℚ(√5)`, `w₂ = 120`, `ζ(−1) = 1/30`, so `120 · (1/30) = 4` has no odd part. -/
+example : (120 : ℚ) * (1 / 30) = 4 := by norm_num
 
 /-! ## B.5 Totally real abelian fields: the 2-primary part (Kolster 1989, Greither 1992) -/
 

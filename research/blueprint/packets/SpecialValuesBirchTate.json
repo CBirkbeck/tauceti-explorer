@@ -13,7 +13,7 @@
     "SpecialValuesBirchTate:B.8"
   ],
   "status": "partial",
-  "summary": "First checkpoint (B.1, B.2, B.3, B.7). B.1: the Birch–Tate formula as a proposition over imported K₂(𝓞_F) (K2SymbolsBrauer T.1), w₂(F) (ArithmeticKTheory N.4) and the continued ζ_F (requested from AL.1). B.2: the sign of ζ_F(−1) from the functional equation through the reciprocal gamma factors (Γ_ℝ(−1) = −2π, ζ_F(2) ≥ 1), the failure of the formula with a complex place, the absolute-value and primewise forms, the rational reconstruction lemma, and the denominator consequence. B.3: ζ_ℚ = riemannZeta, Birch–Tate for ℚ from independent values, and ℚ(√5) (ζ = ζ·L(χ₅), ζ(−1) = 1/30, w₂ = 120; #K₂ = 4 requested). B.7: the S-modified zeta function on Tau Ceti's Euler-product API, #K₂(𝓞_{F,S}) and the S-integral formula. The K-book's 'pole of order r₂ at −1' is already recorded as ArithmeticKTheory/E18 and is read as a zero. B.4–B.6 and B.8 are not read. Checkpoint 2 plans B.5 from Kolster 1989 and Greither 1992. Federer's 2-adic main conjecture implies the 2-part of the formula for every totally real field (Kolster's Theorems 1 and 5 and Lemma 2). Greither's main conjecture gives Federer's conjecture for every totally real abelian field, through a comparison planned here, so the full Birch–Tate formula follows for these fields with the odd-primary theorem of B.4. Kolster's note has two misprints (E1–E2).",
+  "summary": "First checkpoint (B.1, B.2, B.3, B.7). B.1: the Birch–Tate formula as a proposition over imported K₂(𝓞_F) (K2SymbolsBrauer T.1), w₂(F) (ArithmeticKTheory N.4) and the continued ζ_F (requested from AL.1). B.2: the sign of ζ_F(−1) from the functional equation through the reciprocal gamma factors (Γ_ℝ(−1) = −2π, ζ_F(2) ≥ 1), the failure of the formula with a complex place, the absolute-value and primewise forms, the rational reconstruction lemma, and the denominator consequence. B.3: ζ_ℚ = riemannZeta, Birch–Tate for ℚ from independent values, and ℚ(√5) (ζ = ζ·L(χ₅), ζ(−1) = 1/30, w₂ = 120; #K₂ = 4 requested). B.7: the S-modified zeta function on Tau Ceti's Euler-product API, #K₂(𝓞_{F,S}) and the S-integral formula. The K-book's 'pole of order r₂ at −1' is already recorded as ArithmeticKTheory/E18 and is read as a zero. B.4–B.6 and B.8 are not read. Checkpoint 2 plans B.5 from Kolster 1989 and Greither 1992. Federer's 2-adic main conjecture implies the 2-part of the formula for every totally real field (Kolster's Theorems 1 and 5 and Lemma 2). Greither's main conjecture gives Federer's conjecture for every totally real abelian field, through a comparison planned here, so the full Birch–Tate formula follows for these fields with the odd-primary theorem of B.4. Kolster's note has two misprints (E1–E2). Checkpoint 3 plans B.4: the odd-primary Birch–Tate formula for every totally real field, from Wiles's main conjecture through Kolster's Theorem 3.3 at χ = 1, n = 2, Tate's K₂–étale comparison and the identification of w₂'s ℓ-part with the torsion of H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)). With B.5 this completes the Birch–Tate formula for totally real abelian fields. Three new issues in the Park City notes (E3–E5).",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -485,6 +485,20 @@
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
         "provides": "rank K = card (InfinitePlace K) − 1.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:padicValNat.mul",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "v_p(ab) = v_p(a) + v_p(b) for nonzero a, b.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:padicValNat.eq_zero_of_not_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "v_p(n) = 0 when p ∤ n.",
         "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
       }
     ]
@@ -2064,7 +2078,7 @@
       "statement": "Let F be a totally real number field, abelian over ℚ. Then BirchTateFormula(F) holds: ζ_F(−1) = (−1)^{[F:ℚ]}·#K₂(𝓞_F)/w₂(F).",
       "hypotheses": [],
       "proofSteps": [
-        "For odd ℓ the valuation identity is the odd-primary theorem (B.4). For abelian F its Iwasawa input is the Mazur–Wiles main conjecture.",
+        "For odd ℓ the valuation identity is the odd-primary theorem (B.4/odd-primary-birch-tate). For abelian F its Iwasawa input is the Mazur–Wiles main conjecture.",
         "For ℓ = 2 it is the previous node.",
         "The primewise form (B.2/birch-tate-iff-valuations), with ζ_F(−1) ∈ ℚ and its sign, gives BirchTateFormula(F)."
       ],
@@ -2074,7 +2088,7 @@
       ],
       "prerequisites": [
         "SpecialValuesBirchTate:B.5/two-part-birch-tate-abelian",
-        "SpecialValuesBirchTate:B.4",
+        "SpecialValuesBirchTate:B.4/odd-primary-birch-tate",
         "SpecialValuesBirchTate:B.2/birch-tate-iff-valuations"
       ],
       "library": {
@@ -2091,6 +2105,229 @@
       ],
       "planet": {
         "name": "Birch–Tate for totally real abelian fields"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.4/k2-ell-part-unchanged-by-inverting-ell",
+      "parentStageId": "SpecialValuesBirchTate:B.4",
+      "realises": [
+        "SpecialValuesBirchTate:B.4"
+      ],
+      "title": "Inverting ℓ does not change the ℓ-part of K₂",
+      "kind": "lemma",
+      "statement": "Let F be a number field, ℓ a prime and S_ℓ the set of primes of 𝓞_F above ℓ. Then v_ℓ(#K₂(𝓞_F[1/ℓ])) = v_ℓ(#K₂(𝓞_F)).",
+      "hypotheses": [],
+      "proofSteps": [
+        "B.7/k2-order-of-s-integers gives #K₂(𝓞_{F,S_ℓ}) = #K₂(𝓞_F)·∏_{v|ℓ}(Nv − 1). This is the localisation sequence 0 → K₂(𝓞_F) → K₂(𝓞_{F,S}) → ⊕_{v∈S} k(v)^× → 0 of K2SymbolsBrauer T.5, whose third term is the tame-symbol diagram.",
+        "Each Nv is a power of ℓ, so Nv − 1 ≡ −1 mod ℓ, and v_ℓ of the product is 0."
+      ],
+      "acceptance": [
+        "ℓ = 2, F = ℚ: #K₂(ℤ[1/2]) = #K₂(ℤ)·(2 − 1) = 2.",
+        "The lemma is valuation-only: #K₂(𝓞_F[1/ℓ]) itself differs from #K₂(𝓞_F) by the prime-to-ℓ factor ∏(Nv − 1)."
+      ],
+      "prerequisites": [
+        "SpecialValuesBirchTate:B.7/k2-order-of-s-integers",
+        "mathlib:padicValNat.mul",
+        "mathlib:padicValNat.eq_zero_of_not_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/BirchTateOddPrimary",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.padicValNat_card_K2_localization"
+      },
+      "sources": [
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, before Theorem 3.3, p. 14",
+          "match": "Kolster works with 𝓞_F[1/p] throughout; the passage to 𝓞_F is this lemma."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.4/k2-ell-part-as-etale-cohomology",
+      "parentStageId": "SpecialValuesBirchTate:B.4",
+      "realises": [
+        "SpecialValuesBirchTate:B.4"
+      ],
+      "title": "The ℓ-part of K₂(𝓞_F) is H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)) (Tate)",
+      "kind": "lemma",
+      "statement": "Let F be a number field and ℓ an odd prime. Then K₂(𝓞_F) ⊗ ℤ_ℓ ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)). In particular v_ℓ(#K₂(𝓞_F)) = v_ℓ(#H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2))).",
+      "hypotheses": [
+        "ℓ odd keeps the real places out of the étale cohomology of 𝓞_F[1/ℓ]. The stage takes the degree-two comparison from T.7 and M.3, not from the general norm-residue theorem."
+      ],
+      "proofSteps": [
+        "Tate's comparison for S-integers (MotivicEtaleKTheory M.3), with S ⊇ S_ℓ: K₂(𝓞_{F,S})/ℓ^r ≅ H²_ét(𝓞_{F,S}, μ_{ℓ^r}^{⊗2}) for every r, compatibly in r.",
+        "K₂(𝓞_{F,S}) is finite (ArithmeticKTheory N.3), so K₂(𝓞_{F,S}) ⊗ ℤ_ℓ = lim_r K₂(𝓞_{F,S})/ℓ^r. The groups H¹_ét(𝓞_{F,S}, μ_{ℓ^r}^{⊗2}) are finite, so the limit is H²_ét(𝓞_{F,S}, ℤ_ℓ(2)) with no lim¹ term.",
+        "Take S = S_ℓ and pass from 𝓞_F[1/ℓ] to 𝓞_F by the previous lemma."
+      ],
+      "acceptance": [
+        "F = ℚ, ℓ = 3: K₂(ℤ) ≅ ℤ/2 has trivial 3-part, so H²_ét(ℤ[1/3], ℤ_3(2)) = 0."
+      ],
+      "prerequisites": [
+        "SpecialValuesBirchTate:B.4/k2-ell-part-unchanged-by-inverting-ell",
+        "MotivicEtaleKTheory:M.3",
+        "ArithmeticKTheory:N.3/finiteness-and-ranks-combined"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/BirchTateOddPrimary",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.K2_tensor_padic_equiv_etale"
+      },
+      "sources": [
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, after Corollary 3.4, p. 15",
+          "match": "H²(𝓞_F, ℤ(2)) ≅ K₂(𝓞_F), citing Tate [35]."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.4/w2-ell-part-as-etale-cohomology",
+      "parentStageId": "SpecialValuesBirchTate:B.4",
+      "realises": [
+        "SpecialValuesBirchTate:B.4"
+      ],
+      "title": "The ℓ-part of w₂(F) as the torsion of H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2))",
+      "kind": "lemma",
+      "statement": "Let F be a number field and ℓ an odd prime. The coefficient sequence 0 → ℤ_ℓ(2) → ℚ_ℓ(2) → ℚ_ℓ/ℤ_ℓ(2) → 0 gives H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2))_tors ≅ H⁰(𝓞_F[1/ℓ], ℚ_ℓ/ℤ_ℓ(2)) = H⁰(F, ℚ_ℓ/ℤ_ℓ(2)) = W₂(F)_ℓ, of order w₂^{(ℓ)}(F). If F is totally real, H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)) is finite, so it is itself ≅ W₂(F)_ℓ.",
+      "hypotheses": [
+        "The isomorphism uses that H⁰(F, ℚ_ℓ/ℤ_ℓ(2)) has no divisible part, which holds because it is finite (N.4). For the twist n = 0 the analogous statement is false; see source issue E5."
+      ],
+      "proofSteps": [
+        "The kernel of δ₁: H⁰(ℚ_ℓ/ℤ_ℓ(2)) → H¹(ℤ_ℓ(2)) is the maximal divisible subgroup of H⁰, the image of H⁰(ℚ_ℓ(2)). Its image is H¹(ℤ_ℓ(2))_tors, because H¹(ℚ_ℓ(2)) = H¹(ℤ_ℓ(2)) ⊗ ℚ_ℓ is torsion-free.",
+        "H⁰(F, ℚ_ℓ/ℤ_ℓ(2)) = W₂(F)_ℓ is finite (N.4/finiteness-of-the-w-invariant), so its divisible part is 0 and δ₁ is an isomorphism onto the torsion. H⁰ over 𝓞_F[1/ℓ] equals H⁰ over F, since μ_{ℓ^∞} is unramified outside ℓ.",
+        "For F totally real, rk_{ℤ_ℓ} H¹(F, ℤ_ℓ(2)) = r₂ = 0 (Kolster, Proposition 2.1(5)), so H¹ is finite, hence equal to its torsion."
+      ],
+      "acceptance": [
+        "F = ℚ, ℓ = 3: H¹_ét(ℤ[1/3], ℤ_3(2)) ≅ W₂(ℚ)_3 = ℤ/3, matching w₂(ℚ) = 24.",
+        "Twist 0: H⁰(ℚ_ℓ/ℤ_ℓ) = ℚ_ℓ/ℤ_ℓ is divisible, and H¹(𝓞_F[1/ℓ], ℤ_ℓ) is torsion-free, so the finiteness of W₂ is what makes the lemma work."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.4/the-w-invariant",
+        "ArithmeticKTheory:N.4/finiteness-of-the-w-invariant",
+        "ArithmeticKTheory:N.6"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/BirchTateOddPrimary",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.card_etaleH1_torsion_eq_wInvariant"
+      },
+      "sources": [
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 1, §2, the coefficient sequence, p. 9",
+          "match": "H¹_tors ≅ H⁰(ℚ_p/ℤ_p(n)); stated for every n, but it needs n ≠ 0 (source issue E5)."
+        },
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 1, §2, Proposition 2.1, p. 10",
+          "match": "The ranks, rk H¹(F, ℤ_p(n)) = r₂ for even n."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta",
+      "parentStageId": "SpecialValuesBirchTate:B.4",
+      "realises": [
+        "SpecialValuesBirchTate:B.4"
+      ],
+      "title": "The ℓ-adic valuation of ζ_F(−1) as an étale Euler characteristic (Kolster, Theorem 3.3 at χ = 1, n = 2)",
+      "kind": "theorem",
+      "statement": "Let F be a totally real number field and ℓ an odd prime. Then v_ℓ(|ζ_F(−1)|) = v_ℓ(#H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2))) − v_ℓ(#H⁰(F, ℚ_ℓ/ℤ_ℓ(2))).",
+      "hypotheses": [
+        "Kolster states Theorem 3.3 for a 'real field'; totally real is meant (Wiles's main conjecture and the parity argument need it)."
+      ],
+      "proofSteps": [
+        "Let E = F(μ_ℓ); G = Gal(E/F) has order dividing ℓ − 1, prime to ℓ. Put ψ = ω² as a character of G, so that χ = ψω^{−2} is trivial. Let X be the Iwasawa module of the maximal abelian ℓ-extension of E_∞ unramified outside ℓ, and Λ = ℤ_ℓ[[T]], T = γ − 1.",
+        "Wiles's main conjecture (IntegralIwasawaTheory I.5), with his μ = μ(G_ψ) (Theorem 1.4 of the 1990 paper), gives char(X_ψ) = (G_ψ(T)) when ψ ≠ 1. Here L_ℓ(1 − s, ψ) = G_ψ(κ(γ)^s − 1)/H_ψ(κ(γ)^s − 1), with H_ψ = 1 unless ψ = 1.",
+        "Descent (Proposition 3.1): Hom(X, ℚ_ℓ/ℤ_ℓ(2)) = H¹_ét(𝓞_{E_∞}[1/ℓ], ℚ_ℓ/ℤ_ℓ(2)), Galois descent to E, and Corollary 2.2. Together they give (X_ψ(−2)_Γ)^∨ ≅ H²_ét(𝓞_E[1/ℓ], ℤ_ℓ(2))^{χ^{−1}} = H²_ét(𝓞_E[1/ℓ], ℤ_ℓ(2))^G ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)), by codescent (Proposition 2.3(2)) since ℓ ∤ |G|.",
+        "Evaluation (Proposition 3.2): X_ψ(−2) has no nonzero finite Λ-submodule, so its Γ-invariants vanish and |X_ψ(−2)_Γ| ~ f(κ(γ)² − 1), where f(κ(γ)²(1 + T) − 1) is its characteristic polynomial (Lemma 1.2). By the main conjecture this is ~ L_ℓ(−1, ψ) = ζ_F(−1)·∏_{v|ℓ}(1 − Nv), and each factor 1 − Nv is an ℓ-adic unit.",
+        "The trivial character. ψ = ω²|_G is trivial exactly when [F(μ_ℓ):F] divides 2, which is exactly when W₂(F)_ℓ ≠ 0. In that case the pole factor H_1(T) = T contributes |H⁰(E, ℚ_ℓ/ℤ_ℓ(2))^{ω²}| = |H⁰(F, ℚ_ℓ/ℤ_ℓ(2))| ~ κ(γ)² − 1. Otherwise H⁰(F, ℚ_ℓ/ℤ_ℓ(2)) = 0. Either way the displayed identity follows (Theorem 3.3)."
+      ],
+      "acceptance": [
+        "F = ℚ, ℓ = 3: v_3(1/12) = −1 = 0 − 1, with H² = 0 and H⁰ = ℤ/3.",
+        "F = ℚ(√5), ℓ = 5: ζ_F(−1) = 1/30, v_5 = −1; [F(μ_5):F] = 2, so H⁰(F, ℚ_5/ℤ_5(2)) = ℤ/5 and H² has trivial 5-part."
+      ],
+      "prerequisites": [
+        "IntegralIwasawaTheory:I.5",
+        "IntegralIwasawaTheory:I.2",
+        "IntegralIwasawaTheory:L2",
+        "ArithmeticKTheory:N.6",
+        "AutomorphicPadicLFunctions:L3",
+        "SpecialValuesBirchTate:B.2/birch-tate-iff-valuations"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/BirchTateOddPrimary",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.padicValRat_zeta_neg_one_eq_etale"
+      },
+      "sources": [
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, the set-up, p. 13",
+          "match": "E = F_ψ(μ_p), G of order prime to p."
+        },
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, Proposition 3.1, p. 14",
+          "match": "The descent."
+        },
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, Theorem 3.3, p. 15",
+          "match": "The theorem, applied with χ = 1, n = 2 and S = S_ℓ."
+        },
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 1, §1, Iwasawa's Main Conjecture 1.3 (Wiles), p. 9",
+          "match": "Wiles's theorem, the input from IntegralIwasawaTheory I.5."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.4/odd-primary-birch-tate",
+      "parentStageId": "SpecialValuesBirchTate:B.4",
+      "realises": [
+        "SpecialValuesBirchTate:B.4"
+      ],
+      "title": "The odd-primary Birch–Tate formula for totally real fields (Wiles)",
+      "kind": "theorem",
+      "statement": "Let F be a totally real number field and ℓ an odd prime. Then v_ℓ(#K₂(𝓞_F)) = v_ℓ(w₂(F)) + v_ℓ(|ζ_F(−1)|).",
+      "hypotheses": [],
+      "proofSteps": [
+        "By the Tate lemma, v_ℓ(#K₂(𝓞_F)) = v_ℓ(#H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2))).",
+        "By the W₂ lemma, #H⁰(F, ℚ_ℓ/ℤ_ℓ(2)) = w₂^{(ℓ)}(F), so its valuation is v_ℓ(w₂(F)).",
+        "Substitute both into the étale Euler-characteristic identity."
+      ],
+      "acceptance": [
+        "F = ℚ: ℓ = 3 gives 0 = 1 + (−1); ℓ ≥ 5 gives 0 = 0 + 0 (w₂(ℚ) = 24, ζ(−1) = −1/12).",
+        "F = ℚ(√5): ℓ = 3 and ℓ = 5 both give 0 = 1 + (−1) (w₂ = 120, ζ_F(−1) = 1/30), so #K₂ is a power of 2, matching 4 (B.3)."
+      ],
+      "prerequisites": [
+        "SpecialValuesBirchTate:B.4/k2-ell-part-as-etale-cohomology",
+        "SpecialValuesBirchTate:B.4/w2-ell-part-as-etale-cohomology",
+        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta",
+        "ArithmeticKTheory:N.4/the-w-invariant"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/BirchTateOddPrimary",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.padicValNat_card_K2_odd"
+      },
+      "sources": [
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, Corollary 3.4 and Birch–Tate Conjecture 3.5, p. 15",
+          "match": "The odd part of Birch–Tate from Corollary 3.4."
+        }
+      ],
+      "planet": {
+        "name": "Odd-primary Birch–Tate (Wiles)"
       },
       "implementationStatus": "unchecked"
     }
@@ -2110,13 +2347,14 @@
     },
     {
       "supplier": "AutomorphicPadicLFunctions:L3",
-      "need": "For a totally real field F and k ≥ 1, ζ_F(1 − 2k) ∈ ℚ (Siegel–Klingen; the 'algebraicity of negative critical values' in L3's Deligne–Ribet construction), and the Deligne–Ribet integrality statement bounding the denominator of ζ_F(−1), proved independently of the Birch–Tate formula. Also, at p = 2 for a totally real F: the 2-adic zeta function L₂(χ₀, s) = G_F(u^s − 1)/(u^s − u) with G_F ∈ 2^{[F:ℚ]}ℤ₂[[T]] (Deligne–Ribet), its interpolation L₂(χ₀, −1) = ζ_F(−1)·∏_{𝔭|2}(1 − N𝔭), and for F abelian over ℚ its factorisation ζ_{F,2}(s) = ∏_ψ L₂(s, ψ) into Kubota–Leopoldt L-functions.",
+      "need": "For a totally real field F and k ≥ 1, ζ_F(1 − 2k) ∈ ℚ (Siegel–Klingen; the 'algebraicity of negative critical values' in L3's Deligne–Ribet construction), and the Deligne–Ribet integrality statement bounding the denominator of ζ_F(−1), proved independently of the Birch–Tate formula. Also, at p = 2 for a totally real F: the 2-adic zeta function L₂(χ₀, s) = G_F(u^s − 1)/(u^s − u) with G_F ∈ 2^{[F:ℚ]}ℤ₂[[T]] (Deligne–Ribet), its interpolation L₂(χ₀, −1) = ζ_F(−1)·∏_{𝔭|2}(1 − N𝔭), and for F abelian over ℚ its factorisation ζ_{F,2}(s) = ∏_ψ L₂(s, ψ) into Kubota–Leopoldt L-functions. Also, for odd p: the power series G_ψ, H_ψ with L_p(1 − s, ψ) = G_ψ(κ(γ)^s − 1)/H_ψ(κ(γ)^s − 1) for totally real F, and the interpolation L_p(−1, ω²) = ζ_F(−1)·∏_{v|p}(1 − Nv) at the trivial character twisted by ω².",
       "neededBy": [
         "SpecialValuesBirchTate:B.2/birch-tate-iff-valuations",
         "SpecialValuesBirchTate:B.2/denominator-consequence",
         "SpecialValuesBirchTate:B.5/federer-main-conjecture",
         "SpecialValuesBirchTate:B.5/federer-implies-two-primary-birch-tate",
-        "SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields"
+        "SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields",
+        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta"
       ]
     },
     {
@@ -2128,25 +2366,29 @@
     },
     {
       "supplier": "ArithmeticKTheory:N.6",
-      "need": "Kolster's exact sequence for a totally real field E (The structure of the 2-Sylow subgroup of K₂(o), II, K-theory 1 (1987), Theorem 3.7): 0 → (μ₂ ⊗ U_∞^+)^Γ → K₂(o)(2) → (𝒯 ⊗_{ℤ₂} A_∞^-)^Γ → H¹(Γ, μ₂ ⊗ U_∞^+) → 0, for the cyclotomic ℤ₂-tower F_n = E(ζ_{2^{n+e}}), as the 2-adic case of the stage's comparison of even K-groups with arithmetic cohomology.",
+      "need": "Kolster's exact sequence for a totally real field E (The structure of the 2-Sylow subgroup of K₂(o), II, K-theory 1 (1987), Theorem 3.7): 0 → (μ₂ ⊗ U_∞^+)^Γ → K₂(o)(2) → (𝒯 ⊗_{ℤ₂} A_∞^-)^Γ → H¹(Γ, μ₂ ⊗ U_∞^+) → 0, for the cyclotomic ℤ₂-tower F_n = E(ζ_{2^{n+e}}), as the 2-adic case of the stage's comparison of even K-groups with arithmetic cohomology. Also, for ℓ odd and n ≥ 2 (Kolster's Park City notes, Proposition 2.1, Corollary 2.2 and Proposition 2.3): H⁰ and H^{≥3} of 𝓞_F[1/ℓ] with ℤ_ℓ(n) vanish; H¹(𝓞_F[1/ℓ], ℤ_ℓ(n)) ≅ H¹(F, ℤ_ℓ(n)) of rank r₁ + r₂ or r₂ for n odd or even; H² is finite; the boundary description of the coefficient sequence; H¹(𝓞_F[1/ℓ], ℚ_ℓ/ℤ_ℓ(n)) ≅ H²(𝓞_F[1/ℓ], ℤ_ℓ(n)) for F totally real and n even; and Galois descent and codescent for E/F of degree prime to ℓ.",
       "neededBy": [
-        "SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa"
+        "SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa",
+        "SpecialValuesBirchTate:B.4/w2-ell-part-as-etale-cohomology",
+        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta"
       ]
     },
     {
       "supplier": "IntegralIwasawaTheory:I.2",
-      "need": "For a totally real E and p = 2, the cyclotomic tower F_n = E(ζ_{2^{n+e}}): the minus class module A_∞^- = lim→ ker(A(F_n) → A(F_n^+)) with its dual Ǎ_∞^- a finitely generated torsion ℤ₂[[T]]-module; Federer's theorem that Ǎ_∞^- has no nonzero finite Λ-submodule; and Iwasawa's Proposition 2 (Amer. J. Math. 105 (1983)) on H¹(Γ, ℰ) ≅ B ⊕ (ℚ₂/ℤ₂)^r and H²(Γ, ℰ) ≅ (ℚ₂/ℤ₂)^{r−1} for the free part ℰ of lim→ U_n^+.",
+      "need": "For a totally real E and p = 2, the cyclotomic tower F_n = E(ζ_{2^{n+e}}): the minus class module A_∞^- = lim→ ker(A(F_n) → A(F_n^+)) with its dual Ǎ_∞^- a finitely generated torsion ℤ₂[[T]]-module; Federer's theorem that Ǎ_∞^- has no nonzero finite Λ-submodule; and Iwasawa's Proposition 2 (Amer. J. Math. 105 (1983)) on H¹(Γ, ℰ) ≅ B ⊕ (ℚ₂/ℤ₂)^r and H²(Γ, ℰ) ≅ (ℚ₂/ℤ₂)^{r−1} for the free part ℰ of lim→ U_n^+. Also, for odd p and E/F abelian of degree prime to p containing μ_p, with E_∞ its cyclotomic ℤ_p-extension: Hom(X_S, ℚ_p/ℤ_p(n)) = H¹_ét(𝓞^S_{E_∞}, ℚ_p/ℤ_p(n)), and the twists X_ψ(−n) of the even components have no nonzero finite Λ-submodule.",
       "neededBy": [
         "SpecialValuesBirchTate:B.5/federer-main-conjecture",
         "SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa",
-        "SpecialValuesBirchTate:B.5/minus-module-coinvariant-order"
+        "SpecialValuesBirchTate:B.5/minus-module-coinvariant-order",
+        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta"
       ]
     },
     {
       "supplier": "IntegralIwasawaTheory:L2",
       "need": "The coinvariant lemma: for a finitely generated torsion ℤ_p[[T]]-module M with M_Γ finite and M^Γ = 0, |M_Γ| ~ char_M(0); and the twist rule char(M(−1))(T) = char(M)(u^{−1}(1 + T) − 1) for the action (γφ)(x) = φ(γx) (Lichtenbaum, Lemma 4.1).",
       "neededBy": [
-        "SpecialValuesBirchTate:B.5/minus-module-coinvariant-order"
+        "SpecialValuesBirchTate:B.5/minus-module-coinvariant-order",
+        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta"
       ]
     },
     {
@@ -2161,6 +2403,20 @@
       "need": "Twists by characters of the second kind at p = 2: for χ of the first kind and ρ of finite order on Γ, L₂(s, χρ) = G₂(ζu^s − 1, χ)/(ζu^s − u)^{δ(χ)}, with ζ the root of unity attached to ρ(γ) and δ(χ) = 1 exactly for trivial χ (Washington, Theorem 7.10), with the convention for ζ (ρ(γ) or its inverse) fixed explicitly.",
       "neededBy": [
         "SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields"
+      ]
+    },
+    {
+      "supplier": "IntegralIwasawaTheory:I.5",
+      "need": "Wiles's main conjecture for a totally real field F and an odd prime p (Kolster, Iwasawa's Main Conjecture 1.3): for every 1-dimensional p-adic Artin character ψ of type S, the distinguished polynomial of G_{ψ,S} equals the characteristic polynomial of γ − 1 on the ψ-part of X_S ⊗ ℚ_p; with Wiles's μ(X_ψ) = μ(G_ψ) (1990, Theorem 1.4), so char(X_ψ) = (G_ψ(T)) for ψ ≠ 1 of order prime to p.",
+      "neededBy": [
+        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.3",
+      "need": "Tate's degree-two comparison for S-integers: for a number field F, a prime ℓ and S ⊇ {v | ℓ}, K₂(𝓞_{F,S})/ℓ^r ≅ H²_ét(𝓞_{F,S}, μ_{ℓ^r}^{⊗2}), compatibly in r (the stage's public statement), for ℓ odd.",
+      "neededBy": [
+        "SpecialValuesBirchTate:B.4/k2-ell-part-as-etale-cohomology"
       ]
     }
   ],
@@ -2187,16 +2443,15 @@
     },
     {
       "stageId": "SpecialValuesBirchTate:B.4",
-      "status": "not_read",
-      "remaining": [
-        "Tate's K₂–Galois-cohomology comparison (K2SymbolsBrauer T.7, MotivicEtaleKTheory M.3), the localisation sequence to 𝓞_F[1/ℓ] (ArithmeticKTheory N.2), the Euler characteristic of IntegralIwasawaTheory I.5 and the ℓ-adic unit Nv − 1: plan the odd-primary valuation identity of B.2/birch-tate-iff-valuations from K-book VI.8.7 and Kolster Lecture 2 Theorem 3.3."
-      ]
+      "status": "source_decomposed",
+      "remaining": [],
+      "notes": "Checkpoint 3 decomposes B.4 from Kolster's Park City notes (Lecture 1 §§1–2, Lecture 2 §3) in 5 nodes: the ℓ-part of K₂ is unchanged by inverting ℓ (Nv − 1 is an ℓ-adic unit, from B.7's S-integer sequence); Tate's comparison K₂(𝓞_F) ⊗ ℤ_ℓ ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)); the ℓ-part of w₂ as H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)) via the coefficient sequence; Kolster's Theorem 3.3 at χ = 1, n = 2 (the étale Euler characteristic equals v_ℓ ζ_F(−1), including the trivial-character pole when W₂(F)_ℓ ≠ 0); and the odd-primary Birch–Tate formula (planet). Wiles's main conjecture is requested from IntegralIwasawaTheory I.5 and Tate's comparison from MotivicEtaleKTheory M.3. Source issues E3–E5."
     },
     {
       "stageId": "SpecialValuesBirchTate:B.5",
       "status": "source_decomposed",
       "remaining": [],
-      "notes": "Checkpoint 2 decomposes B.5 from Kolster 1989 (the whole note) and Greither 1992: Federer's conjecture as a definition, Kolster's Theorem 1, Lemma 2 and Theorem 5, the comparison proving Federer's conjecture for totally real abelian F from Greither's Theorem 3.2 (with the reduction to a field unramified at 2, the norm from Λ′ to Λ, and Ferrero–Washington at (2)), and the Birch–Tate formula for totally real abelian fields. Kolster's Theorem 1, Lemma 2 and Theorem 5 hold for every totally real field and are reusable in B.6. Two source issues (E1–E2). Dependencies: the odd-primary input is stage B.4, taken as a stage prerequisite by the final node; Kolster's exact sequence (his 1987 Theorem 3.7), Iwasawa's 1983 Proposition 2 and Federer's no-finite-submodule theorem are requested from ArithmeticKTheory N.6 and IntegralIwasawaTheory I.2, and none of those papers is read here."
+      "notes": "Checkpoint 2 decomposes B.5 from Kolster 1989 (the whole note) and Greither 1992: Federer's conjecture as a definition, Kolster's Theorem 1, Lemma 2 and Theorem 5, the comparison proving Federer's conjecture for totally real abelian F from Greither's Theorem 3.2 (with the reduction to a field unramified at 2, the norm from Λ′ to Λ, and Ferrero–Washington at (2)), and the Birch–Tate formula for totally real abelian fields. Kolster's Theorem 1, Lemma 2 and Theorem 5 hold for every totally real field and are reusable in B.6. Two source issues (E1–E2). Dependencies: the odd-primary input is B.4/odd-primary-birch-tate (checkpoint 3); Kolster's exact sequence (his 1987 Theorem 3.7), Iwasawa's 1983 Proposition 2 and Federer's no-finite-submodule theorem are requested from ArithmeticKTheory N.6 and IntegralIwasawaTheory I.2, and none of those papers is read here."
     },
     {
       "stageId": "SpecialValuesBirchTate:B.6",
@@ -2260,6 +2515,54 @@
       "searched": [
         "Cambridge Core article page for Canad. Math. Bull. 32 (1989) 248–251 (no erratum linked)",
         "web search for an erratum to Kolster's note (none found)"
+      ]
+    },
+    {
+      "id": "SpecialValuesBirchTate/E3",
+      "source": "kolster-park-city-2009",
+      "kind": "misprint",
+      "locator": "Lecture 2, §3, after the Motivic Lichtenbaum Conjecture 3.7, p. 16 (author copy)",
+      "printed": "With Bloch-Kato assumed, the source reports that the conjecture holds for totally real abelian F when the integer n ≥ 2 is even, citing Theorem 3.4; it also mentions some further cases.",
+      "correction": "(cp. Corollary 3.4)",
+      "reason": "The notes have no Theorem 3.4; the statement for totally real F and even n ≥ 2 is Corollary 3.4 (p. 15), and the numbered items of §3 are Proposition 3.1, Proposition 3.2, Theorem 3.3, Corollary 3.4 and Conjectures 3.5–3.7.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there)",
+        "the published volume (IAS/Park City Mathematics Series) was not accessed",
+        "research/errata/REGISTER.md: no entry for these notes"
+      ]
+    },
+    {
+      "id": "SpecialValuesBirchTate/E4",
+      "source": "kolster-park-city-2009",
+      "kind": "misprint",
+      "locator": "Lecture 1, §2, p. 9 (author copy)",
+      "printed": "The source identifies H⁰_ét(o′_F, ℚ_p/ℤ_p(n)) = H⁰(f, ℚ_p/ℤ_p(n)) with the torsion part of H¹_ét(o′_F, ℤ_p(n)).",
+      "correction": "… = H⁰(F, ℚ_p/ℤ_p(n))",
+      "reason": "F is the number field; f is not defined in the notes (checked on the page image).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there)",
+        "the published volume (IAS/Park City Mathematics Series) was not accessed",
+        "research/errata/REGISTER.md: no entry for these notes"
+      ]
+    },
+    {
+      "id": "SpecialValuesBirchTate/E5",
+      "source": "kolster-park-city-2009",
+      "kind": "error",
+      "locator": "Lecture 1, §2, p. 9 (author copy)",
+      "printed": "For arbitrary n ∈ ℤ, the source obtains a long cohomology sequence from 0 → ℤ_p(n) → ℚ_p(n) → ℚ_p(n)/ℤ_p(n) → 0. It concludes that H¹_ét(o′_F, ℤ_p(n)) has torsion part isomorphic to H⁰_ét(o′_F, ℚ_p/ℤ_p(n)).",
+      "correction": "The isomorphism H¹_ét(o′_F, ℤ_p(n))_tors ≅ H⁰_ét(o′_F, ℚ_p/ℤ_p(n)) holds for n ≠ 0. In general H¹_tors is H⁰(ℚ_p/ℤ_p(n)) modulo its maximal divisible subgroup.",
+      "reason": "By the preceding sentence the kernel of δ₁ is the maximal divisible subgroup of H⁰(ℚ_p/ℤ_p(n)). For n = 0 this is all of H⁰(o′_F, ℚ_p/ℤ_p) = ℚ_p/ℤ_p, while H¹_ét(o′_F, ℤ_p) = Hom_cts(G_F^{(p)}, ℤ_p) is torsion-free. For n ≠ 0 the cyclotomic character has infinite image, so H⁰ is finite and the isomorphism holds. The notes use it only for n ≥ 2.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there)",
+        "the published volume (IAS/Park City Mathematics Series) was not accessed",
+        "research/errata/REGISTER.md: no entry for these notes"
       ]
     }
   ],
