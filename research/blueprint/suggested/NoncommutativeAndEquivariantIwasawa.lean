@@ -212,4 +212,17 @@ example : (-1/2 : ℚ) + 3/2 + (1 - (-1)) = 3 ∧ (-3/2 : ℚ) + 5/2 + 0 = 1 := 
 
 end NE45Tests
 
+namespace NE6Tests
+
+/-- `NE.6/abelian-case` (Theorem 16): for `H = ℤ/2`, an element `a + b·h` is recovered from its character values
+`ψ₊ = a + b` and `ψ₋ = a − b` by `x = ½ Σ_h h Σ_ψ x_ψ ψ(h⁻¹)`. -/
+example (a b : ℚ) : ((a + b) + (a - b)) / 2 = a ∧ ((a + b) - (a - b)) / 2 = b :=
+  ⟨by ring, by ring⟩
+
+/-- `NE.6/l-elementary-case` (Lemma 31): with `|C| = 9` and `p = 3`, an automorphism exponent `a ≡ 1 (mod 3)` with
+`a² ≡ 1 (mod 9)` is `1` modulo `9`, so the stabiliser of a nontrivial character is `P₁`. -/
+example : ∀ a : ZMod 9, a ^ 2 = 1 → a.val % 3 = 1 → a = 1 := by decide
+
+end NE6Tests
+
 end TauCeti.NoncommIwasawa

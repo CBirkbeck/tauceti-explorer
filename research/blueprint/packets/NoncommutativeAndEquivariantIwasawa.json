@@ -13,7 +13,7 @@
   "NoncommutativeAndEquivariantIwasawa:NE.7"
  ],
  "status": "partial",
- "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain. Checkpoint 4 (cc-39fac3) plans CFKSV §4's integrality conjecture 4.8 with Lemma 4.9 (NE.3) and §5: the dual Selmer module, Conjectures 5.1–5.2 and the 𝔐_H(G) criteria (NE.4), and Conjectures 5.7–5.8 with Corollaries 5.9–5.10 and the X₁(11) check (NE.5). Conjectures are stated as propositions, never assumed.",
+ "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain. Checkpoint 4 (cc-39fac3) plans CFKSV §4's integrality conjecture 4.8 with Lemma 4.9 (NE.3) and §5: the dual Selmer module, Conjectures 5.1–5.2 and the 𝔐_H(G) criteria (NE.4), and Conjectures 5.7–5.8 with Corollaries 5.9–5.10 and the X₁(11) check (NE.5). Conjectures are stated as propositions, never assumed. Checkpoint 5 reads Kakde §§1–4: admissible extensions and μ = 0, the complex C(F_∞/F), SK₁ and K′₁, ∂ surjective with p-torsion, the totally real main conjecture, the abelian × prime-to-p case from Deligne–Ribet and Wiles, the Burns–Kato patching principle, and the reductions to dimension one, to ℚ_p-elementary groups, the l-elementary case and the reduction to Δ × pro-p.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -255,6 +255,17 @@
    "sha256": "4b33fb11251340c88a8f8a590d9f9296a413aadf4fae98968ea7191a14c857bc",
    "readSections": [
     "2026-09-28 (cc-39fac3): §2.1–2.2 (determinant functors, the localized K₁ of Fukaya–Kato, the category Σ_S), pp. 4–7."
+   ]
+  },
+  {
+   "id": "KAKDE-2011",
+   "title": "The main conjecture of Iwasawa theory for totally real fields",
+   "authors": "Mahesh Kakde",
+   "edition": "arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
+   "url": "https://arxiv.org/pdf/1008.0142v3",
+   "sha256": "5a05da0d58f2717422fb401510d9cad4aeeac707313929a796870b92e27ea45c",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, checkpoint 5): §§1–4 in full (Definitions 1–8, Lemmas 5, 9, 15, 17, 19, 26, 28, 31, Theorems 11, 16, 18, 21, 25, 27, 33, 36, Propositions 30, 35, Corollary 20, Remarks 10, 12–14, 22, 32, 34), pp. 1–30."
    ]
   }
  ],
@@ -3584,6 +3595,686 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective-p-torsion",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "Surjectivity of ∂ for every compact p-adic Lie group",
+   "kind": "theorem",
+   "statement": "Let G be a compact p-adic Lie group with closed normal H and G/H ≅ ℤ_p, possibly with elements of order p. In the localisation sequence K₁(Λ(G)) → K₁(Λ(G)_S) → K₀(Λ(G), Λ(G)_S) → K₀(Λ(G)) → K₀(Λ(G)_S), the boundary map ∂ is surjective: the map η : K₀(Λ(G), Λ(G)_S) → K₀(Λ(G)) is zero.",
+   "hypotheses": [
+    "No hypothesis on p-torsion in G (CFKSV assume none; see boundary-surjective)."
+   ],
+   "proofSteps": [
+    "Fix an open normal pro-p subgroup P with Δ = G/P, and λ : K₀(Λ(G)) → ∏_{ρ∈V(Δ)} K₀(L), the composite of K₀(Λ(G)) → K₀(ℤ_p[Δ]) → K₀(ℚ_p[Δ]) → K₀(L[Δ]) ≅ ∏ K₀(M_{n_ρ}(L)); each step is injective (k0-representation-injective).",
+    "An element of K₀(Λ(G), Λ(G)_S) is [(P, s^{−1}a, Q)] and η of it is [Q/a(P)] − [Q/Qs]; for M = Q/a(P) S-torsion, each twist tw_ρ(M) is S-torsion (twist-preserves-MHG), so H_i(H, tw_ρ(M)) is Λ_𝒪(Γ)-torsion and its class in K₀(Λ_𝒪(Γ)) vanishes.",
+    "Hence ε([tw_ρ(M)]) = Σ(−1)^i[H_i(H, tw_ρ M)] = 0, so τ = 0 on the twists, λ([M]) = 0 and [M] = 0."
+   ],
+   "acceptance": [
+    "Covers groups with p-torsion, which Kakde's reductions need (finite quotients of order divisible by p)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/k0-representation-injective",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/homology-torsion",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/twist-preserves-MHG",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-map"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KOne",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§2.2, Lemma 5, p. 8 (arXiv v3)",
+     "match": "Lemma 5 and its proof (pp. 8–9)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3"
+   ],
+   "title": "SK₁ and the quotient K′₁ of Iwasawa algebras",
+   "kind": "construction",
+   "statement": "For a finite group P and 𝒪 the integers of a finite extension L/ℚ_p, SK₁(𝒪[P]) = ker(K₁(𝒪[P]) → K₁(L[P])). For a compact p-adic Lie group G, SK₁(Λ_𝒪(G)) := lim_U SK₁(𝒪[G/U]), and SK₁(Λ_𝒪(G)_S), SK₁(Λ̂_𝒪(G)_S) are its images in K₁(Λ_𝒪(G)_S) and K₁ of the p-adic completion Λ̂_𝒪(G)_S. K′₁(R) := K₁(R)/SK₁(R) for R each of these rings. Then K′₁(Λ_𝒪(G)) ≅ lim_Δ K′₁(𝒪[Δ]) over the finite quotients Δ of G, and K′₁(Λ(G)) ≅ lim_{Ḡ} K′₁(Λ(Ḡ)) over the quotients Ḡ = G/U by open pro-p subgroups U ≤ H normal in G.",
+   "hypotheses": [
+    "G compact p-adic Lie."
+   ],
+   "proofSteps": [
+    "K₁(Λ(G)) ≅ lim_n K₁(Λ(G)/J^n) for the Jacobson radical J (Fukaya–Kato, Proposition 1.5.1; see the gap on Fukaya–Kato).",
+    "For the finite groups K₁(Λ(G)/J^n, I_{Δ,n}/J^n) the limits over Δ and n commute, and ⋂_n⋂_Δ I_{Δ,n} = 0, so K₁(Λ_𝒪(G)) ≅ lim_Δ K₁(𝒪[Δ]) (Lemma 19).",
+    "Each SK₁(𝒪[Δ]) is finite (Wall; see the gap on Oliver's book), so the quotients pass to the limit.",
+    "Corollary 20 by cofinality of the finite quotients."
+   ],
+   "acceptance": [
+    "K′₁ is used because SK₁ is invisible to Artin evaluations; uniqueness in the main conjecture holds in K′₁."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence",
+    "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-local-iff-pro-p"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KOne",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§2.2, Definitions 6 and 7, p. 9 (arXiv v3)",
+     "match": "Definitions 6–7; Lemma 19 and Corollary 20 (pp. 17–19)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.SK1",
+     "role": "constructor",
+     "statement": "SK₁ of 𝒪[P], of Λ_𝒪(G) (as a limit) and its images."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.K1Prime",
+     "role": "constructor",
+     "statement": "K′₁(R) = K₁(R)/SK₁(R)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.k1Prime_equiv_limit",
+     "role": "equivalence",
+     "statement": "K′₁(Λ_𝒪(G)) ≅ lim_Δ K′₁(𝒪[Δ]) (Lemma 19)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.k1Prime_equiv_limit_proP",
+     "role": "equivalence",
+     "statement": "K′₁(Λ(G)) ≅ lim K′₁(Λ(G/U)) over open pro-p U ≤ H normal in G (Corollary 20)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.k1Prime_map",
+     "role": "functoriality",
+     "statement": "Natural in G: quotient maps and norms."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.evaluate_k1Prime",
+     "role": "compatibility",
+     "statement": "Artin evaluation factors through K′₁ (NE.3/artin-evaluation)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "abelian",
+     "kind": "value",
+     "statement": "G abelian: SK₁(Λ(G)) = 1 and K′₁(Λ(G)) = K₁(Λ(G)) ≅ Λ(G)^×."
+    },
+    {
+     "name": "prime_to_p_times_abelian",
+     "kind": "value",
+     "statement": "G = G_ab × Δ with #Δ prime to p: K′₁(Λ(G)_S) = K₁(Λ(G)_S) (Kakde, Lemma 17)."
+    },
+    {
+     "name": "finite_cyclic",
+     "kind": "value",
+     "statement": "P cyclic: SK₁(ℤ_p[P]) = 1, so K′₁(ℤ_p[P]) = K₁(ℤ_p[P]) = ℤ_p[P]^×."
+    },
+    {
+     "name": "sk1_invisible",
+     "kind": "non-example",
+     "statement": "Two elements of K₁(Λ(G)_S) differing by SK₁ have the same Artin evaluations and the same ∂, so uniqueness cannot hold in K₁ itself (Kakde, Remark 12)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture",
+     "how": "the group where ζ(F_∞/F) lives"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-dimension-one",
+     "how": "Corollary 20"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.4/admissible-extension",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.4",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.4"
+   ],
+   "title": "Admissible p-adic Lie extensions and the hypothesis μ = 0",
+   "kind": "definition",
+   "statement": "Let F be a totally real number field and p odd. An admissible p-adic Lie extension F_∞/F is a Galois extension, unramified outside a finite set of primes, with F_∞ totally real, G = Gal(F_∞/F) a p-adic Lie group and F_cyc ⊆ F_∞; put H = Gal(F_∞/F_cyc), Γ = G/H, and fix a finite set Σ of finite primes containing those ramified in F_∞. F_∞/F satisfies μ = 0 if some open pro-p subgroup H′ ≤ H has Gal(M/F_∞^{H′}) finitely generated over ℤ_p, M the maximal abelian pro-p extension of F_∞^{H′} unramified outside Σ; equivalently, the Iwasawa μ-invariant of L(μ_p) vanishes for L with L_cyc = F_∞^{H′}. Equivalently (Lemma 9), X = Gal(M_∞/F_∞) is finitely generated over Λ(H), M_∞ the maximal abelian pro-p extension of F_∞ unramified outside Σ.",
+   "hypotheses": [
+    "F totally real, p odd, Σ finite containing the ramified primes."
+   ],
+   "proofSteps": [
+    "Lemma 9: for H′ pro-p, Λ(H′) is local, so by Nakayama X is finitely generated over Λ(H) iff X_{H′} is finitely generated over ℤ_p; the inflation–restriction sequence for Gal(F_Σ/F_∞) ⊆ Gal(F_Σ/F_∞^{H′}) with ℚ_p/ℤ_p coefficients (ArithmeticGaloisDuality R02.2) and the cofiniteness of H^i(H′, ℚ_p/ℤ_p) compare X_{H′} with Gal(M/F_∞^{H′})."
+   ],
+   "acceptance": [
+    "μ = 0 is a hypothesis, recorded separately; Ferrero–Washington proves it for abelian L/ℚ, and nothing more general is claimed."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.0/compact-padic-analytic-group",
+    "NoncommutativeAndEquivariantIwasawa:NE.0/compact-nakayama",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/s-torsion-iff-finitely-generated",
+    "ArithmeticGaloisDuality:R02.2/five-term-transgression"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§2.1, Definition 1, p. 4 (arXiv v3)",
+     "match": "Definition 1; Definition 8 and Lemma 9 (pp. 9–10)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.AdmissibleExtension",
+     "role": "constructor",
+     "statement": "F_∞/F with G, H, Γ and Σ."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.MuZero",
+     "role": "constructor",
+     "statement": "The hypothesis μ = 0 (Definition 8)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.muZero_iff_fg",
+     "role": "characterisation",
+     "statement": "μ = 0 ⇔ Gal(M_∞/F_∞) is finitely generated over Λ(H) (Lemma 9)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.AdmissibleExtension.sub",
+     "role": "functoriality",
+     "statement": "F_∞^U/F for U ≤ H closed normal in G is admissible, and μ = 0 passes to it."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.AdmissibleExtension.res",
+     "role": "functoriality",
+     "statement": "F_∞/F′ for F ⊆ F′ ⊆ F_∞ with [F′:F] finite is admissible."
+    }
+   ],
+   "tests": [
+    {
+     "name": "cyclotomic",
+     "kind": "value",
+     "statement": "F_∞ = F_cyc: G = Γ ≅ ℤ_p and H = 1; μ = 0 is Iwasawa's μ = 0 for F(μ_p)."
+    },
+    {
+     "name": "abelian_q",
+     "kind": "value",
+     "statement": "F = ℚ(μ_p)^+, F_∞ the maximal abelian p-extension of F_cyc unramified outside p: admissible, and μ = 0 holds by Ferrero–Washington (Kakde's first example)."
+    },
+    {
+     "name": "cm_nonexample",
+     "kind": "non-example",
+     "statement": "F(μ_{p^∞})/F is not admissible: it is not totally real."
+    },
+    {
+     "name": "no_cyclotomic",
+     "kind": "non-example",
+     "statement": "A finite totally real extension is not admissible: it does not contain F_cyc."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex",
+     "how": "the extension whose complex is taken"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture",
+     "how": "the hypotheses of the conjecture"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.4",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.4"
+   ],
+   "title": "The complex C(F_∞/F)",
+   "kind": "construction",
+   "statement": "For an admissible F_∞/F, C(F_∞/F) = RHom(RΓ_ét(Spec 𝒪_{F_∞}[1/Σ], ℚ_p/ℤ_p), ℚ_p/ℤ_p) ≅ RHom(RΓ(Gal(F_Σ/F_∞), ℚ_p/ℤ_p), ℚ_p/ℤ_p), with H^{−1} = Gal(M_∞/F_∞), H⁰ = ℤ_p and H^i = 0 otherwise. It is a perfect complex of Λ(G)-modules, Λ(Gal(K/F)) ⊗^L_{Λ(G)} C(F_∞/F) ≅ C(K/F) for F ⊆ K ⊆ F_∞, and, under μ = 0, it is S-torsion, so it has a class [C(F_∞/F)] ∈ K₀(Λ(G), Λ(G)_S).",
+   "hypotheses": [
+    "F_∞/F admissible; μ = 0 for the class in relative K₀."
+   ],
+   "proofSteps": [
+    "The étale–Galois comparison, since ℚ_p/ℤ_p is a colimit of finite p-groups.",
+    "Cohomology: H⁰ = ℤ_p is the dual of H⁰(Gal(F_Σ/F_∞), ℚ_p/ℤ_p); H^{−1} is the dual of Hom(Gal(F_Σ/F_∞), ℚ_p/ℤ_p) = Gal(M_∞/F_∞)^∨; H²(Gal(F_Σ/F_∞), ℚ_p/ℤ_p) = 0 for totally real F_∞ and odd p (weak Leopoldt along F_cyc and ArithmeticGaloisDuality R02.4's cohomological dimension).",
+    "Perfectness and base change (1) are Fukaya–Kato's (see the gap on Fukaya–Kato).",
+    "S-torsion: its cohomology is finitely generated over Λ(H) by admissible-extension's Lemma 9, so Λ(G)_S ⊗^L C is acyclic (NE.1/s-torsion-iff-finitely-generated); the class is in NE.1/torsion-perfect-complexes."
+   ],
+   "acceptance": [
+    "When G has elements of order p, X itself need not have finite projective dimension; the complex, not the module, is what has a class."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.4/admissible-extension",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/torsion-perfect-complexes",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/s-torsion-iff-finitely-generated",
+    "ArithmeticGaloisDuality:R02.4/cohomological-dimension-bound",
+    "ArithmeticGaloisDuality:R02.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§2.3, p. 11 (arXiv v3)",
+     "match": "The complex, its cohomology, and Fukaya–Kato's results (i)–(ii)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.iwasawaComplex",
+     "role": "constructor",
+     "statement": "C(F_∞/F) as a perfect complex of Λ(G)-modules."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.iwasawaComplex_cohomology",
+     "role": "characterisation",
+     "statement": "H^{−1} = Gal(M_∞/F_∞), H⁰ = ℤ_p, and H^i = 0 otherwise."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.iwasawaComplex_baseChange",
+     "role": "compatibility",
+     "statement": "Λ(Gal(K/F)) ⊗^L C(F_∞/F) ≅ C(K/F) (Kakde (1))."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.iwasawaComplex_class",
+     "role": "constructor",
+     "statement": "[C(F_∞/F)] ∈ K₀(Λ(G), Λ(G)_S) under μ = 0."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.iwasawaComplex_restrict",
+     "role": "functoriality",
+     "statement": "Restriction to an open subgroup G′ is the complex of F_∞/F_∞^{G′}."
+    }
+   ],
+   "tests": [
+    {
+     "name": "cyclotomic",
+     "kind": "value",
+     "statement": "F_∞ = F_cyc: [C] = [X] − [ℤ_p] in K₀(Λ(Γ), Λ(Γ)_S), with X = Gal(M_cyc/F_cyc)."
+    },
+    {
+     "name": "h0",
+     "kind": "value",
+     "statement": "H⁰(C(F_∞/F)) = ℤ_p with trivial action for every admissible F_∞/F."
+    },
+    {
+     "name": "module_not_enough",
+     "kind": "non-example",
+     "statement": "For G with p-torsion, X = Gal(M_∞/F_∞) can fail to have a finite projective resolution, so [X] need not be defined in K₀(Λ(G), Λ(G)_S), while [C(F_∞/F)] is."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture",
+     "how": "∂ζ = −[C(F_∞/F)]"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case",
+     "how": "the characterwise complexes C_ψ"
+    }
+   ],
+   "planet": {
+    "name": "The complex C(F_∞/F)"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.5",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.5"
+   ],
+   "title": "The main conjecture for totally real fields",
+   "kind": "definition",
+   "statement": "For an admissible F_∞/F satisfying μ = 0, MC(F_∞/F) is the proposition: there is a unique ζ(F_∞/F) ∈ K′₁(Λ(G)_S) with ∂(ζ(F_∞/F)) = −[C(F_∞/F)] and ζ(F_∞/F)(ρκ_F^r) = L_Σ(ρ, 1 − r) for every Artin character ρ of G and every positive integer r divisible by [F_∞(μ_p) : F_∞], where κ_F is the p-adic cyclotomic character and L_Σ(ρ, 1 − r) the Klingen–Siegel value with the Euler factors at Σ removed.",
+   "hypotheses": [
+    "μ = 0; p odd; F totally real. Kakde states it as Theorem 11 because he proves it (NE.6)."
+   ],
+   "proofSteps": [
+    "Definition; the evaluation is NE.3/artin-evaluation on K′₁ (k1-prime), ∂ is the boundary of the localisation sequence, surjective by boundary-surjective-p-torsion."
+   ],
+   "acceptance": [
+    "Uniqueness is in K′₁; in K₁ it can fail (Kakde, Remark 12). The formulation in K₁ is equivalent because SK₁(Λ(G)_S) = ker ∂ ∩ ⋂_ρ ker(evaluation at ρ) (Burns, recorded, not planned).",
+    "Independence of Σ (Remark 14) is recorded as the test below, not proved here."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective-p-torsion",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/admissible-extension"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§2.5, Theorem 11 (Main Conjecture), p. 13 (arXiv v3)",
+     "match": "The statement, with Remarks 12–14."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.MainConjecture",
+     "role": "constructor",
+     "statement": "MC(F_∞/F) as a proposition."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.IsZetaElement",
+     "role": "constructor",
+     "statement": "ζ ∈ K′₁(Λ(G)_S) with ∂ζ = −[C] and the interpolation property."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.isZetaElement_unique",
+     "role": "extensionality",
+     "statement": "Two zeta elements agree (uniqueness is part of MC; in K′₁ it follows from Burns's description of SK₁)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.mainConjecture_quotient",
+     "role": "functoriality",
+     "statement": "MC for F_∞/F gives MC for F_∞^U/F, U ≤ H closed normal (inflation of Artin characters)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.mainConjecture_open",
+     "role": "functoriality",
+     "statement": "MC for F_∞/F gives MC for F_∞/F′, F′ ⊆ F_∞ finite over F (norms; induction of characters)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "cyclotomic",
+     "kind": "value",
+     "statement": "F_∞ = F_cyc: MC is Wiles's theorem, with ζ the Deligne–Ribet pseudomeasure G₁(T)/T (Kakde §3)."
+    },
+    {
+     "name": "sigma_independence",
+     "kind": "value",
+     "statement": "Enlarging Σ by a prime v multiplies ζ by the Euler factor at v and changes [C] accordingly (Remark 14)."
+    },
+    {
+     "name": "k1_nonuniqueness",
+     "kind": "non-example",
+     "statement": "Stated in K₁(Λ(G)_S) instead of K′₁, uniqueness fails whenever SK₁(Λ(G)_S) ≠ 1."
+    },
+    {
+     "name": "wrong_sign",
+     "kind": "non-example",
+     "statement": "∂ζ = +[C(F_∞/F)] is the conjecture for ζ^{−1}, which does not interpolate L-values."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case",
+     "how": "the conjecture proved for abelian × prime-to-p groups"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-dimension-one",
+     "how": "the conjecture reduced along quotients"
+    }
+   ],
+   "planet": {
+    "name": "Main conjecture for totally real fields"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The main conjecture for abelian × prime-to-p Galois groups",
+   "kind": "theorem",
+   "statement": "Let F_∞/F be admissible with μ = 0 and Gal(F_∞/F) = G × Δ, G abelian and Δ finite of order prime to p. Then MC(F_∞/F) holds, and K₁(Λ(G × Δ)) → K₁(Λ(G × Δ)_S) is injective. For G = H × Γ with H finite abelian, the Deligne–Ribet pseudomeasure ζ is a unit of Λ(G)_S (Lemma 15) with ∂ζ = −[C(F_∞/F)] (Theorem 16).",
+   "hypotheses": [
+    "μ = 0; p odd; #Δ prime to p."
+   ],
+   "proofSteps": [
+    "Lemma 15: Λ(G)_S ≅ ⊕_{ψ∈Ĥ′} Λ_{𝒪_ψ}(H_p × Γ)_S, each summand local; (ψ × 1)(ζ) ∉ π_ψΛ_{𝒪_ψ}(Γ)_S by μ = 0 and Wiles's theorem, so ζ is a unit.",
+    "Theorem 16: characterwise, ∂(ψ(ζ)) = −[C_ψ] is Wiles's main conjecture (IntegralIwasawaTheory I.5) for the Deligne–Ribet functions G_ψ (AutomorphicPadicLFunctions L3); θ₀ : K₀(Λ(G), Λ(G)_S) → ∏_ψ K₀(Λ_{𝒪_ψ}(Γ), Λ_{𝒪_ψ}(Γ)_S) is injective, because x = |H|^{−1}Σ_h h Σ_ψ x_ψ ψ(h^{−1}) shows the cokernel of θ injects into that of θ_S (snake lemma).",
+    "Lemma 17: for p ∤ #Δ, K₁(Λ(G × Δ)_S) ≅ ⊕_{χ∈R(Δ)} Λ_{𝒪_χ}(G)_S^×, and ζ = Σ e_χ L_p(χ), with L_p(χ) built from Deligne–Ribet functions by Brauer induction (Tau Ceti InductionRestriction Layer 6), is the zeta element.",
+    "Theorem 18: K₀(Λ(G × Δ), Λ(G × Δ)_S) ≅ ⊕_χ K₀(Λ_{𝒪_χ}(G), Λ_{𝒪_χ}(G)_S), and the same decomposition for K₁ gives injectivity."
+   ],
+   "acceptance": [
+    "The analytic input (Deligne–Ribet) and the arithmetic input (Wiles) are imported, not reproved; μ = 0 is used for the unit property."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence",
+    "AutomorphicPadicLFunctions:L3",
+    "IntegralIwasawaTheory:I.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§3, Theorem 18, p. 17 (arXiv v3)",
+     "match": "Theorem 18 with Lemma 15, Theorem 16 and Lemma 17 (pp. 14–17)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Main conjecture: the abelian case"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/burns-kato-patching",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The Burns–Kato patching principle",
+   "kind": "lemma",
+   "statement": "Let 𝒞 be a family of pairs (U, V), U open in G and V closed normal in U with U/V admissible, and θ = (θ_{U,V}) : K′₁(Λ(G)) → ∏_𝒞 K′₁(Λ(U/V)), θ_S the same on the localisations, each θ_{U,V} the norm to U followed by the quotient map. Suppose θ is an isomorphism onto a subgroup Φ, θ_S lands in a subgroup Φ_S with Φ_S ∩ ∏ K′₁(Λ(U/V)) = Φ, MC holds for every F_∞^V/F_∞^U with (ζ_{U,V}) ∈ Φ_S, and every Artin character of G is a ℤ-combination of characters induced or inflated from the U/V. Then MC(F_∞/F) holds, and K′₁(Λ(G)) → K′₁(Λ(G)_S) is injective when each K′₁(Λ(U/V)) → K′₁(Λ(U/V)_S) is.",
+   "hypotheses": [
+    "The hypotheses listed; μ = 0 for each subquotient."
+   ],
+   "proofSteps": [
+    "Choose f ∈ K′₁(Λ(G)_S) with ∂f = −[C(F_∞/F)] (boundary-surjective-p-torsion); θ_S(f) has components f_{U,V} with ∂f_{U,V} = −[C(F_∞^V/F_∞^U)] by base change (totally-real-iwasawa-complex).",
+    "u_{U,V} = ζ_{U,V} f_{U,V}^{−1} has ∂ = 0, so lies in K′₁(Λ(U/V)); (u_{U,V}) ∈ Φ_S ∩ ∏ K′₁ = Φ, so u_{U,V} = θ(u)_{U,V} for a unique u, and ζ = uf.",
+    "∂ζ = −[C]; interpolation by writing ρ = Σ n_i Ind/Inf ρ_i and using the norm and inflation compatibilities of evaluation (Kakde §2.4 (i)–(iii)); uniqueness and injectivity by the same diagram."
+   ],
+   "acceptance": [
+    "This is the argument Kakde repeats in Theorems 21, 27, 33 and 36; planning it once lets each reduction supply only the description of Φ."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective-p-torsion",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§1, the observation of Burns and Kato, p. 3 (arXiv v3)",
+     "match": "The principle stated in the introduction and carried out in each reduction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-dimension-one",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "Burns's reduction to one-dimensional extensions",
+   "kind": "theorem",
+   "statement": "Let F_∞/F be admissible with μ = 0. If MC holds for every F_∞^U/F with U ≤ H open pro-p and normal in G, and each K′₁(Λ(G/U)) injects into K′₁(Λ(G/U)_S), then MC(F_∞/F) holds.",
+   "hypotheses": [
+    "μ = 0; the quotients G/U are one-dimensional."
+   ],
+   "proofSteps": [
+    "k1-prime (Corollary 20): K′₁(Λ(G)) ≅ lim_U K′₁(Λ(G/U)).",
+    "Uniqueness makes (ζ_{G/U}) a compatible system; burns-kato-patching with 𝒞 = {(G, U)} and Φ the inverse limit; every Artin character of G factors through some G/U, and [F_∞(μ_p) : F_∞] = [F_∞^U(μ_p) : F_∞^U] as U is pro-p."
+   ],
+   "acceptance": [
+    "The injectivity hypothesis on K′₁ is carried, not dropped."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/burns-kato-patching",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§4.1, Theorem 21, p. 19 (arXiv v3)",
+     "match": "Theorem 21 and its proof (pp. 19–20)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Burns's reduction to dimension one"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-qp-elementary",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "Reduction to ℚ_p-elementary Galois groups",
+   "kind": "theorem",
+   "statement": "Let F_∞/F be admissible, one-dimensional, with μ = 0. If MC holds, and K′₁(Λ(U)) → K′₁(Λ(U)_S) is injective, for every admissible subextension whose Galois group U is ℚ_p-elementary (U = P ⋊ Γ with a central open Γ^{p^r} and (P ⋊ Γ)/Γ^{p^r} an l-ℚ_p-elementary finite group C_n ⋊ P₁, the image of P₁ in (ℤ/n)^× lying in Gal(ℚ_p(μ_n)/ℚ_p)), then MC(F_∞/F) holds and K′₁(Λ(G)) injects into K′₁(Λ(G)_S).",
+   "hypotheses": [
+    "G one-dimensional: G ≅ H ⋊ Γ with Γ^{p^e} central."
+   ],
+   "proofSteps": [
+    "Dress–Wall induction: K′₁(𝒪[P]) ≅ lim_π K′₁(𝒪[π]) over the K-elementary subgroups π, with norms and conjugations (Oliver, Theorem 11.2; see the gap on Oliver's book).",
+    "Lemma 26: K′₁(Λ(G)) ≅ lim_P K′₁(Λ(U_P)) over the ℚ_p-elementary P ≤ G_n = G/Γ^{p^{e+n}}, U_P their preimages (k1-prime's Lemma 19 in the limit).",
+    "burns-kato-patching, with compatibility of (ζ_P) under conjugation and norms from uniqueness and the invariance of L_Σ under conjugation and induction; interpolation by Brauer's induction theorem (Tau Ceti InductionRestriction Layer 6), elementary subgroups being ℚ_p-elementary."
+   ],
+   "acceptance": [
+    "Uses ℚ_p-elementary subgroups for the K₁ isomorphism, although Brauer induction needs only elementary ones."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/burns-kato-patching",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§4.2, Theorem 27, p. 21 (arXiv v3)",
+     "match": "Theorem 27 with Definitions 23–24, Theorem 25 and Lemma 26 (pp. 20–23)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Reduction to ℚ_p-elementary groups"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/l-elementary-case",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The l-ℚ_p-elementary case, l ≠ p",
+   "kind": "theorem",
+   "statement": "If F_∞/F is admissible with μ = 0 and G = Gal(F_∞/F) is l-ℚ_p-elementary for a prime l ≠ p, then MC(F_∞/F) holds and K₁(Λ(G)) injects into K₁(Λ(G)_S). Here G ≅ Γ^{p^e} × Ḡ with Ḡ = C ⋊ P finite (Lemma 28); reducing to C a cyclic p-group and P of order prime to p, with C̄ = H⁰(P, C), P₁ = ker(P → Aut C) and G₁ = Γ × C × P₁, the map θ = (quotient, norm) : K₁(Λ(G)) → K₁(Λ(Γ × C̄ × P)) × K₁(Λ(G₁)) is an isomorphism onto Φ = {(x₀, x₁) : norm(x₀) = can(x₁), x₁ fixed by P} (Proposition 30).",
+   "hypotheses": [
+    "l ≠ p; μ = 0."
+   ],
+   "proofSteps": [
+    "Lemma 28: the minimal central Γ^{p^e} splits off.",
+    "If p ∤ #C, abelian-case applies. Otherwise SK₁(Λ(G)) = 1 (Oliver 12.7), and θ lands in Φ: conjugation by P preserves the norm's matrix class, and the norm square commutes.",
+    "Surjectivity: J = ker(K₁(Λ(G₁)) → K₁(Λ(Γ × C̄ × P₁))) is pro-p (Oliver 2.10; Fukaya–Kato 1.5.3), so n = (P : P₁)-th roots exist in J^P.",
+    "Injectivity: Lemma 31 (every irreducible representation is inflated from C̄ × P or induced from G₁) makes β dual to (χ, ρ) ↦ Inf χ + Ind ρ injective; Oliver–Taylor's logarithm has kernel μ_{p−1} × G^ab (Wall), which the first component detects.",
+    "Then burns-kato-patching with abelian-case for the two components."
+   ],
+   "acceptance": [
+    "Oliver's and Wall's theorems are cited inputs (see the gap on Oliver's book)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/burns-kato-patching",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§4.3, Theorem 33, p. 27 (arXiv v3)",
+     "match": "Theorem 33 with Lemmas 28, 31, Definition 29 and Proposition 30 (pp. 23–27)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-p-elementary",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "Reduction of the p-ℚ_p-elementary case to Δ × pro-p",
+   "kind": "theorem",
+   "statement": "Let F_∞/F be admissible with μ = 0 and G p-ℚ_p-elementary, G/Γ^{p^e} = C_n ⋊ H_p with p ∤ n, U the preimage of H_p, and for χ ∈ Ĉ_n let U_χ = ker(U → Gal(L_χ/ℚ_p)), L_χ = ℚ_p(χ). Then K′₁(Λ(G)) ≅ ⊕_{χ∈C} K′₁(Λ_{𝒪_χ}(U_χ))^{U/U_χ} (Proposition 35), and if MC holds for each F_∞^{C_χ}/F_∞^{C_n ⋊ U_χ} with K′₁(Λ_{𝒪_χ}(U_χ)) → K′₁(Λ_{𝒪_χ}(U_χ)_S) injective, then MC(F_∞/F) holds and K′₁(Λ(G)) injects into K′₁(Λ(G)_S). This reduces the main conjecture to G = Δ × G_p with Δ cyclic of order prime to p and G_p one-dimensional pro-p.",
+   "hypotheses": [
+    "G p-ℚ_p-elementary; μ = 0."
+   ],
+   "proofSteps": [
+    "Proposition 35 at finite level is Oliver's Proposition 11.6 and Theorem 12.3(4) (gap on Oliver's book); pass to the limit with k1-prime.",
+    "Gal(F_∞^{C_χ}/F_∞^{C_n ⋊ U_χ}) ≅ C_n/C_χ × U_χ, and [F_∞(μ_p) : F_∞] is unchanged.",
+    "burns-kato-patching; every irreducible ρ is Ind(χρ_χ) (Serre, Proposition 25), giving interpolation."
+   ],
+   "acceptance": [
+    "The final reduction step; the pro-p one-dimensional case is Kakde §5–6 (next checkpoint)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/burns-kato-patching",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§4.4, Theorem 36, p. 29 (arXiv v3)",
+     "match": "Theorem 36 with Remark 34 and Proposition 35 (pp. 27–30)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Reduction to Δ × pro-p"
+   }
   }
  ],
  "requests": [
@@ -3662,11 +4353,41 @@
   },
   {
    "supplier": "ArithmeticGaloisDuality:R02.4",
-   "need": "Selmer groups of an elliptic curve over algebraic extensions L/ℚ, 𝒮(E/L) = ker(H¹(L, E_{p^∞}) → Π_w H¹(L_w, E)), their Pontryagin duals X(E/L) with the Λ(Gal(L/F))-action, and the restriction maps between layers (CFKSV §5); later, the Poitou–Tate duality behind equivariant Selmer complexes (NE.4).",
+   "need": "Selmer groups of an elliptic curve over algebraic extensions L/ℚ, 𝒮(E/L) = ker(H¹(L, E_{p^∞}) → Π_w H¹(L_w, E)), their Pontryagin duals X(E/L) with the Λ(Gal(L/F))-action, and the restriction maps between layers (CFKSV §5); later, the Poitou–Tate duality behind equivariant Selmer complexes (NE.4). Also: the cohomological dimension and weak Leopoldt inputs for H²(Gal(F_Σ/F_∞), ℚ_p/ℤ_p) = 0 in the complex C(F_∞/F) (cohomological-dimension-bound is cited).",
    "neededBy": [
-    "NoncommutativeAndEquivariantIwasawa:NE.4/gl2-dual-selmer-module"
+    "NoncommutativeAndEquivariantIwasawa:NE.4/gl2-dual-selmer-module",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex"
    ],
    "status": "open"
+  },
+  {
+   "supplier": "AutomorphicPadicLFunctions:L3",
+   "need": "The Deligne–Ribet (Cassou-Noguès, Barsky) p-adic L-functions G_ψ ∈ 𝒪_ψ⟦T⟧ of a totally real field and the pseudomeasure ζ ∈ Q(Λ(H × Γ)) for H finite abelian, with the interpolation G_ψ(u^n − 1) = L_Σ(ψ, 1 − n) and G₁(u^n − 1)/(u^n − 1) = L_Σ(1, 1 − n) (Kakde §3).",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "IntegralIwasawaTheory:I.5",
+   "need": "Wiles's main conjecture for totally real fields at odd p (Annals 1990, Theorems 1.3–1.4): h_ψ(T) and G*_ψ(T) generate the same ideal, and μ_ψ = 0 when p ∤ #Gal(F_ψ/F).",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+   "need": "Brauer's induction theorem, for the p-adic L-functions of nonabelian Artin characters and for interpolation in the reductions (Kakde §§3–4).",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-qp-elementary",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-p-elementary"
+   ],
+   "status": "open",
+   "note": ""
   }
  ],
  "coverage": [
@@ -3691,7 +4412,8 @@
    "remaining": [
     "Classes of perfect S*-torsion complexes in relative K₀ and the Fukaya–Kato localized K₁(R, Σ_S) ≅ K₁(R_S) (Burns–Venjakob §2.2), with additivity on exact sequences and mapping cones.",
     "The groups with p-torsion, where modules must be replaced by perfect complexes.",
-    "Vaserstein's theorem (units of a semilocal ring surject onto K₁) and Brumer's global dimension theorem are cited, not decomposed (sources not freely available)."
+    "Vaserstein's theorem (units of a semilocal ring surject onto K₁) and Brumer's global dimension theorem are cited, not decomposed (sources not freely available).",
+    "Kakde's Lemma 5 (∂ surjective with p-torsion) is planned as boundary-surjective-p-torsion."
    ],
    "notes": "Checkpoint 2 (cc-39fac3): CFKSV §3 (Lemmas 3.1, 3.2, 3.5, Proposition 3.4, the definition of characteristic elements) and §4 (Lemma 4.1, Proposition 4.2 with Lemma 4.3, Theorem 4.4 with Lemmas 4.5–4.6): the localisation sequence, the boundary map with its sign, K₀ detection by finite-level characters, surjectivity of ∂_G, characteristic elements with their K₁(Λ(G)) ambiguity, semilocality of Λ(G)_S and the non-semilocal S* example, units surjecting onto K₁, and the commutative one-variable comparison."
   },
@@ -3702,7 +4424,8 @@
     "Reduced norms and the SK₁ kernel in the semisimple total quotient algebra, and what character evaluations determine (Ritter–Weiss arXiv 1004.2578; the 2026 uniqueness preprint to be read before any strengthened claim).",
     "Functoriality of the evaluation under restriction/induction (G′ ⊆ G) and coefficient extension beyond direct sums.",
     "The arithmetic inputs of the X₁(11) example (gap).",
-    "Conjecture 4.8's evidence (G = ℤ_p^d × Δ, proof omitted by CFKSV; Kato [21] Proposition 8.19) is not planned."
+    "Conjecture 4.8's evidence (G = ℤ_p^d × Δ, proof omitted by CFKSV; Kato [21] Proposition 8.19) is not planned.",
+    "SK₁ and K′₁ with Kakde's Lemma 19 and Corollary 20 are planned as k1-prime; reduced norms remain."
    ],
    "notes": "Checkpoint 3 plans CFKSV §3 (10 nodes): twisting, Φ_ρ and its extension to Λ(G)_{S*}, evaluation ξ(ρ) ∈ L ∪ {∞}, Akashi series, the evaluation–Akashi diagram (with the contragredient), Theorem 3.6, Theorem 3.8, the Artin formalism Theorem 3.10 and the X₁(11) example. Checkpoint 4 adds Conjecture 4.8 with Lemma 4.9 (the integrality conjecture, as a proposition)."
   },
@@ -3711,7 +4434,8 @@
    "status": "partial",
    "remaining": [
     "Equivariant Galois complexes (Fukaya–Kato, Burns–Venjakob §3, Kakde, Ritter–Weiss) with ArithmeticGaloisDuality R02.4: the complex-level objects, perfectness and archimedean terms.",
-    "The Coates–Howson, Venjakob and Schneps inputs of CFKSV §5 (gap)."
+    "The Coates–Howson, Venjakob and Schneps inputs of CFKSV §5 (gap).",
+    "The totally real complex C(F_∞/F) and admissible extensions (Kakde §§2.1, 2.3) are planned; perfectness rests on Fukaya–Kato (gap)."
    ],
    "notes": "Checkpoint 4 plans the module-level instance of CFKSV §5 (3 nodes): the dual Selmer module X(E/F_∞) over F_∞ = ℚ(E_{p^∞}), Conjectures 5.1 and 5.2 as propositions, and the criteria Lemmas 5.3–5.4, Corollary 5.5, Proposition 5.6 with the conductor-11 example."
   },
@@ -3720,15 +4444,18 @@
    "status": "partial",
    "remaining": [
     "Fukaya–Kato's formulation (not freely available) and the abelian comparison with IntegralIwasawaTheory I.9's normalised p-adic L-function.",
-    "The Dokchitser–Dokchitser numerical data (gap)."
+    "The Dokchitser–Dokchitser numerical data (gap).",
+    "The totally real main conjecture (Kakde Theorem 11 as a proposition) is planned as totally-real-main-conjecture."
    ],
    "notes": "Checkpoint 4 plans CFKSV's formulation (4 nodes): the conjectural ℒ_E with its interpolation (107) and coefficient ring A, the main conjecture 5.8, Corollaries 5.9–5.10, and the X₁(11) consistency check; conjectures are propositions only."
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Kakde arXiv 1008.0142v3; Ritter–Weiss arXiv 1004.2578."
+    "Kakde §5 (the description of K′₁ of one-dimensional pro-p Iwasawa algebras and their localisations by congruences: the additive theorem, the Iwasawa-algebra and integral logarithms, the maps θ and β, Theorems 52–53) and §6 (the Burns–Kato strategy, the basic congruences between Deligne–Ribet functions, Proposition 93 and Theorem 94 via Hilbert modular forms and the q-expansion principle), pp. 30–90. They complete the final case G = Δ × G_p and the main theorem.",
+    "Ritter–Weiss (arXiv 1004.2578) as the second route, and the coverage table comparing statements, uniqueness, p = 2 and μ-hypotheses source by source (the stage's acceptance).",
+    "Newer unconditional abelian results (AE-ABELIAN2025) and the 2026 Ritter–Weiss audit."
    ]
   },
   {
@@ -3768,6 +4495,25 @@
     "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-example-x1-11"
    ],
    "detail": "Verified: CFKSV (108)–(115) are 'calculated in [15]'. Not recomputed."
+  },
+  {
+   "title": "Oliver's Whitehead groups of finite groups has no owner and is not freely available",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-qp-elementary",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/l-elementary-case",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-p-elementary"
+   ],
+   "detail": "Kakde cites R. Oliver, Whitehead Groups of Finite Groups (LMS Lecture Notes 132, 1988) for: Dress–Wall induction K′₁(𝒪[P]) ≅ lim over K-elementary subgroups (Theorem 11.2); Proposition 11.6 and Theorem 12.3(4) (the decomposition for p-ℚ_p-elementary groups); Wall's finiteness of SK₁(𝒪[Δ]) (Theorem 2.5) and the torsion of K₁(ℤ_p[G]) (Theorem 7.4); SK₁ = 1 in the l-elementary case (Proposition 12.7); and the Oliver–Taylor logarithm with its kernel (Chapter 2, Theorem 2.9; Theorem 2.10). The book is not freely available, and no roadmap in the atlas plans Whitehead groups of p-adic group rings (a search of the atlas extracts finds only KTheoryLowDegrees U.3 for SK₁ of rings of integers). The results are stated here from Kakde's citations."
+  },
+  {
+   "title": "Fukaya–Kato's §1 results on Iwasawa algebras and the complex C(F_∞/F) are not freely available",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/l-elementary-case"
+   ],
+   "detail": "Kakde cites Fukaya–Kato, A formulation of conjectures on p-adic zeta functions in noncommutative Iwasawa theory (Proc. St. Petersburg Math. Soc. XII, 2006), for K₁(Λ(G)) ≅ lim K₁(Λ(G)/J^n) (Proposition 1.5.1), the pro-p kernel (Proposition 1.5.3), and the perfectness and base change of C(F_∞/F). Burns–Venjakob §§2–3 (arXiv, free) restate parts of this and are NE.7's source; they will be checked against these statements there."
   }
  ]
 }
