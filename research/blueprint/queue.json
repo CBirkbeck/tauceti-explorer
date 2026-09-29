@@ -43805,8 +43805,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-13.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4008"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4008",
+   "finishedAt": "2026-09-29T14:35:34Z"
   },
   {
    "id": "RT-AUDIT-14",
@@ -44737,8 +44738,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4018"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4018",
+   "finishedAt": "2026-09-29T14:35:38Z"
   },
   {
    "id": "RT-AUDIT-26",
@@ -45200,8 +45202,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-31.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4025"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4025",
+   "finishedAt": "2026-09-29T14:35:42Z"
   },
   {
    "id": "RT-AUDIT-34",
@@ -47692,7 +47695,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-representations-3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3984"
   },
   {
    "id": "RT-AREA-homological",
