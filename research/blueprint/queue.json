@@ -14966,9 +14966,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisDuality.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #675"
+   "note": "claimed on GitHub issue #675"
   },
   {
    "id": "REV-ArithmeticGaloisDuality",
