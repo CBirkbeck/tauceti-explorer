@@ -1,0 +1,1989 @@
+{
+ "paper": "PAPER-SCHOLZE-15",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "On torsion in the cohomology of locally symmetric varieties",
+  "authors": "Peter Scholze",
+  "venue": "Annals of Mathematics 182 (2015), no. 3, 945–1066",
+  "doi": "10.4007/annals.2015.182.3.3",
+  "arxiv": "1306.2070",
+  "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf",
+  "readDate": "2026-09-29",
+  "version": "The published version (Annals, 122 pages, received 29 June 2013, revised 6 January 2015; zbMATH 1345.14031) was read in full and is the text of record: every locator is a printed page 945–1066 with the published numbering (§§1–5 with statements numbered 1.0.1–5.4.6). arXiv:1306.2070v2 (2 June 2015, 107 pages, 'final version') and its TeX source were read alongside to check formulas; a word-level comparison of v2 with the published text finds only layout (chapters II–V of v2 are sections 2–5, statements II.2.4 → 2.2.4 and so on), moved footnotes, a few connecting phrases and the typeset bibliography. arXiv v1 (9 June 2013) was not read.",
+  "readSections": [
+   "§1 Introduction: Conjectures 1.0.1–1.0.2, Theorems 1.0.3–1.0.8",
+   "§2 Preliminaries: 2.1 formal models from affinoid covers (Lemmas 2.1.1–2.1.2); 2.2 closed embeddings of perfectoid spaces (Definition 2.2.1–Lemma 2.2.9); 2.3 the perfectoid Hebbarkeitssatz (Lemma 2.3.1–Corollary 2.3.12)",
+   "§3 The perfectoid Siegel space: 3.1 introduction (Definition 3.1.1, Theorem 3.1.2, Lemma 3.1.3); 3.2 the strict neighbourhood of the anticanonical tower (Theorem 3.2.1–Theorem 3.2.36); 3.3 the Hodge–Tate period map (Proposition 3.3.1–Lemma 3.3.20)",
+   "§4 p-adic automorphic forms: 4.1 perfectoid Shimura varieties of Hodge type (Theorem 4.1.1); 4.2 completed cohomology and p-adic automorphic forms (Theorem 4.2.1, Corollaries 4.2.2–4.2.3); 4.3 Hecke algebras (Theorem 4.3.1, Lemmas 4.3.2–4.3.3)",
+   "§5 Galois representations: 5.1 recollections (Proposition 5.1.1–Corollary 5.1.11); 5.2 the cohomology of the boundary (Definition 5.2.1–Corollary 5.2.7); 5.3 divide and conquer (Theorem 5.3.1–Lemma 5.3.13); 5.4 conclusion (Theorem 5.4.1–Remark 5.4.6)",
+   "References (checked against the arXiv v2 bibliography)"
+  ]
+ },
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf",
+   "read": "2026-09-29",
+   "sha256": "ebac854f47381c19a987b43b59d2c05cad55c3186c4d8cde067a7be0d06cbd16",
+   "citation": "Ann. of Math. (2) 182 (2015), no. 3, 945–1066, 122 pages; the text of record for all locators"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1306.2070v2",
+   "read": "2026-09-29",
+   "sha256": "e15abf4e7ab3e400ecaae963e5ccd80b340919d8499ebfde5b55f2ceb83ab285",
+   "citation": "arXiv:1306.2070v2, 2 June 2015, 107 pages ('final version'); same text as the published version"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/e-print/1306.2070v2",
+   "read": "2026-09-29",
+   "sha256": "6a28c949b0cb7e95c7c66cc4e62c17633ce29335fe36172236c6ba15e915764e",
+   "citation": "TeX source of arXiv v2, used to check formulas and the bibliography"
+  }
+ ],
+ "summary": "Scholze proves that the Hecke eigensystems in the torsion cohomology H^i(X_K, ℳ_ξ/p^m) of the locally symmetric spaces of GL_n over a totally real or CM field F carry Galois determinants: there is a nilpotent ideal I with I^N = 0, N depending only on [F:ℚ] and n, such that the Hecke image 𝕋(K, ξ, i, m)/I receives an n-dimensional continuous determinant of G_{F,S} with the Hecke polynomials as Frobenius characteristic polynomials (Theorem 5.4.1). Consequences: mod p Galois representations for all such Hecke eigensystems (Theorem 1.0.3 = Corollary 5.4.3), Hecke-algebra-valued representations at non-Eisenstein ideals (Corollary 5.4.4, Calegari–Geraghty's Conjecture B up to a nilpotent ideal) and a new proof of the Harris–Lan–Taylor–Thorne theorem (Corollary 5.4.2). The totally real case assumes Arthur's classification; Remark 5.4.6 gives the unconditional range (F CM containing an imaginary quadratic field, S pulled back from ℚ). The route: a perfectoid Hebbarkeitssatz and Zariski closed embeddings of perfectoid spaces (§2); the perfectoid Siegel space at infinite level, built from canonical subgroups, Frobenius lifts and Tate traces on the anticanonical tower, and its Hodge–Tate period map with ω ≅ π_HT*ω_Fl (§3); the same for Hodge type, the identification of compactly supported completed cohomology with the cohomology of p-adic cusp forms at infinite level, vanishing above the middle degree, and p-adic interpolation of completed-cohomology eigensystems by classical cusp forms (§4); and, in §5, the Galois determinants of classical cusp forms on Sp_{2n}/U(n,n) (Arthur, Mok, the regular algebraic conjugate self-dual case), transfer to the boundary of the Borel–Serre compactification, whose Levi is Res GL_n, and a twisting argument that separates the n-dimensional factor. The atlas already plans almost all of it: the campaign roadmap TorsionCohomologyInfrastructure (TC.0–TC.4) takes this paper as its organizing source, with PerfectoidShimuraVarieties S0–S3, HodgeTateAndCanonicalSubgroups T0–T4, PerfectoidSpaces P4/P7/P8 (whose packets cite the paper node by node), PerfectoidQuotients Q4, AdicSpacesPartII R2/R3, CompletedCohomologyPartII CC.7/CC.8 (decomposition nodes on Theorem 4.2.1 and Corollaries 4.2.2–4.2.3), ArithmeticLocallySymmetricSpaces ALS.0–ALS.4, IntegralHeckeAndGaloisDeterminants IHG.0–IHG.5, AutomorphicGaloisRepresentationsPartII AG2.2–AG2.4, EndoscopicTransferAndUnitaryTraceComparison ET.7a and ModularityAndLanglandsExtensions ML.4. Three inputs are missing and are routed as sources of existing layers: Illusie's deformation theory of flat commutative group schemes (Theorem 3.2.1, to FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.6); the Siegel Hasse invariant, its ordinarity criterion and boundary behaviour, and the lifting lemma for canonical subgroups (to HodgeTateAndCanonicalSubgroups T3); and the holomorphic discrete series of Sp_{2n}(ℝ) and U(n,n) with the cusp-form dictionary (to AutomorphicFormsOnReductiveGroups AF.4/AF.5). Nothing in the Mathlib or Tau Ceti baselines covers any item. Eleven source issues are recorded, five of them already found by atlas packets.",
+ "items": [
+  {
+   "kind": "theorem",
+   "name": "Conjecture 1.0.1: the global Langlands correspondence for GL_n in its L-algebraic form",
+   "statement": "Let F be a number field, p a rational prime, and fix an isomorphism ℂ ≅ ℚ̄_p. Then for any n ≥ 1 there is a unique bijection between (i) the set of L-algebraic cuspidal automorphic representations of GL_n(𝔸_F), and (ii) the set of isomorphism classes of irreducible continuous representations Gal(F̄/F) → GL_n(ℚ̄_p) which are almost everywhere unramified and de Rham at the places dividing p, such that the bijection matches Satake parameters with eigenvalues of Frobenius elements.",
+   "locator": "§1, Conjecture 1.0.1, pp. 946–947",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.5",
+    "ModularityAndLanglandsExtensions:ML.0"
+   ],
+   "note": "A conjecture, not proved in the paper; it motivates Conjecture 1.0.2 and Theorems 1.0.3–1.0.4. ML.0 registers endpoints with an explicit conjectural status and ML.5 formalizes the statements of the general global correspondence; the notion of L-algebraic (Buzzard–Gee) is AutomorphicFormsOnReductiveGroups AF.4.",
+   "id": "PAPER-SCHOLZE-15/1"
+  },
+  {
+   "kind": "construction",
+   "name": "Completed cohomology and its torsion-level and compactly supported versions",
+   "statement": "For a Shimura variety (S_K)_K of Hodge type and a tame level K^p ⊂ G(𝔸_f^p), the compactly supported completed cohomology is H̃^i_{c,K^p} = lim_m colim_{K_p} H^i_c(S_{K_pK^p}, ℤ/p^mℤ). For a reductive group G with locally symmetric spaces X_K, H̃^i_{K^p}(ℤ/p^nℤ) = colim_{K_p} H^i(X_{K_pK^p}, ℤ/p^nℤ) and H̃^i_{K^p}(ℤ_p) = lim_n H̃^i_{K^p}(ℤ/p^nℤ) (Calegari–Emerton); in §4.2, for (G, D) of Hodge type with a fixed embedding into (Sp_{2g}, D_{Sp_{2g}}) and K^p inside the level-N subgroup of G′(𝔸_f^p) for some N ≥ 3 prime to p, H̃^i_{c,K^p}(ℤ/p^nℤ) = colim_{K_p} H^i_c(X_{K_pK^p}, ℤ/p^nℤ). These carry actions of G(ℚ_p) and of the Hecke operators away from p.",
+   "locator": "§1, p. 949; §4 introduction, p. 1019; §4.2, p. 1020",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "CompletedCohomologyPartII:CC.1",
+    "CompletedCohomologyPartII:CC.2",
+    "CompletedCohomologyPartII:CC.8"
+   ],
+   "note": "CC.1–CC.2 build the torsion colimit and the completed inverse limit; the CC.8 decomposition node scholze-4-2-convention-and-the-perfectoid-comparison records exactly the §4.2 convention (compact support, torsion coefficients, tame level in the level-N subgroup).",
+   "id": "PAPER-SCHOLZE-15/2"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 1.0.3 with Conjecture 1.0.2: Galois representations for mod p Hecke eigensystems of GL_n over totally real and CM fields",
+   "statement": "Let F be a number field and X_K, K ⊂ GL_n(𝔸_{F,f}), the locally symmetric spaces for GL_n/F. Conjecture 1.0.2: for any system of Hecke eigenvalues appearing in H^i(X_K, 𝔽_p) there is a continuous semisimple representation Gal(F̄/F) → GL_n(𝔽̄_p) such that the eigenvalues of Frobenius and the Hecke eigenvalues match up. Theorem 1.0.3: Conjecture 1.0.2 holds if F is CM and contains an imaginary-quadratic field. Assuming the work of Arthur [Arthur's endoscopic classification], it holds if F is totally real or CM.",
+   "locator": "§1, Conjecture 1.0.2 and Theorem 1.0.3, pp. 947–948",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3",
+    "TorsionCohomologyInfrastructure:TC.4",
+    "IntegralHeckeAndGaloisDeterminants:IHG.5",
+    "IntegralHeckeAndGaloisDeterminants:IHG.1",
+    "ModularityAndLanglandsExtensions:ML.4",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+   ],
+   "note": "The precise forms are Corollary 5.4.3 (with coefficients ℳ_{ξ,K}) and Remark 5.4.6 (the unconditional range). As in the accepted extractions PAPER-ALLEN-ETAL-23/69 and /72, PAPER-CARAIANI-NEWTON-23/thm-2-1-24 and PAPER-CARAIANI-SCHOLZE-24/2, the torsion determinant is planned by TC.2–TC.4 with IHG.5's nilpotent descent and IHG.1's reconstruction over a field. The totally real (symplectic) branch keeps Arthur's classification as a hypothesis, registered by ML.4; the CM branch uses the unitary trace comparison of ET.7a (Shin's results).",
+   "id": "PAPER-SCHOLZE-15/3"
+  },
+  {
+   "kind": "construction",
+   "name": "Lemma 2.1.1, first part: the formal model glued from an affinoid cover with compatible sections",
+   "statement": "Let K be a complete algebraically closed nonarchimedean field with ring of integers 𝒪_K and a nonzero topologically nilpotent ϖ ∈ 𝒪_K. Let 𝒳 be a reduced proper rigid-analytic variety over K, considered as an adic space, ℒ a line bundle on 𝒳, and 𝒳 = ⋃_{i∈I} 𝒰_i a cover by finitely many affinoid opens 𝒰_i = Spa(R_i, R_i^+), R_i^+ = R_i° the power-bounded elements; for J ⊂ I let 𝒰_J = ⋂_{i∈J} 𝒰_i = Spa(R_J, R_J^+). Assume sections s_j^{(i)} ∈ H^0(𝒰_i, ℒ), j ∈ I, such that (i) for all i, s_i^{(i)} is invertible and s_j^{(i)}/s_i^{(i)} ∈ H^0(𝒰_i, 𝒪_𝒳^+); (ii) for all i, j, 𝒰_{ij} ⊂ 𝒰_i is defined by |s_j^{(i)}/s_i^{(i)}| = 1; (iii) for all i_1, i_2, j, |s_j^{(i_1)}/s_{i_1}^{(i_1)} − s_j^{(i_2)}/s_{i_1}^{(i_1)}| ≤ |ϖ| on 𝒰_{i_1i_2}. Then for J ⊂ J′ the map Spf R_{J′}^+ → Spf R_J^+ is an open embedding of formal schemes, formally of finite type; gluing them defines a formal scheme 𝔛 over 𝒪_K with an open cover by 𝔘_i = Spf R_i^+ and 𝔘_J = ⋂_{i∈J} 𝔘_i = Spf R_J^+, whose generic fibre is 𝒳.",
+   "locator": "§2.1, Lemma 2.1.1, pp. 953–954",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0",
+    "AdicSpacesPartII:R2"
+   ],
+   "note": "TorsionCohomologyInfrastructure's source contract assigns §2.1 ('gluing compatible formal models from admissible affinoid covers and model comparison') to AdicSpacesPartII; R2 constructs admissible formal schemes, their generic fibres and models of affinoids, and TC.0 compares the integral structure sheaves of formal models with power-bounded affinoid sections on the specified covers. Proof: Bosch–Lütkebohmert, Formal and rigid geometry I, Lemma 1.2(c) and Proposition 1.3.",
+   "id": "PAPER-SCHOLZE-15/4"
+  },
+  {
+   "kind": "construction",
+   "name": "Lemma 2.1.1, second part: the integral line bundle, its reductions of sections, projectivity and ampleness",
+   "statement": "Let K be a complete algebraically closed nonarchimedean field with ring of integers 𝒪_K and a nonzero topologically nilpotent ϖ ∈ 𝒪_K. In the situation of Lemma 2.1.1 there is a unique invertible sheaf 𝔏 on 𝔛 with generic fibre ℒ such that s_j^{(i)} ∈ H^0(𝔘_i, 𝔏) ⊂ H^0(𝒰_i, ℒ) = H^0(𝔘_i, 𝔏)[ϖ^{-1}], with s_i^{(i)} an invertible section. There are unique sections s̄_j ∈ H^0(𝔛, 𝔏/ϖ) with s̄_j = s_j^{(i)} mod ϖ in H^0(𝔘_i, 𝔏/ϖ) for all i ∈ I. Furthermore 𝔛 is projective and 𝔏 is ample.",
+   "locator": "§2.1, Lemma 2.1.1, p. 954",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0",
+    "AdicSpacesPartII:R2"
+   ],
+   "note": "Used in §4.3 (proof of Theorem 4.3.1) to build the formal model 𝔛*_{K_pK^p} with the ample integral bundle ω^int.",
+   "id": "PAPER-SCHOLZE-15/5"
+  },
+  {
+   "kind": "construction",
+   "name": "Lemma 2.1.2: the integral model of a coherent ideal sheaf",
+   "statement": "Let K be a complete algebraically closed nonarchimedean field with ring of integers 𝒪_K and a nonzero topologically nilpotent ϖ ∈ 𝒪_K. In the situation of Lemma 2.1.1, let ℐ ⊂ 𝒪_𝒳 be a coherent ideal sheaf. Then the association 𝔘_i ↦ H^0(𝒰_i, ℐ ∩ 𝒪_𝒳^+) extends uniquely to a coherent 𝒪_𝔛-module 𝔍 with generic fibre ℐ.",
+   "locator": "§2.1, Lemma 2.1.2, p. 954",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0",
+    "AdicSpacesPartII:R2",
+    "AdicSpacesPartII:R3"
+   ],
+   "note": "TC.0 establishes the ideal-of-boundary sheaves and their integral models; R3 supplies coherent ideals on the generic fibre.",
+   "id": "PAPER-SCHOLZE-15/6"
+  },
+  {
+   "kind": "definition",
+   "name": "Definition 2.2.1: Zariski closed subsets of an affinoid perfectoid space",
+   "statement": "Let K be a perfectoid field with tilt K^♭, 0 ≠ ϖ^♭ ∈ K^♭ with |ϖ^♭| < 1, ϖ = (ϖ^♭)^♯, and 𝒳 = Spa(R, R^+) an affinoid perfectoid space over K. A subset Z ⊂ |𝒳| is Zariski closed if there is an ideal I ⊂ R such that Z = {x ∈ 𝒳 : |f(x)| = 0 for all f ∈ I}.",
+   "locator": "§2.2, Definition 2.2.1, p. 955",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P4",
+    "PerfectoidSpaces:P8"
+   ],
+   "note": "PerfectoidSpaces P4 packet node zariski-closed-immersion (from this definition) and P8 node zariski-closed-embedding.",
+   "id": "PAPER-SCHOLZE-15/7"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 2.2.2: the universal perfectoid space over a Zariski closed subset",
+   "statement": "Let K be a perfectoid field with tilt K^♭, 0 ≠ ϖ^♭ ∈ K^♭ with |ϖ^♭| < 1, ϖ = (ϖ^♭)^♯, and 𝒳 = Spa(R, R^+) an affinoid perfectoid space over K. Assume Z ⊂ 𝒳 is Zariski closed. There is a universal perfectoid space 𝒵 over K with a map 𝒵 → 𝒳 for which |𝒵| → |𝒳| factors over Z. The space 𝒵 = Spa(S, S^+) is affinoid perfectoid, the map R → S has dense image, and |𝒵| → Z is a homeomorphism.",
+   "locator": "§2.2, Lemma 2.2.2, p. 955",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P4",
+    "PerfectoidSpaces:P8"
+   ],
+   "note": "P4 node universal-perfectoid-zariski-closed; P8 node limit-of-zariski-closed-embeddings. By Remark 2.2.4 as corrected (item below) R → S is in fact surjective. 𝒵 = 𝒳 ×_{Z} is identified with Z, and 𝒵 → 𝒳 is called a (Zariski) closed embedding.",
+   "id": "PAPER-SCHOLZE-15/8"
+  },
+  {
+   "kind": "theorem",
+   "name": "Remark 2.2.3: the universal property of the Zariski closed perfectoid subspace for bounded targets",
+   "statement": "Let K be a perfectoid field with tilt K^♭, 0 ≠ ϖ^♭ ∈ K^♭ with |ϖ^♭| < 1, ϖ = (ϖ^♭)^♯, and 𝒳 = Spa(R, R^+) an affinoid perfectoid space over K. In Lemma 2.2.2, for any affinoid K-algebra (T, T^+) with T^+ ⊂ T bounded and any map (R, R^+) → (T, T^+) for which Spa(T, T^+) → Spa(R, R^+) factors over Z, there is a unique factorization (R, R^+) → (S, S^+) → (T, T^+).",
+   "locator": "§2.2, Remark 2.2.3, p. 956",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P4"
+   ],
+   "note": "P4 node universal-perfectoid-zariski-closed cites this remark.",
+   "id": "PAPER-SCHOLZE-15/9"
+  },
+  {
+   "kind": "theorem",
+   "name": "Remark 2.2.4 as corrected: R → S is surjective for a Zariski closed subset",
+   "statement": "Let K be a perfectoid field with tilt K^♭, 0 ≠ ϖ^♭ ∈ K^♭ with |ϖ^♭| < 1, ϖ = (ϖ^♭)^♯, and 𝒳 = Spa(R, R^+) an affinoid perfectoid space over K. For Z ⊂ 𝒳 Zariski closed and 𝒵 = Spa(S, S^+) as in Lemma 2.2.2, the map R → S is surjective, and 𝒵 → 𝒳 is strongly Zariski closed in the corrected sense of Definition 2.2.6. The printed remark asserts the opposite (see sourceIssues E1).",
+   "locator": "§2.2, Remark 2.2.4, p. 956",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidQuotients:Q4"
+   ],
+   "note": "Corrected statement: Bhatt–Scholze, Prisms and prismatic cohomology, Theorem 7.4 and Remark 7.5; Scholze, Étale cohomology of diamonds, Theorem 5.8. PerfectoidQuotients Q4 proves exactly this. Nothing later in the paper uses the printed caution.",
+   "id": "PAPER-SCHOLZE-15/10"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 2.2.5: closed embeddings in characteristic p are strongly Zariski closed",
+   "statement": "Let K be a perfectoid field with tilt K^♭, 0 ≠ ϖ^♭ ∈ K^♭ with |ϖ^♭| < 1, ϖ = (ϖ^♭)^♯, and 𝒳 = Spa(R, R^+) an affinoid perfectoid space over K. Assume K has characteristic p and 𝒵 = Spa(S, S^+) → 𝒳 = Spa(R, R^+) is a (Zariski) closed embedding. Then R^+ → S^+ is almost surjective; in particular R → S is surjective.",
+   "locator": "§2.2, Lemma 2.2.5, pp. 956–957",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P4",
+    "PerfectoidQuotients:Q4"
+   ],
+   "note": "The characteristic-p case of Q4's theorem; the proof constructs the perfectoid quotient R°a/(ϖ, f, f^{1/p}, …) directly.",
+   "id": "PAPER-SCHOLZE-15/11"
+  },
+  {
+   "kind": "definition",
+   "name": "Definition 2.2.6 as corrected: strongly Zariski closed maps",
+   "statement": "Let K be a perfectoid field with tilt K^♭, 0 ≠ ϖ^♭ ∈ K^♭ with |ϖ^♭| < 1, ϖ = (ϖ^♭)^♯, and 𝒳 = Spa(R, R^+) an affinoid perfectoid space over K. A map 𝒵 = Spa(S, S^+) → 𝒳 = Spa(R, R^+) of affinoid perfectoid spaces over K is strongly Zariski closed if R^+ → S^+ is almost surjective and S^+ is the integral closure in S of the image of R^+. Such a map is Zariski closed, defined by the ideal I = ker(R → S). (The printed definition omits the plus-ring condition; see sourceIssues E2.)",
+   "locator": "§2.2, Definition 2.2.6 and the sentence after it, p. 957",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P4"
+   ],
+   "note": "P4 nodes strongly-zariski-closed-criterion and strongly-zariski-closed-is-zariski-closed; the corrected form is Scholze, Étale cohomology of diamonds, Definition 5.7(ii).",
+   "id": "PAPER-SCHOLZE-15/12"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 2.2.7: strong Zariski closedness is compatible with tilting",
+   "statement": "Let K be a perfectoid field with tilt K^♭, 0 ≠ ϖ^♭ ∈ K^♭ with |ϖ^♭| < 1, ϖ = (ϖ^♭)^♯, and 𝒳 = Spa(R, R^+) an affinoid perfectoid space over K. A map 𝒵 = Spa(S, S^+) → 𝒳 = Spa(R, R^+) is strongly Zariski closed if and only if the map of tilts 𝒵^♭ → 𝒳^♭ is strongly Zariski closed.",
+   "locator": "§2.2, Lemma 2.2.7, p. 957",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P4"
+   ],
+   "note": "P4 node zariski-closed-tilting.",
+   "id": "PAPER-SCHOLZE-15/13"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 2.2.8 (Kedlaya–Liu): surjections of perfectoid algebras are almost surjective on power-bounded elements",
+   "statement": "Let K be a perfectoid field with tilt K^♭, 0 ≠ ϖ^♭ ∈ K^♭ with |ϖ^♭| < 1, ϖ = (ϖ^♭)^♯, and 𝒳 = Spa(R, R^+) an affinoid perfectoid space over K. Let R → S be a surjective map of perfectoid K-algebras. Then R° → S° is almost surjective.",
+   "locator": "§2.2, Lemma 2.2.8, p. 957 (citing Kedlaya–Liu, Relative p-adic Hodge theory: Foundations, Proposition 3.6.9(c))",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P4"
+   ],
+   "note": "P4 node surjective-perfectoid-map-almost-surjective-on-plus-rings.",
+   "id": "PAPER-SCHOLZE-15/14"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 2.2.9(i): Zariski closed embeddings are stable under base change",
+   "statement": "Let K be a perfectoid field with tilt K^♭, 0 ≠ ϖ^♭ ∈ K^♭ with |ϖ^♭| < 1, ϖ = (ϖ^♭)^♯, and 𝒳 = Spa(R, R^+) an affinoid perfectoid space over K. Let 𝒵′ = Spa(S′, S′^+) → 𝒳′ = Spa(R′, R′^+) be the pullback of 𝒵 = Spa(S, S^+) → 𝒳 = Spa(R, R^+) along 𝒳′ → 𝒳, all affinoid perfectoid (fibre products exist by Perfectoid spaces, Proposition 6.18). If 𝒵 → 𝒳 is Zariski closed, defined by I ⊂ R, then 𝒵′ → 𝒳′ is Zariski closed, defined by IR′ ⊂ R′.",
+   "locator": "§2.2, Lemma 2.2.9(i), p. 957",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P4"
+   ],
+   "note": "P4 node zariski-closed-base-change.",
+   "id": "PAPER-SCHOLZE-15/15"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 2.2.9(ii): strongly Zariski closed embeddings are stable under base change, with almost surjective ideals",
+   "statement": "Let K be a perfectoid field with tilt K^♭, 0 ≠ ϖ^♭ ∈ K^♭ with |ϖ^♭| < 1, ϖ = (ϖ^♭)^♯, and 𝒳 = Spa(R, R^+) an affinoid perfectoid space over K. In the pullback situation of Lemma 2.2.9, if 𝒵 → 𝒳 is strongly Zariski closed then so is 𝒵′ → 𝒳′; moreover, with I^+ = ker(R^+ → S^+) and I′^+ = ker(R′^+ → S′^+), the map I^+/ϖ^n ⊗_{R^+/ϖ^n} R′^+/ϖ^n → I′^+/ϖ^n is almost surjective for all n ≥ 0.",
+   "locator": "§2.2, Lemma 2.2.9(ii), pp. 957–958",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P4"
+   ],
+   "note": "P4 node zariski-closed-base-change.",
+   "id": "PAPER-SCHOLZE-15/16"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 2.3.1: the stalks of 𝒪^+/t",
+   "statement": "For any adic space 𝒳 over a nonarchimedean field and 0 ≠ t in its maximal ideal, the stalk of 𝒪_𝒳^+/t at a point x with completed residue field k(x) and valuation subring k(x)^+ ⊂ k(x) is k(x)^+/t; hence the stalk of (𝒪_𝒳^+/t)^a is 𝒪_{k(x)}^a/t.",
+   "locator": "§2.3.1, Lemma 2.3.1, p. 958",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P4"
+   ],
+   "note": "P4 node stalk-of-plus-sheaf-modulo-pseudouniformizer.",
+   "id": "PAPER-SCHOLZE-15/17"
+  },
+  {
+   "kind": "theorem",
+   "name": "Proposition 2.3.2: the general perfectoid Hebbarkeitssatz",
+   "statement": "Let K be a perfectoid field of characteristic p with maximal ideal 𝔪_K, 0 ≠ t ∈ 𝔪_K, (R, R^+) a perfectoid affinoid K-algebra, 𝒳 = Spa(R, R^+), I ⊂ R an ideal with I^+ = I ∩ R^+, and 𝒵 = V(I) ⊂ 𝒳. There is a natural isomorphism of almost 𝒪_K-modules Hom_{R^+}(I^{+1/p^∞}, R^+/t)^a ≅ H^0(𝒳 ∖ 𝒵, 𝒪_𝒳^+/t)^a, where I^{+1/p^∞} is the ideal generated by all p-power roots of elements of I^+. For any x ∈ 𝒳 ∖ 𝒵 it commutes with evaluation H^0(𝒳 ∖ 𝒵, 𝒪^+/t)^a → 𝒪_{k(x)}^a/t and Hom_{R^+}(I^{+1/p^∞}, R^+/t)^a → Hom_{𝒪_{k(x)}}(I_{k(x)}^{+1/p^∞}, 𝒪_{k(x)}/t)^a = 𝒪_{k(x)}^a/t. (Remark 2.3.3: global sections of (𝒪^+/t)^a are (R^+/t)^a, I_{k(x)}^{+1/p^∞} is almost 𝒪_{k(x)} off 𝒵, and this requirement determines the map.)",
+   "locator": "§2.3.1, Proposition 2.3.2 and Remark 2.3.3, pp. 958–961",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0"
+   ],
+   "note": "TC.0 plans 'the exact extension theorem needed for bounded functions across the chosen boundary', with its almost ideal retained.",
+   "id": "PAPER-SCHOLZE-15/18"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 2.3.4: base change of the ideal of p-power roots",
+   "statement": "Let R be a perfectoid K-algebra (K perfectoid of characteristic p), I ⊂ R an ideal, R′ a perfectoid K-algebra with a map R → R′, and I′ = IR′. Then I^{+1/p^∞} ⊗_{R^+} R′^+ → I′^{+1/p^∞} is an almost isomorphism.",
+   "locator": "§2.3.1, Lemma 2.3.4, p. 961",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0"
+   ],
+   "note": "Used to show the Hebbarkeitssatz is local and passes to rational subsets.",
+   "id": "PAPER-SCHOLZE-15/19"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 2.3.5: the Hebbarkeitssatz on Hasse-type domains under resolution of singularities",
+   "statement": "Let A_0 be normal, integral and of finite type over 𝔽_p, 0 ≠ f ∈ A_0, K = 𝔽_p((t^{1/p^∞})), S = A_0^{1/p^∞} ⊗̂_{𝔽_p} K with S^+ = S° = A_0^{1/p^∞} ⊗̂_{𝔽_p} 𝒪_K, 𝒴 = Spa(S, S^+), 𝒳 = {y ∈ 𝒴 : |f(y)| ≥ |t|} with (R, R^+) = (𝒪_𝒴(𝒳), 𝒪_𝒴^+(𝒳)), 0 ≠ I_0 ⊂ A_0 an ideal, I = I_0R and 𝒵 = V(I) ⊂ 𝒳. Assume Spec A_0 admits a resolution of singularities, i.e. a proper birational map T → Spec A_0 with T smooth over 𝔽_p. Then H^0(𝒳, 𝒪_𝒳^+/t)^a → H^0(𝒳 ∖ 𝒵, 𝒪_𝒳^+/t)^a is an isomorphism of almost 𝒪_K-modules.",
+   "locator": "§2.3.2, Corollary 2.3.5, p. 962",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0"
+   ],
+   "note": "In the application Spec A_0 is an open of the Siegel minimal compactification mod p, f the Hasse invariant, I_0 the boundary ideal; the toroidal compactification (Faltings–Chai) supplies the resolution.",
+   "id": "PAPER-SCHOLZE-15/20"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 2.3.6: almost reflexivity of perfections of normal rings",
+   "statement": "Let A_0 be normal, integral and of finite type over 𝔽_p, such that Spec A_0 admits a resolution of singularities, and let 0 ≠ f, g ∈ A_0. Then the maps A_0^{1/p^∞} → Hom_{A_0^{1/p^∞}}(g^{1/p^∞}A_0^{1/p^∞}, A_0^{1/p^∞}) and A_0^{1/p^∞}/f → Hom_{A_0^{1/p^∞}}(g^{1/p^∞}A_0^{1/p^∞}, A_0^{1/p^∞}/f) are almost isomorphisms with respect to the ideal generated by all f^{1/p^m}, m ≥ 0. (Remark 2.3.7: the first map is an isomorphism and the second injective without resolution of singularities, which is only needed for almost surjectivity of the second.)",
+   "locator": "§2.3.2, Lemma 2.3.6 and Remark 2.3.7, p. 963",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0"
+   ],
+   "note": "TC.0: the extension theorem keeps its normality and codimension hypotheses.",
+   "id": "PAPER-SCHOLZE-15/21"
+  },
+  {
+   "kind": "definition",
+   "name": "Definition 2.3.8: good triples",
+   "statement": "Let K be a perfectoid field and 0 ≠ t ∈ K with |p| ≤ |t| < 1. A triple (𝒳, 𝒵, 𝒰) consisting of an affinoid perfectoid space 𝒳 over K, a closed subset 𝒵 ⊂ 𝒳 and a quasicompact open 𝒰 ⊂ 𝒳 ∖ 𝒵 is good if H^0(𝒳, 𝒪_𝒳^+/t)^a ≅ H^0(𝒳 ∖ 𝒵, 𝒪_𝒳^+/t)^a ↪ H^0(𝒰, 𝒪_𝒰^+/t)^a. The notion is independent of t and compatible with tilting, and for a good triple the displayed maps are an isomorphism and an injection for every t ∈ 𝒪_K, including t = 0 (bounded functions extend uniquely from 𝒳 ∖ 𝒵 to 𝒳).",
+   "locator": "§2.3.3, Definition 2.3.8 and the paragraph after it, p. 966",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/22"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 2.3.9: a base good triple",
+   "statement": "Setting: K perfectoid of characteristic p; R_0 a reduced Tate K-algebra topologically of finite type, 𝒳_0 = Spa(R_0, R_0°), R its completed perfection, 𝒳 = Spa(R, R°); I_0 ⊂ R_0, I = I_0R, 𝒵_0 = V(I_0), 𝒵 = V(I); 𝒰_0 ⊂ 𝒳_0 ∖ 𝒵_0 quasicompact open with preimage 𝒰. Let A_0 be normal, of finite type over 𝔽_p, admitting a resolution of singularities; let R_0 = (A_0 ⊗̂_{𝔽_p} K)⟨u⟩/(uf − t) for some f ∈ A_0 which is not a zero-divisor, and I_0 = JR_0 for an ideal J ⊂ A_0 with V(J) ⊂ Spec A_0 of codimension ≥ 2; let 𝒰_0 = {x ∈ 𝒳_0 : |g(x)| = 1 for some g ∈ J}. If K = 𝔽_p((t^{1/p^∞})), the triple (𝒳, 𝒵, 𝒰) is good.",
+   "locator": "§2.3.3, Lemma 2.3.9, p. 967",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/23"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 2.3.10: good triples lift along finite normal covers étale off the boundary",
+   "statement": "Setting: K perfectoid of characteristic p; R_0 a reduced Tate K-algebra topologically of finite type, 𝒳_0 = Spa(R_0, R_0°), R its completed perfection, 𝒳 = Spa(R, R°); I_0 ⊂ R_0, I = I_0R, 𝒵_0 = V(I_0), 𝒵 = V(I); 𝒰_0 ⊂ 𝒳_0 ∖ 𝒵_0 quasicompact open with preimage 𝒰. Assume (𝒳, 𝒵, 𝒰) is good, R_0 is normal and V(I_0) ⊂ Spec R_0 has codimension ≥ 2. Let R_0′ be a finite normal R_0-algebra, étale outside V(I_0), with no irreducible component of Spec R_0′ mapping into V(I_0); let I_0′ = I_0R_0′, 𝒰_0′ the preimage of 𝒰_0, and R′, I′, 𝒳′, 𝒵′, 𝒰′ the associated perfectoid objects. (i) There is a perfect trace pairing tr_{R_0′/R_0} : R_0′ ⊗_{R_0} R_0′ → R_0. (ii) It induces an almost perfect trace pairing R′° ⊗_{R°} R′° → R°. (iii) For every open 𝒱 ⊂ 𝒳 with preimage 𝒱′ ⊂ 𝒳′, the trace pairing induces H^0(𝒱′, 𝒪_{𝒳′}^+/t)^a ≅ Hom_{R°/t}(R′°/t, H^0(𝒱, 𝒪_𝒳^+/t))^a. (iv) The triple (𝒳′, 𝒵′, 𝒰′) is good. (v) If 𝒳′ → 𝒳 is surjective, then H^0(𝒳, 𝒪_𝒳^+/t) → H^0(𝒳′, 𝒪_{𝒳′}^+/t) ∩ H^0(𝒰, 𝒪_𝒳^+/t) is an almost isomorphism.",
+   "locator": "§2.3.3, Lemma 2.3.10, pp. 968–969",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0",
+    "AdicSpacesPartII:R3",
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "R3 constructs traces for finite locally free and finite étale maps; P3 (almost purity) gives the almost perfect pairing in (ii).",
+   "id": "PAPER-SCHOLZE-15/24"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 2.3.11 and Corollary 2.3.12: good triples pass to inverse limits and to algebraic extensions of the base field",
+   "statement": "Setting: K perfectoid of characteristic p; R_0 a reduced Tate K-algebra topologically of finite type, 𝒳_0 = Spa(R_0, R_0°), R its completed perfection, 𝒳 = Spa(R, R°); I_0 ⊂ R_0, I = I_0R, 𝒵_0 = V(I_0), 𝒵 = V(I); 𝒰_0 ⊂ 𝒳_0 ∖ 𝒵_0 quasicompact open with preimage 𝒰. Let R_0^{(i)}, i ∈ I, be a filtered inductive system as in Lemma 2.3.10, giving 𝒳^{(i)}, 𝒵^{(i)}, 𝒰^{(i)}, with all transition maps 𝒳^{(i)} → 𝒳^{(j)} surjective; let 𝒳̃ be the inverse limit of the 𝒳^{(i)} in perfectoid spaces over K, and 𝒵̃, 𝒰̃ the preimages of 𝒵, 𝒰. Then (𝒳̃, 𝒵̃, 𝒰̃) is good (Lemma 2.3.11). Consequently the conclusion of Lemma 2.3.9 holds whenever K is the completion of an algebraic extension of 𝔽_p((t^{1/p^∞})) (Corollary 2.3.12).",
+   "locator": "§2.3.3, Lemma 2.3.11 and Corollary 2.3.12, pp. 969–970",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0",
+    "PerfectoidSpaces:P5"
+   ],
+   "note": "P5 constructs the cofiltered limits of affinoid perfectoid spaces used here.",
+   "id": "PAPER-SCHOLZE-15/25"
+  },
+  {
+   "kind": "definition",
+   "name": "Definition 3.1.1: the level subgroups Γ_0(p^m), Γ_1(p^m), Γ(p^m) of GSp_{2g}(ℤ_p)",
+   "statement": "With g × g blocks: Γ_0(p^m) = {γ ∈ GSp_{2g}(ℤ_p) : γ ≡ (∗ ∗; 0 ∗) mod p^m, det γ ≡ 1 mod p^m}; Γ_1(p^m) = {γ ∈ GSp_{2g}(ℤ_p) : γ ≡ (1 ∗; 0 1) mod p^m}; Γ(p^m) = {γ ∈ GSp_{2g}(ℤ_p) : γ ≡ 1 mod p^m}. (The condition det γ ≡ 1 in Γ_0(p^m) is nonstandard.) X*_{Γ_0(p^m)} lives naturally over ℚ(ζ_{p^m}) through the similitude factor.",
+   "locator": "§3.1, Definition 3.1.1 and the remarks after it, p. 971",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S0"
+   ],
+   "note": "S0 constructs the p-level inverse systems and their cofinal congruence systems with the group actions.",
+   "id": "PAPER-SCHOLZE-15/26"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 3.2.1 (Illusie): obstruction theory for lifting morphisms of flat commutative group schemes",
+   "statement": "Let A be a commutative ring, G, H flat and finitely presented commutative group schemes over A, and u : H → G a group morphism. Let B_1, B_2 → A be square-zero thickenings with a morphism B_1 → B_2 over A, J_i ⊂ B_i the augmentation ideals, G̃_1 a lift of G to B_1 and G̃_2 the induced lift to B_2, and K a cone of the map ℓ̌_H → ℓ̌_G of co-Lie complexes. (i) For i = 1, 2 there is an obstruction class o_i ∈ Ext^1(H, K ⊗^𝕃 J_i) which vanishes exactly when there is a lifting (H̃_i, ũ_i) of (H, u) to a flat commutative group scheme H̃_i over B_i with a morphism ũ_i : H̃_i → G̃_i lifting u. (ii) o_2 is the image of o_1 under the map induced by J_1 → J_2.",
+   "locator": "§3.2.1, Theorem 3.2.1, p. 975 (citing Illusie, Complexe cotangent et déformations II, and Illusie's Oberwolfach report)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Missing: no atlas layer plans Illusie's deformation theory of flat commutative group schemes via Lie complexes. DerivedDeRhamCohomology DD.0 plans cotangent complexes of rings, and FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.6 the tangent and obstruction calculations for finite flat groups; routed as a source of R07.6. Remark 3.2.3 notes that the canonical-subgroup application can instead use the deformation theory of rings (Illusie I), at the cost of larger explicit constants.",
+   "id": "PAPER-SCHOLZE-15/27"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 3.2.2: lifting a subgroup modulo p to a finite locally free subgroup, with explicit error",
+   "statement": "Let R be a p-adically complete flat ℤ_p^cycl-algebra, G a finite locally free commutative group scheme over R, and C_1 ⊂ G ⊗_R R/p a finite locally free subgroup. Assume that for H = (G ⊗_R R/p)/C_1, multiplication by p^ε on the co-Lie complex ℓ̌_H is homotopic to 0, where 0 ≤ ε < 1/2. Then there is a finite locally free subgroup C ⊂ G over R with C ⊗_R R/p^{1−ε} = C_1 ⊗_{R/p} R/p^{1−ε}.",
+   "locator": "§3.2.1, Corollary 3.2.2 and Remark 3.2.3, p. 976",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Missing: T3 plans existence of canonical subgroups with quantitative bounds but no lifting lemma of this form; routed as a source of HodgeTateAndCanonicalSubgroups T3. Remark 3.2.3 gives the alternative through deformation of rings (lift H, then its multiplication and inverse, then G ⊗ R/p → H), with errors p^{1−2ε} and p^{1−3ε}.",
+   "id": "PAPER-SCHOLZE-15/28"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 3.2.4: sections agreeing to high order are equal when Ω^1 is killed by p^ε",
+   "statement": "Let R be a p-adically complete flat ℤ_p^cycl-algebra and X/R a scheme such that Ω^1_{X/R} is killed by p^ε for some ε ≥ 0. Let s, t ∈ X(R) be sections with s̄ = t̄ in X(R/p^δ) for some δ > ε. Then s = t.",
+   "locator": "§3.2.1, Lemma 3.2.4, p. 977",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "HodgeTateAndCanonicalSubgroups:T3"
+   ],
+   "note": "T3 plans the integral differential estimates behind uniqueness of canonical subgroups.",
+   "id": "PAPER-SCHOLZE-15/29"
+  },
+  {
+   "kind": "construction",
+   "name": "The Hasse invariant of an abelian scheme in characteristic p, Lemma 3.2.5, and its extension to the minimal compactification",
+   "statement": "Let S be a scheme of characteristic p and A → S an abelian scheme of dimension g, with A^{(p)} its Frobenius pullback. The Verschiebung V : A^{(p)} → A induces V* : ω_{A/S} → ω_{A^{(p)}/S} ≅ ω_{A/S}^{⊗p}, i.e. a section Ha(A/S) ∈ ω_{A/S}^{⊗(p−1)} (ω the determinant of the invariant differentials), the Hasse invariant. Lemma 3.2.5: Ha(A/S) is invertible if and only if A is ordinary, i.e. A[p](x̄) has p^g elements for every geometric point x̄ of S. On the Siegel moduli space, Ha ∈ H^0(X_{𝔽_p}, ω^{⊗(p−1)}) extends to Ha ∈ H^0(X*_{𝔽_p}, ω^{⊗(p−1)}): for g ≥ 2 by the classical Hartogs principle (the boundary of X* has codimension g), for g = 1 by direct inspection.",
+   "locator": "§3.2.1, the paragraph before Lemma 3.2.5 and Lemma 3.2.5, p. 977; §3.2.2, p. 983",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Missing for the Siegel moduli space: AdicSpacesPartII R2's hasse-domain node takes Ha as input 'supplied by the moduli roadmaps', and the atlas constructs it only for modular curves (AlgebraicModularFormsAndSerreWeights R15.3), Hilbert varieties (HilbertModularVarietiesAndShimuraCurves H2, ShimuraCompactifications C6) and the unitary Ekedahl–Oort strata of IgusaVarietiesAndTorsionConcentration IG.2. Routed as a source of HodgeTateAndCanonicalSubgroups T3, whose Siegel canonical subgroups need it.",
+   "id": "PAPER-SCHOLZE-15/30"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 3.2.6 (with Lemma 3.1.3): canonical subgroups on Hasse neighbourhoods and their integral points",
+   "statement": "Let R be a p-adically complete flat ℤ_p^cycl-algebra and A → Spec R an abelian scheme with reduction A_1 → Spec R/p. Assume Ha(A_1/Spec(R/p))^{(p^m−1)/(p−1)} divides p^ε for some ε < 1/2. Then there is a unique closed subgroup C_m ⊂ A[p^m], flat over R, with C_m = Ker F^m ⊂ A[p^m] modulo p^{1−ε}. For any p-adically complete flat ℤ_p^cycl-algebra R′ with a map R → R′, C_m(R′) = {s ∈ A[p^m](R′) : s ≡ 0 mod p^{(1−ε)/p^m}}. (Lemma 3.1.3 is the same existence and uniqueness statement for an abelian variety over such an R.)",
+   "locator": "§3.2.1, Corollary 3.2.6, pp. 977–978; §3.1, Lemma 3.1.3, p. 974",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "HodgeTateAndCanonicalSubgroups:T3"
+   ],
+   "note": "T3: existence, uniqueness and base change of canonical subgroups, and the reduction-to-iterated-Frobenius characterization.",
+   "id": "PAPER-SCHOLZE-15/31"
+  },
+  {
+   "kind": "definition",
+   "name": "Definition 3.2.7: weak and strong canonical subgroups of level m",
+   "statement": "Let R be a p-adically complete flat ℤ_p^cycl-algebra. An abelian scheme A → Spec R has a weak canonical subgroup of level m if Ha(A_1/Spec(R/p))^{(p^m−1)/(p−1)} divides p^ε for some ε < 1/2; then the weak canonical subgroup of level m is the unique closed subgroup C_m ⊂ A[p^m] with C_m = Ker F^m mod p^{1−ε}. If moreover Ha(A_1/Spec(R/p))^{p^m} divides p^ε, C_m is called a (strong) canonical subgroup.",
+   "locator": "§3.2.1, Definition 3.2.7, p. 978",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "HodgeTateAndCanonicalSubgroups:T3"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/32"
+  },
+  {
+   "kind": "theorem",
+   "name": "Proposition 3.2.8(i)–(ii): canonical subgroups of smaller level and functoriality",
+   "statement": "Let R be a p-adically complete flat ℤ_p^cycl-algebra and A, B → Spec R abelian schemes. (i) If A has a canonical subgroup C_m ⊂ A[p^m] of level m, then it has a canonical subgroup C_{m′} ⊂ A[p^{m′}] of every level m′ ≤ m, and C_{m′} ⊂ C_m. (ii) If f : A → B is a morphism of abelian schemes and A, B have canonical subgroups C_m ⊂ A[p^m], D_m ⊂ B[p^m] of level m, then f maps C_m into D_m.",
+   "locator": "§3.2.1, Proposition 3.2.8(i)–(ii), p. 979",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "HodgeTateAndCanonicalSubgroups:T3"
+   ],
+   "note": "T3: isogeny compatibility and base change.",
+   "id": "PAPER-SCHOLZE-15/33"
+  },
+  {
+   "kind": "theorem",
+   "name": "Proposition 3.2.8(iii): canonical subgroups of the quotient by a canonical subgroup",
+   "statement": "Let A → Spec R (R a p-adically complete flat ℤ_p^cycl-algebra) have a canonical subgroup C_{m_1} ⊂ A[p^{m_1}] of level m_1. Then B = A/C_{m_1} has a canonical subgroup D_{m_2} ⊂ B[p^{m_2}] of level m_2 if and only if A has a canonical subgroup C_m ⊂ A[p^m] of level m = m_1 + m_2; in that case there is a short exact sequence 0 → C_{m_1} → C_m → D_{m_2} → 0 compatible with 0 → C_{m_1} → A → B → 0.",
+   "locator": "§3.2.1, Proposition 3.2.8(iii), p. 979",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "HodgeTateAndCanonicalSubgroups:T3"
+   ],
+   "note": "T3: 'the effect of division by the canonical subgroup on the Hasse radius'.",
+   "id": "PAPER-SCHOLZE-15/34"
+  },
+  {
+   "kind": "theorem",
+   "name": "Proposition 3.2.8(iv): geometric generic points of a canonical subgroup",
+   "statement": "If A → Spec R has a canonical subgroup C_m ⊂ A[p^m] of level m and x̄ is a geometric point of Spec R[p^{-1}], then C_m(x̄) ≅ (ℤ/p^mℤ)^g, where g is the dimension of the abelian variety over x̄.",
+   "locator": "§3.2.1, Proposition 3.2.8(iv), p. 979",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "HodgeTateAndCanonicalSubgroups:T3"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/35"
+  },
+  {
+   "kind": "theorem",
+   "name": "Proposition 3.2.9 and Lemma 3.2.10: algebraic and formal Hartogs extension",
+   "statement": "Proposition 3.2.9: for R normal and noetherian and Z ⊂ Spec R everywhere of codimension ≥ 2, R = H^0(Spec R ∖ Z, 𝒪_{Spec R}). Lemma 3.2.10: let R be a topologically finitely generated flat p-adically complete ℤ_p-algebra with R̄ = R/p normal, f ∈ R with f̄ not a zero divisor in R̄, 0 ≤ ε ≤ 1, and S = (R ⊗̂_{ℤ_p} ℤ_p^cycl)⟨u⟩/(fu − p^ε). Then S is a flat p-adically complete ℤ_p^cycl-algebra and u is not a zero divisor; for a closed Y ⊂ Spec R̄ of codimension ≥ 2 with preimage Z ⊂ Spf S and complement U, H^0(U, 𝒪_{Spf S}) = H^0(Spf S, 𝒪_{Spf S}) = S. (Remark 3.2.11 compares this with Hartogs' theorem over ℂ.)",
+   "locator": "§3.2.2, Proposition 3.2.9, Lemma 3.2.10 and Remark 3.2.11, pp. 980–983",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0",
+    "AdicSpacesPartII:R2"
+   ],
+   "note": "TC.0 plans the extension theorem with its codimension and normality hypotheses; R2's node smooth-geometrically-irreducible-extension is the Bosch–Lütkebohmert form.",
+   "id": "PAPER-SCHOLZE-15/36"
+  },
+  {
+   "kind": "construction",
+   "name": "Definition 3.2.12 and Lemma 3.2.13 as corrected: the Hasse domains 𝔛*(ε) and their local equations",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. Let 0 ≤ ε < 1 with an element p^ε ∈ ℤ_p^cycl of valuation ε. 𝔛*(ε) → 𝔛* over Spf ℤ_p^cycl is the functor sending a p-adically complete flat ℤ_p^cycl-algebra S to pairs (f, u), f : Spf S → 𝔛* and u ∈ H^0(Spf S, f*ω^{⊗(1−p)}) with u·Ha(f̄) = p^ε in S/p, up to (f, u) ~ (f, u(1 + p^{1−ε}h)), h ∈ S. Lemma 3.2.13: 𝔛*(ε) is representable by a formal scheme flat over ℤ_p^cycl; over an affine Spf(R ⊗̂_{ℤ_p} ℤ_p^cycl) ⊂ 𝔛* coming from Spf R ⊂ 𝔛*_{ℤ_p}, with a lift H̃a ∈ ω^{⊗(p−1)} of Ha, 𝔛*(ε) ×_{𝔛*} Spf(R ⊗̂ ℤ_p^cycl) = Spf((R ⊗̂_{ℤ_p} ℤ_p^cycl)⟨u⟩/(uH̃a − p^ε)). Consequently 𝔛*(ε) → 𝔛* is an open formal subscheme of an admissible blow-up (the chart of the blow-up of (H̃a, p^ε) on which H̃a generates), not itself an admissible blow-up (sourceIssues E3). By pullback one has 𝔛(ε), 𝔄(ε), and on generic fibres 𝒳*(ε) = {|Ha| ≥ |p|^ε}.",
+   "locator": "§3.2.2, Definition 3.2.12, Lemma 3.2.13 and the paragraph after it, pp. 983–984",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AdicSpacesPartII:R2"
+   ],
+   "note": "R2 packet nodes section-domain-formal-model, section-valuation-domain and hasse-domain (the last cites this definition), given the Siegel Hasse invariant (routed item above). The flatness uses Lemma 3.2.10.",
+   "id": "PAPER-SCHOLZE-15/37"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 3.2.14: the Frobenius diagram modulo p on Hasse domains",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. Let 0 ≤ ε < 1. The relative Frobenius maps F of 𝔄(p^{-1}ε)/p, 𝔛(p^{-1}ε)/p and 𝔛*(p^{-1}ε)/p over ℤ_p^cycl/p, followed by the isomorphisms (𝔜(p^{-1}ε)/p)^{(p)} ≅ 𝔜(ε)/p, form a natural commutative diagram 𝔄(p^{-1}ε)/p → 𝔄(ε)/p over 𝔛(p^{-1}ε)/p → 𝔛(ε)/p over 𝔛*(p^{-1}ε)/p → 𝔛*(ε)/p.",
+   "locator": "§3.2.2, Lemma 3.2.14, pp. 984–985",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "HodgeTateAndCanonicalSubgroups:T3"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/38"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 3.2.15(i): canonical Frobenius lifts on Hasse domains",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. Let 0 ≤ ε < 1/2. There is a unique diagram of formal schemes F̃ : 𝔄(p^{-1}ε) → 𝔄(ε), 𝔛(p^{-1}ε) → 𝔛(ε), 𝔛*(p^{-1}ε) → 𝔛*(ε), compatible with the projections, which is identified with the diagram of Lemma 3.2.14 modulo p^{1−ε}. (F̃_𝔛 sends A to A/C with C the canonical subgroup of level 1.) These maps are finite locally free, F̃_𝔛 of degree p^{g(g+1)/2} (sourceIssues E4).",
+   "locator": "§3.2.2, Theorem 3.2.15(i) and its proof, pp. 985–986",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "HodgeTateAndCanonicalSubgroups:T3",
+    "HodgeTateAndCanonicalSubgroups:T4"
+   ],
+   "note": "S1: 'integral transition maps approximate Frobenius with the required estimates'.",
+   "id": "PAPER-SCHOLZE-15/39"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 3.2.15(ii): the anticanonical open immersions 𝒳*(p^{−m}ε) → 𝒳*_{Γ_0(p^m)}",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. Let 0 ≤ ε < 1/2. For any m ≥ 0, 𝔄(p^{−m}ε) → 𝔛(p^{−m}ε) admits a canonical subgroup C_m ⊂ 𝔄(p^{−m}ε)[p^m] of level m. The pair (𝒜(p^{−m}ε)/C_m, 𝒜(p^{−m}ε)[p^m]/C_m) defines a morphism 𝒳(p^{−m}ε) → 𝒳_{Γ_0(p^m)} on generic fibres, which extends uniquely to 𝒳*(p^{−m}ε) → 𝒳*_{Γ_0(p^m)}; these morphisms are open immersions. For m ≥ 1 the square with top 𝒳*(p^{−m−1}ε) → 𝒳*_{Γ_0(p^{m+1})}, left (F̃_{𝔛(p^{−m−1}ε)})^ad_η, right the forgetful map and bottom 𝒳*(p^{−m}ε) → 𝒳*_{Γ_0(p^m)} is commutative and cartesian.",
+   "locator": "§3.2.2, Theorem 3.2.15(ii), pp. 985–986",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "HodgeTateAndCanonicalSubgroups:T4"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/40"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 3.2.15(iii) as corrected, and Remark 3.2.16: the anticanonical locus at level Γ_0(p)",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. Let 0 ≤ ε < 1/2. There is a weak canonical subgroup C ⊂ 𝔄(ε)[p] of level 1 (printed: 'of level p'; sourceIssues E5); write also C ⊂ 𝒜(ε)[p] for its generic fibre, and let 𝒳_{Γ_0(p)}(ε) → 𝒳(ε) be the pullback of 𝒳_{Γ_0(p)} → 𝒳. Then 𝒳(p^{-1}ε) → 𝒳_{Γ_0(p)}(ε) and (F̃_{𝔛(p^{-1}ε)})^ad_η : 𝒳(p^{-1}ε) → 𝒳(ε) form a commutative triangle over 𝒳(ε), identifying 𝒳(p^{-1}ε) with the open and closed subset 𝒳_{Γ_0(p)}(ε)_a ⊂ 𝒳_{Γ_0(p)}(ε) of those D ⊂ 𝒜(ε)[p] with D ∩ C = {0} ('a' for anticanonical).",
+   "locator": "§3.2.2, Theorem 3.2.15(iii) and Remark 3.2.16, p. 986",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "HodgeTateAndCanonicalSubgroups:T4"
+   ],
+   "note": "T4 defines canonical and anticanonical loci by subgroup conditions.",
+   "id": "PAPER-SCHOLZE-15/41"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 3.2.17: affinoidness of the anticanonical minimal compactification at deep Γ_0-level",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. For 0 ≤ ε < 1 with p^ε ∈ ℤ_p^cycl, 𝔛*(ε) → 𝔛* is the Hasse domain of Definition 3.2.12, 𝔛(ε), 𝔄(ε) its pullbacks, and 𝒳*(ε) = {|Ha| ≥ |p|^ε} ⊂ 𝒳* on generic fibres; 𝒳_{Γ_0(p^m)}(ε)_a ≅ 𝒳(p^{−m}ε) and 𝒳*_{Γ_0(p^m)}(ε)_a ≅ 𝒳*(p^{−m}ε) are the anticanonical opens of Theorem 3.2.15, and for K_p ⊂ Γ_0(p) the space 𝒳*_{K_p}(ε)_a is the preimage of 𝒳*_{Γ_0(p)}(ε)_a. Fix 0 ≤ ε < 1/2. Then for m sufficiently large, 𝒳*_{Γ_0(p^m)}(ε)_a is affinoid.",
+   "locator": "§3.2.3, Lemma 3.2.17, p. 988",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/42"
+  },
+  {
+   "kind": "construction",
+   "name": "Definition 3.2.18: perfections of formal schemes and adic spaces in characteristic p",
+   "statement": "(i) For a flat t-adic formal scheme 𝔜 over 𝔽_p[[t^{1/(p−1)p^∞}]] with relative Frobenius Φ, the inverse limit 𝔜^perf = lim_Φ 𝔜 is representable by a perfect flat t-adic formal scheme, locally (Spf R)^perf = Spf(R^perf) with R^perf the t-adic completion of colim_Φ R. (ii) For an adic space 𝒴 over 𝔽_p((t^{1/(p−1)p^∞})) there is a unique perfectoid space 𝒴^perf with 𝒴^perf ~ lim_Φ 𝒴, locally Spa(R, R^+)^perf = Spa(R^perf, R^{perf+}) with R^{perf+} the t-adic completion of colim_Φ R^+ and R^perf = R^{perf+}[t^{−1}]. The two are compatible: (𝔜^perf)^ad_η = (𝔜^ad_η)^perf.",
+   "locator": "§3.2.3, Definition 3.2.18 and the sentence after it, p. 989",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P7"
+   ],
+   "note": "P7 packet node perfection-tilde-limit cites this definition.",
+   "id": "PAPER-SCHOLZE-15/43"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 3.2.19: the anticanonical tower at Γ_0(p^∞)-level is perfectoid and its tilt is a perfection",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. For 0 ≤ ε < 1 with p^ε ∈ ℤ_p^cycl, 𝔛*(ε) → 𝔛* is the Hasse domain of Definition 3.2.12, 𝔛(ε), 𝔄(ε) its pullbacks, and 𝒳*(ε) = {|Ha| ≥ |p|^ε} ⊂ 𝒳* on generic fibres; 𝒳_{Γ_0(p^m)}(ε)_a ≅ 𝒳(p^{−m}ε) and 𝒳*_{Γ_0(p^m)}(ε)_a ≅ 𝒳*(p^{−m}ε) are the anticanonical opens of Theorem 3.2.15, and for K_p ⊂ Γ_0(p) the space 𝒳*_{K_p}(ε)_a is the preimage of 𝒳*_{Γ_0(p)}(ε)_a. Let 0 ≤ ε < 1/2. There are unique perfectoid spaces 𝒳_{Γ_0(p^∞)}(ε)_a, 𝒳*_{Γ_0(p^∞)}(ε)_a and 𝒜_{Γ_0(p^∞)}(ε)_a over ℚ_p^cycl with 𝒳_{Γ_0(p^∞)}(ε)_a ~ lim_m 𝒳_{Γ_0(p^m)}(ε)_a, and similarly for the other two. The tilt 𝒳*_{Γ_0(p^∞)}(ε)_a^♭ identifies naturally with the open subset 𝒳′*^perf(ε) ⊂ 𝒳′*^perf where |Ha| ≥ |t|^ε, and 𝒜_{Γ_0(p^∞)}(ε)_a^♭ with 𝒜′^perf(ε) ⊂ 𝒜′^perf, where the primed spaces are the corresponding Siegel spaces over 𝔽_p((t^{1/(p−1)p^∞})), the tilt of ℚ_p^cycl.",
+   "locator": "§3.2.3, Corollary 3.2.19, pp. 989–990",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "PerfectoidSpaces:P7"
+   ],
+   "note": "P7 nodes frobenius-controlled-integral-tower, perfectoid-frobenius-criterion-for-towers and frobenius-tower-tilt are taken from the proof of this corollary.",
+   "id": "PAPER-SCHOLZE-15/44"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 3.2.20: the boundary of the anticanonical Γ_0(p^∞) tower is strongly Zariski closed",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. For 0 ≤ ε < 1 with p^ε ∈ ℤ_p^cycl, 𝔛*(ε) → 𝔛* is the Hasse domain of Definition 3.2.12, 𝔛(ε), 𝔄(ε) its pullbacks, and 𝒳*(ε) = {|Ha| ≥ |p|^ε} ⊂ 𝒳* on generic fibres; 𝒳_{Γ_0(p^m)}(ε)_a ≅ 𝒳(p^{−m}ε) and 𝒳*_{Γ_0(p^m)}(ε)_a ≅ 𝒳*(p^{−m}ε) are the anticanonical opens of Theorem 3.2.15, and for K_p ⊂ Γ_0(p) the space 𝒳*_{K_p}(ε)_a is the preimage of 𝒳*_{Γ_0(p)}(ε)_a. For 0 ≤ ε < 1/2 the space 𝒳*_{Γ_0(p^∞)}(ε)_a is affinoid perfectoid, and its boundary 𝒵_{Γ_0(p^∞)}(ε)_a ⊂ 𝒳*_{Γ_0(p^∞)}(ε)_a is strongly Zariski closed.",
+   "locator": "§3.2.3, Corollary 3.2.20, p. 990",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "PerfectoidSpaces:P4"
+   ],
+   "note": "S1: 'Prove the gluing and the closedness of the boundary'.",
+   "id": "PAPER-SCHOLZE-15/45"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 3.2.21: trace estimates for Frobenius-type finite free extensions",
+   "statement": "Let R be a p-adically complete flat ℤ_p-algebra, Y_1, …, Y_n ∈ R, and P_1, …, P_n ∈ R⟨X_1, …, X_n⟩ topologically nilpotent; let S = R⟨X_1, …, X_n⟩/(X_1^p − Y_1 − P_1, …, X_n^p − Y_n − P_n). (i) S is a finite free R-module with basis X_1^{i_1}⋯X_n^{i_n}, 0 ≤ i_1, …, i_n ≤ p − 1. (ii) If I_i ⊂ R is the ideal generated by the coefficients of P_i and I = (p, I_1, …, I_n), then tr_{S/R}(S) ⊂ I^n.",
+   "locator": "§3.2.3, Lemma 3.2.21, p. 991",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "AdicSpacesPartII:R3"
+   ],
+   "note": "R3 constructs traces of finite locally free algebras.",
+   "id": "PAPER-SCHOLZE-15/46"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 3.2.22: the trace of a Frobenius lift on Hasse domains is divisible by p^{n−(2n+1)ε}",
+   "statement": "Let R be a p-adically complete ℤ_p-algebra topologically of finite type, formally smooth of dimension n, and f ∈ R with f̄ ∈ R/p not a zero divisor. For 0 ≤ ε < 1 let R_ε = (R ⊗̂_{ℤ_p} ℤ_p^cycl)⟨u_ε⟩/(fu_ε − p^ε). Let φ : R_ε → R_{ε/p} be a map of ℤ_p^cycl-algebras which modulo p^{1−ε} is the map (R̄ ⊗_{𝔽_p} ℤ_p^cycl/p^{1−ε})[u_ε]/(fu_ε − p^ε) → (R̄ ⊗ ℤ_p^cycl/p^{1−ε})[u_{ε/p}]/(fu_{ε/p} − p^{ε/p}) given by Frobenius on R̄ and u_ε ↦ u_{ε/p}^p; assume ε < 1/2. (i) φ[1/p] : R_ε[1/p] → R_{ε/p}[1/p] is finite and flat. (ii) The trace tr : R_{ε/p}[1/p] → R_ε[1/p] maps R_{ε/p} into p^{n−(2n+1)ε}R_ε.",
+   "locator": "§3.2.3, Corollary 3.2.22, p. 993",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "AdicSpacesPartII:R3"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/47"
+  },
+  {
+   "kind": "construction",
+   "name": "Corollary 3.2.23: Tate's normalized traces on the anticanonical tower",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. Fix 0 ≤ ε < 1/2 and let 𝔛_{Γ_0(p^∞)}(ε)_a = lim_m 𝔛(p^{−m}ε) over ℤ_p^cycl (transition maps the Frobenius lifts F̃). For fixed m and m′ ≥ m the maps p^{−(m′−m)g(g+1)/2} tr : 𝒪_{𝔛(p^{−m′}ε)}[p^{-1}] → 𝒪_{𝔛(p^{−m}ε)}[p^{-1}] are compatible and give tr̄_m : colim_{m′} 𝒪_{𝔛(p^{−m′}ε)}[p^{-1}] → 𝒪_{𝔛(p^{−m}ε)}[p^{-1}]; the image of colim_{m′} 𝒪_{𝔛(p^{−m′}ε)} lies in p^{−C_m}𝒪_{𝔛(p^{−m}ε)} for constants C_m → 0, so tr̄_m extends by continuity to 𝒪_{𝔛_{Γ_0(p^∞)}(ε)_a}[p^{-1}] → 𝒪_{𝔛(p^{−m}ε)}[p^{-1}] (Tate's normalized trace), and x = lim_{m→∞} tr̄_m(x) for every x.",
+   "locator": "§3.2.3, Corollary 3.2.23, p. 994",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1"
+   ],
+   "note": "Used for the retractions of Lemma 3.2.24(ii); S1 extends the tower to the minimal compactification through the source's normalization construction.",
+   "id": "PAPER-SCHOLZE-15/48"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 3.2.24: Hartogs extension for finite covers of the anticanonical tower (g ≥ 2)",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. For 0 ≤ ε < 1 with p^ε ∈ ℤ_p^cycl, 𝔛*(ε) → 𝔛* is the Hasse domain of Definition 3.2.12, 𝔛(ε), 𝔄(ε) its pullbacks, and 𝒳*(ε) = {|Ha| ≥ |p|^ε} ⊂ 𝒳* on generic fibres; 𝒳_{Γ_0(p^m)}(ε)_a ≅ 𝒳(p^{−m}ε) and 𝒳*_{Γ_0(p^m)}(ε)_a ≅ 𝒳*(p^{−m}ε) are the anticanonical opens of Theorem 3.2.15, and for K_p ⊂ Γ_0(p) the space 𝒳*_{K_p}(ε)_a is the preimage of 𝒳*_{Γ_0(p)}(ε)_a. Assume g ≥ 2. Let 𝒴*_m → 𝒳*_{Γ_0(p^m)}(ε)_a be finite and étale away from the boundary, with 𝒴*_m normal and no irreducible component mapping into the boundary; 𝒴_m ⊂ 𝒴*_m the preimage of 𝒳_{Γ_0(p^m)}(ε)_a (so 𝒴_m → 𝒳_{Γ_0(p^m)}(ε)_a is finite étale); for m′ ≥ m, 𝒴*_{m′} the normalization of the pullback to 𝒳*_{Γ_0(p^{m′})}(ε)_a with 𝒴_{m′} ⊂ 𝒴*_{m′}; 𝒴_∞ the pullback of 𝒴_m to 𝒳_{Γ_0(p^∞)}(ε)_a. For m′ large, 𝒴*_{m′} = Spa(S_{m′}, S_{m′}^+) with S_{m′}^+ = S_{m′}° is affinoid (by Lemma 3.2.17). (i) For m′ large, S_{m′}^+ = H^0(𝒴_{m′}, 𝒪^+). (ii) colim_{m′} S_{m′}^+ → H^0(𝒴_∞, 𝒪^+) is injective with dense image, and there are canonical continuous retractions H^0(𝒴_∞, 𝒪) → S_{m′}. (iii) If S_∞ = H^0(𝒴_∞, 𝒪_{𝒴_∞}) is a perfectoid ℚ_p^cycl-algebra and 𝒴*_∞ = Spa(S_∞, S_∞^+) with S_∞^+ = S_∞°, then 𝒴*_∞ is affinoid perfectoid, 𝒴*_∞ ~ lim_{m′} 𝒴*_{m′}, and S_∞^+ is the p-adic completion of colim_{m′} S_{m′}^+.",
+   "locator": "§3.2.4, Lemma 3.2.24 (and the standing assumption g ≥ 2 before it), pp. 995–997",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "TorsionCohomologyInfrastructure:TC.0"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/49"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemmas 3.2.25–3.2.26: the anticanonical p^m-torsion at Γ_0(p^∞)-level and its tilt",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. For 0 ≤ ε < 1 with p^ε ∈ ℤ_p^cycl, 𝔛*(ε) → 𝔛* is the Hasse domain of Definition 3.2.12, 𝔛(ε), 𝔄(ε) its pullbacks, and 𝒳*(ε) = {|Ha| ≥ |p|^ε} ⊂ 𝒳* on generic fibres; 𝒳_{Γ_0(p^m)}(ε)_a ≅ 𝒳(p^{−m}ε) and 𝒳*_{Γ_0(p^m)}(ε)_a ≅ 𝒳*(p^{−m}ε) are the anticanonical opens of Theorem 3.2.15, and for K_p ⊂ Γ_0(p) the space 𝒳*_{K_p}(ε)_a is the preimage of 𝒳*_{Γ_0(p)}(ε)_a. Assume g ≥ 2. Over 𝒳_{Γ_0(p^m)}(ε)_a the abelian variety 𝒜_{Γ_0(p^m)}(ε)_a = 𝒜(p^{−m}ε) maps by an isogeny with kernel the canonical subgroup C_m to the tautological 𝒜^t_{Γ_0(p^m)}(ε)_a, and D_m = 𝒜_{Γ_0(p^m)}(ε)_a[p^m]/C_m ⊂ 𝒜^t_{Γ_0(p^m)}(ε)_a; let D_{mΓ_0(p^∞)} be its pullback to 𝒳_{Γ_0(p^∞)}(ε)_a (a perfectoid space, as D_m is finite étale). Lemma 3.2.25: 𝒜_{Γ_0(p^∞)}(ε)_a[p^m] → D_{mΓ_0(p^∞)} is an isomorphism of perfectoid spaces. Lemma 3.2.26: the tilt of D_{mΓ_0(p^∞)} identifies canonically with the perfection of D′_m = 𝒜′(ε)[p^m]/C′_m → 𝒳′(ε), C′_m the canonical subgroup on the ordinary locus in characteristic p.",
+   "locator": "§3.2.4, the paragraphs before Lemma 3.2.25, Lemmas 3.2.25–3.2.26, pp. 997–998",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "HodgeTateAndCanonicalSubgroups:T4",
+    "HodgeTateAndCanonicalSubgroups:T5"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/50"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 3.2.27 and Corollary 3.2.28: the characteristic-p base triples are good",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. With t ∈ 𝔽_p((t^{1/(p−1)p^∞})) the tilt parameter, the triple (𝒳′*(ε)^perf, 𝒵′*(ε)^perf, 𝒳′(ε)^perf) is good (Definition 2.3.8): H^0(𝒳′*(ε)^perf, 𝒪°/t)^a ≅ H^0(𝒳′*(ε)^perf ∖ 𝒵′*(ε)^perf, 𝒪°/t)^a ↪ H^0(𝒳′(ε)^perf, 𝒪°/t)^a. The same holds for (𝒳′*_{Γ_1(p^m)}(ε)^perf, 𝒵′*_{Γ_1(p^m)}(ε)^perf, 𝒳′_{Γ_1(p^m)}(ε)^perf).",
+   "locator": "§3.2.4, Lemma 3.2.27 and Corollary 3.2.28, pp. 998–999",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0",
+    "PerfectoidShimuraVarieties:S1"
+   ],
+   "note": "The proof applies Lemma 2.3.9 on affine charts of 𝔛′*, with the resolution of singularities of X* ⊗ 𝔽_p given by a toroidal compactification (Faltings–Chai), and Lemma 2.3.10.",
+   "id": "PAPER-SCHOLZE-15/51"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemmas 3.2.29–3.2.32: tilting the Γ_1(p^m)-cover of the anticanonical tower",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. For 0 ≤ ε < 1 with p^ε ∈ ℤ_p^cycl, 𝔛*(ε) → 𝔛* is the Hasse domain of Definition 3.2.12, 𝔛(ε), 𝔄(ε) its pullbacks, and 𝒳*(ε) = {|Ha| ≥ |p|^ε} ⊂ 𝒳* on generic fibres; 𝒳_{Γ_0(p^m)}(ε)_a ≅ 𝒳(p^{−m}ε) and 𝒳*_{Γ_0(p^m)}(ε)_a ≅ 𝒳*(p^{−m}ε) are the anticanonical opens of Theorem 3.2.15, and for K_p ⊂ Γ_0(p) the space 𝒳*_{K_p}(ε)_a is the preimage of 𝒳*_{Γ_0(p)}(ε)_a. Assume g ≥ 2, fix m ≥ 1, and apply Lemma 3.2.24 to 𝒴*_m = 𝒳*_{Γ_1(p^m)}(ε)_a → 𝒳*_{Γ_0(p^m)}(ε)_a. Lemma 3.2.29: the tilt of 𝒴_∞ identifies with 𝒳′_{Γ_1(p^m)}(ε)^perf. Lemma 3.2.30: the tilt of 𝒴*_∞ ∖ ∂ identifies with 𝒳′*_{Γ_1(p^m)}(ε)^perf ∖ ∂. Lemma 3.2.31: for a perfectoid field K, perfectoid spaces 𝒳, 𝒴_1, 𝒴_2 over K, finite étale 𝒴_1, 𝒴_2 → 𝒳 and f : 𝒴_1 → 𝒴_2 over 𝒳, and an open 𝒰 ⊂ 𝒳 with H^0(𝒳, 𝒪_𝒳) ↪ H^0(𝒰, 𝒪_𝒰), if f|_𝒰 is an isomorphism then f is an isomorphism. Lemma 3.2.32: S_∞ = H^0(𝒴_∞, 𝒪_{𝒴_∞}) is perfectoid, and the tilt of 𝒴*_∞ = Spa(S_∞, S_∞^+) identifies with 𝒳′*_{Γ_1(p^m)}(ε)^perf.",
+   "locator": "§3.2.4, Lemmas 3.2.29–3.2.32, pp. 999–1000",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "PerfectoidSpaces:P3",
+    "PerfectoidSpaces:P5"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/52"
+  },
+  {
+   "kind": "theorem",
+   "name": "Propositions 3.2.33–3.2.34: the anticanonical tower at Γ_1(p^m) ∩ Γ_0(p^∞) and Γ_1(p^∞) level",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. For 0 ≤ ε < 1 with p^ε ∈ ℤ_p^cycl, 𝔛*(ε) → 𝔛* is the Hasse domain of Definition 3.2.12, 𝔛(ε), 𝔄(ε) its pullbacks, and 𝒳*(ε) = {|Ha| ≥ |p|^ε} ⊂ 𝒳* on generic fibres; 𝒳_{Γ_0(p^m)}(ε)_a ≅ 𝒳(p^{−m}ε) and 𝒳*_{Γ_0(p^m)}(ε)_a ≅ 𝒳*(p^{−m}ε) are the anticanonical opens of Theorem 3.2.15, and for K_p ⊂ Γ_0(p) the space 𝒳*_{K_p}(ε)_a is the preimage of 𝒳*_{Γ_0(p)}(ε)_a. For any m ≥ 1 there is a unique perfectoid space 𝒳*_{Γ_1(p^m)∩Γ_0(p^∞)}(ε)_a over ℚ_p^cycl with 𝒳*_{Γ_1(p^m)∩Γ_0(p^∞)}(ε)_a ~ lim_{m′} 𝒳*_{Γ_1(p^m)∩Γ_0(p^{m′})}(ε)_a; it and all 𝒳*_{Γ_1(p^m)∩Γ_0(p^{m′})}(ε)_a for m′ large are affinoid, colim_{m′} H^0(𝒳*_{Γ_1(p^m)∩Γ_0(p^{m′})}(ε)_a, 𝒪) → H^0(𝒳*_{Γ_1(p^m)∩Γ_0(p^∞)}(ε)_a, 𝒪) has dense image, and with 𝒵 the boundary and 𝒳_{Γ_1(p^m)∩Γ_0(p^∞)}(ε)_a the preimage of 𝒳_{Γ_0(p)}(ε)_a the triple (𝒳*, 𝒵, 𝒳) at this level is good (Proposition 3.2.33). The same holds for 𝒳*_{Γ_1(p^∞)}(ε)_a ~ lim_m 𝒳*_{Γ_1(p^m)}(ε)_a (Proposition 3.2.34).",
+   "locator": "§3.2.4, Propositions 3.2.33–3.2.34, pp. 1000–1001",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "TorsionCohomologyInfrastructure:TC.0"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/53"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 3.2.35 and Theorem 3.2.36: the anticanonical tower at full Γ(p^∞)-level is perfectoid",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. For 0 ≤ ε < 1 with p^ε ∈ ℤ_p^cycl, 𝔛*(ε) → 𝔛* is the Hasse domain of Definition 3.2.12, 𝔛(ε), 𝔄(ε) its pullbacks, and 𝒳*(ε) = {|Ha| ≥ |p|^ε} ⊂ 𝒳* on generic fibres; 𝒳_{Γ_0(p^m)}(ε)_a ≅ 𝒳(p^{−m}ε) and 𝒳*_{Γ_0(p^m)}(ε)_a ≅ 𝒳*(p^{−m}ε) are the anticanonical opens of Theorem 3.2.15, and for K_p ⊂ Γ_0(p) the space 𝒳*_{K_p}(ε)_a is the preimage of 𝒳*_{Γ_0(p)}(ε)_a. Lemma 3.2.35: for any m ≥ 1, 𝒳*_{Γ(p^m)}(ε)_a → 𝒳*_{Γ_1(p^m)}(ε)_a is finite étale. Theorem 3.2.36: there is a unique perfectoid space 𝒳*_{Γ(p^∞)}(ε)_a over ℚ_p^cycl with 𝒳*_{Γ(p^∞)}(ε)_a ~ lim_m 𝒳*_{Γ(p^m)}(ε)_a; it and all 𝒳*_{Γ(p^m)}(ε)_a for m large are affinoid, colim_m H^0(𝒳*_{Γ(p^m)}(ε)_a, 𝒪) → H^0(𝒳*_{Γ(p^∞)}(ε)_a, 𝒪) has dense image, and with 𝒵_{Γ(p^∞)}(ε)_a the boundary and 𝒳_{Γ(p^∞)}(ε)_a the preimage of 𝒳_{Γ_0(p)}(ε)_a the triple (𝒳*_{Γ(p^∞)}(ε)_a, 𝒵_{Γ(p^∞)}(ε)_a, 𝒳_{Γ(p^∞)}(ε)_a) is good.",
+   "locator": "§3.2.4, Lemma 3.2.35 and Theorem 3.2.36, pp. 1001–1002",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "PerfectoidSpaces:P3",
+    "TorsionCohomologyInfrastructure:TC.0"
+   ],
+   "note": "The case g = 1 is handled directly (§3.2.4).",
+   "id": "PAPER-SCHOLZE-15/54"
+  },
+  {
+   "kind": "construction",
+   "name": "The flag variety Fl, its line bundle ω_Fl and the affinoids Fl_J",
+   "statement": "Fl over ℚ is the flag variety of totally isotropic g-dimensional subspaces W ⊂ V of the symplectic space (V, ψ) of dimension 2g, with tautological ample line bundle ω_Fl = (∧^g W)*; also the associated adic space over Spa(ℚ_p, ℤ_p). Via the Plücker embedding Fl ↪ ℙ^{C(2g,g)−1}, for J ⊂ {1, …, 2g} of cardinality g with homogeneous coordinate s_J, Fl_J ⊂ Fl is the open affinoid where |s_{J′}| ≤ |s_J| for all J′. GSp_{2g}(ℤ_p) permutes the Fl_J transitively; Fl_{g+1,…,2g}(ℚ_p) ⊂ Fl(ℚ_p) = Fl(ℤ_p) parametrizes the totally isotropic direct summands M ⊂ ℤ_p^{2g} with M ⊕ (ℤ_p^g ⊕ 0^g) ≅ ℤ_p^{2g}.",
+   "locator": "§3.1, p. 971; §3.3, the paragraph before Lemma 3.3.8, p. 1008",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "HodgeTateAndCanonicalSubgroups:T2",
+    "HodgeTateAndCanonicalSubgroups:T4"
+   ],
+   "note": "T4 defines the balls about integral points of the flag variety used in the period-map estimates.",
+   "id": "PAPER-SCHOLZE-15/55"
+  },
+  {
+   "kind": "theorem",
+   "name": "Proposition 3.3.1: the Hodge–Tate filtration of an abelian variety and of the p-divisible group of its Néron model",
+   "statement": "Let C be an algebraically closed complete extension of ℚ_p, A/C an abelian variety with connected Néron model G/𝒪_C, and Ĝ its p-adic completion. There is an extension 0 → T̂ → Ĝ → B̂ → 0 with T a split torus and B an abelian variety over 𝒪_C; Ĝ[p^∞] is a p-divisible group over 𝒪_C with Hodge–Tate filtration 0 → Lie Ĝ ⊗_{𝒪_C} C(1) → T_pĜ ⊗_{ℤ_p} C → (Lie Ĝ[p^∞]*)* ⊗_{𝒪_C} C → 0, A has its Hodge–Tate filtration 0 → Lie A(1) → T_pA ⊗_{ℤ_p} C → (Lie A*)* → 0, and the square identifying Lie Ĝ ⊗ C(1) = Lie A(1) with the inclusion T_pĜ ⊗ C ↪ T_pA ⊗ C commutes.",
+   "locator": "§3.3, Proposition 3.3.1, p. 1003",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "HodgeTateAndCanonicalSubgroups:T0",
+    "HodgeTateAndCanonicalSubgroups:T2"
+   ],
+   "note": "T0 extends the Hodge–Tate map to semi-abelian degeneration charts with their toric and abelian pieces.",
+   "id": "PAPER-SCHOLZE-15/56"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 3.3.2: the Hasse invariant at a point of the minimal compactification",
+   "statement": "In the situation of Proposition 3.3.1, assume A comes from x ∈ X(C) = X_{g,K^p}(C), extended by properness to x ∈ X*_{g,K^p}(𝒪_C). (i) x*ω_{X*} is canonically isomorphic to ω_G. (ii) For the reduction x̄ ∈ X*(𝒪_C/p), Ha(x̄) = Ha(B ⊗_{𝒪_C} 𝒪_C/p) ⊗ (ω_T^can)^{p−1} in ω_G^{⊗(p−1)}/p ≅ ω_B^{⊗(p−1)}/p ⊗ ω_T^{⊗(p−1)}/p, where ±ω_T^can = dlog Z_1 ∧ ⋯ ∧ dlog Z_m on T ≅ Spec 𝒪_C[Z_1^{±1}, …, Z_m^{±1}] (the sign disappears in the (p−1)-th power for p ≠ 2, and modulo p for p = 2).",
+   "locator": "§3.3, Lemma 3.3.2, pp. 1003–1004",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Missing with the Siegel Hasse invariant (routed as a source of T3): no layer computes the Hasse invariant along the boundary of the Siegel minimal compactification; C6 does so only for Hilbert and modular varieties.",
+   "id": "PAPER-SCHOLZE-15/57"
+  },
+  {
+   "kind": "construction",
+   "name": "Remark 3.3.3: points of the infinite-level space",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. For a complete nonarchimedean extension K of ℚ_p^cycl with open bounded valuation subring K^+, 𝒳*_{Γ(p^∞)}(K, K^+) = lim_m 𝒳*_{Γ(p^m)}(K, K^+), and similarly for the other spaces; there is a map 𝒳*_{Γ(p^∞)}(K, K^+) → |𝒳*_{Γ(p^∞)}|, and |𝒳*_{Γ(p^∞)}| = colim_{(K,K^+)} 𝒳*_{Γ(p^∞)}(K, K^+) as sets (a nonfiltered colimit; each point comes from a unique minimal (K, K^+)).",
+   "locator": "§3.3, Remark 3.3.3, p. 1004",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S0"
+   ],
+   "note": "S0: the local spatial and topological comparisons of the limit.",
+   "id": "PAPER-SCHOLZE-15/58"
+  },
+  {
+   "kind": "construction",
+   "name": "Lemma 3.3.4: the Hodge–Tate period map on points",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. There is a GSp_{2g}(ℚ_p)-equivariant continuous map |π_HT| : |𝒳*_{Γ(p^∞)}| ∖ |𝒵_{Γ(p^∞)}| → |Fl| sending a point x ∈ (𝒳*_{Γ(p^∞)} ∖ 𝒵_{Γ(p^∞)})(K, K^+), corresponding to a principally polarized abelian variety A/K with a symplectic isomorphism α : T_pA ≅ ℤ_p^{2g}, to the Hodge–Tate filtration Lie A ⊂ K^{2g}.",
+   "locator": "§3.3, Lemma 3.3.4, pp. 1004–1006",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "HodgeTateAndCanonicalSubgroups:T2",
+    "PerfectoidShimuraVarieties:S1"
+   ],
+   "note": "T2: the universal flag-valued map on a tower where the Tate module is trivialized.",
+   "id": "PAPER-SCHOLZE-15/59"
+  },
+  {
+   "kind": "definition",
+   "name": "Definition 3.3.5: affinoid perfectoid and perfectoid subsets of |𝒳*_{Γ(p^∞)}|",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. (i) A subset U ⊂ |𝒳*_{Γ(p^∞)}| is affinoid perfectoid if it is the preimage of some affinoid U_m = Spa(R_m, R_m^+) ⊂ |𝒳*_{Γ(p^m)}| for all sufficiently large m and (R_∞, R_∞^+) is an affinoid perfectoid ℚ_p^cycl-algebra, where R_∞^+ is the p-adic completion of colim_m R_m^+ and R_∞ = R_∞^+[p^{-1}]. (ii) U is perfectoid if it can be covered by affinoid perfectoid subsets.",
+   "locator": "§3.3, Definition 3.3.5, p. 1006",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P7"
+   ],
+   "note": "P7 nodes good-affinoid-perfectoid and tilde-limit-gluing cite Theorem 3.1.2 and this definition.",
+   "id": "PAPER-SCHOLZE-15/60"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemmas 3.3.6, 3.3.19 and 3.3.20: the preimages of the rational points of Fl",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. The preimage of Fl(ℚ_p) ⊂ |Fl| under |π_HT| is the closure of |𝒳*_{Γ(p^∞)}(0)| ∖ |𝒵_{Γ(p^∞)}(0)| (Lemma 3.3.6); once π_HT is extended, the preimage of Fl(ℚ_p) is the closure of 𝒳*_{Γ(p^∞)}(0) (Lemma 3.3.19), and the preimage of Fl_{g+1,…,2g}(ℚ_p) is the closure of 𝒳*_{Γ(p^∞)}(0)_a (Lemma 3.3.20); the open-part analogue of the last is Lemma 3.3.14.",
+   "locator": "§3.3, Lemma 3.3.6 (with Remark 3.3.7), p. 1006; Lemma 3.3.14, p. 1010; Lemmas 3.3.19–3.3.20, p. 1013",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "HodgeTateAndCanonicalSubgroups:T4",
+    "PerfectoidShimuraVarieties:S1"
+   ],
+   "note": "Remark 3.3.7 records the referee's direct argument: for a p-divisible group G over 𝒪_C the kernel of α_G : T_pG → Lie G* is T_p(G^mult).",
+   "id": "PAPER-SCHOLZE-15/61"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemmas 3.3.8–3.3.11: finitely many translates of the anticanonical neighbourhood cover the tower",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. (3.3.8) For 0 < ε < 1 there is an open U ⊂ Fl containing Fl(ℚ_p) with |π_HT|^{-1}(U) ⊂ |𝒳*_{Γ(p^∞)}(ε)| ∖ |𝒵_{Γ(p^∞)}(ε)|. (3.3.9) For any open U ⊂ Fl containing a ℚ_p-rational point, GSp_{2g}(ℚ_p)·U = Fl. (3.3.10) For 0 < ε < 1 there are finitely many γ_1, …, γ_k ∈ GSp_{2g}(ℚ_p) with |𝒳*_{Γ(p^∞)}| ∖ |𝒵_{Γ(p^∞)}| = ⋃_i γ_i·(|𝒳*_{Γ(p^∞)}(ε)| ∖ |𝒵_{Γ(p^∞)}(ε)|). (3.3.11) With the same γ_i, |𝒳*_{Γ(p^∞)}| = ⋃_i γ_i·|𝒳*_{Γ(p^∞)}(ε)|.",
+   "locator": "§3.3, Lemmas 3.3.8–3.3.11, pp. 1008–1009",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "HodgeTateAndCanonicalSubgroups:T4"
+   ],
+   "note": "S1: 'Construct a covering of the full tower by translates of these affinoid perfectoid pieces'.",
+   "id": "PAPER-SCHOLZE-15/62"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 3.3.12: existence of the perfectoid Siegel space at infinite level",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. There is a perfectoid space 𝒳*_{Γ(p^∞)} over ℚ_p^cycl with 𝒳*_{Γ(p^∞)} ~ lim_m 𝒳*_{Γ(p^m)}; for any 0 < ε < 1/2 it is covered by finitely many GSp_{2g}(ℚ_p)-translates of 𝒳*_{Γ(p^∞)}(ε)_a.",
+   "locator": "§3.3, Corollary 3.3.12, p. 1009",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/63"
+  },
+  {
+   "kind": "construction",
+   "name": "Corollaries 3.3.13 and 3.3.17 with Lemmas 3.3.15–3.3.16: the Hodge–Tate period map as a map of adic spaces and its extension over the boundary",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. There is a unique map of adic spaces π_HT : 𝒳*_{Γ(p^∞)} ∖ 𝒵_{Γ(p^∞)} → Fl over ℚ_p realizing |π_HT| (3.3.13). For any open U ⊂ Fl containing Fl(ℚ_p) there is ε > 0 with 𝒳*_{Γ(p^∞)}(ε) ∖ 𝒵_{Γ(p^∞)}(ε) ⊂ π_HT^{-1}(U) (3.3.15), and there is 0 < ε < 1/2 with 𝒳*_{Γ(p^∞)}(ε)_a ∖ 𝒵_{Γ(p^∞)}(ε)_a ⊂ π_HT^{-1}(Fl_{g+1,…,2g}) (3.3.16). There is a unique map of adic spaces π_HT : 𝒳*_{Γ(p^∞)} → Fl extending π_HT on 𝒳*_{Γ(p^∞)} ∖ 𝒵_{Γ(p^∞)} (3.3.17).",
+   "locator": "§3.3, Corollary 3.3.13, p. 1009; Lemmas 3.3.15–3.3.16 and Corollary 3.3.17, p. 1011",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "HodgeTateAndCanonicalSubgroups:T2",
+    "PerfectoidShimuraVarieties:S3",
+    "HodgeTateAndCanonicalSubgroups:T4"
+   ],
+   "note": "The extension over the boundary uses the goodness of Theorem 3.2.36 (the Hebbarkeitssatz).",
+   "id": "PAPER-SCHOLZE-15/64"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 3.3.18 (with Theorem 3.1.2): the perfectoid Siegel space, its Hodge–Tate map and equivariance",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. For any tame level K^p ⊂ GSp_{2g}(𝔸_f^p) contained in {γ ∈ GSp_{2g}(ℤ̂^p) : γ ≡ 1 mod N} for some N ≥ 3 prime to p there is a perfectoid space 𝒳*_{Γ(p^∞),K^p} over ℚ_p^cycl, unique up to unique isomorphism, with 𝒳*_{Γ(p^∞),K^p} ~ lim_m 𝒳*_{Γ(p^m),K^p} and a GSp_{2g}(ℚ_p)-action, and a GSp_{2g}(ℚ_p)-equivariant Hodge–Tate period map π_HT : 𝒳*_{Γ(p^∞),K^p} → Fl of adic spaces over ℚ_p. (iii) For (K^p)′ ⊂ K^p, π_HT on 𝒳*_{Γ(p^∞),(K^p)′} factors through the projection to 𝒳*_{Γ(p^∞),K^p}. (iv) For γ ∈ GSp_{2g}(𝔸_f^p) with γ^{-1}K^pγ in a level-N subgroup (N ≥ 3 prime to p), π_HT ∘ γ = π_HT : 𝒳*_{Γ(p^∞),K^p} → 𝒳*_{Γ(p^∞),γ^{-1}K^pγ} → Fl; thus π_HT commutes with the Hecke operators away from p for the trivial action on Fl.",
+   "locator": "§3.3, Theorem 3.3.18 (existence, (iii), (iv)), pp. 1012–1013; Theorem 3.1.2(i)–(ii), pp. 971–972",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "PerfectoidShimuraVarieties:S3",
+    "HodgeTateAndCanonicalSubgroups:T2"
+   ],
+   "note": "PerfectoidShimuraVarieties S1 is 'The Siegel construction' of exactly this theorem.",
+   "id": "PAPER-SCHOLZE-15/65"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 3.3.18(i)–(ii) (with Theorem 3.1.2(iii)): affinoid perfectoid preimages of the Fl_J and the strongly Zariski closed boundary",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. (i) For any J ⊂ {1, …, 2g} of cardinality g, the preimage 𝒱_J = Spa(R_{J,∞}, R_{J,∞}^+) ⊂ 𝒳*_{Γ(p^∞),K^p} of Fl_J is affinoid perfectoid; 𝒱_J is the preimage of an affinoid 𝒱_{J,m} = Spa(R_{J,m}, R_{J,m}^+) ⊂ 𝒳*_{Γ(p^m),K^p} for all sufficiently large m, and R_{J,∞}^+ is the p-adic completion of colim_m R_{J,m}^+ (so colim_m H^0(𝒱_{J,m}, 𝒪) → H^0(𝒱_J, 𝒪) has dense image). (ii) 𝒵_{Γ(p^∞),K^p} ∩ 𝒱_J ⊂ 𝒱_J is strongly Zariski closed.",
+   "locator": "§3.3, Theorem 3.3.18(i)–(ii), p. 1012; Theorem 3.1.2(iii), p. 972",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S1",
+    "PerfectoidSpaces:P7",
+    "PerfectoidSpaces:P4"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/66"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 3.3.18(v)–(vi): Lie A and ω as pullbacks along the Hodge–Tate period map",
+   "statement": "Setting of §3: X = X_{g,K^p} over ℤ_(p) is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p structure, K^p ⊂ GSp_{2g}(𝔸_f^p) contained in the level-N congruence subgroup for some N ≥ 3 prime to p; X* is its minimal compactification (Faltings–Chai) with ample ω; ℚ_p^cycl is the completion of ℚ_p(μ_{p^∞}); 𝔛, 𝔛* are the p-adic completions of X, X* over ℤ_p^cycl, 𝒳, 𝒳* their generic fibres, 𝒜 → 𝒳 the universal abelian variety; for K_p ∈ {Γ_0(p^m), Γ_1(p^m), Γ(p^m)} ⊂ GSp_{2g}(ℤ_p), 𝒳*_{K_p} is the adic space over ℚ_p^cycl of X*_{K_pK^p} and 𝒳_{K_p} ⊂ 𝒳*_{K_p} the preimage of 𝒳 (the locus of good reduction); ~ is the tilde-limit of Scholze–Weinstein, Definition 2.4.1. (v) Let W_Fl ⊂ 𝒪_Fl^{2g} be the universal totally isotropic subspace. Over 𝒳*_{Γ(p^∞),K^p} ∖ 𝒵_{Γ(p^∞),K^p} there is a natural GSp_{2g}(ℚ_p)-equivariant isomorphism Lie A_{K^p} ≅ π_HT*W_Fl (Lie A_{K^p} the Lie algebra of the tautological abelian variety), with the analogues of (iii) and (iv). (vi) With ω_Fl = (∧^g W_Fl)* and ω_{K^p} the natural line bundle on 𝒳*_{Γ(p^∞),K^p} (pulled back from any finite level), there is a natural GSp_{2g}(ℚ_p)-equivariant isomorphism ω_{K^p} ≅ π_HT*ω_Fl extending the isomorphism from (v), with the analogues of (iii) and (iv).",
+   "locator": "§3.3, Theorem 3.3.18(v)–(vi) and its proof, pp. 1012–1016",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S3",
+    "HodgeTateAndCanonicalSubgroups:T2",
+    "TorsionCohomologyInfrastructure:TC.1"
+   ],
+   "note": "The proof of (vi) bounds the isomorphism integrally (p^C ω^+ ⊂ π_HT*ω_Fl^+ ⊂ p^{−C} ω^+, via Fargues' Théorème II.1.1 or induction on g) and extends it by the Hebbarkeitssatz; TC.1 plans the integral comparison of automorphic bundle lattices with pullbacks along π_HT.",
+   "id": "PAPER-SCHOLZE-15/67"
+  },
+  {
+   "kind": "construction",
+   "name": "The Hodge-type setting of §4: X_K, X*_K, the normalization-free image X_K** and the bundle ω_K",
+   "statement": "Setting of §4: G is a reductive group over ℚ with simply connected derived group and D a G(ℝ)-conjugacy class of u : U(1) → G^ad_ℝ with ad u(−1) a Cartan involution and μ = u_ℂ minuscule; (G, D) is of Hodge type, with a fixed closed embedding (G, D) ↪ (G′, D′) = (Sp_{2g}, D_{Sp_{2g}}); X_K = G(ℚ)∖[D × G(𝔸_f)/K], X*_K its minimal compactification, and X_K** the universal finite map through which X*_K → Y*_{K′} factors for all K′ ⊂ G′(𝔸_f) with K = K′ ∩ G(𝔸_f) (the scheme-theoretic image in Y*_{K′} for K′ small); C is a complete algebraically closed extension of ℚ̄_p (ℂ ≅ ℚ̄_p fixed), 𝒳**_K the adic space over C of X_K**, ω_K the pullback of the ample ω_{K′}, and Fl the flag variety of totally isotropic subspaces of C^{2g}; K^p ⊂ G(𝔸_f^p) is contained in the level-N subgroup of G′(𝔸_f^p) for some N ≥ 3 prime to p. There are natural finite maps X_K → Y_{K′} and X*_K → Y*_{K′} to the Siegel varieties for G′ = Sp_{2g}; for every K there is K′ with K = K′ ∩ G(𝔸_f) and X_K → Y_{K′} a closed embedding (Deligne, Travaux de Shimura, Proposition 1.15), whereas for the minimal compactification this is not known, which is why X_K** is used. G(𝔸_f) acts on the tower (X_K**)_K, and H^0(X*_K, ω_K^{⊗k}) consists of complex automorphic forms.",
+   "locator": "§4 introduction, pp. 1017–1018; §4.1, p. 1018",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S2",
+    "ArithmeticLocallySymmetricSpaces:ALS.0"
+   ],
+   "note": "S2: 'Choose a symplectic embedding, compare finite-level varieties with their Siegel images'.",
+   "id": "PAPER-SCHOLZE-15/68"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 4.1.1 (with Theorems 1.0.6 and 1.0.8): perfectoid Shimura varieties of Hodge type and their Hodge–Tate period map",
+   "statement": "Setting of §4: G is a reductive group over ℚ with simply connected derived group and D a G(ℝ)-conjugacy class of u : U(1) → G^ad_ℝ with ad u(−1) a Cartan involution and μ = u_ℂ minuscule; (G, D) is of Hodge type, with a fixed closed embedding (G, D) ↪ (G′, D′) = (Sp_{2g}, D_{Sp_{2g}}); X_K = G(ℚ)∖[D × G(𝔸_f)/K], X*_K its minimal compactification, and X_K** the universal finite map through which X*_K → Y*_{K′} factors for all K′ ⊂ G′(𝔸_f) with K = K′ ∩ G(𝔸_f) (the scheme-theoretic image in Y*_{K′} for K′ small); C is a complete algebraically closed extension of ℚ̄_p (ℂ ≅ ℚ̄_p fixed), 𝒳**_K the adic space over C of X_K**, ω_K the pullback of the ample ω_{K′}, and Fl the flag variety of totally isotropic subspaces of C^{2g}; K^p ⊂ G(𝔸_f^p) is contained in the level-N subgroup of G′(𝔸_f^p) for some N ≥ 3 prime to p. For any tame level K^p ⊂ G(𝔸_f^p) contained in the level-N subgroup {γ ∈ G′(ℤ̂^p) : γ ≡ 1 mod N} of G′ for some N ≥ 3 prime to p, there is a perfectoid space 𝒳**_{K^p} over C with 𝒳**_{K^p} ~ lim_{K_p} 𝒳**_{K_pK^p}, and a G(ℚ_p)-equivariant Hodge–Tate period map π_HT : 𝒳**_{K^p} → Fl. (iii) For (K^p)′ ⊂ K^p, π_HT on 𝒳**_{(K^p)′} factors through 𝒳**_{K^p}. (iv) For γ ∈ G(𝔸_f^p) with γ^{-1}K^pγ in the level-N subgroup of G′ for some N ≥ 3 prime to p, π_HT ∘ γ = π_HT. (Introduction, Theorems 1.0.6 and 1.0.8: the Shimura variety 𝒮_{K^p} ~ lim_{K_p} 𝒮_{K_pK^p} is perfectoid, and π_HT commutes with the Hecke operators away from p for the trivial action on Fl, some automorphic bundles are pulled back from Fl, and π_HT is affine.)",
+   "locator": "§4.1, Theorem 4.1.1 (existence, (iii), (iv)), p. 1018; Theorems 1.0.6 and 1.0.8, pp. 949–950",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S2",
+    "PerfectoidShimuraVarieties:S3"
+   ],
+   "note": "S2 establishes perfectoidness for Hodge type from the Siegel case; S3 constructs the Hodge-type period map and its extension to the compactification 'in the precise Hodge-type form provided by the source'. Remark 5.4.6 uses that the theorem holds verbatim for Shimura varieties of Hodge type in the usual sense (unitary similitude groups).",
+   "id": "PAPER-SCHOLZE-15/69"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 4.1.1(i)–(ii): affinoid perfectoid charts and the strongly Zariski closed boundary for Hodge type",
+   "statement": "Setting of §4: G is a reductive group over ℚ with simply connected derived group and D a G(ℝ)-conjugacy class of u : U(1) → G^ad_ℝ with ad u(−1) a Cartan involution and μ = u_ℂ minuscule; (G, D) is of Hodge type, with a fixed closed embedding (G, D) ↪ (G′, D′) = (Sp_{2g}, D_{Sp_{2g}}); X_K = G(ℚ)∖[D × G(𝔸_f)/K], X*_K its minimal compactification, and X_K** the universal finite map through which X*_K → Y*_{K′} factors for all K′ ⊂ G′(𝔸_f) with K = K′ ∩ G(𝔸_f) (the scheme-theoretic image in Y*_{K′} for K′ small); C is a complete algebraically closed extension of ℚ̄_p (ℂ ≅ ℚ̄_p fixed), 𝒳**_K the adic space over C of X_K**, ω_K the pullback of the ample ω_{K′}, and Fl the flag variety of totally isotropic subspaces of C^{2g}; K^p ⊂ G(𝔸_f^p) is contained in the level-N subgroup of G′(𝔸_f^p) for some N ≥ 3 prime to p. (i) For any J ⊂ {1, …, 2g} of cardinality g, the preimage 𝒱_J = Spa(R_{J,∞}, R_{J,∞}^+) ⊂ 𝒳**_{K^p} of Fl_J is affinoid perfectoid; 𝒱_J is the preimage of an affinoid 𝒱_{J,K_p} = Spa(R_{J,K_p}, R_{J,K_p}^+) ⊂ 𝒳**_{K_pK^p} for all sufficiently small K_p, and R_{J,∞}^+ is the p-adic completion of colim_{K_p} R_{J,K_p}^+. (ii) The boundary 𝒵_{K^p} satisfies: 𝒵_{K^p} ∩ 𝒱_J ⊂ 𝒱_J is strongly Zariski closed.",
+   "locator": "§4.1, Theorem 4.1.1(i)–(ii) and its proof, pp. 1018–1020",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P8",
+    "PerfectoidShimuraVarieties:S2",
+    "PerfectoidSpaces:P4"
+   ],
+   "note": "PerfectoidSpaces P8 packet node closed-loci-in-towers is this statement; its packet records the gap in the integral identification of R_{J,∞}^+ (sourceIssues E7) and the misprint G(𝔸_f^p) for G′(𝔸_f^p) in the proof (E6).",
+   "id": "PAPER-SCHOLZE-15/70"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 4.1.1(v): ω_{K^p} ≅ π_HT*ω_Fl for Hodge type",
+   "statement": "Setting of §4: G is a reductive group over ℚ with simply connected derived group and D a G(ℝ)-conjugacy class of u : U(1) → G^ad_ℝ with ad u(−1) a Cartan involution and μ = u_ℂ minuscule; (G, D) is of Hodge type, with a fixed closed embedding (G, D) ↪ (G′, D′) = (Sp_{2g}, D_{Sp_{2g}}); X_K = G(ℚ)∖[D × G(𝔸_f)/K], X*_K its minimal compactification, and X_K** the universal finite map through which X*_K → Y*_{K′} factors for all K′ ⊂ G′(𝔸_f) with K = K′ ∩ G(𝔸_f) (the scheme-theoretic image in Y*_{K′} for K′ small); C is a complete algebraically closed extension of ℚ̄_p (ℂ ≅ ℚ̄_p fixed), 𝒳**_K the adic space over C of X_K**, ω_K the pullback of the ample ω_{K′}, and Fl the flag variety of totally isotropic subspaces of C^{2g}; K^p ⊂ G(𝔸_f^p) is contained in the level-N subgroup of G′(𝔸_f^p) for some N ≥ 3 prime to p. Over 𝒳**_{K^p} the natural line bundle ω_{K^p} (pulled back from any finite level) has a natural G(ℚ_p)-equivariant isomorphism ω_{K^p} ≅ π_HT*ω_Fl, satisfying the analogues of (iii) and (iv).",
+   "locator": "§4.1, Theorem 4.1.1(v), p. 1018",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidShimuraVarieties:S3",
+    "TorsionCohomologyInfrastructure:TC.1"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/71"
+  },
+  {
+   "kind": "construction",
+   "name": "The boundary ideal sheaf ℐ^+ of 𝒳**_{K^p} and its finite-level integral versions",
+   "statement": "Setting of §4: G is a reductive group over ℚ with simply connected derived group and D a G(ℝ)-conjugacy class of u : U(1) → G^ad_ℝ with ad u(−1) a Cartan involution and μ = u_ℂ minuscule; (G, D) is of Hodge type, with a fixed closed embedding (G, D) ↪ (G′, D′) = (Sp_{2g}, D_{Sp_{2g}}); X_K = G(ℚ)∖[D × G(𝔸_f)/K], X*_K its minimal compactification, and X_K** the universal finite map through which X*_K → Y*_{K′} factors for all K′ ⊂ G′(𝔸_f) with K = K′ ∩ G(𝔸_f) (the scheme-theoretic image in Y*_{K′} for K′ small); C is a complete algebraically closed extension of ℚ̄_p (ℂ ≅ ℚ̄_p fixed), 𝒳**_K the adic space over C of X_K**, ω_K the pullback of the ample ω_{K′}, and Fl the flag variety of totally isotropic subspaces of C^{2g}; K^p ⊂ G(𝔸_f^p) is contained in the level-N subgroup of G′(𝔸_f^p) for some N ≥ 3 prime to p. ℐ_{𝒳**_{K^p}} ⊂ 𝒪_{𝒳**_{K^p}} is the ideal sheaf of the boundary and ℐ^+ = ℐ ∩ 𝒪^+; H^i(𝒳**_{K^p}, ℐ^{+a}/p^n) is the cohomology of p-adic cusp forms modulo p^n of infinite level. For K_1^p ⊂ K_2^p there are pullback maps and trace maps tr : H^i(𝒳**_{K_1^p}, ℐ^{+a}/p^n) → H^i(𝒳**_{K_2^p}, ℐ^{+a}/p^n), the latter built from the finite-level traces of Lemma 4.3.3.",
+   "locator": "§4.2, p. 1020, and the proof of Theorem 4.2.1, pp. 1021–1023",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.0",
+    "TorsionCohomologyInfrastructure:TC.2"
+   ],
+   "note": "TC.0: ideal-of-boundary sheaves, their pullback under level maps and compatibility with completion.",
+   "id": "PAPER-SCHOLZE-15/72"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 4.2.1: completed cohomology is the cohomology of p-adic cusp forms of infinite level",
+   "statement": "Setting of §4: G is a reductive group over ℚ with simply connected derived group and D a G(ℝ)-conjugacy class of u : U(1) → G^ad_ℝ with ad u(−1) a Cartan involution and μ = u_ℂ minuscule; (G, D) is of Hodge type, with a fixed closed embedding (G, D) ↪ (G′, D′) = (Sp_{2g}, D_{Sp_{2g}}); X_K = G(ℚ)∖[D × G(𝔸_f)/K], X*_K its minimal compactification, and X_K** the universal finite map through which X*_K → Y*_{K′} factors for all K′ ⊂ G′(𝔸_f) with K = K′ ∩ G(𝔸_f) (the scheme-theoretic image in Y*_{K′} for K′ small); C is a complete algebraically closed extension of ℚ̄_p (ℂ ≅ ℚ̄_p fixed), 𝒳**_K the adic space over C of X_K**, ω_K the pullback of the ample ω_{K′}, and Fl the flag variety of totally isotropic subspaces of C^{2g}; K^p ⊂ G(𝔸_f^p) is contained in the level-N subgroup of G′(𝔸_f^p) for some N ≥ 3 prime to p. There is a natural isomorphism of almost 𝒪_C-modules H̃^i_{c,K^p}(ℤ/p^nℤ) ⊗_{ℤ/p^nℤ} 𝒪_C^a/p^n ≅ H^i(𝒳**_{K^p}, ℐ^{+a}_{𝒳**_{K^p}}/p^n), the right side computed on the topological space 𝒳**_{K^p}. For K_1^p ⊂ K_2^p these isomorphisms commute with the pullback maps (from K_2^p to K_1^p) and with the trace maps (from K_1^p to K_2^p).",
+   "locator": "§4.2, Theorem 4.2.1, pp. 1020–1021; proof pp. 1021–1023",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "CompletedCohomologyPartII:CC.8",
+    "TorsionCohomologyInfrastructure:TC.2"
+   ],
+   "note": "CompletedCohomologyPartII CC.8 decomposition node scholze-4-2-convention-and-the-perfectoid-comparison states this comparison; TC.2 plans the comparison diagram between finite-level torsion classes, completed cohomology and Čech cohomology on perfectoid charts. The proof uses the primitive comparison theorem and almost purity on the affinoid perfectoid cover {𝒱_J}.",
+   "id": "PAPER-SCHOLZE-15/73"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 4.2.2 (= Theorem 1.0.7): vanishing of compactly supported completed cohomology above the middle degree",
+   "statement": "Setting of §4: G is a reductive group over ℚ with simply connected derived group and D a G(ℝ)-conjugacy class of u : U(1) → G^ad_ℝ with ad u(−1) a Cartan involution and μ = u_ℂ minuscule; (G, D) is of Hodge type, with a fixed closed embedding (G, D) ↪ (G′, D′) = (Sp_{2g}, D_{Sp_{2g}}); X_K = G(ℚ)∖[D × G(𝔸_f)/K], X*_K its minimal compactification, and X_K** the universal finite map through which X*_K → Y*_{K′} factors for all K′ ⊂ G′(𝔸_f) with K = K′ ∩ G(𝔸_f) (the scheme-theoretic image in Y*_{K′} for K′ small); C is a complete algebraically closed extension of ℚ̄_p (ℂ ≅ ℚ̄_p fixed), 𝒳**_K the adic space over C of X_K**, ω_K the pullback of the ample ω_{K′}, and Fl the flag variety of totally isotropic subspaces of C^{2g}; K^p ⊂ G(𝔸_f^p) is contained in the level-N subgroup of G′(𝔸_f^p) for some N ≥ 3 prime to p. The group H̃^i_{c,K^p}(ℤ/p^nℤ), and thus H̃^i_{c,K^p}(ℤ_p), vanishes for i > d = dim_ℂ X_K.",
+   "locator": "§4.2, Corollary 4.2.2, p. 1023; Theorem 1.0.7, p. 950",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "CompletedCohomologyPartII:CC.7",
+    "TorsionCohomologyInfrastructure:TC.2"
+   ],
+   "note": "CC.7 decomposition node boundary-long-exact-sequences-and-the-borel-serre-tower records Corollaries 4.2.2–4.2.3. Proof: by Theorem 4.2.1 it suffices that the spectral space |𝒳**_{K^p}| = lim_{K_p} |𝒳**_{K_pK^p}| has cohomological dimension ≤ d, which follows from the finite levels (de Jong–van der Put, Proposition 2.5.8, or Grothendieck's bound on formal models) and passage to cofiltered limits of spectral spaces.",
+   "id": "PAPER-SCHOLZE-15/74"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 4.2.3: the Calegari–Emerton conjecture for Borel–Moore completed homology",
+   "statement": "Setting of §4: G is a reductive group over ℚ with simply connected derived group and D a G(ℝ)-conjugacy class of u : U(1) → G^ad_ℝ with ad u(−1) a Cartan involution and μ = u_ℂ minuscule; (G, D) is of Hodge type, with a fixed closed embedding (G, D) ↪ (G′, D′) = (Sp_{2g}, D_{Sp_{2g}}); X_K = G(ℚ)∖[D × G(𝔸_f)/K], X*_K its minimal compactification, and X_K** the universal finite map through which X*_K → Y*_{K′} factors for all K′ ⊂ G′(𝔸_f) with K = K′ ∩ G(𝔸_f) (the scheme-theoretic image in Y*_{K′} for K′ small); C is a complete algebraically closed extension of ℚ̄_p (ℂ ≅ ℚ̄_p fixed), 𝒳**_K the adic space over C of X_K**, ω_K the pullback of the ample ω_{K′}, and Fl the flag variety of totally isotropic subspaces of C^{2g}; K^p ⊂ G(𝔸_f^p) is contained in the level-N subgroup of G′(𝔸_f^p) for some N ≥ 3 prime to p. For i > d, H̃_i^BM = 0 and H̃_d^BM is p-torsion free. For i < d, the codimension of H̃_i as a module over the Iwasawa algebra is ≥ d − i.",
+   "locator": "§4.2, Corollary 4.2.3, p. 1024",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "CompletedCohomologyPartII:CC.7"
+   ],
+   "note": "CC.7 node boundary-long-exact-sequences-and-the-borel-serre-tower. The proof uses Calegari–Emerton, Theorem 1.1(iii), their Poincaré duality spectral sequence and Venjakob's results on Iwasawa-module codimension; for compact X_K this gives Calegari–Emerton's Conjecture 1.5 with non-strict inequalities.",
+   "id": "PAPER-SCHOLZE-15/75"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 4.3.1 (with Theorem 1.0.5): Hecke eigenvalues in completed cohomology are interpolated by classical cusp forms",
+   "statement": "Setting of §4: G is a reductive group over ℚ with simply connected derived group and D a G(ℝ)-conjugacy class of u : U(1) → G^ad_ℝ with ad u(−1) a Cartan involution and μ = u_ℂ minuscule; (G, D) is of Hodge type, with a fixed closed embedding (G, D) ↪ (G′, D′) = (Sp_{2g}, D_{Sp_{2g}}); X_K = G(ℚ)∖[D × G(𝔸_f)/K], X*_K its minimal compactification, and X_K** the universal finite map through which X*_K → Y*_{K′} factors for all K′ ⊂ G′(𝔸_f) with K = K′ ∩ G(𝔸_f) (the scheme-theoretic image in Y*_{K′} for K′ small); C is a complete algebraically closed extension of ℚ̄_p (ℂ ≅ ℚ̄_p fixed), 𝒳**_K the adic space over C of X_K**, ω_K the pullback of the ample ω_{K′}, and Fl the flag variety of totally isotropic subspaces of C^{2g}; K^p ⊂ G(𝔸_f^p) is contained in the level-N subgroup of G′(𝔸_f^p) for some N ≥ 3 prime to p. Let 𝕋 be the abstract Hecke algebra away from p acting on the H^i_c(X_{K_pK^p}) and on cusp forms. Fix m ≥ 1 and let 𝕋_cl = 𝕋_{cl,m} be 𝕋 with the weakest topology making all maps 𝕋 → End_C(H^0(𝒳*_{K_pK^p}, ω_{K_pK^p}^{⊗mk} ⊗ ℐ)) continuous, for varying k ≥ 1 and K_p ⊂ G(ℚ_p), each target a finite-dimensional C-vector space with the p-adic topology (𝕋_cl need not be separated). Then 𝕋_cl → End_{ℤ/p^nℤ}(H̃^i_{c,K^p}(ℤ/p^nℤ)) is continuous, the target having the weakest topology making End × H̃^i_{c,K^p}(ℤ/p^nℤ) → H̃^i_{c,K^p}(ℤ/p^nℤ) continuous with H̃^i discrete. (Theorem 1.0.5: all Hecke eigenvalues in H̃^i_{c,K^p} are p-adically interpolated by Hecke eigenvalues of classical cusp forms.)",
+   "locator": "§4.3, Theorem 4.3.1, p. 1025; Theorem 1.0.5, p. 949",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.1",
+    "TorsionCohomologyInfrastructure:TC.2",
+    "IntegralHeckeAndGaloisDeterminants:IHG.2"
+   ],
+   "note": "TC.1 plans 'the approximation/extension lemmas that produce finite-level classical sections after twisting by sufficiently high powers of an ample automorphic line bundle'; the proof uses the formal model 𝔛*_{K_pK^p} with ample ω^int from Lemma 2.1.1 and the vanishing H^1(𝔛*, (ω^int)^{⊗k} ⊗ 𝔍/p^n) = 0 for k divisible enough.",
+   "id": "PAPER-SCHOLZE-15/76"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 4.3.2: traces of finite generically étale extensions of normal rings are integral",
+   "statement": "Let R be normal and S a finite, generically étale R-algebra, i.e. S[f^{-1}] is finite étale over R[f^{-1}] for some non-zero-divisor f ∈ R. Then tr_{S[f^{-1}]/R[f^{-1}]} : S[f^{-1}] → R[f^{-1}] maps S into R. Moreover, for any integrally closed ideal I ⊂ R with integral closure J ⊂ S, tr(J) ⊂ I.",
+   "locator": "§4.3, Lemma 4.3.2, p. 1025",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AdicSpacesPartII:R3",
+    "TorsionCohomologyInfrastructure:TC.2"
+   ],
+   "note": "R3 constructs traces of finite locally free and finite étale maps; TC.2 needs them for the Hecke trace maps on completed cohomology.",
+   "id": "PAPER-SCHOLZE-15/77"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 4.3.3: algebraic trace maps on boundary ideals and their compatibility at infinite level",
+   "statement": "Setting of §4: G is a reductive group over ℚ with simply connected derived group and D a G(ℝ)-conjugacy class of u : U(1) → G^ad_ℝ with ad u(−1) a Cartan involution and μ = u_ℂ minuscule; (G, D) is of Hodge type, with a fixed closed embedding (G, D) ↪ (G′, D′) = (Sp_{2g}, D_{Sp_{2g}}); X_K = G(ℚ)∖[D × G(𝔸_f)/K], X*_K its minimal compactification, and X_K** the universal finite map through which X*_K → Y*_{K′} factors for all K′ ⊂ G′(𝔸_f) with K = K′ ∩ G(𝔸_f) (the scheme-theoretic image in Y*_{K′} for K′ small); C is a complete algebraically closed extension of ℚ̄_p (ℂ ≅ ℚ̄_p fixed), 𝒳**_K the adic space over C of X_K**, ω_K the pullback of the ample ω_{K′}, and Fl the flag variety of totally isotropic subspaces of C^{2g}; K^p ⊂ G(𝔸_f^p) is contained in the level-N subgroup of G′(𝔸_f^p) for some N ≥ 3 prime to p. Fix J ⊂ {1, …, 2g} of cardinality g and let 𝒳**_{K^p}(J) = Spa(R_{K^p}, R_{K^p}^+) be the preimage of Fl_J (affinoid perfectoid, the preimage of 𝒳**_{K_pK^p}(J) = Spa(R_{K_pK^p}, R_{K_pK^p}^+) for K_p small, R_{K^p}^+ the p-adic completion of colim R_{K_pK^p}^+); let Spa(R̃_{K_pK^p}, R̃^+_{K_pK^p}) = 𝒳*_{K_pK^p}(J) ⊂ 𝒳*_{K_pK^p} be its preimage, and I^+_{K_pK^p} ⊂ R^+_{K_pK^p}, Ĩ^+_{K_pK^p} ⊂ R̃^+_{K_pK^p}, I^+_{K^p} ⊂ R^+_{K^p} the ideals of functions vanishing along the boundary. Then for all n ≥ 0, I^+_{K^p}/p^n = colim_{K_p} I^+_{K_pK^p}/p^n = colim_{K_p} Ĩ^+_{K_pK^p}/p^n, and for K_1^p ⊂ K_2^p and any K_p the square formed by (tr mod p^n)^a : Ĩ^{+a}_{K_pK_1^p}/p^n → Ĩ^{+a}_{K_pK_2^p}/p^n and tr : I^{+a}_{K_1^p}/p^n → I^{+a}_{K_2^p}/p^n commutes.",
+   "locator": "§4.3, Lemma 4.3.3, pp. 1026–1027",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.2",
+    "TorsionCohomologyInfrastructure:TC.0"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/78"
+  },
+  {
+   "kind": "construction",
+   "name": "The groups G_0, G, H_0 and the endoscopic embedding η of §5.1",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. K = K_{S^+}K^{S^+} ⊂ G(𝔸_f) = G_0(𝔸_{F^+,f}) is sufficiently small, S^+ a finite set of finite places of F^+ containing those above p and those where F ramifies, K^{S^+} a product of hyperspecial K_v; S is the set of places of F above S^+.",
+   "locator": "§5.1, pp. 1031–1032 and p. 1034",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+    "ModularityAndLanglandsExtensions:ML.4"
+   ],
+   "note": "The unitary endoscopic data are ET's (ET.0/ET.4); the symplectic twisted endoscopic datum for GL_{2n+1} is part of ML.4's classical-group classification input.",
+   "id": "PAPER-SCHOLZE-15/79"
+  },
+  {
+   "kind": "theorem",
+   "name": "Proposition 5.1.1: holomorphic discrete series of Sp_{2n}(ℝ) and U(n,n) with scalar minimal K-type",
+   "statement": "Let 𝒢 = Sp_{2n}/ℝ, resp. U(n,n)/ℝ, with maximal compact K ⊂ 𝒢(ℝ), standard Borel ℬ with torus 𝒯, X*(𝒯_ℂ) = ℤ^n resp. ℤ^{2n}. Let χ : K ≅ U(n) → ℂ^×, g_0 ↦ det(g_0), resp. χ : K ≅ U(n) × U(n) → ℂ^×, (g_1, g_2) ↦ det(g_1)det(g_2)^{-1}. For k > n, resp. k ≥ n, there is a unique discrete series representation π_k of 𝒢 with minimal K-type χ^{⊗k}, and it has infinitesimal character (k−1, k−2, …, k−n) ∈ ℝ^n, resp. (k−½, k−3/2, …, k−n+½, n−½−k, …, 3/2−k, ½−k) ∈ ℝ^{2n}.",
+   "locator": "§5.1, Proposition 5.1.1, p. 1032",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Missing: AutomorphicFormsOnReductiveGroups AF.1 builds (𝔤, K)-module foundations and AF.4 infinitesimal characters of cohomological representations, and ET.1 the unitary discrete-series pseudocoefficients, but no layer identifies the holomorphic discrete series of Sp_{2n}(ℝ) and U(n,n) by their scalar minimal K-type. Routed as a source of AF.4 and AF.5.",
+   "id": "PAPER-SCHOLZE-15/80"
+  },
+  {
+   "kind": "construction",
+   "name": "Holomorphic cusp forms of weight k as automorphic representations with π_∞ ≅ π_k",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. 𝕋 acts on H^0(X*_K, ω_K^{⊗k} ⊗ ℐ) ⊗_ℂ C = H^0(𝒳*_K, ω_K^{⊗k} ⊗ ℐ) (ω from the Siegel ample bundle, ℐ the boundary ideal); the image of 𝕋 ⊗ ℂ in End_ℂ(H^0(X*_K, ω_K^{⊗k} ⊗ ℐ)) is a product of copies of ℂ, because the Petersson inner product is positive definite and the adjoint of a Hecke operator is a Hecke operator; each character x of this image comes from a cuspidal automorphic representation π of G_0/F^+, unramified outside S^+ with Satake parameters given by x, with π_v ≅ π_k for v | ∞.",
+   "locator": "§5.1, the paragraph before Corollary 5.1.7, p. 1035, and the proof of Corollary 5.1.7, p. 1036",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Missing: the dictionary between holomorphic cusp forms on X*_K for Sp_{2n}/U(n,n) and cuspidal automorphic representations with holomorphic discrete series at infinity is planned only for GL_2/ℚ (AF.5) and for Hilbert weights (AutomorphicBundles B4). Routed with Proposition 5.1.1 as a source of AF.4/AF.5.",
+   "id": "PAPER-SCHOLZE-15/81"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 5.1.2 (Arthur, Mok) as corrected: weak endoscopic transfer of π with π_∞ ≅ π_k to GL_h",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. Let π be a cuspidal automorphic representation of G_0 and fix k > n, resp. k ≥ n, with π_v ≅ π_k (Proposition 5.1.1) for v | ∞. There are cuspidal automorphic representations Π_1, …, Π_m of GL_{n_1}/F, …, GL_{n_m}/F and integers ℓ_1, …, ℓ_m ≥ 1 with n_1ℓ_1 + ⋯ + n_mℓ_m = h and (Π_i^∨)^c ≅ Π_i (c complex conjugation if F is CM, the identity if F is totally real), such that for every finite place v of F over a place v^+ of F^+ at which π_{v^+} is unramified, all Π_{iv} are unramified and η_{v^+*}φ_{π_{v^+}} = ⊕_{i=1}^m (φ_{Π_{iv}}|·|^{(1−ℓ_i)/2} ⊕ φ_{Π_{iv}}|·|^{(3−ℓ_i)/2} ⊕ ⋯ ⊕ φ_{Π_{iv}}|·|^{(ℓ_i−1)/2}) as h-dimensional representations of W_{F_v}, where φ_{π_{v^+}} : W_{F^+_{v^+}} → ᴸG_{0,v^+} and φ_{Π_{iv}} : W_{F_v} → ᴸGL_{n_i,v} are the unramified L-parameters (printed: exponent (ℓ_i − i)/2 and target ᴸGL_{h,v}; sourceIssues E8). Moreover, for v | ∞, Π_{iv}|·|^{(h−ℓ_i)/2} is regular L-algebraic (Buzzard–Gee), and by Remark 5.1.3 the infinitesimal characters of the Π_{iv}|·|^{(2j−ℓ_i−1)/2}, j = 1, …, ℓ_i, combine to (k−1, …, k−n, 0, n−k, …, 1−k) if F is totally real, resp. (k−½, …, k−n+½, n−½−k, …, ½−k) if F is CM.",
+   "locator": "§5.1, Theorem 5.1.2 and Remark 5.1.3, pp. 1032–1033",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.4",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+   ],
+   "note": "Conditional in the paper on the stabilization of the twisted trace formula. ML.4 registers Arthur's (symplectic) and Mok's (unitary) classifications with their conditional hypotheses; the unitary base-change identities at split and unramified places are ET.7a's pure automorphic branch (Shin's results, cf. Remark 5.4.6).",
+   "id": "PAPER-SCHOLZE-15/82"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 5.1.4: Galois representations for regular algebraic conjugate self-dual cuspidal representations",
+   "statement": "Let F be totally real or CM and Π a cuspidal automorphic representation of Res_{F/ℚ}GL_n with (Π^∨)^c ≅ Π and Π|·|^{k/2} regular L-algebraic for some integer k. Then there is a continuous semisimple σ_Π : Gal(F̄/F) → GL_n(ℚ̄_p) with (σ_Π^∨)^c ≅ σ_Πχ_p^k (χ_p the p-adic cyclotomic character; local class field theory normalized so that geometric Frobenius elements match uniformizers) such that for every finite place v with Π_v unramified, σ_Π is unramified at v and φ_{Π_v} = σ_Π|_{W_{F_v}}|·|^{k/2} up to (Frobenius-)semisimplification. (Remark 5.1.5: Π′ = Π|·|^{(k+1−n)/2} is regular C-algebraic with (Π′^∨)^c ≅ Π′ ⊗ χ, χ = |·|^{n+1−k}.)",
+   "locator": "§5.1, Theorem 5.1.4 and Remark 5.1.5, p. 1034",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "AutomorphicGaloisRepresentationsPartII:AG2.3"
+   ],
+   "note": "Due to Clozel, Kottwitz, Harris–Taylor, Shin, Chenevier–Harris and others; AG2.2–AG2.3 construct the polarized regular algebraic systems.",
+   "id": "PAPER-SCHOLZE-15/83"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 5.1.6(i): the unramified Hecke algebra of Sp_{2n} and the transfer to GL_{2n+1}",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. Let F be totally real and v ∉ S^+, q_v the residue cardinality and q_v^{1/2} ∈ ℤ̄_p the image of the positive square root. The Satake transform gives 𝕋_v[q_v^{1/2}] ≅ ℤ_p[q_v^{1/2}][X_1^{±1}, …, X_n^{±1}]^{S_n⋉(ℤ/2)^n}, where 𝕋_v = ℤ_p[G_0(F_v^+)//K_v]; the unramified transfer from G_0(F_v^+) to GL_{2n+1}(F_v^+) is dual to the map from ℤ_p[q_v^{1/2}][Y_1^{±1}, …, Y_{2n+1}^{±1}]^{S_{2n+1}} sending {Y_1, …, Y_{2n+1}} to {X_1^{±1}, …, X_n^{±1}, 1}. If T_{i,v} is the image of the i-th elementary symmetric polynomial in the Y_j, i = 1, …, 2n+1, then T_{i,v} ∈ 𝕋_v.",
+   "locator": "§5.1, Lemma 5.1.6(i), p. 1034",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.3",
+    "TorsionCohomologyInfrastructure:TC.3"
+   ],
+   "note": "IHG.3 plans the integral spherical normalization and its conversions; TC.3 the Hecke polynomial identities through Satake.",
+   "id": "PAPER-SCHOLZE-15/84"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 5.1.6(ii)–(iii): the unramified Hecke algebra of the quasisplit unitary group at split and inert places",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. Let F be CM and v ∉ S^+. (ii) If v splits in F, with a fixed lift ṽ, then G_0(F_v^+) ≅ GL_{2n}(F_ṽ), 𝕋_v[q_v^{1/2}] ≅ ℤ_p[q_v^{1/2}][X_1^{±1}, …, X_{2n}^{±1}]^{S_{2n}}, the unramified transfer is the identity, and for T_{i,ṽ} the i-th elementary symmetric polynomial in X_1, …, X_{2n}, q_v^{i/2}T_{i,ṽ} ∈ 𝕋_v (the other choice of ṽ replaces X_i by X_i^{-1}). (iii) If v is inert in F, 𝕋_v[q_v^{1/2}] ≅ ℤ_p[q_v^{1/2}][X_1^{±1}, …, X_n^{±1}]^{S_n⋉(ℤ/2)^n}, the transfer to GL_{2n}(F_v) is dual to {Y_1, …, Y_{2n}} ↦ {X_1^{±1}, …, X_n^{±1}}, and the images T_{i,v} of the elementary symmetric polynomials in the Y_j lie in 𝕋_v.",
+   "locator": "§5.1, Lemma 5.1.6(ii)–(iii), pp. 1034–1035",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.3",
+    "TorsionCohomologyInfrastructure:TC.3"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/85"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 5.1.7: Galois representations for Hecke eigensystems in holomorphic cusp forms of weight k",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. Fix k > n, resp. k ≥ n (F totally real, resp. CM); δ = 0 if F is totally real and δ = 1 if F is CM. Let 𝕋_{K,k} be the image of 𝕋 in End_C(H^0(X*_K, ω_K^{⊗k} ⊗ ℐ) ⊗_ℂ C). Then 𝕋_{K,k} is flat over ℤ_p and 𝕋_{K,k}[p^{-1}] is finite étale over ℚ_p. For any x ∈ (Spec 𝕋_{K,k})(ℚ̄_p) there is a continuous semisimple σ_x : G_{F,S} → GL_h(ℚ̄_p) with (σ_x^∨)^c ≅ σ_xχ_p^δ such that for every finite place v ∉ S, det(1 − X Frob_v | σ_x) = 1 − (q_v^{δ/2}T_{1,v})(x)X + (q_v^{2δ/2}T_{2,v})(x)X² − ⋯ + (−1)^h(q_v^{hδ/2}T_{h,v})(x)X^h, Frob_v the geometric Frobenius and q_v the residue cardinality of F at v.",
+   "locator": "§5.1, Corollary 5.1.7, p. 1036",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "ModularityAndLanglandsExtensions:ML.4",
+    "IntegralHeckeAndGaloisDeterminants:IHG.3"
+   ],
+   "note": "Proof: σ_x = ⊕_i(σ_i ⊕ σ_iχ_p^{-1} ⊕ ⋯ ⊕ σ_iχ_p^{1−ℓ_i}) from Theorem 5.1.2 and Theorem 5.1.4 applied to Π_i|·|^{(δ+1−ℓ_i)/2}. The symplectic branch inherits Arthur's hypothesis (ML.4).",
+   "id": "PAPER-SCHOLZE-15/86"
+  },
+  {
+   "kind": "definition",
+   "name": "Definition 5.1.8 and Remark 5.1.9: determinants, their (nonstandard) characteristic polynomials and continuity",
+   "statement": "Let A be a (topological) ring and G a (topological) group. A d-dimensional determinant is an A-polynomial law D : A[G] → A which is multiplicative and homogeneous of degree d; for g ∈ G, D(1 − Xg) ∈ A[X] is the characteristic polynomial of g, and D is continuous if g ↦ D(1 − Xg), G → A[X], is continuous (Chenevier, 2.30). More generally, for an A-algebra B a multiplicative A-polynomial law A[G] → B homogeneous of degree d is a determinant of dimension d with values in B; equivalently a multiplicative B-polynomial law B[G] → B homogeneous of degree d.",
+   "locator": "§5.1, Definition 5.1.8 and Remark 5.1.9, p. 1037",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "note": "IHG.0 packet nodes determinant, characteristic-polynomial, continuous-determinant and determinant-base-change (from Chenevier's paper).",
+   "id": "PAPER-SCHOLZE-15/87"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 5.1.10: the Hecke-valued determinant on classical cusp forms",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. There is a unique continuous h-dimensional determinant D of G_{F,S} with values in 𝕋_{K,k} such that D(1 − X Frob_v) = 1 − q_v^{δ/2}T_{1,v}X + q_v^{2δ/2}T_{2,v}X² − ⋯ + (−1)^h q_v^{hδ/2}T_{h,v}X^h for all finite places v ∉ S.",
+   "locator": "§5.1, Corollary 5.1.10, pp. 1037–1038",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.4",
+    "IntegralHeckeAndGaloisDeterminants:IHG.1"
+   ],
+   "note": "𝕋_{K,k} is flat with 𝕋_{K,k}[1/p] finite étale; the determinant is glued from the σ_x (Chenevier).",
+   "id": "PAPER-SCHOLZE-15/88"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 5.1.11: determinants over discrete continuous quotients of the classical Hecke algebra",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. Let 𝕋_cl be as in Theorem 4.3.1. For any continuous quotient 𝕋_cl → A with A discrete there is a unique continuous h-dimensional determinant D of G_{F,S} with values in A such that D(1 − X Frob_v) = 1 − q_v^{δ/2}T_{1,v}X + q_v^{2δ/2}T_{2,v}X² − ⋯ + (−1)^h q_v^{hδ/2}T_{h,v}X^h for all finite places v ∉ S.",
+   "locator": "§5.1, Corollary 5.1.11, p. 1038",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.4",
+    "TorsionCohomologyInfrastructure:TC.1"
+   ],
+   "note": "The proof glues determinants modulo I_1 and I_2 to one modulo I_1 ∩ I_2 (Chenevier, Example 2.32); as in PAPER-ALLEN-ETAL-23/94.",
+   "id": "PAPER-SCHOLZE-15/89"
+  },
+  {
+   "kind": "construction",
+   "name": "Definition 5.2.1 and Lemma 5.2.2 as corrected: the locally symmetric spaces of the parabolic and its Levi",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. Fix a parabolic P ⊂ G with Levi M = Res_{F/ℚ}GL_n and unipotent radical U. For compact open K_M ⊂ M(𝔸_f), X^M_{K_M} = M(ℚ)∖[(M(ℝ)/ℝ_{>0}K_∞) × M(𝔸_f)/K_M]; for compact open K_P ⊂ P(𝔸_f), X^P_{K_P} = P(ℚ)∖[(P(ℝ)/ℝ_{>0}K_∞) × P(𝔸_f)/K_P] (K_∞ maximal compact, ℝ_{>0} the positive scalars). Lemma 5.2.2: the image K_P^M ⊂ M(𝔸_f) of K_P is compact open, and there is a natural projection X^P_{K_P} → X^M_{K_P^M} (printed X^P_{X_P} → X^M_{X_P^M}; sourceIssues E9) which is a bundle with fibres (S^1)^k, k = dim U.",
+   "locator": "§5.2, Definition 5.2.1 and Lemma 5.2.2, p. 1038",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.0",
+    "ArithmeticLocallySymmetricSpaces:ALS.2"
+   ],
+   "note": "ALS.2: boundary strata are fibrations with nilmanifold fibres over Levi arithmetic quotients.",
+   "id": "PAPER-SCHOLZE-15/90"
+  },
+  {
+   "kind": "construction",
+   "name": "The Borel–Serre boundary, its long exact sequence and the parabolic stratum",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. For K sufficiently small, the Borel–Serre compactification X_K^BS is a compact real manifold with corners and X_K ↪ X_K^BS is a homotopy equivalence, giving ⋯ → H^i_c(X_K, ℤ/p^m) → H^i(X_K, ℤ/p^m) → H^i(X_K^BS ∖ X_K, ℤ/p^m) → ⋯. For K^P = K ∩ P(𝔸_f) there is an open embedding X^P_{K^P} ↪ X_K^BS ∖ X_K, hence maps H^i_c(X^P_{K^P}, ℤ/p^m) → H^i(X_K^BS ∖ X_K, ℤ/p^m) → H^i(X^P_{K^P}, ℤ/p^m); with K^M = K^P ∩ M(𝔸_f) (assumed equal to the image of K^P), pullback along the section X^M_{K^M} ↪ X^P_{K^P} (printed '→ K^P_{K^P}'; sourceIssues E10) gives H^i(X^P_{K^P}) → H^i(X^M_{K^M}), and the resulting diagram with H^i_c(X^M_{K^M}) → H^i_c(X^P_{K^P}) commutes. The interior cohomology is H^i_!(X^M_{K^M}, ℤ/p^m) = im(H^i_c(X^M_{K^M}, ℤ/p^m) → H^i(X^M_{K^M}, ℤ/p^m)).",
+   "locator": "§5.2, pp. 1039–1041",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.2",
+    "ArithmeticLocallySymmetricSpaces:ALS.4"
+   ],
+   "note": "ALS.2 (Borel–Serre and homotopy equivalence) and ALS.4 (the triangle RΓ_c → RΓ → RΓ_∂ and the Levi strata).",
+   "id": "PAPER-SCHOLZE-15/91"
+  },
+  {
+   "kind": "construction",
+   "name": "The Hecke algebras 𝕋_{K^{S^+}}, 𝕋_{K^{P,S^+}}, 𝕋_{K^{M,S^+}}, the unnormalized Satake transform and their actions on boundary cohomology",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. 𝕋_{K^{S^+}} = ℤ_p[G_0(𝔸^{S^+}_{F^+,f})//K^{S^+}], 𝕋_{K^{P,S^+}} = ℤ_p[P_0(𝔸^{S^+}_{F^+,f})//K^{P,S^+}], 𝕋_{K^{M,S^+}} = ℤ_p[M_0(𝔸^{S^+}_{F^+,f})//K^{M,S^+}] (P = Res P_0, M_0 = Res_{F/F^+}GL_n). Restriction of functions 𝕋_{K^{S^+}} → 𝕋_{K^{P,S^+}} followed by integration along unipotent fibres 𝕋_{K^{P,S^+}} → 𝕋_{K^{M,S^+}} is the unnormalized Satake transform. 𝕋_{K^{S^+}} acts on H^i(X_K^BS ∖ X_K, ℤ/p^m); 𝕋_{K^{P,S^+}} → Hom(H^i_c(X^P_{K^P}), H^i(X^P_{K^P})) and 𝕋_{K^{M,S^+}} → Hom(H^i_c(X^M_{K^M}), H^i(X^M_{K^M})) (independent of whether one acts on H_c or H), and 𝕋_{K^{M,S^+}} → End(H^i_!(X^M_{K^M}, ℤ/p^m)) has the same kernel as the latter map.",
+   "locator": "§5.2, pp. 1039–1040",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.3",
+    "ArithmeticLocallySymmetricSpaces:ALS.4",
+    "TorsionCohomologyInfrastructure:TC.3"
+   ],
+   "note": "ALS.4 compares the boundary Hecke action with parabolic induction and Satake transforms; TC.3 calculates it through the Levi Satake map.",
+   "id": "PAPER-SCHOLZE-15/92"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 5.2.3 and Corollary 5.2.4: compatibility of the boundary Hecke action with the Levi",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. Lemma 5.2.3: the diagram with rows 𝕋_{K^{S^+}} → End(H^i(X_K^BS ∖ X_K, ℤ/p^m)), 𝕋_{K^{P,S^+}} → Hom(H^i_c(X^P_{K^P}), H^i(X^P_{K^P})), 𝕋_{K^{M,S^+}} → Hom(H^i_c(X^M_{K^M}), H^i(X^M_{K^M})) and the restriction/integration and cohomological maps as columns commutes. Corollary 5.2.4: with 𝕋̄_{K^{S^+}} the image of 𝕋_{K^{S^+}} in End(H^i(X_K^BS ∖ X_K, ℤ/p^m)) and 𝕋̄_{K^{M,S^+}} the image of 𝕋_{K^{M,S^+}} in End(H^i_!(X^M_{K^M}, ℤ/p^m)), the unnormalized Satake transform induces a commutative square of ℤ_p-algebras 𝕋_{K^{S^+}} → 𝕋̄_{K^{S^+}} → 𝕋̄_{K^{M,S^+}}.",
+   "locator": "§5.2, Lemma 5.2.3 and Corollary 5.2.4, p. 1041",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3",
+    "ArithmeticLocallySymmetricSpaces:ALS.4"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/93"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 5.2.5(i): the Satake transform to the Siegel Levi for Sp_{2n} and the factorization of the Hecke polynomial",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. Let F be totally real (v = v^+ ∉ S). The unnormalized Satake transform 𝕋_v[q_v^{1/2}] ≅ ℤ_p[q_v^{1/2}][X_1^{±1}, …, X_n^{±1}]^{S_n⋉(ℤ/2)^n} → 𝕋_{K_v^M}[q_v^{1/2}] ≅ ℤ_p[q_v^{1/2}][X_1^{±1}, …, X_n^{±1}]^{S_n} sends {X_1^{±1}, …, X_n^{±1}} to {(q_v^{(n+1)/2}X_1)^{±1}, …, (q_v^{(n+1)/2}X_n)^{±1}}. With T^M_{i,v} the i-th elementary symmetric polynomial in X_1, …, X_n, q_v^{i(n+1)/2}T^M_{i,v} ∈ 𝕋_{K_v^M}, and 1 − T_{1,v}X + T_{2,v}X² − ⋯ − T_{2n+1,v}X^{2n+1} maps to (1 − X)·(1 − q_v^{(n+1)/2}T^M_{1,v}X + ⋯ + (−1)^n q_v^{n(n+1)/2}T^M_{n,v}X^n)·(1 − q_v^{−(n+1)/2}(T^M_{n−1,v}/T^M_{n,v})X + ⋯ + (−1)^n q_v^{−n(n+1)/2}(1/T^M_{n,v})X^n).",
+   "locator": "§5.2, Lemma 5.2.5(i), p. 1042",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.3"
+   ],
+   "note": "TC.3: 'Prove polynomial identities relating Levi factors, contragredients and character twists to the ambient Hecke polynomial'.",
+   "id": "PAPER-SCHOLZE-15/94"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 5.2.5(ii)–(iii): the Satake transform to the Siegel Levi for the unitary group",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. Let F be CM, v ∉ S over v^+ ∉ S^+. (ii) If v^+ splits (v̄ the conjugate place, q_{v^+} = q_v), the unnormalized Satake transform ℤ_p[q_v^{1/2}][X_1^{±1}, …, X_{2n}^{±1}]^{S_{2n}} → ℤ_p[q_v^{1/2}][X_1^{±1}, …, X_n^{±1}, Y_1^{±1}, …, Y_n^{±1}]^{S_n×S_n} sends {X_1, …, X_{2n}} to {q_v^{n/2}X_1, …, q_v^{n/2}X_n, q_v^{−n/2}Y_1, …, q_v^{−n/2}Y_n}; with T^M_{i,v} (resp. T^M_{i,v̄}) the i-th elementary symmetric polynomial in X_1, …, X_n (resp. Y_1^{-1}, …, Y_n^{-1}), q_v^{i(n+1)/2}T^M_{i,v} ∈ 𝕋_{K^M_{v^+}}, and 1 − q_v^{1/2}T_{1,v}X + q_vT_{2,v}X² − ⋯ − q_v^nT_{2n,v}X^{2n} ↦ (1 − q_v^{(n+1)/2}T^M_{1,v}X + ⋯ + (−1)^n q_v^{n(n+1)/2}T^M_{n,v}X^n)·(1 − q_v^{−(n−1)/2}(T^M_{n−1,v̄}/T^M_{n,v̄})X + ⋯ + (−1)^n q_v^{−n(n−1)/2}(1/T^M_{n,v̄})X^n). (iii) If v is inert (q_v = q_{v^+}², q_v^{1/2} = q_{v^+}), the transform sends {X_i^{±1}} to {(q_v^{n/2}X_i)^{±1}}, T^M_{i,v} ∈ 𝕋_{K^M_{v^+}}, and the same factorization holds with v̄ replaced by v.",
+   "locator": "§5.2, Lemma 5.2.5(ii)–(iii), pp. 1042–1043",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.3"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/95"
+  },
+  {
+   "kind": "construction",
+   "name": "The polynomials P_v(X), P_v^∨(X) and P̃_v(X)",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. 𝕋_{K^{M,S^+}} = ⊗_{v∉S}𝕋_v^M with 𝕋_v^M[q_v^{1/2}] ≅ ℤ_p[q_v^{1/2}][X_1^{±1}, …, X_n^{±1}]^{S_n}; T^M_{i,v} is the i-th elementary symmetric polynomial and q_v^{i(n+1)/2}T^M_{i,v} ∈ 𝕋_v^M. P_v(X) = 1 − q_v^{(n+1)/2}T^M_{1,v}X + q_v^{2(n+1)/2}T^M_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T^M_{n,v}X^n and P_v^∨(X) = 1 − q_v^{−(n+1)/2}(T^M_{n−1,v}/T^M_{n,v})X + ⋯ + (−1)^n q_v^{−n(n+1)/2}(1/T^M_{n,v})X^n in 𝕋_v^M[X] (the polynomial with constant term 1 whose zeroes are the inverses of those of P_v). P̃_v(X) = (1 − X)P_v(X)P_v^∨(X) if F is totally real, and P̃_v(X) = P_v(X)P^∨_{v^c}(q_vX) ∈ 𝕋_{K^M_{v^+}}[X] if F is CM (v^c the conjugate place).",
+   "locator": "§5.2, the paragraph before Corollary 5.2.6, p. 1043",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.3"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/96"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 5.2.6: a determinant for the interior cohomology of the Levi, modulo an ideal I with I^{2(d+1)} = 0",
+   "statement": "Setting of §5.1: F is totally real or CM, F^+ its maximal totally real subfield; G_0 = Sp_{2n}/F^+ if F is totally real and G_0 = U/F^+ the quasisplit unitary group (a form of GL_{2n}) for F/F^+ if F is CM; G = Res_{F^+/ℚ}G_0, with the standard D, is of Hodge type and has M = Res_{F/ℚ}GL_n as a maximal Levi; G is a twisted endoscopic group of H = Res_{F/ℚ}H_0, H_0 = GL_h/F, h = 2n+1 (totally real) or 2n (CM), via the standard embedding η : ᴸG_0 ↪ ᴸRes_{F/F^+}H_0. Let d be the complex dimension of X_K. There is an ideal I ⊂ 𝕋̄_{K^{M,S^+}} = im(𝕋_{K^{M,S^+}} → End_{ℤ/p^m}(H^i_!(X^M_{K^M}, ℤ/p^m))) with I^{2(d+1)} = 0 and a continuous h-dimensional determinant D of G_{F,S} with values in A = 𝕋̄_{K^{M,S^+}}/I satisfying D(1 − X Frob_v) = P̃_v(X) for all finite v ∉ S.",
+   "locator": "§5.2, Corollary 5.2.6, p. 1044",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.2",
+    "TorsionCohomologyInfrastructure:TC.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.5"
+   ],
+   "note": "Proof: Poincaré duality reduces to H^i_c; Hochschild–Serre from completed cohomology, Corollary 4.2.2's amplitude, Theorem 4.3.1 and Corollary 5.1.11 give determinants modulo J_1, J_2 with J_i^{d+1} = 0, and a two-step filtration of the boundary gives the exponent 2(d+1).",
+   "id": "PAPER-SCHOLZE-15/97"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 5.2.7: the 2n+1 or 2n-dimensional determinant for the interior cohomology of GL_n over F",
+   "statement": "Setting of §5.2–5.4: F is totally real or CM with maximal totally real subfield F^+; n ≥ 1; h = 2n+1 and d = [F:ℚ](n²+n)/2 if F is totally real, h = 2n and d = [F^+:ℚ]n² if F is CM; S is a finite set of finite places of F stable under complex conjugation containing the places above p and those ramified over F^+; K = K_SK^S ⊂ GL_n(𝔸_{F,f}) is compact open with K^S = ∏_{v∉S} GL_n(𝒪_{F_v}); X_K = GL_n(F)∖[(GL_n(F ⊗_ℚ ℝ)/ℝ_{>0}K_∞) × GL_n(𝔸_{F,f})/K] (a stacky quotient if K is not sufficiently small); 𝕋_{F,S} = ⊗_{v∉S} ℤ_p[GL_n(F_v)//GL_n(𝒪_{F_v})]; G_{F,S} is the Galois group of the maximal extension of F unramified outside S; P_v(X) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n, with T_{i,v} the i-th elementary symmetric polynomial in the Satake variables X_1, …, X_n and q_v the residue cardinality. Let K ⊂ GL_n(𝔸_{F,f}) be sufficiently small (possible by shrinking at one v ∈ S not dividing p), of the form K_SK^S with K_S ⊂ GL_n(𝔸_{F,S}) compact open and torsion-free, and 𝕋_{F,S}(K, i, m) = im(𝕋_{F,S} → End_{ℤ/p^m}(H^i_!(X_K, ℤ/p^m))). Then there is an ideal I ⊂ 𝕋_{F,S}(K, i, m) with I^{2(d+1)} = 0 and a continuous h-dimensional determinant D̃ of G_{F,S} with values in 𝕋_{F,S}(K, i, m)/I satisfying D̃(1 − X Frob_v) = P̃_v(X) for all v ∉ S.",
+   "locator": "§5.2, Corollary 5.2.7, p. 1045",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.5",
+    "ArithmeticLocallySymmetricSpaces:ALS.0"
+   ],
+   "note": "The locally symmetric spaces and Hecke algebras for GL_n/F are ALS.0 and ALS.3 objects.",
+   "id": "PAPER-SCHOLZE-15/98"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 5.3.1: the n-dimensional determinant for the interior cohomology of GL_n, modulo J with J^{4(d+1)} = 0",
+   "statement": "Setting of §5.2–5.4: F is totally real or CM with maximal totally real subfield F^+; n ≥ 1; h = 2n+1 and d = [F:ℚ](n²+n)/2 if F is totally real, h = 2n and d = [F^+:ℚ]n² if F is CM; S is a finite set of finite places of F stable under complex conjugation containing the places above p and those ramified over F^+; K = K_SK^S ⊂ GL_n(𝔸_{F,f}) is compact open with K^S = ∏_{v∉S} GL_n(𝒪_{F_v}); X_K = GL_n(F)∖[(GL_n(F ⊗_ℚ ℝ)/ℝ_{>0}K_∞) × GL_n(𝔸_{F,f})/K] (a stacky quotient if K is not sufficiently small); 𝕋_{F,S} = ⊗_{v∉S} ℤ_p[GL_n(F_v)//GL_n(𝒪_{F_v})]; G_{F,S} is the Galois group of the maximal extension of F unramified outside S; P_v(X) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n, with T_{i,v} the i-th elementary symmetric polynomial in the Satake variables X_1, …, X_n and q_v the residue cardinality. There is an ideal J ⊂ 𝕋_{F,S}(K, i, m) with J^{4(d+1)} = 0 and a continuous n-dimensional determinant D of G_{F,S} with values in 𝕋_{F,S}(K, i, m)/J satisfying D(1 − X Frob_v) = P_v(X) for all v ∉ S.",
+   "locator": "§5.3, Theorem 5.3.1, p. 1046",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.5"
+   ],
+   "note": "TC.3: 'Build the abstract factor-separation lemma using actual auxiliary characters with the source's separation property … Include the case of nilpotent coefficient quotients'.",
+   "id": "PAPER-SCHOLZE-15/99"
+  },
+  {
+   "kind": "construction",
+   "name": "The twisted polynomials of §5.3: characters χ of odd order, P_{v,χ}, P̃_{v,χ} and the determinants D̃_χ",
+   "statement": "Setting of §5.2–5.4: F is totally real or CM with maximal totally real subfield F^+; n ≥ 1; h = 2n+1 and d = [F:ℚ](n²+n)/2 if F is totally real, h = 2n and d = [F^+:ℚ]n² if F is CM; S is a finite set of finite places of F stable under complex conjugation containing the places above p and those ramified over F^+; K = K_SK^S ⊂ GL_n(𝔸_{F,f}) is compact open with K^S = ∏_{v∉S} GL_n(𝒪_{F_v}); X_K = GL_n(F)∖[(GL_n(F ⊗_ℚ ℝ)/ℝ_{>0}K_∞) × GL_n(𝔸_{F,f})/K] (a stacky quotient if K is not sufficiently small); 𝕋_{F,S} = ⊗_{v∉S} ℤ_p[GL_n(F_v)//GL_n(𝒪_{F_v})]; G_{F,S} is the Galois group of the maximal extension of F unramified outside S; P_v(X) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n, with T_{i,v} the i-th elementary symmetric polynomial in the Satake variables X_1, …, X_n and q_v the residue cardinality. A_0 = 𝕋_{F,S}(K, i, m) (a finite ring) and A = A_0 ⊗_{ℤ_p} W(𝔽̄_p). For a continuous character χ : G_{F,S} → W(𝔽̄_p)^× of odd order prime to p, P_{v,χ}(X) = P_v(X/χ(Frob_v)), P^∨_{v,χ}(X) = P_v^∨(χ(Frob_v)X), and P̃_{v,χ}(X) = (1 − X)P_{v,χ}(X)P^∨_{v,χ}(X) (F totally real) or P_{v,χ}(X)P^∨_{v^c,χ}(q_vX) (F CM). There is a determinant D̃_χ with values in A/I_χ, I_χ^{2(d+1)} = 0, with D̃_χ(1 − X Frob_v) = P̃_{v,χ}(X) for all v ∉ S (Corollary 5.2.7 applied to twisted coefficients).",
+   "locator": "§5.3, proof of Theorem 5.3.1, pp. 1046–1047",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/100"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemmas 5.3.2–5.3.3: an auxiliary extension L_0 and factorization of the twisted determinants",
+   "statement": "Setting of §5.2–5.4: F is totally real or CM with maximal totally real subfield F^+; n ≥ 1; h = 2n+1 and d = [F:ℚ](n²+n)/2 if F is totally real, h = 2n and d = [F^+:ℚ]n² if F is CM; S is a finite set of finite places of F stable under complex conjugation containing the places above p and those ramified over F^+; K = K_SK^S ⊂ GL_n(𝔸_{F,f}) is compact open with K^S = ∏_{v∉S} GL_n(𝒪_{F_v}); X_K = GL_n(F)∖[(GL_n(F ⊗_ℚ ℝ)/ℝ_{>0}K_∞) × GL_n(𝔸_{F,f})/K] (a stacky quotient if K is not sufficiently small); 𝕋_{F,S} = ⊗_{v∉S} ℤ_p[GL_n(F_v)//GL_n(𝒪_{F_v})]; G_{F,S} is the Galois group of the maximal extension of F unramified outside S; P_v(X) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n, with T_{i,v} the i-th elementary symmetric polynomial in the Satake variables X_1, …, X_n and q_v the residue cardinality. (5.3.2) There is a finite extension L_0/F, Galois over F^+, such that for all v ∉ S split in L_0, P̄_v(X) = P̄_{v^c}(X) = (1 − X)^n (the reductions), and q_v ≡ 1 mod p if F is CM. (5.3.3) With ℓ ≠ p a sufficiently large auxiliary prime not dividing [L_0:F], S_ℓ = S ∪ {places above ℓ}, F^{cycl_ℓ} the cyclotomic ℤ_ℓ-extension and L^{∞_ℓ} the maximal pro-p extension of L_0·F^{cycl_ℓ} unramified outside S_ℓ, for any character χ : Gal(F^{cycl_ℓ}/F) ≅ ℤ_ℓ → W(𝔽̄_p)^× the determinant D̃_χ of G_{F,S_ℓ} factors over Gal(L^{∞_ℓ}/F).",
+   "locator": "§5.3, Lemmas 5.3.2–5.3.3, pp. 1047–1048",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/101"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 5.3.4 and Corollary 5.3.5: continuous interpolation g ↦ P_g of the Hecke polynomials",
+   "statement": "Setting of §5.2–5.4: F is totally real or CM with maximal totally real subfield F^+; n ≥ 1; h = 2n+1 and d = [F:ℚ](n²+n)/2 if F is totally real, h = 2n and d = [F^+:ℚ]n² if F is CM; S is a finite set of finite places of F stable under complex conjugation containing the places above p and those ramified over F^+; K = K_SK^S ⊂ GL_n(𝔸_{F,f}) is compact open with K^S = ∏_{v∉S} GL_n(𝒪_{F_v}); X_K = GL_n(F)∖[(GL_n(F ⊗_ℚ ℝ)/ℝ_{>0}K_∞) × GL_n(𝔸_{F,f})/K] (a stacky quotient if K is not sufficiently small); 𝕋_{F,S} = ⊗_{v∉S} ℤ_p[GL_n(F_v)//GL_n(𝒪_{F_v})]; G_{F,S} is the Galois group of the maximal extension of F unramified outside S; P_v(X) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n, with T_{i,v} the i-th elementary symmetric polynomial in the Satake variables X_1, …, X_n and q_v the residue cardinality. (5.3.4) There is a unique continuous function g ↦ P_g : Gal(L^{∞_ℓ}/F) ∖ Gal(L^{∞_ℓ}/F^{cycl_ℓ}) → (A_0/I_0)[X] with P_{Frob_v} = P_v for all v ∉ S_ℓ. (5.3.5) There is a unique continuous function g ↦ P_g : G_{F,S} → (A_0/I_0)[X] with P_{Frob_v} = P_v for all v ∉ S (I_0 the nilpotent ideal of the proof).",
+   "locator": "§5.3, Lemma 5.3.4 and Corollary 5.3.5, pp. 1048–1049",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/102"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemmas 5.3.6–5.3.7: the universal twisted determinant over A[T^{±1}]",
+   "statement": "Setting of §5.2–5.4: F is totally real or CM with maximal totally real subfield F^+; n ≥ 1; h = 2n+1 and d = [F:ℚ](n²+n)/2 if F is totally real, h = 2n and d = [F^+:ℚ]n² if F is CM; S is a finite set of finite places of F stable under complex conjugation containing the places above p and those ramified over F^+; K = K_SK^S ⊂ GL_n(𝔸_{F,f}) is compact open with K^S = ∏_{v∉S} GL_n(𝒪_{F_v}); X_K = GL_n(F)∖[(GL_n(F ⊗_ℚ ℝ)/ℝ_{>0}K_∞) × GL_n(𝔸_{F,f})/K] (a stacky quotient if K is not sufficiently small); 𝕋_{F,S} = ⊗_{v∉S} ℤ_p[GL_n(F_v)//GL_n(𝒪_{F_v})]; G_{F,S} is the Galois group of the maximal extension of F unramified outside S; P_v(X) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n, with T_{i,v} the i-th elementary symmetric polynomial in the Satake variables X_1, …, X_n and q_v the residue cardinality. With G = G_{F,S} and q_g the cyclotomic character value: (5.3.6) there is an ideal I ⊂ A[T^{±1}] containing I_0·A[T^{±1}] with I^{4(d+1)} = 0 and an h-dimensional determinant D̃_I : A[G][V^{±1}] → A[T^{±1}]/I with D̃_I(1 − XV^kg) = (1 − X)P_g(X/T^k)P_g^∨(T^kX) if F is totally real, resp. P_g(X/T^k)P^∨_{g^c}(T^kq_gX) if F is CM, for all g ∈ G, k ∈ ℤ. (5.3.7) There is an ideal J ⊂ A with I_0·A ⊂ J, J^{4(d+1)} = 0, and an h-dimensional determinant D̃ : A[G][V^{±1}] → (A/J)[T^{±1}] with the same formulas.",
+   "locator": "§5.3, Lemmas 5.3.6–5.3.7, pp. 1050–1052",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/103"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 5.3.8 (with Remark 5.3.9): extracting determinants from a twisted product determinant",
+   "statement": "Let G be a group and R a ring. For m ∈ ℤ let g ↦ P_g^{(m)}(X) : G → R[X] take values in polynomials of degree n_m with constant term 1, n_m = 0 for almost all m, and n = Σ_m n_m. Assume there is an n-dimensional determinant D̃ : R[G][V^{±1}] → R[T^{±1}] with D̃(1 − V^kXg) = ∏_{m∈ℤ} P_g^{(m)}(T^{km}X) in R[T^{±1}][X] for all g ∈ G, k ∈ ℤ. Then for every m there is an n_m-dimensional determinant D^{(m)} : R[G] → R with D^{(m)}(1 − Xg) = P_g^{(m)}(X) for all g ∈ G. (Remark 5.3.9: if ⊕_m π_m ⊗ χ^m exists as a representation of G × ℤ for every character χ of ℤ, then every π_m exists.)",
+   "locator": "§5.3, Lemma 5.3.8 and Remark 5.3.9, pp. 1052–1053",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "note": "The abstract factor-separation lemma TC.3 plans; R[G][V^{±1}] = R[G × ℤ].",
+   "id": "PAPER-SCHOLZE-15/104"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 5.3.10: uniqueness of the decomposition of a power series by T-weight",
+   "statement": "Let S be a commutative ring and Q ∈ S[T^{±1}][[X]] with Q ≡ 1 mod X. There is at most one way to write Q = ∏_{m∈ℤ} Q_m with Q_m ∈ S[[XT^m]], Q_m ≡ 1 mod X, almost all equal to 1. If Q ∈ S[T^{±1}][X], then all Q_m ∈ S[XT^m].",
+   "locator": "§5.3, Lemma 5.3.10, p. 1053",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/105"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemmas 5.3.11–5.3.12: the multiplicative maps D_0^{(m)}",
+   "statement": "In the situation of Lemma 5.3.8: (5.3.11) for any R-algebra S there are unique multiplicative maps D_0^{(m)} : 1 + US[G][[U]] → 1 + US[[U]] with D̃(f(XV)) = ∏_{m∈ℤ} D_0^{(m)}(f(XT^m)) in S[T^{±1}][[X]] for all f(U) ∈ 1 + US[G][[U]]; they satisfy D_0^{(m)}(1 − U^axg) = P_g^{(m)}(U^ax) for a ≥ 1, x ∈ S, g ∈ G, and map 1 + US[G][U] into 1 + US[U]. (5.3.12) For a nilpotent ideal I ⊂ S and f ∈ 1 + US[G][U] with f ≡ 1 mod I and f|_{U=1} = 1, D_0^{(m)}(f)|_{U=1} = 1.",
+   "locator": "§5.3, Lemmas 5.3.11–5.3.12, pp. 1054–1056",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "note": "",
+   "id": "PAPER-SCHOLZE-15/106"
+  },
+  {
+   "kind": "theorem",
+   "name": "Lemma 5.3.13: multiplicative polynomial laws decompose into homogeneous ones",
+   "statement": "Let R[G] → R be a multiplicative R-polynomial law. Then for some integer N there is a decomposition R = R_0 × ⋯ × R_N × R_∞ into direct factors such that for 0 ≤ d ≤ N the induced multiplicative R_d-polynomial law R_d[G] → R_d is homogeneous of degree d (a determinant of dimension d), and R_∞[G] → R_∞ is constantly 0.",
+   "locator": "§5.3, Lemma 5.3.13, pp. 1056–1057",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0",
+    "TorsionCohomologyInfrastructure:TC.3"
+   ],
+   "note": "IHG.0 plans homogeneous and multiplicative polynomial laws (Roby, Chenevier); the decomposition by degree is part of that theory as used in TC.3's factor extraction.",
+   "id": "PAPER-SCHOLZE-15/107"
+  },
+  {
+   "kind": "construction",
+   "name": "The coefficient systems ℳ_{ξ,K} and the Hecke algebras 𝕋_{F,S}(K, ξ, i, m)",
+   "statement": "Setting of §5.2–5.4: F is totally real or CM with maximal totally real subfield F^+; n ≥ 1; h = 2n+1 and d = [F:ℚ](n²+n)/2 if F is totally real, h = 2n and d = [F^+:ℚ]n² if F is CM; S is a finite set of finite places of F stable under complex conjugation containing the places above p and those ramified over F^+; K = K_SK^S ⊂ GL_n(𝔸_{F,f}) is compact open with K^S = ∏_{v∉S} GL_n(𝒪_{F_v}); X_K = GL_n(F)∖[(GL_n(F ⊗_ℚ ℝ)/ℝ_{>0}K_∞) × GL_n(𝔸_{F,f})/K] (a stacky quotient if K is not sufficiently small); 𝕋_{F,S} = ⊗_{v∉S} ℤ_p[GL_n(F_v)//GL_n(𝒪_{F_v})]; G_{F,S} is the Galois group of the maximal extension of F unramified outside S; P_v(X) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n, with T_{i,v} the i-th elementary symmetric polynomial in the Satake variables X_1, …, X_n and q_v the residue cardinality. Fix an algebraic representation ξ of Res_{𝒪_F/ℤ}GL_n on a finite free ℤ_p-module M_ξ (coefficients later extended to ℤ̄_p); it defines a local system ℳ_{ξ,K} of ℤ_p-modules on X_K for every K. By the Satake isomorphism 𝕋_v[q_v^{1/2}] ≅ ℤ_p[q_v^{1/2}][X_1^{±1}, …, X_n^{±1}]^{S_n}, and q_v^{i(n+1)/2}T_{i,v} ∈ 𝕋_v. 𝕋_{F,S}(K, ξ, i, m) = im(𝕋_{F,S} → End_{ℤ̄_p/p^m}(H^i(X_K, ℳ_{ξ,K}/p^m))).",
+   "locator": "§5.4, pp. 1057–1058",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.1",
+    "ArithmeticLocallySymmetricSpaces:ALS.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.3"
+   ],
+   "note": "ALS.1: local systems from algebraic representations with stable lattices.",
+   "id": "PAPER-SCHOLZE-15/108"
+  },
+  {
+   "kind": "theorem",
+   "name": "Theorem 5.4.1: Galois determinants for torsion in the cohomology of GL_n over totally real and CM fields",
+   "statement": "Setting of §5.2–5.4: F is totally real or CM with maximal totally real subfield F^+; n ≥ 1; h = 2n+1 and d = [F:ℚ](n²+n)/2 if F is totally real, h = 2n and d = [F^+:ℚ]n² if F is CM; S is a finite set of finite places of F stable under complex conjugation containing the places above p and those ramified over F^+; K = K_SK^S ⊂ GL_n(𝔸_{F,f}) is compact open with K^S = ∏_{v∉S} GL_n(𝒪_{F_v}); X_K = GL_n(F)∖[(GL_n(F ⊗_ℚ ℝ)/ℝ_{>0}K_∞) × GL_n(𝔸_{F,f})/K] (a stacky quotient if K is not sufficiently small); 𝕋_{F,S} = ⊗_{v∉S} ℤ_p[GL_n(F_v)//GL_n(𝒪_{F_v})]; G_{F,S} is the Galois group of the maximal extension of F unramified outside S; P_v(X) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n, with T_{i,v} the i-th elementary symmetric polynomial in the Satake variables X_1, …, X_n and q_v the residue cardinality. There is an integer N = N([F:ℚ], n), depending only on [F:ℚ] and n, such that for any compact open K = K_SK^S ⊂ GL_n(𝔸_{F,f}) as above, any algebraic representation ξ and any integers i, m ≥ 0: there is an ideal I ⊂ 𝕋_{F,S}(K, ξ, i, m) with I^N = 0 and an n-dimensional continuous determinant D of G_{F,S} with values in 𝕋_{F,S}(K, ξ, i, m)/I satisfying D(1 − X Frob_v) = P_v(X) for all v ∉ S.",
+   "locator": "§5.4, Theorem 5.4.1, p. 1058",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.2",
+    "TorsionCohomologyInfrastructure:TC.3",
+    "TorsionCohomologyInfrastructure:TC.4",
+    "IntegralHeckeAndGaloisDeterminants:IHG.5"
+   ],
+   "note": "The main theorem. Following the accepted extractions PAPER-ALLEN-ETAL-23/72, PAPER-CARAIANI-NEWTON-23/thm-2-1-24 and PAPER-CARAIANI-SCHOLZE-24/2, which cite it, it is planned by TC.2–TC.4 with IHG.5's nilpotent descent. TorsionCohomologyInfrastructure's summary says formalizing this final theorem is 'not an additional requirement'; that is a scope statement about the roadmap's target, while TC.4's contract (§5.4: 'compatibility checks and reusable specialization infrastructure') and IHG.5 plan exactly its assembly. Proof: Hochschild–Serre along a normal K′ ⊂ K on which ℳ_{ξ,K′}/p^m is trivial reduces to K small and ξ trivial; the Borel–Serre sequence splits the Hecke action into the interior part (Theorem 5.3.1) and the boundary part, which is expressed through the locally symmetric spaces of GL_{n′}, n′ < n, and handled by induction (left in the paper as 'an easy exercise', citing Caraiani–Le Hung §3, so the TC.3 design has to write it out); the two are glued along a square-zero kernel by Chenevier, Corollary 1.14. The totally real case assumes Arthur (ML.4); see Remark 5.4.6.",
+   "id": "PAPER-SCHOLZE-15/109"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 5.4.2 (= Theorem 1.0.4): Galois representations for regular L-algebraic cuspidal automorphic representations of GL_n",
+   "statement": "Let F be totally real or CM and π a cuspidal automorphic representation of GL_n(𝔸_F) with π_∞ regular L-algebraic and π_v unramified at all finite v ∉ S. Then there is a unique continuous semisimple σ_π : G_{F,S} → GL_n(ℚ̄_p) such that for all finite v ∉ S the Satake parameters of π_v agree with the eigenvalues of σ_π(Frob_v).",
+   "locator": "§5.4, Corollary 5.4.2, p. 1059; Theorem 1.0.4, p. 948",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.4"
+   ],
+   "note": "The theorem of Harris–Lan–Taylor–Thorne, which Scholze reproves via Theorem 5.4.1; AG2.4 plans the HLTT route (its text says it 'does not use Scholze's torsion Hecke interpolation'), so the statement is planned but not this proof.",
+   "id": "PAPER-SCHOLZE-15/110"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 5.4.3 (the precise form of Theorem 1.0.3): mod p Galois representations for Hecke eigensystems in torsion cohomology",
+   "statement": "Setting of §5.2–5.4: F is totally real or CM with maximal totally real subfield F^+; n ≥ 1; h = 2n+1 and d = [F:ℚ](n²+n)/2 if F is totally real, h = 2n and d = [F^+:ℚ]n² if F is CM; S is a finite set of finite places of F stable under complex conjugation containing the places above p and those ramified over F^+; K = K_SK^S ⊂ GL_n(𝔸_{F,f}) is compact open with K^S = ∏_{v∉S} GL_n(𝒪_{F_v}); X_K = GL_n(F)∖[(GL_n(F ⊗_ℚ ℝ)/ℝ_{>0}K_∞) × GL_n(𝔸_{F,f})/K] (a stacky quotient if K is not sufficiently small); 𝕋_{F,S} = ⊗_{v∉S} ℤ_p[GL_n(F_v)//GL_n(𝒪_{F_v})]; G_{F,S} is the Galois group of the maximal extension of F unramified outside S; P_v(X) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n, with T_{i,v} the i-th elementary symmetric polynomial in the Satake variables X_1, …, X_n and q_v the residue cardinality. Let ψ : 𝕋_{F,S} → 𝔽̄_p be a system of Hecke eigenvalues with H^i(X_K, ℳ_{ξ,K} ⊗_{ℤ̄_p} 𝔽̄_p)[ψ] ≠ 0. Then there is a unique continuous semisimple σ_ψ : G_{F,S} → GL_n(𝔽̄_p) with det(1 − X Frob_v | σ_ψ) = 1 − ψ(q_v^{(n+1)/2}T_{1,v})X + ψ(q_v^{2(n+1)/2}T_{2,v})X² − ⋯ + (−1)^nψ(q_v^{n(n+1)/2}T_{n,v})X^n for all finite v ∉ S.",
+   "locator": "§5.4, Corollary 5.4.3, p. 1060",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.4",
+    "IntegralHeckeAndGaloisDeterminants:IHG.5",
+    "IntegralHeckeAndGaloisDeterminants:IHG.1"
+   ],
+   "note": "As PAPER-ALLEN-ETAL-23/69: the determinant specializes to 𝔽̄_p (IHG.5) and a determinant over an algebraically closed field comes from a unique semisimple representation (IHG.1).",
+   "id": "PAPER-SCHOLZE-15/111"
+  },
+  {
+   "kind": "theorem",
+   "name": "Corollary 5.4.4 as corrected: Hecke-algebra-valued Galois representations for non-Eisenstein maximal ideals",
+   "statement": "Setting of §5.2–5.4: F is totally real or CM with maximal totally real subfield F^+; n ≥ 1; h = 2n+1 and d = [F:ℚ](n²+n)/2 if F is totally real, h = 2n and d = [F^+:ℚ]n² if F is CM; S is a finite set of finite places of F stable under complex conjugation containing the places above p and those ramified over F^+; K = K_SK^S ⊂ GL_n(𝔸_{F,f}) is compact open with K^S = ∏_{v∉S} GL_n(𝒪_{F_v}); X_K = GL_n(F)∖[(GL_n(F ⊗_ℚ ℝ)/ℝ_{>0}K_∞) × GL_n(𝔸_{F,f})/K] (a stacky quotient if K is not sufficiently small); 𝕋_{F,S} = ⊗_{v∉S} ℤ_p[GL_n(F_v)//GL_n(𝒪_{F_v})]; G_{F,S} is the Galois group of the maximal extension of F unramified outside S; P_v(X) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n, with T_{i,v} the i-th elementary symmetric polynomial in the Satake variables X_1, …, X_n and q_v the residue cardinality. Let ψ be as in Corollary 5.4.3 with σ_ψ irreducible, 𝔪 = ker ψ ⊂ 𝕋_{F,S}, 𝕋_{F,S}(K, ξ, i) = im(𝕋_{F,S} → End_{ℤ̄_p}(H^i(X_K, ℳ_{ξ,K}))), and N = N([F:ℚ], n) as in Theorem 5.4.1. Then there is an ideal I ⊂ 𝕋_{F,S}(K, ξ, i) with I^N = 0 and a unique continuous representation σ_𝔪 : G_{F,S} → GL_n(𝕋_{F,S}(K, ξ, i)_𝔪/I) such that for all finite v ∉ S, det(1 − X Frob_v | σ_𝔪) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n (printed with σ_ψ on the left; sourceIssues E11).",
+   "locator": "§5.4, Corollary 5.4.4, p. 1060",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1",
+    "IntegralHeckeAndGaloisDeterminants:IHG.5",
+    "TorsionCohomologyInfrastructure:TC.4"
+   ],
+   "note": "IHG.1 reconstructs a representation over a complete local ring from a residually absolutely irreducible determinant; uniformity of N in m is what allows passage to 𝕋_{F,S}(K, ξ, i).",
+   "id": "PAPER-SCHOLZE-15/112"
+  },
+  {
+   "kind": "theorem",
+   "name": "Remark 5.4.5: the Calegari–Geraghty existence statement (Conjecture B, modulo a nilpotent ideal)",
+   "statement": "Setting of §5.2–5.4: F is totally real or CM with maximal totally real subfield F^+; n ≥ 1; h = 2n+1 and d = [F:ℚ](n²+n)/2 if F is totally real, h = 2n and d = [F^+:ℚ]n² if F is CM; S is a finite set of finite places of F stable under complex conjugation containing the places above p and those ramified over F^+; K = K_SK^S ⊂ GL_n(𝔸_{F,f}) is compact open with K^S = ∏_{v∉S} GL_n(𝒪_{F_v}); X_K = GL_n(F)∖[(GL_n(F ⊗_ℚ ℝ)/ℝ_{>0}K_∞) × GL_n(𝔸_{F,f})/K] (a stacky quotient if K is not sufficiently small); 𝕋_{F,S} = ⊗_{v∉S} ℤ_p[GL_n(F_v)//GL_n(𝒪_{F_v})]; G_{F,S} is the Galois group of the maximal extension of F unramified outside S; P_v(X) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n, with T_{i,v} the i-th elementary symmetric polynomial in the Satake variables X_1, …, X_n and q_v the residue cardinality. Corollary 5.4.4 holds, with the same proof, with 𝕋_{F,S}(K, ξ, i) replaced by 𝕋_{F,S}(K, ξ, i)′ = im(𝕋_{F,S} → ⊕_m End_{ℤ̄_p/p^m}(H^i(X_K, ℳ_{ξ,K}/p^m))) or by 𝕋_{F,S}(K, ξ) = im(𝕋_{F,S} → ⊕_{i,m} End_{ℤ̄_p/p^m}(H^i(X_K, ℳ_{ξ,K}/p^m))). This gives the Galois representations of Calegari–Geraghty's Conjecture B up to a nilpotent ideal of bounded nilpotence degree, without their expected local properties.",
+   "locator": "§5.4, Remark 5.4.5, p. 1061",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.4",
+    "IntegralHeckeAndGaloisDeterminants:IHG.2",
+    "IntegralHeckeAndGaloisDeterminants:IHG.5"
+   ],
+   "note": "IHG.2: Hecke algebras acting on all degrees of a bounded complex. The local properties of Conjecture B are not claimed.",
+   "id": "PAPER-SCHOLZE-15/113"
+  },
+  {
+   "kind": "theorem",
+   "name": "Remark 5.4.6: the unconditional range",
+   "statement": "Setting of §5.2–5.4: F is totally real or CM with maximal totally real subfield F^+; n ≥ 1; h = 2n+1 and d = [F:ℚ](n²+n)/2 if F is totally real, h = 2n and d = [F^+:ℚ]n² if F is CM; S is a finite set of finite places of F stable under complex conjugation containing the places above p and those ramified over F^+; K = K_SK^S ⊂ GL_n(𝔸_{F,f}) is compact open with K^S = ∏_{v∉S} GL_n(𝒪_{F_v}); X_K = GL_n(F)∖[(GL_n(F ⊗_ℚ ℝ)/ℝ_{>0}K_∞) × GL_n(𝔸_{F,f})/K] (a stacky quotient if K is not sufficiently small); 𝕋_{F,S} = ⊗_{v∉S} ℤ_p[GL_n(F_v)//GL_n(𝒪_{F_v})]; G_{F,S} is the Galois group of the maximal extension of F unramified outside S; P_v(X) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n, with T_{i,v} the i-th elementary symmetric polynomial in the Satake variables X_1, …, X_n and q_v the residue cardinality. The results of §5 rest on Arthur (resp. Mok), conditional on the stabilization of the twisted trace formula. By Shin's results (Goldring's appendix; cf. Morel, Corollary 8.5.3) all results of §5 are unconditional if (i) F is CM and contains an imaginary-quadratic field, and (ii) S is the pullback of a finite set S_ℚ of finite places of ℚ containing p and the places where F/ℚ ramifies; in particular for F imaginary quadratic they hold as stated. Theorem 4.1.1 and Chapter 4 hold verbatim for Shimura varieties of Hodge type attached to unitary similitude groups, so the argument of Chapter 5 applies to them. By a patching argument (Harris–Taylor, Theorem VII.1.9) Corollary 5.4.2 follows for general totally real or CM F, still assuming S comes from a set S_ℚ containing the places where F/ℚ ramifies.",
+   "locator": "§5.4, Remark 5.4.6, pp. 1061–1062",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "PerfectoidShimuraVarieties:S2",
+    "TorsionCohomologyInfrastructure:TC.4"
+   ],
+   "note": "The CM/unitary branch of TorsionCohomologyInfrastructure consumes exactly ET/AG2's constructed characteristic-zero package; TC's README records that 'Scholze's published Theorem 1.0.3 already distinguishes the branches'.",
+   "id": "PAPER-SCHOLZE-15/114"
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "L. Illusie, Complexe cotangent et déformations II, Lecture Notes in Mathematics 283, Springer, 1972, Chapter VII (Déformations équivariantes de G-schémas et déformations de schémas en groupes, pp. 180–244)",
+   "link": "doi:10.1007/BFb0059575",
+   "why": "Theorem 3.2.1 is Illusie's obstruction theory for lifting a morphism of flat commutative group schemes, stated through the co-Lie complexes ℓ̌_H, ℓ̌_G; the atlas has cotangent complexes of rings (DerivedDeRhamCohomology DD.0) but not this equivariant theory. The book is doi:10.1007/BFb0059573."
+  },
+  {
+   "citation": "L. Fargues, A. Genestier and V. Lafforgue, L'isomorphisme entre les tours de Lubin–Tate et de Drinfeld, Progress in Mathematics 262, Birkhäuser, 2008 (Fargues' part, Théorème II.1.1)",
+   "link": "doi:10.1007/978-3-7643-8456-2",
+   "why": "The proof of Theorem 3.3.18(vi) bounds the isomorphism ω ≅ π_HT*ω_Fl integrally (up to p^{g/(p−1)}, for p ≠ 2) by Fargues' Théorème II.1.1 on the Hodge–Tate map of p-divisible groups; the paper also gives an alternative induction on g."
+  },
+  {
+   "citation": "S. W. Shin, On the cohomological base change for unitary similitude groups, appendix to W. Goldring, Galois representations associated to holomorphic limits of discrete series, Compositio Math. 150 (2014), 191–228",
+   "link": "doi:10.1112/S0010437X13007355",
+   "why": "Remark 5.4.6: Shin's appendix makes all of §5 unconditional for F CM containing an imaginary quadratic field and S pulled back from ℚ; EndoscopicTransferAndUnitaryTraceComparison names Shin 2011, not this base-change result for unitary similitude groups."
+  },
+  {
+   "citation": "S. Morel, On the cohomology of certain noncompact Shimura varieties, Annals of Mathematics Studies 173, Princeton University Press, 2010 (with an appendix by R. Kottwitz), Corollary 8.5.3",
+   "link": "doi:10.1515/9781400835393",
+   "why": "The alternative source cited in Remark 5.4.6 for the unconditional unitary base change."
+  },
+  {
+   "citation": "A. Caraiani and B. V. Le Hung, On the image of complex conjugation in certain Galois representations, Compositio Math. 152 (2016), 1476–1488",
+   "link": "doi:10.1112/S0010437X16007016",
+   "why": "Cited (as arXiv:1409.2158) in the proof of Theorem 5.4.1 for expressing the boundary cohomology of GL_n through the locally symmetric spaces of smaller GL_{n′}, the step the paper leaves as an exercise."
+  }
+ ],
+ "routes": [
+  {
+   "route": "source",
+   "roadmap": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "stages": [
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6"
+   ],
+   "items": [
+    "PAPER-SCHOLZE-15/27"
+   ],
+   "reason": "R07.6 plans 'the deformation-theoretic tangent and obstruction calculations' for finite flat and p-divisible groups and already depends on DerivedDeRhamCohomology DD.0–DD.1 for cotangent complexes. Illusie's obstruction class o ∈ Ext^1(H, K ⊗^𝕃 J) for lifting a morphism u : H → G of flat, finitely presented commutative group schemes along a square-zero thickening, with its functoriality in the thickening (Theorem 3.2.1), is exactly such a calculation, one level more general than p-divisible groups. It belongs inside that layer, not in a new roadmap; the only consumer here is the canonical-subgroup lifting lemma routed to T3, and Remark 3.2.3 shows T3 could instead use DD.0's deformation theory of rings with worse constants."
+  },
+  {
+   "route": "source",
+   "roadmap": "HodgeTateAndCanonicalSubgroups",
+   "stages": [
+    "HodgeTateAndCanonicalSubgroups:T0",
+    "HodgeTateAndCanonicalSubgroups:T2",
+    "HodgeTateAndCanonicalSubgroups:T3",
+    "HodgeTateAndCanonicalSubgroups:T4"
+   ],
+   "items": [
+    "PAPER-SCHOLZE-15/28",
+    "PAPER-SCHOLZE-15/30",
+    "PAPER-SCHOLZE-15/57",
+    "PAPER-SCHOLZE-15/29",
+    "PAPER-SCHOLZE-15/31",
+    "PAPER-SCHOLZE-15/32",
+    "PAPER-SCHOLZE-15/33",
+    "PAPER-SCHOLZE-15/34",
+    "PAPER-SCHOLZE-15/35",
+    "PAPER-SCHOLZE-15/39",
+    "PAPER-SCHOLZE-15/40",
+    "PAPER-SCHOLZE-15/41",
+    "PAPER-SCHOLZE-15/56",
+    "PAPER-SCHOLZE-15/59",
+    "PAPER-SCHOLZE-15/61"
+   ],
+   "reason": "T3 plans canonical subgroups with quantitative bounds on Hasse neighbourhoods, and PerfectoidShimuraVarieties S1 ('The Siegel construction') consumes T3–T4 for the Siegel tower; but T3's text is written for the Hilbert application of BHW and takes its Hasse neighbourhoods from AdicSpacesPartII R2, HilbertModularVarietiesAndShimuraCurves H2 and ShimuraCompactifications C6, none of which constructs the Hasse invariant of a g-dimensional abelian scheme. Scholze §3.2.1 is the source for the Siegel case: the Hasse invariant Ha(A/S) from Verschiebung, Lemma 3.2.5 (invertible exactly on the ordinary locus) and its extension to the minimal compactification, the lifting lemma Corollary 3.2.2 (with Remark 3.2.3's elementary alternative), and Lemma 3.3.2 on Ha at boundary points, which are missing; and Lemma 3.2.4, Corollary 3.2.6, Definition 3.2.7 and Proposition 3.2.8, which T3 plans, with the explicit constants ε < 1/2 and p^{1−ε}. Theorem 3.2.15 (Frobenius lifts and the anticanonical open immersions, T3/T4), Proposition 3.3.1 (Hodge–Tate filtration through the Raynaud extension, T0) and Lemma 3.3.4 (the period map on points, T2) are planned items for which the paper is the natural source."
+  },
+  {
+   "route": "source",
+   "roadmap": "AutomorphicFormsOnReductiveGroups",
+   "stages": [
+    "AutomorphicFormsOnReductiveGroups:AF.4",
+    "AutomorphicFormsOnReductiveGroups:AF.5"
+   ],
+   "items": [
+    "PAPER-SCHOLZE-15/80",
+    "PAPER-SCHOLZE-15/81"
+   ],
+   "reason": "AF.4 defines infinitesimal characters and cohomological representations and AF.5 proves the dictionary between automorphic representations and classical modular forms for GL_1 and GL_2/ℚ. §5.1 needs the next case of both: the unique discrete series π_k of Sp_{2n}(ℝ) or U(n,n) with minimal K-type χ^k and its infinitesimal character (Proposition 5.1.1), and the identification of the Hecke eigensystems in weight-k holomorphic cusp forms H^0(X*_K, ω^k ⊗ ℐ) with cuspidal π having π_∞ ≅ π_k, semisimple by the Petersson product. These are extensions inside those layers' direction, not a new roadmap; ET.1's unitary pseudocoefficients do not cover the symplectic case."
+  },
+  {
+   "route": "source",
+   "roadmap": "PerfectoidShimuraVarieties",
+   "stages": [
+    "PerfectoidShimuraVarieties:S0",
+    "PerfectoidShimuraVarieties:S1",
+    "PerfectoidShimuraVarieties:S2",
+    "PerfectoidShimuraVarieties:S3"
+   ],
+   "items": [
+    "PAPER-SCHOLZE-15/26",
+    "PAPER-SCHOLZE-15/38",
+    "PAPER-SCHOLZE-15/39",
+    "PAPER-SCHOLZE-15/40",
+    "PAPER-SCHOLZE-15/41",
+    "PAPER-SCHOLZE-15/42",
+    "PAPER-SCHOLZE-15/44",
+    "PAPER-SCHOLZE-15/45",
+    "PAPER-SCHOLZE-15/46",
+    "PAPER-SCHOLZE-15/47",
+    "PAPER-SCHOLZE-15/48",
+    "PAPER-SCHOLZE-15/49",
+    "PAPER-SCHOLZE-15/50",
+    "PAPER-SCHOLZE-15/51",
+    "PAPER-SCHOLZE-15/52",
+    "PAPER-SCHOLZE-15/53",
+    "PAPER-SCHOLZE-15/54",
+    "PAPER-SCHOLZE-15/58",
+    "PAPER-SCHOLZE-15/59",
+    "PAPER-SCHOLZE-15/61",
+    "PAPER-SCHOLZE-15/62",
+    "PAPER-SCHOLZE-15/63",
+    "PAPER-SCHOLZE-15/64",
+    "PAPER-SCHOLZE-15/65",
+    "PAPER-SCHOLZE-15/66",
+    "PAPER-SCHOLZE-15/67",
+    "PAPER-SCHOLZE-15/68",
+    "PAPER-SCHOLZE-15/69",
+    "PAPER-SCHOLZE-15/70",
+    "PAPER-SCHOLZE-15/71",
+    "PAPER-SCHOLZE-15/114"
+   ],
+   "reason": "Planned items only. PerfectoidShimuraVarieties names 'Scholze's construction for Siegel/Hodge type' as its selected source but has no blueprint packet; §§3.2–3.3 and 4.1 are that construction statement by statement (the anticanonical tower, its affinoid minimal compactification, tilting to perfections, Tate traces, the Γ_1- and Γ-level extensions, the covering by translates, Theorem 3.3.18 and Theorem 4.1.1), with the published numbering and the corrections recorded here."
+  },
+  {
+   "route": "source",
+   "roadmap": "TorsionCohomologyInfrastructure",
+   "stages": [
+    "TorsionCohomologyInfrastructure:TC.0",
+    "TorsionCohomologyInfrastructure:TC.1",
+    "TorsionCohomologyInfrastructure:TC.2",
+    "TorsionCohomologyInfrastructure:TC.3",
+    "TorsionCohomologyInfrastructure:TC.4"
+   ],
+   "items": [
+    "PAPER-SCHOLZE-15/3",
+    "PAPER-SCHOLZE-15/4",
+    "PAPER-SCHOLZE-15/5",
+    "PAPER-SCHOLZE-15/6",
+    "PAPER-SCHOLZE-15/18",
+    "PAPER-SCHOLZE-15/19",
+    "PAPER-SCHOLZE-15/20",
+    "PAPER-SCHOLZE-15/21",
+    "PAPER-SCHOLZE-15/22",
+    "PAPER-SCHOLZE-15/23",
+    "PAPER-SCHOLZE-15/24",
+    "PAPER-SCHOLZE-15/25",
+    "PAPER-SCHOLZE-15/36",
+    "PAPER-SCHOLZE-15/49",
+    "PAPER-SCHOLZE-15/51",
+    "PAPER-SCHOLZE-15/53",
+    "PAPER-SCHOLZE-15/54",
+    "PAPER-SCHOLZE-15/67",
+    "PAPER-SCHOLZE-15/71",
+    "PAPER-SCHOLZE-15/72",
+    "PAPER-SCHOLZE-15/73",
+    "PAPER-SCHOLZE-15/74",
+    "PAPER-SCHOLZE-15/76",
+    "PAPER-SCHOLZE-15/77",
+    "PAPER-SCHOLZE-15/78",
+    "PAPER-SCHOLZE-15/84",
+    "PAPER-SCHOLZE-15/85",
+    "PAPER-SCHOLZE-15/89",
+    "PAPER-SCHOLZE-15/92",
+    "PAPER-SCHOLZE-15/93",
+    "PAPER-SCHOLZE-15/94",
+    "PAPER-SCHOLZE-15/95",
+    "PAPER-SCHOLZE-15/96",
+    "PAPER-SCHOLZE-15/97",
+    "PAPER-SCHOLZE-15/98",
+    "PAPER-SCHOLZE-15/99",
+    "PAPER-SCHOLZE-15/100",
+    "PAPER-SCHOLZE-15/101",
+    "PAPER-SCHOLZE-15/102",
+    "PAPER-SCHOLZE-15/103",
+    "PAPER-SCHOLZE-15/104",
+    "PAPER-SCHOLZE-15/105",
+    "PAPER-SCHOLZE-15/106",
+    "PAPER-SCHOLZE-15/107",
+    "PAPER-SCHOLZE-15/109",
+    "PAPER-SCHOLZE-15/111",
+    "PAPER-SCHOLZE-15/112",
+    "PAPER-SCHOLZE-15/113",
+    "PAPER-SCHOLZE-15/114"
+   ],
+   "reason": "Planned items only. TorsionCohomologyInfrastructure is organized around this paper (its README maps §§2–5 to TC.0–TC.4 and to the named suppliers), but no packet transcribes the source leaves; this extraction supplies them with the published locators: the perfectoid Hebbarkeitssatz and good triples (TC.0), the integral comparison ω ≅ π_HT*ω_Fl and the interpolation theorem (TC.1), Theorem 4.2.1 and the trace maps (TC.2), the boundary Satake identities and the divide-and-conquer lemmas 5.3.2–5.3.13 (TC.3), and Theorem 5.4.1 with its corollaries (TC.4)."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-SCHOLZE-15/E1",
+   "kind": "error",
+   "locator": "§2.2, Remark 2.2.4, p. 956 (arXiv v2: Remark II.2.4, p. 14)",
+   "printed": "We caution the reader that in general, the map R → S is not surjective. For an example, let R = K⟨T^{1/p^∞}⟩ for some K of characteristic 0, and look at the Zariski closed subset defined by I = (T − 1).",
+   "correction": "For every Zariski closed subset of an affinoid perfectoid space the map R → S is surjective (Zariski closed implies strongly Zariski closed).",
+   "reason": "Bhatt–Scholze prove that for a perfectoid ring and any ideal the map to the perfectoidization of the quotient is surjective, which gives surjectivity of R → S; in the example, with μ_{p^∞} ⊂ K, S = C⁰(ℤ_p, K) is a quotient of R.",
+   "affects": "a stated result",
+   "known": "Bhatt–Scholze, Prisms and prismatic cohomology, Ann. of Math. 196 (2022), doi:10.4007/annals.2022.196.3.5, Theorem 7.4 and Remark 7.5; Scholze, Étale cohomology of diamonds (arXiv:1709.07343v4), Theorem 5.8; already recorded in the atlas as PerfectoidSpaces/E26 and PerfectoidSpaces/E17",
+   "searched": [
+    "Annals of Mathematics article page (annals.math.princeton.edu/2015/182-3/p03): no erratum or corrigendum",
+    "Crossref record of 10.4007/annals.2015.182.3.3: no update or erratum relation",
+    "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties'",
+    "arXiv:1306.2070v2 (2 June 2015, 'final version'): the same text",
+    "Bhatt–Scholze, Prisms and prismatic cohomology, §7",
+    "Étale cohomology of diamonds, §5"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-15/E2",
+   "kind": "error",
+   "locator": "§2.2, Definition 2.2.6 and the sentence after it, p. 957 (arXiv v2: Definition II.2.6, p. 15)",
+   "printed": "A map 𝒵 = Spa(S, S^+) → 𝒳 = Spa(R, R^+) is strongly Zariski closed if the map R^+ → S^+ is almost surjective. Of course, something strongly Zariski closed is also Zariski closed (defined by the ideal I = ker(R → S)).",
+   "correction": "Require also that S^+ be the integral closure of the image of R^+ in S (as in Étale cohomology of diamonds, Definition 5.7(ii)); with that condition the second sentence holds.",
+   "reason": "Take R = K⟨T^{1/p^∞}⟩, R^+ the integral closure of 𝒪_K + R°° (so T ∉ R^+), S = R and S^+ = R°. Then ϖ^εR° ⊂ R°° ⊂ R^+, so R^+ → S^+ is almost surjective and the printed definition calls Spa(R, R°) → Spa(R, R^+) strongly Zariski closed; but ker(R → S) = 0 defines all of Spa(R, R^+), which contains points with |T| > 1 (a rank-two point specializing the Gauss point) not in Spa(R, R°). The paper applies the notion only with S^+ = S° (boundaries in Corollary 3.2.20, Theorems 3.3.18(ii) and 4.1.1(ii)), where the images are Zariski closed.",
+   "affects": "a stated result",
+   "known": "implicitly corrected by Étale cohomology of diamonds (arXiv:1709.07343v4), Definition 5.7(ii); already recorded in the atlas as PerfectoidSpaces/E27 and PerfectoidSpaces/E18",
+   "searched": [
+    "Annals of Mathematics article page (annals.math.princeton.edu/2015/182-3/p03): no erratum or corrigendum",
+    "Crossref record of 10.4007/annals.2015.182.3.3: no update or erratum relation",
+    "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties'",
+    "arXiv:1306.2070v2 (2 June 2015, 'final version'): the same text",
+    "Étale cohomology of diamonds, §5"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-15/E3",
+   "kind": "misprint",
+   "locator": "§3.2.2, the sentence after Lemma 3.2.13, p. 984 (arXiv v2: after Lemma III.2.13, p. 38)",
+   "printed": "In particular, 𝔛*(ε) → 𝔛* is an admissible blowup in the sense of Raynaud.",
+   "correction": "𝔛*(ε) → 𝔛* is an open formal subscheme of an admissible blow-up (the chart of the blow-up of the ideal (H̃a, p^ε) on which H̃a generates), not an admissible blow-up.",
+   "reason": "By Lemma 3.2.13, 𝔛*(ε) is locally Spf((R ⊗̂ ℤ_p^cycl)⟨u⟩/(uH̃a − p^ε)), which is one chart of the blow-up of (H̃a, p^ε); the blow-up also has the chart where p^ε generates, so the map is not proper and is not the blow-up itself.",
+   "affects": "nothing",
+   "known": "new: not corrected in print; already recorded in the atlas as AdicSpacesPartII/E13",
+   "searched": [
+    "Annals of Mathematics article page (annals.math.princeton.edu/2015/182-3/p03): no erratum or corrigendum",
+    "Crossref record of 10.4007/annals.2015.182.3.3: no update or erratum relation",
+    "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties'",
+    "arXiv:1306.2070v2 (2 June 2015, 'final version'): the same text"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-15/E4",
+   "kind": "misprint",
+   "locator": "§3.2.2, proof of Theorem 3.2.15, p. 986 (arXiv v2: p. 40)",
+   "printed": "Let us observe that it follows that F̃_{𝔛(p^{−1}ε)} and F̃_{𝔄(p^{−1}ε)} are finite and locally free of degree g(g+1)/2.",
+   "correction": "F̃_{𝔛(p^{−1}ε)} is finite locally free of degree p^{g(g+1)/2} (and F̃_{𝔄(p^{−1}ε)} of degree p^{g(g+1)/2+g}).",
+   "reason": "Modulo p^{1−ε} the maps are the relative Frobenius maps (Theorem 3.2.15(i)); on the ordinary locus 𝔛(0), smooth of relative dimension g(g+1)/2 over ℤ_p^cycl, the relative Frobenius has degree p^{g(g+1)/2}, and the degree of a finite locally free map is locally constant. Corollary 3.2.23 normalizes the traces by p^{−(m′−m)g(g+1)/2}, i.e. uses the degree p^{g(g+1)/2}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page (annals.math.princeton.edu/2015/182-3/p03): no erratum or corrigendum",
+    "Crossref record of 10.4007/annals.2015.182.3.3: no update or erratum relation",
+    "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties'",
+    "arXiv:1306.2070v2 (2 June 2015, 'final version'): the same text"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-15/E5",
+   "kind": "misprint",
+   "locator": "§3.2.2, Theorem 3.2.15(iii), p. 986 (arXiv v2: Theorem III.2.15(iii), p. 39)",
+   "printed": "(iii) There is a weak canonical subgroup C ⊂ 𝔄(ε)[p] of level p.",
+   "correction": "There is a weak canonical subgroup C ⊂ 𝔄(ε)[p] of level 1.",
+   "reason": "Definition 3.2.7 indexes the level by m for C_m ⊂ A[p^m]; C lies in the p-torsion, and on 𝔛(ε) the condition Ha^{(p^1−1)/(p−1)} = Ha | p^ε is the level-1 condition. The proof says 'on 𝔛(ε), one still has a weak canonical subgroup of level 1'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page (annals.math.princeton.edu/2015/182-3/p03): no erratum or corrigendum",
+    "Crossref record of 10.4007/annals.2015.182.3.3: no update or erratum relation",
+    "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties'",
+    "arXiv:1306.2070v2 (2 June 2015, 'final version'): the same text"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-15/E6",
+   "kind": "misprint",
+   "locator": "§4.1, proof of Theorem 4.1.1, the first displayed limit, p. 1020 (arXiv v2: proof of Theorem IV.1.1, p. 68)",
+   "printed": "𝒴*_{K^p}(J) = lim_{K^p ⊂ K^{p′} ⊂ G(𝔸_f^p)} 𝒴*_{K^{p′}}(J)",
+   "correction": "the limit runs over K^p ⊂ K^{p′} ⊂ G′(𝔸_f^p)",
+   "reason": "𝒴* is the Siegel space for G′ = Sp_{2g}, whose tame levels are subgroups of G′(𝔸_f^p); K^p ⊂ G(𝔸_f^p) and the preceding sentence takes K^{p′} ⊂ G′(𝔸_f^p).",
+   "affects": "nothing",
+   "known": "new: not corrected in print; already recorded in the atlas as PerfectoidSpaces/E22",
+   "searched": [
+    "Annals of Mathematics article page (annals.math.princeton.edu/2015/182-3/p03): no erratum or corrigendum",
+    "Crossref record of 10.4007/annals.2015.182.3.3: no update or erratum relation",
+    "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties'",
+    "arXiv:1306.2070v2 (2 June 2015, 'final version'): the same text"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-15/E7",
+   "kind": "gap",
+   "locator": "§4.1, Theorem 4.1.1(i) and its proof, pp. 1018–1020 (arXiv v2: Theorem IV.1.1(i), pp. 67–69)",
+   "printed": "Going through the argument, and using part (i) for G′, it is easy to deduce part (i) for G.",
+   "correction": "The proof constructs R^+_{K^p} as the p-adic completion of the colimit of the plus rings of Zariski-closed subspaces of the infinite-level Siegel space; that 𝒱_J is the preimage of a finite-level affinoid 𝒱_{J,K_p} ⊂ 𝒳**_{K_pK^p} and that R^+_{J,∞} is the p-adic completion of colim_{K_p} R^+_{J,K_p} (the tilde-limit statement) needs a separate argument, e.g. the surjectivity of Zariski-closed quotients (Bhatt–Scholze, Theorem 7.4) and integrality of the finite-level images.",
+   "reason": "The Zariski-closed subspace of 𝒴*_{K^p}(J) is defined by an ideal of S_{K^p} and Lemma 2.2.2 only gives a dense map S_{K^p} → R; nothing in the proof compares R^+ with the finite-level rings R^+_{J,K_p} of the normal varieties X**_{K_pK^p}.",
+   "affects": "the proof",
+   "known": "new: not corrected in print; already recorded in the atlas as PerfectoidSpaces/E23; the P8 packet's closed-loci-in-towers node proves the tilde-limit statement",
+   "searched": [
+    "Annals of Mathematics article page (annals.math.princeton.edu/2015/182-3/p03): no erratum or corrigendum",
+    "Crossref record of 10.4007/annals.2015.182.3.3: no update or erratum relation",
+    "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties'",
+    "arXiv:1306.2070v2 (2 June 2015, 'final version'): the same text"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-15/E8",
+   "kind": "misprint",
+   "locator": "§5.1, Theorem 5.1.2, the displayed decomposition and the next sentence, p. 1033 (arXiv v2: Theorem V.1.2, p. 80)",
+   "printed": "η_{v^+*}φ_{π_{v^+}} = ⊕_{i=1}^m (φ_{Π_{iv}}|·|^{(1−ℓ_i)/2} ⊕ φ_{Π_{iv}}|·|^{(3−ℓ_i)/2} … ⊕ φ_{Π_{iv}}|·|^{(ℓ_i−i)/2}) … On the right-hand side, φ_{Π_{iv}} : W_{F_v} → ᴸGL_{h,v} denotes the unramified L-parameter of Π_{iv}.",
+   "correction": "The last exponent is (ℓ_i − 1)/2, and φ_{Π_{iv}} : W_{F_v} → ᴸGL_{n_i,v}.",
+   "reason": "The exponents run over (2j − ℓ_i − 1)/2, j = 1, …, ℓ_i, as Remark 5.1.3 and the proof of Corollary 5.1.7 (σ_i ⊕ σ_iχ_p^{−1} ⊕ ⋯ ⊕ σ_iχ_p^{1−ℓ_i}) use; with exponent (ℓ_i − i)/2 the i-th block would depend on the index i. Π_i is a representation of GL_{n_i}, so its parameter is n_i-dimensional, and the dimensions add to Σn_iℓ_i = h.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page (annals.math.princeton.edu/2015/182-3/p03): no erratum or corrigendum",
+    "Crossref record of 10.4007/annals.2015.182.3.3: no update or erratum relation",
+    "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties'",
+    "arXiv:1306.2070v2 (2 June 2015, 'final version'): the same text"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-15/E9",
+   "kind": "misprint",
+   "locator": "§5.2, Lemma 5.2.2, p. 1038 (arXiv v2: Lemma V.2.2, p. 85)",
+   "printed": "There is a natural projection X^P_{X_P} → X^M_{X_P^M}",
+   "correction": "X^P_{K_P} → X^M_{K_P^M}",
+   "reason": "The spaces of Definition 5.2.1 are indexed by the compact open subgroups K_P ⊂ P(𝔸_f) and K_P^M ⊂ M(𝔸_f), as in the first sentence of the lemma and in its proof.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page (annals.math.princeton.edu/2015/182-3/p03): no erratum or corrigendum",
+    "Crossref record of 10.4007/annals.2015.182.3.3: no update or erratum relation",
+    "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties'",
+    "arXiv:1306.2070v2 (2 June 2015, 'final version'): the same text"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-15/E10",
+   "kind": "misprint",
+   "locator": "§5.2, the paragraph before Lemma 5.2.3, p. 1041 (arXiv v2: p. 87)",
+   "printed": "This map is pullback along the embedding X^M_{K^M} → K^P_{K^P} (cf. definition of both spaces)",
+   "correction": "the embedding X^M_{K^M} → X^P_{K^P}",
+   "reason": "The map being described is H^i(X^P_{K^P}) → H^i(X^M_{K^M}), and the next clause says this embedding is a section of the projection X^P_{K^P} → X^M_{K^M}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page (annals.math.princeton.edu/2015/182-3/p03): no erratum or corrigendum",
+    "Crossref record of 10.4007/annals.2015.182.3.3: no update or erratum relation",
+    "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties'",
+    "arXiv:1306.2070v2 (2 June 2015, 'final version'): the same text"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-15/E11",
+   "kind": "misprint",
+   "locator": "§5.4, Corollary 5.4.4, the displayed identity, p. 1060 (arXiv v2: Corollary V.4.4, p. 103)",
+   "printed": "such that for all finite places v ∉ S, det(1 − X Frob_v | σ_ψ) = 1 − q_v^{(n+1)/2}T_{1,v}X + q_v^{2(n+1)/2}T_{2,v}X² − ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n.",
+   "correction": "det(1 − X Frob_v | σ_𝔪) = 1 − q_v^{(n+1)/2}T_{1,v}X + ⋯ + (−1)^n q_v^{n(n+1)/2}T_{n,v}X^n in (𝕋_{F,S}(K, ξ, i)_𝔪/I)[X].",
+   "reason": "The corollary constructs σ_𝔪 with values in GL_n(𝕋_{F,S}(K, ξ, i)_𝔪/I), and the right side has the Hecke operators themselves as coefficients; for σ_ψ the identity, with ψ applied, is Corollary 5.4.3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page (annals.math.princeton.edu/2015/182-3/p03): no erratum or corrigendum",
+    "Crossref record of 10.4007/annals.2015.182.3.3: no update or erratum relation",
+    "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties'",
+    "arXiv:1306.2070v2 (2 June 2015, 'final version'): the same text"
+   ]
+  }
+ ]
+}
