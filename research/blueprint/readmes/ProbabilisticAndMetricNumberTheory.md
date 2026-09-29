@@ -20,6 +20,8 @@ None is labelled implemented. These
 results address bounded parts of PM.0 and PM.1; they neither close either stage nor prove Turan–Kubilius,
 Hardy–Ramanujan or Erdos–Kac. The full six-stage coverage ledger is in the JSON.
 
+PM.3 now decomposes Koukoulopoulos–Maynard's proof of the Duffin–Schaeffer conjecture in 34 nodes, with Catlin's conjecture and Khinchin's theorem as consequences; see the last part of this document.
+
 Suggested home: `TauCeti/NumberTheory/ArithmeticProbability/FiniteDivisibility.lean`.
 The PM.1 comparison lemmas can follow in `FiniteGaussianMoments.lean`, and the
 cutoff-removal interface in `PrimeTruncation.lean`. The full residue laws belong in
@@ -1714,9 +1716,9 @@ asymptotic estimates for the now-explicit cutoff and moment-transfer bounds.
 The full Turan–Kubilius and Hardy–Ramanujan proof sources remain to be acquired.
 The generic iid CLT is not a theorem
 about these arithmetic indicators. PM.2 needs Weyl/discrepancy/digit proofs and a precise
-ES.0 differencing input. PM.3 needs full metric approximation proofs with their measure,
-monotonicity and coprimality restrictions. Existing Borel–Cantelli and Gallagher results
-are suppliers, not new targets.
+ES.0 differencing input. PM.3 now has the Duffin–Schaeffer theorem, Catlin's conjecture and Khinchin's theorem
+(Koukoulopoulos–Maynard); what remains is listed at the end of its section. Mathlib's
+Borel–Cantelli and Gallagher theorems are suppliers, not new targets.
 
 PM.4 needs primary Gauss-map and continued-fraction sources, pointwise ergodic input and
 integrability. GN.4 remains the homogeneous-dynamics supplier; the audited mean ergodic
@@ -2503,3 +2505,940 @@ For α, β ∈ UnitAddTorus d there are a subtorus datum S and α = α′ + α�
 - Exercise 1.1.22 (every compact connected subgroup of T^d is the carrier of a subtorus datum) is not planned; the subtorus node takes the SL_d(Z) description as its definition.
 - Discrepancy (Erdős–Turán, Koksma) and the normal-number consequences (Borel's theorem, linking Mathlib's digit expansions and Tau Ceti's Bernoulli-shift ergodicity) still need a source read and nodes; the audit records both as absent.
 - Single-scale (quantitative) equidistribution, §1.1.2 of the same source, is not planned; ES and AC consumers should say whether they need it.
+
+## PM.3: the Duffin–Schaeffer theorem (Koukoulopoulos–Maynard)
+
+This section follows Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture*, Ann. of Math. 192 (2020), 251–307, read completely in the publisher PDF.
+
+Take ψ: ℕ → ℝ≥0. The reduced approximation sets 𝒜_q collect the points of [0,1] within ψ(q)/q of a reduced fraction a/q. The theorem says that 𝒜 = limsup 𝒜_q has measure 1 exactly when Σφ(q)ψ(q)/q diverges.
+
+Mathlib already provides the two probabilistic inputs:
+- Borel–Cantelli, which gives the convergence half;
+- Gallagher's zero-one law (`AddCircle.addWellApproximable_ae_empty_or_univ`), on the circle with open balls. The approximation-set node gives the translation.
+
+The proof is then a second-moment argument. It reduces to an edge bound for "GCD graphs" (Proposition 6.3), which is proved by a compression iteration. The iteration adds one prime at a time to the multiplicative data while controlling a *quality* that mixes edge density with the size of the vertex sets. Every step of that iteration is finite combinatorics on weighted bipartite graphs, and is planned below as its own node.
+
+Khinchin's theorem is derived here from Catlin's conjecture (Theorem 2), using a comparison of Σψ with Σφψ/q for decreasing ψ. So the whole of Khinchin's metric theorem rests on this chain.
+
+### Approximation sets and the main theorems
+
+#### `duffin-schaeffer-sets` — Duffin–Schaeffer approximation sets 𝒜_q, 𝒜, 𝒦_q and 𝒦
+
+*definition* · planet **Duffin–Schaeffer approximation sets** · proposed `TauCeti.DuffinSchaeffer.dsSet`
+
+For ψ: ℕ → ℝ_{≥0} and q ≥ 1 let 𝒜_q = [0,1] ∩ ⋃_{1≤a≤q, gcd(a,q)=1} [a/q − ψ(q)/q, a/q + ψ(q)/q] (1.3), and let 𝒜 = limsup_{q→∞} 𝒜_q, the set of α ∈ [0,1] lying in infinitely many 𝒜_q (1.4). Khinchin's 𝒦_q (1.2) uses every 0 ≤ a ≤ q, and 𝒦 = limsup 𝒦_q.
+
+**Hypotheses.**
+- ψ is arbitrary and nonnegative; the intervals are closed, as in the source.
+- Mathlib's addWellApproximable on UnitAddCircle is the open-ball version of 𝒜 on the circle. The two agree up to the choice of radius: the open version for ψ lies in 𝒜, and an irrational point of 𝒜 lies in the open version for 2ψ. Since Σφ(q)ψ(q)/q and Σφ(q)ψ(q)/(2q) diverge together, every statement of this layer transfers between the conventions.
+
+**Construction or proof, in steps.**
+1. Define 𝒜_q, 𝒦_q as finite unions of closed intervals intersected with [0,1], and 𝒜, 𝒦 as Filter.limsup along atTop.
+2. Measure bounds: 𝒜_q is a union of φ(q) intervals of length 2ψ(q)/q, so λ(𝒜_q) ≤ 2φ(q)ψ(q)/q. When ψ(q) ≤ 1/2 the intervals around a/q with 1 ≤ a ≤ q−1 are disjoint up to endpoints and lie in [0,1], and for q = 1 half of the interval survives; so λ(𝒜_q) ≥ φ(q)ψ(q)/q.
+3. Circle comparison: for x ∈ [0,1] and q ≥ 2, if the circle distance from x to a reduced m/q is less than δ, then some reduced a/q with 1 ≤ a ≤ q (m or its reflection q − m) is within δ of x on the line; q = 1 affects only one index. Conversely an irrational x in the closed interval of radius ψ(q)/q has ψ(q) > 0 and lies in the open interval of radius 2ψ(q)/q.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `TauCeti.DuffinSchaeffer.dsLimsup` | data | 𝒜 = limsup_{q→∞} 𝒜_q. |
+| `TauCeti.DuffinSchaeffer.khinchinSet` | data | Khinchin's 𝒦_q, over every 0 ≤ a ≤ q. |
+| `TauCeti.DuffinSchaeffer.khinchinLimsup` | data | 𝒦 = limsup 𝒦_q. |
+| `TauCeti.DuffinSchaeffer.volume_dsSet_le` | other | λ(𝒜_q) ≤ 2φ(q)ψ(q)/q for ψ ≥ 0. |
+| `TauCeti.DuffinSchaeffer.le_volume_dsSet` | other | λ(𝒜_q) ≥ φ(q)ψ(q)/q for q ≥ 1 and 0 ≤ ψ(q) ≤ 1/2. |
+| `TauCeti.DuffinSchaeffer.dsSet_mono` | relation | 𝒜_q is monotone in ψ. |
+| `TauCeti.DuffinSchaeffer.dsSet_subset_khinchinSet` | relation | 𝒜_q ⊆ 𝒦_q. |
+| `TauCeti.DuffinSchaeffer.mem_dsLimsup_of_mem_addWellApproximable` | compatibility | For x ∈ [0,1], if the image of x on the circle is in Mathlib's addWellApproximable for δ(n) = ψ(n)/n, then x ∈ 𝒜. |
+| `TauCeti.DuffinSchaeffer.mem_addWellApproximable_of_mem_dsLimsup` | compatibility | An irrational x ∈ 𝒜 maps into addWellApproximable for δ(n) = 2ψ(n)/n. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `duffin-schaeffer-sets.test_dsSet_one_half` (computation) — With ψ ≡ 1/2, 𝒜_1 = [1/2, 1]: only the interval around 1/1 is present, cut at 1.
+- `duffin-schaeffer-sets.test_dsSet_two_half` (computation) — With ψ ≡ 1/2, 𝒜_2 = [1/4, 3/4]: only a = 1 is coprime to 2.
+- `duffin-schaeffer-sets.test_volume_dsSet_zero` (degenerate) — ψ ≡ 0 gives λ(𝒜_q) = 0: 𝒜_q is a finite set of reduced fractions.
+- `duffin-schaeffer-sets.test_khinchinSet_ne_dsSet` (non-example) — With ψ ≡ 1/2, 0 ∈ 𝒦_2 but 0 ∉ 𝒜_2: the non-reduced fraction 0/2 is used by Khinchin's set and not by the Duffin–Schaeffer set.
+
+**Where it is used.**
+- Koukoulopoulos–Maynard Theorem 1 and (1.5) — The limsup set whose measure is determined.
+- Koukoulopoulos–Maynard Theorem 2 and Khinchin's theorem — The non-reduced set 𝒦.
+- Mathlib AddCircle.addWellApproximable_ae_empty_or_univ — Gallagher's zero-one law, transported to 𝒜 through the compatibility items.
+- DiophantineApproximationAndTranscendence:DT.0 (library audit duplicate note) — Approximation exponents whose almost-everywhere behaviour these sets describe.
+
+**Acceptance tests.**
+- min{ψ(q), 1/2} ≤ λ(𝒦_q) ≤ 2 min{ψ(q), 1/2} (p. 252) follows in the same way; only the upper bound is used.
+
+**Dependencies.**
+- On the pinned libraries: `mathlib:Nat.totient`, `mathlib:UnitAddCircle.mem_addWellApproximable_iff`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §1, (1.2)–(1.4), pp. 252–253. The sets and the reason for reduced fractions.
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §1, (1.2), p. 252. The measure bounds.
+
+#### `duffin-schaeffer-convergence` — The convergence half (1.5)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.volume_dsLimsup_eq_zero`
+
+If ψ ≥ 0 and Σ_q φ(q)ψ(q)/q < ∞, then λ(𝒜) = 0.
+
+**Hypotheses.**
+- No monotonicity or size condition on ψ.
+
+**Proof, in steps.**
+1. λ(𝒜_q) ≤ 2φ(q)ψ(q)/q, so Σ λ(𝒜_q) < ∞.
+2. Borel–Cantelli (Mathlib measure_limsup_atTop_eq_zero) gives λ(limsup 𝒜_q) = 0.
+
+**Acceptance tests.**
+- This is the 'easy' direction of the Duffin–Schaeffer conjecture (1.5).
+
+**Dependencies.**
+- In this packet: `duffin-schaeffer-sets`
+- On the pinned libraries: `mathlib:MeasureTheory.measure_limsup_atTop_eq_zero`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §1, (1.5), p. 253. The statement and its one-line proof.
+
+#### `duffin-schaeffer-theorem` — The Duffin–Schaeffer theorem (Koukoulopoulos–Maynard Theorem 1)
+
+*theorem* · planet **Duffin–Schaeffer theorem** · proposed `TauCeti.DuffinSchaeffer.volume_dsLimsup_eq_one`
+
+Let ψ: ℕ → ℝ_{≥0} with Σ_{q≥1} ψ(q)φ(q)/q = ∞. Then the set 𝒜 of α ∈ [0,1] for which |α − a/q| ≤ ψ(q)/q has infinitely many coprime solutions a, q has Lebesgue measure 1.
+
+**Hypotheses.**
+- ψ is arbitrary. The proof below works with the open intervals of Mathlib's addWellApproximable (same measures, contained in 𝒜), which is enough since a set of measure 1 inside 𝒜 ⊆ [0,1] forces λ(𝒜) = 1.
+
+**Proof, in steps.**
+1. Split ψ = ψ₁ + ψ₂ with ψ₁ = ψ·𝟙_{ψ>1/2}. If Σψ₁φ/q = ∞, Lemma 5.2 (PM.3/duffin-schaeffer-large-values) gives λ(𝒜(ψ₁)) = 1 and 𝒜(ψ₁) ⊆ 𝒜(ψ). Otherwise Σψ₂φ/q = ∞ and 𝒜(ψ₂) ⊆ 𝒜(ψ); so assume ψ ≤ 1/2.
+2. Gallagher's zero-one law (Mathlib addWellApproximable_ae_empty_or_univ; ψ(q)/q → 0 because ψ ≤ 1/2) makes the open-interval limsup set null or full, so it suffices to show it has positive measure.
+3. For large X pick Y minimal with Σ_{X≤q≤Y} φ(q)ψ(q)/q ∈ [1,2]; this exists because every term is at most 1/2. Since 𝒜 = ⋂_j ⋃_{q≥j} 𝒜_q, it suffices that λ(⋃_{X≤q≤Y} 𝒜_q) ≫ 1 uniformly in X (5.5).
+4. By the second-moment union bound, λ(⋃𝒜_q)·Σ_{q,r} λ(𝒜_q ∩ 𝒜_r) ≥ (Σλ(𝒜_q))² ≥ 1, so it suffices that Σ_{X≤q,r≤Y} λ(𝒜_q ∩ 𝒜_r) ≪ 1 (5.6). The diagonal contributes at most 4.
+5. Off the diagonal apply the overlap estimate (Lemma 5.3, with the indicator 1_{2M ≥ gcd}; E10). Pairs whose prime product ∏(1+1/p) is below e^{100} contribute at most 4e^{100}.
+6. For the other pairs Σ_{p | qr/gcd²} 1/p ≥ 100. Let j be maximal with Σ_{p | qr/gcd², p ≥ exp exp j} 1/p ≥ 10. By Mertens' theorem (requested from AN.2), ∏_{p > M/gcd}(1+1/p) ≪ 1 if M/gcd ≥ exp exp j and ≪ e^j otherwise, and in the latter case (q,r) ∈ ℰ_{exp exp j}.
+7. So (5.7) reduces to Σ_{j≥0} e^j Σ_{(q,r)∈ℰ_{exp exp j}} μ(q)μ(r) ≪ 1 (5.8), which follows from Proposition 5.4: the inner sum is O(1/exp exp j) and Σ e^j/exp exp j < ∞.
+
+**Acceptance tests.**
+- ψ(q) = 1/q (Dirichlet's theorem regime) gives Σφ(q)/q² = ∞ and λ(𝒜) = 1.
+- The convergence half is PM.3/duffin-schaeffer-convergence; together they give the zero-one dichotomy with an explicit criterion.
+- Mathlib's WellApproximable.lean records that this theorem is not formalized there.
+
+**Dependencies.**
+- In this packet: `duffin-schaeffer-sets`, `duffin-schaeffer-large-values`, `overlap-estimate`, `second-moment-bound`, `second-moment-union-bound`
+- On the pinned libraries: `mathlib:AddCircle.addWellApproximable_ae_empty_or_univ`
+- Other roadmaps (requested): `AnalyticNumberTheory:AN.2`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §1, Theorem 1, p. 253. The theorem.
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §5, proof of Theorem 1 assuming Proposition 5.4, pp. 265–268. The reduction; Lemma 5.1 is replaced by Mathlib's formal Gallagher theorem.
+
+#### `catlin-reduction` — Catlin's reduction to reduced fractions (2.2)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.catlin_reduction`
+
+Let 0 ≤ ψ ≤ 1/2 and define ξ by ξ(q)/q = max_{n ∈ ℕ, q | n} ψ(n)/n. Then 𝒞 \ ℚ = 𝒦 \ ℚ, where 𝒞 = limsup 𝒞_q is the Duffin–Schaeffer set for ξ and 𝒦 is Khinchin's set for ψ.
+
+**Hypotheses.**
+- The maximum exists because ψ(n)/n ≤ 1/(2n) → 0.
+
+**Proof, in steps.**
+1. If α ∈ 𝒞 \ ℚ, pick infinitely many reduced aⱼ/qⱼ with |α − aⱼ/qⱼ| ≤ ξ(qⱼ)/qⱼ = ψ(nⱼ)/nⱼ for some multiple nⱼ of qⱼ. Then mⱼ = aⱼnⱼ/qⱼ satisfies |α − mⱼ/nⱼ| ≤ ψ(nⱼ)/nⱼ, and nⱼ ≥ qⱼ → ∞, so α ∈ 𝒦.
+2. If α ∈ 𝒦 \ ℚ, reduce mⱼ/nⱼ to aⱼ/qⱼ with qⱼ | nⱼ, so |α − aⱼ/qⱼ| ≤ ψ(nⱼ)/nⱼ ≤ ξ(qⱼ)/qⱼ. Infinitely many aⱼ/qⱼ are distinct, since otherwise |α − a/q| ≤ 1/(2nⱼ) → 0 forces α = a/q ∈ ℚ.
+
+**Acceptance tests.**
+- Rational α are excluded on both sides: they may lie in 𝒦 through infinitely many non-reduced representations.
+
+**Dependencies.**
+- In this packet: `duffin-schaeffer-sets`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §2, Case 2 and (2.2), pp. 257–258. The reduction, following Catlin.
+
+#### `catlin-theorem` — Catlin's conjecture (Koukoulopoulos–Maynard Theorem 2)
+
+*theorem* · planet **Catlin's conjecture** · proposed `TauCeti.DuffinSchaeffer.catlin`
+
+Let ψ: ℕ → ℝ_{≥0} and ψ*(q) = φ(q)·sup{ψ(n)/n : n ∈ ℕ, q | n} ∈ [0,∞]. Then (a) if Σ_q ψ*(q) < ∞, λ(𝒦) = 0; (b) if Σ_q ψ*(q) = ∞, λ(𝒦) = 1.
+
+**Hypotheses.**
+- ψ* takes values in [0,∞]: the supremum may be infinite, and then the series is ∞.
+
+**Proof, in steps.**
+1. Case 1: ψ(qᵢ) ≥ 1/2 for infinitely many qᵢ. Pass to a subsequence with q_{i+1} ≥ 2qᵢ²; then 𝒦_{qᵢ} = [0,1], so 𝒦 = [0,1], and Σ_{q_{i−1}<q≤qᵢ} ψ*(q) ≥ (1/(2qᵢ))(Σ_{q|qᵢ} φ(q) − Σ_{q≤q_{i−1}} φ(q)) ≥ 1/4 (2.1), so Σψ* = ∞.
+2. Case 2: finitely many q have ψ(q) ≥ 1/2. Replacing ψ by min{ψ, 1/2} changes neither 𝒦 nor the convergence of Σψ*, so assume ψ ≤ 1/2; the supremum is a maximum, and ψ*(q) = φ(q)ξ(q)/q with ξ as in the Catlin reduction.
+3. By the reduction, λ(𝒦) = λ(𝒞). Now (a) is the convergence half for ξ and (b) is Theorem 1 for ξ.
+
+**Acceptance tests.**
+- For qψ(q) decreasing, ψ*(q) = φ(q)ψ(q)/q, and the theorem becomes the Duffin–Schaeffer dichotomy for ψ; with the series comparison it contains Khinchin's theorem.
+
+**Dependencies.**
+- In this packet: `duffin-schaeffer-theorem`, `duffin-schaeffer-convergence`, `catlin-reduction`, `duffin-schaeffer-sets`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §1, Theorem 2, p. 253. The theorem.
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §2, pp. 256–258. The deduction from Theorem 1.
+
+#### `decreasing-series-comparison` — Totient weights do not change divergence for decreasing ψ
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.not_summable_totient_mul_of_antitone`
+
+If ψ ≥ 0 is decreasing and Σ_q ψ(q) = ∞, then Σ_q φ(q)ψ(q)/q = ∞.
+
+**Hypotheses.**
+- Worker-derived: the source notes that Khinchin's theorem and the Duffin–Schaeffer conjecture agree for qψ(q) decreasing (Walfisz), which is the use made here.
+
+**Proof, in steps.**
+1. Φ(x) = Σ_{n≤x} φ(n)/n = Σ_{d≤x} μ(d)/d·⌊x/d⌋ ≥ x Σ_{d≤x} μ(d)/d² − Σ_{d≤x} 1/d ≥ (2 − ζ(2))x − 1 − log x, using φ(n)/n = Σ_{d|n} μ(d)/d and |Σ_{d≥2} μ(d)/d²| ≤ ζ(2) − 1 < 1. So Φ(x) ≥ x/4 for x ≥ x₀.
+2. Abel summation with ψ decreasing: Σ_{q≤N} φ(q)ψ(q)/q = Σ_{q<N} (ψ(q) − ψ(q+1))Φ(q) + ψ(N)Φ(N) ≥ (1/4)Σ_{x₀≤q≤N} ψ(q) − O(1).
+
+**Acceptance tests.**
+- ψ(q) = 1/(q log q) (q ≥ 2): both series diverge.
+- Without monotonicity the implication can fail, because φ(q)/q can be small on the support of ψ; this is why Duffin and Schaeffer passed to reduced fractions (p. 252).
+
+**Dependencies.**
+- On the pinned libraries: `mathlib:Nat.totient`, `mathlib:ArithmeticFunction.moebius`, `mathlib:hasSum_zeta_two`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §1, p. 253. The context; the comparison lemma itself is a worker derivation.
+
+#### `khinchin-theorem` — Khinchin's theorem
+
+*theorem* · planet **Khinchin's theorem** · proposed `TauCeti.DuffinSchaeffer.khinchin`
+
+Let ψ: ℕ → [0,∞) with (qψ(q)) decreasing, and 𝒦 the set of α ∈ [0,1] for which |α − a/q| ≤ ψ(q)/q has infinitely many solutions (a,q) with 0 ≤ a ≤ q. (a) If Σψ(q) < ∞ then λ(𝒦) = 0. (b) If Σψ(q) = ∞ then λ(𝒦) = 1.
+
+**Hypotheses.**
+- (a) holds without monotonicity.
+
+**Proof, in steps.**
+1. (a): λ(𝒦_q) ≤ 2 min{ψ(q), 1/2} ≤ 2ψ(q); Borel–Cantelli.
+2. (b): qψ(q) decreasing makes ψ(n)/n decreasing, so ψ*(q) = φ(q)ψ(q)/q. ψ is decreasing, so by the series comparison Σψ* = ∞, and Catlin's theorem (b) gives λ(𝒦) = 1.
+
+**Acceptance tests.**
+- ψ(q) = 1/(q log q): λ(𝒦) = 1. ψ(q) = 1/(q (log q)²): λ(𝒦) = 0.
+- This route replaces Khinchin's 1924 proof by the Koukoulopoulos–Maynard theorem, as the source notes (p. 253); Mathlib has only the Liouville-type special case of (a) (library audit).
+
+**Dependencies.**
+- In this packet: `catlin-theorem`, `decreasing-series-comparison`, `duffin-schaeffer-sets`
+- On the pinned libraries: `mathlib:MeasureTheory.measure_limsup_atTop_eq_zero`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §1, Khinchin's theorem, p. 252. The statement as the source gives it; the proof here goes through Theorem 2.
+
+### Section 5: reduction to a second-moment bound
+
+#### `second-moment-union-bound` — Second-moment lower bound for a finite union
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.sq_sum_volume_le`
+
+For measurable sets A_i of finite measure and a finite index set s, (Σ_{i∈s} λ(A_i))² ≤ λ(⋃_{i∈s} A_i)·Σ_{i,j∈s} λ(A_i ∩ A_j).
+
+**Hypotheses.**
+- A general measure-theoretic inequality (Chung–Erdős form).
+
+**Proof, in steps.**
+1. Let Q = Σ_i 1_{A_i}. Then ∫Q = Σλ(A_i), ∫Q² = Σ_{i,j} λ(A_i ∩ A_j), and Q vanishes off ⋃A_i.
+2. Cauchy–Schwarz: (∫Q·1_{⋃A_i})² ≤ λ(⋃A_i)∫Q².
+
+**Acceptance tests.**
+- Pairwise disjoint sets give equality.
+
+**Dependencies.**
+- On the pinned libraries: `mathlib:MeasureTheory.lintegral_indicator`, `mathlib:ENNReal.lintegral_mul_le_Lp_mul_Lq`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §5, proof of Theorem 1, p. 266. The inequality in the source's application.
+
+#### `duffin-schaeffer-large-values` — Duffin–Schaeffer when ψ takes only large values (Lemma 5.2)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.volume_dsLimsup_eq_one_of_large`
+
+Let ψ: ℕ → ℝ_{≥0} with ψ(q) = 0 or ψ(q) ≥ 1/2 for every q, and Σψ(q)φ(q)/q = ∞. Then λ(𝒜) = 1.
+
+**Hypotheses.**
+- Imported: the source cites Pollington–Vaughan, Theorem 2, which was not read (gap).
+
+**Proof, in steps.**
+1. Pollington–Vaughan, Mathematika 37 (1990), Theorem 2; the proof is not decomposed here (gap 'Imported inputs of the Duffin–Schaeffer proof').
+
+**Acceptance tests.**
+- It is only used for the part ψ₁ = ψ·𝟙_{ψ>1/2} in the proof of Theorem 1.
+
+**Dependencies.**
+- In this packet: `duffin-schaeffer-sets`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §5, Lemma 5.2, p. 264. The statement; the proof is cited.
+
+#### `overlap-estimate` — Overlap estimate for 𝒜_q ∩ 𝒜_r (Lemma 5.3, corrected)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.volume_dsSet_inter_le`
+
+Let ψ: ℕ → [0,1/2] and M(q,r) = max{rψ(q), qψ(r)}. For q ≠ r, λ(𝒜_q ∩ 𝒜_r) ≪ λ(𝒜_q)λ(𝒜_r)·𝟙_{2M(q,r) ≥ gcd(q,r)}·∏_{p | qr/gcd(q,r)², p > M(q,r)/gcd(q,r)} (1 + 1/p). The printed indicator is 𝟙_{M(q,r) ≥ gcd(q,r)} (E10).
+
+**Hypotheses.**
+- Imported: the source cites Pollington–Vaughan, pp. 195–196, which was not read (gap).
+- The indicator: distinct reduced fractions satisfy |a/q − b/r| ≥ gcd(q,r)/(qr), so the intervals can meet only if rψ(q) + qψ(r) ≥ gcd(q,r), which needs 2M ≥ gcd, not M ≥ gcd.
+
+**Proof, in steps.**
+1. Pollington–Vaughan, pp. 195–196; not decomposed here (gap).
+2. The vanishing part is elementary: if 2M(q,r) < gcd(q,r) then every pair of centres is at distance at least gcd/(qr) > ψ(q)/q + ψ(r)/r.
+
+**Acceptance tests.**
+- q = 2, r = 3, ψ ≡ 3/10: M = 9/10 < 1 = gcd, yet λ(𝒜_2 ∩ 𝒜_3) = 1/6 (exact computation), so the printed indicator is wrong; the corrected indicator is 1 here.
+- The proof of Theorem 1 is unaffected: it only restricts the sum (5.7), and pairs with gcd/2 ≤ M < gcd lie in the sets ℰ_t used later.
+
+**Dependencies.**
+- In this packet: `duffin-schaeffer-sets`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §5, Lemma 5.3, p. 264. The statement, with the indicator corrected (E10).
+
+#### `second-moment-bound` — The second-moment bound (Proposition 5.4)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.second_moment_bound`
+
+Let ψ: ℕ → [0,1/2], Y ≥ X ≥ 1 with 1 ≤ Σ_{X≤q≤Y} ψ(q)φ(q)/q ≤ 2, and L_t(a,b) = Σ_{p | ab/gcd(a,b)², p ≥ t} 1/p. For t ≥ 1 let ℰ_t = {(v,w) ∈ [X,Y]² : gcd(v,w) ≥ t^{−1}M(v,w), L_t(v,w) ≥ 10}. Then Σ_{(v,w)∈ℰ_t} (φ(v)ψ(v)/v)(φ(w)ψ(w)/w) ≪ 1/t.
+
+**Hypotheses.**
+- The implied constant is absolute.
+
+**Proof, in steps.**
+1. Let μ(v) = ψ(v)φ(v)/v and 𝒱 = ℤ ∩ [X,Y], so μ(𝒱) ∈ [1,2].
+2. The bipartite graph (𝒱, 𝒱, ℰ_t) with trivial multiplicative data is a GCD graph; Proposition 6.3 gives μ(ℰ_t) ≪ 1/t, which is the claim.
+
+**Acceptance tests.**
+- t = exp exp j is the case used in (5.8).
+
+**Dependencies.**
+- In this packet: `edge-set-bound`, `gcd-graph`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §5, Proposition 5.4, p. 265; §6, its proof from Proposition 6.3, p. 270. The proposition and its translation into GCD graphs.
+
+### Section 6: GCD graphs and their quality
+
+#### `gcd-graph` — GCD graph and GCD subgraph (Definitions 6.1, 6.2, 6.4)
+
+*definition* · planet **GCD graph** · proposed `TauCeti.DuffinSchaeffer.GCDGraph`
+
+A GCD graph is G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) with μ a finite nonnegative weight on ℕ (extended to pairs by μ(𝒩) = Σ_{(n₁,n₂)∈𝒩} μ(n₁)μ(n₂)), 𝒱, 𝒲 finite sets of positive integers, ℰ ⊆ 𝒱 × 𝒲, 𝒫 a set of primes and f, g: 𝒫 → ℤ_{≥0} such that for p ∈ 𝒫: (i) p^{f(p)} | v for v ∈ 𝒱 and p^{g(p)} | w for w ∈ 𝒲; (ii) p^{min(f(p),g(p))} ∥ gcd(v,w) for (v,w) ∈ ℰ; (iii) if f(p) ≠ g(p) then p^{f(p)} ∥ v for all v ∈ 𝒱 and p^{g(p)} ∥ w for all w ∈ 𝒲. G is non-trivial if μ(ℰ) > 0. G' ⪯ G (a GCD subgraph) if μ' = μ, 𝒱' ⊆ 𝒱, 𝒲' ⊆ 𝒲, ℰ' ⊆ ℰ, 𝒫' ⊇ 𝒫 and f', g' extend f, g.
+
+**Hypotheses.**
+- 𝒫 is finite here; in the source it starts empty and grows by one prime per step, so nothing is lost.
+- Condition (ii) is stated with p-adic valuations: the valuation of gcd(v,w) at p is min(f(p), g(p)).
+
+**Construction or proof, in steps.**
+1. Encode G as a structure with fields for the data and the conditions (i)–(iii), with f, g: ℕ → ℕ read only on 𝒫.
+2. Define the vertex and edge measures, non-triviality and the subgraph relation.
+3. Lemma 6.7: transitivity and reflexivity of ⪯, and ℛ monotone along ⪯ (ℛ of PM.3/gcd-graph-quality), are immediate from the definitions; non-trivial graphs have vertex sets of positive measure.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `TauCeti.DuffinSchaeffer.GCDGraph.vertexMeasure` | data | μ(𝒮) = Σ_{n∈𝒮} μ(n). |
+| `TauCeti.DuffinSchaeffer.GCDGraph.edgeMeasure` | data | μ(𝒩) = Σ_{(n₁,n₂)∈𝒩} μ(n₁)μ(n₂). |
+| `TauCeti.DuffinSchaeffer.GCDGraph.IsNontrivial` | data | μ(ℰ) > 0 (Definition 6.2). |
+| `TauCeti.DuffinSchaeffer.GCDGraph.IsSubgraph` | data | The relation G' ⪯ G of Definition 6.4. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.IsSubgraph.trans` | relation | Lemma 6.7(a): ⪯ is transitive. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.IsSubgraph.refl` | relation | G ⪯ G. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.R_subset_of_isSubgraph` | relation | Lemma 6.7(b): G' ⪯ G implies ℛ(G') ⊆ ℛ(G). |
+| `TauCeti.DuffinSchaeffer.GCDGraph.vertexMeasure_pos_of_isNontrivial` | other | Lemma 6.7(c): a non-trivial G has μ(𝒱), μ(𝒲) > 0. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `gcd-graph.test_edgeMeasure_single_edge` (computation) — With ℰ = {(2,3)} and μ ≡ 1, μ(ℰ) = 1.
+- `gcd-graph.test_not_isNontrivial_of_empty` (degenerate) — An empty edge set gives a trivial graph.
+- `gcd-graph.test_not_pow_succ_dvd_gcd` (characterisation) — For p ∈ 𝒫 and (v,w) ∈ ℰ, p^{min(f(p),g(p))+1} does not divide gcd(v,w): condition (ii) is exact divisibility, not mere divisibility.
+
+**Where it is used.**
+- Koukoulopoulos–Maynard §§6–14 — Every step of the compression argument is a GCD subgraph with more multiplicative data.
+- edge-set-bound — Proposition 6.3 is an edge-measure bound for a GCD graph with trivial primes.
+
+**Acceptance tests.**
+- The graph of Proposition 5.4 (vertex sets two copies of ℤ ∩ [X,Y], edge set ℰ_t, trivial primes) is a GCD graph.
+
+**Dependencies.**
+- On the pinned libraries: `mathlib:Nat.factorization`, `mathlib:Nat.primeFactors`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §6, Definitions 6.1, 6.2 and 6.4, pp. 269–270. The definitions.
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §6, Lemma 6.7, p. 273. The basic API.
+
+#### `gcd-graph-quality` — Edge density, ℛ(G) and the quality of a GCD graph (Definition 6.6)
+
+*definition* · planet **Quality of a GCD graph** · proposed `TauCeti.DuffinSchaeffer.GCDGraph.quality`
+
+For a GCD graph G: the edge density δ(G) = μ(ℰ)/(μ(𝒱)μ(𝒲)) (0 if a vertex set has measure 0); the neighbourhoods Γ_G(v), Γ_G(w); ℛ(G) = {p ∉ 𝒫 : p | gcd(v,w) for some (v,w) ∈ ℰ}; ℛ♯(G) = {p ∈ ℛ(G) : ∃k with μ(𝒱_{p^k})/μ(𝒱), μ(𝒲_{p^k})/μ(𝒲) ≥ 1 − 10⁴⁰/p}, ℛ♭(G) = ℛ(G) \ ℛ♯(G); and the quality q(G) = δ¹⁰ μ(𝒱)μ(𝒲) ∏_{p∈𝒫} p^{|f(p)−g(p)|}/((1 − 𝟙_{f(p)=g(p)≥1}/p)²(1 − p^{−31/30})¹⁰).
+
+**Hypotheses.**
+- 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}; 𝒱_{p⁰} is the set of v coprime to p.
+- In ℛ♯ the exponent k can be bounded by the largest vertex without changing the set.
+
+**Construction or proof, in steps.**
+1. Define each quantity as displayed; ℛ(G) is a finite set because ℰ is finite.
+2. Remark after Definition 6.6: when μ(𝒱), μ(𝒲) > 0, q(G) = μ(ℰ)¹⁰/(μ(𝒱)⁹μ(𝒲)⁹)·∏_{p∈𝒫}(…).
+3. Lemma 6.7(d): non-trivial ⟺ δ > 0 ⟺ q(G) > 0, since the product over 𝒫 is positive.
+4. δ ≤ 1 because ℰ ⊆ 𝒱 × 𝒲 and μ ≥ 0.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `TauCeti.DuffinSchaeffer.GCDGraph.edgeDensity` | data | δ(G) = μ(ℰ)/(μ(𝒱)μ(𝒲)), or 0. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.nbhdV` | data | Γ_G(v) = {w ∈ 𝒲 : (v,w) ∈ ℰ}. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.nbhdW` | data | Γ_G(w) = {v ∈ 𝒱 : (v,w) ∈ ℰ}. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.R` | data | ℛ(G), the primes outside 𝒫 dividing the gcd of an edge. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.Vpow` | data | 𝒱_{p^k}. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.Wpow` | data | 𝒲_{p^k}. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.RSharp` | data | ℛ♯(G). |
+| `TauCeti.DuffinSchaeffer.GCDGraph.RFlat` | data | ℛ♭(G) = ℛ(G) \ ℛ♯(G). |
+| `TauCeti.DuffinSchaeffer.GCDGraph.isNontrivial_iff` | characterisation | Lemma 6.7(d): non-trivial ⟺ δ > 0 ⟺ q > 0. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.quality_eq` | characterisation | q(G) = μ(ℰ)¹⁰/(μ(𝒱)⁹μ(𝒲)⁹)·∏ when μ(𝒱), μ(𝒲) > 0. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.edgeDensity_le_one` | other | δ(G) ≤ 1. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `gcd-graph-quality.test_quality_empty_edges` (degenerate) — ℰ = ∅ gives q(G) = 0.
+- `gcd-graph-quality.test_quality_trivial_primes` (computation) — With 𝒫 = ∅ and μ(𝒱), μ(𝒲) > 0, q(G) = δ⁹μ(ℰ), the identity used in the proof of Proposition 6.3.
+- `gcd-graph-quality.test_R_empty_of_coprime_edges` (characterisation) — If every edge has coprime ends then ℛ(G) = ∅.
+
+**Where it is used.**
+- good-gcd-subgraph — The conclusions of Proposition 7.1 are stated in terms of δ, Γ, ℛ and q.
+- Koukoulopoulos–Maynard §§8–14 — The iteration increases or boundedly loses q while shrinking ℛ.
+
+**Acceptance tests.**
+- The factor ∏(1 − p^{−31/30})^{−10} lies in [1, ζ(31/30)¹⁰]; the factor ∏(1 − 𝟙_{f=g≥1}/p)^{−2} is what the φ(q)/q weights pay for (Section 15).
+
+**Dependencies.**
+- In this packet: `gcd-graph`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §6, Definition 6.6 and the remark after it, pp. 271–273. The definitions.
+
+#### `gcd-graph-special-subgraph` — The special GCD subgraphs G_{p^k,p^ℓ} (Definition 6.5)
+
+*construction* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.restrictPow`
+
+For a GCD graph G, a prime p ∉ 𝒫 and k, ℓ ≥ 0, G_{p^k,p^ℓ} = (μ, 𝒱_{p^k}, 𝒲_{p^ℓ}, ℰ ∩ (𝒱_{p^k} × 𝒲_{p^ℓ}), 𝒫 ∪ {p}, f_{p^k}, g_{p^ℓ}) with f_{p^k} extending f by k at p and g_{p^ℓ} extending g by ℓ. It is a GCD subgraph of G.
+
+**Hypotheses.**
+- The source requires only p ∉ 𝒫 for the definition.
+
+**Construction or proof, in steps.**
+1. Check (i)–(iii) at p: p^k ∥ v on 𝒱_{p^k}, p^ℓ ∥ w on 𝒲_{p^ℓ}, and the gcd of an edge has valuation min(k,ℓ) at p. At primes of 𝒫 the conditions are inherited.
+2. The subgraph relation and ℛ(G_{p^k,p^ℓ}) ⊆ ℛ(G) \ {p} are immediate.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `TauCeti.DuffinSchaeffer.GCDGraph.restrictPow_isSubgraph` | relation | G_{p^k,p^ℓ} ⪯ G. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.R_restrictPow` | relation | ℛ(G_{p^k,p^ℓ}) ⊆ ℛ(G) \ {p}. |
+| `TauCeti.DuffinSchaeffer.GCDGraph.quality_restrictPow` | characterisation | Lemma 11.1, promoted to the node PM.3/special-subgraph-quality-ratio. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `gcd-graph-special-subgraph.test_restrictPow_two_zero_zero` (computation) — The vertex set of G_{2⁰,2⁰} is the set of odd elements of 𝒱.
+- `gcd-graph-special-subgraph.test_restrictPow_exact_valuation` (characterisation) — For k ≠ ℓ every vertex v of G_{p^k,p^ℓ} on the left has v_p(v) = k exactly.
+- `gcd-graph-special-subgraph.test_restrictPow_quality_zero` (degenerate) — If 𝒱_{p^k} = ∅ then q(G_{p^k,p^ℓ}) = 0.
+
+**Where it is used.**
+- Koukoulopoulos–Maynard §§11–14 — Every step that adds a prime to 𝒫 passes to some G_{p^k,p^ℓ} or a union of them.
+- special-subgraph-quality-ratio — The quality ratio formula.
+
+**Acceptance tests.**
+- G_{2⁰,2⁰} keeps the odd vertices on both sides.
+
+**Dependencies.**
+- In this packet: `gcd-graph`, `gcd-graph-quality`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §6, Definition 6.5, p. 271. The construction.
+
+#### `special-subgraph-quality-ratio` — Quality ratio of G_{p^k,p^ℓ} (Lemma 11.1)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.quality_restrictPow`
+
+If G is non-trivial, p ∉ 𝒫 and μ(𝒱_{p^k}), μ(𝒲_{p^ℓ}) > 0, then q(G_{p^k,p^ℓ})/q(G) = (μ(ℰ_{p^k,p^ℓ})/μ(ℰ))¹⁰(μ(𝒱)/μ(𝒱_{p^k}))⁹(μ(𝒲)/μ(𝒲_{p^ℓ}))⁹·p^{|k−ℓ|}/((1 − 𝟙_{k=ℓ≥1}/p)²(1 − p^{−31/30})¹⁰).
+
+**Hypotheses.**
+- The source assumes p ∈ ℛ(G); only p ∉ 𝒫 is needed (E13).
+
+**Proof, in steps.**
+1. Expand both qualities by the remark after Definition 6.6; the product over 𝒫 cancels and the factor at p remains.
+
+**Acceptance tests.**
+- k = ℓ = 0 gives the factor (1 − p^{−31/30})^{−10} > 1.
+
+**Dependencies.**
+- In this packet: `gcd-graph-special-subgraph`, `gcd-graph-quality`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §11, Lemma 11.1, p. 288. The formula.
+
+### Sections 7–8: a good GCD subgraph and the iterative propositions
+
+#### `edge-set-bound` — Edge-set bound (Proposition 6.3)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.edgeMeasure_le_of_Et`
+
+Let ψ: ℕ → ℝ_{≥0}, t ≥ 1, μ(v) = ψ(v)φ(v)/v, and G = (μ, 𝒱, 𝒱, ℰ, ∅, f_∅, g_∅) with 0 < μ(𝒱) ≪ 1 and ℰ ⊆ ℰ_t. Then μ(ℰ) ≪ 1/t.
+
+**Hypotheses.**
+- ℰ_t as in Proposition 5.4: gcd(v,w) ≥ M(v,w)/t and L_t(v,w) ≥ 10.
+
+**Proof, in steps.**
+1. If δ ≤ 1/t or t ≤ 10²⁰⁰⁰, μ(ℰ) ≤ δμ(𝒱)² ≪ 1/t. Otherwise δ ≥ 1/t, t > 10²⁰⁰⁰ and t ≥ 10δ^{−1/50}; apply Proposition 7.1 to get G'.
+2. With a = ∏_{p∈𝒫'} p^{f'(p)}, b = ∏ p^{g'(p)}: a | v, b | w, and gcd(v,w) = gcd(a,b) on ℰ' (ℛ(G') = ∅). Then ∏p^{|f'−g'|} = ab/gcd(a,b)² and ∏(1 − 𝟙/p)^{−2} ≤ ab/(φ(a)φ(b)), so q(G') ≪ δ'⁹μ(ℰ')(ab/gcd²)(ab/φ(a)φ(b)) (7.2).
+3. From M ≤ t·gcd on edges, ψ(v) ≤ t·gcd(a,b)/w_max(v) and ψ(w) ≤ t·gcd(a,b)/v_max(w) (7.3). Restricting to the edges ℰ'' at the largest w₀ keeps μ(ℰ'') ≥ δ'μ(ℰ')/2 by the degree conditions, and φ(v)/v ≤ φ(a)/a, so q(G') ≪ t²ab Σ_{(v,w)∈ℰ'} 1/(v_max(w)w₀) (7.6).
+4. Case (d)(i): the sum is ≤ 1/(ab), so q(G') ≪ t², and μ(ℰ) = δ^{−9}q(G) ≪ δ^{−10}t^{−50}q(G') ≪ 1/t.
+5. Case (d)(ii): L_t(v',w') ≥ 4 forces Σ_{p|v',p≥t} 1/p ≥ 2 or the same for w'; Lemma 7.3 with c = 2 bounds the sum by ≪ 1/(ab t² e^t), so q(G') ≪ e^{−t} and μ(ℰ) ≪ t⁹e^{−t} ≪ 1/t.
+
+**Acceptance tests.**
+- The φ(v)/v factor in μ is what cancels ab/(φ(a)φ(b)) in (7.2); without it the argument fails (Section 15).
+
+**Dependencies.**
+- In this packet: `good-gcd-subgraph`, `few-integers-many-large-primes`, `gcd-graph`, `gcd-graph-quality`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §6, Proposition 6.3, p. 269; §7, its proof, pp. 275–279. The proposition and its proof from Proposition 7.1.
+
+#### `multiplicative-function-bound` — Rankin-type bound for multiplicative functions (case of Lemma 7.2)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.sum_le_mul_exp_of_const_on_powers`
+
+Let f be multiplicative with f(p^ν) = f(p) ≥ 1 for every prime p and ν ≥ 1. Then Σ_{n≤x} f(n) ≤ x·exp(Σ_{p≤x} (f(p) − 1)/p).
+
+**Hypotheses.**
+- Lemma 7.2 in the source is the general bound for 0 ≤ f ≤ τ_k, cited to Koukoulopoulos's book (Theorem 14.2), which was not read. Only this case is used (in Lemma 7.3), and it has the elementary proof below.
+
+**Proof, in steps.**
+1. Write f = 1 * h with h multiplicative, h(p) = f(p) − 1 ≥ 0 and h(p^ν) = 0 for ν ≥ 2.
+2. Σ_{n≤x} f(n) = Σ_{d≤x} h(d)⌊x/d⌋ ≤ x Σ_{d≤x} h(d)/d ≤ x ∏_{p≤x}(1 + h(p)/p) ≤ x exp(Σ_{p≤x} h(p)/p).
+
+**Acceptance tests.**
+- f ≡ 1 gives ⌊x⌋ ≤ x.
+- Lemma 7.3 uses f(p^ν) = e^{2T/p} for p ≥ T and 1 otherwise.
+
+**Dependencies.**
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §7, Lemma 7.2, p. 274. The statement; the special case and its proof are worker-derived.
+
+#### `few-integers-many-large-primes` — Few integers with many large prime factors (Lemma 7.3)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.card_many_large_prime_factors_le`
+
+For x, t ≥ 1 and c ∈ [1,10], #{n ≤ x : Σ_{p|n, p≥t} 1/p ≥ c} ≪ x·exp(−t^{e^{c−1}}), with an absolute implied constant.
+
+**Hypotheses.**
+- The exponent is t^{e^{c−1}} (checked on the page image; the text layer is ambiguous).
+
+**Proof, in steps.**
+1. For bounded t the claim is trivial. Put T = t^{e^{c−1}}; by Mertens' theorem (requested from AN.2) Σ_{t≤p<T} 1/p ≤ c − 1/2 for large t, so the set lies in {n ≤ x : Σ_{p|n,p≥T} 1/p ≥ 1/2} (7.1).
+2. Rankin: that set has at most e^{−T}Σ_{n≤x} ∏_{p|n,p≥T} e^{2T/p} elements. Apply the multiplicative-function bound with f(p^ν) = e^{2T/p} for p ≥ T and 1 for p < T.
+3. Σ_{T≤p≤x} (e^{2T/p} − 1)/p = O(Σ_{p≥T} T/p²) = O(1), so the count is ≪ x e^{−T}.
+
+**Acceptance tests.**
+- c = 2 gives ≪ x exp(−t^e), used in Case (d)(ii) of Proposition 6.3.
+
+**Dependencies.**
+- In this packet: `multiplicative-function-bound`
+- Other roadmaps (requested): `AnalyticNumberTheory:AN.2`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §7, Lemma 7.3 and proof, pp. 274–275. The lemma and its proof.
+
+#### `good-gcd-subgraph` — Existence of a good GCD subgraph (Proposition 7.1)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.exists_good_subgraph`
+
+Let G = (μ, 𝒱, 𝒲, ℰ, ∅, f_∅, g_∅) have edge density δ > 0, ℰ ⊆ {L_t ≥ 10}, t ≥ 10δ^{−1/50} and t > 10²⁰⁰⁰. Then there is G' ⪯ G with δ' > 0, ℛ(G') = ∅, μ(Γ_{G'}(v)) ≥ (9δ'/10)μ(𝒲') for v ∈ 𝒱', μ(Γ_{G'}(w)) ≥ (9δ'/10)μ(𝒱') for w ∈ 𝒲', and either (i) q(G') ≫ δt⁵⁰q(G), or (ii) q(G') ≫ q(G) and L_t(v',w') ≥ 4 for every edge, where v = v'∏_{p∈𝒫'}p^{f'(p)}, w = w'∏ p^{g'(p)}.
+
+**Hypotheses.**
+- The implied constants are absolute (explicitly, powers of 10^{10^{3000}}).
+
+**Proof, in steps.**
+1. It suffices to get (a) and (d); Lemma 8.5 then adds the degree conditions without changing 𝒫 or ℛ = ∅.
+2. Stage 1: Proposition 8.3 gives G⁽¹⁾ with ℛ(G⁽¹⁾) ⊆ {p > 10²⁰⁰⁰} and q, δq losing at most 10^{10^{3000}} (8.1).
+3. Stage 2: iterate Proposition 8.1 while ℛ♭ ≠ ∅ (ℛ strictly shrinks) to reach G⁽²⁾ with ℛ♭(G⁽²⁾) = ∅, gaining 2^N, N = #{p ∈ 𝒫⁽²⁾ \ 𝒫⁽¹⁾ : f ≠ g} (8.3).
+4. Case (a), q(G⁽²⁾)/q(G) ≥ (t/10)⁵⁰δ/10^{10^{3000}}: iterate Proposition 8.1 or 8.2 until ℛ = ∅; the quality never drops, giving (d)(i).
+5. Case (b): δ⁽²⁾ ≥ (10/t)⁵⁰ and 2^N ≤ t⁵⁰. Lemma 8.4 gives G⁽³ᵇ⁾ with 𝒫 unchanged, q ≥ q/2, and Σ_{p | vw/gcd², p≥t, p∉ℛ(G⁽²⁾)} 1/p ≥ 5 (8.8). The primes of 𝒫⁽²⁾ with f ≠ g contribute at most N/t < 1, giving (8.10).
+6. Stage 4b: iterate Propositions 8.1/8.2 to reach ℛ = ∅. Every prime p with p | vw/gcd² but p ∤ v'w' lies in 𝒫_diff⁽²⁾ ∪ ℛ(G⁽²⁾), so (8.10) gives L_t(v',w') ≥ 4, which is (d)(ii).
+
+**Acceptance tests.**
+- The iteration terminates because ℛ strictly decreases and is finite.
+
+**Dependencies.**
+- In this packet: `iteration-flat-primes`, `iteration-sharp-primes`, `iteration-small-primes`, `remove-R-from-anatomy`, `high-degree-subgraph`, `gcd-graph-quality`, `gcd-graph-special-subgraph`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §7, Proposition 7.1, p. 273; §8, its proof, pp. 280–284. The proposition and its proof from Propositions 8.1–8.3 and Lemmas 8.4–8.5.
+
+#### `iteration-flat-primes` — Iteration when ℛ♭(G) ≠ ∅ (Proposition 8.1)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.exists_subgraph_of_RFlat_nonempty`
+
+If δ > 0, ℛ(G) ⊆ {p > 10²⁰⁰⁰} and ℛ♭(G) ≠ ∅, there is G' ⪯ G with δ' > 0, 𝒫 ⊊ 𝒫' ⊆ 𝒫 ∪ ℛ(G), ℛ(G') ⊊ ℛ(G) and min{1, δ'/δ}·q(G')/q(G) ≥ 2^N, N = #{p ∈ 𝒫' \ 𝒫 : f'(p) ≠ g'(p)}.
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+
+**Proof, in steps.**
+1. Pick p ∈ ℛ♭(G); then p > 10²⁰⁰⁰ > 10⁴⁰. Conclusion (b) of Lemma 12.2 contradicts p ∉ ℛ♯(G), so conclusion (a) holds, with N = 𝟙_{f'(p)≠g'(p)}.
+
+**Acceptance tests.**
+- Only one prime is added per step.
+
+**Dependencies.**
+- In this packet: `large-prime-increment`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §8, Proposition 8.1, p. 279; §12, proof, p. 295. The proposition and its proof.
+
+#### `iteration-sharp-primes` — Iteration when ℛ♭(G) = ∅ (Proposition 8.2)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.exists_subgraph_of_RFlat_empty`
+
+If δ > 0, ℛ(G) ⊆ {p > 10²⁰⁰⁰}, ℛ♭(G) = ∅ and ℛ♯(G) ≠ ∅, there is G' ⪯ G with 𝒫 ⊊ 𝒫' ⊆ 𝒫 ∪ ℛ(G), ℛ(G') ⊊ ℛ(G) and q(G') ≥ q(G).
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+
+**Proof, in steps.**
+1. Any p ∈ ℛ(G) exceeds 10²⁰⁰⁰; apply Lemma 14.1.
+
+**Acceptance tests.**
+- The quality does not decrease; there is no increment.
+
+**Dependencies.**
+- In this packet: `sharp-prime-increment`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §8, Proposition 8.2, p. 279; §14, proof, p. 304. The proposition and its proof.
+
+#### `iteration-small-primes` — Bounded quality loss for small primes (Proposition 8.3)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.exists_subgraph_small_primes`
+
+If G has trivial primes and δ > 0, there is G' ⪯ G with δ' > 0, 𝒫' ⊆ {p ≤ 10²⁰⁰⁰}, ℛ(G') ⊆ {p > 10²⁰⁰⁰} and min{1, δ'/δ}·q(G')/q(G) ≥ 10^{−10^{3000}}.
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+
+**Proof, in steps.**
+1. If ℛ(G) has no prime ≤ 10²⁰⁰⁰, take G' = G. Otherwise apply Lemma 13.2 to such primes repeatedly; each step removes one small prime from ℛ and loses at most 10⁵⁰ in q and δq (13.3).
+2. At most 10²⁰⁰⁰ steps occur, and (10⁵⁰)^{10²⁰⁰⁰} ≤ 10^{10^{3000}}.
+
+**Acceptance tests.**
+- The loss is enormous but independent of G and t.
+
+**Dependencies.**
+- In this packet: `add-small-prime`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §8, Proposition 8.3, p. 279; §13, proof, pp. 299–300. The proposition and its proof.
+
+#### `remove-R-from-anatomy` — Removing the effect of ℛ(G) from L_t (Lemma 8.4)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.exists_subgraph_remove_R`
+
+Let t ≥ 300, ℛ♭(G) = ∅, δ ≥ (10/t)⁵⁰ and ℰ ⊆ {L_t ≥ 10}. Then there is G' = (μ, 𝒱, 𝒲, ℰ', 𝒫, f, g) ⪯ G with q(G') ≥ q(G)/2 > 0 and Σ_{p | vw/gcd(v,w)², p ≥ t, p ∉ ℛ(G)} 1/p ≥ 5 for every (v,w) ∈ ℰ'.
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+
+**Proof, in steps.**
+1. Let S(v,w) = Σ_{p | vw/gcd², p ∈ ℛ(G), p ≥ t⁵⁰} 1/p. Every p ∈ ℛ(G) is in ℛ♯(G), so a p dividing vw/gcd² separates the two sides of a dominant class p^k, and μ{(v,w) ∈ ℰ : p | vw/gcd²} ≤ 2·10⁴⁰μ(𝒱)μ(𝒲)/p.
+2. Hence Σ_ℰ μ(v)μ(w)S(v,w) ≤ 2·10⁴⁰μ(𝒱)μ(𝒲)/t⁵⁰ < μ(ℰ)/100, using δ ≥ (10/t)⁵⁰. Keep ℰ' = {S ≤ 1}: μ(ℰ') ≥ 0.99μ(ℰ) and q(G')/q(G) = (μ(ℰ')/μ(ℰ))¹⁰ ≥ 1/2.
+3. Σ_{t≤p≤t⁵⁰} 1/p ≤ log 50 + 1/(log t)² ≤ 4 for t ≥ 300 (Rosser–Schoenfeld Theorem 5, requested from AN.2). So the primes of ℛ(G) contribute at most 5 to L_t on ℰ', leaving at least 5.
+
+**Acceptance tests.**
+- In the application t > 10²⁰⁰⁰, so any effective form of Mertens' second theorem suffices.
+
+**Dependencies.**
+- In this packet: `gcd-graph-quality`
+- Other roadmaps (requested): `AnalyticNumberTheory:AN.2`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §8, Lemma 8.4, p. 280; §9, proof, pp. 285–286. The lemma and its proof.
+
+#### `high-degree-subgraph` — Subgraph with high-degree vertices (Lemma 8.5)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.exists_high_degree_subgraph`
+
+If δ > 0, there is G' = (μ, 𝒱', 𝒲', ℰ', 𝒫, f, g) ⪯ G with δ' ≥ δ, q(G') ≥ q(G), and μ(Γ_{G'}(v)) ≥ (9δ'/10)μ(𝒲'), μ(Γ_{G'}(w)) ≥ (9δ'/10)μ(𝒱') for all vertices.
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+
+**Proof, in steps.**
+1. Apply Lemma 10.1 repeatedly; each application removes a vertex without lowering δ or q, so the process stops, at a graph satisfying the degree conditions.
+
+**Acceptance tests.**
+- The multiplicative data never change.
+
+**Dependencies.**
+- In this packet: `degree-or-increment`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §8, Lemma 8.5, p. 280; §10, proof, p. 287. The lemma and its proof.
+
+### Sections 10–14: the iteration lemmas
+
+#### `degree-or-increment` — High degree or a quality increment (Lemma 10.1)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.high_degree_or_increment`
+
+If δ > 0, either every vertex has μ(Γ(v)) ≥ (9δ/10)μ(𝒲) and μ(Γ(w)) ≥ (9δ/10)μ(𝒱), or there is G' ⪯ G with the same multiplicative data, δ' ≥ δ, q(G') ≥ q(G), and 𝒱' ⊊ 𝒱 or 𝒲' ⊊ 𝒲.
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+
+**Proof, in steps.**
+1. If v has μ(Γ(v)) < (9δ/10)μ(𝒲), delete v: μ(ℰ') = μ(ℰ) − μ(v)μ(Γ(v)) > μ(ℰ)/10 > 0.
+2. δ' ≥ δ(1 + (μ(v)/10)/(μ(𝒱) − μ(v))), and by Bernoulli (δ')¹⁰μ(𝒱 \ {v})μ(𝒲) ≥ δ¹⁰μ(𝒱)μ(𝒲), so q(G') ≥ q(G). The case of w is symmetric.
+
+**Acceptance tests.**
+- Deleting a vertex of zero weight changes nothing.
+
+**Dependencies.**
+- In this packet: `gcd-graph-quality`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §10, Lemma 10.1 and proof, pp. 286–287. The lemma and its proof.
+
+#### `partition-pigeonhole` — One part has limited quality loss (Lemma 11.2)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.exists_part_subgraph`
+
+If δ > 0 and 𝒱 = 𝒱₁ ⊔ … ⊔ 𝒱_I, 𝒲 = 𝒲₁ ⊔ … ⊔ 𝒲_J, there are i, j such that G' = (μ, 𝒱ᵢ, 𝒲ⱼ, ℰ ∩ (𝒱ᵢ × 𝒲ⱼ), 𝒫, f, g) has δ' ≥ δ/(IJ) > 0 and q(G') ≥ q(G)/(IJ)¹⁰.
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+
+**Proof, in steps.**
+1. Pigeonhole: some ℰ_{i,j} has μ(ℰ_{i,j}) ≥ μ(ℰ)/(IJ).
+2. δ'/δ ≥ μ(ℰ_{i,j})/μ(ℰ) and q'/q ≥ (μ(ℰ_{i,j})/μ(ℰ))¹⁰, because the vertex ratios are at least 1.
+
+**Acceptance tests.**
+- I = J = 1 returns G.
+
+**Dependencies.**
+- In this packet: `gcd-graph-quality`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §11, Lemma 11.2 and proof, p. 288. The lemma and its proof.
+
+#### `unbalanced-sets-few-edges` — Few edges between unbalanced sets (Lemmas 11.3 and 11.4)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.restrictPow_increment_or_few_edges`
+
+Let δ > 0, p ∉ 𝒫 prime, r ≥ 1, k ≥ 0 with p^r > 10²⁰⁰⁰ and μ(𝒲_{p^k}) ≥ (1 − 10⁴⁰/p)μ(𝒲), and L_{k,r} = {ℓ : |ℓ − k| ≥ r + 1}. Then either (a) some ℓ ∈ L_{k,r} has q(G_{p^k,p^ℓ}) > 2q(G) and δ_{p^k,p^ℓ}q(G_{p^k,p^ℓ}) > 2δq(G), or (b) Σ_{ℓ∈L_{k,r}} μ(ℰ_{p^k,p^ℓ}) ≤ μ(ℰ)/(4p^{31/30}). Lemma 11.4 is the same with the roles of 𝒱 and 𝒲 exchanged.
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+- The source assumes p ∈ ℛ(G); p ∉ 𝒫 suffices (E13).
+
+**Proof, in steps.**
+1. If (b) fails, some ℓ ∈ L_{k,r} has μ(ℰ_{p^k,p^ℓ}) > μ(ℰ)/(300·2^{|k−ℓ|/20}p^{31/30}), since Σ_j 2^{−|j|/20} ≤ 60.
+2. μ(𝒲_{p^ℓ}) ≤ 10⁴⁰μ(𝒲)/p. By Lemma 11.1, q(G_{p^k,p^ℓ})/q(G) ≥ p^{−4/3}(p/2^{1/2})^{|k−ℓ|}/10³⁸⁵ ≥ p^{r/3}/(2^{4/3}·10³⁸⁵) > 2, using |k−ℓ| ≥ r + 1 ≥ 2r/3 + 4/3 and p^r > 10²⁰⁰⁰.
+3. Likewise (δ'/δ)(q'/q) ≥ p^{−41/30}(p/2^{11/20})^{|k−ℓ|}/10⁴²⁸ ≥ (p^{9/20})^{19r/30}/(2^{41·11/600}·10⁴²⁸) > 2.
+
+**Acceptance tests.**
+- If p ≤ 10⁴⁰ the density hypothesis is vacuous.
+
+**Dependencies.**
+- In this packet: `special-subgraph-quality-ratio`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §11, Lemmas 11.3 and 11.4, pp. 288–290. The lemmas and the proof of 11.3.
+
+#### `small-sets-few-edges` — Few edges between small sets (Lemma 11.5)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.few_edges_small_sets_or_increment`
+
+Let δ > 0 and η ∈ (0,1). Either every A ⊆ 𝒱, B ⊆ 𝒲 with μ(A) ≤ ημ(𝒱), μ(B) ≤ ημ(𝒲) has μ(ℰ ∩ (A × B)) ≤ η^{9/5}μ(ℰ), or there is G' ⪯ G with the same multiplicative data, q(G') > q(G), 𝒱' ⊊ 𝒱 and 𝒲' ⊊ 𝒲.
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+
+**Proof, in steps.**
+1. If A, B violate the bound, G' = (μ, A, B, ℰ ∩ (A × B), 𝒫, f, g) is non-trivial, A ⊊ 𝒱 and B ⊊ 𝒲 (η < 1), and q(G')/q(G) > (η^{9/5})¹⁰/(η⁹η⁹) = 1.
+
+**Acceptance tests.**
+- The exponent 9/5 balances 10 against 9 + 9.
+
+**Dependencies.**
+- In this packet: `gcd-graph-quality`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §11, Lemma 11.5 and proof, p. 290. The lemma and its proof.
+
+#### `small-sets-subgraph` — Subgraph with few edges between small sets (Lemma 11.6)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.exists_subgraph_few_edges_small_sets`
+
+Let δ > 0 and η ∈ (0,1). There is G' ⪯ G with the same multiplicative data, δ' > 0, q(G') ≥ q(G), and μ(ℰ' ∩ (A × B)) ≤ η^{9/5}μ(ℰ') whenever μ(A) ≤ ημ(𝒱'), μ(B) ≤ ημ(𝒲').
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+
+**Proof, in steps.**
+1. Iterate Lemma 11.5; the vertex sets strictly shrink, so the process stops, and the quality strictly increases along the way.
+
+**Acceptance tests.**
+- Used in Lemma 14.1 with η = 10⁴⁰/p.
+
+**Dependencies.**
+- In this packet: `small-sets-few-edges`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §11, Lemma 11.6 and proof, pp. 291. The lemma and its proof.
+
+#### `edge-distribution-bound` — Some pair of prime-power classes carries many edges (Lemma 12.1)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.exists_heavy_restriction`
+
+Let p ∉ 𝒫 be prime, α_k = μ(𝒱_{p^k})/μ(𝒱), β_ℓ = μ(𝒲_{p^ℓ})/μ(𝒲). There are k, ℓ with α_k, β_ℓ > 0 and μ(ℰ_{p^k,p^ℓ})/μ(ℰ) ≥ (α_kβ_k)^{9/10} if k = ℓ, and ≥ (α_k(1−β_k) + β_k(1−α_k) + α_ℓ(1−β_ℓ) + β_ℓ(1−α_ℓ))/(2^{|k−ℓ|/20}·1000) if k ≠ ℓ.
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+- The source assumes p ∈ ℛ(G); p ∉ 𝒫 suffices (E13).
+
+**Proof, in steps.**
+1. Otherwise 1 = Σ_{(k,ℓ)} μ(ℰ_{p^k,p^ℓ})/μ(ℰ) < S₁ + S₂ with S₁ = Σ(α_kβ_k)^{9/10} and S₂ the off-diagonal sum.
+2. Σ_{|j|≥1} 2^{−|j|/20} ≤ 100 gives S₂ ≤ (2/5)Σ_{k≠ℓ}α_kβ_ℓ ≤ (2/5)(1 − γ), γ = max α_kβ_k. Cauchy–Schwarz gives S₁ ≤ γ^{2/5}.
+3. x^{2/5} + 2(1−x)/5 ≤ 1 on [0,1], a contradiction.
+
+**Acceptance tests.**
+- If all vertices have the same p-valuation k, the lemma returns (k,k) with the full edge set.
+
+**Dependencies.**
+- In this packet: `gcd-graph-special-subgraph`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §12, Lemma 12.1 and proof, pp. 291–293. The lemma and its proof.
+
+#### `large-prime-increment` — Quality increment unless a prime power divides almost all (Lemma 12.2)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.restrictPow_increment_or_concentrated`
+
+Let δ > 0 and p ∉ 𝒫 a prime with p > 10⁴⁰. Either (a) some G' = G_{p^k,p^ℓ} has δ' > 0 and min{1, δ'/δ}·q(G')/q(G) ≥ 2^{𝟙_{k≠ℓ}}, or (b) some k has μ(𝒱_{p^k}) ≥ (1 − 10⁴⁰/p)μ(𝒱) and μ(𝒲_{p^k}) ≥ (1 − 10⁴⁰/p)μ(𝒲).
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+- The source assumes p ∈ ℛ(G); p ∉ 𝒫 suffices (E13). In case (a), 𝒫' = 𝒫 ∪ {p} and ℛ(G') ⊆ ℛ(G) \ {p}.
+
+**Proof, in steps.**
+1. Take k, ℓ from Lemma 12.1. If k = ℓ, Lemma 11.1 gives q'/q ≥ 1 and δ'/δ ≥ (α_kβ_k)^{−1/10} ≥ 1.
+2. If k ≠ ℓ, with S = α_k(1−β_k) + β_k(1−α_k) + α_ℓ(1−β_ℓ) + β_ℓ(1−α_ℓ) ≥ α_kβ_ℓ: min{q'/q, (δ'/δ)(q'/q)} ≥ S²/(1000¹¹α_kβ_ℓ)·(p/2^{11/20})^{|k−ℓ|} (12.3).
+3. If (a) fails, S ≤ 10³⁴/p ≤ 1/5, and S ≥ (α_k + β_ℓ)(1 − max{α_ℓ, β_k}) with AM–GM gives max{α_ℓ, β_k} ≥ 1/2. If β_k ≥ 1/2 then 1 − α_k ≤ 2S and then 1 − β_k ≤ 2S, both ≤ 10⁴⁰/p; the other case is symmetric.
+
+**Acceptance tests.**
+- Case (b) is exactly p ∈ ℛ♯ when p ∈ ℛ(G).
+
+**Dependencies.**
+- In this packet: `edge-distribution-bound`, `special-subgraph-quality-ratio`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §12, Lemma 12.2 and proof, pp. 293–295. The lemma and its proof.
+
+#### `any-prime-bounded-loss` — Small quality loss or a dominant prime power (Lemma 13.1)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.restrictPow_bounded_loss_or_concentrated`
+
+Let δ > 0 and p ∉ 𝒫 prime. Either (a) some G' = G_{p^k,p^ℓ} has δ' > 0 and min{1, δ'/δ}·q(G')/q(G) ≥ 10^{−40}, or (b) some k has μ(𝒱_{p^k}) ≥ (9/10)μ(𝒱) and μ(𝒲_{p^k}) ≥ (9/10)μ(𝒲).
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+- The source assumes p ∈ ℛ(G); p ∉ 𝒫 suffices (E13).
+
+**Proof, in steps.**
+1. Proceed as in Lemma 12.2 up to (12.3), which does not use the size of p. If k = ℓ, (a) holds.
+2. If k ≠ ℓ and (a) fails, S ≤ S²/(α_kβ_ℓ) ≤ 10^{−7}, so max{α_ℓ, β_k} ≥ 9/10; if β_k ≥ 9/10 then 1 − α_k ≤ 2S, so α_k ≥ 9/10. The other case is symmetric.
+
+**Acceptance tests.**
+- No lower bound on p is needed.
+
+**Dependencies.**
+- In this packet: `edge-distribution-bound`, `special-subgraph-quality-ratio`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §13, Lemma 13.1 and proof, p. 296. The lemma and its proof.
+
+#### `add-small-prime` — Adding a small prime to 𝒫 (Lemma 13.2)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.exists_subgraph_add_small_prime`
+
+Let δ > 0 and p ∈ ℛ(G) with p ≤ 10²⁰⁰⁰. There is G' ⪯ G with 𝒫' = 𝒫 ∪ {p}, ℛ(G') ⊆ ℛ(G) \ {p}, δ' > 0 and min{1, δ'/δ}·q(G')/q(G) ≥ 10^{−50}.
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+
+**Proof, in steps.**
+1. Apply Lemma 10.1 until every v has μ(Γ(v)) ≥ (9δ⁽¹⁾/10)μ(𝒲⁽¹⁾); δ and q do not drop. (p may leave ℛ(G⁽¹⁾); the lemmas below need only p ∉ 𝒫, E13.)
+2. Lemma 13.1: (a) finishes; otherwise some k has both classes of density ≥ 9/10. If p > 10⁴¹, Lemma 12.2 either finishes or gives a class of density ≥ 1 − 10⁴⁰/p, which must be the same k (13.2).
+3. Fix r ≤ 6644 with p^r > 10²⁰⁰⁰ and apply Lemma 11.3: (a) finishes; (b) leaves at most μ(ℰ)/4 on classes |ℓ − k| > r. Restricting to 𝒱_{p^k} and the classes |ℓ − k| ≤ r keeps at least 56% of the edges, so δ and q lose at most 2 and 2¹⁰.
+4. Lemma 11.2 on the at most 2·6644 + 1 ≤ 15000 classes gives some ℓ with q ≥ q/(15000¹⁰·2¹⁰) ≥ q/10⁵⁰ and δq ≥ δq/10⁵⁰; G_{p^k,p^ℓ} has at least this quality.
+
+**Acceptance tests.**
+- 2^{6644} > 10²⁰⁰⁰, so r ≤ 6644 exists for every prime.
+
+**Dependencies.**
+- In this packet: `degree-or-increment`, `any-prime-bounded-loss`, `large-prime-increment`, `unbalanced-sets-few-edges`, `partition-pigeonhole`, `special-subgraph-quality-ratio`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §13, Lemma 13.2 and proof, pp. 297–299. The lemma and its proof.
+
+#### `sharp-prime-increment` — Quality increment even when a prime power divides almost all (Lemma 14.1)
+
+*lemma* · proposed `TauCeti.DuffinSchaeffer.GCDGraph.exists_subgraph_add_large_prime`
+
+Let δ > 0 and p ∈ ℛ(G) with p ≥ 10²⁰⁰⁰. There is G' ⪯ G with 𝒫' = 𝒫 ∪ {p}, ℛ(G') ⊆ ℛ(G) \ {p} and q(G') ≥ q(G) > 0.
+
+**Hypotheses.**
+- G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.
+
+**Proof, in steps.**
+1. By Lemma 11.6 with η = 10⁴⁰/p assume few edges between small sets (14.1); p may leave ℛ, which does not matter (E13). Lemma 12.2 either finishes or gives k with both classes of density ≥ 1 − 10⁴⁰/p.
+2. Lemmas 11.3 and 11.4 with r = 1 either finish or bound the edges from class k to classes at distance ≥ 2 by μ(ℰ)/(4p^{31/30}) (14.3)–(14.4). With (14.2), the edge set ℰ* = ℰ(𝒱_{p^k}, 𝒲̃_{p^k}) ∪ ℰ(𝒱̃_{p^k}, 𝒲_{p^k}) keeps a proportion (1 − p^{−31/30})^{2/3}, so q(G*) ≥ (1 − p^{−31/30})^{20/3}q(G) (14.5).
+3. Split ℰ* into G⁺ (classes k, k+1 with f(p) = g(p) = k) and G_{p^k,p^{k−1}}, G_{p^{k−1},p^k}. If k = 0 then q(G⁺) ≥ q(G*)/(1 − p^{−31/30})¹⁰ ≥ q(G); the source writes equality here (E12).
+4. If k ≥ 1, write the (k−1)-classes as densities A/p, B/p with A, B ≤ 10⁴⁰. One of (14.13)–(14.15) holds because S < 1 (using 1 − x ≤ e^{−x} ≤ 1 − x + x²/2 and the weighted AM–GM (9A + 1)/10 ≥ A^{9/10}); the corresponding graph among G⁺, G_{p^k,p^{k−1}}, G_{p^{k−1},p^k} has q ≥ q(G). The source prints k+1 for k−1 here (E14).
+
+**Acceptance tests.**
+- The factor (1 − 𝟙_{f=g≥1}/p)^{−2} in the quality is what makes G⁺ gain when k ≥ 1.
+
+**Dependencies.**
+- In this packet: `small-sets-subgraph`, `large-prime-increment`, `unbalanced-sets-few-edges`, `special-subgraph-quality-ratio`
+
+**Sources.**
+- Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §14, Lemma 14.1 and proof, pp. 300–304. The lemma and its proof.
+
+### Source findings in Koukoulopoulos–Maynard
+
+Five new, unreviewed findings are recorded against the published text. Each is also present in arXiv v3.
+- **E10 (error).** Lemma 5.3's indicator 𝟙_{M(q,r) ≥ gcd(q,r)} should be 𝟙_{2M(q,r) ≥ gcd(q,r)}.
+  - Counterexample: q = 2, r = 3, ψ ≡ 3/10. Then 𝒜₂ ∩ 𝒜₃ has measure 1/6, although M = 9/10 < 1 = gcd.
+  - The proof of Theorem 1 is unaffected.
+- **E11 (misprint).** The proof of Theorem 1 cites (1.4) for 𝒜_q, which is defined in (1.3).
+- **E12 (error, harmless).** In Case 1 of Lemma 14.1, G⁺ can have smaller vertex sets than G*, so the stated quality equality is only an inequality. The inequality is what the proof needs.
+- **E13 (gap).** Lemmas 13.2 and 14.1 apply lemmas that assume p ∈ ℛ(G) to subgraphs from which p may have left ℛ.
+  - The fix: those lemmas need only p ∉ 𝒫, and the nodes here state them that way.
+- **E14 (misprint).** The last sentence of the proof of Lemma 14.1 has k+1 where k−1 is meant.
+
+The Annals page lists no erratum.
+
+### Remaining in PM.3
+
+- Lemmas 5.2 and 5.3 are imported from Pollington–Vaughan (1990), which was not read (gap).
+- Mertens' theorems, with Rosser–Schoenfeld's effective error, are requested from AnalyticNumberTheory:AN.2.
+- Lemma 7.2 is used only in an elementary special case, which is proved in its node; Koukoulopoulos's book is not needed.
+- Corollary 3 (the Hausdorff dimension of 𝒜, via Beresnevich–Velani) and other Hausdorff-measure versions are not planned.
+- Section 15's counterexample to the Model Problem, which shows why the φ(v)/v weights matter, is recorded in acceptance notes only.
+
+### Verification of the Duffin–Schaeffer checkpoint
+
+- The new `TauCeti.DuffinSchaeffer` Lean section imports Mathlib only.
+  - Standalone, on Lean 4.34.0-rc2 against Mathlib 082e2d3, it elaborates with no errors and only proof-placeholder warnings.
+  - The whole suggested file also imports Tau Ceti modules, and no pinned Tau Ceti build exists on this machine, so the full file was not elaborated.
+- The official blueprint checker passes, as do the intake file check and the repository unit tests.
