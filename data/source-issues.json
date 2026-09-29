@@ -69378,6 +69378,25 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-HANSEN-26/E1",
+   "kind": "misprint",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.4, p. 13 (transfer part of the proof of Theorem 1.4); page image checked",
+   "printed": "defining 𝒯*_μ: D(G*) → D(G) as the map induced by i*_b T_{V_μ} i_{i!} (with b and μ as above)",
+   "correction": "i*_b T_{V_μ} i_{1!}, as in the definition before Proposition 2.7 (with the roles of the quasi-split form and its inner form as in this section).",
+   "reason": "There is no stratum i_i; the operator 𝒯*_μ is defined before Proposition 2.7 through i*_b T_{V_μ} i_{1!}, and the proof applies Proposition 2.7(ii) to it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the published open-access article (CC BY) is the version read; no arXiv version was found by title search; Crossref records no correction or erratum relation. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-HANSEN-26",
+   "file": "research/blueprint/papers/PAPER-HANSEN-26.result.json",
+   "citation": "Hansen, \"Excursion operators and the stable Bernstein center\", Forum of Mathematics, Pi (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E1",
    "kind": "misprint",
    "locator": "Section 1, p. 3 (published version; the same in arXiv v4)",
