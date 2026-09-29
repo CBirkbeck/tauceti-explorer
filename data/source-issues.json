@@ -129591,6 +129591,50 @@
    "reviewReason": null
   },
   {
+   "id": "AutomorphicGaloisRepresentationsPartII/E1",
+   "kind": "misprint",
+   "locator": "§2.1, definition of a polarized automorphic representation, p. 32",
+   "printed": "In the case that F is imaginary we further suppose that µv(−1) = (−1)n for all v|∞. (This last condition can always be achieved by replacing µ by µδF/F +.)",
+   "correction": "χ_v(−1) … replacing χ by χδ_{F/F⁺}: the character of a polarized automorphic pair (π, χ) is χ; µ is the Galois multiplier of the Galois-side definition on p. 31, from which the sentence was carried over.",
+   "reason": "The definition introduces only π and χ; no µ is in scope, and the next paragraph speaks of a character µ with (π, µ) polarized, again meaning χ.",
+   "affects": "nothing",
+   "known": "new: present in arXiv v4 (9 December 2013, the last version) and in R. Taylor's copy pa3.pdf; the Annals text was not obtained",
+   "searched": [
+    "arXiv:1010.2561v4",
+    "R. Taylor's copy pa3.pdf (virtualmath1.stanford.edu/~rltaylor/pa3.pdf)",
+    "web search for an erratum"
+   ],
+   "owner": "AutomorphicGaloisRepresentationsPartII",
+   "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json",
+   "citation": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor, Potential automorphy and change of weight, arXiv:1010.2561v4, 9 December 2013, the last arXiv version (published Annals of Math. 179 (2014), 501–609). Printed page = PDF page. R. Taylor's copy pa3.pdf has the same text in §2.1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AutomorphicGaloisRepresentationsPartII/E2",
+   "kind": "error",
+   "locator": "§2.1, p. 32 (sign normalisation) and Theorem 2.1.1(1) with its proof, pp. 33–34",
+   "printed": "(p. 32) In the case that F is imaginary we further suppose that µv(−1) = (−1)n for all v|∞. (p. 33) (rl,ı(π), ǫ1−n l rl,ı(χ)) is a totally odd, polarized l-adic representation. (p. 34) When F is CM, note that by definition ǫ1−n l rl,ı(χ) takes every complex conjugation to −1.",
+   "correction": "For F imaginary and (π, χ) regular algebraic of weight a ∈ (ℤⁿ)_w, the normalisation making (r_{l,ι}(π), ε_l^{1−n} r_{l,ι}(χ)) totally odd is χ_v(−1) = (−1)^{n+w}. Equivalently, ε_l^{1−n} r_{l,ι}(χ)(c_v) = (−1)^{n−1+w} χ_v(−1), so the printed (−1)^n is right exactly when w is even. The stated result affected is Theorem 2.1.1(1) for odd w; the theorem holds for every polarizable π after replacing χ by χδ_{F/F⁺}, so no result about polarizable π is lost.",
+   "reason": "χ is algebraic on the totally real F⁺ with wt(χ) = 2w (compare infinitesimal characters in π^c ≅ π^∨ ⊗ χ∘N∘det). By BLGGT A.2, r_{l,ι}(χ) = r_{l,ι}(χ₀) ε_l^{−w} with χ₀ of finite order, so r_{l,ι}(χ)(c_v) = (−1)^w χ_v(−1), and µ(c_v) = (−1)^{n−1+w} χ_v(−1). Counterexample for w odd: n = 1, F imaginary quadratic, ψ the Hecke character of a CM elliptic curve (weight (1, 0)). (ψ, ψ|_{𝔸_ℚ}) satisfies the printed conditions, since ψ|_{𝔸_ℚ} has sign (−1)^1 at ∞. But r_{l,ι}(ψ|_{𝔸_ℚ}) = r_{l,ι}(ψ)∘V (V the transfer) takes c to r_{l,ι}(ψ)(c²) = 1, so µ(c) = +1. A pairing on a line is symmetric, so (r_{l,ι}(ψ), µ) is not polarized, let alone totally odd. The same happens for the base change of a newform of odd weight k (w = k − 2). Patrikis (Math. Ann. 362, p. 8 of arXiv v2) gives the general sign as ω_ι(c_v) = (−1)^w ω_v(−1), consistent with this correction.",
+   "affects": "a stated result",
+   "known": "new as a correction of BLGGT; the relation with (−1)^w is implicit in Patrikis 2015, who does not comment on BLGGT's CM normalisation",
+   "searched": [
+    "arXiv:1010.2561v4",
+    "R. Taylor's copy pa3.pdf",
+    "Patrikis, arXiv:1306.1242v2",
+    "ACC+ (Annals 197), which imports BLGGT's definition",
+    "web search for an erratum"
+   ],
+   "owner": "AutomorphicGaloisRepresentationsPartII",
+   "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json",
+   "citation": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor, Potential automorphy and change of weight, arXiv:1010.2561v4, 9 December 2013, the last arXiv version (published Annals of Math. 179 (2014), 501–609). Printed page = PDF page. R. Taylor's copy pa3.pdf has the same text in §2.1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AutomorphicLFunctionsAndLocalFactors/E1",
    "kind": "misprint",
    "locator": "Published 2004 chapter, p.110, Section 1 conductor paragraph; also preprint p.2",
