@@ -41,7 +41,7 @@ Gross only quotes Kolyvagin's general bound #Ш | t·I_K² (Theorem 1.3) and nev
 
 ## What the atlas already has
 
-The extraction has 403 items: 286 are `planned`, 12 are `library` and 105 are `missing`.
+After review the extraction has 411 items: 304 are `planned`, 14 are `library` and 93 are `missing`. As submitted it had 403 (286, 12, 105); see *Corrections made in review* below.
 
 **Where the planned items sit.**
 - EulerSystemsAndKolyvaginSystems ES.0–ES.5 plans the abstract machinery; ES.4 cites "Rubin II.2.2" for the core bound.
@@ -56,31 +56,38 @@ The extraction has 403 items: 286 are `planned`, 12 are `library` and 105 are `m
 
 ## Routes
 
-All five routes are `source` routes to existing layers; no new roadmap is needed.
+All nine routes are `source` routes to existing layers; no new roadmap is needed. Routes 6–9 were added in review, and the counts below are after review.
 
-1. **EulerSystemsAndKolyvaginSystems (ES.0–ES.4, ES.8). 70 items.** These are the steps of Rubin's version of Kolyvagin's method that the stages do not name:
+1. **EulerSystemsAndKolyvaginSystems (ES.0–ES.4, ES.8). 58 items.** These are the steps of Rubin's version of Kolyvagin's method that the stages do not name:
    - the universal Euler system, its freeness and the Ext¹ vanishing (IV §§2–3);
    - δ_L and the induced modules (IV §4), and unramifiedness of the derivative classes with their local lifts (IV §6);
    - the lifted telescoping identity, Lemma IV.7.3, and Kolyvagin's congruence (IV.8.1);
-   - Lemma V.3.2, and the universal-norm lemmas of Appendix B;
-   - Chapter IX's variants: rigidity, finite depth, χ-anticyclotomic Euler systems (Theorem IX.4.3) and triviality at Σ.
-2. **HeegnerPointEulerSystems (HE.3–HE.8). 22 items.** The steps of Gross's rank-one argument that HE.3–HE.7 do not state:
-   - local Kummer theory at Kolyvagin primes, and Kolyvagin's pairing formula (7.6);
+   - Lemma V.3.2, and Appendix A Corollary 2.6 (the 2b error term);
+   - Chapter IX's variants: rigidity, finite depth, χ-anticyclotomic Euler systems for general χ (Theorem IX.4.3, Remark IX.4.4) and triviality at Σ.
+
+   The universal-norm lemmas of Appendix B §3 are planned in SelmerIwasawaCohomology L3, and Proposition IV.4.5(ii)–(iii) is in Tau Ceti.
+2. **HeegnerPointEulerSystems (HE.3–HE.8). 25 items.** The steps of Gross's rank-one argument that HE.3–HE.7 do not state:
+   - Gross's clean theorems (Propositions 2.1 and 2.3, Claims 10.1 and 10.3), which HE.6 plans only under Howard's stronger hypotheses;
+   - local Kummer theory at Kolyvagin primes, and the unramified cohomology of E and its component group;
    - the ±-eigenspaces (8.1);
    - the whole §9 Čebotarev and Kummer-duality argument (9.2–9.6);
    - the classes d(n) in Ш, and the Bertolini–Darmon remark.
 
    The route's reason warns that HE.7's all-prime statement still needs Kolyvagin's article or another source, since Gross only quotes it.
-3. **KatoEulerSystems (L3, L4). 9 items.** The local inputs of Rubin III §5: exp* of the singular quotient, finite generation of E(ℚ_∞), the image hypotheses, the split multiplicative case, Greenberg's result, and the p-part of BSD.
-4. **EulerSystemsCyclotomicMainConjecture (L1, L3). 2 items.** Rubin IX.1's cyclotomic-unit Euler system and |A_L^χ| = [E_L^χ : C_{L,χ}]: Kolyvagin's original class-group application.
+3. **KatoEulerSystems (L3, L4). 6 items.** The local inputs of Rubin III §5: exp* of the singular quotient, finite generation of E(ℚ_∞) and the p-part of BSD, with the image hypotheses (III.5.8, III.5.10) as planned items.
+4. **EulerSystemsCyclotomicMainConjecture (L0, L2). 3 items.** The constructions of Examples IX.1.1 (the cyclotomic-unit Euler system of Kolyvagin's original class-group application) and IX.6.2, and Iwasawa's theorem on Y_∞^χ. Theorem IX.1.2 is planned in L4.
 5. **RankZeroOneBSD (BSD.5, BSD.9). 2 items.** Gross's Conjecture 1.2(2), the order of Ш through the Heegner index, and the worked example 37a.
+6. **SelmerIwasawaCohomology (L4). 1 item.** Remark II.2.7, the Selmer form of Leopoldt's conjecture.
+7. **PadicMeasuresIwasawaAlgebras (L1, L6). 3 items.** Lemma IV.3.3 and Remark IV.3.5, generic completed-group-ring algebra.
+8. **PadicHodgeRegulators (L3, L4). 1 item.** Proposition III.5.14(b), the split multiplicative case of the Coleman map.
+9. **ModularIwasawaMainConjectures (L0). 1 item.** Corollary III.5.17, Greenberg's no-finite-submodule theorem.
 
 ## Mistakes (`sourceIssues`)
 
-Thirty-nine candidates were each checked on page images by an independent reader, and all were confirmed; some had their kind or correction adjusted. Rubin's file is a 1999 draft, so some Rubin slips may be corrected in the published book, which I could not consult. Items use the corrected statements.
+Thirty-nine candidates were each checked on page images by an independent reader, and all were confirmed; some had their kind or correction adjusted. Rubin's file is a 1999 draft. The review found the author's final version and checked each Rubin slip there: 13 are corrected in it. The review also added twelve mistakes (E40–E51). Items use the corrected statements.
 
 **Rubin: errors in stated results.**
-- **Theorem IX.3.3 (E25).** The annihilator is inverted. It should be M/n, not n; as printed, the zero Euler system would kill the Selmer group.
+- **Theorem IX.3.3 (E25).** The annihilator is wrong: as printed, the zero Euler system would kill the Selmer group. The author's final version (Theorem 9.3.3) reads (M/𝔞₂)𝔞₁S = 0, and the correction follows it.
 - **Proposition III.5.8(ii) (E10).** H¹(GL₂(ℤ_p),(ℚ_p/ℤ_p)²) = 0 fails for p = 2.
 - **Proposition III.5.1 (E11).** It needs p odd: at p = 2, λ_E(E₁(ℚ₂)) can be 4ℤ₂.
 - **Remark IX.4.2 (E26).** "Conductor of χ" should be "conductor of E" in the Heegner hypothesis.
@@ -95,7 +102,7 @@ Thirty-nine candidates were each checked on page images by an independent reader
 
 **Gross.**
 - **(3.5) (E33).** The second D_ℓ⁰ formula is off by (ℓ+1)Tr_ℓ.
-- **§9 (E39).** It uses p ∤ D, which is not among the hypotheses. The needed disjointness fails only when K = ℚ(√−p), and the conclusions survive.
+- **§9 (E39).** It uses p ∤ D, which is not among the hypotheses. The needed disjointness fails only when D = p, and the conclusions survive.
 - **Four reference and notation slips** (E34–E38).
 
 **Misprints.** The rest are index, group and cross-reference slips.
@@ -103,10 +110,25 @@ Thirty-nine candidates were each checked on page images by an independent reader
 ## Prerequisites the atlas does not cover
 
 - **Kolyvagin (1988), *Math. USSR-Izv.* 32.** The first Heegner-point descent.
-- **Kato (2004), *Astérisque* 295.** Kato's Euler system for modular forms.
 - **Thaine (1988), *Ann. of Math.* 128.** Thaine's method with cyclotomic units.
 - **Bertolini–Darmon (1990), *J. reine angew. Math.* 412.** Kolyvagin's descent over ring class fields.
 - **Mazur (1978), *Invent. Math.* 44.** Rational isogenies, used for the GL₂ image.
-- **Serre (1972), *Invent. Math.* 15.** The open-image theorem.
+- **Serre (1972), *Invent. Math.* 15.** §4, the open-image theorem (the atlas has read only §§1–2).
+- **Greenberg (1989), *Adv. Stud. Pure Math.* 17.** No finite submodules in the dual Selmer group (Corollary III.5.17).
+- **Rohrlich (1984), *Invent. Math.* 75.** Nonvanishing of cyclotomic twists (Corollary III.5.6).
 
 Gross–Zagier is already PAPER-GROSS-ZAGIER-86 in the batch list. Kolyvagin's article itself remains unread, and reading it would allow the all-prime bound of HE.7 to be sourced directly.
+
+## Corrections made in review
+
+The independent review REV-PAPER-KOLYVAGIN-90 (Claude Code, session `cc-48533a`, issue #4501) corrected this extraction in place. Its report is `research/blueprint/reviews/REV-PAPER-KOLYVAGIN-90.md`, and the verdicts are in `PAPER-KOLYVAGIN-90.review.json`. In brief:
+
+- **Item corrections (90 items).** Statements, notes and statuses.
+  - Planned after all: the universal-norm lemmas of Appendix B §3 and Proposition IV.6.1 (SelmerIwasawaCohomology L3); Serre's open image and the image hypotheses of III.5.8–5.10 (HE.7, KatoEulerSystems L4); Theorem IX.1.2 (EulerSystemsCyclotomicMainConjecture L4); much of Gross's local Kummer theory and the §9 set-up.
+  - Library: Proposition IV.4.5(ii)–(iii) (Tau Ceti's connecting-map theorems).
+  - Missing after all: Gross's clean theorems (Propositions 2.1 and 2.3, Claims 10.1 and 10.3), which HE.6 plans only under Howard's hypotheses; the general-χ derivative classes of IX §4.
+  - Statements now carry standing hypotheses (Appendix B §3, the local setting of Corollary I.3.10, the non-CM hypothesis of Gross §2) and use the corrected forms of E25, E27 and E49.
+- **Items added (11), items deleted (3).** Eight added items are planned; Iwasawa's theorem on Y_∞^χ, Appendix A Corollary 2.6 and the unramified cohomology of E are missing and routed. The two history items (Flach's classes, elliptic units) and Remark B.2.6 were deleted.
+- **Routes.** Routes 6–9 are new. Route 1 lost fifteen items and route 2 three, route 3 now names L0 and L2, and route 4 gained Gross's clean theorems.
+- **Mistakes.** E1–E39 are confirmed. The review checked the Rubin ones against the author's final version, which corrects 13 of them. E40–E51 are new.
+- **Sources and prerequisites.** Rubin's final version is added to `sourceVersions`. Kato 2004 is removed from the prerequisites (already an atlas source), Serre 1972 is narrowed to §4, and Greenberg 1989 and Rohrlich 1984 are added.
