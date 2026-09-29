@@ -609,9 +609,16 @@
          "file": "Mathlib/NumberTheory/ModularForms/NormTrace.lean",
          "line": 94,
          "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.heckeTCuspNat_levelRaise",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Degeneracy.lean",
+         "line": 88,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti has T_n, diamond and degeneracy (V_d) operators on cusp forms with the divisor-sum q-expansion formula a_m(T_n f) = Σ_{d|(m,n)} χ(d)d^{k−1}a_{mn/d²}(f), and proves T_p ∘ V_d = V_d ∘ T_p; Mathlib has the analytic trace of forms between levels. The geometric side (pullback/trace along correspondences on a curve) is absent."
+       "note": "Tau Ceti has T_n, diamond and degeneracy (V_d) operators on cusp forms with the divisor-sum q-expansion formula a_m(T_n f) = Σ_{d|(m,n)} χ(d)d^{k−1}a_{mn/d²}(f), and proves T_p^(N) ∘ V_d = V_d ∘ T_p^(M) for d·M ∣ N and p prime with p ∤ N (HeckeRing.GL2.heckeTCuspNat_levelRaise; no bad-prime relation is supplied); Mathlib has the analytic trace of forms between levels. The geometric side (pullback/trace along correspondences on a curve) is absent."
       }
      ],
      "duplicates": [
@@ -1128,7 +1135,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib defines the abstract double-coset Hecke ring of a Hecke pair. Tau Ceti gives it its ring structure and commutativity from an anti-involution, proves the Γ₀(N) Hecke ring commutative (`commSemiringHeckeRingGamma0`) with its multiplication table T_m·T_n = Σ_{d ∣ (m,n)} d·S_d·T_{mn/d²}, and proves the Petersson adjoint of a slash, ⟪f∣α, h⟫ = ⟪f, h∣α^ι⟫. The operator identity T_n* = ⟨n⟩⁻¹T_n is not proved. All of this is group-theoretic or analytic, not relations among geometric correspondences."
+       "note": "Mathlib defines the abstract double-coset Hecke ring of a Hecke pair. Tau Ceti gives it its ring structure and commutativity from an anti-involution, proves the Γ₀(N) Hecke ring commutative (`commSemiringHeckeRingGamma0`) with its multiplication table T_m·T_n = Σ_{d ∣ (m,n)} d·S_d·T_{mn/d²}, and proves the change-of-domain slash identity for the Petersson pairing, ⟪f∣g, h⟫_S = ⟪f, h∣g^ι⟫_(g•S) for g with det g > 0 (peterssonInner_slash_left_adjugateGL); this is not a same-domain adjoint identity. The operator identity T_n* = ⟨n⟩⁻¹T_n is not proved. All of this is group-theoretic or analytic, not relations among geometric correspondences."
       },
       {
        "target": "Comparison of the q-expansion action with ModularForms",
@@ -2920,7 +2927,7 @@
          "fit": "related"
         }
        ],
-       "note": "Elliptic Weierstrass curves over rings and their classification by j over separably closed fields exist, but they are not linked to abelian varieties, #81 is unformalised and there is no Weil pairing. Genus-one torsion inputs exist (#ker[n] = n² over an algebraically closed field)."
+       "note": "Elliptic Weierstrass curves over rings and their classification by j over separably closed fields exist, but they are not linked to abelian varieties, #81 is unformalised and there is no Weil pairing. Genus-one torsion inputs exist: for an elliptic Weierstrass curve over an algebraically closed field F and n invertible in F, the kernel of the multiplication-by-n isogeny has |n|² points (card_ker_mulByIntIsogeny, a point count, not a rank statement for the kernel scheme)."
       },
       {
        "target": "Trace-pairing PEL datum for a totally real field and a polarisation module (handed to H1–H2)",
@@ -3343,9 +3350,16 @@
          "file": "TauCeti/Algebra/AlgebraicGroup/SplitTorus/Scheme.lean",
          "line": 72,
          "fit": "special case"
+        },
+        {
+         "name": "Submonoid.fg_eqLocusM",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Finiteness.lean",
+         "line": 627,
+         "fit": "related"
         }
        ],
-       "note": "Only the ℂ-points of Spec ℂ[S] for a monoid S, with an embedding-independent topology and a closed embedding into ℂʳ, exist; monoid algebras and their finite type are in Mathlib. The dual cone σ^∨ is in Mathlib, but its lattice points σ^∨ ∩ M and Gordan's lemma are not. The chart of the zero cone, the split torus Spec R[M], exists over any commutative ring (Tau Ceti), and affine space over any base is in Mathlib, but neither is presented as a toric chart, and there is no affine toric scheme U_σ in general."
+       "note": "Only the ℂ-points of Spec ℂ[S] for a monoid S, with an embedding-independent topology and a closed embedding into ℂʳ, exist; monoid algebras and their finite type are in Mathlib. The dual cone σ^∨ is in Mathlib. The equalizer / nonnegative-integer-solution form of Gordan's lemma is too: Submonoid.fg_eqLocusM and its additive form show that the equalizer of two maps from ℕ^r to a cancellative additive monoid is finitely generated, and its docstring names the ℕ^r/ℕ^s case as a version of Gordan's lemma. Still to be connected are the integral dual-character monoid σ^∨ ∩ M, its identification with such a solution monoid, and the cone-specific finite-generation and localization API. The chart of the zero cone, the split torus Spec R[M], exists over any commutative ring (Tau Ceti), and affine space over any base is in Mathlib, but neither is presented as a toric chart, and there is no affine toric scheme U_σ in general."
       },
       {
        "target": "Gluing of toric charts and torus embeddings relative to a torus torsor by descent",
@@ -4426,7 +4440,7 @@
      "verdict": "partly built",
      "targets": [
       {
-       "target": "Deligne torus S with its weight (diagonal) and norm maps and the splitting S_ℂ ≅ G_m × G_m with the specified conjugation",
+       "target": "Deligne torus S with its diagonal map G_m → S (h composed with it is the central restriction, whose inverse is the weight cocharacter) and norm map and the splitting S_ℂ ≅ G_m × G_m with the specified conjugation",
        "library": "absent",
        "declarations": [
         {
@@ -4861,9 +4875,16 @@
          "file": "TauCeti/Geometry/Hodge/PeriodDomain.lean",
          "line": 71,
          "fit": "related"
+        },
+        {
+         "name": "VectorBundleCore.instContMDiffVectorBundle",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/VectorBundle/Basic.lean",
+         "line": 598,
+         "fit": "related"
         }
        ],
-       "note": "Topological local systems, smooth vector bundles and points of a period domain (with its complex structure explicitly out of scope) exist; no holomorphic bundles, filtrations of bundles or transversality."
+       "note": "Topological local systems and points of a period domain (with its complex structure explicitly out of scope) exist. Complex-analytic vector bundles on complex manifolds exist through ContMDiffVectorBundle over ℂ at order ω, since its transition maps are differentiated over the scalar field, and VectorBundleCore.IsContMDiff with instContMDiffVectorBundle builds them from transition data. Missing are the comparison of a local system with a holomorphic bundle, filtrations by holomorphic subbundles, flat connections and Griffiths transversality. There is no theory on singular analytic spaces."
       },
       {
        "target": "Homogeneous variation attached to each algebraic representation of G, transversality from adjoint Hodge types, functoriality under tensor operations and change of datum",
