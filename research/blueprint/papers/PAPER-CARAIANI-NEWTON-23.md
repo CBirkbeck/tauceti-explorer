@@ -4,7 +4,7 @@ Ana Caraiani and James Newton, preprint, [arXiv:2301.10509](https://arxiv.org/ab
 
 Extraction by Claude Code, session `cc-fb70e5`, 29 September 2026 (issue #4490). Status: **complete**. `check_paper.py` passes.
 
-The extraction has 166 items: 1 library, 36 planned and 129 missing. Every missing item is routed once, along six routes.
+The extraction has 166 items: 1 library, 36 planned and 129 missing. Every missing item is routed once, along six routes. After the independent review it has 169 items (1 library, 36 planned, 132 missing) and eight routes; see the last section.
 
 ## What the paper proves
 
@@ -51,12 +51,14 @@ What the atlas lacks:
 
 | Route | Kind | Owner | Items / missing |
 | --- | --- | --- | ---: |
-| 1 | part-ii | CrystallineLocalGlobalCompatibilityCM, Part II of PotentialAutomorphyInfrastructure | 83 / 83 |
-| 2 | part-ii | EllipticCurveModularityImaginaryQuadratic, Part II of EllipticCurveModularity | 30 / 30 |
-| 3 | source | EffectiveDiophantineMethods ED.4/ED.5 | 3 / 2 |
+| 1 | part-ii | CrystallineLocalGlobalCompatibilityCM, Part II of PotentialAutomorphyInfrastructure | 84 / 84 |
+| 2 | part-ii | EllipticCurveModularityImaginaryQuadratic, Part II of EllipticCurveModularity | 27 / 27 |
+| 3 | source | EffectiveDiophantineMethods ED.4/ED.5 | 3 / 3 |
 | 4 | source | LocalGaloisDeformationRings L7/L8/R08.4 | 9 / 4 |
 | 5 | source | IntegralHeckeAndGaloisDeterminants IHG.1 | 7 / 4 |
 | 6 | source | ArithmeticLocallySymmetricSpaces ALS.3/ALS.6 | 9 / 6 |
+| 7 | source (added by the review) | IgusaVarietiesAndTorsionConcentration IG.7 | 1 / 1 |
+| 8 | source (added by the review) | ArithmeticGaloisRepresentations R01.4/G7 | 3 / 3 |
 
 1. **Part II of PotentialAutomorphyInfrastructure: P-ordinary degree shifting, crystalline local–global compatibility and Barsotti–Tate lifting.** This route covers §§2–5 beyond what ALS, IHG and the local-ring layers own.
    - Its final theorems are Theorems 4.2.15, 4.3.1 and 5.2, stated exactly in the brief.
@@ -92,7 +94,7 @@ Scholze's torsion paper and the Caraiani–Scholze papers are already in the pap
 
 ## Source issues
 
-Eleven misprints, each checked on the page image of v3. None affects a result, and all are new (no newer version or erratum exists).
+Eleven misprints, each checked on the page image of v3. None affects a result, and all are new (no newer version or erratum exists). The review confirmed all eleven and added E12–E17: E12 is an error in Lemma 5.6.5 that leaves a gap in the proof of Theorem 5.2 for p ≡ 1 mod 3, and E13–E17 are misprints.
 
 | id | where | slip |
 | --- | --- | --- |
@@ -102,11 +104,17 @@ Eleven misprints, each checked on the page image of v3. None affects a result, a
 | E4 | Propositions 6.1.5 (3) and 6.1.6 (3), pp.89–90 | E_{L_w} |
 | E5 | Proof of Corollary 7.1.2, last paragraph, p.93 | the only quadratic field F with X(s3,b5)(Q) ⊊ X(s3,b5)(F)^{tors} is F = Q(√5) |
 | E6 | Lemma 2.2.16, statement, p.31 | V_{λ_τ̃} ⊗ V_{−w_{0,n}λ_{τ̃c}} |
-| E7 | Proposition 2.1.14, p.18 | defined at the end of §2.1.2 |
+| E7 | Proposition 2.1.14, pp.18–19 | defined at the end of §2.1.2 |
 | E8 | §2.1.13, p.21, rescaled action for G | g ·_λ x = α^{Q_v̄}_λ(g)^{−1} g · x |
 | E9 | Proposition 7.4.4 (3) and proof of Proposition 7.4.5, pp.100–101 | ⟨5G₂, Jac_{C₂}(Q)[2]⟩ |
 | E10 | Proof of Lemma 4.2.5, even case, p.62 | Σ_{v̄∉S̄} n²[F⁺_{v̄} : Q_p] |
 | E11 | (2.1.6), p.18 | (−1)^j q_v^{j(j−1)/2} T̃_{v,j} X^{2n−j} |
+| E12 (review; error) | Lemma 5.6.5, pp.85–86 | false when d = 3 and the projective image is A₄ |
+| E13 (review) | Proof of Lemma 3.3.2, p.51 | F^i_B/F^{i−1}_B, χ_{i,B} valued in B^× |
+| E14 (review) | Proof of Lemma 3.2.2, p.48 | Lemma 3.2.1 |
+| E15 (review) | §5.6, p.83 | ρ̄_m : G_{F,T} → GL₂(k) |
+| E16 (review) | End of the proof of Theorem 5.2, p.86 | q-adic places of F |
+| E17 (review) | §7.1, p.93 | r̄_{E,p_i} |
 
 Not recorded: the spelling slips 'Them E is modular' (Corollary 6.1.1), 'ireducible' (Theorem 6.1) and 'strenghtens' (Remark 5.2.3).
 
@@ -116,3 +124,23 @@ Not recorded: the spelling slips 'Them E is modular' (Corollary 6.1.1), 'ireduci
 - Planned statuses cite the stage texts of data/atlas.json read on 29 September 2026.
 - Library citations were checked in the pinned declaration index (Mathlib 082e2d3, Tau Ceti f790474).
 - The Magma computations of §7 (the files cited in the paper) are recorded as the paper's claims. The route 2 brief asks for checkable certificates.
+
+## Corrections by the independent review
+
+REV-PAPER-CARAIANI-NEWTON-23 (Claude Code, session `cc-f805bf`, 29 September 2026) made these changes:
+
+- A `review` verdict on each of E1–E11; all are confirmed on 300-dpi page images of v3 (SHA-256 `57abc79a…d0c3`, the recorded hash). E7's locator is now pp.18–19; E3's review notes that the same statement also writes F for F_v.
+- A new error, E12: Lemma 5.6.5 is false when d = 3 and the projective image is A₄. The binary tetrahedral group in SL₂(F̄_p), p ≥ 5, twisted by a cubic character satisfies (5.6.1), but ker det = Q₈ acts irreducibly. The end of the proof of Theorem 5.2 uses the lemma to find the auxiliary places v₀, v₀′, so it has a gap for p ≡ 1 mod 3 with [F₁(ζ_p):F₁] = 3 and projective image A₄. The elliptic-curve theorems use p = 3, 5 and are unaffected. The lemma reads the same in arXiv v1 and v2.
+- New misprints E13–E17, each confirmed on the page image: the graded pieces and coefficients in the proof of Lemma 3.3.2; "Prop. 3.2.1" for Lemma 3.2.1; GL_n(Q̄_p) for GL₂(k) on p.83; "places of K" for F on p.86; r̄_{E,p} for r̄_{E,p_i} in the definition of X(H₁,H₂).
+- Statements corrected: `chi-character` (the paper divides by the p-adic absolute value), `lem-4-1-5` (G̃^{S̄₁}, away from S̄₁), `prop-5-4-2` (C_a contains x), `patching-axioms` (Assumption 5.4.1 (1)–(2) as printed), `sub-lemma-1-twist` (the index i), and `lem-5-6-5` (the corrected statement, E12). `lem-2-3-8` now includes Corollary 2.3.10. The locators of `lem-2-3-15` (p.41) and `local-rings-5-3` (p.75) are fixed. `thm-5-2` and `proof-thm-5-2` note the gap.
+- Statuses changed from planned to missing:
+  - `thm-2-1-28`: IG.7 exports ACC+ Theorem 4.3.3 with the length-two and [F⁺:Q] > 1 hypotheses that Koshikawa removes. It goes to a new route 7, a source for IG.7.
+  - `relative-symmetric-chabauty`: ED.4 and ED.5 name no symmetric powers. It stays in route 3.
+- Planned citations added: L7 for `semistable-ordinary`, ALS.6 for `lem-2-1-6`, TC.3 for `unitary-group-G-tilde` and `unramified-hecke-polys`. `goursat` also cites `Subgroup.goursatFst_prod_goursatSnd_le`.
+- Three items added:
+  - `blght-lemma-3-3`, planned at DeformationAndDerivedPatchingAlgebra R03.3/R03.6;
+  - `solvable-base-change-descent`, planned at GL2AutomorphicRepresentationsAndTransfer R17.4 and ModularityAndLanglandsExtensions ML.5;
+  - `akt-tw-primes` (Allen–Khare–Thorne's Taylor–Wiles data without enormous image), missing, in route 1.
+- Lemmas 6.1.4, 6.2.2 and 7.1.1 moved from route 2 to a new route 8, a source for ArithmeticGaloisRepresentations R01.4/G7.
+- Route 1's brief now names PA.2 as the imported Borel case, PadicFamilies L0a, R03.3/R03.6, R17.4, ML.5 and route 7, and says how to handle E12. Route 2's brief now imports Tau Ceti ModularCurves 5C and 9, GlobalNumberFields layer 1, R01.4, R17.4 and the GL₂-type Part II for Q-curves, and says that ML.1 registers its final theorems.
+- The counts are now 169 items (1 library, 36 planned, 132 missing), 8 routes and 17 `sourceIssues`. `sourceVersions` also lists arXiv v1 and v2, which were compared at several findings.
