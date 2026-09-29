@@ -47599,7 +47599,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3975"
   },
   {
    "id": "RT-AREA-padic-2",
