@@ -13,7 +13,7 @@
     "SpecialValuesBirchTate:B.8"
   ],
   "status": "partial",
-  "summary": "First checkpoint (B.1, B.2, B.3, B.7). B.1: the Birch–Tate formula as a proposition over imported K₂(𝓞_F) (K2SymbolsBrauer T.1), w₂(F) (ArithmeticKTheory N.4) and the continued ζ_F (requested from AL.1). B.2: the sign of ζ_F(−1) from the functional equation through the reciprocal gamma factors (Γ_ℝ(−1) = −2π, ζ_F(2) ≥ 1), the failure of the formula with a complex place, the absolute-value and primewise forms, the rational reconstruction lemma, and the denominator consequence. B.3: ζ_ℚ = riemannZeta, Birch–Tate for ℚ from independent values, and ℚ(√5) (ζ = ζ·L(χ₅), ζ(−1) = 1/30, w₂ = 120; #K₂ = 4 requested). B.7: the S-modified zeta function on Tau Ceti's Euler-product API, #K₂(𝓞_{F,S}) and the S-integral formula. The K-book's 'pole of order r₂ at −1' is already recorded as ArithmeticKTheory/E18 and is read as a zero. B.4–B.6 and B.8 are not read. Checkpoint 2 plans B.5 from Kolster 1989 and Greither 1992. Federer's 2-adic main conjecture implies the 2-part of the formula for every totally real field (Kolster's Theorems 1 and 5 and Lemma 2). Greither's main conjecture gives Federer's conjecture for every totally real abelian field, through a comparison planned here, so the full Birch–Tate formula follows for these fields with the odd-primary theorem of B.4. Kolster's note has two misprints (E1–E2). Checkpoint 3 plans B.4: the odd-primary Birch–Tate formula for every totally real field, from Wiles's main conjecture through Kolster's Theorem 3.3 at χ = 1, n = 2, Tate's K₂–étale comparison and the identification of w₂'s ℓ-part with the torsion of H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)). With B.5 this completes the Birch–Tate formula for totally real abelian fields. Three new issues in the Park City notes (E3–E5).",
+  "summary": "First checkpoint (B.1, B.2, B.3, B.7). B.1: the Birch–Tate formula as a proposition over imported K₂(𝓞_F) (K2SymbolsBrauer T.1), w₂(F) (ArithmeticKTheory N.4) and the continued ζ_F (requested from AL.1). B.2: the sign of ζ_F(−1) from the functional equation through the reciprocal gamma factors (Γ_ℝ(−1) = −2π, ζ_F(2) ≥ 1), the failure of the formula with a complex place, the absolute-value and primewise forms, the rational reconstruction lemma, and the denominator consequence. B.3: ζ_ℚ = riemannZeta, Birch–Tate for ℚ from independent values, and ℚ(√5) (ζ = ζ·L(χ₅), ζ(−1) = 1/30, w₂ = 120; #K₂ = 4 requested). B.7: the S-modified zeta function on Tau Ceti's Euler-product API, #K₂(𝓞_{F,S}) and the S-integral formula. The K-book's 'pole of order r₂ at −1' is already recorded as ArithmeticKTheory/E18 and is read as a zero. B.4–B.6 and B.8 are not read. Checkpoint 2 plans B.5 from Kolster 1989 and Greither 1992. Federer's 2-adic main conjecture implies the 2-part of the formula for every totally real field (Kolster's Theorems 1 and 5 and Lemma 2). Greither's main conjecture gives Federer's conjecture for every totally real abelian field, through a comparison planned here, so the full Birch–Tate formula follows for these fields with the odd-primary theorem of B.4. Kolster's note has two misprints (E1–E2). Checkpoint 3 plans B.4: the odd-primary Birch–Tate formula for every totally real field, from Wiles's main conjecture through Kolster's Theorem 3.3 at χ = 1, n = 2, Tate's K₂–étale comparison and the identification of w₂'s ℓ-part with the torsion of H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)). With B.5 this completes the Birch–Tate formula for totally real abelian fields. Three new issues in the Park City notes (E3–E5). Checkpoint 4 plans B.8's statement infrastructure. It covers the cohomological models of H¹ and H², and the Lichtenbaum formulas in K-theoretic form away from 2 and in motivic form. It also proves the odd part of the Lichtenbaum formula for totally real fields in even weight, from Kolster's Theorem 3.3 for every even n and Quillen–Lichtenbaum. One new issue in the Park City notes, E6: the ranks on p. 11 are interchanged.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2386,6 +2386,325 @@
         "name": "Odd-primary Birch–Tate (Wiles)"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.8/cohomological-h2-model",
+      "parentStageId": "SpecialValuesBirchTate:B.8",
+      "realises": [
+        "SpecialValuesBirchTate:B.8"
+      ],
+      "title": "The cohomological models H²(𝓞_F, ℤ(n)) and H¹(𝓞_F, ℤ(n)) and the invariants h_n, w_n",
+      "kind": "definition",
+      "statement": "Let F be a number field and n ≥ 2. Put H²(𝓞_F, ℤ(n)) = ∏_p H²_ét(𝓞_F[1/p], ℤ_p(n)), a finite group (almost all factors vanish), and h_n(F) = #H²(𝓞_F, ℤ(n)). Let H¹(𝓞_F, ℤ(n)) be a finitely generated abelian group with H¹(𝓞_F, ℤ(n)) ⊗ ℤ_p ≅ H¹_ét(𝓞_F[1/p], ℤ_p(n)) for every p. Its rank is r₁ + r₂ for odd n and r₂ for even n, and its torsion has order w_n(F) = #H⁰(F, ℚ/ℤ(n)). For n = 2, H²(𝓞_F, ℤ(2)) ≅ K₂(𝓞_F) (Tate), so h_2(F) = #K₂(𝓞_F).",
+      "hypotheses": [
+        "Only the ℓ-adic pieces are used: #H²(𝓞_F, ℤ(n))_ℓ = #H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(n)) and #H¹(𝓞_F, ℤ(n))_{tors,ℓ} = w_n^{(ℓ)}(F). No global motivic complex is constructed here.",
+        "Kolster's p. 11 prints the ranks as r₂ for odd n and r₁ + r₂ for even n. That contradicts his Proposition 2.1(5) and Borel's ranks (p. 15); the node uses the corrected ranks (source issue E6)."
+      ],
+      "proofSteps": [
+        "Finiteness: H²_ét(𝓞_F[1/p], ℤ_p(n)) is finite, and trivial for almost all p (Proposition 2.1(4), N.6).",
+        "Ranks: rk_{ℤ_p} H¹_ét(𝓞_F[1/p], ℤ_p(n)) = rk H¹(F, ℤ_p(n)) = r₁ + r₂ or r₂ for odd or even n (Proposition 2.1(3), (5)).",
+        "Torsion: the coefficient sequence gives H¹(ℤ_p(n))_tors ≅ H⁰(ℚ_p/ℤ_p(n)) for n ≠ 0 (B.4's w₂ lemma with twist n), of order w_n^{(p)}(F).",
+        "n = 2: B.4/k2-ell-part-as-etale-cohomology at odd ℓ, and Tate's theorem at 2 (M.3)."
+      ],
+      "acceptance": [
+        "For ℚ and n = 2: h_2(ℚ) = #K₂(ℤ) = 2 and #H¹(ℤ, ℤ(2))_tors = w₂(ℚ) = 24, while K₃(ℤ) ≅ ℤ/48. So the torsion of the cohomological H¹ is not that of K₃ at 2."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.6",
+        "ArithmeticKTheory:N.4/the-w-invariant",
+        "ArithmeticKTheory:N.4/finiteness-of-the-w-invariant",
+        "MotivicEtaleKTheory:M.3",
+        "SpecialValuesBirchTate:B.4/k2-ell-part-as-etale-cohomology",
+        "SpecialValuesBirchTate:B.4/w2-ell-part-as-etale-cohomology"
+      ],
+      "api": [
+        {
+          "name": "etaleH2Model",
+          "role": "constructor",
+          "statement": "H²(𝓞_F, ℤ(n)) = ∏_p H²_ét(𝓞_F[1/p], ℤ_p(n)), a finite group."
+        },
+        {
+          "name": "hInvariant",
+          "role": "data",
+          "statement": "h_n(F) = #H²(𝓞_F, ℤ(n))."
+        },
+        {
+          "name": "etaleH1Model",
+          "role": "constructor",
+          "statement": "H¹(𝓞_F, ℤ(n)) with H¹ ⊗ ℤ_p ≅ H¹_ét(𝓞_F[1/p], ℤ_p(n))."
+        },
+        {
+          "name": "rank_etaleH1Model",
+          "role": "characterisation",
+          "statement": "rank = r₁ + r₂ for odd n and r₂ for even n (n ≥ 2)."
+        },
+        {
+          "name": "card_torsion_etaleH1Model",
+          "role": "characterisation",
+          "statement": "#H¹(𝓞_F, ℤ(n))_tors = w_n(F)."
+        },
+        {
+          "name": "hInvariant_two",
+          "role": "relation",
+          "statement": "h_2(F) = #K₂(𝓞_F) (Tate)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "hInvariant_two_rat",
+          "kind": "value",
+          "statement": "h_2(ℚ) = #K₂(ℤ) = 2."
+        },
+        {
+          "name": "rank_etaleH1Model_rat_two",
+          "kind": "value",
+          "statement": "For ℚ and n = 2 the rank is r₂ = 0 (K₃(ℤ) ≅ ℤ/48 is finite), not r₁ + r₂ = 1 as Kolster prints (E6)."
+        },
+        {
+          "name": "card_torsion_etaleH1Model_rat_two",
+          "kind": "non-example",
+          "statement": "#H¹(ℤ, ℤ(2))_tors = w₂(ℚ) = 24 differs from #K₃(ℤ)_tors = 48: the cohomological model and K-theory differ at 2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SpecialValuesBirchTate:B.8/lichtenbaum-formula-statements",
+          "how": "the motivic form of the conjecture"
+        },
+        {
+          "where": "SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic",
+          "how": "the ℓ-parts of h_n and w_n"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/Lichtenbaum",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.etaleH2Model"
+      },
+      "sources": [
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 1, §2, the global models, p. 11",
+          "excerpt": "which are finite groups and play in many situations a role similar to that of the",
+          "match": "H²(𝓞_F, ℤ(n)) as a product; its order h_n(F)."
+        },
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 1, §2, the group H¹(𝓞_F, ℤ(n)), p. 11",
+          "excerpt": "is an analog of the group of units. It is a finitely generated abelian",
+          "match": "The printed ranks are interchanged (source issue E6)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.8/lichtenbaum-formula-statements",
+      "parentStageId": "SpecialValuesBirchTate:B.8",
+      "realises": [
+        "SpecialValuesBirchTate:B.8"
+      ],
+      "title": "The Lichtenbaum formulas at negative integers (Kolster, Conjectures 3.6 and 3.7)",
+      "kind": "definition",
+      "statement": "Let F be a number field and n ≥ 2. Let ζ*_F(1 − n) be the leading coefficient of ζ_F at s = 1 − n; the order of vanishing is r₂ for even n and r₁ + r₂ for odd n (BorelRegulators R.5). Let R_n^B(F) be Borel's regulator covolume of K_{2n−1}(𝓞_F) (BorelRegulators R.4), with R_n^B(F) = 1 when that rank is 0. LichtenbaumFormulaOddPart(F, n) is the proposition that for every odd prime ℓ, v_ℓ(ζ*_F(1 − n)/R_n^B(F)) = v_ℓ(#K_{2n−2}(𝓞_F)) − v_ℓ(#K_{2n−1}(𝓞_F)_tors). This is Conjecture 3.6 away from 2; the quotient is rational by Borel's theorem. MotivicLichtenbaumFormula(F, n) is the proposition |ζ*_F(1 − n)| = #H²(𝓞_F, ℤ(n))/#H¹(𝓞_F, ℤ(n))_tors · R_n^M(F), Conjecture 3.7, where R_n^M differs from R_n^B by a power of 2.",
+      "hypotheses": [
+        "The K-theoretic statement is made only away from 2. At 2 the stage asks for the correction from MotivicEtaleKTheory's comparison (real places), which is not read here.",
+        "The equivariant (ETNC-type) refinement is a separate statement and is not made here."
+      ],
+      "proofSteps": [
+        "Well-posedness: R.5 gives the order of vanishing and a nonzero leading coefficient, and Borel's theorem makes ζ*_F(1 − n)/R_n^B(F) rational and nonzero. K_{2n−2}(𝓞_F) and the torsion of K_{2n−1}(𝓞_F) are finite (N.3). So the ℓ-adic valuations are defined.",
+        "For n = 2 and F totally real, R = 1 and ζ* = ζ_F(−1). The odd part of #K₃(𝓞_F)_tors is that of w₂(F) (N.5), so LichtenbaumFormulaOddPart(F, 2) is the odd part of the Birch–Tate formula."
+      ],
+      "acceptance": [
+        "The K-theoretic form genuinely needs 'up to powers of 2': see the ℚ, n = 2 non-example.",
+        "The motivic form holds exactly for ℚ and n = 2."
+      ],
+      "prerequisites": [
+        "BorelRegulators:R.4",
+        "BorelRegulators:R.5",
+        "SpecialValuesBirchTate:B.8/cohomological-h2-model",
+        "SpecialValuesBirchTate:B.1/birch-tate-formula",
+        "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
+        "mathlib:padicValRat"
+      ],
+      "api": [
+        {
+          "name": "LichtenbaumFormulaOddPart",
+          "role": "constructor",
+          "statement": "∀ ℓ odd prime, v_ℓ(ζ*_F(1 − n)/R_n^B(F)) = v_ℓ #K_{2n−2}(𝓞_F) − v_ℓ #K_{2n−1}(𝓞_F)_tors."
+        },
+        {
+          "name": "MotivicLichtenbaumFormula",
+          "role": "constructor",
+          "statement": "|ζ*_F(1 − n)| = #H²(𝓞_F, ℤ(n))/#H¹(𝓞_F, ℤ(n))_tors · R_n^M(F)."
+        },
+        {
+          "name": "lichtenbaumFormulaOddPart_two_iff",
+          "role": "characterisation",
+          "statement": "For F totally real, LichtenbaumFormulaOddPart(F, 2) ↔ the Birch–Tate valuation identity at every odd ℓ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "lichtenbaumFormulaOddPart_rat_two",
+          "kind": "value",
+          "statement": "ℚ, n = 2: ζ(−1) = −1/12, #K₂(ℤ) = 2, #K₃(ℤ) = 48, R = 1. At ℓ = 3, −1 = 0 − 1; at ℓ ≥ 5, 0 = 0 − 0."
+        },
+        {
+          "name": "not_lichtenbaum_rat_two_at_two",
+          "kind": "non-example",
+          "statement": "The K-theoretic formula including 2 would say 1/12 = 2/48 = 1/24, which is false."
+        },
+        {
+          "name": "motivicLichtenbaumFormula_rat_two",
+          "kind": "value",
+          "statement": "ℚ, n = 2: #H²(ℤ, ℤ(2)) = 2 and #H¹(ℤ, ℤ(2))_tors = w₂(ℚ) = 24 give 2/24 = 1/12 = |ζ(−1)|."
+        },
+        {
+          "name": "lichtenbaumFormulaOddPart_rat_four",
+          "kind": "value",
+          "statement": "ℚ, n = 4: ζ(−3) = 1/120 and #K₇(ℤ)_tors = w₄(ℚ) = 240, so the formula predicts that the odd part of #K₆(ℤ) is 1 (v₃: −1 = 0 − 1, v₅: −1 = 0 − 1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SpecialValuesBirchTate:B.8/odd-primary-lichtenbaum-totally-real",
+          "how": "the statement proved for totally real F and even n"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/Lichtenbaum",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.LichtenbaumFormulaOddPart"
+      },
+      "sources": [
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, Lichtenbaum Conjecture 3.6, p. 15",
+          "excerpt": "Lichtenbaum Conjecture 3.6. Up to powers of 2:",
+          "match": "The K-theoretic form."
+        },
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, the order of vanishing, p. 15",
+          "excerpt": "by a result of Borel",
+          "match": "Orders of vanishing and Borel's ranks."
+        },
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, Motivic Lichtenbaum Conjecture 3.7, p. 16",
+          "excerpt": "Motivic Lichtenbaum Conjecture 3.7.",
+          "match": "The motivic form."
+        },
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, the regulators, p. 16",
+          "excerpt": "differs from the Borel regulator by a power of 2.",
+          "match": "R_n^M against R_n^B."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic",
+      "parentStageId": "SpecialValuesBirchTate:B.8",
+      "realises": [
+        "SpecialValuesBirchTate:B.8"
+      ],
+      "title": "The odd-primary value of ζ_F(1 − n) for totally real F and even n (Kolster, Theorem 3.3 and Corollary 3.4)",
+      "kind": "theorem",
+      "statement": "Let F be totally real, n ≥ 2 even and ℓ an odd prime. Then v_ℓ(|ζ_F(1 − n)|) = v_ℓ(#H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(n))) − v_ℓ(#H⁰(F, ℚ_ℓ/ℤ_ℓ(n))) = v_ℓ(h_n(F)) − v_ℓ(w_n(F)).",
+      "hypotheses": [
+        "For even n and totally real F, ζ_F does not vanish at 1 − n (order r₂ = 0), so ζ* = ζ_F(1 − n) ∈ ℚ^×."
+      ],
+      "proofSteps": [
+        "This is B.4/etale-euler-characteristic-and-zeta with the twist 2 replaced by n. E = F(μ_ℓ); ψ = ω^n as a character of G = Gal(E/F), so χ = ψω^{−n} = 1.",
+        "Descent: (X_ψ(−n)_Γ)^∨ ≅ H²_ét(𝓞_E[1/ℓ], ℤ_ℓ(n))^G ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(n)) (Proposition 3.1, codescent). For totally real F and even n, H¹(ℚ_ℓ/ℤ_ℓ(n)) ≅ H²(ℤ_ℓ(n)) (Corollary 2.2(a)).",
+        "Evaluation: X_ψ(−n) has no nonzero finite submodule, and its characteristic polynomial is f(κ(γ)^n(1 + T) − 1). So |X_ψ(−n)_Γ| ~ f(κ(γ)^n − 1) ~ L_ℓ(1 − n, ψ) = ζ_F(1 − n)·∏_{v|ℓ}(1 − Nv^{n−1}), and the Euler factors are ℓ-adic units.",
+        "ψ = ω^n|_G is trivial exactly when W_n(F)_ℓ ≠ 0; then the pole factor contributes #H⁰(F, ℚ_ℓ/ℤ_ℓ(n)) ~ κ(γ)^n − 1. Otherwise W_n(F)_ℓ = 0."
+      ],
+      "acceptance": [
+        "n = 2 is B.4/etale-euler-characteristic-and-zeta.",
+        "ℚ, n = 4, ℓ = 5: ζ(−3) = 1/120, v₅ = −1; w₄(ℚ) = 240 (v₅ = 1), so H²_ét(ℤ[1/5], ℤ_5(4)) has trivial 5-part."
+      ],
+      "prerequisites": [
+        "IntegralIwasawaTheory:I.5",
+        "IntegralIwasawaTheory:I.2",
+        "IntegralIwasawaTheory:L2",
+        "ArithmeticKTheory:N.6",
+        "AutomorphicPadicLFunctions:L3",
+        "SpecialValuesBirchTate:B.8/cohomological-h2-model"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/Lichtenbaum",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.padicValRat_zeta_one_sub_eq_etale"
+      },
+      "sources": [
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, Theorem 3.3, p. 15",
+          "excerpt": "Theorem 3.3. Let χ be a 1-dimensional Artin character of order prime to p over",
+          "match": "Theorem 3.3 with χ = 1."
+        },
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, Corollary 3.4, p. 15",
+          "excerpt": "Corollary 3.4. Let F be a totally real number field and let n ≥ 2 be an even",
+          "match": "Corollary 3.4."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SpecialValuesBirchTate:B.8/odd-primary-lichtenbaum-totally-real",
+      "parentStageId": "SpecialValuesBirchTate:B.8",
+      "realises": [
+        "SpecialValuesBirchTate:B.8"
+      ],
+      "title": "The odd part of the Lichtenbaum formula for totally real fields in even weight",
+      "kind": "theorem",
+      "statement": "Let F be totally real and n ≥ 2 even. Then LichtenbaumFormulaOddPart(F, n) holds: for every odd prime ℓ, v_ℓ(|ζ_F(1 − n)|) = v_ℓ(#K_{2n−2}(𝓞_F)) − v_ℓ(#K_{2n−1}(𝓞_F)_tors).",
+      "hypotheses": [
+        "The comparison K_{2n−2}(𝓞_F) ⊗ ℤ_ℓ ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(n)) for odd ℓ and n ≥ 2 is Quillen–Lichtenbaum, requested from MotivicEtaleKTheory M.7. It rests on the norm-residue theorem (M.5), not on the degree-two comparison alone."
+      ],
+      "proofSteps": [
+        "For totally real F and even n, rk K_{2n−1}(𝓞_F) = r₂ = 0, so R_n^B = 1 and ζ* = ζ_F(1 − n).",
+        "M.7 at odd ℓ gives K_{2n−2}(𝓞_F) ⊗ ℤ_ℓ ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(n)), and the ℓ-part of K_{2n−1}(𝓞_F)_tors is that of ℤ/w_n(F) (N.5's table; the factors 2 there are prime to ℓ).",
+        "Substitute into the previous node."
+      ],
+      "acceptance": [
+        "n = 2 recovers B.4/odd-primary-birch-tate through Tate's comparison.",
+        "ℚ, n = 4: the odd part of #K₆(ℤ) is 1."
+      ],
+      "prerequisites": [
+        "SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic",
+        "SpecialValuesBirchTate:B.8/lichtenbaum-formula-statements",
+        "MotivicEtaleKTheory:M.7",
+        "ArithmeticKTheory:N.5"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SpecialValues/Lichtenbaum",
+        "namespace": "TauCeti.BirchTate",
+        "name": "TauCeti.BirchTate.lichtenbaumFormulaOddPart_of_isTotallyReal"
+      },
+      "sources": [
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 1, §2, the comparison with K-theory, p. 11",
+          "excerpt": "For i = 1, 2 and all n ≥ 2there are isomorphisms",
+          "match": "K_{2n−i} against motivic and étale cohomology."
+        },
+        {
+          "sourceId": "kolster-park-city-2009",
+          "locator": "Lecture 2, §3, Lichtenbaum Conjecture 3.6, p. 15",
+          "excerpt": "Lichtenbaum Conjecture 3.6. Up to powers of 2:",
+          "match": "The statement proved away from 2."
+        }
+      ],
+      "planet": {
+        "name": "Odd-primary Lichtenbaum formula (totally real)"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -2403,14 +2722,15 @@
     },
     {
       "supplier": "AutomorphicPadicLFunctions:L3",
-      "need": "For a totally real field F and k ≥ 1, ζ_F(1 − 2k) ∈ ℚ (Siegel–Klingen; the 'algebraicity of negative critical values' in L3's Deligne–Ribet construction), and the Deligne–Ribet integrality statement bounding the denominator of ζ_F(−1), proved independently of the Birch–Tate formula. Also, at p = 2 for a totally real F: the 2-adic zeta function L₂(χ₀, s) = G_F(u^s − 1)/(u^s − u) with G_F ∈ 2^{[F:ℚ]}ℤ₂[[T]] (Deligne–Ribet), its interpolation L₂(χ₀, −1) = ζ_F(−1)·∏_{𝔭|2}(1 − N𝔭), and for F abelian over ℚ its factorisation ζ_{F,2}(s) = ∏_ψ L₂(s, ψ) into Kubota–Leopoldt L-functions. Also, for odd p: the power series G_ψ, H_ψ with L_p(1 − s, ψ) = G_ψ(κ(γ)^s − 1)/H_ψ(κ(γ)^s − 1) for totally real F, and the interpolation L_p(−1, ω²) = ζ_F(−1)·∏_{v|p}(1 − Nv) at the trivial character twisted by ω².",
+      "need": "For a totally real field F and k ≥ 1, ζ_F(1 − 2k) ∈ ℚ (Siegel–Klingen; the 'algebraicity of negative critical values' in L3's Deligne–Ribet construction), and the Deligne–Ribet integrality statement bounding the denominator of ζ_F(−1), proved independently of the Birch–Tate formula. Also, at p = 2 for a totally real F: the 2-adic zeta function L₂(χ₀, s) = G_F(u^s − 1)/(u^s − u) with G_F ∈ 2^{[F:ℚ]}ℤ₂[[T]] (Deligne–Ribet), its interpolation L₂(χ₀, −1) = ζ_F(−1)·∏_{𝔭|2}(1 − N𝔭), and for F abelian over ℚ its factorisation ζ_{F,2}(s) = ∏_ψ L₂(s, ψ) into Kubota–Leopoldt L-functions. Also, for odd p: the power series G_ψ, H_ψ with L_p(1 − s, ψ) = G_ψ(κ(γ)^s − 1)/H_ψ(κ(γ)^s − 1) for totally real F, and the interpolation L_p(−1, ω²) = ζ_F(−1)·∏_{v|p}(1 − Nv) at the trivial character twisted by ω². For every even n ≥ 2 also the interpolation L_p(1 − n, ω^n) = ζ_F(1 − n)·∏_{v|p}(1 − Nv^{n−1}).",
       "neededBy": [
         "SpecialValuesBirchTate:B.2/birch-tate-iff-valuations",
         "SpecialValuesBirchTate:B.2/denominator-consequence",
         "SpecialValuesBirchTate:B.5/federer-main-conjecture",
         "SpecialValuesBirchTate:B.5/federer-implies-two-primary-birch-tate",
         "SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields",
-        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta"
+        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta",
+        "SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic"
       ]
     },
     {
@@ -2426,7 +2746,9 @@
       "neededBy": [
         "SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa",
         "SpecialValuesBirchTate:B.4/w2-ell-part-as-etale-cohomology",
-        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta"
+        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta",
+        "SpecialValuesBirchTate:B.8/cohomological-h2-model",
+        "SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic"
       ]
     },
     {
@@ -2436,7 +2758,8 @@
         "SpecialValuesBirchTate:B.5/federer-main-conjecture",
         "SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa",
         "SpecialValuesBirchTate:B.5/minus-module-coinvariant-order",
-        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta"
+        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta",
+        "SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic"
       ]
     },
     {
@@ -2444,7 +2767,8 @@
       "need": "The coinvariant lemma: for a finitely generated torsion ℤ_p[[T]]-module M with M_Γ finite and M^Γ = 0, |M_Γ| ~ char_M(0); and the twist rule char(M(−1))(T) = char(M)(u^{−1}(1 + T) − 1) for the action (γφ)(x) = φ(γx) (Lichtenbaum, Lemma 4.1).",
       "neededBy": [
         "SpecialValuesBirchTate:B.5/minus-module-coinvariant-order",
-        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta"
+        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta",
+        "SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic"
       ]
     },
     {
@@ -2465,14 +2789,44 @@
       "supplier": "IntegralIwasawaTheory:I.5",
       "need": "Wiles's main conjecture for a totally real field F and an odd prime p (Kolster, Iwasawa's Main Conjecture 1.3): for every 1-dimensional p-adic Artin character ψ of type S, the distinguished polynomial of G_{ψ,S} equals the characteristic polynomial of γ − 1 on the ψ-part of X_S ⊗ ℚ_p; with Wiles's μ(X_ψ) = μ(G_ψ) (1990, Theorem 1.4), so char(X_ψ) = (G_ψ(T)) for ψ ≠ 1 of order prime to p.",
       "neededBy": [
-        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta"
+        "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta",
+        "SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic"
       ]
     },
     {
       "supplier": "MotivicEtaleKTheory:M.3",
       "need": "Tate's degree-two comparison for S-integers: for a number field F, a prime ℓ and S ⊇ {v | ℓ}, K₂(𝓞_{F,S})/ℓ^r ≅ H²_ét(𝓞_{F,S}, μ_{ℓ^r}^{⊗2}), compatibly in r (the stage's public statement), for ℓ odd.",
       "neededBy": [
-        "SpecialValuesBirchTate:B.4/k2-ell-part-as-etale-cohomology"
+        "SpecialValuesBirchTate:B.4/k2-ell-part-as-etale-cohomology",
+        "SpecialValuesBirchTate:B.8/cohomological-h2-model"
+      ]
+    },
+    {
+      "supplier": "BorelRegulators:R.4",
+      "need": "Borel's regulator r_n: K_{2n−1}(F) → V_n(F) and the regulator covolume R_n^B(F) of the torsion-free part of K_{2n−1}(𝓞_F), with the orientation/sign convention fixed and R_n^B(F) = 1 when the rank is 0.",
+      "neededBy": [
+        "SpecialValuesBirchTate:B.8/lichtenbaum-formula-statements"
+      ]
+    },
+    {
+      "supplier": "BorelRegulators:R.5",
+      "need": "For n ≥ 2: the order of vanishing of ζ_F at 1 − n equals dim V_n(F) (r₂ for even n, r₁ + r₂ for odd n); the nonzero leading coefficient ζ*_F(1 − n); and Borel's theorem that ζ*_F(1 − n)/R_n^B(F) is a nonzero rational number.",
+      "neededBy": [
+        "SpecialValuesBirchTate:B.8/lichtenbaum-formula-statements"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.7",
+      "need": "The Quillen–Lichtenbaum outputs at odd ℓ and n ≥ 2 for rings of integers: K_{2n−2}(𝓞_F) ⊗ ℤ_ℓ ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(n)) and K_{2n−1}(𝓞_F) ⊗ ℤ_ℓ ≅ H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(n)) (the stage's 'expected arithmetic outputs'); and, for the correction at 2 with real places, the corrected sequences.",
+      "neededBy": [
+        "SpecialValuesBirchTate:B.8/odd-primary-lichtenbaum-totally-real"
+      ]
+    },
+    {
+      "supplier": "ArithmeticKTheory:N.5",
+      "need": "The integral structure of the odd K-groups of 𝓞_F (Handbook I.5 table): in particular the torsion of K_{2n−1}(𝓞_F) is ℤ/w_n(F) or ℤ/2w_n(F) up to 2-groups, so its odd part has order w_n(F)^{odd}.",
+      "neededBy": [
+        "SpecialValuesBirchTate:B.8/odd-primary-lichtenbaum-totally-real"
       ]
     }
   ],
@@ -2526,10 +2880,13 @@
     },
     {
       "stageId": "SpecialValuesBirchTate:B.8",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Lichtenbaum statements at all negative integers with BorelRegulators R.5's leading terms, and the motivic form (Kolster Conjectures 3.6–3.7)."
-      ]
+        "The correction at 2 with real places (from MotivicEtaleKTheory M.7's corrected sequences; e.g. Rognes–Weibel) is not read, so the K-theoretic formula is stated only away from 2.",
+        "The integral/equivariant refinement (equivariant Tamagawa number conjecture) is not stated.",
+        "For fields with complex places the formula is stated (with Borel's regulator and the order of vanishing from BorelRegulators R.4–R.5) but not proved, as the stage expects."
+      ],
+      "notes": "Checkpoint 4 plans B.8 from Kolster's Park City notes (Lecture 1 §2, Lecture 2 §3): the cohomological models H¹, H² with h_n, w_n; the Lichtenbaum statements (K-theoretic away from 2, and motivic); Theorem 3.3/Corollary 3.4 for every even n; and the odd part of the Lichtenbaum formula for totally real F in even weight (planet), via Quillen–Lichtenbaum (M.7). Order of vanishing, leading coefficients and Borel's theorem are requested from BorelRegulators R.4–R.5. Source issue E6."
     }
   ],
   "gaps": [
@@ -2613,6 +2970,22 @@
       "printed": "We note the following: For each n ∈ ℤ the exact sequence 0 → ℤ_p(n) → ℚ_p(n) → ℚ_p(n)/ℤ_p(n) → 0 gives rise to a long exact sequence … In particular this implies that the torsion subgroup of H¹_ét(o′_F, ℤ_p(n)) is isomorphic to H⁰_ét(o′_F, ℚ_p/ℤ_p(n))",
       "correction": "The isomorphism H¹_ét(o′_F, ℤ_p(n))_tors ≅ H⁰_ét(o′_F, ℚ_p/ℤ_p(n)) holds for n ≠ 0. In general H¹_tors is H⁰(ℚ_p/ℤ_p(n)) modulo its maximal divisible subgroup.",
       "reason": "By the preceding sentence the kernel of δ₁ is the maximal divisible subgroup of H⁰(ℚ_p/ℤ_p(n)). For n = 0 this is all of H⁰(o′_F, ℚ_p/ℤ_p) = ℚ_p/ℤ_p, while H¹_ét(o′_F, ℤ_p) = Hom_cts(G_F^{(p)}, ℤ_p) is torsion-free. For n ≠ 0 the cyclotomic character has infinite image, so H⁰ is finite and the isomorphism holds. The notes use it only for n ≥ 2.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there)",
+        "the published volume (IAS/Park City Mathematics Series) was not accessed",
+        "research/errata/REGISTER.md: no entry for these notes"
+      ]
+    },
+    {
+      "id": "SpecialValuesBirchTate/E6",
+      "source": "kolster-park-city-2009",
+      "kind": "error",
+      "locator": "Lecture 1, §2, p. 11 (author copy)",
+      "printed": "The resulting group H¹(o_F, ℤ(n)) is an analog of the group of units. It is a finitely generated abelian group of rank r₂ if n ≥ 3 is odd, r₁ + r₂ if n ≥ 2 is even",
+      "correction": "… of rank r₁ + r₂ if n ≥ 3 is odd, r₂ if n ≥ 2 is even",
+      "reason": "The same paragraph requires H¹(o_F, ℤ(n)) ⊗ ℤ_p ≅ H¹_ét(o′_F, ℤ_p(n)), whose rank is r₁ + r₂ for odd n and r₂ for even n by the notes' own Proposition 2.1(5) (p. 10); these are also Borel's ranks of K_{2n−1}(o_F) (p. 15). For F = ℚ and n = 2 the printed rank is 1, but H¹_ét(ℤ[1/p], ℤ_p(2)) is finite (r₂ = 0), matching K₃(ℤ) ≅ ℤ/48. Checked on the page image.",
       "affects": "nothing",
       "known": "new",
       "searched": [
