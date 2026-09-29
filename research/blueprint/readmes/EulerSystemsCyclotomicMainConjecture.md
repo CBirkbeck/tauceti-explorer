@@ -1,12 +1,12 @@
 # Euler systems and the unconditional cyclotomic main conjecture — blueprint
 
 This blueprint covers stages L0–L4. The first checkpoint decomposes **L0**, the Euler system of
-cyclotomic units and its χ-twist. The second plans **L1**'s finite-level class-group bound, and the third plans **L2**'s
-Iwasawa-theoretic divisibility. It follows:
+cyclotomic units and its χ-twist. The second plans **L1**'s finite-level class-group bound, the third plans **L2**'s
+Iwasawa-theoretic divisibility, and the fourth plans **L3**, the main conjecture for odd p. It follows:
 - Rubin, *Euler systems*, Chapter III §2.1–2.4, with the Chapter I–II definitions they use;
 - Rodrigues Jacinto–Williams (RJW), *An introduction to p-adic L-functions*, §10.2 and §10.5.
 
-L1 is partial, L2 is source-decomposed, and stages L3–L4 are not yet read.
+L1 and L3 are partial, L2 is source-decomposed, and L4 is not yet read.
 
 ## Purpose
 
@@ -296,6 +296,29 @@ char(E_∞^χ/C_{∞,χ}).
 - The J² is removed because J ∤ char(A_∞^χ). Leopoldt's conjecture for the real abelian L leaves no ℤ_p²-extension.
 - When χ(p) = 1, these are the augmentation corrections the roadmap asks for.
 
+## Layer L3: equality and the main conjecture (partial)
+
+Checkpoint 4 plans RJW's Theorem 13.8 for every odd p, with Rubin's III.2.8–2.10. RJW's Propositions 13.13–13.14
+are read with the corrections already in the register (PadicMeasuresIwasawaAlgebras/E5–E7).
+
+**Lemma: the four-term sequence** (node `galois-unit-four-term-sequence`). The sequence
+0 → E⁺/C⁺ → U⁺/C⁺ → X_∞⁺ → Y_∞⁺ → 0 is exact.
+- Gal(M_∞⁺/L_∞⁺) ≅ U/E ≅ (U/C)/(E/C); RJW print E/U (E5).
+- The inverse-limit step is justified by compactness, not by finite generation (E6).
+
+**Lemma: the trivial component** (node `trivial-character-component`).
+- e₁X_∞⁺ = e₁Y_∞⁺ = 0, because ℚ has a unique ℤ_p-extension.
+- ([a] − [1])ζ_p takes the unit value −(1 − p⁻¹)·log_p(a) at the trivial character, so e₁(I(Γ⁺)ζ_p) is the unit ideal.
+
+**Theorem: componentwise equality** (node `componentwise-iwasawa-equality`; Rubin III.2.8). The equality comes from the
+componentwise divisibilities of L2, the class number formula at each layer, and control. Rubin cites the stabilisation
+of the finite-layer errors to [MW] and Lang's appendix, which are not read. This is recorded as a gap.
+
+**Theorem: the main conjecture** (node `cyclotomic-main-conjecture`; planet). X_∞⁺ is finitely generated and torsion,
+and char(X_∞⁺) = I(Γ⁺)ζ_p for every odd p. In χ-parts this is char(Z_∞^χ) = L_χΛ (Rubin III.2.10).
+- The local-unit theorem (RJW 12.23) is requested from ColemanPowerSeries L4.
+- The Vandiver isomorphism (RJW 13.11) is not asserted.
+
 ## Dependencies
 
 **Inside this roadmap.** L0 feeds L1: Theorem III.2.3 takes c_ℚ, C_{L,χ} and the Kummer classes.
@@ -337,7 +360,8 @@ char(E_∞^χ/C_{∞,χ}).
   - Corollary III.2.4, which depends on [Ru3] or on L3 for the ψ(p) = 1 components (gap).
 - **L2 is source-decomposed** (checkpoint 3). It depends on the ES.8, SelmerIwasawaCohomology L3 and IntegralIwasawaTheory
   requests (Iwasawa's rank-one theorem for Y_∞^χ, Leopoldt for real abelian fields).
-- **L3:** Rubin III §2.8–2.10 and RJW §13 (Theorem 13.8, Proposition 13.13, Corollary 13.14).
+- **L3 (partial, checkpoint 4):** the main conjecture is planned. Remaining: the finite-layer stabilisation of Corollary
+  III.2.8 (gap), and the odd-character/class-group and Greenberg Selmer formulations (RJW §13.5).
 - **L4:** Greither, *Class groups of abelian fields, and the main conjecture*, §§1–4, including
   p = 2.
 
