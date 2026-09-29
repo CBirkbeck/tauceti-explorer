@@ -11,7 +11,7 @@
   "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
  ],
  "status": "partial",
- "summary": "Checkpoints 1–7 (Claude Code cc-39fac3), under RS-08. R21.2 is source_decomposed; R21.1 and R21.3–R21.6 are partial. The source is Skinner–Wiles, Residually reducible representations and modular forms (Publ. IHÉS 89, 1999), §§3.1–3.5. R21.1 (8 nodes) applies PadicFamilies L0a's ordinary projector to the definite quaternionic forms of HilbertModularVarietiesAndShimuraCurves R18.3: Skinner–Wiles' exponent p^n(p^m − 1) gives L0a's projector; it kills norm-factoring forms; the nearly ordinary Hecke algebra T_∞(U, 𝒪) over Λ′_𝒪; the stabiliser-weighted pairing with Hecke adjoints, traces between levels, the Γ₀(p^a) level drop, and the Pontryagin duality M_∞ ≅ H_∞^∨. R21.2 (7 nodes) keeps the nearly ordinary and Eisenstein statements: v-good lines and nearly ordinary representations, the two definitions of the Hecke algebra, permissible (Eisenstein) maximal ideals, their existence from the Deligne–Ribet p-adic L-function (Proposition 3.18), the weight algebra Λ_𝒪 at m, finiteness and freeness at m (Lemma 3.10), and freeness over an auxiliary Δ_w-group (Lemma 3.19). Hida's control over Λ′_𝒪 is requested from PadicFamilies L5. Two misprints are recorded (E1: the rank of Λ_𝒪 over Λ′_𝒪 is p^{Σ r_j}, not Σ r_j). Checkpoint 2 plans R21.3 (19 nodes) from Skinner–Wiles §§2 and 3.3: deformation data, the nearly ordinary deformation rings R_𝒟 with their presentation and dimension bound, Wiles pseudo-representations and pseudo-deformation rings with the lifting Proposition 2.15, the Λ_𝒪-structures, Hida's family representation ρ_Q, the pseudo-representation into T_m with R_{𝒟^ps} ↠ T_m, and the level, type and twisting statements. Two more misprints: E3 (Lemma 3.11 omits (β_i − α_i)^{−1}) and E4 ((3.7) inverts Ψ_P at T_0(𝔭_i)). Checkpoint 3 completes R21.2 (Proposition 3.20, Lemma 3.21, the rings T_𝒟 and T^min with Proposition 3.23, the §3.7 duality, the quaternionic Ihara lemma and Lemmas 3.27–3.29), adds §2.2's reducible locus to R21.3, and starts R21.4 with pro-modular primes, good pairs, nice primes, (P1)/(P2), Corollary A.2 (Raynaud's connectedness theorem is a gap) and the key Proposition 4.1. E5 and E6 are cross-reference misprints. Checkpoint 4 adds Proposition 4.2, the reduction of (P1) to Proposition 8.1 (Skinner–Wiles §§5–8, a temporary gap until the next checkpoint) and the Main Theorem to R21.4, and Theorems A and B with Hypothesis H to R21.5 (Washington's and Waldschmidt's theorems are gaps). E7: a label misprint. Checkpoint 5 plans Skinner–Wiles §§5–8 (formal patching, characteristic-p Selmer estimates and auxiliary primes, R = T at nice primes of minimal level and in general), closing the temporary gap; E8: 'Proposition 7.2' for 7.3. Checkpoint 6 adds to R21.5 the crystalline-to-ordinary criterion for 2 ≤ k ≤ p + 1 with the Berger–Li–Zhu calculation (V_{k,a_p}, the Wach-module family, Theorem 4.1 and Corollary 4.3, V̄_{k,0}), Theorem A over ℚ and the p = 3 branch, and to R21.6 the export with its level and the check that the ordinary theorems do not use Serre's conjecture; E9: DP Theorem 1.7's second hypothesis transcribes Skinner–Wiles' χ|_{D_p} ≠ 1 and is automatic; E10: Γ_K for Γ_{ℚ_p} in BLZ Proposition 3.4. Checkpoint 7 plans Skinner–Wiles, Nearly ordinary deformations of irreducible residual representations (Ann. Fac. Sci. Toulouse 2001) in 14 nodes across R21.3–R21.5, closing the gap that left it without an owner: deformation data for absolutely irreducible ρ₀, the presentation bound, dihedral deformations, trace generation, the Hecke rings T_{𝒟_Q} with R_{𝒟_Q} ↠ T_{𝒟_Q}, pro-modularity, the characteristic-p Selmer estimates, R = T at nice primes, and Theorems 5.1–5.2; the R21.6 export now covers them. E11 (a gap): Lemma 2.2's δ⁻_{F′} ≤ d/2 fails for CM F′ (δ⁻_{F′} = d), so the planned theorems exclude ρ̄^{ss} induced from a quadratic extension with a complex place; E12: [Wal] missing from the bibliography; E13: ℳ_c, ρ_{𝒟_c} for ℳ₀, ρ_{𝒟₀}; E14 (a gap): Proposition 4.1 needs a bound on #Σ that (4.1) omits; E15: (4.1i,ii) for (5.1i,ii). Skinner–Wiles' base-change paper (Duke 2001) is a new gap.",
+ "summary": "Checkpoints 1–8 (Claude Code cc-39fac3), under RS-08. R21.1, R21.2 and R21.6 are source_decomposed; R21.3–R21.5 are partial. The source is Skinner–Wiles, Residually reducible representations and modular forms (Publ. IHÉS 89, 1999), §§3.1–3.5. R21.1 (8 nodes) applies PadicFamilies L0a's ordinary projector to the definite quaternionic forms of HilbertModularVarietiesAndShimuraCurves R18.3: Skinner–Wiles' exponent p^n(p^m − 1) gives L0a's projector; it kills norm-factoring forms; the nearly ordinary Hecke algebra T_∞(U, 𝒪) over Λ′_𝒪; the stabiliser-weighted pairing with Hecke adjoints, traces between levels, the Γ₀(p^a) level drop, and the Pontryagin duality M_∞ ≅ H_∞^∨. R21.2 (7 nodes) keeps the nearly ordinary and Eisenstein statements: v-good lines and nearly ordinary representations, the two definitions of the Hecke algebra, permissible (Eisenstein) maximal ideals, their existence from the Deligne–Ribet p-adic L-function (Proposition 3.18), the weight algebra Λ_𝒪 at m, finiteness and freeness at m (Lemma 3.10), and freeness over an auxiliary Δ_w-group (Lemma 3.19). Hida's control over Λ′_𝒪 is requested from PadicFamilies L5. Two misprints are recorded (E1: the rank of Λ_𝒪 over Λ′_𝒪 is p^{Σ r_j}, not Σ r_j). Checkpoint 2 plans R21.3 (19 nodes) from Skinner–Wiles §§2 and 3.3: deformation data, the nearly ordinary deformation rings R_𝒟 with their presentation and dimension bound, Wiles pseudo-representations and pseudo-deformation rings with the lifting Proposition 2.15, the Λ_𝒪-structures, Hida's family representation ρ_Q, the pseudo-representation into T_m with R_{𝒟^ps} ↠ T_m, and the level, type and twisting statements. Two more misprints: E3 (Lemma 3.11 omits (β_i − α_i)^{−1}) and E4 ((3.7) inverts Ψ_P at T_0(𝔭_i)). Checkpoint 3 completes R21.2 (Proposition 3.20, Lemma 3.21, the rings T_𝒟 and T^min with Proposition 3.23, the §3.7 duality, the quaternionic Ihara lemma and Lemmas 3.27–3.29), adds §2.2's reducible locus to R21.3, and starts R21.4 with pro-modular primes, good pairs, nice primes, (P1)/(P2), Corollary A.2 (Raynaud's connectedness theorem is a gap) and the key Proposition 4.1. E5 and E6 are cross-reference misprints. Checkpoint 4 adds Proposition 4.2, the reduction of (P1) to Proposition 8.1 (Skinner–Wiles §§5–8, a temporary gap until the next checkpoint) and the Main Theorem to R21.4, and Theorems A and B with Hypothesis H to R21.5 (Washington's and Waldschmidt's theorems are gaps). E7: a label misprint. Checkpoint 5 plans Skinner–Wiles §§5–8 (formal patching, characteristic-p Selmer estimates and auxiliary primes, R = T at nice primes of minimal level and in general), closing the temporary gap; E8: 'Proposition 7.2' for 7.3. Checkpoint 6 adds to R21.5 the crystalline-to-ordinary criterion for 2 ≤ k ≤ p + 1 with the Berger–Li–Zhu calculation (V_{k,a_p}, the Wach-module family, Theorem 4.1 and Corollary 4.3, V̄_{k,0}), Theorem A over ℚ and the p = 3 branch, and to R21.6 the export with its level and the check that the ordinary theorems do not use Serre's conjecture; E9: DP Theorem 1.7's second hypothesis transcribes Skinner–Wiles' χ|_{D_p} ≠ 1 and is automatic; E10: Γ_K for Γ_{ℚ_p} in BLZ Proposition 3.4. Checkpoint 7 plans Skinner–Wiles, Nearly ordinary deformations of irreducible residual representations (Ann. Fac. Sci. Toulouse 2001) in 14 nodes across R21.3–R21.5, closing the gap that left it without an owner: deformation data for absolutely irreducible ρ₀, the presentation bound, dihedral deformations, trace generation, the Hecke rings T_{𝒟_Q} with R_{𝒟_Q} ↠ T_{𝒟_Q}, pro-modularity, the characteristic-p Selmer estimates, R = T at nice primes, and Theorems 5.1–5.2; the R21.6 export now covers them. E11 (a gap): Lemma 2.2's δ⁻_{F′} ≤ d/2 fails for CM F′ (δ⁻_{F′} = d), so the planned theorems exclude ρ̄^{ss} induced from a quadratic extension with a complex place; E12: [Wal] missing from the bibliography; E13: ℳ_c, ρ_{𝒟_c} for ℳ₀, ρ_{𝒟₀}; E14 (a gap): Proposition 4.1 needs a bound on #Σ that (4.1) omits; E15: (4.1i,ii) for (5.1i,ii). Skinner–Wiles' base-change paper (Duke 2001) is a new gap. Checkpoint 8 completes R21.6 with the classical Hida family over ℚ: its Galois representation (Emerton–Pollack–Weston §2.3, after Hida and Greenberg–Stevens; Hecke side requested from PadicFamilies L0), the lifting of the exported ordinary newform into a Hida family (Hida Corollary 3.7), and the required examples: X₀(11) at p = 5 through Mazur's Eisenstein ideal, and when p-distinguishedness holds (even weight) or fails (χ_{−23} at 3). R21.1 is closed as source-decomposed.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -161,6 +161,39 @@
    "sha256": "f847ed8780aa453c76ae122f6a11ddb076e94e92391e2bb6890638887205ffbb",
    "readSections": [
     "2026-09-29 (cc-39fac3, checkpoint 7): the whole paper, pp. 185–215, on the page images: the introduction with its Theorem; §2 ((2.1)–(2.4), Proposition 2.1, Lemmas 2.2–2.3, the Λ_𝒪-structure); §3 (Lemma 3.1, Proposition 3.2, (3.2), ρ_{U,m}, Lemma 3.3, permissible maximal ideals, U_{𝒟_Q}, (H_def), Proposition 3.4 with proof, Lemma 3.5); §4 ((4.1)–(4.3), property (P), Proposition 4.1 with proof); §5 ((5.1), Theorems 5.1–5.2 with proofs); §6 ((6.1)–(6.8), Proposition 6.1); §7 (Lemma 7.1, the Selmer groups, Proposition 7.2); §8 (the constructions, the verification of (6.2)–(6.8), Propositions 8.1–8.2); the bibliography."
+   ]
+  },
+  {
+   "id": "EMERTON-POLLACK-WESTON-2006",
+   "title": "Variation of Iwasawa invariants in Hida families",
+   "authors": "Matthew Emerton, Robert Pollack and Tom Weston",
+   "edition": "arXiv:math/0404484v1 (2004), 50 pages; published in Invent. Math. 163 (2006), no. 3, 523–580. Page numbers are those of the arXiv v1 PDF (printed page = PDF page).",
+   "url": "https://arxiv.org/pdf/math/0404484v1",
+   "sha256": "d2d3fa555f638068a5edbaa94821956ccce5deb0500b3839ee37c0084ed10721",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, checkpoint 8): §2.1 (Theorem 2.1.2 and the correspondence with ordinary eigenforms), §2.2 (Definition 2.2.1, Theorem 2.2.2) and §2.3 in full (Theorem 2.3.1, Propositions 2.3.2–2.3.3, Theorem 2.3.4, Proposition 2.3.5, Definitions 2.3.6–2.3.7), pp. 7–13; the bibliography entries [2], [14], [17]."
+   ]
+  },
+  {
+   "id": "HIDA-IWASAWA-MODULES-1986",
+   "title": "Iwasawa modules attached to congruences of cusp forms",
+   "authors": "Haruzo Hida",
+   "edition": "Ann. Sci. École Norm. Sup. (4) 19 (1986), no. 2, 231–273, DOI 10.24033/asens.1507; Numdam open-access scan (44 pages; printed page = PDF page + 229). The OCR text layer is garbled in displayed formulas; excerpts are taken from clean prose lines.",
+   "url": "https://www.numdam.org/item/10.24033/asens.1507.pdf",
+   "sha256": "a52ea23bc8b2357746cb2191335c7af394d96c752f6e1926d3e15b995504e5a6",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, checkpoint 8): §3, pp. 250–254 (the local rings of the ordinary Hecke algebra, (3.5)–(3.8), Theorems 3.5–3.6, the definition of forms belonging to a local ring, Corollary 3.7)."
+   ]
+  },
+  {
+   "id": "MAZUR-EISENSTEIN-1977",
+   "title": "Modular curves and the Eisenstein ideal",
+   "authors": "Barry Mazur",
+   "edition": "Publ. Math. IHÉS 47 (1977), 33–186; Numdam open-access scan (155 pages; printed page = PDF page + 31). The OCR text layer is noisy; statements were read on the page image.",
+   "url": "http://www.numdam.org/item/PMIHES_1977__47__33_0.pdf",
+   "sha256": "c20c7e73be20d6cc961127504b6be019f7707e0ee6154ba1fac0bbfd5973be8a",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, checkpoint 8): Chapter II, Propositions 9.6–9.8 and the definition of Eisenstein primes, p. 96, on the page image."
    ]
   }
  ],
@@ -5402,6 +5435,284 @@
    "planet": {
     "name": "Skinner–Wiles over ℚ (irreducible residual)"
    }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/hida-family-galois-representation-over-q",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
+   ],
+   "title": "The Galois representation of a Hida family over ℚ",
+   "kind": "construction",
+   "statement": "Let p be an odd prime (p ≥ 5 for PadicFamilies' control theorem), N prime to p, Λ = ℤ_p[[1 + pℤ_p]] with fraction field L, T_N Hida's ordinary cuspidal Hecke algebra of tame level N (PadicFamilies L0) and T^new_N its new quotient (the maximal quotient acting faithfully on the ordinary forms new at level N; requested from PadicFamilies L0). (EPW Theorem 2.3.1.) There is a continuous ρ : G_ℚ → GL₂(T^new_N ⊗_Λ L), characterised by (1) ρ unramified outside Np and (2) for ℓ ∤ Np, ρ(Frob_ℓ) has characteristic polynomial X² − T_ℓX + ⟨ℓ⟩ℓ^{−1}; moreover (3) ρ is absolutely irreducible, (4) det ρ is x ↦ ⟨x⟩x^{−1} composed with the cyclotomic character, and (5) the I_p-coinvariants of ρ are free of rank one and Frob_p acts on them by U_p. (Proposition 2.3.2.) For each minimal prime 𝔞 of T^new_N, ρ_𝔞 has tame conductor N. (Proposition 2.3.3.) At a classical height-one prime ℘, for a ρ-stable (T^new_N)_℘-lattice 𝓛 and ℓ ≠ p, 𝓛^{I_ℓ} is free, commutes with ⊗_Λ L and specialises to (𝓛/℘𝓛)^{I_ℓ}, and 𝓛/℘𝓛 carries ρ_{f_℘}. (Theorem 2.3.4.) Each maximal ideal m has a semisimple residual ρ̄_m with the same trace and determinant modulo m and ρ̄_m|_{D_p} ≅ (χ *; 0 ψ) with ψ unramified and ψ(Frob_p) = U_p mod m. (Proposition 2.3.5.) If ρ̄_m is irreducible, ρ_m has a model over (T^new_N)_m, unique up to isomorphism, whose I_p-coinvariants are free of rank one; this gives ρ̄_m its canonical p-stabilisation (Definitions 2.3.6–2.3.7).",
+   "hypotheses": [
+    "the Hecke side (T_N, T^new_N, classical height-one primes, control) is PadicFamilies L0's; this node is the Galois side, which PadicFamilies L4's RS-08 note assigns to this roadmap",
+    "R21.3/hida-family-representation covers even-degree totally real F only (Skinner–Wiles' quaternionic towers); this is the classical family over ℚ, from Hida (Invent. Math. 85, 1986, Theorem 2.1) and Greenberg–Stevens (Theorem 2.6) as recalled by EPW",
+    "the integral model in Proposition 2.3.5 needs ρ̄_m irreducible; in the residually reducible case only the pseudo-representation is integral"
+   ],
+   "proofSteps": [
+    "Glue the ρ_{f_℘} over the Zariski-dense classical height-one primes (Hida; Greenberg–Stevens, as cited by EPW), using (3) of Theorem 2.2.2 of EPW (T^new_N ⊗ Λ_℘ is étale over Λ_℘ at classical ℘).",
+    "Proposition 2.3.2: compare dim V^{I_ℓ} with dim V(℘)^{I_ℓ} through the conductor formula; the determinant of ρ_𝔞(σ) − 1 on V^{J_ℓ} lies in every classical ℘ of the normalisation, hence vanishes.",
+    "Theorem 2.3.4: reduce an integral model over the normalisation, semisimplify and descend.",
+    "Proposition 2.3.5: Carayol's theorem (GlobalGaloisDeformations R04.2/carayol-trace-theorem), since the traces lie in (T^new_N)_m and ρ̄_m is irreducible."
+   ],
+   "acceptance": [
+    "Check (5) against the ordinarity criterion: at a classical ℘ of weight k, U_p ↦ the unit root α_p of f_℘ and the unramified quotient is the one of PadicHodgeTheory R06.4/two-dimensional-ordinarity-criterion.",
+    "Do not claim a GL₂(T^new_N)-valued representation without an irreducibility hypothesis on ρ̄_m."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0",
+    "PadicFamilies:L0/hida-control-theorem",
+    "PadicFamilies:L0/arithmetic-specialization",
+    "GlobalGaloisDeformations:R04.2/carayol-trace-theorem",
+    "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
+    "AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/HidaFamilyOverQ",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§2.3, Theorem 2.3.1, p. 10 (arXiv v1; printed page = PDF page)",
+     "match": "Theorem 2.3.1 and its properties (1)–(5)."
+    },
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§2.3, proof of Theorem 2.3.1, p. 10 (arXiv v1; printed page = PDF page)",
+     "match": "Hida and Greenberg–Stevens."
+    },
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§2.3, Proposition 2.3.2, p. 11 (arXiv v1; printed page = PDF page)",
+     "match": "Proposition 2.3.2."
+    },
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§2.3, Theorem 2.3.4, p. 12 (arXiv v1; printed page = PDF page)",
+     "match": "Theorem 2.3.4 (on p. 13)."
+    },
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§2.3, Proposition 2.3.5 and Definitions 2.3.6–2.3.7, p. 13 (arXiv v1; printed page = PDF page)",
+     "match": "The integral model over (T^new_N)_m (Carayol, EPW [2])."
+    },
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§2.3, Definition 2.3.7, p. 13 (arXiv v1; printed page = PDF page)",
+     "match": "The canonical p-stabilisation."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/ordinary-newform-lies-in-a-hida-family",
+     "how": "the family's representation specialises to ρ_f at the point of f."
+    },
+    {
+     "where": "PadicFamilies:L1",
+     "how": "the family-symbol modules M^±_m of EPW §4 are built over (T_N)_m with this ρ_m (p-distinguished, ρ̄_m irreducible)."
+    },
+    {
+     "where": "PadicFamilies:L4",
+     "how": "the ordinary big Galois representation that L4's RS-08 note imports from this roadmap, over ℚ."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.OrdinaryModularity.hidaFamilyRep",
+     "role": "constructor",
+     "statement": "ρ : G_ℚ → GL₂(T^new_N ⊗_Λ L)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.hidaFamilyRep_charpoly",
+     "role": "characterisation",
+     "statement": "For ℓ ∤ Np, charpoly ρ(Frob_ℓ) = X² − T_ℓX + ⟨ℓ⟩ℓ^{−1}."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.hidaFamilyRep_det",
+     "role": "characterisation",
+     "statement": "det ρ = ⟨·⟩(·)^{−1} ∘ cyclotomic character."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.hidaFamilyRep_ordinary",
+     "role": "characterisation",
+     "statement": "The I_p-coinvariants are free of rank one with Frob_p acting by U_p."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.hidaFamilyRep_tameConductor",
+     "role": "characterisation",
+     "statement": "Proposition 2.3.2: ρ_𝔞 has tame conductor N."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.hidaFamilyRep_integral",
+     "role": "constructor",
+     "statement": "Proposition 2.3.5: the model ρ_m over (T^new_N)_m when ρ̄_m is irreducible."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.hidaFamilyRep_specialise",
+     "role": "compatibility",
+     "statement": "At a classical ℘, the reduction of a lattice carries ρ_{f_℘}."
+    }
+   ],
+   "tests": [
+    {
+     "name": "hidaFamilyRep_weight_two_point",
+     "kind": "example",
+     "statement": "At the weight-2 point of the family through X₀(11) at p = 5 (R21.6/required-examples-x0-11-at-five) the specialisation is ρ_{f,5}, with U_5 ↦ a_5 ≡ 1 mod 5."
+    },
+    {
+     "name": "hidaFamilyRep_det_weight",
+     "kind": "example",
+     "statement": "At a classical ℘ of weight k and trivial character, det ρ_{f_℘} = ε^{k−1}."
+    },
+    {
+     "name": "hidaFamilyRep_reducible_residual",
+     "kind": "example",
+     "statement": "For ρ̄_m reducible (the Eisenstein component through X₀(11) at 5), Proposition 2.3.5 does not apply; only the traces are integral."
+    },
+    {
+     "name": "hidaFamilyRep_ordinary_quotient",
+     "kind": "example",
+     "statement": "The unramified quotient reduces to ψ with ψ(Frob_p) = U_p mod m (Theorem 2.3.4)."
+    }
+   ],
+   "planet": {
+    "name": "Galois representations of Hida families over ℚ"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/ordinary-newform-lies-in-a-hida-family",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
+   ],
+   "title": "The exported ordinary newform lies in a Hida family",
+   "kind": "theorem",
+   "statement": "Let p ≥ 5 and let f be a newform of weight k ≥ 2 and level N₀ or N₀p (p ∤ N₀) that is ordinary at p (a unit U_p- or T_p-eigenvalue root). Then f, or its unique ordinary p-stabilisation f_α, is the specialisation at a classical height-one prime of a unique primitive component 𝒦 of Hida's ordinary Hecke algebra of tame level N₀ (Hida, Corollary 3.7), and the Galois representation of R21.6/hida-family-galois-representation-over-q specialises there to ρ_{f,λ}. In particular, if ρ is exported by R21.6/exported-ordinary-modularity-over-q (under (ii) ρ|_{I_p} ≅ (∗ ∗; 0 1)), the newform f with ρ ≅ ρ_{f,λ} is ordinary at p and lies in a Hida family whose representation interpolates ρ.",
+   "hypotheses": [
+    "p ≥ 5, the range of PadicFamilies L0's control theorem",
+    "ordinarity of f from that of ρ: an unramified quotient of ρ|_{G_{ℚ_p}} forces a unit root (PadicHodgeTheory R06.4/two-dimensional-ordinarity-criterion)",
+    "uniqueness of 𝒦 is Hida's Corollary 3.7 (requested from PadicFamilies L0, which owns Hida families)"
+   ],
+   "proofSteps": [
+    "EPW §2.1 (after Theorem 2.1.2): classical height-one primes of T_N of weight k correspond to Galois-conjugacy classes of p-ordinary normalised eigenforms of tame level N and weight k ≥ 2; hence f_α gives a classical prime ℘_f.",
+    "Hida, Corollary 3.7: an ordinary form of weight k ≥ 2 whose primitive form has conductor divisible by N₀ belongs to a unique primitive component.",
+    "Specialisation: R21.6/hida-family-galois-representation-over-q (Proposition 2.3.3 and the characterisation by traces).",
+    "For the export: ρ|_{I_p} ≅ (∗ ∗; 0 1) gives an unramified quotient, so f is ordinary by the ordinarity criterion."
+   ],
+   "acceptance": [
+    "Record multiplicity: a p-old f of level N₀ has two p-stabilisations and only one is ordinary.",
+    "k = 2 is allowed for cusp forms (PadicFamilies L0/hida-control-theorem uses k ≥ 2 for cusp forms)."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/hida-family-galois-representation-over-q",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/exported-ordinary-modularity-over-q",
+    "PadicFamilies:L0",
+    "PadicFamilies:L0/arithmetic-specialization",
+    "PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/HidaFamilyOverQ",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§2.1, after Theorem 2.1.2, p. 8 (arXiv v1; printed page = PDF page)",
+     "match": "Every ordinary eigenform of weight ≥ 2 gives a classical point of T_N."
+    },
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§3, Corollary 3.7, p. 253 (Numdam PDF page 24; printed page = PDF page + 229)",
+     "match": "The converse half of Corollary 3.7 (uniqueness and primitivity)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/required-examples-x0-11-at-five",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
+   ],
+   "title": "Required example: X₀(11) at p = 5",
+   "kind": "application",
+   "statement": "Let f be the normalised newform spanning S₂(Γ₀(11)) (X₀(11) has genus 1, so the Hecke algebra T is ℤ). Mazur's Eisenstein ideal 𝔍 ⊆ T (generated by 1 + w and the T_ℓ − 1 − ℓ, ℓ ≠ 11) has T/𝔍 ≅ ℤ/n with n = numerator((11 − 1)/12) = 5 (Proposition II.9.7), so a_ℓ(f) ≡ 1 + ℓ mod 5 for every prime ℓ ≠ 11. Hence: (a) a_5(f) ≡ 1 mod 5, so f is ordinary at 5 (an ordinary weight-two form); (b) ρ̄_{f,5}^{ss} ≅ 1 ⊕ ω by Chebotarev and Brauer–Nesbitt, a residual split p-distinguished representation: χ = ω is odd and ramified at 5, so χ|_{D_5} ≠ 1; (c) ρ_{f,5} is irreducible and satisfies (i)–(iii) of R21.5/theorem-a-over-q with k = 2, so that theorem applies (and returns f); (d) the reducible 1 ⊕ ε₅ also has residual 1 ⊕ ω and satisfies (i)–(iii) with k = 2 and odd determinant, but is attached to no cuspidal newform, so the irreducibility hypothesis cannot be dropped; (e) p = 5 is in the range of Hida theory, and the ordinary 5-stabilisation f_α of level 55 lies in a Hida family (R21.6/ordinary-newform-lies-in-a-hida-family) whose specialisations at weights k ≡ 2 mod 4 have trivial character; for k > 2 they are 5-old, since a form new at 5 of weight k and trivial character has a_5² = 5^{k−2}, not a unit.",
+   "hypotheses": [
+    "this is the roadmap's 'ordinary weight-two form and its arithmetic specialisations', 'residual p-distinguished split representation' and 'irreducibility of the characteristic-zero representation' checks",
+    "the family's residual representation is reducible (Eisenstein), so only its pseudo-representation is integral (R21.6/hida-family-galois-representation-over-q, Proposition 2.3.5 does not apply)"
+   ],
+   "proofSteps": [
+    "n = numerator(10/12) = 5 and T/𝔍 ≅ ℤ/5 (Mazur Proposition II.9.7); T = ℤ gives the congruences.",
+    "a_5 ≡ 1 + 5 ≡ 1: a unit, so f is 5-ordinary; the unramified quotient of ρ_{f,5}|_{G_{ℚ_5}} reduces to 1 and the sub to ω.",
+    "ω has order 4 on I_5, so the two residual characters differ on I_5 (checked in the Lean file).",
+    "1 ⊕ ε₅ is reducible; cuspidal newforms have irreducible ρ_{f,λ} (AutomorphicGaloisRepresentations R19.1).",
+    "Weights: the family's character at weight k is ω^{2−k}, trivial exactly when 4 | k − 2; for f new at 5 with trivial character, a_5² = 5^{k−2} (AutomorphicGaloisRepresentations R19.4, the Steinberg local factor)."
+   ],
+   "acceptance": [
+    "Check the numerology in the Lean file: n = 5, a_5 ≡ 1 mod 5, ω nontrivial of order 4, and 5 | a_5² for new forms of weight k > 2."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-over-q",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/ordinary-newform-lies-in-a-hida-family",
+    "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
+    "AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Exports",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "MAZUR-EISENSTEIN-1977",
+     "locator": "Chapter II, Proposition 9.7 and the definition of Eisenstein primes, p. 96 (Numdam PDF page 65; printed page = PDF page + 31)",
+     "match": "T/𝔍 = ℤ/n with n = numerator((N − 1)/12)."
+    },
+    {
+     "sourceId": "MAZUR-EISENSTEIN-1977",
+     "locator": "Chapter II, before Proposition 9.8, p. 96 (Numdam PDF page 65; printed page = PDF page + 31)",
+     "match": "n > 1 exactly when X₀(N) has positive genus."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/required-examples-p-distinguishedness",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
+   ],
+   "title": "Required example: when p-distinguishedness holds and when it fails",
+   "kind": "application",
+   "statement": "(a) Let ρ satisfy (ii) ρ|_{I_p} ≅ (∗ ∗; 0 1) and (iii) det ρ = ψε^{k−1} of R21.5/theorem-a-over-q with ψ unramified at p and p odd. On I_p the residual sub-character is ω^{k−1} and the quotient is 1, so they differ as soon as (p − 1) ∤ (k − 1); for k even this always holds, and hypothesis (i) χ|_{D_p} ≠ 1 is automatic (this is also why Dieulefait–Pacetti's second hypothesis is automatic, source issue E9). (b) The hypothesis fails for the odd character χ_{−23} of ℚ(√−23) at p = 3: 3 splits in ℚ(√−23) because −23 ≡ 1 mod 3, so χ_{−23}|_{D_3} = 1, and R21.5/theorem-a-over-q says nothing about ρ with ρ̄^{ss} ≅ 1 ⊕ χ_{−23}. By (a), an ordinary ρ of this kind with ψ unramified at 3 would need k − 1 even. Whether such ρ exist is not asserted.",
+   "hypotheses": [
+    "(i) is a condition on the residual character only; this node checks it against the other hypotheses"
+   ],
+   "proofSteps": [
+    "(a) ω^{k−1}|_{I_p} = 1 exactly when (p − 1) | (k − 1); p − 1 is even and k − 1 is odd for k even.",
+    "(b) −23 ≡ 1 mod 3 is a square, so 3 splits in ℚ(√−23) and Frob_3 ↦ 1 under χ_{−23}; χ_{−23} is unramified at 3 and odd."
+   ],
+   "acceptance": [
+    "Check both parity facts and the splitting of 3 in the Lean file."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-over-q",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-at-three"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Exports",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "Introduction, p. 6 (Numdam PDF page 3)",
+     "match": "Hypothesis (i) χ|_{D_p} ≠ 1 of the ℚ-theorem (the OCR reads ρ as p)."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -5620,17 +5931,23 @@
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/irreducible-presentation-bound"
    ],
    "status": "open"
+  },
+  {
+   "supplier": "PadicFamilies:L0",
+   "need": "The Hecke side of the classical Hida family over ℚ that R21.6 builds its Galois representation on: Hida's primitive components (Iwasawa modules attached to congruences of cusp forms, Corollary 3.7: an ordinary form of weight k ≥ 2 on Γ₁(N₀p) whose primitive form has conductor divisible by N₀ belongs to a unique primitive component, with d = [𝒦 : ℒ_K] forms at each weight); the correspondence between classical height-one primes of T_N and Galois-conjugacy classes of ordinary eigenforms (EPW Theorem 2.1.2 and after); and the new quotient T^new_N (EPW Definition 2.2.1, Theorem 2.2.2: finite, reduced, torsion-free over Λ, classical primes ↔ forms of tame conductor N, étale over Λ_℘ at classical ℘).",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/hida-family-galois-representation-over-q",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/ordinary-newform-lies-in-a-hida-family"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
   {
    "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
-   "status": "partial",
-   "remaining": [
-    "Apply the projector to the modular-curve cohomology of ModularCurvesPartII R14.3 (Hida's H¹ towers, Hida, Invent. Math. 85 (1986) and ASENS 19 (1986)) and to the indefinite Hilbert/Shimura-curve cohomology of HilbertModularVarietiesAndShimuraCurves R18.4.",
-    "Odd-degree F: Skinner–Wiles prove the Λ-adic statements only for even degree (the definite algebra D needs it); the odd case goes through a Shimura curve or base change, not read."
-   ],
-   "notes": "RS-08 narrows R21.1 to the application of the projector to actual arithmetic modules. Planned for the definite quaternionic modules of Skinner–Wiles §3.2 (8 nodes); the projector API is PadicFamilies L0a and the modules are R18.3."
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 narrows R21.1 to the application of the projector to actual arithmetic modules. Planned for the definite quaternionic modules of Skinner–Wiles §3.2 (8 nodes); the projector API is PadicFamilies L0a and the modules are R18.3. Checkpoint 8 closes the stage: the source (Skinner–Wiles §3.2) is decomposed. The two items previously listed are not needed here. Skinner–Wiles never use the modular-curve or indefinite Hilbert H¹ towers; the ordinary modular-curve towers are PadicFamilies L1's (EPW §4), and the ℚ family's Galois representation is R21.6's. For odd-degree F, the Λ-adic statements are never needed, because Theorem A passes to an even-degree permissible E (R21.5/theorem-a) and the Main Theorem needs only L of even degree (R21.4/main-theorem)."
   },
   {
    "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
@@ -5669,11 +5986,9 @@
   },
   {
    "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
-   "status": "partial",
-   "remaining": [
-    "The classical ordinary (Hida) family over ℚ for later p-adic L-function work, with R21.1's modular-curve remainder (Hida, Invent. Math. 85 and ASENS 19 (1986))."
-   ],
-   "notes": "Checkpoint 6: the export of ordinary modularity over ℚ with its level (Carayol away from p, compatibility at p) for ClassicalSerreModularity, GL2ModularityLifting, PotentialModularityAndCompatibleSystems and SmallRamificationAndAbelianVarietyBaseCases, and the dependency check that the ordinary theorems do not use Serre's conjecture. Checkpoint 7 extends the export to the residually irreducible theorem of R21.5 (Skinner–Wiles 2001)."
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Checkpoint 6: the export of ordinary modularity over ℚ with its level (Carayol away from p, compatibility at p) for ClassicalSerreModularity, GL2ModularityLifting, PotentialModularityAndCompatibleSystems and SmallRamificationAndAbelianVarietyBaseCases, and the dependency check that the ordinary theorems do not use Serre's conjecture. Checkpoint 7 extends the export to the residually irreducible theorem of R21.5 (Skinner–Wiles 2001). Checkpoint 8 supplies the classical ordinary family over ℚ: its Galois representation from Emerton–Pollack–Weston §2.3 (Hida; Greenberg–Stevens), with the Hecke side requested from PadicFamilies L0; the lifting of an ordinary newform, and so of the export, into a Hida family (Hida Corollary 3.7); and the roadmap's required examples, X₀(11) at p = 5 (Mazur's Eisenstein ideal) and the p-distinguishedness check."
   }
  ],
  "gaps": [
@@ -5868,10 +6183,13 @@
    "printed": "The source defines δ⁻_{F′} as the Z_p-rank of the Γ_Σ summand with nontrivial action by Gal(F′/F) ≃ Z/2, and cites [Wal] for δ⁻_{F′} ≤ d/2. Lemma 2.2 claims dim R_𝒟/q ≤ δ⁻_{F′} ≤ d/2 whenever q ⊆ R_𝒟 is prime, contains p, and ρ_𝒟 mod q is dihedral with determinant of finite order.",
    "correction": "dim R_𝒟/q ≤ δ⁻_{F′} holds, and δ⁻_{F′} ≤ d/2 holds when F′ is totally real (Waldschmidt applied to the minus part of the units of F′, which has rank d). When F′ is CM, δ⁻_{F′} = d, and the bound dim R_𝒟/q ≤ d/2 fails when every place above p splits in F′. Proposition 4.1 therefore needs, when ρ₀ is dihedral, a separate proof (or an assumption) that the dihedral locus of type 𝒟 with finite-order determinant has dimension at most d/2.",
    "reason": "Affected: Lemma 2.2, and the three steps of the proof of Proposition 4.1 that use it (hence the proofs of Theorems 5.1 and 5.2), when ρ₀ is induced from a quadratic extension F′/F with a complex place. For F′ CM, the global units of F′ have the same rank d − 1 as those of F, so the minus part of the units is finite; the minus part of ∏_{w|p} 𝒪_{F′,w}^× has ℤ_p-rank d, and class field theory gives δ⁻_{F′} = d > d/2. The lemma's conclusion then fails: if every v | p splits in F′ and ℳ = ∅, Ind_{F′}^F(ψ̃₀ψ⁻), with ψ⁻ the universal character of the free part of the minus quotient of Γ_Σ, is a deformation of type 𝒟 over k[[Γ⁻]] (at each v_i it is Ψ|_{D_w} ⊕ Ψ|_{D_w̄}, nearly ordinary with the χ^{(i)}_1-part as sub). Its determinant has finite order, and its trace ring has dimension d. Such ρ₀ satisfy (2.1): for example ρ̄_{E,p}|_{G_F} for an elliptic curve E with complex multiplication by K, p ≥ 5 split in K, and a totally real F of even degree, linearly disjoint from K(E[p]), over which ρ̄_{E,p} is unramified outside p. The proof of Proposition 4.1 uses the d/2 bound three times: that ρ₁ = ρ^mod mod Q is not dihedral (step one, p. 200); that ρ mod Q₁ is not dihedral because dim Q₁ > 1 + d/2 (step three, p. 200); and that ρ mod Q₂ is not dihedral because dim Q₂ ≥ d/2 + 1 (general case, p. 202). Theorem 5.1 passes to L with ρ₀ = ρ̄^{ss}|_{G_L}, and F′L is CM when F′ is. Not examined: whether Theorems 5.1 and 5.2 fail in these cases, which are partly covered by other lifting theorems when ρ̄|_{F(ζ_p)} is irreducible. When the places above p do not split in F′, the nearly ordinary condition forces Ψ⁻ to have finite order on their decomposition groups, which should cut the dihedral locus down; the paper does not make this argument.",
-   "known": "new: no erratum or corrigendum found (Numdam item page; web search, 29 September 2026)",
+   "known": "partly known: Khare–Wintenberger, Serre's modularity conjecture (I) (Invent. Math. 178 (2009)), cite C. Skinner, 'Nearly ordinary deformations of residually dihedral representations' (their [41], 'to appear'), 'which is a correction to [40]' (this paper) (preprint p. 16; also p. 3); Allen (arXiv:1301.1113) lists it as a 2009 preprint. That correction was not obtained or read, so whether it repairs Lemma 2.2 in the CM-split case was not checked; no erratum to the published paper was found",
    "searched": [
     "the Numdam item page for AFST 2001, tome 10, no. 1, 185–215 (29 September 2026): no erratum or corrigendum listed",
-    "a web search for an erratum or corrigendum to the paper (29 September 2026): none found"
+    "a web search for an erratum or corrigendum to the paper (29 September 2026): none found",
+    "Khare–Wintenberger, Serre's modularity conjecture (I), authors' preprint (results.pdf), pp. 3, 16 and 23: the reference [41] to Skinner's correction",
+    "Allen, Modularity of nearly ordinary 2-adic residually dihedral Galois representations (arXiv:1301.1113), bibliography entry [S5]",
+    "a web search for Skinner, Nearly ordinary deformations of residually dihedral representations (29 September 2026): no published version found"
    ]
   },
   {
@@ -5963,6 +6281,27 @@
    "citation": "Skinner and Wiles, Nearly ordinary deformations of irreducible residual representations, Ann. Fac. Sci. Toulouse Math. (6) 10 (2001), 185–215 (Numdam open-access scan)",
    "read": "2026-09-29",
    "sha256": "f847ed8780aa453c76ae122f6a11ddb076e94e92391e2bb6890638887205ffbb"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0404484v1",
+   "citation": "Emerton–Pollack–Weston, Variation of Iwasawa invariants in Hida families, arXiv:math/0404484v1 (Invent. Math. 163 (2006))",
+   "read": "2026-09-29",
+   "sha256": "d2d3fa555f638068a5edbaa94821956ccce5deb0500b3839ee37c0084ed10721"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/10.24033/asens.1507.pdf",
+   "citation": "Hida, Iwasawa modules attached to congruences of cusp forms, Ann. Sci. ÉNS 19 (1986), 231–273 (Numdam)",
+   "read": "2026-09-29",
+   "sha256": "a52ea23bc8b2357746cb2191335c7af394d96c752f6e1926d3e15b995504e5a6"
+  },
+  {
+   "kind": "published",
+   "url": "http://www.numdam.org/item/PMIHES_1977__47__33_0.pdf",
+   "citation": "Mazur, Modular curves and the Eisenstein ideal, Publ. Math. IHÉS 47 (1977), 33–186 (Numdam)",
+   "read": "2026-09-29",
+   "sha256": "c20c7e73be20d6cc961127504b6be019f7707e0ee6154ba1fac0bbfd5973be8a"
   }
  ]
 }
