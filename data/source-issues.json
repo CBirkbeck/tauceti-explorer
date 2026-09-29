@@ -152749,6 +152749,26 @@
    "reviewReason": null
   },
   {
+   "id": "SelmerIwasawaCohomology/E3",
+   "kind": "misprint",
+   "locator": "Chapter I, §7, proof of Theorem 7.3, printed p. 19 (PDF p. 29), author draft",
+   "printed": "(loc^f_{Σ,Σ})^∨ −→ (S_{Σ_0}(K, W^*_M)/S_Σ(K, W^*_M))^∨ −→ 0",
+   "correction": "(loc^f_{Σ,Σ_0})^∨ −→ (S_{Σ_0}(K, W^*_M)/S_Σ(K, W^*_M))^∨ −→ 0",
+   "reason": "The map in the snake-lemma sequence is the restriction of (loc^f_{Σ′,Σ_0})^∨ to the kernels of the horizontal maps, from ⊕_{v∈Σ−Σ_0} H¹_s(K_v, W_M) to (S_{Σ_0}(K, W^*_M)/S_Σ(K, W^*_M))^∨; that is the dual of loc^f_{Σ,Σ_0} of Definition 7.2. The printed loc^f_{Σ,Σ} maps into the empty sum over Σ − Σ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "research/errata/REGISTER.md: its entries for Rubin's Euler systems concern Chapter III §2.1 only",
+    "the published monograph (Annals of Mathematics Studies 147, 2000) was not accessed; the author draft's chapter and section numbering agrees with it"
+   ],
+   "owner": "SelmerIwasawaCohomology",
+   "file": "research/blueprint/packets/SelmerIwasawaCohomology.json",
+   "citation": "Karl Rubin, Euler systems, Author draft of Annals of Mathematics Studies 147 (2000), 1999 Arizona Winter School; printed page = PDF page − 10",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ShimuraCompactifications/E-C6-1",
    "kind": "misprint",
    "locator": "Theorem 8.3 proof, arXiv v3 p. 24; same text in author copy printed p. 547",
