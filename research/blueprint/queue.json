@@ -15973,8 +15973,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalSerreModularity--R27.3",
    "prompt": "research/blueprint/prompts/REV-ClassicalSerreModularity--R27.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #370"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #370",
+   "finishedAt": "2026-09-29T01:07:57Z"
   },
   {
    "id": "BP-ClassicalSerreModularity--R33.5",
@@ -16020,7 +16021,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalSerreModularity--R33.5",
    "prompt": "research/blueprint/prompts/REV-ClassicalSerreModularity--R33.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #371"
   },
   {
    "id": "BP-CohomologyComparisons",
