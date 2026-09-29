@@ -3,7 +3,7 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369; mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "DeformationAndDerivedPatchingAlgebra": {
-   "summary": "Mathlib already supplies much of the classical background this roadmap plans: continuous maps out of power-series rings with uniqueness, the universal property of an adically complete ring as the limit of its quotients by powers of the maximal ideal (with those powers cofinal among Artinian quotients), regular sequences, projective dimension and the Rees theorem, the dimension formula along flat maps, fibre products of local rings, Weierstrass division, topological Nakayama for complete modules, and for complexes the theorem that quasi-isomorphisms between bounded-above projective complexes are homotopy equivalences, the canonical t-structure and spectral sequences of spectral objects; Tau Ceti adds Koszul-signed symmetric monoidal complexes of modules, an Euler–Poincaré theorem for additive invariants, minimal projective presentations and dual-number tangent vectors. Genuinely missing are the roadmap's own objects: depth as an invariant, Cohen–Macaulay and complete-intersection rings, Auslander–Buchsbaum, catenary and excellent rings, completed tensor products and Noetherianity of completions, small extensions, Schlessinger's criterion and deformation functors, perfect complexes, Tor-amplitude, derived tensor products, derived completion and lim¹, and all of patching, ultrapatching and component-support theory. P7, R03.1 and R03.3 are partly built; the other six layers are not built.",
+   "summary": "Mathlib already supplies much of the classical background this roadmap plans: continuous maps out of power-series rings with uniqueness, the universal property of an adically complete ring as the limit of its quotients by powers of the maximal ideal (with those powers cofinal among Artinian quotients), regular sequences, projective dimension and the Rees theorem, the dimension formula along flat maps, fibre products of local rings, Weierstrass division, topological Nakayama for complete modules, and for complexes the theorem that quasi-isomorphisms between bounded-above projective complexes are homotopy equivalences, the canonical t-structure and spectral sequences of spectral objects; Tau Ceti adds Koszul-signed symmetric monoidal complexes of modules, an Euler–Poincaré theorem for additive invariants, minimal projective presentations, dual-number tangent vectors and Krull dimension along integral extensions (dim S ≤ dim R, with equality for injective ones). Genuinely missing are the roadmap's own objects: depth as an invariant, Cohen–Macaulay and complete-intersection rings, Auslander–Buchsbaum, catenary and excellent rings, completed tensor products and Noetherianity of completions, small extensions, Schlessinger's criterion and deformation functors, perfect complexes, Tor-amplitude, derived tensor products, derived completion and lim¹, and all of patching, ultrapatching and component-support theory. P7, R03.1 and R03.3 are partly built; the other six layers are not built.",
    "layers": {
     "DeformationAndDerivedPatchingAlgebra:P7": {
      "verdict": "partly built",
@@ -381,14 +381,6 @@
      ],
      "duplicates": [
       {
-       "layer": "PotentialAutomorphyInfrastructure:PA.4",
-       "note": "Fixes a nonprincipal ultrafilter as in ACC+ §6.4.1 and proves the arithmetic tower satisfies the boundedness and compatibility hypotheses of ultrapatching, assigning the abstract construction to this layer."
-      },
-      {
-       "layer": "GL2ModularityLifting:R22.3",
-       "note": "Applies the abstract patching construction to the actual rings and modules, with presentation, depth and framing-variable bookkeeping."
-      },
-      {
        "layer": "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
        "note": "Constructs a patched completed module with finite generation, projectivity and support assertions."
       }
@@ -550,14 +542,6 @@
       }
      ],
      "duplicates": [
-      {
-       "layer": "PotentialAutomorphyInfrastructure:PA.3",
-       "note": "Compares patched complexes for two systems of local conditions: component support, characteristic-zero localisation, near faithfulness and the derived Ihara-avoidance support implication."
-      },
-      {
-       "layer": "GL2ModularityLifting:R22.4",
-       "note": "Local component matching and patched support, with the same warning that a Cohen–Macaulay patched module on one component says nothing about another."
-      },
       {
        "layer": "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
        "note": "Support and multiplicity assertions for patched completed modules, not inferred from dense sets of points."
@@ -841,10 +825,6 @@
        "note": "Topological Nakayama and finite generation from a finite residual quotient, the complete-local finite-generation statements of R03.1."
       },
       {
-       "layer": "LocalGaloisDeformationRings:R08.1",
-       "note": "Relates local deformation rings over O to residue-field extension of the coefficients."
-      },
-      {
        "layer": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
        "note": "Works over the same base category of Artinian local W(k)-algebras with residue field k."
       }
@@ -972,18 +952,6 @@
      ],
      "duplicates": [
       {
-       "layer": "GlobalGaloisDeformations:R04.2",
-       "note": "Existence of universal framed rings and of unframed rings under absolute irreducibility, and the framed/unframed comparison by power-series maps."
-      },
-      {
-       "layer": "GlobalGaloisDeformations:R04.3",
-       "note": "Tangent and obstruction descriptions and the bound on the number of relations of a global presentation (KW II Prop. 4.5, Cor. 4.7)."
-      },
-      {
-       "layer": "LocalGaloisDeformationRings:R08.1",
-       "note": "Framed local representability with its tangent/obstruction description."
-      },
-      {
        "layer": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
        "note": "Pro-representability on Artinian local W(k)-algebras with residue field k, and a parameter criterion for generators of the maximal ideal of the prorepresenting ring."
       }
@@ -1099,13 +1067,6 @@
          "fit": "related"
         },
         {
-         "name": "IsLocalRing.maximalIdeal_height_eq_ringKrullDim",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/Ideal/Height.lean",
-         "line": 307,
-         "fit": "related"
-        },
-        {
          "name": "ringKrullDim_add_length_eq_ringKrullDim_of_isRegular",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/KrullDimension/Regular.lean",
@@ -1118,9 +1079,16 @@
          "file": "Mathlib/RingTheory/KrullDimension/Regular.lean",
          "line": 182,
          "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ringKrullDim_eq_of_isIntegral_of_faithfulSMul",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/KrullDimension/Integral.lean",
+         "line": 76,
+         "fit": "related"
         }
        ],
-       "note": "The dimension half is largely present: ht(P) = ht(p) + ht(P/pS) under going-down (Matsumura 13.B Th. 19), and flat algebras have going-down, which gives dim B = dim A + dim B/m_A B for flat local maps; quotienting by a regular sequence drops dimension by its length. For power series only dim R + 1 ≤ dim R[[X]] is proved (`ringKrullDim_succ_le_ringKrullDim_powerseries`), and no depth formula exists."
+       "note": "The dimension half is largely present: ht(P) = ht(p) + ht(P/pS) under going-down (Matsumura 13.B Th. 19), and flat algebras have going-down, which gives dim B = dim A + dim B/m_A B for flat local maps; quotienting by a regular sequence drops dimension by its length. For finite (integral) maps Tau Ceti proves dim S ≤ dim R for every integral R-algebra S (`TauCeti.ringKrullDim_le_of_isIntegral`, TauCeti/RingTheory/KrullDimension/Integral.lean:57), with equality when the algebra map is injective (`TauCeti.ringKrullDim_eq_of_isIntegral_of_faithfulSMul`, :76), neither needing Noetherian hypotheses; equality does not hold for an arbitrary finite map, and Mathlib has no Krull-dimension lemma for integral extensions. Local rings have dim = ht(m) (`IsLocalRing.maximalIdeal_height_eq_ringKrullDim`, Mathlib/RingTheory/Ideal/Height.lean:307). For power series only dim R + 1 ≤ dim R[[X]] is proved (`ringKrullDim_succ_le_ringKrullDim_powerseries`), and no depth formula exists."
       },
       {
        "target": "Equidimensionality, associated-prime and support lemmas for finite modules",
@@ -1248,16 +1216,7 @@
        "note": "Depends on deformation rings, which neither library has."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "PotentialModularityAndCompatibleSystems:R24.2",
-       "note": "Obtains a point over a finite extension of the coefficient field with nonzero characteristic, stressing that finiteness and nonzeroness alone are insufficient."
-      },
-      {
-       "layer": "PotentialModularityAndCompatibleSystems:R24.1",
-       "note": "KW II Theorem 10.1 finiteness of the unframed global ring, noting that the framed power-series enlargement is not finite over O."
-      }
-     ]
+     "duplicates": []
     },
     "DeformationAndDerivedPatchingAlgebra:R03.5": {
      "verdict": "not built",
@@ -1313,14 +1272,6 @@
       {
        "layer": "DeformationAndDerivedPatchingAlgebra:P8",
        "note": "Same roadmap: the complex-level version of this inverse-limit patching, with uniform bounds, cofinality and specialisation."
-      },
-      {
-       "layer": "GL2ModularityLifting:R22.3",
-       "note": "Applies the abstract patching construction to the actual rings and modules, proving each presentation and depth hypothesis."
-      },
-      {
-       "layer": "PotentialAutomorphyInfrastructure:PA.4",
-       "note": "Proves the arithmetic tower satisfies the boundedness and compatibility hypotheses consumed by the abstract patching theorem."
       },
       {
        "layer": "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
@@ -1415,14 +1366,6 @@
        "note": "Same roadmap: the complex-level component-support transport, near faithfulness and union-of-components conclusions."
       },
       {
-       "layer": "PotentialAutomorphyInfrastructure:PA.3",
-       "note": "Keeps equality of reduced supports, equality after inverting p, near faithfulness and integral R=T distinct when comparing patched systems."
-      },
-      {
-       "layer": "GL2ModularityLifting:R22.4",
-       "note": "States when the generic-fibre or integral R=T statement strengthens, the arithmetic form of R03.6's last target."
-      },
-      {
        "layer": "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
        "note": "Support and multiplicity assertions for patched modules."
       }
@@ -1431,7 +1374,7 @@
    }
   },
   "HabiroCyclotomicCompletions": {
-   "summary": "Neither library has a Habiro ring, a cyclotomic completion, q-Pochhammer symbols or any of Habiro's rigidity theorems, so every mathematical layer is not built and HC.6 is process. The supporting theory is extensive and should be consumed: Mathlib's cyclotomic arithmetic (q^n − 1 = ∏_{d|n}Φ_d, Φ_n(1), norms of ζ − 1, factor counts of Φ_n over finite fields, q ↦ q^p expansions), resultants with Bézout identities, division by monic polynomials, Taylor expansion with Hasse derivatives and the factorial comparison, power-series substitution under topological nilpotence, ideal-filter topologies, separated completions with their universal property, the Chinese remainder theorem and idempotent decompositions; Tau Ceti adds uniqueness for maps out of completions, equality of topologies from mutually cofinal bases, limits of complete separated topological rings, kernels of completion maps, and executable arithmetic modulo monic and cyclotomic polynomials. What is genuinely missing is the completion R[q]^S itself and everything built on it: factorial expansions and algorithms, evaluation and Taylor maps on the completion, adjacency and Habiro's Theorems 4.1, 5.2 and 6.1, and completed modules with their component decompositions.",
+   "summary": "Neither library has a Habiro ring, a cyclotomic completion, q-Pochhammer symbols or any of Habiro's rigidity theorems, so every mathematical layer is not built and HC.6 is process. The supporting theory is extensive and should be consumed: Mathlib's cyclotomic arithmetic (q^n − 1 = ∏_{d|n}Φ_d, Φ_n(1), norms of ζ − 1, factor counts of Φ_n over finite fields, q ↦ q^p expansions), resultants with Bézout identities, division by monic polynomials, Taylor expansion with Hasse derivatives and the factorial comparison, power-series evaluation at topologically nilpotent elements of complete linearly topologised rings (PowerSeries.aeval), ideal-filter topologies, separated completions with their universal property, the Chinese remainder theorem and idempotent decompositions; Tau Ceti adds uniqueness for maps out of completions, equality of topologies from mutually cofinal bases, limits of complete separated topological rings, kernels of completion maps, and executable arithmetic modulo monic and cyclotomic polynomials. What is genuinely missing is the completion R[q]^S itself and everything built on it: factorial expansions and algorithms, evaluation and Taylor maps on the completion, adjacency and Habiro's Theorems 4.1, 5.2 and 6.1, and completed modules with their component decompositions.",
    "layers": {
     "HabiroCyclotomicCompletions:HC.1": {
      "verdict": "not built",
@@ -1542,25 +1485,46 @@
        "note": "The universal property of the separated completion of a topological ring (existence, and uniqueness in Tau Ceti) and the adic-complete lifting property exist in general; they are not specialised to R[q]^S or to its finite quotients."
       },
       {
-       "target": "Injectivity of R[q] → R[q]^S only under hypotheses on R and S",
+       "target": "Injectivity of R[q] → R[q]^S for every commutative ring R and every nonempty S (it fails for S = ∅ when R ≠ 0)",
        "library": "partial",
        "declarations": [
+        {
+         "name": "Polynomial.Monic.natDegree_le_of_dvd",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Monic.lean",
+         "line": 203,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.Monic.natDegree_pow",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Monic.lean",
+         "line": 198,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.natDegree_cyclotomic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+         "line": 317,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.cyclotomic.monic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+         "line": 292,
+         "fit": "related"
+        },
         {
          "name": "UniformSpace.Completion.ker_coeRingHom",
          "library": "tauceti",
          "file": "TauCeti/Topology/Algebra/Nonarchimedean/Completion/Basic.lean",
          "line": 108,
          "fit": "related"
-        },
-        {
-         "name": "IsHausdorff",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
-         "line": 46,
-         "fit": "related"
         }
        ],
-       "note": "Tau Ceti identifies the kernel of A → Â with the closure of 0, the general tool for such injectivity statements; the cyclotomic-completion statements and their hypotheses are absent."
+       "note": "No hypothesis on R is needed. For n ∈ S the kernel lies in ⋂_k (Φ_n^k), which is 0 because Φ_n^k is monic of degree k·φ(n) ≥ k (`Polynomial.Monic.natDegree_le_of_dvd`, Monic.lean:203; `Monic.natDegree_pow`, :198; `cyclotomic.monic`; `natDegree_cyclotomic`); for R = 0 the map is trivially injective. For S = ∅, R[q]^∅ = R[q]/(1) = 0 (Habiro p. 1130). In the uniform-completion model combine this with `UniformSpace.Completion.ker_coeRingHom` (Tau Ceti: kernel = closure of 0). The statement is in neither library. Habiro's hypotheses (connectedness of the chain of orders over R, p-adic separation) belong to the restriction maps ρ_{S,S'} of HC.4, not to this map."
       },
       {
        "target": "For S = ℕ_{>0}: cofinality of P_N(q) = ∏_{i≤N}(1−q^i), identification with lim_N R[q]/(P_N) and with the (q^m−1)-completions, counting cyclotomic multiplicities",
@@ -1689,9 +1653,16 @@
          "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
          "line": 292,
          "fit": "related"
+        },
+        {
+         "name": "Polynomial.prod_cyclotomic_eq_X_pow_sub_one",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+         "line": 338,
+         "fit": "related"
         }
        ],
-       "note": "Division with remainder by a monic polynomial over any commutative ring, with the degree bound and uniqueness, is in Mathlib and each P_N is monic; the normalised expansion built from it is not stated."
+       "note": "Division with remainder by a monic polynomial over any commutative ring, with the degree bound and uniqueness, is in Mathlib. P_N = ∏_{i≤N}(1 − q^i) is not monic in general: its leading coefficient is the unit (−1)^N (so it is monic only for even N, or in characteristic 2). Its monic associate (−1)^N P_N = ∏_{i≤N}(q^i − 1) = ∏_{i≤N}∏_{d|i}Φ_d (`prod_cyclotomic_eq_X_pow_sub_one`) is monic by `cyclotomic.monic` and `Monic.mul` and generates the same ideal, so the normalised expansion divides by it (or the carrier is defined as ∏(q^i − 1)); `%ₘ` returns its argument unchanged when the divisor is not monic, so it must not be applied to P_N itself; the normalised expansion built from it is not stated."
       },
       {
        "target": "Addition, multiplication and coefficient-extraction algorithms on normalised expansions, each with a congruence correctness theorem and finite-precision dependence",
@@ -1823,9 +1794,16 @@
          "file": "Mathlib/Algebra/Polynomial/Taylor.lean",
          "line": 191,
          "fit": "related"
+        },
+        {
+         "name": "IsAdicComplete.liftRingHom",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/RingHom.lean",
+         "line": 48,
+         "fit": "related"
         }
        ],
-       "note": "For polynomials Mathlib has f ↦ f(X + r) as an algebra automorphism whose constant coefficient is f(r); the Taylor map of the completed ring into power series in q − ζ is absent."
+       "note": "For polynomials Mathlib has f ↦ f(X + r) as an algebra automorphism whose constant coefficient is f(r); the Taylor map of the completed ring into power series in q − ζ is absent. It is to be built with `IsAdicComplete.liftRingHom` (span {X}), using Mathlib's instance that `PowerSeries R` is X-adically complete (Mathlib/RingTheory/AdicCompletion/Completeness.lean:228): for ζ of order d ∈ S, project R[q]^S to R[q]/(Φ_d^n) and send q ↦ ζ + X into R[ζ][X]/(X^n), which is well defined because Φ_d(ζ + X) has zero constant term. These maps are compatible in n, and uniqueness of the lift gives the constant-term and Hasse-coefficient identifications from the polynomial-level `taylor_coeff`. Quotients R[q]/(f) with Φ_d^n ∤ f do not map to R[ζ][X]/(X^n)."
       },
       {
        "target": "Higher Taylor coefficients identified with Hasse derivatives, keeping factorial denominators when comparing with ordinary derivatives",
@@ -1895,35 +1873,42 @@
        "library": "partial",
        "declarations": [
         {
+         "name": "PowerSeries.HasEval",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.aeval",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+         "line": 211,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.continuous_aeval",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+         "line": 219,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.comp_aeval",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+         "line": 241,
+         "fit": "related"
+        },
+        {
          "name": "PowerSeries.HasSubst",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
          "line": 40,
          "fit": "related"
-        },
-        {
-         "name": "PowerSeries.substAlgHom",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
-         "line": 171,
-         "fit": "related"
-        },
-        {
-         "name": "PowerSeries.subst_comp_subst",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
-         "line": 390,
-         "fit": "related"
-        },
-        {
-         "name": "IsTopologicallyNilpotent",
-         "library": "mathlib",
-         "file": "Mathlib/Topology/Algebra/TopologicallyNilpotent.lean",
-         "line": 46,
-         "fit": "related"
         }
        ],
-       "note": "Mathlib's substitution into power series requires exactly the nilpotence hypothesis the layer insists on and proves composition of substitutions; the specific re-expansions and their cocycle identity are absent."
+       "note": "Mathlib's `PowerSeries.subst`/`HasSubst` requires an algebraically nilpotent constant coefficient over discrete coefficients (Mathlib/RingTheory/PowerSeries/Substitution.lean:40), so it covers only the special case of nilpotent constants and not these maps: ζ_{pm} − ζ_m is only topologically nilpotent. The matching API is evaluation at a topologically nilpotent element of a complete separated linearly topologised algebra: `PowerSeries.HasEval` (Evaluation.lean:61), `PowerSeries.aeval` (:211), `continuous_aeval` (:219) and `comp_aeval` (:241), the composition law from which the cocycle identity is to be derived. Tau Ceti adds `PowerSeries.aeval_subst` (TauCeti/RingTheory/MvPowerSeries/Substitution.lean:254), which compares the two APIs on the smaller HasSubst domain and does not remove its nilpotence hypothesis, and `MvPowerSeries.hasEval_of_mem` / `eval₂_mem_pow` (TauCeti/RingTheory/MvPowerSeries/Evaluation.lean:212, :133) for evaluation over adic rings. The completed coefficient rings, the topological nilpotence of the constants in them, the specific re-expansions and their cocycle identity are absent."
       }
      ],
      "duplicates": [
@@ -1956,13 +1941,6 @@
          "fit": "related"
         },
         {
-         "name": "Polynomial.eval_one_cyclotomic_not_prime_pow",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Eval.lean",
-         "line": 137,
-         "fit": "related"
-        },
-        {
          "name": "IsPrimitiveRoot.sub_one_norm_isPrimePow",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
@@ -1970,11 +1948,18 @@
          "fit": "related"
         },
         {
-         "name": "IsPrimitiveRoot.norm_toInteger_sub_one_eq_one",
+         "name": "Polynomial.cyclotomic_mul_prime_pow_eq",
          "library": "mathlib",
-         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
-         "line": 325,
-         "fit": "related"
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Expand.lean",
+         "line": 156,
+         "fit": "special case"
+        },
+        {
+         "name": "Polynomial.cyclotomic_mul_prime_dvd_eq_pow",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Expand.lean",
+         "line": 145,
+         "fit": "special case"
         },
         {
          "name": "IsHausdorff",
@@ -1984,7 +1969,7 @@
          "fit": "related"
         }
        ],
-       "note": "The arithmetic behind adjacency is proved: Φ_{p^k}(1) = p and Φ_n(1) = 1 otherwise, and N(ζ_n − 1) is p for prime powers and 1 otherwise; p-adic separatedness is `IsHausdorff (span {p})`. The adjacency relation is not defined."
+       "note": "The arithmetic behind adjacency is proved: Φ_{p^k}(1) = p and Φ_n(1) = 1 otherwise (`eval_one_cyclotomic_prime_pow`; `eval_one_cyclotomic_not_prime_pow`, Mathlib/RingTheory/Polynomial/Cyclotomic/Eval.lean:137), and N(ζ_n − 1) = p for prime powers n ≠ 2 (`sub_one_norm_isPrimePow`, which excludes n = 2, where the norm is −2) and 1 otherwise (`IsPrimitiveRoot.norm_toInteger_sub_one_eq_one`, Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:325). Habiro's congruence (4.1), Φ_{p^e n} ≡ Φ_n^d mod p (Lemma 4.1(1)), is Mathlib's `cyclotomic_mul_prime_pow_eq` (p ∤ n) and, iterated, `cyclotomic_mul_prime_dvd_eq_pow` (p | n) in characteristic p, transported from ℤ[q] to (ZMod p)[q] by `map_cyclotomic`. p-adic separatedness is `IsHausdorff (span {p})`. The adjacency relation is not defined."
       },
       {
        "target": "Cyclotomic resultant and comaximality lemmas",
@@ -2017,9 +2002,16 @@
          "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Roots.lean",
          "line": 196,
          "fit": "related"
+        },
+        {
+         "name": "Polynomial.cyclotomic_mul_prime_pow_eq",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Expand.lean",
+         "line": 156,
+         "fit": "related"
         }
        ],
-       "note": "General resultants with the Bézout identity and 'unit resultant iff coprime', and coprimality of distinct Φ_n over ℚ, exist; Res(Φ_m, Φ_n) and comaximality of cyclotomic ideals in ℤ[q] or R[q] are absent."
+       "note": "General resultants with the Bézout identity and 'unit resultant iff coprime', and coprimality of distinct Φ_n over ℚ, exist. Habiro's Lemma 4.1(1) congruence (4.1) is Mathlib's `cyclotomic_mul_prime_pow_eq` / `cyclotomic_mul_prime_dvd_eq_pow` (Expand.lean:156, :145) in characteristic p. Absent: (4.2) p ∈ (Φ_n, Φ_{p^e n}) in ℤ[q], Lemma 4.1(2) (comaximality in ℤ[q] when n/m is not a prime power), Res(Φ_m, Φ_n), Lemma 4.2, and comaximality of cyclotomic ideals in R[q]."
       },
       {
        "target": "Habiro Theorem 4.1: a connected chain of orders gives injective restriction, with the full chain hypothesis",
@@ -2084,9 +2076,23 @@
          "file": "Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
          "line": 328,
          "fit": "related"
+        },
+        {
+         "name": "UniformSpace.Completion.instModule",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/GroupCompletion.lean",
+         "line": 194,
+         "fit": "related"
+        },
+        {
+         "name": "ContinuousLinearMap.completion",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/LinearMapCompletion.lean",
+         "line": 44,
+         "fit": "related"
         }
        ],
-       "note": "Module completion with functoriality and finite products exists for a single ideal (adic case) only; completion of modules along a directed family of cyclotomic ideals is absent."
+       "note": "The separated completion of a topological module exists in general, as a module over the uncompleted ring whenever the scalar action is uniformly continuous (`UniformSpace.Completion.instModule`, GroupCompletion.lean:194), with continuous linear maps inducing maps of completions (`ContinuousLinearMap.completion`, LinearMapCompletion.lean:44) and completions of products (`AbstractCompletion.prod`, Mathlib/Topology/UniformSpace/AbstractCompletion.lean:340); `AdicCompletion` covers a single ideal. Absent: the module structure over the completed ring R[q]^S (neither library has a `Module (Completion R) (Completion M)` instance), the packaged finite-direct-sum equivalence, and the identification with lim M[q]/fM[q]."
       },
       {
        "target": "Hypotheses for exactness of the module completion, or a derived-limit correction",
@@ -2273,7 +2279,7 @@
    }
   },
   "HabiroRings": {
-   "summary": "Nothing specific to this roadmap exists: neither library has λ- or Λ-rings, Adams operations, q-Witt vectors, derived completion, E∞-algebras, spectra, solid tensor products, algebraic K-theory above K₀ or any Habiro ring, so HR.1–HR.6 are not built and HR.7 is process. The general tools it consumes are present in Mathlib: formally étale lifting along square-zero ideals, lifting into adically complete rings and uniqueness under ⋂ Iⁱ = 0 (the mechanism for the Frobenius lift on completed étale algebras), p-typical Witt vectors with ghost maps, Frobenius and Verschiebung, cyclotomic arithmetic including Φ_{p^k m} = Φ_m^{φ(p^k)} in characteristic p, equalizers with flat base change, invertible modules and Picard groups. The roadmap's warning that Φ_m need not stay irreducible modulo ℓ is already a Mathlib theorem: Φ_m has φ(m)/ord_m(q) factors over a finite field of order q, so Φ₅ over 𝔽₁₁ has four linear factors. The concrete equalizer universal property of Suggested.lean is also already in Mathlib.",
+   "summary": "Nothing specific to this roadmap exists: neither library has λ- or Λ-rings, Adams operations, q-Witt vectors, derived completion, E∞-algebras, spectra, solid tensor products, algebraic K-theory above K₀ or any Habiro ring, so HR.1–HR.6 are not built and HR.7 is process. The general tools it consumes are present in Mathlib: formally étale lifting along square-zero ideals, evaluation of power series at topologically nilpotent elements of complete linearly topologised rings, lifting into adically complete rings and uniqueness under ⋂ Iⁱ = 0 (the mechanism for the Frobenius lift on completed étale algebras), p-typical Witt vectors with ghost maps, Frobenius and Verschiebung, cyclotomic arithmetic including Φ_{p^k m} = Φ_m^{φ(p^k)} in characteristic p, equalizers with flat base change, invertible modules and Picard groups. The roadmap's warning that Φ_m need not stay irreducible modulo ℓ is already a Mathlib theorem: Φ_m has φ(m)/ord_m(q) factors over a finite field of order q, so Φ₅ over 𝔽₁₁ has four linear factors. Tau Ceti supplies the field-factor decomposition K[X]/(f) ≅ ∏ K[X]/(p) of a squarefree f over a field (`AdjoinRoot.equivPiFactors`), which is the decomposition of 𝔽_ℓ[q]/Φ_m that the componentwise p.18 repair starts from. The concrete equalizer universal property of Suggested.lean is also already in Mathlib.",
    "layers": {
     "HabiroRings:HR.1": {
      "verdict": "not built",
@@ -2397,6 +2403,14 @@
       {
        "layer": "HabiroCohomologyFoundations:HQ.1",
        "note": "Owns the global gluing over a perfectly covered Λ-ring following Wagner Appendix A, restating HR.1's perfectly-covered hypothesis and its local Frobenius data."
+      },
+      {
+       "layer": "KTheoryLowDegrees:Z.3",
+       "note": "Needs the abstract λ-ring axioms (with torsion) to state the λ-ring identities on K₀ and fixes the degree-zero Adams normalisation; HR.1's torsion-free Λ-rings with commuting Adams operations are the restricted case, so the two must share one λ-ring/Adams-operation interface with the torsion-free comparison, which neither library has."
+      },
+      {
+       "layer": "SchemeKTheoryOperations:S.6",
+       "note": "Consumes the same abstract Adams-operation interface and multiplication law ψ^kψ^l = ψ^{kl} that HR.1 records for Λ-rings; only that interface is shared, not S.6's construction of higher λ- and Adams operations on K-groups."
       }
      ]
     },
@@ -2855,14 +2869,28 @@
          "fit": "related"
         },
         {
-         "name": "PowerSeries.HasSubst",
+         "name": "PowerSeries.eval₂Hom",
          "library": "mathlib",
-         "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
-         "line": 40,
+         "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+         "line": 158,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.hasSum_eval₂",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+         "line": 177,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.rootsOfUnityEquivResidueField",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/RootsOfUnity/Henselian.lean",
+         "line": 80,
          "fit": "related"
         }
        ],
-       "note": "Cyclotomic extensions, primitive roots and nilpotence-controlled power-series substitution exist; the invariance and convergence statements do not."
+       "note": "Cyclotomic extensions, primitive roots, and evaluation of power series, as convergent sums, at topologically nilpotent elements of complete Hausdorff linearly topologised rings exist (`PowerSeries.eval₂Hom`, `hasSum_eval₂`). `PowerSeries.HasSubst` does not apply: it needs a nilpotent constant coefficient, and in the intended reduced cyclotomic coefficient rings ζ_{pm} − ζ_m is nonzero, hence only topologically nilpotent. Tau Ceti lifts roots of unity of invertible order uniquely along the residue map of a Henselian local ring (`TauCeti.rootsOfUnityEquivResidueField`), the prime-to-p root-of-unity choice in the completions. Missing: the completed coefficient rings, the topological nilpotence of ζ_{pm} − ζ_m in them, compatible root choices and change-of-choice invariance."
       },
       {
        "target": "Componentwise repair of the p.18 step: Φ_m modulo ℓ ∤ m is separable with finite étale quotient algebra that may split (Φ₅ over 𝔽₁₁), handled by idempotent descent and reassembly",
@@ -2890,21 +2918,21 @@
          "fit": "exact"
         },
         {
-         "name": "CompleteOrthogonalIdempotents.bijective_pi",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/Idempotents.lean",
-         "line": 424,
+         "name": "AdjoinRoot.equivPiFactors",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/AdjoinRoot/Factors.lean",
+         "line": 105,
          "fit": "related"
         },
         {
-         "name": "Polynomial.not_irreducible_cyclotomic_five_of_sq_eq_five",
+         "name": "AdjoinRoot.isSeparable_of_separable",
          "library": "tauceti",
-         "file": "TauCeti/RingTheory/Polynomial/Cyclotomic/SqrtFive.lean",
-         "line": 64,
+         "file": "TauCeti/RingTheory/AdjoinRoot/Factors.lean",
+         "line": 91,
          "fit": "related"
         }
        ],
-       "note": "The arithmetic facts the repair rests on are proved: Φ_m is separable over a field where m is invertible, and over a finite field of order p^f every irreducible factor of Φ_m has degree ord_m(p^f), so there are φ(m)/ord_m(p^f) factors (four linear factors for Φ₅ over 𝔽₁₁); idempotent product decompositions exist. The componentwise fracture argument and reassembly are absent."
+       "note": "The arithmetic facts the repair rests on are proved: Φ_m is separable over a field where m is invertible, and over a finite field of order p^f every irreducible factor of Φ_m has degree ord_m(p^f), so there are φ(m)/ord_m(p^f) factors (four linear factors for Φ₅ over 𝔽₁₁); the mod-ℓ decomposition 𝔽_ℓ[q]/Φ_m ≅ ∏_p 𝔽_ℓ[q]/(p) into separable field factors, one for each monic irreducible factor p, is Tau Ceti's `AdjoinRoot.equivPiFactors` (for f ≠ 0 squarefree over a field; hypotheses from `Polynomial.squarefree_cyclotomic`, Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean:657), with separable factors by `AdjoinRoot.isSeparable_of_separable` and projections `AdjoinRoot.projFactor`; generic idempotent product decompositions are `CompleteOrthogonalIdempotents.bijective_pi` (Mathlib/RingTheory/Idempotents.lean:424). Missing: lifting these idempotents to the ℓ-adic and cyclotomic completions. The componentwise fracture argument and reassembly are absent."
       }
      ],
      "duplicates": [
@@ -3098,9 +3126,23 @@
          "file": "TauCeti/RingTheory/Polynomial/Cyclotomic/SqrtFive.lean",
          "line": 64,
          "fit": "related"
+        },
+        {
+         "name": "AdjoinRoot.equivPiFactors",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/AdjoinRoot/Factors.lean",
+         "line": 105,
+         "fit": "more general"
+        },
+        {
+         "name": "Polynomial.Factors.linearEquivRoots",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Factors.lean",
+         "line": 109,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib's factorisation of cyclotomic polynomials over finite fields gives φ(5)/ord_5(11) = 4 distinct irreducible factors, each of degree 1; Tau Ceti separately shows Φ₅ is reducible over any field containing √5. Only the instantiation is left."
+       "note": "Mathlib's factorisation of cyclotomic polynomials over finite fields gives φ(5)/ord_5(11) = 4 distinct irreducible factors, each of degree 1; Tau Ceti separately shows Φ₅ is reducible over any field containing √5. Tau Ceti's `AdjoinRoot.equivPiFactors` gives the algebra decomposition 𝔽₁₁[q]/Φ₅ ≅ 𝔽₁₁⁴ (Φ₅ is squarefree over 𝔽₁₁ by `squarefree_cyclotomic`), and `Polynomial.Factors.linearEquivRoots` matches its linear factors with the four roots. Only the instantiation is left."
       },
       {
        "target": "Two elements with the same value at one root but different full Taylor expansions there",
@@ -3164,7 +3206,7 @@
    }
   },
   "ComputationalNumberTheory": {
-   "summary": "The libraries already have the exact small-scale arithmetic this roadmap assumes and several certified results it would otherwise rebuild: executable ℤ, ℚ and ZMod, Lucas' primality theorem, Fermat pseudoprimes, Carmichael numbers, Lucas–Lehmer and Pépin tests, certified factorisation of numerals, Kummer–Dedekind for primes prime to the index, the unit-index formula, the Minkowski bound, and Sturm bounds (Mathlib at level one, Tau Ceti for all finite-index subgroups); Tau Ceti adds exact computable cyclotomic integers, the index-discriminant formula, worked class numbers, Hecke coefficient formulas, point counts and 2-descent. Genuinely missing are the algorithms and their certificates: Pratt certificates, Miller–Rabin and AKS, polynomial factorisation over finite fields, Hermite normal form and LLL, Round 2, general class-group and unit computations, modular symbols, Schoof and Vélu, interval or ball arithmetic, root isolation, L-value enclosures, cost models, and database certificate schemas. CN.0, CN.1 and CN.3 are partly built, CN.2 and CN.4 not built, and CN.5 is process; CN.2 still lists the retired FoundationsAndLibraryIntegration:LI.4 as an input.",
+   "summary": "The libraries already have the exact small-scale arithmetic this roadmap assumes and several certified results it would otherwise rebuild: executable ℤ, ℚ and ZMod, Lucas' primality theorem, Fermat pseudoprimes, Carmichael numbers, Lucas–Lehmer and Pépin tests, certified factorisation of numerals, Kummer–Dedekind for primes prime to the index, the unit-index formula, the Minkowski bound and the class-number-one certificate built on it, Sturm bounds (Mathlib at level one, Tau Ceti for all finite-index subgroups) and integral bases of cyclotomic fields (Mathlib) and quadratic fields (Tau Ceti); Tau Ceti adds exact computable cyclotomic integers, the index-discriminant formula, worked class numbers, Hecke coefficient formulas, point counts and 2-descent. Genuinely missing are the algorithms and their certificates: Pratt certificates, Miller–Rabin and AKS, polynomial factorisation over finite fields, Hermite normal form and LLL, Round 2, general class-group and unit computations, modular symbols, Schoof and Vélu, interval or ball arithmetic, root isolation, L-value enclosures, cost models, and database certificate schemas. CN.0, CN.1 and CN.3 are partly built, CN.2 and CN.4 not built, and CN.5 is process; CN.2 still lists the retired FoundationsAndLibraryIntegration:LI.4 as an input.",
    "layers": {
     "ComputationalNumberTheory:CN.0": {
      "verdict": "partly built",
@@ -3600,20 +3642,6 @@
        "library": "partial",
        "declarations": [
         {
-         "name": "NumberField.integralBasis",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/NumberField/Basic.lean",
-         "line": 400,
-         "fit": "related"
-        },
-        {
-         "name": "NumberField.discr_eq_of_integralBasis",
-         "library": "tauceti",
-         "file": "TauCeti/NumberTheory/NumberField/Discriminant/OfIntegralBasis.lean",
-         "line": 61,
-         "fit": "exact"
-        },
-        {
          "name": "TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr",
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/NumberField/Index/Discriminant.lean",
@@ -3628,14 +3656,28 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.NumberField.isMonogenic_iff_exists_index_eq_one",
+         "name": "NumberField.adjoin_gen_eq_top_of_mod_four_ne_one",
          "library": "tauceti",
-         "file": "TauCeti/NumberTheory/NumberField/Monogenic.lean",
-         "line": 85,
+         "file": "TauCeti/NumberTheory/NumberField/Quadratic/RingOfIntegers.lean",
+         "line": 393,
+         "fit": "special case"
+        },
+        {
+         "name": "IsCyclotomicExtension.Rat.adjoin_singleton_eq_top",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+         "line": 770,
+         "fit": "special case"
+        },
+        {
+         "name": "Algebra.discr_mul_isIntegral_mem_adjoin",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Discriminant.lean",
+         "line": 253,
          "fit": "related"
         }
        ],
-       "note": "Mathlib proves an integral basis exists; Tau Ceti reads the discriminant off a given integral basis, proves disc(minpoly θ) = index² · d_K and the squarefree-mod-p case of Dedekind's criterion, and characterises monogenicity by index one. There is no Round 2 or p-maximal-order algorithm and no general certificate that a proposed basis is integral."
+       "note": "Mathlib proves an integral basis exists (`NumberField.integralBasis`); Tau Ceti reads the discriminant off a given integral basis (`NumberField.discr_eq_of_integralBasis`), proves disc(minpoly θ) = index² · d_K and the squarefree-mod-p case of Dedekind's criterion, and characterises monogenicity by index one. Integral bases are certified for every quadratic field (Tau Ceti: 𝓞_K = ℤ[θ] with d_K = 4d for d ≢ 1 mod 4, and 𝓞_K = ℤ[(1+θ)/2] with d_K = d for d ≡ 1 mod 4, d squarefree; `adjoin_gen_eq_top_of_mod_four_ne_one`, `discr_eq_four_mul_of_mod_four_ne_one` (:406), `adjoin_halfGen_eq_top_of_mod_four_eq_one` (:289), `discr_eq_of_squarefree_of_mod_four_eq_one` (:302)) and for every cyclotomic field (Mathlib: 𝓞_K = ℤ[ζ_n]), and Mathlib has the p-maximality steps: disc(B)·z ∈ R[θ] for integral z, and removal of p-power denominators at an Eisenstein prime (`mem_adjoin_of_smul_prime_pow_smul_of_minpoly_isEisensteinAt`, Mathlib/RingTheory/Polynomial/Eisenstein/IsIntegral.lean:367). There is no Round 2 or p-maximal-order algorithm and no certificate for an arbitrary field."
       },
       {
        "target": "Certified decomposition of primes",
@@ -3719,28 +3761,28 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.NumberField.classNumber_adjoinRoot_sqrt_neg_twenty_one_eq_four",
-         "library": "tauceti",
-         "file": "TauCeti/NumberTheory/Multiquadratic/MinusTwentyOne/ClassNumber.lean",
-         "line": 304,
-         "fit": "exact"
-        },
-        {
-         "name": "NumberField.classNumber_le_bound",
-         "library": "tauceti",
-         "file": "TauCeti/NumberTheory/EffectiveBounds/ClassNumber/Basic.lean",
-         "line": 81,
-         "fit": "related"
-        },
-        {
-         "name": "IsCyclotomicExtension.Rat.three_pid",
+         "name": "RingOfIntegers.isPrincipalIdealRing_of_isPrincipal_of_pow_le_of_mem_primesOver_of_mem_Icc",
          "library": "mathlib",
-         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/PID.lean",
-         "line": 34,
-         "fit": "related"
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 144,
+         "fit": "special case"
+        },
+        {
+         "name": "RingOfIntegers.isPrincipalIdealRing_of_isPrincipal_of_lt_or_isPrincipal_of_mem_primesOver_of_mem_Icc",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 183,
+         "fit": "special case"
+        },
+        {
+         "name": "RingOfIntegers.isPrincipalIdealRing_of_isPrincipal_of_norm_le_of_isPrime",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 116,
+         "fit": "special case"
         }
        ],
-       "note": "The Minkowski bound (Mathlib) and worked class numbers h(ℚ(√−5)) = 2 and h(ℚ(√−21)) = 4 with an effective class-number bound (Tau Ceti), plus class number one for ℚ(ζ₃) and ℚ(ζ₅), exist. No general class-group computation or completeness certificate exists."
+       "note": "The Minkowski bound (Mathlib) and worked class numbers h(ℚ(√−5)) = 2 and h(ℚ(√−21)) = 4 (`TauCeti.NumberField.classNumber_adjoinRoot_sqrt_neg_twenty_one_eq_four`, TauCeti/NumberTheory/Multiquadratic/MinusTwentyOne/ClassNumber.lean:304) with an effective class-number bound (`NumberField.classNumber_le_bound`, TauCeti/NumberTheory/EffectiveBounds/ClassNumber/Basic.lean:81), plus class number one for ℚ(ζ₃) and ℚ(ζ₅) (`IsCyclotomicExtension.Rat.three_pid`, Mathlib/NumberTheory/NumberField/Cyclotomic/PID.lean:34), exist. Mathlib has a completeness certificate for class number one: if every prime above p ≤ ⌊M_K⌋ with p^f ≤ ⌊M_K⌋ is principal then 𝓞_K is a PID (ClassNumber.lean:144; for Galois K one prime above each p suffices, :183), which certifies triviality of the whole class group. There is no certificate for a nontrivial class group (generators, relations and a proof that they are complete) and no class-group algorithm."
       },
       {
        "target": "Local expansions (p-adic expansions of algebraic numbers, Newton polygons)",
@@ -3777,7 +3819,7 @@
       },
       {
        "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
-       "note": "Certifies integral bases of quadratic fields and explicit fundamental units at rank one with a proof-carrying elimination certificate, CN.2's unit-group certificate."
+       "note": "Certifies integral bases of quadratic fields and explicit fundamental units at rank one with a proof-carrying elimination certificate, CN.2's unit-group certificate. Its quadratic integral bases and discriminants are already built in Tau Ceti (TauCeti/NumberTheory/NumberField/Quadratic/RingOfIntegers.lean)."
       },
       {
        "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-8-the-intrinsic-label-prefix-and-the-invariant-suite",
@@ -3925,14 +3967,21 @@
          "fit": "related"
         },
         {
-         "name": "WeierstrassCurve.lutz_nagell",
+         "name": "WeierstrassCurve.Affine.finite_selmerGroupA",
          "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ShortNagellLutz.lean",
-         "line": 151,
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroupA.lean",
+         "line": 149,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.range_μ_le_selmerGroupA",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroupA.lean",
+         "line": 219,
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti has the 2-Selmer group, the rank bound from any finite group containing the descent image, Mordell–Weil and Nagell–Lutz; its own docstring records that no finiteness or effective computation is done."
+       "note": "Tau Ceti has the 2-Selmer group `selmerGroup₂` (not proved finite; the docstring of SelmerGroup.lean records that neither its finiteness nor any effective computation is done there), the group A(S,2) of S-unramified square classes containing the descent image, proved finite when the factor rings of the 2-division algebra have finite class groups and finitely generated unit groups (Dedekind base, char ≠ 2 normal form), and hence, with the finitely generated Mordell–Weil group (`fg_point`), the rank bound 2^rank·#E(K)[2] ≤ #A(S,2); plus Nagell–Lutz (`WeierstrassCurve.lutz_nagell`, TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ShortNagellLutz.lean:151). Computing A(S,2), local images, Selmer groups and saturation is absent."
       },
       {
        "target": "Sturm-style truncation bounds before declaring modular forms equal",
@@ -4174,7 +4223,7 @@
    }
   },
   "tauceti:TauCetiRoadmap/HopfRinow": {
-   "summary": "Towards this roadmap Tau Ceti has gone well beyond its 1 September status page: at this baseline Layer 0 is complete (constant-speed reparametrisation, lower semicontinuity, corner smoothing, the piecewise-C¹ comparison, restriction, finiteness and the metric space), and Layer 1 has the geodesic spray with its chart independence and smoothness, local existence and uniqueness of geodesics, constant speed, the maximal interval J(p,v) with its scaling law, the finite-endpoint extension criterion and the manifold inverse function theorem. The pinned Mathlib already provides `CovariantDerivative.IsMetricCompatible` and the Levi-Civita connection with existence and uniqueness, so no local shim is needed; Tau Ceti supplies its smoothness, and the metric length- and geodesic-space API of Layer 4 exists. Genuinely missing: smooth dependence and the geodesic flow on TM, a chosen maximal geodesic, the exponential map and its derivative at 0, all of Layer 2 (normal neighbourhoods, Gauss lemma, minimisation, first variation), the Hopf–Rinow implications apart from Mathlib's `complete_of_proper`, compact ⇒ complete, Riemannian manifolds as length/geodesic spaces, and Riemannian isometries.",
+   "summary": "Towards this roadmap Tau Ceti has gone well beyond its 1 September status page: at this baseline Layer 0 is complete (constant-speed reparametrisation, lower semicontinuity, corner smoothing, the piecewise-C¹ comparison, restriction, finiteness and the metric space), and Layer 1 has the geodesic spray with its chart independence and smoothness, local existence and uniqueness of geodesics, constant speed, the maximal interval J(p,v) with its scaling law, the finite-endpoint extension criterion, a chosen maximal integral curve of the spray and the manifold inverse function theorem. The pinned Mathlib already provides `CovariantDerivative.IsMetricCompatible` and the Levi-Civita connection with existence and uniqueness, so no local shim is needed; Tau Ceti supplies its smoothness, and the metric length- and geodesic-space API of Layer 4 exists. Genuinely missing: smooth dependence and the geodesic flow on TM, the identification of the spray's maximal integral curve with J(p,v) and the homogeneity identity, the exponential map and its derivative at 0, all of Layer 2 (normal neighbourhoods, Gauss lemma, minimisation, first variation), the Hopf–Rinow implications apart from Mathlib's `complete_of_proper`, compact ⇒ complete, Riemannian manifolds as length/geodesic spaces, and Riemannian isometries.",
    "layers": {
     "tauceti:TauCetiRoadmap/HopfRinow#layer-0-the-reconciled-riemannian-distance": {
      "verdict": "built",
@@ -4610,14 +4659,28 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.Manifold.IsGeodesicCurveOnFrom.comp_mul_left",
+         "name": "maximalIntegralCurve",
          "library": "tauceti",
-         "file": "TauCeti/Geometry/Manifold/Riemannian/Geodesic/Reparametrization.lean",
-         "line": 147,
+         "file": "TauCeti/Geometry/Manifold/IntegralCurve/Maximal.lean",
+         "line": 194,
+         "fit": "related"
+        },
+        {
+         "name": "isMIntegralCurveOn_maximalIntegralCurve",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Manifold/IntegralCurve/Maximal.lean",
+         "line": 248,
+         "fit": "related"
+        },
+        {
+         "name": "IsMIntegralCurveOn.eqOn_maximalIntegralCurve",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Manifold/IntegralCurve/Maximal.lean",
+         "line": 228,
          "fit": "related"
         }
        ],
-       "note": "J(p,v) is defined as the union of open witness intervals, shown open, order-connected and containing 0, and t ∈ J(p,a•v) ↔ a·t ∈ J(p,v) for a ≠ 0; affine rescaling of witnesses is proved. There is no chosen maximal geodesic γ_{p,v} on J(p,v), so the homogeneity identity itself is not stated."
+       "note": "J(p,v) is defined as the union of open witness intervals, shown open, order-connected and containing 0, and t ∈ J(p,a•v) ↔ a·t ∈ J(p,v) for a ≠ 0; affine rescaling of witnesses is proved (`IsGeodesicCurveOnFrom.comp_mul_left`, TauCeti/Geometry/Manifold/Riemannian/Geodesic/Reparametrization.lean:147). A chosen maximal velocity lift exists by instantiating `maximalIntegralCurve` with `geodesicSpray I M` at ⟨p, v⟩ (the smoothness hypothesis is `contMDiff_geodesicSpray`; uniqueness needs a Hausdorff tangent bundle); its base projection is the candidate γ_{p,v}. Missing: the identification `maximalIntegralCurveInterval (geodesicSpray I M) ⟨p, v⟩ = geodesicInterval I M p v`, the fact that the projection is `IsGeodesicCurveOnFrom` on J(p,v), and the homogeneity identity itself."
       },
       {
        "target": "Finite-endpoint extension criterion for integral curves on maximal intervals, at both endpoints",
@@ -4657,8 +4720,23 @@
       {
        "target": "Exponential map: expDomain p, exp_p v = γ_{p,v}(1), 0 ∈ expDomain p, exp_p 0 = p, openness, smoothness via the time-one flow, t ∈ J(p,v) ↔ t•v ∈ expDomain p, star-shapedness",
        "library": "absent",
-       "declarations": [],
-       "note": "No Riemannian exponential map in either library; only the domain facts about `geodesicInterval` above exist."
+       "declarations": [
+        {
+         "name": "maximalIntegralCurve",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Manifold/IntegralCurve/Maximal.lean",
+         "line": 194,
+         "fit": "related"
+        },
+        {
+         "name": "isMIntegralCurveOn_maximalIntegralCurve",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Manifold/IntegralCurve/Maximal.lean",
+         "line": 248,
+         "fit": "related"
+        }
+       ],
+       "note": "No Riemannian exponential map in either library. The domain facts about `geodesicInterval` above exist, and the γ_{p,v} that exp_p v = γ_{p,v}(1) needs is available as the base projection of the spray's `maximalIntegralCurve` through ⟨p, v⟩, once identified with the maximal geodesic as in the previous target."
       },
       {
        "target": "The derivative of exp_p at 0 is the identity under `NormedSpace.fromTangentSpace`, with the strict-derivative form",
@@ -4772,9 +4850,30 @@
          "file": "TauCeti/Geometry/Manifold/Riemannian/Geodesic/ConstantSpeed.lean",
          "line": 97,
          "fit": "related"
+        },
+        {
+         "name": "eventually_norm_trivializationAt_lt",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/VectorBundle/Riemannian.lean",
+         "line": 223,
+         "fit": "related"
+        },
+        {
+         "name": "eventually_norm_symmL_trivializationAt_lt",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/VectorBundle/Riemannian.lean",
+         "line": 328,
+         "fit": "related"
+        },
+        {
+         "name": "not_mapClusterPt_nhdsLT_maximalIntegralCurve",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Manifold/IntegralCurve/Maximal.lean",
+         "line": 264,
+         "fit": "related"
         }
        ],
-       "note": "The extension criterion and constant speed are available; the implication itself is absent."
+       "note": "The extension criterion and constant speed are available. The local norm comparison between the Riemannian norm and the trivialisation norm, which bounds the velocity coordinates, is Mathlib's for any continuous Riemannian bundle (consume it), and the endpoint contradiction for the spray's maximal integral curve is `not_mapClusterPt_nhdsLT_maximalIntegralCurve` (and `not_mapClusterPt_nhdsGT_maximalIntegralCurve`, TauCeti/Geometry/Manifold/IntegralCurve/Maximal.lean:296, at the left endpoint). Still missing: Cauchy-ness of the base curve from constant speed, the convergent subsequence of lifted states in TM, the identification with the chosen geodesic, and the implication itself."
       },
       {
        "target": "(d) ⇒ (a_p)",
