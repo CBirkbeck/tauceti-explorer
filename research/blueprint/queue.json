@@ -19782,8 +19782,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R12.1.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #773"
   },
   {
    "id": "REV-ModularCurvesPartII--R12.1",
@@ -19832,9 +19833,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R13.3.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #774"
+   "note": "released on GitHub issue #774"
   },
   {
    "id": "REV-ModularCurvesPartII--R13.3",
@@ -22830,7 +22831,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-NoncommutativeAndEquivariantIwasawa.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-FoundationsAndLibraryIntegration",
@@ -22840,7 +22841,7 @@
     "BP-IntegralIwasawaTheory--I.8",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #1015"
+   "note": "claimed on GitHub issue #1015"
   },
   {
    "id": "REV-NoncommutativeAndEquivariantIwasawa",
@@ -23830,7 +23831,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ModularityAndLanglandsExtensions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -23838,7 +23839,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-PotentialAutomorphyInfrastructure"
    ],
-   "note": "claimed on GitHub issue #1033"
+   "note": "released on GitHub issue #1033"
   },
   {
    "id": "REV-ModularityAndLanglandsExtensions",
