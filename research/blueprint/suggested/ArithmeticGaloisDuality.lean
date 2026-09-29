@@ -535,6 +535,19 @@ example {A H : Type*} [AddCommGroup A] [AddCommGroup H] (loc : A →+ H) (a : A)
       (fun _ => Filter.Eventually.of_forall fun _ => trivial) :=
   (mem_sha_iff _ _ a).2 fun _ => ha
 
+/-- `R02.5/greenberg-wiles-formula`, the acceptance test: `M = ℤ/p` over `ℚ` with unramified conditions; the
+global term `#H⁰(ℚ, ℤ/p)/#H⁰(ℚ, μ_p) = p` and the archimedean factor `#L_∞/#H⁰(ℝ, ℤ/p) = 1/p` cancel, and all finite
+factors are `1`. -/
+example (p : ℕ) (hp : 0 < p) : ((p : ℚ) / 1) * (1 / p) = 1 := by
+  field_simp
+
+/-- `R02.6/taylor-wiles-local-count`: the Frobenius eigenvalues on `ad⁰` are `x, 1, x⁻¹`, so on the diagonal model
+`Frob − 1` has a one-dimensional kernel when `x ≠ 1`: the entries `x − 1, 0, x⁻¹ − 1` have exactly one zero. -/
+example (x : ℚ) (hx : x ≠ 1) : x - 1 ≠ 0 ∧ x⁻¹ - 1 ≠ 0 := by
+  refine ⟨sub_ne_zero.mpr hx, sub_ne_zero.mpr ?_⟩
+  intro h
+  exact hx (by simpa using congrArg (·⁻¹) h)
+
 end SuggestedTest
 
 end TauCeti.PoitouTate

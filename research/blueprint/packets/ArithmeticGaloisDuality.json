@@ -13,7 +13,7 @@
   "ArithmeticGaloisDuality:R02.6"
  ],
  "status": "partial",
- "summary": "Second checkpoint of the blueprint for global Galois duality and compact coefficients, within RS-08's boundaries. R02.1 (first checkpoint) plans compact and rational coefficients: derived limits, the Milnor sequence, Tate's inverse-limit theorem, rationalisation and Harpaz–Wittenberg's corrected splitting torsor. This checkpoint adds R02.3 and the finite-module part of R02.4 from Milne, Arithmetic Duality Theorems I §§1, 2, 4, 5: the group G_{K,S}, Hermite finiteness and finiteness of H¹, localisation maps with the modified archimedean groups, S-ideles and S-idele classes, P-class formations and (G_S, C_S), the S-unit Kummer sequence; Ext of discrete modules, Tate's duality for a class formation, global duality, the dual module, local duality at the archimedean places, unramified annihilators, restricted products and Ш, Poitou–Tate duality with the nine-term sequence, and its consequences (finiteness, cohomological dimension, surjectivity of H², H³ of the S-units, Tate's global Euler characteristic with the modular induction lemma). Three source findings in Milne are recorded (two misprints, and Theorem 4.6(b)'s known gap). The third checkpoint adds R02.2 from Neukirch–Schmidt–Wingberg II §§1, 2, 4: the convergent spectral sequence of a first-quadrant double complex on Mathlib's spectral objects, Hochschild–Serre with edge maps, restriction/corestriction morphisms and cup products, d₂^{0,1} = transgression, d₂ = −u ∪, the degeneration criteria, finite-index descent, and Rubin's five-term sequence for compact coefficients. R02.5, R02.6, D7 and D8 are not yet read.",
+ "summary": "Second checkpoint of the blueprint for global Galois duality and compact coefficients, within RS-08's boundaries. R02.1 (first checkpoint) plans compact and rational coefficients: derived limits, the Milnor sequence, Tate's inverse-limit theorem, rationalisation and Harpaz–Wittenberg's corrected splitting torsor. This checkpoint adds R02.3 and the finite-module part of R02.4 from Milne, Arithmetic Duality Theorems I §§1, 2, 4, 5: the group G_{K,S}, Hermite finiteness and finiteness of H¹, localisation maps with the modified archimedean groups, S-ideles and S-idele classes, P-class formations and (G_S, C_S), the S-unit Kummer sequence; Ext of discrete modules, Tate's duality for a class formation, global duality, the dual module, local duality at the archimedean places, unramified annihilators, restricted products and Ш, Poitou–Tate duality with the nine-term sequence, and its consequences (finiteness, cohomological dimension, surjectivity of H², H³ of the S-units, Tate's global Euler characteristic with the modular induction lemma). Three source findings in Milne are recorded (two misprints, and Theorem 4.6(b)'s known gap). The third checkpoint adds R02.2 from Neukirch–Schmidt–Wingberg II §§1, 2, 4: the convergent spectral sequence of a first-quadrant double complex on Mathlib's spectral objects, Hochschild–Serre with edge maps, restriction/corestriction morphisms and cup products, d₂^{0,1} = transgression, d₂ = −u ∪, the degeneration criteria, finite-index descent, and Rubin's five-term sequence for compact coefficients. R02.5, R02.6, D7 and D8 are not yet read. The fourth checkpoint adds R02.5 and R02.6 from Darmon–Diamond–Taylor §§2.3, 2.7–2.8: the Greenberg–Wiles formula over number fields with its archimedean conventions, the comparison of Selmer groups when one condition changes, the local cohomology at Taylor–Wiles primes, the conditional dual-Selmer killing calculation, H¹(SL₂(F), End⁰) = 0 and the group-theoretic input to Taylor–Wiles primes; with two DDT misprints (E5, E6).",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -255,6 +255,13 @@
     "module": "Mathlib/Algebra/Homology/TotalComplex.lean",
     "provides": "The total complex of a double complex.",
     "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:groupCohomology",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
+    "provides": "Group cohomology of a representation of a group, as Ext in the category of representations.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
    }
   ]
  },
@@ -324,6 +331,17 @@
     "Chapter II §1 (2.1.1–2.1.3), §2 (2.2.1–2.2.4), §4 (2.4.1–2.4.6 and Exercises 1–5)",
     "Chapter II §7 (2.7.1–2.7.12), for the compact-coefficient conventions"
    ]
+  },
+  {
+   "id": "DDT-FLT",
+   "title": "Fermat's Last Theorem",
+   "authors": "Henri Darmon; Fred Diamond; Richard Taylor",
+   "edition": "Author PDF revised 9 September 2007 (167 pp., Darmon's page); first published in Current Developments in Mathematics 1995, reprinted in Elliptic curves, modular forms & Fermat's last theorem (1997), pp. 2–140 (not accessed); printed page = PDF page",
+   "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf",
+   "sha256": "254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3",
+   "readSections": [
+    "§2.3 (Theorems 2.17–2.19), pp. 59–62; §2.7 end (Theorem 2.41 proof, Lemma 2.42, Corollary 2.43), pp. 78–79; §2.8 (Lemmas 2.44–2.46, 2.48, Corollary 2.45, Theorems 2.47, 2.49 with proof), pp. 80–84, on the page images for pp. 62, 83–84"
+   ]
   }
  ],
  "sourceVersions": [
@@ -354,6 +372,13 @@
    "citation": "J. Neukirch, A. Schmidt, K. Wingberg, Cohomology of Number Fields, 2nd ed., electronic version 2.3 (May 2020)",
    "read": "2026-09-29",
    "sha256": "abbb7cdefc9ecb3350286c3cba36fe36a90c103257ff8f64173e09a50afdcb91"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf",
+   "citation": "H. Darmon, F. Diamond, R. Taylor, Fermat's Last Theorem, author PDF revised 9 September 2007",
+   "read": "2026-09-29",
+   "sha256": "254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3"
   }
  ],
  "nodes": [
@@ -3435,6 +3460,258 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.5/greenberg-wiles-formula",
+   "parentStageId": "ArithmeticGaloisDuality:R02.5",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.5"
+   ],
+   "title": "The Greenberg–Wiles formula",
+   "kind": "theorem",
+   "statement": "Let F be a number field, M a finite discrete G_F-module and M^* = Hom(M, μ_n) (nM = 0). For each place v fix L_v ⊆ H¹(G_v, M), with L_v = H¹(G_v/I_v, M^{I_v}) for all but finitely many v, and let L_v^⊥ ⊆ H¹(G_v, M^*) be its annihilator under local duality. The Selmer groups H¹_L(F, M) and H¹_{L*}(F, M^*) (preimages of ∏L_v and ∏L_v^⊥ under localisation) are finite, and #H¹_L(F, M)/#H¹_{L*}(F, M^*) = (#H⁰(G_F, M)/#H⁰(G_F, M^*)) · ∏_v #L_v/#H⁰(G_v, M), all but finitely many factors being 1. Here H⁰(G_v, M) is ordinary cohomology at every place, including the archimedean ones.",
+   "hypotheses": [
+    "M finite; the local conditions are unramified almost everywhere."
+   ],
+   "proofSteps": [
+    "For finite v with #M prime to v and M unramified, #H¹(G_v/I_v, M^{I_v}) = #H⁰(G_v, M) (the sequence 0 → H⁰ → M^{I_v} → M^{I_v} → H¹_ur → 0), so almost all factors are 1.",
+    "Choose S ⊇ archimedean places, places dividing #M, ramified places and places where L_v is not unramified. Then 0 → H¹_L(F, M) → H¹(G_S, M) → ⊕_{v∈S} H¹(G_v, M)/L_v (galois-selmer-group), and H¹(G_S, M) is finite (global-finiteness).",
+    "Dualising the same sequence for M^* with local duality ((H¹/L_v)^∨ ≅ L_v^⊥ by orthogonal-complement's quotient pairing; unramified-exact-annihilators outside S) gives ⊕_{v∈S} L_v → H¹(G_S, M^*)^∨ → H¹_{L*}(F, M^*)^∨ → 0.",
+    "The segment 0 → H⁰(G_S, M) → (⊕_{v∈S} H⁰(G_v, M))/(1 + c)M → H²(G_S, M^*)^∨ → H¹(G_S, M) → ⊕ H¹(G_v, M) → H¹(G_S, M^*)^∨ of Poitou–Tate (the archimedean H⁰ is Tate's modified group), with H¹(G_v, M) replaced by L_v, gives an exact sequence whose alternating product of orders, with Tate's global Euler characteristic for M^*, yields the formula."
+   ],
+   "acceptance": [
+    "Stated over every number field (DDT Theorem 2.19), with the archimedean conventions explicit: ordinary H⁰ in the formula, Tate's modified H⁰ inside the proof.",
+    "Serves ArithmeticStatistics ST.5 (the Greenberg–Wiles ratio) and OrdinaryAutomorphicFormsAndModularityLifting R21.4 (Wiles' formula), which requested it from R02.4."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.4/poitou-tate",
+    "ArithmeticGaloisDuality:R02.4/global-euler-characteristic",
+    "ArithmeticGaloisDuality:R02.4/restricted-product-self-duality",
+    "ArithmeticGaloisDuality:R02.4/unramified-exact-annihilators",
+    "ArithmeticGaloisDuality:R02.4/finite-module-dual",
+    "ArithmeticGaloisDuality:R02.4/global-finiteness",
+    "ArithmeticGaloisDuality:R02.3/restricted-ramification-group",
+    "SelmerIwasawaCohomology:L2/galois-selmer-group",
+    "SelmerIwasawaCohomology:L2/dual-selmer-structure",
+    "SelmerIwasawaCohomology:L1/orthogonal-complement"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/GreenbergWiles",
+    "namespace": "TauCeti.PoitouTate"
+   },
+   "sources": [
+    {
+     "sourceId": "DDT-FLT",
+     "locator": "§2.3, Theorem 2.18, p. 61 (author PDF, revised 9 September 2007)",
+     "match": "Theorem 2.18 and its proof (pp. 61–62)."
+    },
+    {
+     "sourceId": "DDT-FLT",
+     "locator": "§2.3, Theorem 2.19, p. 62 (author PDF, revised 9 September 2007)",
+     "match": "Theorem 2.19, the statement over a number field (see ArithmeticGaloisDuality/E5)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Greenberg–Wiles formula"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.5/selmer-condition-comparison",
+   "parentStageId": "ArithmeticGaloisDuality:R02.5",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.5"
+   ],
+   "title": "Changing one local condition",
+   "kind": "lemma",
+   "statement": "In the setting of greenberg-wiles-formula, let L ⊆ L′ differ at finitely many places. Then H¹_L(F, M) ⊆ H¹_{L′}(F, M), H¹_{L′*}(F, M^*) ⊆ H¹_{L*}(F, M^*), and #H¹_{L′}(F, M)/#H¹_L(F, M) = (∏_v [L′_v : L_v]) · #H¹_{L′*}(F, M^*)/#H¹_{L*}(F, M^*). In particular, if the two dual Selmer groups agree (for example both vanish), #H¹_{L′}(F, M) = #H¹_L(F, M) · ∏_v [L′_v : L_v]. Relaxing an unramified condition at a finite place q (L′_q = H¹(G_q, M)) makes the dual condition at q strict, so H¹_{L′*}(F, M^*) = ker(H¹_{L*}(F, M^*) → H¹(G_q/I_q, (M^*)^{I_q})).",
+   "hypotheses": [
+    "L ⊆ L′ differ at finitely many places."
+   ],
+   "proofSteps": [
+    "Divide the two instances of greenberg-wiles-formula; the global H⁰ terms and the unchanged local factors cancel.",
+    "The inclusion and the kernel description are the exact sequences of SelmerIwasawaCohomology's selmer-structure-poitou-tate (i) and change-of-conditions, with (H¹(G_q, M))^⊥ = 0 and H¹_ur^⊥ = H¹_ur (unramified-exact-annihilators)."
+   ],
+   "acceptance": [
+    "This is the form used to make one Selmer group vanish, as in DDT's applications and in the auxiliary-prime arguments of GlobalGaloisDeformations R04.5."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.5/greenberg-wiles-formula",
+    "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate",
+    "SelmerIwasawaCohomology:L2/change-of-conditions",
+    "ArithmeticGaloisDuality:R02.4/unramified-exact-annihilators"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/GreenbergWiles",
+    "namespace": "TauCeti.PoitouTate"
+   },
+   "sources": [
+    {
+     "sourceId": "DDT-FLT",
+     "locator": "§2.3, before Theorem 2.18, p. 61 (author PDF, revised 9 September 2007)",
+     "match": "The use of Theorem 2.18 to compare Selmer groups."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.6/taylor-wiles-local-count",
+   "parentStageId": "ArithmeticGaloisDuality:R02.6",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.6"
+   ],
+   "title": "Local cohomology at a Taylor–Wiles prime",
+   "kind": "lemma",
+   "statement": "Let ℓ be odd, k a finite field of characteristic ℓ, ρ̄ : G_ℚ → GL₂(k), and q ≡ 1 (mod ℓ) a prime at which ρ̄ is unramified with ρ̄(Frob_q) having distinct k-rational eigenvalues. Then H⁰(F_q, ad⁰ρ̄) = H⁰(F_q, ad⁰ρ̄(1)) = k and H¹(F_q, ad⁰ρ̄) = H¹(F_q, ad⁰ρ̄(1)) = k, where H^i(F_q, −) is the cohomology of Gal(ℚ_q^ur/ℚ_q) (unramified classes).",
+   "hypotheses": [
+    "q ≡ 1 mod ℓ; ρ̄ unramified at q with distinct Frobenius eigenvalues."
+   ],
+   "proofSteps": [
+    "Frob_q acts semisimply on ad⁰ρ̄ with eigenvalues x, 1, x^{−1}, x ≠ 1 the ratio of the eigenvalues; since q ≡ 1 mod ℓ, the twist (1) does not change them.",
+    "For the procyclic Gal(ℚ_q^ur/ℚ_q), H⁰ and H¹ of a finite module N are ker and coker of Frob − 1 on N (SelmerIwasawaCohomology unramified-condition), both one-dimensional here."
+   ],
+   "acceptance": [
+    "The twist by the cyclotomic character is trivial on Frob_q only because q ≡ 1 mod ℓ; for general q the two modules differ."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/unramified-condition"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/TaylorWiles",
+    "namespace": "TauCeti.PoitouTate"
+   },
+   "sources": [
+    {
+     "sourceId": "DDT-FLT",
+     "locator": "§2.8, Lemma 2.46, p. 81 (author PDF, revised 9 September 2007)",
+     "match": "Lemma 2.46(a) and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.6/dual-selmer-killing",
+   "parentStageId": "ArithmeticGaloisDuality:R02.6",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.6"
+   ],
+   "title": "The conditional dual-Selmer killing calculation",
+   "kind": "theorem",
+   "statement": "With ρ̄ as in taylor-wiles-local-count, let H¹_∅*(ℚ, ad⁰ρ̄(1)) be the dual Selmer group of a Selmer structure ∅ on ad⁰ρ̄ unramified at the primes of a finite set Q of Taylor–Wiles primes, and let Q be the structure relaxed at Q, whose dual is strict at Q. If H¹_∅*(ℚ, ad⁰ρ̄(1)) → ⊕_{q∈Q} H¹(F_q, ad⁰ρ̄(1)) is an isomorphism, then #Q = dim_k H¹_∅*(ℚ, ad⁰ρ̄(1)) and H¹_{Q*}(ℚ, ad⁰ρ̄(1)) = 0. It is an isomorphism as soon as it is injective and #Q = dim_k H¹_∅*(ℚ, ad⁰ρ̄(1)); injectivity holds if every nonzero class has nonzero restriction at some q ∈ Q.",
+   "hypotheses": [
+    "Taylor–Wiles primes (taylor-wiles-local-count); the Selmer structure ∅ unramified at Q."
+   ],
+   "proofSteps": [
+    "Each H¹(F_q, ad⁰ρ̄(1)) is one-dimensional (taylor-wiles-local-count), so injectivity plus the count gives the isomorphism.",
+    "Relaxing at q makes the dual condition strict (selmer-condition-comparison), and the restriction of a class of H¹_∅* at q ∈ Q lies in the unramified part; so H¹_{Q*} is the kernel of the displayed map."
+   ],
+   "acceptance": [
+    "Conditional: the existence of such Q is GlobalGaloisDeformations R04.5 (Chebotarev), which uses sigma-criterion below; the order of the two is never reversed (RS-08).",
+    "Stated for ℓ odd over ℚ (DDT §2.8); the dyadic trace-zero and dual-module distinctions of KW II remain to be planned."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.6/taylor-wiles-local-count",
+    "ArithmeticGaloisDuality:R02.5/selmer-condition-comparison",
+    "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/TaylorWiles",
+    "namespace": "TauCeti.PoitouTate"
+   },
+   "sources": [
+    {
+     "sourceId": "DDT-FLT",
+     "locator": "§2.8, Lemma 2.46(c), p. 81 (author PDF, revised 9 September 2007)",
+     "match": "Lemma 2.46(c); the reduction in the proof of Theorem 2.49 (p. 83)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Dual-Selmer killing"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.6/sl2-adjoint-h1-vanishing",
+   "parentStageId": "ArithmeticGaloisDuality:R02.6",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.6"
+   ],
+   "title": "H¹(SL₂(F), End⁰) vanishes",
+   "kind": "lemma",
+   "statement": "Let F be a finite field of odd characteristic ℓ with #F ≠ 5. Then H¹(SL₂(F), End⁰(F²)) = 0.",
+   "hypotheses": [
+    "#F ≠ 5, odd characteristic."
+   ],
+   "proofSteps": [
+    "ℓ does not divide the index of the Borel subgroup B, so restriction H¹(SL₂(F), M) → H¹(B, M) is injective (ArithmeticGaloisDuality R02.2/finite-index-descent).",
+    "ℓ does not divide [B : U] for the unipotent U, so H^i(B, M) = H^i(U, M)^{B/U}.",
+    "#F = 3: H¹(U, M) = ker N/(σ − 1)M = 0 directly. #F > 5: filter End⁰(F²) by B-stable M₀ ⊂ M₁ ⊂ M₂ ⊂ M₃ with one-dimensional quotients and use the long exact sequences; for #F = 9 also check that the B/U-fixed line of H¹(U, M₃/M₂) maps injectively to H²(U, M₂/M₁). (Cline–Parshall–Scott, table 4.5, not read.)"
+   ],
+   "acceptance": [
+    "#F = 5 is excluded, as in the source."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.2/finite-index-descent",
+    "mathlib:groupCohomology"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/TaylorWiles",
+    "namespace": "TauCeti.PoitouTate"
+   },
+   "sources": [
+    {
+     "sourceId": "DDT-FLT",
+     "locator": "§2.8, Lemma 2.48, p. 82 (author PDF, revised 9 September 2007)",
+     "match": "Lemma 2.48 and its sketched proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.6/sigma-criterion",
+   "parentStageId": "ArithmeticGaloisDuality:R02.6",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.6"
+   ],
+   "title": "The group-theoretic input to Taylor–Wiles primes",
+   "kind": "theorem",
+   "statement": "Let ℓ be odd, ρ̄ : G_ℚ → GL₂(k) with ρ̄|G_L absolutely irreducible for L = ℚ(√((−1)^{(ℓ−1)/2}ℓ)), and F_m the extension of ℚ(ζ_{ℓ^m}) cut out by ad⁰ρ̄. Then H¹(Gal(F_n/ℚ), ad⁰ρ̄(1)) = 0 for every n, and for every nonzero ψ ∈ H¹(G_ℚ, ad⁰ρ̄(1)) there is σ ∈ G_ℚ with σ|_{ℚ(ζ_{ℓ^n})} = 1, ad⁰ρ̄(σ) having an eigenvalue other than 1, and ψ(σ) ∉ (σ − 1)ad⁰ρ̄(1). By Chebotarev, primes q with Frob_q near σ are Taylor–Wiles primes of level n with res_q ψ ≠ 0.",
+   "hypotheses": [
+    "ℓ odd; ρ̄|G_L absolutely irreducible."
+   ],
+   "proofSteps": [
+    "Inflation–restriction for F_n/F₀/ℚ (ArithmeticGaloisDuality R02.2/five-term-transgression): the G_ℚ-invariants H¹(Gal(F_n/F₀), ad⁰ρ̄(1))^{G_ℚ} ≅ Hom(Gal(F_n/F₁), ad⁰ρ̄(1)^{G_ℚ}) vanish by absolute irreducibility over L.",
+    "H¹(Gal(F₀/ℚ), ad⁰ρ̄(1)^{G_{F₀}}) vanishes unless ℓ | #Gal(F₀/ℚ) and Gal(ℚ(ζ_ℓ)/ℚ) is a quotient; by Dickson's classification of the projective image (ArithmeticGaloisRepresentations R01.4) this leaves ℓ = 3 with image PSL₂(𝔽_{3^r}), handled by sl2-adjoint-h1-vanishing.",
+    "So ψ(G_{F_n}) ≠ 0; some g ∈ Gal(F_n/ℚ(ζ_{ℓ^n})) of order prime to ℓ fixes a nonzero element of ψ(G_{F_n}); lift g to σ₀ and take σ = τσ₀ with τ ∈ G_{F_n} chosen so that ψ(τ) + ψ(σ₀) ∉ (σ₀ − 1)ad⁰ρ̄(1), possible since ψ(G_{F_n}) ⊄ (g − 1)ad⁰ρ̄(1) (the source writes ψ(G_F); see ArithmeticGaloisDuality/E6)."
+   ],
+   "acceptance": [
+    "Only the group theory is proved here; the passage from σ to primes is Chebotarev, used by GlobalGaloisDeformations R04.5, which owns the actual primes."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.6/sl2-adjoint-h1-vanishing",
+    "ArithmeticGaloisDuality:R02.2/five-term-transgression",
+    "ArithmeticGaloisRepresentations:R01.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/TaylorWiles",
+    "namespace": "TauCeti.PoitouTate"
+   },
+   "sources": [
+    {
+     "sourceId": "DDT-FLT",
+     "locator": "§2.8, proof of Theorem 2.49, p. 83 (author PDF, revised 9 September 2007)",
+     "match": "The reduction to σ and the cohomological argument (pp. 83–84)."
+    },
+    {
+     "sourceId": "DDT-FLT",
+     "locator": "§2.8, end of the proof of Theorem 2.49, p. 84 (author PDF, revised 9 September 2007)",
+     "match": "The vanishing of H¹(Gal(F_n/ℚ), ad⁰ρ̄(1))."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Taylor–Wiles group theory"
+   }
   }
  ],
  "requests": [
@@ -3586,14 +3863,15 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
-   "need": "Local Tate duality for the evaluation pairing (tateDualityPairing_perfect_mixed), finiteness of H⁰, H¹, H² (finite_H), the cardinality form of the local Euler characteristic, and the local invariant, for finite modules over completions of number fields at finite places.",
+   "need": "Local Tate duality for the evaluation pairing (tateDualityPairing_perfect_mixed), finiteness of H⁰, H¹, H² (finite_H), the cardinality form of the local Euler characteristic, and the local invariant, for finite modules over completions of number fields at finite places. Also: local duality and the local Euler characteristic in the Greenberg–Wiles formula.",
    "neededBy": [
     "ArithmeticGaloisDuality:R02.4/unramified-exact-annihilators",
     "ArithmeticGaloisDuality:R02.4/restricted-product-cohomology",
     "ArithmeticGaloisDuality:R02.4/restricted-product-self-duality",
     "ArithmeticGaloisDuality:R02.4/ext-units-ideles",
     "ArithmeticGaloisDuality:R02.4/h2-localisation-surjective",
-    "ArithmeticGaloisDuality:R02.4/global-euler-characteristic"
+    "ArithmeticGaloisDuality:R02.4/global-euler-characteristic",
+    "ArithmeticGaloisDuality:R02.5/greenberg-wiles-formula"
    ],
    "status": "open",
    "note": ""
@@ -3737,6 +4015,15 @@
    ],
    "status": "open",
    "note": ""
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:R01.4",
+   "need": "Dickson's classification of finite subgroups of PGL₂(F̄_ℓ) (DDT Theorem 2.47(b)), for the projective image of ρ̄ in the Taylor–Wiles group theory.",
+   "neededBy": [
+    "ArithmeticGaloisDuality:R02.6/sigma-criterion"
+   ],
+   "status": "open",
+   "note": ""
   }
  ],
  "coverage": [
@@ -3788,16 +4075,18 @@
   },
   {
    "stageId": "ArithmeticGaloisDuality:R02.5",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Deformation-theoretic Selmer calculations on SelmerIwasawaCohomology:L2's kernel (RS-08 narrowing)."
+    "Identify H¹ of SelmerIwasawaCohomology L2's Selmer complex (mapping fibre, with its H⁰ corrections) with the explicit restriction kernel; L2 has not yet planned the complex.",
+    "Deformation-specific tangent identifications (finite-flat, ordinary, fixed type) are LocalGaloisDeformationRings R08's; the global dimension consequences for GlobalGaloisDeformations R04.3 follow from greenberg-wiles-formula and selmer-condition-comparison."
    ]
   },
   {
    "stageId": "ArithmeticGaloisDuality:R02.6",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Cohomological requirements of patching."
+    "KW II §§4–5: the global numerical inequalities over totally real F with the infinity and p = 2 contributions, the trace-zero module against its dual, and the dyadic dual-Selmer killing; DDT §2.8 covers only odd ℓ over ℚ.",
+    "Cline–Parshall–Scott's table for H¹(SL₂(F), End⁰) is cited through DDT, not read."
    ]
   }
  ],
@@ -3860,6 +4149,38 @@
    "searched": [
     "Milne, Arithmetic Duality Theorems, footnote 11, p. 52 (read)",
     "the author's page for the book (https://www.jmilne.org/math/Books/adt.html), checked 2026-09-29: its only erratum is for the 07.08.04 version and was corrected in the 01.07.06 file read here"
+   ]
+  },
+  {
+   "id": "ArithmeticGaloisDuality/E5",
+   "source": "DDT-FLT",
+   "kind": "misprint",
+   "locator": "§2.3, Theorem 2.19, p. 62 (author PDF revised 9 September 2007)",
+   "printed": "Theorem 2.19 asserts finiteness of H^1_L(G, M) and H^1_{L*}(G, M^*), then states a formula.",
+   "correction": "Then H^1_L(F, M) and H^1_{L*}(F, M^*) are finite and we have the formula",
+   "reason": "The theorem defines H^1_L(F, M) and H^1_{L*}(F, M^*) in the previous sentence and uses them in the displayed formula; no G is introduced (the groups are G_F and G_v).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Darmon's publication page (https://www.math.mcgill.ca/darmon/pub/pub.html), checked 2026-09-29: errata are listed for other papers, none for this one",
+    "research/errata/REGISTER.md: no entry for Darmon–Diamond–Taylor (only citations of it in Calegari–Geraghty entries)",
+    "the 1997 reprint was not accessed"
+   ]
+  },
+  {
+   "id": "ArithmeticGaloisDuality/E6",
+   "source": "DDT-FLT",
+   "kind": "misprint",
+   "locator": "§2.8, last line of the proof of Theorem 2.49, p. 84 (author PDF revised 9 September 2007)",
+   "printed": "The source justifies the choice using ψ(G_F) ⊄ (g − 1)ad^0 ρ̄(1).",
+   "correction": "This is possible because ψ(G_{F_n}) ⊄ (g − 1)ad^0 ρ̄(1).",
+   "reason": "The proof defines only the fields F_m (the extensions of ℚ(ζ_{ℓ^m}) cut out by ad⁰ρ̄) and chooses τ ∈ G_{F_n}; the preceding sentences establish that g fixes a nonzero element of ψ(G_{F_n}), which is what is needed. No field F occurs in the argument.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Darmon's publication page (https://www.math.mcgill.ca/darmon/pub/pub.html), checked 2026-09-29: errata are listed for other papers, none for this one",
+    "research/errata/REGISTER.md: no entry for Darmon–Diamond–Taylor (only citations of it in Calegari–Geraghty entries)",
+    "the 1997 reprint was not accessed"
    ]
   }
  ],

@@ -1,7 +1,42 @@
 # BP-ArithmeticGaloisDuality — handoff
 
-Agent: Claude Code — cc-39fac3. Issue #675. Third checkpoint, within the RS-08 boundaries, which its
-review accepted.
+Agent: Claude Code — cc-39fac3. Issue #675. Fourth checkpoint, within the RS-08 boundaries.
+
+## Checkpoint 4: R02.5 and R02.6 (6 nodes)
+
+**Source:** Darmon–Diamond–Taylor, author PDF revised 9 September 2007 (sha256 254f6e29…cbe8b3), §§2.3, 2.7–2.8.
+Pages 62 and 83–84 were read on the images.
+
+**Nodes:**
+- `R02.5/greenberg-wiles-formula` (planet).
+- `R02.5/selmer-condition-comparison`.
+- `R02.6/taylor-wiles-local-count`.
+- `R02.6/dual-selmer-killing` (planet).
+- `R02.6/sl2-adjoint-h1-vanishing`.
+- `R02.6/sigma-criterion` (planet).
+
+They cite SelmerIwasawaCohomology's merged L1/L2 nodes and this packet's R02.2–R02.4 nodes.
+
+**Requests served:**
+- ArithmeticStatistics ST.5 and OrdinaryAutomorphicFormsAndModularityLifting R21.4 (the Greenberg–Wiles/Wiles formula).
+- GlobalGaloisDeformations R04.3's relative tangent space (its dimension formula).
+- GlobalGaloisDeformations R04.5 (`dual-selmer-killing` and `sigma-criterion` as the conditional input).
+
+**New request:** ArithmeticGaloisRepresentations R01.4 (Dickson's classification).
+
+**Source findings:** E5 and E6, two new DDT misprints.
+
+**Remaining:**
+- R02.5: the Selmer-complex comparison.
+- R02.6: KW II (totally real fields, p = 2).
+- R02.4: the lattice and rational versions.
+- R02.3: compact support.
+- R02.2: Jannsen's compact spectral sequence, and Harpaz–Wittenberg items 149–150.
+- D7 and D8.
+
+**Checks.** `check_blueprint.py`: 61 nodes, 0 errors, 0 warnings. The Lean file compiles with exit 0, with only `sorry` warnings; it adds two checked tests (the Greenberg–Wiles acceptance arithmetic and the Taylor–Wiles eigenvalue count).
+
+# Checkpoint 3 and earlier
 
 ## Checkpoint 3: R02.2 (7 nodes)
 
