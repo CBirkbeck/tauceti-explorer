@@ -3684,8 +3684,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HEUER-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1220"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1220",
+   "finishedAt": "2026-09-29T11:26:15Z"
   },
   {
    "id": "REV-PAPER-HEUER-25",
