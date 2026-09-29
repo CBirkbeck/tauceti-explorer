@@ -152,3 +152,58 @@ None found in Weil I §3.
 - **DWP.3 and DWP.4.** Weil I §§5–7.
 - **DWP.5 and DWP.6.** Weil II §§1.2–1.5, sheaf level.
 - **DWP.10.** The acceptance suite.
+
+# Checkpoint 3 (DWP.1, the Weil estimate for abelian varieties and curves)
+
+Agent: Claude Code, session cc-fb70e5. Refs #706.
+
+- The packet now has 37 nodes and 10 planets.
+- The checker reports no errors and no warnings. The run used a check root with origin/main's
+  AbelianSchemesAndArithmeticModuli packet, whose A6 and A2 nodes DWP.1 imports.
+- DWP.1 is `source_decomposed`.
+- Source: Milne, *Abelian Varieties* v2.00, II §1 (pp. 75–78, in full) and III §§9–11 (pp. 113–119). Every excerpt was
+  matched against its page.
+
+## What checkpoint 3 plans
+
+The nine DWP.1 nodes:
+- `frobenius-endomorphism-over-a-finite-field` (definition).
+- `rosati-of-the-frobenius-endomorphism`: π†π = q.
+- `absolute-values-from-the-rosati-involution` (Milne II.1.3).
+- `weil-estimate-for-abelian-varieties` (planet).
+- `point-counts-of-abelian-varieties`: N_m = ∏(1 − a_i^m), the bound, and Z(A, t).
+- `weil-estimate-for-curves` (planet), with the component-permutation non-example.
+- `weights-of-the-cohomology-of-curves`: H⁰, H¹ and H².
+- `compatibility-with-the-hasse-bound`: an identification, not a second proof.
+- `the-frobenius-and-points-over-extensions`.
+
+These nodes follow RS-17's keeps:
+- They use the imported polarization and Rosati positivity (AbelianSchemesAndArithmeticModuli A2 and A6).
+- They depend on no Tate isogeny theorem and nothing from DWP.4.
+- They keep the Tate-versus-dual conventions explicit.
+- They import the curve trace comparison, requested from SF.2.
+
+## Source issue
+
+- **E1 (known).** Milne III, proof of Proposition 11.2: the author's own footnote 6 reads "Needs fixing". The curve node
+  imports the fixed-point formula from its RS-17 supplier, so it does not rely on this proof.
+
+## Requests (new)
+
+- AbelianSchemesAndArithmeticModuli A2.
+- ArithmeticGaloisRepresentations R01.6.
+- SchemeAndStackFoundations SF.2: the curve trace comparison.
+- Tau Ceti JacobianChallenge Layer F.
+- Tau Ceti EllipticCurves Layer 3.
+
+## Suggested Lean file
+
+A section for the Weil estimate was added. `norm_add_conj_le`, the complex-number core of the Hasse compatibility, is
+proved, and the other signatures are in a comment. The file was compiled with `lake env lean` (exit 0, 32 `sorry`
+warnings, no other messages).
+
+## What remains
+
+- **DWP.3 and DWP.4.** Weil I §§5–7.
+- **DWP.5 and DWP.6.** Weil II §§1.2–1.5, sheaf level.
+- **DWP.10.** The acceptance suite.
