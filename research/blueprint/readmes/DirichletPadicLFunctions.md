@@ -12091,3 +12091,206 @@ Four complete native lemmas check ring-map transport of a difference, the princi
 Exact cyclotomic controls independently compute smoothed formal-series moments and their admissible quotients, compare different smoothing parameters and test principal-unit witnesses, zero-weight/identity failures and nonreal character orientation. Exact rational cyclotomic arithmetic for primitive conductors 3,4,5,8,9 and both orientations of the nonreal quartic character modulo 5. Independently compute smoothed rational-series coefficients and ordinary moments through weight 6, then invert nonzero character denominators with exact linear algebra. Compare three natural smoothing parameters including the principal-unit witness. These finite algebraic controls do not construct the requested character ring map or prove an equality of actual measures. The largest observed discrepancy is 0 (exact arithmetic).
 
 Only the two global errata-register inputs changed during this checkpoint; all 16 Dirichlet findings were compared and remain identical. Every captured supplier and other mathematical input is unchanged. The current PMIA source has 369 nodes and preserves the compiled 332-node interface; no new supplier declaration is called or compilation against the full 369-node source claimed.
+
+
+## The tame zeta measure and arithmetic characters on units
+
+Partial continuation preserving all 361 predecessor nodes whole. Six L2 nodes promote the pointwise arithmetic-character API and give the intrinsic tame measure, inclusion, character-value comparison, norm bound and common-field interpolation on the actual unit group. Eight API entries and 16 typed tests retain degree-zero and principal-character boundaries. All 16 findings and both PMIA requests remain unchanged; six gaps and zero closed stages remain.
+
+Complete published pages 143–146 were freshly read on 29 September 2026, including Theorem 5.7, the full tame construction and Definition 5.13; Remark 3.33 on published 129 was also checked. Whole own tame-zeta construction, support, norm, character-shift and common-value nodes were read. Exact PMIA intrinsic restriction, section, projector and unit-inclusion norm nodes and signatures were checked with their coefficient hypotheses. Native AbstractMeasure map_apply, map_map, map_id and map_dirac were read at pinned Mathlib, together with the continuous-linear-map norm inequality. The reviewed L2 audit and earlier source corrections remain in force.
+
+### The pointwise arithmetic character formula
+
+`DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value` — `DirichletPadic.primePowerArithmeticCharacter_apply`
+
+For every actual p-adic unit u, κ_n,χ,w(u)=primePowerCharacter(p,n,χ)(u)·algebraMap_(Z_p→R)(u)^w.
+
+**Hypotheses:** p is prime, n,w≥0, R is a normed commutative Z_p-algebra with bounded scalar action and χ is a native DirichletCharacter R (p^n). The character is the existing primePowerArithmeticCharacter on U; no completeness, characteristic zero or primitivity is assumed.
+
+**Proof:**
+
+1. Promote the existing constructor API primePowerArithmeticCharacter_apply to a standalone prerequisite node. Its existing suggested declaration is reused without alteration or a second definition.
+2. Unfold the existing arithmetic-character constructor, whose underlying function is the product of the restricted finite-character lift with the coefficient-algebra power of the actual unit. The formula is its defining evaluation.
+3. At w=0 the coordinate power is one and the formula reduces to the restricted finite-order character. The factor x_R(u)^w uses the actual unit, not a finite residue representative.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/prime-power-arithmetic-character`.
+
+**Tests:**
+
+- `SuggestedIntrinsicTameTests.arithmetic_unit_test_formula` (characterisation): Every actual unit has the displayed lifted-character times coordinate-power value.
+- `SuggestedIntrinsicTameTests.arithmetic_unit_weight_zero_formula` (degenerate): At weight zero the character is the restriction of the finite-order lift.
+
+**Acceptance:** Keep the earlier constructor and API record whole; this node only makes the needed named formula independently addressable.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; full tame construction, Lemmas 5.9–5.12, equation (5-6) and Definition 5.13 with its interpolation identity, published 144–146 / PDF 45–47. These complete pages freshly read on 29 September 2026. Intrinsic inclusion follows Remark 3.33, published 129 / PDF 30, also freshly read during this continuation. Worker decomposition of the existing tame arithmetic measure on the source unit-group domain, using the already supplied intrinsic restriction and inclusion. The ambient arithmetic construction and its character-value theorem are reused. Finite product-level Bernoulli formulas avoid any new Gauss-nonvanishing or general pseudomeasure evaluator assumption. Degree-zero arithmetic values remain outside the positive-weight interpolation statement.
+
+### The tame zeta measure on p-adic units
+
+`DirichletPadicLFunctions:L2/intrinsic-tame-zeta-measure` — `DirichletPadic.intrinsicTameZetaMeasure`
+
+Define the actual K-valued measure ζ_η^U=r_U(ζ_η) on U.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a Z_p-algebra structure and bounded scalar action. D>0, η is a native DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put U=Z_pˣ with its existing topology. All measures use the native AbstractMeasure carrier. Write ζ_η for the existing tameZetaMeasure on Z_p, r_U=the supplied restrictUnits p K and j_U=native pushforward along Units.val. The ambient ζ_η already has unit support. No principal/nonprincipal assumption, characteristic-zero assumption or primitive-root choice is required to form this measure.
+
+**Proof:**
+
+1. Apply the existing K-linear intrinsic restriction to the existing ambient tame zeta measure. No new generic restriction, inverse-weight operation or character evaluator is defined.
+2. The defining restriction formula is the basic API. At D=1 the already zero tame kernel gives the zero ambient measure, hence restriction gives zero. Zero test evaluation follows from the native continuous linear functional.
+3. For any ν on U with j_Uν=ζ_η, apply r_U and the supplier retraction r_Uj_U=id to obtain ν=r_Uζ_η. This characterizes the arithmetic construction without an unproved assertion that a finite set of moments determines every measure.
+4. Its inclusion, character comparison and norm bound are promoted to the next separate nodes. The first-moment test reuses the existing ambient quadratic special value 2/3 and the same pointwise arithmetic test under pushforward.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-zeta-measure`, `DirichletPadicLFunctions:L2/tame-zeta-support`, `DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value`, `DirichletPadicLFunctions:L2/tame-zeta-common-special-value`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector`, `mathlib:AbstractMeasure.map_apply`.
+
+**Uses:**
+
+- RJW Theorem 5.7 and Definition 5.13: Realizes the tame zeta measure on the source unit-group domain while preserving the existing ambient construction.
+- Positive-weight tame interpolation: Allows the actual continuous arithmetic unit character to be evaluated directly.
+- PMIA characterIntegralAlgHom: Supplies a K-valued measure and K-valued character, exactly matching the existing algebra-homomorphism interface without changing coefficients.
+- Integral tame coefficients: Provides the K-valued target for comparison with the intrinsic restriction of the existing integer-ring-valued measure.
+
+**API:**
+
+- `DirichletPadic.intrinsicTameZetaMeasure_eq_restrict` (characterisation): ζ_η^U=restrictUnits p K (tameZetaMeasure η).
+- `DirichletPadic.intrinsicTameZetaMeasure_one_level` (simp): At tame modulus one the intrinsic measure is zero.
+- `DirichletPadic.intrinsicTameZetaMeasure_unique` (universal-property): If j_Uν=ζ_η, then ν=ζ_η^U.
+- `DirichletPadic.map_intrinsicTameZetaMeasure` (compatibility): Its native pushforward to Z_p equals ζ_η; promoted to intrinsic-tame-zeta-inclusion.
+- `DirichletPadic.intrinsicTameZetaMeasure_character` (compatibility): Its value on κ_n,χ,w is the existing ambient character-power value; promoted to intrinsic-tame-character-value.
+- `DirichletPadic.intrinsicTameZetaMeasure_norm_le` (compatibility): Its native continuous-dual operator norm is at most one; promoted to intrinsic-tame-zeta-norm.
+
+**Tests:**
+
+- `SuggestedIntrinsicTameTests.trivial_tame_level` (degenerate): At D=1 the constructed intrinsic tame measure is zero.
+- `SuggestedIntrinsicTameTests.zero_test` (degenerate): Evaluation on the zero continuous test is zero.
+- `SuggestedIntrinsicTameTests.unique_pushforward` (characterisation): Every measure on U whose actual pushforward is ζ_η equals ζ_η^U.
+- `SuggestedIntrinsicTameTests.first_unit_moment` (computation): At p=2, η quadratic modulo 3 and weight one with the level-zero principal character, ζ_η^U has arithmetic character value 2/3.
+
+**Acceptance:** This is the existing arithmetic measure transported to the actual source domain. All generic maps are imported from PMIA.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; full tame construction, Lemmas 5.9–5.12, equation (5-6) and Definition 5.13 with its interpolation identity, published 144–146 / PDF 45–47. These complete pages freshly read on 29 September 2026. Intrinsic inclusion follows Remark 3.33, published 129 / PDF 30, also freshly read during this continuation. Worker decomposition of the existing tame arithmetic measure on the source unit-group domain, using the already supplied intrinsic restriction and inclusion. The ambient arithmetic construction and its character-value theorem are reused. Finite product-level Bernoulli formulas avoid any new Gauss-nonvanishing or general pseudomeasure evaluator assumption. Degree-zero arithmetic values remain outside the positive-weight interpolation statement.
+
+### Inclusion of the intrinsic tame zeta measure
+
+`DirichletPadicLFunctions:L2/intrinsic-tame-zeta-inclusion` — `DirichletPadic.map_intrinsicTameZetaMeasure`
+
+j_U(ζ_η^U)=ζ_η as actual measures on Z_p.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a Z_p-algebra structure and bounded scalar action. D>0, η is a native DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put U=Z_pˣ with its existing topology. All measures use the native AbstractMeasure carrier. Write ζ_η for the existing tameZetaMeasure on Z_p, r_U=the supplied restrictUnits p K and j_U=native pushforward along Units.val. The ambient ζ_η already has unit support. No principal/nonprincipal assumption, characteristic-zero assumption or primitive-root choice is required to form this measure.
+
+**Proof:**
+
+1. By construction the left side is j_U(r_Uζ_η). Apply the exact supplier intrinsic-unit-extension-projector comparison to rewrite it as unitRestriction p K ζ_η.
+2. The existing tame-zeta-support theorem identifies this ambient projector with ζ_η itself.
+3. Native map_apply then identifies evaluation of ζ_η^U at f restricted along Units.val with evaluation of ζ_η at any ambient continuous f. In particular, total mass is preserved with no scaling.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-tame-zeta-measure`, `DirichletPadicLFunctions:L2/tame-zeta-support`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector`, `mathlib:AbstractMeasure.map_apply`.
+
+**Tests:**
+
+- `SuggestedIntrinsicTameTests.inclusion_all_tests` (compatibility): For every continuous ambient test f, ζ_η^U(f∘Units.val)=ζ_η(f).
+- `SuggestedIntrinsicTameTests.inclusion_identity_test` (compatibility): The intrinsic and ambient tame measures have equal total mass.
+
+**Acceptance:** This is an equality of measures under a linear pushforward. Additive convolution on Z_p and multiplicative convolution on U are not identified.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; full tame construction, Lemmas 5.9–5.12, equation (5-6) and Definition 5.13 with its interpolation identity, published 144–146 / PDF 45–47. These complete pages freshly read on 29 September 2026. Intrinsic inclusion follows Remark 3.33, published 129 / PDF 30, also freshly read during this continuation. Worker decomposition of the existing tame arithmetic measure on the source unit-group domain, using the already supplied intrinsic restriction and inclusion. The ambient arithmetic construction and its character-value theorem are reused. Finite product-level Bernoulli formulas avoid any new Gauss-nonvanishing or general pseudomeasure evaluator assumption. Degree-zero arithmetic values remain outside the positive-weight interpolation statement.
+
+### Tame values on the actual arithmetic character
+
+`DirichletPadicLFunctions:L2/intrinsic-tame-character-value` — `DirichletPadic.intrinsicTameZetaMeasure_character`
+
+For all n,w≥0 and every χ modulo p^n, ζ_η^U(κ_n,χ,w)=ζ_η(primePowerCharacter(p,n,χ)·x_K^w).
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a Z_p-algebra structure and bounded scalar action. D>0, η is a native DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put U=Z_pˣ with its existing topology. All measures use the native AbstractMeasure carrier. Write ζ_η for the existing tameZetaMeasure on Z_p, r_U=the supplied restrictUnits p K and j_U=native pushforward along Units.val. The ambient ζ_η already has unit support. No principal/nonprincipal assumption, characteristic-zero assumption or primitive-root choice is required to form this measure. κ is the existing native ContinuousMonoidHom U K and x_K(z)=algebraMap_(Z_p→K)(z). The equality includes level zero, weight zero, and principal or imprimitive χ. It identifies actual evaluations but does not calculate a degree-zero logarithmic special value.
+
+**Proof:**
+
+1. Use the promoted pointwise arithmetic-character formula to identify κ.toContinuousMap with the pullback along Units.val of the ambient test primePowerCharacter(p,n,χ)·x_K^w.
+2. Apply the intrinsic-tame-zeta-inclusion equality to this ambient test, then native map_apply. A complete native lemma proves exactly this pushforward identity for any unit measure, continuous finite-character lift and native κ with the displayed pointwise formula.
+3. The existing characterIntegralAlgHom applies because both the measure and character have coefficients K. Its evaluation API yields the identical value. No scalar extension of the integral measure algebra to K and no pseudomeasure evaluation is needed.
+4. At w=0 the power disappears. At n=w=0 and principal χ the arithmetic character is trivial, so the value is total mass; the equality does not identify that mass with an L-value.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-tame-zeta-inclusion`, `DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value`, `PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom`, `mathlib:AbstractMeasure.map_apply`.
+
+**API:**
+
+- `DirichletPadic.intrinsicTameZetaMeasure_characterIntegral` (compatibility): The existing characterIntegralAlgHom applied to κ and ζ_η^U equals the same ambient finite-character times coordinate-power integral.
+
+**Tests:**
+
+- `SuggestedIntrinsicTameTests.zero_weight_character` (degenerate): At weight zero the intrinsic character integral agrees with the ambient finite-character test.
+- `SuggestedIntrinsicTameTests.zero_level_zero_weight_mass` (degenerate): At level and weight zero the principal arithmetic character evaluates to the total mass.
+- `SuggestedIntrinsicTameTests.matching_coefficient_algebra_hom` (compatibility): The existing K-algebra character integral agrees exactly with direct evaluation of the K-valued intrinsic measure.
+
+**Acceptance:** The actual coefficient types match the supplier interface. This does not resolve the separate PMIA request for characters evaluating Z_p-valued pseudomeasures into K.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; full tame construction, Lemmas 5.9–5.12, equation (5-6) and Definition 5.13 with its interpolation identity, published 144–146 / PDF 45–47. These complete pages freshly read on 29 September 2026. Intrinsic inclusion follows Remark 3.33, published 129 / PDF 30, also freshly read during this continuation. Worker decomposition of the existing tame arithmetic measure on the source unit-group domain, using the already supplied intrinsic restriction and inclusion. The ambient arithmetic construction and its character-value theorem are reused. Finite product-level Bernoulli formulas avoid any new Gauss-nonvanishing or general pseudomeasure evaluator assumption. Degree-zero arithmetic values remain outside the positive-weight interpolation statement.
+
+### Norm bound on the intrinsic tame zeta measure
+
+`DirichletPadicLFunctions:L2/intrinsic-tame-zeta-norm` — `DirichletPadic.intrinsicTameZetaMeasure_norm_le`
+
+The native continuous-dual operator norm of ζ_η^U is at most one.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a Z_p-algebra structure and bounded scalar action. D>0, η is a native DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put U=Z_pˣ with its existing topology. All measures use the native AbstractMeasure carrier. Write ζ_η for the existing tameZetaMeasure on Z_p, r_U=the supplied restrictUnits p K and j_U=native pushforward along Units.val. The ambient ζ_η already has unit support. No principal/nonprincipal assumption, characteristic-zero assumption or primitive-root choice is required to form this measure.
+
+**Proof:**
+
+1. The exact supplier norm_map_units_val preserves the operator norm for any K-valued unit measure; its coefficient-field hypotheses match the displayed nontrivially normed K.
+2. Use the intrinsic inclusion to identify the pushed-forward measure with the existing ζ_η. The existing tame-zeta-norm theorem bounds the latter by one.
+3. For every f∈C(U,K), native ContinuousLinearMap.le_opNorm now gives ‖ζ_η^U(f)‖≤‖f‖. The norm of the constant test one is one, so total mass has norm at most one even though its exact arithmetic value is not asserted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-tame-zeta-inclusion`, `DirichletPadicLFunctions:L2/tame-zeta-norm`, `PadicMeasuresIwasawaAlgebras:L2/unit-inclusion-operator-norm`, `mathlib:ContinuousLinearMap.le_opNorm`.
+
+**API:**
+
+- `DirichletPadic.intrinsicTameZetaMeasure_apply_norm_le` (compatibility): For every f:C(U,K), ‖ζ_η^U(f)‖≤‖f‖.
+
+**Tests:**
+
+- `SuggestedIntrinsicTameTests.total_mass_bound` (compatibility): The norm of the intrinsic total mass is at most one.
+- `SuggestedIntrinsicTameTests.norm_bound_all_tests` (compatibility): Every continuous K-valued unit test satisfies the displayed norm bound.
+
+**Acceptance:** No power of p or inverse norm of p enters the bound; the source measure is genuinely bounded on its unit domain.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; full tame construction, Lemmas 5.9–5.12, equation (5-6) and Definition 5.13 with its interpolation identity, published 144–146 / PDF 45–47. These complete pages freshly read on 29 September 2026. Intrinsic inclusion follows Remark 3.33, published 129 / PDF 30, also freshly read during this continuation. Worker decomposition of the existing tame arithmetic measure on the source unit-group domain, using the already supplied intrinsic restriction and inclusion. The ambient arithmetic construction and its character-value theorem are reused. Finite product-level Bernoulli formulas avoid any new Gauss-nonvanishing or general pseudomeasure evaluator assumption. Degree-zero arithmetic values remain outside the positive-weight interpolation statement.
+
+### Common-field interpolation on the unit group
+
+`DirichletPadicLFunctions:L2/intrinsic-tame-common-character-value` — `DirichletPadic.intrinsicTameZetaMeasure_common_character_value`
+
+For θ at the displayed product level N=D p^n and positive weight w, the Euler–Bernoulli element b=(1−θ(p)p^(w−1))(−N^(w−1)/w)Σ_a θ(a)B_w(a.val/N) has complex image (1−θC(p)p^(w−1))L(θC,1−w) and arithmetic image ζ_ηK^U(κ_n,χK,w).
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a Z_p-algebra structure and bounded scalar action. D>0, η is a native DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put U=Z_pˣ with its existing topology. All measures use the native AbstractMeasure carrier. Write ζ_η for the existing tameZetaMeasure on Z_p, r_U=the supplied restrictUnits p K and j_U=native pushforward along Units.val. The ambient ζ_η already has unit support. No principal/nonprincipal assumption, characteristic-zero assumption or primitive-root choice is required to form this measure. K additionally has characteristic zero and its rational algebra. E is a characteristic-zero field with rational algebra, η and χ are native E-valued characters of levels D and p^n, and η≠1. There are separate field homomorphisms ιC:E→C and ιK:E→K. The actual measure uses ηK=η.ringHomComp(ιK), and the actual arithmetic test uses χK=χ.ringHomComp(ιK). n≥0,w≥1. The native product character is θ=η.changeLevel(D∣N)·χ.changeLevel(p^n∣N), including imprimitive χ and η. Every Bernoulli polynomial value is taken over Q and mapped into E. Retain hD:IsUnit(D:K) and p∤D. No primitive root, Gauss-nonvanishing hypothesis or identification of C with K is required.
+
+**Proof:**
+
+1. Apply the existing tame-zeta-character-common-value theorem with the same E, K, characters, embeddings and positive weight. It supplies both images of exactly the displayed finite b, with all coefficient and product-level conventions unchanged.
+2. Apply intrinsic-tame-character-value to identify its ambient arithmetic test integral with the value of the actual native unit character at the intrinsic measure.
+3. At n=0 the product level is D and the explicit tame p-Euler factor remains. At positive level the product-level θ(p) is zero, while the native imprimitive L-function already incorporates the deleted p-factor. Do not replace θ by its primitive character without the native conductor-change formula.
+4. For p=2 and quadratic η modulo 3, the level-zero and positive-level principal character in weight one both give 2/3. Quadratic χ modulo 4 gives values −2 and 46 in weights two and four. Exact formal-series and Bernoulli controls check these values, level lifts, parity and p-integrality.
+5. This yields the actual source-domain positive-weight comparison using the existing tame measure. It does not calculate weight zero, analytic branches, logarithms, or the missing general coefficient-field pseudomeasure evaluator.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-tame-character-value`, `DirichletPadicLFunctions:L2/tame-zeta-character-common-value`.
+
+**Tests:**
+
+- `SuggestedIntrinsicTameTests.quadratic_product_weight_two` (computation): At p=2, η quadratic modulo 3 and χ quadratic modulo 4, the intrinsic arithmetic character value in weight two is −2.
+- `SuggestedIntrinsicTameTests.quadratic_product_weight_four` (computation): For the same characters in weight four the value is 46.
+- `SuggestedIntrinsicTameTests.principal_positive_level_first` (computation): At p=2, η quadratic modulo 3 and the principal character modulo 2, the weight-one value is 2/3, agreeing with level zero.
+
+**Acceptance:** The theorem is unconditional relative to its existing supplier nodes; all new routes terminate without a stage request. Every roadmap status remains unchecked.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; full tame construction, Lemmas 5.9–5.12, equation (5-6) and Definition 5.13 with its interpolation identity, published 144–146 / PDF 45–47. These complete pages freshly read on 29 September 2026. Intrinsic inclusion follows Remark 3.33, published 129 / PDF 30, also freshly read during this continuation. Worker decomposition of the existing tame arithmetic measure on the source unit-group domain, using the already supplied intrinsic restriction and inclusion. The ambient arithmetic construction and its character-value theorem are reused. Finite product-level Bernoulli formulas avoid any new Gauss-nonvanishing or general pseudomeasure evaluator assumption. Degree-zero arithmetic values remain outside the positive-weight interpolation statement.
+
+**Remaining:** The tame zeta measure now has an explicit realization on the actual unit group, with unique ambient pushforward, native arithmetic-character evaluation, norm bound and common-field positive-weight interpolation at the displayed product level. Next restrict the existing valuation-integer-ring-valued tame measure to U and compare its actual coefficient inclusion with this K-valued realization, without inventing a generic coefficient-extension map. The separate canonical K-valued pseudomeasure character evaluator remains the recorded PMIA L3 request; its conditional comparison is unchanged. Generic primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, p-adic logarithmic and degree-zero values, full source extraction and the original PMIA L1 completed-algebra comparison remain open.
+
+### The tame zeta measure and arithmetic characters on units validation
+
+All 361 predecessor nodes, 415 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 10 named suggested declarations and 16 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 542 reachable nodes, 2564 edges and 532 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 1088 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Three complete native lemmas check the actual arithmetic-character pushforward identity, inclusion of a unit Dirac mass and transport of equality to every ambient continuous test. The probe elaborates against 1761 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact controls check 136 formal moment/Bernoulli comparisons, 136 unit character values and their rational p-integrality, 64 principal-level comparisons, eight lifted-character comparisons, 68 parity zeros and four explicit source values. Exact rational polynomial division of the finite product-character kernel, followed by conversion of binomial to ordinary moments, compared with independent rational Bernoulli-polynomial sums through weight 8. Unit restriction contributes its explicit Euler factor and inverse weighting shifts the degree. Controls include four tame quadratic moduli, principal characters at levels zero and positive, five quadratic twists, level lifts, parity zeros and p-integrality of rational values. No degree-zero logarithmic value or equality of infinite measures follows from these finite checks. The largest observed discrepancy is 0 (exact arithmetic).
+
+At capture, only the two global errata-register inputs differed from the predecessor; all 16 Dirichlet findings were compared and remain identical. Every supplier input is unchanged. PMIA remains at 369 nodes with the preserved compiled 332-node interface; no new supplier declaration is called or compilation against the full 369-node source claimed.
