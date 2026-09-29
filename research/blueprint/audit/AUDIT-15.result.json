@@ -777,10 +777,6 @@
      ],
      "duplicates": [
       {
-       "layer": "ShimuraCompactifications:C6",
-       "note": "C6 owns the Hilbert toroidal and minimal models that R18.2 imports; the overlap is the import boundary."
-      },
-      {
        "layer": "PELModuli:M4",
        "note": "M4 owns integral models at higher level by normalization with the finiteness/normality/flatness statements R18.2 restates for quaternionic curves."
       }
@@ -854,10 +850,6 @@
       {
        "layer": "AdelicAlgebraicGroups:AA.5",
        "note": "AA.5 checks compactness of the adelic quotient for a definite quaternion inner form and exports that comparison, which is the substrate R18.3's finite double-coset set rests on."
-      },
-      {
-       "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
-       "note": "R18.3's comparison with the corresponding GL_2 representations consumes R16.2's explicit local GL_2 classification."
       },
       {
        "layer": "AutomorphicFormsOnReductiveGroups:AF.5",
@@ -962,12 +954,7 @@
        "note": "Tau Ceti has stable-reduction numerical types with their intersection graph, topological genus and the Picard group of a numerical type (Stacks 0C7H), the combinatorial shape of the character group of a degenerate curve, but no dual graph of an actual curve, and nothing tied to quaternionic uniformisation or to monodromy pairings."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.3",
-       "note": "R11.3 owns semistable reduction and uniformisation of abelian varieties, the general theory behind the character groups R18.5 extracts."
-      }
-     ]
+     "duplicates": []
     },
     "HilbertModularVarietiesAndShimuraCurves:R18.6": {
      "verdict": "process",
@@ -985,12 +972,7 @@
        "note": "Interface export, conditional on H6 and R18.2-R18.5."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "PotentialModularityAndCompatibleSystems:R23.2",
-       "note": "R23.2 consumes the local moduli interpretation R18.6 exports."
-      }
-     ]
+     "duplicates": []
     }
    }
   },
@@ -1112,12 +1094,7 @@
        "note": "Mathlib has the Fourier transform against a general additive character of a commutative ring acting on a module, with the translation-to-modulation identity, and the Pontryagin dual; Fourier inversion is proved over finite-dimensional real inner-product spaces and for the discrete transform on ZMod N, not for a general additive character of a local field. What is missing is the Heisenberg representation these would be the relations of."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "AutomorphicLFunctionsAndLocalFactors:AL.0",
-       "note": "AL.0 owns local Schwartz-Bruhat spaces, Fourier transforms, self-duality of local additive groups and the restricted tensor-product adelic space — the same substrate MP.0 builds its Schrodinger models on."
-      }
-     ]
+     "duplicates": []
     },
     "MetaplecticAutomorphicForms:MP.1": {
      "verdict": "not built",
@@ -1247,12 +1224,7 @@
        "note": "Mathlib's Fourier transform is stated for a general additive character, so change-of-character is available at the level of the transform, but not for the Weil index or the Weil representation."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-       "note": "6C owns the Hilbert symbol over a nonarchimedean local field, dyadic case included, and the local Hasse invariant; MP.2's Hilbert-symbol and discriminant identities for the Weil index, including dyadic factors, are stated in terms of exactly these."
-      }
-     ]
+     "duplicates": []
     },
     "MetaplecticAutomorphicForms:MP.3": {
      "verdict": "not built",
@@ -1294,7 +1266,7 @@
        "target": "Equivariance, admissibility/finite-length, see-saw identities, Jacquet filtrations and first-occurrence/vanishing comparisons",
        "library": "absent",
        "declarations": [],
-       "note": "None of these notions are present; the only representation theory in the libraries is of finite groups, Lie algebras and algebraic groups."
+       "note": "None of these notions is present: there are no admissible or finite-length representations, see-saw identities, Jacquet functors or filtrations, and no theta-occurrence comparisons. The representation theory that does exist includes, besides finite groups, Lie algebras and algebraic groups, Tau Ceti's smooth-discrete topological representations of an arbitrary topological group with restriction along continuous homomorphisms (`TauCeti.IsSmoothDiscrete`, cited under the previous target; `IsSmoothDiscrete.res`, SmoothDiscrete.lean:268); that gives equivariance vocabulary for smooth modules with discrete coefficients, not admissibility or finite length."
       }
      ],
      "duplicates": []
@@ -1349,16 +1321,7 @@
        "note": "Conditional on the previous targets, none of which exist."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "AdelicAlgebraicGroups:AA.1",
-       "note": "AA.1 owns adelic points of an algebraic group with their functoriality, restriction of scalars and unimodularity, which MP.4's restricted product of covers builds on."
-      },
-      {
-       "layer": "AutomorphicLFunctionsAndLocalFactors:AL.0",
-       "note": "AL.0 constructs the restricted tensor-product adelic Schwartz-Bruhat space and change-of-character formulas: the space MP.4's adelic Weil representation acts on."
-      }
-     ]
+     "duplicates": []
     },
     "MetaplecticAutomorphicForms:MP.5": {
      "verdict": "not built",
@@ -1453,10 +1416,6 @@
        "note": "GZ.5 imports MP.0-6's theta kernels and convergence and proves the quaternionic-norm-form specialization; the layers are explicitly disjoint but state the same kernel objects at different generality."
       },
       {
-       "layer": "AutomorphicLFunctionsAndLocalFactors:AL.0",
-       "note": "AL.0 owns adelic Poisson summation and the Fourier inversion that MP.5's transformation law is proved from."
-      },
-      {
        "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
        "note": "GN.3 constructs theta-series interfaces for lattices and quadratic forms, the classical specialization of MP.5's theta series attached to a rational quadratic space."
       }
@@ -1510,10 +1469,6 @@
       {
        "layer": "GrossZagierAndArithmeticHeights:GZ.5",
        "note": "MP.6 exports exactly the instances GZ.5 consumes; the two layers share the quaternionic-norm-form theta integral, with the Waldspurger identity itself reserved to GZ.5."
-      },
-      {
-       "layer": "GrossZagierAndArithmeticHeights:GZ.6",
-       "note": "MP.6 exports the coherent/incoherent local sections and functional-equation conventions that GZ.6's incoherent Eisenstein/Weil kernels are built from."
       },
       {
        "layer": "AutomorphicLFunctionsAndLocalFactors:AL.0",
@@ -1680,8 +1635,30 @@
       {
        "target": "Radius of analyticity locally uniformly in the weight family",
        "library": "absent",
-       "declarations": [],
-       "note": "There is no locally analytic function or distribution theory in either library (grep -rn -i 'locally analytic' finds only one unrelated hit in a contour-integration file)."
+       "declarations": [
+        {
+         "name": "HasFPowerSeriesOnBall",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Analytic/Basic.lean",
+         "line": 74,
+         "fit": "related"
+        },
+        {
+         "name": "AnalyticAt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Analytic/Basic.lean",
+         "line": 110,
+         "fit": "related"
+        },
+        {
+         "name": "AnalyticOnNhd",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Analytic/Basic.lean",
+         "line": 120,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's analytic function theory (convergent power series on balls of positive radius, `HasFPowerSeriesOnBall`, `AnalyticAt`, `AnalyticOnNhd`, with composition `AnalyticAt.comp`, Mathlib/Analysis/Analytic/Composition.lean:859) is stated over any nontrivially normed field, and ℚ_p is one (Mathlib/NumberTheory/Padics/PadicNumbers.lean:872), so local p-adic analyticity is available. Not supplied: the radius of analyticity locally uniform in the bounded Hilbert weight family, locally analytic distribution spaces, and the comparison with rigid/affinoid families; `AnalyticAt` alone gives no uniform estimate over an affinoid weight parameter."
       },
       {
        "target": "The BHW character formula kappa = w^2 (t^{-1} o Nm) with the corresponding dual group map",
@@ -1692,8 +1669,30 @@
       {
        "target": "Finite-rank analytic coefficient modules and locally analytic induced modules on compact open pieces of Levi/parabolic groups, with tensor/dual compatibility and specialization to algebraic representations",
        "library": "absent",
-       "declarations": [],
-       "note": "No smooth or locally analytic representation theory of p-adic groups exists in either library; the representation theory present is of finite groups, Lie algebras, compact groups and algebraic groups."
+       "declarations": [
+        {
+         "name": "TauCeti.IsSmoothDiscrete",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 254,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsSmoothDiscrete.res",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 268,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.isSmoothDiscrete_iff_continuousSMul",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 324,
+         "fit": "related"
+        }
+       ],
+       "note": "No locally analytic representation theory of p-adic groups exists in either library: finite-rank analytic coefficient modules, locally analytic induced modules, their tensor/dual compatibility and specialization to algebraic representations are absent. What exists is Tau Ceti's smooth-discrete API for topological representations of an arbitrary topological monoid or group, with no finiteness or compactness assumption, so p-adic groups included: `TauCeti.IsSmoothDiscrete` (discrete underlying module with open point stabilizers), restriction along continuous homomorphisms (`IsSmoothDiscrete.res`), its equivalence with continuity of the action for a discrete module over a topological group (`isSmoothDiscrete_iff_continuousSMul`), and the discrete-module and equivariant-map constructors `TauCeti.ofDiscreteModule` / `ofDiscreteModuleMap` (SmoothDiscrete.lean:226, :376). It concerns discrete coefficients only, not Banach or locally analytic modules with their usual topology, and supplies no admissibility."
       }
      ],
      "duplicates": [
@@ -1816,10 +1815,6 @@
      ],
      "duplicates": [
       {
-       "layer": "HodgeTateAndCanonicalSubgroups:T4",
-       "note": "T4 owns the canonical/anticanonical loci, their finite-level maps and the quantitative period-map inclusions that fix O2's permitted radius; O2 cites those bounds."
-      },
-      {
        "layer": "AutomorphicBundles:B4",
        "note": "B4 states the classical cocycle identity j(g1 g2, z) = j(g1, g2 z) j(g2, z) and the left/right action bookkeeping that O2 restates in the analytic setting."
       }
@@ -1869,12 +1864,7 @@
        "note": "Mathlib has normed spaces over nontrivially normed fields with ultrametric distance and continuous linear maps; nothing specific to these section spaces."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "HodgeTateAndCanonicalSubgroups:T5",
-       "note": "T5 constructs the integral differential lattice omega^int with its independence, local freeness and cokernel estimates; O3 consumes that lattice and builds the integral sheaf on it."
-      }
-     ]
+     "duplicates": []
     },
     "OverconvergentAutomorphicForms:O4": {
      "verdict": "not built",
@@ -1912,16 +1902,7 @@
        "note": "Conditional on H4, which is not built."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "PerfectoidShimuraVarieties:S5",
-       "note": "S5 proves the full-tower profinite polarization torsor statement and the finite torsor statement on connected components that O4's four presentations are compared through."
-      },
-      {
-       "layer": "HilbertModularVarietiesAndShimuraCurves:H4",
-       "note": "H4 owns the ineffective central subgroup, the PGamma groups and the Delta_n(N)/lim Delta(p^n N) distinction that O4 restates as a requirement."
-      }
-     ]
+     "duplicates": []
     },
     "OverconvergentAutomorphicForms:O5": {
      "verdict": "not built",
@@ -1959,12 +1940,7 @@
        "note": "Conditional on unbuilt objects."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "HodgeTateAndCanonicalSubgroups:T5",
-       "note": "T5 constructs the AIP torsor and proves its comparison with the Hodge-Tate trivialization, which T5 itself calls 'the substantive input to O5's comparison'; the two layers share that torsor comparison."
-      }
-     ]
+     "duplicates": []
     },
     "OverconvergentAutomorphicForms:O6": {
      "verdict": "not built",
@@ -2065,10 +2041,6 @@
       {
        "layer": "AutomorphicBundles:B5",
        "note": "B5 constructs the Hecke action by pullback/coefficient identification/trace and the q-expansions at modular and Hilbert cusps that O6 compares with; the pullback-trace definition is stated in both."
-      },
-      {
-       "layer": "ShimuraCompactifications:C6",
-       "note": "C6 owns the Koecher extension theorem for Hilbert sections that O6 invokes in higher degree."
       }
      ]
     },
@@ -2123,10 +2095,6 @@
       {
        "layer": "PadicFamilies:L5",
        "note": "L5 owns the ordinary theory over totally real fields, which is the same Hida comparison O7 states from the geometric side."
-      },
-      {
-       "layer": "HodgeTateAndCanonicalSubgroups:T5",
-       "note": "T5 constructs the finite Igusa torsors of the dual canonical subgroup and their ordinary inverse tower, compared with the full p-level tower: the tower on which O7 defines ordinary p-adic forms and their finite-level description."
       }
      ]
     },
@@ -2162,10 +2130,6 @@
       {
        "layer": "AutomorphicBundles:B4",
        "note": "B4 already identifies the Siegel Hodge vector bundle, its determinant and Schur-functor weights, and the unitary PEL Hodge summands; O8 recovers the same bundles from the analytic construction."
-      },
-      {
-       "layer": "PerfectoidShimuraVarieties:S6",
-       "note": "S6 owns the general toroidal-diamond period map that O8 routes its general coefficients through."
       }
      ]
     }
@@ -2383,16 +2347,7 @@
        "note": "Mathlib has homological algebra with complexes and cohomology, but no ordinary-part functor on them."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "PotentialAutomorphyInfrastructure:PA.2",
-       "note": "PA.2 consumes exactly this projector and restates the finite-quotient/continuity hypotheses and the failure test for an arbitrary complete Noetherian ring; the construction is owned here."
-      },
-      {
-       "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
-       "note": "R21.1 consumes L0a's ordinary projectors and their finite-level comparison and applies them to Hecke complexes."
-      }
-     ]
+     "duplicates": []
     },
     "PadicFamilies:L1": {
      "verdict": "not built",
@@ -2589,10 +2544,6 @@
       }
      ],
      "duplicates": [
-      {
-       "layer": "PadicMeasuresIwasawaAlgebras:L0a",
-       "note": "L0a there constructs the rigid weight space that L2a fixes as its base, and says L2a consumes it for general spectral gluing."
-      },
       {
        "layer": "LocallyAnalyticDistributions:L4",
        "note": "L4 there supplies the compact operators and Fredholm determinants L2a's construction runs on."
