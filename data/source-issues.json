@@ -71822,6 +71822,90 @@
    "reviewReason": "Found by a helper agent of this review and checked by the reviewer with brute-force counts at q = 5 and 13."
   },
   {
+   "id": "PAPER-HEUER-25/E1",
+   "kind": "misprint",
+   "locator": "§2.2, p. 268 (published version)",
+   "printed": "In this case, the source invokes theorems of Grothendieck, Murre and Oort, citing [7, §8.2], to represent Pic_{X_0} by a group scheme over K that is locally of finite type.",
+   "correction": "see Bosch–Lütkebohmert–Raynaud, Néron Models, §8.2",
+   "reason": "Reference [7] is Bosch–Lütkebohmert, Formal and rigid geometry II. Flattening techniques (Math. Ann. 296 (1993)), which has no §8.2 on Picard functors; the representability theorems of Grothendieck, Murre and Oort are in Néron Models §8.2, which is not in the reference list.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked"
+   ],
+   "owner": "PAPER-HEUER-25",
+   "file": "research/blueprint/papers/PAPER-HEUER-25.result.json",
+   "citation": "Heuer, \"A p-adic Simpson correspondence for smooth proper rigid varieties\", Inventiones Mathematicae (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HEUER-25/E2",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 3.14, p. 290 (published version)",
+   "printed": "The source takes S ∈ Rig^sm_K together with α, α′ ∈ ∏_{x∈X}(B|_x ⊗ O(S))^×.",
+   "correction": "α, α′ ∈ ∏_{x∈M}(B|_x ⊗ O(S))^×",
+   "reason": "The rigidifications are indexed by the multiset M, as in Definition 3.9 and Lemma 3.8.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked"
+   ],
+   "owner": "PAPER-HEUER-25",
+   "file": "research/blueprint/papers/PAPER-HEUER-25.result.json",
+   "citation": "Heuer, \"A p-adic Simpson correspondence for smooth proper rigid varieties\", Inventiones Mathematicae (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HEUER-25/E3",
+   "kind": "misprint",
+   "locator": "End of the proof of Theorem 4.8, p. 302 (published version)",
+   "printed": "The proof concludes θ_V = θ_{V′}.",
+   "correction": "θ_V = θ′_V",
+   "reason": "There is only one bundle V; the proof compares the Higgs fields θ_V and θ′_V induced by the charts f and f′, as stated at its start.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked"
+   ],
+   "owner": "PAPER-HEUER-25",
+   "file": "research/blueprint/papers/PAPER-HEUER-25.result.json",
+   "citation": "Heuer, \"A p-adic Simpson correspondence for smooth proper rigid varieties\", Inventiones Mathematicae (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HEUER-25/E4",
+   "kind": "gap",
+   "locator": "Proof of Lemma 5.7, pp. 308–310 (for p ≥ 3) (published version)",
+   "printed": "It defines T̂_U := O_U⟨p^{−α}∂_1, …, p^{−α}∂_d⟩ and introduces c : Δ → T̂_U^×(U) by γ_i ↦ exp(∂_i). It claims an isomorphism with inverse T ↦ exp(∂) − 1, and asserts log(T + 1)/T belongs to the units R⟨p^{−α}T⟩^×.",
+   "correction": "Use a convergence radius |p|^β with β > 1/(p − 1) (for example β = 1 when p ≥ 3; for p = 2 the paper's α = 2 already works), after a further étale localisation making E and V small for that radius.",
+   "reason": "With α = 1/(p − 1), the Tate algebra O_U⟨p^{−α}∂⟩ is the closed disc |∂| ≤ |p|^{1/(p−1)}, where exp does not converge: in the variable y = p^{−α}∂ the coefficient of y^{p^k} in exp(∂) has valuation exactly 1/(p − 1) for every k, so exp(∂_i) ∉ T̂_U. Likewise log(1 + T)/T, with T = p^αz, has a unit coefficient at z^{p−1} (it vanishes at T = ζ_p − 1, which lies on that disc), so it is not a unit in R⟨p^{−α}T⟩ and T ↦ exp(∂) − 1 is not defined. The comparison of Koszul complexes goes through on any strictly smaller disc. Theorem 5.5 is not in doubt; the same comparison appears in [5] and [20].",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked"
+   ],
+   "owner": "PAPER-HEUER-25",
+   "file": "research/blueprint/papers/PAPER-HEUER-25.result.json",
+   "citation": "Heuer, \"A p-adic Simpson correspondence for smooth proper rigid varieties\", Inventiones Mathematicae (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-HOWE-KLEVDAL-26/E1",
    "kind": "misprint",
    "locator": "Section 1.1, paragraph before Definition 1.1.2, p. 5 (arXiv v2)",
