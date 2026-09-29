@@ -9159,7 +9159,8 @@
    ],
    "avoidAccountOf": "PAPER-KOLYVAGIN-90",
    "prompt": "research/blueprint/prompts/REV-PAPER-KOLYVAGIN-90.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4501"
   },
   {
    "id": "PAPER-SCHOLZE-15",
@@ -9196,8 +9197,9 @@
    ],
    "avoidAccountOf": "PAPER-SCHOLZE-15",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHOLZE-15.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4504"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4504",
+   "finishedAt": "2026-09-29T21:08:14Z"
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I",
@@ -20084,7 +20086,8 @@
    ],
    "avoidAccountOf": "RS-20~3",
    "prompt": "research/blueprint/prompts/REV-RS-20~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3948"
   },
   {
    "id": "RS-21",
@@ -20398,8 +20401,9 @@
    ],
    "avoidAccountOf": "RS-27",
    "prompt": "research/blueprint/prompts/REV-RS-27.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #853"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #853",
+   "finishedAt": "2026-09-29T21:08:18Z"
   },
   {
    "id": "RS-28",
