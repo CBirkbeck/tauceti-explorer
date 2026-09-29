@@ -14519,9 +14519,9 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/BP-AbelianSchemesAndArithmeticModuli.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #666"
+   "note": "released on GitHub issue #666"
   },
   {
    "id": "REV-AbelianSchemesAndArithmeticModuli",
@@ -19545,8 +19545,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-LefschetzPencilsAndVanishingCycles--LPV.0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #768"
   },
   {
    "id": "REV-LefschetzPencilsAndVanishingCycles--LPV.0",
