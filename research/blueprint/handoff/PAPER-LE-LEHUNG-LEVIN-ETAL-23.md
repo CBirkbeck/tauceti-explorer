@@ -1,5 +1,37 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-39fac3; issue 1254; 29 September 2026 (third checkpoint).
+**Partial checkpoint, continuing the checkpoints below.** Census: 776 items, 25 routes, 113 findings.
+No Lean deliverable or compilation. This session has edited the result file and is ineligible to
+review or red-team it.
+
+## Completed here
+
+1. **Q05 flatness, directly.** The chart's Gröbner basis is monic over `Z[1/7!][a,b][1/P][t]`, so R
+   is free over X × V. Every fibre is a complete intersection of dimension 3 and degree 12.
+2. **Q04 minimal primes, uniformly.** The seven listed primes are exactly the minimal primes at every
+   point of V. The multiplicity is 2 along (c22, c13, c12) and 1 elsewhere, so the chart's special
+   fibre is not reduced. The argument is the degree 12 count, together with a unit minor showing
+   e ≥ 2.
+3. **Q13 reducedness, uniformly.** U^nm_F is reduced at every point of V: the degrees 13 = Σ of the
+   seven PDF206 pieces, together with Cohen–Macaulayness.
+
+The data is in `sourceData.appendixB.q04q05Certificate` and `q13Reducedness`.
+
+## Resume from here
+
+1. **Table 1 for every specialization** (B.0.2(3), Q09). Rows 2, 5 and 7 need cells for a(b−1) = b and
+   (a−b)(a−1) = 1, and row 4 for a = 0 (E113). The generic rows can be certified like Q04: show
+   containment over the base, then run a degree count of Ī + P_k against the Table 1 ideals, using a
+   multiplicity bound where needed.
+2. **Appendix B is otherwise certified**, except Q06's use of Proposition 3.3.8 and the regularity of
+   R[1/t] (Proposition 3.3.4). The remaining work is in the Codex resume items 1–5 below, which remain
+   in force.
+
+---
+
+# Previous checkpoint (cc-39fac3, second)
+
 Claude Code — cc-39fac3; issue 1254; 29 September 2026 (second checkpoint).
 **Partial checkpoint, continuing the checkpoints below.** Census: 776 items, 25 routes, 113 findings
 (E112 and E113 are new). No Lean deliverable or compilation. This session has edited the result file
