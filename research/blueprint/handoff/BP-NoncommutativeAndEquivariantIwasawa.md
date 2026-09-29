@@ -1,3 +1,39 @@
+# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 9 (Claude Code cc-39fac3)
+
+Claude Code, session `cc-39fac3`, 29 September 2026. Refs #1015; the bot confirmed the claim (comment 5885077345). **Status: partial.**
+
+## Checkpoint 9: Burns–Venjakob §§5–6 (9 NE.7 nodes)
+
+Read from the arXiv text layer: Burns–Venjakob, arXiv:math/0511672v2, pp. 21–36. Page images were checked for pp. 28 and 33, and the authors' final version (sha 3b59955e…) was collated for the findings.
+
+**Nodes.**
+- `leopoldt-tate-motive-descent` (Lemma 5.1).
+- `padic-stark-conjecture` (definition; Conjecture 5.2).
+- `padic-stark-permutation-case` (Remark 5.4 with Colmez).
+- `tate-motive-interpolation` (planet; Theorem 5.5).
+- `tate-motive-interpolation-rational` (Corollary 5.7, scope corrected).
+- `local-epsilon-isomorphism` (definition; Conjecture 6.1).
+- `dabrowski-panchishkin-selmer-complexes` (definition; Lemma 6.2).
+- `height-pairing-bockstein` (Propositions 6.4 and 6.6).
+- `critical-motive-interpolation` (planet; Theorem 6.7).
+
+**Requests.**
+- AutomorphicPadicLFunctions L3: Greenberg's p-adic Artin L-functions and Colmez's residue formula.
+- SelmerIwasawaCohomology L2: Nekovář's Selmer complexes and heights.
+
+Leopoldt's conjecture is imported from Polylogarithms P.6. The AN.4 Dedekind-residue node is used for the complex side.
+
+**Gap.** The Fukaya–Kato and Nekovář inputs of §6 are unread.
+
+**Findings.**
+- E12 (error): Corollary 5.7 needs ℚ-valued characters, not ℚ_p-rational ones.
+- E13 (misprint): Γ^*(−j) should be Γ^*(j).
+- E14 (misprint): Proposition 6.6 has a duplicate "(i)".
+
+**Lean.** Checked examples: the Γ^* values, and the S-truncated residue for the trivial character.
+
+**Checks.** `check_blueprint.py`: 0 errors, 0 warnings (108 nodes). `intake.py check-files`: 0 problems. Unit tests pass.
+
 # BP-NoncommutativeAndEquivariantIwasawa: checkpoint 8 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 29 September 2026. Refs #1015; the bot confirmed the claim. **Status: partial.**

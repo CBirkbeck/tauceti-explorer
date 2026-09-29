@@ -572,6 +572,49 @@ with the fundamental line and the period-regulators as explicit conjectural inpu
 [Λ² --((T,1),(0,T))--> Λ²] is an extension of two copies of [Λ --T--> Λ], but its H⁰ is Λ/T², which is not
 semisimple. The repair is to use closure under direct sums (iv′), as BV's own weakening intends.
 
+### NE.7, Milestone 12: interpolation formulas (Burns–Venjakob §§5–6, checkpoint 9)
+
+Source: Burns–Venjakob, arXiv:math/0511672v2, pp. 21–36, collated with the authors' final version. Library modules:
+`TauCeti/NumberTheory/NoncommIwasawa/TateMotive` and `…/CriticalMotives`.
+
+**Lemma: descent for the Tate motive** (node `NE.7/leopoldt-tate-motive-descent`, Lemma 5.1).
+- Under Leopoldt at ρ, the only cohomology of RΓ_c(U, 𝕋_E) at ρ is cok λ_p (degree 2) and ℚ_p (degree 3).
+- RΓ_c(U, 𝕋) is semisimple at ρ with r = ⟨ρ, 1⟩.
+- The Bockstein is −c_γ^{−1}log_p ∘ N.
+- Leopoldt's conjecture is imported from Polylogarithms P.6.
+
+**Definition: the p-adic Stark conjecture at s = 1** (node `NE.7/padic-stark-conjecture`, Conjecture 5.2).
+- It is stated for Greenberg's L_{p,S} (requested from AutomorphicPadicLFunctions L3), using the maps μ_∞ and μ_p.
+- *API:* independence of g, additivity, inductivity, and the permutation case.
+- *Unit tests:* the trivial character (the Kubota–Leopoldt residue); a real quadratic field; ⟨ρ, 1⟩ = 0; failure of Leopoldt.
+
+**Theorems.**
+- The permutation case: P-Stark(Ind 1_J) is equivalent to Leopoldt for E^J (node `NE.7/padic-stark-permutation-case`, Remark 5.4 with Colmez).
+- The interpolation formula c_γ^{⟨ρ,1⟩}ζ_{Λ(G)}(𝕋)^*(ρ) = L^*_{p,S}(1, ρ) (node `NE.7/tate-motive-interpolation`; planet; Theorem 5.5).
+- Its unconditional form for ℚ-valued characters under Leopoldt (node `NE.7/tate-motive-interpolation-rational`, Corollary 5.7 with the scope corrected, E12).
+
+**Definition: local ε-isomorphisms** (node `NE.7/local-epsilon-isomorphism`). ε_{p,L}(V) = Γ_L(V)·η·ε_dR(V), and Fukaya–Kato's local Conjecture 6.1. Γ^* is corrected by E13.
+
+**Definition: Dabrowski–Panchishkin Selmer complexes** (node `NE.7/dabrowski-panchishkin-selmer-complexes`). Condition (DP), SC_U and SC, conditions (A1)–(C3), and Lemma 6.2. The mapping-fibre construction is requested from SelmerIwasawaCohomology L2.
+
+**Theorem: heights as Bocksteins** (node `NE.7/height-pairing-bockstein`).
+- Nekovář's height is the Bockstein of SC_U (32)–(33).
+- Descent is Proposition 6.4.
+- The complex is semisimple iff the height is non-degenerate (Proposition 6.6).
+
+**Theorem: interpolation for critical motives** (node `NE.7/critical-motive-interpolation`; planet; Theorem 6.7). The leading term (38) is a product:
+- the complex leading term over Ω_∞R_∞;
+- the p-adic period Ω_p and regulator R_p = det h_p;
+- Γ(V̂)^{−1};
+- the Euler-factor ratio P_{L,p}(Ŵ^*(1), 1)/P_{L,p}(Ŵ, 1).
+
+**Findings.**
+- **E12 (error).** Corollary 5.7's "ℚ_p-rational characters" should be ℚ-valued ones: permutation characters are ℚ-valued.
+- **E13 (misprint).** Γ^*(−j) should be Γ^*(j).
+- **E14 (misprint).** Proposition 6.6 numbers two items "(i)".
+
+The authors' final version has the same text.
+
 ## Dependencies
 
 - **NE.0 imports:**
@@ -620,16 +663,14 @@ semisimple. The repair is to use closure under direct sums (iv′), as BV's own 
     and Hilbert Eisenstein series from AutomorphicPadicLFunctions L3);
   - Ritter–Weiss;
   - the source-by-source coverage table.
-- **NE.7 (partial).** Still to do:
-  - Burns–Venjakob §5 (the p-adic Stark conjecture for Tate motives);
-  - Burns–Venjakob §6 (critical motives, heights);
-  - exceptional zeros and noncommutative Fitting invariants.
+- **NE.7 (partial).** Burns–Venjakob is complete (checkpoints 8–9). Still to do: exceptional zeros and noncommutative Fitting
+  invariants. The Fukaya–Kato and Nekovář inputs of §6 are a gap.
 
 ## Sources
 
 - **Coates, Fukaya, Kato, Sujatha, Venjakob,** Publ. Math. IHÉS 101 (2005), Numdam. Read §§2–3 in full and p. 192.
 - **Lazard,** Publ. Math. IHÉS 26 (1965), Numdam. Read II.2.2 and V.2.2.
 - **Ardakov–Brown,** arXiv math/0511345v1. Read §§2–4.
-- **Burns–Venjakob,** arXiv math/0511672v2. Read §§1–4 (pp. 1–21).
+- **Burns–Venjakob,** arXiv math/0511672v2. Read in full (pp. 1–36); the authors' final version was collated for E12–E14.
 - **Kakde,** arXiv:1008.0142v3. Read in full (pp. 1–90).
 - **Schneider–Venjakob,** *A splitting for K₁ of completed group rings*, arXiv:1006.1493v1. Read Proposition 2.3 (p. 11).
