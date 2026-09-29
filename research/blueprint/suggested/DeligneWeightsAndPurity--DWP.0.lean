@@ -1,6 +1,6 @@
 /-
 Suggested Lean prototypes for the roadmap "Deligne weights, purity and the Weil bounds" (DeligneWeightsAndPurity),
-part DWP.0 (stages DWP.0–DWP.6 and DWP.10); checkpoints 1–3 plan stages DWP.0, DWP.2 and DWP.1.
+part DWP.0 (stages DWP.0–DWP.6 and DWP.10); checkpoints 1–4 plan stages DWP.0–DWP.3.
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/DeligneWeightsAndPurity--DWP.0.md` is definitive. The statements below suggest Lean forms so
@@ -382,5 +382,26 @@ example : ((X ^ 2 + 3 : ℤ[X]).eval 1) = 4 := by
   norm_num
 
 end WeilEstimate
+
+/-! ## Weil I §6: the rationality theorem (`DeligneWeightsAndPurity:DWP.3/…`)
+
+The pencil, its vanishing system and the monodromy (LefschetzPencilsAndVanishingCycles LPV.3–LPV.5) are not available.
+Suggested signatures:
+
+  def Pencil.radicalQuotient (P : LefschetzPencil X₀) : LisseSheaf P.U₀ ℚ_ℓ
+  theorem rationality_of_pencil_local_factors (P : LefschetzPencil X₀) (x : ClosedPoint P.U₀) (i : ℕ) :
+      ((P.radicalQuotient.frobCharpoly x).coeff i) ∈ Set.range (algebraMap ℚ ℚ_ℓ)
+
+The purely algebraic Lemma 6.7 is stated below. -/
+
+section WeilI6
+
+/-- Weil I Lemma 6.7: two finite families of elements of a field whose `n`-th powers agree for every large `n` divisible
+by no element of a finite set `K ∌ 1` agree up to order (`powers-of-a-family-determine-the-family`). -/
+theorem multiset_eq_of_pow_eq {F : Type*} [Field F] [DecidableEq F] (K : Finset ℕ) (hK : 1 ∉ K)
+    (δ ε : Multiset F) (h : ∃ N, ∀ n ≥ N, (∀ k ∈ K, ¬ k ∣ n) → δ.map (· ^ n) = ε.map (· ^ n)) : δ = ε := by
+  sorry
+
+end WeilI6
 
 end TauCeti.Weights
