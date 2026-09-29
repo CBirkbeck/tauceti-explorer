@@ -1,4 +1,56 @@
-# BP-SpecialValuesBirchTate — first checkpoint (B.1, B.2, B.3, B.7)
+# BP-SpecialValuesBirchTate — checkpoint 2 (B.5)
+
+Agent: Claude Code, session cc-fb70e5, 2026-09-29. Refs #998. The claim is comment 5883524481, confirmed by the bot.
+
+## What this checkpoint supplies
+
+**B.5 is source-decomposed** (7 new nodes: 1 definition, 5 theorems or lemmas and 1 comparison; 3 planets). Sources:
+- Kolster 1989 (Canad. Math. Bull. 32), read in full; SHA-256 6b8052fc…, identical to the programme's catalogue copy.
+- Greither 1992, §1 and Lemma 3.3. Its §§1–4 are decomposed in EulerSystemsCyclotomicMainConjecture L4, whose nodes are imported.
+
+**Nodes.**
+- `B.5/federer-main-conjecture` (definition, planet): FedererMainConjecture(F), meaning (G_F) = (2^{[F:ℚ]}f_F) in ℤ₂[[T]]. It has 5 API items and 3 tests: ℚ, ℚ(√2), and the unnormalised non-example. The action convention on the dual is fixed so that Kolster's twist f(u^{−1}(1 + T) − 1) is right.
+- `B.5/tame-kernel-two-part-via-iwasawa`: Kolster's Theorem 1, |K₂(o)(2)| = 2^{[F:ℚ]}·|(𝒯 ⊗ A_∞^-)^Γ|, for every totally real F.
+- `B.5/minus-module-coinvariant-order`: Kolster's Lemma 2, for every totally real F.
+- `B.5/federer-implies-two-primary-birch-tate` (planet): Kolster's Theorem 5, for every totally real F. It uses w₂^{(2)}(F) = 2^{e+1} from ArithmeticKTheory N.4/two-primary-w-invariant.
+- `B.5/federer-conjecture-for-abelian-fields` (comparison): Federer's conjecture for every totally real F abelian over ℚ, from Greither's Theorem 3.2 and Lemma 3.3. Neither paper writes this comparison, so the proof is planned here:
+  - the reduction to F′ = F(μ_{2^∞}) ∩ ℚ(μ_m), which is unramified at 2;
+  - Kolster's Γ as a possibly diagonal subgroup {(φ(γ), γ)} of Δ′ × Γ′, as happens for F = ℚ(√6);
+  - the characters of F are exactly the χ̌ρ with ρ(γ₁) = χ(φ(γ₁));
+  - matching Weierstrass zeros through the characters of Gal(F_∞/ℚ);
+  - μ(f_F) = 0 by Ferrero–Washington, and μ(G_F) = [F:ℚ] from the ½-normalisation.
+- `B.5/two-part-birch-tate-abelian` and `B.5/birch-tate-for-real-abelian-fields` (planet): the full formula for totally real abelian fields, with odd ℓ from stage B.4.
+
+Kolster's Theorem 1, Lemma 2 and Theorem 5 hold for every totally real field, so B.6 needs only Federer's conjecture from IntegralIwasawaTheory I.9–I.10.
+
+**Source issues (new; no erratum on Cambridge Core or the web):**
+- SpecialValuesBirchTate/E1: "ζ_e(−1)" should read ζ_E(−1) (p. 250).
+- SpecialValuesBirchTate/E2: "Since A_∞^- has no non-trivial finite Λ-submodules" should be about the dual Ǎ_∞^- (p. 250). A_∞^- is a union of finite submodules. Both are misprints and affect nothing.
+
+**Requests.**
+- New:
+  - ArithmeticKTheory N.6: Kolster's 1987 exact sequence.
+  - IntegralIwasawaTheory I.2: the minus class module, Federer's no-finite-submodule theorem, and Iwasawa's 1983 Proposition 2.
+  - IntegralIwasawaTheory L2: the coinvariant lemma and the twist rule.
+  - IntegralIwasawaTheory L4: Ferrero–Washington at 2.
+  - DirichletPadicLFunctions L2: second-kind twists at 2, with the root-of-unity convention made explicit.
+- Extended: AutomorphicPadicLFunctions L3, for L₂(χ₀, s) = G_F(u^s − 1)/(u^s − u), G_F ∈ 2^{[F:ℚ]}Λ, the value at −1, and the abelian factorisation.
+
+**Validation.**
+- `check_blueprint --index`: 0 errors, 0 warnings.
+- `check-files`: 0 problems.
+- Every new excerpt was checked against the page text of its source.
+- The suggested file still imports Tau Ceti modules, so it cannot be compiled on this server. The B.5 section was elaborated in a Mathlib-only harness with the same placeholders (exit 0, only `sorry` warnings). The four new checked examples compile on their own (exit 0).
+
+## Resume
+
+1. B.4: the odd-primary valuation identity. Tate's comparison (K2SymbolsBrauer T.7, MotivicEtaleKTheory M.3), localisation (ArithmeticKTheory N.2), I.5's Euler characteristic, and Kolster's Park City Theorem 3.3.
+2. B.6: Federer's conjecture for every totally real field from I.9–I.10 (Kurihara), with the comparison table the stage asks for. Plug it into B.5/federer-implies-two-primary-birch-tate.
+3. B.3: the general real quadratic factorisation (Kronecker character).
+4. B.7: show that changing S commutes with the B.4–B.6 comparisons.
+5. B.8: the Lichtenbaum statements.
+
+## Checkpoint 1 (B.1, B.2, B.3, B.7)
 
 Agent: Claude Code, session cc-fb70e5, 2026-09-28. Refs #998. The claim is comment 5874444221, confirmed by the bot. No packet existed before this checkpoint.
 
