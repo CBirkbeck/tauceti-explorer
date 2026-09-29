@@ -13717,3 +13717,219 @@ One complete native constructor and seven complete lemmas check integral coeffic
 Exact finite controls compare10920 cleared coefficients over168 prime/exponent pairs, checking their p-integrality,168 constant factorizations and168 first-coefficient factors. They include168 missing-factor2 controls,168 surviving prime-index coefficients,168 identity-parameter zero constants and one explicit dyadic precision-loss control. Exact rational Bernoulli recurrence and integer divisor sums. Positive cleared coefficients are computed independently by evaluating the convolution (2a δ_a−2δ_1) times the divisor Dirac sum; compare with the explicit denominator times the original coefficient. All168 prime/exponent pairs use65 coefficients, including0. P-integrality means the reduced rational denominator is prime to p. A finite dyadic precision control compares exponents3 and7, congruent modulo4, and records valuations before and after clearing. These are exact finite computations, not a proof of general congruences. The largest observed discrepancy is 0.
 
 The initial57-input capture changed only the global source-issue aggregate and errata register. All16 own aggregate records were compared recursively and remain identical; all supplier, source-review and other inputs are unchanged. PMIA remains369 nodes preserving its compiled332-node interface. No new supplier declaration is called and no compilation of the current369-node source is claimed.
+
+
+## Integral full-series Eisenstein congruences
+
+Partial continuation preserving all412 predecessor nodes whole. Seven L4 nodes construct the full cleared q-expansion measure, prove its all-coefficient integral test congruences and full weight congruences, and transfer them to the admissible field-valued series with exact denominator factors. All16 findings and three requests remain whole; seven gaps and zero closed stages remain.
+
+Published159–160 was read completely in the preceding clearing checkpoint in this continuation. The full previous positive-series constructor, coefficient and congruence nodes, and L1 weight-period-smoothed-kummer node were reread to preserve ownership and avoid duplicate Kummer statements. The supplier integral-coefficient-sequence, rational-unit-extension-norm and integral-unit-extension-test-function nodes were read whole with exact signatures. Native finite-group powers, unit-group cardinality, prime-power totient, reduction and kernel, integral norm/ideal criterion, principal-ideal divisibility, operator bound, supremum bound, AbstractMeasure.toCLMEquiv and coefficientwise power-series topology were read at the pin.
+
+### Integral test congruences for every cleared coefficient
+
+`DirichletPadicLFunctions:L4/cleared-eisenstein-coefficient-test-congruence` — `DirichletPadic.clearedEisensteinCoefficient_test_congr`
+
+For every u∈U, n,r≥0 and f,g∈C(U,Z), if p^r divides f(v)−g(v) for every v∈U, then p^r divides μ_(u,n)(f)−μ_(u,n)(g) in Z.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ, and M=AbstractMeasure U Z Z use the native topologies and the supplied actual commutative convolution algebra. Let N_u=clearedEisensteinSeries p u∈M[[q]] and μ_(u,n)=coeff_n(N_u). Its degree0 coefficient is the actual weighted numerator; every coefficient is integral. The continuous unit coordinate is j(u)=u. N_(u,k)=integralClearedEisensteinMoment p u k∈Z[[q]] is the existing integral character specialization. The power-series topology is the native coefficientwise topology PowerSeries.WithPiTopology; no power-series norm or operator norm on M is presumed. All divisibility statements are in Z or Z[[q]]. Measure operator norms occur only after the supplied extension to Q_p and native toCLMEquiv, using the canonical bounded Z-action on Q_p.
+
+**Proof:**
+
+1. Fix the actual integral coefficient measure μ_(u,n). The supplied rational-unit-extension-norm theorem identifies the norm of its Q_p extension with the bounded image Amice coefficient sequence of its ambient inclusion. The supplier integral-coefficient-sequence statement gives bound1 in Q_p. This bound can also be read directly from its defining coefficient function using PadicInt.norm_le_one and BoundedContinuousFunction.norm_le; no norm on the integral measure carrier is assigned.
+2. Native PadicInt.norm_le_pow_iff_mem_span_pow and Ideal.mem_span_singleton convert the assumed pointwise divisibility of f−g into the norm bound p^(−r). The inclusion Z→Q_p preserves norms by PadicInt.norm_def.
+3. For the continuous field-valued test (f−g) times the constant1, native ContinuousMap.norm_le bounds its supremum norm by p^(−r). Apply ContinuousLinearMap.le_opNorm and the preceding operator bound1.
+4. The supplied integral-unit-extension-test-function theorem identifies this field integral with the inclusion of μ_(u,n)(f−g). Native linearity rewrites it as the desired integral difference. Convert the resulting norm bound back into divisibility with the same ideal criterion.
+5. The reasoning applies to n=0 and r=0. A complete native lemma checks the norm-to-divisibility inference under precisely the field operator bound and integral-test agreement used here.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-cleared-eisenstein-series`, `PadicMeasuresIwasawaAlgebras:L2/rational-unit-extension-norm`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-sequence`, `PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-test-function`, `mathlib:PadicInt.norm_le_one`, `mathlib:BoundedContinuousFunction.norm_le`, `mathlib:PadicInt.norm_le_pow_iff_mem_span_pow`, `mathlib:Ideal.mem_span_singleton`, `mathlib:PadicInt.norm_def`, `mathlib:ContinuousMap.norm_le`, `mathlib:ContinuousLinearMap.le_opNorm`.
+
+**Tests:**
+
+- `SuggestedEisensteinCongruenceTests.integral_constant_test_congruence` (compatibility): The same divisibility holds for the degree0 weighted numerator measure; the constant coefficient is included.
+
+**Acceptance:** The general bounded-extension theory is imported from its owner. This arithmetic consumer applies it to the coefficients of N_u and introduces no duplicate general measure theory.
+
+**Source:** Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained. Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits.
+
+### The full cleared q-expansion measure
+
+`DirichletPadicLFunctions:L4/cleared-eisenstein-evaluation` — `DirichletPadic.clearedEisensteinEvaluation`
+
+Define the native Z[[q]]-valued measure N_u^eval∈AbstractMeasure(U,Z,Z[[q]]) by coeff_n(N_u^eval(f))=μ_(u,n)(f) for every n≥0 and f∈C(U,Z).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ, and M=AbstractMeasure U Z Z use the native topologies and the supplied actual commutative convolution algebra. Let N_u=clearedEisensteinSeries p u∈M[[q]] and μ_(u,n)=coeff_n(N_u). Its degree0 coefficient is the actual weighted numerator; every coefficient is integral. The continuous unit coordinate is j(u)=u. N_(u,k)=integralClearedEisensteinMoment p u k∈Z[[q]] is the existing integral character specialization. The power-series topology is the native coefficientwise topology PowerSeries.WithPiTopology; no power-series norm or operator norm on M is presumed. All divisibility statements are in Z or Z[[q]]. Measure operator norms occur only after the supplied extension to Q_p and native toCLMEquiv, using the canonical bounded Z-action on Q_p.
+
+**Proof:**
+
+1. Use native PowerSeries.mk to assemble the actual coefficient measure evaluations. Every coefficient is Z-linear in f; native PowerSeries.ext therefore proves additivity and scalar compatibility.
+2. Each μ_(u,n) is already a continuous linear functional on the integral test space. Native PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto proves continuity of the assembled function for the coefficientwise topology.
+3. Bundle the continuous linear map by native AbstractMeasure.toCLMEquiv. Its zero, addition, scalar and continuity APIs are the inherited linear structure. Native coefficient extensionality and measure extensionality give uniqueness.
+4. The all-index coefficient formula is promoted below. The comparison of power-test evaluation with the existing integral moment series is also promoted below. At degree0 the coefficient is the actual weighted numerator evaluated on f. At degree1 it is2(u f(u)−f(1)), obtained by the one-divisor identity and the explicit two-Dirac denominator.
+5. A complete native constructor and coefficient lemma verify assembly from arbitrary actual integral coefficient measures. No summability, convergence radius or norm on Z[[q]] is required.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-cleared-eisenstein-coefficients`, `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator`, `DirichletPadicLFunctions:L4/positive-eisenstein-measure`, `mathlib:AbstractMeasure`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:PowerSeries.mk`, `mathlib:PowerSeries.coeff_mk`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto`.
+
+**Uses:**
+
+- RJW Remark8.3, arithmetic full-series variation: Packages all integral coefficient tests, including the numerator of the constant term, into one actual continuous linear map.
+- Full integral test congruence: Allows the coefficientwise precision statement to be stated as divisibility of one integral formal series.
+
+**API:**
+
+- `DirichletPadic.clearedEisensteinEvaluation_coeff` (projection): Coefficient n of N_u^eval(f) equals μ_(u,n)(f). Promoted to cleared-eisenstein-evaluation-coefficients.
+- `DirichletPadic.clearedEisensteinEvaluation_zero` (simp): Evaluation at0 is0.
+- `DirichletPadic.clearedEisensteinEvaluation_add` (simp): Evaluation preserves addition of integral continuous tests.
+- `DirichletPadic.clearedEisensteinEvaluation_smul` (simp): Evaluation preserves scalar multiplication by every element of Z.
+- `DirichletPadic.clearedEisensteinEvaluation_continuous` (structure): Evaluation is continuous from the compact-open test space to the coefficientwise power-series topology.
+- `DirichletPadic.clearedEisensteinEvaluation_unique` (extensionality): A native Z[[q]]-valued measure with the specified value of every coefficient on every test equals N_u^eval.
+- `DirichletPadic.clearedEisensteinEvaluation_moment` (compatibility): Evaluation on j^k equals the existing N_(u,k). Promoted to cleared-eisenstein-evaluation-moment.
+
+**Tests:**
+
+- `SuggestedEisensteinCongruenceTests.cleared_evaluation_zero` (degenerate): N_u^eval(0)=0.
+- `SuggestedEisensteinCongruenceTests.cleared_evaluation_constant` (characterisation): Coefficient0 of N_u^eval(f) is n_u(f), including nonzero constants.
+- `SuggestedEisensteinCongruenceTests.cleared_evaluation_first` (computation): Coefficient1 equals2(u f(u)−f(1)).
+- `SuggestedEisensteinCongruenceTests.cleared_evaluation_dyadic_cubic` (computation): For p=2,u=3,f=j³, coefficient1 equals160.
+
+**Acceptance:** The native coefficientwise topology gives the required continuity. This is the cleared full series, with its actual constant measure, rather than another positive truncation.
+
+**Source:** Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained. Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits.
+
+### Coefficients of the full cleared q-expansion measure
+
+`DirichletPadicLFunctions:L4/cleared-eisenstein-evaluation-coefficients` — `DirichletPadic.clearedEisensteinEvaluation_coeff`
+
+For every f∈C(U,Z) and n≥0, coeff_n(N_u^eval(f))=μ_(u,n)(f).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ, and M=AbstractMeasure U Z Z use the native topologies and the supplied actual commutative convolution algebra. Let N_u=clearedEisensteinSeries p u∈M[[q]] and μ_(u,n)=coeff_n(N_u). Its degree0 coefficient is the actual weighted numerator; every coefficient is integral. The continuous unit coordinate is j(u)=u. N_(u,k)=integralClearedEisensteinMoment p u k∈Z[[q]] is the existing integral character specialization. The power-series topology is the native coefficientwise topology PowerSeries.WithPiTopology; no power-series norm or operator norm on M is presumed. All divisibility statements are in Z or Z[[q]]. Measure operator norms occur only after the supplied extension to Q_p and native toCLMEquiv, using the canonical bounded Z-action on Q_p.
+
+**Proof:**
+
+1. Unfold the coefficient constructor inside the native continuous-linear-map bundle and apply PowerSeries.coeff_mk.
+2. Promote the exact projection signature from the construction, without replacing the actual coefficient measure by a formal scalar sequence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/cleared-eisenstein-evaluation`, `mathlib:PowerSeries.coeff_mk`.
+
+**Tests:**
+
+- `SuggestedEisensteinCongruenceTests.full_coefficient_evaluation` (characterisation): The projection identity holds for every actual integral continuous test and every natural coefficient index.
+
+**Acceptance:** All later full-series proofs use this explicit projection node.
+
+**Source:** Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained. Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits.
+
+### Agreement of full evaluation with the integral moment series
+
+`DirichletPadicLFunctions:L4/cleared-eisenstein-evaluation-moment` — `DirichletPadic.clearedEisensteinEvaluation_moment`
+
+For all u∈U and k≥0, N_u^eval(j^k)=N_(u,k) in Z[[q]].
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ, and M=AbstractMeasure U Z Z use the native topologies and the supplied actual commutative convolution algebra. Let N_u=clearedEisensteinSeries p u∈M[[q]] and μ_(u,n)=coeff_n(N_u). Its degree0 coefficient is the actual weighted numerator; every coefficient is integral. The continuous unit coordinate is j(u)=u. N_(u,k)=integralClearedEisensteinMoment p u k∈Z[[q]] is the existing integral character specialization. The power-series topology is the native coefficientwise topology PowerSeries.WithPiTopology; no power-series norm or operator norm on M is presumed. All divisibility statements are in Z or Z[[q]]. Measure operator norms occur only after the supplied extension to Q_p and native toCLMEquiv, using the canonical bounded Z-action on Q_p.
+
+**Proof:**
+
+1. Use native PowerSeries.ext. The full evaluation projection gives μ_(u,n)(j^k).
+2. The preceding promoted integral-cleared-eisenstein-moment-coefficients theorem gives exactly the same coefficient for the existing arithmetic moment constructor.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/cleared-eisenstein-evaluation-coefficients`, `DirichletPadicLFunctions:L4/integral-cleared-eisenstein-moment-coefficients`, `mathlib:PowerSeries.ext`.
+
+**Tests:**
+
+- `SuggestedEisensteinCongruenceTests.moment_evaluation_comparison` (compatibility): The equality holds at every natural exponent, including0, inside the integral power-series ring.
+
+**Acceptance:** No new arithmetic moment object is introduced. The actual character-algebra specialization and the linear test evaluation are identified coefficientwise.
+
+**Source:** Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained. Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits.
+
+### Uniform integral congruences for the full series
+
+`DirichletPadicLFunctions:L4/full-cleared-eisenstein-test-congruence` — `DirichletPadic.clearedEisensteinEvaluation_test_congr`
+
+For every u∈U, r≥0 and f,g∈C(U,Z), pointwise divisibility p^r∣f(v)−g(v) implies C(p^r)∣N_u^eval(f)−N_u^eval(g) in Z[[q]].
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ, and M=AbstractMeasure U Z Z use the native topologies and the supplied actual commutative convolution algebra. Let N_u=clearedEisensteinSeries p u∈M[[q]] and μ_(u,n)=coeff_n(N_u). Its degree0 coefficient is the actual weighted numerator; every coefficient is integral. The continuous unit coordinate is j(u)=u. N_(u,k)=integralClearedEisensteinMoment p u k∈Z[[q]] is the existing integral character specialization. The power-series topology is the native coefficientwise topology PowerSeries.WithPiTopology; no power-series norm or operator norm on M is presumed. All divisibility statements are in Z or Z[[q]]. Measure operator norms occur only after the supplied extension to Q_p and native toCLMEquiv, using the canonical bounded Z-action on Q_p.
+
+**Proof:**
+
+1. Use the promoted projection identity and linearity of each coefficient projection. The preceding cleared coefficient test-congruence node gives divisibility of the difference at every n, including0.
+2. For each n choose an integral quotient coefficient b_n. Define B=PowerSeries.mk(b_n). Native coeff_C_mul, coeff_mk and PowerSeries.ext identify the entire difference with C(p^r)B.
+3. The quotient is a formal series; the coefficientwise choice needs no uniform bound or continuity as n varies. The native complete divisibility lemma verifies this assembly. The case r=0 is divisibility by1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/cleared-eisenstein-evaluation-coefficients`, `DirichletPadicLFunctions:L4/cleared-eisenstein-coefficient-test-congruence`, `mathlib:PowerSeries.mk`, `mathlib:PowerSeries.coeff_mk`, `mathlib:PowerSeries.coeff_C_mul`, `mathlib:PowerSeries.ext`.
+
+**Tests:**
+
+- `SuggestedEisensteinCongruenceTests.precision_zero_allowed` (degenerate): For r=0 the conclusion is divisibility by the constant series1.
+- `SuggestedEisensteinCongruenceTests.uniform_eight_test_precision` (compatibility): At p=2, pointwise congruence modulo8 gives full-series divisibility by C(8), including the constant.
+
+**Acceptance:** This is divisibility in the integral power-series ring. Field divisibility would contain no precision information and is not used.
+
+**Source:** Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained. Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits.
+
+### Weight congruences for the full integral series
+
+`DirichletPadicLFunctions:L4/full-cleared-eisenstein-weight-congruence` — `DirichletPadic.integralClearedEisensteinMoment_weight_congr`
+
+For every u∈U, r≥1 and e,e′≥0 with e≡e′ modulo p^(r−1)(p−1), C(p^r) divides N_(u,e′)−N_(u,e) in Z[[q]].
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ, and M=AbstractMeasure U Z Z use the native topologies and the supplied actual commutative convolution algebra. Let N_u=clearedEisensteinSeries p u∈M[[q]] and μ_(u,n)=coeff_n(N_u). Its degree0 coefficient is the actual weighted numerator; every coefficient is integral. The continuous unit coordinate is j(u)=u. N_(u,k)=integralClearedEisensteinMoment p u k∈Z[[q]] is the existing integral character specialization. The power-series topology is the native coefficientwise topology PowerSeries.WithPiTopology; no power-series norm or operator norm on M is presumed. All divisibility statements are in Z or Z[[q]]. Measure operator norms occur only after the supplied extension to Q_p and native toCLMEquiv, using the canonical bounded Z-action on Q_p.
+
+**Proof:**
+
+1. Apply the integral test-congruence theorem to f=j^e′ and g=j^e, then identify both evaluations with the existing integral moment series by the promoted comparison node.
+2. For each v∈U reduce it to an actual unit in ZMod(p^r) using Units.map and PadicInt.toZModPow. Native pow_card_eq_one, ZMod.card_units_eq_totient and Nat.totient_prime_pow show its power p^(r−1)(p−1) equals1.
+3. Native pow_eq_pow_of_modEq now equates its powers e and e′. Apply the unit-value map and rewrite the residue of v^e′−v^e as0. Native ker_toZModPow identifies this kernel with the ideal generated by p^r; Ideal.mem_span_singleton gives the required pointwise integral divisibility.
+4. A complete native proof checks the finite-unit reduction and its kernel calculation, including p=2 and zero exponents. No topological generator or logarithm is used. The modulus is sufficient; no optimality is asserted.
+5. The old positive-series congruence and L1 smoothed Kummer results remain unchanged. This new statement packages the full cleared family, including the weighted constant numerator, as one integral-series divisibility. For classical even weightw≥4 the exponent is w−1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/full-cleared-eisenstein-test-congruence`, `DirichletPadicLFunctions:L4/cleared-eisenstein-evaluation-moment`, `mathlib:Units.map`, `mathlib:PadicInt.toZModPow`, `mathlib:PadicInt.ker_toZModPow`, `mathlib:Ideal.mem_span_singleton`, `mathlib:pow_card_eq_one`, `mathlib:ZMod.card_units_eq_totient`, `mathlib:Nat.totient_prime_pow`, `mathlib:pow_eq_pow_of_modEq`.
+
+**Tests:**
+
+- `SuggestedEisensteinCongruenceTests.dyadic_full_weight_precision` (computation): At p=2, exponents3 and7 give full-series divisibility by C(8) for every u.
+- `SuggestedEisensteinCongruenceTests.quinary_full_weight_precision` (computation): At p=5, exponents3 and23 give full-series divisibility by C(25) for every u.
+- `SuggestedEisensteinCongruenceTests.tame_component_not_full_precision` (non-example): At p=5,u=6, exponents3 and7 agree modulo4, but the full integral series difference is not divisible by C(25). Its first coefficient is3356640, which is not divisible by25.
+
+**Acceptance:** Both the tame factor p−1 and the precision factor p^(r−1) are retained. The dyadic unit group is never assumed procyclic.
+
+**Source:** Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained. Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits.
+
+### Qualified weight congruences for the full admissible family
+
+`DirichletPadicLFunctions:L4/full-eisenstein-cleared-field-congruence` — `DirichletPadic.eisensteinAwaySeries_cleared_weight_congr`
+
+For canonical a, set F_e=PowerSeries.map(E_(a,e))(E_a^away) and D_e=2(a^(e+1)−1) in Q_p. If r≥1 and e≡e′ modulo p^(r−1)(p−1), then for every n≥0, ‖D_e′ coeff_n(F_e′)−D_e coeff_n(F_e)‖≤p^(−r).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ, and M=AbstractMeasure U Z Z use the native topologies and the supplied actual commutative convolution algebra. Let N_u=clearedEisensteinSeries p u∈M[[q]] and μ_(u,n)=coeff_n(N_u). Its degree0 coefficient is the actual weighted numerator; every coefficient is integral. The continuous unit coordinate is j(u)=u. N_(u,k)=integralClearedEisensteinMoment p u k∈Z[[q]] is the existing integral character specialization. The power-series topology is the native coefficientwise topology PowerSeries.WithPiTopology; no power-series norm or operator norm on M is presumed. All divisibility statements are in Z or Z[[q]]. Measure operator norms occur only after the supplied extension to Q_p and native toCLMEquiv, using the canonical bounded Z-action on Q_p.
+
+**Proof:**
+
+1. The integral full-series weight-congruence theorem supplies a quotient series B with N_(a,e′)−N_(a,e)=C(p^r)B. Native coeff_C_mul gives divisibility of each coefficient difference in Z.
+2. Native ideal membership and PadicInt.norm_le_pow_iff_mem_span_pow convert coefficient divisibility into the norm bound. PadicInt.norm_def preserves it under inclusion into Q_p.
+3. Apply the preceding full-eisenstein-cleared-specialization equality to each exponent. Native coeff_map and coeff_C_mul identify the two included integral coefficients with D_e′ coeff_n(F_e′) and D_e coeff_n(F_e).
+4. Keep both weight-dependent factors. At p=2,a=3,e=3,e′=7,r=3 the cleared constant difference is−10400/3 and has valuation5. The corresponding uncleared difference is−113/480, of valuation−5 and norm32. Thus this conclusion cannot be read as a norm bound1/8 for the uncleared constants.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/full-cleared-eisenstein-weight-congruence`, `DirichletPadicLFunctions:L4/full-eisenstein-cleared-specialization`, `mathlib:PowerSeries.coeff_C_mul`, `mathlib:PowerSeries.coeff_map`, `mathlib:PadicInt.norm_le_pow_iff_mem_span_pow`, `mathlib:Ideal.mem_span_singleton`, `mathlib:PadicInt.norm_def`.
+
+**Tests:**
+
+- `SuggestedEisensteinCongruenceTests.cleared_constant_dyadic_precision` (computation): The dyadic cleared constant difference−10400/3 has norm at most1/8.
+- `SuggestedEisensteinCongruenceTests.uncleared_constant_precision_loss` (non-example): The dyadic uncleared constant difference−113/480 has norm32; cancelling the two distinct nonunit factors would lose the asserted precision.
+
+**Acceptance:** The statement is a uniform coefficient norm bound for the full admissible family with its exact clearing factors. A precision-loss formula after division remains separate; no field divisibility or unqualified cancellation is substituted.
+
+**Source:** Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained. Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits.
+
+**Remaining:** The full integral numerator series now has arbitrary continuous-test congruences and weight congruences for modulus p^(r−1)(p−1), with the constant included and the exact clearing factors retained in its full field-valued comparison. Next quantify the precision loss for the uncleared full family by its nonzero weight-dependent denominators, and compare the arithmetic congruences with the common rational classical q-expansions. The PMIA generic character-twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. Smoothing independence beyond the canonical parameter, actual pole and ordinary-pseudomeasure exclusion, the tame-character family and full source extraction remain explicit work; PadicFamilies owns geometric realization.
+
+### Integral full-series Eisenstein congruences validation
+
+All 412 predecessor nodes, 429 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 7 nodes, 12 named suggested declarations and 14 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 594 reachable nodes, 2831 edges and 549 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 1290 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+One complete native constructor and five complete lemmas check coefficientwise continuous measure assembly, its coefficient projection, integral norm/divisibility equivalence, the field operator precision step, finite-unit power congruences and whole-series divisibility assembly. The probe elaborates against 1965 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact finite controls check9360 full integral coefficient congruences across144 prime/precision/exponent pairs, including144 constant numerators and9216 positive coefficients. Finite-unit power congruences are checked on every residue unit in each pair, together with a quinary tame-only failure and the dyadic uncleared-constant precision loss. Exact rational Bernoulli recurrence through208, integer divisor sums, and modular powering on every finite residue unit. For three primes, three positive precisions, eight starting exponents and two period increments, compare65 coefficients of the full integral moment series, including its actual Bernoulli numerator at0. Divisibility is checked by rational p-adic valuation, with zero differences handled explicitly. Controls preserve the tame and precision factors and exhibit the loss on division. Finite checks are not the general proofs. The largest observed discrepancy is 0.
+
+The initial57-input capture has empty delta. All suppliers, source reviews and other guarded inputs match the predecessor. The current369-node PMIA source preserves the compiled332-node interface; no new supplier declaration is used or full369-node compilation claimed.
