@@ -1,11 +1,29 @@
-# Handoff: BP-AutomorphicGaloisRepresentations (third checkpoint)
+# Handoff: BP-AutomorphicGaloisRepresentations (fourth checkpoint)
 
 Agent: Claude Code, session cc-fb70e5. Refs #685.
 
 - Stages R19.1–R19.6 are all partial. The checker reports no errors and no warnings.
 - RS-12 is still **needs_changes**, so the current structure is used.
-- Checkpoint 1 was merged in #3857 (13 nodes) and checkpoint 2 in #3859 (18 nodes). This checkpoint adds 3 nodes in R19.6, for 21
-  nodes and 14 planets.
+- Checkpoint 1 was merged in #3857 (13 nodes), checkpoint 2 in #3859 (18 nodes) and checkpoint 3 in #3866 (21 nodes). This
+  checkpoint adds 1 node in R19.1, for 22 nodes and 14 planets.
+
+## New in checkpoint 4
+
+- `R19.1/integral-structure-of-the-newform-premotive` (construction). Source: Diamond–Flach–Guo arXiv v2 §§1.2, 4.5 and 5.3–5.4.
+  - The S-integral premotivic structure 𝓜(N, ψ)_{M,!} for S ⊇ {ℓ | Nk!}, with lattices in the Betti, de Rham, λ-adic and
+    Fontaine–Laffaille realisations.
+  - Fil^{k−1} is the cusp forms with q-expansion in O_S[[q]], and it is dual to the integral Hecke algebra (Lemma 5.5(a)).
+  - 𝓜_g = 𝓜(N, ψ)_{M,!}[I_g], with K ⊗ 𝓜_g = M_g, G_ℚ-stable lattices with Fontaine–Laffaille descriptions at λ ∉ S, and
+    Fil^{k−1}𝓜_{g,dR} = O_S·g.
+  - Acceptance: 11a1, S = {2, 11}.
+- Source issue **E3** (new): DFG arXiv v2 prints the excluded set as S_N = {ℓ ∤ Nk!} (Theorem 2.4, p. 24) and
+  S′ = {p | p ∤ N′k!} (p. 30), the complements of their own definitions on pp. 13 and 27. Both were checked on the page images.
+  The ÉNS 2004 text has no counterpart.
+- The R19.1 coverage item on integral lattices is replaced by the one that remains: the coefficient-field descent. The R14.3
+  request now also asks for the S-integral versions.
+
+## Earlier in this job (checkpoint 3)
+
 
 ## New in this checkpoint
 
@@ -38,7 +56,7 @@ Other changes:
 
 ## What remains
 
-- **R19.1:** integral lattices of M_g (DFG §6.4); Deligne–Serre §8; Scholl's Kuga–Sato realisation (GH.0 request).
+- **R19.1:** the coefficient-field descent; Deligne–Serre §8; Scholl's Kuga–Sato realisation (GH.0 request).
 - **R19.2:** Carayol §§1–12 and the bad-reduction paper; Wiles 1988 [W2], which is quoted through Skinner–Wiles.
 - **R19.3:** Saito's proof of purity; the compatible-system carrier (R24.5).
 - **R19.4:** Carayol's proof; the comparison of σ with Saito's σ̌_h.
@@ -74,8 +92,7 @@ It also replaces the one `sorry` in an example by a proof, `mul_self_eq_one_iff`
 
 ## Source issues
 
-None new. E1 and E2 are unchanged. The note for PadicHodgeTheory/E50 (its Weil–Deligne half was already flagged by the
-decomposition reviewer) still waits for that packet's next checkpoint.
+E3 is new in checkpoint 4 (see above). E1 and E2 are unchanged. The note for PadicHodgeTheory/E50 was applied in that packet's checkpoint 3 (#3868).
 
 ## Sources
 
