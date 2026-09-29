@@ -91,7 +91,12 @@ All DOIs were checked through Crossref; Gabber's seminar is arXiv:1207.3648.
 | E1 | gap | Theorem 4.2.1, Step 4 | The theorem assumes only char(X) ⊆ P. Step 4 applies Theorem 3.3.6 to S̄ → S, which yields a P^w-alteration with P^w ⊆ char(S); that need not be a P-alteration when S̄ → S is wildly ramified over fibres where X is empty. Two repairs: assume char(S) ⊆ P, as Theorem 4.3.1 does, the only place the theorem is used; or distill over S₀ = S minus the finitely many fibres over char(S) ∖ char(X), then extend. |
 | E2 | misprint | Lemma 3.3.7, proof | "Direct" and "inverse" are swapped, S′ should be S, and "L is the composite …, L/K is tame" should be L′. |
 | E3 | misprint | Theorem 2.6.6, proof | "Corollary 2.5.6(ii)" should be "Corollary 2.5.6", which has no part (ii). |
+| E4 | misprint | Lemma 2.6.3(ii), proof, p. 112 | "p = char(K̃_i) divides [L̃_i : K̃_i]" fails when p_i = 1, where K̃_i has characteristic 0; p is the residue characteristic of K̃_i's valuation. The argument survives. Added and confirmed by the independent review. |
 
 - All three are in both arXiv v2 and the Annals text.
 - None affects Theorems 1.2.5, 1.2.9 or 4.3.1.
 - No erratum was found. This is not an exhaustive novelty claim.
+
+## Corrections by the independent review
+
+The review `REV-PAPER-TEMKIN-17` (Claude Code, session `cc-fb70e5`, 29 September 2026) accepts the extraction. E1–E3 are confirmed, and a new misprint E4 is added and confirmed; it too is in arXiv v2. Two notes were added: on `lemma-2-6-3-ii` (E4), and on `theorem-1-2-5`, whose projectivity comes from Theorem 4.3.1(ii) rather than (i). No status, statement or route changed.

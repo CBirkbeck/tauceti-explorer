@@ -1,0 +1,22 @@
+{
+ "paper": "PAPER-TEMKIN-17",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. The items join PrimeToDegreeAlterations, the Part II of AdicCoefficientsAndComparisons proposed by PAPER-DITTMANN-POP-23 (review: accept) and PAPER-JANNSEN-16 (its route 7, accepted by its review), with the same id, title, parent and area; the title reproduces the parent's ('Adic coefficients and comparison with schemes') before the colon. L5 plans de Jong's alterations without degree control, flattening, normalization and semistable curve reduction, which the brief imports; nothing in the atlas owns Riemann–Zariski spaces of pointed schemes (DiamondEtaleCohomology:C5's Zariski–Riemann models are for strictly totally disconnected spaces), tame loci, tame distillation or char(X)-altered desingularization. The brief lists the final theorems with Cossart–Piltant as the base and carries E1's repair for Theorem 4.2.1."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. A Part II of Tau Ceti's LocalFieldsRamification, whose title ('Local fields and ramification') it reproduces; Tau Ceti roadmaps can take Part IIs, and DESIGN-LocalFieldsRamificationPartII folds this one with the FiniteLengthModules and KatoSwanConductors proposals. Ramification theory of arbitrary Krull-valued fields (henselization, the basic ramification tower, tame and purely wild extensions, Pank's theorem, composed valuations, the tameness theorem) has no atlas owner: ClassicalAdicEtaleCohomology:H1:henselian constructs affinoid henselian pairs, not henselizations of valued fields. The brief names the Mathlib inputs that exist (Valuation, ValuationRing, HenselianLocalRing, IsKrasner, which covers complete normed fields only) and states Theorem 2.6.6 as the final theorem. E4 concerns a proof in this route."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. CrystallineCohomology:CR.5:log-algebra resolves and plans prelog rings, associated log structures, charts, fs monoids, log-smooth morphisms and 'the chart criteria with torsion-order invertibility conditions'. The log structure O_X ∩ i_*O_U^× of a divisor and Kato's log regularity belong beside them."
+  }
+ ],
+ "notes": "Items. Both texts match their recorded hashes (Annals 1f4ac06f…, arXiv v2 24f67ac3…). All 30 pages were read; every numbered theorem, lemma and corollary (Theorem 1.2.5 to Theorem 4.3.1) and the remarks that carry mathematics (1.2.3, 2.3.6 inside §2.3.5–2.3.7, 2.4.7, 3.2.6, 4.3.4) are in item locators, as are the numbered paragraphs that carry definitions; Remarks 1.2.6, 3.1.4 and 4.1.3 are commentary with no statement of their own. The statements were compared with the text. The proofs of §§2–3 were checked line by line, including the reformulations of §2.4.6, the decompletion in Lemma 2.5.2, the height induction and the descent to finite transcendence degree in Theorem 2.6.6, the closedness of the non-tame loci in Lemma 3.3.4, and the separability in Theorem 3.3.6 (the item's note correctly gets it from the trivial valuation). Statuses. The four library citations resolve at Mathlib 082e2d3 and provide their items (Valuation, ValuationRing, ValuationSubring; Field.exists_primitive_element; AlgebraicGeometry.IsProper.eq_valuativeCriterion; Algebra.IsEtaleAt.exists_isStandardEtale). The five planned items hold against the full text of AdicCoefficientsAndComparisons L5 (de Jong 4.1, flattening, normalization, semistable curves) and CR.5:log-algebra (Kato's chart criterion). The missing items were searched for in both libraries: Mathlib has HenselianLocalRing and IsKrasner (complete normed fields), both already noted on their items, and no Prüfer domains, henselization of valued fields, Riemann–Zariski spaces or alterations; Tau Ceti has only local-field henselianity (TauCeti.henselianLocalRing_integer). Mistakes. E1–E3 confirmed on the page images and in arXiv v2. New E4 (misprint, confirmed): 'p = char(K̃_i)' in the proof of Lemma 2.6.3(ii) fails when p_i = 1. Two points are noted but not registered: §4.3.2 cites Theorem 4.3.1(i) for Theorem 1.2.5, whose projectivity needs (ii) (note added to theorem-1-2-5), and the proof of Lemma 3.2.10 says 'the first part of the theorem' for the lemma. The Annals page, Crossref and the arXiv listing record no correction (29 September 2026). check_paper.py passes."
+}
