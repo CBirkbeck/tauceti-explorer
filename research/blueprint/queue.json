@@ -34210,8 +34210,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-MARTIN-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3955"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3955",
+   "finishedAt": "2026-09-29T11:36:03Z"
   },
   {
    "id": "RT-PAPER-LIU-WOOD-ZUREICKBROWN-24",
