@@ -15503,11 +15503,11 @@
     "REV-RS-12~2"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII--AG2.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "claimed on GitHub issue #686"
+   "note": "released on GitHub issue #686"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentationsPartII--AG2.0",
@@ -15550,10 +15550,11 @@
     "REV-RS-12~2"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII--AG2.6.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
-   ]
+   ],
+   "note": "claimed on GitHub issue #687"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6",
