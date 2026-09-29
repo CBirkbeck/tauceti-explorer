@@ -20522,9 +20522,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeTheory--R06.5.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #969"
+   "note": "claimed on GitHub issue #969"
   },
   {
    "id": "REV-PadicHodgeTheory--R06.5",
