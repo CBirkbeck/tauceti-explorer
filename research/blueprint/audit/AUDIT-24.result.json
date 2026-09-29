@@ -121,7 +121,7 @@
        "note": "Norm_{A/R} = Norm_{S/R} ∘ Norm_{A/S} for any tower of commutative rings with A free over S, which covers the tower of finite field extensions."
       },
       {
-       "target": "Norm identities N_{K_{n+1}/K_n}(ζ_{p^{n+1}}−1)=ζ_{p^n}−1 and continuity of the norm on units",
+       "target": "Norm identities N_{K_{n+1}/K_n}(ζ_{p^{n+1}}−1)=ζ_{p^n}−1 for p odd and n≥1 (RJW's standing odd-prime branch), and continuity of the norm on units",
        "library": "partial",
        "declarations": [
         {
@@ -132,7 +132,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib computes the norm of ζ−1 only down to a base over which the whole cyclotomic polynomial is irreducible (value p); the relative step K_{n+1}/K_n and continuity of Algebra.norm are not stated."
+       "note": "The identity is the one of RJW §9 and the proof of Lemma 10.3, where p is odd throughout; it is false at p=2 (for n=1, N_{Q_2(i)/Q_2}(i−1)=2 while ζ_2−1=−2). For every prime and n≥1 the degree-p step gives N_{K_{n+1}/K_n}(ζ_{p^{n+1}}−1)=(−1)^{p+1}(ζ_{p^n}−1), equivalently N(1−ζ_{p^{n+1}})=1−ζ_{p^n}; dyadic branches elsewhere are unaffected. Mathlib computes the norm of ζ−1 only down to a base over which the whole cyclotomic polynomial is irreducible (value p), and IsPrimitiveRoot.sub_one_norm_isPrimePow further assumes a root order different from 2; the relative step K_{n+1}/K_n and continuity of Algebra.norm are not stated."
       },
       {
        "target": "Norm-compatible units U_∞ as an inverse limit; principal units as a compact Z_p-module",
@@ -1206,7 +1206,7 @@
       },
       {
        "layer": "ArithmeticGaloisDuality:R02.5",
-       "note": "Owns Selmer groups with local conditions and the dimension formula used in auxiliary-prime arguments, overlapping the core-rank Euler-characteristic formula."
+       "note": "Imports the Selmer carrier (local conditions and the mapping fibre) from SelmerIwasawaCohomology:L2 and supplies the deformation-facing identification of its H¹ with the global restriction kernel, together with the dimension formula used in auxiliary-prime arguments; that formula overlaps the core-rank Euler-characteristic formula of this layer."
       },
       {
        "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
