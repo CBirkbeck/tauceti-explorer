@@ -12,7 +12,7 @@ The machine-readable extraction is [PAPER-HANSEN-26.result.json](PAPER-HANSEN-26
 
 ## Source read
 
-The published article (14 pages, SHA-256 `533628c9…`), read completely. No arXiv version was found by title.
+The published article (14 pages, SHA-256 `533628c9…`), read completely. No arXiv version was found by title. Cambridge Core stamps each download with the downloader's IP address and time, so another download of the same 14 pages has a different hash (the review's copy: `0b2c7340…`).
 
 ## What the paper proves
 
@@ -72,9 +72,19 @@ PAPER-HANSEN-KALETHA-WEINSTEIN-22's accepted route already proposes this Part II
 | id | kind | where | finding |
 |----|------|-------|---------|
 | E1 | misprint | §2.4, p. 13 | "i*_b T_{V_μ} i_{i!}" should read i_{1!}, as in the definition before Proposition 2.7. |
+| E2 | misprint | §2.2, p. 8 | μ_m = 4mρ_G with "2ρ_G the usual sum of positive roots" is not a cocharacter; 2ρ_G must be the sum of the positive roots of Ĝ (positive coroots of G), as in Fu's definition. Added and confirmed by the independent review. |
 
 I also checked the proofs themselves and found no problems:
 - The cuspidal reduction in §2.3 is sound: the cuspidal part of an unstable function is unstable.
 - μ_m = 4mρ_G satisfies 1 ∈ B(G, μ_m), since 4mρ lies in the root lattice.
 - The Kottwitz signs in Proposition 2.7(ii) reduce to e(G) for quasi-split G*.
 - The nonvanishing argument for Theorem 1.4 holds in both its induced and elliptic cases.
+
+## Corrections by the independent review
+
+The review `REV-PAPER-HANSEN-26` (Claude Code, session `cc-fb70e5`, 29 September 2026) accepts the extraction and made these changes in place:
+
+- **E1 confirmed**, and **E2 added and confirmed**: μ_m is built from the roots of the dual group, as in Fu's paper. Item `fu-averaging` now states it that way.
+- **Routes 1 and 2** now import EndoscopicTransferAndUnitaryTraceComparison ET.1. That stage already owns regular semisimple and stable orbital integrals and matching test functions, so the stable-character transfer and the last clause of Theorem 1.4 use it instead of rebuilding it.
+- **Item `bernstein-center`** gained a note: Lemma 2.3 needs ℨ(G) as essentially compact invariant distributions, which SR.3 does not state.
+- **`sourceVersions`** records why download hashes differ.
