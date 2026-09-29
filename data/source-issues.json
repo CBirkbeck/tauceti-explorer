@@ -134962,6 +134962,25 @@
    "reviewReason": null
   },
   {
+   "id": "EulerSystemsCyclotomicMainConjecture/E3",
+   "kind": "misprint",
+   "locator": "Chapter III, proof of Theorem 2.10, printed p. 39 (author draft of the 1999 AWS notes)",
+   "printed": "The proof says that Corollary 2.8 together with Theorem 2.9(ii) establishes the corollary.",
+   "correction": "Applying Corollary 2.8 and Theorem 2.9(ii) proves the theorem.",
+   "reason": "The statement being proved is Theorem 2.10; no corollary follows it. The exact sequence 0 → E_∞^χ/C_{∞,χ} → U_∞^χ/C_{∞,χ} → Z_∞^χ → A_∞^χ → 0, with char(A_∞^χ) = char(E_∞^χ/C_{∞,χ}) (Corollary 2.8) and char(U_∞^χ/C_{∞,χ}) = L_χΛ (Theorem 2.9(ii)), gives char(Z_∞^χ) = L_χΛ, which is Theorem 2.10.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The published monograph (Annals of Mathematics Studies 147, 2000) was not available to compare; the finding is scoped to the author draft."
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Karl Rubin, Euler systems, Author draft of Annals of Mathematics Studies 147 (Princeton, 2000), distributed with the 1999 Arizona Winter School notes; chapter and section numbering agree with the monograph. Printed page = PDF page − 10.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ExponentialSumsAndCircleMethod/E1",
    "kind": "error",
    "locator": "Published §8.1 p.378 and its reuse on p.379; known source issue E2.",
