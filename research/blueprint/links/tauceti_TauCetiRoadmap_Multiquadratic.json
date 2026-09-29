@@ -8,7 +8,7 @@
       "source": "tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field",
       "target": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence",
       "confidence": "explicit",
-      "reason": "The consumer explicitly imports the Multiquadratic square-class language. The supplied prefix is the additive quotient, its ZMod 2 structure, and independence versus nonempty-subset products; the consumer adds multiplicative notation, field-map and cardinality adapters. This is not dependence on tower degree, Galois classification or genus theory. The prefix already exists at the pinned Tau Ceti baseline: reuse it, do not reimplement it. The quotient and independence equivalence hold over any field; characteristic restrictions belong to their subsequent applications.",
+      "reason": "The consumer explicitly imports the Multiquadratic square-class language. The supplied prefix is the additive quotient, its ZMod 2 structure, and independence versus nonempty-subset products (SquareClass/Basic.lean). The three generic interop adapters listed in QuadraticFormInvariants Layer 0 are also pinned imports, in TauCeti/FieldTheory/SquareClassGroup/Multiplicative.lean, not consumer additions. They are the multiplicative quotient MultiplicativeSquareClassGroup K = Kˣ ⧸ (Kˣ)² with its dictionaries multiplicativeSquareClassEquiv and elementaryTwoQuotientEquivSquareClassGroup; pushforward along field homomorphisms, RingHom.multiplicativeSquareClassMap and RingHom.squareClassMap, with identity, composition and comparison laws; and cardinality transfer, finite_multiplicativeSquareClassGroup_iff and natCard_multiplicativeSquareClassGroup. Only Field hypotheses occur, and the Nat.card equality transfers cardinality without asserting finiteness. Only the form-specific uses and comparisons remain consumer work; this does not make the whole quadratic-form layer implemented. This is not dependence on tower degree, Galois classification or genus theory. The prefix already exists at the pinned Tau Ceti baseline: reuse it, do not reimplement it. The quotient and independence equivalence hold over any field; characteristic restrictions belong to their subsequent applications.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field",
@@ -125,7 +125,7 @@
       ],
       "recommendation": "rescope",
       "detail": "Both source descriptions assign a narrow-class carrier, but Tau Ceti already supplies NumberField.NarrowClassGroup for arbitrary number fields, toClassGroup, surjectivity and toClassGroup_ker. The remaining GlobalNumberFields obligation is comparison with its ray-class carrier and unit-sign exact sequence, not a second general narrow class group.",
-      "proposal": "Both roadmaps import the pinned NumberField.NarrowClassGroup API. GlobalNumberFields owns the ray-class/narrow-modulus comparison and remaining unit-sign adapters; Multiquadratic consumes the carrier for quadratic genus theory. Correct the source wording that equates the ordinary all-places genus field with the full prime-discriminant compositum: for discriminant 12=(-4)(-3), the latter contains i and ramifies at the real places of Q(sqrt(3)). The pin already proves the ordinary genus-field property for candidateGenusFieldReal in the real case and candidateGenusField in the imaginary case. A separately packaged narrow genus-field predicate is still described as future work in the pinned GenusField.lean; do not infer its existence from the audit’s aggregate built verdict. Source files are outside this review’s edit scope.",
+      "proposal": "Both roadmaps import the pinned NumberField.NarrowClassGroup API. GlobalNumberFields owns the ray-class/narrow-modulus comparison and remaining unit-sign adapters; Multiquadratic consumes the carrier for quadratic genus theory. Correct the source wording that equates the ordinary all-places genus field with the full prime-discriminant compositum: for discriminant 12=(-4)(-3), the latter contains i and ramifies at the real places of Q(sqrt(3)). The pin already proves the ordinary genus-field property for candidateGenusFieldReal in the real case and candidateGenusField in the imaginary case. The pin also packages the narrow genus-field predicate, in TauCeti/NumberTheory/Multiquadratic/Unramified/NarrowGenusField.lean. IsNarrowGenusField (line 68) requires unramifiedness at every finite place over the chosen quadratic subfield and maximality, with no infinite-place condition. IsNarrowGenusField.exists_algEquiv_apply_eq and nonempty_algEquiv (lines 100 and 130) give root-preserving uniqueness. isNarrowGenusField_candidateGenusField (line 140) proves the predicate for candidateGenusField whenever d is squarefree and not a rational square, in both signatures. Import these rather than reimplement them. Unlike the ordinary IsGenusField, the narrow predicate's maximality quantifies over comparison fields in the same universe. The future-work sentence at GenusField.lean lines 55–57 is stale. Source files are outside this review’s edit scope.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
@@ -1283,7 +1283,7 @@
       "id": "MQ-LINK-R1",
       "owner": "tauceti:TauCetiRoadmap/Multiquadratic",
       "status": "open",
-      "request": "Correct the source README’s ordinary/narrow prime-discriminant-compositum sentence, following the pin’s imaginary candidateGenusField / real candidateGenusFieldReal distinction. Preserve Cl/Cl² versus Cl[2]. The ordinary real theorem already exists; separately packaging a narrow genus-field predicate is a distinct remaining obligation."
+      "request": "Correct the source README’s ordinary/narrow prime-discriminant-compositum sentence, following the pin’s imaginary candidateGenusField / real candidateGenusFieldReal distinction. Preserve Cl/Cl² versus Cl[2]. The ordinary real theorem already exists. The narrow genus-field predicate IsNarrowGenusField also already exists at the pin, with its candidate-field theorem isNarrowGenusField_candidateGenusField and root-preserving uniqueness (Unramified/NarrowGenusField.lean); import them, and do not reimplement the predicate. With the README, correct the stale future-work sentence at GenusField.lean lines 55–57. For positive radicands the ordinary construction uses candidateGenusFieldReal, while the narrow construction uses the full candidateGenusField."
     },
     {
       "id": "MQ-LINK-R2",
@@ -1296,6 +1296,12 @@
       "owner": "tauceti:TauCetiRoadmap/GlobalNumberFields",
       "status": "open",
       "request": "Reuse NumberField.NarrowClassGroup, toClassGroup and toClassGroup_ker. Coordinate only the remaining ray-class/narrow-modulus and unit-sign comparisons; the general carrier is already built."
+    },
+    {
+      "id": "MQ-LINK-R4",
+      "owner": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "status": "open",
+      "request": "Layer 0's 'Square-class interop' milestone (content/tau-ceti/QuadraticFormInvariants/README.md, lines 615–620) lists three adapters as work to add: the multiplicative avatar with its ZMod 2 dictionary, pushforward along a field map, and Nat.card finiteness transfer. All three are landed at the pinned baseline, in TauCeti/FieldTheory/SquareClassGroup/Multiplicative.lean. Mark that milestone as landed and keep only the form-specific uses and comparisons as remaining Layer 0 work. This is a source correction outside the link map's edit scope (RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic/2)."
     }
   ],
   "remainingWork": [],
@@ -1400,8 +1406,22 @@
         "sha256": "338916da2da0d20d1d0e14d649d90ccdbc80c00c7f577f090fe7a50f2691a98e",
         "accessed": "2026-09-21",
         "bytes": 2452
+      },
+      {
+        "file": "TauCeti/NumberTheory/Multiquadratic/Unramified/NarrowGenusField.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/Unramified/NarrowGenusField.lean",
+        "sha256": "bb1d50d8820f79047d0628023aacd18d79909cd2a61ad6fa7b84b15fe10c084f",
+        "accessed": "2026-09-29",
+        "bytes": 7959
+      },
+      {
+        "file": "TauCeti/FieldTheory/SquareClassGroup/Multiplicative.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/SquareClassGroup/Multiplicative.lean",
+        "sha256": "9d5d29847994ee730341e7e89b4c11ebab243b614baf1a49bd18a9284c838aba",
+        "accessed": "2026-09-29",
+        "bytes": 9426
       }
     ],
-    "qualification": "GenusField.lean lines 55-57 explicitly leave a narrow genus-field predicate as future work. Existing narrow class groups and candidate-field results do not imply that packaged predicate exists. No whole-library absence claim and no Lean compilation claim."
+    "qualification": "GenusField.lean lines 55–57 describe a narrow genus-field predicate as future work, but that comment is stale at the pin. Unramified/NarrowGenusField.lean defines IsNarrowGenusField with its uniqueness and candidate-field theorems, and FieldTheory/SquareClassGroup/Multiplicative.lean supplies the multiplicative square-class, field-map and cardinality adapters (corrected by RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic/1–2, 29 September 2026). No whole-library absence claim and no Lean compilation claim."
   }
 }
