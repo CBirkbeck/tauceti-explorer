@@ -1,0 +1,37 @@
+{
+ "paper": "PAPER-SCHOLZE-12",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept, with the reason corrected. The PerfectoidSpaces packet (research/blueprint/packets/PerfectoidSpaces--P0.json, merged in #3097 before this extraction) already plans all three items: Remark 5.14 as an acceptance criterion of P1/cotangent-complex-vanishing-mod-varpi, the Galois-group invariance inside P3/fontaine-wintenberger, and Faltings's form of almost purity as an acceptance criterion of P3/almost-purity-theorem. Items 2, 5 and 71 are now planned. The route stands as a source route naming planned items, which §16 allows. Sch12 is the natural source for them, and the sketch of Remark 1.11 has to be written out. The cited atlas finding PerfectoidSpaces/E23 was rejected, not recorded as a gap."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept, with the reason corrected. Item 23, the universal property Hom(Y, Spa(R,R⁺)) = Hom((R̂,R̂⁺),(𝒪_Y(Y),𝒪_Y⁺(Y))), is missing. Neither Foundations of adic spaces Layer 5 nor the AdicSpacesPartII packet states it, and it belongs in R0. Items 25 and 26 are planned by the accepted AdicSpacesPartII packet: R1/rigid-adic-comparison-functor, R1/rigid-adic-quasi-separated-equivalence, R1/rigid-adic-topos-equivalence, and R2/specialisation-map (v) with R2/raynaud-theorem (e). They are now marked planned, and the route names them as planned items for which Sch12 is a source."
+  },
+  {
+   "route": 3,
+   "verdict": "reject",
+   "reason": "Its only item, 27 (tautness and Huber's equivalence between Hausdorff strictly k-analytic Berkovich spaces and taut adic spaces locally of finite type), is planned by ClassicalAdicEtaleCohomology H3. See H3/taut-spaces-and-morphisms and H3/berkovich-taut-comparison (a) in research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json (merged in #3281), which cite Sch12 Theorem 2.24 itself. Routing it into TB.0 would plan it twice. Item 27 is now planned by ClassicalAdicEtaleCohomology:H3, and no route is needed."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. Propositions 2.27 and 2.29 (points of Spa as maps to complete affinoid fields with dense image; specialisation as inclusion of valuation rings, with the chain of generalisations of length the rank) appear in no stage text and no node of the AdicEtaleGeometry, AdicSpacesPartII or PerfectoidSpaces packets. A1 insists on field pairs (K, K⁺) of higher rank and is the right owner."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept, with the brief corrected. The coalescence is sound: BKV route 14 has the same id, title, parent and area, and its review rejected it for want of the G12 leaves (generic-base gluing, invariant divisors, integral models, approximation), which this brief supplies from §8. The Tau Ceti roadmap builds affine toric schemes only over ℂ (Layer 0 item 7), so this is an extension. Two corrections. (1) Toroidal compactifications and boundary geometry C0 already plans affine toric charts over the base rings of integral models, with face open immersions (packet nodes C0/relative-torus-embedding and C0/relative-face-open), so leaf (1) now imports them and the import list names ShimuraCompactifications C0. (2) Theorem 1.5 follows by restricting Theorem 8.5(iii) for the complete fan of ℙ¹ to 𝔸¹, so the brief no longer asks for an exhaustion argument (E9 rejected)."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. No stage or packet node defines the weight-monodromy property of a local Galois representation or proves it in mixed characteristic. DWP.5 states that it is not the mixed-characteristic conjecture, and R34.6 that the general conjecture is no assumption. The proof reduces to DWP.5's equal-characteristic theorem, so a Part II of DeligneWeightsAndPurity is right, and BKV's PadicWeightMonodromyPartII is a different (Hyodo–Kato) statement. Every import named exists: DWP.0/4/5/7, LPV.1, R01.2, LocalFieldsRamification Layer 4, P3, H5, L5, EDC.2 and EDC.3, SF.2 and SF.5. One wording fix: the Galois-group invariance is planned in P3 (P3/fontaine-wintenberger), not routed there by this paper."
+  }
+ ],
+ "notes": "Items: the 95 numbered statement headers of the published text are all covered, and the checked statements and locators match. Statuses: the 13 library items cite declarations that are all in the pinned index. Three were opened at Tau Ceti f790474 (spectralSpace_spa_of_pairOfDefinition, spa_eq_empty_iff_subsingleton_quotient_closure_zero, IsStronglyNoetherian) and match. The extraction classified against the stage texts and the 33-node PerfectoidSpaces decomposition, but blueprint packets on main already plan six of its 34 missing items. Items 2, 5 and 71 are planned by the PerfectoidSpaces packet (P1, P3), items 25 and 26 by the AdicSpacesPartII packet (R1, R2), and item 27 by the ClassicalAdicEtaleCohomology packet (H3). They are now planned, with notes naming the nodes: 13 library, 112 planned, 28 missing. Route 3 is rejected as a duplicate. The reasons of routes 1 and 2 are corrected. The briefs of routes 5 and 6 are corrected, and the notes of items 4, 120 and 145 are updated. sourceIssues: 9 confirmed. E5 is rejected: the §1 reduction is standard, and the atlas record it cites, PerfectoidSpaces/E23, was rejected for the same reason. E9 is rejected: Theorem 1.5 is Theorem 8.5(iii) for ℙ¹ restricted to 𝔸¹. No new mistake was found. For the design of route 6: the weight-monodromy predicate is Taylor–Yoshida purity of the Frobenius-semisimple Weil–Deligne representation, which PotentialModularityAndCompatibleSystems R24.5 ('strictly pure') and AutomorphicGaloisRepresentationsPartII AG2.6 also use; no stage text or packet API defines it, so the Part II should state it in that form too. check_paper.py passes."
+}
