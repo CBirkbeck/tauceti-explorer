@@ -1,0 +1,22 @@
+{
+ "paper": "PAPER-STEVENS-08",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. SmoothRepresentationsPartII (types, depth and the construction of supercuspidal representations) is the right owner of Stevens's classical-group type theory. That means self-dual lattice sequences, skew semisimple strata and characters, Heisenberg representations and β-extensions, Iwahori factorizations and Glauberman transfer, the intertwining computation and the cover argument. The route joins the accepted Fintzen candidate with byte-identical id, parent, title and area. Its brief states Proposition 6.18, Corollary 6.19 and Theorem 7.14 as Miyauchi–Stevens corrected them, and it names its imports (SR.0–SR.3, RG2.1–RG2.4, the Fintzen branch, FiniteWeilRepresentationsPartII, ET.6) correctly. The review moved six general finite-reductive-group facts to route 3, and the brief now imports them from there. It also merged three duplicate items, so the route has 281 items."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. The two finite Heisenberg statements (the cyclic-centre form of Proposition 3.5, and the isotropic induction of Corollary 5.7 and Lemma 5.12) belong with the finite Weil–Heisenberg layer of FiniteWeilRepresentationsPartII. That Part II is accepted from PAPER-FINTZEN-21 route 3, and this route copies its id, parent, title and area exactly."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Added by the review. It takes six items the extraction had put in route 1, although its own notes said SmoothRepresentationsPartII does not supply them. They are statements about finite reductive groups over a finite field: commutators of the unipotent radical of a Borel ([DM, p. 129]), characters of 𝒰 intertwined by the group, SL_2(𝔽_3), characters trivial on unipotents, Harish-Chandra irreducibility for GL_{a+b}(k), and self-dual cuspidals of GL_d(k). PROTOCOL.md §15 gives them to the single finite-reductive-group owner, ModularRepresentationsOfFiniteReductiveGroups (the Part II of Tau Ceti's Reductive algebraic groups proposed by LLHLM20, joined by PAPER-LUST-STEVENS-20 route 2). The route copies that roadmap's id, parent, title and area, and its brief states the six facts and their imports."
+  }
+ ],
+ "notes": "The published Inventiones text is paywalled, and the UEA repository has no full text of it (eprint 17017), so findings stay scoped to arXiv v2, which matches the recorded hashes; sourceVersions now records this. The review read the published Miyauchi–Stevens (Math. Ann. 358 (2014)) from the UEA repository, including its Appendix A \"Correction to the proof of [29, Theorem 7.14]\", and the known fields of E1–E4, E27 and E36 now cite it. All 42 findings are confirmed, and six entries are corrected (E5, E7, E9, E24, E31, E32). E37's known field read \"new (…)\", which the errata register files as corrected in print; it is now \"new\". Twelve new findings are added (E43–E54): eleven misprints and one gap in the proof of Lemma 5.8. Items: three duplicate pairs merged (301 into 5, 200 into 9, 304 into 253); 25 locators corrected; nine item statements corrected; eleven placeholder issue ids (E/I1–E/I8) replaced by real ids; items 201–211 use K ∩ P⁺ and ∩ M⁺. The prerequisites' DOIs all resolve, and one title now follows the journal. scripts/check_paper.py passes."
+}

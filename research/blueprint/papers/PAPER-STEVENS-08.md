@@ -41,7 +41,7 @@ These are the classical-group analogue of Bushnell–Kutzko's theory for GL_N.
 
 ## Coverage
 
-There are **306 items**:
+There were **306 items**; the independent review merged three duplicate pairs, leaving **303** (6 library, 8 planned, 289 missing). The extraction's counts:
 
 | Status | Count |
 |---|---|
@@ -83,7 +83,7 @@ Five items stated twice were merged:
 
 ## The routes
 
-**1. Part II → SmoothRepresentationsPartII** (289 items). This is *Smooth representations of local groups, Part II: types, depth and the construction of supercuspidal representations*, parent SmoothRepresentationsOfLocalGroups.
+**1. Part II → SmoothRepresentationsPartII** (289 items as extracted; 281 after the review moved six finite-group items to a third route and merged two duplicates). This is *Smooth representations of local groups, Part II: types, depth and the construction of supercuspidal representations*, parent SmoothRepresentationsOfLocalGroups.
 - **The existing proposal.** It was accepted from Fintzen's paper (route 1) and joined by Newton–Thorne and Nakamura. It is exactly this direction, but its construction is Yu's, for tame groups with p ∤ |W|. For classical groups that excludes p up to the rank, which Stevens covers.
 - **Why this is the right place now.** A route from Gan–Harris–Sawin–Beuzart-Plessis tried to add "Stevens's odd-residue-characteristic classical-group contract" to this Part II. It was rejected because that contract was unread. This extraction reads it, so the route coalesces with the existing proposal, keeping its id, title, parent, area and brief. It adds the classical-group branch.
 - **Final theorems**, stated as corrected by Miyauchi–Stevens: Proposition 6.18, Corollary 6.19 and Theorem 7.14.
@@ -107,7 +107,7 @@ The maintainer's note also mentions endo-parameters and L-packets of classical g
 
 ## Mistakes in the paper
 
-**42** mistakes are recorded under `sourceIssues`, each checked in the arXiv v2 TeX and compared with v1.
+**42** mistakes were recorded by the extraction (54 after the independent review) under `sourceIssues`, each checked in the arXiv v2 TeX and compared with v1.
 
 | Kind | Count |
 |---|---|
@@ -157,3 +157,27 @@ Every link was checked on Crossref.
 - Every planned stage id is an atlas stage id. Every library citation resolves at the pinned commits and was opened by the extracting worker.
 - Every missing item is taken by exactly one route.
 - **Existing routes:** the Part II ids, titles, parents and areas are those of the accepted Fintzen routes (routes 1 and 3 of PAPER-FINTZEN-21).
+
+## Corrections by the independent review (REV-PAPER-STEVENS-08)
+
+Claude Code, session `cc-fb70e5`, 29 September 2026. The full report is `research/blueprint/reviews/REV-PAPER-STEVENS-08.md`.
+
+- **Sources.**
+  - The Inventiones text could not be read: it is paywalled, and UEA eprint 17017 has no full text. Findings stay scoped to arXiv v2, and `sourceVersions` records this.
+  - The review read the published Miyauchi–Stevens (Math. Ann. 358 (2014)), including its Appendix A "Correction to the proof of [29, Theorem 7.14]".
+- **Route 3 added.**
+  - Six facts about finite reductive groups move from route 1 to a new `part-ii` route coalescing with ModularRepresentationsOfFiniteReductiveGroups: items 94, 95, 97, 130, 278 and 295.
+  - Route 1's brief imports them from there.
+  - All three routes are accepted.
+- **Items.**
+  - Three duplicate pairs are merged: 301 into 5, 200 into 9, and 304 into 253.
+  - 25 locators are corrected.
+  - The statements of items 27, 133, 153, 170, 173, 185 and 201–211 are corrected.
+  - Eleven placeholder ids (E/I1–E/I8) are replaced by the real ids E36–E42.
+- **Mistakes.**
+  - All 42 findings are confirmed.
+  - E5, E7, E9, E24, E31 and E32 are corrected, and E32 absorbs the slip "Lemma 7.12" for Corollary 7.12.
+  - E37's `known` field is now "new". It read "new (…)", which the errata register files as corrected in print.
+  - The `known` fields of E1–E4, E27 and E36 cite the published Miyauchi–Stevens appendix.
+  - Twelve new findings are added: E43–E54, eleven misprints and one gap in the proof of Lemma 5.8.
+- **Prerequisites.** The title of Stevens (2001) now follows the journal.
