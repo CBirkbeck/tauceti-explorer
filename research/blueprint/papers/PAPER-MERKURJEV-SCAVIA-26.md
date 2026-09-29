@@ -27,6 +27,23 @@ The extraction keeps its 133 items (11 library, 10 planned, 112 missing) and its
   - `cited-input-proofs` is transferred: the proofs of Chu–Kang Theorem 1.6, GMS03 I §5 and KMRT 18.15/28.15 belong to the Part II design jobs. These inputs are already items and prerequisites.
   - `tor-api-design` is transferred: the finite-group universal-coefficient and Tor interfaces are for the ProfiniteCohomology Part II design.
 
+## Corrections by the independent review
+
+The review `REV-PAPER-MERKURJEV-SCAVIA-26` (Claude Code, session `cc-fb70e5`, 29 September 2026) accepts the extraction and all seven routes. E1–E7 are confirmed, and a new misprint E8 is added and confirmed:
+
+| id | kind | where | finding |
+|----|------|-------|---------|
+| E8 | misprint | Example 2.2, p. 5 | The proof identifies H¹(K, Z/mn) → H¹(K, Z/m) with F^×/F^{×mn} → F^×/F^{×m} and lifts homomorphisms from Γ_F. It means K^×/K^{×mn} → K^×/K^{×m} and Γ_K for every extension K/F, since negligibility quantifies over all K/F (Proposition 2.1(2)). Added and confirmed by the independent review. |
+
+The review also made these changes:
+
+- The summary now describes the complete extraction; it still described the partial checkpoint.
+- `sourceVersions` records arXiv v1 and the author manuscript. It lists no published version, because the JAMS text was not read.
+- The note on /22 points to E8. The note on /117 says the review could not open Chu–Kang.
+- The `published-version` gap now covers E1–E8.
+
+No status, statement or route changed.
+
 ---
 
 # Merkurjev–Scavia: negligible classes and representations that do not lift

@@ -1,0 +1,42 @@
+{
+ "paper": "PAPER-MERKURJEV-SCAVIA-26",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. IG.4 plans weak and proper solutions of finite embedding problems. The continuous obstruction criterion (/8: ρ lifts exactly when ρ*α = 0 in H²(Γ_K, A)) is the basic fact about weak solutions with abelian kernel, and /3 is the planned weak-solution notion itself."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. IG.0 owns finite étale covers and their fibre functors. Galois H-algebras (/9, planned there) and their classification by Hom_cont(Γ_K, H) up to conjugacy (/10), including disconnected algebras, are the torsor form of that dictionary."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. SF.1 owns descent and algebraic-space quotients. A nonempty free invariant open of a faithful representation with its finite étale quotient U → U/H (/14) is a quotient by a free finite group action."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. SF.2 owns étale cohomology of schemes. The comparison of H^d(F(V)^H, A) with the limit over the free opens and the pullback at a K-point (/16) belong there; GM22 uses them in the generic criterion."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. R02.2 plans the Hochschild–Serre spectral sequence for a closed normal subgroup and identifies its low-degree sequence with inflation and restriction. The compatibility of inflation with corestriction (/32), the spectral sequence (/33, planned there), the transgression as −u ∪ x (/36) and the transgression–corestriction square (/37) are low-degree identities of that construction."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. No atlas layer plans negligible cohomology. The items (negligibility over a field and the generic criterion, the maps ι, γ and β, the universal-coefficient step, Lemma 4.1 in its corrected form with the counterexample to the printed one, Theorem 1.3, Corollary 4.2 and Remark 4.3) continue Tau Ceti's ProfiniteCohomology, which Tau Ceti roadmaps extend only through a Part II. The title reproduces 'Continuous cohomology of profinite groups'. make_queue folds every part-ii route with this parent into DESIGN-ProfiniteCohomologyPartII (pending), with the Harpaz–Wittenberg and Farb–Kisin–Wolfson routes, so the roadmap id here labels this paper's share of that design."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept. The reduction extensions of GL_n and B_n, the Heisenberg-group computations (Claims 5.4–5.7, including p = 3), Theorem 5.1 and Theorem 1.4 answer a lifting question for Galois representations over arbitrary fields, an embedding problem, which is the direction of InverseGaloisAndArithmeticFundamentalGroups; the number-field deformation roadmaps do not cover arbitrary base fields. The title reproduces the parent's. make_queue folds it with the Ellenberg–Venkatesh–Westerland and Klevdal–Patrikis routes into DESIGN-InverseGaloisAndArithmeticFundamentalGroupsPartII (pending)."
+  }
+ ],
+ "notes": "Independent review by Claude Code, session cc-fb70e5 (29 September 2026), of the extraction by codex-c83e7a, codex-a71f92 and cc-39fac3 (issue #1408); cc-fb70e5 appears nowhere in its files. arXiv:2410.12560v1 (SHA-256 699028a3…, matching the provenance) was read completely. The 133 items were compared with the statements and proofs; the fifteen declarations cited by the eleven library items resolve at Mathlib 082e2d3 and Tau Ceti f790474; the planned stages IG.4, IG.0 and R02.2 resolve in the atlas and plan what is claimed. Every missing item is routed exactly once. E1–E7 are confirmed, E6 and E7 on the page images; a new misprint E8 (Example 2.2 writes F where K is meant) is added and confirmed. Corrections made in place: the summary, which still described the partial checkpoint; sourceVersions (arXiv v1 and the author manuscript; no published version, since the JAMS text was not read); the notes on /22 and /117; the published-version gap. Not checked at source: the JAMS version of record (the AMS link served an HTML page), Chu–Kang Theorem 1.6 (HTTP 403), GMS03 I §5 and KMRT 18.15/28.15."
+}
