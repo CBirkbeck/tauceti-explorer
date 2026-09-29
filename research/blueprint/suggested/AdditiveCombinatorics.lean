@@ -3,6 +3,7 @@ AC.0 continuation worksheet for issue #1037.
 Original interface: ChatGPT (GPT-6 Astra Pro), gpt6-20260927-qm-7c9e.
 Source, baseline, comparison and elaboration continuation: Codex, codex-a71f92.
 AC.0 packet nodes and the packet test names tagged on the examples: Claude Code, cc-fb70e5.
+AC.1 entropy and Marton's conjecture (namespace TauCeti.EntropicPFR): Claude Code, cc-39fac3.
 Mathlib pin: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti pin: f790474821cf4256814db967cb154e7af3d0c369.
 
@@ -23,6 +24,16 @@ import Mathlib.Topology.Algebra.InfiniteSum.DiscreteConvolution
 import Mathlib.Combinatorics.Additive.Energy
 import Mathlib.Combinatorics.Additive.Convolution
 import TauCeti.RepresentationTheory.Compact.Finite
+import Mathlib.Analysis.SpecialFunctions.Log.NegMulLog
+import Mathlib.Probability.ConditionalProbability
+import Mathlib.Probability.Independence.Basic
+import Mathlib.Probability.UniformOn
+import Mathlib.MeasureTheory.Measure.Prod
+import Mathlib.MeasureTheory.Measure.Dirac.Def
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.Module.ZMod
+import Mathlib.Algebra.Group.Pointwise.Finset.Basic
+import Mathlib.Algebra.Group.Pointwise.Set.Basic
 
 noncomputable section
 open scoped BigOperators
@@ -662,3 +673,386 @@ theorem gowersNorm_eq_zero_iff (d : ℕ) (_hd : 2 ≤ d) (f : ZMod N → ℝ) :
 end GreenTao
 
 end TauCeti.AdditiveFourier
+
+open scoped Pointwise
+
+/-!
+## AC.1: entropy and Marton's conjecture in characteristic 2
+
+Checkpoint by Claude Code (cc-39fac3), following Gowers–Green–Manners–Tao, *On a conjecture of
+Marton*, Ann. of Math. 201 (2025), 515–549 (author accepted manuscript; arXiv:2311.05762v2).
+Mathlib has no Shannon entropy of random variables; the carriers below are distribution-level
+(`measureEntropy`) with random-variable wrappers. All codomains are finite.
+-/
+
+namespace TauCeti.EntropicPFR
+
+open MeasureTheory ProbabilityTheory Real
+
+section Entropy
+
+variable {Ω Ω' S T U : Type*} [MeasurableSpace Ω] [MeasurableSpace Ω']
+  [Fintype S] [MeasurableSpace S] [DiscreteMeasurableSpace S]
+  [Fintype T] [MeasurableSpace T] [DiscreteMeasurableSpace T]
+  [Fintype U] [MeasurableSpace U] [DiscreteMeasurableSpace U]
+
+/-- AC.1/shannon-entropy, data: the entropy `∑ₛ −p(s) log p(s)` of a measure on a finite type. -/
+def measureEntropy (μ : Measure S) : ℝ :=
+  ∑ s, negMulLog (μ {s}).toReal
+
+/-- AC.1/shannon-entropy. `H[X] = ∑ₓ p_X(x) log (1/p_X(x))`, natural logarithm. -/
+def entropy (X : Ω → S) (μ : Measure Ω) : ℝ :=
+  measureEntropy (μ.map X)
+
+/-- AC.1/shannon-entropy, data: `H[X|Y] = ∑_y p_Y(y) H[X | Y = y]`. -/
+def condEntropy (X : Ω → S) (Y : Ω → T) (μ : Measure Ω) : ℝ :=
+  ∑ y, (μ (Y ⁻¹' {y})).toReal * entropy X (cond μ (Y ⁻¹' {y}))
+
+/-- AC.1/shannon-entropy, data: `I[X : Y] = H[X] + H[Y] − H[X, Y]`. -/
+def mutualInfo (X : Ω → S) (Y : Ω → T) (μ : Measure Ω) : ℝ :=
+  entropy X μ + entropy Y μ - entropy (fun ω => (X ω, Y ω)) μ
+
+/-- AC.1/shannon-entropy, data: `I[X : Y | Z] = ∑_z p_Z(z) I[(X|Z=z) : (Y|Z=z)]`. -/
+def condMutualInfo (X : Ω → S) (Y : Ω → T) (Z : Ω → U) (μ : Measure Ω) : ℝ :=
+  ∑ z, (μ (Z ⁻¹' {z})).toReal * mutualInfo X Y (cond μ (Z ⁻¹' {z}))
+
+/-- AC.1/shannon-entropy, API: (A.1) `H[X] ≤ log |S|`. -/
+theorem entropy_le_log_card (X : Ω → S) (μ : Measure Ω) [IsProbabilityMeasure μ]
+    (hX : Measurable X) : entropy X μ ≤ Real.log (Fintype.card S) := by
+  sorry
+
+/-- AC.1/shannon-entropy, API: (A.1), equality exactly for the uniform distribution. -/
+theorem measureEntropy_eq_log_card_iff (μ : Measure S) [IsProbabilityMeasure μ] :
+    measureEntropy μ = Real.log (Fintype.card S) ↔ μ = uniformOn Set.univ := by
+  sorry
+
+/-- AC.1/shannon-entropy, API: (A.2) some value has probability at least `e^{−H}`. -/
+theorem exists_measure_singleton_ge (μ : Measure S) [IsProbabilityMeasure μ] :
+    ∃ s, Real.exp (-measureEntropy μ) ≤ (μ {s}).toReal := by
+  sorry
+
+/-- AC.1/shannon-entropy, API: the chain rule (A.3) `H[X, Y] = H[X|Y] + H[Y]`. -/
+theorem entropy_pair_eq_condEntropy_add (X : Ω → S) (Y : Ω → T) (μ : Measure Ω)
+    [IsProbabilityMeasure μ] (hX : Measurable X) (hY : Measurable Y) :
+    entropy (fun ω => (X ω, Y ω)) μ = condEntropy X Y μ + entropy Y μ := by
+  sorry
+
+/-- AC.1/shannon-entropy, API: (A.5) conditioning does not increase entropy. -/
+theorem condEntropy_le_entropy (X : Ω → S) (Y : Ω → T) (μ : Measure Ω) [IsProbabilityMeasure μ]
+    (hX : Measurable X) (hY : Measurable Y) : condEntropy X Y μ ≤ entropy X μ := by
+  sorry
+
+/-- AC.1/shannon-entropy, API: (A.4) `H[X, Y] = H[X] + H[Y]` iff `X`, `Y` are independent. -/
+theorem entropy_pair_eq_add_iff (X : Ω → S) (Y : Ω → T) (μ : Measure Ω) [IsProbabilityMeasure μ]
+    (hX : Measurable X) (hY : Measurable Y) :
+    entropy (fun ω => (X ω, Y ω)) μ = entropy X μ + entropy Y μ ↔ IndepFun X Y μ := by
+  sorry
+
+/-- AC.1/shannon-entropy, API: submodularity (A.6) `H[X|Y,Z] ≤ H[X|Z]`. -/
+theorem condEntropy_pair_le (X : Ω → S) (Y : Ω → T) (Z : Ω → U) (μ : Measure Ω)
+    [IsProbabilityMeasure μ] (hX : Measurable X) (hY : Measurable Y) (hZ : Measurable Z) :
+    condEntropy X (fun ω => (Y ω, Z ω)) μ ≤ condEntropy X Z μ := by
+  sorry
+
+/-- AC.1/shannon-entropy, API: (A.8)–(A.9) conditional mutual information is nonnegative. -/
+theorem condMutualInfo_nonneg (X : Ω → S) (Y : Ω → T) (Z : Ω → U) (μ : Measure Ω)
+    [IsProbabilityMeasure μ] (hX : Measurable X) (hY : Measurable Y) (hZ : Measurable Z) :
+    0 ≤ condMutualInfo X Y Z μ := by
+  sorry
+
+/-- AC.1/shannon-entropy, API: an injective relabelling does not change entropy. -/
+theorem entropy_comp_of_injective (X : Ω → S) (μ : Measure Ω) (f : S → T)
+    (hf : Function.Injective f) (hX : Measurable X) : entropy (f ∘ X) μ = entropy X μ := by
+  sorry
+
+/-- AC.1/shannon-entropy, API: the uniform distribution on a nonempty set `s` has entropy
+`log |s|`. -/
+theorem measureEntropy_uniformOn (s : Finset S) (hs : s.Nonempty) :
+    measureEntropy (uniformOn (s : Set S)) = Real.log s.card := by
+  sorry
+
+example (μ : Measure Ω) [IsProbabilityMeasure μ] (s : S) : entropy (fun _ : Ω => s) μ = 0 := by
+  sorry
+
+example : measureEntropy (uniformOn (Set.univ : Set Bool)) = Real.log 2 := by
+  sorry
+
+example (X : Ω → S) (μ : Measure Ω) [IsProbabilityMeasure μ] (hX : Measurable X) :
+    mutualInfo X X μ = entropy X μ := by
+  sorry
+
+example (X : Ω → S) (Y : Ω → T) (μ : Measure Ω) [IsProbabilityMeasure μ] (hX : Measurable X)
+    (hY : Measurable Y) (h : IndepFun X Y μ) : mutualInfo X Y μ = 0 := by
+  sorry
+
+end Entropy
+
+section Distance
+
+variable {Ω Ω' T T' : Type*} [MeasurableSpace Ω] [MeasurableSpace Ω']
+  [Fintype T] [MeasurableSpace T] [DiscreteMeasurableSpace T]
+  [Fintype T'] [MeasurableSpace T'] [DiscreteMeasurableSpace T']
+  {G : Type*} [AddCommGroup G] [Fintype G] [MeasurableSpace G] [DiscreteMeasurableSpace G]
+
+/-- AC.1/entropic-ruzsa-distance. `d[μ; ν] = H[X′ − Y′] − H[X′]/2 − H[Y′]/2` for independent `X′ ∼ μ`,
+`Y′ ∼ ν`, computed from the distributions (1.1). -/
+def rdist (μ ν : Measure G) : ℝ :=
+  measureEntropy ((μ.prod ν).map (fun p : G × G => p.1 - p.2)) -
+    measureEntropy μ / 2 - measureEntropy ν / 2
+
+/-- AC.1/entropic-ruzsa-distance, data: the conditional distance (A.14),
+`d[X|Z; Y|W] = ∑_{z,w} p_Z(z) p_W(w) d[(X|Z=z); (Y|W=w)]`. -/
+def condRdist (X : Ω → G) (Z : Ω → T) (μ : Measure Ω) (Y : Ω' → G) (W : Ω' → T')
+    (μ' : Measure Ω') : ℝ :=
+  ∑ z, ∑ w, (μ (Z ⁻¹' {z})).toReal * (μ' (W ⁻¹' {w})).toReal *
+    rdist ((cond μ (Z ⁻¹' {z})).map X) ((cond μ' (W ⁻¹' {w})).map Y)
+
+/-- AC.1/entropic-ruzsa-distance, API: symmetry. -/
+theorem rdist_symm (μ ν : Measure G) [IsProbabilityMeasure μ] [IsProbabilityMeasure ν] :
+    rdist μ ν = rdist ν μ := by
+  sorry
+
+/-- AC.1/entropic-ruzsa-distance, API: nonnegativity, from (A.11). -/
+theorem rdist_nonneg (μ ν : Measure G) [IsProbabilityMeasure μ] [IsProbabilityMeasure ν] :
+    0 ≤ rdist μ ν := by
+  sorry
+
+/-- AC.1/entropic-ruzsa-distance, API: (A.12) `|H[X] − H[Y]| ≤ 2 d[X; Y]`. -/
+theorem abs_measureEntropy_sub_le (μ ν : Measure G) [IsProbabilityMeasure μ]
+    [IsProbabilityMeasure ν] : |measureEntropy μ - measureEntropy ν| ≤ 2 * rdist μ ν := by
+  sorry
+
+/-- AC.1/entropic-ruzsa-distance, API: for independent `X`, `Y` on one space,
+`d[X; Y] = H[X − Y] − H[X]/2 − H[Y]/2`. -/
+theorem rdist_map_eq_of_indepFun (X Y : Ω → G) (μ : Measure Ω) [IsProbabilityMeasure μ]
+    (hX : Measurable X) (hY : Measurable Y) (h : IndepFun X Y μ) :
+    rdist (μ.map X) (μ.map Y) = entropy (X - Y) μ - entropy X μ / 2 - entropy Y μ / 2 := by
+  sorry
+
+/-- AC.1/entropic-ruzsa-distance, API: translation invariance. -/
+theorem rdist_map_add_const (μ ν : Measure G) [IsProbabilityMeasure μ] [IsProbabilityMeasure ν]
+    (a : G) : rdist (μ.map (· + a)) ν = rdist μ ν := by
+  sorry
+
+/-- AC.1/entropic-ruzsa-distance, API: a uniform distribution on a subgroup is at distance zero
+from itself. -/
+theorem rdist_uniformOn_self (H : AddSubgroup G) :
+    rdist (uniformOn (H : Set G)) (uniformOn (H : Set G)) = 0 := by
+  sorry
+
+example : rdist (Measure.dirac (0 : G)) (Measure.dirac 0) = 0 := by
+  sorry
+
+example (H : AddSubgroup G) (a b : G) :
+    rdist ((uniformOn (H : Set G)).map (· + a)) ((uniformOn (H : Set G)).map (· + b)) = 0 := by
+  sorry
+
+example :
+    rdist (uniformOn ({0, Pi.single 0 1, Pi.single 1 1} : Set (Fin 2 → ZMod 2)))
+        (uniformOn ({0, Pi.single 0 1, Pi.single 1 1} : Set (Fin 2 → ZMod 2))) =
+      2 / 3 * Real.log (3 / 2) := by
+  sorry
+
+/-- AC.1/entropic-ruzsa-triangle. The entropic Ruzsa triangle inequality (A.13). -/
+theorem rdist_triangle (μ ν ρ : Measure G) [IsProbabilityMeasure μ] [IsProbabilityMeasure ν]
+    [IsProbabilityMeasure ρ] : rdist μ ν ≤ rdist μ ρ + rdist ρ ν := by
+  sorry
+
+/-- AC.1/madiman-inequality. Lemma A.1, `H[X+Y+Z] − H[X+Y] ≤ H[Y+Z] − H[Y]` for independent
+`X, Y, Z`. -/
+theorem entropy_add_add_sub_le (X Y Z : Ω → G) (μ : Measure Ω) [IsProbabilityMeasure μ]
+    (hX : Measurable X) (hY : Measurable Y) (hZ : Measurable Z)
+    (h : iIndepFun ![X, Y, Z] μ) :
+    entropy (X + Y + Z) μ - entropy (X + Y) μ ≤ entropy (Y + Z) μ - entropy Y μ := by
+  sorry
+
+/-- AC.1/entropic-bsg. Lemma A.2, the entropic Balog–Szemerédi–Gowers lemma. -/
+theorem sum_rdist_cond_le (A B : Ω → G) (μ : Measure Ω) [IsProbabilityMeasure μ]
+    (hA : Measurable A) (hB : Measurable B) :
+    ∑ z, (μ ((A + B) ⁻¹' {z})).toReal *
+        rdist ((cond μ ((A + B) ⁻¹' {z})).map A) ((cond μ ((A + B) ⁻¹' {z})).map B) ≤
+      3 * mutualInfo A B μ + 2 * entropy (A + B) μ - entropy A μ - entropy B μ := by
+  sorry
+
+/-- AC.1/fibring-lemma. Proposition 4.1 with its explicit error term, for independent
+`Z₁`, `Z₂`. -/
+theorem rdist_eq_fibring {H H' : Type*} [AddCommGroup H] [Fintype H] [MeasurableSpace H]
+    [DiscreteMeasurableSpace H] [AddCommGroup H'] [Fintype H'] [MeasurableSpace H']
+    [DiscreteMeasurableSpace H'] (f : H →+ H') (Z₁ Z₂ : Ω → H) (μ : Measure Ω)
+    [IsProbabilityMeasure μ] (h₁ : Measurable Z₁) (h₂ : Measurable Z₂) (h : IndepFun Z₁ Z₂ μ) :
+    rdist (μ.map Z₁) (μ.map Z₂) =
+      rdist (μ.map (f ∘ Z₁)) (μ.map (f ∘ Z₂)) + condRdist Z₁ (f ∘ Z₁) μ Z₂ (f ∘ Z₂) μ +
+        condMutualInfo (Z₁ - Z₂) (fun ω => (f (Z₁ ω), f (Z₂ ω))) (f ∘ (Z₁ - Z₂)) μ := by
+  sorry
+
+/-- AC.1/fibring-corollary. Corollary 4.2 for four independent random variables. -/
+theorem fibring_four (Y₁ Y₂ Y₃ Y₄ : Ω → G) (μ : Measure Ω) [IsProbabilityMeasure μ]
+    (hm : ∀ i, Measurable (![Y₁, Y₂, Y₃, Y₄] i)) (h : iIndepFun ![Y₁, Y₂, Y₃, Y₄] μ) :
+    rdist (μ.map (Y₁ - Y₃)) (μ.map (Y₂ - Y₄)) + condRdist Y₁ (Y₁ - Y₃) μ Y₂ (Y₂ - Y₄) μ +
+        condMutualInfo (Y₁ - Y₂) (Y₂ - Y₄) (Y₁ - Y₂ - Y₃ + Y₄) μ =
+      rdist (μ.map Y₁) (μ.map Y₂) + rdist (μ.map Y₃) (μ.map Y₄) := by
+  sorry
+
+/-- AC.1/conditional-distance-bound. Lemma 5.2. -/
+theorem condRdist_le (X : Ω → G) (Z : Ω → T) (μ : Measure Ω) [IsProbabilityMeasure μ]
+    (Y : Ω' → G) (W : Ω' → T') (μ' : Measure Ω') [IsProbabilityMeasure μ']
+    (hX : Measurable X) (hZ : Measurable Z) (hY : Measurable Y) (hW : Measurable W) :
+    condRdist X Z μ Y W μ' ≤
+      rdist (μ.map X) (μ'.map Y) + mutualInfo X Z μ / 2 + mutualInfo Y W μ' / 2 := by
+  sorry
+
+/-- AC.1/distance-sum-bounds. Lemma 5.3, (5.6) and (5.7), for `Y`, `Z` independent. -/
+theorem rdist_sub_sub_le (X : Ω' → G) (μ' : Measure Ω') [IsProbabilityMeasure μ'] (Y Z : Ω → G)
+    (μ : Measure Ω) [IsProbabilityMeasure μ] (hX : Measurable X) (hY : Measurable Y)
+    (hZ : Measurable Z) (h : IndepFun Y Z μ) :
+    rdist (μ'.map X) (μ.map (Y - Z)) - rdist (μ'.map X) (μ.map Y) ≤
+        (entropy (Y - Z) μ - entropy Y μ) / 2 ∧
+      condRdist X (fun _ => ()) μ' Y (Y - Z) μ - rdist (μ'.map X) (μ.map Y) ≤
+        (entropy (Y - Z) μ - entropy Z μ) / 2 := by
+  sorry
+
+/-- AC.1/distance-fibre-sum-bound. Lemma 7.1, for `Y`, `Z`, `Z'` independent. -/
+theorem condRdist_sub_sub_le (X : Ω' → G) (μ' : Measure Ω') [IsProbabilityMeasure μ']
+    (Y Z Z' : Ω → G) (μ : Measure Ω) [IsProbabilityMeasure μ] (hX : Measurable X)
+    (hm : ∀ i, Measurable (![Y, Z, Z'] i)) (h : iIndepFun ![Y, Z, Z'] μ) :
+    condRdist X (fun _ => ()) μ' (Y - Z) (Y - Z - Z') μ - rdist (μ'.map X) (μ.map Y) ≤
+      (entropy (Y - Z - Z') μ + entropy (Y - Z) μ - entropy Y μ - entropy Z' μ) / 2 := by
+  sorry
+
+/-- AC.1/hundred-percent-case. Lemma 2.2: distance zero forces translates of the uniform
+distribution on one subgroup. -/
+theorem exists_subgroup_of_rdist_eq_zero (μ ν : Measure G) [IsProbabilityMeasure μ]
+    [IsProbabilityMeasure ν] (h : rdist μ ν = 0) :
+    ∃ (H : AddSubgroup G) (a b : G), μ = (uniformOn (H : Set G)).map (· + a) ∧
+      ν = (uniformOn (H : Set G)).map (· + b) := by
+  sorry
+
+end Distance
+
+section Marton
+
+variable {Ω : Type*} [MeasurableSpace Ω]
+  {G : Type*} [AddCommGroup G] [Module (ZMod 2) G] [Fintype G] [MeasurableSpace G]
+  [DiscreteMeasurableSpace G]
+
+/-- AC.1/tau-functional. (2.1): `τ[X₁; X₂] = d[X₁; X₂] + η d[X₁⁰; X₁] + η d[X₂⁰; X₂]`. -/
+def tau (η : ℝ) (ρ₁ ρ₂ μ₁ μ₂ : Measure G) : ℝ :=
+  rdist μ₁ μ₂ + η * rdist ρ₁ μ₁ + η * rdist ρ₂ μ₂
+
+/-- AC.1/tau-functional, data: `(μ₁, μ₂)` minimizes `τ` over pairs of probability measures. -/
+def IsTauMinimizer (η : ℝ) (ρ₁ ρ₂ μ₁ μ₂ : Measure G) : Prop :=
+  IsProbabilityMeasure μ₁ ∧ IsProbabilityMeasure μ₂ ∧
+    ∀ ν₁ ν₂ : Measure G, IsProbabilityMeasure ν₁ → IsProbabilityMeasure ν₂ →
+      tau η ρ₁ ρ₂ μ₁ μ₂ ≤ tau η ρ₁ ρ₂ ν₁ ν₂
+
+/-- AC.1/tau-functional, API: a minimizer exists (compactness of the simplex). -/
+theorem exists_isTauMinimizer (η : ℝ) (ρ₁ ρ₂ : Measure G) :
+    ∃ μ₁ μ₂ : Measure G, IsTauMinimizer η ρ₁ ρ₂ μ₁ μ₂ := by
+  sorry
+
+/-- AC.1/tau-functional, API: (2.3) the swapped reference pair. -/
+theorem tau_swap (η : ℝ) (ρ₁ ρ₂ : Measure G) [IsProbabilityMeasure ρ₁]
+    [IsProbabilityMeasure ρ₂] : tau η ρ₁ ρ₂ ρ₂ ρ₁ = (1 + 2 * η) * rdist ρ₁ ρ₂ := by
+  sorry
+
+/-- AC.1/tau-functional, API: the conditioned form (3.15) of minimality. -/
+theorem IsTauMinimizer.condRdist_ge {η : ℝ} {ρ₁ ρ₂ μ₁ μ₂ : Measure G} (hη : 0 ≤ η)
+    (hmin : IsTauMinimizer η ρ₁ ρ₂ μ₁ μ₂) {Ω₁ Ω₂ T₁ T₂ : Type*} [MeasurableSpace Ω₁]
+    [MeasurableSpace Ω₂] [Fintype T₁] [MeasurableSpace T₁] [DiscreteMeasurableSpace T₁]
+    [Fintype T₂] [MeasurableSpace T₂] [DiscreteMeasurableSpace T₂]
+    (X₁ : Ω₁ → G) (Y₁ : Ω₁ → T₁) (ν₁ : Measure Ω₁) [IsProbabilityMeasure ν₁]
+    (X₂ : Ω₂ → G) (Y₂ : Ω₂ → T₂) (ν₂ : Measure Ω₂) [IsProbabilityMeasure ν₂]
+    (h₁ : Measurable X₁) (h₁' : Measurable Y₁) (h₂ : Measurable X₂) (h₂' : Measurable Y₂) :
+    rdist μ₁ μ₂ - η * (condRdist id (fun _ => ()) ρ₁ X₁ Y₁ ν₁ - rdist ρ₁ μ₁) -
+        η * (condRdist id (fun _ => ()) ρ₂ X₂ Y₂ ν₂ - rdist ρ₂ μ₂) ≤
+      condRdist X₁ Y₁ ν₁ X₂ Y₂ ν₂ := by
+  sorry
+
+example (η : ℝ) (H : AddSubgroup G) :
+    tau η (uniformOn (H : Set G)) (uniformOn (H : Set G)) (uniformOn (H : Set G))
+      (uniformOn (H : Set G)) = 0 := by
+  sorry
+
+example (η : ℝ) (ρ₁ ρ₂ : Measure G) : ¬ IsTauMinimizer η ρ₁ ρ₂ 0 0 := by
+  sorry
+
+example (η : ℝ) (hη : 0 ≤ η) (ρ₁ ρ₂ μ₁ μ₂ : Measure G) [IsProbabilityMeasure ρ₁]
+    [IsProbabilityMeasure ρ₂] [IsProbabilityMeasure μ₁] [IsProbabilityMeasure μ₂] :
+    0 ≤ tau η ρ₁ ρ₂ μ₁ μ₂ := by
+  sorry
+
+/-- The setting of Sections 5–7: independent `X₁, X₂, X̃₁, X̃₂` with `X₁, X̃₁ ∼ μ₁` and
+`X₂, X̃₂ ∼ μ₂`, where `(μ₁, μ₂)` minimizes `τ` for `η = 1/9`. -/
+structure MinimizerSetup (ρ₁ ρ₂ : Measure G) (Ω : Type*) [MeasurableSpace Ω] where
+  μ : Measure Ω
+  isProb : IsProbabilityMeasure μ
+  μ₁ : Measure G
+  μ₂ : Measure G
+  min : IsTauMinimizer (1 / 9) ρ₁ ρ₂ μ₁ μ₂
+  X₁ : Ω → G
+  X₂ : Ω → G
+  X₁' : Ω → G
+  X₂' : Ω → G
+  meas : ∀ i, Measurable (![X₁, X₂, X₁', X₂'] i)
+  indep : iIndepFun ![X₁, X₂, X₁', X₂'] μ
+  law₁ : μ.map X₁ = μ₁
+  law₂ : μ.map X₂ = μ₂
+  law₁' : μ.map X₁' = μ₁
+  law₂' : μ.map X₂' = μ₂
+
+/-- AC.1/first-estimate. Section 5: `I₁ ≤ 2ηk` (3.13) and the entropy bound (5.8). -/
+theorem first_estimate {ρ₁ ρ₂ : Measure G} (P : MinimizerSetup ρ₁ ρ₂ Ω) :
+    let k := rdist P.μ₁ P.μ₂
+    let S := P.X₁ + P.X₂ + P.X₁' + P.X₂'
+    let I₁ := condMutualInfo (P.X₁ + P.X₂) (P.X₁' + P.X₂) S P.μ
+    I₁ ≤ 2 * (1 / 9) * k ∧
+      entropy S P.μ ≤ entropy P.X₁ P.μ / 2 + entropy P.X₂ P.μ / 2 + (2 + 1 / 9) * k - I₁ := by
+  sorry
+
+/-- AC.1/second-estimate. Section 6: the bound (3.14) for `I₂`. -/
+theorem second_estimate {ρ₁ ρ₂ : Measure G} (P : MinimizerSetup ρ₁ ρ₂ Ω) :
+    let η : ℝ := 1 / 9
+    let k := rdist P.μ₁ P.μ₂
+    let S := P.X₁ + P.X₂ + P.X₁' + P.X₂'
+    let I₁ := condMutualInfo (P.X₁ + P.X₂) (P.X₁' + P.X₂) S P.μ
+    condMutualInfo (P.X₁ + P.X₂) (P.X₁ + P.X₁') S P.μ ≤
+      2 * η * k + 2 * η * (2 * η * k - I₁) / (1 - η) := by
+  sorry
+
+/-- AC.1/endgame-lemma. Lemma 7.2, for `T₁ + T₂ + T₃ = 0`. -/
+theorem exists_endgame_pair (ρ₁ ρ₂ μ₁ μ₂ : Measure G) (η : ℝ) (hη : 0 ≤ η)
+    (T₁ T₂ T₃ : Ω → G) (μ : Measure Ω) [IsProbabilityMeasure μ]
+    (hm : ∀ i, Measurable (![T₁, T₂, T₃] i)) (hsum : T₁ + T₂ + T₃ = 0) :
+    let δ := mutualInfo T₁ T₂ μ + mutualInfo T₁ T₃ μ + mutualInfo T₂ T₃ μ
+    let T := ![T₁, T₂, T₃]
+    ∃ ν₁ ν₂ : Measure G, IsProbabilityMeasure ν₁ ∧ IsProbabilityMeasure ν₂ ∧
+      rdist ν₁ ν₂ + η * (rdist ρ₁ ν₁ - rdist ρ₁ μ₁) + η * (rdist ρ₂ ν₂ - rdist ρ₂ μ₂) ≤
+        δ + η / 3 * (δ + ∑ j, ((rdist ρ₁ (μ.map (T j)) - rdist ρ₁ μ₁) +
+          (rdist ρ₂ (μ.map (T j)) - rdist ρ₂ μ₂))) := by
+  sorry
+
+/-- AC.1/tau-decrement. Proposition 2.1, in contrapositive form: a `τ`-minimizer for `η = 1/9`
+has distance zero. -/
+theorem rdist_eq_zero_of_isTauMinimizer (ρ₁ ρ₂ μ₁ μ₂ : Measure G)
+    (hmin : IsTauMinimizer (1 / 9) ρ₁ ρ₂ μ₁ μ₂) : rdist μ₁ μ₂ = 0 := by
+  sorry
+
+/-- AC.1/entropic-pfr. Gowers–Green–Manners–Tao Theorem 1.8. -/
+theorem entropic_pfr (ρ₁ ρ₂ : Measure G) [IsProbabilityMeasure ρ₁] [IsProbabilityMeasure ρ₂] :
+    ∃ H : AddSubgroup G,
+      rdist ρ₁ (uniformOn (H : Set G)) + rdist ρ₂ (uniformOn (H : Set G)) ≤
+          11 * rdist ρ₁ ρ₂ ∧
+        rdist ρ₁ (uniformOn (H : Set G)) ≤ 6 * rdist ρ₁ ρ₂ ∧
+        rdist ρ₂ (uniformOn (H : Set G)) ≤ 6 * rdist ρ₁ ρ₂ := by
+  sorry
+
+/-- AC.1/marton-conjecture. Gowers–Green–Manners–Tao Theorem 1.2: Marton's conjecture
+(the polynomial Freiman–Ruzsa conjecture) in characteristic 2, with `C = 12`. -/
+theorem pfr [DecidableEq G] (A : Finset G) (hA : A.Nonempty) (K : ℝ) (hK : ((A + A).card : ℝ) ≤ K * A.card) :
+    ∃ (H : AddSubgroup G) (c : Finset G), (c.card : ℝ) ≤ 2 * K ^ 12 ∧
+      Nat.card H ≤ A.card ∧ (A : Set G) ⊆ (c : Set G) + (H : Set G) := by
+  sorry
+
+end Marton
+
+end TauCeti.EntropicPFR
