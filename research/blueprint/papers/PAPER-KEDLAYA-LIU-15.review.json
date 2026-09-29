@@ -1,0 +1,132 @@
+{
+ "paper": "PAPER-KEDLAYA-LIU-15",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept as corrected. IG.0 builds the profinite fundamental group of the finite étale site ('Construct the profinite automorphism group of the geometric fibre functor on finite étale covers'). No stage or packet node plans étale ℤ_p-, isogeny ℤ_p- and ℚ_p-local systems on schemes or their description by continuous representations, and the review's search found none. §1.4's local systems (items 22–26, 29) and Lemma 1.2.3 (item 7, of which A1/etale-diagonal plans only the diagonal idempotent) are the next step on IG.0's objects. De Jong's fundamental groups of non-archimedean analytic spaces (item 282) are analytic, not scheme-theoretic, and moved to route 21 with the other analytic local systems."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept as corrected. The extraction sent the pro-étale site of a scheme and Bhatt–Scholze's Theorem 1.4.11 to EnhancedDerivedSheaves E2, which only proves the replete-topos results of the same paper. SchemeAndStackFoundations SF.2 owns them: 'Own Zariski, etale, fppf and pro-etale site comparisons ... construct sheaf cohomology ... distinguish torsion, l-adic and rational coefficients in every export'. The route now targets SF.2: item 27 (the site) is planned there and named, and item 28 (local systems as locally free F_{ℤ_p}-modules) is missing. It also takes the two scheme-cohomology inputs of §§8.7–8.8 from route 23: Čech computation of quasicoherent cohomology on a separated scheme (item 344; Tau Ceti JacobianChallenge Layer B plans it only for coherent sheaves over a field) and Serre's criterion for affineness (item 345)."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. PG.0 defines étale φ-modules and semilinear φ- and Γ-actions ('Define an étale φ-module by the appropriate φ-linearization plus a stable lattice'). §1.5's general conventions (item 31: every finitely generated φ-module is a quotient of a free one, with finding E3 from the authors' errata) belong with them. Item 30 (φ-cohomology as Ext over S{φ}) is only weakly planned; its note now records that, and the corrected Ext computation of finding E95."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. TB.0 constructs the Berkovich spectrum and 'Compare[s] a strictly affinoid algebra with its Huber adic spectrum ... proving continuity and the correct quotient topology'. The TB packet lists the general adic comparison as remaining TB.0 work (gap adic-comparison). Kedlaya–Liu's comparison for any Banach ring with a uniform unit (items 57, 59, 66, 68, 74) and the real quotient and taut spaces of §8.2 (items 250–252) are its general form. Item 57 now carries the correction of finding E101, and item 66 the uniform-unit hypothesis."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept as corrected. Many §§2.2–2.8 items were already written as packet nodes, often citing Kedlaya–Liu by number: R0/banach-completed-tensor-field-exactness (Lemma 2.2.9), R0/reduced-affinoid-supremum-norm, R1/gerritzen-grauert (Theorem 2.5.11), R1/classical-points-constructible-density (Lemma 2.5.12, Corollary 2.5.13), R3/glueing-square, R3/matrix-factorisation-strict-surjection, R3/sheafy-tate-acyclicity-and-kiehl-gluing (Theorem 2.7.7), A3/rational-inclusion-reduction (Proposition 2.4.24) and A1/affinoid-system-approximation. Items 48, 83 and 98–102 are now planned and stay named. Items 81, 85–87 and 93 are planned at A3, R1 and A1 and left the route; 91, 94 and 95 moved to route 6. What remains missing (items 34, 37, 45, 49, 50, 88, 92, 104, 105, 262, 263) lies in R0's and R3's directions: norms on finite projective modules and the canonical norm class over an arbitrary Banach ring, completed tensor products over analytic fields, projectivity over uniform rings, and Theorem 8.2.22(a)–(b) beyond the sheafy finite étale case. R3's stage text says only 'Construct locally free sheaves', but its packet nodes are explicitly non-noetherian."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept as corrected. A1 owns finite étale algebras over complete Tate pairs, the étale sites and 'the pro-étale extension' with Scholze's corrected covering definition. Items 96 and 97 (Proposition 2.6.8, Theorem 2.6.9) are now planned by A1's packet nodes, which cite them, and stay named. Item 110 moved to route 15: A1 says 'Quotient/uniformization comparison of finite étale algebras belongs to A4', and the node A4/uniform-completion-etale-comparison plans it. The route gained items 91, 94 and 95 (clopen sets and idempotents, finite-stage approximation), which A1/affinoid-system-approximation plans only in part. It also gained Lemma 8.2.17(b) for an arbitrary preadic space (item 256) and Lemmas 9.2.5 and 9.2.8 on the paper's pro-étale site (items 364, 367), which the extraction had counted as planned from special cases. The pro-étale site of an arbitrary preadic space (§9.1) extends A1's site in its own direction. Scholze's corrigendum touches nothing that §§9.1–9.2 use (checked by the review)."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept as corrected. LI.1 owns general commutative algebra and names 'finite presentation, flatness ... determinants and Fitting ideals'. The pointwise-free and Zariski-local characterizations of finite projective modules (item 2), Fitting ideals (item 3), idempotents modulo the Jacobson radical (item 8) and faithfully flat descent of projectivity (item 16) are missing from Mathlib, and item 16 is recorded as missing in Mathlib's own descent file. The trace-pairing criterion (item 6) is planned by the packet node AdicSpacesPartII:R3/etale-iff-trace-pairing-perfect and left the route."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accept. LI.2 assigns 'convergence, compactness and continuity lemmas before arithmetic applications'. Remark 2.3.15(c)–(e) on inverse limits of compact Hausdorff spaces (item 61, with the corrected choice of stage of finding E5) fits there. Mathlib has the clopen statement only for profinite limits."
+  },
+  {
+   "route": 9,
+   "verdict": "reject",
+   "reason": "Reject: nothing in the route is missing. Its only item, the equivalence of the factorization-lifting and root-lifting definitions of henselian pairs (item 11, Remark 1.2.7), is planned by the packet node ClassicalAdicEtaleCohomology:H1:henselian/henselian-pair-characterisations ('(1) Mathlib's HenselianRing A I ... (2) (Stacks Definition 15.11.1) ... every factorisation ... lifts'). P5 uses Gabber–Ramero's approximation theorem and does not own it."
+  },
+  {
+   "route": 10,
+   "verdict": "accept",
+   "reason": "Accept. P1 names Kedlaya–Liu as a primary source and plans the correspondence (items 134, 145, 155, 156 named as planned). The missing items (115, 141, 159, 165) are the Banach-setting functoriality its equivalence of categories needs: strict maps and quotients (Remark 3.1.6, with finding E115), density under tilting (Lemma 3.4.7, item 141 now stated with 'dense intersection'), strictness (Proposition 3.6.9; P1/strict-inclusions-under-tilting covers only strict inclusions) and completion along an ideal (Proposition 3.6.19, proved in part II). Item 163 moved to route 11, being planned at P2. Items 134, 155 and 156 must carry z̄₀ ∈ R^× (findings E23 and E114)."
+  },
+  {
+   "route": 11,
+   "verdict": "accept",
+   "reason": "Accept. P2 plans perfectoid spaces, rational localization and the sheaf theorem 'with the Sch12/KL15 proofs'. Proposition 3.1.16 (item 121), Theorem 3.6.17's dense-image criterion (item 163, now planned at P2/perfectoid-dense-image-criterion and named) and the global correspondence of Theorem 8.3.5 (item 271, with the unit condition of finding E57) belong there. So does the new item 410 (Remark 3.6.27), the characteristic-0 failure of the covering conjecture, which the paper asserts without proof."
+  },
+  {
+   "route": 12,
+   "verdict": "accept",
+   "reason": "Accept. P3 proves almost purity and étale tilting 'with the finite étale descent/approximation steps used by the Sch12/KL15 proof'. The missing characteristic-p and descent inputs (items 120(a), 149–151, 167, 203) belong there. Item 114 is planned by P3/etale-over-perfect-is-perfect and stays named, and so does Theorem 5.5.9 (item 207)."
+  },
+  {
+   "route": 13,
+   "verdict": "accept",
+   "reason": "Accept. PG.1 proves Fontaine's étale equivalence with torsion coefficients over a field. Katz's correspondence over an arbitrary perfect F_p-algebra (§3.2, items 113, 124–129, with the authors' corrections E21 and E22) and its continuation to local systems on perfectoid spaces and Spec(R) (Theorems 8.5.3–8.5.8, items 283–289) are the relative form of that equivalence. So are étale cohomology as φ-cohomology (items 302, 304). No other layer owns relative étale φ-modules; VB4 has only slope-zero bundles over perfectoid bases. Item 288 cites Tau Ceti's Galois descent for semilinear representations as an ingredient."
+  },
+  {
+   "route": 14,
+   "verdict": "accept",
+   "reason": "Accept. RF0 constructs W(R) for perfect R with its universal property (item 122, named) and the relative period annuli. The Gauss seminorms λ(α) and the maps λ, μ of Gel'fand spectra (item 130, whose citation of Kedlaya's earlier paper was corrected) cut those annuli out. No layer plans them for a perfect ring."
+  },
+  {
+   "route": 15,
+   "verdict": "accept",
+   "reason": "Accept. A4 constructs perfectoid pro-finite-étale covers and the uniform completion with 'the étale-category comparison'. Lemma 3.6.26 (item 169) is an explicit such cover over ℚ_p. The route also names item 110 (FÉt(A) ≅ FÉt(A^u)), planned by A4/uniform-completion-etale-comparison. Lemmas 2.8.14–2.8.15 and the gaps E112–E113 in their proofs belong with it."
+  },
+  {
+   "route": 16,
+   "verdict": "accept",
+   "reason": "Accept. R5 constructs sousperfectoid spaces, the later class with the same purpose as Kedlaya–Liu's preperfectoid algebras (items 170–172, with the gap E38 in the proof of Theorem 3.7.4). It also takes their spaces (item 267, with finding E60) and pro-sheafiness (item 372, and the new item 411 for Remark 9.2.14, which the paper defers to a later paper)."
+  },
+  {
+   "route": 17,
+   "verdict": "accept",
+   "reason": "Accept, with the reason corrected. RF0:annuli builds the annulus rings and 'Prove[s] complete separated sheafiness, restriction, completed base change'; RF1 glues Y_S and forms X_S. §5's relative extended Robba rings are those rings. Under Hypothesis 5.0.1, R is a perfectoid Tate ring of characteristic p (a perfect uniform Banach F_p-algebra over an analytic field). So the paper is not more general than the layers, as the extraction said; the missing items (norms, units, intersections and splittings, relative perfectoidness, the radius fibration, finite étale functoriality) are simply properties the layers do not state. Item 200 is planned (VB1 'compare with finite projective modules on annuli ... effective gluing', with RF0:annuli) and stays named. The period sheaves of Definition 8.3.4 and the étale functoriality of FF_X belong here too."
+  },
+  {
+   "route": 18,
+   "verdict": "accept",
+   "reason": "Accept, with the reason corrected. VB2:ampleness compares bundles on X_S with the Proj curve of RF3 in the same generality as the paper (Hypothesis 5.0.1). The Prüfer property over a field (item 213), the norms on twisted invariants (item 214) and the ampleness theory of §8.8 beyond positive twists (items 308, 319–324, with the gaps E73–E75) are statements about that comparison which the layer does not make."
+  },
+  {
+   "route": 19,
+   "verdict": "accept",
+   "reason": "Accept, with the reason corrected. VB4 plans semicontinuity and the constant-polygon filtration (items 224, 227, named) over perfectoid S, which is the paper's generality. The paper's proof by spreading a good basis needs approximation lemmas, pure models, openness of pure loci and boundedness of the polygon (items 216, 218–220, 223, 225, 226, 228). Item 218 is now stated with the model condition M_0 ⊗ → M an isomorphism. The polygon convention is made explicit in items 221 and 224: KL's polygon is convex, so lower semicontinuity matches Fargues–Scholze's upper semicontinuity. The route also takes the purity-in-families and pointwise ampleness items of §§8.5, 8.6, 8.8, and Theorem 8.5.12 (item 293), for which VB4 plans only c = 0."
+  },
+  {
+   "route": 20,
+   "verdict": "accept",
+   "reason": "Accept. D0 builds the spectral-space foundations and 'the spectral/profinite representation results used from Hochster'; Hochster duality (item 234) belongs there."
+  },
+  {
+   "route": 21,
+   "verdict": "accept",
+   "reason": "Accept as corrected. H0 constructs 'torsion local systems ... on analytic adic étale sites', and its packet node H0/torsion-local-systems defines lisse ℤ_ℓ-sheaves (ℓ = p included) on locally strongly sheafy spaces. The route's reason overstated the stage text and now quotes it exactly. §8.4's ℚ_p-local systems on preadic spaces (items 273–281) extend these objects. The route also takes Definition 8.4.3 itself (item 275), which the extraction had counted as planned although H0 needs strong sheafiness, and de Jong's fundamental groups of analytic spaces (item 282), moved from route 1."
+  },
+  {
+   "route": 22,
+   "verdict": "accept",
+   "reason": "Accept. RF2:untilts constructs the untilt divisor with B⁺_dR and B_dR, and RF4:vector-bundles Beauville–Laszlo patching. §8.9's relative rings B_e, B⁺_dR, B_dR, the affineness of the complement of the divisor and B-pair cohomology (items 336–340) complete that picture. Conjecture 8.8.20 is recorded as a conjecture with the correction of finding E79, not as a target."
+  },
+  {
+   "route": 23,
+   "verdict": "accept",
+   "reason": "Accept as corrected. LI.3 owns resolutions and derived functors, so Yoneda Ext = derived Ext (item 343) belongs there. Mathlib has derived-category Ext and ShortComplex.ShortExact.extClass but not the bijection with Yoneda classes. The two scheme-cohomology inputs (items 344, 345) moved to route 2, SchemeAndStackFoundations SF.2, which owns scheme cohomology."
+  },
+  {
+   "route": 24,
+   "verdict": "accept",
+   "reason": "Accept. P8 constructs 'the rational relative period sheaves' on the analytic pro-étale site. §§9.3–9.4's Witt-vector and Robba period sheaves, with their comparisons of local systems, φ-modules, bundles on FF_X and B-pairs and their cohomology (items 376–395, and the new item 412), are the other family of relative period sheaves and belong beside them. The route reason now says that P8 imports the curve side from VectorBundlesAndIsocrystals VB1/VB4 and RelativeFarguesFontaine RF1 rather than restating it. Lemma 9.3.4 carries the correction of finding E85, and item 378 is restricted to the rings Theorem 5.3.3 covers."
+  },
+  {
+   "route": 25,
+   "verdict": "accept",
+   "reason": "Accept, with item 404 removed. PG.2 owns Cherbonnier–Colmez and the Robba realization, and PG.3 Herr's cochains. §9.5's extended-ring equivalences, Berger's comparison of (φ, Γ)-modules with B-pairs (Theorem 9.5.8) and the compatibility with Herr's cohomology (items 399, 402, 403, 405–408) belong there. Definition 9.5.7 (B-pairs over a p-adic field, item 404) is planned at PadicHodgeTheory P7 through the accepted route 6 of PAPER-DING-25, and PG.2 imports it from there."
+  }
+ ],
+ "notes": "Verdict accept after in-place corrections. The text read is arXiv 1301.0792v5 (https://arxiv.org/abs/1301.0792v5, PDF and LaTeX source fetched 29 September 2026), whose SHA-256 values a6a11742…d942 and 60a23edf…7377d match the record; v5 is the latest arXiv version. The published Astérisque 371 text was not obtained (SMF paywall; eScholarship HTTP 403), so the findings remain scoped to v5. The authors' errata are Appendix A of part II (arXiv:1602.06899v3, SHA-256 97383900…d42c matching); Kedlaya's papers page points there, and his notes Sheaves, stacks, and shtukas were also checked. All 90 recorded mistakes are confirmed on the page images; fourteen needed a field corrected. Fifty-four new mistakes are added (E91–E144). Seven are errors in stated results: Remark 2.3.9, Remark 2.4.4 (two, one of them already AdicSpacesPartII/E39), Remark 2.4.7, Example 2.8.7, Remark 2.8.3(a) (already AdicSpacesPartII/E58) and Theorem 3.3.7(c) with Lemma 3.3.9. Thirty items change status: 3 to library (Tau Ceti has Henkel's open mapping theorem and Spa with its spectrality), 22 to planned (mostly packet nodes that cite Kedlaya–Liu), and 5 from planned to missing; 11 more stay missing with their partial plans recorded. Three items are added (410–412), and 33 statements are corrected. Route 9 is rejected; route 2 is retargeted to SchemeAndStackFoundations SF.2; items move between routes 1, 2, 5, 6, 10, 11, 15, 16, 19, 21, 23, 24 and 25. The generality claims of routes 17–19 are corrected: under Hypothesis 5.0.1 the paper's R is a perfectoid Tate ring of characteristic p. check_paper.py reports ok. Details are in REV-PAPER-KEDLAYA-LIU-15.md and in the corrections section of the extraction report."
+}
