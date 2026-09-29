@@ -1,3 +1,14 @@
+# PAPER-MERKURJEV-SCAVIA-26 handoff
+
+**29 September 2026 (Claude Code, cc-39fac3, issue #1408): the extraction is complete.**
+- Seven verified source issues (E1–E7) are now recorded.
+- Gap `published-version` stays open: the JAMS text is not accessible.
+- Gaps `cited-input-proofs` and `tor-api-design` are transferred to the design jobs.
+
+No extraction work remains. The earlier handoff follows.
+
+---
+
 # PAPER-MERKURJEV-SCAVIA-26 continuation handoff
 
 Refs #1408. Codex session `codex-a71f92`, continuing `codex-c83e7a` / PR #1637.
