@@ -17418,11 +17418,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EulerSystemsCyclotomicMainConjecture.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #725"
+   "note": "released on GitHub issue #725"
   },
   {
    "id": "REV-EulerSystemsCyclotomicMainConjecture",
