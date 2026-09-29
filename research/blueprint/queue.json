@@ -31023,8 +31023,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-04.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #884"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #884",
+   "finishedAt": "2026-09-29T09:46:29Z"
   },
   {
    "id": "PLANETS-05",
