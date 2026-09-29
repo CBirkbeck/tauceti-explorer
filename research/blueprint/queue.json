@@ -621,7 +621,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "pending",
+   "state": "external",
    "note": "claimed on GitHub issue #1057"
   },
   {
@@ -2520,8 +2520,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-TEMKIN-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1155"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1155",
+   "finishedAt": "2026-09-29T11:18:02Z"
   },
   {
    "id": "REV-PAPER-TEMKIN-17",
