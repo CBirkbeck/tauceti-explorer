@@ -23,11 +23,12 @@
     },
     "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category": {
       "action": "narrow",
-      "keeps": "Construct the abelian category of algebraic smooth A[G]-modules over a commutative coefficient ring A: subobjects, quotients, sums, filtered colimits, kernels/cokernels, smooth vectors and the right adjoint to inclusion. Extend the compact-open invariant-exhaustion API beyond the profinite case, reuse invariant submodules, and define admissibility by finite generation of compact-open invariants. Apply the ordinary categorical-center construction to this carrier, with evaluation/naturality and coefficient-change maps when justified. Compare to the existing smooth-discrete carrier and joint-continuity theorem using discrete coefficient/module topologies; no reconstruction of that theorem.",
+      "keeps": "Construct the abelian category of algebraic smooth A[G]-modules over a commutative coefficient ring A: subobjects, quotients, sums, filtered colimits, kernels/cokernels, smooth vectors and the right adjoint to inclusion. Extend the compact-open invariant-exhaustion API beyond the profinite case, importing ProfiniteCohomology Layer 0's exhaustion of a discrete module by the fixed points of open normal subgroups; reuse Mathlib's invariant submodules, and define admissibility by finite generation of compact-open invariants. Apply Mathlib's categorical center (CatCenter) to this carrier, with evaluation/naturality and coefficient-change maps when justified. Compare to ProfiniteCohomology Layer 1's smooth-discrete carrier and joint-continuity theorem using discrete coefficient/module topologies, transporting its closure under subobjects, quotients, finite products and restriction; no reconstruction of those theorems.",
       "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality"
       ],
-      "reason": "The pinned smooth-discrete dictionary already works for topological groups, and the profinite exhaustion is already supplied. SR.3 supplies the later complex Bernstein block description of this ordinary center, not its first definition."
+      "reason": "The pinned smooth-discrete dictionary already works for topological groups, and the profinite exhaustion is already supplied by ProfiniteCohomology Layer 0. SR.3 supplies the later complex Bernstein block description of this ordinary center, not its first definition."
     },
     "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension": {
       "action": "narrow",
@@ -47,8 +48,12 @@
       "reason": "ModularForms Layer 2 owns the existing integral double-coset construction and GL_n hand-off. SR.1 supplies the locally profinite convolution realization and its coefficient-sensitive equivalence."
     },
     "SmoothRepresentationsOfLocalGroups:SR.2": {
-      "action": "keep",
-      "reason": "Retain smooth induction from closed subgroups, compact induction with support modulo the subgroup, correctly directed adjunctions, stages/Mackey, Jacquet coinvariants, chosen modulus square root, valid exactness/duality and the geometric lemma. Abstract algebraic induction does not supply these topological/support theorems."
+      "action": "narrow",
+      "keeps": "Smooth induction from closed subgroups and compact induction with support compact modulo the subgroup, with correctly directed adjunctions, induction in stages and Mackey filtrations; unnormalized and normalized parabolic induction, N-coinvariants and Jacquet functors with the chosen square root of the modulus; exactness in the valid coefficient regime, duality for admissibles and the geometric lemma. For an open subgroup, identify compact induction with Mathlib's algebraic induction, so that Frobenius reciprocity there is Mathlib's induction-restriction adjunction and induction in stages is InductionRestriction Layer 0's transitivity; prove the closed-subgroup statements compatible with these, without reconstructing them.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-0-the-functorial-core----transitivity-and-the-projection-formula"
+      ],
+      "reason": "Retain smooth induction from closed subgroups, compact induction with support modulo the subgroup, correctly directed adjunctions, stages/Mackey, Jacquet coinvariants, chosen modulus square root, valid exactness/duality and the geometric lemma. Abstract algebraic induction does not supply these topological/support theorems. For an open subgroup, however, compact induction is algebraic induction, whose transitivity already has an owner (InductionRestriction Layer 0); SR.2 cites that case and proves its general statements compatible with it."
     },
     "SmoothRepresentationsOfLocalGroups:SR.2a": {
       "action": "keep",
@@ -68,7 +73,7 @@
     },
     "SmoothRepresentationsOfLocalGroups:SR.4": {
       "action": "narrow",
-      "keeps": "General unramified G/hyperspecial K Satake transform and invariant-algebra isomorphism, relative Weyl and Frobenius actions, coefficient and q-half choices, separate unnormalized integral form, unramified semisimple parameter dictionary, explicit torus and GL_n comparison calculations and classical/geometric Satake comparison. Reuse the classical GL_n double-coset algebra, its central-coset localization and integral/p-local hand-off.",
+      "keeps": "General unramified G/hyperspecial K Satake transform and invariant-algebra isomorphism, relative Weyl and Frobenius actions, coefficient and q-half choices, separate unnormalized integral form, unramified semisimple parameter dictionary, explicit torus and GL_n comparison calculations and classical/geometric Satake comparison. Import the anchor's GL_n(Q_p) double-coset algebra, its p-integral identification and central-coset localization, and prove the Satake transform compatible with them; GL_n over other local fields comes from the general transform, which stays here.",
       "suppliedBy": [
         "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra"
       ],
@@ -84,7 +89,7 @@
     },
     "GL2AutomorphicRepresentationsAndTransfer:R16.1": {
       "action": "narrow",
-      "keeps": "The explicit GL₂ specialization over every number field: chosen compact subgroups, Haar/quotient measures, central character and finite-level function-space identifications. Prove these agree with the generic group, smooth category, convolution, adelic/Schwartz-Bruhat and automorphic growth carriers.",
+      "keeps": "The explicit GL₂ specialization over every number field: chosen compact subgroups, Haar/quotient measures, central character and finite-level function-space identifications. Prove these agree with the generic group, smooth category, convolution, restricted-product and quotient-measure, and automorphic growth carriers.",
       "suppliedBy": [
         "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
         "SmoothRepresentationsOfLocalGroups:SR.1",
@@ -122,13 +127,14 @@
     },
     "GL2AutomorphicRepresentationsAndTransfer:R16.4": {
       "action": "narrow",
-      "keeps": "GL₂ global multiplicity one and strong multiplicity one over number fields with the equality-of-local-components place set explicit; concrete restricted-tensor factorization comparisons; field-of-definition/rational-structure statements for the actual cohomological representations used. Compare the Q holomorphic case with existing newform multiplicity and coefficient fields; do not reconstruct the generic spectral decomposition or rationality package.",
+      "keeps": "GL₂ global multiplicity one and strong multiplicity one over number fields with the equality-of-local-components place set explicit; concrete restricted-tensor factorization comparisons; field-of-definition/rational-structure statements for the actual cohomological representations used. Compare the Q holomorphic case with existing newform multiplicity, coefficient fields and conjugate newforms; do not reconstruct the generic spectral decomposition or rationality package.",
       "suppliedBy": [
         "AutomorphicSpectralTheory:AS.4",
         "AutomorphicFormsOnReductiveGroups:AF.2",
         "AutomorphicFormsOnReductiveGroups:AF.4",
         "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
-        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality"
       ],
       "reason": "Keep the number-field GL₂ theorem and concrete rational-model comparisons. Do not assign rationality backwards to the downstream Galois stage R19."
     },
@@ -189,15 +195,21 @@
       "reason": "Finite-group projective representation foundations are upstream; their Galois realization and arithmetic lifting obstruction need an actual proof here, not an assumed finite-group splitting theorem."
     },
     "GL2AutomorphicRepresentationsAndTransfer:R17.6": {
-      "action": "keep",
-      "reason": "Retain characteristic-two residual soluble-projective-image cases, the Rohrlich-Tunnell lift with coefficient/ramification hypotheses, residual modularity witness and weight-at-least-two transition, and exact compatible-system/base-change/descent exports preserving residual irreducibility. Neither weight-one modularity nor a mod-3 example proves this stage."
+      "action": "narrow",
+      "keeps": "The characteristic-two residual soluble-projective-image argument; the Rohrlich-Tunnell lifting/modularity result with its coefficient and ramification hypotheses; the residual modularity witness in the sense of AlgebraicModularFormsAndSerreWeights R15.6, and its passage to weight at least two by applying R15.3's Hasse-invariant weight change at p = 2 and R15.5's Deligne-Serre lifting, recording the resulting weight, level and coefficient prime; exact base-change/descent exports for the compatible-system construction and potential modularity, including the conditions preserving residual irreducibility.",
+      "suppliedBy": [
+        "AlgebraicModularFormsAndSerreWeights:R15.3",
+        "AlgebraicModularFormsAndSerreWeights:R15.5",
+        "AlgebraicModularFormsAndSerreWeights:R15.6"
+      ],
+      "reason": "Retain characteristic-two residual soluble-projective-image cases, the Rohrlich-Tunnell lift with coefficient/ramification hypotheses, residual modularity witness and weight-at-least-two transition, and exact compatible-system/base-change/descent exports preserving residual irreducibility. Neither weight-one modularity nor a mod-3 example proves this stage. The definition of residual modularity (R15.6), the Hasse-invariant weight change with p = 2 explicit (R15.3) and Deligne-Serre lifting with any weight change (R15.5) are owned by the sibling Part II AlgebraicModularFormsAndSerreWeights; this stage constructs the characteristic-two witness and applies them."
     }
   },
   "links": [
     {
       "source": "AdelicAlgebraicGroups:AA.0",
       "target": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
-      "reason": "Supply the imported portion: Reuse the existing generic carriers and prove the actual GL₂ identifications. Import the canonical owner of Generic adelic group/Haar/quotient carrier."
+      "reason": "Supply the imported portion: Reuse the existing generic carriers and prove the actual GL₂ identifications. Import the canonical owner of restricted-product groups and normalized restricted Haar measures."
     },
     {
       "source": "AdelicAlgebraicGroups:AA.0",
@@ -212,7 +224,7 @@
     {
       "source": "AdelicAlgebraicGroups:AA.2",
       "target": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
-      "reason": "Supply the imported portion: Reuse the existing generic carriers and prove the actual GL₂ identifications. Import the canonical owner of Schwartz-Bruhat carrier and Fourier transform."
+      "reason": "Supply the imported portion: Reuse the existing generic carriers and prove the actual GL₂ identifications. Import the canonical owner of invariant quotient measures, central-character sections and L² spaces."
     },
     {
       "source": "AdelicAlgebraicGroups:AA.2",
@@ -622,7 +634,7 @@
     {
       "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
       "target": "PadicLocalLanglandsForGL2Qp:R30.2",
-      "reason": "Characteristic-p smooth objects use the action carrier, not an averaging equivalence."
+      "reason": "R30.2 builds its smooth mod-p category of GL₂(Q_p) on the generic smooth abelian carrier over F_p-algebras, with no Hecke averaging; its Banach and locally analytic categories and the mod-p classification remain R30.2's."
     },
     {
       "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
@@ -657,7 +669,7 @@
     {
       "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
       "target": "HeckeStacksAndLocalShtukas:HS3",
-      "reason": "The complex-valued Hecke/smooth-category comparison imports the derived extension explicitly."
+      "reason": "HS3's finite-level and colimit cohomology complexes, with their integral coefficients, are objects of the enhanced derived smooth category; the Hecke/smooth-category comparison imports the derived extension explicitly."
     },
     {
       "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
@@ -998,6 +1010,66 @@
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
       "target": "PotentialModularityAndCompatibleSystems:R23.3",
       "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R17.5; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "reason": "Import the exhaustion of a discrete module over a compact totally disconnected group by the fixed points of its open normal subgroups; SR.0 extends it to the compact opens of a locally profinite group."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-0-the-functorial-core----transitivity-and-the-projection-formula",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "reason": "Open-subgroup case of compact induction in stages: the transitivity of algebraic induction and the projection formula."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.1",
+      "target": "AutomorphicFormsOnReductiveGroups:AF.0",
+      "reason": "AF.0 assembles adelic test functions from SR.1's finite-place compactly supported locally constant functions and uses SR.1's convolution for the finite Hecke action; the restricted tensor product, archimedean part and growth estimates stay in AF.0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+      "target": "ClassicalSerreModularity:R33.1",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R17.5: R33.1 splits the soluble and nonsoluble projective-image branches, using the finite-group projective-representation foundations that R17.5 now imports."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Supply conjugate newforms and coefficient-field rationality for the Q case of R16.4's rational-structure comparison."
+    },
+    {
+      "source": "AlgebraicModularFormsAndSerreWeights:R15.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.6",
+      "reason": "Supply the Hasse-invariant weight change in characteristic two for the passage to weight at least two."
+    },
+    {
+      "source": "AlgebraicModularFormsAndSerreWeights:R15.5",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.6",
+      "reason": "Supply Deligne-Serre lifting, with any weight change, for the passage to a characteristic-zero eigenform."
+    },
+    {
+      "source": "AlgebraicModularFormsAndSerreWeights:R15.6",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.6",
+      "reason": "Supply the definition of residual modularity that R17.6's witness satisfies."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+      "reason": "R17.5 uses R16's converse theorem (R17.5: \"Use R16's converse theorem\"; R16.5: \"converse theorem used in R17\")."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+      "reason": "R17.5's weight-one interpretation over Q needs the primitive-form/automorphic identification of R16.6."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+      "reason": "R17.3 uses strong multiplicity one and its effect on rational structures."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "target": "AutomorphicLFunctionsAndLocalFactors:AL.5",
+      "reason": "AL.5's conductor, local test-vector and twist compatibilities for the GL₂ families use R16.2's local newvectors instead of rebuilding them."
     }
   ],
   "owners": [
@@ -1017,7 +1089,8 @@
         "SmoothRepresentationsOfLocalGroups:SR.0",
         "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
         "SmoothRepresentationsOfLocalGroups:SR.3",
-        "GL2AutomorphicRepresentationsAndTransfer:R16.1"
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+        "PadicLocalLanglandsForGL2Qp:R30.2"
       ]
     },
     {
@@ -1028,7 +1101,7 @@
       ]
     },
     {
-      "target": "Integral double-coset Hecke algebra and classical GL_n algebra hand-off",
+      "target": "Abstract double-coset Hecke ring and the classical GL_n(Q_p) algebra hand-off (p-integral identification, central localization)",
       "owner": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
       "formerly": [
         "SmoothRepresentationsOfLocalGroups:SR.1",
@@ -1086,7 +1159,8 @@
       "owner": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
       "formerly": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.6",
-        "GrossZagierAndArithmeticHeights:GZ.4"
+        "GrossZagierAndArithmeticHeights:GZ.4",
+        "AutomorphicLFunctionsAndLocalFactors:AL.5"
       ]
     },
     {
@@ -1209,14 +1283,14 @@
       ]
     },
     {
-      "target": "Generic adelic group/Haar/quotient carrier",
+      "target": "Restricted-product groups and normalized restricted Haar measures",
       "owner": "AdelicAlgebraicGroups:AA.0",
       "formerly": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.1"
       ]
     },
     {
-      "target": "Schwartz-Bruhat carrier and Fourier transform",
+      "target": "Invariant quotient measures, central-character sections and L² spaces",
       "owner": "AdelicAlgebraicGroups:AA.2",
       "formerly": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.1"
@@ -1245,9 +1319,10 @@
       ]
     },
     {
-      "target": "Fourier-Poisson analytic input for zeta integrals",
+      "target": "Schwartz-Bruhat spaces, Fourier transform and adelic Poisson summation",
       "owner": "AutomorphicLFunctionsAndLocalFactors:AL.0",
       "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1",
         "GL2AutomorphicRepresentationsAndTransfer:R16.5"
       ]
     },
@@ -1286,6 +1361,52 @@
       "formerly": [
         "GL2AutomorphicRepresentationsAndTransfer:R17.2"
       ]
+    },
+    {
+      "target": "Transitivity of algebraic induction (the open-subgroup case of compact induction in stages)",
+      "owner": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-0-the-functorial-core----transitivity-and-the-projection-formula",
+      "formerly": [
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "target": "Hasse-invariant weight change in characteristic p, with p = 2 explicit",
+      "owner": "AlgebraicModularFormsAndSerreWeights:R15.3",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.6"
+      ]
+    },
+    {
+      "target": "Deligne-Serre lifting of residual eigensystems, with any weight change",
+      "owner": "AlgebraicModularFormsAndSerreWeights:R15.5",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.6"
+      ]
+    },
+    {
+      "target": "Classical conjugate newforms and coefficient-field rationality",
+      "owner": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4"
+      ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-21",
+    "date": "2026-09-29",
+    "notes": "Reviewed by Claude Code, session cc-39fac3, against origin/main 827fe453, with the atlas as scripts/build.py assembles it (2840 stages, 7806 edges). Both member documents, the ModularForms anchor (all 16 layers), every supplier stage named in a narrowing, and the consumers of every changed layer were read. So were the accepted RS-05, RS-06, RS-08, RS-12, RS-19, RS-24, RS-26 and RS-31 and the pending RS-04 and RS-11. The fifteen pinned-library declarations the report cites were read at Mathlib 082e2d3 and Tau Ceti f790474, and the report's seven file hashes match. The main decisions hold. SmoothRepresentations stays the general foundation, with the SR.0 alias/abelian/derived split consistent with RS-05. The GL2 roadmap becomes 'Modular forms — Hecke theory, newforms, and L-functions, Part II: GL₂ automorphic representations and transfer': the title is exact, it starts at the anchor's stated Layer 2 hand-off, and it re-plans nothing the anchor plans. Layers 4, 5, 7 and 8 are only compared, and R17.2's adelic trace formula is distinct from Layer 11's level-one route. It is a third sibling Part II beside RS-06's AlgebraicModularFormsAndSerreWeights and RS-08's ModularSymbolsPadicLFunctions; the one overlap with them, R17.6 against R15.3/R15.5/R15.6, is corrected. The original 161 links join existing stages (36 were already edges), and they, the 12 added links and the atlas edges are acyclic together.",
+    "corrections": [
+      "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category: the profinite exhaustion is ProfiniteCohomology Layer 0 (the pinned iSup_fixedPoints_openNormal_eq_top is in Discrete.lean, whose header implements Layer 0), not Layer 1. Layer 0 is added to suppliedBy with a link, the keeps names Mathlib's CatCenter for the ordinary center, and the reason is corrected.",
+      "SmoothRepresentationsOfLocalGroups:SR.2: keep -> narrow. For an open subgroup, compact induction is Mathlib's algebraic induction (Rep.ind, Rep.indResAdjunction), and induction in stages is InductionRestriction Layer 0's transitivity, so SR.2 now cites that case and proves compatibility. suppliedBy, a link and an owner record are added.",
+      "SmoothRepresentationsOfLocalGroups:SR.4 keeps: the anchor supplies only the GL_n(Q_p) algebra; the general spherical algebra and Satake transform stay in SR.4, as accepted RS-24 records.",
+      "GL2AutomorphicRepresentationsAndTransfer:R16.1 keeps: 'adelic/Schwartz-Bruhat' -> 'restricted-product and quotient-measure'. R16.1 never planned Schwartz-Bruhat functions, and their owner is AL.0.",
+      "GL2AutomorphicRepresentationsAndTransfer:R16.4: ModularForms Layer 8G (conjugate newforms, rationality) is added to suppliedBy and keeps, with a link and an owner record.",
+      "GL2AutomorphicRepresentationsAndTransfer:R17.6: keep -> narrow. Residual modularity (R15.6), the Hasse-invariant weight change with p = 2 explicit (R15.3) and Deligne-Serre lifting with weight change (R15.5) belong to the sibling Part II AlgebraicModularFormsAndSerreWeights (accepted RS-06). Three supplier links and two owner records are added.",
+      "owners: the Fourier transform had two owners. The AA.2 record ('Schwartz-Bruhat carrier and Fourier transform') becomes AA.2's actual scope (quotient measures, central-character sections, L² spaces), and AL.0 owns Schwartz-Bruhat spaces, the Fourier transform and Poisson summation, formerly R16.1 and R16.5. The AA.0 record is narrowed to restricted products and Haar measures.",
+      "owners: the ModularForms Layer 2 record is narrowed to the GL_n(Q_p) hand-off, avoiding overlap with RS-24's SR.4 record. PadicLocalLanglandsForGL2Qp:R30.2 is added to the formerly of the smooth-carrier record (its smooth mod-p category, deferred by accepted RS-26). AutomorphicLFunctionsAndLocalFactors:AL.5 is added to the formerly of the local newvector record.",
+      "links: 12 added, all acyclic together with the other links and the atlas. They are ProfiniteCohomology L0 -> SR.0:abelian-category; InductionRestriction L0 -> SR.2; SR.1 -> AF.0 (a missed overlap: AF.0's finite-place test functions and finite Hecke action); InductionRestriction L7 -> ClassicalSerreModularity:R33.1 (a consumer added by a later blueprint); ModularForms L8G -> R16.4; R15.3, R15.5, R15.6 -> R17.6; R16.5 -> R17.5 and R16.6 -> R17.5; R16.4 -> R17.3; R16.2 -> AL.5.",
+      "links: reasons corrected for SR.0:derived-extension -> HS3 (not complex-valued), SR.0:abelian-category -> R30.2, and AA.0/AA.2 -> R16.1."
+    ]
+  }
 }
