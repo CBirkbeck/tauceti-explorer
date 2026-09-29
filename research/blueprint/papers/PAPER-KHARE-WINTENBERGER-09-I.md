@@ -1,6 +1,6 @@
 # Khare–Wintenberger, *Serre's modularity conjecture (I)*: extraction and routing
 
-Job PAPER-KHARE-WINTENBERGER-09-I. Claude Code, session `cc-48533a`, 29 September 2026. The machine-readable extraction is `PAPER-KHARE-WINTENBERGER-09-I.result.json`: 71 items, 4 routes, 8 prerequisite papers, 4 source issues.
+Job PAPER-KHARE-WINTENBERGER-09-I. Claude Code, session `cc-48533a`, 29 September 2026. The machine-readable extraction is `PAPER-KHARE-WINTENBERGER-09-I.result.json`: 71 items, 4 routes, 8 prerequisite papers, 6 source issues (E5 and E6 added by the independent review).
 
 **Version read.** The authors' copy `results.pdf` from Khare's UCLA page (23 pages, PDF dated 31 May 2009, SHA-256 `3c389dc3…bad82`), read in full. It is the same file the atlas's Serre-modularity packets cite, by hash.
 
@@ -128,10 +128,14 @@ KW I's "N = M^n", with M the conductor of A, is correct but not optimal: the opt
 | E2 | misprint | §9, the claim k(ρ̄′₂) = 2, p. 19 | "by Theorem 5.1(2)" should be "by Theorem 5.1(4) and almost strict compatibility at 2". Item (2) prescribes the type at p = 3, not at 2. |
 | E3 | gap (the proof) | §3.2 and the remark after Theorem 3.4, p. 6 | Theorem 3.4 gives only modularity. The passage to weight k(ρ̄) and level N(ρ̄) in Theorem 1.2 (Lemma 6.2(i), or Theorem 5.1(1) with Theorem 4.1) is not written out. |
 | E4 | misprint | §8.2, inductive step, p. 14 (with §7, p. 12) | r is both the number of primes in (W_r) and the exponent in ℓ^r ∥ P − 1. |
+| E5 | misprint | Theorem 5.1(2), p. 9 | "N a non-zero nilpotent matrix ∈ GL₂(ℚ̄)": a nilpotent matrix is not invertible; M₂(ℚ̄) is meant. |
+| E6 | misprint | §9, proof of Theorem 9.1, p. 19 | "Theorem 1.2(ii)" for Theorem 1.2(2); the parts of Theorem 1.2 are numbered 1 and 2. |
 
 E1–E3 are already recorded and confirmed in the atlas as ClassicalSerreModularity/E3 and /E9, and they are cross-referenced there. E4 is new: the reviewed node R27.2/theorem-3-2-weight-reduction reproduces the clash without flagging it. Crossref registers no erratum for the article (checked 29 September 2026), and a web search found none.
 
 The paper also corrects two things in the literature it cites. First, the reference in Khare's level-one paper for the proof of Corollary 1.2. Second, it adds Skinner's correction to Skinner–Wiles (§8.3). Both are mistakes in those sources, not in KW I, and both are already noted at ClassicalSerreModularity:R26.1/corollary-1-2-conductor-a-prime-and-its-corrected-proof.
+
+The independent review (REV-PAPER-KHARE-WINTENBERGER-09-I) confirmed E1–E4 on the page images and added E5 and E6, both new. Crossref registers no update for the DOI.
 
 ## Checked in detail
 
@@ -159,3 +163,12 @@ Each link was checked against Crossref or the DOI resolver. None of Ribet, Khare
 
 - The strong form at p = 2 in Edixhoven's sense. This asks that ρ̄ be unramified at 2 if and only if it comes from a Katz form of weight 1. The paper says (pp. 2–3) that it does not know this, and the extraction does not list it as a result.
 - Nothing is claimed for base fields other than ℚ, or for representations of dimension greater than two.
+
+## Corrections by the independent review
+
+REV-PAPER-KHARE-WINTENBERGER-09-I (Claude Code, session `cc-fb70e5`, 29 September 2026) made these changes:
+
+- A `review` verdict (confirmed) on each of E1–E4.
+- New source issues E5 (Theorem 5.1(2): a nilpotent N placed in GL₂(ℚ̄)) and E6 (proof of Theorem 9.1: "Theorem 1.2(ii)" for Theorem 1.2(2)), each confirmed on the page image.
+- Item /40: the Rosser–Schoenfeld threshold is printed "3/2 − (1/30) = 1.46̄", with a bar (1.466…); the statement said "≈ 1.46".
+- Notes on /29 and /53 point to E5 and E6.

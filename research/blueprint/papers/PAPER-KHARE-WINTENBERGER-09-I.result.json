@@ -414,7 +414,7 @@
    "planned": [
     "PotentialModularityAndCompatibleSystems:R24.3"
    ],
-   "note": "R24.3/theorem-5-1-part-2-weight-two."
+   "note": "R24.3/theorem-5-1-part-2-weight-two. The paper prints 'N a non-zero nilpotent matrix ∈ GL₂(ℚ̄)'; a nilpotent matrix is not invertible, and M₂(ℚ̄) is meant (sourceIssues E5, added by the review)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/30",
@@ -552,7 +552,7 @@
    "id": "PAPER-KHARE-WINTENBERGER-09-I/40",
    "kind": "theorem",
    "name": "Prime estimates (1) and (2)",
-   "statement": "For each prime p ≥ 5 there is a prime P > p (for instance the next prime) with either (1) an odd prime power ℓ^r ∥ P − 1, ℓ^r = 2m + 1, m ≥ 1, such that P/p ≤ (2m + 1)/(m + 1) − (m/(m + 1))(1/p), or (2) 2^r ∥ P − 1, r ≥ 4, such that P/p ≤ 2^r/(2^{r−1} + 2) − ((2^{r−1} − 2)/(2^{r−1} + 2))(1/p). Checked by hand for p ≤ 31; for p > 31, Rosser–Schoenfeld give P/p ≤ 3/2 − 1/30 ≈ 1.46, which suffices.",
+   "statement": "For each prime p ≥ 5 there is a prime P > p (for instance the next prime) with either (1) an odd prime power ℓ^r ∥ P − 1, ℓ^r = 2m + 1, m ≥ 1, such that P/p ≤ (2m + 1)/(m + 1) − (m/(m + 1))(1/p), or (2) 2^r ∥ P − 1, r ≥ 4, such that P/p ≤ 2^r/(2^{r−1} + 2) − ((2^{r−1} − 2)/(2^{r−1} + 2))(1/p). Checked by hand for p ≤ 31; for p > 31, Rosser–Schoenfeld give P/p ≤ 3/2 − 1/30 = 1.46̄ (printed with a bar over the last 6: 1.466…), which suffices.",
    "locator": "§7, p. 12, author copy results.pdf (23 pp., PDF dated 31 May 2009)",
    "status": "planned",
    "library": [],
@@ -734,7 +734,7 @@
    "planned": [
     "ClassicalSerreModularity:R27.5"
    ],
-   "note": "R27.5/d1-by-the-prime-three and R27.5/dyadic-weight-two-claim. Two slips in this paragraph: sourceIssues E1, E2."
+   "note": "R27.5/d1-by-the-prime-three and R27.5/dyadic-weight-two-claim. Three slips in this paragraph: sourceIssues E1, E2 and E6 (the last added by the review)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/54",
@@ -1121,7 +1121,12 @@
     "Crossref metadata for doi:10.1007/s00222-009-0205-7 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "a web search for an erratum to Khare–Wintenberger, Serre's modularity conjecture (I), 29 September 2026: none found",
     "the sourceIssues of the ClassicalSerreModularity, PotentialModularityAndCompatibleSystems and GL2ModularityLifting packets"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 19. The paragraph has just shown that ρ̄₃|_{D₂} is (χ₃ ∗; 0 1) up to unramified twist, which is the hypothesis of Theorem 5.1(4) for the residual representation ρ̄₃ with coefficient prime 3 and q = 2 (3 | 2 + 1); the conclusion is stated for ρ′₃. So the system lifts ρ̄₃, not ρ̄ (which has residue characteristic p). The final step (ρ_λ) ~ (ρ′_λ) at ρ̄₃ is the linking argument of §8.2.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-I"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/E2",
@@ -1136,7 +1141,12 @@
     "Crossref metadata for doi:10.1007/s00222-009-0205-7 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "a web search for an erratum to the paper, 29 September 2026: none found",
     "the sourceIssues of the ClassicalSerreModularity packets"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 19. Theorem 5.1(2) describes the Weil–Deligne parameter at the coefficient prime; the finite flatness of ρ̄′₂ over the ramification-index-3 field comes from ρ′₃|_{I₂} ≅ (χ′ ∗; 0 χ′²) (Theorem 5.1(4)), carried to the 2-adic member by almost strict compatibility (ρ̄′₂ is irreducible by Lemma 6.3), with Breuil–Kisin for crystalline weight-2 representations. The preceding sentence of the same paragraph cites Theorem 5.1(4) for this.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-I"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/E3",
@@ -1151,7 +1161,12 @@
     "Crossref metadata for doi:10.1007/s00222-009-0205-7 and the Crossref 'updates' filter, 29 September 2026",
     "a web search for an erratum to the paper, 29 September 2026: none found",
     "the sourceIssues of the ClassicalSerreModularity packets"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Theorem 1.2 asserts 'arises from S_{k(ρ̄)}(Γ₁(N(ρ̄)))', §3.2 derives it from Theorem 3.4, whose conclusion is 'is modular', and no passage of the paper supplies the refinement. For p odd it could be cited from the qualitative-implies-refined literature, which the paper does not cite at this point; for p = 2 the introduction itself says that Theorem 1.2(2) fills the missing dyadic case, so an argument is needed. The correction works: dihedral projective image is Lemma 6.2(i); otherwise Theorem 5.1(1) gives a lift minimally ramified away from p (so of conductor N(ρ̄)) and crystalline of weight k(ρ̄) (after a twist into [2, p + 1] for p odd), and Theorem 4.1 makes it modular. 'affects: the proof' is right.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-I"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/E4",
@@ -1165,7 +1180,52 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0205-7 and the Crossref 'updates' filter, 29 September 2026",
     "the sourceIssues of the ClassicalSerreModularity packets, and the statement of ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction, which reproduces the clash"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 14: 'Choose a prime divisior ℓ^r||(P − 1)' in a paragraph whose hypothesis is that N(ρ̄) is divisible by at most r primes, and the ℓ = 2 interval for i uses 2^r from §7 (2). The two integers are unrelated. Renaming the exponent is the right correction.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-I"
+   }
+  },
+  {
+   "id": "PAPER-KHARE-WINTENBERGER-09-I/E5",
+   "kind": "misprint",
+   "locator": "Theorem 5.1(2), p. 9 of the author copy results.pdf (Invent. Math. 178 (2009) not compared); page image checked",
+   "printed": "The source says that when p > 2, k(ρ̄) = p + 1 or p = 2 and k(ρ̄) = 4, the form is (id, N), where N is nonzero, nilpotent and ∈ GL₂(ℚ̄).",
+   "correction": "… with N a non-zero nilpotent matrix in M₂(ℚ̄).",
+   "reason": "A non-zero nilpotent 2 × 2 matrix has determinant 0, so it is never in GL₂. The monodromy operator of a Weil–Deligne representation is an endomorphism, and here it is the Steinberg-type N of a semistable weight-2 lift.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: Crossref /works/10.1007/s00222-009-0205-7 has no update-to or relation field, and the Crossref filter updates:10.1007/s00222-009-0205-7 returns 0 items.",
+    "2026-09-29: the Springer article page answered with a client challenge, so the published text and its erratum links were not checked.",
+    "2026-09-29: the sourceIssues of the atlas packets (ClassicalSerreModularity, PotentialModularityAndCompatibleSystems, GL2ModularityLifting) do not record it."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found and checked by the review on the page image of p. 9.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-I"
+   }
+  },
+  {
+   "id": "PAPER-KHARE-WINTENBERGER-09-I/E6",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 9.1, the claim k(ρ̄′₂) = 2, p. 19 of the author copy results.pdf (Invent. Math. 178 (2009) not compared); page image checked",
+   "printed": "The proof claims k(ρ̄′₂) = 2 and says this would finish the argument through Theorem 1.2(ii) and Hypothesis (H).",
+   "correction": "… by Theorem 1.2(2) and Hypothesis (H)",
+   "reason": "Theorem 1.2 (p. 2) has parts numbered 1 and 2; the part used is 2 (p = 2 and k(ρ̄) = 2), which applies to ρ̄′₂ once k(ρ̄′₂) = 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: Crossref /works/10.1007/s00222-009-0205-7 has no update-to or relation field, and the Crossref filter updates:10.1007/s00222-009-0205-7 returns 0 items.",
+    "2026-09-29: the Springer article page answered with a client challenge, so the published text and its erratum links were not checked.",
+    "2026-09-29: the sourceIssues of the atlas packets (ClassicalSerreModularity, PotentialModularityAndCompatibleSystems, GL2ModularityLifting) do not record it."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found and checked by the review on the page image of p. 19.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-I"
+   }
   }
  ],
  "sourceVersions": [
