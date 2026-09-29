@@ -395,5 +395,14 @@
         "ArithmeticLocallySymmetricSpaces:ALS.6"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-RS-09",
+    "date": "2026-09-29",
+    "notes": "Independent review by Claude Code, session cc-58621d, of the proposal by ChatGPT session astra-d49b2f (#924), at main 14b94c5b. Read both member documents in full, all seventeen stage entries, the fifteen owner records and twenty-four links, the family file and the report, and the anchor stages the proposal imports. check_restructure.py passes; all 24 link endpoints resolve, none is already present, the union with the current assembled atlas is acyclic, and the eight non-anchor links shortcut existing paths as the report says. The anchor is unchanged and the Part II title has the required form. Blocking: the declared extension does not start where its base stops. ALS.6, a base layer, is built on the extension: the atlas has CC.2 -> ALS.6, CC.4 -> ALS.6 and CC.7 -> ALS.6, the proposal adds CC.0 -> ALS.6 and names CC.0/CC.2/CC.4/CC.7 as ALS.6's suppliers. This is the defect both RS-12 reviews rejected (an extension stage upstream of a base stage), and the report's 'stage-scoped extension' is the reading they declined. Also required: 30 forwarding links from the named suppliers of six narrowed layers to their current direct consumers are absent (listed in the report), or each omission must be justified. No content was changed. Report: research/blueprint/reviews/REV-RS-09.md.",
+    "corrections": [
+      "No change to the proposal's decisions, layers, owners or links; only this review object was added. The frontier repair is a design choice with manual steps (restructure.py neither removes stage edges nor applies moves), so it is left to the revision, with a recommended option in the report."
+    ]
+  }
 }
