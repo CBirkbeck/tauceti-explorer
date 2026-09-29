@@ -46820,8 +46820,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3963"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3963",
+   "finishedAt": "2026-09-29T19:22:23Z"
   },
   {
    "id": "RT-AREA-automorphic-2",
@@ -46965,7 +46966,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3964"
   },
   {
    "id": "RT-AREA-iwasawa-2",
