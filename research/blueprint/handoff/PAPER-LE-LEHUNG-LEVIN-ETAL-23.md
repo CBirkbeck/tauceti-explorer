@@ -40,6 +40,23 @@ setup was:
 4. **A search over Diag(a) conventions** did not reproduce them either: all orderings and signs of
    (a, b, 0), with A·D or D·A.
 
+**Follow-up from reading §3.1–3.2 (cc-39fac3, later the same day).**
+- **The (1,2) entry is c12.** U(z̃)'s definition (PDF59) requires A·(v−t)^(−ν)·w^(−1) to be
+  unipotent lower triangular mod 1/(v−t). For z̃ = (23)t^(2,1,1) its (1,3) entry is A12/(v−t), so a
+  (1,2) entry v·c12 = (v−t)·c12 + t·c12 would force c12 = 0. Hence the chart has the constant c12,
+  as Proposition 3.2.8's formula says, and the printed v·c12 on PDF202 is a display slip. The paper's
+  own computation presumably used c12, so it should not be recorded as an error in the equations.
+- **The Iwahori condition does not help over X⁰.** L⁺M(R) (PDF56) also asks for upper triangularity
+  mod v. But after inverting t, v = (v−t) + t is a unit in R[[v−t]], so this condition is vacuous on
+  the saturated ideal and cannot explain the mismatch.
+- **The λ condition is not the cause.** With c12, det and the monodromy condition alone, saturated
+  in t, the ideal again has exactly one 4-dimensional component. On it, rank A(v=t) ≤ 1 holds
+  automatically, and F1–F3 still do not vanish. The same run with the printed v·c12 did not finish
+  within 21 minutes.
+
+The remaining suspects are the sign or normalization of the monodromy term, the identification
+of a with the Appendix B coordinates (a, b, 0), and the printed F1–F3 themselves.
+
 So either the authors' conventions differ from this reading of (3.1), for example L⁺ in terms of v,
 another normalization of A, or a different Schubert condition, or the display has a misprint. Pin
 the conventions of §3.1–3.3 down before recording any finding. No finding was recorded, because
