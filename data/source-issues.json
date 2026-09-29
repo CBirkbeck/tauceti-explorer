@@ -151813,6 +151813,106 @@
    "reviewReason": null
   },
   {
+   "id": "ProbabilisticAndMetricNumberTheory/E10",
+   "kind": "error",
+   "locator": "Lemma 5.3, p. 264 (arXiv v3 p. 12)",
+   "printed": "λ(A_q ∩ A_r)/(λ(A_q)λ(A_r)) ≪ 1_{M(q,r) ⩾ gcd(q,r)} ∏_{p | qr/gcd(q,r)², p > M(q,r)/gcd(q,r)} (1 + 1/p), with M(q,r) = max{rψ(q), qψ(r)}",
+   "correction": "The indicator should be 1_{2M(q,r) ⩾ gcd(q,r)} (or omitted); the rest of the bound is as printed.",
+   "reason": "Distinct reduced fractions a/q, b/r satisfy |a/q − b/r| ⩾ gcd(q,r)/(qr), so A_q and A_r can meet when rψ(q) + qψ(r) ⩾ gcd(q,r), which allows M < gcd. Explicitly, q = 2, r = 3, ψ ≡ 3/10 ⩽ 1/2: A_2 = [0.35, 0.65], A_3 = [7/30, 13/30] ∪ [17/30, 23/30], λ(A_2 ∩ A_3) = 1/6 > 0, while M(2,3) = 9/10 < 1 = gcd(2,3), so the printed right-hand side is 0. The proof of Theorem 1 is unaffected: the indicator only restricts the sum (5.7), and pairs with gcd/2 ⩽ M < gcd satisfy the conditions of the later sets E_t.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:1907.04593 v3 (final) contains the passage unchanged.",
+    "2026-09-29: the Annals article page (annals.math.princeton.edu/2020/192-1/p05) lists no erratum. This is not an exhaustive novelty claim."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Dimitris Koukoulopoulos and James Maynard, On the Duffin–Schaeffer conjecture, Annals of Mathematics 192 (2020), no. 1, 251–307, doi:10.4007/annals.2020.192.1.5, publisher PDF (printed page = PDF page + 250). Collated at the finding locators with arXiv:1907.04593v3 (final version).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ProbabilisticAndMetricNumberTheory/E11",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1 assuming Proposition 5.4, after (5.3), p. 265 (arXiv v3)",
+   "printed": "where A = lim sup_{q→∞} A_q with A_q defined by (1.4).",
+   "correction": "A_q is defined by (1.3); (1.4) defines A.",
+   "reason": "(1.3) defines A_q and (1.4) defines A = lim sup A_q; checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:1907.04593 v3 (final) contains the passage unchanged.",
+    "2026-09-29: the Annals article page (annals.math.princeton.edu/2020/192-1/p05) lists no erratum. This is not an exhaustive novelty claim."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Dimitris Koukoulopoulos and James Maynard, On the Duffin–Schaeffer conjecture, Annals of Mathematics 192 (2020), no. 1, 251–307, doi:10.4007/annals.2020.192.1.5, publisher PDF (printed page = PDF page + 250). Collated at the finding locators with arXiv:1907.04593v3 (final version).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ProbabilisticAndMetricNumberTheory/E12",
+   "kind": "error",
+   "locator": "Proof of Lemma 14.1, Case 1 (k = 0), p. 302 (arXiv v3)",
+   "printed": "In this case V_{p^{k−1}} = W_{p^{k−1}} = ∅, so all parameters of G⁺ are the same as those of G* except that the set of primes of G⁺ is P ∪ {p} … As a consequence, q(G⁺)/q(G*) = 1/(1 − 1/p^{31/30})^{10}.",
+   "correction": "The vertex sets of G⁺ are V⁺ = V_{p⁰} ∪ V_{p¹} ⊆ V and W⁺ ⊆ W, which can be proper; by the displayed quality formula q(G⁺)/q(G*) = (μ(V)/μ(V⁺))⁹(μ(W)/μ(W⁺))⁹/(1 − 1/p^{31/30})^{10} ⩾ 1/(1 − 1/p^{31/30})^{10}.",
+   "reason": "Vertices v with p² | v belong to V but not to V⁺; nothing in the hypotheses excludes them. The edge sets agree (every edge of E* has both ends in V⁺ × W⁺ when k = 0), but the vertex measures do not. Only the inequality is needed, and it holds.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:1907.04593 v3 (final) contains the passage unchanged.",
+    "2026-09-29: the Annals article page (annals.math.princeton.edu/2020/192-1/p05) lists no erratum. This is not an exhaustive novelty claim."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Dimitris Koukoulopoulos and James Maynard, On the Duffin–Schaeffer conjecture, Annals of Mathematics 192 (2020), no. 1, 251–307, doi:10.4007/annals.2020.192.1.5, publisher PDF (printed page = PDF page + 250). Collated at the finding locators with arXiv:1907.04593v3 (final version).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ProbabilisticAndMetricNumberTheory/E13",
+   "kind": "gap",
+   "locator": "Proofs of Lemma 13.2, pp. 297–298, and Lemma 14.1, p. 300",
+   "printed": "We now apply Lemma 13.1 to G(1). … We then apply Lemma 12.2 to G(1). … (Lemma 13.2); Hence, we may work with G(1) instead. … We now apply Lemma 12.2. … In view of Lemmas 11.3 and 11.4 applied with r = 1 (Lemma 14.1)",
+   "correction": "Lemmas 11.1, 11.3, 11.4, 12.1, 12.2 and 13.1 hold for every prime p ∉ P, not only for p ∈ R(G): their proofs never use p ∈ R(G). With that weaker hypothesis the applications are valid, and R(G′) ⊆ R(G) \\ {p} still follows from G′ ⪯ G(1) ⪯ G and p ∈ P′.",
+   "reason": "G(1) is obtained from G by deleting vertices (Lemma 10.1) or restricting to smaller sets (Lemma 11.6), so R(G(1)) ⊆ R(G) may no longer contain p; the cited lemmas assume p ∈ R(G(1)). The planned nodes state these lemmas for p ∉ P.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:1907.04593 v3 (final) contains the passage unchanged.",
+    "2026-09-29: the Annals article page (annals.math.princeton.edu/2020/192-1/p05) lists no erratum. This is not an exhaustive novelty claim."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Dimitris Koukoulopoulos and James Maynard, On the Duffin–Schaeffer conjecture, Annals of Mathematics 192 (2020), no. 1, 251–307, doi:10.4007/annals.2020.192.1.5, publisher PDF (printed page = PDF page + 250). Collated at the finding locators with arXiv:1907.04593v3 (final version).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ProbabilisticAndMetricNumberTheory/E14",
+   "kind": "misprint",
+   "locator": "End of the proof of Lemma 14.1, p. 303 (arXiv v3)",
+   "printed": "by choosing G′ ∈ {G⁺, G_{p^k,p^{k+1}}, G_{p^{k+1},p^k}} according to which of the inequalities (14.13)–(14.15) hold.",
+   "correction": "G′ ∈ {G⁺, G_{p^k,p^{k−1}}, G_{p^{k−1},p^k}}",
+   "reason": "(14.14) and (14.15), and the sentences just before, concern G_{p^k,p^{k−1}} and G_{p^{k−1},p^k}; the graphs with k+1 are not considered (the (k,k+1) edges are already in G⁺). Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:1907.04593 v3 (final) contains the passage unchanged.",
+    "2026-09-29: the Annals article page (annals.math.princeton.edu/2020/192-1/p05) lists no erratum. This is not an exhaustive novelty claim."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Dimitris Koukoulopoulos and James Maynard, On the Duffin–Schaeffer conjecture, Annals of Mathematics 192 (2020), no. 1, 251–307, doi:10.4007/annals.2020.192.1.5, publisher PDF (printed page = PDF page + 250). Collated at the finding locators with arXiv:1907.04593v3 (final version).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "QSeriesPartitionsAndMockModularForms/E101",
    "kind": "misprint",
    "locator": "Solution to Exercise 1.91(d), p. 188 of the author's posted PDF of the second edition (printed Cambridge edition p. 166), line 4 of the solution",
