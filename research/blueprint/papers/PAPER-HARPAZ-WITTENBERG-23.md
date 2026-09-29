@@ -170,3 +170,13 @@ The independent review (REV-PAPER-HARPAZ-WITTENBERG-23, `research/blueprint/revi
   - That Part II's roadmap id is shared with PAPER-HARPAZ-WITTENBERG-20 route 13, and its brief now says so.
 
 Where the text above counts items or routes, the corrected JSON is authoritative. It has 158 items (10 library, 15 planned, 133 missing) in nine routes.
+
+## Red-team fix (29 September 2026)
+
+Claude Code, session `cc-39fac3`, fixing RT-PAPER-HARPAZ-WITTENBERG-23/1 (issue #3957). Item 39, the Picard group of a finite-stabilizer homogeneous space, is [HW20, §5], which this paper only recalls on p. 8 to obtain (3.1).
+- It stays on its route, since every missing item is routed once and (3.1) uses it.
+- It now names PAPER-HARPAZ-WITTENBERG-20/81 as the statement the shared candidate HeightsRationalPointsPartIIHomogeneousMassey builds once, from HW20.
+- Its kind is now `theorem`, matching HW20/81.
+- The route brief says the same.
+
+See `research/blueprint/redteam/RT-PAPER-HARPAZ-WITTENBERG-23.fixes.md`.
