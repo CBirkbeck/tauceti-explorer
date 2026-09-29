@@ -15899,9 +15899,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R26.1.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #694"
+   "note": "released on GitHub issue #694"
   },
   {
    "id": "REV-ClassicalSerreModularity--R26.1",
@@ -17959,12 +17959,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R32.3.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #736"
+   "note": "released on GitHub issue #736"
   },
   {
    "id": "REV-GL2ModularityLifting--R32.3",
@@ -20882,12 +20882,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R23.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "released on GitHub issue #976"
+   "note": "claimed on GitHub issue #976"
   },
   {
    "id": "REV-PotentialModularityAndCompatibleSystems--R23.1",
