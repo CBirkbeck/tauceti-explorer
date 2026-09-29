@@ -4,7 +4,9 @@ Agent: Claude Code. Sessions: cc-58621d (checkpoint 1, chapters 1–3), cc-fb70e
 chapters 4–7) and cc-48533a (checkpoint 3, chapters 8–9). Issue: #4546. Status: **complete**. The
 three checkpoints cover the introduction and chapters 1–9. The extraction has 409 items (23
 library, 171 planned, 215 missing), 25 routes, 5 prerequisite papers and 90 recorded mistakes. The
-handoff note records that nothing remains.
+handoff note records that nothing remains. After the independent review (REV-PAPER-KEDLAYA-LIU-15,
+listed at the end) it has 412 items (26 library, 185 planned, 201 missing) and 144 recorded
+mistakes.
 
 ## Source
 
@@ -211,7 +213,9 @@ For chapters 4–7:
   - the graded ring and the comparison with the Proj curve;
   - ϕ-cohomology on annuli.
 
-  They do this for a perfectoid S; the paper does it for any perfect uniform R.
+  They do this for a perfectoid S. Under Hypothesis 5.0.1 the paper's R is a perfect uniform
+  Banach F_p-algebra over an analytic field, which is a perfectoid Tate ring of characteristic p, so
+  the generality is the same (corrected by the independent review).
 - **VB4** plans semicontinuity of the HN polygon (Theorem 7.4.5) and the filtration on
   constant-polygon loci (Corollary 7.4.10), from Fargues–Scholze II.2.19. **VB1** and VB4 give
   rank, degree and slope. **RD.2** gives the special-above-generic comparison (Proposition 7.4.3),
@@ -232,8 +236,12 @@ Chapters 1–2:
    the same objects. No layer plans local systems on schemes. The route also takes Lemma 1.2.3
    (maps out of a finite étale algebra as idempotents of the tensor product), the representability
    behind FÉt(R) being a Galois category.
-2. **EnhancedDerivedSheaves E2** receives the pro-étale site of a scheme and Bhatt–Scholze's
-   Theorem 1.4.11. E2 already imports the replete-topos part of the same paper.
+2. **SchemeAndStackFoundations SF.2** receives Bhatt–Scholze's Theorem 1.4.11 and names the
+   pro-étale site of a scheme, which SF.2 plans ("own ... pro-etale site comparisons"). It also
+   takes two scheme-cohomology inputs of chapter 8 (the Čech computation of quasicoherent
+   cohomology and Serre's criterion for affineness). The extraction had sent the §1.4 items to
+   EnhancedDerivedSheaves E2, which imports only the replete-topos part of the same paper; the
+   independent review moved them.
 3. **PhiGammaModulesAndIwasawaCohomology PG.0** receives the general ϕ-module conventions and Lemma
    1.5.2 (every finitely generated ϕ-module is a quotient of a free one), which the later chapters
    use throughout.
@@ -277,9 +285,10 @@ Additions for chapters 1–2 that the library audit made necessary:
 8. **FoundationsAndLibraryIntegration LI.2** receives the inverse-limit facts of Remark
    2.3.15(c)–(e) for compact Hausdorff spaces. Mathlib has the clopen statement only for profinite
    limits.
-9. **PerfectoidSpaces P5** receives the equivalence of the factorization-lifting and root-lifting
-   definitions of henselian pairs, which P5's use of Gabber–Ramero needs. Mathlib proves it only for
-   local rings.
+9. **PerfectoidSpaces P5** was to receive the equivalence of the factorization-lifting and
+   root-lifting definitions of henselian pairs. The independent review found it planned by the
+   packet node ClassicalAdicEtaleCohomology:H1:henselian/henselian-pair-characterisations, and
+   rejected the route.
 
 Chapter 3:
 
@@ -322,13 +331,14 @@ Chapters 5–7 (checkpoint 2):
     chapter 5: seventeen items, and one planned item named as a source.
     - RF0:annuli builds the annulus rings of a perfectoid S as rational localizations of
       Spa W(R⁺). RF1 glues Y_S and forms X_S.
-    - The paper builds the same rings for any perfect uniform R from the norms of route 14. It
+    - The paper builds the same rings from the norms of route 14, for R as in Hypothesis 5.0.1
+      (a perfectoid Tate ring of characteristic p, the layers' generality). It
       proves what the curve needs from them: topologies and units, intersections and splittings,
       the sheaf and Kiehl-glueing properties, relative perfectoidness (Rodriguez), the maps of
       Gel'fand spectra and the radius fibration, finite étale functoriality, and reduction modulo
       a primitive element.
     - Lemma 6.1.4 (generation of the global sections of a ϕ-bundle) belongs with the glueing.
-    - The layers state none of this for a general perfect uniform R.
+    - The layers do not state these properties.
 18. **VectorBundlesAndIsocrystals VB2:ampleness** receives two facts about the Proj description
     that the layer does not state:
     - for an analytic field the rings P[f^{−1}]_0 are Prüfer, so coherent sheaves correspond to
@@ -338,7 +348,7 @@ Chapters 5–7 (checkpoint 2):
 19. **VectorBundlesAndIsocrystals VB4** receives the eight missing items of chapter 7.
     - VB4 proves semicontinuity and the constant-polygon filtration for perfectoid S through
       Banach–Colmez spaces.
-    - The paper proves them for any perfect uniform R by spreading a good basis from a point of
+    - The paper proves them, in the same generality, by spreading a good basis from a point of
       ℳ(R). That needs the approximation lemmas, pure models and the openness of the pure locus,
       the boundedness of the polygon, the splitting at a constant vertex of a varying polygon, and
       the pointwise detection of H^1.
@@ -368,9 +378,9 @@ Chapters 8–9 (checkpoint 3). Ten existing routes receive items, and six routes
 - **New route 22: RelativeFarguesFontaine RF2:untilts and RF4:vector-bundles.** The untilt divisor
   in Proj(P_R), the relative rings B_e, B⁺_dR and B_dR, and B-pair cohomology (§8.9). Conjecture
   8.8.20 is recorded there as a conjecture, not a target.
-- **New route 23: FoundationsAndLibraryIntegration LI.3.** Three standard inputs no layer states:
-  Yoneda Ext equals derived Ext, Čech computation of quasicoherent cohomology on separated schemes,
-  and Serre's criterion for affineness.
+- **New route 23: FoundationsAndLibraryIntegration LI.3.** Yoneda Ext equals derived Ext. (The
+  extraction also sent here the Čech computation of quasicoherent cohomology on separated schemes
+  and Serre's criterion for affineness; the independent review moved them to route 2, SF.2.)
 - **New route 24: PadicHodgeTheory P8.** The relative period sheaves of §9.3 on the pro-étale site of
   an arbitrary adic space over ℚ_p, and the comparisons of local systems with ϕ-modules, bundles on
   FF_X and B-pairs, with their cohomology (§§9.3–9.4). VB4 plans only the perfectoid, slope-zero
@@ -543,3 +553,90 @@ Thirty-one are new:
   Conjecture 8.8.20 and E85 on Lemma 9.3.4. Every planned stage id and cited declaration of the new
   items was validated against `data/atlas.json` and the pinned index.
 - Nothing was compiled; a paper job has no Lean file.
+
+## Corrections by the independent review
+
+REV-PAPER-KEDLAYA-LIU-15 (Claude Code, session `cc-f805bf`, 29 September 2026) made these changes.
+The text read is the same arXiv v5 PDF and LaTeX source, with the same SHA-256.
+
+**Mistakes in the paper.**
+- A `review` verdict on each of E1–E90. All are confirmed at their locators on 300-dpi page images
+  of v5. Some fields were corrected:
+  - E7: the correction now points to the same slip in the proof of Lemma 2.4.13.
+  - E11: the correction drops the false "(so that A is reduced)".
+  - E12: the kind is now `gap`.
+  - E20: the reason now says that [112] is the IHÉS paper, whose numbered conjectures are 1.13 and
+    9.3.
+  - E21: the determinant lies in F_{p^a}, not F_p.
+  - E23 and E44: the locators.
+  - E46: the direction of the norm change, as in the authors' errata.
+  - E48: the combination with E49.
+  - E55: affects nothing.
+  - E60: the repair for the preperfectoid classes.
+  - E63: the argument in the isogeny category.
+  - E84 and E85: the corrections.
+- New E91–E144, all confirmed by the review on the page images. Five are errors in stated results:
+  - E101: Remark 2.3.9 is false without uniformity.
+  - E103: Remark 2.4.7's bound ε < c is not enough.
+  - E104: the continuity criterion of Remark 2.4.4 holds in one direction only.
+  - E111: Example 2.8.7 as printed has X ∉ A, and it needs r > 1.
+  - E114: Theorem 3.3.7(c) and Lemma 3.3.9 need z̄₀ ∈ R^×.
+- Two more errors in stated results were already in the atlas packets and are now listed here:
+  - E143: Remark 2.8.3(a) ("only if" is false; AdicSpacesPartII/E58).
+  - E144: the norm of Remark 2.4.4 needs z ∈ A0 (AdicSpacesPartII/E39).
+- The rest are gaps in proofs (E94, E98, E99, E106, E109, E110, E113, E115, E138, E139), wrong bounds
+  or constants in proofs (E112, E118, E122), a false parenthesis that nothing uses (E108, Lemma 2.5.12
+  and Proposition 2.5.15: A⁺ = A° does not make A reduced) and 33 misprints. E128 is also recorded as
+  PerfectoidSpaces/E16.
+
+**Items.**
+- Statements corrected: items 1, 5, 10, 11, 15, 23, 24, 57, 64, 66, 67, 78, 87, 92, 98, 104, 107,
+  110, 130, 134, 136, 141, 155, 156, 158, 168, 174, 193, 218, 221, 271, 350 and 378.
+- Also corrected: the name of item 10, the kinds of items 10 and 11 (Remark 1.2.7 is the criterion,
+  Definition 1.2.6 the definition), and the locators of items 156 and 168.
+- Notes corrected or extended: items 8, 14, 26, 30, 34, 42, 43, 66, 86, 104, 106, 110, 160, 165,
+  171, 181, 224, 237, 312, 359 and 396.
+- New items:
+  - 410, Remark 3.6.27 (the perfectoid property is not local), in route 11;
+  - 411, Remark 9.2.14 (reduced normal affinoids are pro-sheafy), in route 16;
+  - 412, Remark 9.3.17, in route 24.
+
+**Statuses.**
+- Now library, all at Tau Ceti f790474:
+  - item 47: Henkel's open mapping theorem, `TauCeti.HasZeroSequenceOfUnits.isOpenMap`;
+  - item 63: `TauCeti.ValuationSpectrum.spa` and rational subsets;
+  - item 65: `spectralSpace_spa_of_pairOfDefinition`, `isTopologicalBasis_spaRationalFamily`.
+- Now planned. Most of these are packet nodes, several citing Kedlaya–Liu by number:
+  - items 6, 11, 48, 81, 83, 85, 86, 87, 93, 96, 97, 98, 99, 100, 101, 102, 110, 114 and 163;
+  - item 27, at SchemeAndStackFoundations SF.2;
+  - item 200, at VB1 and RF0:annuli;
+  - item 404, at PadicHodgeTheory P7, through the accepted route 6 of PAPER-DING-25.
+- Now missing: items 256, 275, 293, 364 and 367. The layers that were cited plan them only on
+  locally strongly sheafy or locally noetherian spaces, on another site, or only for c = 0.
+- Partly planned, still missing, with the partial plan in the note: items 7, 42, 43, 45, 50, 66, 91,
+  94, 104, 120 and 159.
+- Planned citations corrected or added: items 9, 12, 13, 46, 64, 77, 78, 79, 80, 84, 90, 103, 106,
+  109, 116 and 177.
+- The library citation of item 40 is corrected: `NormedAlgebra` is replaced by `RingHom.IsBounded`.
+- Notes on partial plans and library ingredients added to items 30, 38, 67, 69, 70, 71, 73, 76, 89,
+  186, 188, 202, 208, 212, 213, 217, 227, 260, 262, 263, 277, 284, 285, 288, 290, 339, 375, 387, 394,
+  405 and 408.
+- Under Hypothesis 5.0.1 the R of chapters 5–8 is a perfectoid Tate ring of characteristic p. The
+  notes and route reasons that called the paper more general than the layers' perfectoid S were
+  corrected (items 212, 217 and 227; routes 17–19; this report).
+
+**Routes.**
+- Route 1: item 282 (de Jong) moved to route 21.
+- Route 2: retargeted from EnhancedDerivedSheaves E2 to SchemeAndStackFoundations SF.2. It gained
+  items 344 and 345 from route 23.
+- Route 5: items 81, 85, 86, 87 and 93 left (planned at A3, R1 and A1). Items 91, 94 and 95 moved to
+  route 6.
+- Route 6: gained items 91, 94, 95, 256, 364 and 367. Item 110 moved to route 15.
+- Route 7: item 6 left (planned at R3).
+- Route 9: rejected (item 11 is planned at H1:henselian).
+- Routes 10 and 11: item 163 moved from route 10 to route 11. Route 11 also gained item 410.
+- Route 16 gained item 411; route 19 gained item 293; route 21 gained items 275 and 282; route 24
+  gained item 412.
+- Route 25: item 404 left.
+- The reasons of routes 1, 2, 5, 6, 7, 10–13, 15–19, 21 and 23–25 were updated accordingly. The
+  summary and the counts at the top of this report were updated.
