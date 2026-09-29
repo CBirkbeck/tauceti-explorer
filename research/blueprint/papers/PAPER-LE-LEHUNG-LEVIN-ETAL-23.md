@@ -1,3 +1,72 @@
+# LLHLM23 continuation: a certificate for Q06 and the new finding E111
+
+Claude Code — cc-fb70e5; issue 1254; 29 September 2026. This continuation takes the Q06 half of the
+Codex resume item 6: an integral certificate for Proposition B.0.1(4), `t³ ∈ H`, with its
+denominator locus. The source's proof of (4) is the single sentence "The last item follows from by
+a computation in Macaulay 2."
+
+## Source check
+
+The published PDF (author copy, SHA-256 as recorded in `source`) was re-read at PDF202–203. The
+three equations of B.0.1(1) were compared symbol by symbol with the page image of PDF202 and agree
+with `sourceData.appendixB.chartEquations`. H is the ideal of 3×3 minors of the Jacobian relative to
+`Z[t,a,b][1/P]`, so its columns are the six variables c12, c13, d21, c22, d31, d33.
+
+## The certificate
+
+Buchberger's algorithm with cofactor tracking was run over `Q(a,b)` on the three equations and the
+twenty minors (SymPy 1.14, grevlex with t > c12 > c13 > d21 > c22 > d31 > d33, 76 tracked basis
+elements). It returns
+
+  `t³ = Σ h_g·g`, with g among F1, F2, F3, M123, M124, M125, M136, M145, M234,
+
+and the identity was checked by exact expansion. All numerators have integer coefficients. The lcm of
+the denominators is
+
+  `2·a·(a−2)⁶(a−1)³(a−b)⁶(b−1)⁶(a−b−2)³(a+b−1)⁶·C³`, where `C = a³−4a²−ab²+ab+4a+b²`.
+
+Every factor except a, a+b−1 and C divides P. So `t³ ∈ H` holds over
+`Z[a,b][1/(aP·(a+b−1)·C)]`. The cofactors are recorded in
+`sourceData.appendixB.q06Certificate`. `t²` is not in `H + (F)` over `Q(a,b)`, so the exponent 3 is
+sharp.
+
+The extra factors a+b−1 and C appear to come from the elimination path. At (a,b) = (5,−4) and
+(7,−6), on a+b = 1, and at points of C = 0 over F₁₁, F₁₃ and F₁₇ with P ≠ 0, `t³ ∈ H + (F)` still
+holds. These are sample points and do not replace a certificate over those curves.
+
+## E111: Proposition B.0.1(4) fails on a = 0
+
+**E111 is a new unreviewed source finding.** The factor a cannot be removed. For a = 0 and any b with
+P(0,b) ≠ 0, the point
+
+  t = 1, c12 = c13 = c22 = d21 = d33 = 1, d31 = (b−1)/(b+1)
+
+satisfies all three equations, and the six-column Jacobian has rank 2 there. If some t^k lay in H,
+every point with t invertible would have rank 3. So no power of t lies in H over V, and (4) fails as
+printed. This was checked exactly for symbolic b and at b = 5, −3, 7; at b = 5 and b = −3 a direct
+membership test also finds no t^k with k ≤ 6 in H + (F).
+
+The failure is confined to (4). With the a and b columns included, the Jacobian has rank 3 at the
+witness, so `R ⊗ Q` is regular there. The step "R[1/t] is a regular domain" in the proof of (3) is
+not contradicted by this point. The fibre of Spec R[1/t] → V over (0,b) is singular at the witness,
+since the rank is still 2 with the t column.
+
+The correction recorded is to state (4) over `Z[a,b][1/(aP)]`. Whether the specializations used in
+Proposition 3.3.9 and Corollary B.0.5 (Q11) can have a = 0 is not settled here, and it is the first
+resume item. The correction search on 29 September 2026 covered Crossref, the author's publication
+page and the arXiv version record, and found no correction. arXiv v2 was not compared at this
+passage.
+
+## Evidence and scope
+
+`check_paper.py` passes. No item status or route changed, and no Lean was compiled or required.
+Q06's statement and proof steps, the `appendix-certificates` gap, `validation.appendixChecks` and the
+summary are updated, `sourceData.appendixB.q06Certificate` is added, and E111 is appended. Q06 stays
+`missing`: a recorded computation is not a formal proof. Q08 and Q09 are untouched.
+
+This continuation does not review the extraction. This session has now edited the result file and is
+ineligible to review or red-team it.
+
 # LLHLM23 continuation: fine ownership of the library and planned citations
 
 Claude Code — cc-d67081; issue 1254; 24 September 2026. This continuation finishes the half of the
