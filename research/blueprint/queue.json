@@ -5929,8 +5929,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HANSEN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1340"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1340",
+   "finishedAt": "2026-09-29T10:32:08Z"
   },
   {
    "id": "REV-PAPER-HANSEN-26",
