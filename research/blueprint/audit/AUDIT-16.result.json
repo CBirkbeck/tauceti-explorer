@@ -869,7 +869,7 @@
        "note": "The spaces, V_d with a_n(V_d f) = a_{n/d}(f), and IsCompl are proved; Hecke stability is only 'T_p preserves the old space for primes p coprime to N'. T_n-stability of the new space, and old-space stability for composite good n, are missing."
       },
       {
-       "target": "Fixed-character refinement with exact indexing S_k(N,chi)^old = sum over M | N with cond chi | M and d | N/M of V_d S_k(M, chi_M), and S_k(N,chi)^new = S_k(Gamma1(N))^new cap S_k(N,chi)",
+       "target": "Fixed-character refinement with exact indexing S_k(N,chi)^old = sum over M | N with M != N and cond chi | M and d | N/M of V_d S_k(M, chi_M), and S_k(N,chi)^new = S_k(Gamma1(N))^new cap S_k(N,chi)",
        "library": "partial",
        "declarations": [
         {
@@ -901,7 +901,7 @@
          "fit": "related"
         }
        ],
-       "note": "The old/new decomposition restricts to each character space and new cap S_k(N,chi) is the relative orthogonal complement, but the conductor-indexed description of the oldspace by descended characters chi_M is not proved (the Nebentypus.lean docstring says so)."
+       "note": "The old/new decomposition restricts to each character space and new cap S_k(N,chi) is the relative orthogonal complement, but the conductor-indexed description of the oldspace by descended characters chi_M is not proved (the Nebentypus.lean docstring says so). The sum runs over proper divisors M != N, as in cuspFormsOld (Newforms/Basic.lean:103), which requires d * M | N and M != N: the term M = N, d = 1 would be all of S_k(N,chi), and cuspFormsOld_one (:148) proves the level-one oldspace is zero although S_12(SL2(Z)) is nonzero."
       },
       {
        "target": "Bad-prime stability: the new subspace is stable under U_p for p | N (equivalently <U_p f_new, g_old> = 0), Fricke transport of degeneracy maps and the oldspace, stability of old and new spaces under all Hecke operators (D-S Prop 5.6.2)",
@@ -3604,7 +3604,7 @@
        "note": "The general index formula disc(L_H) * |H|^2 = disc L would give the code formula once m Z^iota and its discriminant group are identified (Layer 7), but no code version is stated."
       },
       {
-       "target": "Unimodular iff C = C^perp; q_m and even iff q_m vanishes on C; odd m never even; q_2(c) = wt(c)/4 so even iff doubly even; Type II codes give even unimodular lattices, applied to G24",
+       "target": "For m >= 2 and self-orthogonal C (so P_m(C) is integral): unimodular iff C = C^perp; for even m, the lift-independent q_m and even iff q_m vanishes on C; for odd m and a nonempty coordinate type, never even (m e_i has norm m), while for empty coordinates the zero lattice P_m(C) = {0} is even; q_2(c) = wt(c)/4 so even iff doubly even; Type II codes give even unimodular lattices, applied to G24",
        "library": "absent",
        "declarations": [
         {
@@ -3930,7 +3930,7 @@
        "note": "SymmKernel carries AddCommGroup and Module R instances (Kernel/Basic.lean:189, 193); Graphon extends it with values in [0,1] over a probability carrier."
       },
       {
-       "target": "homDensity t(F,W) with t in [0,1], the constant-graphon value p^{e(F)}, explicit edge and triangle integrals, multiplicativity over disjoint unions, and t(F, W_G) = hom(F,G)/|V(G)|^{|V(F)|}",
+       "target": "homDensity t(F,W) with t in [0,1], the constant-graphon value p^{e(F)}, explicit edge and triangle integrals, multiplicativity over disjoint unions, and t(F, W_G) = hom(F,G)/|V(G)|^{|V(F)|} for |V(G)| > 0",
        "library": "tauceti",
        "declarations": [
         {
@@ -3969,7 +3969,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Bounds are homDensity_nonneg/homDensity_le_one (Basic.lean:191, 195) and the edge density integral is line 332 of SmallGraphs.lean."
+       "note": "Bounds are homDensity_nonneg/homDensity_le_one (Basic.lean:191, 195) and the edge density integral is line 332 of SmallGraphs.lean. homDensity_finiteGraphGraphon takes hm : 0 < m, while finiteGraphGraphon (FiniteGraph/Basic.lean:89) is defined at every host size: for the empty host and a nonempty edgeless pattern F the graphon density is 1 but hom(F,G)/0^{|V(F)|} = 0/0 = 0, so the identity needs |V(G)| > 0 (the empty pattern gives 1 on both sides)."
       },
       {
        "target": "cutNorm with seminorm laws, the L1 bound and the set form sup_{S,T} |int_{S x T} W|",
