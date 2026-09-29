@@ -5779,3 +5779,201 @@ end DyadicQuadratic
 end SuggestedIntrinsicTameTests
 end
 end DirichletPadic
+
+/-! ## Integral arithmetic characters and tame measures on the unit group
+The coefficient ring is the existing norm-valuation integer subring of K.
+No separately chosen p-adic algebra structure on that subring is used. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure BigOperators
+open AbstractMeasure
+section IntegralArithmeticCharacters
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+
+lemma primePowerArithmeticCharacter_norm_le (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (w : ℕ) (u : (ℤ_[p])ˣ) : ‖primePowerArithmeticCharacter p n χ w u‖ ≤ 1 := sorry
+
+variable [IsUltrametricDist K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+
+def integralPrimePowerArithmeticCharacter (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (w : ℕ) : ContinuousMonoidHom (ℤ_[p])ˣ O := sorry
+
+lemma coe_integralPrimePowerArithmeticCharacter (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (w : ℕ) (u : (ℤ_[p])ˣ) :
+    (integralPrimePowerArithmeticCharacter p n χ w u : K) =
+      primePowerArithmeticCharacter p n χ w u := sorry
+
+lemma integralPrimePowerArithmeticCharacter_one (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (w : ℕ) : integralPrimePowerArithmeticCharacter p n χ w 1 = 1 := sorry
+
+lemma integralPrimePowerArithmeticCharacter_zero_weight (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (u : (ℤ_[p])ˣ) :
+    (integralPrimePowerArithmeticCharacter p n χ 0 u : K) =
+      primePowerCharacter p n χ (u : ℤ_[p]) := sorry
+
+lemma integralPrimePowerArithmeticCharacter_neg_one (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (w : ℕ) :
+    (integralPrimePowerArithmeticCharacter p n χ w (-1) : K) = χ (-1)*(-1 : K)^w := sorry
+end IntegralArithmeticCharacters
+
+section IntrinsicIntegralTame
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[p])ˣ
+local notation "uMap" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,ℤ_[p]))
+local notation "iMap" => (ContinuousMap.mk Subtype.val continuous_subtype_val : C(O,K))
+
+def intrinsicIntegralTameZetaMeasure (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) : D(U,O) := sorry
+
+lemma intrinsicIntegralTameZetaMeasure_eq_restrict (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    intrinsicIntegralTameZetaMeasure η hD hpD =
+      restrictUnits p O (integralTameZetaMeasure η hD hpD) := sorry
+
+lemma intrinsicIntegralTameZetaMeasure_one_level (η : DirichletCharacter K 1)
+    (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p∣1) :
+    intrinsicIntegralTameZetaMeasure η hD hpD = 0 := sorry
+
+lemma intrinsicIntegralTameZetaMeasure_unique (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) (ν : D(U,O))
+    (hν : map uMap ν=integralTameZetaMeasure η hD hpD) :
+    ν=intrinsicIntegralTameZetaMeasure η hD hpD := sorry
+
+lemma map_intrinsicIntegralTameZetaMeasure (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    map uMap (intrinsicIntegralTameZetaMeasure η hD hpD) =
+      integralTameZetaMeasure η hD hpD := sorry
+
+theorem coe_intrinsicIntegralTameZetaMeasure_apply (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) (f : C(U,O)) :
+    (intrinsicIntegralTameZetaMeasure η hD hpD f : K) =
+      intrinsicTameZetaMeasure η hD hpD ((iMap).comp f) := sorry
+
+lemma intrinsicIntegralTameZetaMeasure_bound (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) (f : C(U,O)) :
+    ‖intrinsicIntegralTameZetaMeasure η hD hpD f‖ ≤ ‖f‖ := sorry
+
+lemma intrinsicIntegralTameZetaMeasure_unique_coefficient (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) (ν : D(U,O))
+    (hν : ∀ f : C(U,O), (ν f : K)=intrinsicTameZetaMeasure η hD hpD ((iMap).comp f)) :
+    ν=intrinsicIntegralTameZetaMeasure η hD hpD := sorry
+
+theorem intrinsicIntegralTameZetaMeasure_character (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) :
+    (intrinsicIntegralTameZetaMeasure η hD hpD
+      (integralPrimePowerArithmeticCharacter p n χ w).toContinuousMap : K) =
+    intrinsicTameZetaMeasure η hD hpD
+      (primePowerArithmeticCharacter p n χ w).toContinuousMap := sorry
+
+variable [CharZero K] [Algebra ℚ K]
+theorem intrinsicIntegralTameZetaMeasure_common_character_value
+    {E : Type*} [Field E] [CharZero E] [Algebra ℚ E]
+    (n : ℕ) (χ : DirichletCharacter E (p^n)) (η : DirichletCharacter E D) (hη : η≠1)
+    (ιC : E →+* ℂ) (ιK : E →+* K) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (w : ℕ) (hw : 1≤w) :
+    let θ : DirichletCharacter E (D*p^n) :=
+      η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    let b : E := (1-θ (p : ZMod (D*p^n))*(p : E)^(w-1)) *
+      (-((D*p^n : ℕ) : E)^(w-1)/w * ∑ a : ZMod (D*p^n), θ a *
+        algebraMap ℚ E ((Polynomial.bernoulli w).eval (a.val/(D*p^n) : ℚ)))
+    ιC b = (1-(θ.ringHomComp ιC) (p : ZMod (D*p^n))*(p : ℂ)^(w-1)) *
+      DirichletCharacter.LFunction (θ.ringHomComp ιC) (1-(w : ℂ)) ∧
+    ιK b = (intrinsicIntegralTameZetaMeasure (η.ringHomComp ιK) hD hpD
+      (integralPrimePowerArithmeticCharacter p n (χ.ringHomComp ιK) w).toContinuousMap : K) := sorry
+end IntrinsicIntegralTame
+
+namespace SuggestedIntegralUnitTests
+section General
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[p])ˣ
+local notation "uMap" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,ℤ_[p]))
+local notation "iMap" => (ContinuousMap.mk Subtype.val continuous_subtype_val : C(O,K))
+-- norm_zero_weight
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (u : U) :
+    ‖primePowerArithmeticCharacter p n χ 0 u‖ ≤ 1 := sorry
+-- norm_all_positive_weights
+example (n w : ℕ) (χ : DirichletCharacter K (p^n)) (u : U) :
+    ‖primePowerArithmeticCharacter p n χ (w+1) u‖ ≤ 1 := sorry
+-- integral_character_identity
+example (n w : ℕ) (χ : DirichletCharacter K (p^n)) :
+    integralPrimePowerArithmeticCharacter p n χ w 1 = 1 := sorry
+-- integral_character_trivial_boundary
+example : integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) 0 = 1 := sorry
+-- integral_character_coefficient
+example (n w : ℕ) (χ : DirichletCharacter K (p^n)) (u : U) :
+    (integralPrimePowerArithmeticCharacter p n χ w u : K) =
+      primePowerArithmeticCharacter p n χ w u := sorry
+-- integral_character_principal_sign
+example : (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) 1 (-1) : K) = -1 := sorry
+-- integral_tame_modulus_one
+example (η : DirichletCharacter K 1) (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p∣1) :
+    intrinsicIntegralTameZetaMeasure η hD hpD = 0 := sorry
+-- integral_zero_test
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    intrinsicIntegralTameZetaMeasure η hD hpD 0 = 0 := sorry
+-- integral_unique_ambient
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (ν : D(U,O)) (hν : map uMap ν=integralTameZetaMeasure η hD hpD) :
+    ν=intrinsicIntegralTameZetaMeasure η hD hpD := sorry
+-- integral_inclusion_all_tests
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) (f : C(ℤ_[p],O)) :
+    intrinsicIntegralTameZetaMeasure η hD hpD (f.comp uMap) =
+      integralTameZetaMeasure η hD hpD f := sorry
+-- integral_inclusion_mass
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    intrinsicIntegralTameZetaMeasure η hD hpD 1=integralTameZetaMeasure η hD hpD 1 := sorry
+-- coefficient_all_tests
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) (f : C(U,O)) :
+    (intrinsicIntegralTameZetaMeasure η hD hpD f : K) =
+      intrinsicTameZetaMeasure η hD hpD ((iMap).comp f) := sorry
+-- integral_mass_norm
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    ‖intrinsicIntegralTameZetaMeasure η hD hpD 1‖ ≤ 1 := sorry
+-- coefficient_unique_all_tests
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) (ν : D(U,O))
+    (hν : ∀ f : C(U,O), (ν f : K)=intrinsicTameZetaMeasure η hD hpD ((iMap).comp f)) :
+    ν=intrinsicIntegralTameZetaMeasure η hD hpD := sorry
+-- integral_character_zero_weight
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) :
+    (intrinsicIntegralTameZetaMeasure η hD hpD
+      (integralPrimePowerArithmeticCharacter p n χ 0).toContinuousMap : K) =
+    intrinsicTameZetaMeasure η hD hpD (primePowerArithmeticCharacter p n χ 0).toContinuousMap := sorry
+-- integral_character_total_mass
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    (intrinsicIntegralTameZetaMeasure η hD hpD
+      (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) 0).toContinuousMap : K) =
+      intrinsicTameZetaMeasure η hD hpD 1 := sorry
+-- integral_character_value_mem_integer
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (n w : ℕ) (χ : DirichletCharacter K (p^n)) :
+    intrinsicTameZetaMeasure η hD hpD (primePowerArithmeticCharacter p n χ w).toContinuousMap ∈
+      Valuation.integer (NormedField.valuation (K := K)) := sorry
+end General
+
+section Dyadic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+variable (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+  (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2∣3)
+include hη
+-- integral_common_first_value
+example : (intrinsicIntegralTameZetaMeasure η hD hpD
+    (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap :
+      ℚ_[2]) = 2/3 := sorry
+-- integral_common_twisted_value
+example (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) :
+    (intrinsicIntegralTameZetaMeasure η hD hpD
+      (integralPrimePowerArithmeticCharacter 2 2 χ 2).toContinuousMap : ℚ_[2]) = -2 := sorry
+end Dyadic
+end SuggestedIntegralUnitTests
+end
+end DirichletPadic
