@@ -23183,7 +23183,7 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AdelicAlgebraicGroups",
     "BP-ArithmeticLocallySymmetricSpaces",
@@ -23191,7 +23191,7 @@
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "released on GitHub issue #1021"
+   "note": "claimed on GitHub issue #1021"
   },
   {
    "id": "REV-AnalyticNumberTheory--AN.0",
@@ -23829,7 +23829,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ModularityAndLanglandsExtensions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -23837,7 +23837,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-PotentialAutomorphyInfrastructure"
    ],
-   "note": "claimed on GitHub issue #1033"
+   "note": "released on GitHub issue #1033"
   },
   {
    "id": "REV-ModularityAndLanglandsExtensions",
