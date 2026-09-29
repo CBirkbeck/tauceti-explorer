@@ -1,0 +1,2431 @@
+{
+ "paper": "PAPER-SCHOLZE-12",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Perfectoid spaces",
+  "authors": "Peter Scholze",
+  "venue": "Publications mathématiques de l'IHÉS 116 (2012), 245–313",
+  "doi": "10.1007/s10240-012-0042-x",
+  "arxiv": "1111.4914",
+  "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-012-0042-x.pdf",
+  "readDate": "2026-09-29",
+  "version": "The published version (open access on Centre Mersenne, 69 pages, received 11 December 2011, accepted 17 July 2012, published online 10 August 2012) was read in full and is the text of record for every locator; page numbers are the printed IHÉS pages 245–313. arXiv:1111.4914 has only v1 (21 November 2011, 51 pages), whose TeX source was used to check formulas; the copy on the author's page is the same text as v1. The published version adds Remark 1.11 (so the later statements of §1 are renumbered: v1's 1.11–1.15 are published 1.12–1.16), the sentence after Definition 2.6(i) that R° is open and integrally closed and the paragraph on general R⁺, a proof sketch for Theorem 2.22, details in the proofs of Lemma 5.21, Proposition 6.14 and Proposition 7.16, the reduction to G_K at the start of the proof of Theorem 9.6, and Lemma 9.8 on cup products (so v1's Lemma 9.8 is published Lemma 9.9). §§2–8 keep their numbering.",
+  "readSections": [
+   "Published version read in full: §1 Introduction (Theorems 1.1–1.15, Claim 1.4, Definitions 1.2, 1.6, Remark 1.11, Conjecture 1.14, Lemma 1.16), §2 Adic spaces (Definitions 2.1–2.28, Propositions 2.10–2.29, Theorems 2.17–2.24, Example 2.20), §3 Perfectoid fields (3.1–3.8), §4 Almost mathematics (4.1–4.17), §5 Perfectoid algebras (5.1–5.25 and the two proofs of Theorem 3.7), §6 Perfectoid spaces: analytic topology (6.1–6.18), §7 Perfectoid spaces: étale topology (7.1–7.19), §8 An example: toric varieties (8.1–8.8), §9 The weight-monodromy conjecture (9.1–9.9), acknowledgements and the reference list [1]–[35].",
+   "arXiv v1 TeX source compared with the published text by a word-level diff; the differences are listed under version."
+  ]
+ },
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-012-0042-x.pdf",
+   "read": "2026-09-29",
+   "sha256": "7e7f7a3b6309ead9d8ee376106c92c644f25b22d75ffa6d7382508a36cf7814a",
+   "citation": "Publ. Math. IHÉS 116 (2012), 245–313, 69 pages; the text of record for all locators"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1111.4914v1",
+   "read": "2026-09-29",
+   "sha256": "065441a872c5861560014f5c7675fdd4606b5796684f6a829747f01afee18e7b",
+   "citation": "arXiv:1111.4914v1, 21 November 2011, 51 pages (the only arXiv version)"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/e-print/1111.4914v1",
+   "read": "2026-09-29",
+   "sha256": "a566b7f5524839bceb7954c6ef786aa0c2ea97d66d708df3022091f3fc3ff1b5",
+   "citation": "TeX source of arXiv v1, used to check formulas"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/PerfectoidSpaces.pdf",
+   "read": "2026-09-29",
+   "sha256": "2c7e645a4ec3c56d5ee9e012cfe52d99e45973eefb99f8383e3bb69f0211afd9",
+   "citation": "Author's page copy (PDF dated 19 November 2011); its text agrees with arXiv v1 word for word apart from the date stamp"
+  }
+ ],
+ "summary": "Scholze defines perfectoid fields, perfectoid K-algebras and perfectoid spaces over a perfectoid field K and proves the tilting equivalences: perfectoid K-algebras ≅ perfectoid K♭-algebras through their almost-integral structures (Theorem 5.2), Spa(R, R⁺) ≅ Spa(R♭, R♭⁺) identifying rational subsets, with perfectoid rational localisations, the sheaf property and almost vanishing of H^i(X, 𝒪⁺) (Theorem 6.3), perfectoid spaces over K ≅ over K♭ (Proposition 6.17), a strong almost purity theorem (Theorem 7.9) and an isomorphism of étale sites X_ét ≅ X♭_ét (Theorem 7.12). For toric varieties he identifies |X^ad_{Σ,K♭}| and its étale topos with the inverse limit along the p-power map (Theorem 8.5), approximates complete intersections by tilted subvarieties (Corollary 8.8), and deduces Deligne's weight-monodromy conjecture for set-theoretic complete intersections in projective smooth toric varieties over p-adic fields (Theorem 9.6). The atlas already follows §§3–7 closely: the reviewed PerfectoidSpaces decomposition is a node-by-node extraction of this paper, so those 90-odd items are planned by P0–P3, P5 and P7; §2's recall of Huber's theory is largely in Tau Ceti or planned by its roadmap Foundations of adic spaces. What the atlas lacks: Huber's comparison of rigid-analytic varieties, formal models and taut spaces with adic spaces and the field-pair description of points (source routes to AdicSpacesPartII, TropicalAndBerkovichArithmetic and AdicEtaleGeometry); three small statements for P1 and P3; the toric geometry of §8 over nonarchimedean fields with its perfectoid tower and approximation (coalescing with the nonarchimedean toric Part II that PAPER-BINDA-KATO-VEZZANI-25 proposed, whose missing construction leaves this paper supplies); and the ℓ-adic weight-monodromy theorem of §9, a new Part II of Deligne weights, purity and the Weil bounds.",
+ "items": [
+  {
+   "id": "PAPER-SCHOLZE-12/1",
+   "kind": "theorem",
+   "name": "Fontaine–Wintenberger: Gal(ℚ_p(p^{1/p^∞})) ≅ Gal(𝔽_p((t)))",
+   "statement": "The absolute Galois groups of ℚ_p(p^{1/p^∞}) and of 𝔽_p((t)) are canonically isomorphic. Proof outline in the paper: with K the completion of ℚ_p(p^{1/p^∞}) and K♭ the completion of 𝔽_p((t))(t^{1/p^∞}), one has K°/p = ℤ_p[p^{1/p^∞}]/p ≅ 𝔽_p[t^{1/p^∞}]/t = K♭°/t (p^{1/p^n} ↦ t^{1/p^n}), a continuous multiplicative non-additive map x ↦ x♯ from K♭ to K sending t to p, and K♭ = lim_{x↦x^p} K; for a finite extension L of K♭ that is the splitting field of a separable monic polynomial, L♯ is the splitting field of the polynomial whose coefficients are the ♯ of the p^n-th roots of the original ones, for n large; these fields stabilise.",
+   "locator": "§1, Theorem 1.1 and the paragraph after it, pp. 245–246",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "A special case of Theorem 1.3 (item 3, from item 42). The step from the algebraic fields to their completions uses that a henselian valued field and its completion have the same absolute Galois group, and that the purely inseparable extension 𝔽_p((t)) ⊂ 𝔽_p((t))(t^{1/p^∞}) does not change it; the paper does not say so (source issue E5, already recorded in the atlas as PerfectoidSpaces/E23). That comparison is item 2, routed with P3. The decomposition node PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields plans Theorem 3.7."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/2",
+   "kind": "theorem",
+   "name": "Absolute Galois groups are unchanged by completion and by perfection",
+   "statement": "For a henselian nonarchimedean valued field F with completion F̂, restriction G_{F̂} → G_F is an isomorphism (Krasner's lemma); and a purely inseparable extension does not change the absolute Galois group. Used for ℚ_p(p^{1/p^∞}) and 𝔽_p((t))(t^{1/p^∞}) in Theorem 1.1, and for k(ϖ^{1/p^∞}) and 𝔽_q((t)) in the proof of Theorem 9.6.",
+   "locator": "§1, the paragraph after Theorem 1.1, pp. 245–246; §9, proof of Theorem 9.6, p. 309",
+   "status": "missing",
+   "library": [
+    "mathlib:IsKrasner",
+    "mathlib:Field.absoluteGaloisGroup"
+   ],
+   "planned": [],
+   "note": "Used without comment (source issue E5). Mathlib has Krasner's lemma and absolute Galois groups, not the comparison. Routed to PerfectoidSpaces:P3 with Theorem 1.1."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/3",
+   "kind": "theorem",
+   "name": "Absolute Galois groups of a perfectoid field and its tilt",
+   "statement": "For every perfectoid field K with tilt K♭, the absolute Galois groups of K and K♭ are canonically isomorphic (via the degree-preserving equivalence L ↦ L♭ between finite extensions of K and of K♭).",
+   "locator": "§1, Theorem 1.3, p. 246; deduced from Theorem 3.7, p. 267",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Planned by P3 through Theorem 3.7 (node PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields). The Galois-group form is the corollary of the equivalence of finite étale sites of Spec K and Spec K♭ (both are Galois categories); Mathlib has the Galois-category and Galois-correspondence machinery (CategoryTheory.PreGaloisCategory, IsGalois.intermediateFieldEquivSubgroup)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/4",
+   "kind": "theorem",
+   "name": "The tilted affine line as an inverse limit (Claim 1.4, Theorem 1.5)",
+   "statement": "Claim 1.4 (heuristic): the affine line over K♭ \"is\" lim_{T↦T^p} of the affine line over K. Theorem 1.5: there is a homeomorphism of topological spaces |(𝔸¹_{K♭})^ad| ≅ lim_{T↦T^p} |(𝔸¹_K)^ad|, where K is a perfectoid field with tilt K♭; on points it is given by x ↦ (x♯, (x^{1/p})♯, …).",
+   "locator": "§1, Claim 1.4 and Theorem 1.5, pp. 246–247",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The body proves the analogous statement for the adic toric space of a fan, which for the fan of 𝔸¹ is the closed unit disc (Theorem 8.5(iii)); the affine line itself needs the exhaustion by the discs {|T| ≤ |ϖ|^{-n}}, rescaled by the compatible roots ϖ^{1/p^m}, which the paper leaves implicit (source issue E9). Routed with the toric Part II. The perfectoid toric tower is otherwise only a test in PerfectoidSpaces:P7."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/5",
+   "kind": "theorem",
+   "name": "Faltings's almost purity theorem in the smooth case, recovered",
+   "statement": "Let K be a perfectoid field of characteristic 0, R_n = K°⟨T_1^{±1/p^n}, …, T_d^{±1/p^n}⟩, R_∞ = lim R_n, R̂_∞ its p-adic completion and R = R̂_∞[1/p] (a perfectoid K-algebra). If S_n is a finite normal R_n-algebra that is étale after inverting p, S_m (m ≥ n) the integral closure of R_m in (S_n ⊗_{R_n} R_m)[1/p] and S_∞ = lim S_m, then with S = S_n ⊗_{R_n} R (finite étale over R) one has S° = Ŝ_∞, S° is almost finite étale over R° = R̂_∞ (Theorem 7.9(iii)), and S_∞ is almost finite étale over R_∞ — which is Faltings's almost purity theorem [Faltings 1988, Theorem 3.1].",
+   "locator": "§1, Remark 1.11, pp. 248–249",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A consequence of Theorem 7.9 that the paper only sketches: the identification S° = Ŝ_∞ and the descent from the completed to the uncompleted tower are asserted without proof. P3 plans Theorem 7.9 but not this comparison with Faltings's formulation; routed as a source item of P3."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/6",
+   "kind": "definition",
+   "name": "Nonarchimedean field",
+   "statement": "A nonarchimedean field is a topological field k whose topology is induced by a nontrivial valuation of rank 1. It admits a norm |·| : k → ℝ_{≥0}, unique up to the automorphisms x ↦ x^α (0 < α < ∞) of ℝ_{≥0}. In §2 k is fixed and assumed complete.",
+   "locator": "§2, Definition 2.1 and the sentences after it, p. 252",
+   "status": "library",
+   "library": [
+    "mathlib:NontriviallyNormedField",
+    "mathlib:IsUltrametricDist",
+    "mathlib:Valuation.RankOne",
+    "mathlib:AbsoluteValue.isEquiv_iff_exists_rpow_eq"
+   ],
+   "planned": [],
+   "note": "Mathlib expresses a nonarchimedean field as a nontrivially normed field with an ultrametric distance, or as a valued field with a rank-one valuation (Valuation.RankOne); equivalent absolute values differ by a real power (AbsoluteValue.isEquiv_iff_exists_rpow_eq, Mathlib/Analysis/AbsoluteValue/Equivalence.lean:331)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/7",
+   "kind": "definition",
+   "name": "Valuations and continuous valuations",
+   "statement": "A valuation on a ring R is a multiplicative map |·| : R → Γ ∪ {0}, Γ a totally ordered abelian group written multiplicatively, with |0| = 0, |1| = 1 and |x + y| ≤ max(|x|, |y|). If R is a topological ring, |·| is continuous if {x ∈ R : |x| < γ} is open for every γ ∈ Γ. (Remark 2.3: for Γ = ℝ_{>0} this is a seminorm; Huber's terminology is kept.)",
+   "locator": "§2, Definition 2.2 and Remark 2.3, p. 253",
+   "status": "library",
+   "library": [
+    "mathlib:Valuation",
+    "tauceti:Valuation.IsContinuous",
+    "tauceti:TauCeti.ValuationSpectrum.IsContinuous"
+   ],
+   "planned": [],
+   "note": "Mathlib's Valuation (Mathlib/RingTheory/Valuation/Basic.lean:80). Tau Ceti's Valuation.IsContinuous (TauCeti/RingTheory/Valuation/Continuous/Basic.lean:123) quantifies over attained values v(b) rather than all of Γ; its docstring notes the two agree when right multiplication is continuous (isOpen_lt_div), which holds for topological rings."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/8",
+   "kind": "theorem",
+   "name": "Valuation rings, support and the factorisation through the residue field",
+   "statement": "A valuation ring is an integral domain R such that for every nonzero x in its fraction field K, x or x^{-1} lies in R. A valuation |·| on a field K gives the valuation subring {x : |x| ≤ 1}; conversely a valuation ring R ⊂ K gives a valuation with values in K^×/R^× (x ≤ y iff x = yz with z ∈ R), and up to equivalence this is a bijection between valuation subrings of K and valuations on K. For a valuation |·| on a ring R, Γ_{|·|} is the subgroup generated by the nonzero values, supp(|·|) = {x : |x| = 0} is a prime ideal, and |·| factors as R → K = Frac(R/supp) → Γ ∪ {0}, with valuation ring R(|·|) = {x ∈ K : |x| ≤ 1}.",
+   "locator": "§2, Remark 2.4, p. 253",
+   "status": "library",
+   "library": [
+    "mathlib:ValuationRing",
+    "mathlib:ValuationSubring.valuation",
+    "mathlib:Valuation.valuationSubring",
+    "mathlib:Valuation.isEquiv_valuation_valuationSubring",
+    "mathlib:Valuation.supp",
+    "mathlib:Valuation.onQuot"
+   ],
+   "planned": [],
+   "note": "All in Mathlib (ValuationSubring.lean:170, 440, 459; Valuation/Basic.lean:1026; Valuation/Quotient.lean:38)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/9",
+   "kind": "definition",
+   "name": "Equivalence of valuations",
+   "statement": "Two valuations |·|, |·|′ on R are equivalent if the following equivalent conditions hold: (i) there is an isomorphism of totally ordered groups α : Γ_{|·|} ≅ Γ_{|·|′} with |·|′ = α ∘ |·|; (ii) supp(|·|) = supp(|·|′) and R(|·|) = R(|·|′); (iii) for all a, b ∈ R, |a| ≥ |b| if and only if |a|′ ≥ |b|′.",
+   "locator": "§2, Definition 2.5, p. 253",
+   "status": "library",
+   "library": [
+    "mathlib:Valuation.IsEquiv",
+    "mathlib:Valuation.isEquiv_iff_val_le_one",
+    "tauceti:TauCeti.ValuationSpectrum"
+   ],
+   "planned": [],
+   "note": "Mathlib's Valuation.IsEquiv is form (iii). Tau Ceti represents a point of Spv A as a valuative relation (TauCeti/AlgebraicGeometry/AdicSpace/ValuationSpectrum.lean:73), i.e. an equivalence class in the sense of (iii). The comparison with forms (i) and (ii) for rings (not only fields) is not stated as one theorem; for fields, Valuation.isEquiv_iff_val_le_one gives (ii) ⇔ (iii)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/10",
+   "kind": "definition",
+   "name": "Tate k-algebras, bounded and power-bounded elements, affinoid k-algebras, topologically finite type",
+   "statement": "(i) A Tate k-algebra is a topological k-algebra R with a subring R₀ such that aR₀ (a ∈ k^×) is a basis of neighbourhoods of 0; M ⊂ R is bounded if M ⊂ aR₀ for some a ∈ k^×; x is power-bounded if {xⁿ : n ≥ 0} is bounded; R° (the power-bounded elements) is an open and integrally closed subring. (ii) An affinoid k-algebra is a pair (R, R⁺) with R a Tate k-algebra and R⁺ ⊂ R° an open integrally closed subring. (iii) (R, R⁺) is of topologically finite type (tft) if R is a quotient of k⟨T_1, …, T_n⟩ = {Σ x_I T^I : x_I ∈ k, x_I → 0} and R⁺ = R°. Every Tate k-algebra and affinoid k-algebra has a completion of the same kind, and everything depends only on the completion.",
+   "locator": "§2, Definition 2.6 and the paragraphs after it, pp. 254",
+   "status": "library",
+   "library": [
+    "tauceti:TauCeti.Huber.IsTateRing",
+    "tauceti:TauCeti.Huber.IsBounded",
+    "tauceti:TauCeti.Huber.IsPowerBounded",
+    "tauceti:TauCeti.Huber.powerBoundedSubring",
+    "tauceti:TauCeti.Huber.isOpen_powerBoundedSubring",
+    "tauceti:TauCeti.Huber.isIntegrallyClosedIn_powerBoundedSubring",
+    "tauceti:TauCeti.Huber.Pair",
+    "tauceti:TauCeti.Huber.IsRingOfIntegralElements",
+    "tauceti:TauCeti.Huber.IsStrictlyTopologicallyFiniteType",
+    "tauceti:TauCeti.Huber.restrictedMvPowerSeriesCompletion",
+    "tauceti:TauCeti.Huber.IsTateRing.completion"
+   ],
+   "planned": [],
+   "note": "Tau Ceti builds these for general Huber rings (Wedhorn §§5–6), more general than a Tate algebra over a field: IsTateRing (Huber/Basic.lean:182), IsBounded (Bounded.lean:87), powerBoundedSubring with openness and integral closedness (PowerBounded.lean:436, Basic.lean:626, PowerBounded.lean:497), Huber pairs (Pair.lean:107) and rings of integral elements (Pair.lean:73), the Tate algebra as a completed restricted power-series ring (WeightedRestrictedSeries/Completion.lean:103), and quotients of it (IsStrictlyTopologicallyFiniteType, TopologicallyFiniteType.lean:128; the tft clause R⁺ = R° is not part of that predicate)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/11",
+   "kind": "definition",
+   "name": "The adic spectrum Spa(R, R⁺) and rational subsets",
+   "statement": "For an affinoid k-algebra (R, R⁺), Spa(R, R⁺) is the set of equivalence classes of continuous valuations |·| on R with |f| ≤ 1 for all f ∈ R⁺, written f ↦ |f(x)|, topologised by the basis of rational subsets U(f_1, …, f_n / g) = {x : |f_i(x)| ≤ |g(x)| for all i}, where f_1, …, f_n generate R as an ideal and g ∈ R.",
+   "locator": "§2, Definition 2.7, p. 254",
+   "status": "library",
+   "library": [
+    "tauceti:TauCeti.ValuationSpectrum.spa",
+    "tauceti:TauCeti.ValuationSpectrum.cont",
+    "tauceti:TauCeti.ValuationSpectrum.rationalSubset"
+   ],
+   "planned": [],
+   "note": "Tau Ceti defines Spa(A, A⁺) inside the continuous spectrum of a Huber ring (Spa/Basic.lean:97; Cont/Basic.lean:117) and rational subsets R(T/s) for a finite T (RationalSubset/Basic.lean:134). The generation condition for Tate rings (TA open iff T generates the unit ideal) is Wedhorn's and is used in Tau Ceti's basis results."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/12",
+   "kind": "theorem",
+   "name": "Adding ϖ^N to the numerators of a rational subset",
+   "statement": "If ϖ ∈ k is topologically nilpotent and U = U(f_1, …, f_n / g) is rational, then f_{n+1} = ϖ^N can be added for N large without changing U: writing Σ h_i f_i = 1, one has ϖ^N h_i ∈ R⁺ for N large and |ϖ^N(x)| ≤ max_i |(ϖ^N h_i)(x)| |f_i(x)| ≤ |g(x)| on U. In particular |g(x)| is nonzero and bounded below on U.",
+   "locator": "§2, Remark 2.8, p. 255",
+   "status": "library",
+   "library": [
+    "tauceti:TauCeti.ValuationSpectrum.rationalSubset_insert_of_forall_vle"
+   ],
+   "planned": [],
+   "note": "Tau Ceti's rationalSubset_insert_of_forall_vle (RationalSubset/Basic.lean:203) says a numerator dominated by the denominator on R(T/s) can be adjoined without changing it; the displayed estimate supplies that hypothesis for u = ϖ^N."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/13",
+   "kind": "theorem",
+   "name": "Spectral spaces (Hochster)",
+   "statement": "A topological space X is spectral if it satisfies the equivalent conditions: (i) X ≅ Spec A for some ring A; (ii) X is an inverse limit of finite T₀ spaces; (iii) X is quasicompact, has a basis of quasicompact opens stable under finite intersections, and every irreducible closed subset has a unique generic point. Spectral spaces are quasicompact, quasiseparated and T₀.",
+   "locator": "§2, Definition/Proposition 2.9, p. 255 (Hochster [18])",
+   "status": "planned",
+   "library": [
+    "mathlib:SpectralSpace"
+   ],
+   "planned": [
+    "DiamondsAndVStacks:D0"
+   ],
+   "note": "Mathlib's SpectralSpace (Mathlib/Topology/Spectral/Basic.lean:38) is form (iii), and Spec of a ring is spectral (anonymous instance, Mathlib/RingTheory/Spectrum/Prime/Topology.lean:842). Hochster's converse (i) and the inverse-limit description (ii) are planned by DiamondsAndVStacks:D0 ('prove the spectral/profinite representation results used from Hochster')."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/14",
+   "kind": "theorem",
+   "name": "Spa(R, R⁺) is spectral; rational subsets form a basis",
+   "statement": "For every affinoid k-algebra (R, R⁺), Spa(R, R⁺) is spectral, and the rational subsets form a basis of quasicompact open subsets stable under finite intersections.",
+   "locator": "§2, Proposition 2.10, p. 255 (Huber [19, Theorem 3.5])",
+   "status": "library",
+   "library": [
+    "tauceti:TauCeti.ValuationSpectrum.spectralSpace_spa_of_pairOfDefinition",
+    "tauceti:TauCeti.ValuationSpectrum.isTopologicalBasis_spaRationalFamily",
+    "tauceti:TauCeti.ValuationSpectrum.biInter_mem_spaRationalFamily",
+    "tauceti:TauCeti.ValuationSpectrum.isCompact_of_mem_spaRationalFamily"
+   ],
+   "planned": [],
+   "note": "Proved in Tau Ceti for any Huber pair (Spa/Spectral.lean:76; RationalSubset/Basis.lean:255, 197, 300)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/15",
+   "kind": "theorem",
+   "name": "Spa is unchanged by completion",
+   "statement": "For an affinoid k-algebra (R, R⁺) with completion (R̂, R̂⁺), the natural map Spa(R̂, R̂⁺) → Spa(R, R⁺) is a homeomorphism identifying rational subsets.",
+   "locator": "§2, Proposition 2.11, p. 255 (Huber [19, Proposition 3.9])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf"
+   ],
+   "note": "Not in Tau Ceti at the pin (Wedhorn Proposition 7.48). AdicSpaces Layer 3 needs it for its homeomorphism Spa(A_U, A_U⁺) ≅ U: Tau Ceti proves that homeomorphism only for the uncompleted localisation (spaLocalizationHomeomorph), and the pending audit of the layer records the completed case as the missing extension of valuations along the completion map."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/16",
+   "kind": "theorem",
+   "name": "Emptiness, units and the plus ring are detected on Spa",
+   "statement": "Let (R, R⁺) be an affinoid k-algebra and X = Spa(R, R⁺). (i) If X = ∅ then R̂ = 0. (ii) If R is complete and |f(x)| ≠ 0 for all x ∈ X, then f is invertible. (iii) If |f(x)| ≤ 1 for all x ∈ X, then f ∈ R⁺.",
+   "locator": "§2, Proposition 2.12, p. 255 (Huber [19, 3.6(i), Lemma 3.3(i)], [20, Lemma 1.4])",
+   "status": "library",
+   "library": [
+    "tauceti:TauCeti.ValuationSpectrum.spa_eq_empty_iff_subsingleton_quotient_closure_zero",
+    "tauceti:TauCeti.ValuationSpectrum.isUnit_iff_forall_mem_spa_notMem_supp",
+    "tauceti:TauCeti.ValuationSpectrum.mem_iff_forall_vle_one"
+   ],
+   "planned": [],
+   "note": "(i): Spa = ∅ iff A/closure{0} = 0 (Spa/Emptiness.lean:106), which forces the separated completion to vanish. (ii): the unit criterion for a complete Hausdorff Huber pair (Spa/Support.lean:144). (iii): A⁺ is the sub-unit locus, with no completeness hypothesis (Spa/Integral.lean:89)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/17",
+   "kind": "construction",
+   "name": "Rational localisation R⟨f/g⟩ and its plus ring",
+   "statement": "For a rational U = U(f_1, …, f_n / g) ⊂ Spa(R, R⁺) and R₀ as in Definition 2.6, give R[f_1/g, …, f_n/g] ⊂ R[g^{-1}] the topology with basis aR₀[f_1/g, …, f_n/g] (a ∈ k^×), let B be the integral closure of R⁺[f_1/g, …, f_n/g] in it; (R[f/g], B) is an affinoid k-algebra and (R⟨f_1/g, …, f_n/g⟩, B̂) is its completion. Spa(R⟨f/g⟩, B̂) → Spa(R, R⁺) factors over U.",
+   "locator": "§2, Definition 2.13, p. 256",
+   "status": "planned",
+   "library": [
+    "tauceti:TauCeti.Huber.PairOfDefinition.toCompletionLoc",
+    "tauceti:TauCeti.Huber.PairOfDefinition.completedPlusSubring"
+   ],
+   "planned": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf"
+   ],
+   "note": "Tau Ceti builds the completed topological localisation A⟨T/s⟩ (LocalizationTopology/Completion.lean:202) and a candidate plus ring (LocalizationTopology/Plus.lean:140), but openness of that plus ring is not proved at the pin, so (A_U, A_U⁺) is not yet a Huber pair there. AdicSpaces Layer 3.1 plans the construction."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/18",
+   "kind": "theorem",
+   "name": "Universal property of rational localisation; the presheaves 𝒪_X and 𝒪_X⁺",
+   "statement": "For every complete affinoid k-algebra (S, S⁺) and map (R, R⁺) → (S, S⁺) such that Spa(S, S⁺) → Spa(R, R⁺) factors over U, there is a unique map (R⟨f/g⟩, B̂) → (S, S⁺) making the diagram commute; so the pair depends only on U. Define (𝒪_X(U), 𝒪_X⁺(U)) = (R⟨f/g⟩, B̂) for rational U (so (𝒪_X(X), 𝒪_X⁺(X)) is the completion of (R, R⁺)), and 𝒪_X(W) = lim_{U ⊂ W rational} 𝒪_X(U) for general open W, similarly for 𝒪_X⁺.",
+   "locator": "§2, Proposition 2.14 and the definition after it, pp. 256 (Huber [20, Proposition 1.3])",
+   "status": "planned",
+   "library": [
+    "tauceti:TauCeti.Huber.PairOfDefinition.existsUnique_continuous_ringHom_completion_locTopology",
+    "tauceti:TauCeti.ValuationSpectrum.existsUnique_continuous_ringHom_of_forall_comap_mem_rationalSubset",
+    "tauceti:TauCeti.ValuationSpectrum.presentationLimitPresheaf"
+   ],
+   "planned": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf"
+   ],
+   "note": "The ring-level universal property, in both the algebraic form and the geometric factor-through-U form, is in Tau Ceti (LocalizationTopology/Completion.lean:445; Spa/Localization/UniversalProperty.lean:217). A limit presheaf exists but is indexed by presentations and is explicitly not yet identified with 𝒪_X (StructurePresheaf/Basic.lean:298); the plus-ring part of the universal property waits on the plus ring (item 17). Planned by AdicSpaces Layers 3.1 and 3.3."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/19",
+   "kind": "theorem",
+   "name": "Stalks, valuations at points, and 𝒪_X⁺",
+   "statement": "For x ∈ X = Spa(R, R⁺) the valuation f ↦ |f(x)| extends to 𝒪_{X,x}, and 𝒪⁺_{X,x} = {f ∈ 𝒪_{X,x} : |f(x)| ≤ 1}. 𝒪_{X,x} is local with maximal ideal {f : |f(x)| = 0}; 𝒪⁺_{X,x} is local with maximal ideal {f : |f(x)| < 1}. For every open U, 𝒪_X⁺(U) = {f ∈ 𝒪_X(U) : |f(x)| ≤ 1 for all x ∈ U}. For rational U, U ≅ Spa(𝒪_X(U), 𝒪_X⁺(U)) compatibly with rational subsets, the presheaves and the valuations. (𝒪_X⁺ is a sheaf when 𝒪_X is; in general 𝒪_X is not known to be a sheaf.)",
+   "locator": "§2, Proposition 2.15 and the paragraph after it, p. 257 (Huber [20, Lemma 1.5, Proposition 1.6])",
+   "status": "planned",
+   "library": [
+    "tauceti:TauCeti.ValuationSpectrum.spaLocalizationHomeomorph",
+    "tauceti:TauCeti.ValuationSpectrum.residueFieldValuation"
+   ],
+   "planned": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf"
+   ],
+   "note": "AdicSpaces Layer 3.3 plans 𝒪_X⁺ and the local stalks, and Layer 3.1 the homeomorphism with U. Tau Ceti has the homeomorphism only for the uncompleted localisation (Spa/Localization/Homeomorph.lean:137) and the factorisation of a point's valuation through κ(v) (ResidueField.lean:96); stalks are absent."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/20",
+   "kind": "definition",
+   "name": "Strongly noetherian Tate algebras",
+   "statement": "A Tate k-algebra R is strongly noetherian if R⟨T_1, …, T_n⟩ = {Σ x_I T^I : x_I ∈ R̂, x_I → 0} is noetherian for all n ≥ 0. If R is of topologically finite type, R is strongly noetherian.",
+   "locator": "§2, Definition 2.16 and the sentence after it, p. 257",
+   "status": "library",
+   "library": [
+    "tauceti:TauCeti.Huber.IsStronglyNoetherian"
+   ],
+   "planned": [],
+   "note": "The predicate is Tau Ceti's IsStronglyNoetherian (Huber/StronglyNoetherian.lean:128), stated for nonarchimedean rings. That tft algebras over a complete rank-one field are strongly noetherian needs BGR 5.2.6 (noetherianity of K⟨T⟩); the pinned docstring says it is not yet formalised, and AdicSpaces Layer 0.5 plans it."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/21",
+   "kind": "theorem",
+   "name": "Huber's sheaf theorem for strongly noetherian Tate algebras",
+   "statement": "If (R, R⁺) is an affinoid k-algebra with R strongly noetherian, then 𝒪_X is a sheaf on X = Spa(R, R⁺).",
+   "locator": "§2, Theorem 2.17, p. 257 (Huber [20, Theorem 2.2])",
+   "status": "planned",
+   "library": [
+    "tauceti:TauCeti.ValuationSpectrum.faithfullyFlat_pi_toCompletionLoc",
+    "tauceti:TauCeti.ValuationSpectrum.pi_toCompletionLoc_injective"
+   ],
+   "planned": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity"
+   ],
+   "note": "AdicSpaces Layer 4.1 plans the whole chain (Wedhorn 8.28–8.35). Tau Ceti has the faithful flatness and injectivity of A → ∏ A⟨T_i/s_i⟩ for a finite rational cover of a complete strongly noetherian Tate ring (Spa/Localization/FaithfullyFlat.lean:74, 101), not the sheaf property."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/22",
+   "kind": "definition",
+   "name": "The category (V), affinoid adic spaces and adic spaces over k",
+   "statement": "(V) is the category of triples (X, 𝒪_X, (|·(x)|)_{x∈X}): a locally ringed topological space whose structure sheaf is a sheaf of complete topological k-algebras, with a continuous valuation on each stalk 𝒪_{X,x}; morphisms are morphisms of locally ringed spaces that are continuous k-algebra maps on 𝒪_X and compatible with the valuations. An affinoid adic space is an object isomorphic to the triple of an affinoid k-algebra (R, R⁺) for which 𝒪_X is a sheaf; an adic space over k is an object of (V) that is locally an affinoid adic space.",
+   "locator": "§2, the paragraph before Definition 2.18 and Definition 2.18, pp. 257–258",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry"
+   ],
+   "note": "AdicSpaces Layer 3.4 plans Wedhorn's pre-adic category and its sheafy subcategory 𝒱; Layer 5 plans affinoid adic spaces and adic spaces. Nothing of this is in Tau Ceti at the pin."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/23",
+   "kind": "theorem",
+   "name": "Maps into an affinoid adic space",
+   "statement": "For an affinoid k-algebra (R, R⁺) with X = Spa(R, R⁺) and 𝒪_X a sheaf, and any adic space Y over k, Hom(Y, X) = Hom((R̂, R̂⁺), (𝒪_Y(Y), 𝒪_Y⁺(Y))), the continuous k-algebra maps R̂ → 𝒪_Y(Y) sending R̂⁺ into 𝒪_Y⁺(Y). Hence complete affinoid k-algebras with sheafy structure presheaf are equivalent to affinoid adic spaces.",
+   "locator": "§2, Proposition 2.19 and the sentence after it, p. 258 (Huber [20, Proposition 2.1(ii)])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "No layer states this adjunction. AdicSpaces Layer 5 defines affinoid adic spaces but does not list their universal property; AdicSpacesPartII:R0 constructs morphisms and fibre products, which rest on it. Routed there."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/24",
+   "kind": "theorem",
+   "name": "The points of the adic closed unit disc",
+   "statement": "For k complete and algebraically closed, X = Spa(k⟨T⟩, k°⟨T⟩) has points of five types: (1) classical points x ∈ k°; (2), (3) the sup-norms over discs D(x, r), 0 ≤ r ≤ 1 (r ∈ |k^×|: type 2, the Gauss point for r = 1; otherwise type 3); (4) limits inf_i sup_{D_i} |f| along nested discs with empty intersection (k not spherically complete); (5) rank-two valuations Σ a_n (T − x)^n ↦ max |a_n| γ^n with γ infinitesimally close to r ∈ |k^×| from one side, one for each ray at a type-2 point. All points but those of type 2 are closed; the closure of the Gauss point is it together with the adjacent type-5 points and is homeomorphic to 𝔸¹_κ, at other type-2 points ℙ¹_κ. A type-5-like valuation with γ > 1 is continuous but violates |T| ≤ 1 on R⁺.",
+   "locator": "§2, Example 2.20, pp. 258–259",
+   "status": "planned",
+   "library": [
+    "tauceti:TauCeti.ValuationSpectrum.closedPolydisc",
+    "tauceti:TauCeti.ValuationSpectrum.classicalPoint"
+   ],
+   "planned": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+    "TropicalAndBerkovichArithmetic:TB.1"
+   ],
+   "note": "AdicSpaces Layer 2.4 plans the elementary points and rational subdomains of the closed unit disc (Wedhorn Example 7.57); TB.1 plans the four Berkovich types. Tau Ceti has the closed polydisc and its classical points (Spa/Polydisc.lean:72, 148), not the classification."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/25",
+   "kind": "theorem",
+   "name": "Huber's comparison of rigid-analytic varieties with adic spaces",
+   "statement": "There is a fully faithful functor r : {rigid-analytic varieties over k} → {adic spaces over k}, X ↦ X^ad, with Sp(R) ↦ Spa(R, R⁺) for (R, R⁺) of tft; it induces an equivalence between quasiseparated rigid-analytic varieties and quasiseparated adic spaces locally of finite type (locally Spa of a tft pair). X ⊂ X^ad (classical points), and for quasiseparated X, U ↦ U ∩ X is a bijection from quasicompact opens of X^ad to quasicompact admissible opens of X, under which admissible covers correspond to covers; the topos of the G-topology of X is equivalent to sheaves on the sober space |X^ad|. (Example: {|x| ≤ 1} = {|x| = 1} ∪ ⋃_{r<1} {|x| ≤ r} is not admissible, because of the type-5 point.)",
+   "locator": "§2, Theorem 2.21 and the paragraphs after it, p. 260 (Huber [22, (1.1.11)])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "No stage plans Tate's rigid-analytic varieties or their comparison with adic spaces; AdicSpacesPartII:R1–R2 and AdicEtaleGeometry:A2 own classical analytic geometry in adic language. Routed to AdicSpacesPartII."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/26",
+   "kind": "theorem",
+   "name": "Formal models and the specialisation map",
+   "statement": "For an admissible formal scheme 𝔛 over k° with Raynaud generic fibre X and adic space X^ad, there is a continuous specialisation map sp : X^ad → 𝔛 extending to a morphism of locally ringed spaces (X^ad, 𝒪⁺) → (𝔛, 𝒪_𝔛). For a quasicompact quasiseparated adic space X locally of finite type over k, formal models exist and are unique up to admissible blow-up (Raynaud), and X ≅ lim_𝔛 𝔛 as topological spaces, extending to (X, 𝒪_X⁺) ≅ lim (𝔛, 𝒪_𝔛) in locally ringed spaces. For the unit disc, starting from Spf k°⟨T⟩ and blowing up closed points recovers the type-2 points as preimages of generic points of components.",
+   "locator": "§2, Theorem 2.22, its proof sketch and the paragraph after it, p. 261",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "AdicSpacesPartII:R2 plans admissible formal schemes, admissible blow-ups and the generic-fibre functor, and AdicEtaleGeometry:A2 notes that a Raynaud equivalence must not be assumed; neither states the specialisation map or the limit over all formal models. Routed to AdicSpacesPartII:R2. The published proof sketch has a misprint (source issue E7)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/27",
+   "kind": "theorem",
+   "name": "Taut adic spaces and the equivalence with Hausdorff Berkovich spaces",
+   "statement": "An adic space X over k is taut if it is quasiseparated and the closure of every quasicompact open is quasicompact (affinoid and qcqs adic spaces and analytifications of separated finite-type schemes are taut; Hellmann's weakly admissible locus is not). There is an equivalence of categories {Hausdorff strictly k-analytic Berkovich spaces} ≅ {taut adic spaces locally of finite type over k}, sending M(R) to Spa(R, R⁺) for (R, R⁺) of tft (taut rigid-analytic varieties give the same category).",
+   "locator": "§2, Definition 2.23, Theorem 2.24 (first part) and the paragraphs around them, p. 262 (Huber [22, Proposition 8.3.1, Lemma 8.1.8])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "TropicalAndBerkovichArithmetic:TB.0 plans the affinoid comparison (item 28) but not tautness or the global equivalence. Routed to TB.0."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/28",
+   "kind": "theorem",
+   "name": "Rank-one points and the maximal Hausdorff quotient",
+   "statement": "If X_Berk corresponds to X^ad under the equivalence of Theorem 2.24, there is an injective (generally discontinuous) map of sets X_Berk → X^ad whose image is the set of rank-one valuations, and a continuous retraction X^ad → X_Berk that identifies X_Berk with the maximal Hausdorff quotient of X^ad. On the unit disc the retraction contracts each type-2 point together with its adjacent type-5 points.",
+   "locator": "§2, Theorem 2.24 (second part) and the paragraph after it, p. 262",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TropicalAndBerkovichArithmetic:TB.0"
+   ],
+   "note": "TB.0 plans the comparison of a strictly affinoid algebra's Berkovich spectrum with its adic spectrum by rank-one points and maximal generalisations, with continuity and the quotient topology."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/29",
+   "kind": "theorem",
+   "name": "The completed stalk of 𝒪⁺ is the completed valuation ring",
+   "statement": "For x ∈ X = Spa(R, R⁺) (𝒪_X not necessarily a sheaf), with k(x) the residue field of 𝒪_{X,x} and k(x)⁺ the image of 𝒪⁺_{X,x}, and ϖ ∈ k topologically nilpotent: the ϖ-adic completion of 𝒪⁺_{X,x} equals the ϖ-adic completion of k(x)⁺, because the kernel of 𝒪⁺_{X,x} → k(x)⁺ (equal to the kernel of 𝒪_{X,x} → k(x)) is ϖ-divisible.",
+   "locator": "§2, Proposition 2.25 and proof, pp. 262–263",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2",
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf"
+   ],
+   "note": "Used for Corollary 6.7(ii). P2 plans completed residue fields and their plus rings; the stalks themselves are AdicSpaces Layer 3.3."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/30",
+   "kind": "definition",
+   "name": "Affinoid fields",
+   "statement": "An affinoid field is a pair (K, K⁺) of a nonarchimedean field K and an open valuation subring K⁺ ⊂ K° (equivalently K with a continuous valuation up to equivalence). (k(x), k(x)⁺) is an affinoid field; completions of affinoid fields are affinoid fields; affinoid fields containing k are affinoid k-algebras.",
+   "locator": "§2, Definition 2.26 and the paragraph after it, p. 263",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AdicEtaleGeometry:A1",
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "A1 plans field pairs (K, K⁺), higher-rank valuation subrings included, as test objects and points; P2 plans the completed residue fields and their plus rings. Mathlib's ValuationSubring and Valued supply the ingredients."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/31",
+   "kind": "theorem",
+   "name": "Points of Spa as maps to complete affinoid fields",
+   "statement": "For an affinoid k-algebra (R, R⁺), the points of Spa(R, R⁺) are in bijection with maps (R, R⁺) → (K, K⁺) to complete affinoid fields such that the quotient field of the image of R is dense in K.",
+   "locator": "§2, Proposition 2.27, p. 263",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Stated as immediate. Tau Ceti has the factorisation of a point's valuation through the residue field of its support (TauCeti.ValuationSpectrum.residueFieldValuation), not the completed affinoid-field description. Routed to AdicEtaleGeometry:A1, whose points and geometric stalks are maps from such field pairs."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/32",
+   "kind": "definition",
+   "name": "Specialisation",
+   "statement": "In a topological space X, x specialises to y (x ≻ y; y generalises to x) if y lies in the closure of {x}.",
+   "locator": "§2, Definition 2.28, p. 263",
+   "status": "library",
+   "library": [
+    "mathlib:Specializes"
+   ],
+   "planned": [],
+   "note": "Mathlib's Specializes (x ⤳ y means y ∈ closure {x}; Mathlib/Topology/Defs/Filter.lean:207), with the same direction convention."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/33",
+   "kind": "theorem",
+   "name": "Specialisation in Spa(R, R⁺)",
+   "statement": "Let x, y ∈ Spa(R, R⁺) correspond to (R, R⁺) → (K, K⁺) and (R, R⁺) → (L, L⁺) as in Proposition 2.27. Then x ≻ y if and only if K ≅ L as topological R-algebras and L⁺ ⊂ K⁺. The generalisations of any y form a totally ordered chain of length exactly the rank of the valuation of y. In particular the point (K, K°) of a nonarchimedean field K over R is the unique rank-one point and specialises to every other point with the same K.",
+   "locator": "§2, Proposition 2.29 and the paragraph after it, p. 263 (Huber [22, (1.1.6)–(1.1.10)])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "AdicSpaces Layer 1 develops vertical and horizontal specialisation only as far as Theorem 7.10 needs (Tau Ceti has coarsenings of valuations, TauCeti/RingTheory/Valuation/Coarsen.lean, and microbial valuations). The field-pair description of specialisation in Spa over a nonarchimedean field is not planned. Routed to AdicEtaleGeometry:A1."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/34",
+   "kind": "definition",
+   "name": "Perfectoid field",
+   "statement": "A perfectoid field is a complete nonarchimedean field K of residue characteristic p > 0 whose rank-one valuation is nondiscrete and such that Frobenius is surjective on K°/p (Definition 1.2 phrases the same with K° the power-bounded elements). The nondiscreteness excludes the unramified extensions of ℚ_p.",
+   "locator": "§3, Definition 3.1, p. 263; §1, Definition 1.2, p. 246",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Planned by P1 (decomposition node PerfectoidSpaces:P1/perfectoid-field-definition, which also records the equivalence with ECD Definition 3.6 / Proposition 3.8). Neither library defines perfectoid fields."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/35",
+   "kind": "theorem",
+   "name": "The value group of a perfectoid field is p-divisible",
+   "statement": "Let |·| : K → Γ ∪ {0} be the rank-one valuation of a perfectoid field K with Γ = |K^×| minimal. Then Γ is p-divisible. (Proof: Γ is generated by the |x| with |p| < |x| ≤ 1; for such x choose y with |x − y^p| ≤ |p|, so |y|^p = |x|.)",
+   "locator": "§3, Lemma 3.2 and proof, pp. 263–264",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/36",
+   "kind": "theorem",
+   "name": "Perfectoid fields of characteristic p are the complete perfect nonarchimedean fields",
+   "statement": "A nonarchimedean field of characteristic p is a perfectoid field if and only if it is complete and perfect.",
+   "locator": "§3, sentence after Lemma 3.2, p. 264",
+   "status": "planned",
+   "library": [
+    "mathlib:PerfectRing"
+   ],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Stated without proof. Planned by P1 (node perfectoid-field-definition). Mathlib has perfect rings (PerfectRing, Mathlib/FieldTheory/Perfect.lean:44)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/37",
+   "kind": "theorem",
+   "name": "Perfectoid fields are the complete deeply ramified fields of rank one",
+   "statement": "With the definition of deeply ramified fields of Gabber–Ramero [15], a perfectoid field is deeply ramified, and conversely a complete deeply ramified field with a valuation of rank one is perfectoid ([15, Proposition 6.6.6]).",
+   "locator": "§3, Remark 3.3, p. 264",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Enters only the first ('ramification theory') proof of Theorem 3.7; the P3 node PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields records Gabber–Ramero Propositions 6.3.6, 6.6.2 and 6.6.6 as its inputs for that proof. The atlas has no stage on deeply ramified fields as such."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/38",
+   "kind": "construction",
+   "name": "The tilt as a multiplicative limit and Fontaine's sharp map",
+   "statement": "Let K be perfectoid and ϖ ∈ K^× with |p| ≤ |ϖ| < 1. Projection gives a multiplicative homeomorphism lim_{x↦x^p} K° ≅ lim_Φ K°/ϖ (inverse-limit topologies; each K°/ϖ discrete); in particular the right side is independent of ϖ. The map lim_Φ K°/ϖ → K°, x ↦ x♯ = lim_n x̃_n^{p^n} for arbitrary lifts x̃_n ∈ K° of x_n, is well defined, multiplicative and continuous, and x ↦ (x♯, (x^{1/p})♯, …) inverts the projection.",
+   "locator": "§3, Lemma 3.4(i) and its proof, pp. 264–266",
+   "status": "planned",
+   "library": [
+    "mathlib:PreTilt",
+    "mathlib:Perfection",
+    "mathlib:PreTilt.untilt"
+   ],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Mathlib's PreTilt O p = Perfection(O/p) is the case ϖ = p, and PreTilt.untilt is the multiplicative sharp map (Mathlib/RingTheory/Perfectoid/Untilt.lean:49); the ϖ-version, the topology and the homeomorphism with lim_{x↦x^p} K° are planned by P1 (node PerfectoidSpaces:P1/tilt-of-perfectoid-field)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/39",
+   "kind": "construction",
+   "name": "The tilt K♭ of a perfectoid field",
+   "statement": "(ii) There is ϖ♭ ∈ lim_Φ K°/ϖ with |(ϖ♭)♯| = |ϖ|; set K♭ = (lim_Φ K°/ϖ)[(ϖ♭)^{-1}]. (iii) There is a multiplicative homeomorphism K♭ ≅ lim_{x↦x^p} K, giving x ↦ x♯ : K♭ → K; K♭ is a perfectoid field of characteristic p with K♭° = lim_{x↦x^p} K° ≅ lim_Φ K°/ϖ, its rank-one valuation is |x|_{K♭} = |x♯|_K, |K♭^×| = |K^×|, K♭°/ϖ♭ ≅ K°/ϖ and K♭°/m♭ = K°/m. (iv) If K has characteristic p then K♭ = K. Remark 3.5: replacing ϖ by (ϖ♭)♯ one may assume ϖ has a compatible system of p^n-th roots ϖ^{1/p^n} = ((ϖ♭)^{1/p^n})♯, and such a system determines ϖ♭.",
+   "locator": "§3, Lemma 3.4(ii)–(iv), Remark 3.5 and proofs, pp. 264–266",
+   "status": "planned",
+   "library": [
+    "mathlib:Tilt"
+   ],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Mathlib's Tilt (Mathlib/RingTheory/Perfection.lean:826) is the fraction field of PreTilt O p for a valued field, 'as defined in Perfectoid Spaces'; its valuation, perfectoidness and the listed identifications are planned by P1 (node PerfectoidSpaces:P1/tilt-of-perfectoid-field)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/40",
+   "kind": "theorem",
+   "name": "Continuous valuations of K and K♭ correspond",
+   "statement": "For a perfectoid field K with tilt K♭, |·| ↦ |·|♭ with |x|♭ = |x♯| is a bijection between continuous valuations of K up to equivalence and continuous valuations of K♭ up to equivalence. (Proof: |x + y|♭ = lim |(x^{1/p^n})♯ + (y^{1/p^n})♯|^{p^n}; continuous valuations correspond to open valuation subrings K⁺ ⊂ K°, i.e. to valuation subrings of K°/m = K♭°/m♭.)",
+   "locator": "§3, Proposition 3.6 and proof, p. 266",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Node PerfectoidSpaces:P1/continuous-valuations-under-tilting."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/41",
+   "kind": "theorem",
+   "name": "Finite extensions of perfectoid fields are perfectoid",
+   "statement": "Let K be a perfectoid field and L a finite extension of K. Then L, with its natural topology as a finite-dimensional K-vector space, is a perfectoid field.",
+   "locator": "§3, Theorem 3.7(i), p. 267; proof at the end of §5, p. 283",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Node PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields. Proved via Theorem 5.25 (S = L perfectoid when L is in the essential image), which the proof of (ii) shows is everything."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/42",
+   "kind": "theorem",
+   "name": "Tilting of finite extensions of a perfectoid field",
+   "statement": "Let K be perfectoid with tilt K♭. The functor L ↦ L♭ is an equivalence between finite extensions of K and finite extensions of K♭, preserving degrees. Two proofs: (a) by ramification theory, Gabber–Ramero Propositions 6.6.2, 6.6.6 (L°a/K°a étale) and 6.3.6 (finite projective); (b) reducing to K♭ algebraically closed: for M the completion of an algebraic closure of K♭ and M♯ its untilt (algebraically closed by Lemma 5.21 and Proposition 3.8), the union N of the L♯ for finite L/K♭ inside M is dense and, by Krasner's lemma, algebraically closed; so every finite F/K lies in some Galois L♯ with Gal(L♯/K) = Gal(L/K♭), and F = ((L)^H)♯.",
+   "locator": "§3, Theorem 3.7(ii), p. 267; both proofs at the end of §5, p. 283",
+   "status": "planned",
+   "library": [
+    "mathlib:IsKrasner"
+   ],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Node PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields, whose gap list records Krasner's lemma and the density of N as standard inputs; Mathlib has Krasner's lemma for complete (normal) fields (IsKrasner, Mathlib/Analysis/Normed/Field/Krasner.lean:56). This is Fontaine–Wintenberger's theorem for these fields."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/43",
+   "kind": "theorem",
+   "name": "If K♭ is algebraically closed, so is K",
+   "statement": "Let K be perfectoid with tilt K♭. If K♭ is algebraically closed, then K is algebraically closed. (Proof by successive approximation: for monic irreducible P ∈ K°[X] with |a_0| = 1 (possible as |K^×| = |K♭^×| is a ℚ-vector space), lift P mod ϖ to Q over K♭° with a root y; then ϖ | P(y♯), and P_1(X) = c^{-d} P(cX + y♯) with |c|^d = |P(y♯)| is again integral; iterate.)",
+   "locator": "§3, Proposition 3.8 and proof, p. 267",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Part of node PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields (\"Auxiliary: if K♭ is algebraically closed then K is algebraically closed\")."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/44",
+   "kind": "definition",
+   "name": "Almost zero elements and modules over K°",
+   "statement": "Fix a perfectoid field K and m = K°° = {x : |x| < 1}, the maximal ideal of K°. An element x of a K°-module M is almost zero if m x = 0; M is almost zero if m M = 0.",
+   "locator": "§4, Definition 4.1, p. 267",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": "Node PerfectoidSpaces:P0/almost-modules-over-perfectoid-base. P0 generalises to an abstract base (V, 𝔪) with 𝔪 idempotent and flat."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/45",
+   "kind": "theorem",
+   "name": "Almost zero modules form a thick subcategory",
+   "statement": "The full subcategory of almost zero K°-modules is thick (closed under subobjects, quotients and extensions); for an extension 0 → M′ → M → M″ → 0 with m M′ = m M″ = 0 one gets m² M = 0, and m² = m.",
+   "locator": "§4, Lemma 4.2 and proof, p. 268",
+   "status": "planned",
+   "library": [
+    "mathlib:CategoryTheory.ObjectProperty.IsSerreClass"
+   ],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": "Mathlib's IsSerreClass is the closure condition; the instance for almost zero modules is not stated. m² = m uses that the valuation is nondiscrete (not justified in the paper; recorded by the decomposition review, not re-recorded here)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/46",
+   "kind": "construction",
+   "name": "The category of almost K°-modules",
+   "statement": "K°a-mod = K°-mod/(m-torsion), with the localisation functor M ↦ M^a whose kernel is exactly the thick subcategory of almost zero modules; K°-mod → K°a-mod → K-mod composes to passage to the generic fibre.",
+   "locator": "§4, the sequence of localisation functors and Definition 4.3, p. 268",
+   "status": "planned",
+   "library": [
+    "mathlib:CategoryTheory.ObjectProperty.SerreClassLocalization.abelian"
+   ],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": "Mathlib's Serre-quotient localisation is abelian for any Serre class (Mathlib/CategoryTheory/Abelian/SerreClass/Localization.lean:417); the almost category itself is planned by P0."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/47",
+   "kind": "theorem",
+   "name": "Hom in the almost category",
+   "statement": "For K°-modules M, N: Hom_{K°a}(M^a, N^a) = Hom_{K°}(m ⊗ M, N). Hence Hom_{K°a}(X, Y) is naturally a K°-module without almost zero elements, and alHom(X, Y) := Hom(X, Y)^a.",
+   "locator": "§4, Proposition 4.4, p. 268 (Gabber–Ramero [15, §2.2.2])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/48",
+   "kind": "theorem",
+   "name": "K°a-mod is an abelian tensor category with internal Hom",
+   "statement": "K°a-mod is an abelian tensor category, kernels, cokernels and tensor products being the unique ones compatible with K°-mod (M^a ⊗ N^a = (M ⊗ N)^a), and Hom(L, alHom(M, N)) = Hom(L ⊗ M, N) functorially. So K°a-algebras and modules over them are defined as usual; a K°-algebra R gives a K°a-algebra R^a, and R-modules give R^a-modules.",
+   "locator": "§4, Proposition 4.5 and the paragraph after it, p. 269 (Gabber–Ramero [15, §2.2.6, §2.2.12])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/49",
+   "kind": "theorem",
+   "name": "Almost elements: the right adjoint M ↦ M_*",
+   "statement": "The localisation functor M ↦ M^a has a right adjoint M ↦ M_* = Hom_{K°a}(K°a, M) (almost elements); (M_*)^a → M is an isomorphism, and (M^a)_* = Hom(m, M) for a K°-module M. For a K°a-algebra A, A_* is a K°-algebra with (A_*)^a = A; every A-module comes from an A_*-module, A-modules form an abelian tensor category, and A-algebras are K°a-algebras with an algebra map from A.",
+   "locator": "§4, Proposition 4.6 and the paragraph after it, p. 269 (Gabber–Ramero [15, Proposition 2.2.14])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/50",
+   "kind": "definition",
+   "name": "Flat, almost projective, almost finitely generated and presented modules",
+   "statement": "Let A be a K°a-algebra. (i) An A-module M is flat if X ↦ M ⊗_A X is exact; for a K°-algebra R and R-module N, N^a is flat over R^a iff Tor_i^R(N, X) is almost zero for all R-modules X and i > 0. (ii) M is almost projective if X ↦ alHom_A(M, X) is exact; N^a is almost projective iff Ext^i_R(N, X) is almost zero for all X and i > 0. (iii) N^a is almost finitely generated (resp. presented) if for every ε ∈ m there is a finitely generated (resp. presented) R-module N_ε and f_ε : N_ε → N with kernel and cokernel killed by ε; uniformly almost finitely generated if the N_ε can be generated by a fixed number n of elements. (Remark 4.8: these depend only on N^a; K°a is in general not projective for Hom, as K° → Hom(m, K°/ϖ) misses Σ ϖ^{1−1/p^i} x_i.)",
+   "locator": "§4, Definition/Proposition 4.7 and Remark 4.8, pp. 269–270 (Gabber–Ramero [15, 2.3.8–2.3.13, 2.4.4–2.4.12])",
+   "status": "planned",
+   "library": [
+    "mathlib:Module.Flat",
+    "mathlib:Module.Projective"
+   ],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": "Node PerfectoidSpaces:P0/almost-finite-projective-and-finite-etale-algebras; Mathlib has only the ordinary notions."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/51",
+   "kind": "theorem",
+   "name": "An almost finitely presented extension of rings of integers",
+   "statement": "Let K be the p-adic completion of ℚ_p(p^{1/p^∞}), p ≠ 2, and L = K(p^{1/2}). Then L°a is an almost finitely presented, indeed uniformly almost finitely generated, K°a-module: for n ≥ 1 the injection K° ⊕ p^{1/(2p^n)} K° → L° has cokernel killed by p^{1/(2p^n)}.",
+   "locator": "§4, Example 4.9, p. 270",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": "Listed among the sources of the P0 node on almost finite projective algebras."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/52",
+   "kind": "theorem",
+   "name": "Finite projective almost modules",
+   "statement": "For a K°a-algebra A, an A-module M is flat and almost finitely presented if and only if it is almost projective and almost finitely generated. Such M are called finite projective; uniformly finite projective if moreover uniformly almost finitely generated.",
+   "locator": "§4, Proposition 4.10 and the paragraph after it, p. 270 (Gabber–Ramero [15, Proposition 2.4.18])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/53",
+   "kind": "theorem",
+   "name": "Rank decomposition of a uniformly finite projective module",
+   "statement": "For a K°a-algebra A and a uniformly finite projective A-module M there is a unique decomposition A = A_0 × A_1 × ⋯ × A_k such that M_i = M ⊗_A A_i has Λ^i M_i invertible and Λ^{i+1} M_i = 0; an A-module L is invertible if L ⊗_A alHom_A(L, A) = A.",
+   "locator": "§4, Theorem 4.11, p. 271 (Gabber–Ramero [15, Proposition 4.3.27, Remark 4.3.10(i)])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/54",
+   "kind": "definition",
+   "name": "Unramified, étale and finite étale almost algebras",
+   "statement": "For a K°a-algebra A and an A-algebra B with multiplication μ : B ⊗_A B → B: A → B is unramified if there is e ∈ (B ⊗_A B)_* with e² = e, μ(e) = 1 and x e = 0 for all x ∈ ker(μ)_*; étale if unramified and B is flat over A; finite étale if étale and B is almost finitely presented over A (then B is finite projective). A_fét denotes the finite étale A-algebras.",
+   "locator": "§4, Definitions 4.12–4.13, p. 271",
+   "status": "planned",
+   "library": [
+    "mathlib:Algebra.FormallyUnramified",
+    "mathlib:Algebra.Etale"
+   ],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": "Mathlib has the ordinary notions (with the diagonal idempotent for finite unramified algebras, Algebra.FormallyUnramified.lmul_elem); the almost versions are the P0 node on almost finite étale algebras."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/55",
+   "kind": "definition",
+   "name": "Duals, trace and the trace form of a finite projective almost algebra",
+   "statement": "For a finite projective A-module P, P* = alHom(P, A) is finite projective, P** ≅ P, End(P)^a = P ⊗_A P*, giving tr_{P/A} : End(P)^a → A. For an A-algebra B finite projective as a module, the trace form t_{B/A} : B ⊗_A B → A is μ followed by b ↦ tr(b′ ↦ bb′) (made precise via B_* → End_{A_*}(B_*) since almost objects have no elements, Remark 4.15).",
+   "locator": "§4, the paragraph before Definition 4.14, Definition 4.14 and Remark 4.15, pp. 271–272",
+   "status": "planned",
+   "library": [
+    "mathlib:Algebra.traceForm"
+   ],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/56",
+   "kind": "theorem",
+   "name": "Finite étale almost algebras are those with perfect trace pairing",
+   "statement": "In the situation of Definition 4.14, A → B is finite étale if and only if the trace form is a perfect pairing, i.e. induces B ≅ B*.",
+   "locator": "§4, Theorem 4.16, p. 272 (Gabber–Ramero [15, Theorem 4.1.14])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/57",
+   "kind": "theorem",
+   "name": "Finite étale almost algebras lift uniquely along ϖ-adically complete flat bases",
+   "statement": "Let A be a K°a-algebra that is flat over K°a and ϖ-adically complete (A ≅ lim A/ϖⁿ). Then B ↦ B ⊗_A A/ϖ is an equivalence A_fét ≅ (A/ϖ)_fét; every B ∈ A_fét is flat over K°a and ϖ-adically complete; and B is uniformly finite projective over A iff B ⊗_A A/ϖ is uniformly finite projective over A/ϖ.",
+   "locator": "§4, Theorem 4.17 and proof, p. 272 (first part: Gabber–Ramero [15, Theorem 5.3.27])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": "Node PerfectoidSpaces:P0/finite-etale-lifting-along-complete-flat-almost-algebras. The proof's 'the rest is easy' hides an almost-Nakayama argument for the uniformity clause (source issue E6, already recorded in the atlas as PerfectoidSpaces/E4)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/58",
+   "kind": "definition",
+   "name": "Perfectoid K-algebras",
+   "statement": "A perfectoid K-algebra is a Banach K-algebra R whose power-bounded elements R° ⊂ R form an open and bounded subset and such that Frobenius Φ : R°/ϖ → R°/ϖ is surjective; morphisms are continuous K-algebra maps (Definition 1.6: equivalently Φ surjective on R°/p). K-Perf denotes this category.",
+   "locator": "§5, Definition 5.1(i), p. 272; §1, Definition 1.6, p. 247",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Node PerfectoidSpaces:P1/perfectoid-tate-rings-and-algebras (which also carries the Tate-ring generalisation of ECD 3.1)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/59",
+   "kind": "definition",
+   "name": "Perfectoid K°a-algebras and K°a/ϖ-algebras",
+   "statement": "(ii) A perfectoid K°a-algebra is a ϖ-adically complete flat K°a-algebra A on which Frobenius induces an isomorphism A/ϖ^{1/p} ≅ A/ϖ. (iii) A perfectoid K°a/ϖ-algebra is a flat K°a/ϖ-algebra A on which Frobenius induces an isomorphism A/ϖ^{1/p} ≅ A. Morphisms are those of K°a-, resp. K°a/ϖ-algebras; categories K°a-Perf and (K°a/ϖ)-Perf.",
+   "locator": "§5, Definition 5.1(ii)–(iii), pp. 272–273",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Node PerfectoidSpaces:P1/almost-integral-dictionary."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/60",
+   "kind": "theorem",
+   "name": "The tilting equivalence K-Perf ≅ K♭-Perf",
+   "statement": "The categories of perfectoid K-algebras and perfectoid K♭-algebras are equivalent, through K-Perf ≅ K°a-Perf ≅ (K°a/ϖ)-Perf = (K♭°a/ϖ♭)-Perf ≅ K♭°a-Perf ≅ K♭-Perf (the middle identification because K°/ϖ = K♭°/ϖ♭). Theorem 1.7: a perfectoid K-algebra R goes to R♭ = lim_{x↦x^p} R, and there is a map R♭ → R, f ↦ f♯.",
+   "locator": "§5, Theorem 5.2, p. 273; §1, Theorem 1.7, p. 247",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Node PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt. P1 also plans the Tate-ring version (ECD 3.13), for which Sch12 gives no proof."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/61",
+   "kind": "theorem",
+   "name": "Flatness and completeness of almost modules via almost elements",
+   "statement": "Let M be a K°a-module. (i) M is flat over K°a iff M_* is flat over K° iff M_* has no ϖ-torsion. (ii) If N is a flat K°-module and M = N^a, then M is flat and M_* = {x ∈ N[1/ϖ] : εx ∈ N for all ε ∈ m}. (iii) If M is flat, then (xM)_* = x M_* for x ∈ K°, M_*/xM_* ⊂ (M/xM)_*, and for every ε ∈ m the image of (M/xεM)_* in (M/xM)_* is M_*/xM_* (Remark 5.4: the non-surjectivity comes from elements as in Remark 4.8). (iv) If M is flat, M is ϖ-adically complete iff M_* is.",
+   "locator": "§5, Lemma 5.3, Remark 5.4 and proofs, pp. 273–274",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Node PerfectoidSpaces:P1/almost-integral-dictionary."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/62",
+   "kind": "theorem",
+   "name": "The almost integral structure of a perfectoid K-algebra",
+   "statement": "For a perfectoid K-algebra R, Φ induces an isomorphism R°/ϖ^{1/p} ≅ R°/ϖ, and A = R°a is a perfectoid K°a-algebra.",
+   "locator": "§5, Proposition 5.5 and proof, p. 274",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/63",
+   "kind": "theorem",
+   "name": "From perfectoid K°a-algebras back to perfectoid K-algebras",
+   "statement": "Let A be a perfectoid K°a-algebra and R = A_*[ϖ^{-1}], a Banach K-algebra with A_* open and bounded. Then A_* = R° is the set of power-bounded elements, R is perfectoid, and Φ : A_*/ϖ^{1/p} ≅ A_*/ϖ. Lemma 5.7 (in the proof): if x ∈ R and x^p ∈ A_*, then x ∈ A_*. Hence K°a-Perf ≅ K-Perf.",
+   "locator": "§5, Lemmas 5.6–5.7 and proofs, p. 275",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/64",
+   "kind": "theorem",
+   "name": "Perfectoid K-algebras are reduced",
+   "statement": "Every perfectoid K-algebra R is reduced (a nonzero nilpotent x would give Kx ⊂ R°, contradicting boundedness of R°).",
+   "locator": "§5, Proposition 5.8 and proof, p. 275",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/65",
+   "kind": "theorem",
+   "name": "In characteristic p, perfectoid means perfect",
+   "statement": "Let K have characteristic p and R a Banach K-algebra with R° open and bounded. Then R is perfectoid if and only if R is perfect.",
+   "locator": "§5, Proposition 5.9 and proof, pp. 275–276",
+   "status": "planned",
+   "library": [
+    "mathlib:PerfectRing"
+   ],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/66",
+   "kind": "theorem",
+   "name": "Perfectoid K°a-algebras are determined by their reduction mod ϖ",
+   "statement": "A ↦ Ā = A/ϖ is an equivalence K°a-Perf ≅ (K°a/ϖ)-Perf: a perfectoid K°a/ϖ-algebra admits a unique compatible system of flat (K°/ϖⁿ)^a-algebras Ā_n with Ā_n/ϖ^{n−1} ≅ Ā_{n−1}, all obstructions and ambiguities vanishing because L^a_{Ā_n/(K°/ϖⁿ)^a} = 0 (by induction, via the triangle induced from 0 → Ā → Ā_n → Ā_{n−1} → 0); the limit is perfectoid.",
+   "locator": "§5, Theorem 5.10 and its proof, pp. 276, 278–279",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Node PerfectoidSpaces:P1/deformation-lifting-of-perfectoid-mod-varpi-algebras. The triangle is cited as Gabber–Ramero 'Theorem 2.5.36' in the book numbering; the node records that the arXiv numbering differs."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/67",
+   "kind": "construction",
+   "name": "The cotangent complex (Quillen, Illusie)",
+   "statement": "To a ring map R → S one attaches L_{S/R} ∈ D^{≤0}(S), defined via a simplicial resolution S_• of S by free R-algebras as the object of D^{≤0}(S) of the simplicial S-module Ω¹_{S_•/R} ⊗_{S_•} S (Dold–Kan). H⁰(L_{S/R}) = Ω¹_{S/R}; for R → S → T there is a triangle T ⊗^L_S L_{S/R} → L_{T/R} → L_{T/S} → extending T ⊗_S Ω¹_{S/R} → Ω¹_{T/R} → Ω¹_{T/S} → 0; for R → S smooth, L_{S/R} is Ω¹_{S/R} in degree 0.",
+   "locator": "§5, the recollection before Theorem 5.11, p. 276",
+   "status": "planned",
+   "library": [
+    "mathlib:KaehlerDifferential",
+    "mathlib:Algebra.H1Cotangent"
+   ],
+   "planned": [
+    "DerivedDeRhamCohomology:DD.0"
+   ],
+   "note": "DD.0 plans the cotangent complex with transitivity and the smooth computation; Mathlib has only Kähler differentials and the naive cotangent complex (Algebra.H1Cotangent)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/68",
+   "kind": "theorem",
+   "name": "Obstructions to flat deformations along a square-zero extension",
+   "statement": "Let I ⊂ R with I² = 0, R_0 = R/I and S_0 a flat R_0-algebra. There is an obstruction class in Ext²(L_{S_0/R_0}, S_0 ⊗_{R_0} I) vanishing exactly when there is a flat R-algebra S with S ⊗_R R_0 = S_0; if deformations exist, their isomorphism classes form a torsor under Ext¹(L_{S_0/R_0}, S_0 ⊗_{R_0} I), and each deformation has automorphism group Hom(L_{S_0/R_0}, S_0 ⊗_{R_0} I) (isomorphisms restricting to the identity on S_0).",
+   "locator": "§5, Theorem 5.11 and the sentence after it, p. 277 (Illusie [23, III.2.1.2.3]; Gabber–Ramero [15, Proposition 3.2.9])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "SchemeAndStackFoundations:SF.4",
+    "DerivedDeRhamCohomology:DD.0"
+   ],
+   "note": "SF.4 plans infinitesimal lifting and obstruction complexes, DD.0 the cotangent complex. The almost version used in Theorem 5.10 is item item 72."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/69",
+   "kind": "theorem",
+   "name": "Obstructions to lifting morphisms along a square-zero extension",
+   "statement": "For flat R-algebras S, S′ with reductions S_0, S′_0 to R_0 and f_0 : S_0 → S′_0, there is an obstruction class in Ext¹(L_{S_0/R_0}, S′_0 ⊗_{R_0} I) vanishing exactly when f_0 lifts to f : S → S′; the lifts then form a torsor under Hom(L_{S_0/R_0}, S′_0 ⊗_{R_0} I).",
+   "locator": "§5, Theorem 5.12, p. 277 (Illusie [23, III.2.2.2]; Gabber–Ramero [15, Proposition 3.2.16])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "SchemeAndStackFoundations:SF.4",
+    "DerivedDeRhamCohomology:DD.0"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/70",
+   "kind": "theorem",
+   "name": "The cotangent complex of a perfect 𝔽_p-algebra vanishes",
+   "statement": "(i) For a perfect 𝔽_p-algebra R, L_{R/𝔽_p} ≅ 0. (ii) For a map R → S of 𝔽_p-algebras such that the relative Frobenius induces an isomorphism R_(Φ) ⊗^L_R S → S_(Φ) in D(R), L_{S/R} ≅ 0. (Proof of (ii): on a free simplicial resolution the relative Frobenius is a quasi-isomorphism inducing R_(Φ) ⊗^L L_{S/R} ≅ L_{S_(Φ)/R_(Φ)}, and it kills dX_i ↦ dX_i^p = 0.)",
+   "locator": "§5, Proposition 5.13 and proof, pp. 277–278 (Gabber–Ramero [15, Lemma 6.5.13(i)])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1",
+    "DerivedDeRhamCohomology:DD.0"
+   ],
+   "note": "Node PerfectoidSpaces:P1/cotangent-complex-vanishing-mod-varpi; DD.0 supplies L."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/71",
+   "kind": "theorem",
+   "name": "Witt vectors of a perfect ring as its unique deformation",
+   "statement": "Since L_{R/𝔽_p} = 0 for a perfect 𝔽_p-algebra R (and already Ω¹_{R/𝔽_p} = 0, as d(y^p) = p y^{p−1} dy = 0), W(R) can be defined as the unique deformation of R to a flat p-adically complete ℤ_p-algebra.",
+   "locator": "§5, Remark 5.14, p. 277",
+   "status": "missing",
+   "library": [
+    "mathlib:WittVector"
+   ],
+   "planned": [],
+   "note": "Mathlib has W(R) with Teichmüller representatives; neither library nor any layer states that W(R) is the unique flat p-adically complete lift of a perfect R. Routed to P1, which uses Witt vectors of perfect rings for θ and untilts."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/72",
+   "kind": "theorem",
+   "name": "The almost cotangent complex and almost deformation theory",
+   "statement": "Gabber–Ramero: for a map R → S of K°-algebras, L^a_{S/R} ∈ D(S^a) depends only on R^a → S^a, which defines L^a_{B/A} ∈ D^{≤0}(B) for K°a-algebras A → B (Remark 5.15: in [15] L_{B/A} lives over an actual ring; the almost version suffices); Theorems 5.11–5.12 and Proposition 5.13 remain true in the almost setting.",
+   "locator": "§5, the paragraph after the proof of Proposition 5.13 and Remark 5.15, p. 278",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "The decomposition's gap 'Almost deformation theory and cotangent-complex inputs cited from Gabber-Ramero' is attached to the P1 nodes on deformation lifting and cotangent vanishing."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/73",
+   "kind": "theorem",
+   "name": "The almost cotangent complex of a perfectoid K°a/ϖ-algebra vanishes",
+   "statement": "For a perfectoid K°a/ϖ-algebra Ā, L^a_{Ā/(K°a/ϖ)} ≅ 0 (by the almost version of Proposition 5.13, or via the flat K°/ϖ-algebra B = (Ā × K°a/ϖ)_{!!} with B/ϖ^{1/p} ≅ B via Φ).",
+   "locator": "§5, Corollary 5.16 and proof, p. 278",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/74",
+   "kind": "theorem",
+   "name": "The explicit tilt of a perfectoid K-algebra",
+   "statement": "For perfectoid R with A = R°a, put A♭ = lim_Φ A/ϖ (a K♭°a-algebra via K♭°a = lim_Φ K°a/ϖ) and R♭ = A♭_*[(ϖ♭)^{-1}]. Then R♭ is a perfectoid K♭-algebra with perfectoid K♭°a-algebra A♭, and it is the tilt of R; moreover R♭ = lim_{x↦x^p} R, A♭_* = lim_{x↦x^p} A_*, A♭_*/ϖ♭ ≅ A_*/ϖ, and there is a continuous multiplicative map R♭ → R, x ↦ x♯. The tilting functor is independent of ϖ and ϖ♭ (Remark 5.18).",
+   "locator": "§5, Proposition 5.17, Remark 5.18 and proof, pp. 279–280",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Node PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/75",
+   "kind": "construction",
+   "name": "The untilting functor through Fontaine's θ",
+   "statement": "The inverse of tilting is R = W(R♭°) ⊗_{W(K♭°)} K, using θ : W(K♭°) → K; a direct proof of the tilting equivalence along these lines avoids almost mathematics (cf. Kedlaya–Liu).",
+   "locator": "§5, Remark 5.19, p. 280",
+   "status": "planned",
+   "library": [
+    "mathlib:WittVector.fontaineTheta",
+    "mathlib:surjective_fontaineTheta"
+   ],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "P1 plans θ, its kernel and the classification of untilts (nodes PerfectoidSpaces:P1/fontaine-theta-and-primitive-kernel and untilts-classified-by-primitive-ideals). Mathlib's fontaineTheta (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean:165) is θ on the p-adic tilt for a p-adically complete ring, with surjectivity when Frobenius is surjective mod p (line 195)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/76",
+   "kind": "theorem",
+   "name": "The perfectoid closed polydisc and its tilt",
+   "statement": "R = K⟨T_1^{1/p^∞}, …, T_n^{1/p^∞}⟩ = (K°⟨T_1^{1/p^∞}, …, T_n^{1/p^∞}⟩)[ϖ^{-1}] is a perfectoid K-algebra with R° the ϖ-adic completion of K°[T_i^{1/p^∞}], and its tilt is R♭ = K♭⟨T_1^{1/p^∞}, …, T_n^{1/p^∞}⟩.",
+   "locator": "§5, Proposition 5.20 and proof, p. 280",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "P1's tests include perfected Tate balls and tori."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/77",
+   "kind": "theorem",
+   "name": "Tilting preserves perfectoid fields",
+   "statement": "A perfectoid K-algebra R is a perfectoid field iff R♭ is. (R is a perfectoid field iff its spectral norm ‖x‖_R = inf{|t|^{-1} : t ∈ K^×, tx ∈ R°} is multiplicative; ‖x‖_{R♭} = ‖x♯‖_R.)",
+   "locator": "§5, Lemma 5.21 and proof, pp. 280–281",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/78",
+   "kind": "theorem",
+   "name": "Finite étale algebras over perfectoid K°a/ϖ-algebras are perfectoid",
+   "statement": "If Ā is a perfectoid K°a/ϖ-algebra and B̄ a finite étale Ā-algebra, then B̄ is a perfectoid K°a/ϖ-algebra (Frobenius by Gabber–Ramero [15, Theorem 3.5.13(ii)]). Consequently A_fét → R_fét and A♭_fét → R♭_fét are fully faithful, in the diagram R_fét ← A_fét ≅ Ā_fét ≅ A♭_fét → R♭_fét over the tilting chain.",
+   "locator": "§5, Proposition 5.22 and the diagram after it, p. 281",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Nodes PerfectoidSpaces:P3/finite-etale-covers-in-characteristic-p and tilting-finite-etale-algebras-fully-faithful."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/79",
+   "kind": "theorem",
+   "name": "Almost purity in characteristic p",
+   "statement": "If K has characteristic p, R is a perfectoid K-algebra and S/R is finite étale (with the canonical topology), then S is perfectoid, S°a is finite étale over R°a, and S°a is a uniformly finite projective R°a-module.",
+   "locator": "§5, Proposition 5.23 and proof, pp. 281–282 (Gabber–Ramero [15, Theorem 3.5.28])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Node PerfectoidSpaces:P3/finite-etale-covers-in-characteristic-p. The proof starts from \"some finitely generated R°-subalgebra S_0 with S_0 ⊗ K = S\" and uses that its elements are integral over R°, which needs S_0 finite as an R°-module (source issue E10)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/80",
+   "kind": "theorem",
+   "name": "The canonical topology on finitely generated modules over A[t^{-1}]",
+   "statement": "If t ∈ A is a nonzerodivisor, every finitely generated A[t^{-1}]-module M has a canonical topology giving each finitely generated A-submodule the t-adic topology; all maps of finitely generated A[t^{-1}]-modules are continuous; if A is complete and M projective, M is complete. So a finite étale S over a perfectoid R has a canonical complete topology.",
+   "locator": "§5, Remark 5.24, pp. 281–282 (Gabber–Ramero [15, 5.4.10–5.4.11])",
+   "status": "planned",
+   "library": [
+    "mathlib:IsModuleTopology",
+    "tauceti:TauCeti.Huber.IsTateRing.isModuleTopology"
+   ],
+   "planned": [
+    "AdicEtaleGeometry:A1"
+   ],
+   "note": "A1 plans the canonical topology on a finite (étale) algebra over a complete Tate pair. Mathlib's IsModuleTopology gives a canonical topology on modules; Tau Ceti proves uniqueness and completeness of the module topology on finite modules over a complete Hausdorff noetherian Tate ring (OpenMapping.lean:306), which does not cover perfectoid rings."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/81",
+   "kind": "theorem",
+   "name": "Tilting of finite étale algebras is fully faithful",
+   "statement": "For a perfectoid K-algebra R with tilt R♭ there is a fully faithful functor R♭_fét → R_fét inverse to tilting; its essential image consists of the finite étale S/R such that S (with its natural topology) is perfectoid and S°a is finite étale over R°a; then S°a is a uniformly finite projective R°a-module, and the functor preserves degrees. All finite étale algebras over A, Ā or A♭ are uniformly almost finitely presented.",
+   "locator": "§5, the diagram before Theorem 5.25, Theorem 5.25 and the sentence after it, pp. 282–283",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Node PerfectoidSpaces:P3/tilting-finite-etale-algebras-fully-faithful."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/82",
+   "kind": "definition",
+   "name": "Perfectoid affinoid K-algebras",
+   "statement": "A perfectoid affinoid K-algebra is an affinoid K-algebra (R, R⁺) with R a perfectoid K-algebra. Then m R° ⊂ R⁺ ⊂ R° (topologically nilpotent elements lie in the integrally closed R⁺), so R⁺ is almost equal to R°.",
+   "locator": "§6, Definition 6.1 and the sentence after it, p. 283",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1",
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "Node PerfectoidSpaces:P1/tilt-of-perfectoid-tate-ring cites Definition 6.1 and Lemma 6.2."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/83",
+   "kind": "theorem",
+   "name": "Tilting perfectoid affinoid algebras",
+   "statement": "The categories of perfectoid affinoid K-algebras and perfectoid affinoid K♭-algebras are equivalent; if (R, R⁺) ↦ (R♭, R♭⁺), then x ↦ x♯ induces R♭⁺/ϖ♭ ≅ R⁺/ϖ, and R♭⁺ = lim_{x↦x^p} R⁺. (Open integrally closed subrings of R° correspond to integrally closed subrings of R°/m, compatibly with tilting.)",
+   "locator": "§6, Lemma 6.2 and proof, p. 284",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/84",
+   "kind": "theorem",
+   "name": "The tilting homeomorphism of adic spectra",
+   "statement": "Let (R, R⁺) be a perfectoid affinoid K-algebra with tilt (R♭, R♭⁺), X = Spa(R, R⁺), X♭ = Spa(R♭, R♭⁺). Then x ↦ x♭, |f(x♭)| = |f♯(x)|, is a homeomorphism X ≅ X♭ identifying rational subsets (Theorem 6.3(i), Theorem 1.8(i), Corollary 6.7(iii)). The map is well defined by the proof of Proposition 3.6 and continuous because the preimage of U(f_1, …, f_n / g) is U(f_1♯, …, f_n♯ / g♯) when f_n is a power of ϖ♭; injectivity and the rational-subset statement follow from the approximation lemma, surjectivity from untilting the completed residue fields and their valuations.",
+   "locator": "§6, Theorem 6.3(i), the start of its proof and Corollary 6.7(iii), pp. 284–285, 290–291; §1, Theorem 1.8(i), p. 248",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "Node PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/85",
+   "kind": "theorem",
+   "name": "Explicit perfectoid structure of rational localisations",
+   "statement": "Let U = U(f_1, …, f_n / g) ⊂ Spa(R♭, R♭⁺) be rational with preimage U♯ ⊂ Spa(R, R⁺), f_i, g ∈ R♭° and f_n = (ϖ♭)^N. (i) The ϖ-adic completion R°⟨(f_1♯/g♯)^{1/p^∞}, …, (f_n♯/g♯)^{1/p^∞}⟩ of the subring R°[(f_i♯/g♯)^{1/p^∞}] ⊂ R[1/g♯], made almost, is a perfectoid K°a-algebra. (ii) 𝒪_X(U♯) is a perfectoid K-algebra with 𝒪_X(U♯)°a = R°⟨(f_i♯/g♯)^{1/p^∞}⟩^a. (iii) The tilt of 𝒪_X(U♯) is 𝒪_{X♭}(U).",
+   "locator": "§6, Lemma 6.4 and proof, pp. 285–288",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "Node PerfectoidSpaces:P2/rational-localization-of-perfectoid-affinoids. The proof first treats characteristic p (the ideal I generated by T_i^{1/p^m} g^{1/p^m} − f_i^{1/p^m} is perfect) and then transports mod ϖ through the tilt."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/86",
+   "kind": "theorem",
+   "name": "The approximation lemma",
+   "statement": "Let R = K⟨T_0^{1/p^∞}, …, T_n^{1/p^∞}⟩ and f ∈ R° homogeneous of degree d ∈ ℤ[1/p]. For every rational c ≥ 0 and ε > 0 there is g_{c,ε} ∈ R♭° = K♭°⟨T_0^{1/p^∞}, …, T_n^{1/p^∞}⟩, homogeneous of degree d, with |f(x) − g♯_{c,ε}(x)| ≤ |ϖ|^{1−ε} max(|f(x)|, |ϖ|^c) for all x ∈ Spa(R, R°). For ε < 1 this gives max(|f(x)|, |ϖ|^c) = max(|g♯_{c,ε}(x)|, |ϖ|^c) (Remark 6.6). The proof is an explicit induction c ↦ c + a (0 < a < ε in ℤ[1/p]) with a shrinking error ε(c), writing f − g_c♯ on {|f| ≤ |ϖ|^c} through Lemma 6.4 as a convergent sum of homogeneous terms ϖ^{c+1−ε+ε(c′)} (g_c♯/ϖ^c)^i r_i and correcting g_c by the tilted sum.",
+   "locator": "§6, Lemma 6.5, Remark 6.6 and proof, pp. 288–290",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "Node PerfectoidSpaces:P2/approximation-lemma. The same lemma drives Proposition 8.7 (item item 133)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/87",
+   "kind": "theorem",
+   "name": "Approximation on a general perfectoid affinoid",
+   "statement": "For a perfectoid affinoid (R, R⁺), every f ∈ R and all c ≥ 0, ε > 0 there is g_{c,ε} ∈ R♭ with |f(x) − g♯_{c,ε}(x)| ≤ |ϖ|^{1−ε} max(|f(x)|, |ϖ|^c) for all x ∈ Spa(R, R⁺) (reduce to R⁺ = R° and maximal points, write f = g_0♯ + ϖ g_1♯ + ⋯ + ϖ^c g_c♯ and apply Lemma 6.5 to T_0 + ϖT_1 + ⋯ + ϖ^cT_c).",
+   "locator": "§6, Corollary 6.7(i) and proof, p. 290",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/88",
+   "kind": "theorem",
+   "name": "Completed residue fields of a perfectoid affinoid are perfectoid",
+   "statement": "For every x ∈ X = Spa(R, R⁺) with (R, R⁺) perfectoid affinoid, the completed residue field k(x)^ is a perfectoid field.",
+   "locator": "§6, Corollary 6.7(ii) and proof, pp. 290–291",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "Proved first in characteristic p via Proposition 2.25, then in general after the homeomorphism (iii)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/89",
+   "kind": "theorem",
+   "name": "Rational localisations of perfectoid affinoids and their tilts",
+   "statement": "For every rational U ⊂ X = Spa(R, R⁺) (R, R⁺ perfectoid affinoid), (𝒪_X(U), 𝒪_X⁺(U)) is a perfectoid affinoid K-algebra with tilt (𝒪_{X♭}(U♭), 𝒪⁺_{X♭}(U♭)) (Theorem 6.3(ii), Theorem 1.8(ii)); it is characterised by the universal property of Proposition 2.14 among perfectoid affinoid K-algebras, and tilting that property gives the tilt.",
+   "locator": "§6, Corollary 6.8 and proof, p. 291; Theorem 6.3(ii), p. 284",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "Node PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/90",
+   "kind": "definition",
+   "name": "p-finite perfectoid affinoid algebras",
+   "statement": "For K of characteristic p, a perfectoid affinoid K-algebra (R, R⁺) is p-finite if it is the completed perfection of a reduced affinoid K-algebra (S, S⁺) of topologically finite type: R⁺ is the ϖ-adic completion of lim_Φ S⁺ and R = R⁺[ϖ^{-1}].",
+   "locator": "§6, Definition 6.9, p. 291",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "Node PerfectoidSpaces:P2/p-finite-acyclicity-from-tate. By Definition 2.6(iii), \"topologically finite type\" includes S⁺ = S°."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/91",
+   "kind": "theorem",
+   "name": "Reduced affinoid algebras of topologically finite type",
+   "statement": "Let (S, S⁺) be a reduced affinoid K-algebra of topologically finite type and X = Spa(S, S⁺). (i) S⁺ = S° ⊂ S is open and bounded. (ii) For every rational U ⊂ X, (𝒪_X(U), 𝒪_X⁺(U)) is reduced and of topologically finite type. (iii) For every cover of X by finitely many rational subsets U_i, every cohomology group of 0 → 𝒪_X(X)° → ∏ 𝒪_X(U_i)° → ∏ 𝒪_X(U_i ∩ U_j)° → ⋯ is killed by a power of ϖ.",
+   "locator": "§6, Proposition 6.10 and proof, pp. 291–292 (BGR [2] 6.2.4 Theorem 1, 7.3.2 Corollary 10, 8.2.1 Theorem 1; Huber [20, Proposition 4.3])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "Node PerfectoidSpaces:P2/p-finite-acyclicity-from-tate. (iii) follows from Tate's acyclicity (item 92) by the open mapping theorem (item 93). The atlas's source issue PerfectoidSpaces/E13 calls '(i) S⁺ = S°' a misprint; with Definition 2.6(iii), tft includes S⁺ = S°, so the printed statement is correct."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/92",
+   "kind": "theorem",
+   "name": "Tate's acyclicity theorem",
+   "statement": "For an affinoid K-algebra of topologically finite type and a finite cover of X = Spa(S, S⁺) by rational subsets, the augmented Čech complex 0 → 𝒪_X(X) → ∏ 𝒪_X(U_i) → ∏ 𝒪_X(U_i ∩ U_j) → ⋯ is exact.",
+   "locator": "§6, proof of Proposition 6.10, p. 292 (BGR [2], 8.2.1 Theorem 1)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity"
+   ],
+   "note": "AdicSpaces Layer 4 plans exactness in every degree of the augmented Čech complex for strongly noetherian Tate rings and recovers Tate's acyclicity for the closed disc."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/93",
+   "kind": "theorem",
+   "name": "Banach's open mapping theorem",
+   "statement": "A continuous linear surjection between Banach spaces over a complete nonarchimedean field is open; used to show that the subspace and quotient topologies on ker d_i = im d_{i−1} of the Čech complex agree.",
+   "locator": "§6, proof of Proposition 6.10, p. 292",
+   "status": "library",
+   "library": [
+    "mathlib:ContinuousLinearMap.isOpenMap"
+   ],
+   "planned": [],
+   "note": "Mathlib's Banach open mapping theorem over a nontrivially normed field (Mathlib/Analysis/Normed/Operator/Banach.lean:229); Tau Ceti also has Henkel's version over Tate rings (TauCeti.Huber.IsTateRing.isOpenMap)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/94",
+   "kind": "theorem",
+   "name": "The p-finite case of the sheaf theorem",
+   "statement": "Let K have characteristic p and (R, R⁺) be p-finite, the completed perfection of the reduced tft (S, S⁺). (i) X = Spa(R, R⁺) → Y = Spa(S, S⁺) is a homeomorphism identifying rational subsets. (ii) For rational U ⊂ X corresponding to V ⊂ Y, (𝒪_X(U), 𝒪_X⁺(U)) is the completed perfection of (𝒪_Y(V), 𝒪_Y⁺(V)). (iii) For every rational cover, 0 → 𝒪_X(X)°a → ∏ 𝒪_X(U_i)°a → ⋯ is exact; so 𝒪_X is a sheaf and H^i(X, 𝒪_X°a) = 0 for i > 0 (Remark 6.12: equivalently H^i(X, 𝒪_X⁺) is killed by m).",
+   "locator": "§6, Proposition 6.11, Remark 6.12 and proof, pp. 292–293",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/95",
+   "kind": "theorem",
+   "name": "Perfectoid affinoids in characteristic p are completed limits of p-finite ones",
+   "statement": "Let K have characteristic p. (i) A perfectoid affinoid (R, R⁺) with R⁺ a K°-algebra is the completion of a filtered direct limit of p-finite (R_i, R_i⁺). (ii) Then Spa(R, R⁺) ≅ lim Spa(R_i, R_i⁺), and every rational U ⊂ X is the preimage of a rational U_i ⊂ X_i. (iii) (𝒪_X(U), 𝒪_X⁺(U)) is the completion of lim_j (𝒪_{X_j}(U_j), 𝒪⁺_{X_j}(U_j)). (iv) If U_i ⊂ X_i is quasicompact open and contains the image of X, the image of some X_j lies in U_i.",
+   "locator": "§6, Lemma 6.13 and proof, p. 293 (Tate [33, Theorem 5.2] for S_I⁺)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "Node PerfectoidSpaces:P2/completed-direct-limits-of-p-finite-affinoids. The proof of (iv) says \"zero\" for \"empty\" (source issue E4, recorded in the atlas as PerfectoidSpaces/E14)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/96",
+   "kind": "theorem",
+   "name": "The sheaf theorem and almost acyclicity for perfectoid affinoids",
+   "statement": "For every perfectoid affinoid (R, R⁺) over K of any characteristic and every cover of X = Spa(R, R⁺) by finitely many rational subsets, 0 → 𝒪_X(X)°a → ∏ 𝒪_X(U_i)°a → ∏ 𝒪_X(U_i ∩ U_j)°a → ⋯ is exact. Hence 𝒪_X (and 𝒪_{X♭}) is a sheaf, H^i(X, 𝒪_X°a) = 0 and H^i(X, 𝒪_X⁺) is m-torsion for i > 0 (Theorem 6.3(iii)–(iv), Theorem 1.8(iii)–(iv)).",
+   "locator": "§6, Proposition 6.14 and proof, pp. 293–294; Theorem 6.3(iii)–(iv), p. 284",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "Node PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity. P2 also plans the acyclic-basis comparison from Čech to sheaf cohomology, which the paper does not write out."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/97",
+   "kind": "definition",
+   "name": "Perfectoid spaces",
+   "statement": "The affinoid adic space Spa(R, R⁺) of a perfectoid affinoid K-algebra is an affinoid perfectoid space. A perfectoid space is an adic space over K locally isomorphic to an affinoid perfectoid space; morphisms are morphisms of adic spaces.",
+   "locator": "§6, the paragraph before Definition 6.15 and Definition 6.15, p. 294",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "Node PerfectoidSpaces:P2/perfectoid-spaces-and-glued-tilting."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/98",
+   "kind": "theorem",
+   "name": "Tilting of perfectoid spaces",
+   "statement": "A perfectoid space X♭ over K♭ is a tilt of X over K if Hom(Spa(R♭, R♭⁺), X♭) = Hom(Spa(R, R⁺), X) functorially in perfectoid affinoid (R, R⁺) (Definition 6.16). Every perfectoid space X has a tilt, unique up to unique isomorphism; this gives an equivalence between perfectoid spaces over K and over K♭ (Theorem 1.9); |X| = |X♭|; X is affinoid perfectoid iff X♭ is; and for every affinoid perfectoid U ⊂ X, (𝒪_X(U), 𝒪_X⁺(U)) is perfectoid affinoid with tilt (𝒪_{X♭}(U♭), 𝒪⁺_{X♭}(U♭)).",
+   "locator": "§6, Definition 6.16, Proposition 6.17 and proof, pp. 294–295; §1, Theorem 1.9, p. 248",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/99",
+   "kind": "theorem",
+   "name": "Fibre products of perfectoid spaces",
+   "statement": "For perfectoid spaces X → Y ← Z over K the fibre product X ×_Y Z exists in adic spaces over K and is perfectoid; for X = Spa(A, A⁺), Y = Spa(B, B⁺), Z = Spa(C, C⁺) it is Spa(D, D⁺) with D the completion of A ⊗_B C and D⁺ the completion of the integral closure of the image of A⁺ ⊗_{B⁺} C⁺, and the completed almost tensor product A°a ⊗̂_{B°a} C°a is a perfectoid K°a-algebra.",
+   "locator": "§6, Proposition 6.18 and proof, p. 295",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P2",
+    "AdicEtaleGeometry:A0"
+   ],
+   "note": "Node PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces; A0 supplies completed tensor products."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/100",
+   "kind": "definition",
+   "name": "Finite étale and étale morphisms of adic spaces",
+   "statement": "Over an arbitrary nonarchimedean field k: (i) (R, R⁺) → (S, S⁺) is finite étale if S is a finite étale R-algebra with the induced topology and S⁺ is the integral closure of R⁺ in S; (ii) f : X → Y is finite étale if Y has a cover by open affinoids V with f^{-1}(V) affinoid and (𝒪_Y(V), 𝒪_Y⁺(V)) → (𝒪_X(U), 𝒪_X⁺(U)) finite étale; (iii) f is étale if every x has neighbourhoods U, V with f|_U = p ∘ j, j an open embedding and p finite étale. For locally noetherian adic spaces (locally Spa of a strongly noetherian Tate algebra; noetherian if also qcqs) these agree with Huber's notions ([22, Example 1.6.6(ii), Lemma 2.2.8]).",
+   "locator": "§7, the opening paragraph and Definition 7.1, pp. 295–296",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AdicEtaleGeometry:A1",
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "A1 defines finite étale and étale adic morphisms by these local descriptions and compares with Huber's definitions; node PerfectoidSpaces:P3/strongly-etale-morphisms-and-base-change."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/101",
+   "kind": "definition",
+   "name": "Strongly finite étale and strongly étale morphisms of perfectoid spaces",
+   "statement": "(i) A morphism of perfectoid affinoid K-algebras is strongly finite étale if it is finite étale and S°a is finite étale over R°a. (ii), (iii) Strongly finite étale and strongly étale morphisms of perfectoid spaces are defined locally as in Definition 7.1. f is strongly (finite) étale iff its tilt f♭ is (Proposition 6.17, Theorem 5.25); in characteristic p every (finite) étale morphism is strongly (finite) étale.",
+   "locator": "§7, Definition 7.2 and the paragraph after it, p. 296",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/102",
+   "kind": "theorem",
+   "name": "Base change of (strongly) (finite) étale morphisms",
+   "statement": "(i) If f : X → Y is strongly finite étale (resp. strongly étale) and g : Z → Y is any morphism of perfectoid spaces, X ×_Y Z → Z is strongly finite étale (resp. strongly étale), and |X ×_Y Z| → |X| ×_{|Y|} |Z| is surjective. (ii) For affinoids with (A, A⁺) strongly finite étale over (B, B⁺), X ×_Y Z = Spa(D, D⁺) with D = A ⊗_B C and D⁺ the integral closure of C⁺ in D. (iii), (iv) In characteristic p the same holds for a (finite) étale morphism of adic spaces X → Y and a perfectoid Z → Y: the fibre product exists in adic spaces, is perfectoid, and the projection is (finite) étale.",
+   "locator": "§7, Lemma 7.3 and proof, p. 297",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Node PerfectoidSpaces:P3/strongly-etale-morphisms-and-base-change. The surjectivity is printed as |X ×_Z Y| → |X| ×_{|Z|} |Y| (source issue E2, recorded in the atlas as PerfectoidSpaces/E22 and AdicEtaleGeometry/E3)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/103",
+   "kind": "theorem",
+   "name": "Finite étale algebras over a henselian pair and its completion",
+   "statement": "For a flat K°-algebra A henselian along (ϖ), finite étale A[ϖ^{-1}]-algebras and finite étale Â[ϖ^{-1}]-algebras are equivalent (Â the ϖ-adic completion). ϖ-adically complete algebras are henselian along (ϖ), and filtered colimits of algebras henselian along (ϖ) are henselian along (ϖ).",
+   "locator": "§7, Proposition 7.4 and the sentence after it, pp. 297–298 (Gabber–Ramero [15, Proposition 5.4.53])",
+   "status": "planned",
+   "library": [
+    "mathlib:HenselianRing"
+   ],
+   "planned": [
+    "PerfectoidSpaces:P3",
+    "PerfectoidSpaces:P5"
+   ],
+   "note": "Node PerfectoidSpaces:P3/henselian-finite-etale-approximation (the decomposition moved this input from P5 to P3). Mathlib's HenselianRing is the henselian-pair notion."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/104",
+   "kind": "theorem",
+   "name": "Finite étale algebras and completed direct limits",
+   "statement": "(i) If A_i is a filtered system of complete flat K°-algebras and A the completion of lim A_i, then A[ϖ^{-1}]_fét ≅ 2-lim (A_i[ϖ^{-1}])_fét; in particular R_fét ≅ 2-lim (R_i)_fét for a completed direct limit R of perfectoid K-algebras R_i. (ii) If K has characteristic p and (R, R⁺) is p-finite, the completed perfection of (S, S⁺), then R_fét ≅ S_fét.",
+   "locator": "§7, Lemma 7.5 and proof, p. 298",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3",
+    "PerfectoidSpaces:P5"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/105",
+   "kind": "theorem",
+   "name": "Strongly finite étale maps are affinoid over affinoid perfectoids",
+   "statement": "If f : X → Y is strongly finite étale, then for every open affinoid perfectoid V ⊂ Y the preimage U is affinoid perfectoid and (𝒪_Y(V), 𝒪_Y⁺(V)) → (𝒪_X(U), 𝒪_X⁺(U)) is strongly finite étale. Hence, in characteristic p, finite étale covers of Spa(R, R⁺) are the finite étale covers of R.",
+   "locator": "§7, Proposition 7.6, proof and the sentence after it, pp. 298–299",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Node PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids; reduces to Huber [22, Example 1.6.6(ii)]."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/106",
+   "kind": "theorem",
+   "name": "Étale maps in characteristic p come from noetherian adic spaces",
+   "statement": "If K has characteristic p and f : X → Y is an étale map of perfectoid spaces, then every x ∈ X has affinoid perfectoid neighbourhoods x ∈ U ⊂ X, f(U) ⊂ V ⊂ Y and an étale morphism of affinoid noetherian adic spaces U_0 → V_0 over K with U = U_0 ×_{V_0} V.",
+   "locator": "§7, Proposition 7.7 and proof, p. 299",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/107",
+   "kind": "theorem",
+   "name": "Strongly étale maps are open and stable under composition",
+   "statement": "Strongly étale maps of perfectoid spaces are open, and composites of strongly (finite) étale maps are strongly (finite) étale.",
+   "locator": "§7, Corollary 7.8 and proof, p. 299 (Huber [22, Propositions 1.7.8, 1.6.7(ii)])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/108",
+   "kind": "theorem",
+   "name": "The almost purity theorem",
+   "statement": "Let (R, R⁺) be perfectoid affinoid, X = Spa(R, R⁺). (i) For every open affinoid perfectoid U ⊂ X, global sections give a fully faithful functor from strongly finite étale covers of U to finite étale 𝒪_X(U)-algebras. (ii) This functor is an equivalence. (iii) For every finite étale S/R, S is perfectoid and S°a is finite étale over R°a, and S°a is a uniformly almost finitely generated R°a-module (Theorem 1.10). Consequently every (finite) étale morphism of perfectoid spaces is strongly (finite) étale.",
+   "locator": "§7, Theorem 7.9, proof and the sentence after it, pp. 299–301; §1, Theorem 1.10, p. 248",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Node PerfectoidSpaces:P3/almost-purity-theorem. The proof localises using Lemma 7.5(i), untilts over completed residue fields with Theorem 3.7, and glues with the sheaf property."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/109",
+   "kind": "theorem",
+   "name": "Pulling back étale maps of adic spaces in characteristic 0",
+   "statement": "Lemma 7.3(iii)–(iv) hold also when K has characteristic 0: for a (finite) étale morphism of adic spaces X → Y and a perfectoid space Z → Y, X ×_Y Z exists, is perfectoid, and X ×_Y Z → Z is (finite) étale.",
+   "locator": "§7, Proposition 7.10 and proof, p. 301",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/110",
+   "kind": "definition",
+   "name": "The étale site of a perfectoid space",
+   "statement": "For a perfectoid space X, X_ét is the category of perfectoid spaces étale over X with coverings the topological coverings; X~_ét is its topos. A morphism of perfectoid spaces X → Y, and a morphism from a perfectoid space to a locally noetherian adic space, induce morphisms of sites X_ét → Y_ét.",
+   "locator": "§7, Definition 7.11 and the paragraph after it, p. 301",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/111",
+   "kind": "theorem",
+   "name": "Tilting identifies étale sites",
+   "statement": "For a perfectoid space X over K with tilt X♭, tilting induces an isomorphism of sites X_ét ≅ X♭_ét, functorial in X (Theorem 1.12).",
+   "locator": "§7, Theorem 7.12, p. 301; §1, Theorem 1.12, p. 249",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Node PerfectoidSpaces:P3/etale-site-tilting-and-etale-almost-acyclicity."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/112",
+   "kind": "theorem",
+   "name": "Almost acyclicity of 𝒪° on the étale site",
+   "statement": "For a perfectoid space X, U ↦ 𝒪_U(U) is a sheaf 𝒪_X on X_ét, and H^i(X_ét, 𝒪_X°a) = 0 for i > 0 if X is affinoid perfectoid.",
+   "locator": "§7, Proposition 7.13 and proof, p. 301",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/113",
+   "kind": "definition",
+   "name": "X ∼ lim X_i for a perfectoid space over noetherian adic spaces",
+   "statement": "For a perfectoid space X, a filtered inverse system (X_i) of noetherian adic spaces over K and compatible maps X → X_i, write X ∼ lim X_i if |X| → lim |X_i| is a homeomorphism and, for every x ∈ X with images x_i, lim_i k(x_i) → k(x) has dense image. Then |X| is spectral, hence qcqs (Remark 7.15).",
+   "locator": "§7, Definition 7.14 and Remark 7.15, p. 302",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P7",
+    "ClassicalAdicEtaleCohomology:H0"
+   ],
+   "note": "Node PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison; H0 insists that a tilde-limit is not a categorical inverse limit."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/114",
+   "kind": "theorem",
+   "name": "Tilde-limits are stable under étale base change",
+   "statement": "In the situation of Definition 7.14, if Y → X_i is an étale morphism of noetherian adic spaces, then Y ×_{X_i} X ∼ lim_{j≥i} Y ×_{X_i} X_j. Moreover bijectivity of |X| → lim |X_i| together with the residue-field condition already implies X ∼ lim X_i.",
+   "locator": "§7, Proposition 7.16 and proof, p. 302 (as Huber [22, Remark 2.4.3])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P7"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/115",
+   "kind": "theorem",
+   "name": "The étale topos of a tilde-limit",
+   "statement": "In the situation of Definition 7.14, X~_ét is a projective limit of the fibred topos (X~_{i,ét})_i (SGA 4 VI §8).",
+   "locator": "§7, Theorem 7.17 and proof, p. 302 (as Huber [22, Proposition 2.4.4], with Lemma 7.5)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P7"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/116",
+   "kind": "theorem",
+   "name": "Cohomology of a tilde-limit",
+   "statement": "In the situation of Definition 7.14, for a sheaf of abelian groups F_i on X_{i,ét} with pullbacks F_j (j ≥ i) and F on X_ét, lim_j H^n(X_{j,ét}, F_j) → H^n(X_ét, F) is bijective for all n ≥ 0.",
+   "locator": "§7, Corollary 7.18, p. 303 (as Huber [22, Corollary 2.4.6])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P7"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/117",
+   "kind": "theorem",
+   "name": "Purely inseparable towers do not change the étale topos",
+   "statement": "If in Definition 7.14 all transition maps X_j → X_i induce purely inseparable extensions of completed residue fields and homeomorphisms |X_j| → |X_i|, then X~_ét is equivalent to X~_{i,ét} for every i.",
+   "locator": "§7, Corollary 7.19 and proof, p. 303 (Huber [22], remark after Proposition 2.3.7)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P7"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/118",
+   "kind": "definition",
+   "name": "Toric varieties",
+   "statement": "A toric variety over a field k is a normal separated scheme X of finite type over k with an action of a split torus T ≅ 𝔾_m^r and a point x ∈ X(k) with trivial stabiliser in T whose orbit T ≅ Tx = U ⊂ X is open and dense.",
+   "locator": "§8, Definition 8.1, p. 303",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Tau Ceti roadmap Analytic toric geometry plans toric schemes only over ℂ (Layer 0: affine toric scheme Spec ℂ[S_σ], link to a ToricVariety instance), and none is built. Routed to the nonarchimedean toric Part II. (The paper uses k both for the field and the rank of T; r is used here.)"
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/119",
+   "kind": "definition",
+   "name": "Strongly convex rational polyhedral cones and fans",
+   "statement": "Let N be a free abelian group of finite rank. (i) A strongly convex polyhedral cone is σ = ℝ_{≥0}x_1 + ⋯ + ℝ_{≥0}x_n ⊂ N ⊗ ℝ with x_i ∈ N, containing no line through the origin. (ii) A fan Σ is a nonempty finite collection of such cones, closed under faces, such that the intersection of two cones of Σ is a face of each.",
+   "locator": "§8, Definition 8.2, p. 303",
+   "status": "library",
+   "library": [
+    "tauceti:TauCeti.Toric.IsToricCone",
+    "tauceti:TauCeti.Toric.Fan",
+    "mathlib:PointedCone",
+    "mathlib:PointedCone.dual"
+   ],
+   "planned": [],
+   "note": "Tau Ceti's IsToricCone (lattice-rational and salient Mathlib pointed cone; TauCeti/Geometry/Toric/Algebraic/Cone.lean:124) and Fan (finite, closed under faces, pairwise intersections faces; Fan/Basic.lean:81); the dual cone is Mathlib's PointedCone.dual."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/120",
+   "kind": "construction",
+   "name": "The toric variety X_Σ of a fan",
+   "statement": "With M = Hom(N, ℤ), a cone σ gives σ^∨ ⊂ M ⊗ ℝ and U_σ = Spec k[σ^∨ ∩ M], with χ^u the function of u ∈ σ^∨ ∩ M. For a face τ of σ, σ^∨ ⊂ τ^∨ gives an open immersion U_τ → U_σ; these glue to X_Σ. T = U_{0} = Spec k[M] acts with open dense orbit, and 1 ∈ T gives the base point, making X_Σ a toric variety.",
+   "locator": "§8, the paragraph after Definition 8.2, p. 303",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Analytic toric geometry Layer 0 plans the dual semigroup, affine toric schemes over ℂ and their gluing, all absent in Tau Ceti. Over an arbitrary field, and over k° as used later in §8, this is the nonarchimedean toric Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/121",
+   "kind": "theorem",
+   "name": "Classification of toric varieties by fans",
+   "statement": "Every toric variety over k is canonically isomorphic to X_Σ for a unique fan Σ in X_*(T) ⊗ ℝ.",
+   "locator": "§8, Theorem 8.3, p. 304",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Recalled without proof (it needs Sumihiro's theorem). Not planned; routed to the toric Part II. Theorem 9.6 is stated for a toric variety but the proof works with X_Σ."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/122",
+   "kind": "theorem",
+   "name": "Torus-invariant divisors and their sections",
+   "statement": "Let τ_i ∈ Σ be the one-dimensional cones with primitive generators v_i ∈ τ_i ∩ N. Each τ_i gives U_{τ_i} ≅ 𝔸¹ × 𝔾_m^{r−1} and a T-invariant Weil divisor D_i, the closure of {0} × 𝔾_m^{r−1}. T-Weil divisors are the elements of ⊕ ℤ D_i; every Weil divisor is equivalent to one; and for D = Σ a_i D_i, H⁰(X_Σ, 𝒪(D)) = ⊕_{u ∈ M, ⟨u, v_i⟩ ≥ −a_i} k χ^u.",
+   "locator": "§8, Definition/Proposition 8.4, p. 304",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Primitive ray generators exist in Tau Ceti (TauCeti/Geometry/Toric/Algebraic/Ray/Primitive.lean); divisors and their sections are not planned over a field (Analytic toric geometry Layer 4 plans invariant analytic hypersurfaces over ℂ). Routed to the toric Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/123",
+   "kind": "construction",
+   "name": "The adic toric space X_Σ^ad of a fan",
+   "statement": "For k complete nonarchimedean, X_Σ^ad is the adic space of finite type over k glued from U_σ^ad = Spa(k⟨σ^∨ ∩ M⟩, k°⟨σ^∨ ∩ M⟩). It is the generic fibre of the formal completion of the toric k°-scheme X_{Σ,k°} along its special fibre (an admissible formal scheme); in general it differs from the analytification (X_Σ)^ad (for affine space it is the closed unit ball), and it equals it when X_Σ is proper. Multiplication by p on M induces φ : X_Σ^ad → X_Σ^ad.",
+   "locator": "§8, the paragraphs after Definition/Proposition 8.4, p. 304",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Needs the formal generic fibre of AdicSpacesPartII:R2 and the analytification of R1. Routed to the toric Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/124",
+   "kind": "construction",
+   "name": "The perfectoid toric space X_Σ^perf and its line bundles",
+   "statement": "For a perfectoid field K, X_Σ^perf is the perfectoid space glued from U_σ^perf = Spa(K⟨(σ^∨ ∩ M)[p^{-1}]⟩, K°⟨(σ^∨ ∩ M)[p^{-1}]⟩). On it there is a sheaf 𝒪(D) for every D ∈ ⊕ ℤ[p^{-1}] D_i, and H⁰(X_Σ^perf, 𝒪(D)) is the Banach K-space with orthonormal basis χ^u, u ∈ M[p^{-1}] with ⟨u, v_i⟩ ≥ −a_i.",
+   "locator": "§8, the paragraph before Theorem 8.5, p. 304",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The affine pieces are perfectoid by the argument of Proposition 5.20; P7 lists compatible-root discs and tori only as tests. Routed to the toric Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/125",
+   "kind": "theorem",
+   "name": "The perfectoid toric space tilts to the perfectoid toric space",
+   "statement": "For a perfectoid field K with tilt K♭, the perfectoid space X^perf_{Σ,K} tilts to X^perf_{Σ,K♭} (checked on affinoid pieces as in Proposition 5.20).",
+   "locator": "§8, Theorem 8.5(i) and proof, pp. 304–305",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Routed to the toric Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/126",
+   "kind": "theorem",
+   "name": "The perfectoid toric space as a tilde-limit",
+   "statement": "X^perf_{Σ,K} ∼ lim_φ X^ad_{Σ,K} in the sense of Definition 7.14 (checked on affinoid pieces).",
+   "locator": "§8, Theorem 8.5(ii) and proof, pp. 305",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Uses P7 (tilde-limits). Routed to the toric Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/127",
+   "kind": "theorem",
+   "name": "The tilted toric space as an inverse limit of topological spaces",
+   "statement": "There is a homeomorphism |X^ad_{Σ,K♭}| ≅ lim_φ |X^ad_{Σ,K}|; it defines the projection π : X^ad_{Σ,K♭} → X^ad_{Σ,K} on topological spaces, given on coordinates by π(x_0 : ⋯ : x_n) = (x_0♯ : ⋯ : x_n♯) for ℙⁿ.",
+   "locator": "§8, Theorem 8.5(iii), proof and the sentence after it, p. 305; §1, pp. 249–250",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "From (i), (ii), Theorem 7.17, Corollary 7.19 and |X| = |X♭|; X^ad_{Σ,K♭} is not perfectoid, but its φ-tower is and φ is purely inseparable. Routed to the toric Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/128",
+   "kind": "theorem",
+   "name": "Étale topoi of the tilted toric space",
+   "statement": "There is an equivalence of étale topoi (X^ad_{Σ,K♭})~_ét ≅ lim_φ (X^ad_{Σ,K})~_ét (inverse limit of a fibred topos), giving π on étale topoi. For Σ the fan of ℙⁿ this is Theorem 1.13: (ℙ^{n,ad}_{K♭})~_ét ≅ lim_φ (ℙ^{n,ad}_K)~_ét with φ(x_0 : ⋯ : x_n) = (x_0^p : ⋯ : x_n^p); the same holds for proper toric varieties and hence for rigid-analytic varieties.",
+   "locator": "§8, Theorem 8.5(iv) and proof, p. 305; §1, Theorem 1.13, p. 249",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Routed to the toric Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/129",
+   "kind": "theorem",
+   "name": "Compatibility of π with open subsets",
+   "statement": "For every open U ⊂ X^ad_{Σ,K} with preimage V ⊂ X^ad_{Σ,K♭} there is a morphism of étale topoi V~_ét → U~_ét compatible with π : (X^ad_{Σ,K♭})~_ét → (X^ad_{Σ,K})~_ét and the inclusions.",
+   "locator": "§8, Theorem 8.5(v) and proof, p. 305 (via Proposition 7.16)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Routed to the toric Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/130",
+   "kind": "theorem",
+   "name": "π induces isomorphisms on torsion étale cohomology of proper smooth toric varieties",
+   "statement": "Let X_Σ be a proper smooth toric variety, ℓ ≠ p a prime and K (hence K♭) algebraically closed. For all i, π induces H^i(X^ad_{Σ,K,ét}, ℤ/ℓ^mℤ) ≅ H^i(X^ad_{Σ,K♭,ét}, ℤ/ℓ^mℤ). (Proof: by (iv) it suffices that φ acts isomorphically on ℤ/ℓ^m-cohomology; by proper base change this is checked on X_{Σ,κ} over the residue field κ, where φ is purely inseparable and induces an equivalence of étale topoi.)",
+   "locator": "§8, Proposition 8.6 and proof, pp. 305–306",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Imports proper base change (item 131) and topological invariance of the étale site (item 132). Routed to the toric Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/131",
+   "kind": "theorem",
+   "name": "Proper base change for a proper smooth model",
+   "statement": "For a proper smooth scheme over K° (here the toric scheme X_{Σ,K°}) and ℓ ≠ p, the ℤ/ℓ^m-cohomology of the geometric generic fibre is identified with that of the special fibre X_{Σ,κ}, compatibly with φ.",
+   "locator": "§8, proof of Proposition 8.6, pp. 305–306",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "SchemeAndStackFoundations:SF.2"
+   ],
+   "note": "SF.2 plans proper and smooth base change for étale cohomology of schemes; with Theorem 9.7 this transfers to the adic spaces."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/132",
+   "kind": "theorem",
+   "name": "Purely inseparable maps induce equivalences of étale topoi",
+   "statement": "A finite surjective purely inseparable (radicial) morphism, such as the Frobenius-type map φ on X_{Σ,κ} in characteristic p or on adic spaces over K♭, induces an equivalence of étale topoi.",
+   "locator": "§1, p. 250; §8, proof of Proposition 8.6, p. 306; §7, Corollary 7.19, p. 303",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "SchemeAndStackFoundations:SF.2",
+    "PerfectoidSpaces:P7"
+   ],
+   "note": "Topological invariance of the étale site (SGA 4 VIII 1.1) is part of SF.2's étale-site comparisons for schemes; the adic version is Corollary 7.19 (P7)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/133",
+   "kind": "theorem",
+   "name": "The approximation lemma for the graded perfectoid ring of a toric divisor",
+   "statement": "For a T-Weil divisor D on X_{Σ,K}, let R be the completion (for the obvious K°-submodule) of the Banach direct sum ⊕_{j ∈ ℤ[p^{-1}]} H⁰(X^perf_{Σ,K}, 𝒪(jD)) = ⊕_j ⊕_{u ∈ M[p^{-1}], ⟨u,v_i⟩ ≥ −j a_i} K χ^u. Then R is a perfectoid K-algebra whose tilt is the same construction over K♭, and the analogue of Lemma 6.5 holds for R with the same proof: every homogeneous f can be approximated by g♯ with g homogeneous of the same degree over K♭.",
+   "locator": "§8, proof of Proposition 8.7, p. 306",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Asserted with \"the same proof\" as Proposition 5.20 and Lemma 6.5. Routed to the toric Part II, which must write the induction out."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/134",
+   "kind": "theorem",
+   "name": "Approximating a hypersurface by a tilted hypersurface",
+   "statement": "Let X_{Σ,K} be proper smooth, Y ⊂ X_{Σ,K} a hypersurface and Ỹ ⊂ X^ad_{Σ,K} a small open neighbourhood of Y. Then there is a hypersurface Z ⊂ X_{Σ,K♭} with Z^ad ⊂ π^{-1}(Ỹ), and Z can be chosen defined over any given dense subfield of K♭. (Lemma 1.16 is the case of ℙⁿ.) Proof: Y = {f = 0}, f ∈ H⁰(X_{Σ,K}, 𝒪(D)); Ỹ = {|f(x)| ≤ ε} using the tautological integral model of X_{Σ,K} and 𝒪(D) over K°; the graded approximation lemma gives g ∈ H⁰(X^perf_{Σ,K♭}, 𝒪(D)) with π^{-1}(Ỹ) = {|g(x)| ≤ ε}; perturb g to have coefficients in the dense subfield; a large p-power of g is a section h of 𝒪(p^N D) on X_{Σ,K♭}, and Z = {h = 0} ⊂ π^{-1}(Ỹ).",
+   "locator": "§8, Proposition 8.7 and proof, pp. 306–307; §1, Lemma 1.16, p. 251",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The proof calls h a \"regular function\" (source issue E11). Routed to the toric Part II; it is the endpoint named in the BKV brief for that Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/135",
+   "kind": "theorem",
+   "name": "Approximating a complete intersection",
+   "statement": "Let X_{Σ,K} be projective and smooth, Y ⊂ X_{Σ,K} a set-theoretic complete intersection (Y = Y_1 ∩ ⋯ ∩ Y_c set-theoretically, hypersurfaces Y_i, c = codim Y) and Ỹ a small open neighbourhood of Y. Then there is a closed subvariety Z ⊂ X_{Σ,K♭} with Z^ad ⊂ π^{-1}(Ỹ) and dim Z = dim Y, definable over any given dense subfield of K♭. (Nonemptiness: with an ample line bundle the degree of a complete intersection is combinatorial, and Y has positive degree; cut down by further hypersurfaces if the dimension is too large.)",
+   "locator": "§8, Corollary 8.8 and proof, p. 307",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The degree argument needs intersection theory with refined intersections (item 151 uses the same ingredients); routed to the toric Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/136",
+   "kind": "construction",
+   "name": "The tame character t_ℓ of inertia",
+   "statement": "For a local field k of residue characteristic p with residue field of order q, the maximal pro-ℓ quotient of the inertia group I_k ⊂ G_k = Gal(k̄/k) is t_ℓ : I_k → ℤ_ℓ(1), the inverse limit of t_{ℓ,n} : I_k → μ_{ℓ^n}, σ(ϖ^{1/ℓ^n}) = t_{ℓ,n}(σ) ϖ^{1/ℓ^n} for a compatible system of ℓ^n-th roots of a uniformiser ϖ.",
+   "locator": "§9, the opening paragraph, p. 307 (Illusie [25])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+    "LefschetzPencilsAndVanishingCycles:LPV.1"
+   ],
+   "note": "Local fields and ramification Layer 4 plans I_K/P_K ≅ Ẑ^{(p′)}(1) with its specialisation at one prime ℓ ≠ p; LPV.1 plans t_ℓ for the monodromy operator."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/137",
+   "kind": "theorem",
+   "name": "Grothendieck's quasi-unipotence theorem and the monodromy operator",
+   "statement": "For a finite-dimensional Q̄_ℓ-representation ρ : G_k → GL(V) there is an open subgroup I_1 ⊂ I_k acting unipotently, and then a unique nilpotent N : V → V(−1) with ρ(σ) = exp(N t_ℓ(σ)) for all σ ∈ I_1. After fixing ℚ_ℓ(1) ≅ ℚ_ℓ, N is a nilpotent endomorphism, determined up to a scalar.",
+   "locator": "§9, Proposition 9.1 and the paragraph after it, pp. 307–308",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "LefschetzPencilsAndVanishingCycles:LPV.1",
+    "ArithmeticGaloisRepresentations:R01.2"
+   ],
+   "note": "Printed as exp(N t_ℓ(g)) (source issue E1). LPV.1 plans N, exp(t_ℓ(σ)N) = ρ(σ) and quasi-unipotence in the geometric setting; R01.2 plans quasi-unipotence and Weil–Deligne representations for arithmetic representations."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/138",
+   "kind": "theorem",
+   "name": "The Frobenius–monodromy relation",
+   "statement": "For every geometric Frobenius Φ ∈ G_k, N Φ = q Φ N (from the uniqueness of N).",
+   "locator": "§9, the paragraph after Proposition 9.1, p. 308",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticGaloisRepresentations:R01.2",
+    "DeligneWeightsAndPurity:DWP.5"
+   ],
+   "note": "R01.2 plans the relation (in the arithmetic-Frobenius normalisation r(F)Nr(F)^{-1} = qN, warning against copying the geometric formula); DWP.5 includes the Frobenius–N relation."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/139",
+   "kind": "theorem",
+   "name": "The monodromy filtration",
+   "statement": "For a nilpotent endomorphism N of a finite-dimensional vector space V over any field there is a unique separated exhaustive increasing filtration Fil_i^N V (i ∈ ℤ) with N(Fil_i^N V) ⊂ Fil_{i−2}^N V and N^i : gr_i^N V ≅ gr_{−i}^N V for i ≥ 0; explicitly Fil_i^N V = Σ_{i_1 − i_2 = i} ker N^{i_1+1} ∩ im N^{i_2}.",
+   "locator": "§9, Definition/Proposition 9.2 and the formula after it, pp. 307–308",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "LefschetzPencilsAndVanishingCycles:LPV.1"
+   ],
+   "note": "LPV.1 plans the uniquely characterised centred monodromy filtration (linear algebra, independent of weights)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/140",
+   "kind": "definition",
+   "name": "The weight-monodromy conjecture for a proper smooth variety",
+   "statement": "Conjecture 9.3 (Deligne): for a proper smooth variety X over a local field k and V = H^i(X_k̄, Q̄_ℓ), for all j ∈ ℤ and every geometric Frobenius Φ ∈ G_k, all eigenvalues of Φ on gr_j^N V are Weil numbers of weight i + j, i.e. algebraic numbers α with |α| = q^{(i+j)/2} for all complex absolute values. \"WMC holds for X\" means this statement for all i. (Conjecture 1.14; the paper records its L-function interpretation: at primes of bad reduction the local factor det(1 − q^{−s}Φ | H^i(X)^{I_k})^{-1} would have no poles with real part > i/2.)",
+   "locator": "§9, Conjecture 9.3 and the paragraph after it, p. 308; §1, Conjecture 1.14, p. 250",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "DWP.0 plans Weil numbers and LPV.1 the filtration, but no stage defines the weight-monodromy property of a local Galois representation; DWP.5 says explicitly that it is not the mixed-characteristic conjecture, and R34.6 that the general conjecture is not assumed. Routed to the weight-monodromy Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/141",
+   "kind": "theorem",
+   "name": "Weight-monodromy may be checked after finite or totally ramified pro-p base change",
+   "statement": "To prove the weight-monodromy conjecture one may replace k by a finite extension. It may also be checked after restricting to G_K for K the completion of k(ϖ^{1/p^∞}), ϖ a uniformiser: the extension is totally ramified, so geometric Frobenii of G_K still give the weight decomposition, and it is pro-p, so the pro-ℓ inertia (hence N) is still seen.",
+   "locator": "§9, the sentence after Conjecture 9.3, p. 308, and the start of the proof of Theorem 9.6, p. 309",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The second reduction is only in the published version (arXiv v1 omits it). Routed to the weight-monodromy Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/142",
+   "kind": "theorem",
+   "name": "Deligne's weight-monodromy theorem in equal characteristic",
+   "statement": "Let C be a curve over 𝔽_q, x ∈ C(𝔽_q), and k the local field of C at x. For a proper smooth scheme X over C ∖ {x}, the weight-monodromy conjecture holds for X_k = X ×_{C∖{x}} Spec k. (Proof sketch: after a finite cover, I_k acts unipotently on V = H^i(X_k̄, Q̄_ℓ); R^i f_* Q̄_ℓ is pure of weight i by the Weil conjectures; semicontinuity of weights gives weights ≤ i on V^{I_k}, likewise for tensor powers of V and V^∨; conclude by Lemma 9.5.)",
+   "locator": "§9, Theorem 9.4 and the summary of its proof, pp. 308–309 (Deligne [10])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DeligneWeightsAndPurity:DWP.5",
+    "DeligneWeightsAndPurity:DWP.7"
+   ],
+   "note": "DWP.5 plans the local weight theorem for a punctually pure lisse sheaf on an open curve (weights of monodromy graded pieces, boundary invariants, tensor and dual compatibility); purity of R^i f_* for proper smooth f is DWP.4/DWP.7. The general equal-characteristic case (Terasoma, Ito) is not needed here."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/143",
+   "kind": "theorem",
+   "name": "The linear-algebra criterion for weight-monodromy",
+   "statement": "Let V be an ℓ-adic representation of G_k on which I_k acts unipotently, and i an integer. Then gr_j^N V is pure of weight i + j for all j ∈ ℤ if and only if for all j ≥ 0 all weights on (V^{⊗j})^{I_k} are at most ij and all weights on ((V^∨)^{⊗j})^{I_k} are at most −ij.",
+   "locator": "§9, Lemma 9.5, p. 309 (Deligne, Weil II, 1.8.4)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DeligneWeightsAndPurity:DWP.5"
+   ],
+   "note": "The printed statement does not introduce i (source issue E8). DWP.5 names Weil II 1.8.4 as a source."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/144",
+   "kind": "theorem",
+   "name": "Weight-monodromy for complete intersections in toric varieties",
+   "statement": "Let k be a local field of characteristic 0 and Y a geometrically connected proper smooth variety over k that is a set-theoretic complete intersection in a projective smooth toric variety X_Σ. Then the weight-monodromy conjecture holds for Y (Theorem 1.15; already new for smooth hypersurfaces in ℙⁿ).",
+   "locator": "§9, Theorem 9.6 and proof, pp. 309–311; §1, Theorem 1.15 and the sketch after it, p. 251",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The main theorem. Routed to the weight-monodromy Part II, importing the toric approximation (Corollary 8.8, Proposition 8.6) from the toric Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/145",
+   "kind": "theorem",
+   "name": "Identifying G_K with the Galois group of a Laurent-series field, compatibly with weights and N",
+   "statement": "For K the completion of k(ϖ^{1/p^∞}), K♭ is the completed perfection of k′ = 𝔽_q((t)) with t = ϖ♭, which gives G_K ≅ G_{K♭} ≅ G_{k′}; the notions of weights (geometric Frobenii) and of the monodromy operator N are compatible with this isomorphism.",
+   "locator": "§9, proof of Theorem 9.6, first paragraph, p. 309",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Combines Theorem 1.3 with the invariance of absolute Galois groups under completion and perfection (item 2) and the compatibility of inertia, Frobenius and t_ℓ, which the paper asserts. Routed to the weight-monodromy Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/146",
+   "kind": "theorem",
+   "name": "Huber's theorem: a small neighbourhood has the same cohomology",
+   "statement": "For a closed subvariety Y ⊂ X_Σ over K (here Y^ad_K ⊂ X^ad_{Σ,K}) there is an open neighbourhood Ỹ of Y^ad_K such that Ỹ_{ℂ_p} and Y^ad_{ℂ_p} have the same ℤ/ℓℤ-cohomology, hence (by induction) the same ℤ/ℓ^mℤ-cohomology for all m ≥ 1.",
+   "locator": "§9, proof of Theorem 9.6, second paragraph, p. 309 (Huber [21, Theorem 3.6(a)])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Cited from Huber, A finiteness result for direct image sheaves on the étale site of rigid analytic varieties (J. Algebraic Geom. 7 (1998)); no stage plans it (ClassicalAdicEtaleCohomology H5 plans other Huber comparison and continuity results). Routed to the weight-monodromy Part II; Huber 1998 is listed as a prerequisite."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/147",
+   "kind": "theorem",
+   "name": "Huber's comparison of algebraic and adic étale cohomology",
+   "statement": "For an algebraic variety X over an algebraically closed nonarchimedean field k with adic space X^ad, H^i(X_ét, ℤ/ℓ^mℤ) ≅ H^i(X^ad_ét, ℤ/ℓ^mℤ).",
+   "locator": "§9, Theorem 9.7, p. 309 (Huber [22, Theorem 3.8.1])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ClassicalAdicEtaleCohomology:H5"
+   ],
+   "note": "H5 plans the cases of Huber's Theorems 3.7.2 and 3.8.1 used in ECD §27; the use here (ℓ ≠ p, proper smooth Y and the ambient toric variety) is within Huber's statement, and the WMC Part II must check that H5 exports it in this generality."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/148",
+   "kind": "theorem",
+   "name": "De Jong's alterations",
+   "statement": "A variety Z over a field has a projective smooth alteration Z′ → Z (proper, surjective, generically finite, Z′ smooth projective); used for a geometrically irreducible Z defined over a global function field.",
+   "locator": "§9, proof of Theorem 9.6, p. 309 (de Jong [8])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AdicCoefficientsAndComparisons:L5"
+   ],
+   "note": "L5 plans de Jong's Theorem 4.1 (alteration to a smooth situation in the field case)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/149",
+   "kind": "construction",
+   "name": "The Galois-equivariant comparison map from Y to the tilted approximation",
+   "statement": "With Z ⊂ X_{Σ,K♭} from Corollary 8.8 (defined over a global field, geometrically irreducible) and Z′ a projective smooth alteration, the commutative diagram of étale topoi (X^ad_{Σ,ℂ_p♭})~ → (X^ad_{Σ,ℂ_p})~, (π^{-1}(Ỹ)_{ℂ_p♭})~ → (Ỹ_{ℂ_p})~, (Z′^ad_{ℂ_p♭})~ → (π^{-1}(Ỹ)_{ℂ_p♭})~, (Y^ad_{ℂ_p})~ → (Ỹ_{ℂ_p})~ carries a canonical action of G = G_K = G_{K♭} making all maps equivariant, and with Theorem 9.7 gives a G-equivariant map f* : H^i(Y_{ℂ_p,ét}, ℤ/ℓ^m) = H^i(Ỹ_{ℂ_p,ét}, ℤ/ℓ^m) → H^i(Z′_{ℂ_p♭,ét}, ℤ/ℓ^m), compatible with cup products; passing to the limit and tensoring, H^i(Y_{ℂ_p,ét}, Q̄_ℓ) → H^i(Z′_{ℂ_p♭,ét}, Q̄_ℓ).",
+   "locator": "§9, proof of Theorem 9.6, pp. 309–310",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Cup-product compatibility is Lemma 9.8 plus the remark that the identification H^i(Y) = H^i(Ỹ) is an isomorphism. Routed to the weight-monodromy Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/150",
+   "kind": "theorem",
+   "name": "Pullback along a morphism of sites respects cup products",
+   "statement": "For a morphism of sites f : T_1 → T_2, a ring A and α ∈ H^i(T_2, A), β ∈ H^j(T_2, A): (f*α) ∪ (f*β) = f*(α ∪ β) in H^{i+j}(T_1, A) (cup product as composition A → A[i] → A[i + j] in the derived category, preserved by the functor f*).",
+   "locator": "§9, Lemma 9.8 and proof, p. 310",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Only in the published version. No stage defines cup products on the cohomology of a general site (the Tau Ceti profinite-cohomology cup products are group cohomology). Routed to the weight-monodromy Part II; it may be supplied by whichever roadmap owns sheaf cohomology on sites."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/151",
+   "kind": "theorem",
+   "name": "The comparison map is an isomorphism in top degree",
+   "statement": "For i = 2 dim Y, H^{2dim Y}(Y_{ℂ_p,ét}, Q̄_ℓ) → H^{2dim Y}(Z′_{ℂ_p♭,ét}, Q̄_ℓ) is an isomorphism. (Proof: in the diagram with the ambient toric variety, the top row is an isomorphism by Proposition 8.6; if the map were not an isomorphism it would be zero, as H^{2dim Y}(Y) is one-dimensional, so restriction from X_{Σ,ℂ_p♭} to Z′ would vanish in degree 2 dim Y; but the (dim Y)-th power of the first Chern class of an ample line bundle on X_{Σ,ℂ_p♭} has nonzero image in H^{2dim Y}(Z′).)",
+   "locator": "§9, Lemma 9.9 and proof, pp. 310–311 (Lemma 9.8 in arXiv v1)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Uses Chern classes and their nonvanishing on a variety of the right dimension (item 153). Routed to the weight-monodromy Part II."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/152",
+   "kind": "theorem",
+   "name": "H^i(Y) is a Galois-stable direct summand of H^i(Z′)",
+   "statement": "By Poincaré duality (and the cup-product compatibility and the top-degree isomorphism), H^i(Y_{ℂ_p,ét}, Q̄_ℓ) is a direct summand of H^i(Z′_{ℂ_p♭,ét}, Q̄_ℓ) as a G-representation; since H^i(Z′) satisfies weight-monodromy by Deligne's theorem (Z′ comes from a variety over a global function field), so does its direct summand, proving Theorem 9.6.",
+   "locator": "§9, the final paragraph of the proof of Theorem 9.6, p. 311",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Routed to the weight-monodromy Part II. Weight-monodromy passes to G-stable direct summands because N and the monodromy filtration are functorial (LPV.1)."
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/153",
+   "kind": "theorem",
+   "name": "Poincaré duality and Chern classes in ℓ-adic cohomology",
+   "statement": "For a smooth proper variety of dimension d over an algebraically closed field (ℓ invertible): the cup-product pairing H^i × H^{2d−i} → Q̄_ℓ(−d) is perfect and Galois-equivariant, and H^{2d} of a connected one is one-dimensional; first Chern classes of line bundles, with c_1(L)^d ≠ 0 in H^{2d} for L ample.",
+   "locator": "§9, proofs of Lemma 9.9 and Theorem 9.6, pp. 310–311",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+    "EtaleDualityAndPerverseSheaves:EDC.3"
+   ],
+   "note": "EDC.2:pairings plans the Frobenius/Galois-equivariant perfect pairing; EDC.3 plans Chern classes and the cycle class map compatible with intersections; degrees and positivity are SchemeAndStackFoundations:SF.5."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "O. Gabber and L. Ramero, Almost Ring Theory, Lecture Notes in Mathematics 1800, Springer, 2003",
+   "link": "doi:10.1007/b10047",
+   "why": "The basic reference for §4 and for Theorems 4.11, 4.16, 4.17, Proposition 5.22–5.23, the deformation theory in Theorem 5.10 and Proposition 7.4. The PerfectoidSpaces decomposition read the arXiv version (math/0201175v3) for statements only; its proofs are needed, and the book numbering Sch12 cites differs from arXiv's."
+  },
+  {
+   "citation": "R. Huber, Continuous valuations, Math. Z. 212 (1993), 455–477",
+   "link": "doi:10.1007/BF02571668",
+   "why": "Spectrality of Spa and invariance under completion (Propositions 2.10–2.12)."
+  },
+  {
+   "citation": "R. Huber, A generalization of formal schemes and rigid analytic varieties, Math. Z. 217 (1994), 513–551",
+   "link": "doi:10.1007/BF02571959",
+   "why": "Rational localisation, stalks, the sheaf theorem for strongly noetherian rings and maps into affinoid adic spaces (Propositions 2.14–2.19, Theorem 2.17)."
+  },
+  {
+   "citation": "R. Huber, Étale cohomology of rigid analytic varieties and adic spaces, Aspects of Mathematics E30, Vieweg, 1996",
+   "link": "doi:10.1007/978-3-663-09991-8",
+   "why": "Theorem 2.21, the taut/Berkovich comparison 2.24, Proposition 2.29, finite étale and étale maps (§7), tilde-limits (Proposition 7.16–Corollary 7.19) and the comparison theorem 9.7."
+  },
+  {
+   "citation": "R. Huber, A finiteness result for direct image sheaves on the étale site of rigid analytic varieties, J. Algebraic Geom. 7 (1998), 359–403",
+   "link": "https://zbmath.org/?q=an:1013.14007",
+   "why": "Theorem 3.6(a), the small neighbourhood of Y^ad with the same torsion cohomology, used in the proof of Theorem 9.6."
+  },
+  {
+   "citation": "G. Faltings, p-adic Hodge theory, J. Amer. Math. Soc. 1 (1988), 255–299; and Almost étale extensions, Astérisque 279 (2002), 185–270",
+   "link": "doi:10.2307/1990970",
+   "why": "Faltings's almost purity theorem, generalised by Theorem 7.9 (Remark 1.11)."
+  },
+  {
+   "citation": "J.-M. Fontaine and J.-P. Wintenberger, Le « corps des normes » de certaines extensions algébriques de corps locaux, C. R. Acad. Sci. Paris Sér. A-B 288 (1979), A367–A370; Extensions algébriques et corps des normes des extensions APF des corps locaux, ibid. A441–A444",
+   "link": "https://zbmath.org/?q=an:0403.12018",
+   "why": "Theorem 1.1, the classical case of Theorem 3.7. The note cited as [13] is zbMATH 0403.12018 (the companion note A367–A370 is zbMATH 0475.12020); the full account is Wintenberger, Ann. Sci. ÉNS 16 (1983), doi:10.24033/asens.1440."
+  },
+  {
+   "citation": "L. Illusie, Complexe cotangent et déformations I, II, Lecture Notes in Mathematics 239, 283, Springer, 1971–1972",
+   "link": "doi:10.1007/BFb0059052",
+   "why": "The cotangent complex and the obstruction theorems 5.11–5.12."
+  },
+  {
+   "citation": "A. J. de Jong, Smoothness, semi-stability and alterations, Publ. Math. IHÉS 83 (1996), 51–93",
+   "link": "doi:10.1007/BF02698644",
+   "why": "The projective smooth alteration Z′ → Z in the proof of Theorem 9.6 (planned by AdicCoefficientsAndComparisons L5, which names this source)."
+  },
+  {
+   "citation": "S. Bosch and W. Lütkebohmert, Formal and rigid geometry. I. Rigid spaces, Math. Ann. 295 (1993), 291–317",
+   "link": "doi:10.1007/BF01444889",
+   "why": "Raynaud's formal models, needed for Theorem 2.22."
+  },
+  {
+   "citation": "S. Bosch, U. Güntzer and R. Remmert, Non-Archimedean Analysis, Grundlehren 261, Springer, 1984",
+   "link": "doi:10.1007/978-3-642-52229-1",
+   "why": "Reduced affinoid algebras and Tate's acyclicity theorem (Proposition 6.10)."
+  },
+  {
+   "citation": "J. Tate, Rigid analytic spaces, Invent. Math. 12 (1971), 257–289",
+   "link": "doi:10.1007/BF01403307",
+   "why": "Power-bounded elements of reduced affinoid algebras (Lemma 6.13) and rigid-analytic varieties (Theorem 2.21)."
+  },
+  {
+   "citation": "V. G. Berkovich, Spectral Theory and Analytic Geometry over Non-Archimedean Fields, Mathematical Surveys and Monographs 33, AMS, 1990",
+   "link": "doi:10.1090/surv/033",
+   "why": "Berkovich spaces in the comparison Theorem 2.24."
+  },
+  {
+   "citation": "M. Hochster, Prime ideal structure in commutative rings, Trans. Amer. Math. Soc. 142 (1969), 43–60",
+   "link": "doi:10.1090/S0002-9947-1969-0251026-X",
+   "why": "Characterisation of spectral spaces (Definition/Proposition 2.9)."
+  },
+  {
+   "citation": "L. Illusie, Autour du théorème de monodromie locale, in Périodes p-adiques, Astérisque 223 (1994), 9–57",
+   "link": "http://www.numdam.org/item/AST_1994__223__9_0/",
+   "why": "Grothendieck's quasi-unipotence theorem, t_ℓ and the monodromy filtration recalled in §9."
+  }
+ ],
+ "routes": [
+  {
+   "route": "source",
+   "roadmap": "PerfectoidSpaces",
+   "stages": [
+    "PerfectoidSpaces:P1",
+    "PerfectoidSpaces:P3"
+   ],
+   "items": [
+    "PAPER-SCHOLZE-12/5",
+    "PAPER-SCHOLZE-12/71",
+    "PAPER-SCHOLZE-12/2"
+   ],
+   "reason": "Sch12 is already the primary source of PerfectoidSpaces: its reviewed decomposition (data/decompositions/PerfectoidSpaces.json, 33 nodes) extracts §§3–7 into P0–P3, P5 and P7, and every item of those sections here is planned by those stages. Three statements the paper uses or asserts fall outside the nodes but inside the same layers. P1: Remark 5.14, that W(R) is the unique flat p-adically complete deformation of a perfect 𝔽_p-algebra (item 71); P1 already uses Witt vectors of perfect rings for θ and the untilt classification and plans the vanishing of L_{R/𝔽_p} that gives uniqueness. P3: the invariance of absolute Galois groups under completion of a henselian field and under purely inseparable extension (item 2), which Theorem 1.1 needs to pass from ℚ_p(p^{1/p^∞}) and 𝔽_p((t)) to their perfectoid completions (the gap the atlas records as PerfectoidSpaces/E23); and Remark 1.11, the recovery of Faltings's almost purity theorem for the smooth tower R_n = K°⟨T^{±1/p^n}⟩ from Theorem 7.9, with S° = Ŝ_∞ and descent to the uncompleted tower (item 5). These are statements to add to P1 and P3, not a new direction."
+  },
+  {
+   "route": "source",
+   "roadmap": "AdicSpacesPartII",
+   "stages": [
+    "AdicSpacesPartII:R0",
+    "AdicSpacesPartII:R1",
+    "AdicSpacesPartII:R2"
+   ],
+   "items": [
+    "PAPER-SCHOLZE-12/23",
+    "PAPER-SCHOLZE-12/25",
+    "PAPER-SCHOLZE-12/26"
+   ],
+   "reason": "§2 recalls Huber's theory. Most of it is in Tau Ceti (Huber rings, Spa, rational subsets, spectrality, units and plus ring detected on Spa) or planned by the Tau Ceti roadmap Foundations of adic spaces (rational localisation, 𝒪_X, sheafiness, adic spaces); the Berkovich comparison is TropicalAndBerkovichArithmetic. Three recalled results have no owner, and AdicSpacesPartII is the declared successor of the Tau Ceti roadmap for exactly this geometry: R0 (morphisms) needs the universal property of maps into an affinoid adic space, Hom(Y, Spa(R,R⁺)) = Hom((R̂,R̂⁺), (𝒪_Y(Y),𝒪_Y⁺(Y))) (item 23); R1–R2 (analytification, admissible formal schemes and generic fibres) are where Huber's functor from Tate's rigid-analytic varieties to adic spaces, the equivalence of quasiseparated rigid spaces with quasiseparated adic spaces locally of finite type, and the admissible-open/quasicompact-open dictionary belong (item 25), together with the specialisation map and the homeomorphism X ≅ lim_𝔛 𝔛 over all formal models, extending to (X,𝒪_X⁺) ≅ lim (𝔛,𝒪_𝔛) (item 26). AdicEtaleGeometry:A2 already warns that no Raynaud equivalence may be assumed; these items make it a task. Sch12 only recalls them, so the proofs come from Huber [20, 22] and Bosch–Lütkebohmert, listed as prerequisites."
+  },
+  {
+   "route": "source",
+   "roadmap": "TropicalAndBerkovichArithmetic",
+   "stages": [
+    "TropicalAndBerkovichArithmetic:TB.0"
+   ],
+   "items": [
+    "PAPER-SCHOLZE-12/27"
+   ],
+   "reason": "TB.0 plans Berkovich spectra and their comparison with Huber's adic spectra through rank-one points and maximal generalisations, for strictly affinoid algebras; that covers the injection onto rank-one points and the maximal-Hausdorff retraction of Theorem 2.24 (planned item item 28). Sch12 also recalls the global statement (Huber [22, 8.3.1, 8.1.8]): tautness (quasiseparated, closures of quasicompact opens quasicompact) and the equivalence between Hausdorff strictly k-analytic Berkovich spaces and taut adic spaces locally of finite type (item 27). That is TB.0's gluing of affinoids into analytic spaces carried to the adic side, so it belongs in TB.0."
+  },
+  {
+   "route": "source",
+   "roadmap": "AdicEtaleGeometry",
+   "stages": [
+    "AdicEtaleGeometry:A1"
+   ],
+   "items": [
+    "PAPER-SCHOLZE-12/31",
+    "PAPER-SCHOLZE-12/33"
+   ],
+   "reason": "A1 owns the points of the étale and finite étale sites of analytic adic spaces and insists on field pairs (K, K⁺) with higher-rank valuation subrings. The two results of §2 that make points into maps from such pairs have no stage: Proposition 2.27 (points of Spa(R, R⁺) ↔ maps to complete affinoid fields with dense image, item 31) and Proposition 2.29 (specialisation x ≻ y iff K ≅ L and L⁺ ⊂ K⁺; generalisations form a chain of length the rank, item 33). Tau Ceti's AdicSpaces work develops vertical and horizontal specialisation only as far as its Theorem 7.10 needs, so these are new statements in A1."
+  },
+  {
+   "route": "part-ii",
+   "parent": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "roadmap": "AnalyticToricGeometryNonarchimedeanPartII",
+   "title": "Analytic toric geometry, Part II: nonarchimedean models and perfectoid approximation",
+   "area": "arithmeticgeometry",
+   "items": [
+    "PAPER-SCHOLZE-12/4",
+    "PAPER-SCHOLZE-12/118",
+    "PAPER-SCHOLZE-12/120",
+    "PAPER-SCHOLZE-12/121",
+    "PAPER-SCHOLZE-12/122",
+    "PAPER-SCHOLZE-12/123",
+    "PAPER-SCHOLZE-12/124",
+    "PAPER-SCHOLZE-12/125",
+    "PAPER-SCHOLZE-12/126",
+    "PAPER-SCHOLZE-12/127",
+    "PAPER-SCHOLZE-12/128",
+    "PAPER-SCHOLZE-12/129",
+    "PAPER-SCHOLZE-12/130",
+    "PAPER-SCHOLZE-12/133",
+    "PAPER-SCHOLZE-12/134",
+    "PAPER-SCHOLZE-12/135"
+   ],
+   "brief": "This route coalesces with AnalyticToricGeometryNonarchimedeanPartII as proposed by PAPER-BINDA-KATO-VEZZANI-25 (same id, title, parent and area). That route was held because its brief gave endpoints without the generic-base monoid-algebra gluing, invariant-divisor, integral-model and approximation leaves (BKV gap G12); Scholze's §8 is the source of exactly those leaves, and this brief supplies them. Final theorems, as stated in Perfectoid spaces §8: Theorem 8.5 — for a fan Σ and a perfectoid field K with tilt K♭, (i) X^perf_{Σ,K} tilts to X^perf_{Σ,K♭}; (ii) X^perf_{Σ,K} ∼ lim_φ X^ad_{Σ,K}; (iii) |X^ad_{Σ,K♭}| ≅ lim_φ |X^ad_{Σ,K}|, defining π; (iv) (X^ad_{Σ,K♭})~_ét ≅ lim_φ (X^ad_{Σ,K})~_ét; (v) compatibility with every open U and its preimage. Proposition 8.6 — for X_Σ proper smooth, ℓ ≠ p and K algebraically closed, π gives H^i(X^ad_{Σ,K,ét}, ℤ/ℓ^m) ≅ H^i(X^ad_{Σ,K♭,ét}, ℤ/ℓ^m). Proposition 8.7 — for X_{Σ,K} proper smooth, a hypersurface Y and a small open neighbourhood Ỹ of Y^ad, there is a hypersurface Z ⊂ X_{Σ,K♭} with Z^ad ⊂ π^{-1}(Ỹ), defined over any given dense subfield of K♭. Corollary 8.8 — for X_{Σ,K} projective smooth and Y a set-theoretic complete intersection of codimension c, there is a closed Z ⊂ X_{Σ,K♭} with Z^ad ⊂ π^{-1}(Ỹ) and dim Z = dim Y, over a given dense subfield. Also Theorem 1.5 for the affine line, by exhausting 𝔸¹ with the discs |T| ≤ |ϖ|^{-n} rescaled by compatible roots ϖ^{1/p^m}. Leaves to construct, in order. (1) Generic-base toric schemes: for any ring A, U_σ = Spec A[σ^∨ ∩ M] from the dual semigroup (Gordan finite generation), open immersions for faces, gluing along the fan axioms, X_{Σ,A} with torus, action and base point, base change in A; Definition 8.1 and the classification Theorem 8.3 over a field (with Sumihiro), or state the fan form X_Σ as the input of Theorem 9.6. (2) Invariant divisors: primitive ray generators v_i (Tau Ceti has them), D_i, T-Weil divisors ⊕ℤD_i, every Weil divisor equivalent to one, and H⁰(X_{Σ,A}, 𝒪(D)) = ⊕_{⟨u,v_i⟩ ≥ −a_i} Aχ^u over any A, with the integral model over K° and local trivialisations of 𝒪(D) by characters, so |f(x)| is defined up to a unit of K° (the 'tautological integral model' of Proposition 8.7). (3) The adic toric space X^ad_Σ = generic fibre of the formal completion of X_{Σ,K°} (glued from Spa(K⟨σ^∨∩M⟩, K°⟨σ^∨∩M⟩)), equal to (X_Σ)^ad when Σ is complete; φ from multiplication by p on M. (4) The perfectoid toric space from K⟨(σ^∨∩M)[p^{-1}]⟩, perfectoid by the argument of Proposition 5.20, with sheaves 𝒪(D) for D ∈ ⊕ℤ[p^{-1}]D_i and H⁰ the completed span of the χ^u. (5) The graded ring R_D = completion of ⊕_{j∈ℤ[p^{-1}]} H⁰(X^perf, 𝒪(jD)), perfectoid with tilt the same construction over K♭, and the homogeneous approximation lemma for R_D, proved by the explicit induction of Lemma 6.5: steps c ↦ c + a with 0 < a < ε in ℤ[1/p], the shrinking error ε(c), the description of 𝒪(U_c)°a from Lemma 6.4, and the correction g_{c′} = g_c + Σ_i (ϖ♭)^{c+1−ε+ε(c′)} (g_c/(ϖ♭)^c)^i s_i with s_i homogeneous. (6) Tilting, tilde-limit, homeomorphism and topoi (8.5) on affinoid pieces, then glued. (7) The hypersurface step: perturbation into a dense subfield and the p-power trick, with h = g^{p^N} a section of 𝒪(p^N D), not a function. (8) Complete intersections: degree of a complete intersection with respect to an ample bundle is combinatorial and positive, the refined intersection over K♭ is nonempty, and extra hypersurfaces cut the dimension down. Imports: Analytic toric geometry (tauceti:TauCetiRoadmap/AnalyticToricGeometry) Layer 0 cones, fans and rays (TauCeti.Toric.Fan, IsToricCone); Perfectoid rings and spaces (PerfectoidSpaces P1–P3, P7 for tilde-limits and Corollary 7.19); Adic Spaces PartII (AdicSpacesPartII F0, R0–R2) for formal generic fibres and analytification; Analytic adic geometry required for diamonds (AdicEtaleGeometry A1) for étale sites; The classical analytic cohomology inputs to diamonds (ClassicalAdicEtaleCohomology H0, H5) for étale cohomology of adic spaces; Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations SF.2 for proper base change and topological invariance, SF.5 for degrees and refined intersections). Exports: π, Proposition 8.6 and Corollary 8.8 to DeligneWeightsPartIIWeightMonodromy (ℓ-adic) and, as BKV proposed, to MotivesRigidAnalyticPartII and PadicWeightMonodromyPartII. Tests: ℙ¹ and ℙⁿ with π(x_0:⋯:x_n) = (x_0♯:⋯:x_n♯); the disc and 𝔸¹ (Theorem 1.5); the line x_0 + x_1 + x_2 = 0 in ℙ², whose π-preimage is topologically lim {x_0^{p^n} + x_1^{p^n} + x_2^{p^n} = 0} and is not algebraic; a non-projective complete fan; and BKV's O(2,0) and nonreduced-equation tests.",
+   "reason": "The Tau Ceti roadmap Analytic toric geometry builds complex toric manifolds from Tau Ceti's fan and cone carrier and plans toric schemes only over ℂ; nothing constructs toric schemes over a nonarchimedean field or its valuation ring, adic or perfectoid toric spaces, their tilts, or Scholze's approximation of complete intersections. BKV proposed this Part II for the p-adic analogue and it was held for want of construction leaves; Sch12 §8 is the source that supplies them, so the two routes coalesce rather than proposing a parallel roadmap. A Tau Ceti roadmap is extended, never re-planned."
+  },
+  {
+   "route": "part-ii",
+   "parent": "DeligneWeightsAndPurity",
+   "roadmap": "DeligneWeightsPartIIWeightMonodromy",
+   "title": "Deligne weights, purity and the Weil bounds, Part II: the ℓ-adic weight–monodromy conjecture for toric complete intersections",
+   "area": "etale",
+   "items": [
+    "PAPER-SCHOLZE-12/140",
+    "PAPER-SCHOLZE-12/141",
+    "PAPER-SCHOLZE-12/144",
+    "PAPER-SCHOLZE-12/145",
+    "PAPER-SCHOLZE-12/146",
+    "PAPER-SCHOLZE-12/149",
+    "PAPER-SCHOLZE-12/150",
+    "PAPER-SCHOLZE-12/151",
+    "PAPER-SCHOLZE-12/152"
+   ],
+   "brief": "Extend Deligne weights, purity and the Weil bounds (DeligneWeightsAndPurity) from Deligne's equal-characteristic local weight theory (DWP.5) to mixed characteristic, following Scholze, Perfectoid spaces, §9. Final theorem, exactly as Theorem 9.6: let k be a local field of characteristic 0 and Y a geometrically connected proper smooth variety over k that is a set-theoretic complete intersection in a projective smooth toric variety X_Σ; then the weight-monodromy conjecture holds for Y. Define first, for a finite-dimensional Q̄_ℓ-representation V of G_k (ℓ ≠ p) and an integer i, the predicate 'V satisfies weight-monodromy of weight i': for all j and every geometric Frobenius Φ, every eigenvalue of Φ on gr_j^N V is a Weil q-number of weight i + j (Conjecture 9.3), with N and Fil^N imported from LPV.1 and Weil numbers from DWP.0. Prove its stability under finite extension of k, under restriction to G_K for K the completion of k(ϖ^{1/p^∞}) (totally ramified and pro-p: geometric Frobenii and pro-ℓ inertia survive), and under passage to G-stable direct summands. Construct the identification G_K ≅ G_{K♭} ≅ G_{k′}, k′ = 𝔽_q((t)), t = ϖ♭, from PerfectoidSpaces P3 (Theorem 1.3) and the invariance of Galois groups under completion and perfection (routed to P3 by this paper), and prove it matches inertia, t_ℓ, Frobenius and N. Prove or import Huber's theorem [Hub98, Theorem 3.6(a)] that some open neighbourhood Ỹ of Y^ad in X^ad_{Σ,K} has the same ℤ/ℓ^m-cohomology over ℂ_p as Y^ad, and use Huber's comparison of algebraic and adic étale cohomology (ClassicalAdicEtaleCohomology H5, Theorem 9.7). From the toric Part II import π, Proposition 8.6 and Corollary 8.8 (Z ⊂ X_{Σ,K♭} with Z^ad ⊂ π^{-1}(Ỹ), dim Z = dim Y, defined over a global function field, geometrically irreducible), and take a projective smooth alteration Z′ (AdicCoefficientsAndComparisons L5). Build the G-equivariant diagram of étale topoi and the map H^i(Y_{ℂ_p}) = H^i(Ỹ_{ℂ_p}) → H^i(Z′_{ℂ_p♭}), prove cup-product compatibility (Lemma 9.8: pullback along a morphism of sites respects cup products, as composition in the derived category), prove the top-degree isomorphism (Lemma 9.9) from Proposition 8.6 and the nonvanishing of c_1(L)^{dim Y} on Z′ for L ample (EtaleDualityAndPerverseSheaves EDC.3), deduce with Poincaré duality (EDC.2:pairings) that H^i(Y) is a G-stable direct summand of H^i(Z′), and conclude from Deligne's theorem for Z′ (DWP.5 with DWP.4/DWP.7 purity; Theorem 9.4 needs Z′ spread out over a curve over 𝔽_q). Imports: DeligneWeightsAndPurity DWP.0, DWP.4, DWP.5, DWP.7; LefschetzPencilsAndVanishingCycles LPV.1 (t_ℓ, N, monodromy filtration); ArithmeticGaloisRepresentations R01.2 (Frobenius–N relation convention); Local fields and ramification (tauceti:TauCetiRoadmap/LocalFieldsRamification) Layer 4; PerfectoidSpaces P3; AnalyticToricGeometryNonarchimedeanPartII; ClassicalAdicEtaleCohomology H5; AdicCoefficientsAndComparisons L5; EtaleDualityAndPerverseSheaves EDC.2, EDC.3; SchemeAndStackFoundations SF.2, SF.5. Do not assume the general mixed-characteristic conjecture (R34.6), and keep Rapoport–Zink's semistable surface case and the Shimura-variety cases out of scope. Tests: Y = ℙⁿ (trivially pure); a smooth hypersurface in ℙⁿ; a smooth plane curve (where the statement is Grothendieck's monodromy theorem plus the curve case); and the non-example of a variety that is not a set-theoretic complete intersection, for which the method gives no statement.",
+   "reason": "No stage owns the weight-monodromy conjecture in mixed characteristic: DWP.5 proves Deligne's local weight theorem for curves over finite fields and states that it is not the mixed-characteristic conjecture, and WeightsInEtaleCohomology R34.6 forbids assuming it. Scholze's theorem is a direct extension of that weight theory, proved by reducing to DWP.5's equal-characteristic theorem through perfectoid tilting, so it is a Part II of Deligne weights, purity and the Weil bounds, not a new roadmap. The p-adic analogue proposed by BKV (PadicWeightMonodromyPartII, parent PadicDifferentialEquationsAndRigidCohomology) concerns Hyodo–Kato cohomology and is a different statement; both import the same toric approximation from AnalyticToricGeometryNonarchimedeanPartII."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-SCHOLZE-12/E1",
+   "kind": "misprint",
+   "locator": "§9, Proposition 9.1, p. 307 (published); the same in arXiv v1, p. 48",
+   "printed": "ρ(σ) = exp(Nt_ℓ(g)).",
+   "correction": "ρ(σ) = exp(N t_ℓ(σ)) for all σ ∈ I_1.",
+   "reason": "The quantifier is 'for all σ ∈ I_1'; g appears nowhere else in the statement. The TeX source reads \\exp(Nt_\\ell(g)).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Publ. Math. IHÉS article page on Centre Mersenne (no erratum or corrigendum listed)",
+    "the author's papers page (an erratum is listed only for p-adic Hodge theory for rigid-analytic varieties)",
+    "arXiv:1111.4914 versions (only v1)"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/E2",
+   "kind": "misprint",
+   "locator": "§7, Lemma 7.3(i) and (iii), p. 297 (published); arXiv v1, p. 40",
+   "printed": "Moreover, the map of underlying topological spaces |X ×Z Y| → |X| ×|Z| |Y| is surjective.",
+   "correction": "|X ×_Y Z| → |X| ×_{|Y|} |Z| is surjective.",
+   "reason": "In (i) f : X → Y and g : Z → Y, and in (iii) likewise; the fibre product formed is X ×_Y Z, and the cited Huber [20, proof of Lemma 3.9(i)] concerns X ×_Y Z.",
+   "affects": "nothing",
+   "known": "new: not corrected in print; already recorded in the atlas as PerfectoidSpaces/E22 and AdicEtaleGeometry/E3",
+   "searched": [
+    "Publ. Math. IHÉS article page on Centre Mersenne",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1)",
+    "data/source-issues.json on main"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/E3",
+   "kind": "misprint",
+   "locator": "§7, Lemma 7.3(iii), p. 297 (published); arXiv v1, p. 40",
+   "printed": "If f : X → Y is a finite étale, resp. étale, morphism of adic spaces over k and g : Z → Y is a map from a perfectoid space Z to Y, then the fibre product X ×Y Z exists in the category of adic spaces over K",
+   "correction": "'adic spaces over K': Y receives a map from the perfectoid space Z over K and the fibre product is formed over K.",
+   "reason": "In §7, k denotes an arbitrary nonarchimedean field only in Definition 7.1; from Definition 7.2 on K is the perfectoid field, and (iii) concludes in adic spaces over K.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Publ. Math. IHÉS article page on Centre Mersenne",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1)"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/E4",
+   "kind": "misprint",
+   "locator": "§6, proof of Lemma 6.13(iv), p. 293 (published); arXiv v1, p. 37",
+   "printed": "If their inverse limit is zero, then one of them has to be zero.",
+   "correction": "If their inverse limit is empty, then one of them has to be empty.",
+   "reason": "The A_j are closed subsets (complements of the preimages of U_i); the compactness argument in the constructible topology is about emptiness.",
+   "affects": "nothing",
+   "known": "new: not corrected in print; already recorded in the atlas as PerfectoidSpaces/E14",
+   "searched": [
+    "Publ. Math. IHÉS article page on Centre Mersenne",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1)",
+    "data/source-issues.json on main"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/E5",
+   "kind": "gap",
+   "locator": "§1, Theorem 1.1 and the paragraph after it, pp. 245–246 (published); arXiv v1, p. 2",
+   "printed": "Let K be the completion of ℚp(p^{1/p∞}) and let K♭ be the completion of 𝔽p((t))(t^{1/p∞}); it is enough to prove that the absolute Galois groups of K and K♭ are isomorphic.",
+   "correction": "Add the two reductions: an algebraic extension of ℚ_p or 𝔽_p((t)) is henselian, so it and its completion have the same absolute Galois group (Krasner's lemma); and the purely inseparable extension 𝔽_p((t)) ⊂ 𝔽_p((t))(t^{1/p^∞}) does not change the absolute Galois group.",
+   "reason": "Theorem 1.1 is about ℚ_p(p^{1/p^∞}) and 𝔽_p((t)), but the proof (and Theorem 3.7) concerns the completed perfectoid fields; the passage is standard but not stated. It is also used in the proof of Theorem 9.6.",
+   "affects": "the proof",
+   "known": "new: not corrected in print; already recorded in the atlas as PerfectoidSpaces/E23 (REVIEW-EXT-03, item (d))",
+   "searched": [
+    "Publ. Math. IHÉS article page on Centre Mersenne",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1)",
+    "data/source-issues.json on main"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/E6",
+   "kind": "gap",
+   "locator": "§4, Theorem 4.17 and its proof, p. 272 (published); arXiv v1, p. 21",
+   "printed": "Moreover, B is a uniformly finite projective A-module if and only if B ⊗A A/ϖ is a uniformly finite projective A/ϖ-module. Proof. — The first part follows from [15], Theorem 5.3.27. The rest is easy.",
+   "correction": "The 'if' direction needs an argument: lift an approximating map (A/ϖ)^r → B/ϖB with cokernel killed by a small power of ϖ to A^r → B, and kill the cokernel by an almost Nakayama lemma for a tight ideal (Gabber–Ramero, Lemma 5.1.6), using the p-power roots of ϖ available over K°.",
+   "reason": "Uniform finite projectivity over A/ϖ does not formally give it over A; the ϖ-adic completeness of A must be used through a Nakayama-type argument that the paper leaves out.",
+   "affects": "the proof",
+   "known": "new: not corrected in print; already recorded in the atlas as PerfectoidSpaces/E4",
+   "searched": [
+    "Publ. Math. IHÉS article page on Centre Mersenne",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1)",
+    "data/source-issues.json on main"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/E7",
+   "kind": "misprint",
+   "locator": "§2, proof of Theorem 2.22, p. 261 (published only; arXiv v1 has no proof sketch)",
+   "printed": "and X is normal, then U = Spa(R[1/p], R) is still affinoid, and O+X(U) = R = OX(U).",
+   "correction": "U = Spa(R[1/ϖ], R) for a pseudo-uniformizer ϖ of k (and 𝒪_X⁺(U) = R = 𝒪_𝔛(𝔘), the last being the formal structure sheaf).",
+   "reason": "In §2 k is an arbitrary complete nonarchimedean field, possibly of characteristic p, where R[1/p] = 0; the generic fibre of Spf R inverts a pseudo-uniformiser. (The second equality is between 𝒪_X⁺(U) and the formal structure sheaf; the PDF text loses the fraktur letters.)",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Publ. Math. IHÉS article page on Centre Mersenne",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1, which says only 'It is an easy exercise')"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/E8",
+   "kind": "misprint",
+   "locator": "§9, Lemma 9.5, p. 309 (published); arXiv v1, p. 49",
+   "printed": "Let V be an ℓ-adic representation of Gk, on which Ik acts unipotently. Then gr_j^N V is pure of weight i + j for all j ∈ ℤ if and only if for all j ≥ 0, all weights on (V^{⊗j})^{Ik} are at most ij, and all weights on ((V^∨)^{⊗j})^{Ik} are at most −ij.",
+   "correction": "Introduce the integer: 'Let V be … and i ∈ ℤ.' (In the application V = H^i(X_k̄, Q̄_ℓ).)",
+   "reason": "The integer i occurs in the conclusion but is not quantified in the lemma; the preceding paragraph uses i as the cohomological degree.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Publ. Math. IHÉS article page on Centre Mersenne",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1)"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/E9",
+   "kind": "gap",
+   "locator": "§1, Theorem 1.5, p. 247 (published); arXiv v1, p. 3",
+   "printed": "Theorem 1.5. — There is a homeomorphism of topological spaces (𝔸¹_{K♭})^ad ≅ lim_{T↦T^p} (𝔸¹_K)^ad.",
+   "correction": "The body proves the statement for the adic toric space of a fan (Theorem 8.5(iii)), which for the fan of 𝔸¹ is the closed unit disc, not the affine line. For 𝔸¹ one exhausts by the discs {|T| ≤ |ϖ|^{-n}}, whose preimages at level m are {|T| ≤ |ϖ|^{-n/p^m}}, and rescales each by the compatible roots ϖ^{1/p^m} to reduce to Theorem 8.5(iii).",
+   "reason": "§8 notes that X^ad_Σ for affine space 'will be a closed unit ball' and differs from the analytification; no statement in the paper covers the non-quasicompact affine line.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Publ. Math. IHÉS article page on Centre Mersenne",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1)"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/E10",
+   "kind": "misprint",
+   "locator": "§5, proof of Proposition 5.23, p. 282 (published); arXiv v1, p. 28",
+   "printed": "Let S0 ⊂ S be some finitely generated R◦-subalgebra with S0 ⊗ K = S. … Indeed, the elements of S0 are clearly integral over R◦",
+   "correction": "Take S_0 an R°-subalgebra that is finitely generated as an R°-module (for instance generated by a K-basis of S scaled into the integral elements) with S_0 ⊗ K = S.",
+   "reason": "A finitely generated R°-subalgebra need not be integral or bounded: S_0 = R°[ϖ^{-1}] = R satisfies S_0 ⊗ K = S when S = R, yet ϖ^{-1} is not integral over R° and S_0 is not bounded. The next sentences (S_0 and S_0^⊥ open and bounded, S_0 ⊂ Y) need S_0 finite over R°.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Publ. Math. IHÉS article page on Centre Mersenne",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1)"
+   ]
+  },
+  {
+   "id": "PAPER-SCHOLZE-12/E11",
+   "kind": "misprint",
+   "locator": "§8, proof of Proposition 8.7, p. 306 (published); arXiv v1, p. 47",
+   "printed": "Replacing g by a large p-power gives a regular function h on XΣ,K♭, such that its zero locus Z ⊂ XΣ,K♭ is contained in π−1(Ỹ), as desired.",
+   "correction": "A large p-power h = g^{p^N} is a global section of 𝒪(p^N D) on X_{Σ,K♭} (with p^N D ∈ ⊕ℤD_i), and Z is its zero locus.",
+   "reason": "g lies in H⁰(X^perf_{Σ,K♭}, 𝒪(D)) with D a T-Weil divisor; on a proper toric variety its powers are sections of line bundles, not regular functions (which would be constant).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Publ. Math. IHÉS article page on Centre Mersenne",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1)"
+   ]
+  }
+ ]
+}
