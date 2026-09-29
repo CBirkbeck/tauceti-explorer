@@ -1,0 +1,1099 @@
+{
+ "paper": "PAPER-BERGSTROM-FABER-PAYNE-24",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "agent": "Claude Code",
+ "session": "cc-39fac3",
+ "source": {
+  "title": "Polynomial point counts and odd cohomology vanishing on moduli spaces of stable curves",
+  "authors": "Jonas Bergström, Carel Faber and Sam Payne",
+  "venue": "Annals of Mathematics 199 (2024), no. 3, 1323–1365",
+  "doi": "10.4007/annals.2024.199.3.7",
+  "arxiv": "2206.07759v2",
+  "url": "https://arxiv.org/abs/2206.07759v2",
+  "sha256": "36beb2d3eccb42161a0b6190a653b060337f08fed5866f6b578888d503346758",
+  "version": "arXiv v2 (17 October 2023, 31 pages; 'minor revisions, to appear in Ann. Math.', posted after the 27 September 2023 acceptance), read completely. The Annals article is not openly available and was not collated.",
+  "readSections": [
+   "2026-09-29: arXiv:2206.07759v2, all 31 pages: §§1–11 and references; page images checked at every source issue. The tables were recomputed with sympy: Theorems 1.4, 1.5 and 11.1 against Proposition 9.6 and §11.3, and the n = 0, 1, 2 assemblies of §10 from Propositions 5.1, 8.1–8.7."
+  ]
+ },
+ "summary": "Bergström, Faber and Payne prove that H^k(M̄_{g,n}; Q) vanishes for all odd k ≤ 9, answering Arbarello and Cornalba. The induction of Arbarello–Cornalba, sharpened by the vanishing of H^{vcd}(M_g), reduces this to H⁹(M̄_{4,n}) = 0 for n ≤ 3. They get that by showing M̄_{4,n} has polynomial point count: they count genus 4 curves over F_q, the hyperelliptic ones directly and the others as (2, 3) complete intersections on the three types of quadric. A Hasse–Weil sieve built on inverse zeta functions controls the singular members, the Getzler–Kapranov formula gives the boundary, and van den Bogaart–Edixhoven turns approximate counts into cohomology. The paper also gives S_n-equivariant counts and Euler characteristics of symplectic local systems on M₄. Everything specific to moduli of curves joins the pending roadmap MotivicStructuresInModuliOfCurves proposed by Canning–Larson–Payne. The general point-counting tools are sources for WeilConjectures, the weight spectral sequence for DWP.8, and the finite-field lemmas and quadric classification for FF.1/FF.3 and GN.2.",
+ "items": [
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/quadratic-character",
+   "kind": "definition",
+   "name": "The quadratic character of F_q",
+   "statement": "For odd q, χ : F_q → {0, ±1} with χ(0) = 0, χ(a) = 1 for a nonzero square and −1 otherwise; Σ_{a ∈ F_q} χ(a) = 0.",
+   "locator": "arXiv:2206.07759v2, proof of Lemma 5.2, p. 8",
+   "status": "library",
+   "library": [
+    "mathlib:quadraticChar",
+    "mathlib:quadraticChar_sum_zero"
+   ]
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/card-gl",
+   "kind": "theorem",
+   "name": "Order of GL_n(F_q)",
+   "statement": "#GL_n(F_q) = ∏_{i=0}^{n−1} (q^n − q^i); in particular #GL_2(F_q) = (q² − 1)(q² − q), and #PGL_n(F_q) = #GL_n(F_q)/(q − 1).",
+   "locator": "arXiv:2206.07759v2, §5, p. 8 (#G(F_q)); §6, (5)–(6), p. 9–10",
+   "status": "library",
+   "library": [
+    "mathlib:Matrix.card_GL_field"
+   ],
+   "note": "Mathlib gives the GL_n count; the PGL_n quotient by the scalars F_q^× is a one-line consequence."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/trace-formula-varieties",
+   "kind": "theorem",
+   "name": "Grothendieck–Lefschetz trace formula for varieties",
+   "statement": "For a separated finite-type X over F_q and ℓ ∤ q, #X(F_q) = Σ_i (−1)^i Tr(F_q | H^i_{c,ét}(X_{F̄_q}, Q_ℓ)), with F_q the geometric Frobenius.",
+   "locator": "arXiv:2206.07759v2, Proposition 1.3(iv), p. 2; (11), p. 12",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.2",
+    "WeilConjectures:WC.1"
+   ],
+   "note": "As in PAPER-SCHMIDT-STIX-16 and PAPER-LIU-WOOD-ZUREICKBROWN-24. The atlas stages import it from the upstream Cohomological Point Counting roadmap (TraceFormula Layer 8), which WC.0/WC.1 reconcile. The stack case is item prop-1-3-iv."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/hasse-weil-zeta",
+   "kind": "definition",
+   "name": "Hasse–Weil zeta function",
+   "statement": "For a variety Y over F_q, Z(Y; t) := exp(Σ_{m ≥ 1} #Y(F_{q^m}) t^m / m).",
+   "locator": "arXiv:2206.07759v2, §7, p. 11",
+   "status": "planned",
+   "planned": [
+    "WeilConjectures:WC.1"
+   ]
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/zeta-determinant",
+   "kind": "theorem",
+   "name": "Cohomological formula for the zeta function, (11)",
+   "statement": "1/Z(Y; t) = det(1 − t F_q | H^even_{c,ét}(Y_{F̄_q}, Q_ℓ)) / det(1 − t F_q | H^odd_{c,ét}(Y_{F̄_q}, Q_ℓ)).",
+   "locator": "arXiv:2206.07759v2, §7, (11), p. 12",
+   "status": "planned",
+   "planned": [
+    "WeilConjectures:WC.1"
+   ],
+   "note": "WC.1 consumes the Euler product and determinant formula from the trace formula."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/zeta-multiplicative",
+   "kind": "theorem",
+   "name": "Zeta functions of disjoint unions and point removal, (9)–(10)",
+   "statement": "Z(∅; t) = 1; 1/Z(Y; t) = 1/Z(Y₁; t) · 1/Z(Y₂; t) for Y = Y₁ ⊔ Y₂; hence 1/Z(Y ∖ y; t) = (1 − t)^{−1} · 1/Z(Y; t) for a rational point y.",
+   "locator": "arXiv:2206.07759v2, §7, (9)–(10), p. 12",
+   "status": "planned",
+   "planned": [
+    "WeilConjectures:WC.1"
+   ],
+   "note": "WC.1: 'disjoint-union products, open–closed factorization'."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/etale-singular-comparison",
+   "kind": "theorem",
+   "name": "Étale-to-singular comparison for smooth proper families",
+   "statement": "For X smooth and proper over Z (or Z_p) and ℓ ≠ p: H^i_ét(X_{Q̄}, Q_ℓ) ≅ H^i_ét(X_{F̄_p}, Q_ℓ) (smooth and proper base change) and dim H^i_ét(X_{Q̄}, Q_ℓ) = dim H^i(X_C, Q).",
+   "locator": "arXiv:2206.07759v2, §1, p. 2; proof of Proposition 3.1, p. 6",
+   "status": "planned",
+   "planned": [
+    "WeilConjectures:WC.4"
+   ],
+   "note": "WC.4 plans the Betti-number comparison in smooth proper families for schemes; the DM-stack case the paper needs is part of item vdbe-theorem-2-1."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/deligne-purity",
+   "kind": "theorem",
+   "name": "Deligne's purity for smooth proper varieties over F_q",
+   "statement": "Eigenvalues of F_q on H^i_ét(X_{F̄_q}, Q_ℓ) for X smooth proper over F_q are algebraic integers all of whose conjugates have absolute value q^{i/2}.",
+   "locator": "arXiv:2206.07759v2, implicit in §1, p. 2, and Proposition 3.1, p. 6",
+   "status": "planned",
+   "planned": [
+    "WeilConjectures:WC.3"
+   ]
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/point-count-stack",
+   "kind": "definition",
+   "name": "Point count of an algebraic stack",
+   "statement": "For an algebraic stack X over F_q, X(F_q) is a finite groupoid and #X(F_q) := Σ_{x ∈ [X(F_q)]} 1/#Aut(x).",
+   "locator": "arXiv:2206.07759v2, §1, p. 2",
+   "status": "missing",
+   "note": "Stacks are outside the WC layers, which count points of varieties. Routed to WC.1 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-1-3-i",
+   "kind": "theorem",
+   "name": "Proposition 1.3(i) (additivity over stratifications)",
+   "statement": "If X = X₀ ⊔ ⋯ ⊔ X_n is a stratification by locally closed substacks, then #X(F_q) = #X₀(F_q) + ⋯ + #X_n(F_q).",
+   "locator": "arXiv:2206.07759v2, Proposition 1.3(i), p. 2 (Behrend 1991, 1993)",
+   "status": "missing",
+   "note": "Routed to WC.1 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-1-3-ii",
+   "kind": "theorem",
+   "name": "Proposition 1.3(ii) (quotient stacks by connected groups)",
+   "statement": "If X = [X/G] with X a scheme and G a connected linear algebraic group, then #X(F_q) = #X(F_q)/#G(F_q).",
+   "locator": "arXiv:2206.07759v2, Proposition 1.3(ii), p. 2",
+   "status": "missing",
+   "note": "Lang's theorem makes every G-torsor over F_q trivial. Routed to WC.1 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-1-3-iii",
+   "kind": "theorem",
+   "name": "Proposition 1.3(iii) (DM stacks and coarse spaces)",
+   "statement": "If X is a Deligne–Mumford stack with coarse moduli space X, then #X(F_q) = #X(F_q).",
+   "locator": "arXiv:2206.07759v2, Proposition 1.3(iii), p. 2",
+   "status": "missing",
+   "note": "The twists of an object have masses 1/#Aut summing to 1. Routed to WC.1 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-1-3-iv",
+   "kind": "theorem",
+   "name": "Proposition 1.3(iv) (Behrend's trace formula, DM case)",
+   "statement": "If X is a DM stack over F_q and ℓ ∤ q, then #X(F_q) = Tr(F_q | H^•_{c,ét}(X_{F̄_q}, Q_ℓ)), the graded trace of the geometric Frobenius.",
+   "locator": "arXiv:2206.07759v2, Proposition 1.3(iv), (1), p. 2",
+   "status": "missing",
+   "note": "Behrend, Invent. Math. 112 (1993). For DM stacks it reduces, with Q_ℓ coefficients, to the coarse space and the trace formula for varieties. Routed to WC.1 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/polynomial-point-count",
+   "kind": "definition",
+   "name": "Polynomial point count",
+   "statement": "A DM stack X over Z has polynomial point count if #X(F_q) is a polynomial in q (the same polynomial for all finite fields F_q).",
+   "locator": "arXiv:2206.07759v2, §1, p. 2; §4, p. 7",
+   "status": "missing",
+   "note": "Routed to WC as a source with the van den Bogaart–Edixhoven theorem."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/vdbe-theorem-2-1",
+   "kind": "theorem",
+   "name": "van den Bogaart–Edixhoven, Theorem 2.1",
+   "statement": "Let X be a DM stack, smooth and proper of pure relative dimension over Z. Equivalent: (i) #X(F_{p^m}) = P(p^m) + o(p^{m·dim X/2}) for some P ∈ Q[t], all p in a set of primes of Dirichlet density 1 and all m ≥ 1; (ii) #X(F_q) = P(q) for all finite fields F_q, for a polynomial P with positive integer coefficients; (iii) for all ℓ, H^•_ét(X_{Q̄}, Q_ℓ) vanishes in odd degrees and H^{2i} ≅ Q_ℓ(−i)^{⊕}. Then the coefficient of t^i is dim H^{2i}; by comparison and universal coefficients H^•(X_C, Q) is even with h^{2i} the coefficient of t^i.",
+   "locator": "arXiv:2206.07759v2, §1, p. 2 ([vdBE05, Theorem 2.1])",
+   "status": "missing",
+   "note": "Needs the Weil conjectures, the étale–singular comparison and the finite-spectrum lemma for smooth proper DM stacks over Z. Routed to WC.4/WC.5 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/vdbe-prop-3-1",
+   "kind": "theorem",
+   "name": "Specialization of étale cohomology for smooth proper DM stacks",
+   "statement": "For X smooth and proper over Z_p and ℓ ≠ p, H^i_ét(X_{Q̄_p}, Q_ℓ) ≅ H^i_ét(X_{F̄_p}, Q_ℓ), compatibly with a lift F̃_p of the geometric Frobenius ([vdBE05, Proposition 3.1]).",
+   "locator": "arXiv:2206.07759v2, proof of Proposition 3.1, p. 6",
+   "status": "missing",
+   "note": "Stack version of WC.4's family comparison; routed to WC.4 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/vdbe-lemma-4-1",
+   "kind": "theorem",
+   "name": "van den Bogaart–Edixhoven, Lemma 4.1 (finite-spectrum lemma)",
+   "statement": "If Σ_i (−1)^i Σ_j α_{i,j}^m = P(p^m) + o(p^{ms/2}) as m → ∞, where α_{i,j} are the Frobenius eigenvalues on H^i (of weight i), then d_i = 0 for all odd i ≥ s, and all eigenvalues on H^{2i} equal p^i for s/2 ≤ i ≤ d.",
+   "locator": "arXiv:2206.07759v2, proof of Proposition 3.1, p. 6",
+   "status": "missing",
+   "note": "The linear-independence-of-characters argument WC.5:power-sum-converse plans in bound form. Routed there as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-3-1",
+   "kind": "theorem",
+   "name": "Proposition 3.1 (approximately polynomial point counts)",
+   "statement": "Let X be a smooth proper DM stack of relative dimension d over Z_p, F̃_p a lift of geometric Frobenius and s ≥ d an integer. If #X(F_{p^m}) = P(p^m) + o(p^{ms/2}) with P = Σ P_i t^i ∈ Q[t], then dim H^i(X_C) = 0 for all odd i ≥ s, dim H^{2i}(X_C) = P_i for s/2 ≤ i ≤ d, and all eigenvalues of F̃_p on H^{2i}_ét(X_{Q̄_p}, Q_ℓ) (ℓ ≠ p) are p^i for s/2 ≤ i ≤ d.",
+   "locator": "arXiv:2206.07759v2, §3, Proposition 3.1 and proof, p. 6",
+   "status": "missing",
+   "note": "The proof's display should read o(p^{ms/2}) (sourceIssues E2). Routed to WC.5 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/vakil-wood",
+   "kind": "theorem",
+   "name": "Inverse zeta function as a signed count of Frobenius-stable subsets, (8)",
+   "statement": "For a variety Y over F_q and a partition λ, Y(λ) is the set of Frobenius-stable subsets of Y(F̄_q) with orbit type λ. Then 1/Z(Y; t) = Σ_d (Σ_{λ ⊢ d} (−1)^{ℓ(λ)} #Y(λ)) t^d (Vakil–Wood, Prop. 3.7). Definition 7.3: s_d(Y) := Σ_{λ ⊢ d} (−1)^{ℓ(λ)} #Y(λ), the coefficient of t^d; s₀(Y) = 1.",
+   "locator": "arXiv:2206.07759v2, §7, (8) and Definition 7.3, pp. 11–12",
+   "status": "missing",
+   "note": "Zeta-function arithmetic, routed to WC.1 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-7-4",
+   "kind": "theorem",
+   "name": "Proposition 7.4",
+   "statement": "If Y is nonempty and proper over F_q with H^odd_ét(Y_{F̄_q}, Q_ℓ) = 0, then s_d(Y) = 0 for d > dim H^even_ét(Y_{F̄_q}, Q_ℓ), and Σ_d s_d(Y) = 0.",
+   "locator": "arXiv:2206.07759v2, §7, Proposition 7.4, p. 12",
+   "status": "missing",
+   "note": "1/Z(Y; t) is a polynomial of degree dim H^even divisible by 1 − t, since F_q has eigenvalue 1 on H⁰. Routed to WC.1 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-7-1",
+   "kind": "theorem",
+   "name": "Proposition 7.1 (the naive sieve)",
+   "statement": "Let C → V be a surjective family of curves in a variety X over F_q with all fibres reduced, and N_C := #{v ∈ V(F_q) : C_v smooth}. Then N_C = #V(F_q) + Σ_λ Σ_{Z ∈ X(λ)} (−1)^{ℓ(λ)} #{v ∈ V(F_q) : C_v singular along Z} (Bergström 2008, §6).",
+   "locator": "arXiv:2206.07759v2, §7, Proposition 7.1, (7), p. 11",
+   "status": "missing",
+   "note": "Routed to WC.1 as a source with the Hasse–Weil sieve."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-7-5",
+   "kind": "theorem",
+   "name": "Proposition 7.5 (the Hasse–Weil sieve)",
+   "statement": "Let C → V be a surjective family of curves in a proper variety X over F_q, and S_d := Σ_{λ ⊢ d} Σ_{Z ∈ X(λ)} (−1)^{ℓ(λ)} #{v ∈ V(F_q) : C_v singular along Z}. If H^odd_ét((C_v^sing)_{F̄_q}, Q_ℓ) = 0 for all v ∈ V(F_q) (e.g. all fibres reduced), then S_d = 0 for d ≫ 1 and N_C = #V(F_q) + Σ_{d ≥ 1} S_d.",
+   "locator": "arXiv:2206.07759v2, §7, Proposition 7.5 and proof, pp. 12–13",
+   "status": "missing",
+   "note": "S_d = Σ_v s_d(C_v^sing), and Σ_d s_d(C_v^sing) is 1 or 0 by Proposition 7.4. Routed to WC.1 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/remark-7-6",
+   "kind": "theorem",
+   "name": "Remark 7.6 (truncated sieve)",
+   "statement": "With N_C[k] := #V(F_q) + Σ_{d ≤ k} S_d, one has N_C − N_C[k] = Σ_{d > k} S_d, estimated by stratifying V by the topological type of the fibres: F_q acts on H⁰((C_v^sing)_{F̄_q}) by roots of unity and on H² by roots of unity times q.",
+   "locator": "arXiv:2206.07759v2, §7, Remark 7.6, p. 13",
+   "status": "missing",
+   "note": "Routed to WC.1 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/twisted-form",
+   "kind": "construction",
+   "name": "Twisted forms and their point counts",
+   "statement": "For X over F_q and σ ∈ Aut(X) there is a unique twisted form X^σ with X^σ_{F̄_q} ≅ X_{F̄_q} identifying its geometric Frobenius with σF_q; hence the graded trace of σF_q on H^•_ét(X_{F̄_q}, Q_ℓ) is #X^σ(F_q). The construction depends on q (Remark 9.2), and conjugate σ give isomorphic forms.",
+   "locator": "arXiv:2206.07759v2, §9.1–9.2 and Remark 9.2, pp. 21–22",
+   "status": "missing",
+   "note": "Galois twisting plus the trace formula; routed to WC.1 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/def-9-1",
+   "kind": "definition",
+   "name": "Definition 9.1 (equivariant point count)",
+   "statement": "For X over F_q with an action of a finite group G, #_G X(F_q) is the element of the representation ring of G with class function σ ↦ #X^σ(F_q).",
+   "locator": "arXiv:2206.07759v2, §9.2, Definition 9.1, p. 22",
+   "status": "missing",
+   "note": "Kisin–Lehrer's equivariant counting; routed to WC.1 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-9-3",
+   "kind": "theorem",
+   "name": "Proposition 9.3 (equivariant polynomial counts)",
+   "statement": "If X is smooth and proper over Z with polynomial point count and G acts over Z, then #_G X(F_q) = Σ_V P_V(q)[V] with P_V ∈ Z[t] over the irreducible representations V, and the coefficient P_{V,i} is the multiplicity of V in H^{2i}(X_C, Q).",
+   "locator": "arXiv:2206.07759v2, §9.2, Proposition 9.3 and proof, p. 22",
+   "status": "missing",
+   "note": "Comparison isomorphisms are functorial, hence G-equivariant (Kisin–Lehrer, Prop. 1.2). Routed to WC.4 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/poincare-duality-dm",
+   "kind": "theorem",
+   "name": "Poincaré duality for smooth proper DM stacks; Remark 9.4",
+   "statement": "For X smooth and proper of relative dimension d over Z with polynomial point count, P(t) = t^d P(1/t); equivariantly, for X irreducible, P_{V^∨}(t) = t^d P_V(t^{−1}), so P_{V,i} = P_{V,d−i} for self-dual V. The same holds for the coarse space of a smooth proper DM stack, e.g. M̄_{g,n}.",
+   "locator": "arXiv:2206.07759v2, Remark 9.4, p. 22; used in Theorem 1.4 and §10, p. 3 and p. 24",
+   "status": "missing",
+   "note": "WC.2 proves the Frobenius-equivariant duality for varieties; PAPER-CANNING-LARSON-PAYNE-24 routed the Betti version for DM stacks to SF.2. Routed to WC.2 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/weight-spectral-sequence",
+   "kind": "theorem",
+   "name": "Weight spectral sequence of a normal crossings compactification",
+   "statement": "For M_{g,n} ⊂ M̄_{g,n} with normal crossings boundary stratified by stable graphs G, there is a spectral sequence with E₁^{j,k} = ⊕_{|E(G)| = j} H^k(M̃_G) abutting to H^•_c(M_{g,n}), degenerating at E₂; in ℓ-adic cohomology after base change to F̄_p it is a spectral sequence of Galois representations (Petersen 2017, Ex. 3.5; Payne–Willwacher, §2.3).",
+   "locator": "arXiv:2206.07759v2, proof of Proposition 4.2, (3), p. 7; proof of Corollary 9.5, p. 23",
+   "status": "missing",
+   "note": "DWP.8 plans weight filtrations of mixed complexes; Deligne's weight spectral sequence for the complement of a normal crossings divisor in a smooth proper DM stack is its geometric instance. Routed to DWP.8 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/squarefree-count",
+   "kind": "theorem",
+   "name": "Counting squarefree polynomials over F_q",
+   "statement": "Let P_g be the set of squarefree polynomials over F_q of degree 2g + 2 or 2g + 1. Unique factorization f = h·m² (h squarefree, m monic) gives (q − 1)(q^{2g+2} + q^{2g+1}) = Σ_{j=0}^{g} #P_{g−j} q^j + (q − 1)q^{g+1}; with #P₀ = q²(q − 1), induction gives #P_g = (q − 1)(q^{2g+2} − q^{2g}) for g ≥ 1.",
+   "locator": "arXiv:2206.07759v2, §5, p. 8",
+   "status": "missing",
+   "note": "Elementary finite-field polynomial counting; routed to FF.3 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/char-sum-interpolation",
+   "kind": "theorem",
+   "name": "Vanishing of quadratic-character correlation sums by interpolation",
+   "statement": "For d ≥ 2 and distinct x ≠ y ∈ P¹(F_q), q odd: Σ_{deg f ≤ d} χ(f(x)) χ(f(y)) = 0, summing over all polynomials of degree ≤ d (evaluation at ∞ via the degree-d coefficient).",
+   "locator": "arXiv:2206.07759v2, proof of Lemma 5.2, pp. 8–9",
+   "status": "missing",
+   "note": "Evaluation at two points is surjective from polynomials of degree ≤ d ≥ 1, so the sum factors as Σχ · Σχ = 0. Routed to FF.1 as a source."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/quadric-classification",
+   "kind": "theorem",
+   "name": "Reduced irreducible quadric surfaces over F_q",
+   "statement": "There are exactly three PGL₄(F_q)-orbits of reduced irreducible quadric surfaces in P³ over F_q: a cone Q^con ≅ P(1,1,2); a non-split smooth quadric Q^nsp of Picard rank 1, which becomes P¹ × P¹ over F_{q²} with Frobenius swapping the rulings; and the split quadric Q^spl ≅ P¹ × P¹. Automorphism groups (6): #Aut(Q^con) = q⁷ − q⁶ − q⁵ + q⁴, #Aut(Q^nsp) = 2(q⁶ − q²), #Aut(Q^spl) = 2(q³ − q)². Each automorphism extends to PGL₄ as the hyperplane series is complete.",
+   "locator": "arXiv:2206.07759v2, §6, pp. 9–10",
+   "status": "missing",
+   "note": "The finite-field case of the classification of quadratic forms (rank, and discriminant or Arf invariant), with the orders of the projective orthogonal groups; routed to GN.2 as a source. The orders were rechecked: |Aut P(1,1,2)| = |GL₂(F_q)|·q³ and |PGL₂(F_{q²})|·2."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/moduli-stacks",
+   "kind": "definition",
+   "name": "Moduli stacks of curves, boundary and stable graphs",
+   "statement": "M_{g,n} ⊂ M̄_{g,n} are the moduli stacks of smooth and of stable n-pointed genus g curves, smooth and proper DM stacks over Z; ∂M̄_{g,n} := M̄_{g,n} ∖ M_{g,n} is a normal crossings divisor. It is stratified by marked dual graphs G, with strata M_G and normalized closures M̃_G ≅ (∏_{v ∈ V(G)} M̄_{g_v,n_v})/Aut(G), so H^•(M̃_G) = (⊗_v H^•(M̄_{g_v,n_v}))^{Aut(G)}.",
+   "locator": "arXiv:2206.07759v2, §2, p. 4; §4, Notation 4.1 and proof of Proposition 4.2, pp. 6–7",
+   "status": "missing",
+   "note": "The roadmap MotivicStructuresInModuliOfCurves (PAPER-CANNING-LARSON-PAYNE-24) opens with exactly these objects. Stable pointed curves and dual graphs are imported from Tau Ceti StableReduction."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/boggi-pikaart",
+   "kind": "theorem",
+   "name": "M̄_{g,n} as a global finite quotient",
+   "statement": "M̄_{g,n} is S_n-equivariantly the global quotient [X_{g,n}/H] of a smooth projective variety by a finite group H (Boggi–Pikaart 2000); its coarse space over Q is a finite quotient of a smooth projective variety.",
+   "locator": "arXiv:2206.07759v2, §1, p. 2; Remark 9.4, p. 22",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/pure-tate",
+   "kind": "theorem",
+   "name": "Polynomial point count forces pure Tate Hodge structures",
+   "statement": "If a smooth proper DM stack X over Z has polynomial point count and its coarse space over Q is a finite quotient of a smooth projective variety (as for M̄_{g,n}), then H^•(X_C, Q) is even and the Hodge structure on it is pure Tate.",
+   "locator": "arXiv:2206.07759v2, §1, p. 2",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap with its only application."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/ac-boundary-sequence",
+   "kind": "construction",
+   "name": "The excision sequence of the boundary",
+   "statement": "· · · → H^k_c(M_{g,n}) → H^k(M̄_{g,n}) → H^k(∂M̄_{g,n}) → H^{k+1}_c(M_{g,n}) → · · ·, rational (compactly supported) cohomology.",
+   "locator": "arXiv:2206.07759v2, §2, p. 4",
+   "status": "missing",
+   "note": "CLP24's brief plans the boundary sequences; routed to that roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/ac-lemma-2-6",
+   "kind": "theorem",
+   "name": "Arbarello–Cornalba, Lemma 2.6",
+   "statement": "If H^k_c(M_{g,n}) = 0, then pullback to the normalization of the boundary gives an injection H^k(M̄_{g,n}) ↪ H^k(∂̃M̄_{g,n}).",
+   "locator": "arXiv:2206.07759v2, §2, p. 4 ([AC98, Lemma 2.6])",
+   "status": "missing",
+   "note": "Weight-filtration argument; routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/harer-vcd",
+   "kind": "theorem",
+   "name": "Harer: virtual cohomological dimension of M_{g,n}",
+   "statement": "For g ≥ 2, vcd(M_g) = 4g − 5; for g ≥ 1, vcd(M_{g,1}) = 4g − 3 and vcd(M_{g,n}) = 4g − 4 + n for n ≥ 1; hence H^k(M_{g,n}; Q) = 0 above the vcd.",
+   "locator": "arXiv:2206.07759v2, proof of Proposition 2.1, p. 5",
+   "status": "missing",
+   "note": "CLP24's brief asks for the vcd as its own layer; routed there."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/cfp-mss",
+   "kind": "theorem",
+   "name": "Vanishing in the virtual cohomological dimension",
+   "statement": "H^{4g−5}(M_g; Q) = 0 (Church–Farb–Putman 2012; Morita–Sakasai–Suzuki 2013) and H^{4g−3}(M_{g,1}; Q) = 0.",
+   "locator": "arXiv:2206.07759v2, proof of Proposition 2.1, p. 5; Remark 2.4, p. 5",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap beside the vcd."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-2-1",
+   "kind": "theorem",
+   "name": "Proposition 2.1 (vanishing of compactly supported cohomology)",
+   "statement": "For g ≥ 1: H^k_c(M_{g,n}) = 0 for k < 2g when n = 0, 1, and for k < 2g − 2 + n when n ≥ 2.",
+   "locator": "arXiv:2206.07759v2, §2, Proposition 2.1, (2), p. 5",
+   "status": "missing",
+   "note": "Poincaré duality with the vcd (AC98, (2.4)) for n ≥ 2; for n = 0, 1 the extra degree comes from cfp-mss. Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/ac-lemma-2-9",
+   "kind": "theorem",
+   "name": "Arbarello–Cornalba, Lemma 2.9 (the inductive method)",
+   "statement": "Let k be odd. If H^q(M̄_{g,n}) = 0 for all odd q ≤ k and all (g, n) with H^q_c(M_{g,n}) ≠ 0, then H^q(M̄_{g,n}) = 0 for all odd q ≤ k and all g, n.",
+   "locator": "arXiv:2206.07759v2, §2, p. 5 ([AC98, Lemma 2.9])",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/ac-theorem-2-1",
+   "kind": "theorem",
+   "name": "Arbarello–Cornalba: vanishing in degrees 1, 3, 5",
+   "statement": "H^q(M̄_{g,n}; Q) = 0 for q ∈ {1, 3, 5}, for all g and n ([AC98, Theorem 2.1]).",
+   "locator": "arXiv:2206.07759v2, proof of Theorem 1.1, p. 5",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/keel",
+   "kind": "theorem",
+   "name": "Keel: cohomology of M̄_{0,n}",
+   "statement": "H^•(M̄_{0,n}; Q) is supported in even degrees (Keel 1992).",
+   "locator": "arXiv:2206.07759v2, proof of Theorem 1.1, p. 5",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/known-polynomial-counts",
+   "kind": "theorem",
+   "name": "Polynomial point counts in genus ≤ 3",
+   "statement": "M̄_{g,n} has polynomial point count for g = 1, n ≤ 10 (Getzler 1998); g = 2, n ≤ 7 (Bergström 2009, §11.2); g = 3, n ≤ 5 (Bergström 2008); and M_{1,n} for 4 ≤ n ≤ 7.",
+   "locator": "arXiv:2206.07759v2, proof of Theorem 1.1, p. 5; proof of Proposition 8.8 (D), p. 19",
+   "status": "missing",
+   "note": "Cited inputs; routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-1-1-k7",
+   "kind": "theorem",
+   "name": "Theorem 1.1 for k = 7",
+   "statement": "H^k(M̄_{g,n}; Q) = 0 for all odd k ≤ 7 and all g, n. The base cases g ≥ 1, max{2g, 2g − 2 + n} ≤ 7 all have polynomial point count, as do all g ≤ 3 with 2g − 2 + n ≤ 9.",
+   "locator": "arXiv:2206.07759v2, §2, proof of Theorem 1.1 for k = 7, p. 5",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-1-1",
+   "kind": "theorem",
+   "name": "Theorem 1.1 (odd cohomology vanishing)",
+   "statement": "H^k(M̄_{g,n}; Q) = 0 for all odd k ≤ 9 and all g, n. The bound is sharp: H^{11}(M̄_{1,11}) ≅ Q².",
+   "locator": "arXiv:2206.07759v2, §1, Theorem 1.1, p. 1; §2, proof for k = 9 from Theorem 1.4, p. 5",
+   "status": "missing",
+   "note": "k = 9 needs only H⁹(M̄_{4,n}) = 0 for n ≤ 3 (Theorem 1.4, or Corollary 3.2). This is the input the CLP24 brief names as 'the vanishing of the low-degree Borel–Moore homology of M_{g,n} proved by Bergström–Faber–Payne'. Routed to that roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/cor-3-2",
+   "kind": "theorem",
+   "name": "Corollary 3.2",
+   "statement": "If #M̄_{4,n}(F_q) = P(q) + o(q^{9/2+n}) for q = p^m, m → ∞, with P ∈ Q[t], then H^k(M̄_{4,n}) = 0 for all odd k ≤ 9.",
+   "locator": "arXiv:2206.07759v2, §3, Corollary 3.2, p. 6",
+   "status": "missing",
+   "note": "Proposition 3.1 with s = 9 + 2n and Poincaré duality. The printed conclusion says M̄_{g,n} (sourceIssues E1). Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/notation-4-1",
+   "kind": "definition",
+   "name": "Notation 4.1 (the order ≺)",
+   "statement": "(g′, n′) ≺ (g, n) if (g′, n′) <_lex (g, n) and 2g′ + n′ ≤ 2g + n. Each boundary stratum of M̄_{g,n} is a finite quotient (∏_i M_{g_i,n_i})/G with (g_i, n_i) ≺ (g, n).",
+   "locator": "arXiv:2206.07759v2, §4, Notation 4.1, pp. 6–7",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-4-2-1",
+   "kind": "theorem",
+   "name": "Proposition 4.2(1)",
+   "statement": "If M̄_{g′,n′} has polynomial point count for all (g′, n′) ≺ (g, n), every eigenvalue of F_p on H^•_{c,ét}((M_{g′,n′})_{F̄_p}, Q_ℓ), (g′, n′) ≺ (g, n), is a power of p.",
+   "locator": "arXiv:2206.07759v2, §4, Proposition 4.2(1) and proof, p. 7",
+   "status": "missing",
+   "note": "Via the weight spectral sequence. Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-4-2-2",
+   "kind": "theorem",
+   "name": "Proposition 4.2(2)",
+   "statement": "Under the same hypothesis, M_{g′,n′} has polynomial point count for all (g′, n′) ≺ (g, n).",
+   "locator": "arXiv:2206.07759v2, §4, Proposition 4.2(2), p. 7",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-4-2-3",
+   "kind": "theorem",
+   "name": "Proposition 4.2(3)",
+   "statement": "Under the same hypothesis, the boundary divisor ∂M̄_{g,n} has polynomial point count.",
+   "locator": "arXiv:2206.07759v2, §4, Proposition 4.2(3), p. 7",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/arsie-vistoli",
+   "kind": "theorem",
+   "name": "The hyperelliptic stack as a quotient",
+   "statement": "Over Z[1/2], the stack H_g of hyperelliptic curves of genus g is the quotient of the space of binary forms of degree 2g + 2 with nonvanishing discriminant by a connected linear algebraic group G with #G(F_q) = (q² − 1)(q² − q) (Arsie–Vistoli 2004, Cor. 4.7); dehomogenizing identifies these forms with P_g.",
+   "locator": "arXiv:2206.07759v2, §5, pp. 7–8",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/hyperelliptic-count",
+   "kind": "theorem",
+   "name": "Point count of H_g, (4)",
+   "statement": "For g ≥ 2 and q odd, #H_g(F_q) = #P_g/#G(F_q) = q^{2g−1} (cf. Brock–Granville 2001, Prop. 7.1); the same holds for all q.",
+   "locator": "arXiv:2206.07759v2, §5, (4), p. 8",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/lemma-5-2",
+   "kind": "theorem",
+   "name": "Lemma 5.2",
+   "statement": "For q odd, Σ_{C ∈ [H_g(F_q)]} (q + 1 − #C(F_q))^k / #Aut(C) equals 0 for k odd and q^{2g} − 1 for k = 2.",
+   "locator": "arXiv:2206.07759v2, §5, Lemma 5.2 and proof, pp. 8–9",
+   "status": "missing",
+   "note": "Odd k: the quadratic twist C_f ↦ C_{tf} flips the sign. k = 2: expand (Σ_x χ(f(x)))²; the diagonal gives q^{2g}#G(F_q) and the off-diagonal gives −#G(F_q). Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-5-1",
+   "kind": "theorem",
+   "name": "Proposition 5.1 (pointed hyperelliptic counts)",
+   "statement": "For g ≥ 2: #H_{g,1}(F_q) = (q + 1)q^{2g−1}, #H_{g,2}(F_q) = (q + 2)q^{2g} − 1, #H_{g,3}(F_q) = (q² + 3q − 1)q^{2g} − 3q.",
+   "locator": "arXiv:2206.07759v2, §5, Proposition 5.1, p. 8; proof, p. 9",
+   "status": "missing",
+   "note": "Proved for odd q from Lemma 5.2; all q by Bergström 2009, Thm. 10.3. Rechecked by expanding #C(#C − 1)(#C − 2) in q + 1 − #C. Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/canonical-genus-4",
+   "kind": "theorem",
+   "name": "Canonical genus 4 curves as (2, 3) complete intersections",
+   "statement": "The canonical image of a non-hyperelliptic genus 4 curve is a complete intersection of a quadric and a cubic in P³; the quadric is unique, reduced and irreducible. Conversely every smooth (2, 3) complete intersection is a canonical genus 4 curve. Hence M₄ ∖ H₄ ≅ [S₂₃/PGL₄] and (5): #(M₄ ∖ H₄)(F_q) = #S₂₃(F_q)/#PGL₄(F_q).",
+   "locator": "arXiv:2206.07759v2, §6, (5), p. 9",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-6-1",
+   "kind": "theorem",
+   "name": "Propositions 6.1–6.2 (counting by the quadric)",
+   "statement": "With N^•_n(q) the number of smooth (2, 3) complete intersections C on a fixed Q^• (• ∈ {con, nsp, spl}; on Q^con, curves of degree 6 not through the vertex) with n distinct marked points in C(F_q), #(M_{4,n} ∖ H_{4,n})(F_q) = Σ_• N^•_n(q)/#Aut(Q^•) for n ≤ 3 (n = 0 is Proposition 6.1).",
+   "locator": "arXiv:2206.07759v2, §6, Propositions 6.1–6.2 and proof, p. 10",
+   "status": "missing",
+   "note": "Orbit–stabilizer over the three quadric orbits. Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/examples-7-7-7-9",
+   "kind": "theorem",
+   "name": "Examples 7.7–7.9 (non-reduced fibres on the three quadrics)",
+   "statement": "For the families of (2, 3) complete intersections on Q^con (V ≅ A^{15}, cubics avoiding the vertex), Q^nsp and Q^spl (V ≅ P^{15}), the singular locus of every non-reduced fibre has no odd cohomology, so Proposition 7.5 applies. s(P¹) = (1, −1 − q, q), and N_C[k] = N_C^red[k] for k ≥ 2, 4, 5 respectively.",
+   "locator": "arXiv:2206.07759v2, §7, Examples 7.7–7.9, p. 13",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/quadric-zeta",
+   "kind": "theorem",
+   "name": "Inverse zeta functions of the quadrics",
+   "statement": "1/Z(X; t) = (1 − qt)(1 − q²t) for X = (Q^con)^sm = A² ⊔ A¹; 1/Z(Q^nsp; t) = (1 − t)(1 − qt)(1 + qt)(1 − q²t), so s₁..s₄ = −q² − 1, 0, q⁴ + q², −q⁴; 1/Z(Q^spl; t) = (1 − t)(1 − qt)²(1 − q²t), so s₁..s₃ = −q² − 2q − 1, 2(q³ + q² + q), −q⁴ − 2q³ − q².",
+   "locator": "arXiv:2206.07759v2, §8.1, (13), p. 14; §8.2, p. 16; §8.3, p. 17",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-8-1",
+   "kind": "theorem",
+   "name": "Proposition 8.1 (sieve on the cone, n = 0)",
+   "statement": "S₀(C^con) = q^{15}, S₁ = −q^{14} − q^{13}, S₂ = q^{12}, S₃ = 0.",
+   "locator": "arXiv:2206.07759v2, §8.1, Proposition 8.1 and proof, p. 14",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-8-2",
+   "kind": "theorem",
+   "name": "Proposition 8.2 (sieve on the cone, n ≤ 3)",
+   "statement": "The terms S_d(C^con_n) for d, n ≤ 3 are the twelve polynomials tabulated on p. 14 (e.g. S₀(C^con₁) = q^{16} + q^{15}, S₁(C^con₁) = −q^{15} − 3q^{14} − q^{13} + q^{12}, S₂(C^con₁) = 2q^{13} + q^{12} − q^{11}, S₃(C^con₁) = 0).",
+   "locator": "arXiv:2206.07759v2, §8.1, Proposition 8.2, p. 14; proof, pp. 15",
+   "status": "missing",
+   "note": "S₀–S₂ for n = 1 were rechecked from the proof's formulas. Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-8-4",
+   "kind": "theorem",
+   "name": "Propositions 8.4–8.5 (sieve on the non-split quadric)",
+   "statement": "S₀(C^nsp) = p₁₅, S₁ = (−q² − 1)p₁₂, S₂ = 0, S₃ = (q⁴ + q²)p₆ with p_n = #P^n(F_q), since up to three singularities impose independent conditions; and the terms S_d(C^nsp_n), d, n ≤ 3, tabulated on p. 16.",
+   "locator": "arXiv:2206.07759v2, §8.2, Propositions 8.4–8.5 and proofs, pp. 16–17",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-8-6",
+   "kind": "theorem",
+   "name": "Propositions 8.6–8.7 (sieve on the split quadric)",
+   "statement": "S₀(C^spl) = p₁₅, S₁ = (−q² − 2q − 1)p₁₂, S₂ = 2(q³ + q² + q)p₉, S₃ = (−q⁴ − 2q³ − q²)p₆; and S_d(C^spl_n) for d, n ≤ 3 up to o(q⁶), tabulated on p. 17.",
+   "locator": "arXiv:2206.07759v2, §8.3, Propositions 8.6–8.7 and proofs, pp. 17–18",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-8-8",
+   "kind": "theorem",
+   "name": "Proposition 8.8 (four or more singularities)",
+   "statement": "For • ∈ {con, nsp, spl}: Σ_{d ≥ 4} S_d(C^•_n)/#Aut(Q^•) = o(q^{(9+n)/2}) for n ≤ 2, and = Bq⁶ + o(q⁶) for n = 3 with B an integer.",
+   "locator": "arXiv:2206.07759v2, §8.4, Proposition 8.8 and proof, pp. 18–21",
+   "status": "missing",
+   "note": "Proof: non-reduced curves (Examples 7.7–7.9); reducible families (A)–(F) whose contributions cancel through s_k(P¹) = 0 and s_k(A¹) = 0 for k ≥ 2; the count of 4-tuples in general position (item gp-4-tuples). Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/gp-4-tuples",
+   "kind": "theorem",
+   "name": "Signed count of 4-tuples in general position on P¹ × P¹",
+   "statement": "The Hasse–Weil (signed) count of 4-tuples of points of Q^spl in general position (no two on a ruling, not all on an irreducible (1,1)-curve) is (q + 1)²q²(q − 1)² = #(PGL₂ × PGL₂)(F_q).",
+   "locator": "arXiv:2206.07759v2, proof of Proposition 8.8, p. 20; Remark 8.11, p. 21",
+   "status": "missing",
+   "note": "PGL₂ × PGL₂ acts freely, the count is q⁶ + O(q⁵), and Remark 8.11 gives a direct orbit-type check. Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/equivariant-euler-characteristic",
+   "kind": "construction",
+   "name": "Weight-graded equivariant Euler characteristic",
+   "statement": "For M_{g,n}, the S_n-equivariant weight-graded Euler characteristic Σ_i (−1)^i gr^W_{2k} H^i_c(M_{g,n}, Q) as a virtual representation, and gr^W_• of the weight filtration.",
+   "locator": "arXiv:2206.07759v2, §9.2, p. 23",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/twisted-mgn",
+   "kind": "construction",
+   "name": "Twisted forms of M̄_{g,n} and M_{g,λ}",
+   "statement": "For fixed q and σ ∈ S_n, M̄^σ_{g,n} := [X^σ_{g,n}/H], a smooth proper DM stack over F_q representing families of stable curves with n labelled geometric sections permuted by Frobenius via σ. For λ ⊢ n, σ(λ) fixes the first n₁ points, transposes the next n₂ pairs, and so on; M_{g,λ}, H_{g,λ}, ∂M̄_{g,λ} are defined likewise, with M̄_{g,λ} = M_{g,λ} ⊔ ∂M̄_{g,λ}.",
+   "locator": "arXiv:2206.07759v2, Remark 9.4, p. 22; §11, p. 25",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/cor-9-5",
+   "kind": "theorem",
+   "name": "Corollary 9.5 (equivariant counts of the open part)",
+   "statement": "If M̄_{g′,n′} has polynomial point count for (g′, n′) ⪯ (g, n), then #_{S_n} M_{g,n}(F_q) = Σ_{λ ⊢ n} P_λ(q)s_λ with P_λ ∈ Z[t], and the coefficient of t^k in P_λ is the multiplicity of V_λ in Σ_i (−1)^i gr^W_{2k} H^i_c(M_{g,n}, Q).",
+   "locator": "arXiv:2206.07759v2, §9.2, Corollary 9.5 and proof, p. 23",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/getzler-kapranov",
+   "kind": "theorem",
+   "name": "Getzler–Kapranov formula and its point-count version",
+   "statement": "For a stable S-module V, Ch(MV) = Log(exp(Δ) Exp(Ch V)) (Getzler–Kapranov 1998, Thm. 8.13). Applied to point counts via p_n ∘ q = q^n, with Ch(V) = Σ_{2(g−1)+n>0} h^{g−1} #_{S_n}M_{g,n}(F_q), Ch(MV) − Ch(V) = Σ h^{g−1} #_{S_n}∂M̄_{g,n}(F_q): the equivariant boundary counts are determined by #_{S_{n′}}M_{g′,n′}(F_q), (g′, n′) ≺ (g, n).",
+   "locator": "arXiv:2206.07759v2, §9.3, proof of Proposition 9.6, p. 23; §11, p. 25",
+   "status": "missing",
+   "note": "The §9 introduction cites it as Theorem 8.3 (sourceIssues E5). Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/lower-genus-equivariant-counts",
+   "kind": "theorem",
+   "name": "Equivariant counts in genus ≤ 3",
+   "statement": "The S_{n′}-equivariant point counts of M_{g′,n′} are known for g′ = 0 (Kisin–Lehrer 2002) and for 1 ≤ g′ ≤ 3 with (g′, n′) ≺ (4, 3) (Getzler 1998; Bergström 2008, 2009).",
+   "locator": "arXiv:2206.07759v2, §9.3, p. 23",
+   "status": "missing",
+   "note": "Cited inputs; routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-9-6",
+   "kind": "theorem",
+   "name": "Proposition 9.6 (boundary counts in genus 4)",
+   "statement": "#∂M̄₄(F_q) = 3q⁸ + 12q⁷ + 33q⁶ + 50q⁵ + 50q⁴ + 32q³ + 13q² + 4q + 1; #∂M̄_{4,1}(F_q) = 4q⁹ + 28q⁸ + 94q⁷ + 192q⁶ + 240q⁵ + 191q⁴ + 93q³ + 31q² + 6q + 1; #∂M̄_{4,2}(F_q) = 8q^{10} + 72q⁹ + 321q⁸ + 842q⁷ + 1362q⁶ + 1362q⁵ + 838q⁴ + 321q³ + 78q² + 11q + 1; #∂M̄_{4,3}(F_q) = 17q^{11} + 200q^{10} + 1172q⁹ + 3990q⁸ + 8292q⁷ + 10606q⁶ + 8296q⁵ + 3977q⁴ + 1179q³ + 205q² + 19q + 2.",
+   "locator": "arXiv:2206.07759v2, §9.3, Proposition 9.6 and proof, pp. 23–24",
+   "status": "missing",
+   "note": "Computed with Maple/SF from the Getzler–Kapranov formula, inductively in n. Rechecked here against Theorems 1.4 and 1.5: M̄ − M − ∂ = 0 for n ≤ 3. Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/gorsky",
+   "kind": "theorem",
+   "name": "Gorsky's equivariant Euler characteristic",
+   "statement": "The S_n-equivariant Euler characteristic of M_{g,n} (Gorsky 2014); in particular χ(M_{4,3}) = −10 and χ_{S₃}(M_{4,3}) = 2s₃ − 6s_{2,1}.",
+   "locator": "arXiv:2206.07759v2, §10, p. 24; §11.3, p. 29",
+   "status": "missing",
+   "note": "Cited input; both values rechecked against Theorems 1.5 and 11.1. Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-1-4",
+   "kind": "theorem",
+   "name": "Theorem 1.4 (point counts of M̄_{4,n})",
+   "statement": "For n ≤ 3, #M̄_{4,n}(F_q) is a polynomial in q: #M̄₄(F_q) = q⁹ + 4q⁸ + 13q⁷ + 32q⁶ + 50q⁵ + 50q⁴ + 32q³ + 13q² + 4q + 1; #M̄_{4,1}(F_q) = q^{10} + 6q⁹ + 30q⁸ + 93q⁷ + 191q⁶ + 240q⁵ + 191q⁴ + 93q³ + 30q² + 6q + 1; #M̄_{4,2}(F_q) = q^{11} + 11q^{10} + 76q⁹ + 319q⁸ + 838q⁷ + 1362q⁶ + ⋯ + 11q + 1; #M̄_{4,3}(F_q) = q^{12} + 21q^{11} + 207q^{10} + 1168q⁹ + 3977q⁸ + 8296q⁷ + 10605q⁶ + ⋯ + 21q + 1 (elided terms by Poincaré duality). Consequently H^•(M̄_{4,n}) is pure Tate with these Poincaré polynomials (in t²).",
+   "locator": "arXiv:2206.07759v2, §1, Theorem 1.4, p. 3; proof §10, p. 24",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-1-5",
+   "kind": "theorem",
+   "name": "Theorem 1.5 (point counts of M_{4,n})",
+   "statement": "For n ≤ 3, #M_{4,n}(F_q) is a polynomial: #M₄ = q⁹ + q⁸ + q⁷ − q⁶; #M_{4,1} = q^{10} + 2q⁹ + 2q⁸ − q⁷ − q⁶ − q²; #M_{4,2} = q^{11} + 3q^{10} + 4q⁹ − 2q⁸ − 4q⁷ − 2q³ − 2q²; #M_{4,3} = q^{12} + 4q^{11} + 7q^{10} − 4q⁹ − 13q⁸ + 4q⁷ − q⁶ − 11q³ + 2q² + 2q − 1.",
+   "locator": "arXiv:2206.07759v2, §1, Theorem 1.5, p. 3; proof §10, p. 24",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/remark-1-6",
+   "kind": "theorem",
+   "name": "Euler characteristics in Grothendieck groups",
+   "statement": "Replacing q by Q_ℓ(−1) (resp. Q(−1)) in Theorem 1.5 gives e_c(M_{4,n} ⊗ Q̄, Q_ℓ) in the Grothendieck group of ℓ-adic Galois representations (Bergström 2008, Thm. 3.2) and e_c((M_{4,n})_C, Q) in that of mixed Hodge structures (Tommasi 2005; Bergström–Tommasi 2007); e.g. e_c(M₄) = Q_ℓ(−9) + Q_ℓ(−8) + Q_ℓ(−7) − Q_ℓ(−6).",
+   "locator": "arXiv:2206.07759v2, §1, Remark 1.6, p. 3",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/section-10",
+   "kind": "theorem",
+   "name": "§10: assembling Theorems 1.4 and 1.5",
+   "statement": "N^con = q^{15} − q^{14} − q^{13} + q^{12} + o(q^{23/2}), N^nsp = q^{15} − q^{12} − q^{11} + o(q^{21/2}) and N^spl = q^{15} − 2q^{13} − q^{12} + q^{11} + o(q^{21/2}), so #(M₄ ∖ H₄)(F_q) = q⁹ + q⁸ − q⁶ + o(q^{9/2}). Adding #H₄ and #∂M̄₄ determines #M̄₄ up to o(q^{9/2}), hence exactly by van den Bogaart–Edixhoven and Poincaré duality; similarly for n = 1, 2. For n = 3 the q⁶ coefficient B = 10605 is fixed by χ(M_{4,3}) = −10.",
+   "locator": "arXiv:2206.07759v2, §10.1, p. 24",
+   "status": "missing",
+   "note": "Rechecked by computer from Propositions 5.1, 8.1–8.7 and 9.6 for n = 0, 1, 2: the resulting M̄_{4,n} agree with Theorem 1.4 in all degrees ≥ (9+n)/2. The printed M_{4,3} display has −11q⁴ for −11q³ (sourceIssues E3). Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/hyperelliptic-equivariant",
+   "kind": "theorem",
+   "name": "Equivariant hyperelliptic counts (§11.1)",
+   "statement": "#_{S₂}H_{4,2}(F_q) = (q⁹ + q⁸ − 1)s₂ + q⁸s_{1²} and #_{S₃}H_{4,3}(F_q) = (q^{10} + q⁹ − q⁸ − q)s₃ + (q⁹ − q)s_{2,1} (Bergström 2009).",
+   "locator": "arXiv:2206.07759v2, §11.1, p. 26",
+   "status": "missing",
+   "note": "Consistent with Proposition 5.1 for g = 4. Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-11-2",
+   "kind": "theorem",
+   "name": "Propositions 11.2–11.4 (twisted sieve terms)",
+   "statement": "The sieve terms S_d(C^•_λ) for • ∈ {con, nsp, spl}, λ ∈ {[2], [2,1], [3]}, d ≤ 3 are the polynomials tabulated on pp. 26–28 (the nsp and spl ones up to o(q⁶)).",
+   "locator": "arXiv:2206.07759v2, §11.2, Propositions 11.2–11.4 and proofs, pp. 26–28",
+   "status": "missing",
+   "note": "The S₀ terms come from counts of Frobenius-conjugate pairs and triples: q⁴ − q, q⁴ + q², q⁴ + q² − 2q pairs and q⁶ + q³ − q² − q, q⁶ − q², q⁶ + 2q³ − q² − 2q triples on Q^con, Q^nsp, Q^spl (rechecked). Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-11-1",
+   "kind": "theorem",
+   "name": "Theorem 11.1 (S_n-equivariant counts, n = 2, 3)",
+   "statement": "#_{S₂}M̄_{4,2} = (q^{11} + 9q^{10} + 55q⁹ + 220q⁸ + 561q⁷ + 901q⁶ + ⋯ + 9q + 1)s₂ + (2q^{10} + 21q⁹ + 99q⁸ + 277q⁷ + 461q⁶ + ⋯ + 2q)s_{1²}; #_{S₃}M̄_{4,3} = (q^{12} + 11q^{11} + 87q^{10} + 424q⁹ + 1347q⁸ + 2694q⁷ + 3414q⁶ + ⋯ + 1)s₃ + (5q^{11} + 58q^{10} + 349q⁹ + 1220q⁸ + 2578q⁷ + 3304q⁶ + ⋯ + 5q)s_{2,1} + (4q^{10} + 46q⁹ + 190q⁸ + 446q⁷ + 583q⁶ + ⋯ + 4q²)s_{1³}; #_{S₂}M_{4,2} = (q^{11} + 2q^{10} + 3q⁹ − 2q⁸ − 2q⁷ − q³ − q²)s₂ + (q^{10} + q⁹ − 2q⁷ − q³ − q²)s_{1²}; #_{S₃}M_{4,3} = (q^{12} + 2q^{11} + 3q^{10} − 2q⁹ − 4q⁸ + 2q⁷ − q⁶ − q³ + 2q²)s₃ + (q^{11} + 2q^{10} − q⁹ − 4q⁸ + q⁷ − 4q³ − 1)s_{2,1} + (−q⁸ − 2q³ + 2q + 1)s_{1³}.",
+   "locator": "arXiv:2206.07759v2, §11, Theorem 11.1, p. 25; proof §11.3, pp. 28–29",
+   "status": "missing",
+   "note": "Rechecked here: open + boundary (§11.3) = closed, the closed parts are palindromic, the dimensions sum to Theorems 1.4–1.5, and the Euler characteristics are 2s₃ − 6s_{2,1}. Routed to the moduli-of-curves roadmap."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/local-systems",
+   "kind": "construction",
+   "name": "Symplectic local systems V_λ on M₄",
+   "statement": "The universal curve π : M_{4,1} → M₄ gives V := R¹π_*Q_ℓ, with stalk H¹(C, Q_ℓ); for λ = (λ₁ ≥ ⋯ ≥ λ₄ ≥ 0), V_λ is the local system of the irreducible GSp(8)-representation of highest weight λ (Schur functors). The traces Tr(F_q, H^•_c(M₄, V_λ)) for |λ| ≤ n carry the same information as #_{S_m}M_{4,m}, m ≤ n (Getzler 1999; Bergström 2008).",
+   "locator": "arXiv:2206.07759v2, §11.4, pp. 29–30",
+   "status": "missing",
+   "note": "CLP24's brief plans symplectic local systems on M_g; routed there."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-11-5",
+   "kind": "theorem",
+   "name": "Theorem 11.5 (Euler characteristics of local systems on M₄)",
+   "statement": "Tr(F_q, H^•_c(M₄, V₁)) = q⁷ + q²; V₂: 0; V_{1,1}: q⁹ − q⁸ − q⁷ − q²; V₃: q³ − 2q − 1; V_{2,1}: q⁸ − q⁷ − q⁴ + 2q³ + 1; V_{1,1,1}: −q^{10} − q⁹ + q⁸ + q⁶ − q⁴ − q².",
+   "locator": "arXiv:2206.07759v2, §11.4, Theorem 11.5, p. 30",
+   "status": "missing",
+   "note": "Routed to the moduli-of-curves roadmap."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "T. van den Bogaart and B. Edixhoven, Algebraic stacks whose number of points over finite fields is a polynomial, in Number fields and function fields — two parallel worlds, Progr. Math. 239 (2005), 39–49",
+   "link": "doi:10.1007/0-8176-4447-4_2",
+   "why": "Theorem 2.1, Proposition 3.1 and Lemma 4.1: polynomial point counts ⇔ Tate cohomology, the engine of §§1, 3 and 10."
+  },
+  {
+   "citation": "K. Behrend, The Lefschetz trace formula for algebraic stacks, Invent. Math. 112 (1993), 127–149",
+   "link": "doi:10.1007/bf01232427",
+   "why": "Proposition 1.3, point counting on stacks."
+  },
+  {
+   "citation": "E. Arbarello and M. Cornalba, Calculating cohomology groups of moduli spaces of curves via algebraic geometry, Publ. Math. IHÉS 88 (1998), 97–127",
+   "link": "doi:10.1007/bf02701767",
+   "why": "Lemmas 2.6 and 2.9, (2.4) and Theorem 2.1: the inductive method of §2."
+  },
+  {
+   "citation": "E. Getzler and M. Kapranov, Modular operads, Compositio Math. 110 (1998), 65–126",
+   "link": "doi:10.1023/a:1000245600345",
+   "why": "Theorem 8.13, the boundary counts of §9 and §11."
+  },
+  {
+   "citation": "M. Kisin and G. I. Lehrer, Equivariant Poincaré polynomials and counting points over finite fields, J. Algebra 247 (2002), 435–451",
+   "link": "doi:10.1006/jabr.2001.9029",
+   "why": "Equivariant point counts (Definition 9.1, Proposition 9.3) and genus 0 input."
+  },
+  {
+   "citation": "E. Gorsky, The equivariant Euler characteristic of moduli spaces of curves, Adv. Math. 250 (2014), 588–595",
+   "link": "doi:10.1016/j.aim.2013.10.003",
+   "why": "χ(M_{4,3}) and χ_{S₃}(M_{4,3}), fixing the last coefficients in §10 and §11.3."
+  },
+  {
+   "citation": "J. Bergström, Cohomology of moduli spaces of curves of genus three via point counts, J. reine angew. Math. 622 (2008), 155–187",
+   "link": "doi:10.1515/crelle.2008.068",
+   "why": "Genus 3 point counts, the naive sieve (Proposition 7.1) and Remark 1.6."
+  },
+  {
+   "citation": "J. Bergström, Equivariant counts of points of the moduli spaces of pointed hyperelliptic curves, Doc. Math. 14 (2009), 259–296",
+   "link": "doi:10.4171/dm/273",
+   "why": "Hyperelliptic counts (Proposition 5.1, §11.1) and genus 2 input."
+  },
+  {
+   "citation": "A. Arsie and A. Vistoli, Stacks of cyclic covers of projective spaces, Compos. Math. 140 (2004), 647–666",
+   "link": "doi:10.1112/s0010437x03000253",
+   "why": "Corollary 4.7, the quotient presentation of H_g."
+  },
+  {
+   "citation": "M. Boggi and M. Pikaart, Galois covers of moduli of curves, Compositio Math. 120 (2000), 171–191",
+   "link": "doi:10.1023/a:1001731524036",
+   "why": "M̄_{g,n} as a global finite quotient: pure Tate Hodge structures and twisted forms."
+  },
+  {
+   "citation": "T. Church, B. Farb and A. Putman, The rational cohomology of the mapping class group vanishes in its virtual cohomological dimension, IMRN 2012, 5025–5030",
+   "link": "doi:10.1093/imrn/rnr208",
+   "why": "H^{4g−5}(M_g) = 0, the improvement in Proposition 2.1."
+  },
+  {
+   "citation": "S. Morita, T. Sakasai and M. Suzuki, Abelianizations of derivation Lie algebras of the free associative algebra and the free Lie algebra, Duke Math. J. 162 (2013), 965–1002",
+   "link": "doi:10.1215/00127094-2140560",
+   "why": "Independent proof of the vcd vanishing used in Proposition 2.1."
+  },
+  {
+   "citation": "J. Harer, The virtual cohomological dimension of the mapping class group of an orientable surface, Invent. Math. 84 (1986), 157–176",
+   "link": "doi:10.1007/bf01388737",
+   "why": "The vcd of M_{g,n} behind Proposition 2.1."
+  },
+  {
+   "citation": "S. Keel, Intersection theory of moduli space of stable n-pointed curves of genus zero, Trans. Amer. Math. Soc. 330 (1992), 545–574",
+   "link": "doi:10.2307/2153922",
+   "why": "Even cohomology of M̄_{0,n}."
+  },
+  {
+   "citation": "D. Petersen, A spectral sequence for stratified spaces and configuration spaces of points, Geom. Topol. 21 (2017), 2527–2555",
+   "link": "doi:10.2140/gt.2017.21.2527",
+   "why": "Example 3.5, the Galois-equivariant weight spectral sequence."
+  },
+  {
+   "citation": "E. Getzler, The semi-classical approximation for modular operads, Comm. Math. Phys. 194 (1998), 481–492",
+   "link": "doi:10.1007/s002200050365",
+   "why": "Genus 1 point counts for n ≤ 10."
+  },
+  {
+   "citation": "R. Vakil and M. M. Wood, Discriminants in the Grothendieck ring, Duke Math. J. 164 (2015), 1139–1185",
+   "link": "doi:10.1215/00127094-2877184",
+   "why": "Proposition 3.7, the inverse zeta function formula (8)."
+  },
+  {
+   "citation": "O. Tommasi, Rational cohomology of the moduli space of genus 4 curves, Compos. Math. 141 (2005), 359–384",
+   "link": "doi:10.1112/s0010437x0400123x",
+   "why": "e_c(M₄) in Hodge structures (Remark 1.6)."
+  },
+  {
+   "citation": "J. Bergström and O. Tommasi, The rational cohomology of M̄₄, Math. Ann. 338 (2007), 207–239",
+   "link": "doi:10.1007/s00208-006-0073-z",
+   "why": "The Poincaré polynomial of M̄₄, reproved in Theorem 1.4."
+  }
+ ],
+ "routes": [
+  {
+   "route": "new",
+   "roadmap": "MotivicStructuresInModuliOfCurves",
+   "title": "Tautological rings and motivic structures in the cohomology of moduli of stable curves",
+   "area": "algebraicgeometry",
+   "items": [
+    "PAPER-BERGSTROM-FABER-PAYNE-24/moduli-stacks",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/boggi-pikaart",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/pure-tate",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/ac-boundary-sequence",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/ac-lemma-2-6",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/harer-vcd",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/cfp-mss",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-2-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/ac-lemma-2-9",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/ac-theorem-2-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/keel",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/known-polynomial-counts",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-1-1-k7",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-1-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/cor-3-2",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/notation-4-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-4-2-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-4-2-2",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-4-2-3",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/arsie-vistoli",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/hyperelliptic-count",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/lemma-5-2",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-5-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/canonical-genus-4",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-6-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/examples-7-7-7-9",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/quadric-zeta",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-8-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-8-2",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-8-4",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-8-6",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-8-8",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/gp-4-tuples",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/equivariant-euler-characteristic",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/twisted-mgn",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/cor-9-5",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/getzler-kapranov",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/lower-genus-equivariant-counts",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-9-6",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/gorsky",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-1-4",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-1-5",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/remark-1-6",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/section-10",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/hyperelliptic-equivariant",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-11-2",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-11-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/local-systems",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-11-5"
+   ],
+   "brief": "This is the new roadmap proposed by PAPER-CANNING-LARSON-PAYNE-24 under the same id, accepted on review; its brief remains binding. That brief already asks for 'the vanishing of the low-degree Borel–Moore homology of M_{g,n} proved by Bergström–Faber–Payne' as a layer, and this paper supplies it with its point-counting proof. Add, after the moduli stacks, boundary strata and vcd layers: the Arbarello–Cornalba method (excision sequence, Lemma 2.6, Lemma 2.9, vanishing in degrees 1, 3, 5), Keel's theorem, Church–Farb–Putman and Morita–Sakasai–Suzuki, Proposition 2.1; polynomial point counts of M̄_{g,n} and Proposition 4.2 (via DWP.8's weight spectral sequence); the hyperelliptic stack (Arsie–Vistoli) and the counts of §5; canonical genus 4 curves on the three quadrics (§6, with GN.2's classification); the genus 4 sieve computations of §8, Proposition 8.8 included; equivariant counts of M̄_{g,n} through twisted forms, the Getzler–Kapranov formula and Gorsky's Euler characteristic (§9); the assembly of §10; Theorems 1.1, 1.4, 1.5, 11.1 and 11.5, with the symplectic local systems V_λ on M₄. Import from WeilConjectures the stack point counts (Behrend), the van den Bogaart–Edixhoven theorem, Proposition 3.1, the Hasse–Weil sieve and equivariant counts (WC.1, WC.2, WC.4, WC.5), and from FiniteFieldsAndCharacterSums the squarefree and character-sum lemmas. Acceptance: Theorems 1.4 and 1.5 differ by Proposition 9.6 in every degree; the closed counts are palindromic; χ(M_{4,3}) = −10 and χ_{S₃}(M_{4,3}) = 2s₃ − 6s_{2,1}; and H^{11}(M̄_{1,11}) ≅ Q² shows Theorem 1.1 is sharp.",
+   "reason": "The atlas has no moduli of curves; PAPER-CANNING-LARSON-PAYNE-24 proposed this roadmap for the cohomology of M̄_{g,n}, and its design (DESIGN-MotivicStructuresInModuliOfCurves) is pending. Its brief names this paper's vanishing theorem as a planned layer, and Canning–Larson–Payne's own proofs start from it, so the whole moduli-theoretic content coalesces there, keeping its id, title and area."
+  },
+  {
+   "route": "source",
+   "roadmap": "WeilConjectures",
+   "stages": [
+    "WeilConjectures:WC.1",
+    "WeilConjectures:WC.2",
+    "WeilConjectures:WC.4",
+    "WeilConjectures:WC.5",
+    "WeilConjectures:WC.5:power-sum-converse"
+   ],
+   "items": [
+    "PAPER-BERGSTROM-FABER-PAYNE-24/point-count-stack",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-1-3-i",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-1-3-ii",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-1-3-iii",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-1-3-iv",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/polynomial-point-count",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/vdbe-theorem-2-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/vdbe-prop-3-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/vdbe-lemma-4-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-3-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/vakil-wood",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-7-4",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-7-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-7-5",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/remark-7-6",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/twisted-form",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/def-9-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-9-3",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/poincare-duality-dm"
+   ],
+   "reason": "The point-counting tools are general statements about zeta functions and Frobenius traces, which WeilConjectures owns for varieties. The paper supplies:\n- for WC.1: point counts of stacks and Behrend's trace formula (Proposition 1.3), the Vakil–Wood formula for the inverse zeta function and Proposition 7.4, the Hasse–Weil sieve (Propositions 7.1, 7.5, Remark 7.6), and twisted forms with equivariant point counts (Kisin–Lehrer);\n- for WC.2: Poincaré duality in the equivariant, DM-stack form of Remark 9.4;\n- for WC.4: the specialization comparison and Proposition 9.3;\n- for WC.5 and its power-sum-converse substage: the van den Bogaart–Edixhoven theorem and its finite-spectrum lemma, and Proposition 3.1."
+  },
+  {
+   "route": "source",
+   "roadmap": "DeligneWeightsAndPurity",
+   "stages": [
+    "DeligneWeightsAndPurity:DWP.8"
+   ],
+   "items": [
+    "PAPER-BERGSTROM-FABER-PAYNE-24/weight-spectral-sequence"
+   ],
+   "reason": "DWP.8 plans weight filtrations of mixed ℓ-adic complexes. The weight spectral sequence of a normal crossings compactification of a smooth DM stack, with E₁ built from normalized boundary strata, is its geometric instance. The paper uses its Galois-equivariant form (Petersen; Payne–Willwacher), so it is a source for DWP.8."
+  },
+  {
+   "route": "source",
+   "roadmap": "FiniteFieldsAndCharacterSums",
+   "stages": [
+    "FiniteFieldsAndCharacterSums:FF.1",
+    "FiniteFieldsAndCharacterSums:FF.3"
+   ],
+   "items": [
+    "PAPER-BERGSTROM-FABER-PAYNE-24/squarefree-count",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/char-sum-interpolation"
+   ],
+   "reason": "Two elementary finite-field lemmas behind the hyperelliptic counts belong with characters and polynomial counting: the vanishing of quadratic-character correlation sums by interpolation (FF.1), and the count of squarefree polynomials of degree 2g + 1 or 2g + 2 through f = h·m² (FF.3)."
+  },
+  {
+   "route": "source",
+   "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+   "stages": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+   ],
+   "items": [
+    "PAPER-BERGSTROM-FABER-PAYNE-24/quadric-classification"
+   ],
+   "reason": "GN.2 integrates the classification of quadratic forms by discriminants and local invariants. The three PGL₄(F_q)-orbits of reduced irreducible quadric surfaces and the orders of their automorphism groups are its finite-field case, including characteristic 2 through the Arf invariant."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/E1",
+   "kind": "misprint",
+   "locator": "arXiv:2206.07759v2 (17 Oct 2023), Corollary 3.2, p. 6; page image checked",
+   "printed": "The source asserts that if a polynomial P ∈ Q[t] satisfies #M̄_{4,n}(F_q) = P(q) + o(q^{9/2+n}) for q = p^m as m → ∞, then H^k(M̄_{g,n}) = 0 whenever k is odd and k ≤ 9.",
+   "correction": "Then H^k(M̄_{4,n}) = 0 for all odd k ≤ 9.",
+   "reason": "The hypothesis is about M̄_{4,n}, and Proposition 3.1 with s = 9 + 2n plus Poincaré duality gives vanishing for M̄_{4,n} only; the statement for all M̄_{g,n} is Theorem 1.1, which needs the whole induction of §2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2206.07759 v2 (17 Oct 2023, 'minor revisions, to appear in Ann. Math.') is the latest arXiv version; the Annals article (199 (2024) 1323–1365, doi:10.4007/annals.2024.199.3.7) has no free PDF (the Annals page links none) and was not collated.",
+    "2026-09-29: Crossref records no update or erratum relation, and the Annals page lists none. Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/E2",
+   "kind": "misprint",
+   "locator": "arXiv:2206.07759v2 (17 Oct 2023), proof of Proposition 3.1, p. 6; page image checked",
+   "printed": "Σ_{i=0}^{2d} (−1)^i Σ_{1≤j≤d_i} α_{i,j}^m = P(p^m) + o(p^{md/2})",
+   "correction": "… = P(p^m) + o(p^{ms/2})",
+   "reason": "The hypothesis gives an error o(p^{ms/2}) with s ≥ d, which is weaker than o(p^{md/2}), and [vdBE05, Lemma 4.1] is then applied with s, as the next sentence does.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2206.07759 v2 (17 Oct 2023, 'minor revisions, to appear in Ann. Math.') is the latest arXiv version; the Annals article (199 (2024) 1323–1365, doi:10.4007/annals.2024.199.3.7) has no free PDF (the Annals page links none) and was not collated.",
+    "2026-09-29: Crossref records no update or erratum relation, and the Annals page lists none. Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/E3",
+   "kind": "misprint",
+   "locator": "arXiv:2206.07759v2 (17 Oct 2023), §10.1, the display for #M_{4,3}(F_q), p. 24; page image checked",
+   "printed": "#M_{4,3}(F_q) = q^{12} + 4q^{11} + 7q^{10} − 4q⁹ − 13q⁸ + 4q⁷ + (B − 10606)q⁶ − 11q⁴ + 2q² + 2q − 1.",
+   "correction": "… + (B − 10606)q⁶ − 11q³ + 2q² + 2q − 1.",
+   "reason": "Subtracting Proposition 9.6's #∂M̄_{4,3} (q³-coefficient 1179) from the palindromic #M̄_{4,3} (q³-coefficient 1168, q⁴-coefficients 3977 and 3977) gives −11q³ and no q⁴ term, as in Theorem 1.5; checked by computer. The value at q = 1, hence B = 10605, is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2206.07759 v2 (17 Oct 2023, 'minor revisions, to appear in Ann. Math.') is the latest arXiv version; the Annals article (199 (2024) 1323–1365, doi:10.4007/annals.2024.199.3.7) has no free PDF (the Annals page links none) and was not collated.",
+    "2026-09-29: Crossref records no update or erratum relation, and the Annals page lists none. Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/E4",
+   "kind": "misprint",
+   "locator": "arXiv:2206.07759v2 (17 Oct 2023), Remark 2.2, p. 5; page image checked",
+   "printed": "The source reports a subsequent improvement of Proposition 2 by Wong for n = 2, citing [Won22, Theorem 4.1] for H^{2g}_c(M_{g,2}) = 0 when g ≥ 1.",
+   "correction": "… has improved Proposition 2.1 for n = 2 …",
+   "reason": "The vanishing range (2) is Proposition 2.1; there is no Proposition 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2206.07759 v2 (17 Oct 2023, 'minor revisions, to appear in Ann. Math.') is the latest arXiv version; the Annals article (199 (2024) 1323–1365, doi:10.4007/annals.2024.199.3.7) has no free PDF (the Annals page links none) and was not collated.",
+    "2026-09-29: Crossref records no update or erratum relation, and the Annals page lists none. Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/E5",
+   "kind": "misprint",
+   "locator": "arXiv:2206.07759v2 (17 Oct 2023), §9, first paragraph, p. 21; page image checked",
+   "printed": "The source computes the boundary point counts from Getzler and Kapranov’s modular-operad character formula, citing [GK98, Theorem 8.3].",
+   "correction": "[GK98, Theorem 8.13]",
+   "reason": "The character formula Ch(MV) = Log(exp(Δ) Exp(Ch V)) is Theorem 8.13 of Getzler–Kapranov (checked in arXiv:dg-ga/9408003v2, which has no Theorem 8.3), and the paper itself cites Theorem 8.13 in §9.3 and §11.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2206.07759 v2 (17 Oct 2023, 'minor revisions, to appear in Ann. Math.') is the latest arXiv version; the Annals article (199 (2024) 1323–1365, doi:10.4007/annals.2024.199.3.7) has no free PDF (the Annals page links none) and was not collated.",
+    "2026-09-29: Crossref records no update or erratum relation, and the Annals page lists none. Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/E6",
+   "kind": "misprint",
+   "locator": "arXiv:2206.07759v2 (17 Oct 2023), bibliography, entry [Won22], p. 31",
+   "printed": "The bibliography lists Y. M. Wong’s preprint on computing fundamental classes for spin components in strata of differentials, with identifier arXiv:22111.16061v1.",
+   "correction": "arXiv:2211.16061v1",
+   "reason": "22111.16061 is not a valid arXiv identifier; the arXiv API returns Wong's paper under 2211.16061.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:2206.07759 v2 (17 Oct 2023, 'minor revisions, to appear in Ann. Math.') is the latest arXiv version; the Annals article (199 (2024) 1323–1365, doi:10.4007/annals.2024.199.3.7) has no free PDF (the Annals page links none) and was not collated.",
+    "2026-09-29: Crossref records no update or erratum relation, and the Annals page lists none. Not an exhaustive novelty claim."
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2206.07759v2",
+   "read": "2026-09-29",
+   "sha256": "36beb2d3eccb42161a0b6190a653b060337f08fed5866f6b578888d503346758",
+   "citation": "arXiv:2206.07759v2, read completely."
+  }
+ ],
+ "gaps": [
+  {
+   "id": "published-version",
+   "title": "published text not collated",
+   "remaining": "The Annals version (43 pages) was not accessible; collate the locators and E1–E6 when a copy is available.",
+   "items": [
+    "PAPER-BERGSTROM-FABER-PAYNE-24/cor-3-2",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/prop-3-1",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/section-10"
+   ]
+  }
+ ]
+}
