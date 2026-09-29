@@ -9,6 +9,8 @@ import Mathlib.Topology.Algebra.RestrictedProduct.Basic
 import Mathlib.RepresentationTheory.Homological.TateCohomology.Basic
 import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
 import Mathlib.RepresentationTheory.Homological.GroupCohomology.Basic
+import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.Data.Matrix.Mul
 
 /-!
 # Suggested declarations: global Galois duality and compact coefficients, layers R02.1, R02.2, R02.3, R02.4
@@ -549,5 +551,23 @@ example (x : ℚ) (hx : x ≠ 1) : x - 1 ≠ 0 ∧ x⁻¹ - 1 ≠ 0 := by
   exact hx (by simpa using congrArg (·⁻¹) h)
 
 end SuggestedTest
+
+/-! ## D7 (checkpoint 5): compactly supported cochains -/
+
+namespace D7Test
+
+/-- `D7/compact-support-cochains`: with the cone convention `d = ((d_B, f), (0, −d_A))`, the cone differential squares to
+zero when `d_A² = d_B² = 0` and `f` is a chain map (`d_B f = f d_A`); here as `2 × 2` matrices over a commutative
+ring. -/
+example {R : Type*} [CommRing R] (dA dB f : R) (hA : dA * dA = 0) (hB : dB * dB = 0) (hf : dB * f = f * dA) :
+    !![dB, f; 0, -dA] * !![dB, f; 0, -dA] = 0 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two, hA, hB, hf]
+
+/-- `D7/compact-support-cup-products`: the sign `(−1)^{deg a}` in `a ∪_c (b, b_S)` is `−1` for `deg a = 1` and `1` for
+`deg a = 2`. -/
+example : ((-1 : ℤ) ^ 1, (-1 : ℤ) ^ 2) = (-1, 1) := by norm_num
+
+end D7Test
 
 end TauCeti.PoitouTate
