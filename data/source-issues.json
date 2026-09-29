@@ -92390,6 +92390,27 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E111",
+   "kind": "error",
+   "locator": "Proposition B.0.1(4), published PDF203; the equations of B.0.1(1) and the open V are on PDF202 (page image of the equations checked).",
+   "printed": "The source restricts to V = Spec Z[a, b][1/P(a,b)] ⊂ A², with P(a, b) = 7!b(b−1)(a−1)(a−2)(a−b)(a−b−1)(a−b−2). In (4), it defines H using the 3 × 3 minors of the Jacobian for presentation (1) relative to Z[t, a, b][1/P(a,b)], and asserts t³ ∈ H.",
+   "correction": "State (4) over Z[a,b][1/(aP)] (invert a as well). There t³ ∈ H holds away from a+b−1 = 0 and C = 0 by the certificate recorded for Q06, and at the sample points checked on those two curves.",
+   "reason": "On the line a = 0, which lies in V whenever b(b−1)(b+1)(b+2) ≠ 0, the point t = 1, c12 = c13 = c22 = d21 = d33 = 1, d31 = (b−1)/(b+1) satisfies the three printed equations of (1), and the 3×6 Jacobian relative to Z[t, a, b] has rank 2 there. A power t^k in H would force rank 3 wherever t is invertible, so no power of t lies in H and (4) fails. The fibre of Spec R[1/t] → V over (0, b) is singular at this point too (rank 2 with the t column). The full Jacobian including the a and b columns has rank 3, so R ⊗ Q is regular there and the regularity step in the proof of (3) is not contradicted by this point. Checked exactly with SymPy at b = 5, −3, 7 and for symbolic b; the printed equations were re-read on the page image. Whether the specializations used downstream (Proposition 3.3.9, Q11) can have a ≡ 0 is not settled here.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "29 September 2026: Crossref record of doi:10.1007/s00222-022-01163-4 has no update-to or updated-by relation, and a Crossref search for works updating this DOI returns none.",
+    "29 September 2026: author page https://math.rice.edu/~bl70/ links LocModels.pdf for this article with no correction link (its correction link is for the Harder–Narasimhan article).",
+    "29 September 2026: arXiv https://arxiv.org/abs/2007.05398 lists v2 (15 June 2022) as latest; this passage was not compared in v2. The finding is unreviewed and this bounded search does not establish priority."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E1",
    "kind": "gap",
    "locator": "Proof of Lemma 2.1, p.9 (published version)",
