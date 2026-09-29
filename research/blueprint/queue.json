@@ -31676,8 +31676,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BURUNGALE-TIAN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3973"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3973",
+   "finishedAt": "2026-09-29T13:41:48Z"
   },
   {
    "id": "RT-PAPER-YUAN-26",
@@ -42726,8 +42727,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-09.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4004"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4004",
+   "finishedAt": "2026-09-29T13:41:52Z"
   },
   {
    "id": "RT-AUDIT-10",
@@ -43038,7 +43040,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-13.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4008"
   },
   {
    "id": "RT-AUDIT-14",
@@ -43200,7 +43203,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-15.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4010"
   },
   {
    "id": "RT-AUDIT-16",
@@ -45885,7 +45889,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-modeltheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3970"
   },
   {
    "id": "RT-AREA-algebraicgeometry",
