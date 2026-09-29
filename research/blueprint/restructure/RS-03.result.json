@@ -39,9 +39,17 @@
       "action": "narrow",
       "keeps": "The additive-combinatorics-facing API and normalization/comparison theorems for arbitrary finite abelian groups; retain all original energy, convolution and Plunnecke-Ruzsa consequences as imported theorems. Prove only the generality and compatibility missing from the audited cyclic/additive baseline.",
       "suppliedBy": [
-        "UPSTREAM:Mathlib audited cyclic Fourier, additive energy and Plunnecke-Ruzsa baseline (AUDIT-06; canonical audit pins)"
+        "UPSTREAM:Mathlib audited cyclic Fourier, additive energy and Plunnecke-Ruzsa baseline (AUDIT-16; canonical audit pins)"
       ],
       "reason": "The audit is partial, not a license either to rebuild built energy theory or to call arbitrary finite-abelian Fourier theory complete."
+    },
+    "AdditiveCombinatorics:AC.2": {
+      "action": "narrow",
+      "keeps": "Szemeredi's theorem for every k >= 4 through one selected complete proof route, with its ergodic/combinatorial prerequisites owned here; quantitative k = 3 statements beyond the imported tower-type bound (cornersTheoremBound); the Varnavides count and the proved correspondence between the finite quantitative and the infinite positive-upper-density forms (the pins have no upper or Banach density); and the named arithmetic removal lemma (Kral'-Serra-Vena, arXiv:0804.4847v1, Theorem 2) with its directed fixed-graph removal input. Roth's theorem in finite abelian groups and in [n] with its o(N) form, Behrend's lower bound and van der Waerden (a monochromatic homothetic copy, via Hales-Jewett) are imported with their stated hypotheses. The ThreeAPFree convention stays explicit: in a group of exponent two a + a = b + b, so a repeated endpoint (a, b, a) with a != b witnesses failure.",
+      "suppliedBy": [
+        "UPSTREAM:Mathlib Roth, corners, Behrend and Hales-Jewett/van der Waerden theorems (AUDIT-16; pin 082e2d37e8b0463410cdb532e111cd43d5a66174)"
+      ],
+      "reason": "RT-AREA-combinatorics/3: the layer still asked to formalize Roth, which pinned Mathlib proves: roth_3ap_theorem and roth_3ap_theorem_nat (Combinatorics/Additive/Corner/Roth.lean:137, 163; already AUDIT-16 evidence), rothNumberNat_isLittleO_id (Roth.lean:196), Behrend.roth_lower_bound (Combinatorics/Additive/AP/Three/Behrend.lean:481) and Combinatorics.exists_mono_homothetic_copy (Combinatorics/HalesJewett.lean:459). Import them and keep the stronger quantitative, correspondence, k >= 4 and removal work. The partly-built AUDIT-16 verdict is unchanged."
     },
     "ClassicalArithmeticCompletion:CA.1": {
       "action": "narrow",
@@ -239,6 +247,11 @@
       "source": "AdditiveCombinatorics:AC.0",
       "target": "FiniteFieldsAndCharacterSums:FF.1",
       "reason": "Specialize the general finite-abelian Fourier comparison to additive finite fields."
+    },
+    {
+      "source": "AdditiveCombinatorics:AC.0",
+      "target": "EllipticRegulators:ER.4",
+      "reason": "RT-AREA-combinatorics/14: ER.4's finite Fourier transform on C-torsion is a specialization of the finite-abelian interface owned here. ER.4 keeps the identification of the C-torsion with its dual, Lecture 11's normalization 1/C (the unitary normalization on a group of order C^2) and the odd-function identities, and imports inversion and Parseval from AC.0."
     },
     {
       "source": "ComputationalNumberTheory:CN.2",
@@ -593,7 +606,7 @@
     },
     {
       "target": "Built additive energy, Plunnecke-Ruzsa and audited cyclic Fourier results",
-      "owner": "UPSTREAM:Mathlib audited cyclic Fourier, additive energy and Plunnecke-Ruzsa baseline (AUDIT-06; canonical audit pins)",
+      "owner": "UPSTREAM:Mathlib audited cyclic Fourier, additive energy and Plunnecke-Ruzsa baseline (AUDIT-16; canonical audit pins)",
       "formerly": [
         "AdditiveCombinatorics:AC.0",
         "FiniteFieldsAndCharacterSums:FF.1"
@@ -604,7 +617,8 @@
       "owner": "AdditiveCombinatorics:AC.0",
       "formerly": [
         "AdditiveCombinatorics:AC.0",
-        "FiniteFieldsAndCharacterSums:FF.1"
+        "FiniteFieldsAndCharacterSums:FF.1",
+        "EllipticRegulators:ER.4"
       ]
     },
     {
