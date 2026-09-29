@@ -43426,7 +43426,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-05.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4000"
   },
   {
    "id": "RT-AUDIT-06",
@@ -43504,8 +43505,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-06.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4001"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4001",
+   "finishedAt": "2026-09-29T16:48:16Z"
   },
   {
    "id": "RT-AUDIT-07",
@@ -47348,7 +47350,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-etale.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3978"
   },
   {
    "id": "RT-AREA-motives",
