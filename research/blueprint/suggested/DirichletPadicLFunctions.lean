@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.Localization.Away.Basic
 import Mathlib.Topology.Algebra.ContinuousMonoidHom
 import Mathlib.NumberTheory.LSeries.DirichletContinuation
 import Mathlib.NumberTheory.BernoulliPolynomials
@@ -6122,3 +6123,162 @@ example (T : M ≃+* M) (hT : ∀ μ : M, T μ=weight j μ) :
       IsFractionRing.ringEquivOfRingEquiv (K := Q) (L := Q) T
         (kubotaLeopoldtPseudomeasure p : Q) := sorry
 end SuggestedLocalizedEisensteinTests
+
+/-! ## Admissible evaluation of the Eisenstein constant
+
+The evaluator is defined on the native localization at its displayed doubled
+denominator. Its image in the total quotient is the existing localized constant;
+no ring homomorphism from the entire total quotient to a field is asserted.
+-/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "d" => (fun a : U => 2*eisensteinTwistedDenominator p a)
+local notation "S" => (fun a : U => Localization.Away (d a))
+
+def eisensteinMomentHom (k : ℕ) : M →+* ℚ_[p] := sorry
+lemma eisensteinMomentHom_def (k : ℕ) :
+    eisensteinMomentHom p k = (algebraMap Z ℚ_[p]).comp
+      (characterIntegralAlgHom
+        (primePowerArithmeticCharacter p 0 (1 : DirichletCharacter Z (p^0)) k)).toRingHom := sorry
+lemma eisensteinMomentHom_apply (k : ℕ) (μ : M) :
+    eisensteinMomentHom p k μ = (μ (j^k) : ℚ_[p]) := sorry
+lemma eisensteinMomentHom_dirac (k : ℕ) (u : U) :
+    eisensteinMomentHom p k (dirac Z u) = (u : ℚ_[p])^k := sorry
+lemma eisensteinMomentHom_zero_weight (μ : M) :
+    eisensteinMomentHom p 0 μ = (μ 1 : ℚ_[p]) := sorry
+lemma eisensteinMomentHom_denominator_ne_zero (a : U) (ha : (a : Z)=(p+1 : ℕ)) (k : ℕ) :
+    eisensteinMomentHom p k (d a) ≠ 0 := sorry
+
+def eisensteinAwayConstant (a : U) : S a := sorry
+lemma eisensteinAwayConstant_def (a : U) :
+    eisensteinAwayConstant p a = IsLocalization.mk' (S a)
+      (eisensteinWeightedNumerator p a) ⟨d a,Submonoid.mem_powers (d a)⟩ := sorry
+lemma eisensteinAwayConstant_clearing (a : U) :
+    algebraMap M (S a) (d a)*eisensteinAwayConstant p a =
+      algebraMap M (S a) (eisensteinWeightedNumerator p a) := sorry
+lemma eisensteinAwayConstant_unique (a : U) (z : S a)
+    (hz : algebraMap M (S a) (d a)*z = algebraMap M (S a) (eisensteinWeightedNumerator p a)) :
+    z=eisensteinAwayConstant p a := sorry
+
+def eisensteinAwayToFraction (a : U) (ha : (a : Z)=(p+1 : ℕ)) : S a →+* Q := sorry
+lemma eisensteinAwayToFraction_def (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    eisensteinAwayToFraction p a ha = IsLocalization.Away.lift (d a)
+      (IsLocalization.map_units Q
+        (⟨d a,eisensteinTwistedDenominator_double_regular p a ha⟩ : nonZeroDivisors M)) := sorry
+lemma eisensteinAwayToFraction_algebraMap (a : U) (ha : (a : Z)=(p+1 : ℕ)) (μ : M) :
+    eisensteinAwayToFraction p a ha (algebraMap M (S a) μ) = algebraMap M Q μ := sorry
+lemma eisensteinAwayToFraction_injective (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    Function.Injective (eisensteinAwayToFraction p a ha) := sorry
+lemma eisensteinAwayToFraction_constant (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    eisensteinAwayToFraction p a ha (eisensteinAwayConstant p a) = localizedEisensteinConstant p := sorry
+
+def eisensteinAwayMoment (a : U) (ha : (a : Z)=(p+1 : ℕ)) (k : ℕ) : S a →+* ℚ_[p] := sorry
+lemma eisensteinAwayMoment_def (a : U) (ha : (a : Z)=(p+1 : ℕ)) (k : ℕ) :
+    eisensteinAwayMoment p a ha k = IsLocalization.Away.lift (d a)
+      (isUnit_iff_ne_zero.mpr (eisensteinMomentHom_denominator_ne_zero p a ha k)) := sorry
+lemma eisensteinAwayMoment_algebraMap (a : U) (ha : (a : Z)=(p+1 : ℕ)) (k : ℕ) (μ : M) :
+    eisensteinAwayMoment p a ha k (algebraMap M (S a) μ) = (μ (j^k) : ℚ_[p]) := sorry
+lemma eisensteinAwayMoment_unique (a : U) (ha : (a : Z)=(p+1 : ℕ)) (k : ℕ)
+    (F : S a →+* ℚ_[p]) (hF : ∀ μ : M, F (algebraMap M (S a) μ)=eisensteinMomentHom p k μ) :
+    F=eisensteinAwayMoment p a ha k := sorry
+lemma eisensteinAwayMoment_constant (a : U) (ha : (a : Z)=(p+1 : ℕ)) (k : ℕ) :
+    eisensteinAwayMoment p a ha k (eisensteinAwayConstant p a) =
+      algebraMap ℚ ℚ_[p] (-(1-(p : ℚ)^k)*bernoulli (k+1)/(2*(k+1))) := sorry
+theorem eisensteinAwayConstant_classical (a : U) (ha : (a : Z)=(p+1 : ℕ))
+    (k : ℕ) (hk : 4 ≤ k) (he : Even k) :
+    let c : ℚ := -(1-(p : ℚ)^(k-1))*bernoulli k/(2*k)
+    eisensteinAwayMoment p a ha (k-1) (eisensteinAwayConstant p a) = algebraMap ℚ ℚ_[p] c ∧
+      (UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein p k hk)).coeff 0 = algebraMap ℚ ℂ c := sorry
+end DirichletPadic
+
+namespace SuggestedEisensteinAwayTests
+open scoped AbstractMeasure
+open AbstractMeasure DirichletPadic
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "d" => (fun a : U => 2*eisensteinTwistedDenominator p a)
+local notation "S" => (fun a : U => Localization.Away (d a))
+-- zero_level_coordinate_character
+example (k : ℕ) (u : U) :
+    primePowerArithmeticCharacter p 0 (1 : DirichletCharacter Z (p^0)) k u = (u : Z)^k := sorry
+-- moment_zero_is_mass
+example (μ : M) : eisensteinMomentHom p 0 μ = (μ 1 : ℚ_[p]) := sorry
+-- moment_identity_atom
+example (k : ℕ) : eisensteinMomentHom p k (dirac Z (1 : U)) = 1 := sorry
+-- moment_sign_atom
+example (k : ℕ) : eisensteinMomentHom p k (dirac Z (-1 : U)) = (-1 : ℚ_[p])^k := sorry
+-- moment_arbitrary_integral_test
+example (k : ℕ) (μ : M) : eisensteinMomentHom p k μ = (μ (j^k) : ℚ_[p]) := sorry
+-- denominator_mass_nonzero
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) : eisensteinMomentHom p 0 (d a) = 2*(p : ℚ_[p]) := sorry
+-- denominator_dyadic_fourth_weight
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    eisensteinMomentHom 2 3 (2*eisensteinTwistedDenominator 2 a) = 160 := sorry
+-- away_fraction_definition
+example (a : U) : eisensteinAwayConstant p a = IsLocalization.mk' (S a)
+    (eisensteinWeightedNumerator p a) ⟨d a,Submonoid.mem_powers (d a)⟩ := sorry
+-- away_clearing_characterizes
+example (a : U) (z : S a) (hz : algebraMap M (S a) (d a)*z =
+    algebraMap M (S a) (eisensteinWeightedNumerator p a)) : z=eisensteinAwayConstant p a := sorry
+-- identity_parameter_collapses_localization
+example : (0 : S (1 : U)) = 1 := sorry
+-- inclusion_integral_numerator
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    eisensteinAwayToFraction p a ha (algebraMap M (S a) (eisensteinWeightedNumerator p a)) =
+      algebraMap M Q (eisensteinWeightedNumerator p a) := sorry
+-- inclusion_detects_equality
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) (x y : S a) :
+    eisensteinAwayToFraction p a ha x=eisensteinAwayToFraction p a ha y ↔ x=y := sorry
+-- inclusion_unit
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) : eisensteinAwayToFraction p a ha 1=1 := sorry
+-- inclusion_is_actual_constant
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    eisensteinAwayToFraction p a ha (eisensteinAwayConstant p a)=localizedEisensteinConstant p := sorry
+-- evaluator_integral_measure
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) (k : ℕ) (μ : M) :
+    eisensteinAwayMoment p a ha k (algebraMap M (S a) μ)=(μ (j^k) : ℚ_[p]) := sorry
+-- evaluator_unit
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) (k : ℕ) : eisensteinAwayMoment p a ha k 1=1 := sorry
+-- evaluator_unique_extension
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) (k : ℕ) (F : S a →+* ℚ_[p])
+    (hF : ∀ μ : M, F (algebraMap M (S a) μ)=eisensteinMomentHom p k μ) :
+    F=eisensteinAwayMoment p a ha k := sorry
+-- constant_zero_exponent
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    eisensteinAwayMoment p a ha 0 (eisensteinAwayConstant p a)=0 := sorry
+-- constant_dyadic_weight_four
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    eisensteinAwayMoment 2 a ha 3 (eisensteinAwayConstant 2 a)= -7/240 := sorry
+-- constant_odd_weight_three
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    eisensteinAwayMoment p a ha 2 (eisensteinAwayConstant p a)=0 := sorry
+-- common_dyadic_classical_constant
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    eisensteinAwayMoment 2 a ha 3 (eisensteinAwayConstant 2 a)=(-7/240 : ℚ_[2]) ∧
+      (UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein 2 4 (by decide))).coeff 0=(-7/240 : ℂ) := sorry
+-- common_ternary_classical_constant
+example (a : (ℤ_[3])ˣ) (ha : (a : ℤ_[3])=4) :
+    eisensteinAwayMoment 3 a ha 3 (eisensteinAwayConstant 3 a)=(-13/120 : ℚ_[3]) ∧
+      (UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein 3 4 (by decide))).coeff 0=(-13/120 : ℂ) := sorry
+end SuggestedEisensteinAwayTests
