@@ -134,3 +134,9 @@ None of these affects Theorem 1.1.
 ## Gap
 
 - `published-version` (open): collate the locators and E1–E15 with the Inventiones text when a copy is available.
+
+## Corrections by the independent review
+
+The review `REV-PAPER-XIE-YUAN-22` (Claude Code, session `cc-fb70e5`, 29 September 2026) accepts the extraction. All 15 source issues are confirmed at their locators on the page images of arXiv v1, and it adds none. For E1 it gives an explicit counterexample to the printed first case of Proposition 3.6. For E3 it checks the cited converse in Gubler's arXiv:math/0609387v2, Corollary 4.4.
+
+One note was added, on `manin-mumford`. The positive-characteristic version for all torsion is Pink–Roessler 2004 and Scanlon (arXiv:math/0303340, Theorem 2.2). With trivial trace, Scanlon's special subvarieties are torsion translates, which gives Theorem 5.1 as stated. No status, statement or route changed.

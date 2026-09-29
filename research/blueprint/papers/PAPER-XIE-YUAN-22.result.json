@@ -171,7 +171,7 @@
    "statement": "Let K be finitely generated over an algebraically closed field k, and A an abelian variety over K with trivial K/k-trace. If X ⊂ A_{K̄} is a closed subvariety with X(K̄) ∩ A(K̄)_tor Zariski dense in X, then X is a torsion subvariety (Raynaud over number fields; Hrushovski 2001 in general; Pink–Roessler 2002/2004).",
    "locator": "arXiv:2108.09722v1, §5, Theorem 5.1, pp. 22–23",
    "status": "missing",
-   "note": "RP.5 plans the Manin–Mumford theorem 'with precise characteristic and field hypotheses'; the positive-characteristic, trivial-trace case needs Hrushovski's or Pink–Roessler's proof, which no layer names. Routed to RP.5 as a source; PAPER-GAO-HABEGGER-19 marked the characteristic-0 case planned there."
+   "note": "RP.5 plans the Manin–Mumford theorem 'with precise characteristic and field hypotheses'; the positive-characteristic, trivial-trace case needs Hrushovski's or Pink–Roessler's proof, which no layer names. Routed to RP.5 as a source; PAPER-GAO-HABEGGER-19 marked the characteristic-0 case planned there. Added by REV-PAPER-XIE-YUAN-22: in positive characteristic a version covering all torsion, including p-power torsion, is Pink–Roessler (J. Algebraic Geom. 13 (2004), the paper's [PR04]) and Scanlon, Positive characteristic Manin–Mumford theorem (arXiv:math/0303340, Theorem 2.2): the Zariski closure of X ∩ G_tor is a finite union of 'special' subvarieties a + h⁻¹(X₀) with h: G → G₀ and X₀ defined over F̄_p. With trivial K/k-trace there is no nonzero homomorphism to an abelian variety over F̄_p ⊆ k, so these are torsion translates and Theorem 5.1 follows; the blueprint should derive it that way."
   },
   {
    "id": "PAPER-XIE-YUAN-22/chow-groups",
@@ -806,7 +806,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 16. The printed claim 'X is special for A/K/k′ iff k_{A,X} ⊆ k′' with k_{A,X} = k_A fails in the 'if' direction. Example: take k′ ⊇ k_A, so that A ∼ A₀ ⊗_{k′} K; let C ⊂ A₀ be a curve over k′ with trivial stabilizer that generates A₀, and X = C_K + P with P ∈ A₀(K) ∖ A₀(k′). Then Stab⁰(X) = 0 and T_X = A. If X = Y_K + τ with Y over k′ and τ torsion, uniqueness of the translate gives P − τ ∈ A₀(k′), and τ ∈ A₀(k′) since k′ is algebraically closed, a contradiction. So X is not special although k_A ⊆ k′. The repair recorded (pass to A₀ over k_A and use Corollary 3.5(ii)) restores Proposition 3.6; 'the proof' is the right scope.",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E2",
@@ -820,7 +825,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page images of pp. 25–26: Proposition 5.4 is stated for every t ∈ A′(K̄)_tor off A′_{e+1}, and the proof takes 'a torsion multi-section 𝒯 of 𝒜′ → S of order non-divisible by char K', which it needs (𝒯 finite étale and smooth, as Proposition 2.1 requires 𝒱 ∩ Y_{e+1} ⊆ 𝒱^sm). The p-power case is not argued. §5.3 needs only a Zariski-dense set of t, which prime-to-p torsion off A′_{e+1} provides.",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E3",
@@ -834,7 +844,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page images of pp. 26–27: the induction applies Theorem 1.1 to components of height 0, but Lemma 5.2 gives only 'dense small points ⇒ height 0'. The converse is the other half of the successive-minima inequality; it is Gubler, arXiv:math/0609387v2, Corollary 4.4 ('h_L(X) = 0 if and only if e₁(X, L) = 0'), read by this review, which is the paper's own reference [Gub07].",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E4",
@@ -848,7 +863,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 23: for dim X = 0 every X_m is a point, so no r with dim X_{r−1} < dim X_r exists. The lemma is used only after §5.3 disposes of dim X = 0, so the fix is the hypothesis dim X ≥ 1; for dim X ≥ 1 the r is unique (the X′_m increase strictly until they stabilize).",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E5",
@@ -862,7 +882,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on pp. 16–18: Lemma 3.7 asserts infinitely many k′ but the proof constructs one pencil, and Proposition 3.1 needs two distinct k₁ ≠ k₂ (then k₁ ∩ k₂ = k because both are algebraically closed in K of transcendence degree 1). The recorded repair is correct: with s₀ fixed and s₁/s₀, s₂/s₀ algebraically independent (possible as dim S ≥ 2 and M is very ample), k(s₁/s₀) ≠ k(s₂/s₀).",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E6",
@@ -876,7 +901,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the locator on the page image; the printed text is as quoted and the correction is the evident intended reading.",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E7",
@@ -890,7 +920,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the locator on the page image; the printed text is as quoted and the correction is the evident intended reading.",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E8",
@@ -904,7 +939,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the locator on the page image; the printed text is as quoted and the correction is the evident intended reading.",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E9",
@@ -918,7 +958,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the locator on the page image; the printed text is as quoted and the correction is the evident intended reading.",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E10",
@@ -932,7 +977,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the locator on the page image; the printed text is as quoted and the correction is the evident intended reading.",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E11",
@@ -946,7 +996,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the locator on the page image; the printed text is as quoted and the correction is the evident intended reading.",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E12",
@@ -960,7 +1015,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the locator on the page image; the printed text is as quoted and the correction is the evident intended reading.",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E13",
@@ -974,7 +1034,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 26: Proposition 2.1 gives Σ m_i[𝒵_i] ≤ h*[𝒯]·[𝒴] with no factor a, and the factor enters only with [𝒯] ≡ a[ℒ_{𝒜′}]^{dim A′}; as printed the equality would carry a². The step that replaces h*[𝒯] by the numerical class is valid because, by the projection formula, h*α·[𝒴]·[ℒ_ℬ]^{e+1} = α·h_*([𝒴]·[ℒ_ℬ]^{e+1}) and h_* of that cycle is a divisor class on 𝒜′.",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E14",
@@ -988,7 +1053,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the locator on the page image; the printed text is as quoted and the correction is the evident intended reading.",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   },
   {
    "id": "PAPER-XIE-YUAN-22/E15",
@@ -1002,7 +1072,12 @@
    "searched": [
     "2026-09-29: arXiv:2108.09722 has only v1 (22 Aug 2021; arXiv API). The Inventiones version (229 (2022) 607–637, doi:10.1007/s00222-022-01112-1; received 31 Aug 2021, accepted 3 Mar 2022) is subscription-only and was not collated, so a finding may already be corrected in print.",
     "2026-09-29: the Springer article page shows no erratum or correction; Crossref records no update or relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the locator on the page image; the printed text is as quoted and the correction is the evident intended reading.",
+    "by": "REV-PAPER-XIE-YUAN-22"
+   }
   }
  ],
  "sourceVersions": [

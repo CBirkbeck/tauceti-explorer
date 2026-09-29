@@ -1,0 +1,27 @@
+{
+ "paper": "PAPER-XIE-YUAN-22",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. RP.0, RP.1 and RP.5 of HeightsRationalPointsAndObstructions resolve. RP.0 plans number-field heights only, as the reason says, and adding the function-field geometric heights there as a source follows PAPER-GAO-HABEGGER-19's accepted route. RP.1 takes the K/k-trace beside Lang–Néron, and RP.5 plans translates, stabilizers and Manin–Mumford 'with precise characteristic and field hypotheses'. The positive-characteristic trivial-trace Manin–Mumford for all torsion should be taken from Pink–Roessler 2004 or Scanlon (note added to the item)."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. SF.5 constructs Chow groups, flat pullback and intersection products, which §2's non-proper intersection inequality consumes; the Bertini integrality, fibre-dimension loci and openness of geometric integrality are morphism-level facts for SF.0, and the pencil blow-up is birational geometry for SF.4. All three stage ids resolve."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. A1 proves the theorem of the cube, from which Lemma 4.1(1)–(2) follow, and A2 owns polarizations and positivity, where Lemma 4.1(3)–(4) (nefness of symmetric relatively ample bundles) belong. Both stage ids resolve."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. The items join HeightsRationalPointsAndObstructionsPartII, proposed by PAPER-GAO-HABEGGER-19, PAPER-DIMITROV-GAO-HABEGGER-21, PAPER-GAO-GE-KUHNE-26 and PAPER-YUAN-26, all of whose reviews accepted it; DESIGN-HeightsRationalPointsAndObstructionsPartII is pending. The title reproduces the parent's ('Heights, rational points and obstructions'). RP.5 plans the Bogomolov theorem over number fields only, so the function-field geometric Bogomolov conjecture in every characteristic has no other owner. The brief states Theorem 1.1 in full and names its imports; the design should carry E1–E5's repairs (Proposition 3.6, prime-to-p torsion in Proposition 5.4, the converse of Lemma 5.2, dim X ≥ 1 in Lemma 5.3, and two independent pencils in Lemma 3.7)."
+  }
+ ],
+ "notes": "Items. arXiv:2108.09722v1 (the only version; SHA-256 2587e703… matches) was read in full; the Inventiones version is subscription-only (Crossref lists only a text-and-data-mining licence) and was not available, so every finding stays scoped to arXiv v1, as the extraction says. Every numbered statement and display is in an item locator, and the statements match the text. The proofs were checked line by line; in particular the numerical step in Proposition 5.4 is valid by the projection formula (see E13's review), and Lemma 5.3's r is unique when dim X ≥ 1. Statuses. The four library citations resolve at the pins (TauCeti.AlgebraicGeometry.AbelianVariety and .prod, .baseChange, .mulBy, .IsIsogeny; Mathlib's Algebra.trdeg). The nine planned items hold against the full stage text: RP.5 (translates, stabilizers), SF.5 (Chow groups, intersection products), MC.0 (numerical equivalence), A3 ([n] étale exactly when n is invertible), A6 (Poincaré complete reducibility), R11.1 (good reduction versus abelian-scheme models) and R11.3 (semistable reduction). Tau Ceti's 229 abelian-variety declarations contain no trace, torsion, duality or reducibility results, and Mathlib has none of the height theory. Mistakes. E1–E15 confirmed at their locators on the page images; E1 checked by an explicit counterexample (a curve over k′ translated by a non-k′-rational point), E3 against Gubler's Corollary 4.4. No further mistake was found. The Manin–Mumford citation was checked: Pink–Roessler's ICM paper (arXiv:math/0212408) treats characteristic 0, while Scanlon's positive-characteristic theorem (arXiv:math/0303340, Theorem 2.2, whose reference [7] is the paper's [PR04]) covers all torsion, including p-power torsion; with trivial trace it gives Theorem 5.1 as stated. A note on the item records this. The arXiv listing and Crossref record no correction (29 September 2026). check_paper.py passes."
+}
