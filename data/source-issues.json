@@ -13434,6 +13434,48 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-BHATT-18/E9",
+   "kind": "gap",
+   "locator": "Bhatt arXiv:1608.08882v2 (11 Nov 2017), proof of Theorem 5.4, p. 10. Published full text not collated.",
+   "printed": "We may assume that A0 is a noetherian regular local ring of mixed characteristic (0, p). Choose g ∈ A0 coprime to p such that A0 → B0 is finite étale after inverting pg.",
+   "correction": "Before choosing g, replace B0 by B0/𝔮 for a prime 𝔮 of B0 with 𝔮 ∩ A0 = 0 (it exists since A0 → B0 is injective and integral); a splitting of A0 → B0/𝔮 composed with B0 → B0/𝔮 splits A0 → B0. Then B0 is a domain finite over the normal characteristic-0 domain A0, hence generically finite étale, and g exists.",
+   "reason": "A finite extension need not be generically étale: for B0 = A0[ε]/(ε²) no nonzero g makes A0[1/pg] → B0[1/pg] étale, so the choice in the proof is impossible without the reduction. The paper never reduces to a domain (the item local-complete-reduction supplies the step silently); André's proof does, and Theorem 6.1's proof does reduce to X0 integral. The theorem is unaffected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:1608.08882 abstract page and version list (v1, v2); v2 read completely.",
+    "2026-09-29: the published article (doi:10.1007/s00222-017-0768-7) is not readable here: the PDF redirects to Springer authentication, and Crossref records no update, correction or erratum relation. Published text not collated (G1).",
+    "2026-09-29: web search for an erratum or corrigendum; none found. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-BHATT-18",
+   "file": "research/blueprint/papers/PAPER-BHATT-18.result.json",
+   "citation": "Bhatt, \"On the direct summand conjecture and its derived variant\", Inventiones Mathematicae 212 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHATT-18/E10",
+   "kind": "misprint",
+   "locator": "Bhatt arXiv:1608.08882v2 (11 Nov 2017), Theorem 5.4, p. 10. Published full text not collated.",
+   "printed": "Theorem 5.4. Let A0 be a regular ring. The map A0 → B0 of A0-modules is split.",
+   "correction": "Let A0 → B0 be a finite extension of noetherian rings with A0 regular. Then A0 → B0 is split as a map of A0-modules (as in Theorem 1.1).",
+   "reason": "B0 is not introduced in the statement; the proof and Theorem 1.1 ('Let i : A0 → B0 be a finite extension of noetherian rings. Assume that A0 is regular.') use the finite extension. The item direct-summand already uses the corrected statement.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:1608.08882 abstract page and version list (v1, v2); v2 read completely.",
+    "2026-09-29: the published article (doi:10.1007/s00222-017-0768-7) is not readable here: the PDF redirects to Springer authentication, and Crossref records no update, correction or erratum relation. Published text not collated (G1).",
+    "2026-09-29: web search for an erratum or corrigendum; none found. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-BHATT-18",
+   "file": "research/blueprint/papers/PAPER-BHATT-18.result.json",
+   "citation": "Bhatt, \"On the direct summand conjecture and its derived variant\", Inventiones Mathematicae 212 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-BHATT-ETAL-23/E1",
    "kind": "error",
    "locator": "Lemma 2.56, second assertion, p.101 of the published version; the same wording is arXiv v1 Lemma 2.37 (p.20), v2 Lemma 2.50 (p.26) and v3 Lemma 2.56 (p.29)",
@@ -98697,6 +98739,111 @@
    "status": "confirmed",
    "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
    "reviewReason": "BZSV arXiv 2409.04677v1 Proposition 5.1.1 assumes an algebraic F-subgroup, a square of a character Chern class in absolute H⁴_et(BH,ℤ/2), and nonarchimedean residue characteristic ≠2. Its footnote 36 changes to an S¹-pushout elsewhere, and Remark 5.1.3 explicitly distinguishes geometric from absolute anomaly. These conditions and gluing do not follow just from the geometric definition quoted by MWZ. No counterexample to the six particular splittings is asserted."
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E1",
+   "kind": "misprint",
+   "locator": "§4, (22), p. 653 (published version)",
+   "printed": "ℓ(v)² = tr(κyκ̄^t y^{-1}) = tr(ρερ^t ε^{-1})",
+   "correction": "tr(ρερ^tε^{-1}) = 2 tr(κyκ̄^ty^{-1}); with ℓ defined by the rational trace, ℓ(n) = √(2g)n and ℓ(v0) = √(2g) as used on pp. 655–656",
+   "reason": "Over C the rational representation is κ ⊕ κ̄, so its trace is twice the real complex trace. For v = [n] on an elliptic curve with τ = i the complex expression is n² and the rational one 2n². Lemma 4.1 uses the complex form (25); its constants absorb the factor.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
+    "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
+    "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
+   ],
+   "owner": "PAPER-MASSER-ZANNIER-20",
+   "file": "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.result.json",
+   "citation": "Masser–Zannier, \"Abelian varieties isogenous to no Jacobian\", Annals of Mathematics 191 (2020), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E2",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 4.2, p. 656",
+   "printed": "and then we can define v by (50) with u = 0 and ũ = 0",
+   "correction": "define v by (27) with u = 0 and ũ = 0",
+   "reason": "(27) writes v in terms of u, f, f̃, ũ; (50) is the Cholesky perturbation bound of §5.4, unrelated to Lemma 4.2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
+    "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
+    "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
+   ],
+   "owner": "PAPER-MASSER-ZANNIER-20",
+   "file": "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.result.json",
+   "citation": "Masser–Zannier, \"Abelian varieties isogenous to no Jacobian\", Annals of Mathematics 191 (2020), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E3",
+   "kind": "misprint",
+   "locator": "§5.1, p. 661",
+   "printed": "Thus (40) holds, and (23) follows from (42).",
+   "correction": "Thus (40) holds, and (41) follows from (42).",
+   "reason": "(23) are the fundamental-domain inequalities of §4; (41), τ̃_σ = (a_στ_n + b_σ)(c_στ_n + d_σ)^{-1}, is what (42) gives once (40) holds.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
+    "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
+    "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
+   ],
+   "owner": "PAPER-MASSER-ZANNIER-20",
+   "file": "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.result.json",
+   "citation": "Masser–Zannier, \"Abelian varieties isogenous to no Jacobian\", Annals of Mathematics 191 (2020), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E4",
+   "kind": "misprint",
+   "locator": "§5.4, p. 669",
+   "printed": "We define τ̃0 = x̃0 + i(ι + w̃0 w̃0^t) in H_g.",
+   "correction": "We define τ̃1 = x̃1 + i(ι + w̃1 w̃1^t) in H_g.",
+   "reason": "τ̃0 was defined on p. 668; the next sentence moves τ1 near τ̃1, which has just been chosen through (55)–(56).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
+    "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
+    "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
+   ],
+   "owner": "PAPER-MASSER-ZANNIER-20",
+   "file": "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.result.json",
+   "citation": "Masser–Zannier, \"Abelian varieties isogenous to no Jacobian\", Annals of Mathematics 191 (2020), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E5",
+   "kind": "misprint",
+   "locator": "§5.2, p. 666",
+   "printed": "By (48) this holds for any D with (D + 1)^{G+1} > (G + 1)!(4eN(D + 1)^G,",
+   "correction": "(D + 1)^{G+1} > (G + 1)!(4eN(D + 1))^G",
+   "reason": "With W = N D, (48) asks for (D + 1)^{G+1} > (G + 1)!(4eND + 1)^G, which follows from (G + 1)!(4eN(D + 1))^G; the closing parenthesis is missing. The letter N here (κ_g n/(4π)) also clashes with the counting parameter N of Theorem 1.3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
+    "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
+    "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
+   ],
+   "owner": "PAPER-MASSER-ZANNIER-20",
+   "file": "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.result.json",
+   "citation": "Masser–Zannier, \"Abelian varieties isogenous to no Jacobian\", Annals of Mathematics 191 (2020), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "PAPER-MAULIK-SHANKAR-TANG-22/E1",
