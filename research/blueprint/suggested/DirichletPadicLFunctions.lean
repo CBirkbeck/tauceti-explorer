@@ -6410,3 +6410,140 @@ example (a : U) : (eisensteinAwaySeries p a).coeff (p*0)=(eisensteinAwaySeries p
 -- prime_power_coefficient_survives
 example (a : U) (r : ℕ) : (eisensteinAwaySeries p a).coeff (p^r)=1 := sorry
 end SuggestedFullEisensteinTests
+
+/-! ## Uniform integral denominator clearing of the full Eisenstein family
+
+The cleared coefficients live in the original integral convolution algebra.
+Their arithmetic moments live in the p-adic integers before inclusion into
+the field. The doubled shifted denominator remains explicit at every prime.
+-/
+namespace DirichletPadic
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "Δ" => (fun a : U => 2*eisensteinTwistedDenominator p a)
+local notation "S" => (fun a : U => Localization.Away (Δ a))
+
+def clearedEisensteinSeries (a : U) : PowerSeries M := sorry
+lemma clearedEisensteinSeries_coeff (a : U) (n : ℕ) :
+    (clearedEisensteinSeries p a).coeff n = if hn : 0<n then
+      Δ a * positiveEisensteinMeasure p ⟨n,hn⟩ else eisensteinWeightedNumerator p a := sorry
+lemma clearedEisensteinSeries_coeff_zero (a : U) :
+    (clearedEisensteinSeries p a).coeff 0=eisensteinWeightedNumerator p a := sorry
+lemma clearedEisensteinSeries_coeff_pos (a : U) (n : ℕ+) :
+    (clearedEisensteinSeries p a).coeff (n : ℕ)=Δ a * positiveEisensteinMeasure p n := sorry
+lemma clearedEisensteinSeries_unique_coefficients (a : U) (F : PowerSeries M)
+    (h0 : F.coeff 0=eisensteinWeightedNumerator p a)
+    (hp : ∀ n : ℕ+, F.coeff (n : ℕ)=Δ a * positiveEisensteinMeasure p n) :
+    F=clearedEisensteinSeries p a := sorry
+lemma clearedEisensteinSeries_toAway (a : U) :
+    (clearedEisensteinSeries p a).map (algebraMap M (S a)) =
+      PowerSeries.C (algebraMap M (S a) (Δ a))*eisensteinAwaySeries p a := sorry
+lemma clearedEisensteinSeries_toFraction (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    (clearedEisensteinSeries p a).map (algebraMap M Q) =
+      PowerSeries.C (algebraMap M Q (Δ a))*totalEisensteinSeries p := sorry
+lemma clearedEisensteinSeries_unique (a : U) (ha : (a : Z)=(p+1 : ℕ))
+    (F : PowerSeries M)
+    (hF : F.map (algebraMap M Q)=
+      PowerSeries.C (algebraMap M Q (Δ a))*totalEisensteinSeries p) :
+    F=clearedEisensteinSeries p a := sorry
+
+def integralClearedEisensteinMoment (a : U) (k : ℕ) : PowerSeries Z := sorry
+lemma integralClearedEisensteinMoment_def (a : U) (k : ℕ) :
+    integralClearedEisensteinMoment p a k = (clearedEisensteinSeries p a).map
+      (characterIntegralAlgHom
+        (primePowerArithmeticCharacter p 0 (1 : DirichletCharacter Z (p^0)) k)).toRingHom := sorry
+lemma integralClearedEisensteinMoment_coeff (a : U) (k n : ℕ) :
+    (integralClearedEisensteinMoment p a k).coeff n =
+      (clearedEisensteinSeries p a).coeff n (j^k) := sorry
+lemma integralClearedEisensteinMoment_coeff_zero (a : U) (k : ℕ) :
+    (integralClearedEisensteinMoment p a k).coeff 0 = eisensteinWeightedNumerator p a (j^k) := sorry
+lemma integralClearedEisensteinMoment_coeff_pos (a : U) (k : ℕ) (n : ℕ+) :
+    (integralClearedEisensteinMoment p a k).coeff (n : ℕ) =
+      2*((a : Z)^(k+1)-1)*positiveEisensteinMeasure p n (j^k) := sorry
+lemma integralClearedEisensteinMoment_unique (a : U) (k : ℕ) (F : PowerSeries Z)
+    (hF : ∀ n : ℕ, F.coeff n=(clearedEisensteinSeries p a).coeff n (j^k)) :
+    F=integralClearedEisensteinMoment p a k := sorry
+theorem integralClearedEisensteinMoment_specialize (a : U) (ha : (a : Z)=(p+1 : ℕ)) (k : ℕ) :
+    (integralClearedEisensteinMoment p a k).map (algebraMap Z ℚ_[p]) =
+      PowerSeries.C (2*((a : ℚ_[p])^(k+1)-1))*
+        (eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha k) := sorry
+end DirichletPadic
+
+namespace SuggestedEisensteinClearingTests
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open AbstractMeasure DirichletPadic
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "Δ" => (fun a : U => 2*eisensteinTwistedDenominator p a)
+local notation "S" => (fun a : U => Localization.Away (Δ a))
+-- away_constant_clearing_all_parameters
+example (a : U) : algebraMap M (S a) (Δ a)*eisensteinAwayConstant p a =
+    algebraMap M (S a) (eisensteinWeightedNumerator p a) := sorry
+-- integral_cleared_constant
+example (a : U) : (clearedEisensteinSeries p a).coeff 0=eisensteinWeightedNumerator p a := sorry
+-- integral_cleared_first
+example (a : U) : (clearedEisensteinSeries p a).coeff 1=Δ a := sorry
+-- identity_parameter_zero_series
+example : clearedEisensteinSeries p 1=0 := sorry
+-- cleared_all_index_formula
+example (a : U) (n : ℕ+) : (clearedEisensteinSeries p a).coeff (n : ℕ)=
+    Δ a * positiveEisensteinMeasure p n := sorry
+-- whole_away_clearing
+example (a : U) : (clearedEisensteinSeries p a).map (algebraMap M (S a)) =
+    PowerSeries.C (algebraMap M (S a) (Δ a))*eisensteinAwaySeries p a := sorry
+-- whole_total_quotient_clearing
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    (clearedEisensteinSeries p a).map (algebraMap M Q) =
+      PowerSeries.C (algebraMap M Q (Δ a))*totalEisensteinSeries p := sorry
+-- integral_lift_unique
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) (F : PowerSeries M)
+    (hF : F.map (algebraMap M Q)=
+      PowerSeries.C (algebraMap M Q (Δ a))*totalEisensteinSeries p) :
+    F=clearedEisensteinSeries p a := sorry
+-- integral_moment_zero_exponent
+example (a : U) : (integralClearedEisensteinMoment p a 0).coeff 1=2*((a : Z)-1) := sorry
+-- integral_moment_dyadic_constant
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    3*(integralClearedEisensteinMoment 2 a 3).coeff 0=(-14 : ℤ_[2]) := sorry
+-- integral_moment_dyadic_first
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    (integralClearedEisensteinMoment 2 a 3).coeff 1=160 := sorry
+-- integral_moment_retains_double
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    (integralClearedEisensteinMoment 2 a 3).coeff 1≠80 := sorry
+-- integral_moment_every_coefficient
+example (a : U) (k n : ℕ) : (integralClearedEisensteinMoment p a k).coeff n =
+    (clearedEisensteinSeries p a).coeff n (j^k) := sorry
+-- field_specialization_dyadic_four
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    (integralClearedEisensteinMoment 2 a 3).map (algebraMap ℤ_[2] ℚ_[2]) =
+      PowerSeries.C 160*(eisensteinAwaySeries 2 a).map (eisensteinAwayMoment 2 a ha 3) := sorry
+-- field_specialization_zero_exponent
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    (integralClearedEisensteinMoment p a 0).map (algebraMap Z ℚ_[p]) =
+      PowerSeries.C (2*(p : ℚ_[p]))*
+        (eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha 0) := sorry
+-- field_specialization_prime_index_survives
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    (integralClearedEisensteinMoment 2 a 3).coeff 2=160 := sorry
+end SuggestedEisensteinClearingTests
