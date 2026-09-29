@@ -1,11 +1,23 @@
-# Handoff: BP-PadicHodgeTheory--R06.5 (second checkpoint)
+# Handoff: BP-PadicHodgeTheory--R06.5 (third checkpoint)
 
 Agent: Claude Code, session cc-fb70e5. Refs #969.
 
 - Stages R06.5 and R06.6 of `PadicHodgeTheory`. Part 1, `PadicHodgeTheory--P7` (R06.1–R06.4, P7, P8), is imported throughout. RS-01 keeps both stages unchanged.
-- Checkpoint 1 was merged in #3854 (14 nodes).
-- This checkpoint adds the modular-curve, Kuga–Sato and Shimura-curve applications, and the R19 inputs, in 5 nodes. The packet now has 19 nodes and 11 planets (5 in R06.5, 6 in R06.6).
-- Both stages remain partial. The checker reports no errors.
+- Checkpoint 1 was merged in #3854 (14 nodes) and checkpoint 2 in #3856 (19 nodes).
+- This checkpoint adds the endpoint-weight application in 1 node and fixes the "known" field of E50. The packet now has 20 nodes and 11 planets (5 in R06.5, 6 in R06.6).
+- Both stages remain partial. The checker reports no errors and no warnings.
+
+## New in checkpoint 3
+
+- `R06.5/modular-form-endpoint-weights` (application): for a newform g at p ∤ N, p ≥ 3, it says which integral theory applies to V_g.
+  - k ≤ p − 1: Fontaine–Laffaille, the range p ∤ k! of Diamond–Flach–Guo.
+  - k = p: the endpoint branch of R06.4. In the ordinary case both constituents of the reduction are unramified on I_p (ω^{p−1} = 1), which is the collision configuration that R06.4 assigns to Breuil–Kisin (R07.4).
+  - k = p + 1: outside Fontaine–Laffaille. Ordinary iff a_p is a unit, with ordinary reductions extensions by twists of ω^p = ω. Non-ordinary lattices come from R07.4 and R08.5.
+  - Acceptance: Δ at 11 (k = p + 1, ordinary), 4.5.b.a = η(z)⁴η(2z)²η(4z)⁴ at 5 (k = p, a₅ = −14) and 7.3.b.a = η(z)³η(7z)³ at 3 (k = p, a₃ = 0). The q-expansions were computed from the eta products and the identities checked on LMFDB.
+- Requests: FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 and LocalGaloisDeformationRings R08.5, for the lattices and reductions at weights p and p + 1.
+- E50's "known" field now says it is partly known: the AutomorphicGaloisRepresentations decomposition reviewer flagged its Weil–Deligne half. Its φN half and the clash with Saito's Theorem 2 are new.
+- Source added: Khare–Wintenberger I (Theorem 4.1(2), crystalline of weight 2 ≤ k ≤ p + 1), the same file and SHA-256 as part P7.
+- Lean: the endpoint checks are added, and the Weil–Deligne sign example is now proved (`ext; fin_cases; simp`).
 
 ## New in this checkpoint
 
@@ -33,7 +45,7 @@ R06.6:
 
 ## What remains
 
-- **Endpoint weight (R19.5).** The case k = p + 1 or weight p is R06.4's weight-p branches applied to V_g; it is not planned.
+- **Endpoint weight (R19.5).** The representation-theoretic branch is planned (checkpoint 3). The lattices and reductions (ordinary k = p, and non-ordinary k = p or p + 1) wait for R07.4 and R08.5.
 - **Saito 1997.** The elliptic case at p | N (Invent. Math. 129) is not public. It is quoted from Diamond–Flach–Guo §5.5, and the proof follows Saito's Hilbert paper. Next action: an author copy on T. Saito's page.
 - **Scholl 1990** (Kuga–Sato motives) is not read. It is quoted through Diamond–Flach–Guo and requested from R19.1.
 - **Carried over from checkpoint 1:**
@@ -64,7 +76,7 @@ New in this checkpoint:
 
 ## Suggested Lean file
 
-It imports Mathlib only. It was compiled with `lake env lean` against the Mathlib 082e2d3 build, and `sorry` is its only warning.
+It imports Mathlib only. It was compiled with `lake env lean` against the Mathlib 082e2d3 build (checkpoint 3: exit code 0), and the `sorry` placeholders of the planned declarations are its only warnings.
 
 Checkpoint 2 adds:
 

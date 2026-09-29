@@ -7,7 +7,7 @@
     "PadicHodgeTheory:R06.6"
   ],
   "status": "partial",
-  "summary": "P-adic Hodge theory and geometric comparison, part R06.5 (stages R06.5 and R06.6), second checkpoint, in 19 nodes. R06.5 applies the proper-smooth crystalline comparison of CohomologyComparisons CP.2 through D_cris and plans the abelian-variety consequences (D_cris of abelian schemes, Hodge–Tate weights, Weil-pairing duality, ordinary versus supersingular) and the modular-form applications: the de Rham realisation of a newform with weights 0 and 1 − k, crystallinity at p ∤ N with Frobenius polynomial X² − a_pX + ψ(p)p^{k−1} and the ordinary criterion, and the weight-two Barsotti–Tate and ordinary cases. R06.6 plans the Kummer extensions and the Tate curve, the p-adic good-reduction criterion, semistable reduction, elliptic curves with v(j) < 0, local–global compatibility at good places, and the R19 inputs: compatibility at p with local Langlands for modular forms (Scholl, Saito) and Saito's theorem for Hilbert modular forms. Eleven new mistakes are recorded (E40–E50); E48–E49 are corrected in Diamond–Flach–Guo's 2025 arXiv version. The endpoint-weight case and Saito's 1997 paper remain.",
+  "summary": "P-adic Hodge theory and geometric comparison, part R06.5 (stages R06.5 and R06.6), third checkpoint, in 20 nodes. R06.5 applies the proper-smooth crystalline comparison of CohomologyComparisons CP.2 through D_cris and plans the abelian-variety consequences (D_cris of abelian schemes, Hodge–Tate weights, Weil-pairing duality, ordinary versus supersingular) and the modular-form applications: the de Rham realisation of a newform with weights 0 and 1 − k, crystallinity at p ∤ N with Frobenius polynomial X² − a_pX + ψ(p)p^{k−1} and the ordinary criterion, the weight-two Barsotti–Tate and ordinary cases, and the endpoint weights k = p and k = p + 1 (which integral theory applies). R06.6 plans the Kummer extensions and the Tate curve, the p-adic good-reduction criterion, semistable reduction, elliptic curves with v(j) < 0, local–global compatibility at good places, and the R19 inputs: compatibility at p with local Langlands for modular forms (Scholl, Saito) and Saito's theorem for Hilbert modular forms. Eleven new mistakes are recorded (E40–E50); E48–E49 are corrected in Diamond–Flach–Guo's 2025 arXiv version. The endpoint-weight case and Saito's 1997 paper remain.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -105,7 +105,8 @@
         "§1.1 (pp. 6–8): conventions for Frobenius, D_crys, D_st, D_pst and Weil–Deligne representations",
         "§5.4, Lemma 5.7 with proof (pp. 58–59)",
         "§5.5 through Lemma 5.9 (pp. 59–61)",
-        "Lemma 8.13 with proof (p. 104)"
+        "Lemma 8.13 with proof (p. 104)",
+        "§2, Faltings' categories MF^∇_{[0,a]} (p. 18)"
       ],
       "accessed": "2026-09-29"
     },
@@ -145,6 +146,18 @@
       "sha256": "254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3",
       "readSections": [
         "§3.1: Theorem 3.1 with its proof and the paragraph after it (pp. 85–87)"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "kw-serre-modularity-I",
+      "title": "Serre's modularity conjecture (I)",
+      "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+      "edition": "author's copy from the first author's web page (the published version is Invent. Math. 178 (2009)); the same file as PadicHodgeTheory--P7 (same SHA-256). The UCLA server's TLS chain is incomplete, so it was fetched without certificate verification and checked against that hash.",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+      "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
+      "readSections": [
+        "§4, Theorem 4.1 (p. 7)"
       ],
       "accessed": "2026-09-29"
     }
@@ -1215,6 +1228,72 @@
       "implementationStatus": "unchecked"
     },
     {
+      "id": "PadicHodgeTheory:R06.5/modular-form-endpoint-weights",
+      "parentStageId": "PadicHodgeTheory:R06.5",
+      "realises": [
+        "PadicHodgeTheory:R06.5"
+      ],
+      "title": "Newforms at the endpoint weights k = p and k = p + 1: which integral theory applies",
+      "kind": "application",
+      "statement": "Let p ≥ 3, let g be a newform of weight k, level N with p ∤ N and character ψ, let λ | p, and let V_g = M_{g,λ}^∨ as in PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes, so that V_g|_{G_{ℚ_p}} is crystalline with Hodge–Tate weights {0, k − 1} (HT(χ) = +1) and Frobenius polynomial X² − a_p(g)X + ψ(p)p^{k−1}. (a) If k ≤ p − 1, the weights lie in [0, p − 2] and the rational and lattice statements of Fontaine–Laffaille apply (PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences). This is the range p ∤ k! in which Diamond–Flach–Guo use Faltings' comparison. (b) If k = p, the weights {0, p − 1} lie in the endpoint interval [0, p − 1]. Rationally V_g is still given by Fontaine–Laffaille, but its lattices are classified only under the restrictions of PadicHodgeTheory:R06.4/weight-p-endpoint-branch (b). If a_p(g) is a λ-adic unit, V_g is ordinary, V_g ≅ (ψ₁χ^{p−1} ∗; 0 ψ₂) with ψ₁ and ψ₂ unramified, and every reduction has a constituent of weight 0 and one of weight p − 1, both unramified on I_p since χ^{p−1} ≡ ω^{p−1} = 1 there. This is the configuration of PadicHodgeTheory:R06.4/fontaine-laffaille-endpoint-non-example, and branch (c) of the endpoint node assigns these lattices to the Breuil–Kisin classification (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4) rather than to Fontaine–Laffaille. If a_p(g) is not a unit, V_g has no unramified quotient. (c) If k = p + 1, the weights {0, p} lie outside the Fontaine–Laffaille range (PadicHodgeTheory:R06.4/weight-p-plus-one-branch). V_g is ordinary iff a_p(g) is a λ-adic unit, and then its reductions are extensions of an unramified character by an unramified twist of ω^p = ω. If a_p(g) is not a unit, its lattices and reductions come from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 and are computed in LocalGaloisDeformationRings R08.5. In every case (a)–(c) the Frobenius polynomial and the ordinarity criterion are those of the good-prime node; these are the local inputs of Khare–Wintenberger I Theorem 4.1(2)(i) (crystalline of weight 2 ≤ k ≤ p + 1) for the lifts that come from newforms.",
+      "hypotheses": [
+        "p ≥ 3; for p = 2 the only weight used in the lifting theorems is k = 2, which is PadicHodgeTheory:R06.5/weight-two-modular-abelian-varieties with PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion",
+        "crystallinity at p ∤ N holds for every k (the good-prime node, Scholl through Diamond–Flach–Guo); what changes at k = p and k = p + 1 is only which integral theory describes the lattices, since Faltings' category MF^∇_{[0,a]} needs a ≤ p − 2, that is k ≤ p − 1",
+        "no residual representation is computed here: the reductions in the non-ordinary cases, and in the ordinary case at k = p beyond the unramified semisimplification, belong to FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 and LocalGaloisDeformationRings R08.5 (request)"
+      ],
+      "proofSteps": [
+        "Hodge–Tate weights {0, k − 1} and crystallinity: PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes.",
+        "(a): k − 1 ≤ p − 2, so PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences applies.",
+        "(b): k − 1 = p − 1; apply PadicHodgeTheory:R06.4/weight-p-endpoint-branch (a)–(b). In the ordinary case PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion (a) with r = p − 1 gives V_g ≅ (ψ₁χ^{p−1} ∗; 0 ψ₂); reducing, χ^{p−1} ≡ ω^{p−1} = 1 on I_p, so both constituents are unramified there, which is the collision of PadicHodgeTheory:R06.4/fontaine-laffaille-endpoint-non-example, handled by branch (c) of the endpoint node.",
+        "(c): k − 1 = p; apply PadicHodgeTheory:R06.4/weight-p-plus-one-branch (a)–(c), with ω^p = ω as ω has order p − 1."
+      ],
+      "acceptance": [
+        "Δ (k = 12, N = 1) at p = 11 is case (c): τ(11) = 534612 ≡ 1 mod 11, so V_Δ|_{G_{ℚ_{11}}} is ordinary and its reductions are extensions of an unramified character by an unramified twist of ω; at p = 13 it is case (a), as 12 ≤ p − 1.",
+        "The newform η(z)⁴η(2z)²η(4z)⁴ of weight 5, level 4 and character χ₋₄ (LMFDB 4.5.b.a) at p = 5 is case (b) with a₅ = −14, a 5-adic unit: V_g is ordinary and its reductions have both constituents unramified on I₅ (checked in the suggested Lean file).",
+        "The newform η(z)³η(7z)³ of weight 3, level 7 and character (−7/·) (LMFDB 7.3.b.a) at p = 3 is case (b) with a₃ = 0, as 3 is inert in ℚ(√−7): V_g is not ordinary and has no unramified quotient."
+      ],
+      "prerequisites": [
+        "PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes",
+        "PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences",
+        "PadicHodgeTheory:R06.4/weight-p-endpoint-branch",
+        "PadicHodgeTheory:R06.4/weight-p-plus-one-branch",
+        "PadicHodgeTheory:R06.4/fontaine-laffaille-endpoint-non-example",
+        "PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "dfg-arxiv",
+          "locator": "§0.2, p. 5 (arXiv v2)",
+          "excerpt": "we will only be applying Faltings’ comparison theorem in the “easy” case of crystalline representations",
+          "match": "Diamond–Flach–Guo stay below the endpoint: their set of primes excludes p | Nk!."
+        },
+        {
+          "sourceId": "dfg-arxiv",
+          "locator": "§2, p. 18 (arXiv v2)",
+          "excerpt": "For each integer a with 0 ≤ a ≤ ℓ − 2, Faltings",
+          "match": "Faltings' Fontaine–Laffaille categories stop at a = p − 2, i.e. k ≤ p − 1."
+        },
+        {
+          "sourceId": "kw-serre-modularity-I",
+          "locator": "Theorem 4.1(2), p. 7",
+          "excerpt": "crystalline of weight k at p with 2 ≤ k ≤ p + 1",
+          "match": "The lifting theorem that consumes the crystalline representations of weights up to p + 1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentations R19.5",
+          "how": "the coefficient-prime behaviour of newforms at the endpoint weights, for the lifting cases"
+        },
+        {
+          "where": "LocalGaloisDeformationRings R08.5",
+          "how": "the crystalline representations of weights p and p + 1 whose reductions it computes"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
       "id": "PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p",
       "parentStageId": "PadicHodgeTheory:R06.6",
       "realises": [
@@ -1459,19 +1538,33 @@
         "PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p",
         "PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p"
       ]
+    },
+    {
+      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "need": "The Breuil–Kisin classification of G_{ℚ_p}-stable lattices in two-dimensional crystalline representations with Hodge–Tate weights {0, p − 1} whose reduction has constituents of weights 0 and p − 1 (modular weight p, ordinary), and with Hodge–Tate weights {0, p} (modular weight p + 1), for p ≥ 3, as PadicHodgeTheory:R06.4/weight-p-endpoint-branch (c) and PadicHodgeTheory:R06.4/weight-p-plus-one-branch (c) assign them.",
+      "neededBy": [
+        "PadicHodgeTheory:R06.5/modular-form-endpoint-weights"
+      ]
+    },
+    {
+      "supplier": "LocalGaloisDeformationRings:R08.5",
+      "need": "The reductions of crystalline representations of G_{ℚ_p} of Hodge–Tate weights {0, p − 1} and {0, p} (modular weights p and p + 1) used by Khare–Wintenberger I Theorem 4.1(2)(i), in particular for the non-ordinary representations attached to newforms.",
+      "neededBy": [
+        "PadicHodgeTheory:R06.5/modular-form-endpoint-weights"
+      ]
     }
   ],
   "coverage": [
     {
       "stageId": "PadicHodgeTheory:R06.5",
       "status": "partial",
-      "note": "The abelian-variety applications and the modular-curve and Kuga–Sato applications are planned: CP.2 read through D_cris, D_cris of abelian schemes, Hodge–Tate weights, Weil-pairing duality, the ordinary/supersingular example, the de Rham realisation of modular forms with weights 0 and 1 − k, crystallinity at p ∤ N with Frobenius polynomial X² − a_pX + ψ(p)p^{k−1} and the ordinary criterion, and the weight-two Barsotti–Tate and ordinary cases.",
+      "note": "The abelian-variety applications and the modular-curve and Kuga–Sato applications are planned: CP.2 read through D_cris, D_cris of abelian schemes, Hodge–Tate weights, Weil-pairing duality, the ordinary/supersingular example, the de Rham realisation of modular forms with weights 0 and 1 − k, crystallinity at p ∤ N with Frobenius polynomial X² − a_pX + ψ(p)p^{k−1} and the ordinary criterion, and the weight-two Barsotti–Tate and ordinary cases. Checkpoint 3 adds the endpoint weights k = p and k = p + 1 for newforms at p ∤ N, assigning each case to the Fontaine–Laffaille endpoint branch or to the Breuil–Kisin theory as R06.4 prescribes.",
       "remaining": [
-        "The endpoint-weight case consumed by R19.5 (k = p + 1 and weight p) is not planned; it is PadicHodgeTheory R06.4's weight-p branches applied to V_g.",
         "The semistable geometric branch for general semistable models (CP.4 Hyodo–Kato; WeightsInEtaleCohomology R34.3) is used only through requests; the Shimura-curve de Rham realisation (Hodge filtration of Carayol's coefficient systems) is quoted from Saito at statement level.",
         "Berthelot–Breen–Messing (Dieudonné module versus H^1_cris) is quoted from Brinon–Conrad Remark 7.3.3, not read.",
         "Scholl's crystalline theorem and Frobenius polynomial are quoted through Diamond–Flach–Guo; Scholl's paper is not read.",
-        "CP.2's remaining G_K- and Frobenius-compatibility is inherited by PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction."
+        "CP.2's remaining G_K- and Frobenius-compatibility is inherited by PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction.",
+        "At the endpoint weights only the representation-theoretic branch is planned (PadicHodgeTheory:R06.5/modular-form-endpoint-weights); the lattices and reductions in the ordinary weight-p case and the non-ordinary cases are requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 and LocalGaloisDeformationRings R08.5."
       ]
     },
     {
@@ -1693,11 +1786,12 @@
       "correction": "ρ(σ)Nρ(σ)^{−1} = N𝔭^{−n(σ)}N, and σN = N𝔭^{−n(σ)}Nσ since Nφ = pφN.",
       "reason": "Fontaine's B_st satisfies Nφ = pφN (on u = log[p̃]: N(φu) = −p = pφ(Nu)), which gives F N F^{−1} = N𝔭^{−1}N for a geometric Frobenius F; this is Deligne's relation and the one forced by Grothendieck's ℓ-adic monodromy theorem. Saito's own Theorem 2 (p. 13: weight w − 2 on ker N, w on coker N; N: Gr_1^W(1) ≅ Gr_{−1}^W) also requires F N F^{−1} = N𝔭^{−1}N. The two printed relations are reversed consistently, so the construction and the theorems are unaffected.",
       "affects": "nothing",
-      "known": "new",
+      "known": "partly known: the reviewer of the AutomorphicGaloisRepresentations decomposition flagged the Weil–Deligne half (gap \"Hecke normalizations and Weil-Deligne sign conventions across Carayol, Saito and Deligne are not reconciled\", with a computation agreeing with Deligne, LNM 349, 8.2); the φN = pNφ half and the conflict with Saito's own Theorem 2 are new",
       "searched": [
         "arXiv:math/0612077 (v2 read; v1 not compared)",
         "The Compositio Math. 145 (2009) text was not seen",
-        "T. Saito's page (ms.u-tokyo.ac.jp/~t-saito/pp/h.pdf) hosts the same preprint"
+        "T. Saito's page (ms.u-tokyo.ac.jp/~t-saito/pp/h.pdf) hosts the same preprint",
+        "data/decompositions/AutomorphicGaloisRepresentations.json, the reviewer's gaps (checked 2026-09-29)"
       ]
     }
   ],
