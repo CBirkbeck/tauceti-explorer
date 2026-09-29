@@ -1207,6 +1207,35 @@
             "readSections": "PDF47–49; Lemma7.4.3 statement and complete proof on PDF48–49. No full-paper reading claimed."
           }
         ]
+      },
+      {
+        "agent": "Claude Code",
+        "session": "cc-39fac3",
+        "date": "2026-09-29",
+        "main": "No new reading of the LLHLM PDF for this step; the consumers G50, G67 and G68 were read in the result file.",
+        "sources": [
+          {
+            "title": "T. Liu, A note on lattices in semi-stable representations",
+            "url": "https://arxiv.org/pdf/0709.4523v1",
+            "sha256": "60abf5f554fa797e5817690e6c09d205899faedf1b0ca91074a523c5643c76c0",
+            "pages": 10,
+            "readSections": "PDF2 and PDF4 (§2.1–2.2 setup; the statement K_{p^∞} ∩ K_∞ = K, Ĝ = G_0 ⋊ H_K, G_0 ≃ Z_p(1), citing Lemma 5.1.2 of Liu's 2007 Annales paper, which was not read)."
+          },
+          {
+            "title": "Gee–Liu–Savitt, The weight part of Serre's conjecture for GL(2)",
+            "url": "https://arxiv.org/pdf/1309.0527v2",
+            "sha256": "25ba5f0e8feabc06e3c5652b8fe2dd020f3b2195dcb8c697bee078d4d848e5b8",
+            "pages": 41,
+            "readSections": "PDF35, Lemma 5.4.2 statement and proof; PDF6 and PDF29/34 context. The author-hosted copy (math.jhu.edu) returned a web challenge page and was not read."
+          },
+          {
+            "title": "Emerton–Gee–Savitt, Lattices in the cohomology of Shimura curves",
+            "url": "https://math.uchicago.edu/~emerton/pdffiles/breuil-conj.pdf",
+            "sha256": "91153b8ae317faccf43bb6fd851ca05c12234610e5dd87054e3aa557f0e112fe",
+            "pages": 75,
+            "readSections": "PDF48–49, Lemma 7.4.3 statement and proof, re-read; the hash matches the earlier recorded copy."
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -1229,7 +1258,7 @@
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Partial extraction: 776 items (146 library, 48 planned, 582 missing), 25 routes and 113 unreviewed source findings. This continuation corrects the coefficient/prime hypotheses behind the Section5 Kisin uniqueness results, separates the unrestricted rank-one scalar contraction, supplies an acyclic semisimplicity repair using WE19, and propagates the bounds through Section7.2. The generic-adjoint argument is supplied in all ranks with its rank-one odd-prime exception E110; finite-length Hom comparison is decomposed through a simultaneous H0/H1 induction. Eight new items K55–K58, L143, Z142 and G67–G68 retain existing owners. All inherited IDs, statuses and source data are preserved. The internal graph has 1,226 edges and is acyclic; this is not recursive proof closure. Fourteen recorded gaps remain, including Kummer-tower field inputs, later rank-one propagation, external suppliers, regularity, Appendix B certificates and the U/G/B/Z/P outline queues. No formal implementation or independent review is asserted. A further checkpoint (cc-fb70e5) records E111: Proposition B.0.1(4) fails on the line a = 0 inside V. A later one (cc-39fac3) certifies Q06 (t^3 in the Jacobian ideal) over Z[a,b][1/(aP)] with multiplier 2a(a−2)^2(a−b)(b−1), and shows that the specializations used downstream all have a a unit, so Corollary B.0.5 keeps r = 3. A second cc-39fac3 checkpoint certifies the Q13 Gröbner basis uniformly over V, in the two cells (a−b)(a−1) ≠ 1 and = 1, with Cohen–Macaulay leading-term schemes in every characteristic. It records E112, the misprinted exceptional locus, and E113: Table 1 and the special-fibre component list fail on a = 0, a(b−1) = b and (a−b)(a−1) = 1, without affecting the downstream uses. A third cc-39fac3 checkpoint certifies, uniformly over V, Proposition B.0.1(2)'s minimal primes (the special fibre is doubled along (c22, c13, c12)) and B.0.1(3)'s flatness (the chart is free over X × V), and shows that the normalization's special fibre is reduced. A fourth cc-39fac3 checkpoint certifies Table 1 at every point of V off the three E113 curves.",
+  "summary": "Partial extraction: 779 items (146 library, 48 planned, 585 missing), 26 routes and 113 unreviewed source findings. This continuation corrects the coefficient/prime hypotheses behind the Section5 Kisin uniqueness results, separates the unrestricted rank-one scalar contraction, supplies an acyclic semisimplicity repair using WE19, and propagates the bounds through Section7.2. The generic-adjoint argument is supplied in all ranks with its rank-one odd-prime exception E110; finite-length Hom comparison is decomposed through a simultaneous H0/H1 induction. Eight new items K55–K58, L143, Z142 and G67–G68 retain existing owners. All inherited IDs, statuses and source data are preserved. The internal graph has 1,226 edges and is acyclic; this is not recursive proof closure. Thirteen recorded gaps remain, including later rank-one propagation, external suppliers, regularity, Appendix B certificates and the U/G/B/Z/P outline queues. No formal implementation or independent review is asserted. A further checkpoint (cc-fb70e5) records E111: Proposition B.0.1(4) fails on the line a = 0 inside V. A later one (cc-39fac3) certifies Q06 (t^3 in the Jacobian ideal) over Z[a,b][1/(aP)] with multiplier 2a(a−2)^2(a−b)(b−1), and shows that the specializations used downstream all have a a unit, so Corollary B.0.5 keeps r = 3. A second cc-39fac3 checkpoint certifies the Q13 Gröbner basis uniformly over V, in the two cells (a−b)(a−1) ≠ 1 and = 1, with Cohen–Macaulay leading-term schemes in every characteristic. It records E112, the misprinted exceptional locus, and E113: Table 1 and the special-fibre component list fail on a = 0, a(b−1) = b and (a−b)(a−1) = 1, without affecting the downstream uses. A third cc-39fac3 checkpoint certifies, uniformly over V, Proposition B.0.1(2)'s minimal primes (the special fibre is doubled along (c22, c13, c12)) and B.0.1(3)'s flatness (the chart is free over X × V), and shows that the normalization's special fibre is reduced. A fourth cc-39fac3 checkpoint certifies Table 1 at every point of V off the three E113 curves. A further cc-39fac3 step decomposes the Kummer-tower field inputs into Z143–Z145 (p > 2), routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, and removes that gap.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -25164,12 +25193,16 @@
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences"
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z143",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z144",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z145"
       ],
-      "note": "Specialized Kummer-tower input for the existing LocalGaloisDeformationRingsPartIIMonodromyModels route. Import the canonical continuous-cohomology and inflation–restriction APIs from upstream ProfiniteCohomology; do not construct another cohomology carrier. The general local-field Galois/Kummer structure used in the source remains a supplier boundary.",
+      "note": "Specialized Kummer-tower input for the existing LocalGaloisDeformationRingsPartIIMonodromyModels route. Import the canonical continuous-cohomology and inflation–restriction APIs from upstream ProfiniteCohomology; do not construct another cohomology carrier. The local-field Galois/Kummer structure used in the source is supplied by Z143–Z145, routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.",
       "proofSteps": [
         "For χ neither 1 nor ε̄, pass to the Galois closure K̂=K∞(μ_p∞). If χ has no G_K̂-invariants, inflation–restriction gives injectivity. Otherwise the kernel is controlled by the cyclotomic quotient and the Kummer normal subgroup. The latter is Z_p(1), whose equivariant Hom into χ vanishes unless χ=ε̄; the former contributes only for χ=1. This is the rank-one specialization of EGS7.4.3. The tower group identification and its conjugation action are explicit local-field inputs, not consequences of inflation–restriction alone.",
-        "For χ=1, a nonzero kernel class would give a Galois extension of degree p inside K∞. GLS5.4.2 excludes this when ζ_p is absent from K, as holds for unramified K and p>2. Retain that field-theoretic assertion as part of the Kummer-tower supplier. For H⁰, every finite character has prime-to-p image; a nontrivial such character cannot become trivial on a tower whose finite subextensions have p-power degree."
+        "For χ=1, a nonzero kernel class would give a Galois extension of degree p inside K∞. GLS5.4.2 excludes this when ζ_p is absent from K, as holds for unramified K and p>2. Retain that field-theoretic assertion as part of the Kummer-tower supplier. For H⁰, every finite character has prime-to-p image; a nontrivial such character cannot become trivial on a tower whose finite subextensions have p-power degree.",
+        "Field-theoretic suppliers (cc-39fac3, 29 September 2026). The tower inputs are now separate items, all for p > 2. Z143 gives K̂ = K∞(μ_{p^∞}), K∞ ∩ K(μ_{p^∞}) = K, and Gal(K̂/K) = G_0 ⋊ H_K with G_0 ≅ Z_p(1) under cyclotomic conjugation. Z144 gives Gal(K(μ_{p^∞})/K(μ_p)) ≅ Z_p, used in the χ = 1 branch of EGS 7.4.3. Z145 gives GLS 5.4.2's assertion that K∞ has no degree-p Galois subextension when ζ_p ∉ K, which holds for unramified K and p > 2."
       ],
       "proofProvenance": "Codex — codex-c83e7a, 24 September 2026. Fresh LLHLM23 PDF146–149, LLHLM18 Shapes and shadows PDF30–34, WE19 PDF13, GLS author copy PDF42 and EGS author copy PDF48–49. Proof outlines, not formal proofs or independent review.",
       "acceptance": [
@@ -25202,6 +25235,57 @@
         "Apply to O/ϖ² with trivial action at odd p; the proof must use length two rather than treat the module as a residue-field vector space.",
         "Deleting the noncyclotomic hypothesis fails already for the uniformizer extension class in G68.",
         "Deleting the prime-to-p degree hypothesis invalidates the transfer argument."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z143",
+      "kind": "theorem",
+      "name": "Galois closure of the Kummer tower and its semidirect structure",
+      "statement": "Let p > 2, let K/Q_p be finite with uniformizer π, and let (π_n)_{n≥0} be compatible p-power roots, π_0 = π and π_{n+1}^p = π_n. Put K∞ = ∪_n K(π_n) and K(μ_{p^∞}) = ∪_n K(ζ_{p^n}). Then K̂ = ∪_n K(π_n, ζ_{p^n}) is Galois over K and is the Galois closure of K∞/K, and K∞ ∩ K(μ_{p^∞}) = K. Write G_0 = Gal(K̂/K(μ_{p^∞})) and H_K = Gal(K̂/K∞). Then Gal(K̂/K) = G_0 ⋊ H_K, and the Kummer map σ ↦ (σ(π_n)/π_n)_n is an isomorphism G_0 ≅ Z_p(1) = lim μ_{p^n}. Conjugation by h ∈ H_K acts on G_0 through the p-adic cyclotomic character, h σ h⁻¹ ↦ χ(h)·(σ's image). The hypothesis p > 2 is needed: for p = 2, K = Q_2 and π = −2, √−2 = ζ_8 + ζ_8³ lies in K∞ ∩ K(μ_{2^∞}), so the intersection is larger than K.",
+      "locator": "T. Liu, 'A note on lattices in semi-stable representations', arXiv:0709.4523v1, §2.2 (PDF4), recalling Lemma 5.1.2 of Liu, 'Torsion p-adic Galois representations and a conjecture of Fontaine' (Ann. Sci. ÉNS 2007). The same structure is used without proof in EGS Lemma 7.4.3 (PDF48–49) and in the LLHLM consumer G68.",
+      "status": "missing",
+      "note": "Owner: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, the base-field structure of Kisin and (φ, Ĝ)-module theory. Kummer theory is imported from tauceti ProfiniteCohomology Layer 9, and the p-adic cyclotomic character from Mathlib's cyclotomicCharacter (Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean:307). The 2007 Annales paper itself was not read; the statement is the note's recollection of its Lemma 5.1.2. The p = 2 example was checked: (ζ_8 + ζ_8³)² = −2, and −2 is a uniformizer of Q_2.",
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
+      ],
+      "proofSteps": [
+        "Normal closure. The conjugates of π_n over K are the ζπ_n with ζ ∈ μ_{p^n}, so the normal closure of K(π_n)/K is K(π_n, ζ_{p^n}). The union K̂ is Galois over K and is the Galois closure of K∞.",
+        "Kummer map. Over F = K(μ_{p^∞}), the map σ ↦ (σ(π_n)/π_n)_n is a continuous injective homomorphism G_0 → Z_p(1). For h ∈ H_K, h fixes each π_n and acts on μ_{p^n} through χ(h), so the map carries hσh⁻¹ to χ(h) times the image of σ.",
+        "Surjectivity. By Kummer theory over F, which contains μ_{p^∞}, the map is onto if and only if π is not a p-th power in F. If π = y^p with y ∈ F, then π_1 = ζy for some ζ ∈ μ_p ⊂ F, so π_1 ∈ K∞ ∩ F. That intersection is K (Liu's lemma, p > 2), which is impossible because X^p − π is Eisenstein.",
+        "Semidirect product. Since K∞ ∩ F = K, restriction H_K → Gal(F/K) is an isomorphism (Galois theory, both fields inside K̂ with compositum K̂). Hence G_0 ∩ H_K = 1, G_0 H_K = Gal(K̂/K), and G_0 is normal as the group of the Galois subextension F."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z144",
+      "kind": "theorem",
+      "name": "The cyclotomic Z_p-quotient over K(μ_p)",
+      "statement": "Let p > 2 and K/Q_p be finite. Then Gal(K(μ_{p^∞})/K(μ_p)) is isomorphic to Z_p. The p-adic cyclotomic character embeds it as an open subgroup of 1 + pZ_p ≅ Z_p, and Gal(K(μ_p)/K) acts trivially on it by conjugation, the group Gal(K(μ_{p^∞})/K) being abelian.",
+      "locator": "Used without proof in EGS Lemma 7.4.3, PDF49 ('H¹(Gal(F_v(μ_{p^∞})/F_v(μ_p)), χ)^{Gal(F_v(μ_p)/F_v)} ≅ Hom_{Gal(F_v(μ_p)/F_v)}(Z_p, χ)'). Standard: the cyclotomic character is injective with open image for K/Q_p finite.",
+      "status": "missing",
+      "note": "Owner: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, alongside Z143. It imports Mathlib's cyclotomicCharacter (CyclotomicCharacter.lean:307; continuity at :336). The Z_p-structure of 1 + pZ_p for p > 2, via the p-adic logarithm, is the remaining input.",
+      "prerequisites": [],
+      "proofSteps": [
+        "χ: Gal(K(μ_{p^∞})/K) → Z_p^× is injective, and its image is open, because K ∩ Q_p(μ_{p^∞}) is finite over Q_p.",
+        "On Gal(K(μ_{p^∞})/K(μ_p)) the character is ≡ 1 mod p, so its image is an open subgroup of 1 + pZ_p. For p > 2, 1 + pZ_p ≅ Z_p, and a nonzero closed subgroup of Z_p is p^k Z_p ≅ Z_p.",
+        "Conjugation by any lift of an element of Gal(K(μ_p)/K) is trivial, because Gal(K(μ_{p^∞})/K) is abelian."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z145",
+      "kind": "theorem",
+      "name": "No degree-p Galois subextension of the Kummer tower without ζ_p",
+      "statement": "Let p > 2, K/Q_p finite with ζ_p ∉ K, and K∞ as in Z143. Then no intermediate field K ⊂ L ⊂ K∞ is Galois over K of degree p. The hypothesis is sharp: if ζ_p ∈ K, then K(π_1)/K is cyclic of degree p by Kummer theory.",
+      "locator": "Asserted without proof in GLS, The weight part of Serre's conjecture for GL(2), Lemma 5.4.2 (arXiv:1309.0527v2, PDF35): 'there must be a Galois extension of K of degree p contained in K∞. This can only happen if K contains a primitive pth root of unity'.",
+      "status": "missing",
+      "note": "Owner: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, derived from Z143. The GLS author copy is behind a web challenge, so the arXiv v2 text was read.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z143"
+      ],
+      "proofSteps": [
+        "Such an L corresponds to a normal subgroup N of Ĝ = Gal(K̂/K) of index p containing H_K = Gal(K̂/K∞).",
+        "N contains every commutator hgh⁻¹g⁻¹ with h ∈ H_K and g ∈ G_0. By Z143 this commutator is (χ(h) − 1)·g in G_0 ≅ Z_p(1).",
+        "Since ζ_p ∉ K, the mod-p cyclotomic character is nontrivial on Gal(K(μ_p)/K), so some h ∈ H_K ≅ Gal(K(μ_{p^∞})/K) has χ(h) − 1 ∈ Z_p^×. Hence N ⊇ G_0.",
+        "Then N ⊇ G_0 H_K = Ĝ by Z143, contradicting index p."
       ]
     }
   ],
@@ -26182,6 +26266,19 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z133"
       ],
       "reason": "Provide the finite algebraic Koszul precursor used by the residue-field comparison, shared with derived-completion, prismatic, A_inf and local-cohomology consumers. These are planned imports from DD.1, not a new completion theory. Schedule this precursor before the homological regularity results; no dependency on the whole completion or animation stage is introduced."
+    },
+    {
+      "route": "source",
+      "roadmap": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "stages": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z143",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z144",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z145"
+      ],
+      "reason": "The Kummer-tower field structure is shared local-field infrastructure of Breuil–Kisin and (φ, Ĝ)-module theory. It covers the Galois closure K̂ = K∞(μ_{p^∞}), the intersection K∞ ∩ K(μ_{p^∞}) = K, the semidirect product G_0 ⋊ H_K with G_0 ≅ Z_p(1), the cyclotomic Z_p-quotient, and the absence of degree-p Galois subextensions without ζ_p. R07.4 builds that theory for the base fields used in KW and Kisin. These are elementary field-theoretic consequences of Kummer theory (tauceti ProfiniteCohomology Layer 9) and the cyclotomic character (Mathlib), all for p > 2. The LLHLM consumers G68, G67 and G50 import them rather than building a second Kummer-tower theory in the monodromy-model Part II."
     }
   ],
   "sourceIssues": [
@@ -28438,15 +28535,6 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G62"
       ],
       "detail": "E102 has been propagated through the direct lattice-uniqueness uses in Sections5 and7.2, and E110 isolates the rank-one dyadic failure of the generic-adjoint bridge. K55/K58 preserve the valid rank-one gauge/semisimplicity arguments for arbitrary h. The extracted Section7 comparison now has the sufficient additional condition n≥2 or p>h+2. Continue through Sections7.3–9: identify every numerical-genericity use that needs an actual prime bound in rank one, distinguish polynomial factors such as P_m (whose m! term can enforce a bound) from vacuous root-depth genericity, and supply scalar arguments or explicit hypotheses. Do not declare all unrestricted rank-one main statements proved from these local repairs."
-    },
-    {
-      "id": "kummer-tower-field-inputs",
-      "neededBy": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G68",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G67",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G50"
-      ],
-      "detail": "The outer proofs of GLS5.4.2 and EGS7.4.3 are read. Their field-theoretic assertions still need a source decomposition: K̂=K∞(μ_p∞), the Kummer subgroup Z_p(1) and its cyclotomic conjugation action, and absence of a cyclic degree-p subextension of K∞ when ζ_p is absent. Import these from the local-field Galois foundations; generic discrete cohomology is already owned by upstream ProfiniteCohomology layers5–6. Do not mark this boundary closed merely because the resulting finite-length diagram chase is explicit."
     }
   ],
   "sourceData": {
@@ -32863,7 +32951,8 @@
     "cc39fac3AppendixB": "29 September 2026, issue 1254: Q06 certified over Z[a,b][1/(aP)] and the E111 downstream question settled from Remark 3.3.2 (PDF62), Lemma 7.3.1 (PDF150), Definition 2.1.10 (PDF33), Proposition 3.3.9 (PDF68–69), Proposition 7.1.10 (PDF138) and Corollary B.0.5 (PDF208), read in the published PDF with the SHA-256 recorded in source. Only Q06, Q11, E111, the appendix-certificates gap, sourceData.appendixB and the summary were edited; no item status or route changed. No Lean file.",
     "cc39fac3AppendixBQ13": "29 September 2026, issue 1254, second checkpoint: Q13's comprehensive Gröbner system, Cohen–Macaulayness of both leading-term ideals in every characteristic, the Table 1 and PDF206 re-derivation, and findings E112–E113. Read: PDF203–208 of the published PDF (page images of PDF204, PDF205 and PDF207), and arXiv v2 PDF150–151. Only Q09, Q10 and Q13, the two new findings, sourceData.appendixB, the appendix-certificates gap, validation and the summary were edited; no item status or route changed. No Lean file.",
     "cc39fac3AppendixBQ04": "29 September 2026, issue 1254, third checkpoint: uniform certificates for Q04 (minimal primes and multiplicities), Q05 (flatness via a monic Gröbner basis over A[t]) and Q13 (reducedness of the normalization's special fibre). Only Q04, Q05 and Q13, sourceData.appendixB, the appendix-certificates gap, validation and the summary were edited. No status, route or finding changed, and no Lean file was written.",
-    "cc39fac3AppendixBTable1": "29 September 2026, issue 1254, fourth checkpoint: a uniform certificate of Table 1 off the E113 curves. Only Q09, sourceData.appendixB.table1Rederivation, the appendix-certificates gap, validation and the summary were edited. No status, route or finding changed, and no Lean file was written."
+    "cc39fac3AppendixBTable1": "29 September 2026, issue 1254, fourth checkpoint: a uniform certificate of Table 1 off the E113 curves. Only Q09, sourceData.appendixB.table1Rederivation, the appendix-certificates gap, validation and the summary were edited. No status, route or finding changed, and no Lean file was written.",
+    "cc39fac3KummerTower": "29 September 2026, issue 1254: the gap kummer-tower-field-inputs is resolved at extraction level and removed. Its three field-theoretic assertions are decomposed into Z143 (Galois closure, K∞ ∩ K(μ_{p^∞}) = K, semidirect product with G_0 ≅ Z_p(1)), Z144 (Gal(K(μ_{p^∞})/K(μ_p)) ≅ Z_p) and Z145 (no degree-p Galois subextension without ζ_p), all for p > 2. They are sourced to Liu's note (arXiv:0709.4523v1, PDF4), EGS 7.4.3 (PDF48–49) and GLS 5.4.2 (arXiv:1309.0527v2, PDF35), and routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4. Z145's derivation from Z143 is given in its proof steps. A p = 2 counterexample to the intersection statement is checked (π = −2 in Q_2). As the gap required, the finite-length diagram chase of G67 was not used to close this boundary."
   },
   "definitionApiGroups": [
     {
