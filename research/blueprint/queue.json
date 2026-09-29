@@ -9334,7 +9334,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4515"
   },
   {
    "id": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24",
@@ -43091,8 +43092,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-04.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3999"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3999",
+   "finishedAt": "2026-09-29T14:44:44Z"
   },
   {
    "id": "RT-AUDIT-05",
