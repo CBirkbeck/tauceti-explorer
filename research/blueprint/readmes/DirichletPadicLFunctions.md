@@ -14978,3 +14978,193 @@ One complete native constructor and six lemmas check the inverse-unit character,
 Exact controls check8937 residue inverse products,107037 multiplicativity cases,8937 shifted denominator zeros,14 canonical nontriviality witnesses,117 rational-unit examples and110 ordinary-factor negative controls. Exact modular inverses on every residue unit at levels1–3 for seven primes, including dyadic units. Check multiplicativity against up to12 other units and annihilation of each doubled shifted factor. At levels at least2, the canonical unit p+1 gives a nontrivial-character witness. Separate exact rational-unit examples compare the zero shifted factor with the nonzero ordinary factor. The nonextension theorems are proved by preservation of units in the native localizations; finite residues are only controls and do not establish an analytic pole or residue. The largest observed discrepancy is 0.
 
 The initial57-input capture has empty delta at07737bf8b098e678edd6d529f5871bb90bee57cf. All supplier, source-review and guarded inputs match the predecessor. Current369-node PMIA preserves the compiled332-node interface; no new supplier declaration or full369-node compilation is claimed.
+
+
+## Normalized formal logarithmic primitives and their constant ambiguity
+
+Partial continuation preserving all454 predecessor nodes whole. Six L3 nodes construct the normalized finite Gauss-log primitive and its exact coefficients, prove the formal Mahler derivative and uniqueness, compare primitive-root choices and retain the full additive-constant ambiguity. All16 findings and three requests remain whole; seven gaps and zero closed stages remain.
+
+Complete published148–155 and external confirmed E44–E48 entries were read. The entire pinned PowerSeries.Log module, rescale and coefficient formulas, derivative extensionality, inverse cancellation and character-sum vanishing were read. The full supplier Mahler derivation/value nodes and old tame Gauss series node were read; exact suggested interfaces checked. Coleman logarithm/branch-change and LAD primitive ownership were inspected without claiming those suggested modules compiled. Six complete native lemmas and exact cyclotomic controls verify the formal argument. Seven native baseline records are added.
+
+### The normalized formal Gauss-log primitive
+
+`DirichletPadicLFunctions:L3/normalized-tame-logarithmic-primitive` — `DirichletPadic.tameNormalizedLogPrimitive`
+
+Define H_(η,ε)=−C(G⁻¹)Σ_(a∈ZMod D) C(η⁻¹(a))·rescale(ε^a/(ε^a−1))(log K). Its constant coefficient is0.
+
+**Hypotheses:** K is a field of characteristic0, with its native rational algebra; D is a positive natural modulus with NeZero D. η is an actual DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). All objects in this checkpoint are native formal power series K[[T]]. log K is Mathlib’s formal log(1+T), with constant0, and rescale(c) is native substitution T↦cT. The Mahler derivation ∂=(1+T)d/dT is the existing PMIA construction and promoted value theorem. The defining series and coefficient formulas need no Gauss nonvanishing hypothesis. The derivative, uniqueness and comparison theorems additionally assume η primitive, D>1, hDK:IsUnit(D:K) and G≠0, exactly as the existing tameSeries_eq_gauss theorem. No norm, p-coprimality or convergence is asserted here.
+
+**Proof:**
+
+1. Use the actual finite residue index and native field division to form each rescaling factor, then apply the existing PowerSeries.rescale ring homomorphism to the native formal logarithm. Multiply by the exact inverse-character weight and normalized Gauss factor, retaining the leading minus sign.
+2. At a=0 the rescaling factor is the totalized field value1/0=0, and the rescaled formal logarithm is0. For the primitive D>1 comparison its character weight is also0. No inverse of T is introduced.
+3. Native constantCoeff_log and coeff_rescale give constant0 in every summand. Additivity and the constant multiplier give the stated normalization.
+4. The coefficient formula is promoted below. The primitive theorem is also promoted below; generic formal logarithms, rescaling and derivations are reused, not reconstructed.
+5. This normalized series omits the source constants log_p(ε^a−1). Adding an appropriate constant is essential for the actual logarithmic value. The conductor-one boundary yields the zero formal series and is excluded from the later primitive-character comparison.
+
+**Prerequisites:** `mathlib:PowerSeries.log`, `mathlib:PowerSeries.rescale`, `mathlib:PowerSeries.coeff_rescale`, `mathlib:PowerSeries.constantCoeff_log`, `mathlib:gaussSum`, `mathlib:AddChar.zmodChar`.
+
+**Uses:**
+
+- RJW Lemma6.5: Separates its valid formal derivative calculation from the analytic convergence issue in Lemma6.4.
+- Future logarithmic special-value comparison: Provides the uniquely normalized nonconstant coefficients before the branch-dependent constants and restriction calculation are supplied.
+
+**API:**
+
+- `DirichletPadic.tameNormalizedLogPrimitive_def` (constructor): The exact finite rescaled-log sum with factor−G⁻¹.
+- `DirichletPadic.tameNormalizedLogPrimitive_constantCoeff` (simp): The constant coefficient is0.
+- `DirichletPadic.tameNormalizedLogPrimitive_coeff` (data): The positive coefficient is the explicit weighted logarithmic sum, promoted to normalized-tame-logarithmic-coefficients.
+- `DirichletPadic.tameNormalizedLogPrimitive_mahler` (compatibility): Under the primitive/nonvanishing hypotheses, ∂H=tameSeries η hDK; promoted to normalized-tame-logarithmic-derivative.
+- `DirichletPadic.tameNormalizedLogPrimitive_unique` (universal-property): The derivative and zero constant determine H; promoted to normalized-tame-logarithmic-unique.
+
+**Tests:**
+
+- `SuggestedLogarithmicPrimitiveTests.normalized_constant_zero` (degenerate): Every constructed normalized primitive has constant coefficient0.
+- `SuggestedLogarithmicPrimitiveTests.normalized_modulus_one` (non-example): At modulus1, the principal character and root1 give the zero formal series; this is outside the primitive D>1 comparison.
+- `SuggestedLogarithmicPrimitiveTests.shifted_constant_not_normalized` (non-example): Adding C(7) changes its constant coefficient to7.
+
+**Acceptance:** The definition is purely formal and uses the existing finite Gauss data. No logarithm branch or locally analytic distribution is constructed.
+
+**Source:** Theorem6.1(ii), display(6-2), Lemmas6.4–6.5 and proof of the logarithmic value formula, published149–153/PDF50–54. Complete published148–155 read for this checkpoint. Confirmed external E44–E48 entries read whole; retain the logarithm-branch requirement, the false pure-p-power R+ assertion, corrected rotation sign, full modulus and n=1 case. Worker normalized formal version of the finite logarithmic primitive in Lemma6.5. The native formal logarithm has constant0, and rescaling gives the exact formal derivative. The existing tame Gauss series is recovered using character-sum vanishing. This does not supply the source logarithm constant or any radius-of-convergence or locally analytic distribution claim; the pure-p-power convergence defect is explicitly retained.
+
+### The positive logarithmic coefficients
+
+`DirichletPadicLFunctions:L3/normalized-tame-logarithmic-coefficients` — `DirichletPadic.tameNormalizedLogPrimitive_coeff`
+
+For n>0, coeff_n H=−G⁻¹·ι_Q((-1)^(n+1)/n)·Σ_a η⁻¹(a)(ε^a/(ε^a−1))^n.
+
+**Hypotheses:** K is a field of characteristic0, with its native rational algebra; D is a positive natural modulus with NeZero D. η is an actual DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). All objects in this checkpoint are native formal power series K[[T]]. log K is Mathlib’s formal log(1+T), with constant0, and rescale(c) is native substitution T↦cT. The Mahler derivation ∂=(1+T)d/dT is the existing PMIA construction and promoted value theorem. The defining series and coefficient formulas need no Gauss nonvanishing hypothesis. The derivative, uniqueness and comparison theorems additionally assume η primitive, D>1, hDK:IsUnit(D:K) and G≠0, exactly as the existing tameSeries_eq_gauss theorem. No norm, p-coprimality or convergence is asserted here.
+
+**Proof:**
+
+1. Apply the native coefficient map to the finite sum and constant factors. Native coeff_rescale gives the nth power of the rescaling factor times coeff_n(log K).
+2. Native coeff_log, with n>0, gives exactly the rational coefficient(-1)^(n+1)/n under its native rational inclusion. Pull this common scalar outside the finite sum.
+3. This leaves the exact inverse-character-weighted power sum and the leading−G⁻¹. For the primitive quadratic character modulo3 with η(2)=−1 the first three coefficients are1/3,−1/6,2/27.
+4. No convergence estimate follows from this identity alone. In particular the norm of ε^a/(ε^a−1) can exceed1 at pure p-power roots, as the confirmed source correction requires.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-primitive`, `mathlib:PowerSeries.coeff_log`, `mathlib:PowerSeries.coeff_rescale`, `mathlib:PowerSeries.coeff_C_mul`.
+
+**Tests:**
+
+- `SuggestedLogarithmicPrimitiveTests.cubic_character_first_coefficient` (computation): For the specified primitive quadratic character modulo3, the first coefficient is1/3.
+- `SuggestedLogarithmicPrimitiveTests.cubic_character_second_coefficient` (computation): For the same data the second coefficient is−1/6.
+- `SuggestedLogarithmicPrimitiveTests.cubic_character_third_coefficient` (computation): For the same data the third coefficient is2/27.
+
+**Acceptance:** The tests retain primitive-character, value, field-unit and Gauss hypotheses explicitly. The modulus is3; the character is quadratic.
+
+**Source:** Theorem6.1(ii), display(6-2), Lemmas6.4–6.5 and proof of the logarithmic value formula, published149–153/PDF50–54. Complete published148–155 read for this checkpoint. Confirmed external E44–E48 entries read whole; retain the logarithm-branch requirement, the false pure-p-power R+ assertion, corrected rotation sign, full modulus and n=1 case. Worker normalized formal version of the finite logarithmic primitive in Lemma6.5. The native formal logarithm has constant0, and rescaling gives the exact formal derivative. The existing tame Gauss series is recovered using character-sum vanishing. This does not supply the source logarithm constant or any radius-of-convergence or locally analytic distribution claim; the pure-p-power convergence defect is explicitly retained.
+
+### The Mahler derivative recovers the tame series
+
+`DirichletPadicLFunctions:L3/normalized-tame-logarithmic-derivative` — `DirichletPadic.tameNormalizedLogPrimitive_mahler`
+
+Under the stated primitive D>1 and Gauss hypotheses, ∂H_(η,ε)=tameSeries η hDK.
+
+**Hypotheses:** K is a field of characteristic0, with its native rational algebra; D is a positive natural modulus with NeZero D. η is an actual DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). All objects in this checkpoint are native formal power series K[[T]]. log K is Mathlib’s formal log(1+T), with constant0, and rescale(c) is native substitution T↦cT. The Mahler derivation ∂=(1+T)d/dT is the existing PMIA construction and promoted value theorem. The defining series and coefficient formulas need no Gauss nonvanishing hypothesis. The derivative, uniqueness and comparison theorems additionally assume η primitive, D>1, hDK:IsUnit(D:K) and G≠0, exactly as the existing tameSeries_eq_gauss theorem. No norm, p-coprimality or convergence is asserted here.
+
+**Proof:**
+
+1. For z≠1, differentiate the rescaled formal logarithm. The native rescaled-derivative lemma and derivative_log_mul_one_add_X give D(log(1+cT))(1+cT)=c for c=z/(z−1).
+2. Factor z(1+T)−1=(z−1)(1+cT). Its constant coefficient z−1 is nonzero, so native inverse cancellation is valid. The complete affine-log-derivative lemma gives (1+T)D(log(1+cT))=1+(z(1+T)−1)⁻¹.
+3. Apply this only to nonzero weighted residue terms. The zero residue has inverse-character weight0 and is discarded before using the nonzero-denominator identity; every other residue has ε^a≠1 by primitivity of ε.
+4. Primitive η at D>1 is nonprincipal, hence so is η⁻¹. Native MulChar.sum_eq_zero_of_ne_one removes the sum of the constant1 terms. A complete native weighted-log-derivative lemma checks this finite-sum cancellation and requires the denominator condition only where the weight is nonzero.
+5. Multiply by−C(G⁻¹). The resulting finite inverse sum is exactly the preceding tameSeries_eq_gauss expression. The promoted supplier Mahler-derivation-value theorem identifies the left side with∂H.
+6. The operator is(1+T)D, not D. For the quadratic modulus3 example, the first coefficient of D(H) is−1/3 whereas the first coefficient of tameSeries is0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-primitive`, `DirichletPadicLFunctions:L2/tame-gauss-series`, `DirichletPadicLFunctions:L2/tame-gauss-generating`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value`, `mathlib:PowerSeries.derivative_log_mul_one_add_X`, `mathlib:PowerSeries.coeff_derivative`, `mathlib:PowerSeries.inv_mul_cancel`, `mathlib:MulChar.sum_eq_zero_of_ne_one`, `mathlib:DirichletCharacter.conductor_one`.
+
+**Tests:**
+
+- `SuggestedLogarithmicPrimitiveTests.full_mahler_primitive` (compatibility): The exact existing Mahler derivation of H is the existing tameSeries.
+- `SuggestedLogarithmicPrimitiveTests.ordinary_derivative_is_different` (non-example): At quadratic modulus3, ordinary differentiation has first coefficient−1/3, while tameSeries has first coefficient0.
+
+**Acceptance:** This is a formal identity even in cases where the source R+ assertion fails. It is not an assertion that H is an Amice transform of a bounded measure or a locally analytic distribution.
+
+**Source:** Theorem6.1(ii), display(6-2), Lemmas6.4–6.5 and proof of the logarithmic value formula, published149–153/PDF50–54. Complete published148–155 read for this checkpoint. Confirmed external E44–E48 entries read whole; retain the logarithm-branch requirement, the false pure-p-power R+ assertion, corrected rotation sign, full modulus and n=1 case. Worker normalized formal version of the finite logarithmic primitive in Lemma6.5. The native formal logarithm has constant0, and rescaling gives the exact formal derivative. The existing tame Gauss series is recovered using character-sum vanishing. This does not supply the source logarithm constant or any radius-of-convergence or locally analytic distribution claim; the pure-p-power convergence defect is explicitly retained.
+
+### The zero constant fixes the formal primitive
+
+`DirichletPadicLFunctions:L3/normalized-tame-logarithmic-unique` — `DirichletPadic.tameNormalizedLogPrimitive_unique`
+
+If F∈K[[T]] satisfies ∂F=tameSeries η hDK and constantCoeff F=0, then F=H_(η,ε).
+
+**Hypotheses:** K is a field of characteristic0, with its native rational algebra; D is a positive natural modulus with NeZero D. η is an actual DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). All objects in this checkpoint are native formal power series K[[T]]. log K is Mathlib’s formal log(1+T), with constant0, and rescale(c) is native substitution T↦cT. The Mahler derivation ∂=(1+T)d/dT is the existing PMIA construction and promoted value theorem. The defining series and coefficient formulas need no Gauss nonvanishing hypothesis. The derivative, uniqueness and comparison theorems additionally assume η primitive, D>1, hDK:IsUnit(D:K) and G≠0, exactly as the existing tameSeries_eq_gauss theorem. No norm, p-coprimality or convergence is asserted here.
+
+**Proof:**
+
+1. Compare the derivative of F with the preceding actual H. The supplier apply formula gives (1+T)D(F)=(1+T)D(H).
+2. The series1+T is a unit, since its constant coefficient is1. Cancel it using native unit cancellation to obtain equality of ordinary formal derivatives.
+3. A characteristic-zero field is additively torsion free. Native PowerSeries.derivative.ext now identifies the two series from their equal derivatives and equal zero constants. The complete native normalized-primitive-unique lemma checks these assumptions explicitly.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-derivative`, `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-primitive`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value`, `mathlib:PowerSeries.isUnit_iff_constantCoeff`, `mathlib:PowerSeries.derivative.ext`, `mathlib:IsUnit.mul_right_inj`.
+
+**Tests:**
+
+- `SuggestedLogarithmicPrimitiveTests.zero_constant_unique` (characterisation): Every formal primitive with zero constant equals the constructed H.
+
+**Acceptance:** The characteristic-zero hypothesis is essential. No analogous constant-kernel statement is asserted in characteristic p.
+
+**Source:** Theorem6.1(ii), display(6-2), Lemmas6.4–6.5 and proof of the logarithmic value formula, published149–153/PDF50–54. Complete published148–155 read for this checkpoint. Confirmed external E44–E48 entries read whole; retain the logarithm-branch requirement, the false pure-p-power R+ assertion, corrected rotation sign, full modulus and n=1 case. Worker normalized formal version of the finite logarithmic primitive in Lemma6.5. The native formal logarithm has constant0, and rescaling gives the exact formal derivative. The existing tame Gauss series is recovered using character-sum vanishing. This does not supply the source logarithm constant or any radius-of-convergence or locally analytic distribution claim; the pure-p-power convergence defect is explicitly retained.
+
+### Independence of the primitive-root choice
+
+`DirichletPadicLFunctions:L3/normalized-tame-logarithmic-root-independent` — `DirichletPadic.tameNormalizedLogPrimitive_root_independent`
+
+For two primitive Dth roots ε,ε′ with their respective nonzero inverse-character Gauss sums, H_(η,ε)=H_(η,ε′).
+
+**Hypotheses:** K is a field of characteristic0, with its native rational algebra; D is a positive natural modulus with NeZero D. η is an actual DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). All objects in this checkpoint are native formal power series K[[T]]. log K is Mathlib’s formal log(1+T), with constant0, and rescale(c) is native substitution T↦cT. The Mahler derivation ∂=(1+T)d/dT is the existing PMIA construction and promoted value theorem. The defining series and coefficient formulas need no Gauss nonvanishing hypothesis. The derivative, uniqueness and comparison theorems additionally assume η primitive, D>1, hDK:IsUnit(D:K) and G≠0, exactly as the existing tameSeries_eq_gauss theorem. No norm, p-coprimality or convergence is asserted here.
+
+**Proof:**
+
+1. Both series have zero constant by construction. Apply the preceding derivative theorem with each root and its exact Gauss sum; both Mahler derivatives are the same root-free tameSeries η hDK.
+2. Apply normalized primitive uniqueness. The normalization removes the possible additive constant, so equality holds for the entire formal series.
+3. The comparison does not identify independent logarithm branches or their cyclotomic constant sums. Only the normalized formal coefficients are asserted to be root-independent.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-unique`, `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-derivative`, `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-primitive`.
+
+**Tests:**
+
+- `SuggestedLogarithmicPrimitiveTests.primitive_root_choice_independent` (compatibility): Changing the primitive root and its matching Gauss normalization leaves H unchanged.
+
+**Acceptance:** Each Gauss sum uses the additive character belonging to its own root. Compatible-root conventions for other conductor comparisons remain separate.
+
+**Source:** Theorem6.1(ii), display(6-2), Lemmas6.4–6.5 and proof of the logarithmic value formula, published149–153/PDF50–54. Complete published148–155 read for this checkpoint. Confirmed external E44–E48 entries read whole; retain the logarithm-branch requirement, the false pure-p-power R+ assertion, corrected rotation sign, full modulus and n=1 case. Worker normalized formal version of the finite logarithmic primitive in Lemma6.5. The native formal logarithm has constant0, and rescaling gives the exact formal derivative. The existing tame Gauss series is recovered using character-sum vanishing. This does not supply the source logarithm constant or any radius-of-convergence or locally analytic distribution claim; the pure-p-power convergence defect is explicitly retained.
+
+### Every formal primitive retains one free constant
+
+`DirichletPadicLFunctions:L3/tame-logarithmic-all-primitives` — `DirichletPadic.tameNormalizedLogPrimitive_all_primitives`
+
+For any F∈K[[T]], ∂F=tameSeries η hDK iff F=C(constantCoeff F)+H_(η,ε).
+
+**Hypotheses:** K is a field of characteristic0, with its native rational algebra; D is a positive natural modulus with NeZero D. η is an actual DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). All objects in this checkpoint are native formal power series K[[T]]. log K is Mathlib’s formal log(1+T), with constant0, and rescale(c) is native substitution T↦cT. The Mahler derivation ∂=(1+T)d/dT is the existing PMIA construction and promoted value theorem. The defining series and coefficient formulas need no Gauss nonvanishing hypothesis. The derivative, uniqueness and comparison theorems additionally assume η primitive, D>1, hDK:IsUnit(D:K) and G≠0, exactly as the existing tameSeries_eq_gauss theorem. No norm, p-coprimality or convergence is asserted here.
+
+**Proof:**
+
+1. For the forward implication subtract C(constantCoeff F). The Mahler derivation kills this constant, leaving the same tame-series derivative and zero constant. Apply normalized uniqueness.
+2. Equivalently, the complete native primitive-constant-difference lemma derives F=C(constantCoeff F−constantCoeff H)+H directly; constantCoeff H=0 gives the displayed result.
+3. Conversely, the derivation kills C(constantCoeff F), and the preceding derivative theorem gives the derivative of H. This proves the exact equivalence.
+4. Thus the formal derivative does not determine the source cyclotomic logarithm constant or the special value. Its construction needs the Coleman-owned Iwasawa logarithm, and its distribution comparison needs the LAD-owned convergence and restriction results with the confirmed conductor qualifications.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-unique`, `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-derivative`, `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-primitive`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation`.
+
+**Tests:**
+
+- `SuggestedLogarithmicPrimitiveTests.arbitrary_constant_remains` (non-example): For every c∈K, C(c)+H has the same Mahler derivative as H.
+
+**Acceptance:** Do not identify the normalization0 with the source logarithm value. No analytic uniqueness on a disconnected p-adic domain is inferred from a vanishing derivative.
+
+**Source:** Theorem6.1(ii), display(6-2), Lemmas6.4–6.5 and proof of the logarithmic value formula, published149–153/PDF50–54. Complete published148–155 read for this checkpoint. Confirmed external E44–E48 entries read whole; retain the logarithm-branch requirement, the false pure-p-power R+ assertion, corrected rotation sign, full modulus and n=1 case. Worker normalized formal version of the finite logarithmic primitive in Lemma6.5. The native formal logarithm has constant0, and rescaling gives the exact formal derivative. The existing tame Gauss series is recovered using character-sum vanishing. This does not supply the source logarithm constant or any radius-of-convergence or locally analytic distribution claim; the pure-p-power convergence defect is explicitly retained.
+
+**Remaining:** The normalized finite Gauss-log formal primitive now has exact coefficients, the required Mahler derivative, normalized uniqueness, root independence and the full additive-constant ambiguity. Supply the actual Iwasawa-log constant and appropriate open-disc convergence/distribution comparison through the existing ColemanIntegration L0 and LocallyAnalyticDistributions L1 owners. Confirmed E45 excludes the unsmoothed R+ assertion for pure p-power conductor; that case requires smoothed primitives. Retain E44 branch normalization, E46 plus sign, E47 full modulus and E48 n=1 correction. Actual odd/dyadic analytic branches, p-adic logarithmic degree-zero values, pole/residue analysis and complete source extraction remain open.
+
+### Normalized formal logarithmic primitives and their constant ambiguity validation
+
+All 454 predecessor nodes, 438 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 8 named suggested declarations and 11 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 635 reachable nodes, 3039 edges and 561 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 1417 expected placeholder warnings. Source and artifact audits cover 3597 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Six complete native lemmas verify rescaled differentiation, the formal logarithm relation, the affine logarithmic derivative with its valid unit denominator, normalized uniqueness, arbitrary constant difference and weighted finite-sum cancellation. The probe elaborates against 1712 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact cyclotomic controls check18 primitive-root choices,216 logarithmic coefficients,216 independent tame-series derivative coefficients,169 root-independence coefficients,216 constant-shift controls,18 zero-index controls and18 wrong-sign controls. Exact arithmetic in Q[X]/Phi_(p^n) for primitive characters of conductors3,4,5,8,9, including a nonreal cubic character. Inverses are certified by rational Gaussian elimination. The normalized logarithmic coefficient sum is compared with an independently computed finite tame-series quotient after applying the Mahler coefficient recurrence. Every primitive root choice gives the same normalized coefficients. Adding constant7 preserves the derivative but changes the constant, and reversing the Gauss sign fails. These are purely formal checks; no radius of convergence, locally analytic distribution, logarithm branch or L-value is inferred. The largest observed discrepancy is 0.
+
+The initial57-input capture has empty delta at59ff40738bbf946b32cdd2e8f8e627afb0ceb012. All guarded inputs match the predecessor. Current369-node PMIA preserves the compiled332-node interface; no new supplier declaration or full369-node compilation is claimed. Coleman and LAD ownership was inspected, but neither suggested module is imported by these purely formal nodes.
