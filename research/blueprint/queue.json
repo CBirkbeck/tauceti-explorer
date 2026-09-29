@@ -14770,9 +14770,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModularFormsAndSerreWeights.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #671"
+   "note": "claimed on GitHub issue #671"
   },
   {
    "id": "REV-AlgebraicModularFormsAndSerreWeights",
