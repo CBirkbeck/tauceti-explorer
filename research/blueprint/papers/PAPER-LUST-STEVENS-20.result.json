@@ -10,7 +10,8 @@
   "arxiv": "1611.08421",
   "url": "https://arxiv.org/abs/1611.08421",
   "readSections": [
-   "The whole of arXiv:1611.08421v1 (25 November 2016; 36 pp., SHA-256 c1c8bd2f3dce4b2934c9b2172665f3ad7bccea16d751c1301434a97011b2d489, fetched 29 September 2026): §§1–9 and the references, with quoted formulas checked on page images. The published PLMS version could not be fetched (the publisher serves a bot challenge), so locators and findings refer to arXiv v1 and some may be corrected in print."
+   "The whole of arXiv:1611.08421v1 (25 November 2016; 36 pp., SHA-256 c1c8bd2f3dce4b2934c9b2172665f3ad7bccea16d751c1301434a97011b2d489, fetched 29 September 2026): §§1–9 and the references, with quoted formulas checked on page images. The published PLMS version could not be fetched (the publisher serves a bot challenge), so locators and findings refer to arXiv v1 and some may be corrected in print.",
+   "The independent review (REV-PAPER-LUST-STEVENS-20) read the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, from the UEA repository copy (SHA-256 bd8295cfd75e81b7c55f1bff08909679ca267c85c724debba23a3dc990624c55), and collated every finding and the main statements with it. The printed text renumbers §7 and §8: [32, Lemma 8.9] becomes Lemma 7.3; arXiv Lemmas 7.3, 7.4, 7.7, 7.8, Proposition 7.9 and Corollary 7.10 become Lemmas 7.4, 7.5, 7.8, 7.9, Proposition 7.10 and Corollary 7.11; displays (7.5), (7.6) become (7.6), (7.7); a new Remark 8.2 discusses the opposite inequality, and arXiv Remark 8.2 becomes Remark 8.3. The introduction states result (i) as the inequality (1.4) and adds a description of the algorithm and of the proof. Item locators still refer to arXiv v1."
   ]
  },
  "sourceVersions": [
@@ -22,15 +23,17 @@
   },
   {
    "kind": "published",
-   "citation": "Proc. LMS 121 (2020) 1083–1120, doi:10.1112/plms.12340 — not accessible (publisher bot challenge); findings scoped to arXiv v1",
-   "read": "2026-09-29"
+   "url": "https://ueaeprints.uea.ac.uk/id/eprint/74421/7/Published_Version.pdf",
+   "citation": "Proc. London Math. Soc. (3) 121 (2020) 1083–1120, doi:10.1112/plms.12340; the version of record under CC BY 4.0, read from the copy in the University of East Anglia repository (eprint 74421); printed page p is PDF page p − 1082",
+   "read": "2026-09-29",
+   "sha256": "bd8295cfd75e81b7c55f1bff08909679ca267c85c724debba23a3dc990624c55"
   }
  ],
  "libraryPins": {
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
  },
- "summary": "Lust and Stevens compute the Langlands parameters of depth-zero irreducible cuspidal representations π of p-adic classical groups: symplectic, special orthogonal and unitary groups, with p odd. They do it through reducibility points. For each self-dual cuspidal ρ of some GL_n(F), s_π(ρ) is the real s ≥ 0 at which Ind ρ|det|^s ⊗ π reduces. Mœglin's theory turns the reducibility data into the Jordan set Jord(π) and hence the parameter. The main theorem shows three things for depth-zero π. First, the dimension identity Σ⌊s_π(ρ)²⌋ n_ρ = N_Ĝ holds. Second, the inertial reducibility data IRed(π) are computed explicitly from the compact-induction data (P, τ). Third, the cuspidals with the same IRed are described and counted, matching one, two or four L-packets. For symplectic groups this describes the cuspidal members of Π_φ ∪ Π_φ′ for any tame parameter φ. The proof goes through several steps. Morris's description of depth-zero cuspidals comes first, then Bushnell–Kutzko covers and Blondel's formula, which turn reducibility points into Hecke-algebra parameters. Those parameters are reduced to the finite reductive quotients and computed with Lusztig's classification (Lusztig series, Jordan decomposition, cuspidal unipotent representations, the SO-to-O extension). A final step counts the L-packet sizes. The atlas plans only the general smooth-representation background (SmoothRepresentationsOfLocalGroups SR.2–SR.3), Witt theory and local fields; Tau Ceti has Mackey's formula. The other 153 items are missing. As the maintainer asks, they join the existing Part II of SmoothRepresentationsOfLocalGroups, SmoothRepresentationsPartII (\"types, depth and the construction of supercuspidal representations\"), whose id, parent, title and area are kept. That Part II already collects Fintzen, Bushnell–Henniart and Newton–Thorne, which cites this paper. The brief imports Deligne–Lusztig representations from ModularRepresentationsOfFiniteReductiveGroups, GL_m local Langlands from ET.6, and Arthur–Mœglin packets as statements from ML.4.",
+ "summary": "Lust and Stevens compute the Langlands parameters of depth-zero irreducible cuspidal representations π of p-adic classical groups: symplectic, special orthogonal and unitary groups, with p odd. They do it through reducibility points. For each self-dual cuspidal ρ of some GL_n(F), s_π(ρ) is the real s ≥ 0 at which Ind ρ|det|^s ⊗ π reduces. Mœglin's theory turns the reducibility data into the Jordan set Jord(π) and hence the parameter. The main theorem shows three things for depth-zero π. First, Σ⌊s_π(ρ)²⌋ n_ρ ⩾ N_Ĝ, with the depth-zero terms alone summing to N_Ĝ (equality (1.3) where Mœglin's reverse inequality is known). Second, the inertial reducibility data IRed(π) are computed explicitly from the compact-induction data (P, τ). Third, the cuspidals with the same IRed are described and counted, matching one, two or four L-packets. For symplectic groups this describes the cuspidal members of Π_φ ∪ Π_φ′ for any tame parameter φ. The proof goes through several steps. Morris's description of depth-zero cuspidals comes first, then Bushnell–Kutzko covers and Blondel's formula, which turn reducibility points into Hecke-algebra parameters. Those parameters are reduced to the finite reductive quotients and computed with Lusztig's classification (Lusztig series, Jordan decomposition, cuspidal unipotent representations, the SO-to-O extension). A final step counts the L-packet sizes. The atlas plans only the general smooth-representation background (SmoothRepresentationsOfLocalGroups SR.2–SR.3), Witt theory and local fields; Tau Ceti's general Mackey formula does not cover the Harish-Chandra splitting that (7.5) needs. The other 154 items are missing. The p-adic ones (102) join, as the maintainer asks, the existing Part II of SmoothRepresentationsOfLocalGroups, SmoothRepresentationsPartII (\"types, depth and the construction of supercuspidal representations\"), whose id, parent, title and area are kept; that Part II already collects Fintzen, Bushnell–Henniart and Newton–Thorne, which cites this paper. The finite-group computation of §7 and its inputs (52 items) join ModularRepresentationsOfFiniteReductiveGroups, the atlas's single owner of Deligne–Lusztig theory. The briefs import GL_m local Langlands from ET.6 and Arthur–Mœglin packets as statements from ML.4. The review collated the extraction with the version of record (Proc. LMS 2020, read from the UEA repository): print corrects seven of the recorded slips and part of an eighth, and introduces two new ones. Of the 38 recorded mistakes, 28 are new and unchanged in print.",
  "items": [
   {
    "id": "PAPER-LUST-STEVENS-20/s1-reducibility-point-def",
@@ -111,7 +114,7 @@
    "statement": "Given a tame Langlands parameter φ for a symplectic group G as above, there is an explicit description of the cuspidal representations in the union of L-packets Π_φ ∪ Π_φ′.",
    "locator": "§1, Theorem (unnumbered, symplectic case), part (i), p. 3 (arXiv v1)",
    "status": "missing",
-   "note": "Main result, parameter-side reformulation of the general Main Theorem via the local Langlands correspondence for symplectic groups (Arthur). Proved in §§8–9 (outside this range)."
+   "note": "Main result, parameter-side reformulation of the general Main Theorem via the local Langlands correspondence for symplectic groups (Arthur). Proved in §§8–9."
   },
   {
    "id": "PAPER-LUST-STEVENS-20/s1-thm-symplectic-ii",
@@ -156,7 +159,7 @@
    "statement": "For ρ ∈ 𝒜^σ(F) of depth zero with n_ρ > 1 and ρ′ its self-dual unramified twist, the exterior square L-function of exactly one of ρ, ρ′ has a pole at s = 0, while for the other it is the symmetric square L-function which has a pole (the same for the Asai and twisted Asai L-functions when F/F_o is quadratic); thus the parity of m such that (ρ, m) ∈ Red(π) should be independent of π and opposite to that for ρ′. Consequently IRed(π) is a set except possibly for the inertial classes of quadratic characters of GL_1(F), and computing IRed(π) determines all elements of Red(π) apart from those attached to characters of GL_1(F) of order at most two.",
    "locator": "§1, p. 4 (arXiv v1)",
    "status": "missing",
-   "note": "Explanatory claim relying on Shahidi's theory ([48]: poles of L-functions ↔ reducibility) and the LLC for GL_n; phrased with 'should', not proved in this range. Exterior/symmetric square and Asai L-functions: no atlas stage (AL.2/AL.3 are Godement–Jacquet and Rankin–Selberg only)."
+   "note": "Explanatory claim relying on Shahidi's theory ([48]: poles of L-functions ↔ reducibility) and the LLC for GL_n; phrased with 'should' and not proved in the paper. Exterior/symmetric square and Asai L-functions: no atlas stage (AL.2/AL.3 are Godement–Jacquet and Rankin–Selberg only)."
   },
   {
    "id": "PAPER-LUST-STEVENS-20/s1-shahidi-poles-reducibility",
@@ -171,10 +174,10 @@
    "id": "PAPER-LUST-STEVENS-20/s1-main-thm-i",
    "kind": "theorem",
    "name": "Main Theorem (i): identity (1.3) for depth zero",
-   "statement": "Let π be a depth zero irreducible cuspidal representation of G. Then equation (1.3) holds: Σ_{ρ∈𝒜^σ(F)} ⌊(s_π(ρ))²⌋ n_ρ = N_Ĝ.",
+   "statement": "Let π be a depth zero irreducible cuspidal representation of G. Then Σ_{ρ∈𝒜^σ(F)} ⌊(s_π(ρ))²⌋ n_ρ ⩾ N_Ĝ; more precisely, the sum over depth-zero ρ ∈ 𝒜^σ_[0](F) equals N_Ĝ (8.1). Equality in (1.3) follows where the opposite inequality is known (Mœglin [38], in many cases) or once positive-depth ρ are shown to have s_π(ρ) < 1.",
    "locator": "§1, Theorem (unnumbered), part (i), p. 4 (arXiv v1)",
    "status": "missing",
-   "note": "Main result; proof in §8 (outside this range) from §5's formula {s_π(ρ), s_π(ρ′)} = {|f_1 ± f_2|/2n} and §7's finite-group computation. G any symplectic, special orthogonal or unitary group, possibly non-quasi-split; p odd. The paper proves the inequality ⩾ (§8, (8.1)); equality relies on Mœglin's results, which cover it only 'in many cases', and on the then-unpublished [6] (PAPER-LUST-STEVENS-20/E33)."
+   "note": "Main result, as the version of record states it (Introduction, (1.4), p. 1086); arXiv v1 states the equality (1.3) although §8 proves only ⩾ (PAPER-LUST-STEVENS-20/E33, corrected in print). Proof in §8 from §5's formula {s_π(ρ), s_π(ρ′)} = {|f_1 ± f_2|/2n} and §7's finite-group computation. G any symplectic, special orthogonal or unitary group, possibly non-quasi-split; p odd."
   },
   {
    "id": "PAPER-LUST-STEVENS-20/s1-main-thm-ii",
@@ -226,7 +229,7 @@
     "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
    ],
-   "note": "Witt decomposition is built only for quadratic forms: TauCeti.RegularFormClass.wittDecomposition / wittIndex (TauCeti/LinearAlgebra/QuadraticForm/Witt/Decomposition.lean:238, :221), the QuadraticFormInvariants layer-1 target 'Witt decomposition (Lam I.4.1), the Witt index, the anisotropic part'. Alternating (ε = −1, F = F_o) and hermitian/skew-hermitian forms over a quadratic extension are not covered; GN.2 plans 'quaternionic/hermitian variants'. A Part II needs a uniform ε-hermitian Witt theory."
+   "note": "Witt decomposition is built only for quadratic forms: TauCeti.RegularFormClass.wittDecomposition / wittIndex (TauCeti/LinearAlgebra/QuadraticForm/Witt/Decomposition.lean:238, :221), the QuadraticFormInvariants layer-1 target 'Witt decomposition (Lam I.4.1), the Witt index, the anisotropic part'. Alternating (ε = −1, F = F_o) and hermitian/skew-hermitian forms over a quadratic extension are not covered; GN.2 plans 'quaternionic/hermitian variants'. The status rests on GN.2 for the hermitian and skew-hermitian cases and on QuadraticFormInvariants layer 1 for quadratic forms; a nondegenerate alternating form has N^an = 0."
   },
   {
    "id": "PAPER-LUST-STEVENS-20/s2-witt-tower",
@@ -367,10 +370,10 @@
    "id": "PAPER-LUST-STEVENS-20/s3-depth-zero-gl-classification",
    "kind": "theorem",
    "name": "Depth-zero cuspidals of GL_n(F) are compactly induced",
-   "statement": "Any depth zero ρ ∈ 𝒜_n(F) can be written ρ = c-Ind_{𝐉_ρ}^{GL_n(F)} Λ_ρ, where 𝐉_ρ = F^× GL_n(𝔬_F) is the normalizer of the maximal parahoric J_ρ = GL_n(𝔬_F) and Λ_ρ is an irreducible representation of 𝐉_ρ whose restriction λ_ρ = Λ_ρ|_{J_ρ} is the inflation of an irreducible cuspidal representation τ_ρ of J_ρ/J_ρ^1 ≃ GL_n(k_F). The equivalence class of τ = τ_ρ is uniquely determined by ρ, and ρ is self-dual if and only if τ is self-dual, i.e. τ^σ ≃ τ where τ^σ(g) = τ(σ(g^{−1})^T) for g ∈ GL_n(k_F), σ generating Gal(k_F/k_o).",
+   "statement": "Any depth zero ρ ∈ 𝒜_n(F) can be written ρ = c-Ind_{𝐉_ρ}^{GL_n(F)} Λ_ρ, where 𝐉_ρ = F^× GL_n(𝔬_F) is the normalizer of the maximal parahoric J_ρ = GL_n(𝔬_F) and Λ_ρ is an irreducible representation of 𝐉_ρ whose restriction λ_ρ = Λ_ρ|_{J_ρ} is the inflation of an irreducible cuspidal representation τ_ρ of J_ρ/J_ρ^1 ≃ GL_n(k_F). The equivalence class of τ = τ_ρ is uniquely determined by ρ, if ρ is self-dual then τ is self-dual, i.e. τ^σ ≃ τ; conversely, if τ is self-dual then exactly two unramified twists of ρ are self-dual (§4) where τ^σ(g) = τ(σ(g^{−1})^T) for g ∈ GL_n(k_F), σ generating Gal(k_F/k_o).",
    "locator": "§3, p. 8 (arXiv v1)",
    "status": "missing",
-   "note": "Standard (level-zero types; no citation given here). Compact induction is planned in SR.2; the classification is not planned anywhere (ET.6 plans 'the needed supercuspidal/type … theory' for GL_m, in general terms)."
+   "note": "Standard (level-zero types; no citation given here). Compact induction is planned in SR.2; the classification is not planned anywhere (ET.6 plans 'the needed supercuspidal/type … theory' for GL_m, in general terms). The paper prints \"ρ is self-dual if and only if τ is self-dual\", false for GL_1 (PAPER-LUST-STEVENS-20/E35); the statement above is the corrected one."
   },
   {
    "id": "PAPER-LUST-STEVENS-20/s3-green-classification",
@@ -670,10 +673,10 @@
    "id": "PAPER-LUST-STEVENS-20/s7-7.1-self-dual-root-criterion",
    "kind": "theorem",
    "name": "Root characterization of self-duality (§7.1)",
-   "statement": "A monic P ∈ F_q[X] is F_q/F_{q∘}-self-dual if and only if: (i) when F_q = F_{q∘}, for each root ζ of P (in some algebraic closure of F_q), ζ^{−1} is also a root of P; (ii) when F_q ≠ F_{q∘}, for each root ζ of P, ζ^{−q∘} is also a root of P.",
+   "statement": "A monic P ∈ F_q[X] is F_q/F_{q∘}-self-dual if and only if: (i) when F_q = F_{q∘}, for each root ζ of P (in some algebraic closure of F_q), ζ^{−1} is also a root of P, with the same multiplicity; (ii) when F_q ≠ F_{q∘}, for each root ζ of P, ζ^{−q∘} is also a root of P, with the same multiplicity.",
    "locator": "§7.1, p. 13 (arXiv v1)",
    "status": "missing",
-   "note": "Stated without proof. As printed it is a set-level condition on roots; the equality P = P^σ also requires the multiplicities to match (for irreducible P, the only case used, this is automatic). Not in any library; no atlas stage."
+   "note": "Stated without proof. The printed criterion omits the multiplicities and is false for repeated roots (PAPER-LUST-STEVENS-20/E38); only irreducible P are used. Not in any library; no atlas stage."
   },
   {
    "id": "PAPER-LUST-STEVENS-20/s7-7.1-irreducible-self-dual-degree-parity",
@@ -886,7 +889,7 @@
    "id": "PAPER-LUST-STEVENS-20/s7-lemma-7.4-i-hecke-algebra-isomorphism",
    "kind": "theorem",
    "name": "Lemma 7.4(i): same Hecke algebra when w normalizes τ̃",
-   "statement": "Setting: s ∈ 𝒢^{*,ℱ} semisimple, ℒ* a maximal proper ℱ-stable Levi in an ℱ-stable parabolic 𝒫* of 𝒢* (printed hypothesis: 𝒢*_s ⊆ ℒ*), ℒ, 𝒫 the corresponding subgroups of 𝒢, lifts s̃, ℒ̃*, 𝒫̃* and ℒ̃, 𝒫̃ ⊆ 𝒢̃; τ ∈ ℰ(ℒ^ℱ, s) cuspidal, occurring with multiplicity one in the restriction of a cuspidal τ̃ ∈ ℰ(ℒ̃^ℱ, s̃); w a representative of the nontrivial element of 𝒩_𝒢(ℒ)/ℒ. (i) If w normalizes τ̃, then w normalizes τ and End_𝒢(Ind^𝒢_{ℒ,𝒫} τ) ≃ End_{𝒢̃}(Ind^{𝒢̃}_{ℒ̃,𝒫̃} τ̃) as Hecke algebras (the quadratic relations (T+1)(T−q^{f_τ}) = 0 coincide).",
+   "statement": "Setting: s ∈ 𝒢^{*,ℱ} semisimple, ℒ* a maximal proper ℱ-stable Levi in an ℱ-stable parabolic 𝒫* of 𝒢* with s ∈ ℒ* (printed: 𝒢*_s ⊆ ℒ*, which would make the lemma vacuous; PAPER-LUST-STEVENS-20/E16), ℒ, 𝒫 the corresponding subgroups of 𝒢, lifts s̃, ℒ̃*, 𝒫̃* and ℒ̃, 𝒫̃ ⊆ 𝒢̃; τ ∈ ℰ(ℒ^ℱ, s) cuspidal, occurring with multiplicity one in the restriction of a cuspidal τ̃ ∈ ℰ(ℒ̃^ℱ, s̃); w a representative of the nontrivial element of 𝒩_𝒢(ℒ)/ℒ. (i) If w normalizes τ̃, then w normalizes τ and End_𝒢(Ind^𝒢_{ℒ,𝒫} τ) ≃ End_{𝒢̃}(Ind^{𝒢̃}_{ℒ̃,𝒫̃} τ̃) as Hecke algebras (the quadratic relations (T+1)(T−q^{f_τ}) = 0 coincide).",
    "locator": "§7.3, Lemma 7.4(i), p. 18 (arXiv v1)",
    "status": "missing",
    "note": "Proof: Mackey (7.5) plus the strict inequality dim π̃₁ > dim π̃₂ force ℓ = 2 and Res π̃_i = ⊕_γ π_i^γ, so dim π₁/dim π₂ = dim π̃₁/dim π̃₂. Transfers the connected-centre parameter of §7.2 to 𝒢. The printed hypothesis 𝒢*_s ⊆ ℒ* makes the reducible case impossible (PAPER-LUST-STEVENS-20/E16); the intended hypothesis is s ∈ ℒ* as on p. 15. Nothing on finite reductive groups, Deligne–Lusztig induction or Lusztig series exists in Mathlib or TauCeti (declarations index and sources grepped for Lusztig/HarishChandra/cuspidal), and no atlas stage plans them (all atlas roadmaps grepped for Deligne–Lusztig, Lusztig, finite reductive, Lie type, Harish-Chandra, cuspidal unipotent; only unrelated hits such as CharacterTheory Layer 9 'the representation theory of GL₂(𝔽_q)')."
@@ -906,11 +909,8 @@
    "name": "Mackey formula (7.5) as used",
    "statement": "Res^{𝒢̃}_𝒢 Ind^{𝒢̃}_{ℒ̃,𝒫̃} τ̃ = ⊕_{γ ∈ ℒ̃/𝒩_{ℒ̃}(τ)} Ind^𝒢_{ℒ,𝒫} τ^γ = ⊕_{γ ∈ ℒ̃/𝒩_{ℒ̃}(τ)} ⊕_{i=1}^{ℓ} π_i^γ, where Ind^𝒢_{ℒ,𝒫} τ = ⊕_{i=1}^{ℓ} π_i with ℓ = 2 if w normalizes τ and ℓ = 1 otherwise.",
    "locator": "§7.3, (7.5), p. 18 (arXiv v1)",
-   "status": "library",
-   "library": [
-    "tauceti:Rep.mackeyDecomposition"
-   ],
-   "note": "The general Mackey decomposition Res_K Ind_H^G A ≅ ⊕_{KsH} Ind Res(^s A) is in TauCeti (Rep.mackeyDecomposition, read at the cited line); (7.5) is its specialization (via inflation from ℒ̃ to 𝒫̃, 𝒢̃ = 𝒢 𝒫̃, and Res^{ℒ̃}_ℒ τ̃ = ⊕_γ τ^γ), and that specialization is not formalized. Read at TauCeti/RepresentationTheory/Induction/Mackey/Decomposition.lean:390 (`Rep.mackeyDecomposition : Rep.res K.subtype (Rep.ind H.subtype A) ≅ mackeyDirectSum H K A`)."
+   "status": "missing",
+   "note": "Tau Ceti has the general Mackey decomposition (Rep.mackeyDecomposition, TauCeti/RepresentationTheory/Induction/Mackey/Decomposition.lean:390 at f790474, read by the review), but (7.5) also needs Res^{ℒ̃}_ℒ τ̃ = ⊕_γ τ^γ and the decomposition of Harish-Chandra induction Ind^𝒢_{ℒ,𝒫} τ into ℓ ∈ {1, 2} constituents according to whether w normalizes τ, which is the Howlett–Lehrer theory of s6-howlett-lehrer-lusztig-parameter; neither library has it. Published as (7.6)."
   },
   {
    "id": "PAPER-LUST-STEVENS-20/s7-7.3-levi-similitude-isomorphism",
@@ -1078,7 +1078,7 @@
    "id": "PAPER-LUST-STEVENS-20/s7-7.7-unitary-parameter-formula",
    "kind": "theorem",
    "name": "Unitary groups: the parameter f_τ",
-   "statement": "In the unitary setting, let s₀ ∈ 𝒢₀^{*,ℱ} be semisimple with τ₀ ∈ ℰ(𝒢₀^ℱ, s₀), P_{s₀}(X) = ∏_P P(X)^{a_P} with a_P = ½(m_P² + m_P), and Q the irreducible characteristic polynomial of s₁ ∈ GL_m^{*,ℱ} with τ₁ ∈ ℰ(GL_m^ℱ, s₁), an irreducible F_q/F_{q∘}-self-dual monic polynomial of odd degree n = n_Q. Then f_τ = (2m_Q + 1) n_Q/2.",
+   "statement": "In the unitary setting, let s₀ ∈ 𝒢₀^{*,ℱ} be semisimple with τ₀ ∈ ℰ(𝒢₀^ℱ, s₀), P_{s₀}(X) = ∏_P P(X)^{a_P} with a_P = ½(m_P² + m_P), and Q the irreducible characteristic polynomial of s₁ ∈ GL_m^{*,ℱ} with τ₁ ∈ ℰ(GL_m^ℱ, s₁), an irreducible F_q/F_{q∘}-self-dual monic polynomial of odd degree n_Q = m. Then f_τ = (2m_Q + 1) n_Q/2.",
    "locator": "§7.7, p. 24 (arXiv v1)",
    "status": "missing",
    "note": "Computed via Jordan decomposition and Lusztig's tables [34]. Printed 'n = n_Q' clashes with 𝒢 = GL_n; the degree equals m (PAPER-LUST-STEVENS-20/E24). Nothing on finite reductive groups, Deligne–Lusztig induction or Lusztig series exists in Mathlib or TauCeti (declarations index and sources grepped for Lusztig/HarishChandra/cuspidal), and no atlas stage plans them (all atlas roadmaps grepped for Deligne–Lusztig, Lusztig, finite reductive, Lie type, Harish-Chandra, cuspidal unipotent; only unrelated hits such as CharacterTheory Layer 9 'the representation theory of GL₂(𝔽_q)')."
@@ -1240,10 +1240,10 @@
    "id": "PAPER-LUST-STEVENS-20/s9-def-E-e-e0",
    "kind": "definition",
    "name": "E(π), e(π), e_0(π)",
-   "statement": "E(π) = {ρ ∈ 𝒜^σ(F) : s_π(ρ) ∈ ℕ} and e(π) = #E(π); this is the number of ρ ∈ 𝒜^σ(F) such that (ρ, m) ∈ Jord(π) for some odd integer m. e_0(π) = 1 if there is ρ ∈ 𝒜^σ(F) such that s_π(ρ) ∈ 1 + 2ℕ, and 0 otherwise.",
+   "statement": "E(π) = {ρ ∈ 𝒜^σ(F) : s_π(ρ) is a positive integer} and e(π) = #E(π); this is the number of ρ ∈ 𝒜^σ(F) such that (ρ, m) ∈ Jord(π) for some odd integer m. e_0(π) = 1 if s_π(ρ) is an odd positive integer for some ρ ∈ 𝒜^σ(F), and 0 otherwise.",
    "locator": "§9, p. 27 (arXiv v1)",
    "status": "missing",
-   "note": "No atlas stage or library declaration covers this: SmoothRepresentationsOfLocalGroups stops at SR.0–SR.6 (smooth category, Hecke algebras, induction/compact induction, admissibility, Satake, GL_n families, finiteness) with no types, covers, depth-zero/Morris data, reducibility points or L-packets for classical groups; no Tau Ceti roadmap treats finite groups of Lie type, Deligne–Lusztig theory or Lusztig series. The convention for ℕ is inconsistent between E(π) and e_0(π) (PAPER-LUST-STEVENS-20/E25); the intended meaning is s_π(ρ) ∈ ℤ_{⩾1} for E(π) and s_π(ρ) an odd positive integer for e_0(π)."
+   "note": "No atlas stage or library declaration covers this: SmoothRepresentationsOfLocalGroups stops at SR.0–SR.6 (smooth category, Hecke algebras, induction/compact induction, admissibility, Satake, GL_n families, finiteness) with no types, covers, depth-zero/Morris data, reducibility points or L-packets for classical groups; no Tau Ceti roadmap treats finite groups of Lie type, Deligne–Lusztig theory or Lusztig series. The convention for ℕ is inconsistent between E(π) and e_0(π) (PAPER-LUST-STEVENS-20/E25); the intended meaning is s_π(ρ) ∈ ℤ_{⩾1} for E(π) and s_π(ρ) an odd positive integer for e_0(π). Printed as s_π(ρ) ∈ ℕ and s_π(ρ) ∈ 1 + 2ℕ, which cannot both be meant with one convention for ℕ (PAPER-LUST-STEVENS-20/E25)."
   },
   {
    "id": "PAPER-LUST-STEVENS-20/s9-cited-cuspidal-count-moeglin",
@@ -1366,7 +1366,7 @@
    "id": "PAPER-LUST-STEVENS-20/s9-example-9.3",
    "kind": "theorem",
    "name": "Example 9.3 (Sp_6, a single L-packet)",
-   "statement": "G = Sp_6(F), J_{2,1} with reductive quotient 𝒢_{2,1} ≃ Sp_4(k_F) × SL_2(k_F); θ_10 the unique cuspidal in ℰ(Sp_4(k_F), 1) (characteristic polynomial (X − 1)^5), τ an irreducible cuspidal of SL_2(k_F) in a Lusztig series with characteristic polynomial (X − 1)(X + 1)² (dimension (q−1)/2, two such); π = c-Ind_{J_{2,1}}^G λ_π with λ_π inflated from θ_10 ⊗ τ. Then s_π(ρ) ∈ {0, ±½} unless ρ is a character of GL_1(F); m_{X−1}^{(1)} = 1, m_{X−1}^{(2)} = 0, m_{X+1}^{(1)} = 0, m_{X+1}^{(2)} = 1; {s_π(𝟏), s_π(ω_0)} = {2, 1}, {s_π(ω_1), s_π(ω_2)} = {1}; ϕ_π = 𝟏 ⊗ (st_3 ⊕ st_1) ⊕ ω_0 ⊕ ω_1 ⊕ ω_2; E(π) = {𝟏, ω_0, ω_1, ω_2}, e(π) = 4; the L-packet has 16 members, 8 cuspidal; Q(π) = {X + 1, X − 1}, q(π) = 2, δ(π) = 1; the 8 cuspidals are the inductions of θ_10 ⊗ τ, θ_10 ⊗ τ' from J_{2,1} or J_{1,2}, and of τ_1, τ'_1 ∈ ℰ(Sp_6(k_F), s_1) (s_1 ∈ SO_7(k_F) with characteristic polynomial (X − 1)^5(X + 1)²) from J_{3,0} or J_{0,3}.",
+   "statement": "G = Sp_6(F), J_{2,1} with reductive quotient 𝒢_{2,1} ≃ Sp_4(k_F) × SL_2(k_F); θ_10 the unique cuspidal in ℰ(Sp_4(k_F), 1) (characteristic polynomial (X − 1)^5), τ an irreducible cuspidal of SL_2(k_F) in a Lusztig series with characteristic polynomial (X − 1)(X + 1)² (dimension (q−1)/2, two such); π = c-Ind_{J_{2,1}}^G λ_π with λ_π inflated from θ_10 ⊗ τ. Then s_π(ρ) ∈ {0, ½} unless ρ is a character of GL_1(F); m_{X−1}^{(1)} = 1, m_{X−1}^{(2)} = 0, m_{X+1}^{(1)} = 0, m_{X+1}^{(2)} = 1; {s_π(𝟏), s_π(ω_0)} = {2, 1}, {s_π(ω_1), s_π(ω_2)} = {1}; IRed(π) = {{([𝟏],3), ([𝟏],1), ([ω_1],1), ([ω_1],1)}} (printed with the values of s_π in place of m; E26); ϕ_π = 𝟏 ⊗ (st_3 ⊕ st_1) ⊕ ω_0 ⊕ ω_1 ⊕ ω_2; E(π) = {𝟏, ω_0, ω_1, ω_2}, e(π) = 4; the L-packet has 16 members, 8 cuspidal; Q(π) = {X + 1, X − 1}, q(π) = 2, δ(π) = 1; the 8 cuspidals are the inductions of θ_10 ⊗ τ, θ_10 ⊗ τ' from J_{2,1} or J_{1,2}, and of τ_1, τ'_1 ∈ ℰ(Sp_6(k_F), s_1) (s_1 ∈ SO_7(k_F) with characteristic polynomial (X − 1)^5(X + 1)²) from J_{3,0} or J_{0,3}.",
    "locator": "§9.1, Example 9.3, pp. 29–30 (arXiv v1)",
    "status": "missing",
    "note": "No atlas stage or library declaration covers this: SmoothRepresentationsOfLocalGroups stops at SR.0–SR.6 (smooth category, Hecke algebras, induction/compact induction, admissibility, Satake, GL_n families, finiteness) with no types, covers, depth-zero/Morris data, reducibility points or L-packets for classical groups; no Tau Ceti roadmap treats finite groups of Lie type, Deligne–Lusztig theory or Lusztig series. Numbers checked (the printed IRed(π) entry ([𝟏],2) is s_π, not m (PAPER-LUST-STEVENS-20/E26, PAPER-LUST-STEVENS-20/E31)). Determinant-1 condition of ϕ_π fixes which of 𝟏, ω_0 carries st_3."
@@ -1375,7 +1375,7 @@
    "id": "PAPER-LUST-STEVENS-20/s9-example-9.4",
    "kind": "theorem",
    "name": "Example 9.4 (Sp_4, union of two L-packets)",
-   "statement": "G = Sp_4(F), J_{1,1} with 𝒢_{1,1} ≃ SL_2(k_F) × SL_2(k_F); τ_1, τ_2 cuspidals of SL_2(k_F) each in a Lusztig series with characteristic polynomial (X − 1)(X + 1)²; π = c-Ind_{J_{1,1}}^G λ_π. Then IRed(π) = {{([𝟏],1), ([ω_1],2)}} (as printed) and (9.5) ϕ_π = 𝟏 ⊕ ω ⊗ (st_3 ⊕ st_1) with ω ∈ {ω_1, ω_2} not determined, reflecting m_{X+1}^{(1)} = m_{X+1}^{(2)} = 1, δ(π) = 2. The 4 cuspidals in the union of the two L-packets (ω = ω_1, ω_2) are obtained by independently choosing each τ_i among the two cuspidals of SL_2(k_F) of dimension (q−1)/2.",
+   "statement": "G = Sp_4(F), J_{1,1} with 𝒢_{1,1} ≃ SL_2(k_F) × SL_2(k_F); τ_1, τ_2 cuspidals of SL_2(k_F) each in a Lusztig series with characteristic polynomial (X − 1)(X + 1)²; π = c-Ind_{J_{1,1}}^G λ_π. Then IRed(π) = {{([𝟏],1), ([ω_1],3)}} (printed as {{([𝟏],1), ([ω_1],2)}}, the values of s_π; E26) and (9.5) ϕ_π = 𝟏 ⊕ ω ⊗ (st_3 ⊕ st_1) with ω ∈ {ω_1, ω_2} not determined, reflecting m_{X+1}^{(1)} = m_{X+1}^{(2)} = 1, δ(π) = 2. The 4 cuspidals in the union of the two L-packets (ω = ω_1, ω_2) are obtained by independently choosing each τ_i among the two cuspidals of SL_2(k_F) of dimension (q−1)/2.",
    "locator": "§9.1, Example 9.4, (9.5), pp. 30–31 (arXiv v1)",
    "status": "missing",
    "note": "No atlas stage or library declaration covers this: SmoothRepresentationsOfLocalGroups stops at SR.0–SR.6 (smooth category, Hecke algebras, induction/compact induction, admissibility, Satake, GL_n families, finiteness) with no types, covers, depth-zero/Morris data, reducibility points or L-packets for classical groups; no Tau Ceti roadmap treats finite groups of Lie type, Deligne–Lusztig theory or Lusztig series. Separating the two packets is done in [5] (Blondel–Henniart–Stevens, explicit L-packets for Sp_4(F)); in general it would require Waldspurger's classification of quadratic-unipotent cuspidals of finite classical groups and its compatibility with Deligne–Lusztig induction [53]."
@@ -1438,7 +1438,7 @@
    "id": "PAPER-LUST-STEVENS-20/s9-example-9.6",
    "kind": "theorem",
    "name": "Example 9.6 (split SO_8: half a packet for SO, a full one for O)",
-   "statement": "G = SO(V), dim V = 8, Witt index 4; J_{4,0}, J_{0,4} with reductive quotients SO_8^+(k_F); τ the unipotent cuspidal of SO_8^+(k_F); π = c-Ind_{J_{4,0}}^G τ, π' = c-Ind_{J_{0,4}}^G τ. IRed(π) = IRed(π') = {{([𝟏],2), ([𝟏],2)}} (as printed), ϕ_π = ϕ_π' = 𝟏 ⊗ (st_3 ⊕ st_1) ⊕ ω_0 ⊗ (st_3 ⊕ st_1). The packet should contain four cuspidals but π, π' are the only two with this IRed. By Proposition 7.9(ii), τ extends in two ways to O_8^+(k_F); inducing the inflations from J^+_{4,0}, J^+_{0,4} to G^+ = O(V) gives four inequivalent irreducible cuspidals, two restricting to π and two to π'. So for even orthogonal groups the expected number should be interpreted for the full orthogonal group.",
+   "statement": "G = SO(V), dim V = 8, Witt index 4; J_{4,0}, J_{0,4} with reductive quotients SO_8^+(k_F); τ the unipotent cuspidal of SO_8^+(k_F); π = c-Ind_{J_{4,0}}^G τ, π' = c-Ind_{J_{0,4}}^G τ. IRed(π) = IRed(π') = {{([𝟏],3), ([𝟏],3)}} (printed with the values of s_π; E26), ϕ_π = ϕ_π' = 𝟏 ⊗ (st_3 ⊕ st_1) ⊕ ω_0 ⊗ (st_3 ⊕ st_1). The packet should contain four cuspidals but π, π' are the only two with this IRed. By Proposition 7.9(ii), τ extends in two ways to O_8^+(k_F); inducing the inflations from J^+_{4,0}, J^+_{0,4} to G^+ = O(V) gives four inequivalent irreducible cuspidals, two restricting to π and two to π'. So for even orthogonal groups the expected number should be interpreted for the full orthogonal group.",
    "locator": "§9.3, Example 9.6, p. 33 (arXiv v1)",
    "status": "missing",
    "note": "No atlas stage or library declaration covers this: SmoothRepresentationsOfLocalGroups stops at SR.0–SR.6 (smooth category, Hecke algebras, induction/compact induction, admissibility, Satake, GL_n families, finiteness) with no types, covers, depth-zero/Morris data, reducibility points or L-packets for classical groups; no Tau Ceti roadmap treats finite groups of Lie type, Deligne–Lusztig theory or Lusztig series. Uses Prop. 7.9(ii) (extension of cuspidals of SO^±_{2N}(k_F) to O, generalising Lusztig and Waldspurger)."
@@ -1447,7 +1447,7 @@
    "id": "PAPER-LUST-STEVENS-20/s9-example-9.7",
    "kind": "theorem",
    "name": "Example 9.7 (SO_5: union of four L-packets)",
-   "statement": "G = SO(V), dim V = 5, Witt index 2; J_{2,0} with 𝒢°_{2,0} ≃ SO_4^+(k_F) × SO_1(k_F). There is s in the dual of SO_4^+(k_F) with characteristic polynomial (X − 1)²(X + 1)² such that ℰ(SO_4^+(k_F), s) contains a cuspidal τ (two such). The inflation of τ has two extensions to 𝒢_{2,0}; λ_π is the inflation to J_{2,0} of one, π = c-Ind_{J_{2,0}}^G λ_π. As printed, IRed(π) = {{([𝟏],2), ([𝟏],1), ([ω_1],2), ([ω_1],1)}}, and ϕ_π = ω ⊗ st_2 ⊕ ω'ω_1 ⊗ st_2 for unramified ω, ω' of order at most 2. Each such packet should contain a unique cuspidal, while four have been constructed: the cuspidals in a union of four L-packets.",
+   "statement": "G = SO(V), dim V = 5, Witt index 2; J_{2,0} with 𝒢°_{2,0} ≃ SO_4^+(k_F) × SO_1(k_F). There is s in the dual of SO_4^+(k_F) with characteristic polynomial (X − 1)²(X + 1)² such that ℰ(SO_4^+(k_F), s) contains a cuspidal τ (two such). The inflation of τ has two extensions to 𝒢_{2,0}; λ_π is the inflation to J_{2,0} of one, π = c-Ind_{J_{2,0}}^G λ_π. IRed(π) = {{([𝟏],2), ([ω_1],2)}}, the reducibility points being 3/2 and 1/2 on each inertial class (printed as {{([𝟏],2), ([𝟏],1), ([ω_1],2), ([ω_1],1)}}; E27), and ϕ_π = ω ⊗ st_2 ⊕ ω'ω_1 ⊗ st_2 for unramified ω, ω' of order at most 2. Each such packet should contain a unique cuspidal, while four have been constructed: the cuspidals in a union of four L-packets.",
    "locator": "§9.3, Example 9.7, p. 33 (arXiv v1)",
    "status": "missing",
    "note": "No atlas stage or library declaration covers this: SmoothRepresentationsOfLocalGroups stops at SR.0–SR.6 (smooth category, Hecke algebras, induction/compact induction, admissibility, Satake, GL_n families, finiteness) with no types, covers, depth-zero/Morris data, reducibility points or L-packets for classical groups; no Tau Ceti roadmap treats finite groups of Lie type, Deligne–Lusztig theory or Lusztig series. The printed IRed is inconsistent (PAPER-LUST-STEVENS-20/E27); the counts are right."
@@ -1456,7 +1456,7 @@
    "id": "PAPER-LUST-STEVENS-20/s9-example-9.8",
    "kind": "theorem",
    "name": "Example 9.8 (SO_20, two inner forms)",
-   "statement": "G = SO(V), dim V = 20, Witt index 8, anisotropic part of dimension 4; J_{4,4} with 𝒢°_{4,4} ≃ SO^−_{10}(k_F) × SO^−_{10}(k_F); s_1, s_2 in the dual of SO^−_{10}(k_F) with characteristic polynomials (X − 1)^8(X + 1)² and (X − 1)²(X + 1)^8, cuspidal τ_i ∈ ℰ(SO^−_{10}(k_F), s_i) (two each); λ_π inflated from one of two extensions of τ_1 ⊗ τ_2 to 𝒢_{4,4}; π = c-Ind_{J_{4,4}}^G λ_π. IRed(π) = {{([𝟏],3), ([𝟏],1), ([ω_1],3), ([ω_1],1)}} (as printed); ϕ_π = ω ⊗ (st_5 ⊕ st_3 ⊕ st_1) ⊕ ωω_0 ⊕ ω'ω_1 ⊗ (st_5 ⊕ st_3 ⊕ st_1) ⊕ ω'ω_2; each packet should contain 8 cuspidals. One gets 8 + 8 (exchanging τ_1, τ_2) representations with the same IRed, each with two extensions to G^+: the cuspidals in a union of four L-packets for G^+. The split H = SO(V'), Witt index 10, also has 16 representations with the same IRed, from J_{8,2} (connected reductive quotient SO^+_{16}(k_F) × SO^+_4(k_F), characteristic polynomials (X − 1)^8(X + 1)^8 and (X − 1)²(X + 1)²) and J_{2,8}, each extending in two ways to H^+.",
+   "statement": "G = SO(V), dim V = 20, Witt index 8, anisotropic part of dimension 4; J_{4,4} with 𝒢°_{4,4} ≃ SO^−_{10}(k_F) × SO^−_{10}(k_F); s_1, s_2 in the dual of SO^−_{10}(k_F) with characteristic polynomials (X − 1)^8(X + 1)² and (X − 1)²(X + 1)^8, cuspidal τ_i ∈ ℰ(SO^−_{10}(k_F), s_i) (two each); λ_π inflated from one of two extensions of τ_1 ⊗ τ_2 to 𝒢_{4,4}; π = c-Ind_{J_{4,4}}^G λ_π. IRed(π) = {{([𝟏],5), ([𝟏],1), ([ω_1],5), ([ω_1],1)}} (printed with the values of s_π; E26); ϕ_π = ω ⊗ (st_5 ⊕ st_3 ⊕ st_1) ⊕ ωω_0 ⊕ ω'ω_1 ⊗ (st_5 ⊕ st_3 ⊕ st_1) ⊕ ω'ω_2; each packet should contain 8 cuspidals. One gets 8 + 8 (exchanging τ_1, τ_2) representations with the same IRed, each with two extensions to G^+: the cuspidals in a union of four L-packets for G^+. The split H = SO(V'), Witt index 10, also has 16 representations with the same IRed, from J_{8,2} (connected reductive quotient SO^+_{16}(k_F) × SO^+_4(k_F), characteristic polynomials (X − 1)^8(X + 1)^8 and (X − 1)²(X + 1)²) and J_{2,8}, each extending in two ways to H^+.",
    "locator": "§9.3, Example 9.8, pp. 33–34 (arXiv v1)",
    "status": "missing",
    "note": "No atlas stage or library declaration covers this: SmoothRepresentationsOfLocalGroups stops at SR.0–SR.6 (smooth category, Hecke algebras, induction/compact induction, admissibility, Satake, GL_n families, finiteness) with no types, covers, depth-zero/Morris data, reducibility points or L-packets for classical groups; no Tau Ceti roadmap treats finite groups of Lie type, Deligne–Lusztig theory or Lusztig series. Numbers checked (points 3 and 1 from f = 4, 2)."
@@ -1465,7 +1465,7 @@
    "id": "PAPER-LUST-STEVENS-20/s9-example-9.9",
    "kind": "theorem",
    "name": "Example 9.9 (ramified U_14)",
-   "statement": "F/F_o ramified quadratic, G = U(V), dim V = 14, Witt index 6, anisotropic part of dimension 2; J_{0,6} with 𝒢°_{0,6} ≃ SO_2^−(k_F) × Sp_12(k_F). For P ∈ k_F[X] irreducible self-dual monic of degree two there are s_1, s_2 in the dual groups of SO_2^−(k_F), Sp_12(k_F) with characteristic polynomials P(X), P(X)^6 (as printed) whose Lusztig series contain unique cuspidals τ_1, τ_2; λ_π is the unique irreducible representation of J_{0,6} inflated from a representation of 𝒢_{0,6} containing τ_1 ⊗ τ_2 (τ_1 does not extend to O_2^−(k_F)); π = c-Ind_{J_{0,6}}^G λ_π is irreducible cuspidal, IRed(π) = {{([ρ_P],5/2), ([ρ_P],1)}} (as printed), ϕ_π = ϕ_P ⊗ (st_4 ⊕ st_2) ⊕ ϕ'_P, and the packet contains a unique cuspidal, π. Exchanging the characteristic polynomials of s_1, s_2 gives a cuspidal of the 14-dimensional quasi-split ramified unitary group with the same IRed.",
+   "statement": "F/F_o ramified quadratic, G = U(V), dim V = 14, Witt index 6, anisotropic part of dimension 2; J_{0,6} with 𝒢°_{0,6} ≃ SO_2^−(k_F) × Sp_12(k_F). For P ∈ k_F[X] irreducible self-dual monic of degree two there are s_1, s_2 in the dual groups of SO_2^−(k_F), Sp_12(k_F) with characteristic polynomials P(X) and (X − 1)P(X)^6 (printed P(X)^6; E28) whose Lusztig series contain unique cuspidals τ_1, τ_2; λ_π is the unique irreducible representation of J_{0,6} inflated from a representation of 𝒢_{0,6} containing τ_1 ⊗ τ_2 (τ_1 does not extend to O_2^−(k_F)); π = c-Ind_{J_{0,6}}^G λ_π is irreducible cuspidal, IRed(π) = {{([ρ_P],4), ([ρ_P],1)}}, from s_π-values 5/2 and 1 (printed with the values of s_π; E26), ϕ_π = ϕ_P ⊗ (st_4 ⊕ st_2) ⊕ ϕ'_P, and the packet contains a unique cuspidal, π. Exchanging the characteristic polynomials of s_1, s_2 gives a cuspidal of the 14-dimensional quasi-split ramified unitary group with the same IRed.",
    "locator": "§9.3, Example 9.9, p. 34 (arXiv v1)",
    "status": "missing",
    "note": "No atlas stage or library declaration covers this: SmoothRepresentationsOfLocalGroups stops at SR.0–SR.6 (smooth category, Hecke algebras, induction/compact induction, admissibility, Satake, GL_n families, finiteness) with no types, covers, depth-zero/Morris data, reducibility points or L-packets for classical groups; no Tau Ceti roadmap treats finite groups of Lie type, Deligne–Lusztig theory or Lusztig series. Points 5/2 and 1 checked from f_i = (2m_P^{(i)} + 1)·n/2 with m = 1, 3, n = 2 (PAPER-LUST-STEVENS-20/E28)."
@@ -1478,14 +1478,14 @@
    "why": "The Jordan set Jord(π) and the inequality in (1.3) that the paper's main theorem completes for depth zero."
   },
   {
-   "citation": "A. Moy, G. Prasad, Jacquet functors and unrefined minimal K-types, Comment. Math. Helv. 71 (1996), 98–121",
-   "link": "doi:10.1007/BF02566411",
-   "why": "Depth-zero cuspidals as compact inductions from parahorics (§3)."
+   "citation": "A. Moy, G. Prasad, Unrefined minimal K-types for p-adic groups, Invent. Math. 116 (1994), 393–408",
+   "link": "doi:10.1007/BF01231566",
+   "why": "[MP], cited with Vignéras in §3 for the uniqueness of the maximal parahoric J°_π and of τ_π. The extraction had listed Moy–Prasad, Jacquet functors and unrefined minimal K-types (Comment. Math. Helv. 71, 1996), which the paper does not cite."
   },
   {
    "citation": "L. Morris, Level zero G-types, Compositio Math. 118 (1999), 135–157",
    "link": "doi:10.1023/A:1001019027614",
-   "why": "The description of depth-zero cuspidal representations and their types used throughout."
+   "why": "The description of depth-zero cuspidal representations and their types used throughout. The paper attributes this description (and, in print, the covers) to Morris without a reference; its bibliography cites only Morris's 1991 paper on filtrations and Kutzko–Morris (2006)."
   },
   {
    "citation": "C. J. Bushnell, P. C. Kutzko, Smooth representations of reductive p-adic groups: structure theory via types, Proc. LMS 77 (1998), 582–634",
@@ -1498,9 +1498,9 @@
    "why": "The covers used in §5, and s_π(ρ) ∈ {0, ±½} for positive-depth ρ."
   },
   {
-   "citation": "C. Blondel, Quelques propriétés des paires couvrantes, Math. Ann. 331 (2005), 243–257",
-   "link": "doi:10.1007/s00208-004-0579-1",
-   "why": "Formula (5.1) relating reducibility points to the Hecke parameters of a cover."
+   "citation": "C. Blondel, Représentation de Weil et β-extensions, Ann. Inst. Fourier 62 (2012), 1319–1366; erratum, ibid. 62 (2012), 2385",
+   "link": "doi:10.5802/aif.2724",
+   "why": "[Blb]: §3.2 and Proposition 3.12 give the formula (5.1) for reducibility points in terms of the Hecke parameters of a cover. The extraction had listed Blondel, Quelques propriétés des paires couvrantes (Math. Ann. 331, 2005), which the paper does not cite. The erratum is doi:10.5802/aif.2753."
   },
   {
    "citation": "G. Lusztig, Irreducible representations of finite classical groups, Invent. Math. 43 (1977), 125–175",
@@ -1511,6 +1511,21 @@
    "citation": "F. Shahidi, A proof of Langlands' conjecture on Plancherel measures; complementary series for p-adic groups, Ann. of Math. 132 (1990), 273ff.",
    "link": "doi:10.2307/1971524",
    "why": "Poles of L-functions correspond to reducibility points (the definition of s_π(ρ))."
+  },
+  {
+   "citation": "R. B. Howlett, G. I. Lehrer, Induced cuspidal representations and generalised Hecke rings, Invent. Math. 58 (1980), 37–64",
+   "link": "doi:10.1007/BF01402273",
+   "why": "The structure of End(Ind τ) for a cuspidal τ of a Levi subgroup of a finite reductive group, which §§6–7 use (cited as [22] in print)."
+  },
+  {
+   "citation": "G. Lusztig, Characters of reductive groups over a finite field, Annals of Mathematics Studies 107, Princeton University Press, 1984",
+   "link": "doi:10.1515/9781400881772",
+   "why": "[35]: Theorem 8.6 (the two-dimensional Hecke algebra and its parameter as a ratio of degrees) and Proposition 8.3, used in §§6–7."
+  },
+  {
+   "citation": "A. J. Silberger, Special representations of reductive p-adic groups are not integrable, Ann. of Math. 111 (1980), 571–587",
+   "link": "doi:10.2307/1971110",
+   "why": "[50, Theorem 1.6]: Theorem 4.1(ii), the uniqueness of the reducibility point s_π(ρ)."
   }
  ],
  "routes": [
@@ -1558,9 +1573,6 @@
     "PAPER-LUST-STEVENS-20/s3-depth-zero-gl-classification",
     "PAPER-LUST-STEVENS-20/s3-depth-zero-gl-def",
     "PAPER-LUST-STEVENS-20/s3-depth-zero-uniqueness",
-    "PAPER-LUST-STEVENS-20/s3-green-classification",
-    "PAPER-LUST-STEVENS-20/s3-lusztig-cuspidal-classification",
-    "PAPER-LUST-STEVENS-20/s3-selfdual-poly-existence",
     "PAPER-LUST-STEVENS-20/s4-basic-assumption-half-integers",
     "PAPER-LUST-STEVENS-20/s4-remark-4.2-even-orthogonal",
     "PAPER-LUST-STEVENS-20/s4-s-pi-map",
@@ -1579,58 +1591,10 @@
     "PAPER-LUST-STEVENS-20/s6-Tio-same-relation",
     "PAPER-LUST-STEVENS-20/s6-cover-Jo",
     "PAPER-LUST-STEVENS-20/s6-fi-zero-case",
-    "PAPER-LUST-STEVENS-20/s6-full-finite-classical-group",
-    "PAPER-LUST-STEVENS-20/s6-howlett-lehrer-lusztig-parameter",
     "PAPER-LUST-STEVENS-20/s6-inflation-hecke-injection",
     "PAPER-LUST-STEVENS-20/s6-reduction-summary",
     "PAPER-LUST-STEVENS-20/s6-two-maximal-compacts",
     "PAPER-LUST-STEVENS-20/s6-weyl-elements",
-    "PAPER-LUST-STEVENS-20/s7-7.1-irreducible-self-dual-degree-parity",
-    "PAPER-LUST-STEVENS-20/s7-7.1-self-dual-root-criterion",
-    "PAPER-LUST-STEVENS-20/s7-7.2-cuspidal-classification-GSO",
-    "PAPER-LUST-STEVENS-20/s7-7.2-cuspidal-classification-GSp",
-    "PAPER-LUST-STEVENS-20/s7-7.2-cuspidal-classification-SO-odd",
-    "PAPER-LUST-STEVENS-20/s7-7.2-geometric-lusztig-series-partition",
-    "PAPER-LUST-STEVENS-20/s7-7.2-induction-irreducible-centralizer-in-levi",
-    "PAPER-LUST-STEVENS-20/s7-7.2-jordan-decomposition-bijection",
-    "PAPER-LUST-STEVENS-20/s7-7.2-jordan-decomposition-commutes-with-induction",
-    "PAPER-LUST-STEVENS-20/s7-7.2-jordan-decomposition-cuspidality",
-    "PAPER-LUST-STEVENS-20/s7-7.2-jordan-decomposition-dimension",
-    "PAPER-LUST-STEVENS-20/s7-7.2-lusztig-cuspidal-unipotent-uniqueness",
-    "PAPER-LUST-STEVENS-20/s7-7.2-maximal-levi-reducibility-quadratic-relation",
-    "PAPER-LUST-STEVENS-20/s7-7.2-parameter-matches-centralizer-side",
-    "PAPER-LUST-STEVENS-20/s7-7.3-cuspidal-restriction-from-similitude",
-    "PAPER-LUST-STEVENS-20/s7-7.3-dl-induction-bijection",
-    "PAPER-LUST-STEVENS-20/s7-7.3-dl-induction-commutes-with-restriction",
-    "PAPER-LUST-STEVENS-20/s7-7.3-eigenspace-levi",
-    "PAPER-LUST-STEVENS-20/s7-7.3-even-orthogonal-n1-representative",
-    "PAPER-LUST-STEVENS-20/s7-7.3-geometric-class-splitting",
-    "PAPER-LUST-STEVENS-20/s7-7.3-levi-similitude-isomorphism",
-    "PAPER-LUST-STEVENS-20/s7-7.3-lusztig-lemma-8.9-quadratic-unipotent",
-    "PAPER-LUST-STEVENS-20/s7-7.3-rational-series-and-restriction",
-    "PAPER-LUST-STEVENS-20/s7-7.4-index-two-twist-criterion",
-    "PAPER-LUST-STEVENS-20/s7-7.5-clifford-centralizer-lemma",
-    "PAPER-LUST-STEVENS-20/s7-7.5-special-clifford-group-dual",
-    "PAPER-LUST-STEVENS-20/s7-7.6-table-row-X-minus-1",
-    "PAPER-LUST-STEVENS-20/s7-7.6-table-row-X-plus-1",
-    "PAPER-LUST-STEVENS-20/s7-7.6-table-row-even-degree",
-    "PAPER-LUST-STEVENS-20/s7-7.6-weyl-representative-action",
-    "PAPER-LUST-STEVENS-20/s7-7.7-unitary-cuspidal-classification",
-    "PAPER-LUST-STEVENS-20/s7-7.7-unitary-maximal-levi-quadratic-relation",
-    "PAPER-LUST-STEVENS-20/s7-7.7-unitary-parameter-formula",
-    "PAPER-LUST-STEVENS-20/s7-cor-7.10-even-orthogonal-normalization",
-    "PAPER-LUST-STEVENS-20/s7-def-7.1-sigma-self-dual-polynomial",
-    "PAPER-LUST-STEVENS-20/s7-def-7.2-classical-type-connected-centre",
-    "PAPER-LUST-STEVENS-20/s7-def-7.3-finite-classical-groups-and-similitude-embedding",
-    "PAPER-LUST-STEVENS-20/s7-def-7.7-finite-unitary-setup",
-    "PAPER-LUST-STEVENS-20/s7-lemma-7.3-extension-iff-connected-centralizer",
-    "PAPER-LUST-STEVENS-20/s7-lemma-7.4-i-hecke-algebra-isomorphism",
-    "PAPER-LUST-STEVENS-20/s7-lemma-7.4-ii-parameter-zero",
-    "PAPER-LUST-STEVENS-20/s7-lemma-7.7-i-n-greater-than-one",
-    "PAPER-LUST-STEVENS-20/s7-lemma-7.7-ii-n-equals-one",
-    "PAPER-LUST-STEVENS-20/s7-lemma-7.8-symplectic-normalization",
-    "PAPER-LUST-STEVENS-20/s7-prop-7.9-i-GSO-extension",
-    "PAPER-LUST-STEVENS-20/s7-prop-7.9-ii-SO-extension",
     "PAPER-LUST-STEVENS-20/s8-cited-positive-depth-vanishing",
     "PAPER-LUST-STEVENS-20/s8-generic-P-parameters",
     "PAPER-LUST-STEVENS-20/s8-inequality-1.3",
@@ -1675,8 +1639,71 @@
     "PAPER-LUST-STEVENS-20/s9.3-count",
     "PAPER-LUST-STEVENS-20/s9.3-modified-Q-Q0"
    ],
-   "brief": "This route coalesces with SmoothRepresentationsPartII, proposed by PAPER-FINTZEN-21 and joined by PAPER-BUSHNELL-HENNIART-17, PAPER-NEWTON-THORNE-21 and PAPER-GAN-HARRIS-SAWIN-ETAL-24; keep its id, title, parent, area and brief. Lust–Stevens (arXiv:1611.08421; Proc. LMS 121 (2020)) add the depth-zero theory of classical groups over a p-adic field F with p odd: G symplectic, special orthogonal or unitary (F/F_o quadratic), defined by an ε-hermitian form. Final theorems, as the paper states them (§1, p. 4): for π a depth-zero irreducible cuspidal representation of G, (i) Σ_{ρ∈𝒜^σ(F)} ⌊s_π(ρ)²⌋ n_ρ = N_Ĝ, where s_π(ρ) is the reducibility point of Ind ρ|det|^s ⊗ π; (ii) the multiset IRed(π) of inertial reducibility data is computed explicitly from the data (P, τ) with π = c-Ind_{P}^{G} τ; (iii) the cuspidal π′ with IRed(π′) = IRed(π) are described explicitly, and their number is the expected size of one, two or four L-packets. For G symplectic the theorem gives the cuspidal members of Π_φ ∪ Π_φ′ for a tame parameter φ. The roadmap must cover: the lattice-function model of parahoric subgroups of classical groups and their reductive quotients; Morris's classification of depth-zero cuspidals by compact induction from maximal parahorics (with the SO(1,1) exception recorded in sourceIssues); Silberger's reducibility theorem and Blondel's formula relating reducibility points to the parameters of the Hecke algebra of a Bushnell–Kutzko cover (Miyauchi–Stevens covers); the reduction to finite Hecke algebras of the reductive quotients; the §7 computation of those parameters from Lusztig's classification of unipotent representations and Lusztig series of finite classical groups (Jordan decomposition, Harish-Chandra parameters, the SO-to-O extension); and the §9 counting of L-packet sizes. Import, never re-plan: SmoothRepresentationsOfLocalGroups SR.1–SR.3 (Hecke algebras, compact induction and Jacquet functors, Bernstein subcategories); Bushnell–Kutzko types and covers from this Part II's own Fintzen layers; parahoric groups from ReductiveGroupsPartII and the Tau Ceti Reductive algebraic groups roadmap (finite groups of Lie type, layer 9); Deligne–Lusztig representations from ModularRepresentationsOfFiniteReductiveGroups where it constructs them (its characteristic-zero part), adding Lusztig series and the Jordan decomposition for classical and similitude groups; Witt theory of ε-hermitian forms from the Tau Ceti QuadraticFormInvariants roadmap (layer 1); the local Langlands correspondence for GL_m from EndoscopicTransferAndUnitaryTraceComparison ET.6; Arthur/Mœglin packets for classical groups only as statements from ModularityAndLanglandsExtensions ML.4. Mœglin's result that Jord(π) determines the parameter (1.1) is an input, stated with its quasi-split hypothesis; equality (1.3) in general depends on Mœglin and on the unpublished [6], which the roadmap must record as a dependency, not assume.",
-   "reason": "Nothing in the atlas plans depth-zero types, covers and reducibility points for classical groups, the finite-group computations of §7, or L-packet counting, and the maintainer's note asks for a Part II of SmoothRepresentationsOfLocalGroups. SmoothRepresentationsPartII is the existing Part II in exactly this direction (types, depth and the construction of supercuspidals), already joined by four papers, so this route joins it with byte-identical id, parent, title and area (PROTOCOL.md §15) rather than proposing a rival Part II."
+   "brief": "This route coalesces with SmoothRepresentationsPartII, proposed by PAPER-FINTZEN-21 and joined by PAPER-BUSHNELL-HENNIART-17, PAPER-NEWTON-THORNE-21 and PAPER-GAN-HARRIS-SAWIN-ETAL-24; keep its id, title, parent, area and brief. Lust–Stevens (arXiv:1611.08421; Proc. LMS 121 (2020)) add the depth-zero theory of classical groups over a p-adic field F with p odd: G symplectic, special orthogonal or unitary (F/F_o quadratic), defined by an ε-hermitian form. Final theorems, as the version of record states them (Introduction, p. 1086; arXiv v1 §1, p. 4): for π a depth-zero irreducible cuspidal representation of G, (i) Σ_{ρ∈𝒜^σ(F)} ⌊s_π(ρ)²⌋ n_ρ ⩾ N_Ĝ, the sum over depth-zero ρ being exactly N_Ĝ (8.1), where s_π(ρ) is the reducibility point of Ind ρ|det|^s ⊗ π (arXiv v1 claims the equality (1.3); see E33); (ii) the multiset IRed(π) of inertial reducibility data is computed explicitly from the data (P, τ) with π = c-Ind_{P}^{G} τ; (iii) the cuspidal π′ with IRed(π′) = IRed(π) are described explicitly, and their number is the expected number in one, two or four L-packets, or half the expected number in one packet for an even special orthogonal G (§9.3, Example 9.6; E34). For G symplectic the theorem gives the cuspidal members of Π_φ ∪ Π_φ′ for a tame parameter φ. The roadmap must cover: the lattice-function model of parahoric subgroups of classical groups and their reductive quotients; Morris's classification of depth-zero cuspidals by compact induction from maximal parahorics (with the SO(1,1) exception recorded in sourceIssues); Silberger's reducibility theorem and Blondel's formula relating reducibility points to the parameters of the Hecke algebra of a Bushnell–Kutzko cover (Miyauchi–Stevens covers); the reduction to finite Hecke algebras of the reductive quotients (§6); the synthesis of §8 from the finite parameters f_τ; and the §9 counting of L-packet sizes. The finite-group computation of §7 (Lusztig series and the Jordan decomposition for finite classical and similitude groups, the parameters f_τ, the SO-to-O extension) is routed to ModularRepresentationsOfFiniteReductiveGroups (route 2): import it, do not build it here. Import, never re-plan: SmoothRepresentationsOfLocalGroups SR.1–SR.3 (Hecke algebras, compact induction and Jacquet functors, Bernstein subcategories); Bushnell–Kutzko types and covers from this Part II's own Fintzen layers; buildings and parahoric group schemes from ReductiveGroupsPartII RG2.2–RG2.3; finite classical groups, Lusztig's classification of their cuspidal representations and the finite Hecke parameters f_τ from ModularRepresentationsOfFiniteReductiveGroups (route 2); Witt theory of quadratic forms from the Tau Ceti QuadraticFormInvariants roadmap (layer 1) and its hermitian variants from GeometryOfNumbersAndQuadraticArithmetic GN.2; the local Langlands correspondence for GL_m from EndoscopicTransferAndUnitaryTraceComparison ET.6; Arthur/Mœglin packets for classical groups only as statements from ModularityAndLanglandsExtensions ML.4. Mœglin's result that Jord(π) determines the parameter (1.1) is an input, stated with its quasi-split hypothesis; equality (1.3) in general depends on Mœglin and on the vanishing of positive-depth contributions (arXiv [6], \"in preparation\"; printed Remark 8.2 leaves the details as an exercise), which the roadmap must record as a dependency, not assume.",
+   "reason": "Nothing in the atlas plans depth-zero types, covers and reducibility points for classical groups, or L-packet counting, and the maintainer's note asks for a Part II of SmoothRepresentationsOfLocalGroups for what it lacks. SmoothRepresentationsPartII is the existing Part II in exactly this direction (types, depth and the construction of supercuspidals), already joined by four papers, so this route joins it with byte-identical id, parent, title and area (PROTOCOL.md §15) rather than proposing a rival Part II. The review moved the finite-group items of §§3, 6 and 7 to route 2: that Part II's accepted brief (PAPER-FINTZEN-21) says no Deligne–Lusztig classification is required there, and the atlas already has one owner for Deligne–Lusztig theory."
+  },
+  {
+   "route": "part-ii",
+   "parent": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "roadmap": "ModularRepresentationsOfFiniteReductiveGroups",
+   "title": "Reductive algebraic groups, Part II: modular representations and generic GL3 lattices",
+   "area": "representations",
+   "items": [
+    "PAPER-LUST-STEVENS-20/s3-green-classification",
+    "PAPER-LUST-STEVENS-20/s3-selfdual-poly-existence",
+    "PAPER-LUST-STEVENS-20/s3-lusztig-cuspidal-classification",
+    "PAPER-LUST-STEVENS-20/s6-full-finite-classical-group",
+    "PAPER-LUST-STEVENS-20/s6-howlett-lehrer-lusztig-parameter",
+    "PAPER-LUST-STEVENS-20/s7-def-7.1-sigma-self-dual-polynomial",
+    "PAPER-LUST-STEVENS-20/s7-7.1-self-dual-root-criterion",
+    "PAPER-LUST-STEVENS-20/s7-7.1-irreducible-self-dual-degree-parity",
+    "PAPER-LUST-STEVENS-20/s7-def-7.2-classical-type-connected-centre",
+    "PAPER-LUST-STEVENS-20/s7-7.2-geometric-lusztig-series-partition",
+    "PAPER-LUST-STEVENS-20/s7-7.2-jordan-decomposition-bijection",
+    "PAPER-LUST-STEVENS-20/s7-7.2-jordan-decomposition-dimension",
+    "PAPER-LUST-STEVENS-20/s7-7.2-jordan-decomposition-cuspidality",
+    "PAPER-LUST-STEVENS-20/s7-7.2-lusztig-cuspidal-unipotent-uniqueness",
+    "PAPER-LUST-STEVENS-20/s7-7.2-cuspidal-classification-SO-odd",
+    "PAPER-LUST-STEVENS-20/s7-7.2-cuspidal-classification-GSp",
+    "PAPER-LUST-STEVENS-20/s7-7.2-cuspidal-classification-GSO",
+    "PAPER-LUST-STEVENS-20/s7-7.2-jordan-decomposition-commutes-with-induction",
+    "PAPER-LUST-STEVENS-20/s7-7.2-induction-irreducible-centralizer-in-levi",
+    "PAPER-LUST-STEVENS-20/s7-7.2-maximal-levi-reducibility-quadratic-relation",
+    "PAPER-LUST-STEVENS-20/s7-7.2-parameter-matches-centralizer-side",
+    "PAPER-LUST-STEVENS-20/s7-def-7.3-finite-classical-groups-and-similitude-embedding",
+    "PAPER-LUST-STEVENS-20/s7-7.3-geometric-class-splitting",
+    "PAPER-LUST-STEVENS-20/s7-7.3-rational-series-and-restriction",
+    "PAPER-LUST-STEVENS-20/s7-7.3-cuspidal-restriction-from-similitude",
+    "PAPER-LUST-STEVENS-20/s7-7.3-lusztig-lemma-8.9-quadratic-unipotent",
+    "PAPER-LUST-STEVENS-20/s7-7.3-dl-induction-bijection",
+    "PAPER-LUST-STEVENS-20/s7-7.3-eigenspace-levi",
+    "PAPER-LUST-STEVENS-20/s7-7.3-dl-induction-commutes-with-restriction",
+    "PAPER-LUST-STEVENS-20/s7-lemma-7.3-extension-iff-connected-centralizer",
+    "PAPER-LUST-STEVENS-20/s7-lemma-7.4-i-hecke-algebra-isomorphism",
+    "PAPER-LUST-STEVENS-20/s7-lemma-7.4-ii-parameter-zero",
+    "PAPER-LUST-STEVENS-20/s7-7.5-mackey-formula",
+    "PAPER-LUST-STEVENS-20/s7-7.3-levi-similitude-isomorphism",
+    "PAPER-LUST-STEVENS-20/s7-7.6-weyl-representative-action",
+    "PAPER-LUST-STEVENS-20/s7-7.3-even-orthogonal-n1-representative",
+    "PAPER-LUST-STEVENS-20/s7-lemma-7.7-i-n-greater-than-one",
+    "PAPER-LUST-STEVENS-20/s7-lemma-7.7-ii-n-equals-one",
+    "PAPER-LUST-STEVENS-20/s7-lemma-7.8-symplectic-normalization",
+    "PAPER-LUST-STEVENS-20/s7-7.4-index-two-twist-criterion",
+    "PAPER-LUST-STEVENS-20/s7-prop-7.9-i-GSO-extension",
+    "PAPER-LUST-STEVENS-20/s7-prop-7.9-ii-SO-extension",
+    "PAPER-LUST-STEVENS-20/s7-7.5-special-clifford-group-dual",
+    "PAPER-LUST-STEVENS-20/s7-7.5-clifford-centralizer-lemma",
+    "PAPER-LUST-STEVENS-20/s7-cor-7.10-even-orthogonal-normalization",
+    "PAPER-LUST-STEVENS-20/s7-7.6-table-row-X-minus-1",
+    "PAPER-LUST-STEVENS-20/s7-7.6-table-row-X-plus-1",
+    "PAPER-LUST-STEVENS-20/s7-7.6-table-row-even-degree",
+    "PAPER-LUST-STEVENS-20/s7-def-7.7-finite-unitary-setup",
+    "PAPER-LUST-STEVENS-20/s7-7.7-unitary-cuspidal-classification",
+    "PAPER-LUST-STEVENS-20/s7-7.7-unitary-maximal-levi-quadratic-relation",
+    "PAPER-LUST-STEVENS-20/s7-7.7-unitary-parameter-formula"
+   ],
+   "brief": "This route coalesces with ModularRepresentationsOfFiniteReductiveGroups, the Part II of Tau Ceti's Reductive algebraic groups roadmap proposed by PAPER-LE-LEHUNG-LEVIN-ETAL-20 (route accepted) and reused by PAPER-LE-LEHUNG-LEVIN-ETAL-23. Keep its id, parent, title and area, and its rule of one foundation for Deligne–Lusztig theory. Lust–Stevens §7 (arXiv:1611.08421v1, pp. 13–24; Proc. London Math. Soc. (3) 121 (2020) 1083–1120, pp. 1096–1107) add the characteristic-zero Harish-Chandra theory of finite classical groups in odd characteristic, which their depth-zero p-adic results consume. Final results, as the paper states them (arXiv numbering; in print, Lemma 7.3 is Lusztig's [32, Lemma 8.9] and each subsequent number goes up by one). Lemma 7.3: for 𝒢 = Sp_{2N} or SO^±_{2N} inside its similitude group 𝒢̃ (connected centre), a cuspidal π ∈ ℰ(𝒢^F, s) extends to an irreducible representation in ℰ(𝒢̃^F, s̃) iff 𝒢*_s is connected iff at most one of ±1 is an eigenvalue of s. Lemma 7.4: for a maximal Levi ℒ ≃ GL_n × 𝒢_0 with s ∈ ℒ* (printed 𝒢*_s ⊆ ℒ*, E16) and a cuspidal τ ⊆ τ̃|_ℒ normalized by w, End_𝒢(Ind τ) ≅ End_{𝒢̃}(Ind τ̃) if w normalizes τ̃, and f_τ = 0 if it does not. Lemmas 7.7–7.8 and Corollary 7.10 say when w normalizes τ̃. Proposition 7.9: a cuspidal τ̃ ∈ ℰ(GSO^±_{2N}, s̃) extends to GO^±_{2N} iff 1 is an eigenvalue of s, and a cuspidal τ ∈ ℰ(SO^±_{2N}, s) extends to O^±_{2N} iff at least one of ±1 is an eigenvalue of s. The table of §7.6: for 𝒢 = SO_{2N+1}, Sp_{2N}, SO^±_{2N} and τ = τ_1 ⊗ τ_0 as above, End(Ind τ) has a generator T with (T + 1)(T − q^{f_τ}) = 0, where f_τ = 2m_+ + 1 (SO_{2N+1}, Sp_{2N}) or 2m_+ (SO^±_{2N}) for τ_1 the trivial character of GL_1; 2m_− + 1 (SO_{2N+1}) or 2m_− (Sp_{2N}, SO^±_{2N}) for τ_1 quadratic; and (2m_Q + 1)n_Q/2 for Q irreducible self-dual of even degree n_Q. Here m_P and m_± are the integers of (7.2) attached to s_0. §7.7 gives f_τ = (2m_Q + 1)n_Q/2 for unitary groups, with n_Q odd. The roadmap must cover, on top of its Deligne–Lusztig representations: self-dual polynomials over finite fields and their degrees (§7.1, with multiplicities, E38); Green's classification of the cuspidal representations of GL_n(F_q); geometric and rational Lusztig series; Lusztig's Jordan decomposition of characters for connected-centre groups of classical type, with its character, degree and cuspidality properties; the rational series of Sp_{2N} and SO^±_{2N} through their similitude groups (Cabanes–Enguehard, Proposition 15.6, (15.5) and Theorem 8.27); Lusztig's classification of cuspidal unipotent representations of classical groups and the parametrisation (7.2); Harish-Chandra induction and the Howlett–Lehrer description of End(Ind τ) for a cuspidal τ of a maximal Levi, with the parameter as a ratio of degrees and its compatibility with the Jordan decomposition (Shoji); Lusztig's Lemma 8.9 on quadratic-unipotent representations; and the special Clifford group as the dual of GSO^±_{2N}. The centralizer argument in the proof of Proposition 7.9 needs a new proof (E20). Import: Deligne–Lusztig virtual characters from this roadmap's own LLHLM layers; finite classical and similitude groups over F_q from tauceti:TauCetiRoadmap/ReductiveGroups; the Mackey decomposition from Tau Ceti (Rep.mackeyDecomposition); Clifford algebras and their grading from Mathlib (CliffordAlgebra); and GL_2(F_q) from Tau Ceti CharacterTheory layer 9 as the test case of Harish-Chandra theory. Use the corrected statements recorded in sourceIssues: the action of w on ℒ̃ for even orthogonal groups with n = 1 is (g, h) ↦ (μ(h)g^{−1}, c_0hc_0^{−1}) (E18). The consumer is SmoothRepresentationsPartII (route 1), which imports the parameters f_τ for the Hecke algebras of depth-zero covers.",
+   "reason": "Section 7 is a computation in the character theory of finite reductive groups: Lusztig series, Jordan decomposition, Harish-Chandra induction and Howlett–Lehrer Hecke algebras, and the extension of cuspidals from SO to O. Its general objects are needed by other consumers too, among them the Deligne–Lusztig characters of finite unitary groups in PAPER-LIU-ETAL-22. PROTOCOL.md §15 gives such a general notion one owner, the most foundational roadmap. The atlas already has one: ModularRepresentationsOfFiniteReductiveGroups builds the Deligne–Lusztig representations, and the LLHLM extractions insist on \"one foundation for Deligne–Lusztig … not two\". SmoothRepresentationsPartII, where the extraction put this material, says in its accepted brief that it needs no Deligne–Lusztig classification. The characteristic-zero Lusztig theory starts where that Part II's Deligne–Lusztig layer stops, so this route joins it with its id, parent, title and area unchanged."
   }
  ],
  "sourceIssues": [
@@ -1684,511 +1711,757 @@
    "id": "PAPER-LUST-STEVENS-20/E1",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§1, after (1.3), p. 3 (arXiv v1)",
+   "locator": "§1, after (1.3), p. 3 (arXiv v1); p. 1085 in the version of record",
    "printed": "The source says the sum has only finitely many nonzero terms because, apart from finitely many ρ ∈ 𝒜^σ(F), one has s_ρ(π) < 1.",
    "correction": "s_π(ρ) < 1",
-   "reason": "The reducibility point is s_π(ρ) in (1.3) directly above and everywhere else; subscript and argument are swapped. The 2020 published version (not accessible) may differ.",
+   "reason": "The reducibility point is s_π(ρ) in (1.3) directly above and everywhere else; subscript and argument are swapped.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the arXiv source: (1.3) and every other use have s_π(ρ). It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E2",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§2, definition of G_n^+, p. 5 (arXiv v1)",
+   "locator": "§2, definition of G_n^+, p. 5 (arXiv v1); p. 1089 in the version of record",
    "printed": "G_n^+ = {g ∈ Aut_F(V_n) : h_n(gv, gw) = h_n(v, w) for all v, w, ∈ V};",
    "correction": "for all v, w ∈ V_n",
-   "reason": "The isometry condition must hold on all of V_n (the form is h_n on V_n); the stray comma is also a typo. The 2020 published version (not accessible) may differ.",
+   "reason": "The isometry condition must hold on all of V_n (the form is h_n on V_n); the stray comma is also a typo.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: h_n is defined on V_n, so the isometry condition quantifies over V_n. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E3",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§2, definition of the dual lattice, p. 6 (arXiv v1)",
+   "locator": "§2, definition of the dual lattice, p. 6 (arXiv v1); p. 1089 in the version of record",
    "printed": "For an 𝔬_F-lattice L inside V, the source defines its dual by L^# = {v ∈ L : h(v, L) ⊆ 𝔭_F}.",
    "correction": "L^# = {v ∈ V : h(v, L) ⊆ 𝔭_F}",
-   "reason": "With v restricted to L the condition L ⊇ L^# in 'almost self-dual' is vacuous and L^# ⊇ 𝔭_F L only says h(L, L) ⊆ 𝔬_F, so e.g. 𝔭_F L_0 for a self-dual L_0 would qualify; the standard dual lattice (as used in all later computations) ranges over V. The 2020 published version (not accessible) may differ.",
+   "reason": "With v restricted to L the condition L ⊇ L^# in 'almost self-dual' is vacuous and L^# ⊇ 𝔭_F L only says h(L, L) ⊆ 𝔬_F, so e.g. 𝔭_F L_0 for a self-dual L_0 would qualify; the standard dual lattice (as used in all later computations) ranges over V.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: with v ∈ L the inclusion L ⊇ L^# is automatic, and L^# ⊇ 𝔭_F L only says h(L, L) ⊆ 𝔬_F; the identification of V̄_(1) and V̄_(2) for the standard lattices L_{N_1,N_2} needs v ∈ V. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E4",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§2, p. 6 (arXiv v1), after definition of almost self-dual",
+   "locator": "§2, p. 6 (arXiv v1), after definition of almost self-dual; p. 1089 in the version of record",
    "printed": "The source asserts maximal compactness in G of the lattice stabilizer J = J_L, and says each maximal compact subgroup is the stabilizer of exactly one self-dual lattice L.",
    "correction": "for a unique almost self-dual lattice L",
-   "reason": "The lattices in play satisfy L ⊇ L^# ⊇ 𝔭_F L (almost self-dual); a self-dual lattice is only the special case. (Uniqueness itself fails in the degenerate case G = SO(1,1), see C7.) The 2020 published version (not accessible) may differ.",
+   "reason": "The lattices in play satisfy L ⊇ L^# ⊇ 𝔭_F L (almost self-dual); a self-dual lattice is only the special case. (Uniqueness itself fails in the degenerate case G = SO(1,1), see C7.)",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: the lattices that occur satisfy L ⊇ L^# ⊇ 𝔭_F L; self-dual lattices (L^# = 𝔭_F L) are the special case V̄_(2) = 0. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E5",
    "kind": "error",
    "affects": "nothing",
-   "locator": "§2, identification of 𝒢 = J/J^1, p. 6 (arXiv v1)",
+   "locator": "§2, identification of 𝒢 = J/J^1, p. 6 (arXiv v1); pp. 1089–1090 in the version of record",
    "printed": "The source identifies 𝒢 with {(g_1, g_2) ∈ U(V̄_(1)) × U(V̄_(2)) : N_{k_F/k_o}(det_{k_F}(g_1) det_{k_F}(g_2)) = 1}.",
    "correction": "Correct for F = F_o and for F/F_o unramified; for F/F_o ramified, 𝒢 = U(V̄_(1)) × U(V̄_(2)) (one factor orthogonal, one symplectic; no determinant condition).",
-   "reason": "Checked: for F/F_o ramified, k_F = k_o so the displayed condition reads det g_1 det g_2 = 1, but det g ∈ F^1 reduces to ±1 and both signs occur. Counterexample: V = F e with h(e,e) = 1, G = U(1) = F^1 ∋ −1; L = 𝔬_F e, L^# = 𝔭_F L, V̄_(1) = k_F with a symmetric form, V̄_(2) = 0, and J/J^1 = F^1/(F^1 ∩ (1+𝔭_F)) = {±1} = O(1), while the display gives the trivial group. The paper's next sentences (connected component U(V̄_(1))° × U(V̄_(2))°, and J° of index 2 in J when F/F_o is ramified and the orthogonal space is non-zero) agree with the corrected statement, so nothing downstream is affected. The 2020 published version (not accessible) may differ.",
+   "reason": "Checked: for F/F_o ramified, k_F = k_o so the displayed condition reads det g_1 det g_2 = 1, but det g ∈ F^1 reduces to ±1 and both signs occur. Counterexample: V = F e with h(e,e) = 1, G = U(1) = F^1 ∋ −1; L = 𝔬_F e, L^# = 𝔭_F L, V̄_(1) = k_F with a symmetric form, V̄_(2) = 0, and J/J^1 = F^1/(F^1 ∩ (1+𝔭_F)) = {±1} = O(1), while the display gives the trivial group. The paper's next sentences (connected component U(V̄_(1))° × U(V̄_(2))°, and J° of index 2 in J when F/F_o is ramified and the orthogonal space is non-zero) agree with the corrected statement, so nothing downstream is affected.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked the counterexample: for F/F_o ramified, V = Fe with h(e, e) = 1, G = F^1 ∋ −1 and J/J^1 = {±1} = O(1), while the display, whose norm N_{k_F/k_o} is the identity, gives the trivial group. The paper's own statement, in the same paragraph, that J° has index 2 in J agrees with the correction. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E6",
    "kind": "error",
    "affects": "nothing",
-   "locator": "§2, p. 6 (arXiv v1), maximality of J°",
+   "locator": "§2, p. 6 (arXiv v1), maximality of J°; p. 1090 in the version of record",
    "printed": "The source says maximality as a parahoric subgroup of G holds exactly when neither U(V̄_(i))° factor is a special orthogonal group of dimension two.",
    "correction": "J° is maximal unless one factor is the split SO(1,1,k_F) and G is not itself a two-dimensional special orthogonal group (as stated correctly on p. 7).",
-   "reason": "An anisotropic factor SO(2,0,k_F) never obstructs maximality: for V anisotropic of dimension 4 over F = F_o, J_an° is the unique parahoric of the compact group G (so maximal) yet 𝒢° ≃ SO(2,0,k_F) × SO(2,0,k_F); likewise G = SO(1,1) itself. The refined criterion stated on p. 7 is the correct one and is what is used later. The 2020 published version (not accessible) may differ.",
+   "reason": "An anisotropic factor SO(2,0,k_F) never obstructs maximality: for V anisotropic of dimension 4 over F = F_o, J_an° is the unique parahoric of the compact group G (so maximal) yet 𝒢° ≃ SO(2,0,k_F) × SO(2,0,k_F); likewise G = SO(1,1) itself. The refined criterion stated on p. 7 is the correct one and is what is used later.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: for V anisotropic of dimension 4 over F = F_o, N_1^an = N_2^an = 2 and 𝒢° ≃ SO(2,0,k_F)², yet G is compact and J° is its unique parahoric, hence maximal; the list on p. 7 (only split SO(1,1,k_F) factors) is right. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E7",
    "kind": "gap",
    "affects": "a stated result",
-   "locator": "§2 p. 7 and §3 p. 8 (arXiv v1), the case G = SO(1,1) ≃ GL_1",
+   "locator": "§2 p. 7 and §3 p. 8 (arXiv v1), the case G = SO(1,1) ≃ GL_1; pp. 1090–1092 in the version of record",
    "printed": "For π ∈ 𝒜_[0](G), the source asserts π = c-Ind_{J_π}^G λ_π and identifies J_π = J_{N_1,N_2} as the compact open normalizer of the standard maximal parahoric J_π°. It also says each almost self-dual lattice can be expressed as gL_{N_1,N_2}, with g ∈ G and exactly one standard lattice L_{N_1,N_2}.",
    "correction": "Exclude the split two-dimensional group G = SO(1,1) (as §7 excludes SO_2^+ over the finite field), or treat it separately.",
-   "reason": "The paper explicitly contemplates G a two-dimensional special orthogonal group (p. 7: 'but G is not itself a 2-dimensional special orthogonal group', with (N, N^an) ≠ (1,0)). For G = SO(1,1) ≃ F^× the cuspidal representations are characters, which are not compactly induced from the compact open subgroup 𝔬_F^× (and the normalizer of the parahoric 𝔬_F^× in G is all of F^×, not compact). Also L_{1,0} = 𝔬_F e_− ⊕ 𝔬_F e_+ and L_{0,1} = 𝔬_F e_− ⊕ 𝔭_F e_+ are both almost self-dual (L_{0,1}^# = L_{0,1}), not G-conjugate, with the same stabilizer 𝔬_F^×, so the uniqueness of the lattice fails. A degenerate edge case only. The 2020 published version (not accessible) may differ.",
+   "reason": "The paper explicitly contemplates G a two-dimensional special orthogonal group (p. 7: 'but G is not itself a 2-dimensional special orthogonal group', with (N, N^an) ≠ (1,0)). For G = SO(1,1) ≃ F^× the cuspidal representations are characters, which are not compactly induced from the compact open subgroup 𝔬_F^× (and the normalizer of the parahoric 𝔬_F^× in G is all of F^×, not compact). Also L_{1,0} = 𝔬_F e_− ⊕ 𝔬_F e_+ and L_{0,1} = 𝔬_F e_− ⊕ 𝔭_F e_+ are both almost self-dual (L_{0,1}^# = L_{0,1}), not G-conjugate, with the same stabilizer 𝔬_F^×, so the uniqueness of the lattice fails. A degenerate edge case only.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: for G = SO(1,1) ≃ F^×, L_{1,0} (with L^# = 𝔭_F L) and L_{0,1} (with L^# = L) are both almost self-dual with stabilizer 𝔬_F^×, and the normalizer of 𝔬_F^× in F^× is F^×, which is not compact. §7 excludes SO_2^+ over the finite field, so the main theorem is not proved for G = SO(1,1). It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E8",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§5, p. 10 (arXiv v1)",
+   "locator": "§5, p. 10 (arXiv v1); p. 1093 in the version of record",
    "printed": "It writes P_n = M_nN_n and names P_m^− = M_nN_n^− as the parabolic opposite to it.",
    "correction": "P_n^− = M_nN_n^−",
-   "reason": "Subscript should be n. The 2020 published version (not accessible) may differ.",
-   "known": "new",
+   "reason": "Subscript should be n.",
+   "known": "Corrected in the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, p. 1093: P^−_n = M_nN^−_n is printed.",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the arXiv source. The version of record corrects it.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E9",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§6, p. 12 (arXiv v1)",
+   "locator": "§6, p. 12 (arXiv v1); p. 1095 in the version of record",
    "printed": "The source takes (J, λ) to be the Section 5 cover of (J_ρ × J_π, λ_ρ⊗, λ_π).",
    "correction": "(J_ρ × J_π, λ_ρ ⊗ λ_π)",
-   "reason": "Stray comma inside the tensor product. The 2020 published version (not accessible) may differ.",
+   "reason": "Stray comma inside the tensor product.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the arXiv source. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E10",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§2, residual forms, p. 6 (arXiv v1)",
+   "locator": "§2, residual forms, p. 6 (arXiv v1); p. 1089 in the version of record",
    "printed": "h_V̄(v + L^#, w + L^#) := h(v, w) + 𝔭_F, for v, w ∈ L, h_{V̄^#}(v′ + 𝔭_F L, w′ + 𝔭_F L) := ϖ_F^{−1} h(v′, w′) + 𝔭_F, for v′, w′ ∈ L^#.",
    "correction": "h_{V̄_(1)} and h_{V̄_(2)}",
-   "reason": "The next sentence names these forms h_{V̄_(1)}, h_{V̄_(2)}; the labels in the display are inconsistent with that. The 2020 published version (not accessible) may differ.",
+   "reason": "The next sentence names these forms h_{V̄_(1)}, h_{V̄_(2)}; the labels in the display are inconsistent with that.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the arXiv source and on the rendered published page: the display labels h_V̄ and h_V̄^#, the next sentence h_{V̄_(1)} and h_{V̄_(2)}. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E11",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§7.2, (7.1), p. 14 (arXiv v1)",
+   "locator": "§7.2, (7.1), p. 14 (arXiv v1); p. 1097 in the version of record",
    "printed": "ε_𝒢⟨π, R^𝒢_𝒯 s⟩ = ε_{𝒢_s}⟨ψ^G_s(π), R^{𝒢*_s}_𝒯 1⟩,",
    "correction": "ψ^𝒢_s(π) (and ε_{𝒢*_s})",
-   "reason": "The bijection is defined as ψ_s^𝒢 two lines above; roman G denotes the p-adic group. The sign should also be that of the centralizer 𝒢*_s in the dual group. The 2020 published version (not accessible) may differ.",
+   "reason": "The bijection is defined as ψ_s^𝒢 two lines above; roman G denotes the p-adic group. The sign should also be that of the centralizer 𝒢*_s in the dual group.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: ψ^𝒢_s is defined two lines earlier; the centralizer lives in the dual group, so its sign is ε_{𝒢*_s}. Rendered in print: unchanged. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E12",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§7.2, p. 14 (arXiv v1), last line",
+   "locator": "§7.2, p. 14 (arXiv v1), last line; p. 1098 in the version of record",
    "printed": "The source says this agrees with the geometric version when the group has connected “cntre”.",
    "correction": "connected centre",
-   "reason": "Typo. The 2020 published version (not accessible) may differ.",
-   "known": "new",
+   "reason": "Typo.",
+   "known": "Corrected in the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, p. 1098: \"connected centre\" is printed.",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the arXiv source. The version of record corrects it.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E13",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§7.2, before (7.2), p. 15 (arXiv v1)",
+   "locator": "§7.2, before (7.2), p. 15 (arXiv v1); p. 1098 in the version of record",
    "printed": "The source indexes the product by polynomials over 𝐅_q that are monic, irreducible and self-dual, and then states conditions on the integers a_p.",
    "correction": "a_P",
-   "reason": "Index is the polynomial P, as in the display. The 2020 published version (not accessible) may differ.",
-   "known": "new",
+   "reason": "Index is the polynomial P, as in the display.",
+   "known": "Corrected in the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, p. 1098: a_P is printed.",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the arXiv source. The version of record corrects it.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E14",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§7.3, recollection of [13, Thm 8.27], p. 17 (arXiv v1)",
+   "locator": "§7.3, recollection of [13, Thm 8.27], p. 17 (arXiv v1); p. 1100 in the version of record",
    "printed": "The source takes an ℱ-stable Levi ℒ in 𝒢 and a parabolic 𝒫 having Levi ℒ, allowing 𝒫 to fail ℱ-stability. It describes ℒ*, 𝒫* as the associated subgroups in 𝒢.",
    "correction": "the corresponding subgroups of 𝒢*",
-   "reason": "ℒ*, 𝒫* are dual-group subgroups (the condition 𝒢*^∘_s 𝒢*^ℱ_s ⊆ ℒ* follows). The 2020 published version (not accessible) may differ.",
-   "known": "new",
+   "reason": "ℒ*, 𝒫* are dual-group subgroups (the condition 𝒢*^∘_s 𝒢*^ℱ_s ⊆ ℒ* follows).",
+   "known": "Corrected in the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, p. 1100: \"the corresponding subgroups of 𝒢*\" is printed.",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: ℒ*, 𝒫* are subgroups of the dual group 𝒢*. The version of record corrects it.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E15",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§7.3, p. 17 (arXiv v1)",
+   "locator": "§7.3, p. 17 (arXiv v1); p. 1100 in the version of record",
    "printed": "The source rules out s = −1 in the case G = Sp_{2n}.",
    "correction": "𝒢 = Sp_{2N}",
-   "reason": "Roman G and lower-case n clash with the §7 notation (script 𝒢, rank N). The 2020 published version (not accessible) may differ.",
+   "reason": "Roman G and lower-case n clash with the §7 notation (script 𝒢, rank N).",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked; the rendered published page also prints G = Sp_{2n}. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E16",
    "kind": "error",
    "affects": "the proof",
-   "locator": "§7.3, set-up before Lemma 7.4, p. 18 (arXiv v1)",
+   "locator": "§7.3, set-up before Lemma 7.4, p. 18 (arXiv v1); p. 1101 in the version of record",
    "printed": "The source assumes ℒ* is proper, maximal among ℱ-stable Levi subgroups, and lies in an ℱ-stable parabolic 𝒫* of 𝒢*, with 𝒢*_s ⊆ ℒ*. It also assumes 𝒢̃*_{s̃} ⊆ ℒ̃*.",
    "correction": "such that s ∈ ℒ* (and s̃ ∈ ℒ̃*), as in the §7.2 setting referred to ('as in Section 7.2').",
-   "reason": "Checked: if 𝒢*_s ⊆ ℒ* then (first bullet on p. 15, [13, Thm 8.27]) Harish-Chandra induction from ℰ(ℒ^ℱ, s) preserves irreducibility, so Ind τ is irreducible and w cannot normalize τ; both parts of Lemma 7.4 would then be vacuous. The lemma is needed in the reducible case, where 𝒢*_s ⊄ ℒ* (e.g. τ_1 trivial on GL_1: the eigenvalue-1 space of s meets both the GL_1 block and its dual). Indeed the proof of Prop. 7.9(ii) (p. 22) applies Lemma 7.4(i) to 1 ⊗ τ, where the containment fails. The proof of Lemma 7.4 never uses the containment, so replacing it by s ∈ ℒ* repairs everything. The 2020 published version (not accessible) may differ.",
+   "reason": "Checked: if 𝒢*_s ⊆ ℒ* then (first bullet on p. 15, [13, Thm 8.27]) Harish-Chandra induction from ℰ(ℒ^ℱ, s) preserves irreducibility, so Ind τ is irreducible and w cannot normalize τ; both parts of Lemma 7.4 would then be vacuous. The lemma is needed in the reducible case, where 𝒢*_s ⊄ ℒ* (e.g. τ_1 trivial on GL_1: the eigenvalue-1 space of s meets both the GL_1 block and its dual). Indeed the proof of Prop. 7.9(ii) (p. 22) applies Lemma 7.4(i) to 1 ⊗ τ, where the containment fails. The proof of Lemma 7.4 never uses the containment, so replacing it by s ∈ ℒ* repairs everything.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: under 𝒢*_s ⊆ ℒ*, Harish-Chandra induction from ℰ(ℒ^F, s) preserves irreducibility (§7.2, first bullet, and [13, Theorem 8.27] for disconnected centre), so w cannot normalize τ and both parts of the lemma are vacuous; the proof of Proposition 7.9(ii) applies part (i) to 𝟏 ⊗ τ, where the eigenvalue-1 space of s meets both blocks. \"As in Section 7.2\" (where s ∈ ℒ*) shows the intended hypothesis. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E17",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§7.3, p. 18 and first line of p. 19 (arXiv v1)",
+   "locator": "§7.3, p. 18 and first line of p. 19 (arXiv v1); pp. 1101–1102 in the version of record",
    "printed": "The source discusses restricting a cuspidal τ̃ in ℰ(ℒ^ℱ, s̃), where s̃ ∈ ℒ̃^{*,ℱ} maps to s. It later asks when τ̃ in ℰ(ℒ^ℱ, s̃) containing τ has the stated property.",
    "correction": "τ̃ in ℰ(ℒ̃^ℱ, s̃)",
-   "reason": "τ̃ is a representation of the similitude Levi ℒ̃^ℱ (written correctly on p. 20). The 2020 published version (not accessible) may differ.",
+   "reason": "τ̃ is a representation of the similitude Levi ℒ̃^ℱ (written correctly on p. 20).",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked; the rendered published pages print ℰ(ℒ^ℱ, s̃) at both places. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E18",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§7.3, even orthogonal case n = 1, p. 19 (arXiv v1)",
+   "locator": "§7.3, even orthogonal case n = 1, p. 19 (arXiv v1); p. 1103 in the version of record",
    "printed": "The source specifies the action on ℒ̃ of w by (g, h) ↦ (μ(h)g, c_0hc_0^{−1}).",
    "correction": "(g, h) ↦ (μ(h)g^{−1}, c_0hc_0^{−1})",
-   "reason": "Conjugating diag(g, h, μ(h)g^{−1}) by w, which swaps e_N^+ and e_N^−, puts μ(h)g^{−1} in the GL_1 slot, consistent with (7.6) for n = 1. Harmless: τ_1 is then trivial or quadratic, so τ_1(g^{−1}) = τ_1(g) and the conclusion τ̃_0 ≃ τ̃_0^{c_0} ⊗ (τ_1 ∘ μ) is unchanged. The 2020 published version (not accessible) may differ.",
+   "reason": "Conjugating diag(g, h, μ(h)g^{−1}) by w, which swaps e_N^+ and e_N^−, puts μ(h)g^{−1} in the GL_1 slot, consistent with (7.6) for n = 1. Harmless: τ_1 is then trivial or quadratic, so τ_1(g^{−1}) = τ_1(g) and the conclusion τ̃_0 ≃ τ̃_0^{c_0} ⊗ (τ_1 ∘ μ) is unchanged.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: conjugating diag(g, h, μ(h)g^{−1}) by w, which swaps e_N^±, gives diag(μ(h)g^{−1}, c_0hc_0^{−1}, g), the image of (μ(h)g^{−1}, c_0hc_0^{−1}); harmless since τ_1 is a character of order at most 2. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E19",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§7.5, statement of Proposition 7.9, p. 20 (arXiv v1)",
+   "locator": "§7.5, statement of Proposition 7.9, p. 20 (arXiv v1); Proposition 7.10, p. 1104 in the version of record",
    "printed": "The source takes τ̃ ∈ ℰ(GSO^{±,ℱ}_{2N}, s̃), describing it as “an irreducible cuspidal representations”, with semisimple s̃ mapping to s.",
    "correction": "an irreducible cuspidal representation",
-   "reason": "Grammar. The 2020 published version (not accessible) may differ.",
+   "reason": "Grammar.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E20",
    "kind": "gap",
    "affects": "the proof",
-   "locator": "§7.5, proof of Proposition 7.9, p. 21 (arXiv v1)",
+   "locator": "§7.5, proof of Proposition 7.9, p. 21 (arXiv v1); proof of Proposition 7.10, p. 1104 in the version of record",
    "printed": "The source claims any pair of these elements anticommutes because r is odd, and each squares to 0. It argues that the v_i are isotropic except when ζ_i = −1, and that not all ζ_i can be −1 because their product is 1 with r odd. It concludes that every a ∈ A^1 commuting with s has a^2 = 0 and hence is non-invertible.",
    "correction": "The claim that every a ∈ A^1 commuting with s̃ has a^2 = 0 is false; a different argument is needed that no element of C^1(𝒱) centralizes s̃ when 1 is not an eigenvalue of s (e.g. via the image of such an element in O(𝒱) ∖ SO(𝒱), which forces −1 to be an eigenvalue, and then a separate analysis of the (−1)-eigenspace, whose volume element anticommutes with its odd part). Also 'commutes with s' should read s̃.",
-   "reason": "Counterexample to the intermediate claims: q ≡ 1 mod 3, ζ a primitive cube root of unity, 𝒱 six-dimensional split with s = diag(ζ,ζ,ζ,ζ^{−1},ζ^{−1},ζ^{−1}) on eigenvectors x_1,x_2,x_3 (eigenvalue ζ) and y_1,y_2,y_3 (eigenvalue ζ^{−1}), B(x_i,y_j) = δ_ij/2. Then x_1x_2x_3 and y_1y_2y_3 are admissible monomials (product of eigenvalues 1, r = 3), but in the fermionic model (x_i ↦ creation, y_i ↦ annihilation) a = x_1x_2x_3 + y_1y_2y_3 has a^2 = −(n_1n_2n_3 + (1−n_1)(1−n_2)(1−n_3)) ≠ 0, so the monomials do not anticommute and a^2 ≠ 0. (Monomials sharing a factor, e.g. v_1v_2v_3 and v_1v_4v_5 with orthogonal vectors, even commute.) In this example a is still non-invertible and the stated conclusion of the paragraph (no element of C^1(𝒱) centralizes s̃) is expected to hold (for s^2 = 1 it is in [32, Lemma 8.9]), so Proposition 7.9 is plausibly true, but the argument as written is invalid. The 2020 published version (not accessible) may differ.",
+   "reason": "Counterexample to the intermediate claims: q ≡ 1 mod 3, ζ a primitive cube root of unity, 𝒱 six-dimensional split with s = diag(ζ,ζ,ζ,ζ^{−1},ζ^{−1},ζ^{−1}) on eigenvectors x_1,x_2,x_3 (eigenvalue ζ) and y_1,y_2,y_3 (eigenvalue ζ^{−1}), B(x_i,y_j) = δ_ij/2. Then x_1x_2x_3 and y_1y_2y_3 are admissible monomials (product of eigenvalues 1, r = 3), but in the fermionic model (x_i ↦ creation, y_i ↦ annihilation) a = x_1x_2x_3 + y_1y_2y_3 has a^2 = −(n_1n_2n_3 + (1−n_1)(1−n_2)(1−n_3)) ≠ 0, so the monomials do not anticommute and a^2 ≠ 0. (Monomials sharing a factor, e.g. v_1v_2v_3 and v_1v_4v_5 with orthogonal vectors, even commute.) In this example a is still non-invertible and the stated conclusion of the paragraph (no element of C^1(𝒱) centralizes s̃) is expected to hold (for s^2 = 1 it is in [32, Lemma 8.9]), so Proposition 7.9 is plausibly true, but the argument as written is invalid.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: in the six-dimensional split example, with the eigenvectors realising the Clifford algebra as creation and annihilation operators, x_1x_2x_3 + y_1y_2y_3 commutes with s̃ and has nonzero square, and the two monomials do not anticommute; so the printed argument fails. In that example the odd commutant only maps |000⟩ and |111⟩ to each other, so it contains no invertible element and the conclusion survives there; a proof is still missing. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E21",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§7.5, proof of Proposition 7.9(i), p. 21 (arXiv v1)",
+   "locator": "§7.5, proof of Proposition 7.9(i), p. 21 (arXiv v1); proof of Proposition 7.10(i), p. 1104 in the version of record",
    "printed": "The source asserts τ^c ∈ ℰ(SO^{±,ℱ}_{2N}, c̃^{−1}s̃c̃) for some c̃ ∈ C^1(𝒱). It says each of these Lusztig series has exactly one cuspidal representation, and uses this to give a criterion for τ̃ ≃ τ̃^c.",
    "correction": "Now τ̃^c ∈ ℰ(GSO^{±,ℱ}_{2N}, c̃^{−1}s̃c̃) ... On the other hand,",
-   "reason": "Part (i) concerns τ̃ on GSO, and c̃^{−1}s̃c̃ lies in the dual of GSO; the next clause compares τ̃ with τ̃^c. Stray comma. The 2020 published version (not accessible) may differ.",
-   "known": "new",
+   "reason": "Part (i) concerns τ̃ on GSO, and c̃^{−1}s̃c̃ lies in the dual of GSO; the next clause compares τ̃ with τ̃^c. Stray comma.",
+   "known": "Partly corrected in the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, proof of Proposition 7.10(i), p. 1104: τ̃^c ∈ ℰ(GSO^{±,ℱ}_{2N}, c̃^{−1}s̃c̃) is printed; the stray comma in \"On the other, hand\" remains.",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked; the rendered published page corrects the first slip only. Partly corrected in print.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E22",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§7.5, proof of Corollary 7.10, p. 22 (arXiv v1)",
+   "locator": "§7.5, proof of Corollary 7.10, p. 22 (arXiv v1); proof of Corollary 7.11, p. 1106 in the version of record",
    "printed": "The source assumes that s_0 has both eigenvalues ±1 and gives τ̃_0 ≃ τ̃ ⊗ χ_1. Proposition 7.9(i) is cited for the extension of τ̃_0 to GO^{±,ℱ}_{2(N−1)}. It then concludes τ̃_0^{c_0} ⊗ χ_1 ≃ τ̃_0 ⊗ χ_1 ≃ τ̃_0.",
    "correction": "τ̃_0 ≃ τ̃_0 ⊗ χ_1",
-   "reason": "τ̃ is the representation of ℒ̃, τ̃_0 that of 𝒢̃_0; the claim holds because τ_0 does not extend (Lemma 7.3), and the next line uses exactly τ̃_0 ⊗ χ_1 ≃ τ̃_0. The 2020 published version (not accessible) may differ.",
-   "known": "new",
+   "reason": "τ̃ is the representation of ℒ̃, τ̃_0 that of 𝒢̃_0; the claim holds because τ_0 does not extend (Lemma 7.3), and the next line uses exactly τ̃_0 ⊗ χ_1 ≃ τ̃_0.",
+   "known": "Corrected in the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, proof of Corollary 7.11, p. 1106: τ̃_0 ≃ τ̃_0 ⊗ χ_1 is printed, after a new sentence recalling Lemma 7.4.",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: τ_0 does not extend when both ±1 are eigenvalues (Lemma 7.3), so τ̃_0 ≃ τ̃_0 ⊗ χ_1, which the next line uses. The version of record corrects it.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E23",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§7.5, end of proof of Corollary 7.10, p. 22 (arXiv v1)",
+   "locator": "§7.5, end of proof of Corollary 7.10, p. 22 (arXiv v1); proof of Corollary 7.11, p. 1106 in the version of record",
    "printed": "The source makes the latter outcome equivalent to −1 being an eigenvalue s_0.",
    "correction": "an eigenvalue of s_0",
-   "reason": "Missing word. The 2020 published version (not accessible) may differ.",
+   "reason": "Missing word.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E24",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§7.7, p. 24 (arXiv v1)",
+   "locator": "§7.7, p. 24 (arXiv v1); p. 1107 in the version of record",
    "printed": "The source describes Q as monic, irreducible and 𝐅_q/𝐅_{q_o}-self-dual, with odd degree n = n_Q.",
    "correction": "of some odd degree m = n_Q",
-   "reason": "In §7.7 n is the rank of 𝒢 = GL_n and the Levi is GL_m(𝐅_q) × 𝒢_0^ℱ; Q is the characteristic polynomial of s_1 ∈ GL_m^{*,ℱ}, so has degree m. The 2020 published version (not accessible) may differ.",
+   "reason": "In §7.7 n is the rank of 𝒢 = GL_n and the Levi is GL_m(𝐅_q) × 𝒢_0^ℱ; Q is the characteristic polynomial of s_1 ∈ GL_m^{*,ℱ}, so has degree m.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: in §7.7 the Levi is GL_m(F_q) × 𝒢_0^ℱ and Q is the characteristic polynomial of s_1 ∈ GL_m. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E25",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§9, definitions of E(π) and e_0(π), p. 27 (arXiv v1)",
+   "locator": "§9, definitions of E(π) and e_0(π), p. 27 (arXiv v1); p. 1111 in the version of record",
    "printed": "It defines E(π) = {ρ ∈ 𝒜^σ(F) : s_π(ρ) ∈ 𝐍}. It assigns e_0(π) = 1 when some ρ ∈ 𝒜^σ(F) satisfies s_π(ρ) ∈ 1 + 2𝐍, and assigns 0 in all other cases.",
    "correction": "E(π) = {ρ : s_π(ρ) ∈ ℤ_{≥1}} and e_0(π) = 1 iff some s_π(ρ) ∈ 1 + 2ℤ_{≥0} (an odd positive integer).",
-   "reason": "E(π) must be {ρ : (ρ, m) ∈ Jord(π) for some odd m} (as the text says), i.e. s_π(ρ) a positive integer, so 𝐍 = {1,2,...} (also forced by Red(π), where m ∈ 𝐍 with 2s_π(ρ) = m+1). With that 𝐍, 1 + 2𝐍 = {3,5,...} omits s_π(ρ) = 1, whereas the alternating-character count 2^{e(π)−e_0(π)} needs e_0 = 1 exactly when some s_π(ρ) is odd (chains of odd length carry a free sign in the product condition), including 1; the text uses it so (§9.1 'either s_π(𝟏) or s_π(ω_0) is an odd integer', which can be 1 as in Ex. 9.3). Intended meaning is clear from use. The 2020 published version (not accessible) may differ.",
+   "reason": "E(π) must be {ρ : (ρ, m) ∈ Jord(π) for some odd m} (as the text says), i.e. s_π(ρ) a positive integer, so 𝐍 = {1,2,...} (also forced by Red(π), where m ∈ 𝐍 with 2s_π(ρ) = m+1). With that 𝐍, 1 + 2𝐍 = {3,5,...} omits s_π(ρ) = 1, whereas the alternating-character count 2^{e(π)−e_0(π)} needs e_0 = 1 exactly when some s_π(ρ) is odd (chains of odd length carry a free sign in the product condition), including 1; the text uses it so (§9.1 'either s_π(𝟏) or s_π(ω_0) is an odd integer', which can be 1 as in Ex. 9.3). Intended meaning is clear from use.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: E(π) needs s_π(ρ) ⩾ 1 (Red(π) has m ∈ ℕ with 2s_π(ρ) = m + 1), while e_0(π) = 1 must include s_π(ρ) = 1: in §9.1 e_0(π) = 1 always, and for m^{(1)}_+ = m^{(2)}_+ = 0 the odd point is 1. No single convention for ℕ fits both. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E26",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§9, Examples 9.3 (p. 30), 9.4 (p. 30), 9.6 (p. 33), 9.8 (p. 33), 9.9 (p. 34) (arXiv v1)",
+   "locator": "§9, Examples 9.3 (p. 30), 9.4 (p. 30), 9.6 (p. 33), 9.8 (p. 33), 9.9 (p. 34) (arXiv v1); pp. 1113–1118 in the version of record",
    "printed": "The source lists these multisets: IRed(π) = {{([𝟏], 2), ([𝟏], 1), ([ω_1], 1), ([ω_1], 1)}}; IRed(π) = {{([𝟏], 1), ([ω_1], 2)}}; IRed(π) = IRed(π′) = {{([𝟏], 2), ([𝟏], 2)}}; IRed(π) = {{([𝟏], 3), ([𝟏], 1), ([ω_1], 3), ([ω_1], 1)}}; IRed(π) = {{([ρ_P], 5/2), ([ρ_P], 1)}}.",
    "correction": "With IRed(π) = {{([ρ], m) : 2s_π(ρ) = m + 1}} (p. 28): Ex. 9.3 {{([𝟏],3), ([𝟏],1), ([ω_1],1), ([ω_1],1)}}; Ex. 9.4 {{([𝟏],1), ([ω_1],3)}}; Ex. 9.6 {{([𝟏],3), ([𝟏],3)}}; Ex. 9.8 {{([𝟏],5), ([𝟏],1), ([ω_1],5), ([ω_1],1)}}; Ex. 9.9 {{([ρ_P],4), ([ρ_P],1)}}. Or say the examples list ([ρ], s_π(ρ)).",
-   "reason": "The examples record s_π(ρ), not m = 2s_π(ρ) − 1. Recomputed from §8: Ex. 9.3 s = {2,1} and {1,1} (printed in the text), Ex. 9.4 m_{X−1} = (0,0), m_{X+1} = (1,1) giving s = {1,0}, {2,0}; Ex. 9.6 s(𝟏) = s(ω_0) = 2; Ex. 9.8 f = (4,2), (2,4) giving s = {3,1} twice; Ex. 9.9 f = 3, 7 giving s = 5/2, 1. The half-integer 5/2 cannot be an m ∈ 𝐍. The accompanying Galois parameters (e.g. 𝟏 ⊗ (st_3 ⊕ st_1), ϕ_P ⊗ (st_4 ⊕ st_2)) match the corrected m-values. The 2020 published version (not accessible) may differ.",
+   "reason": "The examples record s_π(ρ), not m = 2s_π(ρ) − 1. Recomputed from §8: Ex. 9.3 s = {2,1} and {1,1} (printed in the text), Ex. 9.4 m_{X−1} = (0,0), m_{X+1} = (1,1) giving s = {1,0}, {2,0}; Ex. 9.6 s(𝟏) = s(ω_0) = 2; Ex. 9.8 f = (4,2), (2,4) giving s = {3,1} twice; Ex. 9.9 f = 3, 7 giving s = 5/2, 1. The half-integer 5/2 cannot be an m ∈ 𝐍. The accompanying Galois parameters (e.g. 𝟏 ⊗ (st_3 ⊕ st_1), ϕ_P ⊗ (st_4 ⊕ st_2)) match the corrected m-values.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Recomputed each example from (7.2), the table of §7.6 and §8: Ex. 9.3 s-values {2,1} and {1,1}; Ex. 9.4 {1,0} and {2,0}; Ex. 9.6 s_π(𝟏) = s_π(ω_0) = 2; Ex. 9.8 {3,1} twice; Ex. 9.9 {5/2,1}. The printed multisets list these s-values; the Galois parameters printed beside them match m = 2s − 1. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E27",
    "kind": "error",
    "affects": "nothing",
-   "locator": "§9.3, Example 9.7, p. 33 (arXiv v1)",
+   "locator": "§9.3, Example 9.7, p. 33 (arXiv v1); p. 1117 in the version of record",
    "printed": "The source gives IRed(π) = {{([𝟏], 2), ([𝟏], 1), ([ω_1], 2), ([ω_1], 1)}} and specifies its Galois parameter as ϕ_π = ω ⊗ st_2 ⊕ ω′ω_1 ⊗ st_2.",
    "correction": "IRed(π) = {{([𝟏],2), ([ω_1],2)}} (the reducibility points are 3/2 and 1/2 on each inertial class; in the s-convention of the other examples, {{([𝟏],3/2), ([𝟏],1/2), ([ω_1],3/2), ([ω_1],1/2)}}).",
-   "reason": "Recomputed: 𝒢° = SO_4^+(k_F) × SO_1(k_F) with char. poly (X−1)^2(X+1)^2, so m_± = 1 on the SO_4^+ factor and 0 on SO_1; Hecke parameters f = 2m_± = 2 (even SO) and 2m_± + 1 = 1 (odd SO), giving reducibility points (2 ± 1)/2 = 3/2, 1/2 for both X ∓ 1. This matches ϕ_π (st_2 only, s = 3/2). An entry ([𝟏],1) would need s = 1 (an st_1 summand) in the m-convention, or s_π = 1 in the s-convention; neither occurs, so the printed multiset fits neither convention. The packet-count conclusion of the example is unaffected. The 2020 published version (not accessible) may differ.",
+   "reason": "Recomputed: 𝒢° = SO_4^+(k_F) × SO_1(k_F) with char. poly (X−1)^2(X+1)^2, so m_± = 1 on the SO_4^+ factor and 0 on SO_1; Hecke parameters f = 2m_± = 2 (even SO) and 2m_± + 1 = 1 (odd SO), giving reducibility points (2 ± 1)/2 = 3/2, 1/2 for both X ∓ 1. This matches ϕ_π (st_2 only, s = 3/2). An entry ([𝟏],1) would need s = 1 (an st_1 summand) in the m-convention, or s_π = 1 in the s-convention; neither occurs, so the printed multiset fits neither convention. The packet-count conclusion of the example is unaffected.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Recomputed: 𝒢° = SO_4^+(k_F) × SO_1(k_F), m_± = 1 on the first factor and 0 on the second, f = 2 and 1, reducibility points 3/2 and 1/2 on each inertial class; the printed multiset fits neither convention, while ϕ_π = ω ⊗ st_2 ⊕ ω′ω_1 ⊗ st_2 fits m = 2. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E28",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§9.3, Example 9.9, p. 34 (arXiv v1)",
+   "locator": "§9.3, Example 9.9, p. 34 (arXiv v1); p. 1118 in the version of record",
    "printed": "The source places semisimple s_1 and s_2 in the respective dual groups of SO_2^−(k_F) and Sp_12(k_F), assigning them characteristic polynomials P(X) and P(X)^6, in that order.",
    "correction": "P(X) and (X − 1)P(X)^6 respectively",
-   "reason": "The dual of Sp_12 is SO_13 acting on a 13-dimensional space, so Σ a_P deg P = 13 by (7.2); P(X)^6 has degree 12. With a_P = 6 (m_P = 3) and a_+ = 2(m_+^2 + m_+) + 1 = 1 (m_+ = 0) the polynomial is (X − 1)P(X)^6, matching Remark 8.2's convention; the stated reducibility points 5/2, 1 come from m_P = 1, 3 and are unaffected. The 2020 published version (not accessible) may differ.",
+   "reason": "The dual of Sp_12 is SO_13 acting on a 13-dimensional space, so Σ a_P deg P = 13 by (7.2); P(X)^6 has degree 12. With a_P = 6 (m_P = 3) and a_+ = 2(m_+^2 + m_+) + 1 = 1 (m_+ = 0) the polynomial is (X − 1)P(X)^6, matching Remark 8.2's convention; the stated reducibility points 5/2, 1 come from m_P = 1, 3 and are unaffected.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: the dual of Sp_12 acts on a 13-dimensional space, and m_P = 3, m_+ = 0 give a_P = 6, a_+ = 1. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E29",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§9.3, Example 9.8, p. 34 (arXiv v1)",
+   "locator": "§9.3, Example 9.8, p. 34 (arXiv v1); p. 1117 in the version of record",
    "printed": "The source says that τ_1 ⊗ τ_2 extends in two ways to the reductive quotient of J_{8,2}. Inflation followed by induction to G is said to produce a cuspidal representation that is irreducible.",
    "correction": "inducing to H",
-   "reason": "This paragraph constructs representations of the split group H = SO(V′); J_{8,2} is a subgroup of H. The 2020 published version (not accessible) may differ.",
+   "reason": "This paragraph constructs representations of the split group H = SO(V′); J_{8,2} is a subgroup of H.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E30",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§9.3, Example 9.9, p. 34 (arXiv v1)",
+   "locator": "§9.3, Example 9.9, p. 34 (arXiv v1); p. 1118 in the version of record",
    "printed": "The source also claims a cuspidal representation that is irreducible for the ramified, quasi-split unitary group of dimension 14, sharing the same inertial irreducibility (multi)set.",
    "correction": "inertial reducibility (multi)set",
-   "reason": "The invariant is IRed, the inertial reducibility multiset. The 2020 published version (not accessible) may differ.",
+   "reason": "The invariant is IRed, the inertial reducibility multiset.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E31",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§9.1, Example 9.3, p. 30 (arXiv v1)",
+   "locator": "§9.1, Example 9.3, p. 30 (arXiv v1); p. 1113 in the version of record",
    "printed": "Using Section 8’s procedure, the source obtains s_ρ(π) ∈ {0, ±1/2} whenever ρ is not a GL_1(F) character.",
    "correction": "s_π(ρ) ∈ {0, 1/2}",
-   "reason": "Subscript and argument swapped as in C1 (and s_π(ρ) ≥ 0 by definition, so ±1/2 is loose). The 2020 published version (not accessible) may differ.",
+   "reason": "Subscript and argument swapped as in C1 (and s_π(ρ) ≥ 0 by definition, so ±1/2 is loose).",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked; s_π(ρ) ⩾ 0 by definition. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E32",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "§8, p. 25 (arXiv v1)",
+   "locator": "§8, p. 25 (arXiv v1); p. 1108 in the version of record",
    "printed": "The source says that a_P^(i) obey (7.2), and consequently introduces nonnegative integers m_p^(i) ⩾ 0.",
    "correction": "m_P^(i) ⩾ 0",
-   "reason": "Index is the polynomial P. The 2020 published version (not accessible) may differ.",
-   "known": "new",
+   "reason": "Index is the polynomial P.",
+   "known": "Corrected in the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, p. 1108: m_P^{(i)} is printed.",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the arXiv source. The version of record corrects it.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E33",
    "kind": "gap",
    "affects": "a stated result",
-   "locator": "Theorem (i), §1 p. 4, against §8 p. 24 (arXiv v1)",
+   "locator": "Theorem (i), §1 p. 4, against §8 p. 24 (arXiv v1); Introduction (1.4), p. 1086, and Remark 8.2, p. 1108 in the version of record",
    "printed": "Item (i) asserts Equation (1.3). The source later says its proof establishes only Σ_{ρ∈𝒜^σ(F)} ⌊(s_π(ρ))^2⌋ n_ρ ⩾ N_Ĝ. It credits Mœglin [38] with the reverse inequality in many cases. Alternatively, it says its methods and [36] readily yield s_π(ρ) ∈ {0, ±1/2} for positive depth, self-dual, irreducible cuspidal ρ, which therefore contribute nothing. It directs readers to [6] for details in greater generality.",
    "correction": "State Theorem (i) as: (8.1) holds (the depth-zero sum equals N_Ĝ), hence '⩾' in (1.3), with equality where Mœglin's inequality applies or subject to the positive-depth vanishing, whose proof is only sketched.",
-   "reason": "The paper itself says it proves only '⩾'; the reverse needs Mœglin [38] ('in many cases') or the vanishing of positive-depth contributions, sketched as 'easily' and deferred to [6], listed as 'in preparation' and (by its title) about symplectic groups only. For non-quasi-split/non-symplectic G the unconditional equality claimed in Theorem (i) is not proved in v1. (A version of [6] was later published by Blondel–Henniart–Stevens.) The 2020 published version (not accessible) may differ.",
-   "known": "new",
+   "reason": "The paper itself says it proves only '⩾'; the reverse needs Mœglin [38] ('in many cases') or the vanishing of positive-depth contributions, sketched as 'easily' and deferred to [6], listed as 'in preparation' and (by its title) about symplectic groups only. For non-quasi-split/non-symplectic G the unconditional equality claimed in Theorem (i) is not proved in v1. (A version of [6] was later published by Blondel–Henniart–Stevens.)",
+   "known": "Corrected in the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, Introduction (1.4), p. 1086, and Remark 8.2, p. 1108: the printed introduction states result (i) as the inequality Σ⌊s_π(ρ)²⌋n_ρ ⩾ N_Ĝ (1.4), and Remark 8.2 says the opposite inequality is Mœglin's in many cases and leaves the positive-depth vanishing as an exercise.",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: §8 of arXiv v1 says \"Strictly speaking, here we only prove the inequality\", while the unnumbered Theorem (i) claims (1.3). The version of record corrects it.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   },
   {
    "id": "PAPER-LUST-STEVENS-20/E34",
    "kind": "error",
    "affects": "a stated result",
-   "locator": "Theorem (iii), §1 p. 4, against §9.3 p. 32 and Example 9.6 (arXiv v1)",
+   "locator": "Theorem (iii), §1 p. 4, against §9.3 p. 32 and Example 9.6 (arXiv v1); Introduction, p. 1086; §9.3, p. 1116 in the version of record",
    "printed": "The source says the local data determine whether the representation count matches the expected count for one, two or four L-packets. Later it gives the constructed cuspidal count as the expected cuspidal count for a packet multiplied by one, two or four, or divided by two, with the half-count possibility restricted to even orthogonal groups.",
    "correction": "Theorem (iii) should allow half the expected number for even special orthogonal G, or be stated for the full orthogonal group O(V) (as Example 9.6 concludes).",
-   "reason": "Example 9.6 (split SO_8) gives two representations against an expected four, contradicting Theorem (iii) as literally stated; the introduction only adds 'One also needs to take care with this in the case of even orthogonal groups (see Example 9.6)'. The mathematics in §9 is right; the theorem statement is inaccurate for even SO. The 2020 published version (not accessible) may differ.",
+   "reason": "Example 9.6 (split SO_8) gives two representations against an expected four, contradicting Theorem (iii) as literally stated; the introduction only adds 'One also needs to take care with this in the case of even orthogonal groups (see Example 9.6)'. The mathematics in §9 is right; the theorem statement is inaccurate for even SO.",
    "known": "new",
    "searched": [
     "arXiv:1611.08421 (only v1, 25 November 2016)",
-    "the published version, Proc. London Math. Soc. 121 (2020) 1083–1120, doi:10.1112/plms.12340 — Wiley serves a bot challenge; not read",
-    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)"
-   ]
+    "web search for errata/corrigenda to Lust–Stevens (29 September 2026)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: Example 9.6 gives two representations of split SO_8 where four are expected, and §9.3 says the count can be half the expected number for even orthogonal groups; the printed introduction keeps \"one, two, or four L-packets\" with a pointer to Example 9.6. It is unchanged in the version of record.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
+  },
+  {
+   "id": "PAPER-LUST-STEVENS-20/E35",
+   "kind": "error",
+   "affects": "nothing",
+   "locator": "§3, p. 8 (arXiv v1); p. 1091 in the version of record",
+   "printed": "The source equates self-duality of ρ with self-duality of τ, expressing the latter as τ^σ ≃ τ.",
+   "correction": "If ρ is self-dual then τ is self-dual; conversely, if τ is self-dual then exactly two unramified twists of ρ are self-dual (as §§1 and 4 say).",
+   "reason": "For n = 1 and F = F_o, take ρ = χ an unramified character of F^× with χ(ϖ_F) = i: then τ is the trivial character of k_F^×, which is self-dual, but ρ^σ = χ^{−1} ≠ χ. Self-duality of ρ also constrains Λ_ρ(ϖ_F). §§4–9 use only self-dual ρ and the pair {ρ, ρ′}, so nothing else is affected.",
+   "known": "new",
+   "searched": [
+    "arXiv:1611.08421 (only v1)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)",
+    "web search for errata or corrigenda to Lust–Stevens (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found and checked by the review, which adds it.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
+  },
+  {
+   "id": "PAPER-LUST-STEVENS-20/E36",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "Introduction, \"Structure of the algorithm\", p. 1087 of the version of record (not in arXiv v1)",
+   "printed": "([ω_1], 2(m_−^{(1)} + m_−^{(2)}) − 1), ([ω_1], 2|m_−^{(1)} + m_−^{(2)}| − 1)",
+   "correction": "([ω_1], 2(m_−^{(1)} + m_−^{(2)}) − 1), ([ω_1], 2|m_−^{(1)} − m_−^{(2)}| − 1)",
+   "reason": "For symplectic G and Q = X + 1, §8.1 gives the reducibility points m_−^{(1)} + m_−^{(2)} and |m_−^{(1)} − m_−^{(2)}|, so the multiplicities are 2s − 1 of these, as in the [𝟏] pair printed just above. For Example 9.4 (m_−^{(1)} = m_−^{(2)} = 1) the printed formula lists ([ω_1], 3) twice instead of once.",
+   "known": "new",
+   "searched": [
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)",
+    "arXiv:1611.08421v1, which has no such passage"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found and checked by the review on the rendered page, which adds it.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
+  },
+  {
+   "id": "PAPER-LUST-STEVENS-20/E37",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "Introduction, item (ii) of the symplectic results, p. 1085 of the version of record (not in arXiv v1)",
+   "printed": "For a symplectic group as above and a depth-zero representation π that is cuspidal and irreducible, the source claims to describe the pair {ϕ, ϕ′} explicitly in the converse direction.",
+   "correction": "… as above, we give an explicit description of the pair {ϕ, ϕ′}",
+   "reason": "A leftover \"there\" from the arXiv wording \"there is an explicit description\", which print rephrased.",
+   "known": "new",
+   "searched": [
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found and checked by the review, which adds it.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
+  },
+  {
+   "id": "PAPER-LUST-STEVENS-20/E38",
+   "kind": "error",
+   "affects": "nothing",
+   "locator": "§7.1, p. 13 (arXiv v1); p. 1096 in the version of record",
+   "printed": "The source characterizes F_q/F_{q∘}-self-duality of P by these root conditions: if F_q = F_{q∘}, every root ζ in an algebraic closure of F_q has ζ^{−1} among the roots of P; if F_q ≠ F_{q∘}, every root ζ has ζ^{−q∘} among the roots of P.",
+   "correction": "Count roots with multiplicity: ζ^{−1} (respectively ζ^{−q∘}) is a root of the same multiplicity as ζ. The printed criterion holds as stated for squarefree P, in particular for the irreducible P the paper uses.",
+   "reason": "Over F_7, P = (X − 2)²(X − 4) has root set {2, 4}, closed under inversion because 2·4 = 1, but P^σ = (X − 4)²(X − 2) ≠ P.",
+   "known": "new",
+   "searched": [
+    "arXiv:1611.08421 (only v1)",
+    "the version of record, Proc. London Math. Soc. (3) 121 (2020) 1083–1120, read by the review from the UEA repository copy (29 September 2026)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found and checked by the review, which adds it; the extraction noted the point in an item note without recording it.",
+    "by": "REV-PAPER-LUST-STEVENS-20"
+   }
   }
  ]
 }
