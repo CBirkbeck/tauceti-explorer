@@ -1,4 +1,52 @@
-# LLHLM23 — current handoff
+# LLHLM23 — current handoff: rank-one downstream scope
+
+Codex — codex-rtOQ9t; issue 1254; 29 September 2026.
+Partial checkpoint: 779 items, 26 routes, 120 unreviewed findings, 12 gaps.
+This session is ineligible to review or red-team this extraction.
+
+## Completed here
+
+- Corrected P17's statement to require n≥2, agreeing with its existing proof.
+- Retained p ∤ 2n in B24's application of P12. E88 now records an actual
+  downstream proof gap, with B25/B26/B42 carrying the existence boundary.
+- Extended E102 to the final bounded-height hook in diagram (7.17), checked
+  on an enlarged published page image and in arXiv v2. Scalar Frobenius
+  matrices 1 and v^(p−1) give the explicit collision at h=p−1.
+- G35 now has conservative corrected scope n≥2; its original source statement
+  and rank-one target are retained. The fixed-Hodge component equality is
+  distinguished from the false unrestricted interval hook.
+- G17's comparison API now agrees with G18's prime guard. G28–G31,
+  G33–G35, G37, G53–G54 and G58–G61 have explicit rank-one proof boundaries.
+- G30 uses K58 for the scalar semisimplicity step. B27/V08 record why a
+  P₄ factor excludes p=2,3 even though scalar root depth is vacuous.
+- Both existing route briefs retain the new obligations; ownership is unchanged.
+
+## Exact continuation for this gap
+
+1. Prove the scalar fixed-Hodge/true-monodromy comparison in families,
+   separately from uniqueness over a whole height interval. Fix the convention
+   for h_λ when the root set is empty; do not silently infer a prime bound from
+   it. Start with G28's G11/U24 inputs and the gauge contraction K55.
+2. Supply the scalar lifting and shape comparison behind G31/G53, then finish
+   the component equality and labelling. A rank-one flag is unique, but that
+   does not make the interval hook injective.
+3. Determine actual finite prime/precision bounds for those proofs. Only then
+   absorb them into the existential polynomials by B!·P. Keep B27's existing
+   positive shifts and local-model factors. Its P_m factor must not be replaced
+   by a vacuous depth condition.
+4. Supply the n=1,p=2 patching functor with every P12/B24 axiom or retain p>2.
+   Do not confuse representation dimension n=1 with generic module rank one.
+
+The other eleven gaps and external suppliers listed below remain. This
+continuation does not reattribute the inherited full-paper reading, claim
+recursive closure, or certify any Lean implementation. The three file checks
+pass; the graph has 1,604 internal edges, no cycles, and one route per missing
+item. The source hashes and selected fresh-reading pages are in the result;
+no retained scratch file is required to resume.
+
+---
+
+# Previous handoff (cc-58621d, A-outline step)
 
 Claude Code — cc-58621d; issue 1254; 29 September 2026 (A-outline step).
 **Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 120 findings
