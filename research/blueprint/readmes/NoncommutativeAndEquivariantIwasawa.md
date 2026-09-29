@@ -1,13 +1,15 @@
 # Noncommutative and equivariant Iwasawa theory — blueprint
 
-This blueprint covers stages NE.0–NE.7. After the fourth checkpoint:
+This blueprint covers stages NE.0–NE.7. After the sixth checkpoint:
 - **NE.1 is source-decomposed.**
 - **NE.0 is partial.**
 - **NE.2 is partial:** CFKSV §§3–4 — the localisation sequence and characteristic elements.
 - **NE.3 is partial:** CFKSV §3 — twists, Φ_ρ, evaluation at representations, Akashi series and Euler characteristics.
 - **NE.4 and NE.5 are partial:** CFKSV §5 — the dual Selmer module, the 𝔐_H(G) conjecture, the conjectural p-adic
   L-function and the main conjecture (checkpoint 4).
-- **NE.6 and NE.7 are not yet read.**
+- **NE.6 is partial:** Kakde §§1–5 and §6.1 — the abelian case, Burns–Kato patching, the reductions, the congruence
+  description of K′₁ (Theorems 52–53) and the criterion MC ⇔ (ζ_P) ∈ Φ^G_S (checkpoints 5–6).
+- **NE.7 is not yet read.**
 
 The accepted restructuring RS-16 moves the construction of completed group algebras, with restriction, induction and
 augmentation, to PadicMeasuresIwasawaAlgebras L1. NE.0 therefore keeps only:
@@ -388,6 +390,90 @@ The results of Oliver's *Whitehead groups of finite groups* that Kakde cites are
 - Wall's torsion theorem;
 - the integral logarithm.
 
+### NE.6, Milestone 9: Kakde's algebraic core, §5 and §6.1 (checkpoint 6)
+
+Source: Kakde, arXiv:1008.0142v3, pp. 30–68. Throughout, G is one-dimensional pro-p with G/H ≅ ℤ_p, Z = Γ^{p^e} is
+central and open, Ḡ = G/Z, U_P is the preimage of P ≤ Ḡ, and 𝒪 is unramified over ℤ_p (or a finite sum of such rings,
+e.g. ℤ_p[Δ]). Library module: `TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences`.
+
+**Construction: the twisted group ring** (`TwistedGroupRing`; node `NE.6/twisted-group-ring-presentation`). Λ_𝒪(G) =
+Λ_𝒪(Z)[Ḡ]^τ with the symmetric carry cocycle τ(h₁γ^{a₁}, h₂γ^{a₂}) = γ^{[(a₁+a₂)/p^e]p^e}; Λ_𝒪(U_P) = Λ_𝒪(Z)[P]^τ;
+T = Λ_𝒪(Z) ∖ pΛ_𝒪(Z) is Ore with Λ_𝒪(G)_T = Λ_𝒪(G)_S (Lemma 37); and R[Ḡ]^τ/[R[Ḡ]^τ, R[Ḡ]^τ] ≅ R[Conj Ḡ]^τ (Lemma 43).
+- *API:* the ring structure, the presentation, the cocycle simp lemmas, the Ore instance, the two equivalences.
+- *Unit tests:*
+  - τ ≡ 1 recovers `MonoidAlgebra`;
+  - ℤ_p × C_p gives Λ(ℤ_p)[C_p];
+  - the carry for Z = Γ^p gives Λ(Γ) = Λ(Z)[X]/(X^p − γ^p);
+  - *non-example:* Z = 1 is not open, and T then gives Λ(G) rather than Λ(G)_{(p)}.
+
+**Construction: θ^G and the congruence groups** (`thetaMap`, `Phi`; node `NE.6/congruence-group-phi`). θ^G_P is the norm
+to U_P followed by abelianisation. Φ^G ⊆ ∏_P Λ_𝒪(U_P^ab)^× is cut out by:
+- M1: norms equal projections;
+- M2: invariance under conjugation;
+- M3: ver ≡ restriction mod T_{P,P′};
+- M4: α_P(x_P) ≡ ∏ ϕ(α_{P′}(x_{P′})) mod pT_P, with its variant at P = {1}.
+
+Here α_P(x) = x^p/∏_k ω_P^k(x). Lemma 50 computes nr and tr for [P′ : P] = p as the product and sum of the twists ω^k.
+- *Unit tests:*
+  - Ḡ = 1 gives Φ^G = Λ_𝒪(Z)^×;
+  - Ḡ = C₂ gives the graph of the norm;
+  - Lemma 50 at p = 2;
+  - *non-example:* (1, g) fails M1, since nr(g) = −1.
+
+**Construction: the additive side** (`beta`, `Psi`; node `NE.6/additive-map-beta`). t^G_P counts conjugates landing in
+P; η_P keeps the generators of a cyclic P; β^G_P = η_P ∘ t^G_P (cyclic P) or t^G_P; ψ^G_R is cut out by A1–A3; δ is a left
+inverse of β.
+- *Unit tests:*
+  - Ḡ = 1;
+  - Ḡ = C_p, where ψ^G_R = pR × {b : b₁ = 0};
+  - η_P via Σ_k ζ^k = 0;
+  - *non-example:* β is not multiplicative.
+
+**Theorem: the additive theorem** (node `NE.6/additive-theorem`). β^G_R : R[Conj Ḡ]^τ ≅ ψ^G_R (Theorem 58), with the
+rational version and integrality criterion of Proposition 64.
+
+**Construction: the logarithm on relative K₁** (`logRel`; node `NE.6/iwasawa-algebra-logarithm`). log_I : K₁(R[Ḡ]^τ, I) →
+(I/[R[Ḡ]^τ, I]) ⊗ ℚ_p for I ⊆ J_R. It is integral under Oliver's ξ-hypothesis and bijective if I^p ⊆ pIJ_R
+(Lemmas 65–66, Proposition 67). Relative K₁ and E(A, I) come from KTheoryLowDegrees U.5.
+- *Unit tests:*
+  - the commutative case;
+  - nilpotence of J_R/p for ℤ_p × C_p;
+  - *non-examples:* torsion is killed; the ℤ₂ case shows the bijectivity hypothesis is needed.
+
+**Construction: the integral logarithm** (`integralLog`; node `NE.6/integral-logarithm`). L = log − (ϕ/p)log, with
+1 → μ(𝒪) × G^ab → K′₁(Λ_𝒪(G)) → Λ_𝒪(Z)[Conj Ḡ]^τ → G^ab → 1 exact (Definition 70, from Oliver's Theorem 6.6), and its
+extension to K′₁(Λ̂_𝒪(G)_S), independent of the splitting (Lemmas 71–72, Proposition 74).
+- *Unit tests:*
+  - p^n ∣ v^{p^n} − v^{p^{n−1}} on ℤ/27;
+  - Lemma 72 via `ZMod.expand_card`;
+  - L(g) = 0;
+  - *non-example:* L ≠ log.
+
+**Theorem: the θ–β relation** (node `NE.6/theta-beta-relation`). β^G_P(L(x)) = (1/p)log(α_P(θ^G_P(x))/u^G_P(α(θ^G(x))))
+for nontrivial cyclic P, with the noncyclic and trivial variants (Proposition 84). It chains Lemmas 76, 77, 79, 81 and 82;
+Lemma 82 uses Schneider–Venjakob's Proposition 2.3 (norm then inclusion is the [H : N]-th power on K₁(𝔽_p⟦H⟧)).
+
+**Lemma: the multiplicative sequence** (node `NE.6/phi-integral-log-sequence`). θ^G lands in Φ^G (Lemma 85), and
+1 → μ(𝒪) × G^ab → Φ^G → ψ^G → G^ab → 1 is exact (Lemmas 86–89).
+
+**Theorem: Kakde's congruence description of K′₁** (node `NE.6/main-algebraic-theorems`; planet). K′₁(Λ_𝒪(G)) ≅ Φ^G
+(Theorem 52, by the five lemma), and Φ^G_S ∩ ∏Λ_𝒪(U_P^ab)^× = θ^G(K′₁(Λ_𝒪(G))) (Theorem 53).
+
+**Theorem: injectivity into the localisation** (node `NE.6/k1-injects-localisation`). Corollary 90, which is printed
+without proof. The plan reconstructs it from Theorem 52, the K′₁ halves of the §4 reductions, and Corollary 20.
+
+**Theorem: the congruence criterion** (node `NE.6/main-conjecture-congruence-criterion`). MC(F_∞/F) holds iff
+(ζ_P)_P ∈ Φ^G_S, for the Deligne–Ribet zeta functions ζ_P of K_P/F_P (Proposition 93, with Lemma 92). The printed proof
+gives "if"; "only if" is reconstructed. The proof needs:
+- Clifford theory and monomiality of p-group representations (requested from Tau Ceti InductionRestriction Layer 5);
+- inductivity of Artin L-functions (requested from AnalyticNumberTheory AN.4).
+
+**Lemma: M1 and M2 for (ζ_P)** (node `NE.6/zeta-tuple-m1-m2`). Proposition 95, by interpolation. M3 and M4 (Propositions
+96–99 and §6.13) are the next checkpoint.
+
+The text layer drops fraction bars: Theorem 94's M4 reads as a product ≡ 1, but the page image shows the quotient form
+of Definition 51.
+
 ## Dependencies
 
 - **NE.0 imports:**
@@ -432,8 +518,8 @@ The results of Oliver's *Whitehead groups of finite groups* that Kakde cites are
 - **NE.5 (partial).** Fukaya–Kato's formulation, and the abelian comparison with IntegralIwasawaTheory I.9. The
   Dokchitser data are a gap.
 - **NE.6 (partial).** Still to do:
-  - Kakde §§5–6: the K′₁ description by congruences, the integral logarithms, and the Deligne–Ribet congruences via the
-    q-expansion principle;
+  - Kakde §§6.2–6.13: the basic congruences (Propositions 96–99) via the Deligne–Ribet q-expansion principle, M3 and M4
+    (Lemmas 118–119), Theorem 94 and the main theorem;
   - Ritter–Weiss;
   - the source-by-source coverage table.
 - **NE.7.** Burns–Venjakob leading terms.
@@ -444,4 +530,5 @@ The results of Oliver's *Whitehead groups of finite groups* that Kakde cites are
 - **Lazard,** Publ. Math. IHÉS 26 (1965), Numdam. Read II.2.2 and V.2.2.
 - **Ardakov–Brown,** arXiv math/0511345v1. Read §§2–4.
 - **Burns–Venjakob,** arXiv math/0511672v2. Read §2.
-- **Kakde,** arXiv:1008.0142v3. Read §§1–4 (pp. 1–30).
+- **Kakde,** arXiv:1008.0142v3. Read §§1–5 and §6.1 (pp. 1–68).
+- **Schneider–Venjakob,** *A splitting for K₁ of completed group rings*, arXiv:1006.1493v1. Read Proposition 2.3 (p. 11).

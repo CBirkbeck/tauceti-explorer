@@ -1,6 +1,51 @@
-# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 5 (Claude Code cc-39fac3)
+# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 6 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 29 September 2026. Refs #1015; the bot confirmed the claim. **Status: partial.**
+
+## Checkpoint 6: Kakde §5 and §6.1 (12 nodes)
+
+Read from the arXiv text layer: Kakde, arXiv:1008.0142v3 (sha256 5a05da0d…ea45c), pp. 30–68. Theorem 94's M4 was
+checked on the page image (the text layer drops fraction bars). Schneider–Venjakob arXiv:1006.1493v1 (sha256
+dda52df4…a06cc1), Proposition 2.3, is a new source.
+
+**Nodes (all NE.6):**
+- `twisted-group-ring-presentation` (construction): §5.1, Lemmas 37, 43, 45, 46.
+- `congruence-group-phi` (construction): θ^G and Φ^G, M1–M4, Definitions 47–51, Lemma 50.
+- `additive-map-beta` (construction): Definitions 55–57, 61, Lemmas 60, 62.
+- `additive-theorem`: Theorem 58, Lemma 63, Proposition 64.
+- `iwasawa-algebra-logarithm` (construction): Lemmas 65–66, Proposition 67.
+- `integral-logarithm` (construction): Definitions 69–70, 73, Lemmas 71–72, Proposition 74.
+- `theta-beta-relation`: Proposition 84 with Lemmas 76–82.
+- `phi-integral-log-sequence`: Lemmas 85–89.
+- `main-algebraic-theorems` (planet): Theorems 52–53.
+- `k1-injects-localisation`: Corollary 90, printed without proof; the route is reconstructed and flagged.
+- `main-conjecture-congruence-criterion`: Lemma 92 and Proposition 93; the "only if" direction is reconstructed.
+- `zeta-tuple-m1-m2`: Proposition 95.
+
+**New requests:**
+- Tau Ceti InductionRestriction Layer 5 (Clifford's dichotomy and monomiality of p-group representations).
+- AnalyticNumberTheory AN.4 (inductivity of Σ-truncated Artin L-functions).
+- AutomorphicPadicLFunctions L3 is extended to the new nodes.
+
+**Gaps.** The Oliver gap is extended (Lemma 2.7, Theorems 2.8, 6.6, 6.8; Higman and Wall).
+
+**Cross-roadmap prerequisites.** KTheoryLowDegrees U.5 (relative K₁, E(A, I), radical ideals).
+
+**Source findings.** None beyond typography: "Cong(G)" is a misprint for Conj(G) (pp. 36–51).
+
+**NE.6 remaining:**
+- Kakde §§6.2–6.13 (pp. 69–90): Propositions 96–99, the q-expansion argument, and M3–M4 via Lemmas 118–119, closing
+  Theorem 94 and Theorem 11.
+- Ritter–Weiss.
+- The coverage table.
+
+**Checks.** `check_blueprint.py`: 77 nodes, 0 errors, 0 warnings. The Lean file compiles with exit 0 against the pinned
+Mathlib. It adds six checked tests in `NE6AlgebraTests`:
+- Lemma 50 at p = 2, and the M1 non-example;
+- M4 at {1} for Ḡ = C₂ modulo 8;
+- η_P through Σ_k ζ^k = 0;
+- Lemma 72 through `ZMod.expand_card`;
+- v^27 = v^9 on ℤ/27.
 
 ## Checkpoint 5: Kakde §§1–4 (11 nodes)
 

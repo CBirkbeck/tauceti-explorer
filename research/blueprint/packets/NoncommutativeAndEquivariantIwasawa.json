@@ -13,7 +13,7 @@
   "NoncommutativeAndEquivariantIwasawa:NE.7"
  ],
  "status": "partial",
- "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain. Checkpoint 4 (cc-39fac3) plans CFKSV §4's integrality conjecture 4.8 with Lemma 4.9 (NE.3) and §5: the dual Selmer module, Conjectures 5.1–5.2 and the 𝔐_H(G) criteria (NE.4), and Conjectures 5.7–5.8 with Corollaries 5.9–5.10 and the X₁(11) check (NE.5). Conjectures are stated as propositions, never assumed. Checkpoint 5 reads Kakde §§1–4: admissible extensions and μ = 0, the complex C(F_∞/F), SK₁ and K′₁, ∂ surjective with p-torsion, the totally real main conjecture, the abelian × prime-to-p case from Deligne–Ribet and Wiles, the Burns–Kato patching principle, and the reductions to dimension one, to ℚ_p-elementary groups, the l-elementary case and the reduction to Δ × pro-p.",
+ "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain. Checkpoint 4 (cc-39fac3) plans CFKSV §4's integrality conjecture 4.8 with Lemma 4.9 (NE.3) and §5: the dual Selmer module, Conjectures 5.1–5.2 and the 𝔐_H(G) criteria (NE.4), and Conjectures 5.7–5.8 with Corollaries 5.9–5.10 and the X₁(11) check (NE.5). Conjectures are stated as propositions, never assumed. Checkpoint 5 reads Kakde §§1–4: admissible extensions and μ = 0, the complex C(F_∞/F), SK₁ and K′₁, ∂ surjective with p-torsion, the totally real main conjecture, the abelian × prime-to-p case from Deligne–Ribet and Wiles, the Burns–Kato patching principle, and the reductions to dimension one, to ℚ_p-elementary groups, the l-elementary case and the reduction to Δ × pro-p. Checkpoint 6 (cc-39fac3) reads Kakde §5 and §6.1: Λ_𝒪(G) as a twisted group ring over Λ_𝒪(Z), the congruence groups Φ^G, the additive theorem R[Conj Ḡ]^τ ≅ ψ^G, the logarithm on relative K₁ and the integral logarithm, the relation between θ^G and β^G, Theorems 52–53 (K′₁(Λ_𝒪(G)) ≅ Φ^G), Corollary 90, and the reduction of the main conjecture to (ζ_P) ∈ Φ^G_S with M1–M2 proved.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -206,6 +206,62 @@
     "module": "Mathlib/LinearAlgebra/Matrix/Defs.lean",
     "provides": "Matrices M_n(R), the target of Φ_ρ.",
     "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+    "provides": "The group ring R[P]; the twisted group ring R[P]^τ agrees with it for τ ≡ 1.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:ConjClasses",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Group/Conj.lean",
+    "provides": "Conjugacy classes, indexing the cocentre R[Conj Ḡ]^τ.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:MonoidHom.transfer",
+    "kind": "def",
+    "module": "Mathlib/GroupTheory/Transfer.lean",
+    "provides": "The transfer homomorphism, for ver^{P′}_P and ϕ.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Algebra.norm",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Norm/Defs.lean",
+    "provides": "The norm of a finite free algebra, for nr^{P′}_P at the abelian level.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Algebra.trace",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Trace/Defs.lean",
+    "provides": "The trace of a finite free algebra, for tr^{P′}_P.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Abelianization",
+    "kind": "def",
+    "module": "Mathlib/GroupTheory/Abelianization/Defs.lean",
+    "provides": "The abelianisation U_P → U_P^ab.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot.geom_sum_eq_zero",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+    "provides": "Σ_{k<n} ζ^k = 0 for a primitive n-th root ζ, n > 1; used for η_P.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:ZMod.expand_card",
+    "kind": "theorem",
+    "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+    "provides": "expand p f = f^p over ℤ/p (Lemma 72).",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
    }
   ]
  },
@@ -265,7 +321,19 @@
    "url": "https://arxiv.org/pdf/1008.0142v3",
    "sha256": "5a05da0d58f2717422fb401510d9cad4aeeac707313929a796870b92e27ea45c",
    "readSections": [
-    "2026-09-29 (cc-39fac3, checkpoint 5): §§1–4 in full (Definitions 1–8, Lemmas 5, 9, 15, 17, 19, 26, 28, 31, Theorems 11, 16, 18, 21, 25, 27, 33, 36, Propositions 30, 35, Corollary 20, Remarks 10, 12–14, 22, 32, 34), pp. 1–30."
+    "2026-09-29 (cc-39fac3, checkpoint 5): §§1–4 in full (Definitions 1–8, Lemmas 5, 9, 15, 17, 19, 26, 28, 31, Theorems 11, 16, 18, 21, 25, 27, 33, 36, Propositions 30, 35, Corollary 20, Remarks 10, 12–14, 22, 32, 34), pp. 1–30.",
+    "2026-09-29 (cc-39fac3, checkpoint 6): §5 in full (Lemmas 37, 43, 45, 46, 50, 60, 62, 63, 65, 66, 71, 72, 76, 77, 79, 81, 82, 85–89, Definitions 41, 47–49, 51, 55–57, 61, 69, 70, 73, 78, 80, Theorems 52, 53, 58, Propositions 64, 67, 74, 84, Remarks 38, 42, 54, 59, 68, 75, 83, Corollary 90) and §6.1 (Notations 91, Lemma 92, Propositions 93 and 95, the statement of Theorem 94, checked on the page image), pp. 30–68."
+   ]
+  },
+  {
+   "id": "SCHNEIDER-VENJAKOB-2010",
+   "title": "A splitting for K1 of completed group rings",
+   "authors": "Peter Schneider and Otmar Venjakob",
+   "edition": "arXiv:1006.1493v1 (8 June 2010), 24 pages; printed page = PDF page",
+   "url": "https://arxiv.org/pdf/1006.1493v1",
+   "sha256": "dda52df49265b1c8859b00eb6c181cf23e10a205874bb7d416a591e5daa06cc1",
+   "readSections": [
+    "2026-09-29 (cc-39fac3): Proposition 2.3 with its proof, p. 11, as cited by Kakde's Lemma 82."
    ]
   }
  ],
@@ -4376,6 +4444,873 @@
    "planet": {
     "name": "Reduction to Δ × pro-p"
    }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/twisted-group-ring-presentation",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The Iwasawa algebra of a one-dimensional pro-p group as a twisted group ring",
+   "kind": "construction",
+   "statement": "For a ring R and a 2-cocycle τ : P × P → R^×, the twisted group ring R[P]^τ is the free R-module on P with h̄·h̄′ = τ(h, h′)·(hh′)‾. In the standing setting, Λ_𝒪(G) = Λ_𝒪(Z)[Ḡ]^τ with τ(h₁γ^{a₁}, h₂γ^{a₂}) = γ^{[(a₁+a₂)/p^e]p^e} ∈ Λ_𝒪(Z)^× (0 ≤ a_i < p^e), which is independent of the generator γ, symmetric, and satisfies τ(g, g⁻¹) = 1 = τ(g, 1). For every P ≤ Ḡ, Λ_𝒪(U_P) ≅ Λ_𝒪(Z)[P]^τ and Λ̂_𝒪(U_P)_S ≅ Λ̂_𝒪(Z)_{(p)}[P]^τ (Lemma 45), and U_P is abelian when P is cyclic (Lemma 46). T = Λ_𝒪(Z) ∖ pΛ_𝒪(Z) is a multiplicatively closed left and right Ore subset of the canonical Ore set S, and Λ_𝒪(G)_T = Λ_𝒪(G)_S = Λ_𝒪(Z)_{(p)}[Ḡ]^τ (Lemma 37, Remark 38). For R = Λ_𝒪(Z) or Λ̂_𝒪(Z)_{(p)}, the map Σ r_g ḡ ↦ Σ r_g [g] is an isomorphism of R-modules R[Ḡ]^τ/[R[Ḡ]^τ, R[Ḡ]^τ] ≅ R[Conj Ḡ]^τ (Lemma 43), where [I₁, I₂] is the additive subgroup generated by the ab − ba (Definition 41).",
+   "hypotheses": [
+    "G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings."
+   ],
+   "proofSteps": [
+    "The presentation: Λ_𝒪(G) is free over Λ_𝒪(Z) on lifts of Ḡ, and the cocycle records the carry γ^{a₁}γ^{a₂} = γ^{(a₁+a₂) mod p^e}·γ^{[(a₁+a₂)/p^e]p^e}; symmetry and normalisation are direct from the formula.",
+    "Lemma 37: T is Ore because Z is central, and has no zero divisors because Λ_𝒪(Z) is a domain, so Λ_𝒪(G)_T ⊆ Λ_𝒪(G)_S. Q(Λ_𝒪(Z)) ⊗ Λ_𝒪(G) is artinian (Λ_𝒪(G) is free of finite rank), hence equals Q(Λ_𝒪(G)); if x = a/t ∈ Λ_𝒪(G)_S with t ∈ p^nΛ_𝒪(Z), then a = tx ∈ p^nΛ_𝒪(G)_S ∩ Λ_𝒪(G) = p^nΛ_𝒪(G), and dividing p^n out of a and t puts t in T.",
+    "Lemma 43: the map is surjective, and its kernel contains the commutators because τ is symmetric; conversely an element of the kernel is Σ_{x∈Ḡ/C_g} r_{xgx⁻¹}(xgx⁻¹ − g) = Σ r_{xgx⁻¹} τ(xg, x⁻¹)⁻¹(xg·x⁻¹ − x⁻¹·xg), a sum of commutators.",
+    "Lemma 45 by restricting the presentation to U_P; Lemma 46 because U_P/Z is cyclic and Z is central."
+   ],
+   "acceptance": [
+    "For Ḡ = 1 (G = Z ≅ ℤ_p) the construction is Λ_𝒪(ℤ_p) itself, and Conj Ḡ is a point.",
+    "The twisted group ring is not in Mathlib; with τ ≡ 1 it must agree with MonoidAlgebra."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-theorem",
+    "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-local-iff-pro-p",
+    "mathlib:MonoidAlgebra",
+    "mathlib:ConjClasses"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§5.1.2, p. 31, with Lemmas 37, 43, 45, 46 and Remark 38, pp. 31–33 (arXiv v3)",
+     "excerpt": "The Iwasawa algebra Λ_O(G) is a twisted group ring Λ_O(G) = Λ_O(Z)[G]^τ",
+     "match": "§§5.1.1–5.1.4: the twisted group ring, the Ore set T (Lemma 37, Remark 38), Lemma 43 and Lemmas 45–46. The text layer drops the bar on G = G/Z."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.TwistedGroupRing",
+     "role": "constructor",
+     "statement": "R[P]^τ for a 2-cocycle τ : P × P → R^×, as a ring structure on P →₀ R."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.iwasawaAlgebra_equiv_twisted",
+     "role": "equivalence",
+     "statement": "Λ_𝒪(G) ≃ Λ_𝒪(Z)[Ḡ]^τ, restricting to Λ_𝒪(U_P) ≃ Λ_𝒪(Z)[P]^τ (Lemma 45)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.twistingCocycle_symm",
+     "role": "simp",
+     "statement": "τ(g, g′) = τ(g′, g) and τ(g, g⁻¹) = 1 = τ(g, 1)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.oreSetT",
+     "role": "instance",
+     "statement": "T = Λ_𝒪(Z) ∖ pΛ_𝒪(Z) is a left and right Ore set of Λ_𝒪(G) without zero divisors."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.localizationT_equiv_localizationS",
+     "role": "equivalence",
+     "statement": "Λ_𝒪(G)_T ≃ Λ_𝒪(G)_S (Lemma 37)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.cocenter_equiv_conj",
+     "role": "equivalence",
+     "statement": "R[Ḡ]^τ/[R[Ḡ]^τ, R[Ḡ]^τ] ≃ R[Conj Ḡ]^τ (Lemma 43)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "trivial_cocycle",
+     "kind": "comparison",
+     "statement": "τ ≡ 1 gives R[P]^1 = MonoidAlgebra R P."
+    },
+    {
+     "name": "direct_product",
+     "kind": "value",
+     "statement": "G = ℤ_p × C_p with e = 0: Z = Γ, Ḡ = C_p and τ ≡ 1, so Λ(G) = Λ(ℤ_p)[C_p]."
+    },
+    {
+     "name": "carry",
+     "kind": "value",
+     "statement": "G = Γ = ℤ_p with Z = Γ^p (e = 1): Ḡ = ℤ/p and τ(γ^a, γ^b) = γ^p when a + b ≥ p (0 ≤ a, b < p), so γ̄^p = γ^p·1 and Λ(Γ) = Λ(Z)[X]/(X^p − γ^p)."
+    },
+    {
+     "name": "Z_must_be_open",
+     "kind": "non-example",
+     "statement": "For G = ℤ_p and Z = 1 (no open Z), T = ℤ_p^× and Λ(G)_T = Λ(G) ≠ Λ(G)_S = Λ(G)_{(p)}; Lemma 37 needs Z open."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi",
+     "how": "the rings Λ_𝒪(U_P^ab) = Λ_𝒪(Z)[P^ab]^τ where the tuples live"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/additive-map-beta",
+     "how": "R[Conj Ḡ]^τ as the cocentre of R[Ḡ]^τ (Lemma 43)"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm",
+     "how": "Λ_𝒪(G)_S = Λ_𝒪(Z)_{(p)}[Ḡ]^τ and its p-adic completion"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The maps θ^G and the congruence subgroups Φ^G, Φ^G_S",
+   "kind": "construction",
+   "statement": "For P ≤ Ḡ, θ^G_P : K′₁(Λ_𝒪(G)) → K′₁(Λ_𝒪(U_P)) → K′₁(Λ_𝒪(U_P^ab)) = Λ_𝒪(U_P^ab)^× is the norm followed by abelianisation (just the norm when P is cyclic), θ^G = (θ^G_P)_{P≤Ḡ}, and θ^G_S, θ̂^G are the same maps on K′₁(Λ_𝒪(G)_S) and K′₁(Λ̂_𝒪(G)_S). The data: ver^{P′}_P : U_{P′}^ab → U_P^ab the transfer and ϕ : U_P → U_{P^p} the transfer for cyclic P, both extended to Iwasawa algebras with Frobenius on 𝒪 (Notations 40); for [P′,P′] ≤ P ≤ P′, the trace tr^{P′}_P, norm nr^{P′}_P and projection π^{P′}_P into Λ_𝒪(U_P/[U_{P′},U_{P′}]) (Definition 48); T_{P,P′} the image of x ↦ Σ_{g∈P′/P} g̃xg̃⁻¹ on Λ_𝒪(U_P), T_P = T_{P,N_ḠP} (Definition 49); and α_P(x) = x^p/∏_{k=0}^{p−1}ω_P^k(x) for nontrivial cyclic P, where ω_P is a fixed character of order p and ω_P(g) acts by g ↦ ω_P(g)g, and α_P(x) = x^p otherwise (Definition 47). Φ^G is the subgroup of ∏_{P≤Ḡ} Λ_𝒪(U_P^ab)^× of tuples (x_P) with M1: nr^{P′}_P(x_{P′}) = π^{P′}_P(x_P) whenever [P′,P′] ≤ P ≤ P′; M2: (x_P) is fixed by conjugation by G; M3: ver^{P′}_P(x_{P′}) ≡ x_P mod T_{P,P′} when [P′ : P] = p; M4: α_P(x_P) ≡ ∏_{P′} ϕ(α_{P′}(x_{P′})) mod pT_P for nontrivial cyclic P, over the cyclic P′ ≠ P with P′^p = P, and x_{1}^p ≡ ϕ(x_{1})∏_{P′} ϕ(α_{P′}(x_{P′})) mod pT_{1} over the nontrivial cyclic P′ with P′^p = 1. Φ^G_S and Φ̂^G_S impose the same conditions in ∏Λ_𝒪(U_P^ab)^×_S and ∏Λ̂_𝒪(U_P^ab)_S^× (Definition 51). For [P′ : P] = p and ω a nontrivial character of P′/P, nr^{P′}_P(x) = ∏_k ω^k(x) and tr^{P′}_P(x) = Σ_k ω^k(x) (Lemma 50).",
+   "hypotheses": [
+    "G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.",
+    "For 𝒪 = 𝒪₁ ⊕ ⋯ ⊕ 𝒪_n the groups split as ⊕ Φ^G_{𝒪_i} (Remark 54), so 𝒪 is unramified in the proofs."
+   ],
+   "proofSteps": [
+    "Lemma 50: in the basis 1, g, …, g^{p−1} of R[P′^ab]^τ over R[P/[P′,P′]]^τ, multiplication by x = Σ a_i g^i is the twisted circulant matrix with rows (a₀, …, a_{p−1}), (g^p a_{p−1}, a₀, …), …; the vectors (1, ω^k(g)g, …, ω^k(g^{p−1})g^{p−1}) are eigenvectors with eigenvalues ω^k(x), so the determinant and trace are the product and sum.",
+    "M4 is well posed: α_C(x) ≡ 1 mod p for nontrivial cyclic C (Remark 83), and T_P is an ideal of Λ_𝒪(U_P)^{W_ḠP}."
+   ],
+   "acceptance": [
+    "The conditions are the multiplicative analogue of the pair condition of Proposition 30 (Remark 54); compare l-elementary-case."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/twisted-group-ring-presentation",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime",
+    "mathlib:MonoidHom.transfer",
+    "mathlib:Algebra.norm",
+    "mathlib:Algebra.trace",
+    "mathlib:Abelianization"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§5.2.2, Definition 51, p. 35 (arXiv v3)",
+     "excerpt": "M1. For any P ≤ P′ ≤ G such that [P′,P′] ≤ P, we have nr^{P′}_P(x_{P′}) = π^{P′}_P(x_P).",
+     "match": "Definition 51 (M1–M4) with §5.2.1 (θ^G) and Notations 40, Definitions 47–49 and Lemma 50 (pp. 32–35). Theorem 94 restates M4 as quotients ≡ 1; the page image shows fraction bars that the text layer drops, and the two forms agree."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.thetaMap",
+     "role": "constructor",
+     "statement": "θ^G_P = abelianisation ∘ norm, θ^G = (θ^G_P)_P, and θ^G_S, θ̂^G."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.alphaMap",
+     "role": "constructor",
+     "statement": "α_P(x) = x^p/∏_k ω_P^k(x) for nontrivial cyclic P, x^p otherwise."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.traceIdeal",
+     "role": "constructor",
+     "statement": "T_{P,P′} and T_P, with their localised and completed versions."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.Phi",
+     "role": "constructor",
+     "statement": "Φ^G, Φ^G_S and Φ̂^G_S as subgroups of the products (M1–M4)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.norm_eq_prod_twists",
+     "role": "characterisation",
+     "statement": "Lemma 50: nr^{P′}_P(x) = ∏_k ω^k(x) and tr^{P′}_P(x) = Σ_k ω^k(x) for [P′ : P] = p."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.Phi_directSum",
+     "role": "compatibility",
+     "statement": "Φ^G_{𝒪₁⊕𝒪₂} = Φ^G_{𝒪₁} ⊕ Φ^G_{𝒪₂} (Remark 54)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "trivial_quotient",
+     "kind": "value",
+     "statement": "Ḡ = 1 (G = Z ≅ ℤ_p): C(Ḡ) = {1}, T_{1} = Λ_𝒪(Z), and M4 reads x^p ≡ ϕ(x) mod p, which every unit satisfies (Lemma 72), so Φ^G = Λ_𝒪(Z)^×."
+    },
+    {
+     "name": "cyclic_order_two",
+     "kind": "value",
+     "statement": "p = 2, Ḡ = C₂ = ⟨g⟩, G = ℤ₂ × C₂: M1 forces x_{1} = nr(x_{C₂}) = a² − b² for x_{C₂} = a + bg, so Φ^G is the graph of the norm on Λ(G)^×; M4 at {1} then holds (checked at finite level in the suggested file)."
+    },
+    {
+     "name": "lemma50_p2",
+     "kind": "value",
+     "statement": "p = 2 and g² = c: the norm of a + bg is a² − cb² = (a + sb)(a − sb) when c = s² (suggested file)."
+    },
+    {
+     "name": "group_element_pair",
+     "kind": "non-example",
+     "statement": "(x_{1}, x_{C₂}) = (1, g) is not in Φ^G: nr(g) = g·(−g) = −1 ≠ 1, so M1 fails (suggested file)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/main-algebraic-theorems",
+     "how": "the image of θ^G"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion",
+     "how": "the criterion (ζ_P) ∈ Φ^G_S"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence",
+     "how": "the domain of the multiplicative logarithm ℒ"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/additive-map-beta",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The additive maps t^G_P, η_P, β^G and the group ψ^G_R",
+   "kind": "construction",
+   "statement": "Let R = Λ_𝒪(Z) or Λ̂_𝒪(Z)_{(p)}. For P ≤ Ḡ, t^G_P : R[Conj Ḡ]^τ → R[P^ab]^τ is t^G_P([g]) = Σ_{x∈C(Ḡ,P)} {x⁻¹gx : x⁻¹gx ∈ P} over left coset representatives, independent of their choice. For cyclic P, η_P : R[P]^τ → R[P]^τ is the R-linear map with η_P(h) = h for generators h of P and 0 otherwise, i.e. η_P(x) = x − (1/p)Σ_k ω_P^k(x). β^G_P = η_P ∘ t^G_P for cyclic P and t^G_P otherwise, and β^G_R = (β^G_P)_P (Definition 55). For cyclic P, T_{P,R} is the image of x ↦ Σ_{g∈W_ḠP} gxg⁻¹ on R[P]^τ, W_ḠP = N_ḠP/P (Definition 56). ψ^G_R ⊂ ∏_{P≤Ḡ} R[P^ab]^τ is the group of tuples (a_P) with A1: for [P′,P′] ≤ P ≤ P′ (and [P′,P′] ≠ P if P is nontrivial cyclic), tr^{P′}_P(a_{P′}) = π^{P′}_P(a_P) if P is not cyclic, η_P(tr^{P′}_P(a_{P′})) = π^{P′}_P(a_P) if P is cyclic and P′ is not, and tr^{P′}_P(a_{P′}) = 0 if P′ is cyclic; A2: (a_P)_{P∈C(Ḡ)} is invariant under conjugation by Ḡ; A3: a_P ∈ T_{P,R} for every cyclic P (Definition 57). δ = Σ_{P cyclic} δ_P : ∏_P R[P^ab]^τ → R[Conj Ḡ]^τ[1/p], δ_P(x) = [x]/[Ḡ : P], is a left inverse of β^G_R (Definition 61, Lemma 62), and β^G_R lands in ψ^G_R (Lemma 60).",
+   "hypotheses": [
+    "G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.",
+    "R[Conj Ḡ]^τ is only an R-module (Remark 42)."
+   ],
+   "proofSteps": [
+    "Lemma 60, A1: tr^{P′}_P ∘ t^G_{P′} = π^{P′}_P ∘ t^G_P, since both send [h] to [P′ : P]·h for h ∈ P and to 0 otherwise; apply η_P when P is cyclic; if P < P′ are both cyclic, β^G_{P′}([g]) involves only generators of P′, whose traces to P vanish.",
+    "Lemma 60, A2: transport coset representatives, t^G_{g₁Pg₁⁻¹}([g]) = g₁t^G_P([g])g₁⁻¹. A3: t^G_P = t^{N_ḠP}_P ∘ t^G_{N_ḠP}, and t^{N_ḠP}_P([g]) = Σ_{x∈W_ḠP} x⁻¹gx ∈ T_{P,R} for g ∈ P.",
+    "Lemma 62: for P = ⟨g⟩ and its conjugates P′, δ(β([g])) = ([Ḡ : P])⁻¹ Σ_{P′}[N_ḠP′ : P′][g] = [g]."
+   ],
+   "acceptance": [
+    "Checked on Ḡ = C_p below, where ψ^G_R ≅ R^p."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/twisted-group-ring-presentation",
+    "mathlib:ConjClasses",
+    "mathlib:IsPrimitiveRoot.geom_sum_eq_zero"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§5.3, Definitions 55–57, p. 37 (arXiv v3)",
+     "excerpt": "Let ψ^G_R ⊂ ∏_{P≤G} R[P^ab]^τ be the subgroup consisting of all tuples (a_P) such that",
+     "match": "Definitions 55–57 with the map t^G_P (p. 36), Definition 61 and Lemmas 60, 62 (pp. 38–40). \"Cong(G)\" on pp. 36, 38, 41, 47–51 is a misprint for Conj(G)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.tMap",
+     "role": "constructor",
+     "statement": "t^G_P : R[Conj Ḡ]^τ → R[P^ab]^τ."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.etaGen",
+     "role": "constructor",
+     "statement": "η_P : R[P]^τ → R[P]^τ, keeping generators of P."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.beta",
+     "role": "constructor",
+     "statement": "β^G_R = (β^G_P)_P."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.Psi",
+     "role": "constructor",
+     "statement": "ψ^G_R ⊂ ∏_P R[P^ab]^τ cut out by A1–A3."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.delta",
+     "role": "constructor",
+     "statement": "δ = Σ_{P cyclic} δ_P with δ_P(x) = [x]/[Ḡ : P]."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.delta_comp_beta",
+     "role": "simp",
+     "statement": "δ ∘ β^G_R = id (Lemma 62)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.beta_mem_Psi",
+     "role": "relation",
+     "statement": "β^G_R lands in ψ^G_R (Lemma 60)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "trivial_quotient",
+     "kind": "value",
+     "statement": "Ḡ = 1: β^G is the identity of R and ψ^G_R = T_{1,R} = R."
+    },
+    {
+     "name": "cyclic_p",
+     "kind": "value",
+     "statement": "Ḡ = C_p: C(Ḡ) = {1, Ḡ}, t^G_{1}(Σ r_g[g]) = p·r₁ and β^G_Ḡ(Σ r_g[g]) = Σ_{g≠1} r_g g; ψ^G_R = pR × {b : b has no identity coefficient} (A1 for {1} ≤ Ḡ forces p·b₁ = 0, A3 gives a_{1} ∈ pR), and β is the bijection onto it."
+    },
+    {
+     "name": "eta_values",
+     "kind": "value",
+     "statement": "η_P(1) = 0 and η_P(h) = h for a generator h, because Σ_{k<p} ζ^k = 0 for a primitive p-th root ζ (suggested file)."
+    },
+    {
+     "name": "not_multiplicative",
+     "kind": "non-example",
+     "statement": "β^G_R is R-linear but not multiplicative, and ψ^G_R is only a group: for Ḡ = C_p, β^G_{1}(1) = p while β^G_{1}(1·1) ≠ β^G_{1}(1)² = p²."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/additive-theorem",
+     "how": "β^G_R : R[Conj Ḡ]^τ ≅ ψ^G_R"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation",
+     "how": "β^G_P(L(x)) computed from θ^G(x)"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence",
+     "how": "the target ψ^G of ℒ"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/additive-theorem",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "Kakde's additive theorem",
+   "kind": "theorem",
+   "statement": "β^G_R induces an isomorphism R[Conj Ḡ]^τ ≅ ψ^G_R (Theorem 58). Moreover id_{ℚ_p} ⊗ β^G_R : ℚ_p ⊗ R[Conj Ḡ]^τ → ∏_P ℚ_p ⊗ R[P^ab]^τ is injective with image the tuples satisfying A1 and A2, and if (id ⊗ β^G_R)(a) = (a_P) with a_P ∈ T_{P,R} for every cyclic P, then a ∈ R[Conj Ḡ]^τ and a_P ∈ R[P^ab]^τ for all P (Proposition 64).",
+   "hypotheses": [
+    "G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings."
+   ],
+   "proofSteps": [
+    "Lemma 63, cyclic components: δ_P(a_P) and δ_{P′}(a_{P′}) can cancel only for conjugate P, P′, where A2 makes them equal; so δ((a_P)) = 0 gives a_P = 0 for cyclic P (the coefficients are constant on N_ḠP-orbits by A2).",
+    "Lemma 63, noncyclic components: take P′ of least order with a_{P′} ≠ 0, h₀ in its support and a maximal P ∋ h̃₀ of index p. If P is cyclic, h̃₀ generates P (otherwise A1 for P^p ⋊ C_p ≤ P′, or for {1} ≤ P′ = P × C_p, contradicts minimality), and η_P(tr^{P′}_P(a_{P′})) ≠ 0 = π^{P′}_P(a_P) contradicts A1; if P is not cyclic, the coefficient p·a_{h₀} of tr^{P′}_P(a_{P′}) contradicts A1.",
+    "δ(ψ^G_R) ⊆ R[Conj Ḡ]^τ: by A3 write a_P = Σ_{x∈W_ḠP} xb_Px⁻¹; summing δ over the conjugates of P gives [Ḡ : P]δ_P(b_P) ∈ R[Conj Ḡ]^τ.",
+    "Theorem 58: δ ∘ β = id (Lemma 62) and β(R[Conj Ḡ]^τ) ⊆ ψ^G_R (Lemma 60); δ injective on ψ^G_R gives β ∘ δ = id there.",
+    "Proposition 64 from Theorem 58 after ⊗ℚ_p; A2 puts a_P in ℚ_p ⊗ T_{P,R}, and δ recovers a from the cyclic components."
+   ],
+   "acceptance": [
+    "Artin's induction theorem would give injectivity after projecting to cyclic P (Remark 59); Kakde proves injectivity directly, so no request is needed.",
+    "The cyclic test of additive-map-beta (Ḡ = C_p) is an instance."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/additive-map-beta",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/twisted-group-ring-presentation"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§5.3.1, Theorem 58, p. 38 (arXiv v3)",
+     "excerpt": "The homomorphism β^G_R induces an isomorphism between R[Conj(G)]^τ and ψ^G_R.",
+     "match": "Theorem 58 with Lemmas 60, 62, 63 and Proposition 64 (pp. 38–42)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/iwasawa-algebra-logarithm",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The p-adic logarithm on relative K₁ of Iwasawa algebras",
+   "kind": "construction",
+   "statement": "Let R = Λ̂_𝒪(Z)_{(p)} and J_R the Jacobson radical of the local ring R[Ḡ]^τ. Then J_R/pR[Ḡ]^τ is nilpotent (Lemma 65). For every ideal I ⊆ J_R, Log(1 + x) = Σ_{i≥1}(−1)^{i+1}x^i/i (x ∈ I) induces a unique homomorphism log_I : K₁(R[Ḡ]^τ, I) → (I/[R[Ḡ]^τ, I]) ⊗_{ℤ_p} ℚ_p; if I ⊆ ξR[Ḡ]^τ for a central ξ with ξ^p ∈ pξR[Ḡ]^τ, it lands in I/[R[Ḡ]^τ, I], and it is an isomorphism if moreover I^p ⊆ pIJ_R (Proposition 67). For Λ_𝒪(G), with G_n = G/Z^{p^n} and F = Frac 𝒪, the logarithms log : K₁(𝒪[G_n]) → F[Conj G_n] of Oliver kill torsion and pass to the limit, log : K′₁(Λ_𝒪(G)) → lim_n F[Conj G_n] = F⟦Z⟧[Conj Ḡ]^τ.",
+   "hypotheses": [
+    "G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.",
+    "G pro-p, so R[Ḡ]^τ is local."
+   ],
+   "proofSteps": [
+    "Lemma 65: over k = 𝒪/p there is an exact sequence 0 → J_R/p → Q(k⟦G⟧) → Q(k⟦Γ⟧) → 0; the kernel N of k⟦G⟧ → k⟦Γ⟧ is k⟦G⟧I_H with I_H nilpotent (H is a finite p-group), and by Lemma 37 the denominators can be taken central.",
+    "Lemma 66 (Oliver's Lemma 2.7 for twisted Iwasawa algebras): R[Ḡ]^τ is J_R-adically complete, so Log converges on 1 + I into I[1/p] (into I under the ξ-hypothesis, since then I^n ⊆ nI); Log(uv) ≡ Log u + Log v modulo U(I) = Σ_{m≥0,n≥1}(1/(m+n))[I^m, I^n] by summing the coefficients of cyclically equivalent words; under I^p ⊆ pIJ_R, Exp converges and inverts Log, and Exp([R[Ḡ]^τ, I]) ⊆ E(R[Ḡ]^τ, I) by Vaserstein's identity Exp(rx)Exp(xr)⁻¹ ∈ E(R[Ḡ]^τ, I) and successive approximation through D_k = ⟨rx − xr : rx, xr ∈ IJ_R^k⟩.",
+    "Proposition 67 (Oliver's Theorem 2.8): apply Lemma 66 to M_n(I) ⊆ M_n(R[Ḡ]^τ), compose with the trace Tr_n, note L_n([r, u]) = Tr_n(rLog(u)r⁻¹) − Tr_n(Log u) = 0, and pass to K₁(R[Ḡ]^τ, I) = GL(R[Ḡ]^τ, I)/[GL(R[Ḡ]^τ), GL(R[Ḡ]^τ, I)].",
+    "The logarithm on K′₁(Λ_𝒪(G)) is Oliver's finite-level one in the limit (see the gap on Oliver's book)."
+   ],
+   "acceptance": [
+    "Kakde notes (Remark 68) that for R = Λ̂_𝒪(Z)_{(p)} it is unclear whether log_{J_R} extends canonically to K₁(R[Ḡ]^τ); only log_{J_R} is used."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/twisted-group-ring-presentation",
+    "KTheoryLowDegrees:U.5/relative-K1",
+    "KTheoryLowDegrees:U.5/relative-elementary-subgroup",
+    "KTheoryLowDegrees:U.5/relative-K1-radical-ideal"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§5.4, Proposition 67, p. 46 (arXiv v3)",
+     "excerpt": "For any ideal I ⊂ J_R of R[G]^τ, the p-adic logarithm Log(1 + x), for any x ∈ I, induces a unique homomorphism",
+     "match": "Proposition 67 with Lemmas 65–66 (pp. 42–47), Remark 68, and the limit of finite-level logarithms (p. 47)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.logRel",
+     "role": "constructor",
+     "statement": "log_I : K₁(R[Ḡ]^τ, I) → (I/[R[Ḡ]^τ, I]) ⊗ ℚ_p."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.logRel_integral",
+     "role": "characterisation",
+     "statement": "Under the ξ-hypothesis, log_I lands in I/[R[Ḡ]^τ, I]."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.logRel_bijective",
+     "role": "equivalence",
+     "statement": "log_I is an isomorphism when moreover I^p ⊆ pIJ_R."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.log_mul_mod_commutators",
+     "role": "relation",
+     "statement": "Log(uv) ≡ Log u + Log v mod [R[Ḡ]^τ[1/p], I[1/p]] (Lemma 66)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.logK1Prime",
+     "role": "constructor",
+     "statement": "log : K′₁(Λ_𝒪(G)) → F⟦Z⟧[Conj Ḡ]^τ, the limit of the finite-level logarithms."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.log_natural",
+     "role": "functoriality",
+     "statement": "log commutes with the maps induced by group homomorphisms (used in Lemma 81)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "commutative_case",
+     "kind": "value",
+     "statement": "Ḡ = 1: [R, I] = 0 and log_I(1 + x) = log(1 + x) is the usual p-adic logarithm."
+    },
+    {
+     "name": "jacobson_nilpotent",
+     "kind": "value",
+     "statement": "G = ℤ_p × C_p, k = 𝔽_p: J_R/p is generated by g − 1, and (g − 1)^p = g^p − 1 = 0 in k[C_p]."
+    },
+    {
+     "name": "torsion_killed",
+     "kind": "non-example",
+     "statement": "log is not injective: for G = ℤ_p × C_p the class of g has order p in K′₁(Λ(G)), so log(g) = 0 although g ≠ 1."
+    },
+    {
+     "name": "bijectivity_hypothesis",
+     "kind": "non-example",
+     "statement": "The analogue over ℤ₂ with I = 2ℤ₂ fails I^p ⊆ pIJ_R (4ℤ₂ ⊄ 8ℤ₂), and log(1 + 2ℤ₂) = 4ℤ₂ ≠ 2ℤ₂; for odd p and I = pℤ_p the hypothesis holds and log : 1 + pℤ_p ≅ pℤ_p."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation",
+     "how": "Lemmas 76, 77 and 81"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm",
+     "how": "L = log − (ϕ/p)log"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The integral logarithm on K′₁ of Iwasawa algebras",
+   "kind": "construction",
+   "statement": "Let ϕ be the endomorphism of R (Frobenius on 𝒪, p-power map on Z), extended to R[Conj Ḡ]^τ by [g] ↦ [g^p] (Definition 69). Oliver–Taylor's integral logarithm L = log − (ϕ/p)log : K′₁(𝒪[G_n]) → 𝒪[Conj G_n] sits in an exact sequence 1 → μ(𝒪) × G_n^ab → K′₁(𝒪[G_n]) → 𝒪[Conj G_n] → G_n^ab → 1 with ω(Σ a_g g) = ∏ g^{tr_{𝒪/ℤ_p}(a_g)} (Oliver, Theorem 6.6); its inverse limit is L : K′₁(Λ_𝒪(G)) → Λ_𝒪(Z)[Conj Ḡ]^τ with 1 → μ(𝒪) × G^ab → K′₁(Λ_𝒪(G)) → Λ_𝒪(Z)[Conj Ḡ]^τ → G^ab → 1 exact (Definition 70). On the completed localisation, with J = ker(Λ̂_𝒪(G)_S → Λ̂_𝒪(Γ)_{(p)}) and the splitting Γ ↪ G, every x ∈ K′₁(Λ̂_𝒪(G)_S) is x = uy with u in the image of K₁(Λ̂_𝒪(G)_S, J) and y ∈ K′₁(Λ̂_𝒪(Γ)_{(p)}) (Lemma 71); y^p/ϕ(y) ≡ 1 mod p (Lemma 72); and L(uy) = log(u) − (ϕ/p)log(u) + (1/p)log(y^p/ϕ(y)) is a homomorphism K′₁(Λ̂_𝒪(G)_S) → Λ̂_𝒪(Z)_{(p)}[Conj Ḡ]^τ, independent of the splitting (Definition 73, Proposition 74).",
+   "hypotheses": [
+    "G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.",
+    "G pro-p; 𝒪 unramified, so (p) is the maximal ideal of 𝒪."
+   ],
+   "proofSteps": [
+    "Definition 70: the sequences (9) for n ≥ 0 are compatible sequences of profinite groups, so the inverse limit is exact (the finite-level sequence is Oliver's; see the gap on Oliver's book).",
+    "Lemma 71: Λ̂_𝒪(G)_S is local, so its units surject onto K′₁ and 1 + J onto K₁(Λ̂_𝒪(G)_S, J); 1 → 1 + J → Λ̂_𝒪(G)_S^× → Λ̂_𝒪(Γ)_{(p)}^× → 1 splits by Γ ↪ G.",
+    "Lemma 72: modulo p, Λ̂_𝒪(Γ)_{(p)} is the domain 𝔽_q⟦X⟧, on which ϕ is X ↦ (1 + X)^p − 1 = X^p with Frobenius on 𝔽_q, so y^p = ϕ(y).",
+    "Integrality: L(1 − v) ≡ Σ_k (v^{pk} − ϕ(v^k))/(pk) modulo the integral elements, and pk ∣ v^{pk} − ϕ(v^k) follows from p^n ∣ v^{p^n} − ϕ(v^{p^{n−1}}), proved by grouping the monomials of v^{p^n} into orbits under cyclic permutation (legitimate because τ is symmetric) and p^t ∣ r̂^{p^t} − ϕ(r̂^{p^{t−1}}).",
+    "Independence of the splitting: the finitely many splittings agree on an open A ≤ G; L is independent on the images of K₁(Λ̂_𝒪(G)_S, J_R) and K₁(Λ̂_𝒪(A)_S), whose product has torsion cokernel in K′₁(Λ̂_𝒪(G)_S), and the target is torsion free."
+   ],
+   "acceptance": [
+    "Kakde leaves the kernel and cokernel of L on K′₁(Λ̂_𝒪(G)_S) open (Remark 75, citing Ritter–Weiss); only the homomorphism is planned."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/iwasawa-algebra-logarithm",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/twisted-group-ring-presentation",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime",
+    "mathlib:ZMod.expand_card"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§5.5, Definition 70 and Proposition 74, pp. 48–49 (arXiv v3)",
+     "excerpt": "We deﬁne the integral logarithm map L on K′₁(Λ_O(G)) by taking the inverse limit of the sequence (9) over all n’s",
+     "match": "Definitions 69–70 with the sequence (9) (p. 48), Lemmas 71–72, Definition 73 and Proposition 74 (pp. 48–50), Remark 75 (p. 51)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.frobeniusPhi",
+     "role": "constructor",
+     "statement": "ϕ on R and on R[Conj Ḡ]^τ, [g] ↦ [g^p]."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.integralLog",
+     "role": "constructor",
+     "statement": "L : K′₁(Λ_𝒪(G)) → Λ_𝒪(Z)[Conj Ḡ]^τ."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.omegaMap",
+     "role": "constructor",
+     "statement": "ω : Λ_𝒪(Z)[Conj Ḡ]^τ → G^ab."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.integralLog_exact",
+     "role": "characterisation",
+     "statement": "1 → μ(𝒪) × G^ab → K′₁(Λ_𝒪(G)) → Λ_𝒪(Z)[Conj Ḡ]^τ → G^ab → 1 is exact."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.integralLogCompleted",
+     "role": "constructor",
+     "statement": "L : K′₁(Λ̂_𝒪(G)_S) → Λ̂_𝒪(Z)_{(p)}[Conj Ḡ]^τ (Definition 73)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.integralLogCompleted_indep",
+     "role": "characterisation",
+     "statement": "Independent of the splitting Γ ↪ G (Proposition 74)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.integralLog_compat",
+     "role": "compatibility",
+     "statement": "The completed L restricts to L on the image of K′₁(Λ_𝒪(G))."
+    }
+   ],
+   "tests": [
+    {
+     "name": "scalar_integrality",
+     "kind": "value",
+     "statement": "𝒪 = ℤ_p and v scalar: p^n ∣ v^{p^n} − v^{p^{n−1}}; for p = 3, n = 3 checked on ℤ/27 (suggested file)."
+    },
+    {
+     "name": "frobenius_mod_p",
+     "kind": "value",
+     "statement": "Lemma 72 over 𝔽_p: expand p f = f^p for f ∈ 𝔽_p[X] (suggested file, via ZMod.expand_card)."
+    },
+    {
+     "name": "torsion_kernel",
+     "kind": "value",
+     "statement": "G = ℤ_p × C_p, 𝒪 = ℤ_p: L(g) = log g − (1/p)ϕ(log g) = 0, as g ∈ G^ab ⊆ ker L."
+    },
+    {
+     "name": "not_log",
+     "kind": "non-example",
+     "statement": "L ≠ log: for Ḡ = 1, 𝒪 = ℤ_p and x = 1 + p (p odd), L(x) = (1 − 1/p)log(1 + p) ≠ log(1 + p), because ϕ is trivial on ℤ_p."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation",
+     "how": "β^G_P(L(x)) through θ^G(x)"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence",
+     "how": "the top row of the five-lemma ladder"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/main-algebraic-theorems",
+     "how": "the exact sequence of Definition 70"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The additive and multiplicative sides: β^G(L(x)) through θ^G(x)",
+   "kind": "theorem",
+   "statement": "Define v^G_P on ∏_C F⟦Z⟧[C^ab] by v^G_P((x_C)) = Σ_{P′} ([P′ : P′^p]/[P : P′^p])ϕ(x_{P′}) over cyclic P′ with P′^p ≤ P when P is not cyclic, and Σ_{P′ ≠ P′^p = P} [P′ : P′^p]ϕ(x_{P′}) when P is cyclic (Definition 78); and u^G_P on ∏_C Λ_𝒪(U_C^ab)^× by u^G_P((x_C)) = ∏_{P′^p ≤ P} ϕ(x_{P′})^{|P′|} for noncyclic P and ∏_{P′ ≠ P′^p = P} ϕ(x_{P′}) for cyclic P, over cyclic P′ (Definition 80). Then for x ∈ K′₁(Λ_𝒪(G)): β^G_P(L(x)) = (1/(p²|P|))log(α_P(θ^G_P(x))^{p|P|}/u^G_P(α(θ^G(x)))) for noncyclic P; β^G_P(L(x)) = (1/p)log(α_P(θ^G_P(x))/u^G_P(α(θ^G(x)))) for nontrivial cyclic P; and β^G_{1}(L(x)) = (1/p)log(α_{1}(θ^G_{1}(x))/(ϕ(θ^G_{1}(x))u^G_{1}(α(θ^G(x))))) (Proposition 84); the same holds on K′₁(Λ̂_𝒪(G)_S). The logarithms are defined: α_P(θ^G_P(x))^{p|P|} ≡ u^G_P(α(θ^G(x))) mod p for noncyclic P (Lemma 82), and the cyclic quotients are ≡ 1 mod p (Remark 83).",
+   "hypotheses": [
+    "G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings."
+   ],
+   "proofSteps": [
+    "Lemma 76: log ∘ θ^G_P = t^G_P ∘ log (Oliver, Theorem 6.8); in the completed case from log(u) = lim p^{−n}(u^{p^n} − 1) and θ̂^G_P(u) = lim (1 + t^G_P(u^{p^n} − 1))^{1/p^n}.",
+    "Lemma 77: log ∘ α_P = pη_P ∘ log for nontrivial cyclic P, since ω_P commutes with log and η_P = (1/p)(p − Σ_k ω_P^k).",
+    "Lemma 79: β^G_P ∘ ϕ = v^G_P ∘ β^G for P ≠ {1}, and β^G_{1} ∘ ϕ = (ϕ + v^G_{1}) ∘ β^G, by counting cosets.",
+    "Lemma 81: log ∘ u^G_P = |P|·v^G_P ∘ log for noncyclic P and (1/p)·v^G_P ∘ log for cyclic P, by naturality of log.",
+    "Lemma 82: modulo p, α_C(θ^G_C(x)) ≡ 1 for nontrivial cyclic C and θ^G_P(x)^{|P|} ≡ θ^G_{1}(x), the latter by Schneider–Venjakob, Proposition 2.3 (on K₁(𝔽_p⟦H⟧), the norm to an open normal N followed by the inclusion is x ↦ x^{[H:N]}).",
+    "Proposition 84 by chaining Lemmas 76, 77, 79 and 81. On the completed ring write x = uy (Lemma 71): u is handled identically; for y ∈ Λ̂_𝒪(Z)_{(p)}, θ^G_P(y) = y^{[Ḡ:P]}, α_P(θ^G_P(y)) = 1 for nontrivial cyclic P and β^G_P(L(y)) = [Ḡ : P]L(y) or 0; a general y has ϕ^r(y) ∈ Λ̂_𝒪(Z)_{(p)} and y^{p^r}/ϕ^r(y) ≡ 1 mod p, and the targets are torsion free."
+   ],
+   "acceptance": [
+    "At Ḡ = 1 both sides are (1/p)log(x^p/ϕ(x))."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/iwasawa-algebra-logarithm",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/additive-map-beta",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§5.6, Proposition 84, p. 56 (arXiv v3)",
+     "excerpt": "Let x ∈ K′₁(Λ_O(G)). The additive and the multiplicative sides are related by the following formula",
+     "match": "Proposition 84 with Lemmas 76, 77, 79, 81, 82, Definitions 78, 80 and Remark 83 (pp. 51–58)."
+    },
+    {
+     "sourceId": "SCHNEIDER-VENJAKOB-2010",
+     "locator": "Proposition 2.3, p. 11 (arXiv v1)",
+     "excerpt": "Let H be an arbitrary pro-p-group and N ⊆ H be an open normal subgroup; then the composed map",
+     "match": "Proposition 2.3 continues: K₁(Ω(H)) → K₁(Ω(N)) → K₁(Ω(H)), the norm followed by the canonical map, is x ↦ x^{[H:N]}, with Ω = 𝔽_p⟦−⟧. This is the input to Kakde's Lemma 82."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The multiplicative sequence for Φ^G",
+   "kind": "lemma",
+   "statement": "θ^G(K′₁(Λ_𝒪(G))) ⊆ Φ^G and θ̂^G_S(K′₁(Λ̂_𝒪(G)_S)) ⊆ Φ̂^G_S (Lemma 85). The map μ(𝒪) × G^ab → ∏_P Λ_𝒪(U_P^ab)^×, the identity on μ(𝒪) and the transfer G^ab → U_P^ab in each component, is injective and commutes with θ^G (Lemma 86). There is a surjection ω : ψ^G → G^ab, ω((a_P)) = ω(a_Ḡ), with ω ∘ β^G = ω (Lemma 87). The map ℒ = (ℒ_P) : Φ^G → ψ^G, with ℒ_P((x_C)) given by the right-hand sides of Proposition 84 with x_C in place of θ^G_C(x), sits in an exact sequence 1 → μ(𝒪) × G^ab → Φ^G → ψ^G → G^ab → 1 (Lemma 88).",
+   "hypotheses": [
+    "G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings."
+   ],
+   "proofSteps": [
+    "Lemma 85, M1: the norm to U_P equals the norm to U_{P′} followed by nr^{P′}_P after abelianising, because the bases agree. M2: the norm is conjugation-equivariant.",
+    "Lemma 85, M3: write x = Σ x_k g^k over Λ_𝒪(U_P) for g ∈ U_{P′} ∖ U_P; the norm is the determinant of the twisted circulant matrix, whose terms not fixed by σ = conjugation by g cancel modulo T_{P,P′}, and Σ_h a_h^p ∏_k σ^k(h) ≡ Σ_h ϕ(a_h)∏_k σ^k(h) = ver^{P′}_P modulo T_{P,P′}.",
+    "Lemma 85, M4: by Proposition 84 and Lemma 60, pβ^G_P(L(x)) = log(α_P(θ^G_P(x))/u^G_P(α(θ^G(x)))) ∈ pT_P, and log : 1 + pT_P ≅ pT_P.",
+    "Lemma 89: if C^p ⊆ P′ but C^p ⊄ P with [P′ : P] = p, then nr^{P′}_P(ϕ(α_C(x_C))) = 1, by Lemma 50.",
+    "ℒ lands in ψ^G: A1 by cases (P not cyclic; P cyclic and P′ not, using α_P(ϕ(α_C(x_C))) = 1 unless C^p = P; P′ cyclic by Lemma 89) from M1; A2 and A3 from M2 and M4; integrality from Proposition 64.",
+    "Exactness at Φ^G: ℒ((x_P)) = 0 gives α_P(x_P) = u^G_P(α((x_C))) for cyclic P, hence α_P(x_P) = 1 by induction from the maximal cyclic P; so x_P is torsion, hence in μ(𝒪) × U_P^ab (Higman's theorem), for noncyclic P, and x_{1} ∈ μ(𝒪) × U_{1} by Definition 70; M1 with Lemma 50 and induction extend this to all cyclic P, and M3 with induction on [Ḡ : P] puts (x_P) in the image of μ(𝒪) × G^ab.",
+    "Exactness at ψ^G: summing (1/[Ḡ : P])ℒ_P gives ℒ_Ḡ((x_C)) = (1/p)log(x_Ḡ^p/ϕ(x_Ḡ)), so ω ∘ ℒ = 1 by Definition 70; conversely lift a ∈ ker ω through the additive theorem and L to x ∈ K′₁(Λ_𝒪(G)), and ℒ(θ^G(x)) = β^G(L(x)) = a."
+   ],
+   "acceptance": [
+    "Higman's theorem (the torsion units of Λ_𝒪(U_P^ab) are μ(𝒪) × U_P^ab) is a cited input (see the gap on Oliver's book)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/additive-theorem",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§5.7, Lemma 85, p. 58 (arXiv v3)",
+     "excerpt": "The image of θ^G is contained in Φ^G.",
+     "match": "Lemmas 85–89 (pp. 58–65)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/main-algebraic-theorems",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "Kakde's congruence description of K′₁",
+   "kind": "theorem",
+   "statement": "Let G be a one-dimensional pro-p p-adic Lie group with G/H ≅ ℤ_p, Z ≤ G central open pro-cyclic, Ḡ = G/Z, and 𝒪 the integers of a finite unramified extension of ℚ_p or a finite direct sum of such rings. Then θ^G induces an isomorphism K′₁(Λ_𝒪(G)) ≅ Φ^G (Theorem 52); θ^G_S maps K′₁(Λ_𝒪(G)_S) into Φ^G_S, and Φ^G_S ∩ ∏_{P≤Ḡ} Λ_𝒪(U_P^ab)^× = θ^G(K′₁(Λ_𝒪(G))) (Theorem 53).",
+   "hypotheses": [
+    "G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings."
+   ],
+   "proofSteps": [
+    "Reduce to 𝒪 unramified over ℤ_p (Remark 54).",
+    "Theorem 52: the five lemma on the ladder μ(𝒪) × G^ab → K′₁(Λ_𝒪(G)) → Λ_𝒪(Z)[Conj Ḡ]^τ → G^ab (integral-logarithm) over μ(𝒪) × G^ab → Φ^G → ψ^G → G^ab (phi-integral-log-sequence), with θ^G, β^G (an isomorphism by additive-theorem) and the identities as vertical maps; the squares commute by Lemmas 86–87 and ℒ ∘ θ^G = β^G ∘ L (theta-beta-relation).",
+    "Theorem 53: θ^G_S lands in Φ̂^G_S ∩ ∏Λ_𝒪(U_P^ab)^×_S = Φ^G_S (Lemma 85 on the completed ring), and Φ^G_S ∩ ∏Λ_𝒪(U_P^ab)^× = Φ^G, which is θ^G(K′₁(Λ_𝒪(G))) by Theorem 52."
+   ],
+   "acceptance": [
+    "Source-qualified: G pro-p of dimension one and 𝒪 unramified. The general one-dimensional G reaches this case through reduction-to-p-elementary, with 𝒪 = ℤ_p[Δ] ≅ ⊕_χ 𝒪_χ.",
+    "Checked on Ḡ = 1 and Ḡ = C₂ in congruence-group-phi's tests."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/additive-theorem",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§5.2.3, Theorems 52–53, p. 36 (arXiv v3); proofs p. 65",
+     "excerpt": "The map θ^G induces an isomorphism K′₁(Λ_O(G)) → Φ^G.",
+     "match": "Theorems 52 and 53 (p. 36) with their proofs (p. 65)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Kakde's congruence description of K′₁"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/k1-injects-localisation",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "K′₁(Λ_𝒪(G)) injects into K′₁(Λ_𝒪(G)_S)",
+   "kind": "theorem",
+   "statement": "Let G be a compact p-adic Lie group with a quotient G/H ≅ ℤ_p, and 𝒪 the ring of integers of a finite unramified extension of ℚ_p. Then the map K′₁(Λ_𝒪(G)) → K′₁(Λ_𝒪(G)_S) is injective (Corollary 90).",
+   "hypotheses": [
+    "G compact p-adic Lie with G/H ≅ ℤ_p; 𝒪 unramified."
+   ],
+   "proofSteps": [
+    "G pro-p of dimension one: θ^G_S composed with K′₁(Λ_𝒪(G)) → K′₁(Λ_𝒪(G)_S) is θ^G followed by the injection ∏Λ_𝒪(U_P^ab)^× ↪ ∏Λ_𝒪(U_P^ab)^×_S, and θ^G is injective (Theorem 52).",
+    "G of dimension one: reduction-to-qp-elementary, l-elementary-case and reduction-to-p-elementary each carry the injectivity of K′₁ → K′₁ of the localisation from their subquotients to G; they end at Δ × G_p with 𝒪[Δ] ≅ ⊕_χ 𝒪_χ unramified, which is the pro-p case.",
+    "Arbitrary dimension: if x ↦ 1 in K′₁(Λ_𝒪(G)_S), then for every open U ≤ H normal in G and pro-p its image in K′₁(Λ_𝒪(G/U)_S) is 1, hence its image in K′₁(Λ_𝒪(G/U)) is 1 by the dimension-one case, and x = 1 because K′₁(Λ_𝒪(G)) ≅ lim_U K′₁(Λ_𝒪(G/U)) (k1-prime, Corollary 20)."
+   ],
+   "acceptance": [
+    "The source prints the corollary without a proof (p. 65). The route above is reconstructed and flagged. It runs the §4 reductions with 𝒪 = ℤ_p, as printed; a larger unramified 𝒪 needs the same reductions over 𝒪, which Kakde does not write out."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/main-algebraic-theorems",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-qp-elementary",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/l-elementary-case",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-p-elementary",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-theorem"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§5.7, Corollary 90, p. 65 (arXiv v3)",
+     "excerpt": "Then K′₁(Λ_O(G)) injects in K′₁(Λ_O(G)_S).",
+     "match": "Corollary 90, stated after the proofs of Theorems 52–53; no proof is printed."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The main conjecture as congruences between abelian zeta functions",
+   "kind": "theorem",
+   "statement": "Let F_∞/F be admissible with μ = 0 and Gal(F_∞/F) = Δ × G, with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; fix Z ≤ G central open pro-cyclic, Ḡ = G/Z. For P ≤ Ḡ put F_P = F_∞^{Δ×U_P} and K_P = F_∞^{[U_P,U_P]}, so that Gal(K_P/F_P) = Δ × U_P^ab, and let ζ_P ∈ Λ(Δ × U_P^ab)^×_S be the Deligne–Ribet (Cassou-Noguès, Barsky) p-adic zeta function of K_P/F_P (Notations 91). Then MC(F_∞/F) holds if and only if (ζ_P)_P ∈ Φ^G_S, where Φ^G_S = Φ^G_{ℤ_p[Δ],S} (Proposition 93). Every irreducible Artin representation ρ of G has a one-dimensional χ inflated from Γ with ρ ⊗ χ trivial on Z (Lemma 92).",
+   "hypotheses": [
+    "F_∞/F admissible, μ = 0, p odd; Gal(F_∞/F) = Δ × G as stated."
+   ],
+   "proofSteps": [
+    "Lemma 92 by induction on |G/Z|: by Clifford (Serre, Proposition 24) either ρ|_Z is isotypic, and χ = χ_i^{−1} works, or ρ = Ind_A^G η for a proper A ⊇ Z, and a χ for η on Γ^{p^r} extends to Γ.",
+    "If: take f ∈ K′₁(Λ(Δ × G)_S) with ∂f = −[C(F_∞/F)] (boundary-surjective-p-torsion). By Theorem 53, θ_S(f) = (f_P) ∈ Φ^G_S. Since ∂ζ_P = ∂f_P = −[C(K_P/F_P)] (abelian-case and base change of C), u_P = ζ_Pf_P^{−1} lies in K′₁(Λ(Δ × U_P^ab)), and (u_P) ∈ Φ^G_S ∩ ∏Λ(Δ × U_P^ab)^× = θ(K′₁(Λ(Δ × G))) (Theorem 53); with θ(u) = (u_P) (Theorem 52), ζ = uf has ∂ζ = −[C(F_∞/F)].",
+    "Interpolation: for irreducible ρ choose σ by Lemma 92, so ρ ⊗ σ factors through the p-group Ḡ and equals Ind_{U_P}^G η for some P ≤ Ḡ (Serre, Theorem 16: representations of supersolvable groups are monomial); then ρ = Ind_{U_P}^G(η ⊗ σ^{−1}) and ζ(χρκ^r) = ζ_P(χησ^{−1}κ^r_{F_P}) = L_{Σ_P}(χησ^{−1}, 1 − r) = L_Σ(χρ, 1 − r) by inductivity of Artin L-functions.",
+    "Only if (not printed): if ζ satisfies MC, the components of θ_S(ζ) interpolate the same values as the ζ_P, hence equal them, so (ζ_P) = θ_S(ζ) ∈ Φ^G_S by Theorem 53."
+   ],
+   "acceptance": [
+    "The printed proof gives the 'if' direction; the converse is the standard argument and is flagged as reconstructed.",
+    "This is burns-kato-patching with Φ = Φ^G, Φ_S = Φ^G_S and the pairs (U_P, [U_P, U_P]).",
+    "Theorem 94 then reduces MC to M1–M4 for (ζ_P); M1–M2 are zeta-tuple-m1-m2, and M3–M4 (Propositions 96–99, §§6.2–6.13) are the next checkpoint."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/main-algebraic-theorems",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/burns-kato-patching",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case",
+    "NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective-p-torsion",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex",
+    "AutomorphicPadicLFunctions:L3",
+    "AnalyticNumberTheory:AN.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§6.1, Proposition 93, pp. 66–67 (arXiv v3)",
+     "excerpt": "the main conjecture is true for F∞/F if and only if (ζ_P)_P ∈ Φ^G_S.",
+     "match": "Notations 91, Lemma 92 and Proposition 93 with its proof (pp. 66–67), and the statement of Theorem 94 (p. 67)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/zeta-tuple-m1-m2",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The abelian zeta functions satisfy M1 and M2",
+   "kind": "lemma",
+   "statement": "In the setting of main-conjecture-congruence-criterion, the tuple (ζ_P)_P satisfies M1: nr^{P′}_P(ζ_{P′}) = π^{P′}_P(ζ_P) in Λ(Δ × U_P/[U_{P′}, U_{P′}])_S whenever [P′, P′] ≤ P ≤ P′; and M2: gζ_Pg^{−1} = ζ_{gPg^{−1}} in Λ(Δ × U_{gPg^{−1}}^ab)_S for every g ∈ G (Proposition 95).",
+   "hypotheses": [
+    "As in main-conjecture-congruence-criterion."
+   ],
+   "proofSteps": [
+    "M1: for an irreducible Artin representation ρ of U_P/[U_{P′}, U_{P′}], a character χ of Δ and r divisible by [F_∞(μ_p) : F_∞], nr^{P′}_P(ζ_{P′})(χρκ^r) = ζ_{P′}(χ Ind_{U_P}^{U_{P′}}(ρ)κ^r) = L_{Σ_{P′}}(χ Ind ρ, 1 − r) = L_{Σ_P}(χρ, 1 − r) = π^{P′}_P(ζ_P)(χρκ^r).",
+    "Two elements of the abelian Λ(Δ × U_P/[U_{P′}, U_{P′}])_S interpolating the same values on this dense set of characters are equal.",
+    "M2: (gζ_Pg^{−1})(χρκ^r) = ζ_P(χ gρg^{−1} κ^r) = L_Σ(χ Ind_{U_P}^G(gρg^{−1}), 1 − r) and ζ_{gPg^{−1}}(χρκ^r) = L_Σ(χ Ind_{U_{gPg^{−1}}}^G ρ, 1 − r), and the two induced representations agree."
+   ],
+   "acceptance": [
+    "M3 and M4 remain: Proposition 96 is M3, and Propositions 97–99 with §6.13 give M4 (next checkpoint)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation",
+    "AutomorphicPadicLFunctions:L3",
+    "AnalyticNumberTheory:AN.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§6.1, Proposition 95, pp. 67–68 (arXiv v3)",
+     "excerpt": "The tuple (ζ_P)_P in the theorem satisﬁes M1. and M2.",
+     "match": "Proposition 95 and its proof (pp. 67–68)."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -4465,7 +5400,9 @@
    "supplier": "AutomorphicPadicLFunctions:L3",
    "need": "The Deligne–Ribet (Cassou-Noguès, Barsky) p-adic L-functions G_ψ ∈ 𝒪_ψ⟦T⟧ of a totally real field and the pseudomeasure ζ ∈ Q(Λ(H × Γ)) for H finite abelian, with the interpolation G_ψ(u^n − 1) = L_Σ(ψ, 1 − n) and G₁(u^n − 1)/(u^n − 1) = L_Σ(1, 1 − n) (Kakde §3).",
    "neededBy": [
-    "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case"
+    "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/zeta-tuple-m1-m2"
    ],
    "status": "open",
    "note": ""
@@ -4486,6 +5423,25 @@
     "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case",
     "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-qp-elementary",
     "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-p-elementary"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup",
+   "need": "Clifford's dichotomy for a normal subgroup A (Serre, Linear representations of finite groups, Proposition 24: an irreducible ρ either restricts to an isotypic representation of A or is induced from a proper subgroup containing A), and its consequence that irreducible representations of supersolvable, in particular finite p-, groups are monomial (Serre, Theorem 16). Kakde's Lemma 92 and Proposition 93 use both.",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "AnalyticNumberTheory:AN.4",
+   "need": "Inductivity of Σ-truncated Artin L-functions, L_{Σ_K}(Ind_K^F ρ, s) = L_{Σ_F}(ρ, s) for Σ_K the primes of K above Σ, at the negative integers s = 1 − r, for the interpolation in Kakde §6.1 (Propositions 93 and 95).",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/zeta-tuple-m1-m2"
    ],
    "status": "open",
    "note": ""
@@ -4554,10 +5510,11 @@
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
    "status": "partial",
    "remaining": [
-    "Kakde §5 (the description of K′₁ of one-dimensional pro-p Iwasawa algebras and their localisations by congruences: the additive theorem, the Iwasawa-algebra and integral logarithms, the maps θ and β, Theorems 52–53) and §6 (the Burns–Kato strategy, the basic congruences between Deligne–Ribet functions, Proposition 93 and Theorem 94 via Hilbert modular forms and the q-expansion principle), pp. 30–90. They complete the final case G = Δ × G_p and the main theorem.",
+    "Kakde §§6.2–6.13 (pp. 69–90): the basic congruences (Propositions 96–99), the partial zeta functions and the Deligne–Ribet q-expansion method through Hilbert modular forms, and M3 and M4 by enlarging F_∞ (Lemmas 118–119). They complete Theorem 94 and Kakde's main theorem (Theorem 11).",
     "Ritter–Weiss (arXiv 1004.2578) as the second route, and the coverage table comparing statements, uniqueness, p = 2 and μ-hypotheses source by source (the stage's acceptance).",
     "Newer unconditional abelian results (AE-ABELIAN2025) and the 2026 Ritter–Weiss audit."
-   ]
+   ],
+   "notes": "Checkpoint 5 plans Kakde §§1–4: the abelian case, Burns–Kato patching and the reductions to G = Δ × G_p. Checkpoint 6 plans Kakde §5 and §6.1 (12 nodes): the twisted-group-ring presentation, Φ^G with M1–M4, the additive theorem, the Iwasawa-algebra and integral logarithms, the θ–β relation, Theorems 52–53 (planet), Corollary 90, the criterion MC ⇔ (ζ_P) ∈ Φ^G_S (Proposition 93) and M1–M2 for the abelian zeta functions (Proposition 95)."
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
@@ -4603,9 +5560,13 @@
     "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime",
     "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-qp-elementary",
     "NoncommutativeAndEquivariantIwasawa:NE.6/l-elementary-case",
-    "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-p-elementary"
+    "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-p-elementary",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/iwasawa-algebra-logarithm",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence"
    ],
-   "detail": "Kakde cites R. Oliver, Whitehead Groups of Finite Groups (LMS Lecture Notes 132, 1988) for: Dress–Wall induction K′₁(𝒪[P]) ≅ lim over K-elementary subgroups (Theorem 11.2); Proposition 11.6 and Theorem 12.3(4) (the decomposition for p-ℚ_p-elementary groups); Wall's finiteness of SK₁(𝒪[Δ]) (Theorem 2.5) and the torsion of K₁(ℤ_p[G]) (Theorem 7.4); SK₁ = 1 in the l-elementary case (Proposition 12.7); and the Oliver–Taylor logarithm with its kernel (Chapter 2, Theorem 2.9; Theorem 2.10). The book is not freely available, and no roadmap in the atlas plans Whitehead groups of p-adic group rings (a search of the atlas extracts finds only KTheoryLowDegrees U.3 for SK₁ of rings of integers). The results are stated here from Kakde's citations."
+   "detail": "Kakde cites R. Oliver, Whitehead Groups of Finite Groups (LMS Lecture Notes 132, 1988) for: Dress–Wall induction K′₁(𝒪[P]) ≅ lim over K-elementary subgroups (Theorem 11.2); Proposition 11.6 and Theorem 12.3(4) (the decomposition for p-ℚ_p-elementary groups); Wall's finiteness of SK₁(𝒪[Δ]) (Theorem 2.5) and the torsion of K₁(ℤ_p[G]) (Theorem 7.4); SK₁ = 1 in the l-elementary case (Proposition 12.7); and the Oliver–Taylor logarithm with its kernel (Chapter 2, Theorem 2.9; Theorem 2.10). The book is not freely available, and no roadmap in the atlas plans Whitehead groups of p-adic group rings (a search of the atlas extracts finds only KTheoryLowDegrees U.3 for SK₁ of rings of integers). The results are stated here from Kakde's citations. Checkpoint 6 adds Kakde §5's citations: Lemma 2.7 and Theorem 2.8 (the logarithm on K₁(A, I), re-proved by Kakde for twisted Iwasawa algebras as Lemma 66 and Proposition 67), the finite-level logarithm K₁(𝒪[G_n]) → F[Conj G_n] (Chapter 2), Theorem 6.6 (the exact sequence of the integral logarithm) and Theorem 6.8 (log commutes with the norm maps, Lemma 76). For ker L = μ(𝒪) × G_n^ab and the torsion units of abelian Iwasawa algebras Kakde also cites G. Higman, The units of group rings (Proc. London Math. Soc. 1940) and C.T.C. Wall, Norms of units in group rings (Proc. London Math. Soc. 1974)."
   },
   {
    "title": "Fukaya–Kato's §1 results on Iwasawa algebras and the complex C(F_∞/F) are not freely available",
@@ -4615,6 +5576,76 @@
     "NoncommutativeAndEquivariantIwasawa:NE.6/l-elementary-case"
    ],
    "detail": "Kakde cites Fukaya–Kato, A formulation of conjectures on p-adic zeta functions in noncommutative Iwasawa theory (Proc. St. Petersburg Math. Soc. XII, 2006), for K₁(Λ(G)) ≅ lim K₁(Λ(G)/J^n) (Proposition 1.5.1), the pro-p kernel (Proposition 1.5.3), and the perfectness and base change of C(F_∞/F). Burns–Venjakob §§2–3 (arXiv, free) restate parts of this and are NE.7's source; they will be checked against these statements there."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E1",
+   "source": "KAKDE-2011",
+   "kind": "misprint",
+   "locator": "Definition 49, p. 34 (arXiv v3)",
+   "printed": "We denote T_{P,N_GP} (resp. T_{P,N_GP,S} and \\widehat{T_{P,P′}}) simply by T_P (resp. T_{P,S} and \\widehat{T_P}).",
+   "correction": "The completed version should be \\widehat{T_{P,N_GP}}: \"(resp. T_{P,N_GP,S} and \\widehat{T_{P,N_GP}}) simply by T_P (resp. T_{P,S} and \\widehat{T_P})\".",
+   "reason": "T_P is the N_GP-trace image in all three settings, as the first two entries and the uses of pT̂_P in Definition 51 (M4) and Lemma 118 show; P′ is not bound in that sentence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E2",
+   "source": "KAKDE-2011",
+   "kind": "misprint",
+   "locator": "§5.3.1, p. 36; also Remark 59 (p. 38), the proof of Lemma 63 (p. 41), and pp. 47–51 (arXiv v3)",
+   "printed": "t^G_P : R[Cong(G)]^τ → R[P^ab]^τ",
+   "correction": "R[Conj(G)]^τ, the free R-module on the conjugacy classes of G (Lemma 43).",
+   "reason": "Only Conj(G) is defined (Remark 42, Lemma 43); the same map is written with Conj(G) in Definition 55 and Theorem 58.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E3",
+   "source": "KAKDE-2011",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 74, p. 50 (arXiv v3)",
+   "printed": "L(1 − v) = −(v + v²/2 + v³/3 + ···) + (ϕ(v)/p + ϕ(v)/2p + ···)",
+   "correction": "L(1 − v) = −(v + v²/2 + v³/3 + ···) + (ϕ(v)/p + ϕ(v²)/(2p) + ϕ(v³)/(3p) + ···)",
+   "reason": "L = log − (ϕ/p)log and log(1 − v) = −Σ_k v^k/k, so the second sum is (1/p)Σ_k ϕ(v^k)/k; the next line of the proof, Σ_k (v^{pk} − ϕ(v^k))/(pk), uses this corrected form.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E4",
+   "source": "KAKDE-2011",
+   "kind": "gap",
+   "locator": "Corollary 90, p. 65 (arXiv v3)",
+   "printed": "Let G be a compact p-adic Lie group with a quotient isomorphic to Z_p and let O be the ring of integers in a finite unramified extension of Q_p. Then K′₁(Λ_O(G)) injects in K′₁(Λ_O(G)_S).",
+   "correction": "No proof is printed; §6 begins directly after the statement. A proof: Theorems 52–53 give G pro-p of dimension one; the injectivity statements of Theorems 27, 33 and 36 give dimension one; Corollary 20 with the dimension-one case for each G/U gives the general case. The §4 reductions are written for O = Z_p only, so a larger unramified O needs them rerun over O.",
+   "reason": "For G that is not pro-p of dimension one, the statement needs the §4 reductions and a limit argument, which the text does not spell out; the plan records the reconstruction in node NE.6/k1-injects-localisation.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1008.0142v3",
+   "read": "2026-09-29",
+   "sha256": "5a05da0d58f2717422fb401510d9cad4aeeac707313929a796870b92e27ea45c"
   }
  ]
 }
