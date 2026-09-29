@@ -621,8 +621,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1057"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1057",
+   "finishedAt": "2026-09-29T11:29:44Z"
   },
   {
    "id": "REV-PAPER-CIUBOTARU-HARRIS-26",
@@ -4303,7 +4304,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
+   "state": "external",
    "note": "claimed on GitHub issue #1254"
   },
   {
@@ -35218,7 +35219,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3957"
   },
   {
    "id": "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
