@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all 340 predecessor nodes whole. Six L2 nodes give raw Mellin convergence, the half-plane Gamma formula, entire normalized continuation, its global Dirichlet identity, nonpositive-integer values and the source Gauss comparison. All 16 source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
+  "summary": "Partial continuation preserving all 346 predecessor nodes whole. Four L2 nodes compare actual prime-power moments with complex special values through a common coefficient field, reindex positive weights, remove an explicitly nonzero smoothing factor and establish independence of eligible smoothing quotients. All 16 source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -22914,6 +22914,280 @@
       "acceptance": [
         "No unconditional primitive Gauss nonvanishing or p-adic character evaluation is introduced. All source comparison hypotheses remain explicit."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/prime-power-common-special-value",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Common algebraic prime-power special values",
+      "kind": "comparison",
+      "statement": "The explicit b=d_a b0 in E satisfies ιC(b)=(χC(a)a^(k+1)−1)L(χC,−k) and ιK(b)=τ_a(x_K^k). Its complex image is also g_a^(k)(0), where g_a=smoothedCharacterKernel χC a. The signed element (−1)^k b maps to normalizedMellinContinuation(g_a,−k) and (−1)^k τ_a(x_K^k).",
+      "hypotheses": [
+        "p is any prime, including 2; n≥1 and q=p^n. K is a complete ultrametric normed field of characteristic zero with Algebra Z_p K, bounded scalar action and its rational algebra. E is a characteristic-zero field with its rational algebra. χ is a native DirichletCharacter E q; ιC:E→C and ιK:E→K are separate field homomorphisms. Write χC=χ.ringHomComp(ιC) and χK=χ.ringHomComp(ιK).",
+        "Require the actual transported arithmetic character χK to be primitive. Choose a primitive q-th root ε in K and explicitly assume G=gaussSum(χK⁻¹,AddChar.zmodChar(q,ε))≠0. Retain hD:IsUnit(q:K). The natural smoothing parameter a satisfies p∤a. The arithmetic measure τ_a is the existing twistedSmoothedMeasure(p,n,χK,a), and x_K is the actual coefficient-algebra coordinate on Z_p.",
+        "For k≥0 put b0=−q^k/(k+1) Σ_(r∈ZMod q)χ(r)·algebraMap_(Q→E)(B_(k+1)(r.val/q)) and d_a=χ(a)a^(k+1)−1 in E. These are finite expressions in the existing rational Polynomial.bernoulli and native character, not new definitions. E needs no topology, finiteness or continuity assumption. No complex-to-p-adic map, primitive root in C, or Q→Z_p→K algebra tower is imposed."
+      ],
+      "proofSteps": [
+        "Since n≥1, the prime power q is greater than 1. Primitivity of χK and native conductor_one show χK≠1. Every field homomorphism is injective, so ringHomComp_ne_one_iff first gives χ≠1 and then χC≠1. A complete native proof checks this implication using the actual transported character; no coefficient-transport theorem for conductors is assumed.",
+        "Apply the existing tame-algebraic-value-map to b0 for each homomorphism. Ring maps preserve χ(a), natural powers, subtraction and multiplication, so they also transport d_a b0. The complete native probe checks the full finite expression, including rational Bernoulli values and division by k+1.",
+        "For the complex image, use tame-complex-special-values to identify ιC(b0) with the existing native LFunction at −k. For the arithmetic image, apply prime-power-ordinary-moments to χK with exactly the retained root, Gauss and coefficient hypotheses. Its expression (1−χK(a)a^(k+1))q^kS/(k+1) is ιK(d_a b0) by finite ring algebra.",
+        "The origin-derivative API follows from smoothed-complex-origin-values. The normalized-value API applies smoothed-mellin-negative-values; multiplying the common element by (−1)^k also multiplies both images, so the arithmetic side is the signed moment. The case k=0 uses the already separate native zero-value convention.",
+        "For the quartic character modulo 5 with ιC(χ(2))=i, the a=6 mass is the common element 3+χ(2), with complex image 3+i. The a=2 mass is −1+χ(2). Exact controls track both Galois orientations, so replacing χ by its inverse or conjugate cannot pass unnoticed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-algebraic-value-map",
+        "DirichletPadicLFunctions:L2/tame-complex-special-values",
+        "DirichletPadicLFunctions:L2/prime-power-ordinary-moments",
+        "DirichletPadicLFunctions:L2/smoothed-complex-origin-values",
+        "DirichletPadicLFunctions:L2/smoothed-mellin-negative-values",
+        "mathlib:MulChar.ringHomComp_ne_one_iff",
+        "mathlib:DirichletCharacter.conductor_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PrimePowerValues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedSmoothedMeasure_common_special_value"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem 5.1 on published 139 / PDF 40; the smoothed character kernel and Lemma 5.5 on published 141–142 / PDF 42–43; Remark 5.6 and the complete proof of Theorem 5.1 on published 143 / PDF 44. Complete published 139–143 freshly reread on 29 September 2026.",
+          "excerpt": "Hence, by Lemma 5.5",
+          "match": "Worker decomposition of the source comparison between arithmetic moments and complex derivatives, using an explicit common characteristic-zero coefficient field with separate embeddings into C and the p-adic coefficient field. The positive-weight shift and cancellation of a nonzero smoothing factor are isolated. The actual pseudomeasure evaluation in the final source step is not claimed here. Existing source findings, including E11, remain whole."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.unit_smoothing",
+          "kind": "degenerate",
+          "statement": "For a=1 the finite common smoothed value is zero for every k and every character."
+        },
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.common_mass_three",
+          "kind": "computation",
+          "statement": "The quadratic character modulo 3 with a=4 has common mass 1 in Q, mapping to the complex zeroth derivative and the actual arithmetic mass."
+        },
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.common_second_three",
+          "kind": "computation",
+          "statement": "The same character and parameter have common second derivative and moment −14."
+        },
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.common_mass_four",
+          "kind": "computation",
+          "statement": "The quadratic character modulo 4 with a=3 has common mass −2."
+        },
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.common_quartic_mass",
+          "kind": "computation",
+          "statement": "For χ modulo 5 with ιC(χ(2))=i and a=6, the complex mass is 3+i and the arithmetic mass is 3+ιK(χ(2))."
+        },
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.normalized_even_first_five",
+          "kind": "computation",
+          "statement": "For quadratic χ modulo 5 and a=6, the common signed element 14 maps to the normalized value at −1 and the negative of the actual first moment."
+        }
+      ],
+      "acceptance": [
+        "The common-value assertion specifies one element of E and both of its images. It does not equate elements in different fields or identify the unsigned arithmetic moment with the normalized Mellin value in odd order."
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.twistedSmoothedMeasure_common_origin_derivative",
+          "role": "compatibility",
+          "statement": "The same b has complex image equal to the k-th ordinary derivative of the actual smoothed kernel at zero and arithmetic image equal to τ_a(x_K^k)."
+        },
+        {
+          "name": "DirichletPadic.twistedSmoothedMeasure_common_normalized_value",
+          "role": "compatibility",
+          "statement": "The signed element (−1)^k b maps to the existing normalized Mellin value at −k and to the signed arithmetic moment (−1)^k τ_a(x_K^k)."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/prime-power-common-positive-weight",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Prime-power interpolation in positive weight",
+      "kind": "comparison",
+      "statement": "For every integer w≥1, b=(χ(a)a^w−1)(−q^(w−1)/w Σ_rχ(r)B_w(r.val/q)) in E has images (χC(a)a^w−1)L(χC,1−w) in C and τ_a(x_K^(w−1)) in K.",
+      "hypotheses": [
+        "p is any prime, including 2; n≥1 and q=p^n. K is a complete ultrametric normed field of characteristic zero with Algebra Z_p K, bounded scalar action and its rational algebra. E is a characteristic-zero field with its rational algebra. χ is a native DirichletCharacter E q; ιC:E→C and ιK:E→K are separate field homomorphisms. Write χC=χ.ringHomComp(ιC) and χK=χ.ringHomComp(ιK).",
+        "Require the actual transported arithmetic character χK to be primitive. Choose a primitive q-th root ε in K and explicitly assume G=gaussSum(χK⁻¹,AddChar.zmodChar(q,ε))≠0. Retain hD:IsUnit(q:K). The natural smoothing parameter a satisfies p∤a. The arithmetic measure τ_a is the existing twistedSmoothedMeasure(p,n,χK,a), and x_K is the actual coefficient-algebra coordinate on Z_p.",
+        "For k≥0 put b0=−q^k/(k+1) Σ_(r∈ZMod q)χ(r)·algebraMap_(Q→E)(B_(k+1)(r.val/q)) and d_a=χ(a)a^(k+1)−1 in E. These are finite expressions in the existing rational Polynomial.bernoulli and native character, not new definitions. E needs no topology, finiteness or continuity assumption. No complex-to-p-adic map, primitive root in C, or Q→Z_p→K algebra tower is imposed.",
+        "Replace the nonnegative moment index k by w−1, with the explicit hypothesis w≥1. The power, denominator and Bernoulli index in the finite common expression are w, w and w respectively."
+      ],
+      "proofSteps": [
+        "Apply prime-power-common-special-value with the natural index w−1. The hypothesis w≥1 gives (w−1)+1=w; it also prevents the truncated natural subtraction from silently introducing a weight-zero claim.",
+        "Rewrite the finite Bernoulli expression and smoothing factor using that identity. In C, −(w−1)=1−w after natural casts; the complete native positive-weight probe verifies the corresponding successor identity.",
+        "The resulting arithmetic moment is of order w−1. In the source this is the moment that will arise after inverse-unit weighting. No equality with an inverse-weighted unit measure or pseudomeasure character evaluation is asserted until that actual interface is connected.",
+        "At w=1 the arithmetic side is total mass and the complex side is the existing L-value at zero; this boundary is included. Quadratic modulus 3 at w=3 gives −14, and the even quadratic modulus 5 at w=2 gives −14, retaining the unsigned moment convention."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/prime-power-common-special-value"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PrimePowerValues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedSmoothedMeasure_common_positive_weight"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem 5.1 on published 139 / PDF 40; the smoothed character kernel and Lemma 5.5 on published 141–142 / PDF 42–43; Remark 5.6 and the complete proof of Theorem 5.1 on published 143 / PDF 44. Complete published 139–143 freshly reread on 29 September 2026.",
+          "excerpt": "Hence, by Lemma 5.5",
+          "match": "Worker decomposition of the source comparison between arithmetic moments and complex derivatives, using an explicit common characteristic-zero coefficient field with separate embeddings into C and the p-adic coefficient field. The positive-weight shift and cancellation of a nonzero smoothing factor are isolated. The actual pseudomeasure evaluation in the final source step is not claimed here. Existing source findings, including E11, remain whole."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.shifted_weight_one",
+          "kind": "computation",
+          "statement": "Quadratic modulus 3, a=4 and w=1 gives total mass 1."
+        },
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.shifted_weight_three",
+          "kind": "computation",
+          "statement": "Quadratic modulus 3, a=4 and w=3 gives moment −14."
+        },
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.shifted_weight_two_even",
+          "kind": "computation",
+          "statement": "Quadratic modulus 5, a=6 and w=2 gives moment −14, before the signed normalized-Mellin conversion."
+        }
+      ],
+      "acceptance": [
+        "Weight zero is excluded. This reindexing alone is not the source’s final pseudomeasure interpolation theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/prime-power-quotient-common-value",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Removing a nonzero smoothing factor",
+      "kind": "comparison",
+      "statement": "If d_a≠0 in E, the unsmoothed element b0 has complex image L(χC,−k) and arithmetic image τ_a(x_K^k)/(χK(a)a^(k+1)−1).",
+      "hypotheses": [
+        "p is any prime, including 2; n≥1 and q=p^n. K is a complete ultrametric normed field of characteristic zero with Algebra Z_p K, bounded scalar action and its rational algebra. E is a characteristic-zero field with its rational algebra. χ is a native DirichletCharacter E q; ιC:E→C and ιK:E→K are separate field homomorphisms. Write χC=χ.ringHomComp(ιC) and χK=χ.ringHomComp(ιK).",
+        "Require the actual transported arithmetic character χK to be primitive. Choose a primitive q-th root ε in K and explicitly assume G=gaussSum(χK⁻¹,AddChar.zmodChar(q,ε))≠0. Retain hD:IsUnit(q:K). The natural smoothing parameter a satisfies p∤a. The arithmetic measure τ_a is the existing twistedSmoothedMeasure(p,n,χK,a), and x_K is the actual coefficient-algebra coordinate on Z_p.",
+        "For k≥0 put b0=−q^k/(k+1) Σ_(r∈ZMod q)χ(r)·algebraMap_(Q→E)(B_(k+1)(r.val/q)) and d_a=χ(a)a^(k+1)−1 in E. These are finite expressions in the existing rational Polynomial.bernoulli and native character, not new definitions. E needs no topology, finiteness or continuity assumption. No complex-to-p-adic map, primitive root in C, or Q→Z_p→K algebra tower is imposed.",
+        "The smoothing factor d_a=χ(a)a^(k+1)−1 in E is explicitly nonzero. This condition is additional to p∤a; it fails at a=1."
+      ],
+      "proofSteps": [
+        "Use tame-algebraic-value-map and tame-complex-special-values for the complex image of the explicit finite b0. This part requires no division by the smoothing factor.",
+        "The preceding common-value comparison gives τ_a(x_K^k)=ιK(d_a)ιK(b0). Injectivity of ιK transports d_a≠0 to the actual denominator χK(a)a^(k+1)−1 in K.",
+        "Divide this equality by the nonzero denominator in K. Native field algebra cancels exactly that factor; no denominator is cancelled at a=1, and no assertion that every allowed smoothing parameter gives a nonzero value is used.",
+        "For quadratic modulus 3, the mass quotient is 1/3 and the second-moment quotient is −2/9. For the quartic modulus 5 example at a=6, the mass quotient is the image of (3+χ(2))/5, keeping the same nonreal orientation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/prime-power-common-special-value",
+        "DirichletPadicLFunctions:L2/tame-algebraic-value-map",
+        "DirichletPadicLFunctions:L2/tame-complex-special-values"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PrimePowerValues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedSmoothedMeasure_quotient_common_special_value"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem 5.1 on published 139 / PDF 40; the smoothed character kernel and Lemma 5.5 on published 141–142 / PDF 42–43; Remark 5.6 and the complete proof of Theorem 5.1 on published 143 / PDF 44. Complete published 139–143 freshly reread on 29 September 2026.",
+          "excerpt": "Hence, by Lemma 5.5",
+          "match": "Worker decomposition of the source comparison between arithmetic moments and complex derivatives, using an explicit common characteristic-zero coefficient field with separate embeddings into C and the p-adic coefficient field. The positive-weight shift and cancellation of a nonzero smoothing factor are isolated. The actual pseudomeasure evaluation in the final source step is not claimed here. Existing source findings, including E11, remain whole."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.quotient_denominator_one_zero",
+          "kind": "non-example",
+          "statement": "At a=1 the smoothing denominator is zero for every character and every order; the quotient theorem’s additional hypothesis cannot be dropped."
+        },
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.quotient_mass_three",
+          "kind": "computation",
+          "statement": "For quadratic modulus 3 and a=4, divide total mass 1 by 3 to get 1/3."
+        },
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.quotient_second_three",
+          "kind": "computation",
+          "statement": "For quadratic modulus 3 and a=4, divide second moment −14 by 63 to get −2/9."
+        },
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.quotient_quartic_mass",
+          "kind": "computation",
+          "statement": "For the quartic modulus 5 character and a=6, divide the actual mass by 5 to get ιK((3+χ(2))/5)."
+        }
+      ],
+      "acceptance": [
+        "This is a quotient of actual evaluated moments in K. It is not a new pseudomeasure carrier, a general fraction-field evaluation map or a proof of nonzero smoothing factors in all weights."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/prime-power-smoothing-independent-quotient",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Independence of the smoothed moment quotient",
+      "kind": "theorem",
+      "statement": "For two natural parameters a,b with p∤a and p∤b and with both χ(a)a^(k+1)−1 and χ(b)b^(k+1)−1 nonzero in K, the corresponding actual k-th moment quotients are equal.",
+      "hypotheses": [
+        "p is prime, n≥1 and q=p^n. K has the same complete ultrametric normed-field, characteristic-zero, Z_p-algebra, bounded scalar-action and rational-algebra assumptions as prime-power-ordinary-moments. χ is a native primitive DirichletCharacter K q; retain a primitive q-th root ε in K, its explicitly nonzero Gauss sum and hD:IsUnit(q:K). No common field or complex embedding is required.",
+        "a,b are natural numbers prime to p, k≥0, and both displayed smoothing denominators are explicitly nonzero in K. Each numerator is the actual twistedSmoothedMeasure ordinary moment with its own smoothing parameter."
+      ],
+      "proofSteps": [
+        "Apply prime-power-ordinary-moments separately at a and b. Rewrite each formula as its displayed smoothing denominator times the same finite value −q^k/(k+1)Σχ(r)B_(k+1)(r.val/q).",
+        "Cancel the two nonzero denominators. A complete native field lemma checks that v_a=d_a v and v_b=d_b v imply v_a/d_a=v_b/d_b under exactly these nonvanishing hypotheses.",
+        "This proof stays in K and requires no construction of an embedding into C. The common-field quotient comparison identifies the shared value with the complex L-value whenever the extra embeddings are supplied.",
+        "Quadratic modulus 3 at a=4 and b=7 gives denominators 3 and 6 at order zero, and 63 and 342 at order two. The quartic modulus 5 comparison uses a=2 and b=6, with denominators 2χ(2)−1 and 5, so it tests a nonreal smoothing factor."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/prime-power-ordinary-moments"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PrimePowerValues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedSmoothedMeasure_quotient_independent"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem 5.1 on published 139 / PDF 40; the smoothed character kernel and Lemma 5.5 on published 141–142 / PDF 42–43; Remark 5.6 and the complete proof of Theorem 5.1 on published 143 / PDF 44. Complete published 139–143 freshly reread on 29 September 2026.",
+          "excerpt": "Hence, by Lemma 5.5",
+          "match": "Worker decomposition of the source comparison between arithmetic moments and complex derivatives, using an explicit common characteristic-zero coefficient field with separate embeddings into C and the p-adic coefficient field. The positive-weight shift and cancellation of a nonzero smoothing factor are isolated. The actual pseudomeasure evaluation in the final source step is not claimed here. Existing source findings, including E11, remain whole."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.independence_three_mass",
+          "kind": "computation",
+          "statement": "Quadratic modulus 3 gives τ_4(1)/3=τ_7(1)/6."
+        },
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.independence_three_second",
+          "kind": "computation",
+          "statement": "Quadratic modulus 3 gives τ_4(x_K²)/63=τ_7(x_K²)/342."
+        },
+        {
+          "name": "SuggestedPrimePowerCommonValueTests.independence_quartic_mass",
+          "kind": "computation",
+          "statement": "Quartic modulus 5 gives τ_2(1)/(2ιK(χ(2))−1)=τ_6(1)/5."
+        }
+      ],
+      "acceptance": [
+        "Independence is proved for eligible evaluated quotients. Generic measure-algebra denominator regularity and character evaluation of the existing pseudomeasure remain separate interfaces."
+      ]
     }
   ],
   "requests": [
@@ -22946,7 +23220,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The actual smoothed complex kernel now has raw Mellin convergence on Re(s)>0, the Gamma–Dirichlet comparison on Re(s)>1, an entire normalized continuation and a global smoothed Dirichlet identity, including zero and nonpositive-integer values. The source primitive prime-power Gauss expression has the same normalized continuation. Next compare the actual prime-power ordinary moments with these complex values through an explicit common coefficient field; then connect inverse-unit weights to the actual pseudomeasure character evaluation where its supplier supports the coefficient type. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open."
+        "Actual prime-power smoothed moments now share explicit algebraic values with the complex L-function, origin derivatives and signed normalized Mellin values through separate coefficient embeddings. Positive weights and quotient independence under nonzero smoothing factors are stated. Next connect the actual inverse-unit weighted numerator to these shifted moments, and the actual two-Dirac denominator to its character value; then apply the existing pseudomeasure evaluation only for the coefficient types its supplier supports. Its current character evaluator is Z_p-character/Q_p-valued, so a general K-valued evaluation must be supplied by the owner before it is used. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open."
       ]
     },
     {
@@ -22980,7 +23254,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual smoothed complex kernel now has raw Mellin convergence on Re(s)>0, the Gamma–Dirichlet comparison on Re(s)>1, an entire normalized continuation and a global smoothed Dirichlet identity, including zero and nonpositive-integer values. The source primitive prime-power Gauss expression has the same normalized continuation. Next compare the actual prime-power ordinary moments with these complex values through an explicit common coefficient field; then connect inverse-unit weights to the actual pseudomeasure character evaluation where its supplier supports the coefficient type. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open."
+      "detail": "Actual prime-power smoothed moments now share explicit algebraic values with the complex L-function, origin derivatives and signed normalized Mellin values through separate coefficient embeddings. Positive weights and quotient independence under nonzero smoothing factors are stated. Next connect the actual inverse-unit weighted numerator to these shifted moments, and the actual two-Dirac denominator to its character value; then apply the existing pseudomeasure evaluation only for the coefficient types its supplier supports. Its current character evaluator is Z_p-character/Q_p-valued, so a general K-valued evaluation must be supplied by the owner before it is used. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -23280,41 +23554,41 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All 16 preceding source findings and sourceVersions remain whole; no new finding or independent verdict.",
     "validation": {
-      "nodes": 346,
+      "nodes": 350,
       "kinds": {
         "definition": 1,
         "lemma": 161,
         "construction": 34,
-        "theorem": 98,
-        "comparison": 52
+        "theorem": 99,
+        "comparison": 55
       },
-      "api": 311,
-      "packetTests": 487,
+      "api": 313,
+      "packetTests": 503,
       "definitionConstructionTests": 168,
-      "typedExamples": 490,
+      "typedExamples": 506,
       "planets": 24,
       "baseline": 410,
-      "preservedWholeNodes": 340,
-      "preservedBaseline": 405,
+      "preservedWholeNodes": 346,
+      "preservedBaseline": 410,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 6,
+      "newNodes": 4,
       "newNamedDeclarations": 6,
-      "newTypedTests": 18,
+      "newTypedTests": 16,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0,
-      "reachableNodes": 521,
-      "dependencyEdges": 2478,
+      "reachableNodes": 525,
+      "dependencyEdges": 2490,
       "acyclic": true,
       "baselineLeaves": 527,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
-      "readerWords": 138738,
+      "readerWords": 141559,
       "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 988,
+      "compilerWarnings": 1010,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -23324,17 +23598,19 @@
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 4,
-      "scratchMathlibModules": 3356,
+      "scratchCompleteLemmas": 5,
+      "scratchMathlibModules": 2072,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "normalizedNegativeValues": 180,
-        "globalFormulaParity": 180,
-        "oneParameterZeros": 45,
-        "positiveIntegerFactors": 40,
-        "quadraticValues": 9
+        "finiteValueTransports": 360,
+        "signedValueTransports": 360,
+        "quotientRecoveries": 360,
+        "smoothingIndependence": 180,
+        "positiveWeightReindexings": 360,
+        "oneParameterExcluded": 54,
+        "quarticOrientationChecks": 6
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": []
@@ -23342,14 +23618,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 988,
-      "sha256": "d5eab0a8ba162a515df5d1fde9ccfef8dfd9b4916f27fea27191dd111beefc14",
+      "warnings": 1010,
+      "sha256": "2ee19c2425177821672eef5a8b314fd4c6672a140de9e4123975666ec6f06d7f",
       "nativeProbe": {
-        "completeLemmas": 4,
+        "completeLemmas": 5,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "39dee773e336d23e343bd60aa32699f1368a81f7a11f9efbfa50ce4cd2fe7baf"
+        "sha256": "99511314c82d5eda1f064ccef096892030f397b7313e6bb0c94886639bcffd88"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -23418,16 +23694,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "b3f0726dd1f6d3007fbd420df2422fdf99f816d72a568cca7b98b5ce96944d16",
+          "sourceSha256": "d5eab0a8ba162a515df5d1fde9ccfef8dfd9b4916f27fea27191dd111beefc14",
           "modules": 3568,
-          "warnings": 964,
+          "warnings": 988,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "d0d3e64b354b447cc2f8621b7a78ef859d20da09",
+      "base": "052250053cd25eda0b663863d7df6dc9fbe0d68e",
       "unchangedInputs": 54,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -27833,6 +28109,43 @@
         "quadraticValues": 9
       },
       "numericalMethod": "Exact arithmetic in rational cyclotomic quotient fields at conductors 3, 4, 5, 8 and 9. Compare normalized special values from Stirling conversion of the formal kernel with independently evaluated Bernoulli polynomials, and then compare the global Dirichlet formula using character parity. Positive integer factors are derived from input scaling and compared with the combined exponent. Orders 0 through 8 include odd parity and nonunit smoothing parameters. These finite algebraic checks do not assert numerical evaluation of Mellin integrals or prove analytic continuation."
+    },
+    "primePowerCommonValues": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4649,
+      "previousHead": "d76f38bd3567639ca767f6e4c09bfd46c19c4a56",
+      "previousMerge": "19222ed9ccb509be2fa7b29915d773493dfafa30",
+      "preservedWholeNodes": 346,
+      "preservedBaseline": 410,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "Complete published pages 139–143 / PDF 40–44 were freshly reread on 29 September 2026, including Theorem 5.1, Lemma 5.5 and the full final interpolation proof. The existing finite Bernoulli transport, complex special-value, actual prime-power ordinary-moment and smoothed complex/Mellin nodes and signatures were read whole. Native ringHomComp, its principal-character behavior and injective nonprincipality equivalence, conductor_one and the primitive-character definition were read at the pin. The prototype uses the explicit DirichletCharacter namespace for transported-character primitivity. No new source finding or complete paper extraction is claimed.",
+      "boundary": "Actual prime-power smoothed moments now share explicit algebraic values with the complex L-function, origin derivatives and signed normalized Mellin values through separate coefficient embeddings. Positive weights and quotient independence under nonzero smoothing factors are stated. Next connect the actual inverse-unit weighted numerator to these shifted moments, and the actual two-Dirac denominator to its character value; then apply the existing pseudomeasure evaluation only for the coefficient types its supplier supports. Its current character evaluator is Z_p-character/Q_p-valued, so a general K-valued evaluation must be supplied by the owner before it is used. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open.",
+      "inputBase": "0c12867e45bbcba3850a0beae935fb43ec41f729",
+      "sourceBoundary": "All 16 preceding source findings and sourceVersions remain whole; no new finding or independent verdict.",
+      "publication": {
+        "base": "052250053cd25eda0b663863d7df6dc9fbe0d68e",
+        "unchangedInputs": 54,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "finiteValueTransports": 360,
+        "signedValueTransports": 360,
+        "quotientRecoveries": 360,
+        "smoothingIndependence": 180,
+        "positiveWeightReindexings": 360,
+        "oneParameterExcluded": 54,
+        "quarticOrientationChecks": 6
+      },
+      "numericalMethod": "Exact rational arithmetic in cyclotomic quotient fields at character conductors 3, 4, 5, 8 and 9, plus the nonreal quartic character modulo 5 in Q(i). For every Galois automorphism of each coefficient field, transport finite Bernoulli values and compare with independently computed formal moments via Stirling conversion through order 8. Divide only nonzero smoothing factors; compare two parameters, signed values and positive-weight reindexings. These are finite algebraic models of coefficient transport, not constructions of p-adic embeddings or numerical analytic proofs."
     }
   },
   "requestResolutions": [
