@@ -9356,8 +9356,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4515"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4515",
+   "finishedAt": "2026-09-29T16:09:06Z"
   },
   {
    "id": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24",
@@ -9536,7 +9537,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KEDLAYA-LIU-15.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4546"
   },
   {
    "id": "REV-PAPER-KEDLAYA-LIU-15",
