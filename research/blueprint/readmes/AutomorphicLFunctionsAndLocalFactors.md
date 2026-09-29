@@ -4,7 +4,7 @@
 
 This roadmap constructs the analytic local and global factors used in the atlas’s automorphic programme. Its starting point is arithmetic harmonic analysis: local additive characters, test functions, Haar measures and Fourier transforms. Tate’s rank-one integrals turn these into local factors and a global functional equation. The matrix-space construction of Godement–Jacquet and the Whittaker integrals of Rankin–Selberg then supply the standard and tensor-product factors for general linear groups. The final two layers organize unramified factors and the exact comparison formulas consumed by p-adic interpolation. Each passage needs actual convergence and normalization results; a formal Euler polynomial does not supply these analytic theorems.
 
-The present packet is a partial checkpoint covering the original six-stage scope AL.0–AL.5. It contains thirteen declaration-sized items inside AL.0: one construction, seven lemmas and five theorems. They give the character annihilator of an additive subgroup, its elementary topology, the Fourier transform of a subgroup or coset indicator, the effect of character modulation, the exchange between periods and support, and indicator inversion under a stated dual-measure condition. The construction has four API items and four unit tests. Five nodes are selected as planets. No stage is closed, and the remaining work is recorded explicitly for all six stages.
+The present packet is a partial checkpoint covering the original six-stage scope AL.0–AL.5. It contains thirteen declaration-sized items inside AL.0: one construction, seven lemmas and five theorems. They give the character annihilator of an additive subgroup, its elementary topology, the Fourier transform of a subgroup or coset indicator, the effect of character modulation, the exchange between periods and support, and indicator inversion under a stated dual-measure condition. The construction has four API items and four unit tests. Five nodes are selected as planets. No stage is closed, and the remaining work is recorded explicitly for all six stages. A second checkpoint adds 29 nodes: AL.1 is planned from Kudla §§3–5 and Tate §§2.4–2.5, 4.2–4.5, and AL.0 gains the Schwartz–Bruhat spaces, Fourier inversion, adelic Poisson summation and point-supported distributions (see "Checkpoint 2" below).
 
 This component is useful before the full local-field infrastructure is available because every statement is already expressible using native library objects. The functions are ordinary complex-valued functions, the pairing is a native bilinear map, the annihilator is a native additive subgroup, and the integral is Mathlib’s existing Fourier integral. A proof of the conditional indicator identity does not create a self-dual Haar measure, and a support bound conditional on a compact annihilator does not establish that annihilator’s compactness. The distinction is part of the signatures and dependency graph, rather than a qualification attached only to the prose.
 
@@ -289,6 +289,72 @@ Acceptance: Counting measure on both copies of Z/2 has volume product 2, so its 
 
 Source: Kudla2004, p.122, self-dual measure and Fourier inversion. A precise conditional specialization to subgroup indicators. The source’s full Schwartz-space inversion and self-dual measure theorem remain gaps.
 
+## Checkpoint 2: Tate's thesis (AL.1) and the Schwartz–Bruhat layer (AL.0)
+
+This checkpoint (Claude Code, session cc-39fac3, 29 September 2026) plans AL.1 from Kudla §§3–5 (printed pp.115–131, read in full on page images) and Tate §§2.4–2.5 and 4.2–4.5 (physical pp.15–27 and 40–59, on page images). It adds 24 AL.1 nodes and 5 AL.0 nodes. Library modules: `TauCeti/Analysis/Fourier/SchwartzBruhat` (namespace `TauCeti.SchwartzBruhat`), and `TauCeti/NumberTheory/TateThesis/Local` and `…/Global` (namespace `TauCeti.TateZeta`).
+
+**Conventions.**
+- *Field.* F = k_v is a completion of a number field. At a finite place: O, P = ϖO, q = #O/P and |ϖ| = q^{−1}. At F = ℂ, |x| = x·x̄. Write ω_s(x) = |x|^s.
+- *Measures.* Kudla's multiplicative measure gives O^× volume 1, and d^×x = |x|^{−1}dx at ℝ, ℂ, with dx Lebesgue (resp. twice Lebesgue). Tate's gives O^× volume N𝔡^{−1/2}. The normalised objects z₀, ε and γ do not depend on this choice. Tate's residue constant κ does: it is stated with Tate's measures.
+- *Fourier convention.* The Fourier kernel is Kudla's positive ψ(xy), with ψ = e(x) at ℝ and e(x + x̄) at ℂ. Mathlib's 𝓕 has the opposite sign, and the local-fourier-inversion node records the conversion.
+- *Archimedean characters.* These are Weil's normal forms: ω(x) = x^{−a} at ℝ and x^{−a}x̄^{−b}, min(a, b) = 0, at ℂ. So L(s, ω) = Γ_ℝ(s) for both a. The complex factor (2π)^{1−s}Γ(s) is π·Γ_ℂ(s), and the suggested file checks this identity against Mathlib.
+
+### AL.0 additions (5 nodes)
+
+- **`local-schwartz-bruhat-space`** (definition). S(F) is SR.1's locally constant compactly supported carrier at a finite place and Mathlib's 𝓢(F, ℂ) at ℝ, ℂ. S(F)′ is the algebraic dual, resp. Mathlib's `TemperedDistribution`. The action is r(a)f(x) = f(xa), and δ₀ is included.
+  - *API:* `LocalSpace` with `act`, `act_apply`, `Dual`, `delta`, `mem_iff_nonarch`.
+  - *Tests:* 1_O and 1_{O^×}; the Gaussians; r′(a)δ₀ = δ₀; the constant 1 is not in S(F).
+- **`local-fourier-inversion`** (theorem). Transforms preserve S(F); the self-dual dx gives f̂̂(x) = f(−x); ψ_β has self-dual measure |β|^{1/2}dx; the conductor ν(ψ).
+- **`adelic-schwartz-bruhat-space`** (construction). S(𝔸) = ⊗′S(k_v) with respect to 1_{O_v}; its functions satisfy Tate's 𝔷1–𝔷3.
+  - *API:* `AdelicSpace` with `pure`, `pure_apply`, `fourier_pure`, `tateClass`, `span_pure_dense`.
+  - *Tests:* the standard function; Jacobi's θ for ℚ; a zero factor; the non-open ∏_p pℤ_p.
+- **`adelic-poisson-summation`** (theorem, planet "Adelic Poisson summation (Riemann–Roch)"). Tate's k^* = k, vol(𝔸/k) = 1, Lemma 4.2.4 and Theorem 4.2.1: (1/|𝔞|)Σ f̂(ξ/𝔞) = Σ f(𝔞ξ).
+- **`point-supported-distributions`** (theorem). A tempered distribution on ℝⁿ supported at 0 is Σ c_α∂^αδ₀. This is used by Lemma 3.3(ii)–(iii). Its proof source (Friedlander) was not read, and that is recorded as a gap.
+
+### AL.1 local theory (15 nodes)
+
+- **`local-quasicharacter-conductor`** (definition). Quasi-characters and their exponent; unramified ⇔ |x|^s (Tate Lemma 2.3.1); the conductor exponent c(ω); the archimedean normal forms (3.18) and (3.20).
+  - *API:* `QuasiChar` with `exponent`, `absPow`, `IsUnramified`, `isUnramified_iff`, `conductor`, `conductor_mul_absPow`, `archNormalForm`.
+  - *Tests:* ω_s is unramified; a primitive Dirichlet character mod p^n has conductor n; sgn = x^{−1}ω₁; the trivial character; a Teichmüller-type non-example.
+- **`local-zeta-integral`** (definition). z(s, ω; f) = ∫f ω|x|^s d^×x, convergent and holomorphic for Re s > 0, lying in S′(ωω_s).
+  - *API:* `zetaIntegral`, `zetaIntegral_integrable`, `differentiableOn_zetaIntegral`, `zetaIntegral_twist`, `zetaIntegral_act`, `zetaDistribution`.
+  - *Tests:* (1 − tq^{−s})^{−1}; Γ_ℝ(s); π·Γ_ℂ(s); z(s, ω; 1_O) = 0 for ramified ω; divergence at s = 0.
+- **`eigendistribution-space`** (definition). S′(ω) and the sequence (3.2).
+  - *API:* `eigenSpace`, `mem_eigenSpace`, `eigenSpaceZero`, `eigenSpace_restrict_exact`, `zetaDistribution_mem`.
+  - *Tests:* δ₀ ∈ S′(1); ω d^×x; δ₀ ∉ S′(ω) for ω ≠ 1; the eigencharacter of z(s, ω) is ωω_s.
+- **`restriction-to-punctured-line`** (Lemma 3.2) and **`eigendistributions-supported-at-zero`** (Lemma 3.3).
+- **`unramified-local-theory`**. The element τ = [1] − [ϖ^{−1}] gives z₀; z = Lz₀ (3.6); ⟨z₀, 1_O⟩ = 1; L as greatest common denominator (3.9).
+- **`invariant-distributions-exceptional-case`**. The distribution λ₀ of (3.12) satisfies r′(ϖ)λ₀ = λ₀ − δ₀. The action ρ(x) = [[1, −ord x], [0, 1]] is not semisimple, so S′(ω₀) = ℂδ₀. The argument uses c = −1, not just dimension ≤ 2.
+- **`ramified-local-theory`**. z is entire, L = 1, and f^o = ω^{−1}1_{O^×}.
+- **`archimedean-local-theory`** (Proposition 3.5). Poles and residues, corrected as in E4.
+- **`local-uniqueness-theorem`** (Theorem 3.4, planet "Local uniqueness of eigendistributions"): dim S′(ω) = 1.
+- **`fourier-transform-eigendistribution`** (Lemma 3.6): λ ∈ S′(ω) ⇒ λ̂ ∈ S′(ω^{−1}ω₁). The proof is written out; Kudla leaves it as an exercise.
+- **`local-epsilon-gamma-factors`** (definition). ε by (3.23) and γ by (3.26), with (3.27)–(3.29), ε(s)ε(1 − s, ω^{−1}) = ω(−1) and |ε(1/2)| = 1. Tate's ρ(ωω_s) = 1/γ(s, ω, ψ).
+  - *API:* `epsilonFactor`, `gammaFactor`, `epsilonFactor_eq_standard`, `epsilonFactor_twist`, `epsilonFactor_smul_char`, `epsilonFactor_mul_inv`, `norm_epsilonFactor_half`.
+  - *Tests:* ε = 1 when unramified with ν = 0; ε = i for x^{−1} at ℝ; 1/γ(s, 1, e) = Γ_ℂ(s)cos(πs/2) (Mathlib `Complex.Gammaℝ_div_Gammaℝ_one_sub`); the twist; ψ-dependence.
+- **`local-functional-equation`** (Corollary 3.7 and Tate Theorem 2.4.1, planet "Tate's local functional equation"). There are two proofs: Kudla's uniqueness, and Tate's Lemma 2.4.2 via the shear (α, β) ↦ (α, αβ).
+- **`local-gauss-sum`** (definition). 𝔤(ω, ψ) with (3.31), 𝔤·conj 𝔤 = 1, and independence of ϖ.
+  - *API:* `localGaussSum`, `fourier_standard_ramified`, `localGaussSum_mul_conj`, `localGaussSum_uniformizer`, `localGaussSum_eq_gaussSum`.
+  - *Tests:* over ℚ_p with c = 1, 𝔤 = p^{−1/2}·Mathlib `gaussSum`; |𝔤| = 1; support of f̂^o; the wrong shift gives 0.
+- **`explicit-epsilon-factors`** (Proposition 3.8, planet "Explicit local ε-factors (Tate's local constants)"). The cases (i)–(iv), cross-checked against Tate's ρ tables.
+
+### AL.1 global theory (9 nodes)
+
+- **`global-eigendistributions`** (Lemma 4.1, Theorem 4.2).
+- **`global-zeta-integral`** (definition). (4.1)–(4.3) and Tate's ζ(f, c).
+  - *API:* `globalZetaIntegral`, `…_integrable`, `…_pure`, `…_eq_completed_mul`, `…_act`.
+  - *Tests:* for ℚ, z(s, 1; f^o) = `completedRiemannZeta`; the unramified factor; f = 0; divergence at s = 1.
+- **`completed-hecke-l-function`** (definition). Λ(s, ω) = ∏L_v, L^S, and the ideal-character Dirichlet series.
+  - *API:* `completedHeckeL`, `partialHeckeL`, `partialHeckeL_eq_LSeries`, `completedHeckeL_eq_mul`, `completedHeckeL_eq_globalZeta`.
+  - *Tests:* `completedRiemannZeta`; Dirichlet characters against `DirichletCharacter.gammaFactor`; the Dedekind zeta function; a non-example.
+- **`idele-class-volume`** (Tate Lemma 4.3.1, Theorem 4.3.2). κ = 2^{r₁}(2π)^{r₂}hR/(w√|d|) = Mathlib's `NumberField.dedekindZeta_residue`.
+- **`tate-lemma-a`**, **`tate-lemma-b`**.
+- **`tate-global-functional-equation`** (Main Theorem 4.4.1 and Kudla Theorem 4.3, planet "Tate's global functional equation"). Poles with residues −κf(0) and κf̂(0), and ζ(f, c) = ζ(f̂, ĉ).
+- **`global-epsilon-factor`** (definition). ε(s, ω) = ∏ε_v, independent of ψ, equal to ε(1/2, ω)(|d_k|N𝔣)^{1/2−s}.
+  - *API:* `globalEpsilon`, `globalEpsilon_indep`, `globalEpsilon_eq_conductor`, `norm_globalEpsilon_half`, `fourier_globalNormalized`.
+  - *Tests:* ε = 1 for ℚ and ω = 1; the Dirichlet case against `DirichletCharacter.IsPrimitive.completedLFunction_one_sub`; unramified ω; a local non-example.
+- **`hecke-l-functional-equation`** (Kudla Corollary 4.4 and Tate §4.5, planet "Functional equation of Hecke L-functions"). Λ(s, ω) = ε(s, ω)Λ(1 − s, ω^{−1}), with poles only for ω = |·|^{iu}. It is tested on ℚ, on Dirichlet characters and on Kudla's ℚ(√5) exercise.
+
 ## Concrete normalization checks
 
 The subgroup-indicator example on Z/2 uses counting measure and the full subgroup. Its annihilator is {0}, so the value at frequency zero is 2 and the value at the other frequency is zero. An erroneous unit-volume assumption would produce 1 at zero and fail this test. Applying counting-measure Fourier transformation twice gives 2f(−x), consistently with the existing finite transform. Inversion requires a compensating dual measure or a square-root normalization, not simply an appeal to finiteness of the group.
@@ -313,6 +379,13 @@ Two source findings are recorded. Published p.110 reverses the divisibility dire
 
 The lecture preprint’s bibliographic placeholder for the coauthor of Ramakrishnan is already corrected to Valenza on published p.110. That finding is attributed only to the preprint and explicitly marked as a known published correction. The packet does not accuse the published chapter of retaining that placeholder. No source finding is sent to an author; the programme’s review and errata pipeline handles the record.
 
+Checkpoint 2 read Kudla published pp.124–131 (Proposition 3.8, §4, §5 and the references) and re-read pp.115–123, all on 100-dpi page images. It read Tate physical pp.15–27 and 40–59 on page images, with p.26 zoomed at 200 dpi. It records three new findings:
+- **E3 (Kudla p.128, misprint).** The local functional equation is cited as "(3.13)" and the explicit ε-factors as "Proposition 3.7". They should read (3.23) and Proposition 3.8.
+- **E4 (Kudla pp.121–122, (3.22), misprint).** In the chapter's own convention ω(x) = x^{−a}, whose L-factor Γ_ℝ(s) does not depend on a, the real poles sit at s = −r with r even, and the residues are multiples of D^{a+r}δ₀. The printed "r ≡ a mod 2" and "D^rδ₀" belong to the sgn^a normalisation. This is checked by Proposition 3.5 itself, by the Taylor expansion, and by the chapter's complex statement.
+- **E5 (Tate physical p.26, misprint).** The printed coefficient N𝔡^{−1/2} of f̂_n should be N𝔡^{+1/2}. The correct value is on p.24, is used on the next line, and is forced by the stated ρ(c|·|^s).
+
+No published correction was found for any of them; the searches are recorded in the packet.
+
 ## Coverage of the six layers
 
 The list below is the binding work boundary. A partially read proof source is not counted as a completed decomposition, and none of the broad targets is represented by an unspecified predicate or a theorem whose own conclusion is an input. Each item describes concrete mathematics to establish, with the carrier or supplying roadmap identified where it is known.
@@ -324,13 +397,14 @@ The list below is the binding work boundary. A partially read proof source is no
 - Construct and normalize self-dual additive Haar measures, prove finite and positive compact-open volume, the dual volume product and all character/measure changes. Combine the finite-place carrier, period and annihilator results with the present component to obtain actual Fourier preservation and inversion on every Schwartz–Bruhat function. Handle translation and modulation of general finite linear combinations without assuming additivity of nonintegrable Bochner integrals.
 - At real and complex places import native SchwartzMap and its established Fourier theorems after reading their exact statements; prove the norm, trace and character convention comparisons. Construct the adelic restricted tensor product with distinguished almost-everywhere unit indicators, its relation to local Fourier transforms, the diagonal character pairing and Poisson summation using the GlobalNumberFields diagonal lattice and AA.0 product-measure interfaces; prove the required quotient-volume normalization. AF.0’s archimedean compactly supported C∞ test functions are not identical to the Schwartz family.
 - Read and decompose the remaining local and global analytic sources. Extract holomorphic parameter integrals, dominated differentiability, Mellin comparison and vertical/decay estimates from actual proofs, using the native analytic APIs identified by AUDIT-14 only after statement checks. Physical Tate pp.25–60 and published Kudla pp.124–131 remain unread.
+- Checkpoint 2 planned the local and adelic Schwartz–Bruhat spaces, local Fourier inversion with the self-dual measure, adelic Poisson summation / Riemann–Roch, and point-supported distributions. Their proofs import SR.1, AA.0 and GlobalNumberFields Layer 5. The finite-place annihilator, self-duality and inverse-different items above remain the construction work inside those nodes. Kudla pp.124–131 and Tate pp.25–27 and 40–59 have now been read; Tate pp.28–39 (§3 and early §4.1) remain unread.
 
 ### AutomorphicLFunctionsAndLocalFactors:AL.1 — partial
 
-- Use GlobalNumberFields Layers 0, 5, 9–10 and ArithmeticDirichletSeries Layer 3 for local components, conductors, unitary/norm twists and real/complex character classifications. Specify additive and multiplicative measure conventions separately: Kudla normalizes multiplicative unit volume to one, while Tate’s original §2.3 normalization depends on the different.
-- Decompose every local assertion read in Kudla pp.115–123: the scaling action on actual test functions and distributions; support-at-zero classification; extension from F×; Lemmas 3.2–3.3 and the one-dimensional eigendistribution Theorem 3.4; half-plane convergence; the unramified difference operator and geometric factor; ramified stabilization and test vectors; normalized zeta distributions and their entire dependence. The residue and exceptional-parameter extension argument must retain its nonsplit scaling action rather than infer uniqueness from an upper bound of two.
-- Read the missing proof sources for the archimedean distribution and integration-by-parts arguments, state the gamma factors with the normalized complex absolute value, and split Proposition 3.5, Lemma 3.6 and Corollary 3.7 into typed parameter identities. Define epsilon and gamma with the source’s positive Fourier convention or prove conversion to the native negative convention. Complete (3.27)–(3.29), the unread explicit epsilon/Gauss calculations and conductor dependence.
-- Read Tate’s global chapters and Kudla’s global section, then prove global convergence, product factorization with justified Fubini, meromorphic continuation and the functional equation using Poisson. Separate unitary from general norm-twisted characters and retain the trivial/norm-character poles. The generic Euler-product theorem in ArithmeticDirichletSeries does not provide analytic continuation.
+Checkpoint 2 decomposes every local and global assertion of Kudla §§3–5 and Tate §§2.4–2.5 and 4.2–4.5 into 24 nodes. What remains:
+- The proof source for the point-support structure theorem behind Kudla Lemma 3.3(ii)–(iii) (AL.0/point-supported-distributions) was not read.
+- Tate §3 (restricted direct products, Theorem 3.3.1 and Lemma 3.3.3; physical pp.28–39) was not read. Product integrals are requested from AdelicAlgebraicGroups AA.0.
+- The Hecke-character dictionary is requested from GlobalNumberFields Layer 9. It fixes how ε(1/2, ω) matches Mathlib's `DirichletCharacter.rootNumber`.
 
 ### AutomorphicLFunctionsAndLocalFactors:AL.2 — not_read
 
@@ -410,6 +484,12 @@ Supply the single generic ideal Euler-product framework, finite factorization an
 
 Consumers: AutomorphicLFunctionsAndLocalFactors:AL.1, AutomorphicLFunctionsAndLocalFactors:AL.2, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicLFunctionsAndLocalFactors:AL.5.
 
+### tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles
+
+Supply the idele group and IdeleClassGroup K, the idele norm, the closed norm-one subgroup and its compactness, and Dirichlet's unit theorem and class-group finiteness. AL.1 builds Tate's fundamental domain E and computes its volume κ on these objects.
+
+Consumers: AL.1/idele-class-volume, AL.1/tate-lemma-a, AL.1/tate-lemma-b, AL.1/tate-global-functional-equation.
+
 ## Validation and continuation
 
 The packet’s indexed blueprint check reports zero errors and zero warnings. Its thirteen-node graph is acyclic and all component dependencies terminate in the thirty checked baseline declarations or other nodes of this component. There are six explicit stage gaps and nine open supplier requests. A request aimed at an unconstructed full-stage target is not a hidden premise of a current conditional Fourier lemma.
@@ -420,8 +500,14 @@ The intake check reports four files and zero problems; source-issue/version vali
 
 The four deliverables are the packet, this reader, the suggested file and the handoff. The handoff records the claim, source-reading boundaries, checks and exact restart point. The next mathematical component begins with the actual SR.1 carrier and the finite local-field period/annihilator lemmas, then proves the dual volume product and general test-function preservation. Its proof must use the standard character and inverse different rather than reuse a conditional hypothesis as if it were an established local-field fact. The remaining source reading and the full AL.1–AL.5 extraction are part of the same six-stage job.
 
+**Checkpoint 2.**
+- `check_blueprint.py`: 0 errors and 0 warnings, for 42 nodes, 11 planets, 10 requests and 8 gaps.
+- The suggested file has a new AL.1 section with the signature sketches and 9 checked examples: the unramified geometric series; the matrices ρ(x); (2π)^{1−s}Γ(s) = π·Γ_ℂ(s); Tate's real ρ = Γ_ℂ(s)cos(πs/2); Jacobi's θ relation; `completedRiemannZeta_eq` with `completedRiemannZeta_one_sub`; κ = 1 for ℚ; |𝔤|² = 1; and the ℚ(√5) unit congruences.
+- The file elaborates against Mathlib 082e2d3 with 0 errors. Its only warnings are the 25 existing placeholders.
+- Next: AL.2 (Godement–Jacquet) and AL.4 (unramified L-group factors). AL.1's global nodes are ready to be consumed by AN.4, PS.1/PS.7 and DirichletPadicLFunctions.
+
 ## Sources
 
-- John Tate, *Fourier Analysis in Number Fields and Hecke’s Zeta-Functions*, Princeton doctoral thesis, 1950. [Original thesis scan](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf). Read physical pp.1–24; p.24 rendered.
-- Stephen S. Kudla, *Tate’s Thesis*, Chapter 6 in *An Introduction to the Langlands Program*, 2004, pp.109–131. [Published scan](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), [publisher record](https://link.springer.com/chapter/10.1007/978-0-8176-8226-2_6). Read pp.109–123; pp.110 and 122 rendered.
+- John Tate, *Fourier Analysis in Number Fields and Hecke’s Zeta-Functions*, Princeton doctoral thesis, 1950. [Original thesis scan](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf). Read physical pp.1–27 and 40–59; pp.15–27, 40–59 rendered (checkpoint 2); pp.28–39 unread.
+- Stephen S. Kudla, *Tate’s Thesis*, Chapter 6 in *An Introduction to the Langlands Program*, 2004, pp.109–131. [Published scan](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), [publisher record](https://link.springer.com/chapter/10.1007/978-0-8176-8226-2_6). Read pp.109–131 in full; pp.115–131 rendered (checkpoint 2).
 - Stephen S. Kudla, *Tate’s Thesis*, lecture preprint from the March 2001 Jerusalem lectures. [Nineteen-page preprint](https://u.cs.biu.ac.il/~reznikov/courses/kudla-1.pdf). Read pp.1–9; used as a separate version for collation.
