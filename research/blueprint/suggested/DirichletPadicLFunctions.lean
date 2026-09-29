@@ -5071,3 +5071,188 @@ example (p : ℕ) [Fact p.Prime] (n : ℕ) (χ : DirichletCharacter ℂ (p^n))
 end SuggestedSmoothedMellinTests
 end
 end DirichletPadic
+
+/-! ## Common algebraic values of prime-power smoothed moments -/
+namespace DirichletPadic
+noncomputable section
+open scoped BigOperators
+section CommonPrimePowerValues
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [Algebra ℤ_[p] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[p] K]
+  [CharZero K] [Algebra ℚ K]
+variable {E : Type*} [Field E] [CharZero E] [Algebra ℚ E]
+variable (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter E (p^n))
+  (ιC : E →+* ℂ) (ιK : E →+* K)
+  (hχ : DirichletCharacter.IsPrimitive (χ.ringHomComp ιK))
+  (ε : K) (hε : IsPrimitiveRoot ε (p^n))
+  (hG : gaussSum (χ.ringHomComp ιK)⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+  (hD : IsUnit ((p^n : ℕ) : K))
+include hn hχ hε hG hD
+
+theorem twistedSmoothedMeasure_common_special_value (a : ℕ) (ha : ¬p∣a) (k : ℕ) :
+    let b : E := (χ (a : ZMod (p^n))*(a : E)^(k+1)-1) *
+      (-((p^n : ℕ) : E)^k/(k+1) * ∑ r : ZMod (p^n), χ r *
+        algebraMap ℚ E ((Polynomial.bernoulli (k+1)).eval (r.val/(p^n) : ℚ)))
+    ιC b = ((χ.ringHomComp ιC) (a : ZMod (p^n))*(a : ℂ)^(k+1)-1) *
+      DirichletCharacter.LFunction (χ.ringHomComp ιC) (-(k : ℂ)) ∧
+    ιK b = twistedSmoothedMeasure p n (χ.ringHomComp ιK) a ha
+      (((ContinuousMap.id ℤ_[p]) • (1 : C(ℤ_[p],K)))^k) := sorry
+
+theorem twistedSmoothedMeasure_common_origin_derivative (a : ℕ) (ha : ¬p∣a) (k : ℕ) :
+    let b : E := (χ (a : ZMod (p^n))*(a : E)^(k+1)-1) *
+      (-((p^n : ℕ) : E)^k/(k+1) * ∑ r : ZMod (p^n), χ r *
+        algebraMap ℚ E ((Polynomial.bernoulli (k+1)).eval (r.val/(p^n) : ℚ)))
+    ιC b = iteratedDeriv k (smoothedCharacterKernel (χ.ringHomComp ιC) a) 0 ∧
+    ιK b = twistedSmoothedMeasure p n (χ.ringHomComp ιK) a ha
+      (((ContinuousMap.id ℤ_[p]) • (1 : C(ℤ_[p],K)))^k) := sorry
+
+theorem twistedSmoothedMeasure_common_normalized_value (a : ℕ) (ha : ¬p∣a) (k : ℕ) :
+    let b : E := (-1 : E)^k * ((χ (a : ZMod (p^n))*(a : E)^(k+1)-1) *
+      (-((p^n : ℕ) : E)^k/(k+1) * ∑ r : ZMod (p^n), χ r *
+        algebraMap ℚ E ((Polynomial.bernoulli (k+1)).eval (r.val/(p^n) : ℚ))))
+    ιC b = normalizedMellinContinuation (smoothedCharacterKernel (χ.ringHomComp ιC) a)
+      (-(k : ℂ)) ∧
+    ιK b = (-1 : K)^k * twistedSmoothedMeasure p n (χ.ringHomComp ιK) a ha
+      (((ContinuousMap.id ℤ_[p]) • (1 : C(ℤ_[p],K)))^k) := sorry
+
+theorem twistedSmoothedMeasure_common_positive_weight (a : ℕ) (ha : ¬p∣a)
+    (w : ℕ) (hw : 1≤w) :
+    let b : E := (χ (a : ZMod (p^n))*(a : E)^w-1) *
+      (-((p^n : ℕ) : E)^(w-1)/w * ∑ r : ZMod (p^n), χ r *
+        algebraMap ℚ E ((Polynomial.bernoulli w).eval (r.val/(p^n) : ℚ)))
+    ιC b = ((χ.ringHomComp ιC) (a : ZMod (p^n))*(a : ℂ)^w-1) *
+      DirichletCharacter.LFunction (χ.ringHomComp ιC) (1-(w : ℂ)) ∧
+    ιK b = twistedSmoothedMeasure p n (χ.ringHomComp ιK) a ha
+      (((ContinuousMap.id ℤ_[p]) • (1 : C(ℤ_[p],K)))^(w-1)) := sorry
+
+theorem twistedSmoothedMeasure_quotient_common_special_value (a : ℕ) (ha : ¬p∣a)
+    (k : ℕ) (hd : χ (a : ZMod (p^n))*(a : E)^(k+1)-1 ≠ 0) :
+    let b : E := -((p^n : ℕ) : E)^k/(k+1) * ∑ r : ZMod (p^n), χ r *
+      algebraMap ℚ E ((Polynomial.bernoulli (k+1)).eval (r.val/(p^n) : ℚ))
+    ιC b = DirichletCharacter.LFunction (χ.ringHomComp ιC) (-(k : ℂ)) ∧
+    ιK b = twistedSmoothedMeasure p n (χ.ringHomComp ιK) a ha
+      (((ContinuousMap.id ℤ_[p]) • (1 : C(ℤ_[p],K)))^k) /
+      ((χ.ringHomComp ιK) (a : ZMod (p^n))*(a : K)^(k+1)-1) := sorry
+end CommonPrimePowerValues
+
+theorem twistedSmoothedMeasure_quotient_independent (p : ℕ) [Fact p.Prime]
+    {K : Type*} [NormedField K] [Algebra ℤ_[p] K]
+    [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[p] K]
+    [CharZero K] [Algebra ℚ K]
+    (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (ε : K) (hε : IsPrimitiveRoot ε (p^n))
+    (hG : gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+    (hD : IsUnit ((p^n : ℕ) : K)) (a b k : ℕ) (ha : ¬p∣a) (hb : ¬p∣b)
+    (hda : χ (a : ZMod (p^n))*(a : K)^(k+1)-1 ≠ 0)
+    (hdb : χ (b : ZMod (p^n))*(b : K)^(k+1)-1 ≠ 0) :
+    twistedSmoothedMeasure p n χ a ha
+      (((ContinuousMap.id ℤ_[p]) • (1 : C(ℤ_[p],K)))^k) /
+      (χ (a : ZMod (p^n))*(a : K)^(k+1)-1) =
+    twistedSmoothedMeasure p n χ b hb
+      (((ContinuousMap.id ℤ_[p]) • (1 : C(ℤ_[p],K)))^k) /
+      (χ (b : ZMod (p^n))*(b : K)^(k+1)-1) := sorry
+
+namespace SuggestedPrimePowerCommonValueTests
+-- unit_smoothing
+example {E : Type*} [Field E] {D : ℕ} [NeZero D] (χ : DirichletCharacter E D)
+    (k : ℕ) (b : E) : (χ (1 : ZMod D)*(1 : E)^(k+1)-1)*b = 0 := sorry
+-- quotient_denominator_one_zero
+example {E : Type*} [Field E] {D : ℕ} [NeZero D] (χ : DirichletCharacter E D)
+    (k : ℕ) : χ (1 : ZMod D)*(1 : E)^(k+1)-1 = 0 := sorry
+
+section Three
+variable {K : Type*} [NormedField K] [Algebra ℤ_[3] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[3] K]
+  [CharZero K] [Algebra ℚ K]
+variable (χ : DirichletCharacter ℚ 3) (h2 : χ 2 = -1)
+  (hχ : DirichletCharacter.IsPrimitive (χ.ringHomComp (algebraMap ℚ K)))
+  (ε : K) (hε : IsPrimitiveRoot ε 3)
+  (hG : gaussSum (χ.ringHomComp (algebraMap ℚ K))⁻¹ (AddChar.zmodChar 3 hε.pow_eq_one) ≠ 0)
+include h2 hχ hε hG
+-- common_mass_three
+example : (algebraMap ℚ ℂ) 1 = iteratedDeriv 0
+    (smoothedCharacterKernel (χ.ringHomComp (algebraMap ℚ ℂ)) 4) 0 ∧
+    (algebraMap ℚ K) 1 = twistedSmoothedMeasure 3 1
+      (χ.ringHomComp (algebraMap ℚ K)) 4 (by norm_num) 1 := sorry
+-- common_second_three
+example : (algebraMap ℚ ℂ) (-14) = iteratedDeriv 2
+    (smoothedCharacterKernel (χ.ringHomComp (algebraMap ℚ ℂ)) 4) 0 ∧
+    (algebraMap ℚ K) (-14) = twistedSmoothedMeasure 3 1
+      (χ.ringHomComp (algebraMap ℚ K)) 4 (by norm_num)
+      (((ContinuousMap.id ℤ_[3]) • (1 : C(ℤ_[3],K)))^2) := sorry
+-- shifted_weight_one
+example : twistedSmoothedMeasure 3 1 (χ.ringHomComp (algebraMap ℚ K)) 4 (by norm_num)
+    (((ContinuousMap.id ℤ_[3]) • (1 : C(ℤ_[3],K)))^(1-1)) = 1 := sorry
+-- shifted_weight_three
+example : twistedSmoothedMeasure 3 1 (χ.ringHomComp (algebraMap ℚ K)) 4 (by norm_num)
+    (((ContinuousMap.id ℤ_[3]) • (1 : C(ℤ_[3],K)))^(3-1)) = -14 := sorry
+-- quotient_mass_three
+example : twistedSmoothedMeasure 3 1 (χ.ringHomComp (algebraMap ℚ K)) 4 (by norm_num) 1 /
+    (3 : K) = (1/3 : K) := sorry
+-- quotient_second_three
+example : twistedSmoothedMeasure 3 1 (χ.ringHomComp (algebraMap ℚ K)) 4 (by norm_num)
+    (((ContinuousMap.id ℤ_[3]) • (1 : C(ℤ_[3],K)))^2) / (63 : K) = (-2/9 : K) := sorry
+-- independence_three_mass
+example : twistedSmoothedMeasure 3 1 (χ.ringHomComp (algebraMap ℚ K)) 4 (by norm_num) 1 /
+    (3 : K) = twistedSmoothedMeasure 3 1 (χ.ringHomComp (algebraMap ℚ K)) 7
+      (by norm_num) 1 / (6 : K) := sorry
+-- independence_three_second
+example : twistedSmoothedMeasure 3 1 (χ.ringHomComp (algebraMap ℚ K)) 4 (by norm_num)
+    (((ContinuousMap.id ℤ_[3]) • (1 : C(ℤ_[3],K)))^2) / (63 : K) =
+    twistedSmoothedMeasure 3 1 (χ.ringHomComp (algebraMap ℚ K)) 7 (by norm_num)
+      (((ContinuousMap.id ℤ_[3]) • (1 : C(ℤ_[3],K)))^2) / (342 : K) := sorry
+end Three
+
+section Four
+variable {K : Type*} [NormedField K] [Algebra ℤ_[2] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[2] K]
+  [CharZero K] [Algebra ℚ K]
+variable (χ : DirichletCharacter ℚ 4) (h3 : χ 3 = -1)
+  (hχ : DirichletCharacter.IsPrimitive (χ.ringHomComp (algebraMap ℚ K)))
+  (ε : K) (hε : IsPrimitiveRoot ε 4)
+  (hG : gaussSum (χ.ringHomComp (algebraMap ℚ K))⁻¹ (AddChar.zmodChar 4 hε.pow_eq_one) ≠ 0)
+include h3 hχ hε hG
+-- common_mass_four
+example : (algebraMap ℚ ℂ) (-2) = iteratedDeriv 0
+    (smoothedCharacterKernel (χ.ringHomComp (algebraMap ℚ ℂ)) 3) 0 ∧
+    (algebraMap ℚ K) (-2) = twistedSmoothedMeasure 2 2
+      (χ.ringHomComp (algebraMap ℚ K)) 3 (by norm_num) 1 := sorry
+end Four
+
+section Five
+local instance : Fact (Nat.Prime 5) := ⟨Nat.prime_five⟩
+variable {K : Type*} [NormedField K] [Algebra ℤ_[5] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[5] K]
+  [CharZero K] [Algebra ℚ K]
+variable {E : Type*} [Field E] [CharZero E] [Algebra ℚ E]
+variable (χ : DirichletCharacter E 5) (ιC : E →+* ℂ) (ιK : E →+* K)
+  (hχ : DirichletCharacter.IsPrimitive (χ.ringHomComp ιK))
+  (ε : K) (hε : IsPrimitiveRoot ε 5)
+  (hG : gaussSum (χ.ringHomComp ιK)⁻¹ (AddChar.zmodChar 5 hε.pow_eq_one) ≠ 0)
+include hχ hε hG
+-- common_quartic_mass
+example (h2 : ιC (χ 2) = Complex.I) :
+    iteratedDeriv 0 (smoothedCharacterKernel (χ.ringHomComp ιC) 6) 0 = 3+Complex.I ∧
+    twistedSmoothedMeasure 5 1 (χ.ringHomComp ιK) 6 (by norm_num) 1 = 3+ιK (χ 2) := sorry
+-- normalized_even_first_five
+example (h2 : χ 2 = -1) :
+    ιC 14 = normalizedMellinContinuation (smoothedCharacterKernel (χ.ringHomComp ιC) 6) (-1) ∧
+    ιK 14 = -twistedSmoothedMeasure 5 1 (χ.ringHomComp ιK) 6 (by norm_num)
+      ((ContinuousMap.id ℤ_[5]) • (1 : C(ℤ_[5],K))) := sorry
+-- shifted_weight_two_even
+example (h2 : χ 2 = -1) :
+    twistedSmoothedMeasure 5 1 (χ.ringHomComp ιK) 6 (by norm_num)
+      (((ContinuousMap.id ℤ_[5]) • (1 : C(ℤ_[5],K)))^(2-1)) = -14 := sorry
+-- quotient_quartic_mass
+example (h2 : ιC (χ 2) = Complex.I) :
+    twistedSmoothedMeasure 5 1 (χ.ringHomComp ιK) 6 (by norm_num) 1 / (5 : K) =
+      ιK ((3+χ 2)/5) := sorry
+-- independence_quartic_mass
+example (h2 : ιC (χ 2) = Complex.I) :
+    twistedSmoothedMeasure 5 1 (χ.ringHomComp ιK) 2 (by norm_num) 1 / (2*ιK (χ 2)-1) =
+      twistedSmoothedMeasure 5 1 (χ.ringHomComp ιK) 6 (by norm_num) 1 / (5 : K) := sorry
+end Five
+end SuggestedPrimePowerCommonValueTests
+end
+end DirichletPadic
