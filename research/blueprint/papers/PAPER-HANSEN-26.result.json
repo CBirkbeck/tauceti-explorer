@@ -1,0 +1,396 @@
+{
+ "paper": "PAPER-HANSEN-26",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "agent": "Claude Code",
+ "session": "cc-39fac3",
+ "source": {
+  "title": "Excursion operators and the stable Bernstein center",
+  "authors": "David Hansen",
+  "venue": "Forum of Mathematics, Pi 14 (2026), e10, 1–14",
+  "doi": "10.1017/fmp.2026.10028",
+  "url": "https://doi.org/10.1017/fmp.2026.10028",
+  "sha256": "533628c9bf73fd395717c40e58e1ac940b8029371667ae231a54af3f9a73beab",
+  "version": "Published open-access article (CC BY), 14 pages, read completely.",
+  "readSections": [
+   "2026-09-29: the published article, all 14 pages (§1, §2.1–2.4, references)."
+  ]
+ },
+ "summary": "Hansen proves that the Fargues–Scholze map Ψ_G: ℨ^spec(G) → ℨ(G) always lands in the very stable Bernstein center (Theorem 1.1), for every connected reductive group over a p-adic field. Consequently FS parameters are constant on atomically stable virtual characters and on regular supercuspidal packets (Corollaries 1.2–1.3). He also constructs a transfer τ_G of the FS center to extended pure inner forms compatible with Levi restriction, transfer of stable characters and matching of stable orbital integrals (Theorem 1.4). The proofs combine decategorified Hecke operators, which commute with the FS center, with the Hansen–Kaletha–Weinstein character formula, Fu's averaging and Arthur's elliptic tempered characters, by induction on semisimple rank. The atlas plans Ψ_G, the Bernstein center, B(G) and stable conjugacy; the stability results are routed to a new Part II of ExcursionOperatorsAndSpectralAction, and the harmonic-analysis and character-formula inputs coalesce with the two accepted Part II proposals of PAPER-HANSEN-KALETHA-WEINSTEIN-22.",
+ "items": [
+  {
+   "id": "PAPER-HANSEN-26/bernstein-center",
+   "kind": "definition",
+   "name": "The Bernstein center and its action",
+   "statement": "ℨ(G) is the algebra of essentially compact invariant distributions on G(E), equivalently the center of the category of smooth G(E)-representations; it acts on C_c(G(E)), on smooth representations (z·π = z_π π for irreducible π) and on invariant distributions by (z·Θ)(f) = Θ(z∗f).",
+   "locator": "Forum Math. Pi 14 (2026) e10, §1.1 and §2.1, pp. 1, 4–5",
+   "status": "planned",
+   "planned": [
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "ExcursionOperatorsAndSpectralAction:ES0"
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-26/fargues-scholze-map",
+   "kind": "construction",
+   "name": "The Fargues–Scholze map Ψ_G",
+   "statement": "The ring map Ψ_G: ℨ^spec(G) → ℨ(G) from functions on the variety of semisimple L-parameters to the Bernstein center, built from V. Lafforgue's excursion operators on the Fargues–Fontaine curve (transported along a fixed ι: Q̄_ℓ ≅ C); ℨ^FS(G) denotes its image.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §1.1, p. 2 and footnote 1",
+   "status": "planned",
+   "planned": [
+    "ExcursionOperatorsAndSpectralAction:ES1:spectral-center",
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic"
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-26/fs-parabolic-compatibility",
+   "kind": "theorem",
+   "name": "Compatibility of Ψ_G with parabolic induction",
+   "statement": "For a Levi M ⊂ G, r_M ∘ Ψ_G = Ψ_M ∘ r^spec (FS IX.7.2), so r_M(ℨ^FS(G)) ⊂ ℨ^FS(M).",
+   "locator": "Forum Math. Pi 14 (2026) e10, §1.1 (Theorem 1.4.i), §2.3, p. 10 ([FS24, IX.7.2])",
+   "status": "planned",
+   "planned": [
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic"
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-26/hecke-excursion-commute",
+   "kind": "theorem",
+   "name": "Hecke operators commute with excursion operators",
+   "statement": "Hecke operators T_V on D(Bun_G) commute with each other and with the excursion operators built from them, hence with the action of ℨ^FS(G) on each stratum.",
+   "locator": "Forum Math. Pi 14 (2026) e10, proofs of Lemma 2.4 and Proposition 2.7(i), pp. 7, 9",
+   "status": "planned",
+   "planned": [
+    "ExcursionOperatorsAndSpectralAction:ES0",
+    "ExcursionOperatorsAndSpectralAction:ES1"
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-26/inner-forms-bg",
+   "kind": "definition",
+   "name": "B(G), basic elements and extended pure inner forms",
+   "statement": "For G* quasi-split and b ∈ B(G*) basic, the extended pure inner form G = G*_b; the strata i_b: [*/G_b(E)] → Bun_G and the open immersion i_1: [*/G(E)] → Bun_G.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §1.1 and §2.2, pp. 3, 6, 9",
+   "status": "planned",
+   "planned": [
+    "BunGAndNewtonStrata:BG0",
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic"
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-26/stable-conjugacy",
+   "kind": "definition",
+   "name": "Strongly regular elliptic elements and stable conjugacy",
+   "statement": "G(E)_ell is the set of strongly regular elliptic elements; [[g]] is the set of G(E)-conjugacy classes in the stable class of g; matching stably conjugate pairs g* ∼_st g between inner forms.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.1–2.2, pp. 4, 7, 9",
+   "status": "planned",
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0"
+   ]
+  },
+  {
+   "id": "PAPER-HANSEN-26/kazhdan-density",
+   "kind": "theorem",
+   "name": "Kazhdan's density theorem",
+   "statement": "For f ∈ C_c(G(E)) the following are equivalent: tr(f|π) = 0 for all irreducible π; for all tempered irreducible π; all regular semisimple orbital integrals vanish; f is a sum of commutators h(x) − h(gxg^{-1}). Hence ℨ(G) acts on I(G) = C_c/null and D_temp(G) is a faithful ℨ(G)-module.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.1, pp. 4, 6 ([Kaz86, Theorem 0])",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/constant-term",
+   "kind": "construction",
+   "name": "The constant term and the restriction r_M of the Bernstein center",
+   "statement": "f ↦ f_M = δ_P^{1/2}(m) ∫_U ∫_K f(kmuk^{-1}) dk du, characterized by tr(f_M|π) = tr(f|i^G_M π) and descending to I(G) → I(M); the map r_M: ℨ(G) → ℨ(M) of [BDK86, §2.4] with (z∗f)_M = r_M(z)∗f_M and z·i^G_M = i^G_M(r_M(z)·) ([BDK86, Proposition 2.4]).",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.1, pp. 4–5; §2.3, p. 10",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/arthur-decompositions",
+   "kind": "theorem",
+   "name": "Arthur's decompositions of I(G) and D_temp(G)",
+   "statement": "I(G) = ⊕_{M ∈ L/W₀} (I(M)_cusp)^{W(M)} (1) and D_temp(G) = ⊕_M (D_ell(M))^{W(M)} (2), perfectly dual; stable analogue SD_temp(G) = ⊕_M (SD_ell(M))^{W(M)} (3); the elliptic inner product gives a projection D_temp → SD_temp splitting the inclusion.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.1, (1)–(3), pp. 5–6 ([Art96, §4], [MgW18, Prop. 2.12], [Var24, 3.2.8, 3.4.5])",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/elliptic-tempered-characters",
+   "kind": "definition",
+   "name": "Arthur's elliptic tempered virtual characters",
+   "statement": "D_ell(G) is spanned by Θ(τ), τ = (M, σ, r) ∈ T_ell(G), each in the span of the constituents of i^G_M σ; evaluation D_ell(G) → C(G(E)_ell) is injective, the kernel of restriction D_temp → C(G(E)_ell) being the parabolically induced part ([HKW22, Theorem C.1.1]).",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.1, pp. 5–6 ([Art93, p. 76])",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/lemma-2-1",
+   "kind": "theorem",
+   "name": "Lemma 2.1: the Bernstein center preserves the cuspidal/non-cuspidal splitting",
+   "statement": "For f ∈ I(G) and z ∈ ℨ(G), (z∗f)_cusp = z∗f_cusp and (z∗f)_nc = z∗f_nc.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.1, Lemma 2.1 and proof, pp. 5–6",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/arthur-instability",
+   "kind": "theorem",
+   "name": "Arthur's characterization of unstable functions",
+   "statement": "f ∈ I(G) has vanishing stable orbital integrals iff Θ(f) = 0 for all Θ ∈ SD_temp(G) (Arthur for quasi-split groups, [Var24, Proposition 3.2.10] in general); and Θ^st|_{G(E)ell} = (Θ|_{G(E)ell})^st for the naive stable averaging ([Var24, Lemma 3.4.5]).",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.1, p. 6; §2.3, p. 11",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/stable-delta",
+   "kind": "theorem",
+   "name": "The delta distribution is stable",
+   "statement": "The invariant distribution h ↦ h(1) lies in the closed span of stable orbital integrals ([Kot88, Proposition 1]).",
+   "locator": "Forum Math. Pi 14 (2026) e10, proof of Lemma 2.3, p. 6",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/character-analysis",
+   "kind": "theorem",
+   "name": "Local boundedness of characters and orbital integrals; cuspidal Weyl integration",
+   "statement": "|D(g)|^{1/2}Θ(g) is locally bounded on G(E) (Harish-Chandra; [Clo87, Theorem 1]); |D(γ)|^{1/2}O_γ(f) is bounded on G(E)_ell ([Art91, §4]); for f cuspidal, Θ(f) = Σ_T |W(G,T)(E)|^{-1} ∫_{T(E)} Θ(t) O_t(f) |D(t)| dt over elliptic maximal tori.",
+   "locator": "Forum Math. Pi 14 (2026) e10, proof of Lemma 2.6, p. 9; §2.3, pp. 10–11",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/inner-form-transfer",
+   "kind": "construction",
+   "name": "Transfer of stable tempered characters to inner forms",
+   "statement": "Trans_G: SD_temp(G*) → SD_temp(G), normalized by the Kottwitz sign e(G): on SD_ell it is the isomorphism Trans^ell_G(Θ)(g) = e(G)Θ(g*) for matching g* ∼_st g, it vanishes on summands indexed by irrelevant Levis, and Trans_G i^{G*}_{M*} = i^G_M Trans^ell_M on relevant ones; matching functions f*, f have equal stable orbital integrals ([Var24, §3.2]).",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.4, pp. 12–13 (footnote 4 on the sign convention)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/hkw-character-formula",
+   "kind": "theorem",
+   "name": "The Hansen–Kaletha–Weinstein character formula",
+   "statement": "For μ with b ∈ B(G, μ) basic, the maps induced by i_1^* T_{V_μ^*} i_{b!} preserve finite length ([HKW22, Proposition 6.4.5]); for g ∈ G(E)_ell, 𝒯_μ(Θ)(g) = e(G)e(G_b) Σ_{λ ∈ X_*(T_g), g′ ∈ [[g]]_b, inv[b](g,g′) = λ̄} dim V_μ[λ]·Θ(g′) ([HKW22, Theorem 6.5.2, (3.3.3)]); for each λ with V_μ[λ] ≠ 0 exactly one g′ has inv[b](g, g′) = λ̄ ([HKW22, Remark 3.2.5], [Fu24, Lemma 4.2.7]).",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.2, pp. 6–7, 9",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/stability-notions",
+   "kind": "definition",
+   "name": "Stable, very stable and atomically stable",
+   "statement": "z ∈ ℨ(G) is stable if it vanishes on unstable functions (ℨ^st(G)) and very stable if z∗f is unstable for all unstable f (ℨ^vst(G), a commutative subalgebra; very stable implies stable); a virtual character Σ a_iΘ_{π_i} is atomically stable if it is stable, all a_i ≠ 0 and no proper sub-combination is stable.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §1.1, pp. 1–2; §1.2, p. 4",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/lemma-2-2",
+   "kind": "theorem",
+   "name": "Lemma 2.2: equivalent forms of very stability",
+   "statement": "For z ∈ ℨ(G): z∗f unstable for all unstable f ⟺ z· preserves SD(G) ⟺ z· preserves SD_temp(G).",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.1, Lemma 2.2, p. 6",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/lemma-2-3",
+   "kind": "theorem",
+   "name": "Lemma 2.3: SD_temp(G) is a faithful ℨ^vst(G)-module",
+   "statement": "If z ∈ ℨ^vst(G) kills all stable tempered virtual characters, then z = 0.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.1, Lemma 2.3 and proof, p. 6",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/hecke-trace-operator",
+   "kind": "construction",
+   "name": "The decategorified Hecke operators 𝒯_μ",
+   "statement": "For μ with 1 ∈ B(G, μ), 𝒯_μ: D(G) → D(G) is induced by i_1^* T_{V_μ^*} i_{1!} on K₀ of finite-length representations (after ι); more generally 𝒯_μ: D(G_b) → D(G) and 𝒯_μ^*: D(G) → D(G_b) for b ∈ B(G, μ) basic.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.2, pp. 6–7, 9",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/lemma-2-4",
+   "kind": "theorem",
+   "name": "Lemma 2.4 and Proposition 2.7(i): 𝒯_μ commutes with ℨ^FS",
+   "statement": "For z ∈ ℨ^FS(G), z· and 𝒯_μ commute on D(G); across inner forms 𝒯_μ(z′·Θ) = z·𝒯_μ(Θ) and 𝒯_μ^*(z·Θ) = z′·𝒯_μ^*(Θ) for z = Ψ_G(f), z′ = Ψ_{G_b}(f).",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.2, Lemma 2.4 and Proposition 2.7(i), pp. 7, 9",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/prop-2-5",
+   "kind": "theorem",
+   "name": "Proposition 2.5: 𝒯_μ on induced and stable characters",
+   "statement": "𝒯_μ preserves parabolically induced virtual characters, and for stable Θ, 𝒯_μ(Θ) = dim V_μ·Θ + Θ′ with Θ′ parabolically induced.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.2, Proposition 2.5 and proof, pp. 7–8",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/fu-averaging",
+   "kind": "theorem",
+   "name": "Fu's averaging estimate",
+   "statement": "For μ_m = 4mρ_G, C_m(g, g′) = (dim V_{μ_m})^{-1} Σ_{inv(g,g′) = λ̄} dim V_{μ_m}[λ] satisfies |C_m(g, g′) − 1/|[[g]]|| ≤ C/m with C depending only on G ([Fu24, proof of Theorem 4.3.1]).",
+   "locator": "Forum Math. Pi 14 (2026) e10, proof of Lemma 2.6, p. 8",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/lemma-2-6",
+   "kind": "theorem",
+   "name": "Lemma 2.6: uniform stable averaging",
+   "statement": "For Θ ∈ D(G) and U ⊂ G(E) compact with stably invariant elliptic part, |D(g)|^{1/2}·|(dim V_{μ_m})^{-1}𝒯_{μ_m}(Θ)(g) − Θ^st(g)| → 0 uniformly on G(E)_ell ∩ U as m → ∞.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.2, Lemma 2.6 and proof, pp. 8–9",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/prop-2-7",
+   "kind": "theorem",
+   "name": "Proposition 2.7(ii): 𝒯_μ on stable characters across inner forms",
+   "statement": "For stably conjugate elliptic g ∈ G(E), g′ ∈ G_b(E) and Θ stable, 𝒯_μ(Θ)(g) = e(G)e(G_b) dim V_μ·Θ(g′), and symmetrically for 𝒯_μ^*.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.2, Proposition 2.7(ii) and proof, p. 9",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/theorem-1-1",
+   "kind": "theorem",
+   "name": "Theorem 1.1: the Fargues–Scholze center is very stable",
+   "statement": "For every connected reductive G over a p-adic field E, Ψ_G factors through ℨ^vst(G), i.e. ℨ^FS(G) ⊆ ℨ^vst(G). Proof by induction on semisimple rank: induced characters via compatibility with parabolic induction; elliptic stable characters via Proposition 2.5, Lemma 2.4 and the limit m → ∞ of Lemma 2.6 in the cuspidal Weyl integration formula.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §1.1, Theorem 1.1, p. 2; proof §2.3, pp. 9–11",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/cor-1-2",
+   "kind": "theorem",
+   "name": "Corollary 1.2: FS parameters are constant on atomically stable characters",
+   "statement": "If Σ a_iΘ_{π_i} is atomically stable, the Fargues–Scholze parameter φ_{π_i} is independent of i; hence FS parameters are constant on tempered L-packets wherever these are known in the sense of [Var24, Hypothesis 2.5.1] (e.g. quasi-split classical groups by Arthur and Mok).",
+   "locator": "Forum Math. Pi 14 (2026) e10, §1.1, Corollary 1.2 and following remarks, p. 2",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/cor-1-3",
+   "kind": "theorem",
+   "name": "Corollary 1.3: regular supercuspidal packets",
+   "statement": "For G split over a tame extension with p ∤ |W_G| and φ a regular supercuspidal parameter, the FS parameter φ_π depends only on φ for π ∈ Π_φ(G) (Kaletha's packets; atomic stability of SΘ_φ by Fintzen–Kaletha–Spice).",
+   "locator": "Forum Math. Pi 14 (2026) e10, §1.1, Corollary 1.3, p. 2",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-26/theorem-1-4",
+   "kind": "theorem",
+   "name": "Theorem 1.4: transfer of the FS center to extended pure inner forms",
+   "statement": "For G* quasi-split and G = G*_b with b basic: Ψ_{G*}(f) = 0 implies Ψ_G(f) = 0, giving a unique surjective ℨ^spec(G*)-algebra map τ_G: ℨ^FS(G*) → ℨ^FS(G), compatible with Levi restriction (i), with Trans_G(z·Θ) = τ_G(z)·Trans_G(Θ) on SD_temp(G*) (ii), and with matching of stable orbital integrals: z∗f* and τ_G(z)∗f match whenever f* and f do.",
+   "locator": "Forum Math. Pi 14 (2026) e10, §1.1, Theorem 1.4, p. 3; proof §2.4, pp. 11–13",
+   "status": "missing"
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "C. Fu, Stability of elliptic Fargues–Scholze L-packets, preprint (2024)",
+   "link": "arXiv:2501.00652",
+   "why": "The averaging idea (proof of Theorem 4.3.1) behind Lemma 2.6, and Lemma 4.2.7 on existence of the invariant."
+  },
+  {
+   "citation": "S. Varma, Some comments on the stable Bernstein center, preprint (2024)",
+   "link": "preprint; no public copy located by title search on 2026-09-29",
+   "why": "Harmonic-analysis inputs: Proposition 3.2.8, 3.2.10, Lemma 3.4.5, §3.2 transfer and Hypothesis 2.5.1."
+  },
+  {
+   "citation": "J. Arthur, On elliptic tempered characters, Acta Math. 171 (1993), 73–138",
+   "link": "doi:10.1007/BF02392767",
+   "why": "Elliptic tempered virtual characters."
+  },
+  {
+   "citation": "J. Arthur, On local character relations, Selecta Math. 2 (1996), 501–579",
+   "link": "doi:10.1007/BF02433450",
+   "why": "The decomposition of I(G) and the characterization of unstable functions."
+  },
+  {
+   "citation": "T. Haines, The stable Bernstein center and test functions for Shimura varieties, LMS Lecture Note Ser. 415 (2014), 118–186",
+   "link": "doi:10.1017/CBO9781107297524.005 (arXiv:1304.6293)",
+   "why": "The stable-center conjectures and ℨ-transfer that Theorems 1.1 and 1.4 address."
+  },
+  {
+   "citation": "J. Fintzen, T. Kaletha and L. Spice, A twisted Yu construction, Harish-Chandra characters, and endoscopy, Duke Math. J. 172 (2023), 2241–2301",
+   "link": "doi:10.1215/00127094-2022-0080",
+   "why": "Atomic stability of regular supercuspidal packets (Corollary 1.3)."
+  },
+  {
+   "citation": "T. Kaletha, Regular supercuspidal representations, J. Amer. Math. Soc. 32 (2019), 1071–1170",
+   "link": "doi:10.1090/jams/925",
+   "why": "Regular supercuspidal L-packets (Corollary 1.3)."
+  }
+ ],
+ "routes": [
+  {
+   "route": "part-ii",
+   "parent": "ExcursionOperatorsAndSpectralAction",
+   "roadmap": "ExcursionOperatorsAndSpectralActionStableCenter",
+   "title": "Excursion operators and the spectral action, Part II: stability of the Fargues–Scholze Bernstein center",
+   "area": "langlands",
+   "items": [
+    "PAPER-HANSEN-26/stability-notions",
+    "PAPER-HANSEN-26/lemma-2-2",
+    "PAPER-HANSEN-26/lemma-2-3",
+    "PAPER-HANSEN-26/hecke-trace-operator",
+    "PAPER-HANSEN-26/lemma-2-4",
+    "PAPER-HANSEN-26/prop-2-5",
+    "PAPER-HANSEN-26/fu-averaging",
+    "PAPER-HANSEN-26/lemma-2-6",
+    "PAPER-HANSEN-26/prop-2-7",
+    "PAPER-HANSEN-26/theorem-1-1",
+    "PAPER-HANSEN-26/cor-1-2",
+    "PAPER-HANSEN-26/cor-1-3",
+    "PAPER-HANSEN-26/theorem-1-4"
+   ],
+   "brief": "Extend Excursion operators and the spectral action (ExcursionOperatorsAndSpectralAction), starting where ES7 stops: ES0–ES7 construct the Fargues–Scholze map Ψ_G: ℨ^spec(G) → ℨ(G), its compatibility with parabolic induction and the semisimple parameters, but prove nothing about stability. Final theorems, as in Hansen, Excursion operators and the stable Bernstein center (Forum Math. Pi 14 (2026) e10): Theorem 1.1 (for every connected reductive G over a p-adic field, ℨ^FS(G) ⊆ ℨ^vst(G)); Corollary 1.2 (Fargues–Scholze parameters are constant on atomically stable virtual characters) and Corollary 1.3 (constant on Kaletha's regular supercuspidal packets, for tame G with p ∤ |W_G|, using Fintzen–Kaletha–Spice); Theorem 1.4 (for an extended pure inner form G = G*_b, a unique surjective ℨ^spec(G*)-algebra map τ_G: ℨ^FS(G*) → ℨ^FS(G), compatible with Levi restriction, with the transfer of stable tempered characters and with matching of stable orbital integrals). Layers: stable, very stable and atomically stable (Lemmas 2.2–2.3); the decategorified Hecke operators 𝒯_μ and 𝒯_μ^* and their commutation with ℨ^FS (Lemma 2.4, Proposition 2.7(i)); Proposition 2.5 and Proposition 2.7(ii) from the HKW character formula; Fu's averaging estimate and Lemma 2.6; the proofs of Theorems 1.1 and 1.4 by induction on semisimple rank. Import ES1:spectral-center and ES7:parabolic (Ψ_G and IX.7.2), ES0/ES1 (Hecke–excursion commutation), BunGAndNewtonStrata BG0 (B(G), inner forms), EndoscopicTransferAndUnitaryTraceComparison ET.0 (stable conjugacy), SmoothRepresentationsOfLocalGroups SR.3 (Bernstein center), the harmonic analysis of route 2 and the character formula of route 3.",
+   "reason": "No atlas layer studies the stability of the Fargues–Scholze center: ES0–ES7 construct Ψ_G and its standard compatibilities (FS IX), and the stable-center conjectures of Haines and Scholze–Shin appear nowhere. Hansen's theorems are new layers in the direction of that roadmap, using its outputs and the HKW character formula, so they form its Part II."
+  },
+  {
+   "route": "part-ii",
+   "parent": "SmoothRepresentationsOfLocalGroups",
+   "roadmap": "SmoothRepresentationsCharactersPartII",
+   "title": "Smooth representations of local groups, Part II: characters, trace Paley–Wiener and ℓ-adic lattices",
+   "area": "representations",
+   "items": [
+    "PAPER-HANSEN-26/kazhdan-density",
+    "PAPER-HANSEN-26/constant-term",
+    "PAPER-HANSEN-26/arthur-decompositions",
+    "PAPER-HANSEN-26/elliptic-tempered-characters",
+    "PAPER-HANSEN-26/lemma-2-1",
+    "PAPER-HANSEN-26/arthur-instability",
+    "PAPER-HANSEN-26/stable-delta",
+    "PAPER-HANSEN-26/character-analysis",
+    "PAPER-HANSEN-26/inner-form-transfer"
+   ],
+   "brief": "Coalesce with the SmoothRepresentationsCharactersPartII proposed by PAPER-HANSEN-KALETHA-WEINSTEIN-22 and accepted by its review; do not open another Part II. Add the harmonic analysis Hansen uses for connected reductive G over a p-adic field: Kazhdan's density theorem and the faithfulness of D_temp(G) over ℨ(G); the constant term f ↦ f_M with tr(f_M|π) = tr(f|i^G_M π) and the Bernstein–Deligne–Kazhdan restriction r_M with z·i^G_M = i^G_M(r_M(z)·); Arthur's decompositions I(G) = ⊕(I(M)_cusp)^{W(M)} and D_temp(G) = ⊕(D_ell(M))^{W(M)} with their stable analogue and the elliptic projection D_temp → SD_temp; Arthur's elliptic tempered characters Θ(τ) and injectivity of restriction to G(E)_ell on D_ell (HKW Theorem C.1.1, already an item there); Lemma 2.1; Arthur's criterion that f is unstable iff Θ(f) = 0 for all Θ ∈ SD_temp(G) (Varma 3.2.10 for general G) and Varma's Lemma 3.4.5; stability of h ↦ h(1) (Kottwitz); local boundedness of |D|^{1/2}Θ (Harish-Chandra, Clozel) and of |D|^{1/2}O_γ(f) (Arthur) with the cuspidal Weyl integration formula; and the transfer Trans_G of stable tempered characters to inner forms with the Kottwitz-sign normalization of Hansen's footnote 4. Import ET.0 for stable conjugacy and SR.3 for the Bernstein center.",
+   "reason": "These are the character-theoretic tools of p-adic harmonic analysis on which Hansen's proofs run. PAPER-HANSEN-KALETHA-WEINSTEIN-22 already routed the same direction (characters, trace Paley–Wiener, Theorem C.1.1) to this Part II, so the items join it rather than a new roadmap."
+  },
+  {
+   "route": "part-ii",
+   "parent": "HeckeStacksAndLocalShtukas",
+   "roadmap": "HeckeStacksAndLocalShtukasKottwitzPartII",
+   "title": "Hecke correspondences and local shtuka cohomology, Part II: the Lefschetz–Verdier trace formula and the Kottwitz conjecture",
+   "area": "langlands",
+   "items": [
+    "PAPER-HANSEN-26/hkw-character-formula"
+   ],
+   "brief": "Coalesce with the HeckeStacksAndLocalShtukasKottwitzPartII proposed by PAPER-HANSEN-KALETHA-WEINSTEIN-22 and accepted by its review. Hansen uses exactly its character formula for the Hecke operators i_1^* T_{V_μ^*} i_{b!} on the elliptic locus (HKW Theorem 6.5.2 with the signs of (3.3.3)), the preservation of finite length (Proposition 6.4.5) and the uniqueness of g′ with inv[b](g, g′) = λ̄ (Remark 3.2.5, with existence from Fu's Lemma 4.2.7). Export these in a form usable for all basic b and both directions G ↔ G_b, as Hansen's Proposition 2.7 needs, and record Fu's existence lemma as an input (Fu, Stability of elliptic Fargues–Scholze L-packets).",
+   "reason": "The character formula is the central theorem of that accepted Part II; Hansen's paper is a consumer that needs its inner-form form and the existence of the invariant, so the item joins it."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-HANSEN-26/E1",
+   "kind": "misprint",
+   "locator": "Forum Math. Pi 14 (2026) e10, §2.4, p. 13 (transfer part of the proof of Theorem 1.4); page image checked",
+   "printed": "defining 𝒯*_μ: D(G*) → D(G) as the map induced by i*_b T_{V_μ} i_{i!} (with b and μ as above)",
+   "correction": "i*_b T_{V_μ} i_{1!}, as in the definition before Proposition 2.7 (with the roles of the quasi-split form and its inner form as in this section).",
+   "reason": "There is no stratum i_i; the operator 𝒯*_μ is defined before Proposition 2.7 through i*_b T_{V_μ} i_{1!}, and the proof applies Proposition 2.7(ii) to it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the published open-access article (CC BY) is the version read; no arXiv version was found by title search; Crossref records no correction or erratum relation. Not an exhaustive novelty claim."
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://doi.org/10.1017/fmp.2026.10028",
+   "read": "2026-09-29",
+   "sha256": "533628c9bf73fd395717c40e58e1ac940b8029371667ae231a54af3f9a73beab",
+   "citation": "Forum Math. Pi 14 (2026) e10, open access, read completely."
+  }
+ ],
+ "gaps": []
+}
