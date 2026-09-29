@@ -151319,6 +151319,44 @@
    "reviewReason": null
   },
   {
+   "id": "PotentialModularityAndCompatibleSystems/E2",
+   "kind": "error",
+   "locator": "arXiv v1, §5.1, pp. 52–53, the archimedean Γ-factors and the Hodge factor L({H_τ}, s)",
+   "printed": "L({Hτ},s) = √2π^{Σ|h−w/2|} (∏τ ∏h (s − w/2)(s + 1 − w/2) … (s + |h − w/2| − 1 − w/2))^{1/2}, with L(R|GFv, w, s) = ΓC(s − w/2)^{n/2} for v real and n even",
+   "correction": "Use v4's factors: L_v = Γ_ℝ(s − w/2)^{d+}Γ_ℝ(s + 1 − w/2)^{d−}∏_{h<w/2}Γ_ℂ(s − h)/Γ_ℂ(s − w/2) at real v (and the analogue at complex v), with no separate Hodge factor.",
+   "reason": "The product (s − w/2)⋯(s + |h − w/2| − 1 − w/2) has |h − w/2| factors, which is not an integer when w is odd, although v1 states the definition for every pure regular strictly compatible ℛ. For an elliptic curve over ℚ (n = 2, w = 1, H = {0, 1}) v1's real factor is Γ_ℂ(s − 1/2) and no polynomial Hodge factor turns it into the standard Γ_ℂ(s); v4 gives Γ_ℝ(s − 1/2)Γ_ℝ(s + 1/2)Γ_ℂ(s)/Γ_ℂ(s − 1/2) = Γ_ℂ(s). So v1's Corollary 5.3.2(2) (the functional equation of Λ) is not defined for odd-weight systems.",
+   "affects": "a stated result",
+   "known": "Corrected in arXiv v4 (9 December 2013), §5.1 pp. 63–64",
+   "searched": [
+    "2026-09-29: arXiv versions v1 and v4 compared; the Annals version was not collated."
+   ],
+   "owner": "PotentialModularityAndCompatibleSystems",
+   "file": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R24.3.json",
+   "citation": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor, Potential automorphy and change of weight, arXiv:1010.2561v1 (2010), 68 pages; published in Ann. of Math. (2) 179 (2014), 501–609. Page numbers are those of the arXiv v1 PDF (printed page = PDF page).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems/E3",
+   "kind": "misprint",
+   "locator": "arXiv v4, §5.2, proofs of Lemma 5.2.1(3) (p. 67) and Proposition 5.2.2 (pp. 69–70)",
+   "printed": "\"−mµ,σ is the σ-Hodge–Tate number of (A(n)µ) ◦ (rl mod G0l(Q̄l))\"; \"(γG̃l)(Zl) = γ(G̃l(Zl)) = G̃l(Zl)\"; \"⋂_{i≠j} ker(Λ′ → VΛ,i)\"",
+   "correction": "r_l mod G^der_l(Q̄_l) (the map to C_l = G⁰_l/G^der_l); G̃^sc_l in place of G̃_l; V_{λ,i} in place of V_{Λ,i}.",
+   "reason": "A(n)µ is a character of C_l, which is the quotient by G^der_l (modding out by G⁰_l would leave the finite component group); the argument concerns the simply connected group scheme G̃^sc_l just introduced; V_{λ,i} are the isotypic parts of V_l ⊗ M_λ.",
+   "affects": "nothing",
+   "known": "new (arXiv v4 read; the Annals version was not collated)",
+   "searched": [
+    "2026-09-29: arXiv listing for 1010.2561 (v1–v4); a web search for BLGGT errata found none."
+   ],
+   "owner": "PotentialModularityAndCompatibleSystems",
+   "file": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R24.3.json",
+   "citation": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor, Potential automorphy and change of weight, arXiv:1010.2561v4 (9 December 2013), 93 pages, the last arXiv version before Ann. of Math. (2) 179 (2014), 501–609. Printed page = PDF page.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PrismaticCohomology/E1",
    "kind": "misprint",
    "locator": "Remark 2.5 proof, printed p.14, description of the right arrow in the first square; arXiv:1905.08229v4 only",
