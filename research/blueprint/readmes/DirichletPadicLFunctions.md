@@ -145,7 +145,7 @@ the unit whose underlying p-adic integer is the natural cast of d. Primality tur
 coprimality; the pinned norm criterion then makes that cast a unit. The existing unit constructor
 supplies the point of U. The finite sum is integral at p=2 as well as at odd primes.
 There is no denominator in this construction. Its index is positive: it does not assign a measure
-to n=0 or replace the source’s separate constant pseudomeasure by a zero coefficient.
+to n=0 or replace the source’s separate twisted localized constant coefficient by a zero coefficient.
 
 Evaluation is the finite sum of evaluations. In particular, for every natural exponent e,
 
@@ -181,9 +181,9 @@ the difference 120 is divisible by 5 but not 25. The modulus required at precisi
 These are arithmetic measure statements in the native carrier. The new classical comparison
 below constructs the rescaled and stabilized bundled form from the pinned ModularForm.E
 and levelRaise. Its positive coefficients and the measure moments share a common integer.
-The completed-algebra image of A_n and constant pseudomeasure A₀=xζ_p/2 remain required
+The completed-algebra image of A_n and twisted localized constant coefficient A₀=xζ_p/2 remain required
 comparisons. Integrality of positive coefficients at p=2 says nothing about dividing the
-constant pseudomeasure by2.
+twisted localized constant coefficient by2.
 The full tame-character family and constant-term congruences still need their own decomposition.
 Geometric realization and Hida–Coleman control retain the PadicFamilies owner fixed by RS-14.
 
@@ -1585,7 +1585,7 @@ Source: RJW-published, Proposition 4.6, printed p.137 / PDF38; equation (4-3), D
 
 `DirichletPadicLFunctions:L4/positive-eisenstein-measure` — construction.
 
-Define A_n=Σ_{d∣n,p∤d}δ_u(d) in the existing D(U,ℤ_p), where u(d) is the unique unit whose underlying p-adic integer is d. This is an integral measure for every p and every n>0. The construction specifies only the positive coefficients; A₀ is the source’s distinct pseudomeasure xζ_p/2.
+Define A_n=Σ_{d∣n,p∤d}δ_u(d) in the existing D(U,ℤ_p), where u(d) is the unique unit whose underlying p-adic integer is d. This is an integral measure for every p and every n>0. The construction specifies only the positive coefficients; A₀ is the distinct localized coefficient Tw_x(ζ_p/2), whose character twist moves the pole away from the trivial character (confirmed source correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54).
 
 Hypotheses:
 
@@ -1811,7 +1811,7 @@ Source: RJW-published, §8, Definition 8.1 and proof of Theorem 8.2, printed pp.
 ### DirichletPadicLFunctions:L4 — partial
 
 - The explicit finite coordinates E_(n;r,s), their two independent transition maps and native integral/moment comparisons are now supplied. Instantiate positive-eisenstein-completed-coordinates once the requested PadicMeasuresIwasawaAlgebras:L1 actual integral-measure/completed-algebra map, Dirac projections and separating joint projections are supplied. The generic carrier, topology and convolution are owned there, with its existing ProfiniteProPGroups Layer9 anchor. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor.
-- The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual A₀ pseudomeasure, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9.
+- The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9.
 
 ## Source findings
 
@@ -2256,7 +2256,7 @@ Acceptance:
 - At p=3,k=4,n=2 it is9; exponent k instead of k−1 would give17.
 - At n=p the common integer is1, consistent with A_p=δ₁. The common-integer theorem makes no assertion for A₀.
 
-Source: Theorem8.2(b), positive-index calculation in its proof, printed160 / PDF61; arXiv v2 p.44. Completes only the positive-index comparison with the native classical modular form. The completed-algebra image and the constant pseudomeasure remain distinct missing inputs.
+Source: Theorem8.2(b), positive-index calculation in its proof, printed160 / PDF61; arXiv v2 p.44. Completes only the positive-index comparison with the native classical modular form. The completed-algebra image and the twisted localized constant coefficient remain distinct missing inputs.
 
 ### Remaining L4 boundary
 
@@ -2442,7 +2442,7 @@ Sources: §3.3, Proposition3.16 and explicit coordinate maps, printed121–123 /
 
 The one current supplier request is: For U=ℤ_p× and every prime p including2, supply the actual ℤ_p-linear integral-measure equivalence D(U,ℤ_p)→ℤ_p[[U]] on the existing ProfiniteProPGroups Layer9 completed-group-algebra anchor, compatible with convolution and Dirac u↦[u]. Supply the projections to (ℤ/p^sℤ)[(ℤ/p^rℤ)×], all r,s≥0, their joint coefficient/group transition laws, projection of [u] to [red_r(u)], and separation by these projections. Identify these quotients through the canonical unit reduction and its open kernel; use the joint adic/finite-quotient topology, not pure T-adic kernels or an integral dyadic eigenspace splitting. This request imports the general comparison; the finite divisor-coordinate arithmetic is already provided by the consuming nodes.
 
-Current L4 gap: The eight positive-series adapters supply the native coefficientwise assembly and full positive modular comparison through ℤ. They do not set A₀ to zero. Remaining work: The explicit finite coordinates E_(n;r,s), their two independent transition maps and native integral/moment comparisons are now supplied. Instantiate positive-eisenstein-completed-coordinates once the requested PadicMeasuresIwasawaAlgebras:L1 actual integral-measure/completed-algebra map, Dirac projections and separating joint projections are supplied. The generic carrier, topology and convolution are owned there, with its existing ProfiniteProPGroups Layer9 anchor. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual A₀ pseudomeasure, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9. Accepted RS-14 retained scope: Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined.
+Current L4 gap: The eight positive-series adapters supply the native coefficientwise assembly and full positive modular comparison through ℤ. They do not set A₀ to zero. Remaining work: The explicit finite coordinates E_(n;r,s), their two independent transition maps and native integral/moment comparisons are now supplied. Instantiate positive-eisenstein-completed-coordinates once the requested PadicMeasuresIwasawaAlgebras:L1 actual integral-measure/completed-algebra map, Dirac projections and separating joint projections are supplied. The generic carrier, topology and convolution are owned there, with its existing ProfiniteProPGroups Layer9 anchor. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9. Accepted RS-14 retained scope: Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined.
 
 At the previous finite-coordinate checkpoint, the full suggested file compiled with zero errors and141 expected proof-placeholder warnings; its actual PMIA import has317. All3541 reached Mathlib source files match the pin, and19 Tau Ceti modules were freshly rebuilt from pinned sources with zero warnings. Ten executable declarations and seven typed examples append to the previous seed. The completed-algebra declaration remains an explicit comment pending its actual supplier API, in accordance with the owner-carrier rule. Six complete finite-coordinate and native-measure scratch lemmas have no placeholders, errors or warnings. The exact finite regression harness passes146,171 assertions over8,400 systems, including75,600 transitions,25,200 test-function pairings and20,160 power moments. These are finite checks, not an implementation of the completed measure algebra or arithmetic pseudomeasure.
 
@@ -2497,7 +2497,7 @@ For every n>0 and f∈C(U,Z), |A_n(f)|_p ≤ ‖f‖∞. The constant is one, in
 
 **Acceptance:** At n=1 this is the norm bound for evaluation at 1. The dyadic n=6 mass is 2 and has norm 1/2, so equality is not asserted.
 
-**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter.
 
 ### The positive Eisenstein q-expansion measure
 
@@ -2544,7 +2544,7 @@ There is a canonical native AbstractMeasure(U,Z,Z[[q]]), denoted E⁺, given on 
 
 **Acceptance:** Construct the map using the actual native continuous-dual and PowerSeries types. Maintain zero only as the positive truncation boundary; retain the nonzero classical constant in the modular comparison.
 
-**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter.
 
 ### Coefficients of the positive q-expansion
 
@@ -2562,7 +2562,7 @@ For every f∈C(U,Z) and n≥0, coefficient n of E⁺(f) equals zero for n=0, an
 
 **Acceptance:** Use this promoted projection node in all later coefficient arguments; do not depend on an unlisted API item.
 
-**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter.
 
 ### Uniform bound for all q-coefficients
 
@@ -2580,7 +2580,7 @@ For every f∈C(U,Z) and n≥0, |coeff_n(E⁺(f))|_p≤‖f‖∞. Thus all posi
 
 **Acceptance:** This is a coefficientwise inequality, with no assertion that the coefficientwise topology is a supremum-norm topology.
 
-**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter.
 
 ### Uniform test-function congruences
 
@@ -2599,7 +2599,7 @@ Let r≥0 and f,g∈C(U,Z). If pʳ divides f(u)−g(u) in Z for every u∈U, the
 
 **Acceptance:** Allow r=0; then divisibility by one is automatic. The conclusion is in the actual integral power-series ring and has no unmentioned denominator.
 
-**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter.
 
 ### Weight congruences for the positive series
 
@@ -2618,7 +2618,7 @@ For r≥1 and e,e′≥0 with e≡e′ modulo p^(r−1)(p−1), C(pʳ) divides E
 
 **Acceptance:** At p=2,e=1,e′=5,r=3 obtain divisibility by8. At p=5,e=3,e′=7, coefficient two is120, divisible by5 but not25; congruence modulo p−1 alone cannot give the stronger precision.
 
-**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter.
 
 ### Invariance of coefficients under multiplication by p
 
@@ -2636,7 +2636,7 @@ For every n≥0 and f∈C(U,Z), coeff_(pn)(E⁺(f))=coeff_n(E⁺(f)).
 
 **Acceptance:** The q^p coefficient equals f(1), not zero. This coefficient identity introduces no generic U_p or Hecke operator.
 
-**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter.
 
 ### Joint integral series comparison with the modular form
 
@@ -2651,13 +2651,13 @@ For even k≥4 there exists a unique Q∈ℤ[[q]] such that its coefficient map 
 1. For each positive degree take the unique common integer supplied by positive-eisenstein-modular-comparison. Set degree zero to zero and use PowerSeries.mk to assemble these integers into Q. The supplier identifies each positive coefficient with the displayed divisor sum.
 2. For the complex comparison, apply PowerSeries.coeff_map and PowerSeries.ext. At degree zero subtraction of the constant series gives zero; at every positive degree coeff_C_of_ne_zero vanishes and the existing common-integer comparison supplies equality.
 3. For the p-adic comparison, use positive-eisenstein-series-coeff and the other equality from the same integer comparison; again degree zero is zero. Injectivity of the integer embedding into ℂ and PowerSeries.map_injective give uniqueness.
-4. The removed coefficient is the actual rational zeta constant from p-stabilized-zeta-constant. This theorem compares whole positive power series through ℤ; it does not postulate an embedding of ℂ into a p-adic field and does not supply the missing constant pseudomeasure.
+4. The removed coefficient is the actual rational zeta constant from p-stabilized-zeta-constant. This theorem compares whole positive power series through ℤ; it does not postulate an embedding of ℂ into a p-adic field and does not supply the missing twisted localized constant coefficient.
 
 **Prerequisites:** `DirichletPadicLFunctions:L4/positive-eisenstein-series-coeff`, `DirichletPadicLFunctions:L4/positive-eisenstein-modular-comparison`, `DirichletPadicLFunctions:L4/p-stabilized-zeta-constant`, `mathlib:PowerSeries.mk`, `mathlib:PowerSeries.coeff_mk`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.coeff_zero_C`, `mathlib:PowerSeries.coeff_C_of_ne_zero`, `mathlib:PowerSeries.map_injective`.
 
 **Acceptance:** At p=2,k=4 the omitted constant is−7/240, while Q₆=28. No equality with the full untruncated modular expansion is asserted.
 
-**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter.
 
 ### Validation and remaining work
 
@@ -3655,7 +3655,7 @@ zeta comparison, treating the pole at s=1 through the correct continuation.
 Then handle the actual smoothed kernels and the complex/p-adic comparison.
 Generic native zeta negative values are imported, not replanned. The remaining
 arithmetic interfaces, completed unit-group algebra request, twists,
-branches/poles and constant Eisenstein pseudomeasure remain in the five gaps
+branches/poles and twisted localized Eisenstein constant coefficient remain in the five gaps
 and one request. No stage is claimed closed.
 
 
@@ -4653,7 +4653,7 @@ import, Dedekind-zeta meromorphic/residue comparison, and idele/infinity-type
 conventions. L1 still requires completed unit-group algebra and regularity,
 localization, independence of smoothing, parity/descent and denominator-qualified
 congruences, as well as actual coefficient extension/descent for measures.
-Twists, branches, poles and the constant Eisenstein pseudomeasure remain in the
+Twists, branches, poles and the twisted localized Eisenstein constant coefficient remain in the
 other gaps. The one general completed-algebra supplier request remains. No stage
 is closed and the five gaps remain explicit.
 
@@ -10079,7 +10079,7 @@ Choose a∈U with value p+1. Define ζ_p as mk′(λ_a,θ_a), with its all-unit 
 
 - Theorem4.1 and Definition4.10: Provide the actual arithmetic element from integral smoothing numerators and clear every unit difference.
 - Positive interpolation and uniqueness: Evaluate the same pseudomeasure on power characters after checking a nonzero denominator; still to be extracted.
-- Constant term of the Eisenstein family: Supply the arithmetic pseudomeasure intended for the constant coefficient, pending the explicit completed-algebra comparison and remaining family construction.
+- Constant term of the Eisenstein family: Supply the arithmetic zeta pseudomeasure whose x-twist, divided by 2 in the localized algebra, gives the constant coefficient, pending the explicit completed-algebra comparison and remaining family construction.
 
 **Tests:**
 
@@ -12294,3 +12294,272 @@ Three complete native lemmas check the actual arithmetic-character pushforward i
 Exact controls check 136 formal moment/Bernoulli comparisons, 136 unit character values and their rational p-integrality, 64 principal-level comparisons, eight lifted-character comparisons, 68 parity zeros and four explicit source values. Exact rational polynomial division of the finite product-character kernel, followed by conversion of binomial to ordinary moments, compared with independent rational Bernoulli-polynomial sums through weight 8. Unit restriction contributes its explicit Euler factor and inverse weighting shifts the degree. Controls include four tame quadratic moduli, principal characters at levels zero and positive, five quadratic twists, level lifts, parity zeros and p-integrality of rational values. No degree-zero logarithmic value or equality of infinite measures follows from these finite checks. The largest observed discrepancy is 0 (exact arithmetic).
 
 At capture, only the two global errata-register inputs differed from the predecessor; all 16 Dirichlet findings were compared and remain identical. Every supplier input is unchanged. PMIA remains at 369 nodes with the preserved compiled 332-node interface; no new supplier declaration is called or compilation against the full 369-node source claimed.
+
+
+## Integral tame measures and arithmetic characters on units
+
+Partial continuation preserving the predecessor mathematics with the explicit E54 terminology correction. Eight L2 nodes construct the intrinsic integral tame measure and integer-valued arithmetic character, compare all coefficient-valued tests and identify their integral common-field specializations. Eleven API entries and 19 typed tests retain level and weight zero. All 16 findings and both requests remain unchanged; six gaps and zero closed stages remain.
+
+Published pages 129 and 143–146 were freshly read in the preceding checkpoint on 29 September 2026. Whole existing integral tame inclusion, support, uniqueness and character-weight construction nodes were checked, together with their exact suggested signatures. Whole supplier intrinsic restriction and zero-extension inside/outside nodes and exact signatures were read. Native DirichletCharacter.norm_le_one, NormedField.valuation_apply, Valuation.integer and mem_integer_iff, the subring norm instances, pow_le_one₀, ContinuousMonoidHom and the actual continuous-dual measure carrier were read with ambient hypotheses.
+
+### Integral bound for arithmetic unit characters
+
+`DirichletPadicLFunctions:L2/arithmetic-character-norm` — `DirichletPadic.primePowerArithmeticCharacter_norm_le`
+
+For every n,w≥0 and u∈U, the actual arithmetic character satisfies ‖κ_n,χ,w(u)‖≤1.
+
+**Hypotheses:** p is prime. K is a normed field with a Z_p-algebra structure and bounded scalar action; χ is a native DirichletCharacter K (p^n). No completeness, characteristic zero, nontrivial valuation, primitivity or nonprincipality is required.
+
+**Proof:**
+
+1. Use the promoted arithmetic-character-pointwise-value formula. Native DirichletCharacter.norm_le_one bounds the finite-character factor.
+2. The coordinate algebraMap(z) equals z acting on 1. Native norm_smul_le, PadicInt.norm_le_one and norm_one bound its norm by one without assuming the algebra map is isometric.
+3. Apply native norm_mul and norm_pow; pow_le_one₀ bounds every nonnegative integral power, including exponent zero. Multiplication of nonnegative bounds finishes the estimate.
+4. A complete native lemma checks this product estimate for any p-adic integer and finite residue, so its specialization to actual unit values has no extra boundary assumption.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value`, `mathlib:DirichletCharacter.norm_le_one`, `mathlib:norm_smul_le`, `mathlib:PadicInt.norm_le_one`, `mathlib:pow_le_one₀`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTests.norm_zero_weight` (degenerate): At weight zero the arithmetic character still has norm at most one.
+- `SuggestedIntegralUnitTests.norm_all_positive_weights` (compatibility): Every positive integral weight satisfies the same bound on every actual unit.
+
+**Acceptance:** The bound is uniform in the unit and weight. No bound for a complex absolute value is being substituted for the displayed coefficient norm.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; the integral coefficient discussion after equation (5-3), published 144 / PDF 45; Definition 5.13 and its interpolation identity, published 146 / PDF 47. Complete published 143–146 freshly read on 29 September 2026 during the immediately preceding checkpoint. Intrinsic restriction follows Remark 3.33, published 129 / PDF 30, also read during this continuation. Worker integral realization of the existing tame measure and arithmetic unit characters on the native unit domain. The coefficient ring is exactly the existing norm-valuation integer subring. Generic clopen restriction and zero extension are imported; comparison is on all continuous integer-ring-valued tests. The source positive-weight formula is transported through the existing common field, without a new general coefficient-extension map or a degree-zero logarithmic claim.
+
+### Arithmetic unit characters with integral values
+
+`DirichletPadicLFunctions:L2/integral-arithmetic-character` — `DirichletPadic.integralPrimePowerArithmeticCharacter`
+
+Construct κO_n,χ,w:ContinuousMonoidHom U O with underlying K-valued function κ_n,χ,w.
+
+**Hypotheses:** p is prime; K is a normed ultrametric field with a Z_p-algebra and bounded scalar action. O is its native norm-valuation integer subring. n,w≥0 and χ is a native K-valued character modulo p^n. No Z_p-algebra on O is required.
+
+**Proof:**
+
+1. The preceding norm bound and native valuation_apply and mem_integer_iff place every κ value in O. Define the underlying function by the actual subtype constructor.
+2. Use native Subtype.ext and the existing κ monoid laws for the identity and multiplication axioms. The native Continuous.subtype_mk lifts κ continuity. A complete native constructor verifies this assembly from any given bounded continuous monoid homomorphism.
+3. Its coefficient inclusion is promoted to a separate lemma. The identity API is the inherited monoid law; weight zero follows the existing pointwise formula, and the sign API follows reduction of −1 and preservation of negation by the coefficient algebra map.
+4. At level and weight zero the principal character is trivial. At level zero and weight one the value at −1 includes as −1, which prevents accidentally discarding the arithmetic power.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/arithmetic-character-norm`, `DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value`, `mathlib:Valuation.mem_integer_iff`, `mathlib:NormedField.valuation_apply`, `mathlib:Continuous.subtype_mk`, `mathlib:ContinuousMonoidHom`, `mathlib:SubringClass.toNormedCommRing`.
+
+**Uses:**
+
+- Integral tame measure evaluation: Provides an actual continuous O-valued test for the native O-valued measure on U.
+- RJW Theorem 5.7 coefficient ring: Realizes the integrality of the finite-order and positive arithmetic character values without changing the chosen coefficient field.
+- Coefficient comparison: Its exact inclusion identifies the integral test with the already defined K-valued arithmetic character, including weight zero.
+
+**API:**
+
+- `DirichletPadic.coe_integralPrimePowerArithmeticCharacter` (coercion): The inclusion of κO(u) into K equals κ(u); promoted to integral-arithmetic-character-coefficient.
+- `DirichletPadic.integralPrimePowerArithmeticCharacter_one` (simp): κO(1)=1.
+- `DirichletPadic.integralPrimePowerArithmeticCharacter_zero_weight` (compatibility): At weight zero the included value is primePowerCharacter(p,n,χ)(u).
+- `DirichletPadic.integralPrimePowerArithmeticCharacter_neg_one` (data): The included value at −1 is χ(−1)(−1)^w.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTests.integral_character_identity` (characterisation): The constructed integral character sends the identity unit to one in O.
+- `SuggestedIntegralUnitTests.integral_character_trivial_boundary` (degenerate): At level zero, weight zero and principal finite character it is the trivial continuous monoid homomorphism.
+- `SuggestedIntegralUnitTests.integral_character_principal_sign` (non-example): At level zero and weight one, its value at −1 includes as −1 in K.
+
+**Acceptance:** This is a specific arithmetic character valued in an existing subring, not a new coefficient carrier or an assumed scalar action.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; the integral coefficient discussion after equation (5-3), published 144 / PDF 45; Definition 5.13 and its interpolation identity, published 146 / PDF 47. Complete published 143–146 freshly read on 29 September 2026 during the immediately preceding checkpoint. Intrinsic restriction follows Remark 3.33, published 129 / PDF 30, also read during this continuation. Worker integral realization of the existing tame measure and arithmetic unit characters on the native unit domain. The coefficient ring is exactly the existing norm-valuation integer subring. Generic clopen restriction and zero extension are imported; comparison is on all continuous integer-ring-valued tests. The source positive-weight formula is transported through the existing common field, without a new general coefficient-extension map or a degree-zero logarithmic claim.
+
+### Coefficient inclusion of the integral arithmetic character
+
+`DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient` — `DirichletPadic.coe_integralPrimePowerArithmeticCharacter`
+
+For every unit u, ι(κO_n,χ,w(u))=κ_n,χ,w(u).
+
+**Hypotheses:** Use the exact hypotheses and native integer-subring character of integral-arithmetic-character, at arbitrary n,w≥0.
+
+**Proof:**
+
+1. Unfold the subtype-valued function in the integral arithmetic constructor. Its first component is exactly the existing arithmetic character value.
+2. Continuous-map extensionality gives the equality of the included O-valued test and κ.toContinuousMap needed by measure evaluation. No choice of an O-valued lift of an arbitrary K-valued test is asserted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-arithmetic-character`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTests.integral_character_coefficient` (compatibility): Every included integral arithmetic character value agrees exactly with the native K-valued character.
+
+**Acceptance:** The equality is pointwise on all actual units and independent of the membership proof.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; the integral coefficient discussion after equation (5-3), published 144 / PDF 45; Definition 5.13 and its interpolation identity, published 146 / PDF 47. Complete published 143–146 freshly read on 29 September 2026 during the immediately preceding checkpoint. Intrinsic restriction follows Remark 3.33, published 129 / PDF 30, also read during this continuation. Worker integral realization of the existing tame measure and arithmetic unit characters on the native unit domain. The coefficient ring is exactly the existing norm-valuation integer subring. Generic clopen restriction and zero extension are imported; comparison is on all continuous integer-ring-valued tests. The source positive-weight formula is transported through the existing common field, without a new general coefficient-extension map or a degree-zero logarithmic claim.
+
+### The integral tame zeta measure on units
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-zeta-measure` — `DirichletPadic.intrinsicIntegralTameZetaMeasure`
+
+Define ζO^U=restrictUnits p O (ζO) on the actual native D(U,O).
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a Z_p-algebra structure and bounded scalar action. D>0, η is a native DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=Z_pˣ has its existing topology. O is exactly Valuation.integer(NormedField.valuation(K)), with its native subring norm and continuous subtype inclusion ι:O→K. Write ζO=integralTameZetaMeasure, ζK=tameZetaMeasure and ζK^U=intrinsicTameZetaMeasure for the existing arithmetic measures. No separately chosen Z_p-algebra, field structure or completeness instance on O is assumed.
+
+**Proof:**
+
+1. The native subring norm makes O a normed commutative ring. Apply the already supplied intrinsic restriction to the existing ambient integral tame zeta measure.
+2. The defining restriction formula is the constructor API. At D=1 the ambient arithmetic measure is zero and the linear restriction preserves zero.
+3. If ν∈D(U,O) has pushforward j_Uν=ζO, apply the supplier retraction r_Uj_U=id to identify ν with ζO^U. The zero test evaluates to zero by linearity.
+4. Ambient inclusion and all-test coefficient comparison are promoted below. These characterize the construction using actual measures and continuous tests, without assuming a general extension functor on arbitrary coefficients.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-zeta-measure`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section`, `mathlib:SubringClass.toNormedCommRing`.
+
+**Uses:**
+
+- RJW integral tame construction and Definition 5.13: Realizes the existing integral arithmetic measure on the actual unit group.
+- Integral character specializations: Consumes κO as an actual integral continuous test.
+- Coefficient comparisons and uniqueness: Supplies a specific O-valued object whose inclusion is checked on all continuous O-tests.
+
+**API:**
+
+- `DirichletPadic.intrinsicIntegralTameZetaMeasure_eq_restrict` (characterisation): ζO^U is the existing intrinsic restriction applied to ζO.
+- `DirichletPadic.intrinsicIntegralTameZetaMeasure_one_level` (simp): The constructor is zero at tame modulus one.
+- `DirichletPadic.intrinsicIntegralTameZetaMeasure_unique` (universal-property): Its ambient pushforward characterizes it uniquely.
+- `DirichletPadic.map_intrinsicIntegralTameZetaMeasure` (compatibility): The pushforward of ζO^U is ζO; promoted to intrinsic-integral-tame-inclusion.
+- `DirichletPadic.coe_intrinsicIntegralTameZetaMeasure_apply` (compatibility): Included values on every O-valued continuous unit test agree with ζK^U; promoted to intrinsic-integral-tame-coefficients.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTests.integral_tame_modulus_one` (degenerate): At tame modulus one the intrinsic integral measure is zero.
+- `SuggestedIntegralUnitTests.integral_zero_test` (degenerate): The intrinsic integral measure evaluates the zero continuous test to zero.
+- `SuggestedIntegralUnitTests.integral_unique_ambient` (characterisation): Any O-valued unit measure with ambient pushforward ζO equals the constructed measure.
+
+**Acceptance:** The actual codomain is O. A K-valued measure whose values are merely declared integral is not substituted for this constructor.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; the integral coefficient discussion after equation (5-3), published 144 / PDF 45; Definition 5.13 and its interpolation identity, published 146 / PDF 47. Complete published 143–146 freshly read on 29 September 2026 during the immediately preceding checkpoint. Intrinsic restriction follows Remark 3.33, published 129 / PDF 30, also read during this continuation. Worker integral realization of the existing tame measure and arithmetic unit characters on the native unit domain. The coefficient ring is exactly the existing norm-valuation integer subring. Generic clopen restriction and zero extension are imported; comparison is on all continuous integer-ring-valued tests. The source positive-weight formula is transported through the existing common field, without a new general coefficient-extension map or a degree-zero logarithmic claim.
+
+### Ambient inclusion of the integral unit measure
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-inclusion` — `DirichletPadic.map_intrinsicIntegralTameZetaMeasure`
+
+The native pushforward j_U(ζO^U) is exactly ζO on Z_p.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a Z_p-algebra structure and bounded scalar action. D>0, η is a native DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=Z_pˣ has its existing topology. O is exactly Valuation.integer(NormedField.valuation(K)), with its native subring norm and continuous subtype inclusion ι:O→K. Write ζO=integralTameZetaMeasure, ζK=tameZetaMeasure and ζK^U=intrinsicTameZetaMeasure for the existing arithmetic measures. No separately chosen Z_p-algebra, field structure or completeness instance on O is assumed.
+
+**Proof:**
+
+1. Unfold the arithmetic restriction constructor and apply the exact supplier intrinsic-unit-extension-projector with coefficient ring O.
+2. The existing tame-integral-zeta-support theorem says the resulting ambient unit projector fixes ζO.
+3. Native map_apply identifies all evaluations on restricted ambient O-tests, including the constant one. There is no change of coefficients or convolution product in this equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-zeta-measure`, `DirichletPadicLFunctions:L2/tame-integral-zeta-support`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector`, `mathlib:AbstractMeasure.map_apply`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTests.integral_inclusion_all_tests` (compatibility): For every continuous ambient O-test f, ζO^U(f∘Units.val)=ζO(f).
+- `SuggestedIntegralUnitTests.integral_inclusion_mass` (compatibility): Intrinsic and ambient integral measures have equal total mass in O.
+
+**Acceptance:** No factor of p and no measure-theoretic normalization is introduced by inclusion.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; the integral coefficient discussion after equation (5-3), published 144 / PDF 45; Definition 5.13 and its interpolation identity, published 146 / PDF 47. Complete published 143–146 freshly read on 29 September 2026 during the immediately preceding checkpoint. Intrinsic restriction follows Remark 3.33, published 129 / PDF 30, also read during this continuation. Worker integral realization of the existing tame measure and arithmetic unit characters on the native unit domain. The coefficient ring is exactly the existing norm-valuation integer subring. Generic clopen restriction and zero extension are imported; comparison is on all continuous integer-ring-valued tests. The source positive-weight formula is transported through the existing common field, without a new general coefficient-extension map or a degree-zero logarithmic claim.
+
+### Coefficient inclusion on all integral unit tests
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-coefficients` — `DirichletPadic.coe_intrinsicIntegralTameZetaMeasure_apply`
+
+For every f∈C(U,O), ι(ζO^U(f))=ζK^U(ι∘f).
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a Z_p-algebra structure and bounded scalar action. D>0, η is a native DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=Z_pˣ has its existing topology. O is exactly Valuation.integer(NormedField.valuation(K)), with its native subring norm and continuous subtype inclusion ι:O→K. Write ζO=integralTameZetaMeasure, ζK=tameZetaMeasure and ζK^U=intrinsicTameZetaMeasure for the existing arithmetic measures. No separately chosen Z_p-algebra, field structure or completeness instance on O is assumed.
+
+**Proof:**
+
+1. Expand both intrinsic restrictions using the supplier intrinsic-unit-restriction-evaluation. The tests become the zero extensions from the clopen unit locus after the same native homeomorphism transport.
+2. Pointwise coefficient inclusion commutes with this zero extension: on the unit locus it is the included value of f, and off that locus both sides are zero because the ring inclusion preserves zero. Use the exact supplied inside/outside zero-extension lemmas; the native probe independently checks this coefficient/zero-extension identity.
+3. Apply the existing tame-integral-zeta-inclusion comparison to that actual ambient O-valued test. This yields the claimed equality on every continuous O-test.
+4. For the bound API, the native inclusion preserves pointwise norms and thus the compact-test supremum norm. Apply intrinsic-tame-zeta-norm to obtain ‖ζO^U(f)‖≤‖f‖. This is an all-test inequality, not a field-style operator norm on O-valued measures.
+5. If another O-valued measure satisfies the same all-test coefficient equality, compare its values with this result and use injectivity of the subtype inclusion and native continuous-dual extensionality. A complete native lemma verifies this all-O-test injectivity argument.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-zeta-measure`, `DirichletPadicLFunctions:L2/intrinsic-tame-zeta-measure`, `DirichletPadicLFunctions:L2/tame-integral-zeta-inclusion`, `DirichletPadicLFunctions:L2/intrinsic-tame-zeta-norm`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation`, `PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside`, `PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-outside`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:ContinuousMap.norm_le`, `mathlib:ContinuousMap.norm_coe_le_norm`.
+
+**API:**
+
+- `DirichletPadic.intrinsicIntegralTameZetaMeasure_bound` (compatibility): For every f∈C(U,O), ‖ζO^U(f)‖≤‖f‖.
+- `DirichletPadic.intrinsicIntegralTameZetaMeasure_unique_coefficient` (universal-property): Every O-valued unit measure satisfying the same coefficient equality on all O-tests equals ζO^U.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTests.coefficient_all_tests` (compatibility): The coefficient comparison holds on every actual continuous O-valued unit test.
+- `SuggestedIntegralUnitTests.integral_mass_norm` (compatibility): The total mass in O has norm at most one.
+- `SuggestedIntegralUnitTests.coefficient_unique_all_tests` (characterisation): The all-O-test coefficient comparison uniquely determines the integral unit measure.
+
+**Acceptance:** Do not claim every K-valued test has an O-valued lift. No new generic O→K measure-extension map is constructed.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; the integral coefficient discussion after equation (5-3), published 144 / PDF 45; Definition 5.13 and its interpolation identity, published 146 / PDF 47. Complete published 143–146 freshly read on 29 September 2026 during the immediately preceding checkpoint. Intrinsic restriction follows Remark 3.33, published 129 / PDF 30, also read during this continuation. Worker integral realization of the existing tame measure and arithmetic unit characters on the native unit domain. The coefficient ring is exactly the existing norm-valuation integer subring. Generic clopen restriction and zero extension are imported; comparison is on all continuous integer-ring-valued tests. The source positive-weight formula is transported through the existing common field, without a new general coefficient-extension map or a degree-zero logarithmic claim.
+
+### Integral evaluation of arithmetic unit characters
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-character-value` — `DirichletPadic.intrinsicIntegralTameZetaMeasure_character`
+
+For every n,w≥0, ι(ζO^U(κO_n,χ,w))=ζK^U(κ_n,χ,w).
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a Z_p-algebra structure and bounded scalar action. D>0, η is a native DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=Z_pˣ has its existing topology. O is exactly Valuation.integer(NormedField.valuation(K)), with its native subring norm and continuous subtype inclusion ι:O→K. Write ζO=integralTameZetaMeasure, ζK=tameZetaMeasure and ζK^U=intrinsicTameZetaMeasure for the existing arithmetic measures. No separately chosen Z_p-algebra, field structure or completeness instance on O is assumed. χ is any native K-valued character modulo p^n. The actual integral character κO is the preceding native ContinuousMonoidHom U O. Neither positive weight nor primitivity is required for this coefficient comparison.
+
+**Proof:**
+
+1. Apply the all-test coefficient comparison to κO.toContinuousMap.
+2. The promoted integral-arithmetic-character-coefficient lemma identifies its included continuous test pointwise with κ.toContinuousMap.
+3. Every resulting field-valued character evaluation belongs to O because it is the inclusion of an actual O-valued measure value. This includes weight zero and the total-mass boundary; it makes no claim about a logarithmic formula for those values.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-coefficients`, `DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTests.integral_character_zero_weight` (degenerate): At weight zero the included integral character integral agrees with the field-valued one.
+- `SuggestedIntegralUnitTests.integral_character_total_mass` (degenerate): The principal character at level and weight zero gives the included total mass.
+- `SuggestedIntegralUnitTests.integral_character_value_mem_integer` (compatibility): Every nonnegative-weight field-valued arithmetic character value of ζK^U belongs to the displayed native integer ring.
+
+**Acceptance:** The output is an actual integral measure evaluation. No general pseudomeasure field evaluator or scalar tower is assumed.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; the integral coefficient discussion after equation (5-3), published 144 / PDF 45; Definition 5.13 and its interpolation identity, published 146 / PDF 47. Complete published 143–146 freshly read on 29 September 2026 during the immediately preceding checkpoint. Intrinsic restriction follows Remark 3.33, published 129 / PDF 30, also read during this continuation. Worker integral realization of the existing tame measure and arithmetic unit characters on the native unit domain. The coefficient ring is exactly the existing norm-valuation integer subring. Generic clopen restriction and zero extension are imported; comparison is on all continuous integer-ring-valued tests. The source positive-weight formula is transported through the existing common field, without a new general coefficient-extension map or a degree-zero logarithmic claim.
+
+### Integral common-field interpolation on units
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-common-value` — `DirichletPadic.intrinsicIntegralTameZetaMeasure_common_character_value`
+
+The existing positive-weight Euler–Bernoulli element b has complex image (1−θC(p)p^(w−1))L(θC,1−w) and arithmetic image ι(ζO^U(κO_n,χK,w)).
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a Z_p-algebra structure and bounded scalar action. D>0, η is a native DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=Z_pˣ has its existing topology. O is exactly Valuation.integer(NormedField.valuation(K)), with its native subring norm and continuous subtype inclusion ι:O→K. Write ζO=integralTameZetaMeasure, ζK=tameZetaMeasure and ζK^U=intrinsicTameZetaMeasure for the existing arithmetic measures. No separately chosen Z_p-algebra, field structure or completeness instance on O is assumed. Retain every hypothesis and convention of intrinsic-tame-common-character-value: K is characteristic zero with its rational algebra; E is a characteristic-zero field with rational algebra and separate embeddings ιC:E→C,ιK:E→K; η,χ are E-valued characters, η≠1,n≥0,w≥1. The measures use ηK, and the test uses χK. At N=D p^n use the native product-level θ=η.changeLevel(D∣N)·χ.changeLevel(p^n∣N), with b=(1−θ(p)p^(w−1))(−N^(w−1)/w)Σ_aθ(a)B_w(a.val/N), taking Bernoulli values over Q before mapping to E. No primitive roots, Gauss-nonvanishing or primitive-character hypotheses are added.
+
+**Proof:**
+
+1. Apply the existing intrinsic-tame-common-character-value comparison to b. It already identifies the complex image and the field-valued arithmetic character evaluation.
+2. Use intrinsic-integral-tame-character-value for that actual transported character to express the arithmetic image as inclusion of an O-valued integral.
+3. Keep the displayed product level and explicit Euler factor. At n=0 the tame Euler factor remains; at n>0 its deletion is already encoded in the product-level L-function even for principal χ.
+4. The examples give 2/3 and −2 in Q_2 as inclusions of actual O-valued character integrals. Exact rational controls check p-integrality through weight 20, compatible coefficient residues, principal-level agreement and weight congruences. A missing-Euler-factor negative control fails modulo 2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-character-value`, `DirichletPadicLFunctions:L2/intrinsic-tame-common-character-value`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTests.integral_common_first_value` (computation): For p=2, η quadratic modulo 3 and the principal level-zero character in weight one, the included integral value is 2/3.
+- `SuggestedIntegralUnitTests.integral_common_twisted_value` (computation): For the same η with quadratic χ modulo 4 in weight two, the included integral value is −2.
+
+**Acceptance:** The complex and p-adic values are related by the same E-element. Its integral realization does not identify the two ambient fields or compute degree-zero arithmetic values.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143 / PDF 44; the integral coefficient discussion after equation (5-3), published 144 / PDF 45; Definition 5.13 and its interpolation identity, published 146 / PDF 47. Complete published 143–146 freshly read on 29 September 2026 during the immediately preceding checkpoint. Intrinsic restriction follows Remark 3.33, published 129 / PDF 30, also read during this continuation. Worker integral realization of the existing tame measure and arithmetic unit characters on the native unit domain. The coefficient ring is exactly the existing norm-valuation integer subring. Generic clopen restriction and zero extension are imported; comparison is on all continuous integer-ring-valued tests. The source positive-weight formula is transported through the existing common field, without a new general coefficient-extension map or a degree-zero logarithmic claim.
+
+**Remaining:** The tame measure and arithmetic characters now have actual integer-ring-valued realizations on U. Their coefficient inclusion is checked on all continuous O-tests, with a norm bound, uniqueness and common-field positive-weight specializations. Next connect these intrinsic integral character values with the existing integral finite-character twists and their level/product/inverse and congruence APIs, keeping the native unit domain explicit. The separate canonical coefficient-field pseudomeasure evaluator remains the precise PMIA L3 request. Generic primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, p-adic logarithmic and degree-zero values, full source extraction and the original PMIA L1 completed-algebra comparison remain open.
+
+### Confirmed source correction for the Eisenstein constant
+
+Confirmed source correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54 changes only the constant-coefficient terminology in 11 predecessor nodes and matching reader/coverage text. Exact before/after field receipts are retained. All mathematical positive-coefficient signatures, APIs, tests and dependencies remain unchanged. The localized A₀=Tw_x(ζ_p/2) has its possible pole at x⁻¹. For odd p its inverse x-twist is a pseudomeasure; at p=2 the required division by 2 remains an explicit open denominator obligation. E104 does not affect the existing finite-residue proof. The external finding and its review are cited without copying a review verdict into this packet.
+
+See [independent paper review](../reviews/REV-PAPER-RODRIGUES-JACINTO-WILLIAMS-23.md) and finding E54 in the [reviewed extraction](../papers/PAPER-RODRIGUES-JACINTO-WILLIAMS-23.result.json). The construction of the actual localized constant remains open.
+
+### Integral tame measures and arithmetic characters on units validation
+
+All 356 predecessor nodes, 415 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 8 nodes, 16 named suggested declarations and 19 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 550 reachable nodes, 2599 edges and 534 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 1123 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+One complete native constructor and three complete lemmas check the arithmetic-value norm bound, subtype-valued continuous monoid homomorphism, inclusion through zero extension and uniqueness of actual O-valued measures from all included O-tests. The probe elaborates against 2137 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact rational controls check 340 integral special values, 1020 coefficient residues, 3808 weight congruences (2354 with nonzero differences), 160 principal-level comparisons, 400 finite character unit values and three explicit values; one negative control detects a missing Euler factor. Exact rational Euler–Bernoulli values through weight 20 for 17 tame/product-character cases. Check valuation-ring membership by denominators prime to p, compatible residues modulo p,p²,p³, and pairwise weight congruences whenever the exponents agree modulo phi(p^s). Nonzero differences are counted separately. Finite character values on actual integer units have p-adic valuation zero. A modulo-2 negative control detects omission of the level-zero Euler factor. These controls test the displayed rational specializations and integral normalization; the native probe separately checks the general coefficient-subtype construction and all-test injectivity. The largest observed discrepancy is 0 (exact arithmetic).
+
+Only the two global errata-register inputs changed during the checkpoint; all 16 Dirichlet findings were compared and remain identical. Every supplier and other captured input is unchanged. PMIA remains at 369 nodes with its preserved compiled 332-node interface; no new supplier declaration is called or compilation against the full 369-node source claimed. Three newly available paper-extraction/review files are added as guarded inputs and read to the stated scope.
+
+Confirmed source correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54 changes only the constant-coefficient terminology in 11 predecessor nodes and matching reader/coverage text. Exact before/after field receipts are retained. All mathematical positive-coefficient signatures, APIs, tests and dependencies remain unchanged. The localized A₀=Tw_x(ζ_p/2) has its possible pole at x⁻¹. For odd p its inverse x-twist is a pseudomeasure; at p=2 the required division by 2 remains an explicit open denominator obligation. E104 does not affect the existing finite-residue proof. The external finding and its review are cited without copying a review verdict into this packet.
