@@ -33217,8 +33217,9 @@
     "REV-PAPER-BERGSTROM-FABER-PAYNE-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BERGSTROM-FABER-PAYNE-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4519"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4519",
+   "finishedAt": "2026-09-29T23:25:32Z"
   },
   {
    "id": "REV-RT-PAPER-BERGSTROM-FABER-PAYNE-24",
@@ -38077,7 +38078,8 @@
     "REV-PAPER-MERKURJEV-SCAVIA-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4530"
   },
   {
    "id": "REV-RT-PAPER-MERKURJEV-SCAVIA-26",
