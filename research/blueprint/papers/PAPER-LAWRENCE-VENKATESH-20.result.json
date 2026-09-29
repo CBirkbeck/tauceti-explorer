@@ -14,7 +14,8 @@
   "sha256": "e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b",
   "version": "arXiv v3 (25 October 2019, 76 pages), read completely; the published article is not openly available and was not collated.",
   "readSections": [
-   "2026-09-29: arXiv:1807.02721v3, all 76 pages: §§1–12 and references; page images checked at the source issues."
+   "2026-09-29: arXiv:1807.02721v3, all 76 pages: §§1–12 and references; page images checked at the source issues.",
+   "2026-09-29 (REV-PAPER-LAWRENCE-VENKATESH-20): the published article (public PDF at bimsa.net, SHA-256 588e450a…) collated at E1–E3 on its page images; all three persist."
   ]
  },
  "summary": "Lawrence and Venkatesh give a new proof of Faltings's theorem: a curve of genus ≥ 2 over a number field has finitely many rational points. Families with good reduction have finitely many possible Galois representations (Faltings's finiteness lemma); p-adic Hodge theory turns them into filtered φ-modules, whose variation is a p-adic period map that has the same power series as the complex one, so big monodromy forces Zariski density. Frobenius centralizers are kept small by semilinearity over large unramified extensions, obtained from an abelian-by-finite Kodaira–Parshin family of Aff(q)-covers, and semisimplicity is controlled by purity of Hodge weights at friendly places. The S-unit theorem is a warm-up. In higher dimension, with the Bakker–Tsimerman Ax–Schanuel theorem, integral points on bases of families with large monodromy and spread-out adjoint Hodge numbers are not Zariski dense (Theorem 10.1), which applies to hypersurfaces in P^n of large dimension and degree. The draft roadmap MordellLawrenceVenkatesh plans the whole curve case (LV.0–LV.11); the higher-dimensional part is routed to the Part II that Lawrence–Sawin's extraction proposes.",
@@ -787,7 +788,7 @@
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/E1",
    "kind": "error",
-   "locator": "arXiv:1807.02721v3 (25 Oct 2019), §10.2, dimension of the parameter space before (10.8), p. 57; page image checked",
+   "locator": "arXiv:1807.02721v3 (25 Oct 2019), §10.2, dimension of the parameter space before (10.8), p. 57; page image checked; published version p. 971 (collated by REV-PAPER-LAWRENCE-VENKATESH-20)",
    "printed": "The source gives (n+d choose d−1) − 1 = d(d+1)…(d+n)/(n+1)! − 1 ∼ d^{n+1}/(n+1)! as the dimension of the moduli space for degree d hypersurfaces in P^n.",
    "correction": "(n+d choose d) − 1 = (d+1)(d+2)…(d+n)/n! − 1 ∼ d^n/n!.",
    "reason": "Degree-d forms in the n+1 homogeneous coordinates of P^n form a space of dimension (n+d choose d); the printed binomial is d/(n+1) times too large (for n = 1 it gives d(d+1)/2 − 1 instead of d). (10.8) still holds: h⁰ grows like d^{2n}, faster than either d^n or d^{n+1} for n ≥ 2.",
@@ -795,13 +796,19 @@
    "known": "new",
    "searched": [
     "2026-09-29: arXiv:1807.02721 v3 (25 Oct 2019), the last arXiv version; the published article (Invent. Math. 221 (2020), 893–999, doi:10.1007/s00222-020-00966-7) is not openly available (Crossref lists only the Springer TDM licence) and was not collated.",
-    "2026-09-29: Crossref records no correction or erratum relation for the published article; web search for an erratum found none. Not an exhaustive novelty claim."
-   ]
+    "2026-09-29: Crossref records no correction or erratum relation for the published article; web search for an erratum found none. Not an exhaustive novelty claim.",
+    "29 September 2026 (REV-PAPER-LAWRENCE-VENKATESH-20): the published article, Invent. Math. 221 (2020), was read at this passage in the public journal PDF https://bimsa.net/doc/publication/2578.pdf; the passage is unchanged there. Crossref records no update relation for doi:10.1007/s00222-020-00966-7."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page images of arXiv v3 p. 57 and published p. 971: degree-d forms on P^n have dimension (n+d choose n) = (n+d choose d), so the space of hypersurfaces has dimension (n+d choose d) − 1 ∼ d^n/n!; the printed (n+d choose d−1) − 1 ∼ d^{n+1}/(n+1)! gives d(d+1)/2 − 1 for n = 1 instead of d. (10.8) survives either way since h^0 grows like d^{2n}. 'affects: nothing' is right.",
+    "by": "REV-PAPER-LAWRENCE-VENKATESH-20"
+   }
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/E2",
    "kind": "error",
-   "locator": "arXiv:1807.02721v3 (25 Oct 2019), §12, proof of Lemma 12.1, p. 74; page image checked",
+   "locator": "arXiv:1807.02721v3 (25 Oct 2019), §12, proof of Lemma 12.1, p. 74; page image checked; published version pp. 995–996 (collated by REV-PAPER-LAWRENCE-VENKATESH-20)",
    "printed": "It displays ∫ g_N(t − θ) dµ(θ) = Σ_{r=−N}^{N} (2N + 1 − |r|) Σ_{s=1}^{b} e(r(t − θ_s)), with absolute value bounded by (2N + 1)[b + 2 Σ_{r=1}^{N} q^{(n/2+1)|r|}]. Taking the largest integer N satisfying q^{(n/2+1)N} < b/3, it obtains dim(Z) ⩽ 3b²/N.",
    "correction": "The sum runs over |r| ≤ 2N, since g_N = (Σ_{|r|≤N} e(rt))² = Σ_{|r|≤2N} (2N+1−|r|) e(rt) as printed just before. The bound is (2N+1)[b + 3q^{(n/2+1)2N}], so N must be the largest integer with q^{(n/2+1)·2N} < b/3; then dim Z ≤ b²(1+1)²·3/(4N) = 3b²/N. With the printed N the argument gives only about 6b²/N.",
    "reason": "The Fourier expansion of g_N stated in the proof has frequencies up to 2N, and the triangle-inequality bound needs (12.2) for all 1 ≤ |r| ≤ 2N. The tail q^{(n/2+1)2N} is controlled only if the exponent in the choice of N is doubled; (2N+1)²/((2N+1)² + 2Σ_{i≤2N} i²) = 3(2N+1)/(8N²+8N+3) ≤ 3/(4N) is correct. Lemma 12.1 is not used elsewhere in the paper.",
@@ -809,13 +816,19 @@
    "known": "new",
    "searched": [
     "2026-09-29: arXiv:1807.02721 v3 (25 Oct 2019), the last arXiv version; the published article (Invent. Math. 221 (2020), 893–999, doi:10.1007/s00222-020-00966-7) is not openly available (Crossref lists only the Springer TDM licence) and was not collated.",
-    "2026-09-29: Crossref records no correction or erratum relation for the published article; web search for an erratum found none. Not an exhaustive novelty claim."
-   ]
+    "2026-09-29: Crossref records no correction or erratum relation for the published article; web search for an erratum found none. Not an exhaustive novelty claim.",
+    "29 September 2026 (REV-PAPER-LAWRENCE-VENKATESH-20): the published article, Invent. Math. 221 (2020), was read at this passage in the public journal PDF https://bimsa.net/doc/publication/2578.pdf; the passage is unchanged there. Crossref records no update relation for doi:10.1007/s00222-020-00966-7."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page images of arXiv v3 p. 74 and published p. 996. The proof writes g_N = Σ_{|r|≤2N}(2N+1−|r|)e(rt), then sums only over |r| ≤ N and bounds the tail by q^{(n/2+1)N}; with all frequencies |r| ≤ 2N the tail is q^{(n/2+1)2N}, so N must be chosen with q^{(n/2+1)·2N} < b/3. The factor (2N+1)²/‖g_N‖² = 3(2N+1)/(8N²+8N+3) ≤ 3/(4N) was rechecked. As stated the lemma's bound is therefore not established (with the printed N the argument gives about 6b²/N); 'a stated result' is the right scope, and the lemma is not used elsewhere.",
+    "by": "REV-PAPER-LAWRENCE-VENKATESH-20"
+   }
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/E3",
    "kind": "misprint",
-   "locator": "arXiv:1807.02721v3 (25 Oct 2019), §7.2, p. 35; page image checked",
+   "locator": "arXiv:1807.02721v3 (25 Oct 2019), §7.2, p. 35; page image checked; published version p. 941 (collated by REV-PAPER-LAWRENCE-VENKATESH-20)",
    "printed": "The source identifies the Prym variety for C′₁ → C₂, up to isogeny, with the cokernel of the map from the identity component of Pic⁰(C₁)^{G_q} to that of Pic⁰(C₁)^{H_q}.",
    "correction": "Pic⁰(C₁)^{Aff(q)}: the invariants under the whole Galois group Aff(q).",
    "reason": "G_q is not defined in the paper; the preceding sentence identifies the image of Pic⁰(C₂) with the connected component of the Aff(q)-invariants, and the idempotent e below uses Aff(q).",
@@ -823,8 +836,14 @@
    "known": "new",
    "searched": [
     "2026-09-29: arXiv:1807.02721 v3 (25 Oct 2019), the last arXiv version; the published article (Invent. Math. 221 (2020), 893–999, doi:10.1007/s00222-020-00966-7) is not openly available (Crossref lists only the Springer TDM licence) and was not collated.",
-    "2026-09-29: Crossref records no correction or erratum relation for the published article; web search for an erratum found none. Not an exhaustive novelty claim."
-   ]
+    "2026-09-29: Crossref records no correction or erratum relation for the published article; web search for an erratum found none. Not an exhaustive novelty claim.",
+    "29 September 2026 (REV-PAPER-LAWRENCE-VENKATESH-20): the published article, Invent. Math. 221 (2020), was read at this passage in the public journal PDF https://bimsa.net/doc/publication/2578.pdf; the passage is unchanged there. Crossref records no update relation for doi:10.1007/s00222-020-00966-7."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page images of arXiv v3 p. 35 and published p. 941: G_q is undefined, and the preceding sentence and the idempotent e use Aff(q). The dimension (2g − 1)(q − 1)/2 printed next to it was rechecked by Riemann–Hurwitz for the degree-q cover totally ramified over one point.",
+    "by": "REV-PAPER-LAWRENCE-VENKATESH-20"
+   }
   }
  ],
  "sourceVersions": [
@@ -834,17 +853,27 @@
    "read": "2026-09-29",
    "sha256": "e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b",
    "citation": "arXiv:1807.02721v3, read completely."
+  },
+  {
+   "kind": "published",
+   "url": "https://bimsa.net/doc/publication/2578.pdf",
+   "read": "2026-09-29",
+   "sha256": "588e450aa571e2c81686940cda08c63e094c39176e0f956bd94d4306c8db43bd",
+   "citation": "Invent. Math. 221 (2020), 893–999, the journal PDF (Springer imprint, doi:10.1007/s00222-020-00966-7) as posted publicly by BIMSA; read by REV-PAPER-LAWRENCE-VENKATESH-20 at the source issues E1–E3, which persist unchanged (pp. 971, 996, 941). The same copy was used by the roadmap errata job for research/blueprint/errata/MordellLawrenceVenkatesh.json."
   }
  ],
  "gaps": [
   {
-   "id": "published-version",
-   "title": "published text not collated",
-   "remaining": "The Inventiones version (2020) was not accessible; collate E1–E3 when a copy is available.",
+   "id": "roadmap-errata",
+   "title": "further mistakes recorded for the roadmap",
+   "remaining": "research/blueprint/errata/MordellLawrenceVenkatesh.json (the roadmap's errata job) records 28 further mistakes in this paper in §§1–8 (MordellLawrenceVenkatesh/E1–E28, against arXiv v3 and the published text), for example the range 1 ⩽ i ⩽ 8 in the proof of Theorem 5.4 (its E8, also found independently by REV-PAPER-LAWRENCE-VENKATESH-20) and gaps in Lemmas 2.12, 6.3 and 8.6. They are not duplicated in this file, whose E1–E3 (§§7.2, 10.2, 12) are distinct from them. The items planned in MordellLawrenceVenkatesh use that roadmap's corrected statements; a follow-up should reconcile the two lists.",
    "items": [
-    "PAPER-LAWRENCE-VENKATESH-20/hypersurface-hodge-asymptotics",
-    "PAPER-LAWRENCE-VENKATESH-20/lemma-12-1",
-    "PAPER-LAWRENCE-VENKATESH-20/kodaira-parshin"
+    "PAPER-LAWRENCE-VENKATESH-20/theorem-5-4",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-2-12",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-6-1",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-6-3",
+    "PAPER-LAWRENCE-VENKATESH-20/prop-5-3",
+    "PAPER-LAWRENCE-VENKATESH-20/lemmas-8-6-8-10"
    ]
   }
  ]

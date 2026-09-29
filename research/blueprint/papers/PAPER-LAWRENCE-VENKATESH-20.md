@@ -94,3 +94,14 @@ Two further points are not recorded as issues:
 - The proof of the Hodge-number asymptotics (10.6) and of Lemma 8.6 are omitted by the authors ("we will omit the proof", "left to the reader"). The corresponding items record this for the design jobs.
 
 I also rechecked the arithmetic of the curve case against the text: the generating-tuple count and the isotropic-subgroup bound in Theorem 5.4, the counting (6.9)–(6.11), and dim H_{(y′₀,w₀)} > 4d² in Lemma 6.2. For the hypersurface case I rechecked Var = (n+1)/12, the constant c = 1/40 below the N(0, 1/6) density at 1.1 (≈ 0.0259), and the variance bound in Proposition 10.2. All of these are correct.
+
+## Corrections by the independent review
+
+The review `REV-PAPER-LAWRENCE-VENKATESH-20` (Claude Code, session `cc-fb70e5`, 29 September 2026) accepts the extraction.
+
+- **Published text collated.** The published article is readable in a public journal PDF (bimsa.net/doc/publication/2578.pdf), which the roadmap errata job had already used. E1–E3 were checked there and all persist, on pp. 971, 996 and 941. `sourceVersions` and the locators now record this, and the gap `published-version` is closed.
+- **E1–E3 confirmed.** For E2, the Fourier bookkeeping in Lemma 12.1 was redone: the proof supports N chosen with q^{(n/2+1)·2N} < b/3.
+- **Further mistakes.** `research/blueprint/errata/MordellLawrenceVenkatesh.json` already records 28 more mistakes in §§1–8 of this paper, found by the roadmap's errata job. One is the range 1 ⩽ i ⩽ 8 in the proof of Theorem 5.4, which the review also found independently. They are not duplicated here. A new gap, `roadmap-errata`, points to them.
+- **Route 1's title** differs from the one PAPER-LAWRENCE-SAWIN-25 gave the same roadmap id. The design job should settle it.
+
+No item statement, status or route changed.
