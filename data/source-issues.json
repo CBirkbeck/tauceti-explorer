@@ -135013,7 +135013,7 @@
    ],
    "owner": "EulerSystemsCyclotomicMainConjecture",
    "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
-   "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2 (19 December 2024); the version in Essential Number Theory 4 (2025) was not accessed",
+   "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2 (19 December 2024); for §13.5 also the version of record, Essential Number Theory 4 (2025) 101–216 (msp.org PDF), whose text there is unchanged",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -135201,6 +135201,48 @@
    "owner": "EulerSystemsCyclotomicMainConjecture",
    "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
    "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E12",
+   "kind": "misprint",
+   "locator": "§13.5.2, item (3), p. 71 (arXiv v2); p. 197 in Essential Number Theory 4 (2025)",
+   "printed": "Thus if n ≥ 1, the local condition at p is empty, while for n ≥ 0 the local condition at p means σ is also unramified at p",
+   "correction": "… while for n ≤ 0 the local condition at p means σ is also unramified at p",
+   "reason": "The display just above gives L^Gr_{v_p} = H¹(K_∞^+, W_n) for n ≥ 1 and H¹_ur(K_∞^+, W_n) for n ≤ 0, as Definition 13.19 gives with Fil¹ℚ_p(n) = ℚ_p(n) for n ≥ 1 and 0 for n ≤ 0. The next display also uses n ≤ 0. As printed, n ≥ 1 would satisfy both clauses.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "research/errata/REGISTER.md and SelmerIwasawaCohomology's sourceIssues (E1–E2): no entry for these passages",
+    "arXiv 2309.15692: v2 is the latest version",
+    "version of record, Essential Number Theory 4 (2025) 101–216, msp.org PDF (SHA-256 78d0479b…), read at the same passages: the text is unchanged"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2 (19 December 2024); for §13.5 also the version of record, Essential Number Theory 4 (2025) 101–216 (msp.org PDF), whose text there is unchanged",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E13",
+   "kind": "misprint",
+   "locator": "Remark 13.23, pp. 71–72 (arXiv v2); p. 198 in Essential Number Theory 4 (2025)",
+   "printed": "here ℚ_p^∨ = ℚ_p(1), so L_∞(ℚ_p^∨, s) = L_∞(ℚ_p, 1 − s), hence r_{ℚ_p^∨} = 1",
+   "correction": "L_∞(ℚ_p^∨, s) = L_∞(ℚ_p, s − 1)",
+   "reason": "With the notes' L_∞(ℚ_p(n), s) = π^{−(s−n)/2}Γ((s−n)/2) (p. 71), n = 1 gives π^{−(s−1)/2}Γ((s−1)/2) = L_∞(ℚ_p, s − 1). L_∞(ℚ_p, 1 − s) = π^{−(1−s)/2}Γ((1−s)/2) is a different function. Both have a pole at s = 1, so r_{ℚ_p^∨} = 1 stands.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "research/errata/REGISTER.md and SelmerIwasawaCohomology's sourceIssues (E1–E2): no entry for these passages",
+    "arXiv 2309.15692: v2 is the latest version",
+    "version of record, Essential Number Theory 4 (2025) 101–216, msp.org PDF (SHA-256 78d0479b…), read at the same passages: the text is unchanged"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2 (19 December 2024); for §13.5 also the version of record, Essential Number Theory 4 (2025) 101–216 (msp.org PDF), whose text there is unchanged",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
