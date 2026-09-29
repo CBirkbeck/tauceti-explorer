@@ -356,11 +356,14 @@ def main():
             text = body(job, jobs, roadmaps, stages)
             if re.search(r"/Users/|/private/|mcu22seu", text):
                 print("skipped (private path)", job["id"]); continue
+            if len(text) > 65536:
+                # GitHub refuses it outright; retrying only waits (about 20 minutes per job).
+                print("failed (body of %d characters; GitHub allows 65,536)" % len(text), job["id"], flush=True); continue
             for attempt in range(6):
                 result = subprocess.run(["gh", "issue", "create", "--title", title(job, roadmaps), "--body", text,
                                          *sum((["--label", label] for label in labels_for(job, roadmaps, by_id)), [])],
                                         capture_output=True, text=True, cwd=REPO)
-                if result.returncode == 0:
+                if result.returncode == 0 or "Body is too long" in result.stderr:
                     break
                 print("retry", job["id"], result.stderr.strip()[:160], flush=True)
                 time.sleep(60 * (attempt + 1))

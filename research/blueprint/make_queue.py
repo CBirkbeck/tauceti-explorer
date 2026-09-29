@@ -477,6 +477,21 @@ def area_parts(members, links, size=8):
 FINDING_PATH = re.compile(r"research/[A-Za-z0-9_./~+-]+\.(?:json|md|lean|tex|txt|py)")
 
 
+# A GitHub issue body holds at most 65,536 characters, and the rest of a FIX job's body is
+# under 16,000, so findings are quoted in full only up to this many characters.
+FINDINGS_BUDGET = 30_000
+
+
+def findings_text(rt, findings):
+    """The findings as a FIX prompt lists them: in full if they fit, otherwise by location,
+    with the red team's result file to read for each claim and fix."""
+    full = "\n".join(f"- {f['id']} ({f['severity']}, {f['kind']}) at {f['where']}: {f['claim']} Fix: {f['fix']}" for f in findings)
+    if len(full) <= FINDINGS_BUDGET:
+        return full
+    return ("\n".join(f"- {f['id']} ({f['severity']}, {f['kind']}) at {f['where']}" for f in findings)
+            + f"\nThere are too many to quote here: read each finding's claim and fix in research/blueprint/redteam/{rt}.result.json.")
+
+
 def finding_files(findings):
     """The files some findings name: those a worker's pull request may change, and those
     outside the swarm's output paths, which it may not. A finding's "where" is a location,
@@ -1056,7 +1071,7 @@ def main():
         findings = confirmed_findings(rt)
         if findings:
             files, elsewhere = finding_files(findings)
-            listed = "\n".join(f"- {f['id']} ({f['severity']}, {f['kind']}) at {f['where']}: {f['claim']} Fix: {f['fix']}" for f in findings)
+            listed = findings_text(rt, findings)
             add({"id": "FIX-" + rt, "kind": "fix", "priority": 1, "order": order, "name": name, "target": target, "roadmapIds": roadmap_ids,
                  "outputs": [f"research/blueprint/redteam/{rt}.fixes.md"] + [f for f in files if f not in fields.get("OUTPUTS", [])] + fields.get("OUTPUTS", []),
                  "after": []}, FIX_TEMPLATE.format(**fill, JOB="FIX-" + rt, RT=rt, FILE=rt, TARGET=fields.get("TARGET", target), FINDINGS=listed,
