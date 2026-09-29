@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -48723,7 +48723,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-probability.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3987"
   },
   {
    "id": "RT-AREA-combinatorics",
@@ -48936,8 +48937,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-diffgeom.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3992"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3992",
+   "finishedAt": "2026-09-29T18:10:39Z"
   },
   {
    "id": "ERRATA-PAPER-BURUNGALE-TIAN-26",
