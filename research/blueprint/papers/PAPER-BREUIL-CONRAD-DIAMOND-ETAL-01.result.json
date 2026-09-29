@@ -1,0 +1,1832 @@
+{
+  "paper": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "On the modularity of elliptic curves over Q: wild 3-adic exercises",
+    "authors": "Christophe Breuil, Brian Conrad, Fred Diamond and Richard Taylor",
+    "venue": "Journal of the American Mathematical Society 14 (2001), no. 4, 843–939 (received 28 February 2000, revised 1 January 2001, published electronically 15 May 2001)",
+    "doi": "10.1090/S0894-0347-01-00370-8",
+    "url": "https://www.ams.org/journals/jams/2001-14-04/S0894-0347-01-00370-8/S0894-0347-01-00370-8.pdf",
+    "version": "The published version (97 pages, pp. 843–939), fetched from the AMS; item locators are its pages.",
+    "sha256": "1e34130e55a0ef39d7ef2566cc7d518e2b69048dece36328a0b6530e92044cf2",
+    "accessed": "2026-09-29",
+    "readSections": [
+      "The whole published article: Introduction (Theorems A, B, the three-case reduction and the f-cases), §1 (types, σ_τ, admittance, Conjectures 1.1.1 and 1.3.1, Theorems 1.4.1–1.4.2 with the listed changes to [CDT]), §2 (the wild 3-types, Theorems 2.1.x, 2.2.1–2.2.2, §2.3), §3, §4 (4.1–4.7), §5 (5.1–5.7), §6 (6.1–6.5), §7 (7.1–7.4), §8 (8.1–8.3), §9 (9.1–9.6), §10 and the references; every statement, and the proofs at the level needed to locate each step. Misprints were checked on page images.",
+      "Cited results were not reread; items resting on them ([CDT], [Br2], [Man], [SBT], [E], [G], [Ra], [T]) state them as the paper uses them."
+    ]
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.ams.org/journals/jams/2001-14-04/S0894-0347-01-00370-8/S0894-0347-01-00370-8.pdf",
+      "read": "2026-09-29",
+      "sha256": "1e34130e55a0ef39d7ef2566cc7d518e2b69048dece36328a0b6530e92044cf2",
+      "citation": "J. Amer. Math. Soc. 14 (2001), no. 4, 843–939, doi:10.1090/S0894-0347-01-00370-8, read completely."
+    }
+  ],
+  "summary": "Breuil, Conrad, Diamond and Taylor complete the proof that every elliptic curve over Q is modular (Theorem A) by proving that every irreducible ρ̄ : G_Q → GL₂(F̄₅) with cyclotomic determinant is modular (Theorem B). After a quadratic twist ρ̄|_{G₃} is tame or one of five wild shapes; a companion curve E with E[5] ≅ ρ̄ and E[3] of a chosen très ramifié shape (Manoharmayum, Shepherd-Barron–Taylor, Ekedahl) makes ρ_{E,3} potentially Barsotti–Tate of a wild type τ_{±1}, τ_{±3} or extended type τ′_i, and ρ_{E,3} is shown modular by lifting theorems (1.4.1, 1.4.2) that need the type to admit ρ̄ (§3) and be weakly acceptable. Weak acceptability (Theorems 2.1.2, 2.1.4, 2.1.6) is proved by bounding tangent spaces of deformation problems defined by finite flat group schemes with descent data killed by 3 (§4), computed with Breuil modules (§5) over explicit local fields (§6) in §§7–9. §10 corrects [CDT]. The atlas plans the statements of Theorems A and B (EllipticCurveModularity R29.6, ClassicalSerreModularity R27.6) by Khare–Wintenberger, Kisin's type deformation rings (LocalGaloisDeformationRings R08.3), Breuil–Kisin classification with descent data (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4), potentially Barsotti–Tate lifting (GL2ModularityLifting R22.5) and local Langlands for GL₂ (R16.3), but not the wild 3-adic computations. One Part II of EllipticCurveModularity carries them. Seven source routes add Theorems A and B and the definitions of modularity to EllipticCurveModularity R29.6 and ClassicalSerreModularity R26.1/R27.6 (as the maintainer's note asks), §§4.1–5 to FiniteFlatGroupsAndIntegralPadicHodgeTheory, the type rings and D^S functors to LocalGaloisDeformationRings, Theorems 1.4.1–1.4.2 and the [CDT] corrigenda to GL2ModularityLifting, σ_τ to GL2AutomorphicRepresentationsAndTransfer, and admittance to PadicLocalLanglandsForGL2Qp. Eight misprints are recorded (E1–E8); none affects a result.",
+  "items": [
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/modular-eigenforms",
+      "kind": "definition",
+      "name": "Cusp forms, Hecke eigenforms and their Galois representations",
+      "statement": "S_k(N) is the space of cusp forms of weight k and level Γ₁(N) with q-expansions Σc_n(f)e^{2πinz} and L(f,s) = Σc_n(f)n^{−s}; T_p (p ∤ N) acts and simultaneous eigenvectors are eigenforms with a_p(f) algebraic integers and c_p = a_p c_1. For an eigenform f and a place λ | ℓ there is a unique continuous irreducible ρ_{f,λ} : Gal(Q̄/Q) → GL₂(Q̄_λ), unramified at p ∤ Nℓ with tr ρ_{f,λ}(Frob_p) = a_p(f) (Shimura k = 2, Deligne k > 2, Deligne–Serre k = 1; irreducibility Ribet, Deligne–Serre); it is odd and potentially semistable at ℓ, with residual semisimplification ρ̄_{f,λ}.",
+      "locator": "Introduction, pp.843–844",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AutomorphicGaloisRepresentations:R19.1"
+      ],
+      "note": "Standard background; the atlas owns Galois representations of modular forms in AutomorphicGaloisRepresentations."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/modular-galois-rep",
+      "kind": "definition",
+      "name": "Modular ℓ-adic and residual representations; conductor and weight",
+      "statement": "For ρ : G_Q → GL₂(Q̄_ℓ) unramified outside finitely many primes and potentially semistable at ℓ: the conductor N(ρ) (prime-to-ℓ Artin conductor times the conductor of the Weil–Deligne representation at ℓ) and weight k(ρ) = 1 + |difference of Hodge–Tate numbers|; ρ is modular if ρ ∼ ρ_{f,λ} for some eigenform f (equivalently, by Carayol and others, for one of level N(ρ) and weight k(ρ)). A continuous irreducible ρ̄ : G_Q → GL₂(F̄_ℓ) is modular if ρ̄ ∼ ρ̄_{f,λ}, strongly modular if f can be taken of Serre's weight and level; for ℓ ≥ 3 the two notions agree.",
+      "locator": "Introduction, pp.844–845",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ClassicalSerreModularity:R26.1"
+      ],
+      "note": "The Fontaine–Mazur and Serre conjectures are recalled as context."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/modular-elliptic-curve-Q",
+      "kind": "theorem",
+      "name": "Equivalent forms of modularity of an elliptic curve over Q",
+      "statement": "For E/Q with conductor N(E) the following are equivalent, and E is then called modular: (1) L(E,s) = L(f,s) for an eigenform f; (2) the same with f of weight 2 and level N(E); (3) ρ_{E,ℓ} is modular for some ℓ; (4) ρ_{E,ℓ} is modular for all ℓ; (5) there is a non-constant holomorphic map X₁(N)(C) → E(C) for some N; (6) there is a non-constant morphism X₁(N(E)) → E over Q.",
+      "locator": "Introduction, p.845",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "EllipticCurveModularity:R29.6"
+      ],
+      "note": "(3) ⇒ (2) Carayol, (2) ⇒ (6) Shimura and Faltings, (5) ⇒ (3) Mazur. R29.6 states the final theorem with the equivalent Frobenius formulation."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-A",
+      "kind": "theorem",
+      "name": "Theorem A: every elliptic curve over Q is modular",
+      "statement": "If E/Q is an elliptic curve, then E is modular.",
+      "locator": "Introduction, Theorem A, p.843; Theorem 2.2.2, p.865",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "EllipticCurveModularity:R29.6"
+      ],
+      "note": "R29.6 owns the statement via the strong Serre conjecture (R29.2); this paper's proof (via thm-B and [CDT, Thm. 7.2.4]) is independent of Khare–Wintenberger and is routed as a Part II of EllipticCurveModularity."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-B",
+      "kind": "theorem",
+      "name": "Theorem B: mod 5 representations with cyclotomic determinant are modular",
+      "statement": "If ρ̄ : Gal(Q̄/Q) → GL₂(F̄₅) is an irreducible continuous representation with cyclotomic determinant, then ρ̄ is modular.",
+      "locator": "Introduction, Theorem B, p.843; Theorem 2.2.1, pp.862–865",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ClassicalSerreModularity:R27.6"
+      ],
+      "note": "A special case of Serre's conjecture, which R27.6 plans by Khare–Wintenberger; this paper's own proof is routed in the Part II."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/three-case-strategy",
+      "kind": "theorem",
+      "name": "The three-case reduction of Theorem A",
+      "statement": "Theorem A follows from: (1) if ρ̄_{E,5}|Gal(Q̄/Q(√5)) is irreducible, ρ_{E,5} is modular; (2) if it is reducible but ρ̄_{E,3}|Gal(Q̄/Q(√−3)) is absolutely irreducible, ρ_{E,3} is modular; (3) otherwise E is isogenous to a curve with j-invariant 0, (11/2)³ or −5(29)³/2⁵, hence modular by tables. Cases (1)–(2) reduce to residual modularity (Theorem B, resp. Langlands–Tunnell) plus modularity lifting as in [CDT], since E acquires semistable reduction over a tame extension of Q_ℓ; case (3) uses rational points on modular curves of small level ([CDT], with Elkies).",
+      "locator": "Introduction, p.846",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The printed j-invariant in [CDT] lacked the sign; see the corrigenda of §10."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/six-cases-f",
+      "kind": "definition",
+      "name": "The six local cases f = 1, 3, 9, 27, 81, 243 and the companion curve",
+      "statement": "After a quadratic twist, ρ̄ as in Theorem B restricted to Gal(Q̄₃/Q₃) falls into one of six cases: (1) unramified at 3; (2) ρ̄(I₃) of order 5; (3) of order 4; (4) of order 12 with conductor 27; (5) of order 3; (6) induced from χ : Gal(Q̄₃/Q₃(√−3)) → F₂₅^× with χ(−1) = −1 and χ(√−3) = χ(1 + 3√−3) − χ(1 − 3√−3); these are the f = 1, 3, 9, 27, 81, 243 cases. One finds E/Q with ρ̄_{E,5} ≅ ρ̄, ρ̄_{E,3} surjective onto GL₂(F₃), and ρ̄_{E,3}|_{I₃} (or ρ̄_{E,3}|_{G_{Q₃}}) of a prescribed shape: for f = 27, (ω ∗; 0 1) très ramifié; for f = 81, (1 ∗; 0 ω) très ramifié; for f = 243, (ω ∗; 0 1) très ramifié and non-split over the field cut out by ρ̄. The cases f = 1, 3 were treated in [Di2] and f = 9 in [CDT]; f = 27, 81, 243 need good reduction over a wild extension of Q₃.",
+      "locator": "Introduction, pp.846–847",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The precise case split used in the proof is the one of thm-2-2-1 (tame at 3, and five explicit wild characters)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/ell-type",
+      "kind": "definition",
+      "name": "ℓ-types, extended ℓ-types and representations of a given type",
+      "statement": "An ℓ-type is an equivalence class of two-dimensional representations τ : I_ℓ → GL(D) over Q̄_ℓ with open kernel extending to W_{Q_ℓ}; an extended ℓ-type is a class τ′ : W_{Q_ℓ} → GL(D′) with open kernel. A continuous ρ of G_ℓ on a two-dimensional K-space is of type τ (resp. extended type τ′) if (1) ρ is Barsotti–Tate over every finite F/Q_ℓ with τ|_{I_F} (resp. τ′|_{I_F}) trivial, (2) WD(ρ)|_{I_ℓ} ∈ τ (resp. WD(ρ) ∼ τ′), (3) ε^{−1} det ρ has finite order prime to ℓ.",
+      "locator": "§1.1, pp.850–851",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "LocalGaloisDeformationRings:R08.3"
+      ],
+      "note": "R08.3 constructs potentially semistable deformation rings with fixed Hodge and inertial type. For ℓ odd, 'Barsotti–Tate over F' may be weakened to potentially Barsotti–Tate by [Br2, Thm. 1.4]."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/type-deformation-rings",
+      "kind": "definition",
+      "name": "Type quotients R^D_{V,O}, weakly of type, (weakly) acceptable",
+      "statement": "For ρ̄ : G_ℓ → GL(V) with End_{k[G_ℓ]}V = k and universal deformation ring R_{V,O}: a prime p of R_{V,O} is of type τ (resp. extended type τ′) if it is the kernel of some R_{V,O} → K′ whose pushforward deformation is of that type; R^D_{V,O} = R^τ_{V,O} (resp. R^{D′}_{V,O} = R^{τ′}_{V,O}) is the quotient by the intersection of all such primes (0 if there are none). A deformation is weakly of type τ if R_{V,O} → R factors through R^D; τ is weakly acceptable for ρ̄ if R^D = 0 or there is a surjection O[[X]] ↠ R^D, and acceptable if moreover R^D ≠ 0. These notions are independent of K and invariant under extending k.",
+      "locator": "§1.1, p.851",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "R^D is the Barsotti–Tate case of the ring Kisin constructed (R08.3 plans Kisin's rings); 'acceptable' (a tangent-space bound) is specific to this approach."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/conj-1-1-1",
+      "kind": "theorem",
+      "name": "Conjecture 1.1.1: weakly of type iff of type",
+      "statement": "Conjecture: for an ℓ-type τ and an absolutely irreducible extended ℓ-type τ′, a deformation ρ : G_ℓ → GL(M) of ρ̄ to the integers O′ of a finite extension K′/K is weakly of type τ (resp. weakly of extended type τ′) if and only if M is of type τ (resp. of extended type τ′).",
+      "locator": "§1.1, Conjecture 1.1.1, p.851",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "LocalGaloisDeformationRings:R08.3"
+      ],
+      "note": "A conjecture in the paper (not used); it follows from Kisin's characterisation of the points of potentially semistable deformation rings, which R08.3 plans."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/sigma-tau",
+      "kind": "construction",
+      "name": "The representations σ_τ and σ_{τ′} attached to types",
+      "statement": "For ℓ odd, U₀(ℓ^r) ⊂ GL₂(Z_ℓ) (upper triangular mod ℓ^r), Ũ₀(ℓ) the normaliser of U₀(ℓ) in GL₂(Q_ℓ), generated by U₀(ℓ) and w_ℓ = (0 −1; ℓ 0); U_τ = GL₂(Z_ℓ) (τ reducible) or U₀(ℓ) (τ irreducible), U_{τ′} = Ũ₀(ℓ). The irreducible representation σ_τ of U_τ: for τ = χ₁|_I ⊕ χ₂|_I with a = cond(χ₁/χ₂): St ⊗ (χ₁∘det) if a = 0, else Ind_{U₀(ℓ^a)}^{GL₂(Z_ℓ)} of (α β; ℓ^aγ δ) ↦ (χ₁/χ₂)(α)χ₂(αδ − ℓ^aβγ); for τ induced from a character χ ≠ χ^s of W_F (F unramified quadratic) with a = cond(χ/χ^s): Θ(χ′⁻¹χ) ⊗ (χ′∘det) if a = 1, and for a > 1 inductions from O_F^×(1 + ℓ^{a/2}O_F s) (a even) or of an ℓ-dimensional η (a odd); for τ′ with τ′|_I irreducible (induced from a ramified quadratic F, a even ≥ 2) the induction from F^×(1 + ℘_F^{a/2}s) to Ũ₀(ℓ) of a character involving χ″, normalised by a Gauss-sum condition; for irreducible τ, σ_τ := σ_{τ′}|_{U₀(ℓ)}.",
+      "locator": "§1.2, pp.852–853",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The definitions are independent of choices ([G], Gérardin). This is the inertial Langlands correspondence of the kind Henniart made general; not planned in the atlas."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-1-2-1",
+      "kind": "theorem",
+      "name": "σ_τ detects the type of an admissible representation",
+      "statement": "Let τ be an ℓ-type, τ′ an extended ℓ-type with τ′|_{I_ℓ} irreducible, and π an infinite-dimensional irreducible admissible representation of GL₂(Q_ℓ) over Q̄_ℓ. Then (1) σ_τ and σ_{τ′} are irreducible; (2) if WD(π)|_{I_ℓ} ∼ τ (resp. WD(π) ∼ τ′), Hom_{U_τ}(σ_τ, π) ≅ Q̄_ℓ (resp. Hom_{U_{τ′}}(σ_{τ′}, π) ≅ Q̄_ℓ); (3) otherwise these Hom spaces are 0.",
+      "locator": "Lemma 1.2.1, pp.853–854",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Principal series theory, [G, Thm. 3.7, Thm. 4.6]; the irreducible case via τ′ ≇ τ′ ⊗ δ."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/mod-l-reps-compact",
+      "kind": "definition",
+      "name": "Irreducible mod ℓ representations of GL₂(Z_ℓ), U₀(ℓ) and Ũ₀(ℓ)",
+      "statement": "σ_{n,m} = Sym^n(σ_{1,0}) ⊗ det^m (0 ≤ n ≤ ℓ−1, m ∈ Z/(ℓ−1)) exhaust the irreducible continuous F̄_ℓ-representations of GL₂(Z_ℓ); the characters σ′_{m₁,m₂} : (a b; ℓc d) ↦ a^{m₁}d^{m₂} exhaust those of U₀(ℓ); the inductions σ′_{{m₁,m₂},a} (m₁ ≠ m₂, sending −ℓ to a) and the characters σ′_{{m},a} (sending w_ℓ to a) exhaust those of Ũ₀(ℓ).",
+      "locator": "§1.3, p.854",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+      ],
+      "note": "The Serre-weight representations σ_{n,m}; R07.5 plans local residual types and Serre weights."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/admits",
+      "kind": "definition",
+      "name": "Admittance of residual representations by types",
+      "statement": "A type τ (resp. extended type τ′) admits an irreducible σ over F̄_ℓ if σ is a Jordan–Hölder constituent of Λ ⊗ F̄_ℓ for an invariant lattice Λ in σ_τ (σ_{τ′}), and simply admits σ if with multiplicity one. For ρ̄ : G_ℓ → GL₂(F̄_ℓ), the paper defines explicitly (by the shape of ρ̄|_{I_ℓ} in terms of the fundamental characters ω, ω₂, peu/très ramifié conditions, and central characters) when σ_{n,m}, σ′_{m₁,m₂}, σ′_{{m₁,m₂},a}, σ′_{{m},a} admit or simply admit ρ̄ (σ_{n,0} admits ρ̄ iff the Serre weight of ρ̄^∨ ⊗ ω is n + 2); τ (simply) admits ρ̄ if it admits some σ that admits ρ̄ (resp. a unique such σ, simply, which simply admits ρ̄).",
+      "locator": "§1.3, pp.854–856",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The definitions use ρ̄ rather than its Cartier dual 'because of unfortunate normalisations in [CDT]'."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/conj-1-3-1",
+      "kind": "theorem",
+      "name": "Conjecture 1.3.1: admittance predicts nonvanishing and acceptability",
+      "statement": "Conjecture: let k ⊂ F̄_ℓ be finite, ρ̄ : G_ℓ → GL₂(k) with centraliser k, τ an ℓ-type and τ′ an extended ℓ-type with irreducible restriction to I_ℓ, with det τ, det τ′ tamely ramified and the image of τ not central. (1) τ (resp. τ′) admits ρ̄ iff R^D_{V,O} ≠ 0 (resp. R^{D′}_{V,O} ≠ 0), i.e. iff ρ̄ has a lift of type τ (resp. extended type τ′); (2) τ (resp. τ′) simply admits ρ̄ iff it is acceptable for ρ̄.",
+      "locator": "§1.3, Conjecture 1.3.1, p.856",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicLocalLanglandsForGL2Qp:R30.5"
+      ],
+      "note": "A precursor of the Breuil–Mézard conjecture, whose local results R30.5 plans; the paper verifies only the wild 3-adic cases of §2.1."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-1-4-1",
+      "kind": "theorem",
+      "name": "Modularity lifting for potentially Barsotti–Tate representations of an admitted, weakly acceptable type",
+      "statement": "Let ℓ be odd, K/Q_ℓ finite with residue field k, and ρ : G_Q → GL₂(K) odd, continuous and ramified at finitely many primes, with ρ̄ absolutely irreducible on G_{Q(√((−1)^{(ℓ−1)/2}ℓ))} and modular. Suppose ρ̄|_{G_ℓ} has centraliser k, ρ|_{G_ℓ} is potentially Barsotti–Tate of ℓ-type τ, τ admits ρ̄|_{G_ℓ}, and τ is weakly acceptable for ρ̄|_{G_ℓ}. Then ρ is modular.",
+      "locator": "§1.4, Theorem 1.4.1, pp.857–858",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The proof is that of [CDT, Thm. 7.1.1] with the listed changes (U_{S,ℓ} = U_τ, V_{S,ℓ} = ker σ_τ, σ_{S,ℓ} = σ_τ, lem-1-2-1 in the proof of [CDT, Lemma 5.1.1], and a corrected argument for [CDT] p.546, cf. the corrigenda of §10). The existence of ρ makes τ acceptable."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-1-4-2",
+      "kind": "theorem",
+      "name": "Modularity lifting for extended types",
+      "statement": "Same hypotheses as thm-1-4-1 with ρ|_{G_ℓ} potentially Barsotti–Tate of extended ℓ-type τ′ (τ′|_{I_ℓ} irreducible), τ′ admitting ρ̄ and weakly acceptable for ρ̄. Then ρ is modular.",
+      "locator": "§1.4, Theorem 1.4.2, pp.858–860",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof: [CDT, Thm. 7.1.1] with U_{S,ℓ} = U₀(ℓ), σ_S = σ_{τ′}|_{U₀(ℓ)} extended to the group generated by U_S and w_ℓ, the w_ℓ = 1 parts of the cohomology (w_ℓ² = 1 after localising), σ_{τ′}(ℓ^s) = 1 for some s > 0, and [CDT, §6.2] replaced by a proof of the required extension of [CDT, Prop. 5.4.1]."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/wild-3-types",
+      "kind": "definition",
+      "name": "The wild 3-types τ_{±1}, τ_{±3} and extended types τ′_i",
+      "statement": "Fix ζ ∈ GL₂(Z₃) with ζ³ = 1 ≠ ζ. τ₁ ↔ the order-3 character Z₃^× → Z₃[ζ]^× with −1 ↦ 1, 4 ↦ ζ; τ_{−1} ↔ the order-3 character of Z₃[√−1]^× with 4√−1 ↦ 1, 4 ↦ 1, 1+3√−1 ↦ ζ; τ₃ (resp. τ_{−3}) the unique 3-type whose restriction to I_{Q₃(√3)} (resp. I_{Q₃(√−3)}) is the order-6 character with −1 ↦ −1, 4 ↦ 1, 1+√3 ↦ ζ (resp. 1+3√−3 ↦ 1, 1+√−3 ↦ ζ); for i ∈ Z/3, τ′_i the unique extended 3-type whose restriction to G_{Q₃(√−3)} is the character of Q₃(√−3)^× with √−3 ↦ ζ − ζ^{−1}, −1 ↦ −1, 4 ↦ 1, 1+3√−3 ↦ ζ, 1+√−3 ↦ ζ^i (2.1.1).",
+      "locator": "§2.1, pp.860–861",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Up to twist, these are all the wildly ramified types arising from elliptic curves over Q₃ (not needed)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-2-1-1",
+      "kind": "theorem",
+      "name": "τ_{±1} simply admit the très ramifié (1 ∗; 0 ω)",
+      "statement": "If ρ̄ : G₃ → GL₂(F̄₃) with ρ̄|_{I₃} ∼ (1 ∗; 0 ω) très ramifié, then both τ₁ and τ_{−1} simply admit ρ̄.",
+      "locator": "Lemma 2.1.1, p.861 (proved in §§3.1–3.2)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-1-2",
+      "kind": "theorem",
+      "name": "τ_{±1} are weakly acceptable for the très ramifié (1 ∗; 0 ω)",
+      "statement": "If ρ̄ : G₃ → GL₂(F̄₃) with ρ̄|_{I₃} ∼ (1 ∗; 0 ω) très ramifié, then both τ₁ and τ_{−1} are weakly acceptable for ρ̄.",
+      "locator": "Theorem 2.1.2, p.862 (proved in §§4.4, 4.7, 7)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-2-1-3",
+      "kind": "theorem",
+      "name": "τ_{±3} simply admit the très ramifié (ω ∗; 0 1)",
+      "statement": "If ρ̄ : G₃ → GL₂(F̄₃) with ρ̄|_{I₃} ∼ (ω ∗; 0 1) très ramifié, then both τ₃ and τ_{−3} simply admit ρ̄.",
+      "locator": "Lemma 2.1.3, p.862 (proved in §3.3)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-1-4",
+      "kind": "theorem",
+      "name": "τ_{±3} are weakly acceptable for the très ramifié (ω ∗; 0 1)",
+      "statement": "If ρ̄ : G₃ → GL₂(F̄₃) with ρ̄|_{I₃} ∼ (ω ∗; 0 1) très ramifié, then both τ₃ and τ_{−3} are weakly acceptable for ρ̄.",
+      "locator": "Theorem 2.1.4, p.862 (proved in §§4.5, 4.7, 8)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-2-1-5",
+      "kind": "theorem",
+      "name": "τ′_i simply admits the très ramifié (ω ∗; 0 1)",
+      "statement": "Let i ∈ Z/3. If ρ̄ : G₃ → GL₂(F̄₃) with ρ̄ ∼ (ω ∗; 0 1) très ramifié (as a G₃-representation), then τ′_i simply admits ρ̄.",
+      "locator": "Lemma 2.1.5, p.862 (proved in §3.4)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-1-6",
+      "kind": "theorem",
+      "name": "τ′_i is weakly acceptable for the très ramifié (ω ∗; 0 1)",
+      "statement": "Let i ∈ Z/3. If ρ̄ : G₃ → GL₂(F̄₃) with ρ̄ ∼ (ω ∗; 0 1) très ramifié, then τ′_i is weakly acceptable for ρ̄.",
+      "locator": "Theorem 2.1.6, p.862 (proved in §§4.6, 4.7, 9)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The paper remarks that 'weakly acceptable' can be replaced by 'acceptable' in Theorems 2.1.2, 2.1.4, 2.1.6 using lifts from elliptic curves ([Man]; a refinement along the lines of §2.3 for 2.1.6)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-2-1",
+      "kind": "theorem",
+      "name": "Theorem B proved: absolutely irreducible mod 5 representations with cyclotomic determinant are modular",
+      "statement": "Any continuous absolutely irreducible ρ̄ : G_Q → GL₂(F̄₅) with cyclotomic determinant is modular.",
+      "locator": "§2.2, Theorem 2.2.1, pp.862–865",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ClassicalSerreModularity:R27.6"
+      ],
+      "note": "Proof: up to equivalence and quadratic twist, ρ̄|_{G₃} is tamely ramified or one of five explicit wild shapes (group facts about the normaliser of F₅(ζ)^× in GL₂(F₅)); choose E₁/Q₃ with E₁[5] ≅ ρ̄|_{G₃} and E₁[3] of the matching très ramifié shape ([Man, Thm. 5.3.2, §5.4], cor-2-3-2); a 3-adic open set U in the curve X_ρ̄ of [SBT], Ekedahl's Hilbert irreducibility [E, Thm. 1.3] gives E/Q with E[5] ≅ ρ̄ (Weil pairing matched), ρ̄_{E,3} surjective and (E,β) ∈ U; by [CDT, Prop. B.4.2] ρ_{E,3} is ordinary or tame pBT (then E modular by [CDT, Thm. 7.2.1]) or pBT of type τ_{±1}, τ_{±3} or τ′_i; Langlands–Tunnell gives ρ̄_{E,3} modular; thm-1-4-1/thm-1-4-2 with §2.1 give ρ_{E,3} modular. The atlas plans the statement inside Serre's conjecture (R27.6); this proof is the content of the Part II route."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-2-2",
+      "kind": "theorem",
+      "name": "Every elliptic curve over Q is modular",
+      "statement": "Every elliptic curve defined over Q is modular.",
+      "locator": "§2.2, Theorem 2.2.2, p.865",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "EllipticCurveModularity:R29.6"
+      ],
+      "note": "thm-2-2-1 with [CDT, Theorem 7.2.4]. Same statement as thm-A; the atlas plans it by Khare–Wintenberger, and the proof here is the content of the Part II route."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-2-3-1",
+      "kind": "theorem",
+      "name": "A sign in the mod 5 representation of certain curves over Q₃",
+      "statement": "Let E/Q₃ have minimal model Y² = X³ + AX + B with A ≡ B + 3 ≡ 0 mod 9 (so ρ̄_{E,3} ∼ (ω ∗; 0 1) très ramifié), and write the action of G_{Q₃(√−3)} on E[5] as √−3 ↦ δ(ζ − ζ^{−1}), −1 ↦ −1, 4 ↦ 1, 1+√−3 ↦ ζ^i, 1+3√−3 ↦ ζ (δ = ±1, i ∈ Z/3). Then δ = 1.",
+      "locator": "§2.3, Lemma 2.3.1, pp.865–866",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "E acquires good reduction Y² = X³ − X − 1 over F = Q₃(√−3, β, α) (β² = −√−3, α³ + Aα + B = 9√−3), a totally ramified abelian degree-6 extension of Q₃(√−3) with uniformiser α/β; Frobenius has trace 3 on E[5]. All nine pairs (ρ̄_{E,3}, i) occur ([Man])."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-2-3-2",
+      "kind": "theorem",
+      "name": "Elliptic curves over Q₃ with prescribed 3- and 5-torsion",
+      "statement": "Let ρ̄₃ : G₃ → GL₂(F₃) be of the form (ω ∗; 0 1) or (1 ∗; 0 ω), très ramifié, and ρ̄₅ : G₃ → GL₂(F₅) with cyclotomic determinant whose restriction to G_{Q₃(√−3)} is the character √−3 ↦ ζ − ζ^{−1}, −1 ↦ −1, 4 ↦ 1, 1+√−3 ↦ ζ^i, 1+3√−3 ↦ ζ. Then there is E/Q₃ with E[3] ≅ ρ̄₃ and E[5] ≅ ρ̄₅; in particular E has potentially good reduction.",
+      "locator": "§2.3, Corollary 2.3.2, p.866",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "From lem-2-3-1 by quadratic twists. The printed statement has ρ̄₃ : G₃ → GL₃(F₃) (source issue E1)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/admittance-tau-pm1",
+      "kind": "theorem",
+      "name": "Admittance for τ₁ and τ₋₁ (§§3.1–3.2)",
+      "statement": "σ_{τ₁} is the induction from U₀(9) to GL₂(Z₃) of an order-3 character; by Brauer characters the reduction of Ind_{U₀(9)}^{U₀(3)} 1 has constituents σ′_{0,0}, σ′_{0,0}, σ′_{1,1}, so τ₁ admits σ_{0,0}, σ_{2,0}, σ_{0,1}, σ_{2,1}, the last two simply. With U = {(a b; c d) : a ≡ d, b + c ≡ 0 mod 3}, σ_{τ₋₁} is induced from U of an order-3 character; Ind_U^{GL₂(Z₃)} 1 mod 3 splits as 1 ⊕ sp_ψ ⊕ Θ(φ) (notation of [CDT, §3.1]), so by [CDT, Lemma 3.1.1] τ₋₁ admits σ_{0,0}, σ_{2,1}, σ_{0,1}, the last two simply. Hence lem-2-1-1.",
+      "locator": "§§3.1–3.2, p.867",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/admittance-tau-pm3",
+      "kind": "theorem",
+      "name": "Admittance for τ₃ and τ₋₃ (§3.3)",
+      "statement": "With U = {(a b; c d) : a ≡ d, c ≡ 0 mod 3}, σ_{τ±3} is the induction from U to U₀(3) of an order-3 character, whose reduction has the constituents of Ind_U^{U₀(3)} 1 mod 3; thus τ_{±3} simply admits σ′_{0,0} and σ′_{1,1}. Hence lem-2-1-3.",
+      "locator": "§3.3, p.867",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/admittance-tau-prime-i",
+      "kind": "theorem",
+      "name": "Admittance for τ′_i (§3.4)",
+      "statement": "For χ as in (2.1.1) and ψ the character of Q₃ with kernel Z₃ sending 1/3 to ζ, χ(1 + x) = ψ(tr(−x√−3/54)) for x ∈ 3√−3 Z₃[√−3], so the χ″ defining σ_{τ′_i} has χ″(√−3) = (ζ − ζ^{−1})^{−1}; σ_{τ′_i} is induced to Ũ₀(3) from a character of Ũ (generated by w₃ and U = {(a b; 3c d) : a ≡ d, b + c ≡ 0 mod 3}) trivial on w₃ and of order 3 on U. Its reduction has the constituents of 1 ⊕ 1 ⊕ ν (ν(w₃) = −1), so τ′_i admits σ′_{{0},1}, σ′_{{1},1}, σ′_{{0},−1}, σ′_{{1},−1}, the last two simply. Hence lem-2-1-5.",
+      "locator": "§3.4, pp.867–868",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/deformation-strategy",
+      "kind": "construction",
+      "name": "Bounding R^D through deformation problems killed by ℓ",
+      "statement": "To prove weak acceptability the paper defines, by ad hoc arguments, deformation problems represented by O-algebras S with dim_k m_S/(℘_K, m_S²) ≤ 1 such that R_{V,O} ↠ R^D_{V,O} (resp. R^{D′}_{V,O}) factors through S. Computing m_S/(℘_K, m_S²) needs only finite flat group schemes killed by a prime, whose Breuil modules (§5) with descent data are comparatively simple.",
+      "locator": "§4 introduction, pp.867–868",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The paper remarks that a direct description of R^D via [Br2] may be more promising for non-acceptable cases."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-1-1",
+      "kind": "theorem",
+      "name": "Scheme-theoretic closure of subgroup schemes",
+      "statement": "Let R be a complete discrete valuation ring with fraction field F′ of characteristic 0 and perfect residue field of characteristic ℓ, and G a finite flat R-group scheme. Scheme-theoretic closure gives a bijection between subgroup schemes of G × F′ and finite flat closed subgroup schemes of G.",
+      "locator": "§4.1, Lemma 4.1.1, p.868",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+      ],
+      "note": "See [Co, §1.1]. R07.1 plans finite-flat subgroup and quotient constructions and generic fibres."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-1-2",
+      "kind": "theorem",
+      "name": "Uniqueness of local-local models is preserved by extensions",
+      "statement": "Let G₁, G₂ be finite flat R-group schemes with local-local closed fibre, each the only finite flat R-group scheme with local-local closed fibre and its generic fibre. If 0 → G₁ → G → G₂ → 0 is exact, then G is the unique finite flat R-group scheme with local-local closed fibre and generic fibre G × F′.",
+      "locator": "Lemma 4.1.2, p.868",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof: maximal and minimal local-local models exist as in [Ra, Prop. 2.2.2] (Cartier duals of local-local groups are local-local) and the canonical map between them is an isomorphism."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/descent-data-group-schemes",
+      "kind": "definition",
+      "name": "Group schemes with descent data; FD_{F′/F₀} and FD_{F′/F₀,I}",
+      "statement": "Let Γ be a finite group of continuous automorphisms of R and F₀ = F′^Γ. Descent data on a finite flat R-group scheme G relative to F₀ are group-scheme isomorphisms [g] : G → Spec R ×_{g,Spec R} G over g ∈ Γ with [gh] = [g]∘[h]; (G, {[g]}) determines a finite flat F₀-group scheme (G, {[g]})_{F₀}. FF_{F′} and FD_{F′/F₀} are the categories of finite flat R-group schemes and of those with descent data. W(k)[F, V][Γ] is the W(k)-algebra generated by F, V, [g] with [gh] = [g][h], [g]F = F[g], [g]V = V[g], FV = VF = ℓ, [g]x = g(x)[g], Fx = φ(x)F, xV = Vφ(x); it acts on the Dieudonné module D(G) of the closed fibre, and for a two-sided ideal I, FD_{F′/F₀,I} is the full subcategory where I kills D(G).",
+      "locator": "§4.1, pp.868–870",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "note": "R07.4 asks for the classification of finite-flat groups 'including descent data'. Descent data here are not Grothendieck descent data, since R is ramified over R^Γ."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-1-3",
+      "kind": "theorem",
+      "name": "Subgroup schemes with descent data and the generic fibre over F₀",
+      "statement": "For (G, {[g]}) in FD_{F′/F₀}, base change from F₀ to F′ followed by scheme-theoretic closure gives a bijection between subgroup schemes of (G, {[g]})_{F₀} and closed finite flat subgroup schemes with descent data of (G, {[g]}).",
+      "locator": "Lemma 4.1.3, p.869",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-1-4",
+      "kind": "theorem",
+      "name": "Sup and inf of models with descent data",
+      "statement": "For a two-sided ideal I of W(k)[F, V][Γ] and objects (G₁, {[g]}), (G₂, {[g]}) of FD_{F′/F₀,I} with isomorphic F₀-fibres, let G be the base change of that F₀-group scheme to F′ with its canonical descent data. Then the sup and inf of G₁ and G₂ in the lattice of integral models of G are stable under the descent data and, with it, are objects of FD_{F′/F₀,I}.",
+      "locator": "Lemma 4.1.4, p.870",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "From Raynaud's construction of sup and inf [Ra, Prop. 2.2.2]."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-4-1-5",
+      "kind": "theorem",
+      "name": "At most one model when sub and quotient models are forced",
+      "statement": "Let 0 → G₁ → G → G₂ → 0 be exact over F₀ and (G₁, {[g]}), (G₂, {[g]}) objects of FD_{F′/F₀,I} with F₀-fibres G₁, G₂. If for every object (G, {[g]}) of FD_{F′/F₀,I} with F₀-fibre G the induced filtration has subobject isomorphic to (G₁, {[g]}) and quotient isomorphic to (G₂, {[g]}), then G has at most one model in FD_{F′/F₀,I}.",
+      "locator": "Corollary 4.1.5, p.870",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/sigma-filtrations",
+      "kind": "definition",
+      "name": "Σ-filtrations; weakly and strongly filtered objects; FD_{F′/F₀,I,Σ}",
+      "statement": "Let Σ be a finite non-empty set of objects (G_i, {[g]}) of FD_{F′/F₀,(I,ℓ)} with Hom((G_i), (G_j)) = Hom((G_i)_{F₀}, (G_j)_{F₀}) equal to 0 for i ≠ j and a finite field for i = j (4.2.1). A Σ-filtration of a finite flat F₀-group scheme is an increasing filtration whose graded pieces are F₀-fibres of elements of Σ. An object of FD_{F′/F₀,I} is weakly filtered by Σ if it has a filtration by closed subobjects with graded pieces in Σ, and strongly filtered if moreover every Σ-filtration of its F₀-fibre induces such a filtration. When weakly filtered objects are strongly filtered, FD_{F′/F₀,I,Σ} is the full subcategory of weakly filtered objects.",
+      "locator": "§4.2, pp.870–871",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-2-1",
+      "kind": "theorem",
+      "name": "Jordan–Hölder for Σ-filtrations",
+      "statement": "If a finite flat F₀-group scheme G has a Σ-filtration and H is a subobject or quotient of G with a Σ-filtration, then any Σ-filtration of H extends to one of G; all Σ-filtrations of G have the same length and the same successive quotients with multiplicities.",
+      "locator": "Lemma 4.2.1, p.871",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-2-2",
+      "kind": "theorem",
+      "name": "Products, subobjects and quotients of Σ-filtered objects",
+      "statement": "(1) Products of objects of FD_{F′/F₀,I} weakly filtered by Σ are weakly filtered by Σ. (2) If (G, {[g]}) is strongly filtered by Σ and (G′, {[g]}) is a closed subobject or quotient whose F₀-fibre has a Σ-filtration, then (G′, {[g]}) is strongly filtered by Σ.",
+      "locator": "Lemma 4.2.2, p.871",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-2-3",
+      "kind": "theorem",
+      "name": "Uniqueness of models in FD_{F′/F₀,I,Σ}",
+      "statement": "Suppose every object of FD_{F′/F₀,I} weakly filtered by Σ is strongly filtered. If (G₁, {[g]}), (G₂, {[g]}) are objects of FD_{F′/F₀,I,Σ} with isomorphisms i_j : G ≅ (G_j, {[g]})_{F₀}, there is a unique isomorphism φ : (G₁, {[g]}) → (G₂, {[g]}) with i₂ = φ∘i₁ on generic fibres.",
+      "locator": "Lemma 4.2.3, pp.871–872",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-2-4",
+      "kind": "theorem",
+      "name": "Ext¹ injectivity forces strong filtration",
+      "statement": "If for every pair (possibly equal) (G′), (G″) in Σ the map Ext¹_{FD_{F′/F₀,(I,ℓ)}}((G″), (G′)) → Ext¹_{F_ℓ[G_{F₀}]}((G″)_{F₀}, (G′)_{F₀}) is injective, then every object of FD_{F′/F₀,I} weakly filtered by Σ is strongly filtered by Σ.",
+      "locator": "Lemma 4.2.4, pp.872–874",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-4-2-5",
+      "kind": "theorem",
+      "name": "A singleton Σ given by an extension",
+      "statement": "Let Σ = {(G, {[g]})} with an exact sequence 0 → (G₁) → (G) → (G₂) → 0 in FD_{F′/F₀,I} such that Hom((G_i), (G_j)) = Hom((G_i)_{F₀}, (G_j)_{F₀}) is 0 for i ≠ j and a finite field for i = j, and Ext¹_{FD_{F′/F₀,(I,ℓ)}}((G_i), (G_j)) → Ext¹_{F_ℓ[G_{F₀}]} is injective (4.2.2). Then every object weakly filtered by Σ is strongly filtered by Σ.",
+      "locator": "Corollary 4.2.5, p.874",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/deformation-functors-S",
+      "kind": "definition",
+      "name": "Deformation problems D^S cut out by a category S",
+      "statement": "K/Q_ℓ finite with integers O, residue field k; ρ̄ : G_ℓ → Aut_k(V) two-dimensional with centraliser k; ψ a lift of det ρ̄. S(ρ̄) is the abelian category of finite-length O[G_ℓ]-modules with a filtration with quotients ≅ V; S ⊂ S(ρ̄) is a full subcategory closed under isomorphism, finite products, subobjects and quotients, containing V. D_{V,O}, D^ψ_{V,O}, D^S_{V,O} (each (R/a)² lies in S) and D^{ψ,S}_{V,O} are represented by R_{V,O}, R^ψ_{V,O}, R^S_{V,O}, R^{ψ,S}_{V,O}; the tangent space of D^S is Ext¹_S(ρ̄, ρ̄) and that of D^{ψ,S} is H¹_S(G_ℓ, ad⁰ρ̄).",
+      "locator": "§4.3, pp.874–875",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "LocalGaloisDeformationRings:R08.6"
+      ],
+      "note": "R08.6 exports local conditions with their rings and tangent conditions."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/reduction-4-4",
+      "kind": "construction",
+      "name": "Reduction of Theorem 2.1.2",
+      "statement": "After an unramified twist ρ̄ ∼ (1 ∗; 0 ω) and O = Z₃. F₁ = F′₁ is a totally ramified cubic Galois extension of Q₃; F′₋₁ is the cubic extension of Q₃(√−1) Galois but not abelian over Q₃, and F₋₁ a cubic subfield. S_{±1} ⊂ S(ρ̄) consists of the Z₃[G₃]-modules isomorphic to (G, {[g]})_{Q₃}(Q̄₃) for a finite flat O_{F′±1}-group scheme with descent data for F′_{±1}/Q₃. A deformation of type τ_{±1} is Barsotti–Tate over F′_{±1}, so R_{V,O} → R^{τ±1} factors through R^{ε,S±1} and thm-2-1-2 reduces to thm-4-4-1.",
+      "locator": "§4.4, p.875",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-4-1",
+      "kind": "theorem",
+      "name": "dim H¹_{S±1}(G₃, ad⁰ρ̄) ≤ 1",
+      "statement": "For ρ̄ ∼ (1 ∗; 0 ω) très ramifié, dim H¹_{S±1}(G₃, ad⁰ρ̄) ≤ 1.",
+      "locator": "Theorem 4.4.1, p.875 (proved in §7)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/reduction-4-5",
+      "kind": "construction",
+      "name": "Reduction of Theorem 2.1.4",
+      "statement": "After an unramified twist ρ̄ ∼ (ω ∗; 0 1), O = Z₃. F′_{±3} is the degree-12 abelian extension of Q₃(√±3) with norm group topologically generated by ±3, 4 and 1 + 3√±3 (Galois over Q₃, Gal(F′_{±3}/Q₃(√±3)) ≅ C₂ × C₂ × C₃), γ₄² the element of order 2 in its inertia, F_{±3} a subfield over which F′ is unramified, I_{±3} = (F + V, [γ₄²] + 1), and S_{±3} the modules arising from FD_{F′±3/Q₃,I±3}. For ρ potentially Barsotti–Tate of type τ_{±3}, WD(ρ) gives [γ₄²] = −1 and F = −V on the Dieudonné modules, so R_{V,O} → R^{τ±3} factors through R^{ε,S±3}.",
+      "locator": "§4.5, pp.876–877",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-5-1",
+      "kind": "theorem",
+      "name": "dim H¹_{S±3}(G₃, ad⁰ρ̄) ≤ 1",
+      "statement": "For ρ̄ ∼ (ω ∗; 0 1) très ramifié, dim H¹_{S±3}(G₃, ad⁰ρ̄) ≤ 1.",
+      "locator": "Theorem 4.5.1, p.877 (proved in §8)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/reduction-4-6",
+      "kind": "construction",
+      "name": "The set-up for Theorem 2.1.6",
+      "statement": "O = Z₃. F′_i is the degree-12 abelian extension of Q₃(√−3) with norm group topologically generated by −3, 4, 1 + 9√−3 and 1 + (1 − 3ĩ)√−3 (ĩ the lift of i with 0 ≤ ĩ < 3); Gal(F′_i/Q₃(√−3)) = ⟨γ₂⟩ × ⟨γ₃⟩ × ⟨γ₄²⟩ with γ₂ ↔ √−3 (order 2), γ₃ ↔ 1 − 3√−3 (order 3), γ₄² ↔ −1 (order 2); F_i the fixed field of γ₂ (totally ramified over Q₃); I_i the two-sided ideal of W(F₉)[F, V][Gal(F′_i/Q₃)] generated by F + V, [γ₄²] + 1 and ([γ₃] − [γ₃^{−1}])[γ₂] − F.",
+      "locator": "§4.6, p.877",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-6-1",
+      "kind": "theorem",
+      "name": "Four models (G)_{(r,s)} of ρ̄ in FD_{F′_i/Q₃,I_i}",
+      "statement": "There are objects (G, {[g]})_{(r,s)} of FD_{F′_i/Q₃,I_i}, (r, s) = (2, 6), (6, 10), (2, 10), (6, 6), with: (1) ρ̄ ≅ ((G)_{(r,s)})_{Q₃}(Q̄₃); (2) an exact sequence 0 → (G₁)_{(r,s)} → (G)_{(r,s)} → (G₂)_{(r,s)} → 0 with (G_a) of order 3 and Ext¹_{FD_{F′/Q₃,(I_i,3)}}((G_a), (G_b)) → Ext¹_{F₃[G_{Q₃}]} injective for all a, b; (3) for k/F₃ finite, any object of FD_{F′_i/Q₃,I_i} with a k-action and Q₃-fibre ≅ ρ̄ ⊗ k is weakly filtered by {(G₁)_{(r,s)}, (G₂)_{(r,s)}} for some (r, s); (4) F = 0 on D(G_{(r,s)}) for (2, 6), (6, 10), (2, 10), while F ≠ 0 on D(G_{(6,6)}).",
+      "locator": "Theorem 4.6.1, pp.877–878 (proved in §9)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "S_{i,(r,s)} ⊂ S(ρ̄) is then the category of Q₃-fibres of objects of FD_{F′_i/Q₃,I_i,{(G)_{(r,s)}}}, closed under products, subobjects and quotients by lem-4-2-2, cor-4-2-5 and this theorem."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-6-2",
+      "kind": "theorem",
+      "name": "dim H¹_{S_{i,(r,s)}}(G₃, ad⁰ρ̄) ≤ 1",
+      "statement": "For (r, s) = (2, 6), (6, 10), (2, 10), (6, 6), dim H¹_{S_{i,(r,s)}}(G₃, ad⁰ρ̄) ≤ 1.",
+      "locator": "Theorem 4.6.2, p.878 (proved in §9.6)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-6-3",
+      "kind": "theorem",
+      "name": "Deformations to F₃[[T]]/(T^N) for (r,s) ≠ (6,6)",
+      "statement": "For (r, s) = (2, 6), (6, 10), (2, 10) and every N ≥ 1 there is a continuous ρ_N : G_{Q₃} → GL₂(F₃[[T]]/(T^N)) with det ρ_N = ε, ρ_N ≅ (G_N, {[g]})_{Q₃}(Q̄₃) for an object of FD_{F′_i/Q₃,(I_i,F),{(G)_{(r,s)}}}, and ρ_N mod T² not isomorphic to ρ̄ ⊗ F₃[T]/(T²).",
+      "locator": "Theorem 4.6.3, p.878 (proved in §9.5)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-4-6-4",
+      "kind": "theorem",
+      "name": "R^{ε,S_{i,(r,s)}} ≅ F₃[[T]] for (r,s) ≠ (6,6)",
+      "statement": "For (r, s) = (2, 6), (6, 10), (2, 10), R^{ε,S_{i,(r,s)}}_{V,Z₃} ≅ F₃[[T]]. Consequently a characteristic-zero deformation of extended type τ′_i (for which F ≠ 0 on the Dieudonné modules) lands in the (6, 6) problem, and thm-2-1-6 follows from thm-4-6-2.",
+      "locator": "Corollary 4.6.4 and the following discussion, pp.878–879",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "From thm-4-6-2 and thm-4-6-3: the ring is a quotient of Z₃[[T]] killed by 3 (F = −V = 0 forces 3 = FV = 0) with deformations to every F₃[[T]]/(T^N)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/galois-cohomology-4-7",
+      "kind": "construction",
+      "name": "The maps θ₀, θ₁, θ_ω",
+      "statement": "Let S be one of S_{±1}, S_{±3}, S_{i,(r,s)}, with χ = ω for S_{±1} and χ = 1 otherwise, so ρ̄ ∼ (χω ∗; 0 χ) is très ramifié. The maps ω ⊗ χ ↪ ρ̄ ↠ χ give θ₀ : Ext¹_{F₃[G₃]}(ρ̄, ρ̄) → Ext¹(ω ⊗ χ, χ) = H¹(G₃, ω) and θ₁ : ker θ₀ → Ext¹(χ, χ), θ_ω : ker θ₀ → Ext¹(ω ⊗ χ, ω ⊗ χ), followed by restriction to H¹(I₃, F₃); the same names are used for the induced maps on H¹(G₃, ad⁰ρ̄) and on Ext¹_S(ρ̄, ρ̄).",
+      "locator": "§4.7, pp.880–881",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-7-1",
+      "kind": "theorem",
+      "name": "An exact sequence for très ramifié ρ̄",
+      "statement": "The sequence 0 → F₃ → H¹(G₃, ω) → H¹(G₃, ρ̄ ⊗ χ) → H¹(I₃, F₃) is exact.",
+      "locator": "Lemma 4.7.1, p.882",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The key point is that ρ̄ is très ramifié (compare [Di1, Prop. 6.1]); Tate duality."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-4-7-2",
+      "kind": "theorem",
+      "name": "θ₁ and θ_ω have the same one-dimensional kernel",
+      "statement": "The maps θ₁, θ_ω : H¹(G₃, ad⁰ρ̄) ∩ ker θ₀ → H¹(I₃, F₃) have the same kernel, of dimension 1 over F₃.",
+      "locator": "Corollary 4.7.2, p.882",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorems 4.4.1, 4.5.1, 4.6.2 then follow from thm-4-7-3, thm-4-7-4, thm-4-7-5."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-7-3",
+      "kind": "theorem",
+      "name": "θ-vanishing for S_{±1}",
+      "statement": "(1) θ₀ : Ext¹_{S±1}(ρ̄, ρ̄) → H¹(G₃, ω) is zero. (2) θ_ω : Ext¹_{S₋₁}(ρ̄, ρ̄) → H¹(I₃, F₃) is zero. (3) θ_ω : H¹_{S₁}(G₃, ad⁰ρ̄) → H¹(I₃, F₃) is zero.",
+      "locator": "Theorem 4.7.3, p.882 (proved in §7)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-7-4",
+      "kind": "theorem",
+      "name": "θ-vanishing for S_{±3}",
+      "statement": "(1) θ₀ : Ext¹_{S±3}(ρ̄, ρ̄) → H¹(G₃, ω) is zero. (2) θ_ω : Ext¹_{S±3}(ρ̄, ρ̄) → H¹(I₃, F₃) is zero.",
+      "locator": "Theorem 4.7.4, p.882 (proved in §8)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-7-5",
+      "kind": "theorem",
+      "name": "θ-vanishing for S_{i,(r,s)}",
+      "statement": "For i ∈ Z/3 and (r, s) = (2, 6), (6, 10), (2, 10), (6, 6): (1) θ₀ : Ext¹_{S_{i,(r,s)}}(ρ̄, ρ̄) → H¹(G₃, ω) is zero; (2) θ_ω or θ₁ : Ext¹_{S_{i,(r,s)}}(ρ̄, ρ̄) → H¹(I₃, F₃) is zero.",
+      "locator": "Theorem 4.7.5, p.882 (proved in §9.6)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/breuil-modules",
+      "kind": "definition",
+      "name": "Breuil modules killed by ℓ: the category φ₁-mod_R",
+      "statement": "ℓ odd, R the integers of a finite F′/Q_ℓ with residue field k, absolute ramification e, uniformiser π with Eisenstein polynomial E_π(u) = u^e − ℓG_π(u), and c_π = −φ(G_π(u)) ∈ (k[u]/u^{eℓ})^×. An object of φ₁-mod_R is (M, M₁, φ₁): M a finite free k[u]/u^{eℓ}-module, M₁ a submodule containing u^e M, and φ₁ : M₁ → M φ-semilinear (φ the ℓ-power map) with image generating M; the rank is that of M.",
+      "locator": "§5.1, p.883",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "note": "Breuil's ℓ-torsion modules [Br2]; R07.4 plans the Breuil–Kisin classification, of which these are the u^{eℓ}-truncated torsion form."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-1-1",
+      "kind": "theorem",
+      "name": "Exactness of complexes of Breuil modules",
+      "statement": "For a complex 0 → M′ → M → M″ → 0 of Breuil modules the following are equivalent: (1) the underlying sequence of k[u]/u^{eℓ}-modules is exact; (2) that sequence and 0 → M′₁ → M₁ → M″₁ → 0 are exact; (3) 0 → M′/u → M/u → M″/u → 0 is exact.",
+      "locator": "Lemma 5.1.1, pp.883–884",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/breuil-frobenius-monodromy",
+      "kind": "definition",
+      "name": "φ on a Breuil module and the derivation N",
+      "statement": "On a Breuil module, the Frobenius φ : M → M is φ(m) = c_π^{−1}φ₁(u^e m) (5.1.2), which depends on π; N is the continuous W(k)-linear derivation of W(k)[[u]] with Nu = u, i.e. N = u d/du.",
+      "locator": "§5.1, p.884",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-1-2",
+      "kind": "theorem",
+      "name": "The monodromy operator",
+      "statement": "Every object M of φ₁-mod_R has a unique additive operator N : M → M with (1) N(sx) = N(s)x + sN(x), (2) N∘φ₁ = φ∘N on M₁, (3) N(M) ⊂ uM; every morphism of Breuil modules commutes with N.",
+      "locator": "Lemma 5.1.2, pp.884–885",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-5-1-3",
+      "kind": "theorem",
+      "name": "Breuil’s classification of group schemes killed by ℓ",
+      "statement": "(1) Given π there is a contravariant functor M_π from finite flat R-group schemes killed by ℓ to φ₁-mod_R with a quasi-inverse G_π. (2) G has rank ℓ^r iff M_π(G) has rank r. (3) There is a canonical k-linear D(G) ⊗_{k,Frob_ℓ} k ≅ M_π(G)/uM_π(G) under which F ⊗ Frob_ℓ ↔ φ and V ⊗ Frob_ℓ^{−1} ↔ V_M : M/u → M₁/u → M/u (via φ₁^{−1}). (4) A diagram 0 → G′ → G → G″ → 0 is short exact iff 0 → M_π(G″) → M_π(G) → M_π(G′) → 0 is.",
+      "locator": "Theorem 5.1.3, p.885",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "note": "Cited from [Br2, 2.1.2.2, 3.3.5, 3.3.7, 4.2.1.6], [BBM, 4.2.14], [deJ, Prop. 1.1]."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/rank-one-breuil",
+      "kind": "construction",
+      "name": "Rank-one Breuil modules M(r, a)",
+      "statement": "For 0 ≤ r ≤ e and a ∈ k^×: M(r, a) = (k[u]/u^{eℓ})e, M(r, a)₁ = (k[u]/u^{eℓ})u^r e, φ₁(u^r e) = ae; G(r, a) = G_π(M(r, a)).",
+      "locator": "§5.2, p.886",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-2-1",
+      "kind": "theorem",
+      "name": "Rank-one Breuil modules",
+      "statement": "(1) Every rank-one Breuil module is isomorphic to some M(r, a). (2) There is a non-zero morphism M(r, a) → M(r′, a′) iff r′ ≥ r, r′ ≡ r mod ℓ − 1 and a/a′ ∈ (k^×)^{ℓ−1}, and such morphisms are e ↦ bu^{ℓ(r′−r)/(ℓ−1)}e′ with b^{ℓ−1} = a/a′. (3) M(r, a) ≅ M(r′, a′) iff r = r′ and a/a′ ∈ (k^×)^{ℓ−1}. (4) The isomorphism classes of M_π(G) for the models G of a fixed order-ℓ F′-group scheme are well ordered by existence of non-zero maps. (5) Ne = 0 on M(r, a), so N∘φ₁ = 0. (6) G(r, a) is étale iff r = e and multiplicative iff r = 0. (7) G(0, 1) ≅ μ_ℓ and G(e, −G_π(0)) ≅ Z/ℓZ. (8) The Cartier dual of G(r, −G_π(0)) is G(e − r, 1).",
+      "locator": "Lemma 5.2.1, pp.886–887",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The proof computes the affine algebra of G(r, a) via [Br2, 3.1.2]."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/extension-breuil",
+      "kind": "construction",
+      "name": "Extensions M(s, b; r, a; f)",
+      "statement": "For 0 ≤ r, s ≤ e, a, b ∈ k^× and f ∈ u^{max(0, r+s−e)}k[u]/u^{eℓ}: M(s, b; r, a; f) = (k[u]/u^{eℓ})e ⊕ (k[u]/u^{eℓ})e′, M₁ = ⟨u^s e, u^r e′ + fe⟩, φ₁(u^s e) = be, φ₁(u^r e′ + fe) = ae′; an extension of M(r, a) by M(s, b), with G(s, b; r, a; f) its group scheme.",
+      "locator": "§5.2, p.887",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-2-2",
+      "kind": "theorem",
+      "name": "Extensions of rank-one Breuil modules",
+      "statement": "(1) Every extension of M(r, a) by M(s, b) in φ₁-mod_R is isomorphic to some M(s, b; r, a; f). (2) M(s, b; r, a; f) and M(s, b; r, a; f′) are isomorphic extensions iff f′ − f = u^s h − (b/a)u^r h^ℓ for some h ∈ k[u]/u^{eℓ}; one such isomorphism fixes e and sends e′ to e′ − (b/a)h^ℓ e.",
+      "locator": "Lemma 5.2.2, p.887",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-2-3",
+      "kind": "theorem",
+      "name": "Rank-one Breuil modules with coefficients",
+      "statement": "For k′/F_ℓ finite and linearly disjoint from k, and M(k′; r, a) = ((k′k)[u]/u^{eℓ})e with M₁ = u^r M, φ₁(u^r e) = ae (a ∈ (k′k)^×): (1) every Breuil module with k′-action free of rank [k′ : F_ℓ] over k[u]/u^{eℓ} is some M(k′; r, a); (2) there is a non-zero morphism M(k′; r, a) → M(k′; r′, a′) iff r′ ≥ r, r′ ≡ r mod ℓ − 1 and a/a′ ∈ φ(b)/b for some b ∈ (k′k)^×; (3) isomorphism iff r = r′ and a/a′ ∈ ((k′k)^×)^{φ−1}; (4) Ne = 0; (5) G_π(M(k′; r, a)) is étale iff r = e, multiplicative iff r = 0.",
+      "locator": "Lemma 5.2.3, pp.887–888",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-2-4",
+      "kind": "theorem",
+      "name": "Extensions with coefficients",
+      "statement": "(1) Every extension of M(k′; r, a) by M(k′; s, b) with compatible k′-action is isomorphic to M(k′; s, b; r, a; f) for some f ∈ u^{max(0, r+s−e)}(k′k)[u]/u^{eℓ}. (2) Two such are isomorphic extensions iff f′ − f = u^s h − (b/a)u^r φ(h), and then one isomorphism fixes e and sends e′ to e′ − (b/a)φ(h)e.",
+      "locator": "Lemma 5.2.4, p.888",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The following sentence names the group schemes G(k′; r, a; s, b; f) := G_π(M(k′; r, a; s, b; f)), reversing the order of the module's parameters (source issue E7)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/syntomic-breuil",
+      "kind": "construction",
+      "name": "M_π(G) through syntomic sheaves",
+      "statement": "On the small ℓ-adic formal syntomic site Spf(R)_syn: S the ℓ-adic completion of W(k)[u, u^{ie}/i!], the sheaves O^cris_{n,π} and J^cris_{n,π} (crystalline cohomology relative to E_n = Spec S/ℓ^n via u ↦ π) with φ, φ₁ and N; for G killed by ℓ, M_π(G) = Hom_{sheaves of groups}(G, O^cris_{1,π}) ⊗ k[u]/u^{eℓ}, with M_π(G)₁ from J^cris_{1,π} and φ₁ induced.",
+      "locator": "§5.3, pp.888–889",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Recalled from [Br1], [Br2]."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-3-1",
+      "kind": "theorem",
+      "name": "Group homomorphisms to a syntomic sheaf",
+      "statement": "For a sheaf of commutative groups F on Spf(R)_syn, Hom_{sheaves of groups}(G, F) = {x ∈ F(G) : (Δ^* − pr₁^* − pr₂^*)(x) = 0}.",
+      "locator": "Lemma 5.3.1, p.889",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-3-2",
+      "kind": "theorem",
+      "name": "The syntomic N is the monodromy operator",
+      "statement": "The operator on M_π(G) induced by N on O^cris_{1,π} coincides with the operator N of lem-5-1-2.",
+      "locator": "Lemma 5.3.2, pp.889–890",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-4-1",
+      "kind": "theorem",
+      "name": "Unramified base change and φ₁",
+      "statement": "For k′/k perfect, R′ = R ⊗_{W(k)} W(k′) and π′ = π ⊗ 1, the isomorphisms J^cris_{n,π} ⊗ W_n(k′) ≅ J^cris′_{n,π} and O^cris_{n,π} ⊗ W_n(k′) ≅ O^cris′_{n,π} intertwine φ₁ ⊗ φ and φ₁.",
+      "locator": "Lemma 5.4.1, p.890",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-5-4-2",
+      "kind": "theorem",
+      "name": "Breuil modules under unramified base change",
+      "statement": "For G killed by ℓ, k′/k perfect and G′ = G ×_R R′, there is a canonical isomorphism (M_π(G) ⊗_k k′, M_π(G)₁ ⊗_k k′, φ₁ ⊗ φ) ≅ (M_{π′}(G′), M_{π′}(G′)₁, φ₁), compatible with composites.",
+      "locator": "Corollary 5.4.2, p.890",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-4-3",
+      "kind": "theorem",
+      "name": "The twisted Frobenius ^gφ",
+      "statement": "For a continuous automorphism g of R with g(π) = πH_g(π) and ĝ(Σw_i u^i) = Σg(w_i)u^i H_g(u)^i, there is a unique ^g t(u) ∈ W(k)[[u]] such that ^gφ(Σw_i u^i) := Σφ(w_i)(u^ℓ(1 + ℓ ^g t(u)))^i satisfies ĝ∘^gφ = φ∘ĝ; one sets ^gφ₁(x) = φ₁(x) + ^g t(u)N(φ₁(x)) on M₁.",
+      "locator": "Lemma 5.4.3, p.891",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-4-4",
+      "kind": "theorem",
+      "name": "^gφ₁ and base change along g",
+      "statement": "The isomorphisms J^cris_{n,π} ⊗_{S_n,ĝ} S_n ≅ J^{cris,(g)}_{n,π} and O^cris_{n,π} ⊗_{S_n,ĝ} S_n ≅ O^{cris,(g)}_{n,π} intertwine ^gφ₁ ⊗ φ and φ₁.",
+      "locator": "Lemma 5.4.4, p.892",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-5-4-5",
+      "kind": "theorem",
+      "name": "Breuil module of the conjugate group scheme",
+      "statement": "(1) For G killed by ℓ there is a canonical isomorphism (M_π(G) ⊗_{ĝ} k[u]/u^{eℓ}, M_π(G)₁ ⊗_{ĝ} k[u]/u^{eℓ}, ^gφ₁ ⊗ φ) ≅ (M_π(^gG), M_π(^gG)₁, φ₁). (2) It is functorial in G, and M_π(f) commutes with ^gφ₁.",
+      "locator": "Corollary 5.4.5, p.892",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-5-4-6",
+      "kind": "theorem",
+      "name": "g-semilinear automorphisms of G via Breuil modules",
+      "statement": "Giving a morphism [g] : G → G over Spec(g) inducing a group-scheme morphism G → Spec R ×_{g,Spec R} G is equivalent to giving an additive ĝ : M_π(G) → M_π(G) with ĝ(sx) = ĝ(s)ĝ(x) and ĝ(M₁) ⊂ M₁, φ₁∘ĝ = ĝ∘φ₁ + ĝ(^g t(u))ĝ∘N∘φ₁.",
+      "locator": "Corollary 5.4.6, pp.892–893",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-4-7",
+      "kind": "theorem",
+      "name": "The operators 1_f",
+      "statement": "For f ∈ u^e k[u]/u^{eℓ} the operator 1_f = 1 + (Σ_{i=1}^{ℓ−1} (−1)^{i−1}f^i/i)N on φ₁(M₁), extended by 1_f(u^i x) = u^i(1 + f)^i 1_f(x), is induced by the automorphism 1_f of O^cris_{1,π} coming from s(u) ↦ s(u(1 + f(u))) (Lemma 5.4.7); once H_g = 1 + f has been chosen, 1_f is the map corresponding to 1_G under cor-5-4-6 (Lemma 5.4.8).",
+      "locator": "Lemmas 5.4.7 and 5.4.8, pp.893–894",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "1_f need not be the identity although 1_G is; it is when f = 0."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-5-1",
+      "kind": "theorem",
+      "name": "The Frobenius φ_g",
+      "statement": "There is a unique t_g(u) ∈ W(k)[[u]] such that φ_g(Σw_i u^i) := Σφ(w_i)(u^ℓ(1 + ℓt_g(u)))^i satisfies ĝ∘φ = φ_g∘ĝ; set φ_{1,g} = φ₁ + t_g Nφ₁.",
+      "locator": "Lemma 5.5.1, p.894",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-5-2",
+      "kind": "theorem",
+      "name": "The derivations N_g and ^gN",
+      "statement": "There are unique λ_g, ^gλ ∈ 1 + uW(k)[[u]] with N_g := λ_g N satisfying N_g∘ĝ = ĝ∘N and ^gN := ^gλ N satisfying ĝ∘^gN = N∘ĝ; moreover N_g∘φ_g = ℓφ_g∘N_g and ^gN∘^gφ = ℓ^gφ∘^gN.",
+      "locator": "Lemma 5.5.2, p.894",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-5-3",
+      "kind": "theorem",
+      "name": "Monodromy for φ_{1,g}",
+      "statement": "On M in φ₁-mod_R there is a unique N_g : M → M with N_g(sx) = N_g(s)x + sN_g(x), N_gφ_{1,g}(x) = φ_g N_g(x) on M₁ (φ_g(y) = c_π^{−1}φ_{1,g}(u^e y)) and N_g(M) ⊂ uM; likewise for ^gN, ^gφ, ^gφ₁.",
+      "locator": "Lemma 5.5.3, pp.894–895",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-5-4",
+      "kind": "theorem",
+      "name": "N_g = λ_g N and ^gN = ^gλ N on M",
+      "statement": "For M in φ₁-mod_R, the operators of lem-5-5-3 are N_g = λ_g N and ^gN = ^gλ N.",
+      "locator": "Lemma 5.5.4, p.895",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-5-5",
+      "kind": "theorem",
+      "name": "Semilinear maps and monodromy",
+      "statement": "If ĝ : M → M is additive with ĝ(sx) = ĝ(s)ĝ(x), ĝ(M₁) ⊂ M₁ and ĝ∘φ₁ = φ_{1,g}∘ĝ, then ĝ∘N = N_g∘ĝ; similarly φ₁∘ĝ = ĝ∘^gφ₁ implies N∘ĝ = ĝ∘^gN.",
+      "locator": "Lemma 5.5.5, p.895",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-5-6",
+      "kind": "theorem",
+      "name": "Two forms of the Frobenius condition",
+      "statement": "For ĝ as in lem-5-5-5, φ₁∘ĝ = ĝ∘φ₁ + ĝ(^g t(u))ĝ∘N∘φ₁ iff ĝ∘φ₁ = φ₁∘ĝ + t_g(u)N∘φ₁∘ĝ.",
+      "locator": "Lemma 5.5.6, pp.895–896",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-5-5-7",
+      "kind": "theorem",
+      "name": "g-semilinear morphisms: ĝ∘φ₁ = (1 + t_g N)∘φ₁∘ĝ",
+      "statement": "With H_g chosen and ĝ as above, giving [g] : G → G over Spec(g) (a group-scheme map to the g-twist) is equivalent to giving an additive ĝ on M_π(G) with ĝ(sx) = ĝ(s)ĝ(x), ĝ(M₁) ⊂ M₁ and ĝ∘φ₁ = (1 + t_g(u)N)∘φ₁∘ĝ; [g] is an isomorphism iff ĝ is; with compatible choices of H, [g]^{−1} corresponds to (g^{−1})^ and [g₁]∘[g₂] to ĝ₂∘ĝ₁.",
+      "locator": "Corollary 5.5.7, pp.896–897",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-5-6-1",
+      "kind": "theorem",
+      "name": "Descent data as semilinear operators on Breuil modules",
+      "statement": "Let G be finite flat over R killed by ℓ and fix H_g for g ∈ Γ. (1) Descent data on G relative to Γ are equivalent to additive bijections ĝ of M_π(G) preserving M_π(G)₁ with ĝ(wu^i m) = g(w)(uH_g(u))^i ĝ(m), ĝ∘φ₁ = (1 + t_g(u)N)∘φ₁∘ĝ on M₁, 1̂_Γ = 1 and ĝ₁∘ĝ₂ = (g₁g₂)^∘1_{g₁,g₂}. (2) This is functorial in G and compatible with the Dieudonné module: D([g]) and ĝ mod u agree under thm-5-1-3. If π ∈ R^Γ one may take H_g = 1, and descent data amount to an R-semilinear Γ-action commuting with u and φ₁ (étale descent of Breuil modules).",
+      "locator": "Theorem 5.6.1, p.897",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "note": "R07.4 asks for the classification 'including descent data'."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-5-6-2",
+      "kind": "theorem",
+      "name": "Descent data by generators and relations; φ₁DD_{F′/(F′)^Γ}",
+      "statement": "If Γ is a quotient of the free group on γ₁, …, γ_d with relations R, descent data on G are equivalent to additive bijections ĝ_{γ_j} preserving M₁ with ĝ_{γ_j}(wu^i m) = γ_j(w)(uH_{γ_j}(u))^i ĝ_{γ_j}(m), ĝ_{γ_j}∘φ₁ = (1 + t_{γ_j}N)∘φ₁∘ĝ_{γ_j}, and ĝ_γ = 1_γ for each reduced word γ ∈ R. φ₁DD_{F′/(F′)^Γ} is the resulting additive category of Breuil modules with descent data (exactness tested in φ₁-mod_R), and M_π extends to a functor from FD_{F′/(F′)^Γ}.",
+      "locator": "Corollary 5.6.2, p.898",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-7-1",
+      "kind": "theorem",
+      "name": "Descent data on order-ℓ group schemes",
+      "statement": "If G is finite flat of order ℓ over R and its generic fibre admits descent data over (F′)^Γ, then any descent data on G × F′ extends uniquely to G. If moreover M_π(G) ≅ M(r, a) and γ(π)/π ≡ 1 mod π, then ĝ_γ(e) = H_γ(u)^{−rℓ/(ℓ−1)}e, the (ℓ−1)-th root with constant term 1.",
+      "locator": "Lemma 5.7.1, pp.898–899",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The printed proof cites 'Theorem 5.2.1' for N∘φ₁ = 0, which is Lemma 5.2.1(5), and writes 'γ ∈ Γ₁' where Γ₁ is not defined (source issue E4)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-data",
+      "kind": "definition",
+      "name": "Data attached to each local field F′ (§6)",
+      "statement": "For each of the fields F′ below the paper records: G(u) ∈ W(k_{F′})[u] of degree < e(F′/Q₃) with π a root of u^{e(F′/Q₃)} − 3G(u); c_π ≡ −G(u)³ mod (3, u^{3e(F′/Q₃)}); for γ ∈ Gal(F′/Q₃) the polynomial H_γ(u) of degree < e(F′/Q₃) with γ(π)/π = H_γ(π); and in some cases the series t_γ and f_{γ,γ′} of §5.6.",
+      "locator": "§6 introduction, p.899",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-F1",
+      "kind": "construction",
+      "name": "The field F′₁ = F₁",
+      "statement": "F′₁ = F₁ = Q₃[π] with π a root of X³ − 3X² + 3 (a totally ramified cubic Galois extension; the other roots are π² − 2π and 3 + π − π²); Gal(F′₁/Q₃) = ⟨γ₃⟩ with γ₃(π) = π² − 2π; G(u) = u² − 1, c_π ≡ 1 − u⁶ mod (3, u⁹), H_{γ₃}(u) = u − 2.",
+      "locator": "§6.1, pp.899–900",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-F-1",
+      "kind": "construction",
+      "name": "The fields F₋₁ ⊂ F′₋₁",
+      "statement": "F₋₁ = Q₃(π) with π a root of X³ − 3X² + 6 and F′₋₁ = F₋₁(√−1); Gal(F′₋₁/Q₃) = ⟨γ₂, γ₃⟩ with γ₂ fixing π and negating √−1, γ₃(π) = (√−1π² − π + 3(1 − √−1))/2 fixing √−1, γ₂² = γ₃³ = 1, γ₂γ₃ = γ₃²γ₂; G(u) = u² − 2, c_π ≡ −1 − u⁶ mod (3, u⁹), H_{γ₂} = 1, H_{γ₃}(u) = ((√−1 − 1)u² + (3 − √−1)u − 2)/4.",
+      "locator": "§6.2, p.900",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-F3",
+      "kind": "construction",
+      "name": "The fields F₃ ⊂ F′₃",
+      "statement": "F′₃ = Q₃(√3)(√−1, α, β) with α³ − 3α + 3 = 0 and β² = √3 (the degree-12 abelian extension of Q₃(√3) with norm group generated by 3, 4, 1 + 3√3); Gal(F′₃/Q₃) is generated by γ₂, γ₃, γ₄ with γ₂² = γ₃³ = γ₄⁴ = 1, γ₂γ₃ = γ₃γ₂, γ₄γ₂ = γ₂γ₄^{−1}, γ₄γ₃ = γ₃²γ₄; γ₄² is the unique element of order 2 in the inertia group of F′₃/Q₃(√3); F₃ = Q₃(π) is the fixed field of the Frobenius lift γ₂ and π = α/β; G(0) = 1, c_π ≡ −1 mod (3, u), H_{γ₂} = 1, H_{γ₄} = −√−1, H_{γ₃} ≡ 1 + u² mod (3, u⁴), t_g = f_{g,g′} = 0 on ⟨γ₂, γ₄⟩.",
+      "locator": "§6.3, pp.900–901",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The opening sentence calls γ₄² 'the unique element … of order 3'; it has order 2, as the end of the section says (source issue E2)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-F-3",
+      "kind": "construction",
+      "name": "The fields F₋₃ ⊂ F′₋₃",
+      "statement": "F′₋₃ = Q₃(√−3)(√−1, α, β) with α³ = 4 and β² = −√−3 (the degree-12 abelian extension of Q₃(√−3) with norm group generated by −3, 4, 1 + 3√−3); generators γ₂, γ₃, γ₄ with the same relations as for F′₃, γ₃α = (−1 − √−3)α/2; F₋₃ = Q₃(π), π = α/β; G(0) = −1, c_π ≡ 1 mod (3, u), H_{γ₂} = 1, H_{γ₄} = −√−1, H_{γ₃} ≡ 1 + u² mod (3, u⁴), t_g = f_{g,g′} = 0 on ⟨γ₂, γ₄⟩.",
+      "locator": "§6.4, pp.901–902",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "As in §6.3, γ₄² is called an element 'of order 3' (it has order 2), and two Galois groups are written Gal(F′₃/…) for Gal(F′₋₃/…) (source issues E2, E3)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-Fi",
+      "kind": "construction",
+      "name": "The fields F_i ⊂ F′_i",
+      "statement": "F′_i = Q₃(√−3)(√−1, α, β) with α³ = 3(1 + 3ĩ) and β² = −√−3; γ₂, γ₃, γ₄² correspond to √−3, 1 − 3√−3, −1; γ₃(α) = (−1 − √−3)α/2 (via the unramified extension generated by a cube root δ of 1 + 3√−3); generators γ₂, γ₃, γ₄ with the relations of §6.3; F_i = Q₃(π), π = α/β; γ₃^{±1}(π)/π = −(1 ∓ (1 + 3ĩ)^{−2}π⁶)/2; G(u) = −(1 + 3ĩ)⁴, c_π ≡ 1 mod (3, u³⁶), H_{γ₂} = 1, H_{γ₄} = −√−1, H_{γ₃^{±1}} ≡ 1 ∓ u⁶ mod 3, t_{γ₃^{±1}} ≡ −1 ∓ u⁶ mod (3, u¹²), t_g = f_{g,g′} = 0 on ⟨γ₂, γ₄⟩, and f_{γ₃^{±1},γ₃^{±1}}, f_{γ₃^{±1},γ₃^{∓1}} ≡ 0 mod (3, u¹²).",
+      "locator": "§6.5, pp.902–903",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/rank-one-models-7-1",
+      "kind": "theorem",
+      "name": "Models of Z/3 and μ₃ over O_{F±1}",
+      "statement": "The only O_F-models (F = F_{±1}, e = 3, δ = ±1) of (Z/3Z)_F are G(3, δ) ≅ Z/3Z and G(1, δ), and of (μ₃)_F are G(0, 1) ≅ μ₃ and G(2, 1); in each case the base change to O_{F′} has unique descent data over Q₃ compatible with the canonical descent data on the generic fibre (the standard descent data).",
+      "locator": "§7.1, p.904",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "From lem-5-2-1 and lem-5-7-1."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-1",
+      "kind": "theorem",
+      "name": "Extensions of M(2, 1) by M(1, δ)",
+      "statement": "The extensions of M(2, 1) by M(1, δ) over O_F are parametrised by c ∈ F₃: M(1, δ; 2, 1; c) = (F₃[u]/u⁹)e₁ ⊕ (F₃[u]/u⁹)e_ω with M₁ = ⟨ue₁, u²e_ω + ce₁⟩, φ₁(ue₁) = δe₁, φ₁(u²e_ω + ce₁) = e_ω, N(e₁) = 0, N(e_ω) = cu⁶e₁. The standard descent data extend uniquely; the resulting representations G₃ → GL₂(F₃) are (ω ∗; 0 1) peu ramifié, and every peu ramifié extension arises.",
+      "locator": "Lemma 7.2.1, pp.904–905",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-2",
+      "kind": "theorem",
+      "name": "Descent of local-local extensions over a cubic field",
+      "statement": "If F̃₁/Q₃ is totally ramified abelian cubic and G is a local-local finite flat O_{F̃₁}-group scheme killed by 3 with generic fibre an extension of Z/3Z by μ₃, then G × F̃₁ ≅ 𝒢 ×_{Q₃} F̃₁ for some finite flat Q₃-group scheme 𝒢.",
+      "locator": "Lemma 7.2.2, p.905",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-3",
+      "kind": "theorem",
+      "name": "Extensions of M(1, δ) by M(2, 1)",
+      "statement": "The extensions of M(1, δ) by M(2, 1) over O_F are parametrised by c + c′u ∈ F₃[u]: M(2, 1; 1, δ; c + c′u) with M₁ = ⟨u²e_ω, ue₁ + (c + c′u)e_ω⟩, φ₁(u²e_ω) = e_ω, φ₁(ue₁ + (c + c′u)e_ω) = δe₁. Each admits unique descent data compatible with the standard descent data; as c, c′ vary, the Q₃-descents of the generic fibres run over all 9 extensions of μ₃ by Z/3Z, and the representation is peu ramifié iff c = 0.",
+      "locator": "Lemma 7.2.3, p.906",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Frobenius vanishes on the Dieudonné module iff c = 0; très ramifié extensions are realised using supersingular curves from [Man, §5.3]."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-7-2-4",
+      "kind": "theorem",
+      "name": "The Breuil module of a model of ρ̄ over O_{F±1}",
+      "statement": "If G is finite flat over O_F with descent data on G′ = G × O_{F′} such that (G′, {[g]})_{Q₃} gives ρ̄, then M_π(G) ≅ M(2, 1; 1, δ; c + c′u) with c ≠ 0.",
+      "locator": "Corollary 7.2.4, p.906",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "G × F₃ is local-local by the connected–étale sequence and its dual."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-5",
+      "kind": "theorem",
+      "name": "Self-extensions of M(1, δ)",
+      "statement": "The extensions of M(1, δ) by itself are parametrised by b + b′u ∈ F₃[u] (M₁ = ⟨ue, ue′ + (b + b′u)e⟩, φ₁(ue) = δe, φ₁(ue′ + (b + b′u)e) = δe′); the extension splits over an unramified extension iff b = 0. If F′/Q₃ is non-abelian, descent data on M(1, −1; 1, −1; b + b′u)′ compatible with the standard ones satisfy ĝ_{γ₂} = 1 on e, e′, ĝ_{γ₃^{±1}}(e) = H_{γ₃^{±1}}(u)³e and ĝ_{γ₃^{±1}}(e′) = H_{γ₃^{±1}}(u)³e′ + h_{γ₃^{±1}}(u)e with h_{γ₃^{±1}}(0) = −bH′_{γ₃^{±1}}(0).",
+      "locator": "Lemma 7.2.5, pp.906–907",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-6",
+      "kind": "theorem",
+      "name": "Self-extensions of M(2, 1)",
+      "statement": "The extensions of M(2, 1) by itself are parametrised by (b + b′u)u (M₁ = ⟨u²e, u²e′ + (b + b′u)ue⟩, φ₁(u²e) = e, φ₁(u²e′ + (b + b′u)ue) = e′); the extension splits over an unramified extension iff b = 0. If F′/Q₃ is non-abelian, descent data compatible with the standard ones satisfy ĝ_{γ₃}(e) = H_{γ₃}(u)⁶e and ĝ_{γ₃}(e′) = H_{γ₃}(u)⁶e′ + h_{γ₃}(u)e with h_{γ₃}(0) = −bH′_{γ₃}(0).",
+      "locator": "Lemma 7.2.6, pp.907–908",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The paper stresses that the sign in h_{γ₃}(0) = −bH′_{γ₃}(0) is what makes §7.4 work."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-3-1",
+      "kind": "theorem",
+      "name": "A rank-three splitting",
+      "statement": "Let G be finite flat over O_F, killed by 3, with closed finite flat subgroups G₁ ⊂ G₂ ⊂ G such that G₁ ≅ G(1, δ), G₂/G₁ ≅ G(2, 1), G/G₂ ≅ G(1, δ), and suppose G₂ ×_{O_F} F′ descends to Q₃ as a très ramifié extension of μ₃ by Z/3Z. Then G/G₁ ≅ G(2, 1) ⊕ G(1, δ) compatibly with the extension structure.",
+      "locator": "Lemma 7.3.1, pp.908–909",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-7-3-2",
+      "kind": "theorem",
+      "name": "θ₀ vanishes on Ext¹_{S±1}",
+      "statement": "The natural map θ₀ : Ext¹_{S±1}(ρ̄, ρ̄) → H¹(G₃, ω) is zero.",
+      "locator": "Corollary 7.3.2, p.909",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Part (1) of thm-4-7-3; from lem-7-3-1, lem-7-2-1 and the injectivity of H¹(G₃, ω) → H¹(G_{F′}, ω)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/conclusion-7-4",
+      "kind": "theorem",
+      "name": "Conclusion of the proof of Theorem 4.4.1 (parts (2), (3) of Theorem 4.7.3)",
+      "statement": "θ_ω : H¹_{S₁}(G₃, ad⁰ρ̄) → H¹(I₃, F₃) and θ_ω : Ext¹_{S₋₁}(ρ̄, ρ̄) → H¹(I₃, F₃) are zero. For S₁ one passes to an auxiliary totally ramified abelian cubic F̃₁ killing the class and uses lem-7-2-2; for S₋₁ one writes the rank-four Breuil module of a self-extension via lem-7-2-1, lem-7-2-3, lem-7-2-5, lem-7-2-6, lem-7-3-1 and compares the descent data of γ₃ on the two diagonal pieces to force the relevant coefficient to vanish.",
+      "locator": "§7.4, pp.909–911",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "In the S₋₁ computation the displayed formula for γ̂₃(e′_ω) is printed a second time where γ̂₃(e′₁) is meant (source issue E6)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-8-1-1",
+      "kind": "theorem",
+      "name": "Descent data on rank-one objects over F′_{±3}",
+      "statement": "For even 0 ≤ r ≤ e = 12, the descent data on M′_{r,1} is ĝ_{γ₂}(e) = e, ĝ_{γ₄}(e) = −(−√−1)^{r/2}e, ĝ_{γ₃^{±1}}(e) = H_{γ₃^{±1}}(u)^{−3r/2}e, and on M′_{r,ω} is ĝ_{γ₂}(e) = e, ĝ_{γ₄}(e) = (−√−1)^{r/2}e, ĝ_{γ₃^{±1}}(e) = H_{γ₃^{±1}}(u)^{−3r/2}e. In particular γ₄² = −1 on D(G′_{r,1}) iff on D(G′_{r,ω}) iff r = 2, 6 or 10.",
+      "locator": "§8.1, Lemma 8.1.1, p.911",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The models of Z/3 (resp. μ₃) over O_{F±3} are G(r, δ) (resp. G(r, 1)) for even r, each with unique descent data (lem-5-7-1)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-8-1-2",
+      "kind": "theorem",
+      "name": "Adapted bases for filtered objects",
+      "statement": "Let M in φ₁-mod_F correspond to G with descent data on G′ over Q₃, such that (G′, {ĝ})_{Q₃} is filtered with graded pieces Z/3Z or μ₃ and the corresponding filtration of (M′, {ĝ}) has quotients M′_{r_j,χ_j} with r_j ∈ {2, 6, 10}. Then γ₄² = −1 on M′/uM′ and M has an F₃[u]/u³⁶-basis {e_j} with e_j ∈ φ₁(M₁), e_j an eigenvector of ĝ_{γ₄} on M′, and e_j in the part of the filtration mapping onto M′_{r_j,χ_j} with image the standard generator.",
+      "locator": "Lemma 8.1.2, p.912",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/prop-8-2-1",
+      "kind": "theorem",
+      "name": "The unique model of ρ̄ in FD_{F′±3/Q₃,I}",
+      "statement": "There is a unique object (G′, {[g]}) of FD_{F′/Q₃,I} whose Q₃-fibre corresponds to ρ̄. Its Breuil module M(ρ̄)′ = M_π(G′, {[g]}) is an extension of M′_{2,ω} by M′_{10,1} in φ₁DD_{F′/Q₃}, and Frobenius is not identically zero on D(G′).",
+      "locator": "§8.2, Proposition 8.2.1, pp.912–917",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-8-3-1",
+      "kind": "theorem",
+      "name": "Pushout–pullback of self-extensions of M(ρ̄)′ vanishes",
+      "statement": "For M(ρ̄)′ as in prop-8-2-1, the map Ext¹_{φ₁DD_{F′/Q₃}}(M(ρ̄)′, M(ρ̄)′) → Ext¹_{φ₁DD_{F′/Q₃}}(M′_{10,1}, M′_{2,ω}), by pushout along M(ρ̄)′ → M′_{2,ω} and pullback along M′_{10,1} → M(ρ̄)′, is zero.",
+      "locator": "§8.3, Lemma 8.3.1, pp.917–918",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-8-3-2",
+      "kind": "theorem",
+      "name": "θ₀ vanishes on Ext¹_{S±3}",
+      "statement": "θ₀ : Ext¹_{S±3}(ρ̄, ρ̄) → H¹(G₃, ω) is zero.",
+      "locator": "Corollary 8.3.2, p.918",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Part (1) of thm-4-7-4."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-8-3-3",
+      "kind": "theorem",
+      "name": "Self-extensions of the rank-one pieces split over an unramified extension",
+      "statement": "The images of Ext¹_{φ₁DD_{F′/Q₃}}(M′_{10,1}, M′_{10,1}) → Ext¹_{F₃[G₃]}(1, 1) and of Ext¹_{φ₁DD_{F′/Q₃}}(M′_{2,ω}, M′_{2,ω}) → Ext¹_{F₃[G₃]}(ω, ω) lie in the line of classes that split over an unramified extension of Q₃.",
+      "locator": "Lemma 8.3.3, pp.918–919",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The first case gives part (2) of thm-4-7-4. The sentence introducing the lemma says 'Theorem 4.7.4, and hence Theorem 4.4.1, now follow'; Theorem 4.7.4 yields Theorem 4.5.1 (source issue E5)."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-1-1",
+      "kind": "theorem",
+      "name": "Descent data on rank-one objects over F′_i",
+      "statement": "For even 0 ≤ r ≤ e = 12, the descent data on M_{r,1} is ĝ_{γ₂}(e) = e, ĝ_{γ₄}(e) = −(−√−1)^{r/2}e, ĝ_{γ₃^{±1}}(e) = H_{γ₃^{±1}}(u)^{−3r/2}e, and on M_{r,ω} is ĝ_{γ₂}(e) = e, ĝ_{γ₄}(e) = (−√−1)^{r/2}e, ĝ_{γ₃^{±1}}(e) = H_{γ₃^{±1}}(u)^{−3r/2}e. In particular γ₄² = −1 on D(G_{r,1}) iff on D(G_{r,ω}) iff r = 2, 6 or 10.",
+      "locator": "§9.1, Lemma 9.1.1, p.919",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-1-2",
+      "kind": "theorem",
+      "name": "Adapted bases over F′_i",
+      "statement": "The analogue of lem-8-1-2 over F = F_i, F′ = F′_i: under the same filtration hypothesis with r_j ∈ {2, 6, 10}, γ₄² = −1 on M′/uM′ and M has an F₃[u]/u³⁶-basis of φ₁(M₁)-elements that are ĝ_{γ₄}-eigenvectors adapted to the filtration.",
+      "locator": "Lemma 9.1.2, p.919",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/prop-9-2-1",
+      "kind": "theorem",
+      "name": "Extensions of M′_{r,ω} by M′_{s,1} in φ₁DD_{F′_i/Q₃,I}",
+      "statement": "Let φ₁DD_{F′/Q₃,I} be the objects on which I acts trivially on (M′/uM′) ⊗_{F₉,Frob₃} F₉. If (M′, {ĝ}) in φ₁DD_{F′/Q₃,I} has Q₃-fibre an extension of Z/3Z by μ₃, there is an exact sequence 0 → M′_{s,1} → M′ → M′_{r,ω} → 0 with (r, s) ∈ {(2, 6), (6, 10), (2, 10), (6, 6)}, M′ = M ⊗_{F₃} F₉ with ĝ_{γ₂} = 1 ⊗ Frob₃, and in each case Ext¹_{φ₁DD_{F′/Q₃,I}}(M′_{r,ω}, M′_{s,1}) → Ext¹_{F₃[G₃]}(1, ω) is an isomorphism with an explicit parametrisation by pairs in F₃² (for (6, 6): M₁ = ⟨u⁶e₁, u⁶e′_ω + (c + c′u⁴)e₁⟩, N(e′_ω) = c′u³⁰e₁, and φ ≡ 0 mod uM iff c = 0). The peu ramifié classes are those with c₁ = 0 in the first three cases and c = 0 in the fourth.",
+      "locator": "§9.2, Proposition 9.2.1, pp.920–927",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-3-1",
+      "kind": "theorem",
+      "name": "No extensions of M′_{s,1} by M′_{r,ω} for (r,s) ≠ (6,6)",
+      "statement": "For (r, s) = (2, 6), (6, 10), (2, 10), Ext¹_{φ₁DD_{F′/Q₃,I}}(M′_{s,1}, M′_{r,ω}) = 0.",
+      "locator": "§9.3, Lemma 9.3.1, pp.927–928",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The (6, 10) case follows from (2, 6) by Cartier duality."
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-3-2",
+      "kind": "theorem",
+      "name": "Extensions of M′_{6,1} by M′_{6,ω}",
+      "statement": "Ext¹_{φ₁DD_{F′/Q₃,I}}(M′_{6,1}, M′_{6,ω}) → Ext¹_{F₃[G₃]}(ω, 1) is an isomorphism, with elements parametrised by (c, c′) ∈ F₃² and explicit Breuil modules with descent data.",
+      "locator": "Lemma 9.3.2, pp.928–929",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-3-3",
+      "kind": "theorem",
+      "name": "Self-extensions of M′_{r,χ} for r ∈ {2, 10}",
+      "statement": "For r ∈ {2, 10}, Ext¹_{φ₁DD_{F′/Q₃}}(M′_{r,ω}, M′_{r,ω}) → Ext¹_{F₃[G₃]}(ω, ω) and Ext¹_{φ₁DD_{F′/Q₃}}(M′_{r,1}, M′_{r,1}) → Ext¹_{F₃[G₃]}(1, 1) are injective with image the one-dimensional space of classes split over an unramified extension of Q₃.",
+      "locator": "Lemma 9.3.3, pp.929–930",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-3-4",
+      "kind": "theorem",
+      "name": "Self-extensions of M′_{6,1} and M′_{6,ω}",
+      "statement": "Ext¹_{φ₁DD_{F′/Q₃}}(M′_{6,1}, M′_{6,1}) → Ext¹_{F₃[G₃]}(1, 1) and Ext¹_{φ₁DD_{F′/Q₃}}(M′_{6,ω}, M′_{6,ω}) → Ext¹_{F₃[G₃]}(ω, ω) are isomorphisms; each group is parametrised by (c, c′) ∈ F₃² (M₁ = ⟨u⁶e, u⁶e′ + (cu² + c′u⁶)e⟩, with explicit N and descent data), and the classes split over an unramified extension are those with c = 0.",
+      "locator": "Lemma 9.3.4, pp.930–931",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/completion-9-4",
+      "kind": "theorem",
+      "name": "Completion of the proof of Theorem 4.6.1",
+      "statement": "Part (3) of thm-4-6-1: an object with k-action and Q₃-fibre ρ̄ ⊗ k is filtered 0 → G_ω → G → G₁ → 0 compatibly with descent data; by lem-5-2-3 the pieces have Breuil modules M(k; r_ω, f_ω), M(k; r₁, f₁), and prop-9-2-1 with lem-9-1-1 forces (r_ω, r₁) to be one of the four pairs.",
+      "locator": "§9.4, pp.931–932",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/completion-9-5",
+      "kind": "construction",
+      "name": "Completion of the proof of Theorem 4.6.3: deforming the Breuil modules",
+      "statement": "With A_N = F₃[[T]]/(T^N) and t = 2, 6, 8 for (r, s) = (2, 6), (6, 10), (2, 10), the paper writes down Breuil modules M_{N,(r,s)} = (A_N[u]/u³⁶)e₁ ⊕ (A_N[u]/u³⁶)e′_ω over O_F with A_N-linear descent data {ĝ} on M′_{N,(r,s)} = M_{N,(r,s)} ⊗ F₉ (ĝ_{γ₂} = 1 ⊗ Frob₃), deforming the formulae of prop-9-2-1 for the pair (c, c₁) of ρ̄, and checks they give the ρ_N of thm-4-6-3.",
+      "locator": "§9.5, pp.932–935",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/completion-9-6",
+      "kind": "theorem",
+      "name": "Completion of the proof of Theorem 4.6.2 (Theorem 4.7.5)",
+      "statement": "For (r, s) ≠ (6, 6), lem-9-3-1 gives θ₀ = 0 on Ext¹_{S_{i,(r,s)}}, and lem-9-3-3 gives θ₁ = 0 if r ≠ 6 and θ_ω = 0 if s ≠ 6. For (6, 6) a class in H¹_{S_{i,(6,6)}}(G₃, ad⁰ρ̄) gives a rank-81 group scheme with descent data whose Breuil module is analysed with prop-9-2-1 and lem-9-3-4 (c ≠ 0 since ρ̄ is très ramifié) to show θ₀ = 0 and θ_ω or θ₁ = 0.",
+      "locator": "§9.6, pp.935–937",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cdt-corrigenda",
+      "kind": "construction",
+      "name": "Corrigenda for Conrad–Diamond–Taylor [CDT]",
+      "statement": "§10 lists corrections to [CDT] (J. Amer. Math. Soc. 12 (1999), 521–567), among them: p.532, the assertion that the semisimplicity of σ_n follows from that of σ₁ is false and is deleted (unused); §6.2 has two significant errors (Γ = SL₂(Z) ∩ U_S does not satisfy the hypotheses of [CDT, Thm. 6.1.1], and Hom(L_n, k) should be L_n ⊗ k), repaired by replacing U_S by an auxiliary U′_S with U₁(p^{c_p}) components at p ∈ T(ρ̄) and the lattice L′_S; p.552 line 4 is false for ℓ ≥ 5 without the extra hypothesis j(E) ≢ 1728 mod ℓ; p.554, 'j_E ∈' becomes 'E is isogenous to an elliptic curve with j-invariant in the set' and 5(29)³/2⁵ becomes −5(29)³/2⁵; with smaller corrections on pp.523, 536, 538, 539, 541, 544, 545, 546, 549, 554.",
+      "locator": "§10, pp.937–938",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "These are the authors' own errata to an earlier paper; they are recorded in the report and in the errata log, since [CDT] is not an atlas paper."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "B. Conrad, F. Diamond and R. Taylor, Modularity of certain potentially Barsotti–Tate Galois representations, J. Amer. Math. Soc. 12 (1999), 521–567",
+      "link": "https://doi.org/10.1090/s0894-0347-99-00287-8",
+      "why": "The lifting theorem [CDT, Thm. 7.1.1] that Theorems 1.4.1–1.4.2 modify, Prop. B.4.2 on the 3-adic types of elliptic curves, Thm. 7.2.1 (tame case) and Thm. 7.2.4 (deducing Theorem A from Theorem B); §10 corrects it."
+    },
+    {
+      "citation": "A. Wiles, Modular elliptic curves and Fermat's Last Theorem, Ann. of Math. 141 (1995), 443–551",
+      "link": "https://doi.org/10.2307/2118559",
+      "why": "The modularity-lifting method, ordinary representations, and the Langlands–Tunnell input for mod 3."
+    },
+    {
+      "citation": "R. Taylor and A. Wiles, Ring-theoretic properties of certain Hecke algebras, Ann. of Math. 141 (1995), 553–572",
+      "link": "https://doi.org/10.2307/2118560",
+      "why": "The patching argument underlying [CDT] and Theorems 1.4.1–1.4.2."
+    },
+    {
+      "citation": "C. Breuil, Groupes p-divisibles, groupes finis et modules filtrés, Ann. of Math. 152 (2000), 489–549",
+      "link": "https://doi.org/10.2307/2661391",
+      "why": "Theorem 5.1.3 (classification of group schemes killed by ℓ by Breuil modules) and [Br2, Thm. 1.4] on potentially Barsotti–Tate representations."
+    },
+    {
+      "citation": "J. Manoharmayum, Pairs of mod 3 and mod 5 representations arising from elliptic curves, Math. Res. Lett. 6 (1999), 735–754",
+      "link": "https://doi.org/10.4310/mrl.1999.v6.n6.a12",
+      "why": "Elliptic curves over Q₃ with prescribed E[3] and E[5] (Thm. 5.3.2, §5.4), used in Theorem 2.2.1 and extended in §2.3."
+    },
+    {
+      "citation": "N. I. Shepherd-Barron and R. Taylor, Mod 2 and mod 5 icosahedral representations, J. Amer. Math. Soc. 10 (1997), 283–298",
+      "link": "https://doi.org/10.1090/s0894-0347-97-00226-9",
+      "why": "The curve X_ρ̄ (a twist of X(5)) and the Hilbert-irreducibility argument that produces the companion curve E in Theorem 2.2.1."
+    },
+    {
+      "citation": "F. Diamond, On deformation rings and Hecke rings, Ann. of Math. 144 (1996), 137–166",
+      "link": "https://doi.org/10.2307/2118586",
+      "why": "The cases f = 1 and f = 3 of Theorem B."
+    },
+    {
+      "citation": "M. Raynaud, Schémas en groupes de type (p, …, p), Bull. Soc. Math. France 102 (1974), 241–280",
+      "link": "https://doi.org/10.24033/bsmf.1779",
+      "why": "Prop. 2.2.2 (maximal and minimal models; sup and inf of models), used in §§4.1–4.2."
+    },
+    {
+      "citation": "B. Conrad, Ramified deformation problems, Duke Math. J. 97 (1999), 439–514",
+      "link": "https://doi.org/10.1215/s0012-7094-99-09718-1",
+      "why": "Scheme-theoretic closure and finite flat models (§1.1), cited for Lemma 4.1.1."
+    },
+    {
+      "citation": "J. Tate, p-divisible groups, in Proceedings of a Conference on Local Fields (Driebergen, 1966), Springer, 1967, 158–183",
+      "link": "https://doi.org/10.1007/978-3-642-87942-5_12",
+      "why": "Theorem 4 (full faithfulness on p-divisible groups), used in §§4.4–4.6 to put the finite quotients of type-τ deformations into the categories S."
+    },
+    {
+      "citation": "J. Tunnell, Artin's conjecture for representations of octahedral type, Bull. Amer. Math. Soc. 5 (1981), 173–175",
+      "link": "https://doi.org/10.1090/s0273-0979-1981-14936-3",
+      "why": "With Langlands' base change, the modularity of ρ̄_{E,3}."
+    },
+    {
+      "citation": "R. P. Langlands, Base change for GL(2), Annals of Mathematics Studies 96, Princeton University Press, 1980",
+      "link": "",
+      "why": "With Tunnell, the modularity of ρ̄_{E,3} (Langlands–Tunnell)."
+    },
+    {
+      "citation": "P. Gérardin, Facteurs locaux des algèbres simples de rang 4. I, in Groupes réductifs et formes automorphes I (Paris, 1976–77), Univ. Paris VII, 1978, 37–77",
+      "link": "",
+      "why": "Theorems 3.7 and 4.6, used for Lemma 1.2.1 and the independence of σ_τ of choices."
+    },
+    {
+      "citation": "T. Ekedahl, An effective version of Hilbert's irreducibility theorem, in Séminaire de Théorie des Nombres, Paris 1988–89, Birkhäuser, 1990",
+      "link": "",
+      "why": "Theorem 1.3, producing E/Q with prescribed 3-adic local behaviour in Theorem 2.2.1."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "EllipticCurveModularity",
+      "roadmap": "EllipticCurveModularityWild3Adic",
+      "title": "Modularity and modular parametrisations of elliptic curves over Q, Part II: the wild 3-adic route of Breuil–Conrad–Diamond–Taylor",
+      "area": "automorphic",
+      "items": [
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/three-case-strategy",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/six-cases-f",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/wild-3-types",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-2-1-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-1-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-2-1-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-1-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-2-1-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-1-6",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-2-3-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-2-3-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/admittance-tau-pm1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/admittance-tau-pm3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/admittance-tau-prime-i",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/deformation-strategy",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/reduction-4-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-4-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/reduction-4-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-5-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/reduction-4-6",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-6-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-6-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-6-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-4-6-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/galois-cohomology-4-7",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-7-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-4-7-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-7-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-7-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-7-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-data",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-F1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-F-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-F3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-F-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-Fi",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/rank-one-models-7-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-7-2-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-6",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-3-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-7-3-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/conclusion-7-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-8-1-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-8-1-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/prop-8-2-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-8-3-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-8-3-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-8-3-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-1-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-1-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/prop-9-2-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-3-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-3-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-3-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-3-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/completion-9-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/completion-9-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/completion-9-6"
+      ],
+      "brief": "Starts where Modularity and modular parametrisations of elliptic curves over Q (EllipticCurveModularity) stops. That roadmap proves Theorem A through the strong Serre conjecture of Khare–Wintenberger (R29.2–R29.6); this Part II records the independent, earlier route of Breuil, Conrad, Diamond and Taylor, 'On the modularity of elliptic curves over Q: wild 3-adic exercises', J. Amer. Math. Soc. 14 (2001), 843–939, which does not use Serre's conjecture and whose local results are not planned anywhere in the atlas.\n\nFinal theorems, as the paper states them. (a) Theorems 2.1.2, 2.1.4, 2.1.6: for ρ̄ : G₃ → GL₂(F̄₃) of the form (1 ∗; 0 ω) très ramifié, the types τ₁, τ₋₁ are weakly acceptable; for (ω ∗; 0 1) très ramifié, τ₃, τ₋₃ and the extended types τ′_i (i ∈ Z/3) are weakly acceptable, i.e. the reduced quotient R^D of the universal deformation ring through the points of that (extended) type is 0 or a quotient of O[[X]]. (b) Theorem 2.2.1 (Theorem B): every absolutely irreducible ρ̄ : G_Q → GL₂(F̄₅) with cyclotomic determinant is modular. (c) Theorem 2.2.2 (Theorem A): every elliptic curve over Q is modular, via [CDT, Thm. 7.2.4]. Statements (b) and (c) coincide with ClassicalSerreModularity R27.6 and EllipticCurveModularity R29.6; the Part II gives them a second proof and must state which it proves.\n\nLayers to plan. (1) The wild 3-types τ_{±1}, τ_{±3}, τ′_i and their admittance of the très ramifié ρ̄ (Lemmas 2.1.1, 2.1.3, 2.1.5 via §3). (2) The reduction of weak acceptability to tangent-space bounds dim H¹_S(G₃, ad⁰ρ̄) ≤ 1 for categories S of generic fibres of finite flat group schemes with descent data killed by 3 (§§4.4–4.6, Tate's theorem), and the θ₀, θ₁, θ_ω criteria of §4.7 (Lemma 4.7.1, Cor. 4.7.2). (3) The explicit local fields F′₁, F′₋₁, F′_{±3}, F′_i with uniformisers, Eisenstein data and H_γ, t_γ, f_{γ,γ′} (§6). (4) The rank-one, rank-two and rank-three Breuil-module computations with descent data proving Theorems 4.7.3–4.7.5 (§§7–9, including Props. 8.2.1 and 9.2.1 and the deformations of §9.5). (5) The global step: mod-3/mod-5 switching on the twist X_ρ̄ of X(5) with prescribed 3-adic behaviour (Manoharmayum's curves, Lemma 2.3.1, Cor. 2.3.2), Ekedahl's Hilbert irreducibility, [CDT, Prop. B.4.2], Langlands–Tunnell, and the lifting Theorems 1.4.1, 1.4.2.\n\nImports: FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1, R07.4 (finite flat group schemes with descent data, Breuil's classification of ℓ-torsion group schemes, this paper's §§4.1–4.2 and §5 as a source); LocalGaloisDeformationRings R08.3, R08.6 (type quotients R^D, the functors D^S); GL2ModularityLifting R22.5 (potentially Barsotti–Tate lifting with the wild-type hypotheses of Theorems 1.4.1–1.4.2 and the corrigenda to [CDT] of §10); GL2AutomorphicRepresentationsAndTransfer R16.3 and R17.5 (σ_τ, Lemma 1.2.1, Langlands–Tunnell); Tau Ceti's EllipticCurves and the modular curves X(5), X₀(N) for the curve X_ρ̄ and the three exceptional j-invariants of [CDT]; Conrad–Diamond–Taylor and Manoharmayum as prerequisite papers. Coordinate with the sibling Part IIs EllipticModularityEffectiveComparisons, EllipticCurveModularityImaginaryQuadratic and EllipticCurveModularityPartIIGL2TypeAbelianVarieties. Acceptance tests: the six local cases f = 1, 3, 9, 27, 81, 243 of the introduction, each with an explicit companion curve; Lemma 2.3.1's reduction Y² = X³ − X − 1 (Frobenius trace 3 on E[5]).",
+      "reason": "EllipticCurveModularity proves Theorem A through Khare–Wintenberger's strong Serre conjecture, and no atlas layer plans potentially Barsotti–Tate deformation rings of wildly ramified 3-adic types, their weak acceptability via Breuil modules with descent data, or the mod-3/mod-5 switching with prescribed 3-adic types. A Part II of EllipticCurveModularity; make_queue folds it with the sibling Part IIs of that parent into DESIGN-EllipticCurveModularityPartII (pending)."
+    },
+    {
+      "route": "source",
+      "roadmap": "EllipticCurveModularity",
+      "stages": [
+        "EllipticCurveModularity:R29.6"
+      ],
+      "items": [
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/modular-elliptic-curve-Q",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-A",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-2-2"
+      ],
+      "reason": "The maintainer's note: the Serre-modularity roadmaps' second target is the modularity of every elliptic curve over Q. R29.6 states that final theorem and its equivalence with the Frobenius-coefficient formulation; the introduction's six equivalent forms of modularity (with Carayol, Shimura–Faltings and Mazur for the implications) and Theorem A (= Theorem 2.2.2) are the statement it must match. The proof here is not R29's; it is carried by the Part II route."
+    },
+    {
+      "route": "source",
+      "roadmap": "ClassicalSerreModularity",
+      "stages": [
+        "ClassicalSerreModularity:R26.1",
+        "ClassicalSerreModularity:R27.6"
+      ],
+      "items": [
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/modular-galois-rep",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-B",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-2-1"
+      ],
+      "reason": "R26.1 fixes the statement and source decomposition of Serre's conjecture, including 'modular' and 'strongly modular' for residual representations (defined in the introduction, with their equivalence for ℓ ≥ 3); R27.6 is the full classical statement, of which Theorem B (Theorem 2.2.1: ℓ = 5, cyclotomic determinant) is the special case that BCDT prove directly and that Theorem A needs."
+    },
+    {
+      "route": "source",
+      "roadmap": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "stages": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "items": [
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-1-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-1-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/descent-data-group-schemes",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-1-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-1-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-4-1-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/sigma-filtrations",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-2-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-2-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-2-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-2-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-4-2-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/breuil-modules",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-1-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/breuil-frobenius-monodromy",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-1-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-5-1-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/rank-one-breuil",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-2-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/extension-breuil",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-2-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-2-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-2-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/syntomic-breuil",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-3-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-3-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-4-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-5-4-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-4-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-4-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-5-4-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-5-4-6",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-4-7",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-5-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-5-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-5-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-5-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-5-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-5-6",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-5-5-7",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-5-6-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-5-6-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-5-7-1"
+      ],
+      "reason": "R07.1 plans finite-flat subgroup and quotient constructions and generic fibres; R07.4 plans the classification of finite flat group schemes by (Breuil–)Kisin modules 'including descent data and generic-fibre comparison'. §4.1–4.2 (scheme-theoretic closure, uniqueness and sup/inf of models with descent data, Σ-filtrations and Ext¹ injectivity) and §5 (Breuil modules killed by ℓ, the monodromy operator, rank-one and rank-two classification, syntomic construction, base change, descent data as semilinear operators, Lemma 5.7.1) are a source for those layers."
+    },
+    {
+      "route": "source",
+      "roadmap": "LocalGaloisDeformationRings",
+      "stages": [
+        "LocalGaloisDeformationRings:R08.3",
+        "LocalGaloisDeformationRings:R08.6"
+      ],
+      "items": [
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/ell-type",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/type-deformation-rings",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/conj-1-1-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/deformation-functors-S"
+      ],
+      "reason": "R08.3 constructs Kisin's potentially semistable deformation rings with fixed inertial type and characterises their characteristic-zero points; R^D of §1.1 is the Barsotti–Tate case of that ring, and Conjecture 1.1.1 is the point characterisation Kisin proved. R08.6 exports local conditions with rings and tangent spaces, which is what the functors D^S and H¹_S of §4.3 are."
+    },
+    {
+      "route": "source",
+      "roadmap": "GL2ModularityLifting",
+      "stages": [
+        "GL2ModularityLifting:R22.5"
+      ],
+      "items": [
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-1-4-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-1-4-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cdt-corrigenda"
+      ],
+      "reason": "R22.5 plans odd-prime potentially Barsotti–Tate modularity lifting under residual modularity. Theorems 1.4.1–1.4.2 are such lifting theorems for arbitrary (extended) types under the hypotheses 'τ admits ρ̄' and 'τ weakly acceptable', proved by modifying [CDT, Thm. 7.1.1]; §10 corrects [CDT], including two significant errors in its §6.2, which any formalisation of that route must use."
+    },
+    {
+      "route": "source",
+      "roadmap": "GL2AutomorphicRepresentationsAndTransfer",
+      "stages": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3"
+      ],
+      "items": [
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/sigma-tau",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-1-2-1"
+      ],
+      "reason": "R16.3 plans local Langlands for GL₂ with explicit principal-series, Steinberg and supercuspidal descriptions including wild cases. The representations σ_τ, σ_{τ′} of GL₂(Z_ℓ), U₀(ℓ) and its normaliser, and Lemma 1.2.1 (σ_τ occurs in π exactly when WD(π)|_I ≅ τ, with multiplicity one), are the inertial form of that correspondence (after Gérardin)."
+    },
+    {
+      "route": "source",
+      "roadmap": "PadicLocalLanglandsForGL2Qp",
+      "stages": [
+        "PadicLocalLanglandsForGL2Qp:R30.5"
+      ],
+      "items": [
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/admits",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/conj-1-3-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/mod-l-reps-compact"
+      ],
+      "reason": "R30.5 plans the multiplicity statements behind the local Breuil–Mézard results. The notion 'τ (simply) admits ρ̄' via Jordan–Hölder constituents of reductions of σ_τ, and Conjecture 1.3.1 (admittance ⇔ R^D ≠ 0, simple admittance ⇔ acceptability), are the multiplicity-one precursor of that conjecture."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/E1",
+      "kind": "misprint",
+      "locator": "Corollary 2.3.2, p.866 in J. Amer. Math. Soc. 14 (2001), published version; page image checked",
+      "printed": "Let ρ̄₃ : G₃ → GL₃(F₃) have the form (ω ∗; 0 1) or (1 ∗; 0 ω) and be très ramifié.",
+      "correction": "ρ̄₃ : G₃ → GL₂(F₃)",
+      "reason": "ρ̄₃ is the mod-3 representation E[3] of an elliptic curve (the conclusion is E[3](Q̄₃) ≅ ρ̄₃) and is written as a 2 × 2 upper-triangular matrix.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: Crossref /works/10.1090/S0894-0347-01-00370-8 has no update-to or relation field, and a Crossref search with filter updates:10.1090/S0894-0347-01-00370-8 returned 0 items.",
+        "2026-09-29: the AMS article page for the DOI lists no erratum.",
+        "Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/E2",
+      "kind": "misprint",
+      "locator": "§6.3, p.900, and §6.4, p.901 in J. Amer. Math. Soc. 14 (2001), published version; page image checked",
+      "printed": "We also let γ₄² denote the unique element of I_{F′₃/Q₃(√3)} of order 3 (and in §6.4: the unique element of I_{F′₋₃/Q₃(√−3)} of order 3)",
+      "correction": "… the unique element … of order 2",
+      "reason": "§4.5 (p.876) defines γ₄² as the unique element of order 2, both sections end by saying 'The element γ₄² is the unique element of I… of order 2 and hence coincides with our previous definition', and γ₄ has order 4 (γ₄⁴ = 1, γ₄β = √−1β).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: Crossref /works/10.1090/S0894-0347-01-00370-8 has no update-to or relation field, and a Crossref search with filter updates:10.1090/S0894-0347-01-00370-8 returned 0 items.",
+        "2026-09-29: the AMS article page for the DOI lists no erratum.",
+        "Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/E3",
+      "kind": "misprint",
+      "locator": "§6.4, pp.901–902 in J. Amer. Math. Soc. 14 (2001), published version; page image checked",
+      "printed": "Note that Gal(F′₃/Q₃(√−3)) is generated by three commuting elements γ₂, γ₄² and γ₃ …; Thus, Gal(F′₃/Q₃) is generated by elements γ₂, γ₃ and γ₄ satisfying …",
+      "correction": "Gal(F′₋₃/Q₃(√−3)) and Gal(F′₋₃/Q₃)",
+      "reason": "§6.4 treats the field F′₋₃ = Q₃(√−3)(√−1, α, β) with α³ = 4, β² = −√−3; the generators are defined on these α, β, and F′₃ (a different field, §6.3) contains √3, not √−3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: Crossref /works/10.1090/S0894-0347-01-00370-8 has no update-to or relation field, and a Crossref search with filter updates:10.1090/S0894-0347-01-00370-8 returned 0 items.",
+        "2026-09-29: the AMS article page for the DOI lists no erratum.",
+        "Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/E4",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 5.7.1, p.899 in J. Amer. Math. Soc. 14 (2001), published version; page image checked",
+      "printed": "From Theorem 5.2.1, we have N ∘ φ₁ = 0, which implies that γ̂ ∘ φ₁ = φ₁ ∘ γ̂. For γ ∈ Γ₁, H_γ(0) ≡ 1 mod ℓ.",
+      "correction": "From Lemma 5.2.1(5), we have N ∘ φ₁ = 0 …; for γ with γ(π)/π ≡ 1 mod π, H_γ(0) ≡ 1 mod ℓ.",
+      "reason": "There is no Theorem 5.2.1; Lemma 5.2.1(5) states 'On M(r, a) we have Ne = 0, so N ∘ φ₁ = 0'. The symbol Γ₁ is not defined in the paper; the lemma's hypothesis on γ is γ(π)/π ≡ 1 mod (π).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: Crossref /works/10.1090/S0894-0347-01-00370-8 has no update-to or relation field, and a Crossref search with filter updates:10.1090/S0894-0347-01-00370-8 returned 0 items.",
+        "2026-09-29: the AMS article page for the DOI lists no erratum.",
+        "Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/E5",
+      "kind": "misprint",
+      "locator": "§8.3, p.918, sentence before Lemma 8.3.3 in J. Amer. Math. Soc. 14 (2001), published version; page image checked",
+      "printed": "Theorem 4.7.4, and hence Theorem 4.4.1, now follow from the first case of the following lemma.",
+      "correction": "Theorem 4.7.4, and hence Theorem 4.5.1, now follow …",
+      "reason": "§8 is headed 'Proof of Theorem 4.5.1' (the S_{±3} bound); §4.7 deduces Theorem 4.5.1 from Theorem 4.7.4, while Theorem 4.4.1 (the S_{±1} bound) follows from Theorem 4.7.3, proved in §7.4.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: Crossref /works/10.1090/S0894-0347-01-00370-8 has no update-to or relation field, and a Crossref search with filter updates:10.1090/S0894-0347-01-00370-8 returned 0 items.",
+        "2026-09-29: the AMS article page for the DOI lists no erratum.",
+        "Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/E6",
+      "kind": "misprint",
+      "locator": "§7.4, p.910, the display after (7.4.1) in J. Amer. Math. Soc. 14 (2001), published version; page image checked",
+      "printed": "γ̂₃(e′_ω) = H_{γ₃}(u)⁶e′_ω + h_{γ₃,ω}(u)e_ω, γ̂₃(e′_ω) = H_{γ₃}(u)³e′₁ + g_{γ₃}(u)e′_ω + h_{γ₃,1}e₁ + G_{γ₃}(u)e_ω",
+      "correction": "the second line should begin γ̂₃(e′₁) =",
+      "reason": "The display gives the action of γ̂₃ on the four basis vectors e_ω, e₁, e′_ω, e′₁ of N; the second formula with left side γ̂₃(e′_ω) has leading term H_{γ₃}³e′₁, which is the e′₁ formula (compare lem-7-2-5 for e′), and the computation that follows applies γ̂₃ to ue′₁ + … using exactly this formula.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: Crossref /works/10.1090/S0894-0347-01-00370-8 has no update-to or relation field, and a Crossref search with filter updates:10.1090/S0894-0347-01-00370-8 returned 0 items.",
+        "2026-09-29: the AMS article page for the DOI lists no erratum.",
+        "Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/E7",
+      "kind": "misprint",
+      "locator": "§5.2, p.888, sentence after Lemma 5.2.4 in J. Amer. Math. Soc. 14 (2001), published version; page image checked",
+      "printed": "We will write G(k′; r, a; s, b; f) and G(k′; r, a) for G_π(M(k′; r, a; s, b; f)) and G_π(M(k′; r, a)) respectively.",
+      "correction": "We will write G(k′; s, b; r, a; f) … for G_π(M(k′; s, b; r, a; f))",
+      "reason": "The extension module just defined is M(k′; s, b; r, a; f), an extension of M(k′; r, a) by M(k′; s, b) (and Lemma 5.2.4 uses that order); the rank-one notation of p.887 writes G(s, b; r, a; f) = G_π(M(s, b; r, a; f)). With r, a and s, b swapped the formula names a different extension.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: Crossref /works/10.1090/S0894-0347-01-00370-8 has no update-to or relation field, and a Crossref search with filter updates:10.1090/S0894-0347-01-00370-8 returned 0 items.",
+        "2026-09-29: the AMS article page for the DOI lists no erratum.",
+        "Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/E8",
+      "kind": "misprint",
+      "locator": "References, p.939 in J. Amer. Math. Soc. 14 (2001), published version; page image checked",
+      "printed": "[T] J. Tate, p-divisible groups, … 158–183. … [T] J. Tunnell, Artin's conjecture for representations of octahedral type, Bull. Amer. Math. Soc. 5 (1981), 173–175.",
+      "correction": "Distinct labels, e.g. [Ta] for Tate and [Tu] for Tunnell.",
+      "reason": "Both references carry the label [T]; the text cites [T] for Tunnell ('Langlands and Tunnell [L], [T]', p.846) and for Tate ('Theorem 4 of [T]', pp.875, 876, 879), so a reader cannot tell from the label which is meant.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: Crossref /works/10.1090/S0894-0347-01-00370-8 has no update-to or relation field, and a Crossref search with filter updates:10.1090/S0894-0347-01-00370-8 returned 0 items.",
+        "2026-09-29: the AMS article page for the DOI lists no erratum.",
+        "Not an exhaustive novelty claim."
+      ]
+    }
+  ]
+}
