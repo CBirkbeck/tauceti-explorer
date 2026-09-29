@@ -9658,7 +9658,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-STEVENS-08.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4587"
   },
   {
    "id": "REV-PAPER-STEVENS-08",
@@ -45704,8 +45705,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-28.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4022"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4022",
+   "finishedAt": "2026-09-29T17:05:02Z"
   },
   {
    "id": "RT-AUDIT-29",
