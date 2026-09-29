@@ -9193,7 +9193,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KHARE-WINTENBERGER-09-I.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4505"
   },
   {
    "id": "REV-PAPER-KHARE-WINTENBERGER-09-I",
@@ -46004,8 +46005,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-arithmeticgeometry-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3961"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3961",
+   "finishedAt": "2026-09-29T14:46:45Z"
   },
   {
    "id": "RT-AREA-arithmeticgeometry-2",
