@@ -1453,14 +1453,14 @@
   {
    "id": "PAPER-DING-25/4.2-global-triangulation",
    "kind": "theorem",
-   "name": "Global triangulation over an eigenvariety",
-   "statement": "The theory of triangulations of families of (φ,Γ)-modules over affinoids: the relative Robba ring R_{K,X}, the fact that a family of Galois representations over a reduced affinoid with a Zariski-dense set of trianguline points is trianguline after shrinking, in the paraboline form of Bergdall and the form of Kedlaya–Pottharst–Xiao and Liu.",
-   "locator": "§4.2.2, pp. 68–69, and §4.1, p. 62",
+   "name": "Global triangulation of densely pointwise strictly trianguline families (Kedlaya–Pottharst–Xiao)",
+   "statement": "Kedlaya–Pottharst–Xiao, Corollary 6.3.10, with Definitions 6.3.1–6.3.2 (J. Amer. Math. Soc. 27 (2014), pp. 1102–1103 and 1108), for (φ, Γ_K)-modules over the relative Robba ring R_X(π_K) of a reduced rigid analytic space X over L. Hypotheses: continuous characters δ_1, …, δ_d : K^× → Γ(X, O_X)^× (the ordered parameters) and a Zariski-dense set X_alg of closed points (dense in each member of some admissible affinoid cover) such that M, of rank d, is densely pointwise strictly trianguline with respect to them: at every z ∈ X_alg the fibre M_z is strictly trianguline with ordered parameters δ_{1,z}, …, δ_{d,z}. Conclusion: canonical data of (a) a proper birational morphism f : X′ → X of reduced rigid analytic spaces and (b) a unique increasing filtration fil_•(f^*M) of f^*M by (φ, Γ_K)-stable coherent R_{X′}(π_K)-submodules, such that (1) the set Z of closed points of X′ at which fil_• fails to be a strictly trianguline filtration with ordered parameters δ_{i,z} is Zariski closed and disjoint from f^{-1}(X_alg); (2) each gr_i(f^*M) embeds equivariantly into R_{X′}(π_K)(δ_i) ⊗ L_i for a line bundle L_i on X′, with cokernel locally killed by a power of t and supported on Z; (2′) gr_1(f^*M) ≅ R_{X′}(π_K)(δ_1) ⊗ L_1; and X′ = X when X is a smooth curve. In particular M is trianguline with the ordered parameters δ_i on the dense Zariski-open complement of Z in X′; no triangulation near an arbitrary prescribed point follows from density alone, and the pointwise existence of unspecified triangulations does not suffice: the global ordered parameters are part of the hypothesis.",
+   "locator": "§4.2.2, proof of Proposition 4.17, pp. 68–69, and §4.1, p. 62; the cited theorem is Kedlaya–Pottharst–Xiao, Definitions 6.3.1–6.3.2 (pp. 1102–1103) and Corollary 6.3.10 (p. 1108)",
    "status": "planned",
    "planned": [
     "PhiGammaModulesAndIwasawaCohomology:PG.7"
    ],
-   "note": "PG.7 owns the affinoid/relative Robba category of Kedlaya–Pottharst–Xiao and its source-qualified triangulation/specialisation inputs; the paper uses precisely those, applied at a smooth point of an eigenvariety."
+   "note": "PG.7 owns the relative Robba category of Kedlaya–Pottharst–Xiao and this theorem with its full hypothesis package. Ding applies it, in Bergdall's paraboline form (Bergdall, Compositio Math., Thm. 5.3), only locally: on a small affinoid X around the point z_w of the eigenvariety, with the ordered analytic characters δ_{X,i}·|·|_K^{2i−(n+1)}·ε^{1−i} and because D_rig(ρ_{x_w}) is non-critical and φ-generic, obtaining a successive extension after shrinking X; that local application is item PAPER-DING-25/4.2-pseudo (iii), which carries those hypotheses. Smoothness of the eigenvariety at z_w is a conclusion of Proposition 4.17 and is not an input of the triangulation step. The published Corollary 6.3.10 does not assume irreducible connected components."
   }
  ],
  "routes": [
