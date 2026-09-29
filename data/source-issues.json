@@ -129409,6 +129409,27 @@
    "reviewReason": null
   },
   {
+   "id": "AutomorphicGaloisRepresentations/E1",
+   "kind": "error",
+   "locator": "Proposition 3.15 and proof, p. 157; checked on the page image",
+   "printed": "Si s est un point géométrique de M_n, q_1^{-1}(s) est l'ensemble des sous-groupes d'ordre p de E_s, et a p + 1 éléments si car(k(s)) ≠ p, un seul (le noyau de Frobenius) si car(k(s)) = p.",
+   "correction": "In characteristic p the fibre has one point (the kernel of Frobenius) if E_s is supersingular and two points (the kernel of Frobenius and the étale subgroup of order p) if E_s is ordinary.",
+   "reason": "For ordinary E_s over an algebraically closed field of characteristic p, E_s[p] ≅ μ_p × Z/p has exactly two subgroup schemes of order p. Deligne's own Proposition 4.3 (p. 162) says that for a p-isogeny between curves with invertible Hasse invariant either its kernel or the kernel of its dual is étale, and the special fibre of M_{n,p} has two components (F and V). Only \"q_i étale of degree p + 1 over Z[1/p]\" is used in the rest of the talk, so nothing downstream is affected.",
+   "affects": "nothing",
+   "known": "noted in the RS-12 restructure report (layer R19.1: \"its universal one-subgroup assertion in characteristic p is false for ordinary elliptic curves\"); no published correction found",
+   "searched": [
+    "Numdam copy of Séminaire Bourbaki 11 (1968/69), exposé 355 (the Lecture Notes 179 text)",
+    "RS-12 result (layers R19.1)",
+    "the integrated decomposition (its excerpt quotes the sentence without flagging it)"
+   ],
+   "owner": "AutomorphicGaloisRepresentations",
+   "file": "research/blueprint/packets/AutomorphicGaloisRepresentations.json",
+   "citation": "Pierre Deligne, Formes modulaires et representations l-adiques, Seminaire N. Bourbaki, 21e annee, 1968/69, expose no. 355, published 1971, pp. 139-172; Numdam scan (typescript). The text layer is poor; the reviewer read the passages below on page images rendered from the library PDF. Printed page = PDF page + 137",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AutomorphicLFunctionsAndLocalFactors/E1",
    "kind": "misprint",
    "locator": "Published 2004 chapter, p.110, Section 1 conductor paragraph; also preprint p.2",
