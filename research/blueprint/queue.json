@@ -9056,8 +9056,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DELIGNE-80.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4495"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4495",
+   "finishedAt": "2026-09-29T15:46:41Z"
   },
   {
    "id": "REV-PAPER-DELIGNE-80",
@@ -9128,7 +9129,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KOLYVAGIN-90.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4500"
   },
   {
    "id": "REV-PAPER-KOLYVAGIN-90",
@@ -9238,8 +9240,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KHARE-WINTENBERGER-09-II.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4507"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4507",
+   "finishedAt": "2026-09-29T15:46:47Z"
   },
   {
    "id": "REV-PAPER-KHARE-WINTENBERGER-09-II",
@@ -9384,7 +9387,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SCHOLZE-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4538"
   },
   {
    "id": "REV-PAPER-SCHOLZE-17",
