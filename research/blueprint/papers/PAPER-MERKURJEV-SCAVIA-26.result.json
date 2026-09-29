@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-MERKURJEV-SCAVIA-26",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Galois representations modulo p that do not lift modulo p²",
     "authors": "Alexander Merkurjev and Federico Scavia",
@@ -1767,5 +1767,151 @@
       "reason": "IG.4 stops at embedding-problem language and selected solvable realizations. The paper adds universal obstruction calculations and a p-variable family of nonliftable residual representations. Number-field global/local deformation roadmaps do not cover these arbitrary-base-field generic witnesses.",
       "brief": "Take Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups) as first prerequisite, importing IG.0's Galois-algebra dictionary and IG.4's weak embedding problems. Import the proposed Continuous cohomology of profinite groups, Part II: negligible classes and abelian embedding obstructions (ProfiniteCohomologyPartIINegligibleClasses) for Theorem 1.3 and the generic criterion. The two final results are exact: (1) for every odd prime p, n≥3 and field F of characteristic different from p, the reduction extensions for GL_n and B_n modulo p² have non-negligible classes; (2) for every such odd p and field F containing a primitive pth root, K=F(x₁,…,x_p) admits a continuous Γ_K→GL_n(F_p) with no continuous lift to GL_n(Z/p²), for every n≥3. The same witness is upper triangular, disproving flag lifting even if F contains all roots of unity. Do not claim nonlifting for p=2, n≤2, or characteristic p.\nConstruct both reduction extensions with kernel X↦I+pX and adjoint action. Prove the Borel prime-to-p-index reduction and the pointwise block-projection lemma: the top-left block is multiplicative because the off-diagonal blocks are p-divisible; elements need not preserve the lifted summand. Prove the adjoint norm and no-order-p-lift lemma for p>3. For U₃(F_p), build N,Z,S and T, compute exponent and subgroup structure, then split Claim 5.4 into the p>3 central test and p=3 simultaneous-lift contradiction. Reuse the cohomology Mackey and projection formulas from Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology); the representation Mackey decomposition alone is insufficient. Decompose Claims 5.5–5.7 into character extension, three subgroup images, exact invariants, centralizer/weight calculations and the two norm cancellations. Use contragredient weight τ_31 for H²(Z,Z), and replace the ill-typed E_12 argument to φ_U with its relative norm. Include the p=3 extra ambient weight and exclude E_31 through the centralizer condition.\nConstruct the faithful p-dimensional shift/diagonal representation, read and cover Chu–Kang's Rationality of p-group actions Theorem 1.6 with its root-of-unity and exponent hypotheses, and prove F(V)^U is rational of transcendence degree p. Keep rationality distinct from stable rationality. Build the generic residual representation and prove nonlifting through its U-extension class, then use the pointwise block lemma to preserve the same field for every n. Acceptance includes explicit p=3 cyclic lifts but no simultaneous N lift, p>3 zero adjoint norms, the non-preserved-summand block example, and the distinction between weak lifts and proper realizations. Prove Remark 5.8(2) by /129–/132: its N-restriction is the sum E_12 cup δχ_12+E_13 cup δχ_13 of carry classes. The ambient cup-generator group is N, not U; there is no corestriction to U. Independently build continuous upper-triangular weak lifts from two compatible Kummer-character lifts supplied by the cohomological Part II. Record /133: restriction of negligible subgroups is not surjective in this example. Tests must distinguish nonsplitting over the finite group N from vanishing on every absolute-Galois pullback."
     }
-  ]
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-MERKURJEV-SCAVIA-26/E1",
+      "kind": "error",
+      "locator": "arXiv:2410.12560v1 (16 Oct 2024; identical to the author manuscript up to typography), Lemma 4.1 and proof, pp. 12–13",
+      "printed": "The source gives generators for (B ⊗ F(V)×)^H: the subgroup (B ⊗ F×)^H and the elements N_{H/H_x}(b ⊗ f_x), ranging over every x ∈ V^(1) and b ∈ B^{H_x}.",
+      "correction": "Add the hypotheses used in Theorem 1.3: nB = 0, e(H) | e and µ_{ne} ⊂ F. Then h(f_x)/f_x ∈ µ_e ⊂ F^{×n} for h ∈ H_x, so b ⊗ f_x is H_x-invariant, its norm is defined and invariant, and the generators lift (the extraction's corrected item /63).",
+      "reason": "Without roots of unity the elements N_{H/H_x}(b ⊗ f_x) need not be H-invariant, and invariants of the tensored sequence are only left exact, so generation of (B ⊗ Div V)^H does not lift. Counterexample (item /64): H = C₂ acting on A¹_R by t ↦ −t, B = Z/2, x = (t), f_x = ct. Then H_x = H, and h(1 ⊗ ct) − 1 ⊗ ct = 1 ⊗ (−1), which is nonzero in R(t)^×/R(t)^{×2} (if −1 = (f/g)², then f² + g² = 0, whose leading coefficient is a positive sum of real squares). So the stated generators are not in the group for any choice of c. Theorem 1.3 applies the lemma only with µ_{ne} ⊂ F, where the corrected lemma holds, so the main theorems are unaffected.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:2410.12560 has only v1; the author manuscript (math.ucla.edu/~merkurev/papers/Negligible.pdf) was compared in full by the earlier continuations.",
+        "2026-09-29: the JAMS version of record (doi:10.1090/jams/1059, 39 (2026) 73–94) is not openly accessible (HTTP 403 recorded on 21 September 2026); it was not collated, so these findings may already be corrected in print.",
+        "2026-09-29: no erratum found. Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-MERKURJEV-SCAVIA-26/E2",
+      "kind": "misprint",
+      "locator": "arXiv:2410.12560v1 (16 Oct 2024; identical to the author manuscript up to typography), (2.3), p. 6; page image checked",
+      "printed": "The source calls (2.3) a short exact sequence: H¹(L, A)^H --tg--> H²(H, A) --inf--> H²(L, A).",
+      "correction": "H¹(L, A)^H --tg--> H²(H, A) --inf--> H²(K, A), exact at H²(H, A) (the end of the five-term sequence).",
+      "reason": "Inflation along Γ_K → H = Gal(L/K) lands in H²(K, A); the map to H²(L, A) would be restriction, whose composite with inflation from H is zero. The segment is exact in the middle, not a short exact sequence.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:2410.12560 has only v1; the author manuscript (math.ucla.edu/~merkurev/papers/Negligible.pdf) was compared in full by the earlier continuations.",
+        "2026-09-29: the JAMS version of record (doi:10.1090/jams/1059, 39 (2026) 73–94) is not openly accessible (HTTP 403 recorded on 21 September 2026); it was not collated, so these findings may already be corrected in print.",
+        "2026-09-29: no erratum found. Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-MERKURJEV-SCAVIA-26/E3",
+      "kind": "misprint",
+      "locator": "arXiv:2410.12560v1 (16 Oct 2024; identical to the author manuscript up to typography), proof of Lemma 2.5, p. 7; page image checked",
+      "printed": "cor^{H′}_H(tg(x)) = −cor^{H′}_H(u ∪ x) = −u′ ∪ N_{H/H′}(x) = tg(N_{H/H′}(x))",
+      "correction": "cor^{H′}_H(tg(x)) = −cor^{H′}_H(u′ ∪ x) = −u ∪ N_{H/H′}(x) = tg(N_{H/H′}(x)).",
+      "reason": "For x ∈ H¹(L, A)^{H′} the transgression for H′ is x ↦ −u′ ∪ x with u′ = res(u), and the projection formula gives cor(res(u) ∪ x) = u ∪ N_{H/H′}(x); u and u′ are interchanged in print.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:2410.12560 has only v1; the author manuscript (math.ucla.edu/~merkurev/papers/Negligible.pdf) was compared in full by the earlier continuations.",
+        "2026-09-29: the JAMS version of record (doi:10.1090/jams/1059, 39 (2026) 73–94) is not openly accessible (HTTP 403 recorded on 21 September 2026); it was not collated, so these findings may already be corrected in print.",
+        "2026-09-29: no erratum found. Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-MERKURJEV-SCAVIA-26/E4",
+      "kind": "misprint",
+      "locator": "arXiv:2410.12560v1 (16 Oct 2024; identical to the author manuscript up to typography), proof of Proposition 3.3, p. 11; page image checked",
+      "printed": "The source invokes Lemma 3.4 for the short exact sequence (3.2) to obtain its conclusion.",
+      "correction": "Apply Lemma 3.4 to (3.3), 1 → µ_n → µ_{ne} → µ_e → 1, whose connecting map is ∂₂.",
+      "reason": "Lemma 3.4 is for exact sequences of trivial H-modules; (3.2), 1 → µ_e → L^× → L^×/µ_e → 1, has L^× with nontrivial action. The conclusion concerns (∂₂∂₁)(fµ_e) ∈ Im ∂₂, which is the case of (3.3).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:2410.12560 has only v1; the author manuscript (math.ucla.edu/~merkurev/papers/Negligible.pdf) was compared in full by the earlier continuations.",
+        "2026-09-29: the JAMS version of record (doi:10.1090/jams/1059, 39 (2026) 73–94) is not openly accessible (HTTP 403 recorded on 21 September 2026); it was not collated, so these findings may already be corrected in print.",
+        "2026-09-29: no erratum found. Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-MERKURJEV-SCAVIA-26/E5",
+      "kind": "gap",
+      "locator": "arXiv:2410.12560v1 (16 Oct 2024; identical to the author manuscript up to typography), proof of Lemma 5.3, p. 15",
+      "printed": "The source claims that every element of E restricts to an element of GL(Ṽ) on Ṽ, and that π: E → GL(Ṽ), obtained by restriction, is a group homomorphism.",
+      "correction": "Define π as the top-left block with respect to Ṽ ⊕ W̃. It is a homomorphism because the off-diagonal blocks of elements of E are divisible by p, so their products vanish modulo p², and its restriction to gl(V ⊕ W) is the GL(V)-equivariant projection to gl(V), so the bottom row is the pushforward of the middle one.",
+      "reason": "An element of E reduces to (g, 1) modulo p but its lower-left block can be a nonzero multiple of p, so it need not preserve Ṽ and 'restriction to Ṽ' is not defined as stated. The lemma itself is true (the authors also cite De Clercq–Florence, Lemma 3.4).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:2410.12560 has only v1; the author manuscript (math.ucla.edu/~merkurev/papers/Negligible.pdf) was compared in full by the earlier continuations.",
+        "2026-09-29: the JAMS version of record (doi:10.1090/jams/1059, 39 (2026) 73–94) is not openly accessible (HTTP 403 recorded on 21 September 2026); it was not collated, so these findings may already be corrected in print.",
+        "2026-09-29: no erratum found. Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-MERKURJEV-SCAVIA-26/E6",
+      "kind": "misprint",
+      "locator": "arXiv:2410.12560v1 (16 Oct 2024; identical to the author manuscript up to typography), proof of Claim 5.7, p. 19; page image checked",
+      "printed": "Because T normalizes Z, the source declares ∂ to be T-equivariant and deduces H²(Z, Z) ≅ F_p(τ₁₃).",
+      "correction": "H²(Z, Z) ≅ F_p(τ₃₁).",
+      "reason": "(t·χ₁₃)(u) = χ₁₃(t^{-1}ut) and t^{-1}E₁₃t = (t₃/t₁)E₁₃, so χ₁₃ and ∂(χ₁₃) transform by τ₃₁, as in the paper's own N computation (F_p(τ₂₁) ⊕ F_p(τ₃₁)). The next display, (A^Z ⊗ H²(Z, Z))^T = ⟨E₁₃ ⊗ ∂(χ₁₃)⟩, and the p = 3 remark are correct only with τ₃₁ (for p > 3, τ₁₃² is nontrivial).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:2410.12560 has only v1; the author manuscript (math.ucla.edu/~merkurev/papers/Negligible.pdf) was compared in full by the earlier continuations.",
+        "2026-09-29: the JAMS version of record (doi:10.1090/jams/1059, 39 (2026) 73–94) is not openly accessible (HTTP 403 recorded on 21 September 2026); it was not collated, so these findings may already be corrected in print.",
+        "2026-09-29: no erratum found. Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-MERKURJEV-SCAVIA-26/E7",
+      "kind": "misprint",
+      "locator": "arXiv:2410.12560v1 (16 Oct 2024; identical to the author manuscript up to typography), proof of Claim 5.7, p. 18; page image checked",
+      "printed": "The source uses the extension of χ₁₂ to a U-character and the projection formula to place φ_N(E₁₂ ⊗ ∂(χ₁₂)) in the image of φ_U. Invoking the preceding case, it concludes res^U_N(φ_U(E₁₂ ⊗ ∂(χ₁₂))) = 0.",
+      "correction": "φ_N(E₁₂ ⊗ ∂(χ₁₂)) = φ_U(N_{U/N}(E₁₂) ⊗ ∂(χ̃₁₂)) with χ̃₁₂ the extension to U; the argument uses this element of the image of φ_U, not φ_U(E₁₂ ⊗ …).",
+      "reason": "φ_U is defined on A^U ⊗ H²(U, Z) and A^U = ⟨I, E₁₃⟩; E₁₂ is not U-invariant (σ₂₃·E₁₂ = E₁₂ − E₁₃). The projection formula moves E₁₂ to its relative norm, which is Σ_k (E₁₂ − kE₁₃) = 0 for p odd, so the vanishing holds, more simply than the printed route.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:2410.12560 has only v1; the author manuscript (math.ucla.edu/~merkurev/papers/Negligible.pdf) was compared in full by the earlier continuations.",
+        "2026-09-29: the JAMS version of record (doi:10.1090/jams/1059, 39 (2026) 73–94) is not openly accessible (HTTP 403 recorded on 21 September 2026); it was not collated, so these findings may already be corrected in print.",
+        "2026-09-29: no erratum found. Not an exhaustive novelty claim."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "published-version",
+      "title": "JAMS version of record not collated",
+      "status": "open",
+      "remaining": "Collate E1–E7 and the item locators with doi:10.1090/jams/1059 (22 pages) when a copy is available; the AMS PDF returned HTTP 403.",
+      "items": [
+        "PAPER-MERKURJEV-SCAVIA-26/63",
+        "PAPER-MERKURJEV-SCAVIA-26/64"
+      ]
+    },
+    {
+      "id": "cited-input-proofs",
+      "title": "Proofs of cited inputs",
+      "status": "transferred",
+      "remaining": "Chu–Kang Theorem 1.6 (rationality of the p-variable invariant field), GMS03 I §5 (versality) and KMRT 18.15/28.15 (Galois algebras) are cited inputs, recorded as items and prerequisites; decomposing their proofs belongs to the design jobs of the two Part II routes, not to this extraction.",
+      "items": [
+        "PAPER-MERKURJEV-SCAVIA-26/117",
+        "PAPER-MERKURJEV-SCAVIA-26/10",
+        "PAPER-MERKURJEV-SCAVIA-26/15"
+      ]
+    },
+    {
+      "id": "tor-api-design",
+      "title": "Finite-group universal-coefficient and Tor interfaces",
+      "status": "transferred",
+      "remaining": "Give the integral universal-coefficient and Tor-injectivity lemmas of Lemma 3.4 implementation interfaces on the existing homological carriers, coordinating with ClassFieldTheory; a design-phase task for the ProfiniteCohomology Part II.",
+      "items": []
+    }
+  ],
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-39fac3",
+    "issue": 1408,
+    "date": "2026-09-29",
+    "status": "complete",
+    "reading": "arXiv:2410.12560v1 re-fetched (sha256 699028a3…) and read completely; the seven findings rechecked on the page images (E1 by its counterexample).",
+    "changes": "sourceIssues created from the findings the earlier continuations recorded only in items and the report (E1–E7, each verified); gaps recorded with statuses (published-version open; cited-input proofs and Tor interfaces transferred to the design jobs); status complete. Items and routes unchanged."
+  }
 }
