@@ -14966,9 +14966,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisDuality.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #675"
+   "note": "claimed on GitHub issue #675"
   },
   {
    "id": "REV-ArithmeticGaloisDuality",
@@ -22827,7 +22827,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-NoncommutativeAndEquivariantIwasawa.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-FoundationsAndLibraryIntegration",
@@ -22837,7 +22837,7 @@
     "BP-IntegralIwasawaTheory--I.8",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #1015"
+   "note": "released on GitHub issue #1015"
   },
   {
    "id": "REV-NoncommutativeAndEquivariantIwasawa",
