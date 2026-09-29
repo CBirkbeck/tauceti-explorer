@@ -1,7 +1,8 @@
 /-
 Suggested Lean prototypes for the roadmap "Lefschetz pencils, nearby cycles and vanishing cycles"
 (LefschetzPencilsAndVanishingCycles), part LPV.0 (layers LPV.0–LPV.6); checkpoint 1 carries the SGA 7 XIII/XV
-nearby-cycle nodes and plans Deligne's Weil I §§4–5.
+nearby-cycle nodes and plans Deligne's Weil I §§4–5; checkpoint 2 plans SGA 7 XII (quadrics) and XV §1 (ordinary
+quadratic points).
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/LefschetzPencilsAndVanishingCycles--LPV.0.md` is definitive. The statements below suggest
@@ -13,8 +14,10 @@ Only Mathlib is imported. Neither library has étale sheaves with derived direct
 fundamental groups of schemes or projective duality, so the geometric signatures are given in the comment block
 below. The compiled part prototypes the linear algebra the global theory rests on: the fixed space of the
 Picard–Lefschetz transvections (the lemma behind E^⊥ = invariants), the operators N(δ) : x ↦ ψ(x, δ)δ and Weil I
-Lemma 5.11, and the contact computation that makes the Hermitian curve a non-example for Lefschetz pencils. Unit
-tests are `example`s whose docstring begins "Test `<name>`".
+Lemma 5.11, the contact computation that makes the Hermitian curve a non-example for Lefschetz pencils, Deligne's
+ordinary quadratic forms (SGA 7 XII 1.1) with their comparison to Mathlib's `QuadraticMap.Nondegenerate`, and the
+arithmetic of the quadric cohomology tables (XII 3.3–3.7). Unit tests are `example`s whose docstring begins
+"Test `<name>`".
 
 Planned signatures (namespaces `TauCeti.AlgebraicGeometry.VanishingCycles` and `TauCeti.AlgebraicGeometry.LefschetzPencil`;
 `Λ` a torsion ring with ℓ invertible, `S` a henselian trait, `f : X ⟶ S`):
@@ -39,6 +42,14 @@ Planned signatures (namespaces `TauCeti.AlgebraicGeometry.VanishingCycles` and `
   theorem vanishingCycles_conjugate (s s' : P.singularSet) : ∃ g : π₁(U, u), g • δ s = δ s' ∨ g • δ s = -δ s'
   theorem vanishingQuotient_absolutelyIrreducible : (monodromyRep P).IsAbsolutelyIrreducible
   theorem kazhdanMargulis (hn : Odd n) : IsOpen (Set.range (monodromyRep P))  -- in Sp(vanishingQuotient, ψ)(ℚ_ℓ)
+  def IsSmoothQuadric (f : X ⟶ S) (n : ℕ) : Prop       -- proper, smooth, geometric fibres smooth quadrics
+  def discriminantCover (hX : IsSmoothQuadric f (2 * m)) : Scheme  -- Z(X), étale of degree 2 over S
+  theorem cohomology_quadric_even (hX : IsSmoothQuadric f (2 * m)) :
+      ℤ_ℓ^{Z(X)} ≅ R^{2m} f_* ℤ_ℓ(m)                       -- by the classes of the generatrices
+  def IsOrdinaryQuadraticPoint (Y : Scheme) (y : Y) : Prop  -- Ô_{Y,y} ≅ k[[x₀..xₙ]]/(Q + higher), Q ordinary
+  theorem canonicalForm (hy : IsOrdinaryQuadraticPoint Y y) : ∃ Y₀ y₀, Nonempty (henselization Y y ≅ henselization Y₀ y₀)
+  theorem localEquation (hx : IsOrdinaryQuadraticPoint X_s x) (hnd : IsNondegenerate …) :
+      ∃ (Q : QuadraticForm A (Fin (n+1) → A)) (b ∈ maximalIdeal A), henselization X x ≅ henselization {Q = b} 0
 -/
 
 import Mathlib.LinearAlgebra.Transvection.Basic
@@ -49,6 +60,8 @@ import Mathlib.Algebra.Lie.Semisimple.Defs
 import Mathlib.Algebra.Lie.Subalgebra
 import Mathlib.Algebra.CharP.Lemmas
 import Mathlib.Tactic.Ring
+import Mathlib.LinearAlgebra.QuadraticForm.Radical
+import Mathlib.Data.Matrix.Mul
 
 namespace TauCeti.AlgebraicGeometry.LefschetzPencil
 
@@ -136,3 +149,45 @@ example {R : Type*} [CommRing R] (p : ℕ) [Fact p.Prime] [CharP R p] (a b u v t
 end Hermitian
 
 end TauCeti.AlgebraicGeometry.LefschetzPencil
+
+namespace TauCeti.AlgebraicGeometry.Quadric
+
+section OrdinaryForm
+
+variable {k V : Type*} [Field k] [AddCommGroup V] [Module k V]
+
+/-- Deligne's ordinary quadratic form over a field (SGA 7 XII 1.1, with `car(A) = 2` in case b)): the polar form is
+nondegenerate when the rank is even or the characteristic is not 2; in characteristic 2 and odd rank, the polar kernel
+is a line on which `Q` does not vanish (node `LPV.2/ordinary-quadratic-form`). -/
+def IsOrdinary (Q : QuadraticForm k V) : Prop :=
+  ((Even (Module.finrank k V) ∨ ringChar k ≠ 2) → (QuadraticMap.polarBilin Q).Nondegenerate) ∧
+  ((Odd (Module.finrank k V) ∧ ringChar k = 2) →
+    Module.finrank k (LinearMap.ker (QuadraticMap.polarBilin Q)) = 1 ∧
+      ∀ v ∈ LinearMap.ker (QuadraticMap.polarBilin Q), v ≠ 0 → Q v ≠ 0)
+
+/-- For `V ≠ 0` over a field, ordinary is Mathlib's `QuadraticMap.Nondegenerate` (Elman–Karpenko–Merkurjev). -/
+theorem isOrdinary_iff_nondegenerate [FiniteDimensional k V] [Nontrivial V] (Q : QuadraticForm k V) :
+    IsOrdinary Q ↔ QuadraticMap.Nondegenerate (Q := Q) := by
+  sorry
+
+end OrdinaryForm
+
+section Tables
+
+/-- Test `affineQuadric_trace_delta_sq_even`: for m even the generatrix classes have Gram matrix [[1, 0], [0, 1]]
+(XII 3.3 (iii)(b)), so δ = cℓ(α) − cℓ(β) has Tr(δ²) = 2 = (−1)^m·2. -/
+example : dotProduct (![1, -1] : Fin 2 → ℤ) (Matrix.mulVec (1 : Matrix (Fin 2) (Fin 2) ℤ) ![1, -1]) = 2 := by
+  simp [dotProduct, Matrix.mulVec, Fin.sum_univ_two]
+
+/-- Test `affineQuadric_trace_delta_sq_odd`: for m odd the Gram matrix is [[0, 1], [1, 0]], so Tr(δ²) = −2. -/
+example : dotProduct (![1, -1] : Fin 2 → ℤ) (Matrix.mulVec !![0, 1; 1, 0] ![1, -1]) = -2 := by
+  simp [dotProduct, Matrix.mulVec, Fin.sum_univ_two]
+
+/-- Test `pointCount_quadric_surface`: XII 3.4 with n = 2, m = 1: a split quadric surface has
+1 + q + q² + q = (1 + q)² points, the nonsplit one 1 + q + q² − q = 1 + q². -/
+example (q : ℤ) : (1 + q + q ^ 2) + q = (1 + q) ^ 2 ∧ (1 + q + q ^ 2) - q = 1 + q ^ 2 := by
+  constructor <;> ring
+
+end Tables
+
+end TauCeti.AlgebraicGeometry.Quadric
