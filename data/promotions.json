@@ -294,6 +294,17 @@
     "data/blueprints/ArithmeticKTheory--N.7.md"
    ]
   },
+  "research/blueprint/packets/ClassicalSerreModularity--R27.3.json": {
+   "promotedAt": "2026-09-29T01:08:10Z",
+   "review": "35c322bf8f5b9499",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-ClassicalSerreModularity--R27.3",
+   "sha256": "68642dd5e684e9c699959155ce00ba73e549275161084de773980f1afbe7a4a6",
+   "to": [
+    "data/blueprints/ClassicalSerreModularity--R27.3.json",
+    "data/blueprints/ClassicalSerreModularity--R27.3.md"
+   ]
+  },
   "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.6.json": {
    "promotedAt": "2026-09-28T13:45:03Z",
    "review": "918a718d825d5efb",
