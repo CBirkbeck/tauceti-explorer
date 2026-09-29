@@ -11404,3 +11404,184 @@ Four complete native lemmas verify real-to-complex input scaling for higher deri
 Exact cyclotomic controls verify60 kernel/Gauss values,288 nonzero denominator pairs,135 origin derivatives,20 a=1 zeros,20 a=0 values, five quadratic origin values and two exact values at log2. Exact arithmetic in rational cyclotomic quotient fields at conductors3,4,5,8,9. Set exp(t) to1/2,1,2,3 and compare the root-free complex kernel with the finite Gauss two-fraction expression; exp(a t) is the exact rational power. At t=0 evaluate the existing smooth extension by its finite character sum. Compare ordinary derivatives through degree8 using Stirling conversion of formal Taylor coefficients against independently evaluated rational Bernoulli polynomials. These are finite algebraic controls of the real-analytic formulas, not numerical complex approximations or proofs of decay. The largest observed discrepancy is 0 (exact arithmetic).
 
 Only the two global errata-register inputs changed since PR4640; all16 Dirichlet findings were compared and remain identical. Every supplier and other captured input is unchanged. PMIA is still369 nodes with the preserved compiled332-node interface; no new supplier declaration is called or full369-node compilation claimed.
+
+
+## Mellin continuation of the smoothed character kernel
+
+Partial continuation preserving all 340 predecessor nodes whole. Six L2 nodes give raw Mellin convergence, the half-plane Gamma formula, entire normalized continuation, its global Dirichlet identity, nonpositive-integer values and the source Gauss comparison. All 16 source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.
+
+Complete published pages 140–143 were read in the immediate predecessor sequence on 29 September 2026, including Lemma 5.5, equation (5-2), Remark 5.6 and the full proof of Theorem 5.1. The exact existing tame convergence, Gamma comparison, normalized continuation and special-value nodes and signatures were read. Native positive input scaling, scalar Mellin convergence and linearity, nonzero-base complex powers, entire nonprincipal Dirichlet L, Gamma nonvanishing and the analytic identity principle were read at the pin. No new source finding or full-paper extraction is claimed.
+
+### Convergence of the smoothed Mellin integral
+
+`DirichletPadicLFunctions:L2/smoothed-mellin-convergence` — `DirichletPadic.smoothedCharacterKernel_mellin_convergent`
+
+The native Mellin integral of g converges for Re(s)>0.
+
+**Hypotheses:** D is a positive natural modulus, represented by NeZero D; χ is the native DirichletCharacter C D with χ≠1. The natural smoothing parameter a is positive. Put g=smoothedCharacterKernel χ a and f=tameComplexKernel χ, actual functions R→C. χ(a) evaluates the residue of a in ZMod D. Complex powers, Gamma and Dirichlet L are native Mathlib objects. No primitivity, coprimality of a and D, p-adic structure on C or identification of coefficient fields is assumed.
+
+**Proof:**
+
+1. Import tame-complex-mellin-convergent for f at the same s. Since a>0, native MellinConvergent.comp_mul_left transfers convergence to t↦f(a t).
+2. Apply MellinConvergent.const_smul with complex coefficients −1 and aχ(a), and use the convergence component of hasMellin_add. This is exactly the actual constructor for g.
+3. A complete native proof checks the real input scaling and complex scalar multiplication without any character-specific assumptions. It permits χ(a)=0. The condition Re(s)>0 is independent of the narrower Dirichlet-series half-plane used next.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/smoothed-complex-character-kernel`, `DirichletPadicLFunctions:L2/tame-complex-mellin-convergent`, `mathlib:MellinConvergent.comp_mul_left`, `mathlib:MellinConvergent.const_smul`, `mathlib:hasMellin_add`.
+
+**Tests:**
+
+- `SuggestedSmoothedMellinTests.convergence_at_one` (compatibility): For quadratic χ modulo 3 and a=4, the actual Mellin integral converges at s=1.
+- `SuggestedSmoothedMellinTests.convergence_nonunit_parameter` (compatibility): For quadratic χ modulo 3 and a=3, the actual Mellin integral converges at s=1/2.
+
+**Acceptance:** This theorem makes no assertion that the raw integral converges at s=0 or at negative integers.
+
+**Source:** §5.1, Lemma 5.5, equation (5-2) and its proof, published 141–142 / PDF 42–43; Remark 5.6 and the complete proof of Theorem 5.1, published 143 / PDF 44. Complete published 140–143 read in the immediate predecessor sequence on 29 September 2026. Worker decomposition through the actual smoothedCharacterKernel and the existing normalized Mellin continuation. The nonprincipal root-free formula is proved first; the source primitive prime-power Gauss expression follows by equality of actual functions. The outer smoothing coefficient and character parity are kept explicit. Existing E11 already records the adjacent printed proof-display slips; no new source finding is claimed.
+
+### The smoothed Mellin formula on a half-plane
+
+`DirichletPadicLFunctions:L2/smoothed-mellin-gamma-l` — `DirichletPadic.smoothedCharacterKernel_mellin_eq_gamma_LFunction`
+
+For Re(s)>1, mellin(g,s)=χ(−1)Γ(s)(1−χ(a)a^(1−s))L(χ,s).
+
+**Hypotheses:** D is a positive natural modulus, represented by NeZero D; χ is the native DirichletCharacter C D with χ≠1. The natural smoothing parameter a is positive. Put g=smoothedCharacterKernel χ a and f=tameComplexKernel χ, actual functions R→C. χ(a) evaluates the residue of a in ZMod D. Complex powers, Gamma and Dirichlet L are native Mathlib objects. No primitivity, coprimality of a and D, p-adic structure on C or identification of coefficient fields is assumed.
+
+**Proof:**
+
+1. Use smoothed-mellin-convergence and the corresponding convergence of f and f(a·) to split the actual Mellin integral into its two summands.
+2. Native mellin_const_smul and mellin_comp_mul_left give mellin(g,s)=(−1+aχ(a)a^(−s))mellin(f,s). Since a is positive, its complex image is nonzero; Complex.cpow_add and cpow_one give a·a^(−s)=a^(1−s). A complete native lemma verifies this formula for arbitrary Mellin-convergent complex-valued f.
+3. Substitute tame-complex-mellin-gamma-l: mellin(f,s)=−χ(−1)Γ(s)L(χ,s). Finite ring algebra changes the two leading negative signs into the displayed factor. No primitive-root choice is involved.
+4. The modulus 3, a=4 and modulus 4, a=3 quadratic instances at s=2 give respectively −3/4 and −4/3 times L(χ,2), since Γ(2)=1. These distinguish both character parity and the exponent 1−s.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/smoothed-mellin-convergence`, `DirichletPadicLFunctions:L2/tame-complex-mellin-gamma-l`, `mathlib:hasMellin_add`, `mathlib:mellin_const_smul`, `mathlib:mellin_comp_mul_left`, `mathlib:Complex.cpow_add`, `mathlib:Complex.cpow_one`.
+
+**Tests:**
+
+- `SuggestedSmoothedMellinTests.raw_three_at_two` (computation): For quadratic χ modulo 3 and a=4, mellin(g,2)=−3/4·L(χ,2).
+- `SuggestedSmoothedMellinTests.raw_four_at_two` (computation): For quadratic χ modulo 4 and a=3, mellin(g,2)=−4/3·L(χ,2).
+
+**Acceptance:** The power is 1−s because the kernel contains the outer a. The character factor χ(−1) occurs once.
+
+**Source:** §5.1, Lemma 5.5, equation (5-2) and its proof, published 141–142 / PDF 42–43; Remark 5.6 and the complete proof of Theorem 5.1, published 143 / PDF 44. Complete published 140–143 read in the immediate predecessor sequence on 29 September 2026. Worker decomposition through the actual smoothedCharacterKernel and the existing normalized Mellin continuation. The nonprincipal root-free formula is proved first; the source primitive prime-power Gauss expression follows by equality of actual functions. The outer smoothing coefficient and character parity are kept explicit. Existing E11 already records the adjacent printed proof-display slips; no new source finding is claimed.
+
+### Entire continuation of the smoothed Mellin transform
+
+`DirichletPadicLFunctions:L2/smoothed-mellin-entire` — `DirichletPadic.smoothedCharacterKernel_mellin_entire`
+
+The existing normalizedMellinContinuation g is differentiable over C at every complex s.
+
+**Hypotheses:** D is a positive natural modulus, represented by NeZero D; χ is the native DirichletCharacter C D with χ≠1. The natural smoothing parameter a is positive. Put g=smoothedCharacterKernel χ a and f=tameComplexKernel χ, actual functions R→C. χ(a) evaluates the residue of a in ZMod D. Complex powers, Gamma and Dirichlet L are native Mathlib objects. No primitivity, coprimality of a and D, p-adic structure on C or identification of coefficient fields is assumed.
+
+**Proof:**
+
+1. Restrict the global real C∞ regularity from smoothed-complex-regularity to [0,∞). The smooth extension at zero is part of the existing constructor.
+2. For every derivative order, smoothed-complex-derivative-decay supplies O(exp(−t)). Choose the positive rate 1 separately at each order to meet the exact existing continuation interface; no uniform bound in the order is required.
+3. Apply L0 normalized-mellin-entire. This instantiates the existing function and theorem, and introduces no alternative Mellin-transform carrier or new continuation construction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/smoothed-complex-regularity`, `DirichletPadicLFunctions:L2/smoothed-complex-derivative-decay`, `DirichletPadicLFunctions:L0/normalized-mellin-entire`.
+
+**Tests:**
+
+- `SuggestedSmoothedMellinTests.entire_at_zero` (compatibility): For quadratic χ modulo 3 and a=4, the normalized continuation is complex differentiable at s=0.
+- `SuggestedSmoothedMellinTests.entire_at_one` (compatibility): For quadratic χ modulo 4 and a=3, the normalized continuation is complex differentiable at s=1.
+
+**Acceptance:** Entirety concerns the complex Mellin variable s. It does not assert that the real kernel extends to an entire function of complex t.
+
+**Source:** §5.1, Lemma 5.5, equation (5-2) and its proof, published 141–142 / PDF 42–43; Remark 5.6 and the complete proof of Theorem 5.1, published 143 / PDF 44. Complete published 140–143 read in the immediate predecessor sequence on 29 September 2026. Worker decomposition through the actual smoothedCharacterKernel and the existing normalized Mellin continuation. The nonprincipal root-free formula is proved first; the source primitive prime-power Gauss expression follows by equality of actual functions. The outer smoothing coefficient and character parity are kept explicit. Existing E11 already records the adjacent printed proof-display slips; no new source finding is claimed.
+
+### The global smoothed Dirichlet comparison
+
+`DirichletPadicLFunctions:L2/smoothed-mellin-comparison` — `DirichletPadic.smoothedCharacterKernel_normalized_eq_LFunction`
+
+For every s∈C, normalizedMellinContinuation(g,s)=χ(−1)(1−χ(a)a^(1−s))L(χ,s).
+
+**Hypotheses:** D is a positive natural modulus, represented by NeZero D; χ is the native DirichletCharacter C D with χ≠1. The natural smoothing parameter a is positive. Put g=smoothedCharacterKernel χ a and f=tameComplexKernel χ, actual functions R→C. χ(a) evaluates the residue of a in ZMod D. Complex powers, Gamma and Dirichlet L are native Mathlib objects. No primitivity, coprimality of a and D, p-adic structure on C or identification of coefficient fields is assumed.
+
+**Proof:**
+
+1. On Re(s)>1, L0 normalized-mellin-initial-halfplane identifies the left side with mellin(g,s)/Γ(s). Substitute smoothed-mellin-gamma-l and cancel Γ(s), which is nonzero by native Gamma_ne_zero_of_re_pos.
+2. The left side is entire by smoothed-mellin-entire. For the right side, a>0 gives a nonzero fixed complex base. Differentiable.const_cpow applied to s↦1−s proves the power entire. Native differentiable_LFunction uses exactly χ≠1; finite multiplication and subtraction preserve differentiability. The complete native probe checks this full right side.
+3. Convert both complex differentiability statements to analytic functions on the whole plane using the existing native differentiable-to-analytic interface. The half-plane equality holds on a neighborhood of s=2 because the real-part map is continuous. AnalyticOnNhd.eq_of_eventuallyEq on the connected complex plane proves equality everywhere.
+4. At s=1 the factor becomes χ(−1)(1−χ(a)); no integral-boundary substitution or Gamma pole cancellation is used there. The case a=1 gives zero for every s. If χ(a)=0, the formula agrees with g=−f even when a is not a unit modulo D.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/smoothed-mellin-gamma-l`, `DirichletPadicLFunctions:L2/smoothed-mellin-entire`, `DirichletPadicLFunctions:L0/normalized-mellin-initial-halfplane`, `mathlib:Complex.Gamma_ne_zero_of_re_pos`, `mathlib:Differentiable.const_cpow`, `mathlib:DirichletCharacter.differentiable_LFunction`, `mathlib:DifferentiableOn.analyticOnNhd`, `mathlib:AnalyticOnNhd.eq_of_eventuallyEq`.
+
+**Tests:**
+
+- `SuggestedSmoothedMellinTests.normalized_one_parameter` (degenerate): For every character, including principal characters, the actual zero kernel g_1 has zero normalized continuation at every s.
+- `SuggestedSmoothedMellinTests.normalized_nonunit_parameter` (compatibility): For quadratic χ modulo 3 and a=3, the normalized continuation equals −L(χ,s) for every s.
+- `SuggestedSmoothedMellinTests.normalized_three_at_one` (computation): For quadratic χ modulo 3 and a=4, the normalized value at s=1 is zero.
+- `SuggestedSmoothedMellinTests.normalized_four_at_one` (computation): For quadratic χ modulo 4 and a=3, the normalized value at s=1 is −2L(χ,1).
+- `SuggestedSmoothedMellinTests.normalized_three_at_two` (computation): For quadratic χ modulo 3 and a=4, the normalized value at s=2 is −3/4·L(χ,2).
+- `SuggestedSmoothedMellinTests.normalized_four_at_two` (computation): For quadratic χ modulo 4 and a=3, the normalized value at s=2 is −4/3·L(χ,2).
+
+**Acceptance:** The global identity includes s=1 and all nonpositive integers. The a=1 zero test uses the constructor and the existing normalized-zero API, so it does not extend the nonprincipal comparison to principal characters.
+
+**Source:** §5.1, Lemma 5.5, equation (5-2) and its proof, published 141–142 / PDF 42–43; Remark 5.6 and the complete proof of Theorem 5.1, published 143 / PDF 44. Complete published 140–143 read in the immediate predecessor sequence on 29 September 2026. Worker decomposition through the actual smoothedCharacterKernel and the existing normalized Mellin continuation. The nonprincipal root-free formula is proved first; the source primitive prime-power Gauss expression follows by equality of actual functions. The outer smoothing coefficient and character parity are kept explicit. Existing E11 already records the adjacent printed proof-display slips; no new source finding is claimed.
+
+### Smoothed Mellin values at nonpositive integers
+
+`DirichletPadicLFunctions:L2/smoothed-mellin-negative-values` — `DirichletPadic.smoothedCharacterKernel_mellin_neg_nat`
+
+For every k≥0, normalizedMellinContinuation(g,−k)=(−1)^k(χ(a)a^(k+1)−1)L(χ,−k).
+
+**Hypotheses:** D is a positive natural modulus, represented by NeZero D; χ is the native DirichletCharacter C D with χ≠1. The natural smoothing parameter a is positive. Put g=smoothedCharacterKernel χ a and f=tameComplexKernel χ, actual functions R→C. χ(a) evaluates the residue of a in ZMod D. Complex powers, Gamma and Dirichlet L are native Mathlib objects. No primitivity, coprimality of a and D, p-adic structure on C or identification of coefficient fields is assumed.
+
+**Proof:**
+
+1. Use the same smoothness and all-order positive decay rates as smoothed-mellin-entire. Apply L0 normalized-mellin-negative-values to get the factor (−1)^k times the k-th within derivative of g at zero.
+2. Use the within-derivative API of smoothed-complex-origin-values. It supplies exactly (χ(a)a^(k+1)−1)L(χ,−k), including k=0 with the native Dirichlet special-value convention.
+3. The result agrees with smoothed-mellin-comparison at s=−k: Complex.cpow_natCast changes the exponent to the natural k+1, and the existing Dirichlet special-value parity makes the two sign expressions agree. A complete native complex-power lemma checks the exponent conversion; exact cyclotomic controls compare the Bernoulli values and formal derivatives through order 8.
+4. The modulus 5 quadratic character with a=6 has g′(0)=−14 but normalized value at −1 equal to 14. Moduli 3 and 4 give values 1 and −2 at zero, and −14 and 14 at −2. Thus zero and odd derivative orders are checked separately.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/smoothed-mellin-entire`, `DirichletPadicLFunctions:L2/smoothed-complex-origin-values`, `DirichletPadicLFunctions:L2/smoothed-mellin-comparison`, `DirichletPadicLFunctions:L0/normalized-mellin-negative-values`, `mathlib:Complex.cpow_natCast`.
+
+**Tests:**
+
+- `SuggestedSmoothedMellinTests.negative_zero_three` (computation): For quadratic χ modulo 3 and a=4, the normalized value at zero is 1.
+- `SuggestedSmoothedMellinTests.negative_zero_four` (computation): For quadratic χ modulo 4 and a=3, the normalized value at zero is −2.
+- `SuggestedSmoothedMellinTests.negative_two_three` (computation): For quadratic χ modulo 3 and a=4, the normalized value at −2 is −14.
+- `SuggestedSmoothedMellinTests.negative_two_four` (computation): For quadratic χ modulo 4 and a=3, the normalized value at −2 is 14.
+- `SuggestedSmoothedMellinTests.negative_one_five` (computation): For quadratic χ modulo 5, χ(2)=−1 and a=6, the normalized value at −1 is 14.
+
+**Acceptance:** The normalized value contains (−1)^k. Raw derivative values and raw Mellin integrals at negative integers are not substituted for it.
+
+**Source:** §5.1, Lemma 5.5, equation (5-2) and its proof, published 141–142 / PDF 42–43; Remark 5.6 and the complete proof of Theorem 5.1, published 143 / PDF 44. Complete published 140–143 read in the immediate predecessor sequence on 29 September 2026. Worker decomposition through the actual smoothedCharacterKernel and the existing normalized Mellin continuation. The nonprincipal root-free formula is proved first; the source primitive prime-power Gauss expression follows by equality of actual functions. The outer smoothing coefficient and character parity are kept explicit. Existing E11 already records the adjacent printed proof-display slips; no new source finding is claimed.
+
+### Mellin continuation of the source Gauss kernel
+
+`DirichletPadicLFunctions:L2/smoothed-gauss-mellin-comparison` — `DirichletPadic.smoothedGaussKernel_normalized_eq_LFunction`
+
+For every s∈C, the normalized Mellin continuation of t↦G⁻¹Σ_cχ⁻¹(c)[(ε^(c.val)exp(t)−1)⁻¹−a((ε^(c.val))^a exp(a t)−1)⁻¹] equals χ(−1)(1−χ(a)a^(1−s))L(χ,s).
+
+**Hypotheses:** p is prime, n≥1 and q=p^n. χ is the native primitive DirichletCharacter C q. ε is a primitive q-th root in C, e=AddChar.zmodChar(q,ε) and G=gaussSum(χ⁻¹,e) is explicitly nonzero. The natural smoothing parameter a satisfies p∤a. Use the existing normalizedMellinContinuation of the displayed actual function R→C, with native totalized inverses.
+
+**Proof:**
+
+1. Since p is prime and n≥1, q>1. Native conductor_one and primitivity exclude χ=1. The condition p∤a implies a>0.
+2. The existing smoothed-complex-gauss-comparison identifies the entire actual real-variable function with g, including its value at zero and all negative real inputs. Function extensionality therefore identifies their existing normalized Mellin continuations.
+3. Apply smoothed-mellin-comparison. This uses neither evaluation of an infinite formal series at a real input nor an identification of complex and p-adic fields.
+4. The c=0 term already vanishes by the character weight in the existing Gauss comparison. For a=1 the two fractions cancel before any denominator reasoning, and the normalized continuation is identically zero. Different primitive roots with their corresponding nonzero Gauss normalizers give the same right side.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/smoothed-complex-gauss-comparison`, `DirichletPadicLFunctions:L2/smoothed-mellin-comparison`, `mathlib:DirichletCharacter.conductor_one`.
+
+**Tests:**
+
+- `SuggestedSmoothedMellinTests.gauss_one_parameter` (degenerate): For a=1, the displayed finite Gauss kernel has normalized continuation zero for every complex s, without requiring primitive χ or nonzero G.
+
+**Acceptance:** No unconditional primitive Gauss nonvanishing or p-adic character evaluation is introduced. All source comparison hypotheses remain explicit.
+
+**Source:** §5.1, Lemma 5.5, equation (5-2) and its proof, published 141–142 / PDF 42–43; Remark 5.6 and the complete proof of Theorem 5.1, published 143 / PDF 44. Complete published 140–143 read in the immediate predecessor sequence on 29 September 2026. Worker decomposition through the actual smoothedCharacterKernel and the existing normalized Mellin continuation. The nonprincipal root-free formula is proved first; the source primitive prime-power Gauss expression follows by equality of actual functions. The outer smoothing coefficient and character parity are kept explicit. Existing E11 already records the adjacent printed proof-display slips; no new source finding is claimed.
+
+**Remaining:** The actual smoothed complex kernel now has raw Mellin convergence on Re(s)>0, the Gamma–Dirichlet comparison on Re(s)>1, an entire normalized continuation and a global smoothed Dirichlet identity, including zero and nonpositive-integer values. The source primitive prime-power Gauss expression has the same normalized continuation. Next compare the actual prime-power ordinary moments with these complex values through an explicit common coefficient field; then connect inverse-unit weights to the actual pseudomeasure character evaluation where its supplier supports the coefficient type. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open.
+
+### Mellin continuation of the smoothed character kernel validation
+
+All 340 predecessor nodes, 405 baseline records, 16 findings and sourceVersions remain whole. This checkpoint adds 6 nodes, 6 named suggested declarations and 18 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 521 reachable nodes, 2478 edges and 527 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 988 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Four complete native lemmas verify the smoothed Mellin scaling formula, convergence of its actual summands, entirety of the full Dirichlet comparison expression and conversion of its negative-integer complex exponent. The probe elaborates against 3356 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact cyclotomic controls compare 180 normalized negative values with independent formal derivatives and Bernoulli values, 180 global-formula parity checks, 45 a=1 zeros and 40 factors at s=1 and s=2, including nine quadratic values or factors. Exact arithmetic in rational cyclotomic quotient fields at conductors 3, 4, 5, 8 and 9. Compare normalized special values from Stirling conversion of the formal kernel with independently evaluated Bernoulli polynomials, and then compare the global Dirichlet formula using character parity. Positive integer factors are derived from input scaling and compared with the combined exponent. Orders 0 through 8 include odd parity and nonunit smoothing parameters. These finite algebraic checks do not assert numerical evaluation of Mellin integrals or prove analytic continuation. The largest observed discrepancy is 0 (exact arithmetic).
+
+All 54 captured inputs are unchanged from PR #4643. PMIA remains at 369 nodes with its preserved compiled 332-node interface; no new supplier declaration is called or compilation against the full 369-node source claimed.
