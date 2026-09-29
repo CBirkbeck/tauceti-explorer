@@ -14756,3 +14756,225 @@ Seven complete native lemmas check reflection of a clearing equality through an 
 Exact controls check660 doubled moment identities,330 sign identities,11 uniform prime witnesses whose norms exceed1,330 shifted-sign zero controls,330 even-exponent zero controls and9 growing constant norms. Exact rational Bernoulli recurrence through200, exact integer p-adic valuations and rational norms. Eleven prime witnesses use exponent2(p−1)−1; the sign-cleared value is minus the actual Bernoulli interpolation expression and its norm exceeds1. Separate even-exponent and shifted-sign zero controls prevent ordinary and shifted clearing factors from being confused. Nine growing constant norms illustrate the bounded-field-measure obstruction; the general proof uses the previously established unboundedness and native operator norm, not these finite controls. The largest observed discrepancy is 0.
 
 The initial57-input capture has empty delta at42d3b530a800843f17e9e70700ac43992729a6c8. All supplier, source-review and guarded inputs match the predecessor. Current369-node PMIA preserves the compiled332-node interface; no new supplier declaration or full369-node compilation is claimed.
+
+
+## The inverse-coordinate character and its localization obstruction
+
+Partial continuation preserving all447 predecessor nodes whole. Seven L4 nodes construct the specific inverse-coordinate character and its actual integral evaluator, promote their value formulas, prove annihilation of every shifted denominator and exclude extensions to any smoothing localization or the total quotient. All16 findings and three requests remain whole; seven gaps and zero closed stages remain.
+
+Native continuous monoid homomorphism composition and inversion were read with their ambient hypotheses; localization map_units and the Away unit image were rechecked. The actual level-zero character and characterIntegralAlgHom interfaces were reread, and the complete supplier character-integral and canonical-unit nodes inspected. Source129–130 and159–160 were read completely in4693 during this continuation;137–140 were reread after4695 preparation. One complete native constructor and six lemmas check the inverse character and both localization obstructions. Two native baseline records are added; no generic inversion or localization theory is replanned.
+
+### The inverse-coordinate arithmetic character
+
+`DirichletPadicLFunctions:L4/eisenstein-inverse-character` — `DirichletPadic.eisensteinInverseCharacter`
+
+Define κ⁻:ContinuousMonoidHom U Z by κ_(0,1,1) composed with native inversion on U. It is nontrivial for every prime.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient, not an assumed field. The existing arithmetic character κ_(0,1,1):U→Z is the unit coordinate. Native continuous group inversion on U defines its inverse-coordinate composite. The inverse is taken in U before coercion into Z. For u∈U let Δ_u=2·eisensteinTwistedDenominator p u=2(uδ_u−1), and S_u=Localization.Away(Δ_u). These are the preceding actual native denominators and localizations.
+
+**Proof:**
+
+1. The existing arithmetic coordinate character is a continuous multiplicative map to Z. The native ContinuousMonoidHom.inv on the commutative topological group U is continuous and multiplicative. Compose these actual maps using native ContinuousMonoidHom.comp.
+2. Its pointwise inverse-unit formula is promoted below. Multiplying that value by the original unit value gives1 by the native unit inverse law. This takes no inverse of an arbitrary nonunit p-adic integer.
+3. For nontriviality choose the supplied unit a=p+1. If κ⁻ were the trivial character, its value at a would be1, and the unit inverse law would give a=1 in Z. The characteristic-zero inclusion of the natural number p+1 contradicts p>0.
+4. A complete native constructor and inverse-product/nontrivial-value lemmas verify the exact unit carrier and topology. Generic continuous characters and their inversion are reused from the libraries.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/arithmetic-character-zero-level`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`, `mathlib:ContinuousMonoidHom.comp`, `mathlib:ContinuousMonoidHom.inv`.
+
+**Uses:**
+
+- Corrected RJW Theorem8.2 denominator: The coordinate shift places its denominator obstruction at the inverse coordinate.
+- Actual integral evaluation: Supplies a concrete integral continuous character to the existing character-integral algebra homomorphism.
+
+**API:**
+
+- `DirichletPadic.eisensteinInverseCharacter_def` (constructor): The character is κ_(0,1,1) composed with ContinuousMonoidHom.inv U.
+- `DirichletPadic.eisensteinInverseCharacter_apply` (data): κ⁻(u) is the underlying Z-value of u⁻¹. Promoted to eisenstein-inverse-character-value.
+- `DirichletPadic.eisensteinInverseCharacter_mul` (compatibility): u·κ⁻(u)=1 in Z for every actual unit u.
+- `DirichletPadic.eisensteinInverseCharacter_ne_one` (characterisation): κ⁻ is nontrivial, witnessed by the supplied unit p+1.
+
+**Tests:**
+
+- `SuggestedInverseCharacterTests.inverse_character_identity` (computation): The inverse-coordinate character sends1 to1.
+- `SuggestedInverseCharacterTests.inverse_character_negative_identity` (computation): It sends−1 to−1, including p=2.
+- `SuggestedInverseCharacterTests.inverse_character_nontrivial` (non-example): It is not the trivial continuous character at any prime.
+
+**Acceptance:** This is the specific arithmetic character needed by the corrected Eisenstein denominator. It is not a reconstruction of general character-space theory.
+
+**Source:** Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained. Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation.
+
+### The exact inverse-unit value
+
+`DirichletPadicLFunctions:L4/eisenstein-inverse-character-value` — `DirichletPadic.eisensteinInverseCharacter_apply`
+
+For every u∈U, κ⁻(u)=(u⁻¹:U):Z.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient, not an assumed field. The existing arithmetic character κ_(0,1,1):U→Z is the unit coordinate. Native continuous group inversion on U defines its inverse-coordinate composite. The inverse is taken in U before coercion into Z. For u∈U let Δ_u=2·eisensteinTwistedDenominator p u=2(uδ_u−1), and S_u=Localization.Away(Δ_u). These are the preceding actual native denominators and localizations.
+
+**Proof:**
+
+1. Unfold the native composition and inversion. Apply the promoted level-zero coordinate-character formula at the actual unit u⁻¹, with exponent1.
+2. The coefficient algebra is Z over itself, so its algebraMap is the identity and the first power simplifies. This gives the exact coerced group inverse.
+3. The native inverse_apply lemma is definitional for the corresponding concrete native coordinate map. At p=3,u=2 the value satisfies2κ⁻(u)=1 in Z_3.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-inverse-character`, `DirichletPadicLFunctions:L2/arithmetic-character-zero-level`, `mathlib:ContinuousMonoidHom.comp`, `mathlib:ContinuousMonoidHom.inv`.
+
+**Tests:**
+
+- `SuggestedInverseCharacterTests.inverse_character_ternary_two` (computation): At the actual ternary unit represented by2, twice its inverse-character value is1.
+
+**Acceptance:** The inverse is a group operation on units; no nonexistent division structure on Z_p is introduced.
+
+**Source:** Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained. Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation.
+
+### Integral evaluation at the inverse coordinate
+
+`DirichletPadicLFunctions:L4/eisenstein-inverse-moment-hom` — `DirichletPadic.eisensteinInverseMomentHom`
+
+Define f⁻:M→+*Q_p by the supplied characterIntegralAlgHom at κ⁻ followed by the native coefficient inclusion Z→Q_p.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient, not an assumed field. The existing arithmetic character κ_(0,1,1):U→Z is the unit coordinate. Native continuous group inversion on U defines its inverse-coordinate composite. The inverse is taken in U before coercion into Z. For u∈U let Δ_u=2·eisensteinTwistedDenominator p u=2(uδ_u−1), and S_u=Localization.Away(Δ_u). These are the preceding actual native denominators and localizations.
+
+**Proof:**
+
+1. Apply the existing matching-coefficient characterIntegralAlgHom to κ⁻. Its source is the actual convolution algebra M and its target is Z.
+2. Forget to its ring homomorphism and compose with algebraMap Z Q_p. This constructs f⁻ on every actual integral measure with inherited unit and multiplicative laws.
+3. The all-measure evaluation formula is promoted below. Native Dirac evaluation and the promoted inverse-character value identify f⁻(δ_u) with the included underlying inverse-unit value.
+4. The ordinary factor at the ternary canonical unit4 has image1/4−1=−3/4. Thus vanishing of the shifted factors proved below does not result from a trivial character or a zero ring map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-inverse-character-value`, `PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom`, `mathlib:PadicInt.algebraMap_apply`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Uses:**
+
+- Shifted denominator image: Computes the obstruction using an actual integral ring homomorphism.
+- Localization nonextension: Fixes the exact original-coefficient agreement that an alleged extension would have to satisfy.
+
+**API:**
+
+- `DirichletPadic.eisensteinInverseMomentHom_def` (constructor): f⁻ is algebraMap Z Q_p composed with the ring map underlying characterIntegralAlgHom κ⁻.
+- `DirichletPadic.eisensteinInverseMomentHom_apply` (data): f⁻(μ)=ι(μ(κ⁻.toContinuousMap)). Promoted to eisenstein-inverse-moment-agreement.
+- `DirichletPadic.eisensteinInverseMomentHom_dirac` (simp): f⁻(δ_u)=ι((u⁻¹:U):Z).
+
+**Tests:**
+
+- `SuggestedInverseCharacterTests.inverse_moment_unit` (computation): The actual ring map sends1 to1.
+- `SuggestedInverseCharacterTests.inverse_moment_sign_atom` (computation): The sign atom has value−1.
+- `SuggestedInverseCharacterTests.inverse_moment_ordinary_factor` (computation): At p=3 and u=4, the ordinary difference δ_u−1 has value−3/4.
+
+**Acceptance:** The map is on integral measures only. It uses the existing matching-coefficient algebra map and does not discharge the generic coefficient-field supplier request.
+
+**Source:** Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained. Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation.
+
+### Agreement with the actual inverse-coordinate integral
+
+`DirichletPadicLFunctions:L4/eisenstein-inverse-moment-agreement` — `DirichletPadic.eisensteinInverseMomentHom_apply`
+
+For every actual μ∈M, f⁻(μ)=ι(μ(κ⁻.toContinuousMap)).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient, not an assumed field. The existing arithmetic character κ_(0,1,1):U→Z is the unit coordinate. Native continuous group inversion on U defines its inverse-coordinate composite. The inverse is taken in U before coercion into Z. For u∈U let Δ_u=2·eisensteinTwistedDenominator p u=2(uδ_u−1), and S_u=Localization.Away(Δ_u). These are the preceding actual native denominators and localizations.
+
+**Proof:**
+
+1. Unfold the constructed composite. The supplier characterIntegralAlgHom has underlying function given by evaluation on its character test.
+2. The following coefficient map is exactly the native inclusion of the resulting p-adic integer into Q_p. No extension of the measure carrier or change of coefficient module is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-inverse-moment-hom`, `PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom`, `mathlib:PadicInt.algebraMap_apply`.
+
+**Tests:**
+
+- `SuggestedInverseCharacterTests.inverse_moment_all_integral_measures` (characterisation): The agreement holds at every actual integral measure, not merely at Dirac atoms.
+
+**Acceptance:** This supplies the uniform integral evaluation interface before any fraction is introduced.
+
+**Source:** Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained. Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation.
+
+### Every shifted denominator has zero inverse-coordinate image
+
+`DirichletPadicLFunctions:L4/eisenstein-inverse-denominator-zero` — `DirichletPadic.eisensteinInverseMomentHom_denominator`
+
+For every u∈U, f⁻(Δ_u)=0.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient, not an assumed field. The existing arithmetic character κ_(0,1,1):U→Z is the unit coordinate. Native continuous group inversion on U defines its inverse-coordinate composite. The inverse is taken in U before coercion into Z. For u∈U let Δ_u=2·eisensteinTwistedDenominator p u=2(uδ_u−1), and S_u=Localization.Away(Δ_u). These are the preceding actual native denominators and localizations.
+
+**Proof:**
+
+1. The shifted denominator is2(uδ_u−1). By the promoted all-measure evaluation, native linearity, Dirac evaluation and the convolution identity δ_1, its image is2(uκ⁻(u)−1).
+2. Use the promoted inverse-character value to identify uκ⁻(u) with the product of an actual unit and its inverse, hence1.
+3. The result is0 already in Z, and remains0 after inclusion in Q_p. The complete native shifted-denominator-zero lemma checks the same calculation with an actual coefficient-preserving algebra homomorphism.
+4. This includes the canonical regular denominator at p+1. Nonzero-divisor regularity in M does not imply nonzero image under this character.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-inverse-character-value`, `DirichletPadicLFunctions:L4/eisenstein-inverse-moment-agreement`, `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator`, `PadicMeasuresIwasawaAlgebras:L1/convolution-algebra`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Tests:**
+
+- `SuggestedInverseCharacterTests.inverse_shifted_identity_zero` (degenerate): The identity-parameter shifted denominator has image0.
+- `SuggestedInverseCharacterTests.inverse_shifted_dyadic_canonical_zero` (non-example): The doubled shifted denominator at the dyadic canonical unit3 also has image0, despite its established regularity in M.
+
+**Acceptance:** The vanishing concerns shifted denominators. It does not assert that all ordinary Dirac differences have zero image.
+
+**Source:** Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained. Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation.
+
+### No smoothing localization admits this character evaluation
+
+`DirichletPadicLFunctions:L4/eisenstein-inverse-no-away-extension` — `DirichletPadic.eisensteinInverseMomentHom_no_away_extension`
+
+For every u∈U there is no ring homomorphism F:S_u→+*Q_p whose value on alg(μ) is f⁻(μ) for every μ∈M.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient, not an assumed field. The existing arithmetic character κ_(0,1,1):U→Z is the unit coordinate. Native continuous group inversion on U defines its inverse-coordinate composite. The inverse is taken in U before coercion into Z. For u∈U let Δ_u=2·eisensteinTwistedDenominator p u=2(uδ_u−1), and S_u=Localization.Away(Δ_u). These are the preceding actual native denominators and localizations.
+
+**Proof:**
+
+1. Suppose such an F exists. The denominator Δ_u belongs to its own powers submonoid, so native IsLocalization.map_units makes alg(Δ_u) a unit in S_u.
+2. A ring homomorphism preserves units. Hence F(alg(Δ_u)) must be a unit in Q_p.
+3. The assumed agreement on integral coefficients and the preceding denominator-zero theorem identify that value with0. Zero is not a unit in the nontrivial field Q_p, a contradiction.
+4. The complete native no-away-extension lemma checks this argument with the actual native localization. It also handles u=1, whose localization is the zero ring.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-inverse-denominator-zero`, `mathlib:IsLocalization.map_units`, `mathlib:Submonoid.mem_powers`, `mathlib:isUnit_iff_ne_zero`.
+
+**Tests:**
+
+- `SuggestedInverseCharacterTests.inverse_no_parameter_away_extension` (non-example): No choice of smoothing parameter supplies an Away extension of this actual integral character map.
+
+**Acceptance:** This excludes ring-map extension on the displayed localization. It does not prove that a particular smaller-domain function has a nonremovable analytic singularity.
+
+**Source:** Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained. Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation.
+
+### No total-quotient extension at the inverse coordinate
+
+`DirichletPadicLFunctions:L4/eisenstein-inverse-no-fraction-extension` — `DirichletPadic.eisensteinInverseMomentHom_no_fraction_extension`
+
+There is no ring homomorphism F:Q→+*Q_p agreeing with f⁻ on the image of every integral measure.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient, not an assumed field. The existing arithmetic character κ_(0,1,1):U→Z is the unit coordinate. Native continuous group inversion on U defines its inverse-coordinate composite. The inverse is taken in U before coercion into Z. For u∈U let Δ_u=2·eisensteinTwistedDenominator p u=2(uδ_u−1), and S_u=Localization.Away(Δ_u). These are the preceding actual native denominators and localizations.
+
+**Proof:**
+
+1. Choose the supplied canonical unit a=p+1. The preceding doubled shifted-denominator regularity theorem gives Δ_a∈nonZeroDivisors M.
+2. Native IsLocalization.map_units makes i(Δ_a) a unit in Q. Its image under any alleged F is therefore a unit in Q_p.
+3. All-integral agreement and the inverse-denominator-zero theorem force that image to be0, contradicting nontriviality of Q_p. The complete native no-fraction-extension lemma verifies this exact regular-denominator argument.
+4. The character itself is nontrivial. Thus nontriviality alone is insufficient for an unrestricted total-quotient ring-map extension, as already recorded in the source qualifications. This does not alter the existing admissible ordinary-pseudomeasure evaluation API.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/eisenstein-inverse-denominator-zero`, `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-regular`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`, `mathlib:IsLocalization.map_units`, `mathlib:isUnit_iff_ne_zero`.
+
+**Tests:**
+
+- `SuggestedInverseCharacterTests.inverse_no_dyadic_total_extension` (non-example): The actual inverse-coordinate integral map at p=2 has no total-quotient extension.
+- `SuggestedInverseCharacterTests.inverse_no_ternary_total_extension` (non-example): The same nonextension holds at p=3.
+
+**Acceptance:** The proof uses a known regular denominator, with no assumption that the measure ring is a domain. Analytic pole and residue constructions remain separate work.
+
+**Source:** Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained. Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation.
+
+**Remaining:** The nontrivial inverse-coordinate character now has an actual integral evaluator, and every shifted denominator has image0. There is no extension to any displayed smoothing Away localization or to the total quotient. These are algebraic nonextension results, not a proof of analytic pole order or residue. Generic coefficient-field evaluation, character-twist equivalence and completed-algebra supplier requests remain open. Actual scalar analytic branches, p-adic logarithmic degree-zero values, tame-character Eisenstein families and full source extraction remain explicit work; PadicFamilies owns geometric realization.
+
+### The inverse-coordinate character and its localization obstruction validation
+
+All 447 predecessor nodes, 436 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 7 nodes, 12 named suggested declarations and 13 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 629 reachable nodes, 3007 edges and 555 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 1398 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+One complete native constructor and six lemmas check the inverse-unit character, its values and unit product, nontrivial values, the zero shifted-denominator image and the two native localization nonextension arguments. The probe elaborates against 1752 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact controls check8937 residue inverse products,107037 multiplicativity cases,8937 shifted denominator zeros,14 canonical nontriviality witnesses,117 rational-unit examples and110 ordinary-factor negative controls. Exact modular inverses on every residue unit at levels1–3 for seven primes, including dyadic units. Check multiplicativity against up to12 other units and annihilation of each doubled shifted factor. At levels at least2, the canonical unit p+1 gives a nontrivial-character witness. Separate exact rational-unit examples compare the zero shifted factor with the nonzero ordinary factor. The nonextension theorems are proved by preservation of units in the native localizations; finite residues are only controls and do not establish an analytic pole or residue. The largest observed discrepancy is 0.
+
+The initial57-input capture has empty delta at07737bf8b098e678edd6d529f5871bb90bee57cf. All supplier, source-review and guarded inputs match the predecessor. Current369-node PMIA preserves the compiled332-node interface; no new supplier declaration or full369-node compilation is claimed.
