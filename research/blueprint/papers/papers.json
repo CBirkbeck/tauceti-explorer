@@ -1744,6 +1744,102 @@
    "link": "https://webspace.science.uu.nl/~koyma001/publications.html",
    "note": "Governing fields and the negative Pell equation; squarely in scope. Held on 21 September 2026 only because its Acta volume and year were not established: settle them from the publisher page and record them in the report. Chosen by the maintainer on 23 September 2026.",
    "batch": 4
+  },
+  {
+   "id": "PAPER-FARGUES-SCHOLZE-21",
+   "short": "Fargues–Scholze: Geometrization of the local Langlands correspondence",
+   "citation": "Fargues and Scholze, \"Geometrization of the local Langlands correspondence\" (arXiv:2102.13459)",
+   "link": "https://arxiv.org/abs/2102.13459",
+   "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. Its diamonds and geometric local Langlands roadmaps already plan much of it (the Fargues–Fontaine curve as a diamond, Bun_G and Newton strata, geometric Satake over the Fargues–Fontaine curve, Hecke stacks and local shtukas, excursion operators and the spectral action, Langlands parameter stacks, and the diamond and v-stack foundations): route to them, and propose a Part II only for what they lack. It is 356 pages: checkpoint by chapter.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23",
+   "short": "Caraiani–Newton: On the modularity of elliptic curves over imaginary quadratic fields",
+   "citation": "Caraiani and Newton, \"On the modularity of elliptic curves over imaginary quadratic fields\" (arXiv:2301.10509)",
+   "link": "https://arxiv.org/abs/2301.10509",
+   "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. The campaign scoped it as a future extension of its Serre-modularity roadmaps (the imaginary-quadratic continuation): route what those roadmaps and the torsion and potential-automorphy roadmaps lack as a Part II of them.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-DELIGNE-74",
+   "short": "Deligne: La conjecture de Weil I",
+   "citation": "Deligne, \"La conjecture de Weil. I\", Publications mathématiques de l'IHÉS 43 (1974), 273–307",
+   "link": "https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf",
+   "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. The Weil-conjectures roadmaps (WeilConjectures, EtaleDualityAndPerverseSheaves, and the Lefschetz-pencil and purity roadmaps) were built for this proof: route to them.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-DELIGNE-80",
+   "short": "Deligne: La conjecture de Weil II",
+   "citation": "Deligne, \"La conjecture de Weil. II\", Publications mathématiques de l'IHÉS 52 (1980), 137–252",
+   "link": "https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf",
+   "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. Weights, purity and mixed sheaves: route to the Weil-conjectures roadmaps (WeilConjectures, EtaleDualityAndPerverseSheaves, and the purity and mixed-weights roadmaps).",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-GROSS-ZAGIER-86",
+   "short": "Gross–Zagier: Heegner points and derivatives of L-series",
+   "citation": "Gross and Zagier, \"Heegner points and derivatives of L-series\", Inventiones mathematicae 84 (1986), 225–320",
+   "link": "https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf",
+   "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. The rank-zero and rank-one BSD roadmaps (GrossZagierAndArithmeticHeights, HeegnerPointEulerSystems, RankZeroOneBSD) were built around it: route to them.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-KOLYVAGIN-90",
+   "short": "Kolyvagin: Euler systems",
+   "citation": "Kolyvagin, \"Euler systems\", in The Grothendieck Festschrift, Vol. II, Progress in Mathematics 87, Birkhäuser (1990), 435–483",
+   "link": "https://swc-math.github.io/notes/files/99RubinES.pdf",
+   "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. No public copy of Kolyvagin's article is known; the link is Rubin's Euler Systems (Annals of Mathematics Studies 147, draft), which develops the same method: extract the rank-one finiteness argument (Mordell–Weil rank and Sha from a nonvanishing Heegner point) and record which text you read. Route to EulerSystemsAndKolyvaginSystems and RankZeroOneBSD.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-SCHOLZE-15",
+   "short": "Scholze: On torsion in the cohomology of locally symmetric varieties",
+   "citation": "Scholze, \"On torsion in the cohomology of locally symmetric varieties\", Annals of Mathematics 182 (2015), 945–1066",
+   "link": "https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf",
+   "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. The campaign's torsion and potential-automorphy roadmaps organize its reusable theory (perfectoid Shimura varieties, the Hodge–Tate period map, torsion concentration, determinants): route to them.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-KHARE-WINTENBERGER-09-I",
+   "short": "Khare–Wintenberger: Serre's modularity conjecture (I)",
+   "citation": "Khare and Wintenberger, \"Serre's modularity conjecture (I)\", Inventiones mathematicae 178 (2009), 485–504",
+   "link": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+   "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. The Serre-modularity roadmaps were built for the classical Serre modularity theorem over Q: route to them.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-KHARE-WINTENBERGER-09-II",
+   "short": "Khare–Wintenberger: Serre's modularity conjecture (II)",
+   "citation": "Khare and Wintenberger, \"Serre's modularity conjecture (II)\", Inventiones mathematicae 178 (2009), 505–586",
+   "link": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+   "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. The Serre-modularity roadmaps were built for the classical Serre modularity theorem over Q: route to them.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01",
+   "short": "Breuil–Conrad–Diamond–Taylor: On the modularity of elliptic curves over Q",
+   "citation": "Breuil, Conrad, Diamond and Taylor, \"On the modularity of elliptic curves over Q: wild 3-adic exercises\", Journal of the American Mathematical Society 14 (2001), 843–939",
+   "link": "https://www.ams.org/journals/jams/2001-14-04/S0894-0347-01-00370-8/",
+   "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. The Serre-modularity roadmaps' second target is the modularity of every elliptic curve over Q: route to them.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-RODRIGUES-JACINTO-WILLIAMS-23",
+   "short": "Rodrigues Jacinto–Williams: An introduction to p-adic L-functions",
+   "citation": "Rodrigues Jacinto and Williams, \"An introduction to p-adic L-functions\" (arXiv:2309.15692)",
+   "link": "https://arxiv.org/abs/2309.15692",
+   "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. The p-adic L-function and Iwasawa roadmaps were built as a formalization of these notes, including the cyclotomic main conjecture: route to them.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24",
+   "short": "Garoufalidis–Scholze–Wheeler–Zagier: The Habiro ring of a number field",
+   "citation": "Garoufalidis, Scholze, Wheeler and Zagier, \"The Habiro ring of a number field\" (arXiv:2412.04241)",
+   "link": "https://arxiv.org/abs/2412.04241",
+   "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. The Habiro roadmaps (HabiroCohomologyFoundations, HabiroCyclotomicCompletions, HabiroNahmSeries, HabiroNumberFields) were built around it: route to them.",
+   "batch": 5
   }
  ],
  "guides": [
@@ -1849,7 +1945,8 @@
   "1": "Annals of Mathematics, issues from January 2016 to September 2026, algebraic number theory and arithmetic geometry read inclusively (the maintainer's classification, 21 September 2026). Four of its papers were routed earlier and are among the guides: Pan (2026), Betts–Stix (2025), Skinner (2020) and Balakrishnan–Dogra–Müller–Tuitman–Vonk (2019).",
   "2": "Six journals (Inventiones, Duke, Forum of Mathematics Pi, JAMS, Publications de l'IHÉS, Acta), issues from 21 September 2016 to 21 September 2026, the same scope as batch 1: the maintainer's working catalogue, not exhaustive (Duke, JAMS, earlier Inventiones and recent Acta are incomplete). Three of its papers were already covered and are not queued: Lawrence–Venkatesh (DESIGN-LV), Boxer–Calegari–Gee–Pilloni 2021 (DESIGN-BCGP18) and Pan's first paper (the foundation of DESIGN-PAN).",
   "3": "The seven papers the maintainer gave as routing guides (21 September 2026), queued for extraction on 23 September 2026 at the maintainer's request: their routes are already decided and applied, so each extraction reads the paper in full and routes its items into the roadmap its guide entry names.",
-  "4": "Seven of the held papers, chosen by the maintainer on 23 September 2026: the direct summand conjecture (André and Bhatt), purity in chromatically localized K-theory, the orbit method, topological cyclic homology, Macaulayfication, and Stevenhagen's conjecture. The rest of the held list stands."
+  "4": "Seven of the held papers, chosen by the maintainer on 23 September 2026: the direct summand conjecture (André and Bhatt), purity in chromatically localized K-theory, the orbit method, topological cyclic homology, Macaulayfication, and Stevenhagen's conjecture. The rest of the held list stands.",
+  "5": "The papers the original Modern Number Theory Campaign roadmaps were built to cover: the maintainer's list behind that campaign, reconstructed on 29 September 2026 from its README and input packs and confirmed by the maintainer. Four of its papers were already in batch 1: the ten-author potential-automorphy paper, Caraiani–Scholze (compact and non-compact) and Bhatt–Scholze."
  },
  "held": [
   {
