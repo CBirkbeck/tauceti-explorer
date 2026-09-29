@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -9457,7 +9457,8 @@
    ],
    "avoidAccountOf": "PAPER-SCHOLZE-WEINSTEIN-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHOLZE-WEINSTEIN-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4541"
   },
   {
    "id": "PAPER-FARGUES-FONTAINE-18",
@@ -9547,8 +9548,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KEDLAYA-LIU-15.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4546"
+   "state": "pending",
+   "note": "released on GitHub issue #4546"
   },
   {
    "id": "REV-PAPER-KEDLAYA-LIU-15",
@@ -45168,8 +45169,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-27.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4021"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4021",
+   "finishedAt": "2026-09-29T16:58:13Z"
   },
   {
    "id": "RT-AUDIT-28",
@@ -45388,7 +45390,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-30.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4023"
   },
   {
    "id": "RT-AUDIT-31",
@@ -46553,8 +46556,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3965"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3965",
+   "finishedAt": "2026-09-29T16:58:17Z"
   },
   {
    "id": "RT-AREA-iwasawa-3",
