@@ -3,7 +3,7 @@
  "baseline": "mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; tauceti f790474821cf4256814db967cb154e7af3d0c369",
  "roadmaps": {
   "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries": {
-   "summary": "Tau Ceti has built most of this roadmap: `TauCeti/NumberTheory/ArithmeticDirichletSeries/` holds 665 sorry-free declarations across 28 files, and Layers 0–4 are complete in the stated generality — the nonzero-ideal carrier with its zero extension, both completely multiplicative weight carriers with all constructors and the three rejection tests, `normCoeff` and `regroupByNorm`, ideal convolution with Möbius inversion and the von Mangoldt transform, `EulerProductData` with the analytic Euler product and a holomorphic branch of its logarithm, and the counting carriers with `primeTheta`, `primeCount` and `primePsi`. Layer 5 is complete but for the named density-zero corollary for degree-above-one primes, Layer 8 for the ordinary-versus-absolute abscissa equality (which no library can state, having no ordinary abscissa), and Layer 6 for the cancellation package `HasCancellation`/`continuedLFunctionOfWeight`; the arithmetic Perron formula that the roadmap's own STATUS.md calls untouched is in fact proved, as are the analytic Euler product, the log-derivative identity and the meromorphic Landau corollary. What is genuinely missing is a connected block: Wiener–Ikehara's final Tauberian step (the smoothed asymptotic is done, with only a crude `O(t log t)` growth bound derived; the Chebyshev bound and the passage to `x⁻¹ ∑_{n≤x} a n → κ` are not), the whole Dirichlet-density calculus of Layer 7 beyond the base Mathlib API the pinned revision already supplies, and consequently `PrimeBoundaryRemainder`, `primePsi_asymptotic_of_boundary` and the summit `primeNumberTheoremTransfer`. Mathlib contributes the ambient `LSeries`, `ArithmeticFunction`, `EulerProduct`, `AbelSummation` and `NumberField.Set.HasDirichletDensity` APIs but nothing ideal-indexed and no Tauberian theorem; its `NumberTheory/Chebyshev.lean` is the `K = ℚ` case of `primeTheta`/`primePsi`, of the higher-prime-power bound and of the ϑ-to-π Abel-summation identity.",
+   "summary": "Tau Ceti has built most of this roadmap: `TauCeti/NumberTheory/ArithmeticDirichletSeries/` holds 665 sorry-free declarations across 28 files, and Layers 0–4 are complete in the stated generality (except that Layer 3's `EulerProductData` derives the local series rather than storing it and has no finite bad set, a deliberate design that the 3.1 wording should be reconciled with) — the nonzero-ideal carrier with its zero extension, both completely multiplicative weight carriers with all constructors and the three rejection tests, `normCoeff` and `regroupByNorm`, ideal convolution with Möbius inversion and the von Mangoldt transform, `EulerProductData` with the analytic Euler product and a holomorphic branch of its logarithm, and the counting carriers with `primeTheta`, `primeCount` and `primePsi`. Layer 5 is complete but for the named density-zero corollary for degree-above-one primes, Layer 8 for the ordinary-versus-absolute abscissa equality (which no library can state, having no ordinary abscissa), and Layer 6 for the cancellation package `HasCancellation`/`continuedLFunctionOfWeight`; the arithmetic Perron formula that the roadmap's own STATUS.md calls untouched is in fact proved, as are the analytic Euler product, the log-derivative identity and the meromorphic Landau corollary. What is genuinely missing is a connected block: Wiener–Ikehara's final Tauberian step (the smoothed asymptotic is done, with only a crude `O(t log t)` growth bound derived; the Chebyshev bound and the passage to `x⁻¹ ∑_{n≤x} a n → κ` are not), the whole Dirichlet-density calculus of Layer 7 beyond the base Mathlib API the pinned revision already supplies, and consequently `PrimeBoundaryRemainder`, `primePsi_asymptotic_of_boundary` and the summit `primeNumberTheoremTransfer`. Mathlib contributes the ambient `LSeries`, `ArithmeticFunction`, `EulerProduct`, `AbelSummation` and `NumberField.Set.HasDirichletDensity` APIs and, for number fields, the ideal-count asymptotic `NumberField.Ideal.tendsto_norm_le_div_atTop₀`, `dedekindZeta` with its residue theorem and finiteness of norm fibres, but no ideal-indexed arithmetic-function, convolution or Euler-product API and no Tauberian theorem; its `NumberTheory/Chebyshev.lean` is the `K = ℚ` case of `primeTheta`/`primePsi`, of the higher-prime-power bound and of the ϑ-to-π Abel-summation identity.",
    "layers": {
     "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals": {
      "verdict": "built",
@@ -572,7 +572,7 @@
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Data.lean",
          "line": 56,
-         "fit": "exact"
+         "fit": "more general"
         },
         {
          "name": "TauCeti.EulerProductData.ext",
@@ -603,7 +603,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Extensionality, product (`mul_apply` 162), unit (`one_apply` 170), conjugation (`star_apply` 203), restriction and the trivial-weight instance are all present, and the file builds on Mathlib's `EulerProduct`/`ArithmeticFunction.eulerProduct` rather than duplicating them. The roadmap's STATUS.md records that 'nothing named EulerProductData exists'; at this baseline it does."
+       "note": "Extensionality, product (`mul_apply` 162), unit (`one_apply` 170), conjugation (`star_apply` 203), restriction and the trivial-weight instance are all present, and the file builds on Mathlib's `EulerProduct`/`ArithmeticFunction.eulerProduct` rather than duplicating them. The roadmap's STATUS.md records that 'nothing named EulerProductData exists'; at this baseline it does. The structure stores only the function and its coprime multiplicativity. The local power series is derived (`localPowerSeries`, Data.lean:80), and no finite bad set is stored or defined; this is a deliberate design, recorded in the Data.lean docstring. The export-contract row (coprime multiplicativity stored explicitly) is met; the 3.1 text's finite bad set is not."
       },
       {
        "target": "factorization of a coefficient over the prime-power factorization of a nonzero ideal; equality for Euler products over a finite set of primes",
@@ -864,7 +864,7 @@
      "targets": [
       {
        "target": "two-sided linear bounds for the ideal count, packaged as `IdealCountingLinearBounds`, with `idealCount_linearBounds`",
-       "library": "tauceti",
+       "library": "both",
        "declarations": [
         {
          "name": "TauCeti.IdealCountingLinearBounds",
@@ -886,9 +886,16 @@
          "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
          "line": 89,
          "fit": "exact"
+        },
+        {
+         "name": "NumberField.Ideal.tendsto_norm_le_div_atTop₀",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Ideal/Asymptotics.lean",
+         "line": 128,
+         "fit": "more general"
         }
        ],
-       "note": "The contract names are used verbatim; the bounds are positive and two-sided, as required for the divergence half of 5.1a."
+       "note": "The contract names are used verbatim; the bounds are positive and two-sided, as required for the divergence half of 5.1a. The bounds are derived from Mathlib's ideal-count asymptotic `NumberField.Ideal.tendsto_norm_le_div_atTop₀` (constants ρ/2 and ρ+1 beyond a threshold, and the unit ideal below it)."
       },
       {
        "target": "`abscissaOfAbsConv_normCoeff_one = 1`, proved from the two-sided counts and not from continuation",
@@ -993,7 +1000,7 @@
          "fit": "exact"
         }
        ],
-       "note": "The convergence statements are complete, including the bound on `primeIdealZetaSum` uniform in `s ≥ 1` that a Dirichlet-density-zero argument needs. What is missing is the density-zero statement itself: the Lean docstring at ResidueDegree.lean:160 says explicitly that `o(x / log x)` 'is not a statement of natural density zero' because the prime ideal theorem is unavailable, and there is no `HasDirichletDensity (higherDegreePrimes K) 0` either, since Layer 7's predicate does not exist yet."
+       "note": "The convergence statements are complete, including the bound on `primeIdealZetaSum` uniform in `s ≥ 1` that a Dirichlet-density-zero argument needs. What is missing is the density-zero statement itself: the Lean docstring at ResidueDegree.lean:160 says explicitly that `o(x / log x)` 'is not a statement of natural density zero' because the prime ideal theorem is unavailable, and there is no `HasDirichletDensity (higherDegreePrimes K) 0` either, because the divergence of the all-prime denominator `primeIdealZetaSum univ s → ∞` as `s → 1⁺` is not proved in either library. The predicate itself is Mathlib's `NumberField.Set.HasDirichletDensity` (DirichletDensity.lean:82). Once that divergence is proved, `primeIdealZetaSum_higherDegreePrimes_le` (numerator at most `2[K:ℚ]` for `s ≥ 1`) gives Dirichlet density zero at once."
       }
      ],
      "duplicates": []
@@ -1247,13 +1254,6 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.primeIdealZetaSum_higherDegreePrimes_le",
-         "library": "tauceti",
-         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/ResidueDegree.lean",
-         "line": 250,
-         "fit": "related"
-        },
-        {
          "name": "TauCeti.tendsto_div_nhds_one_of_le_add_const_of_sub_const_le",
          "library": "tauceti",
          "file": "TauCeti/Topology/Algebra/Order/Field.lean",
@@ -1266,9 +1266,23 @@
          "file": "TauCeti/Analysis/SpecialFunctions/Log/OneDivSub.lean",
          "line": 44,
          "fit": "related"
+        },
+        {
+         "name": "NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.MultiplicativeIdealWeight.tsum_prime_pow_eq_tsum_neg_log_one_sub",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Logarithm/Basic.lean",
+         "line": 78,
+         "fit": "related"
         }
        ],
-       "note": "Absent as a statement. The two prerequisites the roadmap names are now in place: the ideal Euler product of `ζ_K` on `Re s > 1`, and the uniform bound on the higher-degree-prime contribution. Mathlib has the rational-prime analogue only in spirit, via `Nat.Primes`-indexed Euler products; nothing states the `log(1/(s-1))` asymptotic for the number-field prime sum. The two generic analytic steps of the equivalence with logarithmic normalization are proved: `Real.tendsto_log_one_div_sub_atTop` (`log (1/(s-1)) → ∞` as `s → 1⁺`) and `TauCeti.tendsto_div_nhds_one_of_le_add_const_of_sub_const_le` (a numerator within bounded distance of a divergent denominator gives a ratio tending to `1`), both adapted from the chebotarev-density project, whose density argument they serve; the asymptotic for `P_all` that would feed them is what is missing."
+       "note": "Absent as a statement. Of the inputs, the ideal Euler product of `ζ_K` (`dedekindZeta_eulerProduct_hasProd`), Mathlib's residue theorem `NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT` (Mathlib/NumberTheory/NumberField/DedekindZeta.lean:77) and the prime-power expansion of the logarithm (`tsum_prime_pow_eq_tsum_neg_log_one_sub`, EulerProduct/Logarithm/Basic.lean:78) are in place. The bounded contribution of prime powers with exponent `j ≥ 2`, uniformly for `s > 1`, is stated in neither library and must be proved; it follows from `summable_absNorm_rpow_primes_of_one_lt` at `s = 2` (Convergence.lean:92). `TauCeti.primeIdealZetaSum_higherDegreePrimes_le` (ResidueDegree.lean:250) bounds a different sum, the primes of residue degree `≥ 2` at exponent one; it is related material for 5.3 and 7.3 (cited under Layer 5), not the 7.2 prerequisite, and is no longer cited here. Mathlib has the rational-prime analogue only in spirit, via `Nat.Primes`-indexed Euler products; nothing states the `log(1/(s-1))` asymptotic for the number-field prime sum. The two generic analytic steps of the equivalence with logarithmic normalization are proved: `Real.tendsto_log_one_div_sub_atTop` (`log (1/(s-1)) → ∞` as `s → 1⁺`) and `TauCeti.tendsto_div_nhds_one_of_le_add_const_of_sub_const_le` (a numerator within bounded distance of a divergent denominator gives a ratio tending to `1`), both adapted from the chebotarev-density project, whose density argument they serve; the asymptotic for `P_all` that would feed them is what is missing."
       },
       {
        "target": "density calculus: finite-set density zero, finite symmetric difference, monotonicity, complements, finite disjoint unions, squeeze, and the natural-to-Dirichlet implication with the named denominator hypothesis",
@@ -1684,7 +1698,7 @@
    }
   },
   "AbelianSchemesAndArithmeticModuli": {
-   "summary": "Neither Mathlib nor Tau Ceti has an abelian scheme: the phrase does not occur in any Lean source in the baseline, and there is no base scheme, relative dimension, Picard functor, dual, polarization, Weil pairing, relative de Rham cohomology, Tate module, p-divisible group or Weil restriction anywhere. What exists is the field case and the linear-algebra shadow of the complex theory. Mathlib proves that a proper geometrically integral group scheme over a field is commutative (Stacks 0BFD) and that such a group scheme is smooth; Tau Ceti builds on those to define `AbelianVariety K` with dimension, zero section, base change along field extensions, products, hom groups, the endomorphism ring, isogenies and the tangent space at the identity, and separately has Cartier duality for finite locally free commutative affine group schemes — the one import A3 and A4 declare — together with a full polarized-Hodge-structure library that supplies the target category of A5's uniformization equivalence. Genuinely missing is almost everything the roadmap owns: the relative theory over a base, rigidity for pointed maps and the theorems of the square and cube, the Picard functor and the dual with Poincaré bundle and polarizations, torsion quotients and pairings, degree-one realizations and Serre–Tate, complex uniformization with the Siegel family, and the arithmetic Hom/End theorems with Weil restriction. A1 and A3 are the layers with real coverage, and only over a field: A1 through `AbelianVariety K`, A3 through its isogenies and through Tau Ceti's function-field theory of elliptic-curve isogenies, which proves `deg [n] = n²` and the separability criterion for `[n]`; A0 is an explicit import boundary and is process rather than mathematics.",
+   "summary": "Neither Mathlib nor Tau Ceti has an abelian scheme: the phrase does not occur in any Lean source in the baseline. Neither library has an abelian scheme over a base, a relative Picard functor or Picard scheme, a dual, a geometric polarization, a Weil pairing, relative de Rham cohomology, a Tate module, a p-divisible group or Weil restriction; Mathlib has the base-general language (group objects in `Over S`, `IsProper`/`Smooth`/`GeometricallyConnected`, `SmoothOfRelativeDimension`, `Scheme.Hom.finrank`) and the Picard group and functor of commutative rings. What exists is the field case, affine-base group-scheme material (isogenies and Cartier duality over `Spec R`), and the linear-algebra side of the complex theory. Mathlib proves that a proper geometrically integral group scheme over a field is commutative (Stacks 0BFD) and that such a group scheme is smooth; Tau Ceti builds on those to define `AbelianVariety K` with dimension, zero section, base change along field extensions, products, hom groups, the endomorphism ring, isogenies and the tangent space at the identity, and separately has Cartier duality for finite locally free commutative affine group schemes over an affine base — the one import A3 and A4 declare — together with a full polarized-Hodge-structure library that supplies the target category of A5's uniformization equivalence. Genuinely missing is almost everything the roadmap owns: the relative theory over a base, rigidity for pointed maps and the theorems of the square and cube, the relative Picard functor and the dual with Poincaré bundle and polarizations, torsion quotients and pairings, degree-one realizations and Serre–Tate, complex uniformization with the Siegel family, and the arithmetic Hom/End theorems with Weil restriction. A1 and A3 have real coverage, over a field and, for A3's isogenies and Cartier duality, over affine bases; A5 has the Hodge-theoretic half (Riemann bilinear relations, the weight-one dictionary and Tate twist, period-domain points). A1's coverage is through `AbelianVariety K`, A3's through its isogenies, the group-scheme isogenies over `Spec R` and Tau Ceti's function-field theory of elliptic-curve isogenies, which proves `deg [n] = n²` and the separability criterion for `[n]`; A0 is an explicit import boundary and is process rather than mathematics.",
    "layers": {
     "AbelianSchemesAndArithmeticModuli:A0": {
      "verdict": "process",
@@ -1693,7 +1707,7 @@
        "target": "import and reexport of `AlgebraicModuliForArithmeticGeometry` R09.1–R09.6 and A0-extension: algebraic spaces, Hilbert/Picard representability, higher-dimensional coherent base change, Artin criteria",
        "library": "absent",
        "declarations": [],
-       "note": "The layer states outright that it 'is an import boundary, not a second construction' and that its producer row 'imports exactly those general stages and reexports their hypotheses and universal properties'. It contains no mathematical target of its own, so it is bookkeeping. For the record the imported objects are themselves absent: neither library has algebraic spaces, a Picard functor or Picard scheme (the nearest object is Tau Ceti's `LineBundleClass X`, LineBundle/Class.lean:49, the monoid of isomorphism classes of line bundles on a scheme, still without inverses), a Hilbert functor, or Artin representability criteria."
+       "note": "The layer states outright that it 'is an import boundary, not a second construction' and that its producer row 'imports exactly those general stages and reexports their hypotheses and universal properties'. It contains no mathematical target of its own, so it is bookkeeping. For the record the imported objects are themselves absent: neither library has algebraic spaces, a relative Picard functor or Picard scheme (the nearest objects are Mathlib's `CommRing.Pic` / `CommRing.Pic.functor` for affine schemes, RingTheory/PicardGroup.lean:429 and :604, and Tau Ceti's `LineBundleClass X`, LineBundle/Class.lean:49, the monoid of isomorphism classes of line bundles on a scheme, still without inverses), a Hilbert functor, or Artin representability criteria."
       }
      ],
      "duplicates": [
@@ -1725,21 +1739,28 @@
          "fit": "special case"
         },
         {
-         "name": "AlgebraicGeometry.smooth_of_grpObj",
-         "library": "mathlib",
-         "file": "Mathlib/AlgebraicGeometry/Group/Smooth.lean",
-         "line": 64,
-         "fit": "special case"
-        },
-        {
          "name": "TauCeti.AlgebraicGeometry.AbelianVariety.geometricallyConnected",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
          "line": 135,
          "fit": "special case"
+        },
+        {
+         "name": "AlgebraicGeometry.SmoothOfRelativeDimension",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+         "line": 130,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.GeometricallyConnected",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Geometrically/Connected.lean",
+         "line": 40,
+         "fit": "related"
         }
        ],
-       "note": "Nothing in either library is an abelian scheme over a base: the string 'abelian scheme' does not occur in any Lean source, and no relative-dimension function exists. What exists is the base = `Spec K` case: `AbelianVariety K` bundles a proper geometrically integral group scheme over a field, from which smoothness (Mathlib's `smooth_of_grpObj`, itself for a group scheme over a field) and geometric connectedness are derived, and `dim` is the topological Krull dimension of the total space rather than a locally constant relative dimension."
+       "note": "Nothing in either library is an abelian scheme over a base: the string 'abelian scheme' does not occur in any Lean source. Mathlib has `SmoothOfRelativeDimension n` (constant relative dimension) and all the base-general morphism properties (`IsProper`, `Smooth`, `GeometricallyConnected`) and group objects in `Over S`, so the definition is expressible over any base; no locally constant relative-dimension function and no theory over a base exist. What exists is the base = `Spec K` case: `AbelianVariety K` bundles a proper geometrically integral group scheme over a field, from which smoothness (Mathlib's `smooth_of_grpObj`, Group/Smooth.lean:64, itself for a group scheme over a field, named here to keep five citations) and geometric connectedness are derived, and `dim` is the topological Krull dimension of the total space rather than a locally constant relative dimension."
       },
       {
        "target": "rigidity for pointed maps, and commutativity of the group law",
@@ -1806,9 +1827,16 @@
          "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Hom/BaseChange.lean",
          "line": 57,
          "fit": "special case"
+        },
+        {
+         "name": "CategoryTheory.Functor.mapGrp",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Grp.lean",
+         "line": 611,
+         "fit": "related"
         }
        ],
-       "note": "Over a field, homomorphisms are morphisms of group objects, form a commutative group under the pointwise law, and are stable under base change; products of abelian varieties are constructed with properness and geometric integrality of the product. `baseChange` is along a field extension `K → L`, not along an arbitrary base change of schemes. The hom-plus-translation decomposition is absent."
+       "note": "Over a field, homomorphisms are morphisms of group objects, form a commutative group under the pointwise law, and are stable under base change; products of abelian varieties are constructed with properness and geometric integrality of the product. `baseChange` is along a field extension `K → L`, not along an arbitrary base change of schemes. The hom-plus-translation decomposition is absent. Group-scheme homomorphisms, products and base change along any morphism of bases are Mathlib's `Grp (Over S)` with `(Over.pullback f).mapGrp`, while the abelian-variety versions are field-only."
       },
       {
        "target": "one-dimensional pointed abelian schemes coincide with the scheme-theoretic elliptic curves, compatibly with the group laws",
@@ -1834,8 +1862,23 @@
       {
        "target": "the relative degree-zero Picard functor as an algebraic space",
        "library": "absent",
-       "declarations": [],
-       "note": "No Picard functor, Picard scheme or `Pic` of a scheme exists in either library — the only `Picard` declarations in Mathlib are `IsPicardLindelof` for ODEs. Algebraic spaces are absent too. Tau Ceti has invertible sheaves and their tensor product (`TauCeti.AlgebraicGeometry.InvertibleSheaf`, LineBundle/Basic.lean:78; `LineBundleClass`, LineBundle/Class.lean:49) but no Picard group functor."
+       "declarations": [
+        {
+         "name": "CommRing.Pic.functor",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 604,
+         "fit": "related"
+        },
+        {
+         "name": "CommRing.Pic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 429,
+         "fit": "related"
+        }
+       ],
+       "note": "No Picard functor of a scheme over a base, Picard scheme or algebraic space exists. Mathlib has the Picard group of a commutative ring (`CommRing.Pic R`, i.e. Pic(Spec R), a group) with base change `CommRing.Pic.mapAlgebra` (PicardGroup.lean:553), the relative Picard group `CommRing.relPic` (:616), and the functor `CommRing.Pic.functor : CommSemiRingCat ⥤ CommGrpCat`, i.e. the absolute Picard functor on affine schemes. Tau Ceti has invertible sheaves on a scheme and their tensor product (`TauCeti.AlgebraicGeometry.InvertibleSheaf`, LineBundle/Basic.lean:78) and `LineBundleClass X` (LineBundle/Class.lean:49, a monoid, no inverses), but no pullback functoriality."
       },
       {
        "target": "Raynaud's abelian-algebraic-space-to-scheme theorem (Faltings–Chai I.1.9) with its actual base hypotheses, and the dual abelian scheme",
@@ -1858,8 +1901,16 @@
       {
        "target": "functoriality of dualization, the dual of a composite, and identification with the elliptic relative Picard/Poincaré construction including the evaluation pairings",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent, since neither dual exists."
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.toClass",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+         "line": 752,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent, since neither dual exists. Mathlib's `WeierstrassCurve.Affine.Point.toClass` is the field-level, equation-level injection of the points of a Weierstrass curve into the class group of its coordinate ring (injective by `toClass_injective`, Point.lean:797), the shadow of `E ≅ Pic⁰`."
       }
      ],
      "duplicates": [
@@ -1931,47 +1982,40 @@
          "fit": "special case"
         },
         {
-         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny.comp",
+         "name": "TauCeti.GroupScheme.IsIsogeny",
          "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
-         "line": 122,
+         "file": "TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/Basic.lean",
+         "line": 161,
          "fit": "special case"
         },
         {
-         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny.baseChange",
+         "name": "TauCeti.GroupScheme.IsIsogeny.comp",
          "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
-         "line": 140,
+         "file": "TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/Basic.lean",
+         "line": 223,
          "fit": "special case"
         },
         {
-         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.isIsogeny_mulBy_neg_one",
+         "name": "TauCeti.GroupScheme.IsIsogeny.baseChange",
          "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
-         "line": 150,
+         "file": "TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/BaseChange.lean",
+         "line": 63,
          "fit": "special case"
         },
         {
-         "name": "TauCeti.Isogeny.degree",
-         "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Degree.lean",
-         "line": 99,
-         "fit": "special case"
+         "name": "AlgebraicGeometry.Scheme.Hom.finrank",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/FlatRank.lean",
+         "line": 88,
+         "fit": "related"
         }
        ],
-       "note": "Isogenies of abelian varieties over a field exist with finiteness, surjectivity, composition and base change, but carry no degree. In dimension one Tau Ceti's function-field model of elliptic curves has isogenies with a degree, `TauCeti.Isogeny.degree`, and the tower formula `degree_comp` (Degree.lean:190). Dual isogenies exist in neither setting, since no dual exists."
+       "note": "Isogenies of abelian varieties over a field exist with finiteness, surjectivity, composition and base change, but no degree is attached to them. Mathlib's `Scheme.Hom.finrank` gives the (locally constant, base-change-stable) degree of any finite flat finitely presented morphism, hence of a group-scheme isogeny; no tower formula, and `AbelianVariety.IsIsogeny` would first need flatness. In dimension one Tau Ceti's function-field model of elliptic curves has isogenies with a degree, `TauCeti.Isogeny.degree` (EllipticCurve/Isogeny/Degree.lean:99), and the tower formula `degree_comp` (Degree.lean:190). Over an affine base `Spec R`, Tau Ceti has isogenies of group schemes (finite, flat, surjective homomorphisms) with composition, base change along affine base maps and `isIso_of_mono` (CentralIsogeny/Isomorphism.lean:116); this is the relative definition, restricted to affine bases. Missing: the non-affine base, a degree/rank API for these isogenies (see Mathlib `Scheme.Hom.finrank`), and dual isogenies, which exist in no setting since no dual exists. To keep five citations, `AbelianVariety.IsIsogeny.comp` (AbelianVariety/Isogeny.lean:122), `AbelianVariety.IsIsogeny.baseChange` (:140), `AbelianVariety.isIsogeny_mulBy_neg_one` (:150) and `TauCeti.Isogeny.degree` are named here rather than cited."
       },
       {
        "target": "`[n]` finite locally free of rank `n^(2g)` on a relative-dimension-`g` component, étale exactly when `n` is invertible",
        "library": "partial",
        "declarations": [
-        {
-         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.mulBy",
-         "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
-         "line": 243,
-         "fit": "related"
-        },
         {
          "name": "TauCeti.Isogeny.degree_mulByIntIsogenyOfNeZero",
          "library": "tauceti",
@@ -1992,9 +2036,23 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/KernelCard.lean",
          "line": 117,
          "fit": "special case"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.finrank",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/FlatRank.lean",
+         "line": 88,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.isLocallyConstant_finrank",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/FlatRank.lean",
+         "line": 231,
+         "fit": "related"
         }
        ],
-       "note": "The relative-dimension-one case over a field is proved, in Tau Ceti's function-field model of elliptic curves rather than for group schemes: `deg [n] = n²` for every `n ≠ 0`, `[n]` is separable exactly when `n` is nonzero in the base field, and `#ker [n] = n²` over an algebraically closed field when `n` is invertible there. For abelian varieties `mulBy n` exists as an endomorphism (with `mulBy_eq_zpow`, `mulBy_add`, `mulBy_mul` and base-change compatibility) but nothing is proved about its rank, flatness or étaleness; `isIsogeny_mulBy_neg_one` only handles `n = -1`. Nothing is stated over a base."
+       "note": "The relative-dimension-one case over a field is proved, in Tau Ceti's function-field model of elliptic curves rather than for group schemes: `deg [n] = n²` for every `n ≠ 0`, `[n]` is separable exactly when `n` is nonzero in the base field, and `#ker [n] = n²` over an algebraically closed field when `n` is invertible there. For abelian varieties `mulBy n` (AbelianVariety/End/Basic.lean:243, named here to keep five citations) exists as an endomorphism (with `mulBy_eq_zpow`, `mulBy_add`, `mulBy_mul` and base-change compatibility) but nothing is proved about its rank, flatness or étaleness; `isIsogeny_mulBy_neg_one` only handles `n = -1`. Nothing about `[n]` is stated over a base. The rank notion is Mathlib's `Scheme.Hom.finrank` (locally constant for finite flat finitely presented morphisms, `isLocallyConstant_finrank`); nothing computes it for `mulBy`."
       },
       {
        "target": "Cartier duality imported from R07.1 and the Weil pairing between `A[n]` and `A∨[n]`",
@@ -2005,7 +2063,7 @@
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
          "line": 232,
-         "fit": "more general"
+         "fit": "special case"
         },
         {
          "name": "TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDualDualIso",
@@ -2022,7 +2080,7 @@
          "fit": "related"
         }
        ],
-       "note": "The imported half is genuinely present: Tau Ceti has Cartier duality as an equivalence of categories for finite locally free commutative affine group schemes, with double duality and base-change compatibility. The Weil pairing is absent — `weilPairing` has zero occurrences in either library — and so is the `A[n]` torsion subgroup scheme it would pair."
+       "note": "The imported half is present over an affine base: Tau Ceti has Cartier duality over an arbitrary affine base `Spec R` (any commutative ring), as an anti-equivalence of categories of finite locally free commutative affine group schemes, with double duality and base-change compatibility; globalization to a non-affine base is not done. The Weil pairing is absent — `weilPairing` has zero occurrences in either library — and so is the `A[n]` torsion subgroup scheme it would pair."
       },
       {
        "target": "the alternating pairing induced by a polarization with the criterion for perfectness, and the Tate-module pairings with their Tate twist",
@@ -2084,10 +2142,10 @@
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
          "line": 232,
-         "fit": "related"
+         "fit": "special case"
         }
        ],
-       "note": "Only Cartier duality is present. `p`-divisible (Barsotti–Tate) groups do not exist in either library, and neither does Dieudonné theory of finite flat or `p`-divisible groups or Grothendieck–Messing deformation theory; Mathlib's only Dieudonné-type result is the one-dimensional Dieudonné–Manin classification of isocrystals (`WittVector.isocrystal_classification`, RingTheory/WittVector/Isocrystal.lean:183). Tau Ceti has a connected-component API for affine group schemes (`TauCeti/AlgebraicGeometry/AffineGroupScheme/Components/`) but no connected–étale sequence for finite flat groups."
+       "note": "Only Cartier duality over an affine base is present. `p`-divisible (Barsotti–Tate) groups do not exist in either library, and neither does Dieudonné theory of finite flat or `p`-divisible groups or Grothendieck–Messing deformation theory; Mathlib's only Dieudonné-type result is the one-dimensional Dieudonné–Manin classification of isocrystals (`WittVector.isocrystal_classification`, RingTheory/WittVector/Isocrystal.lean:183). Tau Ceti has a connected-component API for affine group schemes (`TauCeti/AlgebraicGeometry/AffineGroupScheme/Components/`) but no connected–étale sequence for finite flat groups."
       },
       {
        "target": "the Serre–Tate equivalence for deformations with endomorphism and polarization structures, and identification of its tangent map with the Hodge filtration",
@@ -2112,47 +2170,54 @@
      ]
     },
     "AbelianSchemesAndArithmeticModuli:A5": {
-     "verdict": "not built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "Riemann bilinear relations and algebraicity of polarized complex tori",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
-        {
-         "name": "PeriodPair.lattice",
-         "library": "mathlib",
-         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
-         "line": 79,
-         "fit": "related"
-        },
         {
          "name": "PeriodPair.derivWeierstrassP_sq",
          "library": "mathlib",
          "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
          "line": 1075,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.isPolarization_of_weilOperator_invariant_on_realPoints_of_pos",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Polarization.lean",
+         "line": 122,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.IsPolarization.isOrthogonal_weilOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeilOperator.lean",
+         "line": 298,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Hodge.IsPolarization.integralFormBaseChange_weilOperator_self_pos",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/HodgeForm.lean",
+         "line": 255,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.AlmostComplexStructure.hodgeStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Basic.lean",
+         "line": 186,
+         "fit": "related"
         }
        ],
-       "note": "Absent. No complex torus `ℂ^g/Λ` exists in either library, and there is no algebraization statement. The genus-one analytic input is in Mathlib: `PeriodPair` gives the lattice of a pair of periods, and `PeriodPair.derivWeierstrassP_sq` proves `℘'² = 4℘³ − g₂℘ − g₃` for its Weierstrass function, the equation behind the algebraicity of `ℂ/Λ`; neither the quotient nor the map to a Weierstrass cubic is constructed. Tau Ceti's `Toric.ComplexTorus` (TauCeti/Geometry/Toric/Analytic/Character.lean:67) is the algebraic torus `Hom(N,ℂ^×)` of toric geometry, a different object."
+       "note": "The Riemann bilinear relations are built in their Hodge-theoretic form. Tau Ceti proves that a nondegenerate alternating integral form polarizes an effective weight-one Hodge structure exactly when it is invariant under the Weil operator and positive on `(Cx, x)` (the necessity halves are `IsPolarization.isOrthogonal_weilOperator` and `IsPolarization.integralFormBaseChange_weilOperator_self_pos`, the latter being the second Riemann bilinear relation in weight one), with the standard Riemann form on `ℤ × ℤ` as a worked genus-one instance (`TauCeti.Hodge.StandardWeightOne.isPolarization_riemannForm`, WeightOne/Standard.lean:346). It also builds the dictionary between complex structures on `Λ_ℝ` and effective weight-one Hodge structures. Missing: the complex torus `ℂ^g/Λ` as an analytic space, and the algebraicity of polarized tori (theta functions / Lefschetz embedding). The genus-one analytic input is Mathlib's `PeriodPair`: `PeriodPair.lattice` (Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean:79, named here to keep five citations) gives the lattice of a pair of periods, and `PeriodPair.derivWeierstrassP_sq` proves `℘'² = 4℘³ − g₂℘ − g₃` for its Weierstrass function, the equation behind the algebraicity of `ℂ/Λ`; neither the quotient nor the map to a Weierstrass cubic is constructed. Tau Ceti's `Toric.ComplexTorus` (TauCeti/Geometry/Toric/Analytic/Character.lean:67) is the algebraic torus `Hom(N,ℂ^×)` of toric geometry, a different object."
       },
       {
        "target": "the equivalence with polarizable integral Hodge structures of types `(-1,0),(0,-1)`",
        "library": "partial",
        "declarations": [
-        {
-         "name": "TauCeti.Hodge.IsPolarization",
-         "library": "tauceti",
-         "file": "TauCeti/Geometry/Hodge/Polarization.lean",
-         "line": 70,
-         "fit": "related"
-        },
-        {
-         "name": "TauCeti.Hodge.Polarization",
-         "library": "tauceti",
-         "file": "TauCeti/Geometry/Hodge/Polarization.lean",
-         "line": 157,
-         "fit": "related"
-        },
         {
          "name": "TauCeti.Hodge.IsPolarizable",
          "library": "tauceti",
@@ -2161,14 +2226,35 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.Hodge.PeriodDomain.Point",
+         "name": "TauCeti.AlmostComplexStructure.hodgeStructure",
          "library": "tauceti",
-         "file": "TauCeti/Geometry/Hodge/PeriodDomain.lean",
-         "line": 71,
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Basic.lean",
+         "line": 186,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.eigenspace_weilOperator_I",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Basic.lean",
+         "line": 106,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.tateTwist",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Twist.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.IsPolarization.tateTwist",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Twist.lean",
+         "line": 206,
          "fit": "related"
         }
        ],
-       "note": "One side of the equivalence is built: Tau Ceti has pure Hodge structures on a lattice, the Hodge–Riemann bilinear relations as `IsPolarization`, bundled polarizations, polarizability, period-domain points and semisimplicity of polarizable structures. The abelian-variety side and the equivalence itself are absent, as is any restriction to the weight `-1` types the layer names."
+       "note": "One side of the equivalence is built: Tau Ceti has pure Hodge structures on a lattice, the Hodge–Riemann bilinear relations as `IsPolarization`, bundled polarizations, polarizability, period-domain points and semisimplicity of polarizable structures. Effective weight-one structures are identified with complex structures on the real lattice space (WeightOne/Basic.lean; the `i`-eigenspace of the Weil operator is `H^{1,0}`), and the weight `-1` homological types are their Tate twist by 1, which preserves polarizations (Tate/Twist.lean); the weight `-n` dual is `TauCeti.Hodge.HodgeStructureOn.dual` (Dual.lean:76) and the polarized rank-two example is `TauCeti.Hodge.StandardWeightOne.polarization` (WeightOne/Standard.lean:410). Missing: the abelian-variety (complex torus) side and the equivalence functor itself. To keep five citations, `TauCeti.Hodge.IsPolarization` (Polarization.lean:70), `TauCeti.Hodge.Polarization` (Polarization.lean:157) and `TauCeti.Hodge.PeriodDomain.Point` (PeriodDomain.lean:71, now cited under the Siegel target) are named here rather than cited."
       },
       {
        "target": "the relative version for analytic polarized families and variations, and compatibility of an algebraic abelian scheme with its analytic variation",
@@ -2179,8 +2265,44 @@
       {
        "target": "the Siegel universal analytic family, its monodromy, and level structures as symplectic lattice trivializations",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent. There is no Siegel upper half space in either library (the only `Siegel` declarations are Siegel's lemma, `Int.Matrix.exists_ne_zero_int_vec_norm_le`, and the auxiliaries of `NumberField/House.lean`; Mathlib's `UpperHalfPlane` is the genus-one case only), and no universal family. Tau Ceti has the symplectic group as an affine group scheme (TauCeti/Algebra/AlgebraicGroup/Symplectic/) but nothing acting on a Siegel space."
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.PeriodDomain.Point",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/PeriodDomain.lean",
+         "line": 71,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.BilinForm.isometryGroup",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/BilinearForm/Isometry.lean",
+         "line": 156,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SymplecticForm.Compatible",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Symplectic/AlmostComplex.lean",
+         "line": 455,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SymplecticForm.exists_compatible",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Symplectic/ExistsCompatible.lean",
+         "line": 188,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.LocalCoefficientSystem.monodromyRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
+         "line": 267,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. The Siegel space exists only as a set. It is present as the weight-one period domain `PeriodDomain.Point` (and as the `Q`-compatible complex structures, `SymplecticForm.Compatible`, which exist by `SymplecticForm.exists_compatible`), with the monodromy group `Aut(Λ, Q)` = `BilinForm.isometryGroup`, but without a complex-manifold structure, a universal family or level structures; Tau Ceti also has local systems with their monodromy representations (`LocalCoefficientSystem.monodromyRepresentation`). Mathlib's `UpperHalfPlane` is the genus-one matrix model; there is no matrix model `{Z symmetric, Im Z > 0}` (the only `Siegel` declarations are Siegel's lemma, `Int.Matrix.exists_ne_zero_int_vec_norm_le`, and the auxiliaries of `NumberField/House.lean`). Tau Ceti has the symplectic group as an affine group scheme (TauCeti/Algebra/AlgebraicGroup/Symplectic/) but nothing acting on a Siegel space."
       },
       {
        "target": "agreement with the scheme-theoretic elliptic curve, its differential and pairing in genus one",
@@ -2201,6 +2323,10 @@
       {
        "layer": "ModularCurvesPartII:R12.1",
        "note": "R12.1 owns uniformisation of elliptic curves, the genus-one case of A5's complex uniformization."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l3--period-domain-points-the-symmetry-group",
+       "note": "L3 owns period-domain points and the symmetry group Aut(V, Q); at weight one and symplectic Q this is the Siegel space and the monodromy group of A5's universal family."
       }
      ]
     },
@@ -2238,9 +2364,16 @@
          "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
          "line": 199,
          "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.finrank",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/FlatRank.lean",
+         "line": 88,
+         "fit": "related"
         }
        ],
-       "note": "The API this layer says it will extend exists over a field — `Hom` is a commutative group, `End` is a ring, transported along isomorphisms and stable under base change — but none of the extensions is proved: no `Module.Finite`/torsion-freeness for `Hom`, no semisimplicity of `End ⊗ ℚ`, no complete reducibility (`Poincaré complete reducibility` has zero occurrences), no Rosati involution, and no degree of an isogeny of abelian varieties (only the dimension-one `TauCeti.Isogeny.degree` of elliptic curves, with `degree_comp`)."
+       "note": "The API this layer says it will extend exists over a field — `Hom` is a commutative group, `End` is a ring, transported along isomorphisms and stable under base change — but none of the extensions is proved: no `Module.Finite`/torsion-freeness for `Hom`, no semisimplicity of `End ⊗ ℚ`, no complete reducibility (`Poincaré complete reducibility` has zero occurrences), no Rosati involution, and no degree formula for isogenies of abelian varieties (only the dimension-one `TauCeti.Isogeny.degree` of elliptic curves, with `degree_comp`); the degree itself is available as Mathlib's `Scheme.Hom.finrank` once flatness is known."
       },
       {
        "target": "compatibility of the Hom/End API with relative dualization and geometric fibres",
@@ -2285,7 +2418,7 @@
    }
   },
   "AnabelianGeometryAndNonabelianChabauty": {
-   "summary": "Nothing this roadmap owns exists in either library. The decisive gap is at the very bottom: there is no étale fundamental group of a scheme anywhere in the baseline — Mathlib's `CategoryTheory/Galois/` develops Galois categories, fibre functors, Galois objects, prorepresentability and `IsFundamentalGroup` in the abstract, and `RingTheory/Etale/Finite.lean` has the category of finite étale algebras over a ring with its fibre functor at a geometric point, but the two are not joined, nothing covers a non-affine scheme, and the abstract theory is instantiated only for finite `G`-sets and, in Tau Ceti, for finite covering spaces of a space. Without it there are no path torsors, no Galois sections, no unipotent quotients and no Selmer varieties; independently, no declaration concerns Chabauty's method or Coleman integration (the two words occur only in Tau Ceti provenance comments), and `iteratedIntegral`, `NeronSeveri` and `anabelian` occur nowhere; there is no p-adic height, no de Rham or rigid cohomology of a curve, no nonabelian `H¹`, and no Jacobian. The genuinely usable inputs are Mathlib's abstract Galois-category API, its finite étale algebras, low-degree abelian group cohomology and continuous cohomology (much extended in Tau Ceti), and Tau Ceti's Tannakian and unipotent-algebraic-group machinery, which would be the target category of NC.2. NC.6 is an export and conditionality-bookkeeping layer with no mathematics of its own.",
+   "summary": "Nothing this roadmap owns exists in either library. The decisive gap is at the very bottom: there is no étale fundamental group of a scheme anywhere in the baseline — Mathlib's `CategoryTheory/Galois/` develops Galois categories, fibre functors, Galois objects, prorepresentability and `IsFundamentalGroup` in the abstract, and `RingTheory/Etale/Finite.lean` has the category of finite étale algebras over a ring with its fibre functor at a geometric point, but the two are not joined: Mathlib has the geometric-point fibre functor on étale schemes over any scheme (`Scheme.pointSmallEtale`) but no category of finite étale covers of a scheme, no Galois-category instance and no étale fundamental group, and the abstract theory is instantiated only for finite `G`-sets and, in Tau Ceti, for finite covering spaces of a space. Without it there are no path torsors, no Galois sections, no unipotent quotients and no Selmer varieties; independently, no declaration concerns Chabauty's method or Coleman integration (the two words occur only in Tau Ceti provenance comments), and `iteratedIntegral`, `NeronSeveri` and `anabelian` occur nowhere; there is no p-adic height, no de Rham or rigid cohomology of a curve, no nonabelian continuous Galois cohomology (Mathlib has only Čech H¹ of a presheaf of groups, `PresheafOfGroups.H1`), and no Jacobian. The genuinely usable inputs are Mathlib's abstract Galois-category API, its finite étale algebras, low-degree abelian group cohomology and continuous cohomology (much extended in Tau Ceti), its geometric-point fibre functor on étale schemes, its group extensions, splittings and their conjugacy classes (`GroupExtension.ConjClasses`), its nonabelian Čech H¹ and ℓ-adic cohomology of schemes (`Scheme.EllAdicCohomology`), Tau Ceti's function-field theory of curves (Riemann–Roch spaces, genus, regular differentials, Cl⁰, decomposition and inertia groups of places), and Tau Ceti's Tannakian and unipotent-algebraic-group machinery, which would be the target category of NC.2. NC.6 is an export and conditionality-bookkeeping layer with no mathematics of its own.",
    "layers": {
     "AnabelianGeometryAndNonabelianChabauty:NC.0": {
      "verdict": "not built",
@@ -2302,20 +2435,6 @@
          "fit": "related"
         },
         {
-         "name": "CategoryTheory.PreGaloisCategory.FiberFunctor",
-         "library": "mathlib",
-         "file": "Mathlib/CategoryTheory/Galois/Basic.lean",
-         "line": 83,
-         "fit": "related"
-        },
-        {
-         "name": "CategoryTheory.PreGaloisCategory.IsFundamentalGroup",
-         "library": "mathlib",
-         "file": "Mathlib/CategoryTheory/Galois/IsFundamentalgroup.lean",
-         "line": 232,
-         "fit": "related"
-        },
-        {
          "name": "CommAlgCat.FiniteEtale",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Etale/Finite.lean",
@@ -2328,15 +2447,37 @@
          "file": "Mathlib/RingTheory/Etale/Finite.lean",
          "line": 118,
          "fit": "special case"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.pointSmallEtale",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/EtalePoint.lean",
+         "line": 64,
+         "fit": "more general"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Etale",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
+         "line": 155,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has the abstract theory — Galois categories, fibre functors, Galois objects, prorepresentability, the equivalence with continuous finite `Aut F`-sets and the `IsFundamentalGroup` predicate — and, separately, the affine case of the fibre functor: `CommAlgCat.FiniteEtale R` is the category of finite étale `R`-algebras over any ring, `FiniteEtale.fiber R Ω` its fibre functor `S ↦ (S →ₐ[R] Ω)` at a geometric point, with base change and, over a separably closed field, the equivalence with finite sets (`equivOfIsSepClosed`). The two are not joined: no Galois-category instance is put on `FiniteEtale`, nothing covers a non-affine scheme (the phrase 'finite étale' does not occur in `Mathlib/AlgebraicGeometry/`), and neither library defines an étale fundamental group of a scheme. The abstract theory is instantiated only for finite `G`-sets (Mathlib's `CategoryTheory/Galois/Examples.lean`) and, in Tau Ceti, for finite covering spaces of a topological space (`TauCeti.FiniteCoveringSpace.instGaloisCategory`, TauCeti/AlgebraicTopology/UniversalCover/Classification/GaloisCategory.lean:329), the topological analogue, not the arithmetic one."
+       "note": "Mathlib has the abstract theory — Galois categories, fibre functors, Galois objects, prorepresentability, the equivalence with continuous finite `Aut F`-sets and the `IsFundamentalGroup` predicate — and, separately, the affine case of the fibre functor: `CommAlgCat.FiniteEtale R` is the category of finite étale `R`-algebras over any ring, `FiniteEtale.fiber R Ω` its fibre functor `S ↦ (S →ₐ[R] Ω)` at a geometric point, with base change and, over a separably closed field, the equivalence with finite sets (`equivOfIsSepClosed`). The two are not joined: no Galois-category instance is put on `FiniteEtale`, for an arbitrary scheme Mathlib has the geometric-point fibre functor on étale `S`-schemes (`Scheme.pointSmallEtale`, a point of the small étale site, surjective onto the set-theoretic fibre by `pointSmallEtaleFiberObjToPreimage_surjective`), but no category of finite étale covers of a scheme and no proof that the fibre functor restricted to it is finite-set-valued, and neither library defines an étale fundamental group of a scheme. The abstract theory is instantiated only for finite `G`-sets (Mathlib's `CategoryTheory/Galois/Examples.lean`) and, in Tau Ceti, for finite covering spaces of a topological space (`TauCeti.FiniteCoveringSpace.instGaloisCategory`, TauCeti/AlgebraicTopology/UniversalCover/Classification/GaloisCategory.lean:329), the topological analogue, not the arithmetic one. To keep five citations, `CategoryTheory.PreGaloisCategory.FiberFunctor` (Galois/Basic.lean:83) and `CategoryTheory.PreGaloisCategory.IsFundamentalGroup` (Galois/IsFundamentalgroup.lean:232) are named here rather than cited."
       },
       {
        "target": "the arithmetic exact sequence `1 → π₁^geom → π₁ → G_K → 1`",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent, since neither fundamental group exists for a scheme."
+       "declarations": [
+        {
+         "name": "GroupExtension",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/GroupExtension/Defs.lean",
+         "line": 74,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent, since neither fundamental group exists for a scheme. Mathlib's `GroupExtension N E G` is the abstract carrier, a short exact sequence of groups `1 → N → E → G → 1` without topology."
       },
       {
        "target": "path torsors and the section attached to a rational point, with base-point change and conjugacy independence",
@@ -2348,9 +2489,23 @@
          "file": "TauCeti/AlgebraicTopology/FundamentalGroup/BasepointChange.lean",
          "line": 84,
          "fit": "related"
+        },
+        {
+         "name": "GroupExtension.Splitting",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/GroupExtension/Defs.lean",
+         "line": 271,
+         "fit": "related"
+        },
+        {
+         "name": "GroupExtension.ConjClasses",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/GroupExtension/Basic.lean",
+         "line": 217,
+         "fit": "related"
         }
        ],
-       "note": "No arithmetic path torsor or Galois section exists in either library. The only base-point-change machinery is topological, for the fundamental group of a space."
+       "note": "No arithmetic path torsor or Galois section exists in either library. The only base-point-change machinery is topological, for the fundamental group of a space. Mathlib has abstract group extensions, their splittings and N-conjugacy classes of splittings (`GroupExtension.Splitting`, `GroupExtension.ConjClasses`), without topology; a Galois section is a continuous splitting of the arithmetic extension, and none exists."
       },
       {
        "target": "tangential base points for selected open curves, and the `P¹ ∖ {0,1,∞}` comparison of a rational and a tangential point",
@@ -2362,7 +2517,7 @@
      "duplicates": [
       {
        "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
-       "note": "IG.0 owns the profinite automorphism group of the geometric fibre functor on finite étale covers and its equivalence with finite continuous sets — the first target here, which NC.0 declares it imports."
+       "note": "IG.0 owns the profinite automorphism group of the geometric fibre functor on finite étale covers and its equivalence with finite continuous sets — the first target here, which NC.0 declares it imports. IG.0 also owns base-point change as explicit equivalences ('Treat connected components and base-point change as explicit equivalences'), which overlaps NC.0's path-torsor target."
       },
       {
        "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
@@ -2375,6 +2530,14 @@
       {
        "layer": "PeriodsAndSpecialValues:PS.9",
        "note": "PS.9 builds the tangential-base-point regularization and the motivic fundamental group of `P¹ ∖ {0,1,∞}`: the tangential base point on the curve NC.0's acceptance test uses."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+       "note": "Owned by BelyiArithmeticActions: builds the arithmetic extension 1 → π₁^geom → Gal(Ω/ℚ(t)) → G_ℚ → 1 of P¹ ∖ {0,1,∞} field-theoretically and its outer action, notes that rational points give splittings, and excludes the tangential-base-point theory, which NC.0 owns for its acceptance test."
+      },
+      {
+       "layer": "ColemanIntegration:L2",
+       "note": "Owns the tangential base-point normalisation at 0 of p-adic polylogarithms on P¹ ∖ {0,1,∞}; NC.0's tangential base points must agree with it."
       }
      ]
     },
@@ -2384,14 +2547,51 @@
       {
        "target": "reconstruction of a smooth proper hyperbolic curve over a number field from outer Galois-equivariant fundamental-group data (the selected Mochizuki theorem)",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent, and far out of reach at this baseline: neither library has an étale fundamental group, an outer Galois action, or hyperbolic curves. The words 'anabelian' and 'Mochizuki' do not occur in either library."
+       "declarations": [
+        {
+         "name": "TauCeti.genus",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.lean",
+         "line": 189,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent, and far out of reach at this baseline: neither library has an étale fundamental group, an outer Galois action, or a notion of hyperbolic curve (the genus of a function field exists, `TauCeti.genus`). The words 'anabelian' and 'Mochizuki' do not occur in either library."
       },
       {
        "target": "decomposition-group recovery, covers, linear systems and effectivity, decomposed from the full proof",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent. Neither decomposition groups of a fundamental group nor linear systems on a curve exist; Tau Ceti has linear systems of Weil divisors (TauCeti/AlgebraicGeometry/WeilDivisor/LinearSystem/) but nothing tied to fundamental-group data."
+       "declarations": [
+        {
+         "name": "TauCeti.riemannRochSpace",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.card_decompositionSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Decomposition.lean",
+         "line": 88,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.decompositionField",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Decomposition.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "ValuationSubring.decompositionSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
+         "line": 30,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Decomposition groups of a fundamental group are absent. Their finite-level form exists: Tau Ceti has decomposition groups, decomposition fields and inertia of places in finite Galois extensions of function fields (`TauCeti.Place.card_decompositionSubgroup`, `decompositionField`, `residueAut` at Place/Extension/Inertia.lean:124, on Mathlib's `ValuationSubring.decompositionSubgroup`), and complete linear systems on a curve as Riemann–Roch spaces of its function field (`TauCeti.riemannRochSpace`, with genus and the Riemann–Roch theorem). Nothing ties these to fundamental-group data. Tau Ceti's linear systems of Weil divisors (TauCeti/AlgebraicGeometry/WeilDivisor/LinearSystem/) are the weaker abstract-order-system version, which defers the vector-space structure of L(D)."
       },
       {
        "target": "separate isomorphism and Hom versions, with base-field compatibility, topology and allowed morphisms stated exactly",
@@ -2497,9 +2697,23 @@
          "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
          "line": 131,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.PresheafOfGroups.H1",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/NonabelianCohomology/H1.lean",
+         "line": 197,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.PresheafOfGroups.OneCocycle",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/NonabelianCohomology/H1.lean",
+         "line": 123,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has abelian group cohomology in low degree with inflation–restriction, and continuous cohomology of a topological group (`continuousCohomology`, from homogeneous continuous cochains), which Tau Ceti develops much further (`TauCeti/RepresentationTheory/Homological/ContCohomology/`, applied in `TauCeti/FieldTheory/GaloisCohomology/` to the Kummer sequence of the absolute Galois group). Nonabelian group cohomology is an explicit TODO in Mathlib's `GroupCohomology/LowDegree.lean`, and no `H¹` with values in a nonabelian group with action exists in either library. Nonabelian torsor-valued cohomology is absent from both libraries."
+       "note": "Mathlib has abelian group cohomology in low degree with inflation–restriction, and continuous cohomology of a topological group (`continuousCohomology`, from homogeneous continuous cochains), which Tau Ceti develops much further (`TauCeti/RepresentationTheory/Homological/ContCohomology/`, applied in `TauCeti/FieldTheory/GaloisCohomology/` to the Kummer sequence of the absolute Galois group). Nonabelian group cohomology is an explicit TODO in Mathlib's `GroupCohomology/LowDegree.lean`. Mathlib has nonabelian Čech H¹ of a presheaf of groups relative to a family of objects (`PresheafOfGroups.H1`, a pointed set; Frenkel), but not H¹ of a (profinite) group with coefficients in a nonabelian group with continuous action, and nothing identifies its classes with torsors; nonabelian continuous Galois cohomology is absent from both libraries."
       },
       {
        "target": "local unramified and crystalline conditions at each place, retaining bad-place conditions",
@@ -2551,6 +2765,22 @@
       {
        "layer": "HeightsRationalPointsAndObstructions:RP.1",
        "note": "RP.1 constructs the Kummer maps and finite Selmer groups of abelian varieties: the abelian, depth-one objects against which NC.3's acceptance test checks Kummer/Selmer agreement."
+      },
+      {
+       "layer": "SelmerIwasawaCohomology:L2",
+       "note": "Owns unramified, strict, relaxed and Greenberg local conditions on actual Galois cohomology; NC.3's abelian (graded and depth-one) local conditions are these, and only the nonabelian local conditions are NC.3's."
+      },
+      {
+       "layer": "SelmerIwasawaCohomology:L4",
+       "note": "Owns finite Bloch–Kato local conditions, the crystalline condition of NC.3 target 2 in the abelian case."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+       "note": "Plans the general Selmer-structure API (local conditions unramified almost everywhere, Selmer group of a discrete Galois module) meant to serve abelian varieties; the depth-one Kummer/Selmer comparison uses it."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.3",
+       "note": "Owns torsors under linear algebraic groups and their twist classes, i.e. nonabelian H¹(K, G); NC.3 target 1 is the same formalism for unipotent G and should share it."
       }
      ]
     },
@@ -2654,46 +2884,69 @@
    }
   },
   "ArakelovGeometryAndAbelianHeights": {
-   "summary": "The general height theory this roadmap needs as input is already in Mathlib, and more generally than the roadmap assumes: `Mathlib/NumberTheory/Height/` defines `AdmissibleAbsValues` — a family of absolute values satisfying the product formula with archimedean multiplicities — proves the product formula for every number field, builds multiplicative and logarithmic heights on tuples and on projectivizations, and proves Northcott finiteness for elements of a number field (`finite_setOfPred_mulHeight₁_le`, `finite_setOfPred_logHeight₁_le`) together with an abstract `Northcott` order class; Northcott for points of projective space is still a TODO there. Everything the roadmap actually owns is absent: `Arakelov`, `Faltings`, `Zarhin`, `arithmeticDegree`, `hermitianBundle` and `NeronModel` each have zero occurrences in the whole baseline, and the geometric inputs are missing too — there is no abelian scheme, no Néron or semistable model, no module of invariant differentials, no period lattice attached to a curve and no polarized moduli scheme. So no hermitian bundle, no arithmetic degree, no Hodge bundle with Faltings metric, no (stable) Faltings height, no isogeny formula and no theta-height comparison exists. The roadmap's own summary anticipates this correctly when it says general heights and Northcott 'are necessary but do not construct the stable Faltings height'; the audit's addition is that most of the necessary part is finished in Mathlib: the product formula and elementwise Northcott should simply be consumed rather than built, while Northcott on projective space is still missing.",
+   "summary": "The general height theory this roadmap needs as input is already in Mathlib, and more generally than the roadmap assumes: `Mathlib/NumberTheory/Height/` defines `AdmissibleAbsValues` — a family of absolute values satisfying the product formula with archimedean multiplicities — proves the product formula for every number field, builds multiplicative and logarithmic heights on tuples and on projectivizations, and proves Northcott finiteness for elements of a number field (`finite_setOfPred_mulHeight₁_le`, `finite_setOfPred_logHeight₁_le`) together with an abstract `Northcott` order class; Northcott for points of projective space is still a TODO there. Everything the roadmap actually owns is absent: `Arakelov`, `Faltings`, `Zarhin`, `arithmeticDegree`, `hermitianBundle` and `NeronModel` each have zero occurrences in the whole baseline, and the geometric inputs are missing too — there is no abelian scheme, no Néron or semistable model, no module of invariant differentials of an abelian scheme over a Dedekind base, no period lattice attached to a curve and no polarized moduli scheme. So no hermitian bundle, no arithmetic degree, no Hodge bundle with Faltings metric, no (stable) Faltings height, no isogeny formula and no theta-height comparison exists. The roadmap's own summary anticipates this correctly when it says general heights and Northcott 'are necessary but do not construct the stable Faltings height'; the audit's addition is that most of the necessary part is finished in Mathlib: the product formula and elementwise Northcott should simply be consumed rather than built (the all-places product formula and its functoriality under finite extension are owned by the existing Tau Ceti roadmap GlobalNumberFields, layer 0, which has already proved the product formula in its normalization), while Northcott on projective space is still missing.",
    "layers": {
     "ArakelovGeometryAndAbelianHeights:R35.1": {
-     "verdict": "not built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "hermitian line and vector bundles over an arithmetic curve, with determinant, tensor and dual operations",
-       "library": "absent",
-       "declarations": [],
-       "note": "Absent from both libraries. `Arakelov`, `hermitianBundle` and any metrized-module carrier over `𝓞_K` have zero occurrences; the only invertible-sheaf theory in the baseline is Tau Ceti's `InvertibleSheaf`/`LineBundleClass` for schemes (TauCeti/AlgebraicGeometry/LineBundle/), which carries no metric."
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.Invertible",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "CommRing.Pic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 429,
+         "fit": "related"
+        },
+        {
+         "name": "ClassGroup.equivPic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 876,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has invertible modules over any commutative ring, closed under dual and tensor product, and Pic R ≅ Cl R for a domain. These are the unmetrized line bundles on the affine arithmetic curve Spec 𝓞_K with their tensor and dual. Missing: hermitian metrics at the infinite places and their operations, metrized vector bundles and their determinant, and the arithmetic Picard group (`Arakelov` and `hermitianBundle` have zero occurrences). Tau Ceti's `InvertibleSheaf`/`LineBundleClass` (TauCeti/AlgebraicGeometry/LineBundle/) is the scheme-level analogue and also carries no metric."
       },
       {
        "target": "arithmetic degree of a hermitian bundle, and comparison with the general height owner's normalization",
-       "library": "absent",
-       "declarations": [],
-       "note": "Absent; `arithmeticDegree` has zero occurrences."
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.absNorm_mul_finprod_finitePlace_eq_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 200,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.mixedEmbedding.covolume_idealLattice",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+         "line": 134,
+         "fit": "related"
+        }
+       ],
+       "note": "Missing: the arithmetic degree of a hermitian bundle with arbitrary metrics (`arithmeticDegree` has zero occurrences), and the archimedean (sup-metric) half of its comparison with `Height.mulHeight`. The finite half of that comparison, for integral tuples, is `absNorm_mul_finprod_finitePlace_eq_one`, and the degree of a fractional ideal with its standard metrics is the covolume formula."
       },
       {
        "target": "the product formula, with archimedean factors",
-       "library": "mathlib",
+       "library": "both",
        "declarations": [
         {
          "name": "NumberField.instAdmissibleAbsValues",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/Height/NumberField.lean",
          "line": 78,
-         "fit": "exact"
-        },
-        {
-         "name": "Height.AdmissibleAbsValues",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/Height/Basic.lean",
-         "line": 78,
-         "fit": "more general"
-        },
-        {
-         "name": "NumberField.prod_archAbsVal_eq",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
-         "line": 87,
          "fit": "exact"
         },
         {
@@ -2709,28 +2962,28 @@
          "file": "Mathlib/NumberTheory/Height/NumberField.lean",
          "line": 158,
          "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.finprod_normalizedAbsValue_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Places/Basic.lean",
+         "line": 209,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.normalizedAbsValue",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Places/Basic.lean",
+         "line": 80,
+         "fit": "related"
         }
        ],
-       "note": "This target is fully in Mathlib and in more generality than asked: `NumberField.prod_abs_eq_one` is the product formula `∏_w w(x)^{mult w} · ∏ᶠ_v v(x) = 1` for any number field, `AdmissibleAbsValues` axiomatizes a family of absolute values satisfying such a formula with archimedean multiplicities, and `NumberField.instAdmissibleAbsValues` installs it, `prod_archAbsVal_eq` translating the multiset product into infinite places. The archimedean weights are `totalWeight = [K:ℚ]`. The roadmap document treats the general-height layer as belonging to another owner (`ArithmeticHeights #287`) and does not claim it; the point of record is that it is already done in Mathlib."
+       "note": "This target is fully in Mathlib and in more generality than asked: `NumberField.prod_abs_eq_one` is the product formula `∏_w w(x)^{mult w} · ∏ᶠ_v v(x) = 1` for any number field, `AdmissibleAbsValues` axiomatizes a family of absolute values satisfying such a formula with archimedean multiplicities, and `NumberField.instAdmissibleAbsValues` installs it, `prod_archAbsVal_eq` translating the multiset product into infinite places. The archimedean weights are `totalWeight = [K:ℚ]`. R35.1 asks to prove the product formula. It is already in Mathlib, so it is a baseline citation, not a node. ArithmeticHeights #287, which the roadmap summary proposes as owner, is not an atlas roadmap. Tau Ceti also proves the all-places product formula in the normalization ‖x‖_w = |x|^{mult w} (`TauCeti.GlobalNumberFields.finprod_normalizedAbsValue_eq_one`, on `normalizedAbsValue`), the normalization in which the arithmetic degree is −Σ_v log‖s‖_v; it belongs to GlobalNumberFields layer 0. To keep five citations, `Height.AdmissibleAbsValues` (Height/Basic.lean:78) and `NumberField.prod_archAbsVal_eq` (Height/NumberField.lean:87) are named here rather than cited."
       },
       {
        "target": "base-change and degree formulas for the height normalization under finite extension",
        "library": "partial",
        "declarations": [
-        {
-         "name": "Height.mulHeight",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/Height/Basic.lean",
-         "line": 233,
-         "fit": "related"
-        },
-        {
-         "name": "Height.mulHeight_comp_equiv",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/Height/Basic.lean",
-         "line": 256,
-         "fit": "related"
-        },
         {
          "name": "NumberField.mulHeight_eq",
          "library": "mathlib",
@@ -2739,37 +2992,51 @@
          "fit": "related"
         },
         {
-         "name": "Projectivization.mulHeight",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/Height/Projectivization.lean",
-         "line": 46,
-         "fit": "related"
-        },
-        {
          "name": "NumberField.absMulHeight₁",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/Height/NumberField.lean",
          "line": 137,
          "fit": "related"
+        },
+        {
+         "name": "NumberField.InfinitePlace.sum_inertiaDeg_eq_finrank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Completion/Ramification.lean",
+         "line": 125,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.InfinitePlace.mult_mul_finrank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Completion/Ramification.lean",
+         "line": 87,
+         "fit": "related"
+        },
+        {
+         "name": "Ideal.sum_ramification_inertia_eq_finrank",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RamificationInertia/Basic.lean",
+         "line": 72,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has multiplicative and logarithmic heights of tuples relative to the field (not normalized by the degree) and of points of a projectivization, with invariance under scaling and coordinate permutation and explicit formulas over a number field and over `ℚ`. Mathlib also defines the absolute height of an algebraic number intrinsically (`NumberField.absMulHeight₁`, through `ℚ(x)`), so extension-independence is built into that definition, but no lemma relates it to `mulHeight₁` over a given number field; invariance of the height under finite field extension is not stated as such, and there is no arithmetic-degree normalization to compare it with."
+       "note": "Mathlib has multiplicative and logarithmic heights of tuples relative to the field (not normalized by the degree) and of points of a projectivization, with invariance under scaling and coordinate permutation and explicit formulas over a number field and over `ℚ`. Mathlib also defines the absolute height of an algebraic number intrinsically (`NumberField.absMulHeight₁`, through `ℚ(x)`), so extension-independence is built into that definition, but no lemma relates it to `mulHeight₁` over a given number field; invariance of the height under finite field extension is not stated as such, and there is no arithmetic-degree normalization to compare it with. The local degree formulas are in Mathlib: Σ_{w|v}[L_w:K_v] = [L:K] and v.mult·[L_w:K_v] = w.mult at infinite places, and Σ e·f = [L:K] at finite primes. Missing: `AdmissibleAbsValues` for a finite extension (a TODO in Height/Basic.lean), the resulting invariance of the degree-normalized height, and a lemma relating `absMulHeight₁` to `mulHeight₁` over a given field. The place-level functoriality under finite extension, with local degrees in the exponents, belongs to the Tau Ceti roadmap GlobalNumberFields layer 0. To keep five citations, `Height.mulHeight` (Height/Basic.lean:233), `Height.mulHeight_comp_equiv` (:256) and `Projectivization.mulHeight` (Height/Projectivization.lean:46) are named here rather than cited."
       },
       {
        "target": "the arithmetic intersection statements invoked by the moduli-height comparison",
        "library": "absent",
        "declarations": [],
-       "note": "Absent; there is no arithmetic intersection theory of any kind in either library."
+       "note": "Absent; there is no arithmetic intersection theory of any kind in either library. Consumer, not a duplicate: GrossZagierAndArithmeticHeights:GZ.2 builds the arithmetic intersection pairing on arithmetic surfaces and lists R35.1 as a dependency."
       }
      ],
      "duplicates": [
       {
-       "layer": "GrossZagierAndArithmeticHeights:GZ.2",
-       "note": "GZ.2 constructs the arithmetic intersection pairing on arithmetic surfaces from finite-place intersection lengths and archimedean Green functions — the same Arakelov machinery R35.1 needs, built for curves rather than for the moduli comparison."
-      },
-      {
        "layer": "HeightsRationalPointsAndObstructions:RP.0",
        "note": "RP.0 says it will 'Import normalized absolute heights, product formula and Northcott from the audited arithmetic-height supplier', so the product-formula and normalization targets appear in at least three roadmaps; Mathlib already supplies them."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+       "note": "Owns the normalized absolute values at all places, the all-places product formula and their functoriality under finite extension with local degrees; R35.1's product-formula and extension targets import it."
       }
      ]
     },
@@ -2786,9 +3053,30 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
          "line": 105,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.TangentSpace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/TangentSpace.lean",
+         "line": 85,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.ZariskiCotangentSpace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/TangentSpace/Basic.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Bialgebra.CotangentSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Tangent/Cotangent.lean",
+         "line": 57,
+         "fit": "related"
         }
        ],
-       "note": "Absent. There is no abelian scheme and no Néron or semistable model in either library — `Néron model` occurs nowhere, and `semistable` only once, in a Tau Ceti comment on stable reduction of curves — so no module of invariant differentials and no determinant line. The nearest object is the invariant differential of a Weierstrass curve in Tau Ceti, a single differential on one affine model, not a determinant line bundle over a Dedekind base."
+       "note": "Absent over a Dedekind base. Tau Ceti has the cotangent space 𝔪₀/𝔪₀² at the identity of an abelian variety over a field (its dual is `AbelianVariety.TangentSpace`), that is, ω_{A/K} on the generic fibre, and ω_{G/R} = I/I² for affine group schemes over any ring. Missing: abelian schemes and Néron models over 𝓞_K, the global differential lattice, dim ω = g, and the determinant line; the Weierstrass invariant differential is the one-dimensional function-field case. Supplier, not a duplicate: NeronModelsAndSemistableAbelianVarieties:R11.1 owns Néron models and the global differential lattice over the Dedekind base, which R35.2 imports."
       },
       {
        "target": "the archimedean metric defined by integration at complex places, with positivity, basis-invariance and functoriality",
@@ -2813,10 +3101,6 @@
      ],
      "duplicates": [
       {
-       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.1",
-       "note": "R11.1 owns Néron models and the global differential lattice over the Dedekind base, which R35.2 declares it imports; neither is in the libraries."
-      },
-      {
        "layer": "ModularCurvesPartII:R12.5",
        "note": "R12.5 owns the Hodge bundle and Hecke normalization of differentials on modular curves, the relative-dimension-one case of this construction."
       }
@@ -2829,7 +3113,7 @@
        "target": "the Faltings height as the arithmetic degree of the hermitian Hodge line, and its behaviour under finite extension",
        "library": "absent",
        "declarations": [],
-       "note": "Absent; `Faltings` has zero occurrences in either library, and neither input (the Hodge line of R35.2, the arithmetic degree of R35.1) exists."
+       "note": "Absent; `Faltings` has zero occurrences in either library, and neither input (the Hodge line of R35.2, the arithmetic degree of R35.1) exists. EllipticCurves layer 8 mentions the Faltings height of an elliptic curve over ℚ only as a database quantity, says it is not one of its targets and routes it to a complex/Arakelov roadmap; it does not state this target."
       },
       {
        "target": "the stable Faltings height via semistable reduction, with independence of the extension and of the model",
@@ -2844,12 +3128,7 @@
        "note": "Absent."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
-       "note": "That layer mentions the Faltings height of an elliptic curve over ℚ as a database-adapter quantity; it is the dimension-one numerical shadow of this definition, not an independent construction."
-      }
-     ]
+     "duplicates": []
     },
     "ArakelovGeometryAndAbelianHeights:R35.4": {
      "verdict": "not built",
@@ -2858,13 +3137,6 @@
        "target": "the isogeny formula comparing Faltings heights through the degree and the integral cokernel on invariant differentials, with the archimedean normalization fixed",
        "library": "absent",
        "declarations": [
-        {
-         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
-         "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
-         "line": 61,
-         "fit": "related"
-        },
         {
          "name": "TauCeti.Isogeny.degree",
          "library": "tauceti",
@@ -2878,9 +3150,30 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Differential.lean",
          "line": 140,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.GroupScheme.IsIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/Basic.lean",
+         "line": 161,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.pullbackDifferential_mulByIntIsogeny_invariantDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Separability.lean",
+         "line": 47,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_mulByIntIsogenyOfNeZero",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Degree.lean",
+         "line": 79,
+         "fit": "related"
         }
        ],
-       "note": "Absent. Tau Ceti has isogenies of abelian varieties over a field as finite surjective group-scheme maps, with no degree and no action on invariant differentials. In dimension one, over a field, both exist in its function-field model of elliptic curves — `TauCeti.Isogeny.degree` and the pullback `φ^*ω` of the invariant differential, with the differential criterion for separability — but there is no integral model, no cokernel on a differential lattice and no height to compare."
+       "note": "Absent. Tau Ceti has isogenies of abelian varieties over a field as finite surjective group-scheme maps (`TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny`, AbelianVariety/Isogeny.lean:61, named here to keep five citations), with no degree and no action on invariant differentials, and the relative notion over the spectrum of any commutative ring (`GroupScheme.IsIsogeny`: finite, flat and surjective). In dimension one, over a field, both exist in its function-field model of elliptic curves — `TauCeti.Isogeny.degree` and the pullback `φ^*ω` of the invariant differential, with the differential criterion for separability — but there is no integral model, no cokernel on a differential lattice and no height to compare. The dimension-one inputs of the roadmap's multiplication-by-n check exist over a field: `[n]^*ω = nω` (`pullbackDifferential_mulByIntIsogeny_invariantDifferential`) and `deg [n] = n²` (`degree_mulByIntIsogenyOfNeZero`)."
       },
       {
        "target": "treatment of primes dividing the isogeny degree by finite-flat and p-divisible-group theory",
@@ -2892,9 +3185,30 @@
          "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
          "line": 232,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Bialgebra.CotangentSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Tangent/Cotangent.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.IsIsogeny.isIsogeny_kernelSpec_to_trivial",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Isogeny/Kernel.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.IsCentralIsogeny.kernelFiniteLocallyFree",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Isogeny/Kernel.lean",
+         "line": 84,
+         "fit": "related"
         }
        ],
-       "note": "p-divisible groups do not exist in either library; only the finite locally free side is present, through Tau Ceti's Cartier duality for finite locally free commutative affine group schemes."
+       "note": "p-divisible groups are absent. On the finite-flat side Tau Ceti has isogenies of group schemes over any base, finite faithfully flat kernels of isogenies of affine group schemes (finite locally free over a noetherian base for central ones), Cartier duality over an affine base, and ω_{G/R} = I/I² of affine group schemes over any ring. Missing: kernels of isogenies of abelian schemes or Néron models, and the length of ω_G and its relation to the order of G."
       },
       {
        "target": "the inequalities and local terms used downstream to bound heights in an isogeny class",
@@ -2944,19 +3258,10 @@
        "target": "boundary behaviour, compactification and degeneration estimates, and the good-prime integral base with explicitly proved local correction bounds",
        "library": "absent",
        "declarations": [],
-       "note": "Absent; there is no toroidal or minimal compactification of a moduli space in either library."
+       "note": "Absent; there is no toroidal or minimal compactification of a moduli space in either library. Suppliers, not duplicates: PELModuli:M6 (the universal family and Hodge line) and ShimuraCompactifications:C5 (integral compactifications and the Hodge line) are imported; R35.5 proves only the metric growth and local bounds on their objects."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "PELModuli:M6",
-       "note": "M6 owns arithmetic PEL moduli and is the declared supplier of the universal family and Hodge line; R35.5 states it 'does not rebuild the compactification'."
-      },
-      {
-       "layer": "ShimuraCompactifications:C5",
-       "note": "C5 owns integral PEL compactifications, which R35.5 imports and on which it proves only the metric growth."
-      }
-     ]
+     "duplicates": []
     },
     "ArakelovGeometryAndAbelianHeights:R35.6": {
      "verdict": "not built",
@@ -3006,24 +3311,20 @@
          "fit": "related"
         }
        ],
-       "note": "Northcott finiteness is in Mathlib for elements of a number field: bounded `mulHeight₁` or `logHeight₁` gives a finite set (`finite_setOfPred_mulHeight₁_le`, `finite_setOfPred_logHeight₁_le` and the corresponding `Northcott` instances), with an abstract `Northcott` order class and transfer along maps. It is not there for points of projective space: `Mathlib/NumberTheory/Height/Northcott.lean` lists the `Projectivization.mulHeight` instance as a TODO and neither library supplies it, although that is the form moduli points embedded in projective space need. Beyond that, everything specific to this roadmap is missing: the moduli points, and the constants relating their heights to the Faltings height."
+       "note": "Northcott finiteness is in Mathlib for elements of a number field: bounded `mulHeight₁` or `logHeight₁` gives a finite set (`finite_setOfPred_mulHeight₁_le`, `finite_setOfPred_logHeight₁_le` and the corresponding `Northcott` instances), with an abstract `Northcott` order class and transfer along maps. It is not there for points of projective space: `Mathlib/NumberTheory/Height/Northcott.lean` lists the `Projectivization.mulHeight` instance as a TODO and neither library supplies it, although that is the form moduli points embedded in projective space need. Beyond that, everything specific to this roadmap is missing: the moduli points, and the constants relating their heights to the Faltings height. HeightsRationalPointsAndObstructions:RP.0 also imports Northcott from the same supplier; neither states it as a target, so it is not recorded as a duplicate."
       }
      ],
      "duplicates": [
       {
        "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
        "note": "R28.1 consumes R35.6 and states the finiteness conclusion, including Zarhin's trick and the Jordan–Zassenhaus input; the polarization-removal argument appears on both sides of the boundary."
-      },
-      {
-       "layer": "HeightsRationalPointsAndObstructions:RP.0",
-       "note": "RP.0 also imports 'normalized absolute heights, product formula and Northcott' from a general supplier, duplicating the Northcott input."
       }
      ]
     }
    }
   },
   "ArithmeticDynamics": {
-   "summary": "The libraries supply most of this roadmap's two general inputs and almost nothing else. Mathlib's `Mathlib/Dynamics/PeriodicPts/` gives iteration, fixed and periodic points, minimal period, periodic orbits and the divisibility calculus for an arbitrary self-map (but no preperiodic points) — more general than DY.0's morphisms of varieties, and at the level of maps rather than sampled points — and `Mathlib/NumberTheory/Height/` gives admissible absolute values with the product formula, logarithmic heights, elementwise Northcott finiteness over number fields, and the bound `h(F x) = N h(x) + O(1)` for a morphism of projective space given by homogeneous forms. On top of those Tau Ceti has, for elliptic curves over any field with admissible absolute values, the complete Néron–Tate package DY.1 asks for in its abelian-variety acceptance example: the Tate limit with its convergence proved, the bounded difference from the naive height, the exact functional equation `ĥ(2P) = 4ĥ(P)`, quadraticity, and the theorem that canonical height zero is equivalent to torsion via Northcott. Everything else is missing, and mostly missing at the level of vocabulary: `Berkovich`, `dynatomic`, `equidistribution`, `arboreal`, `MordellLang` and `Lattès` each have zero occurrences in the whole baseline, and there is no self-map of `P¹` given by coprime forms, no dynamical degree or resultant of such a pair, no polarized morphism, no ample line bundle, no local height and no metrized line bundle. DY.1's general polarized construction, and DY.2–DY.6 entirely, are unbuilt; the sharpest overlap in the atlas is `GrossZagierAndArithmeticHeights:GZ.1`, which states DY.1's canonical-height targets for abelian varieties almost word for word.",
+   "summary": "The libraries supply most of this roadmap's two general inputs and almost nothing else. Mathlib's `Mathlib/Dynamics/PeriodicPts/` gives iteration, fixed and periodic points, minimal period, periodic orbits and the divisibility calculus for an arbitrary self-map (but no preperiodic points) — more general than DY.0's morphisms of varieties, and at the level of maps rather than sampled points — and `Mathlib/NumberTheory/Height/` gives admissible absolute values with the product formula, logarithmic heights, elementwise Northcott finiteness over number fields, and the bound `h(F x) = N h(x) + O(1)` for a morphism of projective space given by homogeneous forms. On top of those Tau Ceti has, for elliptic curves over any field with admissible absolute values, the Néron–Tate package (all but the uniqueness statement) DY.1 asks for in its abelian-variety acceptance example: the Tate limit with its convergence proved, the bounded difference from the naive height, the exact functional equation `ĥ(2P) = 4ĥ(P)`, quadraticity, and the theorem that canonical height zero is equivalent to torsion via Northcott. Everything else is missing, and mostly missing at the level of vocabulary: `Berkovich`, `dynatomic`, `equidistribution`, `arboreal`, `MordellLang` and `Lattès` each have zero occurrences in the whole baseline. Mathlib has rational functions on ℙ¹ with a coprime presentation, their degree [K(X):K(f)] and a formal-degree resultant, but no binary-form carrier, iteration of rational functions or dynamical good reduction, and there is no polarized morphism, no ample line bundle, no local height and no metrized line bundle. Mathlib proves the power map's exact height identity h(x^d) = d·h(x), and Tau Ceti has the Lattès map of [n] (x(nP) = Φₙ/ΨSqₙ, coprime, of degree n²), so both acceptance examples start from library material. DY.1's general polarized construction is unbuilt, and DY.2–DY.6 are unbuilt apart from elliptic special cases and the finite-level Galois action; the sharpest overlap in the atlas is `GrossZagierAndArithmeticHeights:GZ.1`, which states DY.1's canonical-height targets for abelian varieties almost word for word.",
    "layers": {
     "ArithmeticDynamics:DY.0": {
      "verdict": "partly built",
@@ -3047,13 +3348,6 @@
          "fit": "more general"
         },
         {
-         "name": "Function.IsPeriodicPt.iterate",
-         "library": "mathlib",
-         "file": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
-         "line": 132,
-         "fit": "more general"
-        },
-        {
          "name": "Function.periodicOrbit",
          "library": "mathlib",
          "file": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
@@ -3061,14 +3355,21 @@
          "fit": "more general"
         },
         {
-         "name": "Function.IsPeriodicPt.gcd",
+         "name": "CategoryTheory.End.monoid",
          "library": "mathlib",
-         "file": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
-         "line": 157,
+         "file": "Mathlib/CategoryTheory/Endomorphism.lean",
+         "line": 73,
          "fit": "more general"
+        },
+        {
+         "name": "Polynomial.natDegree_iterate_comp",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Degree/Lemmas.lean",
+         "line": 389,
+         "fit": "special case"
         }
        ],
-       "note": "Mathlib's `Mathlib/Dynamics/PeriodicPts/` develops iteration, `IsFixedPt`, `IsPeriodicPt`, `periodicPts`, minimal period, the periodic orbit as a `Cycle` and the whole divisibility calculus for an arbitrary self-map of a type, which covers the periodic half of this target in greater generality than a morphism of varieties. Because it is stated for `f : α → α` and `f^[n]`, an equality of iterates really is an equality of maps, satisfying the layer's acceptance criterion. Preperiodic points are not defined — the word occurs in neither library, although `∃ m, f^[m] x ∈ periodicPts f` is one line — and there is no forward-orbit map of a self-map (Mathlib's orbits are for flows and group actions). The scheme-theoretic layer is absent as well: iteration of a morphism of varieties as a morphism, and orbit maps as morphisms."
+       "note": "Mathlib's `Mathlib/Dynamics/PeriodicPts/` develops iteration, `IsFixedPt`, `IsPeriodicPt`, `periodicPts`, minimal period, the periodic orbit as a `Cycle` and the whole divisibility calculus for an arbitrary self-map of a type, which covers the periodic half of this target in greater generality than a morphism of varieties. Because it is stated for `f : α → α` and `f^[n]`, an equality of iterates really is an equality of maps, satisfying the layer's acceptance criterion. Preperiodic points are not defined — the word occurs in neither library, although `∃ m, f^[m] x ∈ periodicPts f` is one line — and there is no forward-orbit map of a self-map (Mathlib's orbits are for flows and group actions). Iteration of a morphism as a morphism exists in general, as powers in Mathlib's `CategoryTheory.End X` (so for scheme morphisms too). For polynomial self-maps of 𝔸¹ it exists as `p.comp^[n]`, with degree d^n (`Polynomial.natDegree_iterate_comp`) and agreement with the pointwise iterate (`Polynomial.iterate_comp_eval`, Mathlib/Algebra/Polynomial/Eval/Degree.lean:222). Tau Ceti has [n] on an abelian variety as a morphism (`TauCeti.AlgebraicGeometry.AbelianVariety.mulBy`, AbelianVariety/End/Basic.lean:243). Absent: preperiodic points, a forward-orbit map, and periodic points of a scheme morphism acting on its K-points. To keep five citations, `Function.IsPeriodicPt.iterate` (PeriodicPts/Defs.lean:132) and `Function.IsPeriodicPt.gcd` (:157) are named here rather than cited."
       },
       {
        "target": "conjugacy of maps under automorphisms",
@@ -3100,13 +3401,13 @@
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
          "line": 134,
-         "fit": "related"
+         "fit": "special case"
         },
         {
-         "name": "Polynomial.Monic.resultant_deriv",
-         "library": "tauceti",
-         "file": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
-         "line": 105,
+         "name": "RatFunc.isCoprime_num_denom",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+         "line": 991,
          "fit": "related"
         },
         {
@@ -3115,9 +3416,16 @@
          "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
          "line": 325,
          "fit": "related"
+        },
+        {
+         "name": "RatFunc.finrank_eq_max_natDegree",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/RatFunc/IntermediateField.lean",
+         "line": 162,
+         "fit": "exact"
         }
        ],
-       "note": "The resultant of two univariate polynomials exists in Mathlib with a Tau Ceti extension (Sylvester matrix, behaviour under `AdjoinRoot`, discriminant). There is no self-map of `P¹` presented by a pair of coprime homogeneous forms, no dynamical degree, no resultant of such a pair, and no dynamical good reduction; `HasGoodReduction` exists only for a Weierstrass curve at a prime. The required worked example — a map whose displayed resultant vanishes at a bad prime — has no carrier."
+       "note": "The resultant of two univariate polynomials exists in Mathlib with a Tau Ceti extension (Sylvester matrix, behaviour under `AdjoinRoot`, discriminant; the discriminant lemma `Polynomial.Monic.resultant_deriv`, TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean:105, is no longer cited here). Mathlib's `RatFunc` gives rational functions on ℙ¹ with a coprime (dehomogenised) presentation and proves that their degree max(deg num, deg denom) is [K(X):K(f)]. `Polynomial.resultant` with formal degrees d, d computes the resultant of the corresponding binary forms, commutes with reduction (`Polynomial.resultant_map_map`, Resultant/Basic.lean:140), and supplies the Bézout certificate (`Polynomial.exists_mul_add_mul_eq_C_resultant`, :874). Tau Ceti's Lattès map Φₙ/ΨSqₙ is a worked coprime pair of degree n² (`WeierstrassCurve.isCoprime_Φ_ΨSq`, DivisionPolynomial/Coprimality.lean:100; `WeierstrassCurve.finrank_adjoin_Φ_div_ΨSq`, DivisionPolynomial/RatFuncDegree.lean:65). Absent: binary forms as a carrier and their action on ℙ¹(K) including ∞, composition/iteration of rational functions, the normalised homogeneous resultant, and dynamical good reduction; `HasGoodReduction` exists only for a Weierstrass curve at a prime. The required example of a resultant vanishing at a bad prime therefore needs only the good-reduction definition and a carrier."
       }
      ],
      "duplicates": []
@@ -3186,13 +3494,6 @@
          "fit": "special case"
         },
         {
-         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_parallelogram_law",
-         "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
-         "line": 211,
-         "fit": "special case"
-        },
-        {
          "name": "WeierstrassCurve.Affine.Point.canonicalHeight_zsmul",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
@@ -3200,14 +3501,21 @@
          "fit": "special case"
         },
         {
-         "name": "WeierstrassCurve.Affine.approx_parallelogram_law",
-         "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean",
-         "line": 146,
+         "name": "Height.logHeight₁_pow",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 622,
+         "fit": "special case"
+        },
+        {
+         "name": "Height.logHeight_pow",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 595,
          "fit": "special case"
         }
        ],
-       "note": "The error bound and the functional equation are proved in the elliptic case: `canonicalHeight_two_nsmul` is `ĥ(2P) = 4 ĥ(P)`, the exact `d = 4` functional equation, and the parallelogram law upgrades it to full quadraticity with `ĥ(n • P) = n² ĥ(P)`. Uniqueness among bounded-error refinements is *not* stated as a named theorem in either library; it is used implicitly inside the limit argument (`tendsto_nhds_unique` at CanonicalHeight.lean:246) rather than exported."
+       "note": "The error bound and the functional equation are proved in the elliptic case: `canonicalHeight_two_nsmul` is `ĥ(2P) = 4 ĥ(P)`, the exact `d = 4` functional equation, and the parallelogram law upgrades it to full quadraticity with `ĥ(n • P) = n² ĥ(P)`. Uniqueness among bounded-error refinements is *not* stated as a named theorem in either library; it is used implicitly inside the limit argument (`tendsto_nhds_unique` at CanonicalHeight.lean:246) rather than exported. For the power map φ_d on ℙ¹, Mathlib proves the exact functional equation h(x^d) = d·h(x) (`Height.logHeight₁_pow`, and `Height.logHeight_pow` coordinatewise on ℙⁿ), so the Weil height is the canonical height of φ_d: the error is 0, the functional equation is exact and uniqueness is trivial. To keep five citations, `WeierstrassCurve.Affine.Point.canonicalHeight_parallelogram_law` (CanonicalHeight.lean:211) and `WeierstrassCurve.Affine.approx_parallelogram_law` (MordellWeil/NaiveHeight.lean:146) are named here rather than cited."
       },
       {
        "target": "preperiodicity from zero canonical height, via Northcott",
@@ -3242,14 +3550,14 @@
          "fit": "related"
         },
         {
-         "name": "Northcott",
+         "name": "Height.logHeight₁_pow",
          "library": "mathlib",
-         "file": "Mathlib/Order/Northcott.lean",
-         "line": 36,
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 622,
          "fit": "related"
         }
        ],
-       "note": "This is fully proved in the case the layer's own acceptance criterion names — 'multiplication on an abelian variety' — for elliptic curves: a point has canonical height zero exactly when it is torsion, deduced from a `Northcott` instance for the canonical height that Tau Ceti derives from the naive height, which it in turn derives from Mathlib's field-height Northcott property. The other required example, the power map on `P¹`, has no carrier. The general polarized statement is absent."
+       "note": "This is fully proved in the case the layer's own acceptance criterion names — 'multiplication on an abelian variety' — for elliptic curves: a point has canonical height zero exactly when it is torsion, deduced from a `Northcott` instance for the canonical height that Tau Ceti derives from the naive height, which it in turn derives from Mathlib's field-height Northcott property. For the other required example, the power map on ℙ¹, Mathlib proves the exact functional equation h(x^d) = d·h(x) (`Height.logHeight₁_pow`, and `Height.logHeight_pow` coordinatewise on ℙⁿ). The Weil height is therefore the canonical height of φ_d, and height zero ⇒ preperiodic follows from Northcott. Neither the statement nor Kronecker's classification of the preperiodic points (0, ∞, roots of unity) is in the libraries. The general polarized statement is absent. To keep five citations, Mathlib's `Northcott` class (Mathlib/Order/Northcott.lean:36) is named here rather than cited."
       },
       {
        "target": "a separately stated theorem removing ampleness",
@@ -3325,7 +3633,7 @@
          "fit": "related"
         }
        ],
-       "note": "Absent: `dynatomic` has zero occurrences. Mathlib's `Function.minimalPeriod` is the exact period of a point of a self-map, the set-level half of the formal/exact distinction, but there is no dynatomic polynomial whose roots would carry the formal period, and hence no multiplicity statement — so the layer's required worked example (a root with lower exact period but nontrivial dynatomic multiplicity) has no carrier."
+       "note": "Absent: `dynatomic` has zero occurrences. Mathlib's `Function.minimalPeriod` is the exact period of a point of a self-map, the set-level half of the formal/exact distinction, but there is no dynatomic polynomial whose roots would carry the formal period, and hence no multiplicity statement — so the layer's required worked example (a root with lower exact period but nontrivial dynatomic multiplicity) has no carrier. For polynomial self-maps of 𝔸¹ the polynomial `p.comp^[n] X - X` from which dynatomic polynomials are built is available (`Polynomial.natDegree_iterate_comp`, `Polynomial.iterate_comp_eval`)."
       },
       {
        "target": "finiteness of the bounded-degree preperiodic set of a fixed polarized morphism",
@@ -3351,8 +3659,30 @@
       {
        "target": "certified enumeration of preperiodic points from effective height bounds",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent; there is no effective height bound or enumeration procedure in either library."
+       "declarations": [
+        {
+         "name": "Height.logHeight_eval_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/MvPolynomial.lean",
+         "line": 368,
+         "fit": "related"
+        },
+        {
+         "name": "Height.logHeight_eval_ge",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/MvPolynomial.lean",
+         "line": 491,
+         "fit": "related"
+        },
+        {
+         "name": "Rat.mulHeight₁_eq_max",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 533,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's height bounds for polynomial maps carry explicit constants (`mulHeightBound`), and over ℚ `mulHeight₁_eq_max` turns a height bound into a finite box of numerators and denominators. These are the effective inputs. Absent: the preperiodic height bound h(P) ≤ C/(d−1), the enumeration procedure and its soundness and completeness."
       }
      ],
      "duplicates": []
@@ -3397,7 +3727,7 @@
        "target": "the rooted preimage tree of a point under iterated preimages, avoiding critical-orbit collisions",
        "library": "absent",
        "declarations": [],
-       "note": "Absent: `arboreal` has zero occurrences and there is no preimage tree of a dynamical system in either library. Mathlib has rooted trees and inverse limits as general structures, but nothing attaching one to a map."
+       "note": "Absent: `arboreal` has zero occurrences and there is no preimage tree of a dynamical system in either library. Mathlib has rooted trees and inverse limits as general structures, but nothing attaching one to a map. For polynomial self-maps of 𝔸¹ the level polynomials `p.comp^[n] X - C α` are available as polynomials (`Polynomial.natDegree_iterate_comp`, `Polynomial.iterate_comp_eval`)."
       },
       {
        "target": "the continuous Galois action on the finite levels of the tree and on its inverse limit",
@@ -3423,9 +3753,16 @@
          "file": "Mathlib/FieldTheory/PolynomialGaloisGroup.lean",
          "line": 176,
          "fit": "related"
+        },
+        {
+         "name": "stabilizer_isOpen_of_isIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/KrullTopology.lean",
+         "line": 260,
+         "fit": "related"
         }
        ],
-       "note": "Only general machinery. Mathlib's `Polynomial.Gal.galAction` is the finite-level action — the Galois group of a polynomial acting on its roots, which for `f^n(x) − α` is a level of the tree — and its Galois-category API produces a profinite group acting continuously on finite sets, the shape of an arboreal representation. But there is no finite étale cover of a scheme to instantiate the latter with, no iterated-preimage tower and no inverse limit of the levels."
+       "note": "General machinery, which over a field already gives the continuous action on each finite level. Mathlib's `Polynomial.Gal.galAction` is the finite-level action — the Galois group of a polynomial acting on its roots, which for `f^n(x) − α` is a level of the tree — and its Galois-category API produces a profinite group acting continuously on finite sets, the shape of an arboreal representation. Over a field the continuous action on each finite level is available directly: `stabilizer_isOpen_of_isIntegral` makes the Krull-topological Galois group act on K̄ with open stabilisers, and `Polynomial.Gal.restrict` passes to a level's splitting field. IG.0's scheme-level machinery is needed only beyond fields. Absent: the preimage tree as a carrier (levels, edges given by f), its inverse limit and the arboreal representation into Aut(T)."
       },
       {
        "target": "image and index statements from explicit ramification and irreducibility hypotheses, with a fully worked quadratic polynomial",
@@ -3473,9 +3810,30 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
          "line": 374,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.zsmul_point_eq_smulEval",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ZSMul.lean",
+         "line": 1013,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.finrank_adjoin_Φ_div_ΨSq",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/RatFuncDegree.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "Height.logHeight₁_pow",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 622,
+         "fit": "related"
         }
        ],
-       "note": "`Lattès` has zero occurrences. The elliptic side has real content — the canonical height of `n • P` is `n²` times that of `P`, and the Néron–Tate pairing is built from it as the polarization of a quadratic map — but it is stated for the group law, not for a Lattès map on `P¹`, and there is no power map on `P¹` at all."
+       "note": "`Lattès` has zero occurrences. The elliptic side has real content — the canonical height of `n • P` is `n²` times that of `P`, and the Néron–Tate pairing is built from it as the polarization of a quadratic map — and it is stated for the group law. Tau Ceti has the Lattès map of [n] in all but name: x(nP) = Φₙ(x)/ΨSqₙ(x) (`zsmul_point_eq_smulEval`), with Φₙ and ΨSqₙ coprime and the rational function of degree n². Mathlib has the power map's height identity h(x^d) = d·h(x). Missing: packaging either as a dynamical system on ℙ¹, relating its canonical height to the elliptic ĥ, and the power-map preperiodic classification."
       },
       {
        "target": "keeping dynamical Lehmer, uniform boundedness and unrestricted dynamical Mordell–Lang conjectural, with explicit conditional parameters",
