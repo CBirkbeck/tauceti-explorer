@@ -1,3 +1,96 @@
+# LLHLM23 continuation: rank-one scope in Sections 7–9
+
+Codex — codex-rtOQ9t; issue 1254; 29 September 2026. Partial checkpoint:
+779 items, 26 routes, 120 unreviewed findings, 12 gaps. The earlier full-paper
+extraction and its reading attribution are retained. This continuation reads
+the later applications and propagates the existing E88, E102 and E110 findings.
+
+## Corrections and proof boundaries
+
+**P17 now states its rank hypothesis.** Its previous statement repeated the
+unqualified Remark 6.2.5, although its proof already required n ≥ 2. Summing
+the simple-root inequalities gives p > n²+n−1 > 2n in that range. GL₁ has no
+roots, so its numerical genericity is vacuous at every prime.
+
+**E88 reaches the proof of Theorem 8.4.10(1).** That proof starts with the weak
+minimal detectable patching functor supplied by Proposition 6.2.6. The supplier
+assumes p ∤ 2n. Numerical (6n−2)-genericity does not imply this when n=1,p=2.
+B24 now carries the prime restriction explicitly, preserving the unqualified
+source statement and recording the dyadic scalar construction as an unresolved
+target. E88's reach changes from “nothing” to “the proof”. This is not a
+counterexample to the existence of a scalar patching functor. B25, B26 and B42
+record the corresponding boundary of their chosen-functor arguments.
+
+**E102 also disproves the full interval hook in diagram (7.17).** Take
+K=Q_p, n=1, trivial type and h=p−1. The two F[[v]]-modules
+
+- M₀=F[[v]]e₀, with φ(e₀)=e₀;
+- M₁=F[[v]]e₁, with φ(e₁)=v^(p−1)e₁
+
+have height in [0,h]. After inverting v, the map e₁↦v e₀ is an isomorphism:
+both sides of Frobenius compatibility equal v^p e₀. An integral isomorphism
+would have unit coefficient a, but φ(a)=v^(p−1)a forces its v-valuation to
+be 1. Thus the objects are not integrally isomorphic. The final hooked arrow
+from the whole bounded-height quotient to the étale stack in (7.17) is not
+a monomorphism. Choose λ=h and the compatible central character; rank-one
+regularity and all the theorem's root-depth conditions hold. The counterexample
+uses the whole height interval; it does not disprove the fixed-Hodge component
+equality in part (1).
+
+G35 therefore records the conservative corrected scope n≥2. Its original
+statement remains in `sourceStatement`, and its rank-one target explicitly
+requires a valid restriction on the interval map. The previous p>h+2 range
+of G18 addresses that comparison, but is not by itself a completed audit of
+all monodromy and component inputs. G17's comparison API now carries the
+same guard as G18 and has this interval collision as a non-example.
+
+**The downstream proof obligations are now attached to their consumers.**
+The `rankOneProofBoundary` fields cover the true-monodromy/Elkik comparison
+(G28–G30), nonempty shape charts (G31), component factorization and labelling
+(G33–G35, G53–G54), and the common Serre-weight reduction (G37, G58–G61).
+They distinguish the actual height/prime restriction, the standing odd-prime
+lifting hypothesis, the cyclotomic-free argument, and the missing scalar
+monodromy calculation. G30 explicitly imports K58 for scalar semisimplicity.
+The outlines remain source-level plans; these annotations do not establish
+the unrestricted rank-one source statements.
+
+**Polynomial genericity has additional content.** N80 already proves
+P_m=(-1)^m m! in rank one. The explicit P₄ factors occurring in the §8/§9
+polynomial applications exclude p=2 and p=3 even though root depth excludes
+neither. B27 gets that regression example and V08 records its consequence.
+The earlier corrections to B27's factors and signs are unchanged. Once a
+finite threshold B depending on the fixed Hodge data and e has been proved
+sufficient, B!·P is still a nonzero integral polynomial independent of p,
+and its genericity forces p>B. This explains how an existential polynomial
+can absorb such a bound; it does not supply the missing scalar proof or B.
+
+## Sources, ownership and validation
+
+Fresh reading: the [published author-hosted PDF](https://math.rice.edu/~bl70/LocModels.pdf),
+PDF150–187, with PDF24–25, 33–34 and 149 for conventions/setup. Page images
+were checked at PDF129, 158 (including an enlarged view of the final hook)
+and 173. The [arXiv v2](https://arxiv.org/pdf/2007.05398v2) comparison covers
+PDF94, 116–117 and 127–128; the relevant scope problems persist there.
+Hashes and this limited fresh-reading scope are recorded in the result.
+The arXiv history and Levin's publication page list no correction to these
+passages. The publisher page timed out; its current correction listing was
+not verified. These remain unreviewed findings.
+
+No item, classification or owner was added. The local-model and common
+patching route briefs now carry the boundary. The current L7 scope and
+R03.5/R03.6 reviewed audits were read, as were the upstream SemisimpleAlgebras
+and RootSystems documents. The current coverage file has no separate
+LocalGaloisDeformationRings entry; no new library claim is made.
+
+`check_paper.py`, `intake.py check-files` and `git diff --check` pass. All
+585 missing items remain routed exactly once. The internal graph is acyclic
+with 1,604 edges. Exact integer regressions cover 2,025 factorial/prime cases,
+25 scalar Frobenius valuation cases and 99 higher-rank prime inequalities.
+There is no Lean deliverable or compilation. Twelve gaps remain; the handoff
+identifies the mathematical inputs needed to finish this one.
+
+---
+
 # LLHLM23 continuation: proof steps for Appendix A (the A queue), and E119–E120
 
 Claude Code — cc-58621d; issue 1254; 29 September 2026 (sixth step). This takes the A queue: the 56
