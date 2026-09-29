@@ -13,7 +13,7 @@
   "ArithmeticGaloisDuality:R02.6"
  ],
  "status": "partial",
- "summary": "Second checkpoint of the blueprint for global Galois duality and compact coefficients, within RS-08's boundaries. R02.1 (first checkpoint) plans compact and rational coefficients: derived limits, the Milnor sequence, Tate's inverse-limit theorem, rationalisation and Harpaz–Wittenberg's corrected splitting torsor. This checkpoint adds R02.3 and the finite-module part of R02.4 from Milne, Arithmetic Duality Theorems I §§1, 2, 4, 5: the group G_{K,S}, Hermite finiteness and finiteness of H¹, localisation maps with the modified archimedean groups, S-ideles and S-idele classes, P-class formations and (G_S, C_S), the S-unit Kummer sequence; Ext of discrete modules, Tate's duality for a class formation, global duality, the dual module, local duality at the archimedean places, unramified annihilators, restricted products and Ш, Poitou–Tate duality with the nine-term sequence, and its consequences (finiteness, cohomological dimension, surjectivity of H², H³ of the S-units, Tate's global Euler characteristic with the modular induction lemma). Three source findings in Milne are recorded (two misprints, and Theorem 4.6(b)'s known gap). The third checkpoint adds R02.2 from Neukirch–Schmidt–Wingberg II §§1, 2, 4: the convergent spectral sequence of a first-quadrant double complex on Mathlib's spectral objects, Hochschild–Serre with edge maps, restriction/corestriction morphisms and cup products, d₂^{0,1} = transgression, d₂ = −u ∪, the degeneration criteria, finite-index descent, and Rubin's five-term sequence for compact coefficients. R02.5, R02.6, D7 and D8 are not yet read. The fourth checkpoint adds R02.5 and R02.6 from Darmon–Diamond–Taylor §§2.3, 2.7–2.8: the Greenberg–Wiles formula over number fields with its archimedean conventions, the comparison of Selmer groups when one condition changes, the local cohomology at Taylor–Wiles primes, the conditional dual-Selmer killing calculation, H¹(SL₂(F), End⁰) = 0 and the group-theoretic input to Taylor–Wiles primes; with two DDT misprints (E5, E6).",
+ "summary": "Second checkpoint of the blueprint for global Galois duality and compact coefficients, within RS-08's boundaries. R02.1 (first checkpoint) plans compact and rational coefficients: derived limits, the Milnor sequence, Tate's inverse-limit theorem, rationalisation and Harpaz–Wittenberg's corrected splitting torsor. This checkpoint adds R02.3 and the finite-module part of R02.4 from Milne, Arithmetic Duality Theorems I §§1, 2, 4, 5: the group G_{K,S}, Hermite finiteness and finiteness of H¹, localisation maps with the modified archimedean groups, S-ideles and S-idele classes, P-class formations and (G_S, C_S), the S-unit Kummer sequence; Ext of discrete modules, Tate's duality for a class formation, global duality, the dual module, local duality at the archimedean places, unramified annihilators, restricted products and Ш, Poitou–Tate duality with the nine-term sequence, and its consequences (finiteness, cohomological dimension, surjectivity of H², H³ of the S-units, Tate's global Euler characteristic with the modular induction lemma). Three source findings in Milne are recorded (two misprints, and Theorem 4.6(b)'s known gap). The third checkpoint adds R02.2 from Neukirch–Schmidt–Wingberg II §§1, 2, 4: the convergent spectral sequence of a first-quadrant double complex on Mathlib's spectral objects, Hochschild–Serre with edge maps, restriction/corestriction morphisms and cup products, d₂^{0,1} = transgression, d₂ = −u ∪, the degeneration criteria, finite-index descent, and Rubin's five-term sequence for compact coefficients. R02.5, R02.6, D7 and D8 are not yet read. The fourth checkpoint adds R02.5 and R02.6 from Darmon–Diamond–Taylor §§2.3, 2.7–2.8: the Greenberg–Wiles formula over number fields with its archimedean conventions, the comparison of Selmer groups when one condition changes, the local cohomology at Taylor–Wiles primes, the conditional dual-Selmer killing calculation, H¹(SL₂(F), End⁰) = 0 and the group-theoretic input to Taylor–Wiles primes; with two DDT misprints (E5, E6). Checkpoint 5 (cc-39fac3) starts D7 from Nekovář, Selmer complexes, Chapter 5: derived local Tate duality with its sign conventions, compactly supported continuous cochains with their cup products and Euler characteristic, the global invariant on H³_c, derived Poitou–Tate duality, duality after localisation and the p = 2 real-place modifications.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -342,6 +342,17 @@
    "readSections": [
     "§2.3 (Theorems 2.17–2.19), pp. 59–62; §2.7 end (Theorem 2.41 proof, Lemma 2.42, Corollary 2.43), pp. 78–79; §2.8 (Lemmas 2.44–2.46, 2.48, Corollary 2.45, Theorems 2.47, 2.49 with proof), pp. 80–84, on the page images for pp. 62, 83–84"
    ]
+  },
+  {
+   "id": "NEKOVAR-SC",
+   "title": "Selmer complexes",
+   "authors": "Jan Nekovář",
+   "edition": "Astérisque 310 (2006), Société Mathématique de France; Numdam scan, printed page = PDF page − 9; the OCR text layer is unreliable for formulas, so statements were read on rendered pages",
+   "url": "https://www.numdam.org/item/AST_2006__310__R1_0.pdf",
+   "sha256": "61c84e5ad3252a2e520747215ac57a282addc2b58c824a3637bcd77bbe02153f",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, D7): Chapter 5 §§5.1–5.4 and 5.6–5.7.2, pp. 113–131 (PDF 122–140), on the page images; §5.5 (Poincaré groups) skimmed."
+   ]
   }
  ],
  "sourceVersions": [
@@ -379,6 +390,13 @@
    "citation": "H. Darmon, F. Diamond, R. Taylor, Fermat's Last Theorem, author PDF revised 9 September 2007",
    "read": "2026-09-29",
    "sha256": "254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/AST_2006__310__R1_0.pdf",
+   "citation": "J. Nekovář, Selmer complexes, Astérisque 310 (2006)",
+   "read": "2026-09-29",
+   "sha256": "61c84e5ad3252a2e520747215ac57a282addc2b58c824a3637bcd77bbe02153f"
   }
  ],
  "nodes": [
@@ -3712,6 +3730,601 @@
    "planet": {
     "name": "Taylor–Wiles group theory"
    }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:D7/local-invariant-trivialization",
+   "parentStageId": "ArithmeticGaloisDuality:D7",
+   "realises": [
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "title": "The local invariant map as a quasi-isomorphism",
+   "kind": "lemma",
+   "statement": "For v ∈ S_f and n ≥ 0, local class field theory gives inv_v : H²(G_v, ℤ/p^n(1)) = Br(K_v)[p^n] ≅ ℤ/p^n (5.1.3). Hence for every R-module A with trivial action, inv_v : H²_cont(G_v, A(1)) ≅ A and H^i_cont(G_v, A(1)) = 0 for i > 2, with A(1) = A ⊗_R R(1); the map i_v : A[−2] → τ_{≥2}C_cont(G_v, A(1)) induced by inv_v^{−1} is a quasi-isomorphism (5.2.1.1). For a complex A• with trivial action this gives RΓ_cont(G_v, A•(1)) → A•[−2] in D(_R Mod), and for a bounded below complex of injectives a homotopy inverse r_v : τ^{II}_{≥2}C_cont(G_v, A•(1)) → A•[−2], unique up to homotopy (5.2.1.3).",
+   "hypotheses": [
+    "K a global field of characteristic ≠ p, S a finite set of primes containing those above p and the archimedean ones, S_f its non-archimedean part, G_{K,S} = Gal(K_S/K) and G_v the decomposition groups through fixed embeddings; R a complete local noetherian ring with finite residue field of characteristic p; condition (P): if p = 2 then K has no real prime (the case without (P) is its own node)."
+   ],
+   "proofSteps": [
+    "5.1.3 is local class field theory (Tate); cd_p(G_v) = 2 (5.1.2) kills degrees > 2.",
+    "Pass from ℤ/p^n to A by the admissibility of A(1) and continuity (Nekovář Proposition 3.2.5).",
+    "A quasi-isomorphism into a bounded below complex of injectives has a homotopy inverse."
+   ],
+   "acceptance": [
+    "Local class field theory and cd_p(G_v) = 2 are imported from Tau Ceti ClassFieldTheory Layer 5 and the R02.4 nodes."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.4/archimedean-local-duality",
+    "ArithmeticGaloisDuality:R02.4/cohomological-dimension-bound",
+    "ArithmeticGaloisDuality:R02.1/rationalization"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/DerivedDuality",
+    "namespace": "TauCeti.GaloisCohomology"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "§5.1.3 and §5.2.1, (5.2.1.1)–(5.2.1.3), pp. 114–115 (Numdam; PDF 123–124)",
+     "match": "5.1.3 and 5.2.1, read on the page images."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:D7/local-duality-maps",
+   "parentStageId": "ArithmeticGaloisDuality:D7",
+   "realises": [
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "title": "The local duality morphisms α_{J,X}",
+   "kind": "construction",
+   "statement": "Fix v ∈ S_f, a bounded complex J of injective R-modules and r_{v,J} as above. For a bounded complex X• of admissible R[G_v]-modules put D_J(X•) = Hom•_R(X•, J). The evaluation ev₂ : X• ⊗_R D_J(X•)(1) → J(1), the cup product and r_{v,J} give a morphism of complexes C•_cont(G_v, X•) ⊗ C•_cont(G_v, D_J(X•)(1)) → J[−2], hence by adjunction α_{J,X•} : C•_cont(G_v, X•) → D_{J[−2]}(C•_cont(G_v, D_J(X•)(1))), and a well-defined α_{J,X} : RΓ_cont(G_v, X) → D_{J[−2]}(RΓ_cont(G_v, D_J(X)(1))) in D^b(_R Mod) independent of r_{v,J}; symmetrically α′_{J,X} from ev₁. They induce pairings H^i_cont(G_v, X) ⊗ H^j_cont(G_v, D_J(X)(1)) → H^{i+j−2}(J•) (5.2.2.1).",
+   "hypotheses": [
+    "K a global field of characteristic ≠ p, S a finite set of primes containing those above p and the archimedean ones, S_f its non-archimedean part, G_{K,S} = Gal(K_S/K) and G_v the decomposition groups through fixed embeddings; R a complete local noetherian ring with finite residue field of characteristic p; condition (P): if p = 2 then K has no real prime (the case without (P) is its own node).",
+    "Two choices of J (5.2.3): (A) J = I[n], I an injective hull of the residue field (D_J is Matlis duality); (B) J = ω•[n], a dualizing complex (Grothendieck duality). In both, ε_J : X → D_J(D_J(X)) is a quasi-isomorphism under the finiteness hypotheses."
+   ],
+   "proofSteps": [
+    "The adjunction Hom(A ⊗ B, C) = Hom(A, Hom(B, C)) (Nekovář 1.2.6) turns the pairing into α.",
+    "Independence of r_{v,J}: two homotopy inverses are homotopic.",
+    "Matlis duality (Nekovář 2.3.2) and Grothendieck duality (2.6, 2.8.11) give ε_J, cited from Nekovář Chapter 2."
+   ],
+   "acceptance": [
+    "The dualizing functors of Nekovář Chapter 2 are cited, not decomposed (remaining)."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:D7/local-invariant-trivialization",
+    "ArithmeticGaloisDuality:R02.1/cochains-inverse-limit"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/DerivedDuality",
+    "namespace": "TauCeti.GaloisCohomology"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "§5.2.2–5.2.3, pp. 115–116 (PDF 124–125)",
+     "match": "5.2.2 (construction of α and α′, pairings (5.2.2.1)) and 5.2.3 (the choices of J), read on the page images."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisCohomology.dualizingHom",
+     "role": "constructor",
+     "statement": "D_J(X•) = Hom•_R(X•, J)."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.localDualityMap",
+     "role": "constructor",
+     "statement": "α_{J,X} : RΓ_cont(G_v, X) → D_{J[−2]}(RΓ_cont(G_v, D_J(X)(1)))."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.localDualityMap′",
+     "role": "constructor",
+     "statement": "α′_{J,X} from the other evaluation map."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.localDualityPairing",
+     "role": "constructor",
+     "statement": "The pairings (5.2.2.1) on cohomology."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.localDualityMap_indep",
+     "role": "characterisation",
+     "statement": "Independent of the homotopy inverse r_{v,J}."
+    }
+   ],
+   "tests": [
+    {
+     "name": "finite_module",
+     "kind": "value",
+     "statement": "R = ℤ_p, J = ℚ_p/ℤ_p, X = ℤ/p: the pairing H⁰(G_v, ℤ/p) × H²(G_v, μ_p) → H²(G_v, μ_p) ≅ ℤ/p is Tate's cup-product pairing (5.1.4)."
+    },
+    {
+     "name": "zero_complex",
+     "kind": "degenerate",
+     "statement": "X = 0 gives the zero map."
+    },
+    {
+     "name": "no_finiteness",
+     "kind": "non-example",
+     "statement": "Without the finiteness hypotheses of 5.2.3, ε_J need not be a quasi-isomorphism (for example X = ⊕_ℕ ℤ/p with J = I), and α need not be an isomorphism."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticGaloisDuality:D7/derived-local-duality",
+     "how": "the maps shown to be isomorphisms"
+    },
+    {
+     "where": "ArithmeticGaloisDuality:D7/local-duality-functoriality",
+     "how": "naturality and symmetry of α, α′"
+    }
+   ]
+  },
+  {
+   "id": "ArithmeticGaloisDuality:D7/derived-local-duality",
+   "parentStageId": "ArithmeticGaloisDuality:D7",
+   "realises": [
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "title": "Derived local Tate duality",
+   "kind": "theorem",
+   "statement": "Assume (i) J = I[n] and X ∈ D^b_{R-ft} or D^b_{R-coft} of admissible R[G_v]-modules, or (ii) J = ω•[n] and X ∈ D^b_{R-ft}. Then α_{J,X} and α′_{J,X} are isomorphisms in D^b(_R Mod) (Proposition 5.2.4); α_{J[n],X} is α_{J,X} shifted (Lemma 5.2.5). Consequently, if T, T* ∈ D^b_{R-ft} and A, A* ∈ D^b_{R-coft} are related by the duality diagram (T* = 𝒟(T), A = Φ(T), A* = D(T)), then so are RΓ_cont(G_v, T), RΓ_cont(G_v, T*(1))[2], RΓ_cont(G_v, A) and RΓ_cont(G_v, A*(1))[2], and there is a spectral sequence E₂^{i,j} = Ext^i_R(H^{2−j}_cont(G_v, T*(1)), ω) = Ext^i_R(D(H^j_cont(G_v, A)), ω) ⇒ H^{i+j}_cont(G_v, T) (Theorem 5.2.6). On cohomology, cup product gives H^i(G_v, T) ≅ D(H^{2−i}(G_v, A*(1))) and H^j(G_v, A*(1)) ≅ D(H^{2−j}(G_v, T)) (5.2.10).",
+   "hypotheses": [
+    "K a global field of characteristic ≠ p, S a finite set of primes containing those above p and the archimedean ones, S_f its non-archimedean part, G_{K,S} = Gal(K_S/K) and G_v the decomposition groups through fixed embeddings; R a complete local noetherian ring with finite residue field of characteristic p; condition (P): if p = 2 then K has no real prime (the case without (P) is its own node)."
+   ],
+   "proofSteps": [
+    "(i): triangles and truncation reduce to a single module; Lemma 5.2.5 reduces to J = I; for X = T of finite type, α_T is the limit of α_{I,T/𝔪^nT}, which are Tate's local duality (5.1.4) for finite modules, and u₁, …, u₈ are quasi-isomorphisms by the Mittag-Leffler lemmas (Nekovář 4.1.2, 4.2.4); dually for A of cofinite type.",
+    "(ii): reduce to J = ω•[d] and compare with J = I through Φ_{−d} and the trace, using Nekovář 2.8.12, 1.2.13 and 3.5.8.",
+    "Theorem 5.2.6: combine the isomorphisms of 5.2.4 with Nekovář 4.3.1 and 2.8.1; the spectral sequence is 2.8.6 applied to the diagram."
+   ],
+   "acceptance": [
+    "This is the derived form of local Tate duality asked for in D7; the finite-module duality (5.1.4) is imported from Tau Ceti ClassFieldTheory Layer 5."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:D7/local-duality-maps",
+    "ArithmeticGaloisDuality:D7/local-invariant-trivialization",
+    "ArithmeticGaloisDuality:R02.1/milnor-sequence",
+    "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/DerivedDuality",
+    "namespace": "TauCeti.GaloisCohomology"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "§5.2.4–5.2.6 and 5.2.10, pp. 116–121 (PDF 125–130)",
+     "match": "Proposition 5.2.4, Lemma 5.2.5, Theorem 5.2.6 and 5.2.10, read on the page images."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Derived local duality"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:D7/local-duality-functoriality",
+   "parentStageId": "ArithmeticGaloisDuality:D7",
+   "realises": [
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "title": "Functoriality and symmetry of local duality",
+   "kind": "lemma",
+   "statement": "For f : X• → Y• of bounded complexes of admissible R[G_v]-modules: α_{J,X•} = α′_{J,D_J(X•)(1)} ∘ (ε_J)_*; the squares of α and α′ with f_* and (D_J(f)(1))_* commute; and the composite D_{J[−2]}(α′_{J,X•}) ∘ ε_{J[−2]} is homotopic to α_{J,X•} (Proposition 5.2.7, Corollary 5.2.8). In the self-dual case f : X → D_J(X)(1) with g = D_J(f)(1) ∘ ε_J, the pairings satisfy ∪_g = ∪_f ∘ s₁₂; in particular g = ±f gives ∪_f ∘ s₁₂ = ±∪_f (5.2.9).",
+   "hypotheses": [
+    "K a global field of characteristic ≠ p, S a finite set of primes containing those above p and the archimedean ones, S_f its non-archimedean part, G_{K,S} = Gal(K_S/K) and G_v the decomposition groups through fixed embeddings; R a complete local noetherian ring with finite residue field of characteristic p; condition (P): if p = 2 then K has no real prime (the case without (P) is its own node)."
+   ],
+   "proofSteps": [
+    "(i) from Nekovář 1.2.12 and the commutative diagram of cup products and evaluation maps (1.2.9).",
+    "(ii) from 1.2.11; (iii) from (1.2.7.1), 3.4.5.4 and 1.2.14, with the involution 𝒯 homotopic to the identity.",
+    "5.2.9 from (1.2.7.1) and a derived version of 1.2.10."
+   ],
+   "acceptance": [
+    "These are the sign normalisations D7 asks to fix once; they are the ones Nekovář uses throughout."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:D7/local-duality-maps",
+    "ArithmeticGaloisDuality:D7/derived-local-duality"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/DerivedDuality",
+    "namespace": "TauCeti.GaloisCohomology"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "§5.2.7–5.2.9, pp. 119–121 (PDF 128–130)",
+     "match": "Proposition 5.2.7, Corollary 5.2.8 and 5.2.9."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:D7/compact-support-cochains",
+   "parentStageId": "ArithmeticGaloisDuality:D7",
+   "realises": [
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "title": "Continuous cochains with compact support",
+   "kind": "construction",
+   "statement": "For a complex M• of ind-admissible R[G_{K,S}]-modules, C•_{c,cont}(G_{K,S}, M•) = Cone(C•_cont(G_{K,S}, M•) --res_{S_f}--> ⊕_{v∈S_f} C•_cont(G_v, M•))[−1], with res_v = ρ_v^* through the chosen embeddings (Definition 5.3.1.1); only finite places enter (the convention adapted to duality). A different embedding changes res_v by conjugation, and the induced map of cones is a homotopy equivalence (5.3.1.2). Its cohomology is H^i_{c,cont}(G_{K,S}, M•); the functor preserves homotopies, exact sequences and quasi-isomorphisms, giving RΓ_{c,cont}(G_{K,S}, −) with an exact triangle RΓ_{c,cont} → RΓ_cont(G_{K,S}, M) → ⊕_{v∈S_f} RΓ_cont(G_v, M) (5.3.1.1) and the corresponding long exact sequence (5.3.1.2). It preserves D^*_{R-ft} and D^*_{R-coft} (Lemma 5.3.2). In degree-wise terms, elements are pairs (a, a_S) with deg(a, a_S) = deg a = deg a_S + 1 and d(a, a_S) = (da, −res_{S_f}(a) − da_S).",
+   "hypotheses": [
+    "K a global field of characteristic ≠ p, S a finite set of primes containing those above p and the archimedean ones, S_f its non-archimedean part, G_{K,S} = Gal(K_S/K) and G_v the decomposition groups through fixed embeddings; R a complete local noetherian ring with finite residue field of characteristic p; condition (P): if p = 2 then K has no real prime (the case without (P) is its own node)."
+   ],
+   "proofSteps": [
+    "The cone of a morphism of complexes is a complex; the triangle is the cone triangle shifted.",
+    "Embedding change: the first square commutes up to the homotopy h_v = α′*_v ⋆ h_{σ_v}(M•) ⋆ inf, the second strictly; Cone(id, (σ_v)_*, h) is a homotopy equivalence with inverse Cone(id, (σ_v^{−1})_*, h′), by Nekovář 1.1.7 and a 2-homotopy.",
+    "Lemma 5.3.2 from Nekovář 4.2.7 for the global and local terms and the long exact sequence."
+   ],
+   "acceptance": [
+    "With the other convention (archimedean terms included) the cone differs at real places; for p = 2 with real places Nekovář uses modified Tate complexes (see compact-support-without-p).",
+    "R02.3 asks for compactly supported cohomology \"using the localisation map and the corrected infinite-place terms\"; this node supplies the finite-place construction and without-p supplies the correction."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.3/localisation-maps",
+    "ArithmeticGaloisDuality:R02.3/restricted-ramification-group",
+    "ArithmeticGaloisDuality:R02.1/cochains-inverse-limit"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/CompactSupport",
+    "namespace": "TauCeti.GaloisCohomology"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "§5.3.1–5.3.2, pp. 122–123 (PDF 131–132)",
+     "match": "Definition 5.3.1.1, 5.3.1.2, 5.3.1.3 with (5.3.1.1)–(5.3.1.2), and Lemma 5.3.2, read on the page images."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisCohomology.compactCochains",
+     "role": "constructor",
+     "statement": "C•_{c,cont}(G_{K,S}, M•) as the shifted cone of res_{S_f}."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.compactCohomology",
+     "role": "constructor",
+     "statement": "H^i_{c,cont}(G_{K,S}, M•)."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.compactTriangle",
+     "role": "relation",
+     "statement": "The exact triangle (5.3.1.1) and the long exact sequence (5.3.1.2)."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.compactCochains_embedding",
+     "role": "equivalence",
+     "statement": "A change of embeddings gives a homotopy equivalence of cones."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.compactCochains_finite",
+     "role": "characterisation",
+     "statement": "Preserves bounded complexes with R-finite (co-finite) cohomology."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.compactCochains_diff",
+     "role": "simp",
+     "statement": "d(a, a_S) = (da, −res_{S_f}(a) − da_S)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "h0_vanishes",
+     "kind": "value",
+     "statement": "For S_f ≠ ∅ and M a G_{K,S}-module, H⁰_c(G_{K,S}, M) = ker(M^{G_{K,S}} → ⊕ M^{G_v}) = 0."
+    },
+    {
+     "name": "euler_ℚ",
+     "kind": "value",
+     "statement": "K = ℚ, S = {p, ∞}, p odd, M = 𝔽_p: H⁰_c = H¹_c = H³_c = 0 and H²_c ≅ 𝔽_p, so χ_c = 1 = dim 𝔽_p^{G_ℝ} (Theorem 5.3.6)."
+    },
+    {
+     "name": "cone_square_zero",
+     "kind": "value",
+     "statement": "The cone differential ((d_B, f), (0, −d_A)) squares to zero exactly when f is a chain map (suggested file)."
+    },
+    {
+     "name": "real_places_p_two",
+     "kind": "non-example",
+     "statement": "For p = 2 and K with a real place the finite-place cone does not give Poitou–Tate; Tate cohomology at real places must be added (5.7)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticGaloisDuality:D7/compact-support-cup-products",
+     "how": "the two cup products"
+    },
+    {
+     "where": "ArithmeticGaloisDuality:D7/derived-global-duality",
+     "how": "RΓ_c in global duality"
+    },
+    {
+     "where": "SelmerIwasawaCohomology:L2",
+     "how": "Selmer complexes as mapping fibres modelled on this cone"
+    }
+   ],
+   "planet": {
+    "name": "Compactly supported cochains"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:D7/compact-support-cup-products",
+   "parentStageId": "ArithmeticGaloisDuality:D7",
+   "realises": [
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "title": "Cup products with compact support",
+   "kind": "construction",
+   "statement": "For complexes A•, B• of ind-admissible R[G_{K,S}]-modules there are two cup products C•_{c,cont}(A•) ⊗ C•_cont(B•) → C•_{c,cont}(A• ⊗ B•), (a, a_S) _c∪ b = (a ∪ b, a_S ∪ res_{S_f}(b)), with d((a, a_S) _c∪ b) = d(a, a_S) _c∪ b + (−1)^{deg(a,a_S)}(a, a_S) _c∪ db (5.3.3.2); and C•_cont(A•) ⊗ C•_{c,cont}(B•) → C•_{c,cont}(A• ⊗ B•), a ∪_c (b, b_S) = (a ∪ b, (−1)^{deg a} res_{S_f}(a) ∪ b_S), with d(a ∪_c (b, b_S)) = (da) ∪_c (b, b_S) + (−1)^{deg a} a ∪_c d(b, b_S) (5.3.3.3). The involutions 𝒯 extend to compact support and are homotopic to the identity, the product diagram with s₁₂ commutes (5.3.3.4), and both products are compatible with ∪ through C_c → C (5.3.3.5).",
+   "hypotheses": [
+    "K a global field of characteristic ≠ p, S a finite set of primes containing those above p and the archimedean ones, S_f its non-archimedean part, G_{K,S} = Gal(K_S/K) and G_v the decomposition groups through fixed embeddings; R a complete local noetherian ring with finite residue field of characteristic p; condition (P): if p = 2 then K has no real prime (the case without (P) is its own node)."
+   ],
+   "proofSteps": [
+    "The Leibniz rules follow from those of ∪ and the differential d(a, a_S) = (da, −res(a) − da_S), using that res is a ring map on cochains.",
+    "The sign (−1)^{deg a} in ∪_c is forced by moving d past a."
+   ],
+   "acceptance": [
+    "These signs are the single sign normalisation D7 asks for at the compact-support level."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:D7/compact-support-cochains"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/CompactSupport",
+    "namespace": "TauCeti.GaloisCohomology"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "§5.3.3, pp. 123–124 (PDF 132–133)",
+     "match": "5.3.3.1–5.3.3.5, read on the page images."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisCohomology.compactCupLeft",
+     "role": "constructor",
+     "statement": "_c∪ : C_c(A) ⊗ C(B) → C_c(A ⊗ B)."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.compactCupRight",
+     "role": "constructor",
+     "statement": "∪_c : C(A) ⊗ C_c(B) → C_c(A ⊗ B)."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.compactCupLeft_leibniz",
+     "role": "relation",
+     "statement": "The Leibniz rule for _c∪."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.compactCupRight_leibniz",
+     "role": "relation",
+     "statement": "The Leibniz rule for ∪_c with the sign (−1)^{deg a}."
+    },
+    {
+     "name": "TauCeti.GaloisCohomology.compactCup_forget",
+     "role": "compatibility",
+     "statement": "Compatibility with ∪ through C_c → C."
+    }
+   ],
+   "tests": [
+    {
+     "name": "degree_one_sign",
+     "kind": "value",
+     "statement": "For deg a = 1, a ∪_c (b, b_S) = (a ∪ b, −res(a) ∪ b_S)."
+    },
+    {
+     "name": "empty_S_f",
+     "kind": "degenerate",
+     "statement": "S_f = ∅: C_c = C and both products are ∪."
+    },
+    {
+     "name": "no_sign",
+     "kind": "non-example",
+     "statement": "Without the sign (−1)^{deg a}, ∪_c fails the Leibniz rule for odd-degree a."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticGaloisDuality:D7/derived-global-duality",
+     "how": "the pairings β, _cβ"
+    }
+   ]
+  },
+  {
+   "id": "ArithmeticGaloisDuality:D7/compact-support-euler-characteristic",
+   "parentStageId": "ArithmeticGaloisDuality:D7",
+   "realises": [
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "title": "Euler–Poincaré characteristic with compact support",
+   "kind": "theorem",
+   "statement": "For a finite discrete 𝔽_p[G_{K,S}]-module M, Σ_{q=0}^{3}(−1)^q dim_{𝔽_p} H^q_c(G_{K,S}, M) = Σ_{v|∞} dim_{𝔽_p}(M^{G_v}) (5.3.5, from Tate's global formula); more generally, for T• a bounded complex of admissible R[G_{K,S}]-modules with R-finite cohomology, Σ_q(−1)^q e_R(H^q_{c,cont}(G_{K,S}, T•)) = Σ_{v|∞}Σ_q(−1)^q e_R((T^q)^{G_v}) (Theorem 5.3.6), for Nekovář's Euler-characteristic function e_R.",
+   "hypotheses": [
+    "K a global field of characteristic ≠ p, S a finite set of primes containing those above p and the archimedean ones, S_f its non-archimedean part, G_{K,S} = Gal(K_S/K) and G_v the decomposition groups through fixed embeddings; R a complete local noetherian ring with finite residue field of characteristic p; condition (P): if p = 2 then K has no real prime (the case without (P) is its own node)."
+   ],
+   "proofSteps": [
+    "5.3.5: the long exact sequence (5.3.1.2) with Tate's global formula (R02.4) and the local formulas (Tate; 5.2.11).",
+    "5.3.6: \"a straightforward modification of the arguments in Sect. 4.6\", by dévissage from the finite case."
+   ],
+   "acceptance": [
+    "Flach's refined formula for noncommutative R finite flat over ℤ_p (5.3.7) is not planned."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:D7/compact-support-cochains",
+    "ArithmeticGaloisDuality:R02.4/global-euler-characteristic",
+    "ArithmeticGaloisDuality:R02.4/euler-characteristic-additivity"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/CompactSupport",
+    "namespace": "TauCeti.GaloisCohomology"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "§5.3.5–5.3.7, pp. 124–125 (PDF 133–134)",
+     "match": "5.3.5 and Theorem 5.3.6."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:D7/global-invariant-trivialization",
+   "parentStageId": "ArithmeticGaloisDuality:D7",
+   "realises": [
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "title": "The global invariant map on H³_c",
+   "kind": "lemma",
+   "statement": "The long exact sequence (5.3.1.2) and the reciprocity law 5.1.5 give inv : H³_{c,cont}(G_{K,S}, ℤ/p^n(1)) ≅ ℤ/p^n (5.4.1). Hence H^i_{c,cont}(G_{K,S}, A(1)) is A for i = 3 and 0 for i > 3, for R-modules A with trivial action, and i : A[−3] → τ_{≥3}C•_{c,cont}(G_{K,S}, A(1)) (from inv^{−1}) is a quasi-isomorphism (5.4.1.1). Since res_{S_f} : H²(G_{K,S}, A^i(1)) → ⊕ H²(G_v, A^i(1)) is injective, τ^{II}_{≥3}C_c ≅ Cone(τ_{≥2}C(G_{K,S}) → ⊕ τ_{≥2}C(G_v))[−1] (5.4.1.2); for a bounded complex J of injectives, a homotopy equivalence with J[−2] ⊕ … yields r_J : τ^{II}_{≥3}C_{c,cont}(G_{K,S}, J(1)) → J[−3], unique up to homotopy (5.4.1.3).",
+   "hypotheses": [
+    "K a global field of characteristic ≠ p, S a finite set of primes containing those above p and the archimedean ones, S_f its non-archimedean part, G_{K,S} = Gal(K_S/K) and G_v the decomposition groups through fixed embeddings; R a complete local noetherian ring with finite residue field of characteristic p; condition (P): if p = 2 then K has no real prime (the case without (P) is its own node)."
+   ],
+   "proofSteps": [
+    "Reciprocity (5.1.5): 0 → H²(G_{K,S}, ℤ/p^n(1)) → ⊕_{v∈S_f} H²(G_v, ℤ/p^n(1)) → ℤ/p^n → 0; with (5.3.1.2) and cd_p = 2 this computes H³_c.",
+    "The injectivity of res_{S_f} on H² gives the cone description; fixing v₀ ∈ S_f, i_S = j ∘ i_{v₀} is a quasi-isomorphism, hence a homotopy equivalence."
+   ],
+   "acceptance": [
+    "The reciprocity sequence is imported from R02.3/R02.4 (sum of local invariants)."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:D7/compact-support-cochains",
+    "ArithmeticGaloisDuality:D7/local-invariant-trivialization",
+    "ArithmeticGaloisDuality:R02.4/h2-localisation-surjective",
+    "ArithmeticGaloisDuality:R02.3/s-idele-class-reciprocity"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/CompactSupport",
+    "namespace": "TauCeti.GaloisCohomology"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "§5.4.1, pp. 125–126 (PDF 134–135)",
+     "match": "5.4.1 with (5.4.1.1)–(5.4.1.3), read on the page images."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:D7/derived-global-duality",
+   "parentStageId": "ArithmeticGaloisDuality:D7",
+   "realises": [
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "title": "Derived Poitou–Tate duality",
+   "kind": "theorem",
+   "statement": "For X ∈ D^b of admissible R[G_{K,S}]-modules, the cup products _c∪ and ∪_c with ev₂, ev₁ and r_J give maps _cβ_{J,X} : RΓ_cont(G_{K,S}, X) → D_{J[−3]}(RΓ_{c,cont}(G_{K,S}, D_J(X)(1))), β_{c,J,X} : RΓ_{c,cont}(G_{K,S}, X) → D_{J[−3]}(RΓ_cont(G_{K,S}, D_J(X)(1))) and their primed versions, independent of choices, and pairings H^i_{c,cont}(G_{K,S}, X) ⊗ H^j_cont(G_{K,S}, D_J(X)(1)) → H^{i+j−3}(J•) (5.4.2.1). Under (i) J = I[n] with X R-finite or R-cofinite, or (ii) J = ω•[n] with X R-finite, these maps are isomorphisms (Proposition 5.4.3); they are natural and symmetric as in 5.2.7 (Proposition 5.4.4). If T, T*, A, A* are related by the duality diagram, so are RΓ_cont(G_{K,S}, T), RΓ_{c,cont}(G_{K,S}, T*(1))[3], RΓ_cont(G_{K,S}, A) and RΓ_{c,cont}(G_{K,S}, A*(1))[3], with spectral sequences E₂^{i,j} = Ext^i_R(H^{3−j}_{c,cont}(G_{K,S}, T*(1)), ω) ⇒ H^{i+j}_cont(G_{K,S}, T) and ′E₂^{i,j} = Ext^i_R(H^{3−j}_cont(G_{K,S}, T*(1)), ω) ⇒ H^{i+j}_{c,cont}(G_{K,S}, T) (Theorem 5.4.5).",
+   "hypotheses": [
+    "K a global field of characteristic ≠ p, S a finite set of primes containing those above p and the archimedean ones, S_f its non-archimedean part, G_{K,S} = Gal(K_S/K) and G_v the decomposition groups through fixed embeddings; R a complete local noetherian ring with finite residue field of characteristic p; condition (P): if p = 2 then K has no real prime (the case without (P) is its own node)."
+   ],
+   "proofSteps": [
+    "As for Proposition 5.2.4, reduce to a finite discrete ℤ/p^n[G_{K,S}]-module M, where the statement is a variant of Poitou–Tate (5.1.6): the non-obvious maps of the nine-term sequence are the cup products ∪_c : H^i(G_{K,S}, M) × H^{3−i}_c(G_{K,S}, M*(1)) → H³_c(G_{K,S}, ℤ/p^n(1)) ≅ ℤ/p^n and _c∪ (Nekovář cites [Ni, Lemma 6.1] and NSW 8.6.13).",
+    "Proposition 5.4.4 as 5.2.7, with the diagram of 5.3.3.4 replacing that of 3.4.5.4.",
+    "Theorem 5.4.5 as 5.2.6 from Proposition 5.4.3."
+   ],
+   "acceptance": [
+    "The finite nine-term Poitou–Tate sequence (R02.4/poitou-tate) is the input; this node is its derived, compact/lattice form, with the modified archimedean terms in compact-support-without-p."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:D7/global-invariant-trivialization",
+    "ArithmeticGaloisDuality:D7/compact-support-cup-products",
+    "ArithmeticGaloisDuality:D7/derived-local-duality",
+    "ArithmeticGaloisDuality:D7/local-duality-maps",
+    "ArithmeticGaloisDuality:R02.4/poitou-tate",
+    "ArithmeticGaloisDuality:R02.4/tate-global-duality"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/CompactSupport",
+    "namespace": "TauCeti.GaloisCohomology"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "§5.4.2–5.4.5, pp. 126–128 (PDF 135–137)",
+     "match": "5.4.2 (the maps and pairings), Propositions 5.4.3–5.4.4 and Theorem 5.4.5, read on the page images."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Derived Poitou–Tate duality"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:D7/duality-after-localization",
+   "parentStageId": "ArithmeticGaloisDuality:D7",
+   "realises": [
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "title": "Duality after localising the coefficients",
+   "kind": "lemma",
+   "statement": "For a multiplicative set 𝒮 ⊆ R, 5.2.1–5.2.2, 5.2.7–5.2.9, 5.4.1–5.4.2 and 5.4.4 hold with R replaced by R_𝒮. If J = ω•_{R_𝒮}[n] (so D_J = 𝒟_{R_𝒮,n}) and the cohomology of X is of finite type over R_𝒮, then α_{J,X} : RΓ_cont(G_v, X) → 𝒟_{R_𝒮,n−2}(RΓ_cont(G_v, 𝒟_{R_𝒮,n}(X)(1))) and _cβ_{J,X}, _cβ′, β_c, β′_c are isomorphisms (Proposition 5.6.3).",
+   "hypotheses": [
+    "K a global field of characteristic ≠ p, S a finite set of primes containing those above p and the archimedean ones, S_f its non-archimedean part, G_{K,S} = Gal(K_S/K) and G_v the decomposition groups through fixed embeddings; R a complete local noetherian ring with finite residue field of characteristic p; condition (P): if p = 2 then K has no real prime (the case without (P) is its own node)."
+   ],
+   "proofSteps": [
+    "Dévissage reduces to an admissible R_𝒮[G_v]-module X of finite type over R_𝒮; then X = 𝒮^{−1}Y with Y of finite type over R (Nekovář 3.7.3), and α is the localisation of α_{ω[n],Y} from 5.2.4; similarly with 5.4.3."
+   ],
+   "acceptance": [
+    "Rational coefficients (R = ℤ_p, 𝒮 = {p^n}) are the case D7 needs for lattice and rational Poitou–Tate."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:D7/derived-local-duality",
+    "ArithmeticGaloisDuality:D7/derived-global-duality"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/DerivedDuality",
+    "namespace": "TauCeti.GaloisCohomology"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "§5.6, Proposition 5.6.3, p. 130 (PDF 139)",
+     "match": "5.6.1–5.6.3."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:D7/compact-support-without-p",
+   "parentStageId": "ArithmeticGaloisDuality:D7",
+   "realises": [
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "title": "Duality when p = 2 and K has real places",
+   "kind": "lemma",
+   "statement": "If (P) fails (p = 2 and K has a real prime), Tate cohomology Ĥ^i(G_v, −) at the real primes enters: cd₂(G_v) = cd₂(G_{K,S}) = ∞ (5.7.1.2); local duality holds for Ĥ (5.7.1.4); the reciprocity sequence uses S with inv_v = 0 at complex v (5.7.1.5); the Poitou–Tate sequence adds ⊕_{K_v=ℝ} Ĥ^i(G_v, M) to the local terms (5.7.1.6); and for i > 2, res_S : H^i(G_{K,S}, M) → ⊕_{K_v=ℝ} Ĥ^i(G_v, M) is an isomorphism (5.7.1.7). The compact-support construction is modified by the complete (Tate) cochain complexes Ĉ•_cont(G_v, M) at real places, with the sign rules of 3.4.1.3 and the standard cup products (5.7.2).",
+   "hypotheses": [
+    "K a global field of characteristic ≠ p, S a finite set of primes containing those above p and the archimedean ones, S_f its non-archimedean part, G_{K,S} = Gal(K_S/K) and G_v the decomposition groups through fixed embeddings; R a complete local noetherian ring with finite residue field of characteristic p; p = 2 and K has at least one real prime."
+   ],
+   "proofSteps": [
+    "These are the classical statements with Tate cohomology at real places (NSW Chapter VIII), restated by Nekovář; the constructions of 5.3 are repeated with Ĉ at real places."
+   ],
+   "acceptance": [
+    "This is D7's \"retaining modified Tate terms at real places when p = 2\"; the details of 5.7.2 onward are to be read in the next checkpoint."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:D7/compact-support-cochains",
+    "ArithmeticGaloisDuality:D7/derived-global-duality",
+    "ArithmeticGaloisDuality:R02.4/archimedean-local-duality",
+    "ArithmeticGaloisDuality:R02.4/poitou-tate"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisCohomology/CompactSupport",
+    "namespace": "TauCeti.GaloisCohomology"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "§5.7.1–5.7.2, pp. 130–131 (PDF 139–140)",
+     "match": "5.7.1.1–5.7.1.7 and the beginning of 5.7.2, read on the page images."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -3829,7 +4442,9 @@
     "ArithmeticGaloisDuality:R02.4/poitou-tate",
     "ArithmeticGaloisDuality:R02.4/global-euler-characteristic",
     "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
-    "ArithmeticGaloisDuality:R02.2/transgression-cup-product"
+    "ArithmeticGaloisDuality:R02.2/transgression-cup-product",
+    "ArithmeticGaloisDuality:D7/local-duality-maps",
+    "ArithmeticGaloisDuality:D7/compact-support-cup-products"
    ],
    "status": "open",
    "note": ""
@@ -3871,7 +4486,9 @@
     "ArithmeticGaloisDuality:R02.4/ext-units-ideles",
     "ArithmeticGaloisDuality:R02.4/h2-localisation-surjective",
     "ArithmeticGaloisDuality:R02.4/global-euler-characteristic",
-    "ArithmeticGaloisDuality:R02.5/greenberg-wiles-formula"
+    "ArithmeticGaloisDuality:R02.5/greenberg-wiles-formula",
+    "ArithmeticGaloisDuality:D7/local-invariant-trivialization",
+    "ArithmeticGaloisDuality:D7/derived-local-duality"
    ],
    "status": "open",
    "note": ""
@@ -4036,10 +4653,14 @@
   },
   {
    "stageId": "ArithmeticGaloisDuality:D7",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Compact-support fibres, restricted products and unramified subgroups in each coefficient regime, Shapiro and the projection formula for compact lattice and rational coefficients, one sign normalisation (RS-08)."
-   ]
+    "Nekovář Chapters 2–4, cited but not decomposed: dualizing functors (Matlis and Grothendieck duality), admissible and ind-admissible modules, continuous cochains of complexes and the comparison with derived-functor cohomology, and the Euler-characteristic function e_R.",
+    "Topological restricted products and unramified subgroups in each coefficient regime, Shapiro and the projection formula for compact lattice and rational coefficients (D7's first paragraph).",
+    "The full continuous Hochschild–Serre spectral sequence (with R02.2) and the derived-limit comparisons retaining lim¹.",
+    "The details of §5.7.2 onward (modified compact-support complexes with Tate cochains at real places) and §5.5 (Poincaré groups)."
+   ],
+   "notes": "Checkpoint 5 (cc-39fac3) plans Nekovář, Selmer complexes, Chapter 5 (11 nodes): local invariant trivialisations, the local duality maps α and derived local duality (planet) with its functoriality and signs, compactly supported cochains (planet) with their cup products and Euler characteristic, the global invariant on H³_c, derived Poitou–Tate duality (planet), duality after localisation, and the modifications without (P)."
   },
   {
    "stageId": "ArithmeticGaloisDuality:D8",
@@ -4060,8 +4681,8 @@
    "stageId": "ArithmeticGaloisDuality:R02.3",
    "status": "partial",
    "remaining": [
-    "Compactly supported arithmetic cohomology as the fibre of the localisation map, with the modified archimedean terms (RS-08 keeps it here). Milne, Arithmetic Duality Theorems, Chapter I has no cochain-level compact support; Nekovář, Selmer complexes, §5, or Milne Chapter II §2 are the sources to read.",
-    "Finiteness of H², the cohomological dimension and the global Euler characteristic, which this stage asks for, are planned in R02.4 (global-finiteness, cohomological-dimension-bound, global-euler-characteristic), because the source proves them from Poitou–Tate; see the restructure proposal."
+    "Finiteness of H², the cohomological dimension and the global Euler characteristic, which this stage asks for, are planned in R02.4 (global-finiteness, cohomological-dimension-bound, global-euler-characteristic), because the source proves them from Poitou–Tate; see the restructure proposal.",
+    "Compactly supported cohomology is now planned in D7 (compact-support-cochains, compact-support-without-p); R02.3 cites it."
    ]
   },
   {
