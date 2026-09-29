@@ -1,0 +1,32 @@
+{
+ "paper": "PAPER-SCHOLZE-13",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept, with the reason corrected. The PadicHodgeTheory P7 packet (P8 and P8:local-rational) already has a node for nearly every §§6–8 statement, and Theorem 4.9, citing this paper; 61 of the route's items are now planned, and the route names them as planned items for which the paper is the source. The remaining missing items are the primitive comparison and finiteness theorem with its proof (Theorems 1.1, 1.3, 5.1, Lemmas 5.3–5.9, Corollary 5.12, Lemma 4.12) and a few remarks. Accepted routes already send these to P8 (PAPER-ZAVYALOV-25 route 7, PAPER-BHATT-MORROW-SCHOLZE-18 route 14). The P7 packet records the same statements as having no owner and requests them from CohomologyComparisons CP.3; P8's blueprint should settle that request in line with the accepted routes. The integral inputs the packet requests from AI.3 are moved to route 5."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept, with the route narrowed and its reason corrected. §2's rank-one almost-module theory (≈_ε, Theorem 2.5, Propositions 2.6–2.11, Lemma 2.12) is not in the PerfectoidSpaces packet and belongs in P0. The packet already plans Definition 2.3, its dependence on M^a and Lemma 2.13 (P0/almost-finitely-generated-and-presented, P0/adic-almost-projective-modules), and P6's node scholze-2013-affinoid-perfectoid-comparison states Definition 4.3(i), Example 4.4 and Lemmas 4.5(i) and 4.6. Those items are now planned. The integral §4 statements the extraction sent to P2 and P6 (Lemma 4.2(iii), Corollary 4.7, Proposition 4.8, Lemma 4.10, Û) are the ones the PadicHodgeTheory packet requests from AInfCohomology AI.3, whose stage text owns the completed integral structure sheaf. Routing them to P2 and P6 would give that sheaf a second owner, so they move to route 5, and the stages are now P0 and P6."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept, with the reason corrected. The accepted AdicEtaleGeometry packet has a node for every §3 statement routed here, citing it: pro-X_ét and |U|, G-fsets and G-pfsets with corrected covers, Proposition 3.5, Lemma 3.6, the corrected Proposition 3.7, Lemmas 3.10–3.11, Propositions 3.12, 3.13 and 3.15, and ν. ClassicalAdicEtaleCohomology H0 has Proposition 3.7(iii), Lemma 3.16 and Corollary 3.17. All 31 items are now planned; the route names planned items only, which §16 allows. Lemma 3.18 moves to route 5."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. The accepted AdicSpacesPartII packet plans Theorem 9.1 over an affinoid base (R3/proper-gaga-coherent-equivalence, R3/proper-gaga) and Proposition 9.2(ii) (R3/proper-coherent-base-change); those items are now planned. Proposition 9.2(i) and Theorem 9.4 (R° topologically of finite type over O_K for reduced R) are in no packet node and stay with this route."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Added by this review. AInfCohomology AI.3 constructs 'the completed integral structure sheaf, its tilt and the Witt A_inf,X sheaf' on the pro-étale site with the corrected covers, and computes the continuous cochains of a toric perfectoid cover. PadicHodgeTheory:P8:local-rational imports the integral A_inf sheaf from it. The PadicHodgeTheory P7 packet requests from AI.3 exactly these 19 statements, for every locally noetherian adic space over Spa(ℚ_p, ℤ_p) and not only generic fibres of smooth formal schemes: Lemmas 3.18, 4.2(iii), 4.10, 5.5 and 5.11, Corollary 4.7, Proposition 4.8, Û and perfectoid objects, and the integral cases of Theorem 6.5 and Corollary 6.6. Sch13 is the source for that widening, so this is a source route for AI.3."
+  }
+ ],
+ "notes": "Items: arXiv v2's 94 numbered statement headers, renumbered to the published text, are all covered except Remarks 1.4, 3.14 and 5.7 and the withdrawn Corollary 3.8 (E7), none of which is a key statement. The published version inserts Lemma 5.8 (completely continuous maps, made explicit from a step of arXiv v2's proof of Lemma 5.6), so published 5.9–5.12 are arXiv 5.8–5.11; source.readSections now says so. Library: the five items hold at Mathlib 082e2d3; BDeRhamPlus, BDeRham, fontaineThetaInvertP (Mathlib/RingTheory/Perfectoid/BDeRham.lean) and the IsBezout class field isPrincipal_of_FG with the ValuationRing → IsBezout instance were opened. Statuses: the extraction compared against stage texts only; five blueprint packets on main, merged 24–27 September, plan 110 of its 191 missing items node by node (each note names the node), giving 5 library, 168 planned, 81 missing. Items stated only in part, with the rest requested from AI.3 (Theorem 6.5(i), Corollary 6.6, Lemma 4.10(iii), Û), stay missing and go to route 5. Duplication for the red team: Lemma 5.2 is planned three times (PadicHodgeTheory:P8:local-rational/toric-charts-for-smooth-spaces, AdicSpacesPartII:R0/smooth-toric-chart, AdicEtaleGeometry:A2/relative-toric-charts), and Lemma 6.12 twice (AdicSpacesPartII:R0/etale-algebraic-model, PadicHodgeTheory:P8:local-rational/etale-algebras-over-torus-models). The node PadicHodgeTheory:P8/etale-to-bdr-plus-comparison-for-lisse-sheaves makes freeness of H^i(X_k̄, M) conditional on H^i(X_k̄, L) being torsion free, but p is a unit in B_dR^+, so H^i(X_k̄, L) ⊗ B_dR^+ is free of rank the rank of H^i(X_k̄, L) in all cases. sourceIssues: all 21 confirmed, each at its locator in the published text (E2 on the 300 dpi page image); E13 was recomputed from Proposition 6.16(ii). No new mistake was found. check_paper.py passes."
+}
