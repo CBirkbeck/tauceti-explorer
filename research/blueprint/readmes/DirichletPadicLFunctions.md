@@ -15168,3 +15168,241 @@ Six complete native lemmas verify rescaled differentiation, the formal logarithm
 Exact cyclotomic controls check18 primitive-root choices,216 logarithmic coefficients,216 independent tame-series derivative coefficients,169 root-independence coefficients,216 constant-shift controls,18 zero-index controls and18 wrong-sign controls. Exact arithmetic in Q[X]/Phi_(p^n) for primitive characters of conductors3,4,5,8,9, including a nonreal cubic character. Inverses are certified by rational Gaussian elimination. The normalized logarithmic coefficient sum is compared with an independently computed finite tame-series quotient after applying the Mahler coefficient recurrence. Every primitive root choice gives the same normalized coefficients. Adding constant7 preserves the derivative but changes the constant, and reversing the Gauss sign fails. These are purely formal checks; no radius of convergence, locally analytic distribution, logarithm branch or L-value is inferred. The largest observed discrepancy is 0.
 
 The initial57-input capture has empty delta at59ff40738bbf946b32cdd2e8f8e627afb0ceb012. All guarded inputs match the predecessor. Current369-node PMIA preserves the compiled332-node interface; no new supplier declaration or full369-node compilation is claimed. Coleman and LAD ownership was inspected, but neither suggested module is imported by these purely formal nodes.
+
+
+## Cyclotomic logarithm constants and their branch invariance
+
+Partial continuation preserving all460 predecessor nodes whole. Seven L3 nodes construct the finite cyclotomic logarithm constant, exact branch difference and cancellation, matched root transport and odd vanishing, then the full formal primitive with its promoted derivative. All16 findings and three previous requests remain whole. One precise inherited Coleman/LAD comparison obligation is recorded, giving eight gaps, four requests and zero closed stages.
+
+Complete published149–153 was reread. The whole Coleman L0 logarithm, branch-change, Iwasawa logarithm and local-expansion nodes, and their exact suggested signatures/import header, were read. The closure check led to whole reads of its disc-analytic-functions, disc-primitive-unique and log-one-add-mul nodes and LAD L1/amice-transform. The existing Amice node does not give the exact discAnalytic/R+ coefficient comparison requested by Coleman, so that inherited supplier obligation is explicitly recorded. The existing source E44–E48 qualifications remain in force. Native Gauss shift, finite bijection, ultrametric sum bound, norm-power, nonnegative-power and primitive-root-unit statements were read at the pins. Seven complete native lemmas verify the algebra; rigorous p-adic modular logarithm controls check the finite sums. Coleman is used through explicit function/law parameters because its suggested file already imports this consumer; that module is not imported or claimed compiled.
+
+### The finite cyclotomic logarithm constant
+
+`DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant` — `DirichletPadic.cyclotomicLogConstant`
+
+Define c_(η,ε)(ℓ)=−G⁻¹ Σ_(a∈ZMod D) w(a)ℓ(z(a)−1). This uses the supplied logarithm in the arithmetic specialization, with its exact inverse-character Gauss normalization.
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w(a)=η⁻¹(a), z(a)=ε^a.val and G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). The constructor takes a supplied function ℓ:K→K. The arithmetic application uses the ColemanIntegration L0 Iwasawa logarithm on C_p, or its restriction to a finite coefficient field. That owner constructs logarithms and their branches. The suggested Coleman module currently imports this Dirichlet module, so the consumer signatures retain ℓ and explicit supplier laws as parameters instead of introducing a circular import or a replacement logarithm. The branch-independence theorem additionally requires K normed and ultrametric, D>1 and η≠1. The odd theorem requires D>1 and the stated multiplicative/root-vanishing laws. The formal derivative theorem requires η primitive, D>1, IsUnit(D:K) and G≠0. Each statement specifies its additional hypotheses; no p-coprimality, convergence, distribution or L-value claim follows from the finite definitions alone.
+
+**Proof:**
+
+1. Form the finite sum over the actual residue ring. Multiplicative characters vanish at nonunits; hence for D>1 only unit residues contribute, and primitive ε makes their logarithm arguments nonzero. The total function value ℓ(0) is irrelevant in that case.
+2. Retain the leading minus sign and the additive character determined by this same ε. The constructor remains meaningful with native totalized inversion even if G=0, but the source comparison uses a primitive character and nonzero Gauss sum.
+3. The supplier Iwasawa logarithm fixes log_p(p)=0. Its multiplicative law, root-of-unity vanishing and branch-change theorem are imported, not planned here. The finite constant is also defined for any supplied function, which makes its data dependence and its conductor-one boundary explicit.
+4. The zero function gives0. Changing the supplied function only where w(a)=0 leaves the sum unchanged. At D=1, the principal character and root1 give c(ℓ)=−ℓ(0), so the conductor-one junk value must not be concealed.
+5. For nontrivial η, a constant supplied function cancels by the native character sum. Later nodes prove the branch and root invariance required for the arithmetic application; none of these assertions constructs an analytic L-function.
+
+**Prerequisites:** `mathlib:gaussSum`, `mathlib:AddChar.zmodChar`, `mathlib:MulChar.map_nonunit`, `mathlib:MulChar.apply_ne_zero_iff`, `mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt`, `mathlib:MulChar.sum_eq_zero_of_ne_one`, `ColemanIntegration:L0/iwasawa-logarithm`.
+
+**Uses:**
+
+- RJW proof of Theorem6.1(ii): Supplies the actual constant term of the finite logarithmic primitive.
+- ColemanIntegration L0 branch-change application: Checks that the nontrivial-character cyclotomic sum is independent of the branch.
+- Formal logarithmic primitive with specified constant: Replaces the arbitrary normalization0 by the supplied cyclotomic logarithm value.
+
+**API:**
+
+- `DirichletPadic.cyclotomicLogConstant_def` (constructor): The exact finite sum−G⁻¹Σ_a w(a)ℓ(z(a)−1).
+- `DirichletPadic.cyclotomicLogConstant_zero` (simp): The zero supplied function gives0.
+- `DirichletPadic.cyclotomicLogConstant_congr` (extensionality): Equality depends only on values at arguments with nonzero character weight.
+- `DirichletPadic.cyclotomicLogConstant_branch_difference` (relation): The exact weighted valuation error when changing branches, promoted below.
+- `DirichletPadic.cyclotomicLogConstant_branch_independent` (compatibility): Nontrivial characters cancel the branch error in an ultrametric field, promoted below.
+- `DirichletPadic.cyclotomicLogConstant_root_transport` (functoriality): Changing ε by a unit power and changing its matching Gauss sum leaves the constant unchanged, promoted below.
+- `DirichletPadic.cyclotomicLogConstant_odd` (simp): Odd characters give0 under the supplied logarithm laws, promoted below.
+
+**Tests:**
+
+- `SuggestedLogarithmicConstantTests.zero_log_constant` (degenerate): The zero supplied function gives constant0.
+- `SuggestedLogarithmicConstantTests.conductor_one_junk_boundary` (non-example): At modulus1, principal character and root1, the constant supplied function7 gives−7; this boundary is outside the nontrivial-character source theorem.
+- `SuggestedLogarithmicConstantTests.nontrivial_constant_function_cancels` (computation): For η≠1 and any c∈K, the supplied constant function c gives0.
+- `SuggestedLogarithmicConstantTests.equal_log_data` (characterisation): Two supplied functions agreeing at every nonzero weighted cyclotomic argument give equal constants.
+
+**Acceptance:** The generic function parameter is an explicit consumer interface. It is not asserted to be a logarithm unless its supplier laws are assumed.
+
+**Source:** Theorem6.1(ii) and its odd-character observation, published149/PDF50; Section6.2 and Lemmas6.4–6.5, published150–153/PDF51–54. Complete published149–153 read for this checkpoint; earlier complete148–155 and confirmed external E44–E48 retained. The finite cyclotomic logarithm constant omitted by the normalized formal primitive is constructed explicitly. Branch change is imported from Coleman L0, then cancelled using equal cyclotomic valuations and the nontrivial character sum. Root transport and odd vanishing are finite identities. This does not assert the source R+ claim for pure p-power conductor or identify the finite constant with an L-value.
+
+### The exact branch-change error
+
+`DirichletPadicLFunctions:L3/cyclotomic-logarithmic-branch-difference` — `DirichletPadic.cyclotomicLogConstant_branch_difference`
+
+Suppose ℓ₁(z(a)−1)−ℓ₀(z(a)−1)=b·v(z(a)−1) whenever w(a)≠0. Then c(ℓ₁)−c(ℓ₀)=−G⁻¹b Σ_a w(a)v(z(a)−1).
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w(a)=η⁻¹(a), z(a)=ε^a.val and G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). The constructor takes a supplied function ℓ:K→K. The arithmetic application uses the ColemanIntegration L0 Iwasawa logarithm on C_p, or its restriction to a finite coefficient field. That owner constructs logarithms and their branches. The suggested Coleman module currently imports this Dirichlet module, so the consumer signatures retain ℓ and explicit supplier laws as parameters instead of introducing a circular import or a replacement logarithm. The branch-independence theorem additionally requires K normed and ultrametric, D>1 and η≠1. The odd theorem requires D>1 and the stated multiplicative/root-vanishing laws. The formal derivative theorem requires η primitive, D>1, IsUnit(D:K) and G≠0. Each statement specifies its additional hypotheses; no p-coprimality, convergence, distribution or L-value claim follows from the finite definitions alone.
+
+**Proof:**
+
+1. Subtract the two definitions with the same root and Gauss denominator. Distribute subtraction through the finite sum and factor the character weight.
+2. For a zero weight both summands vanish, so no law at the potentially zero argument is required. At a nonzero weight apply the supplied branch-change equality.
+3. Pull b outside the finite sum and retain the factor−G⁻¹. The complete native weighted-branch-difference lemma checks this identity without a nonzero Gauss hypothesis.
+4. For Coleman log branches a₀,a₁, take b=a₁−a₀ and v equal to the rational valuation embedded in the coefficient field. This node keeps the error term; it cannot be discarded for a principal character without further information.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant`, `ColemanIntegration:L0/log-branch-change`.
+
+**Tests:**
+
+- `SuggestedLogarithmicConstantTests.exact_branch_error` (compatibility): Replacing any supplied ℓ by x↦ℓ(x)+b·v(x) gives exactly the displayed weighted error.
+
+**Acceptance:** The identity is valid before any character-sum cancellation; it displays the hypothesis needed by the next theorem.
+
+**Source:** Theorem6.1(ii) and its odd-character observation, published149/PDF50; Section6.2 and Lemmas6.4–6.5, published150–153/PDF51–54. Complete published149–153 read for this checkpoint; earlier complete148–155 and confirmed external E44–E48 retained. The finite cyclotomic logarithm constant omitted by the normalized formal primitive is constructed explicitly. Branch change is imported from Coleman L0, then cancelled using equal cyclotomic valuations and the nontrivial character sum. Root transport and odd vanishing are finite identities. This does not assert the source R+ claim for pure p-power conductor or identify the finite constant with an L-value.
+
+### Nontrivial characters remove the branch choice
+
+`DirichletPadicLFunctions:L3/cyclotomic-logarithmic-branch-independent` — `DirichletPadic.cyclotomicLogConstant_branch_independent`
+
+Assume K is normed ultrametric, D>1, η≠1, and v:K→K depends only on the norm at nonzero elements. If ℓ₁(x)−ℓ₀(x)=b·v(x) for x≠0, then c_(η,ε)(ℓ₁)=c_(η,ε)(ℓ₀). In particular Coleman logarithm branches give the same cyclotomic constant.
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w(a)=η⁻¹(a), z(a)=ε^a.val and G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). The constructor takes a supplied function ℓ:K→K. The arithmetic application uses the ColemanIntegration L0 Iwasawa logarithm on C_p, or its restriction to a finite coefficient field. That owner constructs logarithms and their branches. The suggested Coleman module currently imports this Dirichlet module, so the consumer signatures retain ℓ and explicit supplier laws as parameters instead of introducing a circular import or a replacement logarithm. The branch-independence theorem additionally requires K normed and ultrametric, D>1 and η≠1. The odd theorem requires D>1 and the stated multiplicative/root-vanishing laws. The formal derivative theorem requires η primitive, D>1, IsUnit(D:K) and G≠0. Each statement specifies its additional hypotheses; no p-coprimality, convergence, distribution or L-value claim follows from the finite definitions alone.
+
+**Proof:**
+
+1. Because ε^D=1 and D>0, norm multiplicativity and the nonnegative real power equation imply ‖ε‖=1. For any z of norm≤1, induction using z^(n+1)−1=z(z^n−1)+(z−1) and the ultrametric inequality gives ‖z^n−1‖≤‖z−1‖. The complete native power-difference-bound lemma verifies this step.
+2. If a is a unit residue, choose its inverse residue with natural representative m. Reduction modulo D gives (ε^a.val)^m=ε. Apply the same bound in both directions to obtain ‖ε^a.val−1‖=‖ε−1‖. The complete native inverse-power-difference lemma checks the two inequalities; this argument works also when D is a pure p-power.
+3. D>1 and primitive ε imply ε≠1, and every unit-power difference is nonzero. The norm-invariance hypothesis therefore gives v(ε^a.val−1)=v(ε−1) for every nonzero character weight. No assertion that these differences are units is needed.
+4. The inverse character is nontrivial because η is. Apply native MulChar.sum_eq_zero_of_ne_one, then factor the common valuation from the weighted sum. The complete native weighted-constant-zero lemma verifies the cancellation only on the nonzero support.
+5. Insert this zero sum into the exact branch-difference theorem. For Coleman branches the rational valuation is determined by the norm, so the hypotheses are precisely the supplier branch-change law. This finite branch invariance does not cure the confirmed failure of open-unit-disc convergence at pure p-power conductor.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-branch-difference`, `mathlib:norm_pow`, `mathlib:pow_eq_one_iff_of_nonneg`, `mathlib:IsUltrametricDist.isNonarchimedean_norm`, `mathlib:MulChar.apply_ne_zero_iff`, `mathlib:MulChar.sum_eq_zero_of_ne_one`, `mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt`, `mathlib:AddChar.zmodChar_apply`, `ColemanIntegration:L0/log-branch-change`.
+
+**Tests:**
+
+- `SuggestedLogarithmicConstantTests.every_branch_has_same_constant` (compatibility): Under the norm-invariant valuation and branch laws, every pair of branches gives the same constant.
+
+**Acceptance:** Retain η≠1. A principal-character weighted sum of a nonzero common valuation is the number of units times that valuation, and need not vanish. The finite-precision controls include this algebraic counterexample.
+
+**Source:** Theorem6.1(ii) and its odd-character observation, published149/PDF50; Section6.2 and Lemmas6.4–6.5, published150–153/PDF51–54. Complete published149–153 read for this checkpoint; earlier complete148–155 and confirmed external E44–E48 retained. The finite cyclotomic logarithm constant omitted by the normalized formal primitive is constructed explicitly. Branch change is imported from Coleman L0, then cancelled using equal cyclotomic valuations and the nontrivial character sum. Root transport and odd vanishing are finite identities. This does not assert the source R+ claim for pure p-power conductor or identify the finite constant with an L-value.
+
+### The root and Gauss normalization move together
+
+`DirichletPadicLFunctions:L3/cyclotomic-logarithmic-root-transport` — `DirichletPadic.cyclotomicLogConstant_root_transport`
+
+For u∈(ZMod D)ˣ and ε′=ε^u.val with a primitive-root certificate hε′, c_(η,ε′)(ℓ)=c_(η,ε)(ℓ) for every supplied function ℓ.
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w(a)=η⁻¹(a), z(a)=ε^a.val and G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). The constructor takes a supplied function ℓ:K→K. The arithmetic application uses the ColemanIntegration L0 Iwasawa logarithm on C_p, or its restriction to a finite coefficient field. That owner constructs logarithms and their branches. The suggested Coleman module currently imports this Dirichlet module, so the consumer signatures retain ℓ and explicit supplier laws as parameters instead of introducing a circular import or a replacement logarithm. The branch-independence theorem additionally requires K normed and ultrametric, D>1 and η≠1. The odd theorem requires D>1 and the stated multiplicative/root-vanishing laws. The formal derivative theorem requires η primitive, D>1, IsUnit(D:K) and G≠0. Each statement specifies its additional hypotheses; no p-coprimality, convergence, distribution or L-value claim follows from the finite definitions alone.
+
+**Proof:**
+
+1. Multiplication by u permutes the entire residue ring, including the zero-weight nonunits. Write N_ε=Σ_a w(a)ℓ(ε^a−1). Since w(ua)=w(u)w(a), reindexing gives N_ε=w(u)N_(ε^u).
+2. The additive character of ε^u is the mulShift by u of the additive character of ε; check their values using native zmodChar_apply and exponent reduction. Native gaussSum_mulShift gives G_ε=w(u)G_(ε^u), with the same character factor as the numerator.
+3. The value w(u) is nonzero because u is a unit. Cancel this common factor using native field inversion; the complete normalized-reindex lemma checks the algebra even when G itself is0 under totalized inversion.
+4. This proves independence under every unit-power change of the primitive root, without imposing any logarithm law. It is essential to move the Gauss normalization with the root: the finite controls detect sixteen instances where holding the old Gauss denominator fixed changes the value.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant`, `mathlib:gaussSum_mulShift`, `mathlib:Fintype.prod_bijective`, `mathlib:MulChar.apply_ne_zero_iff`, `mathlib:AddChar.zmodChar_apply`.
+
+**Tests:**
+
+- `SuggestedLogarithmicConstantTests.matching_root_normalization` (compatibility): A unit-power root change with its own additive character and Gauss sum preserves the constant.
+
+**Acceptance:** The root relationship is an explicit unit-power equality. No comparison of unrelated coefficient embeddings or branches is silently inferred.
+
+**Source:** Theorem6.1(ii) and its odd-character observation, published149/PDF50; Section6.2 and Lemmas6.4–6.5, published150–153/PDF51–54. Complete published149–153 read for this checkpoint; earlier complete148–155 and confirmed external E44–E48 retained. The finite cyclotomic logarithm constant omitted by the normalized formal primitive is constructed explicitly. Branch change is imported from Coleman L0, then cancelled using equal cyclotomic valuations and the nontrivial character sum. Root transport and odd vanishing are finite identities. This does not assert the source R+ claim for pure p-power conductor or identify the finite constant with an L-value.
+
+### Odd characters have zero logarithmic constant
+
+`DirichletPadicLFunctions:L3/cyclotomic-logarithmic-odd-zero` — `DirichletPadic.cyclotomicLogConstant_odd`
+
+Assume D>1, η(−1)=−1, and ℓ is multiplicative-to-additive on K× and vanishes on every finite-order root of unity. Then c_(η,ε)(ℓ)=0.
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w(a)=η⁻¹(a), z(a)=ε^a.val and G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). The constructor takes a supplied function ℓ:K→K. The arithmetic application uses the ColemanIntegration L0 Iwasawa logarithm on C_p, or its restriction to a finite coefficient field. That owner constructs logarithms and their branches. The suggested Coleman module currently imports this Dirichlet module, so the consumer signatures retain ℓ and explicit supplier laws as parameters instead of introducing a circular import or a replacement logarithm. The branch-independence theorem additionally requires K normed and ultrametric, D>1 and η≠1. The odd theorem requires D>1 and the stated multiplicative/root-vanishing laws. The formal derivative theorem requires η primitive, D>1, IsUnit(D:K) and G≠0. Each statement specifies its additional hypotheses; no p-coprimality, convergence, distribution or L-value claim follows from the finite definitions alone.
+
+**Proof:**
+
+1. For a unit residue put z=ε^a. It is a nonzero root of unity and z≠1. Factor z⁻¹−1=(−z⁻¹)(z−1); the first factor is again a root of unity, of order dividing2D.
+2. The supplied logarithm laws yield ℓ(z⁻¹−1)=ℓ(z−1). The complete native logarithm-inverse-difference lemma checks the factorization and requires both multiplicative arguments nonzero. This is the p-adic logarithm symmetry, not the principal complex logarithm identity.
+3. Negation permutes the residue ring. The inverse character is odd as well, so w(−a)=−w(a). On nonunit residues both weighted summands are0; on unit residues the preceding logarithm identity applies.
+4. Reindex the weighted sum by a↦−a. It equals its negative, hence twice the sum is0. Characteristic0 makes2 nonzero, so the sum is0; the complete native odd-weighted-sum lemma verifies the cancellation.
+5. Multiply by−G⁻¹. The finite controls include the quadratic characters of conductors3 and4, an odd quadratic character of conductor8 and a quartic character of conductor5; all give0 at the tested p-adic precisions.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant`, `mathlib:Fintype.prod_bijective`, `mathlib:MulChar.map_nonunit`, `mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt`, `mathlib:IsPrimitiveRoot.isUnit`, `ColemanIntegration:L0/log-branch`.
+
+**Tests:**
+
+- `SuggestedLogarithmicConstantTests.odd_log_constant_zero` (computation): The primitive quadratic character modulo3 has zero logarithmic constant for every supplied logarithm satisfying the stated laws.
+
+**Acceptance:** The source odd-character vanishing is preserved, including residue characteristic2; characteristic0 still permits the cancellation of2. No p-adic numerical test at p=2 is claimed.
+
+**Source:** Theorem6.1(ii) and its odd-character observation, published149/PDF50; Section6.2 and Lemmas6.4–6.5, published150–153/PDF51–54. Complete published149–153 read for this checkpoint; earlier complete148–155 and confirmed external E44–E48 retained. The finite cyclotomic logarithm constant omitted by the normalized formal primitive is constructed explicitly. Branch change is imported from Coleman L0, then cancelled using equal cyclotomic valuations and the nontrivial character sum. Root transport and odd vanishing are finite identities. This does not assert the source R+ claim for pure p-power conductor or identify the finite constant with an L-value.
+
+### The formal primitive with its logarithm constant
+
+`DirichletPadicLFunctions:L3/tame-logarithmic-primitive-with-constant` — `DirichletPadic.tameLogPrimitive`
+
+Define F_(η,ε,ℓ)=C(c_(η,ε)(ℓ))+H_(η,ε), where H is the preceding normalized formal primitive. Its constant coefficient is c_(η,ε)(ℓ), and its positive coefficients are exactly those of H.
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w(a)=η⁻¹(a), z(a)=ε^a.val and G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). The constructor takes a supplied function ℓ:K→K. The arithmetic application uses the ColemanIntegration L0 Iwasawa logarithm on C_p, or its restriction to a finite coefficient field. That owner constructs logarithms and their branches. The suggested Coleman module currently imports this Dirichlet module, so the consumer signatures retain ℓ and explicit supplier laws as parameters instead of introducing a circular import or a replacement logarithm. The branch-independence theorem additionally requires K normed and ultrametric, D>1 and η≠1. The odd theorem requires D>1 and the stated multiplicative/root-vanishing laws. The formal derivative theorem requires η primitive, D>1, IsUnit(D:K) and G≠0. Each statement specifies its additional hypotheses; no p-coprimality, convergence, distribution or L-value claim follows from the finite definitions alone.
+
+**Proof:**
+
+1. Reuse the actual normalized formal primitive and native constant embedding. The only added datum is the finite cyclotomic logarithm constant; no second formal logarithm construction is introduced.
+2. The native constant coefficient map and constantCoeff H=0 give the specified constant. At every n>0, the constant series contributes0, so the preceding exact logarithmic coefficient formula applies unchanged.
+3. Under the primitive-character and nonzero Gauss hypotheses the Mahler derivative is the tame series, promoted to the next node. Formal uniqueness with this constant follows directly from the preceding all-primitives theorem.
+4. Taking ℓ equal to the Coleman Iwasawa logarithm gives the source formal Taylor expression with its correct constant. A different branch has the same constant for nontrivial η by the branch theorem, and hence the same formal series.
+5. A nonzero logarithm constant makes F different from H. For the quadratic conductor5 character at p=11 the finite computation gives c≡88993993 modulo11^8, which is nonzero; the previous zero normalization cannot be used as the source special value.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant`, `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-primitive`, `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-coefficients`, `DirichletPadicLFunctions:L3/tame-logarithmic-all-primitives`, `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-branch-independent`.
+
+**Uses:**
+
+- RJW Lemma6.4 Taylor expansion: Supplies both the finite logarithm constant and the normalized nonconstant coefficients.
+- RJW Lemma6.5: Provides the formal primitive before analytic and distribution realization.
+- Future unit-restriction special value: Keeps the correct constant available for the finite cyclotomic norm/Euler-factor calculation.
+
+**API:**
+
+- `DirichletPadic.tameLogPrimitive_def` (constructor): F=C(c(ℓ))+H.
+- `DirichletPadic.tameLogPrimitive_constantCoeff` (data): The constant coefficient is exactly c(ℓ).
+- `DirichletPadic.tameLogPrimitive_coeff` (data): Every positive coefficient equals the corresponding coefficient of H.
+- `DirichletPadic.tameLogPrimitive_mahler` (compatibility): Under the stated primitive/Gauss hypotheses, the Mahler derivative is tameSeries; promoted below.
+- `DirichletPadic.tameLogPrimitive_unique` (universal-property): A formal series with this derivative and this constant equals F, by the preceding all-primitives theorem.
+
+**Tests:**
+
+- `SuggestedLogarithmicConstantTests.zero_log_gives_normalized_primitive` (degenerate): The zero supplied function recovers H.
+- `SuggestedLogarithmicConstantTests.correct_logarithmic_constant` (compatibility): The constant coefficient is the specified finite cyclotomic logarithm sum.
+- `SuggestedLogarithmicConstantTests.nonzero_log_constant_changes_primitive` (non-example): If that constant is nonzero, F is not the normalized primitive H.
+
+**Acceptance:** This constructs a formal series. Open-disc convergence, the associated locally analytic distribution and the Euler-factor restriction comparison remain separate obligations.
+
+**Source:** Theorem6.1(ii) and its odd-character observation, published149/PDF50; Section6.2 and Lemmas6.4–6.5, published150–153/PDF51–54. Complete published149–153 read for this checkpoint; earlier complete148–155 and confirmed external E44–E48 retained. The finite cyclotomic logarithm constant omitted by the normalized formal primitive is constructed explicitly. Branch change is imported from Coleman L0, then cancelled using equal cyclotomic valuations and the nontrivial character sum. Root transport and odd vanishing are finite identities. This does not assert the source R+ claim for pure p-power conductor or identify the finite constant with an L-value.
+
+### The logarithm constant preserves the Mahler primitive
+
+`DirichletPadicLFunctions:L3/tame-logarithmic-primitive-with-constant-derivative` — `DirichletPadic.tameLogPrimitive_mahler`
+
+For η primitive, D>1, hDK:IsUnit(D:K) and G≠0, the Mahler derivation of F_(η,ε,ℓ) is tameSeries η hDK, for every supplied ℓ.
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w(a)=η⁻¹(a), z(a)=ε^a.val and G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). The constructor takes a supplied function ℓ:K→K. The arithmetic application uses the ColemanIntegration L0 Iwasawa logarithm on C_p, or its restriction to a finite coefficient field. That owner constructs logarithms and their branches. The suggested Coleman module currently imports this Dirichlet module, so the consumer signatures retain ℓ and explicit supplier laws as parameters instead of introducing a circular import or a replacement logarithm. The branch-independence theorem additionally requires K normed and ultrametric, D>1 and η≠1. The odd theorem requires D>1 and the stated multiplicative/root-vanishing laws. The formal derivative theorem requires η primitive, D>1, IsUnit(D:K) and G≠0. Each statement specifies its additional hypotheses; no p-coprimality, convergence, distribution or L-value claim follows from the finite definitions alone.
+
+**Proof:**
+
+1. Expand F as the sum of the constant series and H. The supplier Mahler derivation is(1+T)d/dT and annihilates constant series.
+2. By additivity, only the derivative of H remains. Apply the preceding normalized-tame-logarithmic-derivative theorem with the exact same character, root and Gauss normalization.
+3. The logarithm laws are unnecessary for this formal derivative identity. They are needed to justify the arithmetic constant, branch invariance and later analytic realization, which are not consequences of a derivative equation alone.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/tame-logarithmic-primitive-with-constant`, `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-derivative`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value`.
+
+**Tests:**
+
+- `SuggestedLogarithmicConstantTests.logarithmic_primitive_derivative` (compatibility): The full formal series with the supplied logarithm constant has exactly the existing tame series as its Mahler derivative.
+
+**Acceptance:** The operator is the Mahler derivation, not ordinary differentiation. The pure-p-power convergence qualification remains unchanged.
+
+**Source:** Theorem6.1(ii) and its odd-character observation, published149/PDF50; Section6.2 and Lemmas6.4–6.5, published150–153/PDF51–54. Complete published149–153 read for this checkpoint; earlier complete148–155 and confirmed external E44–E48 retained. The finite cyclotomic logarithm constant omitted by the normalized formal primitive is constructed explicitly. Branch change is imported from Coleman L0, then cancelled using equal cyclotomic valuations and the nontrivial character sum. Root transport and odd vanishing are finite identities. This does not assert the source R+ claim for pure p-power conductor or identify the finite constant with an L-value.
+
+**Supplier request — LocallyAnalyticDistributions:L1:** Inherited from ColemanIntegration:L0/disc-analytic-functions, used in its logarithm homomorphism and branch construction: for a finite extension L/Q_p inside C_p, supply the coefficient-map isomorphism between its analytic functions on the open unit disc centred at0 and the existing LAD ring R+_L of power series with norm(a_n)·r^n tending to0 for every0≤r<1, with the stated Frechet topology and termwise derivative compatibility. Coleman calls this discAnalytic.equivRPlus. The existing LocallyAnalyticDistributions:L1/amice-transform node supplies the distribution/R+ comparison but not this exact function/coefficient comparison. This request records the existing supplier boundary, not a new logarithm or distribution construction in Dirichlet. The consumer signatures remain conditional on the supplied logarithm laws.
+
+**Consumers:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant`.
+
+**Remaining:** The finite cyclotomic logarithm constant, exact branch error, nontrivial-character branch invariance, matched primitive-root transport and odd vanishing are explicit. The full formal primitive now has that constant and its correct Mahler derivative. Next supply the finite cyclotomic norm/trace computation producing the Euler factor, and connect the tame D>1 formal series to the Coleman-owned local logarithm expansion and LAD-owned convergence/distribution restriction. The actual L-value comparison remains open. Confirmed E45 excludes the unsmoothed R+ assertion at pure p-power conductor; that case requires smoothed primitives. Retain E44 branch normalization, E46 plus sign, E47 full modulus and E48 n=1 correction. Odd/dyadic analytic branches, pole/residue analysis and complete source extraction remain open.
+
+### Cyclotomic logarithm constants and their branch invariance validation
+
+All 460 predecessor nodes, 445 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 7 nodes, 14 named suggested declarations and 12 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 655 reachable nodes, 3132 edges and 588 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1. Every new route records the inherited LocallyAnalyticDistributions:L1 discAnalytic/R+ comparison leaf through the Coleman logarithm supplier. The exact obligation is a new request; no new route is described as closed.
+
+The full suggested module elaborates with zero errors and 1443 expected placeholder warnings. Source and artifact audits cover 3597 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Seven complete native lemmas verify the ultrametric power-difference bound and inverse-power equality, exact weighted branch difference, cancellation of a common valuation, matched numerator/denominator reindexing, odd weighted cancellation and the multiplicative logarithm identity at inverse cyclotomic arguments. The probe elaborates against 2831 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Twelve character/prime cases give44 primitive-root choices,88 numerator/Gauss transport identities,184 logarithm product identities,44 inverse-pair identities,6 odd zeros,6 nonzero even constants,108 branch cancellations,12 principal-character counterexamples,16 mismatched-Gauss controls and12 independent precision comparisons. Exact modular p-adic calculations at output precision p^8, with p^20 input precision; independently recomputed at p^12 and projected. Teichmueller lifts have exact order modulo p^20. On every tested cyclotomic difference x, x is a unit; log(x)=log(x^(p-1))/(p-1). Each series term divides its p-part using extra guard digits and its prime-to-p part by a modular inverse. Omitted terms n>=2r+4 have valuation at least n-v_p(n)>=n/2>=r, since p>=3, so truncation is rigorous. Multiplication, inversion-pair symmetry, nonzero even constants, odd vanishing and matched Gauss root transport are checked. The additional common-valuation branch model is algebraic and explicitly does not assign that valuation to these tame differences. These controls do not prove analytic L-values or pure-p-power convergence. The largest observed discrepancy is 0.
+
+The initial57 predecessor inputs have empty delta at26c5b5204fb8232c278c6c87f74c84c349fbf9fa; the exact Coleman suggested interface is added as guard input58. The later refresh to20741f46bb320c4f4b343b03bbc264cf00b8f9de changes only the global source-issue aggregation and errata register, with all16 Dirichlet findings preserved recursively. The current369-node PMIA source preserves the compiled332-node interface. No new supplier declaration is called, and neither a current369-node PMIA compilation nor a Coleman-module compilation is claimed.
