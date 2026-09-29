@@ -346,6 +346,48 @@ K₁(Λ_A(G)).
 **Application: X₁(11) at p = 5** (node `NE.5/gl2-main-conjecture-example-x1-11`). The data (108)–(115) are checked
 against Proposition 3.11. The valuations −1/2 + 3/2 + 2 = 3 and −3/2 + 5/2 = 1 give 5³ and 5.
 
+### NE.2–NE.6, Milestone 8: Kakde's totally real main conjecture, §§1–4 (checkpoint 5)
+
+Source: Kakde, *The main conjecture of Iwasawa theory for totally real fields*, arXiv:1008.0142v3, pp. 1–30. p is odd
+throughout, and μ = 0 is carried as a hypothesis wherever it is used.
+
+**Theorem: ∂ is surjective with p-torsion** (node `NE.2/boundary-surjective-p-torsion`). Kakde's Lemma 5 removes CFKSV's
+hypothesis that G has no element of order p.
+
+**Construction: SK₁ and K′₁** (node `NE.3/k1-prime`). Definitions 6–7, with K′₁(Λ_𝒪(G)) ≅ lim K′₁(𝒪[Δ]) (Lemma 19) and
+K′₁(Λ(G)) ≅ lim_U K′₁(Λ(G/U)) (Corollary 20).
+- *API:* `SK1`, `K1Prime`, the two limit equivalences, functoriality, and evaluation through K′₁.
+- *Unit tests:* abelian G; G_ab × Δ; cyclic P; and the non-example that uniqueness fails in K₁.
+
+**Definition: admissible extensions and μ = 0** (node `NE.4/admissible-extension`). Definitions 1 and 8, and Lemma 9:
+μ = 0 ⇔ X is finitely generated over Λ(H).
+- *Unit tests:* F_cyc; ℚ(μ_p)^+ with Ferrero–Washington.
+- *Non-examples:* F(μ_{p^∞}), which is not totally real, and finite extensions.
+
+**Construction: the complex C(F_∞/F)** (node `NE.4/totally-real-iwasawa-complex`; planet). RHom(RΓ_ét(𝒪_{F_∞}[1/Σ],
+ℚ_p/ℤ_p), ℚ_p/ℤ_p), with H^{−1} = X and H⁰ = ℤ_p, perfect, with base change (1), and S-torsion under μ = 0.
+Perfectness is Fukaya–Kato's (gap).
+
+**Definition: the main conjecture** (node `NE.5/totally-real-main-conjecture`; planet). There is a unique
+ζ ∈ K′₁(Λ(G)_S) with ∂ζ = −[C(F_∞/F)] and ζ(ρκ^r) = L_Σ(ρ, 1 − r). Uniqueness is in K′₁ (Remark 12).
+
+**Theorem: the abelian case** (node `NE.6/abelian-case`; planet). Lemma 15 and Theorems 16–18: G_ab × Δ with p ∤ #Δ. It
+uses Deligne–Ribet (AutomorphicPadicLFunctions L3), Wiles (IntegralIwasawaTheory I.5) and Brauer induction.
+
+**Lemma: Burns–Kato patching** (node `NE.6/burns-kato-patching`). The argument common to every reduction: describe the image
+Φ of θ on K′₁, show Φ_S ∩ ∏K′₁ = Φ, then glue the zeta elements of the subquotients.
+
+**Theorems: the reductions** (nodes `NE.6/reduction-to-dimension-one`, `reduction-to-qp-elementary`, `l-elementary-case`,
+`reduction-to-p-elementary`; planets). These are Theorems 21, 27, 33 and 36. They reduce the main conjecture to
+G = Δ × G_p with Δ cyclic of order prime to p and G_p one-dimensional pro-p. That remaining case, Kakde §§5–6, is the
+next checkpoint.
+
+The results of Oliver's *Whitehead groups of finite groups* that Kakde cites are a gap:
+- Dress–Wall induction;
+- Proposition 11.6 and Theorems 12.3(4), 12.7;
+- Wall's torsion theorem;
+- the integral logarithm.
+
 ## Dependencies
 
 - **NE.0 imports:**
@@ -389,7 +431,11 @@ against Proposition 3.11. The valuations −1/2 + 3/2 + 2 = 3 and −3/2 + 5/2 =
   CFKSV §5 (Coates–Howson, Venjakob, Schneps) are a gap.
 - **NE.5 (partial).** Fukaya–Kato's formulation, and the abelian comparison with IntegralIwasawaTheory I.9. The
   Dokchitser data are a gap.
-- **NE.6.** Kakde and Ritter–Weiss.
+- **NE.6 (partial).** Still to do:
+  - Kakde §§5–6: the K′₁ description by congruences, the integral logarithms, and the Deligne–Ribet congruences via the
+    q-expansion principle;
+  - Ritter–Weiss;
+  - the source-by-source coverage table.
 - **NE.7.** Burns–Venjakob leading terms.
 
 ## Sources
@@ -398,3 +444,4 @@ against Proposition 3.11. The valuations −1/2 + 3/2 + 2 = 3 and −3/2 + 5/2 =
 - **Lazard,** Publ. Math. IHÉS 26 (1965), Numdam. Read II.2.2 and V.2.2.
 - **Ardakov–Brown,** arXiv math/0511345v1. Read §§2–4.
 - **Burns–Venjakob,** arXiv math/0511672v2. Read §2.
+- **Kakde,** arXiv:1008.0142v3. Read §§1–4 (pp. 1–30).
