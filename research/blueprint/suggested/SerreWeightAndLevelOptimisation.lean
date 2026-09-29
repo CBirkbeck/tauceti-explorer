@@ -30,6 +30,7 @@ import Mathlib.NumberTheory.DirichletCharacter.Basic
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 import Mathlib.Data.Nat.Factorization.Defs
+import Mathlib.Tactic.NormNum
 import TauCeti.NumberTheory.ModularForms.Newforms.Basic
 import TauCeti.NumberTheory.ModularForms.Newforms.Newform
 import TauCeti.NumberTheory.ModularForms.Newforms.MultiplicityOne
@@ -511,3 +512,25 @@ theorem monodromy_pairing_component_group (p q M : ℕ) : True := sorry
 end BadFibre
 
 end TauCeti.SerreWeightLevel
+
+/-! ## R20.3 — Edixhoven's weight theorem (checkpoint by Claude Code cc-fb70e5)
+
+The R20.3 nodes (`local-form-of-ordinary-eigenforms`, `local-form-of-supersingular-eigenforms`,
+`weight-p-plus-one-and-finiteness`, `weight-one-forms-unramified-at-p`, `companion-forms`, `edixhoven-weight-theorem`)
+need mod p Katz forms and their Galois representations, which are not at the pinned commits; they are not stated
+here. The examples below check the arithmetic of the acceptance tests. They import Mathlib only and were compiled
+as a separate file against Mathlib `082e2d3`.
+-/
+
+
+namespace TauCeti.SerreWeightLevel.WeightTest
+
+/-- `R20.3/weight-p-plus-one-and-finiteness`, acceptance: for `Δ` at `p = 11` (weight `12 = p + 1`),
+`a_p² = ε(p) = 1` mod `11`, with `τ(11) = 534612`. -/
+example : (534612 : ℕ) ^ 2 % 11 = 1 ∧ 534612 % 11 = 1 := by norm_num
+
+/-- `R20.3/edixhoven-weight-theorem`, acceptance: for `ρ_{Δ,11}` (level-1 wild case `α = 0`, `β = 1`, not finite)
+`k(ρ) = 1 + p·a + b + (p − 1) = 1 + 0 + 1 + 10 = 12`, the weight of `Δ`. -/
+example : 1 + 11 * 0 + 1 + (11 - 1) = 12 := by norm_num
+
+end TauCeti.SerreWeightLevel.WeightTest

@@ -290,7 +290,7 @@ Let ℓ be a prime, F a finite field of characteristic ℓ and ρ̄ : Gal(Q̄/Q)
 **Sources.**
 - Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §2, the definition of n(p, ρ) and N(ρ), pp. 3–4 of the author's copy. The conductor formula itself: n(p, ρ) = Σ_{i≥0} (1/(G₀:G_i)) dim V/V_i with V_i the G_i-fixed subspace, and the conclusion that N(ρ) is prime to ℓ. This is the primary citation for the statement of this node.
 - Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §1, the Refined Conjecture and the local nature of k(ρ) and N(ρ). That N(ρ) is an integer prime to ℓ depending only on the restrictions of ρ to decomposition groups at the primes p ≠ ℓ, which is what makes the level a product of local Artin conductor exponents.
-
+- Jean-Pierre Serre, *Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)* — 1.2, (1.2.1)–(1.2.3), printed p. 181. Serre's own definition of n(l, ρ) by (1.2.1) and of N by (1.2.3), matching Ribet's restatement.
 #### `R20.2/mazur-principle` — Mazur's Principle: removing an unramified prime p with p ≢ 1 mod ℓ
 
 *theorem* · planet **Mazur's Principle**
@@ -716,36 +716,186 @@ The monodromy pairing associated with L_p is a bilinear map ⟨ , ⟩ : L_p × L
 
 ### R20.3 — Weight optimisation at p
 
-**This layer is not planned in this packet, and the reason is a source that could not be
-obtained rather than a judgement that the layer is easy or unimportant.**
+RS-06 narrows this layer to the modular weight-minimality theorem under a supplied modularity witness. It must cover the irreducible and reducible local branches, the low-characteristic corrections, the exact conclusion at weight `p+1` and the effect of twisting, and it binds the layer to "Preserve Edixhoven Theorem 4.5 as an optimisation proof, not merely a recipe definition."
 
-RS-06 narrows the layer to owning the modular weight-minimality theorem under a supplied
-modularity witness, with its irreducible and reducible local branches, the low-characteristic
-corrections, the exact conclusion at weight `p+1` and the effect of twisting — and it binds the
-layer specifically: "Preserve Edixhoven Theorem 4.5 as an optimisation proof, not merely a
-recipe definition."
+**Source (checkpoint by Claude Code cc-fb70e5).** Edixhoven's paper is public as the author's DVI on his Leiden page (`weight.dvi`, SHA-256 `ff106eeb…`). AlgebraicModularFormsAndSerreWeights uses the same file. The layer is planned from it:
+- the local forms of eigenforms of weight 2 ≤ k ≤ p + 1 (Theorems 2.5 and 2.6, with the §6 proof of 2.6);
+- Mazur's weight-`p+1` theorem (2.8, the numbering Buzzard cites);
+- weight-one unramifiedness (2.7) and Gross's companion forms (2.9);
+- Theorem 4.5 with its whole proof.
 
-Edixhoven, "The weight in Serre's conjectures on modular forms", *Invent. Math.* **109** (1992)
-563–594, is paywalled at Springer, which serves an HTML landing page rather than the PDF, and it
-is absent from the author's own publication listing, whose by-year directories skip 1992. Two
-things then make planning from secondary accounts unsafe rather than merely second-best. First,
-RS-06 binds the layer to a *numbered* result, and the numbering cannot be checked against a
-paper one cannot open. Second, Buzzard cites "Theorem 2.8 of [E1]" for a statement that ρ is
-modular of weight 2 and level N — so more than one numbered Edixhoven result is in circulation
-in exactly this area, and guessing which one RS-06 means would be guessing.
+The recipe, θ, the filtration, the θ-cycles and the reduction to weight ≤ p + 1 are imported from AlgebraicModularFormsAndSerreWeights R15.3–R15.4. Edixhoven's note, added after the paper was written, records that Coleman–Voloch remove, for p > 2, both the dependence on Gross's unverified compatibilities and the hypothesis "not exceptional".
 
-What is available and read is Ribet's §3, "Adjustment of the weight", which is public and covers
-the same ground; it is the right source for a continuation with no Springer access. The layer's
-coverage status is `not_read`, and the gap is recorded in the packet.
+**Coverage status: `partial`.**
 
-**Coverage status: `not_read`.**
+#### `R20.3/local-form-of-ordinary-eigenforms` — Deligne: the local representation of an ordinary eigenform of weight 2 ≤ k ≤ p + 1
 
-No nodes are planned in this pass.
+*theorem*
+
+Let p be a prime, N ≥ 1 prime to p, ε : (ℤ/Nℤ)^× → F̄_p^× a character, and f a cusp form of type (N, k, ε) over F̄_p in Katz's sense (a section of ω^{⊗k} on the Γ₁(N) moduli stack over F̄_p) that is an eigenform for all T*_l with eigenvalues a_l; ρ_f is its semisimple Galois representation, ρ_{f,p} its restriction to a decomposition group G_p, and λ(a) the unramified character of G_p with λ(a)(Frob_p) = a. If 2 ≤ k ≤ p + 1 and a_p ≠ 0, then ρ_{f,p} is reducible: ρ_{f,p} ≅ (χ^{k−1}λ(ε(p)/a_p) ∗; 0 λ(a_p)), χ the mod-p cyclotomic character.
+
+**Hypotheses.**
+- 2 ≤ k ≤ p + 1 and a_p ≠ 0 (T*_p is U_p when p | N·p; here p ∤ N and T*_p is the usual T_p)
+- the source refers to Gross [10] for the proof; the proof steps below give the route through p-adic Hodge theory
+
+**Construction or proof, in steps.**
+1. Lift f to a characteristic-zero eigenform F of the same weight and level with a_p(F) a λ-adic unit reducing to a_p (Deligne–Serre lifting, AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma, with base change for k ≥ 2, AlgebraicModularFormsAndSerreWeights:R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary).
+2. V_F is crystalline at p with Frobenius polynomial X² − a_pX + ε(p)p^{k−1}, and ordinary since a_p is a unit: it has an unramified quotient on which Frobenius acts by the unit root α ≡ a_p, and the sub has character χ^{k−1}λ(ε(p)/α) by the determinant (PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes).
+3. Reduce modulo λ: ρ_{f,p} has the stated shape (AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform).
+
+**Acceptance tests.**
+- Δ at p = 11 (k = 12 = p + 1): τ(11) = 534612 ≡ 1 mod 11, so ρ_{Δ,11} ≅ (χ^{11}λ(1) ∗; 0 λ(1)), and on inertia (ω ∗; 0 1) as ω^{11} = ω.
+- 11a1 at p = 3 (k = 2, a₃ = −1): ρ_{f,3} ≅ (χλ(−1) ∗; 0 λ(−1)).
+
+**Dependencies.**
+- On other roadmaps, by node id: `AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma`, `AlgebraicModularFormsAndSerreWeights:R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary`, `PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes`, `AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform`
+
+**Sources.**
+- Bas Edixhoven, *The weight in Serre's conjectures on modular forms* — 2.5, p. 5 of the DVI. The ordinary local form; the proof is referred to Gross [10].
+
+#### `R20.3/local-form-of-supersingular-eigenforms` — Fontaine: the local representation of a supersingular eigenform of weight 2 ≤ k ≤ p + 1
+
+*theorem*
+
+Let p be a prime, N ≥ 1 prime to p, ε : (ℤ/Nℤ)^× → F̄_p^× a character, and f a cusp form of type (N, k, ε) over F̄_p in Katz's sense (a section of ω^{⊗k} on the Γ₁(N) moduli stack over F̄_p) that is an eigenform for all T*_l with eigenvalues a_l; ρ_f is its semisimple Galois representation, ρ_{f,p} its restriction to a decomposition group G_p, and λ(a) the unramified character of G_p with λ(a)(Frob_p) = a. If 2 ≤ k ≤ p + 1 and a_p = 0, then ρ_{f,p} is irreducible and ρ_f|_I ≅ ψ^{k−1} ⊕ ψ′^{k−1}, where ψ, ψ′ are the two fundamental characters of level 2.
+
+**Hypotheses.**
+- Fontaine's proof (letters to Serre, 1979) is unpublished; Edixhoven proves the theorem in his §6
+- by Theorem 2.8 (R20.3/weight-p-plus-one-and-finiteness) one may assume 2 ≤ k ≤ p
+- the proof uses Gross's construction [10] of ρ_f through the Igusa curves in the stable reduction of X₁(pN) over ℤ_p[ζ_p]; Gross's article is not read here
+
+**Construction or proof, in steps.**
+1. Reduce to 2 ≤ k ≤ p by Theorem 2.8, and to N with X₁(N) representing the stack.
+2. Construct a differential ω(f) on the Igusa curve with the eigenvalues of f (6.7), lift it to X₁(pN) through the stable model X over ℤ_p[ζ_p] whose special fibre is I ∪ E meeting at the supersingular points (6.2), and realise ρ_f in the reduction of the Tate module of J₁(pN) (6.3).
+3. Compute the action of inertia through the automorphisms g(σ) of X and the formulas 6.6.1 for T_p and ⟨b⟩_p on J_I × J_E: inertia acts through ψ^{k−1} and ψ′^{k−1}; irreducibility follows as these are of level 2.
+
+**Acceptance tests.**
+- For E = 11a1 at p = 19 (a₁₉ = 0, k = 2) the 19-torsion has ρ|_I ≅ ψ ⊕ ψ′.
+- For Δ at p = 2411 (τ(2411) ≡ 0 mod 2411 and k = 12 ≤ p + 1): ρ_{Δ,2411}|_I ≅ ψ^{11} ⊕ ψ′^{11}.
+
+**Dependencies.**
+- Inside this roadmap: `R20.3/weight-p-plus-one-and-finiteness`
+- On other roadmaps, by node id: `AlgebraicModularFormsAndSerreWeights:R15.4/tame-inertia-characters-of-a-local-residual-representation`, `AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform`
+- On other roadmaps, by stage id: `ModularCurvesPartII:R13.5`
+
+**Sources.**
+- Bas Edixhoven, *The weight in Serre's conjectures on modular forms* — 2.6, p. 6 of the DVI. The supersingular local form.
+- Bas Edixhoven, *The weight in Serre's conjectures on modular forms* — 6.1, p. 16 of the DVI. Edixhoven's proof in §6 (Fontaine's is unpublished).
+
+#### `R20.3/weight-p-plus-one-and-finiteness` — Mazur: an ordinary eigenform of weight p + 1 not divisible by A has a_p² = ε(p) and a non-finite extension
+
+*theorem*
+
+Let p be a prime, N ≥ 1 prime to p, ε : (ℤ/Nℤ)^× → F̄_p^× a character, and f a cusp form of type (N, k, ε) over F̄_p in Katz's sense (a section of ω^{⊗k} on the Γ₁(N) moduli stack over F̄_p) that is an eigenform for all T*_l with eigenvalues a_l; ρ_f is its semisimple Galois representation, ρ_{f,p} its restriction to a decomposition group G_p, and λ(a) the unramified character of G_p with λ(a)(Frob_p) = a. Let f have weight p + 1. Suppose that ρ_f is irreducible and that there is no form g of type (N, 2) with f = Ag (A the Hasse invariant). Then a_p² = ε(p), and the extension of Theorem 2.5 is not finite at p: the group scheme over ℚ_p attached to a realisation of ρ_f over a finite field has no finite flat extension over ℤ_p. For such f, finiteness at p is equivalent to being peu ramifiée (Edixhoven §8).
+
+**Hypotheses.**
+- the source refers to Mazur [22] §6 for ε trivial and p > 2 (not read), states that the proof generalises to arbitrary ε, and sketches the adaptation for p = 2
+- the equivalence of "finite at p" with "peu ramifiée" is AlgebraicModularFormsAndSerreWeights:R15.4/finite-at-p-equals-peu-ramifie (Edixhoven Proposition 8.2)
+
+**Construction or proof, in steps.**
+1. Mazur's argument (Eisenstein ideal, §6): the representation appears in J₁(Np) on which U_p acts; a finite model would force f to come from level N in weight 2, i.e. f = Ag.
+2. For p = 2: if V is unramified the result is immediate; otherwise V^l and V^{et} are 1-dimensional vector-space schemes, the Zariski closure of V^l in the Néron model is finite and multiplicative, V lands in the toric part, contradicting the one-dimensionality of U^t (Edixhoven's adaptation).
+3. Combine with Theorem 2.5 to read off a_p² = ε(p) from the determinant.
+
+**Acceptance tests.**
+- Δ at p = 11 (weight 12 = p + 1): ρ_{Δ,11} is irreducible and Δ ≠ Ag (there are no level-one forms of weight 2), so τ(11)² ≡ 1 mod 11, as 534612² ≡ 1 (checked in the suggested Lean file), and ρ_{Δ,11} is not finite at 11: très ramifiée, Serre weight 12.
+- For f = A·g with g of weight 2 the extension is finite (it comes from g), so the hypothesis f ≠ Ag cannot be dropped.
+
+**Dependencies.**
+- Inside this roadmap: `R20.3/local-form-of-ordinary-eigenforms`
+- On other roadmaps, by node id: `AlgebraicModularFormsAndSerreWeights:R15.4/finite-at-p-equals-peu-ramifie`, `AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one`, `AlgebraicModularFormsAndSerreWeights:R15.4/raynaud-prolongation-input-and-the-e-equals-p-minus-one-obstruction`
+
+**Sources.**
+- Bas Edixhoven, *The weight in Serre's conjectures on modular forms* — 2.8, p. 6 of the DVI. The weight p + 1 conclusion and the p = 2 adaptation.
+
+#### `R20.3/weight-one-forms-unramified-at-p` — Weight-one eigenforms are unramified at p when the U_p-polynomial has distinct roots or the form lifts
+
+*theorem*
+
+Let p be a prime, N ≥ 1 prime to p, ε : (ℤ/Nℤ)^× → F̄_p^× a character, and f a cusp form of type (N, k, ε) over F̄_p in Katz's sense (a section of ω^{⊗k} on the Γ₁(N) moduli stack over F̄_p) that is an eigenform for all T*_l with eigenvalues a_l; ρ_f is its semisimple Galois representation, ρ_{f,p} its restriction to a decomposition group G_p, and λ(a) the unramified character of G_p with λ(a)(Frob_p) = a. Let f have weight 1 with T*_p f = a_p f. If X² − a_pX + ε(p) has two distinct roots in F̄_p, or f is the reduction of a characteristic-zero eigenform, then ρ_f is unramified at p. For p > 2 every weight-one cuspidal eigenform over F̄_p has ρ_f unramified at p (Coleman–Voloch, as recorded in Edixhoven's note).
+
+**Hypotheses.**
+- the case a = a′ for a form that does not lift was open when the source was written; the Coleman–Voloch result quoted in the source's note closes it for p > 2
+
+**Construction or proof, in steps.**
+1. Af and V*_p f are eigenforms of weight p for T_l (l ≠ p) with the eigenvalues of f, and T*_p acts on their span with characteristic polynomial X² − a_pX + ε(p).
+2. Its two eigenvectors g, g′ have ρ_g ≅ ρ_{g′} ≅ ρ_f, and Theorem 2.5 applied to g and g′ gives upper-triangular forms with swapped unramified characters λ(a′), λ(a); if a ≠ a′ both are split and ρ_f is unramified.
+3. If f lifts to characteristic zero, Deligne–Serre Théorème 4.1 gives an Artin representation, unramified at p.
+
+**Acceptance tests.**
+- A weight-one form whose U_p-polynomial X² − a_pX + ε(p) has distinct roots: ρ_f is unramified at p, and the two weight-p forms g, g′ are companions of each other.
+
+**Dependencies.**
+- Inside this roadmap: `R20.3/local-form-of-ordinary-eigenforms`
+- On other roadmaps, by node id: `AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one`
+
+**Sources.**
+- Bas Edixhoven, *The weight in Serre's conjectures on modular forms* — 2.7, p. 6 of the DVI. Unramifiedness of weight-one forms.
+- Bas Edixhoven, *The weight in Serre's conjectures on modular forms* — Introduction, the note after the acknowledgements, p. 3 of the DVI. The Coleman–Voloch consequence.
+
+#### `R20.3/companion-forms` — Gross: companion forms and tame ramification
+
+*theorem*
+
+Let p be a prime, N ≥ 1 prime to p, ε : (ℤ/Nℤ)^× → F̄_p^× a character, and f a cusp form of type (N, k, ε) over F̄_p in Katz's sense (a section of ω^{⊗k} on the Γ₁(N) moduli stack over F̄_p) that is an eigenform for all T*_l with eigenvalues a_l; ρ_f is its semisimple Galois representation, ρ_{f,p} its restriction to a decomposition group G_p, and λ(a) the unramified character of G_p with λ(a)(Frob_p) = a. Let f be as in Theorem 2.5 (2 ≤ k ≤ p + 1, a_p ≠ 0), and if k = p suppose a_p² ≠ ε(p). Then ρ_{f,p} is tamely ramified (its restriction to inertia is diagonalisable) if and only if there is a cuspidal eigenform f′ of type (N, k′, ε), k′ = p + 1 − k, with l a′_l = l^{k′} a_l for all l (a companion form). For p > 2 and 2 < k ≤ p with T*_p f ≠ 0, Coleman and Voloch prove the equivalence without the unverified compatibilities of Gross's article.
+
+**Hypotheses.**
+- Gross's proof depends on compatibilities of p-adic cohomology theories with Hecke operators that were not all checked (pages 504–505 of [10]); R. Coleman checked the map in (16.6)
+- the case k = p with a_p² = ε(p) is not covered
+
+**Construction or proof, in steps.**
+1. The hard direction (existence of f′ when ρ_{f,p} is tame) is Gross [10], Theorem 13.10, not read here.
+2. The easy direction: θ^{k′}f′ and θf have the same q-expansion away from p-power terms up to the stated eigenvalue twist, which forces the splitting on inertia.
+
+**Acceptance tests.**
+- 11a1 at p = 3 is ordinary with ρ_{f,3} peu ramifiée and wildly ramified in general; a companion form of weight p + 1 − 2 = 2 exists exactly when ρ_{f,3} is tame.
+
+**Dependencies.**
+- Inside this roadmap: `R20.3/local-form-of-ordinary-eigenforms`
+- On other roadmaps, by node id: `AlgebraicModularFormsAndSerreWeights:R15.3/theta-operator-filtration-and-hecke-commutation`
+
+**Sources.**
+- Bas Edixhoven, *The weight in Serre's conjectures on modular forms* — 2.9, p. 7 of the DVI. Gross's criterion; the Coleman–Voloch improvement is in the introduction's note.
+
+#### `R20.3/edixhoven-weight-theorem` — Edixhoven's theorem: a modular ρ arises in Serre's weight k_ρ and, if not exceptional, in the minimal weight k(ρ)
+
+*theorem* · planet **Edixhoven's weight theorem**
+
+Let ρ : G_ℚ → GL₂(F̄_p) be continuous, irreducible and odd, with Serre's weight k_ρ and Edixhoven's weight k(ρ) (AlgebraicModularFormsAndSerreWeights:R15.4/edixhoven-weight-k-rho-and-its-comparison-with-serre-k). Suppose ρ ≅ ρ_g for a cusp form g of some type (N, k, ε) with p ∤ N that is an eigenform for all T*_l. Then there is a cuspidal eigenform f of type (N, k_ρ, ε) with the same eigenvalues as g for T*_l (l ≠ p) and ρ ≅ ρ_f. If ρ is not exceptional (ρ_p is not an extension of an unramified character by itself), there is such an f of type (N, k(ρ), ε), and no eigenform of level prime to p and weight less than k(ρ) has representation ρ. For p > 2 the hypothesis "not exceptional" can be dropped (Coleman–Voloch, recorded in the source's note). Twisting: ρ ⊗ χ^a corresponds to θ^a applied to a form of lower filtration, and the proof finds k(ρ) as w(θ^α f₁).
+
+**Hypotheses.**
+- p ∤ N and ρ ≅ ρ_g for some eigenform g: this is weight optimisation, not existence of a modular form
+- the minimality statement needs ρ not exceptional; the source's note removes this for p > 2
+- the proof uses Theorems 2.5, 2.6, 2.8, 2.9 and Proposition 2.7, whose proofs depend on Gross [10] (for p > 2 no longer on its unverified compatibilities, by Coleman–Voloch)
+- the last step of the minimality proof invokes Gross [10], Proposition 4.12 and a "case by case" check that the source does not display
+
+**Construction or proof, in steps.**
+1. By Theorem 3.4 (AlgebraicModularFormsAndSerreWeights:R15.3/weight-reduction-to-at-most-p-plus-one) some twist ρ ⊗ χ^{−α} comes from an eigenform f₁ of type (N, k₁, ε) with k₁ ≤ p + 1 and w(f₁) = k₁.
+2. Level-2 case: Theorems 2.5–2.8 and Proposition 2.7 force k₁ ≥ 2, a_p = 0, k₁ ≤ p; Theorem 2.6 limits (α, k₁) to (a, 1 + b − a) or (b − 1, p + 2 + a − b) (b − a ≠ 1) or (a, 2); Prop. 3.3 (the θ-cycles) shows these occur, and f = θ^a f₁ has w(f) = 1 + pa + b = k(ρ) = k_ρ.
+3. Level-1 wild case: exactly one twist comes from weight 2 ≤ k₁ ≤ p + 1 (Theorem 2.5, Prop. 2.7); k₁ − 1 ≡ β − α (Theorem 2.5) and Theorem 2.8 (très ramifiée ⇔ extra p − 1) determine k₁; at p = 2, k₁ = 2 or 3; then w(θ^α f₁) = k(ρ) = k_ρ by Prop. 3.3.
+4. Level-1 tame case: via Theorems 3.4, 2.5, 2.6, 2.8, 2.9 and Prop. 2.7 a twist comes from 2 ≤ k₁ < p + 1; for α = β = 0 the weight-one form exists by Theorem 2.9 when ρ is not exceptional.
+5. Minimality: if T*_p f = T*_p g = 0 the q-expansions differ by a constant, so k(ρ) = w(f) = w(g) ≤ k; if T*_p g ≠ 0 then k ≤ p + 1 (Gross [10], Proposition 4.12) and a case-by-case check gives k(ρ) ≤ k.
+
+**Acceptance tests.**
+- ρ = ρ_{Δ,11}: level-1 wild case with α = 0, β = 1 and ρ_p not finite (Theorem 2.8), so k(ρ) = k_ρ = 1 + 0 + 1 + 10 = 12, the weight of Δ; Δ is already minimal.
+- ρ = E[3] for E = 11a1: finite at 3 with det|_I = χ̄, k(ρ) = k_ρ = 2, the weight of 11a1.
+- An unramified ρ_p that is not exceptional: k(ρ) = 1 (a Katz form of weight one) while k_ρ = p.
+
+**Dependencies.**
+- Inside this roadmap: `R20.3/local-form-of-ordinary-eigenforms`, `R20.3/local-form-of-supersingular-eigenforms`, `R20.3/weight-p-plus-one-and-finiteness`, `R20.3/weight-one-forms-unramified-at-p`, `R20.3/companion-forms`
+- On other roadmaps, by node id: `AlgebraicModularFormsAndSerreWeights:R15.3/weight-reduction-to-at-most-p-plus-one`, `AlgebraicModularFormsAndSerreWeights:R15.3/theta-cycles-and-the-small-characteristic-tables`, `AlgebraicModularFormsAndSerreWeights:R15.3/theta-operator-filtration-and-hecke-commutation`, `AlgebraicModularFormsAndSerreWeights:R15.4/edixhoven-weight-k-rho-and-its-comparison-with-serre-k`, `AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases`
+
+**Sources.**
+- Bas Edixhoven, *The weight in Serre's conjectures on modular forms* — 4.5, p. 11 of the DVI. The theorem; its proof follows on pp. 11–12.
+- Bas Edixhoven, *The weight in Serre's conjectures on modular forms* — Proof of 4.5, p. 12 of the DVI. Minimality through Gross's Proposition 4.12 and a case-by-case check.
+- Bas Edixhoven, *The weight in Serre's conjectures on modular forms* — Introduction, the note after the acknowledgements, p. 3 of the DVI. The Coleman–Voloch consequence for exceptional ρ.
 
 **Remaining in this layer.**
-- The whole weight-optimisation layer. Its binding source, Edixhoven, 'The weight in Serre's conjectures on modular forms', Invent. Math. 109 (1992) 563–594, could not be obtained: Springer serves an HTML landing page rather than the PDF and the paper is absent from the author's own publication listing. RS-06 requires Edixhoven Theorem 4.5 to be preserved as an optimisation proof rather than a recipe definition, so planning this layer from secondary accounts alone would risk misattributing the numbering.
-- Ribet's §3 'Adjustment of the weight' is public and read, and is the natural substitute source for the weight statements; nodes from it are the next step, with the Edixhoven citation flagged until the original can be checked.
-- The reducible and irreducible local branches, the low-characteristic corrections, the exact conclusion at weight p+1 and the effect of twisting all remain.
+- Gross, "A tameness criterion for Galois representations associated to modular forms (mod p)" (Duke 1990), on which Theorems 2.5, 2.6 (via §6), 2.9 and the minimality step depend, is not read; for p > 2 the source's note says Coleman–Voloch remove its unverified compatibilities, and Coleman–Voloch is not read either.
+- Mazur's Eisenstein-ideal paper §6 (Theorem 2.8) is not read; the p = 2 adaptation is taken from Edixhoven.
+- The "case by case" check that ends the minimality proof is not displayed in the source.
+- Ribet's §3 'Adjustment of the weight' (ribet1994) is read but has no node; it gives the weight statements in the form Ribet uses for level lowering.
+- Whether the Coleman–Voloch note is present in the 1992 printing was not checked (the note is in the author's DVI).
 
 ### R20.4 — Coefficient-prime level and character
 
@@ -1057,6 +1207,7 @@ Let ρ̄ : Gal(Q̄/Q) → GL(2,F̄₂) be irreducible and modular and suppose th
 **Hypotheses.**
 - ρ̄ mod 2 irreducible and modular
 - ρ̄ restricted to a decomposition group at 2 has scalar image
+- Khare–Wintenberger I §1 identify the missing case exactly: ρ̄|_{D₂} scalar with non-dihedral projective image; the dihedral case is Wiese's ([42]) and the rest is Buzzard's ([6]); their Theorem 1.2(2) settles it (ClassicalSerreModularity R27.4), without being an input here
 
 **Construction or proof, in steps.**
 1. Record the source's statement that in this case the multiplicity-one result is not known and is not clearly to be expected.
@@ -1075,11 +1226,12 @@ Let ρ̄ : Gal(Q̄/Q) → GL(2,F̄₂) be irreducible and modular and suppose th
 
 **Sources.**
 - Kevin Buzzard, *On level-lowering for mod 2 representations* — §0 Introduction, the remark on the scalar case. The source's statement that when the restriction of ρ to a decomposition group at 2 is contained in the scalars, the multiplicity one result does not appear to be known and it is unclear whether it should be expected; it remains an open question.
+- Chandrashekhar Khare and Jean-Pierre Wintenberger, *Serre's modularity conjecture (I)* — §1, p. 2 (authors' preprint). Khare–Wintenberger's identification of the missing case: ρ̄|_{D₂} scalar with non-dihedral projective image, completed by their Theorem 1.2(2).
 
 **Remaining in this layer.**
 - The source's §3 analysis of the Q(i)-induced representations, which Theorem 2.8 explicitly excludes and which RS-06 requires as a separate branch.
 - Wiese's assigned weight-one theorem, for the comparison RS-06 asks for. The public Wiese paper obtained ('Dihedral Galois representations and Katz modular forms', arXiv:math/0402163) extracted only partially and the weight-one theorem to compare against has not been pinned.
-- Khare–Wintenberger I's precise exceptions: 'Serre's modularity conjecture (I)', Invent. Math. 178 (2009) 485–504, is behind a Springer paywall and was not obtained. The scalar-case obstruction is recorded here from Buzzard's own words instead, which is weaker than citing KW I §1.
+- Khare–Wintenberger I §1's exception is now read and cited in `R20.5/dyadic-scalar-multiplicity-one-obstruction`: ρ̄|_{D₂} scalar with non-dihedral projective image.
 - The exact list of weak-to-classical-strong implications that this layer is to assemble.
 
 ### R20.6 — Exports for Serre and elliptic curves
@@ -1259,9 +1411,9 @@ planned here.
 
 Recorded rather than papered over.
 
-- **Edixhoven 1992 could not be obtained, and RS-06 binds R20.3 to its Theorem 4.5.** RS-06 requires R20.3 to 'preserve Edixhoven Theorem 4.5 as an optimisation proof, not merely a recipe definition'. The paper (Invent. Math. 109 (1992) 563–594) is paywalled at Springer, which serves an HTML landing page in place of the PDF, and it does not appear in the author's own publication listing at pub.math.leidenuniv.nl/~edix/publications/, whose by-year directories skip 1992. Ribet's §3 'Adjustment of the weight' is public and covers the same ground, and Buzzard cites 'Theorem 2.8 of [E1]' for a weight-two-and-level statement, which shows that more than one numbered Edixhoven result is in circulation. R20.3 is therefore left at coverage status not_read rather than planned from secondary sources under a numbering I could not verify.
-- **Khare–Wintenberger I §1's exception list could not be read.** RS-06 requires R20.5 to enumerate 'the remaining p=2 scalar local case identified by KW I §1' and to compare with 'KW I's precise exceptions'. 'Serre's modularity conjecture (I)', Invent. Math. 178 (2009) 485–504, is behind a Springer paywall. The scalar-case obstruction is recorded in this packet from Buzzard's own statement of it, which is a weaker citation: Buzzard says multiplicity one there is not known and it is unclear whether to expect it, whereas KW I §1 is said to identify the case precisely. A continuation with access should replace the citation.
-- **Serre's own paper was not obtained; the level formula is cited to Ribet's restatement.** R20.2/serre-level is cited to Ribet §2, which states the formula n(p, ρ) = Σ_{i≥0} (1/(G₀:G_i)) dim V/V_i explicitly and attributes it to Serre [49, §1]; that is a primary citation for the formula as this packet states it. Serre, 'Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)', Duke Math. J. 54 (1987) 179–230, was not itself obtained, so the attribution to Serre's own numbering rests on Ribet's word. The weight recipe k(ρ), which R20.3 needs, is the part that genuinely requires Serre or Edixhoven and is why R20.3 is left not_read.
+- **Edixhoven 1992 read from the author's DVI; the results it rests on (Gross, Mazur) are not read.** Resolved in part (Claude Code cc-fb70e5): the author's DVI of Edixhoven's paper is public at his Leiden page (weight.dvi, SHA-256 ff106eeb…, the file AlgebraicModularFormsAndSerreWeights also uses), and R20.3 is now planned from it. Its Theorem 4.5 is the optimisation theorem RS-06 names, and its Theorem 2.8 is Mazur's weight-p + 1 theorem, which is the numbering Buzzard cites. Still open: Gross, 'A tameness criterion…' (Duke 1990), on which Theorems 2.5, 2.9, the §6 proof of 2.6 and the minimality step depend, and Mazur's Eisenstein-ideal §6 (Theorem 2.8), are not read; Edixhoven's note records that Coleman–Voloch remove the dependence on Gross's unverified compatibilities for p > 2, and Coleman–Voloch is not read either.
+- **Khare–Wintenberger I §1's exception, read from the authors' preprint.** Resolved (Claude Code cc-fb70e5): the authors' preprint is public (UCLA, SHA-256 3c389dc3…). §1 states that Theorem 1.2(2) 'completes the work that the qualitative form of Serre's conjecture implies the refined form by filling in a missing case in characteristic 2: control of the level for ρ̄|D2 scalar when the projective image of ρ̄ is not dihedral (see [6] and [42])', with [6] Buzzard and [42] Wiese. This is exactly the case of R20.5/dyadic-scalar-multiplicity-one-obstruction, which now cites it. Remaining for R20.5: the Q(i)-induced branch of Buzzard §3 and Wiese's weight-one theorem.
+- **Serre 1987 obtained; the level formula now cited to Serre as well as Ribet.** Resolved (Claude Code cc-fb70e5): the Collège de France PDF of Serre's paper is public (SHA-256 8048919d…, the file AlgebraicModularFormsAndSerreWeights uses). Its (1.2.1) is the formula of R20.2/serre-level and (1.2.3) defines N; the node now cites both. The weight recipe k(ρ) is planned in AlgebraicModularFormsAndSerreWeights R15.4 from Serre §2, which R20.3 imports.
 - **check_blueprint reads a Tau Ceti anchor stage id as a baseline declaration.** The ModularForms layer-8 import is recorded as a request and not as a node prerequisite, because it cannot be both. check_blueprint resolves a node prerequisite by testing BASE_REF = ^(mathlib|tauceti):(\S+)$ before testing membership in the atlas stage set, so the anchor stage id 'tauceti:TauCetiRoadmap/ModularForms#layer-8-...' matches the baseline pattern and is reported as 'baseline prerequisite ... is not listed in baseline.declarations'. Any packet importing from a Tau Ceti anchor layer will hit this, so anchor-layer imports are expressible only through `requests`. The dependency is therefore real but is not in the prerequisite graph; a reviewer should read the requests list alongside the node prerequisites.
 - **No library-coverage audit exists for any layer of this roadmap.** data/library-coverage.json has entries for 1316 atlas stages and none of R20.1–R20.6 is among them, so there is no reviewed verdict to plan against. The baseline determinations in this packet were made by indexing the pinned trees directly (mathlib 082e2d37, 8482 .lean files; tauceti f790474, 5477 .lean files, 70802 indexed declarations) and reading the cited statements in source. Three probes gave false cleans before being corrected: 'HeckeAlgebra' and 'HeckeOperator' return 0 while 'Hecke' returns 1186; 'newSpace' returns 0 while the new subspace exists as TauCeti.cuspFormsNew; and 'characterGroup' returns 47 hits that are the character group of a split torus, not the character group of the toric part of a Jacobian's bad fibre. A reviewer should repeat searches under several descriptions.
 
@@ -1292,8 +1444,11 @@ the classical proof.
 - Michael A. Bennett and Samir Siksek, *A conjecture of Erdős, supersingular primes and short character sums*. Annals of Mathematics 191 (2020), no. 2, 355–392, doi:10.4007/annals.2020.191.2.2. Publisher PDF, 38 pp.
   <https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf> (sha256 `3920a7524a378709…`), read 2026-09-24.
 
-**Sources that could not be obtained**, and which the gaps above turn on: Edixhoven, "The
-weight in Serre's conjectures on modular forms", *Invent. Math.* **109** (1992) 563–594;
-Khare–Wintenberger, "Serre's modularity conjecture (I)", *Invent. Math.* **178** (2009)
-485–504; Serre, "Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)", *Duke Math. J.*
-**54** (1987) 179–230. All three are paywalled and none appears on an author page.
+- Bas Edixhoven, *The weight in Serre's conjectures on modular forms*. Invent. Math. 109 (1992), 563–594. Author's DVI dated 24 December 1998; DVI page numbers are used as locators.
+  <https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi> (sha256 `ff106eeb48c67949…`), read 2026-09-29.
+- Chandrashekhar Khare and Jean-Pierre Wintenberger, *Serre's modularity conjecture (I)*. Invent. Math. 178 (2009), 485–504. Authors' preprint.
+  <https://www.math.ucla.edu/~shekhar/papers/results.pdf> (sha256 `3c389dc33e09fe84…`), read 2026-09-29.
+- Jean-Pierre Serre, *Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)*. Duke Math. J. 54 (1987), 179–230. Collège de France PDF; printed page = PDF page + 178.
+  <https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf> (sha256 `8048919db24dcb97…`), read 2026-09-29.
+
+The three sources listed earlier as unobtainable are public in these author and institutional copies. The earlier sentence to that effect is withdrawn.
