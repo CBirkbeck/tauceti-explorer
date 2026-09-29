@@ -156,8 +156,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 11233057,
-  "htmlSha256": "fca713181f55b7d8cef2243ef05d7daf1978fcd3477d4f7b3261767b0af77266",
+  "htmlBytes": 11233679,
+  "htmlSha256": "ebb78782e441f53d8230ed115a03fe98c8d7168a224362ac35c6086e73d07258",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -173,7 +173,7 @@
     "src/landmarks.js": "0785c99a8e93d71eeb7bfb8a17da1fa07da8d45f0502e5098ef26b853f06d47a",
     "src/presentation.js": "b5d24d0492940f53fcc64759e37fe3eabcb5fd66331f6c361d53383730e0bf05",
     "src/references.js": "9b640060068c4a9c73928fee162489e15f1d03c962650e95df9a317f55f8ce55",
-    "src/app.js": "a62f28084a60179abadcf9a83cc3f41e875c4e121b56d4f4d698d56495ac4f75",
+    "src/app.js": "2edab54d4b58f8061ad287d88e17074ca69ec6967f4d3c05263b95ca688f6945",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
     "data/tauceti-progress.json": "5ca2757415d08557bb7a131e90fb6bb6c4fe131d4b627194b1412114abe47a14",
