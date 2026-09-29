@@ -8,7 +8,7 @@ import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.Tactic.ComputeDegree
 
 /-!
-# Suggested Lean forms: ordinary automorphic forms and ordinary modularity lifting (R21.1–R21.6: SW §§2–8, BLZ, DP p = 3)
+# Suggested Lean forms: ordinary automorphic forms and ordinary modularity lifting (R21.1–R21.6: SW §§2–8, BLZ, DP p = 3, SW 2001)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`OrdinaryAutomorphicFormsAndModularityLifting`) is definitive. The statements below suggest Lean
@@ -208,5 +208,50 @@ example (p : ℕ) (hp : 3 ≤ p) : ¬ (p - 1) ∣ (p + 1 - 1) := by
 /-- The terminal cases of SmallRamificationAndAbelianVarietyBaseCases R25.5 all lie in the range
 `2 ≤ k ≤ p + 1` of the criterion. -/
 example : ∀ pk ∈ [(3, 2), (3, 4), (5, 6), (7, 8), (13, 14)], 2 ≤ pk.2 ∧ pk.2 ≤ pk.1 + 1 := by decide
+
+/-! ### Checkpoint 7: Skinner–Wiles 2001 (irreducible residual representations) -/
+
+/-- `R21.5/nearly-ordinary-irreducible-lifting`: the choice of `L` in the proof of Theorem 5.1
+(`d_L/2 > 2 + 7·#Σ_L` and `d_v > 2 + 7·#Σ_L`) makes `(L, ρ₀)` a good pair, since `t + #ℳ₀ ≤ #Σ_L`. -/
+example (dL dv t m s : ℕ) (hs : t + m ≤ s) (h1 : 2 + 7 * s < dL / 2) (h2 : 2 + 7 * s < dv) :
+    2 + 2 * t + 7 * m < dL / 2 ∧ 2 + 2 * t + 7 * m < dv := by
+  omega
+
+/-- `R21.4/irreducible-pro-modularity`, step three: `(4.1)(i)` gives
+`dim Q₁ ≥ d − 2t − 3·#ℳ₀ − 1 > 1 + d/2`. -/
+example (d t m : ℕ) (h : 2 + 2 * t + 7 * m < d / 2) : 1 + d / 2 < d - 2 * t - 3 * m - 1 := by
+  omega
+
+/-- Step three: if `Q₁^mod` contained every `Y^{(i)}_j`, then `d_i ≤ 2t + 3·#ℳ₀ + 1`, contradicting
+`(4.1)(ii)`. -/
+example (di t m : ℕ) (h : 2 + 2 * t + 7 * m < di) : ¬ di ≤ 2 * t + 3 * m + 1 := by
+  omega
+
+/-- Source issue E14: `(4.1)(i)` does not give the bound of the general step. With `d = 40`, `t = 1`,
+`#ℳ₀ = 0` and `#Σ = 4`, `(4.1)(i)` holds but `d − 7·#Σ − 1 < d/2 + 1`. -/
+example : 2 + 2 * 1 + 7 * 0 < 40 / 2 ∧ 40 - 7 * 4 - 1 < 40 / 2 + 1 := by
+  decide
+
+/-- E14 repaired: with `u = #(Σ ∖ 𝒫)` and `#ℳ ≤ u`, the hypothesis `d/2 > 2 + 2t + 7u` gives
+`d − 2t − 3·#ℳ − 4u ≥ d/2 + 1`, the bound the general step needs. -/
+example (d t m u : ℕ) (hmu : m ≤ u) (h : 2 + 2 * t + 7 * u < d / 2) :
+    d / 2 + 1 ≤ d - 2 * t - 3 * m - 4 * u := by
+  omega
+
+/-- Source issue E11: the unit ranks behind `δ⁻_{F′}` for `[F : ℚ] = d`. `F` (`r₁ = d`) and a CM
+quadratic `F′` (`r₂ = d`) both have unit rank `d − 1`, so the minus units of a CM `F′` have rank `0`
+and `δ⁻_{F′} = d > d/2`; a totally real `F′` (`r₁ = 2d`) has minus units of rank `d`. -/
+example (d : ℕ) (hd : 1 ≤ d) :
+    (0 + d - 1) - (d + 0 - 1) = 0 ∧ (2 * d + 0 - 1) - (d + 0 - 1) = d ∧ d / 2 < d := by
+  omega
+
+/-- E11, totally real `F′`: if the minus units (rank `d`) have `p`-adic rank `r` with `2r ≥ d`
+(Waldschmidt), then `δ⁻_{F′} = d − r ≤ d/2`. -/
+example (d r : ℕ) (hr : d ≤ 2 * r) : d - r ≤ d / 2 := by
+  omega
+
+/-- `R21.3/irreducible-minimal-hecke-quotient` (Lemma 3.5(iii)): `diag(δ, δ⁻¹)` has trace `δ + δ⁻¹`. -/
+example {K : Type*} [Field K] (δ : K) : Matrix.trace !![δ, 0; 0, δ⁻¹] = δ + δ⁻¹ := by
+  simp [Matrix.trace_fin_two]
 
 end TauCeti.OrdinaryModularity.SuggestedTest

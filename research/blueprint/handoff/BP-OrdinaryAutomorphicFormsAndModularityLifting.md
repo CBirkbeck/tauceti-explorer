@@ -1,8 +1,96 @@
-# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.2 source-decomposed; R21.1 and R21.3–R21.6 partial (checkpoint 6)
+# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.2 source-decomposed; R21.1 and R21.3–R21.6 partial (checkpoint 7)
 
 Claude Code — session `cc-39fac3`, 29 September 2026. Refs #962. **Status: partial.**
 - R21.2 is `source_decomposed`.
 - R21.1 and R21.3–R21.6 are `partial`.
+
+## Checkpoint 7: Skinner–Wiles 2001, irreducible residual representations (14 nodes)
+
+**Source.** C. M. Skinner and A. J. Wiles, *Nearly ordinary deformations of irreducible residual representations*, Ann.
+Fac. Sci. Toulouse Math. (6) 10 (2001), 185–215. It is on Numdam (sha256 f847ed8…) and was read in full on the page
+images; the OCR renders ρ as "p". Before this checkpoint it was a gap with no owning stage. It is planned here next to
+the 1999 argument it adapts, because:
+- GL2ModularityLifting R22.1 requests the ordinary lifting theorem over totally real F from R21.4;
+- PotentialModularityAndCompatibleSystems R23.3 requests it for Taylor's ordinary case;
+- Khare's degenerate branch uses it.
+
+**R21.3 (8 nodes, modules `…/IrreducibleDeformations` and `…/IrreducibleHecke`):**
+- `irreducible-deformation-datum` (definition): the conditions (2.1), the data (𝒪, Σ, ℳ), type 𝒟, R_𝒟 and (2.2);
+- `irreducible-presentation-bound`: Proposition 2.1;
+- `dihedral-deformation-dimension`: (2.3)–(2.4) and Lemma 2.2, corrected (E11);
+- `irreducible-trace-generation`: Lemma 2.3, from Carayol (GlobalGaloisDeformations R04.2/carayol-trace-theorem);
+- `integral-hecke-galois-representation` (construction): ρ_{U,m} over T_∞(U, 𝒪)_m and Lemma 3.3;
+- `irreducible-permissible-hecke-rings` (construction): permissible m, U_{𝒟_Q}, (H_def), T_{𝒟_Q}, M_{𝒟_Q}, T^min;
+- `irreducible-hecke-surjection`: Proposition 3.4;
+- `irreducible-minimal-hecke-quotient`: Lemma 3.5.
+
+**R21.4 (4 nodes, module `…/IrreducibleRT`):**
+- `irreducible-good-pair-and-nice-primes` (definition): (4.1), (4.2) and property (P);
+- `irreducible-pro-modularity`: Proposition 4.1, with hypotheses (a) (E14) and (b) (E11);
+- `irreducible-selmer-auxiliary-primes`: Lemma 7.1 and Proposition 7.2;
+- `irreducible-nice-prime-r-equals-t`: Propositions 8.1–8.2 through Proposition 6.1 (the 1999 patching with R^{tr} = R).
+
+R21.4 already had 6 planets, so these carry none.
+
+**R21.5 (2 nodes):**
+- `nearly-ordinary-irreducible-lifting` (planet): Theorem 5.1;
+- `nearly-ordinary-irreducible-lifting-over-q` (planet): Theorem 5.2 and the introduction's theorem.
+
+Both carry the extra hypothesis that ρ̄^{ss} is not induced from a quadratic extension with a complex place (E11).
+
+**R21.6:** `exported-ordinary-modularity-over-q` now covers the residually irreducible theorem as well.
+
+**Source issues:**
+- **E11 (gap).** Lemma 2.2's "δ⁻_{F′} ≤ d/2 by [Wal]" holds for F′ totally real but not for F′ CM, where δ⁻_{F′} = d.
+  With every v | p split in F′, the anticyclotomic dihedral deformations give a locus of dimension d, and Proposition 4.1
+  uses the d/2 bound three times. I have not checked whether Theorems 5.1–5.2 themselves fail in these cases.
+- **E12.** [Wal] is missing from the bibliography.
+- **E13.** ℳ_c and ρ_{𝒟_c} appear where ℳ₀ and ρ_{𝒟₀} are meant (1999 notation).
+- **E14 (gap).** Proposition 4.1's general step needs d/2 > 2 + 2t + 7#(Σ ∖ 𝒫), which (4.1) omits. Theorem 5.1 imposes
+  it for L, so Theorem 5.1 is unaffected.
+- **E15.** "(4.1i,ii)" is printed for (5.1i,ii).
+
+**Gaps:**
+- removed: "Skinner–Wiles 2001 has no owning stage";
+- new: Skinner–Wiles, *Base change and a problem of Serre* (Duke 2001; not freely readable), which Theorem 5.1 and
+  Taylor's KW Annals Theorem 2.1 both use;
+- the Waldschmidt gap now also covers the dihedral lemma.
+
+**New requests:**
+- SerreWeightAndLevelOptimisation R20.6: Diamond's Theorem 6.4, the χ₂-good lift over ℚ;
+- LocalGaloisDeformationRings L8: the nearly ordinary ring of a nonsplit ρ₀|_{D_v}.
+
+**Lean.** New checked tests:
+- the choice of L makes (L, ρ₀) good;
+- step three's two inequalities;
+- the E14 counterexample (d = 40, #Σ = 4) and its repair;
+- the E11 unit ranks and the totally real bound;
+- the trace δ + δ^{−1} of Lemma 3.5(iii).
+
+The file compiles with 0 errors, 0 warnings and no `sorry`.
+
+**Totals.** 84 nodes, 28 planets, 23 requests, 5 gaps and 15 source issues. `check_blueprint.py`: 0 errors, 0 warnings.
+
+**Consumers to update (other roadmaps' packets; not edited here):**
+- ClassicalSerreModularity R26.1/R26.4 degenerate branches: they can cite `R21.5/nearly-ordinary-irreducible-lifting-over-q`,
+  but their p ≡ 3 mod 4 case has ρ̄ induced from ℚ(√−p), so it waits on E11;
+- GL2ModularityLifting R22.1's request to R21.4 is served by `R21.5/nearly-ordinary-irreducible-lifting`, with
+  D_i-distinguishedness as a hypothesis;
+- PotentialModularityAndCompatibleSystems R23.3 likewise.
+
+## What a continuation should do (after checkpoint 7)
+
+1. **E11:** bound the dihedral locus for CM F′ in which the places above p do not all split. The nearly ordinary
+   condition at a non-split v forces Ψ⁻ to be of finite order on D_w. This would remove hypothesis (iii) in Khare's
+   p ≡ 3 mod 4 case. An independent reviewer should check E11.
+2. **R21.6 and R21.1:** the classical Hida family over ℚ.
+   - PadicFamilies L0 owns the Hecke side: control, specialisation, and Hida's Corollary 3.7 (to be requested).
+   - PadicFamilies L4's RS-08 note assigns the ordinary big Galois representation to this roadmap. R21.3's
+     `hida-family-representation` is only for even-degree F, so the ℚ-family representation (Emerton–Pollack–Weston
+     Theorem 2.3.1 and Propositions 2.3.2–2.3.5, arXiv:math/0404484, citing Hida, Invent. Math. 85) should be planned
+     in R21.6.
+   - Add the roadmap's required examples (X₀(11) at p = 5: ordinary, ρ̄^{ss} = 1 ⊕ ω, p-distinguished).
+3. **Washington and Waldschmidt gaps.**
 
 ## Checkpoint 6: the crystalline-to-ordinary criterion, Theorem A over ℚ, p = 3, and R21.6 (8 nodes)
 
