@@ -10,7 +10,7 @@
   "EulerSystemsCyclotomicMainConjecture:L4"
  ],
  "status": "partial",
- "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read.",
+ "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read. Checkpoint 2 plans L1: Theorem III.2.3 (|A_L^χ| divides [E_L^χ : C_{L,χ}] for p > 2, χ(p) ≠ 1) from Theorem II.2.2, with its hypotheses, vanishing error terms, the index of divisibility and the class-group Selmer group, and Corollary III.2.4 with its dependence on the ψ(p) = 1 components recorded.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -196,6 +196,13 @@
     "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
     "provides": "kummerMap a = 1 iff a is an n-th power in K.",
     "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:NumberField.Units.finrank_eq",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+    "provides": "Dirichlet's unit theorem: the units modulo torsion have rank r₁ + r₂ − 1.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-29)"
    }
   ]
  },
@@ -213,7 +220,8 @@
     "Chapter II §1, Definition 1.1 and Remarks 1.2–1.4 (pp. 21–23)",
     "Chapter II §4, Definition 4.1, Proposition 4.2, Lemma 4.3 (pp. 30–31)",
     "Chapter III §1, Lemma 1.1 (p. 33)",
-    "Chapter III §2.1–2.4, Remark 2.1, Definition 2.2, Theorem 2.3 with proof, Corollary 2.4 (pp. 33–36)"
+    "Chapter III §2.1–2.4, Remark 2.1, Definition 2.2, Theorem 2.3 with proof, Corollary 2.4 (pp. 33–36)",
+    "2026-09-29 (cc-fb70e5, checkpoint 2): Chapter I Lemma 3.2 and §6.2 Proposition 6.1, Definition 6.2 (printed pp. 4–5, 13–15); Chapter II §2 Hypotheses Hyp(K, T), Definition 2.1, Theorems 2.2–2.3, Remarks 2.4–2.9 (printed pp. 23–25); Chapter III §1 Lemma 1.1 and §2.1–2.5 (printed pp. 33–37)"
    ]
   },
   {
@@ -1742,12 +1750,241 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L1/cyclotomic-hypotheses-and-error-terms",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L1",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L1"
+   ],
+   "title": "Hypotheses of Theorem II.2.2 and vanishing of its error terms for the cyclotomic twist",
+   "kind": "lemma",
+   "statement": "Let p > 2 and χ : G_ℚ → O^× even, nontrivial, of finite order prime to p, with conductor f and field L; T = O_χ, W = D_χ, T* = O_{χ^{−1}}(1), W* = T* ⊗ ℚ_p/ℤ_p. Then T* satisfies Hyp(ℚ, T*) with τ = 1, because rank_O T* = 1 (Remark II.2.4). For the Euler system c = c̃^{χ^{−1}} for (T*, ℚ^ab, pf), the field Ω of Theorem II.2.2 is L(μ_{p^∞}). Both error terms n_{W*} and n*_{W*} of Theorem II.2.2 vanish: H¹(Ω/ℚ, W) = 0 because χ ≠ 1 (Lemma III.1.1(i)), and H¹(Ω/ℚ, W*) = 0 because χ is even, so it is not congruent modulo p to the odd cyclotomic character (Lemma III.1.1(ii)).",
+   "hypotheses": [
+    "Theorem II.2.2 is applied to T* in place of T. Its bound is then on S_{Σ_p}(ℚ, W), the dual of W* being W.",
+    "Over ℚ, K(1) = ℚ and (O_ℚ^×)^{1/p^∞} ⊂ ℚ(μ_{p^∞}), since ±1 are p-th powers for odd p. So Ω = ℚ(W*)ℚ(μ_{p^∞}) = L(μ_{p^∞})."
+   ],
+   "proofSteps": [
+    "Rank one gives Hyp(ℚ, T*)(i) with τ = 1 and (ii) trivially (Remark II.2.4).",
+    "Lemma III.1.1: since |Δ| is prime to p, inflation–restriction gives H¹(Ω/ℚ, k_ρ) = Hom(Gal(Ω/L), k_ρ^Δ). This vanishes if ρ ≢ 1 mod p, and then H¹(Ω/ℚ, D_ρ) = 0 by dévissage. Take ρ = χ, and ρ = χ^{−1}ε_cyc, which is odd while χ is even, so ρ ≢ 1 for p > 2."
+   ],
+   "acceptance": [
+    "χ = 1 is excluded: then H¹(Ω/ℚ, W) ≠ 0 in general.",
+    "An odd χ can be congruent to ε_cyc (for instance χ = ω), which is why χ is even here."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-euler-system",
+    "EulerSystemsCyclotomicMainConjecture:L0/twisted-class-formula",
+    "EulerSystemsAndKolyvaginSystems:ES.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.3, printed p. 36",
+     "match": "Hyp(ℚ, T*) with τ = 1."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.3, printed p. 36",
+     "match": "The vanishing of both error terms."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, Lemma 1.1, printed p. 33",
+     "match": "Lemma III.1.1(ii)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L1/chi-units-rank-one-and-index",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L1",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L1"
+   ],
+   "title": "E_L^χ is free of rank one, and the index of divisibility is the unit index",
+   "kind": "lemma",
+   "statement": "Let p > 2 and χ : G_ℚ → O^× even, nontrivial, of finite order prime to p, with conductor f and field L; T = O_χ, W = D_χ, T* = O_{χ^{−1}}(1), W* = T* ⊗ ℚ_p/ℤ_p, with χ(p) ≠ 1. Then E_L^χ is a free O-module of rank one, by the Dirichlet unit theorem, since L is totally real and χ ≠ 1 is even. The index of divisibility of the cyclotomic Euler system (Definition II.2.1) is ind_O(c) = ℓ_O(E_L^χ/C_{L,χ}). Indeed L^×/E_L is torsion-free, so a generator of C_{L,χ} is divisible by p^n in H¹(ℚ, T*) ≅ (L^×)^χ exactly when it is divisible by p^n in E_L^χ.",
+   "hypotheses": [
+    "The Galois-module form of the unit theorem is needed: E_L ⊗ ℚ is the augmentation quotient of ℚ[Δ] for totally real L (Herbrand–Minkowski). This is requested with IntegralIwasawaTheory L0. Mathlib has the rank statement (NumberField.Units.finrank_eq) but not the Δ-module structure.",
+    "c_ℚ generates C_{L,χ} when χ(p) ≠ 1 (L0/twisted-class-generates)."
+   ],
+   "proofSteps": [
+    "The χ-part of μ(L) ⊗ ℤ_p vanishes for odd p, so E_L^χ is torsion-free.",
+    "E_L ⊗ ℚ_p ≅ (augmentation quotient of ℚ_p[Δ]) contains each nontrivial character once. So E_L^χ has O-rank one, and it is free, being torsion-free over a DVR.",
+    "H¹(ℚ, T*) ≅ (L^×)^χ by (3). Since L^×/E_L is torsion-free, divisibility of c_ℚ in H¹/torsion is divisibility in E_L^χ. With c_ℚ a generator of C_{L,χ}, ind_O(c) = ℓ_O(E_L^χ/C_{L,χ})."
+   ],
+   "acceptance": [
+    "If χ(p) = 1 then c_ℚ = 0 and ind_O(c) = ∞ (Remark II.2.8)."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/twisted-class-generates",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-units",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-component",
+    "IntegralIwasawaTheory:L0",
+    "mathlib:NumberField.Units.finrank_eq"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.3, printed p. 36",
+     "match": "E_L^χ free of rank one."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter II, Definition 2.1, printed p. 24",
+     "match": "The index of divisibility."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L1/selmer-is-class-group",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L1",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L1"
+   ],
+   "title": "When χ(p) ≠ 1 the relaxed Selmer group is Hom_O(A_L^χ, D)",
+   "kind": "lemma",
+   "statement": "Let χ : G_ℚ → O^× even, nontrivial, of finite order prime to p, with conductor f and field L; T = O_χ, W = D_χ, T* = O_{χ^{−1}}(1), W* = T* ⊗ ℚ_p/ℤ_p, with χ(p) ≠ 1. Then H¹_f(ℚ_p, W) = 0, so S_{Σ_p}(ℚ, W) = S(ℚ, W) ≅ Hom_O(A_L^χ, D), where A_L is the ideal class group of L.",
+   "hypotheses": [
+    "S(K, W) ≅ Hom(A_L, D_χ)^Δ is Rubin's Proposition I.6.1. The unramified local conditions away from p and at p are those of I.6.2. Requested from SelmerIwasawaCohomology L2."
+   ],
+   "proofSteps": [
+    "By Lemma I.3.2(i), H¹_ur(ℚ_p, V) = V^I/(Fr_p − 1)V^I = V^I/(χ(p) − 1)V^I, which is 0 since χ(p) ≠ 1. If p | f then V^I = 0 already.",
+    "So H¹_f(ℚ_p, W) = 0 and relaxing the condition at p changes nothing: S_{Σ_p}(ℚ, W) = S(ℚ, W).",
+    "Proposition I.6.1: restriction to L is an isomorphism on Δ-invariants since |Δ| is prime to p. Unramified homomorphisms factor through Gal(H_L/L) ≅ A_L, so S(ℚ, W) ≅ Hom(A_L, D_χ)^Δ = Hom_O(A_L^χ, D)."
+   ],
+   "acceptance": [
+    "χ(p) = 1: H¹_f(ℚ_p, W) can be nonzero, and S_{Σ_p} is larger than S."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L1/cyclotomic-hypotheses-and-error-terms",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-component",
+    "SelmerIwasawaCohomology:L2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.3, printed p. 36",
+     "match": "The local computation at p."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, Proposition 6.1 and its proof, printed p. 14",
+     "match": "The Selmer group is the dual of the χ-part of the class group."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L1/kolyvagin-class-group-divisibility",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L1",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L1"
+   ],
+   "title": "Kolyvagin's bound: |A_L^χ| divides [E_L^χ : C_{L,χ}] (Rubin, Theorem III.2.3)",
+   "kind": "theorem",
+   "statement": "Let p > 2 and χ : G_ℚ → O^× even, nontrivial, of finite order prime to p, with conductor f and field L; T = O_χ, W = D_χ, T* = O_{χ^{−1}}(1), W* = T* ⊗ ℚ_p/ℤ_p, with χ(p) ≠ 1. Then |A_L^χ| divides [E_L^χ : C_{L,χ}].",
+   "hypotheses": [
+    "Theorem II.2.2 (the error-tolerant Euler-system bound, p > 2) is imported from EulerSystemsAndKolyvaginSystems ES.4, with its derivative classes and Chebotarev inputs (ES.1, ES.3). Chapters IV–V, where it is proved, are that roadmap's.",
+    "Mazur–Wiles proved it first; this proof is Kolyvagin's."
+   ],
+   "proofSteps": [
+    "Theorem II.2.2 for T*, with the cyclotomic Euler system c: ℓ_O(S_{Σ_p}(ℚ, W)) ≤ ind_O(c) + n_{W*} + n*_{W*}.",
+    "The error terms vanish (L1/cyclotomic-hypotheses-and-error-terms), and ind_O(c) = ℓ_O(E_L^χ/C_{L,χ}) (L1/chi-units-rank-one-and-index).",
+    "S_{Σ_p}(ℚ, W) = Hom_O(A_L^χ, D) (L1/selmer-is-class-group), whose length is that of A_L^χ. Lengths over O give divisibility of orders."
+   ],
+   "acceptance": [
+    "χ(p) = 1: c_ℚ = 0, so Theorem II.2.2 gives nothing (Remark III.2.5); L2–L3 handle it through the main conjecture.",
+    "p | ord χ: the Selmer group is no longer exactly the class group (Remark III.2.5)."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L1/cyclotomic-hypotheses-and-error-terms",
+    "EulerSystemsCyclotomicMainConjecture:L1/chi-units-rank-one-and-index",
+    "EulerSystemsCyclotomicMainConjecture:L1/selmer-is-class-group",
+    "EulerSystemsAndKolyvaginSystems:ES.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, the paragraph before Theorem 2.3, printed p. 35",
+     "match": "Attribution."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.3, printed p. 36",
+     "match": "The end of the proof."
+    }
+   ],
+   "planet": {
+    "name": "Kolyvagin's class-group bound"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L1/mazur-wiles-chi-equality",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L1",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L1"
+   ],
+   "title": "The equality |A_L^χ| = [E_L^χ : C_{L,χ}] (Rubin, Corollary III.2.4)",
+   "kind": "theorem",
+   "statement": "Let p > 2 and χ : G_ℚ → O^× even, nontrivial, of finite order prime to p, with conductor f and field L; T = O_χ, W = D_χ, T* = O_{χ^{−1}}(1), W* = T* ⊗ ℚ_p/ℤ_p, with χ(p) ≠ 1. Then |A_L^χ| = [E_L^χ : C_{L,χ}] (Mazur–Wiles).",
+   "hypotheses": [
+    "Rubin gives no proof; he cites [Ru3] Theorem 4.2 (Rubin's appendix to Lang, Cyclotomic Fields I and II), which is not read here. See the gap.",
+    "The class-number-formula argument compares ∏_ψ |A_L^ψ| with ∏_ψ [E_L^ψ : C_{L,ψ}] over the even characters ψ ≠ 1 of Δ, so it needs the divisibility for every such ψ. Theorem III.2.3 gives it only for ψ(p) ≠ 1. For ψ(p) = 1, Rubin's Remark 2.5 points to Greenberg's deduction from the main conjecture (Theorem III.2.10, layers L2–L3)."
+   ],
+   "proofSteps": [
+    "Analytic class number formula for the maximal real subfield, and Sinnott's index of cyclotomic units, decomposed into ψ-parts (p odd, so the 2-power factors drop out).",
+    "Combine with L1/kolyvagin-class-group-divisibility for every even ψ ≠ 1 of Δ with ψ(p) ≠ 1, and with the main conjecture (L3) for ψ(p) = 1."
+   ],
+   "acceptance": [
+    "Needs the bound for all characters of Δ, not only χ."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L1/kolyvagin-class-group-divisibility",
+    "IntegralIwasawaTheory:L0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, Corollary 2.4 and its proof, printed p. 36",
+     "match": "The proof is cited, not given."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, Corollary 2.4, printed p. 36",
+     "match": "The argument, stated for all such characters."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
   {
    "supplier": "IntegralIwasawaTheory:L0",
-   "need": "The cyclotomic tower: a compatible system ζ_m (ζ_{mn}^n = ζ_m) in a fixed algebraic closure or ℂ; the fields ℚ(μ_m) = ℚ(ζ_m) with inclusions for m ∣ n; Gal(ℚ(μ_m)/ℚ) ≅ (ℤ/m)^× by σ_a(ζ_m) = ζ_m^a, compatible with restriction; the real subfields ℚ(μ_m)^+ and complex conjugation; the relative norms N_{ℚ(μ_n)/ℚ(μ_m)} and N_{ℚ(μ_m)/L} to subfields, with transitivity and Galois equivariance; the Galois action on L^× ⊗ O and on the global units E_L of subfields L; the fact that 1 − ζ_g is a unit when g is not a prime power; and the index formula making [E_L^χ : C_{L,χ}] finite for even χ ≠ 1.",
+   "need": "The cyclotomic tower: a compatible system ζ_m (ζ_{mn}^n = ζ_m) in a fixed algebraic closure or ℂ; the fields ℚ(μ_m) = ℚ(ζ_m) with inclusions for m ∣ n; Gal(ℚ(μ_m)/ℚ) ≅ (ℤ/m)^× by σ_a(ζ_m) = ζ_m^a, compatible with restriction; the real subfields ℚ(μ_m)^+ and complex conjugation; the relative norms N_{ℚ(μ_n)/ℚ(μ_m)} and N_{ℚ(μ_m)/L} to subfields, with transitivity and Galois equivariance; the Galois action on L^× ⊗ O and on the global units E_L of subfields L; the fact that 1 − ζ_g is a unit when g is not a prime power; and the index formula making [E_L^χ : C_{L,χ}] finite for even χ ≠ 1. Also the Galois-module form of the unit theorem for totally real abelian L (E_L ⊗ ℚ ≅ augmentation quotient of ℚ[Δ]), and the analytic class number formula with Sinnott's index of cyclotomic units in ψ-parts.",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number",
     "EulerSystemsCyclotomicMainConjecture:L0/p-extended-auxiliary-relation",
@@ -1756,7 +1993,9 @@
     "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses",
     "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator",
     "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator-unit",
-    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-units"
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-units",
+    "EulerSystemsCyclotomicMainConjecture:L1/chi-units-rank-one-and-index",
+    "EulerSystemsCyclotomicMainConjecture:L1/mazur-wiles-chi-equality"
    ],
    "status": "open",
    "note": "RS-16 routes the global cyclotomic-unit definitions to IntegralIwasawaTheory:L0, which has no packet yet. The suggested file uses stand-ins zeta, Qmu, QmuPlus, unitsTensorRep only to state signatures."
@@ -1810,6 +2049,21 @@
    ],
    "status": "open",
    "note": "Used only to match Rubin's Remark II.1.3 fields with the cyclotomic fields."
+  },
+  {
+   "supplier": "EulerSystemsAndKolyvaginSystems:ES.4",
+   "need": "Rubin's Theorem II.2.2 as ES.4 specifies it: for p > 2 and T satisfying Hyp(K, T), ℓ_O(S_{Σ_p}(K, W*)) ≤ ind_O(c) + n_W + n*_W for every Euler system c, with the error terms n_W, n*_W defined through Ω = K(1)K(W)K(μ_{p^∞}, (O_K^×)^{1/p^∞}), and with its ES.1 (Chebotarev, auxiliary primes) and ES.3 (derivative classes) inputs.",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L1/cyclotomic-hypotheses-and-error-terms",
+    "EulerSystemsCyclotomicMainConjecture:L1/kolyvagin-class-group-divisibility"
+   ]
+  },
+  {
+   "supplier": "SelmerIwasawaCohomology:L2",
+   "need": "The Selmer groups S(K, W) and S_{Σ_p}(K, W) of Rubin I.3 and I.6 for W = D_χ, with Lemma I.3.2(i) (H¹_ur = B^I/(Fr − 1)B^I) and Proposition I.6.1 (S(K, W) ≅ Hom(A_L, D_χ)^Δ for χ of order prime to p).",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L1/selmer-is-class-group"
+   ]
   }
  ],
  "coverage": [
@@ -1820,11 +2074,12 @@
   },
   {
    "stageId": "EulerSystemsCyclotomicMainConjecture:L1",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Read Rubin Chapter III §2.3–2.4 (the Selmer group (5), Theorem 2.3 with its proof) with Chapters IV–V (derivative classes, Theorem II.2.2) and decompose: the verification of Hyp(ℚ, T^*) with τ = 1, the vanishing of n_{W*} and n^*_{W*} by Lemma III.1.1, the index of divisibility ind_O(c) = ℓ_O(E_L^χ/C_{L,χ}) using the Dirichlet unit theorem (E_L^χ free of rank one), H¹_f(ℚ_p, W) = 0 for χ(p) ≠ 1, and |A_L^χ| ∣ [E_L^χ : C_{L,χ}]. Import ES.1, ES.3 and ES.4 through requests.",
-    "Corollary III.2.4 (equality by the analytic class number formula over all χ) is cited by Rubin to [Ru3] Theorem 4.2; decompose it from a readable source or record it as a gap."
-   ]
+    "The explicit derivative classes of the cyclotomic Euler system and the tracking of their local conditions (Rubin Chapters IV–V, applied to c): the roadmap asks for them here, while the general machinery (ES.1, ES.3, ES.4) is imported. Not yet decomposed.",
+    "Corollary III.2.4 (equality) depends on the unread [Ru3] Theorem 4.2 or on L3 for the ψ(p) = 1 components (see the gap)."
+   ],
+   "notes": "Checkpoint 2 plans Theorem III.2.3 and its proof in 5 nodes: the hypotheses of Theorem II.2.2 with the vanishing error terms (Lemma III.1.1), the rank-one χ-units and the index of divisibility, the Selmer group as the dual of A_L^χ (Proposition I.6.1), the divisibility itself, and Corollary III.2.4 with its dependence recorded as a gap."
   },
   {
    "stageId": "EulerSystemsCyclotomicMainConjecture:L2",
@@ -1848,7 +2103,15 @@
    ]
   }
  ],
- "gaps": [],
+ "gaps": [
+  {
+   "title": "Corollary III.2.4 (Mazur–Wiles equality) rests on an unread citation and on the ψ(p) = 1 components",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L1/mazur-wiles-chi-equality"
+   ],
+   "detail": "Rubin proves Corollary III.2.4 by citing [Ru3] Theorem 4.2, which is not public and not read here. The analytic-class-number-formula argument he describes needs the divisibility |A_L^ψ| ∣ [E_L^ψ : C_{L,ψ}] for every even character ψ ≠ 1 of Δ, and Theorem III.2.3 supplies it only when ψ(p) ≠ 1. For ψ(p) = 1, Rubin's Remark 2.5 points to Greenberg's deduction from the main conjecture (Theorem III.2.10). The node is planned with that route, which makes L1's equality depend on L3; the finite-level divisibility (Theorem III.2.3) does not."
+  }
+ ],
  "sourceIssues": [
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E1",
