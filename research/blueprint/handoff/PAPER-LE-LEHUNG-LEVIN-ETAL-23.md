@@ -13,6 +13,38 @@ of the listed ideals' Gröbner elements (powers ≤ 2), over `Z[1/7!][a,b][1/(P�
 dimensions and the extra components follow from the explicit forms. The data is in
 `sourceData.appendixB.table1Rederivation.uniform`.
 
+## Q03 attempt (cc-39fac3, after the fourth checkpoint): not reproduced; leads for the next worker
+
+I tried to re-derive B.0.1(1)'s three equations with Singular, at (a,b) = (5,−4) over Q. The
+setup was:
+- the chart matrix of PDF202;
+- det A = −(v−t)⁴;
+- the λ = (3,1,0) condition, rank A(v=t) ≤ 1, from the 2×2 minors;
+- the monodromy condition (3.1) read with L⁺ = R[[v−t]], namely
+  (v·A′ + A·Diag(a,b,0))·adj A ≡ 0 mod (v−t)³;
+- saturation by t, since M_X(λ,∇) is the closure of the t ≠ 0 open-cell part (Definition 3.3.6).
+
+**This did not reproduce the printed F1–F3**, so none of them is certified.
+
+1. **Entry (1,2).** PDF202 prints the (1,2) entry of A as v·c12. Proposition 3.2.8's own formula
+   (PDF60, checked on the page image) gives the constant c12 there, since δ_{1>2} = 0 and the degree
+   bound is ν₂ − δ_{1<w(2)} = 1 − 1 = 0 for z̃ = (23)t^(2,1,1). The other eight entries agree with
+   the formula.
+2. **With v·c12** as printed, the saturated ideal has only 3-dimensional components. The chart over
+   fixed (a,b) must be 4-dimensional (flat, with 3-dimensional fibres over the t-line), so these
+   conditions over-constrain.
+3. **With c12**, there is a 4-dimensional component, and on it five of the six coefficients are
+   linear in the other variables. At (5,−4), for example, d11 = c12·d31 − t/6 and
+   c23 = (11·c22·d33 − 9t)/7. But c33 only satisfies c33·c12 = t·c13, and the three relations
+   among t, c12, c13, d21, c22, d31, d33 differ from the printed F1–F3.
+4. **A search over Diag(a) conventions** did not reproduce them either: all orderings and signs of
+   (a, b, 0), with A·D or D·A.
+
+So either the authors' conventions differ from this reading of (3.1), for example L⁺ in terms of v,
+another normalization of A, or a different Schubert condition, or the display has a misprint. Pin
+the conventions of §3.1–3.3 down before recording any finding. No finding was recorded, because
+which side is wrong is not established.
+
 ## Resume from here
 
 1. **Q03 (B.0.1(1)), the last Appendix B item.** Set up the universal matrix A of Proposition 3.2.8
