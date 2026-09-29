@@ -1,0 +1,1743 @@
+{
+  "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+  "protocol": "blueprint-v1",
+  "part": "AG2.0",
+  "scope": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.0",
+    "AutomorphicGaloisRepresentationsPartII:AG2.1",
+    "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+    "AutomorphicGaloisRepresentationsPartII:AG2.1b",
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "AutomorphicGaloisRepresentationsPartII:AG2.3",
+    "AutomorphicGaloisRepresentationsPartII:AG2.4",
+    "AutomorphicGaloisRepresentationsPartII:AG2.5"
+  ],
+  "status": "partial",
+  "summary": "Galois representations attached to regular algebraic automorphic representations of GL_n over CM and totally real fields, part AG2.0 (stages AG2.0–AG2.5), checkpoint 1, in 15 nodes. AG2.0 is planned at declaration level from BLGGT §2.1 and A.2 and ACC+: weights, regular algebraic, polarized automorphic and Galois pairs, algebraic Hecke characters, the multiplier sign (with a correction to BLGGT's normalisation), the Hodge–Tate and Hecke-polynomial dictionaries without local Langlands, attachment at good places and the field of rationality. The polarized construction (AG2.1a), the HLTT construction (AG2.4) and the Varma and Caraiani comparisons (AG2.5) are carried from the reviewed decomposition. RS-12 is not accepted; the current structure is used.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:NumberField.IsCMField",
+        "kind": "class",
+        "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
+        "provides": "IsCMField K: K is totally complex and a quadratic extension of its maximal real subfield K⁺.",
+        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-09-29"
+      },
+      {
+        "ref": "mathlib:NumberField.IsCMField.complexConj",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
+        "provides": "complexConj K : K ≃ₐ[K⁺] K, the complex conjugation of a CM field.",
+        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-09-29"
+      },
+      {
+        "ref": "mathlib:NumberField.IsCMField.complexEmbedding_complexConj",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
+        "provides": "φ (complexConj K x) = conj (φ x) for every complex embedding φ: τ∘c = c∘τ.",
+        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-09-29"
+      },
+      {
+        "ref": "mathlib:Multiset.prod_X_sub_C_coeff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Vieta.lean",
+        "provides": "Vieta: the coefficients of ∏ (X − C r) over a multiset are signed elementary symmetric functions.",
+        "checked": "declaration read in the Lean source at the pinned commit (Mathlib 082e2d3), 2026-09-29"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "blggt-potential-automorphy",
+      "title": "Potential automorphy and change of weight",
+      "authors": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor",
+      "edition": "arXiv:1010.2561v4, 9 December 2013, the last arXiv version (published Annals of Math. 179 (2014), 501–609). Printed page = PDF page. R. Taylor's copy pa3.pdf has the same text in §2.1",
+      "url": "https://arxiv.org/pdf/1010.2561v4",
+      "sha256": "c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24",
+      "readSections": [
+        "Introduction: Theorems A–D, pp. 1–6",
+        "Notation: Artin normalisation, rec, HT_τ(ε_l) = {−1}, algebraic characters, pp. 8–10",
+        "§2.1 Terminology: polarized l-adic and mod l representations, totally odd, algebraic, polarized automorphic representations, (ℤⁿ)_w, extremely regular, Ξ_a, weight, ι-ordinary, Theorem 2.1.1 with its proof and remarks, pp. 31–34",
+        "§5.1 remark on the weights of r_{l,ι}(χ), p. 65; Theorem 5.5.1's proof and the remark before Theorem 5.5.2, p. 81",
+        "Appendix A.2: algebraic characters and their weights (1)–(8), Lemmas A.2.1–A.2.5, pp. 87–90"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "accplus-cm-potential-automorphy",
+      "title": "Potential automorphy over CM fields",
+      "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne",
+      "edition": "Annals of Mathematics 197 (2023), 897–1113; the authors' copy Ramanujan.pdf, which carries the journal pagination (printed page = PDF page + 896)",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
+      "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02",
+      "readSections": [
+        "Earlier decomposition: 4.3 Definition 4.3.1 and Lemma 4.3.2 (pp. 972–973); 6.2.28–6.2.31 (pp. 1044–1045)",
+        "cc-fb70e5, 2026-09-29 (part AG2.0, checkpoint 1): §1 notation (Artin and rec normalisations, rec^T, algebraic characters, regular algebraic of weight ξ, totally odd), pp. 906–909; §2.2.5 with (2.2.6)–(2.2.7), pp. 921–922; Theorems 2.3.2–2.3.3, pp. 935–936; Definition 2.3.6 and the contragredient remark after it, p. 938; §7.1 up to Lemma 7.1.9, p. 1093; Corollary 7.2.4, p. 1100"
+      ]
+    },
+    {
+      "id": "patrikis-sign",
+      "title": "On the sign of regular algebraic polarizable automorphic representations",
+      "authors": "Stefan Patrikis",
+      "edition": "arXiv:1306.1242v2, 8 July 2014 (published Math. Ann. 362 (2015), 147–171). Printed page = PDF page",
+      "url": "https://arxiv.org/pdf/1306.1242v2",
+      "sha256": "2bfa2a6a00a94465725cd7b0e48d64eef1fed4113a6be4b246a015e7927259f8",
+      "readSections": [
+        "§1 and §2: Theorem 2.1 and the construction of ρ_{Π,ι} after it, pp. 1–8; the remark on polarizable representations over CM fields, p. 9"
+      ],
+      "accessed": "2026-09-29"
+    },
+    {
+      "id": "hltt-rigid-cohomology",
+      "title": "On the rigid cohomology of certain Shimura varieties",
+      "authors": "Michael Harris, Kai-Wen Lan, Richard Taylor and Jack Thorne",
+      "edition": "Author's copy rigcoh.pdf (published in Res. Math. Sci. 3 (2016)); read from the supplied extracted text references/text/SS_HLTT.txt. Locators give the article's own page numbers and result numbers",
+      "url": "https://www.kwlan.org/articles/rigcoh.pdf",
+      "sha256": "abecfd049d617654dd0bb60e4945bf6967d3953ed20f2126de0624f2bd0bdbc7",
+      "readSections": [
+        "Abstract and Introduction: Theorem A (quoted there as Corollary 7.14), the remark on extending local-global compatibility, the sketch of the argument including the group G_n, its maximal parabolic and Levi, the induced representation Pi(N), the realization in overconvergent p-adic cusp forms of finite slope, Katz's congruence argument, and the dagger-space set-up with the ordinary loci and the subcanonical sheaf, pp. 1-3",
+        "Reviewer (REVIEW-EXT-10-EXT-07): abstract and introduction pp. 1-3 (the displayed 2n-dimensional decomposition checked on the page image of p. 2), bibliography entries [CH], [Sh1], [Sh2]"
+      ]
+    },
+    {
+      "id": "chenevier-harris-II",
+      "title": "Construction of automorphic Galois representations, II",
+      "authors": "Gaetan Chenevier and Michael Harris",
+      "edition": "Author's copy ConstructionII.pdf (published in Camb. J. Math. 1 (2013), 53-73); read from the supplied extracted text references/text/SS_ChenevierHarris.txt. Locators give the article's own page and result numbers",
+      "url": "https://webusers.imj-prg.fr/~michael.harris/ConstructionII.pdf",
+      "sha256": "9b5e76798f75273f53d1d4160f35815b1a3b656f04c965ad47fd4fa454840529",
+      "readSections": [
+        "Introduction: the setting (F totally real, K/F totally imaginary quadratic, G = Res_{K/Q} GL(n)), and the main theorem quoted there as Theorem 3.2.3 with its parts (a), (b), (c), p. 1",
+        "Reviewer (REVIEW-EXT-10-EXT-07): introduction pp. 1-2 and the paragraph before Theorem 2.3 describing the dominance relation (it implies s = s' and N in the Zariski closure of the conjugacy class of N'), bibliography entry [Ch] = Chenevier, Une application des varietes de Hecke des groupes unitaires",
+        "cc-fb70e5, 2026-09-29: §4, General Hypotheses 4.1 and Theorem 4.2 (totally real fields), p. 13"
+      ]
+    },
+    {
+      "id": "varma-local-global",
+      "title": "Local-global compatibility for regular algebraic cuspidal automorphic representations when l is different from p",
+      "authors": "Ila Varma",
+      "edition": "arXiv:1411.2520v1, 10 November 2014; read from the supplied extracted text references/text/SS_VarmaLocalGlobal.txt. Locators give the arXiv version's own page numbers",
+      "url": "https://arxiv.org/pdf/1411.2520",
+      "sha256": "24076dfcc6ca9b9e3168efb0150e75d5200f66e64085625b3e52895cfd1e56ef",
+      "readSections": [
+        "Abstract, p. 1",
+        "1 Introduction: the setting, the known unramified compatibility, Theorem (1^ss), Theorem (1) with the partial order, and the summary of the proof strategy through the Bernstein centre, pp. 1-2",
+        "Reviewer (REVIEW-EXT-10-EXT-07): abstract and introduction pp. 1-3 including the construction of the pseudorepresentation T, bibliography entries [9] = HLTT, [10] = Harris-Taylor, [16] = Scholze"
+      ]
+    },
+    {
+      "id": "caraiani-monodromy-away",
+      "title": "Local-global compatibility and the action of monodromy on nearby cycles",
+      "authors": "Ana Caraiani",
+      "edition": "arXiv:1010.2188v1, 11 October 2010 (published Duke Math. J. 161 (2012)); read from references/text/SS_CaraianiMonodromyAway.txt. Locators give the arXiv version's page numbers",
+      "url": "https://arxiv.org/pdf/1010.2188",
+      "sha256": "769e68e2384b42caf16861d9011b35afe48018eba006074ce0d6c4111451f3b3",
+      "readSections": [
+        "Abstract and 1 Introduction: Theorem 1.1, Theorem 1.2 (Ramanujan-Petersson), the statement of what was already known, and the strategy (realizing R_l(Pi)^{tensor 2} in the cohomology of a unitary Shimura system and proving purity by computing the monodromy operator), pp. 1-2",
+        "Reviewer (REVIEW-EXT-10-EXT-07): abstract and introduction pp. 1-3"
+      ]
+    },
+    {
+      "id": "caraiani-monodromy-at-p",
+      "title": "Monodromy and local-global compatibility for l = p",
+      "authors": "Ana Caraiani",
+      "edition": "arXiv:1202.4683v1, 21 February 2012 (published Algebra Number Theory 8 (2014)); read from references/text/SS_CaraianiMonodromyAtP.txt. Locators give the arXiv version's page numbers",
+      "url": "https://arxiv.org/pdf/1202.4683",
+      "sha256": "6ec698414d5d3ad03f3d1c98de178b39d69722699f4a08a059e8d14027df885e",
+      "readSections": [
+        "Abstract and 1 Introduction: Theorem 1.1, the statement of what was known from Barnet-Lamb-Gee-Geraghty-Taylor and what is new, and the announcement of a generalization of Mokrane's weight spectral sequence for log crystalline cohomology, p. 1",
+        "Reviewer (REVIEW-EXT-10-EXT-07): abstract and introduction pp. 1-2, including the use of Theorem 1.2 of [C] and of Lemma 1.4(4) of Taylor-Yoshida"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.0/the-normalization-dictionary-fixed-by-the-sources",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "title": "The normalizations actually used by the sources: rec(pi_v tensor |det|^{(1-n)/2}) in three of them, the geometric normalization in Caraiani, and the choice of embeddings",
+      "kind": "comparison",
+      "statement": "The sources do not all use the same normalization. Data: a rational prime p and an isomorphism iota: Qbar_p -> C (Chenevier-Harris: a pair of embeddings iota = (iota_p: Qbar -> Qbar_p, iota_infinity: Qbar -> C)). HLTT (Theorem A) and Varma: for pi a cuspidal automorphic representation of GL_n(A_E) with pi_infinity having the same infinitesimal character as an irreducible algebraic representation rho_pi of Res_{E/Q} GL_n (the definition of REGULAR ALGEBRAIC used), the attached r_{p,iota}(pi): G_E -> GL_n(Qbar_p) satisfies, at places v above a rational prime q != p above which pi is unramified (Varma: at v not dividing p where pi and F are unramified), r_{p,iota}(pi)|^{ss}_{W_{E_v}} = iota^{-1} rec_{E_v}(pi_v |det|_v^{(1-n)/2}); Varma says rec is 'normalized as in [10]' = Harris-Taylor. Chenevier-Harris state their comparison as (rho|Gamma_v)^{F-ss} < L(Pi_v tensor |.|_v^{(1-n)/2}) with 'L the local Langlands correspondence' and the PARTIAL ORDER < of [Ch] section 3.1, not with equality. Caraiani states her theorems with the GEOMETRIC normalization L_{n,L_y} of the local Langlands correspondence. The relation between these normalizations (the reason for the twist, and how L_{n,L_y} relates to rec) is not stated in the passages read. Placement note (reviewer): the atlas stage AG2.0 is to construct the normalization dictionary WITHOUT an established local Langlands correspondence and to prove agreement with rec(pi_v tensor |det|^{(1-n)/2}) only in AG2.5; this node records rec-normalizations and so is AG2.5-side material.",
+      "hypotheses": [
+        "the pair of embeddings must be fixed before the statement makes sense; the representation depends on iota",
+        "'regular algebraic' means pi_infinity has the same infinitesimal character as an irreducible algebraic representation of Res_{E/Q} GL_n; no self-duality is assumed in the HLTT source",
+        "two distinct normalizations appear in the sources read: rec twisted by |det|^{(1-n)/2} (HLTT, Varma; Chenevier-Harris with L) and Caraiani's geometric normalization L_{n,L_y}; the passages read do not relate them, so they are not interchangeable without a separate comparison",
+        "Chenevier-Harris state (a) with the partial order rather than isomorphism, so their result is weaker than an equality of Weil-Deligne representations",
+        "The conventions under which these normalisations are stated are fixed in BLGGT and ACC+: Art_K sends uniformisers to geometric Frobenius elements, Frob_v is geometric, and rec is Harris–Taylor's. ACC+'s rec^T is the arithmetic normalisation of Clozel–Thorne §2.1. The AG2.0 dictionary proper, which uses no local Langlands correspondence, is frobenius-polynomial-and-conventions."
+      ],
+      "proofSteps": [
+        "Each source states its normalization once and uses it throughout; the node records the four statements side by side.",
+        "The partial order in Chenevier-Harris is defined in a reference of theirs ([Ch] section 3.1), which was NOT read here.",
+        "At a place where π is unramified, the twisted rec(π_v ⊗ |det|_v^{(1−n)/2}) has geometric-Frobenius characteristic polynomial P_v(π_v; X) (AG2.0/frobenius-polynomial-and-conventions). That is the comparison AG2.5 has to prove for the rec normalisations recorded here."
+      ],
+      "acceptance": [
+        "Check the n = 1 case: an algebraic Hecke character and the twist |det|^{(1-n)/2} = 1, so the dictionary must reduce to class field theory in the chosen normalization",
+        "Check the n = 2 case against the R19 convention (characteristic polynomial X^2 - a_l X + eps(l) l^{k-1} at good arithmetic Frobenius) and record the twist relating the two"
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places"
+      ],
+      "sources": [
+        {
+          "sourceId": "hltt-rigid-cohomology",
+          "locator": "Theorem A, p. 1",
+          "match": "The normalization verbatim, with the |det|^{(1-n)/2} twist and the semisimplification."
+        },
+        {
+          "sourceId": "chenevier-harris-II",
+          "locator": "Theorem (quoted as Theorem 3.2.3), part (a), p. 1",
+          "match": "The Chenevier-Harris statement is a PARTIAL ORDER, not an isomorphism; the stage's demand to 'distinguish equality of semisimplifications, Frobenius-semisimplified Weil-Deligne equality retaining N, and a bound on monodromy' is exactly this distinction."
+        },
+        {
+          "sourceId": "caraiani-monodromy-away",
+          "locator": "After Theorem 1.1, p. 1",
+          "match": "A different normalization convention in a source that strengthens the same comparison; mixing the two would shift the answer by a twist."
+        },
+        {
+          "sourceId": "varma-local-global",
+          "locator": "1 Introduction, p. 1",
+          "match": "Varma fixes rec by reference to Harris-Taylor [10]. Added by the reviewer."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.0/dominant-weights-and-the-weight-w",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "title": "Dominant weights (ℤⁿ)^{Hom(F,Ω),+}, the subsets (ℤⁿ)_w for CM fields, base change of weights and the representations Ξ_a",
+      "kind": "definition",
+      "statement": "Let F be a number field, n ≥ 1 and Ω an algebraically closed field of characteristic 0. (ℤⁿ)^{Hom(F,Ω),+} is the set of a = (a_{τ,i}) with τ ∈ Hom(F, Ω), 1 ≤ i ≤ n and a_{τ,1} ≥ ⋯ ≥ a_{τ,n}. If F is totally real or CM, with complex conjugation c, and w ∈ ℤ, then (ℤⁿ)^{Hom(F,Ω)}_w is the set of a with a_{τ,i} + a_{τ∘c,n+1−i} = w for all τ and i (for Ω = ℂ this is the same as a_{τ,i} + a_{c∘τ,n+1−i} = w). For a finite extension F′/F, a_{F′} is given by (a_{F′})_{τ,i} = a_{τ|_F,i}. The weight a is extremely regular if for some τ, any two subsets H, H′ of {a_{τ,i} + n − i} of the same cardinality with equal sums are equal. For a ∈ (ℤⁿ)^{Hom(F,ℂ),+}, Ξ_a is the irreducible algebraic representation of GL_n^{Hom(F,ℂ)} that is the tensor product over τ of the irreducible representations of GL_n with highest weight a_τ.",
+      "hypotheses": [
+        "Dominance is the ordering a_{τ,1} ≥ ⋯ ≥ a_{τ,n}, with repetitions allowed; regularity of the attached Hodge–Tate numbers comes from the shift by n − i (node expected-hodge-tate-multiset), not from strictness of a.",
+        "The condition defining (ℤⁿ)_w pairs τ with τ∘c and i with n + 1 − i. It is empty unless F is totally real or CM.",
+        "Ξ_a is a representation of the complex group GL_n^{Hom(F,ℂ)} = (Res_{F/ℚ} GL_n)_ℂ. Its highest-weight theory is supplied by AutomorphicFormsOnReductiveGroups AF.4 (algebraic highest weights)."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AutomorphicGalois.DominantWeight",
+          "role": "data",
+          "statement": "DominantWeight n ι := ι → {a : Fin n → ℤ // Antitone a}, indexed by the embeddings ι."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.DominantWeight.IsInW",
+          "role": "data",
+          "statement": "a.IsInW c w :⇔ ∀ τ i, a τ i + a (c τ) (rev i) = w, for an involution c of ι."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.DominantWeight.baseChange",
+          "role": "constructor",
+          "statement": "(a.baseChange f) τ′ = a (f τ′) for the restriction f: Hom(F′, Ω) → Hom(F, Ω)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.DominantWeight.IsExtremelyRegular",
+          "role": "data",
+          "statement": "Some τ has no two distinct equal-size subsets of {a τ i + n − 1 − i} with equal sums."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.DominantWeight.xi",
+          "role": "constructor",
+          "statement": "Ξ_a = ⊗_τ (irreducible algebraic representation of GL_n with highest weight a_τ), from AF.4."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.DominantWeight.isInW_baseChange",
+          "role": "compatibility",
+          "statement": "a ∈ (ℤⁿ)_w implies a_{F′} ∈ (ℤⁿ)_w when F′ ⊇ F is CM or totally real."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight",
+          "how": "the weight a of a regular algebraic π, through Ξ_a^∨"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset",
+          "how": "HT_τ = {a_{ιτ,i} + n − i}"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/sign-of-the-polarization-multiplier",
+          "how": "the integer w with a ∈ (ℤⁿ)_w decides the parity condition on χ"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AutomorphicGalois.DominantWeight.isInW_classical",
+          "kind": "value",
+          "statement": "For F = ℚ, n = 2 and a = (k − 2, 0): a is dominant and lies in (ℤ²)_{k−2}."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.DominantWeight.isInW_rank_one",
+          "kind": "degenerate",
+          "statement": "For n = 1 every a ∈ ℤ^{Hom(F,ℂ)} is dominant, and a ∈ (ℤ¹)_w iff a_τ + a_{cτ} = w for all τ."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.DominantWeight.not_isInW_unpaired",
+          "kind": "non-example",
+          "statement": "For F imaginary quadratic, n = 2, a_τ = (1, 0) and a_{cτ} = (0, 0): a_{τ,1} + a_{cτ,2} = 1 but a_{τ,2} + a_{cτ,1} = 0, so a lies in no (ℤ²)_w."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.DominantWeight.not_dominant",
+          "kind": "non-example",
+          "statement": "(0, 1) is not dominant: a definition with a_{τ,1} ≤ ⋯ ≤ a_{τ,n} would accept it."
+        }
+      ],
+      "proofSteps": [
+        "Well-definedness: dominance and membership in (ℤⁿ)_w are finitely many linear conditions on the integers a_{τ,i}.",
+        "The two forms of the (ℤⁿ)_w condition agree for Ω = ℂ because, for F totally real or CM, τ∘c = c∘τ for every τ: F → ℂ (Mathlib's NumberField.IsCMField.complexEmbedding_complexConj).",
+        "a_{F′} is dominant, and lies in (ℤⁿ)_w for the same w when F′ is again totally real or CM and a ∈ (ℤⁿ)_w, since complex conjugation on F′ restricts to that of F."
+      ],
+      "acceptance": [
+        "The classical weight-k form gives a = (k − 2, 0) at the single embedding of ℚ, which lies in (ℤ²)_{k−2}.",
+        "For F imaginary quadratic and n = 1, a = (a_τ, a_{cτ}) lies in (ℤ¹)_w with w = a_τ + a_{cτ}; w can be odd, e.g. (1, 0), the weight of the Hecke character of a CM elliptic curve."
+      ],
+      "prerequisites": [
+        "mathlib:NumberField.IsCMField.complexEmbedding_complexConj",
+        "AutomorphicFormsOnReductiveGroups:AF.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "§2.1, p. 32",
+          "match": "Dominant weights, verbatim from the text layer (superscripts flattened)."
+        },
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "§2.1, p. 32",
+          "match": "Extremely regular weights; the definition continues on the same page."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "title": "Regular algebraic automorphic representations of GL_n(𝔸_F) and their weight",
+      "kind": "definition",
+      "statement": "Let F be a number field and π an automorphic representation of GL_n(𝔸_F). π is regular algebraic if π_∞ has the same infinitesimal character as an irreducible algebraic representation of Res_{F/ℚ} GL_n. It has weight a ∈ (ℤⁿ)^{Hom(F,ℂ),+} if π_∞ has the same infinitesimal character as Ξ_a^∨. A regular algebraic π has a unique weight. Twisting: if ψ is an algebraic Hecke character of F with ψ|_{(F_∞^×)⁰}(x) = ∏_τ τ(x)^{−b_τ}, then π ⊗ (ψ∘det) has weight (a_{τ,i} + b_τ). In particular π ⊗ ‖det‖^t (t ∈ ℤ) has weight (a_{τ,i} − t).",
+      "hypotheses": [
+        "The infinitesimal character is compared with that of Ξ_a^∨, not Ξ_a; this is the convention of both BLGGT and ACC+.",
+        "Regular algebraic is Clozel's C-algebraic for GL_n. It differs from L-algebraic by the twist ‖det‖^{(n−1)/2} when n is even. The C/L distinction is owned by AutomorphicFormsOnReductiveGroups AF.4 and is not re-planned here.",
+        "No cuspidality, self-duality or unitarity is part of the definition."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AutomorphicGalois.IsRegularAlgebraic",
+          "role": "data",
+          "statement": "π.IsRegularAlgebraic :⇔ ∃ a, π.HasWeight a."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.HasWeight",
+          "role": "data",
+          "statement": "π.HasWeight a :⇔ infChar π_∞ = infChar (Ξ_a)^∨."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.HasWeight.unique",
+          "role": "characterisation",
+          "statement": "π.HasWeight a → π.HasWeight b → a = b."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.HasWeight.twist",
+          "role": "compatibility",
+          "statement": "π.HasWeight a → (π ⊗ ψ∘det).HasWeight (a + b) for ψ algebraic of exponents (b_τ)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.HasWeight.twist_norm",
+          "role": "simp",
+          "statement": "(π ⊗ ‖det‖^t).HasWeight (a − t) ↔ π.HasWeight a."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-automorphic-representation",
+          "how": "a polarized pair is regular algebraic of some weight a ∈ (ℤⁿ)_w"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places",
+          "how": "the class of π to which Galois representations are attached"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/field-of-rationality",
+          "how": "rationality is proved for regular algebraic cuspidal π"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AutomorphicGalois.hasWeight_heckeCharacter",
+          "kind": "value",
+          "statement": "n = 1: ψ with ψ_∞(x) = ∏ τ(x)^{−a_τ} on (F_∞^×)⁰ has weight (a_τ)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.hasWeight_classical",
+          "kind": "value",
+          "statement": "π_f ⊗ ‖det‖^{1−k/2} has weight (k − 2, 0) for a weight-k newform f."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.not_isRegularAlgebraic_odd_weight_unitary",
+          "kind": "non-example",
+          "statement": "π_f with f of odd weight k is not regular algebraic: its infinitesimal character (±(k − 1)/2) is not a shifted integral weight."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.hasWeight_trivial",
+          "kind": "degenerate",
+          "statement": "The trivial representation of GL_1(𝔸_F) has weight 0."
+        }
+      ],
+      "proofSteps": [
+        "Well-definedness of the weight: the infinitesimal character of Ξ_a^∨ is the W-orbit of −w₀a + ρ at each τ, and these orbits determine a (AF.4's Harish-Chandra parametrisation).",
+        "Twisting: the infinitesimal character of π_∞ ⊗ (ψ_∞∘det) is that of π_∞ shifted by the exponents of ψ_∞, and Ξ_a^∨ ⊗ ∏_τ τ(det)^{−b_τ} = Ξ_{a+b}^∨. For ψ = ‖·‖^t, the identity-component exponents are b_τ = −t, since ‖x‖ = ∏_τ |τ(x)| on (F_∞^×)⁰."
+      ],
+      "acceptance": [
+        "n = 1: an algebraic Hecke character ψ with ψ|_{(F_∞^×)⁰}(x) = ∏ τ(x)^{−a_τ} is regular algebraic of weight (a_τ).",
+        "n = 2, F = ℚ: for a newform f of weight k, the automorphic representation π_f (unitary normalisation) is not regular algebraic when k is odd, but π_f ⊗ ‖det‖^{1−k/2} is, of weight (k − 2, 0)."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/dominant-weights-and-the-weight-w",
+        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "AutomorphicFormsOnReductiveGroups:AF.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "§2.1, p. 32",
+          "match": "The definition of regular algebraic."
+        },
+        {
+          "sourceId": "accplus-cm-potential-automorphy",
+          "locator": "§1, Notation, p. 908",
+          "match": "ACC+ use the same Ξ^∨ convention for the weight."
+        }
+      ],
+      "planet": {
+        "name": "Regular algebraic automorphic representation"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-automorphic-representation",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "title": "Conjugate self-dual, essentially conjugate self-dual and polarized automorphic representations, with the multiplier character",
+      "kind": "definition",
+      "statement": "Let F be totally real or CM with maximal totally real subfield F⁺ and complex conjugation c, and π an automorphic representation of GL_n(𝔸_F). (i) π is conjugate self-dual if π^c ≅ π^∨. (ii) π is essentially conjugate self-dual with multiplier χ if χ: 𝔸_{F⁺}^×/(F⁺)^× → ℂ^× is continuous and π^c ≅ π^∨ ⊗ (χ ∘ N_{F/F⁺} ∘ det). (iii) (π, χ) is a polarized automorphic representation if moreover χ_v(−1) is independent of v | ∞. (iv) π is polarizable if some (π, χ) is polarized. (v) A regular algebraic polarized (π, χ) of weight a ∈ (ℤⁿ)_w with F imaginary is totally odd if χ_v(−1) = (−1)^{n+w} for all v | ∞. Here π^c = π ∘ c on GL_n(𝔸_F), and π^c = π when F is totally real.",
+      "hypotheses": [
+        "The multiplier χ is part of the data. It is determined by π only up to δ_{F/F⁺}, since δ_{F/F⁺} ∘ N_{F/F⁺} = 1.",
+        "BLGGT impose instead χ_v(−1) = (−1)^n for F imaginary (printed with µ in place of χ). That is the correct normalisation only when w is even; with odd w it makes the Galois multiplier even (sourceIssue AutomorphicGaloisRepresentationsPartII/E2; node sign-of-the-polarization-multiplier). Condition (v) is the corrected form, and like BLGGT's it can always be achieved by replacing χ by χδ_{F/F⁺}.",
+        "For regular algebraic (π, χ) of weight a ∈ (ℤⁿ)_w, χ is algebraic with |χ| = ‖·‖^{−w}. Conjugate self-duality is the case χ = 1, possible only when w = 0.",
+        "For F totally real, polarized means essentially self-dual with χ_v(−1) independent of v. Patrikis shows the independence is automatic for regular algebraic cuspidal π; this packet does not use that."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AutomorphicGalois.IsConjSelfDual",
+          "role": "data",
+          "statement": "π.IsConjSelfDual :⇔ π^c ≅ π^∨."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.IsEssConjSelfDual",
+          "role": "data",
+          "statement": "π.IsEssConjSelfDual χ :⇔ π^c ≅ π^∨ ⊗ (χ ∘ N ∘ det)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.PolarizedAutRep",
+          "role": "structure",
+          "statement": "A pair (π, χ) with IsEssConjSelfDual and v ↦ χ_v(−1) constant on the real places."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.PolarizedAutRep.twistDelta",
+          "role": "constructor",
+          "statement": "(π, χ) ↦ (π, χ δ_{F/F⁺}), again polarized."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.PolarizedAutRep.IsTotallyOdd",
+          "role": "data",
+          "statement": "For regular algebraic (π, χ) of weight in (ℤⁿ)_w: χ_v(−1) = (−1)^{n+w} for v | ∞."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.PolarizedAutRep.exists_totallyOdd",
+          "role": "characterisation",
+          "statement": "Exactly one of (π, χ), (π, χδ_{F/F⁺}) is totally odd when F is imaginary."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.PolarizedAutRep.weight_mem_W",
+          "role": "relation",
+          "statement": "A regular algebraic polarized pair has weight in (ℤⁿ)_w with |χ| = ‖·‖^{−w}."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/sign-of-the-polarization-multiplier",
+          "how": "the parity of χ_v(−1) against n + w"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation",
+          "how": "(r_{l,ι}(π), ε^{1−n} r_{l,ι}(χ)) is the expected polarized Galois pair"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
+          "how": "the input class of the polarized construction"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AutomorphicGalois.polarized_heckeCharacter_cm",
+          "kind": "value",
+          "statement": "n = 1, ψ of weight (1, 0) over an imaginary quadratic field: (ψ, ψ|_{𝔸_ℚ}δ) is totally odd; (ψ, ψ|_{𝔸_ℚ}) is not."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.isConjSelfDual_iff_multiplier_one",
+          "kind": "degenerate",
+          "statement": "π.IsConjSelfDual ↔ π.IsEssConjSelfDual 1."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.polarized_totallyReal",
+          "kind": "compatibility",
+          "statement": "For F totally real, π^c = π and polarized means essentially self-dual with χ_v(−1) independent of v."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.not_totallyOdd_blggt_sign_odd_w",
+          "kind": "non-example",
+          "statement": "A pair satisfying BLGGT's printed χ_v(−1) = (−1)^n with w odd (the CM elliptic curve character) is not totally odd: its Galois multiplier takes c_v to +1."
+        }
+      ],
+      "proofSteps": [
+        "Well-definedness: π^c and π^∨ ⊗ (χ ∘ N ∘ det) are automorphic representations, so the condition is an isomorphism class condition; χ_v(−1) makes sense since −1 ∈ (F⁺_v)^× at every real place v.",
+        "Weight constraint: comparing the infinitesimal characters of π^c (weight (a_{τc,i})) and π^∨ ⊗ (χ∘N∘det) (weight (−a_{τ,n+1−i} + b)), where χ has parallel exponent b, gives a_{τc,i} + a_{τ,n+1−i} = b. So a ∈ (ℤⁿ)_b and w = b, and |χ| = ‖·‖^{−w}.",
+        "Normalisation: χ and χδ_{F/F⁺} give the same condition (ii), and δ_{F/F⁺,v}(−1) = −1 at every real place v when F is imaginary. So exactly one of them satisfies (v)."
+      ],
+      "acceptance": [
+        "n = 1, F imaginary quadratic, ψ the Hecke character of a CM elliptic curve (weight (1, 0), w = 1): ψψ^c = ψ|_{𝔸_{F⁺}} ∘ N, and (ψ, ψ|_{𝔸_ℚ}) satisfies BLGGT's printed condition while (ψ, ψ|_{𝔸_ℚ} δ) is totally odd.",
+        "Base change of a weight-k newform to an imaginary quadratic field: π^c ≅ π and π^∨ ≅ π ⊗ ω_π^{−1}, so π is essentially conjugate self-dual with multiplier the central character of the form (twisted as needed), and w = k − 2."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight"
+      ],
+      "sources": [
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "§2.1, p. 32",
+          "match": "The three conditions of a polarized pair follow on the same page."
+        },
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "§2.1, p. 32",
+          "match": "BLGGT's sign normalisation, with µ printed for χ (sourceIssue E1); corrected in (v) (E2)."
+        },
+        {
+          "sourceId": "chenevier-harris-II",
+          "locator": "Hypotheses 4.1(ii), p. 13",
+          "match": "Chenevier–Harris's polarization over a totally real field, with the same independence condition."
+        }
+      ],
+      "planet": {
+        "name": "Polarized automorphic representation"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "title": "Polarized, totally odd and regular algebraic l-adic representations (r, µ)",
+      "kind": "definition",
+      "statement": "Let F be CM or totally real, l a prime and ι: Q̄_l ≅ ℂ. A polarized l-adic representation of G_F is a pair (r, µ) of continuous homomorphisms r: G_F → GL_n(Q̄_l) and µ: G_{F⁺} → Q̄_l^× such that for some infinite place v of F⁺ there are ε_v ∈ {±1} and a non-degenerate pairing ⟨ , ⟩_v on Q̄_lⁿ with ⟨x, y⟩_v = ε_v⟨y, x⟩_v and ⟨r(σ)x, r(c_v σ c_v)y⟩_v = µ(σ)⟨x, y⟩_v for all σ ∈ G_F; if F is imaginary one requires ε_v = −µ(c_v). (r, µ) is totally odd if ε_v = 1 for all v | ∞, equivalently µ(c_v) = −1 for all v | ∞ when F is imaginary. (r, µ) is algebraic if r is unramified at almost all primes and de Rham above l, and regular algebraic if moreover HT_τ(r) has n distinct elements for every τ: F → Q̄_l. The same definitions apply mod l.",
+      "hypotheses": [
+        "The condition at one infinite place implies it at all of them, with ε_{v′} = µ(c_v c_{v′})ε_v and ⟨x, y⟩_{v′} = ⟨x, r(c_v c_{v′}) y⟩_v.",
+        "For F imaginary, (r, µ) is polarized if and only if r extends to r̃: G_{F⁺} → 𝒢_n(Q̄_l) with multiplier µ, where 𝒢_n is the group of Clozel–Harris–Taylor (GlobalGaloisDeformations:G7/polarized-deformation-problem).",
+        "For F totally real, (r, µ) is polarized if and only if r factors through GSp_n (µ(c_v) = −ε_v) or GO_n (µ(c_v) = ε_v) with multiplier µ.",
+        "Hodge–Tate numbers use BLGGT's convention HT_τ(ε_l) = {−1}."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AutomorphicGalois.PolarizedRep",
+          "role": "structure",
+          "statement": "(r, µ) with a pairing ⟨ , ⟩_v at one real place satisfying the BLGGT identity."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.PolarizedRep.sign",
+          "role": "projection",
+          "statement": "ε_v ∈ {±1}, and ε_{v′} = µ(c_v c_{v′}) ε_v."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.PolarizedRep.IsTotallyOdd",
+          "role": "data",
+          "statement": "ε_v = 1 for all v | ∞."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.PolarizedRep.isTotallyOdd_iff",
+          "role": "characterisation",
+          "statement": "For F imaginary: IsTotallyOdd ↔ ∀ v | ∞, µ(c_v) = −1."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.PolarizedRep.equivGn",
+          "role": "equivalence",
+          "statement": "For F imaginary: polarized pairs ≃ 𝒢_n(Q̄_l)-valued extensions of r to G_{F⁺} with multiplier µ."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.PolarizedRep.IsRegularAlgebraic",
+          "role": "data",
+          "statement": "Unramified almost everywhere, de Rham above l, and |HT_τ(r)| = n for all τ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/sign-of-the-polarization-multiplier",
+          "how": "totally odd means µ(c_v) = −1"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.2",
+          "how": "the polarized branch's Galois output (BLGGT Theorem 2.1.1(1))"
+        },
+        {
+          "where": "GlobalGaloisDeformations:G7/polarized-deformation-problem",
+          "how": "lifts of r̄ to 𝒢_n with multiplier µ"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AutomorphicGalois.polarizedRep_rank_one",
+          "kind": "value",
+          "statement": "n = 1, F imaginary: (r, µ) polarized ⇒ µ(c_v) = −1 (a pairing on a line is symmetric)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.polarizedRep_restriction_odd",
+          "kind": "compatibility",
+          "statement": "For ρ: G_ℚ → GL_2 odd and F imaginary quadratic, (ρ|_{G_F}, det ρ) is totally odd."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.not_polarized_even_multiplier_rank_one",
+          "kind": "non-example",
+          "statement": "n = 1, F imaginary: (r, µ) with µ(c) = +1 is not polarized, although r^c = r^{−1}µ|_{G_F}."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.polarizedRep_totallyReal",
+          "kind": "degenerate",
+          "statement": "F totally real, n = 2: (ρ, det ρ) is polarized (symplectic) for any ρ, since det(x, y) is alternating."
+        }
+      ],
+      "proofSteps": [
+        "Well-definedness: the pairing condition is a closed condition on (r, µ), and the change of place v ↦ v′ is the computation quoted in the hypotheses.",
+        "Equivalence with 𝒢_n-valued extensions (F imaginary), BLGGT's second remark in §2.1: r̃(c_v) = (A, a)·j, where A is determined by the Gram matrix of ⟨ , ⟩_v and ν(r̃(c_v)) = −a = µ(c_v), so a = ε_v. Conversely, a pairing is read off from r̃(c_v). (For n = 1, r̃(c)² = 1 forces a = 1, i.e. µ(c) = −1.)"
+      ],
+      "acceptance": [
+        "n = 1, F imaginary: a character r with r^c = r^{−1}µ|_{G_F} is polarized with multiplier µ if and only if µ(c_v) = −1, since a non-degenerate pairing on a line is symmetric (ε_v = 1).",
+        "n = 2, F imaginary quadratic, r = ρ|_{G_F} for an odd ρ: G_ℚ → GL_2(Q̄_l): (r, det ρ) is totally odd, via the pairing ⟨x, y⟩ = det(x, ρ(c)y)."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-automorphic-representation",
+        "GlobalGaloisDeformations:G7/polarized-deformation-problem",
+        "ArithmeticGaloisRepresentations:R01.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "§2.1, p. 31",
+          "match": "The sign convention linking ε_v and µ(c_v)."
+        },
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "§2.1, p. 31",
+          "match": "Totally odd."
+        }
+      ],
+      "planet": {
+        "name": "Polarized Galois representation"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "title": "The l-adic character r_{l,ι}(χ) of an algebraic Hecke character, its Hodge–Tate numbers and its weight",
+      "kind": "construction",
+      "statement": "Let F be a number field, l a prime and ι: Q̄_l ≅ ℂ, with Art_F normalised to send uniformisers to geometric Frobenius elements. Let χ: 𝔸_F^×/F^× → ℂ^× be algebraic: χ|_{(F_∞^×)⁰}(x) = ∏_{τ ∈ Hom(F,ℂ)} τ(x)^{−a_τ} with a_τ ∈ ℤ. There is a unique continuous character r_{l,ι}(χ): G_F → Q̄_l^× with ι ∘ r_{l,ι}(χ)|_{W_{F_v}} ∘ Art_{F_v} = χ_v for all v ∤ l; explicitly ι((r_{l,ι}(χ) ∘ Art_F)(x) ∏_τ (ι^{−1}τ)(x_l)^{a_τ}) = χ(x) ∏_τ (τ x_∞)^{a_τ}. It is de Rham above l with HT_τ(r_{l,ι}(χ)) = {a_{ι∘τ}}. The weight wt(χ) is the integer with |χ| = ‖·‖^{−wt(χ)/2}. Then a_τ + a_{τ′} = wt(χ) whenever τ|_{F₀} = τ′|_{F₀} ∘ c (F₀ the maximal CM subfield), wt(χ) is even when F₀ is totally real, wt(‖·‖_F) = −2, r_{l,ι}(‖·‖) = ε_l, and r_{l,ι}(χ)(c_v) = χ_v(−1)(−1)^{wt(χ)/2} at every real place v when F is totally real.",
+      "hypotheses": [
+        "The normalisation of Art_F (uniformisers ↦ geometric Frobenius) fixes r_{l,ι}(‖·‖) = ε_l. With the arithmetic normalisation it would be ε_l^{−1}.",
+        "HT_τ(ε_l) = {−1} in this convention, consistent with HT_τ(r_{l,ι}(χ)) = {a_{ι∘τ}} and a = −1 for ‖·‖ over ℚ.",
+        "The value at complex conjugation is computed at real places only: at a complex place there is no c_v in G_F."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AutomorphicGalois.AlgHeckeChar.galoisChar",
+          "role": "constructor",
+          "statement": "r_{l,ι}(χ): G_F → Q̄_l^× for an algebraic Hecke character χ."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.AlgHeckeChar.galoisChar_local",
+          "role": "characterisation",
+          "statement": "ι ∘ r_{l,ι}(χ)|_{W_{F_v}} ∘ Art_{F_v} = χ_v for v ∤ l."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.AlgHeckeChar.hodgeTate_galoisChar",
+          "role": "characterisation",
+          "statement": "HT_τ(r_{l,ι}(χ)) = {a_{ι∘τ}}."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.AlgHeckeChar.wt",
+          "role": "data",
+          "statement": "wt(χ) ∈ ℤ with |χ| = ‖·‖^{−wt(χ)/2}."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.AlgHeckeChar.galoisChar_mul",
+          "role": "simp",
+          "statement": "r_{l,ι}(χ₁χ₂) = r_{l,ι}(χ₁) r_{l,ι}(χ₂)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.AlgHeckeChar.galoisChar_norm",
+          "role": "simp",
+          "statement": "r_{l,ι}(‖·‖_F) = ε_l."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.AlgHeckeChar.galoisChar_complexConj",
+          "role": "relation",
+          "statement": "For F totally real: r_{l,ι}(χ)(c_v) = χ_v(−1)(−1)^{wt(χ)/2}."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.AlgHeckeChar.galoisChar_restrict",
+          "role": "functoriality",
+          "statement": "r_{l,ι}(χ|_{𝔸_{F⁺}^×}) = r_{l,ι}(χ) ∘ V, V: G_{F⁺}^{ab} → G_F^{ab} the transfer."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/sign-of-the-polarization-multiplier",
+          "how": "the value of r_{l,ι}(χ) at complex conjugation"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions",
+          "how": "the n = 1 case of the Frobenius dictionary"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation",
+          "how": "the multiplier ε_l^{1−n} r_{l,ι}(χ)"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AutomorphicGalois.galoisChar_norm_rat",
+          "kind": "value",
+          "statement": "F = ℚ: r_{l,ι}(‖·‖) = ε_l, with HT {−1} and wt −2."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.galoisChar_trivial",
+          "kind": "degenerate",
+          "statement": "r_{l,ι}(1) = 1, with a = 0 and wt 0."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.galoisChar_finite_order",
+          "kind": "compatibility",
+          "statement": "For ω of finite order unramified at p ∤ l: r_{l,ι}(ω)(Frob_p^{geom}) = ω_p(p), and r_{l,ι}(ω)(Frob_p^{arith}) = ω_p(p)^{−1}."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.galoisChar_restrict_complexConj",
+          "kind": "non-example",
+          "statement": "For F imaginary and ψ algebraic on F, r_{l,ι}(ψ|_{𝔸_{F⁺}})(c_v) = +1 because the transfer sends c_v to c_v² = 1, whatever ψ_v(−1) is: the Galois sign is not χ_v(−1) unless wt/2 is even."
+        }
+      ],
+      "proofSteps": [
+        "The displayed formula defines a continuous character of 𝔸_F^×/F^×(F_∞^×)⁰ with values in Q̄_l^× (the correction factor at l cancels χ_∞ on F^×). Global Artin reciprocity (Tau Ceti ClassFieldTheory, layer 11) turns it into r_{l,ι}(χ).",
+        "Local compatibility at v ∤ l is immediate from the formula. Uniqueness follows from Čebotarev density of the unramified Frobenius elements.",
+        "Hodge–Tate numbers: on an open subgroup of O_{F_v}^× (v | l), r ∘ Art is ∏_τ τ^{−a_τ}, a Lubin–Tate character product, whose τ-Hodge–Tate number is a_{ι∘τ} (Serre, Abelian l-adic representations).",
+        "Weight: |χ| = ‖·‖^{−wt/2} and the unit theorem give a_τ + a_{τ′} = wt for conjugate pairs; for F₀ totally real all a_τ are equal, so wt = 2a is even.",
+        "Value at c_v for F totally real: χ = χ₀‖·‖^{−wt/2} with χ₀ of finite order. Then r(χ) = r(χ₀)ε_l^{−wt/2}, r(χ₀)(c_v) = χ_{0,v}(−1) = χ_v(−1) because Art_ℝ(−1) = c, and ε_l(c_v) = −1."
+      ],
+      "acceptance": [
+        "F = ℚ, χ = ‖·‖: r = ε_l and HT = {−1}, i.e. a = −1 and wt = −2.",
+        "F = ℚ, ω of finite order and unramified at p ∤ l: r_{l,ι}(ω)(Frob_p) = ω_p(p) for the geometric Frobenius, so the arithmetic Frobenius goes to ω_p(p)^{−1}. Which of χ(p)^{±1} this is for a Dirichlet character χ depends on how χ is made idelic, and must be fixed once (GlobalNumberFields layer 9's Dirichlet dictionary).",
+        "The Hecke character ψ of a CM elliptic curve E over its CM field K (weight (1, 0)): r_{l,ι}(ψ) ⊕ r_{l,ι}(ψ^c) is the restriction to G_K of the dual of V_l(E), in this convention."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "§A.2, p. 87",
+          "match": "The Hodge–Tate numbers of r_{l,ι}(χ)."
+        },
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "§A.2, p. 87",
+          "match": "Parity of the weight over a totally real field."
+        },
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "Notation, p. 8",
+          "match": "The Artin normalisation fixing r_{l,ι}(‖·‖) = ε_l."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.0/sign-of-the-polarization-multiplier",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "title": "The parity of the Galois multiplier of a polarized pair: µ(c_v) = (−1)^{n−1+w} χ_v(−1)",
+      "kind": "lemma",
+      "statement": "Let F be imaginary CM and (π, χ) a regular algebraic polarized automorphic representation of GL_n(𝔸_F) of weight a ∈ (ℤⁿ)_w. Put µ = ε_l^{1−n} r_{l,ι}(χ): G_{F⁺} → Q̄_l^×. Then µ(c_v) = (−1)^{n−1+w} χ_v(−1) for every v | ∞. Hence µ is totally odd if and only if χ_v(−1) = (−1)^{n+w}, i.e. (π, χ) is totally odd in the sense of polarized-automorphic-representation (v). Under BLGGT's printed normalisation χ_v(−1) = (−1)^n, µ(c_v) = (−1)^{w+1}: it is −1 exactly when w is even.",
+      "hypotheses": [
+        "The integer w is the one with a ∈ (ℤⁿ)_w. Theorem 2.1.1 of BLGGT uses a different integer, the purity weight w + n − 1 of r_{l,ι}(π).",
+        "Only the multiplier's value at complex conjugation is computed. No Galois representation r_{l,ι}(π) is needed for the statement."
+      ],
+      "proofSteps": [
+        "By polarized-automorphic-representation, χ is algebraic with parallel exponent b = w on 𝔸_{F⁺}, so wt(χ) = 2w.",
+        "By galois-character-of-an-algebraic-hecke-character, r_{l,ι}(χ)(c_v) = χ_v(−1)(−1)^w.",
+        "ε_l(c_v) = −1, so ε_l^{1−n}(c_v) = (−1)^{n−1}, and µ(c_v) = (−1)^{n−1+w} χ_v(−1).",
+        "Consequence for BLGGT Theorem 2.1.1(1): the pair (r_{l,ι}(π), ε_l^{1−n} r_{l,ι}(χ)) is totally odd only for the multiplier χ satisfying (v). With χ_v(−1) = (−1)^n and w odd, µ(c_v) = +1, and (r_{l,ι}(π), µ) is not even polarized for n = 1 (a pairing on a line is symmetric).",
+        "Independent check against Patrikis, who records the sign of the pairing preserved by these representations as ω_ι(c_v) = (−1)^w ω_v(−1) in his normalisation."
+      ],
+      "acceptance": [
+        "n = 1, F = K imaginary quadratic, ψ the Hecke character of a CM elliptic curve (weight (1, 0), w = 1): ψψ^c = ψ|_{𝔸_ℚ} ∘ N. χ = ψ|_{𝔸_ℚ} has χ_∞(−1) = (−1)^1 = −1, BLGGT's sign. But r_{l,ι}(ψ|_{𝔸_ℚ})(c) = 1 (transfer), whereas χ = ψ|_{𝔸_ℚ}δ_K, with χ_∞(−1) = +1 = (−1)^{n+w}, gives µ(c) = −1.",
+        "n = 2, the base change to K of a newform of weight k with k odd (w = k − 2 odd): BLGGT's sign gives µ(c) = +1. The invariant pairing on r = ρ_f^∨|_{G_K} is symmetric (det(x, ρ(c)y)), so the totally odd multiplier is the other one, the extension of det r with value −1 at c.",
+        "w even (for instance n = 1 and ψ with ψψ^c = 1): the corrected and printed normalisations agree."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-automorphic-representation",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation"
+      ],
+      "sources": [
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "Theorem 2.1.1(1), p. 33",
+          "match": "The assertion that fails for odd w under the printed normalisation (sourceIssue E2)."
+        },
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "Proof of Theorem 2.1.1, p. 34",
+          "match": "The step that holds only when w is even."
+        },
+        {
+          "sourceId": "patrikis-sign",
+          "locator": "§2, proof of Theorem 2.1 and the construction after it, p. 8",
+          "match": "An independent source relating the Galois sign to the automorphic sign through (−1)^w."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "title": "The Hodge–Tate multiset attached to a weight: HT_τ = {a_{ιτ,1} + n − 1, …, a_{ιτ,n}}",
+      "kind": "definition",
+      "statement": "For a ∈ (ℤⁿ)^{Hom(F,ℂ),+}, ι: Q̄_l ≅ ℂ and τ: F → Q̄_l, put HT_τ(a) = {a_{ι∘τ,i} + n − i : 1 ≤ i ≤ n}, a multiset of n integers, in BLGGT's convention HT_τ(ε_l) = {−1}. The elements are distinct, so a Galois representation with these Hodge–Tate numbers is regular. If F is CM and a ∈ (ℤⁿ)_w, then HT_{τ∘c}(a) = {w + n − 1 − h : h ∈ HT_τ(a)}. Twisting a by −t (π ↦ π ⊗ ‖det‖^t) subtracts t from every element, matching ⊗ ε_l^t. In the opposite convention (HT(ε_l) = +1) every element is negated.",
+      "hypotheses": [
+        "This is the target that AG2.6 proves for r_{l,ι}(π) (BLGGT Theorem 2.1.1(3), ACC+ Theorem 2.3.3(b)); here it is only the dictionary from a to a multiset.",
+        "The integer w + n − 1 is BLGGT's w in Theorem 2.1.1(3). The two integers must not be confused."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AutomorphicGalois.expectedHodgeTate",
+          "role": "constructor",
+          "statement": "expectedHodgeTate a = multiset of a i + (n − 1 − i), i : Fin n (0-indexed)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.expectedHodgeTate_strictAnti",
+          "role": "characterisation",
+          "statement": "i ↦ a i + (n − 1 − i) is strictly antitone when a is antitone."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.expectedHodgeTate_conj",
+          "role": "relation",
+          "statement": "a ∈ (ℤⁿ)_w ⇒ HT at τc is {w + n − 1 − h : h ∈ HT at τ}."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.expectedHodgeTate_twist",
+          "role": "simp",
+          "statement": "expectedHodgeTate (a − t) = (expectedHodgeTate a).map (· − t)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+          "how": "the labelled Hodge–Tate multiset of the constructed representations"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation",
+          "how": "regular algebraic means |HT_τ| = n"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AutomorphicGalois.expectedHodgeTate_classical",
+          "kind": "value",
+          "statement": "n = 2, a = (k − 2, 0) ↦ {k − 1, 0}; for k = 12, {11, 0}."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.expectedHodgeTate_zero",
+          "kind": "degenerate",
+          "statement": "a = 0 ↦ {n − 1, …, 1, 0}: parallel weight 0 gives the Hodge–Tate numbers of Symⁿ⁻¹ of the dual Tate module of an elliptic curve."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.expectedHodgeTate_regular",
+          "kind": "compatibility",
+          "statement": "The elements are pairwise distinct, so the multiset is regular in BLGGT's sense (|HT_τ| = n)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.not_expectedHodgeTate_unshifted",
+          "kind": "non-example",
+          "statement": "The unshifted multiset {a_{τ,i}} fails regularity for a = 0 and n ≥ 2, so the shift n − i is part of the definition."
+        }
+      ],
+      "proofSteps": [
+        "Distinctness: a dominant gives a_{τ,i} + n − i > a_{τ,j} + n − j for i < j.",
+        "Polarity: a_{τc,i} = w − a_{τ,n+1−i}, so a_{τc,i} + n − i = (w + n − 1) − (a_{τ,n+1−i} + n − (n + 1 − i)).",
+        "Twist: (a − t)_{τ,i} + n − i = (a_{τ,i} + n − i) − t, and HT(ε_l^t) = {−t}."
+      ],
+      "acceptance": [
+        "n = 2, a = (k − 2, 0): HT = {k − 1, 0}, the Hodge–Tate numbers of ρ_f^∨ in BLGGT's convention, and of ρ_f in the R19 convention HT(χ_ℓ) = +1 after negation.",
+        "n = 2, a = (0, 0), w = 0: HT = {1, 0} at τ and τc, as for the dual of the Tate module of an elliptic curve in BLGGT's convention (V_l(E) itself has {0, −1}). ACC+ attach Sym^m r_{E,l}^∨ to a π of weight 0."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/dominant-weights-and-the-weight-w"
+      ],
+      "sources": [
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "Theorem 2.1.1(3), p. 33",
+          "match": "The multiset, and after it the polarity HT_{τ∘c} = {w − h}, with BLGGT's w equal to w + n − 1 here."
+        },
+        {
+          "sourceId": "blggt-potential-automorphy",
+          "locator": "Notation, p. 8",
+          "match": "The sign convention for Hodge–Tate numbers."
+        },
+        {
+          "sourceId": "accplus-cm-potential-automorphy",
+          "locator": "Corollary 7.2.4, p. 1100",
+          "match": "Weight 0 corresponds to Sym^m of the dual Tate module (the test expectedHodgeTate_zero)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "title": "The Hecke polynomial P_v(X), its Satake factorisation, and the dictionary of Frobenius conventions and twists",
+      "kind": "construction",
+      "statement": "Let v be a finite place of F with q_v = #k(v), π_v an unramified irreducible representation of GL_n(F_v), and t_{v,i} the eigenvalue on π_v^{GL_n(O_{F_v})} of T_{v,i} = [GL_n(O_{F_v}) diag(ϖ_v, …, ϖ_v, 1, …, 1) GL_n(O_{F_v})] (ϖ_v repeated i times). Define P_v(π_v; X) = Σ_{i=0}^n (−1)^i q_v^{i(i−1)/2} t_{v,i} X^{n−i}. If α₁, …, α_n are the Satake parameters of π_v, with t_{v,i} = q_v^{i(n−i)/2} e_i(α), then P_v(π_v; X) = ∏_j (X − q_v^{(n−1)/2} α_j). Conventions: a Galois representation r corresponds to π at v in the geometric convention (BLGGT, ACC+, HLTT: Frob_v geometric, Art uniformisers ↦ geometric Frobenius) if ι det(X − r(Frob_v)) = P_v(π_v; X). It corresponds in the arithmetic convention (IntegralHeckeAndGaloisDeterminants IHG.3, and R19) if the arithmetic Frobenius has characteristic polynomial P_v(π_v; X). r corresponds in one convention if and only if r^∨ corresponds in the other. Twists: P_v(π_v ⊗ ‖det‖^t; X) = q_v^{−tn} P_v(π_v; q_v^t X), matching r ↦ r ⊗ ε_l^t. The contragredient has roots q_v^{n−1}/β_j, where β_j are the roots for π_v, matching r ↦ r^∨ ⊗ ε_l^{1−n}.",
+      "hypotheses": [
+        "The factorisation uses the unitary normalisation of the Satake transform: t_{v,i} = q_v^{i(n−i)/2} e_i(α). With IHG.3's normalised Satake transform this is the input identity (request).",
+        "No local Langlands correspondence is used. For unramified π_v, 'r corresponds at v' is defined by the polynomial identity, which is what AG2.0 requires. Agreement with rec(π_v ⊗ |det|^{(1−n)/2}) for unramified π_v is an AG2.5 comparison.",
+        "ACC+ say P_v corresponds to Frobenius on rec^T(π_v), their arithmetic normalisation of local Langlands (Clozel–Thorne §2.1), with Frob_v geometric in their notation. That is the geometric convention here."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AutomorphicGalois.heckePolynomial",
+          "role": "constructor",
+          "statement": "P_v(π_v; X) = Σ (−1)^i q_v^{i(i−1)/2} t_{v,i} X^{n−i}."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.heckePolynomial_eq_prod",
+          "role": "characterisation",
+          "statement": "P_v = ∏ (X − q^{(n−1)/2} α_j) when t_{v,i} = q^{i(n−i)/2} e_i(α)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.CorrespondsAtGeom",
+          "role": "data",
+          "statement": "ι det(X − r(Frob_v^{geom})) = P_v(π_v; X)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.correspondsAtGeom_iff_dual",
+          "role": "equivalence",
+          "statement": "CorrespondsAtGeom r π_v ↔ CorrespondsAtArith r^∨ π_v."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.heckePolynomial_twist",
+          "role": "compatibility",
+          "statement": "P_v(π ⊗ ‖det‖^t; X) = q^{−tn} P_v(π; q^t X), matching ⊗ ε_l^t."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.heckePolynomial_contragredient",
+          "role": "compatibility",
+          "statement": "The roots of P_v(π^∨) are q^{n−1}/β_j, matching r^∨ ⊗ ε_l^{1−n}."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places",
+          "how": "the defining identity at good places"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/the-normalization-dictionary-fixed-by-the-sources",
+          "how": "the geometric/arithmetic conversion between sources"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+          "how": "agreement with rec(π_v ⊗ |det|^{(1−n)/2}) at unramified v"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AutomorphicGalois.heckePolynomial_rank_one",
+          "kind": "degenerate",
+          "statement": "n = 1: P_v = X − t_{v,1} = X − χ_v(ϖ_v)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.heckePolynomial_delta",
+          "kind": "value",
+          "statement": "Δ at p = 2 (π = π_Δ ⊗ ‖det‖^{−5}): P = X² + 24X + 2^{11}."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.heckePolynomial_eq_prod_two",
+          "kind": "compatibility",
+          "statement": "n = 2: X² − s(α+β)X + q·αβ = (X − sα)(X − sβ) when s² = q."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.not_heckePolynomial_unnormalized",
+          "kind": "non-example",
+          "statement": "∏(X − α_j) (no q^{(n−1)/2}) differs from P_v for n = 2: its X-coefficient is −(α + β), not −q^{1/2}(α + β)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.heckePolynomial_arith_vs_geom",
+          "kind": "non-example",
+          "statement": "For Δ, ρ_Δ itself has geometric-Frobenius polynomial X² + 24·2^{−11}X + 2^{−11} ≠ P_2, so ρ_Δ corresponds to π_Δ ⊗ ‖det‖^{−5} only in the arithmetic convention."
+        }
+      ],
+      "proofSteps": [
+        "Factorisation: e_i(q^{(n−1)/2}α) = q^{i(n−1)/2} e_i(α) = q^{i(n−1)/2 − i(n−i)/2} t_{v,i} = q^{i(i−1)/2} t_{v,i}, and Vieta.",
+        "Convention switch: r^∨(Frob_arith) = r(Frob_arith^{−1})^T = r(Frob_geom)^T has the same characteristic polynomial as r(Frob_geom).",
+        "Twist: the Satake parameters of π_v ⊗ ‖det‖^t are α_j q^{−t} (‖ϖ_v‖ = q_v^{−1}), so the roots are β_j q^{−t}. And ε_l(Frob_geom) = q_v^{−1}, so r ⊗ ε_l^t has geometric-Frobenius roots β_j q_v^{−t}.",
+        "Contragredient: π_v^∨ has Satake parameters α_j^{−1}, so roots q^{(n−1)/2}α_j^{−1} = q^{n−1}/β_j. And r^∨ ⊗ ε_l^{1−n} has geometric-Frobenius roots β_j^{−1} q^{n−1}."
+      ],
+      "acceptance": [
+        "n = 1: P_v(X) = X − χ_v(ϖ_v), and r_{l,ι}(χ)(Frob_v) = ι^{−1}χ_v(ϖ_v) in the geometric convention (galois-character-of-an-algebraic-hecke-character).",
+        "n = 2, F = ℚ, π = π_f ⊗ ‖det‖^{1−k/2}, normalised so that T_{p,1} acts by a_p and T_{p,2} by ψ(p)p^{k−2}: P_p(X) = X² − a_pX + ψ(p)p^{k−1}. This is the R19 polynomial of ρ_f for arithmetic Frobenius, so the geometric convention gives r_{l,ι}(π) ≅ ρ_f^∨. For Δ at p = 2: X² + 24X + 2^{11}.",
+        "n = 3: P_v(X) = X³ − t₁X² + q t₂X − q³ t₃ = ∏(X − qα_j) when t₁ = q e₁, t₂ = q e₂ and t₃ = e₃."
+      ],
+      "prerequisites": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character",
+        "mathlib:Multiset.prod_X_sub_C_coeff"
+      ],
+      "sources": [
+        {
+          "sourceId": "accplus-cm-potential-automorphy",
+          "locator": "§2.2.5, (2.2.6), p. 922",
+          "match": "The Hecke polynomial P_v(X) and its Galois meaning."
+        },
+        {
+          "sourceId": "accplus-cm-potential-automorphy",
+          "locator": "Theorem 2.3.2, p. 935",
+          "match": "The geometric convention in the construction HLTT–ACC+ use (Frob_v geometric)."
+        },
+        {
+          "sourceId": "accplus-cm-potential-automorphy",
+          "locator": "Notation, p. 906",
+          "match": "rec^T, in which P_v is read."
+        }
+      ],
+      "planet": {
+        "name": "Hecke polynomial normalization"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "title": "A Galois representation attached to π at the good places, and its functoriality under twist, dual, conjugation and base change",
+      "kind": "definition",
+      "statement": "Let π be a regular algebraic automorphic representation of GL_n(𝔸_F), l a prime and ι: Q̄_l ≅ ℂ. A continuous semisimple r: G_F → GL_n(Q̄_l) is attached to π (with respect to ι) at the good places if there is a finite set S of places, containing those above l and those where π is ramified, such that for v ∉ S, r is unramified at v and ι det(X − r(Frob_v)) = P_v(π_v; X) (geometric Frobenius). Such r is unique up to isomorphism. If r is attached to π, then: r ⊗ r_{l,ι}(ψ) is attached to π ⊗ (ψ∘det) for ψ algebraic; r^∨ ⊗ ε_l^{1−n} is attached to π^∨; r^c is attached to π^c; and r|_{G_{F′}} is attached to BC_{F′/F}(π) for F′/F finite soluble.",
+      "hypotheses": [
+        "This is the property HLTT prove for every regular algebraic cuspidal π over a CM field (ACC+ Theorem 2.3.2). It is the interface that AG2.1–AG2.4 produce and AG2.5 strengthens. Nothing at the places in S, or above l, is asserted.",
+        "Uniqueness needs semisimplicity. It uses Čebotarev and Brauer–Nesbitt (ArithmeticGaloisRepresentations R01.1/R01.5).",
+        "The base-change clause needs the Satake parameters of BC(π)_w to be the q-power restrictions of those of π_v (the unramified base-change identity), requested from EndoscopicTransferAndUnitaryTraceComparison ET.7, which exports the Arthur–Clozel base-change steps to this roadmap."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AutomorphicGalois.IsAttached",
+          "role": "data",
+          "statement": "r.IsAttached ι π :⇔ ∃ S finite, ∀ v ∉ S, r unramified at v ∧ ι det(X − r(Frob_v)) = P_v(π_v)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.IsAttached.unique",
+          "role": "extensionality",
+          "statement": "r, r′ semisimple and both attached to π ⇒ r ≅ r′."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.IsAttached.twist",
+          "role": "functoriality",
+          "statement": "r.IsAttached π → (r ⊗ r_{l,ι}(ψ)).IsAttached (π ⊗ ψ∘det)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.IsAttached.dual",
+          "role": "functoriality",
+          "statement": "r.IsAttached π → (r^∨ ⊗ ε_l^{1−n}).IsAttached π^∨."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.IsAttached.conj",
+          "role": "functoriality",
+          "statement": "r.IsAttached π → r^c.IsAttached π^c."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.IsAttached.baseChange",
+          "role": "functoriality",
+          "statement": "r.IsAttached π → (r|_{G_{F′}}).IsAttached (BC_{F′/F} π) for F′/F soluble."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-construction-of-nonselfdual-systems",
+          "how": "HLTT Theorem A produces an attached r_{p,ι}(π)"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
+          "how": "the polarized construction's good-place property"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.0/field-of-rationality",
+          "how": "P_v(π_v) has coefficients in M_π, so an attached r has traces in ι^{-1}(M_π) at good places"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AutomorphicGalois.isAttached_heckeCharacter",
+          "kind": "degenerate",
+          "statement": "n = 1: r_{l,ι}(ψ).IsAttached ι ψ."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.isAttached_classical",
+          "kind": "value",
+          "statement": "ρ_f^∨ is attached to π_f ⊗ ‖det‖^{1−k/2}; for Δ the polynomial at 2 is X² + 24X + 2^{11}."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.not_isAttached_classical_rho",
+          "kind": "non-example",
+          "statement": "ρ_f is not attached to π_f ⊗ ‖det‖^{1−k/2} (for Δ its geometric polynomial at 2 is X² + 24·2^{−11}X + 2^{−11})."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.isAttached_dual_twist",
+          "kind": "compatibility",
+          "statement": "The two rules compose consistently: (r^∨ε^{1−n})^∨ε^{1−n} = r, matching π^∨∨ = π."
+        }
+      ],
+      "proofSteps": [
+        "Uniqueness: two semisimple representations with equal characteristic polynomials on a dense set of Frobenius elements are isomorphic (R01.5 recognition).",
+        "Twist and contragredient: frobenius-polynomial-and-conventions, with ψ ↦ r_{l,ι}(ψ) from galois-character-of-an-algebraic-hecke-character.",
+        "Conjugation: (π^c)_v = π_{cv} ∘ c, and r^c(Frob_v) = r(c Frob_v c) = r(Frob_{cv}).",
+        "Base change: Frob_w = Frob_v^{f(w|v)} and the Satake parameters of BC(π)_w are α_j^{f(w|v)}."
+      ],
+      "acceptance": [
+        "n = 1: r_{l,ι}(ψ) is attached to ψ.",
+        "n = 2, F = ℚ: ρ_f^∨ (R19 convention for ρ_f, i.e. the cohomological realisation M_{f,λ}) is attached to π_f ⊗ ‖det‖^{1−k/2}; ρ_f is attached to (π_f ⊗ ‖det‖^{1−k/2})^∨ ⊗ ‖det‖ (dual rule, then twist rule with r_{l,ι}(‖·‖) = ε_l); for Δ at 2 both have geometric-Frobenius roots 1/β_j, where β_j are the roots of X² + 24X + 2^{11}.",
+        "Dual check at n = 2: ρ_f^∨ is attached to π ⇒ ρ_f ⊗ ε_l^{−1} is attached to π^∨. Indeed ρ_f ⊗ ε_l^{−1} = (ρ_f^∨)^∨ ⊗ ε_l^{1−2}."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight",
+        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation"
+      ],
+      "sources": [
+        {
+          "sourceId": "accplus-cm-potential-automorphy",
+          "locator": "Theorem 2.3.2, p. 935",
+          "match": "The good-place property that defines attachment."
+        },
+        {
+          "sourceId": "accplus-cm-potential-automorphy",
+          "locator": "§2.3, after Definition 2.3.6, p. 938",
+          "match": "The contragredient rule r ↦ r^∨ ⊗ ε^{1−n}, as ACC+ state it for Hecke maximal ideals."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.0/field-of-rationality",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "title": "The field of rationality M_π and its separation from a field of realisation",
+      "kind": "definition",
+      "statement": "For an automorphic representation π of GL_n(𝔸_F), M_π ⊂ ℂ is the fixed field of {σ ∈ Aut(ℂ) : σπ^∞ ≅ π^∞}. For π regular algebraic cuspidal (F CM, or F totally real), M_π is a number field (Clozel's rationality theorem, owned by AutomorphicFormsOnReductiveGroups AF.4). For every v at which π is unramified, P_v(π_v; X) ∈ M_π[X], where the q_v^{i(i−1)/2} and the t_{v,i} are both σ-equivariant. If r is attached to π, the traces of r at good Frobenius elements lie in ι^{−1}(M_π). Realisability of r over a finite extension of ι^{−1}(M_π)_λ, or over (M_π)_λ itself, is a separate descent statement and is not asserted.",
+      "hypotheses": [
+        "The definition uses π^∞ only. σπ^∞ is π^∞ with scalars extended along σ.",
+        "M_π controls traces, not realisations. The field over which r can be written may be strictly larger, by a Schur-index obstruction, and AG2.7 states the realisation only after proving a finite coefficient field.",
+        "Clozel's theorem is used with its exact hypotheses: π regular algebraic (cohomological) and cuspidal. It is not claimed for non-cuspidal or non-algebraic π."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AutomorphicGalois.fieldOfRationality",
+          "role": "constructor",
+          "statement": "M_π := fixed field of {σ ∈ Aut(ℂ) : σπ^∞ ≅ π^∞}."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.fieldOfRationality_finite",
+          "role": "characterisation",
+          "statement": "π regular algebraic cuspidal ⇒ [M_π : ℚ] < ∞ (AF.4)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.heckePolynomial_mem",
+          "role": "relation",
+          "statement": "P_v(π_v) ∈ M_π[X] at unramified v."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.fieldOfRationality_conj",
+          "role": "functoriality",
+          "statement": "M_{σπ} = σ(M_π)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.fieldOfRationality_twist_le",
+          "role": "relation",
+          "statement": "M_{π⊗ψ∘det} ⊆ M_π M_ψ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+          "how": "invariant lattices only after a finite coefficient field of realisation is proved"
+        },
+        {
+          "where": "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
+          "how": "the coefficient field of the compatible system of π"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AutomorphicGalois.fieldOfRationality_heckeCharacter",
+          "kind": "degenerate",
+          "statement": "n = 1: M_ψ = ℚ(ψ(x) : x ∈ 𝔸_F^{∞,×})."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.fieldOfRationality_classical",
+          "kind": "value",
+          "statement": "n = 2, f of level 23 and weight 2 with K_f = ℚ(√5): M_π = ℚ(√5)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.fieldOfRationality_delta",
+          "kind": "value",
+          "statement": "π_Δ ⊗ ‖det‖^{−5}: M = ℚ (all τ(n) ∈ ℤ)."
+        },
+        {
+          "name": "TauCeti.AutomorphicGalois.not_realizable_over_rationality_field",
+          "kind": "non-example",
+          "statement": "Q₈'s 2-dimensional representation: trace field ℚ, no model over ℚ₂. A definition identifying M_π with a field of realisation fails here."
+        }
+      ],
+      "proofSteps": [
+        "Well-definedness: {σ : σπ^∞ ≅ π^∞} is a subgroup of Aut(ℂ), and its fixed field is a subfield of ℂ.",
+        "Rationality (request to AF.4): the cuspidal cohomology of the arithmetic quotients of GL_n with coefficients in Ξ_a^∨ has a ℚ(a)-structure preserved by the Hecke algebra. π^∞ occurs in it with multiplicity one, so its Aut(ℂ)-orbit is finite and M_π is a number field.",
+        "P_v ∈ M_π[X]: σ acts on the spherical vector's Hecke eigenvalues, t_{v,i}(σπ) = σ(t_{v,i}(π)), and q_v^{i(i−1)/2} ∈ ℤ."
+      ],
+      "acceptance": [
+        "n = 1: M_ψ is the field generated by the values of ψ on 𝔸_F^{∞,×}, a number field for algebraic ψ.",
+        "n = 2: for π = π_f ⊗ ‖det‖^{1−k/2}, M_π = ℚ(a_p, ψ(p) : p ∤ N) = K_f, the Hecke field, and ρ_{f,λ} is realised over K_{f,λ} (Deligne–Serre footnote (2): complex conjugation has distinct rational eigenvalues).",
+        "Realisation is a separate question: the two-dimensional representation of the quaternion group Q₈ has rational character but is not realisable over ℚ₂, since the quaternion algebra (−1, −1)_ℚ ramifies at 2. So an Artin representation of G_ℚ through a Q₈-extension has trace field ℚ but no model over ℚ₂."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight",
+        "AutomorphicFormsOnReductiveGroups:AF.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "accplus-cm-potential-automorphy",
+          "locator": "§7.1, p. 1093",
+          "match": "The field of rationality, in the coefficient field of the compatible system ACC+ attach to π."
+        }
+      ],
+      "planet": {
+        "name": "Field of rationality"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a"
+      ],
+      "title": "What the polarized geometric construction supplies, and the regularity condition that splits its cases",
+      "kind": "theorem",
+      "statement": "For Pi a cuspidal automorphic representation of GL_n over a CM field which is CONJUGATE SELF-DUAL (Pi^dual = Pi composed with c) and COHOMOLOGICAL for an irreducible algebraic representation Xi (Chenevier-Harris: in the sense of their Hypotheses 1.1, with K/F a totally imaginary quadratic extension of a totally real F), a semisimple continuous Galois representation R_l(Pi): Gal(Kbar/K) -> GL_n(Qbar_l) is attached by [Sh3, CH] (Shin; Chenevier-Harris). Chenevier-Harris Theorem 3.2.3: (a) at finite primes v of residue characteristic prime to p, (rho_{iota,Pi}|Gamma_v)^{F-ss} < L(Pi_v tensor |.|_v^{(1-n)/2}) for the partial order of [Ch] section 3.1, which implies equality of the underlying Weil-group representations and that N lies in the Zariski closure of the conjugacy class of N' (CH, before Theorem 2.3); (b) at finite primes v of residue characteristic p, rho_{iota,Pi}|Gamma_v is DE RHAM in Fontaine's sense, its Hodge-Tate numbers have multiplicity at most one (Hodge-Tate regular) and are determined by Pi_infinity by an explicit recipe; (c) if v divides p and Pi_v has a nonzero vector fixed by a maximal compact subgroup of GL(n, K_v), then rho_v is CRYSTALLINE and det(T - phi | D_cris(rho_v)) = det(T - L(Pi_v tensor |.|_v^{(1-n)/2})(Frob_v)) for phi the smallest linear power of the crystalline Frobenius; they also show semistability at places above p where Pi_v has a nonzero Iwahori-fixed vector. Caraiani records that her Theorems 1.1 (full Weil-Deligne compatibility away from l) and 1.2 (temperedness) were already known when n is ODD or n is even and Pi is SLIGHTLY REGULAR (Shin), or when Pi is square-integrable at a finite place (Harris-Taylor, Taylor-Yoshida), and that in the case n even and Pi_infinity not slightly regular Chenevier-Harris constructed R_l(Pi) with local-global compatibility up to semisimplification. Placement note (reviewer): these are statements AFTER local Langlands (partial order, de Rham, crystalline), i.e. the outputs of AG2.2/AG2.5/AG2.6, whereas the atlas stage AG2.1a is 'raw cohomology before local Langlands'.",
+      "hypotheses": [
+        "conjugate self-duality and cohomologicality are both hypotheses; no statement is made for arbitrary GL_n representations",
+        "part (c) requires Pi_v to have a nonzero vector fixed by a maximal compact subgroup of GL(n, K_v)",
+        "the Hodge-Tate regularity in (b) is a CONCLUSION under these hypotheses, derived from Pi_infinity by an explicit recipe",
+        "the case division recorded by Caraiani (n odd, or n even and slightly regular: Shin; square-integrable at a finite place: Harris-Taylor, Taylor-Yoshida; n even and not slightly regular: Chenevier-Harris up to semisimplification) concerns which results were available before her Theorems 1.1-1.2; the passages read do not say which construction is used for the existence of R_l(Pi) in each case beyond the citation [Sh3, CH]"
+      ],
+      "proofSteps": [
+        "Chenevier-Harris state the theorem in their introduction with a pointer to their Theorem 3.2.3; the proof was NOT read here.",
+        "Caraiani's two papers record which cases were already available and which she supplies; Caraiani describes the Chenevier-Harris comparison as 'up to semisimplification', while Chenevier-Harris state it with the dominance order."
+      ],
+      "acceptance": [
+        "Check part (c) on an unramified place and confirm that the crystalline Frobenius polynomial matches the Satake parameters under the chosen normalization",
+        "Check that the partial-order statement of (a) does not determine N, by exhibiting two Weil-Deligne representations comparable in that order with different monodromy"
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-automorphic-representation",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation"
+      ],
+      "sources": [
+        {
+          "sourceId": "chenevier-harris-II",
+          "locator": "Theorem (3.2.3), parts (b) and (c), p. 1",
+          "match": "The de Rham and Hodge-Tate regularity conclusions at places above p, with the recipe from Pi_infinity."
+        },
+        {
+          "sourceId": "caraiani-monodromy-away",
+          "locator": "1 Introduction, p. 2",
+          "match": "The case division for Caraiani's Theorems 1.1-1.2 (not for the existence of R_l(Pi)), which the stage's 'retain the parity and Shin-regularity restrictions' requires to be tracked."
+        },
+        {
+          "sourceId": "chenevier-harris-II",
+          "locator": "Paragraph before Theorem 2.3",
+          "match": "What the partial order in (a) implies, as far as the source states it. Added by the reviewer."
+        }
+      ],
+      "planet": {
+        "name": "Polarized construction (Shin, Chenevier–Harris)"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-construction-of-nonselfdual-systems",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.4",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.4"
+      ],
+      "title": "The HLTT construction: a non-self-dual GL_n system as a p-adic limit inside a GL_{2n} unitary similitude setting",
+      "kind": "theorem",
+      "statement": "Theorem A of the source: let p be a rational prime and iota: Qbar_p -> C; let E be a CM or totally real field and pi a cuspidal automorphic representation of GL_n(A_E) with pi_infinity of the same infinitesimal character as an irreducible algebraic representation rho_pi of Res_{E/Q} GL_n. Then there is a UNIQUE continuous semisimple r_{p,iota}(pi): G_E -> GL_n(Qbar_p) such that for a rational prime q different from p above which pi is unramified and v | q a prime of E, r_{p,iota}(pi) is unramified at v with r_{p,iota}(pi)|^{ss}_{W_{E_v}} = iota^{-1} rec_{E_v}(pi_v |det|_v^{(1-n)/2}). NO self-duality hypothesis is imposed. The construction: reduce to an imaginary CM F containing an imaginary quadratic field in which p splits; work on the quasi-split unitary similitude group G_n attached to F^{2n}, whose maximal parabolic P^+_{n,(n)} has Levi L_{n,(n)} = GL_1 x Res_{F/Q} GL_n; set Pi(N) = the induction from P^+_{n,(n)}(A^{infinity,p}) to G_n(A^{infinity,p}) of (1 x iota^{-1}(pi ||det||^N)^{infinity,p}); realize Pi(N), for N sufficiently large, in a space of overconvergent p-adic cusp forms for G_n of finite slope; use an argument of Katz to find congruences modulo arbitrarily high powers of p to CLASSICAL holomorphic cusp forms on G_n of other weights; attach Galois representations to those by lifting them through the trace formula to polarizable regular algebraic discrete automorphic representations of GL_{2n}(A_F) and applying the polarized construction; this gives a 2n-dimensional R_p(iota^{-1}(pi||det||^N)^{infinity}) whose unramified Weil-group semisimplification is the sum, for good primes v, iota^{-1} rec_{F_v}(pi_v |det|_v^{N+(1-n)/2}) + iota^{-1} rec_{F_v}(pi_v |det|_v^{N+(1-n)/2})^{dual, c} eps_p^{1-2n} with eps_p the p-adic cyclotomic character (page image of p. 2; the text layer prints eps_p as p), from which r_{p,iota}(pi) is recovered by elementary algebra. The geometry used: the Shimura variety X_{n,U}/Q attached to a neat U, a moduli space for abelian n[F:Q]-folds with an isogeny action of F, NOT proper; its canonical normal compactification X^min_{n,U}; a smooth compactification X_{n,U,Delta} with simple normal crossings boundary; a locally free sheaf E_{U,rho} with canonical extension E_{U,Delta,rho} and subcanonical E^sub_{U,Delta,rho} (the product with the boundary ideal sheaf) whose global sections are automorphic and cusp forms respectively; and the associated dagger spaces with their ordinary loci, on which an overconvergent cusp form of weight rho and level U is a section of E^sub over the ordinary locus. The abstract states local-global compatibility away from l and a finite number of rational primes above which the CM field or the automorphic representation ramify.",
+      "hypotheses": [
+        "no self-duality is assumed on pi; the source stresses that in the non-polarizable case r_{p,iota}(pi) will never occur in the Betti or etale cohomology of a Shimura variety, according to unpublished computations of Harris and Clozel",
+        "the reduction to an imaginary CM F containing an imaginary quadratic field in which p SPLITS is part of the construction",
+        "N must be sufficiently large and the realization is in overconvergent p-adic cusp forms of finite slope (HLTT); Varma's summary adds that the weight is non-classical",
+        "the spaces of global sections of E_{U,Delta,rho} and E^sub_{U,Delta,rho}, and the notion of an overconvergent cusp form, are independent of the auxiliary choice Delta - the source says so explicitly",
+        "the Galois representations for the classical forms are obtained by the trace formula lift to GL_{2n} plus the polarized construction; the whole argument therefore consumes the polarized case"
+      ],
+      "proofSteps": [
+        "The source sketches the argument in its introduction as recorded above and refers to its Corollary 7.14 for the theorem.",
+        "The source records that the idea of realizing Pi(N) in overconvergent forms of finite slope is due to Skinner, and that the key problem was how to achieve such a realization.",
+        "It notes as an alternative that one could presumably construct an eigenvariety in this setting but that this was not carried out."
+      ],
+      "acceptance": [
+        "Check that the 2n-dimensional representation really decomposes as stated, and that the elementary algebra recovering the n-dimensional one is unambiguous",
+        "Check that the subcanonical sheaf, not the canonical one, is what carries cusp forms, and that the ordinary locus is an admissible open sub-dagger space"
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/the-normalization-dictionary-fixed-by-the-sources",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places"
+      ],
+      "sources": [
+        {
+          "sourceId": "hltt-rigid-cohomology",
+          "locator": "Abstract and Theorem A, p. 1",
+          "match": "The scope of the construction: it is exactly the non-polarized case that the polarized sources do not reach."
+        },
+        {
+          "sourceId": "hltt-rigid-cohomology",
+          "locator": "Introduction, p. 2",
+          "match": "Records that the construction is essentially a p-adic limit and not a direct geometric realization - which is why the stage puts it in a separate branch from AG2.1."
+        },
+        {
+          "sourceId": "hltt-rigid-cohomology",
+          "locator": "Introduction, sketch, p. 2",
+          "match": "The weight-changing congruences modulo arbitrarily high powers of p that the stage text names, attributed to Katz."
+        },
+        {
+          "sourceId": "hltt-rigid-cohomology",
+          "locator": "Introduction, p. 1",
+          "match": "The source's own statement that its local-global compatibility is only at good places; the stage's separate treatment of AG2.5 is source-correct."
+        },
+        {
+          "sourceId": "varma-local-global",
+          "locator": "1 Introduction, p. 2",
+          "match": "The non-classical-weight clause, which is in Varma's summary of [9] = HLTT rather than in HLTT's introduction. Added by the reviewer."
+        }
+      ],
+      "planet": {
+        "name": "HLTT non-self-dual construction"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.5"
+      ],
+      "title": "Varma's extension to all places away from p: equality of semisimplifications and a bound, not an equality, of monodromy",
+      "kind": "theorem",
+      "statement": "Let F be an imaginary CM or totally real field and pi a regular algebraic cuspidal automorphic representation of GL_n(A_F), with r_{p,iota}(pi) the representation constructed in [9, 16] (= HLTT and Scholze, On torsion in the cohomology of locally symmetric varieties). Theorem (1^ss): for EVERY prime v not dividing p of F, WD(r_{p,iota}(pi)|G_{F_v})^{ss} = iota^{-1} rec_{F_v}(pi_v tensor |det|_v^{(1-n)/2})^{ss}. Theorem (1): moreover WD(r_{p,iota}(pi)|G_{F_v})^{Frob-ss} < iota^{-1} rec_{F_v}(pi_v |det|_v^{(1-n)/2}) for the partial order, i.e. the monodromy of the Galois side is 'MORE NILPOTENT' than that of rec(pi_v). This is a semisimplified comparison together with a monodromy BOUND; it is not asserted to be an equality of Weil-Deligne representations. Strategy: follow the construction; at all primes v not dividing p of F which split over F^+ (equivalently at all primes away from p where G splits), the Bernstein centres of a finite union of Bernstein components containing Pi(M)_v map to the Hecke algebras acting on p-adic and classical cusp forms on G of arbitrary integral, not necessarily classical, weight; for each sigma in W_{F_v} the image contains Hecke operators whose eigenvalue on a p-adic cusp form Pi' equals tr rec_{F_v}(Pi'_v tensor |det|_v^{(1-2n)/2})(sigma); for classical Pi' local-global compatibility is already known, so the eigenvalue is also tr WD(r_p(Pi')|G_{F_v})^{ss}(sigma); congruences modulo p^k, for every k, between Hecke eigenvalues of linear combinations of classical cusp forms and those of Pi(M) give a continuous pseudorepresentation T with T(sigma_v) = tr rec_{F_v}(Pi(M)_v tensor |det|_v^{(1-2n)/2})(sigma_v) at split v not above p, hence a 2n-dimensional r_{p,iota}(Pi(M)) with the semisimplified comparison there.",
+      "hypotheses": [
+        "the comparison is at places v not dividing p; places above p are a different problem",
+        "the Bernstein-centre argument is run at primes that SPLIT over the maximal totally real subfield, i.e. where the unitary similitude group splits",
+        "the Hecke eigenvalue identity involves the twist |det|^{(1-2n)/2} for the 2n-dimensional object, not |det|^{(1-n)/2}",
+        "the conclusion of Theorem (1) is a partial-order statement; advertising it as full monodromy equality would overstate it - the stage text warns against exactly this"
+      ],
+      "proofSteps": [
+        "The source states the two theorems and summarizes the argument as recorded; the details were not read here.",
+        "The identity of traces is obtained on classical points, where local-global compatibility is already known, and transferred to Pi(M) through congruences modulo arbitrarily high powers of p and a continuous pseudorepresentation (not through a continuity argument on the Bernstein centre); how primes not split over F^+ are handled was not read."
+      ],
+      "acceptance": [
+        "Check on a Steinberg place that the bound is strict, i.e. that the Galois monodromy can be smaller than rec's",
+        "Check that the argument genuinely needs the split hypothesis at v, by identifying where the Bernstein centre of the unitary group is used"
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-construction-of-nonselfdual-systems"
+      ],
+      "sources": [
+        {
+          "sourceId": "varma-local-global",
+          "locator": "Abstract, p. 1",
+          "match": "The monodromy statement is a bound in one direction; the stage's requirement that 'its semisimplified comparison plus monodromy bound is not advertised as full monodromy equality' is confirmed by the source's own wording."
+        },
+        {
+          "sourceId": "varma-local-global",
+          "locator": "1 Introduction, Theorem (1), p. 2",
+          "match": "The literal statement with the partial order."
+        },
+        {
+          "sourceId": "varma-local-global",
+          "locator": "1 Introduction, strategy, p. 2",
+          "match": "The split hypothesis and the Bernstein-centre mechanism, both of which must be recorded as hypotheses of the interpolation."
+        }
+      ],
+      "planet": {
+        "name": "Varma's local–global compatibility"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness",
+      "parentStageId": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+      "realises": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.5"
+      ],
+      "title": "Caraiani's upgrade to full Weil-Deligne equality away from p, via purity, and the Ramanujan-Petersson input",
+      "kind": "theorem",
+      "statement": "Theorem 1.1 of the source: let n >= 2, L a CM field with complex conjugation c, l a prime and iota_l: Qbar_l -> C. Let Pi be a cuspidal automorphic representation of GL_n(A_L) with Pi^dual = Pi composed with c and Pi cohomological for an irreducible algebraic Xi. Let R_l(Pi) be the Galois representation attached to Pi by the polarized construction, p different from l, and y a place of L above p. Then WD(R_l(Pi)|Gal(Lbar_y/L_y))^{F-ss} is isomorphic to iota_l^{-1} L_{n,L_y}(Pi_y), with the GEOMETRIC normalization of local Langlands. Theorem 1.2: under the same hypotheses Pi is TEMPERED at every finite place of L, i.e. the Ramanujan-Petersson conjecture holds for such Pi. Strategy: both Weil-Deligne representations are shown to be PURE; Theorem 1.2 gives purity of iota_l^{-1} L_{n,L_y}(Pi_y); for the Galois side one realizes R_l(Pi)^{tensor 2} in the cohomology of a system of Shimura varieties X_U for a unitary group which at infinity looks like U(1, n-1) x U(1, n-1) x U(0, n)^{d-2}, and follows the Taylor-Yoshida structure of argument, computing the action of the monodromy operator N on that cohomology explicitly, using Theorem 1.2 at a crucial point; purity of the tensor square then forces purity of WD(R_l(Pi)|...)^{F-ss}. A technical input developed for this is the action of N on the complex of nearby cycles on a scheme locally etale over a product of semistable schemes, and a generalization of the weight-spectral sequence in that situation. The companion paper proves the analogous statement at l = p, by identifying the monodromy operator on the global side and deriving a generalization of Mokrane's weight spectral sequence for LOG CRYSTALLINE cohomology; there the case of Shin-regular weight was already known from Barnet-Lamb-Gee-Geraghty-Taylor, and only up to semisimplification otherwise.",
+      "hypotheses": [
+        "Pi must be conjugate self-dual and cohomological; the upgrade is NOT available in the non-polarized HLTT setting",
+        "the geometric normalization of local Langlands is used, different from the |det|^{(1-n)/2}-twisted arithmetic normalization of the other sources",
+        "the argument passes through R_l(Pi)^{tensor 2} realized in the cohomology of a specific unitary Shimura system with the displayed signature at infinity; it is not a statement about R_l(Pi) directly",
+        "the technical generalization of the weight spectral sequence is for a scheme LOCALLY ETALE OVER A PRODUCT of semistable schemes, not for a semistable scheme",
+        "at l = p the corresponding statement needs a generalization of Mokrane's weight spectral sequence for log crystalline cohomology, and the previously known cases required Shin-regular weight"
+      ],
+      "proofSteps": [
+        "Prove temperedness (Theorem 1.2) first, which makes the automorphic side pure.",
+        "Realize the tensor square in Shimura cohomology, compute N by the nearby-cycle analysis and the generalized weight spectral sequence, and deduce purity of the Galois side.",
+        "Two Frobenius-semisimple Weil-Deligne representations with the same semisimplification that are both pure are isomorphic: the l = p paper cites Taylor-Yoshida Lemma 1.4(4) - given a semisimple Weil-group representation there is at most one monodromy operator making it pure. This upgrades the comparison up to semisimplification (Caraiani's description of Chenevier-Harris) to an isomorphism."
+      ],
+      "acceptance": [
+        "Check that purity on both sides is what forces equality, and that the semisimplified statement alone does not",
+        "Check the signature U(1, n-1) x U(1, n-1) x U(0, n)^{d-2} against the Shimura-variety roadmap's data, since it is a specific auxiliary choice"
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris"
+      ],
+      "sources": [
+        {
+          "sourceId": "caraiani-monodromy-away",
+          "locator": "Theorem 1.1, p. 1",
+          "match": "The full Weil-Deligne isomorphism away from p, upgrading the partial order of the construction papers."
+        },
+        {
+          "sourceId": "caraiani-monodromy-away",
+          "locator": "1 Introduction, strategy, p. 2",
+          "match": "The auxiliary geometric input, with its exact signature; the upgrade is not an abstract purity argument."
+        },
+        {
+          "sourceId": "caraiani-monodromy-at-p",
+          "locator": "Abstract and Theorem 1.1, p. 1",
+          "match": "The l = p case and the log-crystalline weight spectral sequence that the stage names as a reusable p-adic Hodge target."
+        },
+        {
+          "sourceId": "caraiani-monodromy-at-p",
+          "locator": "1 Introduction, p. 1",
+          "match": "The uniqueness principle behind the purity upgrade, imported from Taylor-Yoshida (not in the library). Added by the reviewer."
+        }
+      ],
+      "planet": {
+        "name": "Caraiani's local–global compatibility"
+      },
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "AutomorphicFormsOnReductiveGroups:AF.4",
+      "need": "Algebraic highest weights of Res_{F/ℚ}GL_n and the irreducible algebraic representations Ξ_a; the Harish-Chandra parametrisation of infinitesimal characters, so that the weight of a regular algebraic π is unique; the C-algebraic/L-algebraic distinction and half-root twist; and Clozel's rationality theorem: for a regular algebraic cuspidal π of GL_n(𝔸_F), M_π is a number field and π^∞ has a model over it.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/dominant-weights-and-the-weight-w",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/field-of-rationality"
+      ]
+    },
+    {
+      "supplier": "AutomorphicFormsOnReductiveGroups:AF.1",
+      "need": "(g, K)-modules of GL_n(ℝ) and GL_n(ℂ) with the centre of U(g_ℂ) acting through an infinitesimal character, for the definition of regular algebraic.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight"
+      ]
+    },
+    {
+      "supplier": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+      "need": "The unitary normalisation of the Satake transform for GL_n: T_{v,i} acts on an unramified π_v with Satake parameters α by q_v^{i(n−i)/2} e_i(α). The stage fixes P_v(X) with arithmetic Frobenius; the sources of this roadmap (BLGGT, ACC+, HLTT) read the same P_v on geometric Frobenius, and this packet records the conversion r ↔ r^∨.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.1",
+      "need": "Continuous representations of G_F on finite-dimensional Q̄_l-spaces, semisimplification and continuity of twists, as the carrier of polarized pairs (r, µ).",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation"
+      ]
+    },
+    {
+      "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+      "need": "Arthur–Clozel cyclic base change for GL_n with the unramified identity: the Satake parameters of BC(π)_w are α_j^{f(w|v)} at unramified places.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "need": "Global Artin reciprocity Art_F: 𝔸_F^×/F^×(F_∞^×)⁰ ≅ G_F^{ab}, normalised to send uniformisers to geometric Frobenius elements, with its compatibility with restriction (the transfer G_{F⁺}^{ab} → G_F^{ab} corresponds to the inclusion of idele class groups).",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "need": "Algebraic Hecke characters (Weil's type A₀) with their algebraic infinity types (n_σ), and the weight |χ| = ‖·‖^{−wt/2}, which BLGGT A.2 uses for r_{l,ι}(χ).",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-automorphic-representation"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "need": "Hecke characters as continuous characters of the idele class group, their local components χ_v and χ_v(−1) at real places, and the conductor- and parity-compatible dictionary with Dirichlet characters over ℚ.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-automorphic-representation",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "status": "partial",
+      "remaining": [
+        "The acceptance example 'a unitary similitude coefficient with nontrivial central character' is not planned; it needs the coefficient systems of HLTT's G_n (their §§2–3), not read.",
+        "Clozel's rationality theorem is requested from AutomorphicFormsOnReductiveGroups AF.4, not re-proved; its source (Clozel, Motifs et formes automorphes) is not public and was not read.",
+        "The unitary Satake normalisation t_{v,i} = q^{i(n−i)/2} e_i(α) is requested from IHG.3, whose packet has no IHG.3 nodes yet.",
+        "The C-algebraic/L-algebraic distinction is left to AF.4 and is only referenced.",
+        "Placement: the carried node the-normalization-dictionary-fixed-by-the-sources compares rec-normalisations and is AG2.5-side material (reviewer note); it now points to the AG2.0 dictionary node that avoids local Langlands."
+      ],
+      "notes": "Checkpoint 1 plans AG2.0 from BLGGT §2.1 and A.2, ACC+ §§1, 2.2.5, 2.3 and 7.1, and Patrikis: dominant weights and (ℤⁿ)_w; regular algebraic of weight a; conjugate self-dual, essentially conjugate self-dual and polarized pairs with the multiplier χ; polarized Galois pairs (r, µ); the l-adic character of an algebraic Hecke character; the sign of the multiplier (with the corrected normalisation, E2); the Hodge–Tate multiset of a weight; the Hecke polynomial with the Satake factorisation and the geometric/arithmetic and twist dictionary; attachment at good places; and the field of rationality M_π, kept separate from a field of realisation."
+    },
+    {
+      "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.1",
+      "status": "not_read",
+      "remaining": [
+        "This stage is the aggregate of AG2.1a and AG2.1b and has no independent content; no node was written for it. It should be marked complete only when both components are."
+      ]
+    },
+    {
+      "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+      "status": "partial",
+      "remaining": [
+        "Only the statements of what the polarized construction supplies were read. The finite-level etale cohomology with the algebraic local system, the Kuga-Sato powers, the algebraic correspondences and projectors, the Schur functor, Tate twist, parity and degree, and the raw fixed-point/nearby-cycle trace identities were NOT read.",
+        "Shin's papers, which supply the n odd and slightly regular cases, were not read; Shin_GaloisCompact.pdf and Shin_StableIgusa.pdf are in the library and were not opened.",
+        "Chenevier-Harris's own Sections 1-3 were not read; only their introduction.",
+        "Placement: the node polarized-construction-inputs-shin-and-chenevier-harris states results after local Langlands (Chenevier-Harris Theorem 3.2.3), which the atlas assigns to AG2.2/AG2.5/AG2.6, not to AG2.1a (raw cohomology before local Langlands)."
+      ]
+    },
+    {
+      "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.1b",
+      "status": "not_read",
+      "remaining": [
+        "No node written. The virtual-character comparison with the geometric trace formula, the separation of actual representations from alternating classes, the Igusa-variety route and the purity/weight-separation/multiplicity/cancellation arguments were not read. Next source action: read Shin, 'Galois representations arising from some compact Shimura varieties' (references/papers/Shin_GaloisCompact.pdf, in the library with extracted text) and Chenevier-Harris Section 3."
+      ]
+    },
+    {
+      "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.2",
+      "status": "not_read",
+      "remaining": [
+        "No node written. Stable unitary base change, the endoscopic character identities, the rank and multiplicity formulas, and the descent for essentially conjugate self-dual forms were not read. Next source action: read Chenevier-Harris Section 2 and the trace-formula sources assigned to EndoscopicTransferAndUnitaryTraceComparison (EXT-11).",
+        "HLTT apply the polarized construction to discrete (not necessarily cuspidal) representations of GL_2n; Chenevier-Harris Theorem 3.2.3 as read concerns cuspidal Pi, so the discrete case is an unread AG2.2 input of AG2.4."
+      ]
+    },
+    {
+      "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+      "status": "not_read",
+      "remaining": [
+        "No node written. Definite-unitary eigenvarieties, the Fredholm/slope machinery, classicality regions, density of strongly regular classical points and the determinant interpolation were not read. Next source action: read Chenevier's eigenvariety papers - references/text/R02_KI_BuzzardEigenvarieties.txt is in the library and is a related source that was not opened."
+      ]
+    },
+    {
+      "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.4",
+      "status": "partial",
+      "remaining": [
+        "Only the introduction of the non-self-dual source was read. Its Sections 1-7, containing the construction of the dagger spaces, the overconvergent logarithmic de Rham complex, the finite-slope theory, the boundary/Levi inclusion and the Katz congruence argument, were not read; Corollary 7.14, which is Theorem A, was not opened.",
+        "The toroidal and minimal compactifications and the canonical/subcanonical extensions were read only as named objects; Lan's compactification book (references/papers/R02_Lan_PELCompactifications.pdf, in the library) was not opened."
+      ]
+    },
+    {
+      "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+      "status": "partial",
+      "remaining": [
+        "Varma's Sections 2 onwards, containing the Bernstein-centre interpolation and the nilpotent-orbit bounds, were not read; only the introduction.",
+        "Caraiani's nearby-cycle analysis and generalized weight spectral sequence were not read; only the abstracts and introductions of her two papers.",
+        "Taylor-Yoshida, whose structure of argument both papers follow, was not read and is not in the supplied library under that name (checked CATALOGUE.json).",
+        "Chenevier's [Ch] (Une application des varietes de Hecke des groupes unitaires), where the dominance order is defined, is not in the supplied library; Chenevier-Harris only state that rho < rho' implies s = s' and N in the Zariski closure of the conjugacy class of N'."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Only introductions were read for all five construction and comparison sources",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-construction-of-nonselfdual-systems",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris"
+      ],
+      "detail": "Verified: the main theorems of all five sources, their hypotheses, their normalizations, the case divisions between them, and the strategy sketches the authors give. NOT verified: any proof. All five files ARE in the supplied library with usable extracted text (references/text/SS_HLTT.txt, SS_ChenevierHarris.txt, SS_VarmaLocalGlobal.txt, SS_CaraianiMonodromyAway.txt, SS_CaraianiMonodromyAtP.txt), so these are reading gaps, not availability gaps. Next source action, in order of leverage: the non-self-dual source's Sections 5-7 (the overconvergent complex and the congruence argument), Varma's Section 2 (the Bernstein-centre interpolation), and Caraiani's Sections 2-4 (the nearby-cycle monodromy computation)."
+    },
+    {
+      "title": "The partial order on Weil-Deligne representations is used but not defined in any source read",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/the-normalization-dictionary-fixed-by-the-sources",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound"
+      ],
+      "detail": "Verified: two sources state their main comparison using a partial order '<' on Weil-Deligne representations, and one of them attributes its definition to 'the partial ordering ... defined in [Ch] section 3.1'. NOT verified: that definition. The stage AG2.5 explicitly requires implementing 'the partial order on nilpotent monodromy types', so this is a stated obligation with no source read. Searched the supplied library: the reference [Ch] is Chenevier's own earlier paper, and the Chenevier item present is references/papers/chenevier-determinants.pdf, which is the determinants paper and does NOT contain a section 3.1 on Weil-Deligne partial orders (checked its section headings). Next source action: obtain Chenevier, 'On the infinite fern of Galois representations of unitary type' (or whichever paper is [Ch]) and read its section 3.1; alternatively read the definition through the nilpotent orbit closure order as used in Varma. Reviewer update: Chenevier-Harris's bibliography identifies [Ch] as Chenevier, 'Une application des varietes de Hecke des groupes unitaires' (in the Paris book project on the stabilization of the trace formula), not the determinants paper and not the infinite-fern paper; it is not in the supplied library. Chenevier-Harris state before their Theorem 2.3 that rho < rho' 'implies that s = s' and that N is in the Zariski-closure of the conjugacy class of N''. That is an implication, not the definition."
+    },
+    {
+      "title": "Taylor-Yoshida, whose argument structure both upgrade papers follow, is absent",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness"
+      ],
+      "detail": "Verified: both Caraiani papers state that they follow the strategy of Taylor-Yoshida, and that Taylor-Yoshida assumed Pi square-integrable at a finite place. NOT verified: the Taylor-Yoshida argument. Searched the supplied library: CATALOGUE.json has no record for Taylor-Yoshida, 'Compatibility of local and global Langlands correspondences', J. Amer. Math. Soc. 20 (2007); Harris-Taylor, 'The Geometry and Cohomology of Some Simple Shimura Varieties', appears as a catalogue entry with NO resolved file. Next source action: obtain Taylor-Yoshida and Harris-Taylor; without them the purity argument's structure cannot be checked."
+    },
+    {
+      "title": "AG2.1b, AG2.2 and AG2.3 have no nodes at all",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.1b",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.3",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1"
+      ],
+      "detail": "Verified: nothing for these three stages. They concern, respectively, the separation of automorphic constituents from the geometric trace formula, stable base change and endoscopic character identities, and definite-unitary eigenvarieties. None of the sources read covers them: the construction papers cite the trace-formula results rather than proving them, and the eigenvariety construction is explicitly NOT carried out in the non-self-dual source ('Alternatively it is presumably possible to construct an eigenvariety in this setting, but we have not carried this out'). Next source action: Shin_GaloisCompact.pdf and Shin_StableIgusa.pdf are in the library for AG2.1b; the endoscopy sources belong to EndoscopicTransferAndUnitaryTraceComparison, owned by EXT-11, and this job should coordinate rather than duplicate."
+    },
+    {
+      "title": "Stage placement of the normalization and polarized-construction nodes",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0/the-normalization-dictionary-fixed-by-the-sources",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a"
+      ],
+      "detail": "Verified by reading the atlas descriptions: AG2.0 is to build a normalization dictionary that 'does not use an established local Langlands correspondence', with agreement with rec(pi_v tensor |det|^{(1-n)/2}) proved in AG2.5; AG2.1a is 'raw cohomology before local Langlands'. The two nodes filed there record rec-normalized comparisons, de Rham and crystalline conclusions - AG2.2/AG2.5/AG2.6 material. The links from them (to the HLTT and Caraiani nodes) are consistent with the atlas order only transitively. Orchestrator decision: re-home the two nodes (node ids would change) or amend their parentStageIds before integration."
+    },
+    {
+      "title": "Cuspidal versus discrete input to the HLTT construction",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-construction-of-nonselfdual-systems",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      ],
+      "detail": "Verified: HLTT's introduction attaches Galois representations to classical cusp forms on G_n by lifting them to polarizable regular algebraic DISCRETE automorphic representations of GL_2n(A_F) ([Sh2]) and applying [Sh1] and [CH]; Varma's summary says these are isobaric sums of conjugate self-dual cuspidal representations. Chenevier-Harris Theorem 3.2.3 as read is for cuspidal Pi. Not verified: the statement for discrete/isobaric parameters that HLTT actually consume. Next source action: read Shin's cohomological base change appendix [Sh2] and HLTT section 7 where the classical forms are treated."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII/E1",
+      "source": "blggt-potential-automorphy",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "§2.1, definition of a polarized automorphic representation, p. 32",
+      "printed": "For imaginary F, the source additionally requires µv(−1) = (−1)n at all v|∞. It says this requirement can always be met by substituting µδF/F + for µ.",
+      "correction": "χ_v(−1) … replacing χ by χδ_{F/F⁺}: the character of a polarized automorphic pair (π, χ) is χ; µ is the Galois multiplier of the Galois-side definition on p. 31, from which the sentence was carried over.",
+      "reason": "The definition introduces only π and χ; no µ is in scope, and the next paragraph speaks of a character µ with (π, µ) polarized, again meaning χ.",
+      "known": "new: present in arXiv v4 (9 December 2013, the last version) and in R. Taylor's copy pa3.pdf; the Annals text was not obtained",
+      "searched": [
+        "arXiv:1010.2561v4",
+        "R. Taylor's copy pa3.pdf (virtualmath1.stanford.edu/~rltaylor/pa3.pdf)",
+        "web search for an erratum"
+      ]
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII/E2",
+      "source": "blggt-potential-automorphy",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "§2.1, p. 32 (sign normalisation) and Theorem 2.1.1(1) with its proof, pp. 33–34",
+      "printed": "On p. 32, the source requires µv(−1) = (−1)n at all v|∞ for imaginary F. On p. 33, it asserts that (rl,ı(π), ǫ1−n l rl,ı(χ)) is polarized, totally odd and l-adic. On p. 34, it claims that for CM F the definition makes ǫ1−n l rl,ı(χ) send each complex conjugation to −1.",
+      "correction": "For F imaginary and (π, χ) regular algebraic of weight a ∈ (ℤⁿ)_w, the normalisation making (r_{l,ι}(π), ε_l^{1−n} r_{l,ι}(χ)) totally odd is χ_v(−1) = (−1)^{n+w}. Equivalently, ε_l^{1−n} r_{l,ι}(χ)(c_v) = (−1)^{n−1+w} χ_v(−1), so the printed (−1)^n is right exactly when w is even. The stated result affected is Theorem 2.1.1(1) for odd w; the theorem holds for every polarizable π after replacing χ by χδ_{F/F⁺}, so no result about polarizable π is lost.",
+      "reason": "χ is algebraic on the totally real F⁺ with wt(χ) = 2w (compare infinitesimal characters in π^c ≅ π^∨ ⊗ χ∘N∘det). By BLGGT A.2, r_{l,ι}(χ) = r_{l,ι}(χ₀) ε_l^{−w} with χ₀ of finite order, so r_{l,ι}(χ)(c_v) = (−1)^w χ_v(−1), and µ(c_v) = (−1)^{n−1+w} χ_v(−1). Counterexample for w odd: n = 1, F imaginary quadratic, ψ the Hecke character of a CM elliptic curve (weight (1, 0)). (ψ, ψ|_{𝔸_ℚ}) satisfies the printed conditions, since ψ|_{𝔸_ℚ} has sign (−1)^1 at ∞. But r_{l,ι}(ψ|_{𝔸_ℚ}) = r_{l,ι}(ψ)∘V (V the transfer) takes c to r_{l,ι}(ψ)(c²) = 1, so µ(c) = +1. A pairing on a line is symmetric, so (r_{l,ι}(ψ), µ) is not polarized, let alone totally odd. The same happens for the base change of a newform of odd weight k (w = k − 2). Patrikis (Math. Ann. 362, p. 8 of arXiv v2) gives the general sign as ω_ι(c_v) = (−1)^w ω_v(−1), consistent with this correction.",
+      "known": "new as a correction of BLGGT; the relation with (−1)^w is implicit in Patrikis 2015, who does not comment on BLGGT's CM normalisation",
+      "searched": [
+        "arXiv:1010.2561v4",
+        "R. Taylor's copy pa3.pdf",
+        "Patrikis, arXiv:1306.1242v2",
+        "ACC+ (Annals 197), which imports BLGGT's definition",
+        "web search for an erratum"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1010.2561v4",
+      "citation": "Barnet-Lamb, Gee, Geraghty, Taylor, Potential automorphy and change of weight, arXiv v4 (Annals 179 (2014))",
+      "read": "2026-09-29",
+      "sha256": "c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24"
+    },
+    {
+      "kind": "author copy",
+      "url": "http://virtualmath1.stanford.edu/~rltaylor/pa3.pdf",
+      "citation": "The same paper, R. Taylor's copy (§2.1 compared with arXiv v4; identical at the passages cited)",
+      "read": "2026-09-29",
+      "sha256": "0a3a56fb7ea2f598ef6c97edb64bffb7b4dcf80fb8a47ce67a8d567b9026a568"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
+      "citation": "Allen et al., Potential automorphy over CM fields, Annals 197 (2023), journal pagination",
+      "read": "2026-09-29",
+      "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1306.1242v2",
+      "citation": "Patrikis, On the sign of regular algebraic polarizable automorphic representations, arXiv v2",
+      "read": "2026-09-29",
+      "sha256": "2bfa2a6a00a94465725cd7b0e48d64eef1fed4113a6be4b246a015e7927259f8"
+    }
+  ]
+}
