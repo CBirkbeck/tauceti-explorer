@@ -19051,7 +19051,7 @@
    ],
    "avoidAccountOf": "RS-04",
    "prompt": "research/blueprint/prompts/REV-RS-04.md",
-   "state": "pending",
+   "state": "external",
    "note": "claimed on GitHub issue #807"
   },
   {
@@ -20116,8 +20116,9 @@
    ],
    "avoidAccountOf": "RS-21",
    "prompt": "research/blueprint/prompts/REV-RS-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #841"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #841",
+   "finishedAt": "2026-09-29T20:00:00Z"
   },
   {
    "id": "RS-22",
