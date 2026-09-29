@@ -1,3 +1,42 @@
+# Checkpoint by Claude Code cc-fb70e5 (29 September 2026, third): Ribet §3 and Buzzard §2
+
+Issue #989. This checkpoint adds 5 nodes, bringing the packet to 41.
+
+**R20.3 (Ribet §3; the author's PDF, SHA-256 cb7bc437…, now recorded):**
+- `ribet-twist-to-small-weight`: Corollary 3.2. A cyclotomic twist arises in weight at most ℓ + 1.
+- `ribet-four-level-sets` (planet): Theorem 3.3. For ℓ ≥ 5 the four level sets N₁–N₄ coincide, which reduces the
+  refined conjecture to the level question (4.1).
+  - The chain of inclusions uses Edixhoven (3.1), Ribet (2.1) and (2.2), and Atkin–Li's twisting of level, which is
+    cited, not planned.
+
+This closes the R20.3 remaining item on Ribet §3.
+
+**R20.5 (Buzzard §2, the same DVI, SHA-256 39d48668…):**
+- `buzzard-multiplicity-one` (definition, planet): Definitions 2.1–2.2, Lemma 2.3 and Proposition 2.4. It has 4 API
+  items and 3 tests.
+- `buzzard-auxiliary-prime`: Lemma 2.5, with its two-case proof, and Corollary 2.6.
+- `buzzard-carayol-lemma-mod-two`: Corollary 2.7, the ℓ = 2 counterpart of R20.4's Carayol node.
+
+Theorem 2.8's node now cites the multiplicity-one and auxiliary-prime nodes, and Theorem 3.2's node cites Corollary 2.7.
+This closes the R20.5 remaining item on Corollary 2.7 and Proposition 2.4. Mazur–Ribet, Ling–Oesterlé and Diamond's
+Lemma 2.2 are cited, not planned, and are listed as remaining.
+
+**Checks.**
+- `check_blueprint --index`: 0 errors, 0 warnings.
+- `check-files`: 0 problems.
+- Every new excerpt was checked by script against its page's text.
+- Three new Lean checks: symmetric matrices with symmetric product commute; (q − 1)/2 is odd for q ≡ 3 mod 4; the
+  N₄ level. They import Mathlib only and compiled as a separate file with exit code 0. The suggested file imports Tau
+  Ceti modules and is not compiled here.
+
+**Still open:**
+- R20.6: the case table.
+- R20.5: Wiese's weight-one theorem, and Gross's Proposition 8.18.
+- R20.3: Gross 1990 and Coleman–Voloch.
+- R20.2: the §7 proof of Ribet's Theorem 1.5.
+
+---
+
 # Checkpoint by Claude Code cc-fb70e5 (29 September 2026, second): R20.5 from Buzzard §1 and §3
 
 Issue #989. This checkpoint adds three R20.5 nodes from Buzzard's DVI, whose SHA-256 (39d48668…) is now recorded:

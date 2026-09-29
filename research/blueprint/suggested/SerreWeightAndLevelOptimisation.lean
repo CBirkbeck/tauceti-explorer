@@ -556,3 +556,20 @@ non-finite wild case, while Serre's `k_ρ = 4`. -/
 example : 1 + 2 * 0 + 1 + (2 - 1) = 3 := by norm_num
 
 end TauCeti.SerreWeightLevel.BuzzardTest
+
+namespace TauCeti.SerreWeightLevel.BuzzardAuxTest
+
+/-- `R20.5/buzzard-auxiliary-prime`, the key step of Lemma 2.5: matrices that are symmetric, with symmetric product,
+commute (`XY = (XY)ᵀ = YᵀXᵀ = YX`), so a group of symmetric matrices is abelian. -/
+example (X Y : Matrix (Fin 2) (Fin 2) (ZMod 2)) (hX : X.transpose = X) (hY : Y.transpose = Y)
+    (h : (X * Y).transpose = X * Y) : X * Y = Y * X := by
+  rw [← h, Matrix.transpose_mul, hX, hY]
+
+/-- `R20.5/buzzard-auxiliary-prime`, Corollary 2.6: for `q ≡ 3 mod 4`, `(q − 1)/2` is odd, so an even character of
+`(ℤ/q)^×` (one with `χ(−1) = 1`) has odd order. -/
+example (q : ℕ) (h : q % 4 = 3) : (q - 1) / 2 % 2 = 1 := by omega
+
+/-- `R20.3/ribet-four-level-sets`: the level `N ℓ²` of `N₄` for `N = 11`, `ℓ = 5`. -/
+example : 11 * 5 ^ 2 = 275 := by norm_num
+
+end TauCeti.SerreWeightLevel.BuzzardAuxTest
