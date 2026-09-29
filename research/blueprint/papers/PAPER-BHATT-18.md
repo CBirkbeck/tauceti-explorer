@@ -10,7 +10,31 @@ The extraction has:
 - 10 source issues;
 - 9 gaps, each now marked `closed`, `transferred` or `open`.
 
-The earlier reports follow below, unchanged.
+After the independent review (REV-PAPER-BHATT-18, research/blueprint/reviews/REV-PAPER-BHATT-18.md) it has 89 items (10 library, 14 planned, 65 missing) and 25 source issues, all confirmed. The review corrected the extraction in place:
+- **Items removed.** Remarks 1.3, 1.8, 2.4, 2.5 and 5.5 are no longer items. Their content moved to the route 9 and route 8 briefs, route 2's reason, derived-rational and direct-summand's note.
+- **Items added.** Eight: tilt (planned in P1), pro-tower, algebra-adjoint, cohen-structure, residue-field-extension, derived-local-reduction, perfect-cone-detection and perfect-cone-limit.
+- **Routes 6 and 7.**
+  - admissible-blowup is planned by Tau Ceti StableReduction layer 4.
+  - proper-cohomology moved to route 9.
+  - formal-domination moved from R2 to SF.4.
+  - generic-fiber-map is stated for sheafy pairs, so that R2 imports neither SF.4 nor the perfectoid layers.
+- **New findings.** E11–E25, among them two gaps in the reductions of Theorems 5.4 and 6.1 (E14, E15).
+
+The routes now stand as follows.
+
+| Route | Kind | Receives |
+|---|---|---|
+| 1. PerfectoidSpaces P0–P3 | source | Almost-pro mathematics, the tilt, the (−)_!! adjoint, rational presentations, almost purity (23 items) |
+| 2. PerfectoidQuotients Q0:integral-algebra, Q3 | source | Bhatt's geometric proof of André's flatness lemma and the functorial variant (6) |
+| 3. DerivedDeRhamCohomology DD.1 | source | Derived completion and Proposition 5.1 (3) |
+| 4. EnhancedDerivedSheaves E1, E2, E5:animation | source | Obstruction triangles, the base-change comparison, towers of modules, R lim and the Milnor sequence, simplicial perfection (9) |
+| 5. DeformationAndDerivedPatchingAlgebra R03.1 | source | Lemma 5.3 (2) |
+| 6. SchemeAndStackFoundations SF.4 | source | Generic multisections, non-Noetherian flattening, proper-modification domination and its p-adic instance (7) |
+| 7. AdicSpacesPartII R2 | source | The integral generic-fibre map for sheafy pairs (1) |
+| 8. PerfectoidRamification, Part II of PerfectoidSpaces | part-ii | The quantitative Riemann extension theorem (8) |
+| 9. DirectSummandsAndBigCohenMacaulay | new | The regular local covers, the reductions, the obstruction calculus and both splitting theorems (19) |
+
+The earlier reports follow below, unchanged except where marked.
 
 ## What this continuation read
 
@@ -327,6 +351,8 @@ The full upstream **AdicSpaces** and **JacobianChallenge** roadmaps were read fo
 | Pending **PerfectoidRamification**, Part II of PerfectoidSpaces | Quantitative Riemann extension and its derived/uniform refinements |
 | Proposed **RegularRingSplittings**, Part II of DeformationAndDerivedPatchingAlgebra | Regular local perfectoid covers, obstruction argument, and both final splitting theorems |
 
+This table is historical. The fourth continuation replaced the last row by the new roadmap DirectSummandsAndBigCohenMacaulay, and the review changed the scheme and formal-model rows; the current table is at the top of this report.
+
 The quantitative route reuses the **same pending PerfectoidRamification proposal** already made in PAPER-ANDRE-18, the *Abhyankar lemma* paper. No registered stages or independent review of that proposal were found at this snapshot. Its results remain missing, and the design job must combine the two briefs. It must not create two Riemann-extension projects.
 
 Q3 already has the node PerfectoidQuotients:Q3/andre-flatness-lemma, asserting a p-completely faithfully flat absolutely integrally closed extension. The new request concerns this paper's exact field-based and functorial formulation and its alternative proof. Generic perfectoidization and root-adjoining are not re-owned by the splitting roadmap.
@@ -350,7 +376,7 @@ These imports do not establish almost rings, derived tensor, derived completion 
 
 ## Source findings
 
-The JSON records locators, short quotations, corrections, arguments and correction searches. All findings await independent review.
+The JSON records locators, short quotations, corrections, arguments and correction searches. All findings await independent review. (The independent review, REV-PAPER-BHATT-18, has since confirmed all of them and added E11–E25.)
 
 - **E1:** arXiv Proposition 6.2 omits generic surjectivity. For mixed-characteristic perfectoid K, take A=K°×K° and Y the first component. The map is finite, proper and étale, but its unit is projection. The other idempotent survives multiplication by every root of p, so there is no almost left inverse. The corrected item requires a finite étale **surjective** generic map.
 - **E2:** in the ramified proof of Proposition 5.2, the ring containing the newly adjoined roots and carrying the stated field-base structure is A, not the original A′.
