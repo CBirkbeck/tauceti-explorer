@@ -11909,3 +11909,185 @@ One complete native constructor and five complete lemmas check the continuous mu
 Exact cyclotomic controls check 460 character products, 370 inverse-weight identities, 30 principal-unit witnesses, 72 numerator values, 72 two-Dirac values, 15 level-zero failures and two actual boundary values. Exact rational cyclotomic arithmetic for primitive characters of conductors 3, 4, 5, 8 and 9, including a nonreal quartic character modulo 5. Integer lifts are multiplied before evaluating the arithmetic power, so these controls do not falsely make the positive-weight character factor through a finite residue group. Check unit and nonunit inverse-weight identities, principal-unit witnesses, the two-Dirac value and finite formal moments through weight 6. Separate exact level-zero controls detect failure off the units and the actual +1/2 raw mass versus zero intrinsic first moment. These finite checks supplement the native constructor and pointwise proofs; they do not prove measure comparison or analytic interpolation. The largest observed discrepancy is 0 (exact arithmetic).
 
 The two global errata-register inputs changed during this checkpoint; all 16 Dirichlet findings were compared and remain identical. Every supplier and other captured input is unchanged. PMIA remains at 369 nodes with its preserved compiled 332-node interface; no new supplier declaration is called or compilation against the full 369-node source claimed.
+
+
+## Actual pseudomeasure character comparison and its coefficient interface
+
+Partial continuation preserving all 355 predecessor nodes whole. Six L2 nodes identify actual pseudomeasure numerators, promote the principal-unit arithmetic value, prove positive-weight admissibility and give the conditional evalAt ratio and common-field interpolation. The missing canonical coefficient-field character evaluator is recorded as a precise PMIA L3 request and gap. All 16 source findings and the original PMIA L1 request remain unchanged; six gaps, two requests and zero closed stages remain.
+
+Complete published pages 129–130 and 139,143 were freshly read on 29 September 2026, including equation (3-11), its independence calculation and the full proof of Theorem 5.1. Whole supplier admissible-evaluation, evaluation-specification, independence, coefficient-extension and character-integration nodes and exact signatures were read. The actual arithmetic pseudomeasure numerator, natural intrinsic comparison and common-value quotient were checked whole. The reviewed Dirichlet L1/L2 library audit and the pinned declaration index confirm the remaining coefficient-evaluation gap. Native RingHom.toAlgebra, isUnit_iff_ne_zero and eq_div_iff_mul_eq were read with their ambient hypotheses. Existing source findings remain unchanged.
+
+### Natural smoothing numerators of the pseudomeasure
+
+`DirichletPadicLFunctions:L2/pseudomeasure-natural-numerator` — `DirichletPadic.kubotaLeopoldtPseudomeasure_numerator_nat`
+
+For u∈U represented by natural a with p∤a, Iwasawa.numerator δ Q u ζ_p=intrinsicSmoothedNumerator(p,a) as actual integral measures on U.
+
+**Hypotheses:** p is any prime, including 2. Put Z=Z_p, U=Zˣ and M=D(U,Z), with multiplicative convolution. Let δ:U→M be the existing diracHom, Q=FractionRing M and ζ_p=the existing kubotaLeopoldtPseudomeasure in Iwasawa.pseudomeasures δ Q. Neither a domain structure on M nor a field structure on Q is assumed. a is natural, p∤a and the equality (u:Z)=(a:Z) is explicit.
+
+**Proof:**
+
+1. The existing arithmetic-pseudomeasure-numerator comparison identifies the supplier numerator with padicIntrinsicNumerator(p,u).
+2. Apply the existing padic-intrinsic-natural comparison at the same u, a and equality. This is equality in the measure ring before coefficient extension or evaluation.
+3. At a=1 both sides are zero. No regularity assumption on δ(u)−1 is needed to form its cleared numerator: membership in the existing pseudomeasure submodule supplies a numerator for every u.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-numerator`, `DirichletPadicLFunctions:L1/padic-intrinsic-natural`.
+
+**Tests:**
+
+- `SuggestedPseudomeasureCharacterTests.natural_identity_numerator` (degenerate): At the identity unit the actual numerator equals intrinsicSmoothedNumerator(p,1).
+- `SuggestedPseudomeasureCharacterTests.natural_arbitrary_parameter` (compatibility): For every natural a prime to p and explicit unit representative u, the supplier numerator equals the existing natural intrinsic numerator.
+
+**Acceptance:** This comparison does not replace the native pseudomeasure carrier or require a chosen generator of U.
+
+**Source:** Definition 3.34, equation (3-11) and the independence calculation, published 129–130 / PDF 30–31; Theorem 5.1, published 139 / PDF 40, and its full proof, published 143 / PDF 44. These complete pages freshly read on 29 September 2026. Worker decomposition of the last source interpolation step on the actual integral unit-measure ring and its existing pseudomeasure submodule. The numerator comparison is unconditional under its stated hypotheses; the coefficient-field evaluation comparison explicitly takes the missing character ring map as input. Its canonical construction is requested from PMIA. Existing corrections to the source whole-fraction-ring assertion are preserved; no such extension is used.
+
+### Arithmetic character values of the cleared numerator
+
+`DirichletPadicLFunctions:L2/pseudomeasure-character-numerator` — `DirichletPadic.kubotaLeopoldtPseudomeasure_numerator_character`
+
+For n≥1,w≥1 and a represented by u, I_U,K(n_u(ζ_p))(κ)=twistedSmoothedMeasure(p,n,χ,a)(x_K^(w−1)).
+
+**Hypotheses:** p is any prime, including 2. Put Z=Z_p, U=Zˣ and M=D(U,Z), with multiplicative convolution. Let δ:U→M be the existing diracHom, Q=FractionRing M and ζ_p=the existing kubotaLeopoldtPseudomeasure in Iwasawa.pseudomeasures δ Q. Neither a domain structure on M nor a field structure on Q is assumed. K is a complete ultrametric normed field of characteristic zero with a Z_p-algebra structure and bounded scalar action. Write I_U,K for the existing extendIntegralUnitCoefficients function. For a native character χ modulo p^n and w≥0, κ=primePowerArithmeticCharacter(p,n,χ,w) is the actual continuous monoid homomorphism on U, κ(u)=χ(red_n(u))·x_K(u)^w. n≥1 and w≥1. The natural parameter a satisfies p∤a and (u:Z)=(a:Z). The character can be principal or imprimitive. No root of unity or nonzero Gauss sum is needed here.
+
+**Proof:**
+
+1. Use pseudomeasure-natural-numerator to substitute the existing intrinsicSmoothedNumerator into the actual coefficient-extension function.
+2. Apply intrinsic-numerator-character-shift. That node supplies the pushforward from U to Z, inverse-unit cancellation, and the vanishing of χ on nonunits at positive level.
+3. At weight one the right test is constant 1. At u=1 the numerator itself is zero; hence every coefficient-valued character test gives zero, with no positive-level or positive-weight restriction for that boundary test.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/pseudomeasure-natural-numerator`, `DirichletPadicLFunctions:L2/intrinsic-numerator-character-shift`, `PadicMeasuresIwasawaAlgebras:L3/cleared-numerator-spec`, `PadicMeasuresIwasawaAlgebras:L2/integral-unit-coefficient-extension`.
+
+**Tests:**
+
+- `SuggestedPseudomeasureCharacterTests.numerator_weight_one` (compatibility): In weight one the actual cleared numerator character value equals the total mass of the twisted smoothed measure.
+- `SuggestedPseudomeasureCharacterTests.identity_character_numerator` (degenerate): At the identity unit the cleared numerator character value is zero for every n,w and χ.
+
+**Acceptance:** The numerator is that of ζ_p itself, not an unrelated formal quotient. The positive-level and positive-weight restrictions on the moment comparison remain explicit.
+
+**Source:** Definition 3.34, equation (3-11) and the independence calculation, published 129–130 / PDF 30–31; Theorem 5.1, published 139 / PDF 40, and its full proof, published 143 / PDF 44. These complete pages freshly read on 29 September 2026. Worker decomposition of the last source interpolation step on the actual integral unit-measure ring and its existing pseudomeasure submodule. The numerator comparison is unconditional under its stated hypotheses; the coefficient-field evaluation comparison explicitly takes the missing character ring map as input. Its canonical construction is requested from PMIA. Existing corrections to the source whole-fraction-ring assertion are preserved; no such extension is used.
+
+### Arithmetic characters at a principal unit
+
+`DirichletPadicLFunctions:L2/prime-power-principal-unit-value` — `DirichletPadic.primePowerArithmeticCharacter_one_add_pow`
+
+If (u:Z)=(1+p^(n+1):Z), then κ_n,χ,w(u)=(1+p^(n+1))^w in the coefficient ring.
+
+**Hypotheses:** p is prime; n,w≥0. R is a normed commutative Z_p-algebra with bounded scalar action, χ is a native DirichletCharacter R (p^n), and u is an actual p-adic unit with the displayed natural value. Completeness, characteristic zero and primitivity are not required.
+
+**Proof:**
+
+1. Promote the existing constructor API entry primePowerArithmeticCharacter_one_add_pow to a standalone prerequisite node. Reuse its existing suggested declaration exactly; do not introduce a second definition or alter the predecessor API.
+2. The residue of 1+p^(n+1) in ZMod(p^n) is 1, by the successor-power identity and native ZMod.natCast_self. The finite character therefore has value 1, including n=0.
+3. The arithmetic-character constructor evaluates the natural representative by its finite-character value times the natural power in R. Preservation of natural casts yields the formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/prime-power-arithmetic-character`, `mathlib:ZMod.natCast_self`.
+
+**Tests:**
+
+- `SuggestedPseudomeasureCharacterTests.principal_unit_weight_one_value` (computation): At weight one the character value is the coefficient-ring image of 1+p^(n+1).
+- `SuggestedPseudomeasureCharacterTests.principal_unit_weight_zero_value` (degenerate): At weight zero the character value at this principal unit is 1.
+
+**Acceptance:** This is promotion of an existing API declaration; the complete previous node and Lean body remain unchanged.
+
+**Source:** Definition 3.34, equation (3-11) and the independence calculation, published 129–130 / PDF 30–31; Theorem 5.1, published 139 / PDF 40, and its full proof, published 143 / PDF 44. These complete pages freshly read on 29 September 2026. Worker decomposition of the last source interpolation step on the actual integral unit-measure ring and its existing pseudomeasure submodule. The numerator comparison is unconditional under its stated hypotheses; the coefficient-field evaluation comparison explicitly takes the missing character ring map as input. Its canonical construction is requested from PMIA. Existing corrections to the source whole-fraction-ring assertion are preserved; no such extension is used.
+
+### An admissible principal unit in positive weight
+
+`DirichletPadicLFunctions:L2/prime-power-admissible-principal-unit` — `DirichletPadic.primePowerArithmeticCharacter_admissible`
+
+For w>0 and u represented by 1+p^(n+1), the element κ_n,χ,w(u)−1 is a unit of K.
+
+**Hypotheses:** K is a complete ultrametric normed field of characteristic zero with a Z_p-algebra structure and bounded scalar action. Write I_U,K for the existing extendIntegralUnitCoefficients function. For a native character χ modulo p^n and w≥0, κ=primePowerArithmeticCharacter(p,n,χ,w) is the actual continuous monoid homomorphism on U, κ(u)=χ(red_n(u))·x_K(u)^w. p is prime, n≥0, w>0 and u has the stated underlying p-adic integer. No primitivity or nonprincipality of χ is required. Such u exists because p∤(1+p^(n+1)).
+
+**Proof:**
+
+1. The promoted principal-unit value identifies κ(u) with the natural power (1+p^(n+1))^w.
+2. Since p>0, the base natural number is greater than 1. Apply native one_lt_pow₀ with nonzero exponent, then characteristic-zero injectivity of natural casts to obtain κ(u)≠1.
+3. Use sub_ne_zero and native isUnit_iff_ne_zero in K. A complete native probe proves the finite-character denominator is a unit with exactly this principal-unit parameter.
+4. At n=0 the same witness works; at w=0 the principal character is trivial and every such denominator is zero. The identity unit is never admissible for any character. This condition concerns the image in K, not regularity of a measure in M.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/prime-power-principal-unit-value`, `mathlib:one_lt_pow₀`, `mathlib:isUnit_iff_ne_zero`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:PadicInt.isUnit_iff`.
+
+**Tests:**
+
+- `SuggestedPseudomeasureCharacterTests.zero_level_positive_admissible` (compatibility): At level zero and weight one the unit represented by 1+p has an invertible character denominator.
+- `SuggestedPseudomeasureCharacterTests.identity_inadmissible` (non-example): The identity unit has zero character denominator for every level and weight.
+- `SuggestedPseudomeasureCharacterTests.zero_weight_principal_inadmissible` (non-example): For a principal character at weight zero every unit gives zero denominator.
+
+**Acceptance:** The positive-weight condition is essential. The dyadic case uses the same explicit witness and no integral division by two.
+
+**Source:** Definition 3.34, equation (3-11) and the independence calculation, published 129–130 / PDF 30–31; Theorem 5.1, published 139 / PDF 40, and its full proof, published 143 / PDF 44. These complete pages freshly read on 29 September 2026. Worker decomposition of the last source interpolation step on the actual integral unit-measure ring and its existing pseudomeasure submodule. The numerator comparison is unconditional under its stated hypotheses; the coefficient-field evaluation comparison explicitly takes the missing character ring map as input. Its canonical construction is requested from PMIA. Existing corrections to the source whole-fraction-ring assertion are preserved; no such extension is used.
+
+### Conditional character specialization of the pseudomeasure
+
+`DirichletPadicLFunctions:L2/pseudomeasure-character-evaluation-ratio` — `DirichletPadic.kubotaLeopoldtPseudomeasure_evalAt_character_ratio`
+
+For the given compatible ring map f and a unit u represented by a with IsUnit(f(δ(u)−1)), the existing Iwasawa.evalAt at ζ_p equals twistedSmoothedMeasure(p,n,χ,a)(x_K^(w−1))/(χ(a)a^w−1).
+
+**Hypotheses:** p is any prime, including 2. Put Z=Z_p, U=Zˣ and M=D(U,Z), with multiplicative convolution. Let δ:U→M be the existing diracHom, Q=FractionRing M and ζ_p=the existing kubotaLeopoldtPseudomeasure in Iwasawa.pseudomeasures δ Q. Neither a domain structure on M nor a field structure on Q is assumed. K is a complete ultrametric normed field of characteristic zero with a Z_p-algebra structure and bounded scalar action. Write I_U,K for the existing extendIntegralUnitCoefficients function. For a native character χ modulo p^n and w≥0, κ=primePowerArithmeticCharacter(p,n,χ,w) is the actual continuous monoid homomorphism on U, κ(u)=χ(red_n(u))·x_K(u)^w. Take an actual ring homomorphism f:M→K and the explicit compatibility f(μ)=I_U,K(μ)(κ.toContinuousMap) for every μ∈M. The K-valued evaluator is not currently supplied in this generality: the suggested signature therefore retains f and this concrete equality as inputs. Give K its M-algebra structure induced by f. The separate Z_p-algebra structure is retained for coefficient extension; no scalar tower is inferred. n≥1,w≥1, p∤a and (u:Z)=(a:Z). Require IsUnit(f(δ(u)−1)). In a field this entails the nonzero displayed denominator; p∤a alone does not.
+
+**Proof:**
+
+1. Instantiate the existing generic Iwasawa.evalAt with the actual M-algebra structure f.toAlgebra and the supplied admissibility witness. Its domain is only the existing pseudomeasure submodule, and its defining equation is f(δ(u)−1)·evalAt_u(ζ_p)=f(n_u(ζ_p)).
+2. The explicit equality hf and pseudomeasure-character-numerator identify the right side with the actual twisted ordinary moment. The same equality hf, the existing two-Dirac arithmetic-character evaluation and δ(1)=1 identify the left factor with χ(a)a^w−1.
+3. The admissibility witness makes this factor nonzero in K. Native eq_div_iff_mul_eq gives the displayed ratio. A complete native proof checks this step using the exact algebra structure induced by f.
+4. The preceding admissible-principal-unit node and the same factor identity provide a concrete allowed parameter in every positive weight. Existing independence-of-clearing-factor identifies values for any two admissible units, without extending f to Q.
+5. The missing canonical construction of f is precisely the PMIA L3 request. Until it is supplied, this node is a conditional comparison for a concrete ring homomorphism, and cannot be used as an unconditional general coefficient-field interpolation theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/pseudomeasure-character-numerator`, `DirichletPadicLFunctions:L2/two-dirac-arithmetic-character`, `DirichletPadicLFunctions:L2/prime-power-admissible-principal-unit`, `PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation-spec`, `PadicMeasuresIwasawaAlgebras:L3/independence-of-clearing-factor`, `PadicMeasuresIwasawaAlgebras:L3`, `mathlib:RingHom.toAlgebra`, `mathlib:eq_div_iff_mul_eq`, `mathlib:isUnit_iff_ne_zero`.
+
+**Tests:**
+
+- `SuggestedPseudomeasureCharacterTests.ring_map_identity_inadmissible` (non-example): For the given ring map the identity clearing factor has nonunit image zero.
+- `SuggestedPseudomeasureCharacterTests.principal_unit_ring_map_admissible` (compatibility): For a compatible ring map and positive weight, the image of the clearing factor at 1+p^(n+1) is a unit.
+- `SuggestedPseudomeasureCharacterTests.conditional_smoothing_independent` (compatibility): For a given compatible ring map, any two admissible clearing units give the same value on ζ_p.
+
+**Acceptance:** Retain the actual f and its functional compatibility in the suggested signature. Do not replace them with a new Prop-valued interface, assume coefficient extension multiplicative, or infer a map on the entire total quotient ring.
+
+**Source:** Definition 3.34, equation (3-11) and the independence calculation, published 129–130 / PDF 30–31; Theorem 5.1, published 139 / PDF 40, and its full proof, published 143 / PDF 44. These complete pages freshly read on 29 September 2026. Worker decomposition of the last source interpolation step on the actual integral unit-measure ring and its existing pseudomeasure submodule. The numerator comparison is unconditional under its stated hypotheses; the coefficient-field evaluation comparison explicitly takes the missing character ring map as input. Its canonical construction is requested from PMIA. Existing corrections to the source whole-fraction-ring assertion are preserved; no such extension is used.
+
+### Conditional common-field interpolation of the pseudomeasure
+
+`DirichletPadicLFunctions:L2/pseudomeasure-common-character-value` — `DirichletPadic.kubotaLeopoldtPseudomeasure_evalAt_common_value`
+
+For b0=−q^(w−1)/w Σ_(r∈ZMod q)χ(r)·B_w(r.val/q) in E, the complex image ιC(b0) is L(χC,1−w) and the arithmetic image ιK(b0) is the actual Iwasawa.evalAt value of ζ_p, conditional on the compatible character ring map f.
+
+**Hypotheses:** p is any prime, including 2. Put Z=Z_p, U=Zˣ and M=D(U,Z), with multiplicative convolution. Let δ:U→M be the existing diracHom, Q=FractionRing M and ζ_p=the existing kubotaLeopoldtPseudomeasure in Iwasawa.pseudomeasures δ Q. Neither a domain structure on M nor a field structure on Q is assumed. K is a complete ultrametric normed field of characteristic zero with a Z_p-algebra structure and bounded scalar action. Write I_U,K for the existing extendIntegralUnitCoefficients function. For a native character χ modulo p^n and w≥0, κ=primePowerArithmeticCharacter(p,n,χ,w) is the actual continuous monoid homomorphism on U, κ(u)=χ(red_n(u))·x_K(u)^w. n≥1,q=p^n,w≥1. E is a characteristic-zero field with its rational algebra; ιC:E→C and ιK:E→K are separate field homomorphisms, and K also has its rational algebra. χ is a native character modulo q over E; χC and χK are its coefficient transports. Require χK primitive, a primitive q-th root ε in K, explicitly nonzero gaussSum(χK⁻¹,AddChar.zmodChar(q,ε)) and IsUnit(q:K). No complex-to-p-adic map or rational-to-Z_p algebra tower is used. Take an actual ring homomorphism f:M→K and the explicit compatibility f(μ)=I_U,K(μ)(κ_n,χK,w.toContinuousMap) for every μ∈M. The K-valued evaluator is not currently supplied in this generality: the suggested signature therefore retains f and this concrete equality as inputs. Give K its M-algebra structure induced by f. The separate Z_p-algebra structure is retained for coefficient extension; no scalar tower is inferred. The natural smoothing parameter a is prime to p and represented by u∈U. The actual image f(δ(u)−1) is a unit. Each Bernoulli value in b0 is evaluated over Q and mapped into E.
+
+**Proof:**
+
+1. Apply the preceding conditional evaluation-ratio comparison to χK. All measure and ring-map hypotheses match exactly.
+2. Its denominator identity and the admissibility assumption show ιK(χ(a)a^w−1)≠0, so the original element in E is nonzero. This derives, rather than silently assumes, the extra hypothesis needed for the common-value quotient.
+3. Use prime-power-quotient-common-value with k=w−1. Since w≥1, k+1=w and −k=1−w. It identifies the actual moment quotient with ιK(b0) and identifies ιC(b0) with the native complex L-value.
+4. Combine these equalities. No parity sign is introduced: the inverse-weighted numerator already has factor χ(a)a^w−1, and exactly that factor occurs in the denominator.
+5. The quadratic modulus 3 examples give 1/3 in weight one and −2/9 in weight three. Their primitive-root, nonzero-Gauss-sum and coefficient hypotheses remain explicit. In particular, setting K=Q_p without checking the required root of unity is not a valid specialization.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/pseudomeasure-character-evaluation-ratio`, `DirichletPadicLFunctions:L2/prime-power-quotient-common-value`, `PadicMeasuresIwasawaAlgebras:L3`.
+
+**Tests:**
+
+- `SuggestedPseudomeasureCharacterTests.conditional_quadratic_zero_value` (computation): For the quadratic character modulo 3, a=4 and weight one, the actual evalAt value is 1/3 under the explicit field, root, Gauss sum and compatible ring-map hypotheses.
+- `SuggestedPseudomeasureCharacterTests.conditional_quadratic_negative_two` (computation): For the same character and parameter at weight three, the actual evalAt value is −2/9 under those hypotheses.
+
+**Acceptance:** The result is an equality through a common field, not an identification of a complex number with a p-adic number. Its canonical evaluator remains requested, and no stage is closed.
+
+**Source:** Definition 3.34, equation (3-11) and the independence calculation, published 129–130 / PDF 30–31; Theorem 5.1, published 139 / PDF 40, and its full proof, published 143 / PDF 44. These complete pages freshly read on 29 September 2026. Worker decomposition of the last source interpolation step on the actual integral unit-measure ring and its existing pseudomeasure submodule. The numerator comparison is unconditional under its stated hypotheses; the coefficient-field evaluation comparison explicitly takes the missing character ring map as input. Its canonical construction is requested from PMIA. Existing corrections to the source whole-fraction-ring assertion are preserved; no such extension is used.
+
+**Supplier request — PadicMeasuresIwasawaAlgebras:L3:** For every prime p, U=Z_pˣ, M=D(U,Z_p), complete ultrametric normed characteristic-zero field K with a Z_p-algebra structure and bounded scalar action, and native continuous monoid homomorphism κ:U→K, supply a canonical ring homomorphism fκ:M→K whose value at μ is extendIntegralUnitCoefficients(μ)(κ.toContinuousMap), sending δ_u to κ(u). Prove the required compatibility with multiplicative convolution and the Z_p scalar action; the existing coefficient-extension function only supplies additive, scalar and Dirac APIs, while characterIntegralAlgHom uses matching measure/character coefficients. For κ≠1, use the existing generic admissible evaluator to supply an additive map from the actual Iwasawa.pseudomeasures(diracHom,FractionRing M) to K with ratio I_U,K(n_u(z))(κ)/(κ(u)−1) whenever κ(u)≠1. Include independence of u, integral-measure agreement, numerator and integral-measure scalar laws, and agreement with the existing Z_p-valued-character/Q_p-output evaluator after the specified compatible coefficient embeddings. This belongs to PMIA L3 with its own L1/L2 coefficient-integration support; do not assume a ring-map extension on all of FractionRing M. The consuming signatures currently retain an explicit ring map and its concrete evaluation equality, so they do not pretend this canonical construction exists.
+
+**Consumers:** `DirichletPadicLFunctions:L2/pseudomeasure-character-evaluation-ratio`, `DirichletPadicLFunctions:L2/pseudomeasure-common-character-value`.
+
+**Remaining:** The actual pseudomeasure numerator is now connected to its natural arithmetic smoothing measure and to the prime-power twisted moment. Positive weight gives a concrete admissible principal unit. The generic supplier evalAt yields the moment quotient and common complex/p-adic special value conditional on an actual compatible ring homomorphism f:D(U,Z_p)→K. The newly recorded PMIA L3 request must provide its canonical construction and the corresponding K-valued pseudomeasure evaluator before the conditional signatures can be specialized without that input. Then identify the canonical source interpolation and its parity and coefficient-change consequences. Generic primitive Gauss nonvanishing, analytic branches/logarithmic and degree-zero values, full source extraction and the original PMIA L1 completed-algebra comparison remain open.
+
+### Actual pseudomeasure character comparison and its coefficient interface validation
+
+All 355 predecessor nodes, 412 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 5 named suggested declarations and 14 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 536 reachable nodes, 2541 edges and 532 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3. The four numerator/principal-unit routes have no stage request leaf. Exactly the two conditional evaluation routes end in the recorded PMIA L3 request; every other leaf is an existing node or pinned baseline declaration.
+
+The full suggested module elaborates with zero errors and 1062 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Four complete native lemmas check ring-map transport of a difference, the principal-unit denominator at positive weight, division of the evaluation equation with the ring-map-induced algebra, and transport of a common-field value. A complete rational counterexample shows why a zero clearing equation cannot determine evaluation. The probe elaborates against 1029 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact cyclotomic controls independently compute smoothed formal-series moments and their admissible quotients, compare different smoothing parameters and test principal-unit witnesses, zero-weight/identity failures and nonreal character orientation. Exact rational cyclotomic arithmetic for primitive conductors 3,4,5,8,9 and both orientations of the nonreal quartic character modulo 5. Independently compute smoothed rational-series coefficients and ordinary moments through weight 6, then invert nonzero character denominators with exact linear algebra. Compare three natural smoothing parameters including the principal-unit witness. These finite algebraic controls do not construct the requested character ring map or prove an equality of actual measures. The largest observed discrepancy is 0 (exact arithmetic).
+
+Only the two global errata-register inputs changed during this checkpoint; all 16 Dirichlet findings were compared and remain identical. Every captured supplier and other mathematical input is unchanged. The current PMIA source has 369 nodes and preserves the compiled 332-node interface; no new supplier declaration is called or compilation against the full 369-node source claimed.
