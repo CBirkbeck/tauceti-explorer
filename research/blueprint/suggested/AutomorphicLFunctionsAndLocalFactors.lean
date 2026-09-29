@@ -3,7 +3,8 @@ This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These statements suggest Lean forms so contributors and reviewers
 converge on names and signatures. Every placeholder is intentional; no result
 is claimed to be implemented. AL.0 has a compact-open Fourier component here;
-the remaining AL.0 targets and AL.1–AL.5 are recorded as gaps in the packet.
+the remaining AL.0 targets and AL.2–AL.5 are recorded as gaps in the packet. AL.1 (Tate's thesis)
+is sketched in the last section, with checked examples for its normalisations.
 -/
 import Mathlib.Analysis.Fourier.FourierTransform
 import Mathlib.Analysis.Fourier.ZMod
@@ -11,6 +12,10 @@ import Mathlib.Topology.LocallyConstant.Basic
 import Mathlib.Topology.Algebra.Support
 import Mathlib.Topology.Compactness.Compact
 import Mathlib.MeasureTheory.Integral.Bochner.Set
+import Mathlib.NumberTheory.LSeries.RiemannZeta
+import Mathlib.Analysis.SpecialFunctions.Gaussian.PoissonSummation
+import Mathlib.Analysis.SpecificLimits.Normed
+import Mathlib.LinearAlgebra.Matrix.Notation
 
 noncomputable section
 open MeasureTheory
@@ -185,3 +190,96 @@ example : VectorFourier.fourierIntegral (ZMod.toCircle (N := 3)) Measure.count
     ({1} : Set (ZMod 3)).indicator (fun _ => (3 : ℂ)) := by sorry
 
 end TauCeti.LocalFourier
+
+/-! ## AL.1: Tate zeta integrals (Kudla §§3–5, Tate §§2.4–2.5, 4.2–4.5)
+
+The carriers below (local quasi-characters, S(F), S′(ω), ideles) are planned in the packet and in its
+suppliers; the declarations are sketched, not elaborated.
+
+```
+-- AL.1/local-zeta-integral
+def zetaIntegral (ω : QuasiChar F) (s : ℂ) (f : LocalSpace F) : ℂ :=
+  ∫ x : Fˣ, f x * ω x * ‖(x : F)‖ ^ s ∂mulHaar
+theorem differentiableOn_zetaIntegral (ω) (f) (hω : ω.IsUnitary) :
+    DifferentiableOn ℂ (zetaIntegral ω · f) {s | 0 < s.re}
+-- AL.1/unramified-local-theory
+theorem zetaIntegral_eq_L_mul_normalized (hω : ω.IsUnramified) (hs : 0 < s.re) :
+    zetaIntegral ω s f = (1 - ω ϖ * q ^ (-s))⁻¹ * normalizedZeta ω s f
+-- AL.1/local-uniqueness-theorem
+theorem finrank_eigenSpace_eq_one (ω : QuasiChar F) : Module.finrank ℂ (eigenSpace ω) = 1
+-- AL.1/local-functional-equation
+theorem zetaIntegral_fourier_one_sub (ψ) (ω) (f) :
+    zetaIntegral ω⁻¹ (1 - s) (𝓕[ψ] f) = gammaFactor s ω ψ * zetaIntegral ω s f
+-- AL.1/tate-global-functional-equation
+theorem globalZeta_functional_equation (f : AdelicSpace k) (c : QuasiChar (IdeleClassGroup k)) :
+    globalZeta f c = globalZeta (𝓕 f) (c.dual)
+-- AL.1/hecke-l-functional-equation
+theorem completedHeckeL_one_sub (ω : HeckeChar k) (s : ℂ) :
+    completedHeckeL ω s = globalEpsilon ω s * completedHeckeL ω⁻¹ (1 - s)
+```
+-/
+
+namespace TauCeti.TateZeta.SuggestedTest
+
+set_option autoImplicit false
+
+open Complex Real
+
+/-- `AL.1/unramified-local-theory`: the unramified factor. `z(s, ω; 1_O) = Σ_{n ≥ 0} (t q^{-s})^n`
+sums to `L(s, ω) = (1 - t q^{-s})⁻¹` when `‖t q^{-s}‖ < 1`. -/
+example (ξ : ℂ) (h : ‖ξ‖ < 1) : ∑' n : ℕ, ξ ^ n = (1 - ξ)⁻¹ :=
+  tsum_geometric_of_norm_lt_one h
+
+/-- `AL.1/invariant-distributions-exceptional-case` (3.14): `x ↦ [[1, -ord x], [0, 1]]` is a
+representation of the value group, in the basis `(δ₀, λ₀)`. -/
+example (a b : ℤ) :
+    !![(1 : ℤ), -(a + b); 0, 1] = !![(1 : ℤ), -a; 0, 1] * !![(1 : ℤ), -b; 0, 1] := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- `AL.1/archimedean-local-theory` (3.21): Kudla's complex factor `(2π)^{1-s}Γ(s)` is `π · Γ_ℂ(s)`
+for Deligne's `Γ_ℂ(s) = 2(2π)^{-s}Γ(s)`. -/
+example (s : ℂ) : (2 * π : ℂ) ^ (1 - s) * Gamma s = π * Gammaℂ s := by
+  have h2 : (2 * π : ℂ) ≠ 0 := by
+    have : (π : ℂ) ≠ 0 := ofReal_ne_zero.mpr Real.pi_ne_zero
+    exact mul_ne_zero two_ne_zero this
+  rw [Gammaℂ_def, cpow_sub _ _ h2, cpow_one, cpow_neg]
+  field_simp
+
+/-- `AL.1/local-epsilon-gamma-factors`: Tate's real `ρ(|·|^s) = Γ_ℝ(s)/Γ_ℝ(1-s) = Γ_ℂ(s) cos(πs/2)`,
+the reciprocal of `γ(s, 1, e)`. -/
+example (s : ℂ) (hs : ∀ n : ℕ, s ≠ -(2 * n + 1)) :
+    Gammaℝ s / Gammaℝ (1 - s) = Gammaℂ s * cos (π * s / 2) :=
+  Gammaℝ_div_Gammaℝ_one_sub hs
+
+/-- `AL.0/adelic-poisson-summation` for `k = ℚ`, `f = 1_Ẑ ⊗ e^{-πx²}`: Jacobi's theta relation. -/
+example (a : ℝ) (ha : 0 < a) :
+    ∑' n : ℤ, Real.exp (-Real.pi * a * (n : ℝ) ^ 2) =
+      1 / a ^ (1 / 2 : ℝ) * ∑' n : ℤ, Real.exp (-Real.pi / a * (n : ℝ) ^ 2) :=
+  Real.tsum_exp_neg_mul_int_sq ha
+
+/-- `AL.1/tate-global-functional-equation` for `k = ℚ`, `κ = 1`, `f(0) = f̂(0) = 1`: the bracket
+`κ f̂(0)/(s - 1) - κ f(0)/s` and the functional equation `ζ(f, c) = ζ(f̂, ĉ)`. -/
+example (s : ℂ) :
+    completedRiemannZeta s = completedRiemannZeta₀ s - 1 / s - 1 / (1 - s) ∧
+      completedRiemannZeta (1 - s) = completedRiemannZeta s :=
+  ⟨completedRiemannZeta_eq s, completedRiemannZeta_one_sub s⟩
+
+/-- `AL.1/idele-class-volume` for `k = ℚ`: `r₁ = 1`, `r₂ = 0`, `h = R = 1`, `w = 2`, `|d| = 1`
+give `κ = 2^{r₁}(2π)^{r₂}hR/(w√|d|) = 1`. -/
+example : (2 : ℝ) ^ 1 * (2 * Real.pi) ^ 0 * 1 * 1 / (2 * Real.sqrt 1) = 1 := by
+  norm_num
+
+/-- `AL.1/local-gauss-sum`, `c = 1`, `ν = 0` over `ℚ_p`: `𝔤 = p^{-1/2} g` and `|g|² = p` give
+`|𝔤|² = 1`. -/
+example (p : ℝ) (hp : 0 < p) (g : ℝ) (hg : g ^ 2 = p) : (p ^ (-(1 / 2 : ℝ)) * g) ^ 2 = 1 := by
+  rw [mul_pow, hg, ← Real.rpow_natCast, ← Real.rpow_mul hp.le]
+  norm_num
+  rw [Real.rpow_neg_one]
+  field_simp
+
+/-- `AL.1/hecke-l-functional-equation`, Kudla's exercise for `ℚ(√5)`: `ε ≡ 3 (mod √5)` in
+`O/(√5) ≅ 𝔽₅`, `3` has order 4, and `-ε² ≡ 1`. -/
+example : (3 : ZMod 5) ^ 4 = 1 ∧ (3 : ZMod 5) ^ 2 ≠ 1 ∧ -(3 : ZMod 5) ^ 2 = 1 := by decide
+
+end TauCeti.TateZeta.SuggestedTest

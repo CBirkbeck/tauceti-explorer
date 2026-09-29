@@ -1,3 +1,66 @@
+# BP-AutomorphicLFunctionsAndLocalFactors — checkpoint 2 (Claude Code cc-39fac3)
+
+Claude Code, session `cc-39fac3`, 29 September 2026. Refs #688; the bot confirmed the claim (comment 5884362867). **Status: partial.** No stage is closed; AL.1 is decomposed except for three recorded items.
+
+## Checkpoint 2: Tate's thesis
+
+**Sources.** Both files match the recorded sha256.
+- Kudla 2004: printed pp.115–131 read on page images. This completes the chapter.
+- Tate 1950: physical pp.15–27 (§§2.4–2.5) and 40–59 (§§4.2–4.5) read on page images. Pp.28–39 (§3 and early §4.1) remain unread.
+
+**New nodes (29).** Library modules are `TauCeti/Analysis/Fourier/SchwartzBruhat`, `TauCeti/NumberTheory/TateThesis/Local` and `…/Global`.
+- **AL.0 (5):**
+  - `local-schwartz-bruhat-space` (definition; 6 API items, 4 tests): the SR.1 carrier, and Mathlib's 𝓢 and 𝓢′ at ℝ, ℂ.
+  - `local-fourier-inversion`.
+  - `adelic-schwartz-bruhat-space` (construction; 6 API items, 4 tests; with Tate's 𝔷1–𝔷3).
+  - `adelic-poisson-summation` (planet): Tate's Riemann–Roch.
+  - `point-supported-distributions`.
+- **AL.1 local (15):**
+  - quasi-characters and conductors (definition);
+  - the local zeta integral (definition);
+  - S′(ω) (definition);
+  - Lemmas 3.2 and 3.3;
+  - the unramified, exceptional (S′(ω₀) = ℂδ₀ via the nonsplit ρ(x)), ramified and archimedean theories;
+  - Theorem 3.4 (planet);
+  - Lemma 3.6, with its proof written out;
+  - ε/γ-factors (definition);
+  - the local functional equation (planet);
+  - the local Gauss sum (definition);
+  - Proposition 3.8 (planet).
+- **AL.1 global (9):**
+  - Lemma 4.1 with Theorem 4.2;
+  - the global zeta integral (definition);
+  - Λ(s, ω) (definition);
+  - κ = Mathlib's `NumberField.dedekindZeta_residue`;
+  - Tate's Lemmas A and B;
+  - Main Theorem 4.4.1 (planet);
+  - the global ε-factor (definition);
+  - the Hecke functional equation (planet).
+
+**Planets.** AL.0 now has 6 and AL.1 has 5.
+
+**Source findings.**
+- E3: Kudla p.128 cross-references (3.13) → (3.23) and Proposition 3.7 → 3.8.
+- E4: Kudla (3.22). With x^{−a} characters the real poles are at even −r with residue D^{a+r}δ₀.
+- E5: Tate p.26. N𝔡^{−1/2} → N𝔡^{+1/2}.
+
+Each was checked against the page images and a second argument; no published correction was found.
+
+**Requests and gaps.**
+- New request: GlobalNumberFields Layer 6 (ideles and compactness of the norm-one class group).
+- The new nodes were added to the neededBy lists of the SR.1, AA.0, GNF 0/5/9/10 and ADS 3 requests.
+- New gaps: the unread proof source for point-supported distributions (no roadmap owns distribution theory, since FoundationsAndLibraryIntegration is retired), and Tate §3 unread.
+- The AL.1 gap text is rewritten to the three remaining items.
+
+**Lean.** The suggested file now has an AL.1 section: signature sketches in a comment, plus 9 examples, all proved. They cover the unramified series, ρ(x), π·Γ_ℂ, Tate's real ρ = Γ_ℂ cos, Jacobi θ, the completed-ζ bracket and functional equation, κ(ℚ) = 1, |𝔤|² = 1, and the ℚ(√5) units. It elaborates against Mathlib 082e2d3 with 0 errors; the only warnings are the 25 existing placeholders.
+
+**Checks.** `check_blueprint.py`: 0 errors, 0 warnings (42 nodes). `intake.py check-files`: 0 problems. Unit tests pass.
+
+**Continue with:**
+1. AL.2 (Godement–Jacquet: Jacquet's Corvallis article "Principal L-functions of the linear group" and Cogdell's Fields notes are free).
+2. AL.4 (Borel, "Automorphic L-functions", Corvallis II §§6–7).
+3. Read Tate §3 to close the product-integral gap.
+
 # BP-AutomorphicLFunctionsAndLocalFactors — partial checkpoint
 
 Worker: Codex — codex-hjdg0j. Issue: #688. Claim comment 5851677325 won, confirmed by bot comment 5851678186. The complete issue was read before and after the bot reply. Scope remains AL.0–AL.5, with part null. This submission is partial and is intended to retain its concrete component while releasing the remainder through the normal checkpoint intake. No stage is claimed closed.

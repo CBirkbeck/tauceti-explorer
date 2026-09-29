@@ -11,7 +11,7 @@
     "AutomorphicLFunctionsAndLocalFactors:AL.5"
   ],
   "status": "partial",
-  "summary": "Thirteen declaration-sized items for bilinear character annihilators and compact-open Fourier calculations using Mathlib’s existing Fourier integral. The component separates translation, modulation, support, local constancy and the dual-measure condition for indicator inversion. The six-stage roadmap remains partial: its actual local-field self-duality, Schwartz-space comparisons, adelic Poisson theorem and L-function constructions have explicit gaps and supplier requests.",
+  "summary": "Thirteen declaration-sized items for bilinear character annihilators and compact-open Fourier calculations using Mathlib’s existing Fourier integral. The component separates translation, modulation, support, local constancy and the dual-measure condition for indicator inversion. The six-stage roadmap remains partial: its actual local-field self-duality, Schwartz-space comparisons, adelic Poisson theorem and L-function constructions have explicit gaps and supplier requests. Checkpoint (cc-39fac3, 2026-09-29) plans AL.1 in full from Kudla §§3–5 and Tate §§2.4–2.5, 4.2–4.5 (24 nodes, five planets) and adds 4 AL.0 nodes for the Schwartz–Bruhat spaces, Fourier inversion and adelic Poisson summation.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -225,6 +225,188 @@
         "module": "Mathlib/Topology/Algebra/PontryaginDual.lean",
         "provides": "Existing compact-open space of continuous homomorphisms to Circle. Its existence alone does not give local-field self-duality or double-annihilator equalities.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:Complex.Gammaℂ",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+        "provides": "Deligne's Γ_ℂ(s) = 2(2π)^{−s}Γ(s); Kudla's complex L-factor (3.21) is π·Γ_ℂ(s).",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:Complex.Gammaℝ",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+        "provides": "Deligne's Γ_ℝ(s) = π^{−s/2}Γ(s/2), Kudla's real L-factor (3.19).",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:Complex.Gammaℝ_mul_Gammaℝ_add_one",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+        "provides": "Γ_ℝ(s)Γ_ℝ(s + 1) = Γ_ℂ(s).",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:Complex.integral_cpow_mul_exp_neg_mul_Ioi",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+        "provides": "∫_0^∞ t^{a−1}e^{−rt}dt = r^{−a}Γ(a), the Gaussian zeta integrals.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:ContinuousMonoidHom",
+        "kind": "structure",
+        "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+        "provides": "Continuous monoid homomorphisms, the carrier of quasi-characters F^× → ℂ^×.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.IsPrimitive.completedLFunction_one_sub",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+        "provides": "Functional equation of primitive Dirichlet L-functions with N^{s−1/2} and the root number.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:Distribution.dsupport",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Distribution/Support.lean",
+        "provides": "The distributional support, used to say a distribution is supported at 0.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Measure.IsHaarMeasure",
+        "kind": "class",
+        "module": "Mathlib/MeasureTheory/Group/Measure.lean",
+        "provides": "Haar measures, for the uniqueness of invariant distributions on F^×.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.regulator",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+        "provides": "The regulator R of K.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.torsionOrder",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+        "provides": "The number w of roots of unity in K.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:NumberField.classNumber",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+        "provides": "The class number h of K.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:NumberField.dedekindZeta_residue",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+        "provides": "The residue 2^{r₁}(2π)^{r₂}Rh/(w√|d|) of ζ_K at 1, which is Tate's κ.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:NumberField.discr",
+        "kind": "abbrev",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+        "provides": "The discriminant d of K.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:Real.tsum_exp_neg_mul_int_sq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gaussian/PoissonSummation.lean",
+        "provides": "Jacobi's theta transformation Σ e^{−πan²} = a^{−1/2}Σ e^{−πn²/a}.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:SchwartzMap",
+        "kind": "structure",
+        "module": "Mathlib/Analysis/Distribution/SchwartzSpace/Basic.lean",
+        "provides": "Schwartz space 𝓢(E, F) of smooth rapidly decreasing functions: S(ℝ) and S(ℂ).",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:SchwartzMap.fourierTransformCLM",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Distribution/SchwartzSpace/Fourier.lean",
+        "provides": "The Fourier transform as a continuous linear map on 𝓢(V, E) (negative-sign convention).",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:TemperedDistribution",
+        "kind": "abbrev",
+        "module": "Mathlib/Analysis/Distribution/TemperedDistribution.lean",
+        "provides": "Tempered distributions 𝓢′(E, F) = 𝓢(E, ℂ) →L[ℂ] F: S(F)′ at the archimedean places.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:TemperedDistribution.delta",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Distribution/TemperedDistribution.lean",
+        "provides": "The Dirac distribution δ_x on 𝓢(E, ℂ).",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:completedRiemannZeta_eq",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "Λ(s) = Λ₀(s) − 1/s − 1/(1 − s): the residues −1 and +1 of Tate's theorem for ℚ.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:completedRiemannZeta_one_sub",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "Λ(1 − s) = Λ(s).",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:completedRiemannZeta_residue_one",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "The residue of Λ(s) at s = 1 is 1.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:fourierIntegral_gaussian",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gaussian/FourierTransform.lean",
+        "provides": "The Fourier transform of a Gaussian.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:gaussSum",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "The Gauss sum of a multiplicative and an additive character of a finite ring.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:gaussSum_mul_gaussSum_eq_card",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "g(χ, ψ)g(χ^{−1}, ψ^{−1}) = #R for χ ≠ 1 and ψ primitive.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:mellin",
+        "kind": "def",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "The Mellin transform, the real-place zeta integral on ℝ_{>0}.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
+      },
+      {
+        "ref": "mathlib:tsum_geometric_of_norm_lt_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecificLimits/Normed.lean",
+        "provides": "Σ ξ^n = (1 − ξ)^{−1} for ‖ξ‖ < 1: the unramified L-factor.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29)."
       }
     ]
   },
@@ -239,7 +421,8 @@
       "accessed": "2026-09-27",
       "readSections": [
         "Physical pages 1–24 read in batches of at most three pages; physical p.24/printed (2.17) rendered and inspected for the compact-subgroup calculation.",
-        "Chapter I; Chapter II §§2.1–2.4; §2.5 through the first nonarchimedean Fourier and unramified-zeta calculation. Physical pp.25–60 are unread. OCR does not establish unreadable formulas."
+        "Chapter I; Chapter II §§2.1–2.4; §2.5 through the first nonarchimedean Fourier and unramified-zeta calculation. Physical pp.25–60 are unread. OCR does not establish unreadable formulas.",
+        "2026-09-29 (cc-39fac3): physical pp. 15–27 (§2.4, §2.5) and 40–59 (§§4.2–4.5) read on page images; p. 26 zoomed at 200 dpi. Physical pp. 28–39 (§3, §4.1 before Theorem 4.1.4) remain unread."
       ]
     },
     {
@@ -253,7 +436,8 @@
       "accessed": "2026-09-27",
       "readSections": [
         "Physical pp.1–15/printed pp.109–123, in batches of at most three pages; pp.110 and 122 also rendered and inspected.",
-        "Sections 1–2 and Section 3 through (3.29), including local Schwartz functions, eigendistributions, normalized zeta distributions and the Fourier convention. Physical pp.16–23/printed pp.124–131 are unread."
+        "Sections 1–2 and Section 3 through (3.29), including local Schwartz functions, eigendistributions, normalized zeta distributions and the Fourier convention. Physical pp.16–23/printed pp.124–131 are unread.",
+        "2026-09-29 (cc-39fac3): physical pp. 7–23 / printed pp. 115–131 read on 100-dpi page images, completing §3 (through Proposition 3.8), §4 and §5."
       ]
     },
     {
@@ -893,6 +1077,2010 @@
       "planet": {
         "name": "Fourier inversion for a subgroup indicator"
       }
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "The local Schwartz–Bruhat space S(F), its F^×-action and tempered distributions",
+      "kind": "definition",
+      "statement": "For F nonarchimedean, S(F) is the complex vector space of functions f : F → ℂ for which there is r ≥ 0 with supp f ⊆ P^{−r} and f constant on cosets of P^r (SR.1's locally constant compactly supported carrier over ℂ); S(F)′ is its algebraic dual. For F = ℝ, ℂ, S(F) is Mathlib's Schwartz space 𝓢(F, ℂ) (F viewed as a real vector space) and S(F)′ = 𝓢′(F, ℂ) is Mathlib's TemperedDistribution. F^× acts by r(a)f(x) = f(xa) and on distributions by ⟨r′(a)λ, f⟩ = ⟨λ, r(a^{−1})f⟩. δ₀ is ⟨δ₀, f⟩ = f(0).",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "Kudla p. 115: tempered distributions at a finite place are arbitrary ℂ-linear functionals; at ℝ, ℂ they are the continuous functionals on the Fréchet space."
+      ],
+      "proofSteps": [
+        "Nonarchimedean: take SR.1's carrier on the additive group of F; the characterisation \"support in P^{−r}, constant on P^r-cosets\" is the AL.0 remaining item (compact open subgroups P^r form a basis and exhaust F).",
+        "Archimedean: use 𝓢(F, ℂ) and 𝓢′(F, ℂ); r(a) is composition with the real-linear automorphism x ↦ xa, which preserves 𝓢.",
+        "r is a representation (r(ab) = r(a)r(b), since F^× is commutative) and r′ is its contragredient."
+      ],
+      "prerequisites": [
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "mathlib:SchwartzMap",
+        "mathlib:TemperedDistribution",
+        "mathlib:TemperedDistribution.delta",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/locally-constant-transform"
+      ],
+      "acceptance": [
+        "Check that the Gaussian e^{−πx²} lies in 𝓢(ℝ, ℂ) (Tau Ceti's gaussianSchwartzMap) and the characteristic function of O in S(F) for F nonarchimedean.",
+        "Check that r′(a)δ₀ = δ₀ for every a, so δ₀ is F^×-invariant (Kudla p. 116)."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/SchwartzBruhat",
+        "namespace": "TauCeti.SchwartzBruhat",
+        "declaration": "TauCeti.SchwartzBruhat.LocalSpace"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, printed p. 115 (physical p. 7)",
+          "match": "The definition of S(F) and S(F)′ in both cases, and the action r, r′."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+          "how": "the domain of the local zeta integrals z(s, ω; f) and of the eigendistribution spaces S′(ω)"
+        },
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+          "how": "the matrix-space Schwartz functions of Godement–Jacquet generalise S(F) = S(M_1(F))"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SchwartzBruhat.LocalSpace",
+          "role": "constructor",
+          "statement": "S(F): SR.1's carrier for F nonarchimedean, 𝓢(F, ℂ) for F = ℝ, ℂ."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.LocalSpace.act",
+          "role": "constructor",
+          "statement": "r(a)f(x) = f(xa), a group action of F^× by linear maps."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.LocalSpace.act_apply",
+          "role": "simp",
+          "statement": "(r(a)f)(x) = f(xa)."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.LocalSpace.Dual",
+          "role": "data",
+          "statement": "S(F)′: algebraic dual (finite place) or 𝓢′(F, ℂ) (infinite place), with r′."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.LocalSpace.delta",
+          "role": "constructor",
+          "statement": "δ₀, agreeing with TemperedDistribution.delta 0 at infinite places."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.LocalSpace.mem_iff_nonarch",
+          "role": "characterisation",
+          "statement": "f ∈ S(F) iff ∃ r, supp f ⊆ P^{−r} ∧ f is P^r-periodic."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.SchwartzBruhat.LocalSpace.indicator_integers_mem",
+          "kind": "computation",
+          "statement": "1_O ∈ S(F) with r = 0; 1_{O^×} ∈ S(F) with r = 1."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.LocalSpace.gaussian_mem",
+          "kind": "computation",
+          "statement": "e^{−πx²} ∈ S(ℝ) and e^{−2πxx̄} ∈ S(ℂ)."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.LocalSpace.delta_invariant",
+          "kind": "degenerate",
+          "statement": "r′(a)δ₀ = δ₀ for all a ∈ F^×."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.LocalSpace.const_not_mem",
+          "kind": "non-example",
+          "statement": "The constant function 1 on F is not in S(F): its support is not compact (finite place) and it does not decay (ℝ)."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Local Fourier transform, self-dual measure and inversion on S(F)",
+      "kind": "theorem",
+      "statement": "Fix a nontrivial additive character ψ of F and identify F with its dual by y ↦ (x ↦ ψ(xy)). For f ∈ S(F), f̂(x) = ∫_F f(y)ψ(xy)dy lies in S(F), and f ↦ f̂ is a linear isomorphism of S(F). There is a unique Haar measure dx, the self-dual measure for ψ, with f̂̂(x) = f(−x). For β ∈ F^× and ψ_β(x) = ψ(βx), the self-dual measure for ψ_β is |β|^{1/2}dx, and the ψ_β-transform of f is |β|^{1/2}r(β)f̂. For F nonarchimedean the conductor ν(ψ) is the largest ν with ψ trivial on P^{−ν}. Distributions: ⟨λ̂, f⟩ = ⟨λ, f̂⟩.",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "Kudla's convention ψ(x) = e(x) = e^{2πix} on ℝ and e(x + x̄) on ℂ (3.30) has positive sign; Mathlib's 𝓕 uses e^{−2πi⟨x, w⟩}, so f̂_Kudla(x) = 𝓕f(−x) at ℝ, and at ℂ one also rescales by 2 through the trace pairing."
+      ],
+      "proofSteps": [
+        "Nonarchimedean: every f ∈ S(F) is a finite combination of coset indicators 1_{a + P^r}; their transforms are computed by the existing AL.0 nodes (indicator-transform, coset-transform) and inverted by indicator-inversion, and the self-dual volume is fixed by the double-annihilator equality (P^r)^⊥ = P^{−r−ν}.",
+        "Archimedean: transport Mathlib's Schwartz Fourier transform and its inverse along the sign and trace conventions; Lebesgue measure (resp. twice Lebesgue on ℂ) is self-dual for e(x) (resp. e(x + x̄)).",
+        "Change of character: substitute y ↦ β^{−1}y in the defining integral and use the uniqueness of the self-dual measure."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-transform",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/coset-transform",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-inversion",
+        "mathlib:SchwartzMap.fourierTransformCLM",
+        "mathlib:fourierIntegral_gaussian",
+        "mathlib:Real.fourierChar"
+      ],
+      "acceptance": [
+        "Check that the Gaussian is self-dual at ℝ: e^{−πx²} is its own transform for ψ = e(x) (Tate p. 20; Mathlib fourierIntegral_gaussian).",
+        "Check that 1_O is self-dual when ν(ψ) = 0 (Kudla p. 124) and that for ν(ψ) = 0 the transform of 1_{P^r} is q^{−r}1_{P^{−r}}."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/SchwartzBruhat",
+        "namespace": "TauCeti.SchwartzBruhat",
+        "declaration": "TauCeti.SchwartzBruhat.fourier_fourier"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, \"Fourier transforms\", printed p. 122 (physical p. 14)",
+          "match": "Identification of F with its dual, the transform, the self-dual measure and f̂̂(x) = f(−x); ψ_β and |β|^{1/2}dx on p. 123."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "The adelic Schwartz–Bruhat space S(𝔸) and its standard functions",
+      "kind": "construction",
+      "statement": "For a number field k, S(𝔸) is the space spanned by the factorizable functions f = ⊗_v f_v, f(x) = ∏_v f_v(x_v), with f_v ∈ S(k_v) for all v and f_v = f_v^o, the characteristic function of O_v, for almost all v; finite linear combinations of factorizable functions are dense in it and its continuous dual S(𝔸)′ is the space of tempered distributions. Every f ∈ S(𝔸) is continuous and integrable on 𝔸, and satisfies Tate's conditions 𝔷1–𝔷3: f̂ is continuous and integrable, Σ_{ξ∈k} f(𝔞(x + ξ)) and Σ_{ξ∈k} f̂(𝔞(x + ξ)) converge uniformly for x in a fundamental domain and 𝔞 in a compact set of ideles, and f(𝔞)|𝔞|^σ, f̂(𝔞)|𝔞|^σ are integrable on the ideles for σ > 1. The global transform f̂ = ⊗ f̂_v is taken for ψ = ∏ψ_v trivial on k with the product of the self-dual measures.",
+      "hypotheses": [
+        "k a number field; 𝔸 its adele ring with the restricted-product topology; ψ = ∏_v ψ_v a nontrivial character of 𝔸 trivial on k."
+      ],
+      "proofSteps": [
+        "Define S(𝔸) as the algebraic restricted tensor product ⊗′_v S(k_v) with respect to the vectors f_v^o, realised as functions on 𝔸.",
+        "Integrability and the Fourier transform of a factorizable f: product of local integrals, using AA.0's product Haar measure with almost-everywhere unit volumes (Tate's Theorem 3.3.1 and Lemma 3.3.3).",
+        "Condition 𝔷3 for factorizable f: the local integrals at v ∉ S are N𝔡_v^{−1/2}/(1 − N𝔭_v^{−σ}) and ∏(1 − N𝔭^{−σ})^{−1} converges for σ > 1 (Tate p. 56); f̂ is of the same type.",
+        "Condition 𝔷2: f vanishes off 𝔞^{−1}-translates of a fractional ideal at the finite places and decays exponentially at the infinite ones, so the sum is over a lattice in k ⊗ ℝ and converges uniformly (Tate p. 58)."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion",
+        "AdelicAlgebraicGroups:AA.0",
+        "mathlib:SchwartzMap"
+      ],
+      "acceptance": [
+        "Check that the standard function f^o = ⊗ f_v^o with Gaussians at the infinite places lies in S(𝔸) and is self-dual up to the constants N𝔡_v^{−1/2} at the finitely many v with 𝔡_v ≠ O_v (Tate p. 56).",
+        "Check that for k = ℚ, f = 1_{Ẑ} ⊗ e^{−πx²} gives Σ_{ξ∈ℚ} f(tξ) = Σ_{n∈ℤ} e^{−πt²n²}, Jacobi's theta function."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/SchwartzBruhat",
+        "namespace": "TauCeti.SchwartzBruhat",
+        "declaration": "TauCeti.SchwartzBruhat.AdelicSpace"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§4, printed p. 125 (physical p. 17)",
+          "match": "S(𝔸), factorizable functions f = ⊗f_v with f_v = f_v^o almost everywhere."
+        },
+        {
+          "sourceId": "Tate1950",
+          "locator": "§4.4, physical p. 49, conditions 𝔷1–𝔷3; §4.5, physical pp. 56 and 58",
+          "match": "Tate's class 𝔷 of functions; the standard functions of §4.5 are checked to lie in it on pp. 56 and 58."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+          "how": "the domain of the global zeta integral z(s, ω; f)"
+        },
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation",
+          "how": "the functions to which Poisson summation applies"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SchwartzBruhat.AdelicSpace",
+          "role": "constructor",
+          "statement": "S(𝔸) = ⊗′_v S(k_v) as functions on 𝔸."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.AdelicSpace.pure",
+          "role": "constructor",
+          "statement": "The factorizable function ⊗_v f_v, given f_v ∈ S(k_v) with f_v = f_v^o outside a finite set."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.AdelicSpace.pure_apply",
+          "role": "simp",
+          "statement": "(⊗ f_v)(x) = ∏_v f_v(x_v), a finite product for each x."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.AdelicSpace.fourier_pure",
+          "role": "compatibility",
+          "statement": "The global transform of ⊗ f_v is ⊗ f̂_v."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.AdelicSpace.tateClass",
+          "role": "characterisation",
+          "statement": "Every f ∈ S(𝔸) satisfies 𝔷1–𝔷3."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.AdelicSpace.span_pure_dense",
+          "role": "other",
+          "statement": "The factorizable functions span S(𝔸)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.SchwartzBruhat.AdelicSpace.standard_mem",
+          "kind": "computation",
+          "statement": "f^o = ⊗_{v<∞} 1_{O_v} ⊗ ⊗_{v|∞} Gaussian lies in S(𝔸)."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.AdelicSpace.theta_rat",
+          "kind": "computation",
+          "statement": "For k = ℚ and f = 1_Ẑ ⊗ e^{−πx²}, Σ_{ξ∈ℚ} f(tξ) = Σ_{n∈ℤ} e^{−πt²n²} for t > 0."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.AdelicSpace.pure_eq_zero",
+          "kind": "degenerate",
+          "statement": "If one local factor f_v is 0, then ⊗f_v = 0."
+        },
+        {
+          "name": "TauCeti.SchwartzBruhat.AdelicSpace.not_restricted",
+          "kind": "non-example",
+          "statement": "The product ∏_p 1_{pℤ_p} is not in S(𝔸): infinitely many factors differ from f_p^o, and it is the indicator of the compact but not open set ∏_p pℤ_p ⊂ 𝔸_f, so it is not locally constant."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Adelic Poisson summation and Tate's Riemann–Roch theorem",
+      "kind": "theorem",
+      "statement": "Let k be a number field and ψ a nontrivial character of 𝔸/k with the self-dual measure on 𝔸. (i) The annihilator of k in 𝔸 under (x, y) ↦ ψ(xy) is k (Tate Theorem 4.1.4), and 𝔸/k has volume 1 (Tate p. 43). (ii) Poisson: if f is continuous and integrable, Σ_{ξ∈k} f(x + ξ) converges uniformly in x and Σ_{ξ∈k} |f̂(ξ)| converges, then Σ_{ξ∈k} f̂(ξ) = Σ_{ξ∈k} f(ξ) (Lemma 4.2.4). (iii) Riemann–Roch: if f satisfies 𝔷1–𝔷3 (for instance f ∈ S(𝔸)), then for every idele 𝔞, (1/|𝔞|) Σ_{ξ∈k} f̂(ξ/𝔞) = Σ_{ξ∈k} f(𝔞ξ) (Theorem 4.2.1).",
+      "hypotheses": [
+        "Tate's conditions: continuity and integrability of f and f̂ on 𝔸, uniform convergence of the periodised sums, absolute convergence of Σ f̂."
+      ],
+      "proofSteps": [
+        "Discreteness of k and compactness of 𝔸/k (GlobalNumberFields Layer 5); k^* ⊇ k and k^*/k is a finite k-vector space, hence k^* = k.",
+        "Lemma 4.2.1: for continuous periodic φ, ∫_D φ = the Haar integral on 𝔸/k normalised to volume 1; the Fourier coefficients of φ are indexed by k.",
+        "Lemma 4.2.2: Fourier inversion on the compact group 𝔸/k when the coefficients are summable. Lemma 4.2.3: the coefficients of Σ_ξ f(x + ξ) are f̂(ξ).",
+        "Combine at x = 0 for (ii). For (iii) apply (ii) to g(x) = f(𝔞x), whose transform is |𝔞|^{−1}f̂(x/𝔞) by the change of variables y ↦ y/𝔞.",
+        "The volume of D is 1: running the argument with an unknown volume μ(D) and iterating gives μ(D)² = 1 (Tate p. 43)."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion",
+        "AdelicAlgebraicGroups:AA.0",
+        "mathlib:Real.tsum_exp_neg_mul_int_sq"
+      ],
+      "acceptance": [
+        "Check the case k = ℚ with f = 1_Ẑ ⊗ e^{−πx²} and 𝔞 = t ∈ ℝ_{>0}: (iii) becomes θ(1/t²) = t θ(t²) for θ(y) = Σ e^{−πyn²}, Mathlib's Real.tsum_exp_neg_mul_int_sq."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/SchwartzBruhat",
+        "namespace": "TauCeti.SchwartzBruhat",
+        "declaration": "TauCeti.SchwartzBruhat.poisson_summation"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§4.2, physical pp. 40–43, Lemmas 4.2.1–4.2.4 and Theorem 4.2.1",
+          "match": "Tate's Riemann–Roch theorem (1/|𝔞|)Σ f̂(ξ/𝔞) = Σ f(𝔞ξ), with Lemmas 4.2.1–4.2.4 (the Poisson formula)."
+        },
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§4, printed p. 128 (physical p. 20)",
+          "match": "Kudla reduces Theorem 4.3 to this Poisson argument, citing Tate pp. 339–341 of the reprint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Adelic Poisson summation (Riemann–Roch)"
+      }
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/point-supported-distributions",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Tempered distributions supported at a point",
+      "kind": "theorem",
+      "statement": "Let E = ℝⁿ. A tempered distribution λ ∈ 𝓢′(E, ℂ) with dsupport λ ⊆ {0} is a finite linear combination Σ_{|α|≤N} c_α ∂^αδ₀. For n = 1 (F = ℝ) the F^×-finite ones are ⊕_k ℂ·D^kδ₀; for n = 2 written in x, x̄ (F = ℂ) they are ⊕_{k,l} ℂ·D^kD̄^lδ₀, D = ∂/∂x, D̄ = ∂/∂x̄.",
+      "hypotheses": [
+        "E = ℝⁿ with Mathlib's 𝓢(E, ℂ), 𝓢′(E, ℂ) = TemperedDistribution and dsupport."
+      ],
+      "proofSteps": [
+        "Continuity on 𝓢 bounds |λ(f)| by finitely many seminorms, so λ has finite order N.",
+        "If ∂^αf(0) = 0 for |α| ≤ N, then λ(f) = 0: approximate f by (1 − χ(x/ε))f with a cutoff χ equal to 1 near 0; the error is O(ε) in the order-N seminorms.",
+        "Hence λ factors through the jet f ↦ (∂^αf(0))_{|α|≤N}, a finite-dimensional quotient, giving the linear combination."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
+        "mathlib:TemperedDistribution",
+        "mathlib:TemperedDistribution.delta",
+        "mathlib:Distribution.dsupport",
+        "mathlib:SchwartzMap"
+      ],
+      "acceptance": [
+        "Check that δ₀ has dsupport {0} (Mathlib dsupport_delta) and that Dδ₀ is not a multiple of δ₀."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/SchwartzBruhat",
+        "namespace": "TauCeti.SchwartzBruhat",
+        "declaration": "TauCeti.SchwartzBruhat.eq_sum_deriv_delta_of_dsupport_subset"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, Lemma 3.3 (ii)–(iii) and footnote 8, printed pp. 116–117 (physical pp. 8–9)",
+          "match": "Kudla uses the classification of F^×-finite distributions supported at 0 without proof, citing Friedlander [4] for the archimedean theory."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Local quasi-characters, unramified characters and the conductor exponent",
+      "kind": "definition",
+      "statement": "A quasi-character of F^× is a continuous homomorphism ω : F^× → ℂ^×; it is a character if |ω| = 1. There is a unique real σ (the exponent) with |ω(x)| = |x|^σ, so ω = ω_u·ω_σ with ω_u a character. For F nonarchimedean, ω is unramified if ω is trivial on O^×; the unramified quasi-characters are exactly x ↦ t^{ord x} = |x|^s with t = q^{−s} ∈ ℂ^×, s determined modulo 2πi/log q (Tate Lemma 2.3.1). For ramified ω the conductor exponent c(ω) is the smallest integer c ≥ 1 with ω trivial on 1 + P^c; put c(ω) = 0 for unramified ω. For F = ℝ every quasi-character is ωω_s with ω(x) = x^{−a}, a ∈ {0, 1} (Kudla (3.18)); for F = ℂ it is ωω_s with ω(x) = x^{−a}x̄^{−b}, a, b ∈ ℤ, min(a, b) = 0 (Kudla (3.20)).",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "The archimedean normal forms are Kudla's (after Weil); they differ from the common sgn^a normalisation: sgn(x) = x^{−1}|x|, so sgn = x^{−1}·ω_1."
+      ],
+      "proofSteps": [
+        "Exponent: |ω| is a continuous homomorphism to ℝ_{>0}, trivial on the compact group O^× (resp. {±1}, the unit circle), hence |x|^σ.",
+        "Unramified quasi-characters factor through ord : F^× → ℤ, so they are t^{ord x}; write t = q^{−s}.",
+        "Conductor: the subgroups 1 + P^c form a basis of neighbourhoods of 1 in O^×, and ω|_{O^×} is continuous into ℂ^×, which has no small subgroups, so ω is trivial on some 1 + P^c.",
+        "Archimedean normal forms: import the classification of continuous characters of ℝ^× and ℂ^× (GlobalNumberFields Layer 10) and rewrite sgn^ε|x|^s and (z/|z|)^n|z|^s in Kudla's monomials."
+      ],
+      "prerequisites": [
+        "mathlib:ContinuousMonoidHom",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space"
+      ],
+      "acceptance": [
+        "Check that c(ωω_s) = c(ω) for every s: twisting by an unramified character does not change the conductor.",
+        "Check that the finite-order character of ℤ_p^× induced by a primitive Dirichlet character modulo p^n, extended by ω(p) = 1, has conductor n."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.QuasiChar"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, \"The ramified local theory\", printed p. 120 (physical p. 12)",
+          "match": "The conductor c(ω) of a ramified ω."
+        },
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, \"The archimedean case\", printed p. 121 (physical p. 13)",
+          "match": "The archimedean normal forms (3.18) and (3.20)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
+          "how": "the characters integrated against"
+        },
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors",
+          "how": "conductor exponents in the ε-factor formula"
+        },
+        {
+          "where": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+          "how": "local characters of GL₁ and their conductors in principal series"
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+          "how": "GL₁ local constants of Weil–Deligne characters"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.TateZeta.QuasiChar",
+          "role": "structure",
+          "statement": "Continuous homomorphisms F^× →* ℂ^× (ContinuousMonoidHom)."
+        },
+        {
+          "name": "TauCeti.TateZeta.QuasiChar.exponent",
+          "role": "projection",
+          "statement": "The real σ with |ω(x)| = |x|^σ."
+        },
+        {
+          "name": "TauCeti.TateZeta.QuasiChar.absPow",
+          "role": "constructor",
+          "statement": "ω_s(x) = |x|^s."
+        },
+        {
+          "name": "TauCeti.TateZeta.QuasiChar.IsUnramified",
+          "role": "data",
+          "statement": "ω trivial on O^× (finite places)."
+        },
+        {
+          "name": "TauCeti.TateZeta.QuasiChar.isUnramified_iff",
+          "role": "characterisation",
+          "statement": "ω unramified iff ω = ω_s for some s, unique modulo 2πi/log q."
+        },
+        {
+          "name": "TauCeti.TateZeta.QuasiChar.conductor",
+          "role": "data",
+          "statement": "c(ω) ∈ ℕ: 0 if unramified, otherwise the least c ≥ 1 with ω|_{1+P^c} = 1."
+        },
+        {
+          "name": "TauCeti.TateZeta.QuasiChar.conductor_mul_absPow",
+          "role": "compatibility",
+          "statement": "c(ωω_s) = c(ω)."
+        },
+        {
+          "name": "TauCeti.TateZeta.QuasiChar.archNormalForm",
+          "role": "equivalence",
+          "statement": "At ℝ, ℂ: ω = x^{−a}(x̄^{−b})·ω_s with the stated constraints, uniquely."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.TateZeta.QuasiChar.absPow_isUnramified",
+          "kind": "computation",
+          "statement": "ω_s is unramified with c = 0, and ω_s(ϖ) = q^{−s}."
+        },
+        {
+          "name": "TauCeti.TateZeta.QuasiChar.conductor_dirichlet",
+          "kind": "computation",
+          "statement": "For p odd and χ a primitive Dirichlet character mod p^n, the induced ω on ℚ_p^× (ω(p) = 1) has c(ω) = n."
+        },
+        {
+          "name": "TauCeti.TateZeta.QuasiChar.sgn_normalForm",
+          "kind": "computation",
+          "statement": "At ℝ, sgn = x^{−1}·ω_1: a = 1 and s = 1 in (3.18)."
+        },
+        {
+          "name": "TauCeti.TateZeta.QuasiChar.one_conductor",
+          "kind": "degenerate",
+          "statement": "The trivial character has exponent 0 and conductor 0."
+        },
+        {
+          "name": "TauCeti.TateZeta.QuasiChar.not_unramified_teichmuller",
+          "kind": "non-example",
+          "statement": "The Teichmüller-type character of ℤ_p^× (p odd) extended by ω(p) = 1 is ramified with conductor 1, although it is trivial on 1 + pℤ_p."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "The local Tate zeta integral z(s, ω; f)",
+      "kind": "definition",
+      "statement": "For a character ω of F^×, s ∈ ℂ with Re s > 0 and f ∈ S(F), z(s, ω; f) = ∫_{F^×} f(x)ω(x)|x|^s d^×x converges absolutely (Kudla (3.3)); s ↦ z(s, ω; f) is holomorphic on Re s > 0 (Tate Lemma 2.4.1, differentiation under the integral), and f ↦ z(s, ω; f) is a nonzero element z(s, ω) ∈ S′(ωω_s). In Tate's notation, ζ(f, c) = ∫ f(α)c(α)d^×α for quasi-characters c of exponent > 0, and z(s, ω; f) = ζ(f, ωω_s). The integral satisfies z(s, ωω_t; f) = z(s + t, ω; f) and z(s, ω; r(a)f) = (ωω_s)(a)^{−1}z(s, ω; f).",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "Measures as in Kudla: at a finite place d^×x gives O^× volume 1; at ℝ and ℂ, d^×x = |x|^{−1}dx with dx Lebesgue (resp. twice Lebesgue) measure. Tate instead gives O^× the volume N𝔡^{−1/2}; the two differ by a positive constant at finitely many places, which cancels from every normalised object below (z₀, ε, γ).",
+        "ω unitary; the quasi-character case is the twist ω_t."
+      ],
+      "proofSteps": [
+        "Convergence: at a finite place f is bounded with compact support and equals f(0) near 0, so the integral is a finite sum of annulus integrals plus f(0)Σ_{n≥N} q^{−n Re s}; at ℝ, ℂ use rapid decay at ∞ and |x|^{Re s − 1} integrable near 0.",
+        "Holomorphy: dominated differentiation in s on Re s > δ > 0.",
+        "Eigen-property: substitute x ↦ xa^{−1} and use invariance of d^×x."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
+        "AdelicAlgebraicGroups:AA.0",
+        "mathlib:Complex.Gammaℝ",
+        "mathlib:Complex.Gammaℂ",
+        "mathlib:Complex.integral_cpow_mul_exp_neg_mul_Ioi",
+        "mathlib:mellin"
+      ],
+      "acceptance": [
+        "Check the unramified value z(s, ω; 1_O) = Σ_{n≥0} t^n q^{−ns} = (1 − tq^{−s})^{−1} for ω(ϖ) = t (Kudla (3.8)).",
+        "Check the Gaussian values z(s, 1; e^{−πx²}) = π^{−s/2}Γ(s/2) = Γ_ℝ(s) and z(s, 1; e^{−2πxx̄}) = (2π)^{1−s}Γ(s) = π·Γ_ℂ(s) (Tate pp. 20, 23)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.zetaIntegral"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, \"Zeta integrals\", printed p. 117 (physical p. 9)",
+          "match": "Definition (3.3), convergence for Re(s) > 0, and z(s, ω) ∈ S′(ωω_s)."
+        },
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.4, physical pp. 16–17, Definition 2.4.1 and Lemma 2.4.1",
+          "match": "Tate's ζ(f, c) and its regularity for exponent > 0."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+          "how": "factored as L(s, ω)z₀(s, ω)"
+        },
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+          "how": "the local factors of the global integral"
+        },
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+          "how": "the n = 1 case of the Godement–Jacquet zeta integral"
+        },
+        {
+          "where": "PeriodsAndSpecialValues:PS.7",
+          "how": "GL₁ local factors and their normalisations (RS-13)"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.TateZeta.zetaIntegral",
+          "role": "constructor",
+          "statement": "z(s, ω; f) = ∫_{F^×} f(x)ω(x)|x|^s d^×x."
+        },
+        {
+          "name": "TauCeti.TateZeta.zetaIntegral_integrable",
+          "role": "characterisation",
+          "statement": "Absolute convergence for Re s > 0."
+        },
+        {
+          "name": "TauCeti.TateZeta.differentiableOn_zetaIntegral",
+          "role": "other",
+          "statement": "s ↦ z(s, ω; f) is holomorphic on Re s > 0."
+        },
+        {
+          "name": "TauCeti.TateZeta.zetaIntegral_twist",
+          "role": "compatibility",
+          "statement": "z(s, ωω_t; f) = z(s + t, ω; f)."
+        },
+        {
+          "name": "TauCeti.TateZeta.zetaIntegral_act",
+          "role": "compatibility",
+          "statement": "z(s, ω; r(a)f) = (ωω_s)(a)^{−1} z(s, ω; f)."
+        },
+        {
+          "name": "TauCeti.TateZeta.zetaDistribution",
+          "role": "constructor",
+          "statement": "z(s, ω) ∈ S′(ωω_s), linear in f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.TateZeta.zetaIntegral_unramified_standard",
+          "kind": "computation",
+          "statement": "ω(ϖ) = t: z(s, ω; 1_O) = (1 − tq^{−s})^{−1}."
+        },
+        {
+          "name": "TauCeti.TateZeta.zetaIntegral_gaussian_real",
+          "kind": "computation",
+          "statement": "z(s, 1; e^{−πx²}) = Complex.Gammaℝ s at ℝ."
+        },
+        {
+          "name": "TauCeti.TateZeta.zetaIntegral_gaussian_complex",
+          "kind": "computation",
+          "statement": "z(s, 1; e^{−2πxx̄}) = (2π)^{1−s}Γ(s) = π·Complex.Gammaℂ s at ℂ (twice-Lebesgue dx)."
+        },
+        {
+          "name": "TauCeti.TateZeta.zetaIntegral_ramified_integers",
+          "kind": "degenerate",
+          "statement": "ω ramified: z(s, ω; 1_O) = 0, since ∫_{O^×} ω d^×x = 0 on every annulus."
+        },
+        {
+          "name": "TauCeti.TateZeta.zetaIntegral_not_convergent",
+          "kind": "non-example",
+          "statement": "ω = 1, f = 1_O, s = 0: Σ_{n≥0} q^{−n·0} diverges, so the half-plane Re s > 0 is sharp."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "The spaces S′(ω) of ω-eigendistributions",
+      "kind": "definition",
+      "statement": "For a quasi-character ω of F^×, S′(ω) = {λ ∈ S(F)′ : r′(a)λ = ω(a)λ for all a ∈ F^×} (Kudla Definition 3.1). Restriction along C_c^∞(F^×) ⊂ S(F) gives an exact sequence 0 → S′(ω)₀ → S′(ω) → C_c^∞(F^×)′(ω) (3.2), where S′(ω)₀ is the space of ω-eigendistributions supported at 0 (vanishing on C_c^∞(F^×)); here C_c^∞(F^×) means locally constant compactly supported functions at a finite place.",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "At ℝ, ℂ, C_c^∞(F^×) ⊂ 𝓢(F, ℂ) consists of smooth functions with compact support in F^×."
+      ],
+      "proofSteps": [
+        "F = {0} ∪ F^× gives C_c^∞(F^×) ⊂ S(F), and dualising gives (3.1); take ω-eigenspaces (left exactness of eigenspaces)."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor"
+      ],
+      "acceptance": [
+        "Check that the sequence (3.2) is not right exact in general: for ω = 1 at a finite place, d^×x is in the image of (3.1) but not of (3.2) (invariant-distributions-exceptional-case)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.eigenSpace"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, Definition 3.1, printed p. 115 (physical p. 7)",
+          "match": "Definition 3.1 of S′(ω), and the sequences (3.1)–(3.2) on p. 116."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem",
+          "how": "dim S′(ω) = 1"
+        },
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-epsilon-gamma-factors",
+          "how": "the ε-factor compares two vectors of S′(ωω_s)"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.TateZeta.eigenSpace",
+          "role": "constructor",
+          "statement": "S′(ω) as a submodule of S(F)′."
+        },
+        {
+          "name": "TauCeti.TateZeta.mem_eigenSpace",
+          "role": "characterisation",
+          "statement": "λ ∈ S′(ω) ↔ ∀ a, r′(a)λ = ω(a)λ."
+        },
+        {
+          "name": "TauCeti.TateZeta.eigenSpaceZero",
+          "role": "constructor",
+          "statement": "S′(ω)₀: eigendistributions vanishing on C_c^∞(F^×)."
+        },
+        {
+          "name": "TauCeti.TateZeta.eigenSpace_restrict_exact",
+          "role": "structure",
+          "statement": "The left exact sequence (3.2)."
+        },
+        {
+          "name": "TauCeti.TateZeta.zetaDistribution_mem",
+          "role": "relation",
+          "statement": "z(s, ω) ∈ S′(ωω_s) for Re s > 0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.TateZeta.delta_mem_eigenSpace_one",
+          "kind": "degenerate",
+          "statement": "δ₀ ∈ S′(1)."
+        },
+        {
+          "name": "TauCeti.TateZeta.haar_restrict_mem",
+          "kind": "computation",
+          "statement": "f ↦ ∫ f(x)ω(x)d^×x on C_c^∞(F^×) is an ω-eigendistribution."
+        },
+        {
+          "name": "TauCeti.TateZeta.delta_not_mem",
+          "kind": "non-example",
+          "statement": "For ω ≠ 1, δ₀ ∉ S′(ω), since r′(a)δ₀ = δ₀."
+        },
+        {
+          "name": "TauCeti.TateZeta.zetaDistribution_mem_eigenSpace",
+          "kind": "computation",
+          "statement": "z(s, ω) ∈ S′(ωω_s) for Re s > 0: its eigencharacter is ωω_s, not ω."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/restriction-to-punctured-line",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Eigendistributions on C_c^∞(F^×) are multiples of ω(x)d^×x (Lemma 3.2)",
+      "kind": "lemma",
+      "statement": "The space C_c^∞(F^×)′(ω) of ω-eigendistributions on C_c^∞(F^×) is one-dimensional, spanned by ω(x)d^×x. Hence for λ ∈ S′(ω) there is c ∈ ℂ with ⟨λ, f⟩ = c∫_{F^×} f(x)ω(x)d^×x for all f with compact support in F^×.",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s."
+      ],
+      "proofSteps": [
+        "Multiplying by ω^{−1} identifies ω-eigendistributions on F^× with F^×-invariant ones.",
+        "Finite place: C_c^∞(F^×) is spanned by indicators of cosets aU of compact open U ⊆ O^×; invariance gives ⟨λ, 1_{aU}⟩ = ⟨λ, 1_U⟩ and λ(1_U) = [U : V]λ(1_V), so λ is a multiple of Haar measure.",
+        "ℝ^×, ℂ^×: a translation-invariant distribution on a Lie group has zero derivatives along the Lie algebra and is a multiple of Haar measure."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
+        "mathlib:MeasureTheory.Measure.IsHaarMeasure"
+      ],
+      "acceptance": [
+        "Check that ω(x)d^×x itself is ω-eigen: ∫ f(xa^{−1})ω(x)d^×x = ω(a)∫ f(y)ω(y)d^×y."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.eigen_restrict_eq_smul_haar"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, Lemma 3.2, printed p. 116 (physical p. 8)",
+          "match": "Lemma 3.2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistributions-supported-at-zero",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Eigendistributions supported at 0 (Lemma 3.3)",
+      "kind": "lemma",
+      "statement": "(i) F nonarchimedean: the distributions supported at 0 are ℂ·δ₀, and δ₀ ∈ S′(ω₀) for the trivial ω₀; S′(ω)₀ = 0 for ω ≠ ω₀. (ii) F = ℝ, D = d/dx: the F^×-finite distributions supported at 0 are ⊕_{k≥0} ℂ·D^kδ₀, and S′(ω)₀ = ℂ·D^kδ₀ if ω(x) = x^{−k}, 0 otherwise. (iii) F = ℂ, D = ∂/∂x, D̄ = ∂/∂x̄: they are ⊕_{k,l≥0} ℂ·D^kD̄^lδ₀, and S′(ω)₀ = ℂ·D^kD̄^lδ₀ if ω(x) = x^{−k}x̄^{−l}, 0 otherwise.",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "In (ii), (iii) only F^×-finite distributions are classified (Kudla footnote 8)."
+      ],
+      "proofSteps": [
+        "(i): if λ vanishes on C_c^∞(F^×), then for f constant on P^r, f − f(0)1_{P^r} ∈ C_c^∞(F^×), so λ(f) = f(0)λ(1_{P^r}), and λ(1_{P^r} − 1_{P^{r+1}}) = 0 makes λ(1_{P^r}) independent of r.",
+        "(ii), (iii): the structure theorem for distributions supported at a point (finite combinations of derivatives of δ₀; requested), then compute r′(a)D^kδ₀ = a^{−k}D^kδ₀ from ⟨D^kδ₀, f⟩ = (−1)^k f^{(k)}(0)."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/point-supported-distributions"
+      ],
+      "acceptance": [
+        "Check the eigencharacter of Dδ₀ at ℝ: ⟨Dδ₀, r(a^{−1})f⟩ = −a^{−1}f′(0), so Dδ₀ ∈ S′(x^{−1})."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.eigenSpaceZero_eq"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, Lemma 3.3, printed pp. 116–117 (physical pp. 8–9)",
+          "match": "Lemma 3.3 (i)–(iii), with δ₀ F^×-invariant and supported at 0."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Unramified local theory: z(s, ω) = L(s, ω)z₀(s, ω)",
+      "kind": "theorem",
+      "statement": "Let F be nonarchimedean and ω unramified with ω(ϖ) = t; put L(s, ω) = (1 − tq^{−s})^{−1}. For τ = [1] − [ϖ^{−1}] ∈ ℤ[F^×] and f ∈ S(F), r(τ)f = f − r(ϖ^{−1})f has compact support in F^×, so ⟨z₀(s, ω), f⟩ = ∫_{F^×}(r(τ)f)(x)ωω_s(x)d^×x (3.5) is entire in s and z₀(s, ω) ∈ S′(ωω_s). For Re s > 0, z(s, ω) = L(s, ω)z₀(s, ω) (3.6), which continues z(s, ω) meromorphically to ℂ. With f^o = 1_O, ⟨z₀(s, ω), f^o⟩ = 1 for all s (3.8); so z₀(s, ω) is never zero, z(s, ω; f)/L(s, ω) is entire for every f, and for each s some f (namely f^o) makes it nonzero: L(s, ω) is the greatest common denominator of the zeta integrals (3.9).",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "Measures as in Kudla: at a finite place d^×x gives O^× volume 1; at ℝ and ℂ, d^×x = |x|^{−1}dx with dx Lebesgue (resp. twice Lebesgue) measure. Tate instead gives O^× the volume N𝔡^{−1/2}; the two differ by a positive constant at finitely many places, which cancels from every normalised object below (z₀, ε, γ)."
+      ],
+      "proofSteps": [
+        "If f is constant on P^r, then (r(τ)f)(x) = f(x) − f(xϖ^{−1}) = 0 for x ∈ P^{r+1}; so r(τ)f ∈ C_c^∞(F^×) and (3.5) is a finite sum.",
+        "r(τ) commutes with r(a), so z₀(s, ω) is ωω_s-eigen.",
+        "For Re s > 0 split the integral and substitute: ⟨z₀, f⟩ = (1 − ωω_s(ϖ))z(s, ω; f) = (1 − tq^{−s})z(s, ω; f).",
+        "r(τ)f^o = 1_{O^×}, whose integral is vol(O^×) = 1."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
+        "mathlib:tsum_geometric_of_norm_lt_one"
+      ],
+      "acceptance": [
+        "Check the proportionality constant: z(s, ω; f^o) = L(s, ω), in agreement with the local-zeta-integral test.",
+        "Check the Euler factor for k = ℚ: L(s, 1) at p is (1 − p^{−s})^{−1}, the p-th Euler factor of ζ."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.zetaIntegral_eq_L_mul_normalized"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, \"The unramified local theory\", printed pp. 118–119 (physical pp. 10–11), (3.4)–(3.9)",
+          "match": "The group-algebra element τ, z₀, (3.6), (3.8) and the gcd remark (3.9)."
+        },
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, printed p. 119 (physical p. 11)",
+          "match": "The L-factor as greatest common denominator."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/invariant-distributions-exceptional-case",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "The invariant distributions: S′(ω₀) is one-dimensional",
+      "kind": "lemma",
+      "statement": "At a finite place, the F^×-invariant distributions S′(ω₀) form the line ℂ·δ₀, although (3.11) only bounds the dimension by 2. The distribution ⟨λ₀, f⟩ = ⟨d^×x, f − f(0)f^o⟩ (3.12) is an O^×-invariant preimage of d^×x with ⟨λ₀, f^o⟩ = 0, and r′(ϖ)λ₀ = λ₀ − δ₀ (3.13). So F^× acts on the span of δ₀, λ₀ through x ↦ [[1, −ord x], [0, 1]] (3.14), a non-semisimple representation whose invariants are ℂ·δ₀; d^×x does not extend to an F^×-invariant distribution on S(F).",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "f^o = 1_O; the matrix (3.14) is written in the ordered basis (δ₀, λ₀)."
+      ],
+      "proofSteps": [
+        "f − f(0)f^o vanishes near 0, so λ₀ is defined, restricts to d^×x and is O^×-invariant; ⟨λ₀, f^o⟩ = 0.",
+        "r′(ϖ)λ₀ − λ₀ vanishes on C_c^∞(F^×), hence equals cδ₀ by Lemma 3.3(i).",
+        "c = ⟨r′(ϖ)λ₀ − λ₀, f^o⟩ = −⟨λ₀, r(τ)f^o⟩ = −⟨d^×x, 1_{O^×}⟩ = −⟨z₀(0, ω₀), f^o⟩ = −1 (3.13).",
+        "An invariant vector aδ₀ + bλ₀ satisfies b = 0, so S′(ω₀) = ℂ·δ₀."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistributions-supported-at-zero",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/restriction-to-punctured-line",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory"
+      ],
+      "acceptance": [
+        "Check that the matrices ρ(x) = [[1, −ord x], [0, 1]] multiply as ρ(xy) = ρ(x)ρ(y) (suggested file).",
+        "Check that the uniqueness argument does not use only dim ≤ 2: it needs the nonzero off-diagonal entry c = −1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.eigenSpace_one_eq_span_delta"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, Example, printed pp. 119–120 (physical pp. 11–12), (3.10)–(3.14)",
+          "match": "The distribution λ₀, the constant c = −1 and the representation ρ(x)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Ramified local theory: z(s, ω) is entire and L(s, ω) = 1",
+      "kind": "theorem",
+      "statement": "Let F be nonarchimedean and ω ramified with conductor c. For f ∈ S(F), ∫_{F^× − P^n} f(x)ωω_s(x)d^×x is independent of n for n large, which continues z(s, ω; f) to an entire function; z₀(s, ω) := z(s, ω) is a basis vector of S′(ωω_s) for every s (3.15), and L(s, ω) := 1 (3.16). The standard function f^o = ω^{−1}·1_{O^×} (3.17) has ⟨z₀(s, ω), f^o⟩ = 1, so the gcd property (3.9) holds.",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "Measures as in Kudla: at a finite place d^×x gives O^× volume 1; at ℝ and ℂ, d^×x = |x|^{−1}dx with dx Lebesgue (resp. twice Lebesgue) measure. Tate instead gives O^× the volume N𝔡^{−1/2}; the two differ by a positive constant at finitely many places, which cancels from every normalised object below (z₀, ε, γ)."
+      ],
+      "proofSteps": [
+        "If f is constant on P^n, the contribution of each annulus ϖ^kO^× ⊆ P^n is f(0)q^{−ks}ω(ϖ^k)∫_{O^×}ω d^×u = 0, as ω is nontrivial on O^×.",
+        "S′(ωω_s)₀ = 0 (Lemma 3.3(i)) and Lemma 3.2 give dim ≤ 1; z₀ ≠ 0 since ⟨z₀, f^o⟩ = ∫_{O^×}ω^{−1}ω d^×x = 1."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/restriction-to-punctured-line",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistributions-supported-at-zero",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor"
+      ],
+      "acceptance": [
+        "Check the degenerate value z(s, ω; 1_O) = 0 against the standard value ⟨z₀, ω^{−1}1_{O^×}⟩ = 1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.zetaIntegral_entire_of_ramified"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, \"The ramified local theory\", printed p. 120 (physical p. 12)",
+          "match": "(3.15)–(3.17) and the gcd property in the ramified case."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Archimedean local theory: Γ-factors and the standard functions (Proposition 3.5)",
+      "kind": "theorem",
+      "statement": "F = ℝ: for ω(x) = x^{−a}, a ∈ {0, 1}, put L(s, ω) = π^{−s/2}Γ(s/2) (3.19) and f^o = f_a = x^a e^{−πx²}. F = ℂ: for ω(x) = x^{−a}x̄^{−b}, min(a, b) = 0, put L(s, ω) = (2π)^{1−s}Γ(s) (3.21) and f^o = f_{a,b} = x^a x̄^b e^{−2πxx̄}. Then (i) z₀(s, ω) := L(s, ω)^{−1}z(s, ω) continues to an entire function of s and is a basis vector of S′(ωω_s) for every s; (ii) ⟨z₀(s, ω), f^o⟩ = 1. (iii) z(s, ω) is meromorphic with simple poles exactly at the poles of L(s, ω): at F = ℝ, s = −r with r ∈ 2ℤ_{≥0}, residue a nonzero multiple of D^{a+r}δ₀ ∈ S′(ωω_{−r}); at F = ℂ, s = −r with r ∈ ℤ_{≥0}, residue a nonzero multiple of D^{a+r}D̄^{b+r}δ₀. At a pole the constant term of the Laurent expansion extends ωω_{−r}(x)d^×x to S(F) but not to an element of S′(ωω_{−r}). (For the corrected real residues see AutomorphicLFunctionsAndLocalFactors/E4.)",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "Measures as in Kudla: at a finite place d^×x gives O^× volume 1; at ℝ and ℂ, d^×x = |x|^{−1}dx with dx Lebesgue (resp. twice Lebesgue) measure. Tate instead gives O^× the volume N𝔡^{−1/2}; the two differ by a positive constant at finitely many places, which cancels from every normalised object below (z₀, ε, γ).",
+        "Kudla's normalisations are Weil's: L(s, ω) does not depend on a (resp. a, b), unlike the sgn^a normalisation."
+      ],
+      "proofSteps": [
+        "(ii): z(s, ω; f_a) = ∫ e^{−πx²}|x|^s d^×x = 2∫_0^∞ e^{−πx²}x^{s−1}dx = π^{−s/2}Γ(s/2) (Tate p. 20); at ℂ, polar coordinates give 2π∫_0^∞ e^{−2πu}u^{s−1}du = (2π)^{1−s}Γ(s) (Tate p. 23).",
+        "(i) Continuation for general f: either Kudla's route, subtracting the Taylor polynomial of f at 0 (integration by parts), or Tate's: for 0 < Re s < 1, z(s, ω; f) = ρ(ωω_s)z(1 − s, ω^{−1}; f̂) with ρ the explicit meromorphic ratio of §2.5 (local-functional-equation), and the right side is holomorphic for Re s < 1.",
+        "Basis: z₀ ≠ 0 by (ii); dim S′(ωω_s) ≤ 1 away from the poles by Lemmas 3.2–3.3.",
+        "(iii) Taylor expansion: the term f^{(k)}(0)x^k/k! contributes ∫_{|x|<1} x^{k−a}|x|^{s−1}dx, nonzero only for k ≡ a mod 2, with a simple pole at s = a − k; eigen-property of the residue from Lemma 3.3(ii), (iii)."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/restriction-to-punctured-line",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistributions-supported-at-zero",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
+        "mathlib:Complex.Gammaℝ",
+        "mathlib:Complex.Gammaℂ",
+        "mathlib:Complex.Gammaℝ_mul_Gammaℝ_add_one",
+        "mathlib:Complex.integral_cpow_mul_exp_neg_mul_Ioi"
+      ],
+      "acceptance": [
+        "Check z(s, x^{−1}; x e^{−πx²}) = Γ_ℝ(s): the odd standard function has the same L-factor as the even one in this normalisation.",
+        "Check the complex factor against Mathlib: (2π)^{1−s}Γ(s) = π·Complex.Gammaℂ s, since Gammaℂ s = 2(2π)^{−s}Γ(s) (suggested file)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.archimedean_normalized_entire"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, \"The archimedean case\", Proposition 3.5 and (3.22), printed pp. 121–122 (physical pp. 13–14)",
+          "match": "Proposition 3.5 (i)–(ii), (3.18)–(3.21), and the residue remark (3.22)."
+        },
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.5, \"k real\" and \"k complex\", physical pp. 20–23",
+          "match": "Tate's standard functions f, f_± and f_n, their Fourier transforms and ζ-values."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Local uniqueness: dim S′(ω) = 1 (Theorem 3.4)",
+      "kind": "theorem",
+      "statement": "For every quasi-character ω of F^×, the space S′(ω) of ω-eigendistributions on S(F) is one-dimensional. Writing ω = ω′ω_s with ω′ a character (or an archimedean normal form), it is spanned by z₀(s, ω′).",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s."
+      ],
+      "proofSteps": [
+        "By (3.2), Lemma 3.2 and Lemma 3.3, dim S′(ω) ≤ 1 when S′(ω)₀ = 0 and ≤ 2 otherwise.",
+        "Existence: z₀(s, ω′) is a nonzero element (unramified, ramified and archimedean nodes).",
+        "Exceptional parameters with S′(ω)₀ ≠ 0: finite place, ω = ω₀ — the invariant-distributions lemma; ℝ, ℂ — the constant term at a pole is not an eigendistribution (archimedean node (iii)), so the eigenspace is the residue line."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/restriction-to-punctured-line",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistributions-supported-at-zero",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/invariant-distributions-exceptional-case",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory"
+      ],
+      "acceptance": [
+        "Check the finite-place exceptional case: at ω = ω₀ the dimension bound from (3.11) is 2, and uniqueness needs the nonsplit action (3.14).",
+        "Check that for ω ramified, S′(ωω_s)₀ = 0 for all s, so only existence is at stake (Kudla, Example on p. 117)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.finrank_eigenSpace_eq_one"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, Theorem 3.4, printed p. 117 (physical p. 9)",
+          "match": "Theorem 3.4 and the remarks after it."
+        },
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, printed p. 120 (physical p. 12)",
+          "match": "The ramified case of the proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Local uniqueness of eigendistributions"
+      }
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/fourier-transform-eigendistribution",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "The Fourier transform of an ω-eigendistribution (Lemma 3.6)",
+      "kind": "lemma",
+      "statement": "If λ ∈ S′(ω), then λ̂ ∈ S′(ω^{−1}ω₁), where ω₁(x) = |x| and ⟨λ̂, f⟩ = ⟨λ, f̂⟩. Consequently ẑ₀(s, ω) is a multiple of z₀(1 − s, ω^{−1}).",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "f̂ is taken with the self-dual measure for a fixed nontrivial ψ."
+      ],
+      "proofSteps": [
+        "For f ∈ S(F), (r(a^{−1})f)^(x) = ∫ f(ya^{−1})ψ(xy)dy = |a| f̂(xa) = |a|(r(a)f̂)(x) (substitute y ↦ ya).",
+        "Then ⟨r′(a)λ̂, f⟩ = ⟨λ, (r(a^{−1})f)^⟩ = |a|⟨λ, r(a)f̂⟩ = |a|ω(a)^{−1}⟨λ̂, f⟩.",
+        "z₀(s, ω) ∈ S′(ωω_s) gives ẑ₀(s, ω) ∈ S′(ω^{−1}ω_{1−s}); uniqueness (Theorem 3.4) makes it a multiple of z₀(1 − s, ω^{−1})."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem"
+      ],
+      "acceptance": [
+        "Check on δ₀ at a finite place with ν(ψ) = 0: δ̂₀ = (f ↦ f̂(0) = ∫f) is the additive Haar measure, which lies in S′(ω₁)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.fourier_mem_eigenSpace"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, Lemma 3.6, printed p. 122 (physical p. 14)",
+          "match": "Lemma 3.6 (proof left as an exercise) and its consequence for ẑ₀(s, ω)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-epsilon-gamma-factors",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "The local ε- and γ-factors ε(s, ω, ψ) and γ(s, ω, ψ)",
+      "kind": "definition",
+      "statement": "For a character ω, a nontrivial ψ and the self-dual dx, ε(s, ω, ψ) ∈ ℂ^× is the unique constant with ẑ₀(1 − s, ω^{−1}) = ε(s, ω, ψ)z₀(s, ω) (3.23), and γ(s, ω, ψ) = ε(s, ω, ψ)L(1 − s, ω^{−1})/L(s, ω) (3.26). Properties: ε(s, ω, ψ) = ⟨z₀(1 − s, ω^{−1}), f̂^o⟩ for the standard f^o (3.27); ε(s, ωω_t, ψ) = ε(s + t, ω, ψ) (3.28); ε(s, ω, ψ_β) = |β|^{s−1/2}ω(β)ε(s, ω, ψ) (3.29); ε(s, ω, ψ)ε(1 − s, ω^{−1}, ψ) = ω(−1); |ε(1/2, ω, ψ)| = 1. Tate's factor is ρ(ωω_s) = 1/γ(s, ω, ψ) (for ψ = e^{2πiΛ}).",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "ω a character; archimedean ω in Kudla's normal form; L(1 − s, ω^{−1}) is read after rewriting ω^{−1} in normal form times ω_t."
+      ],
+      "proofSteps": [
+        "Existence and uniqueness of ε: Lemma 3.6 and Theorem 3.4, with z₀(s, ω) ≠ 0.",
+        "(3.27): evaluate (3.23) at f^o. (3.28): z₀(s, ωω_t) = z₀(s + t, ω) and f^o is unchanged by ω_t.",
+        "(3.29): the ψ_β-transform with its self-dual measure is |β|^{1/2}r(β)f̂; insert in (3.27).",
+        "ε(s)ε(1 − s, ω^{−1}) = ω(−1): transform (3.23) twice and use f̂̂ = r(−1)f (Tate Lemma 2.4.3(1)). |ε(1/2)| = 1: complex conjugation swaps ω and ω^{−1} at s = 1/2 (Tate Lemma 2.4.3(2), Corollary 2.4.1)."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/fourier-transform-eigendistribution",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion"
+      ],
+      "acceptance": [
+        "Check γ(s, 1, e) = Γ_ℝ(1 − s)/Γ_ℝ(s) at ℝ, so Tate's ρ(|·|^s) = Γ_ℝ(s)/Γ_ℝ(1 − s) = Γ_ℂ(s)cos(πs/2) = 2^{1−s}π^{−s}cos(πs/2)Γ(s) (Tate p. 21; Mathlib Complex.Gammaℝ_div_Gammaℝ_one_sub)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.epsilonFactor"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, Corollary 3.7 and (3.23)–(3.29), printed p. 123 (physical p. 15)",
+          "match": "ε by (3.23), γ by (3.26), and the identities (3.27)–(3.29)."
+        },
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.4, Lemma 2.4.3 and Corollary 2.4.1, physical p. 19",
+          "match": "Tate's ρ(c), ρ(c)ρ(ĉ) = c(−1), ρ(c̄) = c(−1)·conj ρ(c), and |ρ(c)| = 1 at exponent 1/2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-functional-equation",
+          "how": "the constant in the local functional equation"
+        },
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor",
+          "how": "the local factors of ε(s, ω)"
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+          "how": "GL₁ local constants for the Weil–Deligne side"
+        },
+        {
+          "where": "PeriodsAndSpecialValues:PS.1",
+          "how": "Tate analytic ε- and γ-factors in the admitted GL₁ cases (RS-13)"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.TateZeta.epsilonFactor",
+          "role": "constructor",
+          "statement": "ε(s, ω, ψ) ∈ ℂ^×, defined by (3.23)."
+        },
+        {
+          "name": "TauCeti.TateZeta.gammaFactor",
+          "role": "constructor",
+          "statement": "γ(s, ω, ψ) = ε L(1 − s, ω^{−1})/L(s, ω), meromorphic in s."
+        },
+        {
+          "name": "TauCeti.TateZeta.epsilonFactor_eq_standard",
+          "role": "characterisation",
+          "statement": "(3.27): ε = ⟨z₀(1 − s, ω^{−1}), f̂^o⟩."
+        },
+        {
+          "name": "TauCeti.TateZeta.epsilonFactor_twist",
+          "role": "compatibility",
+          "statement": "(3.28): ε(s, ωω_t, ψ) = ε(s + t, ω, ψ)."
+        },
+        {
+          "name": "TauCeti.TateZeta.epsilonFactor_smul_char",
+          "role": "compatibility",
+          "statement": "(3.29): ε(s, ω, ψ_β) = |β|^{s−1/2}ω(β)ε(s, ω, ψ)."
+        },
+        {
+          "name": "TauCeti.TateZeta.epsilonFactor_mul_inv",
+          "role": "relation",
+          "statement": "ε(s, ω, ψ)ε(1 − s, ω^{−1}, ψ) = ω(−1)."
+        },
+        {
+          "name": "TauCeti.TateZeta.norm_epsilonFactor_half",
+          "role": "other",
+          "statement": "|ε(1/2, ω, ψ)| = 1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.TateZeta.epsilonFactor_unramified_zero",
+          "kind": "computation",
+          "statement": "ω unramified, ν(ψ) = 0: ε(s, ω, ψ) = 1, as f̂^o = f^o."
+        },
+        {
+          "name": "TauCeti.TateZeta.epsilonFactor_real_sign",
+          "kind": "computation",
+          "statement": "F = ℝ, ω = x^{−1}, ψ = e: ε = i and γ(s, x^{−1}, e) = iΓ_ℝ(3 − s)/Γ_ℝ(s) (ω^{−1} = x = x^{−1}ω₂)."
+        },
+        {
+          "name": "TauCeti.TateZeta.gammaFactor_real_trivial",
+          "kind": "computation",
+          "statement": "F = ℝ, ω = 1, ψ = e: 1/γ(s) = Γ_ℝ(s)/Γ_ℝ(1 − s) = Complex.Gammaℂ s · cos(πs/2)."
+        },
+        {
+          "name": "TauCeti.TateZeta.epsilonFactor_trivial_twist",
+          "kind": "degenerate",
+          "statement": "ε(s, ω_t, ψ) = ε(s + t, 1, ψ) with the same ψ."
+        },
+        {
+          "name": "TauCeti.TateZeta.epsilonFactor_depends_on_psi",
+          "kind": "non-example",
+          "statement": "ε is not independent of ψ: at a finite place ε(s, 1, ψ_ϖ) = q^{1/2−s}ε(s, 1, ψ) by (3.29)."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-functional-equation",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Tate's local functional equation (Corollary 3.7)",
+      "kind": "theorem",
+      "statement": "For every f ∈ S(F), as meromorphic functions of s, z(1 − s, ω^{−1}; f̂) = γ(s, ω, ψ)z(s, ω; f) (3.25); equivalently z(1 − s, ω^{−1}; f̂)/L(1 − s, ω^{−1}) = ε(s, ω, ψ)·z(s, ω; f)/L(s, ω) (3.24), both sides entire. In Tate's form (Theorem 2.4.1): every ζ-function continues to all quasi-characters by ζ(f, c) = ρ(c)ζ(f̂, ĉ), ĉ = |·|c^{−1}, with ρ independent of f.",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "ω a character; f̂ for ψ with the self-dual measure."
+      ],
+      "proofSteps": [
+        "Kudla's route: (3.23) with z(s, ω) = L(s, ω)z₀(s, ω) at s and 1 − s.",
+        "Tate's route: for 0 < Re s < 1, Lemma 2.4.2 gives ζ(f, c)ζ(ĝ, ĉ) = ζ(f̂, ĉ)ζ(g, c) (Fubini on F^× × F^× after the shear (α, β) ↦ (α, αβ), and the symmetry of ∫∫ f(ξ)g(η)ψ(ξβη)dξdη); fix g = f_C, the special function of §2.5, to define ρ(c) = ζ(f_C, c)/ζ(f̂_C, ĉ), then continue.",
+        "Both sides are meromorphic: the left by continuation in 1 − s, the right by the unramified/ramified/archimedean nodes."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-epsilon-gamma-factors",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion"
+      ],
+      "acceptance": [
+        "Check at a finite place with ω unramified, ν(ψ) = 0 and f = f^o = f̂^o: both sides of (3.24) equal 1.",
+        "Check at ℝ with f = e^{−πx²}: Γ_ℝ(1 − s) = γ(s, 1, e)Γ_ℝ(s), i.e. Tate's ρ(|·|^s) = Γ_ℝ(s)/Γ_ℝ(1 − s)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.zetaIntegral_fourier_one_sub"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, Corollary 3.7 and (3.24)–(3.25), printed p. 123 (physical p. 15)",
+          "match": "Corollary 3.7 with its two reformulations."
+        },
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.4, Lemma 2.4.2 and Theorem 2.4.1, physical pp. 17–19",
+          "match": "Tate's local functional equation and its proof through Lemma 2.4.2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Tate's local functional equation"
+      }
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-gauss-sum",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "The local Gauss sum 𝔤(ω, ψ)",
+      "kind": "definition",
+      "statement": "For F nonarchimedean, ω ramified with conductor c and ψ of conductor ν, 𝔤(ω, ψ) = q^{(ν+c)/2}∫_{O^×} ω^{−1}(y)ψ(ϖ^{−ν−c}y)dy with dy self-dual for ψ. Then the transform of the standard function f^o = ω^{−1}1_{O^×} is f̂^o(x) = 𝔤(ω, ψ)q^{−(ν+c)/2}·conj(f^o(ϖ^{ν+c}x)) (3.31), vanishing unless ord x = −ν − c; and 𝔤(ω, ψ)·conj(𝔤(ω, ψ)) = 1. The product ω(ϖ^{ν+c})𝔤(ω, ψ) does not depend on the choice of ϖ.",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "ω a character (unitary), ramified."
+      ],
+      "proofSteps": [
+        "f̂^o(x) = ∫_{O^×}ω^{−1}(y)ψ(xy)dy vanishes unless ord x = −ν − c: for ord x ≥ −ν it is ∫_{O^×}ω^{−1} = 0, and for −ν > ord x > −ν − c break O^× into cosets of 1 + P^{−ν−ord x}, on which ψ(x·) is constant and ω^{−1} integrates to 0 (Tate p. 25, cases 1 and 2).",
+        "For ord x = −ν − c substitute y ↦ yu to get (3.31).",
+        "Apply (3.31) twice with f̂̂(x) = f(−x) to get 𝔤·conj 𝔤 = 1 (Kudla p. 125).",
+        "Replacing ϖ by ϖu multiplies ω(ϖ^{ν+c}) by ω(u)^{ν+c} and, after the substitution y ↦ u^{ν+c}y, the integral by ω(u)^{−(ν+c)}; so ω(ϖ^{ν+c})𝔤 is unchanged."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion",
+        "mathlib:gaussSum",
+        "mathlib:gaussSum_mul_gaussSum_eq_card"
+      ],
+      "acceptance": [
+        "Check against Mathlib's finite Gauss sum at F = ℚ_p, c = 1, ν = 0 (vol ℤ_p = 1): 𝔤(ω, ψ) = p^{−1/2}Σ_{a∈𝔽_p^×}ω^{−1}(a)ψ(a/p), and |𝔤|² = 1 is gaussSum_mul_gaussSum_eq_card divided by p."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.localGaussSum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, Proposition 3.8(ii) and (3.31)–(3.32), printed pp. 124–125 (physical pp. 16–17)",
+          "match": "The Gauss sum, the transform of f^o and 𝔤·conj 𝔤 = 1."
+        },
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.5, \"k 𝔭-adic\", physical pp. 24–26",
+          "match": "Tate's root number ρ₀(c) = N𝔣^{−1/2}Σ_ε c(ε)e^{2πiΛ(ε/π^{ord 𝔡𝔣})}, the same sum in Tate's normalisation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors",
+          "how": "the ramified ε-factor"
+        },
+        {
+          "where": "DirichletPadicLFunctions:L0",
+          "how": "primitive-character Gauss sums in the Dirichlet functional equation"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.TateZeta.localGaussSum",
+          "role": "constructor",
+          "statement": "𝔤(ω, ψ) = q^{(ν+c)/2}∫_{O^×}ω^{−1}(y)ψ(ϖ^{−ν−c}y)dy."
+        },
+        {
+          "name": "TauCeti.TateZeta.fourier_standard_ramified",
+          "role": "characterisation",
+          "statement": "(3.31): f̂^o(x) = 𝔤 q^{−(ν+c)/2} conj(f^o(ϖ^{ν+c}x))."
+        },
+        {
+          "name": "TauCeti.TateZeta.localGaussSum_mul_conj",
+          "role": "simp",
+          "statement": "𝔤(ω, ψ)·conj 𝔤(ω, ψ) = 1."
+        },
+        {
+          "name": "TauCeti.TateZeta.localGaussSum_uniformizer",
+          "role": "compatibility",
+          "statement": "ω(ϖ^{ν+c})𝔤(ω, ψ) is independent of ϖ."
+        },
+        {
+          "name": "TauCeti.TateZeta.localGaussSum_eq_gaussSum",
+          "role": "compatibility",
+          "statement": "For c = 1 it is q^{−1/2} times Mathlib's gaussSum of the residue characters."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.TateZeta.localGaussSum_padic_conductor_one",
+          "kind": "computation",
+          "statement": "F = ℚ_p, c = 1, ν = 0: 𝔤 = p^{−1/2}·gaussSum(χ^{−1}, ψ₁) with χ = ω|_{ℤ_p^×} on 𝔽_p^× and ψ₁(a) = ψ(a/p)."
+        },
+        {
+          "name": "TauCeti.TateZeta.norm_localGaussSum",
+          "kind": "computation",
+          "statement": "|𝔤(ω, ψ)| = 1, recovering |gaussSum| = √p for c = 1."
+        },
+        {
+          "name": "TauCeti.TateZeta.fourier_standard_support",
+          "kind": "degenerate",
+          "statement": "f̂^o(x) = 0 whenever ord x ≠ −ν − c."
+        },
+        {
+          "name": "TauCeti.TateZeta.localGaussSum_wrong_shift",
+          "kind": "non-example",
+          "statement": "With ϖ^{−ν−c+1} in place of ϖ^{−ν−c} the integral vanishes: ψ(ϖ^{−ν−c+1}·) is constant on 1 + P^{c−1}-cosets where ω^{−1} integrates to 0."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Explicit local ε-factors (Proposition 3.8)",
+      "kind": "theorem",
+      "statement": "(i) F nonarchimedean, ω unramified, ν(ψ) = ν: ε(s, ω, ψ) = ω(ϖ^ν)q^{(1/2−s)ν}. (ii) ω ramified with conductor c: ε(s, ω, ψ) = ω(ϖ^{ν+c})q^{(1/2−s)(ν+c)}𝔤(ω, ψ). (iii) F = ℝ, ω(x) = x^{−a}, a ∈ {0, 1}, ψ = e: ε(s, ω, ψ) = i^a. (iv) F = ℂ, ω(x) = x^{−a}x̄^{−b}, min(a, b) = 0, ψ = e(x + x̄): ε(s, ω, ψ) = i^{max(a,b)}. In Tate's normalisation (ψ with conductor 𝔡^{−1}, so ν = ord 𝔡): ρ(|·|^s) = N𝔡^{s−1/2}(1 − q^{s−1})/(1 − q^{−s}) and ρ(c|·|^s) = N(𝔡𝔣)^{s−1/2}ρ₀(c) for ramified c with conductor 𝔣 and c(π) = 1.",
+      "hypotheses": [
+        "F is a completion k_v of a number field k. Nonarchimedean: ring of integers O, maximal ideal P = ϖO, q = #O/P, |ϖ| = q^{−1}, ord : F^× → ℤ. Archimedean: F = ℝ with the usual |x|, or F = ℂ with |x| = x·x̄. ω_s(x) = |x|^s.",
+        "ψ standard at ℝ, ℂ as in (3.30); at a finite place (3.28) and (3.29) reduce to ν = 0 and a fixed ω."
+      ],
+      "proofSteps": [
+        "(i): for ν = 0, f̂^o = f^o, so ε = 1 by (3.27); general ν by (3.29) with ψ = ψ₀(ϖ^ν·).",
+        "(ii): (3.27) and the Gauss-sum node's (3.31); conj f^o is the standard function for ω^{−1}.",
+        "(iii): f̂_a = i^a f_a by (2πi)^{−a}D_x^a applied to the Gaussian transform (3.33), and f_a is standard for ω^{−1} = ωω₂.",
+        "(iv): f̂_{a,b} = i^{a+b}f_{b,a} (3.34), f_{b,a} standard for ω^{−1}, and a + b = max(a, b). Tate p. 22 proves f̂_n = i^{|n|}f_n by induction with 𝒟 = (1/4πi)(∂_x + i∂_y)."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-epsilon-gamma-factors",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-gauss-sum",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor"
+      ],
+      "acceptance": [
+        "Check (i) against Tate's unramified ρ: 1/γ(s) = q^{(s−1/2)d}(1 − q^{s−1})/(1 − q^{−s}) with ν = d = ord 𝔡.",
+        "Check (iii) against Tate's real table: 1/γ(s + 1, x^{−1}, e) = ρ(±|·|^s) = −i 2^{1−s}π^{−s}sin(πs/2)Γ(s) (Tate p. 21).",
+        "Check the product over places for k = ℚ, ω = 1: all local ε-factors are 1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Local",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.epsilonFactor_explicit"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§3, Proposition 3.8 and its proof, printed pp. 124–125 (physical pp. 16–17)",
+          "match": "Proposition 3.8 (i)–(iv), (3.30)–(3.34)."
+        },
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.5, physical pp. 20–27",
+          "match": "Tate's tables of ρ(c) at real, complex and 𝔭-adic places."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Explicit local ε-factors (Tate's local constants)"
+      }
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Factorizable distributions and global uniqueness (Lemma 4.1, Theorem 4.2)",
+      "kind": "theorem",
+      "statement": "(Lemma 4.1) Given λ_v ∈ S(k_v)′ with ⟨λ_v, f_v^o⟩ = 1 for almost all v, there is a unique tempered distribution λ = ⊗λ_v on S(𝔸) with ⟨λ, ⊗f_v⟩ = ∏⟨λ_v, f_v⟩; conversely a nonzero λ ∈ S(𝔸)′ gives local distributions λ_v(g_v) = ⟨λ, g_v ⊗ f^v⟩ after normalising λ(f) = 1 on a factorizable f. (Theorem 4.2) For every quasi-character ω of 𝔸^×/k^×, S′(ω) = ⊗_v S′_v(ω_v) is one-dimensional, and S′(ωω_s) is spanned by z₀(s, ω) = ⊗_v z₀(s, ω_v).",
+      "hypotheses": [
+        "k a number field, 𝔸 = 𝔸_k, 𝔸^× the ideles with |x| = ∏|x_v|_v, J = {|x| = 1}; ω = ⊗ω_v a character of 𝔸^×/k^× (a Hecke character in the sense of GlobalNumberFields Layer 9); ω_s(x) = |x|^s."
+      ],
+      "proofSteps": [
+        "Lemma 4.1: define λ on factorizable functions by the finite product, extend linearly (well defined by density and continuity).",
+        "Conversely vary one component of a factorizable f with λ(f) = 1.",
+        "Theorem 4.2: the factorisation S′(ω) = ⊗S′_v(ω_v) and the local uniqueness theorem at every place; ⟨z₀(s, ω_v), f_v^o⟩ = 1 for almost all v, so ⊗z₀ is defined."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory"
+      ],
+      "acceptance": [
+        "Check that the product ∏⟨z₀(s, ω_v), f_v^o⟩ = 1 for the standard f^o = ⊗f_v^o, so ⟨z₀(s, ω), f^o⟩ = 1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Global",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.finrank_globalEigenSpace_eq_one"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§4, Lemma 4.1 and Theorem 4.2, printed p. 126 (physical p. 18)",
+          "match": "Lemma 4.1 and Theorem 4.2."
+        },
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§4, printed p. 126 (physical p. 18)",
+          "match": "Theorem 4.2 as the global consequence of Theorem 3.4."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "The global Tate zeta integral z(s, ω; f)",
+      "kind": "definition",
+      "statement": "For a character ω of 𝔸^×/k^× and f ∈ S(𝔸), z(s, ω; f) = ∫_{𝔸^×} f(x)ωω_s(x)d^×x (4.1) converges absolutely for Re s > 1; for factorizable f it is ∏_v z(s, ω_v; f_v) (4.2), and as distributions z(s, ω) = Λ(s, ω)z₀(s, ω) (4.3) there. In Tate's form (Definition 4.4.1), ζ(f, c) = ∫ f(𝔞)c(𝔞)d^×𝔞 for quasi-characters c trivial on k^× of exponent > 1, with Tate's measure d^×𝔞 = ∏_v d^×𝔞_v.",
+      "hypotheses": [
+        "k a number field, 𝔸 = 𝔸_k, 𝔸^× the ideles with |x| = ∏|x_v|_v, J = {|x| = 1}; ω = ⊗ω_v a character of 𝔸^×/k^× (a Hecke character in the sense of GlobalNumberFields Layer 9); ω_s(x) = |x|^s.",
+        "d^×x = ∏_v d^×x_v with vol(O_v^×) = 1 at almost all v (Kudla) or N𝔡_v^{−1/2} (Tate)."
+      ],
+      "proofSteps": [
+        "Integrability: for factorizable f the integral is a product (AA.0 Fubini for restricted products; Tate Theorem 3.3.1); for v outside a finite set S the factor is L_v(s, ω_v) (unramified node) and ∏_{v∉S}(1 − q_v^{−σ})^{−1} converges for σ > 1.",
+        "Linear combinations of factorizable functions span S(𝔸).",
+        "(4.3): compare (4.2) with ⊗z₀(s, ω_v) place by place."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions",
+        "AdelicAlgebraicGroups:AA.0"
+      ],
+      "acceptance": [
+        "Check for k = ℚ, ω = 1, f = f^o: z(s, 1; f^o) = Γ_ℝ(s)∏_p(1 − p^{−s})^{−1} = Γ_ℝ(s)ζ(s) = completedRiemannZeta s for Re s > 1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Global",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.globalZetaIntegral"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§4, (4.1)–(4.5), printed pp. 126–127 (physical pp. 18–19)",
+          "match": "The global zeta integral, its factorisation and z = Λz₀."
+        },
+        {
+          "sourceId": "Tate1950",
+          "locator": "§4.4, Definition 4.4.1, physical p. 49",
+          "match": "Tate's global ζ-function ζ(f, c)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation",
+          "how": "the function continued and satisfying ζ(f, c) = ζ(f̂, ĉ)"
+        },
+        {
+          "where": "BorelRegulators:R.5",
+          "how": "Dedekind zeta functions and their leading terms"
+        },
+        {
+          "where": "DirichletPadicLFunctions:KU-zeta",
+          "how": "the completed Dedekind zeta function"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.TateZeta.globalZetaIntegral",
+          "role": "constructor",
+          "statement": "z(s, ω; f) = ∫_{𝔸^×} f(x)ω(x)|x|^s d^×x."
+        },
+        {
+          "name": "TauCeti.TateZeta.globalZetaIntegral_integrable",
+          "role": "characterisation",
+          "statement": "Absolute convergence for Re s > 1."
+        },
+        {
+          "name": "TauCeti.TateZeta.globalZetaIntegral_pure",
+          "role": "compatibility",
+          "statement": "(4.2): for f = ⊗f_v, z(s, ω; f) = ∏_v z(s, ω_v; f_v)."
+        },
+        {
+          "name": "TauCeti.TateZeta.globalZetaIntegral_eq_completed_mul",
+          "role": "relation",
+          "statement": "(4.3): z(s, ω; f) = Λ(s, ω)⟨z₀(s, ω), f⟩ for Re s > 1."
+        },
+        {
+          "name": "TauCeti.TateZeta.globalZetaIntegral_act",
+          "role": "compatibility",
+          "statement": "z(s, ω; r(a)f) = (ωω_s)(a)^{−1}z(s, ω; f), and = z(s, ω; f) for a ∈ k^×."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.TateZeta.globalZetaIntegral_rat_standard",
+          "kind": "computation",
+          "statement": "k = ℚ, ω = 1, f^o = 1_Ẑ ⊗ e^{−πx²}: z(s, 1; f^o) = completedRiemannZeta s for Re s > 1."
+        },
+        {
+          "name": "TauCeti.TateZeta.globalZetaIntegral_unramified_factor",
+          "kind": "computation",
+          "statement": "At v ∉ S the factor of z(s, ω; f^o) is (1 − ω_v(ϖ_v)q_v^{−s})^{−1}."
+        },
+        {
+          "name": "TauCeti.TateZeta.globalZetaIntegral_zero",
+          "kind": "degenerate",
+          "statement": "z(s, ω; 0) = 0."
+        },
+        {
+          "name": "TauCeti.TateZeta.globalZetaIntegral_not_convergent",
+          "kind": "non-example",
+          "statement": "For k = ℚ, ω = 1, f = f^o the integral diverges at s = 1 (the pole of ζ): Re s > 1 cannot be relaxed."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "The completed Hecke L-function Λ(s, ω)",
+      "kind": "definition",
+      "statement": "For a character ω of 𝔸^×/k^×, Λ(s, ω) = ∏_v L_v(s, ω_v) (4.4) over all places, with the unramified, ramified (L = 1) and archimedean factors; L^S(s, ω) = ∏_{v∉S}L_v(s, ω_v) for a finite set S containing the archimedean and ramified places. Both converge absolutely for Re s > 1. For S ⊇ S_∞ ∪ {ramified v}, L^S(s, ω) = Σ_{𝔞 prime to S} χ(𝔞)N𝔞^{−s}, where χ(𝔭_v) = ω_v(ϖ_v) is the associated ideal character (Kudla §5; Tate §4.5).",
+      "hypotheses": [
+        "k a number field, 𝔸 = 𝔸_k, 𝔸^× the ideles with |x| = ∏|x_v|_v, J = {|x| = 1}; ω = ⊗ω_v a character of 𝔸^×/k^× (a Hecke character in the sense of GlobalNumberFields Layer 9); ω_s(x) = |x|^s."
+      ],
+      "proofSteps": [
+        "Absolute convergence from ∏_v(1 − q_v^{−σ})^{−1}, σ > 1 (Tate p. 56).",
+        "Expand each Euler factor as a geometric series and multiply out (unique factorisation of ideals; ArithmeticDirichletSeries Layer 3)."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral"
+      ],
+      "acceptance": [
+        "Check k = ℚ, ω = 1: Λ(s, 1) = Γ_ℝ(s)ζ(s) = completedRiemannZeta s."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Global",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.completedHeckeL"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§4, (4.4), printed p. 127 (physical p. 19)",
+          "match": "The complete L-function (4.4) and L^S."
+        },
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§5, printed p. 129 (physical p. 21)",
+          "match": "The ideal character χ of I_𝔪 attached to ω."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation",
+          "how": "the function satisfying Λ(s, ω) = ε(s, ω)Λ(1 − s, ω^{−1})"
+        },
+        {
+          "where": "AnalyticNumberTheory:AN.4",
+          "how": "completed Hecke and Dedekind L-functions for the class-number formula and Chebotarev"
+        },
+        {
+          "where": "PeriodsAndSpecialValues:PS.7",
+          "how": "GL₁ functional equations and pole conventions (RS-13)"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.TateZeta.completedHeckeL",
+          "role": "constructor",
+          "statement": "Λ(s, ω) = ∏_v L_v(s, ω_v), Re s > 1, then continued."
+        },
+        {
+          "name": "TauCeti.TateZeta.partialHeckeL",
+          "role": "constructor",
+          "statement": "L^S(s, ω) = ∏_{v∉S} L_v(s, ω_v)."
+        },
+        {
+          "name": "TauCeti.TateZeta.partialHeckeL_eq_LSeries",
+          "role": "equivalence",
+          "statement": "L^S(s, ω) = Σ_{(𝔞, S) = 1} χ(𝔞)N𝔞^{−s} for Re s > 1."
+        },
+        {
+          "name": "TauCeti.TateZeta.completedHeckeL_eq_mul",
+          "role": "relation",
+          "statement": "Λ(s, ω) = ∏_{v∈S}L_v(s, ω_v)·L^S(s, ω)."
+        },
+        {
+          "name": "TauCeti.TateZeta.completedHeckeL_eq_globalZeta",
+          "role": "relation",
+          "statement": "Λ(s, ω) = z(s, ω; f^o) for the standard f^o."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.TateZeta.completedHeckeL_rat_one",
+          "kind": "computation",
+          "statement": "k = ℚ, ω = 1: Λ(s, 1) = completedRiemannZeta s."
+        },
+        {
+          "name": "TauCeti.TateZeta.completedHeckeL_dirichlet",
+          "kind": "computation",
+          "statement": "k = ℚ, ω attached to a primitive Dirichlet character χ: L_∞ = Γ_ℝ(s) (χ even) or Γ_ℝ(s + 1) (χ odd, ω_∞ = sgn = x^{−1}ω₁), which is Mathlib's DirichletCharacter.gammaFactor, and Λ(s, ω) = gammaFactor χ s · LFunction χ s."
+        },
+        {
+          "name": "TauCeti.TateZeta.partialHeckeL_trivial_char",
+          "kind": "degenerate",
+          "statement": "ω = 1: L^{S_∞}(s, 1) is the Dedekind zeta function NumberField.dedekindZeta."
+        },
+        {
+          "name": "TauCeti.TateZeta.completedHeckeL_not_product_over_ideals",
+          "kind": "non-example",
+          "statement": "Λ(s, ω) is not Σ χ(𝔞)N𝔞^{−s} alone: the archimedean factors and the ramified factors L_v = 1 are part of it."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "The volume κ of the norm-one idele class group (Tate Lemma 4.3.1, Theorem 4.3.2)",
+      "kind": "lemma",
+      "statement": "With Tate's measures (d^×α = (N𝔭/(N𝔭 − 1))|α|^{−1}dα at finite v, so vol(O_v^×) = N𝔡_v^{−1/2}; dα/|α| at real v; 2r dr dθ/r² at complex v), the product decomposition 𝔸^× = T × J (T ≅ ℝ_{>0} at a chosen archimedean place, dt/t) and d^×𝔞 = dt·d^×𝔟, the fundamental domain E for J/k^× built from the units and h ideal-class representatives satisfies (1) J = ⊔_{α∈k^×}αE and (2) vol(E) = κ = 2^{r₁}(2π)^{r₂}hR/(w√|d|), where R is the regulator, h the class number, w the number of roots of unity and d the discriminant. κ equals Mathlib's NumberField.dedekindZeta_residue K. Consequently k^× is discrete in J and J/k^× is compact (Corollary 4.3.1).",
+      "hypotheses": [
+        "k a number field, 𝔸 = 𝔸_k, 𝔸^× the ideles with |x| = ∏|x_v|_v, J = {|x| = 1}; ω = ⊗ω_v a character of 𝔸^×/k^× (a Hecke character in the sense of GlobalNumberFields Layer 9); ω_s(x) = |x|^s.",
+        "Tate's measures, not Kudla's: the value of κ depends on vol(O_v^×) = N𝔡_v^{−1/2}."
+      ],
+      "proofSteps": [
+        "Lemma 4.3.1: ℓ : J_{S_∞} → ℝ^r, 𝔟 ↦ (log|𝔟_v|)_{v ≠ v₀}; the preimage of the unit parallelotope P has volume R·vol(ℓ^{−1}(Q)) and vol(ℓ^{−1}(Q)) = 2^{r₁}(2π)^{r₂}/√|d| from the local volumes 2 (real), 2π (complex) and ∏N𝔡_v^{−1/2} = |d|^{−1/2}.",
+        "Theorem 4.3.2: E = ⊔_i E₀𝔟^{(i)} with E₀ the part of ℓ^{−1}(P) with 0 ≤ arg 𝔟_{v₀} < 2π/w; divide by the ideal class, then by units and roots of unity.",
+        "Compare the resulting expression with Mathlib's dedekindZeta_residue_def."
+      ],
+      "prerequisites": [
+        "mathlib:NumberField.dedekindZeta_residue",
+        "mathlib:NumberField.Units.regulator",
+        "mathlib:NumberField.classNumber",
+        "mathlib:NumberField.Units.torsionOrder",
+        "mathlib:NumberField.discr",
+        "AdelicAlgebraicGroups:AA.0"
+      ],
+      "acceptance": [
+        "Check k = ℚ: r₁ = 1, r₂ = 0, h = R = 1, w = 2, d = 1, so κ = 1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Global",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.volume_fundamentalDomain_eq"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§4.3, Lemma 4.3.1, Definition 4.3.2, Theorem 4.3.2 and Corollary 4.3.1, physical pp. 44–48",
+          "match": "The fundamental domain for J mod k^× and its volume κ."
+        },
+        {
+          "sourceId": "Tate1950",
+          "locator": "§4.4, Main Theorem 4.4.1, physical p. 50",
+          "match": "κ as it enters the residues."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-a",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Tate's Lemma A: the functional equation of ζ_t",
+      "kind": "lemma",
+      "statement": "For f ∈ S(𝔸) (or Tate's class 𝔷), a quasi-character c of 𝔸^×/k^× and t > 0, put ζ_t(f, c) = ∫_J f(t𝔟)c(t𝔟)d^×𝔟. Then ζ_t(f, c) + f(0)∫_E c(t𝔟)d^×𝔟 = ζ_{1/t}(f̂, ĉ) + f̂(0)∫_E ĉ(𝔟/t)d^×𝔟, with ĉ = |·|c^{−1}.",
+      "hypotheses": [
+        "k a number field, 𝔸 = 𝔸_k, 𝔸^× the ideles with |x| = ∏|x_v|_v, J = {|x| = 1}; ω = ⊗ω_v a character of 𝔸^×/k^× (a Hecke character in the sense of GlobalNumberFields Layer 9); ω_s(x) = |x|^s.",
+        "Tate's measures; E the fundamental domain of idele-class-volume."
+      ],
+      "proofSteps": [
+        "ζ_t(f, c) + f(0)∫_E c(t𝔟) = Σ_{α∈k^×}∫_{αE} … + f(0)∫_E … = ∫_E [Σ_{ξ∈k} f(ξt𝔟)]c(t𝔟)d^×𝔟, using J = ⊔αE, the invariance of d^×𝔟 and c(α) = 1, and uniform convergence on the relatively compact E (condition 𝔷2).",
+        "Riemann–Roch: Σ_ξ f(ξt𝔟) = |t𝔟|^{−1}Σ_ξ f̂(ξ/(t𝔟)); then 𝔟 ↦ 𝔟^{−1} and reverse the steps for f̂, ĉ."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space"
+      ],
+      "acceptance": [
+        "Check k = ℚ, f = f^o, c = |·|^s: Lemma A becomes Riemann's θ-relation behind completedRiemannZeta_one_sub."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Global",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.zetaSlice_add_eq"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§4.4, Lemma A, physical pp. 50–51",
+          "match": "Lemma A and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-b",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Tate's Lemma B: ∫_E c(t𝔟)d^×𝔟",
+      "kind": "lemma",
+      "statement": "For a quasi-character c of 𝔸^×/k^× and t > 0: ∫_E c(t𝔟)d^×𝔟 = κt^s if c = |·|^s on 𝔸^× (c trivial on J), and 0 if c is nontrivial on J.",
+      "hypotheses": [
+        "k a number field, 𝔸 = 𝔸_k, 𝔸^× the ideles with |x| = ∏|x_v|_v, J = {|x| = 1}; ω = ⊗ω_v a character of 𝔸^×/k^× (a Hecke character in the sense of GlobalNumberFields Layer 9); ω_s(x) = |x|^s.",
+        "Tate's measures."
+      ],
+      "proofSteps": [
+        "∫_E c(t𝔟) = c(t)∫_E c(𝔟); the latter is the integral over the compact group J/k^× of the character induced by c, which is vol(E) = κ or 0; and c(t) = t^s when c = |·|^s."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume"
+      ],
+      "acceptance": [
+        "Check c = |·|^{it}: the integral is κt^{it}, the case that produces the poles."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Global",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.integral_fundamentalDomain_char"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§4.4, Lemma B, physical p. 51",
+          "match": "Lemma B and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Tate's global functional equation (Main Theorem 4.4.1; Kudla Theorem 4.3)",
+      "kind": "theorem",
+      "statement": "For f ∈ S(𝔸) (more generally f ∈ 𝔷), ζ(f, c) continues from exponent > 1 to a meromorphic, single-valued function on every class {c₀|·|^s} of quasi-characters of 𝔸^×/k^×. It is holomorphic except, when c₀ is trivial on J (c = |·|^s), for simple poles at s = 0 and s = 1 with residues −κf(0) and κf̂(0). It satisfies ζ(f, c) = ζ(f̂, ĉ), ĉ = |·|c^{−1}; explicitly ζ(f, c) = ∫_1^∞ζ_t(f, c)dt/t + ∫_1^∞ζ_t(f̂, ĉ)dt/t + [κf̂(0)/(s − 1) − κf(0)/s], the bracket present only when c = |·|^s. In distributions (Kudla Theorem 4.3): z(s, ω) continues meromorphically and ẑ(1 − s, ω^{−1}) = z(s, ω).",
+      "hypotheses": [
+        "k a number field, 𝔸 = 𝔸_k, 𝔸^× the ideles with |x| = ∏|x_v|_v, J = {|x| = 1}; ω = ⊗ω_v a character of 𝔸^×/k^× (a Hecke character in the sense of GlobalNumberFields Layer 9); ω_s(x) = |x|^s.",
+        "Tate's measures in the residue formula; κ from idele-class-volume."
+      ],
+      "proofSteps": [
+        "Split ζ(f, c) = ∫_0^∞ζ_t(f, c)dt/t at t = 1; ∫_1^∞ converges for every c since |𝔞| ≥ 1 there.",
+        "Rewrite ∫_0^1 by Lemma A and Lemma B, substitute t ↦ 1/t, and evaluate ∫_0^1 κt^{s−1}dt/t etc. to get the bracket (for Re s > 1).",
+        "The two ∫_1^∞ integrals are entire in s; the expression is symmetric under (f, c) ↦ (f̂, ĉ), since ĉ = |·|^{1−s} when c = |·|^s."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-a",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-b",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
+        "mathlib:completedRiemannZeta_eq",
+        "mathlib:completedRiemannZeta_residue_one"
+      ],
+      "acceptance": [
+        "Check k = ℚ, f = f^o, c = |·|^s: the formula becomes completedRiemannZeta s = completedRiemannZeta₀ s − 1/s − 1/(1 − s) with residues −1 at 0 and +1 at 1 (κ = 1, f(0) = f̂(0) = 1): Mathlib completedRiemannZeta_eq and completedRiemannZeta_residue_one.",
+        "Check that the poles occur only for c trivial on J: for ω nontrivial on J the bracket is absent and z(s, ω; f) is entire."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Global",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.globalZeta_functional_equation"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§4.4, Main Theorem 4.4.1 and its proof, physical pp. 50–52",
+          "match": "Main Theorem 4.4.1: continuation, poles and residues −κf(0), κf̂(0), and ζ(f, c) = ζ(f̂, ĉ)."
+        },
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§4, Theorem 4.3, printed p. 128 (physical p. 20)",
+          "match": "Theorem 4.3 in distributional form."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Tate's global functional equation"
+      }
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "The global ε-factor ε(s, ω)",
+      "kind": "definition",
+      "statement": "For a character ω of 𝔸^×/k^× and a nontrivial ψ = ∏ψ_v of 𝔸/k, ε(s, ω) = ∏_v ε_v(s, ω_v, ψ_v) (4.6), a finite product since ε_v = 1 when v is finite, ω_v is unramified and ν(ψ_v) = 0. It does not depend on ψ, and ẑ₀(1 − s, ω^{−1}) = ε(s, ω)z₀(s, ω) (4.7). By Proposition 3.8, ε(s, ω) = ε(1/2, ω)·(|d_k|N𝔣(ω))^{1/2−s} for the standard ψ, with 𝔣(ω) = ∏𝔭_v^{c(ω_v)} and |ε(1/2, ω)| = 1.",
+      "hypotheses": [
+        "k a number field, 𝔸 = 𝔸_k, 𝔸^× the ideles with |x| = ∏|x_v|_v, J = {|x| = 1}; ω = ⊗ω_v a character of 𝔸^×/k^× (a Hecke character in the sense of GlobalNumberFields Layer 9); ω_s(x) = |x|^s."
+      ],
+      "proofSteps": [
+        "Every nontrivial character of 𝔸/k is ψ_β, β ∈ k^× (Tate Theorem 4.1.4); by (3.29) ε changes by ∏_v|β|_v^{s−1/2}ω_v(β) = 1 (product formula and ω(β) = 1).",
+        "Almost all factors are 1 by Proposition 3.8(i) with ν = 0; (4.7) is the product of the local (3.23).",
+        "The s-dependence: q_v^{(1/2−s)(ν_v + c_v)} at finite v, with Σν_v log q_v = log|d_k| for the standard ψ."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-epsilon-gamma-factors",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation"
+      ],
+      "acceptance": [
+        "Check k = ℚ, ω = 1: ε(s, 1) = 1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Global",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.globalEpsilon"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§4, (4.6)–(4.7), printed p. 128 (physical p. 20)",
+          "match": "The global ε-factor and its independence of ψ."
+        },
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§4, printed p. 128 (physical p. 20)",
+          "match": "Definition (4.6)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation",
+          "how": "the constant in Λ(s, ω) = ε(s, ω)Λ(1 − s, ω^{−1})"
+        },
+        {
+          "where": "DirichletPadicLFunctions:L0",
+          "how": "root numbers of Dirichlet characters"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.TateZeta.globalEpsilon",
+          "role": "constructor",
+          "statement": "ε(s, ω) = ∏_v ε_v(s, ω_v, ψ_v)."
+        },
+        {
+          "name": "TauCeti.TateZeta.globalEpsilon_indep",
+          "role": "characterisation",
+          "statement": "ε(s, ω) is the same for every nontrivial ψ trivial on k."
+        },
+        {
+          "name": "TauCeti.TateZeta.globalEpsilon_eq_conductor",
+          "role": "relation",
+          "statement": "ε(s, ω) = ε(1/2, ω)(|d_k|N𝔣(ω))^{1/2−s}."
+        },
+        {
+          "name": "TauCeti.TateZeta.norm_globalEpsilon_half",
+          "role": "other",
+          "statement": "|ε(1/2, ω)| = 1."
+        },
+        {
+          "name": "TauCeti.TateZeta.fourier_globalNormalized",
+          "role": "compatibility",
+          "statement": "(4.7): ẑ₀(1 − s, ω^{−1}) = ε(s, ω)z₀(s, ω)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.TateZeta.globalEpsilon_rat_one",
+          "kind": "computation",
+          "statement": "k = ℚ, ω = 1: ε(s, 1) = 1."
+        },
+        {
+          "name": "TauCeti.TateZeta.globalEpsilon_dirichlet",
+          "kind": "computation",
+          "statement": "k = ℚ, ω attached to a primitive Dirichlet character of conductor N: ε(s, ω) = N^{1/2−s}ε(1/2, ω), the N-power in Mathlib's DirichletCharacter.IsPrimitive.completedLFunction_one_sub; ε(1/2, ω) is the product of the p | N Gauss-sum factors and i^a at ∞, to be matched with rootNumber through the ω ↔ χ^{±1} dictionary of GlobalNumberFields Layer 9."
+        },
+        {
+          "name": "TauCeti.TateZeta.globalEpsilon_unramified_everywhere",
+          "kind": "degenerate",
+          "statement": "ω unramified everywhere and k = ℚ: ε(s, ω) = i^{a} with a from ω_∞."
+        },
+        {
+          "name": "TauCeti.TateZeta.localEpsilon_not_global",
+          "kind": "non-example",
+          "statement": "A single local factor ε_v(s, ω_v, ψ_v) does depend on ψ_v (3.29); only the product over all places is independent."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "title": "Continuation and functional equation of Hecke L-functions (Kudla Corollary 4.4)",
+      "kind": "theorem",
+      "statement": "For a character ω of 𝔸^×/k^×, Λ(s, ω) continues to a meromorphic function on ℂ with Λ(s, ω) = ε(s, ω)Λ(1 − s, ω^{−1}). Λ(s, ω) is entire unless ω = |·|^{iu} for some real u, in which case its only poles are simple, at s = −iu and s = 1 − iu. Equivalently (Tate §4.5) Hecke's ζ(s, χ) = Σ_{(𝔞,S)=1}χ(𝔞)N𝔞^{−s} continues and satisfies ζ(1 − s, χ^{−1}) = ∏_{v∈S}ρ_v(c̃_v|·|^{s+it_v})·∏_{v∉S}χ(𝔡_v)N𝔡_v^{s−1/2}·ζ(s, χ).",
+      "hypotheses": [
+        "k a number field, 𝔸 = 𝔸_k, 𝔸^× the ideles with |x| = ∏|x_v|_v, J = {|x| = 1}; ω = ⊗ω_v a character of 𝔸^×/k^× (a Hecke character in the sense of GlobalNumberFields Layer 9); ω_s(x) = |x|^s."
+      ],
+      "proofSteps": [
+        "(4.8): Λ(1 − s, ω^{−1})ẑ₀(1 − s, ω^{−1}) = ẑ(1 − s, ω^{−1}) = z(s, ω) = Λ(s, ω)z₀(s, ω), by (4.3) and Theorem 4.3.",
+        "Insert (4.7) to get (4.9), and cancel z₀(s, ω), which is nowhere zero (⟨z₀(s, ω), f^o⟩ = 1).",
+        "Poles: Λ(s, ω) = z(s, ω; f^o) up to a nonzero constant, so they are those of Tate's theorem, present only when ωω_s is trivial on J."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-functional-equation",
+        "mathlib:completedRiemannZeta_one_sub",
+        "mathlib:DirichletCharacter.IsPrimitive.completedLFunction_one_sub"
+      ],
+      "acceptance": [
+        "Check k = ℚ, ω = 1: Λ(s, 1) = completedRiemannZeta s and the equation is completedRiemannZeta_one_sub (ε = 1).",
+        "Check k = ℚ, ω attached to a primitive Dirichlet character: the shape agrees with DirichletCharacter.IsPrimitive.completedLFunction_one_sub.",
+        "Work Kudla's exercise for k = ℚ(√5): the unramified Hecke character with ω_∞(x₁, x₂) = |x₁/x₂|^{−iπ/log ε} (trivial on O_k^× = ±ε^ℤ) and its conductor-√5 variants; check that the units ≡ 1 mod √5 are generated by −ε², and that ω_5(ε) = i for ω_∞ = sgn(x₁)|x₁/x₂|^{−iπ/(4 log ε)}."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/TateThesis/Global",
+        "namespace": "TauCeti.TateZeta",
+        "declaration": "TauCeti.TateZeta.completedHeckeL_one_sub"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "§4, Corollary 4.4 and (4.8)–(4.9), printed p. 128 (physical p. 20)",
+          "match": "Corollary 4.4 and its derivation."
+        },
+        {
+          "sourceId": "Tate1950",
+          "locator": "§4.5, physical pp. 53–59",
+          "match": "Hecke's ζ(s, χ) as a Tate ζ-function and its functional equation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Functional equation of Hecke L-functions"
+      }
     }
   ],
   "requests": [
@@ -903,7 +3091,8 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.0",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
         "AutomorphicLFunctionsAndLocalFactors:AL.2",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space"
       ]
     },
     {
@@ -913,21 +3102,34 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.0",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
         "AutomorphicLFunctionsAndLocalFactors:AL.2",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
       "need": "Supply the canonical continuous idele-class character, local components, finite conductor, real norm shift/unitary part and conductor/parity-compatible Q-to-Dirichlet dictionary. AL.1 constructs analytic zeta integrals on those existing arithmetic objects.",
       "neededBy": [
-        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
       "need": "Supply the continuous real/complex character classification with complex norm exponents and the precise conversion between continuous, algebraic and finite-order infinity types. AL.1 converts the modulus convention to normalized |z|_C=z·conj(z); it does not replace continuous parameters by integer exponents.",
       "neededBy": [
-        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors"
       ]
     },
     {
@@ -950,14 +3152,19 @@
       "need": "Supply the uniform finite/infinite completion API, real/complex topological identifications and normalized local absolute values, including the squared complex norm and the product formula. AL.0 supplies additive characters and self-dual measure; AL.1 uses those arithmetic normalizations in its integrals.",
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.0",
-        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
       "need": "Supply the native full adele ring, continuous diagonal embedding, discreteness of K and compactness of the additive quotient, with the Q fundamental-domain comparison. AL.0 must prove its character annihilator and quotient-volume normalization; these do not follow merely from compactness.",
       "neededBy": [
-        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space"
       ]
     },
     {
@@ -967,7 +3174,19 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
         "AutomorphicLFunctionsAndLocalFactors:AL.2",
         "AutomorphicLFunctionsAndLocalFactors:AL.4",
-        "AutomorphicLFunctionsAndLocalFactors:AL.5"
+        "AutomorphicLFunctionsAndLocalFactors:AL.5",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+      "need": "The idele group and IdeleClassGroup K with the idele norm, the closed norm-one subgroup and its compactness, and Dirichlet's unit theorem and class-group finiteness as agreement corollaries. AL.1 builds Tate's fundamental domain E ⊂ J and computes its volume κ (Tate Lemma 4.3.1, Theorem 4.3.2) on these objects; it does not re-prove compactness.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-a",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-b",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation"
       ]
     }
   ],
@@ -981,17 +3200,18 @@
         "Construct and normalize self-dual additive Haar measures, prove finite and positive compact-open volume, the dual volume product and all character/measure changes. Combine the finite-place carrier, period and annihilator results with the present component to obtain actual Fourier preservation and inversion on every Schwartz–Bruhat function. Handle translation and modulation of general finite linear combinations without assuming additivity of nonintegrable Bochner integrals.",
         "At real and complex places import native SchwartzMap and its established Fourier theorems after reading their exact statements; prove the norm, trace and character convention comparisons. Construct the adelic restricted tensor product with distinguished almost-everywhere unit indicators, its relation to local Fourier transforms, the diagonal character pairing and Poisson summation using the GlobalNumberFields diagonal lattice and AA.0 product-measure interfaces; prove the required quotient-volume normalization. AF.0’s archimedean compactly supported C∞ test functions are not identical to the Schwartz family.",
         "Read and decompose the remaining local and global analytic sources. Extract holomorphic parameter integrals, dominated differentiability, Mellin comparison and vertical/decay estimates from actual proofs, using the native analytic APIs identified by AUDIT-14 only after statement checks. Physical Tate pp.25–60 and published Kudla pp.124–131 remain unread."
-      ]
+      ],
+      "notes": "Checkpoint (cc-39fac3): 4 more AL.0 nodes — the local Schwartz–Bruhat space (SR.1 carrier and Mathlib 𝓢, 𝓢′), local Fourier inversion with the self-dual measure, the adelic space S(𝔸) with Tate's conditions 𝔷1–𝔷3, and adelic Poisson summation / Riemann–Roch (Tate §4.2)."
     },
     {
       "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
       "status": "partial",
       "remaining": [
-        "Use GlobalNumberFields Layers 0, 5, 9–10 and ArithmeticDirichletSeries Layer 3 for local components, conductors, unitary/norm twists and real/complex character classifications. Specify additive and multiplicative measure conventions separately: Kudla normalizes multiplicative unit volume to one, while Tate’s original §2.3 normalization depends on the different.",
-        "Decompose every local assertion read in Kudla pp.115–123: the scaling action on actual test functions and distributions; support-at-zero classification; extension from F×; Lemmas 3.2–3.3 and the one-dimensional eigendistribution Theorem 3.4; half-plane convergence; the unramified difference operator and geometric factor; ramified stabilization and test vectors; normalized zeta distributions and their entire dependence. The residue and exceptional-parameter extension argument must retain its nonsplit scaling action rather than infer uniqueness from an upper bound of two.",
-        "Read the missing proof sources for the archimedean distribution and integration-by-parts arguments, state the gamma factors with the normalized complex absolute value, and split Proposition 3.5, Lemma 3.6 and Corollary 3.7 into typed parameter identities. Define epsilon and gamma with the source’s positive Fourier convention or prove conversion to the native negative convention. Complete (3.27)–(3.29), the unread explicit epsilon/Gauss calculations and conductor dependence.",
-        "Read Tate’s global chapters and Kudla’s global section, then prove global convergence, product factorization with justified Fubini, meromorphic continuation and the functional equation using Poisson. Separate unitary from general norm-twisted characters and retain the trivial/norm-character poles. The generic Euler-product theorem in ArithmeticDirichletSeries does not provide analytic continuation."
-      ]
+        "The proof source for the point-support structure theorem (AL.0/point-supported-distributions, behind Kudla Lemma 3.3(ii)–(iii)) is not read.",
+        "Tate §3 (restricted direct products, Theorem 3.3.1, Lemma 3.3.3; physical pp. 28–39) is unread; product integrals are requested from AdelicAlgebraicGroups AA.0.",
+        "The Hecke-character dictionary (GlobalNumberFields Layer 9) is requested; it fixes the identification of ε(1/2, ω) with Mathlib's Dirichlet rootNumber."
+      ],
+      "notes": "Checkpoint (cc-39fac3, 2026-09-29): 24 AL.1 nodes from Kudla §§3–5 (read in full, pp. 115–131) and Tate §§2.4–2.5 and 4.2–4.5 (physical pp. 15–27 and 40–59): quasi-characters and conductors, local zeta integrals, eigendistributions and Lemmas 3.2–3.3, the unramified, exceptional, ramified and archimedean local theories, Theorem 3.4, Lemma 3.6, ε/γ-factors, the local functional equation, Gauss sums and Proposition 3.8; global uniqueness, the global zeta integral, Λ(s, ω), κ, Tate's Lemmas A and B, Main Theorem 4.4.1, the global ε-factor and the Hecke functional equation."
     },
     {
       "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.2",
@@ -1041,7 +3261,7 @@
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.1"
       ],
-      "detail": "Use GlobalNumberFields Layers 0, 5, 9–10 and ArithmeticDirichletSeries Layer 3 for local components, conductors, unitary/norm twists and real/complex character classifications. Specify additive and multiplicative measure conventions separately: Kudla normalizes multiplicative unit volume to one, while Tate’s original §2.3 normalization depends on the different. Decompose every local assertion read in Kudla pp.115–123: the scaling action on actual test functions and distributions; support-at-zero classification; extension from F×; Lemmas 3.2–3.3 and the one-dimensional eigendistribution Theorem 3.4; half-plane convergence; the unramified difference operator and geometric factor; ramified stabilization and test vectors; normalized zeta distributions and their entire dependence. The residue and exceptional-parameter extension argument must retain its nonsplit scaling action rather than infer uniqueness from an upper bound of two. Read the missing proof sources for the archimedean distribution and integration-by-parts arguments, state the gamma factors with the normalized complex absolute value, and split Proposition 3.5, Lemma 3.6 and Corollary 3.7 into typed parameter identities. Define epsilon and gamma with the source’s positive Fourier convention or prove conversion to the native negative convention. Complete (3.27)–(3.29), the unread explicit epsilon/Gauss calculations and conductor dependence. Read Tate’s global chapters and Kudla’s global section, then prove global convergence, product factorization with justified Fubini, meromorphic continuation and the functional equation using Poisson. Separate unitary from general norm-twisted characters and retain the trivial/norm-character poles. The generic Euler-product theorem in ArithmeticDirichletSeries does not provide analytic continuation."
+      "detail": "Checkpoint (cc-39fac3, 2026-09-29) planned the local and global theory of Kudla §§3–5 and Tate §§2.4–2.5, 4.2–4.5 as 24 AL.1 nodes. Remaining: (1) the point-support structure theorem behind Kudla Lemma 3.3(ii)–(iii) is planned as AL.0/point-supported-distributions, but its proof source (Friedlander, cited by Kudla) was not read; (2) Tate §3 (restricted direct products, Theorem 3.3.1 and Lemma 3.3.3, physical pp. 28–39) was not read, and product integrals are requested from AdelicAlgebraicGroups AA.0; (3) the Hecke-character dictionary (ω ↔ χ^{±1}, conductor and infinity type) is requested from GlobalNumberFields Layer 9, which fixes the exact identification of ε(1/2, ω) with Mathlib's DirichletCharacter.rootNumber; (4) Kudla's archimedean continuation is only sketched, and the plan uses Tate's explicit route through the local functional equation instead."
     },
     {
       "title": "AL.2: Godement–Jacquet theory",
@@ -1070,6 +3290,22 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.5"
       ],
       "detail": "Read the precise GL_2/Rankin interpolation families in AutomorphicPadicLFunctions. Construct finite-set removal and reinsertion as formal polynomial identities and complex evaluation identities, retaining the exceptional zero case without dividing by a vanishing factor. Prove conductor/test-vector/twist compatibility, critical-value normalization, functional-equation signs and the algebraicity comparisons required by those families. RS-13 keeps these analytic corrections in AL.5 and the motivic period adapters in PS.1. Establish the required limiting or derivative theorem at each vanishing factor; no general p-adic L-function construction belongs here."
+    },
+    {
+      "title": "AL.0: the point-support theorem for tempered distributions has no read proof source",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/point-supported-distributions",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistributions-supported-at-zero"
+      ],
+      "detail": "Kudla cites Friedlander, Introduction to the Theory of Distributions, for the archimedean distributions supported at 0; that book was not read, and no atlas roadmap owns general distribution theory (FoundationsAndLibraryIntegration is retired). The node records the standard finite-order argument; its source should be read before formalisation."
+    },
+    {
+      "title": "AL.1: Tate §3 (restricted direct products and product integrals) is not read",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space"
+      ],
+      "detail": "Tate Theorem 3.3.1 (the integral of a product function over a restricted direct product is the product of the local integrals) and Lemma 3.3.3 (Fourier transforms of product functions) are used through Kudla (4.2) and Tate p. 56. Physical pp. 28–39 of the thesis scan were not read; the statements are requested from AdelicAlgebraicGroups AA.0."
     }
   ],
   "sourceVersions": [
@@ -1123,6 +3359,48 @@
       "known": "Already corrected in Kudla 2004, p.110",
       "searched": [
         "Direct collation of the specified lecture preprint p.1 and published chapter p.110; publisher chapter bibliography [11]."
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors/E3",
+      "source": "Kudla2004",
+      "kind": "misprint",
+      "locator": "Published 2004 chapter, §4, p. 128, the two sentences after Theorem 4.3",
+      "printed": "The source refers to (3.13) as the local functional equation and credits Proposition3.7 with the explicit expression for ε_v(s,ω_v,ψ_v).",
+      "correction": "Read (3.23) for (3.13), and Proposition 3.8 for Proposition 3.7.",
+      "reason": "(3.13) is the computation c = −1 in the unramified example (p. 120); the displayed equation z₀(1 − s, ω_v^{−1})^ = ε_v z₀(s, ω_v) is (3.23), Corollary 3.7 on p. 123. Corollary 3.7 states the functional equation without values; the explicit ε-factors are Proposition 3.8 on p. 124.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: the publisher chapter page https://link.springer.com/chapter/10.1007/978-0-8176-8226-2_6 (no correction entry); the author pages checked on 2026-09-27 for E1 list no erratum; a web search for errata to Kudla's Tate's-thesis chapter found none."
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors/E4",
+      "source": "Kudla2004",
+      "kind": "misprint",
+      "locator": "Published 2004 chapter, §3, Remark after Proposition 3.5, pp. 121–122, (3.22)",
+      "printed": "The source places the poles, when F=ℝ, at −r∈ℤ_{≤0}, imposing r≡a mod2. Its residue identity reads Res_{s=−r}z(s,ω)=c_rD^rδ₀.",
+      "correction": "In the chapter's convention ω(x) = x^{−a} (3.18), for which L(s, ω) = π^{−s/2}Γ(s/2) for both a (3.19): the poles are at s = −r with r ≡ 0 mod 2, and the residue is c_r D^{a+r}δ₀ ∈ S′(ωω_{−r}) (the constant term extends x^{−a−r}d^×x). The printed statement is right for the other common normalisation ω = sgn^a.",
+      "reason": "For a = 1, Proposition 3.5 gives z(s, x^{−1}; x e^{−πx²}) = ∫ e^{−πx²}|x|^s d^×x = π^{−s/2}Γ(s/2), with poles at s = 0, −2, −4, …, not at odd −r. Directly, the Taylor term f^{(k)}(0)x^k/k! contributes ∫_{|x|<1} x^{k−1}|x|^{s−1}dx, nonzero only for k odd, with a pole at s = 1 − k and a residue proportional to f^{(k)}(0), i.e. to D^{a+r}δ₀ with r = k − 1 even. This matches the chapter's own complex statement, residue D^{a+r}D̄^{b+r}δ₀, and the eigencharacter: D^{a+r}δ₀ ∈ S′(x^{−a−r}) = S′(x^{−a}|x|^{−r}) for r even.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: the publisher chapter page (no correction entry); the lecture preprint was not collated for this remark (read only through p. 9); a web search for errata to the chapter found none."
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors/E5",
+      "source": "Tate1950",
+      "kind": "misprint",
+      "locator": "Original 1950 thesis scan, §2.5 \"k 𝔭-adic\", physical p. 26, printed (2.19), the sentence before \"Explicit Expressions for ρ(c)\"",
+      "printed": "The source describes f̂_n as the indicator function of 1+𝔭^n multiplied by N𝔡^(−1/2)N𝔭^n.",
+      "correction": "f̂_n is N𝔡^{+1/2}N𝔭^n times the characteristic function of 1 + 𝔭^n.",
+      "reason": "Physical p. 24 states f̂_n(ξ) = (N𝔡)^{+1/2}(N𝔭)^n for ξ ≡ 1 mod 𝔭^n and proves it as the measure of 𝔡^{−1}𝔭^{−n}, which is N𝔡^{−1/2}·N𝔡·N𝔭^n; the next line on p. 26 uses N𝔡^{1/2}N𝔭^n; and only +1/2 gives the stated ρ(c|·|^s) = N(𝔡𝔣)^{s−1/2}ρ₀(c).",
+      "affects": "nothing",
+      "known": "new (the 1967 Cassels–Fröhlich reprint was not collated)",
+      "searched": [
+        "2026-09-29: a web search for errata or misprint lists for Tate's thesis found none; the 1967 reprint (Algebraic Number Theory, Chapter XV) is not freely available and was not checked; Kudla 2004 uses its own normalisation (3.31) and does not reproduce this display."
       ]
     }
   ],
