@@ -116,7 +116,7 @@ Proof obligations:
 2. At v∉S, compute the local integral as the convergent geometric series N(d_v)^(−1/2)∑_{j≥0}χ(v)^j N(v)^(−js).
 3. Import the AL.1 global zeta-integral factorization, with the AL.0 measures and Fourier convention, and multiply the local formulas.
 4. Use ADS Layer3 to identify the ideal Euler product with the absolutely convergent ideal series. Exact norm regrouping and admissibility hypotheses are required imports, not new carriers here.
-5. The inherited completed functional equation is separated from this comparison and remains a named coverage gap; the local factors cannot simply be cancelled at their zeros.
+5. The completed functional equation is now AN.4/hecke-primitive-functional-equation, stated as an identity of meromorphic functions from AL.1/hecke-l-functional-equation; no local factor is cancelled at its zeros.
 
 Acceptance:
 
@@ -124,7 +124,7 @@ Acceptance:
 - Ramified different factors N(d_v)^(−1/2) are retained.
 - The character is an imported idele-class character, not an arbitrary list of local factors.
 
-Dependencies: AutomorphicLFunctionsAndLocalFactors:AL.0; AutomorphicLFunctionsAndLocalFactors:AL.1; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters; tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products.
+Dependencies: AutomorphicLFunctionsAndLocalFactors:AL.0; AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral; AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters; tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products.
 
 Source: tate-thesis-1950, §4.5, thesis p.(4.23), scan p.57; comparison and continuation discussion scan pp.58–59. Fresh page-image verification of the displayed Euler comparison. Character construction and full admissibility proofs remain imported, with exact unread boundaries recorded.
 
@@ -140,8 +140,8 @@ Proof obligations:
 
 1. Import arithmetic Frobenius and conjugacy independence from NumberFieldArithmetic Layer2. AN.4 must supply determinant Euler factors and direct-sum/induction identities.
 2. Import finite-group Artin rational induction; after clearing denominators express an m-fold representation as a virtual sum of induced one-dimensional characters.
-3. Use ClassFieldTheory Layer11 and GlobalNumberFields Layer9 to identify one-dimensional factors with finite-order Hecke characters. Their near-line continuation/nonvanishing, including the pole at1 of the trivial character, remains an AN.4 analytic gap beyond the AL.1 functional equation.
-4. On simply connected small zero-free neighbourhoods of the boundary, select the m-th root agreeing with the original Euler product on the right half-plane; prove that overlapping roots glue. This is a required lemma, not automatic global root extraction.
+3. Use ClassFieldTheory Layer11 and GlobalNumberFields Layer9 to identify one-dimensional factors with finite-order Hecke characters; their continuation is AN.4/hecke-primitive-functional-equation and their boundary nonvanishing, with the pole at 1 of the trivial character, is AN.4/hecke-nonvanishing-on-line-one.
+4. On small discs about points of the line, take the m-th root agreeing with the Euler product on Re s > 1 and glue (AN.4/mth-root-gluing).
 5. Separate the trivial summand to compute the pole order. Brauer integral induction can prove global meromorphy, whereas absence of extra poles is Artin holomorphy; the rational-root route here does not prove the global assertion.
 
 Acceptance:
@@ -151,7 +151,7 @@ Acceptance:
 - At ramified primes the complete local factor would act on inertia invariants; an arbitrary Frobenius lift on the whole representation is invalid.
 - No natural-density conclusion is included; that theorem belongs to Chebotarev.
 
-Dependencies: AutomorphicLFunctionsAndLocalFactors:AL.1; tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters; tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction.
+Dependencies: AN.4/hecke-nonvanishing-on-line-one; AN.4/mth-root-gluing; AN.4/dedekind-zeta-continuation-and-residue; tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters; tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction.
 
 Source: kedlaya-ant-2025, Chapter22, §§22.2–22.5, Theorems22.3–22.4, printed pp.128–129. Retains the inherited ID only for the near-line analytic theorem, with rational induction, root-gluing and Hecke boundary inputs explicitly open. The defective Lemma22.1 is not used.
 
@@ -162,6 +162,36 @@ AL.0 owns Fourier transforms, Poisson summation and parameter-integral justifica
 The canonical Hecke character belongs to GlobalNumberFields Layer9, with local components and the unitary decomposition. Arbitrary complex norm twists are not unitary. Arithmetic Frobenius belongs to NumberFieldArithmetic Layer2 and is defined by its action on a residue field at a selected prime, not by an existential equation for one nonzero residue. At ramification only its coset modulo inertia is canonical. Consequently the complete local Artin factor is a determinant on inertia invariants.
 
 RepresentationTheory/InductionRestriction Layer6 owns the virtual-character ring and Artin/Brauer induction. The rational induction statement can be used for the near-line root argument only after root selection and gluing are proved. It does not license taking a global meromorphic root. Integral Brauer induction supplies a separate global-meromorphy route; Artin holomorphy concerns the stronger absence of unwanted poles. The Chebotarev natural-density theorem remains with its own owner, and cannot be obtained from a Dirichlet-density calculation by changing the density's name.
+
+### Checkpoint (cc-39fac3, 29 September 2026): Hecke and Dedekind interfaces on top of AL.1
+
+AL.1 now plans Tate's local and global theory (#3918). AN.4 imports it and adds six nodes.
+
+**`dedekind-zeta-continuation-and-residue`** (theorem, planet "Analytic class number formula").
+- *Statement:* Mathlib's `NumberField.dedekindZeta K` continues meromorphically to ℂ. Its only pole is a simple pole at s = 1, with residue κ = 2^{r₁}(2π)^{r₂}hR/(w√|d_K|), which equals Mathlib's `NumberField.dedekindZeta_residue K`. The completed Λ_K(s) = |d_K|^{s/2}Γ_ℝ(s)^{r₁}Γ_ℂ(s)^{r₂}ζ_K(s) satisfies Λ_K(1 − s) = Λ_K(s), so ζ_K(−2) = 0.
+- *Proof:* Tate's standard function gives ζ(f, |·|^s) = |d_K|^{−1/2}Γ_ℝ(s)^{r₁}((2π)^{1−s}Γ(s))^{r₂}ζ_K(s). Main Theorem 4.4.1 gives the residue κf̂(0), with f̂(0) = |d_K|^{−1/2}.
+- *Tests:* ℚ gives `completedRiemannZeta` with residue 1; ℚ(i) gives κ = π/4 = L(1, χ₋₄). The residue agrees with Mathlib's one-sided limit `NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT`.
+
+**`hecke-primitive-functional-equation`** (theorem, planet "Functional equation of Hecke L-functions").
+- *Statement:* for a primitive finite-order χ, Λ(s, χ) = ε(s, ω)Λ(1 − s, χ̄) as meromorphic functions, with ε(s, ω) = ε(1/2, ω)(|d_K|N𝔣)^{1/2−s}.
+- Imprimitive L-functions differ from primitive ones by finitely many entire Euler polynomials, which are multiplied in, never divided out.
+
+**`landau-nonnegative-logarithm`** (lemma; Kedlaya Lemma 3.6).
+- *Statement:* if f is meromorphic near Re s ≥ L with at worst a simple pole at L, and log f has nonnegative Dirichlet coefficients, then f ≠ 0 on Re s ≥ L.
+- *Proof:* Kedlaya leaves it as Exercise 3.6.1. The plan uses 3 + 4cos θ + cos 2θ = 2(1 + cos θ)² ≥ 0 and the positivity f(σ) ≥ 1 on the real axis.
+
+**`ray-class-product-nonvanishing`** (lemma).
+- ∏_χ L(s, χ) over the ray class group has log with nonnegative coefficients, by orthogonality, so it is nonzero on Re s ≥ 1. This is Kedlaya Theorem 3.7 for K = ℚ.
+
+**`hecke-nonvanishing-on-line-one`** (theorem, planet).
+- *Statement:* L(s, χ) ≠ 0 on Re s = 1, s ≠ 1, and L(1, χ) ≠ 0 for χ ≠ 1.
+- *Proof:* s ≠ 1 comes from the product. At s = 1 there are two cases (Kedlaya Theorems 3.10 and 3.11). For non-real χ, both χ and χ̄ would vanish. For real χ, ψ(s) = L(s, χ)ζ_K(s)/ζ_K(2s) = ∏_{χ(𝔭)=1}(1 + N𝔭^{−s})/(1 − N𝔭^{−s}) has nonnegative coefficients.
+- *Test:* K = ℚ is Mathlib's `DirichletCharacter.LFunction_ne_zero_of_one_le_re`.
+
+**`mth-root-gluing`** (lemma).
+- On discs centred on the line, the unique m-th root of a zero-free g that agrees with f on the connected half-disc exists, and these roots agree on overlaps. This is the step Kedlaya's Theorem 22.4 proof uses.
+
+Two items are removed from AN.4's remaining list, "Hecke comparison construction and completed functional equation" and "Hecke nonvanishing and local root gluing". The Artin node now depends on these nodes.
 
 ## AN.5 — multiplicative functions and the divisor bound
 
