@@ -1,8 +1,25 @@
-# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.1, R21.2, R21.6 source-decomposed; R21.3–R21.5 partial (checkpoint 8)
+# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.1, R21.2, R21.6 source-decomposed; R21.3–R21.5 partial (checkpoint 9)
 
-Claude Code — session `cc-39fac3`, 29 September 2026. Refs #962. **Status: partial.**
+Claude Code — session `cc-fb70e5`, 29 September 2026. Refs #962. **Status: partial.**
 - R21.1, R21.2 and R21.6 are `source_decomposed`.
 - R21.3–R21.5 are `partial`.
+
+## Checkpoint 9: why Pan's theorem misses the p = 3 branch (correction, 1 node)
+
+**Source:** Pan, *The Fontaine–Mazur conjecture in the residually reducible case* (arXiv:1901.07166v2, sha 5901711…),
+Theorem 1.0.2 and the paragraph after it (p. 3). It is recorded as `PAN-2022`, the id GL2ModularityLifting uses.
+
+**R21.5/theorem-a-at-three.**
+- The node said Pan's residually reducible theorem "needs p ≥ 5". That is wrong: Theorem 1.0.2 holds for every odd p.
+- At p = 3 it excludes exactly χ̄₁χ̄₂^{−1}|_{G_{ℚ₃}} = ω. For ρ̄^{ss} ≅ 1 ⊕ χ̄₃ this ratio is χ̄₃^{∓1}, which restricts to
+  ω for either ordering. So the conclusion stands: this branch still needs Skinner–Wiles.
+- Dieulefait–Pacetti quote Pan only for p ≥ 5, which is where the old wording came from.
+- The node gains a Pan source entry, a proof step, an acceptance check, and a hypothesis pointing to
+  GL2ModularityLifting:R32.5/p-three-residually-reducible-branch, which reads Pan the same way.
+- The readme's R21.5 prose and source list are updated to match. No published mistake was found: Pan and
+  Dieulefait–Pacetti are both right, and only the blueprint's reading was wrong.
+
+**Next.** The readme's "Remaining work" section is unchanged.
 
 ## Checkpoint 8: the classical Hida family over ℚ and the required examples (4 nodes)
 
