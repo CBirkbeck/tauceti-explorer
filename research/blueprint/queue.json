@@ -44610,8 +44610,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-14.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4009"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4009",
+   "finishedAt": "2026-09-29T17:31:02Z"
   },
   {
    "id": "RT-AUDIT-15",
@@ -44772,7 +44773,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4011"
   },
   {
    "id": "RT-AUDIT-17",
