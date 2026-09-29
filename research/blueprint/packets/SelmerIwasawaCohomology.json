@@ -10,7 +10,7 @@
   "SelmerIwasawaCohomology:L4"
  ],
  "status": "partial",
- "summary": "First checkpoint of the blueprint for Selmer groups, continuous integral cohomology and Iwasawa cohomology, within RS-08's boundaries. L0: the p-adic completion of a multiplicative group and its comparison with the tensor product (true for global units and S-units, false for local multiplicative groups and for F^×), the Kummer maps along the μ_{p^m} tower, the Mittag-Leffler bookkeeping, the identification H^1(G_K, ℤ_p(1)) ≅ lim K^×/(K^×)^{p^m} and its S-unit form H^1(G_{F,S}, ℤ_p(1)) ≅ ℤ_p ⊗ 𝓞_{F,S}^×. L2: the generic Selmer-kernel API (local conditions, strict and relaxed modifications, change of conditions, functoriality, propagation, the passage V → T, W with saturation), the unramified and Greenberg conditions, Galois Selmer groups, Pontryagin duals and coranks, and the elliptic p^∞-Selmer group. Two new findings in RJW are recorded.",
+ "summary": "First checkpoint of the blueprint for Selmer groups, continuous integral cohomology and Iwasawa cohomology, within RS-08's boundaries. L0: the p-adic completion of a multiplicative group and its comparison with the tensor product (true for global units and S-units, false for local multiplicative groups and for F^×), the Kummer maps along the μ_{p^m} tower, the Mittag-Leffler bookkeeping, the identification H^1(G_K, ℤ_p(1)) ≅ lim K^×/(K^×)^{p^m} and its S-unit form H^1(G_{F,S}, ℤ_p(1)) ≅ ℤ_p ⊗ 𝓞_{F,S}^×. L2: the generic Selmer-kernel API (local conditions, strict and relaxed modifications, change of conditions, functoriality, propagation, the passage V → T, W with saturation), the unramified and Greenberg conditions, Galois Selmer groups, Pontryagin duals and coranks, and the elliptic p^∞-Selmer group. Two new findings in RJW are recorded. Second checkpoint: L1's parametric pairing lemmas (orthogonal complements, compatibility of the local pairings for T, V, W, W_M), and in L2 the dual Selmer structure, the unramified dimension count and bad-prime comparison terms, local duality for the finite conditions on V, T and W_M, Selmer groups as limits, and Poitou–Tate for Selmer groups (Rubin Theorem 7.3, Corollary 7.5), built on ArithmeticGaloisDuality R02.4's Poitou–Tate.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -205,7 +205,11 @@
     "Chapter I §3.1–3.2 (Definitions 3.1, 3.4, Lemmas 3.2, 3.5)",
     "Chapter I §5 (Definition 5.1, Lemmas 5.3–5.4)",
     "Chapter I §6.2–6.3 (Definition 6.2, Proposition 6.3)",
-    "Appendix B §2 (Definition 2.1, Remark 2.2, Propositions 2.3–2.5, 2.7, Lemma 2.8)"
+    "Appendix B §2 (Definition 2.1, Remark 2.2, Propositions 2.3–2.5, 2.7, Lemma 2.8)",
+    "Chapter I §3.1 Corollary 3.3; §3.2 Remarks 3.6–3.7, Lemma 3.8, Corollary 3.10",
+    "Chapter I §4 (Theorem 4.1, Propositions 4.2–4.3, Definition 4.4, Lemmas 4.5, 4.7)",
+    "Chapter I §5 (Lemma 5.4, Remark 5.5, Proposition 5.6, Lemma 5.7)",
+    "Chapter I §7 (Remark 7.1, Definition 7.2, Theorem 7.3, Remark 7.4, Corollary 7.5)"
    ]
   },
   {
@@ -252,14 +256,14 @@
    "kind": "preprint",
    "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
    "citation": "K. Rubin, Euler systems, author draft (1999); published as Annals of Mathematics Studies 147 (2000)",
-   "read": "2026-09-28",
+   "read": "2026-09-28, 2026-09-29 (Chapter I §§3–5, 7)",
    "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50"
   },
   {
    "kind": "preprint",
    "url": "https://arxiv.org/pdf/1312.4052v1",
    "citation": "B. Mazur and K. Rubin, Controlling Selmer groups in the higher core rank case, arXiv:1312.4052v1",
-   "read": "2026-09-28",
+   "read": "2026-09-28, 2026-09-29 (§§1–2)",
    "sha256": "15ec72e48fab1790e5b96e7172b4af88c974b0d487a515cdbd9dd0ced3ea4ee8"
   },
   {
@@ -1781,28 +1785,643 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L1/orthogonal-complement",
+   "parentStageId": "SelmerIwasawaCohomology:L1",
+   "realises": [
+    "SelmerIwasawaCohomology:L1"
+   ],
+   "title": "Orthogonal complements of local conditions",
+   "kind": "construction",
+   "statement": "Let O be the ring of integers of a finite extension Φ of ℚ_p, D = Φ/O, and b : X × X′ → Y a bilinear pairing of O-modules (Y = Φ, O/MO or D). For an O-submodule F ⊆ X, F^⊥ = {x′ ∈ X′ : b(F, x′) = 0}. Applied to the local Tate pairings H¹(K, A) × H¹(K, A^*) → Y for A = V, W_M, T and A^* = V^*, W^*_M, W^* (Rubin, Theorem 4.1), F^⊥ is the dual local condition F^* of Mazur–Rubin, Definition 1.6.",
+   "hypotheses": [
+    "b bilinear; perfectness, where used, is a hypothesis of the lemma that uses it."
+   ],
+   "proofSteps": [
+    "F^⊥ is an O-submodule, and F ↦ F^⊥ is antitone.",
+    "If b is perfect (nondegenerate on both sides) and X is finite, a finite-dimensional Φ-space, or a finitely generated O-module paired perfectly with a cofinitely generated one, then F^⊥⊥ = F: in the last case every finitely generated submodule is closed, and Pontryagin duality applies.",
+    "Image and preimage: if π : X → Z and ι : Z′ → X′ are adjoint (b_Z(π x, z′) = b(x, ι z′)), then (π F)^⊥ = ι^{−1}(F^⊥); dually (π^{−1} G)^⊥ = ι(G^⊥) when b and b_Z are perfect.",
+    "Counting: for X finite and b perfect, #F · #F^⊥ = #X; for Φ-spaces, dim F + dim F^⊥ = dim X.",
+    "If F^⊥ = F′, then b induces a perfect pairing (X/F) × F′ → Y."
+   ],
+   "acceptance": [
+    "The parametric lemma RS-08 asks L1 to state before L2 instantiates named conditions.",
+    "Stated for a named pairing; a statement quantified over arbitrary pairings would admit the zero pairing, for which F^⊥ = X′ for every F."
+   ],
+   "prerequisites": [
+    "mathlib:PontryaginDual",
+    "mathlib:Submodule.map_le_iff_le_comap"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Duality",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §4, Theorem 4.1, printed p. 8 (PDF p. 18)",
+     "excerpt": "Then the cup product and the local invariant map induce perfect pairings",
+     "match": "The three local Tate pairings to which the construction is applied."
+    },
+    {
+     "sourceId": "MAZUR-RUBIN-16",
+     "locator": "§1, Definition 1.6, p. 5 (arXiv v1)",
+     "excerpt": "A local condition F for T determines a local condition F^* for T^*, by taking H^1_{F^*}(K, T^*) to be the orthogonal complement of H^1_F(K, T) under the Tate pairing",
+     "match": "The dual local condition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Selmer.orthogonal",
+     "role": "constructor",
+     "statement": "F ↦ F^⊥ for a bilinear pairing of O-modules."
+    },
+    {
+     "name": "TauCeti.Selmer.orthogonal_antitone",
+     "role": "functoriality",
+     "statement": "F ≤ G ⇒ G^⊥ ≤ F^⊥."
+    },
+    {
+     "name": "TauCeti.Selmer.orthogonal_top",
+     "role": "simp",
+     "statement": "For a perfect pairing, X^⊥ = 0: relaxed ↦ strict."
+    },
+    {
+     "name": "TauCeti.Selmer.orthogonal_bot",
+     "role": "simp",
+     "statement": "0^⊥ = X′: strict ↦ relaxed."
+    },
+    {
+     "name": "TauCeti.Selmer.orthogonal_orthogonal",
+     "role": "characterisation",
+     "statement": "F^⊥⊥ = F for perfect pairings of finite modules, of Φ-spaces, and of finitely generated O-modules against cofinitely generated ones."
+    },
+    {
+     "name": "TauCeti.Selmer.orthogonal_map_eq_comap",
+     "role": "compatibility",
+     "statement": "(π F)^⊥ = ι^{−1}(F^⊥) for adjoint π, ι."
+    },
+    {
+     "name": "TauCeti.Selmer.orthogonal_comap_eq_map",
+     "role": "compatibility",
+     "statement": "(π^{−1} G)^⊥ = ι(G^⊥) for adjoint π, ι and perfect pairings."
+    },
+    {
+     "name": "TauCeti.Selmer.card_mul_card_orthogonal",
+     "role": "relation",
+     "statement": "#F · #F^⊥ = #X for finite X, b perfect."
+    },
+    {
+     "name": "TauCeti.Selmer.quotientPairing_perfect",
+     "role": "relation",
+     "statement": "F^⊥ = F′ gives a perfect pairing (X/F) × F′ → Y."
+    }
+   ],
+   "tests": [
+    {
+     "name": "relax_strict",
+     "kind": "value",
+     "statement": "For a perfect pairing, X^⊥ = 0 and 0^⊥ = X′."
+    },
+    {
+     "name": "zmod_p",
+     "kind": "value",
+     "statement": "The standard pairing ℤ/p × ℤ/p → ℤ/p: 0^⊥ = ℤ/p and (ℤ/p)^⊥ = 0; the pairing on (ℤ/p)² with F the first axis gives F^⊥ the second axis."
+    },
+    {
+     "name": "local_example",
+     "kind": "value",
+     "statement": "K = ℚ_ℓ with ℓ ≠ p and ℓ ≢ 1 (mod p): H¹(K, ℤ/p) ≅ ℤ/p is all unramified, and its orthogonal complement in H¹(K, μ_p) = K^×/K^{×p} ≅ ℤ/p is 0, which is H¹_ur(K, μ_p) = 𝒪_K^×/𝒪_K^{×p}."
+    },
+    {
+     "name": "zero_pairing",
+     "kind": "non-example",
+     "statement": "For the zero pairing F^⊥ = X′ for every F, so F^⊥⊥ = X ≠ F whenever F ≠ X."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SelmerIwasawaCohomology:L2/dual-selmer-structure",
+     "how": "the dual local conditions"
+    },
+    {
+     "where": "SelmerIwasawaCohomology:L2/finite-condition-lattice-duality",
+     "how": "the image and preimage rules"
+    },
+    {
+     "where": "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate",
+     "how": "the perfect pairing of H¹_s with the dual finite part"
+    },
+    {
+     "where": "EulerSystemsAndKolyvaginSystems:ES.0",
+     "how": "the square relating propagated local conditions and annihilators"
+    }
+   ],
+   "planet": {
+    "name": "Orthogonal local conditions"
+   }
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L1/lattice-pairing-compatibility",
+   "parentStageId": "SelmerIwasawaCohomology:L1",
+   "realises": [
+    "SelmerIwasawaCohomology:L1"
+   ],
+   "title": "Compatibility of the local pairings for T, V, W and W_M",
+   "kind": "lemma",
+   "statement": "Let K be a finite extension of ℚ_ℓ, ℝ or ℂ and T a p-adic representation of G_K. The local Tate pairings of Rubin's Theorem 4.1 are compatible with the coefficient maps: for c ∈ H¹(K, T) and d ∈ H¹(K, V^*), ⟨φ(c), d⟩ = ⟨c, φ^*(d)⟩ in D, where φ : H¹(K, T) → H¹(K, V) and φ^* : H¹(K, V^*) → H¹(K, W^*); and for c ∈ H¹(K, T), d ∈ H¹(K, W^*_M), ⟨π_M(c), d⟩_M = ⟨c, ι_M(d)⟩ in O/MO ⊆ D, where π_M : T ↠ W_M = M^{−1}T/T and ι_M : W^*_M ↪ W^*.",
+   "hypotheses": [
+    "The pairings of Rubin's Theorem 4.1, perfect by ArithmeticGaloisDuality's local duality."
+   ],
+   "proofSteps": [
+    "Each pairing is cup product followed by the invariant map, so the identities are the naturality of the cup product in the coefficients (ProfiniteCohomology Layer 12) together with the compatibility of the invariant maps H²(K, Φ(1)) → Φ, H²(K, D(1)) → D and H²(K, O(1)/M) → O/MO with the maps O(1)/M ↪ D(1) and Φ(1) ↠ D(1).",
+    "For the lattice and rational pairings, the continuous cochains and limits are those of ArithmeticGaloisDuality R02.1."
+   ],
+   "acceptance": [
+    "These are the pairing comparisons RS-08 keeps in L1 for the stated coefficient modules; the perfectness of each pairing is imported, not reproved."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.4",
+    "ArithmeticGaloisDuality:R02.1/continuous-section-long-exact"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Duality",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §4, proof of Proposition 4.3, printed p. 9 (PDF p. 19)",
+     "excerpt": "The deﬁnition of the local pairings in terms of cup products shows that the diagram",
+     "match": "The first compatibility square; the second is the diagram for T and W_M used for (ii)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L2/dual-selmer-structure",
+   "parentStageId": "SelmerIwasawaCohomology:L2",
+   "realises": [
+    "SelmerIwasawaCohomology:L2"
+   ],
+   "title": "Dual Selmer structures",
+   "kind": "construction",
+   "statement": "A Selmer structure F on T (Mazur–Rubin, Definition 2.1) is a finite set Σ(F) of places containing the archimedean places, the places above p and the primes where T is ramified, with a local condition H¹_F(K_q, T) for each q ∈ Σ(F); its Selmer module H¹_F(K, T) is the kernel of H¹(K_{Σ(F)}/K, T) → ⊕_{q∈Σ(F)} H¹(K_q, T)/H¹_F(K_q, T). The dual Selmer structure F^* on T^* = Hom(T, μ_{p^∞}) has Σ(F^*) = Σ(F) and H¹_{F^*}(K_q, T^*) = H¹_F(K_q, T)^⊥ under the local Tate pairing (Mazur–Rubin, Definition 2.5).",
+   "hypotheses": [
+    "T finitely generated over O with continuous G_K-action, unramified outside a finite set."
+   ],
+   "proofSteps": [
+    "The Selmer module is galois-selmer-group for the data of F.",
+    "The dual conditions are orthogonal-complement for the local Tate pairings.",
+    "F^{**} = F from orthogonal-complement's double-orthogonal rule; strict and relaxed modifications swap under duality; the structure induced on T/IT is dual to the one induced on T^*[I] = (T/IT)^* by the image/preimage rule and lattice-pairing-compatibility."
+   ],
+   "acceptance": [
+    "Σ(F^*) = Σ(F); the dual conditions are orthogonal complements for the named local Tate pairing."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L1/orthogonal-complement",
+    "SelmerIwasawaCohomology:L1/lattice-pairing-compatibility",
+    "SelmerIwasawaCohomology:L2/galois-selmer-group",
+    "SelmerIwasawaCohomology:L2/selmer-data"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Duality",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "MAZUR-RUBIN-16",
+     "locator": "§2, Definition 2.1, p. 6 (arXiv v1)",
+     "excerpt": "A Selmer structure F on T is a collection of the following data",
+     "match": "Selmer structures and their Selmer modules."
+    },
+    {
+     "sourceId": "MAZUR-RUBIN-16",
+     "locator": "§2, Definition 2.5, p. 7 (arXiv v1)",
+     "excerpt": "a Selmer structure F for T determines a Selmer structure F^* for T^*",
+     "match": "The dual Selmer structure."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Selmer.SelmerStructure",
+     "role": "constructor",
+     "statement": "Σ(F) with local conditions at each q ∈ Σ(F)."
+    },
+    {
+     "name": "TauCeti.Selmer.SelmerStructure.selmerModule",
+     "role": "projection",
+     "statement": "H¹_F(K, T) as galois-selmer-group for these data."
+    },
+    {
+     "name": "TauCeti.Selmer.SelmerStructure.dual",
+     "role": "constructor",
+     "statement": "F^* on T^*."
+    },
+    {
+     "name": "TauCeti.Selmer.SelmerStructure.dual_dual",
+     "role": "characterisation",
+     "statement": "F^{**} = F."
+    },
+    {
+     "name": "TauCeti.Selmer.SelmerStructure.dual_modify",
+     "role": "compatibility",
+     "statement": "(F^b_a)^* = (F^*)^a_b: strict at a ↔ relaxed at a (Mazur–Rubin, Definition 2.3)."
+    },
+    {
+     "name": "TauCeti.Selmer.SelmerStructure.dual_induced",
+     "role": "compatibility",
+     "statement": "The structure induced on T/IT is dual to the one induced on T^*[I]."
+    },
+    {
+     "name": "TauCeti.Selmer.SelmerStructure.rubin_dual",
+     "role": "example",
+     "statement": "Rubin's S^Σ(K, W_M) and S_Σ(K, W^*_M) are the Selmer modules of dual structures (finite-condition-lattice-duality)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "relaxed_dual_strict",
+     "kind": "value",
+     "statement": "The structure relaxed at every q ∈ Σ has dual strict at every q ∈ Σ; the dual Selmer module is Ш¹_Σ(K, T^*) (ArithmeticGaloisDuality R02.4/restricted-product-cohomology)."
+    },
+    {
+     "name": "finite_selfdual",
+     "kind": "value",
+     "statement": "For T unramified at q ∤ p, the finite condition at q is its own dual."
+    },
+    {
+     "name": "archimedean",
+     "kind": "value",
+     "statement": "At a real place H¹(ℝ, W_M) = 0 for p odd, so every archimedean condition is 0 = its dual; for p = 2 it can be nonzero (Rubin, Remark 3.7)."
+    },
+    {
+     "name": "enlarged_sigma",
+     "kind": "non-example",
+     "statement": "Adding a place q ∉ Σ(F) to Σ(F^*) with the relaxed condition does not give the dual structure: the dual keeps the finite condition at q."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate",
+     "how": "the pair of Selmer modules compared by Poitou–Tate"
+    },
+    {
+     "where": "ArithmeticStatistics:ST.5/cassels-isogeny-selmer-ratio-formula",
+     "how": "the dual structure L^* of the Greenberg–Wiles ratio"
+    },
+    {
+     "where": "EulerSystemsAndKolyvaginSystems:ES.0",
+     "how": "Selmer structures and their duals"
+    }
+   ],
+   "planet": {
+    "name": "Dual Selmer structures"
+   }
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L2/unramified-dimension-count",
+   "parentStageId": "SelmerIwasawaCohomology:L2",
+   "realises": [
+    "SelmerIwasawaCohomology:L2"
+   ],
+   "title": "Dimensions of unramified classes",
+   "kind": "lemma",
+   "statement": "Let K/ℚ_ℓ be finite with ℓ ≠ p and V a finite-dimensional ℚ_p[G_K]-module. Then dim H¹_ur(K, V) = dim V^{G_K}, and dim H¹(K, V)/H¹_ur(K, V) = dim H²(K, V).",
+   "hypotheses": [
+    "ℓ ≠ p."
+   ],
+   "proofSteps": [
+    "unramified-condition: H¹_ur(K, V) = V^I/(Fr − 1)V^I, so 0 → V^{G_K} → V^I → V^I → H¹_ur(K, V) → 0 gives (i).",
+    "I has a unique maximal subgroup I′ of pro-order prime to p with I/I′ ≅ ℤ_p (the tame quotient, LocalFieldsRamification Layer 4), so I and Gal(K^ur/K) have p-cohomological dimension 1 (ProfiniteCohomology Layer 11).",
+    "Hochschild–Serre (ArithmeticGaloisDuality R02.2) gives H¹(K^ur/K, H¹(I, V)) = H²(K, V) and H¹(K, V)/H¹_ur(K, V) = H¹(I, V)^{Fr=1}; the sequence 0 → H¹/H¹_ur → H¹(I, V) → H¹(I, V) → H²(K, V) → 0 gives (ii)."
+   ],
+   "acceptance": [
+    "Only for ℓ ≠ p; at ℓ = p the finite condition is chosen, not computed."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/unramified-condition",
+    "ArithmeticGaloisDuality:R02.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Duality",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §3.1, Corollary 3.3, printed p. 5 (PDF p. 15)",
+     "excerpt": "Suppose p ≠ ℓ and V is a Q_p[G_K]-module which has ﬁnite dimension as a Q_p-vector space.",
+     "match": "Corollary 3.3 and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L2/finite-unramified-comparison",
+   "parentStageId": "SelmerIwasawaCohomology:L2",
+   "realises": [
+    "SelmerIwasawaCohomology:L2"
+   ],
+   "title": "Finite against unramified classes at bad primes",
+   "kind": "lemma",
+   "statement": "Let K/ℚ_ℓ be finite with ℓ ≠ p, H¹_f(K, V) = H¹_ur(K, V), and H¹_f(K, T), H¹_f(K, W), H¹_f(K, W_M) as in lattice-passage. Put 𝒲 = W^I/(W^I)_div, a finite module. (i) H¹_f(K, W) = H¹_ur(K, W)_div. (ii) H¹_ur(K, T) ⊆ H¹_f(K, T) with finite index, and H¹_s(K, T) is torsion-free. (iii) H¹_ur(K, W)/H¹_f(K, W) ≅ 𝒲/(Fr − 1)𝒲 and H¹_f(K, T)/H¹_ur(K, T) ≅ 𝒲^{Fr=1}. (iv) If T is unramified, H¹_f = H¹_ur for T and W. Moreover H¹_f(K, W_M) is the image of H¹_f(K, T), and equals H¹_ur(K, W_M) when T is unramified. At an archimedean place H¹_f(K, W) = 0, H¹_f(K, T) = H¹(K, T) and H¹_f(K, W_M) = W^{G_K}/M W^{G_K}, all zero unless K = ℝ and p = 2.",
+   "hypotheses": [
+    "ℓ ≠ p for (i)–(iv); T a lattice."
+   ],
+   "proofSteps": [
+    "The diagram of the rows 0 → H¹_ur(K, A) → H¹(K, A) → H¹(I, A) for A = T, V, W gives H¹_f(W) ⊆ H¹_ur(W) and H¹_ur(T) ⊆ H¹_f(T) (ArithmeticGaloisDuality R02.1's long exact sequences).",
+    "The image of V^I in W^I is (W^I)_div; taking I-cohomology and Frobenius invariants of 0 → T → V → W → 0 gives 0 → 𝒲^{Fr=1} → H¹(I, T)^{Fr=1} → H¹(I, V)^{Fr=1}, and with unramified-condition this gives (iii); (i), (ii) follow since 𝒲 is finite; (iv) since W^I = W is divisible when T is unramified.",
+    "Image of H¹_f(K, T): the diagram H¹(K, T) → H¹(K, W_M) → H²(K, T) over H¹(K, V) → H¹(K, W) → H²(K, T) (Rubin Lemma 3.8).",
+    "Archimedean: H¹(K, V) = 0 (Rubin Remark 3.7)."
+   ],
+   "acceptance": [
+    "These are the unramified and bad-prime comparison terms the L1 stage asks for; they are planned here because the conditions are L2's."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/lattice-passage",
+    "SelmerIwasawaCohomology:L2/unramified-condition",
+    "ArithmeticGaloisDuality:R02.1/continuous-section-long-exact",
+    "ArithmeticGaloisDuality:R02.1/lattice-torsion-sequence"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Duality",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §3.2, Lemma 3.5, printed p. 6 (PDF p. 16)",
+     "excerpt": "H^1_ur(K, T) ⊂ H^1_f(K, T) with ﬁnite index and H^1_s(K, T) is torsion-free",
+     "match": "Lemma 3.5; Lemma 3.8 (p. 7) for W_M."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §3.2, Remark 3.7, printed p. 7 (PDF p. 17)",
+     "excerpt": "Note that all of these groups are zero unless K = R and p = 2.",
+     "match": "The archimedean conditions."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L2/finite-condition-rational-duality",
+   "parentStageId": "SelmerIwasawaCohomology:L2",
+   "realises": [
+    "SelmerIwasawaCohomology:L2"
+   ],
+   "title": "Local duality for the finite condition on V",
+   "kind": "theorem",
+   "statement": "If K is archimedean, or nonarchimedean of residue characteristic ℓ ≠ p, then H¹_f(K, V) and H¹_f(K, V^*) are exact orthogonal complements under the local Tate pairing.",
+   "hypotheses": [
+    "ℓ ≠ p or K archimedean."
+   ],
+   "proofSteps": [
+    "Archimedean K: all the groups vanish.",
+    "The pairing of two unramified classes factors through H²(K^ur/K, Φ(1)) = 0, as Gal(K^ur/K) has cohomological dimension 1.",
+    "dim H¹_f(K, V^*) = dim H⁰(K, V^*) = dim H²(K, V) = dim H¹(K, V) − dim H¹_f(K, V), by unramified-dimension-count, local duality for V (ArithmeticGaloisDuality R02.4) and unramified-dimension-count again; conclude with orthogonal-complement's dimension count."
+   ],
+   "acceptance": [
+    "The dimension count, not only orthogonality, is proved."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/unramified-dimension-count",
+    "SelmerIwasawaCohomology:L1/orthogonal-complement",
+    "ArithmeticGaloisDuality:R02.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Duality",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §4, Proposition 4.2, printed p. 9 (PDF p. 19)",
+     "excerpt": "Then H^1_f(K, V) and H^1_f(K, V^*) are orthogonal complements of each other under the pairing",
+     "match": "Proposition 4.2 and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L2/finite-condition-lattice-duality",
+   "parentStageId": "SelmerIwasawaCohomology:L2",
+   "realises": [
+    "SelmerIwasawaCohomology:L2"
+   ],
+   "title": "Local duality for the finite conditions on T and W_M",
+   "kind": "theorem",
+   "statement": "Suppose K is archimedean, or nonarchimedean of residue characteristic ℓ ≠ p, or nonarchimedean with ℓ = p and H¹_f(K, V), H¹_f(K, V^*) chosen to be orthogonal complements. Then H¹_f(K, T) and H¹_f(K, W^*) are exact orthogonal complements, and so are H¹_f(K, W_M) and H¹_f(K, W^*_M) for every nonzero M ∈ O. In particular, for T unramified and ℓ ≠ p, the unramified conditions on T and T^* are exact annihilators (Mazur–Rubin, Proposition 1.7(i)).",
+   "hypotheses": [
+    "The case ℓ = p needs the chosen orthogonal pair H¹_f(K, V), H¹_f(K, V^*)."
+   ],
+   "proofSteps": [
+    "lattice-pairing-compatibility: ⟨φ(c), d⟩ = ⟨c, φ^*(d)⟩.",
+    "By finite-condition-rational-duality (or the hypothesis at ℓ = p), H¹_f(K, V)^⊥ = H¹_f(K, V^*). Since H¹_f(K, W^*) = φ^*(H¹_f(K, V^*)) and H¹_f(K, T) = φ^{−1}(H¹_f(K, V)) (lattice-passage), orthogonal-complement's image/preimage rule gives H¹_f(K, W^*)^⊥ = H¹_f(K, T).",
+    "For W_M, use T ↠ W_M and W^*_M ↪ W^* in the same way, with H¹_f(K, W_M) the image of H¹_f(K, T) (finite-unramified-comparison).",
+    "Unramified T with ℓ ≠ p: finite-unramified-comparison (iv) identifies the finite and unramified conditions; at finite level this agrees with ArithmeticGaloisDuality's unramified-exact-annihilators."
+   ],
+   "acceptance": [
+    "At ℓ = p nothing is claimed without the chosen orthogonal pair; that Bloch–Kato's subspaces for potentially semistable V are such a pair (Rubin, Remark 7.1) belongs to L4."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/finite-condition-rational-duality",
+    "SelmerIwasawaCohomology:L1/orthogonal-complement",
+    "SelmerIwasawaCohomology:L1/lattice-pairing-compatibility",
+    "SelmerIwasawaCohomology:L2/finite-unramified-comparison",
+    "SelmerIwasawaCohomology:L2/lattice-passage",
+    "ArithmeticGaloisDuality:R02.4/unramified-exact-annihilators"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Duality",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §4, Proposition 4.3, printed p. 9 (PDF p. 19)",
+     "excerpt": "(i) H^1_f(K, T) and H^1_f(K, W^*) are orthogonal complements of each other,",
+     "match": "Proposition 4.3."
+    },
+    {
+     "sourceId": "MAZUR-RUBIN-16",
+     "locator": "§1, Proposition 1.7, p. 5 (arXiv v1)",
+     "excerpt": "(i) H^1_f(K, T) and H^1_f(K, T^*) are orthogonal complements under ⟨, ⟩.",
+     "match": "The unramified case over a general coefficient ring."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Local duality for the finite conditions"
+   }
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L2/selmer-limits",
+   "parentStageId": "SelmerIwasawaCohomology:L2",
+   "realises": [
+    "SelmerIwasawaCohomology:L2"
+   ],
+   "title": "Selmer groups of T and W as limits",
+   "kind": "lemma",
+   "statement": "For a finite set Σ of places: (i) S^Σ(K, T) = lim_M S^Σ(K, W_M) and S_Σ(K, T) = lim_M S_Σ(K, W_M); (ii) S^Σ(K, W) = colim_M S^Σ(K, W_M) and S_Σ(K, W) = colim_M S_Σ(K, W_M); the finite and singular parts of the local cohomology commute with these limits. The map ι_M : H¹(K, W_M) → H¹(K, W) induces a surjection S^Σ(K, W_M) ↠ S^Σ(K, W)[M], which can fail for S_Σ. S^Σ(K, W_M) is finite, S^Σ(K, T) is finitely generated over O, and the Pontryagin dual of S^Σ(K, W) is finitely generated over O.",
+   "hypotheses": [
+    "Σ finite; T a lattice unramified outside a finite set."
+   ],
+   "proofSteps": [
+    "H¹(K, W) = colim_M H¹(K, W_M), and H¹(K, T) = lim_M H¹(K, W_M) by Tate's inverse-limit theorem (ArithmeticGaloisDuality R02.1/tate-inverse-limit; the H⁰ are finite).",
+    "The local groups at level M are finite, so the finite parts and singular quotients commute with the limits (Rubin, Corollary 3.10, using finite-unramified-comparison's description of H¹_f(K, W_M)).",
+    "ι_M(H¹(K, W_M)) = H¹(K, W)[M], and ι_M^{−1}(S^Σ(K, W)[M]) = S^Σ(K, W_M) by definition; for S_Σ the strict condition at Σ is not preserved under ι_M^{−1} (Rubin, Remark 5.5).",
+    "Enlarging Σ, S^Σ(K, A) = H¹(K_Σ/K, A) (galois-selmer-group), which is finite for A = W_M (ArithmeticGaloisDuality R02.3/h1-finite); the other two statements follow by the limits."
+   ],
+   "acceptance": [
+    "Both the relaxed and the strict Selmer groups are covered, with the failure of Lemma 5.4 for the strict ones recorded."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/galois-selmer-group",
+    "SelmerIwasawaCohomology:L2/lattice-passage",
+    "SelmerIwasawaCohomology:L2/finite-unramified-comparison",
+    "ArithmeticGaloisDuality:R02.1/tate-inverse-limit",
+    "ArithmeticGaloisDuality:R02.3/h1-finite",
+    "mathlib:PontryaginDual"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Duality",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §5, Proposition 5.6, printed p. 12 (PDF p. 22)",
+     "excerpt": "Suppose Σ is a ﬁnite set of primes of K.",
+     "match": "Proposition 5.6, with Lemma 5.4, Remark 5.5 and Lemma 5.7 (pp. 12–13) and Corollary 3.10 (p. 8)."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §5, Remark 5.5, printed p. 12 (PDF p. 22)",
+     "excerpt": "Lemma 5.4 need not be true if we replace S^Σ by S_Σ",
+     "match": "The strict Selmer groups."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate",
+   "parentStageId": "SelmerIwasawaCohomology:L2",
+   "realises": [
+    "SelmerIwasawaCohomology:L2"
+   ],
+   "title": "Poitou–Tate for Selmer groups",
+   "kind": "theorem",
+   "statement": "Let K be a number field, T a p-adic representation of G_K ramified at finitely many primes, with H¹_f(K_v, V) and H¹_f(K_v, V^*) orthogonal complements at the places above p; let M ∈ O be nonzero and Σ_0 ⊆ Σ finite sets of places. (i) 0 → S^{Σ_0}(K, W_M) → S^Σ(K, W_M) → ⊕_{v∈Σ−Σ_0} H¹_s(K_v, W_M) and 0 → S_Σ(K, W^*_M) → S_{Σ_0}(K, W^*_M) → ⊕_{v∈Σ−Σ_0} H¹_f(K_v, W^*_M) are exact. (ii) The images loc^s(S^Σ(K, W_M)) and loc^f(S_{Σ_0}(K, W^*_M)) are exact orthogonal complements under Σ_{v∈Σ−Σ_0}⟨ , ⟩_v. (iii) S_{Σ_0}(K, W^*_M)/S_Σ(K, W^*_M) ≅ Hom_O(coker(loc^s_{Σ,Σ_0}), O/MO); in particular |S_{Σ_0}(K, W^*_M)| = |coker(loc^s_{Σ,Σ_0})| when S_Σ(K, W^*_M) = 0.",
+   "hypotheses": [
+    "Orthogonal finite conditions at the places above p; Σ_0 ⊆ Σ finite."
+   ],
+   "proofSteps": [
+    "(i) is immediate from the definitions (change-of-conditions).",
+    "For Σ containing the archimedean places, the places above p and the ramified primes, S^Σ(K, A) = H¹(K_Σ/K, A) (galois-selmer-group). The segment H¹(G_Σ, W_M) → P¹_Σ(K, W_M) → H¹(G_Σ, W^*_M)^∨ of Poitou–Tate (ArithmeticGaloisDuality R02.4/poitou-tate), finite-condition-lattice-duality (H¹_s(W_M) is dual to H¹_f(W^*_M), by orthogonal-complement's quotient pairing) and the dual of the tautological sequence for S_Σ(K, W^*_M) splice to the exact sequence 0 → S^{Σ_0} → S^Σ → ⊕ H¹_s → S_{Σ_0}(W^*_M)^∨ → S_Σ(W^*_M)^∨ → 0, whose exactness in the centre is (ii).",
+    "General Σ: take Σ′ ⊇ Σ large; the snake lemma on the diagram for Σ_0 ⊆ Σ′ and Σ ⊆ Σ′ gives the sequence for Σ_0 ⊆ Σ (the map there is (loc^f_{Σ,Σ_0})^∨, SelmerIwasawaCohomology/E3).",
+    "(iii) restates (ii)."
+   ],
+   "acceptance": [
+    "Uses the global duality of ArithmeticGaloisDuality R02.4; summing local pairings alone does not prove (ii).",
+    "The real places enter through ArithmeticGaloisDuality's modified groups, which agree with ordinary cohomology in degree 1."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/finite-condition-lattice-duality",
+    "SelmerIwasawaCohomology:L2/dual-selmer-structure",
+    "SelmerIwasawaCohomology:L2/galois-selmer-group",
+    "SelmerIwasawaCohomology:L2/change-of-conditions",
+    "SelmerIwasawaCohomology:L1/orthogonal-complement",
+    "ArithmeticGaloisDuality:R02.4/poitou-tate",
+    "ArithmeticGaloisDuality:R02.4/restricted-product-cohomology"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Duality",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §7, Theorem 7.3, printed p. 17 (PDF p. 27)",
+     "excerpt": "(ii) The images loc^s_{Σ,Σ_0}(S^Σ(K, W_M)) and loc^f_{Σ,Σ_0}(S_{Σ_0}(K, W^*_M)) are orthogonal complements of each other with respect to the pairing",
+     "match": "Theorem 7.3 and Remark 7.4 (p. 19)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Poitou–Tate for Selmer groups"
+   }
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L2/selmer-poitou-tate-limit",
+   "parentStageId": "SelmerIwasawaCohomology:L2",
+   "realises": [
+    "SelmerIwasawaCohomology:L2"
+   ],
+   "title": "Poitou–Tate for the Selmer group of W^*",
+   "kind": "theorem",
+   "statement": "With Σ_p the places above p: S(K, W^*)/S_{Σ_p}(K, W^*) ≅ Hom_O(coker(loc^s_{Σ_p}), D), where loc^s_{Σ_p} : S^{Σ_p}(K, T) → ∏_{v|p} H¹_s(K_v, T).",
+   "hypotheses": [
+    "As in selmer-structure-poitou-tate."
+   ],
+   "proofSteps": [
+    "selmer-structure-poitou-tate (iii) with Σ = Σ_p and Σ_0 = ∅ at each level M; take the direct limit over M.",
+    "selmer-limits identifies lim_M S(K, W^*_M)/S_{Σ_p}(K, W^*_M) with S(K, W^*)/S_{Σ_p}(K, W^*), lim_M S^{Σ_p}(K, W_M) with S^{Σ_p}(K, T), and the singular quotients.",
+    "All groups at level M are finite: Hom_O(−, O/MO) turns the inverse limit of the cokernels into the direct limit of their duals (Pontryagin duality), and the inverse limit of the cokernels is the cokernel of the limit, as lim¹ of finite groups vanishes (ArithmeticGaloisDuality R02.1)."
+   ],
+   "acceptance": [
+    "The lim¹ bookkeeping is explicit."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate",
+    "SelmerIwasawaCohomology:L2/selmer-limits",
+    "ArithmeticGaloisDuality:R02.1/lim-one-six-term",
+    "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one",
+    "mathlib:PontryaginDual"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Duality",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §7, Corollary 7.5, printed p. 19 (PDF p. 29)",
+     "excerpt": "where loc^s_{Σ_p} is the localization map S^{Σ_p}(K, T) → ∏_{v|p} H^1_s(K_v, T).",
+     "match": "Corollary 7.5 and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
   {
    "supplier": "ArithmeticGaloisDuality:R02.1",
-   "need": "Continuous cohomology with compact coefficients T = lim T_n (ℤ_p(1) = lim μ_{p^m}; lattices T, V = T[1/p], W = V/T) on the canonical carrier, with the Milnor sequence 0 → lim^1 H^{i−1}(G, T_n) → H^i(G, T) → lim H^i(G, T_n) → 0 and its consequence H^i(G, T) = lim H^i(G, T_n) when every H^{i−1}(G, T_n) is finite (Rubin Proposition B.2.3); vanishing of lim^1 for Mittag-Leffler systems; and the maps H^1(T) → H^1(V) → H^1(W) with H^1(T) ⊗ ℚ_p ≅ H^1(V) (Rubin Proposition B.2.4).",
+   "need": "Continuous cohomology with compact coefficients T = lim T_n (ℤ_p(1) = lim μ_{p^m}; lattices T, V = T[1/p], W = V/T) on the canonical carrier, with the Milnor sequence 0 → lim^1 H^{i−1}(G, T_n) → H^i(G, T) → lim H^i(G, T_n) → 0 and its consequence H^i(G, T) = lim H^i(G, T_n) when every H^{i−1}(G, T_n) is finite (Rubin Proposition B.2.3); vanishing of lim^1 for Mittag-Leffler systems; and the maps H^1(T) → H^1(V) → H^1(W) with H^1(T) ⊗ ℚ_p ≅ H^1(V) (Rubin Proposition B.2.4). Also: the long exact sequences for 0 → T → V → W → 0 and Tate's inverse-limit theorem for H¹(K, T) = lim H¹(K, W_M), cited as R02.1's nodes.",
    "neededBy": [
     "SelmerIwasawaCohomology:L0/roots-of-unity-mittag-leffler",
     "SelmerIwasawaCohomology:L0/padic-kummer-identification",
     "SelmerIwasawaCohomology:L0/s-unit-kummer-identification",
     "SelmerIwasawaCohomology:L0/inverse-limit-hypotheses",
-    "SelmerIwasawaCohomology:L2/lattice-passage"
+    "SelmerIwasawaCohomology:L2/lattice-passage",
+    "SelmerIwasawaCohomology:L1/lattice-pairing-compatibility",
+    "SelmerIwasawaCohomology:L2/finite-unramified-comparison",
+    "SelmerIwasawaCohomology:L2/selmer-limits",
+    "SelmerIwasawaCohomology:L2/selmer-poitou-tate-limit"
    ],
    "status": "open",
    "note": "RS-08 makes R02.1 the owner of compact coefficients and derived limits."
   },
   {
    "supplier": "ArithmeticGaloisDuality:R02.3",
-   "need": "G_{F,S} for a number field F and finite S ⊇ {v | p∞}, decomposition-group localisation maps H^i(G_{F,S}, M) → H^i(F_v, M), finiteness of H^i(G_{F,S}, M) for finite M, and the Kummer sequence 0 → 𝓞_{F,S}^×/p^m → H^1(G_{F,S}, μ_{p^m}) → Pic(𝓞_{F,S})[p^m] → 0.",
+   "need": "G_{F,S} for a number field F and finite S ⊇ {v | p∞}, decomposition-group localisation maps H^i(G_{F,S}, M) → H^i(F_v, M), finiteness of H^i(G_{F,S}, M) for finite M, and the Kummer sequence 0 → 𝓞_{F,S}^×/p^m → H^1(G_{F,S}, μ_{p^m}) → Pic(𝓞_{F,S})[p^m] → 0. Also: finiteness of H¹(K_Σ/K, W_M), cited as R02.3/h1-finite.",
    "neededBy": [
     "SelmerIwasawaCohomology:L0/s-unit-kummer-identification",
-    "SelmerIwasawaCohomology:L2/galois-selmer-group"
+    "SelmerIwasawaCohomology:L2/galois-selmer-group",
+    "SelmerIwasawaCohomology:L2/selmer-limits"
    ],
    "status": "open",
    "note": "Stage-level request; ArithmeticGaloisDuality has no packet."
@@ -1856,6 +2475,52 @@
    ],
    "status": "open",
    "note": "The maintainer's Burungale–Tian routing imports finite-level Selmer/Sha from EllipticCurves Layer 7."
+  },
+  {
+   "supplier": "ArithmeticGaloisDuality:R02.4",
+   "need": "Local Tate duality for V, W_M and T × W^* over finite extensions of ℚ_ℓ, ℝ and ℂ (Rubin, Theorem 4.1): perfect cup-product pairings into Φ, O/MO and D. The finite case is ClassFieldTheory's; the rational and lattice cases come through R02.1's limits. R02.4's poitou-tate and restricted-product-cohomology are cited as nodes.",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L1/lattice-pairing-compatibility",
+    "SelmerIwasawaCohomology:L2/finite-condition-rational-duality"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "ArithmeticGaloisDuality:R02.2",
+   "need": "The Hochschild–Serre spectral sequence for I ⊆ G_K and Gal(K^ur/K) with ℚ_p-vector-space coefficients, in the degrees used to identify H¹(K^ur/K, H¹(I, V)) with H²(K, V) (Rubin, Corollary 3.3).",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L2/unramified-dimension-count"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+   "need": "cd_p of Gal(K^ur/K) ≅ Ẑ and of the inertia group at ℓ ≠ p is 1.",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L2/unramified-dimension-count"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+   "need": "Naturality of the cup product in the coefficients, for the compatibility of the local pairings along T → V, V^* → W^*, T ↠ W_M and W^*_M ↪ W^*.",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L1/lattice-pairing-compatibility"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+   "need": "For ℓ ≠ p, the inertia group has a unique maximal subgroup of pro-order prime to p, with quotient ℤ_p (the tame quotient).",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L2/unramified-dimension-count"
+   ],
+   "status": "open",
+   "note": ""
   }
  ],
  "coverage": [
@@ -1868,9 +2533,12 @@
   },
   {
    "stageId": "SelmerIwasawaCohomology:L1",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Read Mazur–Rubin §1 (Proposition 1.7 and Definition 2.5) and Rubin Chapter I §§4, 7 with the local duality inputs of ArithmeticGaloisDuality:R02.4 and D7; plan the annihilator and saturation lemmas for the unramified, strict, relaxed and Greenberg conditions of L2, their unramified/bad-prime comparison terms (Rubin Lemma 3.5 with Corollary 3.3), and the Selmer-complex duality map transported from D7."
+    "The Selmer-complex duality map transported from ArithmeticGaloisDuality D7, which is not yet planned there.",
+    "The annihilators of the Greenberg conditions: read Nekovář, Selmer complexes, §6.7, or Greenberg's 1989 paper. The inertia form of the condition and the strict form differ by unramified terms.",
+    "Condition-specific annihilators are planned in L2, where the conditions are defined. L2 depends on L1 in the stage graph, and RS-08 asks L1 to state the parametric pairing lemmas before L2 instantiates the named conditions.",
+    "The transverse condition and the finite–singular comparison (Mazur–Rubin Lemmas 1.3 and 1.5, Proposition 1.7(ii); Rubin Lemmas 4.5 and 4.7) belong to EulerSystemsAndKolyvaginSystems ES.1."
    ]
   },
   {
@@ -1929,6 +2597,21 @@
     "research/errata/REGISTER.md: no entry for RJW Definition 13.19",
     "the atlas text of SelmerIwasawaCohomology:L2 states that Greenberg's filtration is stable under a decomposition group at p; it is not a published correction",
     "the published version (Essential Number Theory 4, 2025) was not accessed"
+   ]
+  },
+  {
+   "id": "SelmerIwasawaCohomology/E3",
+   "source": "RUBIN-ES",
+   "kind": "misprint",
+   "locator": "Chapter I, §7, proof of Theorem 7.3, printed p. 19 (PDF p. 29), author draft",
+   "printed": "(loc^f_{Σ,Σ})^∨ −→ (S_{Σ_0}(K, W^*_M)/S_Σ(K, W^*_M))^∨ −→ 0",
+   "correction": "(loc^f_{Σ,Σ_0})^∨ −→ (S_{Σ_0}(K, W^*_M)/S_Σ(K, W^*_M))^∨ −→ 0",
+   "reason": "The map in the snake-lemma sequence is the restriction of (loc^f_{Σ′,Σ_0})^∨ to the kernels of the horizontal maps, from ⊕_{v∈Σ−Σ_0} H¹_s(K_v, W_M) to (S_{Σ_0}(K, W^*_M)/S_Σ(K, W^*_M))^∨; that is the dual of loc^f_{Σ,Σ_0} of Definition 7.2. The printed loc^f_{Σ,Σ} maps into the empty sum over Σ − Σ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "research/errata/REGISTER.md: its entries for Rubin's Euler systems concern Chapter III §2.1 only",
+    "the published monograph (Annals of Mathematics Studies 147, 2000) was not accessed; the author draft's chapter and section numbering agrees with it"
    ]
   }
  ]
