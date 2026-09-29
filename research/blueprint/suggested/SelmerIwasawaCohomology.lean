@@ -501,4 +501,26 @@ example : ((2 : ℚ) ^ (-1 : ℤ)) * 1 = 1 / 2 := by norm_num
 
 end SuggestedTest
 
+/-! ## L4 (checkpoint 4): Tate twists and Greenberg's conjecture -/
+
+namespace L4Test
+
+/-- `L4/criticality`: `r_{ℚ_p(n)} = 1` exactly for odd positive `n` (the pole of `Γ((s − n)/2)` at `s = 1`). -/
+def rTwist (n : ℤ) : ℕ := if n % 2 = 1 ∧ 1 ≤ n then 1 else 0
+
+/-- `L4/criticality`: `ℚ_p(n)` is critical when `r_{ℚ_p(n)} = r_{ℚ_p(1−n)} = 0`. -/
+def criticalTwist (n : ℤ) : Prop := rTwist n = 0 ∧ rTwist (1 - n) = 0
+
+instance (n : ℤ) : Decidable (criticalTwist n) := by unfold criticalTwist; infer_instance
+
+/-- `L4/criticality` (parity table, RJW Remark 13.23): for `−6 ≤ n ≤ 6`, `ℚ_p(n)` is critical iff `n` is even
+and positive or odd and negative. -/
+example : ∀ n ∈ Finset.Icc (-6 : ℤ) 6,
+    criticalTwist n ↔ ((n % 2 = 0 ∧ 2 ≤ n) ∨ (n % 2 = 1 ∧ n ≤ -1)) := by decide
+
+/-- `L4/criticality` (non-example): `ℚ_p` itself is not critical, since `r_{ℚ_p(1)} = 1`. -/
+example : ¬ criticalTwist 0 := by decide
+
+end L4Test
+
 end TauCeti.Selmer
