@@ -837,8 +837,30 @@
       {
        "target": "Compatibility with the Hecke functor on strata via the fibre/base-change map and the smooth-representation comparison",
        "library": "absent",
-       "declarations": [],
-       "note": "Smooth representations of p-adic groups do not exist in either library: grep -i for smoothRepresentation/SmoothRep/admissibleRep in declarations.tsv returns nothing."
+       "declarations": [
+        {
+         "name": "TauCeti.IsSmoothDiscrete",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 254,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SmoothDiscreteTopRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 537,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.discreteRepEquivSmoothTopRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 678,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the ordinary category of smooth discrete representations of a topological group: the predicate TauCeti.IsSmoothDiscrete (discrete underlying module, open point stabilizers), the full subcategory TauCeti.SmoothDiscreteTopRep of TopRep, and the equivalence TauCeti.discreteRepEquivSmoothTopRep with discrete representations (SmoothDiscrete.lean:254, 537, 678). This is foundation for the comparison, not the comparison: the abelian and derived API of smooth representations of p-adic groups (compact induction, admissibility, the enhanced derived category) and the Hecke-functor compatibility itself are in neither library; grep -i smoothRepresentation/SmoothRep/admissibleRep in declarations.tsv returns nothing for them."
       },
       {
        "target": "Finiteness, compactness and admissibility from compact Hecke kernels and pro-p compact-induction generators",
@@ -1345,7 +1367,7 @@
    }
   },
   "VStackSheavesAndLisseCategories": {
-   "summary": "Five of the six layers are unbuilt and one, VS2, is partly built. The condensed foundation VS2 asks to consume is genuinely in Mathlib and sorry-free: CondensedMod with its free/forgetful adjunction, Condensed.profiniteFree, Condensed.profiniteSolid as a pointwise right Kan extension, Condensed.profiniteSolidification and the CondensedMod.IsSolid predicate, together with exactness of limits and colimits in condensed modules. The layer's warning is also confirmed by the source: IsSolid's own docstring says it is not the correct definition for a general ring and prescribes the Z[X]-restriction-of-scalars fix, and Mathlib still carries TODOs that no profinite free module is yet proved solid. Everything else is missing. There is no v-topology, perfectoid space, diamond or Artin v-stack in either library, no six operations and no exceptional functors, no universal local acyclicity, no hyperbolic localization, no Drinfeld lemma, no solid tensor product or internal Hom, no D_solid or D_lis, no smooth representations of locally pro-p groups, and no Bernstein-Zelevinsky or Verdier duality. What the libraries contribute beyond VS2 is ambient machinery the roadmap will build on rather than targets: Mathlib's sheaves on sites and its IsStack descent condition, pretriangulated categories and t-structures, group cohomology as derived invariants, formal smoothness, and Z_ell; Tau Ceti's pro-p group theory is the group-theoretic side of VS4's level subgroups.",
+   "summary": "Five of the six layers are unbuilt and one, VS2, is partly built. The condensed foundation VS2 asks to consume is genuinely in Mathlib and sorry-free: CondensedMod with its free/forgetful adjunction, Condensed.profiniteFree, Condensed.profiniteSolid as a pointwise right Kan extension, Condensed.profiniteSolidification and the CondensedMod.IsSolid predicate, together with exactness of limits and colimits in condensed modules. The layer's warning is also confirmed by the source: IsSolid's own docstring says it is not the correct definition for a general ring and prescribes the Z[X]-restriction-of-scalars fix, and Mathlib still carries TODOs that no profinite free module is yet proved solid. Everything else is missing. There is no v-topology, perfectoid space, diamond or Artin v-stack in either library, no six operations and no exceptional functors, no universal local acyclicity, no hyperbolic localization, no Drinfeld lemma, no solid tensor product or internal Hom, no D_solid or D_lis, no derived or enhanced derived category of smooth representations of locally pro-p groups (the ordinary category of smooth discrete representations is Tau Ceti's TauCeti.SmoothDiscreteTopRep), and no Bernstein-Zelevinsky or Verdier duality. What the libraries contribute beyond VS2 is ambient machinery the roadmap will build on rather than targets: Mathlib's sheaves on sites and its IsStack descent condition, pretriangulated categories and t-structures, group cohomology as derived invariants, formal smoothness, and Z_ell; Tau Ceti's pro-p group theory is the group-theoretic side of VS4's level subgroups.",
    "layers": {
     "VStackSheavesAndLisseCategories:VS0": {
      "verdict": "not built",
@@ -1599,9 +1621,30 @@
          "file": "Mathlib/RepresentationTheory/Rep/Basic.lean",
          "line": 30,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsSmoothDiscrete",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 254,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SmoothDiscreteTopRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 537,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.discreteRepEquivSmoothTopRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 678,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti has pro-p groups with their Sylow, Frattini and maximal-pro-p theory and Mathlib has the category Rep k G of linear representations with its derived functors, but smooth representations of a locally pro-p group are not defined in either library (grep -i smoothRepresentation/SmoothRep in declarations.tsv is empty) and D_et([*/H]) does not exist."
+       "note": "Tau Ceti has pro-p groups with their Sylow, Frattini and maximal-pro-p theory, and Mathlib has the category Rep k G of linear representations with its derived functors. Tau Ceti has the ordinary category of smooth discrete representations of a topological group: the predicate TauCeti.IsSmoothDiscrete (discrete underlying module, open point stabilizers), the full subcategory TauCeti.SmoothDiscreteTopRep of TopRep, and the equivalence TauCeti.discreteRepEquivSmoothTopRep with discrete representations (SmoothDiscrete.lean:254, 537, 678). This is foundation for the comparison, not the comparison: the abelian, derived and enhanced derived categories of smooth representations of a locally pro-p group are not built, and D_et([*/H]) does not exist."
       },
       {
        "target": "Both functors by continuous torsor descent; pullback as forgetting the action and invariants as the derived pushforward",
