@@ -939,7 +939,7 @@
          "fit": "related"
         }
        ],
-       "note": "Only the classical Selmer groups exist: Mathlib's K(S, n), the subgroup of K^x/(K^x)^n on which every valuation outside S is divisible by n (that is, the unramified-outside-S local condition for mu_n), with Tau Ceti's S-unit map into it and its 2-Selmer groups of elliptic curves from descent. There is no Selmer complex of a Galois representation, no crystalline or semistable local condition, no determinant line of such a complex and no local or global regulator map."
+       "note": "Only the classical Selmer groups exist: Mathlib's K(S, n), defined by valuations as the subgroup of K^x/(K^x)^n on which every valuation outside S is divisible by n, with Tau Ceti's S-unit map into it and its 2-Selmer groups of elliptic curves from descent. Under Kummer theory the valuation condition is the unramified condition for mu_n only at primes not dividing n; for a number field, K(S, n) is the unramified-outside-S Selmer group only when S contains the primes above n (over Q the class of −1 lies in K(∅, 2), but Q(i) is ramified at 2). No Galois-cohomological comparison is stated for it. There is no Selmer complex of a Galois representation, no crystalline or semistable local condition, no determinant line of such a complex and no local or global regulator map."
       }
      ],
      "duplicates": [
@@ -1319,17 +1319,13 @@
        "target": "The weight-three curve regulator and its Eisenstein-Kronecker expression",
        "library": "absent",
        "declarations": [],
-       "note": "Absent."
+       "note": "Absent. EllipticRegulators:ER.3's Fourier/Kronecker–Eisenstein description of the weight-two elliptic dilogarithm is an analytic analogue of this expression, not a supplier of the weight-three target."
       }
      ],
      "duplicates": [
       {
        "layer": "EllipticRegulators:ER.2",
        "note": "Constructs the regulator form eta(f,g) = log|f| d arg g - log|g| d arg f with its differential identity and Deligne-cohomology target, the same weight-two expression P.5 derives."
-      },
-      {
-       "layer": "EllipticRegulators:ER.3",
-       "note": "Establishes the Fourier/Kronecker-Eisenstein description of the elliptic dilogarithm, overlapping P.5's Eisenstein-Kronecker regulator expression."
       }
      ]
     },
