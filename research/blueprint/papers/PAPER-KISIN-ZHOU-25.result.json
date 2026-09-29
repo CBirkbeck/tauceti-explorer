@@ -7871,7 +7871,7 @@
         "PAPER-KISIN-ZHOU-25/L21",
         "PAPER-KISIN-ZHOU-25/P18"
       ],
-      "owner": "RootSystemsDominancePartII",
+      "owner": "RootSystemsPartIIDominanceAndDemazure",
       "note": "Full Waldspurger proof in Rapoport00 Lemma2.3 reread; its two root-sum/sign leaves are in the pinned Mathlib.",
       "proofSteps": [
         "Write mu-lambda=sum n_i a_i with n_i nonnegative integers and not all0. The finite set X of positive roots beta=sum m_i a_i with every m_i<=n_i is nonempty, since a simple root with n_i>0 is eligible.",
@@ -10231,7 +10231,7 @@
           "match": "Explicit derived adapter, not attributed as a theorem printed verbatim in the main source."
         }
       ],
-      "owner": "RootSystemsDominancePartII",
+      "owner": "RootSystemsPartIIDominanceAndDemazure",
       "uses": [
         {
           "where": "Kisin–Zhou 5.2.3 and 5.2.7",
@@ -10303,7 +10303,7 @@
           "match": "Full four-page note read through web PDF extraction. Direct PDF download returned403; no local PDF hash claimed."
         }
       ],
-      "owner": "RootSystemsDominancePartII",
+      "owner": "RootSystemsPartIIDominanceAndDemazure",
       "acceptance": [
         "If R is finite simply laced and every simple-root orbit is orthogonal, the beta_O form a crystallographic root base; every folded root is the sum of one sigma-orbit of roots, and conversely. The folded Weyl group identifies with W^sigma.",
         "The D4 triality fold has twelve roots and Cartan off-diagonal entries -1,-3."
@@ -10335,7 +10335,7 @@
           "match": "Explicit derived adapter, not attributed as a theorem printed verbatim in the main source."
         }
       ],
-      "owner": "RootSystemsDominancePartII",
+      "owner": "RootSystemsPartIIDominanceAndDemazure",
       "acceptance": [
         "For R=A_(2n), n>=1, sigma(e_i-e_j)=e_(2n+2-j)-e_(2n+2-i). Put f_i=e_i-e_(2n+2-i), i<=n. The distinct root-orbit sums are exactly the B_n roots ±f_i and ±f_i±f_j. Their simple roots are f_i-f_(i+1) and f_n. Invariant integral weights have folded simple pairings d_i for i<n and 2d_n at the last node.",
         "For A2 reversal the two adjacent simple roots sum to its highest root, giving the A1=B1 fold and doubling the invariant simple pairing."
@@ -10368,7 +10368,7 @@
           "match": "Explicit derived adapter, not attributed as a theorem printed verbatim in the main source."
         }
       ],
-      "owner": "RootSystemsDominancePartII",
+      "owner": "RootSystemsPartIIDominanceAndDemazure",
       "acceptance": [
         "Decompose R into sigma-orbits of irreducible components. For a component cycle of length c, the return map sigma^c acts on one component and the full fixed subspace is its diagonal transport. The folded root system on the cycle is the corresponding return-map fold, with all squared norms scaled by c. Non-simply-laced irreducible based Cartan diagrams have no nonidentity length-preserving automorphism.",
         "Exchanging two B2 components folds to one B2 with the same oriented Cartan matrix."
@@ -10401,7 +10401,7 @@
           "match": "Explicit derived adapter, not attributed as a theorem printed verbatim in the main source."
         }
       ],
-      "owner": "RootSystemsDominancePartII",
+      "owner": "RootSystemsPartIIDominanceAndDemazure",
       "acceptance": [
         "Let lambda,mu be sigma-fixed dominant integral weights for R with mu-lambda in the nonnegative integral root cone. They are dominant integral weights for the folded root system of C14–C17, and the same difference is a nonnegative integral combination of its simple roots. The converse holds for such invariant weights.",
         "For A2 reversal an invariant weight with simple pairings(1,1) has folded simple pairing2; no half-integral weight is introduced."
@@ -10433,7 +10433,7 @@
           "match": "Explicit derived adapter, not attributed as a theorem printed verbatim in the main source."
         }
       ],
-      "owner": "RootSystemsDominancePartII",
+      "owner": "RootSystemsPartIIDominanceAndDemazure",
       "acceptance": [
         "For a finite based reduced crystallographic root system R, a base-preserving automorphism sigma and distinct sigma-fixed dominant integral weights lambda<mu in integral root dominance, there is a positive root a such that beta=sum_(b in orbit_sigma(a)) b is nonzero, lambda+beta is dominant, and lambda+beta<=mu in integral dominance.",
         "In A2 with reversal, lambda=0 and mu=alpha1+alpha2 admit the invariant positive orbit sum alpha1+alpha2."
@@ -10659,7 +10659,7 @@
           "match": "Explicit derived adapter, not attributed as a theorem printed verbatim in the main source."
         }
       ],
-      "owner": "RootSystemsDominancePartII",
+      "owner": "RootSystemsPartIIDominanceAndDemazure",
       "uses": [
         {
           "where": "Kisin–Zhou 5.2.3 and 5.2.7",
@@ -10829,7 +10829,7 @@
         "PAPER-KISIN-ZHOU-25/C13"
       ],
       "reason": "GS0 owns loop/Schubert, Witt and v-sheaf geometry. The flat proper O_E local-model scheme, good integral Hodge embeddings and same-residue-field curves add a distinct integral-model layer. GlobalShtukas GS.1 supplies classical equal-characteristic flag geometry; it does not assert the mixed-characteristic integral extension.",
-      "brief": "Begin with Geometric Satake over the Fargues–Fontaine curve (GeometricSatakeAndFusion GS0), importing its loop, bounded Schubert and Witt comparison geometry; import classical equal-characteristic flags from GlobalShtukasAndFunctionFieldLanglands GS.1 and valued roots/parahorics from ReductiveGroupsPartII RG2.1–4. Define acceptable local model triples and good integral Hodge embeddings. Construct the proper flat O_E local model with generic flag fiber and reduced admissible special fiber, using the exact KPZ/AGLR/Levin hypotheses. Prove good embedding existence for p>2 with the prime-to-p derived fundamental-group and R-smooth centralizer conditions, including the symplectic trace and lattice criteria. Identify the special fiber with the equal-characteristic Schubert union and prove Kisin–Zhou5.2.3: every rational lower-stratum point admits a smooth geometrically connected curve with a rational marked preimage over the SAME finite field and dense open in a higher stratum. Import the positive-coroot step from RootSystemsDominancePartII, and close its Frobenius-orbit strengthening before using it. Prove all three rank-one curves, the closed rank-one flag embedding and the connected-stabilizer Lang lift. Do not infer this curve property for arbitrary normal schemes. The final-text and original-source gates remain binding. C14–C19 now supply the finite orbit-sum choice. The remaining G-roots obligation is the valued-root/coroot normalization of its short relative-root subgroup, especially the even-A adjacent case."
+      "brief": "Begin with Geometric Satake over the Fargues–Fontaine curve (GeometricSatakeAndFusion GS0), importing its loop, bounded Schubert and Witt comparison geometry; import classical equal-characteristic flags from GlobalShtukasAndFunctionFieldLanglands GS.1 and valued roots/parahorics from ReductiveGroupsPartII RG2.1–4. Define acceptable local model triples and good integral Hodge embeddings. Construct the proper flat O_E local model with generic flag fiber and reduced admissible special fiber, using the exact KPZ/AGLR/Levin hypotheses. Prove good embedding existence for p>2 with the prime-to-p derived fundamental-group and R-smooth centralizer conditions, including the symplectic trace and lattice criteria. Identify the special fiber with the equal-characteristic Schubert union and prove Kisin–Zhou5.2.3: every rational lower-stratum point admits a smooth geometrically connected curve with a rational marked preimage over the SAME finite field and dense open in a higher stratum. Import the positive-coroot step from RootSystemsPartIIDominanceAndDemazure, and close its Frobenius-orbit strengthening before using it. Prove all three rank-one curves, the closed rank-one flag embedding and the connected-stabilizer Lang lift. Do not infer this curve property for arbitrary normal schemes. The final-text and original-source gates remain binding. C14–C19 now supply the finite orbit-sum choice. The remaining G-roots obligation is the valued-root/coroot normalization of its short relative-root subgroup, especially the even-A adjacent case."
     },
     {
       "route": "part-ii",
@@ -10955,9 +10955,9 @@
     {
       "route": "part-ii",
       "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
-      "roadmap": "RootSystemsDominancePartII",
-      "title": "Root systems, Part II: integral dominance steps",
-      "area": "representations",
+      "roadmap": "RootSystemsPartIIDominanceAndDemazure",
+      "title": "Root systems, Weyl groups, and the Cartan-Killing classification, Part II: dominant subtraction and Demazure reduction",
+      "area": "grouptheory",
       "items": [
         "PAPER-KISIN-ZHOU-25/C03",
         "PAPER-KISIN-ZHOU-25/C14",
@@ -10968,8 +10968,8 @@
         "PAPER-KISIN-ZHOU-25/C19",
         "PAPER-KISIN-ZHOU-25/C25"
       ],
-      "reason": "Extend the existing proposed owner for integral dominance by the reusable finite diagram-folding and invariant-step proof. Upstream RootSystems supplies classification; LieHighestWeight supplies lattice interfaces; Mathlib supplies the obtuse-sum and simple-pairing leaves.",
-      "brief": "Build on Root systems (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), importing its finite reduced crystallographic root data, bases, positive roots and chamber API, including pinned dominant representatives and Bruhat carriers where they match. Define or reuse the nonnegative INTEGRAL coroot dominance order, distinguish it from rational dominance, and prove the exact Stembridge step in Rapoport00 Lemma 2.3: between distinct comparable dominant integral cocharacters one can add a positive coroot while staying dominant and below the upper endpoint. Decompose the maximal eligible coroot proof into the root-sum and simple-pairing lemmas it uses. Test PGL2 parity and rank-two examples. Export this one generic lemma to the local-model curve proof; that consumer must separately establish its Frobenius-orbit sum strengthening. Do not duplicate the upstream chamber or root-lowering construction. This continuation also proves invariant dominance by folding the COROOT root system: use Stembridge2008 only when simple orbits are orthogonal; treat adjacent A_(2n) explicitly by the B_n coordinate roots f_i and f_i±f_j. Reduce component permutations and non-simply-laced return maps using the upstream finite Dynkin classification, not a second classification. Prove integer pairing and cone transport before applying the ordinary Stembridge lemma to the folded datum. Export the existential orbit-sum choice; it does not justify summing arbitrary individually allowable steps."
+      "reason": "Coalesces with the existing candidate RootSystemsPartIIDominanceAndDemazure rather than proposing a second Part II of RootSystems in the same direction (PROTOCOL.md section 15; RT-AREA-representations-1/2). Extend the existing proposed owner for integral dominance by the reusable finite diagram-folding and invariant-step proof. Upstream RootSystems supplies classification; LieHighestWeight supplies lattice interfaces; Mathlib supplies the obtuse-sum and simple-pairing leaves.",
+      "brief": "This route coalesces with RootSystemsPartIIDominanceAndDemazure, proposed by PAPER-HE-21 and continued by PAPER-HE-18, PAPER-KISIN-PAPPAS-ZHOU-26, PAPER-LE-LEHUNG-LEVIN-ETAL-23 and PAPER-ZHU-17; keep its id, title, parent, area and brief, and build one integral dominance order (PAPER-KISIN-PAPPAS-ZHOU-26: 'consolidate its dominant-coroot/Stembridge lane into this candidate at design intake'). Kisin–Zhou add the lane below. Build on Root systems (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), importing its finite reduced crystallographic root data, bases, positive roots and chamber API, including pinned dominant representatives and Bruhat carriers where they match. Define or reuse the nonnegative INTEGRAL coroot dominance order, distinguish it from rational dominance, and prove the exact Stembridge step in Rapoport00 Lemma 2.3: between distinct comparable dominant integral cocharacters one can add a positive coroot while staying dominant and below the upper endpoint. Decompose the maximal eligible coroot proof into the root-sum and simple-pairing lemmas it uses. Test PGL2 parity and rank-two examples. Export this one generic lemma to the local-model curve proof; that consumer must separately establish its Frobenius-orbit sum strengthening. Do not duplicate the upstream chamber or root-lowering construction. This continuation also proves invariant dominance by folding the COROOT root system: use Stembridge2008 only when simple orbits are orthogonal; treat adjacent A_(2n) explicitly by the B_n coordinate roots f_i and f_i±f_j. Reduce component permutations and non-simply-laced return maps using the upstream finite Dynkin classification, not a second classification. Prove integer pairing and cone transport before applying the ordinary Stembridge lemma to the folded datum. Export the existential orbit-sum choice; it does not justify summing arbitrary individually allowable steps."
     },
     {
       "route": "part-ii",
@@ -15237,5 +15237,17 @@
     "read": "arXiv 2103.09945v2, SHA-256 62d26eb9…c34c8, matching the recorded hash; each recorded mistake at its locator, with E9 settled on the page image because pdftotext drops the prime.",
     "changes": "All 14 sourceIssues carry a review verdict and all are confirmed. The run-together spacing in the source's venue and version fields and in every sourceIssues locator, printed text and correction was repaired, since sourceIssues feed the public errata register. No item, status, route or locator was otherwise changed.",
     "lean": "none"
+  },
+  "coalescence": {
+    "RootSystemsPartIIDominanceAndDemazure": {
+      "source": "PAPER-HE-21",
+      "identity": {
+        "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+        "roadmap": "RootSystemsPartIIDominanceAndDemazure",
+        "title": "Root systems, Weyl groups, and the Cartan-Killing classification, Part II: dominant subtraction and Demazure reduction",
+        "area": "grouptheory"
+      },
+      "note": "Formerly proposed here as RootSystemsDominancePartII ('Root systems, Part II: integral dominance steps'); consolidated into the shared candidate by FIX-RT-AREA-representations-1 (finding 2). The 8 routed items keep their ids."
+    }
   }
 }
