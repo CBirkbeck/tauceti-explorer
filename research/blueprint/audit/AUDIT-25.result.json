@@ -1143,9 +1143,16 @@
          "file": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
          "line": 146,
          "fit": "related"
+        },
+        {
+         "name": "IsCyclotomicExtension.Rat.Three.Units.mem",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Three.lean",
+         "line": 51,
+         "fit": "special case"
         }
        ],
-       "note": "Mathlib has the torsion units of a number field. There is no computation of the unit groups of imaginary quadratic orders."
+       "note": "Mathlib has the torsion units of a number field (NumberField.Units.torsion) and explicitly computes the units of the maximal order of Q(ζ_3), the discriminant −3 case: IsCyclotomicExtension.Rat.Three.Units.mem (Three.lean:51) says every unit of 𝓞 K for K = Q(ζ_3) is one of ±1, ±η, ±η² with η = ζ_3. General unit computations for imaginary quadratic orders of arbitrary conductor, the other exceptional case (discriminant −4) and the CM/Heegner formulas that avoid dividing by unit-group orders are not supplied by this evidence."
       }
      ],
      "duplicates": [
