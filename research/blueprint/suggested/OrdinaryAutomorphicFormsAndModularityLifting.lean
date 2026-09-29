@@ -2,11 +2,13 @@ import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.Group.Idempotent
 import Mathlib.Algebra.Polynomial.Degree.Defs
 import Mathlib.Data.ZMod.Basic
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.Tactic.ComputeDegree
 
 /-!
-# Suggested Lean forms: ordinary automorphic forms and ordinary modularity lifting (R21.1–R21.5, SW §§2–8)
+# Suggested Lean forms: ordinary automorphic forms and ordinary modularity lifting (R21.1–R21.6: SW §§2–8, BLZ, DP p = 3)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`OrdinaryAutomorphicFormsAndModularityLifting`) is definitive. The statements below suggest Lean
@@ -169,5 +171,42 @@ example (N D s h : ℕ) (hD : 1 ≤ D) (hN : 2 + 17 * s + 8 * h < N) : 2 + 9 * s
 example {K : Type*} [Field K] (s : K) (h : 1 + s ≠ 0) : (1 + s) + (1 + s)⁻¹ - 2 = s ^ 2 / (1 + s) := by
   rw [eq_div_iff h, sub_mul, add_mul, inv_mul_cancel₀ h]
   ring
+
+/-- `R21.5/crystalline-family-v-k-ap`: the matrix of `φ` on `D_{k,a_p}` in the basis `(e₁, e₂)` is
+`(0 −1; p^{k−1} a_p)`, with trace `a_p` and determinant `p^{k−1}` (here `p = 3`, `k = 4`). -/
+example (a : ℤ) : Matrix.trace !![(0 : ℤ), -1; 3 ^ 3, a] = a ∧ Matrix.det !![(0 : ℤ), -1; 3 ^ 3, a] = 3 ^ 3 := by
+  simp [Matrix.trace_fin_two, Matrix.det_fin_two]
+
+/-- `R21.5/reduction-of-v-k-zero`: for `2 ≤ k ≤ p + 1`, `(p + 1) ∤ (k − 1)`, so `ind(ω₂^{k−1})` is
+irreducible; at `k = p + 2` divisibility holds and `V̄_{k,0}` is reducible. -/
+example (p k : ℕ) (hk : 2 ≤ k) (hkp : k ≤ p + 1) : ¬ (p + 1) ∣ (k - 1) := by
+  intro h
+  have := Nat.le_of_dvd (by omega) h
+  omega
+
+example (p : ℕ) : (p + 1) ∣ (p + 2 - 1) := by
+  rw [show p + 2 - 1 = p + 1 by omega]
+
+/-- At `p = 3, k = 4`: `ω₂` has order `8`, `ω₂³` still has order `8` (`gcd(8, 3) = 1`) and its
+Frobenius conjugate is `ω₂⁹ = ω₂ ≠ ω₂³`. -/
+example : 3 ^ 2 - 1 = 8 ∧ Nat.gcd 8 3 = 1 ∧ 3 * 3 % 8 = 1 ∧ 3 % 8 ≠ 1 := by decide
+
+/-- `R21.5/crystalline-reducible-reduction-is-ordinary`, p-distinguishedness: `(p − 1) ∤ (k − 1)`
+for `k = 2` and for `k = p + 1` when `p ≥ 3`. -/
+example (p : ℕ) (hp : 3 ≤ p) : ¬ (p - 1) ∣ (2 - 1) := by
+  intro h
+  have := Nat.le_of_dvd (by omega) h
+  omega
+
+example (p : ℕ) (hp : 3 ≤ p) : ¬ (p - 1) ∣ (p + 1 - 1) := by
+  intro h
+  have h2 : (p - 1) ∣ (p + 1 - 1) - (p - 1) := Nat.dvd_sub h dvd_rfl
+  rw [show p + 1 - 1 - (p - 1) = 1 by omega] at h2
+  have := Nat.le_of_dvd one_pos h2
+  omega
+
+/-- The terminal cases of SmallRamificationAndAbelianVarietyBaseCases R25.5 all lie in the range
+`2 ≤ k ≤ p + 1` of the criterion. -/
+example : ∀ pk ∈ [(3, 2), (3, 4), (5, 6), (7, 8), (13, 14)], 2 ≤ pk.2 ∧ pk.2 ≤ pk.1 + 1 := by decide
 
 end TauCeti.OrdinaryModularity.SuggestedTest

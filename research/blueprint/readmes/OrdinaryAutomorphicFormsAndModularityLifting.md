@@ -1,7 +1,7 @@
 # Ordinary automorphic forms and ordinary modularity lifting — blueprint
 
-This blueprint covers stages R21.1–R21.6. After five checkpoints, **R21.2 is source-decomposed**; R21.1, R21.3, R21.4 and
-R21.5 are partial; R21.6 is not yet read. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
+This blueprint covers stages R21.1–R21.6. After six checkpoints, **R21.2 is source-decomposed**; R21.1, R21.3, R21.4,
+R21.5 and R21.6 are partial. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
 - R21.1 only applies the ordinary projector to actual arithmetic modules;
 - R21.2 keeps the nearly ordinary and Eisenstein statements that Skinner–Wiles need beyond cuspidal Hida theory;
 - R21.3 keeps the ordinary Galois families and deformation rings, in the pseudo-representation formalism the source
@@ -10,6 +10,12 @@ R21.5 are partial; R21.6 is not yet read. The roadmap belongs to the restructure
 The source is C. M. Skinner and A. J. Wiles, *Residually reducible representations and modular forms*, Publ. Math.
 IHÉS 89 (1999), 5–126, §§2–8 and Appendix A. It is open access on Numdam as an OCR'd scan; every formula below was checked on the
 page images.
+
+Checkpoint 6 adds three sources:
+- Berger–Li–Zhu, *Construction of some families of 2-dimensional crystalline representations* (arXiv:math/0310275v1,
+  Math. Ann. 329 (2004)), for the crystalline-to-ordinary criterion;
+- Dieulefait–Pacetti (arXiv:2108.07577v2), for the p = 3 branch;
+- Khare (arXiv:math/0504080v1), for how the level-one argument uses Skinner–Wiles.
 
 ## Purpose
 
@@ -486,6 +492,75 @@ follows:
 **Theorem B** (node `theorem-b`; planet). The same for arbitrary totally real F with (χ_1/χ_2)|_{D_v} of even order,
 conditional on Hypothesis H. The tower uses totally real quadratic steps.
 
+
+### Checkpoint 6: the crystalline-to-ordinary criterion and the forms used downstream
+
+Library module: `TauCeti/NumberTheory/OrdinaryModularity/CrystallineOrdinary`.
+
+**Definition: V_{k,a_p}** (node `crystalline-family-v-k-ap`). For k ≥ 2 and a_p ∈ 𝔪_E, D_{k,a_p} = Ee₁ ⊕ Ee₂ has
+φ(e₁) = p^{k−1}e₂ and φ(e₂) = −e₁ + a_pe₂, and filtration jumps 0 and k − 1 (Fil¹ = Ee₁). It is weakly admissible, and
+V_{k,a_p} is the irreducible crystalline representation with D_cris(V*) = D_{k,a_p}. Every irreducible two-dimensional
+crystalline V is V_{k,a_p} ⊗ η (Breuil, as recalled by BLZ).
+- *API:*
+  - `Dkap` (constructor) and `Dkap_weaklyAdmissible`;
+  - `Vkap` (constructor);
+  - `Vkap_charpoly`: X² − a_pX + p^{k−1};
+  - `Vkap_classification`.
+- *Tests:*
+  - the matrix of φ has trace a_p and determinant p^{k−1} (checked in Lean at p = 3, k = 4);
+  - V_{2,0} at p = 3 is V₃ of y² = x³ − x, a supersingular curve with a₃ = 0;
+  - a unit a_p gives a reducible representation (non-example);
+  - a_p = 0 gives equal slopes, and V_{k,0} is induced from ℚ_{p²}.
+
+**Theorem** (node `blz-reduction-theorem`). BLZ Proposition 3.1 builds λ₊ and λ₋ and the integral truncation z of
+p^m(λ₋/λ₊)^{k−1}. It then gives:
+- P(X) and the unique G_γ(X) (Proposition 3.3);
+- the Wach modules N_{k,α} with N_{k,α}/π ≅ D_{k,p^mα} (Proposition 3.7);
+- Theorem 4.1: the reductions of T_{k,a_p} and T_{k,0} agree;
+- Corollary 4.3(1): V̄_{k,a_p} ≅ V̄_{k,0} for k ≤ p + 1 and v_p(a_p) > 0. Here m = 0 at k = p + 1 (Remark 4.2(1)).
+
+The (φ, Γ) inputs are requested from PhiGammaModulesAndIwasawaCohomology PG.1, PG.6 and PG.7.
+
+**Lemma** (node `reduction-of-v-k-zero`). V̄_{k,0} = ind(ω₂^{k−1}) when (p + 1) ∤ (k − 1). It is irreducible for
+2 ≤ k ≤ p + 1 and reducible at k = p + 2 (checked in Lean).
+
+**Theorem: crystalline with reducible reduction is ordinary** (node `crystalline-reducible-reduction-is-ordinary`;
+planet).
+- *Statement:* for 2 ≤ k ≤ p + 1, a crystalline V with Hodge–Tate weights {0, k − 1} and reducible V̄^{ss} is ordinary,
+  and p-distinguished when (p − 1) ∤ (k − 1).
+- *Proof:* otherwise V = V_{k,a_p} ⊗ η with v_p(a_p) > 0, whose reduction is irreducible by BLZ.
+- It is the criterion SmallRamificationAndAbelianVarietyBaseCases R25.5 requests at (3, 2), (3, 4), (5, 6), (7, 8) and
+  (13, 14), and the one DP use in Paso 6.
+- Low weight alone does not force ordinarity; the reducibility of the reduction is what is used.
+
+**Theorem: Skinner–Wiles over ℚ** (node `theorem-a-over-q`; planet). This is the theorem of Skinner–Wiles'
+introduction:
+- *Hypotheses:* ρ irreducible, ρ̄^{ss} ≅ 1 ⊕ χ, (i) χ|_{D_p} ≠ 1, (ii) ρ|_{I_p} ≅ (∗ ∗; 0 1), (iii) det ρ = ψε^{k−1}, odd.
+- *Conclusion:* ρ is modular of weight k.
+- It is Theorem A with F = ℚ; both abelian hypotheses are automatic there.
+- Khare quotes it for the residually reducible degenerate branches. His residually irreducible degenerate branch uses
+  Skinner–Wiles 2001, which no stage owns (a gap).
+
+**Theorem: the p = 3 branch** (node `theorem-a-at-three`). This is Dieulefait–Pacetti's Theorem 1.7: ρ̄^{ss} ≅ 1 ⊕ χ̄₃,
+ordinary at 3. Hypothesis (i) is automatic because χ̄₃ is ramified at 3 (source issue E9). Pan's theorem (p ≥ 5) does not
+cover this case.
+
+## Layer R21.6: ordinary-family outputs and independence (partial)
+
+Library module: `TauCeti/NumberTheory/OrdinaryModularity/Exports`.
+
+**Theorem: the export with its level** (node `exported-ordinary-modularity-over-q`; planet "Ordinary modularity over ℚ,
+with its level").
+- *Statement:* ρ ≅ ρ_{f,λ} for a newform f of weight k. The level is the Artin conductor away from p
+  (AutomorphicGaloisRepresentations R19.4), and p ∤ N exactly when ρ is crystalline at p (R19.5).
+- In particular a ρ unramified outside p and crystalline at p gives f ∈ S_k(SL₂(ℤ)), the witness R25.5 needs.
+- *Consumers:* ClassicalSerreModularity R26, R27.1 and R33.1, GL2ModularityLifting R32.1 and R32.5,
+  PotentialModularityAndCompatibleSystems R23.4, and SmallRamificationAndAbelianVarietyBaseCases R25.5.
+
+**Comparison: independence from Serre's conjecture** (node `independence-from-serre`). The prerequisite closure of
+Theorem A contains no node of ClassicalSerreModularity and no residually irreducible modularity assertion. Residual
+modularity is by Eisenstein congruences (R21.2). So the theorems can initialise Serre's conjecture without circularity.
+
 ## Mistakes found in the sources
 
 **E1 (misprint, reaches nothing): Skinner–Wiles §3.2, before Lemma 3.10, p. 41.** "makes Λ_𝒪 a free Λ′_𝒪-module of
@@ -508,6 +583,13 @@ trace ρ^mod(g_iσ_y))" should have (β_i − α_i)^{−1}, and likewise for T_0
 
 **E8 (misprint, reaches nothing): §8.4, p. 119.** "By Proposition 7.2" should read Proposition 7.3; 7.2 is a Remark.
 
+**E9 (misprint, reaches nothing): Dieulefait–Pacetti Theorem 1.7, p. 4.** The second hypothesis "ρ|_{D₃} ≠ (1 0; 0 1)"
+transcribes Skinner–Wiles' condition (i), χ|_{D_p} ≠ 1, which DP cite as "[SW99] Theorem in the third page". For
+ρ̄^{ss} ≅ 1 ⊕ χ̄₃ it holds automatically, so the check in Paso 6 ("Since Serre's weight is not 3 …") is unnecessary.
+
+**E10 (misprint, reaches nothing): Berger–Li–Zhu Proposition 3.4, p. 8.** "γ, η ∈ Γ_K" should read Γ_{ℚ_p}; K is not
+defined in the paper.
+
 **E7 (misprint, reaches nothing): the proof of Theorem B, p. 78.** The four conditions are listed as (i), (ii), (iii),
 (vi); the last should be (iv).
 
@@ -525,12 +607,16 @@ No erratum was found on Numdam or in the Crossref record of doi:10.1007/BF026988
 - **R21.4 is partial.** Only the Raynaud gap remains. The verification of (5.10)–(5.11) and §8.3's commutative algebra
   are summarised inside the proof steps.
 - **R21.5 is partial.** Still to do:
-  - the p = 3 branch (Dieulefait–Pacetti, with Berger–Li–Zhu);
-  - Khare's use of Skinner–Wiles;
-  - the Washington and Waldschmidt gaps.
-- **R21.6 is not read.**
+  - Washington's and Waldschmidt's theorems (gaps);
+  - Skinner–Wiles 2001, used by Khare for the residually irreducible degenerate branch (a gap: no stage owns it).
+- **R21.6 is partial.** It still needs the classical ordinary (Hida) family over ℚ for later p-adic L-function work,
+  together with R21.1's modular-curve remainder (Hida 1986).
 
 ## Sources
 
 - C. M. Skinner and A. J. Wiles, *Residually reducible representations and modular forms*, Publ. Math. IHÉS 89 (1999)
   5–126, DOI 10.1007/BF02698855 (Numdam open access).
+- L. Berger, H. Li and H. J. Zhu, *Construction of some families of 2-dimensional crystalline representations*, Math.
+  Ann. 329 (2004), 365–377 (arXiv:math/0310275v1).
+- L. V. Dieulefait and A. M. Pacetti, *A simplified proof of Serre's conjecture*, arXiv:2108.07577v2 (2022).
+- C. Khare, *Serre's modularity conjecture: the level one case*, Duke Math. J. 134 (2006) (arXiv:math/0504080v1).
