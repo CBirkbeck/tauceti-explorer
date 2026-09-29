@@ -1,6 +1,7 @@
 import Mathlib.Algebra.Polynomial.Degree.Defs
 import Mathlib.Data.Nat.Totient
 import Mathlib.Tactic.ComputeDegree
+import Mathlib.Tactic.FieldSimp
 import Mathlib.Tactic.NormNum.GCD
 
 /-!
@@ -70,5 +71,23 @@ example : Nat.totient 5 = 4 := by decide
 
 /-- `R24.5/compatible-system`: `Δ` gives Hodge–Tate weights `(11, 0)`, weight `a + 1 = 12`, regular. -/
 example : (11 : ℕ) + 1 = 12 ∧ (11 : ℤ) ≠ 0 := by norm_num
+
+/-! ### Checkpoint 3: rank-n systems (R24.5:operations) -/
+
+/-- `R24.5/linear-algebra-operations-on-systems`: the dual of a rank-2 member with Frobenius eigenvalues `α, β`
+has eigenvalues `α⁻¹, β⁻¹`, so `X² − aX + b ↦ X² − (a/b)X + 1/b`. -/
+example {K : Type*} [Field K] (α β : K) (hα : α ≠ 0) (hβ : β ≠ 0) :
+    α⁻¹ + β⁻¹ = (α + β) / (α * β) ∧ α⁻¹ * β⁻¹ = 1 / (α * β) := by
+  refine ⟨?_, ?_⟩
+  · field_simp
+    ring
+  · field_simp
+
+/-- Sym² of a regular rank-2 system is regular: `{2h₁, h₁ + h₂, 2h₂}` are distinct when `h₁ ≠ h₂`. -/
+example (h₁ h₂ : ℤ) (h : h₁ ≠ h₂) : 2 * h₁ ≠ h₁ + h₂ ∧ h₁ + h₂ ≠ 2 * h₂ ∧ 2 * h₁ ≠ 2 * h₂ := by
+  omega
+
+/-- Tensor products need not stay regular: `(1 ⊕ ε) ⊗ (1 ⊕ ε⁻¹)` has Hodge–Tate multiset `{0, 1, −1, 0}`. -/
+example : ((0 : ℤ) + 0, (0 : ℤ) + 1, (-1 : ℤ) + 0, (-1 : ℤ) + 1) = (0, 1, -1, 0) := by norm_num
 
 end TauCeti.CompatibleSystems.SuggestedTest

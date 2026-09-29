@@ -1,8 +1,40 @@
-# BP-PotentialModularityAndCompatibleSystems--R24.3: checkpoint 2 (Claude Code cc-39fac3)
+# BP-PotentialModularityAndCompatibleSystems--R24.3: checkpoint 3 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 29 September 2026. Refs #977; the bot confirmed the claim. **Status: partial.**
 - R24.3, R24.4, R24.5 and R24.6 are `source_decomposed`.
 - R24.5:operations is `partial`.
+
+## Checkpoint 3: rank-n compatible systems (R24.5:operations, 4 nodes)
+
+RS-12 has been reviewed and revised (#948, #2327). It gives "early R24.5:operations" the common carrier and the generic
+operations. Its contracts: the carrier holds representations, the predicates stay separate, and Frobenius-polynomial
+recognition works only up to isomorphism.
+
+**Sources.**
+- BLGGT, arXiv:1010.2561v1 (sha 697e2d3…), §5.1 in full and §5.2 through Proposition 5.2.2, pp. 51–55;
+- Taylor, Documenta 2006, §6, pp. 771–775.
+
+Both were read on the page images.
+
+**Nodes:**
+- `weakly-compatible-system-rank-n` (definition; 6 API items, 4 tests);
+- `compatible-system-predicates` (definition; 6 API items, 4 tests);
+- `linear-algebra-operations-on-systems` (the preservation table);
+- `rank-two-reducibility-independent-of-lambda` (Taylor's Lemma 6.5 and BLGGT Lemma 5.2.1).
+
+**New gap:** Larsen–Pink Proposition 6.14 behind BLGGT Lemma 5.2.1.
+
+**Not planned (remaining):**
+- the L-functions and ε/Γ-factors of systems (BLGGT pp. 52–53);
+- BLGGT Proposition 5.2.2 and §§5.3–5.4 (residual irreducibility and image results), which may belong to the image
+  roadmaps.
+
+**Lean.** New checked tests:
+- the dual's Frobenius polynomial in rank 2;
+- regularity of Sym² in rank 2;
+- the (1 ⊕ ε) ⊗ (1 ⊕ ε^{−1}) non-example.
+
+**Totals.** 26 nodes, 6 planets, 9 requests and 3 gaps. `check_blueprint.py`: 0 errors, 0 warnings.
 
 ## Checkpoint 2: a corrected attribution
 
