@@ -1,0 +1,1857 @@
+[
+ {
+  "id": "DerivedDeRhamCohomology:DD.0::landmark:apply-illusie-s-complete-author-errata-whe-1y6voo7",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "An instruction about applying the author's errata."
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.0::landmark:derived-symmetric-divided-exterior-power-f-1450j1w",
+  "decision": "name",
+  "label": "Derived symmetric, divided and exterior powers",
+  "kind": "construction"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.0::landmark:l-b-a-by-the-common-simplicial-polynomial--yzzwd2",
+  "decision": "name",
+  "label": "Cotangent complex",
+  "kind": "construction"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.0::landmark:polynomial-algebra-localization-a-regular--1e0yyat",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Acceptance examples."
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.1::landmark:comparison-with-rlim-of-derived-koszul-quo-1hu12x0",
+  "decision": "name",
+  "label": "Comparison with derived Koszul quotients",
+  "kind": "theorem"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.1::landmark:filtered-enhanced-modules-rees-description-geepsm",
+  "decision": "name",
+  "label": "Filtered enhanced modules",
+  "kind": "construction"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.1::landmark:for-finitely-generated-i-a-construct-deriv-1m67i2h",
+  "decision": "name",
+  "label": "Derived I-completeness",
+  "kind": "definition"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.1::landmark:z-p-a-torsion-module-the-p-d-completion-of-1e2ojrg",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Acceptance examples."
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+  "decision": "name",
+  "label": "Uncompleted derived de Rham over Q-algebras",
+  "kind": "theorem"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+  "decision": "keep",
+  "label": "Derived base change and Künneth",
+  "kind": "theorem"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+  "decision": "keep",
+  "label": "De Rham cohomology from polynomial resolutions",
+  "kind": "construction"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.2::landmark:apply-the-ordinary-de-rham-functor-to-poly-18n321q",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Duplicate of the construction by polynomial resolutions."
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.2::landmark:hodge-completed-object-and-its-universal-m-yvpiwr",
+  "decision": "name",
+  "label": "Hodge-completed derived de Rham",
+  "kind": "construction"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+  "decision": "name",
+  "label": "Conjugate filtration",
+  "kind": "construction"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+  "decision": "keep",
+  "label": "Derived Cartier graded pieces",
+  "kind": "theorem"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+  "decision": "name",
+  "label": "Derived Frobenius twist",
+  "kind": "definition"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+  "decision": "name",
+  "label": "Polynomial Cartier map",
+  "kind": "construction"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.3::landmark:over-f-p-construct-the-increasing-exhausti-3bxlsk",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Summary of the conjugate filtration and Cartier planets of this layer."
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.3::landmark:resulting-spectral-sequence-with-a-precise-1wnbl7u",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Convergence bookkeeping for the spectral sequence."
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.4::landmark:p-completed-derived-de-rham-by-dd-1-and-pr-i9moli",
+  "decision": "name",
+  "label": "p-completed derived de Rham",
+  "kind": "construction"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.4::landmark:smooth-lift-regular-immersion-and-a-counte-g1obwd",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Acceptance examples."
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.4::landmark:using-crystallinecohomology-cr-0-2-constru-99updu",
+  "decision": "name",
+  "label": "Derived de Rham to crystalline comparison map",
+  "kind": "construction"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.5::landmark:quasisyntomic-site-using-dd-0-s-actual-mor-1wf4um4",
+  "decision": "name",
+  "label": "Quasisyntomic site",
+  "kind": "construction"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.5::landmark:separate-descent-of-each-bounded-filtered--hjkye0",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "An instruction about separating descent from convergence."
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.6::landmark:integral-fine-saturated-prelog-and-log-geo-cstp1n",
+  "decision": "name",
+  "label": "Gabber's log cotangent complex",
+  "kind": "construction"
+ },
+ {
+  "id": "DerivedDeRhamCohomology:DD.6::landmark:log-crystalline-comparison-map-using-exact-kxvzgj",
+  "decision": "name",
+  "label": "Log-crystalline comparison map",
+  "kind": "construction"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C0::landmark:14-4-14-11-the-limit-preservation-assertio-1e6f45c",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A list of limit and pullback assertions cited by locator."
+ },
+ {
+  "id": "DiamondEtaleCohomology:C0::landmark:etale-site-of-a-locally-spatial-diamond-th-1xaguut",
+  "decision": "name",
+  "label": "Étale and quasi-pro-étale sites of diamonds",
+  "kind": "construction"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C0::landmark:repleteness-and-left-completeness-for-the--1a2neps",
+  "decision": "name",
+  "label": "Repleteness of v-sites",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C1::landmark:comparison-natural-transformations-explici-fzb18t",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "An instruction about comparison transformations."
+ },
+ {
+  "id": "DiamondEtaleCohomology:C1::landmark:ecd-theorem-16-1-and-its-corollaries-using-4sd4e3",
+  "decision": "name",
+  "label": "General base change theorem",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C2::landmark:now-prove-theorem-14-12-using-c1-exactly-w-10p10td",
+  "decision": "name",
+  "label": "Left-completed étale category",
+  "kind": "construction"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C2::landmark:presentability-and-stability-with-the-size-1v60d1d",
+  "decision": "name",
+  "label": "Presentability and stability",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C3::landmark:derived-tensor-and-f-as-the-allowed-restri-aw62yq",
+  "decision": "name",
+  "label": "The four étale operations",
+  "kind": "construction"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C3::landmark:proposition-17-6-wniuwl",
+  "decision": "name",
+  "label": "Comparison with v-pushforward",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C4::landmark:ecd-18-on-d5-s-small-v-stack-geometry-1iirf94",
+  "decision": "name",
+  "label": "Proper and partially proper maps",
+  "kind": "definition"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C4::landmark:tautness-comparison-in-its-stated-locally--1qnyfo5",
+  "decision": "name",
+  "label": "Tautness comparison",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C5::landmark:exact-left-adjoint-to-pullback-for-etale-m-1khly7o",
+  "decision": "name",
+  "label": "Extension by zero",
+  "kind": "construction"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C5::landmark:theorem-19-2-155mcov",
+  "decision": "name",
+  "label": "Proper base change",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C6::landmark:annulus-open-ball-calculations-in-h4-and-t-b8bg6s",
+  "decision": "name",
+  "label": "Base-field invariance theorem",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C7::landmark:for-arbitrary-commutative-define-perfect-c-rj0kpf",
+  "decision": "name",
+  "label": "Perfect-constructible complexes",
+  "kind": "definition"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C8::landmark:21-topological-dimension-topological-trans-1me8ej3",
+  "decision": "name",
+  "label": "Topological transcendence degree",
+  "kind": "definition"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C8::landmark:first-establish-lemma-21-13-and-remark-21--1n40b0k",
+  "decision": "name",
+  "label": "Degree-zero direct image lemma",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C8::landmark:point-as-profinite-quotient-description-an-9yd9l2",
+  "decision": "name",
+  "label": "Cohomology of a point as continuous cohomology",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C8::landmark:spectral-space-cohomological-dimension-res-11yul7e",
+  "decision": "name",
+  "label": "Cohomological dimension of spectral spaces",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondEtaleCohomology:C9::landmark:with-c7-and-the-degree-zero-lemma-of-c8-pr-9qhdtm",
+  "decision": "name",
+  "label": "Compact generation of étale cohomology",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondSixOperations:S0::landmark:compactifiability-by-an-open-immersion-fol-12hc5vu",
+  "decision": "name",
+  "label": "Compactifiability",
+  "kind": "definition"
+ },
+ {
+  "id": "DiamondSixOperations:S0::landmark:eligible-class-for-the-subsequent-construc-ah6fni",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Packaging of an eligible class, bookkeeping."
+ },
+ {
+  "id": "DiamondSixOperations:S0::landmark:local-sections-after-pullback-to-strictly--1ekf1po",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A hypothesis detail of the descent theorem."
+ },
+ {
+  "id": "DiamondSixOperations:S1::landmark:theorem-22-5-13qmads",
+  "decision": "name",
+  "label": "Dimension estimate for proper pushforward",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondSixOperations:S1::landmark:this-estimate-to-justify-unbounded-base-ch-6owcrk",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A use of the estimate and a list of cited results."
+ },
+ {
+  "id": "DiamondSixOperations:S2::landmark:base-change-22-19-colimit-preservation-22--1k07sgl",
+  "decision": "name",
+  "label": "Base change and projection formula",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondSixOperations:S2::landmark:first-handle-compactifiable-maps-of-quasis-1mnqshf",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A construction step."
+ },
+ {
+  "id": "DiamondSixOperations:S2::landmark:next-choose-a-simplicial-v-hypercover-of-a-ujeq3u",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A construction step."
+ },
+ {
+  "id": "DiamondSixOperations:S3::landmark:units-counits-trace-maps-evaluation-and-co-ati38j",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A list of formal identities."
+ },
+ {
+  "id": "DiamondSixOperations:S4::landmark:23-4-23-7-including-the-equivalences-of-cr-h45sg0",
+  "decision": "name",
+  "label": "Criteria for cohomological smoothness",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondSixOperations:S4::landmark:composition-and-the-precise-reverse-implic-1h4l4bf",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Composition details of the smoothness criteria."
+ },
+ {
+  "id": "DiamondSixOperations:S4::landmark:smooth-base-change-and-the-remaining-ident-ubcxq9",
+  "decision": "name",
+  "label": "Smooth base change",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondSixOperations:S5::landmark:24-2-for-free-actions-of-a-profinite-group-5q7n47",
+  "decision": "name",
+  "label": "Smoothness of quotients by profinite groups",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondSixOperations:S5::landmark:deduce-24-4-for-separated-smooth-analytic--jkknuz",
+  "decision": "name",
+  "label": "Smoothness of smooth analytic adic morphisms",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondSixOperations:S5::landmark:theorem-24-1-ta2uxy",
+  "decision": "name",
+  "label": "Smoothness of the perfectoid ball",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondSixOperations:S6::landmark:counterexample-of-remark-25-2-over-spa-c-c-49i77b",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A counterexample used as a test."
+ },
+ {
+  "id": "DiamondSixOperations:S6::landmark:perfect-constructible-extension-to-general-ly7f0r",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "An extension to general coefficients, a remark."
+ },
+ {
+  "id": "DiamondSixOperations:S6::landmark:theorem-25-1-10mz57p",
+  "decision": "name",
+  "label": "Biduality theorem",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondsAndVStacks:D0::landmark:abstract-cutoff-cardinal-existence-lemma-o-uivul1",
+  "decision": "name",
+  "label": "Cutoff-cardinal existence lemma",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondsAndVStacks:D0::landmark:existing-presheaf-sheaf-and-grothendieck-t-omgssj",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about imported suppliers, not a construction of this layer."
+ },
+ {
+  "id": "DiamondsAndVStacks:D0::landmark:existing-spectral-space-au4sg7",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "An extension of an existing API, bookkeeping."
+ },
+ {
+  "id": "DiamondsAndVStacks:D0::landmark:for-ordinary-groupoid-valued-prestacks-con-kftitv",
+  "decision": "name",
+  "label": "Descent for groupoid-valued prestacks",
+  "kind": "construction"
+ },
+ {
+  "id": "DiamondsAndVStacks:D1::landmark:classify-separated-qc-pro-etale-maps-over--1n92icl",
+  "decision": "name",
+  "label": "Classification of pro-étale maps",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondsAndVStacks:D1::landmark:ecd-7-1-7-7-and-7-12-7-23-1j2a0ae",
+  "decision": "name",
+  "label": "Strictly totally disconnected spaces",
+  "kind": "definition"
+ },
+ {
+  "id": "DiamondsAndVStacks:D2::landmark:big-pro-etale-site-the-small-pro-etale-sit-1smfe64",
+  "decision": "name",
+  "label": "Pro-étale and v-sites",
+  "kind": "construction"
+ },
+ {
+  "id": "DiamondsAndVStacks:D2::landmark:p6-s-small-perfectoid-spaces-and-closure-s-wxmei5",
+  "decision": "name",
+  "label": "Cutoff independence",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondsAndVStacks:D3::landmark:etale-finite-etale-and-quasi-pro-etale-mor-19ltt5k",
+  "decision": "name",
+  "label": "Étale and quasi-pro-étale morphisms of stacks",
+  "kind": "definition"
+ },
+ {
+  "id": "DiamondsAndVStacks:D4::landmark:characteristic-p-perfectoid-representable--1i8gapb",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Tests."
+ },
+ {
+  "id": "DiamondsAndVStacks:D4::landmark:underlying-topological-space-independently-c2jq58",
+  "decision": "name",
+  "label": "Underlying topological space of a stack",
+  "kind": "construction"
+ },
+ {
+  "id": "DiamondsAndVStacks:D5::landmark:representability-in-diamonds-and-in-locall-lx9t6b",
+  "decision": "name",
+  "label": "Relative representability in diamonds",
+  "kind": "definition"
+ },
+ {
+  "id": "DiamondsAndVStacks:D5::landmark:spatial-and-locally-spatial-diamonds-by-th-1kmknm9",
+  "decision": "name",
+  "label": "Spatial and locally spatial diamonds",
+  "kind": "definition"
+ },
+ {
+  "id": "DiamondsAndVStacks:D6::landmark:ecd-lemma-15-6-in-full-local-spatiality-id-5tx0eg",
+  "decision": "name",
+  "label": "Local spatiality and site comparison",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiamondsAndVStacks:D6::landmark:spd-p-by-marked-untilts-proving-functorial-1oun0pk",
+  "decision": "name",
+  "label": "Spd ℤp via marked untilts",
+  "kind": "construction"
+ },
+ {
+  "id": "DiamondsAndVStacks:D6::landmark:using-a4-prove-ecd-15-2-15-4-a-perfectoid--19nelkn",
+  "decision": "name",
+  "label": "Spatial diamonds from Tate pairs",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.0/dirichlet-approximation-from-minkowski",
+  "decision": "name",
+  "label": "Dirichlet's approximation theorem",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.0::landmark:geometry-of-numbers-dirichlet-approximatio-q38jln",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Duplicate of Dirichlet's approximation theorem, without a passage."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.0::landmark:irrationality-exponents-wa7600",
+  "decision": "keep",
+  "label": "irrationality exponents",
+  "kind": "definition"
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.0::landmark:rational-algebraic-approximations-qwa33s",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.0::landmark:weil-heights-1hbly0k",
+  "decision": "keep",
+  "label": "Weil heights",
+  "kind": "definition"
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.1/liouville-inequality-with-explicit-constant",
+  "decision": "name",
+  "label": "Liouville's inequality",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.1/thue-approximation-theorem-and-the-auxiliary-polynomial-method",
+  "decision": "name",
+  "label": "Thue's approximation theorem",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.1::landmark:index-estimates-qxwkco",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.1::landmark:liouville-bounds-18j81bn",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.1::landmark:roth-is-stated-for-algebraic-irrational-nu-tyysgg",
+  "decision": "name",
+  "label": "Roth's theorem",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.2/subspace-theorem-and-its-exceptional-subspaces",
+  "decision": "name",
+  "label": "Schmidt's subspace theorem",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.2::landmark:archimedean-nonarchimedean-subspace-theore-1ngqu5l",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A development plan."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.3/baker-lower-bounds-for-linear-forms-in-logarithms",
+  "decision": "name",
+  "label": "Baker's theorem and Matveev's bound",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.3/lindemann-weierstrass-in-bakers-form",
+  "decision": "name",
+  "label": "Lindemann–Weierstrass theorem",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.3::landmark:exponential-algebraic-independence-tools-ovumt4",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.3::landmark:lindemann-weierstrass-gelfond-schneider-ro-bvbw7p",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.3::landmark:with-chosen-complex-or-p-adic-logarithms-1lfgzo8",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.4/effective-finiteness-for-unit-and-thue-equations",
+  "decision": "name",
+  "label": "Effective finiteness for unit and Thue equations",
+  "kind": "theorem"
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.4::landmark:exponential-equations-1ifindj",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.4::landmark:thue-mahler-1mpawb3",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.4::landmark:transfer-logarithmic-form-lower-bounds-to--e2nidj",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.5::landmark:algebraic-independence-1h8nocz",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.5::landmark:e-g-functions-96gzvu",
+  "decision": "keep",
+  "label": "E/G-functions",
+  "kind": "definition"
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.5::landmark:functional-transcendence-applications-with-cdzkes",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "DiophantineApproximationAndTranscendence:DT.5::landmark:mahler-functions-1j9ixlh",
+  "decision": "keep",
+  "label": "Mahler functions",
+  "kind": "definition"
+ },
+ {
+  "id": "DirichletPadicLFunctions:L0::landmark:do-not-use-a-field-isomorphism-c-c-p-to-tr-1fv87mf",
+  "decision": "name",
+  "label": "Algebraicity of complex special values",
+  "kind": "theorem"
+ },
+ {
+  "id": "DirichletPadicLFunctions:L0::landmark:for-rjw-theorem-2-2-identify-the-existing--27rn8d",
+  "decision": "name",
+  "label": "Dedekind-zeta germ at one",
+  "kind": "theorem"
+ },
+ {
+  "id": "DirichletPadicLFunctions:L0::landmark:mellin-transform-continuation-argument-of--iedf51",
+  "decision": "name",
+  "label": "Mellin-transform continuation",
+  "kind": "theorem"
+ },
+ {
+  "id": "DirichletPadicLFunctions:L2::landmark:twist-by-a-p-power-conductor-character-and-cfopid",
+  "decision": "name",
+  "label": "Twist by a p-power conductor character",
+  "kind": "construction"
+ },
+ {
+  "id": "DirichletPadicLFunctions:L3::landmark:teichmuller-decomposition-to-define-the-br-1mpozg2",
+  "decision": "name",
+  "label": "Teichmuller branches",
+  "kind": "construction"
+ },
+ {
+  "id": "DirichletPadicLFunctions:L3::landmark:theorem-7-1-1mmobvb",
+  "decision": "name",
+  "label": "Pole of the trivial weight-space component",
+  "kind": "theorem"
+ },
+ {
+  "id": "DirichletPadicLFunctions:L4::landmark:distinguish-this-measure-valued-q-expansio-ix9qwe",
+  "decision": "name",
+  "label": "Measure-valued q-expansion",
+  "kind": "construction"
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.0::landmark:certified-exact-number-and-local-precision-1jb9kx7",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about imported suppliers, not a construction of this layer."
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.1::landmark:approximation-bounds-construct-the-diophan-14svxcw",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.1::landmark:including-exact-gram-schmidt-arithmetic-1bfzzaf",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.1::landmark:termination-1vvq0zt",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.1::landmark:verified-lll-reduction-from-geometryofnumb-1cciym0",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Imported from GeometryOfNumbersAndQuadraticArithmetic GN.5; bookkeeping."
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.2::landmark:heights-1bcuxpf",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.2::landmark:multiplicative-independence-assumptions-1yxmwig",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.2::landmark:theorem-row-proves-that-every-solution-lie-1k7zl99",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about theorem rows and registered sources."
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.2::landmark:with-their-constants-1688nvc",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.3::landmark:genus-one-curve-with-a-nontrivial-torsor-c-rtuy8w",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A test case."
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.3::landmark:turn-the-existing-isogeny-selmer-construct-14lobc2",
+  "decision": "name",
+  "label": "Certified isogeny descent",
+  "kind": "construction"
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.4::landmark:certified-jacobian-rank-r-g-and-a-prime-sa-1ybf5jg",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.4::landmark:coleman-integrals-srl3s5",
+  "decision": "keep",
+  "label": "Coleman integrals",
+  "kind": "construction"
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.4::landmark:construct-annihilating-differentials-1aqy9i",
+  "decision": "name",
+  "label": "Annihilating differentials",
+  "kind": "construction"
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.5::landmark:final-certificate-includes-the-index-satur-132s1ax",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about certificate contents."
+ },
+ {
+  "id": "EffectiveDiophantineMethods:ED.5::landmark:finite-reduction-maps-from-the-jacobian-su-10c5gbm",
+  "decision": "name",
+  "label": "Mordell–Weil sieve",
+  "kind": "construction"
+ },
+ {
+  "id": "EllipticCurveModularity:R29.1/absolute-irreducibility-from-oddness-at-odd-p",
+  "decision": "name",
+  "label": "Absolute irreducibility for p odd",
+  "kind": "theorem"
+ },
+ {
+  "id": "EllipticCurveModularity:R29.1/residual-irreducibility-and-the-conductor-of-E-p",
+  "decision": "name",
+  "label": "Irreducibility of E[p] and exact conductor",
+  "kind": "theorem"
+ },
+ {
+  "id": "EllipticCurveModularity:R29.1::landmark:end-q-e-z-in-characteristic-zero-the-deriv-my7hgm",
+  "decision": "name",
+  "label": "EndQ(E) = Z",
+  "kind": "theorem"
+ },
+ {
+  "id": "EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe",
+  "decision": "name",
+  "label": "Serre data of E[p]",
+  "kind": "construction"
+ },
+ {
+  "id": "EllipticCurveModularity:R29.2::landmark:for-infinitely-many-good-primes-p-5-apply--w7or4g",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Application of Serre's conjecture, recorded on the Serre-data planet."
+ },
+ {
+  "id": "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
+  "decision": "name",
+  "label": "Pigeonhole on finitely many newforms",
+  "kind": "theorem"
+ },
+ {
+  "id": "EllipticCurveModularity:R29.3::landmark:finite-dimensional-newform-theory-to-prove-w3xlm7",
+  "decision": "name",
+  "label": "Finiteness of weight-two newforms",
+  "kind": "theorem"
+ },
+ {
+  "id": "EllipticCurveModularity:R29.4/isogeny-from-faltings-and-exact-conductor",
+  "decision": "name",
+  "label": "Faltings' isogeny theorem and exact conductor",
+  "kind": "theorem"
+ },
+ {
+  "id": "EllipticCurveModularity:R29.5::landmark:apply-the-weight-two-trivial-nebentypus-qu-1vi1urf",
+  "decision": "name",
+  "label": "Modular parametrisation of E",
+  "kind": "construction"
+ },
+ {
+  "id": "EllipticCurveModularity:R29.6/what-theoreme-4-asserts-and-its-scope",
+  "decision": "name",
+  "label": "Final theorem granting Serre's conjecture",
+  "kind": "theorem"
+ },
+ {
+  "id": "EllipticKTheory:E.1::landmark:comparison-between-the-existing-function-f-14upiuj",
+  "decision": "name",
+  "label": "Comparison of isogenies",
+  "kind": "construction"
+ },
+ {
+  "id": "EllipticKTheory:E.2::landmark:class-of-a-closed-point-the-class-of-a-lin-1ljbajn",
+  "decision": "name",
+  "label": "Degree map and Euler characteristic",
+  "kind": "construction"
+ },
+ {
+  "id": "EllipticKTheory:E.2::landmark:ktheorylowdegrees-z-5-s-rank-determinant-i-71q5pa",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about imported suppliers, not a construction of this layer."
+ },
+ {
+  "id": "EllipticKTheory:E.3::landmark:map-level-localisation-sequence-for-all-cl-1288hwi",
+  "decision": "name",
+  "label": "Localisation sequence",
+  "kind": "construction"
+ },
+ {
+  "id": "EllipticKTheory:E.4::landmark:apply-s-s-adams-operations-and-m-s-rationa-1tjsdpg",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Application of imported operations, bookkeeping."
+ },
+ {
+  "id": "EllipticKTheory:E.4::landmark:for-a-proper-geometrically-connected-curve-womm8l",
+  "decision": "name",
+  "label": "SK₁ of a curve",
+  "kind": "definition"
+ },
+ {
+  "id": "EllipticKTheory:E.4::landmark:for-k3-construct-the-two-column-coniveau-s-19qhy9t",
+  "decision": "name",
+  "label": "Coniveau spectral sequence",
+  "kind": "construction"
+ },
+ {
+  "id": "EllipticKTheory:E.5::landmark:k-theory-pullback-for-arbitrary-scheme-mor-ravurl",
+  "decision": "name",
+  "label": "K-theory pullback and pushforward",
+  "kind": "construction"
+ },
+ {
+  "id": "EllipticKTheory:E.5::landmark:p1-using-the-projective-bundle-theorem-and-15k4ea6",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Computations used as examples."
+ },
+ {
+  "id": "EllipticKTheory:E.6::landmark:rational-integral-part-by-1qjgyln",
+  "decision": "name",
+  "label": "Rational integral part",
+  "kind": "definition"
+ },
+ {
+  "id": "EllipticKTheory:E.7::landmark:for-non-rational-torsion-points-pass-to-a--19zk07x",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A step passing to a finite extension."
+ },
+ {
+  "id": "EllipticKTheory:E.7::landmark:rational-functions-attached-to-torsion-div-1lghnq4",
+  "decision": "name",
+  "label": "Rational functions on torsion divisors",
+  "kind": "construction"
+ },
+ {
+  "id": "EllipticRegulators:ER.1::landmark:complex-manifold-of-a-smooth-projective-el-1ikyd1",
+  "decision": "name",
+  "label": "Complex uniformisation",
+  "kind": "theorem"
+ },
+ {
+  "id": "EllipticRegulators:ER.1::landmark:for-e-over-a-number-field-carry-all-comple-8y1uxw",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A comparison instruction."
+ },
+ {
+  "id": "EllipticRegulators:ER.2::landmark:on-a-symbol-construct-136zm9s",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A fragment of a list without a passage of its own."
+ },
+ {
+  "id": "EllipticRegulators:ER.2::landmark:real-deligne-complex-hypercohomology-and-i-1a0seyg",
+  "decision": "name",
+  "label": "Real Deligne complex",
+  "kind": "construction"
+ },
+ {
+  "id": "EllipticRegulators:ER.3::landmark:elliptic-bloch-wigner-dilogarithm-by-the-c-d1vfyw",
+  "decision": "name",
+  "label": "Elliptic Bloch–Wigner dilogarithm",
+  "kind": "definition"
+ },
+ {
+  "id": "EllipticRegulators:ER.3::landmark:formalise-both-parts-of-bloch-s-regulator--uqwsmk",
+  "decision": "name",
+  "label": "Bloch's regulator argument",
+  "kind": "theorem"
+ },
+ {
+  "id": "EllipticRegulators:ER.3::landmark:fourier-kronecker-eisenstein-descriptions--2ijtsm",
+  "decision": "name",
+  "label": "Kronecker–Eisenstein descriptions",
+  "kind": "theorem"
+ },
+ {
+  "id": "EllipticRegulators:ER.5::landmark:absolute-convergence-and-the-euler-product-17cxgfo",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A proof step of the CM example."
+ },
+ {
+  "id": "EllipticRegulators:ER.5::landmark:bloch-s-theorem-11-2-1-by-evaluating-the-r-77fu36",
+  "decision": "name",
+  "label": "Bloch's regulator evaluation",
+  "kind": "theorem"
+ },
+ {
+  "id": "EllipticRegulators:ER.5::landmark:choose-the-conductor-torsion-data-exactly--1hafr6b",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A choice of data."
+ },
+ {
+  "id": "EllipticRegulators:ER.5::landmark:take-e-q-with-complex-multiplication-by-th-a4l6n1",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A setup of the example."
+ },
+ {
+  "id": "EllipticRegulators:ER.6::landmark:restrict-the-regulator-to-the-integral-par-1vhuohb",
+  "decision": "name",
+  "label": "Elliptic Beilinson conjecture",
+  "kind": null
+ },
+ {
+  "id": "EllipticRegulators:ER.6::landmark:separate-three-logically-different-conclus-13n7m8k",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A distinction between conclusions."
+ },
+ {
+  "id": "EllipticRegulators:ER.7::landmark:modular-curve-scheme-analytic-comparison-m-10sq7in",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A dependency remark."
+ },
+ {
+  "id": "EllipticRegulators:ER.7::landmark:modular-units-their-divisors-at-cusps-the--1ajgmaf",
+  "decision": "name",
+  "label": "Modular units and K₂ classes",
+  "kind": "construction"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.0::landmark:endoscopic-triples-and-equivalence-ellipti-1h4pzam",
+  "decision": "name",
+  "label": "Endoscopic triples",
+  "kind": "definition"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.0::landmark:local-global-tate-nakayama-pairings-for-to-2ys9b6",
+  "decision": "name",
+  "label": "Tate–Nakayama pairings for tori",
+  "kind": "construction"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.0::landmark:rational-geometric-and-stable-semisimple-c-rjzwro",
+  "decision": "name",
+  "label": "Stable semisimple conjugacy",
+  "kind": "definition"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.1::landmark:factors-from-a-data-chi-data-splittings-an-wgxx1t",
+  "decision": "name",
+  "label": "Transfer factors",
+  "kind": "construction"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.1::landmark:quotient-measures-on-centralizer-quotients-1x5nmqg",
+  "decision": "name",
+  "label": "Stable and kappa-orbital integrals",
+  "kind": "construction"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.1::landmark:real-transfer-and-explicit-discrete-series-1l76l9x",
+  "decision": "name",
+  "label": "Real transfer and pseudocoefficients",
+  "kind": "theorem"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2::landmark:et-2-is-the-aggregate-completion-of-et-2a--weyqsz",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "An aggregate-stage remark."
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2::landmark:et-2a-duality-perversity-18qy9xx",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about a retained prefix."
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2::landmark:et-2a-pure-decomposition-19b5vin",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about a retained suffix."
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2::landmark:et-2b-the-geometric-fundamental-lemma-proo-xkv0ym",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A layer heading, not a planet."
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a::landmark:et-2a-duality-perversity-18qy9xx",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about a retained prefix."
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a::landmark:et-2a-pure-decomposition-19b5vin",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about a retained suffix."
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity::landmark:et-2a-duality-perversity-18qy9xx",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about a retained prefix."
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:pure-decomposition::landmark:et-2a-pure-decomposition-19b5vin",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about a retained suffix."
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b::landmark:equal-characteristic-affine-grassmannians--zbqn2i",
+  "decision": "name",
+  "label": "Affine Springer fibers",
+  "kind": "construction"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b::landmark:weak-abelian-fibrations-and-the-delta-inva-u2puwr",
+  "decision": "name",
+  "label": "Weak abelian fibrations",
+  "kind": "definition"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.3::landmark:characteristic-zero-local-smooth-transfer--1jbhlsy",
+  "decision": "name",
+  "label": "Local smooth transfer",
+  "kind": "theorem"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.3::landmark:comparison-of-sufficiently-close-local-fie-cslj86",
+  "decision": "name",
+  "label": "Change of characteristic for orbital integrals",
+  "kind": "theorem"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.3::landmark:equal-characteristic-lie-algebra-fundament-yrj5qr",
+  "decision": "name",
+  "label": "Lie-algebra fundamental lemma",
+  "kind": "theorem"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.4::landmark:for-csnc-s-g-n-i-build-the-finite-place-tr-1gfrzkr",
+  "decision": "name",
+  "label": "Finite-place transfer maps",
+  "kind": "construction"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.4::landmark:starting-from-as-6-construct-the-stable-el-c5qbye",
+  "decision": "name",
+  "label": "Stable elliptic distributions",
+  "kind": "construction"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5::landmark:classify-fixed-points-by-effective-kottwit-1wrskut",
+  "decision": "name",
+  "label": "Effective Kottwitz triples",
+  "kind": "definition"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5::landmark:stabilize-away-from-p-by-et-1-3-and-at-inf-s0tfm3",
+  "decision": "name",
+  "label": "Stabilization of Igusa correspondences",
+  "kind": "theorem"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6::landmark:early-raw-compact-unitary-cohomology-with--b0nxjb",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about imported suppliers, not a construction of this layer."
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6::landmark:follow-scholze-s-local-construction-build--1se1c7l",
+  "decision": "name",
+  "label": "Deformation spaces of p-divisible groups",
+  "kind": "construction"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6::landmark:local-jacquet-langlands-on-essentially-squ-1mbzk4h",
+  "decision": "name",
+  "label": "Local Jacquet–Langlands",
+  "kind": "theorem"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a::landmark:proof-expands-harris-taylor-s-independent--3pch7i",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A remark on the proof."
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a::landmark:supercuspidal-isotypic-realization-for-irr-klaehm",
+  "decision": "name",
+  "label": "Supercuspidal isotypic realization",
+  "kind": "theorem"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a::landmark:this-completed-two-tower-package-to-hs3-s--15xgv4",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Export bookkeeping."
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7::landmark:a-pure-automorphic-branch-1fugdlj",
+  "decision": "name",
+  "label": "Pure automorphic branch",
+  "kind": "construction"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7::landmark:b-igusa-branch-b3tdvk",
+  "decision": "name",
+  "label": "Igusa branch",
+  "kind": "construction"
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a::landmark:pure-automorphic-branch-kkv2z4",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Duplicate of the pure automorphic branch planet of the parent layer."
+ },
+ {
+  "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b::landmark:igusa-branch-jzqco0",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Duplicate of the Igusa branch planet of the parent layer."
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E0::landmark:cocartesian-fibrations-and-cocartesian-sec-zsudem",
+  "decision": "name",
+  "label": "Cocartesian fibrations",
+  "kind": "construction"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E0::landmark:equivalences-slices-limits-and-colimits-wi-zgzemi",
+  "decision": "name",
+  "label": "Limits and colimits in quasicategories",
+  "kind": "construction"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E0::landmark:single-concrete-model-quasicategories-with-opgsmk",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A choice of model, bookkeeping."
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E1::landmark:for-morphisms-of-sites-and-ringed-topoi-co-1c8c7dw",
+  "decision": "name",
+  "label": "Enhanced pullback–pushforward adjunction",
+  "kind": "construction"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E1::landmark:take-the-dg-nerve-of-the-k-injective-model-1ttdzyx",
+  "decision": "name",
+  "label": "dg nerve of the K-injective model",
+  "kind": "construction"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E2::landmark:replete-topos-results-used-from-bhatt-scho-ixbsjh",
+  "decision": "name",
+  "label": "Repleteness of topoi",
+  "kind": "theorem"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E2::landmark:simplicial-sites-cartesian-complexes-hyper-at2uij",
+  "decision": "name",
+  "label": "Cohomological descent for hypercovers",
+  "kind": "theorem"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E2::landmark:truncation-and-postnikov-towers-their-enha-jagmly",
+  "decision": "name",
+  "label": "Postnikov towers and left completion",
+  "kind": "construction"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E3::landmark:accessible-localizations-and-reflective-co-iuibqt",
+  "decision": "name",
+  "label": "Accessible localizations",
+  "kind": "construction"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E3::landmark:enhanced-category-associated-with-a-diagra-1xc133",
+  "decision": "name",
+  "label": "Enhanced category of a diagram of ringed topoi",
+  "kind": "construction"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E3::landmark:left-kan-extension-theorem-along-a-full-in-x8llos",
+  "decision": "name",
+  "label": "Left Kan extension theorem",
+  "kind": "theorem"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E4::landmark:apply-dd-1-s-completed-tensor-products-and-1mzj4m6",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Application of imported completed tensor products, bookkeeping."
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E5:abstract::landmark:symmetric-monoidal-infinity-categories-via-11inn3t",
+  "decision": "name",
+  "label": "Symmetric monoidal infinity categories",
+  "kind": "construction"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E5:animation::landmark:animated-commutative-algebras-from-simplic-kbifrk",
+  "decision": "name",
+  "label": "Animated commutative algebras",
+  "kind": "construction"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E5:cotangent-export::landmark:cotangent-complex-its-derivation-character-1blqpcp",
+  "decision": "name",
+  "label": "Cotangent complex",
+  "kind": "construction"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E5:presentability::landmark:finite-and-profinite-coherent-group-action-1r3ljvq",
+  "decision": "name",
+  "label": "Homotopy fixed points",
+  "kind": "construction"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E5:presentability::landmark:using-e3-and-e5-abstract-construct-ind-com-138964h",
+  "decision": "name",
+  "label": "Ind-completion",
+  "kind": "construction"
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E5:spectra-comparison::landmark:after-stablehomotopyktheory-h-5-compare-it-9ax0ov",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Comparison bookkeeping with another roadmap's spectra."
+ },
+ {
+  "id": "EnhancedDerivedSheaves:E5:spectra-comparison::landmark:tests-a-polynomial-algebra-cotangent-modul-13nyqjy",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Tests."
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.0::landmark:actual-bounded-constructible-ctf-subcatego-1hywsne",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about imported suppliers, not a construction of this layer."
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.0::landmark:lift-the-existing-finite-level-rf-to-the-e-1te4hev",
+  "decision": "name",
+  "label": "Lift of Rf! to the enhancement",
+  "kind": "construction"
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.1::landmark:adjoint-before-smooth-purity-1nxs48j",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Duplicate of the planet on the child layer, which carries it."
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.1::landmark:biduality-after-edc-2-trace-purity-12swxtc",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Duplicate of the planet on the child layer, which carries it."
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint::landmark:before-smooth-purity-1a4ve76",
+  "decision": "name",
+  "label": "Exceptional inverse image",
+  "kind": "construction"
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.1:biduality::landmark:after-edc-2-trace-purity-hmtq3",
+  "decision": "name",
+  "label": "Local biduality",
+  "kind": "theorem"
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.2/curve-poincare-duality-with-j-star-statement",
+  "decision": "name",
+  "label": "Poincaré duality for lisse sheaves on curves",
+  "kind": "theorem"
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.2::landmark:carry-out-the-effacement-local-acyclicity--do7qfq",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Duplicate of the planet on the child layer, which carries it."
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.2::landmark:pairings-bafvis",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Duplicate of the planet on the child layer, which carries it."
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.2::landmark:trace-purity-4e09us",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Duplicate of the planet on the child layer, which carries it."
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.2:pairings::landmark:after-edc-2-trace-purity-and-edc-1-biduali-1smmiqq",
+  "decision": "name",
+  "label": "Perfect cohomological pairings",
+  "kind": "theorem"
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity::landmark:carry-out-the-effacement-local-acyclicity--do7qfq",
+  "decision": "name",
+  "label": "Smooth trace and relative purity",
+  "kind": "theorem"
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.4::landmark:projective-bundle-decomposition-through-po-tk1vyi",
+  "decision": "name",
+  "label": "Projective-bundle and blowup formulas",
+  "kind": "theorem"
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.5::landmark:for-finite-type-schemes-over-a-field-const-fi6wxd",
+  "decision": "name",
+  "label": "Middle perverse t-structure",
+  "kind": "construction"
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.5::landmark:j-as-the-image-of-perverse-j-perverse-j-pr-8w3c8m",
+  "decision": "name",
+  "label": "Intermediate extension",
+  "kind": "construction"
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.6/scheme-adic-diamond-operation-comparisons-index",
+  "decision": "name",
+  "label": "Scheme, adic and diamond comparisons",
+  "kind": "theorem"
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.6::landmark:pass-finite-level-traces-duality-maps-and--1hx5awl",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A step through adic systems."
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.6::landmark:through-pr196-complexcomparison-and-elladi-1wg2kdb",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Comparison through other roadmaps, bookkeeping."
+ },
+ {
+  "id": "EtaleDualityAndPerverseSheaves:EDC.8::landmark:graded-poincare-pairing-and-frobenius-simi-1pm1zvl",
+  "decision": "name",
+  "label": "Frobenius similitude of the Poincaré pairing",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.0::landmark:cartesian-local-conditions-on-the-required-1c5y785",
+  "decision": "name",
+  "label": "Cartesian local conditions and core rank",
+  "kind": "definition"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.0::landmark:selmer-data-from-actual-cohomology-and-loc-1odp629",
+  "decision": "name",
+  "label": "Selmer data",
+  "kind": "construction"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.0::landmark:separate-110pbmg",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Packaging of admissibility predicates."
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.1::landmark:finite-singular-isomorphisms-commute-with--bs3mc5",
+  "decision": "name",
+  "label": "Finite–singular isomorphisms",
+  "kind": "construction"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.1::landmark:ray-class-extensions-k-q-their-selected-lo-14ztjel",
+  "decision": "name",
+  "label": "Ray-class extensions K(q)",
+  "kind": "construction"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.2::landmark:normalization-dictionary-between-arithmeti-r6tsqm",
+  "decision": "name",
+  "label": "Frobenius normalization dictionary",
+  "kind": "construction"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.2::landmark:systems-over-an-explicit-directed-family-o-1dcbkqu",
+  "decision": "name",
+  "label": "Euler systems over abelian extensions",
+  "kind": "definition"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.3::landmark:cyclic-group-ring-norm-n-q-and-derivative--varffa",
+  "decision": "name",
+  "label": "Kolyvagin derivative operators",
+  "kind": "construction"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.3::landmark:raw-derivative-classes-initially-satisfy-a-o8zpba",
+  "decision": "name",
+  "label": "Corrected Kolyvagin classes",
+  "kind": "construction"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.4::landmark:selmer-graph-and-its-system-sheaf-with-ver-4vggmm",
+  "decision": "name",
+  "label": "Selmer graph and system sheaf",
+  "kind": "construction"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.5::landmark:residual-primitivity-and-the-index-of-a-sy-1lr6a30",
+  "decision": "name",
+  "label": "Residual primitivity and index",
+  "kind": "definition"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.5::landmark:separate-three-conclusions-nonzero-initial-9z69rh",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A distinction between conclusions."
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.6::landmark:first-construct-mr-2016-stark-and-kolyvagi-kdh8sd",
+  "decision": "name",
+  "label": "Stark and Kolyvagin systems",
+  "kind": "construction"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.6::landmark:stark-regulator-and-component-ideals-commu-1s2n6r3",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A compatibility remark."
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.7::landmark:higher-rank-euler-systems-in-exterior-bidu-sgdlg",
+  "decision": "name",
+  "label": "Higher-rank Euler systems",
+  "kind": "definition"
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.7::landmark:pinned-bss-ii-v1-6-1-6-4-route-requires-re-8w3m8a",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Hypotheses of the chosen proof route."
+ },
+ {
+  "id": "EulerSystemsAndKolyvaginSystems:ES.7::landmark:system-component-ideals-bound-the-correct--47zx43",
+  "decision": "name",
+  "label": "Fitting-ideal bounds",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L0/character-twist-and-the-restriction-dictionary",
+  "decision": "name",
+  "label": "Twisting to the chi-component",
+  "kind": "construction"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-unit-euler-system-for-Zp-one",
+  "decision": "name",
+  "label": "Cyclotomic-unit Euler system",
+  "kind": "construction"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L0::landmark:cyclotomic-example-from-actual-norm-compat-gqt1as",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Duplicate of the cyclotomic-unit Euler system."
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L0::landmark:es-2-s-actual-euler-system-carrier-field-c-168gu8f",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about imported suppliers, not a construction of this layer."
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L1/analytic-class-number-upgrade-at-finite-level",
+  "decision": "name",
+  "label": "Finite-level equality",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L1/finite-level-class-number-divisibility",
+  "decision": "name",
+  "label": "Finite-level divisibility",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L1/finite-level-error-tolerant-bound-and-its-hypotheses",
+  "decision": "name",
+  "label": "Rubin's finite-level bound",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L1/vanishing-of-the-error-terms-in-the-cyclotomic-twist",
+  "decision": "name",
+  "label": "Verification for the cyclotomic twist",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L1::landmark:apply-es-1-s-simultaneous-chebotarev-and-i-dqukks",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Application of imported lemmas."
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-iwasawa-divisibility",
+  "decision": "name",
+  "label": "Iwasawa divisibility for cyclotomic units",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-local-global-comparison-diagram",
+  "decision": "name",
+  "label": "Local-global comparison diagram",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L2/iwasawa-theoretic-euler-system-bound",
+  "decision": "name",
+  "label": "Rubin's Iwasawa-theoretic Euler-system theorems",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L2::landmark:for-cyclotomic-units-prove-rubin-iii-2-7-83gcll",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Duplicate of the Iwasawa divisibility planet."
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L2::landmark:inverse-limit-and-multivariable-bounds-of--1hs9ekg",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about imported suppliers, not a construction of this layer."
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L3/analytic-class-number-equality-at-infinite-level",
+  "decision": "name",
+  "label": "Equality from the analytic class number formula",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L3/local-unit-index-and-the-p-adic-L-function",
+  "decision": "name",
+  "label": "p-adic L-function and the local-unit index",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L3/main-conjecture-endpoint-for-the-p-ramified-galois-group",
+  "decision": "name",
+  "label": "Main-conjecture endpoint",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L3/unconditional-statement-versus-the-vandiver-isomorphism",
+  "decision": "name",
+  "label": "Plus-part formulation",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L3::landmark:equality-in-the-preceding-divisibility-by--1r1zzl6",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "A proof step of the equality."
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L3::landmark:treat-the-trivial-character-component-and--170gzek",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "An instruction about the trivial component."
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-arithmetic-consequences-at-p-equals-2",
+  "decision": "name",
+  "label": "Greither's consequences at p = 2",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-even-character-divisibility",
+  "decision": "name",
+  "label": "Greither's even-character divisibility",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L4/greither-odd-character-main-conjecture-with-half-normalisation",
+  "decision": "name",
+  "label": "Greither's odd-character main conjecture",
+  "kind": "theorem"
+ },
+ {
+  "id": "EulerSystemsCyclotomicMainConjecture:L4::landmark:formalize-greither-2-3-semilocal-units-ove-tzos56",
+  "decision": "name",
+  "label": "Semilocal units over abelian fields",
+  "kind": "construction"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES0::landmark:algebra-of-natural-endomorphisms-of-the-id-lfycff",
+  "decision": "name",
+  "label": "Center as endomorphisms of the identity",
+  "kind": "definition"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES0::landmark:excursion-operators-from-a-finite-leg-set--zafy23",
+  "decision": "name",
+  "label": "Excursion operators",
+  "kind": "construction"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES0:classical-center::landmark:after-the-operator-construction-compare-wi-1d7lghb",
+  "decision": "name",
+  "label": "Comparison with the Bernstein center",
+  "kind": "theorem"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification::landmark:from-es0-hs4-prove-ix-5-1-s-single-wild-su-19uk0ud",
+  "decision": "name",
+  "label": "Single wild subgroup P",
+  "kind": "theorem"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES2::landmark:compact-support-object-by-object-over-the--1efm15j",
+  "decision": "name",
+  "label": "Compact support object by object",
+  "kind": "theorem"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES2::landmark:for-characteristic-zero-coefficients-prove-1ht3795",
+  "decision": "name",
+  "label": "Categorical action from finite-set Hecke data",
+  "kind": "theorem"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES3::landmark:compatibility-maps-for-change-of-coefficie-13e5vzw",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Compatibility maps, bookkeeping."
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES3::landmark:finite-free-group-descent-and-generation-s-1tsiopj",
+  "decision": "name",
+  "label": "Finite-free-group descent and generation",
+  "kind": "theorem"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES4::landmark:support-of-an-object-via-annihilators-cent-1rrq9gl",
+  "decision": "name",
+  "label": "Spectral support of an object",
+  "kind": "construction"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES5::landmark:excursion-character-using-the-schur-condit-v0wmbc",
+  "decision": "name",
+  "label": "Excursion character",
+  "kind": "construction"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES5::landmark:for-every-irreducible-smooth-l-representat-va1dtn",
+  "decision": "name",
+  "label": "Semisimple parameter of a representation",
+  "kind": "theorem"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES6:duality::landmark:vs5-and-gs4-s-chevalley-sw-comparison-to-p-1igr2gw",
+  "decision": "name",
+  "label": "Parameters of the Bernstein–Zelevinsky dual",
+  "kind": "theorem"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES6:functoriality::landmark:product-groups-give-product-parameters-for-16xttin",
+  "decision": "name",
+  "label": "Product parameters",
+  "kind": "theorem"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison::landmark:two-tower-cohomological-realization-p2pnhj",
+  "decision": "drop",
+  "label": null,
+  "kind": null,
+  "reason": "Bookkeeping about imported suppliers, not a construction of this layer."
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic::landmark:adelic-and-automorphic-theory-needed-for-l-azyec6",
+  "decision": "name",
+  "label": "Automorphic forms on a division algebra",
+  "kind": "construction"
+ },
+ {
+  "id": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic::landmark:euler-poincare-weakly-cuspidal-local-funct-wj3cnn",
+  "decision": "name",
+  "label": "Euler–Poincaré functions",
+  "kind": "construction"
+ }
+]
