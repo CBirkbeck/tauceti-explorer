@@ -2,10 +2,10 @@
 
 Job PAPER-SCHOLZE-17. Claude Code, session `cc-48533a`, 29 September 2026. The machine-readable extraction is `PAPER-SCHOLZE-17.result.json`:
 
-- 617 items: 575 planned, 19 library, 23 missing;
-- 5 routes;
+- 619 items: 581 planned, 19 library, 19 missing (after the independent review; the extraction had 617 items: 575 planned, 19 library, 23 missing);
+- 6 routes (5 in the extraction);
 - 5 prerequisite papers;
-- 73 source issues.
+- 101 source issues (73 in the extraction, 28 added by the review).
 
 **Version read.** arXiv:1709.07343v4 (14 April 2026), the "final version to appear in Astérisque": 168 pages, SHA-256 `78ca42bb…33efc`. The earlier arXiv versions (v1 2017, v2 2021, v3 2022) were not compared, and the Astérisque version has not appeared. Locators are v4 statement numbers and pages.
 
@@ -38,7 +38,7 @@ The paper builds a six-functor formalism for the étale cohomology of diamonds a
 
 ## What the atlas already has
 
-The atlas's diamond roadmaps were built from this text, and 575 of the 617 items are planned:
+The atlas's diamond roadmaps were built from this text, and 581 of the 619 items are planned (575 of 617 in the extraction):
 
 - **§§2–6:** PerfectoidSpaces P0–P6 and DiamondsAndVStacks D0.
 - **§§7–13:** DiamondsAndVStacks D1–D5.
@@ -61,38 +61,37 @@ Tau Ceti has Huber's Tate rings, power-bounded elements, rings of integral eleme
 
 ## Routes
 
-The 23 missing items all go as sources to existing layers; no Part II or new roadmap is needed. They are:
+The 19 missing items (23 in the extraction; the review found five of them planned and added one) all go as sources to existing layers; no Part II or new roadmap is needed. They are:
 
 - remarks, and statements made in running text;
 - outside inputs the owning layers use in proof steps but do not state.
 
 The five routes:
 
-1. **DiamondsAndVStacks D0, D3 and D4** (8 items).
+1. **DiamondsAndVStacks D0 and D5** (5 missing items and 1 planned; the review replaced D3 and D4 by D5).
    - In D0, the foundations the whole paper rests on:
      - π₀ of a spectral space is profinite;
      - the reduction of cofiltered limits to ordinal-indexed ones;
      - the flasque constant sheaf on a spectral space with a generic point (Stacks 02UW);
-     - SGA 4 VI 8.7.7 and 5.2 on coherent topoi.
-   - In D3, the three algebraic inputs to Lemma 9.5:
-     - Grothendieck's refinement of fppf covers of strictly henselian rings;
-     - Raynaud–Gruson on finite presentation over valuation rings;
-     - lifting special-fibre points of flat formal schemes.
+     - SGA 4 VI 8.7.7 on limits of coherent topoi (SGA 4 VI 5.2 is already planned by a D0 node).
+   - In D5, the localization Y_y of a spatial diamond at a point (added by the review).
+   - The three algebraic inputs to Lemma 9.5 moved to routes 5 and 6.
 2. **DiamondEtaleCohomology C2, C3, C4 and C7** (4 items):
    - the D⁺ formula for R_Yét;
    - the comparison of Rf_* with the left-completed étale pushforward;
    - Remark 18.2(b);
    - Proposition 20.14, which C7's plan for 20.15–20.16 uses but no node states.
-3. **DiamondSixOperations S4, S5 and S6** (5 items). The remarks that bound the six-operation statements:
-   - descent of representability along universally open covers, and the formal-smoothness criterion (S4);
+3. **DiamondSixOperations S4, S5 and S6** (4 items). The remarks that bound the six-operation statements:
+   - descent of representability along universally open covers (S4; the formal-smoothness criterion is planned by VStackSheavesAndLisseCategories VS1);
    - Rq^! ≠ q^* (S5);
    - the failure, and the conditional extension, of conservativity (S6).
-4. **EnhancedDerivedSheaves E3 and E5:presentability** (4 items). Lurie's HTT 5.5.2.2, 5.5.3.12 and 5.5.3.13, and Neeman's compact-objects criterion.
-5. **SchemeAndStackFoundations SF.2** (2 items). Proper base change for schemes, and invariance of scheme étale cohomology under extension of algebraically closed field. SF.2 is the layer whose text asks for scheme proper and smooth base change.
+4. **EnhancedDerivedSheaves E3 and E5:presentability** (3 missing items and 1 planned). Lurie's HTT 5.5.3.12 and 5.5.3.13, and Neeman's compact-objects criterion; HTT 5.5.2.2 is already stated by a node.
+5. **SchemeAndStackFoundations SF.2** (2 missing items and 1 planned). Invariance of scheme étale cohomology under extension of algebraically closed field, and Grothendieck's refinement of fppf covers of strictly henselian rings (moved from route 1). Proper base change for schemes is planned by SF.2, whose text asks for scheme proper and smooth base change.
+6. **AdicSpacesPartII R2** (1 missing item and 1 planned; added by the review). Raynaud–Gruson finite presentation over valuation rings of any height, and the lifting of special-fibre points (planned by R2/specialisation-map).
 
 ## Source issues
 
-There are 73 source issues: 44 misprints, 18 gaps and 11 errors. 25 affect a proof and 7 a stated result; none affects a main theorem of the introduction. Twenty were already recorded in the atlas (in PerfectoidSpaces, AdicEtaleGeometry, DiamondEtaleCohomology and ClassicalAdicEtaleCohomology), and each is cross-referenced; the rest are new.
+There are 73 source issues: 44 misprints, 18 gaps and 11 errors. 25 affect a proof and 7 a stated result; none affects a main theorem of the introduction. Twenty were already recorded in the atlas (in PerfectoidSpaces, AdicEtaleGeometry, DiamondEtaleCohomology and ClassicalAdicEtaleCohomology), and each is cross-referenced; the rest are new. (The review added 28 more, E74–E101, of which five repeat further atlas findings; see the end of this report.)
 
 **Stated results that need a correction:**
 
@@ -121,6 +120,39 @@ Where an atlas node copies a faulty step, the issue says so: DiamondsAndVStacks 
 2. Neeman, *The Grothendieck duality theorem via Bousfield's techniques and Brown representability* (JAMS 1996), doi:10.1090/S0894-0347-96-00174-9.
 3. Scheiderer, *Quasi-augmented simplicial spaces* (JPAA 1992), doi:10.1016/0022-4049(92)90062-K.
 4. Temkin, *Topological transcendence degree* (J. Algebra 2021), doi:10.1016/j.jalgebra.2020.10.002.
-5. Huber, *Étale cohomology of Henselian rings and cohomology of abstract Riemann surfaces of fields* (Math. Ann. 1993), doi:10.1007/BF01444911.
+5. Grothendieck–Verdier, *Conditions de finitude. Topos et sites fibrés* (SGA 4, Exposé VI), Lecture Notes in Math. 270 (1972), doi:10.1007/BFb0061319. (Added by the review, which removed Huber, Math. Ann. 1993: the atlas already has it as a source of the ClassicalAdicEtaleCohomology H0 packet.)
 
 The DOIs were confirmed on Crossref. None of these papers was read for this job.
+
+## Corrections by the independent review
+
+REV-PAPER-SCHOLZE-17 (Claude Code, session `cc-f805bf`, 29 September 2026) made these changes. The reasons are in `research/blueprint/reviews/REV-PAPER-SCHOLZE-17.md`.
+
+- **Source issues.**
+  - A `review` verdict on each of E1–E73; all are confirmed.
+  - Field corrections: E5 (reason), E12 (correction), E27 and E63 (printed), E32 (reason: the sentence is new in v4), E43 (correction), E46 and E50 (reason). The atlas ids cited in `known` for E4, E6, E7, E9, E10, E22, E24 and E27 now name their packet, because PerfectoidSpaces--P0 and --P8 reuse the ids E1–E34.
+- **New issues E74–E101 (28).**
+  - Five affect a stated result:
+    - E74: Theorem 1.8(iii) has A and B on the wrong spaces;
+    - E83: "X → ∗ quasicompact implies X quasicompact" is false in a general algebraic topos (the warning before Proposition 8.3);
+    - E94: the unbounded case of Theorem 19.2 omits "f quasi-pro-étale or nΛ = 0";
+    - E99: Proposition 22.15 needs Ỹ quasiseparated;
+    - E100: Propositions 24.2–24.3 never state that Λ is ℓ-power torsion.
+    - (E57, already recorded, is kept as a misprint in a stated result.)
+  - Six gaps in proofs: E78 (Proposition 3.5, fractional exponents), E81 (Proposition 6.4(iv)), E84 and E85 (Lemmas 9.4 and 9.5), E88 (Proposition 13.13: open and closed neighbourhoods of a point of |Y|^B are not cofinal), E95 (proof of Theorem 19.2 cites Proposition 17.6 in the quasi-pro-étale case).
+  - Two errors that affect nothing: E91 (Remark 16.2) and E101 (Remark 25.6's example fails for discretely valued K).
+  - Fifteen misprints that affect nothing.
+- **Items.**
+  - New items 618 (the localization Y_y, missing, routed to D5) and 619 (the Pro(Y_ét,qc,sep) basis from the proof of Proposition 14.8, planned at C0).
+  - Statements corrected (16): 28, 113, 145, 182, 329, 391, 530, 568, 579 and 318–324; locators 197, 304, 401, 543, 552–554; names 454 and 318–324. The Berkovich space is now written |X|^B, as in the paper.
+  - Notes corrected or extended in 96 items, among them 15, 74, 144, 193, 199, 247, 306, 316, 324, 352, 357, 364, 384, 401, 478, 496, 502, 517, 612, 613, the 52 notes that said DiamondEtaleCohomology has nodes only for C8 (C8–C9), and cross-references to the new issues.
+- **Statuses.**
+  - Five missing items are planned: 210 (AdicSpacesPartII:R2), 406 (EnhancedDerivedSheaves:E5:presentability), 441 (SchemeAndStackFoundations:SF.2), 598 (DiamondsAndVStacks:D0) and 604 (VStackSheavesAndLisseCategories:VS1).
+  - Planned lists shortened for 193, 334, 366 and 505 (a layer that consumes the item was listed as planning it); library lists extended for 26, 154 and 471.
+- **Routes.**
+  - Route 1 now names D0 and D5, loses 208–210 and gains 618.
+  - Route 3 loses 604; routes 3 and 4 have corrected reasons.
+  - Route 5 gains 208 and keeps 441 as a planned item.
+  - New route 6: AdicSpacesPartII R2 for 209 (and 210, planned).
+- **Prerequisites.** Huber 1993 removed (already an atlas source); SGA 4 Exposé VI added.
+- **Summary.** Updated with the new counts and findings.
