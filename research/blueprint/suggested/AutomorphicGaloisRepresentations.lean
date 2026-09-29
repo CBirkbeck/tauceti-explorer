@@ -122,6 +122,41 @@ consistent with `ρ̄ ≅ 1 ⊕ χ̄₅` (`a₂ = -2`, `a₃ = -1`, `a₇ = -2`,
 example : ((-2 : ZMod 5) = 1 + 2) ∧ ((-1 : ZMod 5) = 1 + 3) ∧ ((-2 : ZMod 5) = 1 + 7) ∧ ((4 : ZMod 5) = 1 + 13) := by
   decide
 
+/-! ## R19.6 — the full weight-two Hecke algebra
+(`AutomorphicGaloisRepresentations:R19.6/full-weight-two-hecke-algebra-and-its-galois-representations`)
+
+`fullHeckeAlgebra`, `fullHeckeAlgebra_free`, `tateModule_free_rank_two`, `heckeRep`, `heckeRep_charpoly`,
+`residualHeckeRep`, `heckeRep_newform`: not stated; they need the Jacobian `J_Γ` with its Hecke action and Tate
+module (ModularCurvesPartII R14.2, ArithmeticGaloisRepresentations R01.6).
+-/
+
+-- Test `fullHeckeAlgebra_level_eleven`, `fullHeckeAlgebra_genus_zero`, `heckeRep_newform_compat`: not stated;
+-- they need `𝕋_ℤ` and `ρ_𝔪`.
+
+/-- Test `fullHeckeAlgebra_not_reduced_level_88` (its arithmetic): the old space of `11a1` at level `88` has
+dimension `σ₀(8) = 4`, and `T₂` satisfies `u²(u² + 2u + 2)` (`a₂ = -2`). The element `u(u² + 2u + 2)` has degree
+`3 < 4`, so it is nonzero in `K[u]/(u²(u² + 2u + 2))`, and its square is a multiple of the modulus. -/
+example : (Nat.divisors 8).card = 4 := by decide
+
+example (u : ℤ) : (u * (u ^ 2 + 2 * u + 2)) ^ 2 = (u ^ 2 * (u ^ 2 + 2 * u + 2)) * (u ^ 2 + 2 * u + 2) := by
+  ring
+
+/-! ## R19.6 — the reduced Hecke algebra over ℚ
+(`AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-classical`,
+`AutomorphicGaloisRepresentations:R19.6/reduced-hecke-algebra-as-a-localisation`) -/
+
+/-- Acceptance (Darmon–Diamond–Taylor Example 3.28, `ρ̄ = ρ̄_{57B,3}`, `Σ = ∅`): the traces of `ρ^mod_∅(Frob_p)`
+for `p = 2, 5, 7, 11, 13, 17, 23, 29` are pairs `(x, y)` with `x ≡ y (mod 3)`, i.e. elements of
+`𝕋_∅ = {(x, y) ∈ ℤ₃² : x ≡ y mod 3}`. -/
+example : [((1 : ℤ), (-2 : ℤ)), (-2, 1), (0, 3), (0, -3), (6, -6), (-6, 3), (4, 4), (2, -10)].all
+    (fun t => (t.1 - t.2) % 3 == 0) = true := by
+  decide
+
+/-- Acceptance (`ρ̄ = ρ̄_{11a1,3}`, `Σ = {2}`): `N_Σ = 11 · 2² = 44`, and the `11a1`-part of `𝕋_K` at level 44 is
+`K[u]/(u(u² + 2u + 2))`; its cofactor at `u = 0` is `2`, nonzero in `𝔽₃`, so `u = 0` is a simple root above `𝔪`. -/
+example : 11 * 2 ^ 2 = 44 ∧ ((0 : ZMod 3) ^ 2 + 2 * 0 + 2 ≠ 0) := by
+  decide
+
 /-! ## Theorems needing objects of other roadmaps
 
 * `…:R19.1/lambda-adic-representation-of-a-weight-k-eigenform`, `…:R19.1/weight-one-artin-representation`,
@@ -135,12 +170,14 @@ example : ((-2 : ZMod 5) = 1 + 2) ∧ ((-1 : ZMod 5) = 1 + 3) ∧ ((-2 : ZMod 5)
   algebra over a totally real field, their Hecke algebras (OrdinaryAutomorphicFormsAndModularityLifting R21.1) and
   Jacquet–Langlands (GL2AutomorphicRepresentationsAndTransfer R17.3).
 * `…:R19.2/wiles-ordinary-hilbert-representation`, `…:R19.4/nearly-ordinary-hilbert-compatibility-away-from-p`: not
-  stated; they need nearly ordinary Hilbert modular forms (OrdinaryAutomorphicFormsAndModularityLifting R21.2).
+  stated; they need nearly ordinary Hilbert modular forms (OrdinaryAutomorphicFormsAndModularityLifting R21.2).* `…:R19.6/hecke-algebra-representation-classical`, `…:R19.6/reduced-hecke-algebra-as-a-localisation`: not stated;
+  they need the newforms of weight two with their λ-adic representations, the full Hecke algebra of `Γ₀(N_Σ)` and
+  the universal deformation ring `R_Σ` (GlobalGaloisDeformations R04.3).
 -/
 
 /-- Acceptance (`…:R19.4/quaternionic-sigma-place-local-form`): the unramified character `γ_v` at a place of `Σ`
 satisfies `γ_v² = ψ_v`; for trivial `ψ` its Frobenius value is a square root of `1`. -/
-example (γ : ℚ) (h : γ ^ 2 = 1) : γ = 1 ∨ γ = -1 := by
-  sorry
+example (γ : ℚ) (h : γ ^ 2 = 1) : γ = 1 ∨ γ = -1 :=
+  mul_self_eq_one_iff.mp (by rw [← sq]; exact h)
 
 end TauCeti.ModularGalois
