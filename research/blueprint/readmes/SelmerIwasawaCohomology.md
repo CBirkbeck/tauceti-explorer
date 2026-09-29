@@ -1,6 +1,6 @@
 # Selmer groups, continuous integral cohomology and Iwasawa cohomology — blueprint
 
-This blueprint covers stages L0–L4, within the boundaries RS-08 accepted. Two checkpoints so far
+This blueprint covers stages L0–L4, within the boundaries RS-08 accepted. Three checkpoints so far
 plan:
 - **L0:** the p-adic Kummer identification, with its completions and inverse-limit bookkeeping;
 - **L1:** the parametric pairing lemmas (orthogonal complements, and the compatibility of the local
@@ -15,7 +15,10 @@ It follows these sources:
 - Rodrigues Jacinto–Williams (RJW), *An introduction to p-adic L-functions*: §10.5 and §13.5.
 - Burungale–Tian, *A rank zero p-converse*, as the maintainer asked.
 
-L3 and L4 are not yet read.
+- **L3** (third checkpoint): Iwasawa cohomology, from Nekovář's *Selmer complexes*, Chapter 8, and Rubin's
+  Appendix B §§3–5.
+
+L4 is not yet read.
 
 ## Purpose
 
@@ -286,6 +289,48 @@ The proof uses ArithmeticGaloisDuality R02.4's Poitou–Tate, not only the local
 **Theorem: the limit form** (node `selmer-poitou-tate-limit`). S(K, W^*)/S_{Σ_p}(K, W^*) ≅
 Hom_O(coker(loc^s_{Σ_p}), D), with the lim¹ bookkeeping explicit (Rubin Corollary 7.5).
 
+## L3. Iwasawa cohomology and control
+
+Module `TauCeti/NumberTheory/Selmer/Iwasawa`, namespace `TauCeti.Selmer`. RS-08 keeps here:
+- the actual inverse-corestriction Iwasawa complexes;
+- completed group coefficients with the inverse action;
+- finite generation;
+- specialisation and control with their Tor and H⁰ error terms.
+
+Torsion is a separate conclusion.
+
+**Construction: Iwasawa cohomology** (node `iwasawa-cohomology`). RΓ_Iw(G, H; M) = lim_U C^•_cont(G, M_U)
+(Nekovář 8.3.4–8.3.5).
+- *API:*
+  - under (F), H^j_Iw = lim_{U,cor} H^j(U, M);
+  - H⁰_Iw = 0 when p^∞ | #Γ (Rubin B.3.2);
+  - the H¹ limit through T/p^n (Rubin B.3.1).
+- *Unit tests:*
+  - Γ = 1;
+  - H⁰ vanishing along the cyclotomic tower;
+  - agreement with Kato's étale definition as quoted by Burungale–Tian;
+  - non-example: restriction transitions give a different limit.
+
+**Theorem: Shapiro's lemma over Λ** (node `iwasawa-shapiro`; planet). 𝓕_Γ(M) ≅ (M ⊗_R R̄)⟨−1⟩, with the inverse
+tautological action, is finitely generated over R̄, and RΓ_cont(G, 𝓕_Γ(M)) ≅ RΓ_Iw(G, H; M) (Nekovář 8.4.4.1–8.4.4.2).
+
+**Theorem: descent and control** (node `iwasawa-descent`; planet).
+- RΓ_Iw ⊗^L_{R̄} R ≅ RΓ_cont(G, T), with its homological spectral sequence.
+- For Γ ≅ ℤ_p, the short exact sequences 0 → (H^j_Iw)_Γ → H^j(G, T) → (H^{j+1}_Iw)^Γ → 0.
+- The relative version for Γ′ ⊆ Γ (Nekovář 8.4.8.1–8.4.8.4).
+
+**Theorem: the torsion criterion** (node `iwasawa-torsion-criterion`). If RΓ(G, T)_𝔭 = 0 then RΓ(G, 𝓕_Γ(T))_𝔭̄ = 0
+(Nekovář 8.4.8.5). Torsion is always deduced this way, never assumed.
+
+**Theorem: universal norms are unramified** (node `universal-norms-unramified`; planet). Rubin B.3.3–B.3.5, including
+lim H¹(F, T) = lim H¹(K_S/F, T).
+
+**Theorem: semilocal cohomology** (node `semilocal-cohomology`). H^i(F, Ind_D T′) ≅ ⊕_{Q|q} H^i(F_Q, T′_Q), with
+descent of local classes (Rubin B.5.1–B.5.3). Infinite-level local conditions are limits of these.
+
+**Theorem: the cyclotomic twist** (node `iwasawa-twist`). Cup product with (ζ_{p^n}^{⊗k}) gives an isomorphism
+H^q_Iw(T) ≅ H^q_Iw(T(k)) that is Tw_k-semilinear, with Tw_k(σ) = κ(σ)^{−k}σ. This is Burungale–Tian's (3.2).
+
 ## Source findings
 
 - **E1.** RJW (10.7)/(10.8) state F^× ⊗ ℤ_p ≅ H¹(F, ℤ_p(1)). With an algebraic tensor product
@@ -340,8 +385,12 @@ Hom_O(coker(loc^s_{Σ_p}), D), with the lim¹ bookkeeping explicit (Rubin Coroll
 - **L2:**
   - the Selmer complex as a mapping fibre (Nekovář, Selmer complexes) with its H⁰ conditions;
   - primitive/imprimitive sequences and lattice-change formulas.
-- **L3:** Iwasawa cohomology and control, including Burungale–Tian's etale-iwasawa,
-  lattice-independence, strict-selmer and tower units-kummer items.
+- **L3 (partial):**
+  - duality for Iwasawa cohomology;
+  - determinant lines with PadicMeasuresIwasawaAlgebras L5;
+  - finite-slope and exceptional-zero correction complexes;
+  - Selmer control theorems;
+  - Burungale–Tian's lattice-independence item (Kato §12.2).
 - **L4:**
   - RJW §13.5.2 and Conjecture 13.21;
   - Bloch–Kato conditions;
@@ -351,6 +400,7 @@ Hom_O(coker(loc^s_{Σ_p}), D), with the lim¹ bookkeeping explicit (Rubin Coroll
 
 - K. Rubin, *Euler systems*, author draft of Annals of Mathematics Studies 147.
 - B. Mazur and K. Rubin, *Controlling Selmer groups in the higher core rank case*, arXiv:1312.4052v1.
+- J. Nekovář, *Selmer complexes*, Astérisque 310 (2006), Numdam. Read Chapter 8, §§8.3–8.4 (pp. 202–216).
 - J. Rodrigues Jacinto and C. Williams, *An introduction to p-adic L-functions*, arXiv:2309.15692v2.
 - A. Burungale and Y. Tian, *A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and
   Rubin*, arXiv:2506.03465v2.
