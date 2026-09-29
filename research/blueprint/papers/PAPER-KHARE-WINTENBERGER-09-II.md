@@ -82,7 +82,7 @@ All 29 missing items go to existing layers as sources. None needs a Part II or a
 
 ## Source issues
 
-There are 32 issues: 22 misprints, 8 gaps and 2 errors. Six affect a proof. None affects a stated theorem of KW I or KW II as they are used. Four were already recorded in the atlas:
+There are 32 issues: 22 misprints, 8 gaps and 2 errors. The independent review confirmed 31 and rejected one misprint, E13 (the bar on R̄ in §4.1.3 is printed, as an overline). Six affect a proof. None affects a stated theorem of KW I or KW II as they are used. Four were already recorded in the atlas:
 
 - GlobalGaloisDeformations/E2 (§2.1, "surjectivity" should be "injectivity");
 - PotentialModularityAndCompatibleSystems/E1 and /E2 (the pages of [33], and "part (c)" of Theorem 6.1);
@@ -130,3 +130,11 @@ All are listed with their corrections in the JSON.
 6. Wintenberger, *On p-adic geometric representations of G_ℚ* (Documenta 2006), doi:10.4171/dms/4/24.
 
 Every DOI was confirmed on Crossref. None of these papers was read for this job. Their statements here are the ones KW II cite.
+
+## Corrections by the independent review
+
+REV-PAPER-KHARE-WINTENBERGER-09-II (Claude Code, session `cc-fb70e5`, 29 September 2026) made these changes:
+
+- A `review` verdict on each of E1–E32.
+- 31 are confirmed. E13 is **rejected**: the zoomed page image of p. 39 shows the bar on R̄^{□,ψ}_v in the second bullet of §4.1.3. It is set as an overline, a drawn rule that the text layer does not record.
+- No item, status or route was changed.
