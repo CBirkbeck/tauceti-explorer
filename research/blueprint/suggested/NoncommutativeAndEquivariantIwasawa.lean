@@ -30,6 +30,8 @@ import Mathlib.GroupTheory.Commutator.Basic
 import Mathlib.Data.ZMod.Basic
 import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
+import Mathlib.NumberTheory.LSeries.HurwitzZetaValues
+import Mathlib.NumberTheory.Bernoulli
 import Mathlib.Data.Rat.Init
 
 namespace TauCeti.NoncommIwasawa
@@ -286,5 +288,41 @@ example (p : ℕ) [Fact p.Prime] (f : Polynomial (ZMod p)) : expand (ZMod p) p f
 example : ∀ v : ZMod 27, v ^ 27 = v ^ 9 := by decide
 
 end NE6AlgebraTests
+
+/-
+NE.6 (checkpoint 7), Kakde §§6.2–6.13, recorded as signatures (Hilbert modular forms and the Deligne–Ribet zeta
+functions are requested from AutomorphicPadicLFunctions L3):
+
+def smoothedValue (u) (ε) (k) := L_{Σ_P}(ε, 1 − k) − κ(u)^k • L_{Σ_P}(ε_u, 1 − k)                       -- partial-zeta-values
+theorem image_one_sub_mul_zeta (j k) : proj_j ((1 − u) * ζ_P) = Σ_x smoothedValue u (δ x) k • κ(x)^{−k} • x   -- deligne-ribet-approximation
+theorem ver_zeta_congr : ver^{P′}_P (ζ_{P′}) ≡ ζ_P [MOD T_{P,P′,S}]                                      -- basic-congruences (M3)
+theorem zeta_mem_Phi_S (F̃_∞/F) : (ζ_P)_P ∈ Phi_S                                                        -- zeta-tuple-in-phi
+theorem mainConjecture (hp : Odd p) (hμ : MuZero F_∞/F) : ∃! ζ, ∂ ζ = −[C(F_∞/F)] ∧ Interpolates ζ          -- kakde-main-theorem
+-/
+
+/-! ## NE.6 (checkpoint 7): Kakde §§6.2–6.13 -/
+
+namespace NE7Tests
+
+/-- `NE.6/partial-zeta-values`: `L_{{3}}(1, −1) = (1 − 3)ζ(−1) = (−2)(−1/12) = 1/6`. -/
+example : (1 - 3 : ℂ) * riemannZeta (-1) = 1 / 6 := by
+  have h := riemannZeta_neg_nat_eq_bernoulli' 1
+  rw [show ((1 : ℕ) : ℂ) + 1 = 2 by norm_num, show (1 : ℕ) + 1 = 2 by rfl, bernoulli'_two] at h
+  push_cast at h
+  rw [h]
+  norm_num
+
+/-- `NE.6/basic-congruence-values` (Proposition 113, `p = 3`, `k = 2`): `N^{p(k−1)} ≡ N^{pk−1}` modulo `p` for
+`p ∤ N`. -/
+example : ∀ n : ZMod 3, n ≠ 0 → n ^ 3 = n ^ 5 := by decide
+
+/-- `NE.6/basic-congruence-values` (Propositions 116–117, `|V| = 9`): `N^{|V|} ≡ N^{|V|/p}` modulo `|V|`. -/
+example : ∀ n : ZMod 9, n ^ 9 = n ^ 3 := by decide
+
+/-- `NE.6/basic-congruence-values` (finding E7): with `r_P = 15`, `p = 3`, `2^{−15} ≢ 2^{−5}` modulo `15` because
+`2^{10} ≢ 1`, while modulo the `p`-part `3` it holds; for `r_P = 45`, `2^{30} ≡ 1` modulo `9`. -/
+example : (2 : ZMod 15) ^ 10 ≠ 1 ∧ (2 : ZMod 3) ^ 10 = 1 ∧ (2 : ZMod 9) ^ 30 = 1 := by decide
+
+end NE7Tests
 
 end TauCeti.NoncommIwasawa

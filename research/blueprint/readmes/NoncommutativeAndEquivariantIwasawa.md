@@ -1,14 +1,14 @@
 # Noncommutative and equivariant Iwasawa theory — blueprint
 
-This blueprint covers stages NE.0–NE.7. After the sixth checkpoint:
+This blueprint covers stages NE.0–NE.7. After the seventh checkpoint:
 - **NE.1 is source-decomposed.**
 - **NE.0 is partial.**
 - **NE.2 is partial:** CFKSV §§3–4 — the localisation sequence and characteristic elements.
 - **NE.3 is partial:** CFKSV §3 — twists, Φ_ρ, evaluation at representations, Akashi series and Euler characteristics.
 - **NE.4 and NE.5 are partial:** CFKSV §5 — the dual Selmer module, the 𝔐_H(G) conjecture, the conjectural p-adic
   L-function and the main conjecture (checkpoint 4).
-- **NE.6 is partial:** Kakde §§1–5 and §6.1 — the abelian case, Burns–Kato patching, the reductions, the congruence
-  description of K′₁ (Theorems 52–53) and the criterion MC ⇔ (ζ_P) ∈ Φ^G_S (checkpoints 5–6).
+- **NE.6 is partial.** Kakde is read in full, and the proof of his main theorem (Theorem 11) is decomposed end to end
+  (checkpoints 5–7). Ritter–Weiss and the coverage table remain.
 - **NE.7 is not yet read.**
 
 The accepted restructuring RS-16 moves the construction of completed group algebras, with restriction, induction and
@@ -474,6 +474,55 @@ gives "if"; "only if" is reconstructed. The proof needs:
 The text layer drops fraction bars: Theorem 94's M4 reads as a product ≡ 1, but the page image shows the quotient form
 of Definition 51.
 
+### NE.6, Milestone 10: Kakde's congruences and the main theorem, §§6.2–6.13 (checkpoint 7)
+
+Source: Kakde, arXiv:1008.0142v3, pp. 69–90. The setting is that of Milestone 9, with Δ × G, p odd and μ = 0.
+
+**Definition: partial zeta values** (`smoothedValue`; node `NE.6/partial-zeta-values`). ζ(δ(x), s) for cosets of
+Z^{p^j}, the values L_{Σ_P}(ε, 1 − k) (15), and the smoothed values Δ^u_P(ε, 1 − k) = L(ε, 1 − k) − κ(u)^kL(ε_u, 1 − k)
+(16), invariant under conjugation (Lemma 103).
+- *Unit tests:*
+  - L_{{3}}(1, −1) = 1/6 (checked through Mathlib's ζ(−1) = −1/12);
+  - ε ≡ 0;
+  - u = 1 gives 0;
+  - odd k is excluded.
+
+**Lemma: finite-level approximations** (node `NE.6/deligne-ribet-approximation`). Λ(Δ × U_P^ab) = lim ℤ_p[…/Z^{p^j}]/(p^{f+j})
+(Lemma 101), and (1 − u)ζ_P ↦ Σ_x Δ^u_P(δ(x), 1 − k)κ(x)^{−k}x (Proposition 102, after Ritter–Weiss). It uses
+Deligne–Ribet's Theorem 0.4.
+
+**Lemma: the reduction to value congruences** (node `NE.6/basic-congruence-reduction`; Propositions 104 and 106–108).
+Each basic congruence follows from a congruence between Δ-values, by orbit sums over P′, W_ḠP or N_ḠP′/P.
+
+**Lemma: the Hilbert Eisenstein toolkit** (node `NE.6/hilbert-eisenstein-toolkit`; §§6.6–6.11). It covers restriction
+along the diagonal (Lemma 109), U_β (Lemma 110), Deligne–Ribet's G_{k,ε} (Proposition 111) and the q-expansion
+principle (Remark 112). These are requested from AutomorphicPadicLFunctions L3.
+
+**Lemma 114** (node `NE.6/transfer-image-not-generator`). The transfer into a maximal cyclic P misses its generators.
+
+**Theorem: the value congruences** (node `NE.6/basic-congruence-values`; Propositions 113 and 115–117). They are proved
+from Eisenstein combinations and the q-expansion principle. The step modulo r_P in 116–117 is repaired to its
+p-part (E7).
+
+**Theorem: the basic congruences** (node `NE.6/basic-congruences`; Propositions 96–99). These are (10)–(14); (10) is M3.
+
+**Lemma: the enlarged extension** (node `NE.6/enlarged-extension`; §6.13.1–2, Lemma 118). F̃_∞ = F_∞K with
+K ⊆ ℚ(μ_l), and T_P ⊆ p·i_P²Λ. Its admissibility and μ = 0 are supplied here (E10).
+
+**Lemma: M4** (node `NE.6/m4-from-basic-congruences`; Lemma 119 and §6.13.3). It follows from (11)–(14) through the
+logarithm.
+
+**Theorem 94** (node `NE.6/zeta-tuple-in-phi`). (ζ_P) ∈ Φ_S for F̃_∞/F, hence MC(F̃_∞/F).
+
+**Theorem: Kakde's main theorem** (node `NE.6/kakde-main-theorem`; planet; Theorem 11). For p odd, F_∞/F admissible and
+μ = 0, a unique ζ ∈ K′₁(Λ(G)_S) exists with ∂ζ = −[C(F_∞/F)] and the interpolation property. The proof assembles
+Milestones 8–10.
+
+**Source findings (E5–E10):**
+- misprints in (21) (E5), in the proof of Proposition 106 (E6), in the proof of Proposition 117 (E8) and on p. 89 (E9);
+- an incorrect congruence modulo r_P in the proofs of Propositions 116–117 (E7, repaired);
+- the unargued admissibility and μ = 0 for F̃_∞ (E10).
+
 ## Dependencies
 
 - **NE.0 imports:**
@@ -518,8 +567,8 @@ of Definition 51.
 - **NE.5 (partial).** Fukaya–Kato's formulation, and the abelian comparison with IntegralIwasawaTheory I.9. The
   Dokchitser data are a gap.
 - **NE.6 (partial).** Still to do:
-  - Kakde §§6.2–6.13: the basic congruences (Propositions 96–99) via the Deligne–Ribet q-expansion principle, M3 and M4
-    (Lemmas 118–119), Theorem 94 and the main theorem;
+  - Kakde is complete (checkpoint 7); his cited inputs remain gaps (Oliver, Fukaya–Kato) or requests (Deligne–Ribet
+    and Hilbert Eisenstein series from AutomorphicPadicLFunctions L3);
   - Ritter–Weiss;
   - the source-by-source coverage table.
 - **NE.7.** Burns–Venjakob leading terms.
@@ -530,5 +579,5 @@ of Definition 51.
 - **Lazard,** Publ. Math. IHÉS 26 (1965), Numdam. Read II.2.2 and V.2.2.
 - **Ardakov–Brown,** arXiv math/0511345v1. Read §§2–4.
 - **Burns–Venjakob,** arXiv math/0511672v2. Read §2.
-- **Kakde,** arXiv:1008.0142v3. Read §§1–5 and §6.1 (pp. 1–68).
+- **Kakde,** arXiv:1008.0142v3. Read in full (pp. 1–90).
 - **Schneider–Venjakob,** *A splitting for K₁ of completed group rings*, arXiv:1006.1493v1. Read Proposition 2.3 (p. 11).
