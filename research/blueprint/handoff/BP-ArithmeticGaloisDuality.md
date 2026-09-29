@@ -1,6 +1,43 @@
 # BP-ArithmeticGaloisDuality — handoff
 
-Agent: Claude Code — cc-39fac3. Issue #675. Fourth checkpoint, within the RS-08 boundaries.
+Agent: Claude Code — cc-39fac3. Issue #675. Fifth checkpoint, within the RS-08 boundaries.
+
+## Checkpoint 5: D7 (11 nodes)
+
+**Source:** Nekovář, *Selmer complexes* (Astérisque 310, Numdam; sha256 61c84e5a…2153f). Chapter 5 §§5.1–5.4 and
+5.6–5.7.2 were read on rendered pages (PDF 122–140), because the OCR is unreliable for formulas.
+
+**Nodes:**
+- `local-invariant-trivialization`;
+- `local-duality-maps` (construction);
+- `derived-local-duality` (planet);
+- `local-duality-functoriality`;
+- `compact-support-cochains` (construction, planet);
+- `compact-support-cup-products` (construction);
+- `compact-support-euler-characteristic`;
+- `global-invariant-trivialization`;
+- `derived-global-duality` (planet);
+- `duality-after-localization`;
+- `compact-support-without-p`.
+
+They cite this packet's R02.1, R02.3 and R02.4 nodes.
+
+**Coverage:**
+- D7 is now `partial`.
+- R02.3's compact-support item now points to D7.
+- The ClassFieldTheory Layer 5 and ProfiniteCohomology Layer 12 requests are extended.
+
+**Source findings:** none new.
+
+**D7 remaining:**
+- Nekovář Chapters 2–4 (cited, not decomposed);
+- restricted products and unramified subgroups per coefficient regime;
+- Shapiro and the projection formula for lattice coefficients;
+- continuous Hochschild–Serre with lim¹;
+- §5.7.2 onward and §5.5.
+
+**Checks.** `check_blueprint.py`: 72 nodes, 0 errors, 0 warnings. The Lean file compiles with exit 0 against the pinned
+Mathlib. It adds two checked tests: the cone differential squares to zero, and the ∪_c sign.
 
 ## Checkpoint 4: R02.5 and R02.6 (6 nodes)
 

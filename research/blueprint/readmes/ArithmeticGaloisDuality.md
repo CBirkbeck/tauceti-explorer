@@ -541,6 +541,63 @@ Finiteness of H², the cohomological dimension and the Euler characteristic are 
 the source proves them from Poitou–Tate. They are planned in R02.4, and the packet proposes
 rescoping the two stages accordingly.
 
+## D7. Continuous derived cohomology and dimension-general duality (checkpoint 5)
+
+Source: Nekovář, *Selmer complexes*, Chapter 5 §§5.1–5.4 and 5.6–5.7.2 (Numdam; printed = PDF − 9). Statements were
+read on the page images because the OCR is unreliable for formulas. Standing condition (P): if p = 2, K has no real
+prime; its failure is treated separately. Library modules:
+`TauCeti/NumberTheory/GaloisCohomology/DerivedDuality` and `…/CompactSupport`.
+
+### Local duality
+
+- **The local invariant as a quasi-isomorphism** (`D7/local-invariant-trivialization`; 5.1.3, 5.2.1).
+  - inv_v : H²(G_v, A(1)) ≅ A, and H^i = 0 for i > 2.
+  - i_v : A[−2] → τ_{≥2}C_cont(G_v, A(1)) is a quasi-isomorphism.
+  - For injective complexes there is a homotopy inverse r_v.
+- **Construction: the local duality maps** (`localDualityMap`; node `D7/local-duality-maps`; 5.2.2–5.2.3).
+  D_J(X) = Hom•(X, J), and α_{J,X} : RΓ(G_v, X) → D_{J[−2]}(RΓ(G_v, D_J(X)(1))) is built from cup product,
+  evaluation and r_v. J is either I[n] (Matlis) or ω•[n] (Grothendieck).
+  - *API:* D_J, α, α′, the pairings (5.2.2.1), independence of r_v.
+  - *Unit tests:*
+    - Tate's pairing for ℤ/p;
+    - X = 0;
+    - *non-example:* the failure without finiteness.
+- **Theorem: derived local duality** (`D7/derived-local-duality`; planet; Proposition 5.2.4, Lemma 5.2.5,
+  Theorem 5.2.6, 5.2.10).
+  - α is an isomorphism under the finiteness hypotheses.
+  - The duality diagram for T, T*, A, A* passes to RΓ_cont(G_v, −) with the shift [2], and there is an Ext spectral
+    sequence.
+- **Functoriality and signs** (`D7/local-duality-functoriality`; 5.2.7–5.2.9). α is natural and compatible with
+  ε_J; in the self-dual case ∪_g = ∪_f ∘ s₁₂.
+
+### Compact support and global duality
+
+- **Construction: compactly supported cochains** (`compactCochains`; node `D7/compact-support-cochains`; planet;
+  5.3.1–5.3.2).
+  - C_c = Cone(C(G_{K,S}) → ⊕_{v∈S_f} C(G_v))[−1], built from finite places only.
+  - Changing embeddings gives a homotopy equivalence.
+  - There is an exact triangle and a long exact sequence, and finiteness is preserved.
+  - *Unit tests:*
+    - H⁰_c = 0;
+    - K = ℚ, S = {p, ∞}, M = 𝔽_p: χ_c = 1, with H²_c ≅ 𝔽_p;
+    - the cone differential squares to zero (checked in Lean);
+    - *non-example:* p = 2 with real places.
+- **Construction: cup products with compact support** (`D7/compact-support-cup-products`; 5.3.3).
+  - (a, a_S) _c∪ b = (a ∪ b, a_S ∪ res(b)).
+  - a ∪_c (b, b_S) = (a ∪ b, (−1)^{deg a} res(a) ∪ b_S).
+  - Both satisfy Leibniz rules, and both are compatible with ∪.
+- **Euler characteristic with compact support** (`D7/compact-support-euler-characteristic`; 5.3.5–5.3.6).
+  Σ(−1)^q e_R(H^q_c(T)) = Σ_{v|∞}Σ(−1)^q e_R((T^q)^{G_v}).
+- **The global invariant on H³_c** (`D7/global-invariant-trivialization`; 5.4.1). H³_c(G_{K,S}, ℤ/p^n(1)) ≅ ℤ/p^n,
+  with the quasi-isomorphisms (5.4.1.1)–(5.4.1.3) and r_J.
+- **Theorem: derived Poitou–Tate duality** (`D7/derived-global-duality`; planet; 5.4.2–5.4.5).
+  - The maps β and the pairings H^i_c × H^j → H^{i+j−3}(J) are isomorphisms under the finiteness hypotheses.
+  - They reduce to the nine-term sequence of R02.4.
+  - They are natural, and the duality diagram passes to RΓ, RΓ_c with the shift [3], with spectral sequences.
+- **After localisation** (`D7/duality-after-localization`; 5.6). Rational coefficients.
+- **Without (P)** (`D7/compact-support-without-p`; 5.7.1–5.7.2). For p = 2 with real places, Tate cohomology
+  at the real places, and the modified Poitou–Tate sequence.
+
 ## Source findings
 
 - Harpaz–Wittenberg, Lemma 5.5, is false for C that is not finitely generated. This is already
@@ -628,9 +685,7 @@ rescoping the two stages accordingly.
     on 2026-09-29);
   - Harpaz–Wittenberg items 149–150 (Laurent residues, Witt's decomposition; Gille–Szamuely §§6.3,
     6.8).
-- **R02.3:** compactly supported cohomology as the fibre of localisation with the modified
-  archimedean terms. Milne Chapter I has no cochain-level version; read Nekovář, *Selmer complexes*,
-  §5, or Milne Chapter II §2.
+- **R02.3:** compactly supported cohomology is now planned in D7, from Nekovář §5.3 and §5.7.
 - **R02.4:**
   - the lattice and rational versions of Poitou–Tate through R02.1;
   - Milne Theorem 4.20 and Corollaries 4.7, 4.17 and 4.21 (finitely generated modules, tori, ℤ
@@ -638,7 +693,13 @@ rescoping the two stages accordingly.
 - **R02.5:** the comparison with the Selmer complex of SelmerIwasawaCohomology L2, once that complex is
   planned.
 - **R02.6:** KW II §§4–5, over totally real fields, with p = 2 and the trace-zero/dual distinction.
-- **D7, D8:** as narrowed by RS-08.
+- **D7 (partial):**
+  - Nekovář Chapters 2–4 (dualizing functors, admissible modules, cochains of complexes, e_R);
+  - restricted products and unramified subgroups in each coefficient regime;
+  - Shapiro and the projection formula for lattice coefficients;
+  - full continuous Hochschild–Serre with lim¹;
+  - Nekovář §5.7.2 onward and §5.5.
+- **D8:** as narrowed by RS-08.
 
 ## Sources
 
@@ -651,5 +712,7 @@ rescoping the two stages accordingly.
   §§5–6, Chapter II §§1, 2, 4, 7.
 - H. Darmon, F. Diamond and R. Taylor, *Fermat's Last Theorem*, author PDF (revised 9 September 2007),
   https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf, read 2026-09-29: §§2.3, 2.7–2.8.
+- J. Nekovář, *Selmer complexes*, Astérisque 310 (2006), https://www.numdam.org/item/AST_2006__310__R1_0.pdf,
+  read 2026-09-29 on the page images: Chapter 5 §§5.1–5.4, 5.6–5.7.2.
 - J. S. Milne, *Arithmetic Duality Theorems*, second edition, author PDF (version 01.07.06),
   https://www.jmilne.org/math/Books/ADTnot.pdf, read 2026-09-29: Chapter I §§0–2, 4, 5.
