@@ -135233,6 +135233,69 @@
    "reviewReason": null
   },
   {
+   "id": "EulerSystemsCyclotomicMainConjecture/E14",
+   "kind": "misprint",
+   "locator": "§2, Lemma 2.11, p. 463 (Numdam scan of the published article)",
+   "printed": "The source takes a character χ of Δ having conductor m, with m dividing cond(F), and sets F′ = F ∩ ℚ(M).",
+   "correction": "… and write F′ = F ∩ ℚ(m).",
+   "reason": "M is not defined anywhere in §2. Part (a) uses y_χ = (Tr_{ℚ(m)/F′}(ζ_m))_χ, which needs F′ ⊆ ℚ(m), and the proof takes F′ to contain F^{ker χ} ⊆ ℚ(m). Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E15",
+   "kind": "misprint",
+   "locator": "§2, Lemma 2.15(b), p. 467",
+   "printed": "Σ_{1≤a≤q_ν, (a,p)=1} a·(ζ_m·ζ_{p^{ν′}})^a = −q_ν·ζ_mζ_{p^{ν′}}/(1 − ζ_mζ_{p^{ν′}}) + q_ν·ζ_mζ_{p^{ν′−1}}/(1 − ζ_mζ_{p^{ν′−1}})",
+   "correction": "… + q_ν·ζ_m^pζ_{p^{ν′−1}}/(1 − ζ_m^pζ_{p^{ν′−1}})",
+   "reason": "Removing the terms a = pb from (a) gives −q_ν·x/(1 − x) + q_ν·x^p/(1 − x^p) with x = ζ_mζ_{p^{ν′}}, and x^p = ζ_m^pζ_{p^{ν′−1}}. Numerically, for (m, p, ν′) = (3, 2, 2), (5, 3, 1), (7, 2, 3), (3, 5, 1) the corrected form agrees to 10^{−13}; the printed form is off by 8.7 to 20.8. The proof's left-hand side (p. 466) has ζ_m^p, so the argument is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E16",
+   "kind": "misprint",
+   "locator": "§2, the definition of R (p. 460) against Lemma 2.11(b), Corollary 2.12 (pp. 463–464) and the notation before Theorem 2.13 (p. 465)",
+   "printed": "The source defines R = 𝒪[[Γ′]] on p. 460. Lemma 2.11(b) gives V_χ(C_∞) = V_χ(R[Δ])·(η_m)_χ. On p. 465 it writes Γ′ = Φ × Γ and R ≅ ℤ_p[[Γ]][Φ] ≅ ℤ_p[[T]][Φ].",
+   "correction": "From Lemma 2.11 on, R stands for ℤ_p[[Γ′]] ≅ ℤ_p[[Γ]][Φ]; the ring 𝒪[[Γ′]] of p. 460 is ℤ_p[[Γ′]] ⊗ 𝒪.",
+   "reason": "In Lemma 2.11(b) V_χ(R[Δ]) must act on V_χ(C_∞), and 𝒪 does not act on the circular units. On p. 465 R ≅ ℤ_p[[Γ]][Φ] holds only for R = ℤ_p[[Γ′]]. Theorem 2.6 (𝒱 = R·(1 − X)) needs R = 𝒪[[Γ′]], or equivalently the ℤ_p[[Γ′]]-span of 𝒪·(1 − X), which is how the proof of Corollary 2.12 uses it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
+    "Centre Mersenne AIF item page for the same article",
+    "web search for an erratum or corrigendum to Greither's article (none found)"
+   ],
+   "owner": "EulerSystemsCyclotomicMainConjecture",
+   "file": "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (52 pages; journal page = PDF page + 447). Formulas were checked on the page images where the OCR is unreliable.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ExponentialSumsAndCircleMethod/E1",
    "kind": "error",
    "locator": "Published §8.1 p.378 and its reuse on p.379; known source issue E2.",
