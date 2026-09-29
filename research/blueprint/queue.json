@@ -621,7 +621,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1057"
   },
   {
@@ -657,7 +657,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-25.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1059"
   },
   {
@@ -1044,7 +1044,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BERGSTROM-FABER-PAYNE-24.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1079"
   },
   {
@@ -1392,7 +1392,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DADDEZIO-23.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1097"
   },
   {
@@ -1856,7 +1856,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MASSER-ZANNIER-20.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1121"
   },
   {
@@ -2516,7 +2516,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-TEMKIN-17.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1155"
   },
   {
@@ -2864,7 +2864,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KOENIGSMANN-16.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1174"
   },
   {
@@ -3056,7 +3056,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BIJAKOWSKI-PILLONI-STROH-16.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1186"
   },
   {
@@ -3677,7 +3677,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HEUER-25.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1220"
   },
   {
@@ -4295,7 +4295,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1254"
   },
   {
@@ -4565,7 +4565,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-XIE-YUAN-22.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1270"
   },
   {
@@ -5927,7 +5927,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HANSEN-26.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1340"
   },
   {
@@ -7172,7 +7172,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1408"
   },
   {
@@ -12597,7 +12597,7 @@
    ],
    "avoidAccountOf": "RS-04",
    "prompt": "research/blueprint/prompts/REV-RS-04.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #807"
   },
   {
@@ -12876,7 +12876,7 @@
    ],
    "avoidAccountOf": "RS-09",
    "prompt": "research/blueprint/prompts/REV-RS-09.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #817"
   },
   {
@@ -12969,7 +12969,7 @@
    ],
    "avoidAccountOf": "RS-11",
    "prompt": "research/blueprint/prompts/REV-RS-11.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #821"
   },
   {
@@ -13516,7 +13516,7 @@
    ],
    "avoidAccountOf": "RS-21",
    "prompt": "research/blueprint/prompts/REV-RS-21.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #841"
   },
   {
@@ -13603,7 +13603,7 @@
    ],
    "avoidAccountOf": "RS-23",
    "prompt": "research/blueprint/prompts/REV-RS-23.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #845"
   },
   {
@@ -13762,7 +13762,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-27.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #854"
   },
   {
@@ -14045,7 +14045,7 @@
    ],
    "avoidAccountOf": "RS-33",
    "prompt": "research/blueprint/prompts/REV-RS-33.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #865"
   },
   {
@@ -19224,7 +19224,7 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.1.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #438"
   },
   {
@@ -20393,7 +20393,7 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators--D.1.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
@@ -23461,7 +23461,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ComputationalNumberTheory.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-ModularCurvesPartII--R12.1",
@@ -23621,7 +23621,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeligneWeightsAndPurity--DWP.0",
     "BP-DeligneWeightsAndPurity--DWP.7",
@@ -25421,7 +25421,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-04.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #884"
   },
   {
@@ -25604,7 +25604,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-10.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #890"
   },
   {
@@ -30149,7 +30149,7 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-motives.md",
-   "state": "external",
+   "state": "pending",
    "note": "claimed on GitHub issue #1519"
   },
   {
