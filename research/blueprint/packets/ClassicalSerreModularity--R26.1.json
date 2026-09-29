@@ -13,7 +13,7 @@
   "ClassicalSerreModularity:R27.2"
  ],
  "status": "partial",
- "summary": "Checkpoint 1 of the R26.1 part (Claude Code cc-39fac3), under the accepted RS-06. It carries the ten reviewed nodes of the integrated decomposition for these stages, with their excerpts re-verified against the sources, re-homes the KW I prime estimates to R27.2 as RS-06 directs, and decomposes Khare's level-one paper (arXiv math/0504080v1) §§2–7 for R26.2–R26.6: the flatness method and Böckle's criterion, minimal weight-2 lifts, the smooth local ring at q (Böckle's Hensel computation) and nebentype lifts, compatible systems with the residual weights j + 2 or q + 1 − j, Khare's prime estimate, weight twisting and the interval containment (checked in Lean), an explicit well-founded induction on the weight bound, the degenerate branches, the small-weight table and the assembly of the proof with Corollaries 1.2 and 1.3. Two source issues in Khare's small-weight table (E1, E2). Checkpoint 2 aligns the part with PotentialModularityAndCompatibleSystems part R24.3: the Böckle node becomes R26.1's application contract (the appendix's statements are planned at R24.3 and GlobalGaloisDeformations R04.3, as RS-06 directs); stage-level prerequisites on that roadmap become its node ids; R27.1 and R27.2 are source_decomposed (Lemma 8.2 and the insertion are in part R27.3; KW I Theorems 4.1 and 5.1 in R24.4 and R24.5), and the KW II gap is closed.",
+ "summary": "Checkpoint 1 of the R26.1 part (Claude Code cc-39fac3), under the accepted RS-06. It carries the ten reviewed nodes of the integrated decomposition for these stages, with their excerpts re-verified against the sources, re-homes the KW I prime estimates to R27.2 as RS-06 directs, and decomposes Khare's level-one paper (arXiv math/0504080v1) §§2–7 for R26.2–R26.6: the flatness method and Böckle's criterion, minimal weight-2 lifts, the smooth local ring at q (Böckle's Hensel computation) and nebentype lifts, compatible systems with the residual weights j + 2 or q + 1 − j, Khare's prime estimate, weight twisting and the interval containment (checked in Lean), an explicit well-founded induction on the weight bound, the degenerate branches, the small-weight table and the assembly of the proof with Corollaries 1.2 and 1.3. Two source issues in Khare's small-weight table (E1, E2). Checkpoint 2 aligns the part with PotentialModularityAndCompatibleSystems part R24.3: the Böckle node becomes R26.1's application contract (the appendix's statements are planned at R24.3 and GlobalGaloisDeformations R04.3, as RS-06 directs); stage-level prerequisites on that roadmap become its node ids; R27.1 and R27.2 are source_decomposed (Lemma 8.2 and the insertion are in part R27.3; KW I Theorems 4.1 and 5.1 in R24.4 and R24.5), and the KW II gap is closed. Checkpoint 3 (cc-39fac3) wires the residually irreducible degenerate branches to Skinner–Wiles 2001, now planned in OrdinaryAutomorphicFormsAndModularityLifting R21.5, records as a gap that KW I rely on Skinner's unpublished correction [41] for the dihedral case (that roadmap's E11), and removes references to a private reference library from the source and gap records.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -24,7 +24,7 @@
    "id": "khare-level-one",
    "title": "On Serre's modularity conjecture for 2-dimensional mod p representations of Gal(Qbar/Q) unramified outside p",
    "authors": "Chandrashekhar Khare",
-   "edition": "arXiv:math/0504080v1, 5 April 2005. This is the preprint of the paper published as 'Serre's modularity conjecture: the level one case', Duke Math. J. 134 (2006), 557-589, under a different title; the library catalogue records it under the published title. Locators give the preprint's own page numbers",
+   "edition": "arXiv:math/0504080v1, 5 April 2005. This is the preprint of the paper published as 'Serre's modularity conjecture: the level one case', Duke Math. J. 134 (2006), 557-589, under a different title. Locators give the preprint's own page numbers",
    "url": "https://arxiv.org/pdf/math/0504080",
    "sha256": "3012a51759ad10695792bc8a2d1af75890f38d6ebacd37fb61e01bfdb89c9c2f",
    "readSections": [
@@ -124,7 +124,8 @@
     "rho-bar irreducible and odd with k(rho-bar) = 2 and N(rho-bar) = q prime",
     "Khare's version additionally assumes p > 2; KW I's Corollary 8.1(i) does not, and its proof imports the case q = 2 from [22] = the KW Annals paper",
     "one may assume the projective image of rho-bar is not dihedral; otherwise KW I Lemma 6.2 applies directly",
-    "the final step uses (2) of Theorem 6.1 of [24] = Khare, Duke Math. J. 134 (2006); the library copy of [24] is the arXiv v1 preprint, which has no Theorem 5.1 or 6.1 (its compatible-system result is Proposition 3.1), so these corrected references cannot be resolved from the library"
+    "the final step uses (2) of Theorem 6.1 of [24] = Khare, Duke Math. J. 134 (2006); the copy of [24] read here is the arXiv v1 preprint, which has no Theorem 5.1 or 6.1 (its compatible-system result is Proposition 3.1), so these corrected references cannot be resolved from it",
+    "KW I's [41] is C. Skinner, 'Nearly ordinary deformations of residually dihedral representations' ('to appear'; listed as a 2009 preprint by Allen, arXiv:1301.1113), which KW I call a correction to Skinner–Wiles 2001 ([40]); it is unpublished and was not read (a gap), and it concerns the dihedral case of OrdinaryAutomorphicFormsAndModularityLifting/E11"
    ],
    "proofSteps": [
     "Reduce to non-dihedral projective image via Lemma 6.2.",
@@ -613,7 +614,8 @@
    "kind": "theorem",
    "statement": "(Lemma 5.4, Corollary 5.5.) For odd p, an irreducible p-adic ρ unramified outside p, crystalline at p with Hodge–Tate weights (k − 1, 0), k even, 2 ≤ k ≤ p + 1, with ρ̄ modular, arises from S_k(SL₂(ℤ)). Consequently: (i) if all odd irreducible mod p ρ̄ of level one and weight k ≤ p + 1 are modular, so are those mod q of weight k for every prime q ≥ k − 1; (ii) the level-one conjecture mod one p > 2 gives it mod every q for weights ≤ p + 1.",
    "hypotheses": [
-    "k even (forced by oddness); for the corollary, q > 3 after the known small cases."
+    "k even (forced by oddness); for the corollary, q > 3 after the known small cases.",
+    "Skinner–Wiles 2001 (OrdinaryAutomorphicFormsAndModularityLifting R21.5/nearly-ordinary-irreducible-lifting-over-q) covers a residually irreducible ρ̄ that is reducible over ℚ(√((−1)^{(p−1)/2}p)), i.e. induced from that field; for p ≡ 3 mod 4 the field is imaginary, the case that node excludes pending OrdinaryAutomorphicFormsAndModularityLifting/E11 (Lemma 2.2's dihedral bound fails for CM fields split above p; here p ramifies in ℚ(√−p)). KW I cite Skinner's correction for this case, unpublished (a gap)"
    ],
    "proofSteps": [
     "If ρ̄ is irreducible and reducible over ℚ(√((−1)^{(p−1)/2}p)), Wintenberger's lemma makes ρ̄|_{I_p} ordinary and distinguished; otherwise Wiles, Taylor–Wiles, Diamond, Skinner–Wiles apply, except weight p + 1 non-ordinary, which Berger–Li–Zhu Cor. 4.1.3 excludes (it forces ρ̄|_{D_p} irreducible of weight 2, impossible at level one).",
@@ -627,6 +629,7 @@
     "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-two-level-one-excluded",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
     "ClassicalSerreModularity:R26.2/lifting-method-flatness",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/nearly-ordinary-irreducible-lifting-over-q",
     "ClassicalSerreModularity:R26.2/compatible-system-lifts"
    ],
    "library": {
@@ -657,7 +660,8 @@
    "kind": "theorem",
    "statement": "In the inductive step at P (Khare §6.2), with ρ the minimal weight-2 lift, ρ̄_ℓ its mod-ℓ member and ρ″ the P-adic member of the second system: (a) if ρ̄_ℓ has solvable image, then either it is reducible over ℚ(√((−1)^{(ℓ−1)/2}ℓ)) and ordinary at ℓ (Wintenberger), or ordinary because reducible, and ℓ-distinguished, so modularity lifting applies to (ρ_λ); (b) if ρ̄_ℓ is unramified at P it has weight 2 and level one, hence is reducible (no level-one weight-2 representation), and Skinner–Wiles applies; (c) if ρ̄″ is locally reducible at P, ρ″ is ordinary up to twist (local-reducibility-ordinary) and I_P-distinguished (the weight is even); if ρ̄″ has solvable image the Skinner–Wiles or Kisin lifting theorems apply. In all branches the residual representation may become reducible after the change of prime; this is a branch, not an impossible case.",
    "hypotheses": [
-    "ℓ odd; the characteristic-zero representations are irreducible (they come from compatible systems of irreducible members)."
+    "ℓ odd; the characteristic-zero representations are irreducible (they come from compatible systems of irreducible members).",
+    "Skinner–Wiles 2001 (OrdinaryAutomorphicFormsAndModularityLifting R21.5/nearly-ordinary-irreducible-lifting-over-q) covers a residually irreducible ρ̄ that is reducible over ℚ(√((−1)^{(p−1)/2}p)), i.e. induced from that field; for p ≡ 3 mod 4 the field is imaginary, the case that node excludes pending OrdinaryAutomorphicFormsAndModularityLifting/E11 (Lemma 2.2's dihedral bound fails for CM fields split above p; here p ramifies in ℚ(√−p)). KW I cite Skinner's correction for this case, unpublished (a gap)"
    ],
    "proofSteps": [
     "Case by case as in the statement; Skinner–Wiles (residually reducible, ordinary) and Kisin (potentially Barsotti–Tate over ℚ_P(μ_P), residually irreducible over the quadratic subfield) are the lifting inputs."
@@ -671,6 +675,8 @@
     "SmallRamificationAndAbelianVarietyBaseCases:R25.5/level-one-dihedral-classification",
     "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-two-level-one-excluded",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/nearly-ordinary-irreducible-lifting-over-q",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-over-q",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
    ],
    "library": {
@@ -794,7 +800,8 @@
    "kind": "theorem",
    "statement": "(Khare §7.1, corrected by KW I §8.3.) Corollary 1.2 holds (for all p, KW I Corollary 8.1(i)): for q = 2 by KW Annals Theorem 4.1(ii); for q odd by killing ramification: a minimal p-adic lift in a compatible system, whose member above q reduces to a mod-q representation unramified outside q, modular by the level-one theorem; then the lifting theorems (Lemmas 5.1, 5.3) make the system modular. KW I replace the reference 'Theorem 5.1(3) of [24]' (insufficient when p ∤ q − 1) by Theorem 6.1(2) of [24] with Skinner–Wiles [39]–[41], via Saito (semistable case) or Theorem 5.1(3 ii) (unramified over ℚ_q(μ_q)).",
    "hypotheses": [
-    "The library copy of [24] is the arXiv v1 preprint, whose numbering (Proposition 3.1) differs from the published Duke numbering (Theorems 5.1, 6.1) used by KW I."
+    "The copy of [24] read here is the arXiv v1 preprint, whose numbering (Proposition 3.1) differs from the published Duke numbering (Theorems 5.1, 6.1) used by KW I.",
+    "KW I's [41] is C. Skinner, 'Nearly ordinary deformations of residually dihedral representations' ('to appear'; listed as a 2009 preprint by Allen, arXiv:1301.1113), which KW I call a correction to Skinner–Wiles 2001 ([40]); it is unpublished and was not read (a gap), and it concerns the dihedral case of OrdinaryAutomorphicFormsAndModularityLifting/E11"
    ],
    "proofSteps": [
     "Killing ramification: KW Annals §5.2 (published §6.2), recorded by the reviewed decomposition."
@@ -808,7 +815,8 @@
     "ClassicalSerreModularity:R26.4/local-reducibility-ordinary",
     "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
     "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
-    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a"
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/nearly-ordinary-irreducible-lifting-over-q"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/SerreConjecture/LevelOne",
@@ -824,6 +832,11 @@
      "sourceId": "kw-serre-modularity-I",
      "locator": "§8.3, p. 16 of the preprint",
      "match": "KW I's corrected step."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "§8.3, proof of Corollary 8.1, p. 16 of the preprint",
+     "match": "KW I's [41] = C. Skinner, Nearly ordinary deformations of residually dihedral representations ('to appear'), a correction to Skinner–Wiles 2001 ([40])."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1350,7 +1363,8 @@
     "ClassicalSerreModularity:R26.4/degenerate-branches",
     "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction"
    ],
-   "status": "open"
+   "status": "open",
+   "note": "Served in part: OrdinaryAutomorphicFormsAndModularityLifting R21.5/theorem-a-over-q (residually reducible) and R21.5/nearly-ordinary-irreducible-lifting-over-q (Skinner–Wiles 2001, residually irreducible, excluding ρ̄ induced from an imaginary quadratic field until its E11 is resolved), both exported by R21.6/exported-ordinary-modularity-over-q."
   },
   {
    "supplier": "GL2ModularityLifting:R22.1",
@@ -1417,7 +1431,7 @@
    "stageId": "ClassicalSerreModularity:R26.4",
    "status": "source_decomposed",
    "remaining": [],
-   "notes": "Lemmas 5.3–5.4, Corollary 5.5 and the degenerate branches; Wintenberger's dihedral lemma is SmallRamificationAndAbelianVarietyBaseCases R25.5/level-one-dihedral-classification."
+   "notes": "Lemmas 5.3–5.4, Corollary 5.5 and the degenerate branches; Wintenberger's dihedral lemma is SmallRamificationAndAbelianVarietyBaseCases R25.5/level-one-dihedral-classification. Checkpoint 3 cites Skinner–Wiles 2001 through OrdinaryAutomorphicFormsAndModularityLifting R21.5/nearly-ordinary-irreducible-lifting-over-q and records KW I's reliance on Skinner's unpublished correction [41] (a gap)."
   },
   {
    "stageId": "ClassicalSerreModularity:R26.5",
@@ -1431,7 +1445,7 @@
    "stageId": "ClassicalSerreModularity:R26.6",
    "status": "source_decomposed",
    "remaining": [],
-   "notes": "Assembly of the proof, Corollary 1.2 (with KW I's correction) and Corollary 1.3, and Corollary 8.1(ii) with (W_1) (carried)."
+   "notes": "Assembly of the proof, Corollary 1.2 (with KW I's correction) and Corollary 1.3, and Corollary 8.1(ii) with (W_1) (carried). Checkpoint 3 cites Skinner–Wiles 2001 through OrdinaryAutomorphicFormsAndModularityLifting R21.5/nearly-ordinary-irreducible-lifting-over-q and records KW I's reliance on Skinner's unpublished correction [41] (a gap)."
   },
   {
    "stageId": "ClassicalSerreModularity:R27.1",
@@ -1452,14 +1466,14 @@
    "neededBy": [
     "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction"
    ],
-   "detail": "Verified: KW I's Remark after Theorem 5.1 attributes the computation of the residual Serre weights in parts (3) and (4) to Savitt, Corollary 6.15 (1) and (2) and Remark 6.17. Not verified: those statements. The whole weight bookkeeping of the inductive step in 8.2 rests on them. The library contains references/papers/ADD_SAVITT05.pdf, 'On a conjecture of Conrad, Diamond, and Taylor (corrected author version)', which is the paper cited; it was not opened. Next source action: open ADD_SAVITT05.pdf, confirm it contains Corollary 6.15 and Remark 6.17, and transcribe the weight formulas i+2 / q+1-i and q+1-(i-j) / i-j / q. Checkpoint 2: PotentialModularityAndCompatibleSystems R24.5/kw-theorem-5-1-systems now states the weights and requests Savitt's computations from AlgebraicModularFormsAndSerreWeights R15.4."
+   "detail": "Verified: KW I's Remark after Theorem 5.1 attributes the computation of the residual Serre weights in parts (3) and (4) to Savitt, Corollary 6.15 (1) and (2) and Remark 6.17. Not verified: those statements. The whole weight bookkeeping of the inductive step in 8.2 rests on them. The paper cited is Savitt, 'On a conjecture of Conrad, Diamond, and Taylor', Duke Math. J. 128 (2005); it was not read. Next source action: read it, confirm it contains Corollary 6.15 and Remark 6.17, and transcribe the weight formulas i+2 / q+1-i and q+1-(i-j) / i-j / q. Checkpoint 2: PotentialModularityAndCompatibleSystems R24.5/kw-theorem-5-1-systems now states the weights and requests Savitt's computations from AlgebraicModularFormsAndSerreWeights R15.4."
   },
   {
    "title": "KW I Lemma 6.2(ii) is reported incomplete by a later source",
    "neededBy": [
     "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement"
    ],
-   "detail": "Verified: KW I Lemma 6.2(ii) (weight is (p+1)/2 or (p+3)/2 when rho-bar restricted to G_{Q(mu_p)} is reducible) with its two-line proof; and Dieulefait-Pacetti Lemma 1.14 with a fuller proof distinguishing p = 2k-3 (niveau 2) and p = 2k-1 (niveau 1), together with their statement that KW's 'proof lacks some details'. Not verified: Ribet, 'Images of semistable Galois representations', Proposition 2.2, which Dieulefait-Pacetti follow, and which is not in the supplied library (checked CATALOGUE.json; the only Ribet item is ADD_RIBET90.pdf, 'On modular representations of Gal(Qbar/Q) arising from modular forms', whose PDF has no usable text layer - pdftotext returns 5 lines). Next source action: obtain Ribet, Pacific J. Math. Special Issue (1997), 277-297, and read Proposition 2.2; separately, obtain a text-bearing copy of ADD_RIBET90."
+   "detail": "Verified: KW I Lemma 6.2(ii) (weight is (p+1)/2 or (p+3)/2 when rho-bar restricted to G_{Q(mu_p)} is reducible) with its two-line proof; and Dieulefait-Pacetti Lemma 1.14 with a fuller proof distinguishing p = 2k-3 (niveau 2) and p = 2k-1 (niveau 1), together with their statement that KW's 'proof lacks some details'. Not verified: Ribet, 'Images of semistable Galois representations', Proposition 2.2, which Dieulefait-Pacetti follow, which was not read. Next source action: obtain Ribet, Pacific J. Math. Special Issue (1997), 277-297, and read Proposition 2.2."
   },
   {
    "title": "Edition discrepancy in the level-one source",
@@ -1467,14 +1481,24 @@
     "ClassicalSerreModularity:R26.1/level-one-theorem-and-the-meaning-of-arises-from",
     "ClassicalSerreModularity:R26.1/corollary-1-2-conductor-a-prime-and-its-corrected-proof"
    ],
-   "detail": "Verified: references/papers/ADD_KHARE06.pdf is arXiv:math/0504080v1 (5 April 2005), titled 'On Serre's modularity conjecture for 2-dimensional mod p representations of Gal(Qbar/Q) unramified outside p'. The library catalogue records it under the published title 'Serre's modularity conjecture: the level one case', Duke Math. J. 134 (2006), 557-589. Not verified: whether the numbering of results is the same in the two versions; all locators in this packet are to the preprint. Next source action: if Duke pagination is required downstream, obtain the published version and re-map Theorem 1.1, Corollaries 1.2, 1.3 and Propositions 2.1, 2.2."
+   "detail": "Verified: arXiv:math/0504080v1 (5 April 2005) is titled 'On Serre's modularity conjecture for 2-dimensional mod p representations of Gal(Qbar/Q) unramified outside p'. It was published as 'Serre's modularity conjecture: the level one case', Duke Math. J. 134 (2006), 557-589. Not verified: whether the numbering of results is the same in the two versions; all locators in this packet are to the preprint. Next source action: if Duke pagination is required downstream, obtain the published version and re-map Theorem 1.1, Corollaries 1.2, 1.3 and Propositions 2.1, 2.2."
   },
   {
-   "title": "KW I's corrected references to Khare's level-one paper use numbering absent from the library copy",
+   "title": "KW I's corrected references to Khare's level-one paper use numbering absent from the arXiv preprint",
    "neededBy": [
     "ClassicalSerreModularity:R26.1/corollary-1-2-conductor-a-prime-and-its-corrected-proof"
    ],
-   "detail": "Verified (reviewer): KW I's bibliography gives [24] = Khare, 'Serre's modularity conjecture: the level one case', Duke Math. J. 134 (2006); the proof of Corollary 8.1(i) cites '3 of Theorem 5.1 of [24]' (as insufficient) and '(2) of Theorem 6.1 of [24]' (as the correct input), and 1.2 relates KW I Theorems 4.1 and 5.1 to Theorems 6.1 and 5.1 of [24]. The library's ADD_KHARE06.pdf is arXiv:math/0504080v1, which has no Theorem 5.1 or 6.1 (its compatible-system result is Proposition 3.1 and its section 6 is the proof of Theorem 1.1). The drafter's reading 'Theorem 6.1(2) of the Annals paper' confused [24] with [22]. Next source action: obtain the published Duke version of Khare's paper and locate Theorems 5.1 and 6.1."
+   "detail": "Verified (reviewer): KW I's bibliography gives [24] = Khare, 'Serre's modularity conjecture: the level one case', Duke Math. J. 134 (2006); the proof of Corollary 8.1(i) cites '3 of Theorem 5.1 of [24]' (as insufficient) and '(2) of Theorem 6.1 of [24]' (as the correct input), and 1.2 relates KW I Theorems 4.1 and 5.1 to Theorems 6.1 and 5.1 of [24]. The copy read, arXiv:math/0504080v1, has no Theorem 5.1 or 6.1 (its compatible-system result is Proposition 3.1 and its section 6 is the proof of Theorem 1.1). The drafter's reading 'Theorem 6.1(2) of the Annals paper' confused [24] with [22]. Next source action: obtain the published Duke version of Khare's paper and locate Theorems 5.1 and 6.1."
+  },
+  {
+   "title": "Skinner's correction to Skinner–Wiles 2001 (KW I's [41]) is unpublished",
+   "neededBy": [
+    "ClassicalSerreModularity:R26.4/level-one-lifting-lemma",
+    "ClassicalSerreModularity:R26.4/degenerate-branches",
+    "ClassicalSerreModularity:R26.6/corollary-1-2-proof",
+    "ClassicalSerreModularity:R26.1/corollary-1-2-conductor-a-prime-and-its-corrected-proof"
+   ],
+   "detail": "Verified: KW I (preprint pp. 3 and 16) augment their Skinner–Wiles references [39] (1999) and [40] (2001) by [41] = C. Skinner, 'Nearly ordinary deformations of residually dihedral representations' ('to appear'), 'which is a correction to [40]'; Allen (arXiv:1301.1113) lists it as a 2009 preprint. It was not obtained. It bears on the residually dihedral branches of Khare's argument (ρ̄ induced from ℚ(√((−1)^{(p−1)/2}p))), which OrdinaryAutomorphicFormsAndModularityLifting R21.5 plans with the dihedral CM case excluded (its source issue E11). For p ≡ 1 mod 4 the field is real and the plan applies; for p ≡ 3 mod 4 the branch waits on E11."
   }
  ],
  "sourceIssues": [

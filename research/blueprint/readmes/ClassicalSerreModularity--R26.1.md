@@ -89,6 +89,11 @@ hypotheses (L_r), (W_r), (D_r) and the reduction to weight two that the rest of 
 - **`degenerate-branches`.** Solvable image, unramified at P (weight 2 level 1, hence reducible) and locally reducible
   (ordinary up to twist) are all handled, with Skinner–Wiles (OrdinaryAutomorphicFormsAndModularityLifting R21.5) and
   Kisin. A reducible residual representation after a change of prime is a branch, not an impossible case.
+- **Checkpoint 3:** the residually irreducible branches are wired to Skinner–Wiles 2001, now planned as
+  OrdinaryAutomorphicFormsAndModularityLifting `R21.5/nearly-ordinary-irreducible-lifting-over-q`. Two cases remain:
+  - ρ̄ induced from ℚ(√((−1)^{(p−1)/2}p)) with p ≡ 3 mod 4 waits on that roadmap's E11 (the dihedral CM case of Skinner–Wiles
+    2001).
+  - KW I cite Skinner's unpublished correction [41] for this case, which is recorded as a gap.
 
 ## Layer R26.5: the small-weight table
 
@@ -149,6 +154,8 @@ Both issues are in arXiv v1; the Duke version was not obtained.
 - **R27.2 is done (checkpoint 2).** KW I Theorems 4.1 and 5.1 are PotentialModularityAndCompatibleSystems
   R24.4/kw-theorem-4-1 and R24.5/kw-theorem-5-1-systems (part R24.3, from KW II §10). Savitt's residual weights are
   requested there.
+- **Skinner's correction [41] (checkpoint 3):** it is unpublished, and the p ≡ 3 mod 4 dihedral branch waits on
+  OrdinaryAutomorphicFormsAndModularityLifting/E11.
 - **Carried gaps:**
   - the edition discrepancy of the level-one source;
   - KW I's references to the published numbering of Khare's paper;
