@@ -4,7 +4,9 @@
 
 A sieve estimates a nonnegative weighted population after excluding specified local divisibility conditions. Its finite algebra must be separated from the analytic assertion that a remainder is small. This roadmap develops that algebra on the existing Mathlib sieve carrier, then uses it as the foundation for dimension estimates, combinatorial and quadratic weights, large-sieve inequalities, distribution of primes and prime-pattern applications.
 
-The specification contains twenty finite SV.0 declarations and fifty-five SV.2 declarations: weighted sieve and residue interfaces; Selberg and Bombieri–Selberg inequalities; tapered Fourier vectors, circular packing and the H+2/δ additive large sieve; the H+2Q² primitive-character large sieve; the finite Vaughan/incomplete-log Type I–II decomposition; and primitive-character rectangular bilinear bounds with an explicit dyadic-scale loss. Empty inputs, cutoff equality, zero coefficients and the small-number boundary are explicit. SV.0–SV.3 remain partial; SV.4–SV.5 remain not read. Sharp constants, hyperbolic Type I/II and distribution estimates, and the recorded application gaps are not supplied by these finite identities. Every declaration is a specification, not an implementation claim.
+The specification contains twenty finite SV.0 declarations and fifty-five SV.2 declarations: weighted sieve and residue interfaces; Selberg and Bombieri–Selberg inequalities; tapered Fourier vectors, circular packing and the H+2/δ additive large sieve; the H+2Q² primitive-character large sieve; the finite Vaughan/incomplete-log Type I–II decomposition; and primitive-character rectangular bilinear bounds with an explicit dyadic-scale loss. Empty inputs, cutoff equality, zero coefficients and the small-number boundary are explicit. SV.0–SV.3 remain partial. SV.4 is decomposed from Maynard's paper (below), and SV.5 remains not read. Sharp constants, hyperbolic Type I/II and distribution estimates, and the recorded application gaps are not supplied by these finite identities. Every declaration is a specification, not an implementation claim.
+
+The Maynard checkpoint adds thirty-one declarations. SV.4 has twenty-seven: admissible tuples and the prime k-tuples conjecture, the W-trick, Maynard's multidimensional weights and the variational quantity M_k, Lemmas 5.1–6.3, Propositions 4.1–4.3 and Theorems 1.1–1.4 of *Small gaps between primes*. SV.3 has two: the level of distribution of Maynard (1.3), with the Elliott–Halberstam hypothesis, and its Bombieri–Vinogradov instance θ<1/2. SV.1 has two: GGPY's dimension-one diagonal sums. They appear in the last part of this document.
 
 Use the existing BoundingSieve and SelbergSieve types. Do not construct a competing record of sieve data, redefine the Möbius function, or package a single coefficient inequality into a new predicate. Generic multiplicative functions, Dirichlet convolution, finite sums, prime factorization and Selberg quadratic-form diagonalization are library inputs.
 
@@ -1436,7 +1438,7 @@ The remaining Chapter 11 route includes Rankin's estimate, the weighted divisor-
 
 ### SV.1: Brun and Selberg
 
-Use the existing quadratic coefficient construction and diagonalized main form. The remaining targets are the optimizer and its hypotheses, Brun combinatorial weights, fundamental-lemma estimates in proved ranges, applications, and explicit parity limitations. Read Kedlaya Chapters 12–14 and the continuation of Heath-Brown's Section 2 before specifying these missing declarations. Reading through Lemma 2.1's statement does not supply its proof.
+Use the existing quadratic coefficient construction and diagonalized main form. The remaining targets are the optimizer and its hypotheses, Brun combinatorial weights, fundamental-lemma estimates in proved ranges, applications, and explicit parity limitations. Read Kedlaya Chapters 12–14 and the continuation of Heath-Brown's Section 2 before specifying these missing declarations. Reading through Lemma 2.1's statement does not supply its proof. The Maynard checkpoint adds GGPY Lemmas 3–4 in dimension one (Σ_{d<z}μ²(d)g(d) and its smoothly weighted form), because Maynard's Lemma 6.1 needs them. The proof of Lemma 3 is cited to Halberstam–Richert Lemmas 5.3–5.4, which were not read (gap). The dimension-κ statement and the Selberg optimizer remain.
 
 ### SV.2: large sieves and bilinear decompositions
 
@@ -1448,11 +1450,11 @@ Chapter 16 has been read completely and its primitive-character reduction is dec
 
 ### SV.3: average distribution of primes
 
-State Bombieri–Vinogradov with the complete order of quantifiers: every requested logarithmic saving \(A>0\), a corresponding \(B\), sufficiently large \(x\), and \(Q\leq\sqrt{x}/(\log x)^B\). Keep the sum over moduli, its weight and the maximum over reduced residue classes. The selected proof route imports its actual small-modulus or zero-density input from AN.3. A stronger distribution estimate is a hypothesis when it is not proved.
+State Bombieri–Vinogradov with the complete order of quantifiers: every requested logarithmic saving \(A>0\), a corresponding \(B\), sufficiently large \(x\), and \(Q\leq\sqrt{x}/(\log x)^B\). Keep the sum over moduli, its weight and the maximum over reduced residue classes. The selected proof route imports its actual small-modulus or zero-density input from AN.3. A stronger distribution estimate is a hypothesis when it is not proved. The level-of-distribution definition in Maynard's normalization (1.3), the Elliott–Halberstam hypothesis and the level θ<1/2 are now planned; the last takes Kedlaya Theorem 18.4 as input, and its decomposition is still the SV.3 gap.
 
 ### SV.4: bounded gaps and clusters
 
-The source is Maynard's original argument, not an incomplete course outline. Specify admissible tuples, multidimensional weights, the asymptotic quadratic forms, the positivity argument and the analytic error inputs. The output is a source-supported finite bound on repeated prime gaps. The twin-prime and general prime-tuple conjectures are not interchangeable with that theorem; their ownership here does not make them proved inputs.
+SV.4 is now source-decomposed from Maynard's published paper; see the final part of this document. Its outside inputs are Bombieri–Vinogradov (SV.3), GGPY's diagonal sum (SV.1) and Mertens' theorem with the prime number theorem, which are requested from AnalyticNumberTheory:AN.2. The prime k-tuples conjecture is a named statement here, owned by SV.4 under RS-07 and never assumed. Maynard's theorems are the finite-gap results, not the twin-prime conjecture. The Zhang and Polymath refinements, and the Maynard–Tao results for other sequences, are not planned.
 
 ### SV.5: almost primes and advanced sieves
 
@@ -1472,6 +1474,8 @@ Bombieri's [published paper](https://www.impan.pl/en/publishing-house/journals-a
 The published Bombieri pp.401–404 were reread visually from the same acquired primary scan for the separation and interval argument. The earlier taper reading also included the complete volume errata; its attempted fresh publisher download returned HTTP 403. No new download or new errata search is claimed here. E10 and E11 are retained unreviewed findings against that scan. Bounded title/erratum/kernel searches and the atlas source register found no matching correction; the 1975 almost-prime corrigendum is a different paper. The volume errata correct pp.171–178 and 278, not pp.403–404. No author contact or exhaustive novelty claim is made.
 
 The relevant [Bennett–Siksek publisher PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf) reading for this sieve slice is §8.2, printed pp.379–380, including Theorem 7 and its application. Its arithmetic application motivates the diagonal/off-diagonal consequence but is not certified complete here. Hashes, versions and exact reading boundaries appear in the packet.
+
+Maynard's [published paper](https://annals.math.princeton.edu/wp-content/uploads/annals-v181-n1-p07-p.pdf) (Ann. of Math. 181 (2015), 383–413) was read completely and collated with [arXiv:1311.4600](https://arxiv.org/abs/1311.4600) v1–v3. The SV.4 nodes cite its printed pages. §2 of [GGPY, arXiv:math/0609615v1](https://arxiv.org/pdf/math/0609615v1) was read for Lemmas 3–4, and the statement of Kedlaya's Theorem 18.4 was reread.
 
 ## Inherited primitive-character checkpoint validation
 
@@ -2015,7 +2019,7 @@ The current six reviewed audit rows, accepted RS-07 ownership, the upstream Arit
 
 The full live author Chapter 18 was read afresh on 28 September 2026 at https://kskedlaya.org/ant/chap-bombieri2.html. The acquired HTML has SHA-256 9bd73d12d648dc61a5c09804bbee04992cb8108b15858146688ac7ae9b69f523, identical to the prior acquisition. It is an author copy, not a claimed journal edition. The prior revised-2007 handout reading and its collation are inherited, not freshly repeated. All 26 inherited source findings and all seven prior source-version records are retained verbatim; there is one new acquisition record and no new finding or review verdict. The explicit constants and retained J loss are worker derivations motivated by the source, not source quotations.
 
-### Current checkpoint validation
+### Validation of the dyadic checkpoint
 
 There are 75 nodes: five constructions, fifty-one lemmas and nineteen theorems. All 69 inherited node objects are preserved exactly. The five constructions retain 27 API items (ten promoted into main nodes and seventeen additional signatures) and 23 construction tests. The suggested file has 92 named declarations and 86 typed examples, including eight new endpoint, zero, constant and cutoff examples. The eleven planets are unchanged: five in SV.0 and six in SV.2. There are 143 pinned baseline references, six sources, 26 findings, eight source-version records, six open gaps and no requests. SV.0–SV.3 remain partial; SV.4–SV.5 remain not read.
 
@@ -2027,8 +2031,939 @@ Independent exact arithmetic tests cover 324 signed partitions, 5,500 pointwise 
 
 The current official blueprint checker and four-file intake checks pass without errors or warnings, with the pinned declaration index and current Git-object world. Preservation, declaration/example counts, source-version fields and the local dependency DAG are also checked.
 
-### Exact continuation boundary
+### Continuation boundary of the dyadic checkpoint
 
 The finite rectangular estimate is now available at SV.2/primitive-bilinear-cutoff. To continue Chapter 18, define the discrepancy with its actual maximum and coprimality convention, decompose Lemma 18.2, and justify the primitive/imprimitive conductor transition and totient-weighted cofactor summation. Keep the small-conductor bound, and its normalization repair E19, separate from this large-conductor estimate. Every downstream use must carry or absorb the explicit J loss through a proved estimate.
 
 The Vaughan hyperbola has dependent inner limits; this rectangular theorem alone does not supply the required covering, boundary-strip estimates or final balancing. Repair E21–E25 and state the exact analytic Type I/II estimates before using Theorem 18.4. The variance route, Corollary 18.6 and exercises remain open, as do the sharp Chapter 15 constants, Chapter 16 applications, remaining finite-sieve analysis and the unread SV.4–SV.5 sources. No coverage status is promoted.
+
+## Maynard checkpoint: level of distribution (SV.3)
+
+Maynard's arithmetic hypothesis is a level of distribution θ in the sense of (1.3): the discrepancies of primes in progressions, summed over moduli up to x^θ, are O_A(x/(log x)^A) for every A. The definition compares with π(x)/φ(q), as Maynard does. The window form used in (5.20) is part of its API. Elliott–Halberstam is the named hypothesis that every θ<1 is a level, and Theorem 1.4 carries it explicitly. Bombieri–Vinogradov gives every θ<1/2: the node converts Kedlaya's ψ-form Theorem 18.4 by the N=1 term, the ψ–θ comparison and Abel summation. The proof of Theorem 18.4 is still the SV.3 gap.
+
+### Level of distribution of the primes (Maynard (1.3))
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.3/level-of-distribution`. Proposed declaration: `SieveDistribution.PrimesHaveLevel`. Atlas planet: Level of distribution of the primes.
+
+For real θ the primes have level of distribution θ if, for every A>0, Σ_{1≤q≤x^θ} max_{(a,q)=1} |π(x;q,a) − π(x)/φ(q)| = O_A(x/(log x)^A) as x→∞. Here π(x;q,a) counts the primes p≤x with p≡a (mod q), π(x) counts all primes p≤x and φ is Euler's function. The Elliott–Halberstam conjecture is the statement that the primes have level of distribution θ for every θ<1.
+
+x is real; q runs over the integers 1≤q≤⌊x^θ⌋ and a over the reduced residues 0≤a<q. The term q=1 vanishes identically.
+
+The comparison term is π(x)/φ(q), counting all primes up to x, exactly as in Maynard (1.3). His footnote 1 notes that other authors use slightly different definitions; this node fixes (1.3).
+
+Elliott–Halberstam is a named hypothesis. No node of this roadmap asserts it, and every consumer carries it as an explicit hypothesis (RS-07).
+
+Proof or construction plan:
+
+1. Define π(x;q,a) as the number of primes p≤⌊x⌋ with p≡a (mod q), the discrepancy as the supremum over reduced residues a<q of |π(x;q,a) − π(x)/φ(q)|, and PrimesHaveLevel θ as the family of big-O statements along x→∞ indexed by A>0.
+2. Define windowError(N,q) = 1 + sup_{(a,q)=1} |#{N≤n<2N : n prime, n≡a} − #{N≤n<2N : n prime}/φ(q)|, which is Maynard's E(N,q) of (5.16). The window API follows from the level estimates at x=2N−1 and x=N−1, since windowError(N,q) ≤ 1 + discrepancy(2N−1,q) + discrepancy(N−1,q), together with Σ_{q≤N^θ′}1 ≤ N^θ′ for θ′<θ<1.
+3. Monotonicity in θ: for x≥1 the sum over q≤x^θ′ is a subsum of the sum over q≤x^θ, and every term is nonnegative. For θ≤0 only q=1 can occur.
+
+Direct prerequisites: `mathlib:Nat.primeCounting`, `mathlib:Nat.totient`, `mathlib:Nat.ModEq`, `mathlib:Asymptotics.IsBigO`.
+
+Acceptance:
+
+- The level is a statement for every A>0, with an implied constant depending on A. It is not a single-A bound.
+- Levels θ>1 fail (non-example test), so the Elliott–Halberstam range θ<1 is the natural limit. The Friedlander–Granville obstruction that Maynard mentions (p. 384) is not planned here.
+
+Uses which determine the API:
+
+- Maynard §4, Propositions 4.1–4.2, and (5.20): The one arithmetic input of the S₂ asymptotic, used through the window form.
+- Maynard, proofs of Theorems 1.3 and 1.4, p. 390: Bombieri–Vinogradov supplies θ = 1/2 − ε and Elliott–Halberstam supplies θ = 1 − ε.
+- SieveMethodsAndPrimePatterns:SV.3/bombieri-vinogradov-level: The conclusion of Bombieri–Vinogradov in this form.
+- RS-07 link SV.3 → AdditiveCombinatorics:AC.4: The recorded prime-distribution input, stated as a hypothesis wherever it is not proved.
+
+Planning API:
+
+- `SieveDistribution.primeCountAP` (data): π(x;q,a), the number of primes p≤⌊x⌋ with p≡a (mod q).
+- `SieveDistribution.discrepancy` (data): max over reduced a<q of |π(x;q,a) − π(x)/φ(q)|; the supremum over an empty index is zero.
+- `SieveDistribution.windowError` (data): Maynard's E(N,q) of (5.16): 1 plus the largest deviation of the prime count in [N,2N) in a reduced class mod q from 1/φ(q) of the total.
+- `SieveDistribution.ElliottHalberstam` (other): The Elliott–Halberstam conjecture: PrimesHaveLevel θ for every θ<1. It is a named hypothesis, never asserted.
+- `SieveDistribution.discrepancy_one` (simp): discrepancy(x,1) = 0.
+- `SieveDistribution.PrimesHaveLevel.mono` (relation): If θ′≤θ and the primes have level θ, they have level θ′.
+- `SieveDistribution.primesHaveLevel_of_nonpos` (example): Every θ≤0 is a level of distribution.
+- `SieveDistribution.PrimesHaveLevel.sum_windowError` (other): If the primes have level θ<1 and θ′<θ, then Σ_{1≤q≤N^θ′} windowError(N,q) = O_A(N/(log N)^A) for every A>0. This is the form Maynard uses in (5.20).
+
+Tests:
+
+- `discrepancy_ten_three` (computation): discrepancy(10,3) = 1: π(10;3,1) = 1 (the prime 7), π(10;3,2) = 2 (the primes 2 and 5), and π(10)/φ(3) = 4/2 = 2.
+- `primesHaveLevel_zero` (degenerate): The primes have level 0: only q=1 occurs, and its discrepancy vanishes.
+- `not_primesHaveLevel_of_one_lt` (non-example): For θ>1 the level fails. For each q in (x,x^θ] one of a=2,3 is coprime to q with π(x;q,a) = 1, while Σ_{q≤x^θ} π(x)/φ(q) = O(x). So the sum is ≫ x^θ, which is not O(x/(log x)^A). A definition that dropped the restriction q≤x^θ, or took the minimum over a, would accept these levels.
+- `primeCountAP_one` (compatibility): primeCountAP(x,1,0) = Nat.primeCounting ⌊x⌋₊: modulo 1 every prime up to x is counted, which agrees with Mathlib's prime-counting function.
+
+Sources: MAYNARD-2015, §1, definition (1.3) and footnote 1, p. 383; Elliott–Halberstam conjecture, p. 384; MAYNARD-2015, §1, p. 384.
+
+### Bombieri–Vinogradov: every level θ<1/2
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.3/bombieri-vinogradov-level`. Proposed declaration: `SieveDistribution.primesHaveLevel_of_lt_half`. Atlas planet: Bombieri–Vinogradov theorem.
+
+For every θ<1/2 the primes have level of distribution θ in the sense of Maynard (1.3).
+
+The input is the ψ-form Bombieri–Vinogradov theorem, Kedlaya Theorem 18.4: for every A>0 there are c(A) and B(A) with Σ_{N≤Q} max_{m∈(ℤ/Nℤ)^×} |ψ(x;N,m) − x/φ(N)| ≤ c·x(log x)^{−A} for Q = x^{1/2}(log x)^{−B}. Its proof is the SV.3 decomposition still to be done (gap 'SV.3 remaining source decomposition').
+
+The conclusion compares with π(x)/φ(q), as Maynard does, and not with li(x)/φ(q).
+
+Proof or construction plan:
+
+1. Input: Kedlaya Theorem 18.4. Its N=1 term alone gives |ψ(x) − x| ≤ c·x(log x)^{−A}.
+2. Prime powers: in every progression |ψ(t;q,a) − θ(t;q,a)| ≤ |ψ(t) − θ(t)| ≤ 2√t·log t (Mathlib abs_psi_sub_theta_le_sqrt_mul_log). Summed over q≤x^θ this costs O(x^{θ+1/2} log x), which is O(x/(log x)^A) because θ<1/2.
+3. Abel summation with f = 1/log (sum_mul_eq_sub_sub_integral_mul): π(x;q,a) = θ(x;q,a)/log x + ∫_2^x θ(t;q,a)/(t log²t) dt, and the same holds for π(x) with θ(t). Hence |π(x;q,a) − π(x)/φ(q)| ≤ E(x;q)/log x + ∫_2^x E(t;q)/(t log²t) dt + φ(q)^{−1}(|θ(x) − x|/log x + ∫_2^x |θ(t) − t|/(t log²t) dt), where E(t;q) = max_{(a,q)=1} |θ(t;q,a) − t/φ(q)|.
+4. Split the integrals at t₀ = x/(log x)^{A+2}. For t≤t₀ the trivial bound E(t;q) ≤ (t/q + 1 + t/φ(q))·log t suffices. For t₀<t≤x and x large, x^θ ≤ t^{1/2}(log t)^{−B} because θ<1/2, so Theorem 18.4 at t covers every q≤x^θ.
+5. Sum over q≤x^θ using Σ_{q≤y} 1/φ(q) = O(log y). Every term is O(x/(log x)^A).
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.3/level-of-distribution`, `mathlib:Chebyshev.psi`, `mathlib:Chebyshev.theta`, `mathlib:Chebyshev.abs_psi_sub_theta_le_sqrt_mul_log`, `mathlib:sum_mul_eq_sub_sub_integral_mul`.
+
+Acceptance:
+
+- θ<1/2 is strict: the theorem gives no level 1/2 (Maynard, p. 384).
+- Instance: θ = 1/2 − ε is the input of Maynard Theorem 1.3.
+- The implied constants are ineffective, through Siegel's theorem inside Theorem 18.4. Maynard's remark after Lemma 5.2 records this.
+
+Sources: MAYNARD-2015, §1, p. 384; KED-ANT-18, §18.3, Theorem 18.4 (Bombieri–Vinogradov).
+
+## Maynard checkpoint: Selberg's diagonal sum in dimension one (SV.1)
+
+Maynard evaluates every one-variable sum by GGPY's Lemma 4 at κ=1 (his Lemma 6.1), which rests on GGPY's Lemma 3. Both belong to the Selberg-sieve layer. Lemma 3's proof is cited to Halberstam–Richert and was not read, so its node carries a worker outline and a gap. The uniformity of the constant in L matters: Maynard applies the lemma with L ≪ log log N.
+
+### Selberg's diagonal sum in dimension one (GGPY Lemma 3, κ=1)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.1/selberg-diagonal-sum-dimension-one`. Proposed declaration: `SieveSelberg.abs_sum_squarefree_diagonal_sub_le`.
+
+Under (Ω₁) and (Ω₂(1,L)), the partial products of ∏_p (1 − γ(p)/p)^{−1}(1 − 1/p) converge to some c_γ, and for z≥2, Σ_{d<z} μ²(d)g(d) = c_γ log z + O(c_γ L). The implied constant depends only on A₁ and A₂.
+
+γ is multiplicative, A₁>1, A₂≥0 and L≥1. (Ω₁): 0 ≤ γ(p)/p ≤ 1 − 1/A₁ for every prime p. (Ω₂(1,L)): −L ≤ Σ_{w≤p<z} γ(p)log p/p − log(z/w) ≤ A₂ for 2≤w≤z. g(d) = ∏_{p|d} γ(p)/(p − γ(p)) on squarefree d. GGPY state (2.3) as γ(p)/p ≤ 1 − 1/A₁; Maynard's Lemma 6.1 writes 1 − A₁, an equivalent reparametrization.
+
+Only squarefree d contribute, so g need only be defined on squarefree integers. Maynard calls it totally multiplicative.
+
+Proof or construction plan:
+
+1. Outline only: the source proof is Halberstam–Richert, Lemmas 5.3–5.4, which was not read (gap). Write G(y) = Σ_{d<y} μ²(d)g(d). For squarefree d, log d = Σ_{p|d} log p, so Σ_{d<z} μ²(d)g(d) log d = Σ_{p<z} g(p) log p·G_p(z/p), where G_p is G restricted to d coprime to p.
+2. By (Ω₁), G_p(y) = G(y) + O(g(p)G(y)) and Σ_p g(p)² log p = O_{A₁}(1). By (Ω₂) and Abel summation, Σ_{p<z} g(p) log p·G(z/p) = ∫_1^z G(u) du/u + O((L+1)G(z)).
+3. Abel summation on the left-hand side gives G(z) log z − ∫_1^z G(t) dt/t. Hence G(z) log z = 2∫_1^z G(t) dt/t + O((L+1)G(z)). The solution of this integral relation is G(z) = c·log z + O(cL), by the Levin–Fainleib iteration in H–R Lemma 5.3.
+4. Identify c = c_γ. The Dirichlet series Σ μ²(d)g(d)d^{−s} equals ζ(s+1)H(s) with H(s) = ∏_p (1 + g(p)p^{−s})(1 − p^{−1−s}), and H(0) = c_γ. Convergence of the partial products follows from (Ω₂) and Mertens' estimate Σ_{w≤p<z} log p/p = log(z/w) + O(1) (requested from AN.2), by partial summation against 1/log p.
+
+Direct prerequisites: `mathlib:ArithmeticFunction.moebius`, `mathlib:Squarefree`, `mathlib:sum_mul_eq_sub_sub_integral_mul`, `AnalyticNumberTheory:AN.2`.
+
+Acceptance:
+
+- γ(p) = 1 for p∤W and γ(p) = 0 for p|W gives g(d) = 1/φ(d) on d coprime to W and c_γ = φ(W)/W, so Σ_{d<z,(d,W)=1} μ²(d)/φ(d) = (φ(W)/W)(log z + O(L)) with L ≪ 1 + Σ_{p|W} log p/p (Maynard (6.7)–(6.8)).
+- The constant is independent of L and of γ beyond A₁ and A₂. Maynard uses this uniformity with L ≪ log log N.
+
+Sources: GGPY-2009, §2, Lemma 3 with (2.3)–(2.5), pp. 9–10 (arXiv v1); MAYNARD-2015, §6, Lemma 6.1 and its proof, p. 400.
+
+### Smoothly weighted diagonal sum (Maynard Lemma 6.1, GGPY Lemma 4)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.1/selberg-smooth-diagonal-sum`. Proposed declaration: `SieveSelberg.abs_sum_squarefree_diagonal_smooth_sub_le`.
+
+Under (Ω₁) and (Ω₂(1,L)), for G: [0,1]→ℝ of class C¹ with G_max = sup_{[0,1]}(|G| + |G′|): Σ_{d<z} μ²(d)g(d)G(log d/log z) = c_γ log z ∫_0^1 G(x) dx + O(c_γ L G_max). The implied constant depends only on A₁ and A₂, not on L or G.
+
+γ is multiplicative, A₁>1, A₂≥0 and L≥1. (Ω₁): 0 ≤ γ(p)/p ≤ 1 − 1/A₁ for every prime p. (Ω₂(1,L)): −L ≤ Σ_{w≤p<z} γ(p)log p/p − log(z/w) ≤ A₂ for 2≤w≤z. g(d) = ∏_{p|d} γ(p)/(p − γ(p)) on squarefree d. GGPY state (2.3) as γ(p)/p ≤ 1 − 1/A₁; Maynard's Lemma 6.1 writes 1 − A₁, an equivalent reparametrization.
+
+GGPY state Lemma 4 for piecewise differentiable F evaluated at log(z/d)/log z. With G(x) = F(1−x) this is Maynard's form, with ∫_0^1 G = ∫_0^1 F(1−x) dx. Maynard writes S for c_γ.
+
+Proof or construction plan:
+
+1. Write the sum as the Stieltjes integral ∫_{1−}^{z} G(log u/log z) d𝒢(u), where 𝒢(u) = Σ_{d<u} μ²(d)g(d) = c_γ log u + E(u) and |E(u)| ≤ C c_γ L by SV.1/selberg-diagonal-sum-dimension-one.
+2. Main part: the substitution u = z^x gives c_γ log z ∫_0^1 G(x) dx.
+3. The E part: integrate by parts (Abel summation). The boundary terms are at most G_max·C c_γ L, and ∫_1^z |E(u)||G′(log u/log z)| du/(u log z) ≤ C c_γ L G_max.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.1/selberg-diagonal-sum-dimension-one`, `mathlib:sum_mul_eq_sub_sub_integral_mul`.
+
+Acceptance:
+
+- Maynard applies it with γ from (6.7), (6.11) and (6.19), obtaining (6.9), (6.13) and (6.21).
+- G ≡ 1 recovers SV.1/selberg-diagonal-sum-dimension-one.
+
+Sources: MAYNARD-2015, §6, Lemma 6.1, p. 400; GGPY-2009, §2, Lemma 4 and its proof, p. 10 (arXiv v1).
+
+## Maynard checkpoint: admissible tuples and weights (SV.4)
+
+Maynard's refinement of the GPY method chooses sieve weights λ_{d₁,…,d_k} that depend on the divisors of each n+hᵢ separately. Changing variables to y_r diagonalizes both quadratic forms S₁ and S₂, and a smooth choice y_r = F(log rᵢ/log R) turns them into the integrals I_k(F) and J_k^{(m)}(F). The positivity of S₂ − ρS₁ then produces ⌈θM_k/2⌉ primes among n+h₁, …, n+h_k for infinitely many n.
+
+### Admissible tuple
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/admissible-tuple`. Proposed declaration: `SieveMaynard.IsAdmissible`. Atlas planet: Admissible tuple.
+
+A finite set H of nonnegative integers is admissible if, for every prime p, there is an integer a_p with a_p ≢ h (mod p) for every h∈H.
+
+H is a Finset ℕ. The empty set is admissible. Only primes p≤#H can obstruct admissibility, since #H elements meet at most #H residue classes.
+
+Proof or construction plan:
+
+1. Define IsAdmissible H as: for every prime p there is a with ¬ h ≡ a [MOD p] for all h∈H.
+2. Characterisation: H misses a class mod p exactly when the image of reduction mod p has fewer than p elements, which is automatic for p>#H. This makes the predicate decidable.
+3. Monotonicity under subsets and invariance under translation h ↦ h+c (replace a_p by a_p + c) are immediate.
+4. isAdmissible_of_forall_not_dvd: if no element is divisible by a prime p≤#H, residue 0 is missed for those p.
+
+Direct prerequisites: `mathlib:Nat.ModEq`.
+
+Acceptance:
+
+- {0,2,6,8,12} (Theorem 1.4) and Engelsma's 105-element set (footnote 2) are admissible. {0,2,4} is not, since it covers ℤ/3.
+
+Uses which determine the API:
+
+- Maynard §1, the prime k-tuples conjecture: Admissibility is the hypothesis of the conjecture.
+- Maynard §4, p. 388: By the Chinese remainder theorem, admissibility gives the residue v₀ of the W-trick.
+- Maynard, proofs of Theorems 1.1–1.4, pp. 390–391: Admissible tuples of small diameter: {0,2,6,8,12}, Engelsma's H₁₀₅, the first k primes above k, and the thinned sets of Theorem 1.2.
+- SieveMethodsAndPrimePatterns:SV.4/prime-tuples-conjecture: The prime k-tuples conjecture quantifies over admissible sets.
+
+Planning API:
+
+- `SieveMaynard.isAdmissible_iff_card_image_lt` (characterisation): H is admissible iff, for every prime p≤#H, the image of H in ℤ/p has fewer than p elements.
+- `SieveMaynard.IsAdmissible.mono` (relation): Subsets of admissible sets are admissible.
+- `SieveMaynard.IsAdmissible.map_add` (relation): Translating an admissible set by c gives an admissible set.
+- `SieveMaynard.isAdmissible_of_forall_not_dvd` (other): If no element of H is divisible by a prime p≤#H, then H is admissible.
+
+Tests:
+
+- `admissible_zero_two` (computation): {0,2} is admissible: it misses 1 mod 2.
+- `not_admissible_zero_two_four` (non-example): {0,2,4} is not admissible: it meets all three classes mod 3. A definition that checked only p=2, or only p>#H, would accept it.
+- `admissible_zero_two_six_eight_twelve` (computation): {0,2,6,8,12} is admissible: it misses 1 mod 2, 1 mod 3 and 4 mod 5.
+- `admissible_empty` (degenerate): ∅ is admissible.
+- `not_admissible_zero_one` (non-example): {0,1} is not admissible: it covers ℤ/2.
+
+Sources: MAYNARD-2015, §1, p. 383.
+
+### The prime k-tuples conjecture, as a named statement
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/prime-tuples-conjecture`. Proposed declaration: `SieveMaynard.PrimeTuplesConjecture`. Atlas planet: Prime k-tuples conjecture.
+
+For a finite H⊂ℕ let primeTranslates(H) = {n : n+h is prime for every h∈H}. The prime k-tuples conjecture asserts that primeTranslates(H) is infinite for every admissible H.
+
+It is a named statement, not an assumption. RS-07 moves the prime-tuple statement register here from AnalyticNumberTheory:AN.6, separately from Maynard's proven theorems.
+
+Proof or construction plan:
+
+1. Define primeTranslates and PrimeTuplesConjecture as displayed.
+2. Necessity: if H covers every class mod p, then for each n some n+h is divisible by p, hence equals p. So n ≤ p, and primeTranslates(H) is finite.
+3. The singleton {0} gives the set of primes (Mathlib infinite_setOfPred_prime), and {0,2} gives the twin primes.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/admissible-tuple`, `mathlib:Nat.infinite_setOfPred_prime`.
+
+Acceptance:
+
+- Maynard's proven statement (SV.4/positive-proportion-prime-tuples) is a positive-proportion result, not this conjecture. The twin prime conjecture is the case H = {0,2}, and it is not proved.
+
+Uses which determine the API:
+
+- Maynard §1, p. 383: The conjecture that motivates the paper.
+- Maynard Theorem 1.2, p. 385: The subsets counted there are exactly those with infinite primeTranslates.
+- RS-07 owners record: The prime-tuple statements formerly registered in AN.6.
+
+Planning API:
+
+- `SieveMaynard.primeTranslates` (data): The set of n such that n+h is prime for every h∈H.
+- `SieveMaynard.isAdmissible_of_infinite_primeTranslates` (relation): If primeTranslates(H) is infinite, then H is admissible.
+- `SieveMaynard.primeTranslates_singleton_zero` (compatibility): primeTranslates({0}) is the set of primes.
+- `SieveMaynard.PrimeTuplesConjecture.infinite_twin` (relation): The conjecture implies that there are infinitely many twin primes.
+
+Tests:
+
+- `primeTranslates_zero_infinite` (compatibility): primeTranslates({0}) is infinite: this is Mathlib's infinitude of primes.
+- `primeTranslates_zero_one` (non-example): primeTranslates({0,1}) = {2}. The set is finite but nonempty, so 'nonempty' cannot replace 'infinite' in the conjecture.
+- `primeTranslates_zero_two_four` (computation): primeTranslates({0,2,4}) = {3}: one of n, n+2, n+4 is divisible by 3.
+- `primeTranslates_empty` (degenerate): primeTranslates(∅) is all of ℕ.
+
+Sources: MAYNARD-2015, §1, p. 383.
+
+### The W-trick residue v₀ (Maynard (4.1))
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/w-trick-residue`. Proposed declaration: `SieveMaynard.wResidue`.
+
+For real D₀ let W = ∏_{p≤D₀} p, the primorial of ⌊D₀⌋. For admissible H there is v₀ with 0≤v₀<W and gcd(v₀+h, W) = 1 for every h∈H; wResidue(H,D₀) is the least such v₀ (0 if none exists). Maynard takes D₀ = log log log N, and then W ≪ (log log N)².
+
+H is admissible. Only ⌊D₀⌋ matters.
+
+AdditiveCombinatorics:AC.4 plans a separate W-trick for the Green–Tao majorant (one linear form). RS-07 keeps the two apart; this is the tuple version.
+
+Proof or construction plan:
+
+1. For each prime p≤D₀, admissibility gives a class a_p missed by H. Require v₀ ≡ −a_p (mod p); then v₀+h ≡ h − a_p ≢ 0 (mod p) for every h∈H.
+2. The primes p≤D₀ are pairwise coprime, so Nat.chineseRemainderOfFinset gives v₀ mod W. Minimality: take Nat.find of the decidable existence statement over v<W.
+3. W ≤ 4^{⌊D₀⌋} ≤ 4^{D₀} by primorial_le_four_pow. With D₀ = log log log N, 4^{D₀} = (log log N)^{log 4} ≤ (log log N)² for large N.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/admissible-tuple`, `mathlib:primorial`, `mathlib:primorial_le_four_pow`, `mathlib:Nat.chineseRemainderOfFinset`.
+
+Acceptance:
+
+- For H = {0,2} and D₀ = 3: W = 6 and v₀ = 5, since 5 and 7 are both coprime to 6.
+
+Uses which determine the API:
+
+- Maynard (4.2)–(4.3): S₁ and S₂ sum only over n ≡ v₀ (mod W).
+- Maynard Lemmas 5.1–5.3: Every support variable is coprime to W, so any other common prime factor exceeds D₀; this gives the 1/D₀ savings.
+- SieveMethodsAndPrimePatterns:SV.4/maynard-sieve-weights: The support condition of y and λ.
+
+Planning API:
+
+- `SieveMaynard.wModulus` (data): W = primorial ⌊D₀⌋.
+- `SieveMaynard.wResidue_coprime` (characterisation): For admissible H, gcd(wResidue(H,D₀) + h, W) = 1 for every h∈H.
+- `SieveMaynard.wResidue_lt` (projection): wResidue(H,D₀) < W.
+- `SieveMaynard.wModulus_le` (other): W ≤ 4^{D₀} for D₀ ≥ 0.
+- `SieveMaynard.eventually_wModulus_le` (other): wModulus(log log log N) ≤ (log log N)² for all large N.
+
+Tests:
+
+- `wModulus_three` (computation): wModulus(3) = 6.
+- `wResidue_zero_two` (computation): wResidue({0,2}, 3) = 5.
+- `wModulus_one` (degenerate): wModulus(1) = 1: there are no primes ≤ 1, and every residue works.
+- `no_wResidue_zero_one` (non-example): For H = {0,1} and W = wModulus(2) = 2, no v makes both v and v+1 coprime to 2. The construction genuinely needs admissibility.
+
+Sources: MAYNARD-2015, §4, (4.1) and the following sentence, pp. 388–389.
+
+### Maynard's multidimensional sieve weights
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/maynard-sieve-weights`. Proposed declaration: `SieveMaynard.maynardLambda`.
+
+Fix k, W, R>1 and F: ℝ^k→ℝ. For r∈ℕ^k put y_r = F(log r₁/log R, …, log r_k/log R) when ∏rᵢ is squarefree, coprime to W and less than R, and y_r = 0 otherwise (6.3). Define λ_d = (∏ μ(dᵢ)dᵢ) Σ_{r: dᵢ|rᵢ} y_r/∏φ(rᵢ) (5.8), and the weight w_n = (Σ_{dᵢ|n+hᵢ ∀i} λ_d)² (2.4). With these, S₁ = Σ_{N≤n<2N, n≡v₀ (W)} w_n, S₂^{(m)} = Σ_{same n} χ_P(n+h_m)w_n, and y^{(m)}_r = (∏ μ(rᵢ)g(rᵢ)) Σ_{rᵢ|dᵢ, d_m=1} λ_d/∏φ(dᵢ), where g is totally multiplicative with g(p) = p−2 ((4.2), (5.14), (5.23)).
+
+λ built from a general y (maynardLambdaOfY) is what Lemmas 5.1–5.3 use; maynardLambda specializes to (6.3). Proposition 4.1 writes λ directly from F and replaces ∏rᵢ<R by 'F supported on ℛ_k'. The two differ only at ∏rᵢ = R, which does not affect the asymptotics.
+
+All sums are finite: rᵢ and dᵢ run below ⌈R⌉, and every other term vanishes by the support condition.
+
+Proof or construction plan:
+
+1. Define y, λ, w, S₁, S₂^{(m)}, g and y^{(m)} as displayed.
+2. Support: if dᵢ|rᵢ for all i, then ∏dᵢ divides ∏rᵢ. So some y_r in the sum can be nonzero only if ∏dᵢ is squarefree, coprime to W and less than R.
+3. Inversion (5.7)–(5.8): substitute the definition and use Σ_{dᵢ|rᵢ|eᵢ} μ(rᵢ) = μ(dᵢ)·[eᵢ = dᵢ] for squarefree eᵢ.
+4. Dimension one: (Σ_{d|m} λ_d)² = Σ_{e|m} Σ_{lcm(d₁,d₂)=e} λ_{d₁}λ_{d₂} = Σ_{e|m} lambdaSquared(λ)(e).
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/w-trick-residue`, `mathlib:ArithmeticFunction.moebius`, `mathlib:Nat.totient`, `mathlib:Squarefree`, `mathlib:BoundingSieve.lambdaSquared`.
+
+Acceptance:
+
+- For R = 2 only r = (1,…,1) is supported, so λ_{(1,…,1)} = F(0), every other λ_d vanishes, and w_n = F(0)² for every n.
+- The weights depend on (d₁,…,d_k) jointly, not only on ∏dᵢ. This is the new feature of the method (p. 387).
+
+Uses which determine the API:
+
+- Maynard Proposition 4.1, p. 388: The weights whose S₁ and S₂ are evaluated.
+- Maynard Lemmas 5.1–5.3: The change of variables diagonalizes S₁ and S₂.
+- Maynard, proof of Proposition 4.2, p. 389: The weights are nonnegative, so a positive S₂ − ρS₁ produces a good n.
+
+Planning API:
+
+- `SieveMaynard.IsMaynardSupport` (data): ∏rᵢ is squarefree, coprime to W, and less than R.
+- `SieveMaynard.maynardY` (data): The smooth choice (6.3): F(log rᵢ/log R) on the support, and 0 elsewhere.
+- `SieveMaynard.maynardLambdaOfY` (data): λ_d = (∏ μ(dᵢ)dᵢ) Σ_{dᵢ|rᵢ} y_r/∏φ(rᵢ) for an arbitrary y (5.8).
+- `SieveMaynard.maynardWeight` (data): w_n = (Σ_{dᵢ|n+hᵢ} λ_d)².
+- `SieveMaynard.sieveSumS1` (data): S₁ = Σ_{N≤n<2N, n≡v₀ (W)} w_n (4.2).
+- `SieveMaynard.sieveSumS2` (data): S₂^{(m)} = Σ_{N≤n<2N, n≡v₀ (W)} χ_P(n+h_m)w_n (5.14). S₂ is the sum over m.
+- `SieveMaynard.maynardG` (data): The totally multiplicative g with g(p) = p−2.
+- `SieveMaynard.maynardYm` (data): y^{(m)}_r of (5.23). It vanishes unless r_m = 1.
+- `SieveMaynard.maynardLambdaOfY_eq_zero` (projection): If y vanishes off the support, then λ_d = 0 whenever d is not supported.
+- `SieveMaynard.maynardY_eq_sum_lambda` (characterisation): For supported r, y_r = (∏ μ(rᵢ)φ(rᵢ)) Σ_{rᵢ|dᵢ} λ_d/∏dᵢ; this is (5.7), which inverts (5.8).
+- `SieveMaynard.maynardWeight_nonneg` (simp): w_n ≥ 0.
+- `SieveMaynard.maynardWeight_one_eq_sum_lambdaSquared` (compatibility): For k = 1, w_n = Σ_{e|n+h₁} BoundingSieve.lambdaSquared(λ)(e), which is Mathlib's Λ² sieve.
+
+Tests:
+
+- `maynardLambda_zero` (degenerate): F = 0 gives λ = 0.
+- `maynardWeight_R_two` (computation): R = 2: w_n = F(0)² whenever every n+hᵢ ≠ 0.
+- `maynardLambda_two_two` (non-example): k = 2 and d = (2,2): each dᵢ is squarefree but ∏dᵢ = 4 is not, so λ_d = 0. A definition that tested squarefreeness coordinatewise would get this wrong.
+
+Sources: MAYNARD-2015, §2, (2.4)–(2.5), p. 387; MAYNARD-2015, §4, Proposition 4.1, p. 388; §5, (5.7)–(5.8), p. 393; §6, (6.3), p. 400.
+
+### Maynard's variational quantity M_k
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/maynard-functionals`. Proposed declaration: `SieveMaynard.maynardM`. Atlas planet: Maynard's variational quantity M_k.
+
+Let ℛ_k = {t∈[0,1]^k : Σtᵢ ≤ 1}. For F: [0,1]^k→ℝ put I_k(F) = ∫F² and J_k^{(m)}(F) = ∫(∫_0^1 F dt_m)² dt₁…dt_{m−1}dt_{m+1}…dt_k. Let 𝒮_k be the set of F supported on ℛ_k with I_k(F) ≠ 0 and J_k^{(m)}(F) ≠ 0 for every m. Then M_k = sup_{F∈𝒮_k} Σ_m J_k^{(m)}(F)/I_k(F).
+
+Maynard's 𝒮_k consists of Riemann-integrable functions; here it consists of square-integrable functions on the cube. The suprema agree: every Riemann-integrable function is square-integrable, and SV.4/ratio-smooth-approximation approximates every square-integrable member by smooth functions supported on ℛ_k.
+
+J^{(m)} is integrated over the whole cube. Its integrand does not depend on t_m, so this is the (k−1)-fold integral of the source.
+
+G_{b,j} of Lemma 8.1 is included as data, with the r = 0 term (E31).
+
+Proof or construction plan:
+
+1. Define ℛ_k, I_k, J_k^{(m)}, the admissible class, the ratio, and M_k as the supremum of a set of reals bounded above by k.
+2. Upper bound: by Cauchy–Schwarz, (∫_0^1 F dt_m)² ≤ ∫_0^1 F² dt_m. So J^{(m)} ≤ I and M_k ≤ k.
+3. Replacing F by cF multiplies I and each J^{(m)} by c². Permuting the coordinates permutes the J^{(m)}.
+4. Radial case F = G(Σtᵢ) on ℛ_k: slice by s = Σ_{i≠m} tᵢ, whose density on ℛ_{k−1} is s^{k−2}/(k−2)!. This gives the GPY integrals of the remark after Lemma 6.3.
+
+Direct prerequisites: `mathlib:MeasureTheory.MemLp`, `mathlib:Finset.Nat.antidiagonalTuple`.
+
+Acceptance:
+
+- M₁ = 1: J^{(1)} = (∫F)² ≤ ∫F², with equality for F = 1 on [0,1].
+- The support condition is essential: F ≡ 1 on the cube has ratio k.
+
+Uses which determine the API:
+
+- Maynard Proposition 4.2, p. 389: r_k = ⌈θM_k/2⌉.
+- Maynard Proposition 4.3 and §§7–8: Lower bounds for M_k from explicit F.
+- SieveMethodsAndPrimePatterns:SV.4/maynard-sum-asymptotics: I_k and J_k^{(m)} are the constants in the S₁, S₂ asymptotics.
+
+Planning API:
+
+- `SieveMaynard.maynardSimplex` (data): ℛ_k = {t : tᵢ ≥ 0, Σtᵢ ≤ 1}.
+- `SieveMaynard.maynardI` (data): I_k(F) = ∫_{[0,1]^k} F².
+- `SieveMaynard.maynardJ` (data): J_k^{(m)}(F) = ∫_{[0,1]^k} (∫_0^1 F(t with t_m := s) ds)² dt.
+- `SieveMaynard.IsMaynardAdmissible` (data): F vanishes off ℛ_k, lies in L²([0,1]^k), I_k(F) ≠ 0, and J_k^{(m)}(F) ≠ 0 for every m.
+- `SieveMaynard.maynardRatio` (data): Σ_m J_k^{(m)}(F)/I_k(F).
+- `SieveMaynard.simplexG` (data): G_{b,j}(x) = b! Σ_{r=0}^{b} C(x,r) Σ_{b₁,…,b_r ≥ 1, Σ = b} ∏ (jbᵢ)!/bᵢ!, including the term r = 0.
+- `SieveMaynard.maynardRatio_smul` (simp): The ratio of cF equals the ratio of F for c ≠ 0.
+- `SieveMaynard.maynardJ_eq_of_symmetric` (relation): If F is symmetric in its coordinates, J_k^{(m)}(F) does not depend on m.
+- `SieveMaynard.maynardM_le` (other): M_k ≤ k.
+- `SieveMaynard.maynardRatio_le_maynardM` (characterisation): The ratio of every admissible F is at most M_k.
+- `SieveMaynard.maynardI_J_radial` (compatibility): For F = G(Σtᵢ) on ℛ_k with k ≥ 2: I = ∫_0^1 G(t)² t^{k−1}/(k−1)! dt and J^{(m)} = ∫_0^1 (∫_t^1 G)² t^{k−2}/(k−2)! dt, which are the one-dimensional GPY integrals.
+
+Tests:
+
+- `maynardM_one` (computation): M₁ = 1.
+- `maynardI_J_triangle` (computation): For k = 2 and F the indicator of ℛ₂: I = 1/2 and J^{(1)} = ∫_0^1 (1−t)² dt = 1/3, so the ratio is 4/3.
+- `not_admissible_zero` (degenerate): F = 0 is excluded, because I_k(0) = 0.
+- `not_admissible_const_one` (non-example): F ≡ 1 on [0,1]² is not supported on ℛ₂ and has ratio 2. Without the support condition every M_k would be at least k.
+- `simplexG_zero` (computation): G_{0,2}(5) = 1: the r = 0 term that the printed formula omits (E31).
+
+Sources: MAYNARD-2015, §4, Proposition 4.1, p. 388, and Proposition 4.2, p. 389; MAYNARD-2015, §6, remark after Lemma 6.3, p. 404.
+
+### Smooth approximation within the simplex
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/ratio-smooth-approximation`. Proposed declaration: `SieveMaynard.exists_smooth_maynardRatio_gt`.
+
+For F∈𝒮_k and δ>0 there is a smooth F₁∈𝒮_k, supported on ℛ_k, with I_k(F₁) > 0 and ratio(F₁) > ratio(F) − δ. In particular M_k is also the supremum over smooth functions supported on ℛ_k.
+
+𝒮_k is the L² class of SV.4/maynard-functionals.
+
+Proof or construction plan:
+
+1. Shrink: F_η(t) = F((t − η𝟙)/(1 − (k+1)η)) vanishes unless tᵢ ≥ η and Σtᵢ ≤ 1 − η. I scales by (1 − (k+1)η)^k and each J^{(m)} by (1 − (k+1)η)^{k+1}, so the ratio is multiplied by 1 − (k+1)η.
+2. Mollify: convolve F_η with a smooth bump (Mathlib ContDiffBump) of radius below η/√k. The result is smooth, supported in ℛ_k, and converges to F_η in L²(cube) as the radius tends to 0.
+3. Continuity: F ↦ ∫_0^1 F dt_m is 1-Lipschitz from L²(cube) to L²(cube) by Cauchy–Schwarz, so I and each J^{(m)} are continuous. For η and the radius small enough, the ratio moves by less than δ and I and the J^{(m)} stay nonzero.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/maynard-functionals`, `mathlib:ContDiffBump`.
+
+Acceptance:
+
+- Maynard's proof of Proposition 4.2 uses this step without proof; it is supplied here.
+
+Sources: MAYNARD-2015, §4, proof of Proposition 4.2, p. 389.
+
+## Maynard checkpoint: Selberg manipulations and asymptotics (SV.4)
+
+Sections 5 and 6 of the source are decomposed lemma by lemma. The constants depend on k, H, θ and δ but are uniform in y and F, which is how the source states them. Level of distribution enters only through Lemma 5.2, and the prime number theorem only through X_N there.
+
+### The GPY positivity criterion
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/gpy-positivity-criterion`. Proposed declaration: `SieveMaynard.exists_card_prime_gt_of_sum_pos`.
+
+Let H be finite, N∈ℕ, w_n ≥ 0 and ρ∈ℝ. If Σ_{N≤n<2N} (#{h∈H : n+h prime} − ρ)w_n > 0, then some n∈[N,2N) has more than ρ, hence at least ⌊ρ+1⌋, of the n+h prime.
+
+No arithmetic input. The weights need only be nonnegative.
+
+Proof or construction plan:
+
+1. If every n had at most ρ of the n+h prime, each summand (#{…} − ρ)w_n would be ≤ 0, because w_n ≥ 0, and so would the sum.
+2. An integer c > ρ satisfies c ≥ ⌊ρ⌋ + 1 = ⌊ρ + 1⌋.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/admissible-tuple`.
+
+Acceptance:
+
+- With ρ = θM_k/2 − ε this is the positivity step of Proposition 4.2. For small ε>0, ⌊ρ+1⌋ = ⌈θM_k/2⌉.
+
+Sources: MAYNARD-2015, §2, (2.1) and the following paragraph, p. 386.
+
+### Size of λ in terms of y (Maynard (5.9))
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/lambda-max-bound`. Proposed declaration: `SieveMaynard.abs_maynardLambdaOfY_le`.
+
+If y vanishes off the support (∏rᵢ squarefree, coprime to W, less than R) and |y_r| ≤ y_max, then |λ_d| ≤ y_max Σ_{u<R} μ²(u)τ_k(u)/φ(u) for every d. The right-hand side is O_k(y_max (log R)^k).
+
+τ_k(u) is the number of ordered factorizations u = c₁⋯c_k.
+
+Proof or construction plan:
+
+1. Insert |y_r| ≤ y_max into (5.8) and write rᵢ = dᵢr′ᵢ. Since ∏rᵢ is squarefree, the r′ᵢ are coprime to ∏dᵢ.
+2. Use d/φ(d) = Σ_{e|d} 1/φ(e) for squarefree d and the multiplicativity of φ to combine everything into Σ_{u<R} μ²(u)τ_k(u)/φ(u), with u = dr′ and τ_k(dr′) ≥ τ_k(r′) (5.9).
+3. Σ_{u<R} μ²(u)τ_k(u)/φ(u) ≤ ∏_{p<R}(1 + k/(p−1)) ≤ exp(k Σ_{p<R} 1/(p−1)) = O_k((log R)^k). This uses Σ_{p<R} 1/p = log log R + O(1), which follows from Mertens' first theorem (requested from AN.2) by partial summation.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/maynard-sieve-weights`, `AnalyticNumberTheory:AN.2`.
+
+Acceptance:
+
+- The O_k((log R)^k) bound is what turns the error O(λ_max²R²(log R)^{2k}) of (5.3) into O(y_max²R²(log R)^{4k}).
+
+Sources: MAYNARD-2015, §5, (5.9) and the following sentence, pp. 393–394.
+
+### Diagonal form of S₁ (Maynard Lemma 5.1)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/s1-diagonalization`. Proposed declaration: `SieveMaynard.sieveSumS1_diagonal`.
+
+Let y vanish off the support, with |y_r| ≤ y_max, and λ = λ(y). Then S₁ = (N/W) Σ_r y_r²/∏φ(rᵢ) + O(y_max² φ(W)^k N(log R)^k/(W^{k+1}D₀)).
+
+N is large, D₀ = log log log N, W = ∏_{p≤D₀}p, v₀ is the W-trick residue of the admissible H = {h₁,…,h_k} (distinct), R = N^{θ/2−δ} with 0<θ≤1 and δ>0 fixed. The implied constants depend on k, H, θ and δ, and not on N, y or F.
+
+Proof or construction plan:
+
+1. Expand the square and swap the sums (5.1). By the Chinese remainder theorem, the count of N≤n<2N with n≡v₀ (W) and [dᵢ,eᵢ] | n+hᵢ is N/q + O(1), q = W∏[dᵢ,eᵢ], when W, [d₁,e₁], …, [d_k,e_k] are pairwise coprime. Otherwise it is 0: a prime dividing [dᵢ,eᵢ] and [dⱼ,eⱼ] divides hᵢ − hⱼ and exceeds D₀ > max|hᵢ − hⱼ| (5.2).
+2. The O(1) terms: λ is supported on ∏dᵢ < R, so they total ≪ λ_max²(Σ_{d<R} τ_k(d))² ≪ λ_max²R²(log R)^{2k} (5.3), with λ_max ≪ y_max(log R)^k (SV.4/lambda-max-bound).
+3. Main term: 1/[dᵢ,eᵢ] = (dᵢeᵢ)^{−1} Σ_{uᵢ|dᵢ,eᵢ} φ(uᵢ) (5.4). Remove the remaining conditions (dᵢ,eⱼ) = 1 (i≠j) with Möbius sums over s_{i,j}, restricted as in the source (5.5)–(5.6).
+4. Substitute the change of variables (5.7)–(5.8) to get (5.11). Every s_{i,j} ≠ 1 is coprime to W, hence exceeds D₀; these terms contribute O(y_max²φ(W)^kN(log R)^k/(W^{k+1}D₀)) (5.12), using Σ_{u<R,(u,W)=1} μ²(u)/φ(u) ≪ (φ(W)/W) log R (SV.1/selberg-diagonal-sum-dimension-one).
+5. R² ≤ N^{1−2δ} and W ≪ N^δ, so the O(y_max²R²(log R)^{4k}) error is smaller than the first (5.13).
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/maynard-sieve-weights`, `SieveMethodsAndPrimePatterns:SV.4/lambda-max-bound`, `SieveMethodsAndPrimePatterns:SV.4/w-trick-residue`, `AnalyticNumberTheory:AN.2`.
+
+Acceptance:
+
+- The main term is diagonal in y: the change of variables diagonalizes the quadratic form S₁, as in the main term of Selberg's one-dimensional sieve (compare Mathlib's lambdaSquared).
+
+Sources: MAYNARD-2015, §5, Lemma 5.1 and proof, (5.1)–(5.13), pp. 392–395.
+
+### Diagonal form of S₂^{(m)} (Maynard Lemma 5.2)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/s2-diagonalization`. Proposed declaration: `SieveMaynard.sieveSumS2_diagonal`.
+
+Assume in addition that the primes have level of distribution θ, that k ≥ 2, and fix A>0. Then S₂^{(m)} = N/(φ(W) log N) Σ_r (y^{(m)}_r)²/∏g(rᵢ) + O((y^{(m)}_max)² φ(W)^{k−2}N(log N)^{k−2}/(W^{k−1}D₀)) + O(y_max² N/(log N)^A).
+
+N is large, D₀ = log log log N, W = ∏_{p≤D₀}p, v₀ is the W-trick residue of the admissible H = {h₁,…,h_k} (distinct), R = N^{θ/2−δ} with 0<θ≤1 and δ>0 fixed. The implied constants depend on k, H, θ and δ, and not on N, y or F.
+
+y^{(m)}_max bounds |y^{(m)}_r| for every r.
+
+Proof or construction plan:
+
+1. Expand as for S₁ (5.15). The inner sum runs over one class mod q = W∏[dᵢ,eᵢ] and is coprime to q exactly when d_m = e_m = 1. It equals X_N/φ(q) + O(E(N,q)), where X_N = #{N≤n<2N : n prime} and E is windowError (5.16)–(5.18).
+2. Error: q is squarefree and less than R²W, and each q arises from at most τ_{3k}(q) tuples. With λ_max ≪ y_max(log R)^k the error is ≪ y_max²(log R)^{2k} Σ_{q<R²W} μ²(q)τ_{3k}(q)E(N,q). Cauchy–Schwarz with E(N,q) ≪ N/φ(q) and PrimesHaveLevel.sum_windowError (R²W < N^{θ−δ} for large N) give ≪ y_max²N/(log N)^A (5.19)–(5.20).
+3. Main term: write 1/φ([dᵢ,eᵢ]) = (φ(dᵢ)φ(eᵢ))^{−1} Σ_{uᵢ|dᵢ,eᵢ} g(uᵢ) (5.21), remove the cross coprimality with Möbius sums, and substitute y^{(m)} (5.23) to get (5.24). Terms with s_{i,j} ≠ 1 contribute the D₀ error (5.25).
+4. Replace X_N by N/log N + O(N/(log N)²), by the prime number theorem (requested from AN.2); the error is absorbed (5.26)–(5.27).
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/maynard-sieve-weights`, `SieveMethodsAndPrimePatterns:SV.4/lambda-max-bound`, `SieveMethodsAndPrimePatterns:SV.4/w-trick-residue`, `SieveMethodsAndPrimePatterns:SV.3/level-of-distribution`, `AnalyticNumberTheory:AN.2`.
+
+Acceptance:
+
+- This is the only use of the arithmetic hypothesis. Unconditional results come from SV.3/bombieri-vinogradov-level.
+- The implied constants are ineffective through Bombieri–Vinogradov (remark after Lemma 5.2).
+
+Sources: MAYNARD-2015, §5, Lemma 5.2 and proof, (5.14)–(5.27), pp. 395–398.
+
+### y^{(m)} in terms of y (Maynard Lemma 5.3)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/y-m-relation`. Proposed declaration: `SieveMaynard.maynardYm_sub_sum_le`.
+
+If r_m = 1, then y^{(m)}_r = Σ_{a_m} y_{r₁,…,r_{m−1},a_m,r_{m+1},…,r_k}/φ(a_m) + O(y_max φ(W) log R/(W D₀)).
+
+N is large, D₀ = log log log N, W = ∏_{p≤D₀}p, v₀ is the W-trick residue of the admissible H = {h₁,…,h_k} (distinct), R = N^{θ/2−δ} with 0<θ≤1 and δ>0 fixed. The implied constants depend on k, H, θ and δ, and not on N, y or F.
+
+Proof or construction plan:
+
+1. Substitute (5.8) into (5.23) (5.28), then swap the d and a sums (5.29).
+2. Evaluate Σ_{rᵢ|dᵢ|aᵢ} μ(dᵢ)dᵢ/φ(dᵢ) = μ(aᵢ)rᵢ/φ(aᵢ) for squarefree aᵢ (5.30).
+3. Since (aⱼ,W) = 1, either aⱼ = rⱼ or aⱼ > D₀rⱼ. The terms with aⱼ > D₀rⱼ contribute O(y_max φ(W) log R/(WD₀)), using Σ_{a_m<R,(a_m,W)=1} μ²(a_m)/φ(a_m) ≪ (φ(W)/W) log R (5.31).
+4. When aⱼ = rⱼ for every j≠m, the factor ∏g(rᵢ)rᵢ/φ(rᵢ)² is 1 + O(1/D₀), because g(p)p/φ(p)² = 1 − 1/(p−1)² and every prime factor exceeds D₀ (5.32).
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/maynard-sieve-weights`, `SieveMethodsAndPrimePatterns:SV.4/w-trick-residue`, `SieveMethodsAndPrimePatterns:SV.1/selberg-diagonal-sum-dimension-one`.
+
+Acceptance:
+
+- y^{(m)} vanishes unless r_m = 1; the lemma is the only link between y^{(m)} and y.
+
+Sources: MAYNARD-2015, §5, Lemma 5.3 and proof, (5.28)–(5.32), pp. 398–399.
+
+### Asymptotic for S₁ (Maynard Lemma 6.2)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/s1-asymptotic`. Proposed declaration: `SieveMaynard.sieveSumS1_smooth`.
+
+S₁ = φ(W)^k N(log R)^k I_k(F)/W^{k+1} + O(F_max² φ(W)^k N(log R)^k/(W^{k+1}D₀)).
+
+N is large, D₀ = log log log N, W = ∏_{p≤D₀}p, v₀ is the W-trick residue of the admissible H = {h₁,…,h_k} (distinct), R = N^{θ/2−δ} with 0<θ≤1 and δ>0 fixed. The implied constants depend on k, H, θ and δ, and not on N, y or F.
+
+F is of class C¹ and supported on ℛ_k, and F_max = sup_{[0,1]^k} (|F| + Σᵢ|∂F/∂tᵢ|); y = y(F) is given by (6.3).
+
+Proof or construction plan:
+
+1. Insert (6.3) into Lemma 5.1 (6.4); y_max ≤ F_max.
+2. Drop the pairwise coprimality of the uᵢ: two integers coprime to W with a common factor share a prime greater than D₀. This costs O(F_max²φ(W)^kN(log R)^k/(W^{k+1}D₀)) (6.5).
+3. Apply SV.1/selberg-smooth-diagonal-sum k times, once in each variable, with γ(p) = 1 for p∤W and γ(p) = 0 for p|W. Then c_γ = φ(W)/W and L ≪ 1 + Σ_{p|W} log p/p ≪ log D₀ by Mertens (6.7)–(6.9).
+4. Combine: the error O(log D₀ (log R)^{k−1}) is smaller than (log R)^k/D₀.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/s1-diagonalization`, `SieveMethodsAndPrimePatterns:SV.1/selberg-smooth-diagonal-sum`, `SieveMethodsAndPrimePatterns:SV.4/maynard-functionals`, `AnalyticNumberTheory:AN.2`.
+
+Acceptance:
+
+- The main term is positive whenever I_k(F) ≠ 0.
+
+Sources: MAYNARD-2015, §6, Lemma 6.2 and proof, (6.4)–(6.9), pp. 401–402.
+
+### Asymptotic for S₂^{(m)} (Maynard Lemma 6.3)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/s2-asymptotic`. Proposed declaration: `SieveMaynard.sieveSumS2_smooth`.
+
+If the primes have level of distribution θ, then S₂^{(m)} = φ(W)^k N(log R)^{k+1} J_k^{(m)}(F)/(W^{k+1} log N) + O(F_max² φ(W)^k N(log R)^k/(W^{k+1}D₀)).
+
+N is large, D₀ = log log log N, W = ∏_{p≤D₀}p, v₀ is the W-trick residue of the admissible H = {h₁,…,h_k} (distinct), R = N^{θ/2−δ} with 0<θ≤1 and δ>0 fixed. The implied constants depend on k, H, θ and δ, and not on N, y or F.
+
+F is of class C¹ and supported on ℛ_k, and F_max = sup_{[0,1]^k} (|F| + Σᵢ|∂F/∂tᵢ|); y = y(F) is given by (6.3).
+
+Proof or construction plan:
+
+1. By Lemma 5.3 and (6.3): if r_m = 1 and ∏rᵢ is squarefree and coprime to W, then y^{(m)}_r = Σ_{(u,W∏rᵢ)=1} μ²(u)/φ(u)·F(…, log u/log R, …) + O(F_max φ(W) log R/(WD₀)) (6.10). In particular y^{(m)}_max ≪ φ(W)F_max log R/W.
+2. Apply SV.1/selberg-smooth-diagonal-sum in u with γ(p) = 1 for p∤W∏rᵢ, where L ≪ log log N (6.11)–(6.12). This gives y^{(m)}_r = (log R)(φ(W)/W)∏(φ(rᵢ)/rᵢ)·F^{(m)}_r + O(…), where F^{(m)}_r = ∫_0^1 F(…, t_m, …) dt_m (6.13)–(6.14).
+3. Substitute into Lemma 5.2 (6.15)–(6.16) and drop the coprimality of the rᵢ at the cost (6.17).
+4. Apply SV.1/selberg-smooth-diagonal-sum to each rᵢ (i≠m) with γ(p) = 1 − (p²−3p+1)/(p³−p²−2p+1) for p∤W, for which γ(p)/(p−γ(p)) = φ(p)²/(g(p)p²) (6.19). The result is J_k^{(m)} (6.21)–(6.22).
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/s2-diagonalization`, `SieveMethodsAndPrimePatterns:SV.4/y-m-relation`, `SieveMethodsAndPrimePatterns:SV.1/selberg-smooth-diagonal-sum`, `SieveMethodsAndPrimePatterns:SV.4/maynard-functionals`, `AnalyticNumberTheory:AN.2`.
+
+Acceptance:
+
+- Check of (6.19): p(p−1)²/(p³−p²−2p+1) = 1 − (p²−3p+1)/(p³−p²−2p+1). arXiv v2 printed a different γ; v3 and the published text agree on this one.
+
+Sources: MAYNARD-2015, §6, Lemma 6.3 and proof, (6.10)–(6.22), pp. 402–404.
+
+### Maynard's asymptotics for S₁ and S₂ (Proposition 4.1)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/maynard-sum-asymptotics`. Proposed declaration: `SieveMaynard.tendsto_sieveSums`.
+
+Let the primes have level of distribution θ∈(0,1], let R = N^{θ/2−δ} with δ>0 fixed, and let F be smooth and supported on ℛ_k with I_k(F) ≠ 0 and J_k^{(m)}(F) ≠ 0 for every m. With λ built from F: S₁ = (1+o(1)) φ(W)^k N(log R)^k I_k(F)/W^{k+1}, and for every m, S₂^{(m)} = (1+o(1)) φ(W)^k N(log R)^{k+1} J_k^{(m)}(F)/(W^{k+1} log N); hence S₂ = Σ_m S₂^{(m)} has the stated asymptotic.
+
+N is large, D₀ = log log log N, W = ∏_{p≤D₀}p, v₀ is the W-trick residue of the admissible H = {h₁,…,h_k} (distinct), R = N^{θ/2−δ} with 0<θ≤1 and δ>0 fixed. The implied constants depend on k, H, θ and δ, and not on N, y or F.
+
+Maynard states Proposition 4.1 with 'exponent of distribution θ'; it is the level of distribution of (1.3).
+
+Proof or construction plan:
+
+1. Apply Lemmas 6.2 and 6.3 with F fixed: F_max is a constant and D₀ → ∞, so each error term is o(main term), because I_k(F) and J_k^{(m)}(F) are nonzero.
+2. The λ of Proposition 4.1 is the construction from (6.3), by the inversion (5.8).
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/s1-asymptotic`, `SieveMethodsAndPrimePatterns:SV.4/s2-asymptotic`.
+
+Acceptance:
+
+- The S₂ asymptotic, summed over m, is Proposition 4.1's display with Σ_m J_k^{(m)}(F).
+
+Sources: MAYNARD-2015, §4, Proposition 4.1, p. 388.
+
+### Primes in admissible tuples (Maynard Proposition 4.2)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/maynard-many-primes`. Proposed declaration: `SieveMaynard.infinite_many_primes_of_level`. Atlas planet: Maynard's refinement of the GPY sieve.
+
+Let the primes have level of distribution θ∈(0,1] and let H = {h₁,…,h_k} be admissible. With r_k = ⌈θM_k/2⌉, there are infinitely many n such that at least r_k of n+h₁, …, n+h_k are prime. In particular liminf_n (p_{n+r_k−1} − p_n) ≤ max_{i,j}(hᵢ − hⱼ).
+
+The hᵢ are distinct. M_k is the quantity of SV.4/maynard-functionals.
+
+Proof or construction plan:
+
+1. Choose F₀∈𝒮_k with ratio > M_k − δ, and then a smooth F₁ with ratio > M_k − 2δ (SV.4/ratio-smooth-approximation).
+2. Proposition 4.1 for F₁ gives S = S₂ − ρS₁ = (φ(W)^kN(log R)^k I_k(F₁)/W^{k+1})·((log R/log N) Σ_m J^{(m)}(F₁) − ρI(F₁) + o(1)) ≥ (…)·((θ/2 − δ)(M_k − 2δ) − ρ + o(1)). This is (4.4), whose printed sum index j should be m (E27).
+3. Take ρ = θM_k/2 − ε, with δ small in terms of ε. Then S > 0 for all large N. The weights are nonnegative, so the positivity criterion gives, for each large N, some n∈[N,2N) with at least ⌊ρ+1⌋ = ⌈θM_k/2⌉ of the n+hᵢ prime (ε small).
+4. Since this holds for every large N, there are infinitely many such n. The gap statement is SV.4/clustered-primes-to-gaps.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/maynard-sum-asymptotics`, `SieveMethodsAndPrimePatterns:SV.4/ratio-smooth-approximation`, `SieveMethodsAndPrimePatterns:SV.4/gpy-positivity-criterion`, `SieveMethodsAndPrimePatterns:SV.4/maynard-functionals`, `SieveMethodsAndPrimePatterns:SV.4/admissible-tuple`, `SieveMethodsAndPrimePatterns:SV.4/clustered-primes-to-gaps`.
+
+Acceptance:
+
+- k = 105 and θ = 1/2 − ε give r₁₀₅ ≥ 2 (Theorem 1.3). k = 5 and θ = 1 − ε give r₅ ≥ 2 under Elliott–Halberstam (Theorem 1.4).
+
+Sources: MAYNARD-2015, §4, Proposition 4.2 and proof, (4.4), p. 389.
+
+### From prime clusters to prime gaps
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/clustered-primes-to-gaps`. Proposed declaration: `SieveMaynard.frequently_nth_prime_sub_le`.
+
+Let H be finite and nonempty and r ≥ 1. If infinitely many n have at least r of the n+h (h∈H) prime, then p_{j+r−1} − p_j ≤ max H − min H for infinitely many j, i.e. liminf_j (p_{j+r−1} − p_j) ≤ max H − min H. Here p_j is the j-th prime, counted from 0.
+
+Maynard's p_n is 1-indexed. Differences p_{n+m} − p_n are unaffected by the shift.
+
+Proof or construction plan:
+
+1. For such an n, let q₁ < … < q_r be r of the primes among the n+h, and let j be the index of q₁. The r primes lie in [q₁, q_r], so p_{j+r−1} ≤ q_r and p_{j+r−1} − p_j ≤ q_r − q₁ ≤ max H − min H.
+2. Distinct large n give arbitrarily large q₁, hence infinitely many j.
+
+Direct prerequisites: `mathlib:Nat.nth`, `mathlib:Nat.prime_nth_prime`.
+
+Acceptance:
+
+- With r = 2 and H of diameter 600 this is the step from Proposition 4.2 to liminf(p_{n+1} − p_n) ≤ 600.
+
+Sources: MAYNARD-2015, §4, Proposition 4.2, last sentence, p. 389.
+
+## Maynard checkpoint: lower bounds for M_k (SV.4)
+
+Section 7 gives M_k > log k − 2 log log k − 2 for large k from a product test function and a second-moment bound. Section 8 gives M₅ > 2 and M₁₀₅ > 4 from symmetric polynomials in P₁ and P₂ through Lemmas 8.1–8.2. Lemma 8.1's G_{b,j} must include the r=0 term (E31): with the printed formula the k=5 example evaluates to 26784/17753 instead of 1417255/708216. The source's numbers are right.
+
+### Lower bound for M_k when k is large (Maynard Proposition 4.3(3))
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/maynard-large-k-lower-bound`. Proposed declaration: `SieveMaynard.eventually_log_sub_lt_maynardM`.
+
+For all sufficiently large k, M_k > log k − 2 log log k − 2.
+
+The implied constants in §7 are independent of k.
+
+Proof or construction plan:
+
+1. Take F(t) = ∏g(ktᵢ) on ℛ_k (7.3), with g supported on [0,T], γ = ∫g², and μ = ∫ug²/γ < 1 − T/k (7.8). Then I_k ≤ k^{−k}γ^k (7.4), and J_k ≥ J′_k − E_k with J′_k = k^{−k−1}γ^{k−1}(∫g)² (7.5)–(7.7).
+2. Bound E_k by a second moment. With η = (k−T)/(k−1) − μ > 0, 1 ≤ η^{−2}(Σ_{i≥2}uᵢ/(k−1) − μ)² on the error region (7.9). Drop the constraint Σ_{i=2}^k uᵢ > k−T (printed with i=1, E30) and expand the square: E_k ≤ η^{−2}μTk^{−k−1}γ^{k−1}(∫g)²/(k−1) (7.10)–(7.13).
+3. Hence kJ_k/I_k ≥ ((∫g)²/∫g²)·(1 − T/(k(1 − T/k − μ)²)) (7.14). This uses (k−1)η² ≥ k(1 − T/k − μ)², which holds because η = x + (k−T)/(k(k−1)) with x = 1 − T/k − μ and 2(k−T)/k ≥ x.
+4. Choose g(t) = 1/(1+At) on [0,T] with 1 + AT = e^A (7.16)–(7.18), and A = log k − 2 log log k (7.20)–(7.21).
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/maynard-functionals`.
+
+Acceptance:
+
+- Only the leading term log k matters for Theorem 1.1. The −2 absorbs the loss log k/((log k)² + O(1)) in (7.21).
+
+Sources: MAYNARD-2015, §7, (7.1)–(7.21), pp. 405–408.
+
+### Moments on the simplex (Maynard Lemma 8.1, corrected)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/simplex-dirichlet-moment`. Proposed declaration: `SieveMaynard.integral_simplex_moment`.
+
+For integers k ≥ 1 and a, b, j ≥ 0: ∫_{ℛ_k} (1 − P₁)^a P_j^b dt = (a! b!/(k+a+jb)!) Σ_{b₁+…+b_k=b} ∏ᵢ (jbᵢ)!/bᵢ! = (a!/(k+jb+a)!)·G_{b,j}(k). Here P_j = Σtᵢ^j and G_{b,j}(x) = b! Σ_{r=0}^{b} C(x,r) Σ_{b₁,…,b_r≥1, Σbᵢ=b} ∏(jbᵢ)!/bᵢ!. The term r = 0, which makes G_{0,j} = 1, is needed; the printed formula starts at r = 1 (E31).
+
+The multinomial form, summed over all (b₁,…,b_k) including zero entries, needs no convention at b = 0.
+
+Proof or construction plan:
+
+1. Dirichlet integral (8.2): ∫_{ℛ_k}(1−Σtᵢ)^a ∏tᵢ^{aᵢ} = a!∏aᵢ!/(k + a + Σaᵢ)!. Prove it by induction on k: integrate t₁ over [0, 1 − Σ_{i≥2}tᵢ] with v = t₁/(1 − Σ_{i≥2}tᵢ) and use the Beta integral ∫_0^1 t^a(1−t)^b dt = a!b!/(a+b+1)! (from Mathlib's Γ–Beta identity) (8.3).
+2. Expand P_j^b by the multinomial theorem (8.4) and apply (8.2); this gives (8.5).
+3. Group the tuples by the number r of nonzero bᵢ (8.6). For b = 0 the only tuple is zero, which is the r = 0 term.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/maynard-functionals`, `mathlib:Finset.Nat.antidiagonalTuple`, `mathlib:Complex.Gamma_mul_Gamma_eq_betaIntegral`.
+
+Acceptance:
+
+- k = 5, a = 2, b = 0: the integral is 2!/7! = 1/2520, while the printed formula gives 0.
+- k = 1, a = 0, b = 1, j = 1: ∫_0^1 t dt = 1/2.
+
+Sources: MAYNARD-2015, §8, Lemma 8.1 and proof, (8.2)–(8.6), pp. 409–410.
+
+### I_k and J_k as quadratic forms (Maynard Lemma 8.2)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/symmetric-polynomial-quadratic-forms`. Proposed declaration: `SieveMaynard.maynardI_J_symmetricPoly`.
+
+For P = Σ_{i=1}^d aᵢ(1 − P₁)^{bᵢ}P₂^{cᵢ} and F = P on ℛ_k (0 elsewhere), with k ≥ 2: I_k(F) = Σ_{i,j} aᵢaⱼ(bᵢ+bⱼ)! G_{cᵢ+cⱼ,2}(k)/(k+bᵢ+bⱼ+2cᵢ+2cⱼ)!, and J_k^{(m)}(F) = Σ_{i,j} aᵢaⱼ Σ_{c′₁≤cᵢ, c′₂≤cⱼ} C(cᵢ,c′₁)C(cⱼ,c′₂)·γ·G_{c′₁+c′₂,2}(k−1)/(k+bᵢ+bⱼ+2cᵢ+2cⱼ+1)!. Here γ = bᵢ!bⱼ!(2cᵢ−2c′₁)!(2cⱼ−2c′₂)!(bᵢ+bⱼ+2cᵢ+2cⱼ−2c′₁−2c′₂+2)!/((bᵢ+2cᵢ−2c′₁+1)!(bⱼ+2cⱼ−2c′₂+1)!), and G includes the r = 0 term (E31). So I_k and Σ_m J_k^{(m)} are quadratic forms aᵀA₁a and aᵀA₂a with rational A₁, A₂.
+
+F is symmetric, so J_k^{(m)} does not depend on m and Σ_m J_k^{(m)} = kJ_k^{(1)}.
+
+Proof or construction plan:
+
+1. I_k: expand P² and apply the corrected Lemma 8.1 with j = 2 (8.7).
+2. J: expand P₂^c = Σ C(c,c′)(P′₂)^{c′} t₁^{2c−2c′} and integrate in t₁ with the Beta integral (8.8); then square (8.9).
+3. Apply Lemma 8.1 on ℛ_{k−1}: ∫_{ℛ_{k−1}}(1−P′₁)^B(P′₂)^{c′} = B! G_{c′,2}(k−1)/(k−1+B+2c′)!. The printed (8.10) has (k+b+c−1)! and G_{c,2} (E32). With B = bᵢ+bⱼ+2cᵢ+2cⱼ−2c′₁−2c′₂+2 the denominator is (k+bᵢ+bⱼ+2cᵢ+2cⱼ+1)!, as in the lemma.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/simplex-dirichlet-moment`, `SieveMethodsAndPrimePatterns:SV.4/maynard-functionals`.
+
+Acceptance:
+
+- k = 5 with (8.16): exact rational arithmetic with these formulas gives I₅ = 29509/1222452000 and ratio 1417255/708216, which agrees with direct integration. The printed G (r ≥ 1) gives I₅ = 17753/977961600 and ratio 26784/17753 ≈ 1.509.
+- By Lemma 8.3 the best ratio in the span is the largest eigenvalue of A₁^{−1}A₂. A lower bound for M_k needs only one explicit coefficient vector.
+
+Sources: MAYNARD-2015, §8, Lemma 8.2 and proof, (8.7)–(8.10), pp. 410–411.
+
+### M₅ > 2 (Maynard Proposition 4.3(1))
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/m5-lower-bound`. Proposed declaration: `SieveMaynard.maynardM_five_ge`.
+
+M₅ ≥ 1417255/708216 > 2.
+
+F = P·1_{ℛ₅} with P = (1−P₁)P₂ + (7/10)(1−P₁)² + (1/14)P₂ − (3/14)(1−P₁) (8.16).
+
+Proof or construction plan:
+
+1. F is bounded and supported on ℛ₅, with I ≠ 0 and every J^{(m)} ≠ 0, so it is admissible.
+2. Lemma 8.2 with these four monomials gives I₅(F) = 29509/1222452000, Σ_m J₅^{(m)}(F) = 5J₅^{(1)}(F), and the ratio exactly 1417255/708216 (8.17).
+3. maynardRatio_le_maynardM.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/symmetric-polynomial-quadratic-forms`, `SieveMethodsAndPrimePatterns:SV.4/maynard-functionals`.
+
+Acceptance:
+
+- 1417255/708216 ≈ 2.00115. The exact value was recomputed here, both by direct Dirichlet-integral expansion and by the corrected Lemma 8.2.
+- θM₅/2 > 1 needs θ > 2·708216/1417255 ≈ 0.99942, which is why Theorem 1.4 needs Elliott–Halberstam.
+
+Sources: MAYNARD-2015, §8, (8.16)–(8.17), p. 412.
+
+### M₁₀₅ > 4 (Maynard Proposition 4.3(2))
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/m105-lower-bound`. Proposed declaration: `SieveMaynard.four_lt_maynardM_105`.
+
+M₁₀₅ > 4.
+
+P is a linear combination of the 42 monomials (1−P₁)^bP₂^c with b + 2c ≤ 11, and k = 105.
+
+Proof or construction plan:
+
+1. Form the 42×42 rational matrices A₁, A₂ of Lemma 8.2 at k = 105.
+2. The largest eigenvalue of A₁^{−1}A₂ is ≈ 4.0020697 (8.15). Instead of bounding an eigenvalue, take a rational approximation a of the eigenvector and check aᵀA₂a > 4aᵀA₁a in exact arithmetic, as the source suggests.
+3. maynardRatio_le_maynardM.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/symmetric-polynomial-quadratic-forms`, `SieveMethodsAndPrimePatterns:SV.4/maynard-functionals`.
+
+Acceptance:
+
+- Recomputed here: the largest eigenvalue is 4.00206976…, and a rational coefficient vector (denominators 10^60) gives an exact ratio 4.0020697619… > 4.
+- (1/2 − ε)M₁₀₅/2 > 1 for small ε: this is the input of Theorem 1.3.
+
+Sources: MAYNARD-2015, §8, (8.15) and the following sentence, p. 412.
+
+## Maynard checkpoint: the bounded-gap theorems (SV.4)
+
+Theorems 1.1–1.4 follow from Propositions 4.2 and 4.3 with explicit admissible tuples. Unconditionally, Bombieri–Vinogradov gives liminf(p_{n+1}−p_n) ≤ 600 and liminf(p_{n+m}−p_n) ≪ m³e^{4m}. Under Elliott–Halberstam, 12 and 600. The positive-proportion theorem is not the prime k-tuples conjecture for any single tuple.
+
+### Engelsma's admissible 105-tuple of diameter 600
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/engelsma-admissible-105-tuple`. Proposed declaration: `SieveMaynard.engelsma_tuple_admissible`.
+
+The 105-element set H₁₀₅ = {0, 10, 12, 24, 28, …, 594, 598, 600} of Maynard's footnote 2 is admissible, contains 0 and 600, and lies in [0,600].
+
+The set is copied in full into the suggested Lean file.
+
+Proof or construction plan:
+
+1. By isAdmissible_iff_card_image_lt, only the 27 primes p ≤ 103 need checking. For each, exhibit a missed residue: for example 1 mod 2, 2 mod 3, 1 mod 5, 4 mod 7, 7 mod 11 and 6 mod 13.
+2. This is a finite, decidable computation.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/admissible-tuple`.
+
+Acceptance:
+
+- Recomputed here: the 105 elements are distinct and sorted, the set is admissible, and its diameter is 600. The list in the published text agrees with arXiv v3.
+
+Sources: MAYNARD-2015, §4, footnote 2, p. 390.
+
+### The first k primes above k are admissible
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/first-primes-above-k-admissible`. Proposed declaration: `SieveMaynard.firstPrimesAbove_admissible`.
+
+For every k, the first k primes greater than k form an admissible set. Its diameter p_{π(k)+k} − p_{π(k)+1} is O(k log k).
+
+In 0-indexed form the set is {nth prime (π(k) + i) : i < k}.
+
+Proof or construction plan:
+
+1. Every element is a prime greater than k, so none is divisible by a prime p ≤ k = #H; apply isAdmissible_of_forall_not_dvd. The published argument says 'less than k', and so omits p = k when k is prime (E29).
+2. Diameter: π(k) + k ≤ 2k, and Chebyshev's lower bound π(x) ≥ c·x/log x (Mathlib pi_ge') gives p_n ≪ n log n.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/admissible-tuple`, `mathlib:Nat.nth`, `mathlib:Nat.prime_nth_prime`, `mathlib:Chebyshev.pi_ge'`.
+
+Acceptance:
+
+- k = 5: {7, 11, 13, 17, 19}. It misses 0 mod 5 because no element is divisible by 5; this is the case p = k.
+
+Sources: MAYNARD-2015, §4, proof of Theorem 1.1, p. 391.
+
+### Bounded gaps between primes (Maynard Theorem 1.3)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/bounded-gaps-600`. Proposed declaration: `SieveMaynard.frequently_nth_prime_succ_sub_le_600`. Atlas planet: Bounded gaps between primes (at most 600).
+
+liminf_n (p_{n+1} − p_n) ≤ 600.
+
+Unconditional. It uses Bombieri–Vinogradov and none of Zhang's technology.
+
+Proof or construction plan:
+
+1. Bombieri–Vinogradov gives level θ = 1/2 − ε. Since M₁₀₅ > 4, θM₁₀₅/2 > 1 for small ε, so r₁₀₅ = ⌈θM₁₀₅/2⌉ ≥ 2.
+2. Proposition 4.2 with Engelsma's admissible H₁₀₅ (diameter 600): infinitely many n have two primes among the n + H₁₀₅. Hence liminf(p_{n+1} − p_n) ≤ 600.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/maynard-many-primes`, `SieveMethodsAndPrimePatterns:SV.4/m105-lower-bound`, `SieveMethodsAndPrimePatterns:SV.4/engelsma-admissible-105-tuple`, `SieveMethodsAndPrimePatterns:SV.3/bombieri-vinogradov-level`, `SieveMethodsAndPrimePatterns:SV.4/clustered-primes-to-gaps`.
+
+Acceptance:
+
+- This is not the twin prime conjecture, and 600 is not optimal (Maynard, p. 385).
+
+Sources: MAYNARD-2015, §1, Theorem 1.3, p. 385; proof, p. 390.
+
+### Gaps under Elliott–Halberstam (Maynard Theorem 1.4)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/elliott-halberstam-gaps`. Proposed declaration: `SieveMaynard.elliottHalberstam_gaps`.
+
+If the primes have level of distribution θ for every θ < 1 (the Elliott–Halberstam conjecture), then liminf(p_{n+1} − p_n) ≤ 12 and liminf(p_{n+2} − p_n) ≤ 600.
+
+Conditional on the named hypothesis ElliottHalberstam of SV.3/level-of-distribution.
+
+Proof or construction plan:
+
+1. k = 105 and θ = 1 − ε: θM₁₀₅/2 > 2, so three primes occur among n + H₁₀₅ infinitely often, and liminf(p_{n+2} − p_n) ≤ 600.
+2. k = 5, H = {0,2,6,8,12} (admissible, diameter 12) and θ = 1 − ε: θM₅/2 > 1, so liminf(p_{n+1} − p_n) ≤ 12.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/maynard-many-primes`, `SieveMethodsAndPrimePatterns:SV.4/m5-lower-bound`, `SieveMethodsAndPrimePatterns:SV.4/m105-lower-bound`, `SieveMethodsAndPrimePatterns:SV.4/engelsma-admissible-105-tuple`, `SieveMethodsAndPrimePatterns:SV.4/admissible-tuple`, `SieveMethodsAndPrimePatterns:SV.3/level-of-distribution`, `SieveMethodsAndPrimePatterns:SV.4/clustered-primes-to-gaps`.
+
+Acceptance:
+
+- 12 appears to be optimal for the method in its current form (Maynard, p. 385).
+
+Sources: MAYNARD-2015, §1, Theorem 1.4, p. 385; proof, p. 390.
+
+### m + 1 primes in bounded intervals (Maynard Theorem 1.1)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/m-primes-bounded-intervals`. Proposed declaration: `SieveMaynard.exists_frequently_nth_prime_sub_le`. Atlas planet: m + 1 primes in bounded intervals.
+
+There is an absolute constant C such that liminf_n (p_{n+m} − p_n) ≤ C m³ e^{4m} for every m ≥ 1.
+
+Unconditional.
+
+Proof or construction plan:
+
+1. Take θ = 1/2 − 1/k (Bombieri–Vinogradov). By Proposition 4.3(3), θM_k/2 ≥ (1/4 − 1/(2k))(log k − 2 log log k − 2) (4.5), which exceeds m once k ≥ C₀m²e^{4m} for an absolute C₀.
+2. Take k = ⌈C₀m²e^{4m}⌉ and H the first k primes above k, which is admissible with diameter ≪ k log k.
+3. Proposition 4.2 gives m + 1 primes among n + H infinitely often, so liminf(p_{n+m} − p_n) ≪ k log k ≪ m³e^{4m}.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/maynard-many-primes`, `SieveMethodsAndPrimePatterns:SV.4/maynard-large-k-lower-bound`, `SieveMethodsAndPrimePatterns:SV.4/first-primes-above-k-admissible`, `SieveMethodsAndPrimePatterns:SV.3/bombieri-vinogradov-level`, `SieveMethodsAndPrimePatterns:SV.4/clustered-primes-to-gaps`.
+
+Acceptance:
+
+- Under Elliott–Halberstam the bound improves to O(m³e^{2m}) (Maynard, p. 385); that is not planned here.
+
+Sources: MAYNARD-2015, §1, Theorem 1.1, p. 384; proof, p. 391.
+
+### A positive proportion of admissible m-tuples are prime (Maynard Theorem 1.2)
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.4/positive-proportion-prime-tuples`. Proposed declaration: `SieveMaynard.positive_proportion_prime_tuples`.
+
+For every m ≥ 1 there are r₀ and c > 0 such that every set A of r ≥ r₀ distinct nonnegative integers has at least c·C(r,m) subsets {h₁,…,h_m} ⊆ A for which infinitely many n make every n + hᵢ prime.
+
+The source allows arbitrary integers. Translating A by a constant changes neither count, so natural numbers suffice.
+
+Proof or construction plan:
+
+1. With k = ⌈Cm²e^{4m}⌉ as in Theorem 1.1, every admissible k-set contains an m-subset with infinitely many prime translates.
+2. Thin A: for each prime p ≤ k, delete the residue class mod p with the fewest elements. The remainder A₂ has s ≥ r∏_{p≤k}(1 − 1/p) elements, and every k-subset of it is admissible.
+3. Double count: each of the C(s,k) k-subsets contains a good m-subset, and each m-subset lies in C(s−m,k−m) of them. So there are at least C(s,k)/C(s−m,k−m) ≫_m s^m ≫_m r^m good m-subsets, while C(r,m) ≤ r^m.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.4/maynard-many-primes`, `SieveMethodsAndPrimePatterns:SV.4/maynard-large-k-lower-bound`, `SieveMethodsAndPrimePatterns:SV.4/admissible-tuple`, `SieveMethodsAndPrimePatterns:SV.4/prime-tuples-conjecture`, `SieveMethodsAndPrimePatterns:SV.3/bombieri-vinogradov-level`.
+
+Acceptance:
+
+- This is a positive-proportion statement, not the prime m-tuples conjecture for any given tuple.
+
+Sources: MAYNARD-2015, §1, Theorem 1.2, p. 385; proof, p. 391.
+
+## Maynard checkpoint: sources, findings, ownership and validation
+
+### Source findings
+
+Six new, unreviewed findings against the published paper are recorded. Each is also present in arXiv v1–v3.
+
+- E27 (misprint): the sum in (4.4) is indexed by j but its summand is J_k^{(m)}; it should run over m.
+- E28 (misprint): (5.8) prints μ_i(d_i) for μ(d_i).
+- E29 (misprint): the admissibility argument for the first k primes above k says 'a prime less than k', which omits p = k when k is prime. The correct wording is 'at most k'.
+- E30 (misprint): before (7.10), the dropped constraint is Σ_{i=2}^k uᵢ > k−T, not Σ_{i=1}^k.
+- E31 (error): Lemma 8.1's G_{b,j} sums from r=1, so G_{0,j} = 0 and the lemma fails at b = 0, which Lemma 8.2 needs. The r=0 term restores it. The paper's numerical results (8.15) and (8.17) are nonetheless correct.
+- E32 (misprint): (8.10) should read b!/(k+b+2c′−1)!·G_{c′,2}(k−1). The statement of Lemma 8.2 already agrees with the corrected form.
+
+The Annals article page lists no erratum, and a web search found none. No author contact and no exhaustive novelty claim are made.
+
+### Ownership and requests
+
+Under accepted RS-07, SV.4 owns admissible tuples, the prime-tuple conjecture statement formerly in AN.6, Maynard's weights, asymptotics and positivity, and the finite-gap theorems. SV.3 owns Bombieri–Vinogradov and the explicit distribution hypotheses. AdditiveCombinatorics:AC.4 keeps its own W-trick and Goldston–Yıldırım majorant. The Maynard W-trick here is the tuple version and does not duplicate it. One request goes to AnalyticNumberTheory:AN.2: Mertens' first theorem, and the prime number theorem with error O(N/(log N)²) on [N,2N). Mathlib 082e2d3 has neither; it has Chebyshev's bounds, Abel summation, primorials, CRT and the Λ² sieve, and these are imported rather than replanned. Mathlib's lambdaSquared is the one-dimensional case of Maynard's weights (a compatibility API item).
+
+### Validation of the Maynard checkpoint
+
+- The packet has 106 nodes: 75 inherited node objects, preserved exactly, and 31 new ones. The new nodes are 4 definitions, 2 constructions, 15 lemmas and 10 theorems, with 44 API items and 25 unit tests. There are eight new planets: two in SV.3 and six in SV.4.
+- The suggested file elaborates with Lean 4.34.0-rc2 against the pinned Mathlib. It has no errors and 252 proof-placeholder warnings (178 inherited, 74 new), and no other warnings. It contains specifications only; every node is unchecked.
+- Exact rational arithmetic reproduces (8.17): I₅ = 29509/1222452000 and ratio 1417255/708216. This was done both by expanding the test polynomial into Dirichlet integrals and by the corrected Lemma 8.2.
+- The 42×42 problem at k = 105 gives the largest eigenvalue 4.00206976…, which agrees with (8.15). A rational eigenvector approximation has an exact ratio above 4.
+- Engelsma's 105-tuple is admissible with diameter 600, and the first k primes above k are admissible for every k < 60. The small values used in the unit tests were recomputed.
+- The official blueprint checker and the four-file intake check pass.
+
+### Continuation boundary
+
+SV.4 is source-decomposed. The remaining inputs lie outside it:
+- the decomposition of Kedlaya Theorem 18.4 (SV.3);
+- an open proof source for GGPY Lemma 3 (SV.1);
+- Mertens' theorem and the prime number theorem (AN.2).
+
+Natural next sources for this roadmap are Polymath 8b (variants of M_k and the ε-trick) for SV.4, and the Chen and beta-sieve papers for SV.5.
