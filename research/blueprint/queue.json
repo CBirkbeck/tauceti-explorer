@@ -15550,11 +15550,11 @@
     "REV-RS-12~2"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII--AG2.6.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "claimed on GitHub issue #687"
+   "note": "released on GitHub issue #687"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6",
@@ -19832,8 +19832,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R13.3.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #774"
   },
   {
    "id": "REV-ModularCurvesPartII--R13.3",
@@ -20934,12 +20935,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R24.3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "released on GitHub issue #977"
+   "note": "claimed on GitHub issue #977"
   },
   {
    "id": "REV-PotentialModularityAndCompatibleSystems--R24.3",
@@ -23183,7 +23184,7 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AdelicAlgebraicGroups",
     "BP-ArithmeticLocallySymmetricSpaces",
@@ -23191,7 +23192,7 @@
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #1021"
+   "note": "released on GitHub issue #1021"
   },
   {
    "id": "REV-AnalyticNumberTheory--AN.0",
