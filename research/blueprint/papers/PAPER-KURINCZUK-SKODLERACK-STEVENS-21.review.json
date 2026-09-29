@@ -1,0 +1,27 @@
+{
+ "paper": "PAPER-KURINCZUK-SKODLERACK-STEVENS-21",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept after the corrections made in place. Nothing in the atlas owns Bushnell–Kutzko–Stevens theory: simple and semisimple strata, simple and semisimple characters with their self-dual versions and Glauberman lifts, cuspidal types, and endo-classes. A search of every stage description and every packet finds none of it. SmoothRepresentationsPartII, the Part II of SmoothRepresentationsOfLocalGroups on types and supercuspidal representations that PAPER-FINTZEN-21 proposed, is where PAPER-STEVENS-08 and PAPER-LUST-STEVENS-20 also put classical-group type theory. This route's id, parent and area match those routes, so make_queue.py groups them into one design job. The brief states Theorem 11.9, Theorems 9.9 and 9.16 with Corollary 9.17, Theorems 12.9 and 12.29 and Corollary 12.34 as the paper does, records the §1.21 conjecture as a conjecture, and names its imports. Three corrections were made: G° now follows §1.6 (G° = G in the unitary and symplectic cases; the brief had G ∩ SL_F(V), which is SU(V,h) for unitary groups); the counting formula is placed in §12.4; and the §10.2 example (E48) is among the corrections the branch carries."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "GN.2 asks for the hermitian variants of Witt groups and local classification, and the extraction already marks the ε-hermitian Witt groups of §3 as planned there. The transfer λ_* of ε-hermitian Witt groups along self-dual extensions (Propositions 3.13–3.15) and the twisted forms and twisting isomorphisms of §§3.3–3.4 are the same theory, and they belong beside it."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "LP0 builds Weil groups with inertia and wild inertia and parameters restricted to them, and states what finite wild ramification means. The wild inertial parameters of §1.21, their centralizers in the L-group and the set Wild(G°) are definitions of that kind."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "ML.4 gives the Arthur, Mok and Kaletha–Mínguez–Shin–White classification its source owners, packets included. The extended Langlands parameters (ϱ, χ_ϱ) and the set Lang(G°) of §1.20 are the parametrisation that classification uses, and the correspondence LL itself is already planned there."
+  }
+ ],
+ "notes": "The review read the version of record (Invent. Math. 223 (2021) 597–723, CC BY 4.0) from the University of East Anglia repository copy (eprint 76674) and collated every finding with it. Print keeps the arXiv v3 numbering and corrects E1, E20, E21, E28, E32 and E35; it moves E37's slip without fixing it. All 37 findings are confirmed. Their known fields read 'new: …', which scripts/errata.py would have filed as corrected in print; they now read 'new'. Overlapping findings (E2/E25, E4/E27/E28) are narrowed to one place each. The review adds E38–E51, among them an error in the §10.2 example (E48, false for r ≥ 1; split SO(2,2) counterexample) and gaps in the proofs of Proposition 5.19, §6.2 and Theorem 9.16 whose results stand. Items: the standing preamble of 75 items had G° = G ∩ SL_F(V), wrong for unitary groups, and it now follows §1.6. Items 308, 309 and 376 now state the corrected results, and nine other items have smaller fixes. A mechanical check matched all 161 numbered statement headings of v3 to items, except the motivational Remark 3.22. The statuses were checked at Mathlib 082e2d3 and Tau Ceti f790474 and against the descriptions of every cited layer. Full report: research/blueprint/reviews/REV-PAPER-KURINCZUK-SKODLERACK-STEVENS-21.md."
+}
