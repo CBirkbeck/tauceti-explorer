@@ -1,8 +1,48 @@
-# BP-PotentialModularityAndCompatibleSystems--R24.3: checkpoint 3 (Claude Code cc-39fac3)
+# BP-PotentialModularityAndCompatibleSystems--R24.3: checkpoint 4 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 29 September 2026. Refs #977; the bot confirmed the claim. **Status: partial.**
 - R24.3, R24.4, R24.5 and R24.6 are `source_decomposed`.
 - R24.5:operations is `partial`.
+
+## Checkpoint 4: L-functions, residual irreducibility and the Grothendieck ring (R24.5:operations, 4 nodes)
+
+**Source.** BLGGT, arXiv:1010.2561v1 (sha 697e2d3…). I read §5.1 pp. 52–54, §5.2 pp. 54–59, §5.3 pp. 59–61 and §5.4
+pp. 61–66 on the text layer, and checked the §5.1 displays (the Γ- and ε-factor tables, L({H_τ}, s), Λ and ε,
+pp. 52–53) against the page images. BLGGT use geometric Frobenius
+and HT_τ(ε_l) = {−1} (p. 8), and the tests follow those conventions.
+
+**Nodes:**
+- `system-l-functions` (definition; 8 API items, 4 tests): L^S, L, the archimedean Γ- and ε-factors, the Hodge factor,
+  Λ and ε.
+- `galois-grothendieck-ring` (construction; 8 API items, 4 tests): §5.4 (1)–(9).
+- `residual-irreducibility-density-one`: Proposition 5.2.2.
+- `constituents-essentially-self-dual`: Lemma 5.2.3.
+
+The hypothesis in `compatible-system-predicates` that said the L-functions are not planned now points to
+`system-l-functions`.
+
+**Boundary.** Theorem 5.3.1 (potential automorphy of systems), Corollaries 5.3.2–5.3.3 (meromorphic continuation, the
+functional equation, strict purity), Proposition 5.3.4 and Theorems 5.4.1–5.4.3 all apply Theorem 4.5.1. The stage
+excludes potential-automorphy endpoints, so these are recorded as remaining, to be assembled at
+ModularityAndLanglandsExtensions ML.2. The `uses` entries of the two definitions point there.
+
+**Requests (2 new, 11 in total).**
+- EndoscopicTransferAndUnitaryTraceComparison ET.6: L(WD, s) and ε(WD, ψ, s) with BLGGT's additive character.
+- Tau Ceti RepresentationTheory/InductionRestriction Layer 6: Brauer's induction theorem, also needed by the existing
+  `brauer-induction-system`.
+- `galois-grothendieck-ring` also joins the existing R01.5 request.
+
+**Gaps.** New: Larsen 1995 behind Proposition 5.2.2. The Larsen–Pink gap now also covers the new node.
+
+**Lean.** The suggested file now imports `Mathlib.NumberTheory.LSeries.RiemannZeta`. New checked tests:
+- Γ_ℂ(s) = Γ_ℝ(s)Γ_ℝ(s + 1) (`Complex.Gammaℝ_mul_Gammaℝ_add_one`);
+- for the trivial system, Λ(s) = Γ_ℝ(s)ζ(s) = `completedRiemannZeta s`, and Λ(1 − s) = Λ(s);
+- the Γ-shift and ε-exponent arithmetic for the trivial system and ε_l;
+- the Euler factor of ε_l.
+
+The file compiles against Mathlib 082e2d3 with 0 errors and 0 warnings.
+
+**Totals.** 30 nodes, 6 planets, 11 requests and 4 gaps. `check_blueprint.py`: 0 errors, 0 warnings.
 
 ## Checkpoint 3: rank-n compatible systems (R24.5:operations, 4 nodes)
 

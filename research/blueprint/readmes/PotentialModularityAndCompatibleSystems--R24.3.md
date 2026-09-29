@@ -1,14 +1,14 @@
 # Potential modularity and compatible systems — part R24.3: prescribed lifts, the lifting interface and compatible systems — blueprint
 
 This part covers stages R24.3–R24.6 of PotentialModularityAndCompatibleSystems, including the operations sub-layer
-R24.5:operations. After the third checkpoint:
+R24.5:operations. After the fourth checkpoint:
 
 | Stage | Coverage |
 |---|---|
 | R24.3 | `source_decomposed`: Böckle, KW Annals, the lifts of KW I Theorem 5.1, Snowden |
 | R24.4 | `source_decomposed`: KW I Theorem 4.1 |
 | R24.5 | `source_decomposed`: the Brauer system, almost strict compatibility, KW I Theorem 5.1 |
-| R24.5:operations | `partial`: rank-n weakly compatible systems, their predicates and operations (L-functions of systems not planned) |
+| R24.5:operations | `partial`: rank-n weakly compatible systems, their predicates, operations and L-functions, residual irreducibility and the Grothendieck ring (BLGGT's potential-automorphy consequences not planned) |
 | R24.6 | `source_decomposed`: changing residual characteristic |
 
 No integrated decomposition exists for this roadmap. RS-06 and RS-08 keep these stages unchanged and route their
@@ -29,7 +29,7 @@ Suppliers:
 - **Dieulefait–Pacetti**, arXiv v2: §§1.3–1.4.
 - **Snowden**, arXiv:0905.4266v1: §7.
 - **Barnet-Lamb–Gee–Geraghty–Taylor**, *Potential automorphy and change of weight* (arXiv:1010.2561v1): §5.1 and
-  Lemma 5.2.1 (checkpoint 3).
+  Lemma 5.2.1 (checkpoint 3); §§5.2–5.4 (checkpoint 4).
 - **Taylor**, *On the meromorphic continuation of degree two L-functions* (Documenta 2006): §6 (checkpoint 3).
 
 ## Purpose
@@ -108,6 +108,25 @@ Khare's paper with Böckle's appendix ([26]).
     member. A preservation table records what each keeps: regularity fails for ⊗, and irreducibility fails for restriction.
   - **`rank-two-reducibility-independent-of-lambda`.** Taylor's Lemma 6.5, and BLGGT Lemma 5.2.1 (the component group is
     independent of λ; its Larsen–Pink input is a gap).
+- **Checkpoint 4: L-functions, residual irreducibility and the Grothendieck ring** (BLGGT §§5.1–5.2 and 5.4).
+  - **`system-l-functions`** (definition, `…/LFunction`). BLGGT's partial L-function L^S(ıℛ, s) and, for strictly
+    compatible ℛ, L(ıℛ, s). For pure, regular ℛ it adds the archimedean Γ- and ε-factors, which use det ℛ(c_v) at real
+    places when n is odd, the Hodge factor L({H_τ}, s), and the completed Λ(ıℛ, s) and ε(ıℛ, s). The functional
+    equation needs potential automorphy (Corollary 5.3.2) and is not claimed.
+    - *API:* `partialLFunction`, `lFunction`, `archimedeanGammaFactor`, `archimedeanEpsilon`, `hodgeFactor`,
+      `completedLFunction`, convergence for pure ℛ, and independence of λ.
+    - *Tests:* the trivial system gives Mathlib's `completedRiemannZeta`; Γ_ℂ = Γ_ℝ(s)Γ_ℝ(s + 1); ε_l in BLGGT's
+      geometric-Frobenius convention gives ζ^S(s + 1) and Γ_ℝ(s + 1); an impure non-example.
+  - **`galois-grothendieck-ring`** (construction, `…/Grothendieck`). Rep_{F,l} with traces, the pairing, conj, res and
+    ind (Frobenius reciprocity, Mackey), Brauer induction and L^S of virtual classes (§5.4 (1)–(9)).
+    - *API:* `RepRing` with `trace`, `pairing`, `eq_irreducible_of_pairing_eq_one`, `res`, `ind`, `brauer`,
+      `partialLFunction`.
+    - *Tests:* (A, A) = 5 for 2[V₁] − [V₂]; the unit; dim ind[1] = [F′ : F]; a virtual non-example.
+  - **`residual-irreducibility-density-one`** (`…/Irreducibility`). Proposition 5.2.2: for a regular system, s̄|_{G_{F(ζ_l)}}
+    is irreducible for every irreducible constituent s at primes above a density-one set of l. Larsen 1995 is a gap.
+  - **`constituents-essentially-self-dual`** (`…/Irreducibility`). Lemma 5.2.3: for pure, extremely regular, essentially
+    conjugate self-dual ℛ, a constituent of r_λ|_{G_{F′}} descends to a CM field F″ ⊆ F′ and stays essentially conjugate
+    self-dual (totally odd if r_λ is).
 
 ## Layer R24.5: compatible systems from potential modularity
 
@@ -155,10 +174,15 @@ packet records only almost strict compatibility.
 
 ## Remaining work
 
-- **R24.5:operations:** the L-functions, ε-factors and Γ-factors of a system (BLGGT §5.1) and BLGGT's §§5.2–5.4 lemmas
-  beyond Lemma 5.2.1 are not planned. Larsen–Pink Proposition 6.14 is a gap.
+- **R24.5:operations:** BLGGT §5.3 (Theorem 5.3.1 to Proposition 5.3.4) and Theorems 5.4.1–5.4.3 follow from potential
+  automorphy (Theorem 4.5.1). The stage "does not assume … a potential-automorphy endpoint", so they belong with the
+  potential-automorphy assembly (ModularityAndLanglandsExtensions ML.2). Larsen–Pink Proposition 6.14 and Larsen 1995
+  are gaps.
 - **Gaps:** Savitt's residual weights (requested from AlgebraicModularFormsAndSerreWeights R15.4); Dieulefait 2004 and
   Gee 2011 were not read.
+- **Requests (checkpoint 4):** the local factors L(WD, s) and ε(WD, ψ, s) of Weil–Deligne representations
+  (EndoscopicTransferAndUnitaryTraceComparison ET.6), and Brauer's induction theorem with Frobenius reciprocity and
+  Mackey (Tau Ceti RepresentationTheory/InductionRestriction, Layer 6).
 - **Resolved:** ClassicalSerreModularity part R26.1 now imports Böckle's appendix from here (its checkpoint 2, #3865).
 
 ## Sources
