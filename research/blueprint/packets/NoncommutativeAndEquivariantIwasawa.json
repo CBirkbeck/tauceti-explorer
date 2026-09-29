@@ -13,7 +13,7 @@
   "NoncommutativeAndEquivariantIwasawa:NE.7"
  ],
  "status": "partial",
- "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain.",
+ "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain. Checkpoint 4 (cc-39fac3) plans CFKSV §4's integrality conjecture 4.8 with Lemma 4.9 (NE.3) and §5: the dual Selmer module, Conjectures 5.1–5.2 and the 𝔐_H(G) criteria (NE.4), and Conjectures 5.7–5.8 with Corollaries 5.9–5.10 and the X₁(11) check (NE.5). Conjectures are stated as propositions, never assumed.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -220,7 +220,8 @@
    "readSections": [
     "2026-09-28 (cc-39fac3): §1 end and §2 (Lemmas 2.1–2.2, Proposition 2.3, Theorem 2.4, Lemma 2.5, Proposition 2.6), pp. 165–170; §3 opening (S*, 𝔐_H(G), Lemmas 3.1–3.2), pp. 170–172; the exactness remark in the proof of Theorem 4.4, p. 192.",
     "2026-09-28 (cc-39fac3, checkpoint 2): §3 Lemma 3.3, (21)–(24), Proposition 3.4 with Lemma 3.5, definition (33), pp. 172–176; §4 Lemmas 4.1, 4.3, 4.5–4.7, Proposition 4.2, Theorem 4.4 with proof, pp. 187–193.",
-    "2026-09-28 (cc-39fac3, checkpoint 3): §3 in full (Lemmas 3.1–3.3, (13)–(22), the Akashi series, Lemma 3.7, Theorems 3.6, 3.8 and 3.10, Lemma 3.9, the X₁(11) example and Proposition 3.11), pp. 170–187."
+    "2026-09-28 (cc-39fac3, checkpoint 3): §3 in full (Lemmas 3.1–3.3, (13)–(22), the Akashi series, Lemma 3.7, Theorems 3.6, 3.8 and 3.10, Lemma 3.9, the X₁(11) example and Proposition 3.11), pp. 170–187.",
+    "2026-09-29 (cc-39fac3, checkpoint 4): §4 from (91) to the end (Conjecture 4.8, Lemma 4.9 and (94), the evidence), pp. 195–197; §5 in full (Conjectures 5.1, 5.2, 5.7, 5.8, Lemmas 5.3–5.4, Corollaries 5.5, 5.9, 5.10, Proposition 5.6, (95)–(115) and both examples), pp. 197–206; on the page images."
    ]
   },
   {
@@ -2969,6 +2970,620 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/characteristic-element-integrality-conjecture",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3"
+   ],
+   "title": "The integrality conjecture for characteristic elements (Conjecture 4.8)",
+   "kind": "definition",
+   "statement": "Assume G has no element of order p. Put R₁ = Λ(G), R₂ = Λ(G)[1/p], R₃ = Λ(G)_{S*} (so R₁ ⊂ R₂ ⊂ R₃), A₁ = Λ_𝒪(Γ), A₂ = Λ_𝒪(Γ)[1/p], and α : R₃^× → K₁(R₃) the canonical map (surjective by NE.2/units-surject-k1). Let ℜ(G) be the continuous representations ρ of the form (11) (over the integers of finite extensions of ℚ_p) and 𝔄(G) ⊂ ℜ(G) the Artin ones. Conjecture 4.8 is the proposition that, for every ξ ∈ K₁(R₃), in each of four cases the assertions (a)–(d) are equivalent: Case 1: (a) ξ ∈ α(R₂ ∩ R₃^×), (b) ξ(ρ) ≠ ∞ for all ρ, (c) Φ′_ρ(ξ) ∈ A₂ for all ρ, (d) Φ′_ρ(ξ) ∈ A₂ for all Artin ρ; Case 2: α(R₁ ∩ R₃^×), ξ(ρ) finite and in 𝒪, Φ′_ρ(ξ) ∈ A₁; Case 3: α(R₂^×), ξ(ρ) ≠ 0, ∞, Φ′_ρ(ξ) ∈ A₂^×; Case 4: α(R₁^×), ξ(ρ) finite and in 𝒪^×, Φ′_ρ(ξ) ∈ A₁^×. (Lemma 4.9.) In each case (a) ⇒ (b), (b) ⇔ (c) and (c) ⇒ (d).",
+   "hypotheses": [
+    "a conjecture: it is stated as a proposition, never assumed by a downstream theorem",
+    "CFKSV report it true for G = ℤ_p^d × Δ (Δ finite of order prime to p), proof omitted, and cite Kato [21] Proposition 8.19 as further evidence; neither is planned (recorded as remaining)"
+   ],
+   "proofSteps": [
+    "Lemma 4.9: (c) ⇒ (d) is trivial, (c) ⇒ (b) because ξ(ρ) is the image of Φ′_ρ(ξ) under augmentation; (a) ⇒ (b) since ξ = α(p^{−m}f) gives ξ(ρ) = p^{−mn} det ρ(f).",
+    "(b) ⇒ (c): the twisting identity Φ′_{ρη}(ξ) = Φ′_ρ(ξ)(η(γ)^{−1}(1 + T) − 1) (94) for continuous η : Γ → 𝒪^×, proved on characteristic elements (they generate K₁(R₃)) from (87) and Lemma 3.7; a pole of Φ′_ρ(ξ) at T = α in the maximal ideal would give ξ(ηρ) = ∞ for η(γ₀) = (1 + α)^{−1}."
+   ],
+   "acceptance": [
+    "For G = ℤ_p (so H = 1) Case 2 says: a characteristic power series lies in ℤ_p[[T]] up to units exactly when it has no poles at the points of the open unit disc; check this on f = T/(T − p)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-akashi-diagram",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/units-surject-k1",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/characteristic-element"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/Integrality",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§4, Conjecture 4.8 and Lemma 4.9, p. 196 (Numdam PDF page 34; printed page = PDF page + 162)",
+     "match": "Conjecture 4.8 (above this remark) and the consequence of Case 1 for modules satisfying (51)."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§4, after Lemma 4.9, p. 197 (Numdam PDF page 35; printed page = PDF page + 162)",
+     "match": "The evidence (ℤ_p^d × Δ; Kato)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-consequences",
+     "how": "Case 1 would put ξ_E in the image of Λ(G)[1/p]^× ∩ Λ(G)_{S*}^×."
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6",
+     "how": "integrality of the p-adic L-function in the source-qualified main theorems."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.IntegralityConjecture",
+     "role": "data",
+     "statement": "The proposition 'for all ξ, (a)–(d) are equivalent' in each case."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.integrality_a_imp_b",
+     "role": "relation",
+     "statement": "Lemma 4.9: (a) ⇒ (b)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.integrality_b_iff_c",
+     "role": "relation",
+     "statement": "Lemma 4.9: (b) ⇔ (c)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.integrality_c_imp_d",
+     "role": "relation",
+     "statement": "Lemma 4.9: (c) ⇒ (d)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.artinEvaluation_twist",
+     "role": "compatibility",
+     "statement": "(94): Φ′_{ρη}(ξ) = Φ′_ρ(ξ)(η(γ)^{−1}(1 + T) − 1)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "integrality_zp",
+     "kind": "example",
+     "statement": "G = ℤ_p: Case 2 is the Weierstrass-preparation statement about poles in the open disc."
+    },
+    {
+     "name": "integrality_unit",
+     "kind": "example",
+     "statement": "ξ = α(u) with u ∈ Λ(G)^× satisfies Case 4 (a), hence (b)–(d)."
+    },
+    {
+     "name": "integrality_pole",
+     "kind": "example",
+     "statement": "ξ = α((T − p)^{−1}) for G = ℤ_p fails Case 1 (b) at the character with η(γ₀) − 1 = p."
+    },
+    {
+     "name": "integrality_conjecture_not_assumed",
+     "kind": "example",
+     "statement": "No node in the packet has IntegralityConjecture as an unconditional prerequisite."
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.4/gl2-dual-selmer-module",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.4",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.4"
+   ],
+   "title": "The dual Selmer module over the trivialising extension of E[p^∞]",
+   "kind": "construction",
+   "statement": "Let E/ℚ be an elliptic curve and p ≥ 5 a prime of good ordinary reduction ('our hypotheses on p'), F_∞ = ℚ(E_{p^∞}) ⊇ ℚ(μ_{p^∞}) ⊇ ℚ^cyc (Weil pairing), G = Gal(F_∞/ℚ) (a closed subgroup of GL₂(ℤ_p), of dimension 4 without CM and 2 with CM, and with no element of order p), H = Gal(F_∞/ℚ^cyc), Γ = Gal(ℚ^cyc/ℚ). For an algebraic extension L/ℚ the Selmer group is 𝒮(E/L) = ker(H¹(L, E_{p^∞}) → Π_w H¹(L_w, E(L̄_w))) over the non-archimedean w, and X(E/L) = Hom(𝒮(E/L), ℚ_p/ℤ_p); for L Galois over F, X(E/L) is a finitely generated left Λ(Gal(L/F))-module. Also G_F = Gal(F_∞/F), H_F = Gal(F_∞/F^cyc) and Y(E/K) = X(E/K)/X(E/K)(p).",
+   "hypotheses": [
+    "p ≥ 5 and good ordinary reduction; p ≥ 5 is what rules out p-torsion in G ⊂ GL₂(ℤ_p)",
+    "the module-level Selmer group of CFKSV; the equivariant Selmer complexes of Fukaya–Kato, Kakde and Ritter–Weiss that NE.4 also asks for are not planned here (remaining)"
+   ],
+   "proofSteps": [
+    "Definitions; finite generation of X(E/L) over Λ(Gal(L/F)) by compact Nakayama (NE.0/compact-nakayama) from the finiteness of X(E/F) ⊗ over the augmentation."
+   ],
+   "acceptance": [
+    "Check that for L = F finite X(E/F) is the usual Pontryagin dual of the p-primary Selmer group, with ℤ_p-corank the Mordell–Weil rank plus the corank of Ш[p^∞]."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.0/compact-nakayama",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/category-MHG",
+    "ArithmeticGaloisDuality:R02.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/GL2Selmer",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, set-up, p. 197 (Numdam PDF page 35; printed page = PDF page + 162)",
+     "match": "F_∞ = ℚ(E_{p^∞}), G, H, Γ."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, Selmer groups and the hypotheses on p, p. 198 (Numdam PDF page 36; printed page = PDF page + 162)",
+     "match": "𝒮(E/L), X(E/L) and the hypotheses on p."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.4/mh-conjecture-and-mazur",
+     "how": "the module whose membership in 𝔐_H(G) is conjectured."
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture",
+     "how": "its characteristic element ξ_E."
+    },
+    {
+     "where": "ModularIwasawaMainConjectures",
+     "how": "the cyclotomic specialisation X(E/ℚ^cyc)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.trivialisingField",
+     "role": "constructor",
+     "statement": "F_∞ = ℚ(E_{p^∞}) with G, H, Γ."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.selmerGroup",
+     "role": "constructor",
+     "statement": "𝒮(E/L) for an algebraic extension L/ℚ."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.dualSelmer",
+     "role": "constructor",
+     "statement": "X(E/L) = Hom(𝒮(E/L), ℚ_p/ℤ_p) as a Λ(Gal(L/F))-module."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.dualSelmer_fg",
+     "role": "characterisation",
+     "statement": "X(E/L) is finitely generated over Λ(Gal(L/F))."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.G_noPTorsion",
+     "role": "characterisation",
+     "statement": "G has no element of order p when p ≥ 5."
+    }
+   ],
+   "tests": [
+    {
+     "name": "selmer_cm_dim",
+     "kind": "example",
+     "statement": "For E with CM, G has dimension 2; without CM, dimension 4 (Serre)."
+    },
+    {
+     "name": "selmer_weil_pairing",
+     "kind": "example",
+     "statement": "F_∞ ⊇ ℚ(μ_{p^∞}) ⊇ ℚ^cyc, so Γ is a quotient of G."
+    },
+    {
+     "name": "selmer_p3_excluded",
+     "kind": "example",
+     "statement": "p = 3: GL₂(ℤ_3) contains elements of order 3, e.g. (0 −1; 1 −1), so G may have 3-torsion; the hypotheses exclude p = 3."
+    },
+    {
+     "name": "selmer_Y",
+     "kind": "example",
+     "statement": "Y(E/K) = X(E/K)/X(E/K)(p) removes the p-primary torsion."
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.4/mh-conjecture-and-mazur",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.4",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.4"
+   ],
+   "title": "The 𝔐_H(G) conjecture and Mazur's torsion conjecture (Conjectures 5.1–5.2)",
+   "kind": "definition",
+   "statement": "(Conjecture 5.1.) Under the hypotheses on p, X(E/F_∞) belongs to 𝔐_H(G), i.e. is S*-torsion (NE.1/category-MHG). (Conjecture 5.2, Mazur.) If E has good ordinary reduction at p, then for each finite extension F of ℚ, X(E/F^cyc) is Λ(Γ_F)-torsion. Both are propositions, not assumptions of any downstream theorem.",
+   "hypotheses": [
+    "CFKSV hope Conjecture 5.1 is equivalent to Conjecture 5.2 for all F ⊂ F_∞, and prove only the partial results of NE.4/mh-criteria"
+   ],
+   "proofSteps": [
+    "Definitions."
+   ],
+   "acceptance": [
+    "Conjecture 5.2 is the cyclotomic input of every GL₂ main-conjecture statement; keep it separate from 5.1."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.4/gl2-dual-selmer-module",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/category-MHG"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/GL2Selmer",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, Conjectures 5.1 and 5.2, p. 198 (Numdam PDF page 36; printed page = PDF page + 162)",
+     "match": "The two conjectures (stated just above) and their relation."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.4/mh-criteria",
+     "how": "the criteria relating the two conjectures."
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture",
+     "how": "the main conjecture assumes X(E/F_∞) ∈ 𝔐_H(G)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.MHConjecture",
+     "role": "data",
+     "statement": "X(E/F_∞) ∈ 𝔐_H(G)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.MazurTorsionConjecture",
+     "role": "data",
+     "statement": "X(E/F^cyc) is Λ(Γ_F)-torsion for every finite F."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.MHConjecture.of_criteria",
+     "role": "relation",
+     "statement": "The sufficient conditions of NE.4/mh-criteria."
+    }
+   ],
+   "tests": [
+    {
+     "name": "mh_cm_case",
+     "kind": "example",
+     "statement": "For CM curves Conjecture 5.2 holds (two-variable main conjecture; CFKSV p. 200), and 5.1 reduces to μ = 0 over some L (Corollary 5.5)."
+    },
+    {
+     "name": "mh_conductor11",
+     "kind": "example",
+     "statement": "For the conductor-11 curves at p = 5, Conjecture 5.1 holds (NE.4/mh-criteria)."
+    },
+    {
+     "name": "mh_not_assumed",
+     "kind": "example",
+     "statement": "No node uses MHConjecture as an unconditional prerequisite."
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.4/mh-criteria",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.4",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.4"
+   ],
+   "title": "Criteria for X(E/F_∞) ∈ 𝔐_H(G) (Lemmas 5.3–5.4, Corollary 5.5, Proposition 5.6)",
+   "kind": "theorem",
+   "statement": "(Lemma 5.3.) If X(E/F_∞) ∈ 𝔐_H(G), then for each finite F ⊂ F_∞: (i) X(E/F^cyc) is Λ(Γ_F)-torsion; (ii) H_i(H_F, X(E/F_∞)) = 0 for i ≥ 1; (iii) H_i(H_F, Y(E/F_∞)) is finite for i = 1, 2 and zero for i > 2; and μ_{G_L}(X(E/F_∞)) = μ_{Γ_L}(X(E/L^cyc)) when G_L is pro-p. (Lemma 5.4.) If X(E/F^cyc) is Λ(Γ_F)-torsion for all finite F and some L has G_L pro-p, μ_{G_L}(X(E/F_∞)) = μ_{Γ_L}(X(E/L^cyc)) and H₁(H_L, Y(E/F_∞)) finite, then X(E/F_∞) ∈ 𝔐_H(G). (Corollary 5.5.) If E has CM, X(E/F_∞) ∈ 𝔐_H(G) iff μ_{Γ_L}(X(E/L^cyc)) = 0 for some L with G_L pro-p. (Proposition 5.6.) If some L ⊂ F_∞ with G_L pro-p carries an elliptic curve E′ isogenous to E over L with X(E′/L^cyc) finitely generated over ℤ_p, then X(E/F_∞) ∈ 𝔐_H(G). Example: the three conductor-11 curves E₀, E₁, E₂ at p = 5 with L = ℚ(μ₅) (G_L pro-5 and X(E₁/L^cyc) = 0) satisfy Conjecture 5.1.",
+   "hypotheses": [
+    "the proofs use Coates–Howson-type results ([8], [9], [11] of CFKSV: the finiteness of H¹(H_F, E_{p^∞}), Proposition 2.13 and Lemma 2.5 of [9]), Venjakob's pseudo-null theory [26], Schneps' thesis [28] and the two-variable CM main conjecture [27]; none is planned here (gap)",
+    "the vanishing X(E₁/ℚ(μ₅)^cyc) = 0 is quoted from [16] (a gap)"
+   ],
+   "proofSteps": [
+    "Lemma 5.3: the restriction map r_F : X(E/F_∞)_{H_F} → X(E/F^cyc) has finite cokernel (dual to ker t_F ⊂ H¹(H_F, E_{p^∞}), finite), so Y(E/F^cyc) is finitely generated over ℤ_p and X(E/F^cyc) is Λ(Γ_F)-torsion; the rest from [9].",
+    "Lemma 5.4: H₀(H_L, Y(E/F_∞)) is Λ(Γ_L)-torsion, and formula (25) of [9] forces its μ-invariant to vanish; Nakayama over the pro-p H_L.",
+    "Corollary 5.5 from Lemmas 5.3–5.4 with Schneps and Venjakob; Proposition 5.6 by Nakayama from r_L and an isogeny f : E′ → E whose induced map X(E/F_∞) → X(E′/F_∞) has kernel killed by a power of p."
+   ],
+   "acceptance": [
+    "Check that Proposition 5.6's example uses the same F_∞ for all three isogenous curves."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.4/mh-conjecture-and-mazur",
+    "NoncommutativeAndEquivariantIwasawa:NE.0/compact-nakayama",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/s-torsion-iff-finitely-generated"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/GL2Selmer",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, Lemma 5.3, p. 199 (Numdam PDF page 37; printed page = PDF page + 162)",
+     "match": "Lemma 5.3 (statement on this page)."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, Lemma 5.4 and Corollary 5.5, p. 200 (Numdam PDF page 38; printed page = PDF page + 162)",
+     "match": "Corollary 5.5 and the lead-in to Proposition 5.6."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, Proposition 5.6 and the conductor-11 example, p. 201 (Numdam PDF page 39; printed page = PDF page + 162)",
+     "match": "The example E₀, E₁, E₂ at p = 5."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-padic-l-function-conjecture",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.5",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.5"
+   ],
+   "title": "The conjectural GL₂ p-adic L-function ℒ_E (Conjecture 5.7)",
+   "kind": "definition",
+   "statement": "For an Artin representation ρ of G realised over K_ρ, L(E, ρ, s) = Π_q P_q(E, ρ, q^{−s})^{−1} with P_q(E, ρ, T) = det(1 − Frob_q^{−1}T | (H¹_l(E) ⊗ V_{ρ,λ})^{I_q}); Ω_±(E) are the periods of the Néron differential over the ±-eigenvectors of complex conjugation on H₁(E(ℂ), ℤ); d^±(ρ) are the ±-dimensions of ρ; L_R(E, ρ, s) omits the Euler factors at R = {p} ∪ {q : ord_q(j_E) < 0}; p^{f_ρ} is the p-part of the conductor of ρ; 1 − a_pX + pX² = (1 − uX)(1 − wX) with u ∈ ℤ_p^×; e_p(ρ) is the local ε-factor at p. Assume (103): L(E, ρ, 1)/(Ω_+^{d⁺(ρ)}Ω_−^{d⁻(ρ)}) ∈ ℚ̄ and the analytic continuation of L(E, ρ, s) to s = 1. Let K(F_∞) be the maximal abelian extension of ℚ in F_∞ unramified at p (a finite extension), A the integers of the completion of K(F_∞) at a prime above p, Λ_A(G) = Λ(G) ⊗_{ℤ_p} A and S(A)* the corresponding Ore set, with Λ_A(G)_{S(A)*} = Λ(G)_{S*} ⊗ A. Conjecture 5.7 (p ≥ 5, good ordinary reduction) is the proposition that there is ℒ_E ∈ K₁(Λ_A(G)_{S(A)*}) with ℒ_E(ρ) ≠ ∞ and ℒ_E(ρ) = L_R(E, ρ, 1)/(Ω_+^{d⁺(ρ)}Ω_−^{d⁻(ρ)}) · e_p(ρ) · P_p(ρ̂, u^{−1})/P_p(ρ, w^{−1}) · u^{−f_ρ} for all Artin ρ (107).",
+   "hypotheses": [
+    "a conjecture; the period conjecture (103) and analytic continuation are assumptions of its formulation",
+    "the enlarged coefficient ring A comes from the Tamagawa number conjecture (Fukaya–Kato [17], Theorem 4.2.26); evaluation extends to K₁(Λ_A(G)_{S(A)*}) as in §3"
+   ],
+   "proofSteps": [
+    "Definitions; S(A) is a left and right Ore set by the arguments of §2 (NE.1/canonical-ore-theorem), and Λ_A(G) = Λ(G) ⊗ A since A is free of finite rank over ℤ_p."
+   ],
+   "acceptance": [
+    "The abelian specialisation (ρ a Dirichlet character of Γ-type) must recover the Mazur–Swinnerton-Dyer p-adic L-function with the same normalisation, not merely one with the same ideal (the stage's acceptance)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-theorem",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/gl2-dual-selmer-module"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/GL2MainConjecture",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, the L-functions L(E, ρ, s), p. 202 (Numdam PDF page 40; printed page = PDF page + 162)",
+     "match": "L(ρ, s), L(E, ρ, s) and (101)–(102)."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, (103)–(106), p. 203 (Numdam PDF page 41; printed page = PDF page + 162)",
+     "match": "Periods, L_R, f_ρ, u, w."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, Conjecture 5.7, p. 204 (Numdam PDF page 42; printed page = PDF page + 162)",
+     "match": "K(F_∞), A and Conjecture 5.7 with (107)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture",
+     "how": "ℒ_E is compared with the characteristic element."
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6",
+     "how": "source-qualified cases where ℒ_E exists."
+    },
+    {
+     "where": "IntegralIwasawaTheory:I.9",
+     "how": "the abelian comparison."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.twistedEllipticL",
+     "role": "constructor",
+     "statement": "L(E, ρ, s) and L_R(E, ρ, s) for Artin ρ."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.interpolationFactor",
+     "role": "constructor",
+     "statement": "The right-hand side of (107)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.coefficientRingA",
+     "role": "constructor",
+     "statement": "A from K(F_∞) and Λ_A(G)_{S(A)*}."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.PAdicLFunctionConjecture",
+     "role": "data",
+     "statement": "Existence of ℒ_E with (107) and ℒ_E(ρ) ≠ ∞."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.PAdicLFunctionConjecture.unique_mod_K1",
+     "role": "characterisation",
+     "statement": "ℒ_E is determined only through its evaluations; no uniqueness in K₁ is claimed."
+    }
+   ],
+   "tests": [
+    {
+     "name": "padicL_trivial_rho",
+     "kind": "example",
+     "statement": "ρ = 1: d⁺ = 1, d⁻ = 0, f = 0, e_p = 1, and restoring the Euler factor (1 − u/p)(1 − u^{−1}) removed in L_R, (107) becomes L(E, 1)(1 − u^{−1})²/Ω₊, the Mazur–Swinnerton-Dyer value."
+    },
+    {
+     "name": "padicL_factorisation",
+     "kind": "example",
+     "statement": "1 − a_pX + pX² = (1 − uX)(1 − wX) with uw = p and u + w = a_p (checked in the Lean file)."
+    },
+    {
+     "name": "padicL_x111",
+     "kind": "example",
+     "statement": "E = X₁(11), p = 5: A is the integers of the unramified extension of ℚ₅ of degree 5 (NE.5/gl2-main-conjecture-example-x1-11)."
+    },
+    {
+     "name": "padicL_not_assumed",
+     "kind": "example",
+     "statement": "No node uses PAdicLFunctionConjecture as an unconditional prerequisite."
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.5",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.5"
+   ],
+   "title": "The GL₂ main conjecture (Conjecture 5.8)",
+   "kind": "definition",
+   "statement": "Assume p ≥ 5, good ordinary reduction and X(E/F_∞) ∈ 𝔐_H(G), and let ξ_E be a characteristic element of X(E/F_∞) (NE.2/characteristic-element). Let i : K₁(Λ(G)_{S*}) → K₁(Λ_A(G)_{S(A)*}) be induced by the ring extension. Granted Conjecture 5.7, Conjecture 5.8 is the proposition that i(ξ_E) and ℒ_E have the same image in K₁(Λ_A(G)_{S(A)*})/(image of K₁(Λ_A(G))).",
+   "hypotheses": [
+    "existence (5.7) and the equality (5.8) are separate propositions; a conjectural interpolation object discharges no downstream theorem (the stage's boundary)",
+    "for CM curves (G of dimension 2) CFKSV say 5.8 follows from the two-variable main conjecture of Rubin and Yager once X(E/F_∞) ∈ 𝔐_H(G) (Corollary 5.5); this is recorded, not planned"
+   ],
+   "proofSteps": [
+    "Definition; well defined since characteristic elements are unique up to the image of K₁(Λ(G)) (NE.2/characteristic-element)."
+   ],
+   "acceptance": [
+    "The ambiguity is exactly the image of K₁(Λ_A(G)); an equality in K₁(Λ_A(G)_{S(A)*}) itself is not asserted."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-padic-l-function-conjecture",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/mh-conjecture-and-mazur",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/characteristic-element",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/gl2-dual-selmer-module"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/GL2MainConjecture",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, Conjecture 5.8, p. 204 (Numdam PDF page 42; printed page = PDF page + 162)",
+     "match": "Conjecture 5.8 (stated just above) and the lead-in to its corollaries."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-consequences",
+     "how": "Corollaries 5.9–5.10."
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6",
+     "how": "source-qualified cases (Kakde, Ritter–Weiss for totally real fields)."
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.7",
+     "how": "descent to finite layers."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.GL2MainConjecture",
+     "role": "data",
+     "statement": "i(ξ_E) ≡ ℒ_E modulo the image of K₁(Λ_A(G))."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.GL2MainConjecture.welldefined",
+     "role": "characterisation",
+     "statement": "Independent of the choice of ξ_E."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.GL2MainConjecture.evaluation",
+     "role": "compatibility",
+     "statement": "Evaluations of i(ξ_E) and ℒ_E agree up to p-adic units."
+    }
+   ],
+   "tests": [
+    {
+     "name": "mc_ambiguity",
+     "kind": "example",
+     "statement": "Changing ξ_E by the image of u ∈ K₁(Λ(G)) changes every evaluation by a p-adic unit (|η(ρ)|_p = 1)."
+    },
+    {
+     "name": "mc_cm",
+     "kind": "example",
+     "statement": "E with CM: the conjecture reduces to Rubin–Yager given X(E/F_∞) ∈ 𝔐_H(G)."
+    },
+    {
+     "name": "mc_not_assumed",
+     "kind": "example",
+     "statement": "No node uses GL2MainConjecture as an unconditional prerequisite."
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-consequences",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.5",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.5"
+   ],
+   "title": "Consequences of the main conjecture (Corollaries 5.9–5.10)",
+   "kind": "theorem",
+   "statement": "Assume Conjecture 5.8. (Corollary 5.9.) For each Artin representation ρ of G, χ(G, tw_ρ(X(E/F_∞))) is finite iff L(E, ρ̂, 1) ≠ 0. (Corollary 5.10.) If L(E, ρ̂, 1) ≠ 0 and m_ρ is the degree of the fraction field of 𝒪 over ℚ_p (ρ as in (12)), then χ(G, tw_ρ̂(X(E/F_∞))) is the m_ρ-th power of the inverse of the p-adic absolute value of the right-hand side of (107).",
+   "hypotheses": [
+    "conditional on Conjecture 5.8 (hence on 5.1 and 5.7)",
+    "CFKSV note that Case 1 of Conjecture 4.8 would put ξ_E in the image of Λ(G)[1/p]^× ∩ Λ(G)_{S*}^×"
+   ],
+   "proofSteps": [
+    "Corollary 5.9: for X in 𝔐_H(G), Lemma 5.3 and Theorem 3.8 (NE.3/artin-evaluation-integral) give ξ_E(ρ) ≠ 0 iff χ(G, tw_ρ̂(X)) is finite; |η(ρ)|_p = 1 for η in the image of K₁(Λ_A(G)); and ℒ_E(ρ) ≠ 0 iff L(E, ρ, 1) ≠ 0.",
+    "Corollary 5.10 from (36) (NE.3/euler-characteristic-evaluation) and (107)."
+   ],
+   "acceptance": [
+    "The source proves Corollary 5.9 with ρ and ρ̂ interchanged relative to the statement; since L(E, ρ̂, 1) is the complex conjugate of L(E, ρ, 1) for Artin ρ, the two readings agree — check this in the formalisation."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/mh-criteria",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation-integral",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/euler-characteristic-evaluation",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/characteristic-element-integrality-conjecture"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/GL2MainConjecture",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, Corollaries 5.9–5.10, p. 204 (Numdam PDF page 42; printed page = PDF page + 162)",
+     "match": "Corollary 5.9 (on this page) and Corollary 5.10 (p. 205) with their proofs."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-example-x1-11",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.5",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.5"
+   ],
+   "title": "The main conjecture for X₁(11) at p = 5: the data and the consistency check",
+   "kind": "application",
+   "statement": "For E = X₁(11) and p = 5 (continuing NE.3/gl2-euler-example): K(F_∞) = ℚ(μ₁₁)⁺, 5 is inert in it, and A is the integers of the unramified extension of ℚ₅ of degree 5. For the two degree-4 Artin representations ρ₁, ρ₂: d⁺ = d⁻ = 2; f_{ρ₁} = 3, f_{ρ₂} = 5; P₅(ρ₁, X) = 1 − X, P₅(ρ₂, X) = 1; P₅(E, ρ₁, X) = 1 − X + 5X², P₅(E, ρ₂, X) = 1; P₁₁(E, ρ_i, X) = 1; |e₅(ρ₁)|₅ = 5^{−3/2}, |e₅(ρ₂)|₅ = 5^{−5/2}; 1 − a₅X + 5X² = 1 − X + 5X²; and L(E, ρ₁, 1)/(Ω₊Ω₋)² = −2²/(11²√5), L(E, ρ₂, 1)/(Ω₊Ω₋)² = −2⁶/(11²·5√5). Both L-values are nonzero, so with Proposition 3.11 Corollary 5.9 holds for ρ₁, ρ₂; the right-hand side of (107) has the 5-adic valuations predicted by (74), so Corollary 5.10 holds for them too.",
+   "hypotheses": [
+    "the numerical data are quoted from Dokchitser–Dokchitser [15], not recomputed (a gap for formalisation)",
+    "this checks consistency, not the conjecture"
+   ],
+   "proofSteps": [
+    "Insert (108)–(115) into (107): u, w are the roots of Y² − Y + 5 with u ≡ 1, w ≡ 0 mod 5, so v₅(1 − u^{−1}) = v₅(w) = 1 and v₅(1 − w^{−1}) = −1.",
+    "ρ₁: v₅ = −1/2 (L-value) + 3/2 (e₅) + (1 − (−1)) (the P₅ ratio) = 3; ρ₂: v₅ = −3/2 + 5/2 + 0 = 1. These match Proposition 3.11's Euler characteristics 5³ and 5 (with m_ρ = 1, ρ_i realised over ℤ₅)."
+   ],
+   "acceptance": [
+    "The valuation sums −1/2 + 3/2 + 2 = 3 and −3/2 + 5/2 = 1 are checked in the Lean file."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-consequences",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/gl2-euler-example"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/GL2MainConjecture",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, Example, p. 205 (Numdam PDF page 43; printed page = PDF page + 162)",
+     "match": "The data (108)–(114)."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§5, the L-values (115) and the conclusion, p. 206 (Numdam PDF page 44; printed page = PDF page + 162)",
+     "match": "The modest evidence, after (115)."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -3044,6 +3659,14 @@
     "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation-integral"
    ],
    "status": "open"
+  },
+  {
+   "supplier": "ArithmeticGaloisDuality:R02.4",
+   "need": "Selmer groups of an elliptic curve over algebraic extensions L/ℚ, 𝒮(E/L) = ker(H¹(L, E_{p^∞}) → Π_w H¹(L_w, E)), their Pontryagin duals X(E/L) with the Λ(Gal(L/F))-action, and the restriction maps between layers (CFKSV §5); later, the Poitou–Tate duality behind equivariant Selmer complexes (NE.4).",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.4/gl2-dual-selmer-module"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
@@ -3078,23 +3701,28 @@
    "remaining": [
     "Reduced norms and the SK₁ kernel in the semisimple total quotient algebra, and what character evaluations determine (Ritter–Weiss arXiv 1004.2578; the 2026 uniqueness preprint to be read before any strengthened claim).",
     "Functoriality of the evaluation under restriction/induction (G′ ⊆ G) and coefficient extension beyond direct sums.",
-    "The arithmetic inputs of the X₁(11) example (gap)."
+    "The arithmetic inputs of the X₁(11) example (gap).",
+    "Conjecture 4.8's evidence (G = ℤ_p^d × Δ, proof omitted by CFKSV; Kato [21] Proposition 8.19) is not planned."
    ],
-   "notes": "Checkpoint 3 plans CFKSV §3 (10 nodes): twisting, Φ_ρ and its extension to Λ(G)_{S*}, evaluation ξ(ρ) ∈ L ∪ {∞}, Akashi series, the evaluation–Akashi diagram (with the contragredient), Theorem 3.6, Theorem 3.8, the Artin formalism Theorem 3.10 and the X₁(11) example."
+   "notes": "Checkpoint 3 plans CFKSV §3 (10 nodes): twisting, Φ_ρ and its extension to Λ(G)_{S*}, evaluation ξ(ρ) ∈ L ∪ {∞}, Akashi series, the evaluation–Akashi diagram (with the contragredient), Theorem 3.6, Theorem 3.8, the Artin formalism Theorem 3.10 and the X₁(11) example. Checkpoint 4 adds Conjecture 4.8 with Lemma 4.9 (the integrality conjecture, as a proposition)."
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.4",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Equivariant Galois complexes (Fukaya–Kato, Burns–Venjakob §3, Kakde, Ritter–Weiss) with ArithmeticGaloisDuality R02.4."
-   ]
+    "Equivariant Galois complexes (Fukaya–Kato, Burns–Venjakob §3, Kakde, Ritter–Weiss) with ArithmeticGaloisDuality R02.4: the complex-level objects, perfectness and archimedean terms.",
+    "The Coates–Howson, Venjakob and Schneps inputs of CFKSV §5 (gap)."
+   ],
+   "notes": "Checkpoint 4 plans the module-level instance of CFKSV §5 (3 nodes): the dual Selmer module X(E/F_∞) over F_∞ = ℚ(E_{p^∞}), Conjectures 5.1 and 5.2 as propositions, and the criteria Lemmas 5.3–5.4, Corollary 5.5, Proposition 5.6 with the conductor-11 example."
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.5",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "CFKSV §5 main conjecture formulation; Fukaya–Kato (not freely available)."
-   ]
+    "Fukaya–Kato's formulation (not freely available) and the abelian comparison with IntegralIwasawaTheory I.9's normalised p-adic L-function.",
+    "The Dokchitser–Dokchitser numerical data (gap)."
+   ],
+   "notes": "Checkpoint 4 plans CFKSV's formulation (4 nodes): the conjectural ℒ_E with its interpolation (107) and coefficient ring A, the main conjecture 5.8, Corollaries 5.9–5.10, and the X₁(11) consistency check; conjectures are propositions only."
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
@@ -3126,6 +3754,20 @@
     "NoncommutativeAndEquivariantIwasawa:NE.3/gl2-euler-example"
    ],
    "detail": "The Euler characteristic formula (77) (Coates–Howson, Theorem 1.1) and the Mordell–Weil and Tate–Shafarevich data of E = X₁(11) over ℚ(μ_5), F_1 and F_2 (CFKSV [12], [16]) are quoted, not proved; they belong to the Selmer and Euler-characteristic owners (SelmerIwasawaCohomology), which do not plan them."
+  },
+  {
+   "title": "CFKSV §5's inputs from Coates–Howson, Venjakob, Schneps and the CM two-variable main conjecture are not planned",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.4/mh-criteria"
+   ],
+   "detail": "Verified: the proofs of Lemmas 5.3–5.4, Corollary 5.5 and Proposition 5.6 (pp. 199–201) cite [8] and [9] (Coates–Howson; Proposition 2.13, Lemma 2.1, Lemma 2.5, Remark 2.6), [11] (finiteness of H¹(H_F, E_{p^∞})), Venjakob [26], Schneps [28], Rubin [27] and, for the example, [16] (X(E₁/ℚ(μ₅)^cyc) = 0). None is read or planned."
+  },
+  {
+   "title": "The numerical data for X₁(11) at p = 5 are quoted from Dokchitser–Dokchitser",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-example-x1-11"
+   ],
+   "detail": "Verified: CFKSV (108)–(115) are 'calculated in [15]'. Not recomputed."
   }
  ]
 }
