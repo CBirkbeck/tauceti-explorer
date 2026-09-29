@@ -11,7 +11,7 @@
   "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
  ],
  "status": "partial",
- "summary": "Checkpoints 1–5 (Claude Code cc-39fac3), under RS-08. R21.2 is source_decomposed; R21.1, R21.3, R21.4 and R21.5 are partial; R21.6 is not read. The source is Skinner–Wiles, Residually reducible representations and modular forms (Publ. IHÉS 89, 1999), §§3.1–3.5. R21.1 (8 nodes) applies PadicFamilies L0a's ordinary projector to the definite quaternionic forms of HilbertModularVarietiesAndShimuraCurves R18.3: Skinner–Wiles' exponent p^n(p^m − 1) gives L0a's projector; it kills norm-factoring forms; the nearly ordinary Hecke algebra T_∞(U, 𝒪) over Λ′_𝒪; the stabiliser-weighted pairing with Hecke adjoints, traces between levels, the Γ₀(p^a) level drop, and the Pontryagin duality M_∞ ≅ H_∞^∨. R21.2 (7 nodes) keeps the nearly ordinary and Eisenstein statements: v-good lines and nearly ordinary representations, the two definitions of the Hecke algebra, permissible (Eisenstein) maximal ideals, their existence from the Deligne–Ribet p-adic L-function (Proposition 3.18), the weight algebra Λ_𝒪 at m, finiteness and freeness at m (Lemma 3.10), and freeness over an auxiliary Δ_w-group (Lemma 3.19). Hida's control over Λ′_𝒪 is requested from PadicFamilies L5. Two misprints are recorded (E1: the rank of Λ_𝒪 over Λ′_𝒪 is p^{Σ r_j}, not Σ r_j). Checkpoint 2 plans R21.3 (19 nodes) from Skinner–Wiles §§2 and 3.3: deformation data, the nearly ordinary deformation rings R_𝒟 with their presentation and dimension bound, Wiles pseudo-representations and pseudo-deformation rings with the lifting Proposition 2.15, the Λ_𝒪-structures, Hida's family representation ρ_Q, the pseudo-representation into T_m with R_{𝒟^ps} ↠ T_m, and the level, type and twisting statements. Two more misprints: E3 (Lemma 3.11 omits (β_i − α_i)^{−1}) and E4 ((3.7) inverts Ψ_P at T_0(𝔭_i)). Checkpoint 3 completes R21.2 (Proposition 3.20, Lemma 3.21, the rings T_𝒟 and T^min with Proposition 3.23, the §3.7 duality, the quaternionic Ihara lemma and Lemmas 3.27–3.29), adds §2.2's reducible locus to R21.3, and starts R21.4 with pro-modular primes, good pairs, nice primes, (P1)/(P2), Corollary A.2 (Raynaud's connectedness theorem is a gap) and the key Proposition 4.1. E5 and E6 are cross-reference misprints. Checkpoint 4 adds Proposition 4.2, the reduction of (P1) to Proposition 8.1 (Skinner–Wiles §§5–8, a temporary gap until the next checkpoint) and the Main Theorem to R21.4, and Theorems A and B with Hypothesis H to R21.5 (Washington's and Waldschmidt's theorems are gaps). E7: a label misprint. Checkpoint 5 plans Skinner–Wiles §§5–8 (formal patching, characteristic-p Selmer estimates and auxiliary primes, R = T at nice primes of minimal level and in general), closing the temporary gap; E8: 'Proposition 7.2' for 7.3.",
+ "summary": "Checkpoints 1–6 (Claude Code cc-39fac3), under RS-08. R21.2 is source_decomposed; R21.1, R21.3, R21.4 and R21.5 are partial; R21.6 is not read. The source is Skinner–Wiles, Residually reducible representations and modular forms (Publ. IHÉS 89, 1999), §§3.1–3.5. R21.1 (8 nodes) applies PadicFamilies L0a's ordinary projector to the definite quaternionic forms of HilbertModularVarietiesAndShimuraCurves R18.3: Skinner–Wiles' exponent p^n(p^m − 1) gives L0a's projector; it kills norm-factoring forms; the nearly ordinary Hecke algebra T_∞(U, 𝒪) over Λ′_𝒪; the stabiliser-weighted pairing with Hecke adjoints, traces between levels, the Γ₀(p^a) level drop, and the Pontryagin duality M_∞ ≅ H_∞^∨. R21.2 (7 nodes) keeps the nearly ordinary and Eisenstein statements: v-good lines and nearly ordinary representations, the two definitions of the Hecke algebra, permissible (Eisenstein) maximal ideals, their existence from the Deligne–Ribet p-adic L-function (Proposition 3.18), the weight algebra Λ_𝒪 at m, finiteness and freeness at m (Lemma 3.10), and freeness over an auxiliary Δ_w-group (Lemma 3.19). Hida's control over Λ′_𝒪 is requested from PadicFamilies L5. Two misprints are recorded (E1: the rank of Λ_𝒪 over Λ′_𝒪 is p^{Σ r_j}, not Σ r_j). Checkpoint 2 plans R21.3 (19 nodes) from Skinner–Wiles §§2 and 3.3: deformation data, the nearly ordinary deformation rings R_𝒟 with their presentation and dimension bound, Wiles pseudo-representations and pseudo-deformation rings with the lifting Proposition 2.15, the Λ_𝒪-structures, Hida's family representation ρ_Q, the pseudo-representation into T_m with R_{𝒟^ps} ↠ T_m, and the level, type and twisting statements. Two more misprints: E3 (Lemma 3.11 omits (β_i − α_i)^{−1}) and E4 ((3.7) inverts Ψ_P at T_0(𝔭_i)). Checkpoint 3 completes R21.2 (Proposition 3.20, Lemma 3.21, the rings T_𝒟 and T^min with Proposition 3.23, the §3.7 duality, the quaternionic Ihara lemma and Lemmas 3.27–3.29), adds §2.2's reducible locus to R21.3, and starts R21.4 with pro-modular primes, good pairs, nice primes, (P1)/(P2), Corollary A.2 (Raynaud's connectedness theorem is a gap) and the key Proposition 4.1. E5 and E6 are cross-reference misprints. Checkpoint 4 adds Proposition 4.2, the reduction of (P1) to Proposition 8.1 (Skinner–Wiles §§5–8, a temporary gap until the next checkpoint) and the Main Theorem to R21.4, and Theorems A and B with Hypothesis H to R21.5 (Washington's and Waldschmidt's theorems are gaps). E7: a label misprint. Checkpoint 5 plans Skinner–Wiles §§5–8 (formal patching, characteristic-p Selmer estimates and auxiliary primes, R = T at nice primes of minimal level and in general), closing the temporary gap; E8: 'Proposition 7.2' for 7.3. Checkpoint 6 adds to R21.5 the crystalline-to-ordinary criterion for 2 ≤ k ≤ p + 1 with the Berger–Li–Zhu calculation (V_{k,a_p}, the Wach-module family, Theorem 4.1 and Corollary 4.3, V̄_{k,0}), Theorem A over ℚ and the p = 3 branch, and to R21.6 the export with its level and the check that the ordinary theorems do not use Serre's conjecture; E9: DP Theorem 1.7's second hypothesis transcribes Skinner–Wiles' χ|_{D_p} ≠ 1 and is automatic; E10: Γ_K for Γ_{ℚ_p} in BLZ Proposition 3.4.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -115,7 +115,41 @@
     "2026-09-28 (cc-39fac3, checkpoint 2): §2.1 (with Lemma 2.2, Corollary 2.3, Proposition 2.4 and Lemmas 2.5–2.6), §2.3, §2.4 (Lemma 2.10 to Proposition 2.15), §2.5, pp. 9–27, read on the page images; §3.3 from (3.2) to Lemma 3.17, pp. 38–46, on the page images; §2.2 (Lemmas 2.7–2.9) skimmed only.",
     "2026-09-28 (cc-39fac3, checkpoint 3): §2.2 (Lemmas 2.7–2.9), pp. 15–17; §3.5 from Lemma 3.19 to Lemma 3.21, §3.6, §3.7 and §3.8, pp. 49–61; §4.1–4.3 and the opening of §4.4, pp. 61–66; Appendix A, pp. 123–124; all on the page images.",
     "2026-09-28 (cc-39fac3, checkpoint 4): §4.4 (Proposition 4.2 with proof), §4.5 (Main Theorem, Theorems A and B, Hypothesis H), §4.6 (proofs of Theorems A and B), pp. 66–79; the statements of Propositions 8.1 and 8.4 and the proof of 8.4, pp. 112–113 and 122–123; all on the page images.",
-    "2026-09-28 (cc-39fac3, checkpoint 5): §5 in full, §6 in full, §7 (Lemma 7.1 with proof, Remark 7.2, (7.7)–(7.16), Proposition 7.3), §8 (8.1–8.2 with Lemma 8.2 and (8.1), §8.4 with (8.3)–(8.11)), pp. 79–122, on the page images; pp. 107–110 and 115–118 (the verification of (5.10)–(5.11) and §8.3) skimmed."
+    "2026-09-28 (cc-39fac3, checkpoint 5): §5 in full, §6 in full, §7 (Lemma 7.1 with proof, Remark 7.2, (7.7)–(7.16), Proposition 7.3), §8 (8.1–8.2 with Lemma 8.2 and (8.1), §8.4 with (8.3)–(8.11)), pp. 79–122, on the page images; pp. 107–110 and 115–118 (the verification of (5.10)–(5.11) and §8.3) skimmed.",
+    "2026-09-29 (cc-39fac3, checkpoint 6): the Introduction, pp. 5–8 (the theorem over ℚ on p. 6, checked on the page image), and §4.5 Theorem A, p. 74, on the page image."
+   ]
+  },
+  {
+   "id": "BERGER-LI-ZHU-2004",
+   "title": "Construction of some families of 2-dimensional crystalline representations",
+   "authors": "Laurent Berger, Hanfeng Li and Hui June Zhu",
+   "edition": "arXiv:math/0310275v1 (17 October 2003), the preprint of Math. Ann. 329 (2004), 365–377. Locators give the arXiv page numbers",
+   "url": "https://arxiv.org/pdf/math/0310275v1",
+   "sha256": "e291beb15400c5a7d223e5b9c64dd306735dd3f513c88762724ebb2fe22a06fa",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, checkpoint 6): the whole paper (§§1–5, pp. 1–12)."
+   ]
+  },
+  {
+   "id": "DIEULEFAIT-PACETTI",
+   "title": "A simplified proof of Serre's conjecture",
+   "authors": "Luis Victor Dieulefait and Ariel Martín Pacetti",
+   "edition": "arXiv:2108.07577v2, 3 May 2022. Locators give the arXiv version's page numbers",
+   "url": "https://arxiv.org/pdf/2108.07577v2",
+   "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, checkpoint 6): Theorems 1.6–1.7 with proofs (pp. 4–5, on the page image) and Paso 6 (p. 14)."
+   ]
+  },
+  {
+   "id": "KHARE-LEVEL-ONE",
+   "title": "On Serre's modularity conjecture for 2-dimensional mod p representations of Gal(Q̄/Q) unramified outside p",
+   "authors": "Chandrashekhar Khare",
+   "edition": "arXiv:math/0504080v1 (5 April 2005), published as 'Serre's modularity conjecture: the level one case', Duke Math. J. 134 (2006), 557–589. Locators give the preprint's page numbers",
+   "url": "https://arxiv.org/pdf/math/0504080v1",
+   "sha256": "3012a51759ad10695792bc8a2d1af75890f38d6ebacd37fb61e01bfdb89c9c2f",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, checkpoint 6): §1, pp. 1–3, for the uses of Skinner–Wiles."
    ]
   }
  ],
@@ -3907,6 +3941,468 @@
    "planet": {
     "name": "Skinner–Wiles R = T at nice primes"
    }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/crystalline-family-v-k-ap",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5"
+   ],
+   "title": "The crystalline representations V_{k,a_p}",
+   "kind": "definition",
+   "statement": "For k ≥ 2, a finite E/ℚ_p and a_p ∈ 𝔪_E, let D_{k,a_p} = Ee₁ ⊕ Ee₂ be the filtered φ-module with φ(e₁) = p^{k−1}e₂, φ(e₂) = −e₁ + a_pe₂, Fil^iD = D for i ≤ 0, Fil^iD = Ee₁ for 1 ≤ i ≤ k − 1 and Fil^iD = 0 for i ≥ k. It is weakly admissible, and V_{k,a_p} denotes the crystalline E-linear representation with D_cris(V*_{k,a_p}) = D_{k,a_p} (Colmez–Fontaine; BLZ construct it directly for a_p near 0). V_{k,a_p} is irreducible with Hodge–Tate weights 0 and k − 1, and the characteristic polynomial of φ is X² − a_pX + p^{k−1}. Every irreducible two-dimensional crystalline representation of G_{ℚ_p} is V_{k,a_p} ⊗ η for some k ≥ 2, a_p ∈ 𝔪_{ℚ̄_p} and crystalline character η (Breuil, Proposition 3.1.1 of JIMJ 2003, as recalled by BLZ).",
+   "hypotheses": [
+    "a_p ∈ 𝔪_E, i.e. v_p(a_p) > 0: a unit a_p would give a unit-root φ-line, which is a weakly admissible subobject, so the representation would be reducible (ordinary)",
+    "BLZ work with V* (Hodge–Tate weights 0 and −(k − 1) in their convention); V has weights 0 and k − 1 with HT(χ) = +1",
+    "Breuil's classification is quoted by BLZ and was not read in its source (JIMJ 2 (2003))"
+   ],
+   "proofSteps": [
+    "A φ-stable line L (over a finite extension) has slope s ∈ (0, k − 1), because the roots of X² − a_pX + p^{k−1} have positive valuations when v_p(a_p) > 0; and L ≠ Fil¹ = Ee₁, because φ(e₁) = p^{k−1}e₂. So t_H(L) = 0 < s = t_N(L): D_{k,a_p} is weakly admissible and has no weakly admissible line, i.e. V_{k,a_p} is irreducible.",
+    "Colmez–Fontaine gives V_{k,a_p}; its Hodge–Tate weights are the filtration jumps 0 and k − 1."
+   ],
+   "acceptance": [
+    "Check det V_{k,a_p}: det φ = p^{k−1}, so det V_{k,a_p} is χ^{k−1} times an unramified character",
+    "Check that a_p = 0, k = 2 is the Tate module of a supersingular elliptic curve with a_p = 0, e.g. y² = x³ − x at p = 3"
+   ],
+   "prerequisites": [
+    "PadicHodgeTheory:R06.2/colmez-fontaine-theorem",
+    "PadicHodgeTheory:R06.2/weak-admissibility",
+    "PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/CrystallineOrdinary",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "BERGER-LI-ZHU-2004",
+     "locator": "§3, p. 6 of arXiv math/0310275v1",
+     "match": "V_{k,a_p}: crystalline, irreducible, weights 0 and −(k − 1) for V*."
+    },
+    {
+     "sourceId": "BERGER-LI-ZHU-2004",
+     "locator": "§1.1, p. 2 of arXiv math/0310275v1",
+     "match": "Breuil's classification."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/blz-reduction-theorem",
+     "how": "the family whose reductions are compared"
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/crystalline-reducible-reduction-is-ordinary",
+     "how": "every non-ordinary crystalline V is V_{k,a_p} ⊗ η"
+    },
+    {
+     "where": "PadicHodgeTheory:R06.4/weight-p-plus-one-branch",
+     "how": "the non-ordinary representations of weight p + 1"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.OrdinaryModularity.Dkap",
+     "role": "constructor",
+     "statement": "the filtered φ-module D_{k,a_p} with the displayed φ and filtration"
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.Dkap_weaklyAdmissible",
+     "role": "characterisation",
+     "statement": "D_{k,a_p} is weakly admissible for v_p(a_p) > 0"
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.Vkap",
+     "role": "constructor",
+     "statement": "V_{k,a_p}, crystalline with D_cris(V*_{k,a_p}) = D_{k,a_p}"
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.Vkap_charpoly",
+     "role": "simp",
+     "statement": "the characteristic polynomial of φ on D_{k,a_p} is X² − a_pX + p^{k−1}"
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.Vkap_classification",
+     "role": "characterisation",
+     "statement": "every irreducible 2-dimensional crystalline V is V_{k,a_p} ⊗ η with v_p(a_p) > 0"
+    }
+   ],
+   "tests": [
+    {
+     "name": "Dkap_charpoly_matrix",
+     "kind": "example",
+     "statement": "the matrix (0 −1; p^{k−1} a_p) of φ has trace a_p and determinant p^{k−1} (checked in Lean for k = 4, p = 3)"
+    },
+    {
+     "name": "Vkap_supersingular_example",
+     "kind": "example",
+     "statement": "V_{2,0} at p = 3 is V₃ of y² = x³ − x, which has a₃ = 0 (supersingular)"
+    },
+    {
+     "name": "Vkap_unit_nonexample",
+     "kind": "non-example",
+     "statement": "for a_p a unit the unit-root line of X² − a_pX + p^{k−1} is weakly admissible, so the representation is reducible, not a V_{k,a_p}"
+    },
+    {
+     "name": "Vkap_slope",
+     "kind": "degenerate",
+     "statement": "a_p = 0: both φ-slopes equal (k − 1)/2, and V_{k,0} is induced from ℚ_{p²}"
+    }
+   ]
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/blz-reduction-theorem",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5"
+   ],
+   "title": "Berger–Li–Zhu: reductions of V_{k,a_p} for small a_p",
+   "kind": "theorem",
+   "statement": "Let k ≥ 2 and m = ⌊(k − 2)/(p − 1)⌋, except that for k = p + 1 one may take m = 0. There are P(X) ∈ M₂(ℤ_p[[π, X]]) and, for γ ∈ Γ_{ℚ_p}, G_γ(X) ∈ Id + πM₂(ℤ_p[[π, X]]) with P(X)φ(G_γ(X)) = G_γ(X)γ(P(X)) and G_{γη} = G_γγ(G_η), such that for every α ∈ 𝔪_E the pair (P(α), G_γ(α)) defines a Wach module N_{k,α} over 𝒪_E[[π]] with N_{k,α}/πN_{k,α}[1/p] ≅ D_{k,p^mα}. Consequently (Theorem 4.1) the reductions of the lattices T_{k,a_p} and T_{k,0} are isomorphic for a_p = p^mα, and (Corollary 4.3(1)) for k ≤ p + 1 and v_p(a_p) > 0, V̄_{k,a_p} ≅ V̄_{k,0} (semisimplified reductions). For k ≤ p this last statement is also a consequence of Fontaine–Laffaille.",
+   "hypotheses": [
+    "m = 0 is allowed at k = p + 1 by Remark 4.2(1); this is what gives the endpoint weight p + 1",
+    "the construction uses λ₊ = ∏ φ^{2n+1}(q)/p and λ₋ = ∏ φ^{2n}(q)/p (q = φ(π)/π), with z the truncation of p^m(λ₋/λ₊)^{k−1} below degree k − 1, which is integral (Proposition 3.1(4))",
+    "the family is a family of Wach modules over ℤ_p[[X]]; the passage to representations uses Fontaine's equivalence (PhiGammaModulesAndIwasawaCohomology PG.1), Berger's Wach-module theory (PG.6; PadicHodgeTheory P7) and Dee's theorem for families (PG.7)",
+    "BLZ's Proposition 3.4 writes Γ_K for Γ_{ℚ_p} (source issue OrdinaryAutomorphicFormsAndModularityLifting/E10)"
+   ],
+   "proofSteps": [
+    "Proposition 3.1: λ₊, λ₋ ∈ ℚ_p[[π]] with λ(0) = 1, λ/γ(λ) ∈ 1 + πℤ_p[[π]], φ(λ₋) = λ₊, φ(λ₊) = λ₋/(q/p), and z integral.",
+    "Lemma 3.2 and Proposition 3.3: P(X) = (0 −1; q^{k−1} Xz); the diagonal G^{(k−1)}_γ satisfies the relation modulo π^{k−1}, and a unique successive lift G_γ(X) exists (the linear operator H ↦ H − P₀H(p^{ℓ−1}P₀^{−1}) is bijective for ℓ ≥ k).",
+    "Proposition 3.4 and Definition 3.6: cocycle condition, the Wach module N_{k,α} and the lattice T_{k,a_p}.",
+    "Proposition 3.7: N_{k,α}/π ≅ D_{k,a_p} as filtered φ-modules.",
+    "Theorem 4.1: P(α) ≡ P(0) and G_γ(α) ≡ G_γ(0) mod 𝔪_E, so the étale (φ, Γ)-modules agree modulo 𝔪_E."
+   ],
+   "acceptance": [
+    "Check Proposition 3.1(4)'s estimate v_p(z_i) ≥ m − i/(p − 1) > −1 for i ≤ k − 2",
+    "Check the k = p + 1 case of Remark 4.2(1) (m = 0) on the coefficient z_{p−1}, where the general estimate only gives v_p ≥ −1"
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/crystalline-family-v-k-ap",
+    "PadicHodgeTheory:P7/wach-dcris-comparison",
+    "PhiGammaModulesAndIwasawaCohomology:PG.1",
+    "PhiGammaModulesAndIwasawaCohomology:PG.6",
+    "PhiGammaModulesAndIwasawaCohomology:PG.7"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/CrystallineOrdinary",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "BERGER-LI-ZHU-2004",
+     "locator": "Proposition 3.1, p. 6",
+     "match": "The integrality that makes the family exist."
+    },
+    {
+     "sourceId": "BERGER-LI-ZHU-2004",
+     "locator": "Proposition 3.3, p. 7",
+     "match": "The Γ-action on the family."
+    },
+    {
+     "sourceId": "BERGER-LI-ZHU-2004",
+     "locator": "Theorem 4.1, p. 10",
+     "match": "Theorem 4.1."
+    },
+    {
+     "sourceId": "BERGER-LI-ZHU-2004",
+     "locator": "Remark 4.2(1), p. 10",
+     "match": "The endpoint weight."
+    },
+    {
+     "sourceId": "BERGER-LI-ZHU-2004",
+     "locator": "Corollary 4.3, p. 11",
+     "match": "Corollary 4.3(1)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/reduction-of-v-k-zero",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5"
+   ],
+   "title": "The reduction of V_{k,0}",
+   "kind": "lemma",
+   "statement": "V̄_{k,0} = ind(ω₂^{k−1}) if (p + 1) ∤ (k − 1), where ω₂ is a fundamental character of level 2 and ind is induction from G_{ℚ_{p²}} to G_{ℚ_p}; if (p + 1) | (k − 1), V̄_{k,0} = (µ_{√−1} ⊕ µ_{−√−1}) ⊗ ω^{(k−1)/(p+1)}. In particular, for 2 ≤ k ≤ p + 1, V̄_{k,0} is irreducible: then 1 ≤ k − 1 ≤ p < p + 1, so (p + 1) ∤ (k − 1) and ω₂^{k−1} ≠ ω₂^{p(k−1)}.",
+   "hypotheses": [
+    "V_{k,0} is induced from a crystalline character of G_{ℚ_{p²}} (φ² = −p^{k−1} on D_{k,0}); its reduction is computed by Breuil (JIMJ 2003, Proposition 3.1.2) and recalled by BLZ as Proposition 4.4",
+    "the bound k ≤ p + 1 is sharp for irreducibility: at k = p + 2, (p + 1) | (k − 1) and V̄_{k,0} is reducible"
+   ],
+   "proofSteps": [
+    "V_{k,0} ≅ Ind(ψ_k) with ψ_k of G_{ℚ_{p²}} crystalline of weights (0, k − 1) in the two embeddings; its reduction is ind(ω₂^{k−1}).",
+    "ind(ω₂^{j}) is irreducible iff ω₂^{j} ≠ ω₂^{pj}, i.e. (p + 1) ∤ j."
+   ],
+   "acceptance": [
+    "Check (p + 1) ∤ (k − 1) for 2 ≤ k ≤ p + 1 and (p + 1) | (k − 1) at k = p + 2 (checked in the suggested Lean file)",
+    "Check on p = 3, k = 4: ω₂³ has order 8/gcd(8, 3) = 8 and ω₂^{9} = ω₂, so ind(ω₂³) is irreducible"
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/crystalline-family-v-k-ap",
+    "ArithmeticGaloisRepresentations:R01.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/CrystallineOrdinary",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "BERGER-LI-ZHU-2004",
+     "locator": "Proposition 4.4, p. 11",
+     "match": "The irreducible case."
+    },
+    {
+     "sourceId": "BERGER-LI-ZHU-2004",
+     "locator": "Proposition 4.4, p. 11",
+     "match": "Breuil's computation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/crystalline-reducible-reduction-is-ordinary",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5"
+   ],
+   "title": "Crystalline with reducible reduction is ordinary (weights 2 ≤ k ≤ p + 1)",
+   "kind": "theorem",
+   "statement": "Let p be a prime, 2 ≤ k ≤ p + 1 and V : G_{ℚ_p} → GL₂(ℚ̄_p) crystalline with Hodge–Tate weights {0, k − 1} whose semisimplified reduction V̄^{ss} is reducible. Then V is ordinary: V ≅ (ψ′χ^{k−1} ∗; 0 ψ) with ψ, ψ′ unramified, i.e. of Skinner–Wiles' shape with ψ₂ = ψ trivial on inertia. If moreover (p − 1) ∤ (k − 1) — for instance k = 2 with p ≥ 3, or k = p + 1 with p ≥ 3 — the two residual characters differ on D_p (p-distinguished). Proof: if V were not ordinary it would be irreducible (PadicHodgeTheory R06.4: for crystalline V, ordinary ⇔ reducible ⇔ unit root), hence V_{k,a_p} ⊗ η with v_p(a_p) > 0; then V̄^{ss} ≅ V̄_{k,0} ⊗ η̄ (BLZ Corollary 4.3(1)), which is irreducible (R21.5/reduction-of-v-k-zero) — a contradiction.",
+   "hypotheses": [
+    "k ≤ p + 1 is the range of BLZ Corollary 4.3(1); for k ≤ p it is Fontaine–Laffaille, and k = p + 1 is the new case",
+    "the criterion uses reducibility of the reduction and not only the weight: low weight alone does not force ordinarity (supersingular elliptic curves have k = 2)",
+    "the residual characters are ψ̄′ω^{k−1} and ψ̄ on D_p; they differ on inertia exactly when (p − 1) ∤ (k − 1)",
+    "consumers: SmallRamificationAndAbelianVarietyBaseCases R25.5 at (p, k) ∈ {(3, 2), (3, 4), (5, 6), (7, 8), (13, 14)}, ClassicalSerreModularity R26.5 and R33.4 (Dieulefait–Pacetti Paso 6 at p = 3, k ∈ {2, 4})"
+   ],
+   "proofSteps": [
+    "Reduce to V irreducible, using PadicHodgeTheory R06.4/two-dimensional-ordinarity-criterion.",
+    "Write V = V_{k,a_p} ⊗ η (R21.5/crystalline-family-v-k-ap) with v_p(a_p) > 0.",
+    "BLZ Corollary 4.3(1) (R21.5/blz-reduction-theorem) and the irreducibility of V̄_{k,0} (R21.5/reduction-of-v-k-zero).",
+    "p-distinguishedness: ω^{k−1} is nontrivial on I_p when (p − 1) ∤ (k − 1)."
+   ],
+   "acceptance": [
+    "Check (p − 1) ∤ (k − 1) for k = 2 and k = p + 1 when p ≥ 3 (checked in the suggested Lean file)",
+    "Check the terminal cases (3, 2), (3, 4), (5, 6), (7, 8), (13, 14) of R25.5 all satisfy 2 ≤ k ≤ p + 1 (checked in Lean)"
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/crystalline-family-v-k-ap",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/blz-reduction-theorem",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/reduction-of-v-k-zero",
+    "PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion",
+    "PadicHodgeTheory:R06.4/ordinary-representation",
+    "PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/CrystallineOrdinary",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Paso 6, p. 14 of arXiv:2108.07577v2",
+     "match": "The use in the modern p = 3 branch."
+    },
+    {
+     "sourceId": "BERGER-LI-ZHU-2004",
+     "locator": "Corollary 4.3, p. 11",
+     "match": "The input."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Crystalline with reducible reduction is ordinary"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-over-q",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5"
+   ],
+   "title": "Skinner–Wiles over ℚ",
+   "kind": "theorem",
+   "statement": "Let p be an odd prime and ρ : G_ℚ → GL₂(ℚ̄_p) continuous, irreducible and unramified outside finitely many primes, with ρ̄^{ss} ≅ 1 ⊕ χ after a twist. If (i) χ|_{D_p} ≠ 1, (ii) ρ|_{I_p} ≅ (∗ ∗; 0 1), and (iii) det ρ = ψε^{k−1} for some k ≥ 2 and ψ of finite order, with det ρ odd, then ρ ≅ ρ_{f,λ} for a newform f of weight k. This is the theorem of Skinner–Wiles' introduction, and Theorem A with F = ℚ: ℚ is abelian, the splitting field of the character χ is abelian over ℚ, χ is odd because det ρ is, and (ii) gives the nearly ordinary shape with ψ₂^{(p)} trivial on I_p (its reduction is 1, so it factors through a pro-p group).",
+   "hypotheses": [
+    "over ℚ both abelian hypotheses of Theorem A are automatic, so no appeal to Washington's theorem beyond its abelian case, and no Hypothesis H, is needed",
+    "(i) is p-distinguishedness; it is a hypothesis on the residual character, not on ρ",
+    "Khare's level-one argument invokes this for residually reducible ordinary lifts; its residually irreducible degenerate case uses Skinner–Wiles 2001 instead (a gap: no stage owns it)",
+    "Hilbert newforms over F = ℚ are classical newforms (AutomorphicGaloisRepresentations R19.1)"
+   ],
+   "proofSteps": [
+    "Twist so that ρ̄^{ss} = 1 ⊕ χ; check Theorem A's five hypotheses with F = ℚ, χ₁ = χ, χ₂ = 1.",
+    "Apply R21.5/theorem-a and identify the Hilbert newform over ℚ with a classical newform."
+   ],
+   "acceptance": [
+    "Check that \"det ρ odd\" gives χ(c) = −1 for complex conjugation c, as Theorem A requires",
+    "Check that (ii) implies Theorem A's condition that ψ₂^{(p)} factor through a pro-p group"
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a",
+    "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/SkinnerWiles",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "Introduction, p. 6 (Numdam PDF page 3)",
+     "match": "The ℚ-version stated in the introduction (the OCR renders ρ as p)."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "Introduction, p. 6 (Numdam PDF page 3)",
+     "match": "Its conclusion."
+    },
+    {
+     "sourceId": "KHARE-LEVEL-ONE",
+     "locator": "Introduction, p. 3 of arXiv:math/0504080v1",
+     "match": "Khare's use of Skinner–Wiles."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Skinner–Wiles over ℚ"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-at-three",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5"
+   ],
+   "title": "The residually reducible p = 3 branch (Dieulefait–Pacetti Theorem 1.7)",
+   "kind": "theorem",
+   "statement": "Let ρ : G_ℚ → GL₂(ℚ̄₃) be continuous, irreducible, odd and finitely ramified, with ρ̄^{ss} ≅ 1 ⊕ χ̄₃ (the mod-3 cyclotomic character), ρ|_{I₃} ≅ (∗ ∗; 0 1) and det ρ = ψχ₃^{k−1} (k ≥ 2, ψ of finite order). Then ρ is modular of weight k. This is R21.5/theorem-a-over-q at p = 3 with χ = χ̄₃: hypothesis (i), χ̄₃|_{D₃} ≠ 1, holds automatically because χ̄₃ is ramified at 3. Pan's residually reducible theorem needs p ≥ 5, so it does not cover this case.",
+   "hypotheses": [
+    "DP print the second hypothesis as \"ρ|_{D₃} ≠ (1 0; 0 1)\"; it transcribes Skinner–Wiles' (i), χ|_{D_p} ≠ 1, and is automatic (source issue OrdinaryAutomorphicFormsAndModularityLifting/E9)",
+    "the ordinary hypothesis is supplied in DP Paso 6 by R21.5/crystalline-reducible-reduction-is-ordinary with k ∈ {2, 4}",
+    "GL2ModularityLifting R32.5 consumes this node for the modern proof's p = 3 branch"
+   ],
+   "proofSteps": [
+    "Specialise R21.5/theorem-a-over-q to p = 3, χ = χ̄₃.",
+    "χ̄₃ is odd and ramified at 3."
+   ],
+   "acceptance": [
+    "Check χ̄₃(c) = −1 and χ̄₃|_{I₃} ≠ 1",
+    "Check that DP's Theorem 1.7 conclusion (modular of weight k) matches"
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-over-q"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/SkinnerWiles",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Theorem 1.7, p. 4 of arXiv:2108.07577v2",
+     "match": "DP's statement (hypotheses begin)."
+    },
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Proof of Theorem 1.7, p. 5",
+     "match": "DP cite the introduction theorem of Skinner–Wiles."
+    },
+    {
+     "sourceId": "DIEULEFAIT-PACETTI",
+     "locator": "Paso 6, p. 14",
+     "match": "The check DP make for the second hypothesis, unnecessary once it is read as χ̄₃|_{D₃} ≠ 1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/exported-ordinary-modularity-over-q",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
+   ],
+   "title": "Export: ordinary modularity over ℚ with its level",
+   "kind": "theorem",
+   "statement": "Under the hypotheses of R21.5/theorem-a-over-q there are a newform f of weight k and a prime λ | p of its coefficient field with ρ ≅ ρ_{f,λ}. Its level N satisfies: for ℓ ≠ p, v_ℓ(N) is the Artin conductor exponent of ρ|_{G_{ℚ_ℓ}} (local-global compatibility away from p); and p ∤ N exactly when ρ|_{G_{ℚ_p}} is crystalline (compatibility at the coefficient prime). In particular, if ρ is unramified outside p and crystalline at p then f ∈ S_k(SL₂(ℤ)), which is the witness SmallRamificationAndAbelianVarietyBaseCases R25.5/ordinary-reducible-terminal-weights needs (and S_k(SL₂(ℤ)) = 0 for its weights gives the contradiction there). Consumers: ClassicalSerreModularity R26, R27.1 and R33.1, GL2ModularityLifting R32.1 and R32.5, PotentialModularityAndCompatibleSystems R23.4, and R25.5.",
+   "hypotheses": [
+    "the level statement at ℓ ≠ p is Carayol's local-global compatibility; at p it is compatibility at the coefficient prime (crystalline ⇔ p ∤ N for k ≥ 2)",
+    "the newform is unique up to Galois conjugacy of its coefficients, by strong multiplicity one"
+   ],
+   "proofSteps": [
+    "Existence from R21.5/theorem-a-over-q.",
+    "Level away from p: AutomorphicGaloisRepresentations R19.4.",
+    "At p: R19.5."
+   ],
+   "acceptance": [
+    "Check the level-one case: unramified outside p and crystalline at p give N = 1",
+    "Check that the character of f is ψ times the Teichmüller normalisation fixed by det ρ"
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-over-q",
+    "AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical",
+    "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
+    "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Exports",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§4.5, Theorem A, p. 74 (Numdam PDF page 71)",
+     "match": "The conclusion that is exported."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Ordinary modularity over ℚ, with its level"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6/independence-from-serre",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
+   ],
+   "title": "The ordinary theorems do not use Serre's conjecture",
+   "kind": "comparison",
+   "statement": "The prerequisite closure of R21.5/theorem-a (and so of its specialisations and of R21.6's export) contains no node of ClassicalSerreModularity and no modularity assertion about a residually irreducible representation. Its inputs are: the nearly ordinary Hecke algebras (R21.1–R21.2, PadicFamilies); Wiles' Galois representations and Carayol's local-global compatibility (AutomorphicGaloisRepresentations R19); pseudo-representations and deformation rings (R21.3); patching (DeformationAndDerivedPatchingAlgebra R03.3–R03.6, GlobalGaloisDeformations R04.5); the Deligne–Ribet p-adic L-function (AutomorphicPadicLFunctions L3); solvable base change (GL2AutomorphicRepresentationsAndTransfer R17.4); and Washington, Waldschmidt and Raynaud (gaps). The residual representation is reducible, and its \"modularity\" is by an Eisenstein series, through the permissible maximal ideal (R21.2), not by Serre's conjecture. So the theorems may initialise Serre's conjecture (Khare's level one, the modern p = 3 branch) without circularity.",
+   "hypotheses": [
+    "the check is on prerequisite closures, not on the statements",
+    "base change is used only along solvable extensions (Langlands), which does not presuppose Serre's conjecture"
+   ],
+   "proofSteps": [
+    "Compute the prerequisite closure of R21.5/theorem-a across the packets and list its roadmaps.",
+    "Confirm that none is ClassicalSerreModularity and that the only residual modularity used is Eisenstein."
+   ],
+   "acceptance": [
+    "Check that the closure contains no node or stage of ClassicalSerreModularity",
+    "Check that every modularity statement in the closure is for residually reducible ρ̄, or is the existence of Galois representations attached to forms"
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/main-theorem",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/eisenstein-ideal-existence",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-maximal-ideal",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-over-q"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Exports",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "Introduction, p. 6 (Numdam PDF page 3)",
+     "match": "The irreducible case needs a Serre-type hypothesis; the reducible case does not."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "Introduction, p. 8 (Numdam PDF page 5)",
+     "match": "Residual modularity comes from Eisenstein congruences."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -4077,6 +4573,38 @@
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/nice-prime-r-equals-t"
    ],
    "status": "open"
+  },
+  {
+   "supplier": "PhiGammaModulesAndIwasawaCohomology:PG.1",
+   "need": "Fontaine's equivalence between ℤ_p-representations of G_{ℚ_p} and étale (φ, Γ)-modules over A_{ℚ_p}, with 𝒪_E-coefficients, used by Berger–Li–Zhu Theorem 4.1 to compare reductions.",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/blz-reduction-theorem"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "PhiGammaModulesAndIwasawaCohomology:PG.6",
+   "need": "Wach modules of crystalline lattices over ℚ_p (Berger 2004, §§II.1, III.4): existence, the bijection T ↦ N(T) with lattices, and N(V)/πN(V) ≅ D_cris(V) for positive V, with 𝒪_E-coefficients.",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/blz-reduction-theorem"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "PhiGammaModulesAndIwasawaCohomology:PG.7",
+   "need": "Dee's theorem: an étale family of (φ, Γ)-modules over ℤ_p[[X]] gives a family of representations (a free ℤ_p[[X]]-module with continuous G_{ℚ_p}-action), specialising at α ∈ 𝔪_E.",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/blz-reduction-theorem"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:R01.2",
+   "need": "Local Galois groups: the unramified quadratic extension ℚ_{p²}, fundamental characters of level 2 and induction from G_{ℚ_{p²}} to G_{ℚ_p}, with the irreducibility criterion for ind(ω₂^j).",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/reduction-of-v-k-zero"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
@@ -4117,18 +4645,18 @@
    "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
    "status": "partial",
    "remaining": [
-    "The modern p = 3 branch (Dieulefait–Pacetti, arXiv:2108.07577; residual 1 ⊕ χ₃, the ordinary local condition and the Berger–Li–Zhu crystalline-to-ordinary criterion).",
-    "Khare's use of Skinner–Wiles in the level-one argument (Khare 2006, arXiv:math/0504080).",
-    "Washington's and Waldschmidt's theorems (gaps)."
+    "Washington's and Waldschmidt's theorems (gaps).",
+    "Skinner–Wiles 2001 (nearly ordinary deformations of irreducible residual representations), used by Khare for the residually irreducible degenerate branch (a gap: no stage owns it)."
    ],
-   "notes": "Checkpoint 4 plans Skinner–Wiles' Theorems A and B (the latter conditional on Hypothesis H) from §§4.5–4.6 (3 nodes)."
+   "notes": "Checkpoint 4 plans Skinner–Wiles' Theorems A and B (the latter conditional on Hypothesis H) from §§4.5–4.6 (3 nodes). Checkpoint 6 adds the crystalline-to-ordinary criterion with the Berger–Li–Zhu calculation (V_{k,a_p}, the Wach-module family and Theorem 4.1/Corollary 4.3, V̄_{k,0}), Theorem A over ℚ (Skinner–Wiles' introduction theorem, the form Khare and the modern proof use) and the p = 3 branch (Dieulefait–Pacetti Theorem 1.7)."
   },
   {
    "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Source-decompose stage R21.6."
-   ]
+    "The classical ordinary (Hida) family over ℚ for later p-adic L-function work, with R21.1's modular-curve remainder (Hida, Invent. Math. 85 and ASENS 19 (1986))."
+   ],
+   "notes": "Checkpoint 6: the export of ordinary modularity over ℚ with its level (Carayol away from p, compatibility at p) for ClassicalSerreModularity, GL2ModularityLifting, PotentialModularityAndCompatibleSystems and SmallRamificationAndAbelianVarietyBaseCases, and the dependency check that the ordinary theorems do not use Serre's conjecture."
   }
  ],
  "gaps": [
@@ -4153,6 +4681,21 @@
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-b"
    ],
    "detail": "δ_L ≤ d_L/2 for the ℤ_p-rank δ_L of the maximal abelian pro-p extension unramified outside p (Waldschmidt, 'A lower bound for the p-adic rank of the units of an algebraic number field'; Skinner–Wiles [Wal]), used in (4.20) and (4.24). A transcendence result; no stage of the atlas plans it."
+  },
+  {
+   "title": "Skinner–Wiles 2001 (residually irreducible, degenerate) has no owning stage",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-over-q"
+   ],
+   "detail": "Verified: Khare (arXiv:math/0504080v1, p. 3) handles the residually degenerate cases by quoting both Skinner–Wiles 1999 (residually reducible, this roadmap) and Skinner–Wiles, Nearly ordinary deformations of irreducible residual representations (Ann. Fac. Sci. Toulouse 10 (2001)), for residually irreducible ρ̄ with ρ̄|_{ℚ(µ_p)} reducible. Not verified: the 2001 paper. R21.5's text covers only residually reducible results; a later restructure should give the 2001 theorem an owner (here or GL2ModularityLifting)."
+  },
+  {
+   "title": "Breuil's classification and V̄_{k,0} are quoted from Berger–Li–Zhu",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/crystalline-family-v-k-ap",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/reduction-of-v-k-zero"
+   ],
+   "detail": "Verified: BLZ's statements of Breuil, JIMJ 2 (2003), Propositions 3.1.1 (irreducible crystalline V ≅ V_{k,a_p} ⊗ η) and 3.1.2/6.1.2 (V̄_{k,0}). Not verified: Breuil's proofs. Both are standard and the nodes give the arguments (Newton polygon and weak admissibility; V_{k,0} induced from ℚ_{p²})."
   }
  ],
  "sourceIssues": [
@@ -4267,6 +4810,36 @@
    "searched": [
     "As for E5."
    ]
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E9",
+   "source": "DIEULEFAIT-PACETTI",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "Theorem 1.7, second hypothesis, p. 4 of arXiv:2108.07577v2 (on the page image), and its check in Paso 6, p. 14",
+   "printed": "The source gives ρss ≃1 ⊕χ3 and ρ|D3̸ = ( 1 0 0 1 ), then deduces that the image of ˜ρ3|D3 is nontrivial because the Serre weight differs from 3.",
+   "correction": "χ̄₃|_{D₃} ≠ 1, i.e. Skinner–Wiles' condition (i) χ|_{D_p} ≠ 1 for ρ̄^{ss} ≅ 1 ⊕ χ. It holds automatically, because χ̄₃ is ramified at 3, so the check in Paso 6 is unnecessary.",
+   "reason": "DP prove Theorem 1.7 by \"See [SW99] Theorem in the third page\", the theorem of Skinner–Wiles' introduction (Publ. IHÉS 89, p. 6), whose hypotheses are ρ̄^{ss} ≅ 1 ⊕ χ, (i) χ|_{D_p} ≠ 1, (ii) ρ|_{I_p} ≅ (∗ ∗; 0 1), (iii) det ρ = ψε^{k−1}, odd. DP's first, third and fourth bullets are these; the second replaces (i) by a condition on ρ|_{D₃} itself, which (without a bar, as printed) holds for every ρ with Hodge–Tate weights {0, k − 1}, k ≥ 2. Theorem 1.7 as printed remains true, since its first hypothesis implies (i).",
+   "known": "new: present in arXiv v2; the arXiv listing records no journal reference",
+   "searched": [
+    "arXiv:2108.07577 listing (v1 of 17 Aug 2021, v2 of 3 May 2022); v2 read",
+    "no published version identified from the arXiv listing"
+   ]
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E10",
+   "source": "BERGER-LI-ZHU-2004",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "Proposition 3.4 and its proof, pp. 8–9 of arXiv:math/0310275v1",
+   "printed": "Proposition 3.4 introduces Gγ under the assumptions α ∈mE and γ, η ∈ΓK.",
+   "correction": "γ, η ∈ Γ_{ℚ_p}.",
+   "reason": "K is not defined anywhere in the paper; the group acting throughout (§2.2, Lemma 3.2, Proposition 3.3, Definition 3.6) is Γ_{ℚ_p} = Gal(ℚ_p(µ_{p^∞})/ℚ_p). The proof of Proposition 3.4 repeats Γ_K.",
+   "known": "new: present in arXiv v1; the Math. Ann. version was not obtained",
+   "searched": [
+    "arXiv:math/0310275 (v1 only)",
+    "Math. Ann. 329 (2004) 365–377: not obtained"
+   ]
   }
  ],
  "sourceVersions": [
@@ -4276,6 +4849,20 @@
    "citation": "Skinner and Wiles, Residually reducible representations and modular forms, Publ. Math. IHÉS 89 (1999), 5–126 (Numdam open-access scan)",
    "read": "2026-09-28",
    "sha256": "ec0697b3e9c9fa68063b19688f10347d204a8b7b86526384c9ccd6e7fe30e6f3"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0310275v1",
+   "citation": "Berger–Li–Zhu, Construction of some families of 2-dimensional crystalline representations, arXiv:math/0310275v1 (Math. Ann. 329 (2004), not obtained)",
+   "read": "2026-09-29",
+   "sha256": "e291beb15400c5a7d223e5b9c64dd306735dd3f513c88762724ebb2fe22a06fa"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2108.07577v2",
+   "citation": "Dieulefait–Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2 (3 May 2022); no journal reference on arXiv",
+   "read": "2026-09-29",
+   "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6"
   }
  ]
 }

@@ -1,9 +1,62 @@
-# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.2 source-decomposed; R21.1, R21.3–R21.5 partial (checkpoint 5)
+# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.2 source-decomposed; R21.1 and R21.3–R21.6 partial (checkpoint 6)
 
-Claude Code — session `cc-39fac3`, 28 September 2026. Refs #962. **Status: partial.**
+Claude Code — session `cc-39fac3`, 29 September 2026. Refs #962. **Status: partial.**
 - R21.2 is `source_decomposed`.
-- R21.1, R21.3, R21.4 and R21.5 are `partial`.
-- R21.6 is `not_read`.
+- R21.1 and R21.3–R21.6 are `partial`.
+
+## Checkpoint 6: the crystalline-to-ordinary criterion, Theorem A over ℚ, p = 3, and R21.6 (8 nodes)
+
+**Sources.** Three new ones:
+- Berger–Li–Zhu, arXiv:math/0310275v1 (sha256 e291beb…), read in full;
+- Dieulefait–Pacetti, arXiv:2108.07577v2: Theorems 1.6–1.7 on the page image, and Paso 6;
+- Khare, arXiv:math/0504080v1: §1.
+
+Skinner–Wiles' introduction theorem (p. 6) and Theorem A (p. 74) were re-read on the page images.
+
+**R21.5 (6 nodes, module `…/CrystallineOrdinary` and `…/SkinnerWiles`):**
+- `crystalline-family-v-k-ap` (definition; 5 API items, 4 tests): D_{k,a_p}, V_{k,a_p}, Breuil's classification.
+- `blz-reduction-theorem`: the Wach-module family, Theorem 4.1 and Corollary 4.3.
+- `reduction-of-v-k-zero`: V̄_{k,0} = ind(ω₂^{k−1}).
+- `crystalline-reducible-reduction-is-ordinary` (planet): for 2 ≤ k ≤ p + 1, reducible reduction ⇒ ordinary, and
+  p-distinguished when (p − 1) ∤ (k − 1). This is the criterion SmallRamificationAndAbelianVarietyBaseCases R25.5
+  requested; RS-06 places it here.
+- `theorem-a-over-q` (planet): Skinner–Wiles' ℚ theorem, the form Khare and the modern proof use.
+- `theorem-a-at-three`: Dieulefait–Pacetti Theorem 1.7.
+
+**R21.6 (2 nodes, module `…/Exports`):**
+- `exported-ordinary-modularity-over-q` (planet): the newform witness with its level, via AutomorphicGaloisRepresentations
+  R19.4 and R19.5.
+- `independence-from-serre` (comparison).
+
+**Source issues:**
+- **E9 (DP).** Theorem 1.7's second hypothesis transcribes Skinner–Wiles' χ|_{D_p} ≠ 1 and is automatic. This also
+  settles the gap "DP Theorem 1.7: the second hypothesis" left in ClassicalSerreModularity part R27.3 (PR #3858); a
+  follow-up there can cite this.
+- **E10 (BLZ).** Γ_K for Γ_{ℚ_p}.
+
+**New requests:** PhiGammaModulesAndIwasawaCohomology PG.1, PG.6 and PG.7, and ArithmeticGaloisRepresentations R01.2.
+
+**New gaps:**
+- Skinner–Wiles 2001 has no owning stage;
+- Breuil's classification and V̄_{k,0} are quoted from BLZ.
+
+**Lean.** New checked tests:
+- trace and determinant of φ on D_{k,a_p};
+- (p + 1) ∤ (k − 1) for 2 ≤ k ≤ p + 1, and divisibility at k = p + 2;
+- the ω₂ orders at p = 3;
+- p-distinguishedness at k = 2 and k = p + 1;
+- the R25.5 terminal cases lie in range.
+
+The file compiles with 0 errors, 0 warnings and no `sorry`.
+
+**Totals.** 70 nodes, 26 planets, 21 requests, 5 gaps and 10 source issues. `check_blueprint.py`: 0 errors, 0 warnings.
+
+## What a continuation should do (after checkpoint 6)
+
+1. **R21.6 and R21.1:** the classical ordinary (Hida) family over ℚ, from Hida's Invent. Math. 85 and ASENS 19 (1986;
+   Numdam), applying the projector to the modular-curve H¹ towers (ModularCurvesPartII R14.3).
+2. **Skinner–Wiles 2001:** propose an owner, and plan it if R21.5 is chosen.
+3. **Washington and Waldschmidt gaps.**
 
 ## Checkpoint 5: Skinner–Wiles §§5–8 (8 R21.4 nodes)
 
