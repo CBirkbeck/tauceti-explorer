@@ -7271,3 +7271,143 @@ example : coeff 1 (derivative K (tameNormalizedLogPrimitive η ε hε))= -1/3 �
     coeff 1 (tameSeries η hDK)=0 := sorry
 end Three
 end SuggestedLogarithmicPrimitiveTests
+
+/-! Finite cyclotomic logarithm constants. ColemanIntegration L0 supplies the logarithm
+and the explicit laws below. Its current suggested module imports this file, so these
+consumer signatures retain those parameters; no reverse import or replacement logarithm
+is introduced. Formal primitives here do not assert open-disc convergence or L-values. -/
+noncomputable section
+namespace DirichletPadic
+open scoped BigOperators
+open PowerSeries
+
+section LogConstant
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+
+def cyclotomicLogConstant (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) : K := sorry
+lemma cyclotomicLogConstant_def (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogConstant η ε hε ℓ =
+      -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+        ∑ a : ZMod D, η⁻¹ a * ℓ (ε^a.val-1) := sorry
+lemma cyclotomicLogConstant_zero (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) : cyclotomicLogConstant η ε hε (fun _ => 0)=0 := sorry
+lemma cyclotomicLogConstant_congr (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ ℓ' : K → K)
+    (h : ∀ a : ZMod D, η⁻¹ a≠0 → ℓ (ε^a.val-1)=ℓ' (ε^a.val-1)) :
+    cyclotomicLogConstant η ε hε ℓ=cyclotomicLogConstant η ε hε ℓ' := sorry
+lemma cyclotomicLogConstant_branch_difference (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ₀ ℓ₁ v : K → K) (b : K)
+    (h : ∀ a : ZMod D, η⁻¹ a≠0 → ℓ₁ (ε^a.val-1)-ℓ₀ (ε^a.val-1)=b*v (ε^a.val-1)) :
+    cyclotomicLogConstant η ε hε ℓ₁-cyclotomicLogConstant η ε hε ℓ₀ =
+      -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹*b*
+        ∑ a : ZMod D, η⁻¹ a*v (ε^a.val-1) := sorry
+lemma cyclotomicLogConstant_root_transport (η : DirichletCharacter K D)
+    (ε ε' : K) (hε : IsPrimitiveRoot ε D) (hε' : IsPrimitiveRoot ε' D)
+    (u : (ZMod D)ˣ) (hu : ε'=ε^((u : ZMod D).val)) (ℓ : K → K) :
+    cyclotomicLogConstant η ε' hε' ℓ=cyclotomicLogConstant η ε hε ℓ := sorry
+lemma cyclotomicLogConstant_odd (η : DirichletCharacter K D) (hD : 1<D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (hodd : η (-1)=-1)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0) :
+    cyclotomicLogConstant η ε hε ℓ=0 := sorry
+
+def tameLogPrimitive (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) : PowerSeries K := sorry
+lemma tameLogPrimitive_def (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    tameLogPrimitive η ε hε ℓ=C (cyclotomicLogConstant η ε hε ℓ)+
+      tameNormalizedLogPrimitive η ε hε := sorry
+lemma tameLogPrimitive_constantCoeff (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    constantCoeff (tameLogPrimitive η ε hε ℓ)=cyclotomicLogConstant η ε hε ℓ := sorry
+lemma tameLogPrimitive_coeff (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (n : ℕ) (hn : 0<n) :
+    coeff n (tameLogPrimitive η ε hε ℓ)=coeff n (tameNormalizedLogPrimitive η ε hε) := sorry
+lemma tameLogPrimitive_mahler (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1<D) (hDK : IsUnit (D : K)) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)≠0) (ℓ : K → K) :
+    mahlerDerivation K (tameLogPrimitive η ε hε ℓ)=tameSeries η hDK := sorry
+lemma tameLogPrimitive_unique (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1<D) (hDK : IsUnit (D : K)) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)≠0) (ℓ : K → K)
+    (F : PowerSeries K) (hF : mahlerDerivation K F=tameSeries η hDK)
+    (h0 : constantCoeff F=cyclotomicLogConstant η ε hε ℓ) :
+    F=tameLogPrimitive η ε hε ℓ := sorry
+end LogConstant
+
+section NormedLogConstant
+variable {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+    {D : ℕ} [NeZero D]
+lemma cyclotomicLogConstant_branch_independent (η : DirichletCharacter K D)
+    (hη : η≠1) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (ℓ₀ ℓ₁ v : K → K) (b : K)
+    (hv : ∀ x y, x≠0 → y≠0 → ‖x‖=‖y‖ → v x=v y)
+    (h : ∀ x, x≠0 → ℓ₁ x-ℓ₀ x=b*v x) :
+    cyclotomicLogConstant η ε hε ℓ₁=cyclotomicLogConstant η ε hε ℓ₀ := sorry
+end NormedLogConstant
+end DirichletPadic
+
+namespace SuggestedLogarithmicConstantTests
+open scoped BigOperators
+open DirichletPadic PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+-- zero_log_constant
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    cyclotomicLogConstant η ε hε (fun _ => 0)=0 := sorry
+-- conductor_one_junk_boundary
+example (hε : IsPrimitiveRoot (1 : K) 1) :
+    cyclotomicLogConstant (1 : DirichletCharacter K 1) 1 hε (fun _ => 7)=-7 := sorry
+-- nontrivial_constant_function_cancels
+example (η : DirichletCharacter K D) (hη : η≠1) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (c : K) :
+    cyclotomicLogConstant η ε hε (fun _ => c)=0 := sorry
+-- equal_log_data
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (ℓ ℓ' : K → K) (h : ∀ a : ZMod D, η⁻¹ a≠0 → ℓ (ε^a.val-1)=ℓ' (ε^a.val-1)) :
+    cyclotomicLogConstant η ε hε ℓ=cyclotomicLogConstant η ε hε ℓ' := sorry
+-- exact_branch_error
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (ℓ v : K → K) (b : K) :
+    cyclotomicLogConstant η ε hε (fun x => ℓ x+b*v x)-cyclotomicLogConstant η ε hε ℓ=
+      -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹*b*
+        ∑ a : ZMod D, η⁻¹ a*v (ε^a.val-1) := sorry
+-- matching_root_normalization
+example (η : DirichletCharacter K D) (ε ε' : K) (hε : IsPrimitiveRoot ε D)
+    (hε' : IsPrimitiveRoot ε' D) (u : (ZMod D)ˣ) (hu : ε'=ε^((u : ZMod D).val))
+    (ℓ : K → K) :
+    cyclotomicLogConstant η ε' hε' ℓ=cyclotomicLogConstant η ε hε ℓ := sorry
+-- odd_log_constant_zero
+example (η : DirichletCharacter K 3) (ε : K) (hε : IsPrimitiveRoot ε 3)
+    (hodd : η (-1)=-1) (ℓ : K → K)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0) :
+    cyclotomicLogConstant η ε hε ℓ=0 := sorry
+-- zero_log_gives_normalized_primitive
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    tameLogPrimitive η ε hε (fun _ => 0)=tameNormalizedLogPrimitive η ε hε := sorry
+-- correct_logarithmic_constant
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    constantCoeff (tameLogPrimitive η ε hε ℓ)=cyclotomicLogConstant η ε hε ℓ := sorry
+-- nonzero_log_constant_changes_primitive
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (h : cyclotomicLogConstant η ε hε ℓ≠0) :
+    tameLogPrimitive η ε hε ℓ≠tameNormalizedLogPrimitive η ε hε := sorry
+-- logarithmic_primitive_derivative
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hD : 1<D)
+    (hDK : IsUnit (D : K)) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)≠0) (ℓ : K → K) :
+    mahlerDerivation K (tameLogPrimitive η ε hε ℓ)=tameSeries η hDK := sorry
+end Field
+-- every_branch_has_same_constant
+example {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+    {D : ℕ} [NeZero D] (η : DirichletCharacter K D) (hη : η≠1) (hD : 1<D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ₀ ℓ₁ v : K → K) (b : K)
+    (hv : ∀ x y, x≠0 → y≠0 → ‖x‖=‖y‖ → v x=v y)
+    (h : ∀ x, x≠0 → ℓ₁ x-ℓ₀ x=b*v x) :
+    cyclotomicLogConstant η ε hε ℓ₁=cyclotomicLogConstant η ε hε ℓ₀ := sorry
+end SuggestedLogarithmicConstantTests
+end
