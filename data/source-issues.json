@@ -124381,6 +124381,120 @@
    "reviewReason": "The page image (p. 491) reads 'Inst. Hautes Études Sci. Publ. Math. 7 (1960), 567.' Serre's 'Groupes proalgébriques' occupies pp. 5–67. arXiv v2 and v3 both print 'p. 5-67', and the Numdam id printed in the same entry (PMIHES_1960__7__5_0) gives start page 5. The dash was lost in production. The [Gro66] '255' and [Gro67] '361' entries follow the MR total-pages style and are harmless."
   },
   {
+   "id": "AbelianSchemesAndArithmeticModuli/E1",
+   "kind": "error",
+   "locator": "§14, Proposition 14.4(b), p. 62",
+   "printed": "For any integer n ≥ 3, an automorphism of (A, λ) acting as the identity on A_n(k^al) is equal to the identity.",
+   "correction": "Add the hypothesis char k ∤ n, or require α to act as the identity on the finite group scheme A_n.",
+   "reason": "A supersingular elliptic curve E over 𝔽̄_2 has E[4](k̄) = 0 and an automorphism group of order 24. Every automorphism preserves the principal polarization, so for n = 4 every automorphism acts as the identity on A_4(k^al), and not all are the identity. The proof uses Lemma 10.16 (through 8.12), which needs trivial action on the group scheme.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the author's errata page for Abelian Varieties v2.00, https://www.jmilne.org/math/CourseNotes/errata.html, read 2026-09-29"
+   ],
+   "owner": "AbelianSchemesAndArithmeticModuli",
+   "file": "research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json",
+   "citation": "J. S. Milne, Abelian Varieties, Course notes, version 2.00 (March 16, 2008), 172 pages; printed page = PDF page − 6; locators give printed pages and result numbers",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AbelianSchemesAndArithmeticModuli/E2",
+   "kind": "error",
+   "locator": "§14, proof of Proposition 14.4(a), p. 62",
+   "printed": "But End(A) is discrete in End(A) ⊗ R, and End(A) ⊗ R is compact.",
+   "correction": "The compact set is {α ∈ End(A) ⊗ ℝ : Tr(αα†) = 2g}, an ellipsoid by Theorem 14.3; its intersection with the discrete End(A) is finite.",
+   "reason": "A nonzero real vector space is not compact. The finiteness argument needs a compact set containing Aut(A, λ).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the author's errata page for Abelian Varieties v2.00, https://www.jmilne.org/math/CourseNotes/errata.html, read 2026-09-29"
+   ],
+   "owner": "AbelianSchemesAndArithmeticModuli",
+   "file": "research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json",
+   "citation": "J. S. Milne, Abelian Varieties, Course notes, version 2.00 (March 16, 2008), 172 pages; printed page = PDF page − 6; locators give printed pages and result numbers",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AbelianSchemesAndArithmeticModuli/E3",
+   "kind": "gap",
+   "locator": "§14, proof of Proposition 14.4(b), p. 62",
+   "printed": "Similarly, β′⁴ ≠ 0, and so on, which contradicts the nilpotence of β.",
+   "correction": "Add that β and β† commute, because α† = α⁻¹ commutes with α. Then β′ = β†β is nilpotent, since β is, and the nonvanishing of all β′^{2^k} contradicts the nilpotence of β′. Equivalently, Tr(β†β) = 0 contradicts Theorem 14.3.",
+   "reason": "Nilpotence of β alone does not make β†β nilpotent: in M_2(ℝ) with the transpose, β = e₁₂ is nilpotent while βᵀβ = e₂₂ is idempotent.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the author's errata page for Abelian Varieties v2.00, https://www.jmilne.org/math/CourseNotes/errata.html, read 2026-09-29"
+   ],
+   "owner": "AbelianSchemesAndArithmeticModuli",
+   "file": "research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json",
+   "citation": "J. S. Milne, Abelian Varieties, Course notes, version 2.00 (March 16, 2008), 172 pages; printed page = PDF page − 6; locators give printed pages and result numbers",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AbelianSchemesAndArithmeticModuli/E4",
+   "kind": "gap",
+   "locator": "§10, Lemma 10.12, p. 47",
+   "printed": "Let V be a vector space over an infinite field K, and let f : V → K be a function such that, for all v, w in V, x ↦ f(xv + w) : K → K is a polynomial in x with coefficients in K; then f is a polynomial function.",
+   "correction": "Require that the degree of x ↦ f(xv + w) be bounded by a fixed d (at most 2g in the application).",
+   "reason": "Without a bound, the degree d in the proof depends on x_1, …, x_{n−1}, and the first displayed sum may be infinite.",
+   "affects": "the proof",
+   "known": "The author's errata page (correction by Angus Chung).",
+   "searched": [
+    "the author's errata page for Abelian Varieties v2.00, https://www.jmilne.org/math/CourseNotes/errata.html, read 2026-09-29"
+   ],
+   "owner": "AbelianSchemesAndArithmeticModuli",
+   "file": "research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json",
+   "citation": "J. S. Milne, Abelian Varieties, Course notes, version 2.00 (March 16, 2008), 172 pages; printed page = PDF page − 6; locators give printed pages and result numbers",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AbelianSchemesAndArithmeticModuli/E5",
+   "kind": "gap",
+   "locator": "§10, proof of Theorem 10.15, p. 49",
+   "printed": "Let M be the Z-submodule of End(T_ℓA) generated by the e_i. … Now choose the e_i to be a Q-basis for End⁰(A).",
+   "correction": "M must be the ℤ-submodule of End⁰(A) generated by the e_i. The finite-dimensionality of End⁰(A) must be proved first: the rank of any finitely generated saturated submodule is bounded by rank End(T_ℓA) = 4g².",
+   "reason": "The degree map is defined on End⁰(A), not on End(T_ℓA), and choosing a ℚ-basis assumes the finite-dimensionality that is being proved.",
+   "affects": "the proof",
+   "known": "The author's errata page (correction by Timo Keller).",
+   "searched": [
+    "the author's errata page for Abelian Varieties v2.00, https://www.jmilne.org/math/CourseNotes/errata.html, read 2026-09-29"
+   ],
+   "owner": "AbelianSchemesAndArithmeticModuli",
+   "file": "research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json",
+   "citation": "J. S. Milne, Abelian Varieties, Course notes, version 2.00 (March 16, 2008), 172 pages; printed page = PDF page − 6; locators give printed pages and result numbers",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AbelianSchemesAndArithmeticModuli/E6",
+   "kind": "misprint",
+   "locator": "§14, p. 61",
+   "printed": "(αβ)† = βα",
+   "correction": "(αβ)† = β†α†.",
+   "reason": "The Rosati involution is an anti-involution; the daggers on the right-hand side are missing.",
+   "affects": "a stated result",
+   "known": "The author's errata page (correction by Sunil Chetty).",
+   "searched": [
+    "the author's errata page for Abelian Varieties v2.00, https://www.jmilne.org/math/CourseNotes/errata.html, read 2026-09-29"
+   ],
+   "owner": "AbelianSchemesAndArithmeticModuli",
+   "file": "research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json",
+   "citation": "J. S. Milne, Abelian Varieties, Course notes, version 2.00 (March 16, 2008), 172 pages; printed page = PDF page − 6; locators give printed pages and result numbers",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AdditiveCombinatorics/E1",
    "kind": "misprint",
    "locator": "Lecture notes 2, §6, printed p.11 (PDF p.37), the two inequalities immediately after (9).",
