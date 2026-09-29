@@ -222,7 +222,7 @@
      "verdict": "partly built",
      "targets": [
       {
-       "target": "local Tate zeta integral Z(f,χ,s) = ∫ f(x)χ(x)|x|^s d×x for a quasi-character χ of F_v^× and a Schwartz–Bruhat f, convergent for Re s > 0",
+       "target": "local Tate zeta integral Z(f,χ,s) = ∫ f(x)χ(x)|x|^s d×x for a quasi-character χ of F_v^× and a Schwartz–Bruhat f, convergent for Re s + σ(χ) > 0, where σ(χ) ∈ ℝ is the real exponent of χ, |χ(x)| = |x|^{σ(χ)} (not the conductor exponent; for unitary χ this is Re s > 0). This half-plane is a uniform sufficient region for all f, not an iff for each f",
        "library": "partial",
        "declarations": [
         {
@@ -690,9 +690,23 @@
          "file": "Mathlib/LinearAlgebra/Charpoly/BaseChange.lean",
          "line": 23,
          "fit": "related"
+        },
+        {
+         "name": "Matrix.charpoly_inv",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+         "line": 314,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.charpoly_transpose",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+         "line": 167,
+         "fit": "related"
         }
        ],
-       "note": "The linear algebra for conjugacy, direct sums and base change is in Mathlib for characteristic polynomials (hence for their reverses). There is no formula for the characteristic polynomial of a tensor product or of the contragredient in terms of the factors, and nothing ties these to Satake parameters."
+       "note": "The linear algebra for conjugacy, direct sums and base change is in Mathlib for characteristic polynomials (hence for their reverses). The contragredient's matrix formula is also there: for A with IsUnit A over a commutative ring, `Matrix.charpoly_inv` gives charpoly(A⁻¹) = (−1)^n·C((det A)⁻¹)·charpolyRev(A) (ring inverse of the determinant), and `Matrix.charpoly_transpose` gives charpoly(Mᵀ) = charpoly(M); applied to M = A⁻¹ they give the characteristic polynomial of the inverse transpose (A⁻¹)ᵀ, and `Matrix.reverse_charpoly` (Charpoly/Coeff.lean:293) links charpolyRev to det(1 − XA). There is no formula for the characteristic polynomial of a tensor product in terms of the factors, and nothing ties any of these to (or constructs) Satake parameters."
       },
       {
        "target": "partial Euler product L^S(s,π,r) and its convergence under a supplied bound on the Satake eigenvalues",
@@ -4642,7 +4656,7 @@
      "verdict": "not built",
      "targets": [
       {
-       "target": "admissible multivariable series: existence and uniqueness of the product expansion ∏(1 − q^{i/2}xⁿ)^{c_{n,i}} with integer exponents in the completed ring, with its support conditions",
+       "target": "admissible multivariable series: for a series in ℚ(q)[[x]] = ℚ(q)[[x₁,…,x_N]] with constant term 1, existence and uniqueness of the q-Pochhammer product expansion ∏_{0≠n∈ℕ^N} ∏_{i∈ℤ} (q^i xⁿ; q)_∞^{c_{n,i}} with integer exponents (GSWZ Def. 1.7, eqs. (28)–(29); x is GSWZ's t), first in ℤ((q))[[x]] with i-support bounded below for each n; admissibility is the support condition that for each n only finitely many c_{n,i} ≠ 0, equivalently L_n(q) = Σ_i c_{n,i}q^i ∈ ℤ[q,q⁻¹]",
        "library": "partial",
        "declarations": [
         {
@@ -4681,7 +4695,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib gives existence of infinite products of multivariable power series 1 + fᵢ once the weighted order tends to ∞, formal partition-type products, the one-variable formal logarithm, (1+X)^r for binomial exponents, and Möbius inversion (to recover exponents from logarithmic coefficients). Uniqueness of the product expansion (the plethystic/Euler transform) and multivariable formal logarithms are absent."
+       "note": "Mathlib gives existence of infinite products of multivariable power series 1 + fᵢ once the weighted order tends to ∞, formal partition-type products, the one-variable formal logarithm, (1+X)^r for binomial exponents, and Möbius inversion (to recover exponents from logarithmic coefficients). Uniqueness of the product expansion (the plethystic/Euler transform) and multivariable formal logarithms are absent, and no infinite q-Pochhammer symbol (a; q)_∞ is defined in either library (Mathlib's RingTheory/Polynomial/Pochhammer.lean:34 lists q-Pochhammer only as a TODO)."
       },
       {
        "target": "GSWZ's series F_A for a symmetric integral matrix A, its q-difference equations, and Lemma 2.6 by the formal Gaussian/q-difference calculation",
@@ -4705,7 +4719,7 @@
        "note": "Only generic tools exist: substitution f(X) ↦ f(aX) (a q-shift when a = q) and uniqueness for recursive equations f = g·f with g(0) = 0. No q-difference operators or formal Gaussian integrals exist."
       },
       {
-       "target": "GSWZ Theorem 6: for each fixed nonzero n only finitely many i have c_{n,i} ≠ 0, via the Laurent-polynomial coefficient recurrence and cancellation of cyclotomic poles",
+       "target": "GSWZ Theorem 6: F_A is admissible, i.e. for the exponents c_{n,i} of its q-Pochhammer product expansion ∏_{n,i}(q^i xⁿ; q)_∞^{c_{n,i}} above (a priori with i-support bounded below), for each fixed nonzero n only finitely many i have c_{n,i} ≠ 0, via the Laurent-polynomial coefficient recurrence and cancellation of cyclotomic poles",
        "library": "absent",
        "declarations": [
         {
