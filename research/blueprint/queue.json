@@ -14966,9 +14966,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisDuality.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #675"
+   "note": "released on GitHub issue #675"
   },
   {
    "id": "REV-ArithmeticGaloisDuality",
@@ -19635,12 +19635,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-LocalGaloisDeformationRings.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "released on GitHub issue #770"
+   "note": "claimed on GitHub issue #770"
   },
   {
    "id": "REV-LocalGaloisDeformationRings",
