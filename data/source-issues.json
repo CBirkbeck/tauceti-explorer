@@ -143593,6 +143593,86 @@
    "reviewReason": null
   },
   {
+   "id": "LefschetzPencilsAndVanishingCycles/E9",
+   "kind": "misprint",
+   "locator": "Exposé XV, 2.1.3 and Lemme 2.7.8, pp. 14–17",
+   "printed": "'Lemme 2.1.3' and the paragraph '2.1.3. Prouvons 2.1.2' share a number, and the lemma after 2.1.7 is numbered 'Lemme 2.7.8'",
+   "correction": "number the paragraph 2.1.3 bis (or renumber), and read 'Lemme 2.1.8'",
+   "reason": "The proof of 2.2.7 says 'Appliquons 2.1.8', and the lemma sits between 2.1.7 and 2.2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
+    "the IAS scan itself (LNM 340), which contains no errata sheet"
+   ],
+   "owner": "LefschetzPencilsAndVanishingCycles",
+   "file": "research/blueprint/packets/LefschetzPencilsAndVanishingCycles--LPV.0.json",
+   "citation": "Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340, Springer 1973; IAS author-archive scan with OCR (the OCR is poor: symbols ~, @, 4 replace accents and Greek letters; statements were reconstructed from the surrounding French text and the numbered cross-references)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LefschetzPencilsAndVanishingCycles/E10",
+   "kind": "misprint",
+   "locator": "Exposé XV, (2.2.5.9), p. 21",
+   "printed": "D(σ)(δ') = λ(σ).δ",
+   "correction": "Var(σ)(δ') = λ(σ).δ",
+   "reason": "The next display (2.2.5.10) rewrites it as a formula for Var(σ), and D is not defined in XV.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
+    "the IAS scan itself (LNM 340), which contains no errata sheet"
+   ],
+   "owner": "LefschetzPencilsAndVanishingCycles",
+   "file": "research/blueprint/packets/LefschetzPencilsAndVanishingCycles--LPV.0.json",
+   "citation": "Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340, Springer 1973; IAS author-archive scan with OCR (the OCR is poor: symbols ~, @, 4 replace accents and Greek letters; statements were reconstructed from the surrounding French text and the numbered cross-references)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LefschetzPencilsAndVanishingCycles/E11",
+   "kind": "error",
+   "locator": "Exposé XV, 2.2.6, p. 22",
+   "printed": "si 2∤k (Λ = ℤ/k), ±δ est caractérisé par (2.2.5.3) (2.2.5.4), ie. par (2.2.6.1) (δ,δ) = (−1)^m.2",
+   "correction": "±δ is characterised by (δ, δ) = (−1)^m·2 when k is a power of a single odd prime; for general odd k one must also use naturality in Λ prime by prime, or the classes of XII 3.7",
+   "reason": "(uδ, uδ) = u²(δ, δ), and ℤ/k has square roots of 1 other than ±1 when k has two distinct odd prime factors: for k = 15, u = 4 gives u² = 16 ≡ 1, so 4δ ≠ ±δ also satisfies (2.2.6.1).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
+    "the IAS scan itself (LNM 340), which contains no errata sheet"
+   ],
+   "owner": "LefschetzPencilsAndVanishingCycles",
+   "file": "research/blueprint/packets/LefschetzPencilsAndVanishingCycles--LPV.0.json",
+   "citation": "Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340, Springer 1973; IAS author-archive scan with OCR (the OCR is poor: symbols ~, @, 4 replace accents and Greek letters; statements were reconstructed from the surrounding French text and the numbered cross-references)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LefschetzPencilsAndVanishingCycles/E12",
+   "kind": "misprint",
+   "locator": "Exposé XV, 2.2.2, p. 18",
+   "printed": "Sauf dans le cas exceptionnel où k(s) est de caractéristique 2 et où n+1 est pair",
+   "correction": "où n+1 est impair (n pair)",
+   "reason": "The degenerate case is characteristic 2 with n even (XV 1.2.2 and 1.2.8: an odd number n + 1 of variables), and 2.2.6 says 'Supposons n impair; x₀ est alors un point rationnel (2.2.2)'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "web search 'SGA 7 Groupes de monodromie errata Exposé XII quadriques Deligne misprint', 2026-09-29: no errata list for LNM 340 found (only the Springer and IAS bibliographic pages)",
+    "the IAS scan itself (LNM 340), which contains no errata sheet"
+   ],
+   "owner": "LefschetzPencilsAndVanishingCycles",
+   "file": "research/blueprint/packets/LefschetzPencilsAndVanishingCycles--LPV.0.json",
+   "citation": "Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340, Springer 1973; IAS author-archive scan with OCR (the OCR is poor: symbols ~, @, 4 replace accents and Greek letters; statements were reconstructed from the surrounding French text and the numbered cross-references)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "LocalGaloisDeformationRings/E1",
    "kind": "error",
    "locator": "Theorem 6.12(4), in the published version (Duke Math. J. 128 (2005)); read through Remark 1.7 of arXiv v3, p. 4",
