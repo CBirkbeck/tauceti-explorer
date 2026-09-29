@@ -6282,3 +6282,131 @@ example (a : (ℤ_[3])ˣ) (ha : (a : ℤ_[3])=4) :
     eisensteinAwayMoment 3 a ha 3 (eisensteinAwayConstant 3 a)=(-13/120 : ℚ_[3]) ∧
       (UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein 3 4 (by decide))).coeff 0=(-13/120 : ℂ) := sorry
 end SuggestedEisensteinAwayTests
+
+/-! ## Full coefficientwise Eisenstein family over the denominator localization
+
+The constant is the actual denominator-localized element, and positive
+coefficients are the existing integral unit measures. Classical and p-adic
+specializations are separate coefficient maps of one rational power series.
+-/
+namespace DirichletPadic
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "S" => (fun a : U => Localization.Away (2*eisensteinTwistedDenominator p a))
+
+def eisensteinAwaySeries (a : U) : PowerSeries (S a) := sorry
+lemma eisensteinAwaySeries_coeff (a : U) (n : ℕ) :
+    (eisensteinAwaySeries p a).coeff n = if hn : 0<n then
+      algebraMap M (S a) (positiveEisensteinMeasure p ⟨n,hn⟩) else eisensteinAwayConstant p a := sorry
+lemma eisensteinAwaySeries_coeff_zero (a : U) :
+    (eisensteinAwaySeries p a).coeff 0=eisensteinAwayConstant p a := sorry
+lemma eisensteinAwaySeries_coeff_pos (a : U) (n : ℕ+) :
+    (eisensteinAwaySeries p a).coeff (n : ℕ)=algebraMap M (S a) (positiveEisensteinMeasure p n) := sorry
+lemma eisensteinAwaySeries_unique (a : U) (F : PowerSeries (S a))
+    (h0 : F.coeff 0=eisensteinAwayConstant p a)
+    (hp : ∀ n : ℕ+, F.coeff (n : ℕ)=algebraMap M (S a) (positiveEisensteinMeasure p n)) :
+    F=eisensteinAwaySeries p a := sorry
+
+def totalEisensteinSeries : PowerSeries Q := sorry
+lemma totalEisensteinSeries_coeff (n : ℕ) :
+    (totalEisensteinSeries p).coeff n = if hn : 0<n then
+      algebraMap M Q (positiveEisensteinMeasure p ⟨n,hn⟩) else localizedEisensteinConstant p := sorry
+lemma totalEisensteinSeries_coeff_zero :
+    (totalEisensteinSeries p).coeff 0=localizedEisensteinConstant p := sorry
+lemma totalEisensteinSeries_coeff_pos (n : ℕ+) :
+    (totalEisensteinSeries p).coeff (n : ℕ)=algebraMap M Q (positiveEisensteinMeasure p n) := sorry
+lemma totalEisensteinSeries_unique (F : PowerSeries Q)
+    (h0 : F.coeff 0=localizedEisensteinConstant p)
+    (hp : ∀ n : ℕ+, F.coeff (n : ℕ)=algebraMap M Q (positiveEisensteinMeasure p n)) :
+    F=totalEisensteinSeries p := sorry
+lemma eisensteinAwaySeries_toFraction (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    (eisensteinAwaySeries p a).map (eisensteinAwayToFraction p a ha)=totalEisensteinSeries p := sorry
+lemma eisensteinAwaySeries_specialize (a : U) (ha : (a : Z)=(p+1 : ℕ)) (k : ℕ) :
+    (eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha k) =
+      PowerSeries.C (eisensteinAwayMoment p a ha k (eisensteinAwayConstant p a))+
+        (positiveEisensteinSeries p (j^k)).map (algebraMap Z ℚ_[p]) := sorry
+theorem eisensteinSeries_common (a : U) (ha : (a : Z)=(p+1 : ℕ))
+    (k : ℕ) (hk : 4≤k) (he : Even k) :
+    ∃! F : PowerSeries ℚ,
+      F.map (algebraMap ℚ ℂ)=UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein p k hk) ∧
+      F.map (algebraMap ℚ ℚ_[p])=
+        (eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha (k-1)) := sorry
+lemma eisensteinAwaySeries_coeff_mul_p (a : U) (n : ℕ) :
+    (eisensteinAwaySeries p a).coeff (p*n)=(eisensteinAwaySeries p a).coeff n := sorry
+end DirichletPadic
+
+namespace SuggestedFullEisensteinTests
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open AbstractMeasure DirichletPadic
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "S" => (fun a : U => Localization.Away (2*eisensteinTwistedDenominator p a))
+-- integral_coefficient_evaluator
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) (k : ℕ) (μ : M) :
+    eisensteinAwayMoment p a ha k (algebraMap M (S a) μ)=(μ (j^k) : ℚ_[p]) := sorry
+-- away_constant_coefficient
+example (a : U) : (eisensteinAwaySeries p a).coeff 0=eisensteinAwayConstant p a := sorry
+-- away_first_coefficient
+example (a : U) : (eisensteinAwaySeries p a).coeff 1=1 := sorry
+-- away_positive_coefficient
+example (a : U) (n : ℕ+) : (eisensteinAwaySeries p a).coeff (n : ℕ)=
+    algebraMap M (S a) (positiveEisensteinMeasure p n) := sorry
+-- coefficient_zero_formula
+example (a : U) : (eisensteinAwaySeries p a).coeff 0=eisensteinAwayConstant p a := sorry
+-- total_constant_coefficient
+example : (totalEisensteinSeries p).coeff 0=localizedEisensteinConstant p := sorry
+-- total_first_coefficient
+example : (totalEisensteinSeries p).coeff 1=1 := sorry
+-- total_unique_coefficients
+example (F : PowerSeries Q) (h0 : F.coeff 0=localizedEisensteinConstant p)
+    (hp : ∀ n : ℕ+, F.coeff (n : ℕ)=algebraMap M Q (positiveEisensteinMeasure p n)) :
+    F=totalEisensteinSeries p := sorry
+-- image_is_full_total_series
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    (eisensteinAwaySeries p a).map (eisensteinAwayToFraction p a ha)=totalEisensteinSeries p := sorry
+-- specialization_retains_constant
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    ((eisensteinAwaySeries 2 a).map (eisensteinAwayMoment 2 a ha 3)).coeff 0=(-7/240 : ℚ_[2]) := sorry
+-- specialization_prime_coefficient_survives
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    ((eisensteinAwaySeries 2 a).map (eisensteinAwayMoment 2 a ha 3)).coeff 2=1 := sorry
+-- specialization_dyadic_sixth_coefficient
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    ((eisensteinAwaySeries 2 a).map (eisensteinAwayMoment 2 a ha 3)).coeff 6=28 := sorry
+-- common_whole_dyadic_series
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    ∃! F : PowerSeries ℚ,
+      F.map (algebraMap ℚ ℂ)=UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein 2 4 (by decide)) ∧
+      F.map (algebraMap ℚ ℚ_[2])=
+        (eisensteinAwaySeries 2 a).map (eisensteinAwayMoment 2 a ha 3) := sorry
+-- common_whole_ternary_series
+example (a : (ℤ_[3])ˣ) (ha : (a : ℤ_[3])=4) :
+    ∃! F : PowerSeries ℚ,
+      F.map (algebraMap ℚ ℂ)=UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein 3 4 (by decide)) ∧
+      F.map (algebraMap ℚ ℚ_[3])=
+        (eisensteinAwaySeries 3 a).map (eisensteinAwayMoment 3 a ha 3) := sorry
+-- index_invariance_includes_zero
+example (a : U) : (eisensteinAwaySeries p a).coeff (p*0)=(eisensteinAwaySeries p a).coeff 0 := sorry
+-- prime_power_coefficient_survives
+example (a : U) (r : ℕ) : (eisensteinAwaySeries p a).coeff (p^r)=1 := sorry
+end SuggestedFullEisensteinTests
