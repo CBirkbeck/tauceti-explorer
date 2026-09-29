@@ -1068,7 +1068,8 @@
    ],
    "avoidAccountOf": "PAPER-BERGSTROM-FABER-PAYNE-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-BERGSTROM-FABER-PAYNE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1080"
   },
   {
    "id": "PAPER-SMITH-24",
@@ -4600,8 +4601,9 @@
    ],
    "avoidAccountOf": "PAPER-XIE-YUAN-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-XIE-YUAN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1271"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1271",
+   "finishedAt": "2026-09-29T12:50:00Z"
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22",
