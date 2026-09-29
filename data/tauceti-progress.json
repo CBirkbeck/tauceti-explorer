@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-09-29T01:22:46Z",
- "exported_at": "2026-09-29T01:22:46Z",
+ "cutoff": "2026-09-29T18:32:19Z",
+ "exported_at": "2026-09-29T18:32:19Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 120,
-  "recent": 4291,
-  "total": 8840,
+  "open": 160,
+  "recent": 4373,
+  "total": 8994,
   "unattributed": {
-   "no_label": 1090,
+   "no_label": 1102,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    659,
    1080,
    1649,
-   248
+   402
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "912674d40e532a3bb9e9029fc768bd87a68d0481",
+ "roadmap_head": "ca2f06387d23743ead55517b7236ff5164411fd7",
  "rows": [
   {
    "activity": {
-    "last": "2026-09-28T17:06:42Z",
-    "open": 3,
-    "recent": 126,
-    "since_report": 11,
-    "total": 358,
+    "last": "2026-09-29T16:55:25Z",
+    "open": 5,
+    "recent": 130,
+    "since_report": 17,
+    "total": 364,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      31,
      19,
      42,
-     6
+     12
     ]
    },
    "assessment": {
@@ -154,11 +154,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T09:43:22Z",
-    "open": 0,
-    "recent": 60,
-    "since_report": 7,
-    "total": 60,
+    "last": "2026-09-29T15:28:27Z",
+    "open": 1,
+    "recent": 62,
+    "since_report": 9,
+    "total": 62,
     "weekly": [
      0,
      0,
@@ -175,7 +175,7 @@
      0,
      33,
      25,
-     2
+     4
     ]
    },
    "assessment": {
@@ -256,11 +256,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T10:37:14Z",
+    "last": "2026-09-29T17:47:17Z",
     "open": 1,
-    "recent": 64,
-    "since_report": 8,
-    "total": 116,
+    "recent": 65,
+    "since_report": 9,
+    "total": 117,
     "weekly": [
      0,
      0,
@@ -277,7 +277,7 @@
      10,
      22,
      25,
-     4
+     5
     ]
    },
    "assessment": {
@@ -401,11 +401,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T14:37:55Z",
-    "open": 6,
-    "recent": 46,
-    "since_report": 6,
-    "total": 46,
+    "last": "2026-09-29T18:12:45Z",
+    "open": 4,
+    "recent": 50,
+    "since_report": 10,
+    "total": 50,
     "weekly": [
      0,
      0,
@@ -422,7 +422,7 @@
      2,
      18,
      22,
-     4
+     8
     ]
    },
    "assessment": {
@@ -450,9 +450,9 @@
     194,
     216,
     245,
-    304,
-    349,
-    366
+    307,
+    352,
+    369
    ],
    "layers": [
     "Stage 1: van Kampen through the fundamental groupoid",
@@ -469,7 +469,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/AlgebraicTopology/README.md",
-   "readme_sha": "ee111b72fb0491cf96a9ad1ae5b09e475ea5644a1d90b635da9d378e9715e63b",
+   "readme_sha": "a1096d49d200140f50c8f62d4510f34abece6970127b754ff5bd77034f7cd05a",
    "retired": null,
    "states": [
     "unassessed",
@@ -517,11 +517,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T11:01:00Z",
+    "last": "2026-09-29T11:41:41Z",
     "open": 0,
-    "recent": 27,
-    "since_report": 9,
-    "total": 27,
+    "recent": 28,
+    "since_report": 10,
+    "total": 28,
     "weekly": [
      0,
      0,
@@ -538,7 +538,7 @@
      0,
      8,
      16,
-     3
+     4
     ]
    },
    "assessment": {
@@ -879,11 +879,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T18:37:22Z",
-    "open": 0,
-    "recent": 51,
-    "since_report": 7,
-    "total": 51,
+    "last": "2026-09-29T17:47:17Z",
+    "open": 3,
+    "recent": 54,
+    "since_report": 10,
+    "total": 54,
     "weekly": [
      0,
      0,
@@ -900,7 +900,7 @@
      5,
      24,
      18,
-     4
+     7
     ]
    },
    "assessment": {
@@ -1023,11 +1023,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-29T00:12:33Z",
+    "last": "2026-09-29T18:02:12Z",
     "open": 0,
-    "recent": 115,
-    "since_report": 9,
-    "total": 153,
+    "recent": 112,
+    "since_report": 11,
+    "total": 155,
     "weekly": [
      0,
      0,
@@ -1044,7 +1044,7 @@
      11,
      32,
      19,
-     9
+     11
     ]
    },
    "assessment": {
@@ -1137,11 +1137,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T22:17:38Z",
-    "open": 2,
-    "recent": 90,
-    "since_report": 61,
-    "total": 90,
+    "last": "2026-09-29T15:18:24Z",
+    "open": 1,
+    "recent": 93,
+    "since_report": 6,
+    "total": 93,
     "weekly": [
      0,
      0,
@@ -1158,15 +1158,15 @@
      17,
      22,
      33,
-     3
+     6
     ]
    },
    "assessment": {
-    "detail": null,
+    "detail": "the report changed after the transcription was made",
     "notes": {},
-    "reason": "ok",
+    "reason": "transcription-retired",
     "remaining": {},
-    "source": "hand-read"
+    "source": null
    },
    "completed": false,
    "id": "TauCetiRoadmap/Chebotarev",
@@ -1224,64 +1224,82 @@
    "parent_id": null,
    "readme": "TauCetiRoadmap/Chebotarev/README.md",
    "readme_sha": "28488091d47ef77d2718b7cf6a3fe61d0de0f8b81a8dff8fdc3afd1fb2446fc3",
-   "retired": null,
+   "retired": {
+    "states": [
+     "partial",
+     "done",
+     "untouched",
+     "partial",
+     "untouched",
+     "untouched",
+     "partial",
+     "partial",
+     "untouched",
+     "untouched",
+     "partial",
+     "untouched",
+     "untouched",
+     "untouched"
+    ],
+    "to_sha": "94050b6"
+   },
    "states": [
-    "partial",
-    "done",
-    "untouched",
-    "partial",
-    "untouched",
-    "untouched",
-    "partial",
-    "partial",
-    "untouched",
-    "untouched",
-    "partial",
-    "untouched",
-    "untouched",
-    "untouched"
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
    ],
    "status": {
     "frontier": [
      {
-      "name": "The cyclic fixed-field fibre count",
-      "text": "— prove the exact multiplicity `#G / (#C * orderOf σ)` and the converse from relative Frobenius back to `C`; the generator, divisibility, uniqueness, and residue-degree-one ingredients are now available."
+      "name": "The remaining discard estimates (11.3)",
+      "text": "— bound the contribution of primes of residue degree above one and of any finite set, then package the sum as the single `o(x)` error every crossing cites. The higher-degree prime set is identified already."
      },
      {
-      "name": "The fixed-field exceptional set",
-      "text": "— identify the discarded primes of the fixed field as those lying above `ramifiedPrimes K L`, rather than merely those ramifying in `L/E`."
+      "name": "The cyclotomic weighted theorem (12.2)",
+      "text": "— build the regularized boundary function from the trivial-character pole and apply the consumed Tauberian theorem to the nonnegative `Λ_σ`, giving `ψ_σ(x)/x → 1 / #Gal(F/K)` and, by summation, `ψ_K(x) ~ x`. It needs the Layer 5 exports by name."
      },
      {
-      "name": "Cyclotomic character continuation",
-      "text": "— factor the Galois-character weight through the consumed ray-class character and establish continuation, the pole of the trivial character, and nonvanishing at `s = 1`; these are the missing inputs for cyclotomic density."
+      "name": "The exact residue-degree-one contraction (12.3)",
+      "text": "— the weighted analogue of the fixed-field fibre count, with no error term. The multiplicity is in place; what remains is removing prime powers on both sides so the norms agree termwise."
      },
      {
-      "name": "The remaining discard estimates",
-      "text": "— prove that residue degree above one and any finite prime set contribute `o(x)`, then package the combined error required by weighted contraction."
+      "name": "`ϑ_C` and `π_C` (Layer 13)",
+      "text": "— once `ψ_C(x)/x → #C/#G` holds these follow from consumed transfers; the generic prime-counting comparison and `Li` ratio lemma are now present."
      },
      {
-      "name": "Density normalization and the first density theorem",
-      "text": "— connect the Frobenius-prime sums to the roadmap's ratio-normalized Dirichlet density and, after continuation is available, prove the cyclotomic fibre density; the abelian crossing and general Chebotarev theorems depend on those steps."
+      "name": "Natural-density Chebotarev (Layer 14)",
+      "text": "— `hasNaturalDensity_frobeniusPrimeSet` needs the prime ideal theorem for `K` as denominator, and that comes from 12.2, not an import. Dirichlet density does not imply it, so Layer 10 is no shortcut here."
      }
     ],
-    "glance": "Layer 2, the Frobenius-prime carrier and its finite exceptional set, is complete. Layers 1, 4, 7, 8, and 11 are genuinely partial; no Dirichlet-density, prime-number-theorem, or natural-density form of Chebotarev has landed, and Layers 3, 5, 6, 9, 10, and 12–14 remain untouched as theorem layers.",
+    "glance": "The density spine is finished: the Chebotarev density theorem holds in Dirichlet-density form over an arbitrary number field for an arbitrary conjugacy class, with the splitting, non-Galois and arithmetic-progression corollaries. The counting spine is partial: the Frobenius von Mangoldt coefficient, `ψ_C` and `ϑ_C` are in place, but no asymptotic for them or for `π_C` is established, and natural-density Chebotarev has not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/Chebotarev/STATUS.md",
     "progress_path": "TauCetiRoadmap/Chebotarev/PROGRESS.md",
-    "report_sha": "7b09221b32b60a6183e5f1af88e3803a0049468ce85b0d61d2476e3fc04f5f8e",
-    "to_sha": "94050b6aee7bc349e209c85bf5e2cec3c49420a8",
-    "ts": "2026-09-11T22:46:43Z"
+    "report_sha": "d29af8f183169532b6316abf9e96e39a7a474003c066d601481f3a7b210bec09",
+    "to_sha": "8339b5a9999c7fe7c83ad0ac2b89c5a2754fd8c8",
+    "ts": "2026-09-28T06:14:44Z"
    },
    "title": "the Chebotarev density theorem",
    "topic": "Number theory"
   },
   {
    "activity": {
-    "last": "2026-09-29T00:46:49Z",
-    "open": 6,
-    "recent": 126,
-    "since_report": 15,
-    "total": 126,
+    "last": "2026-09-29T15:43:20Z",
+    "open": 5,
+    "recent": 136,
+    "since_report": 25,
+    "total": 136,
     "weekly": [
      0,
      0,
@@ -1298,7 +1316,7 @@
      8,
      23,
      84,
-     7
+     17
     ]
    },
    "assessment": {
@@ -1425,11 +1443,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T13:57:15Z",
-    "open": 0,
-    "recent": 54,
-    "since_report": 50,
-    "total": 142,
+    "last": "2026-09-29T17:10:03Z",
+    "open": 3,
+    "recent": 59,
+    "since_report": 55,
+    "total": 147,
     "weekly": [
      8,
      21,
@@ -1446,7 +1464,7 @@
      5,
      21,
      19,
-     5
+     10
     ]
    },
    "assessment": {
@@ -1529,11 +1547,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T10:04:44Z",
-    "open": 3,
-    "recent": 67,
-    "since_report": 58,
-    "total": 241,
+    "last": "2026-09-29T08:25:40Z",
+    "open": 4,
+    "recent": 70,
+    "since_report": 61,
+    "total": 244,
     "weekly": [
      0,
      0,
@@ -1550,7 +1568,7 @@
      9,
      21,
      30,
-     2
+     5
     ]
    },
    "assessment": {
@@ -1637,11 +1655,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T19:36:02Z",
+    "last": "2026-09-29T11:53:19Z",
     "open": 2,
-    "recent": 61,
-    "since_report": 59,
-    "total": 77,
+    "recent": 62,
+    "since_report": 61,
+    "total": 79,
     "weekly": [
      0,
      0,
@@ -1658,7 +1676,7 @@
      5,
      19,
      25,
-     4
+     6
     ]
    },
    "assessment": {
@@ -1896,11 +1914,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T18:22:35Z",
-    "open": 2,
+    "last": "2026-09-29T01:47:54Z",
+    "open": 1,
     "recent": 172,
-    "since_report": 13,
-    "total": 406,
+    "since_report": 14,
+    "total": 407,
     "weekly": [
      0,
      0,
@@ -1917,7 +1935,7 @@
      62,
      24,
      36,
-     6
+     7
     ]
    },
    "assessment": {
@@ -2040,11 +2058,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T23:33:14Z",
-    "open": 0,
+    "last": "2026-09-29T10:17:10Z",
+    "open": 4,
     "recent": 80,
-    "since_report": 19,
-    "total": 281,
+    "since_report": 20,
+    "total": 282,
     "weekly": [
      0,
      9,
@@ -2061,7 +2079,7 @@
      9,
      15,
      37,
-     7
+     8
     ]
    },
    "assessment": {
@@ -2150,11 +2168,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T12:10:45Z",
-    "open": 4,
-    "recent": 48,
-    "since_report": 14,
-    "total": 48,
+    "last": "2026-09-29T15:02:48Z",
+    "open": 2,
+    "recent": 52,
+    "since_report": 18,
+    "total": 52,
     "weekly": [
      0,
      0,
@@ -2171,7 +2189,7 @@
      2,
      16,
      24,
-     6
+     10
     ]
    },
    "assessment": {
@@ -2269,11 +2287,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T22:25:28Z",
-    "open": 4,
-    "recent": 79,
-    "since_report": 15,
-    "total": 150,
+    "last": "2026-09-29T15:11:49Z",
+    "open": 3,
+    "recent": 78,
+    "since_report": 16,
+    "total": 151,
     "weekly": [
      5,
      11,
@@ -2290,7 +2308,7 @@
      19,
      24,
      19,
-     10
+     11
     ]
    },
    "assessment": {
@@ -2411,11 +2429,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T08:15:11Z",
-    "open": 0,
+    "last": "2026-09-29T13:04:52Z",
+    "open": 2,
     "recent": 65,
-    "since_report": 3,
-    "total": 65,
+    "since_report": 4,
+    "total": 66,
     "weekly": [
      0,
      0,
@@ -2432,7 +2450,7 @@
      8,
      12,
      41,
-     1
+     2
     ]
    },
    "assessment": {
@@ -2687,11 +2705,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T11:50:53Z",
-    "open": 1,
-    "recent": 53,
-    "since_report": 49,
-    "total": 82,
+    "last": "2026-09-29T13:46:38Z",
+    "open": 0,
+    "recent": 55,
+    "since_report": 51,
+    "total": 84,
     "weekly": [
      0,
      0,
@@ -2708,7 +2726,7 @@
      5,
      19,
      20,
-     3
+     5
     ]
    },
    "assessment": {
@@ -2803,11 +2821,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T20:06:11Z",
+    "last": "2026-09-29T16:22:42Z",
     "open": 1,
-    "recent": 59,
-    "since_report": 53,
-    "total": 173,
+    "recent": 63,
+    "since_report": 57,
+    "total": 177,
     "weekly": [
      23,
      11,
@@ -2824,7 +2842,7 @@
      6,
      11,
      33,
-     2
+     6
     ]
    },
    "assessment": {
@@ -2916,8 +2934,8 @@
   {
    "activity": {
     "last": "2026-09-28T11:53:45Z",
-    "open": 0,
-    "recent": 36,
+    "open": 2,
+    "recent": 34,
     "since_report": 33,
     "total": 60,
     "weekly": [
@@ -3015,11 +3033,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-27T18:01:27Z",
+    "last": "2026-09-29T09:15:57Z",
     "open": 0,
-    "recent": 53,
-    "since_report": 52,
-    "total": 77,
+    "recent": 54,
+    "since_report": 53,
+    "total": 78,
     "weekly": [
      0,
      0,
@@ -3036,7 +3054,7 @@
      2,
      15,
      30,
-     0
+     1
     ]
    },
    "assessment": {
@@ -3119,11 +3137,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-29T01:17:59Z",
-    "open": 0,
-    "recent": 21,
+    "last": "2026-09-29T18:22:59Z",
+    "open": 2,
+    "recent": 28,
     "since_report": null,
-    "total": 73,
+    "total": 81,
     "weekly": [
      0,
      0,
@@ -3140,7 +3158,7 @@
      4,
      1,
      0,
-     10
+     18
     ]
    },
    "assessment": {
@@ -3217,11 +3235,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T07:45:17Z",
-    "open": 6,
+    "last": "2026-09-29T05:12:45Z",
+    "open": 8,
     "recent": 61,
-    "since_report": 50,
-    "total": 132,
+    "since_report": 51,
+    "total": 133,
     "weekly": [
      3,
      11,
@@ -3238,7 +3256,7 @@
      7,
      18,
      28,
-     1
+     2
     ]
    },
    "assessment": {
@@ -3325,11 +3343,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T19:27:40Z",
-    "open": 4,
-    "recent": 74,
-    "since_report": 27,
-    "total": 74,
+    "last": "2026-09-29T18:02:11Z",
+    "open": 1,
+    "recent": 79,
+    "since_report": 32,
+    "total": 79,
     "weekly": [
      0,
      0,
@@ -3346,7 +3364,7 @@
      6,
      19,
      33,
-     16
+     21
     ]
    },
    "assessment": {
@@ -3435,11 +3453,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T05:58:21Z",
-    "open": 2,
-    "recent": 2,
+    "last": "2026-09-29T17:40:53Z",
+    "open": 3,
+    "recent": 15,
     "since_report": null,
-    "total": 2,
+    "total": 15,
     "weekly": [
      0,
      0,
@@ -3456,7 +3474,7 @@
      0,
      0,
      1,
-     1
+     14
     ]
    },
    "assessment": {
@@ -3525,11 +3543,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T16:28:32Z",
-    "open": 3,
-    "recent": 211,
-    "since_report": 8,
-    "total": 475,
+    "last": "2026-09-29T18:03:04Z",
+    "open": 4,
+    "recent": 216,
+    "since_report": 13,
+    "total": 480,
     "weekly": [
      0,
      0,
@@ -3546,7 +3564,7 @@
      59,
      53,
      48,
-     5
+     10
     ]
    },
    "assessment": {
@@ -3763,11 +3781,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T18:54:24Z",
-    "open": 0,
-    "recent": 116,
-    "since_report": 26,
-    "total": 117,
+    "last": "2026-09-29T11:08:37Z",
+    "open": 1,
+    "recent": 117,
+    "since_report": 27,
+    "total": 118,
     "weekly": [
      0,
      0,
@@ -3784,7 +3802,7 @@
      13,
      40,
      42,
-     13
+     14
     ]
    },
    "assessment": {
@@ -3882,7 +3900,7 @@
    "activity": {
     "last": "2026-09-28T23:01:01Z",
     "open": 2,
-    "recent": 54,
+    "recent": 53,
     "since_report": 5,
     "total": 166,
     "weekly": [
@@ -3968,8 +3986,8 @@
   {
    "activity": {
     "last": "2026-09-28T18:43:31Z",
-    "open": 2,
-    "recent": 53,
+    "open": 4,
+    "recent": 52,
     "since_report": 51,
     "total": 79,
     "weekly": [
@@ -4119,11 +4137,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-29T00:12:33Z",
-    "open": 1,
-    "recent": 39,
-    "since_report": 17,
-    "total": 39,
+    "last": "2026-09-29T15:23:29Z",
+    "open": 2,
+    "recent": 41,
+    "since_report": 19,
+    "total": 41,
     "weekly": [
      0,
      0,
@@ -4140,7 +4158,7 @@
      0,
      0,
      33,
-     6
+     8
     ]
    },
    "assessment": {
@@ -4224,11 +4242,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T19:35:44Z",
-    "open": 2,
+    "last": "2026-09-29T11:08:37Z",
+    "open": 5,
     "recent": 72,
-    "since_report": 4,
-    "total": 160,
+    "since_report": 5,
+    "total": 161,
     "weekly": [
      1,
      13,
@@ -4245,7 +4263,7 @@
      10,
      18,
      34,
-     4
+     5
     ]
    },
    "assessment": {
@@ -4341,7 +4359,31 @@
    "topic": "Analysis"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": null,
+    "open": 2,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
    "assessment": {
     "detail": null,
     "notes": {},
@@ -4396,11 +4438,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T17:40:18Z",
-    "open": 5,
-    "recent": 60,
-    "since_report": 57,
-    "total": 61,
+    "last": "2026-09-29T15:59:51Z",
+    "open": 2,
+    "recent": 64,
+    "since_report": 61,
+    "total": 65,
     "weekly": [
      0,
      0,
@@ -4417,7 +4459,7 @@
      8,
      23,
      18,
-     4
+     8
     ]
    },
    "assessment": {
@@ -4511,7 +4553,31 @@
    "topic": "Number theory"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": "2026-09-29T10:50:45Z",
+    "open": 3,
+    "recent": 6,
+    "since_report": null,
+    "total": 6,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     6
+    ]
+   },
    "assessment": {
     "detail": null,
     "notes": {},
@@ -4558,11 +4624,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T08:51:01Z",
+    "last": "2026-09-29T15:32:18Z",
     "open": 3,
-    "recent": 83,
-    "since_report": 12,
-    "total": 116,
+    "recent": 89,
+    "since_report": 18,
+    "total": 122,
     "weekly": [
      0,
      0,
@@ -4579,7 +4645,7 @@
      5,
      17,
      51,
-     6
+     12
     ]
    },
    "assessment": {
@@ -4711,11 +4777,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T23:59:21Z",
-    "open": 7,
-    "recent": 149,
-    "since_report": 41,
-    "total": 151,
+    "last": "2026-09-29T15:56:54Z",
+    "open": 9,
+    "recent": 162,
+    "since_report": 54,
+    "total": 164,
     "weekly": [
      0,
      0,
@@ -4732,7 +4798,7 @@
      10,
      16,
      96,
-     22
+     35
     ]
    },
    "assessment": {
@@ -4843,11 +4909,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T12:25:14Z",
-    "open": 2,
-    "recent": 72,
-    "since_report": 21,
-    "total": 72,
+    "last": "2026-09-29T15:34:51Z",
+    "open": 4,
+    "recent": 80,
+    "since_report": 29,
+    "total": 80,
     "weekly": [
      0,
      0,
@@ -4864,7 +4930,7 @@
      8,
      18,
      40,
-     5
+     13
     ]
    },
    "assessment": {
@@ -4975,11 +5041,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T16:10:57Z",
+    "last": "2026-09-29T01:40:13Z",
     "open": 2,
-    "recent": 11,
+    "recent": 12,
     "since_report": null,
-    "total": 11,
+    "total": 12,
     "weekly": [
      0,
      0,
@@ -4996,7 +5062,7 @@
      0,
      0,
      5,
-     6
+     7
     ]
    },
    "assessment": {
@@ -5061,11 +5127,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T22:42:56Z",
-    "open": 6,
-    "recent": 313,
-    "since_report": 23,
-    "total": 952,
+    "last": "2026-09-29T10:21:12Z",
+    "open": 8,
+    "recent": 295,
+    "since_report": 26,
+    "total": 955,
     "weekly": [
      22,
      19,
@@ -5082,7 +5148,7 @@
      65,
      73,
      69,
-     9
+     12
     ]
    },
    "assessment": {
@@ -5191,11 +5257,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-29T00:56:29Z",
-    "open": 20,
-    "recent": 367,
-    "since_report": 46,
-    "total": 1031,
+    "last": "2026-09-29T15:20:21Z",
+    "open": 25,
+    "recent": 355,
+    "since_report": 52,
+    "total": 1037,
     "weekly": [
      0,
      0,
@@ -5212,7 +5278,7 @@
      69,
      62,
      150,
-     14
+     20
     ]
    },
    "assessment": {
@@ -5232,7 +5298,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/RepresentationTheory/README.md",
-   "readme_sha": "c7db8acb251e02024e7310332ac6caa94ed08658654b23ba91349cf8f0f08baa",
+   "readme_sha": "3bbfce66cac7fc8f04aa1ef5021dac523b32db9d0355088b943ad6abe891a1f8",
    "retired": null,
    "states": [],
    "status": {
@@ -5959,6 +6025,86 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "reason": "not-transcribed",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/RepresentationTheory/ModularInduction",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4"
+   ],
+   "layer_lines": [
+    174,
+    202,
+    232,
+    257,
+    294
+   ],
+   "layers": [
+    "Layer 0: the Grothendieck group of a group algebra",
+    "Layer 1: ring structure, restriction, induction, and permutation classes",
+    "Layer 2: elements of `ℓ`-power order",
+    "Layer 3: reduction of `G`-modules modulo `ℓ`",
+    "Layer 4: Artin's identity and the modular Artin theorem"
+   ],
+   "links": [],
+   "name": "ModularInduction",
+   "parent": "RepresentationTheory",
+   "parent_id": "TauCetiRoadmap/RepresentationTheory",
+   "readme": "TauCetiRoadmap/RepresentationTheory/ModularInduction/README.md",
+   "readme_sha": "1c57e2e522c66e5505e3376ba5e5216ce31f9d55b3617553f1c830f4ccda18c8",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "Brauer and Artin induction",
+      "text": "— turn the prime-by-prime elementary-subgroup lemma into integral Brauer surjectivity and prove the separate cyclic, rational Artin statement."
+     },
+     {
+      "name": "Gabriel’s theorem",
+      "text": "— use admissible reflection descent to establish uniqueness and existence for every positive root, then prove the finite-type ADE dichotomy."
+     },
+     {
+      "name": "Ado–Iwasawa",
+      "text": "— in positive characteristic, make the enveloping algebra finite over its central subalgebra and apply Krull intersection to obtain a separating finite quotient; in characteristic zero, finish stable cofinite refinement and its split-extension step."
+     },
+     {
+      "name": "Spin and half-spin modules",
+      "text": "— prove irreducibility and identify the type `B` and `D` fundamental highest weights; the type `D` highest-weight vectors and parity-split weights are available."
+     },
+     {
+      "name": "The `GL₂(𝔽_q)` table",
+      "text": "— establish the irreducibility and constituents of the principal series and cuspidal representations, then assemble their character values into the full table."
+     }
+    ],
+    "glance": "The Cartan–Killing classification, semisimple-algebra foundations, Weyl character and dimension formulas, Peter–Weyl, and the image-level Schur–Weyl double centralizer are established. The Clifford correspondence now has surjectivity alongside its earlier injectivity and irreducibility results; Brauer induction, Gabriel’s theorem, Ado–Iwasawa, the spin-module classification, and the Lie-group correspondence remain partial, while the Brauer-algebra duality and arbitrary-field Ado summit have not begun.",
+    "inherited": true,
+    "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
+    "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
+    "report_sha": "352ad70fcb2da529b964c8d1839b15b1dde806917ed733e182eb616613789629",
+    "to_sha": "759eb3ef9658ad1d756b2d42bc5882bb394586c2",
+    "ts": "2026-09-26T20:53:39Z"
+   },
+   "title": "induction theorems in Grothendieck groups of modular representations",
+   "topic": "Algebra and representation theory"
+  },
+  {
+   "activity": null,
+   "assessment": {
+    "detail": null,
+    "notes": {},
     "reason": "ok",
     "remaining": {
      "Layer 5": "reflection descent, uniqueness, and the ADE finite-type dichotomy"
@@ -6655,7 +6801,7 @@
   {
    "activity": {
     "last": "2026-09-28T23:48:00Z",
-    "open": 1,
+    "open": 2,
     "recent": 56,
     "since_report": 12,
     "total": 56,
@@ -6791,7 +6937,7 @@
    "activity": {
     "last": "2026-09-27T07:26:03Z",
     "open": 0,
-    "recent": 136,
+    "recent": 135,
     "since_report": 1,
     "total": 178,
     "weekly": [
@@ -6889,11 +7035,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-28T12:31:28Z",
+    "last": "2026-09-29T17:40:18Z",
     "open": 0,
-    "recent": 57,
-    "since_report": 55,
-    "total": 81,
+    "recent": 58,
+    "since_report": 57,
+    "total": 83,
     "weekly": [
      0,
      0,
@@ -6910,7 +7056,7 @@
      6,
      22,
      20,
-     4
+     6
     ]
    },
    "assessment": {
@@ -7205,11 +7351,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-29T01:17:59Z",
-    "open": 0,
-    "recent": 21,
-    "since_report": 19,
-    "total": 73,
+    "last": "2026-09-29T18:22:59Z",
+    "open": 2,
+    "recent": 28,
+    "since_report": 27,
+    "total": 81,
     "weekly": [
      0,
      0,
@@ -7226,7 +7372,7 @@
      4,
      1,
      0,
-     10
+     18
     ]
    },
    "assessment": {
