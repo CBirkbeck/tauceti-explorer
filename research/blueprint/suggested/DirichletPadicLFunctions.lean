@@ -5450,3 +5450,179 @@ end CommonThree
 end SuggestedArithmeticCharacterTests
 end
 end DirichletPadic
+
+/-! ## Actual pseudomeasure numerators and conditional coefficient-field specialization
+The ring map below is an explicit input. Its canonical construction belongs to
+the open PMIA L3 request; no general coefficient-field evaluator is defined here. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure BigOperators
+open AbstractMeasure
+section PseudomeasureCharacterComparison
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "δ" => (diracHom (G := U) (R := Z))
+
+lemma kubotaLeopoldtPseudomeasure_numerator_nat
+    (u : U) (a : ℕ) (ha : ¬p∣a) (hu : (u : Z)=(a : Z)) :
+    Iwasawa.numerator δ Q u (kubotaLeopoldtPseudomeasure p) =
+      intrinsicSmoothedNumerator p a ha := sorry
+
+variable {K : Type*} [NormedField K] [Algebra ℤ_[p] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[p] K] [CharZero K]
+
+theorem kubotaLeopoldtPseudomeasure_numerator_character
+    (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n))
+    (w : ℕ) (hw : 1≤w) (u : U) (a : ℕ) (ha : ¬p∣a)
+    (hu : (u : Z)=(a : Z)) :
+    extendIntegralUnitCoefficients (R := K)
+      (Iwasawa.numerator δ Q u (kubotaLeopoldtPseudomeasure p))
+      (primePowerArithmeticCharacter p n χ w).toContinuousMap =
+    twistedSmoothedMeasure p n χ a ha
+      (((ContinuousMap.id Z) • (1 : C(Z,K)))^(w-1)) := sorry
+
+theorem primePowerArithmeticCharacter_admissible
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) (hw : 0<w)
+    (u : U) (hu : (u : Z)=((1+p^(n+1) : ℕ) : Z)) :
+    IsUnit (primePowerArithmeticCharacter p n χ w u-1) := sorry
+
+theorem kubotaLeopoldtPseudomeasure_evalAt_character_ratio
+    (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n))
+    (w : ℕ) (hw : 1≤w)
+    (f : M →+* K)
+    (hf : ∀ μ : M, f μ = extendIntegralUnitCoefficients (R := K) μ
+      (primePowerArithmeticCharacter p n χ w).toContinuousMap)
+    (u : U) (a : ℕ) (ha : ¬p∣a) (hu : (u : Z)=(a : Z))
+    (hd : IsUnit (f (δ u-1))) :
+    letI : Algebra M K := f.toAlgebra
+    Iwasawa.evalAt δ Q K u hd (kubotaLeopoldtPseudomeasure p) =
+      twistedSmoothedMeasure p n χ a ha
+        (((ContinuousMap.id Z) • (1 : C(Z,K)))^(w-1)) /
+        (χ (a : ZMod (p^n))*(a : K)^w-1) := sorry
+
+section CommonValues
+variable [Algebra ℚ K]
+variable {E : Type*} [Field E] [CharZero E] [Algebra ℚ E]
+variable (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter E (p^n))
+  (ιC : E →+* ℂ) (ιK : E →+* K)
+  (hχ : DirichletCharacter.IsPrimitive (χ.ringHomComp ιK))
+  (ε : K) (hε : IsPrimitiveRoot ε (p^n))
+  (hG : gaussSum (χ.ringHomComp ιK)⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+  (hD : IsUnit ((p^n : ℕ) : K))
+include hn hχ hε hG hD
+
+theorem kubotaLeopoldtPseudomeasure_evalAt_common_value
+    (w : ℕ) (hw : 1≤w)
+    (f : M →+* K)
+    (hf : ∀ μ : M, f μ = extendIntegralUnitCoefficients (R := K) μ
+      (primePowerArithmeticCharacter p n (χ.ringHomComp ιK) w).toContinuousMap)
+    (u : U) (a : ℕ) (ha : ¬p∣a) (hu : (u : Z)=(a : Z))
+    (hd : IsUnit (f (δ u-1))) :
+    letI : Algebra M K := f.toAlgebra
+    let b : E := -((p^n : ℕ) : E)^(w-1)/w * ∑ r : ZMod (p^n), χ r *
+      algebraMap ℚ E ((Polynomial.bernoulli w).eval (r.val/(p^n) : ℚ))
+    ιC b = DirichletCharacter.LFunction (χ.ringHomComp ιC) (1-(w : ℂ)) ∧
+    ιK b = Iwasawa.evalAt δ Q K u hd (kubotaLeopoldtPseudomeasure p) := sorry
+end CommonValues
+
+namespace SuggestedPseudomeasureCharacterTests
+-- principal_unit_weight_one_value
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (u : U)
+    (hu : (u : Z)=((1+p^(n+1) : ℕ) : Z)) :
+    primePowerArithmeticCharacter p n χ 1 u=((1+p^(n+1) : ℕ) : K) := sorry
+-- principal_unit_weight_zero_value
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (u : U)
+    (hu : (u : Z)=((1+p^(n+1) : ℕ) : Z)) :
+    primePowerArithmeticCharacter p n χ 0 u=1 := sorry
+-- natural_identity_numerator
+example : Iwasawa.numerator δ Q (1 : U) (kubotaLeopoldtPseudomeasure p) =
+    intrinsicSmoothedNumerator p 1 (by exact (Fact.out : p.Prime).not_dvd_one) := sorry
+-- natural_arbitrary_parameter
+example (u : U) (a : ℕ) (ha : ¬p∣a) (hu : (u : Z)=(a : Z)) :
+    Iwasawa.numerator δ Q u (kubotaLeopoldtPseudomeasure p) =
+      intrinsicSmoothedNumerator p a ha := sorry
+-- numerator_weight_one
+example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n))
+    (u : U) (a : ℕ) (ha : ¬p∣a) (hu : (u : Z)=(a : Z)) :
+    extendIntegralUnitCoefficients (R := K)
+      (Iwasawa.numerator δ Q u (kubotaLeopoldtPseudomeasure p))
+      (primePowerArithmeticCharacter p n χ 1).toContinuousMap =
+      twistedSmoothedMeasure p n χ a ha 1 := sorry
+-- identity_character_numerator
+example (n w : ℕ) (χ : DirichletCharacter K (p^n)) :
+    extendIntegralUnitCoefficients (R := K)
+      (Iwasawa.numerator δ Q (1 : U) (kubotaLeopoldtPseudomeasure p))
+      (primePowerArithmeticCharacter p n χ w).toContinuousMap = 0 := sorry
+-- zero_level_positive_admissible
+example (χ : DirichletCharacter K (p^0)) (u : U)
+    (hu : (u : Z)=((1+p : ℕ) : Z)) :
+    IsUnit (primePowerArithmeticCharacter p 0 χ 1 u-1) := sorry
+-- identity_inadmissible
+example (n w : ℕ) (χ : DirichletCharacter K (p^n)) :
+    ¬IsUnit (primePowerArithmeticCharacter p n χ w (1 : U)-1) := sorry
+-- zero_weight_principal_inadmissible
+example (n : ℕ) (u : U) :
+    ¬IsUnit (primePowerArithmeticCharacter p n (1 : DirichletCharacter K (p^n)) 0 u-1) := sorry
+
+-- ring_map_identity_inadmissible
+example (f : M →+* K) : ¬IsUnit (f (δ (1 : U)-1)) := sorry
+-- principal_unit_ring_map_admissible
+example (n w : ℕ) (χ : DirichletCharacter K (p^n)) (f : M →+* K)
+    (hf : ∀ μ : M, f μ=extendIntegralUnitCoefficients (R := K) μ
+      (primePowerArithmeticCharacter p n χ w).toContinuousMap)
+    (u : U) (hu : (u : Z)=((1+p^(n+1) : ℕ) : Z)) (hw : 0<w) :
+    IsUnit (f (δ u-1)) := sorry
+-- conditional_smoothing_independent
+example (f : M →+* K) (u v : U) (hu : IsUnit (f (δ u-1))) (hv : IsUnit (f (δ v-1))) :
+    letI : Algebra M K := f.toAlgebra
+    Iwasawa.evalAt δ Q K u hu (kubotaLeopoldtPseudomeasure p) =
+      Iwasawa.evalAt δ Q K v hv (kubotaLeopoldtPseudomeasure p) := sorry
+end SuggestedPseudomeasureCharacterTests
+end PseudomeasureCharacterComparison
+
+namespace SuggestedPseudomeasureCharacterTests
+section Three
+variable {K : Type*} [NormedField K] [Algebra ℤ_[3] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[3] K]
+  [CharZero K] [Algebra ℚ K]
+local notation "U" => (ℤ_[3])ˣ
+local notation "M" => D(U,ℤ_[3])
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit 3).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "δ" => (diracHom (G := U) (R := ℤ_[3]))
+variable (χ : DirichletCharacter ℚ (3^1)) (hχ2 : χ 2 = -1)
+  (hχ : DirichletCharacter.IsPrimitive (χ.ringHomComp (algebraMap ℚ K)))
+  (ε : K) (hε : IsPrimitiveRoot ε (3^1))
+  (hG : gaussSum (χ.ringHomComp (algebraMap ℚ K))⁻¹
+    (AddChar.zmodChar (3^1) hε.pow_eq_one) ≠ 0) (hD : IsUnit (3 : K))
+include hχ2 hχ hε hG hD
+-- conditional_quadratic_zero_value
+example (f : M →+* K)
+    (hf : ∀ μ : M, f μ=extendIntegralUnitCoefficients (R := K) μ
+      (primePowerArithmeticCharacter 3 1 (χ.ringHomComp (algebraMap ℚ K)) 1).toContinuousMap)
+    (u : U) (hu : (u : ℤ_[3])=4) (hd : IsUnit (f (δ u-1))) :
+    letI : Algebra M K := f.toAlgebra
+    Iwasawa.evalAt δ Q K u hd (kubotaLeopoldtPseudomeasure 3)=1/3 := sorry
+-- conditional_quadratic_negative_two
+example (f : M →+* K)
+    (hf : ∀ μ : M, f μ=extendIntegralUnitCoefficients (R := K) μ
+      (primePowerArithmeticCharacter 3 1 (χ.ringHomComp (algebraMap ℚ K)) 3).toContinuousMap)
+    (u : U) (hu : (u : ℤ_[3])=4) (hd : IsUnit (f (δ u-1))) :
+    letI : Algebra M K := f.toAlgebra
+    Iwasawa.evalAt δ Q K u hd (kubotaLeopoldtPseudomeasure 3)= -2/9 := sorry
+end Three
+end SuggestedPseudomeasureCharacterTests
+end
+end DirichletPadic

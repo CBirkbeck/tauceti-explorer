@@ -1,47 +1,47 @@
-# BP-DirichletPadicLFunctions: Arithmetic unit characters and smoothing numerators
+# BP-DirichletPadicLFunctions: Actual pseudomeasure character comparison and its coefficient interface
 
-Codex / codex-7e92bd same-worker issue #713 continuation after PR #4653,
-merged 88c84f5dfba1f18d75e78919aad2458d0f3567c9 with head
-5af013de2680eed4e96b47c0d51c68561f9a784b. Original claim 5854790528,
+Codex / codex-7e92bd same-worker issue #713 continuation after PR #4656,
+merged 2d72161535bb024cb3dc1130bcedeeb542a2cb80 with head
+e316a9491a9882e1debfca0d612471acf55bb24f. Original claim 5854790528,
 winning bot 5854791937; no additional claim. Review #390 remains unclaimed.
 
 ## Delivered and remaining
 
-Five L2 nodes construct the native arithmetic unit character and compare the actual intrinsic smoothing numerator and two-Dirac denominator with the source special-value expressions. Seven API entries and 21 typed examples retain zero-level, zero-weight, sign and dyadic boundaries. All 350 predecessor nodes remain whole.
+Six L2 nodes connect the actual Kubota–Leopoldt pseudomeasure to the source character-value calculation. One promotes an existing API declaration without redefining it; five new named signatures and 14 typed tests cover the numerator, concrete admissibility and conditional comparison. The general coefficient-field ring map remains an explicit input and a precise request to its PMIA owner.
 
-Totals: 355 unchecked nodes (1 definitions, 162 lemmas, 35 constructions, 101 theorems, 56 comparisons), 320 API entries,
-524 packet tests (176 on definitions/constructions),
-527 typed examples, 24 planets and 412 baseline records.
-16 findings, five gaps, one L1 request, zero closed stages.
-All 16 preceding source findings and sourceVersions remain whole; no new finding or independent verdict.
+Totals: 361 unchecked nodes (1 definitions, 164 lemmas, 35 constructions, 103 theorems, 58 comparisons), 320 API entries,
+538 packet tests (176 on definitions/constructions),
+541 typed examples, 24 planets and 415 baseline records.
+16 findings, 6 gaps, 2 requests (PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3), zero closed stages.
+All 16 predecessor source findings and sourceVersions are preserved whole; no new source finding or independent verdict.
 
-The actual arithmetic character on units, its nontriviality at positive weight, the inverse-weighted intrinsic numerator evaluation and the two-Dirac denominator value are now explicit. Their common algebraic value gives the source smoothed L-value and its eligible quotient. Next connect the numerator of the actual kubotaLeopoldtPseudomeasure to this ratio via the existing natural-parameter identification, and use only a character evaluator supplied for the actual coefficient type. The current PMIA evaluator is restricted to Z_p-valued characters with Q_p output; its general coefficient-field extension must be requested from the owner before general K-valued interpolation is claimed. Generic primitive Gauss nonvanishing, p-adic analytic branches/logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open.
+The actual pseudomeasure numerator is now connected to its natural arithmetic smoothing measure and to the prime-power twisted moment. Positive weight gives a concrete admissible principal unit. The generic supplier evalAt yields the moment quotient and common complex/p-adic special value conditional on an actual compatible ring homomorphism f:D(U,Z_p)→K. The newly recorded PMIA L3 request must provide its canonical construction and the corresponding K-valued pseudomeasure evaluator before the conditional signatures can be specialized without that input. Then identify the canonical source interpolation and its parity and coefficient-change consequences. Generic primitive Gauss nonvanishing, analytic branches/logarithmic and degree-zero values, full source extraction and the original PMIA L1 completed-algebra comparison remain open.
 
 ## Reading and validation
 
-Complete published pages 139–143 were read in the immediate predecessor on 29 September 2026, including the full proof of Theorem 5.1. The actual numerator, coefficient-extension inclusion and arithmetic-twist signatures were read; whole PMIA coefficient-extension-weight, integral-unit-coefficient-extension, integral-unit-extension-inclusion and actual-unit-character-ratio nodes and their APIs were checked. Native ContinuousMonoidHom, continuous_algebraMap, PadicInt inverse/unit norm statements, ZMod.natCast_self, one_lt_pow₀ and actual measure pushforward/Dirac statements were read with ambient hypotheses. The zero-level counterexample was checked against the existing positive +1/2 smoothing constant, and all native and finite checks pass. No new source finding or complete extraction is claimed.
+Complete published pages 129–130 and 139,143 were freshly read on 29 September 2026, including equation (3-11), its independence calculation and the full proof of Theorem 5.1. Whole supplier admissible-evaluation, evaluation-specification, independence, coefficient-extension and character-integration nodes and exact signatures were read. The actual arithmetic pseudomeasure numerator, natural intrinsic comparison and common-value quotient were checked whole. The reviewed Dirichlet L1/L2 library audit and the pinned declaration index confirm the remaining coefficient-evaluation gap. Native RingHom.toAlgebra, isUnit_iff_ne_zero and eq_div_iff_mul_eq were read with their ambient hypotheses. Existing source findings remain unchanged.
 
-All 350 predecessor nodes, 410 baseline records, 16 findings and sourceVersions remain whole. This checkpoint adds 5 nodes, 12 named suggested declarations and 21 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 530 reachable nodes, 2516 edges and 529 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+All 355 predecessor nodes, 412 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 5 named suggested declarations and 14 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 536 reachable nodes, 2541 edges and 532 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3. The four numerator/principal-unit routes have no stage request leaf. Exactly the two conditional evaluation routes end in the recorded PMIA L3 request; every other leaf is an existing node or pinned baseline declaration.
 
-The full suggested module elaborates with zero errors and 1043 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+The full suggested module elaborates with zero errors and 1062 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
 
-One complete native constructor and five complete lemmas check the continuous multiplicative arithmetic character, inverse-weight cancellation on units and extension across nonunits, positive-power nontriviality, the principal-unit residue and actual two-Dirac evaluation. The probe elaborates against 1765 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+Four complete native lemmas check ring-map transport of a difference, the principal-unit denominator at positive weight, division of the evaluation equation with the ring-map-induced algebra, and transport of a common-field value. A complete rational counterexample shows why a zero clearing equation cannot determine evaluation. The probe elaborates against 1029 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
 
-Exact cyclotomic controls check 460 character products, 370 inverse-weight identities, 30 principal-unit witnesses, 72 numerator values, 72 two-Dirac values, 15 level-zero failures and two actual boundary values. Exact rational cyclotomic arithmetic for primitive characters of conductors 3, 4, 5, 8 and 9, including a nonreal quartic character modulo 5. Integer lifts are multiplied before evaluating the arithmetic power, so these controls do not falsely make the positive-weight character factor through a finite residue group. Check unit and nonunit inverse-weight identities, principal-unit witnesses, the two-Dirac value and finite formal moments through weight 6. Separate exact level-zero controls detect failure off the units and the actual +1/2 raw mass versus zero intrinsic first moment. These finite checks supplement the native constructor and pointwise proofs; they do not prove measure comparison or analytic interpolation. The largest observed discrepancy is 0 (exact arithmetic).
+Exact cyclotomic controls independently compute smoothed formal-series moments and their admissible quotients, compare different smoothing parameters and test principal-unit witnesses, zero-weight/identity failures and nonreal character orientation. Exact rational cyclotomic arithmetic for primitive conductors 3,4,5,8,9 and both orientations of the nonreal quartic character modulo 5. Independently compute smoothed rational-series coefficients and ordinary moments through weight 6, then invert nonzero character denominators with exact linear algebra. Compare three natural smoothing parameters including the principal-unit witness. These finite algebraic controls do not construct the requested character ring map or prove an equality of actual measures. The largest observed discrepancy is 0 (exact arithmetic).
 
-The two global errata-register inputs changed during this checkpoint; all 16 Dirichlet findings were compared and remain identical. Every supplier and other captured input is unchanged. PMIA remains at 369 nodes with its preserved compiled 332-node interface; no new supplier declaration is called or compilation against the full 369-node source claimed.
+Only the two global errata-register inputs changed during this checkpoint; all 16 Dirichlet findings were compared and remain identical. Every captured supplier and other mathematical input is unchanged. The current PMIA source has 369 nodes and preserves the compiled 332-node interface; no new supplier declaration is called or compilation against the full 369-node source claimed.
 
-The publication guard at 87252c87590db050c5d65596a1c915010083e8fe checks 54 inputs, four
+The publication guard at 29319b79aec3eaa09c5ebe33ad10d663fdb95300 checks 54 inputs, four
 predecessor outputs, unchanged issue text, the original winning claim and
 unclaimed review #390.
-The two global errata-register inputs changed during this checkpoint; all 16 Dirichlet findings were compared and remain identical. Every supplier and other captured input is unchanged. PMIA remains at 369 nodes with its preserved compiled 332-node interface; no new supplier declaration is called or compilation against the full 369-node source claimed.
-Suggested SHA256: `7558eec44948f88b01d7834a36c7b6ece92e52ee95de3281be8595e1362fd313`.
-Native probe SHA256: `2ae71ac380443c71254fca237c94bd645d606efd9174caee093f27567b33e83f`.
+Only the two global errata-register inputs changed during this checkpoint; all 16 Dirichlet findings were compared and remain identical. Every captured supplier and other mathematical input is unchanged. The current PMIA source has 369 nodes and preserves the compiled 332-node interface; no new supplier declaration is called or compilation against the full 369-node source claimed.
+Suggested SHA256: `3ea2c65613d44a91f3403caa29c194f85e7eb236a92603e3eb5cea75cb443b26`.
+Native probe SHA256: `0cba0a26fd24dc7fa24363b33eb64661b11c15d712838b0cb749ff7d2d2e7326`.
 
 One reusable worktree and one Lean process at a time were used. All compiler
 processes have ended. Exactly the four authorized deliverables change.
 
-Retain ArithmeticCharacterProbe.lean and its compiler/result/source audit, numerical
+Retain PseudomeasureCharacterProbe.lean and its compiler/result/source audit, numerical
 control code and results, the full suggested compiler/result/source audit,
 artifact hashes, graph/preservation/API receipts, captured inputs and guard,
 and exact submitted files with remote receipts. Retire scratch after opening
