@@ -129450,6 +129450,26 @@
    "reviewReason": null
   },
   {
+   "id": "AutomorphicGaloisRepresentations/E3",
+   "kind": "misprint",
+   "locator": "Theorem 2.4, p. 24, and §3.3, p. 30 (arXiv v2); checked on the page images",
+   "printed": "p. 24: \"Theorem 2.4. Fix integers N ≥ 3 and k ≥ 2. Let S_N = {ℓ ∤ Nk!}.\" p. 30: \"… in PM^{S′}_ℚ where S′ = { p | p ∤ N′k! }.\"",
+   "correction": "S_N = {ℓ : ℓ | Nk!} and S′ = {p : p | N′k!}, the sets of excluded primes.",
+   "reason": "In PM^S the set S is where no crystalline realisation or integral comparison is required (§1.2, p. 9), and the comparison isomorphisms are established exactly for ℓ ∤ Nk! (p. 30: \"when ℓ ∤ N′k!\"; Proposition 5.6: \"λ-crys with λ ∤ pNk!\"). The source itself defines S = S_N as \"the set of primes dividing Nk!\" (p. 13) and S′ as \"the set of primes dividing N′k!\" (p. 27); the printed sets are their complements.",
+   "affects": "nothing",
+   "known": "new: present in arXiv v2 (11 Dec 2025), the latest version; the Ann. Sci. ÉNS 2004 text is organised differently and has no Theorem 2.4",
+   "searched": [
+    "arXiv:2512.02348 listing (v1, v2), checked 2026-09-29",
+    "Ann. Sci. ÉNS 37 (2004), Numdam copy (SHA-256 385dc212…): no counterpart of Theorem 2.4; its §2 defines S as containing the primes dividing Nk!"
+   ],
+   "owner": "AutomorphicGaloisRepresentations",
+   "file": "research/blueprint/packets/AutomorphicGaloisRepresentations.json",
+   "citation": "F. Diamond, M. Flach and L. Guo, Adjoint motives of modular forms and the Tamagawa number conjecture, arXiv:2512.02348v2 (11 Dec 2025), the authors' revised version of Ann. Sci. ÉNS 37 (2004), 663–727; printed page = PDF page.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AutomorphicLFunctionsAndLocalFactors/E1",
    "kind": "misprint",
    "locator": "Published 2004 chapter, p.110, Section 1 conductor paragraph; also preprint p.2",
