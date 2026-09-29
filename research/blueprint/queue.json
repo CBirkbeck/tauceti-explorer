@@ -15600,9 +15600,9 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicLFunctionsAndLocalFactors.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #688"
+   "note": "released on GitHub issue #688"
   },
   {
    "id": "REV-AutomorphicLFunctionsAndLocalFactors",
@@ -23828,14 +23828,15 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ModularityAndLanglandsExtensions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration",
     "BP-PotentialAutomorphyInfrastructure"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1033"
   },
   {
    "id": "REV-ModularityAndLanglandsExtensions",
