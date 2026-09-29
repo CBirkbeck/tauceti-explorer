@@ -18408,7 +18408,9 @@
     "REV-RS-10"
    ],
    "prompt": "research/blueprint/prompts/RS-10~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3943",
+   "finishedAt": "2026-09-29T09:38:00Z"
   },
   {
    "id": "REV-RS-10~2",
@@ -18588,7 +18590,9 @@
     "REV-RS-12~2"
    ],
    "prompt": "research/blueprint/prompts/RS-12~3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3946",
+   "finishedAt": "2026-09-29T09:38:01Z"
   },
   {
    "id": "REV-RS-12~3",
@@ -19046,7 +19050,9 @@
     "REV-RS-20~2"
    ],
    "prompt": "research/blueprint/prompts/RS-20~3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3949",
+   "finishedAt": "2026-09-29T09:38:03Z"
   },
   {
    "id": "REV-RS-20~3",
@@ -31200,7 +31206,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-10.md",
-   "state": "pending",
+   "state": "external",
    "note": "claimed on GitHub issue #890"
   },
   {
