@@ -48062,7 +48062,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-ktheory-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3980"
   },
   {
    "id": "RT-AREA-geomlanglands",
@@ -48802,8 +48803,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-combinatorics.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3989"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3989",
+   "finishedAt": "2026-09-29T18:35:22Z"
   },
   {
    "id": "RT-AREA-topology",
@@ -48881,7 +48883,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-topology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3990"
   },
   {
    "id": "RT-AREA-diffgeom",
