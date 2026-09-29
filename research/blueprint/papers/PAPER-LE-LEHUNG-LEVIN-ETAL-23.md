@@ -1,3 +1,86 @@
+# LLHLM23 continuation: proof steps for Appendix A (the A queue), and E119–E120
+
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (sixth step). This takes the A queue: the 56
+Appendix A theorem items without proof steps. Census: 779 items, 26 routes, 120 findings (E119 and
+E120 are new), 12 gaps.
+
+## What was added
+
+All 56 items now carry `proofSteps`, `prerequisites` and `proofProvenance`. They were read from
+Appendix A of the published PDF (PDF187–201) and from the sources it cites, which are recorded in
+`continuationReadings`, with the recorded findings applied. The internal prerequisite graph gains 32
+edges and stays acyclic (1,600 edges).
+
+- **Taylor–Wiles primes and projectors (Thorne, arXiv:1107.5989v1).**
+  - A14 and A25 assemble Proposition A.3.3 from Thorne's Proposition 4.4 and Lemma 4.3, with
+    E22–E24 and E42. Two extensions that the citation leaves implicit are stated: the completion to
+    q₀ primes when q₀ exceeds the dual Selmer dimension, and the non-split places, which Proposition
+    A.3.3 confines to T.
+  - A27 is the trace-evaluation argument. Adequacy is used with the semisimple part of g, a power of
+    g in the image, and for the image of G_{F⁺(ζ_{p^N})}, which equals that of G_{F⁺(ζ_p)}.
+  - A30–A32 are Thorne's Propositions 5.8–5.12 and Theorem 6.8, over the projected Hecke images of
+    E38 and with E36.
+  - A33 is Lemmas 6.3–6.4, with a direct proof by free Δ-orbits and the direct-summand step of E120.
+- **CHT §2.1 (A36–A45, A85–A89, A91–A93, A96, A97).**
+  - The polarized extension and its sign, with the classification of extensions (A36).
+  - The finite coefficient field (A37, A85) and the invariant self-dual lattice (A38, A86–A89).
+  - The scalar centralizer and the descent of conjugacy (A39, A40, A91), and Carayol's trace descent
+    with prescribed congruence (A41–A43, A92, A93, A96, A97).
+  - The fixed-multiplier descent (A44, A45), with E39's inverse square root.
+  - The supplier and adapter items give direct proofs in place of CHT's recursions, and say which step
+    they replace.
+- **CHT §3.4 and the integral Hecke steps of Theorem A.4.1 (A47–A50, A63–A65, A74–A77).**
+  - Alignment of the integral reductions (A47), gluing over the Hecke algebra (A48) with trace
+    density (A49), and characteristic-zero irreducibility from residual irreducibility (A50).
+  - Characteristic-zero field factors and ideal factorization (A63–A65).
+  - The Hecke side: decomposition, reducedness and characteristic-zero points (A74–A77). A76 stays
+    conditional on the automorphic inputs, as its statement says.
+- **Signs and local–global compatibility (A51–A58, A82–A84).**
+  - Bellaïche–Chenevier's Theorem 1.2 (A51) fixes the multiplier ξ (A52).
+  - BLGGT's compatibility at l = p (A53) gives the inertial dominance of A54 and A55, with E47, E49
+    and E51. The Jordan-form and dominance facts get elementary proofs (A57, A58, A82–A84).
+  - Bellaïche–Chenevier's Lemma 3.5 with E40's repair (A56).
+- **Base change and the discrete spectrum (A59, A61, A62, A78–A81).**
+  - Labesse's Corollary 5.3 (A59) and Mœglin–Waldspurger's theorem (A61) are imported.
+  - A62 forces a single cuspidal block from residual absolute irreducibility.
+  - A78–A81 realize the base-changed spectrum by Galois representations, with E48. The
+    normalizations are written out: the Hecke eigenvalue q^{k(n−k)/2}e_k, the twists by ε^{−j} and
+    the multiplier ε^{b_i−n}.
+
+## Findings
+
+- **E119 (misprint; affects nothing).** In the proof of Lemma 2.1.9 (p. 13), the published CHT prints
+  S = lim S/(I ∩ S) with a direct-limit arrow. S is the inverse limit, as the author manuscript prints.
+  Checked on the page image; Numdam and Crossref list no correction.
+- **E120 (gap; affects the proof).** §A.4 (PDF198) asserts that pr S(U₁(Q), W)_{m_Q} is free over
+  O[Δ_Q]. Thorne's Theorem 6.8(ii), which it follows, cites only Lemma 6.4, and that lemma gives
+  freeness of the whole space. The missing step is that pr S is an O[Δ_Q]-direct summand: P_j(V^j) = 0,
+  so pr is a unit times an idempotent. CHT prove the analogous step explicitly (author manuscript
+  PDF115), and A33 supplies it.
+- **Records corrected.**
+  - E49–E51 cited BLGGT's "Local-global compatibility for l = p, II" as Ann. Sci. ÉNS 47 (2014)
+    161–175. The published pages are 165–179 (Numdam, Crossref).
+  - E50 gains three more rank slips of that paper that persist in print (published pp168, 173 and 176).
+    A fourth, the eigenvariety dimension, is right in print and wrong only in the author copy.
+  - A81's locator cites §1.8.2, where the Artin-map convention is, not §1.8.3.
+- **Checked and not recorded.**
+  - At Definition 2.5.3 the text layer reads "the trivial representation is the Steinberg
+    representation", but the page image of PDF50 reads "is ≼ the Steinberg representation".
+  - Thorne's Definition 2.3 does not ask g to be semisimple. Replacing g by its semisimple part, a
+    power of g, is standard; A27 records the step.
+
+## Remaining
+
+Only the 138 library-cited L theorem items lack proof steps. The remaining gaps (Q03) and the
+external inputs are listed in the handoff.
+
+## Checks
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the changed files.
+No status, route or gap changed, and there is no Lean code.
+
+---
+
 # LLHLM23 continuation: proof steps for §7 (the G queue)
 
 Claude Code — cc-58621d; issue 1254; 29 September 2026 (fifth step). This takes the G queue: the 39
