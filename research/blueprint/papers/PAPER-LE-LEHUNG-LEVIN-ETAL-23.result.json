@@ -1236,6 +1236,28 @@
             "readSections": "PDF48–49, Lemma 7.4.3 statement and proof, re-read; the hash matches the earlier recorded copy."
           }
         ]
+      },
+      {
+        "agent": "Claude Code",
+        "session": "cc-e94dc5",
+        "date": "2026-09-29",
+        "main": "No new reading of the LLHLM PDF; this step confirms the source of item Z143 (handoff resume item 3 of the Kummer-tower step).",
+        "sources": [
+          {
+            "title": "T. Liu, On lattices in semi-stable representations: a proof of a conjecture of Breuil, Compositio Math. 144 (2008), 61–88",
+            "url": "https://doi.org/10.1112/S0010437X0700317X",
+            "sha256": "79a33e4efed194c35ef1854738f2da28994a06134e14608b3db05e560b23f8f5",
+            "pages": 28,
+            "readSections": "Published PDF served by Cambridge Core, printed pp. 82–83: §5.1 set-up, Lemma 5.1.2 with its full proof, Remark 5.1.3. This is the [Liu07a] that the note arXiv:0709.4523v1 cites for 'Lemma 5.1.2'; the earlier record of this item named Liu's Annales paper instead."
+          },
+          {
+            "title": "T. Liu, Torsion p-adic Galois representations and a conjecture of Fontaine, Ann. Sci. École Norm. Sup. (4) 40 (2007), 633–674",
+            "url": "https://www.numdam.org/item/10.1016/j.ansens.2007.05.002.pdf",
+            "sha256": "ecc6310bf65dc53ee043878631a450403d8e78631dbf40d3f79ec1ad27f2218a",
+            "pages": 42,
+            "readSections": "Printed pp. 657–658 (§5.2: the set-up of Ĝ = G_0 ⋊ H_K, citing 'Lemma 5.1.2 in [18]' = the Compositio paper, and Assumption 5.2.1) and §8 (Lemma 8.0.4 and its proof, the case p = 2)."
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -25242,9 +25264,9 @@
       "kind": "theorem",
       "name": "Galois closure of the Kummer tower and its semidirect structure",
       "statement": "Let p > 2, let K/Q_p be finite with uniformizer π, and let (π_n)_{n≥0} be compatible p-power roots, π_0 = π and π_{n+1}^p = π_n. Put K∞ = ∪_n K(π_n) and K(μ_{p^∞}) = ∪_n K(ζ_{p^n}). Then K̂ = ∪_n K(π_n, ζ_{p^n}) is Galois over K and is the Galois closure of K∞/K, and K∞ ∩ K(μ_{p^∞}) = K. Write G_0 = Gal(K̂/K(μ_{p^∞})) and H_K = Gal(K̂/K∞). Then Gal(K̂/K) = G_0 ⋊ H_K, and the Kummer map σ ↦ (σ(π_n)/π_n)_n is an isomorphism G_0 ≅ Z_p(1) = lim μ_{p^n}. Conjugation by h ∈ H_K acts on G_0 through the p-adic cyclotomic character, h σ h⁻¹ ↦ χ(h)·(σ's image). The hypothesis p > 2 is needed: for p = 2, K = Q_2 and π = −2, √−2 = ζ_8 + ζ_8³ lies in K∞ ∩ K(μ_{2^∞}), so the intersection is larger than K.",
-      "locator": "T. Liu, 'A note on lattices in semi-stable representations', arXiv:0709.4523v1, §2.2 (PDF4), recalling Lemma 5.1.2 of Liu, 'Torsion p-adic Galois representations and a conjecture of Fontaine' (Ann. Sci. ÉNS 2007). The same structure is used without proof in EGS Lemma 7.4.3 (PDF48–49) and in the LLHLM consumer G68.",
+      "locator": "T. Liu, 'On lattices in semi-stable representations: a proof of a conjecture of Breuil', Compositio Math. 144 (2008), 61–88, Lemma 5.1.2 (printed pp. 82–83; statement (1)–(3) and proof, under the paper's standing hypothesis p ≥ 3) with Remark 5.1.3 (p = 2); recalled in Liu, 'A note on lattices in semi-stable representations', arXiv:0709.4523v1, §2.2 (PDF4), as 'Lemma 5.1.2 in [Liu07a]'. The same structure is used without proof in EGS Lemma 7.4.3 (PDF48–49) and in the LLHLM consumer G68.",
       "status": "missing",
-      "note": "Owner: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, the base-field structure of Kisin and (φ, Ĝ)-module theory. Kummer theory is imported from tauceti ProfiniteCohomology Layer 9, and the p-adic cyclotomic character from Mathlib's cyclotomicCharacter (Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean:307). The 2007 Annales paper itself was not read; the statement is the note's recollection of its Lemma 5.1.2. The p = 2 example was checked: (ζ_8 + ζ_8³)² = −2, and −2 is a uniformizer of Q_2.",
+      "note": "Owner: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, the base-field structure of Kisin and (φ, Ĝ)-module theory. Kummer theory is imported from tauceti ProfiniteCohomology Layer 9, and the p-adic cyclotomic character from Mathlib's cyclotomicCharacter (Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean:307). Lemma 5.1.2 was read at its source (continuation cc-e94dc5): it is in Liu's Compositio paper ([Liu07a] of the note), not in his 2007 Annales paper, which the previous locator named; the Annales paper cites it as its reference [18] (Ann. Sci. ÉNS 40 (2007), p. 658: 'Lemma 5.1.2 in [18] shows that K_{p^∞} ∩ K_∞ = K always holds unless p = 2'). Its statement is exactly this item's: (1) K_{p^∞} ∩ K_∞ = K; (2) Gal(K_{∞,p^∞}/K_∞) ≅ H_K and Gal(K_{∞,p^∞}/K_{p^∞}) ≅ Z_p(1); (3) Gal(K_{∞,p^∞}/K) = Z_p(1) ⋊ H_K with H_K acting by the cyclotomic character. Its proof (induction on n with F_n = K(π_n) ∩ K_{p^∞}, forcing ζ_p ∈ K and then a contradiction with ζ_{p^{m+1}} being a unit) uses p > 2 through 1 + pZ_p ≅ Z_p. Remark 5.1.3 gives the p = 2 failure with K = Q_2, π = 2 (√2 ∈ Q_2(ζ_8)), and notes that the conclusion survives for p = 2 when Q_2(ζ_4) ⊂ K; the Annales paper's Lemma 8.0.4 extends it to p = 2 whenever K contains a quadratic subfield of Q_2(ζ_8). The p = 2 example was checked: (ζ_8 + ζ_8³)² = −2, and −2 is a uniformizer of Q_2.",
       "prerequisites": [
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
       ],
@@ -25379,6 +25401,11 @@
       "citation": "Emerton–Gee–Savitt, Lattices in the cohomology of Shimura curves, Lemma7.4.3",
       "link": "https://math.uchicago.edu/~emerton/pdffiles/breuil-conj.pdf",
       "why": "The nontrivial, noncyclotomic character case cited by GLS. Read PDF48–49 of the 75-page author copy. Import generic inflation–restriction from upstream ProfiniteCohomology; retain the tower group structure as a named field-theory boundary."
+    },
+    {
+      "citation": "T. Liu, On lattices in semi-stable representations: a proof of a conjecture of Breuil, Compositio Math. 144 (2008), 61–88",
+      "link": "https://doi.org/10.1112/S0010437X0700317X",
+      "why": "Lemma 5.1.2 is the primary source of Z143 (the Kummer tower K_∞, K_∞ ∩ K_{p^∞} = K for p > 2, Gal(K_{∞,p^∞}/K) ≅ Z_p(1) ⋊ H_K), which the Kisin-module consumer G68 and EGS Lemma 7.4.3 use."
     }
   ],
   "routes": [
@@ -32952,7 +32979,8 @@
     "cc39fac3AppendixBQ13": "29 September 2026, issue 1254, second checkpoint: Q13's comprehensive Gröbner system, Cohen–Macaulayness of both leading-term ideals in every characteristic, the Table 1 and PDF206 re-derivation, and findings E112–E113. Read: PDF203–208 of the published PDF (page images of PDF204, PDF205 and PDF207), and arXiv v2 PDF150–151. Only Q09, Q10 and Q13, the two new findings, sourceData.appendixB, the appendix-certificates gap, validation and the summary were edited; no item status or route changed. No Lean file.",
     "cc39fac3AppendixBQ04": "29 September 2026, issue 1254, third checkpoint: uniform certificates for Q04 (minimal primes and multiplicities), Q05 (flatness via a monic Gröbner basis over A[t]) and Q13 (reducedness of the normalization's special fibre). Only Q04, Q05 and Q13, sourceData.appendixB, the appendix-certificates gap, validation and the summary were edited. No status, route or finding changed, and no Lean file was written.",
     "cc39fac3AppendixBTable1": "29 September 2026, issue 1254, fourth checkpoint: a uniform certificate of Table 1 off the E113 curves. Only Q09, sourceData.appendixB.table1Rederivation, the appendix-certificates gap, validation and the summary were edited. No status, route or finding changed, and no Lean file was written.",
-    "cc39fac3KummerTower": "29 September 2026, issue 1254: the gap kummer-tower-field-inputs is resolved at extraction level and removed. Its three field-theoretic assertions are decomposed into Z143 (Galois closure, K∞ ∩ K(μ_{p^∞}) = K, semidirect product with G_0 ≅ Z_p(1)), Z144 (Gal(K(μ_{p^∞})/K(μ_p)) ≅ Z_p) and Z145 (no degree-p Galois subextension without ζ_p), all for p > 2. They are sourced to Liu's note (arXiv:0709.4523v1, PDF4), EGS 7.4.3 (PDF48–49) and GLS 5.4.2 (arXiv:1309.0527v2, PDF35), and routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4. Z145's derivation from Z143 is given in its proof steps. A p = 2 counterexample to the intersection statement is checked (π = −2 in Q_2). As the gap required, the finite-length diagram chase of G67 was not used to close this boundary."
+    "cc39fac3KummerTower": "29 September 2026, issue 1254: the gap kummer-tower-field-inputs is resolved at extraction level and removed. Its three field-theoretic assertions are decomposed into Z143 (Galois closure, K∞ ∩ K(μ_{p^∞}) = K, semidirect product with G_0 ≅ Z_p(1)), Z144 (Gal(K(μ_{p^∞})/K(μ_p)) ≅ Z_p) and Z145 (no degree-p Galois subextension without ζ_p), all for p > 2. They are sourced to Liu's note (arXiv:0709.4523v1, PDF4), EGS 7.4.3 (PDF48–49) and GLS 5.4.2 (arXiv:1309.0527v2, PDF35), and routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4. Z145's derivation from Z143 is given in its proof steps. A p = 2 counterexample to the intersection statement is checked (π = −2 in Q_2). As the gap required, the finite-length diagram chase of G67 was not used to close this boundary.",
+    "ccE94dc5KummerTowerSource": "29 September 2026, issue 1254 (Claude Code, cc-e94dc5): Z143's source is confirmed at the original. Lemma 5.1.2 of Liu, Compositio Math. 144 (2008), pp. 82–83, states exactly Z143's three assertions for p ≥ 3 and proves them; Remark 5.1.3 and Lemma 8.0.4 of Liu's Annales paper describe p = 2. The previous locator attributed the lemma to the Annales paper, which only cites it; the locator and note are corrected. No item id, status, route or finding changed; one prerequisite is added. check_paper.py and intake check-files pass."
   },
   "definitionApiGroups": [
     {
