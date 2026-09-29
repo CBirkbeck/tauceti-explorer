@@ -63619,9 +63619,10 @@
     "COL-ATOBE-KONDO-YASUDA-22"
    ],
    "avoidAccountOf": "COL-ATOBE-KONDO-YASUDA-22",
-   "state": "pending",
+   "state": "external",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-COL-ATOBE-KONDO-YASUDA-22.md"
+   "prompt": "research/blueprint/prompts/REV-COL-ATOBE-KONDO-YASUDA-22.md",
+   "note": "claimed on GitHub issue #3738"
   },
   {
    "id": "COL-BINYAMINI-22",
