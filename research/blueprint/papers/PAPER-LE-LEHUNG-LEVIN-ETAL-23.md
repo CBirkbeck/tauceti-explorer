@@ -1,3 +1,57 @@
+# LLHLM23 continuation: proof steps for the §3 items (U05–U45)
+
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (second step). This takes the U queue of the
+no-outline families: the 26 theorem items of §3 without source-level proof steps. Census unchanged:
+779 items, 26 routes, 116 findings, 12 gaps.
+
+## Source check
+
+§3 was re-read in full in the published PDF (PDF55–80): loop groups and charts (§§3.1–3.2), the
+universal local models (§3.3), unibranch points (§3.4), spreading out normality (§3.5), sections
+(§3.6) and products (§3.7). The proofs agree with the items' statements once the recorded findings
+are applied:
+- E7 (Proposition 3.2.8);
+- E8 (Lemma 3.4.7's weights);
+- E9 (Remark 3.4.3(2) needs reducedness);
+- E10 (lifting in Proposition 3.5.2);
+- E11 (Lemma 3.5.8);
+- E12 (Lemma 3.3.1);
+- E43 and E44 (Lemma 3.4.6);
+- E85 and E86 (Remarks 3.4.1 and 3.5.3).
+
+No new mistake was found. Two points are recorded in the steps rather than as findings:
+- Proposition 3.3.8's dimension count is consistent only if dim P_μ\GL_n denotes the Z-scheme's
+  dimension and dim_Z its relative dimension. The steps say so.
+- Lemma 3.5.4's local flatness criterion (Stacks 00MD) needs the Noetherian finite setting in which
+  the lemma is used. The step records that scope, as the item's note already asked.
+
+## What was added
+
+Each of U05, U07, U09, U11, U12, U14, U16, U19, U20, U22, U23, U28–U38, U40, U41, U43 and U45 now has:
+- `proofSteps` following the paper's proof;
+- `prerequisites` naming the items used, 60 new internal edges in all;
+- a `proofProvenance` line.
+
+The main chains are:
+- the factorization and étaleness lemmas U05 → U09 → U11 → U14;
+- the flag-variety identification U19 → U20 → U23 (smoothness by the tangent-space recursion);
+- the contraction argument U27 → U28 → U29 → U30 → U31;
+- the spreading-out lemmas U32 → U33 → U36, with U34 and U35;
+- Theorem 3.7.1 (U40, U41), which imports U23, U31, U36, U38, U45, the completed-tensor inputs
+  U43 (Z12) and Z13 (Z09), and Lemma 3.7.2 (U42).
+
+The internal graph stays acyclic, with 1,290 edges.
+
+## Changes and scope
+
+- **Changed:** the 26 items' `proofSteps`, `prerequisites` and `proofProvenance`, the new
+  `validation.ccC58621dUOutlines` and the summary.
+- **Unchanged:** statuses, routes and findings. No Lean file.
+- **Still without proof steps:** the A (56), G (39), B (28), K (4), P (1) and Z (1) theorem items; the
+  138 L items are library citations.
+
+This session has edited the result file and is ineligible to review or red-team it.
+
 # LLHLM23 continuation: Q03 settled — the appendix's parameter sign, and E114–E116
 
 Claude Code — cc-58621d; issue 1254; 29 September 2026. This takes the first resume item of the

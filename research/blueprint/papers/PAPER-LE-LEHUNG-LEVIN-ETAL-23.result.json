@@ -1294,7 +1294,7 @@
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Partial extraction: 779 items (146 library, 48 planned, 585 missing), 26 routes and 116 unreviewed source findings. This continuation corrects the coefficient/prime hypotheses behind the Section5 Kisin uniqueness results, separates the unrestricted rank-one scalar contraction, supplies an acyclic semisimplicity repair using WE19, and propagates the bounds through Section7.2. The generic-adjoint argument is supplied in all ranks with its rank-one odd-prime exception E110; finite-length Hom comparison is decomposed through a simultaneous H0/H1 induction. Eight new items K55–K58, L143, Z142 and G67–G68 retain existing owners. All inherited IDs, statuses and source data are preserved. The internal graph has 1,226 edges and is acyclic; this is not recursive proof closure. Twelve recorded gaps remain, including later rank-one propagation, external suppliers, regularity and the U/G/B/Z/P outline queues. No formal implementation or independent review is asserted. A further checkpoint (cc-fb70e5) records E111: Proposition B.0.1(4) fails on the line a = 0 inside V. A later one (cc-39fac3) certifies Q06 (t^3 in the Jacobian ideal) over Z[a,b][1/(aP)] with multiplier 2a(a−2)^2(a−b)(b−1), and shows that the specializations used downstream all have a a unit, so Corollary B.0.5 keeps r = 3. A second cc-39fac3 checkpoint certifies the Q13 Gröbner basis uniformly over V, in the two cells (a−b)(a−1) ≠ 1 and = 1, with Cohen–Macaulay leading-term schemes in every characteristic. It records E112, the misprinted exceptional locus, and E113: Table 1 and the special-fibre component list fail on a = 0, a(b−1) = b and (a−b)(a−1) = 1, without affecting the downstream uses. A third cc-39fac3 checkpoint certifies, uniformly over V, Proposition B.0.1(2)'s minimal primes (the special fibre is doubled along (c22, c13, c12)) and B.0.1(3)'s flatness (the chart is free over X × V), and shows that the normalization's special fibre is reduced. A fourth cc-39fac3 checkpoint certifies Table 1 at every point of V off the three E113 curves. A further cc-39fac3 step decomposes the Kummer-tower field inputs into Z143–Z145 (p > 2), routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, and removes that gap. A cc-58621d step settles Q03, the last uncertified Appendix B claim. Proposition B.0.1(1)'s equations are the chart's for the monodromy parameter Diag(−a, −b, 0), the negative of (3.1)'s (E114). They present the chart only where a is also invertible (E115), and the displayed matrix has vc12 for c12 (E116). With these corrections B.0.1(1) is proved over Z[1/7!][a, b][1/(aP)], every Appendix B claim is certified or corrected, and the appendix-certificates gap is closed; the downstream uses are unaffected.",
+  "summary": "Partial extraction: 779 items (146 library, 48 planned, 585 missing), 26 routes and 116 unreviewed source findings. This continuation corrects the coefficient/prime hypotheses behind the Section5 Kisin uniqueness results, separates the unrestricted rank-one scalar contraction, supplies an acyclic semisimplicity repair using WE19, and propagates the bounds through Section7.2. The generic-adjoint argument is supplied in all ranks with its rank-one odd-prime exception E110; finite-length Hom comparison is decomposed through a simultaneous H0/H1 induction. Eight new items K55–K58, L143, Z142 and G67–G68 retain existing owners. All inherited IDs, statuses and source data are preserved. The internal graph has 1,226 edges and is acyclic; this is not recursive proof closure. Twelve recorded gaps remain, including later rank-one propagation, external suppliers, regularity and the U/G/B/Z/P outline queues. No formal implementation or independent review is asserted. A further checkpoint (cc-fb70e5) records E111: Proposition B.0.1(4) fails on the line a = 0 inside V. A later one (cc-39fac3) certifies Q06 (t^3 in the Jacobian ideal) over Z[a,b][1/(aP)] with multiplier 2a(a−2)^2(a−b)(b−1), and shows that the specializations used downstream all have a a unit, so Corollary B.0.5 keeps r = 3. A second cc-39fac3 checkpoint certifies the Q13 Gröbner basis uniformly over V, in the two cells (a−b)(a−1) ≠ 1 and = 1, with Cohen–Macaulay leading-term schemes in every characteristic. It records E112, the misprinted exceptional locus, and E113: Table 1 and the special-fibre component list fail on a = 0, a(b−1) = b and (a−b)(a−1) = 1, without affecting the downstream uses. A third cc-39fac3 checkpoint certifies, uniformly over V, Proposition B.0.1(2)'s minimal primes (the special fibre is doubled along (c22, c13, c12)) and B.0.1(3)'s flatness (the chart is free over X × V), and shows that the normalization's special fibre is reduced. A fourth cc-39fac3 checkpoint certifies Table 1 at every point of V off the three E113 curves. A further cc-39fac3 step decomposes the Kummer-tower field inputs into Z143–Z145 (p > 2), routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, and removes that gap. A cc-58621d step settles Q03, the last uncertified Appendix B claim. Proposition B.0.1(1)'s equations are the chart's for the monodromy parameter Diag(−a, −b, 0), the negative of (3.1)'s (E114). They present the chart only where a is also invertible (E115), and the displayed matrix has vc12 for c12 (E116). With these corrections B.0.1(1) is proved over Z[1/7!][a, b][1/(aP)], every Appendix B claim is certified or corrected, and the appendix-certificates gap is closed; the downstream uses are unaffected. A second cc-58621d step gives the 26 §3 theorem items (U05–U45) source-level proof steps and prerequisite edges; the graph stays acyclic.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -4810,7 +4810,18 @@
       "locator": "Lemma3.2.2, PDF57",
       "statement": "Multiplication L+G times_X L--G -> LG is a monomorphism. Consequently L--G -> Gr is a monomorphism. Proof uses intersections of nonnegative and strictly negative Laurent degrees and v-regularity.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U04"
+      ],
+      "proofSteps": [
+        "Let R be a Noetherian Z[v]-algebra with v ↦ t, and suppose g1 g2 = g1′ g2′ with g1, g1′ ∈ L⁺G(R) and g2, g2′ ∈ L⁻⁻G(R). Put g = g1^{−1} g1′ = g2 g2′^{−1} ∈ GL_n(R((v − t))).",
+        "As an element of L⁺G(R), g has entries in R[[v − t]] with the entries below the diagonal in v·R[[v − t]]. As an element of L⁻⁻G(R), its entries above the diagonal lie in (v − t)^{−1}R[(v − t)^{−1}], its entries below the diagonal in (v/(v − t))R[(v − t)^{−1}], and its diagonal entries in 1 + (v − t)^{−1}R[(v − t)^{−1}].",
+        "Intersect entrywise: R[[v − t]] ∩ (v − t)^{−1}R[(v − t)^{−1}] = 0 above the diagonal; v·R[[v − t]] ∩ (v/(v − t))R[(v − t)^{−1}] = 0 below it, dividing by v, which is regular in R((v − t)); and the diagonal entries equal 1. So g = 1, g1 = g1′ and g2 = g2′.",
+        "For the second claim, L⁺G(R)\\LG(R) → Gr(R) is injective for every R, so L⁻⁻G → Gr is a monomorphism."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U06",
@@ -4888,7 +4899,17 @@
       "locator": "Lemma3.2.3, PDF58",
       "statement": "For a square-zero extension of Noetherian Z[v]-algebras with kernel J, Lie LG(J)=Lie L--G(J) direct-sum Lie L+G(J), using Laurent positive/negative decomposition separately in upper and v-divisible lower entries.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U04"
+      ],
+      "proofSteps": [
+        "Decompose Laurent series in v − t: J((v − t)) = J[[v − t]] ⊕ (v − t)^{−1}J[(v − t)^{−1}], and, after multiplying by v, v·J((v − t)) = v·J[[v − t]] ⊕ (v/(v − t))J[(v − t)^{−1}].",
+        "Apply the first decomposition to the diagonal and upper entries of M ∈ Lie LG(J), and the second to the lower entries, which lie in v·J((v − t)) because M is upper triangular modulo v.",
+        "The polar parts form a nilpotent lower triangular matrix modulo (v − t)^{−1} that is upper triangular modulo v/(v − t), that is, an element of Lie L⁻⁻G(J). The integral parts form an element of Lie L⁺G(J). The decomposition is unique, which gives the direct sum."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U08",
@@ -4971,7 +4992,20 @@
       "locator": "Lemma3.2.6, PDF58–59",
       "statement": "L+G times_X L--G -> LG and L--G -> Gr are formally etale in U08's sense. Lift across successive square-zero ideals using formal smoothness, then correct by U07; uniqueness comes from U05.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U04"
+      ],
+      "proofSteps": [
+        "Take an Artinian local A with residue field k, a point (g1, g2) of L⁺G ×_X L⁻⁻G over k, and g ∈ LG(A) lifting g1g2. Uniqueness of a lift follows from the monomorphism U05.",
+        "Existence is by induction on the length of A: assume a factorization of g modulo ε, where ε ≠ 0 is killed by m_A. By formal smoothness of L⁺G and L⁻⁻G, lift the two factors to g1, g2 over A. Then g1^{−1} g g2^{−1} lies in ker(LG(A) → LG(A/ε)) = 1 + εX.",
+        "By U07 (with the kernel identified with Lie LG(kε)), split εX = εX1 + εX2 with 1 + εX1 in the kernel for L⁺G and 1 + εX2 in the kernel for L⁻⁻G. Then g = (g1(1 + εX1))((1 + εX2)g2) is the required factorization.",
+        "The paper deduces the same for L⁻⁻G → Gr by passing to the quotient by L⁺G, whose left action is compatible with the factorization."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U10",
@@ -5049,7 +5083,18 @@
       "locator": "Lemma3.2.7, PDF60",
       "statement": "Left multiplication makes U(z) an L--G torsor, and U(z)->Gr is a formally etale monomorphism. Point sets may be empty over a given base; no global trivialization is presumed.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U09"
+      ],
+      "proofSteps": [
+        "The conditions defining U(z̃)(R) are stable under left multiplication by L⁻⁻G(R): multiply A(v − t)^{−ν}w^{−1} and A(v − t)^{−ν} on the left by an element of L⁻⁻G(R). So U(z̃)(R) is empty or a left L⁻⁻G(R)-coset in LG(R), and U(z̃) is an L⁻⁻G-torsor. By U05 the map U(z̃) → Gr is a monomorphism.",
+        "U(z̃) is formally smooth over X. Each entry A_ij ranges over a module (v − t)^d((v − t)^{−1})^δ(v/(v − t))^{δ′}R[(v − t)^{−1}] determined by i, j and z̃, together with the pivot normalization. So U(z̃)(R) → U(z̃)(S) is surjective for a square-zero thickening R → S.",
+        "Combine formal smoothness with the formal étaleness of L⁻⁻G → Gr (U09) and the torsor structure to obtain formal étaleness of U(z̃) → Gr in U08's Artinian sense."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U12",
@@ -5058,7 +5103,17 @@
       "locator": "Proposition3.2.8, PDF60",
       "statement": "For Noetherian R, A in U(w t_nu)det,<=h has A_ij=v^[i>j] sum_(k=-h)^(nu_j-[i>j]-[i<w(j)]) c_(ij,k)(v-t)^k, pivot c_(w(j)j,nu_j-[w(j)>j])=1, and det A=det(w)(v-t)^sum(nu). Empty coefficient ranges contribute zero. These equations represent the chart by a finite-type affine scheme. Do not impose a nonemptiness inequality on every nonpivot entry: the sentence following the proposition is too strong (source issue E7).",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U03"
+      ],
+      "proofSteps": [
+        "Unwind the two conditions defining U(z̃) for z̃ = w t_ν. Unipotent lower triangularity of A(v − t)^{−ν}w^{−1} modulo (v − t)^{−1} fixes the top coefficient of A_{w(j)j} to be 1 and bounds the other degrees by ν_j − δ_{i<w(j)}. Upper triangularity of A(v − t)^{−ν} modulo v/(v − t) puts the factor v^{δ_{i>j}} in front and lowers the bound by δ_{i>j}. The bound det ≤ h gives the lower limit k ≥ −h.",
+        "The condition det A ∈ R[[v − t]]^×(v − t)^{‖ν‖} combines with det A ∈ det(w)(v − t)^{‖ν‖}(1 + (v − t)^{−1}R[(v − t)^{−1}]), which the shape of A forces, to give det A = det(w)(v − t)^{‖ν‖} exactly.",
+        "Hence U(z̃)^{det,≤h} is the spectrum of Z[c_{ij,k}] modulo the coefficients of the determinant identity, a finite-type affine scheme. By E7, empty coefficient ranges contribute zero; nonemptiness only needs every pivot to occur."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U13",
@@ -5136,7 +5191,17 @@
       "locator": "Corollary3.2.10, PDF61",
       "statement": "U(z)det,<=h -> Grdet=sum(nu),<=h is an open immersion, via finite type plus formal etaleness and monomorphism.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U08"
+      ],
+      "proofSteps": [
+        "U(z̃)^{det,≤h} = U(z̃) ×_Gr Gr^{det=‖ν‖,≤h}, so by U11 the map ι is a formally étale monomorphism in U08's sense.",
+        "Both sides are locally of finite type over X (U12 and the projective bounded pieces U03), so formal étaleness in the Artinian sense gives étaleness (Stacks 02HY, Remark 3.2.5(1)). An étale monomorphism is an open immersion (Stacks 025G)."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U15",
@@ -5214,7 +5279,16 @@
       "locator": "Lemma3.3.1, PDF61",
       "statement": "For h in L+G, v(hg)'(hg)^-1+Ad(hg)D=v h'h^-1+Ad(h)(v g'g^-1+Ad(g)D), which lies in(v-t)^-1 L+M whenever the original expression does. The printed calculation and claim h' in L+M are corrected in E12; the integral term is v h'.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U02"
+      ],
+      "proofSteps": [
+        "For h ∈ L⁺G(R), the Leibniz rule gives v·d(hg)/dv·(hg)^{−1} + hg·Diag(a)·(hg)^{−1} = v·(dh/dv)·h^{−1} + h·(v·(dg/dv)·g^{−1} + g·Diag(a)·g^{−1})·h^{−1}, with the h^{−1} restored as E12 corrects.",
+        "v·(dh/dv) ∈ L⁺M(R) and h^{−1} ∈ L⁺G(R), so the first term lies in L⁺M(R) ⊂ (v − t)^{−1}L⁺M(R); and (v − t)^{−1}L⁺M(R) is stable under conjugation by L⁺G(R). So the condition (3.1) is invariant under the left L⁺G action, and Gr^∇ = L⁺G\\LG^∇ is well defined."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U17",
@@ -5361,7 +5435,19 @@
       "locator": "Proposition3.3.4, PDF63–65",
       "statement": "For dominant lambda, after inverting h_lambda!, the orbit projection identifies Mnv_X0 intersect(Sopen_X0(lambda) times An) with(P_lambda\\GLn) times X0 times An. The triangular recursion solves positive Laurent coefficients from constant coefficients using invertibility of t and integers1,...,h_lambda.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U18"
+      ],
+      "proofSteps": [
+        "Cover P_λ\\GL_n by the translates N_λ w of the opposite unipotent big cell (w ∈ W). This pulls back to a cover of S°_{X^0}(λ) by the affine spaces Ñ_λw of matrices (v − t)^λ N w, where N has unit diagonal, N_α = 0 when ⟨−λ, α^∨⟩ ≤ 0, and N_α = Σ_{j<⟨−λ,α^∨⟩} X_{α,j}(v − t)^j otherwise. On these coordinates π_λ is (v − t)^λ N w ↦ (N mod (v − t))w.",
+        "With t invertible (so v is a unit in R[[v − t]]), the monodromy condition (3.2) for (v − t)^λ N w is equivalent to [v·dN/dv + [N, Ad(w)Diag(a)]]·N^{−1} ∈ (v − t)^{−1}Ad((v − t)^{−λ})M_n(R[[v − t]]). The only constraints are divisibility of the α-th entries by (v − t)^{⟨−λ,α^∨⟩−1} for ⟨−λ, α^∨⟩ > 0.",
+        "The α-th entry is (v·d/dv − ⟨Ad(w)Diag(a), α^∨⟩)N_α plus terms in N_β for α < β < 0. Expanding in (v − t) gives the recursion t(i + 1)X_{α,i+1} + (i − ⟨Ad(w)Diag(a), α^∨⟩)X_{α,i} + (lower terms) = 0. Since t and 1, …, h_λ are invertible, it solves every X_{α,i} with i > 0 from the X_{α′,0} with α ≤ α′ < 0.",
+        "So on each chart the naive model over X^0 × A^n[1/h_λ!] is the graph of the constant coefficients, and π_λ is an isomorphism onto (P_λ\\GL_n) × X^0 × A^n[1/h_λ!]."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U20",
@@ -5370,7 +5456,16 @@
       "locator": "Corollary3.3.5, PDF65",
       "statement": "After inverting h_lambda!, the reduced Mnv_X0(<=lambda,nabla) is the disjoint union of(P_lambda'\\GLn) times X0 times An for dominant lambda'<=lambda. Keep the localization; the proof removes each open proper component successively.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U17"
+      ],
+      "proofSteps": [
+        "By U19, M^nv_{X^0}(≤λ, ∇) ∩ (S°(λ) × A^n)[1/h_λ!] ≅ (P_λ\\GL_n) × X^0 × A^n[1/h_λ!] is proper over X^0 × A^n. So its inclusion into M^nv_{X^0}(≤λ, ∇)[1/h_λ!] is a proper open immersion, hence the inclusion of a connected component.",
+        "The complement has the support of Gr^∇ ∩ ((S(λ) ∖ S°(λ)) × A^n), and S(λ) ∖ S°(λ) = ∪_{λ′<λ} S(λ′) set-theoretically, with h_{λ′} ≤ h_λ. Repeat for each smaller dominant λ′ and keep the localization at h_λ!. This gives the reduced decomposition."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U21",
@@ -5448,7 +5543,15 @@
       "locator": "Lemma3.3.7, PDF66",
       "statement": "Over X0 the torus-fixed subscheme of SX(lambda) is supported on sections s_mu for integral mu in the Weyl polytope Conv(lambda); this is a support assertion, not an assertion that the fixed scheme is reduced.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U17"
+      ],
+      "proofSteps": [
+        "The support of a fixed-point scheme can be checked on geometric fibres over X^0. There S_{X^0}(λ) is the constant family of the Schubert variety of λ in Gr_{GL_n}, whose T^∨-fixed points are the points (v − t)^{λ′}, λ′ ∈ Conv(λ) (Zhu, Introduction to affine Grassmannians, before Example 2.1.12).",
+        "The statement is about supports only; reducedness of the fixed-point scheme is not claimed."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U23",
@@ -5457,7 +5560,21 @@
       "locator": "Proposition3.3.8, PDF66–68",
       "statement": "For dominant lambda, Mnv_X0(<=lambda,nabla) becomes smooth over X0 times An after inverting(2h_lambda)!. Proof reduces to torus-fixed points by properness of the non-smooth locus, then bounds diagonal and root tangent coefficients by the displayed recursion. Combined with U20 it removes the reduction qualification in that decomposition after this stronger localization.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U18"
+      ],
+      "proofSteps": [
+        "Write Y = M^nv_{X^0}(≤λ, ∇)[1/(2h_λ)!] and S = X^0 × A^n[1/(2h_λ)!]. The non-smooth locus of Y → S is closed, T^∨-stable and proper over S. If it is nonempty it has a nonempty geometric fibre, a proper variety with a torus action, hence with a torus-fixed closed point. By U22 that point lies in the support of some s_μ, μ ∈ Conv(λ). So it suffices to prove smoothness at a closed point x in the support of s_μ, over s = (t, a).",
+        "By U20, x lies on the component inside S°(μ) × A^n, so dim_x Y = dim(P_μ\\GL_n) + n + 1, the dimensions being those of Z-schemes. Smoothness follows from the tangent-space bound dim T_x Y ≤ dim T_x Y_s + dim_s S, since S is regular. It therefore suffices to show dim T_x Y_s ≤ #{α : ⟨μ, α^∨⟩ < 0}.",
+        "In the chart U(t_μ), points of S(λ) lie in the closed piece of Z = Gr^{det=0,≤h_λ}s_μ, because λ_min − μ_max ≥ −h_λ. Tangent vectors (1 + εX)(v − t)^μ have X_ii = Σ_{j≤h_λ} X_{ii,j}(v − t)^{−j} and X_α = v^{δ_{α<0}}Σ_{j≤h_λ} X_{α,j}(v − t)^{−j}, subject to εv·dX/dv − ε(v/(v − t))[μ, X] − ε[Diag(a), X] ∈ (v − t)^{−1}L⁺M.",
+        "On the diagonal, tjX_{ii,j} = −(j + 1)X_{ii,j+1} forces X_{ii,j} = 0. For a root α, t(j + ⟨μ, α^∨⟩)X_{α,j} = −(j + 1 − δ_{α<0} + ⟨μ + a, α^∨⟩)X_{α,j+1}. For ⟨μ, α^∨⟩ ≥ 0 every factor t(j + ⟨μ, α^∨⟩), 1 ≤ j ≤ h_λ, is a unit, since (2h_λ)! is inverted, so X_α = 0. For ⟨μ, α^∨⟩ < 0 one free parameter X_{α,−⟨μ,α^∨⟩} remains. Hence dim T_x Y_s ≤ #{α : ⟨μ, α^∨⟩ < 0} = dim P_μ\\GL_n."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U24",
@@ -5702,7 +5819,18 @@
       "locator": "Lemma3.4.7, PDF71–72",
       "statement": "Choose regular dominant mu and N>h_mu. The one-parameter subgroup r->(Ad(w^-1)(r^mu),r^N) gives a contracting action on every bounded z chart and has distinguished section z as its fixed subscheme when nonempty. Direct substitution in U27 gives coefficient weight N(nu_j-[i>j]-k)+mu_(w(j))-mu_i. The proof prints the opposite mu-signs (source issue E8); with the corrected weights all nonpivot variables have positive weight.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U13"
+      ],
+      "proofSteps": [
+        "Choose μ regular dominant, N > h_μ, and the one-parameter subgroup r ↦ (Ad(w^{−1})(r^μ), r^N) of T^∨ × G_m. It suffices to compute on Noetherian points, using U12's coordinates and U27's action.",
+        "Substitution gives A′_ij = v^{δ_{i>j}}Σ_k r^{N(ν_j−δ_{i>j}−k)+μ_{w(j)}−μ_i}c_{ij,k}(v − r^N t)^k: this is the weight with the sign of E8, the printed weight having μ_i − μ_{w(j)}. For k < ν_j − δ_{i>j} the weight is positive since N > h_μ. For k = ν_j − δ_{i>j} one has δ_{i<w(j)} = 0, so either i = w(j), the pivot, with weight 0 and coefficient 1, or i > w(j), with weight μ_{w(j)} − μ_i > 0 by regularity with E8's sign.",
+        "All nonpivot coordinates have positive weight, and t has weight N > 0. So the G_m-action extends to the monoid A^1, and its fixed-point scheme is the locus where all these coordinates and t vanish, namely the section z̃ (U13) when the chart is nonempty."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U29",
@@ -5711,7 +5839,16 @@
       "locator": "Lemma3.4.8, PDF72",
       "statement": "For an irreducible variety M over an algebraically closed field with an A1 multiplicative-monoid action whose unique Gm-fixed point is x, M is unibranch at x and its completed local ring is a domain. Normalize, lift the action, and use the0-action map to show the finite normalization fibre is connected. Reducedness comes from the variety hypothesis.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U26"
+      ],
+      "proofSteps": [
+        "Let π: M^nm → M be the normalization, which is finite since M is a variety. A^1 × M^nm is normal and maps dominantly to M through the action, so the A^1-action lifts to M^nm by the universal property of normalization. In particular G_m acts on M^nm.",
+        "The reduced G_m-fixed locus of M^nm equals (π^{−1}(x))_red. π maps fixed points to M^{G_m} = {x}, and the finite G_m-stable scheme π^{−1}(x) consists of fixed points.",
+        "m ↦ 0·m is a surjection from the irreducible M^nm onto the finite fixed locus, so (π^{−1}(x))_red is one point. Hence M is unibranch at x (Remark 3.4.3(1), U26). The completed local ring is a domain by Remark 3.4.3(2), which applies because M is reduced (E9)."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U30",
@@ -5720,7 +5857,21 @@
       "locator": "Proposition3.4.4, PDF70,73",
       "statement": "Under U25's hypotheses, if z_k lies in M(lambda,nabla_a), then for every integer e>0 its base change under v->v^e is unibranch at z_k. The preimage of the z chart in the normalization's v=0 fibre is connected. The contraction lifts after composing its scaling cocharacter with the e-power map.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U26"
+      ],
+      "proofSteps": [
+        "For e = 1, U(z̃, λ, ∇_a) is irreducible: it is a nonempty open subset of M(λ, ∇_a), the closure of the irreducible (P_λ\\GL_n) × X^0_k of U20. The T^{∨,ext}-action preserves S(λ), the monodromy condition at the fixed a (right diagonal multiplication commutes with Diag(a); loop rotation rescales t) and the chart. So U28's one-parameter subgroup restricts to a contracting A^1-action whose unique fixed point is z̃_k.",
+        "Lemma 3.4.8 (U29) makes U(z̃, λ, ∇_a) unibranch at z̃_k. The action lifts to the normalization. Its fibre over 0 ∈ X_k carries a contracting action whose fixed points lie over z̃_k, a single point, so every orbit closure meets that point and the fibre is connected.",
+        "For general e, compose the cocharacter with the e-th power map G_m → G_m. The resulting contracting action on U(z̃, λ, ∇_a) is equivariant for the e-th power of the scaling of v, so it defines a contracting action on the base change along v ↦ v^e with fixed point z̃_k. Repeat the argument."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U31",
@@ -5729,7 +5880,18 @@
       "locator": "Corollary3.4.5, PDF70",
       "statement": "For the universal family restricted to U in An and its e-power base change, assume both M_U and the normalization of M_U,e in its X0 part are flat over X times U. At a geometric special-fibre point in a distinguished z section, the normalization fibre is supported at one point; the normalization preimage of the z chart in that fibre is connected. Both flatness hypotheses are retained.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U21"
+      ],
+      "proofSteps": [
+        "Let s ∈ U(k) be the image of x, with parameter a. Flatness of M_U over X × U makes its fibre over s v-torsion free, so the comparison map M(λ, ∇_a) → M_U ×_U s is an isomorphism, and M_{U,e} ×_U s = M(λ, ∇_a) ×_{X_k, v↦v^e} X_k.",
+        "Flatness of the relative normalization M̃_{U,e}, which is an isomorphism over X^0 because the X^0-part is smooth, makes M̃_{U,e} ×_U s → M_{U,e} ×_U s finite and birational. So the normalization of M(λ, ∇_a) ×_{v↦v^e} X_k surjects onto M̃_{U,e} ×_U s.",
+        "By Proposition 3.4.4 (U30), the normalization fibre over x is one point and the preimage of U(z̃) over 0 is connected. Their images in M̃_{U,e} ×_U s give both conclusions (Remark 3.4.3(1), U26)."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U32",
@@ -5738,7 +5900,14 @@
       "locator": "Lemma3.5.4, PDF74",
       "statement": "For an A[v]-algebra B, if v is regular in B, B[1/v] is flat over A[v,1/v], and B/v is flat over A, then B is flat over A[v], in the local-criterion setting used by the finite-presentation family. Before stating this for unrestricted B, audit the cited local flatness criterion's finiteness hypotheses.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [],
+      "proofSteps": [
+        "Work at x ∈ Spec B over y ∈ Spec A[v]. If v is invertible at x, flatness of B_x over A[v]_y is the hypothesis on B[1/v].",
+        "If v ∈ m_x, then B_x/v is flat over A[v]_y/v, and Tor_1^{A[v]_y}(A[v]_y/v, B_x) = 0 because v is a nonzerodivisor on B_x. The local criterion of flatness (Stacks 00MD) then gives flatness of B_x.",
+        "Stacks 00MD assumes Noetherian local rings and a finite module over the local target. That holds where the lemma is used (finitely presented families over finite-type Z-schemes, B_x = the local ring itself). The unrestricted statement is not claimed here."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U33",
@@ -5747,7 +5916,16 @@
       "locator": "Lemma 3.5.5, PDF74; Setup 3.5.1, PDF73",
       "statement": "Lemma 3.5.5. Assume Setup 3.5.1: X = A^1 = Spec Z[v] with zero section 0 : Spec Z → X and X^0 = Spec Z[v, 1/v]; S is an integral finite type Z-scheme whose generic point has characteristic 0; M → X × S is a finitely presented map such that the base changed family M^0 = M ×_X X^0 → X^0 × S is smooth, M is the Zariski closure of M^0 (in particular v ∈ O(M) is a regular element), and M is normal. Then there is a non-empty open subscheme U ⊂ S such that the base change M ×_{X×S} (X × U) → X × U is flat. Proof (PDF74): v is regular in M. Let M_0 be the S-scheme M ×_X {0}. Since S is integral, generic flatness ([75, Tag 0529]) gives a non-empty open U ⊂ S such that M_0 ×_S U is flat over U. M^0 → X^0 × S is smooth, hence flat. Conclude by Lemma 3.5.4 (U32).",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U32"
+      ],
+      "proofSteps": [
+        "v is regular in O(M) because M is the Zariski closure of M^0 (Setup 3.5.1).",
+        "Since S is integral, generic flatness (Stacks 0529) gives a nonempty open U ⊂ S with M_0 ×_S U flat over U, where M_0 = M ×_X {0}.",
+        "M^0 → X^0 × S is smooth, hence flat. Lemma 3.5.4 (U32), applied locally over affines of X × U, gives flatness of M ×_{X×S} (X × U) → X × U."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U45",
@@ -5766,7 +5944,15 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G29",
           "how": "Theorem 7.3.2(2) proof, PDF154: Remark 3.5.6 is applied to M_{X,J}(λ′,∇) → X × A^{n,J} to make its base change along (−p, a_τ) O-flat for each λ′, so that M(λ′,∇_{a_τ}) is that base change (first bulleted property)."
         }
-      ]
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U32"
+      ],
+      "proofSteps": [
+        "The proof of Lemma 3.5.5 (U33) uses only three facts: S is integral, for generic flatness of M_0 (Stacks 0529); v is regular in M; and M^0 is flat over X^0 × S. It does not use smoothness of M^0, closure, or normality.",
+        "So the same three steps, generic flatness of M_0 over a nonempty open U followed by Lemma 3.5.4 (U32), give the conclusion under these weaker hypotheses."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U34",
@@ -5775,7 +5961,14 @@
       "locator": "Lemma3.5.7, PDF74",
       "statement": "In Setup3.5.1 (S integral finite type with characteristic-zero generic point, M finitely presented, normal, closure of its smooth X0 part), additionally assume flatness over X times S. After shrinking S nontrivially, the v=0 fibres are geometrically S1. First spread geometric normality of M's generic fibre over S; quotient by the regular element v.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [],
+      "proofSteps": [
+        "M is normal and M^0 is smooth; the generic fibre of M → S over the characteristic-zero generic point η is normal, hence geometrically normal (normal over a perfect field).",
+        "By EGA IV 9.9.4 there is a nonempty open U ⊂ S over which M → S has geometrically normal fibres. So for each geometric point u of U, M ×_S u is normal, in particular S2.",
+        "Flatness of M over X × S makes v a nonzerodivisor on M ×_S u, so M_0 ×_S u, its zero scheme, is S1."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U35",
@@ -5784,7 +5977,15 @@
       "locator": "Lemma3.5.8, PDF74–75",
       "statement": "In Setup3.5.1 with flatness, there is a nonempty etale U->S such that a DVR map Spec R->X times U sending v to a uniformizer yields an R1 base change M_R. Spread geometric integrality of special components and their principal generators in height-one localizations; the displayed base arrows in the printed statement need correction to X times U and Spec R.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [],
+      "proofSteps": [
+        "Reduce to M affine and, shrinking S as in Lemma 3.5.7 (E11), to geometrically normal fibres. Choose a finite separable extension κ′ of the function field of S over which every irreducible component of (M_0)_{κ′} is geometrically integral. Spread it to an irreducible affine étale V → S and shrink V so that each component Z of (M_0)_V has geometrically integral fibres over V (Stacks 0553).",
+        "Then, for a DVR R and f: Spec R → X × V with v ↦ uniformizer, the components of the special fibre of M_R are the base changes of the components of (M_0)_V. This is where the uniformizer hypothesis enters.",
+        "Write M ×_{X×S}(X × V) = Spec B, which is normal, and let P be the minimal primes of B/vB. For p ∈ P, B_p is a DVR. Choose x_p generating pB_p and f_p ∉ p with f_p y_{p,i} ≡ a_{p,i}x_p mod p^2 for generators y_{p,i} of p (3.4). Shrink V to V_p, where the fibres of V(f_p) + p have smaller dimension than those of Spec B/p.",
+        "Over U = ∩_p V_p, the relations (3.4) persist in B′ = O(M_R), f_p ∉ pB′, so pB′_p is principal and B′_p is a DVR; M_R is R1. The printed statement's base arrows are corrected by E11."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U36",
@@ -5793,7 +5994,18 @@
       "locator": "Proposition3.5.2, PDF73–76",
       "statement": "In Setup3.5.1 there is a nonempty open U in S such that for every complete DVR R and map Spec R->X times U sending v to a UNIFORMIZER, M_R is flat over R and normal. Combine U33,U34,U35 and Serre R1+S2. In the proof, an etale lift may require a faithfully flat unramified DVR extension; completeness alone does not supply a residue-field point. Normality then descends. The unrestricted higher-valuation claim is false, as x^2-v with v->varpi^2 shows.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U33",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U35"
+      ],
+      "proofSteps": [
+        "Choose U1 ⊂ S from Lemma 3.5.5 (U33), U2 ⊂ U1 from Lemma 3.5.7 (U34), and the étale U3 → U2 from Lemma 3.5.8 (U35). Let U be the image of U3, an open subscheme of S.",
+        "Given a complete DVR R and f: Spec R → X × U with v ↦ uniformizer, lift f to U3. E10: if the residue field of R has no point of U3, first pass to a finite unramified (faithfully flat) extension of complete DVRs, lift by henselianity, and descend flatness and normality at the end.",
+        "Then M_R is flat over R, R1 at the generic points of its special fibre (U35), and R1 on the generic fibre, which is smooth as a base change of M^0. So M_R is R1. Its special fibre is S1 (U34) and M_R is R-flat, so M_R is S2. By Serre's criterion M_R is normal."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U37",
@@ -5802,7 +6014,14 @@
       "locator": "Proposition3.6.1, PDF76",
       "statement": "Let M->X times S be flat finite type between finite-type Z-schemes, with S irreducible and characteristic-zero generic point, and s:S->M0 a section. There is a nonempty open U in S and a closed Z in M restricted over X times U, flat and quasi-finite over X times U, containing s restricted to U. The proof needs a horizontal curve through the generic section point, then spreading and generic flatness.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [],
+      "proofSteps": [
+        "Let κ be the generic point of S. Flatness of M_κ → X_κ makes it generizing, so there is a point x of M_κ over the generic point of X_κ whose closure contains the κ-point of (M_0)_κ given by s.",
+        "The closure of x is an irreducible curve dominating X_κ, hence flat and quasi-finite over X_κ. Spread it to a closed Z ⊂ M ×_{X×S}(X × V) for a nonempty open V ⊂ S; Z contains the generic point of s, hence s|_V.",
+        "Z → X × V is flat and quasi-finite over an open W ⊃ X_κ. The image in V of (X × V) ∖ W is constructible and misses the generic point, so it avoids a nonempty open U ⊂ V. Replace Z by Z ∩ (X × U)."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U38",
@@ -5811,7 +6030,16 @@
       "locator": "Corollary3.6.2, PDF76–77",
       "statement": "Under U37's hypotheses there are e and nonempty open U such that for any complete DVR R mapping to X times U with v of positive valuation, the point induced by s lifts after a finite DVR extension R'/R of degree<=e. Use the finite flat connected piece of the quasi-finite horizontal subscheme and normalize it.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U37"
+      ],
+      "proofSteps": [
+        "Take U and Z from Proposition 3.6.1 (U37), and let e be the maximal degree of a fibre of Z → X × U.",
+        "For a complete DVR R and f: Spec R → X × U with v of positive valuation, Z_R → Spec R is flat, quasi-finite and contains the special-fibre point induced by s. Since R is complete, hence henselian, Z_R has a connected component C finite flat over R containing that closed point (Stacks 04GE).",
+        "The normalization of C is a disjoint union of spectra of complete DVR extensions of R of degree ≤ e, and one of them has closed point mapping to s. It gives the required R′-point."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U39",
@@ -5889,7 +6117,24 @@
       "locator": "Theorem3.7.1, PDF77–80; stated in the introduction as Theorem 1.4.2 (PDF 10)",
       "statement": "Fix e>0, n and a finite set of dominant cocharacters. There is a nonempty open U in An depending only on this set,e,n such that, for every finite tuple drawn from the set, complete DVR R and map Spec R->X times U^J sending v to an element of positive valuation<=e, the specialized product model is R-flat and unibranch at each special-fibre point on a distinguished section z. The v-unit case has no such special distinguished points.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U23",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U31",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U43"
+      ],
+      "proofSteps": [
+        "Only the sections s̃ = wt_ν with ν ∈ Conv(λ_j), a finite set, can meet (M_j)_0. Let Fix_j be those meeting the generic fibre over η ∈ A^n. Choose opens S_j ⊂ A^n, depending only on λ_j, over which M_j is flat (Remark 3.5.6, U45), (M_j)_0 contains the sections in Fix_j and misses the others (constructibility), and (2h_{λ_j})! is invertible. Put S = ∩_j S_j.",
+        "Corollary 3.6.2 (U38) gives V ⊂ S and e′ such that every (M_j)_R acquires R′-points through the sections in Fix_j after an extension of degree ≤ e′. For 1 ≤ l ≤ e, the normalizations M̃_{j,le′!} of the base changes along v ↦ v^{le′!} satisfy Setup 3.5.1: the X^0-part is smooth by U23, the base change is étale over X^0, and the normalization is taken in the X^0-part. Let U ⊂ V satisfy Proposition 3.5.2 (U36) for all of them, with e!e′! invertible.",
+        "Given R and f with v ↦ a of valuation l ≤ e, reduce to separably closed residue field, since unibranchness is analytic irreducibility for excellent schemes (U26). Take R′ = R[ϖ^{1/e′!}] with ϖ′^{le′!} = a. Then (M̃_{j,le′!})_{R′} is normal (U36), hence the normalization of (M_j)_{R′}. Corollary 3.4.5 (U31) shows each distinguished point has a one-point normalization fibre, so (M_j)_{R′} is unibranch there and its completed local rings are domains.",
+        "The completed local ring of the product at z̃ is the completed tensor product over R′ of these complete local domains, each with an R′-point and regular generic fibre. It is a domain by the general-DVR form of Khare–Wintenberger II, Proposition 2.2 (U43). Descend from R′ to R by the embedding of completed local rings, and conclude with Remark 3.4.3(2) (U26)."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U41",
@@ -5898,7 +6143,19 @@
       "locator": "Theorem3.7.1, last assertion, PDF77–80",
       "statement": "Under U40's hypotheses, for a distinguished section z meeting the special fibre, the maximal-ideal-of-R-adic completion of the coordinate ring of its chart in the specialized product is a domain. This is completion of the whole affine chart along the base ideal, not merely its completed local ring at z.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z09"
+      ],
+      "proofSteps": [
+        "In the proof of Theorem 3.7.1 (U40), Corollary 3.4.5 also gives connectedness of the preimage of each chart's special fibre in the normalization. Lemma 3.7.2 (U42) then makes each ϖ′-adic completion O(U_j(z̃_j)_{R′})^∧ a domain.",
+        "For the product chart, the ϖ′-adic completion is the completed tensor product of these. Each factor after inverting ϖ′ is a regular affinoid domain with an R′[1/ϖ′]-rational point, hence geometrically connected (BLGGT [10], Lemma A.1.1; Z09). The completed tensor product is geometrically connected and regular, hence a domain (Z13).",
+        "The m_R-adic completion over R embeds into the one over R′, which gives the claim."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U42",
@@ -5928,7 +6185,12 @@
       "note": "Split from the formerly bundled complete-local and affinoid arguments. Original KWII and BLGGT statements were read in this continuation; their exact general-field interfaces are recorded, not silently assumed.",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z12"
-      ]
+      ],
+      "proofSteps": [
+        "In the proof of Theorem 3.7.1, after the extension R′, each completed local chart ring O^∧_{(M_j)_{R′}, z̃_j} is a complete local Noetherian domain (Corollary 3.4.5 and Lemma 3.4.8 via unibranchness) with an R′-point, and its generic fibre is regular because (M_j)_{R′}[1/ϖ′] is smooth.",
+        "The completed tensor product over R′ for the sum of the maximal ideals is a domain by Z12, the general-DVR adapter of Khare–Wintenberger II, Proposition 2.2(ii), whose proof the paper says works for general complete DVRs."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF pages 55–80 (§3), with the corrections E7, E8, E9, E10, E11 and E12 applied; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M01",
@@ -33387,7 +33649,8 @@
     "cc39fac3AppendixBTable1": "29 September 2026, issue 1254, fourth checkpoint: a uniform certificate of Table 1 off the E113 curves. Only Q09, sourceData.appendixB.table1Rederivation, the appendix-certificates gap, validation and the summary were edited. No status, route or finding changed, and no Lean file was written.",
     "cc39fac3KummerTower": "29 September 2026, issue 1254: the gap kummer-tower-field-inputs is resolved at extraction level and removed. Its three field-theoretic assertions are decomposed into Z143 (Galois closure, K∞ ∩ K(μ_{p^∞}) = K, semidirect product with G_0 ≅ Z_p(1)), Z144 (Gal(K(μ_{p^∞})/K(μ_p)) ≅ Z_p) and Z145 (no degree-p Galois subextension without ζ_p), all for p > 2. They are sourced to Liu's note (arXiv:0709.4523v1, PDF4), EGS 7.4.3 (PDF48–49) and GLS 5.4.2 (arXiv:1309.0527v2, PDF35), and routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4. Z145's derivation from Z143 is given in its proof steps. A p = 2 counterexample to the intersection statement is checked (π = −2 in Q_2). As the gap required, the finite-length diagram chase of G67 was not used to close this boundary.",
     "ccE94dc5KummerTowerSource": "29 September 2026, issue 1254 (Claude Code, cc-e94dc5): Z143's source is confirmed at the original. Lemma 5.1.2 of Liu, Compositio Math. 144 (2008), pp. 82–83, states exactly Z143's three assertions for p ≥ 3 and proves them; Remark 5.1.3 and Lemma 8.0.4 of Liu's Annales paper describe p = 2. The previous locator attributed the lemma to the Annales paper, which only cites it; the locator and note are corrected. No item id, status, route or finding changed; one prerequisite is added. check_paper.py and intake check-files pass.",
-    "ccC58621dQ03": "29 September 2026, issue 1254 (Claude Code, cc-58621d): Q03 (Proposition B.0.1(1)) is resolved. Appendix B's equations are the chart's for the monodromy term g·Diag(−a, −b, 0)·g^{−1}, the negative of (3.1)'s parameter (E114), and they present the chart only over Z[a, b][1/(aP)] (E115); the displayed matrix has vc12 for c12 (E116). Singular: exact ideal equality at five sample points; generic-point check over Q(a, b); an explicit cofactor certificate for the six solved coefficients; primality of (F1, F2, F3) over Q(a, b). New findings E114–E116; Q03's statement, proof steps and note are rewritten; sourceData.appendixB.q03Resolution is added. The appendix-certificates gap is closed and removed: every Appendix B claim is now certified over Z[a, b][1/(aP)] or corrected (E111–E116). No other item, status or route changed. check_paper.py and intake check-files pass."
+    "ccC58621dQ03": "29 September 2026, issue 1254 (Claude Code, cc-58621d): Q03 (Proposition B.0.1(1)) is resolved. Appendix B's equations are the chart's for the monodromy term g·Diag(−a, −b, 0)·g^{−1}, the negative of (3.1)'s parameter (E114), and they present the chart only over Z[a, b][1/(aP)] (E115); the displayed matrix has vc12 for c12 (E116). Singular: exact ideal equality at five sample points; generic-point check over Q(a, b); an explicit cofactor certificate for the six solved coefficients; primality of (F1, F2, F3) over Q(a, b). New findings E114–E116; Q03's statement, proof steps and note are rewritten; sourceData.appendixB.q03Resolution is added. The appendix-certificates gap is closed and removed: every Appendix B claim is now certified over Z[a, b][1/(aP)] or corrected (E111–E116). No other item, status or route changed. check_paper.py and intake check-files pass.",
+    "ccC58621dUOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): the 26 §3 theorem items without an outline (U05–U45) now carry source-level proofSteps, prerequisites and proofProvenance, read from the published PDF55–80 with the corrections E7–E12 applied. The internal prerequisite graph gains 60 edges and remains acyclic (1,290 edges). No new finding: §3 was re-read in full and its recorded findings (E7–E12, E43, E44, E85, E86) cover what was found. Remaining theorem items without proof steps: A 56, B 28, G 39, K 4, L 138, P 1, Z 1 (L items are library citations). No status, route or finding changed. check_paper.py and intake check-files pass."
   },
   "definitionApiGroups": [
     {
