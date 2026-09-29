@@ -1294,7 +1294,7 @@
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Partial extraction: 779 items (146 library, 48 planned, 585 missing), 26 routes and 116 unreviewed source findings. This continuation corrects the coefficient/prime hypotheses behind the Section5 Kisin uniqueness results, separates the unrestricted rank-one scalar contraction, supplies an acyclic semisimplicity repair using WE19, and propagates the bounds through Section7.2. The generic-adjoint argument is supplied in all ranks with its rank-one odd-prime exception E110; finite-length Hom comparison is decomposed through a simultaneous H0/H1 induction. Eight new items K55–K58, L143, Z142 and G67–G68 retain existing owners. All inherited IDs, statuses and source data are preserved. The internal graph has 1,226 edges and is acyclic; this is not recursive proof closure. Twelve recorded gaps remain, including later rank-one propagation, external suppliers, regularity and the U/G/B/Z/P outline queues. No formal implementation or independent review is asserted. A further checkpoint (cc-fb70e5) records E111: Proposition B.0.1(4) fails on the line a = 0 inside V. A later one (cc-39fac3) certifies Q06 (t^3 in the Jacobian ideal) over Z[a,b][1/(aP)] with multiplier 2a(a−2)^2(a−b)(b−1), and shows that the specializations used downstream all have a a unit, so Corollary B.0.5 keeps r = 3. A second cc-39fac3 checkpoint certifies the Q13 Gröbner basis uniformly over V, in the two cells (a−b)(a−1) ≠ 1 and = 1, with Cohen–Macaulay leading-term schemes in every characteristic. It records E112, the misprinted exceptional locus, and E113: Table 1 and the special-fibre component list fail on a = 0, a(b−1) = b and (a−b)(a−1) = 1, without affecting the downstream uses. A third cc-39fac3 checkpoint certifies, uniformly over V, Proposition B.0.1(2)'s minimal primes (the special fibre is doubled along (c22, c13, c12)) and B.0.1(3)'s flatness (the chart is free over X × V), and shows that the normalization's special fibre is reduced. A fourth cc-39fac3 checkpoint certifies Table 1 at every point of V off the three E113 curves. A further cc-39fac3 step decomposes the Kummer-tower field inputs into Z143–Z145 (p > 2), routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, and removes that gap. A cc-58621d step settles Q03, the last uncertified Appendix B claim. Proposition B.0.1(1)'s equations are the chart's for the monodromy parameter Diag(−a, −b, 0), the negative of (3.1)'s (E114). They present the chart only where a is also invertible (E115), and the displayed matrix has vc12 for c12 (E116). With these corrections B.0.1(1) is proved over Z[1/7!][a, b][1/(aP)], every Appendix B claim is certified or corrected, and the appendix-certificates gap is closed; the downstream uses are unaffected. A second cc-58621d step gives the 26 §3 theorem items (U05–U45) source-level proof steps and prerequisite edges; the graph stays acyclic.",
+  "summary": "Partial extraction: 779 items (146 library, 48 planned, 585 missing), 26 routes and 116 unreviewed source findings. This continuation corrects the coefficient/prime hypotheses behind the Section5 Kisin uniqueness results, separates the unrestricted rank-one scalar contraction, supplies an acyclic semisimplicity repair using WE19, and propagates the bounds through Section7.2. The generic-adjoint argument is supplied in all ranks with its rank-one odd-prime exception E110; finite-length Hom comparison is decomposed through a simultaneous H0/H1 induction. Eight new items K55–K58, L143, Z142 and G67–G68 retain existing owners. All inherited IDs, statuses and source data are preserved. The internal graph has 1,226 edges and is acyclic; this is not recursive proof closure. Twelve recorded gaps remain, including later rank-one propagation, external suppliers, regularity and the U/G/B/Z/P outline queues. No formal implementation or independent review is asserted. A further checkpoint (cc-fb70e5) records E111: Proposition B.0.1(4) fails on the line a = 0 inside V. A later one (cc-39fac3) certifies Q06 (t^3 in the Jacobian ideal) over Z[a,b][1/(aP)] with multiplier 2a(a−2)^2(a−b)(b−1), and shows that the specializations used downstream all have a a unit, so Corollary B.0.5 keeps r = 3. A second cc-39fac3 checkpoint certifies the Q13 Gröbner basis uniformly over V, in the two cells (a−b)(a−1) ≠ 1 and = 1, with Cohen–Macaulay leading-term schemes in every characteristic. It records E112, the misprinted exceptional locus, and E113: Table 1 and the special-fibre component list fail on a = 0, a(b−1) = b and (a−b)(a−1) = 1, without affecting the downstream uses. A third cc-39fac3 checkpoint certifies, uniformly over V, Proposition B.0.1(2)'s minimal primes (the special fibre is doubled along (c22, c13, c12)) and B.0.1(3)'s flatness (the chart is free over X × V), and shows that the normalization's special fibre is reduced. A fourth cc-39fac3 checkpoint certifies Table 1 at every point of V off the three E113 curves. A further cc-39fac3 step decomposes the Kummer-tower field inputs into Z143–Z145 (p > 2), routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, and removes that gap. A cc-58621d step settles Q03, the last uncertified Appendix B claim. Proposition B.0.1(1)'s equations are the chart's for the monodromy parameter Diag(−a, −b, 0), the negative of (3.1)'s (E114). They present the chart only where a is also invertible (E115), and the displayed matrix has vc12 for c12 (E116). With these corrections B.0.1(1) is proved over Z[1/7!][a, b][1/(aP)], every Appendix B claim is certified or corrected, and the appendix-certificates gap is closed; the downstream uses are unaffected. A second cc-58621d step gives the 26 §3 theorem items (U05–U45) source-level proof steps and prerequisite edges; the graph stays acyclic. A third cc-58621d step adds proof steps for K45–K48, P17 and Z01.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -15844,7 +15844,15 @@
       "locator": "Cited input [1], Boixeda Alvarez arXiv:1910.04780v3 Theorem3.1, PDF5; definitions PDF1–4; used in LLHLM23 Proposition4.7.3.",
       "statement": "Over C, for the simply connected Type A group with chosen Borel/Iwahori and diagonal regular semisimple s, put gamma=t*s. For w in the fundamental box F of dominant restricted alcoves, let Y_w be the closure of G(C[[t]])wB/B intersect Fl_gamma. Then its T-fixed points are exactly the affine Weyl elements y with y<=w0*w. The GLn central-translation and left/right quotient adapters must be supplied when importing this into LLHLM23; the theorem itself is a characteristic-zero result, and LLHLM23 spreads nonempty intersections to obtain polynomial conditions in characteristic p.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [],
+      "proofSteps": [
+        "Upper bound (Remark 2.2 of the source): Y_w lies in the closure of G(C[[t]])wB/B, whose T-fixed points are exactly the y ≤ w_0w, so Y_w^T ⊆ {y ≤ w_0w}.",
+        "Detection of fixed points (Lemma 3.1 of the source): for y in the affine Weyl group, U_y = yU^−B/B is a T̃-stable open neighbourhood of y, the attracting set of y for a suitable cocharacter of T̃ = T × G_m. A T̃-stable subset Y contains y in its closure iff U_y ∩ Y ≠ ∅.",
+        "Reduction: multiplying by x ∈ W_f carries Fl_γ to the affine Springer fibre of t·xsx^{−1}, of the same form, and preserves G(C[[t]])-orbits. So it suffices to treat y minimal in its W_f-coset.",
+        "Lower bound (proof sketch of Theorem 3.1 and Appendix B of the source): in Type A, the intersection U_y ∩ (open part of Y_w) is described explicitly, and its nonemptiness reduces to the nonvanishing of an explicit determinant. A high-degree monomial for the loop-rotation weights, in lexicographic order, has a nonzero coefficient when y ≤ w_0w and y is W_f-minimal. The combinatorial Appendix B was not read in detail here; this item imports the theorem."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; proof outline read from Boixeda Alvarez, arXiv:1910.04780v3 (sha256 170a5476…c7ad), §§2–3 and the proof sketch of Theorem 3.1, PDF4–5; the combinatorial Appendix B was not read in detail; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z02",
@@ -18881,10 +18889,18 @@
       "note": "Additional source obligation for LocalGaloisDeformationRings; read in continuation codex-c83e7a, 23 September 2026. No implementation claimed.",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N50",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N52"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N15"
       ],
       "implementationStatus": "unchecked",
-      "proofOutline": "Put d=fr where r is the order of s_tau. For distinct indices, the exponent difference D is a sum Σ_{j=0}^{d−1}p^j δ_j. Every δ_j is the difference of two distinct coordinates of a permutation of μ_j+η_j, hence 0<|δ_j|≤p−2. Therefore |D|≤(p−2)(p^d−1)/(p−1)<p^d−1, while D mod p=δ_0 is nonzero. Thus D is not zero modulo p^d−1, the order of the fundamental character. Central shifts cancel; no positivity of the individual coordinates is required."
+      "proofOutline": "Put d=fr where r is the order of s_tau. For distinct indices, the exponent difference D is a sum Σ_{j=0}^{d−1}p^j δ_j. Every δ_j is the difference of two distinct coordinates of a permutation of μ_j+η_j, hence 0<|δ_j|≤p−2. Therefore |D|≤(p−2)(p^d−1)/(p−1)<p^d−1, while D mod p=δ_0 is nonzero. Thus D is not zero modulo p^d−1, the order of the fundamental character. Central shifts cancel; no positivity of the individual coordinates is required.",
+      "proofSteps": [
+        "By (2.12) (N50), τ̄(s, μ + η) ≅ ⊕_i χ_i with χ_i = ω_{fr}^{e_i} and e_i = Σ_{k=0}^{r−1} Σ_{j=0}^{f−1} p^{fk+j}·(α_j)_{s_τ^k(i)}, where α_j = s_{f−1}^{−1}⋯s_{f−j}^{−1}(μ_{f−j} + η_{f−j}) is a permutation of the vector μ_{f−j} + η_{f−j}. So e_i is a base-p expansion of length fr whose digit in position fk + j is an entry of μ_{f−j} + η_{f−j}.",
+        "For i ≠ i′, the digits of e_i and e_{i′} in each position are two different entries of the same vector, because s_τ^k is a bijection. If μ is 1-deep in C_0 in every embedding (N15), the entries of each μ_j + η_j are pairwise distinct and their spread ⟨μ_j + η_j, θ^∨⟩ is less than p − 1. Hence every digit difference c_m satisfies 1 ≤ |c_m| ≤ p − 2.",
+        "Then e_i − e_{i′} = Σ_m c_m p^m ≡ c_0 ≢ 0 (mod p), and |e_i − e_{i′}| ≤ (p − 2)(p^{fr} − 1)/(p − 1) < p^{fr} − 1. So e_i ≢ e_{i′} modulo p^{fr} − 1, the order of ω_{fr} over a large enough residue field, and χ_i ≠ χ_{i′}.",
+        "The paper states this as \"1-generic implies regular\" after Definition 2.4.3 (N52), citing LLHLM20 Remark 2.2.4; the argument above is a direct proof from (2.12)."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF33, 45–48, 121–125 and 129; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K46",
@@ -18898,7 +18914,13 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K36"
       ],
       "implementationStatus": "unchecked",
-      "proofOutline": "Finite tame inertia image is cyclic of order prime to p. Its character idempotents split every invariant subspace into intersections with the one-dimensional character spaces. A Frobenius lift permutes those spaces. The sum over each orbit is stable under inertia and Frobenius, hence under the tame image. Any nonzero invariant subspace of this orbit sum contains one character line and consequently every line in the orbit. Thus each orbit sum is simple. No averaging over the Frobenius group and no division by orbit length is used."
+      "proofOutline": "Finite tame inertia image is cyclic of order prime to p. Its character idempotents split every invariant subspace into intersections with the one-dimensional character spaces. A Frobenius lift permutes those spaces. The sum over each orbit is stable under inertia and Frobenius, hence under the tame image. Any nonzero invariant subspace of this orbit sum contains one character line and consequently every line in the orbit. Thus each orbit sum is simple. No averaging over the Frobenius group and no division by orbit length is used.",
+      "proofSteps": [
+        "Let ρ be trivial on wild inertia, so its inertia image is a finite abelian group of order prime to p. Over F, which splits it, V|_{I_K} = ⊕_χ V_χ with distinct characters χ, each V_χ a line. Every I_K-submodule of V is then a sum of some of the V_χ.",
+        "G_K normalizes I_K and permutes the isotypic lines: g·V_χ = V_{χ^g}. A Frobenius lift acts on the tame characters by χ ↦ χ^{q^{±1}}, and G_K/I_K is procyclic, so the G_K-stable sums of lines are exactly the sums over unions of Frobenius orbits.",
+        "For a Frobenius orbit O, W_O = ⊕_{χ∈O} V_χ is G_K-stable. A nonzero G_K-submodule of W_O is I_K-stable, hence a sum of lines indexed by a nonempty Frobenius-stable subset of O, which is all of O. So W_O is simple, and V = ⊕_O W_O is semisimple. Frobenius need not act semisimply on W_O."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF33, 45–48, 121–125 and 129; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K47",
@@ -18910,10 +18932,17 @@
       "note": "Additional source obligation for LocalGaloisDeformationRings; read in continuation codex-c83e7a, 23 September 2026. No implementation claimed.",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K45",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K46"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K46",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K37"
       ],
       "implementationStatus": "unchecked",
-      "proofOutline": "Restriction to the prime-to-p inertia image is exact and semisimple, so ρ and its G_K-semisimplification have the same inertia constituents with multiplicity. Genericity and K45 make them distinct. Apply K46 after a finite field extension if necessary. An invariant complement descends: its existence is a solvable finite system of linear equations over F (equivariant retraction restricting to identity), whose solvability after field extension implies solvability over F."
+      "proofOutline": "Restriction to the prime-to-p inertia image is exact and semisimple, so ρ and its G_K-semisimplification have the same inertia constituents with multiplicity. Genericity and K45 make them distinct. Apply K46 after a finite field extension if necessary. An invariant complement descends: its existence is a solvable finite system of linear equations over F (equivariant retraction restricting to identity), whose solvability after field extension implies solvability over F.",
+      "proofSteps": [
+        "A tame ρ is trivial on wild inertia, so ρ|_{I_K} is semisimple and ρ|_{I_K} ≅ ρ^ss|_{I_K}. By Definition 5.5.1 (K37), m-genericity of ρ means that ρ^ss|_{I_K} ≅ τ̄(s, μ + η) for a lowest alcove presentation with μ m-deep, in particular 1-deep since m ≥ 1.",
+        "By K45, the n characters of ρ|_{I_K} are pairwise distinct over a finite extension F′ splitting the inertia image. By K46, ρ ⊗ F′ is semisimple.",
+        "Semisimplicity descends from F′ to F. Let A be the image of F[G_K] in End(V), a finite-dimensional algebra. Since F′/F is separable, rad(A ⊗_F F′) = rad(A) ⊗_F F′. Semisimplicity of V ⊗ F′ means this radical kills it, so rad(A)·V = 0 and V is semisimple. Averaging over Gal(F′/F) would not do, since its order may be divisible by p. The conclusion is stable under finite extension of F."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF33, 45–48, 121–125 and 129; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K48",
@@ -18930,7 +18959,13 @@
       ],
       "implementationStatus": "unchecked",
       "proofOutline": "Use the fixed-type deformation ring point criterion and lattice comparison to obtain M. The chain K43→K44 is independent of K42: degeneration first replaces any Kisin module by one realizing the residual semisimplification; the height bound then loses at most h from genericity. Apply K47 only after this transfer. Invoke K41 for the original tame ρ, now known semisimple. The residual coefficient extension does not change the inertia-genericity assertion; descent is as in K47.",
-      "proofProvenance": "Codex — codex-c83e7a, 24 September 2026, continuation of issue #1254. Published LLHLM23 PDF105–125 and the cited bounded WE19 passages read afresh; proof adapters below are reconstructed arguments, not a Lean proof or independent review."
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF33, 45–48, 121–125 and 129; not a Lean proof or independent review.",
+      "proofSteps": [
+        "R^{(λ,τ)}_ρ ≠ 0 gives, after a finite extension E′/E, an E′-point: a potentially crystalline lift of ρ of type (λ, τ). Its Breuil–Kisin module with descent data reduces to a residual Kisin lattice M ∈ Y^{[0,h],τ}(F′) with T^*_dd(M) ≅ ρ|_{G_{K∞}}, since λ_j ∈ [0, h]^n.",
+        "τ has an (h + 1)-generic lowest alcove presentation, so Corollary 5.5.10 (K44) with m = h + 1 gives T^*_dd(M)^ss, hence ρ^ss, a 1-generic lowest alcove presentation. So ρ is 1-generic (Definition 5.5.1).",
+        "ρ is tame, so K47 makes it semisimple. Proposition 5.5.7 (K41), which assumes a semisimple ρ, then applies as in the proof of Corollary 5.5.8. This fills the step where the printed proof identifies \"tame\" with \"semisimple\" (E19).",
+        "K44's own semisimplicity input rests on K58, whose proof uses none of K44, K47 or K48, so the argument is not circular."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A25",
@@ -23974,7 +24009,17 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B24",
           "how": "Theorem 8.4.10(1), PDF173: minimal patching functors for (6n−2)-generic ρ̄ are obtained from §6.2 without a separate p ∤ 2n hypothesis; the genericity forces it."
         }
-      ]
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N52"
+      ],
+      "proofSteps": [
+        "Let n ≥ 2 and suppose τ is n-generic, so it has a lowest alcove presentation (s, μ) with μ n-deep in C_0 (Definition 2.4.3(2), N52; Definition 2.1.10, N15): n < ⟨μ + η, α^∨⟩ < p − n for every positive root α.",
+        "For the simple roots, ⟨μ + η, α_i^∨⟩ ≥ n + 1. Summing over the n − 1 simple roots gives ⟨μ + η, θ^∨⟩ ≥ (n − 1)(n + 1) for the highest root θ, and this is < p − n. Hence p > n² + n − 1 ≥ 2n + 1, so p ∤ 2n.",
+        "For n = 1 there are no roots, the depth condition is vacuous, and every tame character is n-generic, including for p = 2. The remark as printed needs n ≥ 2, which the recorded source issue says."
+      ],
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF33, 45–48, 121–125 and 129; not a Lean proof or independent review."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B51",
@@ -33629,7 +33674,8 @@
     "cc39fac3KummerTower": "29 September 2026, issue 1254: the gap kummer-tower-field-inputs is resolved at extraction level and removed. Its three field-theoretic assertions are decomposed into Z143 (Galois closure, K∞ ∩ K(μ_{p^∞}) = K, semidirect product with G_0 ≅ Z_p(1)), Z144 (Gal(K(μ_{p^∞})/K(μ_p)) ≅ Z_p) and Z145 (no degree-p Galois subextension without ζ_p), all for p > 2. They are sourced to Liu's note (arXiv:0709.4523v1, PDF4), EGS 7.4.3 (PDF48–49) and GLS 5.4.2 (arXiv:1309.0527v2, PDF35), and routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4. Z145's derivation from Z143 is given in its proof steps. A p = 2 counterexample to the intersection statement is checked (π = −2 in Q_2). As the gap required, the finite-length diagram chase of G67 was not used to close this boundary.",
     "ccE94dc5KummerTowerSource": "29 September 2026, issue 1254 (Claude Code, cc-e94dc5): Z143's source is confirmed at the original. Lemma 5.1.2 of Liu, Compositio Math. 144 (2008), pp. 82–83, states exactly Z143's three assertions for p ≥ 3 and proves them; Remark 5.1.3 and Lemma 8.0.4 of Liu's Annales paper describe p = 2. The previous locator attributed the lemma to the Annales paper, which only cites it; the locator and note are corrected. No item id, status, route or finding changed; one prerequisite is added. check_paper.py and intake check-files pass.",
     "ccC58621dQ03": "29 September 2026, issue 1254 (Claude Code, cc-58621d): Q03 (Proposition B.0.1(1)) is resolved. Appendix B's equations are the chart's for the monodromy term g·Diag(−a, −b, 0)·g^{−1}, the negative of (3.1)'s parameter (E114), and they present the chart only over Z[a, b][1/(aP)] (E115); the displayed matrix has vc12 for c12 (E116). Singular: exact ideal equality at five sample points; generic-point check over Q(a, b); an explicit cofactor certificate for the six solved coefficients; primality of (F1, F2, F3) over Q(a, b). New findings E114–E116; Q03's statement, proof steps and note are rewritten; sourceData.appendixB.q03Resolution is added. The appendix-certificates gap is closed and removed: every Appendix B claim is now certified over Z[a, b][1/(aP)] or corrected (E111–E116). No other item, status or route changed. check_paper.py and intake check-files pass.",
-    "ccC58621dUOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): the 26 §3 theorem items without an outline (U05–U45) now carry source-level proofSteps, prerequisites and proofProvenance, read from the published PDF55–80 with the corrections E7–E12 applied. The internal prerequisite graph gains 60 edges and remains acyclic (1,290 edges). No new finding: §3 was re-read in full and its recorded findings (E7–E12, E43, E44, E85, E86) cover what was found. Remaining theorem items without proof steps: A 56, B 28, G 39, K 4, L 138, P 1, Z 1 (L items are library citations). No status, route or finding changed. check_paper.py and intake check-files pass."
+    "ccC58621dUOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): the 26 §3 theorem items without an outline (U05–U45) now carry source-level proofSteps, prerequisites and proofProvenance, read from the published PDF55–80 with the corrections E7–E12 applied. The internal prerequisite graph gains 60 edges and remains acyclic (1,290 edges). No new finding: §3 was re-read in full and its recorded findings (E7–E12, E43, E44, E85, E86) cover what was found. Remaining theorem items without proof steps: A 56, B 28, G 39, K 4, L 138, P 1, Z 1 (L items are library citations). No status, route or finding changed. check_paper.py and intake check-files pass.",
+    "ccC58621dKPZOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): K45–K48, P17 and Z01 now carry proofSteps and proofProvenance (4 new prerequisite edges; the graph stays acyclic). K45 gets a direct base-p digit proof from (2.12) of \"1-generic implies regular\"; K46–K48 follow §5.5 (PDF121–125) with the E19 repair; P17 follows the recorded n ≥ 2 correction; Z01 outlines the source proof of Boixeda Alvarez, Theorem 3.1, from its main text. Remaining theorem items without proof steps: A 56, B 28, G 39, L 138. No status, route or finding changed. check_paper.py and intake check-files pass."
   },
   "definitionApiGroups": [
     {

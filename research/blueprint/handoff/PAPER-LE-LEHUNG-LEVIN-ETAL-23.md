@@ -1,5 +1,26 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (K/P/Z-outline step).
+**Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 116 findings,
+12 gaps. No Lean deliverable or compilation. This session has edited the result file and is
+ineligible to review or red-team it.
+
+## Completed here
+
+- K45–K48, P17 and Z01 now carry `proofSteps`, `prerequisites` and `proofProvenance`. There are four
+  new internal edges, and the graph stays acyclic at 1,294 edges.
+- K45 has a direct proof from (2.12); K47 descends semisimplicity by the Jacobson radical.
+- Z01 is outlined from its source's main text only; Appendix B was not read in detail.
+
+## Resume from here
+
+1. **The remaining no-outline queues:** A (56), G (39) and B (28) theorem items without `proofSteps`.
+2. **The remaining gaps**, as listed in the Q03 step below.
+
+---
+
+# Previous checkpoint (cc-58621d, U-outline step)
+
 Claude Code — cc-58621d; issue 1254; 29 September 2026 (U-outline step).
 **Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 116 findings,
 12 gaps. No Lean deliverable or compilation. This session has edited the result file and is
