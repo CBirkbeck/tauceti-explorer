@@ -1,3 +1,72 @@
+# LLHLM23 continuation: Q04 and Q05 certified over V; the normalization's special fibre is reduced
+
+Claude Code — cc-39fac3; issue 1254; 29 September 2026 (third checkpoint). This continuation takes the
+second resume item of the previous handoff (Q04's minimal primes), and the reducedness half of its
+first. No finding is added; the census stays at 776 items, 25 routes and 113 findings.
+
+## Q05: the chart is free over X × V
+
+With t kept as a variable, Singular gives (F1, F2, F3) a monic seven-element degrevlex Gröbner basis
+over `A[t] = Z[1/7!][a,b][1/P][t]`:
+- every coefficient lies in A[t]; the only denominators are factors of P, and t never appears;
+- all 21 S-pairs reduce to zero by division over A[t];
+- F ⊆ (G) by division, and G ⊆ (F) by lifts with cofactors in A[t].
+
+A monic Gröbner basis over a ring makes the quotient free on the standard monomials. So **R is a
+free A[t]-module**, in particular flat over X × V, and every fibre (t = 0 or not) is a complete
+intersection of dimension 3 and degree 12. The Hilbert polynomial of the leading ideal is
+6t² − 4t + 4. This proves the flatness in Proposition B.0.1(3) without the minimal-prime argument.
+The irreducibility and the identification with the flat closure still rest on Proposition 3.3.4.
+
+## Q04: the minimal primes, with multiplicities, at every point of V
+
+At t = 0 the same basis applies. The seven ideals of B.0.1(2):
+- each contains J over A;
+- each is the graph of a polynomial map with unit coefficients, or a coordinate subspace, hence prime
+  of dimension 3 over every field;
+- their degrees are 3, 1, 1, 1, 1, 1, 3, with total 11.
+
+Along P4 = (c22, c13, c12):
+- F1 lies in P4²;
+- the (c13, c22) minor of the linear parts of F2 and F3 is −b(a−1)²(a−2)²·d21·d33, a unit at P4;
+- so the local ring is a length-≥2 quotient of a DVR, and the multiplicity is at least 2.
+
+J is a complete intersection, hence Cohen–Macaulay and unmixed, and has degree 12. The associativity
+formula then forces:
+- multiplicity 2 along (c22, c13, c12), and 1 along the other six;
+- no other components.
+
+So the printed list is exactly the set of minimal primes at every point of V, and **the special
+fibre of the chart is not reduced**: it is doubled along (c22, c13, c12). This is consistent with
+Table 1's double cover of that component and with Corollary B.0.4(2). Singular's primary
+decomposition over Q(a,b) agrees.
+
+## Q13: U^nm_F is reduced at every point of V
+
+In both Gröbner cells of the previous checkpoint:
+- **Ī** is Cohen–Macaulay of dimension 3 and degree 13.
+- **The PDF206 ideals** contain Ī over the cell's base ring. They are radical and pure of dimension 3,
+  with no common components:
+  - five are graphs or coordinate subspaces with unit coefficients;
+  - the 7th is (c22, c13, c12) plus a quadric that is monic in W, with nonzero discriminant.
+- **Their degrees** are 3, 1, 1, 1, 3, 1, 3, which sum to 13, and are constant on V.
+
+So every minimal prime of Ī has multiplicity one and there is no other component. **U^nm_F is
+reduced** at every (a,b) ∈ V in characteristic > 7, including a = 0 where the 7th ideal splits
+(E113). This certifies the paper's "by inspection" step. E91's separate inputs are unchanged.
+
+## Changes and scope
+
+- **Items:** Q04 (statement and a certificate step), Q05 (a flatness step) and Q13 (a reducedness
+  step).
+- **Data:** `sourceData.appendixB` gains `q04q05Certificate` and `q13Reducedness`.
+- **Also updated:** the `appendix-certificates` gap, `validation.appendixChecks`, the new
+  `validation.cc39fac3AppendixBQ04` and the summary.
+- **Unchanged:** statuses, routes and findings. The items stay `missing`: these are recorded
+  computations, not formal proofs. No Lean file.
+
+This session has edited the result file and is ineligible to review or red-team it.
+
 # LLHLM23 continuation: Q13's Gröbner basis over all of V, Table 1 re-derived, E112–E113
 
 Claude Code — cc-39fac3; issue 1254; 29 September 2026 (second checkpoint). This continuation takes
