@@ -9606,8 +9606,9 @@
    ],
    "avoidAccountOf": "PAPER-SCHOLZE-13",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHOLZE-13.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4549"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4549",
+   "finishedAt": "2026-09-29T17:00:32Z"
   },
   {
    "id": "PAPER-KURINCZUK-SKODLERACK-STEVENS-21",
@@ -45091,7 +45092,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4015"
   },
   {
    "id": "RT-AUDIT-21",
@@ -45701,7 +45703,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-28.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4022"
   },
   {
    "id": "RT-AUDIT-29",
@@ -45839,8 +45842,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-30.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4023"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4023",
+   "finishedAt": "2026-09-29T17:00:36Z"
   },
   {
    "id": "RT-AUDIT-31",
