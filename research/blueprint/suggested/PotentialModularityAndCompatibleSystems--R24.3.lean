@@ -1,5 +1,6 @@
 import Mathlib.Algebra.Polynomial.Degree.Defs
 import Mathlib.Data.Nat.Totient
+import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.Tactic.ComputeDegree
 import Mathlib.Tactic.FieldSimp
 import Mathlib.Tactic.NormNum.GCD
@@ -89,5 +90,40 @@ example (h₁ h₂ : ℤ) (h : h₁ ≠ h₂) : 2 * h₁ ≠ h₁ + h₂ ∧ h�
 
 /-- Tensor products need not stay regular: `(1 ⊕ ε) ⊗ (1 ⊕ ε⁻¹)` has Hodge–Tate multiset `{0, 1, −1, 0}`. -/
 example : ((0 : ℤ) + 0, (0 : ℤ) + 1, (-1 : ℤ) + 0, (-1 : ℤ) + 1) = (0, 1, -1, 0) := by norm_num
+
+/-! ### Checkpoint 4: L-functions and Γ-factors of systems (R24.5:operations) -/
+
+/-- `R24.5/system-l-functions`: BLGGT's `Γ_ℂ(s) = Γ_ℝ(s)Γ_ℝ(s + 1)` for Deligne's factors
+`Γ_ℝ(s) = π^{−s/2}Γ(s/2)` and `Γ_ℂ(s) = 2(2π)^{−s}Γ(s)`. -/
+example (s : ℂ) : Complex.Gammaℂ s = Complex.Gammaℝ s * Complex.Gammaℝ (s + 1) :=
+  (Complex.Gammaℝ_mul_Gammaℝ_add_one s).symm
+
+/-- The trivial system over `ℚ` (`n = 1`, `w = 0`, `det(c) = 1`): the real factor is `Γ_ℝ(s)`, the
+Hodge factor is `1`, so `Λ(s) = Γ_ℝ(s)ζ(s)` is Mathlib's completed zeta function, and `Λ(1 − s) = Λ(s)`
+is the functional equation with `ε = 1`. -/
+example {s : ℂ} (hs : s ≠ 0) (hΓ : Complex.Gammaℝ s ≠ 0) :
+    completedRiemannZeta s = Complex.Gammaℝ s * riemannZeta s ∧
+      completedRiemannZeta (1 - s) = completedRiemannZeta s := by
+  refine ⟨?_, completedRiemannZeta_one_sub s⟩
+  rw [riemannZeta_def_of_ne_zero hs]
+  field_simp
+
+/-- The real `Γ`-shift `(w − 1 + (−1)^{w/2} det R(c))/2` and the `ε`-exponent `(n − (−1)^{w/2} det R(c))/2`
+for `n = 1`: the trivial system (`w = 0`, `det = 1`) gives `Γ_ℝ(s)` and `ε = i⁰`; `ε_l` in BLGGT's
+convention (`w = −2`, `(−1)^{w/2} = −1`, `det ε_l(c) = −1`) gives `Γ_ℝ(s + 1)` and `ε = i⁰`. -/
+example : ((0 : ℤ) - 1 + 1 * 1) / 2 = 0 ∧ ((1 : ℤ) - 1 * 1) / 2 = 0 ∧
+    ((-2 : ℤ) - 1 + (-1) * (-1)) / 2 = -1 ∧ ((1 : ℤ) - (-1) * (-1)) / 2 = 0 := by
+  norm_num
+
+/-- The Euler factor `(#k(v))^{ns}/Q_v((#k(v))^s)` of `ε_l` with geometric Frobenius, `Q_p(X) = X − p⁻¹`:
+writing `x = p^s`, it is `1/(1 − p⁻¹x⁻¹) = (1 − p^{−1−s})⁻¹`, so `L^S(ıε_l, s) = ζ^S(s + 1)`. -/
+example {K : Type*} [Field K] (p x : K) (hp : p ≠ 0) (hx : x ≠ 0) (h : x - p⁻¹ ≠ 0) :
+    x / (x - p⁻¹) = 1 / (1 - p⁻¹ * x⁻¹) := by
+  have h' : x * p - 1 ≠ 0 := by
+    intro h0
+    apply h
+    field_simp
+    linear_combination h0
+  field_simp
 
 end TauCeti.CompatibleSystems.SuggestedTest

@@ -10,7 +10,7 @@
   "PotentialModularityAndCompatibleSystems:R24.6"
  ],
  "status": "partial",
- "summary": "Checkpoint 1 of the R24.3 part (Claude Code cc-39fac3). No integrated decomposition exists; RS-06 and RS-08 keep these stages and route their consumers (ClassicalSerreModularity R26–R33, SmallRamification R25.5). 22 nodes. R24.3: Böckle's presentation, his Lemma 2 (finite plus no more relations than variables gives a finite flat complete intersection) and Theorem 1, KW Annals Theorem 3.3, the lift types of KW I Theorem 5.1 (definition with API and tests) and its four constructions from KW II §10.3.1, the application table, and Snowden's prescribed-type lifts for the modern route. R24.4: KW I Theorem 4.1 from KW II §10.2. R24.5: the Brauer system through a potentially modular lift, its almost strict compatibility, KW I Theorem 5.1 and Dieulefait's families. R24.5:operations: compatible systems with separate strict/almost strict/plain predicates, and twist, restriction, induction. R24.6: residual members, what almost strictness gives at the coefficient prime, and linked systems. Finiteness (R24.1) and points (R24.2) belong to part R23.1. One source issue (a page range in KW II's bibliography). Checkpoint 2 corrects the attribution of the Remark in §5.2 that KW Annals cite: it is in [27] = Khare–Ramakrishna (Invent. Math. 154 (2003) 179–198), not in Khare's paper with Böckle's appendix [26] (found while carrying the draft EXT-12 in part R23.1). Checkpoint 3 (cc-39fac3) plans the rank-n layer R24.5:operations now that RS-12 is accepted: weakly compatible systems (BLGGT §5.1; Taylor 2006 §6), their predicates, the linear-algebra operations with what they preserve, and Taylor's Lemma 6.5 with BLGGT Lemma 5.2.1.",
+ "summary": "Checkpoint 1 of the R24.3 part (Claude Code cc-39fac3). No integrated decomposition exists; RS-06 and RS-08 keep these stages and route their consumers (ClassicalSerreModularity R26–R33, SmallRamification R25.5). 22 nodes. R24.3: Böckle's presentation, his Lemma 2 (finite plus no more relations than variables gives a finite flat complete intersection) and Theorem 1, KW Annals Theorem 3.3, the lift types of KW I Theorem 5.1 (definition with API and tests) and its four constructions from KW II §10.3.1, the application table, and Snowden's prescribed-type lifts for the modern route. R24.4: KW I Theorem 4.1 from KW II §10.2. R24.5: the Brauer system through a potentially modular lift, its almost strict compatibility, KW I Theorem 5.1 and Dieulefait's families. R24.5:operations: compatible systems with separate strict/almost strict/plain predicates, and twist, restriction, induction. R24.6: residual members, what almost strictness gives at the coefficient prime, and linked systems. Finiteness (R24.1) and points (R24.2) belong to part R23.1. One source issue (a page range in KW II's bibliography). Checkpoint 2 corrects the attribution of the Remark in §5.2 that KW Annals cite: it is in [27] = Khare–Ramakrishna (Invent. Math. 154 (2003) 179–198), not in Khare's paper with Böckle's appendix [26] (found while carrying the draft EXT-12 in part R23.1). Checkpoint 3 (cc-39fac3) plans the rank-n layer R24.5:operations now that RS-12 is accepted: weakly compatible systems (BLGGT §5.1; Taylor 2006 §6), their predicates, the linear-algebra operations with what they preserve, and Taylor's Lemma 6.5 with BLGGT Lemma 5.2.1. Checkpoint 4 (cc-39fac3) extends R24.5:operations from BLGGT §§5.1–5.2 and 5.4: L-functions, Γ- and ε-factors of systems, residual irreducibility for density-one l, constituents of polarized systems, and the Grothendieck ring with Brauer induction.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -34,6 +34,21 @@
     "ref": "mathlib:Module.Flat",
     "module": "Mathlib/RingTheory/Flat/Basic",
     "provides": "flatness over 𝒪 (torsion-freeness over a DVR)"
+   },
+   {
+    "ref": "mathlib:Complex.Gammaℝ",
+    "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne",
+    "provides": "Deligne's real archimedean Gamma factor Γ_ℝ(s) = π^{−s/2}Γ(s/2) (BLGGT's Γ_ℝ)"
+   },
+   {
+    "ref": "mathlib:Complex.Gammaℂ",
+    "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne",
+    "provides": "Deligne's complex archimedean Gamma factor Γ_ℂ(s) = 2(2π)^{−s}Γ(s) (BLGGT's Γ_ℂ)"
+   },
+   {
+    "ref": "mathlib:Complex.Gammaℝ_mul_Gammaℝ_add_one",
+    "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne",
+    "provides": "Γ_ℝ(s)Γ_ℝ(s + 1) = Γ_ℂ(s), the identity BLGGT use in §5.1"
    }
   ]
  },
@@ -112,7 +127,8 @@
    "url": "https://arxiv.org/pdf/1010.2561v1",
    "sha256": "697e2d318887d8eb940b914101bbcebcde9aaffb296ad95db45b328408df5fe6",
    "readSections": [
-    "2026-09-29 (cc-39fac3, part R24.3 checkpoint 3): §5.1 in full and §5.2 through Lemma 5.2.1 and Proposition 5.2.2, pp. 51–55."
+    "2026-09-29 (cc-39fac3, part R24.3 checkpoint 3): §5.1 in full and §5.2 through Lemma 5.2.1 and Proposition 5.2.2, pp. 51–55.",
+    "2026-09-29 (cc-39fac3, checkpoint 4): §5.1 pp. 52–54, §5.2 (Lemmas 5.2.1, 5.2.3, Proposition 5.2.2) pp. 54–59, §5.3 pp. 59–61 and §5.4 pp. 61–66, read in full."
    ]
   },
   {
@@ -1542,7 +1558,7 @@
    "hypotheses": [
     "these are predicates with their own preservation hypotheses (R24.5/linear-algebra-operations-on-systems), not fields of the carrier (RS-12)",
     "the rank-2 'strict' and 'almost strict' of R24.5/compatible-system are Khare–Wintenberger's local predicates at 𝔮 | ℓ; BLGGT's 'strictly compatible' asks WD_v(ℛ) only at λ ∤ residue characteristic of v; keep all of them separate",
-    "the partial and completed L-functions, ε-factors and Γ-factors of a system (BLGGT pp. 52–53) are not planned here (recorded as remaining)"
+    "the partial and completed L-functions, ε-factors and Γ-factors of a system (BLGGT pp. 52–53) are planned separately in R24.5/system-l-functions"
    ],
    "proofSteps": [
     "Definitions; independence of choices: det r_λ(c_v) = ±1 is independent of λ, and by purity n odd with v real forces w even (BLGGT p. 53)."
@@ -1744,6 +1760,314 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/system-l-functions",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "L-functions, Γ-factors and ε-factors of a compatible system",
+   "kind": "definition",
+   "statement": "The partial L-function is L^S(ıℛ, s) = ∏_{v∉S} (#k(v))^{ns}/ıQ_v((#k(v))^s); it converges to an analytic function on Re s > 1 + w/2 if ℛ is pure of weight w, and if every place above l lies in S it depends only on r_λ (λ | l). If ℛ is strictly compatible, L(ıℛ, s) = ∏_{v∤∞} L(ıWD_v(ℛ), s) differs from L^S by finitely many Euler factors. For ℛ strictly compatible, pure of weight w and regular, with Γ_ℝ(s) = π^{−s/2}Γ(s/2) and Γ_ℂ(s) = 2(2π)^{−s}Γ(s) = Γ_ℝ(s)Γ_ℝ(s + 1): L(ℛ|_{G_{F_v}}, w, s) is Γ_ℂ(s − w/2)^n for complex v, Γ_ℂ(s − w/2)^{n/2} for real v and n even, and Γ_ℂ(s − w/2)^{(n−1)/2}Γ_ℝ(s − (w − 1 + (−1)^{w/2} det ℛ(c_v))/2) for real v and n odd; ε(ℛ|_{G_{F_v}}, w, ψ_v, s) is 1, i^{n/2} and i^{(n − (−1)^{w/2} det ℛ(c_v))/2} respectively; the Hodge factor L({H_τ}, s) = √(2π)^{Σ|h − w/2|}(∏_τ∏_h (s − w/2)(s + 1 − w/2)⋯(s + |h − w/2| − 1 − w/2))^{1/2} and ε({H_τ}, ψ, s) = i^{Σ_τΣ_h|h − w/2|}; and Λ(ıℛ, s) = L(ıℛ, s)(∏_{v|∞} L(ℛ|_{G_{F_v}}, w, s))L({H_τ}, s), ε(ıℛ, s) = (∏_{v∤∞} ε(ıWD_v(ℛ), ψ_v, s))(∏_{v|∞} ε(ℛ|_{G_{F_v}}, w, ψ_v, s))ε({H_τ}, ψ, s), for the standard additive character ψ of 𝔸_F/F.",
+   "hypotheses": [
+    "ℛ = (M, S, {Q_v(X)}, {r_λ}, {H_τ}) a weakly compatible system of l-adic representations of G_F of rank n (R24.5/weakly-compatible-system-rank-n); ı : M ↪ ℂ.",
+    "For the completed function: strictly compatible, pure of weight w and regular."
+   ],
+   "proofSteps": [
+    "det r_λ(c_v) = ±1 is independent of λ because {det r_λ} is a weakly compatible system of characters; purity forces w even when n is odd and v is real, so the exponents are integers.",
+    "By purity each factor (s + i − w/2) occurs twice in the Hodge product, so the square root is the product with each factor taken half as often, and Σ|h − w/2| ∈ ℤ.",
+    "Convergence for pure ℛ from |ια|² = #k(v)^w."
+   ],
+   "acceptance": [
+    "BLGGT note that the definitions are phrased non-standardly but give the usual Λ and ε.",
+    "The functional equation Λ(ıℛ, s) = ε(ıℛ, s)Λ(ıℛ^∨, 1 − s) is a consequence of potential automorphy (BLGGT Corollary 5.3.2), which this stage does not assume."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates",
+    "PadicHodgeTheory:R06.3/weil-deligne-parameter",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+    "mathlib:Complex.Gammaℝ",
+    "mathlib:Complex.Gammaℂ",
+    "mathlib:Complex.Gammaℝ_mul_Gammaℝ_add_one"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/LFunction",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "blggt-2014",
+     "locator": "§5.1, pp. 52–53 (arXiv v1)",
+     "match": "The definitions of L^S, L, the archimedean Γ- and ε-factors, the Hodge factors, Λ and ε in §5.1."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CompatibleSystems.partialLFunction",
+     "role": "constructor",
+     "statement": "L^S(ıℛ, s) as an Euler product."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.lFunction",
+     "role": "constructor",
+     "statement": "L(ıℛ, s) for strictly compatible ℛ."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.archimedeanGammaFactor",
+     "role": "constructor",
+     "statement": "L(ℛ|_{G_{F_v}}, w, s) through Complex.Gammaℝ and Complex.Gammaℂ."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.archimedeanEpsilon",
+     "role": "constructor",
+     "statement": "ε(ℛ|_{G_{F_v}}, w, ψ_v, s) ∈ {1, i^{n/2}, i^{(n−(−1)^{w/2}det)/2}}."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.hodgeFactor",
+     "role": "constructor",
+     "statement": "L({H_τ}, s) and ε({H_τ}, ψ, s)."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.completedLFunction",
+     "role": "constructor",
+     "statement": "Λ(ıℛ, s) and ε(ıℛ, s)."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.partialLFunction_converges",
+     "role": "characterisation",
+     "statement": "Convergence on Re s > 1 + w/2 for pure ℛ."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.partialLFunction_eq_of_lambda",
+     "role": "compatibility",
+     "statement": "L^S(ıℛ, s) = L^S(ı̃r_λ, s) when S contains the places above l."
+    }
+   ],
+   "tests": [
+    {
+     "name": "trivial_character",
+     "kind": "example",
+     "statement": "F = ℚ, n = 1, r_λ trivial: w = 0 and det(c) = 1, so the real factor is Γ_ℝ(s − (0 − 1 + 1)/2) = Γ_ℝ(s), ε = i^{(1 − 1)/2} = 1 and the Hodge factor is 1; Λ(ı1, s) = Γ_ℝ(s)ζ(s) is completedRiemannZeta, and Λ(1 − s) = Λ(s) is the functional equation with ε = 1 (suggested file)."
+    },
+    {
+     "name": "gamma_duplication",
+     "kind": "example",
+     "statement": "Γ_ℂ(s) = Γ_ℝ(s)Γ_ℝ(s + 1) is Mathlib's Complex.Gammaℝ_mul_Gammaℝ_add_one (suggested file)."
+    },
+    {
+     "name": "cyclotomic_character",
+     "kind": "example",
+     "statement": "F = ℚ, n = 1, r_λ = ε_l in BLGGT's conventions (Frob_v geometric, HT_τ(ε_l) = {−1}): Q_p(X) = X − p^{−1}, ℛ is pure of weight −2, L^S(ıε_l, s) = ζ^S(s + 1) converging on Re s > 0 = 1 + w/2, the real factor is Γ_ℝ(s − (−2 − 1 + (−1)(−1))/2) = Γ_ℝ(s + 1) and ε = 1, so Λ(ıε_l, s) = Λ(ı1, s + 1) (suggested file: the exponents and the Euler factor)."
+    },
+    {
+     "name": "impure_hodge_factor",
+     "kind": "example",
+     "statement": "Without purity the factors of the Hodge product need not come in pairs, and the square root L({H_τ}, s) is undefined."
+    }
+   ],
+   "uses": [
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring",
+     "how": "L^S of virtual classes"
+    },
+    {
+     "where": "ModularityAndLanglandsExtensions:ML.2",
+     "how": "BLGGT Corollary 5.3.2: after potential automorphy (Theorem 5.3.1), L^S(ıℛ, s) continues meromorphically and Λ(ıℛ, s) = ε(ıℛ, s)Λ(ıℛ^∨, 1 − s)"
+    }
+   ]
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "The Grothendieck ring of semisimple ℓ-adic representations",
+   "kind": "construction",
+   "statement": "For a number field F and prime l, 𝒢𝒢_{F,l} is the category of semisimple continuous representations of G_F on finite-dimensional ℚ̄_l-vector spaces unramified almost everywhere (with cancellation U ⊕ W ≅ V ⊕ W ⇒ U ≅ V by traces), and Rep_{F,l} is its Grothendieck group, a commutative ring under ⊗. It carries: trace homomorphisms tr σ (continuous class functions, separating classes on a dense set); dim = tr 1 ∈ ℤ; the perfect symmetric pairing ([U], [V]) = dim Hom_{G_F}(U, V), with (A, A) = Σn_i² for A = Σn_i[V_i], so that dim A ≥ 0 and (A, A) = 1 force A = [V] irreducible; the product formula for tensor products along a Zariski-dense θ : G_F → G₁ × G₂; conjugation conj_σ; restriction res_{F′/F} (a ring map); induction ind_{F′/F} with its trace formula, dim ind = [F′ : F] dim, the projection formula, Frobenius reciprocity and Mackey's formula; Brauer induction A = Σ n_i ind_{F_i′/F}([ı^{−1}ψ_i] res A) with the resulting pairing formula; and, for A unramified outside S ⊇ {v | l}, L^S(ıA, s) = ∏ L^S(ıV_i, s)^{n_i}, additive in A and with L^S(ı ind A, s) = L^{S′}(ıA, s) (§5.4 (1)–(9)).",
+   "hypotheses": [
+    "F a number field; l a prime; ı : ℚ̄_l ≅ ℂ for L-functions."
+   ],
+   "proofSteps": [
+    "Items (1)–(7) are formal from semisimplicity and characters; (5) uses Zariski density to identify Hom spaces with those of algebraic representations.",
+    "(8): trace formula for induced characters, Frobenius reciprocity and Mackey's double-coset formula; (8f) is Brauer's induction theorem for Gal(F′/F), transported by ı^{−1} and multiplied by A.",
+    "(9): independence of the decomposition, from the additivity of L^S on direct sums and inductivity of partial L-functions."
+   ],
+   "acceptance": [
+    "This is the bookkeeping behind BLGGT Theorems 5.4.1–5.4.2 (potential automorphy consequences, not planned in this stage)."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/system-l-functions",
+    "PotentialModularityAndCompatibleSystems:R24.5/system-operations",
+    "PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems",
+    "ArithmeticGaloisRepresentations:R01.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Grothendieck",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "blggt-2014",
+     "locator": "§5.4, items (1)–(9), pp. 61–63 (arXiv v1)",
+     "match": "The group-theoretic preliminaries of §5.4, items (1)–(9)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CompatibleSystems.RepRing",
+     "role": "constructor",
+     "statement": "Rep_{F,l} with ⊗ as multiplication."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.RepRing.trace",
+     "role": "constructor",
+     "statement": "tr σ : Rep_{F,l} → ℚ̄_l, a ring homomorphism."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.RepRing.pairing",
+     "role": "constructor",
+     "statement": "(A, B) = dim Hom, extended bilinearly."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.RepRing.eq_irreducible_of_pairing_eq_one",
+     "role": "characterisation",
+     "statement": "dim A ≥ 0 and (A, A) = 1 ⇒ A = [V] with V irreducible."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.RepRing.res",
+     "role": "functoriality",
+     "statement": "Restriction, a ring homomorphism."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.RepRing.ind",
+     "role": "functoriality",
+     "statement": "Induction with trace formula, projection formula, Frobenius reciprocity and Mackey."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.RepRing.brauer",
+     "role": "relation",
+     "statement": "A = Σ n_i ind([ı^{−1}ψ_i] res A)."
+    },
+    {
+     "name": "TauCeti.CompatibleSystems.RepRing.partialLFunction",
+     "role": "constructor",
+     "statement": "L^S(ıA, s) = ∏ L^S(ıV_i, s)^{n_i}, additive and inductive."
+    }
+   ],
+   "tests": [
+    {
+     "name": "pairing_norm",
+     "kind": "example",
+     "statement": "A = 2[V₁] − [V₂] with V₁ ≇ V₂ irreducible: (A, A) = 4 + 1 = 5, and dim A = 2 dim V₁ − dim V₂ may be negative."
+    },
+    {
+     "name": "trivial_class",
+     "kind": "example",
+     "statement": "[1] is the unit, with (1, 1) = 1 and dim 1 = 1."
+    },
+    {
+     "name": "induced_dimension",
+     "kind": "example",
+     "statement": "dim ind_{F′/F}[1] = [F′ : F], and (ind[1], [1]) = 1 by Frobenius reciprocity."
+    },
+    {
+     "name": "virtual_not_genuine",
+     "kind": "example",
+     "statement": "A Brauer combination Σ n_i ind(…) with some n_i < 0 is a virtual class; only (A, A) = 1 with dim A ≥ 0 makes it a genuine irreducible (R24.5 insists on genuine representations)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularityAndLanglandsExtensions:ML.2",
+     "how": "BLGGT Theorems 5.4.1–5.4.3 (a representation as a member of a compatible system, irreducibility of r_{l,ı}(π) for density-one l, and splitting a system into irreducible systems), argued by Brauer induction in this ring"
+    }
+   ]
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "Residual irreducibility over F(ζ_l) for a density-one set of primes",
+   "kind": "theorem",
+   "statement": "Let ℛ be a regular weakly compatible system of l-adic representations of G_F defined over M (BLGGT Proposition 5.2.2). For a subrepresentation s of r_λ write s̄ for the semisimplification of its reduction and l for the rational prime below λ. There is a set L of rational primes of Dirichlet density 1 such that if s is an irreducible subrepresentation of r_λ with λ above an element of L, then s̄|_{G_{F(ζ_l)}} is irreducible.",
+   "hypotheses": [
+    "ℛ = (M, S, {Q_v(X)}, {r_λ}, {H_τ}) a weakly compatible system of l-adic representations of G_F of rank n (R24.5/weakly-compatible-system-rank-n); ı : M ↪ ℂ.",
+    "ℛ regular."
+   ],
+   "proofSteps": [
+    "Take F¹ from BLGGT Lemma 5.2.1 (R24.5/rank-two-reducibility-independent-of-lambda). Regularity gives an element of G_λ⁰ with n distinct eigenvalues (Harris–Taylor VII.1.8, I.2.2); Frobenius elements at primes split in F¹ are Zariski dense in G_λ⁰; after enlarging M (Galois over ℚ) every r_λ is integral and the irreducible constituents of r_λ|_H, H open, are defined over M_λ with multiplicity one.",
+    "For r_l = ε_l ⊕ ⊕_{λ|l} r_λ: the Zariski closure G_l with open image Γ_l (Bogomolov), F⁰ independent of l, the connected centre Z_l, C_l = G_l⁰/G_l^der, the simply connected cover G_l^{SC} with central kernels of order dividing a uniform A, and Serre's θ_l : S_l → C_l, whose exponents m_{μ,σ} are bounded by a constant B independent of l.",
+    "Larsen's density-one set L: l unramified in M and F⁰ with ℛ unramified above l (so r_l crystalline), l ≥ 4B + 4, G_l⁰ unramified, a semisimple model G̃_l^{SC}/ℤ_l with G̃_l^{SC}(ℤ_l) the preimage of the image of G_{F⁰} and perfect, and standard reductions of the constituents.",
+    "Two constituents agreeing on G̃_l^{SC}(ℤ_l) × Γ_l^{Z,1} differ by a power ε_l^b: solve Σ_i (m_{1,Frob^i σ_v} − m_{2,Frob^i σ_v})l^i = b(l^{f_v} − 1)/(l − 1) digit by digit using the bound B.",
+    "Write s ≅ Ind_{Γ_l¹}^{Γ_l} s₀ with s₀ an irreducible Γ_l⁰-constituent; since l is unramified in F⁰, s̄|_{G_{F(ζ_l)}} ≅ Ind s̄₀ over ker ε_l, irreducible because a conjugate s̄₀^γ ≅ s̄₀ε_l^a forces a = 0 (γ has finite order)."
+   ],
+   "acceptance": [
+    "Check the case n = 1: every s̄ is a character, so the conclusion holds with L the set of all primes.",
+    "Check that the conclusion is the residual hypothesis of BLGGT Theorem 5.4.1 (4), ¯r|_{G_{F(ζ_l)}} irreducible, for every irreducible constituent s and not only for r_λ, and that it is asserted only on a density-one set of l: this is the precise condition under which irreducibility passes to reductions that R24.5:operations records.",
+    "Check the dependencies: Larsen 1995 (1.12–1.13, 2.6, 3.15, 3.17) and Larsen–Pink 6.14 are recorded as gaps, not proved here."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates",
+    "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
+    "PotentialModularityAndCompatibleSystems:R24.5/rank-two-reducibility-independent-of-lambda"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Irreducibility",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "blggt-2014",
+     "locator": "§5.2, Lemma 5.2.1 and Proposition 5.2.2, pp. 54–58 (arXiv v1)",
+     "match": "Lemma 5.2.1 and Proposition 5.2.2 with its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R24.5/constituents-essentially-self-dual",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R24.5"
+   ],
+   "title": "Constituents of an essentially conjugate self-dual system",
+   "kind": "lemma",
+   "statement": "Let F be CM or totally real, ℛ a pure, extremely regular weakly compatible system over M, and ℳ a character system of G_{F⁺} with (ℛ, ℳ) essentially conjugate self-dual. For a finite extension F′/F and a subrepresentation s of r_λ|G_{F′}, there is a CM field F″ with F ⊆ F″ ⊆ F′ such that s is invariant by G_{F″}; (s, μ_λ) is essentially conjugate self-dual, and totally odd if (r_λ, μ_λ) is (Lemma 5.2.3).",
+   "hypotheses": [
+    "F CM or totally real; ℛ pure and extremely regular; (ℛ, ℳ) essentially conjugate self-dual."
+   ],
+   "proofSteps": [
+    "Choose τ so that distinct equal-size subsets of H_τ have distinct sums (extreme regularity) and τ₁ on the normal closure F₁ of F′/F⁺; submodules of the same dimension are equal iff the Hodge–Tate numbers of their determinants agree, so constituents have multiplicity one.",
+    "Purity gives h_σ + h_{σc} = w dim s, so s^{σcc′} = s^σ; the group generated by products cc′ of complex conjugations cuts out the maximal CM subfield F″ of F′, and s extends to G_{F″}.",
+    "Comparing Hodge–Tate numbers, s^c ≅ μ_λ s^∨, realised by restricting the pairing matrix A_{λ,v}; this gives the parity statement."
+   ],
+   "acceptance": [
+    "Check that extreme regularity, not only regularity, is what is used: it separates equal-dimensional submodules by the Hodge–Tate numbers of their determinants, which gives multiplicity one of the constituents of r_λ|_{G_{F₁}}.",
+    "Check the output against R24.5/linear-algebra-operations-on-systems: restriction to G_{F′} may break irreducibility, and the lemma records what survives for polarized systems (each constituent descends to a CM field F″ ⊆ F′ and stays essentially conjugate self-dual with the same μ_λ, totally odd if (r_λ, μ_λ) is)."
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates",
+    "PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/CompatibleSystems/Irreducibility",
+    "namespace": "TauCeti.CompatibleSystems"
+   },
+   "sources": [
+    {
+     "sourceId": "blggt-2014",
+     "locator": "§5.2, Lemma 5.2.3, pp. 58–59 (arXiv v1)",
+     "match": "Lemma 5.2.3 and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -1823,7 +2147,25 @@
     "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
     "PotentialModularityAndCompatibleSystems:R24.5/system-operations",
     "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system",
-    "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer"
+    "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
+    "PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+   "need": "The local L-factor L(WD, s) and the local constant ε(WD, ψ, s) of a Frobenius-semisimple Weil–Deligne representation of W_{F_v}, F_v/ℚ_p finite, with Deligne's normalisation: additivity, inductivity in degree zero, and the unramified case ε = 1 when WD and ψ are unramified. BLGGT §5.1 take ψ_v(x) = ψ_p(tr_{F_v/ℚ_p}(x)) with ψ_p|_{ℤ_p} = 1 and ψ_p(1/p) = e^{−2πi/p}, and form ε(ıℛ, s) as the product of ε(ıWD_v(ℛ), ψ_v, s) over finite v with the archimedean and Hodge factors.",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.5/system-l-functions"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+   "need": "Brauer's induction theorem for a finite group G over ℂ: 1 = Σ n_i Ind_{H_i}^G ψ_i in the virtual character ring with n_i ∈ ℤ, H_i elementary (hence soluble) and ψ_i linear characters, together with the induced-character formula, Frobenius reciprocity and Mackey's formula of Layers 2–3. BLGGT §5.4 (8)(f) apply it to G = Gal(F′/F) and transport it to ℓ-adic Galois representations by ı^{−1}.",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring",
+    "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system"
    ],
    "status": "open"
   }
@@ -1851,10 +2193,10 @@
    "stageId": "PotentialModularityAndCompatibleSystems:R24.5:operations",
    "status": "partial",
    "remaining": [
-    "The L-functions, ε-factors and Γ-factors of a system (BLGGT §5.1, pp. 52–53) and BLGGT Proposition 5.2.2 and §§5.3–5.4 (irreducibility of residual members, big image) are not planned here.",
-    "Larsen–Pink Proposition 6.14 behind BLGGT Lemma 5.2.1 (gap)."
+    "BLGGT §5.3 (Theorem 5.3.1, Corollaries 5.3.2–5.3.3, Proposition 5.3.4) and Theorems 5.4.1–5.4.3 are consequences of potential automorphy (Theorem 4.5.1); by this stage's boundary (\"does not assume … a potential-automorphy endpoint\") they belong with the potential-automorphy assembly ModularityAndLanglandsExtensions ML.2, which applies PotentialAutomorphyInfrastructure and tracks compatible systems, and are not planned here.",
+    "Larsen–Pink Proposition 6.14 behind BLGGT Lemma 5.2.1 (gap), and Larsen 1995 behind Proposition 5.2.2 (gap)."
    ],
-   "notes": "The definition of compatible systems with the strict, almost strict and plain predicates kept separate, and twisting, restriction and induction. Checkpoint 3 (RS-12 accepted: 'early R24.5:operations owns the carrier and generic operations') adds the rank-n carrier (BLGGT §5.1, Taylor 2006 §6), the predicates (regular, strictly compatible, pure, essentially conjugate self-dual, irreducible, automorphic) kept separate from Khare–Wintenberger's local predicates, the linear-algebra operations with a preservation table, and Taylor's Lemma 6.5 with BLGGT Lemma 5.2.1."
+   "notes": "The definition of compatible systems with the strict, almost strict and plain predicates kept separate, and twisting, restriction and induction. Checkpoint 3 (RS-12 accepted: 'early R24.5:operations owns the carrier and generic operations') adds the rank-n carrier (BLGGT §5.1, Taylor 2006 §6), the predicates (regular, strictly compatible, pure, essentially conjugate self-dual, irreducible, automorphic) kept separate from Khare–Wintenberger's local predicates, the linear-algebra operations with a preservation table, and Taylor's Lemma 6.5 with BLGGT Lemma 5.2.1. Checkpoint 4 (cc-39fac3) adds BLGGT §5.1's L-functions with Γ- and ε-factors, Proposition 5.2.2 (residual irreducibility over F(ζ_l) for density-one l), Lemma 5.2.3 (constituents of polarized systems) and the Grothendieck ring of §5.4 (4 nodes)."
   },
   {
    "stageId": "PotentialModularityAndCompatibleSystems:R24.6",
@@ -1882,9 +2224,17 @@
   {
    "title": "BLGGT Lemma 5.2.1 rests on Larsen–Pink, Proposition 6.14 (Serre's argument), not read",
    "neededBy": [
-    "PotentialModularityAndCompatibleSystems:R24.5/rank-two-reducibility-independent-of-lambda"
+    "PotentialModularityAndCompatibleSystems:R24.5/rank-two-reducibility-independent-of-lambda",
+    "PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one"
    ],
    "detail": "Verified: BLGGT p. 54 prove Lemma 5.2.1 by 'the same as the proof of Proposition 6.14 of [LP92]' (Larsen–Pink, Invent. Math. 107 (1992)), with the listed substitutions. The Larsen–Pink paper was not read."
+  },
+  {
+   "title": "Larsen, Maximality of Galois actions for compatible systems (Duke 1995), is not read",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one"
+   ],
+   "detail": "Verified: BLGGT's proof of Proposition 5.2.2 (pp. 56–58) takes its density-one set of primes from [Lar95], citing (1.12)–(1.13) (standard reductions), Proposition 2.6 (perfectness), 3.15 (G_l⁰ unramified) and Theorem 3.17 (the integral simply connected model); it also cites Bogomolov 1980 for openness of the image and Serre's Abelian l-adic representations III.1–III.2 with Conrad–Chai–Oort Proposition 6.3 for θ_l. Not verified: Larsen's statements, which were not read."
   }
  ],
  "sourceIssues": [
