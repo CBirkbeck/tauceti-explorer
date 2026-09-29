@@ -7,7 +7,7 @@
     },
     "HabiroCohomologyFoundations": {
       "action": "keep",
-      "reason": "Keep global q-de Rham, chosen q-Hodge filtrations, Habiro descent and their applications. Import the shared q-Witt theory from the reviewed PLAN-HABIRO definitions."
+      "reason": "Keep global q-de Rham, chosen q-Hodge filtrations, Habiro descent and their applications. Import the shared q-Witt theory from the reviewed PLAN-HABIRO definitions (QWittVectors). Integration order: RS-10 is meant to be applied together with PLAN-HABIRO's installation of QWittVectors and SolidAnalyticRings (and AnalyticHabiroStack for the HS.3 -> HQ.6 link). It is also safe to apply earlier: until those roadmaps are in the atlas, HQ.1, HQ.4, HR.1, HR.2 and HR.4 keep the targets they hand over (each 'keeps' says which), and the links from QW/SA/HS stages take effect when their stages exist."
     },
     "HabiroCyclotomicCompletions": {
       "action": "keep",
@@ -19,7 +19,7 @@
     },
     "HabiroRings": {
       "action": "keep",
-      "reason": "Keep relative coefficient rings and derived cyclotomic gluing. Share Lambda/q-Witt foundations with the existing reviewed PLAN-HABIRO; its staged definitions must be integrated with this result."
+      "reason": "Keep relative coefficient rings and derived cyclotomic gluing. Share Lambda/q-Witt foundations with the reviewed PLAN-HABIRO roadmaps QWittVectors and SolidAnalyticRings. Integration order: RS-10 is meant to be applied together with PLAN-HABIRO's installation of QWittVectors and SolidAnalyticRings (and AnalyticHabiroStack for the HS.3 -> HQ.6 link). It is also safe to apply earlier: until those roadmaps are in the atlas, HQ.1, HQ.4, HR.1, HR.2 and HR.4 keep the targets they hand over (each 'keeps' says which), and the links from QW/SA/HS stages take effect when their stages exist."
     }
   },
   "layers": {
@@ -57,7 +57,7 @@
     },
     "HabiroCohomologyFoundations:HQ.1": {
       "action": "narrow",
-      "keeps": "Global arithmetic q-de Rham gluing over the admitted perfectly covered bases, rational/p-complete comparisons, coherent chart independence and descent; retain PLAN-HABIRO q-connection/module applications.",
+      "keeps": "Global arithmetic q-de Rham gluing over the admitted perfectly covered bases, rational/p-complete comparisons, coherent chart independence and descent; retain PLAN-HABIRO q-connection/module applications. Until QWittVectors is in the atlas, HQ.1 also keeps the uncompleted framed q-de Rham complex of a framed smooth algebra that it glues (then QW.6), and imports Lambda-rings from HR.1, their holder until QW.1 exists.",
       "suppliedBy": [
         "QWittVectors:QW.1",
         "QWittVectors:QW.6",
@@ -69,15 +69,15 @@
     },
     "HabiroCohomologyFoundations:HQ.2": {
       "action": "keep",
-      "reason": "Keep animated/derived q-de Rham, filtered completion and the exact completion-sensitive comparisons; PLAN-HABIRO twisted q-de Rham/Nygaard applications import QW.7 and HR.3. Ordinary derived de Rham, animation and L-eta remain external imports."
+      "reason": "Keep animated/derived q-de Rham, filtered completion and the exact completion-sensitive comparisons; PLAN-HABIRO twisted q-de Rham/Nygaard applications import QW.7 and HR.3. Ordinary derived de Rham, animation and L-eta remain external imports. The twisted q-de Rham/Nygaard application that imports QW.7 is planned once QW.7 exists; until then its blueprint requests QW.7 rather than importing HQ.4, which follows HQ.2."
     },
     "HabiroCohomologyFoundations:HQ.3": {
       "action": "keep",
-      "reason": "Own chosen q-Hodge filtrations, modified q-Hodge complexes and their Habiro descent (Theorem 3.11, §§3.5–3.8), including the descent application formerly in HQ.4. Replace HQ.4 by QW.7 as an input; retain all coherent rational and p-completed rational conditions."
+      "reason": "Own chosen q-Hodge filtrations, modified q-Hodge complexes and their Habiro descent (Theorem 3.11, §§3.5-3.8). Round 2: it also absorbs the whole framed application formerly split with HQ.4, namely the descent application to the framed complexes of HQ.4 and the comparison of HQ.4's uncompleted framed q-Habiro-Hodge complex with the q-Hodge construction for the framed filtration. HQ.3 keeps HQ.4 as an input (the atlas edge HQ.4 -> HQ.3 stays) and takes the animated q-Witt forms from QW.7 once QWittVectors is installed, from HQ.4 until then. Retain all coherent rational and p-completed rational conditions."
     },
     "HabiroCohomologyFoundations:HQ.4": {
       "action": "narrow",
-      "keeps": "The framed Habiro-ring and uncompleted q-Habiro–Hodge application of PLAN-HABIRO §6.5, its Koszul model, comparison with HQ.3, examples and the framed no-go applications. Preserve the distinction between the uncompleted Habiro complex and its q-1 completion.",
+      "keeps": "The framed Habiro ring H_(R,square) and the uncompleted framed q-Habiro-Hodge complex of PLAN-HABIRO §6.5 as constructions: its Koszul model, its examples and the framed no-go applications, with the distinction between the uncompleted Habiro complex and its (q-1)-completion. It precedes HQ.3 (the atlas edge HQ.4 -> HQ.3 stays) and neither applies HQ.3's descent theorem nor compares with HQ.3; HQ.3 does both. Until QWittVectors is in the atlas, HQ.4 also keeps the positive-degree q-de Rham-Witt complex with its comparison to ordinary de Rham-Witt (CR.4), the smooth derived-to-underived comparison of q-Hodge v2 Corollary 3.31 and the positive-degree ghost-map and no-restriction statements, importing degree-zero q-Witt rings from HR.4 as the atlas does now; these then pass to QW.5, QW.7 and QW.2.",
       "suppliedBy": [
         "QWittVectors:QW.2",
         "QWittVectors:QW.5",
@@ -88,7 +88,7 @@
         "HabiroRings:HR.5",
         "HabiroCohomologyFoundations:HQ.3"
       ],
-      "reason": "Positive-degree q-de Rham–Witt and ordinary comparison move to QW.5; animation/smooth Corollary 3.31 to QW.7; ghost/no-restriction statements to QW.2; cyclotomic descent application to HQ.3. Remove CR.4 and HR.4 prerequisite edges, then add the suppliers listed here."
+      "reason": "Positive-degree q-de Rham-Witt and the ordinary comparison move to QW.5, animation and the smooth Corollary 3.31 to QW.7, and ghost/no-restriction statements to QW.2, once QWittVectors is installed. The cyclotomic descent application and the comparison of the framed complex with the q-Hodge construction move to HQ.3, which already follows HQ.4. HQ.3 is named in suppliedBy as the destination of that transfer, not as a supplier of HQ.4, so no HQ.3 -> HQ.4 link is proposed (it would close a cycle with HQ.4 -> HQ.3). The atlas edges CR.4 -> HQ.4 and HR.4 -> HQ.4 stay: PROTOCOL §15 has no removal field, and both are genuine inputs while HQ.4 holds the q-Witt targets above; afterwards they are coarse but acyclic."
     },
     "HabiroCohomologyFoundations:HQ.5": {
       "action": "narrow",
@@ -109,7 +109,7 @@
     },
     "HabiroCohomologyFoundations:HQ.7": {
       "action": "keep",
-      "reason": "Keep algebraic cohomology acceptance cases and the Lean boundary. Replace HQ.6 by HQ.4, HQ.5 and HQ.5-trace so these tests do not require an open analytic comparison."
+      "reason": "Keep algebraic cohomology acceptance cases and the Lean boundary. HQ.4, HQ.5 and HQ.5-trace supply the algebraic tests directly (links below). The atlas edge HQ.6 -> HQ.7 stays, since PROTOCOL §15 has no removal field; this is acceptable because HQ.6 plans the comparison problem as a named statement and proves only its algebraic specializations, so HQ.7 waits for those definitions, never for the open analytic comparison."
     },
     "HabiroCohomologyFoundations:HQ.8": {
       "action": "keep",
@@ -165,7 +165,7 @@
         "HabiroCyclotomicCompletions:HC.4",
         "HabiroCyclotomicCompletions:HC.5"
       ],
-      "reason": "Import the early twisted-ring construction and classical completion/re-expansion/localization facts. Own the arithmetic consequences, not a second construction of the same Taylor ring. Drop M.1 as a prerequisite of the ring."
+      "reason": "Import the early twisted-ring construction and classical completion/re-expansion/localization facts. Own the arithmetic consequences, not a second construction of the same Taylor ring. The atlas edge MotivicEtaleKTheory:M.1 -> HB.6 stays (no removal field): it is coarse, since the ring does not use M.1, but acyclic, and M.1 is also linked to HB.1, which does use it."
     },
     "HabiroNumberFields:HB.7": {
       "action": "keep",
@@ -181,11 +181,11 @@
     },
     "HabiroNumberFields:KU-habiroring": {
       "action": "keep",
-      "reason": "Retain the ring-readiness checkpoint using HC.1–HC.3, HB.6 and HR.1. Remove MotivicEtaleKTheory:KU-continuous and StableHomotopyKTheory:KU-existing; neither constructs the ring."
+      "reason": "Retain the ring-readiness checkpoint using HC.1-HC.3, HB.6 and HR.1. The atlas edges MotivicEtaleKTheory:KU-continuous -> KU-habiroring and StableHomotopyKTheory:KU-existing -> KU-habiroring stay (no removal field). Neither constructs the ring, so they are coarse, but they are acyclic and only delay this checkpoint until those K-theory stages exist."
     },
     "HabiroRings:HR.1": {
       "action": "narrow",
-      "keeps": "Unique Frobenius lifts on p-completions of etale algebras over Lambda bases; linearised relative Frobenius, completed base change and iterates. Add the early Taylor-glued ring H^Tay_(R/A) for polynomial/toric Lambda bases and etale R, its ring/functor/H_Z-algebra API, as specified by PLAN-HABIRO §6.2.",
+      "keeps": "Unique Frobenius lifts on p-completions of etale algebras over Lambda bases; linearised relative Frobenius, completed base change and iterates. Add the early Taylor-glued ring H^Tay_(R/A) for polynomial/toric Lambda bases and etale R, its ring/functor/H_Z-algebra API, as specified by PLAN-HABIRO §6.2. Until QWittVectors is in the atlas, HR.1 also keeps Lambda-rings, Adams operations and perfectly covered bases (then QW.1), as the atlas plans them now, and HQ.1 imports them from here.",
       "suppliedBy": [
         "QWittVectors:QW.1",
         "HabiroCyclotomicCompletions:HC.3"
@@ -194,7 +194,7 @@
     },
     "HabiroRings:HR.2": {
       "action": "narrow",
-      "keeps": "Derived Habiro-completeness, reflector, idempotence, homotopy and cyclotomic detection, staticity, tensor structure and the spectral upgrade; own Wagner B.7–B.8 Habiro-specific comparison, with its bounded-below hypothesis.",
+      "keeps": "Derived Habiro-completeness, reflector, idempotence, homotopy and cyclotomic detection, staticity, tensor structure and the spectral upgrade; own Wagner B.7–B.8 Habiro-specific comparison, with its bounded-below hypothesis. Until SolidAnalyticRings is in the atlas, HR.2 also keeps the light solid spectra and tensor product that Wagner B.6-B.8 use (then SA.1), planned only as far as those statements need; no general solid theory is built here.",
       "suppliedBy": [
         "HabiroCyclotomicCompletions:HC.1",
         "HabiroCyclotomicCompletions:HC.2",
@@ -214,7 +214,7 @@
     },
     "HabiroRings:HR.4": {
       "action": "narrow",
-      "keeps": "E_d cyclotomic completions and the glued H_(R/A,m); Wagner Theorem 2.9 under the standing etale R/A and perfectly covered A hypotheses: staticity, unique complete etale lift and reduction to qW_m(R/A). Own transitions and their identification with quotient Frobenius, plus naturality.",
+      "keeps": "E_d cyclotomic completions and the glued H_(R/A,m); Wagner Theorem 2.9 under the standing etale R/A and perfectly covered A hypotheses: staticity, unique complete etale lift and reduction to qW_m(R/A). Own transitions and their identification with quotient Frobenius, plus naturality. Until QWittVectors is in the atlas, HR.4 also keeps the degree-zero q-Witt constructions: absolute and relative q-Witt rings over Lambda bases, ghost maps, F/V operators, the no-restriction obstruction and etale base change (then QW.2-QW.4), as the atlas plans them now.",
       "suppliedBy": [
         "QWittVectors:QW.2",
         "QWittVectors:QW.3",
@@ -255,11 +255,6 @@
       "source": "ArithmeticQuantumTopology:QT.4",
       "target": "QSeriesPartitionsAndMockModularForms:QM.5",
       "reason": "Retain this existing external export; its mathematical object and hypotheses survive the restructuring."
-    },
-    {
-      "source": "HabiroCohomologyFoundations:HQ.3",
-      "target": "HabiroCohomologyFoundations:HQ.4",
-      "reason": "Supply the chosen filtration and Habiro descent theorem, including the application transferred from HQ.4."
     },
     {
       "source": "HabiroCohomologyFoundations:HQ.3",
@@ -635,6 +630,286 @@
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
       "target": "HabiroNumberFields:HB.1",
       "reason": "Import the unchanged upstream Kummer interface specified by PLAN-HABIRO."
+    },
+    {
+      "source": "QWittVectors:QW.1",
+      "target": "HabiroCohomologyFoundations:HQ.2",
+      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.2 relied on HQ.1, which now takes Lambda-rings, Adams operations and perfectly covered bases from QW.1, so HQ.2 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.1 still holds it."
+    },
+    {
+      "source": "QWittVectors:QW.1",
+      "target": "HabiroCohomologyFoundations:HQ.8",
+      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.8 relied on HQ.1, which now takes Lambda-rings, Adams operations and perfectly covered bases from QW.1, so HQ.8 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.1 still holds it."
+    },
+    {
+      "source": "QWittVectors:QW.6",
+      "target": "HabiroCohomologyFoundations:HQ.2",
+      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.2 relied on HQ.1, which now takes the uncompleted framed q-de Rham and q-Hodge complexes from QW.6, so HQ.2 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.1 still holds it."
+    },
+    {
+      "source": "QWittVectors:QW.6",
+      "target": "HabiroCohomologyFoundations:HQ.8",
+      "reason": "Section 15 forwarding for the narrowed HQ.1 and HQ.4: HQ.8 relied on each of them, and both now take this input from QW.6, so HQ.8 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.1 still holds it."
+    },
+    {
+      "source": "HabiroRings:HR.1",
+      "target": "HabiroCohomologyFoundations:HQ.2",
+      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.2 relied on HQ.1, which now takes etale Frobenius lifts and the early Taylor ring from HR.1, so HQ.2 imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.1",
+      "target": "HabiroCohomologyFoundations:HQ.8",
+      "reason": "Section 15 forwarding for the narrowed HQ.1 and HQ.4: HQ.8 relied on each of them, and both now take this input from HR.1, so HQ.8 imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroCohomologyFoundations:HQ.2",
+      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.2 relied on HQ.1, which now takes ordinary cyclotomic completion, cofinal indexing and the elementary q-toolkit from HC.1, so HQ.2 imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroCohomologyFoundations:HQ.8",
+      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.8 relied on HQ.1, which now takes ordinary cyclotomic completion, cofinal indexing and the elementary q-toolkit from HC.1, so HQ.8 imports it from there directly."
+    },
+    {
+      "source": "PrismaticCohomology:PR.6",
+      "target": "HabiroCohomologyFoundations:HQ.2",
+      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.2 relied on HQ.1, which now takes the local q-crystalline site and p-complete q-prismatic comparison from PR.6, so HQ.2 imports it from there directly."
+    },
+    {
+      "source": "PrismaticCohomology:PR.6",
+      "target": "HabiroCohomologyFoundations:HQ.8",
+      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.8 relied on HQ.1, which now takes the local q-crystalline site and p-complete q-prismatic comparison from PR.6, so HQ.8 imports it from there directly."
+    },
+    {
+      "source": "QWittVectors:QW.2",
+      "target": "HabiroCohomologyFoundations:HQ.3",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.3 relied on HQ.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HQ.3 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+    },
+    {
+      "source": "QWittVectors:QW.2",
+      "target": "HabiroCohomologyFoundations:HQ.5",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.5 relied on HQ.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HQ.5 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+    },
+    {
+      "source": "QWittVectors:QW.2",
+      "target": "HabiroCohomologyFoundations:HQ.8",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.8 relied on HQ.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HQ.8 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+    },
+    {
+      "source": "QWittVectors:QW.2",
+      "target": "HabiroRings:HR.6",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HR.6 relied on HQ.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HR.6 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+    },
+    {
+      "source": "QWittVectors:QW.6",
+      "target": "HabiroCohomologyFoundations:HQ.3",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.3 relied on HQ.4, which now takes the uncompleted framed q-de Rham and q-Hodge complexes from QW.6, so HQ.3 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+    },
+    {
+      "source": "QWittVectors:QW.6",
+      "target": "HabiroCohomologyFoundations:HQ.5",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.5 relied on HQ.4, which now takes the uncompleted framed q-de Rham and q-Hodge complexes from QW.6, so HQ.5 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+    },
+    {
+      "source": "QWittVectors:QW.6",
+      "target": "HabiroRings:HR.6",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HR.6 relied on HQ.4, which now takes the uncompleted framed q-de Rham and q-Hodge complexes from QW.6, so HR.6 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+    },
+    {
+      "source": "HabiroRings:HR.3",
+      "target": "HabiroCohomologyFoundations:HQ.5",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.5 relied on HQ.4, which now takes derived cyclotomic descent from HR.3, so HQ.5 imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.3",
+      "target": "HabiroCohomologyFoundations:HQ.8",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.8 relied on HQ.4, which now takes derived cyclotomic descent from HR.3, so HQ.8 imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.3",
+      "target": "HabiroRings:HR.6",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HR.6 relied on HQ.4, which now takes derived cyclotomic descent from HR.3, so HR.6 imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.1",
+      "target": "HabiroCohomologyFoundations:HQ.3",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.3 relied on HQ.4, which now takes etale Frobenius lifts and the early Taylor ring from HR.1, so HQ.3 imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.1",
+      "target": "HabiroCohomologyFoundations:HQ.5",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.5 relied on HQ.4, which now takes etale Frobenius lifts and the early Taylor ring from HR.1, so HQ.5 imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.1",
+      "target": "HabiroRings:HR.6",
+      "reason": "Section 15 forwarding for the narrowed HQ.4 and HR.5: HR.6 relied on each of them, and both now take this input from HR.1, so HR.6 imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.5",
+      "target": "HabiroCohomologyFoundations:HQ.3",
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.3 relied on HQ.4, which now takes the inverse-limit relative Habiro ring and its Taylor maps from HR.5, so HQ.3 imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.5",
+      "target": "HabiroCohomologyFoundations:HQ.8",
+      "reason": "Section 15 forwarding for the narrowed HQ.4 and HQ.5: HQ.8 relied on each of them, and both now take this input from HR.5, so HQ.8 imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.5",
+      "target": "HabiroCohomologyFoundations:HQ.5-trace",
+      "reason": "Section 15 forwarding for the narrowed HQ.5: HQ.5-trace relied on HQ.5, which now takes the inverse-limit relative Habiro ring and its Taylor maps from HR.5, so HQ.5-trace imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.5",
+      "target": "HabiroCohomologyFoundations:HQ.6",
+      "reason": "Section 15 forwarding for the narrowed HQ.5: HQ.6 relied on HQ.5, which now takes the inverse-limit relative Habiro ring and its Taylor maps from HR.5, so HQ.6 imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.2",
+      "target": "HabiroCyclotomicCompletions:HC.6",
+      "reason": "Section 15 forwarding for the narrowed HC.5: HC.6 relied on HC.5, which now takes derived Habiro completion from HR.2, so HC.6 imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.1",
+      "target": "HabiroNumberFields:HB.7",
+      "reason": "Section 15 forwarding for the narrowed HB.6: HB.7 relied on HB.6, which now takes etale Frobenius lifts and the early Taylor ring from HR.1, so HB.7 imports it from there directly."
+    },
+    {
+      "source": "HabiroRings:HR.1",
+      "target": "HabiroRings:HR.5-number-field-comparison",
+      "reason": "Section 15 forwarding for the narrowed HB.6 and HR.5: HR.5-number-field-comparison relied on each of them, and both now take this input from HR.1, so HR.5-number-field-comparison imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroNumberFields:HB.7",
+      "reason": "Section 15 forwarding for the narrowed HB.6: HB.7 relied on HB.6, which now takes ordinary cyclotomic completion, cofinal indexing and the elementary q-toolkit from HC.1, so HB.7 imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroRings:HR.5-number-field-comparison",
+      "reason": "Section 15 forwarding for the narrowed HB.6 and HR.5: HR.5-number-field-comparison relied on each of them, and both now take this input from HC.1, so HR.5-number-field-comparison imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.3",
+      "target": "HabiroNumberFields:HB.7",
+      "reason": "Section 15 forwarding for the narrowed HB.6: HB.7 relied on HB.6, which now takes root evaluations, Taylor maps and convergent re-expansion from HC.3, so HB.7 imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.3",
+      "target": "HabiroRings:HR.5-number-field-comparison",
+      "reason": "Section 15 forwarding for the narrowed HB.6 and HR.5: HR.5-number-field-comparison relied on each of them, and both now take this input from HC.3, so HR.5-number-field-comparison imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.4",
+      "target": "HabiroNumberFields:HB.7",
+      "reason": "Section 15 forwarding for the narrowed HB.6: HB.7 relied on HB.6, which now takes cyclotomic prime adjacency and rigidity from HC.4, so HB.7 imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.4",
+      "target": "HabiroNumberFields:KU-habiroring",
+      "reason": "Section 15 forwarding for the narrowed HB.6: KU-habiroring relied on HB.6, which now takes cyclotomic prime adjacency and rigidity from HC.4, so KU-habiroring imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.4",
+      "target": "HabiroRings:HR.5-number-field-comparison",
+      "reason": "Section 15 forwarding for the narrowed HB.6: HR.5-number-field-comparison relied on HB.6, which now takes cyclotomic prime adjacency and rigidity from HC.4, so HR.5-number-field-comparison imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.5",
+      "target": "HabiroNumberFields:HB.7",
+      "reason": "Section 15 forwarding for the narrowed HB.6: HB.7 relied on HB.6, which now takes classical localized completion and root components from HC.5, so HB.7 imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.5",
+      "target": "HabiroNumberFields:KU-habiroring",
+      "reason": "Section 15 forwarding for the narrowed HB.6: KU-habiroring relied on HB.6, which now takes classical localized completion and root components from HC.5, so KU-habiroring imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.5",
+      "target": "HabiroRings:HR.5-number-field-comparison",
+      "reason": "Section 15 forwarding for the narrowed HB.6: HR.5-number-field-comparison relied on HB.6, which now takes classical localized completion and root components from HC.5, so HR.5-number-field-comparison imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.3",
+      "target": "HabiroRings:HR.2",
+      "reason": "Section 15 forwarding for the narrowed HR.1: HR.2 relied on HR.1, which now takes root evaluations, Taylor maps and convergent re-expansion from HC.3, so HR.2 imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroCohomologyFoundations:HQ.3",
+      "reason": "Section 15 forwarding for the narrowed HR.2: HQ.3 relied on HR.2, which now takes ordinary cyclotomic completion, cofinal indexing and the elementary q-toolkit from HC.1, so HQ.3 imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.2",
+      "target": "HabiroCohomologyFoundations:HQ.3",
+      "reason": "Section 15 forwarding for the narrowed HR.2: HQ.3 relied on HR.2, which now takes normalised factorial expansions and ordinary q-invertibility from HC.2, so HQ.3 imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.2",
+      "target": "HabiroRings:HR.3",
+      "reason": "Section 15 forwarding for the narrowed HR.2: HR.3 relied on HR.2, which now takes normalised factorial expansions and ordinary q-invertibility from HC.2, so HR.3 imports it from there directly."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.1",
+      "target": "HabiroCohomologyFoundations:HQ.3",
+      "reason": "Section 15 forwarding for the narrowed HR.2: HQ.3 relied on HR.2, which now takes generic derived completion from DD.1, so HQ.3 imports it from there directly."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.1",
+      "target": "HabiroRings:HR.3",
+      "reason": "Section 15 forwarding for the narrowed HR.2: HR.3 relied on HR.2, which now takes generic derived completion from DD.1, so HR.3 imports it from there directly."
+    },
+    {
+      "source": "SolidAnalyticRings:SA.1",
+      "target": "HabiroCohomologyFoundations:HQ.3",
+      "reason": "Section 15 forwarding for the narrowed HR.2: HQ.3 relied on HR.2, which now takes light solid spectra and their tensor product from SA.1, so HQ.3 imports it from there directly. Takes effect once SolidAnalyticRings is in the atlas; until then HR.2 still holds it."
+    },
+    {
+      "source": "SolidAnalyticRings:SA.1",
+      "target": "HabiroRings:HR.3",
+      "reason": "Section 15 forwarding for the narrowed HR.2: HR.3 relied on HR.2, which now takes light solid spectra and their tensor product from SA.1, so HR.3 imports it from there directly. Takes effect once SolidAnalyticRings is in the atlas; until then HR.2 still holds it."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroRings:HR.4",
+      "reason": "Section 15 forwarding for the narrowed HR.3: HR.4 relied on HR.3, which now takes ordinary cyclotomic completion, cofinal indexing and the elementary q-toolkit from HC.1, so HR.4 imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.4",
+      "target": "HabiroRings:HR.4",
+      "reason": "Section 15 forwarding for the narrowed HR.3: HR.4 relied on HR.3, which now takes cyclotomic prime adjacency and rigidity from HC.4, so HR.4 imports it from there directly."
+    },
+    {
+      "source": "QWittVectors:QW.2",
+      "target": "HabiroRings:HR.5",
+      "reason": "Section 15 forwarding for the narrowed HR.4: HR.5 relied on HR.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HR.5 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HR.4 still holds it."
+    },
+    {
+      "source": "QWittVectors:QW.3",
+      "target": "HabiroCohomologyFoundations:HQ.4",
+      "reason": "Section 15 forwarding for the narrowed HR.4: HQ.4 relied on HR.4, which now takes relative q-Witt rings over Lambda bases from QW.3, so HQ.4 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HR.4 still holds it."
+    },
+    {
+      "source": "QWittVectors:QW.3",
+      "target": "HabiroRings:HR.5",
+      "reason": "Section 15 forwarding for the narrowed HR.4: HR.5 relied on HR.4, which now takes relative q-Witt rings over Lambda bases from QW.3, so HR.5 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HR.4 still holds it."
+    },
+    {
+      "source": "QWittVectors:QW.4",
+      "target": "HabiroCohomologyFoundations:HQ.4",
+      "reason": "Section 15 forwarding for the narrowed HR.4: HQ.4 relied on HR.4, which now takes etale base change of q-Witt rings from QW.4, so HQ.4 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HR.4 still holds it."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroRings:HR.6",
+      "reason": "Section 15 forwarding for the narrowed HR.5: HR.6 relied on HR.5, which now takes ordinary cyclotomic completion, cofinal indexing and the elementary q-toolkit from HC.1, so HR.6 imports it from there directly."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.3",
+      "target": "HabiroRings:HR.6",
+      "reason": "Section 15 forwarding for the narrowed HR.5: HR.6 relied on HR.5, which now takes root evaluations, Taylor maps and convergent re-expansion from HC.3, so HR.6 imports it from there directly."
     }
   ],
   "owners": [
@@ -688,7 +963,7 @@
       ]
     },
     {
-      "target": "Lambda rings, Adams operations and perfectly covered bases",
+      "target": "Lambda rings, Adams operations and perfectly covered bases (held by HR.1 until QWittVectors is in the atlas)",
       "owner": "QWittVectors:QW.1",
       "formerly": [
         "HabiroRings:HR.1",
@@ -712,7 +987,7 @@
       ]
     },
     {
-      "target": "Absolute q-Witt rings, ghost maps and restriction obstruction",
+      "target": "Absolute q-Witt rings, ghost maps and restriction obstruction (held by HR.4 in degree zero and by HQ.4 in positive degrees until QWittVectors is in the atlas)",
       "owner": "QWittVectors:QW.2",
       "formerly": [
         "HabiroRings:HR.4",
@@ -720,28 +995,28 @@
       ]
     },
     {
-      "target": "Relative q-Witt rings over Lambda bases",
+      "target": "Relative q-Witt rings over Lambda bases (held by HR.4 until QWittVectors is in the atlas)",
       "owner": "QWittVectors:QW.3",
       "formerly": [
         "HabiroRings:HR.4"
       ]
     },
     {
-      "target": "Etale q-Witt base change and comparison API",
+      "target": "Etale q-Witt base change and comparison API (held by HR.4 until QWittVectors is in the atlas)",
       "owner": "QWittVectors:QW.4",
       "formerly": [
         "HabiroRings:HR.4"
       ]
     },
     {
-      "target": "Positive-degree q-de Rham–Witt and classical comparison",
+      "target": "Positive-degree q-de Rham–Witt and classical comparison (held by HQ.4 until QWittVectors is in the atlas)",
       "owner": "QWittVectors:QW.5",
       "formerly": [
         "HabiroCohomologyFoundations:HQ.4"
       ]
     },
     {
-      "target": "Animated q-Witt forms and the smooth comparison of Corollary 3.31",
+      "target": "Animated q-Witt forms and the smooth comparison of Corollary 3.31 (held by HQ.4 until QWittVectors is in the atlas)",
       "owner": "QWittVectors:QW.7",
       "formerly": [
         "HabiroCohomologyFoundations:HQ.4",
@@ -749,7 +1024,7 @@
       ]
     },
     {
-      "target": "Habiro descent application for chosen q-Hodge filtrations",
+      "target": "Habiro descent application for chosen q-Hodge filtrations, including its application to HQ.4's framed complexes and their comparison with the q-Hodge construction",
       "owner": "HabiroCohomologyFoundations:HQ.3",
       "formerly": [
         "HabiroCohomologyFoundations:HQ.4"
