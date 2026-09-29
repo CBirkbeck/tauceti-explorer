@@ -3,7 +3,7 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "AdelicAlgebraicGroups": {
-   "summary": "Mathlib's Topology/Algebra/RestrictedProduct/ gives the whole topological half of AA.0 in full generality: topological-group and topological-ring instances, local compactness over compact open subgroups, the open-embedding/cylinder lemmas and continuity criteria for maps in and out. For the adelic layers the libraries supply the G_a and G_m cases and some algebraic scaffolding: the adele ring, idele group and idele class group, the product formula, discreteness and closedness of K in its adele ring (Tau Ceti), Tau Ceti's functor of points of an affine group scheme — so G(𝔸) exists as an abstract group, compatibly with products, but with no topology — Kˣ-valued weak approximation, and strong approximation for SL₂ over ℚ in its congruence form (SL₂(ℤ) → SL₂(ℤ/dℤ) surjective). On the measure side Mathlib has quotient measures, independence of the fundamental domain and the unfolding formula for countable subgroups, and Weil's integration formula for a closed normal subgroup (Haar/Extension.lean), but no measure on a restricted product or on the adeles, no invariant measure on H\\G for a non-normal closed subgroup, and no Tamagawa measure. Genuinely missing: the topological group G(𝔸) and its functoriality, unimodularity, a_G and H_G, all of reduction theory (rational parabolics, Siegel sets, finite volume, compactness criteria, class-number finiteness), approximation for general groups, level maps and Hecke diagrams, and the AA.5 comparisons beyond the definition of the idele class group.",
+   "summary": "Mathlib's Topology/Algebra/RestrictedProduct/ gives the whole topological half of AA.0 in full generality: topological-group and topological-ring instances, local compactness over compact open subgroups, the open-embedding/cylinder lemmas and continuity criteria for maps in and out. For the adelic layers the libraries supply the G_a and G_m cases and some algebraic scaffolding: the adele ring, idele group and idele class group, the product formula, discreteness and closedness of K in its adele ring (Tau Ceti), Tau Ceti's functor of points of an affine group scheme — so G(𝔸) exists as an abstract group, compatibly with products, but with no topology — Kˣ-valued weak approximation, and strong approximation for SL₂ over ℚ in its congruence form (SL₂(ℤ) → SL₂(ℤ/dℤ) surjective). On the measure side Mathlib has quotient measures, independence of the fundamental domain and the unfolding formula for countable subgroups, and Weil's integration formula for a closed normal subgroup (Haar/Extension.lean), but no measure on a restricted product or on the adeles, no invariant measure on H\\G for a non-normal closed subgroup, and no Tamagawa measure. Genuinely missing: the topological group G(𝔸) and its functoriality, unimodularity, a_G and H_G, reduction theory beyond the classical SL₂(ℤ) fundamental domain, its finite volume and the finiteness of cusps (rational parabolics, Siegel sets, finite volume, compactness criteria and class-number finiteness for general G), approximation for general groups, level maps and Hecke diagrams, and the AA.5 comparisons beyond the definition of the idele class group.",
    "layers": {
     "AdelicAlgebraicGroups:AA.0": {
      "verdict": "partly built",
@@ -255,35 +255,35 @@
          "fit": "special case"
         },
         {
-         "name": "NumberField.IdeleGroup.unitEmbedding",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
-         "line": 99,
-         "fit": "special case"
-        },
-        {
-         "name": "RestrictedProduct.evalRingHom",
-         "library": "mathlib",
-         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
-         "line": 346,
-         "fit": "related"
-        },
-        {
-         "name": "RestrictedProduct.unitsEquiv",
-         "library": "mathlib",
-         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Units.lean",
-         "line": 84,
-         "fit": "related"
-        },
-        {
          "name": "TauCeti.HopfAlgebra.pointsFunctor",
          "library": "tauceti",
          "file": "TauCeti/Algebra/AlgebraicGroup/PointsFunctor.lean",
          "line": 104,
          "fit": "more general"
+        },
+        {
+         "name": "CommRingCat.HomTopology.isEmbedding_hom",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/Ring/Topology.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "CommRingCat.HomTopology.continuous_precomp",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/Ring/Topology.lean",
+         "line": 64,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.SpecialLinearGroup.isTopologicalGroup",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/Matrix.lean",
+         "line": 125,
+         "fit": "special case"
         }
        ],
-       "note": "Tau Ceti's `TauCeti.HopfAlgebra.pointsFunctor` sends every commutative R-algebra A to the convolution group of A-points of the affine group scheme of a Hopf algebra, functorially in A. Evaluated on the adele ring it gives the abstract group G(𝔸), and `mapPoints` along K → 𝔸[K] gives the diagonal; the local projections still need 𝔸[K] → K_v packaged as algebra maps (only ring homomorphisms such as `evalRingHom` exist). For GL_n and G_m Tau Ceti identifies the points with GL_n(A) and Aˣ. Missing: any topology on G(𝔸), its identification with the restricted product of the G(F_v) with respect to G(O_v) for a model over O_S, and hence the adelic group itself. For G_a and G_m the adelic objects do exist concretely: the adele ring with its diagonal, and IdeleGroup = 𝔸ˣ, which `unitsEquiv` identifies with the restricted product of the local unit groups (as groups only)."
+       "note": "Tau Ceti's `TauCeti.HopfAlgebra.pointsFunctor` sends every commutative R-algebra A to the convolution group of A-points of the affine group scheme of a Hopf algebra, functorially in A. Evaluated on the adele ring it gives the abstract group G(𝔸), and `mapPoints` along K → 𝔸[K] gives the diagonal; the local projections still need 𝔸[K] → K_v packaged as algebra maps (only ring homomorphisms such as `RestrictedProduct.evalRingHom`, Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean:346, exist). For GL_n and G_m Tau Ceti identifies the points with GL_n(A) and Aˣ. Mathlib topologizes Hom(A, R) for every commutative ring A and topological ring R (the scoped instance in `CommRingCat.HomTopology`, Ring/Topology.lean:50, induced from A → R; `isEmbedding_hom`, functorial by `continuous_precomp`), so the points of any affine scheme over 𝔸 carry their standard topology, and it makes GL_n(𝔸), SL_n(𝔸) and 𝔸ˣ topological groups (units of a topological monoid, Mathlib/Topology/Algebra/Group/Units.lean:102; `Matrix.SpecialLinearGroup.isTopologicalGroup`); Tau Ceti's `GeneralLinear.pointsMulEquiv` transports this to its GL_n. Missing: the version for K-algebra points of a Hopf algebra with continuity of convolution (the topological group G(𝔸) for a general G), its identification with the restricted product ∏′ G(F_v) over G(O_v) for a model over O_S, and local compactness. For G_a and G_m the adelic objects do exist concretely: the adele ring with its diagonal, and IdeleGroup = 𝔸ˣ (with the diagonal `IdeleGroup.unitEmbedding`, AdeleRing.lean:99), which `RestrictedProduct.unitsEquiv` (RestrictedProduct/Units.lean:84) identifies with the restricted product of the local unit groups (as groups only)."
       },
       {
        "target": "Base change and restriction-of-scalars equivalences on adelic points",
@@ -297,7 +297,7 @@
          "fit": "related"
         }
        ],
-       "note": "Base change on points is algebraically available: `baseChangePointsMulEquiv` identifies (A →ₐ[k] R) with (K ⊗ A →ₐ[K] R) as convolution groups for any K-algebra R. But there is no Weil restriction in either tree (`grep -rn -i 'weil restriction'` finds only prose), no map 𝔸_F → 𝔸_E or identification 𝔸_E ≅ E ⊗_F 𝔸_F, and no topology on adelic points, so neither Res_{E/F} G(𝔸_F) ≅ G(𝔸_E) nor the adelic base-change equivalence can be stated."
+       "note": "Base change on points is algebraically available: `baseChangePointsMulEquiv` identifies (A →ₐ[k] R) with (K ⊗ A →ₐ[K] R) as convolution groups for any K-algebra R. But there is no Weil restriction in either tree (`grep -rn -i 'weil restriction'` finds only prose), no map 𝔸_F → 𝔸_E or identification 𝔸_E ≅ E ⊗_F 𝔸_F (planned in GlobalNumberFields layer 8), and no group topology on the adelic points of a general G identified with the restricted product, so neither Res_{E/F} G(𝔸_F) ≅ G(𝔸_E) nor the adelic base-change equivalence can be stated."
       },
       {
        "target": "Compatibility of adelic points with closed subgroups, centres and products",
@@ -330,9 +330,16 @@
          "file": "TauCeti/Algebra/AlgebraicGroup/Center/Basic.lean",
          "line": 427,
          "fit": "more general"
+        },
+        {
+         "name": "CommRingCat.HomTopology.isClosedEmbedding_precomp_of_surjective",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/Ring/Topology.lean",
+         "line": 94,
+         "fit": "related"
         }
        ],
-       "note": "On points all three compatibilities hold for every commutative value algebra, so for 𝔸 as abstract groups: points of a product are the product of the points (`pointsMulEquiv`, natural in the algebra), points of the closed subgroup cut out by a Hopf ideal are the points vanishing on it (`quotientPointsSubgroup`), and over a field the points of the centre (`centerDefiningIdeal`) are the universally central points (`centerPointsSubgroup_eq_center`). Missing: everything topological — that H(𝔸) → G(𝔸) is a closed embedding, that the product decomposition is a homeomorphism — since G(𝔸) carries no topology in either library."
+       "note": "On points all three compatibilities hold for every commutative value algebra, so for 𝔸 as abstract groups: points of a product are the product of the points (`pointsMulEquiv`, natural in the algebra), points of the closed subgroup cut out by a Hopf ideal are the points vanishing on it (`quotientPointsSubgroup`), and over a field the points of the centre (`centerDefiningIdeal`) are the universally central points (`centerPointsSubgroup_eq_center`). The topological statements exist for ring-hom points: Hom(A/I, R) is a closed subspace of Hom(A, R) for T1 R (`isClosedEmbedding_precomp_of_surjective`) and Hom(B ⊗_A C, R) has the subspace topology from Hom(B, R) × Hom(C, R) (`CommRingCat.HomTopology.isEmbedding_pushout`, Ring/Topology.lean:151). Missing: their restriction to K-algebra points combined with Tau Ceti's algebraic equivalences, i.e. that H(𝔸) → G(𝔸) is a closed embedding and that the product decomposition is a homeomorphism for the topological group G(𝔸)."
       },
       {
        "target": "G(F) is a discrete subgroup of G(A) (and not of the finite adeles alone)",
@@ -385,6 +392,18 @@
       {
        "layer": "ReductiveGroupsPartII:RG2.0a",
        "note": "Owns Weil restriction for affine finite-type schemes; AA.1's restriction-of-scalars equivalence on adelic points is the adelic shadow of that construction."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.2",
+       "note": "Constructs restricted adelic point spaces of varieties; AA.1's G(𝔸) with model independence is the group case, so one construction should serve both."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
+       "note": "Owns 𝔸_K ⊗_K L ≃ 𝔸_L (`adeleBaseChangeEquiv`), the G_a case of and input to AA.1's base-change and restriction-of-scalars equivalences."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
+       "note": "Owns discreteness of K in 𝔸_K, the G_a case of AA.1's discreteness target (already proved in Tau Ceti's Adeles/Discrete.lean)."
       }
      ]
     },
@@ -473,7 +492,7 @@
          "fit": "special case"
         }
        ],
-       "note": "Two pieces are in Mathlib. For a countable subgroup acting with a fundamental domain: independence of the fundamental domain (`IsFundamentalDomain.measure_eq`), uniqueness of the quotient measure, Haar-ness of the quotient measure for a normal discrete subgroup, and the unfolding formula. For a closed normal subgroup (via `TopologicalGroup.IsSES.ofClosedSubgroup`), Haar/Extension.lean builds a Haar measure on the group from Haar measures on the subgroup and on the quotient and proves ∫_B f = ∫_C (∫_A f(b·a) da) dc for compactly supported continuous f — Weil's formula in the normal case. Missing: the invariant measure on H\\G for a non-normal, non-discrete closed subgroup under the condition Δ_G|_H = Δ_H (needed for quotients such as Z(𝔸)G(F)\\G(𝔸) or N(𝔸)\\G(𝔸)), and the extension from compactly supported continuous functions to integrable ones."
+       "note": "Two pieces are in Mathlib. For a countable subgroup acting with a fundamental domain: independence of the fundamental domain (`IsFundamentalDomain.measure_eq`), uniqueness of the quotient measure, Haar-ness of the quotient measure for a normal discrete subgroup, and the unfolding formula. For a closed normal subgroup (via `TopologicalGroup.IsSES.ofClosedSubgroup`), Haar/Extension.lean builds a Haar measure on the group from Haar measures on the subgroup and on the quotient and proves ∫_B f = ∫_C (∫_A f(b·a) da) dc for compactly supported continuous f — Weil's formula in the normal case. Missing: the invariant measure on H\\G for a non-normal, non-discrete closed subgroup in general (the one concrete case is the GL₂(ℝ)-invariant measure on ℍ = GL₂(ℝ)⁺/ℝ^×SO(2), the `SMulInvariantMeasure (GL (Fin 2) ℝ) ℍ volume` instance at Mathlib/Analysis/Complex/UpperHalfPlane/Measure.lean:89) under the condition Δ_G|_H = Δ_H (needed for quotients such as Z(𝔸)G(F)\\G(𝔸) or N(𝔸)\\G(𝔸)), and the extension from compactly supported continuous functions to integrable ones."
       },
       {
        "target": "Modulus character of a parabolic from the adjoint action on Lie(N), with its product formula on rational points",
@@ -573,18 +592,55 @@
       {
        "target": "Siegel sets and their height estimates",
        "library": "absent",
-       "declarations": [],
-       "note": "`grep -i siegel` in the declaration index finds only Siegel's lemma on small integer solutions (Mathlib/NumberTheory/SiegelsLemma.lean) and `NumberField.house.asiegel`; nothing about Siegel sets in a reductive group."
+       "declarations": [
+        {
+         "name": "ModularGroup.fd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Modular.lean",
+         "line": 367,
+         "fit": "related"
+        },
+        {
+         "name": "ModularGroup.three_le_four_mul_im_sq_of_mem_fd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Modular.lean",
+         "line": 400,
+         "fit": "related"
+        },
+        {
+         "name": "ModularGroup.exists_max_im",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Modular.lean",
+         "line": 278,
+         "fit": "related"
+        }
+       ],
+       "note": "The SL₂(ℤ) standard domain 𝒟 = {|Re z| ≤ 1/2, |z| ≥ 1} (`ModularGroup.fd`) and its height bound Im z ≥ √3/2 on 𝒟 (`three_le_four_mul_im_sq_of_mem_fd`), with the existence of a point of maximal height in an orbit (`exists_max_im`), exist; 𝒟 lies in the Siegel set {|x| ≤ 1/2, y ≥ √3/2}. No Siegel set of a reductive group exists: `grep -i siegel` in the declaration index finds only Siegel's lemma on small integer solutions and `NumberField.house.asiegel`."
       },
       {
        "target": "Finitely many Siegel sets cover the arithmetic quotient; finite intersection property",
-       "library": "absent",
-       "declarations": [],
-       "note": "Absent, as is the Siegel set itself."
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularGroup.exists_smul_mem_fd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Modular.lean",
+         "line": 426,
+         "fit": "special case"
+        },
+        {
+         "name": "ModularGroup.cases_of_mem_fd_smul_mem_fd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Modular.lean",
+         "line": 695,
+         "fit": "special case"
+        }
+       ],
+       "note": "Classical SL₂(ℤ)\\ℍ form only: every point of ℍ is SL₂(ℤ)-equivalent to a point of the standard domain 𝒟 (`exists_smul_mem_fd`), only an explicit finite list of g has z, g•z ∈ 𝒟 (`cases_of_mem_fd_smul_mem_fd`, the Siegel finiteness property), truncations of 𝒟 are compact (`isCompact_truncatedFundamentalDomain`, Modular.lean:960), and every arithmetic subgroup of GL₂(ℝ) has finitely many cusp orbits (the `Finite (CuspOrbits 𝒢)` instance, Mathlib/NumberTheory/ModularForms/Cusps.lean:204), so finitely many Siegel sets at any level. No Siegel set for a general G and no adelic statement."
       },
       {
        "target": "Finite volume of G(F)\\G(A)^1",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "MeasureTheory.QuotientMeasureEqMeasurePreimage.covolume_ne_top",
@@ -599,9 +655,23 @@
          "file": "Mathlib/MeasureTheory/Group/FundamentalDomain.lean",
          "line": 679,
          "fit": "related"
+        },
+        {
+         "name": "ModularGroup.volume_fd_lt_top",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Modular.lean",
+         "line": 112,
+         "fit": "special case"
+        },
+        {
+         "name": "ModularGroup.isFundamentalDomain_fdo",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Modular.lean",
+         "line": 230,
+         "fit": "special case"
         }
        ],
-       "note": "Covolume of a discrete subgroup is defined in Mathlib and finiteness is available once a finite-measure fundamental domain is exhibited, but G(A)^1 does not exist and there is no Haar measure on an adelic group."
+       "note": "Covolume of a discrete subgroup is defined in Mathlib and finiteness is available once a finite-measure fundamental domain is exhibited. The classical SL₂ case is in Tau Ceti: 𝒟 has finite invariant volume (`volume_fd_lt_top`) and its interior is a measure-theoretic fundamental domain for PSL₂(ℤ) (`isFundamentalDomain_fdo`), with the [PSL₂(ℤ) : H]-fold tiling for any subgroup (`isFundamentalDomain_iUnion_out_inv_smul_fdo`, :257); via SL₂ strong approximation this is the classical form of finite volume for SL₂ over ℚ. G(A)^1 does not exist and there is no Haar measure on an adelic group."
       },
       {
        "target": "Compactness of the quotient for F-anisotropic groups modulo centre, and the converse",
@@ -646,6 +716,14 @@
       {
        "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
        "note": "Proves compactness of the norm-one idele class group and recovers class-group finiteness from it: the GL₁ case of AA.3's finite volume of G(F)\\G(A)¹ and finiteness of G(F)\\G(A_f)/K."
+      },
+      {
+       "layer": "AutomorphicFormsOnReductiveGroups:AF.0",
+       "note": "A consumer (it requires AA.3) that restates the estimates: it plans height functions from faithful embeddings with polynomial comparability and independence of the moderate-growth condition, the same estimates as AA.3's moderate-growth target; AF.0 should consume AA.3's."
+      },
+      {
+       "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+       "note": "Plans reduction domains and arithmetic quotients with Haar normalizations for mass formulas, the orthogonal-group case of AA.3's reduction theory."
       }
      ]
     },
@@ -758,6 +836,30 @@
       {
        "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
        "note": "Owns additive strong approximation and the idele group; AA.4's approximation targets are the algebraic-group generalization of that layer."
+      },
+      {
+       "layer": "ShimuraVarieties:V1",
+       "note": "Plans level maps, neat-level coverings and Hecke correspondences through K∩gKg⁻¹, AA.4's covering and Hecke-diagram targets in the Shimura setting."
+      },
+      {
+       "layer": "ArithmeticLocallySymmetricSpaces:ALS.3",
+       "note": "Plans the finite-level maps through K∩gKg⁻¹, change of level and groupoid versions with stabilizer factors, the same covering and stabilizer targets."
+      },
+      {
+       "layer": "CompletedCohomologyPartII:CC.0",
+       "note": "Plans finite covering correspondences and stabilizer/orbifold models at non-neat level, AA.4's covering and quotient-groupoid targets."
+      },
+      {
+       "layer": "ShimuraData:D5",
+       "note": "Supplier rather than rival: D5 defines neatness, with representation independence, which AA.4's neat-level covering target presupposes; D5 owns the definition and AA.4 should import it."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
+       "note": "The G_a/G_m case of AA.4's weak approximation, already built as `weakApproximation_denseRange`, which AA.4 cites."
+      },
+      {
+       "layer": "AutomorphicBundles:B5",
+       "note": "Constructs pullback and trace along Hecke correspondences with the same non-neat stabilizer caveat, on bundles; AUDIT-13 records B5 → AA.4, and this is the reverse entry."
       }
      ]
     },
@@ -852,7 +954,7 @@
    }
   },
   "AlgebraicModularFormsAndSerreWeights": {
-   "summary": "Both libraries have a rich analytic theory of modular forms on the upper half-plane: Mathlib's ModularForm/CuspForm with slash actions, cusps, q-expansions and the injectivity of the q-expansion map, the Serre derivative, level-one dimension formulas and Eisenstein series; Tau Ceti adds Hecke operators for Γ₀(N)/Γ₁(N) with nebentypus, eigenforms, the old/new decomposition, Atkin–Lehner, multiplicity one, the Sturm bound, finite-dimensionality for any finite-index subgroup and the freeness of E₄, E₆ as generators of the level-one graded ring. None of the algebraic side of this roadmap exists: no modular curve as a scheme, no Hodge bundle or cusp divisor, no modular form over a coefficient ring or in characteristic p, no Hasse invariant, characteristic-p theta operator or Igusa curve, no Galois representation attached to an eigenform or residual semisimplification, no tame inertia characters or finite-flat local Galois theory, and no Serre weight k(ρ̄) or level N(ρ̄). Tau Ceti does supply two carriers the local recipe will need — finite locally free commutative group schemes with Cartier duality, and the Kummer map into continuous H¹(G_K, μₙ) for any field — and Mathlib supplies the commutative algebra (going-down, minimal primes, DVR lifting) behind the Deligne–Serre lemma. The genuinely missing work is essentially the whole roadmap.",
+   "summary": "Both libraries have a rich analytic theory of modular forms on the upper half-plane: Mathlib's ModularForm/CuspForm with slash actions, cusps, q-expansions and the injectivity of the q-expansion map, the Serre derivative, level-one dimension formulas and Eisenstein series; Tau Ceti adds Hecke operators for Γ₀(N)/Γ₁(N) with nebentypus, eigenforms, the old/new decomposition, Atkin–Lehner, multiplicity one, the Sturm bound, finite-dimensionality for any finite-index subgroup and the freeness of E₄, E₆ as generators of the level-one graded ring. None of the algebraic side of this roadmap exists: no modular curve as a scheme, no Hodge bundle or cusp divisor, no modular form over a coefficient ring or in characteristic p, no Hasse invariant, characteristic-p theta operator or Igusa curve, no Galois representation attached to an eigenform or residual semisimplification, no tame inertia characters or finite-flat local Galois theory, and no Serre weight k(ρ̄) or level N(ρ̄). Tau Ceti does supply three carriers the local recipe will need — finite locally free commutative group schemes with Cartier duality and base change, the geometric-character Galois-module functor X*(H) of a commutative Hopf algebra (with which the p = 2 finite-flat condition can be stated), and the Kummer map into continuous H¹(G_K, μₙ) for any field — and Mathlib supplies the commutative algebra (going-down, minimal primes, DVR lifting) behind the Deligne–Serre lemma. The genuinely missing work is essentially the whole roadmap.",
    "layers": {
     "AlgebraicModularFormsAndSerreWeights:R15.1": {
      "verdict": "not built",
@@ -1217,9 +1319,16 @@
          "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
          "line": 232,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.geometricCharacterFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/CommHopfAlgCat/CharacterLattice/Functoriality.lean",
+         "line": 212,
+         "fit": "related"
         }
        ],
-       "note": "The finite-flat condition on a local representation (ρ̄|G_{ℚ₂} prolongs to a finite flat group scheme over ℤ₂) cannot be stated: neither library attaches group schemes to Galois modules or has Raynaud or Fontaine–Laffaille theory. Tau Ceti does have finite locally free commutative affine group schemes over any commutative ring, with Cartier duality (`FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality`) and its base change — the carrier such a condition would use."
+       "note": "The finite-flat condition on a local representation (ρ̄|G_{ℚ₂} prolongs to a finite flat group scheme over ℤ₂) can be stated with Tau Ceti carriers: `TauCeti.CommHopfAlgCat.geometricCharacterFunctor` (CommHopfAlgCat k ⥤ Rep ℤ (Field.absoluteGaloisGroup k), continuous for the Krull topology), applied to the base change to ℚ₂ (`FiniteLocallyFreeCommAffineGroupSchemeCat.baseChangeFunctor`, `coordinateHopfAlgebraBaseChangeNatIso`, CartierDuality/BaseChange.lean:93, :150) of a finite locally free group scheme over ℤ₂, with Cartier duality turning characters into points. What is missing is the comparison of X*(G^D) with G(ℚ̄₂), Raynaud/Fontaine–Laffaille theory and the dichotomy itself. Tau Ceti does have finite locally free commutative affine group schemes over any commutative ring, with Cartier duality (`FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality`) and its base change — the carrier such a condition would use."
       }
      ],
      "duplicates": [
@@ -1270,7 +1379,7 @@
          "fit": "related"
         }
        ],
-       "note": "The commutative-algebra ingredients (minimal primes, going-down for flat algebras, DVR lifting) are in Mathlib, but the lemma itself — a mod-p eigensystem of a finite torsion-free O-algebra lifts to a characteristic-zero eigensystem after extending O — is nowhere stated, in either library."
+       "note": "The commutative-algebra ingredients (minimal primes, going-down for flat algebras, DVR lifting) are in Mathlib, but the lemma itself — a mod-p eigensystem of a finite torsion-free O-algebra lifts to a characteristic-zero eigensystem after extending O — is nowhere stated, in either library. No other atlas stage plans the lifting lemma (Deligne–Serre Lemme 6.11); the accepted RS-06 assigns it to R15.5."
       },
       {
        "target": "Application to the relevant modular-form modules",
@@ -1302,15 +1411,15 @@
      "duplicates": [
       {
        "layer": "AutomorphicGaloisRepresentations:R19.1",
-       "note": "Constructs the weight-one Artin representation 'in the Deligne–Serre setting', consuming and restating R15.5's lifting."
+       "note": "Consumer (requires R15.5): constructs the weight-one Artin representation in the Deligne–Serre setting, overlapping only the weight-one special case, not the lifting lemma."
       },
       {
        "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
-       "note": "Its sublayer 8W routes through Deligne–Serre 1974 Prop 2.7, the same lifting argument."
+       "note": "Supplier, not a duplicate: its sublayer 8W constructs the integral weight-one lattice by Deligne–Serre 1974 Prop. 2.7 (the integral-q-expansions-at-all-cusps argument), which R15.5 uses; it plans no lifting of mod-p eigensystems. The accepted RS-06 lists it in R15.5's suppliedBy and keeps Lemme 6.11 with R15.5."
       },
       {
        "layer": "ModularityAndLanglandsExtensions:ML.1",
-       "note": "Organizes Deligne–Serre Artin representations and weight-one modularity, overlapping the same lifting statement."
+       "note": "Overlaps R19.1's weight-one Artin representation and R15.5's Katz weight-one caveat, not the lifting lemma."
       }
      ]
     },
@@ -1410,13 +1519,6 @@
        "library": "partial",
        "declarations": [
         {
-         "name": "ProperlyDiscontinuousSMul",
-         "library": "mathlib",
-         "file": "Mathlib/Topology/Algebra/ConstMulAction.lean",
-         "line": 532,
-         "fit": "related"
-        },
-        {
          "name": "UpperHalfPlane.instProperlyDiscontinuousSL2RSubgroup",
          "library": "mathlib",
          "file": "Mathlib/Analysis/Complex/UpperHalfPlane/ProperAction.lean",
@@ -1424,28 +1526,35 @@
          "fit": "special case"
         },
         {
-         "name": "ProperlyDiscontinuousSMul.finite_stabilizer",
-         "library": "mathlib",
-         "file": "Mathlib/Topology/Algebra/ConstMulAction.lean",
-         "line": 599,
-         "fit": "related"
-        },
-        {
-         "name": "ProperlyDiscontinuousSMul.ofFiniteRelIndex",
-         "library": "mathlib",
-         "file": "Mathlib/Topology/Algebra/Group/DiscontinuousSubgroup.lean",
-         "line": 53,
-         "fit": "related"
-        },
-        {
          "name": "Subgroup.IsArithmetic.properlyDiscontinuous",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/ModularForms/ProperlyDiscontinuous.lean",
          "line": 31,
          "fit": "special case"
+        },
+        {
+         "name": "MulAction.properSMul_of_proper_orbitMap",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/ProperAction/Basic.lean",
+         "line": 291,
+         "fit": "related"
+        },
+        {
+         "name": "properlyDiscontinuousSMul_iff_properSMul",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/ProperAction/CompactlyGenerated.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.isQuotientCoveringMap_quotientMk_freeLocus",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/GroupAction/FreeLocus.lean",
+         "line": 76,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib defines proper discontinuity, proves finiteness of stabilizers from it, passes it along finite relative index, and proves that every discrete subgroup of SL(2,ℝ) and every arithmetic subgroup of GL(2,ℝ) acts properly discontinuously on ℍ; Tau Ceti shows the free locus of such an action is open with a covering-map quotient. Absent: the statement for an arithmetic subgroup of a general G(F_∞) acting on its symmetric space, and freeness at neat level (there is no neatness predicate in either library; the word occurs only in informal comments)."
+       "note": "Mathlib defines proper discontinuity (`ProperlyDiscontinuousSMul`, ConstMulAction.lean:532), proves finiteness of stabilizers from it (:599), passes it along finite relative index (`ProperlyDiscontinuousSMul.ofFiniteRelIndex`, Group/DiscontinuousSubgroup.lean:53), and proves that every discrete subgroup of SL(2,ℝ) and every arithmetic subgroup of GL(2,ℝ) acts properly discontinuously on ℍ. It does so by a general route: a transitive action of a topological group with proper orbit map is proper (`MulAction.properSMul_of_proper_orbitMap`), a closed subgroup inherits properness, and for a discrete group proper and properly discontinuous agree (`properlyDiscontinuousSMul_iff_properSMul`). So proper discontinuity of any discrete subgroup follows once G(F_∞) acts on X with proper orbit map (compact K_∞). Tau Ceti adds the PSL(2,ℝ) case (an anonymous instance, TauCeti/Analysis/Complex/Fuchsian/ProperAction.lean:33) and cyclic point stabilizers there (`Subgroup.instIsCyclicStabilizer`, Fuchsian/Stabilizer.lean:45). At neat level the free quotient is already a covering (Mathlib's `isQuotientCoveringMap_quotientMk_of_properlyDiscontinuousSMul`, Topology/Covering/Quotient.lean:244; Tau Ceti's open free locus `TauCeti.isOpen_freeLocus`, FreeLocus.lean:62, with its covering quotient), a charted space (`MulAction.instChartedSpaceQuotient`, Geometry/Manifold/Instances/Quotient.lean:48) and a K(Γ,1) with π₁ = Γ^op (`IsQuotientCoveringMap.fundamentalGroupEquiv`, Topology/Homotopy/Lifting.lean:690; `IsQuotientCoveringMap.isEilenbergMacLaneSpaceOne`, TauCeti/AlgebraicTopology/EilenbergMacLane/Covering.lean:149). Absent: properness of the G(F_∞)-action on its symmetric space for a general reductive group, discreteness of arithmetic subgroups beyond SL_n(ℤ)-commensurable ones, and neatness (no neatness predicate exists in either library; the word occurs only in informal comments)."
       },
       {
        "target": "Orientation local system, covering the nonorientable case",
@@ -1510,28 +1619,35 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.LocalCoefficientSystem.monodromyFunctor",
+         "name": "TauCeti.Groupoid.singleObjEquivalence",
          "library": "tauceti",
-         "file": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
-         "line": 319,
+         "file": "TauCeti/CategoryTheory/Groupoid/SingleObj.lean",
+         "line": 108,
          "fit": "related"
         },
         {
-         "name": "TauCeti.CoveringSpace.monodromyEquivalence",
-         "library": "tauceti",
-         "file": "TauCeti/AlgebraicTopology/UniversalCover/Classification/MonodromyEquivalence.lean",
-         "line": 204,
+         "name": "Action.functorCategoryEquivalence",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Action/Basic.lean",
+         "line": 227,
          "fit": "related"
         },
         {
-         "name": "Rep",
+         "name": "Rep.repIsoAction",
          "library": "mathlib",
          "file": "Mathlib/RepresentationTheory/Rep/Basic.lean",
-         "line": 30,
+         "line": 508,
+         "fit": "related"
+        },
+        {
+         "name": "IsQuotientCoveringMap.fundamentalGroupEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Homotopy/Lifting.lean",
+         "line": 690,
          "fit": "related"
         }
        ],
-       "note": "The carrier exists in Tau Ceti: `LocalCoefficientSystem R X` is a functor from the fundamental groupoid of X to R-modules, with constant systems, pullback, path transport and the monodromy functor to representations of π₁(X, x); covering spaces are classified by fundamental-groupoid actions (`CoveringSpace.monodromyEquivalence`). Missing: the inverse construction of a module-valued local system from a π₁-representation, local systems on X_K attached to Γ-modules or to lattices in algebraic representations, and any cohomology with local coefficients."
+       "note": "The carrier exists in Tau Ceti: `LocalCoefficientSystem R X` is a functor from the fundamental groupoid of X to R-modules, with constant systems, pullback, path transport and the monodromy functor to representations of π₁(X, x) (`LocalCoefficientSystem.monodromyFunctor`, LocalCoefficient.lean:319); covering spaces are classified by fundamental-groupoid actions (`CoveringSpace.monodromyEquivalence`, UniversalCover/Classification/MonodromyEquivalence.lean:204). For path-connected X the equivalence of local systems with representations of π₁(X, x₀) is a composition of `singleObjEquivalence`, `Action.functorCategoryEquivalence` and `Rep.repIsoAction` (not yet stated as one declaration; Tau Ceti composes the first two for covering spaces in `fiberActionEquivalence`), and on a possibly disconnected space it holds per component. At neat level `fundamentalGroupEquiv` turns a Γ-module into a local system on Γ\\X. Missing: local systems on the adelic X_K, lattices in algebraic representations, and cohomology with local coefficients."
       },
       {
        "target": "Singular, cellular, compact-support and relative cochain complexes",
@@ -1667,9 +1783,16 @@
          "file": "Mathlib/Geometry/Manifold/IsManifold/Basic.lean",
          "line": 166,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.isManifold_boundary",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Manifold/Boundary/Charts.lean",
+         "line": 342,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has manifolds with corners as a general framework (and Tau Ceti adds boundary/interior lemmas in TauCeti/Geometry/Manifold/Boundary), but the Borel–Serre corner construction is absent; `grep -rn -i 'borel.serre'` over both trees finds nothing."
+       "note": "Mathlib has manifolds with corners as a general framework (and Tau Ceti adds the boundary of a half-space-modelled manifold as a smooth manifold (`TauCeti.isManifold_boundary`) with its smooth embedding, and local product collars, without corners or the global collar theorem), but the Borel–Serre corner construction is absent; `grep -rn -i 'borel.serre'` over both trees finds nothing."
       },
       {
        "target": "Compactness of the Borel–Serre quotient and the homotopy equivalence from the interior",
@@ -1710,6 +1833,10 @@
       {
        "layer": "ShimuraCompactifications:C3",
        "note": "Builds toroidal compactifications and their refinements, the algebraic analogue of the corner construction, with the same Hecke-compatibility problem."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group",
+       "note": "Owns the boundary of a manifold (half-space model, then corners), collar neighbourhoods for the half-space model and gluing along boundary faces in the corners category: the general corners/collar machinery the Borel–Serre construction and its interior homotopy equivalence build on, not that equivalence itself."
       }
      ]
     },
@@ -1726,9 +1853,23 @@
          "file": "TauCeti/NumberTheory/HeckeRing/Basic.lean",
          "line": 211,
          "fit": "related"
+        },
+        {
+         "name": "IsQuotientCoveringMap.isCoveringMap_of_comp",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Covering/Quotient.lean",
+         "line": 185,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeCoset.degree_eq_relIndex",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Basic.lean",
+         "line": 530,
+         "fit": "related"
         }
        ],
-       "note": "The index set Γ₁/(Γ₁ ∩ gΓ₂g^{-1}) of the correspondence is in Tau Ceti's double-coset API, but there is no space X_K, hence no covering maps and no pullback/trace on cochains."
+       "note": "The index set Γ₁/(Γ₁ ∩ gΓ₂g^{-1}) of the correspondence is in Tau Ceti's double-coset API. Given quotient presentations of the neat-level quotients, the maps through K∩gKg⁻¹ are coverings (`isCoveringMap_of_comp`: an intermediate quotient of a quotient covering map is a covering) of degree the relative index (`degree_eq_relIndex`), as cited under AA.4. Absent: the adelic X_K and the pullback/trace chain maps (transfer on chains is planned in AlgebraicTopology stage 5)."
       },
       {
        "target": "Independence of the induced chain maps from the choice of coset representatives",
@@ -1999,12 +2140,39 @@
        "library": "absent",
        "declarations": [],
        "note": "Absent."
+      },
+      {
+       "target": "Comparison of Betti, de Rham and relative Lie algebra ((g,K)-) cohomology in characteristic zero via local systems",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "extDeriv",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Calculus/DifferentialForm/Basic.lean",
+         "line": 73,
+         "fit": "related"
+        },
+        {
+         "name": "LieModule.Cohomology.twoCocycle",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Cochain.lean",
+         "line": 155,
+         "fit": "related"
+        }
+       ],
+       "note": "No de Rham cohomology of manifolds in either library (Mathlib's only 'DeRham' hits are the period rings of RingTheory/Perfectoid/BDeRham.lean); the nearest material is the exterior derivative on normed spaces (`extDeriv`) and Lie algebra cochains in degrees ≤ 2 (`twoCocycle`, whose file lists 'coboundaries, cohomology' as TODO). Relative Lie algebra cohomology is absent. AutomorphicFormsOnReductiveGroups:AF.1a owns continuous cohomology and van Est."
+      },
+      {
+       "target": "Comparison with automorphic forms (via AutomorphicSpectralTheory:AS.5)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: there is no space of automorphic forms (AF.2) and no cohomology of arithmetic quotients to compare it with."
       }
      ],
      "duplicates": [
       {
        "layer": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
-       "note": "The same text: this batch lists the parent stage and its 'finite-level-duality' prefix separately, and their target lists coincide."
+       "note": "The parent's first paragraph is the prefix; the parent adds the Betti/de Rham/(g,K) and automorphic comparisons."
       },
       {
        "layer": "CompletedCohomologyPartII:CC.7",
@@ -2155,7 +2323,7 @@
    }
   },
   "AutomorphicBundles": {
-   "summary": "This roadmap lives on Shimura varieties, and neither library has one: there is no Shimura datum, canonical model, compact dual, Hermitian symmetric domain, toroidal or minimal compactification, automorphic vector bundle, canonical principal bundle or canonical/subcanonical extension, and no Hilbert, Siegel or unitary modular form. The classical end fares better: Mathlib has the automorphy factor with its cocycle identity, the SlashAction class with the right-action law proved for GL(2,ℝ), SlashInvariantForm, and ModularForm/CuspForm defined by boundedness and vanishing at all cusps, with q-expansions at a cusp and their injectivity; Tau Ceti and Mathlib together have the abstract double-coset Hecke ring, proved associative and unital, which B5 composes against. Tau Ceti also has inputs that are not yet the constructions: fppf quotient torsors, Galois descent for representations, Schur functors for classical groups, local coefficient systems on topological spaces, pure and mixed Hodge structures with polarizations and period-domain points, finite toric fans with subdivisions, and the balanced product of a covering with a discrete set. So B4 has a real classical carrier for its GL₂ cocycle target, B4 and B5 have analytic counterparts of their GL₂ comparison targets, and B0–B3 and the three general-data interfaces are untouched.",
+   "summary": "This roadmap lives on Shimura varieties, and neither library has one: there is no Shimura datum, canonical model, compact dual, Hermitian symmetric domain, toroidal or minimal compactification, automorphic vector bundle, canonical principal bundle or canonical/subcanonical extension, and no Hilbert, Siegel or unitary modular form. The classical end fares better: Mathlib has the automorphy factor with its cocycle identity, the SlashAction class with the right-action law proved for GL(2,ℝ), SlashInvariantForm, and ModularForm/CuspForm defined by boundedness and vanishing at all cusps, with q-expansions at a cusp and their injectivity; Tau Ceti and Mathlib together have the abstract double-coset Hecke ring, proved associative and unital, which B5 composes against. Tau Ceti also has inputs that are not yet the constructions: fppf quotient torsors, invertible sheaves and the tensor product of 𝒪_X-modules, Galois descent for representations, Schur functors for classical groups, local coefficient systems on topological spaces, pure and mixed Hodge structures with polarizations and period-domain points, finite toric fans with subdivisions, and the balanced product of a covering with a discrete set. So B4 has a real classical carrier for its GL₂ cocycle target, B4 and B5 have analytic counterparts of their GL₂ comparison targets, and B0–B3 and the three general-data interfaces are untouched.",
    "layers": {
     "AutomorphicBundles:B0": {
      "verdict": "not built",
@@ -2172,21 +2340,35 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.CommHopfAlgCat.isPullback_fppfQuotientTorsor",
-         "library": "tauceti",
-         "file": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean",
-         "line": 372,
+         "name": "AlgebraicGeometry.Scheme.Modules.pullback",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+         "line": 182,
          "fit": "related"
         },
         {
-         "name": "TauCeti.BalancedProduct",
+         "name": "AlgebraicGeometry.Scheme.Modules.tensorProduct",
          "library": "tauceti",
-         "file": "TauCeti/Topology/Covering/BalancedProduct.lean",
-         "line": 84,
+         "file": "TauCeti/AlgebraicGeometry/Modules/TensorProduct.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "Bundle.ContinuousLinearMap.vectorBundle",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/VectorBundle/Hom.lean",
+         "line": 226,
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti proves that the fppf quotient by a normal subgroup is a torsor (pullback square), but there is no contracted product P ×^G V of a torsor under a group scheme with a representation, and no associated-bundle functor with tensor products, duals, determinants or pullback. The only balanced product is topological with discrete fibre: `TauCeti.BalancedProduct` forms E ×_G A for a quotient covering map and a discrete G-set A and proves it is a covering space."
+       "note": "Tau Ceti proves that the fppf quotient by a normal subgroup is a torsor (pullback square, `isPullback_fppfQuotientTorsor`, Fppf/Quotient/Torsor.lean:372), but there is no contracted product P ×^G V of a torsor under a group scheme with a representation, and no associated-bundle functor with tensor products, duals, determinants or pullback. The only balanced product is topological with discrete fibre: `TauCeti.BalancedProduct` (TauCeti/Topology/Covering/BalancedProduct.lean:84) forms E ×_G A for a quotient covering map and a discrete G-set A and proves it is a covering space. The operations the functor must respect partly exist: pullback of 𝒪_X-modules and locally free sheaves (`SheafOfModules.IsLocallyFree`, Mathlib/Algebra/Category/ModuleCat/Sheaf/LocallyFree.lean:61) in Mathlib, and the tensor product of 𝒪_X-modules and of line bundles in Tau Ceti, but no dual or determinant of a locally free sheaf (Tau Ceti's LineBundle/Class.lean notes that inverses need the dual of an invertible sheaf). For topological and C^n vector bundles Mathlib has pullback (`VectorBundle.pullback`, Topology/VectorBundle/Constructions.lean:204; `ContMDiffVectorBundle.pullback`), Hom (hence dual) and continuous-alternating-map bundles (hence the dual determinant, `Bundle.ContinuousAlternatingMap.instVectorBundle`, ContinuousAlternatingMap.lean:295), but no tensor product."
       },
       {
        "target": "Geometric/analytic descent comparison for the canonical automorphic torsors",
@@ -2284,6 +2466,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
        "note": "Fixes the associated-bundle convention L_λ = G_C ×_B C_{-λ} on flag manifolds, the compact-dual case of B0's construction."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+       "note": "Descends the weight-k automorphy data through the finite stabilizers of the coarse curve X(Γ): the GL₂ analytic case of B0's coefficient-descent target."
       }
      ]
     },
@@ -2649,7 +2835,7 @@
        "target": "For GL_2: identify the Hodge line and show its k-th tensor power gives weight-k modular forms, after level, coefficient and cusp conditions",
        "library": "absent",
        "declarations": [],
-       "note": "Absent: there is no Hodge line bundle on a modular curve, and no modular curve."
+       "note": "Absent: there is no Hodge line bundle on a modular curve, and no modular curve. Once the Hodge line exists, its tensor powers are available through `TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct` (TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean:57)."
       },
       {
        "target": "For Hilbert varieties: the factors omega_tau, determinant twists and the parity/central-character condition; the O_F ⊗ O-linear tensor before splitting",
@@ -2694,6 +2880,14 @@
       {
        "layer": "AlgebraicModularFormsAndSerreWeights:R15.1",
        "note": "Also constructs geometric weight-k forms as sections of a power of the Hodge bundle and compares them with the analytic forms."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+       "note": "Constructs the weight-k automorphy invertible sheaf on the compact analytic curve X(Γ) by descent at elliptic points and cusps, and identifies M_k(Γ), S_k(Γ) with its section spaces: the analytic GL₂ case of B4's forms-as-sections and Hodge-line targets."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C6",
+       "note": "Constructs the Hodge line, invariant differential and polarized first cohomology of a complex elliptic curve and compares f(q)dq/q with the weight-two Hodge section, naming AutomorphicBundles as its consumer: B4's GL₂ Hodge-line comparison."
       }
      ]
     },
@@ -2854,13 +3048,29 @@
       {
        "layer": "AlgebraicModularFormsAndSerreWeights:R15.2",
        "note": "States the q-expansion principle at all cusps and its integral version, overlapping B5's expansion principle."
+      },
+      {
+       "layer": "ModularCurvesPartII:R14.1",
+       "note": "Algebraic Hecke correspondences on modular curves and their compactifications, with composition and double-coset formulas and trace without naive division by the degree: B5's pullback/trace/composition targets for GL₂."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+       "note": "Owns the GL₂ ring homomorphism from the abstract Hecke ring to End(M_k(N,χ)) and the normalization lemma identifying the double coset with T_p: B5's composition-and-normalization target for analytic GL₂ forms."
+      },
+      {
+       "layer": "AutomorphicPadicLFunctions:L3",
+       "note": "Builds Hilbert q-expansions and the integral q-expansion principle, B5's expansion targets at Hilbert cusps."
+      },
+      {
+       "layer": "ModularCurvesPartII:R13.3",
+       "note": "Computes the formal neighbourhoods of the cusps and proves the formal comparison used in the modular q-expansion principle, B5's expansion principle for GL₂."
       }
      ]
     }
    }
   },
   "AutomorphicFormsOnReductiveGroups": {
-   "summary": "Nothing adelic-automorphic is in the libraries: there is no space of automorphic forms, no constant term, no cusp form on a reductive group, no (g,K)-module, Harish-Chandra module or globalization, no relative Lie algebra cohomology or van Est theorem, no Hecke character and no Whittaker or spherical-vector theory. Several ingredients are present and strong. Mathlib has continuous cohomology of any topological group as the homology of the homogeneous continuous-cochain complex, with functoriality and H⁰ = invariants, and Tau Ceti extends it with restriction and inflation in every degree and corestriction, cup products, Shapiro and long exact sequences in low degrees — AF.1a's continuous cochain target. Tau Ceti also has the representation theory of compact groups (Schur orthogonality, unitarizability, characters, isotypic projections and the Peter–Weyl Hilbert basis) and highest-weight theory for split Lie algebras, including the central character χ_λ : Z(U(L)) → K of a weight and the Casimir element; Mathlib has the universal enveloping algebra, compactly supported smooth test functions and Schwartz functions on normed spaces, locally constant functions, and the classical GL₂ modular-form side of the dictionary. What is genuinely missing is everything that joins these: (g,K)-modules and their infinitesimal-character decomposition, relative Lie algebra cochains and van Est, the adelic test-function and moderate-growth calculus, the automorphic space and its constant terms, algebraic-weight rationality, and the GL₁/GL₂ dictionaries.",
+   "summary": "Nothing adelic-automorphic is in the libraries: there is no space of automorphic forms, no constant term, no cusp form on a reductive group, no (g,K)-module, Harish-Chandra module or globalization, no relative Lie algebra cohomology or van Est theorem, no Hecke character and no Whittaker or spherical-vector theory. Several ingredients are present and strong. Mathlib has continuous cohomology of any topological group as the homology of the homogeneous continuous-cochain complex, with functoriality and H⁰ = invariants, and Tau Ceti extends it with restriction and inflation in every degree and corestriction, cup products, Shapiro and long exact sequences in low degrees — AF.1a's continuous cochain target. Tau Ceti also has the representation theory of compact groups (Schur orthogonality, unitarizability, characters, isotypic projections and the Peter–Weyl Hilbert basis) and highest-weight theory for split Lie algebras, including the central character χ_λ : Z(U(L)) → K of a weight and the Casimir element; Mathlib has the universal enveloping algebra, compactly supported smooth test functions and Schwartz functions on normed spaces, locally constant functions, and the classical GL₂ modular-form side of the dictionary. On the real-group side the Lie algebra of a Lie group, its complexification, exp, Ad/ad and Lie(K) of closed subgroups exist (Mathlib and Tau Ceti). What is genuinely missing is everything that joins these: (g,K)-modules and their infinitesimal-character decomposition, relative Lie algebra cochains and van Est, the adelic test-function and moderate-growth calculus, the automorphic space and its constant terms, algebraic-weight rationality, and the GL₁/GL₂ dictionaries.",
    "layers": {
     "AutomorphicFormsOnReductiveGroups:AF.0": {
      "verdict": "not built",
@@ -2889,9 +3099,16 @@
          "file": "Mathlib/Analysis/Distribution/TestFunction.lean",
          "line": 67,
          "fit": "related"
+        },
+        {
+         "name": "ContMDiffMap",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/ContMDiffMap.lean",
+         "line": 38,
+         "fit": "related"
         }
        ],
-       "note": "The ingredients exist separately — locally constant functions, compactly supported smooth functions on an open subset of a normed space with their LF topology (`TestFunction`), and the restricted product of sets — but there is no space of smooth functions on a Lie group or a locally profinite group, no restricted tensor product of function spaces and no space of adelic test functions in either library."
+       "note": "The ingredients exist separately: smooth functions on a manifold, hence on a Lie group, as the algebra `ContMDiffMap` (C^n⟮I, M; I', M'⟯, with `ContMDiffMap.algebra`); locally constant functions (`LocallyConstant`, the smooth functions on a locally profinite group); compactly supported smooth functions with their LF topology on an open subset of a normed space (`TestFunction`); the restricted product of sets. Missing: C_c^∞ of a Lie group with its LF topology, compactly supported locally constant functions as a space, the restricted tensor product of function spaces and the adelic test-function space."
       },
       {
        "target": "Height functions from faithful embeddings, with polynomial comparability and translation estimates",
@@ -2964,14 +3181,42 @@
        "library": "absent",
        "declarations": [
         {
-         "name": "TauCeti.ContRepresentation.character",
+         "name": "ContRepresentation",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Continuous/Basic.lean",
+         "line": 54,
+         "fit": "related"
+        },
+        {
+         "name": "GroupLieAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/GroupLieAlgebra.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "lieExp",
          "library": "tauceti",
-         "file": "TauCeti/RepresentationTheory/Continuous/Character.lean",
-         "line": 86,
+         "file": "TauCeti/Geometry/Lie/Exponential/Basic.lean",
+         "line": 139,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Lie.continuousAdjointRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Lie/Adjoint/Representation/Basic.lean",
+         "line": 80,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Lie.lieSubalgebraOfSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Lie/Subgroup/LieAlgebra.lean",
+         "line": 270,
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti has continuous representations of topological groups and Mathlib has Lie modules, but there is no (g,K)-module structure combining them, and no compatibility axiom."
+       "note": "Mathlib has continuous representations (`ContRepresentation`; Tau Ceti adds their character, `TauCeti.ContRepresentation.character`, TauCeti/RepresentationTheory/Continuous/Character.lean:86), Lie modules, the Lie algebra of a Lie group (`GroupLieAlgebra`) and base change of Lie algebras; Tau Ceti has the exponential `lieExp`, the group adjoint Ad as a Lie-algebra automorphism and the adjoint representation with differential ad at 1 (`continuousAdjointRepresentation`, `mfderiv_continuousAdjointRepresentation_one`), and Lie(K) of a subgroup (`lieSubalgebraOfSubgroup`, characterised by exp(tX) ∈ K for all t when K is closed), plus the Lie algebra of an affine group scheme and its adjoint representation. Missing: the (g,K)-module structure, its compatibility axioms, the derived action of 𝔤 on smooth vectors and K-finiteness."
       },
       {
        "target": "U(g_C), its centre action and generalized infinitesimal-character subspaces",
@@ -2982,13 +3227,6 @@
          "library": "mathlib",
          "file": "Mathlib/Algebra/Lie/UniversalEnveloping.lean",
          "line": 65,
-         "fit": "related"
-        },
-        {
-         "name": "Subalgebra.center",
-         "library": "mathlib",
-         "file": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
-         "line": 906,
          "fit": "related"
         },
         {
@@ -3011,9 +3249,16 @@
          "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Casimir.lean",
          "line": 178,
          "fit": "related"
+        },
+        {
+         "name": "LieAlgebra.ExtendScalars.instLieAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/BaseChange.lean",
+         "line": 114,
+         "fit": "related"
         }
        ],
-       "note": "U(g) with its universal property is in Mathlib and its centre is `Subalgebra.center`. For a split Lie algebra with nondegenerate Killing form in characteristic zero, Tau Ceti constructs the central character χ_λ : Z(U(L)) →ₐ K of a weight from the Verma module, proves that the centre acts through χ_λ on every highest-weight vector of weight λ, and computes χ_λ on the central Casimir element as ⟨λ+ρ,λ+ρ⟩−⟨ρ,ρ⟩; for any algebra it also has the centre acting on a module and the central character of a finite-dimensional simple module over an algebraically closed field (`centralCharacter`). Missing: the Harish-Chandra isomorphism describing Z(U(g)) and when χ_λ = χ_μ, the complexified algebra for a real reductive group, and the decomposition of a (g,K)-module into generalized infinitesimal-character subspaces."
+       "note": "U(g) with its universal property is in Mathlib and its centre is `Subalgebra.center` (Mathlib/Algebra/Algebra/Subalgebra/Basic.lean:906); the complexification 𝔤_ℂ = ℂ ⊗[ℝ] 𝔤 of the Lie algebra of a real Lie group is a complex Lie algebra through `LieAlgebra.ExtendScalars`, so U(𝔤_ℂ) is available. For a split Lie algebra with nondegenerate Killing form in characteristic zero, Tau Ceti constructs the central character χ_λ : Z(U(L)) →ₐ K of a weight from the Verma module, proves that the centre acts through χ_λ on every highest-weight vector of weight λ, and computes χ_λ on the central Casimir element as ⟨λ+ρ,λ+ρ⟩−⟨ρ,ρ⟩; for any algebra it also has the centre acting on a module and the central character of a finite-dimensional simple module over an algebraically closed field (`centralCharacter`). Missing: the Harish-Chandra isomorphism describing Z(U(g)) and when χ_λ = χ_μ, a real reductive group interface (the complexification of any real Lie algebra is Mathlib's `LieAlgebra.ExtendScalars`), and the decomposition of a (g,K)-module into generalized infinitesimal-character subspaces."
       },
       {
        "target": "Finite K-type multiplicities for admissible modules; locally finite K-action",
@@ -3061,7 +3306,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib has Lie algebra cochains only in degrees 1 and 2 (with d₁₂, d₂₃ and 2-cocycles, and an explicit TODO for the general Chevalley–Eilenberg complex); the relative complex for a pair (g,K) is absent."
+       "note": "Mathlib has Lie algebra cochains only in degrees 1 and 2 (with d₁₂, d₂₃ and 2-cocycles, and an explicit TODO for the general Chevalley–Eilenberg complex); the relative complex for a pair (g,K) is absent. The pair data exist: 𝔤 (`GroupLieAlgebra`, or Tau Ceti's left-invariant derivations), 𝔨 = `lieSubalgebraOfSubgroup K` for closed K, and the Ad-action of K on 𝔤; only the complex itself is missing."
       },
       {
        "target": "Disconnected K handled through its finite component group",
@@ -3162,7 +3407,7 @@
          "fit": "related"
         }
        ],
-       "note": "The relative Lie algebra cochain complex does not exist in either library; Mathlib's Lie cochains stop at degree 2."
+       "note": "The relative Lie algebra cochain complex does not exist in either library; Mathlib's Lie cochains stop at degree 2. 𝔤, 𝔨 = `TauCeti.Lie.lieSubalgebraOfSubgroup K` (closed K) and the Ad-action of K exist (AF.1), so only the complex and the identification are missing."
       },
       {
        "target": "Contracting homotopy on G/K, the relatively injective resolution, and van Est's isomorphism",
@@ -3227,8 +3472,16 @@
       {
        "target": "The space of automorphic forms as an invariant subspace of functions on G(F)\\G(A)",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent: there is no adelic quotient of a reductive group in either library."
+       "declarations": [
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "special case"
+        }
+       ],
+       "note": "Absent. Only GL₁'s adelic quotient exists (Mathlib's `NumberField.IdeleClassGroup`, with no structure theory), and G(𝔸) exists as an abstract group through Tau Ceti's points functor (`TauCeti.HopfAlgebra.pointsFunctor`); there is no group topology on G(𝔸) for a general G identified with the restricted product, no quotient G(F)\\G(𝔸), and no space of functions on it."
       },
       {
        "target": "Finite-type/finiteness statements after fixing finite level, a finite set of K-types and an infinitesimal-character ideal",
