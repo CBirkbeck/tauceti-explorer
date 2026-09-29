@@ -5,6 +5,7 @@ import Mathlib.RingTheory.MvPowerSeries.Basic
 import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.Tactic.LinearCombination
+import Mathlib.Tactic.Ring
 
 /-!
 # Suggested Lean forms: local Galois deformation rings (LocalGaloisDeformationRings, R08.1–R08.4, R08.6, L7)
@@ -178,5 +179,19 @@ then `2(1 + n²) + n(n+1) + n(n+1)m − 2m ≤ 2(n² − 1) + n(n+1)m`. -/
 example (A B C m : ℕ) (hA : 1 ≤ A) (h : B + 4 ≤ 2 * m) :
     2 * (1 + A) + B + C ≤ 2 * (A - 1) + C + 2 * m := by
   omega
+
+/-! ### Checkpoint 7: CHT §§2.4.1, 2.4.2, 2.4.5 -/
+
+/-- `L7/fontaine-laffaille-tangent-space-and-smoothness`: at `n = 2`, `F_ṽ = ℚ_l`, the ring has
+`n² + [F_ṽ:ℚ_l]·n(n−1)/2 = 5` variables. -/
+example : 2 ^ 2 + 1 * (2 * (2 - 1) / 2) = 5 := by decide
+
+/-- `L7/discrete-series-smoothness` (Lemma 2.4.28): `m(n − m) + (n − m)² + (m² − 1) + (m(n − m) + 1) = n²`. -/
+example (n m : ℤ) : m * (n - m) + (n - m) ^ 2 + (m ^ 2 - 1) + (m * (n - m) + 1) = n ^ 2 := by
+  ring
+
+/-- Source issue E2: for `r̄ = ω ⊕ 1` with `ω` on the sub, the suitable first-order lifts have dimension
+`1 + 1 + 3 = 5`, whereas CHT's count `n(n+1)/2 + [F_ṽ:ℚ_l]·n(n−1)/2` gives `4`. -/
+example : 1 + 1 + 3 = 5 ∧ 2 * (2 + 1) / 2 + 1 * (2 * (2 - 1) / 2) = 4 := by decide
 
 end TauCeti.GaloisDeformation.Local.SuggestedTest
