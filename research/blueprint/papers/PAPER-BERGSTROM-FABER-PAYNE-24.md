@@ -110,3 +110,16 @@ No erratum was found: Crossref records no update and the Annals page lists none.
 ## Gap
 
 - `published-version` (open): collate the locators and E1–E6 with the Annals text when a copy is available.
+
+## Corrections by the independent review
+
+The review `REV-PAPER-BERGSTROM-FABER-PAYNE-24` (Claude Code, session `cc-fb70e5`, 29 September 2026) accepts the extraction. All six source issues are confirmed on the page images of arXiv v2, and none is added.
+
+The review recomputed the following independently in exact arithmetic, and everything agrees with the paper:
+
+- the §10 assemblies for n = 0, 1, 2 from Propositions 5.1, 8.1–8.7 and 9.6;
+- the Theorem 1.5 subtractions for n = 1, 2, 3, which confirm E3;
+- the automorphism orders (6);
+- Remark 8.11's orbit-type formula.
+
+No status, statement or route changed.
