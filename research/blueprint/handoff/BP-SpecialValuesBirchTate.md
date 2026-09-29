@@ -1,4 +1,51 @@
-# BP-SpecialValuesBirchTate — checkpoint 2 (B.5)
+# BP-SpecialValuesBirchTate — checkpoint 3 (B.4)
+
+Agent: Claude Code, session cc-fb70e5, 2026-09-29. Refs #998. The claim is confirmed by the bot.
+
+## What this checkpoint supplies
+
+**B.4 is source-decomposed** (5 nodes, 1 planet). Source: Kolster's Park City notes (the same author copy, SHA-256 5772ace9…). Read: Lecture 1 §§1–2 (Main Conjecture 1.3, Propositions 2.1 and 2.3, Corollary 2.2) and Lecture 2 §3 (Propositions 3.1–3.2, Theorem 3.3, Corollary 3.4).
+
+**Nodes:**
+- `B.4/k2-ell-part-unchanged-by-inverting-ell`: from B.7's S-integer order formula, since Nv − 1 is an ℓ-adic unit. This is the stage's 'elementary fact in the same diagram'.
+- `B.4/k2-ell-part-as-etale-cohomology`: Tate, K₂(𝓞_F) ⊗ ℤ_ℓ ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)) for odd ℓ, by limits from MotivicEtaleKTheory M.3.
+- `B.4/w2-ell-part-as-etale-cohomology`: the denominator group. H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2))_tors ≅ W₂(F)_ℓ by the coefficient sequence, and it is all of H¹ for totally real F.
+- `B.4/etale-euler-characteristic-and-zeta`: Kolster's Theorem 3.3 at χ = 1, n = 2, with the trivial-character pole exactly when W₂(F)_ℓ ≠ 0.
+- `B.4/odd-primary-birch-tate` (planet).
+
+B.5's final node now depends on this node instead of the stage.
+
+**Source issues (Park City notes, new):**
+- E3 (misprint): "cp. Theorem 3.4" should read Corollary 3.4.
+- E4 (misprint): "H⁰(f, …)" should read H⁰(F, …).
+- E5 (error, affects nothing): H¹(o′_F, ℤ_p(n))_tors ≅ H⁰(o′_F, ℚ_p/ℤ_p(n)) is stated for every n ∈ ℤ but fails at n = 0.
+
+The published Park City volume was not accessed.
+
+**Requests.**
+- New:
+  - IntegralIwasawaTheory I.5: Wiles's main conjecture with μ = μ(G).
+  - MotivicEtaleKTheory M.3: Tate's S-integer comparison.
+- Extended:
+  - ArithmeticKTheory N.6: Proposition 2.1, Corollary 2.2, descent and codescent.
+  - IntegralIwasawaTheory I.2: the Kummer–Selmer identification, and no finite submodules of the twisted even components.
+  - IntegralIwasawaTheory L2.
+  - AutomorphicPadicLFunctions L3: the G_ψ/H_ψ presentation and the interpolation at −1.
+
+**Validation.**
+- `check_blueprint --index`: 0 errors, 0 warnings.
+- `check-files`: 0 problems.
+- Every excerpt was checked against the page text.
+- The B.4 Lean section and its two checked examples elaborate in the Mathlib-only harness (exit 0). The full file imports Tau Ceti and is not built here.
+
+## Resume
+
+1. B.6: Federer's conjecture for every totally real field from IntegralIwasawaTheory I.9–I.10, with the comparison table. Plug it into B.5/federer-implies-two-primary-birch-tate.
+2. B.3: the general real quadratic factorisation.
+3. B.7: S-change commutes with the comparisons. The ℓ-part case is B.4's first node.
+4. B.8: the Lichtenbaum statements (Kolster Conjectures 3.6–3.7).
+
+## Checkpoint 2 (B.5)
 
 Agent: Claude Code, session cc-fb70e5, 2026-09-29. Refs #998. The claim is comment 5883524481, confirmed by the bot.
 
