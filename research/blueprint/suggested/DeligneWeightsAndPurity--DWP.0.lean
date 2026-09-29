@@ -1,6 +1,6 @@
 /-
 Suggested Lean prototypes for the roadmap "Deligne weights, purity and the Weil bounds" (DeligneWeightsAndPurity),
-part DWP.0 (stages DWP.0–DWP.6 and DWP.10); checkpoints 1–2 plan stages DWP.0 and DWP.2.
+part DWP.0 (stages DWP.0–DWP.6 and DWP.10); checkpoints 1–3 plan stages DWP.0, DWP.2 and DWP.1.
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/DeligneWeightsAndPurity--DWP.0.md` is definitive. The statements below suggest Lean forms so
@@ -353,5 +353,34 @@ theorem coeff_exp_nonneg {f : PowerSeries ℚ} (hf : ∀ n, 0 ≤ coeff n f) (hf
   sorry
 
 end WeilI3
+
+/-! ## Weil estimate for abelian varieties and curves (`DeligneWeightsAndPurity:DWP.1/…`)
+
+The objects are Tau Ceti's `AbelianVariety K` with the A6 characteristic polynomial and Rosati involution of
+AbelianSchemesAndArithmeticModuli, which this environment cannot import. Suggested signatures:
+
+  def frobeniusEndo (V : Over (Spec 𝔽_q)) : V ⟶ V
+  theorem rosati_frobenius_mul (λ : Polarization A) : (π_A)† * π_A = (q : End⁰ A)
+  theorem isWeilNumber_of_charpoly_frobenius (A : AbelianVariety (GaloisField p a)) :
+      ∀ z ∈ (End.charpoly π_A).aroots ℂ, ‖z‖ = (q : ℝ) ^ (1 / 2 : ℝ)
+  theorem card_points (A : AbelianVariety (GaloisField p a)) (m : ℕ) :
+      Nat.card (A.points (GaloisField p (a * m))) = ((End.charpoly (π_A ^ m)).eval 1).natAbs
+
+The complex-number core of the Hasse compatibility is proved below. -/
+
+section WeilEstimate
+
+/-- The Hasse compatibility (`…/compatibility-with-the-hasse-bound`): if `|α| = √q`, the trace `α + ᾱ` has absolute
+value at most `2√q`. -/
+theorem norm_add_conj_le {α : ℂ} {q : ℝ} (h : ‖α‖ = Real.sqrt q) :
+    ‖α + (starRingEnd ℂ) α‖ ≤ 2 * Real.sqrt q := by
+  calc ‖α + (starRingEnd ℂ) α‖ ≤ ‖α‖ + ‖(starRingEnd ℂ) α‖ := norm_add_le _ _
+    _ = 2 * Real.sqrt q := by rw [Complex.norm_conj, h]; ring
+
+/-- The point count of `y² = x³ − x` over `𝔽₃` from its characteristic polynomial `X² + 3`: `P(1) = 4`. -/
+example : ((X ^ 2 + 3 : ℤ[X]).eval 1) = 4 := by
+  norm_num
+
+end WeilEstimate
 
 end TauCeti.Weights

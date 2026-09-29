@@ -4,23 +4,30 @@
 
 This document plans part DWP.0 of `DeligneWeightsAndPurity`. The part covers the numerical and linear-algebraic notion of weight (DWP.0), the initial Weil estimate for curves and abelian varieties (DWP.1), Weil I's fundamental estimate, rationality theorem and induction (DWP.2–DWP.4), the Weil II preparations on curves (DWP.5–DWP.6), and the arithmetic interfaces (DWP.10).
 
-Checkpoint 1 plans DWP.0 at declaration level, from Weil I §§1–2 and Weil II §1.2: Weil q-numbers, ι-weights, and the weights of a Frobenius acting on a finite-dimensional space. Checkpoint 2 plans DWP.2, Weil I §3: the weight of a lisse sheaf on an open curve, the symplectic coinvariants of even tensor powers, the positivity lemmas, the fundamental estimate 3.2 and the coarse bounds 3.8–3.9. The other stages are recorded with the sources to read next.
+Checkpoint 1 plans DWP.0, the weight linear algebra (Weil I §§1–2, Weil II §1.2). Checkpoint 2 plans DWP.2, Weil I §3's fundamental estimate. Checkpoint 3 plans DWP.1, the independent Weil estimate for abelian varieties and curves through the Rosati involution (Milne, Abelian Varieties II §1 and III §11). The other stages are recorded with the sources to read next.
 
 ## Scope and boundaries
 
-RS-17 is accepted. It keeps DWP.0 whole and makes it the single owner of the Weil-number and ι-weight definitions and of the Frobenius-equivariant reciprocal-spectrum linear algebra. It lists as former owners WeightsInEtaleCohomology R34.1 and R34.5, WeilConjectures WC.2 and DeligneWeightsAndPurity DWP.5. These now import from DWP.0.
+RS-17 is accepted. It keeps DWP.0 whole and makes it the single owner of the Weil-number and ι-weight definitions and of the Frobenius-equivariant reciprocal-spectrum linear algebra.
 
-It narrows DWP.2 to Weil I 3.2 with its actual hypotheses: a fixed ℚ_ℓ model, open symplectic geometric monodromy, and rational local factors. Also retained are the ℚ_ℓ symplectic coinvariants, reached by a characteristic-zero descent from the complex invariant theory, the positivity and radius lemmas 3.3–3.6, and the coarse estimates 3.8–3.9.
+RS-17 narrows DWP.1 to the independent curve and abelian-variety estimate. It imports polarizations, Rosati positivity and the H¹ realization (AbelianSchemesAndArithmeticModuli A2 and A6, ArithmeticGaloisRepresentations R01.6), and the curve trace comparison. It proves compatibility with the Hasse bound of Tau Ceti EllipticCurves Layer 3, not a second Hasse proof. It uses no Tate isogeny theorem and nothing from DWP.4.
 
-- WeilConjectures WC.3 owns the separation of the factors of a zeta function by weight, with their integrality and ℓ-independence. WC.2 owns the functional equation and its sign.
-- The sheaf-level predicates of Weil II (1.2.2) are DWP.5's. The curve case of Weil I (3.1) is planned in DWP.2, and DWP.5 must identify its predicate with it.
-- The monodromy filtration of Weil II §1.6 is LefschetzPencilsAndVanishingCycles LPV.1's.
-- Imports: the trace formula (1.14.3) from SchemeAndStackFoundations SF.2 (the CohomologicalPointCounting trace formula RS-17 names), Weil I (2.10) and (2.12) from EtaleDualityAndPerverseSheaves EDC.2, complex symplectic invariant theory from Tau Ceti SchurWeyl Layer 9, algebraic subgroups and Lie algebras from Tau Ceti ReductiveGroups Layers 2–3, and coefficient conventions from EDC.0.
+RS-17 narrows DWP.2 to Weil I 3.2 with its actual hypotheses and the lemmas 3.3–3.9.
+
+- WeilConjectures WC.3 owns the separation of zeta-function factors, and WC.2 the functional equation.
+- The sheaf-level predicates are DWP.5's, and the monodromy filtration is LPV.1's.
+- Imports:
+  - the trace formula (1.14.3) and the curve trace comparison, from SchemeAndStackFoundations SF.2;
+  - Weil I (2.10) and (2.12), from EtaleDualityAndPerverseSheaves EDC.2;
+  - complex symplectic invariant theory, from Tau Ceti SchurWeyl Layer 9;
+  - algebraic subgroups, from Tau Ceti ReductiveGroups Layers 2–3;
+  - the Abel–Jacobi map, from Tau Ceti JacobianChallenge Layer F;
+  - coefficient conventions, from EDC.0.
 
 ## Conventions
 
 - q > 1 is real in the definitions. In the applications q = #k₀ = p^a, and at a closed point x, q_x = q^{deg x}.
-- Frobenius is the geometric Frobenius: ℚ_ℓ(1) has eigenvalue q⁻¹ and weight −2. Passing from k₀ to its extension of degree r replaces F by F^r and q by q^r.
+- Frobenius is the geometric Frobenius: ℚ_ℓ(1) has eigenvalue q⁻¹ and weight −2. π_V is the q-Frobenius endomorphism; it acts on points as the arithmetic Frobenius, and its pullback on cohomology is the geometric Frobenius.
 - Four notions are kept distinct: algebraicity over ℚ, integrality over ℤ, purity at every complex embedding (Weil q-numbers, integer weights), and ι-purity for one field homomorphism ι into ℂ (real weights, no algebraicity).
 - Eigenvalues are the roots of the characteristic polynomial in an algebraic closure, with multiplicities equal to the dimensions of generalized eigenspaces. No eigenbasis and no semisimplicity is assumed.
 - The dual of (V, F) is the contragredient (V^*, (F⁻¹)^*).
@@ -659,11 +666,291 @@ Let F be an invertible endomorphism of a finite-dimensional E-space V, and q > 1
 
 ## DWP.1 Curves and abelian varieties: the initial Weil estimate
 
-No nodes yet.
+### Objects
 
-### What is missing
+#### Definition. The q-Frobenius endomorphism of a variety over 𝔽_q
 
-- Not planned in checkpoint 1. RS-17 narrows DWP.1 to the independent curve and abelian-variety estimate. It imports polarization, Rosati positivity and the H¹ realization from AbelianSchemesAndArithmeticModuli A2 and A6, the curve trace comparison from TraceFormula Layer 8, the Hasse bound from Tau Ceti EllipticCurves Layer 3, and ArithmeticGaloisRepresentations R01.6. Weil I §§1–2 give the cohomological setting; the classical Weil argument needs a public account of the Rosati positivity proof, still to be chosen.
+*Module* `TauCeti/Weights/AbelianWeil/Frobenius.lean`. *Node* `DeligneWeightsAndPurity:DWP.1/frobenius-endomorphism-over-a-finite-field`.
+
+Let V be a variety (a separated scheme of finite type) over 𝔽_q. The q-Frobenius π_V : V → V is the identity on the underlying space and f ↦ f^q on the structure sheaf. It is an 𝔽_q-morphism. It commutes with every 𝔽_q-morphism φ : W → V, that is φ ∘ π_W = π_V ∘ φ, and on V(𝔽̄_q) it acts by raising coordinates to the q-th power, so V(𝔽_{q^m}) is the fixed-point set of π_V^m. Its differential is 0. For an abelian variety A over 𝔽_q, π_A fixes 0 and is an endomorphism of A, of degree q^g. After extending scalars to 𝔽_{q^m}, the Frobenius is π_A^m.
+
+*Hypotheses.*
+
+- π_V is the relative (q-power) Frobenius over 𝔽_q, not the absolute p-Frobenius when q = p^a with a > 1.
+- On 𝔽̄_q-points π_V agrees with the arithmetic Frobenius acting on coordinates. The geometric Frobenius on étale cohomology is (π_V)^* (Weil I (1.15)); the conventions are those of DWP.0.
+
+*API.*
+
+- `frobeniusEndo` (*constructor*) — frobeniusEndo (V : Scheme over 𝔽_q) : V ⟶ V, the identity on spaces and f ↦ f^q on sections.
+- `frobeniusEndo_comp` (*compatibility*) — φ ≫ frobeniusEndo V = frobeniusEndo W ≫ φ for every 𝔽_q-morphism φ : W ⟶ V.
+- `fixedPoints_frobeniusEndo_pow` (*characterisation*) — the fixed points of π_V^m on V(𝔽̄_q) are V(𝔽_{q^m}).
+- `frobeniusEndo_baseChange` (*compatibility*) — the Frobenius of V ⊗ 𝔽_{q^m} over 𝔽_{q^m} is (π_V)^m ⊗ 𝔽_{q^m}.
+- `AbelianVariety.frobenius` (*constructor*) — the Frobenius endomorphism π_A ∈ End A of an abelian variety over 𝔽_q.
+
+*Used by.*
+
+- `DeligneWeightsAndPurity:DWP.1/rosati-of-the-frobenius-endomorphism` — π†π = q
+- `DeligneWeightsAndPurity:DWP.1/point-counts-of-abelian-varieties` — #A(𝔽_{q^m}) = deg(1 − π^m)
+- `WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology` — π_A against the arithmetic and geometric Frobenius
+- `WeilConjectures:WC.5` — point counts as fixed points of the Frobenius
+
+*Unit tests.* A wrong definition fails one of these.
+
+- `frobeniusEndo_projectiveLine_fixed` (value) — The fixed points of π on ℙ¹(𝔽̄_q) are the q + 1 points of ℙ¹(𝔽_q).
+- `frobeniusEndo_spec_field` (degenerate) — On Spec 𝔽_q, π is the identity.
+- `frobeniusEndo_not_absolute` (non-example) — For q = p², π_V is the square of the absolute Frobenius, not the absolute Frobenius itself; its fixed points on 𝔸¹(𝔽̄_q) are 𝔽_{p²}, not 𝔽_p.
+- `deg_frobenius_elliptic` (value) — For an elliptic curve over 𝔽_q, deg π_E = q.
+
+*Construction.*
+
+1. Locally V = Spec R with R an 𝔽_q-algebra, and π_V corresponds to r ↦ r^q, an 𝔽_q-algebra endomorphism since a^q = a for a ∈ 𝔽_q. These glue, since x ↦ x^q commutes with localization.
+2. Naturality: an 𝔽_q-algebra map commutes with x ↦ x^q.
+3. Points: for x ∈ V(𝔽̄_q) with coordinates (x_i), π_V(x) = (x_i^q). The fixed points of π_V^m are the points with coordinates in 𝔽_{q^m}.
+4. d(x^q) = qx^{q−1}dx = 0 in characteristic p.
+5. For A an abelian variety, 0 ∈ A(𝔽_q) is fixed, so π_A is a homomorphism (rigidity, AbelianSchemesAndArithmeticModuli A1). deg π_A = q^g, as P_{π}(0) in the node point-counts-of-abelian-varieties shows.
+
+*Acceptance.*
+
+- On ℙ¹ over 𝔽_q, π is [x : y] ↦ [x^q : y^q], and its fixed points are the q + 1 points of ℙ¹(𝔽_q).
+- For an elliptic curve E over 𝔽_q, π_E is the q-power Frobenius endomorphism, and 1 − π_E is separable.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights`.
+
+*Sources.*
+
+- Abelian Varieties, Chapter II, §1, p. 75: “is deﬁned to be the identity” π_V is the identity on the space and f ↦ f^q on functions.
+- Abelian Varieties, Chapter II, §1, p. 75: “and so it is an endomorphism of A.” π_A fixes 0, so it is an endomorphism.
+
+### Theorems
+
+#### Theorem. Milne II.1.2: π†π = q
+
+*Module* `TauCeti/Weights/AbelianWeil/Rosati.lean`. *Node* `DeligneWeightsAndPurity:DWP.1/rosati-of-the-frobenius-endomorphism`.
+
+Let A be an abelian variety over 𝔽_q, λ a polarization of A defined over 𝔽_q, and † the Rosati involution of λ. Then π_A^† ∘ π_A = q in End⁰(A), that is π_A^∨ ∘ λ ∘ π_A = q·λ.
+
+*Hypotheses.*
+
+- λ must be defined over 𝔽_q, so that it commutes with the Frobenius. A polarization over 𝔽_q exists, since A is projective over 𝔽_q (requested from AbelianSchemesAndArithmeticModuli A2).
+- This is where the Frobenius–Verschiebung relation enters, as RS-17 keeps it: π^∨ corresponds to the Verschiebung through λ.
+
+*Proof.*
+
+1. With λ = φ_D for an ample divisor D (over 𝔽̄_q): λ(a) = [t_a^*D − D].
+2. For any divisor D′ over 𝔽_q, π^*D′ = qD′: locally D′ = div f and f ∘ π = f^q.
+3. For a ∈ A(𝔽̄_q): (π^∨λπ)(a) = [π^*t_{π(a)}^*D − π^*D] = [t_a^*π^*D − π^*D] = [t_a^*(qD) − qD] = qλ(a), using π ∘ t_a = t_{π(a)} ∘ π.
+
+*Acceptance.*
+
+- An elliptic curve with λ the principal polarization: π† = π̂, and π̂π = [q] = deg π.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.1/frobenius-endomorphism-over-a-finite-field`, `AbelianSchemesAndArithmeticModuli:A2/rosati-involution`, `AbelianSchemesAndArithmeticModuli:A2`.
+
+*Sources.*
+
+- Abelian Varieties, Chapter II, Lemma 1.2, p. 76: “Rosati involution on End” Lemma 1.2: π†π = q for the Rosati involution.
+
+#### Theorem. Milne II.1.3: α†α = r forces |a|² = r for the roots of P_α
+
+*Module* `TauCeti/Weights/AbelianWeil/Rosati.lean`. *Node* `DeligneWeightsAndPurity:DWP.1/absolute-values-from-the-rosati-involution`.
+
+Let A be an abelian variety over a field k with a polarization and Rosati involution †, and α ∈ End⁰(A) with α†α = r ∈ ℤ_{>0}. Then ℚ[α] is a product of fields, stable under †, and † acts on each real factor of ℚ[α] ⊗ ℝ as the identity and on each complex factor as complex conjugation. Every root a of P_α in ℂ satisfies |a|² = r.
+
+*Hypotheses.*
+
+- The positivity of the Rosati involution (AbelianSchemesAndArithmeticModuli A6/rosati-positivity) is the key input. No Tate isogeny theorem and no cohomological purity is used, as RS-17 requires.
+- ℚ[α] is commutative. A factor of ℚ[α] ⊗ ℝ with † trivial is ℝ, and † is conjugation on each factor ℂ.
+
+*Proof.*
+
+1. ℚ[α] has no nonzero nilpotents. For a ≠ 0 put b = a†a; then Tr(b) > 0 (Rosati positivity), b† = b and Tr(b²) = Tr(b†b) > 0, so b² ≠ 0, b⁴ ≠ 0, and so on. Hence ℚ[α] is a product of fields K_i.
+2. † is an automorphism of ℚ[α] (α† = rα⁻¹ ∈ ℚ[α]). It permutes the factors, and positivity forces it to preserve each one: otherwise Tr(aa†) would vanish on a single factor.
+3. On ℚ[α] ⊗ ℝ = ∏ ℝ × ∏ ℂ, † is a positive involution of each factor: the identity on ℝ, and complex conjugation on ℂ (the identity of ℂ is not positive: Tr(i·i) < 0).
+4. For every σ : ℚ[α] → ℂ, σ(α†) = conj(σ(α)), so r = σ(α†α) = |σ(α)|². So the roots of the minimal polynomial of α have |·|² = r, and by AbelianSchemesAndArithmeticModuli A6/trace-and-degree-on-a-subfield (10.24) the roots of P_α are among them.
+
+*Acceptance.*
+
+- α = [n] on any A: [n]†[n] = n², and P_{[n]} = (X − n)^{2g} has roots of absolute value n.
+
+*Uses.* `AbelianSchemesAndArithmeticModuli:A6/rosati-positivity`, `AbelianSchemesAndArithmeticModuli:A6/trace-and-degree-on-a-subfield`, `AbelianSchemesAndArithmeticModuli:A2/rosati-involution`, `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism`.
+
+*Sources.*
+
+- Abelian Varieties, Chapter II, Lemma 1.3, p. 77: “is an integer r” Lemma 1.3: α†α = r implies |a|² = r for the roots of P_α.
+- Abelian Varieties, Chapter II, Lemma 1.3, p. 77: “We ﬁrst show that” ℚ[α] has no nonzero nilpotents.
+
+#### Theorem. The Weil estimate for abelian varieties over 𝔽_q
+
+*Module* `TauCeti/Weights/AbelianWeil/Estimate.lean`. *Node* `DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties`.
+
+Let A be an abelian variety of dimension g over 𝔽_q. Every root of the characteristic polynomial P_{π_A} ∈ ℤ[X] is a Weil q-number of weight 1: all its complex conjugates have absolute value q^{1/2}. Equivalently, for every ℓ ∤ q, the geometric Frobenius on H¹(A_{𝔽̄_q}, ℚ_ℓ) is pure of weight 1, and the geometric Frobenius on V_ℓA is pure of weight −1. The same holds for π_A^m relative to q^m.
+
+*Hypotheses.*
+
+- This is the independent abelian-variety proof that RS-17 keeps for DWP.1. It uses the polarization, Rosati positivity and π†π = q. It depends on no Tate isogeny theorem and nothing from DWP.4.
+- The statement on H¹ and V_ℓA uses the comparison of the Frobenius conventions: π_A acts on V_ℓA as the arithmetic Frobenius, and on H¹ = (V_ℓA)^∨ the geometric Frobenius has characteristic polynomial P_{π_A} (ArithmeticGaloisRepresentations R01.6; AbelianSchemesAndArithmeticModuli A4).
+
+*Proof.*
+
+1. π†π = q (theorem rosati-of-the-frobenius-endomorphism).
+2. Theorem absolute-values-from-the-rosati-involution with α = π and r = q: every complex root of P_π has absolute value q^{1/2}. P_π ∈ ℤ[X], so the roots are algebraic and every conjugate is again a root, so they are Weil q-numbers of weight 1 (DWP.0/weil-q-number).
+3. On V_ℓA the characteristic polynomial of π is P_π (AbelianSchemesAndArithmeticModuli A6/characteristic-polynomial-on-tate-module). The geometric Frobenius acts by π⁻¹ on V_ℓA, of weight −1, and by the transpose of π on H¹, of weight 1.
+4. Base extension: π_{A ⊗ 𝔽_{q^m}} = π^m, with roots a_i^m (DWP.0/weil-number-base-extension).
+
+*Acceptance.*
+
+- E: y² = x³ − x over 𝔽_3: P_π = X² + 3, with roots ±i√3 of absolute value √3.
+- A supersingular elliptic curve over 𝔽_p with a = 0: roots ±i√p.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.1/rosati-of-the-frobenius-endomorphism`, `DeligneWeightsAndPurity:DWP.1/absolute-values-from-the-rosati-involution`, `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module`, `DeligneWeightsAndPurity:DWP.0/weil-q-number`, `DeligneWeightsAndPurity:DWP.0/weil-number-base-extension`, `ArithmeticGaloisRepresentations:R01.6`.
+
+*Planet:* Weil estimate for abelian varieties.
+
+*Sources.*
+
+- Abelian Varieties, Chapter II, Theorem 1.1(b), p. 75: “(Riemann hypothesis)” Theorem 1.1(b): |a_i| = q^{1/2}.
+- Abelian Varieties, Chapter II, Remark 1.4, p. 78: “We have actually proved the following” ℚ[π] is a product of fields, and |σ(π)| = q^{1/2} for every σ.
+
+#### Theorem. Point counts of abelian varieties over 𝔽_{q^m}, and their bounds
+
+*Module* `TauCeti/Weights/AbelianWeil/PointCount.lean`. *Node* `DeligneWeightsAndPurity:DWP.1/point-counts-of-abelian-varieties`.
+
+Let A be an abelian variety of dimension g over 𝔽_q with P_{π_A}(X) = ∏_{i=1}^{2g}(X − a_i). Then for all m ≥ 1, N_m = #A(𝔽_{q^m}) = deg(1 − π^m) = P_{π^m}(1) = ∏_i(1 − a_i^m), and |N_m − q^{mg}| ≤ 2g·q^{m(g−1/2)} + (2^{2g} − 2g − 1)·q^{m(g−1)}. The zeta function is Z(A, t) = ∏_{r=0}^{2g} P_r(t)^{(−1)^{r+1}}, where P_r(t) = ∏(1 − a_{i_1}⋯a_{i_r}t) over 1 ≤ i_1 < … < i_r ≤ 2g, the characteristic polynomial of π on ∧^r T_ℓA.
+
+*Hypotheses.*
+
+- 1 − π^m is separable (its differential is −1) and étale, so its degree is the number of geometric points in its kernel, which is A(𝔽_{q^m}).
+- The bound uses the Weil estimate. The leading term ∏ a_i = deg π = q^g is exact.
+
+*Proof.*
+
+1. d(π − 1) = dπ − 1 = −1 at the origin, so π − 1 is étale, and ker(π − 1) = A(𝔽_q) with every point of multiplicity one. Hence #A(𝔽_q) = deg(π − 1) = P_π(1) (AbelianSchemesAndArithmeticModuli A6/degree-of-an-endomorphism, A6/characteristic-polynomial-of-an-endomorphism). Replace π by π^m.
+2. The eigenvalues of π^m are the a_i^m (DWP.0/spectra-of-polynomials-in-an-endomorphism), so P_{π^m}(1) = ∏(1 − a_i^m).
+3. Expand ∏(1 − a_i^m): the term ∏a_i^m = q^{mg}; the 2g terms that are products of 2g − 1 roots have absolute value q^{m(g−1/2)}; the remaining 2^{2g} − 2g − 1 terms have absolute value at most q^{m(g−1)} (Weil estimate).
+4. Zeta function: log Z = Σ N_m t^m/m with N_m = Σ_r (−1)^r Tr(π^m | ∧^r), and the eigenvalues of π on ∧^r T_ℓA are the r-fold products (DWP.0/spectra-of-tensor-products-and-duals).
+
+*Acceptance.*
+
+- E: y² = x³ − x over 𝔽_3: N_1 = P_π(1) = 1 + 3 = 4, and |4 − 3| = 1 ≤ 2√3.
+- g = 1: the bound reads |N_m − q^m| ≤ 2q^{m/2} + 1, that is Hasse's |N_m − q^m − 1| ≤ 2q^{m/2}, loosened by the constant term.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties`, `DeligneWeightsAndPurity:DWP.1/frobenius-endomorphism-over-a-finite-field`, `AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism`, `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism`, `DeligneWeightsAndPurity:DWP.0/spectra-of-polynomials-in-an-endomorphism`, `DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals`.
+
+*Sources.*
+
+- Abelian Varieties, Chapter II, Theorem 1.1(a), p. 75: “(Riemann hypothesis)” Theorem 1.1: N_m = ∏(1 − a_i^m) and the bound.
+- Abelian Varieties, Chapter II, proof of Theorem 1.1, p. 76: “is zero — in fact, that this is true for any variety.” dπ = 0, so π − 1 is étale.
+
+#### Theorem. The Weil estimate for curves, through the Jacobian
+
+*Module* `TauCeti/Weights/AbelianWeil/Curve.lean`. *Node* `DeligneWeightsAndPurity:DWP.1/weil-estimate-for-curves`.
+
+Let C be a smooth projective geometrically connected curve of genus g over 𝔽_q, J its Jacobian, and P_{π_J}(X) = ∏(X − a_i). Then #C(𝔽_{q^m}) = 1 − Σ_i a_i^m + q^m for all m ≥ 1, the a_i are Weil q-numbers of weight 1, |#C(𝔽_{q^m}) − q^m − 1| ≤ 2g·q^{m/2}, and Z(C, t) = P_{π_J}^{rev}(t)/((1 − t)(1 − qt)) with P^{rev}(t) = ∏(1 − a_i t).
+
+*Hypotheses.*
+
+- Geometric connectedness is needed. If C has components defined only over 𝔽_{q^d}, permuted by the Frobenius, the counts change: two conjugate copies of ℙ¹ over 𝔽_{q²} give #C(𝔽_{q^m}) = 0 for m odd and 2(q^m + 1) for m even. RS-17 keeps these component permutations.
+- The fixed-point formula (Γ_α · Δ) = 1 − Tr(α′) + deg α is imported (RS-17: the curve and Jacobian trace comparison of TraceFormula Layer 8, requested from SchemeAndStackFoundations SF.2). The source's own proof of it has a step that the author marks "Needs fixing" (recorded in sourceIssues).
+
+*Proof.*
+
+1. The Frobenius π_C induces π_J on J through the Albanese property (JacobianChallenge Layer F): f_P ∘ π_C = π_J ∘ f_P.
+2. Fixed points: #C(𝔽_q) = (Γ_{π_C} · Δ) = 1 − Tr(π_J) + deg π_C = 1 − Σ a_i + q (Milne III.11.2, imported).
+3. Replace q by q^m: the Frobenius of C ⊗ 𝔽_{q^m} is π_C^m, and π_J^m has eigenvalues a_i^m.
+4. The a_i are Weil q-numbers of weight 1 (theorem weil-estimate-for-abelian-varieties applied to J), which gives the bound.
+5. Z(C, t) = exp(Σ N_m t^m/m) = ∏(1 − a_i t)/((1 − t)(1 − qt)).
+
+*Acceptance.*
+
+- ℙ¹ (g = 0): #ℙ¹(𝔽_{q^m}) = q^m + 1 and Z = 1/((1 − t)(1 − qt)).
+- E: y² = x³ − x over 𝔽_3: 1 − (i√3 + (−i√3)) + 3 = 4 = #E(𝔽_3).
+
+*Uses.* `DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties`, `SchemeAndStackFoundations:SF.2`.
+
+*Planet:* Weil estimate for curves.
+
+*Sources.*
+
+- Abelian Varieties, Chapter III, Theorem 11.1, p. 118: “The number N of points on C with coordinates in k is equal to” #C(𝔽_q) = 1 − Σa_i + q, and |N − q − 1| ≤ 2g√q.
+- Abelian Varieties, Chapter III, Corollary 11.4, p. 119: “The zeta function of C is equal to” Z(C, t) = P(t)/((1 − t)(1 − qt)).
+
+#### Theorem. The weights of H⁰, H¹ and H² of a curve over 𝔽_q
+
+*Module* `TauCeti/Weights/AbelianWeil/Curve.lean`. *Node* `DeligneWeightsAndPurity:DWP.1/weights-of-the-cohomology-of-curves`.
+
+Let C be a smooth projective geometrically connected curve of genus g over 𝔽_q, and ℓ ∤ q. Then H⁰(C_{𝔽̄_q}, ℚ_ℓ) = ℚ_ℓ is pure of weight 0, H²(C_{𝔽̄_q}, ℚ_ℓ) ≅ ℚ_ℓ(−1) is pure of weight 2, and H¹(C_{𝔽̄_q}, ℚ_ℓ) ≅ H¹(J_{𝔽̄_q}, ℚ_ℓ) ≅ (V_ℓJ)^∨ is pure of weight 1, with the geometric Frobenius having characteristic polynomial P_{π_J}. The same holds after any finite extension of 𝔽_q.
+
+*Hypotheses.*
+
+- Geometric connectedness makes H⁰ one-dimensional. For a curve whose components are permuted by the Frobenius, H⁰ is a permutation representation, of weight 0 but not trivial.
+- H¹(C) ≅ H¹(J) through the Abel–Jacobi map (Milne III.9.6), and H¹(J) ≅ (T_ℓJ)^∨ (AbelianSchemesAndArithmeticModuli A4). These are imported.
+
+*Proof.*
+
+1. H⁰: C_{𝔽̄_q} is connected, so H⁰ = ℚ_ℓ with trivial Frobenius action, of weight 0.
+2. H²: the trace map H²(C_{𝔽̄_q}, ℚ_ℓ) ≅ ℚ_ℓ(−1), on which the geometric Frobenius acts by q, of weight 2 (DWP.0/twisting-by-rank-one-characters).
+3. H¹: the Abel–Jacobi map induces H¹(J) ≅ H¹(C) (Milne III.9.6), and H¹(J) = (V_ℓJ)^∨ with the geometric Frobenius having characteristic polynomial P_{π_J}. Its roots have weight 1 by the theorem weil-estimate-for-abelian-varieties.
+
+*Acceptance.*
+
+- ℙ¹: H⁰ = ℚ_ℓ (weight 0), H¹ = 0, H² = ℚ_ℓ(−1) (weight 2), and #ℙ¹(𝔽_q) = 1 + q.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties`, `DeligneWeightsAndPurity:DWP.0/twisting-by-rank-one-characters`, `ArithmeticGaloisRepresentations:R01.6`.
+
+*Sources.*
+
+- Abelian Varieties, Chapter III, Remark 11.5, p. 119: “and so (11.2) can be rewritten as” H¹(C) = H¹(J) = (T_ℓJ)^∨ and the cohomological form of the fixed-point formula.
+
+#### Theorem. Compatibility with the Hasse bound for elliptic curves
+
+*Module* `TauCeti/Weights/AbelianWeil/Hasse.lean`. *Node* `DeligneWeightsAndPurity:DWP.1/compatibility-with-the-hasse-bound`.
+
+For an elliptic curve E over 𝔽_q with a = q + 1 − #E(𝔽_q) (the trace of Frobenius of Tau Ceti EllipticCurves Layer 3), P_{π_E}(X) = X² − aX + q, and the Weil estimate for abelian varieties (g = 1) gives |a| ≤ 2√q. This is the Hasse bound that Tau Ceti EllipticCurves Layer 3 proves independently. The two agree, and this node proves only the identification of the characteristic polynomials.
+
+*Hypotheses.*
+
+- RS-17: a compatibility proof, not a second proof of Hasse. The Hasse theorem is imported from Tau Ceti EllipticCurves Layer 3.
+
+*Proof.*
+
+1. P_π(1) = #E(𝔽_q) (theorem point-counts-of-abelian-varieties) and P_π(0) = deg π = q, so P_π = X² − aX + q with a = q + 1 − #E(𝔽_q).
+2. The roots α, ᾱ have |α| = √q (Weil estimate), so |a| = |α + ᾱ| ≤ 2√q.
+3. Tau Ceti EllipticCurves Layer 3 defines the trace of Frobenius through the same point count, so the two statements concern the same integer.
+
+*Acceptance.*
+
+- y² = x³ − x over 𝔽_3: a = 0. y² + y = x³ over 𝔽_2: #E(𝔽_2) = 3, a = 0, and P = X² + 2.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties`, `DeligneWeightsAndPurity:DWP.1/point-counts-of-abelian-varieties`.
+
+*Sources.*
+
+- Abelian Varieties, Chapter III, Theorem 11.1, p. 118: “Therefore, j” |N − q − 1| ≤ 2g√q, which for g = 1 is Hasse's bound.
+
+#### Theorem. Compatibility of the Weil estimate with finite base extension
+
+*Module* `TauCeti/Weights/AbelianWeil/Frobenius.lean`. *Node* `DeligneWeightsAndPurity:DWP.1/the-frobenius-and-points-over-extensions`.
+
+For A (resp. C) over 𝔽_q and m ≥ 1, the Frobenius of A ⊗ 𝔽_{q^m} over 𝔽_{q^m} is π_A^m, P_{π^m}(X) = ∏(X − a_i^m), and the Weil estimate over 𝔽_{q^m} (weight 1 relative to q^m) is equivalent to that over 𝔽_q (weight 1 relative to q). The same holds for the weights of H⁰, H¹ and H² of curves.
+
+*Hypotheses.*
+
+- RS-17 keeps compatibility under finite base extension as a review correction. The base-change isomorphism of étale cohomology is imported.
+
+*Proof.*
+
+1. The Frobenius of V ⊗ 𝔽_{q^m} is π_V^m (node frobenius-endomorphism-over-a-finite-field).
+2. The eigenvalues of π^m are the a_i^m, and weights relative to q^m of the a_i^m equal weights relative to q of the a_i (DWP.0/weil-number-base-extension, DWP.0/finite-field-base-extension-of-weights).
+
+*Acceptance.*
+
+- E over 𝔽_3 with P_π = X² + 3: over 𝔽_9, P_{π²} = (X + 3)², with roots −3 of absolute value 3 = 9^{1/2}.
+
+*Uses.* `DeligneWeightsAndPurity:DWP.1/frobenius-endomorphism-over-a-finite-field`, `DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights`, `DeligneWeightsAndPurity:DWP.0/weil-number-base-extension`.
+
+*Sources.*
+
+- Abelian Varieties, Chapter II, proof of Theorem 1.1, p. 76: “Hence” Replacing π by π^m.
 
 ## DWP.2 Weil I's fundamental estimate, with its actual hypotheses
 
@@ -1041,11 +1328,19 @@ No nodes yet.
 ## Requests to other roadmaps
 
 - `EtaleDualityAndPerverseSheaves:EDC.0` — The coefficient conventions: ℚ_ℓ(1) as the Tate twist on which the geometric Frobenius of 𝔽_q acts by q⁻¹, compared with the inverse arithmetic Galois action on ℓ-power roots of unity, and extension of coefficients from finite extensions of ℚ_ℓ to ℚ̄_ℓ. Needed by `twisting-by-rank-one-characters`.
-- `SchemeAndStackFoundations:SF.2` — The Grothendieck–Lefschetz trace formula for lisse (and constructible) ℚ_ℓ-sheaves on a curve over 𝔽_q in the form of Weil I (1.14.3), Z(U₀, F₀, t) = ∏_i det(1 − F^*t, H^i_c(U, F))^{(−1)^{i+1}}, with finiteness of H^i_c. This is the CohomologicalPointCounting trace formula (TraceFormula Layer 14) that RS-17 names as DWP.2's supplier. Needed by `weights-and-l-functions-of-lisse-sheaves-on-curves`, `compact-cohomology-of-even-tensor-powers`, `coarse-bound-on-compact-cohomology`.
+- `SchemeAndStackFoundations:SF.2` — The Grothendieck–Lefschetz trace formula for lisse (and constructible) ℚ_ℓ-sheaves on a curve over 𝔽_q in the form of Weil I (1.14.3), Z(U₀, F₀, t) = ∏_i det(1 − F^*t, H^i_c(U, F))^{(−1)^{i+1}}, with finiteness of H^i_c. This is the CohomologicalPointCounting trace formula (TraceFormula Layer 14) that RS-17 names as DWP.2's supplier. The fixed-point formula for a curve and its Jacobian, #Fix(α) = (Γ_α · Δ) = 1 − Tr(α′ | T_ℓJ) + deg α (Milne, Abelian Varieties, III.11.2; RS-17 names it the curve and Jacobian trace comparison of TraceFormula Layer 8). Needed by `weil-estimate-for-curves`, `coarse-bound-on-compact-cohomology`, `compact-cohomology-of-even-tensor-powers`, `weights-and-l-functions-of-lisse-sheaves-on-curves`.
 - `EtaleDualityAndPerverseSheaves:EDC.2` — Weil I (2.10): for a smooth connected curve X over an algebraically closed field and a lisse ℚ_ℓ-sheaf F, H⁰_c(X, F) = 0 when X is affine and H²_c(X, F) = (F_x)_{π₁(X, x)}(−1). Weil I (2.12): Poincaré duality H¹(X̄, j_*F) × H¹(X̄, j_*F^∨(1)) → ℚ_ℓ on a smooth projective curve, Frobenius-equivariantly. Needed by `compact-cohomology-of-even-tensor-powers`, `coarse-bound-on-compact-cohomology`, `coarse-bound-on-cohomology-of-the-projective-line`.
 - `tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra` — The first fundamental theorem for the complex symplectic group: the Sp(V)-invariant multilinear forms on V^{2k} are spanned by the pair contractions ψ_P (Brauer algebra), with the dimension of the invariants. Needed by `symplectic-coinvariants-of-even-tensor-powers`.
 - `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components` — Zariski closure of a subgroup of the ℚ_ℓ-points of a linear algebraic group as an algebraic subgroup, and connectedness of Sp_{2g}. Needed by `open-subgroups-of-symplectic-groups-are-zariski-dense`.
 - `tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation` — The Lie algebra of an algebraic subgroup over ℚ_ℓ, and the fact that an algebraic subgroup whose ℚ_ℓ-points contain an ℓ-adically open subgroup of G(ℚ_ℓ) has full dimension. Needed by `open-subgroups-of-symplectic-groups-are-zariski-dense`.
+- `AbelianSchemesAndArithmeticModuli:A2` — A polarization of an abelian variety over 𝔽_q defined over 𝔽_q (A is projective over 𝔽_q), with its dual map π^∨ compatible with the Frobenius. Needed by `rosati-of-the-frobenius-endomorphism`.
+- `ArithmeticGaloisRepresentations:R01.6` — The Tate module T_ℓA of an abelian variety over 𝔽_q with its Galois action, the Frobenius endomorphism acting as the arithmetic Frobenius, and H¹(A_{𝔽̄_q}, ℚ_ℓ) ≅ (V_ℓA)^∨. Needed by `weil-estimate-for-abelian-varieties`, `weights-of-the-cohomology-of-curves`.
+- `tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property` — The Abel–Jacobi map f_P : C → J and its universal property, so that an endomorphism of C (such as the Frobenius) induces one of J with f_P ∘ α = α′ ∘ f_P, and the induced isomorphism H¹(J) ≅ H¹(C). Needed by `weil-estimate-for-curves`, `weights-of-the-cohomology-of-curves`.
+- `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1` — The trace of Frobenius a = q + 1 − #E(𝔽_q) and the Hasse bound |a| ≤ 2√q, with which the abelian-variety estimate is compared (not reproved). Needed by `compatibility-with-the-hasse-bound`.
+
+## Mistakes found in the sources
+
+- **E1** (gap, Chapter III, proof of Proposition 11.2, p. 119 (footnote 6)). The degree of the pullback of L(J × Θ) along (1 × α) ∘ (f × f) ∘ Δ must be computed from the theta divisor's intersection with f(C) (Milne III.6.12, Lang 1959 IV §3). The step is incomplete as printed. The node weil-estimate-for-curves imports the fixed-point formula from its RS-17 supplier instead of relying on this proof. The author marks the displayed identity with a footnote reading "Needs fixing"; the degree computation it records is not justified in the printed proof. Known: Flagged by the author in the text (footnote 6); not on the author's errata page for v2.00.
 
 ## Library baseline
 
@@ -1080,9 +1375,10 @@ Every Mathlib declaration below was read at the pinned commit and resolved by `#
 
 - Pierre Deligne, *La conjecture de Weil. I*. Publ. Math. IHÉS 43 (1974), 273–307; Numdam scan with OCR, 36 PDF pages (printed page = PDF page + 271); locators give printed pages. https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf (SHA-256 `8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5`). Read: cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 1): §1 (1.1)–(1.15), pp. 273–279, including the proof of (1.7) ⇒ (1.6); §2 (2.1)–(2.14), pp. 280–283; §3 (3.1)–(3.6), pp. 283–284; cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 2): §3 (3.1)–(3.9) in full, pp. 283–287, and Scholie (2.10), p. 282.
 - Pierre Deligne, *La conjecture de Weil. II*. Publ. Math. IHÉS 52 (1980), 137–252; Numdam scan with OCR (printed page = PDF page + 135); locators give printed pages. https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf (SHA-256 `b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71`). Read: cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 1): (1.1.11)–(1.1.15), pp. 152–153; §1.2 (1.2.1)–(1.2.14), pp. 153–156; the opening of §1.3, pp. 156–157.
+- J. S. Milne, *Abelian Varieties*. Course notes, version 2.00 (March 16, 2008); printed page = PDF page − 6. https://www.jmilne.org/math/CourseNotes/AV.pdf (SHA-256 `f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef`). Read: cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 3): Chapter II §1, pp. 75–78, in full; Chapter III §§9–11, pp. 113–119 (Corollary 9.6, Theorem 11.1, Proposition 11.2 with its proof, Lemma 11.3, Corollary 11.4, Remark 11.5); the author's errata page for v2.00.
 
 ## Non-goals
 
-- General sheaf-level purity and mixedness (DWP.5). Neither DWP.0 nor DWP.2 proves purity of cohomology: DWP.2 proves the weight of a symplectic sheaf and coarse bounds.
-- The separation and descent of zeta-function factors, their integrality and ℓ-independence (WC.3).
-- The monodromy filtration (LPV.1) and the sign of the functional equation (WC.2).
+- General sheaf-level purity and mixedness (DWP.5), and purity of cohomology beyond curves and abelian varieties (DWP.4, DWP.7).
+- A second proof of the Hasse bound (Tau Ceti EllipticCurves Layer 3) or of Rosati positivity (AbelianSchemesAndArithmeticModuli A6).
+- The separation and descent of zeta-function factors (WC.3), the monodromy filtration (LPV.1), and the sign of the functional equation (WC.2).
