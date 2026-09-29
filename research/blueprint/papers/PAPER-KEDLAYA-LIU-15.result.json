@@ -9,8 +9,8 @@
   "arxiv": "1301.0792",
   "url": "https://arxiv.org/abs/1301.0792v5",
   "readSections": [
-   "arXiv v5 (211 pp.): §0 Introduction and §§1–2 (pp. 3–65) read line by line with their proofs for this checkpoint",
-   "the table of contents and numbered statements of §§3–9 surveyed from the v5 LaTeX source (603 numbered statements in all), not yet extracted",
+   "arXiv v5 (211 pp.): §0 Introduction and §§1–7 (pp. 3–156) read line by line with their proofs (checkpoint 1: §§0–3; checkpoint 2: §§4–7)",
+   "the numbered statements of §§8–9 surveyed from the v5 LaTeX source (603 numbered statements in all), not yet extracted",
    "Appendix A of part II (arXiv 1602.06899v3), the authors’ errata for this paper"
   ]
  },
@@ -36,12 +36,22 @@
    "note": "Part II, whose Appendix A records the authors’ errata for this paper."
   }
  ],
- "summary": "Kedlaya and Liu build relative p-adic Hodge theory on Witt vectors and nonarchimedean analytic geometry. They compare the Gel’fand spectra of Banach rings with Huber adic spectra, set up the perfectoid correspondence between perfect uniform Banach F_p-algebras and perfectoid algebras (compatible with rational localization and finite étale covers), and prove slope theory over relative Robba rings, including semicontinuity of the slope polygon and a slope filtration theorem. They relate ϕ-modules over relative Robba rings to vector bundles on relative Fargues–Fontaine curves and to étale Z_p- and Q_p-local systems on perfectoid and analytic spaces, with (pro-)étale cohomology. This is a partial extraction: the first checkpoint covers the introduction and chapters 1–3 (algebraic preliminaries, spectra of Banach rings, and the perfectoid correspondence), 172 items. Mathlib has much of the commutative algebra, the seminorm theory, perfect rings, Witt vectors of perfect rings, inverse perfection and Fontaine’s θ. The Huber-ring and adic-spectrum material is planned in the Tau Ceti AdicSpaces roadmap (layers 0–4); the Gel’fand spectrum in TropicalAndBerkovichArithmetic TB.0; the perfectoid correspondence, tilting of adic spectra and almost purity in PerfectoidSpaces P1–P3, which name this paper as a source; henselian-pair and finite étale inputs in P5; Beauville–Laszlo patching in RelativeFarguesFontaine RF4. Missing are some commutative algebra (Fitting ideals, descent of projectivity, the trace criterion), the étale local systems and pro-étale site of a scheme (§1.4), the Gel’fand–adic comparison, affinoid systems, finite étale descent along rational coverings, glueing squares and Kiehl glueing for vector bundles on sheafy rings, the uniform-ring results of §2.8, Katz’s correspondence between lisse sheaves and ϕ-modules over a perfect ring, the Gauss norms on Witt vectors, the functoriality and descent statements of the perfectoid correspondence, and preperfectoid algebras. They go as sources to the existing layers that should own them. 38 mistakes are recorded for chapters 1–3. 20 are new, among them a false Corollary 2.5.13 (it needs A^+ = A°, as the paper’s own Remark 2.4.9 shows), a failing step in Remark 2.3.15(e), a reversed inclusion in the proof of Proposition 2.4.24, a self-citation in the proof of Corollary 2.8.9, a gap in the proof of Proposition 3.5.9 and a citation of Scholze’s covering conjecture to the wrong paper in Remark 3.1.17. The other 18 are already in the authors’ errata in part II, among them the false equivalence in Definition 2.8.1 and the incomplete proofs of Propositions 3.6.11 and 3.6.19.",
+ "summary": "Kedlaya and Liu build relative p-adic Hodge theory on Witt vectors and nonarchimedean analytic geometry. They compare the Gel’fand spectra of Banach rings with Huber adic spectra, set up the perfectoid correspondence between perfect uniform Banach F_p-algebras and perfectoid algebras (compatible with rational localization and finite étale covers), and prove slope theory over relative Robba rings, including semicontinuity of the slope polygon and a slope filtration theorem. They relate ϕ-modules over relative Robba rings to vector bundles on relative Fargues–Fontaine curves and to étale Z_p- and Q_p-local systems on perfectoid and analytic spaces, with (pro-)étale cohomology. This is a partial extraction: two checkpoints cover the introduction and chapters 1–7, 228 items (18 library, 108 planned, 102 missing). Chapters 1–3 give algebraic preliminaries, spectra of Banach rings and the perfectoid correspondence. Mathlib has much of the commutative algebra, the seminorm theory, perfect rings, Witt vectors of perfect rings, inverse perfection and Fontaine’s θ. The Huber-ring and adic-spectrum material is planned in the Tau Ceti AdicSpaces roadmap (layers 0–4); the Gel’fand spectrum in TropicalAndBerkovichArithmetic TB.0; the perfectoid correspondence, tilting of adic spectra and almost purity in PerfectoidSpaces P1–P3, which name this paper as a source; henselian-pair and finite étale inputs in P5; Beauville–Laszlo patching in RelativeFarguesFontaine RF4. Missing from chapters 1–3 are some commutative algebra (Fitting ideals, descent of projectivity, the trace criterion), the étale local systems and pro-étale site of a scheme (§1.4), the Gel’fand–adic comparison, affinoid systems, finite étale descent along rational coverings, glueing squares and Kiehl glueing for vector bundles on sheafy rings, the uniform-ring results of §2.8, Katz’s correspondence between lisse sheaves and ϕ-modules over a perfect ring, the Gauss norms on Witt vectors, the functoriality and descent statements of the perfectoid correspondence, and preperfectoid algebras. Chapter 4 reviews Kedlaya’s slope theory over the Robba ring and the extended Robba ring of a perfect analytic field, all planned in PadicDifferentialEquationsAndRigidCohomology RD.0–RD.2. Chapter 5 builds the relative extended Robba rings of a perfect uniform Banach F_p-algebra and proves their sheaf and Kiehl-glueing properties, relative perfectoidness and finite étale functoriality; only the lifting of rational localizations and almost purity are planned (RelativeFarguesFontaine RF0:integral-Y, PerfectoidSpaces P0 and P3). Chapter 6 identifies ϕ-modules over these rings with ϕ-bundles and with vector bundles on Proj of the graded ring of Frobenius eigenvectors, planned in VectorBundlesAndIsocrystals VB1–VB2 and RelativeFarguesFontaine RF1 and RF3. Chapter 7 studies slopes in families: rank and degree, pure models, openness of the pure locus, semicontinuity and boundedness of the slope polygon, and the slope filtration where the polygon is constant; VB4 plans semicontinuity and the constant-polygon filtration for perfectoid bases. The missing items go as sources to the existing layers that should own them, in nineteen routes. 53 mistakes are recorded for chapters 1–7. 31 are new, among them a false Corollary 2.5.13 (it needs A^+ = A°, as the paper’s own Remark 2.4.9 shows), a failing step in Remark 2.3.15(e), a reversed inclusion in the proof of Proposition 2.4.24, a gap in the proof of Proposition 3.5.9, a citation of Scholze’s covering conjecture to the wrong paper in Remark 3.1.17, a false description of the φ^a-invariants of the extended Robba ring in Lemma 4.2.10 (they are W(L^{φ^a})[p^{−1}], which is Q_p for a = 2 and L the completed perfection of F_p((t))), and wrong exponents in the proof of Proposition 6.2.4. The other 22 are already in the authors’ errata in part II, among them the false equivalence in Definition 2.8.1 and the incomplete proofs of Propositions 3.6.11 and 3.6.19.",
  "prerequisites": [
   {
    "citation": "K. S. Kedlaya, Nonarchimedean geometry of Witt vectors, Nagoya Math. J. 209 (2013), 111–165",
    "link": "arXiv:1004.0466",
    "why": "[87]: the maps λ and μ between the Gel’fand spectra of a perfect ring R and of W(R) (Lemmas 4.1–4.2), which underlie the perfectoid correspondence (§3.3), the closedness of principal ideals generated by primitive elements (Theorem 5.11), and Banach-ring lemmas cited in §§2.2–2.3 (Gauss norms, Lemma 1.20). Bhatt–Scholze, Henkel, Buzzard–Verberkmoes, Mihara, Berkovich, Bosch–Güntzer–Remmert, Gabber–Ramero, Katz (p-adic properties of modular schemes and modular forms), Scholze and Scholze–Weinstein are already cited by the atlas."
+  },
+  {
+   "citation": "K. S. Kedlaya, Slope filtrations for relative Frobenius, Astérisque 319 (2008), 259–301",
+   "link": "arXiv:math/0609272",
+   "why": "[kedlaya-relative] in the paper’s bibliography, cited fourteen times in chapters 4–7: the slope filtration and Dieudonné–Manin statements over the extended Robba ring (Proposition 1.2.7, Theorems 1.6.5 and 1.7.1), faithfully flat descent of φ-modules (§3, Proposition 3.2.2, Theorems 3.1.2–3.1.3, which Remark 4.3.6 corrects in Proposition 3.3.2), and the successive approximation of Proposition 2.5.8 used in Proposition 7.3.6. The atlas does not cite it."
+  },
+  {
+   "citation": "R. Rodriguez, Preperfectoid algebras, PhD thesis, University of California, San Diego, 2014",
+   "link": "https://escholarship.org/uc/item/5pv4x876",
+   "why": "Source of Theorem 5.3.9, which the paper attributes to Rodriguez with its proof: ℰ̃_R, ℛ̃^{bd,r}_R and ℛ̃^{[s,r]}_R are relatively perfectoid, so their adic Banach extensions are stably uniform and sheafy with the Tate sheaf and Kiehl glueing properties; the paper then deduces Kiehl glueing for the sheaf ℛ̃^{[s,r]} on Spa(R, R⁺) (Theorem 5.3.13). The atlas does not cite it. The eScholarship PDF returned HTTP 403 here, so the thesis itself was not read."
   }
  ],
  "items": [
@@ -1888,6 +1898,600 @@
    "statement": "If A is preperfectoid, every B ∈ FÉt(A) (with its Banach norm) is preperfectoid (Proposition 3.7.5). Completed tensor products of strongly preperfectoid (resp. relatively perfectoid) adic Banach algebras over Q_p are strongly preperfectoid (resp. relatively perfectoid) (Proposition 3.7.6); the argument fails for preperfectoid algebras.",
    "locator": "§3.7, Propositions 3.7.5–3.7.6, p. 102",
    "status": "missing"
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/173",
+   "kind": "definition",
+   "name": "Robba rings, bounded and integral Robba rings, the Amice field and their topologies",
+   "statement": "Let K = Frac(W(k)) for a perfect field k of characteristic p, with the p-adic norm and the Witt Frobenius φ_K, and fix ω ∈ (0, 1). For r > 0, ℛ_K^r is the ring of Laurent series Σ_{i∈ℤ} c_i T^i (c_i ∈ K) with |c_i|ρ^i → 0 as i → ±∞ for every ρ ∈ [ω^r, 1), i.e. convergent on ω^r ≤ |T| < 1; ℛ_K^{int,r} ⊂ ℛ_K^r is the subring of series with all |c_i| ≤ 1, ℛ_K^{bd,r} = ℛ_K^{int,r}[p^{−1}], and ℛ_K^int, ℛ_K^bd, ℛ_K are the unions over r > 0. ℛ_K^int is a henselian but not complete local ring with residue field k((T̄)); the completion of the field ℛ_K^bd is the Amice field ℰ_K of series with sup_i |c_i| < ∞ and |c_i| → 0 as i → −∞; and the units of ℛ_K are exactly the nonzero elements of ℛ_K^bd (Newton polygons). Rings inside ℰ_K carry the p-adic topology of the Gauss norm and the weak topology (bounded sequences converging T-adically modulo each p^n), for both of which ℰ_K is complete; rings inside ℛ_K^r carry the Fréchet topology of the ω^s-Gauss norms, s ∈ (0, r], for which ℛ_K^r is complete; ℛ_K carries the LF topology, the locally convex direct limit of the ℛ_K^r. A formal series Σ c_i T^i converges in ℰ_K for the weak (not the p-adic) topology, in ℛ_K^r for the Fréchet topology and in ℛ_K for the LF topology, and a p-adically bounded sequence in ℛ_K^{bd,r} converging for the ω^r-Gauss norm converges weakly.",
+   "locator": "§4.1, Hypothesis 4.1.1, Definitions 4.1.2–4.1.3 and Remarks 4.1.4–4.1.5, pp. 103–104",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+    "PadicHodgeTheory:P7:annulus-foundations"
+   ],
+   "note": "RD.0 nodes robba-ring, bounded-robba-ring and units-of-robba-ring; PadicHodgeTheory P7:annulus-foundations nodes robba-ring, amice-ring, bounded-robba-ring and frechet-topology (the annulus rings, Gauss norms and Fréchet and LF topologies)."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/174",
+   "kind": "definition",
+   "name": "Frobenius lifts, φ-modules, degree, slope and purity over the Robba rings",
+   "statement": "A Frobenius lift on ℛ_K is an endomorphism φ(Σ c_i T^i) = Σ φ_K(c_i) u^i for some u ∈ ℛ_K^int with |u − T^p| < 1; it acts on ℛ_K^int, ℛ_K^bd and ℰ_K, carries ℛ_K^r into ℛ_K^{r/p} for small r (not ℛ_K^r into itself), and is continuous for all the topologies above. For R ∈ {ℛ_K^int, ℛ_K^bd, ℛ_K, 𝔬_{ℰ_K}, ℰ_K}, a φ-module over R is a finite free R-module M with an R-linear isomorphism φ^*M ≅ M. Its degree deg(M) is minus the p-adic valuation of the determinant of the matrix of φ on a basis (independent of the basis), its slope is μ(M) = deg(M)/rank(M) for M ≠ 0, and for s = c/d ∈ ℚ (d > 0) M is pure of slope s if p^c φ^d acts on some basis via a matrix U with U and U^{−1} of Gauss norm at most 1; this forces μ(M) = s, and étale means pure of slope 0 (every nonzero φ-module over ℛ_K^int or 𝔬_{ℰ_K} is étale). If M is pure of slope s, its dual is pure of slope −s. For a φ^d-module the degree is the valuation of the determinant of the matrix of φ^d divided by d, so it is unchanged on restriction to φ^{de}. This sign convention for degrees is opposite to the first author's earlier papers and agrees with geometric invariant theory (𝒪(1) has degree +1), Hartl–Pink and Fargues–Fontaine.",
+   "locator": "§4.1, Definition 4.1.6, Remarks 4.1.7 and 4.1.12, Convention 4.1.13, pp. 104–105",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+   ],
+   "note": "RD.0/frobenius-lift-on-robba-ring; RD.1 nodes frobenius-module, degree-and-slope and isoclinic-frobenius-module. The RD packet follows Kedlaya's earlier convention (degree = the valuation of the determinant, semistability with reversed inequalities), so its degrees are the negatives of these; the blueprint must fix one convention."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/175",
+   "kind": "theorem",
+   "name": "Pure φ-modules descend from ℛ_K to ℛ_K^bd",
+   "statement": "For each s ∈ ℚ: (a) M ↦ M ⊗_{ℛ_K^bd} ℰ_K is a fully faithful functor from φ-modules over ℛ_K^bd pure of slope s to φ-modules over ℰ_K pure of slope s; (b) M ↦ M ⊗_{ℛ_K^bd} ℛ_K is an equivalence between φ-modules over ℛ_K^bd pure of slope s and φ-modules over ℛ_K pure of slope s. Nothing is claimed for maps between pure modules of different slopes: an exact sequence 0 → M_1 → M → M_2 → 0 over ℛ_K with M_1, M_2 of rank 1 and slopes −m, m and M étale (as for trianguline representations) cannot descend to ℛ_K^bd, since there are no nonzero maps between pure φ-modules over ℛ_K^bd of different slopes.",
+   "locator": "§4.1, Proposition 4.1.8 and Remark 4.1.11, pp. 104–105",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.2"
+   ],
+   "note": "RD.2/isoclinic-descent-to-bounded-robba-ring (b)–(c). The proof is by reference to Kedlaya, Slope filtrations for relative Frobenius, Proposition 1.2.7 and Theorem 1.6.5, or to the reduction of Remark 4.3.4."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/176",
+   "kind": "theorem",
+   "name": "Slope filtration theorem over the Robba ring (Kedlaya)",
+   "statement": "Let M be a nonzero φ-module over ℛ_K with μ(M) = s. Then M is pure of slope s if and only if M has no nonzero proper φ-submodule of slope greater than s. Every nonzero φ-module M over ℛ_K has a unique filtration 0 = M_0 ⊂ M_1 ⊂ ⋯ ⊂ M_l = M by saturated φ-submodules with each M_i/M_{i−1} pure and μ(M_1/M_0) > ⋯ > μ(M_l/M_{l−1}).",
+   "locator": "§4.1, Theorems 4.1.9–4.1.10, p. 105",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.2",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+   ],
+   "note": "RD.2/slope-filtration-for-frobenius-modules-statement and RD.1/semistability-and-harder-narasimhan-filtration. Proved by reference to Kedlaya, Slope filtrations for relative Frobenius, Theorem 1.7.1. With this paper's sign convention the slopes decrease along the filtration; with RD's they increase."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/177",
+   "kind": "definition",
+   "name": "Extended Robba rings of a perfect analytic field",
+   "statement": "Let L be a perfect analytic field of characteristic p with norm α. For r > 0, ℛ̃_L^{int,r} is the set of x = Σ_{i≥0} p^i [x̄_i] ∈ W(L) with p^{−i} α(x̄_i)^r → 0; it is a ring (by homogeneity of Witt vector addition) on which λ(α^s)(x) = max_i p^{−i} α(x̄_i)^s is a multiplicative norm for each s ∈ [0, r]. Put ℛ̃_L^{bd,r} = ℛ̃_L^{int,r}[p^{−1}], let ℛ̃_L^r be the Fréchet completion of ℛ̃_L^{bd,r} for the norms λ(α^s), s ∈ (0, r], and let ℛ̃_L^int, ℛ̃_L^bd, ℛ̃_L be the unions over r > 0. Then ℛ̃_L^int is a henselian, not complete, local ring with residue field L, the completion of the field ℛ̃_L^bd is ℰ̃_L = W(L)[p^{−1}] (also ℰ̃_L^int = W(L)), and ℛ̃_L is the extended Robba ring with residue field L.",
+   "locator": "§4.2, Hypothesis 4.2.1 and Definition 4.2.2, p. 106",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.0"
+   ],
+   "note": "RD.0 nodes analytic-ring, witt-partial-valuations and overconvergent-witt-vectors-henselian: Kedlaya's rings Γ^ℓ_an,r and Γ^ℓ_an,con of Slope filtrations revisited, for ℓ = L perfect with O = ℤ_p, are these rings."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/178",
+   "kind": "theorem",
+   "name": "Convexity, boundedness and units of the extended Robba ring",
+   "statement": "For x ∈ ℛ̃_L^r, the function s ↦ log λ(α^s)(x) is continuous and convex on (0, r]. An element x ∈ ℛ̃_L lies in ℛ̃_L^bd if and only if λ(α^s)(x) is bounded for s ∈ (0, r] for some r > 0. Consequently the units of ℛ̃_L are exactly the nonzero elements of ℛ̃_L^bd.",
+   "locator": "§4.2, Lemmas 4.2.3–4.2.4 and Corollary 4.2.5, pp. 106–107",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.0"
+   ],
+   "note": "RD.0/units-of-analytic-ring (units are the elements without slopes, lying in Γ_con[π^{−1}]); Lemma 4.2.4 is Kedlaya, Slope filtrations revisited, Corollary 2.5.6, whose erratum the RD packet records (PadicDifferentialEquationsAndRigidCohomology/E25). The convexity is the Hadamard three-circles property."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/179",
+   "kind": "theorem",
+   "name": "The extended Robba rings are Bézout domains",
+   "statement": "ℛ̃_L^r and ℛ̃_L are Bézout domains (integral domains in which every finitely generated ideal is principal). For 0 < s ≤ r, the completion ℛ̃_L^{[s,r]} of ℛ̃_L^r for max{λ(α^r), λ(α^s)} is a principal ideal domain, even a Euclidean domain.",
+   "locator": "§4.2, Lemma 4.2.6 and Remark 4.2.7, p. 107",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.0"
+   ],
+   "note": "RD.0 nodes analytic-ring-bezout and closed-interval-analytic-ring-pid (Kedlaya, Slope filtrations revisited, Theorem 2.9.6 and Proposition 2.6.8; the RD packet records that proposition's erratum, PadicDifferentialEquationsAndRigidCohomology/E2)."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/180",
+   "kind": "definition",
+   "name": "Newton polygons and slopes of elements of ℛ̃_L^r",
+   "statement": "For nonzero x ∈ ℛ̃_L^r, its Newton polygon is the convex dual of f_x(t) = log λ(α^t)(x); the slopes of x are the t at which f_x changes slope, with multiplicity the width of the corresponding segment (the multiplicity of r is its multiplicity as a slope of any y ∈ ℛ̃_L^s, s > r, with λ(α^r)(x − y) < λ(α^r)(x), independent of y). (a) For x = yz, the multiplicity of each s ∈ (0, r] as a slope of x is the sum of its multiplicities for y and z. (b) x ∈ ℛ̃_L^r is a unit of ℛ̃_L^r if and only if it has no slopes.",
+   "locator": "§4.2, Definition 4.2.8, p. 107",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.0"
+   ],
+   "note": "RD.0 nodes analytic-ring-slope-additivity and units-of-analytic-ring."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/181",
+   "kind": "definition",
+   "name": "Frobenius on the extended Robba rings and its invariants",
+   "statement": "The Witt vector Frobenius φ acts on ℛ̃_L^int and extends by continuity to ℛ̃_L^bd, ℛ̃_L and ℰ̃_L, with λ(α^s)(φ(x)) = λ(α^{ps})(x) for x ∈ ℛ̃_L and s > 0; φ-modules (and φ^d-modules), degrees, slopes, purity and étaleness over these rings are defined as over ℛ_K. Moreover ℰ̃_L^φ = ℛ̃_L^φ = ℚ_p, and for a ≥ 1 the φ^a-invariants of ℰ̃_L and of ℛ̃_L are both W(L^{φ^a})[p^{−1}] (corrected, finding E39: this is the unramified extension of ℚ_p with residue field 𝔽_{p^a} when 𝔽_{p^a} ⊆ L, for instance when L is algebraically closed).",
+   "locator": "§4.2, Definition 4.2.9 and Lemma 4.2.10, p. 108",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+   ],
+   "note": "RD.1 nodes frobenius-module and cohomology-of-rank-one-frobenius-modules (b), which identifies the φ-invariants of Γ_an,con and Γ_con[π^{−1}]; the value W(L^{φ^a})[p^{−1}] is then immediate from ℰ̃_L = W(L)[p^{−1}]. Finding E39 corrects the lemma's last sentence."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/182",
+   "kind": "theorem",
+   "name": "Pure φ-modules descend from ℛ̃_L to ℛ̃_L^bd, and the slope filtration over ℛ̃_L",
+   "statement": "For each s ∈ ℚ: (a) M ↦ M ⊗_{ℛ̃_L^bd} ℰ̃_L is fully faithful from φ-modules over ℛ̃_L^bd pure of slope s to φ-modules over ℰ̃_L pure of slope s (it is also essentially surjective, Theorem 8.5.3); (b) M ↦ M ⊗_{ℛ̃_L^bd} ℛ̃_L is an equivalence between φ-modules over ℛ̃_L^bd pure of slope s and φ-modules over ℛ̃_L pure of slope s. A nonzero φ-module M over ℛ̃_L with μ(M) = s is pure of slope s iff it has no nonzero proper φ-submodule of slope greater than s; every nonzero M has a unique filtration by saturated φ-submodules with pure quotients of strictly decreasing slopes, which is the Harder–Narasimhan filtration for the degree μ(∧^{rank M} M) and is multiplicative under tensor products. For an extension L′ of perfect analytic fields with compatible norms, M is pure of slope s iff M ⊗_{ℛ̃_L} ℛ̃_{L′} is.",
+   "locator": "§4.2, Proposition 4.2.11, Theorems 4.2.12–4.2.13, Corollary 4.2.14 and Remark 4.2.18, pp. 108–110",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.2",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+   ],
+   "note": "RD.2 nodes isoclinic-descent-to-bounded-robba-ring and slope-filtration-for-frobenius-modules-statement (stated for Γ^E_an,con with enough units, with base change (c)); RD.1/semistability-and-harder-narasimhan-filtration. Proofs by reference to Kedlaya, Slope filtrations revisited, Theorem 6.3.3, Proposition 6.3.5, Corollary 6.4.3 and Theorem 6.4.1."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/183",
+   "kind": "theorem",
+   "name": "Dieudonné–Manin classification over ℛ̃_L for L algebraically closed",
+   "statement": "Suppose L is algebraically closed. If M is a φ-module over ℰ̃_L (resp. ℛ̃_L^bd) pure of slope s = c/d (d > 0), then for any basis on which p^c φ^d acts via an invertible matrix over W(L) (resp. ℛ̃_L^int), the W(L)-span (resp. ℛ̃_L^int-span) of that basis has another basis fixed by p^c φ^d. For any φ-module M over ℛ̃_L there are d > 0 and a basis on which φ^d acts via a diagonal matrix with entries in p^ℤ (using the surjectivity of x ↦ φ^d(x) − p^c x on ℛ̃_L for c, d > 0).",
+   "locator": "§4.2, Propositions 4.2.15–4.2.16, p. 109",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.2"
+   ],
+   "note": "RD.1 nodes dieudonne-manin-over-extended-robba-ring and rank-one-frobenius-modules; RD.2/isoclinic-descent-to-bounded-robba-ring (a) (bases of eigenvectors over an algebraically closed field). Proofs by reference to Fontaine (A1.2.6) and Kedlaya, Slope filtrations revisited, Propositions 3.3.7(c) and 4.5.3, and Slope filtrations for relative Frobenius, Proposition 2.5.8."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/184",
+   "kind": "theorem",
+   "name": "Corrections to Kedlaya, Slope filtrations revisited, §§2.5–2.6",
+   "statement": "The paper records corrections not in the printed erratum of Kedlaya, Slope filtrations revisited (Doc. Math. 10 (2005)): in Lemma 2.5.3(a) i ∈ ℤ should be i ≥ 0, with n replaced by i in the proofs of (a) and (c); Lemma 2.5.4 needs r > 0; in Corollary 2.5.6 v_{j,n} should be v_{j,r}; Lemma 2.5.11 needs r ∈ I; the displayed inequalities in the proof of Lemma 2.6.3 are replaced by bounds of the form v_{n,r}(·) ≥ min{w_r(y_l) + (1 − r/r_0), min_{n′>n} v_{n′,r}(y_l)} (n ≥ m), with the last paragraph rewritten accordingly; in Remark 2.6.4 'on K' should be 'on 𝒪'; a sentence of the proof of Lemma 2.6.7 is completed; and the proof of Proposition 2.6.8 should cite Proposition 2.6.5.",
+   "locator": "§4.2, Remark 4.2.19, p. 110",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.0"
+   ],
+   "note": "Corrections of another paper, in print here. The RD packet already records them from Kedlaya's 'Additional errata for Slope filtrations revisited' (12 February 2013): PadicDifferentialEquationsAndRigidCohomology/E2 and E23–E29. The RD.0 nodes built on §§2.5–2.6 of that paper (witt-partial-valuations, analytic-ring, closed-interval-analytic-ring-pid) must use the corrected statements."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/185",
+   "kind": "construction",
+   "name": "The embedding of the Robba ring into the extended Robba ring",
+   "statement": "Equip k((T̄)) with the T̄-adic norm α, α(T̄) = ω, and let L be its completed perfection. Proceeding as for the perfection of a Frobenius lift, one obtains s_φ : ℰ_K → ℰ̃_L, which identifies ℰ̃_L with the completion of the direct perfection of ℰ_K for the weak topology. For r > 0 so small that the ω^{r/p}-Gauss norm of φ(T)/T^p − 1 is less than 1, s_φ maps ℛ_K^{int,r} into ℛ̃_L^{int,r} isometrically for the ω^r-Gauss norm and λ(α^r), giving a φ-equivariant homomorphism ℛ_K → ℛ̃_L. For φ(T) = (T + 1)^p − 1 and ω = p^{−p/(p−1)}, s_φ is isometric for the ω^r-Gauss norm for all r ∈ (0, 1).",
+   "locator": "§4.3, Definition 4.3.1 and Example 4.3.2, p. 111",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.0"
+   ],
+   "note": "RD.0/frobenius-equivariant-embedding (the σ-equivariant embedding of ℛ^int, ℛ^bd, ℰ and ℛ into the Witt-vector rings over the perfection); isometry is Kedlaya, Slope filtrations revisited, Lemma 2.3.5."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/186",
+   "kind": "theorem",
+   "name": "Étale φ-modules over 𝔬_ℰ and ℛ^int are trivialized over the extended rings",
+   "statement": "Let L′ be the completed direct perfection of 𝔬_{ℰ̂_K^unr}/(p), which is algebraically closed, and view ℰ̂_K^unr inside ℰ̃_{L′}. (a) For an étale φ-module M over 𝔬_{ℰ_K}, V = (M ⊗ 𝔬_{ℰ̂_K^unr})^φ satisfies V ⊗_{ℤ_p} 𝔬_{ℰ̂_K^unr} ≅ M ⊗ 𝔬_{ℰ̂_K^unr}. (b) For an étale φ-module M over ℛ_K^int, V = (M ⊗ (𝔬_{ℰ̂_K^unr} ∩ ℛ̃_{L′}^int))^φ satisfies V ⊗_{ℤ_p} (𝔬_{ℰ̂_K^unr} ∩ ℛ̃_{L′}^int) ≅ M ⊗ (𝔬_{ℰ̂_K^unr} ∩ ℛ̃_{L′}^int), and V ⊗_{ℤ_p} ℚ_p = (M ⊗ ℛ̃_{L′})^φ = (M ⊗ ℰ̃_{L′})^φ. Since Hom(M_1, M_2) = M_1^∨ ⊗ M_2 is étale when M_1, M_2 are pure of the same slope, Propositions 4.1.8 and 4.2.11 reduce to these trivializations.",
+   "locator": "§4.3, Proposition 4.3.3 and Remark 4.3.4, pp. 111–112",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.2",
+    "PhiGammaModulesAndIwasawaCohomology:PG.1"
+   ],
+   "note": "RD.2 nodes isoclinic-descent-to-bounded-robba-ring (a) and slope-zero-eigenvectors-descend-to-overconvergent (de Jong) for (b); PhiGammaModulesAndIwasawaCohomology PG.1 (Fontaine's equivalence for étale φ-modules) for (a)."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/187",
+   "kind": "theorem",
+   "name": "Purity and semistability are unchanged by base extension from ℛ_K to ℛ̃_L",
+   "statement": "A pure φ-module over ℛ_K stays pure over ℛ̃_L, and a φ-module over ℛ_K whose base extension to ℛ̃_L is semistable (has no nonzero proper φ-submodule of larger slope) is itself semistable. The reverse implications also hold; they are part of the proof of Theorem 4.1.9, which is reduced to Theorem 4.2.12, either by explicit calculation (Slope filtrations revisited) or by faithfully flat descent (Slope filtrations for relative Frobenius, §3).",
+   "locator": "§4.3, Remarks 4.3.5–4.3.6, p. 112",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.2"
+   ],
+   "note": "RD.2/slope-filtration-for-frobenius-modules-statement (c) (compatibility with base change). Remark 4.3.6 corrects the statement and proof of Kedlaya, Slope filtrations for relative Frobenius (Astérisque 319), Proposition 3.3.2: M should only be an R-module with φ^*M ≅ M, not a φ-module; the conclusion gives N finite locally free (not free) with φ^*N ≅ N, by SGA 1 XIII 1.1 and VIII 1.10 in place of VIII 1.3; this suffices there because the rings are Bézout. That paper is not otherwise used in the atlas."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/188",
+   "kind": "definition",
+   "name": "Relative extended Robba rings of a perfect uniform adic Banach 𝔽_p-algebra",
+   "statement": "From here on (R, R⁺) is a perfect uniform adic Banach 𝔽_p-algebra with spectral norm α, and R is a Banach algebra over some analytic field (no restriction up to changing the norm within its topology). For ∗ ∈ {R, R⁺} put ℰ̃^int_∗ = W(∗), ℰ̃_∗ = W(∗)[p^{−1}]; for r > 0 let ℛ̃^{int,r}_∗ be the ring of x = Σ_{i≥0} p^i [x̄_i] ∈ W(∗) with p^{−i}α(x̄_i)^r → 0, with the power-multiplicative norms λ(α^s)(x) = max_i p^{−i}α(x̄_i)^s (s ∈ (0, r]); ℛ̃^{bd,r}_∗ = ℛ̃^{int,r}_∗[p^{−1}]; ℛ̃^r_∗ the Fréchet completion of ℛ̃^{bd,r}_∗ for the λ(α^s), s ∈ (0, r]; ℛ̃^{[s,r]}_∗ (0 < s ≤ r) the completion for the λ(α^t), t ∈ [s, r], a Banach ring for max{λ(α^r), λ(α^s)}; and ℛ̃^int_∗, ℛ̃^bd_∗, ℛ̃_∗ the unions over r. The rings ℰ̃^int_{R⁺}, ℛ̃^{int,r}_{R⁺}, ℛ̃^int_{R⁺} all equal W(R⁺) =: ℛ̃^{int,+}_R (and similarly ℛ̃^{bd,+}_R = W(R⁺)[p^{−1}]), and ℛ̃^+_R is the Fréchet completion of ℛ̃^{bd,+}_R for all λ(α^s), s > 0, in general strictly smaller than ℛ̃^∞_R = ∩_r ℛ̃^r_R. ℛ̃^{[s,r]}_R is a Banach ℚ_p-algebra; ℛ̃^{int,r}_R is a Banach ring (not over a field) in which [z̄] is a topologically nilpotent (uniform) unit for any such z̄ ∈ R; ℛ̃^r_R = lim_s ℛ̃^{[s,r]}_R behaves like a Fréchet–Stein algebra. For x ∈ W(R)[p^{−1}], the p-adic absolute value of its image in W(ℋ(β))[p^{−1}] is lower semicontinuous in β ∈ ℳ(R), and continuous when x is a unit.",
+   "locator": "§5.0–5.1, Hypothesis 5.0.1, Remark 5.0.2, Definition 5.1.1 and Remarks 5.1.8–5.1.9, pp. 113–116",
+   "status": "missing",
+   "note": "RelativeFarguesFontaine RF0:annuli constructs the annulus rings as rational localizations of Spa W(R⁺) for perfectoid S (node radius-function-and-rational-annuli, following Fargues–Scholze II.1.16); these Witt-vector norm descriptions, for any perfect uniform R, are not stated there."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/189",
+   "kind": "theorem",
+   "name": "The norms λ(β) and the seminorms μ(γ) on relative Witt rings",
+   "statement": "Let 0 < s ≤ r. (a) ℛ̃^{int,r}_R is a ring on which λ(α^s) is a power-multiplicative norm, multiplicative if α is. (b) For β a submultiplicative (resp. power-multiplicative, multiplicative) (semi)norm on R dominated by max{α^s, α^r}, λ(β)(Σ p^i[x̄_i]) = max_i p^{−i}β(x̄_i) is a submultiplicative (resp. power-multiplicative, multiplicative) (semi)norm on ℛ̃^{int,r}_R dominated by max{λ(α^s), λ(α^r)}. (c) If β is power-multiplicative (resp. multiplicative), λ(β) extends to such a (semi)norm on ℛ̃^{bd,r}_R and by continuity to ℛ̃^{[s,r]}_R. (d) For γ a power-multiplicative (resp. multiplicative) (semi)norm on ℛ̃^{int,r}_R dominated by max{λ(α^s), λ(α^r)}, μ(γ)(x̄) = γ([x̄]) is such a (semi)norm on R dominated by max{α^s, α^r}, and γ is dominated by λ(μ(γ)).",
+   "locator": "§5.1, Proposition 5.1.2, p. 114",
+   "status": "missing",
+   "note": "Extends Kedlaya, Nonarchimedean geometry of Witt vectors, Lemmas 4.1 and 4.4 and Theorem 4.5; the absolute case is checkpoint 1's route to RelativeFarguesFontaine RF0."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/190",
+   "kind": "definition",
+   "name": "Topologies on the relative Robba rings and functoriality",
+   "statement": "Rings inside ℰ̃_R carry the p-adic topology (Gauss norm) and the weak topology (bounded and convergent under λ(α) modulo each p^n), for both of which ℰ̃_R is complete; rings inside ℛ̃^r_R carry the Fréchet topology of the λ(α^s), s ∈ (0, r], for which ℛ̃^r_R is complete; rings inside ℛ̃_R carry the LF topology. A p-adically bounded sequence in ℛ̃^{bd,r}_R convergent under λ(α^r) converges weakly. If α is trivial (for instance if R is generated by idempotents, equivalently φ̄ = id on R) the rings ℰ̃_R, ℛ̃^bd_R, ℛ̃_R coincide and all these topologies are the p-adic one. The constructions are functorial for bounded homomorphisms R → S of perfect uniform Banach 𝔽_p-algebras; a strict injection (hence isometry) induces strict injections, and a strict surjection induces strict surjections, for all these topologies: lifting Teichmüller coordinates, each y ∈ ℛ̃^{int,r}_S lifts to x ∈ ℛ̃^{int,r}_R with λ(α^s)(x) ≤ c^r λ(β^s)(y) for s ∈ (0, r] (corrected, finding E40).",
+   "locator": "§5.1, Definition 5.1.3 and Remarks 5.1.4–5.1.6, p. 115",
+   "status": "missing",
+   "note": "Finding E40 corrects the ring into which y is lifted."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/191",
+   "kind": "theorem",
+   "name": "Generators extend to a rational neighbourhood",
+   "statement": "Let 0 < s ≤ r and M a finite projective ℛ̃^{[s,r]}_R-module. If e_1, …, e_n ∈ M generate M ⊗ ℛ̃^{[s,r]}_{ℋ(β)} for some β ∈ ℳ(R), then they generate M ⊗ ℛ̃^{[s,r]}_{R′} for some rational localization (R, R⁺) → (R′, R′⁺) encircling β.",
+   "locator": "§5.1, Lemma 5.1.7, p. 116",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/192",
+   "kind": "theorem",
+   "name": "Convexity, bounded elements, units and φ-invariants of the relative Robba rings",
+   "statement": "For x ∈ ℛ̃^{[s,r]}_R, t ↦ log λ(α^t)(x) is continuous and convex, so max{λ(α^r), λ(α^s)} = sup_{t∈[s,r]} λ(α^t). An x ∈ ℛ̃_R lies in ℛ̃^bd_R iff λ(α^s)(x) is bounded for s ∈ (0, r] for some r > 0; hence every unit of ℛ̃_R is a unit of ℛ̃^bd_R. Moreover ℰ̃^φ_R = ℛ̃^φ_R = W(R^{φ̄})[p^{−1}], which is ℚ_p iff R is connected.",
+   "locator": "§5.2, Lemmas 5.2.1–5.2.2 and Corollaries 5.2.3–5.2.4, pp. 116–117",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/193",
+   "kind": "theorem",
+   "name": "Restriction maps, intersections and splittings of the relative Robba rings",
+   "statement": "(a) For 0 < s_1 ≤ s_2 ≤ r_2 ≤ r_1, restriction ℛ̃^{[s_1,r_1]}_R → ℛ̃^{[s_2,r_2]}_R is injective (R embeds in ∏_{β∈ℳ(R)} ℋ(β) and one reduces to fields). (b) For 0 < r ≤ r′, ℛ̃^{int,r}_R ∩ ℛ̃^{[r,r′]}_R = ℛ̃^{int,r′}_R inside ℛ̃^{[r,r]}_R. (c) For 0 < s ≤ r and n ∈ ℤ, every x ∈ ℛ̃^{[s,r]}_R is y + z with y ∈ p^n ℛ̃^{int,r}_R, z ∈ ∩_{r′≥r} ℛ̃^{[s,r′]}_R and λ(α^t)(z) ≤ p^{(1−n)(1−t/r)} λ(α^r)(x)^{t/r} for t ≥ r. (d) For c < 1 and 0 < s ≤ r, every x ∈ ℛ̃^{[s,r]}_R is y + z with y ∈ ℛ̃^{bd,r}_R ∩ p^n ℛ̃^{int,r}_R for n = ⌈−log_p(λ(ᾱ^s)(x) c^{−s})⌉, z ∈ ℛ̃^{[s,r]}_{R⁺}, λ(ᾱ^t)(y), λ(ᾱ^t)(z) ≤ λ(ᾱ^t)(x) for t ∈ [s, r] and λ(ᾱ^t)(z) ≤ c^{t−r} λ(ᾱ^r)(z) for t > r; so for q = p^a, λ(α^t)(φ^{−a}(y)) ≤ c^{−(q−1)t/q} λ(α^t)(x) and λ(α^t)(φ^a(z)) ≤ c^{(q−1)t} λ(α^t)(x). (e) For 0 < s ≤ s′ ≤ r ≤ r′, ℛ̃^{[s,r]}_R ∩ ℛ̃^{[s′,r′]}_R = ℛ̃^{[s,r′]}_R inside ℛ̃^{[s′,r]}_R. (f) For strict inclusions R ⊆ S′, S″ ⊆ S with S′ ∩ S″ = R, the corresponding intersections of Witt-type rings recover those of R, and also of ℛ̃^{[s,r]}, ℛ̃^r, ℛ̃^+, ℛ̃ when S′ ⊕ S″ → S is strict.",
+   "locator": "§5.2, Lemmas 5.2.5–5.2.10 and Remarks 5.2.7, 5.2.13–5.2.14, pp. 117–121",
+   "status": "missing",
+   "note": "Findings E41 and E42 correct signs in the proofs of Lemmas 5.2.8 and 5.2.10. Remark 5.2.14 leaves open whether boundedness can be tested at the points of ℳ(R)."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/194",
+   "kind": "theorem",
+   "name": "The plus ring ℛ̃⁺_R and the eigenvectors of φ^d",
+   "statement": "Suppose R⁺ = 𝔬_R. (a) x ∈ ℛ̃^∞_R lies in ℛ̃⁺_R iff limsup_{r→∞} λ(α^r)(x)^{1/r} ≤ 1. (b) Every x ∈ ℛ̃^r_R is y + z with y ∈ ℛ̃^{bd,r}_R and z ∈ ℛ̃⁺_R. (c) ℛ̃^{int,r}_R ∩ ℛ̃⁺_R = ℛ̃^{int,+}_R. For general R⁺ and n ≥ 0, d > 0, q = p^d, r > 0: the elements x with φ^d(x) = p^n x are the same in ℛ̃⁺_R, in ℛ̃_R and in ℛ̃^{[r/q,r]}_R.",
+   "locator": "§5.2, Lemma 5.2.11 and Corollary 5.2.12, pp. 119–120",
+   "status": "missing",
+   "note": "Finding E43 (corrected in the authors' errata) fixes a display in the proof of Corollary 5.2.12. These eigenspaces are the global sections of 𝒪(n) on the relative Fargues–Fontaine curve (§§6.3 and 8.7), which RelativeFarguesFontaine RF3 and VectorBundlesAndIsocrystals VB1 consume."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/195",
+   "kind": "theorem",
+   "name": "The relative Robba rings form sheaves on Spa(R, R⁺)",
+   "statement": "For ∗ among ℰ̃^int, ℰ̃, ℛ̃^{int,r}, ℛ̃^{int,+}, ℛ̃^int, ℛ̃^{bd,r}, ℛ̃^{bd,+}, ℛ̃^bd, ℛ̃^{[s,r]}, ℛ̃^r, ℛ̃^+, ℛ̃, the presheaf on Spa(R, R⁺) sending an open U to lim ∗_S over rational localizations (R, R⁺) → (S, S⁺) with Spa(S, S⁺) ⊆ U is a sheaf; for ∗ = ℰ̃^int, ℰ̃, ℛ̃^{int,r}, ℛ̃^int, ℛ̃^{bd,r}, ℛ̃^bd, ℛ̃^{[s,r]}, ℛ̃^r, ℛ̃ it is acyclic (Tate sheaf property). The key input: for a simple Laurent covering of Spa(R, R⁺) the sequence 0 → R → R_1 ⊕ R_2 → R_{12} → 0 stays exact, with almost optimal maps, after applying ℰ̃^int, ℰ̃, ℛ̃^{int,r}, ℛ̃^{bd,r}, ℛ̃^{[s,r]} (for the indicated norms) or ℛ̃^r.",
+   "locator": "§5.3, Definition 5.3.1, Lemma 5.3.2 and Theorem 5.3.3, pp. 121–122",
+   "status": "missing",
+   "note": "Sheaf property in the base variable, as RelativeFarguesFontaine RF1 needs to glue Y_S over covers of S."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/196",
+   "kind": "theorem",
+   "name": "Seminorms on ℛ̃^{[s,r]}_R and their radius",
+   "statement": "Let 0 < s ≤ r. (a) A multiplicative seminorm β on ℛ̃^{[s,r]}_R is dominated by max{λ(α^s), λ(α^r)} iff it is dominated by λ(α^t) for a unique t ∈ [s, r]. (b) For such β and t, with γ = μ(β)^{1/t} ∈ ℳ(R), β extends uniquely to a multiplicative seminorm on ℛ̃^{[s,r]}_{ℋ(γ)}.",
+   "locator": "§5.3, Lemma 5.3.4, p. 122",
+   "status": "missing",
+   "note": "The Gel'fand-spectrum form of the radius function of RelativeFarguesFontaine RF0:annuli/radius-function-and-rational-annuli."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/197",
+   "kind": "theorem",
+   "name": "Kiehl glueing for ℰ̃^int and ℛ̃^{int,r}",
+   "statement": "For a simple Laurent covering of Spa(R, R⁺), the squares formed by R, R_1, R_2, R_{12} and by ℛ̃^{int,r}_R, ℛ̃^{int,r}_{R_1}, ℛ̃^{int,r}_{R_2}, ℛ̃^{int,r}_{R_{12}} are glueing squares; the sheaves ℰ̃^int and ℛ̃^{int,r} satisfy the Kiehl glueing property for finite projective modules. The argument for ℛ̃^{int,r} does not apply to ℰ̃^int (ℰ̃^int_{R_2} is dense in ℰ̃^int_{R_{12}} only weakly), which is handled by lifting modulo p; the Kiehl property fails for ℰ̃ and ℛ̃^{bd,r} (Example 8.5.17), although these rings are themselves sheafy.",
+   "locator": "§5.3, Lemma 5.3.5, Theorem 5.3.6 and Remark 5.3.7, pp. 122–123",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/198",
+   "kind": "theorem",
+   "name": "The relative Robba rings are relatively perfectoid (Rodriguez)",
+   "statement": "Let K be the completion of ℚ_p(p^{p^{−∞}}); every x ∈ A ⊗̂_{ℚ_p} K (A a Banach ℚ_p-algebra) is uniquely a convergent sum Σ x_i ⊗ p^i over i ∈ ℤ[p^{−1}] ∩ [0, 1), with tensor norm max_i |x_i| p^{−i}. For 0 < s ≤ r, the Banach rings ℰ̃_R, ℛ̃^{bd,r}_R and ℛ̃^{[s,r]}_R are relatively perfectoid: their completed tensor products with any perfectoid algebra are uniform and perfectoid. Hence any adic Banach ring extending one of them is stably uniform and sheafy and satisfies the Tate sheaf and Kiehl glueing properties.",
+   "locator": "§5.3, Lemma 5.3.8 and Theorem 5.3.9, p. 123",
+   "status": "missing",
+   "note": "RelativeFarguesFontaine RF0:integral-Y (node chart-cover-perfectoidness-and-sheafiness, Fargues–Scholze II.1.1) plans the case of the single field K = E_∞, which gives sheafiness for perfectoid S; relative perfectoidness for every perfectoid algebra and every perfect uniform R is this paper's (from R. Rodriguez's thesis)."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/199",
+   "kind": "theorem",
+   "name": "Rational localizations of the base lift to the relative Robba rings",
+   "statement": "For 0 < s ≤ r, a semivaluation v on ℛ̃^{[s,r]}_R defines (via Lemma 5.3.4) a valuation on R, giving μ : Spa(ℛ̃^{[s,r]}_R, ℛ̃^{[s,r],+}_R) → Spa(R, R⁺), where ℛ̃^{[s,r],+}_R is the completion of the subring generated by the x with max{λ(α^s), λ(α^r)}(x) < 1 and the [ȳ], ȳ ∈ R⁺. For a rational localization (R, R⁺) → (S, S⁺), the map (ℛ̃^{[s,r]}_R, ℛ̃^{[s,r],+}_R) → (ℛ̃^{[s,r]}_S, ℛ̃^{[s,r],+}_S) is the rational localization representing μ^{−1}(Spa(S, S⁺)); so rational coverings of the base lift to rational coverings.",
+   "locator": "§5.3, Definition 5.3.10, Lemma 5.3.11 and Corollary 5.3.12, pp. 124–125",
+   "status": "planned",
+   "planned": [
+    "RelativeFarguesFontaine:RF0:integral-Y"
+   ],
+   "note": "RF0:integral-Y/gluing-for-general-base (Fargues–Scholze II.1.3: open immersion and cartesian square for affinoid subsets of the base)."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/200",
+   "kind": "theorem",
+   "name": "Kiehl glueing for ℛ̃^{[s,r]} and descent along covers of the interval",
+   "statement": "The sheaf ℛ̃^{[s,r]} on Spa(R, R⁺) satisfies the Kiehl glueing property. For K a perfectoid field containing ℚ_p(p^{p^{−∞}}) with |K^×| = ℝ^+: the tensor norm on ℛ̃^{[s,r]}_R ⊗̂_{ℚ_p} K is power-multiplicative and this ring is perfectoid; for 0 < s ≤ s′ ≤ r′ ≤ r and z̄ ∈ R with α(z̄) < 1 and α(z̄)α(z̄^{−1}) = 1, the map to ℛ̃^{[s′,r′]}_R ⊗̂ K (with plus rings) is the rational localization {v([z̄]) ∈ [α(z̄)^{r′}, α(z̄)^{s′}]}; so for closed intervals with I = I_1 ∪ ⋯ ∪ I_n these form a rational covering, and ℛ̃^I_R → ⊕_i ℛ̃^{I_i}_R is an effective descent morphism for finite projective modules over uniform Banach rings.",
+   "locator": "§5.3, Theorem 5.3.13, Lemma 5.3.14, Corollary 5.3.15 and Theorem 5.3.16, p. 125",
+   "status": "missing",
+   "note": "Used to glue φ-bundles over overlapping annuli in §6. RelativeFarguesFontaine RF0:annuli plans the annuli Y_{S,I} as rational subsets and RF4:vector-bundles the patching of bundles; the descent statement for these Banach rings is not stated there."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/201",
+   "kind": "theorem",
+   "name": "The maps λ and μ between Gel'fand spectra, and the homotopy H",
+   "statement": "Let λ : ℳ(R) → ℳ(ℛ̃^{int,1}_R) and μ : ℳ(ℛ̃^{int,1}_R) → ℳ(R) be as in Proposition 5.1.2. (a) λ and μ are continuous, and inverse images of finite unions of Weierstrass (resp. Laurent, rational) subdomains are of the same form. (b) μ∘λ = id. (c) (λ∘μ)(γ) ≥ γ. If ℳ(S) → ℳ(R) is surjective for a bounded map R → S of perfect uniform Banach 𝔽_p-algebras, so is ℳ(ℛ̃^{int,r}_S) → ℳ(ℛ̃^{int,r}_R). There is a family of multiplicative seminorms H(γ, t) (t ∈ [0, 1]) on ℛ̃^{int,r}_R with H(γ, 0) = γ, H(γ, 1) = (λ∘μ)(γ), μ(H(γ, t)) = μ(γ) and H(H(γ, t), u) = H(γ, max{t, u}), and H : ℳ(ℛ̃^{int,r}_R) × [0, 1] → ℳ(ℛ̃^{int,r}_R) is continuous.",
+   "locator": "§5.4, Theorem 5.4.1, Lemma 5.4.2, Definition 5.4.3, Theorem 5.4.4 and Remark 5.4.5, pp. 126–127",
+   "status": "missing",
+   "note": "Carries over Kedlaya, Nonarchimedean geometry of Witt vectors, Theorems 4.5 and 7.8, to the relative setting."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/202",
+   "kind": "theorem",
+   "name": "The radius fibration of the relative annuli and the quotient X_R",
+   "statement": "Let T_R = ∪_{0<s<r} ℳ(ℛ̃^{[s,r]}_R). (a) For each β ∈ T_R there is a unique t(β) ∈ (0, ∞) with α^{t(β)} dominating μ(β) (equivalently λ(α^{t(β)}) dominating β). (b) β ↦ (μ(β)^{1/t(β)}, t(β)) is a continuous map T_R → ℳ(R) × (0, ∞); in particular t is continuous. (c) (φ^*)^ℤ acts properly discontinuously on T_R with compact (Hausdorff) quotient X_R, mapping to ℳ(R) × S^1. (d) T_R → ℳ(R) × (0, ∞) and X_R → ℳ(R) × S^1 are strong deformation retracts. So when ℳ(R) is contractible (e.g. R = L an analytic field), X_R has the homotopy type of a circle with universal cover T_R and φ^* generating its deck group.",
+   "locator": "§5.4, Proposition 5.4.6 and Remark 5.4.7, pp. 127–128",
+   "status": "missing",
+   "note": "In §8.7, X_R is the maximal Hausdorff quotient of the relative Fargues–Fontaine curve. RelativeFarguesFontaine RF0:annuli (radius function) and RF1 (free, totally discontinuous φ-action and the quotient X_S) plan the adic analogues, not these Gel'fand-spectrum statements."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/203",
+   "kind": "theorem",
+   "name": "Finite étale algebras over R, W(R) and the integral Robba rings correspond",
+   "statement": "Every S ∈ FÉt(R) is a finite Banach R-algebra and a perfect uniform Banach 𝔽_p-algebra. If x_1, …, x_n ∈ ℛ̃^int_S reduce modulo p to generators of S over R, they generate ℛ̃^{int,r}_S over ℛ̃^{int,r}_R for small r. For r > 0 the base extensions φ^{−1}-FÉt(ℛ̃^{int,r}_R) → FÉt(ℛ̃^int_R) → FÉt(W(R)) → FÉt(R) are tensor equivalences ((ℛ̃^int_R, (p)) is henselian), where φ^{−1}-FÉt denotes finite étale algebras with an isomorphism to their φ^{−1}-pullback, and S ↦ ℛ̃^{int,r}_S is a quasi-inverse. For z ∈ W(𝔬_R) primitive of degree 1, r ≥ 1 and A = W(𝔬_R)[[z̄]^{−1}]/(z) = ℛ̃^{int,r}_R/(z), the base extensions φ^{−1}-FÉt(ℛ̃^{int,r}_R) → FÉt(A) and FÉt(R), and the equivalence FÉt(R) ≅ FÉt(A) of Theorem 3.6.21, 2-commute; all are tensor equivalences.",
+   "locator": "§5.5, Convention 5.5.1, Lemma 5.5.2, Proposition 5.5.3, Corollary 5.5.6 and Remark 5.5.7, pp. 128–132",
+   "status": "missing",
+   "note": "Finding E44 corrects a phrase in the proof of Proposition 5.5.3. PerfectoidSpaces P3 plans the tilting equivalence on finite étale algebras (item 166); the passage through φ^{−1}-equivariant finite étale algebras over the Robba rings is not stated there."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/204",
+   "kind": "theorem",
+   "name": "Finite étale maps of the base give finite étale maps of the relative Robba rings",
+   "statement": "For S a (faithfully) finite étale R-algebra and ∗ ∈ {ℰ̃, ℛ̃^{int,r}, ℛ̃^int, ℛ̃^{bd,r}, ℛ̃^bd, ℛ̃^{[s,r]}, ℛ̃^r, ℛ̃}, the map ∗_R → ∗_S is (faithfully) finite étale; in particular ℛ̃^r_R ⊗_{ℛ̃^{bd,r}_R} ℛ̃^{bd,r}_S → ℛ̃^r_S is an isometric isomorphism for λ(α^r).",
+   "locator": "§5.5, Proposition 5.5.4, p. 130",
+   "status": "missing",
+   "note": "Finding E45 corrects the list of cases in the proof."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/205",
+   "kind": "theorem",
+   "name": "Reduction of the period rings modulo a primitive element",
+   "statement": "Let z ∈ W(R⁺) be primitive of degree 1 with z − [z̄] ∈ pW(R⁺)^×, and r ≥ 1. (a) Every x ∈ ℛ̃^{int,r}_R/(z) lifts to y = Σ p^i [ȳ_i] ∈ W(R) with α(ȳ_0) ≥ α(ȳ_i) for all i. (b) For any closed interval I ⊂ (0, ∞) containing 1 and any m ≥ 1, all the maps among W(R⁺)[[z̄]^{−1}] = W(𝔬_R)[[z̄]^{−1}], their p-localizations, W(R⁺)[p^{−1}], W(𝔬_R)[p^{−1}], ℛ̃^{int,r}_R, ℛ̃^{bd,r}_{R⁺} → ℛ̃^{bd,r}_{𝔬_R} → ℛ̃^{bd,r}_R and ℛ̃^I_{R⁺} → ℛ̃^I_{𝔬_R} → ℛ̃^I_R (and ℛ̃^{bd,r}_R → ℛ̃^I_R when I ⊆ (0, r]) become isomorphisms modulo z^m.",
+   "locator": "§5.5, Lemma 5.5.5, p. 130",
+   "status": "missing",
+   "note": "Findings E46 (corrected in the authors' errata) and E47 concern the proof of (b). The quotient by z is the untilt; RelativeFarguesFontaine RF2:untilts plans the untilt divisor and its completions (nodes closed-cartier-divisor-norm-estimate and BdR-completion-and-filtration), not this comparison."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/206",
+   "kind": "definition",
+   "name": "Almost modules, almost finite projective and almost finite étale algebras",
+   "statement": "Let A be a uniform Banach algebra with its spectral norm such that for each ε > 1 there is λ ∈ A with 1 < |λ| < ε and |λ||λ^{−1}| = 1 (e.g. A over a nondiscretely normed analytic field). An 𝔬_A-module is almost zero if killed by 𝔪_A, and almost 𝔬_A-modules form the localization at morphisms with almost zero kernel and cokernel. An A-module B is almost finite projective if for each t ∈ 𝔪_A there are a finite free F and maps B → F → B composing to t, uniformly almost finite projective if F can always be taken of a fixed rank m; for B almost finite projective there is an almost trace B → A, and B is almost finite étale if the trace pairing gives an almost isomorphism B → Hom_A(B, A) (equivalent to Gabber–Ramero's definition by their Theorem 4.1.14).",
+   "locator": "§5.5, Definition 5.5.8, p. 132",
+   "status": "planned",
+   "planned": [
+    "PerfectoidSpaces:P0"
+   ],
+   "note": "PerfectoidSpaces P0 (almost mathematics: almost finite projective, uniformly almost finite projective and almost finite étale algebras, and the trace)."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/207",
+   "kind": "theorem",
+   "name": "Almost purity (Kedlaya–Liu, Scholze)",
+   "statement": "Let A be a perfectoid algebra. For every B ∈ FÉt(A), 𝔬_B is uniformly almost finite projective and almost étale over 𝔬_A. The proof applies φ^{−n} to a splitting and to the trace pairing of ℛ̃^{int,1}_S over ℛ̃^{int,1}_R and reduces modulo y_n = [z̄^{−p^{−n}}]z, using Lemma 5.5.5; unlike Faltings's original theorem it does not refer to toric coordinates.",
+   "locator": "§5.5, Theorem 5.5.9 and Remark 5.5.10, p. 133",
+   "status": "planned",
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "PerfectoidSpaces:P3/almost-purity-theorem."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/208",
+   "kind": "definition",
+   "name": "φ^a-modules, models, φ^a-modules over annuli and φ^a-bundles",
+   "statement": "Fix a > 0 and q = p^a. A φ^a-module over W(R), ℰ̃_R, ℛ̃^int_R, ℛ̃^bd_R, ℛ̃_R, ℛ̃⁺_R or ℛ̃^∞_R is a finite locally free module with a semilinear φ^a-action (trivial if it is a sum of copies of the ring); for ∗ ∈ {ℛ̃^int, ℛ̃^bd, ℛ̃} such a module over ∗_R descends uniquely to its model M_r over ∗^r_R with (φ^a)^*M_r ≅ M_r ⊗ ∗^{r/q}_R. For 0 < s ≤ r/q, a φ^a-module over ℛ̃^{[s,r]}_R is a finite locally free M with (φ^a)^*M ⊗ ℛ̃^{[s,r/q]}_R ≅ M ⊗ ℛ̃^{[s,r/q]}_R. A φ^a-bundle over ℛ̃_R is a compatible family of φ^a-modules M_I over ℛ̃^I_R for all I = [s, r] with 0 < s ≤ r/q, with isomorphisms ψ_{I,I′} for I′ ⊆ I satisfying the cocycle condition; it extends to all closed I ⊂ (0, ∞), and its global sections form a φ^a-stable module. Kernels of surjections of φ^a-modules (resp. bundles) are again φ^a-modules (resp. bundles). For 0 < s ≤ r/q, restriction is a tensor equivalence from φ^a-bundles over ℛ̃_R to φ^a-modules over ℛ̃^{[s,r]}_R (glueing by Theorem 5.3.16), and φ^a-modules over ℛ̃_R embed fully faithfully into φ^a-bundles (the model M_r is the module of (0, r]-sections).",
+   "locator": "§6.0–6.1, Hypothesis 6.0.1, Definitions 6.1.1–6.1.2, Remarks 6.1.3 and 6.1.6, Lemma 6.1.5, pp. 134–135",
+   "status": "planned",
+   "planned": [
+    "VectorBundlesAndIsocrystals:VB1",
+    "RelativeFarguesFontaine:RF1"
+   ],
+   "note": "VB1 ('compare [bundles] with finite projective modules on annuli and Frobenius descent') and RF1 (the Frobenius quotient X_S = Y_S/φ^ℤ): a φ^a-bundle is a vector bundle on the relative curve."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/209",
+   "kind": "theorem",
+   "name": "Generators of a φ^a-bundle generate its global sections",
+   "statement": "If global sections v_1, …, v_n of a φ^a-bundle M over ℛ̃_R generate M_I over ℛ̃^I_R for every closed interval I ⊂ (0, ∞), they generate the module of global sections of M over ℛ̃^∞_R (after Kiehl, Satz 2.4).",
+   "locator": "§6.1, Lemma 6.1.4, p. 135",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/210",
+   "kind": "theorem",
+   "name": "Twists, surjectivity of φ^a − 1 and global generation (ampleness of 𝒪(1))",
+   "statement": "For a φ^a-module or bundle M and n ∈ ℤ, M(n) is M with φ^a multiplied by p^{−n}. For a φ^a-bundle M there is N such that for n ≥ N and 0 < s ≤ r, φ^a − 1 : M_{[s,rq]}(n) → M_{[s,r]}(n) is surjective (N = 1 if M comes from a φ^a-module over ℛ̃^int_R); hence twisting a short exact sequence of φ^a-bundles by n ≥ N keeps it exact on φ^a-invariants. For n ≥ N, finitely many φ^a-invariant global sections of M(n) generate M (2m of them, N = 1, if M comes from an m-generated φ^a-module over ℛ̃^int_R). One cannot produce the generators on a single interval [r/q, r] (that would give isomorphic φ-modules of different degrees); the argument uses that R is Banach over an analytic field, and extends to R free of trivial spectrum by compactness.",
+   "locator": "§6.2, Definition 6.2.1, Propositions 6.2.2 and 6.2.4, Corollary 6.2.3 and Remarks 6.2.5–6.2.6, pp. 135–138",
+   "status": "planned",
+   "planned": [
+    "VectorBundlesAndIsocrystals:VB2:ampleness"
+   ],
+   "note": "VB2:ampleness ('sufficiently positive twists of a bundle are globally generated with higher cohomology zero', for affinoid perfectoid S). Findings E48 (corrected in the authors' errata) and E49 concern the proof of Proposition 6.2.4."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/211",
+   "kind": "construction",
+   "name": "The graded ring P = ⊕ P_n and the scheme Proj(P)",
+   "statement": "P_n = {x ∈ ℛ̃⁺_R : φ^a(x) = p^n x} = {x ∈ ℛ̃_R : φ^a(x) = p^n x} (n ≥ 0), a reduced graded ring; Proj(P), glued from D_+(f) = Spec P[f^{−1}]_0 for homogeneous f of positive degree, is a reduced separated scheme. For any d > 0, P_d generates the unit ideal of ℛ̃^∞_R, so some f_1, …, f_m ∈ P_d generate it; the ideal they generate in P is saturated, so the D_+(f_i) cover Proj(P) and Proj(P) is quasicompact. For a maximal ideal 𝔭 of P[f^{−1}]_0 with homogeneous prime 𝔮, 𝔮 and f generate the unit ideal of ℛ̃^{[r/q,r]}_R but 𝔮 alone does not. For V a sheaf on Proj(P) and 𝒪(n) the invertible sheaf of the rank-one φ^a-module with φ^a(v) = p^{−n}v, M(V(n)) = M(V)(n), and V(n) is globally generated for n large.",
+   "locator": "§6.3, Definition 6.3.1, Lemmas 6.3.7–6.3.8 and Remark 6.3.16, pp. 138–142",
+   "status": "planned",
+   "planned": [
+    "RelativeFarguesFontaine:RF3",
+    "VectorBundlesAndIsocrystals:VB2:ampleness"
+   ],
+   "note": "RF3/graded-algebra-and-algebraic-curve-map (the graded ring P and the map to the schematic curve; 𝒪(n) and the sign conversion) and VB2:ampleness."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/212",
+   "kind": "theorem",
+   "name": "φ^a-bundles over ℛ̃_R are vector bundles on Proj(P)",
+   "statement": "For f ∈ P_d (d > 0) and a φ^a-bundle M, M_f = ∪_n f^{−n} M(dn)^{φ^a} = M[f^{−1}]^{φ^a} is a finite projective P[f^{−1}]_0-module, and M_f ⊗_{P[f^{−1}]_0} ℛ̃^I_R[f^{−1}] → M_I ⊗ ℛ̃^I_R[f^{−1}] is bijective for every closed interval I; M ↦ M_f is exact and compatible with sums of subbundles. Consequently the following tensor categories are equivalent: (a) finite locally free quasicoherent sheaves on Proj(P); (b) φ^a-modules over ℛ̃^∞_R; (c) φ^a-modules over ℛ̃_R; (d) φ^a-bundles over ℛ̃_R, via V ↦ M(V) (glueing Γ(D_+(f), V) ⊗ ℛ̃^∞_R[f^{−1}]), base extension, Remark 6.1.6, and M ↦ V(M). Hence φ^a-modules over ℛ̃_∗ satisfy effective descent along rational coverings of Spa(R, R⁺).",
+   "locator": "§6.3, Definitions 6.3.2, 6.3.10–6.3.11, Lemma 6.3.3, Corollaries 6.3.4 and 6.3.13, Theorems 6.3.9 and 6.3.12, pp. 138–142",
+   "status": "planned",
+   "planned": [
+    "VectorBundlesAndIsocrystals:VB2:ampleness",
+    "RelativeFarguesFontaine:RF3",
+    "VectorBundlesAndIsocrystals:VB1"
+   ],
+   "note": "VB2:ampleness ('Compare bundles and cohomology on X_S and the Proj curve built in RF3'; node gaga-equivalence, Fargues–Scholze II.2.7) with RF3; descent is VB1. This paper proves the equivalence for every perfect uniform R, not only perfectoid S."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/213",
+   "kind": "theorem",
+   "name": "For an analytic field, the rings P[f^{−1}]_0 are Prüfer and coherent sheaves correspond to finitely presented φ^a-modules",
+   "statement": "A domain is Prüfer if every finitely generated ideal is projective, equivalently every finitely generated torsion-free module is projective, equivalently I_1 ∩ I_2 + I_1 ∩ I_3 = I_1 ∩ (I_2 + I_3) for all ideals (Bézout ⇒ Prüfer; noetherian Prüfer = Dedekind). If R = L is an analytic field, P[f^{−1}]_0 = (ℛ̃_L[f^{−1}])^{φ^a} is a Prüfer domain, and Definition 6.3.10 gives an equivalence between coherent sheaves on Proj(P) and finitely presented ℛ̃_L-modules with semilinear φ^a-action. For general R it is unclear whether the P[f^{−1}]_0 are coherent. (Fargues–Fontaine show Proj(P_L) is a complete absolute curve: noetherian, connected, separated, regular of dimension 1, so these rings are Dedekind.)",
+   "locator": "§6.3, Definition 6.3.5, Lemma 6.3.6, Theorem 6.3.14 and Remarks 6.3.15, 6.3.20, pp. 139–144",
+   "status": "missing",
+   "note": "VB2:ampleness plans the regular noetherian dimension-one structure of the schematic curve at a geometric point (from Fargues–Fontaine); the Prüfer property for any analytic field and the coherent-sheaf equivalence are not planned."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/214",
+   "kind": "theorem",
+   "name": "Norms on the spaces of twisted invariants and continuous group actions",
+   "statement": "For a φ^a-bundle M, r > 0 and a norm on M_{[r/q,r]} induced from λ(α^r), the equivalence class of its restriction to M(n)^{φ^a} = {v : φ^a(v) = p^{−n}v} is independent of r and of the norm (not uniformly in n). If a profinite group G acts continuously on each ℛ̃^r_R commuting with φ^a, an action of G on a φ^a-module M over ℛ̃_R (equivalently on the corresponding sheaf V on Proj(P)) is continuous for the LF topology iff it is continuous on each M(n)^{φ^a} = Γ(Proj(P), V(n)) for these norms; such actions are called continuous.",
+   "locator": "§6.3, Lemma 6.3.17 and Definition 6.3.18, pp. 142–143",
+   "status": "missing",
+   "note": "Used for the relative (φ, Γ)-modules of §9."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/215",
+   "kind": "theorem",
+   "name": "φ^a-cohomology is computed on an annulus and is Banach",
+   "statement": "Let M be a φ^a-module over ℛ̃^∞_R. (a) For r > 0 the complex M_r →^{φ^a−1} M_{r/q} (M_r = M ⊗ ℛ̃^r_R) computes H^i_{φ^a}(M); (b) so does M ⊗ ℛ̃_R; (c) for 0 < s ≤ r/q so does M_{[s,r]} →^{φ^a−1} M_{[s,r/q]}; (d) in (c), φ^a − 1 is strict, so H^0_{φ^a}(M) and H^1_{φ^a}(M) are Banach spaces over ℚ_p.",
+   "locator": "§6.3, Proposition 6.3.19, p. 143",
+   "status": "planned",
+   "planned": [
+    "VectorBundlesAndIsocrystals:VB1"
+   ],
+   "note": "VB1 ('Construct H^0 and H^1 … from annular descent'). The Banach structure in (d) is not stated there; the note records it for the design."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/216",
+   "kind": "theorem",
+   "name": "Frobenius-stable bases on an annulus extend over the model, and the approximation lemma",
+   "statement": "Let M be a φ^a-module over ℛ̃_R with models M_r. (7.1.1) If v_1, …, v_n is a basis of M_{[r/q,r]} on which φ^a acts via an invertible matrix over ℛ̃^{r/q}_R, then it is a basis of M_r. (7.1.2) Let h ≥ 0, let D be diagonal with entries p^{d_1}, …, p^{d_n} (d_i ∈ ℤ, no two differing by more than h), and let e_1, …, e_n be a basis of M_{[r/q,r]} on which φ^a acts via F over ℛ̃^{[r/q,r/q]}_R with λ(α^{r/q})(FD − 1) < p^{−h}. Then M_r has a basis v_j = Σ_i U_{ij} e_i on which φ^a acts via F′ with F′D − 1 having entries in pℛ̃^{int,r/q}_R, where λ(α^{r/q})(U − 1), λ(α^r)(D^{−1}UD − 1) < p^{−h}.",
+   "locator": "§7.1, Lemmas 7.1.1–7.1.2, pp. 145–146",
+   "status": "missing",
+   "note": "RD.2/good-models-of-sigma-modules (a) plans the matrix lemma over a field (Kedlaya, Slope filtrations revisited, Lemma 6.1.1); the version over a perfect uniform Banach ring R, which spreads a good basis from ℋ(β) to a neighbourhood in Theorems 7.3.7 and 7.4.5, is not planned. Findings E50 and E51 concern these lemmas."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/217",
+   "kind": "definition",
+   "name": "Rank, degree and slope as functions on ℳ(R); pure and étale loci",
+   "statement": "For a φ^a-module M over W(R), ℰ̃_R, ℛ̃^int_R, ℛ̃^bd_R or ℛ̃_R, rank(M, β) ∈ ℤ and deg(M, β) ∈ a^{−1}ℤ are the rank and degree of the base extension of M from R to ℋ(β), for β ∈ ℳ(R) (Convention 4.1.13 when a > 1); the degree is identically zero over W(R) and ℛ̃^int_R. Both functions are continuous, i.e. locally constant, on ℳ(R) (Lemma 7.2.2), hence so is the slope μ(M, β) = deg(M, β)/rank(M, β) when the rank is nowhere zero. The pure (resp. étale) locus of M is the set of β at which the base extension to ℋ(β) is pure (resp. étale); M is pointwise pure (resp. étale) if the locus is ℳ(R). At a point of rank 0 a module counts as pure of every slope, so that pure and étale φ-modules admit kernels of surjections.",
+   "locator": "§7.2, Definitions 7.2.1 and 7.2.3, Lemma 7.2.2 and Convention 7.2.4, p. 147",
+   "status": "planned",
+   "planned": [
+    "VectorBundlesAndIsocrystals:VB1",
+    "VectorBundlesAndIsocrystals:VB4"
+   ],
+   "note": "VB1/degree-rank-slope-and-HN-formalism defines rank, degree and slope at a geometric point of X_S, and VB4/semicontinuity-of-HN-polygon states that the endpoint of the HN polygon (the degree) is locally constant in a family of constant rank over a perfectoid S. Here the functions live on the Gel’fand spectrum ℳ(R) of any perfect uniform Banach F_p-algebra."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/218",
+   "kind": "definition",
+   "name": "Pure models, local pure models and the hierarchy of purity conditions",
+   "statement": "Let c, d ∈ ℤ with d a positive multiple of a. A (c,d)-pure model of a φ^a-module M over ℰ̃_R (resp. ℛ̃^bd_R, ℛ̃_R) is a bounded W(R)-submodule (resp. ℛ̃^int_R-submodule) M_0 of M generating M over the larger ring such that φ^a induces (p^cφ^d)^*M_0 ≅ M_0; its existence makes M pointwise pure of slope c/d, and a (0,d)-pure model is an étale model. A local model at β ∈ ℳ(R) is a model after a rational localization R → R′ encircling β. M has a locally free local pure model at β iff it has a free one, and over ℛ̃^bd_R this can be tested over ℰ̃_R (Lemma 7.3.3). M is pure of slope s at β if it has a locally free local (c,d)-pure model at β with c/d = s, pure if it is pure at every β (finitely many local models then cover ℳ(R)), and globally pure if it has a locally free pure model. For the conditions (a) globally pure, (b) admits a pure model, (c) pure, (d) admits local pure models, (e) pointwise pure: over ℰ̃_R and ℛ̃^bd_R, (a) strictly implies (b) and (b)–(e) are equivalent; over ℛ̃_R, (a) strictly implies (b), (b) strictly implies (c), and (c)–(e) are equivalent (by Corollaries 7.3.9 and 8.5.14 and Examples 8.5.17–8.5.18). Purity of a φ^a-module over ℛ̃^bd_R cannot be read off from its base extension to ℛ̃_R.",
+   "locator": "§7.3, Definitions 7.3.1 and 7.3.4, Lemma 7.3.3 and Remarks 7.3.2, 7.3.5, 7.3.11, pp. 147–152",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/219",
+   "kind": "theorem",
+   "name": "Relative Dieudonné–Manin for free pure models",
+   "statement": "If a φ^a-module M over ℰ̃_R (resp. ℛ̃^bd_R, ℛ̃_R) has a free (c,d)-pure model M_0, there is an R-algebra S, the completed direct limit of faithfully finite étale R-subalgebras, such that M_0 ⊗ W(S) (resp. M_0 ⊗ ℛ̃^int_S) has a basis fixed by p^cφ^d.",
+   "locator": "§7.3, Proposition 7.3.6, p. 149",
+   "status": "missing",
+   "note": "VB4/relative-HN-filtration-and-proetale-splitting plans the rational analogue for bundles on X_S over a perfectoid S (pro-étale locally E^λ ≅ O(λ)^{n_λ}); the integral statement for pure models over W(S) and ℛ̃^int_S is not planned."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/220",
+   "kind": "theorem",
+   "name": "Pure models spread out from a point; pure and étale loci are open; pointwise pure is pure",
+   "statement": "Let M be a φ^a-module over ℛ̃_R of nowhere zero rank, β a point of its pure locus, and c, d ∈ ℤ with d a positive multiple of a and c/d = μ(M, β). Every (c,d)-pure model of M ⊗ ℛ̃_{ℋ(β)} extends to a free local (c,d)-pure model of M at β (Theorem 7.3.7). Consequently, for any φ^a-module M over ℛ̃_R: the pure and étale loci are open; M is étale (resp. pure) iff it is pointwise étale (resp. pointwise pure); and M is pure at β iff it has a (not necessarily locally free) local pure model at β.",
+   "locator": "§7.3, Theorem 7.3.7 and Corollaries 7.3.8–7.3.10, pp. 150–151",
+   "status": "missing",
+   "note": "VB4/slope-zero-local-systems plans, for perfectoid S, the equivalence between bundles with constant zero HN polygon and pro-étale ℚ_p-local systems (Fargues–Scholze II.2.20), which the packet proves from the relative HN filtration instead of from local étale models; the spreading of pure models and the openness of the pure locus are not planned."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/221",
+   "kind": "definition",
+   "name": "Slope polygons over an analytic field; the special and generic polygons over ℛ̃^bd_L",
+   "statement": "For R = L an analytic field and M a φ^a-module over ℛ̃_L with slope filtration 0 = M_0 ⊂ ⋯ ⊂ M_l = M (Theorem 4.2.13; pure quotients with μ(M_1/M_0) > ⋯ > μ(M_l/M_{l−1})), the slope polygon starts at (0,0) and consists, for i = l, …, 1 in order, of a segment of width rank(M_i/M_{i−1}) and slope μ(M_i/M_{i−1}); it ends at (rank M, deg M) and is unchanged by passing to a complete extension of L. For M over ℛ̃^bd_L, the special polygon is that of M ⊗ ℛ̃_L and the generic polygon is that of M ⊗ ℰ̃_L, viewing ℰ̃_L as ℛ̃_L for the trivial norm on L (equivalently, the Dieudonné–Manin slopes).",
+   "locator": "§7.4, Definition 7.4.1 and Remark 7.4.2, p. 152",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.2"
+   ],
+   "note": "RD.1/frobenius-slopes (HN polygons and generic slopes) and RD.2/special-polygon-above-generic (the special polygon as the HN polygon over the extended Robba ring)."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/222",
+   "kind": "theorem",
+   "name": "The special slope polygon lies above the generic one",
+   "statement": "For L an analytic field and M a φ^a-module over ℛ̃^bd_L: (a) the special slope polygon lies on or above the generic one, with the same endpoints; (b) if the two coincide, the slope filtration of M ⊗ ℛ̃_L descends to M.",
+   "locator": "§7.4, Proposition 7.4.3, p. 152",
+   "status": "planned",
+   "planned": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.2"
+   ],
+   "note": "RD.2/special-polygon-above-generic and RD.2/coincident-polygons-common-filtration state Kedlaya, Slope filtrations revisited, Proposition 5.5.1 and Theorem 5.5.2, which the paper cites as its proof."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/223",
+   "kind": "theorem",
+   "name": "Reading generic slopes from a matrix AD over a relative base",
+   "statement": "Let M be a φ^a-module over ℛ̃^bd_R with a basis on which φ^a acts via AD, D diagonal with entries in p^ℤ and A − 1 with entries in pℛ̃^int_R. Then there are an R-algebra S which is the union (not only the completed union) of faithfully finite étale R-subalgebras and an invertible U over W(S), congruent to 1 modulo p, with U^{−1}ADφ^a(U) = D. In particular, at every β ∈ ℳ(R) the generic slopes of M are the negatives of the p-adic valuations of the diagonal entries of D, divided by a.",
+   "locator": "§7.4, Lemma 7.4.4, p. 152",
+   "status": "missing",
+   "note": "RD.1/generic-newton-polygon-from-cyclic-vector (b) plans the case of a field (Kedlaya, monodromy paper, Proposition 5.9); the relative form over R, and the refinement that S need not be completed (used in Theorem 7.4.9), are not planned."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/224",
+   "kind": "theorem",
+   "name": "The slope polygon is lower semicontinuous on ℳ(R)",
+   "statement": "For any φ^a-module M over ℛ̃_R, β ↦ the slope polygon of M ⊗ ℛ̃_{ℋ(β)} is lower semicontinuous on ℳ(R): where the rank is constant, for each x ∈ [0, rank M] the y-coordinate of the polygon at x is a lower semicontinuous function of β, and it is locally constant at x = rank M.",
+   "locator": "§7.4, Theorem 7.4.5, p. 153",
+   "status": "planned",
+   "planned": [
+    "VectorBundlesAndIsocrystals:VB4"
+   ],
+   "note": "VB4/semicontinuity-of-HN-polygon (Fargues–Scholze II.2.19(i)) for bundles on X_S over a perfectoid S, at geometric points; its slope convention is opposite to the paper’s, which turns upper into lower semicontinuity. The packet’s proof goes through properness of the projectivized Banach–Colmez space instead of the approximation lemma."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/225",
+   "kind": "theorem",
+   "name": "The slope polygon is bounded and is locally constant on an open dense subset",
+   "statement": "For any φ^a-module M over ℛ̃_R, the slope polygons of M at the points of ℳ(R) are bounded above and below (all slopes are at least −N/a for N as in Proposition 6.2.4, and the sum of the slopes is continuous). Hence the polygon takes finitely many values locally, and there is an open dense U ⊆ ℳ(R) on which it is locally constant.",
+   "locator": "§7.4, Proposition 7.4.6 and Corollary 7.4.7, pp. 153–154",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/226",
+   "kind": "theorem",
+   "name": "Splitting off the first m slopes when a vertex is constant",
+   "statement": "(7.4.8) Let A be an n × n matrix over ℛ̃^int_R invertible over ℛ̃^bd_R, x_1, …, x_n ∈ ℛ̃^bd_R, and y_1, …, y_n ∈ ℰ̃_R with y_i − x_i = Σ_j A_{ij}φ^a(y_j). Then all y_i lie in ℛ̃^bd_R iff their images lie in ℛ̃^bd_{ℋ(β)} for every β ∈ ℳ(R). (7.4.9) Let M over ℛ̃_R have constant rank n and slopes μ_1(M,β) ≥ ⋯ ≥ μ_n(M,β) at β. If for some m ∈ {1, …, n−1} and all β we have μ_m(M,β) > μ_{m+1}(M,β) and μ_1 + ⋯ + μ_m constant, there is a unique φ^a-submodule N of rank m with M/N a φ^a-module such that at every β the slopes of N are μ_1, …, μ_m and those of M/N are μ_{m+1}, …, μ_n.",
+   "locator": "§7.4, Lemma 7.4.8 and Theorem 7.4.9, pp. 154–155",
+   "status": "missing",
+   "note": "VB4/relative-HN-filtration-and-proetale-splitting plans the case of a constant HN polygon over a perfectoid S (next item); the splitting at a single constant vertex, with a polygon that may vary, is not planned."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/227",
+   "kind": "theorem",
+   "name": "Slope filtration in families with constant slope polygon",
+   "statement": "If the slope polygon of a φ^a-module M over ℛ̃_R is constant on ℳ(R), there is a unique filtration 0 = M_0 ⊂ ⋯ ⊂ M_l = M by φ^a-submodules whose quotients are φ^a-modules pure of constant slope with μ(M_1/M_0) > ⋯ > μ(M_l/M_{l−1}).",
+   "locator": "§7.4, Corollary 7.4.10, p. 155",
+   "status": "planned",
+   "planned": [
+    "VectorBundlesAndIsocrystals:VB4"
+   ],
+   "note": "VB4/relative-HN-filtration-and-proetale-splitting (Fargues–Scholze II.2.19(ii)) for perfectoid S; the paper proves it for any perfect uniform R by induction on the rank from Theorem 7.4.9."
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/228",
+   "kind": "theorem",
+   "name": "Negative slopes: H^0 vanishes and H^1 injects into the product of the pointwise H^1",
+   "statement": "If M over ℛ̃_R has everywhere negative slopes, then H^0_{φ^a}(M) = 0, H^0_{φ^a}(M ⊗ ℛ̃_{ℋ(β)}) = 0 for all β ∈ ℳ(R), and H^1_{φ^a}(M) → ∏_β H^1_{φ^a}(M ⊗ ℛ̃_{ℋ(β)}) is injective. For any M this applies to M(n) for n small enough (by Proposition 7.4.6); the injectivity also holds for n large, since then H^1_{φ^a}(M(n)) = 0 by Proposition 6.2.2.",
+   "locator": "§7.4, Corollary 7.4.11 and Remark 7.4.12, pp. 155–156",
+   "status": "missing",
+   "note": "Findings E52 and E53 (the second corrected in the authors’ errata) concern this item."
   }
  ],
  "routes": [
@@ -2080,9 +2684,11 @@
     "PAPER-KEDLAYA-LIU-15/151",
     "PAPER-KEDLAYA-LIU-15/167",
     "PAPER-KEDLAYA-LIU-15/148",
-    "PAPER-KEDLAYA-LIU-15/166"
+    "PAPER-KEDLAYA-LIU-15/166",
+    "PAPER-KEDLAYA-LIU-15/203",
+    "PAPER-KEDLAYA-LIU-15/207"
    ],
-   "reason": "P3 proves that finite étale algebras over perfectoid rings are perfectoid and that tilting is an equivalence on them, and compares the perfectoid finite étale category with the algebraic one. Kedlaya–Liu prove this by reduction to fields through Witt vectors instead of almost mathematics (Theorems 3.5.6, 3.6.21). The missing inputs are the characteristic-p side (finite étale algebras over a perfect ring are perfect, and FÉt is unchanged by perfection and completed perfection, Lemma 3.1.5 and Theorem 3.1.15), the descent direction (Proposition 3.5.9 with Lemma 3.5.8, Proposition 3.6.22), and Ω_{o_L/o_K} = 0 for perfectoid K (Theorem 3.5.11)."
+   "reason": "P3 proves that finite étale algebras over perfectoid rings are perfectoid and that tilting is an equivalence on them, and compares the perfectoid finite étale category with the algebraic one. Kedlaya–Liu prove this by reduction to fields through Witt vectors instead of almost mathematics (Theorems 3.5.6, 3.6.21). The missing inputs are the characteristic-p side (finite étale algebras over a perfect ring are perfect, and FÉt is unchanged by perfection and completed perfection, Lemma 3.1.5 and Theorem 3.1.15), the descent direction (Proposition 3.5.9 with Lemma 3.5.8, Proposition 3.6.22), and Ω_{o_L/o_K} = 0 for perfectoid K (Theorem 3.5.11). Chapter 5 adds the period-ring side of the same equivalence: finite étale algebras over R, W(R), ℛ̃^int_R and the φ^{−1}-equivariant ones over ℛ̃^{int,r}_R correspond, compatibly with the untilt ℛ̃^{int,r}_R/(z) and Theorem 3.6.21 (Proposition 5.5.3, Corollary 5.5.6). The route also names P3’s planned almost purity theorem, which the paper proves from this comparison without toric coordinates (Theorem 5.5.9)."
   },
   {
    "route": "source",
@@ -2135,6 +2741,67 @@
     "PAPER-KEDLAYA-LIU-15/172"
    ],
    "reason": "R5 constructs sousperfectoid spaces, the class of non-perfectoid adic spaces that inherit sheafiness from a perfectoid cover. Preperfectoid algebras (Scholze–Weinstein), whose base change to a perfectoid field is perfectoid, are the closest earlier class: Kedlaya–Liu §3.7 proves that they are stably uniform and sheafy, closed under finite étale extension, and (in the strong and relative variants) under completed tensor products."
+  },
+  {
+   "route": "source",
+   "roadmap": "RelativeFarguesFontaine",
+   "stages": [
+    "RelativeFarguesFontaine:RF0:annuli",
+    "RelativeFarguesFontaine:RF1"
+   ],
+   "items": [
+    "PAPER-KEDLAYA-LIU-15/188",
+    "PAPER-KEDLAYA-LIU-15/189",
+    "PAPER-KEDLAYA-LIU-15/190",
+    "PAPER-KEDLAYA-LIU-15/191",
+    "PAPER-KEDLAYA-LIU-15/192",
+    "PAPER-KEDLAYA-LIU-15/193",
+    "PAPER-KEDLAYA-LIU-15/194",
+    "PAPER-KEDLAYA-LIU-15/195",
+    "PAPER-KEDLAYA-LIU-15/196",
+    "PAPER-KEDLAYA-LIU-15/197",
+    "PAPER-KEDLAYA-LIU-15/198",
+    "PAPER-KEDLAYA-LIU-15/200",
+    "PAPER-KEDLAYA-LIU-15/201",
+    "PAPER-KEDLAYA-LIU-15/202",
+    "PAPER-KEDLAYA-LIU-15/204",
+    "PAPER-KEDLAYA-LIU-15/205",
+    "PAPER-KEDLAYA-LIU-15/209",
+    "PAPER-KEDLAYA-LIU-15/199"
+   ],
+   "reason": "RF0:annuli builds the rings of the relative period annuli Y_{S,I} of a perfectoid S as rational localizations of Spa W(R⁺), and RF1 glues Y_S over the base and forms X_S = Y_S/φ^ℤ; route 14 already sends the Witt-vector norms λ(α^r) on W(R) to RF0. Kedlaya–Liu §5 build the same rings for any perfect uniform Banach F_p-algebra R from those norms (the relative extended Robba rings ℛ̃^{int,r}_R, ℛ̃^{bd,r}_R, ℛ̃^{[s,r]}_R, ℛ̃^r_R, ℛ̃_R and ℛ̃⁺_R) and prove the properties the curve needs: their norms, topologies and functoriality; convexity, units and φ-invariants; restriction maps, intersections and splittings; the sheaf property and Kiehl glueing over Spa(R, R⁺) and over covers of the interval; relative perfectoidness (after R. Rodriguez); the maps between Gel’fand spectra and the radius fibration onto (0, ∞) with the quotient X_R; finite étale functoriality; and reduction modulo a primitive element. Lemma 6.1.4 (generators of a φ^a-bundle generate its global sections) belongs with the glueing statements. None of this is stated for a general perfect uniform R by the layers, which work with perfectoid S through adic charts. The route also names the lifting of rational localizations (Definition 5.3.10–Corollary 5.3.12), which RF0:integral-Y plans."
+  },
+  {
+   "route": "source",
+   "roadmap": "VectorBundlesAndIsocrystals",
+   "stages": [
+    "VectorBundlesAndIsocrystals:VB2:ampleness"
+   ],
+   "items": [
+    "PAPER-KEDLAYA-LIU-15/213",
+    "PAPER-KEDLAYA-LIU-15/214"
+   ],
+   "reason": "VB2:ampleness compares bundles on X_S with the Proj curve of RelativeFarguesFontaine RF3 and uses the regular noetherian dimension-one structure of the schematic curve at a geometric point. Kedlaya–Liu §6.3 prove the same comparison for any perfect uniform R (planned there) and add two facts about the Proj description that the layer does not state: for an analytic field L the rings P[f^{−1}]_0 are Prüfer, so coherent sheaves on Proj(P) correspond to finitely presented φ^a-modules over ℛ̃_L (Theorem 6.3.14); and the norms on the spaces of twisted invariants M(n)^{φ^a} = Γ(Proj P, V(n)) are well defined up to equivalence, which defines continuous group actions on φ^a-modules (Lemma 6.3.17, Definition 6.3.18), used for the relative (φ, Γ)-modules of §9."
+  },
+  {
+   "route": "source",
+   "roadmap": "VectorBundlesAndIsocrystals",
+   "stages": [
+    "VectorBundlesAndIsocrystals:VB4"
+   ],
+   "items": [
+    "PAPER-KEDLAYA-LIU-15/216",
+    "PAPER-KEDLAYA-LIU-15/218",
+    "PAPER-KEDLAYA-LIU-15/219",
+    "PAPER-KEDLAYA-LIU-15/220",
+    "PAPER-KEDLAYA-LIU-15/223",
+    "PAPER-KEDLAYA-LIU-15/225",
+    "PAPER-KEDLAYA-LIU-15/226",
+    "PAPER-KEDLAYA-LIU-15/228",
+    "PAPER-KEDLAYA-LIU-15/224",
+    "PAPER-KEDLAYA-LIU-15/227"
+   ],
+   "reason": "VB4 studies bundles on X_S in families over a perfectoid S: semicontinuity of the Harder–Narasimhan polygon, the relative HN filtration on loci of constant polygon, and slope-zero bundles as local systems (Fargues–Scholze II.2.19–II.2.20). Kedlaya–Liu §7 prove the first two for φ^a-modules over ℛ̃_R, R any perfect uniform Banach F_p-algebra, by another method, which needs statements the layer does not have: approximation lemmas that spread a good basis at a point of ℳ(R) to a neighbourhood (Lemmas 7.1.1–7.1.2, 7.4.4); pure models, with the openness of the pure and étale loci and the equivalence of pointwise purity with purity (§7.3, Proposition 7.3.6); boundedness of the slope polygon and its local constancy on an open dense set (Proposition 7.4.6, Corollary 7.4.7); splitting off a constant vertex of a varying polygon (Lemma 7.4.8, Theorem 7.4.9); and pointwise detection of H^1 for negative slopes (Corollary 7.4.11). The route also names VB4’s planned semicontinuity and constant-polygon filtration (Theorem 7.4.5, Corollary 7.4.10), which the paper proves for any perfect uniform R."
   }
  ],
  "sourceIssues": [
@@ -2744,6 +3411,216 @@
     "the errata for this paper, which Kedlaya’s papers page (kskedlaya.org/papers) says are recorded in part II: Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3 (21 October 2019), Appendix A “Errata for [91]”, read 29 September 2026",
     "a web search for errata to the paper, 29 September 2026: nothing beyond the part II appendix",
     "the published Astérisque 371 text was not obtained (the eScholarship copy returned HTTP 403), so the findings are scoped to arXiv v5"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E39",
+   "kind": "error",
+   "locator": "Lemma 4.2.10, p. 108 (arXiv 1301.0792v5)",
+   "printed": "More generally, for any positive integer a, the elements of Ẽ_L and R̃_L fixed by φ^a constitute the unramified extension of Q_p with residue field F_{p^a}.",
+   "correction": "… constitute W(L^{φ^a})[p^{−1}], where L^{φ^a} = {x ∈ L : x^{p^a} = x}; this is the unramified extension of Q_p with residue field F_{p^a} exactly when F_{p^a} ⊆ L (for instance when L is algebraically closed).",
+   "reason": "Ẽ_L = W(L)[p^{−1}], so its φ^a-invariants are W(L^{φ^a})[p^{−1}], and the proof (via Lemma 4.2.4) shows that R̃_L has the same invariants. Take L the completed perfection of F_p((t)), a perfect analytic field with residue field F_p. An x ∈ L with x^{p²} = x is 0 or a root of unity of order dividing p² − 1, prime to p, and such roots of unity inject into the residue field F_p; so L^{φ²} = F_p and the φ²-invariants of Ẽ_L are Q_p, not Q_{p²}. The uses of the lemma (Proposition 4.3.3, and the proof of Theorem 7.3.7, where L is a completed algebraic closure) take L algebraically closed or a = 1, so they are unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E40",
+   "kind": "misprint",
+   "locator": "Remark 5.1.6, p. 116 (arXiv 1301.0792v5)",
+   "printed": "By lifting each Teichmüller element separately, we can lift each y ∈ R̃^{int,r}_S to some x ∈ R̃^{int,r}_S for which λ(α^s)(x) ≤ c^r λ(β^s)(y) for all s ∈ (0, r].",
+   "correction": "… to some x ∈ R̃^{int,r}_R …",
+   "reason": "The remark proves that a strict surjection ψ : R → S induces strict surjections; the lift must lie in the source ring R̃^{int,r}_R, whose norm is λ(α^s).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E41",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 5.2.8, p. 118, twice (arXiv 1301.0792v5)",
+   "printed": "put y = Σ_{i=n}^∞ p^i[x̄_i] and z = y − x. … Put z = y − x; then the series Σ z_i converges to z",
+   "correction": "z = x − y (both times).",
+   "reason": "The lemma writes x = y + z, and the displayed estimate bounds the terms p^i[x̄_i] with i ≤ n − 1, which make up x − y.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E42",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 5.2.10, p. 119 (arXiv 1301.0792v5)",
+   "printed": "apply Lemma 5.2.8 to write x = y + z … By Lemma 5.2.6, y = z − x ∈ R̃^{int,r}_R ∩ R̃^{[s′,r′]}_R",
+   "correction": "y = x − z ∈ …",
+   "reason": "From x = y + z. The argument is unaffected, since x − z lies in the intersection because x and z do.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E43",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 5.2.12, second display, p. 120 (arXiv 1301.0792v5)",
+   "printed": "limsup_{r→+∞} λ(α^r)(x)^{1/r} ≤ sup_{r∈[s,qs]} {limsup_{n→+∞} p^{−n/(rq^n)} λ(α^r)(x)^{1/(rq^n)}} ≤ 1",
+   "correction": "limsup_{r→+∞} λ(α^r)(x)^{1/r} ≤ sup_{r∈[s,qs]} {limsup_{m→∞} p^{−mn/(rq^m)} λ(α^r)(x)^{1/(rq^m)}} ≤ 1",
+   "reason": "The index n is already the fixed exponent in φ^d(x) = p^n x; iterating λ(α^{rq}) = p^{−n}λ(α^r) m times gives λ(α^{rq^m})(x) = p^{−mn}λ(α^r)(x).",
+   "affects": "nothing",
+   "known": "Corrected in Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]'",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E44",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5.5.3, third paragraph, p. 129 (arXiv 1301.0792v5)",
+   "printed": "We first observe that R̃^{int,r}_S is finitely generated as a module over FÉt(R̃^{int,r}_R)",
+   "correction": "… finitely generated as a module over R̃^{int,r}_R",
+   "reason": "FÉt(R̃^{int,r}_R) is a category, not a ring; the finite generation meant (from Lemma 5.5.2) is over R̃^{int,r}_R.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E45",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5.5.4, p. 130 (arXiv 1301.0792v5)",
+   "printed": "The cases ∗ = Ẽ, R̃^{int,r}, R̃^int, R̃^bd, R̃^bd follow at once from Proposition 5.5.3.",
+   "correction": "… ∗ = Ẽ, R̃^{int,r}, R̃^int, R̃^{bd,r}, R̃^bd …",
+   "reason": "The statement lists R̃^{bd,r} and R̃^bd; the proof repeats R̃^bd and omits R̃^{bd,r}, which follows the same way.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E46",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 5.5.5(b), last three lines, p. 131 (arXiv 1301.0792v5)",
+   "printed": "we may thus assume that x = Σ_{n=0}^∞ [x̄_n]p^n with ᾱ(ȳ_0) ≥ ᾱ(x̄_n) for all n ≥ 0. If x is nonzero, we can choose β ∈ M(R) such that β(ȳ_0) > p^{−1} α(ȳ_0)",
+   "correction": "x̄_0 for ȳ_0 (three times) and ᾱ for α, as in the authors' errata.",
+   "reason": "The element being normalized by (a) is x itself.",
+   "affects": "nothing",
+   "known": "Corrected in Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]'",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E47",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 5.5.5(b), p. 131 (arXiv 1301.0792v5)",
+   "printed": "any class in R̃^I_{R^+}/(z) can be represented as the sum of a class arising from R̃^I_{R^+}/(z) and a class arising from R̃^{bd,t}_R/(z). … For this purpose, there is no harm to assume that x ∈ W(R^+)[p^{−1}]",
+   "correction": "any class in R̃^I_R/(z) can be represented …; … no harm to assume that x ∈ W(R^+) …",
+   "reason": "The paragraph proves that R̃^I_{R^+} → R̃^I_R is surjective modulo z, so the class to be represented lies in R̃^I_R/(z). In the next paragraph x was already chosen in W(R^+)[p^{−1}]; the harmless reduction is to x ∈ W(R^+) (multiply by a power of p), which the expansion Σ_{n≥0}[x̄_n]p^n then uses.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E48",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 6.2.4, p. 137 (arXiv 1301.0792v5)",
+   "printed": "It follows that the matrix 1 + X is invertible over R̃^{[rq^{−1/2},r]}_R, so w_1, …, w_m generate M_{[rq^{−1/2},r]}.",
+   "correction": "… the matrix [π̄^s] + X is invertible …",
+   "reason": "w_j = [π̄^s]v_j + Σ_i X_{ij} v_i, so the matrix expressing the w_j in the v_i is [π̄^s] + X, not 1 + X; it is invertible because the entries of X are small compared with the unit [π̄^s].",
+   "affects": "nothing",
+   "known": "Corrected in Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]'",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E49",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 6.2.4, p. 137 (arXiv 1301.0792v5)",
+   "printed": "We can write w_j = [π̄^s]v_j + Σ_i X_{ij} v_i with λ(α^t)(X_{ij}) ≤ ε α(π̄)^{st} for all i, j and all t ∈ [rq^{−1/2}, r].",
+   "correction": "w_j = [π̄^u]v_j + Σ_i X_{ij} v_i with λ(α^t)(X_{ij}) ≤ ε α(π̄)^{ut}; correspondingly the matrix of E48 is [π̄^u] + X.",
+   "reason": "The w_i are built from the series (6.2.2.3) with y = −[π̄^u] and z = [π̄^u] in the i-th coordinate, where u ∈ ℤ[p^{−1}] is chosen so that c = α(π̄^u) satisfies (6.2.2.2); so the leading coefficient of w_i is [π̄^u] and the error is bounded by ε c^t = ε α(π̄)^{ut}. The letter s already denotes the endpoint rq^{−1/2} of the interval, not the exponent.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E50",
+   "kind": "misprint",
+   "locator": "Statement of Lemma 7.1.1, p. 145 (arXiv 1301.0792v5)",
+   "printed": "Suppose that there exists a basis v_1, …, v_n of M_{[r/q,r]} on which φ acts via an invertible matrix F over ℛ̃^{r/q}_R.",
+   "correction": "… on which φ^a acts via an invertible matrix F over ℛ̃^{r/q}_R.",
+   "reason": "M is a φ^a-module, so only φ^a acts on it; the proof uses that φ^a(v_1), …, φ^a(v_n) is a basis of M_{[r/q^{l+1},r/q]} and that the v_j and the φ^a(v_i) are ℛ̃^{r/q}_R-linear combinations of each other, and Lemma 7.1.2 applies the lemma to a basis on which φ^a acts via G D^{−1}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E51",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 7.1.2, display after (7.1.2.1), p. 146 (arXiv 1301.0792v5)",
+   "printed": "F_{l+1} = U_{l+1}^{−1} F φ^a(U_l) = (1 + Z_l)^{−1} F_l (1 + φ^a(Z_l))",
+   "correction": "F_{l+1} = U_{l+1}^{−1} F φ^a(U_{l+1}) = (1 + Z_l)^{−1} F_l (1 + φ^a(Z_l))",
+   "reason": "Condition (b) defines F_l = U_l^{−1} F φ^a(U_l), the matrix of φ^a on the basis given by U_l. With U_{l+1} = U_l(1 + Z_l) one gets U_{l+1}^{−1} F φ^a(U_{l+1}) = (1 + Z_l)^{−1} U_l^{−1} F φ^a(U_l)(1 + φ^a(Z_l)) = (1 + Z_l)^{−1} F_l (1 + φ^a(Z_l)), which is the second expression; U_{l+1}^{−1} F φ^a(U_l) equals (1 + Z_l)^{−1} F_l instead.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E52",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 7.4.11, p. 156 (arXiv 1301.0792v5)",
+   "printed": "If x ∈ H^1_φ(M) has zero image in H^1_{φ^a}(M ⊗ ℛ̃_{ℋ(β)}) for each β ∈ ℳ(R), …",
+   "correction": "If x ∈ H^1_{φ^a}(M) has zero image in H^1_{φ^a}(M ⊗ ℛ̃_{ℋ(β)}) for each β ∈ ℳ(R), …",
+   "reason": "M is a φ^a-module and the corollary asserts injectivity of H^1_{φ^a}(M) → ∏_β H^1_{φ^a}(M ⊗ ℛ̃_{ℋ(β)}); the class x defines an extension of ℛ̃_R by M as φ^a-modules.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
+   ]
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15/E53",
+   "kind": "misprint",
+   "locator": "Remark 7.4.12, p. 156 (arXiv 1301.0792v5)",
+   "printed": "the injectivity of (7.4.11.1) also holds for M(n) for n sufficiently large, as in that case H^1_{φ^a}(M(−n)) = 0 by Proposition 6.2.2.",
+   "correction": "… as in that case H^1_{φ^a}(M(n)) = 0 by Proposition 6.2.2.",
+   "reason": "Proposition 6.2.2 makes φ^a − 1 surjective on M(n) for n ≥ N, so H^1_{φ^a}(M(n)) vanishes for n large; the source of (7.4.11.1) for M(n) is H^1_{φ^a}(M(n)).",
+   "affects": "nothing",
+   "known": "Corrected in Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]'",
+   "searched": [
+    "arXiv 1301.0792v5 (9 May 2015, 'version to appear in Asterisque') and its LaTeX source, read for this extraction",
+    "Kedlaya–Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3, Appendix A 'Errata for [91]' (the authors' errata for this paper), read 29 September 2026"
    ]
   }
  ]
