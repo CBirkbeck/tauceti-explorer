@@ -1,7 +1,7 @@
 # Global Galois duality and compact coefficients — blueprint
 
 This blueprint covers stages R02.1–R02.6, D7 and D8, within the boundaries RS-08 accepted. It has
-three checkpoints so far.
+four checkpoints so far.
 - **R02.1**, the passage from finite discrete coefficients to compact p-adic ones, follows Rubin,
   *Euler systems*, Appendix B §2 and Chapter I §2; the Stacks Project (derived limits); and
   Harpaz–Wittenberg, *The Massey vanishing conjecture for number fields*, Lemma 5.5, which the
@@ -13,7 +13,9 @@ three checkpoints so far.
 - **R02.2** follows Neukirch–Schmidt–Wingberg, *Cohomology of Number Fields*, Chapter II §§1, 2 and 4,
   with Rubin's Proposition B.2.5 for compact coefficients.
 
-R02.5, R02.6, D7 and D8 are not yet read.
+- **R02.5** and **R02.6** follow Darmon–Diamond–Taylor, *Fermat's Last Theorem*, §§2.3 and 2.7–2.8.
+
+D7 and D8 are not yet read.
 
 ## Purpose
 
@@ -280,6 +282,47 @@ This serves the maintainer's Harpaz–Wittenberg item for R02.2.
 sequence for finitely generated ℤ_p-modules and ℚ_p-spaces, under finiteness of H¹ and H² of finite
 p-primary modules. The full compact spectral sequence (Jannsen) is not claimed.
 
+## R02.5. Selmer groups and local conditions
+
+Module `TauCeti/NumberTheory/GaloisCohomology/GreenbergWiles`. RS-08 narrows this layer to global Selmer and dimension
+calculations. The generic Selmer kernel and conditions are SelmerIwasawaCohomology L2's, and the tangent
+identifications are LocalGaloisDeformationRings R08's.
+
+**Theorem: the Greenberg–Wiles formula** (node `greenberg-wiles-formula`; planet). For a finite G_F-module M and local
+conditions L:
+
+#H¹_L(F, M)/#H¹_{L*}(F, M^*) = (#H⁰(F, M)/#H⁰(F, M^*)) ∏_v #L_v/#H⁰(G_v, M).
+
+The formula uses ordinary H⁰ at every place, while the proof uses Tate's modified H⁰ at ∞ (DDT Theorems 2.18–2.19).
+It is proved from `poitou-tate`, `global-euler-characteristic`, local duality and the unramified annihilators. It
+serves ArithmeticStatistics ST.5 and OrdinaryAutomorphicFormsAndModularityLifting R21.4.
+
+*Acceptance test.* M = ℤ/p over ℚ (p odd) with unramified conditions everywhere:
+- the ratio is p · (1/p) = 1, the archimedean factor being #L_∞/#H⁰(ℝ, ℤ/p) = 1/p;
+- both Selmer groups are trivial: the class group of ℚ, and {±1}/p.
+
+**Lemma: changing one condition** (node `selmer-condition-comparison`). For L ⊆ L′,
+#H¹_{L′}/#H¹_L = ∏[L′_v : L_v] · #H¹_{L′*}/#H¹_{L*}. Relaxing at q makes the dual condition strict there.
+
+## R02.6. Cohomological requirements of patching
+
+Module `TauCeti/NumberTheory/GaloisCohomology/TaylorWiles`. RS-08 keeps here the conditional calculations; the actual
+primes are GlobalGaloisDeformations R04.5's.
+
+**Lemma: local cohomology at a Taylor–Wiles prime** (node `taylor-wiles-local-count`). For q ≡ 1 mod ℓ with distinct
+Frobenius eigenvalues, H⁰ and H¹ of ad⁰ρ̄ and of ad⁰ρ̄(1) are each one-dimensional (DDT Lemma 2.46(a)).
+
+**Theorem: dual-Selmer killing** (node `dual-selmer-killing`; planet). If H¹_∅*(ad⁰ρ̄(1)) ≅ ⊕_{q∈Q} H¹(F_q, ad⁰ρ̄(1)),
+then #Q = dim H¹_∅* and H¹_{Q*}(ad⁰ρ̄(1)) = 0 (DDT Lemma 2.46(c)).
+
+**Lemma: H¹(SL₂(F), End⁰) = 0** (node `sl2-adjoint-h1-vanishing`). For #F ≠ 5 (DDT Lemma 2.48).
+
+**Theorem: the group-theoretic input** (node `sigma-criterion`; planet). If ρ̄|G_L is absolutely irreducible, then:
+- H¹(Gal(F_n/ℚ), ad⁰ρ̄(1)) = 0;
+- every nonzero ψ has a σ with the three Chebotarev conditions.
+
+This is the proof of DDT Theorem 2.49. Chebotarev itself, and the primes, belong to R04.5.
+
 ## R02.3. Global finiteness and cohomology with restricted ramification
 
 Module `TauCeti/NumberTheory/GaloisCohomology/RestrictedRamification`, namespace
@@ -514,6 +557,9 @@ rescoping the two stages accordingly.
   H³(G_S, ℤ) = 0, which amounts to Leopoldt's conjecture. The planned Poitou–Tate proof does not
   use part (b).
 
+- **ArithmeticGaloisDuality/E5** (misprint, new). DDT Theorem 2.19, p. 62: "H^1_L(G, M)" should read H^1_L(F, M).
+- **ArithmeticGaloisDuality/E6** (misprint, new). DDT, proof of Theorem 2.49, p. 84: "ψ(G_F)" should read ψ(G_{F_n}).
+
 ## Requests
 
 **Tau Ceti ProfiniteCohomology:**
@@ -589,10 +635,10 @@ rescoping the two stages accordingly.
   - the lattice and rational versions of Poitou–Tate through R02.1;
   - Milne Theorem 4.20 and Corollaries 4.7, 4.17 and 4.21 (finitely generated modules, tori, ℤ
     coefficients).
-- **R02.5:** the Greenberg–Wiles and Wiles Selmer formulas requested by ArithmeticStatistics and
-  OrdinaryAutomorphicFormsAndModularityLifting. They follow from `poitou-tate` and
-  `global-euler-characteristic` together with the local conditions.
-- **R02.5, R02.6, D7, D8:** as narrowed by RS-08.
+- **R02.5:** the comparison with the Selmer complex of SelmerIwasawaCohomology L2, once that complex is
+  planned.
+- **R02.6:** KW II §§4–5, over totally real fields, with p = 2 and the trace-zero/dual distinction.
+- **D7, D8:** as narrowed by RS-08.
 
 ## Sources
 
@@ -603,5 +649,7 @@ rescoping the two stages accordingly.
 - J. Neukirch, A. Schmidt and K. Wingberg, *Cohomology of Number Fields*, second edition, electronic
   version 2.3, https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf, read 2026-09-29: Chapter I
   §§5–6, Chapter II §§1, 2, 4, 7.
+- H. Darmon, F. Diamond and R. Taylor, *Fermat's Last Theorem*, author PDF (revised 9 September 2007),
+  https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf, read 2026-09-29: §§2.3, 2.7–2.8.
 - J. S. Milne, *Arithmetic Duality Theorems*, second edition, author PDF (version 01.07.06),
   https://www.jmilne.org/math/Books/ADTnot.pdf, read 2026-09-29: Chapter I §§0–2, 4, 5.
