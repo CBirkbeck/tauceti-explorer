@@ -28,7 +28,8 @@
    "planned": [
     "SmoothRepresentationsOfLocalGroups:SR.3",
     "ExcursionOperatorsAndSpectralAction:ES0"
-   ]
+   ],
+   "note": "Lemma 2.3 uses the realization of ℨ(G) as essentially compact invariant distributions (it evaluates z(f) = (z∗f)(1)); SR.3 constructs the center as natural endomorphisms of the identity, so the comparison with Bernstein's distributional description ([Ber84], [BDK86]) must be supplied by SR.3's blueprint or by the characters Part II of route 2. Added by REV-PAPER-HANSEN-26."
   },
   {
    "id": "PAPER-HANSEN-26/fargues-scholze-map",
@@ -220,7 +221,7 @@
    "id": "PAPER-HANSEN-26/fu-averaging",
    "kind": "theorem",
    "name": "Fu's averaging estimate",
-   "statement": "For μ_m = 4mρ_G, C_m(g, g′) = (dim V_{μ_m})^{-1} Σ_{inv(g,g′) = λ̄} dim V_{μ_m}[λ] satisfies |C_m(g, g′) − 1/|[[g]]|| ≤ C/m with C depending only on G ([Fu24, proof of Theorem 4.3.1]).",
+   "statement": "For μ_m = 4mρ̂, where 2ρ̂ is the sum of the positive roots of the dual group Ĝ (the positive coroots of G, so that μ_m is a cocharacter; the paper's gloss 'the usual sum of positive roots' is corrected in E2), C_m(g, g′) = (dim V_{μ_m})^{-1} Σ_{inv(g,g′) = λ̄} dim V_{μ_m}[λ] satisfies |C_m(g, g′) − 1/|[[g]]|| ≤ C/m with C depending only on G ([Fu24, proof of Theorem 4.3.1]).",
    "locator": "Forum Math. Pi 14 (2026) e10, proof of Lemma 2.6, p. 8",
    "status": "missing"
   },
@@ -332,7 +333,7 @@
     "PAPER-HANSEN-26/cor-1-3",
     "PAPER-HANSEN-26/theorem-1-4"
    ],
-   "brief": "Extend Excursion operators and the spectral action (ExcursionOperatorsAndSpectralAction), starting where ES7 stops: ES0–ES7 construct the Fargues–Scholze map Ψ_G: ℨ^spec(G) → ℨ(G), its compatibility with parabolic induction and the semisimple parameters, but prove nothing about stability. Final theorems, as in Hansen, Excursion operators and the stable Bernstein center (Forum Math. Pi 14 (2026) e10): Theorem 1.1 (for every connected reductive G over a p-adic field, ℨ^FS(G) ⊆ ℨ^vst(G)); Corollary 1.2 (Fargues–Scholze parameters are constant on atomically stable virtual characters) and Corollary 1.3 (constant on Kaletha's regular supercuspidal packets, for tame G with p ∤ |W_G|, using Fintzen–Kaletha–Spice); Theorem 1.4 (for an extended pure inner form G = G*_b, a unique surjective ℨ^spec(G*)-algebra map τ_G: ℨ^FS(G*) → ℨ^FS(G), compatible with Levi restriction, with the transfer of stable tempered characters and with matching of stable orbital integrals). Layers: stable, very stable and atomically stable (Lemmas 2.2–2.3); the decategorified Hecke operators 𝒯_μ and 𝒯_μ^* and their commutation with ℨ^FS (Lemma 2.4, Proposition 2.7(i)); Proposition 2.5 and Proposition 2.7(ii) from the HKW character formula; Fu's averaging estimate and Lemma 2.6; the proofs of Theorems 1.1 and 1.4 by induction on semisimple rank. Import ES1:spectral-center and ES7:parabolic (Ψ_G and IX.7.2), ES0/ES1 (Hecke–excursion commutation), BunGAndNewtonStrata BG0 (B(G), inner forms), EndoscopicTransferAndUnitaryTraceComparison ET.0 (stable conjugacy), SmoothRepresentationsOfLocalGroups SR.3 (Bernstein center), the harmonic analysis of route 2 and the character formula of route 3.",
+   "brief": "Extend Excursion operators and the spectral action (ExcursionOperatorsAndSpectralAction), starting where ES7 stops: ES0–ES7 construct the Fargues–Scholze map Ψ_G: ℨ^spec(G) → ℨ(G), its compatibility with parabolic induction and the semisimple parameters, but prove nothing about stability. Final theorems, as in Hansen, Excursion operators and the stable Bernstein center (Forum Math. Pi 14 (2026) e10): Theorem 1.1 (for every connected reductive G over a p-adic field, ℨ^FS(G) ⊆ ℨ^vst(G)); Corollary 1.2 (Fargues–Scholze parameters are constant on atomically stable virtual characters) and Corollary 1.3 (constant on Kaletha's regular supercuspidal packets, for tame G with p ∤ |W_G|, using Fintzen–Kaletha–Spice); Theorem 1.4 (for an extended pure inner form G = G*_b, a unique surjective ℨ^spec(G*)-algebra map τ_G: ℨ^FS(G*) → ℨ^FS(G), compatible with Levi restriction, with the transfer of stable tempered characters and with matching of stable orbital integrals). Layers: stable, very stable and atomically stable (Lemmas 2.2–2.3); the decategorified Hecke operators 𝒯_μ and 𝒯_μ^* and their commutation with ℨ^FS (Lemma 2.4, Proposition 2.7(i)); Proposition 2.5 and Proposition 2.7(ii) from the HKW character formula; Fu's averaging estimate and Lemma 2.6; the proofs of Theorems 1.1 and 1.4 by induction on semisimple rank. Import ES1:spectral-center and ES7:parabolic (Ψ_G and IX.7.2), ES0/ES1 (Hecke–excursion commutation), BunGAndNewtonStrata BG0 (B(G), inner forms), EndoscopicTransferAndUnitaryTraceComparison ET.0 (stable conjugacy) and ET.1 (stable orbital integrals and matching test functions, for the last clause of Theorem 1.4), SmoothRepresentationsOfLocalGroups SR.3 (Bernstein center), the harmonic analysis of route 2 and the character formula of route 3.",
    "reason": "No atlas layer studies the stability of the Fargues–Scholze center: ES0–ES7 construct Ψ_G and its standard compatibilities (FS IX), and the stable-center conjectures of Haines and Scholze–Shin appear nowhere. Hansen's theorems are new layers in the direction of that roadmap, using its outputs and the HKW character formula, so they form its Part II."
   },
   {
@@ -352,7 +353,7 @@
     "PAPER-HANSEN-26/character-analysis",
     "PAPER-HANSEN-26/inner-form-transfer"
    ],
-   "brief": "Coalesce with the SmoothRepresentationsCharactersPartII proposed by PAPER-HANSEN-KALETHA-WEINSTEIN-22 and accepted by its review; do not open another Part II. Add the harmonic analysis Hansen uses for connected reductive G over a p-adic field: Kazhdan's density theorem and the faithfulness of D_temp(G) over ℨ(G); the constant term f ↦ f_M with tr(f_M|π) = tr(f|i^G_M π) and the Bernstein–Deligne–Kazhdan restriction r_M with z·i^G_M = i^G_M(r_M(z)·); Arthur's decompositions I(G) = ⊕(I(M)_cusp)^{W(M)} and D_temp(G) = ⊕(D_ell(M))^{W(M)} with their stable analogue and the elliptic projection D_temp → SD_temp; Arthur's elliptic tempered characters Θ(τ) and injectivity of restriction to G(E)_ell on D_ell (HKW Theorem C.1.1, already an item there); Lemma 2.1; Arthur's criterion that f is unstable iff Θ(f) = 0 for all Θ ∈ SD_temp(G) (Varma 3.2.10 for general G) and Varma's Lemma 3.4.5; stability of h ↦ h(1) (Kottwitz); local boundedness of |D|^{1/2}Θ (Harish-Chandra, Clozel) and of |D|^{1/2}O_γ(f) (Arthur) with the cuspidal Weyl integration formula; and the transfer Trans_G of stable tempered characters to inner forms with the Kottwitz-sign normalization of Hansen's footnote 4. Import ET.0 for stable conjugacy and SR.3 for the Bernstein center.",
+   "brief": "Coalesce with the SmoothRepresentationsCharactersPartII proposed by PAPER-HANSEN-KALETHA-WEINSTEIN-22 and accepted by its review; do not open another Part II. Add the harmonic analysis Hansen uses for connected reductive G over a p-adic field: Kazhdan's density theorem and the faithfulness of D_temp(G) over ℨ(G); the constant term f ↦ f_M with tr(f_M|π) = tr(f|i^G_M π) and the Bernstein–Deligne–Kazhdan restriction r_M with z·i^G_M = i^G_M(r_M(z)·); Arthur's decompositions I(G) = ⊕(I(M)_cusp)^{W(M)} and D_temp(G) = ⊕(D_ell(M))^{W(M)} with their stable analogue and the elliptic projection D_temp → SD_temp; Arthur's elliptic tempered characters Θ(τ) and injectivity of restriction to G(E)_ell on D_ell (HKW Theorem C.1.1, already an item there); Lemma 2.1; Arthur's criterion that f is unstable iff Θ(f) = 0 for all Θ ∈ SD_temp(G) (Varma 3.2.10 for general G) and Varma's Lemma 3.4.5; stability of h ↦ h(1) (Kottwitz); local boundedness of |D|^{1/2}Θ (Harish-Chandra, Clozel) and of |D|^{1/2}O_γ(f) (Arthur) with the cuspidal Weyl integration formula; and the transfer Trans_G of stable tempered characters to inner forms with the Kottwitz-sign normalization of Hansen's footnote 4. Import ET.0 for stable conjugacy, ET.1 for regular semisimple and stable orbital integrals and for matching test functions (the transfer of stable characters is their dual and must not rebuild them), and SR.3 for the Bernstein center.",
    "reason": "These are the character-theoretic tools of p-adic harmonic analysis on which Hansen's proofs run. PAPER-HANSEN-KALETHA-WEINSTEIN-22 already routed the same direction (characters, trace Paley–Wiener, Theorem C.1.1) to this Part II, so the items join it rather than a new roadmap."
   },
   {
@@ -380,7 +381,31 @@
    "known": "new",
    "searched": [
     "2026-09-29: the published open-access article (CC BY) is the version read; no arXiv version was found by title search; Crossref records no correction or erratum relation. Not an exhaustive novelty claim."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 13: the elliptic case of the transfer argument defines 𝒯*_μ: D(G*) → D(G) as induced by 'i*_b T_{V_μ} i_{i!}'. There is no stratum i_i; the definition before Proposition 2.7 uses i*_b T_{V_μ} i_{1!}, and the next sentence applies Proposition 2.7(ii) to exactly that operator (with G* in the role of the base group). Misprint, affects nothing.",
+    "by": "REV-PAPER-HANSEN-26"
+   }
+  },
+  {
+   "id": "PAPER-HANSEN-26/E2",
+   "kind": "misprint",
+   "locator": "§2.2, the paragraph before Lemma 2.6, p. 8 (published version; page image checked)",
+   "printed": "The source sets μm = 4mρG for m ≥ 1 and identifies 2ρG as the usual positive-root sum.",
+   "correction": "2ρ_G must be the sum of the positive roots of the dual group Ĝ, that is, the sum of the positive coroots of G, so that μ_m = 4mρ_G is a cocharacter of G (a dominant weight of Ĝ). This is Fu's definition: μ_m := 4mρ_G ∈ X^*(T̂) with ρ_G = ½ Σ_{α∈Φ̂⁺} α ([Fu24], arXiv:2501.00652v1, p. 9 and §3.1, p. 18).",
+   "reason": "Here μ_m must be a conjugacy class of cocharacters μ: G_m → G, since it indexes the Hecke operator T_{V_μ} through the irreducible Ĝ-representation of highest weight μ (§2.2, p. 6). The sum of the positive roots of G is a character of a maximal torus of G, not a cocharacter. For a group that is not simply laced the two candidates are not even proportional: for type B₂ the sum of the positive roots is 3ε₁ + ε₂, while the sum of the positive coroots is 4ε₁ + 2ε₂. The estimate the proof quotes, |C_m(g,g′) − 1/|[[g]]|| ≤ C/m, is Fu's, and it is proved for Fu's μ_m, built from the roots of Ĝ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "29 September 2026: the Crossref record of doi:10.1017/fmp.2026.10028 has no update-to or updated-by relation, and a Crossref search for works updating it returns none.",
+    "29 September 2026: an arXiv API title search ('excursion', 'stable', 'Bernstein') finds no preprint of this paper; Fu's arXiv:2501.00652v1 was read at its statements of μ_m (pp. 6, 9 and 18)."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found and checked by this review on the page image of p. 8 against Fu's definition in arXiv:2501.00652v1 (pp. 9 and 18).",
+    "by": "REV-PAPER-HANSEN-26"
+   }
   }
  ],
  "sourceVersions": [
@@ -389,7 +414,7 @@
    "url": "https://doi.org/10.1017/fmp.2026.10028",
    "read": "2026-09-29",
    "sha256": "533628c9bf73fd395717c40e58e1ac940b8029371667ae231a54af3f9a73beab",
-   "citation": "Forum Math. Pi 14 (2026) e10, open access, read completely."
+   "citation": "Forum Math. Pi 14 (2026) e10, open access, read completely. Cambridge Core stamps every page of each download with the downloader's IP address and time, so the SHA-256 of a download is not reproducible: the independent review's copy of the same 14 pages, downloaded 29 September 2026, has SHA-256 0b2c73401afd112e9a0b47ffa91a37f06277161c569a20ab613e1965232dbb35."
   }
  ],
  "gaps": []
