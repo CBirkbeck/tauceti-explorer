@@ -101,7 +101,7 @@
         "HilbertModularVarietiesAndShimuraCurves:H0",
         "HilbertModularVarietiesAndShimuraCurves:H1"
       ],
-      "keeps": "Retain the Siegel moduli examples for every genus and their genus-one modular-curve comparison, the unitary CM-signature example with positivity/reflex field/dimension/good-prime calculations, and a nonprincipal polarization-type test. For the Hilbert example import D5's rational data, H0's integral trace-lattice comparison and H1's polarization-module PEL instance and Hilbert moduli functor. Verify that this imported example satisfies the M0-M4 contracts in their actual scope; retain the comparison as an acceptance test, not an independent reconstruction or an input handed backwards to H1/H2.",
+      "keeps": "Retain the Siegel moduli examples for every genus and their genus-one modular-curve comparison, the unitary CM-signature example with positivity/reflex field/dimension/good-prime calculations, and a nonprincipal polarization-type test. For the Hilbert example import D5's rational data, H0's integral trace-lattice comparison and H1's polarization-module PEL instance and Hilbert moduli functor. Verify that this imported example satisfies the M0-M4 contracts in their actual scope; retain the comparison as an acceptance test, not an independent reconstruction or an input handed backwards to H1/H2. The unitary example is also the owner record that RS-14 (accepted 2026-09-23) assigns to M5, and RS-14's edges from M5 to AutomorphicCongruences:L1 and AutomorphicPadicLFunctions:L4, L4e and L5 stay: those consumers use the unitary example, not the Hilbert one.",
       "reason": "M5 and H1 both describe the same polarization-module trace-pairing PEL example. H1 owns that specific construction; M5 is its late example consumer. H0 refines the D5 rational data, so M5 does not create a third rational datum either. No Siegel, unitary or nonprincipal test is deleted."
     },
     "PELModuli:M6": {
@@ -110,7 +110,7 @@
         "PELModuli:M1",
         "PELModuli:M2"
       ],
-      "keeps": "Import M1's actual moduli fibered category and M2's rigidified algebraic space and fine-level universal abelian scheme. Retain construction and algebraicity of the moduli stack at arbitrary nonrigidifying level from that common category and its proved presentations; M2 retaining a stack formulation is not by itself this theorem. Retain all arithmetic work: rigidifying-level and rational-family comparisons, the obstruction separating rational coarse points from rational families, construction and comparison of the universal Hodge line from the imported family, and the map-level exports to R35.5 and R28.1. Retain explicit nonempty Siegel and unitary examples with nonprincipal polarization. Work at the early algebraic-space/stack level; the integral scheme/quasi-projective realization consumes the later C5 result only in that suffix. Do not attribute a Hodge-line theorem to M2 merely because M2 constructs the abelian family, and do not promote untwisted nonemptiness into H6's twisted prescribed-local-point theorem.",
+      "keeps": "Import M1's actual moduli fibered category and M2's rigidified algebraic space and fine-level universal abelian scheme. Retain construction and algebraicity of the moduli stack at arbitrary nonrigidifying level from that common category and its proved presentations; M2 retaining a stack formulation is not by itself this theorem. Retain all arithmetic work: rigidifying-level and rational-family comparisons, the obstruction separating rational coarse points from rational families, construction and comparison of the universal Hodge line from the imported family, and the map-level exports to ArakelovGeometryAndAbelianHeights R35.2, R35.3, R35.5 and R35.6 and FaltingsFinitenessAndIsogenyTheorems R28.1 and R28.2 (the RS-06 edges). M6 stays the owner RS-06 records for the consumer-facing interface: the universal family as exported with its Hodge line, and the rational-family/coarse-point descent interface. The existing edges M2 → R35.2, R35.5 and R35.6 already give those consumers the family itself. Retain explicit nonempty Siegel and unitary examples with nonprincipal polarization, as tests of the arithmetic comparison on the M1/M2 carriers: they prove nonemptiness of the arithmetic moduli and do not repeat M5's positivity, reflex-field, dimension and good-prime calculations. No M5 → M6 edge is added, since it would make M6 and its height-finiteness consumers wait for M4 and H1. Work at the early algebraic-space/stack level; the integral scheme/quasi-projective realization consumes the later C5 result only in that suffix. Do not attribute a Hodge-line theorem to M2 merely because M2 constructs the abelian family, and do not promote untwisted nonemptiness into H6's twisted prescribed-local-point theorem.",
       "reason": "The rigidified moduli-object and fine-level universal-family construction is repeated inside the family and has the more foundational owner M1/M2. Arbitrary-level stack algebraicity, the Hodge-line and rational descent statements are genuine M6 outputs and must survive the narrowing; later height finiteness is still a consumer theorem."
     }
   },
@@ -221,7 +221,7 @@
       ]
     },
     {
-      "target": "Universal abelian family on the proved fine PEL moduli object",
+      "target": "Construction of the universal abelian family on the proved fine PEL moduli object. M6 keeps the consumer-facing export of that family with its Hodge line, and the rational-family/coarse-point descent interface, as RS-06 records",
       "owner": "PELModuli:M2",
       "formerly": [
         "PELModuli:M6"
@@ -255,5 +255,17 @@
         "HilbertModularVarietiesAndShimuraCurves:H2"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-23",
+    "date": "2026-09-29",
+    "notes": "Reviewed by Claude Code, session cc-39fac3, against origin/main ba5cc428, with the atlas as scripts/build.py assembles it (2840 stages, 7792 edges). Both member documents, ShimuraData D5 and every consumer of a changed stage were read. The accepted RS-02, RS-06, RS-14 and RS-17 proposals, and the pending RS-04 and RS-21, were checked for entries on these stages. All 20 stages are listed; the ten evidence pairs are each resolved; no anchors, extensions or title changes are involved. All 14 links join existing stages, none is already an edge, and each passes the cycle test on the current graph; 11 are shortcuts along existing paths. The duplication verdicts hold against the documents (D5 owns both rational Hilbert data and the trace-pairing embedding for G*; M2 constructs the rigidified space and universal abelian scheme that M6 restated; M5 and H1 describe the same polarization-module example). Nothing is lost: every narrowed layer names its suppliers, and every consumer of H0, H1, M5 and M6 still reaches what it uses. Two further overlaps were checked and are not duplicates: H5's F = Q test (mu_N, K0, K1 levels) and M5's genus-one full-level comparison compare different moduli problems with Tau Ceti's modular curves; M6's nonempty examples test arithmetic nonemptiness rather than rebuild M5's examples. The corrections below bring the proposal in line with RS-06 and RS-14, which were accepted after it was written.",
+    "corrections": [
+      "PELModuli:M5 keeps: recorded RS-14's owner record for the unitary example and its edges from M5 to AutomorphicCongruences:L1 and AutomorphicPadicLFunctions:L4, L4e and L5, which stay. M5 is no longer a sink (the proposal's report assumed it was), and the three new inputs D5, H0 and H1 → M5 were rechecked against the current graph: acyclic.",
+      "PELModuli:M6 keeps: the exports now name all six consumers that RS-06 attached to M6 (R35.2, R35.3, R35.5, R35.6, R28.1, R28.2), and M6 is stated to stay RS-06's owner of the consumer-facing family/Hodge-line export and the descent interface.",
+      "PELModuli:M6 keeps: its nonempty Siegel and unitary examples are stated to be arithmetic nonemptiness tests on the M1/M2 carriers, not a second construction of M5's examples, and the reason for adding no M5 → M6 edge is recorded.",
+      "owners: the PELModuli:M2 record for the universal abelian family is narrowed to its construction, so that it agrees with RS-06's owner record for M6's export interface."
+    ]
+  }
 }
