@@ -5,10 +5,10 @@ Peter Scholze, *On torsion in the cohomology of locally symmetric varieties*, [A
 Extraction by Claude Code, session `cc-39fac3`, 29 September 2026 (issue #4502). Status: **complete**. Every missing item is routed once.
 
 The machine-readable extraction is [PAPER-SCHOLZE-15.result.json](PAPER-SCHOLZE-15.result.json). It has:
-- 114 items: 108 planned, 6 missing, none in the Mathlib or Tau Ceti baselines;
-- 5 routes, all sources of existing layers. Three take the missing items; two name only planned items, so that the roadmaps built around this paper get its statements with published locators;
+- 127 items: 119 planned, 8 missing, none in the Mathlib or Tau Ceti baselines (114 extracted, 13 added by the review);
+- 8 routes: the original 5 (route 3 corrected by the review to carry item 80 only), a Part II join (route 6, item 81) and two source routes for items the review added (routes 7–8);
 - 5 prerequisite entries;
-- 11 recorded mistakes (8 misprints, 2 errors, 1 gap), five of them already found by atlas packets.
+- 46 recorded mistakes: the 11 of the extraction, all confirmed by the review, and 35 found by the review (26 misprints, 4 errors, 5 gaps).
 
 ## Sources read
 
@@ -161,3 +161,25 @@ The other inputs are already sources of atlas layers:
 - Kedlaya–Liu and Scholze–Weinstein (the perfectoid packets);
 - Bosch–Lütkebohmert and de Jong–van der Put (AdicSpacesPartII);
 - Venjakob (NoncommutativeAndEquivariantIwasawa).
+
+## Corrections made in review
+
+The independent review REV-PAPER-SCHOLZE-15 (Claude Code, session `cc-48533a`, issue #4504) corrected this extraction in place. Its report is `research/blueprint/reviews/REV-PAPER-SCHOLZE-15.md`, and the verdicts are in `PAPER-SCHOLZE-15.review.json`. In brief:
+
+- **Item corrections (64).** Locators (off-by-one subsection numbers in §3.2, and pages) and statements. Among the statements:
+  - item /39: the Frobenius lifts are finite étale only after inverting p;
+  - items /66, /70 and /78: Theorem 3.3.18(i), Theorem 4.1.1(i) and Lemma 4.3.3 are proved only for the 2^g Lagrangian charts Fl_J;
+  - item /26: the level Γ₀(p^m) uses the similitude factor;
+  - item /103: G is the finite group Gal(F̃/F);
+  - items /108–/113: they need K ⊂ ∏_v GL_n(𝒪_{F_v}) and ℤ̄_p coefficients.
+
+  Status corrections: items /5, /11, /55, /74, /84 and /85.
+- **Items added (13, /115–/127).** Eleven are planned. Two are missing and routed: the compactly supported primitive comparison theorem (route 7, PadicHodgeTheory P8) and Clozel's cohomological realisation (route 8, ArithmeticLocallySymmetricSpaces ALS.5).
+- **Routes.** Route 3 now carries only item 80, to AF.1/AF.4. Item 81 joins the Part II IntegralCoherentHeckeComplexes (route 6). Route 2's reason is corrected: the Hasse invariant belongs in T0.
+- **Mistakes.** E1–E11 are confirmed, with rewordings of E2, E4 and E7. E12–E46 are new. The main ones:
+  - E16: GSp_{2g}(ℤ_p) permutes only the Lagrangian Fl_J;
+  - E17: the formula of Corollary 3.2.6;
+  - E19: the level Γ₀(p^m) should use the similitude factor;
+  - E37: Corollary 5.1.11 needs its weight condition;
+  - E44–E45: two slips in the proof of Corollary 5.4.2.
+
