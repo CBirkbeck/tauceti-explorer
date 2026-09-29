@@ -13,7 +13,7 @@
   "PotentialModularityAndCompatibleSystems:R24.2"
  ],
  "status": "partial",
- "summary": "Checkpoint 1 of the R23.1 part (Claude Code cc-39fac3). It builds on the unreviewed draft research/expansion/external/EXT-12 as a lead: 15 of its nodes are carried for R23.1 (Moret-Bailly II), R23.3 (KW II Theorem 6.1, KW Annals Theorem 2.1), R24.1 and R24.2, with excerpts re-verified against the sha-matched copies, converted to the blueprint format (prerequisites, API and tests for the definition and constructions), and with two draft nodes dropped because GlobalGaloisDeformations R04.6 and LocalGaloisDeformationRings R08.6 already plan them. Four nodes are new: the deduction of Taylor's Theorem G from Moret-Bailly (closing the draft's gap), potential modularity of a given lift (R23.4), control of the extension (R23.5), and the exports and noncircularity table (R23.6). Taylor's moduli problem (R23.2) and his potential-modularity theorems are deferred to page-image verification. Two misprints (KW II's \"part (c)\" for (iii)(b); Moret-Bailly's \"Lemme 3.30.2\").",
+ "summary": "Checkpoint 1 of the R23.1 part (Claude Code cc-39fac3). It builds on the unreviewed draft research/expansion/external/EXT-12 as a lead: 15 of its nodes are carried for R23.1 (Moret-Bailly II), R23.3 (KW II Theorem 6.1, KW Annals Theorem 2.1), R24.1 and R24.2, with excerpts re-verified against the sha-matched copies, converted to the blueprint format (prerequisites, API and tests for the definition and constructions), and with two draft nodes dropped because GlobalGaloisDeformations R04.6 and LocalGaloisDeformationRings R08.6 already plan them. Four nodes are new: the deduction of Taylor's Theorem G from Moret-Bailly (closing the draft's gap), potential modularity of a given lift (R23.4), control of the extension (R23.5), and the exports and noncircularity table (R23.6). Taylor's moduli problem (R23.2) and his potential-modularity theorems are deferred to page-image verification. Two misprints (KW II's \"part (c)\" for (iii)(b); Moret-Bailly's \"Lemme 3.30.2\"). Checkpoint 2 (cc-39fac3) carries ten more EXT-12 draft nodes for R23.2 and R23.3 (Taylor 2002 §1 and Taylor 2006 §§4–5), re-verified on the page images: Taylor's auxiliary data, Lemmas 1.1–1.5, the local points and the Moret-Bailly point, Taylor 2006 Lemmas 4.4–4.5, the modularity of the auxiliary abelian variety, Theorem 1.6 with Corollary 1.7, and Proposition 4.1, Corollary 4.6 and Theorem 5.7. The moduli spaces themselves are requested from HilbertModularVarietiesAndShimuraCurves H6 (RS-23). Taylor's use of Skinner–Wiles 2001 falls in the case of OrdinaryAutomorphicFormsAndModularityLifting/E11 (a gap). E4–E6: misprints in Taylor's preprint (Lemma 1.5's ω for ω^{−1}, an index in Lemma 1.1's proof, λ for λ₀ and ℚ(α) for ℚ(β_v)).",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -24,7 +24,7 @@
    "id": "moret-bailly-1989-II",
    "title": "Groupes de Picard et problèmes de Skolem II",
    "authors": "Laurent Moret-Bailly",
-   "edition": "Ann. Sci. École Norm. Sup. (4) 22 (1989), no. 2, 181-194; Numdam scan with OCR text layer (catalogue id ADD_MORET_BAILLY_II). The OCR drops or mangles Sigma, Omega, script S and inequality signs; every displayed condition used below was re-read on page images. Locators are printed journal pages.",
+   "edition": "Ann. Sci. École Norm. Sup. (4) 22 (1989), no. 2, 181-194; Numdam scan with OCR text layer. The OCR drops or mangles Sigma, Omega, script S and inequality signs; every displayed condition used below was re-read on page images. Locators are printed journal pages.",
    "url": "https://www.numdam.org/item/10.24033/asens.1582.pdf",
    "sha256": "fcd52552f0d04f06c9c07301341581ac37f04ef84eb5867a596c560588ab5fdd",
    "readSections": [
@@ -35,7 +35,7 @@
    "id": "moret-bailly-1989-I",
    "title": "Groupes de Picard et problèmes de Skolem I",
    "authors": "Laurent Moret-Bailly",
-   "edition": "Ann. Sci. École Norm. Sup. (4) 22 (1989), no. 2, 161-179; Numdam scan with OCR text layer (catalogue id ADD_MORET_BAILLY_I). Printed page numbers.",
+   "edition": "Ann. Sci. École Norm. Sup. (4) 22 (1989), no. 2, 161-179; Numdam scan with OCR text layer. Printed page numbers.",
    "url": "https://www.numdam.org/item/10.24033/asens.1581.pdf",
    "sha256": "b1bec60bc061ae9c64fd08596aa9ad5b8e3d8d022766039cf88986aaae0a0d7a",
    "readSections": [
@@ -50,14 +50,15 @@
    "url": "https://virtualmath1.stanford.edu/~rltaylor/fm.pdf",
    "sha256": "e00ebd580b4bdb591345c051c6ae85801663b4a5807a12269c909a47eff3a57d",
    "readSections": [
-    "2026-09-29 (cc-39fac3, part R23.1): Introduction, Theorem G (pp. 4–5), whose text layer is damaged; the quotations are transcribed and match the words of the text layer."
+    "2026-09-29 (cc-39fac3, part R23.1): Introduction, Theorem G (pp. 4–5), whose text layer is damaged; the quotations are transcribed and match the words of the text layer.",
+    "2026-09-29 (cc-39fac3, part R23.1 checkpoint 2): §1, printed pp. 6–16 (standing hypotheses, the auxiliary choices, Lemmas 1.1–1.5, the moduli space X, the Moret-Bailly application, Theorem 1.6 and Corollary 1.7), on the page images."
    ]
   },
   {
    "id": "kw-serre-modularity-II",
    "title": "Serre's modularity conjecture (II)",
    "authors": "Chandrashekhar Khare, Jean-Pierre Wintenberger",
-   "edition": "Author's preprint (proofs.pdf, 98 pages, own pagination) of the paper published in Invent. Math. 178 (2009), 505-586 (catalogue id SS_KW2). Locators are the preprint's printed page numbers; the Inventiones pagination was not compared.",
+   "edition": "Author's preprint (proofs.pdf, 98 pages, own pagination) of the paper published in Invent. Math. 178 (2009), 505-586. Locators are the preprint's printed page numbers; the Inventiones pagination was not compared.",
    "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
    "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
    "readSections": [
@@ -68,11 +69,22 @@
    "id": "kw-annals-2009",
    "title": "On Serre's conjecture for 2-dimensional mod p representations of Gal(Q̄/Q)",
    "authors": "Chandrashekhar Khare, Jean-Pierre Wintenberger",
-   "edition": "Published version, Annals of Mathematics 169 (2009), 229-253 (received December 3, 2004; revised August 31, 2007); catalogue id R02_SS_KWAnnals2009. Printed Annals pages.",
+   "edition": "Published version, Annals of Mathematics 169 (2009), 229-253 (received December 3, 2004; revised August 31, 2007). Printed Annals pages.",
    "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v169-n1-p05.pdf",
    "sha256": "154c0c2a2245e50cb2be3c82705f9176fe0e9b597424236ddca11299d38cdb22",
    "readSections": [
     "2026-09-29 (cc-39fac3, part R23.1): §2 (Theorem 2.1 and proof, pp. 234–237) and the bibliography."
+   ]
+  },
+  {
+   "id": "taylor-2006-meromorphic-continuation",
+   "title": "On the meromorphic continuation of degree two L-functions",
+   "authors": "Richard Taylor",
+   "edition": "Documenta Mathematica, Extra Volume: John H. Coates' Sixtieth Birthday (2006), 729–779 (received January 9, 2005; revised June 28, 2006); EMS Press open-access chapter file (52-page PDF regenerated by the publisher from the original dvi). Locators give the printed Documenta pages (printed page = PDF page + 728).",
+   "url": "https://ems.press/content/book-chapter-files/27484",
+   "sha256": "6ec26bfc12e1cf38d410b36c18f985e2fb26c1cb1bb03d6e5197ccf58f92c51c",
+   "readSections": [
+    "2026-09-29 (cc-39fac3, part R23.1 checkpoint 2): Theorems 3.2–3.3 and §4 in full, pp. 755–763 (Proposition 4.1, Lemmas 4.2–4.5 with proofs, the moduli space X, the twists X_{R,ψ}, X_ρ̄ and X_Dih, Corollary 4.6); Lemma 5.6 and Theorem 5.7 with its proof, pp. 770–771; Corrections to [Tay4], pp. 776–777; all on the page images. Lemmas 5.1–5.5 not read."
    ]
   }
  ],
@@ -837,7 +849,9 @@
     "PotentialModularityAndCompatibleSystems:R23.1/forcing-linear-disjointness-by-extra-split-places",
     "GL2AutomorphicRepresentationsAndTransfer:R17.5",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
-    "PotentialModularityAndCompatibleSystems:R23.2"
+    "PotentialModularityAndCompatibleSystems:R23.2",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l"
    ],
    "planet": {
     "name": "Potential modularity (KW II Theorem 6.1)"
@@ -913,7 +927,9 @@
     "namespace": "TauCeti.PotentialModularity"
    },
    "prerequisites": [
-    "PotentialModularityAndCompatibleSystems:R23.2"
+    "PotentialModularityAndCompatibleSystems:R23.2",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-lemma-1-5-ordinary-shape-of-the-lambda-adic-tate-module-at-l"
    ]
   },
   {
@@ -1391,6 +1407,700 @@
      "match": "What Theorem 10.1 rests on."
     }
    ]
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.2/taylor-auxiliary-data-p-L-psi-N-M",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.2",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.2"
+   ],
+   "title": "Taylor's auxiliary data for the ordinary-at-l case: the prime p, the CM extension L/F, the character psi, and the fields N and M",
+   "kind": "construction",
+   "statement": "Standing hypotheses of Taylor 2002 section 1 as corrected in Taylor 2006 (pp. 776-777): l an odd prime, k/F_l finite, F totally real, rho-bar: G_F -> GL_2(k) continuous with insoluble image, rho-bar|G_v ~ (epsilon chi_v^{-1}, *; 0, chi_v) for every place v of F above l, and det rho-bar = epsilon (the corrected third bullet; epsilon the l-adic cyclotomic character mod l). For v | l let F~_v be the smallest totally tamely ramified extension of F_v over which chi_v becomes unramified. Let zeta be a primitive #k^× root of unity and N_0 = Q(zeta, sqrt(1-4l)); l is unramified in N_0 and every prime of N_0 above l has residue field isomorphic to k; fix lambda_0 | l and O_{N_0}/lambda_0 ≅ k. For v | l put beta_v = zeta^{b_v} ((1+sqrt(1-4l))/2)^{[k(v):F_l]} with beta_v ≡ chi_v(phi_v) mod lambda_0 for a Frobenius lift phi_v in G_{F~_v}, and let chi~_v: W_{F_v} -> N_0^× be the unique character which, if chi_v^2 ≠ 1, sends phi_v to beta_v and is the Teichmüller lift of chi_v on inertia, and, if chi_v^2 = 1, is the Teichmüller lift of chi_v. Choose an odd prime p ≠ l such that: rho-bar is unramified at all w | p with rho-bar(Frob_w) having distinct eigenvalues; p splits completely in the Hilbert class field of N_0; p splits completely in the fixed field of ker(epsilon^{-1} det rho-bar); p is coprime to beta_v - beta_v^c for all v | l. Choose wp_0 | p in N_0, and for w | p choose alpha'_w in Z[(1+sqrt(1-4l))/2] of norm p and alpha_w = zeta^{a_w} alpha'_w congruent to an eigenvalue of rho-bar(Frob_w). By Lemma 1.1 choose a quadratic L/F and psi: G_L -> (N-bar_{0,wp_0})^× with: L totally imaginary and not contained in F(zeta_p); each v | l splits as v_1 v_1^c in L with psi|W_{L_{v_1}} = chi~_v in (O_{N_0}/wp_0)^ac; each w | p splits as w_1 w_1^c with psi|G_{w_1} unramified sending arithmetic Frobenius to a lift of alpha_w; det Ind_{G_L}^{G_F} psi = epsilon_p. Then psi-bar|G_{v_1} ≠ psi-bar^c|G_{v_1} for v | l. Finally choose a Galois CM extension N/N_0 in which primes above l split, primes above p are unramified, and some wp | wp_0 has psi-bar valued in O_N/wp; choose lambda | lambda_0 in O_N and let M be the maximal totally real subfield of N.",
+   "hypotheses": [
+    "l odd; rho-bar insoluble image; rho-bar|G_v reducible of the displayed shape at every v | l",
+    "det rho-bar = epsilon: printed in the preprint as 'det rho-bar(c) = -1' and corrected in Taylor 2006 p. 776, which explains that without it the alternating isomorphism a_lambda needed for the moduli problem cannot be chosen",
+    "Taylor 2006 p. 776 also replaces the justification of psi-bar|G_{v_1} ≠ psi-bar^c|G_{v_1} by '(as beta_v beta_v^c = psi(phi_v) psi^c(phi_v) = p and beta_v - beta_v^c is coprime to p)'",
+    "existence of p satisfying the four conditions is asserted without argument (a Chebotarev density argument over the compositum of the relevant fields is implicit)",
+    "α_w is printed as congruent to an eigenvalue of ρ̄(Frob_w) 'modulo λ' before λ is chosen (printed p. 7); λ₀ is meant (source issue PotentialModularityAndCompatibleSystems/E6)"
+   ],
+   "proofSteps": [
+    "Transcribe the choices on printed pp. 6-7 and 9-10 of the preprint (read on page images, the text layer drops all Greek letters).",
+    "alpha'_w exists because p splits completely in the Hilbert class field of Q((1+sqrt(1-4l))/2), a subfield of N_0 (the source's parenthesis).",
+    "Apply Lemma 1.1 with K = F, O = the completion of N_0 at wp_0 (or a finite extension), phi = epsilon_p, S = places above l and p, S_L = {v_1, w_1}, and prescribed residual characters chi~_v (at v_1) and unramified characters with Frobenius alpha_w (at w_1).",
+    "psi-bar|G_{v_1} ≠ psi-bar^c|G_{v_1} for v | l is deduced from p being coprime to beta_v - beta_v^c."
+   ],
+   "acceptance": [
+    "For F = Q, l = 5 and an explicit rho-bar with k = F_5, list admissible p and compute beta_5 and N_0 = Q(zeta_4, sqrt(-19))",
+    "Check that det Ind_{G_L}^{G_F} psi = epsilon_p forces psi-bar|G_{w_1} psi-bar^c|G_{w_1} to be the mod-p cyclotomic character on Frobenius, consistent with alpha_w alpha_w^c = p"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-1-characters-of-cm-extensions-with-prescribed-local-reductions"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/TaylorAuxiliary",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "section 1, standing hypotheses, printed p. 6 (page image)",
+     "excerpt": "is a continuous representation such that ρ̄ has insoluble image",
+     "match": "The insoluble-image hypothesis of the section (rho-bar lost in the text layer); the local shape at l is read on the page image."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "Corrections to [Tay4], first bullet, p. 776 (page image)",
+     "excerpt": "(Without this change the choice of aλ at the top of page 136 becomes impossible.)",
+     "match": "Correction replacing det rho-bar(c) = -1 by det rho-bar = epsilon, with its reason."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "choice of p, printed p. 7 (page image)",
+     "excerpt": "p splits completely in the Hilbert class",
+     "match": "One of the four conditions defining the auxiliary prime p."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "choice of L, psi, N, M, printed p. 9 (page image)",
+     "excerpt": "not contained in F adjoin a primitive",
+     "match": "The first condition on the CM extension L/F."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "choice of N, printed p. 9",
+     "excerpt": "primes above l split in N/N_0",
+     "match": "Conditions on the CM field N whose maximal totally real subfield is M."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-2-local-hbav-at-places-above-l",
+     "how": "β_v, χ̃_v and the splitting v = v₁v₁^c in L give the local M-HBAV above l."
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemmas-1-3-1-4-local-points-at-p-and-at-infinity",
+     "how": "α_w and the splitting w = w₁w₁^c give the local M-HBAV above p."
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R23.2/local-points-at-l-p-infinity-and-the-point-over-E",
+     "how": "V_λ and V_℘ are the group schemes of ρ̄ and Ind ψ̄, with alternating pairings because det ρ̄ = ε and det Ind ψ = ε_p."
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R23.3/modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar",
+     "how": "ψ̄|_{G_{w₁}} ≠ ψ̄^c|_{G_{w₁}} makes (Ind ψ̄)|_{G_E} absolutely irreducible."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PotentialModularity.TaylorAuxiliaryData",
+     "role": "structure",
+     "statement": "The data (p, ℘₀, α_w, L, ψ, N, ℘, λ, M) with the stated properties, for a ρ̄ satisfying Taylor's standing hypotheses."
+    },
+    {
+     "name": "TauCeti.PotentialModularity.TaylorAuxiliaryData.exists",
+     "role": "constructor",
+     "statement": "Such data exist (Chebotarev for p, then Lemma 1.1 for ψ, then a CM extension N/N₀)."
+    },
+    {
+     "name": "TauCeti.PotentialModularity.TaylorAuxiliaryData.det_ind",
+     "role": "characterisation",
+     "statement": "det Ind_{G_L}^{G_F} ψ = ε_p."
+    },
+    {
+     "name": "TauCeti.PotentialModularity.TaylorAuxiliaryData.psi_ne_conj",
+     "role": "characterisation",
+     "statement": "ψ̄|_{G_{v₁}} ≠ ψ̄^c|_{G_{v₁}} for v | l (β_vβ_v^c = p and β_v − β_v^c coprime to p)."
+    },
+    {
+     "name": "TauCeti.PotentialModularity.TaylorAuxiliaryData.split",
+     "role": "characterisation",
+     "statement": "Every place of F above l and above p splits in L; L is totally imaginary and not contained in F(ζ_p)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "taylorAux_N0_l5",
+     "kind": "example",
+     "statement": "For l = 5 and k = F_5: ζ has order 4 and N₀ = ℚ(ζ₄, √−19); 5 does not divide 1 − 4·5 = −19, so 5 is unramified in N₀ (checked in the Lean file for general l)."
+    },
+    {
+     "name": "taylorAux_det_needed",
+     "kind": "example",
+     "statement": "Without det ρ̄ = ε (for instance det ρ̄ = εω²) no alternating isomorphism a_λ of V_λ with its Cartier dual exists: the Taylor 2006 correction."
+    },
+    {
+     "name": "taylorAux_alpha_norm",
+     "kind": "example",
+     "statement": "α_wα_w^c = p, matching det Ind ψ = ε_p on Frob_w."
+    },
+    {
+     "name": "taylorAux_not_in_cyclotomic",
+     "kind": "example",
+     "statement": "L ⊄ F(ζ_p) is part of the data; a quadratic subfield of F(ζ_p) is not allowed."
+    }
+   ]
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-1-characters-of-cm-extensions-with-prescribed-local-reductions",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.2",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.2"
+   ],
+   "title": "Taylor Lemma 1.1: a character of a CM quadratic extension with prescribed local reductions and prescribed determinant of its induction",
+   "kind": "lemma",
+   "statement": "Let p be a rational prime, O the integers of a finite extension of Q_p with residue field F. Let K be totally real and L/K a totally imaginary quadratic extension in which every place of K above p splits. Let S be a finite set of finite places of K which split in L and contain all places above p, and S_L a set of places of L containing exactly one place above each element of S. Let phi: G_K -> O^× be continuous, sending every complex conjugation to -1 and of the form epsilon_p^n times a finite-order character for some n in Z. For each x in S_L let psi-bar_x: G_{L_x} -> F^× be continuous. Then there are a finite extension of Frac(O), with integers O' and residue field k', and a continuous character psi: G_L -> (O')^× such that for all x in S_L, psi|G_{L_x} is finitely ramified and reduces to psi-bar_x, and det Ind_{G_L}^{G_K} psi = phi.",
+   "hypotheses": [
+    "every place of K above p splits in L; every place of S splits in L; S contains the places above p",
+    "phi odd (every complex conjugation to -1) and a power of epsilon_p times a finite-order character",
+    "the final step imports 'lemma 2.1 of [Ta2]' (Taylor, On icosahedral Artin representations II, Amer. J. Math. 125 (2003)), which the source calls presumably well known; [Ta2] was not read",
+    "the proof's second displayed condition reads 'coincides with ψ_x on L_y^× for y ∈ S_L'; ψ_y is meant (source issue PotentialModularityAndCompatibleSystems/E5)"
+   ],
+   "proofSteps": [
+    "Choose psi_0 with epsilon_p^{-1} det Ind psi_0 of finite order and psi_0|I_x of finite order for x in S_L; seeking psi = psi_0^n psi' reduces to n = 0; one may assume S_L generates the class group of L.",
+    "By class field theory, let psi_x: L_x^× -> O^× correspond to the Teichmüller lift of psi-bar_x and phi' the idele character of K attached to phi times the quadratic character of L/K; one must find psi: A_L^×/L^× -> (O')^× restricting to phi' on A_K^× and to psi_x on L_x^× for x in S_L.",
+    "With T the finite places outside S where phi' ramifies and chosen extensions psi_x of phi'|O_{K,x}^× to O_{L,x}^× for x in T, define psi_0 on (prod_{x in S} L_x^× × prod_{x in T} O_{L,x}^×)/K_S^×; it suffices to extend to a character of the product with prod_{y not in S∪T} (O_{L,y}^×/O_{K,y}^×) modulo L_S^×, i.e. to find a continuous character on that last product agreeing with psi_0 on L_S^×/K_S^×.",
+    "As psi_0 has finite order it suffices that every finite-index subgroup of L_S^×/K_S^× contains the preimage of an open subgroup of prod_{y not in S∪T} O_{L,y}^×/O_{K,y}^×; the commutative diagram with the map c-1 and finite generation of L_S^× reduce this to: for every n, (L_S^×)^n contains the preimage of an open subgroup of prod O_{L,y}^× -- the imported statement from [Ta2], Lemma 2.1."
+   ],
+   "acceptance": [
+    "Check the case K = Q, L imaginary quadratic, S = {p}: the conclusion is an algebraic Hecke character of L with prescribed reduction at one place above p",
+    "Identify where the oddness of phi is needed (det Ind psi is odd for any psi, so phi must be odd)"
+   ],
+   "prerequisites": [],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/TaylorAuxiliary",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "Lemma 1.1 and proof, printed pp. 7-9 (page images)",
+     "excerpt": "This is presumably well known, see for instance lemma 2.1 of [Ta2].",
+     "match": "The last step of the proof is imported from [Ta2]; the statement is read on the page image of p. 7-8."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-2-local-hbav-at-places-above-l",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.2",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.2"
+   ],
+   "title": "Taylor Lemma 1.2: a local M-HBAV at each place above l realising rho-bar|G_v and psi-bar_{v_1} ⊕ psi-bar_{v_1^c}",
+   "kind": "lemma",
+   "statement": "For each place v of F above l there is an M-HBAV (A_v, i_v, j_v) over F_v such that A_v has either potentially good ordinary reduction or potentially multiplicative reduction, the action of G_v on A_v[lambda|_M] is equivalent to rho-bar|G_v, and the action of G_v on A_v[wp|_M] is equivalent to psi-bar_{v_1} ⊕ psi-bar_{v_1^c}.",
+   "hypotheses": [
+    "the auxiliary data of the section (beta_v, chi~_v, psi, N, M) and the local shape rho-bar|G_v ~ (epsilon chi_v^{-1}, *; 0, chi_v)",
+    "case chi_v^2 = 1 imports Rapoport section 2 (Tate-type uniformisation of M-HBAVs with multiplicative reduction)",
+    "case chi_v^2 ≠ 1 imports Honda-Tate theory and Serre-Tate deformation theory, and uses H^2(G_v, O_{M,lambda}(epsilon chi~_v^{-2})) = 0 by local duality",
+    "Taylor 2006 pp. 776-777 corrects this proof: the superscript Gal(L/K) in a displayed formula should be Gal(F~_v/F_v); adds that End_{O_M}(A_1) is the centraliser of O_M in M_{[N:Q(beta_v)]}(O_{Q(beta_v)}), i.e. O_N; and adds that N contains a primitive [F~_v:F_v] root of unity because [F~_v:F_v] | #chi_v(I_v) | #k^× and N_0 contains a primitive #k^× root of unity",
+    "M-HBAVs and P(A, i) are HilbertModularVarietiesAndShimuraCurves' objects (RS-23: H6 supplies the moduli; R23.2 keeps the verification for Taylor's data); in the second case the proof prints End(A/k(v)) for End(A₀/k(v)) and ℚ(α) for ℚ(β_v) (source issue E6)"
+   ],
+   "proofSteps": [
+    "Case chi_v^2 = 1: twist to chi_v = 1; the extension rho-bar|G_v is a class q-bar in H^1(G_v, k(epsilon)) ≅ F_v^×/(F_v^×)^l ⊗_{F_l} k ≅ F_v^× ⊗_Z d_M^{-1}/lambda d_M^{-1}; lift to q_0 in F_v^× ⊗ wp d_M^{-1}, set q = q_0 q_1 with q_1 in F_v^× ⊗ wp lambda d_M^{-1} making tr_{M/Q}(a v(q_1)) > -tr_{M/Q}(a v(q_0)) for all totally positive a; Rapoport section 2 gives (A_v, i_v, j_v) with A_v(F_v^ac) ≅ ((F_v^ac)^× ⊗ d_M^{-1})/O_M q as O_M[G_v]-modules.",
+    "Case chi_v^2 ≠ 1: Honda-Tate gives a simple ordinary A_0/k(v) of dimension [Q(beta_v):Q]/2 with O_{Q(beta_v)} ≅ End(A_0), A_0[l] ≅ O_{Q(beta_v)}/(beta_v^c) and Frobenius beta_v; polarise, set A_1 = A_0 ⊗_{O_{Q(beta_v)}} O_N with the polarisation from the pairing (a, b) -> tr_{N/Q(beta_v)}(a b^c) (printed Q(alpha)); replacing A_1 by A_1/A_1[b] (surjectivity of the norm on class groups N -> M) extends (A_1, i_1|O_M) to an M-HBAV (A_1, i_1, j_1).",
+    "Serre-Tate: with chi~'_v the unramified extension of chi~_v|W_{F~_v} to G_v, lifts of (A_1, i_1|O_M, j_1) to O_{F~_v} are parametrised by extensions of M_l/O_{M,l}(chi~'_v) by mu_{l^∞} ⊗ O_M((chi~'_v)^{-1}) as Barsotti-Tate groups, i.e. by H^1_f(G_{F~_v}, O_{M,l}(epsilon (chi~'_v)^{-2})) ⊂ H^1 (all of H^1 if chi~_v^2 ≠ 1, the Kummer image of the completed units otherwise); a triple over F_v restricting to such a lift is the same as a continuous chi': G_v -> O_{M,l}^× with chi'|W_{F~_v} = chi~_v|G_{F~_v} together with a Gal(F~_v/F_v)-invariant class in H^1 ∩ H^1_f (the invariance group printed Gal(L/K), corrected to Gal(F~_v/F_v)).",
+    "Choose x in H^1(G_v, O_{M,l}(epsilon chi~_v^{-2})) whose lambda-component lifts the class of rho-bar|G_v, possible because H^2(G_v, O_{M,lambda}(epsilon chi~_v^{-2})) = 0 (dual to H^0(G_v, M_lambda/O_{M,lambda}(chi~_v^2))); let (A_v, i_v, j_v) correspond to (chi~_v, x)."
+   ],
+   "acceptance": [
+    "Check in the case chi_v^2 = 1 that A_v[wp] is psi-bar_{v_1} ⊕ psi-bar_{v_1^c} with psi-bar trivial on the Tate part, using q_0 ∈ wp d_M^{-1}",
+    "In the case chi_v^2 ≠ 1, check that H^0(G_v, M_lambda/O_{M,lambda}(chi~_v^2)) = 0, which is the local-duality input Taylor uses for H^2(G_v, O_{M,lambda}(epsilon chi~_v^{-2})) = 0"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.2/taylor-auxiliary-data-p-L-psi-N-M",
+    "HilbertModularVarietiesAndShimuraCurves:H6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/TaylorAuxiliary",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "Lemma 1.2, printed p. 10 (page image)",
+     "excerpt": "either has potentially good ordinary reduction or potentially multiplicative reduction",
+     "match": "Statement of Lemma 1.2."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "proof of Lemma 1.2, first case, printed p. 10",
+     "excerpt": "According to section 2 of [Rap] there is a M-HBAV",
+     "match": "Import of Rapoport section 2 in the multiplicative case."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "proof of Lemma 1.2, second case, printed pp. 11-12 (page images)",
+     "excerpt": "Serre-Tate theory tells us that liftings of the triple",
+     "match": "Serre-Tate parametrisation of lifts in the ordinary case."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "end of proof of Lemma 1.2, printed p. 12",
+     "excerpt": "(as it is dual to",
+     "match": "The H^2 vanishing by local duality that allows the lift of the extension class."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "Corrections to [Tay4], bullets 3-5, p. 776 (page image)",
+     "excerpt": "The superscript Gal (L/K) in the fourth displayed formula on page 135 should read",
+     "match": "Printed correction to the descent step of Lemma 1.2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemmas-1-3-1-4-local-points-at-p-and-at-infinity",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.2",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.2"
+   ],
+   "title": "Taylor Lemmas 1.3-1.4: local M-HBAVs above p and at infinite places, with the corrected real point",
+   "kind": "lemma",
+   "statement": "(Lemma 1.3) For each place w of F above p there is an M-HBAV (A_w, i_w, j_w) over F_w with good ordinary reduction, G_w acting on A_w[lambda|_M] as rho-bar|G_w and on A_w[wp|_M] as psi-bar_{w_1} ⊕ psi-bar_{w_1^c}. (Lemma 1.4) For each infinite place x of F there is an M-HBAV (A_x, i_x, j_x) over F_x. The printed proof of Lemma 1.4 (A_x = E ⊗_Z O_M with the trace pairing, claiming P(A_x, i_x) ≅ O_M^+) is wrong (Taylor 2006, p. 776); the corrected proof: choose z in (i R_{>0})^{Hom(M,R)}, let M act on C^{Hom(M,R)} through the tau-components, and set A = C^{Hom(M,R)}/(d_M^{-1} 1 + O_M z); this is an abelian variety with O_M-action defined over R (complex conjugation on A(C) induced by that on C^{Hom(M,R)}), and P(A, i) ≅ O_M^+, alpha in O_M corresponding to the Riemann form E(x + yz, u + vz) = tr_{M/Q} alpha(yu - xv) for x, y, u, v in M ⊗_Q R.",
+   "hypotheses": [
+    "Lemma 1.3's proof is omitted: 'proved in the same way as lemma 1.2 but is much easier' (gap)",
+    "Lemma 1.4 as stated does not include level structures; for points of X(F_x) one also needs Gal(C/R)-equivariant isomorphisms with V_lambda and V_wp matching pairings, which Taylor obtains from the remark that rho-bar|G_x and Ind psi-bar|G_x are reducible so all alternating isomorphisms are equivalent (for l, p odd)",
+    "for residual characteristic 2 (KW II's extension) the real point requires the separate construction in KW II section 6 (lattice L' = {u + zv : v ≡ beta u mod 2 O_M}) when rho-bar(c) is non-trivial"
+   ],
+   "proofSteps": [
+    "Lemma 1.3: no proof printed.",
+    "Lemma 1.4 corrected: the lattice d_M^{-1} 1 + O_M z is stable under complex conjugation, giving a real structure; the alternating forms E_alpha are Riemann forms for alpha totally positive, identifying P(A, i) with O_M^+ as ordered modules.",
+    "KW II (for p = 2, rho-bar|D_2 reducible, citing the erratum p. 776 of [59]): complex conjugation acts trivially on the 2-torsion of A; if rho-bar(c) is trivial take A with any level structure; otherwise pass to the O_M-stable sublattice L' ⊂ L defined by v ≡ beta u mod 2 O_M (beta with d_{M,2} = beta O_{M,2}), use (1/2)E as polarisation datum, and check that c acts on L' ⊗ Z_2 in the basis (gamma + z, 2z) by the matrix (1, 0; -1, -1), which yields a level structure alpha' and a real point. If rho-bar|D_2 is irreducible (moduli problem of [59] with polarisation module (d_M^{-1})^+), take A = E ⊗ O_M with E/R having 4 or 2 real 2-torsion points according as rho-bar(c) is trivial or not."
+   ],
+   "acceptance": [
+    "Compute P(E ⊗_Z O_M) for M = Q(sqrt 5) with the trace pairing and verify it is the ordered module (d_M^{-1})^+, not O_M^+, confirming the correction",
+    "Check on the lattice d_M^{-1} 1 + O_M z that E(x+yz, u+vz) = tr alpha(yu - xv) is integral and principal exactly for alpha a unit"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.2/taylor-auxiliary-data-p-L-psi-N-M",
+    "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-2-local-hbav-at-places-above-l",
+    "HilbertModularVarietiesAndShimuraCurves:H6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/TaylorAuxiliary",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "Lemma 1.3, printed p. 12",
+     "excerpt": "This is proved in the same way as lemma 1.2 but is much easier so we leave the details to the reader.",
+     "match": "Lemma 1.3 has no written proof."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "Lemma 1.4 and printed proof, printed p. 13",
+     "excerpt": "Choose an elliptic curve E/F_x and set A_x = E ⊗_Z O_M",
+     "match": "The printed (incorrect) proof via E ⊗ O_M."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "Corrections to [Tay4], sixth bullet, pp. 776-777 (page images)",
+     "excerpt": "The proof of lemma 1.4 is wrong. A correct proof can be given as follows.",
+     "match": "Taylor's correction of Lemma 1.4."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "same bullet, p. 776",
+     "excerpt": "This complex torus is an abelian variety with an action of OM , which is actually defined over R",
+     "match": "The corrected real point A = C^{Hom(M,R)}/(d_M^{-1} 1 + O_M z)."
+    },
+    {
+     "sourceId": "kw-serre-modularity-II",
+     "locator": "proof of Theorem 6.1, real points for p = 2, pp. 54-55",
+     "excerpt": "In the erratum, Taylor gives a data (A, i, j) over R.",
+     "match": "KW II use the corrected real point and build the level structure at 2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.2/local-points-at-l-p-infinity-and-the-point-over-E",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.2",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.2"
+   ],
+   "title": "Local nonemptiness of X at l, p and infinity and the Moret-Bailly point: an M-HBAV over a totally real E with A[lambda] ≅ rho-bar and A[wp] ≅ Ind psi-bar",
+   "kind": "application",
+   "statement": "X(F_x) is nonempty for every place x of F above l, above p, or at infinity. Applying Moret-Bailly (Theorem G) to X/F with S the places above l, p and infinity yields a totally real field E/F in which every place above l and p splits completely, and an M-HBAV (A, i, j)/E such that G_E acts on A[lambda] as rho-bar|G_E and on A[wp] as (Ind_{G_L}^{G_F} psi-bar)|G_E.",
+   "hypotheses": [
+    "Lemmas 1.2, 1.3 (unproved) and 1.4 (with the corrected proof)",
+    "for x above l, p or infinity, rho-bar|G_x and (Ind psi-bar)|G_x are reducible, so any two alternating isomorphisms of V_lambda × F_x (or V_wp × F_x) with its Cartier dual are equivalent; this is how level structures matching a_lambda and a_wp are produced from the local M-HBAVs",
+    "Theorem G requires X geometrically irreducible, smooth and quasi-projective; quasi-projectivity is not addressed in the source",
+    "E need not be Galois over F; Taylor 2006's corrected proof of Theorem 1.6 passes to the normal closure (see R23.3)",
+    "the moduli space X/F itself (fine, smooth, geometrically connected; quasi-projectivity is needed by Theorem G and not stated by Taylor) is requested from HilbertModularVarietiesAndShimuraCurves H6, which RS-23 makes its owner; this node verifies Theorem G's hypotheses for Taylor's data"
+   ],
+   "proofSteps": [
+    "Combine Lemmas 1.2-1.4 with the equivalence of alternating isomorphisms for reducible local Galois modules to get local points of X.",
+    "Apply Theorem G (Moret-Bailly) with S = places above l, p and infinity: X(F_S) is Zariski dense, so there is a point over a finite E ⊂ F_S; all places of S split completely in E, in particular E is totally real.",
+    "The quintuple over E gives the stated identifications of A[lambda] and A[wp]."
+   ],
+   "acceptance": [
+    "Check the local-point claim at an infinite place x: the Gal(C/R)-module V_lambda ⊗ R is (1) ⊕ (-1) because det rho-bar(c) = -1 and l is odd, and matches A[lambda](C) for the corrected real A",
+    "Confirm that splitting completely at infinity forces E totally real"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-2-local-hbav-at-places-above-l",
+    "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemmas-1-3-1-4-local-points-at-p-and-at-infinity",
+    "PotentialModularityAndCompatibleSystems:R23.1/taylor-theorem-g-split-completely-points-are-dense",
+    "HilbertModularVarietiesAndShimuraCurves:H6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/TaylorAuxiliary",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "printed p. 13 (page image)",
+     "excerpt": "It follows from lemmas 1.2, 1.3 and 1.4 that for any place x of F above l, p",
+     "match": "Local nonemptiness of X at l, p and infinity."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "printed p. 13",
+     "excerpt": "are equivalent.) Applying a theorem of Moret-Bailly [M]",
+     "match": "The Moret-Bailly application producing E and A."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "printed p. 13",
+     "excerpt": "every place above l and p split completely and a M-HBAV (A, i, j)/E such that",
+     "match": "Output of the application."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.2/taylor-2006-lemmas-4-4-4-5-descent-and-the-cm-point",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.2",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.2"
+   ],
+   "title": "Taylor 2006 Lemmas 4.4–4.5: descent of B from a point of X_ρ̄, and the CM point of X_Dih",
+   "kind": "lemma",
+   "statement": "Setting of Taylor 2006 Proposition 4.1 (l > 2, rho-bar: G_Q -> GL_2(F_l-bar) odd with rho-bar|I_l ~ omega_2^{k-1} ⊕ omega_2^{l(k-1)}, 2 <= k <= l): with auxiliary totally real E, imaginary quadratic M, primes p_1, p_2, b = lambda wp_1 wp_2 and b_0 = b ∩ E, let X/Q be the fine moduli space of quadruples (A, i, j, alpha) with (A, i, j) an E-HBAV and alpha: W_{b_0,0} ≅ A[b_0] taking the standard pairing to the j-Weil pairing, where W_{b_0,0}(Q^ac) = O_E/b_0(1) ⊕ O_E/b_0; X is smooth and geometrically connected (Rapoport section 1). The finite group Gamma of pairs (gamma, eps) in GL_2(O_E/b_0) × O_{E,>>0}^×/(O_{E,≡1(b_0)}^×)^2 with eps det gamma ≡ 1 mod b_0 acts faithfully on X, and H^1(G_Q, Gamma) is in bijection with pairs (R, psi) with R: G_Q -> GL_2(O_E/b_0) continuous and psi: G_Q -> O_{E,>>0}^×/(O_{E,≡1(b_0)}^×)^2 with epsilon^{-1} det R ≡ psi^{-1} mod b_0; each pair defines a twist X_{R,psi}/Q, whose F-points are described by quadruples over N'F with descent isomorphisms kappa_sigma compatible with R and with the multiplier psi. For R_rho = rho-bar ⊕ Ind chi_{wp_1} ⊕ Ind chi_{wp_2} and R_Dih = Ind chi_lambda ⊕ Ind chi_{wp_1} ⊕ Ind chi_{wp_2} (same epsilon^{-1} det = mu) one gets X_rho and X_Dih, isomorphic over Q_l, Q_{p_1}, Q_{p_2} and R. Lemma 4.4: an F-rational point of X_rho gives an abelian variety B/F of dimension [EM:Q] with O_{EM} -> End(B/F) and B[b] ≅ R_rho. Lemma 4.5: X_Dih has a Q-rational point (a CM abelian variety), hence X_rho has points over Q_l, Q_{p_1}, Q_{p_2} and R.",
+   "hypotheses": [
+    "RS-23: the moduli space X of E-HBAVs with b₀-level structure and its twists X_{R,ψ} by (R, ψ) ∈ H¹(G_ℚ, Γ), with their F-points, are HilbertModularVarietiesAndShimuraCurves H6's construction (requested); this node keeps Taylor's two lemmas and the choice of R_ρ̄, R_Dih",
+    "l > 2; rho-bar odd with rho-bar|G_l irreducible of niveau 2 and 2 <= k <= l (the case used by KW II when rho-bar|D_p is irreducible)",
+    "the auxiliary choices (M, E'', chi_0, p_1, p_2, E', E, lambda, wp_i, alpha_i, eta, chi) of pp. 756-758 and Lemmas 4.2-4.3 (read, not transcribed here)",
+    "fineness because b_0 is divisible by two primes of coprime residue characteristic",
+    "Lemma 4.5 imports the theory of complex multiplication (Lang, Complex multiplication, ch. 5 thm 5.1)",
+    "the Weil-pairing multiplier psi is part of the twisting datum: a twist by R alone does not carry the polarisation condition"
+   ],
+   "proofSteps": [
+    "Define X, the group Gamma and its Galois-equivariant action; compute H^1(G_Q, Gamma) as pairs (R, psi) and define the twists X_{R,psi}; describe F-points by descent data (p. 760).",
+    "Lemma 4.4: from (A, i, j, beta) over F N with descent maps kappa_sigma, set B = A ⊗_{O_E} O_{EM} with polarisation j(1) ⊗ f_0 and kappa'_sigma = kappa_sigma ⊗ eta_sigma; the quadruple (B, i', f, beta') has no nontrivial automorphisms, so the cocycle condition holds and (B, i') descends to F with beta'.",
+    "Lemma 4.5: CM theory gives A/M of dimension [E:Q] with O_{EM} action, j: (d_{EM}^{-1})^- ≅ P(A, i|O_E) and Galois-invariant alpha_q: O_{EM,q}(chi_q) ≅ T_q A; the relation chi (c ∘ chi) = (|| ||^{-1} i_∞) ∘ N_{M/Q} gives a point of X_Dih(M), which is c-invariant hence in X_Dih(Q).",
+    "Since X_rho and X_Dih are isomorphic over Q_l, Q_{p_1}, Q_{p_2} and R, X_rho has local points there."
+   ],
+   "acceptance": [
+    "Check that the cocycle description forces epsilon^{-1} det R_rho = mu and that R_rho and R_Dih give the same psi",
+    "Check that the local isomorphism X_rho ≅ X_Dih over Q_l uses that rho-bar|G_l ≅ Ind chi_lambda|G_l (both induced from Q_{l^2})"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.1/taylor-theorem-g-split-completely-points-are-dense",
+    "HilbertModularVarietiesAndShimuraCurves:H6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/TaylorAuxiliary",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "section 4, pp. 759-761",
+     "excerpt": "Thus to any such pair we can associated a twist XR,ψ /Q of X/Q.",
+     "match": "The twist of the moduli space by a cocycle (R, psi) including the multiplier."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "section 4, p. 761",
+     "excerpt": "Note that Xρ and XDih become isomorphic over Ql , Qp1 , Qp2 and R.",
+     "match": "Local isomorphism of the two twists, giving local points from the dihedral twist."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "after Lemma 4.5, p. 762",
+     "excerpt": "Combining the last two lemmas with a theorem of Moret-Bailly (see theorem G of [Tay4])",
+     "match": "The Moret-Bailly application to X_rho."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.3/taylor-lemma-1-5-ordinary-shape-of-the-lambda-adic-tate-module-at-l",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.3"
+   ],
+   "title": "Taylor Lemma 1.5: the lambda-adic Tate module of the auxiliary abelian variety is ordinary at unramified places above l",
+   "kind": "lemma",
+   "statement": "Let v be an unramified place of F above l and x a place of E above v. Suppose chi_v^2|I_v = epsilon^n|I_v for some integer n with 0 <= n < l - 1, and suppose that n ≠ 1 if rho-bar|G_v is semisimple. Then G_x acts on T_lambda A ⊗ Q_l by a representation of the form (epsilon (chi'_v)^{-1}, *; 0, chi'_v) with chi'_v a tamely ramified lift of chi_v.",
+   "hypotheses": [
+    "A/E is the M-HBAV produced by the Moret-Bailly application, with A[lambda] ≅ rho-bar|G_E and A[wp] ≅ Ind psi-bar|G_E",
+    "v unramified over Q_l; 0 <= n < l - 1; n ≠ 1 when rho-bar|G_v is semisimple (inequalities read on the page image of printed p. 14)",
+    "imports: Edixhoven, The weight in Serre's conjectures, section 5 (action of inertia on the Lie algebra of a finite flat group scheme); Conrad-Diamond-Taylor, JAMS 12 (1999), appendix B",
+    "the proof ends 'Hence χ₁|_{I_x} = ω'; with χ₁|_{I_x} ∼ ε^{−n} and ψ₁|_{I_x} = ω^{−n}, an action by ω^{−1} on a subquotient of A[℘] forces n = 1 and χ₁|_{I_x} = ω^{−1}, the case the hypothesis n ≠ 1 excludes (source issue PotentialModularityAndCompatibleSystems/E4)"
+   ],
+   "proofSteps": [
+    "Replace A by A ⊗_{O_M} O_N and twist so that G_x acts on A[lambda] as (epsilon chi_1, *; 0, chi_2) with chi_2 unramified and chi_1|I_x ~ epsilon^{-n}, and on A[wp] as psi_1 ⊕ psi_2 with psi_2 unramified and psi_1|I_x = omega^{-n}; it suffices to show T_lambda A ⊗ Q_l ~ (epsilon chi'_1, *; 0, chi'_2) with chi'_2 an unramified lift of chi_2.",
+    "From the action on T_wp A, either A has multiplicative reduction over E_x (then chi_1 is unramified and the result is clear) or good reduction over E_x(zeta_l).",
+    "In the good reduction case, over W(k(x)^ac)[zeta_l] the only simple subquotients of the finite flat group scheme A[lambda] are Z/lZ and mu_l, and there are no nontrivial extensions of Z/lZ by Z/lZ nor of mu_l by mu_l; with the connected-étale sequence and dim Lie(A[lambda] × F_l^ac) = [O_N/lambda : F_l] this gives 0 -> mu_l^[O_N/lambda:F_l] -> A[lambda] -> (Z/lZ)^[O_N/lambda:F_l] -> 0, so A has ordinary reduction; done if rho-bar|G_v is not semisimple.",
+    "If rho-bar|G_v is semisimple, I_x acts on Lie(A[lambda] × F_l^ac) by epsilon^{-n} or epsilon^{-1} according as A[lambda]^0 ~ epsilon chi_1 or chi_2 (Edixhoven section 5); if by epsilon^{-1}, it would act by omega^{-1} on a subquotient of A[wp] (CDT appendix B), forcing chi_1|I_x = omega, excluded when A[lambda] is semisimple (n ≠ 1)."
+   ],
+   "acceptance": [
+    "Check the boundary n = l - 2 and the excluded case n = 1 with rho-bar|G_v semisimple on an explicit example",
+    "Confirm that the conclusion gives the 'Moreover' clause of Theorem 1.6 after base change to the fields where the ramified twist is removed"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.2/local-points-at-l-p-infinity-and-the-point-over-E"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/Residual",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "Lemma 1.5 and proof, printed pp. 14-15 (page images)",
+     "excerpt": "we see that either A has multiplicative reduction over",
+     "match": "The reduction-type dichotomy at the start of the proof."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "proof of Lemma 1.5, printed p. 14",
+     "excerpt": "no non-trivial extensions of",
+     "match": "The extension-group input giving the connected-étale filtration of A[lambda]."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "proof of Lemma 1.5, printed p. 15",
+     "excerpt": "(see appendix B of [CDT])",
+     "match": "Import of CDT appendix B in the semisimple case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.3/modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.3"
+   ],
+   "title": "Modularity of the auxiliary abelian variety via its wp-adic Tate module, and transfer to rho-bar|G_E",
+   "kind": "theorem",
+   "statement": "For the M-HBAV A/E of the Moret-Bailly application: (a) (Ind_{G_L}^{G_F} psi-bar)|G_E is absolutely irreducible, since for every place x of E above p the restrictions of psi-bar to the two places of LE above x are different; (b) A has semistable reduction at every prime x of E above p, because A[lambda] is unramified at x and ker(GL_2(O_{M,lambda}) -> GL_2(O_M/lambda)) has no nontrivial element of finite order; (c) T_wp A is ordinary at every x above p, because A is semistable at x, E_x ≅ Q_p and the I_x-coinvariants of A[wp] are nontrivial; (d) since (Ind psi)|G_E is modular, Theorem 5.1 of Skinner-Wiles [SW3] (nearly ordinary deformations of irreducible residual representations) shows that T_wp A is modular, hence T_lambda A is modular; consequently rho-bar|G_E ≅ A[lambda] is the reduction of a modular lambda-adic representation.",
+   "hypotheses": [
+    "E/F totally real with all places above l and p split completely (so E_x ≅ F_w ≅ Q_p for x | p when F_w = Q_p; the source writes E_x ≅ Q_p)",
+    "modularity of (Ind_{G_L}^{G_F} psi)|G_E is used without argument: it comes from automorphic induction of the algebraic Hecke character of LE attached to psi restricted to G_{LE} (not written in the source)",
+    "'T_wp A modular implies T_lambda A modular' uses that the lambda-adic and wp-adic Tate modules of A come from the same automorphic representation (compatible system of A); not spelled out in the source",
+    "[SW3] = Skinner–Wiles, Nearly ordinary deformations of irreducible residual representations (Ann. Fac. Sci. Toulouse 10 (2001)); its Theorem 5.1 is OrdinaryAutomorphicFormsAndModularityLifting R21.5/nearly-ordinary-irreducible-lifting, which excludes the case needed here",
+    "the residual representation (Ind_{G_L}^{G_F} ψ̄)|_{G_E} is induced from the CM field LE, in which every place above p splits: the case of source issue OrdinaryAutomorphicFormsAndModularityLifting/E11, where the printed proof of Skinner–Wiles 2001 has a gap (a gap here too)"
+   ],
+   "proofSteps": [
+    "(a)-(c) are the three 'note that' remarks after the Moret-Bailly application (printed p. 13).",
+    "(d) is the sentence before Theorem 1.6 (printed p. 15): apply SW3 Theorem 5.1 to T_wp A with residual representation (Ind psi-bar)|G_E, which is absolutely irreducible by (a), modular, and with T_wp A ordinary at p by (c).",
+    "The automorphic representation pi of GL_2(A_E) attached to T_wp A has rho_{pi,lambda'} ~ T_lambda A ⊗ Q_l for a place lambda' of its coefficient field above l, whose reduction is rho-bar|G_E."
+   ],
+   "acceptance": [
+    "Check that (Ind psi-bar)|G_E remains absolutely irreducible over E(zeta_p) or record which form of residual irreducibility SW3 Theorem 5.1 needs",
+    "Check the semistability argument (b) against Grothendieck's criterion: unipotent inertia after the level-lambda torsion is unramified and the congruence kernel is torsion-free",
+    "Before relying on [SW3] here, settle OrdinaryAutomorphicFormsAndModularityLifting/E11 or replace [SW3] by a lifting theorem that assumes residual irreducibility over E(ζ_p) (Taylor chose L ⊄ F(ζ_p)); not checked"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.2/local-points-at-l-p-infinity-and-the-point-over-E",
+    "PotentialModularityAndCompatibleSystems:R23.2/taylor-auxiliary-data-p-L-psi-N-M",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/nearly-ordinary-irreducible-lifting"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/Residual",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "remarks after the Moret-Bailly application, printed p. 13",
+     "excerpt": "is absolutely irreducible, because for any place x of E above p the restriction of",
+     "match": "Absolute irreducibility of the wp-torsion over E."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "same paragraph, printed p. 13",
+     "excerpt": "Also note that A has semi-stable reduction at any prime x of E above p, because",
+     "match": "Semistability above p."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "same paragraph, printed p. 13",
+     "excerpt": "is ordinary at any prime x of E above p, because A is semistable at x",
+     "match": "Ordinarity of T_wp A above p."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "paragraph before Theorem 1.6, printed p. 15",
+     "excerpt": "we may apply theorem 5.1 of [SW3] to deduce that",
+     "match": "Skinner-Wiles modularity lifting applied to T_wp A."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "same sentence, printed p. 15",
+     "excerpt": "to deduce that T A is modular",
+     "match": "Transfer from T_wp A to T_lambda A (the Greek lambda is lost in the text layer; read on page image)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.3/taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.3"
+   ],
+   "title": "Taylor Theorem 1.6 (with the 2006 corrected proof) and Corollary 1.7: potential modularity of residual representations",
+   "kind": "theorem",
+   "statement": "(Theorem 1.6) Let l be an odd prime, k/F_l finite, F totally real and rho-bar: G_F -> GL_2(k) continuous irreducible with rho-bar|G_v ~ (epsilon chi_v^{-1}, *; 0, chi_v) for every v | l and det rho-bar(c) = -1 for every complex conjugation c. Then there are a finite Galois totally real extension E/F in which every prime of F above l splits completely, a regular algebraic cuspidal automorphic representation pi of GL_2(A_E) and a place lambda' of its field of coefficients above l with rho-bar_{pi,lambda'} ~ rho-bar|G_E. Moreover E, pi, lambda' may be chosen so that for every unramified prime x of E above l with chi_x^2|I_x = epsilon^n|I_x and rho-bar(I_x) not consisting of scalar matrices, rho_{pi,lambda'}|G_x ~ (epsilon (chi'_x)^{-1}, *; 0, chi'_x) with chi'_x a tamely ramified lift of chi_x. (Corollary 1.7) Without the local hypothesis at l: if rho-bar is continuous irreducible and odd, there are a finite Galois totally real E/F in which every prime of F above l is unramified with inertial degree at most 2, pi and lambda' with rho-bar_{pi,lambda'} ~ rho-bar|G_E, with a corresponding ordinarity refinement at the set T of unramified v | l where rho-bar(I_v) is not scalar and rho-bar|G_v is reducible of the displayed shape.",
+   "hypotheses": [
+    "Theorem 1.6: l odd; rho-bar irreducible; locally reducible of the displayed shape at all v | l; totally odd",
+    "Corollary 1.7 is stated in the preprint with no proof (gap)",
+    "the 'Moreover' clause uses Lemma 1.5, whose hypothesis 0 <= n < l - 1 is not repeated in the printed statement of Theorem 1.6 (read on page image p. 15)"
+   ],
+   "proofSteps": [
+    "Soluble image: 'follows from known cases of the strong Artin conjecture' (Tunnell, with Rogawski-Tunnell for using congruences to make pi regular); not further detailed.",
+    "Insoluble image and det rho-bar = epsilon (the case actually treated in section 1 after the Taylor 2006 correction): auxiliary data, moduli space X, local points, Moret-Bailly point A/E, and modularity of T_lambda A (previous nodes); Lemma 1.5 gives the local shape.",
+    "General determinant (Taylor 2006, p. 777): choose a totally real quadratic F'/F in which all primes above l split, a finite k'/k and xi: G_{F'} -> (k')^× with det rho-bar|G_{F'} = epsilon xi^2 (possible since the obstruction to square roots of a character lies in the 2-part of the Brauer group); run the construction for rho-bar' = rho-bar ⊗ xi^{-1} over F' to get E'/F' and A'; let E be the normal closure of E'/F, so l and p split completely in E/F; take A = A' ×_{E'} E and argue as before.",
+    "Theorem 1.6 is then the conclusion over the Galois E; twisting back by xi is implicit."
+   ],
+   "acceptance": [
+    "Check that a Galois closure of an extension in which all places above l and p split completely still has that property, which is what makes E Galois",
+    "Test the twist step: for rho-bar with det rho-bar = epsilon omega^2 over F = Q, exhibit xi over a real quadratic F' split at l"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.3/modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-lemma-1-5-ordinary-shape-of-the-lambda-adic-tate-module-at-l",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/Residual",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "Theorem 1.6, printed p. 15 (page image)",
+     "excerpt": "totally real extension E/F in which every prime of F above l splits completely, a regular algebraic cuspidal automorphic representation",
+     "match": "Conclusion of Theorem 1.6."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "Theorem 1.6, 'Moreover' clause, printed p. 15",
+     "excerpt": "may be chosen so that the following holds",
+     "match": "The local refinement at unramified places above l."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "paragraph before Theorem 1.6, printed p. 15",
+     "excerpt": "has soluble image follows from known cases of the strong Artin conjecture",
+     "match": "The soluble case is referred to Tunnell and Rogawski-Tunnell."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "Corrections to [Tay4], last bullet, p. 777 (page image)",
+     "excerpt": "theorem 1.6 requires some further proof. The following will suffice:",
+     "match": "The corrected proof via a quadratic twist and normal closure."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "same bullet, p. 777",
+     "excerpt": "Let E be the normal closure of E′/F. Then l and p split completely in E/F.",
+     "match": "How E is made Galois while keeping the splitting."
+    },
+    {
+     "sourceId": "taylor-2002-fontaine-mazur",
+     "locator": "Corollary 1.7, printed p. 16 (page image)",
+     "excerpt": "degree at most 2, a regular algebraic cuspidal automorphic representation",
+     "match": "Statement of Corollary 1.7; no proof follows in the preprint."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Taylor's potential modularity theorem"
+   }
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l",
+   "parentStageId": "PotentialModularityAndCompatibleSystems:R23.3",
+   "realises": [
+    "PotentialModularityAndCompatibleSystems:R23.3"
+   ],
+   "title": "Taylor 2006 Proposition 4.1, Corollary 4.6 and Theorem 5.7: potential modularity with l split completely when rho-bar|G_l is irreducible",
+   "kind": "theorem",
+   "statement": "(Proposition 4.1) Let l > 2 and rho-bar: G_Q -> GL_2(F_l-bar) continuous odd with rho-bar|I_l ~ omega_2^{k-1} ⊕ omega_2^{l(k-1)} for some 2 <= k <= l. Then there are a Galois totally real field F of even degree in which l splits completely, a regular algebraic cuspidal pi of GL_2(A_F) and lambda: M_pi -> Q_l-bar with rho-bar|G_F ~ rho-bar_{pi,lambda}, pi_∞ of weight 2, and for each x | l, WD_lambda(pi_x) tamely ramified with WD_lambda(pi_x)|I_x = omega_2^{k-(l+1)} ⊕ omega_2^{lk-(l+1)}. (Corollary 4.6) One may moreover make the central character of pi^{∞,l} unramified (Langlands base change). (Theorem 5.7) Let l > 3 and rho-bar: G_Q -> GL_2(F_l-bar) continuous irreducible odd with rho-bar|G_l irreducible. Then there are a Galois totally real F of even degree in which l splits completely and a regular algebraic cuspidal pi with rho-bar|G_F ~ rho-bar_{pi,lambda}, pi_∞ of weight k_rho (Serre's weight) and pi_x unramified at every finite place x.",
+   "hypotheses": [
+    "Proposition 4.1: l > 2, 2 <= k <= l, niveau-2 irreducible restriction to G_l",
+    "Theorem 5.7: l > 3; KW II note that p = 3 is excluded in section 5 of [59] and lift the restriction via Lemma 2.2 of Khare [33] (unread)",
+    "the proof of Proposition 4.1 imports Skinner-Wiles [SW2] Theorem 5.1 (or [SW1] + Theorem 3.3 + descent) and the theory of complex multiplication",
+    "Theorem 5.7's proof uses Lemmas 1.3, 5.3 and 5.6 of the same paper, which were not read",
+    "Proposition 4.1 applies [SW2] Theorem 5.1 (Skinner–Wiles 2001) to T_{℘₁}B, whose residual representation Ind_{G_{FM}}^{G_F}(χ_{℘₁} mod ℘₁) is induced from the CM field FM with p₁ split (p₁ splits in the Hilbert class field of M): again the case of OrdinaryAutomorphicFormsAndModularityLifting/E11; Taylor gives an alternative, 'the main theorem of [SW1], theorem 3.3 of this paper and a standard descent argument'"
+   ],
+   "proofSteps": [
+    "Proposition 4.1: auxiliary choices (M imaginary quadratic with l inert, p_1, p_2, E, chi of Lemma 4.3), moduli space X and its twists X_rho, X_Dih; Lemmas 4.4-4.5 and Moret-Bailly give F Galois totally real of even degree split at l, p_1, p_2 and B/F with B[lambda] realising rho-bar and B[wp_i] realising Ind_{G_M}^{G_Q}(chi_{wp_i} mod wp_i).",
+    "T_lambda B is unramified above p_1 (inertia has both l-power and p_2-power order), so B is semistable above p_1; T_wp1 B is ordinary above p_1; inertia above l acts on T_wp1 B by omega~_2^{k-(l+1)} ⊕ omega~_2^{lk-(l+1)}; since Ind (chi_{wp_1}) is modular, [SW2] Theorem 5.1 gives pi of weight 2 with rho_{pi,wp_1} ~ T_wp1 B, hence rho_{pi,lambda} ~ T_lambda B.",
+    "Corollary 4.6 by Langlands base change.",
+    "Theorem 5.7: twist rho-bar by epsilon^{-c} so that 2 <= k_rho - c(l+1) <= l; Lemma 5.6 gives F and pi of weight k_rho - c(l+1) unramified at all finite places; Lemma 1.3 gives a Hecke eigensystem phi with rho_phi ≅ (rho-bar ⊗ epsilon^{-c})|G_F; Lemma 5.3 concludes (not read)."
+   ],
+   "acceptance": [
+    "Check the weight bookkeeping in Theorem 5.7: k_rho - c(l+1) lies in [2, l] for the c chosen from Serre's definition",
+    "Confirm that 'l splits completely in F' is what KW II need to take F split above p when rho-bar|D_p is irreducible"
+   ],
+   "prerequisites": [
+    "PotentialModularityAndCompatibleSystems:R23.2/taylor-2006-lemmas-4-4-4-5-descent-and-the-cm-point",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/nearly-ordinary-irreducible-lifting",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PotentialModularity/Residual",
+    "namespace": "TauCeti.PotentialModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "Proposition 4.1 and following remark, pp. 755-756",
+     "excerpt": "We remark that the key improvement of this over results in [Tay4] is the condition that l split completely in F.",
+     "match": "The improvement over Taylor 2002 used by KW II when rho-bar|D_p is irreducible."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "end of proof of Proposition 4.1, pp. 762-763",
+     "excerpt": "of [SW2] tells us that there is a algebraic, cuspidal automorphic representation",
+     "match": "Skinner-Wiles lifting applied to T_wp1 B."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "Corollary 4.6, p. 763",
+     "excerpt": "Using Langlands base change [Langl] we immediately obtain the following corollary.",
+     "match": "Corollary 4.6 via base change."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "Theorem 5.7, p. 770",
+     "excerpt": "Finally we have the following version of our potential version of Serre’s conjecture.",
+     "match": "Theorem 5.7 (l > 3, rho-bar|G_l irreducible)."
+    },
+    {
+     "sourceId": "taylor-2006-meromorphic-continuation",
+     "locator": "proof of Theorem 5.7, p. 771",
+     "excerpt": "The theorem now follows from lemma 5.3.",
+     "match": "The unread lemmas on which Theorem 5.7 rests."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Potential modularity with l split (Taylor 2006)"
+   }
   }
  ],
  "requests": [
@@ -1429,9 +2139,11 @@
   },
   {
    "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
-   "need": "Langlands–Tunnell for the solvable-image branch of KW II Theorem 6.1.",
+   "need": "Langlands–Tunnell for the solvable-image branch of KW II Theorem 6.1. Also automorphic induction of the algebraic Hecke character of LE attached to ψ, giving the modularity of (Ind_{G_L}^{G_F} ψ)|_{G_E} that Taylor 2002 uses before Theorem 1.6, and the strong Artin conjecture in the soluble cases (Tunnell; Rogawski–Tunnell) for Theorem 1.6's soluble branch.",
    "neededBy": [
-    "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F"
+    "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F",
+    "PotentialModularityAndCompatibleSystems:R23.3/modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l"
    ],
    "status": "open"
   },
@@ -1440,6 +2152,26 @@
    "need": "The ordinary modularity lifting theorems (Skinner–Wiles) used in Taylor's ordinary case of potential modularity.",
    "neededBy": [
     "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "HilbertModularVarietiesAndShimuraCurves:H6",
+   "need": "For Taylor 2002 §1 and Taylor 2006 §4 (RS-23 leaves R23.2 only the verification for Taylor's data): M-HBAVs (A, i, j) with ordered invertible O_M-modules and P(A, i) (Rapoport §1); the fine moduli space X/F of M-HBAVs with level structures m_λ : V_λ ≅ A[λ] and m_℘ : V_℘ ≅ A[℘] matching fixed alternating pairings a_λ, a_℘ with the j(1)-Weil pairings, fine when ker(GL₂(O_{M,λ}) → GL₂(O_M/λ)) is torsion-free, smooth, geometrically connected by the uniformisation of X(F ⊗_{F_x} ℂ) by [M : ℚ] copies of the upper half plane, and quasi-projective (Theorem G needs it; Taylor does not state it); the moduli of E-HBAVs with b₀-level structure, the group Γ, and the twists X_{R,ψ} by (R, ψ) ∈ H¹(G_ℚ, Γ) with the description of their F-points by quadruples with descent data κ_σ (Taylor 2006, pp. 759–760).",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-2-local-hbav-at-places-above-l",
+    "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemmas-1-3-1-4-local-points-at-p-and-at-infinity",
+    "PotentialModularityAndCompatibleSystems:R23.2/local-points-at-l-p-infinity-and-the-point-over-E",
+    "PotentialModularityAndCompatibleSystems:R23.2/taylor-2006-lemmas-4-4-4-5-descent-and-the-cm-point"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+   "need": "Skinner–Wiles, Nearly ordinary deformations of irreducible residual representations (2001), Theorem 5.1: modularity of a nearly ordinary ρ over a totally real field with ρ̄^{ss} irreducible and D_i-distinguished and a χ₂-good nearly ordinary modular lift (planned as R21.5/nearly-ordinary-irreducible-lifting, whose hypothesis (iii) excludes the case below). Taylor 2002 and 2006 need it for residual representations induced from a CM field in which the places above p split (OrdinaryAutomorphicFormsAndModularityLifting/E11).",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R23.3/modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l"
    ],
    "status": "open"
   }
@@ -1453,19 +2185,23 @@
   },
   {
    "stageId": "PotentialModularityAndCompatibleSystems:R23.2",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Taylor 2002 §1 and Taylor 2006 §4 (Taylor's moduli problem): the draft EXT-12 has 8 nodes, to be carried with page-image verification."
+    "The moduli spaces X and X_{R,ψ}, their fineness, smoothness, geometric connectedness and quasi-projectivity are requested from HilbertModularVarietiesAndShimuraCurves H6 (RS-23).",
+    "Lemma 1.3 has no printed proof (gap).",
+    "KW II §6's residue-characteristic-2 variant of the real point is recorded in the Lemmas 1.3–1.4 node, not planned separately."
    ],
-   "notes": "Not carried at checkpoint 1 (see the gap)."
+   "notes": "Checkpoint 2 carries six EXT-12 draft nodes, re-verified on the page images of Taylor 2002 (fm.pdf) and Taylor 2006: Taylor's auxiliary data (with the 2006 corrections), Lemma 1.1, Lemmas 1.2–1.4, the local points and the Moret-Bailly point over E, and Taylor 2006 Lemmas 4.4–4.5. The draft's M-HBAV definition and the two moduli-space constructions are not carried: RS-23 gives them to HilbertModularVarietiesAndShimuraCurves H6, and they are requested."
   },
   {
    "stageId": "PotentialModularityAndCompatibleSystems:R23.3",
    "status": "partial",
    "remaining": [
-    "Taylor 2002 Lemma 1.5, Theorem 1.6 and Corollary 1.7, Taylor 2006 Proposition 4.1 and Theorem 5.7, and the transfer from the auxiliary abelian variety (draft EXT-12, 4 nodes)."
+    "Theorem 1.6's soluble-image branch (Tunnell; Rogawski–Tunnell) is requested from GL2AutomorphicRepresentationsAndTransfer R17.5.",
+    "Corollary 1.7 has no printed proof (gap); Taylor 2006 Lemmas 1.3, 5.3 and 5.6 are unread (gap).",
+    "The use of Skinner–Wiles 2001 in the case of OrdinaryAutomorphicFormsAndModularityLifting/E11 (gap)."
    ],
-   "notes": "KW II Theorem 6.1 and KW Annals Theorem 2.1 (carried, re-verified)."
+   "notes": "KW II Theorem 6.1 and KW Annals Theorem 2.1 (carried, re-verified). Checkpoint 2 carries the draft's four Taylor nodes: Lemma 1.5, the modularity of the auxiliary abelian variety and its transfer to ρ̄, Theorem 1.6 with Corollary 1.7, and Taylor 2006 Proposition 4.1, Corollary 4.6 and Theorem 5.7; KW II Theorem 6.1 and KW Annals Theorem 2.1 now cite them."
   },
   {
    "stageId": "PotentialModularityAndCompatibleSystems:R23.4",
@@ -1512,7 +2248,8 @@
   {
    "title": "Taylor 2006 Lemmas 1.3, 5.3, 5.6 (used for Theorem 5.7) and Khare's Lemma 2.2 (p = 3) are unread",
    "neededBy": [
-    "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F"
+    "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l"
    ],
    "detail": "Verified: Theorem 5.7's printed proof (p. 771) cites Lemmas 5.6, 1.3 and 5.3; KW II (p. 56) says p = 3 is excluded in section 5 of [59] and lifted by Lemma 2.2 of [33] = Khare, Serre's modularity conjecture: the level one case (Duke 134). Not verified: these lemmas. The library copy of [33] is arXiv:math/0504080v1, whose numbering was reported by an earlier review to differ from the Duke version. Next action: read Taylor 2006 section 5 (pp. 763-770) in the downloaded copy, and obtain the Duke version of Khare's paper."
   },
@@ -1531,19 +2268,27 @@
    "detail": "Verified: KW II (p. 91) uses 'Lemma 4.2 of [33]' with [33] = Khare, Serre's modularity conjecture: the level one case, Duke Math. J. 134 (2006). The library file ADD_KHARE06.pdf is arXiv:math/0504080v1, whose numbered results are Propositions 2.1, 2.2, 3.1 and Lemmas 5.1-5.4; it has no Lemma 4.2. KW Annals Lemma 3.9 (read) proves the analogous statement for minimal deformations: the order of rho^univ(I_l) mod p equals that of rho-bar(I_l). Not verified: the statement for the rings of 10.1, where the local conditions at l ≠ p are the inertia-rigid rings of KW II 3.3 (finite inertia image by construction). Next action: obtain the Duke version of [33] and read its Lemma 4.2; alternatively derive condition (4) from the inertia-rigid definitions of KW II 2.7 and 3.3."
   },
   {
-   "title": "Taylor's moduli problem and potential modularity (R23.2, and four R23.3 nodes) not yet carried",
-   "neededBy": [
-    "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F",
-    "PotentialModularityAndCompatibleSystems:R23.3/kw-annals-theorem-2-1-taylor-potential-modularity-with-ordinarity"
-   ],
-   "detail": "The unreviewed draft research/expansion/external/EXT-12 decomposes Taylor 2002 §1 (Lemmas 1.1–1.5, the moduli space of M-HBAVs, Theorem 1.6, Corollary 1.7) and Taylor 2006 §§4–5 into 12 nodes. They are not carried at this checkpoint: the 2002 preprint's text layer loses ligatures and Greek letters, so their excerpts must be re-verified on the page images. KW II Theorem 6.1 and KW Annals Theorem 2.1, which rest on them, are carried, and cite the stage R23.2."
-  },
-  {
    "title": "Propositions 9.2–9.3 and Theorem 8.2 of KW II over F are imported",
    "neededBy": [
     "PotentialModularityAndCompatibleSystems:R24.1/kw-ii-theorem-10-1-finiteness-of-the-unframed-global-ring"
    ],
    "detail": "Theorem 10.1 is a corollary of Theorems 6.1 and 8.2 and Propositions 9.2–9.3. The finiteness over F is GL2ModularityLifting R22.3/minimal-ring-finite and the lifting theorems R22.5/R22.6; KW II Theorem 8.2 (minimal modular lifts after allowable base change) has no node there yet."
+  },
+  {
+   "title": "Taylor's use of Skinner–Wiles 2001 falls in the case of OrdinaryAutomorphicFormsAndModularityLifting/E11",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R23.3/modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l"
+   ],
+   "detail": "Verified on the page images: Taylor 2002 (printed p. 15) applies Theorem 5.1 of [SW3] to T_℘A with residual representation (Ind_{G_L}^{G_F} ψ̄)|_{G_E}, L totally imaginary with every place above p split (printed p. 9); Taylor 2006 (pp. 762–763) applies Theorem 5.1 of [SW2] to T_{℘₁}B with residual Ind_{G_{FM}}^{G_F}(χ_{℘₁}), M imaginary quadratic and p₁ split. Both residual representations are induced from a CM field in which the places above p split, where Skinner–Wiles 2001's Lemma 2.2 bound fails (OrdinaryAutomorphicFormsAndModularityLifting/E11), so the planned R21.5 theorem excludes them. Taylor 2006 names an alternative through Skinner–Wiles 1999, its Theorem 3.3 and descent; for Taylor 2002 a lifting theorem assuming residual irreducibility over E(ζ_p) might serve (L ⊄ F(ζ_p) is part of Taylor's choice). Not checked."
+  },
+  {
+   "title": "Taylor 2002 Lemma 1.3 and Corollary 1.7 have no printed proofs",
+   "neededBy": [
+    "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemmas-1-3-1-4-local-points-at-p-and-at-infinity",
+    "PotentialModularityAndCompatibleSystems:R23.3/taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l"
+   ],
+   "detail": "Verified on the page images: Lemma 1.3 (printed p. 12) is 'proved in the same way as lemma 1.2 but is much easier so we leave the details to the reader'; Corollary 1.7 (printed p. 16) is stated without proof."
   }
  ],
  "sourceIssues": [
@@ -1575,6 +2320,51 @@
    "searched": [
     "The Numdam item page for 10.24033/asens.1582 (no erratum listed)"
    ]
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems/E4",
+   "source": "taylor-2002-fontaine-mazur",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "proof of Lemma 1.5, printed p. 15 (PDF page 16), read on the page image",
+   "printed": "If it acted by ε^{−1} then it would also act by ω^{−1} on some subquotient of A[℘] (see appendix B of [CDT]). Hence χ₁|_{I_x} = ω, which we are assuming does not occur when A[λ] is semi-simple as a G_x-module.",
+   "correction": "Hence χ₁|_{I_x} = ω^{−1} (that is, n = 1).",
+   "reason": "The proof has arranged χ₁|_{I_x} ∼ ε^{−n} and ψ₁|_{I_x} = ω^{−n} with ψ₂ unramified, so an action by ω^{−1} on a subquotient of A[℘] means n ≡ 1 mod (l − 1), i.e. n = 1 as 0 ≤ n < l − 1, and then χ₁|_{I_x} = ω^{−1}. The printed χ₁|_{I_x} = ω would mean n = l − 2, which the lemma does not exclude; the excluded case is n = 1 (checked in the suggested Lean file).",
+   "known": "new: not among the corrections Taylor lists in Documenta Extra Volume Coates (2006), pp. 776–777; the published version (J. Inst. Math. Jussieu 1 (2002)) was not obtained",
+   "searched": [
+    "Taylor, On the meromorphic continuation of degree two L-functions (2006), 'Corrections to [Tay4]', pp. 776–777",
+    "the author's preprint of 23 May 2000 (fm.pdf), the only version read"
+   ]
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems/E5",
+   "source": "taylor-2002-fontaine-mazur",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "proof of Lemma 1.1, printed p. 8 (PDF page 9), read on the page image",
+   "printed": "coincides with ψ_x on L_y^× for y ∈ S_L",
+   "correction": "coincides with ψ_y on L_y^× for y ∈ S_L.",
+   "reason": "The characters ψ_x are indexed by x ∈ S_L; the condition is at each y ∈ S_L separately, as in the preceding sentence 'restricts … to ψ_x on L_x^× for all x ∈ S_L'.",
+   "known": "new: not among the corrections Taylor lists in Documenta Extra Volume Coates (2006), pp. 776–777; the published version (J. Inst. Math. Jussieu 1 (2002)) was not obtained",
+   "searched": [
+    "Taylor, On the meromorphic continuation of degree two L-functions (2006), 'Corrections to [Tay4]', pp. 776–777",
+    "the author's preprint of 23 May 2000 (fm.pdf), the only version read"
+   ]
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems/E6",
+   "source": "taylor-2002-fontaine-mazur",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "choice of α_w, printed p. 7 (PDF page 8), and the proof of Lemma 1.2, second case, printed p. 11 (PDF page 12), read on the page images",
+   "printed": "with a_w chosen so that α_w is congruent modulo λ to an eigenvalue of ρ̄(Frob_w). … an isomorphism i₀ : O_{ℚ(β_v)} ≅ End(A/k(v)) … O_N × O_N → O_{ℚ(α)}, (a, b) ↦ tr_{N/ℚ(α)}(ab^c)",
+   "correction": "modulo λ₀; End(A₀/k(v)); ℚ(β_v).",
+   "reason": "On p. 7 only λ₀ | l in N₀ has been chosen; λ | λ₀ in N is chosen on p. 10, and α_w ∈ N₀. On p. 11 the abelian variety is A₀ and no α is defined in this case; the pairing is the trace from N to ℚ(β_v), as i₀ and the tensor product O_N = O_{ℚ(β_v)} ⊗ … show.",
+   "known": "new: not among the corrections Taylor lists in Documenta Extra Volume Coates (2006), pp. 776–777; the published version (J. Inst. Math. Jussieu 1 (2002)) was not obtained",
+   "searched": [
+    "Taylor, On the meromorphic continuation of degree two L-functions (2006), 'Corrections to [Tay4]', pp. 776–777",
+    "the author's preprint of 23 May 2000 (fm.pdf), the only version read"
+   ]
   }
  ],
  "sourceVersions": [
@@ -1591,6 +2381,13 @@
    "citation": "Moret-Bailly, Groupes de Picard et problèmes de Skolem II, Ann. Sci. ÉNS (4) 22 (1989) 181–194",
    "read": "2026-09-29",
    "sha256": "fcd52552f0d04f06c9c07301341581ac37f04ef84eb5867a596c560588ab5fdd"
+  },
+  {
+   "kind": "published",
+   "url": "https://ems.press/content/book-chapter-files/27484",
+   "citation": "Taylor, On the meromorphic continuation of degree two L-functions, Doc. Math. Extra Vol. Coates (2006), 729–779 (EMS Press open-access file)",
+   "read": "2026-09-29",
+   "sha256": "6ec26bfc12e1cf38d410b36c18f985e2fb26c1cb1bb03d6e5197ccf58f92c51c"
   }
  ]
 }

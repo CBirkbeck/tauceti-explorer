@@ -1,4 +1,5 @@
 import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Linarith
 
 /-!
 # Suggested Lean forms: PotentialModularityAndCompatibleSystems, part R23.1 (R23.1–R24.2)
@@ -49,5 +50,30 @@ example : 4 * 2 - 1 = 7 := by norm_num
 `dim R̄^{□,loc} = 1 + 3|S|` and the lower bound `3|S| + 1 + |S| − 1 = 4|S|` for the framed ring, hence
 `dim R̄^ψ_S ≥ 4|S| − (4|S| − 1) = 1`. -/
 example (s : ℕ) (hs : 1 ≤ s) : 3 * s + 1 + s - 1 = 4 * s ∧ 4 * s - (4 * s - 1) = 1 := by omega
+
+/-! ### Checkpoint 2: Taylor's auxiliary data and Lemma 1.5 -/
+
+/-- `R23.2/taylor-auxiliary-data-p-L-psi-N-M`: `l` never divides `1 − 4l`, so `l` is unramified in
+`ℚ(√(1 − 4l))` (at `l = 5`, `N₀ = ℚ(ζ₄, √−19)`). -/
+example (l : ℤ) (hl : 2 ≤ l) : ¬ l ∣ (1 - 4 * l) := by
+  rintro ⟨c, hc⟩
+  have h1 : l * (c + 4) = 1 := by linarith
+  have := Int.eq_one_of_mul_eq_one_right (by omega) h1
+  omega
+
+example : (1 : ℤ) - 4 * 5 = -19 := by norm_num
+
+/-- Source issue E4 (Taylor 2002, Lemma 1.5): with `χ₁|_{I_x} ∼ ε^{−n}` and `0 ≤ n < l − 1`, the printed
+conclusion `χ₁|_{I_x} = ω` means `(l − 1) ∣ (n + 1)`, i.e. `n = l − 2`, not the excluded case `n = 1`. -/
+example (l n : ℕ) (hl : 3 ≤ l) (hn : n < l - 1) (h : (l - 1) ∣ (n + 1)) : n = l - 2 := by
+  have := Nat.le_of_dvd (by omega) h
+  omega
+
+/-- E4, the intended reading: `χ₁|_{I_x} = ω^{−1}` means `(l − 1) ∣ (n − 1)`; with `1 ≤ n < l − 1` this is `n = 1`. -/
+example (l n : ℕ) (hn1 : 1 ≤ n) (hn : n < l - 1) (h : (l - 1) ∣ (n - 1)) : n = 1 := by
+  rcases Nat.eq_zero_or_pos (n - 1) with h0 | hpos
+  · omega
+  · have := Nat.le_of_dvd hpos h
+    omega
 
 end TauCeti.PotentialModularity.SuggestedTest
