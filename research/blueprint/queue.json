@@ -9218,7 +9218,8 @@
    ],
    "avoidAccountOf": "PAPER-KHARE-WINTENBERGER-09-I",
    "prompt": "research/blueprint/prompts/REV-PAPER-KHARE-WINTENBERGER-09-I.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4506"
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II",
@@ -9269,8 +9270,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4510"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4510",
+   "finishedAt": "2026-09-29T15:27:39Z"
   },
   {
    "id": "REV-PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01",
