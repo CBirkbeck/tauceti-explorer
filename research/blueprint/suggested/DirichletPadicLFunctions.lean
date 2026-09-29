@@ -7411,3 +7411,109 @@ example {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
     cyclotomicLogConstant η ε hε ℓ₁=cyclotomicLogConstant η ε hε ℓ₀ := sorry
 end SuggestedLogarithmicConstantTests
 end
+
+/-! Finite Euler removal for the supplied cyclotomic logarithm. The equality `hpow`
+is exactly ColemanIntegration L3's p-power character-sum identity at f(z)=ℓ(z-1).
+It remains an explicit imported law because the Coleman suggested file imports this
+consumer. These finite expressions are not asserted to be analytic traces or L-values. -/
+noncomputable section
+namespace DirichletPadic
+open scoped BigOperators
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+
+def cyclotomicFrobeniusLogConstant (p : ℕ) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) : K := sorry
+lemma cyclotomicFrobeniusLogConstant_def (p : ℕ) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicFrobeniusLogConstant p η ε hε ℓ=
+      -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+        ∑ a : ZMod D, η⁻¹ a*ℓ (ε^(p*a.val)-1) := sorry
+lemma cyclotomicFrobeniusLogConstant_one (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicFrobeniusLogConstant 1 η ε hε ℓ=cyclotomicLogConstant η ε hε ℓ := sorry
+lemma cyclotomicFrobeniusLogConstant_zero_log (p : ℕ) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) :
+    cyclotomicFrobeniusLogConstant p η ε hε (fun _ => 0)=0 := sorry
+lemma cyclotomicFrobeniusLogConstant_factor (p : ℕ) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (hpow : (∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(p*(a : ZMod D).val)-1))=
+      η (p : ZMod D)*(∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(a : ZMod D).val-1))) :
+    cyclotomicFrobeniusLogConstant p η ε hε ℓ=
+      η (p : ZMod D)*cyclotomicLogConstant η ε hε ℓ := sorry
+lemma cyclotomicFrobeniusLogConstant_ramified (p : ℕ) (hp : p.Prime)
+    (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (hpD : p∣D)
+    (hpow : (∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(p*(a : ZMod D).val)-1))=
+      η (p : ZMod D)*(∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(a : ZMod D).val-1))) :
+    cyclotomicFrobeniusLogConstant p η ε hε ℓ=0 := sorry
+
+def cyclotomicEulerLogValue (p : ℕ) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) : K := sorry
+lemma cyclotomicEulerLogValue_def (p : ℕ) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicEulerLogValue p η ε hε ℓ=cyclotomicLogConstant η ε hε ℓ-
+      (p : K)⁻¹*cyclotomicFrobeniusLogConstant p η ε hε ℓ := sorry
+lemma cyclotomicEulerLogValue_zero_log (p : ℕ) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) :
+    cyclotomicEulerLogValue p η ε hε (fun _ => 0)=0 := sorry
+lemma cyclotomicEulerLogValue_factor (p : ℕ) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (hpow : (∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(p*(a : ZMod D).val)-1))=
+      η (p : ZMod D)*(∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(a : ZMod D).val-1))) :
+    cyclotomicEulerLogValue p η ε hε ℓ=
+      (1-η (p : ZMod D)/(p : K))*cyclotomicLogConstant η ε hε ℓ := sorry
+lemma reciprocalEulerFactor_ne_zero (η : DirichletCharacter K D) (q : ℕ) (hq : 1<q) :
+    1-η (q : ZMod D)/(q : K)≠0 := sorry
+lemma cyclotomicEulerLogValue_eq_zero_iff (p : ℕ) (hp : 1<p)
+    (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (hpow : (∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(p*(a : ZMod D).val)-1))=
+      η (p : ZMod D)*(∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(a : ZMod D).val-1))) :
+    cyclotomicEulerLogValue p η ε hε ℓ=0 ↔ cyclotomicLogConstant η ε hε ℓ=0 := sorry
+end DirichletPadic
+
+namespace SuggestedLogarithmicEulerTests
+open scoped BigOperators
+open DirichletPadic
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+-- power_one_recovers_constant
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicFrobeniusLogConstant 1 η ε hε ℓ=cyclotomicLogConstant η ε hε ℓ := sorry
+-- powered_zero_log
+example (p : ℕ) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    cyclotomicFrobeniusLogConstant p η ε hε (fun _ => 0)=0 := sorry
+-- imprimitive_power_failure
+example (ε : K) (hε : IsPrimitiveRoot ε 3) :
+    cyclotomicFrobeniusLogConstant 3 (1 : DirichletCharacter K 3) ε hε (fun _ => 1)=2 := sorry
+-- supplied_power_eigenvalue
+example (p : ℕ) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (hpow : (∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(p*(a : ZMod D).val)-1))=
+      η (p : ZMod D)*(∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(a : ZMod D).val-1))) :
+    cyclotomicFrobeniusLogConstant p η ε hε ℓ=
+      η (p : ZMod D)*cyclotomicLogConstant η ε hε ℓ := sorry
+-- ramified_power_zero
+example (p : ℕ) (hp : p.Prime) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (hpD : p∣D)
+    (hpow : (∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(p*(a : ZMod D).val)-1))=
+      η (p : ZMod D)*(∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(a : ZMod D).val-1))) :
+    cyclotomicFrobeniusLogConstant p η ε hε ℓ=0 := sorry
+-- euler_zero_log
+example (p : ℕ) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    cyclotomicEulerLogValue p η ε hε (fun _ => 0)=0 := sorry
+-- euler_at_one_is_zero
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicEulerLogValue 1 η ε hε ℓ=0 := sorry
+-- euler_at_zero_boundary
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicEulerLogValue 0 η ε hε ℓ=cyclotomicLogConstant η ε hε ℓ := sorry
+-- euler_factor_has_reciprocal_weight
+example (p : ℕ) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (hpow : (∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(p*(a : ZMod D).val)-1))=
+      η (p : ZMod D)*(∑ a : (ZMod D)ˣ, η⁻¹ (a : ZMod D)*ℓ (ε^(a : ZMod D).val-1))) :
+    cyclotomicEulerLogValue p η ε hε ℓ=
+      (1-η (p : ZMod D)/(p : K))*cyclotomicLogConstant η ε hε ℓ := sorry
+-- reciprocal_factor_nonzero
+example (η : DirichletCharacter K D) : 1-η (2 : ZMod D)/(2 : K)≠0 := sorry
+-- integer_one_factor_zero
+example (η : DirichletCharacter K D) : 1-η (1 : ZMod D)/(1 : K)=0 := sorry
+end SuggestedLogarithmicEulerTests
+end

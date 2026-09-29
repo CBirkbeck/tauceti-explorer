@@ -15406,3 +15406,209 @@ Seven complete native lemmas verify the ultrametric power-difference bound and i
 Twelve character/prime cases give44 primitive-root choices,88 numerator/Gauss transport identities,184 logarithm product identities,44 inverse-pair identities,6 odd zeros,6 nonzero even constants,108 branch cancellations,12 principal-character counterexamples,16 mismatched-Gauss controls and12 independent precision comparisons. Exact modular p-adic calculations at output precision p^8, with p^20 input precision; independently recomputed at p^12 and projected. Teichmueller lifts have exact order modulo p^20. On every tested cyclotomic difference x, x is a unit; log(x)=log(x^(p-1))/(p-1). Each series term divides its p-part using extra guard digits and its prime-to-p part by a modular inverse. Omitted terms n>=2r+4 have valuation at least n-v_p(n)>=n/2>=r, since p>=3, so truncation is rigorous. Multiplication, inversion-pair symmetry, nonzero even constants, odd vanishing and matched Gauss root transport are checked. The additional common-valuation branch model is algebraic and explicitly does not assign that valuation to these tame differences. These controls do not prove analytic L-values or pure-p-power convergence. The largest observed discrepancy is 0.
 
 The initial57 predecessor inputs have empty delta at26c5b5204fb8232c278c6c87f74c84c349fbf9fa; the exact Coleman suggested interface is added as guard input58. The later refresh to20741f46bb320c4f4b343b03bbc264cf00b8f9de changes only the global source-issue aggregation and errata register, with all16 Dirichlet findings preserved recursively. The current369-node PMIA source preserves the compiled332-node interface. No new supplier declaration is called, and neither a current369-node PMIA compilation nor a Coleman-module compilation is claimed.
+
+
+## Concrete logarithm constants and the reciprocal Euler factor
+
+Partial continuation preserving all467 predecessor nodes whole. Six L3 nodes apply the existing Coleman character identity to a concrete powered logarithm constant, record conductor-dividing cancellation, construct its Euler-removed value, prove the exact reciprocal factor and its algebraic nonvanishing. All16 findings, four requests and eight gaps remain; zero stages are closed.
+
+The source published149–153 was read in full in the preceding checkpoint of this continuation. Whole Coleman nodes for the distribution relation, p-power Euler character identity, primitive-character fibre vanishing, generic root independence, residue-disc polylog primitives and weight one were read, along with their exact suggested character-sum signatures. The general norm/distribution and Euler identities are already owned there; this checkpoint only provides concrete Dirichlet consumers. Native unit-surjectivity, character factor-through-kernel, finite homomorphism sum, finite character order and ZMod unit criteria were read at the pins. Seven complete native lemmas verify whole-residue/unit conversion, normalization, Euler algebra, zero equivalence, the actual character reciprocal-factor nonvanishing and the imprimitive boundary.
+
+### The constant after taking powers of cyclotomic roots
+
+`DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-constant` — `DirichletPadic.cyclotomicFrobeniusLogConstant`
+
+Define c^[p]_(η,ε)(ℓ)=−G⁻¹Σ_(a∈ZMod D)w(a)ℓ(ε^(p·a.val)−1), keeping the original Gauss denominator G. At p=1 this is c_(η,ε)(ℓ).
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write w=η⁻¹, G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one), c=cyclotomicLogConstant(η,ε,ℓ), with ℓ:K→K supplied by its owner in the arithmetic application. The finite constructors are defined for every natural p using native totalized field inversion. Arithmetic Euler removal uses a prime p. The reciprocal-factor theorem works for any integer q>1, with no primitivity assumption on η. The supplied power-sum law is Σ_(a∈(ZMod D)×) w(a)ℓ(ε^(p·a.val)−1)=η(p)Σ_(a∈(ZMod D)×)w(a)ℓ(ε^a.val−1). ColemanIntegration L3 supplies it when η is primitive, including primes dividing D. The suggested consumer records this exact equality as hpow because the supplier suggested module already imports this file. No new character-fibre theorem, logarithm, distribution relation or Frobenius ring map is constructed here.
+
+**Proof:**
+
+1. Use the actual finite residue ring and the already fixed character and root. Only the argument of the supplied function changes. The denominator remains the Gauss sum at ε; replacing it by the Gauss sum at ε^p would give a different normalization and may destroy primitivity of the root.
+2. At p=1 reduce1·a.val to a.val and recover the preceding logarithmic constant. The zero supplied function gives0 for every p. These facts require neither a logarithm law nor a nonzero Gauss hypothesis.
+3. When a nonunit residue occurs, its character weight is0. A complete native sum-over-units lemma proves equality with the unit-indexed sum by filtering the whole residue ring and identifying the filtered finite set with the image of Units.val.
+4. The supplied Coleman power-sum identity is used only in the promoted factor theorem below. It is not silently assumed for imprimitive characters: with the principal character modulo3, any primitive cubic root and the constant function1, the powered constant at p=3 is2 although η(3)=0.
+5. The name records the p-th-power operation in the source calculation. Over characteristic0 it is not a Frobenius ring homomorphism, nor does this finite expression assert evaluation of a formal series at a nonzero constant.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant`, `mathlib:gaussSum`, `mathlib:AddChar.zmodChar`, `mathlib:MulChar.map_nonunit`.
+
+**Uses:**
+
+- RJW proof of Theorem6.1(ii), case(2): The finite sum remaining after the owned logarithmic distribution identity evaluates the average over p-th roots.
+- ColemanIntegration L3 Euler-factor identity: This construction is its concrete Dirichlet logarithmic consumer, not a new generic reindexing theorem.
+- Euler-removed logarithm value: Subtracting p⁻¹ times this constant gives the finite right-hand side of the source formula.
+
+**API:**
+
+- `DirichletPadic.cyclotomicFrobeniusLogConstant_def` (constructor): The displayed finite sum with the p-th-powered root arguments and original denominator.
+- `DirichletPadic.cyclotomicFrobeniusLogConstant_one` (simp): Power1 gives the preceding logarithmic constant.
+- `DirichletPadic.cyclotomicFrobeniusLogConstant_zero_log` (simp): The zero supplied function gives0.
+- `DirichletPadic.cyclotomicFrobeniusLogConstant_factor` (compatibility): The supplied Coleman identity gives c^[p]=η(p)c; promoted below.
+- `DirichletPadic.cyclotomicFrobeniusLogConstant_ramified` (simp): For prime p dividing D and the supplied identity, the value is0; promoted below.
+
+**Tests:**
+
+- `SuggestedLogarithmicEulerTests.power_one_recovers_constant` (compatibility): Power1 recovers the original cyclotomic logarithm constant.
+- `SuggestedLogarithmicEulerTests.powered_zero_log` (degenerate): The zero supplied function gives0 at every power.
+- `SuggestedLogarithmicEulerTests.imprimitive_power_failure` (non-example): For the principal character modulo3 and supplied constant function1, the powered constant at p=3 is2, so the primitive-character eigenvalue cannot be assumed.
+
+**Acceptance:** Keep the original Gauss normalization and the actual function parameter. No logarithm law is needed for this finite constructor.
+
+**Source:** Theorem6.1(ii), published149/PDF50; proof in Section6.2, especially cases(1)–(2), published152–153/PDF53–54. Complete published149–153 read in the preceding checkpoint in this continuation. The source p-th-power character reindexing is already owned by ColemanIntegration:L3/euler-factor-from-p-power-map. This checkpoint imports that exact finite-sum identity and applies it to the concrete Dirichlet logarithm constant, with explicit whole-residue/unit-sum conversion. The finite Euler-removed value is not yet identified with an analytic trace or L-function value.
+
+### Coleman character transport on the concrete constant
+
+`DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-eigenvalue` — `DirichletPadic.cyclotomicFrobeniusLogConstant_factor`
+
+Assuming the supplied unit-indexed power-sum identity hpow, c^[p]_(η,ε)(ℓ)=η(p)c_(η,ε)(ℓ). For primitive η, hpow is the existing ColemanIntegration L3 Euler-factor theorem applied to f(z)=ℓ(z−1).
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write w=η⁻¹, G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one), c=cyclotomicLogConstant(η,ε,ℓ), with ℓ:K→K supplied by its owner in the arithmetic application. The finite constructors are defined for every natural p using native totalized field inversion. Arithmetic Euler removal uses a prime p. The reciprocal-factor theorem works for any integer q>1, with no primitivity assumption on η. The supplied power-sum law is Σ_(a∈(ZMod D)×) w(a)ℓ(ε^(p·a.val)−1)=η(p)Σ_(a∈(ZMod D)×)w(a)ℓ(ε^a.val−1). ColemanIntegration L3 supplies it when η is primitive, including primes dividing D. The suggested consumer records this exact equality as hpow because the supplier suggested module already imports this file. No new character-fibre theorem, logarithm, distribution relation or Frobenius ring map is constructed here.
+
+**Proof:**
+
+1. Unfold both concrete constants. Apply the complete native sum-over-units comparison to w=η⁻¹ and to each of the two argument functions. This explicitly reconciles the whole-residue convention here with the unit convention in the supplier theorem.
+2. Instantiate the existing supplier equality at f(z)=ℓ(z−1). For p prime to D it comes from unit reindexing; for p dividing D its existing primitive-character-fibre-sum theorem supplies the zero case. Neither argument is re-planned in this packet.
+3. Multiply that exact equality by−G⁻¹ and commute the scalar η(p) past the normalization. The complete native normalized-power-comparison lemma checks this consumer step and does not require G≠0.
+4. The suggested signature leaves hpow explicit, so it does not claim to compile the Coleman module or to derive its theorem from the logarithm parameter. Finite cyclotomic controls independently verify the imported identity in primitive small cases and detect its imprimitive failure.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-constant`, `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant`, `ColemanIntegration:L3/euler-factor-from-p-power-map`, `mathlib:MulChar.map_nonunit`.
+
+**Tests:**
+
+- `SuggestedLogarithmicEulerTests.supplied_power_eigenvalue` (compatibility): The exact supplied unit-sum equality gives η(p) times the preceding concrete constant.
+
+**Acceptance:** All requirements for hpow remain visible. In the arithmetic specialization η is primitive; an arbitrary character with no supplied identity is not covered.
+
+**Source:** Theorem6.1(ii), published149/PDF50; proof in Section6.2, especially cases(1)–(2), published152–153/PDF53–54. Complete published149–153 read in the preceding checkpoint in this continuation. The source p-th-power character reindexing is already owned by ColemanIntegration:L3/euler-factor-from-p-power-map. This checkpoint imports that exact finite-sum identity and applies it to the concrete Dirichlet logarithm constant, with explicit whole-residue/unit-sum conversion. The finite Euler-removed value is not yet identified with an analytic trace or L-function value.
+
+### Conductor-dividing primes kill the powered constant
+
+`DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-ramified-zero` — `DirichletPadic.cyclotomicFrobeniusLogConstant_ramified`
+
+If p is prime, p divides D, and hpow is supplied, then c^[p]_(η,ε)(ℓ)=0.
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write w=η⁻¹, G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one), c=cyclotomicLogConstant(η,ε,ℓ), with ℓ:K→K supplied by its owner in the arithmetic application. The finite constructors are defined for every natural p using native totalized field inversion. Arithmetic Euler removal uses a prime p. The reciprocal-factor theorem works for any integer q>1, with no primitivity assumption on η. The supplied power-sum law is Σ_(a∈(ZMod D)×) w(a)ℓ(ε^(p·a.val)−1)=η(p)Σ_(a∈(ZMod D)×)w(a)ℓ(ε^a.val−1). ColemanIntegration L3 supplies it when η is primitive, including primes dividing D. The suggested consumer records this exact equality as hpow because the supplier suggested module already imports this file. No new character-fibre theorem, logarithm, distribution relation or Frobenius ring map is constructed here.
+
+**Proof:**
+
+1. Since p divides D, p is not coprime to D. The native ZMod unit criterion implies that the residue of p is not a unit.
+2. A multiplicative character vanishes on a nonunit, so η(p)=0. Substitute this into the preceding concrete eigenvalue theorem.
+3. This remains a valid finite cancellation when D is a pure p-power, including D=p and the n=1 source boundary. Any possible ℓ(0) contributions disappear through the primitive character sum supplied by hpow.
+4. Do not infer that the unsmoothed logarithmic Taylor series belongs to R+ in this case. The source defect E45 persists, and its analytic proof must use the existing smoothed primitive route.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-eigenvalue`, `mathlib:ZMod.isUnit_iff_coprime`, `mathlib:MulChar.map_nonunit`.
+
+**Tests:**
+
+- `SuggestedLogarithmicEulerTests.ramified_power_zero` (compatibility): At every prime dividing D, the supplied primitive-character power law makes the powered constant0.
+
+**Acceptance:** The exact controls include conductors3,4,5,8,9 and their conductor-dividing primes. The conclusion is algebraic, with no open-disc assertion.
+
+**Source:** Theorem6.1(ii), published149/PDF50; proof in Section6.2, especially cases(1)–(2), published152–153/PDF53–54. Complete published149–153 read in the preceding checkpoint in this continuation. The source p-th-power character reindexing is already owned by ColemanIntegration:L3/euler-factor-from-p-power-map. This checkpoint imports that exact finite-sum identity and applies it to the concrete Dirichlet logarithm constant, with explicit whole-residue/unit-sum conversion. The finite Euler-removed value is not yet identified with an analytic trace or L-function value.
+
+### The finite logarithm value with the Euler term removed
+
+`DirichletPadicLFunctions:L3/cyclotomic-euler-logarithmic-value` — `DirichletPadic.cyclotomicEulerLogValue`
+
+Define e_(p,η,ε)(ℓ)=c_(η,ε)(ℓ)−(p:K)⁻¹c^[p]_(η,ε)(ℓ). This is the finite Euler-removed logarithm expression; it is not a definition of the analytic p-adic L-value.
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write w=η⁻¹, G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one), c=cyclotomicLogConstant(η,ε,ℓ), with ℓ:K→K supplied by its owner in the arithmetic application. The finite constructors are defined for every natural p using native totalized field inversion. Arithmetic Euler removal uses a prime p. The reciprocal-factor theorem works for any integer q>1, with no primitivity assumption on η. The supplied power-sum law is Σ_(a∈(ZMod D)×) w(a)ℓ(ε^(p·a.val)−1)=η(p)Σ_(a∈(ZMod D)×)w(a)ℓ(ε^a.val−1). ColemanIntegration L3 supplies it when η is primitive, including primes dividing D. The suggested consumer records this exact equality as hpow because the supplier suggested module already imports this file. No new character-fibre theorem, logarithm, distribution relation or Frobenius ring map is constructed here.
+
+**Proof:**
+
+1. Use the two preceding concrete constants and native field inversion. The definition is available for every natural p, while the source arithmetic application takes p prime.
+2. The zero supplied function gives0. At p=1 the two constants coincide and the value is0. At p=0 native totalized inversion makes the value c; this boundary is explicit and is outside the prime application.
+3. The next comparison identifies this expression with(1−η(p)/p)c once the supplied character-sum law is available. For a conductor-dividing prime the powered constant is0, so e=c.
+4. The reciprocal-weight Euler factor is nonzero when p>1, as proved in the final node. Combining that result with the promoted formula gives the API equivalence e=0 iff c=0; this does not itself establish nonvanishing of c.
+5. The analytic interpretation requires proving that p⁻¹c^[p] is the constant term of the relevant distribution trace, with convergence and restriction hypotheses. Coleman owns the logarithmic distribution identity, and LAD owns the distribution operations; those comparisons remain explicit work.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant`, `DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-constant`.
+
+**Uses:**
+
+- RJW Theorem6.1(ii): The finite expression on the right of the logarithmic special-value formula.
+- Future unit-restriction comparison: Gives the target constant after identifying the source trace through the existing owners.
+- Odd-character and nonvanishing comparisons: Separates the finite Euler factor from the logarithm constant itself.
+
+**API:**
+
+- `DirichletPadic.cyclotomicEulerLogValue_def` (constructor): The exact difference c−p⁻¹c^[p].
+- `DirichletPadic.cyclotomicEulerLogValue_zero_log` (simp): The zero supplied function gives0.
+- `DirichletPadic.cyclotomicEulerLogValue_factor` (compatibility): The supplied character-sum identity gives the reciprocal Euler factor; promoted below.
+- `DirichletPadic.cyclotomicEulerLogValue_eq_zero_iff` (characterisation): For p>1 and the supplied identity, e=0 iff c=0, using the nonzero reciprocal factor proved below.
+
+**Tests:**
+
+- `SuggestedLogarithmicEulerTests.euler_zero_log` (degenerate): The zero supplied function gives0.
+- `SuggestedLogarithmicEulerTests.euler_at_one_is_zero` (computation): At integer1 the Euler-removed expression is0.
+- `SuggestedLogarithmicEulerTests.euler_at_zero_boundary` (non-example): At integer0 totalized inversion gives the original constant; this is not a prime Euler operation.
+
+**Acceptance:** Do not identify the finite candidate with an L-function by definition. Its source comparison still needs the analytic/distribution argument.
+
+**Source:** Theorem6.1(ii), published149/PDF50; proof in Section6.2, especially cases(1)–(2), published152–153/PDF53–54. Complete published149–153 read in the preceding checkpoint in this continuation. The source p-th-power character reindexing is already owned by ColemanIntegration:L3/euler-factor-from-p-power-map. This checkpoint imports that exact finite-sum identity and applies it to the concrete Dirichlet logarithm constant, with explicit whole-residue/unit-sum conversion. The finite Euler-removed value is not yet identified with an analytic trace or L-function value.
+
+### The exact reciprocal Euler factor
+
+`DirichletPadicLFunctions:L3/cyclotomic-euler-logarithmic-formula` — `DirichletPadic.cyclotomicEulerLogValue_factor`
+
+Under hpow, e_(p,η,ε)(ℓ)=(1−η(p)/(p:K))c_(η,ε)(ℓ).
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write w=η⁻¹, G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one), c=cyclotomicLogConstant(η,ε,ℓ), with ℓ:K→K supplied by its owner in the arithmetic application. The finite constructors are defined for every natural p using native totalized field inversion. Arithmetic Euler removal uses a prime p. The reciprocal-factor theorem works for any integer q>1, with no primitivity assumption on η. The supplied power-sum law is Σ_(a∈(ZMod D)×) w(a)ℓ(ε^(p·a.val)−1)=η(p)Σ_(a∈(ZMod D)×)w(a)ℓ(ε^a.val−1). ColemanIntegration L3 supplies it when η is primitive, including primes dividing D. The suggested consumer records this exact equality as hpow because the supplier suggested module already imports this file. No new character-fibre theorem, logarithm, distribution relation or Frobenius ring map is constructed here.
+
+**Proof:**
+
+1. Expand e as c−p⁻¹c^[p] and insert the preceding powered-constant eigenvalue.
+2. Factor c in the characteristic-zero field, using commutativity and the native division convention. The complete native euler-removal lemma verifies this equality even at totalized p=0.
+3. The coefficient is p⁻¹, which is the reciprocal-weight factor in the source s=1 formula. It is not the positive-moment factor with p in place of p⁻¹: exact finite controls find370 discrepancies for that substitution.
+4. For prime p dividing D the factor is1 by η(p)=0. For the source logarithm and nontrivial primitive η, the preceding branch invariance is inherited by this finite expression; the analytic L-value still requires its separate identification.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-euler-logarithmic-value`, `DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-eigenvalue`.
+
+**Tests:**
+
+- `SuggestedLogarithmicEulerTests.euler_factor_has_reciprocal_weight` (compatibility): The concrete value is(1−η(p)/p) times the original logarithm constant.
+
+**Acceptance:** Preserve both the leading Gauss-log sign inside c and the reciprocal p⁻¹ in the Euler factor.
+
+**Source:** Theorem6.1(ii), published149/PDF50; proof in Section6.2, especially cases(1)–(2), published152–153/PDF53–54. Complete published149–153 read in the preceding checkpoint in this continuation. The source p-th-power character reindexing is already owned by ColemanIntegration:L3/euler-factor-from-p-power-map. This checkpoint imports that exact finite-sum identity and applies it to the concrete Dirichlet logarithm constant, with explicit whole-residue/unit-sum conversion. The finite Euler-removed value is not yet identified with an analytic trace or L-function value.
+
+### The reciprocal Euler factor is nonzero
+
+`DirichletPadicLFunctions:L3/reciprocal-euler-factor-nonzero` — `DirichletPadic.reciprocalEulerFactor_ne_zero`
+
+For every Dirichlet character η with values in a characteristic-zero field and every natural q>1, 1−η(q)/(q:K)≠0.
+
+**Hypotheses:** K is a characteristic-zero field, D is a positive natural modulus with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write w=η⁻¹, G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one), c=cyclotomicLogConstant(η,ε,ℓ), with ℓ:K→K supplied by its owner in the arithmetic application. The finite constructors are defined for every natural p using native totalized field inversion. Arithmetic Euler removal uses a prime p. The reciprocal-factor theorem works for any integer q>1, with no primitivity assumption on η. The supplied power-sum law is Σ_(a∈(ZMod D)×) w(a)ℓ(ε^(p·a.val)−1)=η(p)Σ_(a∈(ZMod D)×)w(a)ℓ(ε^a.val−1). ColemanIntegration L3 supplies it when η is primitive, including primes dividing D. The suggested consumer records this exact equality as hpow because the supplier suggested module already imports this file. No new character-fibre theorem, logarithm, distribution relation or Frobenius ring map is constructed here.
+
+**Proof:**
+
+1. If η(q)=0, the factor is1. Otherwise the native character-value unit criterion says that q is a unit residue modulo D.
+2. The native theorem MulChar.pow_card_eq_one gives η^h=1 for h=card((ZMod D)×), a positive integer. Evaluate at the unit residue q to obtain η(q)^h=1.
+3. If1−η(q)/q=0, then η(q)=q because the natural integer q is nonzero in K. Raising to h gives(q:K)^h=1.
+4. Characteristic-zero injectivity transfers this to q^h=1 in the natural numbers, contradicting q>1 and h>0. The complete native character-euler-factor-ne-zero lemma proves this statement for the actual DirichletCharacter type.
+5. This includes q=2 and does not require q prime or η primitive. At q=1 the factor is0, so the lower bound q>1 cannot be dropped. Multiplication by this nonzero factor proves the concrete zero-equivalence API, but supplies no lower norm bound and no nonvanishing theorem for the logarithm constant.
+
+**Prerequisites:** `mathlib:MulChar.pow_card_eq_one`, `mathlib:MulChar.apply_ne_zero_iff`.
+
+**Tests:**
+
+- `SuggestedLogarithmicEulerTests.reciprocal_factor_nonzero` (computation): For every η, the factor at q=2 is nonzero.
+- `SuggestedLogarithmicEulerTests.integer_one_factor_zero` (non-example): At q=1 every character gives factor0, so the strict lower bound is essential.
+
+**Acceptance:** This is an algebraic nonzero assertion in characteristic0, not a norm estimate or analytic nonvanishing theorem.
+
+**Source:** Theorem6.1(ii), published149/PDF50; proof in Section6.2, especially cases(1)–(2), published152–153/PDF53–54. Complete published149–153 read in the preceding checkpoint in this continuation. The source p-th-power character reindexing is already owned by ColemanIntegration:L3/euler-factor-from-p-power-map. This checkpoint imports that exact finite-sum identity and applies it to the concrete Dirichlet logarithm constant, with explicit whole-residue/unit-sum conversion. The finite Euler-removed value is not yet identified with an analytic trace or L-function value.
+
+**Remaining:** The concrete powered logarithm constant now imports the existing Coleman character-sum law, including conductor-dividing primes, and the finite Euler-removed value has exactly(1−η(p)/p) times the original constant. This factor is algebraically nonzero for every p>1. Next identify the finite powered expression with the actual logarithmic trace by importing the existing Coleman distribution identity, and connect the tame D>1 formal series to the owned convergent expansion and LAD distribution restriction. No analytic trace or L-value identification is claimed here. The inherited discAnalytic/R+ comparison request remains open. Pure p-power conductor still requires the smoothed primitive route under E45; retain E44 branch normalization, E46 plus sign, E47 full modulus and E48 n=1 correction. Odd/dyadic analytic branches, pole/residue analysis and complete source extraction remain open.
+
+### Concrete logarithm constants and the reciprocal Euler factor validation
+
+All 467 predecessor nodes, 451 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 12 named suggested declarations and 11 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 663 reachable nodes, 3156 edges and 594 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1. The first five new routes retain the existing LAD L1 comparison leaf through the logarithm constant; the reciprocal-factor nonvanishing route reaches only native declarations.
+
+The full suggested module elaborates with zero errors and 1466 expected placeholder warnings. Source and artifact audits cover 3597 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Seven complete native lemmas verify residue/unit sum conversion, the normalized supplied power relation, reciprocal Euler removal, root-of-unity obstruction, zero equivalence, nonvanishing for the actual DirichletCharacter and the imprimitive scalar boundary. The probe elaborates against 2794 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Six primitive characters,22 root choices and five arbitrary root-value profiles check660 power eigenvalues,110 ramified zeros,660 Euler identities,660 nonzero factors,660 zero equivalences,110 integer-zero boundaries,110 integer-one boundaries,370 wrong-reciprocal controls and one exact imprimitive counterexample. Exact rational arithmetic in Q[X]/Phi_(ell^r), with roots and nonreal cubic-character values represented in the same cyclotomic field. The retained polynomial multiplication and exact inverse helpers from PR3309 are reused. Six primitive characters of conductors3,4,5,8,9, every primitive root, five arbitrary root-value profiles and six primes check the supplied power eigenvalue, ramified cancellation, reciprocal Euler formula and zero equivalence. The profiles are arbitrary functions, not asserted logarithms; the constructor comparisons require only the character-sum law. The principal character modulo3 is an exact imprimitive counterexample. No analytic trace, p-adic convergence or L-value is inferred. The largest observed discrepancy is 0.
+
+The initial58-input capture atfc4d60033fc3ffef70fdc68409dbff5a6105534e has empty delta. Coleman remains an explicit-law supplier because its suggested module imports this consumer. The verified332-node PMIA artifact is reused; no current369-node PMIA or Coleman-module compilation is claimed.
