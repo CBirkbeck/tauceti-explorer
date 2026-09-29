@@ -10,7 +10,7 @@
   "ModularSymbolsPadicLFunctions:L4"
  ],
  "status": "partial",
- "summary": "Blueprint for modular symbols and analytic p-adic L-functions of modular forms. L0 is source-decomposed (checkpoints 1–2): Pollack–Stevens' Hom-side modular symbols Symb_Γ(V) = Hom_Γ(Div⁰(P¹(ℚ)), V) for arbitrary coefficient modules, with Hecke, diamond and involution actions, the Manin and fundamental-domain descriptions, boundary symbols and the integral exact sequence 0 → V^Γ → BSymb → Symb → H¹(Γ, V) → ⊕ H¹(Γ_c, V), parabolic cohomology, descent, symbols with character, the period symbol ψ_f, the Eichler–Shimura isomorphism (Wiese's proof) and one-dimensional newform eigenspaces. Div⁰, Manin's theorem, the homological module 𝕄 and the period-map analysis are imported from Tau Ceti ModularForms Layer 8 rather than re-planned. Pollack–Stevens Theorem 2.6/Corollary 2.7 print the D∞ relation with the wrong sign (sourceIssues E1). Stages L1–L4 remain. Checkpoint 3 plans L1 (6 nodes): period lines and periods after a choice of basis, saturated integral lattices with periods canonical up to 𝒪^×, the twisted Mellin formula (Σχ(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ)j!/(−2πi)^j L(f, χ̄, j+1), checked numerically), algebraicity with the parity sign (−1)^{k−j}χ(−1), L-functions of p-stabilized forms, and the exact comparison with RJW Theorem B.1. Checkpoint 4 plans L2 (12 nodes): p-stabilisations and refinements with the refined eigenline, weight-k distributions and specialisation, overconvergent lifts, the slope decomposition, Stevens' control theorem for h < k + 1, admissibility, the p-adic L-function of a refinement, interpolation fixed to Pollack–Stevens (2) and to RJW B.1, uniqueness, and integral ordinary measures. Pollack–Stevens (1) is off by a sign on the −-part and at n = 0 (sourceIssues E4–E5). Checkpoint 5 plans L3 (6 nodes) as RS-08 narrows it, importing the general critical-slope, θ-critical and secondary theory from PadicFamilies L3 (Bellaïche): the critical-slope L-function of a non-θ-critical refinement normalised by specialisation, its interpolation, the failure of uniqueness at h = k + 1 (log^{[k]}), the θ-critical single-form comparison through the top secondary L-function, comparison through families, and Pollack–Stevens' Examples 8.6–8.8. It starts L4 (2 nodes): the level-11 examples (the 11-adic trivial zero, μ = 0, λ = 1) and the two Euler factors at p; Bellaïche's (5) prints the factors of f_β with α (sourceIssues E9). Coefficient changes and supersingular refinements remain.",
+ "summary": "Blueprint for modular symbols and analytic p-adic L-functions of modular forms. L0 is source-decomposed (checkpoints 1–2): Pollack–Stevens' Hom-side modular symbols Symb_Γ(V) = Hom_Γ(Div⁰(P¹(ℚ)), V) for arbitrary coefficient modules, with Hecke, diamond and involution actions, the Manin and fundamental-domain descriptions, boundary symbols and the integral exact sequence 0 → V^Γ → BSymb → Symb → H¹(Γ, V) → ⊕ H¹(Γ_c, V), parabolic cohomology, descent, symbols with character, the period symbol ψ_f, the Eichler–Shimura isomorphism (Wiese's proof) and one-dimensional newform eigenspaces. Div⁰, Manin's theorem, the homological module 𝕄 and the period-map analysis are imported from Tau Ceti ModularForms Layer 8 rather than re-planned. Pollack–Stevens Theorem 2.6/Corollary 2.7 print the D∞ relation with the wrong sign (sourceIssues E1). Stages L1–L4 remain. Checkpoint 3 plans L1 (6 nodes): period lines and periods after a choice of basis, saturated integral lattices with periods canonical up to 𝒪^×, the twisted Mellin formula (Σχ(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ)j!/(−2πi)^j L(f, χ̄, j+1), checked numerically), algebraicity with the parity sign (−1)^{k−j}χ(−1), L-functions of p-stabilized forms, and the exact comparison with RJW Theorem B.1. Checkpoint 4 plans L2 (12 nodes): p-stabilisations and refinements with the refined eigenline, weight-k distributions and specialisation, overconvergent lifts, the slope decomposition, Stevens' control theorem for h < k + 1, admissibility, the p-adic L-function of a refinement, interpolation fixed to Pollack–Stevens (2) and to RJW B.1, uniqueness, and integral ordinary measures. Pollack–Stevens (1) is off by a sign on the −-part and at n = 0 (sourceIssues E4–E5). Checkpoint 5 plans L3 (6 nodes) as RS-08 narrows it, importing the general critical-slope, θ-critical and secondary theory from PadicFamilies L3 (Bellaïche): the critical-slope L-function of a non-θ-critical refinement normalised by specialisation, its interpolation, the failure of uniqueness at h = k + 1 (log^{[k]}), the θ-critical single-form comparison through the top secondary L-function, comparison through families, and Pollack–Stevens' Examples 8.6–8.8. It starts L4 (2 nodes): the level-11 examples (the 11-adic trivial zero, μ = 0, λ = 1) and the two Euler factors at p; Bellaïche's (5) prints the factors of f_β with α (sourceIssues E9). Coefficient changes and supersingular refinements remain. Checkpoint 6 adds L4's supersingular theory from Pollack (Duke 2003): tame twists, both refinements and the infinitude of zeros, the half-logarithms log^±_p, the ± decomposition with integral L^±_p for elliptic curves, and X₀(11) at p = 2 and p = 19.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -416,6 +416,23 @@
    "sha256": "0a1c068cfc36704c02bd741be37ef95b0ac3216db3e9293364a6368843701032",
    "readSections": [
     "2026-09-28 (cc-39fac3, checkpoint 5): §1.4 (Theorems 1–3, (4)–(5), Corollary 1, §1.4.5), pp. 5–11."
+   ]
+  },
+  {
+   "id": "POLLACK-SS-2003",
+   "title": "On the p-adic L-function of a modular form at a supersingular prime",
+   "authors": "Robert Pollack",
+   "edition": "Duke Math. J. 118 (2003), no. 3, 523–558; the published article as posted on the author's Boston University page (36 pages; printed page = PDF page + 522). The server's TLS chain did not verify, so the file was fetched without certificate verification; its hash is recorded.",
+   "url": "https://math.bu.edu/people/rpollack/Papers/On_the_padic_Lfunction_of_a_modular_form_at_a_ss_prime.pdf",
+   "sha256": "23d0975b7d641d7d6dba7832e3cc45efb9fccf506dbedac2b78e1f8a95dcd581",
+   "read": "2026-09-29",
+   "readSections": [
+    "§1 Introduction (pp. 524–526)",
+    "§2.2–2.3: the measures, Theorem 2.7, Proposition 2.8, Definition 2.9, Proposition 2.11 (pp. 529–532)",
+    "§3: Lemma 3.2, Theorems 3.3 and 3.5, Corollary 3.6 (pp. 532–535)",
+    "§4: Lemma 4.1, Corollaries 4.2–4.3, Lemmas 4.5–4.8 (pp. 535–540)",
+    "§5.1–5.2.2: Theorem 5.1, Lemma 5.2, Remarks 5.3–5.5, Theorem 5.6, Remark 5.7 (pp. 540–543)",
+    "§7 Table 1 (pp. 555–556)"
    ]
   }
  ],
@@ -3784,6 +3801,334 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L4/tame-twist-p-adic-l-function",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L4",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L4"
+   ],
+   "title": "p-adic L-functions with a tame twist (Pollack §2.2–2.3)",
+   "kind": "theorem",
+   "statement": "Let f be a newform of weight k + 2, level N and character ε, p ∤ N, and (f, α) a refinement of slope h < k + 1. Let M ≥ 1 be prime to p and Z_{p,M}^× = lim_n (Z/p^nM)^×. For (a, Mp) = 1, the formula μ^±_{f,α}(P, a + p^nMZ_{p,M}) = α^{−n}λ^±(f, P; a, p^nM) − ε(p)p^kα^{−n−1}λ^±(f, P; a, p^{n−1}M) defines an h-admissible measure on Z_{p,M}^× (Proposition 2.8). Here λ^± are the modular symbols of f divided by periods Ω^±_f, and P runs over integral polynomials of degree ≤ k. For a tame character ψ, the power series L_p(f, α, ψ, T) = ∫ ψχ_u dμ^{sgn ψ}_{f,α} (u = 1 + T, χ_u the wild character with γ ↦ u) lies in K(α, ψ)[[T]] and is O(log_p(1 + T)^h). Take χ = x_p^jϕ with 0 ≤ j ≤ k and ϕ of finite order and conductor m = p^νM. Then L_p(f, α, χ) = e_p(α, χ)·m^{j+1}/(−2πi)^j·j!/τ(ϕ^{−1})·L(fϕ^{−1}, j + 1)/Ω^±_f, with e_p(α, χ) = α^{−ν}(1 − ϕ^{−1}(p)ε(p)p^{k−j}/α)(1 − ϕ(p)p^j/α). It is the unique O(log_p(1 + T)^h) function with these values (Proposition 2.11). With M = 1 it is the L_p(f, α) of L2/p-adic-l-function, up to the normalisation of periods.",
+   "hypotheses": [
+    "Weights follow this roadmap: f has weight k + 2 (Pollack's k is our k + 2).",
+    "Analyticity and the growth O(log_p(1 + T)^h) are Višik's and Amice–Vélu's theorem (Pollack Theorem 2.6), as in L2/eigensymbol-admissibility.",
+    "The proof of the interpolation formula is Mazur–Tate–Teitelbaum §14, which is not read; the formula agrees with L2/interpolation-and-uniqueness for M = 1 and with L4/euler-factor-comparison."
+   ],
+   "proofSteps": [
+    "Additivity of μ^±_{f,α} is the T_p-eigenform relation; its growth is Višik's Lemma 3.8 (Proposition 2.8).",
+    "Integrate ψχ_u against μ^{sgn ψ} to get an analytic function of u in the open unit disc, O(log^h) by Theorem 2.6.",
+    "Evaluate at χ = x_p^jϕ with the twisted Mellin formula (L1/twisted-mellin-formula) to get Proposition 2.11. Uniqueness holds because a difference vanishes at all γ^jζ − 1 (0 ≤ j ≤ k) and is O(log^h) with h < k + 1."
+   ],
+   "acceptance": [
+    "M = 1, ψ trivial: L2/p-adic-l-function.",
+    "ν = 0: both Euler factors appear; ν ≥ 1: only the prefactor α^{−ν}."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/p-adic-l-function",
+    "ModularSymbolsPadicLFunctions:L2/interpolation-and-uniqueness",
+    "ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility",
+    "ModularSymbolsPadicLFunctions:L1/twisted-mellin-formula"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Examples",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§2.2, the measures and Proposition 2.8, p. 530",
+     "match": "Admissibility for either allowable root."
+    },
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§2.3, Proposition 2.11, p. 532",
+     "match": "Interpolation and uniqueness with a tame twist."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L4/supersingular-refinements",
+     "how": "the L-functions L_p(f, α_i, ψ, T) compared there"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L4/supersingular-refinements",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L4",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L4"
+   ],
+   "title": "Both refinements at a good supersingular prime, and their zeros (Pollack §3)",
+   "kind": "theorem",
+   "statement": "Let p ∤ NM be supersingular for f, so v_p(a_p) > 0. Then both roots α₁, α₂ of X² − a_pX + ε(p)p^{k+1} have slope h_i ∈ (0, k + 1), since h₁ + h₂ = k + 1. So both refinements are small slope, and both L_p(f, α_i, ψ, T) exist. (Mazur, Theorem 3.3) If h₁ ≠ h₂, at least one of them has infinitely many zeros in the open unit disc. (Perrin-Riou, Theorem 3.5) If a_p = 0, then h₁ = h₂ = (k + 1)/2 and α₂ = −α₁. Write L_p(f, α₁, ψ, T) = G⁺_ψ(T) + G⁻_ψ(T)·α₁ with G^± ∈ K(ψ)[[T]]. For odd p, G⁺_ψ vanishes at ζ_{p^{2n}} − 1 and G⁻_ψ at ζ_{p^{2n−1}} − 1 for n ≥ 1; for p = 2 the parities are reversed. One of the two L-functions has infinitely many zeros, and both do if α₁ ∉ K(ψ). (Corollary 3.6) For an elliptic curve E/Q with good supersingular reduction at p, one of the two has infinitely many zeros. For p ≥ 5, a_p = 0, because p | a_p and a_p² < 4p. For p = 2 or 3 with a_p ≠ 0, α₁/α₂ is a primitive fourth or sixth root of unity, which still forces G^± to have infinitely many zeros.",
+   "hypotheses": [
+    "Weights follow this roadmap: f has weight k + 2 (Pollack's k is our k + 2).",
+    "A power series convergent on the open unit disc has finitely many zeros exactly when its coefficients are bounded (Lemma 3.2, Lazard)."
+   ],
+   "proofSteps": [
+    "Remark 2.12: L_p(f, α_i, ψ, ζ_{p^n} − 1) = c_n/α_i^{n+1} with c_n independent of α_i (exponent n + 2 for p = 2).",
+    "h₁ ≠ h₂: if both had finitely many zeros they would have bounded coefficients, and comparing valuations of α₁^{n+1}L(α₁) = α₂^{n+1}L(α₂) as n → ∞ contradicts h₁ ≠ h₂.",
+    "a_p = 0: α₁ = −α₂ makes the two values agree for odd n and differ by a sign for even n, which forces the zeros of G^±. Bounded G^± cannot have infinitely many zeros, so one L-function is unbounded, hence has infinitely many zeros."
+   ],
+   "acceptance": [
+    "Ordinary p is excluded: then only one root has slope < k + 1.",
+    "Weight 2 (k = 0) with a_p = 0: both slopes are 1/2."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L4/tame-twist-p-adic-l-function",
+    "ModularSymbolsPadicLFunctions:L2/refinement"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Examples",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§3, Theorem 3.3, p. 533",
+     "match": "Different slopes."
+    },
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§3, Theorem 3.5, p. 534",
+     "match": "a_p = 0."
+    },
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§3, Corollary 3.6 and its proof, p. 535",
+     "match": "Elliptic curves at p = 2 and 3."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L4/plus-minus-decomposition",
+     "how": "the forced zeros of G^±"
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L4/supersingular-examples",
+     "how": "X₀(11) at p = 2 and 19"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L4/half-logarithms",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L4",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L4"
+   ],
+   "title": "Pollack's half-logarithms log^±_p (§4)",
+   "kind": "construction",
+   "statement": "Let γ generate 1 + qZ_p (q = p, or 4 if p = 2) and Φ_n(T) = Σ_{t=0}^{p−1} T^{p^{n−1}t}, the p^n-th cyclotomic polynomial. For an integer j put log⁺_{p,j}(T) = (1/p)·∏_{n≥1} Φ_{2n}(γ^{−j}(1 + T))/p and log⁻_{p,j}(T) = (1/p)·∏_{n≥1} Φ_{2n−1}(γ^{−j}(1 + T))/p. They converge on the open unit disc, and their zeros are exactly γ^jζ_{p^{2n}} − 1 (resp. γ^jζ_{p^{2n−1}} − 1), n ≥ 1, all simple (Lemma 4.1). Put log^±_p = ∏_{j=0}^{k} log^±_{p,j} (Corollary 4.2). Then: p²·log⁺_{p,j}·log⁻_{p,j} = log_p(γ^{−j}(1 + T))/(γ^{−j}(1 + T) − 1) (Corollary 4.3); log⁺_p ∼ log⁻_p ∼ log_p(1 + T)^{(k+1)/2} (Lemma 4.5); for k = 0, log^±_p(1/(1 + T) − 1) = log^±_p(T) (Lemma 4.6); and for k = 0, log⁺_p(ζ_{p^n} − 1) = 0 for even n and p^{−(n+1)/2}∏_{j=1}^{(n−1)/2}Φ_{2j}(ζ_{p^n}) for odd n, while log⁻_p(ζ_{p^n} − 1) = p^{−n/2−1}∏_{j=1}^{n/2}Φ_{2j−1}(ζ_{p^n}) for even n and 0 for odd n (Lemma 4.7).",
+   "hypotheses": [
+    "Weights follow this roadmap: f has weight k + 2 (Pollack's k is our k + 2). Pollack's product runs over 0 ≤ j ≤ k − 2 in his weight k.",
+    "For p = 2 the roles of log⁺ and log⁻ are exchanged in the decomposition (L4/plus-minus-decomposition)."
+   ],
+   "proofSteps": [
+    "Convergence: (1/p)Φ_{2n}(γ^{−j}(1 + T)) − 1 is divisible by (γ^{−j}(1 + T))^{p^{2n−1}} − 1, which tends to 0 (Lemma 4.1).",
+    "Zeros: log_p(γ^{−j}(1 + T)) = (γ^{−j}(1 + T) − 1)·lim_n ∏_{m≤n}Φ_m(γ^{−j}(1 + T))/p has simple zeros exactly at γ^jζ_{p^n} − 1, which gives Corollary 4.3 and the zero sets.",
+    "Growth: compare the products factor by factor, sup_{|z|<r}|Φ_n(γ^{−j}(1 + z))| = r/(p^{n−1}(p − 1)) (Lemma 4.5).",
+    "Values: Φ_m(ζ_{p^n}) = p for m > n, so only the head of each product survives (Lemma 4.7)."
+   ],
+   "acceptance": [
+    "k = 0: p²·T·log⁺_p·log⁻_p = log_p(1 + T).",
+    "The leading 1/p is needed for the value p^{−(n+1)/2} of Lemma 4.7."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/p-adic-l-function"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Examples",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "api": [
+    {
+     "name": "halfLogPlus",
+     "role": "constructor",
+     "statement": "log⁺_{p,j}(T) = (1/p)∏_{n≥1}Φ_{2n}(γ^{−j}(1 + T))/p, and log⁺_p = ∏_{j=0}^{k} log⁺_{p,j}."
+    },
+    {
+     "name": "halfLogMinus",
+     "role": "constructor",
+     "statement": "log⁻_{p,j}(T) = (1/p)∏_{n≥1}Φ_{2n−1}(γ^{−j}(1 + T))/p, and log⁻_p = ∏_{j=0}^{k} log⁻_{p,j}."
+    },
+    {
+     "name": "halfLogPlus_zeros",
+     "role": "characterisation",
+     "statement": "The zeros of log⁺_{p,j} are exactly γ^jζ_{p^{2n}} − 1, n ≥ 1, all simple (and similarly for log⁻ with odd exponents)."
+    },
+    {
+     "name": "halfLog_mul",
+     "role": "characterisation",
+     "statement": "p²·log⁺_{p,j}·log⁻_{p,j} = log_p(γ^{−j}(1 + T))/(γ^{−j}(1 + T) − 1)."
+    },
+    {
+     "name": "halfLog_growth",
+     "role": "characterisation",
+     "statement": "log^±_p ∼ log_p(1 + T)^{(k+1)/2}."
+    }
+   ],
+   "tests": [
+    {
+     "name": "halfLog.test_weight_two_product",
+     "kind": "value",
+     "statement": "k = 0: p²·T·log⁺_p·log⁻_p = log_p(1 + T)."
+    },
+    {
+     "name": "halfLog.test_value_first_level",
+     "kind": "value",
+     "statement": "k = 0: log⁻_p(ζ_p − 1) = 0 and log⁺_p(ζ_p − 1) = p^{−1} (n = 1)."
+    },
+    {
+     "name": "halfLog.test_functional_equation",
+     "kind": "characterisation",
+     "statement": "k = 0: log^±_p(1/(1 + T) − 1) = log^±_p(T)."
+    },
+    {
+     "name": "halfLog.test_not_bounded",
+     "kind": "non-example",
+     "statement": "log^±_p has infinitely many zeros, so it is not in Z_p[[T]] ⊗ Q_p (Lemma 3.2)."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§4.1, Lemma 4.1, p. 536",
+     "match": "The definition and the zeros."
+    },
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§4.1, proof of Lemma 4.1, p. 537",
+     "match": "The product formula behind Corollary 4.3."
+    },
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§4.2, Lemma 4.5, p. 538",
+     "match": "The growth."
+    },
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§4.4, Lemma 4.7, p. 539",
+     "match": "The values at ζ − 1."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L4/plus-minus-decomposition",
+     "how": "the divisors of G^±"
+    }
+   ],
+   "planet": {
+    "name": "Half-logarithms"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L4/plus-minus-decomposition",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L4",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L4"
+   ],
+   "title": "Pollack's ± decomposition of the supersingular p-adic L-function (Theorems 5.1 and 5.6)",
+   "kind": "theorem",
+   "statement": "Let p ∤ NM with a_p = 0, and α a root of X² + ε(p)p^{k+1}. If p is odd, L_p(f, α, ψ, T) = L⁺_p(f, ψ, T)·log⁺_p(T) + L⁻_p(f, ψ, T)·log⁻_p(T)·α, with L^±_p(f, ψ, T) ∈ Λ_ψ ⊗ K_ψ (Λ_ψ = O_ψ[[T]]). They have bounded coefficients and finitely many zeros. If p = 2, L₂(f, α, ψ, T) = L⁺₂·log⁻₂ + L⁻₂·log⁺₂·α with L^±₂ ∈ Λ_ψ ⊗ K_ψ (Theorem 5.1). For an elliptic curve E/Q with a_p = 0 and the periods Ω^±_E of §5.2.1, L^±_p(E, T) ∈ Z_p[[T]] for odd p. For p = 2, L₂(E, α, T) = L⁺₂(E, T)·log⁻₂(T) + L⁻₂(E, T)·(1/2)log⁺₂(T)·α with L^±₂(E, T) ∈ Z₂[[T]]; the factor 1/2 is needed for integrality (Theorem 5.6, Remark 5.7).",
+   "hypotheses": [
+    "Weights follow this roadmap: f has weight k + 2 (Pollack's k is our k + 2).",
+    "The integrality in Theorem 5.6 uses that the Manin constant of E is prime to a good supersingular p (Remark 5.5), so 2[a/p^n]^± ∈ Z_p."
+   ],
+   "proofSteps": [
+    "G^±_ψ vanish at every zero of log^±_p: at γ^jζ − 1 for 0 ≤ j ≤ k, by the interpolation property (L4/tame-twist-p-adic-l-function). So log^±_p divides G^±_ψ in A(K_ψ) (Lazard).",
+    "G^±_ψ is O(log_p(1 + T)^{(k+1)/2}) (Theorem 2.6), and log^±_p ∼ log_p(1 + T)^{(k+1)/2} (Lemma 4.5), so L^±_p = G^±/log^± is O(1).",
+    "A bounded analytic function on the open unit disc has bounded coefficients (Lemma 5.2).",
+    "For E: approximate by the Riemann sums (2), and count the powers of p in the denominators (Lemma 5.9)."
+   ],
+   "acceptance": [
+    "a_p ≠ 0 at a supersingular p (p = 2, 3) is not covered.",
+    "L^±_p are Iwasawa functions: finitely many zeros, and the λ^±, μ^± invariants of Pollack's Table 1 are defined."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L4/half-logarithms",
+    "ModularSymbolsPadicLFunctions:L4/supersingular-refinements",
+    "ModularSymbolsPadicLFunctions:L4/tame-twist-p-adic-l-function"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Examples",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§5.1, Theorem 5.1, p. 540",
+     "match": "The decomposition."
+    },
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§5.2.2, Theorem 5.6, p. 542",
+     "match": "Integrality for elliptic curves."
+    },
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§5.2.2, Remark 5.7, p. 543",
+     "match": "The factor 1/2 at p = 2."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L4/supersingular-examples",
+     "how": "X₀(11) at p = 19"
+    }
+   ],
+   "planet": {
+    "name": "Pollack's ± p-adic L-functions"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L4/supersingular-examples",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L4",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L4"
+   ],
+   "title": "Supersingular examples at level 11",
+   "kind": "application",
+   "statement": "Let f = f_{11} be the newform of X₀(11) (k = 0), with q-expansion q∏_{n≥1}(1 − qⁿ)²(1 − q^{11n})². (i) At p = 2: a₂ = −2, so p = 2 is supersingular. The roots of X² + 2X + 2 are −1 ± i, of 2-adic valuation 1/2 < 1, so both refinements are small slope. α₁/α₂ = −i is a primitive fourth root of unity, so by Corollary 3.6 at least one of L₂(f, α_i, T) has infinitely many zeros. Theorem 5.1 does not apply, since a₂ ≠ 0. (ii) At p = 19 (and p = 29): a₁₉ = a₂₉ = 0. The roots ±√−19 of X² + 19 have slope 1/2 and do not lie in Q₁₉, so both L₁₉(f, α_i, T) have infinitely many zeros (Theorem 3.5). Theorem 5.6 gives L₁₉(E, α, T) = L⁺₁₉·log⁺₁₉ + L⁻₁₉·log⁻₁₉·α with L^±₁₉ ∈ Z₁₉[[T]]. (iii) Pollack's Table 1 lists λ^± and μ^± for quadratic twists of 32A at p = 3, where a₃ = 0.",
+   "hypotheses": [
+    "Weights follow this roadmap: f has weight k + 2 (Pollack's k is our k + 2).",
+    "The coefficients a₂ = −2, a₁₉ = a₂₉ = 0 come from the eta-product; they were computed from the product formula to q⁶⁰."
+   ],
+   "proofSteps": [
+    "(i): X² − a₂X + 2 = X² + 2X + 2, whose roots −1 ± i have norm 2; (−1 + i)·i = −1 − i.",
+    "(ii): X² + 19; v₁₉(−19) = 1 is odd, so √−19 ∉ Q₁₉."
+   ],
+   "acceptance": [
+    "The level-11 symbols of L4/level-eleven-examples give L₁₉ and L^±₁₉ by the Riemann sums (2).",
+    "p = 2 needs a decomposition for a_p ≠ 0 (Sprung's ♯/♭), which is not read."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L4/supersingular-refinements",
+    "ModularSymbolsPadicLFunctions:L4/plus-minus-decomposition",
+    "ModularSymbolsPadicLFunctions:L4/level-eleven-examples"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Examples",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§3, Corollary 3.6 and its proof, p. 535",
+     "match": "Why supersingular means a_p = 0 for p ≥ 5; p = 2 is the exception here."
+    },
+    {
+     "sourceId": "POLLACK-SS-2003",
+     "locator": "§5.2.1, Remark 5.4, p. 542",
+     "match": "Pollack's own use of X₀(11), for the periods."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -3947,10 +4292,10 @@
    "stageId": "ModularSymbolsPadicLFunctions:L4",
    "status": "partial",
    "remaining": [
-    "Tame twists, coefficient embeddings (Galois conjugate forms and periods) and primitive/imprimitive level change with the ℓ-Euler factors: sources to read (Mazur–Tate–Teitelbaum 1986; RJW §§6–8).",
-    "Both refinements at a good supersingular prime (slopes (k + 1)/2), with a worked example (e.g. X₀(11) at p = 2): Pollack's ± theory, not read."
+    "Coefficient embeddings (Galois-conjugate forms and their periods) and primitive/imprimitive level change with the ℓ-Euler factors: Mazur–Tate–Teitelbaum 1986 is not read. RJW §§6–8, suggested earlier, treat the Kubota–Leopoldt function and do not cover this.",
+    "Supersingular primes with a_p ≠ 0 (p = 2, 3): a decomposition in the style of Sprung's ♯/♭ is not read; only Pollack's Corollary 3.6 is planned there."
    ],
-   "notes": "Planned: the level-11 examples (symbol values, the 11-adic trivial zero with μ = 0, λ = 1) and the comparison of the two Euler factors at p, with Bellaïche's misprint E9 recorded."
+   "notes": "Planned: the level-11 examples (symbol values, the 11-adic trivial zero with μ = 0, λ = 1) and the comparison of the two Euler factors at p, with Bellaïche's misprint E9 recorded. Checkpoint 6 plans the tame twist (Pollack §2), both refinements at a supersingular prime with their zeros (§3), the half-logarithms (§4), the ± decomposition (Theorems 5.1 and 5.6), and X₀(11) at p = 2 and p = 19."
   }
  ],
  "gaps": [],
@@ -4103,6 +4448,13 @@
    "citation": "Bellaïche, Critical p-adic L-functions, arXiv:0912.2925v1 (published Invent. Math. 189 (2012))",
    "read": "2026-09-28",
    "sha256": "0a1c068cfc36704c02bd741be37ef95b0ac3216db3e9293364a6368843701032"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://math.bu.edu/people/rpollack/Papers/On_the_padic_Lfunction_of_a_modular_form_at_a_ss_prime.pdf",
+   "citation": "Robert Pollack, On the p-adic L-function of a modular form at a supersingular prime, Duke Math. J. 118 (2003), 523–558 (published layout)",
+   "read": "2026-09-29",
+   "sha256": "23d0975b7d641d7d6dba7832e3cc45efb9fccf506dbedac2b78e1f8a95dcd581"
   }
  ]
 }

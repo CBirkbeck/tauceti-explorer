@@ -10,6 +10,8 @@ import Mathlib.RepresentationTheory.Homological.GroupCohomology.Functoriality
 import Mathlib.NumberTheory.ModularForms.Basic
 import Mathlib.Analysis.SpecialFunctions.Complex.Circle
 import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.NumberTheory.Zsqrtd.GaussianInt
+import Mathlib.Tactic.Linarith
 
 /-!
 # Suggested Lean forms: modular symbols (ModularSymbolsPadicLFunctions, L0–L4)
@@ -622,3 +624,35 @@ example : (97 : ℚ) - 1 / 5 = 11 ^ 2 * (4 / 5) ∧ (59 : ℚ) - (-3 / 2) = 11 ^
 example : ¬ (11 ∣ 1490719231) := by norm_num
 
 end TauCeti.ModularSymbol.SuggestedTest
+
+namespace TauCeti.ModularSymbol.SupersingularTest
+
+/-- `L4/supersingular-refinements` (Pollack, Corollary 3.6): at a good supersingular prime `p ≥ 5` of an elliptic
+curve, `p ∣ a_p` and the Hasse bound `a_p² < 4p` force `a_p = 0`. -/
+example (p : ℕ) (hp : 5 ≤ p) (a : ℤ) (hdvd : (p : ℤ) ∣ a) (hH : a ^ 2 < 4 * p) : a = 0 := by
+  obtain ⟨c, rfl⟩ := hdvd
+  by_contra h
+  have hc : c ≠ 0 := by rintro rfl; simp at h
+  have hc2 : 1 ≤ c ^ 2 := by
+    have := pow_pos (abs_pos.mpr hc) 2
+    rw [sq_abs] at this
+    omega
+  have hp' : (5 : ℤ) ≤ p := by exact_mod_cast hp
+  have h1 : (p : ℤ) ^ 2 ≤ (p : ℤ) ^ 2 * c ^ 2 := le_mul_of_one_le_right (sq_nonneg _) hc2
+  have h2 : (p : ℤ) ^ 2 * c ^ 2 < 4 * p := by rw [← mul_pow]; exact hH
+  have h3 : 5 * (p : ℤ) ≤ (p : ℤ) ^ 2 := by nlinarith
+  linarith
+
+/-- `L4/supersingular-examples`, `X₀(11)` at `p = 2`: `α = −1 + i` is a root of `X² + 2X + 2` (so `a₂ = −2`), of norm
+`2` (slope `1/2`), and the other root is `−1 − i = α · i`, so `α₁/α₂` is a primitive fourth root of unity. -/
+example : ((-1 + ⟨0, 1⟩ : GaussianInt)) ^ 2 + 2 * (-1 + ⟨0, 1⟩) + 2 = 0 := by decide
+example : Zsqrtd.norm (-1 + ⟨0, 1⟩ : GaussianInt) = 2 := by decide
+example : (-1 + ⟨0, 1⟩ : GaussianInt) * ⟨0, 1⟩ = -1 - ⟨0, 1⟩ := by decide
+
+/-- `L4/half-logarithms`, Lemma 4.7 bookkeeping: at a primitive `pⁿ`-th root of unity, `log⁺` has `(n − 1)/2` head
+factors for odd `n` and `log⁻` has `n/2` for even `n`; with the leading `1/p` the exponents are `(n + 1)/2` and
+`n/2 + 1`. -/
+example (n : ℕ) (h : n % 2 = 1) : 1 + (n - 1) / 2 = (n + 1) / 2 := by omega
+example (n : ℕ) : 1 + n / 2 = n / 2 + 1 := by omega
+
+end TauCeti.ModularSymbol.SupersingularTest
