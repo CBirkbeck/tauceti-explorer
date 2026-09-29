@@ -1,0 +1,2413 @@
+{
+ "paper": "PAPER-CARAIANI-NEWTON-23",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "On the modularity of elliptic curves over imaginary quadratic fields",
+  "authors": "Ana Caraiani and James Newton",
+  "venue": "preprint, arXiv:2301.10509 (v1 25 January 2023; v3 27 March 2025); no published version as of 29 September 2026",
+  "arxiv": "2301.10509v3",
+  "url": "https://arxiv.org/pdf/2301.10509v3",
+  "version": "arXiv v3 (27 March 2025), 106 pages; the latest version and the one on the authors' pages. Item locators are its numbering and pages.",
+  "sha256": "57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3",
+  "accessed": "2026-09-29",
+  "readSections": [
+   "The whole of arXiv v3: §1 (Theorems 1.1–1.3, Remarks 1.2.1, 1.3.1, 1.3.2, notation §1.5), §2 (2.1 preliminaries, 2.2 P-ordinary Hida theory, 2.3 new ingredients for degree shifting), §3 (3.1–3.3), §4 (4.1–4.3), §5 (5.1–5.6 including the end of the proof of Theorem 5.2), §6 (6.1–6.2) and §7 (7.1–7.4), every statement and proof, and the bibliography.",
+   "Cited results were not reread; items resting on them (ACC+18, AKT23, NT16, Sch15, CS24, Kos21, Kis08, Ger19, Sno18, CEGS25, Box21, FLHS15 and the Magma computations) state them as the paper uses them."
+  ]
+ },
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2301.10509v3",
+   "read": "2026-09-29",
+   "sha256": "57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3",
+   "citation": "arXiv:2301.10509v3 (27 March 2025), read completely; there is no published version."
+  }
+ ],
+ "summary": "Caraiani and Newton prove that every elliptic curve over an imaginary quadratic field F with X₀(15)(F) finite is modular (Theorem 1.1, including Q(√−d) for d = 1, 2, 3, 5), that 100% of Weierstrass equations over a Galois imaginary CM field without ζ₅ are modular (Theorem 1.2), and, as the key new input, local–global compatibility at p for Scholze's torsion Galois representations over CM fields in the crystalline and P-ordinary cases, with p small and ramified (Theorems 4.2.15 and 4.3.1). The route: P-ordinary Hida theory for the Betti cohomology of the unitary spaces and degree shifting at deep auxiliary level (§§2, 4), a determinant argument producing integral local lifts (§3), a potentially Barsotti–Tate automorphy lifting theorem for GL₂ over CM fields (§5), mod-3/mod-5 switching with Allen–Khare–Thorne (§6), and imaginary quadratic points on six modular curves of level 15 with Borel and Cartan structure (§7). The atlas plans the ten-author infrastructure (PotentialAutomorphyInfrastructure PA.0–PA.4, ArithmeticLocallySymmetricSpaces, IntegralHeckeAndGaloisDeterminants, IgusaVarietiesAndTorsionConcentration IG.7, local and global deformation rings) and modularity over Q, but only Fontaine–Laffaille and ordinary local–global compatibility. Two Part II routes carry the new mathematics: of PotentialAutomorphyInfrastructure (§§2–5) and of EllipticCurveModularity (§§6–7); four source routes add the paper to ArithmeticLocallySymmetricSpaces, IntegralHeckeAndGaloisDeterminants, LocalGaloisDeformationRings and EffectiveDiophantineMethods. Eleven misprints are recorded; none affects a result.",
+ "items": [
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/modular-elliptic-curve",
+   "kind": "definition",
+   "name": "Modular elliptic curve over a number field",
+   "statement": "An elliptic curve E over a number field F is modular if either E has complex multiplication or there is a cuspidal automorphic representation π of GL₂(𝔸_F) of parallel weight 2 with L(π, s) = L(E, s). Equivalently in §6 (p.87): E has CM, or there is a cuspidal regular algebraic π of GL₂(𝔸_F) of weight 0 with r_{π,ι} ≅ r_{E,p}^∨ for some prime p and isomorphism ι : Q̄_p ≅ C.",
+   "locator": "§1, p.2 and footnote 1; §6, p.87",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Footnote 1: a CM curve whose CM field embeds in F corresponds to no cuspidal π, hence the two cases. The weight-0/Galois form is the one the proofs use."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-1-1",
+   "kind": "theorem",
+   "name": "Modularity over imaginary quadratic fields where X₀(15) has rank zero",
+   "statement": "Let F be an imaginary quadratic field such that the Mordell–Weil group X₀(15)(F) is finite. Then every elliptic curve E/F is modular. (By Sage/Magma this applies to F = Q(√−d) for d = 1, 2, 3, 5, and by [MN15, Theorem 3] to infinitely many imaginary quadratic fields.)",
+   "locator": "Theorem 1.1, p.2 (= Corollary 7.1.2, p.93)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-1-2",
+   "kind": "theorem",
+   "name": "100% of Weierstrass equations over a Galois imaginary CM field are modular",
+   "statement": "Let F be an imaginary CM field that is Galois over Q with ζ₅ ∉ F. Then 100% of Weierstrass equations over F, ordered by height, define a modular elliptic curve.",
+   "locator": "Theorem 1.2, p.3 (= Corollary 6.1.2, pp.87–88)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Remark 1.2.1: [BCGP21] prove potential modularity over quadratic extensions of totally real fields, and Whitmore [Whi22] actual modularity for a positive proportion of such curves."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-1-3",
+   "kind": "theorem",
+   "name": "Crystalline local–global compatibility for torsion classes (introduction form)",
+   "statement": "Let F be an imaginary CM field containing an imaginary quadratic field F₀, with maximal totally real subfield F⁺ (satisfying the technical conditions for [Shi14] base change); let p split in F₀ and v̄ | p a prime of F⁺ with v̄ = v·v^c. Assume (1) K_v = GL_n(O_{F_v}) and K_{v^c} = GL_n(O_{F_{v^c}}); (2) there is a prime v̄′ | p of F⁺, v̄′ ≠ v̄, with Σ [F⁺_{v̄″} : Q_p] ≥ ½[F⁺ : Q], the sum over the primes v̄″ | p of F⁺ distinct from v̄ and v̄′; (3) m is a non-Eisenstein maximal ideal with ρ̄_m decomposed generic. Then, after possibly enlarging the nilpotent ideal I, the composite R^□_{ρ̄_m|G_{F_v}} → R^□_{ρ̄_m} → T(K,λ)_m/I of (1.2.1) factors through the crystalline deformation ring R^{□,crys}_{ρ̄_m|G_{F_v}}(λ_v) with Hodge–Tate weights determined by λ_v.",
+   "locator": "Theorem 1.3, p.5 (proved as Theorem 4.2.15, pp.71–72)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Remark 1.3.1: the second assumption excludes F = F₀; the third is needed for [CS24] (or [Kos21]). Hevesi [Hev23] extends the result to the potentially semistable case."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lss",
+   "kind": "definition",
+   "name": "Locally symmetric spaces, partial Borel–Serre compactification and boundary",
+   "statement": "For a connected linear algebraic group G over a number field F (with a model over O_F) and a good compact open K_G ⊂ G(𝔸_{F,f}), X^G_{K_G} := G(F)\\X^G × G(𝔸_{F,f})/K_G, a smooth orientable Riemannian manifold; X̄^G_{K_G} := G(F)\\X̄^G × G(𝔸_{F,f})/K_G, with X̄^G the partial Borel–Serre compactification of the symmetric space X^G, a compact smooth manifold with corners with interior X^G_{K_G}; ∂X^G_{K_G} := X̄^G_{K_G} \\ X^G_{K_G}.",
+   "locator": "§2.1.1, p.9",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.0",
+    "ArithmeticLocallySymmetricSpaces:ALS.2"
+   ],
+   "note": "ALS.0 owns the symmetric spaces and components and ALS.2 the Borel–Serre compactification with its manifold-with-corners structure and homotopy equivalence."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/good-subgroup",
+   "kind": "definition",
+   "name": "Good compact open subgroup",
+   "statement": "A compact open subgroup K_G ⊂ G(𝔸_{F,f}) is good if it is neat and of the form ∏_v K_{G,v} over the finite places v of F [ACC+18, §2.1].",
+   "locator": "§2.1.1, p.9",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.1",
+    "ArithmeticLocallySymmetricSpaces:ALS.2"
+   ],
+   "note": "The neat/finite-CW hypotheses of ALS.1–ALS.2."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/adelic-limit-spaces",
+   "kind": "construction",
+   "name": "Adelic limit spaces with their G(𝔸_f)-action",
+   "statement": "𝔛_G := lim_{K_G} X^G_{K_G}, with 𝔛̄_G and ∂𝔛_G defined likewise, over good K_G, with the projective-limit topology and a continuous action of G(𝔸_{F,f}) (locally profinite topology). 𝔛̄_G and ∂𝔛_G are compact Hausdorff; every good K_G acts freely (in the sense of [NT16, Def. 2.23]) on 𝔛̄_G and ∂𝔛_G; and 𝔛_G = G(F)\\X^G × G(𝔸_{F,f}), 𝔛̄_G = G(F)\\X̄^G × G(𝔸_{F,f}), ∂𝔛_G = G(F)\\∂X^G × G(𝔸_{F,f}), with the topologies induced by the locally profinite topology on the adelic groups.",
+   "locator": "§2.1.1, p.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Freeness from [CGH+20, Lemma 6.2.1] and [NT16, Lemma 2.31]; the limit description from [Roh96, Prop. 1.9]. The paper prefers this 'topological' set-up to the 'discrete' one of [NT16, ACC+18]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/equivariant-local-systems-hecke",
+   "kind": "construction",
+   "name": "Equivariant local systems and Hecke actions in the topological set-up",
+   "statement": "For a finite set S of finite places, a commutative ring R and a smooth R[K_{G,S}]-module V, finite free over R: inflate V to a smooth R[G^S × K_{G,S}]-module and pull back to a G^S × K_{G,S}-equivariant sheaf V on 𝔛̄_G (and j_!V). Then RΓ(K_G, RΓ(𝔛̄_G, V)) and RΓ(K_G, RΓ(𝔛̄_G, j_!V)) lie in D⁺(H(G^S, K^S_G) ⊗_Z R) and, via descent to X̄^G_{K_G} and j^* : RΓ(X̄^G_{K_G}, V) ≅ RΓ(X^G_{K_G}, V), give homomorphisms H(G^S, K^S_G) ⊗_Z R → End_{D⁺(R)}(RΓ_{(c)}(X^G_{K_G}, V)); likewise for RΓ(∂X^G_{K_G}, V).",
+   "locator": "§2.1.2, pp.9–11",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.3",
+    "PotentialAutomorphyInfrastructure:PA.0"
+   ],
+   "note": "ALS.3 constructs Hecke correspondences on complexes and their derived coherence; PA.0 compares the integral Hecke actions of the sources. The topological set-up itself is compared with the discrete one in lem-2-1-5."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-2-1-3",
+   "kind": "theorem",
+   "name": "Commutation of equivariant derived functors with descent",
+   "statement": "The square of derived functors D⁺Sh_{G^S×K_{G,S}}(𝔛̄_G) → D⁺_sm(G^S × K_{G,S}, R) → D⁺(H(G^S,K^S)⊗R) (by RΓ(𝔛̄_G,−) then RΓ(K_G,−)) and D⁺Sh_{G^S×K_{G,S}}(𝔛̄_G) → D⁺Sh_{K_G}(𝔛̄_G) → D⁺Sh(X̄^G_{K_G}) → D⁺(R) (forget, descent, RΓ(X̄^G_{K_G},−)) commutes, compatibly with the forgetful functor D⁺(H⊗R) → D⁺(R).",
+   "locator": "Proposition 2.1.3, p.10",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Topological version of [NT16, Prop. 2.18]; uses that forgetting equivariance preserves injectives [Sch98, §3, Cor. 3] and [NT16, Lemma 2.28]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-1-4",
+   "kind": "theorem",
+   "name": "Bounded cohomological dimension of RΓ(𝔛̄_G, −)",
+   "statement": "The functor RΓ(𝔛̄_G, −) : D⁺Sh_{G^S×K_{G,S}}(𝔛̄_G) → D⁺_sm(G^S × K_{G,S}, R) has bounded cohomological dimension; indeed R^iΓ(𝔛̄_G, F) = 0 for i > dim X^G_{K_G} and F ∈ Sh_{K_G}(𝔛̄_G).",
+   "locator": "Lemma 2.1.4, p.11",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "From [NT16, Lemma 2.35]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-1-5",
+   "kind": "theorem",
+   "name": "The topological and discrete set-ups agree",
+   "statement": "With 𝔛̄^{dis}_G = G(F)\\X̄^G × G(𝔸_{F,f})^{dis} and π_dis : 𝔛̄^{dis}_G → 𝔛̄_G, there is a natural isomorphism of functors D⁺Sh_{G^S×K_{G,S}}(𝔛̄_G) → D⁺(H(G^S,K^S) ⊗ R): RΓ(K_G, −) ∘ RΓ(𝔛̄_G, −) ≅ RΓ(K_G^{dis}, −) ∘ RΓ(𝔛̄^{dis}_G, −) ∘ π_dis^*. In particular both set-ups give the same Hecke actions on the cohomology of X̄^G_{K_G}.",
+   "locator": "Lemma 2.1.5, p.11",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-1-6",
+   "kind": "theorem",
+   "name": "Perfectness of finite-level cohomology over the finite quotient",
+   "statement": "Let K_G be good and K′_G ⊂ K_G a normal good subgroup, R Noetherian and V a smooth R[K_G]-module, finite free over R. Then RΓ_{(c)}(X^G_{K′_G}, V) are perfect objects of D⁺(K_G/K′_G, R), i.e. isomorphic to bounded complexes of projective R[K_G/K′_G]-modules.",
+   "locator": "Lemma 2.1.6, p.12",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.1"
+   ],
+   "note": "ALS.1: bounded finite projective models under finite-CW/neat hypotheses. Proof by a K_G-invariant triangulation, as [ACC+18, Lemma 2.1.7]; compact support via a triangulation of the boundary."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/completed-cohomology-at-S",
+   "kind": "construction",
+   "name": "Completed cohomology at a set of p-adic places",
+   "statement": "For R = O/ϖ^m, S ⊆ S_p(F) and a smooth O/ϖ^m[K_{S_p\\S}]-module V: the completed cohomology at S of tame level K^S_G is RΓ(K^S_G, RΓ(𝔛̄_G, V)) ∈ D⁺_sm(G_S, O/ϖ^m), with compact-support version RΓ(K^S_G, RΓ(𝔛̄_G, j_!V)) and boundary version RΓ(K^S_G, RΓ(∂𝔛_G, V)); for T ⊇ S_p(F) these carry actions of H(G^T, K^T_G) ⊗_Z O/ϖ^m. Over O they are defined as homotopy limits over m.",
+   "locator": "§2.1.2, pp.12 and 14–15",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.6"
+   ],
+   "note": "ALS.6 re-exports CompletedCohomologyPartII CC.2/CC.4/CC.7 for completed and derived inverse limits and completed boundary triangles."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-1-7",
+   "kind": "theorem",
+   "name": "Completed cohomology is the colimit over p-adic level",
+   "statement": "For every i ≥ 0 there are H(G^T,K^T_G)-equivariant isomorphisms of admissible smooth O/ϖ^m[G_S]-modules H^i(RΓ(K^S_G, RΓ(𝔛̄_G, V))) ≅ lim→_{K_{G,S}} H^i(X^G_{K^S_G K_{G,S}}, V) and H^i(RΓ(K^S_G, RΓ(𝔛̄_G, j_!V))) ≅ lim→_{K_{G,S}} H^i_c(X^G_{K^S_G K_{G,S}}, V).",
+   "locator": "Lemma 2.1.7, p.12",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.6"
+   ],
+   "note": "Via 𝔛̄_G/K^S_G = lim X̄^G_{K^S_G K_{G,S}} and [NT16, Lemma 2.34]; admissibility from lem-2-1-6."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-1-8",
+   "kind": "theorem",
+   "name": "Weight-independence of completed cohomology (projection formula)",
+   "statement": "Let V be a smooth O/ϖ^m[K_{G,S_p\\S} × Δ_S]-module, flat over O/ϖ^m, for an open submonoid Δ_S ⊂ G_S containing an open subgroup U_S. Then there are canonical isomorphisms RΓ(𝔛̄_G, O/ϖ^m) ⊗ V ≅ RΓ(𝔛̄_G, V) and RΓ(∂𝔛_G, O/ϖ^m) ⊗ V ≅ RΓ(∂𝔛_G, V) in D⁺_sm(G^T × K_{G,T\\S} × U_S, O/ϖ^m). This defines RΓ(𝔛̄_G, V) ∈ D⁺_sm(G^T × K_{G,T\\S} × Δ_S, O/ϖ^m), independent of U_S, and hence an action of H(G^T,K^T_G) ⊗ H(Δ_S, K_{G,S}) on RΓ(K_G, RΓ(𝔛̄_G, V)).",
+   "locator": "Lemma 2.1.8, p.13",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Uses [Sch98, §1, Cor. 3] and [KS94, Prop. 2.6.6] on the compact Hausdorff space 𝔛̄_G; flatness of V replaces the finite weak global dimension hypothesis."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-1-9",
+   "kind": "theorem",
+   "name": "Derived projection formula for bounded coefficient complexes",
+   "statement": "For V ∈ D^b_sm(K_{G,S_p\\S}, O/ϖ^m), pulled back to 𝔛̄_G, there is a canonical isomorphism RΓ(𝔛̄_G, O/ϖ^m) ⊗^L V ≅ RΓ(𝔛̄_G, V) in D^b_sm(G^T × K_{G,T}, O/ϖ^m).",
+   "locator": "Lemma 2.1.9, p.14",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Every smooth module is a quotient of a flat one (compact inductions), which computes derived tensor products although there are not enough projectives; bounded cohomological dimension (lem-2-1-4) keeps bounded objects bounded. Remark 2.1.10: bounded Tor-dimension and the unbounded version (not used)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/integral-cohomology-holim",
+   "kind": "construction",
+   "name": "Integral cohomology as a homotopy limit",
+   "statement": "For V an O[K_{G,S}]-module, finite free over O with each V/ϖ^m smooth: RΓ(X̄^G_{K_G}, V) := holim_m RΓ(X̄^G_{K_G}, V/ϖ^m) in D⁺(O), with the j_!V analogue, equipped with an action of H(G^S, K^S_G) ⊗_Z O (via explicit perfect or adelic complexes as in [CGJ23, §5.1], giving the same Hecke actions as [NT16]).",
+   "locator": "§2.1.2, p.14 and footnote 7",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.6"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/decomposed-level-satake",
+   "kind": "construction",
+   "name": "Decomposed level and the unnormalised Satake transform",
+   "statement": "For G reductive, P = MN a parabolic and K_G good: K_P = K_G ∩ P(𝔸_{F,f}), K_N = K_G ∩ N(𝔸_{F,f}), K_M the image of K_P; K_G is decomposed with respect to P if K_P = K_M ⋉ K_N (equivalently K_M = K_G ∩ M(𝔸_{F,f})). If moreover K_{G,v} is hyperspecial for v ∉ S, there are homomorphisms r_P : H(G^S,K^S_G) → H(P^S,K^S_P) (restriction to P) and r_M : H(P^S,K^S_P) → H(M^S,K^S_M) (integration along N), and 𝒮 := r_M ∘ r_P is the unnormalised Satake transform; the formalism extends to Hecke algebras of monoids [ACC+18, §2.1.8].",
+   "locator": "§2.1.2, p.15",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.4"
+   ],
+   "note": "ALS.4 compares boundary strata Hecke actions with parabolic induction and Satake transforms; the algebra homomorphisms and integrality are [NT16, §§2.2.3–2.2.4]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/unitary-group-G-tilde",
+   "kind": "definition",
+   "name": "The quasi-split unitary group G̃ and its Siegel parabolic",
+   "statement": "For n ≥ 2 and F an imaginary CM field with maximal totally real subfield F⁺: Ψ_n is the anti-diagonal matrix of 1's, J_n = (0 Ψ_n; −Ψ_n 0), and G̃/O_{F⁺} is the group scheme with G̃(R) = {g ∈ GL_{2n}(R ⊗_{O_{F⁺}} O_F) : ᵗg J_n g^c = J_n}; its generic fibre is quasi-split unitary, isomorphic to GL_{2n} over F. For a place v̄ of F⁺ split in F, a place v | v̄ gives ι_v : G̃(F⁺_{v̄}) ≅ GL_{2n}(F_v). P ⊂ G̃ is the Siegel parabolic of block upper-triangular matrices with n×n blocks, with Levi decomposition P = U ⋊ G identifying G with Res_{O_F/O_{F⁺}} GL_n via (A 0; 0 D) ↦ D. X̃_{K̃} are complex manifolds of complex dimension d := n²[F⁺ : Q] and X_K real manifolds of dimension d − 1.",
+   "locator": "§2.1.11, pp.15–16 and footnote 8",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PotentialAutomorphyInfrastructure:PA.0"
+   ],
+   "note": "The unitary boundary argument of ACC+ (PA.0) uses this exact group and identification, following [ACC+18, §2.2.1]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/dual-weyl-modules",
+   "kind": "construction",
+   "name": "Integral dual Weyl modules and the weight dictionary between G and G̃",
+   "statement": "Dominant weights for G: λ = (λ_{τ,i}) ∈ (Zⁿ₊)^{Hom(F,E)} with λ_{τ,1} ≥ … ≥ λ_{τ,n}. V_{λ_τ} is the evaluation on O of the algebraic induction (Ind_{B_n}^{GL_n} w_{0,n}λ_τ)_{/O} (Borel–Weil), V_λ := ⊗_{τ,O} V_{λ_τ}, a G(O_{F⁺,p})-stable lattice in the irreducible representation V_λ ⊗ E of highest weight λ; each V_λ/ϖ^m is a smooth O/ϖ^m[G(O_{F⁺,p})]-module, finite free. For G̃, when every place of S̄_p splits in F and S̄_p = S̃_p ⊔ S̃^c_p is chosen, λ is identified with λ̃ ∈ (Z^{2n})^{Hom(F⁺,E)} by (2.1.4) λ̃_τ = (−λ_{τ̃c,n}, …, −λ_{τ̃c,1}, λ_{τ̃,1}, …, λ_{τ̃,n}), and V_λ̃ is the integral dual Weyl module of a dominant λ̃ ∈ (Z^{2n}₊)^{Hom(F⁺,E)}.",
+   "locator": "§2.1.11, pp.16–17",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PotentialAutomorphyInfrastructure:PA.1"
+   ],
+   "note": "PA.1 constructs integral coefficient modules, Weyl and dual Weyl modules and their filtrations for the unitary argument."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/hecke-algebras-T-S",
+   "kind": "definition",
+   "name": "The Hecke algebras T^S(K,λ) and T̃^S(K̃,λ̃)",
+   "statement": "For S ⊇ S_p finite and K ⊂ GL_n(𝔸_{F,f}) good with K_v = GL_n(O_{F_v}) for v ∉ S and K_v ⊆ GL_n(O_{F_v}) for v ∈ S_p: T^S := H(G^S, K^S) ⊗_Z O and T^S(K,λ) := Im(T^S → End_{D⁺(O)}(RΓ(X_K, V_λ))). For G̃, with S = S^c and S̄ below S, T̃^S := H(G̃^S, K̃^S) ⊗ O and T̃^S(K̃,λ̃) is its faithful quotient on RΓ(X̃_{K̃}, V_λ̃). Both are finite O-modules; there are versions with O/ϖ^m coefficients, compact supports and the boundary ∂X̃_{K̃}.",
+   "locator": "§2.1.11, p.17",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.2"
+   ],
+   "note": "IHG.2 defines finite image algebras of Hecke actions on bounded perfect complexes; finiteness from lem-2-1-6."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/weyl-elements",
+   "kind": "definition",
+   "name": "The Weyl elements w₀^G, w₀^{G̃} and w₀^P",
+   "statement": "w₀^G (for G = G or G̃) is the longest element of W((Res_{F⁺/Q}G)_E, (Res_{F⁺/Q}T)_E), and w₀^P := w₀^G w₀^{G̃}, the longest element in the set W^P of minimal length coset representatives of W(G̃)/W(G).",
+   "locator": "§2.1.11, p.17",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Used throughout the P-ordinary theory and degree shifting (wP0-twists)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-1-12",
+   "kind": "theorem",
+   "name": "Surjectivity of evaluation at the identity",
+   "statement": "Let P_{n,n} ⊂ GL_{2n} be the block upper-triangular parabolic with Levi GL_n × GL_n, so that V_{λ̃_τ} is the evaluation of (Ind_{P_{n,n}}^{GL_{2n}} V_{λ_τ̃} ⊗ V_{−w_{0,n}λ_{τ̃c}})_{/O}. The natural P_{n,n}(O)-equivariant morphism V_{λ̃_τ} → V_{λ_τ̃} ⊗ V_{−w_{0,n}λ_{τ̃c}} given by evaluation of functions at the identity is surjective.",
+   "locator": "Lemma 2.1.12, pp.17–18",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "By Nakayama, reduce to F̄_p, where it is restriction H⁰(X, L) → H⁰(X′, L) from the full flag variety to a Schubert variety, surjective by Andersen [And85]. PA.1 plans the Weyl-module filtrations but not this Schubert-variety surjectivity."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/unramified-hecke-polys",
+   "kind": "definition",
+   "name": "Unramified Hecke operators and Hecke polynomials",
+   "statement": "For a finite place v of F and 1 ≤ i ≤ n, T_{v,i} = [GL_n(O_{F_v}) diag(ϖ_v,…,ϖ_v,1,…,1) GL_n(O_{F_v})] (i entries ϖ_v) and P_v(X) = Xⁿ − T_{v,1}X^{n−1} + … + (−1)^i q_v^{i(i−1)/2} T_{v,i} X^{n−i} + … + q_v^{n(n−1)/2} T_{v,n} (2.1.5), the characteristic polynomial of Frobenius on rec^T_{F_v}(π_v) for unramified π_v. For v̄ unramified in F and v | v̄, T̃_{v,i} (1 ≤ i ≤ 2n) are the operators T_{G,v,i} of [NT16, Prop.-Def. 5.2] and P̃_v(X) = X^{2n} − T̃_{v,1}X^{2n−1} + … + (−1)^j q_v^{j(j−1)/2} T̃_{v,j} X^{2n−j} + … + q_v^{n(2n−1)} T̃_{v,2n} (2.1.6). For f of degree d with unit constant term a₀, f^∨(X) := a₀^{−1} X^d f(X^{−1}).",
+   "locator": "§2.1.13, p.18",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.3"
+   ],
+   "note": "IHG.3 normalizes the spherical Hecke polynomials integrally. The printed (2.1.6) omits X^{2n−j} in its general term (source issue E11)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-2-1-14",
+   "kind": "theorem",
+   "name": "Satake transform of the unitary Hecke polynomial",
+   "statement": "Let v be a place of F unramified over v̄ of F⁺, and 𝒮 : H(G̃(F⁺_{v̄}), G̃(O_{F⁺_{v̄}})) → H(G(F⁺_{v̄}), G(O_{F⁺_{v̄}})) the unnormalised Satake transform for the Siegel parabolic. Then 𝒮(P̃_v(X)) = P_v(X) q_v^{n(2n−1)} P^∨_{v^c}(q_v^{1−2n} X).",
+   "locator": "Proposition 2.1.14, pp.18–19",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.3"
+   ],
+   "note": "Proof: [NT16, §5.1]. TC.3 proves the polynomial identities relating Levi factors, contragredients and twists to the ambient Hecke polynomial. The statement refers to 𝒮 as 'defined at the end of §2.1.1'; it is defined in §2.1.2 (source issue E7)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/parahoric-P-v(b,c)",
+   "kind": "definition",
+   "name": "Parahoric levels P_{v̄}(b,c), Q_{v̄}, the operators Ũ and the monoids Δ̃",
+   "statement": "Assume each p-adic place of F⁺ splits in F; for v̄ ∈ S̄_p with chosen ṽ | v̄: for c ≥ b ≥ 0, P_{v̄}(b,c) ⊂ G̃(O_{F⁺_{v̄}}) = GL_{2n}(O_{F_ṽ}) consists of matrices block upper-triangular modulo ϖ^c and block unipotent modulo ϖ^b; P_{v̄} = P_{v̄}(0,1) = the standard parahoric P_{n,n}; for B̃_{v̄} ⊂ Q_{v̄} ⊂ P_{v̄} (simple roots I ⊂ Δ) the parahoric 𝒬_{v̄}. With ũ_{ṽ,n} = diag(ϖ_ṽ,…,ϖ_ṽ,1,…,1) (n entries ϖ_ṽ) and ũ_{ṽ,2n} = diag(ϖ_ṽ,…,ϖ_ṽ): Ũ_{ṽ,n} = [P_{v̄}(b,c) ι_ṽ^{−1}ũ_{ṽ,n} P_{v̄}(b,c)] and Ũ_{ṽ,2n} (c ≥ 1); Δ̃_{v̄} = ι_ṽ^{−1}(⊔_{μ₁≥0} ⊔_{μ₂∈Z} P_{n,n} ũ^{μ₁}_{ṽ,n} ũ^{μ₂}_{ṽ,2n} P_{n,n}); X_{Q_{v̄}} = {ν ∈ X_*(Z(M_{Q_{v̄}})) : ⟨ν,δ⟩ ≥ 0 for δ ∈ Δ − I}; Δ̃^{Q_{v̄}}_{v̄} = ⊔_{ν∈X_{Q_{v̄}}} 𝒬_{v̄} ν(ϖ_{v̄}) 𝒬_{v̄}; Δ^{Q,+}_{v̄} = Δ̃^{Q}_{v̄} ∩ G(F⁺_{v̄}) and Δ^{Q}_{v̄} = Δ^{Q,+}_{v̄}[ι_ṽ^{−1}(ũ^{−1}_{ṽ,n})].",
+   "locator": "§2.1.13, p.19",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "These parahoric levels admit Iwahori decompositions with respect to P, so the monoid-Hecke formalism of [ACC+18, §2.1.9] applies (Remark 2.1.16: the monoids here are smaller). PA.2 plans the Borel/ordinary version, not these Siegel-parabolic monoids."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-1-15",
+   "kind": "theorem",
+   "name": "Positivity, monoid property and Hecke algebra isomorphism for Δ̃^Q",
+   "statement": "(1) For ν ∈ X_{Q_{v̄}}, ν(ϖ_{v̄}) is 𝒬_{v̄}-positive: ν(ϖ)(N_Q ∩ 𝒬)ν(ϖ)^{−1} ⊂ N_Q ∩ 𝒬 and ν(ϖ)^{−1}(N̄_Q ∩ 𝒬)ν(ϖ) ⊂ N̄_Q ∩ 𝒬. (2) Δ̃^{Q}_{v̄} is a monoid. (3) [(M_Q ∩ 𝒬)ν(ϖ)(M_Q ∩ 𝒬)] ↦ [𝒬 ν(ϖ) 𝒬] is a ring isomorphism H(M_Q ∩ Δ̃^Q, M_Q ∩ 𝒬) ≅ H(Δ̃^Q, 𝒬), factoring through an isomorphism to H(Δ^{Q,+}, G(F⁺_{v̄}) ∩ 𝒬); in particular H(Δ̃^Q, 𝒬) is commutative.",
+   "locator": "Lemma 2.1.15, p.20; Remark 2.1.16",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "(3) is [BK98, Corollary 6.12]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/rescaled-actions",
+   "kind": "construction",
+   "name": "Rescaled actions of the monoids on coefficient lattices",
+   "statement": "For v̄ ∈ S̄, τ ∈ Hom(F⁺_{v̄},E) and dominant λ̃: the character α̃^{Q}_{λ̃τ} : Δ̃^{Q}_{v̄} → E^× with α̃(ν(ϖ)) = τ(ϖ)^{⟨ν, w₀^{G̃}λ̃_τ⟩}, trivial on 𝒬; the rescaled action g ·_{λ̃τ} x = α̃(g)^{−1} g·x (2.1.7); the product character α̃^{Q_S̄}_{λ̃} over v̄ ∈ S̄ and τ; for G, α^{Q}_λ(ν(ϖ)) = ∏_τ τ(ϖ)^{⟨ν, w₀^G λ̃_τ⟩} and g ·_λ x = α(g)^{−1} g·x, so that ι_ṽ^{−1}(ũ_{ṽ,n}) acts trivially.",
+   "locator": "§2.1.13, pp.20–21",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Cf. [Ger19, Definition 2.8]. The printed rescaled action for G reads α_λ(x)^{−1}g·x; α_λ(g)^{−1} is meant (source issue E8)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-1-17",
+   "kind": "theorem",
+   "name": "Stability of the lattice under the rescaled monoid action",
+   "statement": "For v̄ ∈ S̄ and τ ∈ Hom(F⁺_{v̄},E), the lattice V_{λ̃_τ} is stable under the rescaled action (2.1.7) of O[Δ̃^{Q}_{v̄}].",
+   "locator": "Lemma 2.1.17, p.20",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The rescaled action stabilizes each weight space; V_{λ̃_τ} has lowest weight w_{0,2n}λ̃_τ. Cf. [Ger19, Def. 2.8]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/monoid-hecke-actions",
+   "kind": "construction",
+   "name": "Hecke actions of the monoid Hecke algebras on integral cohomology",
+   "statement": "For T ⊇ S_p with T = T^c and good K̃ with K̃_{v̄} = P_{v̄}(b,c), c ≥ 1, for v̄ ∈ S̄ ⊆ S̄_p there is a canonical homomorphism H(G̃^T, K̃^T) ⊗ H(Δ̃_{S̄}, K̃_{S̄}) → End_{D⁺(O)}(RΓ(X̃_{K̃}, V_λ̃)) (2.1.8), with Ũ_{ṽ,2n} acting invertibly; for K̃_{v̄} = 𝒬_{v̄}, H(G̃^T,K̃^T) ⊗ H(Δ̃^{Q_S̄}_{S̄}, K̃_{S̄}) acts (2.1.9); for G with K_{v̄} = 𝒬_{v̄} ∩ G(F⁺_{v̄}) and V an O[K_{S̄_p\\S̄}]-module (or complex), H(G^T,K^T) ⊗ H(Δ^{Q_S̄}_{S̄}, K_{S̄}) acts on RΓ(X_K, V ⊗_O V_{λ_S̄}) (2.1.10). U_v is the invertible operator of the central element ι_v^{−1}(ũ^{−1}_{v,n}ũ_{v,2n}) = diag(ϖ_v,…,ϖ_v) ∈ GL_n(F_v).",
+   "locator": "§2.1.13, p.21",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PotentialAutomorphyInfrastructure:PA.2"
+   ],
+   "note": "PA.2: 'construct the parabolic level tower, its commuting positive-monoid operators and the ordinary summand of the arithmetic complexes'."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-2-1-19",
+   "kind": "theorem",
+   "name": "Galois representations for cohomological cuspidal representations of G̃",
+   "statement": "Assume F contains an imaginary quadratic field and π is a cuspidal automorphic representation of G̃(𝔸_{F⁺}) that is ξ-cohomological for an irreducible algebraic representation ξ of (Res_{F⁺/Q}G̃)_C. For every ι : Q̄_p ≅ C there is a continuous semisimple r_ι(π) : G_F → GL_{2n}(Q̄_p) with: (1) for ℓ ≠ p unramified in F with π unramified above ℓ and v | ℓ, r_ι(π)|_{G_{F_v}} is unramified with char. polynomial of Frob_v the image of P̃_v(X) for the base change of ι^{−1}π_v; (2) for v | p, r_ι(π) is de Rham and HT_τ(r_ι(π)) = {λ̃_{τ,1} + 2n − 1, λ̃_{τ,2} + 2n − 2, …, λ̃_{τ,2n}}, λ̃ the highest weight of ι^{−1}(ξ ⊗ ξ)^∨; (3) if F₀ ⊂ F is imaginary quadratic and ℓ splits in F₀ (possibly ℓ = p), then for v | ℓ above v̄, WD(r_ι(π)|_{G_{F_v}})^{F-ss} ≅ rec^T_{F_v}(π_{v̄} ∘ ι_v).",
+   "locator": "Theorem 2.1.19, pp.21–22",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "AutomorphicGaloisRepresentationsPartII:AG2.5"
+   ],
+   "note": "This is [ACC+18, Theorem 2.3.3], relying on [Shi14] base change; AG2.2 'supplies the characteristic-zero unitary system interface used in ACC+ §2.3.3', AG2.5 the local–global comparison."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-2-1-20",
+   "kind": "theorem",
+   "name": "Residual Galois representations for GL_n over CM fields",
+   "statement": "Let m ⊂ T^T(K,λ) be a maximal ideal. Suppose F contains an imaginary quadratic field, T = T^c, and for every finite v ∉ T of residue characteristic ℓ either T contains no ℓ-adic place and ℓ is unramified in F, or ℓ splits in an imaginary quadratic subfield of F. Then there is a continuous semisimple ρ̄_m : G_{F,T} → GL_n(T^T(K,λ)/m) with char. polynomial of ρ̄_m(Frob_v) equal to the image of P_v(X) for all finite v ∉ T.",
+   "locator": "Theorem 2.1.20, p.22",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.2",
+    "IntegralHeckeAndGaloisDeterminants:IHG.4"
+   ],
+   "note": "[ACC+18, Theorem 2.3.5], essentially [Sch15, Corollary 5.4.3]; footnote 11: the condition on T can be achieved by enlarging T."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-1-21",
+   "kind": "theorem",
+   "name": "The eigenvalue of U_v on localized cohomology",
+   "statement": "Let m ⊂ T^T(K,λ) be as in thm-2-1-20 with k = k(m), and v a p-adic place of F. Then the Hecke operator U_v has a unique eigenvalue on H^*(X_K, V_λ/ϖ)_m, equal to ε̄_p^{n(n−1)/2}(Art_{F_v}(ϖ_v)) · det ρ̄_m(Art_{F_v}(ϖ_v)).",
+   "locator": "Lemma 2.1.21, pp.22–23",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proof: the right action of the centre Z_n(𝔸_F) on X_K and V_λ, the character ψ_m = ε̄_p^{n(n−1)/2} det ρ̄_m ∘ Art_F factoring through a ray class group, and Chebotarev to compare ϖ_v with ϖ_w for w ∉ T (T_{w,n} acts by ψ_m(ϖ_w)); footnote 12: F_∞^× acts trivially. Remark 2.1.22 gives a proof via mod-ϖ completed cohomology."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/non-eisenstein",
+   "kind": "definition",
+   "name": "Non-Eisenstein maximal ideal",
+   "statement": "A maximal ideal m ⊂ T^T(K,λ) is non-Eisenstein if ρ̄_m is absolutely irreducible; asking for m non-Eisenstein implicitly imposes the hypotheses of thm-2-1-20.",
+   "locator": "Definition 2.1.23, p.23",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.5"
+   ],
+   "note": "IHG.5 specializes determinants to residual semisimple representations; the non-Eisenstein condition is ACC+'s."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-2-1-24",
+   "kind": "theorem",
+   "name": "Galois representations with nilpotent ideal (Scholze)",
+   "statement": "Let m ⊂ T^T(K,λ) be non-Eisenstein. There exist N ≥ 1 depending only on n and [F : Q], an ideal I ⊂ T^T(K,λ) with I^N = 0 and a continuous ρ_m : G_{F,T} → GL_n(T^T(K,λ)/I) such that for each finite v ∉ T the characteristic polynomial of ρ_m(Frob_v) is the image of P_v(X) in (T^T(K,λ)/I)[X].",
+   "locator": "Theorem 2.1.24, p.23",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "TorsionCohomologyInfrastructure:TC.2",
+    "IntegralHeckeAndGaloisDeterminants:IHG.5"
+   ],
+   "note": "[Sch15, Corollary 5.4.4]; TC.2 exports 'a quantified nilpotent ideal and compatible quotient maps', IHG.5 the determinant in the quotient."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/boundary-strata",
+   "kind": "construction",
+   "name": "Borel–Serre boundary strata of X̃_{K̃} and their Hecke actions",
+   "statement": "For K̃ decomposed with respect to P = G ⋉ U with K̃_{v̄} = P_{v̄}(b,c) or 𝒬_{v̄} for v̄ ∈ S̄, K = K̃ ∩ G(𝔸_{F⁺,f}), K_U = K̃ ∩ U(𝔸_{F⁺,f}): ∂X̃_{K̃} has a G̃(𝔸_{F⁺,f})-equivariant stratification by the standard rational parabolics Q ⊇ B̃, with strata X̃^Q_{K̃} = Q(F⁺)\\X_Q × G̃(𝔸_{F⁺,f})/K̃ carrying Hecke actions T̃^T → End_{D⁺(O)}(RΓ(X̃^Q_{K̃}, V_λ̃)); for non-Eisenstein m ⊂ T^T(K,λ), m̃ := 𝒮^*(m) ⊂ T̃^T.",
+   "locator": "§2.1.18, pp.23–24",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.2",
+    "ArithmeticLocallySymmetricSpaces:ALS.4"
+   ],
+   "note": "[NT16, §3.1.2, Lemma 3.10]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-2-1-25",
+   "kind": "theorem",
+   "name": "Localized boundary cohomology is the Siegel stratum",
+   "statement": "Let m ⊂ T^T(K,λ) be non-Eisenstein, m̃ := 𝒮^*(m) ⊂ T̃^T and λ̃ ∈ (Z^{2n}₊)^{Hom(F⁺,E)}. Pullback along the inclusion induces a T̃^T-equivariant isomorphism RΓ(∂X̃_{K̃}, V_λ̃)_{m̃} ≅ RΓ(X̃^P_{K̃}, V_λ̃)_{m̃} in D⁺(O).",
+   "locator": "Theorem 2.1.25, p.24",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PotentialAutomorphyInfrastructure:PA.0",
+    "ArithmeticLocallySymmetricSpaces:ALS.4"
+   ],
+   "note": "[ACC+18, Thm. 2.4.2]; PA.0 'boundary localization compatibilities'."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-2-1-26",
+   "kind": "theorem",
+   "name": "Residual Galois representations for the unitary group",
+   "statement": "Let m̃ ⊂ T̃^T(K̃,λ̃) be a maximal ideal; assume F contains an imaginary quadratic field, T = T^c and the condition on T of thm-2-1-20. Then there is a continuous semisimple ρ̄_{m̃} : G_{F,T} → GL_{2n}(T̃^T(K̃,λ̃)/m̃) with char. polynomial of ρ̄_{m̃}(Frob_v) the image of P̃_v(X) for all finite v ∉ T.",
+   "locator": "Theorem 2.1.26, pp.24–25",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.4",
+    "AutomorphicGaloisRepresentationsPartII:AG2.7"
+   ],
+   "note": "Proof: the Hecke algebra T^T_cl of [CGH+20, §6.5], continuity after trivializing V_λ̃ ⊗ F at deep level, [CGH+20, Lemma 6.5.2] made unconditional by thm-2-1-19, [Che14, Thm. A], and realization over the residue field as in [ACC+18, Thm. 2.3.5]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/decomposed-generic",
+   "kind": "definition",
+   "name": "Decomposed generic residual representation",
+   "statement": "A continuous ρ̄ : G_F → GL_m(F̄_p) is decomposed generic if there is a prime ℓ ≠ p such that (1) ℓ splits completely in F, and (2) for every v | ℓ of F, ρ̄|_{G_{F_v}} is unramified and the eigenvalues α₁,…,α_m of ρ̄(Frob_v) satisfy α_i/α_j ≠ ℓ for i ≠ j. If ρ̄ is decomposed generic there are infinitely many such ℓ (Chebotarev; [ACC+18, Lemma 4.3.2]).",
+   "locator": "Definition 2.1.27, p.25",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.7",
+    "IgusaVarietiesAndTorsionConcentration:IG.7"
+   ],
+   "note": "Footnote 13: slightly weaker than the condition of [CS17] (see [CS24, Rem. 1.4, Cor. 5.1.3]). AG2.7 preserves 'α_i,v ≠ p α_j,v for all i≠j' at completely split auxiliary primes and plans a decomposed-generic API as a specialization; IG.7 uses it as its hypothesis."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-2-1-28",
+   "kind": "theorem",
+   "name": "Torsion vanishing: middle degree cohomology and its boundary",
+   "statement": "Under the assumptions on F of thm-2-1-26, let m̃ ⊂ T̃^T(K̃,λ̃) be maximal with ρ̄_{m̃} decomposed generic, and d = dim_C X̃_{K̃}. Then there are T̃^T-equivariant morphisms H^d(X̃_{K̃}, V_λ̃[1/p])_{m̃} ↩ H^d(X̃_{K̃}, V_λ̃)_{m̃} ↠ H^d(∂X̃_{K̃}, V_λ̃)_{m̃} (the first injective, the second surjective).",
+   "locator": "Theorem 2.1.28, p.25",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IgusaVarietiesAndTorsionConcentration:IG.7"
+   ],
+   "note": "From [CS24, Thm. 1.1] as in [ACC+18, Thm. 4.3.3]; the hypotheses [F⁺ : Q] > 1 and 'ρ̄_{m̃} of length at most two' are removed by [Kos21, Theorem 1.4]. IG.7 exports ACC+ Theorem 4.3.3 under the length ≤ 2 hypothesis; Koshikawa's removal of it is not planned and is recorded among the prerequisites."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/p-ordinary-finite-level",
+   "kind": "definition",
+   "name": "P-ordinary part of finite-level cohomology",
+   "statement": "Fix S̄ ⊂ S̄_p and good K̃ with fixed tame level and K̃_{v̄} = P_{v̄}(b,c) (c ≥ b ≥ 0, c ≥ 1) for v̄ ∈ S̄, written K̃(b,c), P_{S̄}(b,c) := ∏_{v̄∈S̄} P_{v̄}(b,c). The P-ordinary part RΓ(X̃_{K̃(b,c)}, V_λ̃)^{ord} is the maximal direct summand of RΓ(X̃_{K̃(b,c)}, V_λ̃) on which all Ũ_{ṽ,n} (v̄ ∈ S̄) act invertibly; it is an object of D⁺(P_{S̄}(0,c)/P_{S̄}(b,c), O) with an action of T̃^T ⊗ (⊗_{v̄∈S̄} H(Δ̃_{v̄}, K̃_{v̄})[Ũ^{−1}_{ṽ,n}]); likewise for ∂X̃_{K̃(b,c)}.",
+   "locator": "§2.2.1, pp.25–26",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "By lem-2-1-6 and the theory of ordinary parts [KT17, §2.4]. Extends [TU99] (GSp₄, Siegel threefolds) to G̃ and Betti cohomology. PA.2 plans only the Borel-ordinary version."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/p-ordinary-functors",
+   "kind": "construction",
+   "name": "Functors of P-ordinary parts of smooth representations",
+   "statement": "K_{v̄}(b) := ker(G(O_{F⁺_{v̄}}) → G(O/ϖ^b)), K_{S̄}(b) = ∏ K_{v̄}(b), U⁰_{S̄} = ∏ U(O_{F⁺_{v̄}}); Δ⁺_{S̄} ⊂ G_{S̄} is the monoid generated by K_{S̄} and {ũ_{ṽ,n}}, Δ_{S̄} the group adjoining ũ^{−1}_{ṽ,n}, and Δ̃_{S̄,P} = Δ̃_{S̄} ∩ ∏P(F⁺_{v̄}) = Δ⁺_{S̄} ⋉ U⁰_{S̄}. Γ(U⁰_{S̄},−) : Mod_sm(Δ̃_{S̄},O/ϖ^m) → Mod_sm(Δ⁺_{S̄},O/ϖ^m) with g·v := Σ_{n∈U⁰/gU⁰g^{−1}} ngv (2.2.1) and its derived functor (factoring through restriction to Δ̃_{S̄,P}); ord = localisation inverting all ũ_{ṽ,n} (exact, preserving injectives); the P-ordinary part π ↦ RΓ(U⁰_{S̄}, π)^{ord} (Definition 2.2.3); and the finite-level functors Γ(U⁰_{S̄} ⋊ K_{S̄}(b),−), ord_b and Γ(P_{S̄}(b,c),−) valued in Mod(Δ⁺_{S̄}/K_{S̄}(b), O/ϖ^m), with H(P(0,c)Δ⁺P(0,c), P(b,c)) = O[Δ⁺_{S̄}/K_{S̄}(b)].",
+   "locator": "§2.2.2, Definition 2.2.3, pp.26–27",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Variants of the Borel-ordinary functors of [ACC+18, §5.2.1] ([Eme10a, §3]); PA.2 constructs 'the local ordinary-parts functor in the coefficient regime of ACC+ §§5.2–5.3'."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-2-4",
+   "kind": "theorem",
+   "name": "Ordinary parts commute with K(b)-invariants",
+   "statement": "There is a natural isomorphism ord_b ∘ Γ(K_{S̄}(b),−) ≅ Γ(K_{S̄}(b),−) ∘ ord of functors Mod_sm(Δ⁺_{S̄}, O/ϖ^m) → Mod(Δ_{S̄}/K_{S̄}(b), O/ϖ^m), extending to derived functors ord_b ∘ RΓ(K_{S̄}(b),−) ≅ RΓ(K_{S̄}(b),−) ∘ ord.",
+   "locator": "Lemma 2.2.4, p.27",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "As [ACC+18, Lemma 5.2.6]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-2-5",
+   "kind": "theorem",
+   "name": "P-ordinary invariants at level P(b,c)",
+   "statement": "For all c ≥ b ≥ 0 with c ≥ 1 there is a natural isomorphism ord_b ∘ Γ(U⁰_{S̄} ⋊ K_{S̄}(b), −) ≅ ord_b ∘ Γ(P_{S̄}(b,c), −) of functors Mod_sm(Δ̃_{S̄}, O/ϖ^m) → Mod(Δ_{S̄}/K_{S̄}(b), O/ϖ^m).",
+   "locator": "Lemma 2.2.5, p.27",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Compare [ACC+18, Lemma 5.2.8]; Iwahori decomposition of P(b,c) and [Eme10a, Lemma 3.3.2] (Ũ lowers the depth c′ ≥ 2)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-2-6",
+   "kind": "theorem",
+   "name": "Derived comparison of P-ordinary parts at finite level",
+   "statement": "For π ∈ D⁺_sm(Δ̃_{S̄}, O/ϖ^m) and c ≥ b ≥ 0, c ≥ 1, there is a natural isomorphism RΓ(K_{S̄}(b), ord RΓ(U⁰_{S̄}, π)) ≅ ord_b RΓ(P_{S̄}(b,c), π) in D⁺(Δ_{S̄}/K_{S̄}(b), O/ϖ^m).",
+   "locator": "Lemma 2.2.6, p.28",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "As [ACC+18, Lemma 5.2.9] with lem-2-2-5."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/p-ordinary-completed",
+   "kind": "definition",
+   "name": "P-ordinary completed cohomology",
+   "statement": "π(K̃^{S̄}, λ̃, m) := RΓ(K̃^{S̄}, RΓ(𝔛̄_{G̃}, V_λ̃/ϖ^m)) ∈ D⁺_sm(Δ̃_{S̄}, O/ϖ^m) with T̃^T-action (using lem-2-1-8), satisfying RΓ(P_{S̄}(b,c), π(K̃^{S̄},λ̃,m)) ≅ RΓ(X̃_{K̃(b,c)}, V_λ̃/ϖ^m); π^{ord}(K̃^{S̄},λ̃,m) ∈ D⁺_sm(Δ_{S̄}, O/ϖ^m) is its P-ordinary part (Definition 2.2.3), and π^{ord}_∂ the boundary analogue.",
+   "locator": "§2.2.7, p.28",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-2-2-8",
+   "kind": "theorem",
+   "name": "Finite-level P-ordinary cohomology from completed cohomology",
+   "statement": "For m ≥ 1 and c ≥ b ≥ 0, c ≥ 1, there is a natural T̃^T-equivariant isomorphism RΓ(K_{S̄}(b), π^{ord}(K̃^{S̄},λ̃,m)) ≅ RΓ(X̃_{K̃(b,c)}, V_λ̃/ϖ^m)^{ord} in D⁺(K_{S̄}/K_{S̄}(b), O/ϖ^m).",
+   "locator": "Proposition 2.2.8, p.28",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "As [ACC+18, Prop. 5.2.15] with lem-2-2-6: Hida's idempotent [KT17, §2.4] and localisation define the same ordinary part on finite O/ϖ^m-modules."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/cor-2-2-9",
+   "kind": "theorem",
+   "name": "Independence of level for P-ordinary cohomology",
+   "statement": "For m ≥ 1 and c ≥ b ≥ 0, c ≥ 1, the natural T̃^T-equivariant morphism RΓ(X̃_{K̃(b,max{1,b})}, V_λ̃/ϖ^m)^{ord} → RΓ(X̃_{K̃(b,c)}, V_λ̃/ϖ^m)^{ord} is an isomorphism in D⁺(K_{S̄}/K_{S̄}(b), O/ϖ^m); the same holds for the Borel–Serre boundary.",
+   "locator": "Corollary 2.2.9, p.28",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Compare [ACC+18, Cor. 5.2.16]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-2-2-10",
+   "kind": "theorem",
+   "name": "Boundary version of the P-ordinary comparison",
+   "statement": "For m ≥ 1 and c ≥ b ≥ 0, c ≥ 1, RΓ(K_{S̄}(b), π^{ord}_∂(K̃^{S̄},λ̃,m)) ≅ RΓ(∂X̃_{K̃(b,c)}, V_λ̃/ϖ^m)^{ord}, T̃^T-equivariantly, in D⁺(K_{S̄}/K_{S̄}(b), O/ϖ^m).",
+   "locator": "Proposition 2.2.10, p.29",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/parahoric-variant",
+   "kind": "construction",
+   "name": "P-ordinary parts at parahoric level Q",
+   "statement": "For standard parabolics Q_{v̄} ⊂ P_{v̄} (v̄ ∈ S̄) with parahorics 𝒬_{v̄}, K_{v̄} := 𝒬_{v̄} ∩ G(F⁺_{v̄}) and Δ̃^{Q_S̄}_{S̄,P} = Δ^{Q_S̄,+}_{S̄} ⋉ U⁰_{S̄}: RΓ(U⁰_{S̄},−) : D⁺_sm(Δ̃^{Q_S̄}_{S̄}, O/ϖ^m) → D⁺_sm(Δ^{Q_S̄,+}_{S̄}, O/ϖ^m), ord (inverting the ũ_{ṽ,n} only), and ord₀RΓ(K_{S̄},−) : D⁺_sm(Δ^{Q,+}) → D⁺_sm(K_{S̄}[ũ^{±1}_{ṽ,n}]/K_{S̄}, O/ϖ^m) with an action of H(Δ^{Q_S̄}_{S̄}, K_{S̄}), computable as RΓ(K_{S̄},−) ∘ ord.",
+   "locator": "§2.2.11, p.29",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-2-12",
+   "kind": "theorem",
+   "name": "P-ordinary parts at parahoric level with their Hecke actions",
+   "statement": "For π ∈ D⁺_sm(Δ̃^{Q_S̄}_{S̄}, O/ϖ^m) there is a natural isomorphism RΓ(K_{S̄}, ord RΓ(U⁰_{S̄}, π)) ≅ ord₀ RΓ(𝒬_{S̄}, π) in D⁺_sm(K_{S̄}[ũ^{±1}_{ṽ,n}]/K_{S̄}, O/ϖ^m), under which [K_{v̄} ν(ϖ_{v̄}) K_{v̄}] ∈ H(Δ^{Q_S̄}_{S̄}, K_{S̄}) matches [𝒬_{v̄} ν(ϖ_{v̄}) 𝒬_{v̄}].",
+   "locator": "Lemma 2.2.12, pp.29–30",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Iwahori decomposition of 𝒬 with respect to P gives the bijection (k,n) ↦ nk of coset spaces; [Eme10a, Lemma 3.3.2] again."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-2-14",
+   "kind": "theorem",
+   "name": "The Levi coefficient module as a tensor product over the two places",
+   "statement": "Under the identification of K_{S̄} with the block-diagonal Levi of ∏_{v̄∈S̄} P_{n,n}(O_{F_ṽ}) (via (A_ṽ, A_{ṽc}) ↦ diag((Ψ_n ᵗA^{−1}_{ṽc} Ψ_n)^c, A_ṽ)), V_{λ_S̄} ≅ ⊗_{v̄∈S̄} ⊗_{τ∈Hom(F⁺_{v̄},E),O} V_{−w_{0,n}λ_{τ̃c}} ⊗ V_{λ_τ̃}, with both factors acted on through τ̃.",
+   "locator": "Lemma 2.2.14, p.30",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "θ(A) = (Ψ_n ᵗA^{−1} Ψ_n)^c preserves B; θ^{−1}V_{λ_{τ̃c}} ≅ V_{−w_{0,n}λ_{τ̃c}} via f ↦ (g ↦ f(Ψ_n ᵗg^{−1} Ψ_n))."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-2-2-15",
+   "kind": "theorem",
+   "name": "Independence of weight for P-ordinary completed cohomology",
+   "statement": "Given dominant λ̃ for G̃ and S̄ ⊆ S̄_p, let λ̃^{S̄} be λ̃ with λ̃_τ replaced by 0 for τ inducing places of S̄, and identify λ̃ with λ via (2.1.4). For every m ≥ 1 there is a natural T̃^T-equivariant isomorphism π^{ord}(K̃^{S̄}, λ̃, m) ≅ π^{ord}(K̃^{S̄}, λ̃^{S̄}, m) ⊗ V_{w₀^P λ_S̄}/ϖ^m in D⁺_sm(Δ^{Q_S̄}_{S̄}, O/ϖ^m).",
+   "locator": "Proposition 2.2.15, p.31",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proof via the surjection ev : V_{λ̃_S̄} → V_{w₀^Pλ_S̄} of lem-2-1-12 and the vanishing of the P-ordinary part of its kernel (lem-2-2-16)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-2-16",
+   "kind": "theorem",
+   "name": "The kernel of evaluation is killed by ũ^m",
+   "statement": "Let τ ∈ Hom(F⁺_{v̄},E) and K_{λ̃_τ} := ker(V_{λ̃_τ} → V_{λ_τ̃} ⊗ V_{−w_{0,n}λ_{τ̃c}}) be the kernel of evaluation at the identity. For every m ≥ 1, (ũ_{ṽ,n})^m (K_{λ̃_τ}/ϖ^m) = 0 (for the rescaled action).",
+   "locator": "Lemma 2.2.16, pp.31–32",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The weights of K_{λ̃_τ} are those μ of V_{λ̃_τ} with μ − w_{0,2n}λ̃_τ containing a positive multiple of e_n − e_{n+1} [Cab84, Prop. 4.1]. The printed kernel target 'V_{λ−w_{0,n}λ_{τ̃c}}' has a stray λ (source issue E6). The same holds for the boundary."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-2-2-17",
+   "kind": "theorem",
+   "name": "Independence of weight for boundary P-ordinary completed cohomology",
+   "statement": "With λ̃^{S̄} as in prop-2-2-15, π^{ord}_∂(K̃^{S̄}, λ̃, m) ≅ π^{ord}_∂(K̃^{S̄}, λ̃^{S̄}, m) ⊗ V_{w₀^Pλ_S̄}/ϖ^m, T̃^T-equivariantly in D⁺_sm(Δ^{Q_S̄}_{S̄}, O/ϖ^m).",
+   "locator": "Proposition 2.2.17, p.32",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/dual-p-ordinary",
+   "kind": "construction",
+   "name": "P-ordinary parts for dual coefficients",
+   "statement": "For v̄ ∈ S̄, ord^∨ and ord^∨₀ are defined using the Hecke action of ũ^{−1}_{ṽ,n} on invariants under Ū¹_{v̄} (the block strictly lower triangular part of the parahoric P_{v̄}) and 𝒬_{v̄}, for representations of the inverse monoid (Δ̃^{Q}_{v̄})^{−1} = ⊔_ν 𝒬 ν(ϖ)^{−1} 𝒬; an independence-of-weight statement for dual coefficients follows the proof of prop-2-2-15 using 0 → V^∨_{w₀^Pλ_S̄} → V^∨_{λ̃_S̄} → K^∨_{λ̃_S̄} → 0 and topological nilpotence of ũ^{−1}_{ṽ,n} on K^∨.",
+   "locator": "§2.2.18, pp.32–33",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-2-19",
+   "kind": "theorem",
+   "name": "Dual P-ordinary parts at parahoric level",
+   "statement": "For π ∈ D⁺_sm((Δ̃^{Q}_{v̄})^{−1}, O/ϖ^m) there is a natural isomorphism RΓ(K_{v̄}, ord^∨ RΓ(Ū¹_{v̄}, π)) ≅ ord^∨₀ RΓ(𝒬_{v̄}, π) in D⁺_sm(K_{v̄}[ũ^{±1}_{ṽ,n}]/K_{v̄}, O/ϖ^m), matching [K ν(ϖ)^{−1} K] with [𝒬 ν(ϖ)^{−1} 𝒬].",
+   "locator": "Lemma 2.2.19, p.32",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Conjugation by ũ^{−1}_{ṽ,n} w₀^P sends Ū¹ to U⁰ and 𝒬 to the parahoric 𝒬^{w₀^P}, reducing to lem-2-2-12."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-3-2",
+   "kind": "theorem",
+   "name": "Parabolic Bruhat decomposition and closure relations",
+   "statement": "Let L be a p-adic field and G/O_L split connected reductive with split maximal torus T ⊂ B ⊂ P = M ⋉ U; W^P ⊂ W the minimal length representatives of W_P\\W and ^PW^P := W^P ∩ (W^P)^{−1}. Then G(L) = ⊔_{w∈^PW^P} P(L)wP(L); the closure of P(L)wP(L) (p-adic topology) is ⊔_{w′≤w} P(L)w′P(L) for the Bruhat order; and P(L)ΩP(L) is open for every upper subset Ω ⊂ ^PW^P.",
+   "locator": "§2.3.1, Lemma 2.3.2, p.33",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "[Hau18, Lemma 2.1.2]; ^PW^P represents W_P\\W/W_P [DM91, Lemma 3.2.2]; Bruhat decomposition [BT65, Cor. 5.20]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/induction-filtration-functors",
+   "kind": "construction",
+   "name": "The Bruhat filtration functors on parabolic induction",
+   "statement": "For w ∈ ^PW^P: S_w := P(L)wP(L), S°_w := P(L)wM(L)U₀ with U₀ := U(O_L) (stable under right multiplication by inverses of M(L)⁺ ⋉ U₀, M(L)⁺ = {m : mU₀m^{−1} ⊂ U₀}); G_{≥i} := ⊔_{ℓ(w)≥i} S_w (open, P(L)-bi-invariant). I_{≥i}(π) (resp. I_w(π)) is the space of locally constant f : G_{≥i} → π (resp. S_w → π), compactly supported modulo P(L), with f(pg) = pf(g), with P(L) acting by right translation; I°_w(π) ⊂ I_w(π) the functions supported in S°_w, an M(L)⁺ ⋉ U₀-module.",
+   "locator": "§2.3.1, pp.33–34",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-2-3-3",
+   "kind": "theorem",
+   "name": "Exactness of the Bruhat filtration of parabolic induction",
+   "statement": "(1) I_{≥0} = Res^{G(L)}_{P(L)} ∘ Ind^{G(L)}_{P(L)}. (2) Each of I_{≥i}, I_w, I°_w is exact. (3) For i ≥ 0 and π ∈ Mod_sm(P(L), O/ϖ^m) there is a functorial exact sequence 0 → I_{≥i+1}(π) → I_{≥i}(π) → ⊕_{ℓ(w)=i} I_w(π) → 0, giving distinguished triangles (2.3.1) in D⁺_sm(P(L), O/ϖ^m).",
+   "locator": "Proposition 2.3.3, p.34",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Continuous section of G(L) → P(L)\\G(L) ([Jan03, II.1.10], [Hau16, Lemma 2.1.1]); (3) is [Hau18, Lemma 2.2.1]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-2-3-4",
+   "kind": "theorem",
+   "name": "The Bruhat filtration stays exact after taking K ⋉ U₀-cohomology",
+   "statement": "Let π ∈ D⁺_sm(P(L), O/ϖ^m) and V a finite free O/ϖ^m-module with a smooth representation of an open submonoid Δ⁺ ⊂ M(L) containing an open subgroup K ⊂ M(O_L). For i ≥ 0 and j ∈ Z, 0 → R^jΓ(K ⋉ U₀, V ⊗ I_{≥i+1}(π)) → R^jΓ(K ⋉ U₀, V ⊗ I_{≥i}(π)) → ⊕_{ℓ(w)=i} R^jΓ(K ⋉ U₀, V ⊗ I_w(π)) → 0 is an exact sequence of H(Δ⁺, K)-modules.",
+   "locator": "Proposition 2.3.4, pp.34–35",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Injectivity via lem-2-3-5, commutation of R^jΓ(K ⋉ U₀,−) with filtered colimits (injectives are preserved [Eme10b, Prop. 2.1.3])."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-3-5",
+   "kind": "theorem",
+   "name": "Clopen approximations of the Bruhat filtration",
+   "statement": "For each i ≥ 0 there are decompositions G_{≥i} = U^m₁ ⊔ U^m₂ into open and closed subsets, indexed by m ≥ 1, left P(L)-invariant and right P(O_L)-invariant, with G_{≥i+1} = ∪_{m≥1} U^m₁.",
+   "locator": "Lemma 2.3.5, pp.35–36",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Via the Schubert subvariety of Fℓ = P\\G and its equations modulo ϖ^m."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-3-6",
+   "kind": "theorem",
+   "name": "The open cell computes the P-ordinary part of the top Bruhat stratum",
+   "statement": "For G = GL_{2n}/L, P the standard parabolic with Levi GL_n × GL_n, ũ_L = diag(ϖ_L,…,ϖ_L,1,…,1) and w₀^P the longest element of ^PW^P: (1) I°_{w₀^P} takes injectives to Γ(U₀,−)-acyclics; (2) for π ∈ D⁺_sm(P(L), O/ϖ^m) there is a natural isomorphism ord RΓ(U₀, I°_{w₀^P}(π)) ≅ ord RΓ(U₀, I_{w₀^P}(π)), ord inverting ũ_L.",
+   "locator": "Lemma 2.3.6, pp.36–37",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "As [ACC+18, Lemma 5.3.4]; ũ_L acts locally nilpotently on J_{w₀^P} = I_{w₀^P}/I°_{w₀^P} [Hau16, Lemma 3.3.1]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-3-7",
+   "kind": "theorem",
+   "name": "The open-cell summand is the w₀^P-twist",
+   "statement": "For π ∈ D⁺_sm(P(L), O/ϖ^m) there is a natural isomorphism RΓ(U₀, I°_{w₀^P}(π)) ≅ π^{w₀^P} in D⁺_sm(M(L)⁺, O/ϖ^m), where m ∈ M(L)⁺ acts on π^{w₀^P} through w₀^P m (w₀^P)^{−1}.",
+   "locator": "Lemma 2.3.7, p.37",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/chi-character",
+   "kind": "definition",
+   "name": "The modulus-type character χ of M(L)",
+   "statement": "χ : M(L) → O^× is χ(m) = Nm_{L/Q_p} det_L(Ad(m)|_{Lie U(L)})^{−1} · |Nm_{L/Q_p} det_L(Ad(m)|_{Lie U(L)})|_p.",
+   "locator": "§2.3.1, p.37",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-3-8",
+   "kind": "theorem",
+   "name": "P-ordinary part of an inflation from the Levi",
+   "statement": "For π ∈ D⁺_sm(M(L), O/ϖ^m) there is a natural isomorphism ord RΓ(U₀, Inf^{M(L)⁺⋉U₀}_{M(L)⁺} π) ≅ O/ϖ^m(χ) ⊗ π[−rk_{Z_p}U₀] in D⁺_sm(M(L)⁺, O/ϖ^m).",
+   "locator": "Lemma 2.3.8, pp.37–38",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The ordinary parts of H^i(U₀, O/ϖ^m) vanish below the top degree [ACC+18, Lemma 5.3.7], and H^{rk}(U₀,O/ϖ^m) ≅ O/ϖ^m(χ) [Eme10b, Props. 3.5.6, 3.5.10], as [Hau16, Prop. 3.1.8]. Remark 2.3.9 and Corollary 2.3.10: the same for the identity cell I_id(Inf π)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-2-3-11",
+   "kind": "theorem",
+   "name": "P-ordinary cohomology of a parabolic induction",
+   "statement": "For v̄ ∈ S̄ and Q_{v̄} ⊂ P_{v̄} with K_{v̄} = 𝒬_{v̄} ∩ G(F⁺_{v̄}): let π ∈ D⁺_sm(G(F⁺_{v̄}), O/ϖ^m) and V a finite free O/ϖ^m-module with a smooth Δ^{Q,+}_{v̄}-action, ũ_{ṽ,n} acting trivially, inflated to Δ̃^{Q}_{v̄,P} = Δ^{Q,+}_{v̄} ⋉ U⁰_{v̄}. Then ord₀ R^jΓ(K_{v̄} ⋉ U⁰_{v̄}, Ind^{G̃(F⁺_{v̄})}_{P(F⁺_{v̄})} π ⊗ V) has R^jΓ(K_{v̄}, π^{w₀^P} ⊗ V) and R^{j−rk_{Z_p}U⁰_{v̄}}Γ(K_{v̄}, π ⊗ O/ϖ^m(χ) ⊗ V) as H(Δ^{Q}_{v̄}, K_{v̄})-module subquotients.",
+   "locator": "Proposition 2.3.11, p.38",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The key local result of §2.3: exact ord₀ applied to prop-2-3-4, with lem-2-3-6/lem-2-3-7 for w = w₀^P and Cor. 2.3.10 for w = id."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/cor-2-3-12",
+   "kind": "theorem",
+   "name": "Dual version: ordinary part for the opposite parabolic",
+   "statement": "For π ∈ D⁺_sm(G(F⁺_{v̄}), O/ϖ^m) and V finite free with a smooth (Δ^{Q,+}_{v̄})^{−1}-action, ũ^{−1}_{ṽ,n} trivial, inflated to (Δ̃^{Q}_{v̄,P})^{−1}: ord^∨₀ R^jΓ(K_{v̄} ⋉ Ū¹_{v̄}, Ind^{G̃}_{P} π ⊗ V) has R^jΓ(K_{v̄}, π ⊗ V) as an H((Δ^{Q}_{v̄})^{−1}, K_{v̄})-module subquotient.",
+   "locator": "Corollary 2.3.12, p.39",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Twist prop-2-3-11 by multiplication by ũ^{−1}_{ṽ,n} w₀^P."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-3-14",
+   "kind": "theorem",
+   "name": "Cohomology of an induced space is the parabolic induction",
+   "statement": "For G split reductive over O_L, K = G(O_L), K_P = K ∩ P(L), and X a compact Hausdorff space with a continuous P(L)-action on which K_P acts freely: X ×^P G (the quotient of X × G(L) by (x,g)·p = (xp, p^{−1}g)) is K-equivariantly homeomorphic to X ×^{K_P} K, and there is a natural isomorphism RΓ(X ×^P G, O/ϖ^m) ≅ Ind^{G(L)}_{P(L)} RΓ(X, O/ϖ^m) in D⁺_sm(G(L), O/ϖ^m).",
+   "locator": "§2.3.13, Lemma 2.3.14, pp.39–40",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Iwasawa decomposition, Frobenius reciprocity and descent along the torsors X × K → X ×^{K_P} K ([NT16, Lemma 2.24])."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-3-15",
+   "kind": "theorem",
+   "name": "Tensor identity for smooth induction",
+   "statement": "For π₁ ∈ Rep_sm(K_P, O/ϖ^m) and π₂ ∈ Rep_sm(K, O/ϖ^m) valued in a finite free O/ϖ^m-module, f ⊗ v ↦ (g ↦ f(g) ⊗ π₂(g)v) is a natural isomorphism (Ind^K_{K_P} π₁) ⊗ π₂ ≅ Ind^K_{K_P}(π₁ ⊗ Res^K_{K_P} π₂) in Rep_sm(K, O/ϖ^m).",
+   "locator": "Lemma 2.3.15, pp.40–41",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-3-17",
+   "kind": "theorem",
+   "name": "Splitting of the U₀-cohomology complex at deep level",
+   "statement": "Let K = M(O_L) with congruence subgroups K_m = {k ≡ 1 mod ϖ^m_L}, acting on U₀ by conjugation. For every m ≥ 1 there is M = M(m) ≥ m such that RΓ(U₀, O/ϖ^m) ≅ ⊕_{i=0}^{rk_{Z_p}U₀} H^i(U₀, O/ϖ^m)[−i] in D⁺_sm(K_M, O/ϖ^m); each H^i(U₀, O/ϖ^m) is non-zero, with trivial K_M-action.",
+   "locator": "§2.3.16, Lemma 2.3.17, pp.41–42",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Sketched by Scholze (acknowledgements). U₀ ≅ Z_p^r as a group: the Koszul complex has zero differentials, H^i ≅ ∧^i; then perfect complexes of smooth K-representations become constant on some K_M, by dualizability and colim_M H⁰(K_M, −). The group-cohomology Koszul computation is not in the pinned libraries."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-2-3-18",
+   "kind": "theorem",
+   "name": "Subquotients modulo p-powers (Artin–Rees)",
+   "statement": "Let N be a finite Z_p-module and M a subquotient of N. For every m ≥ 1 there is m′ ≥ m such that M/p^mM is a subquotient of N/p^{m′}N.",
+   "locator": "Lemma 2.3.18, p.43",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Reduce to M ⊂ N; Artin–Rees [AM16, Cor. 10.10], in Mathlib as Ideal.exists_pow_inf_eq_pow_smul, gives p^{m+k}N ∩ M ⊆ p^mM. The subquotient statement itself is not in the libraries."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/Q-ordinary-hecke",
+   "kind": "definition",
+   "name": "Q-ordinary Hecke operators Ũ^k_v",
+   "statement": "For a standard parabolic Q_{v̄} ⊂ P_{F⁺_{v̄}} corresponding under ι_v to P_{n₁,…,n_t} ⊂ GL_{2n} (a partition of 2n refining (n,n)), ν_k ∈ X_{Q_{v̄}} with ν_k(ϖ) = ι_v^{−1} diag(ϖ_v,…,ϖ_v,1,…,1) (n₁+…+n_k entries ϖ_v) and Ũ^k_v := [𝒬 ν_k(ϖ) 𝒬], so H(Δ̃^{Q}_{v̄}, 𝒬_{v̄}) ≅ Z[Ũ¹_v,…,Ũ^{t−1}_v, (Ũ^t_v)^{±1}]. For dominant λ̃ and a smooth Q̄_p-representation σ of G̃(F⁺_{v̄}), the λ̃-rescaled action on σ^{𝒬} multiplies [𝒬 g 𝒬] by α̃^{Q}(g)^{−1}.",
+   "locator": "§3.1, p.43",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/iota-Q-ordinary",
+   "kind": "definition",
+   "name": "ι-Q_{v̄}-ordinary cuspidal representations",
+   "statement": "A cuspidal automorphic representation π of G̃(𝔸_{F⁺}) is ι-Q_{v̄}-ordinary of weight λ̃ (λ̃ ∈ (Z^{2n}₊)^{Hom(F⁺,Q̄_p)} dominant, ι : Q̄_p ≅ C) if π is ιV^∨_λ̃-cohomological and the λ̃-rescaled operators {Ũ^k_v : 1 ≤ k ≤ t} have a simultaneous eigenvector with p-adic unit eigenvalues in ι^{−1}π^{𝒬}; the Q_{v̄}-ordinary subspace of ι^{−1}π^{𝒬_{v̄}}_{v̄} is the largest H(Δ̃^Q, 𝒬)-submodule on which the rescaled Ũ^k_v have only unit eigenvalues.",
+   "locator": "Definition 3.1.1, p.43",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-3-1-2",
+   "kind": "theorem",
+   "name": "Galois representations of Q-ordinary automorphic representations",
+   "statement": "Let π be cuspidal on G̃(𝔸_{F⁺}), ι : Q̄_p ≅ C, v̄ a p-adic place of F⁺ with π ι-Q_{v̄}-ordinary of weight λ̃. Then: (1) r_ι(π)|_{G_{F_v}} is conjugate to a block upper-triangular representation with diagonal blocks r_j(π) : G_{F_v} → GL_{n_j}(Q̄_p) (j = 1,…,t), each crystalline (3.1.1); (2) the Q_{v̄}-ordinary subspace of ι^{−1}π^{𝒬}_{v̄} is one-dimensional; (3) the τ-Hodge–Tate weights of the r_j(π) are obtained by decomposing λ̃_{τ,2n} < λ̃_{τ,2n−1} + 1 < … < λ̃_{τ,1} + 2n − 1 according to (n₁,…,n_t); (4) ∏_{j=1}^k det r_j(π)(Art_{F_v}(u)) = ∏_{i=1}^{n₁+…+n_k} ∏_{τ:F_v↪Q̄_p} τ(u)^{−λ̃_{τ,2n−i+1}−i+1} for u ∈ O^×_{F_v}, and ∏_{j=1}^k det r_j(π)(Art_{F_v}(ϖ_v)) equals ε_p^{Σ_{i=1}^{n₁+…+n_k}(1−i)}(Art_{F_v}(ϖ_v)) times the eigenvalue of Ũ^k_v on the Q_{v̄}-ordinary subspace.",
+   "locator": "Theorem 3.1.2, pp.43–44",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Generalises [Ger19, Cor. 2.33] and [Tho15, Thm. 2.4]. Proof: π_{v̄} is a subquotient of an unramified principal series; Jacquet modules ([Tho12, Prop. 5.4], geometric lemma [BZ77, 2.12]) give the valuations of the ∏χ_i(ϖ); lem-3-1-3 gives the filtration; Bernstein–Zelevinsky excludes Steinberg factors, giving crystallinity."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-3-1-3",
+   "kind": "theorem",
+   "name": "Newton above Hodge for semistable representations, and its equality case",
+   "statement": "Let r : G_{F_v} → GL_m(Q̄_p) be semistable, v₁ ≤ … ≤ v_m the valuations of the eigenvalues of geometric Frobenius on WD(r), and h_{τ,1} < … < h_{τ,m} the τ-Hodge–Tate weights. Then Σ_{i≤j} v_i ≥ (1/e_v) Σ_{i≤j} Σ_τ h_{τ,i} for 0 ≤ j ≤ m (e_v the ramification degree of F_v/Q_p). If Σ_{i≤j} v_{σ(i)} = (1/e_v) Σ_{i≤j} Σ_τ h_{τ,i} for some 1 ≤ j ≤ m − 1 and a permutation σ ∈ S_m, then r ≅ (r₁ ∗; 0 r₂) with r₁ of dimension j, τ-Hodge–Tate weights h_{τ,1} < … < h_{τ,j}, Frobenius slopes v₁ ≤ … ≤ v_j, and v_j < v_{j+1}.",
+   "locator": "Lemma 3.1.3, pp.44–45",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "First part [HKV20, Lemma 6.4.1]. The printed permutation is σ ∈ S_n; r is m-dimensional (source issue E3)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/determinant-setup-3-2",
+   "kind": "construction",
+   "name": "Set-up for comparing torsion and characteristic-zero determinants",
+   "statement": "ρ̄_m : G_F → GL_n(k) absolutely irreducible with a continuous lift ρ_m : G_F → GL_n(A), A ∈ CNL_O; a finite flat O-algebra Ã ∈ CNL_O with Ã[1/p] = ∏_{i=1}^r K_i and a surjection Ã ↠ A; ρ̃_m = ∏ ρ̃_{i,m} : G_F → GL_{2n}(Ã[1/p]) whose determinant (in the sense of [Che14]) is Ã-valued, D_{ρ̃_m} : Ã[G_F] → Ã, with D_{ρ̃_m} ⊗_Ã A = D_{ρ_m} D_{ρ_m^{∨,c}(1−2n)}; B̃ := ρ̃_m(Ã[G_F]) ⊂ M_{2n}(Ã[1/p]); for v | p, n-dimensional G_{F_v}-subrepresentations (ρ̃⁰_{i,m}, V⁰_i) ⊂ K_i^{2n} with quotients V¹_i; assumptions (1) the irreducible constituents of ρ̄_m|_{G_{F_v}} and ρ̄_m^{∨,c}(1−2n)|_{G_{F_v}} are disjoint, (2) the constituents of each ρ̃⁰_{i,m} residually coincide with those of ρ̄_m|_{G_{F_v}}.",
+   "locator": "§3.2, pp.46–47",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/cayley-hamilton-determinant",
+   "kind": "definition",
+   "name": "Cayley–Hamilton determinant",
+   "statement": "A determinant D : R → A (in the sense of [Che14]) is Cayley–Hamilton if χ(r,t) = D(t − r) ∈ A[t] vanishes at t = r for every r ∈ R.",
+   "locator": "§3.2, p.47",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0",
+    "IntegralHeckeAndGaloisDeterminants:IHG.1"
+   ],
+   "note": "IHG.0 defines determinants as multiplicative polynomial laws; IHG.1 constructs Cayley–Hamilton quotients."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-3-2-1",
+   "kind": "theorem",
+   "name": "Lifting idempotents in algebras integral over a Henselian ring",
+   "statement": "Let S be a Henselian local ring, R an S-algebra (not necessarily commutative) integral over S, and I a two-sided ideal of R. Every idempotent of R/I lifts to an idempotent of R.",
+   "locator": "Lemma 3.2.1, p.47",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "[Bou98, Ch. III, §4, Ex. 5(a)]: reduce to the finite commutative subalgebra generated by one lift, a product of Henselian local rings. Mathlib lifts idempotents only along nilpotent kernels (exists_isIdempotentElem_eq_of_ker_isNilpotent); the Henselian integral case is missing."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-3-2-2",
+   "kind": "theorem",
+   "name": "A local idempotent cutting out the ρ_m-factor",
+   "statement": "In the set-up of §3.2: (1) ρ̄_m × ρ̄_m^{∨,c}(1−2n) induces an isomorphism ι : k[G_F]/ker(D_{ρ̃_m} ⊗_Ã k) ≅ M_n(k) × M_n(k); (2) the idempotent ē = ι^{−1}(1, 0) lies in the image of k[G_{F_v}]; (3) ē lifts to an idempotent e in the image B̃_v ⊂ B̃ of Ã[G_{F_v}]; (4) for any such e and each i, π_i ∘ e = 0 (π_i the projection to V¹_i) and e acts as the identity on V⁰_i, so e is an idempotent projection onto ∏_i V⁰_i.",
+   "locator": "Lemma 3.2.2, p.48",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "(1) by [Che14, Thm. 2.16]; (2) lifting the idempotent of B/Rad(B) using assumption (1); (3) by lem-3-2-1 with S = Ã."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/gma-structure",
+   "kind": "construction",
+   "name": "Generalized matrix algebra structure from the local idempotent",
+   "statement": "With e₁ = e, e₂ = 1 − e: determinants D_{ρ̃_m,i} : e_iB̃e_i → Ã, x ↦ D_{ρ̃_m}(x + 1 − e_i) of dimension n [Che14, Lem. 2.4], isomorphisms ψ_i : e_iB̃e_i ≅ M_n(Ã) with det ∘ ψ_i = D_{ρ̃_m,i} (3.2.1) lifting ι; idempotents E_i and A_{i,j} := E_iB̃E_j; B̃ ≅ (M_n(Ã) M_n(A_{1,2}); M_n(A_{2,1}) M_n(Ã)) with A_{1,2}A_{2,1} ⊂ m_Ã.",
+   "locator": "§3.2, pp.48–49",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1"
+   ],
+   "note": "[BC09, Thm. 1.4.4], [Che14, Thm. 2.22], [ANT20, §2]; IHG.1 plans generalized matrix algebra decompositions and reducibility ideals."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-3-2-3",
+   "kind": "theorem",
+   "name": "Reducibility ideal criterion",
+   "statement": "An ideal J ⊂ Ã contains A_{1,2}A_{2,1} if and only if there are determinants D₁, D₂ : B̃ ⊗_Ã Ã/J → Ã/J with D_{ρ̃_m} ⊗ Ã/J = D₁D₂, D₁ ⊗ k = D_{ρ̄_m} and D₂ ⊗ k = D_{ρ̄_m^{∨,c}(1−2n)}; D₁, D₂ are then unique and ker(D_{ρ̃_m} ⊗ Ã/J) ⊂ ker(D_i).",
+   "locator": "Proposition 3.2.3, p.49",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1"
+   ],
+   "note": "[ANT20, Prop. 2.5] (cf. [BC09, Prop. 1.5.1]); (COM) gives A_{1,2}A_{2,1} = A_{2,1}A_{1,2}."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-3-2-4",
+   "kind": "theorem",
+   "name": "An Ã-valued local lift of ρ_m|_{G_{F_v}}",
+   "statement": "Choose e ∈ B̃_v as in lem-3-2-2(3). (1) x ↦ exe ⊗ 1 is a homomorphism A[G_F] → eB̃e ⊗_Ã A inducing D_{ρ_m} after ψ₁ ⊗ id and the determinant; (2) x ↦ exe is a homomorphism Ã[G_{F_v}] → eB̃e inducing ∏_i ρ̃⁰_{i,m} via eB̃e ⊂ End_{Ã[1/p]}(∏_i V⁰_i); (3) there is an Ã-valued lift of ρ_m|_{G_{F_v}} which becomes isomorphic to ∏_{i=1}^r ρ̃⁰_{i,m} after inverting p.",
+   "locator": "Proposition 3.2.4, pp.49–50",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "(1) from prop-3-2-3 since ker(Ã → A) contains the reducibility ideal; (3) by Skolem–Noether [Mil80, IV.1.4] (in Tau Ceti: TauCeti.skolemNoether) after conjugating ψ₁."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/semistable-ordinary",
+   "kind": "definition",
+   "name": "Semistable-ordinary representations and p-adic Hodge types",
+   "statement": "For a finite E-algebra B and dominant λ_v = (λ_{τ,1} ≥ … ≥ λ_{τ,n})_τ: (1) ρ : G_{F_v} → GL_n(B) is semistable-ordinary of weight λ_v if it is conjugate to an upper triangular representation with diagonal characters χ₁,…,χ_n satisfying χ_j(σ) = ∏_τ τ(Art^{−1}_{F_v}(σ))^{−λ_{τ,n+1−j}−(j−1)} for σ ∈ I_{F_v} [Ger19, Def. 3.8]; (2) v_{λ_v} is the p-adic Hodge type (in the sense of [Kis08, §2.6]) of a de Rham representation with labelled Hodge–Tate weights (λ_{τ,1}+n−1 > … > λ_{τ,n}) [Ger19, §3.3]; (3) semistable ρ : G_{F_v} → GL_n(B) has p-adic Hodge type v_{λ_v} if gr^i(ρ ⊗ B_dR)^{G_{F_v}} ≅ B ⊗_E (gr^i D_E ⊗ F_v) for all i. A semistable-ordinary representation of weight λ_v is semistable of type v_{λ_v} [Ger19, Lemma 3.9].",
+   "locator": "Definition 3.3.1, pp.50–51",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "LocalGaloisDeformationRings:L8",
+    "LocalGaloisDeformationRings:R08.3"
+   ],
+   "note": "L8 treats ordinary flags versus determinant-ordinary conditions; R08.3 fixed Hodge type."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-3-3-2",
+   "kind": "theorem",
+   "name": "Semistable deformations of semistable-ordinary representations stay ordinary",
+   "statement": "Let B be a finite local E-algebra and ρ_B : G_{F_v} → GL_n(B) semistable of Hodge type v_{λ_v} with ρ̄ := ρ_B ⊗ B/m_B semistable-ordinary of weight λ_v. Then ρ_B is semistable-ordinary of weight λ_v.",
+   "locator": "Lemma 3.3.2, p.51",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The slopes of ρ̄ are strictly increasing with v_i = (1/e_v)Σ_τ(λ_{τ,n+1−i}+i−1) (proof of [HKV20, Lemma 6.4.1]); the generalized φ^{f_v}-eigenspace filtration of D_st(ρ_B) is weakly admissible with rank-one graded pieces."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-3-3-3",
+   "kind": "theorem",
+   "name": "Semistable, crystalline and semistable-ordinary lifting rings",
+   "statement": "Let λ_v be dominant for (Res_{F_v/Q_p}GL_n)_E and ρ̄_v : G_{F_v} → GL_n(k), with universal lifting ring R^□_{ρ̄_v}. (1) There is a unique O-flat quotient R^{st,λ_v}_{ρ̄_v} such that an O-algebra map ζ : R^□_{ρ̄_v} → B to a finite E-algebra factors through it iff ρ^{univ}_v ⊗_{R^□,ζ} B is semistable of p-adic Hodge type v_{λ_v}; (2) R^{st,λ_v}_{ρ̄_v} is reduced; (3) likewise a unique O-flat quotient R^{cris,λ_v}_{ρ̄_v} for crystalline of type v_{λ_v}; (4) R^{cris,λ_v}_{ρ̄_v}[1/p] is regular (so R^{cris} is reduced); (5) likewise a unique O-flat quotient R^{△,λ_v}_{ρ̄_v} for semistable-ordinary of weight λ_v; (6) Spec R^{△,λ_v}_{ρ̄_v}[1/p] is open and closed in Spec R^{st,λ_v}_{ρ̄_v}[1/p], so R^{△,λ_v} is reduced.",
+   "locator": "Theorem 3.3.3, p.52",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "LocalGaloisDeformationRings:R08.3",
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "note": "(1),(3) [Kis08, Thm. 2.7.6, Cor. 2.7.7]; (4) [Kis08, Thm. 3.3.8]; (2) [BG19, Thm. 3.3.3] (also [Bel16, HH20]); (5) [Ger19, Lemma 3.10]; (6) from lem-3-3-2. R08.3/L7 plan Kisin's rings, their point characterisation and reducedness; the ordinary quotient (5)–(6) is new here. The printed tensor products are over R^{st,λ_v} rather than R^□ (source issue E1). Remark 3.3.4: the rings are reduced, so no maximal reduced quotients are needed."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/fixed-det-rings",
+   "kind": "definition",
+   "name": "Fixed-determinant lifting rings",
+   "statement": "For λ_v dominant and a crystalline character ψ : G_{F_v} → O^× with τ-labelled Hodge–Tate weight Σ_{i=1}^n λ_{τ,i} + (n − i), lifting det ρ̄_v: R^{□,ψ}_{ρ̄_v} is the quotient of R^□_{ρ̄_v} classifying lifts of determinant ψ, R^{cris,λ_v,ψ}_{ρ̄_v} := R^{cris,λ_v} ⊗_{R^□} R^{□,ψ} and R^{△,λ_v,ψ}_{ρ̄_v} := R^{△,λ_v} ⊗_{R^□} R^{□,ψ}.",
+   "locator": "§3.3.5, p.52",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "note": "L7 retains 'determinant/multiplier constraints'. The printed definition of R^{△,λ_v,ψ} uses R^{cris,λ_v} (source issue E2)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-3-3-6",
+   "kind": "theorem",
+   "name": "Fixed-determinant rings as power-series quotients",
+   "statement": "Suppose p ∤ n. For R = R^{cris,λ_v}_{ρ̄_v} (resp. R^{△,λ_v}_{ρ̄_v}) and R^ψ the fixed-determinant quotient, the quotient map R → R^ψ has a section extending to an isomorphism R^ψ[[X]] ≅ R; in particular R^ψ is O-flat and reduced and is characterised by thm-3-3-3(3) (resp. (5)) for maps from R^{□,ψ}_{ρ̄_v} to finite E-algebras.",
+   "locator": "Lemma 3.3.6, pp.52–53",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Essentially [EG14, Lemma 4.3.1]: ψ^{−1} det ρ^{univ} is unramified and residually trivial, so has an unramified n-th root α (p ∤ n, Hensel); twist by α^{−1}."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/boundary-coefficient-object",
+   "kind": "construction",
+   "name": "The coefficient object V_U(λ̃_S̄, m) on the Levi locally symmetric spaces",
+   "statement": "For T̄ ⊇ S̄_p, S̄ ⊆ S̄_p and dominant λ̃ for G̃: V_{λ̃_S̄} := ⊗_{v̄∈S̄} ⊗_τ V_{λ̃_τ}; V_U(λ̃_S̄, m) ∈ D^b(Sh_{G^T×K_T}(𝔛_G, O/ϖ^m)) corresponds to RΓ(U⁰_{S̄}, V_{λ̃_S̄}/ϖ^m) ∈ D^b_sm(K_S, O/ϖ^m) (bounded since U⁰_{S̄} is torsion-free compact p-adic analytic [Ser65]); its cohomology sheaves V^j_U(λ̃_S̄, m) are non-zero exactly for 0 ≤ j ≤ n² Σ_{v̄∈S̄}[F⁺_{v̄} : Q_p] (Künneth and lem-2-3-17); it descends to X_K with locally constant cohomology sheaves, and V_U(λ̃_S̄) := holim_m V_U(λ̃_S̄, m) ∈ D^b(Sh(X_K, O)).",
+   "locator": "§4.1.1, p.53",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-4-1-3",
+   "kind": "theorem",
+   "name": "A direct summand of completed boundary cohomology",
+   "statement": "Let K̃ ⊂ G̃(𝔸_{F⁺,f}) be good, decomposed with respect to P, with K̃_{U,v̄} = U⁰_{v̄} for v̄ ∈ S̄_p; m ⊂ T^T non-Eisenstein and m̃ := 𝒮^*(m). For a partition S̄_p = S̄₁ ⊔ S̄₂ and dominant λ̃ with λ̃_{v̄} = 0 for v̄ ∈ S̄₂: 𝒮^* ∘ Ind^{G̃_{S̄₂}}_{P_{S̄₂}} RΓ(K^{S̄₂}, RΓ(𝔛_G, V_U(λ̃_{S̄₁}, m)))_m is a T̃^T-equivariant direct summand of RΓ(K̃^{S̄₂}, RΓ(∂𝔛_{G̃}, V_λ̃/ϖ^m))_{m̃} in D⁺_sm(G̃_{S̄₂}, O/ϖ^m).",
+   "locator": "§4.1.2, Theorem 4.1.3, p.54",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "From prop-4-1-4, lem-4-1-5, the smooth analogue of [NT16, Cor. 2.6] and prop-4-1-8; ALS.4 and PA.0 plan the finite-level boundary summand, not this completed version."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-4-1-4",
+   "kind": "theorem",
+   "name": "The Siegel boundary stratum and localization",
+   "statement": "(1) There is a G̃(𝔸_{F⁺,f})-equivariant closed immersion (𝔛_P × G̃(𝔸_{F⁺,f}))/P(𝔸_{F⁺,f}) ↪ ∂𝔛_{G̃} whose complement is a disjoint union of locally closed (𝔛_Q × G̃(𝔸_{F⁺,f}))/Q(𝔸_{F⁺,f}) for standard parabolics Q ⊄ P. (2) Under the assumptions of thm-4-1-3, pullback gives a T̃^T-equivariant isomorphism RΓ(K̃^{S̄₂}, RΓ(∂𝔛_{G̃}, V_λ̃/ϖ^m))_{m̃} ≅ RΓ(K̃^{S̄₂}, RΓ((𝔛_P × G̃(𝔸_{F⁺,f}))/P(𝔸_{F⁺,f}), V_λ̃/ϖ^m))_{m̃}.",
+   "locator": "Proposition 4.1.4, pp.54–55",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "(1) from [NT16, §3.1.2, Lemma 3.10]; (2) since H^i_c(X̃^Q_{K̃}, V_λ̃/ϖ^m)_{m̃} = 0 for Q ⊄ P, as in [ACC+18, Thm. 3.4.2]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-4-1-5",
+   "kind": "theorem",
+   "name": "The Siegel stratum as an induction at S̄₁",
+   "statement": "With λ̃ as in thm-4-1-3, RΓ((𝔛_P × G̃(𝔸_{F⁺,f}))/P(𝔸_{F⁺,f}), V_λ̃/ϖ^m) ≅ Ind^{G̃_{S̄₁}×G̃⁰_{S̄₁}}_{P_{S̄₁}×P⁰_{S̄₁}} RΓ(𝔛_P, V_λ̃/ϖ^m) in D⁺_sm(G̃_{S̄₁} × G̃⁰_{S̄₁}, O/ϖ^m).",
+   "locator": "Lemma 4.1.5, p.55",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "lem-2-3-14 with the Iwasawa decomposition, lem-2-1-8 and lem-2-3-15."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-4-1-6",
+   "kind": "theorem",
+   "name": "Completed cohomology of the Siegel parabolic is inflated from the Levi",
+   "statement": "Pullback along 𝔛_P ↠ 𝔛_G gives a natural isomorphism Inf^{P(𝔸_{F⁺,f})}_{G(𝔸_{F⁺,f})} RΓ(𝔛_G, O/ϖ^m) ≅ RΓ(𝔛_P, O/ϖ^m) in D⁺_sm(P(𝔸_{F⁺,f}), O/ϖ^m).",
+   "locator": "Lemma 4.1.6, pp.55–56",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Leray–Serre for X^U_{K_U} → X^P_{K_P} → X_K and lim_{K_U} H^j(X^U_{K_U}, O/ϖ^m) = O/ϖ^m in degree 0 and 0 otherwise (strong approximation for U)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-4-1-7",
+   "kind": "theorem",
+   "name": "Inflation comparison with the U-cohomology coefficient object",
+   "statement": "With notation as in the proof of thm-4-1-3, Inf^{P^{T\\S̄₂}}_{G^{T\\S̄₂}} RΓ(K_{T\\S̄₂}, RΓ(𝔛_G, V_U(λ̃_{S̄₁}, m))) ≅ RΓ(K_{P,T\\S̄₂}, RΓ(𝔛_P, V_λ̃/ϖ^m)) in D⁺_sm(P^{T\\S̄₂}, O/ϖ^m).",
+   "locator": "Lemma 4.1.7, p.56",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "lem-2-1-9, lem-4-1-6, Hochschild–Serre for K_{P,T\\S̄₂} = K_{T\\S̄₂} ⋉ K_{U,T\\S̄₂}, lem-2-1-8 on 𝔛_P."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-4-1-8",
+   "kind": "theorem",
+   "name": "Completed P-cohomology through the Levi",
+   "statement": "RΓ(K^{S̄₂}_P, RΓ(𝔛_P, V_λ̃/ϖ^m)) ≅ r^*_G ∘ Inf^{P_{S̄₂}}_{G_{S̄₂}} RΓ(K^{S̄₂}, RΓ(𝔛_G, V_U(λ̃_{S̄₁}, m))), T^T_P-equivariantly in D⁺_sm(P_{S̄₂}, O/ϖ^m).",
+   "locator": "Proposition 4.1.8, pp.56–57",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Smooth analogue of [NT16, Cor. 2.8]; K^T_U-invariants are exact since K^T_U is profinite abelian with trivial p-part."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/cor-4-1-9",
+   "kind": "theorem",
+   "name": "Levi cohomology with U-coefficients is a summand of completed boundary cohomology",
+   "statement": "Let K̃ be good, decomposed with respect to P, K̃_{U,v̄} = U⁰_{v̄} for v̄ ∈ S̄_p; m ⊂ T^T non-Eisenstein, m̃ = 𝒮^*(m); S̄_p = S̄₁ ⊔ S̄₂ ⊔ S̄₃; λ̃, λ dominant with λ̃_τ = (−λ_{τ̃c}, λ_τ̃) for τ inducing v̄ ∈ S̄₁ and λ̃_τ = 0 for v̄ ∈ S̄₂ ⊔ S̄₃. Then 𝒮^* ∘ Ind^{G̃_{S̄₃}}_{P_{S̄₃}} RΓ(K^{S̄₃}, RΓ(𝔛_G, V_{λ_{S̄₁}}/ϖ^m ⊗ V_U(λ̃_{S̄₂}, m)))_m is a T̃^T-equivariant direct summand of RΓ(K̃^{S̄₃}, RΓ(∂𝔛_{G̃}, V_λ̃/ϖ^m))_{m̃} in D⁺_sm(G̃_{S̄₃}, O/ϖ^m).",
+   "locator": "Corollary 4.1.9, p.57",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "In the style of [ACC+18, Thms. 4.2.1, 5.4.1]; V_{λ_{S̄₁}}/ϖ^m is an equivariant direct summand of V_U(λ̃_{S̄₁}, m) by [NT16, Cor. 2.11]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/ord-hecke-algebras-4-2",
+   "kind": "definition",
+   "name": "Q-ordinary Hecke algebras, the twisted Satake map and duality involutions",
+   "statement": "T^{Q_S̄,S̄-ord} := T^T ⊗ (⊗_{v̄∈S̄} H(Δ^{Q_{v̄}}_{v̄}, K_{v̄})), T^{Q_S̄,S̄-ord}_{w₀^P} := T^T ⊗ (⊗ H((Δ^{Q}_{v̄})^{w₀^P}, K^{w₀^P}_{v̄})) and T̃^{Q_S̄,S̄-ord} := T̃^T ⊗ (⊗ H(Δ̃^{Q}_{v̄}, 𝒬_{v̄})[Ũ^{−1}_{ṽ,n}]); 𝒮^{w₀^P} : T̃^{Q_S̄,S̄-ord} → T^{Q_S̄,S̄-ord}_{w₀^P}, [𝒬 ν(ϖ) 𝒬] ↦ [K^{w₀^P} ν(ϖ)^{w₀^P} K^{w₀^P}], sending Ũ_{ṽ,n} ↦ U_ṽ and Ũ_{ṽ,2n} ↦ U_ṽ U^{−1}_{ṽc}; the duality involutions ι[KgK] = [Kg^{−1}K], ι̃[K̃gK̃] = [K̃g^{−1}K̃] [ACC+18, §2.2.19] with twisted algebras T^{…,ι}_{w₀^P}, T̃^{…,ι̃}, the untwisted T^{Q_S̄,S̄-ord,ι} and 𝒮^ι : [𝒬 ν(ϖ)^{−1} 𝒬] ↦ [K ν(ϖ)^{−1} K].",
+   "locator": "§4.2.1, p.58",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-4-2-2",
+   "kind": "theorem",
+   "name": "Degree shifting to middle-degree P-ordinary cohomology of G̃",
+   "statement": "Let K̃ be good, decomposed with respect to P, K̃_{U,v̄} = U⁰_{v̄} for v̄ ∈ S̄_p; m ⊂ T^T non-Eisenstein, m̃ = 𝒮^*(m) with ρ̄_{m̃} decomposed generic; S̄_p = S̄₁ ⊔ S̄₂ ⊔ S̄₃ with standard parabolics Q_{v̄} ⊂ P_{v̄} for v̄ ∈ S̄₃; λ̃, λ dominant with (1) λ̃_τ = (−w_{0,n}λ_{τ̃c}, λ_τ̃) for τ inducing v̄ ∈ S̄₁, (2) λ̃_τ = 0 for v̄ ∈ S̄₂, (3) K̃_{v̄} = 𝒬_{v̄} and λ̃_τ = (−w_{0,n}λ_{τ̃c}, λ_τ̃) for v̄ ∈ S̄₃. Then 𝒮^{w₀^P} descends to a homomorphism T̃^{Q_{S̄₃},S̄₃-ord}(H^d(X̃_{K̃}, V_λ̃)^{ord}_{m̃}) → T^{Q_{S̄₃},S̄₃-ord}_{w₀^P}(H^d(X_{K^{S̄₃}K^{w₀^P}_{S̄₃}}, V_{λ_{S̄₁}} ⊗ V_U(λ̃_{S̄₂}) ⊗ V_{λ_{S̄₃}})_m) (H^d degree-d hypercohomology), and T̃^{…}(H^d(X̃_{K̃}, V_λ̃)^{ord}_{m̃}) ↪ T̃^{…}(H^d(X̃_{K̃}, V_λ̃[1/p])^{ord}_{m̃}).",
+   "locator": "Proposition 4.2.2, pp.58–60",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "thm-2-1-28 (ordinary parts preserve injectivity/surjectivity), prop-2-2-17, lem-2-2-12, cor-4-1-9 and the w₀^P-case of prop-2-3-11; inverse limit over m."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-4-2-3",
+   "kind": "theorem",
+   "name": "The dual Levi coefficient module is a summand of the dual U-cohomology",
+   "statement": "Let S̄ ⊂ S̄_p and λ̃, λ dominant with λ̃_τ = (λ_τ̃, −w_{0,n}λ_{τ̃c}) for τ inducing v̄ ∈ S̄ (the w₀^P-conjugate of the standard identification). Then for every m ≥ 1, RΓ(U⁰_{S̄}, V^∨_{λ̃_S̄}/ϖ^m) has V^∨_{λ_S̄}/ϖ^m as a K_{S̄}-equivariant direct summand.",
+   "locator": "Lemma 4.2.3, p.60",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A K_{S̄}-equivariant decomposition V_{λ̃_S̄} = V_{λ_S̄} ⊕ W [NT16, Prop. 2.10] with W ⊗ E = (1 − U(F⁺_{S̄}))V_{λ̃_S̄,E} by [Cab84] (credited to A'Campo), so W is P-stable."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-4-2-4",
+   "kind": "theorem",
+   "name": "Degree shifting with dual coefficients",
+   "statement": "Assumptions as in prop-4-2-2 except: ρ̄_{𝒮^*(m^∨)} decomposed generic, and λ̃_τ = (λ_τ̃, −w_{0,n}λ_{τ̃c}) for τ inducing places of S̄₁ and S̄₃ (λ̃_τ = 0 on S̄₂, K̃_{v̄} = 𝒬_{v̄} on S̄₃). Then 𝒮^ι descends to T̃^{Q_{S̄₃},S̄₃-ord,ι̃}(H^d(X̃_{K̃}, V^∨_λ̃)^{ord∨}_{𝒮^*(m^∨)}) → T^{Q_{S̄₃},S̄₃-ord,ι}(H^d(X_K, V^∨_{λ_{S̄₁}} ⊗ V_U(λ̃_{S̄₂}) ⊗ V^∨_{λ_{S̄₃}})_{m^∨}); T̃^{…}(H^d(X̃,V^∨)^{ord∨}) ↪ T̃^{…}(H^d(X̃,V^∨[1/p])^{ord∨}), and by Poincaré duality the target is isomorphic to T̃^{Q_{S̄₃},S̄₃-ord}(H^d(X̃_{K̃}, V_λ̃[1/p])^{ord}_{ι̃^*𝒮^*(m^∨)}). Here ρ̄_{ι̃^*𝒮^*(m^∨)} = ρ̄_m(−n) ⊕ ρ̄_m^{∨,c}(1−n).",
+   "locator": "Proposition 4.2.4, p.61",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Uses §2.2.18, cor-2-3-12 and lem-4-2-3 in place of cor-4-1-9 at S̄₁."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/hecke-images-A",
+   "kind": "definition",
+   "name": "Hecke images A(K,λ,q), A(K,λ,q,m), Ã(K̃,λ̃,S̄) and deep levels",
+   "statement": "A(K,λ,q) := T^{Q^{w₀^P}_{S̄},S̄-ord}_{w₀^P}(H^q(X_K, V_λ)_m), A(K,λ,q,m) := the same for H^q(X_K, V_λ/ϖ^m)_m, Ã(K̃,λ̃,S̄) := T̃^{Q^{w₀^P}_{S̄},S̄-ord}(H^d(X̃_{K̃}, V_λ̃)^{ord}_{m̃}); K(m,S̄)_v := K_v ∩ {1 mod ϖ^m_v} for p-adic v above S̄ (K_v otherwise); K̃(m,S̄)_{v̄} := K̃_{v̄} ∩ {(1_n ∗; 0 1_n) mod ϖ^m_ṽ} for v̄ ∈ S̄.",
+   "locator": "§4.2.1, pp.61–62",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-4-2-5",
+   "kind": "theorem",
+   "name": "Numerical degree bound",
+   "statement": "If S̄ ⊂ S̄_p satisfies Σ_{v̄∉S̄}[F⁺_{v̄} : Q_p] ≥ ½[F⁺ : Q] and q ∈ [⌊d/2⌋, d − 1] (d = n²[F⁺ : Q]), then d − q ≤ Σ_{v̄∉S̄} n²[F⁺_{v̄} : Q_p].",
+   "locator": "Lemma 4.2.5, p.62",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Odd d: d − q ≤ (d+1)/2 ≤ (d+n²)/2 ≤ Σ n²[F⁺_{v̄}:Q_p] (the sum is an integer at least half of the odd [F⁺:Q]); even d: d − q ≤ d/2. The even case prints v̄″ for v̄ in the summand (source issue E10)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-4-2-6",
+   "kind": "theorem",
+   "name": "Degree shifting for torsion coefficients at deep auxiliary level",
+   "statement": "Let v̄ ≠ v̄′ ∈ S̄_p, S̄₁ = {v̄′}, S̄₃ = {v̄}, S̄₂ the rest; λ ∈ (Zⁿ₊)^{Hom(F,E)}, m ≥ 1, K̃ good. Assume (1) Σ_{v̄″≠v̄,v̄′}[F⁺_{v̄″} : Q_p] ≥ ½[F⁺ : Q]; (2) for each p-adic v̄″ ≠ v̄ (including v̄′), U(O_{F⁺_{v̄″}}) ⊂ K̃_{v̄″} = K̃(m, S̄₁ ∪ S̄₂)_{v̄″}, and K̃_{v̄} = 𝒬^{w₀^P}_{v̄} for the standard parabolic with Levi Q^{w₀^P}_{v̄} ∩ G(F⁺_{v̄}); (3) −λ_{τc,1} − λ_{τ,1} ≥ 0 for τ inducing v̄ or v̄′; (4) m ⊂ T non-Eisenstein with ρ̄_{m̃} decomposed generic. Put λ̃_τ = 0 for τ not inducing v̄, v̄′ and λ̃_τ = (−λ_{τ̃c}, λ_τ̃) otherwise, and K = (K̃^{v̄} ∩ G(𝔸^{v̄}_{F⁺,f})) · (𝒬_{v̄} ∩ G(F⁺_{v̄})). For q ∈ [⌊d/2⌋, d − 1] there are m′ ≥ m, N ≥ 1 depending only on n and [F⁺ : Q], an ideal J ⊂ A(K,λ,q,m) with J^N = 0 and a commutative square T̃^{Q^{w₀^P}_{v̄},{v̄}-ord} → Ã(K̃(m′, S̄₂), λ̃, v̄) over 𝒮^{w₀^P} : T̃^{…} → T^{…}_{w₀^P} → A(K,λ,q,m)/J.",
+   "locator": "Proposition 4.2.6, pp.62–65",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Descending induction on q (Hypothesis 4.2.7): Poincaré duality and Hochschild–Serre raise the level to K(M, S̄₂) with M = M(m) of lem-2-3-17; the coefficient V_λ is replaced by V_{λ_v̄} ⊗ V_{λ_v̄′} ⊗ V^{d−q}_U (non-zero by lem-2-3-17, lem-4-2-5); the O-coefficient spectral sequence (4.2.3) is compared with the O/ϖ^m one (4.2.4), whose differentials vanish at level K(M,S̄₂), using lem-2-3-18; the top term uses prop-4-2-2. N = 1 + ΣN_i. The new degree-shifting argument (ACC+18 needed p > n² unramified)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/hecke-images-dual",
+   "kind": "definition",
+   "name": "Dual Hecke images A^∨ and Ã^∨",
+   "statement": "For S̄_p = S̄₁ ∪ S̄₂ ∪ S̄₃: A^∨(K,λ,q) := T^{Q_{S̄₃},S̄₃-ord,ι}(H^q(X_K, V^∨_λ)_{m^∨}), A^∨(K,λ,q,m) the same with V^∨_λ/ϖ^m, Ã^∨(K̃,λ̃,S̄₃) := T̃^{Q_{S̄₃},S̄₃-ord,ι̃}(H^d(X̃_{K̃}, V^∨_λ̃)^{ord∨}_{𝒮^*m^∨}).",
+   "locator": "§4.2.1, p.65",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-4-2-8",
+   "kind": "theorem",
+   "name": "Dual degree shifting for torsion coefficients",
+   "statement": "As prop-4-2-6 with: K̃_{v̄} = 𝒬_{v̄} for the standard parabolic Q_{v̄} ⊂ P_{F⁺_{v̄}}; condition (3) replaced by λ_{τc,n} + λ_{τ,n} ≥ 0 for τ inducing v̄ or v̄′; ρ̄_{𝒮^*(m^∨)} decomposed generic; λ̃_τ = (λ_τ̃, −λ_{τ̃c}) for τ inducing v̄, v̄′; K = K̃ ∩ G(𝔸_{F⁺,f}). Then for q ∈ [⌊d/2⌋, d − 1] there are m′ ≥ m, N (depending only on n, [F⁺ : Q]), J ⊂ A^∨(K,λ,q,m) with J^N = 0 and a commutative square T̃^{Q_{v̄},{v̄}-ord,ι̃} → Ã^∨(K̃(m′,S̄₂), λ̃, v̄) over 𝒮^ι : T̃ → T^{Q_{v̄},{v̄}-ord,ι} → A^∨(K,λ,q,m)/J.",
+   "locator": "Proposition 4.2.8, pp.65–66",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-4-2-9",
+   "kind": "theorem",
+   "name": "Residual determinants of the blocks of a Q-ordinary Galois representation",
+   "statement": "Let v̄ be p-adic, m ⊂ T^{Q^{w₀^P}_{v̄},v̄-ord}_{w₀^P} non-Eisenstein in the support of some H^*(X_K, V_λ), m̃ := (𝒮^{w₀^P})^*(m), v | v̄ with Ũ^k_v ∉ m̃ (1 ≤ k ≤ t). Let π be cuspidal on G̃(𝔸_{F⁺}), ι-Q^{w₀^P}_{v̄}-ordinary of weight λ̃, whose Hecke eigenvalues on (ι^{−1}π^∞)^{K̃, Q^{w₀^P}-ord} come from f : T̃^{Q^{w₀^P}_{v̄}-ord}_{m̃} → Q̄_p; with r_ι(π)|_{G_{F_ṽ}} ≅ (r₁(π) ∗; 0 r₂(π)) as in thm-3-1-2 and r̄_i(π) the semisimplified reductions: det r̄₁(π)(Art_{F_v}(ϖ_v)) = det ρ̄_m(Art_{F_v}(ϖ_v)) and det r̄₂(π)(Art_{F_v}(ϖ_v)) = det(ρ̄_m^{∨,c}(1−2n))(Art_{F_v}(ϖ_v)).",
+   "locator": "Proposition 4.2.9, pp.66–67",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "thm-3-1-2 for the eigenvalue of Ũ_{v,n}, the description of 𝒮^{w₀^P} and lem-2-1-21."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/ctg-weight",
+   "kind": "definition",
+   "name": "CTG weights (cohomologically trivial for G)",
+   "statement": "A weight λ̃ ∈ (Z^{2n}₊)^{Hom(F⁺,E)} is CTG if for every w ∈ W^P, with λ_w = w(λ̃ + ρ) − ρ viewed in (Zⁿ₊)^{Hom(F,E)}, and every i₀ ∈ Z, there is τ ∈ Hom(F,E) with λ_{w,τ} − λ^∨_{w,τc} ≠ (i₀, …, i₀).",
+   "locator": "Definition 4.2.10, p.67",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PotentialAutomorphyInfrastructure:PA.0"
+   ],
+   "note": "[ACC+18, Def. 4.3.5]; the CTG hypothesis enters ACC+'s boundary argument (PA.0) through [ACC+18, Thm. 2.4.11]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-4-2-11",
+   "kind": "theorem",
+   "name": "Semisimplicity and automorphy of Q-ordinary middle-degree cohomology",
+   "statement": "Let m ⊂ T^T be non-Eisenstein, v̄ ∈ S̄_p, Q_{v̄} ⊂ P_{v̄}, m̃ a maximal ideal of T̃^{Q_{v̄},{v̄}-ord} extending 𝒮^*(m), K̃ good with m̃ in the support of H^*(X̃_{K̃}, V_λ̃)^{ord} for a CTG weight λ̃, and Ũ^k_v ∉ m̃ for 1 ≤ k ≤ t; d = n²[F⁺ : Q]. Then H^d(X̃_{K̃}, V_λ̃)^{ord}_{m̃}[1/p] is a semisimple T̃^{Q_{v̄},{v̄}-ord}[1/p]-module, and for every f : T̃^{Q_{v̄},{v̄}-ord}(H^d(X̃_{K̃}, V_λ̃)^{ord}_{m̃}) → Q̄_p and ι there is a cuspidal π of G̃(𝔸_{F⁺}), ι-Q_{v̄}-ordinary of weight λ̃, whose eigenvalues on (ι^{−1}π^∞)^{K̃,Q_{v̄}-ord} give f.",
+   "locator": "Proposition 4.2.11, p.67",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Variant of [ACC+18, Thm. 2.4.11] with the one-dimensionality of the Q-ordinary subspace (thm-3-1-2). Remark 4.2.12: in prop-4-2-6 λ̃ may be assumed CTG by changing λ̃_τ at one τ above v̄′ ([ACC+18, Lemma 4.3.6])."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-4-2-13",
+   "kind": "theorem",
+   "name": "Torsion local–global compatibility at a Q-ordinary place",
+   "statement": "Assume p splits in an imaginary quadratic subfield of F; K ⊂ GL_n(𝔸_{F,f}) good; v̄ ≠ v̄′ ∈ S̄_p; λ dominant for G; m ≥ 1; Q_{v̄} ⊂ P_{v̄} standard with K_{v̄} = 𝒬_{v̄} ∩ G(F⁺_{v̄}), identified via ι_ṽ with the block parabolic of a partition (n₁,…,n_t) of 2n with n = n₁ + … + n_r; m ⊂ T^{Q_{v̄},{v̄}-ord} maximal in the support of H^*(X_K, V_λ/ϖ^m). Assume (1) Σ_{v̄″≠v̄,v̄′}[F⁺_{v̄″} : Q_p] ≥ ½[F⁺ : Q]; (2) m non-Eisenstein with ρ̄_m decomposed generic; (3) the condition on T of thm-2-1-20; (4) [K_{v̄} ν(ϖ) K_{v̄}] ∉ m for all ν ∈ X_{Q_{v̄}}. Then for each q ∈ [0, d − 1] there are N depending only on n and [F⁺ : Q], J ⊂ T^{Q_{v̄},{v̄}-ord}(H^q(X_K, V_λ/ϖ^m)_m) with J^N = 0, and ρ_m : G_{F,T} → GL_n(T^{…}(H^q(X_K, V_λ/ϖ^m)_m)/J) such that: (1) char ρ_m(Frob_v) = P_v(X) for v ∉ T; (2) for v | v̄, ρ_m|_{G_{F_v}} lifts to ρ̃_v : G_{F_v} → GL_n(Ã) for a finite flat local O-algebra Ã with f : Ã → T^{…}/J; (3) ρ̃_v[1/p] is semistable with labelled Hodge–Tate weights (λ_{τ,n} < … < λ_{τ,1} + n − 1); (4) ρ̃_ṽ[1/p] ≅ upper triangular with diagonal blocks ρ̃_{ṽ,r+1},…,ρ̃_{ṽ,t} and ρ̃_{ṽc}[1/p] ≅ upper triangular with diagonal blocks ρ̃_{ṽc,r},…,ρ̃_{ṽc,1}, each ρ̃_{v,j} : G_{F_v} → GL_{n_j}(Ã[1/p]) crystalline with labelled Hodge–Tate weights increasing from top left to bottom right; (5) for j = r+1,…,t, det ρ̃_{ṽ,j} is Ã-valued with image ψ_j under f, where ∏_{j=r+1}^k ψ_j(Art(u)) = ∏_{i=1}^{n_{r+1}+…+n_k} ∏_τ τ(u)^{−λ_{τ,n−i+1}−i+1} for u ∈ O^×_{F_ṽ} and ∏_{j=r+1}^k ψ_j(Art(ϖ_ṽ)) = ε_p^{Σ_i(1−i)}(Art(ϖ_ṽ)) Ũ^{k−r}_v.",
+   "locator": "Proposition 4.2.13, pp.67–71",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proof: reduction to ρ̄_{m̃} decomposed generic and deep level at v̄″ ≠ v̄ ([ACC+18, Cor. 4.4.8]); twist by ε^μ_p to get −λ_{τ̃c,1} − λ_{τ,1} ≥ 0; for q ≥ ⌊d/2⌋ apply prop-4-2-6 (with a CTG weight), prop-4-2-9, prop-4-2-11, then Sub-lemma 1 (a Grunwald–Wang twisting character ψ making the local constituents disjoint and matching) and prop-3-2-4, thm-3-1-2; for q < ⌊d/2⌋ Poincaré duality and prop-4-2-8."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/sub-lemma-1-twist",
+   "kind": "theorem",
+   "name": "A twisting character separating local constituents",
+   "statement": "In the proof of prop-4-2-13, possibly after enlarging O, there is a continuous character ψ̄ : G_F → k^×, unramified at S_p and with ρ̄_{m̃(ψ)} decomposed generic, such that (1) the irreducible constituents of ρ̄_{m(ψ)}|_{G_{F_ṽ}} are disjoint from those of ρ̄^{∨,c}_{m(ψ)}(1−2n)|_{G_{F_ṽ}}; (2) for all 1 ≤ i ≤ r the irreducible constituents of r̄^i_{1,ψ} coincide with those of ρ̄_{m(ψ)}|_{G_{F_ṽ}}.",
+   "locator": "Sub-lemma 1 in the proof of Proposition 4.2.13, pp.70–71",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Grunwald–Wang: prescribe ψ̄(Art(ϖ_ṽ)), ψ̄(Art(ϖ_{ṽc})) of large coprime orders, locally trivial at a decomposed generic prime; then the determinant identity (4.2.5) forces J_i = ∅."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-4-2-15",
+   "kind": "theorem",
+   "name": "Local–global compatibility at p via deformation rings",
+   "statement": "Let F be an imaginary CM field containing an imaginary quadratic field, p a prime split in an imaginary quadratic subfield of F, T ⊇ S_p finite with T = T^c and the condition of thm-2-1-20; K ⊂ GL_n(𝔸_{F,f}) good with K_v = GL_n(O_{F_v}) for v ∉ T; v̄ ≠ v̄′ ∈ S̄_p; λ dominant for G; Q_{v̄} ⊂ P_{v̄} in one of the cases (cr-ord) ι_ṽ(Q_{v̄}) the parabolic of the partition (n,1,…,1) of 2n; (ord) ι_ṽ(Q_{v̄}) = B_{2n}; (cr) Q_{v̄} = P_{v̄}; K_{v̄} = 𝒬_{v̄} ∩ G(F⁺_{v̄}); m ⊂ T^{Q_{v̄},{v̄}-ord} maximal in the support of H^*(X_K, V_λ). Assume (1) Σ_{v̄″≠v̄,v̄′}[F⁺_{v̄″} : Q_p] ≥ ½[F⁺ : Q]; (2) m non-Eisenstein with ρ̄_m decomposed generic; (3) [K_{v̄} ν(ϖ) K_{v̄}] ∉ m for ν ∈ X_{Q_{v̄}}. Then there are N ≥ 1 depending only on n and [F⁺ : Q], J ⊂ T^{Q_{v̄},{v̄}-ord}(RΓ(X_K, V_λ)_m) with J^N = 0 and ρ_m : G_{F,T} → GL_n(T^{…}(RΓ(X_K, V_λ)_m)/J), unramified with char ρ_m(Frob_v) = P_v(X) for v ∉ T, such that the induced t_{ρ_m} : R^□_{ρ̄_m} → T^{…}/J satisfies: (cr-ord) its restriction to R^□_{ρ̄_m|G_{F_ṽ}} factors through R^{△,λ_ṽ} and to R^□_{ρ̄_m|G_{F_{ṽc}}} through R^{cris,λ_{ṽc}}; (ord) for v | v̄ it factors through R^{△,λ_v}; (cr) for v | v̄ it factors through R^{cris,λ_v}.",
+   "locator": "§4.2.14, Theorem 4.2.15, pp.71–72",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Reduce to O/ϖ^m coefficients ([NT16, Lemma 3.11]) and to one degree at a time (nilpotent kernel with vanishing d-th power; Carayol's lemma as in [ACC+18, Prop. 4.4.8]); then prop-4-2-13 and the characterising property of the quotients (thm-3-3-3). The atlas plans local–global compatibility at p only in the Fontaine–Laffaille and ordinary cases (PA.1, PA.2)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/cor-4-2-16",
+   "kind": "theorem",
+   "name": "Fixed-determinant refinement",
+   "statement": "In the setting of thm-4-2-15, assume p ∤ n and f : T^{Q_{v̄},{v̄}-ord}(RΓ(X_K, V_λ)_m)/J → A with det(f_*(ρ_m)) = ψ for a character ψ : G_{F,T} → O^× crystalline at all places of S_p with τ-labelled Hodge–Tate weights Σ_{i=1}^n λ_{τ,i} + (n − i). Then for v | v̄ the induced map R^{△,λ_v}_{ρ̄_m|G_{F_v}} → A or R^{cris,λ_v}_{ρ̄_m|G_{F_v}} → A factors through the corresponding fixed-determinant ψ lifting ring.",
+   "locator": "Corollary 4.2.16, p.72",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "From lem-3-3-6."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-4-3-1",
+   "kind": "theorem",
+   "name": "Crystallinity at p of automorphic Galois representations over CM and totally real fields",
+   "statement": "Let F be totally real or CM, π a cuspidal automorphic representation of GL_n(𝔸_F), regular algebraic of weight λ, v | p with π^{GL_n(O_{F_v})} ≠ 0 and π^{GL_n(O_{F_{v^c}})} ≠ 0 (v = v^c allowed), ι : Q̄_p ≅ C, and r_ι(π) : G_F → GL_n(Q̄_p) the representation of [HLTT16]. If r_ι(π) is irreducible and decomposed generic, then r_ι(π)|_{G_{F_v}} and r_ι(π)|_{G_{F_{v^c}}} are crystalline with τ-labelled Hodge–Tate weights λ_{ιτ,n} < … < λ_{ιτ,1} + n − 1 for τ inducing v or v^c respectively.",
+   "locator": "§4.3, Theorem 4.3.1, p.73",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Cyclic CM base change to F′/F linearly disjoint from F̄^{ker r_ι(π)}, containing an imaginary quadratic field, with p-adic places of F′⁺ split, ℓ split completely, v, v^c split completely, and places w̄, w̄′ over v̄ satisfying the degree condition (taking [F′⁺ : F⁺] ≥ 4 with v̄ split), then thm-4-2-15. Remark 1.3.1(3): ℓ ≠ p was known up to semisimplification [Var24]; A'Campo [A'C23] later proved de Rham at p."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-5-2",
+   "kind": "theorem",
+   "name": "Potentially Barsotti–Tate automorphy lifting over imaginary CM fields",
+   "statement": "Let F be an imaginary CM field, p an odd prime and ρ : G_F → GL₂(Q̄_p) continuous with: (1) ρ unramified almost everywhere and det ρ = ε_p^{−1}; (2) for each v | p, ρ|_{G_{F_v}} potentially semistable with all labelled Hodge–Tate weights (0,1); (3) ρ̄ decomposed generic and ρ̄|_{G_{F(ζ_p)}} irreducible; (4) if p = 5 and the projective image of ρ̄(G_{F(ζ₅)}) is conjugate to PSL₂(F₅), the extension of F cut out by the projective image of ρ̄ does not contain ζ₅; (5) there are a cuspidal π of PGL₂(𝔸_F) and ι : Q̄_p ≅ C with (a) π regular algebraic of weight 0, (b) for v | p with ρ|_{G_{F_v}} potentially crystalline: r_ι(π)|_{G_{F_v}} is potentially ordinary of weight 0 ([Ger19, §5.2]) iff ρ|_{G_{F_v}} is, and rec_{F_v}(π_v) has monodromy 0, (c) for v | p with ρ|_{G_{F_v}} not potentially crystalline: π is ι-ordinary of weight 0 at v and r_ι(π)|_{G_{F_v}} is not potentially crystalline, (d) ρ̄ ≅ r̄_ι(π). Then ρ is automorphic: ρ ≅ r_ι(Π) for a cuspidal Π of PGL₂(𝔸_F), regular algebraic of weight 0.",
+   "locator": "§5.1, Theorem 5.2, pp.73–74",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Remarks 5.2.1–5.2.3: (5b) can be replaced using thm-4-2-15; the inverse-cyclotomic determinant (as in [AKT23]) handles p = 3 with image SL₂(F₃); a Fontaine–Laffaille n-dimensional variant strengthening [ACC+18, Thm. 6.1.1] would follow from thm-4-2-15 (not proved in the paper)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/global-deformation-problems",
+   "kind": "definition",
+   "name": "Global deformation problems and their framed deformation rings",
+   "statement": "For ρ̄ : G_F → GL₂(k) continuous absolutely irreducible and S ⊇ S_p containing the ramification of ρ̄: local deformation problems D_v represented by quotients R_v of R^□_v; a global deformation problem (ρ̄, S, {R_v}_{v∈S}), with fixed determinant (ρ̄, ψ, S, {R_v}) for ψ : G_{F,S} → O^× lifting det ρ̄; for T ⊂ S the functors D^T_S of T-framed deformations (D_S for T = ∅), represented by R^T_S (R_S), and R^{T,loc}_S = ⊗̂_{v∈T} R_v → R^T_S.",
+   "locator": "§5.3, pp.74–75",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "GlobalGaloisDeformations:R04.1",
+    "GlobalGaloisDeformations:R04.3"
+   ],
+   "note": "Terminology of [ACC+18, §6.2.1] with coefficient ring O and two-dimensional representations."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/local-rings-5-3",
+   "kind": "definition",
+   "name": "Local lifting rings used for GL₂ (fixed determinant, level raising, Barsotti–Tate, ordinary)",
+   "statement": "For p odd and ψ a fixed determinant: R^ψ_v (lifts of ρ̄|_{G_{F_v}} of determinant ψ; formally smooth of relative dimension 3 over O when v ∉ S_p and H²(F_v, ad⁰ρ̄) = 0); level-raising rings R^{ψ,χ}_v for q_v ≡ 1 mod p, ρ̄|_{G_{F_v}} trivial and χ : O^×_{F_v} → O^× trivial mod ϖ, classifying lifts with det ψ and char_{ρ(σ)}(X) = (X − χ(Art^{−1}σ))(X − χ^{−1}ψ(Art^{−1}σ)) for σ ∈ I_{F_v} ([AKT23, §A.1.2]); Barsotti–Tate rings R^{ψ,BT}_v = R^{cris,(0,0),ψ}_{ρ̄_v} for v | p (ψ|_{G_{F_v}} crystalline of weight 1); and, for ψ = ε^{−1}_p with ρ̄|_{G_{F_v}} and ε_p|_{G_{F_v}} trivial, the ordinary ring R^△_v := R^{△,(0,0),ψ}_v.",
+   "locator": "§5.3 and §5.3.1, pp.75",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "LocalGaloisDeformationRings:R08.2",
+    "LocalGaloisDeformationRings:R08.4",
+    "LocalGaloisDeformationRings:L8"
+   ],
+   "note": "R08.2 places away from p, R08.4 finite-flat and Barsotti–Tate components, L8 ordinary conditions. Twisting by the cyclotomic character identifies R^△_v with the ring R of [Sno18, Prop. 4.3.2]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-5-3-2",
+   "kind": "theorem",
+   "name": "Components of the two-dimensional ordinary lifting ring (Snowden)",
+   "statement": "With R^△_v as above (ψ = ε^{−1}_p, ρ̄|_{G_{F_v}} trivial, ε_p trivial on G_{F_v}): (1) Spec R^△_v is equidimensional of dimension [F_v : Q_p] + 4 with two irreducible components X^cr = Spec R^{△,cr}_v and X^st = Spec R^{△,st}_v, characterised on E′-points (E′/E finite): x factors through R^{△,cr}_v iff ρ_x is crystalline, and through R^{△,st}_v iff ρ_x is conjugate to (1 ∗; 0 ε^{−1}_p); (2) each generic point of Spec(R^△_v/ϖ) is the specialization of a unique generic point of Spec R^△_v.",
+   "locator": "Proposition 5.3.2, pp.75–76",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "(1) [Sno18, Prop. 4.3.2]; (2) via Snowden's ring R̃^△_v [Sno18, Prop. 4.4.3, Thm. 4.6.1, Lemma 4.6.4]: its two special-fibre components meet in dimension [F_v : Q_p] + 2."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-5-3-3",
+   "kind": "theorem",
+   "name": "Unique generalisation of generic points for the Barsotti–Tate ring",
+   "statement": "Each generic point of Spec(R^{ε^{−1}_p,BT}_v/ϖ) is the specialization of a unique generic point of Spec(R^{ε^{−1}_p,BT}_v).",
+   "locator": "Lemma 5.3.3, pp.76–77",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Generic reducedness of the special fibre [CEGS25, Thm. 1.3] (for R^BT without fixed determinant, formally smooth over the fixed-determinant ring as p is odd); a height-one prime p with R_p/ϖ a field makes R_p a DVR. BCG+25 routes the general form (generically reduced special fibre ⇒ unique generalisations) to its Part II, importing it from here."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-5-3-4",
+   "kind": "theorem",
+   "name": "Two components of the Barsotti–Tate ring when ρ̄ is trivial",
+   "statement": "Let v | p with ρ̄|_{G_{F_v}} trivial, residue field k_v ≠ F_p and R^{ε^{−1}_p,BT}_v ≠ 0. Then Spec R^{ε^{−1}_p,BT}_v has exactly two irreducible components, whose points are the ordinary and the non-ordinary Galois representations respectively.",
+   "locator": "Lemma 5.3.4, p.77",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "note": "[Kis09, Cor. 2.5.16] and [Gee06, Prop. 2.3]; R08.4 owns the finite-flat and Barsotti–Tate components."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/taylor-wiles-datum",
+   "kind": "definition",
+   "name": "Taylor–Wiles datum of level N",
+   "statement": "A Taylor–Wiles datum for a global deformation problem 𝒮 is (Q, N, (α_{v,1}, α_{v,2})_{v∈Q}): a finite set Q of finite places disjoint from S and N ≥ 1 with q_v ≡ 1 mod p^N for v ∈ Q, and distinct unramified k-valued characters with ρ̄|_{G_{F_v}} ≅ α_{v,1} ⊕ α_{v,2}; 𝒮_Q = (ρ̄, S ∪ Q, {R_v}_{v∈S} ∪ {R^□_v}_{v∈Q}) (with R^ψ_v for fixed determinant).",
+   "locator": "Definition 5.3.5, p.77",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "GlobalGaloisDeformations:R04.5",
+    "PotentialAutomorphyInfrastructure:PA.4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/patching-axioms",
+   "kind": "definition",
+   "name": "Abstract patching data with two sets of local conditions",
+   "statement": "S_∞ = O[[X₁,…,X_r]] with augmentation ideal a_∞; perfect complexes C_∞, C′_∞ of S_∞-modules with a fixed isomorphism C_∞ ⊗^L S_∞/ϖ ≅ C′_∞ ⊗^L S_∞/ϖ; finite S_∞-subalgebras T_∞ ⊂ End_{D(S_∞)}(C_∞), T′_∞ ⊂ End(C′_∞) with the same image T̄_∞ mod ϖ; Noetherian complete local S_∞-algebras R_∞, R′_∞ with surjections R_∞ ↠ T_∞/I_∞, R′_∞ ↠ T′_∞/I′_∞ (I nilpotent); an isomorphism R_∞/ϖ ≅ R′_∞/ϖ compatible with the actions on H^*(C_∞ ⊗^L S_∞/ϖ)/(Ī_∞ + Ī′_∞); integers q₀ and l₀ ≥ 0. Assumption 5.4.1: (1) dim R_∞ = dim R′_∞ = dim S_∞ − l₀ and dim R_∞/ϖ = dim S_∞ − l₀ − 1; (2) each generic point of Spec R_∞/ϖ specializes unique generic points of Spec R_∞ and Spec R′_∞, both equidimensional with generic points of characteristic 0; (3) H^*(C_∞ ⊗^L S_∞/a_∞)[1/p] ≠ 0, concentrated in [q₀, q₀ + l₀]; (4) a fixed characteristic-0 point x ∈ Spec(T_∞/a_∞T_∞).",
+   "locator": "§5.4, Assumption 5.4.1, pp.77–78",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PotentialAutomorphyInfrastructure:PA.3",
+    "DeformationAndDerivedPatchingAlgebra:P8"
+   ],
+   "note": "PA.3 compares patched complexes for two systems of local conditions agreeing modulo a coefficient ideal; P8 patches complexes with cohomology in several degrees. The 'behaviour of components' axiom (2) is the new input for local rings with two components."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-5-4-2",
+   "kind": "theorem",
+   "name": "Automorphic components propagate through the special fibre",
+   "statement": "Under Assumption 5.4.1, with Supp_{R_∞}(H^*(C_∞)) = Spec T_∞: (1) there is an irreducible component C_a ⊂ Spec R_∞ containing the automorphic point x with C_a ⊂ Spec T_∞; (2) if C_a ⊂ Spec T_∞ is such a component and C ⊂ Spec R_∞ is an irreducible component such that C ∩ Spec(R_∞/ϖ) and C_a ∩ Spec(R_∞/ϖ) contain generic points x_C, x_a generalizing to the same generic point x′ of Spec R′_∞, then C ⊂ Spec T_∞.",
+   "locator": "§5.4, Proposition 5.4.2, pp.78–79",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "H^*(C_{∞,a_∞}) is concentrated in degree q₀ + l₀ and Cohen–Macaulay ([CG18, Lemma 6.2], as [ACC+18, Prop. 6.3.8]); lengths of complexes [ACC+18, Lemma 6.3.7] carried through R′_∞. PA.3 plans the support implication for derived Ihara avoidance in ACC+'s form; this component-wise version is imported by BCG+25."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/cor-5-4-3",
+   "kind": "theorem",
+   "name": "Support of patched cohomology at points of automorphic components",
+   "statement": "Let C be an irreducible component of Spec R_∞ satisfying the hypothesis of prop-5-4-2(2) for some automorphic C_a, x ∈ C and y its contraction to S_∞. Then the support of H^*(C_∞ ⊗^L S_∞/y)_y over Spec R_∞ contains x; if y is one-dimensional of characteristic 0, x lies in the support of H^*(C_∞ ⊗^L S_∞/y)[1/p].",
+   "locator": "Corollary 5.4.3, p.79",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tor spectral sequence, as [ACC+18, Cor. 6.3.9]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/pgl2-cohomology",
+   "kind": "construction",
+   "name": "Cohomology of PGL₂ locally symmetric spaces at non-neat level",
+   "statement": "For F imaginary CM, G = PGL_{2,F}, K = ∏K_v ⊂ PGL₂(Ô_F) (not necessarily neat), S ⊇ S_p with K_v = PGL₂(O_{F_v}) for v ∉ S, R = O or O/ϖ^m and V an R[K_S]-module finite free over R with V/ϖ^r smooth: C•(K,V) := lim_r RΓ(K, RΓ(𝔛_G, V/ϖ^r)) ∈ D⁺(R) and C•(K/K′,V) ∈ D⁺(R[K/K′]) for open normal K′ with K′^S = K^S, with H(G^S,K^S)-actions (T_{v,i} images of GL₂ operators, T_{v,2} = 1, P_v(X)); RΓ(K/K′, C•(K/K′,V)) = C•(K,V); cohomology finitely generated, Hecke algebras T^S_G(C•(K/K′,V)) O-finite, localizations cut out by idempotents e_m.",
+   "locator": "§5.5, pp.79–80",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Properties deduced from neat GL₂ level by [AKT23, §5, Lemmas 5.1, 5.2, Prop. 3.6]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-5-5-1",
+   "kind": "theorem",
+   "name": "Comparison with the Allen–Khare–Thorne complexes",
+   "statement": "There are natural Hecke-equivariant quasi-isomorphisms A(K/K′, V) ≅ C•(K/K′, V), where A(K/K′, V) are the complexes of [AKT23, §5.1] built from singular chains of 𝔛̄^{dis}_G.",
+   "locator": "Lemma 5.5.1, p.80",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-5-5-2",
+   "kind": "theorem",
+   "name": "Galois representations for PGL₂ over CM fields",
+   "statement": "Suppose p is odd, S = S^c, F contains an imaginary quadratic field and every finite v ∉ S of residue characteristic l has: S contains no l-adic place and l unramified in F, or l splits in an imaginary quadratic subfield of F. Then for every maximal m ⊂ T^S_G(C•(K/K′,V)) there is a continuous semisimple ρ̄_m : G_{F,S} → GL₂(T^S_G(C•(K/K′,V))/m) with det(X − ρ̄_m(Frob_v)) = P_v(X) mod m for v ∉ S; if ρ̄_m is absolutely irreducible there are N depending only on [F : Q], J with J^N = 0 and ρ_m : G_{F,S} → GL₂(T^S_G(C•(K/K′,V))/J) with det(X − ρ_m(Frob_v)) = P_v(X) mod J for v ∉ S; in particular det ρ_m = ε^{−1}_p.",
+   "locator": "Proposition 5.5.2, pp.80–81",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Essentially [AKT23, Cor. 5.7] (K/K′ abelian unnecessary), reducing to neat GL₂ level ([AKT23, Cor. 5.5, Thms. 5.6, 5.8]) and [ACC+18, Thms. 2.3.5, 2.3.7]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-5-5-3",
+   "kind": "theorem",
+   "name": "Vanishing above the real dimension and perfectness",
+   "statement": "Let m ⊂ T^S_G(C•(K,V)) be maximal with residue field k; assume V ⊗ k ≅ k with trivial K_S-action, p odd with ρ̄_m absolutely irreducible, and ζ_p ∈ F. Then H^i(C•(K,V))_m = 0 for i > dim_R X_G; in particular C•(K,V)_m is a perfect complex of R-modules.",
+   "locator": "Proposition 5.5.3, p.81",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "[AKT23, Thm. 5.11]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/setup-5-6",
+   "kind": "definition",
+   "name": "The data and hypotheses (1)–(15) of the special case of Theorem 5.2",
+   "statement": "Data: F imaginary CM, p odd, ι : Q̄_p ≅ C; S ⊇ S_p finite; R ⊂ S prime to p and S_p = S^cr_p ⊔ S^st_p; π cuspidal on PGL₂(𝔸_F), regular algebraic of weight 0. Hypotheses: (5) every prime below S or ramified in F splits in an imaginary quadratic subfield of F (so S is split over F⁺ and F/F⁺ unramified); (6) for v ∈ S_p there is a p-adic v′ ≠ v̄ of F⁺ with Σ_{v″≠v̄,v′}[F⁺_{v″} : Q_p] > ½[F⁺ : Q], and the residue field of v̄ is bigger than F_p; (7) π_v unramified for v ∉ R ∪ S^st_p; (8) π^{Iw_v}_v ≠ 0 for v ∈ R ∪ S^st_p; (9) for v ∈ S^st_p, π is ι-ordinary of weight 0 at v and r_ι(π)|_{G_{F_v}} is non-crystalline ordinary; (10) ζ_p ∈ F if S = S_p ∪ R; (11) otherwise S − (S_p ∪ R) contains two places of distinct residue characteristics; (12) v ∉ R^c and H²(F_v, ad⁰r̄) = 0 for v ∈ S − (R ∪ S_p); (13) r̄_{π,ι} decomposed generic with r̄|_{G_{F(ζ_p)}} irreducible; (14) r̄_{π,ι}|_{G_{F_v}} trivial for v ∈ S_p ∪ R; (15) the p = 5 projective-image condition.",
+   "locator": "§5.6, pp.81–82",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-5-6-1",
+   "kind": "theorem",
+   "name": "Automorphy lifting in the special case",
+   "statement": "With the data and hypotheses (1)–(15), let ρ : G_F → GL₂(Q̄_p) be continuous with (1) ρ̄ ≅ r̄_{π,ι} and det ρ = ε^{−1}_p; (2) ρ|_{G_{F_v}} Barsotti–Tate for v ∈ S^cr_p; (3) r_ι(π)|_{G_{F_v}} ordinary iff ρ|_{G_{F_v}} ordinary, for v ∈ S^cr_p; (4) ρ|_{G_{F_v}} a non-crystalline extension of ε^{−1}_p by the trivial character for v ∈ S^st_p; (5) ρ unramified at v ∉ S; (6) ρ|_{G_{F_v}} unipotently ramified for v ∈ R. Then ρ ≅ r_ι(Π) for a cuspidal Π of PGL₂(𝔸_F) of weight 0.",
+   "locator": "Proposition 5.6.1, p.82",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proof pp.82–85: levels K (Iwahori at R ∪ S^st_p, pro-v Iwahori at S − (S_p ∪ R)), parabolics Q_{v̄} of type (2,1,1)/B₄/Siegel for the cases cr-ord/ord/cr, the problems 𝒮_χ, prop-5-6-2, prop-5-6-3, lem-5-6-4, patching via [ACC+18, §6.4] and [AKT23, Prop. A.6] with χ = 1 and χ with χ_v² ≠ 1; Spec R′_∞ has 2^{|S_p|} components; prop-5-4-2 and cor-5-4-3 with prop-5-3-2, lem-5-3-3, lem-5-3-4 and [BLGHT11, Lemma 3.3]; [AKT23, Thm. 5.10]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/deformation-problems-S-chi",
+   "kind": "definition",
+   "name": "The global deformation problems 𝒮_χ and 𝒮_{χ,Q}",
+   "statement": "For χ = ∏_{v∈R} χ_v : ∏O^×_{F_v} → O^× trivial mod ϖ: 𝒮_χ = (ρ̄, ε^{−1}_p, S, {R^{ε^{−1},BT}_v}_{v∈S^cr_p} ∪ {R^△_v}_{v∈S^st_p} ∪ {R^{ε^{−1},χ_v}_v}_{v∈R} ∪ {R^{ε^{−1}}_v}_{v∈S−(S_p∪R)}), with the O[K_S]-module O(χ^{−1}) via Iw_v → O^×, (a b; c d) ↦ χ_v(a/d); for a Taylor–Wiles datum (Q,N,…) whose places have residue characteristic split in an imaginary quadratic subfield, 𝒮_{χ,Q} adds R^{ε^{−1}}_v for v ∈ Q, an O[Δ_Q]-algebra (Δ_v = k^×_v(p)).",
+   "locator": "§5.6, pp.83–84",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-5-6-2",
+   "kind": "theorem",
+   "name": "Hecke-valued Galois representations satisfy the deformation problem 𝒮_χ",
+   "statement": "There are N depending only on [F : Q], J ⊂ T^{S,Q_{S̄_p},S̄_p-ord}_G(C•(K, O(χ^{−1}))_m) with J^N = 0 and a continuous surjection f_{𝒮_χ} : R_{𝒮_χ} → T^{S,Q_{S̄_p},S̄_p-ord}_G(C•(K, O(χ^{−1}))_m)/J with char(f_{𝒮_χ} ∘ ρ^{univ}_{𝒮_χ}(Frob_v)) the image of P_v(X) for v ∉ S.",
+   "locator": "Proposition 5.6.2, pp.83–84",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "prop-5-5-2 away from S ∪ S^c; thm-4-2-15 at v ∈ S_p (after reduction to neat GL₂ level); [ACC+18, Prop. 6.5.3, Thm. 3.1.1] at the other places."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-5-6-3",
+   "kind": "theorem",
+   "name": "The same at Taylor–Wiles level",
+   "statement": "There are N depending only on [F : Q], J ⊂ T_{χ,Q} with J^N = 0 and a continuous surjective O[Δ_Q]-algebra homomorphism f_{𝒮_{χ,Q}} : R_{𝒮_{χ,Q}} → T_{χ,Q}/J with char(f ∘ ρ^{univ}(Frob_v)) = P_v(X) for v ∉ S ∪ Q, where T_{χ,Q} is the image of T^{S∪Q,…}_G ⊗ O[Δ_Q] in End_{D(O[Δ_Q])}(C•(K₀(Q)/K₁(Q), O(χ^{−1}))_{n_Q}).",
+   "locator": "Proposition 5.6.3, p.84",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "As prop-5-6-2 with [ACC+18, Thm. 3.1.1] for the O[Δ_Q]-linearity (cf. [ACC+18, Prop. 6.5.11], [AKT23, Prop. A.13])."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-5-6-4",
+   "kind": "theorem",
+   "name": "Patching complexes of homology",
+   "statement": "C_{χ,Q} := RHom_{O[Δ_Q]}(C•(K₀(Q)/K₁(Q), O(χ^{−1}))_{n_Q}, O[Δ_Q]) is a perfect complex of O[Δ_Q]-modules with a canonical isomorphism C_{χ,Q} ⊗^L_{O[Δ_Q]} O ≅ C_χ := RHom_O(C•(K, O(χ^{−1}))_m, O) in D(O).",
+   "locator": "Lemma 5.6.4, pp.84–85",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Duals of perfect complexes computing localized equivariant homology ([AKT23, Thm. 5.11])."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-5-6-5",
+   "kind": "theorem",
+   "name": "A reducibility criterion for mod-p representations (variant of DDT 4.11)",
+   "statement": "Let G be finite, p odd, ρ : G → GL₂(F̄_p) with det ρ of order d > 1, and suppose (tr ρ(g))² = (1 + det ρ(g))² whenever det ρ(g) ≠ 1. Then ρ|_{ker(det ρ)} is reducible.",
+   "locator": "Lemma 5.6.5, pp.85–86",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "[DDT97, Lemma 4.11] except d = 3; then Z ⊂ ker det ρ, the projective image surjects to C_d, and by Dickson ρ is reducible or the projective image is A₄, whose Klein four subgroup gives reducibility on ker det ρ."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/proof-thm-5-2",
+   "kind": "theorem",
+   "name": "Reduction of Theorem 5.2 to Proposition 5.6.1 by solvable base change",
+   "statement": "Theorem 5.2 follows from prop-5-6-1: choose a finite set V of auxiliary places as in the proof of [AKT23, Thm. A.14]; a solvable Galois CM extension F₀/F in which V splits, π_{F₀} has Iwahori-fixed vectors everywhere, bad places become unipotent with q_w ≡ 1 mod p and trivial ρ̄, every p-adic place of F₀⁺ splits with residue field bigger than F_p and the degree condition holds, potentially crystalline places become crystalline with π unramified (and r_ι(π) crystalline by thm-4-3-1, ordinary iff ρ is), and non-potentially-crystalline places become non-crystalline extensions of ε^{−1}_p by 1; a further composite F₁ with three imaginary quadratic fields; if ζ_p ∉ F, two auxiliary degree-one places v₀, v₀′ from lem-5-6-5 and Chebotarev; then solvable descent [ACC+18, Prop. 6.5.13].",
+   "locator": "End of the proof of Theorem 5.2, pp.85–87",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-6-1",
+   "kind": "theorem",
+   "name": "Modularity of elliptic curves over imaginary CM fields with good mod 3 or mod 5 image",
+   "statement": "Let F be an imaginary CM field with ζ₅ ∉ F and E/F an elliptic curve such that (1) r̄_{E,3} is decomposed generic and r̄_{E,3}|_{G_{F(ζ₃)}} is absolutely irreducible, or (2) r̄_{E,5} is decomposed generic and r̄_{E,5}|_{G_{F(ζ₅)}} is absolutely irreducible. Then E is modular.",
+   "locator": "§6, Theorem 6.1, p.87",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proof p.90: prop-6-1-5/prop-6-1-6 with S^ord_p, S^ss_p, S^st_p the places of potentially good ordinary, potentially good supersingular and potentially multiplicative reduction give L/F solvable and a modular A/L with r̄_{E,p}|_{G_L} ≅ r̄_{A,p}; thm-5-2 applies to r^∨_{E,p}|_{G_L} (lem-6-1-7, lem-6-1-4); solvable descent."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/cor-6-1-1",
+   "kind": "theorem",
+   "name": "Modularity over imaginary quadratic fields with irreducible mod 3 or mod 5 image over F(ζ_p)",
+   "statement": "Let F be an imaginary quadratic field and E/F an elliptic curve with r̄_{E,3}|_{G_{F(ζ₃)}} or r̄_{E,5}|_{G_{F(ζ₅)}} absolutely irreducible. Then E is modular.",
+   "locator": "Corollary 6.1.1, p.87",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "thm-6-1 and lem-6-2-2. (Printed 'Them E is modular'.)"
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/cor-6-1-2",
+   "kind": "theorem",
+   "name": "Density-one modularity over Galois imaginary CM fields",
+   "statement": "Let F be an imaginary CM field, Galois over Q, with ζ₅ ∉ F. Then 100% of Weierstrass equations over F, ordered by height, define a modular elliptic curve.",
+   "locator": "Corollary 6.1.2, pp.87–88",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "If F/Q is Galois and the image of r̄_{E,5} contains SL₂(F₅), then r̄_{E,5} is decomposed generic [AN20, Lemma 2.3] and r̄_{E,5}|_{G_{F(ζ₅)}} is absolutely irreducible; 100% of curves have such image by quantitative Hilbert irreducibility [Zyw10, Prop. 5.2]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-6-1-3",
+   "kind": "theorem",
+   "name": "Properties of the automorphic representation of a modular elliptic curve",
+   "statement": "Let F be CM and E/F modular without CM, with r_{π,ι} ≅ r^∨_{E,p} for some p and ι. Then (1) π has trivial central character and weight 0 and is determined by E; (2) r_{π,ι} ≅ r^∨_{E,p} for every p and ι; (3) WD(r^∨_{E,p}|_{G_{F_v}})^{F-ss} ≅ rec^T_{F_v}(π_v) for every ι and finite v ∤ p; (4) if E has potentially multiplicative reduction at v | p, π is ι-ordinary of weight 0 at v for every ι.",
+   "locator": "Lemma 6.1.3, p.88",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "(1)–(3) [AKT23, Lemma 9.1] (via Varma [Var24]); (4) as [AKT23, Cor. 9.2]: π_v is a quadratic twist of Steinberg, ordinary by the proof of [Ger19, Lemma 5.6]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-6-1-4",
+   "kind": "theorem",
+   "name": "The projective mod-5 field avoids ζ₅",
+   "statement": "Let F be CM with ζ₅ ∉ F and E/F with the projective image of r̄_{E,5}(G_{F(ζ₅)}) conjugate to PSL₂(F₅). Then the extension of F cut out by the projective image of r̄_{E,5}(G_F) does not contain ζ₅.",
+   "locator": "Lemma 6.1.4, p.88",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "From the proof of [AKT23, Cor. 9.14]: r̄_{E,5}(G_{F(ζ₅)}) = SL₂(F₅); compare [G : H] with [F(ζ₅) : F] according to the order 2 or 4 of det."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-6-1-5",
+   "kind": "theorem",
+   "name": "Mod-5 switching with prescribed reduction types at 5",
+   "statement": "Let F be an imaginary CM field and ρ̄ : G_F → GL₂(F₅) continuous with determinant ε̄₅ and decomposed generic; S₅ = S^st₅ ⊔ S^ord₅ ⊔ S^ss₅; F^avoid/F finite Galois. Then there are a solvable CM extension L/F and an elliptic curve E/L with (1) E modular; (2) L/F linearly disjoint from F^avoid/F; (3) for v | 5 of F and w | v of L, E_{L_w} has good ordinary reduction if v ∈ S^ord₅, good supersingular reduction if v ∈ S^ss₅, and (split) multiplicative reduction if v ∈ S^st₅; (4) ρ̄|_{G_L} ≅ r̄_{E,5}; (5) ρ̄|_{G_L} decomposed generic.",
+   "locator": "Proposition 6.1.5, pp.88–89",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Variant of [AKT23, Prop. 9.13]: an L-point of Y_ρ̄ (open in P¹_F) avoiding a thin set ([Ser08, Thm. 3.5.3]) in prescribed w-adic opens by weak approximation, modular by [AKT23, Prop. 9.12]. The printed (3) writes E_{F_w} (source issue E4)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-6-1-6",
+   "kind": "theorem",
+   "name": "Mod-3 switching with prescribed reduction types at 3",
+   "statement": "Let F be an imaginary CM field with ζ₅ ∉ F and ρ̄ : G_F → GL₂(F₃) continuous with determinant ε̄₃ and decomposed generic; S₃ = S^st₃ ⊔ S^ord₃ ⊔ S^ss₃; F^avoid/F finite Galois. Then there are a solvable CM L/F and E/L with (1) E modular; (2) L/F linearly disjoint from F^avoid; (3) for w | v | 3, E_{L_w} good ordinary, good supersingular or (split) multiplicative according as v ∈ S^ord₃, S^ss₃, S^st₃; (4) ρ̄|_{G_L} ≅ r̄_{E,3}; (5) ρ̄|_{G_L} decomposed generic.",
+   "locator": "Proposition 6.1.6, pp.89–90",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proved as [AKT23, Prop. 9.15]. The printed (3) writes E_{F_w} (source issue E4)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-6-1-7",
+   "kind": "theorem",
+   "name": "Local properties of the auxiliary automorphic representation",
+   "statement": "For E produced by prop-6-1-5 or prop-6-1-6 with r^∨_{E,p} ≅ r_ι(π) (p = 5 or 3) and w | p of L over v of F: π is ι-ordinary at w if v ∈ S^st_p, and π_w is unramified if v ∈ S^ord_p ⊔ S^ss_p.",
+   "locator": "Lemma 6.1.7, p.90",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "From lem-6-1-3."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/goursat",
+   "kind": "theorem",
+   "name": "Goursat’s lemma",
+   "statement": "Let G₁, G₂ be finite groups and H ⊂ G₁ × G₂ a subgroup whose projections p_i : H → G_i are surjective. Then N_i := H ∩ G_i are normal in G_i and there is an isomorphism φ : G₁/N₁ ≅ G₂/N₂ with H = {(g₁,g₂) : φ(g₁N₁) = g₂N₂}.",
+   "locator": "§6.2, Lemma 6.2.1, p.90",
+   "status": "library",
+   "library": [
+    "mathlib:Subgroup.goursat_surjective"
+   ],
+   "planned": [],
+   "note": "Mathlib states it for arbitrary groups (Mathlib/GroupTheory/Goursat.lean:104), with the normal subgroups I.goursatFst, I.goursatSnd."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-6-2-2",
+   "kind": "theorem",
+   "name": "Over quadratic fields, irreducibility over F(ζ_p) gives decomposed genericity",
+   "statement": "Let F/Q be quadratic, p odd and ρ̄ : G_F → GL₂(F̄_p) with ρ̄|_{G_{F(ζ_p)}} absolutely irreducible. Then ρ̄ is decomposed generic.",
+   "locator": "Lemma 6.2.2, pp.90–91",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Galois closure L̃ of the projective kernel field embeds Gal(L̃₁/F(ζ_p)) into a product of two copies of Gal(L₁/F(ζ_p)) with surjective projections; Goursat gives τ with both components non-identity of order prime to p (Dickson or [Ser72, Prop. 15]); a rational prime l with Frob_l = τ (Chebotarev) splits completely in F, l ≡ 1 mod p, and the Frobenius images are regular semisimple."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-7-1",
+   "kind": "theorem",
+   "name": "Modularity over imaginary quadratic fields with irreducible mod 5 or suitable mod 3 action",
+   "statement": "Let F be an imaginary quadratic field and E/F an elliptic curve such that either (1) G_F acts irreducibly (not necessarily absolutely) on E[5], or (2) G_F acts irreducibly on E[3] and its image in Aut(E[3]) is not the normalizer of a split Cartan subgroup. Then E is modular.",
+   "locator": "§7, Theorem 7.1, p.91",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "By thm-6-1 and lem-7-1-1 it remains to treat the imaginary quadratic points of X(ns3°,b5), X(b3,ns5), X(ns3°,ns5) and X(s3,ns5) (cor-7-2-5, cor-7-3-4, cor-7-4-6). Remark 1.3.2: the 3–7 switch of [FLHS15, §7] seems much harder over imaginary CM fields (points on a twist of the Klein quartic over solvable CM extensions), which is why the split-Cartan mod-3 case and the hypothesis on X₀(15) remain."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-7-1-1",
+   "kind": "theorem",
+   "name": "Images with absolutely reducible restriction to F(ζ_p)",
+   "statement": "Let F be a number field and ρ̄ : G_F → GL₂(F_p) irreducible with determinant ε̄_p and ρ̄|_{G_{F(ζ_p)}} absolutely reducible. (1) ρ̄(G_F) lies in the normalizer of a Cartan subgroup. (2) If p = 3, ρ̄(G_F) is conjugate to C⁺_s(3) (normalizer of a split Cartan) or to a subgroup of C_ns(3) (a non-split Cartan). (3) If p = 5 and [F(ζ₅) : F] = 4, ρ̄(G_F) is conjugate to a subgroup of C⁺_ns(5).",
+   "locator": "Lemma 7.1.1, p.92",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "[FLHS15, Lemma 2.2] and the proof of [FLHS15, Prop. 4.1(b)]."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/modular-curves-X(H)",
+   "kind": "definition",
+   "name": "Modular curves X(H) and X(H₁,H₂) with Borel and Cartan level",
+   "statement": "For H ⊂ GL₂(F_p) containing −I with det(H) = F^×_p, X(H)/Q is the modular curve with its j-map X(H) → X(1); for H_i ⊂ GL₂(F_{p_i}) (p₁ ≠ p₂), X(H₁,H₂) is the normalization of X(H₁) ×_{X(1)} X(H₂), with cusps over ∞; for a number field F its non-cuspidal F-points correspond to Q̄-isomorphism classes of (E, [η]), η : ∏F²_{p_i} ≅ ∏E[p_i](Q̄) up to H₁ × H₂, with η^{−1} r̄_{E,p_i}(G_F) η ⊂ H_i. b_p, s_p = C⁺_s(p), ns_p = C⁺_ns(p) are the Borel and the normalizers of split and non-split Cartans; s_p° = C_s(p), ns_p° = C_ns(p).",
+   "locator": "§7.1, pp.92–93",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Notation of [FLHS15, §2.2]. Tau Ceti's ModularCurves roadmap plans Katz–Mazur Γ_H quotient problems and coarse moduli over Z[1/N], not these Cartan-level curves with explicit models."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/cor-7-1-2",
+   "kind": "theorem",
+   "name": "Modularity when X₀(15)(F) is finite",
+   "statement": "Let F be an imaginary quadratic field with X₀(15)(F) finite. Then every elliptic curve E/F is modular.",
+   "locator": "Corollary 7.1.2, p.93",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "By thm-7-1 only F-points of X₀(15) = X(b3,b5) (15A1) and X(s3,b5) (15A3, isogenous) remain; non-CM E are determined up to quadratic twist; the only quadratic fields with torsion growth are Q(√−1) and Q(√5) for X₀(15) (y² = x(x+16)(x+25)) and Q(√5) for X(s3,b5) (y² = x(x+1)(x+16)) [Kwo97, Thm. 1]; the 8 new points over Q(√−1) reduce to LMFDB curve 4050.1-c3, modular by Faltings–Serre [DGP10, LMF22]. The second paragraph misnames the curve (source issue E5)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-7-1-3",
+   "kind": "theorem",
+   "name": "Explicit models of small modular curves",
+   "statement": "(1) X(b3) ≅ P¹_Q with j = (x+27)(x+3)³/x. (2) X(b5) ≅ P¹_Q with j = (x²+250x+5⁵)³/x⁵, and w₅ : x ↦ 5³/x. (3) X(ns3) ≅ P¹_Q with j = x³. (4) X(ns5) ≅ P¹_Q with j = 5³x(2x+1)³(2x²+7x+8)³/(x²+x−1)⁵. (5) X(ns3,ns5) is an elliptic curve over Q isomorphic to 225A1, with X(ns3,ns5)(Q) ≅ Z. (6) X(s3) ≅ P¹_Q with j = 3³(x+1)³(x−3)³/x³.",
+   "locator": "Proposition 7.1.3, p.94",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "[SZ17, Table 1], [McM04, Table 3], [Che99, Prop. 5.1, Cor. 6.3]; (5): the singular model x³ = 5³y(2y+1)³(2y²+7y+8)³/(y²+y−1)⁵ is birational to y² − y = x³ + 1 (Magma file ns3ns5-elliptic.m)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-7-2-1",
+   "kind": "theorem",
+   "name": "A model and Jacobian for X(ns3°, b5)",
+   "statement": "(1) X(ns3°,b5) is the smooth genus-one curve C : y² = −3(x⁴ + 2x³ − x² + 10x + 25) in P(1,2,1). (2) w₅ acts on x-coordinates by x ↦ 5/x. (3) Jac C is isomorphic to 45A2, with Jac C(Q) ≅ Z/2 ⊕ Z/2.",
+   "locator": "§7.2, Proposition 7.2.1, pp.94–95",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "X(ns3,b5) ≅ P¹ with j = (x⁶+250x³+5⁵)³/x¹⁵; the degree-two cover is ramified at the j = 1728 points cut out by x⁴+2x³−x²+10x+25 (not (x²−5x−25)², excluded since Q(√5) is real); the twist is Q(√−3), the field of definition of the cusps of X(ns3°); Jacobian by [AKM+01] and two-descent (Magma ns3ob5.m)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/points-C-Q(√−3)",
+   "kind": "construction",
+   "name": "Special points and divisors on C over Q(√−3)",
+   "statement": "∞± = (1 : ±√−3 : 0), 0⁺ = (0 : 5√−3 : 1), P₁ = (−2 : −√−3 : 1), P₂ = (−5/2 : 5√−3/4 : 1) in C(Q(√−3)); C(Q) = ∅ (3-adically); D₀ = 0⁺ − ∞⁻, D₁ = P₁ − ∞⁻, D₂ = P₂ − ∞⁻ represent the order-2 points of Jac C(Q) via P ↦ [P] − [∞⁻].",
+   "locator": "§7.2, p.95",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-7-2-2",
+   "kind": "theorem",
+   "name": "Rational divisor classes on C",
+   "statement": "Pic⁰(C) (degree-0 rational divisors modulo linear equivalence) ≅ Z/2, generated by [0⁺ − ∞⁻].",
+   "locator": "Proposition 7.2.2, pp.95–96",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Following [BF04]: Riemann–Roch bases {1, f_i} of L(D_i + ∞⁺ + ∞⁻) over Q(√−3); E₀ is equivalent to P + σ(P) for P = (1+2i : 3+6i : 1); for E₁, E₂ the conics α₀² + 3α₁² + 6α₁ + 15 = 0 and α₀² + 3α₁² + 6α₁ + 12 = 0 have no rational points (3-adically). Remark 7.2.3: E₀'s conic has the point (3,2)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-7-2-4",
+   "kind": "theorem",
+   "name": "Quadratic points on X(ns3°, b5)",
+   "statement": "If P ∈ C(F) for a quadratic field F and P is not one of the two points at infinity, then x(P) ∈ Q or x(P)x(σ(P)) = 5, σ the non-trivial element of Gal(F/Q).",
+   "locator": "Proposition 7.2.4, pp.96–97",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": ""
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/cor-7-2-5",
+   "kind": "theorem",
+   "name": "Elliptic curves from quadratic points of X(ns3°, b5) are modular",
+   "statement": "Let F be a quadratic field and E/F the elliptic curve underlying an F-point of X(ns3°,b5). Then E is modular.",
+   "locator": "Corollary 7.2.5, p.97",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Either E has rational j-invariant (x(P) ∈ Q), or P maps to a Q-point of X(ns3,b5)/w₅, so E and E^σ are 5-isogenous and E is a Q-curve, hence modular (cf. [FLHS15, §12])."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-7-3-1",
+   "kind": "theorem",
+   "name": "A model and Jacobian for X(b3, ns5)",
+   "statement": "(1) X(b3,ns5) has genus 2, with hyperelliptic model C : y² = 9x⁶ − 6x⁵ − 35x⁴ + 40x² + 12x − 8. (2) The hyperelliptic involution is the Atkin–Lehner involution w₃. (3) Jac(C)(Q) ≅ Z/2 ⊕ Z/10.",
+   "locator": "§7.3, Proposition 7.3.1, p.97",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Magma IsHyperelliptic/SimplifiedModel (file b3ns5.m); w₃ has 6 fixed points (from C/O_{Q(√−3)} and C/Z[√−3], moduli description [KP16]) or Aut has order 2 [LSR21]; rank 0 by two-descent (MordellWeilGroupGenus2, Stoll [Sto01]); Jac(C)(F₇) ≅ Z/2 ⊕ Z/20 and Jac(C)(Q)[2] of order 4 bound the torsion."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/lem-7-3-2",
+   "kind": "theorem",
+   "name": "Quadratic points on a genus-2 hyperelliptic curve",
+   "statement": "Let P be a quadratic point of C with conjugate σ(P). Either (1) [P + σ(P)] = [D_∞] in Pic(C), and then P = (x, ±√f(x)) with x ∈ Q (f the defining sextic); or (2) [P + σ(P) − D_∞] ≠ 0 and P + σ(P) is the unique effective degree-2 divisor in its class.",
+   "locator": "Lemma 7.3.2, p.98",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "[D_∞] is the canonical class with L(D_∞) = ⟨1,x⟩; Riemann–Roch."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-7-3-3",
+   "kind": "theorem",
+   "name": "Imaginary quadratic points on X(b3, ns5)",
+   "statement": "If P ∈ C(F) for an imaginary quadratic field F and P is not at infinity, then x(P) ∈ Q, or F = Q(√−11) and, up to complex conjugation, P = ((−5+√−11)/6, ±(17−√−11)/6).",
+   "locator": "Proposition 7.3.3, p.98",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Inspect the 19 non-zero classes A ∈ Jac(C)(Q) with A + [D_∞] effective (Mumford representation): 9 with rational x, 2 at ∞, 2 on the Q(√−11) points, 6 real quadratic."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/cor-7-3-4",
+   "kind": "theorem",
+   "name": "Elliptic curves from quadratic points of X(b3, ns5) are modular",
+   "statement": "Let F be a quadratic field and E/F the elliptic curve underlying an F-point of X(b3,ns5). Then E is modular.",
+   "locator": "Corollary 7.3.4, p.98",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Points with x(P) ∈ Q satisfy σ(P) = w₃(P), so E is a Q-curve; the Q(√−11) points (related by conjugation and w₃) give LMFDB curve 8100.2-a2 over Q(√−11), whose mod-5 image is the full normalizer of a non-split Cartan, so cor-6-1-1 applies (also checked by Faltings–Serre in the LMFDB)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/relative-symmetric-chabauty",
+   "kind": "construction",
+   "name": "Box’s relative symmetric-square Chabauty set-up",
+   "statement": "For X/Q smooth projective geometrically irreducible with Jacobian J and a degree-2 map π : X → C: primes p₁,…,p_r of good reduction for C and X; divisors D₁,…,D_n generating a finite-index subgroup G ⊂ J(Q) with φ : Zⁿ ↠ G; I ≥ 1 with I·J(Q) ⊂ G; a finite set L ⊂ X^{(2)}(Q) with base point ∞ ∈ L, L = L^pb ⊔ L^npb (pulled back from C(Q) or not); L^good_i ⊂ L the points where [Box21, Thm. 2.1] (unique in its residue class mod p_i) or, for x = π^*(P) with P ∈ C(Q), [Box21, Thm. 2.4] (every point of the residue class is pulled back) applies; ι(x) = I([x] − ∞) and its reductions ι_p : X^{(2)}(F_p) → J(F_p); M^bad_i := ι^{−1}_{p_i}(red_{p_i}(G)) − red_{p_i}(L^good_i).",
+   "locator": "§7.4, pp.98–99",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EffectiveDiophantineMethods:ED.4",
+    "EffectiveDiophantineMethods:ED.5"
+   ],
+   "note": "Following [Box21, §2.4] and Siksek's relative symmetric power Chabauty [Sik09]. ED.4 plans classical Chabauty–Coleman and ED.5 the Mordell–Weil sieve with reduction maps from the Jacobian subgroup; neither names symmetric powers, so this is routed as a source for them."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-7-4-1",
+   "kind": "theorem",
+   "name": "Residue classes of good known points",
+   "statement": "If x ∈ X^{(2)}(Q) and red_{p_i}(x) ∈ red_{p_i}(L^good_i) for at least one i, then x ∈ L ∪ π^*C(Q).",
+   "locator": "Proposition 7.4.1, p.99",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Immediate from the definition of L^good_i."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/thm-7-4-2",
+   "kind": "theorem",
+   "name": "Relative Mordell–Weil sieve criterion (Box)",
+   "statement": "If ∩_{i=1}^r red^{−1}_{p_i}(ι_{p_i}(M^bad_i)) ⊂ G is empty, then X^{(2)}(Q) = L ∪ π^*C(Q).",
+   "locator": "Theorem 7.4.2, p.99",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "[Box21, Theorem 2.6]; each red^{−1}(ι(M^bad_i)) is a union of cosets of ker(red_{p_i}) in G."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-7-4-3",
+   "kind": "theorem",
+   "name": "Plane quartic models of X(ns3°, ns5) and X(s3, ns5)",
+   "statement": "(1) X(ns3°,ns5) ≅ C₁ : 9x⁴+19x²y²+y⁴+9x³+19x²y+22xy²+2y³+10x²+22xy+13y²+7x+12y+11 = 0, with unique automorphism of order 2 over Q, w₁ : (x,y) ↦ (x, −y−1). (2) X(s3,ns5) ≅ C₂ : −x⁴+2x³y+x²y²+8x³+2x²y−2xy²−y³−3x²−3xy+3y²+2x−3y+1 = 0, with unique automorphism of order 2 over Q, w₂ : (x,y) ↦ ((3x+y+2)/(4x−2y+1), (8x+y−8)/(4x−2y+1)). (3) The Q(√−55)-points P₁ = ((1+√−55)/28, (27−√−55)/56) and P₂ = ((3−√−55)/4, (3+3√−55)/4) of C₂ have j-invariant −32768.",
+   "locator": "§7.4, Proposition 7.4.3, p.100",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Singular models from y² = −3(x²+12x+144) for X(ns3°) and X(ns5), desingularized in Magma; automorphisms by AutomorphismGroupOfPlaneQuartic [LSR21]. Both curves are bi-elliptic over X(ns3,ns5) (files ns3ons5.m, s3ns5.m)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-7-4-4",
+   "kind": "theorem",
+   "name": "Mordell–Weil data for the bi-elliptic genus-3 curves",
+   "statement": "(1) rk Jac C_i(Q) = rk Jac X(Q) = 1 for i = 1, 2 (X = X(ns3,ns5)). (2) Jac C₁(Q)_tors is isomorphic to a subgroup of Z/2 ⊕ Z/2, and Jac C₂(Q)_tors ≅ Z/2 ⊕ Z/10. (3) For a generator D of Jac X(Q) ≅ Z and G_i = ⟨π^*_i D⟩: 4·Jac C₁(Q) ⊂ 2G₁ and 10·Jac C₂(Q) ⊂ ⟨5G₁, Jac C₂(Q)[2]⟩.",
+   "locator": "Proposition 7.4.4, pp.100–101",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Chen's isogeny ([dSE00, Thm. 2]): Jac C₁ ~ new part of J₀(225)/w₂₅ (newforms 225.2.a.b, c, e; curves 225c, 225a, 225d of ranks 0, 1, 0); Jac C₂ ~ 5-new part of J₀(225)/⟨w₉,w₂₅⟩ (225.2.a.c, 75.2.a.a, 75.2.a.b); [Box21, Prop. 3.1]; torsion from #Jac(F_p), p = 7, 11, 13, with explicit generators D₁ (order 10), D₂ (order 2). For C₂ the printed statement (and the proof of prop-7-4-5) writes 5G₁ ⊂ Jac C₁(Q) where G₂ is meant (source issue E9)."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/prop-7-4-5",
+   "kind": "theorem",
+   "name": "Quadratic points on X(ns3°, ns5) and X(s3, ns5)",
+   "statement": "(1) For X = X(ns3°,ns5), C = X(ns3,ns5) and π the quotient: X^{(2)}(Q) = π^*C(Q). (2) For X = X(s3,ns5): there are eight conjugate pairs of quadratic points not mapping to C(Q); two are defined over an imaginary quadratic field, namely P₁, P₂ of prop-7-4-3.",
+   "locator": "Proposition 7.4.5, p.101",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "(1) [Box21, Thm. 2.4] at p = 43 with L of 8 pulled-back divisors (red₄₃(G) cyclic of order 7); (2) Box's Mordell–Weil sieve at 11 and 43 with G = ⟨5G₁, Jac C₂(Q)[2]⟩, I = 10 and 16 non-pulled-back divisors in L; Box's code and Ozman–Siksek's point search."
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/cor-7-4-6",
+   "kind": "theorem",
+   "name": "Elliptic curves from these quadratic points are modular",
+   "statement": "(1) If F is a quadratic field and E/F underlies an F-point of X(ns3°,ns5), E is modular. (2) If F is imaginary quadratic and E/F underlies an F-point of X(s3,ns5), E is modular.",
+   "locator": "Corollary 7.4.6, p.102",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "All relevant points map to rational points of X(ns3,ns5), except P₁, P₂ over Q(√−55) and their conjugates, which have rational j-invariant."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "P. B. Allen, C. Khare and J. A. Thorne, Modularity of GL₂(F_p)-representations over CM fields, Camb. J. Math. 11 (2023), no. 1, 1–158",
+   "link": "https://doi.org/10.4310/CJM.2023.v11.n1.a1",
+   "why": "Residual modularity mod 3 and 5 (Props. 9.12–9.15), PGL₂ cohomology at non-neat level (§5), Taylor–Wiles primes and the base-change argument (Appendix A); used throughout §§5–6."
+  },
+  {
+   "citation": "N. Freitas, B. V. Le Hung and S. Siksek, Elliptic curves over real quadratic fields are modular, Invent. Math. 201 (2015), no. 1, 159–206",
+   "link": "https://doi.org/10.1007/s00222-014-0550-z",
+   "why": "The model for §7: modular curves X(H₁,H₂), Lemma 2.2 on Cartan images, Q-curves (§12)."
+  },
+  {
+   "citation": "J. Newton and J. A. Thorne, Torsion Galois representations over CM fields and Hecke algebras in the derived category, Forum Math. Sigma 4 (2016), e21",
+   "link": "https://doi.org/10.1017/fms.2016.16",
+   "why": "The equivariant-sheaf formalism, Hecke algebras in the derived category, boundary stratification and Satake maps used in §§2 and 4."
+  },
+  {
+   "citation": "T. Koshikawa, On the generic part of the cohomology of local and global Shimura varieties, preprint, arXiv:2106.10602",
+   "link": "https://arxiv.org/abs/2106.10602",
+   "why": "Theorem 1.4 removes the length-two and [F⁺:Q] > 1 hypotheses of Caraiani–Scholze in Theorem 2.1.28."
+  },
+  {
+   "citation": "D. Geraghty, Modularity lifting theorems for ordinary Galois representations, Math. Ann. 373 (2019), 1341–1427",
+   "link": "https://doi.org/10.1007/s00208-018-1742-4",
+   "why": "Rescaled Hecke actions, semistable-ordinary representations and their deformation rings (Defs. 2.8, 3.8, Lemmas 3.9–3.10, 5.6)."
+  },
+  {
+   "citation": "A. Snowden, Singularities of ordinary deformation rings, Math. Z. 288 (2018), 759–781",
+   "link": "https://doi.org/10.1007/s00209-017-1912-1",
+   "why": "Components of the two-dimensional ordinary lifting ring (Prop. 5.3.2)."
+  },
+  {
+   "citation": "A. Caraiani, M. Emerton, T. Gee and D. Savitt, The geometric Breuil–Mézard conjecture for two-dimensional potentially Barsotti–Tate Galois representations, Algebra Number Theory 19 (2025), 287–312",
+   "link": "https://arxiv.org/abs/2207.05235",
+   "why": "Generic reducedness of Barsotti–Tate special fibres (Theorem 1.3), used in Lemma 5.3.3."
+  },
+  {
+   "citation": "J. Box, Quadratic points on modular curves with infinite Mordell–Weil group, Math. Comp. 90 (2021), 321–343",
+   "link": "https://doi.org/10.1090/mcom/3547",
+   "why": "The relative symmetric-square Chabauty method and Mordell–Weil sieve of §7.4."
+  },
+  {
+   "citation": "S. Siksek, Chabauty for symmetric powers of curves, Algebra Number Theory 3 (2009), 209–236",
+   "link": "https://doi.org/10.2140/ant.2009.3.209",
+   "why": "Symmetric-power Chabauty underlying Box's method."
+  },
+  {
+   "citation": "J. Hauseux, Parabolic induction and extensions, Algebra Number Theory 12 (2018), 779–831; and Extensions entre séries principales p-adiques et modulo p, J. Inst. Math. Jussieu 15 (2016), 225–270",
+   "link": "https://doi.org/10.2140/ant.2018.12.779",
+   "why": "The Bruhat filtration of parabolic induction and its ordinary parts (§2.3.1)."
+  },
+  {
+   "citation": "M. Emerton, Ordinary parts of admissible representations of p-adic reductive groups I, II, Astérisque 331 (2010), 355–402, 403–459",
+   "link": "",
+   "why": "The ordinary-part functors and top-degree U₀-cohomology used in §§2.2–2.3."
+  },
+  {
+   "citation": "F. Herzig, K. Koziol and M.-F. Vignéras, On the existence of admissible supersingular representations of p-adic reductive groups, Forum Math. Sigma 8 (2020), e2",
+   "link": "https://doi.org/10.1017/fms.2019.50",
+   "why": "Lemma 6.4.1 (Newton above Hodge with its equality case), used in Lemmas 3.1.3 and 3.3.2."
+  },
+  {
+   "citation": "J. Tilouine and E. Urban, Several-variable p-adic families of Siegel–Hilbert cusp eigensystems and their Galois representations, Ann. Sci. ÉNS 32 (1999), 499–574",
+   "link": "https://doi.org/10.1016/s0012-9593(99)80021-4",
+   "why": "The P-ordinary Hida theory for GSp₄ that §2.2 extends."
+  },
+  {
+   "citation": "P. B. Allen and J. Newton, Monodromy for some rank two Galois representations over CM fields, Doc. Math. 25 (2020), 2487–2506",
+   "link": "https://arxiv.org/abs/1901.05490",
+   "why": "Lemma 2.3 (big image implies decomposed generic), used in Corollary 6.1.2."
+  },
+  {
+   "citation": "D. Zywina, Elliptic curves with maximal Galois action on their torsion points, Bull. London Math. Soc. 42 (2010), 811–826",
+   "link": "https://doi.org/10.1112/blms/bdq039",
+   "why": "Quantitative Hilbert irreducibility (Prop. 5.2), used in Corollary 6.1.2."
+  },
+  {
+   "citation": "M. Harris, K.-W. Lan, R. Taylor and J. Thorne, On the rigid cohomology of certain Shimura varieties, Res. Math. Sci. 3 (2016), 37",
+   "link": "https://doi.org/10.1186/s40687-016-0078-5",
+   "why": "The Galois representations r_ι(π) of Theorem 4.3.1."
+  },
+  {
+   "citation": "B. Hevesi, Ordinary parts and local-global compatibility at ℓ = p, preprint, arXiv:2311.13514",
+   "link": "https://arxiv.org/abs/2311.13514",
+   "why": "The potentially semistable generalisation of Theorem 1.3 (Remark 1.3.1)."
+  }
+ ],
+ "routes": [
+  {
+   "route": "part-ii",
+   "parent": "PotentialAutomorphyInfrastructure",
+   "roadmap": "CrystallineLocalGlobalCompatibilityCM",
+   "title": "Reusable infrastructure for potential automorphy over CM fields, Part II: P-ordinary degree shifting, crystalline local–global compatibility and Barsotti–Tate lifting",
+   "area": "automorphic",
+   "items": [
+    "PAPER-CARAIANI-NEWTON-23/thm-1-3",
+    "PAPER-CARAIANI-NEWTON-23/weyl-elements",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-1-12",
+    "PAPER-CARAIANI-NEWTON-23/parahoric-P-v(b,c)",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-1-15",
+    "PAPER-CARAIANI-NEWTON-23/rescaled-actions",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-1-17",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-1-21",
+    "PAPER-CARAIANI-NEWTON-23/p-ordinary-finite-level",
+    "PAPER-CARAIANI-NEWTON-23/p-ordinary-functors",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-2-4",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-2-5",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-2-6",
+    "PAPER-CARAIANI-NEWTON-23/p-ordinary-completed",
+    "PAPER-CARAIANI-NEWTON-23/prop-2-2-8",
+    "PAPER-CARAIANI-NEWTON-23/cor-2-2-9",
+    "PAPER-CARAIANI-NEWTON-23/prop-2-2-10",
+    "PAPER-CARAIANI-NEWTON-23/parahoric-variant",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-2-12",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-2-14",
+    "PAPER-CARAIANI-NEWTON-23/prop-2-2-15",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-2-16",
+    "PAPER-CARAIANI-NEWTON-23/prop-2-2-17",
+    "PAPER-CARAIANI-NEWTON-23/dual-p-ordinary",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-2-19",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-3-2",
+    "PAPER-CARAIANI-NEWTON-23/induction-filtration-functors",
+    "PAPER-CARAIANI-NEWTON-23/prop-2-3-3",
+    "PAPER-CARAIANI-NEWTON-23/prop-2-3-4",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-3-5",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-3-6",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-3-7",
+    "PAPER-CARAIANI-NEWTON-23/chi-character",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-3-8",
+    "PAPER-CARAIANI-NEWTON-23/prop-2-3-11",
+    "PAPER-CARAIANI-NEWTON-23/cor-2-3-12",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-3-14",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-3-15",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-3-17",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-3-18",
+    "PAPER-CARAIANI-NEWTON-23/Q-ordinary-hecke",
+    "PAPER-CARAIANI-NEWTON-23/iota-Q-ordinary",
+    "PAPER-CARAIANI-NEWTON-23/thm-3-1-2",
+    "PAPER-CARAIANI-NEWTON-23/lem-3-1-3",
+    "PAPER-CARAIANI-NEWTON-23/boundary-coefficient-object",
+    "PAPER-CARAIANI-NEWTON-23/thm-4-1-3",
+    "PAPER-CARAIANI-NEWTON-23/prop-4-1-4",
+    "PAPER-CARAIANI-NEWTON-23/lem-4-1-5",
+    "PAPER-CARAIANI-NEWTON-23/lem-4-1-6",
+    "PAPER-CARAIANI-NEWTON-23/lem-4-1-7",
+    "PAPER-CARAIANI-NEWTON-23/prop-4-1-8",
+    "PAPER-CARAIANI-NEWTON-23/cor-4-1-9",
+    "PAPER-CARAIANI-NEWTON-23/ord-hecke-algebras-4-2",
+    "PAPER-CARAIANI-NEWTON-23/prop-4-2-2",
+    "PAPER-CARAIANI-NEWTON-23/lem-4-2-3",
+    "PAPER-CARAIANI-NEWTON-23/prop-4-2-4",
+    "PAPER-CARAIANI-NEWTON-23/hecke-images-A",
+    "PAPER-CARAIANI-NEWTON-23/lem-4-2-5",
+    "PAPER-CARAIANI-NEWTON-23/prop-4-2-6",
+    "PAPER-CARAIANI-NEWTON-23/hecke-images-dual",
+    "PAPER-CARAIANI-NEWTON-23/prop-4-2-8",
+    "PAPER-CARAIANI-NEWTON-23/prop-4-2-9",
+    "PAPER-CARAIANI-NEWTON-23/prop-4-2-11",
+    "PAPER-CARAIANI-NEWTON-23/prop-4-2-13",
+    "PAPER-CARAIANI-NEWTON-23/sub-lemma-1-twist",
+    "PAPER-CARAIANI-NEWTON-23/thm-4-2-15",
+    "PAPER-CARAIANI-NEWTON-23/cor-4-2-16",
+    "PAPER-CARAIANI-NEWTON-23/thm-4-3-1",
+    "PAPER-CARAIANI-NEWTON-23/thm-5-2",
+    "PAPER-CARAIANI-NEWTON-23/prop-5-4-2",
+    "PAPER-CARAIANI-NEWTON-23/cor-5-4-3",
+    "PAPER-CARAIANI-NEWTON-23/pgl2-cohomology",
+    "PAPER-CARAIANI-NEWTON-23/lem-5-5-1",
+    "PAPER-CARAIANI-NEWTON-23/prop-5-5-2",
+    "PAPER-CARAIANI-NEWTON-23/prop-5-5-3",
+    "PAPER-CARAIANI-NEWTON-23/setup-5-6",
+    "PAPER-CARAIANI-NEWTON-23/prop-5-6-1",
+    "PAPER-CARAIANI-NEWTON-23/deformation-problems-S-chi",
+    "PAPER-CARAIANI-NEWTON-23/prop-5-6-2",
+    "PAPER-CARAIANI-NEWTON-23/prop-5-6-3",
+    "PAPER-CARAIANI-NEWTON-23/lem-5-6-4",
+    "PAPER-CARAIANI-NEWTON-23/lem-5-6-5",
+    "PAPER-CARAIANI-NEWTON-23/proof-thm-5-2"
+   ],
+   "brief": "Starts where Reusable infrastructure for potential automorphy over CM fields (PotentialAutomorphyInfrastructure) stops. PA.1 and PA.2 plan local–global compatibility at p for the torsion Galois representations of Scholze only in the Fontaine–Laffaille and Borel-ordinary cases of Allen et al. (ACC+); this Part II proves it in the crystalline and P-ordinary cases with p small and arbitrarily ramified, and the potentially Barsotti–Tate automorphy lifting theorem it enables, following §§2–5 of Caraiani–Newton, 'On the modularity of elliptic curves over imaginary quadratic fields', arXiv:2301.10509v3 (27 March 2025).\n\nFinal theorems, as the paper states them. (a) Theorem 4.2.15: F imaginary CM containing an imaginary quadratic field, p split in an imaginary quadratic subfield, T ⊇ S_p with T = T^c and every v ∉ T of residue characteristic ℓ either with no ℓ-adic place in T and ℓ unramified in F or ℓ split in an imaginary quadratic subfield; K ⊂ GL_n(𝔸_{F,f}) good, hyperspecial off T; distinct p-adic places v̄, v̄′ of F⁺ with Σ_{v̄″≠v̄,v̄′}[F⁺_{v̄″}:Q_p] ≥ ½[F⁺:Q]; λ dominant; a parabolic Q_{v̄} ⊂ P_{v̄} of type (cr-ord) partition (n,1,…,1), (ord) B_{2n} or (cr) the Siegel parabolic, K_{v̄} = 𝒬_{v̄} ∩ G(F⁺_{v̄}); m non-Eisenstein, ρ̄_m decomposed generic, [K ν(ϖ) K] ∉ m. Then there are N = N(n,[F⁺:Q]), J^N = 0 and ρ_m over T^{Q_{v̄},{v̄}-ord}(RΓ(X_K,V_λ)_m)/J with unramified characteristic polynomials P_v(X), such that R^□_{ρ̄_m|G_{F_v}} → T/J factors through R^{△,λ_ṽ} at ṽ and R^{cris,λ_ṽc} at ṽ^c (cr-ord), through R^{△,λ_v} (ord), or through R^{cris,λ_v} (cr); Corollary 4.2.16 with fixed determinant when p ∤ n. (b) Theorem 4.3.1: for F totally real or CM, π cuspidal regular algebraic of weight λ on GL_n(𝔸_F), v | p with π unramified at v and v^c, r_ι(π) irreducible and decomposed generic, r_ι(π)|_{G_{F_v}} and |_{G_{F_{v^c}}} are crystalline with labelled Hodge–Tate weights λ_{ιτ,n} < … < λ_{ιτ,1} + n − 1. (c) Theorem 5.2: potentially Barsotti–Tate automorphy lifting for ρ : G_F → GL₂(Q̄_p), F imaginary CM, p odd, det ρ = ε_p^{−1}, all labelled Hodge–Tate weights (0,1), ρ̄ decomposed generic with ρ̄|_{G_{F(ζ_p)}} irreducible, the p = 5 condition, and a weight-0 π on PGL₂(𝔸_F) with ρ̄ ≅ r̄_ι(π) matching ordinarity at potentially crystalline places and ι-ordinary and non-potentially-crystalline at the others.\n\nLayers to plan. (1) The topological adelic formalism for completed cohomology at a set S of p-adic places (imported from ArithmeticLocallySymmetricSpaces, extended by the source route of this paper to ALS.3/ALS.6). (2) P-ordinary Hida theory for the Betti cohomology of the unitary spaces X̃_{K̃} at Siegel-parahoric and Q-parahoric levels: Hecke algebras of the monoids Δ̃^Q and their rescaled actions, the P-ordinary functors RΓ(U⁰,−)^{ord}, ord_b, ord₀ and their dual versions, independence of level (Cor. 2.2.9) and of weight (Props. 2.2.15, 2.2.17). This generalises PA.2's Borel-ordinary functor, which it imports and specialises to. (3) The P-ordinary part of a parabolic induction (Prop. 2.3.11, Cor. 2.3.12) via the Bruhat filtration (Hauseux) and Emerton's ordinary parts, and the cohomology of induced spaces (Lemma 2.3.14). (4) The splitting of RΓ(U₀, O/ϖ^m) at deep level (Lemma 2.3.17) and the Artin–Rees subquotient lemma. (5) The Galois side: Q-ordinary automorphic representations have block-triangular Galois representations with crystalline diagonal blocks and determined determinants (Theorem 3.1.2, from Lemma 3.1.3, Newton above Hodge). (6) The completed boundary computation (Theorem 4.1.3, Cor. 4.1.9) and degree shifting at deep auxiliary level (Props. 4.2.2, 4.2.4, 4.2.6, 4.2.8) with the spectral-sequence comparison and descending induction that replace ACC+'s hypothesis p > n², p unramified. (7) Torsion local–global compatibility (Prop. 4.2.13, with its twisting Sub-lemma) and Theorems 4.2.15 and 4.3.1. (8) GL₂/PGL₂ patching with local rings having two components (Assumption 5.4.1, Prop. 5.4.2, Cor. 5.4.3), the special case Prop. 5.6.1 and the solvable base change of Theorem 5.2 (Lemma 5.6.5).\n\nImports: PotentialAutomorphyInfrastructure PA.0–PA.4 (integral cohomology interface, Weyl modules, Borel-ordinary theory, derived support, auxiliary primes); ArithmeticLocallySymmetricSpaces ALS.1–ALS.6; IgusaVarietiesAndTorsionConcentration IG.7 (Caraiani–Scholze concentration; the paper uses Koshikawa to drop the length-two hypothesis); IntegralHeckeAndGaloisDeterminants IHG.0–IHG.5; TorsionCohomologyInfrastructure TC.2–TC.3; AutomorphicGaloisRepresentationsPartII AG2.2, AG2.5, AG2.7; LocalGaloisDeformationRings R08.2–R08.4, L7, L8 (with this paper's source items); GlobalGaloisDeformations R04.1–R04.5; DeformationAndDerivedPatchingAlgebra P8–P9. Allen–Khare–Thorne (Camb. J. Math. 11, 2023) supplies the PGL₂ cohomology at non-neat level and the Taylor–Wiles and base-change steps; it is a prerequisite paper. Coordinate with the sibling Part IIs of the same parent: WeightZeroCrystallineAutomorphyLifting (PAPER-BOXER-CALEGARI-GEE-ETAL-25) imports this paper's Theorems 4.2.15 and 4.3.1, Lemma 5.3.3, Proposition 5.4.2 and Corollary 5.4.3, which are owned here; AutomorphyLiftingBeyondTaylorWiles (Calegari–Geraghty) records subsequent work including this local–global compatibility. Hevesi (arXiv:2311.13514) extends Theorem 4.2.15 to the potentially semistable case; plan the crystalline case first and keep the interface open for it. Acceptance tests: n = 2 with λ trivial and p = 3, 5 ramified in F (the case used for elliptic curves); the three parabolic cases; the dual-coefficient degree shifting for q < ⌊d/2⌋.",
+   "reason": "PA.1 and PA.2 plan local–global compatibility at p only in the Fontaine–Laffaille and Borel-ordinary cases, and nothing in the atlas plans P-ordinary Hida theory for the unitary Betti cohomology, degree shifting at deep auxiliary level, crystalline local–global compatibility for torsion classes, or the potentially Barsotti–Tate lifting theorem over CM fields. A Part II of PotentialAutomorphyInfrastructure; make_queue folds it with the sibling Part IIs of that parent into DESIGN-PotentialAutomorphyInfrastructurePartII (pending). PAPER-BOXER-CALEGARI-GEE-ETAL-25 already imports this paper's results into its WeightZeroCrystallineAutomorphyLifting."
+  },
+  {
+   "route": "part-ii",
+   "parent": "EllipticCurveModularity",
+   "roadmap": "EllipticCurveModularityImaginaryQuadratic",
+   "title": "Modularity and modular parametrisations of elliptic curves over Q, Part II: elliptic curves over imaginary quadratic and CM fields",
+   "area": "automorphic",
+   "items": [
+    "PAPER-CARAIANI-NEWTON-23/modular-elliptic-curve",
+    "PAPER-CARAIANI-NEWTON-23/thm-1-1",
+    "PAPER-CARAIANI-NEWTON-23/thm-1-2",
+    "PAPER-CARAIANI-NEWTON-23/thm-6-1",
+    "PAPER-CARAIANI-NEWTON-23/cor-6-1-1",
+    "PAPER-CARAIANI-NEWTON-23/cor-6-1-2",
+    "PAPER-CARAIANI-NEWTON-23/lem-6-1-3",
+    "PAPER-CARAIANI-NEWTON-23/lem-6-1-4",
+    "PAPER-CARAIANI-NEWTON-23/prop-6-1-5",
+    "PAPER-CARAIANI-NEWTON-23/prop-6-1-6",
+    "PAPER-CARAIANI-NEWTON-23/lem-6-1-7",
+    "PAPER-CARAIANI-NEWTON-23/lem-6-2-2",
+    "PAPER-CARAIANI-NEWTON-23/thm-7-1",
+    "PAPER-CARAIANI-NEWTON-23/lem-7-1-1",
+    "PAPER-CARAIANI-NEWTON-23/modular-curves-X(H)",
+    "PAPER-CARAIANI-NEWTON-23/cor-7-1-2",
+    "PAPER-CARAIANI-NEWTON-23/prop-7-1-3",
+    "PAPER-CARAIANI-NEWTON-23/prop-7-2-1",
+    "PAPER-CARAIANI-NEWTON-23/points-C-Q(√−3)",
+    "PAPER-CARAIANI-NEWTON-23/prop-7-2-2",
+    "PAPER-CARAIANI-NEWTON-23/prop-7-2-4",
+    "PAPER-CARAIANI-NEWTON-23/cor-7-2-5",
+    "PAPER-CARAIANI-NEWTON-23/prop-7-3-1",
+    "PAPER-CARAIANI-NEWTON-23/lem-7-3-2",
+    "PAPER-CARAIANI-NEWTON-23/prop-7-3-3",
+    "PAPER-CARAIANI-NEWTON-23/cor-7-3-4",
+    "PAPER-CARAIANI-NEWTON-23/prop-7-4-3",
+    "PAPER-CARAIANI-NEWTON-23/prop-7-4-4",
+    "PAPER-CARAIANI-NEWTON-23/prop-7-4-5",
+    "PAPER-CARAIANI-NEWTON-23/cor-7-4-6"
+   ],
+   "brief": "Starts where Modularity and modular parametrisations of elliptic curves over Q (EllipticCurveModularity) stops: that roadmap proves modularity over Q; this Part II proves the modularity of elliptic curves over imaginary quadratic and imaginary CM fields, following §§6–7 of Caraiani–Newton, 'On the modularity of elliptic curves over imaginary quadratic fields', arXiv:2301.10509v3 (27 March 2025).\n\nFinal theorems, as the paper states them. A curve E/F is modular if it has CM or r^∨_{E,p} ≅ r_{π,ι} for a cuspidal regular algebraic π of GL₂(𝔸_F) of weight 0. (a) Theorem 6.1: F imaginary CM with ζ₅ ∉ F; if r̄_{E,3} (resp. r̄_{E,5}) is decomposed generic and absolutely irreducible on G_{F(ζ₃)} (resp. G_{F(ζ₅)}), E is modular. (b) Corollary 6.1.1: for F imaginary quadratic, absolute irreducibility of r̄_{E,3}|_{G_{F(ζ₃)}} or r̄_{E,5}|_{G_{F(ζ₅)}} suffices (Lemma 6.2.2: over quadratic fields this implies decomposed genericity, via Goursat and Chebotarev). (c) Corollary 6.1.2: for F imaginary CM Galois over Q with ζ₅ ∉ F, 100% of Weierstrass equations over F, ordered by height, define modular curves. (d) Theorem 7.1: for F imaginary quadratic, E is modular if G_F acts irreducibly on E[5], or irreducibly on E[3] with image not the normalizer of a split Cartan. (e) Corollary 7.1.2 (Theorem 1.1): if X₀(15)(F) is finite, every E/F is modular.\n\nLayers to plan. (1) Mod-3 and mod-5 switching with prescribed reduction types at p (Props. 6.1.5, 6.1.6, after Allen–Khare–Thorne 9.12–9.15), with Hilbert irreducibility and weak approximation, and the local properties of the auxiliary automorphic representation (Lemmas 6.1.3, 6.1.7, 6.1.4). (2) Theorem 6.1 by applying the potentially Barsotti–Tate lifting theorem of the PotentialAutomorphyInfrastructure Part II proposed by this paper (Theorem 5.2), and solvable descent. (3) Group theory: Lemma 7.1.1 on images whose restriction to F(ζ_p) is absolutely reducible (normalizers of Cartan subgroups). (4) Modular curves X(H), X(H₁,H₂) for Borel and Cartan level at 3 and 5 with explicit models and j-maps (Prop. 7.1.3), and the imaginary quadratic points of X(b3,b5), X(s3,b5) (torsion growth, Kwon), X(ns3°,b5) (genus one, rational divisor classes, Prop. 7.2.2, Prop. 7.2.4), X(b3,ns5) (genus 2, Jacobian Z/2 ⊕ Z/10, Prop. 7.3.3), X(ns3°,ns5) and X(s3,ns5) (bi-elliptic plane quartics over X(ns3,ns5) = 225A1, Props. 7.4.3–7.4.5 by relative symmetric-square Chabauty and a Mordell–Weil sieve). (5) The modularity of the curves attached to these points: rational j-invariant, Q-curves, and the explicit LMFDB curves 4050.1-c3 over Q(√−1) and 8100.2-a2 over Q(√−11), with the certificates each computation needs.\n\nImports: Tau Ceti's EllipticCurves and ModularCurves (layers 9–10 for Γ_H quotients and coarse moduli); InverseGaloisAndArithmeticFundamentalGroups IG.2 (Hilbert irreducibility); EffectiveDiophantineMethods ED.4–ED.6 (Chabauty–Coleman, the Mordell–Weil sieve and reproducible certificates, with this paper's relative symmetric-power method as a source); Chebotarev; the PotentialAutomorphyInfrastructure Part II for Theorem 5.2; Allen–Khare–Thorne and Freitas–Le Hung–Siksek (Invent. Math. 201, 2015) as prerequisite papers. Coordinate with the sibling Part II EllipticModularityEffectiveComparisons (Bennett–Siksek). Magma computations (files at github.com/jjmnewton/modularity-iqf) are inputs to verify, not theorems: each model, Mordell–Weil group and sieve needs a checkable certificate. Acceptance tests: F = Q(√−1), Q(√−2), Q(√−3), Q(√−5); the Q(√−11) and Q(√−55) points; a field where X₀(15) has positive rank as a negative test of Theorem 1.1's hypothesis.",
+   "reason": "EllipticCurveModularity proves modularity only over Q, and no atlas layer plans modularity over other number fields, mod-3/mod-5 switching over CM fields, or the quadratic points of modular curves with Cartan level. A Part II of that roadmap, as the maintainer's note asks; make_queue folds it with Bennett–Siksek's EllipticModularityEffectiveComparisons into DESIGN-EllipticCurveModularityPartII (pending)."
+  },
+  {
+   "route": "source",
+   "roadmap": "EffectiveDiophantineMethods",
+   "stages": [
+    "EffectiveDiophantineMethods:ED.4",
+    "EffectiveDiophantineMethods:ED.5"
+   ],
+   "items": [
+    "PAPER-CARAIANI-NEWTON-23/relative-symmetric-chabauty",
+    "PAPER-CARAIANI-NEWTON-23/prop-7-4-1",
+    "PAPER-CARAIANI-NEWTON-23/thm-7-4-2"
+   ],
+   "reason": "ED.4 plans Chabauty–Coleman and ED.5 the Mordell–Weil sieve with reduction maps from a finite-index Jacobian subgroup and an exhaustive candidate certificate. Box's relative symmetric-square Chabauty (after Siksek) and its sieve criterion (Theorem 7.4.2 = [Box21, Thm. 2.6]) are the degree-two, relative version of that method; the paper is a source for those layers (the blueprint job BP-EffectiveDiophantineMethods is pending)."
+  },
+  {
+   "route": "source",
+   "roadmap": "LocalGaloisDeformationRings",
+   "stages": [
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:L8",
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "items": [
+    "PAPER-CARAIANI-NEWTON-23/semistable-ordinary",
+    "PAPER-CARAIANI-NEWTON-23/lem-3-3-2",
+    "PAPER-CARAIANI-NEWTON-23/thm-3-3-3",
+    "PAPER-CARAIANI-NEWTON-23/fixed-det-rings",
+    "PAPER-CARAIANI-NEWTON-23/lem-3-3-6",
+    "PAPER-CARAIANI-NEWTON-23/local-rings-5-3",
+    "PAPER-CARAIANI-NEWTON-23/prop-5-3-2",
+    "PAPER-CARAIANI-NEWTON-23/lem-5-3-3",
+    "PAPER-CARAIANI-NEWTON-23/lem-5-3-4"
+   ],
+   "reason": "L7 constructs fixed Hodge-type potentially semistable rings with determinant constraints, L8 ordinary conditions and R08.4 Barsotti–Tate components. The semistable-ordinary quotient R^△ and its open-closed position in R^st (Lemma 3.3.2), the fixed-determinant power-series decomposition (Lemma 3.3.6, after Emerton–Gee), Snowden's two-component description of the two-dimensional ordinary ring (Prop. 5.3.2) and unique generalisation for the Barsotti–Tate ring from generic reducedness (Lemma 5.3.3, after CEGS) belong in those layers."
+  },
+  {
+   "route": "source",
+   "roadmap": "IntegralHeckeAndGaloisDeterminants",
+   "stages": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1"
+   ],
+   "items": [
+    "PAPER-CARAIANI-NEWTON-23/determinant-setup-3-2",
+    "PAPER-CARAIANI-NEWTON-23/cayley-hamilton-determinant",
+    "PAPER-CARAIANI-NEWTON-23/lem-3-2-1",
+    "PAPER-CARAIANI-NEWTON-23/lem-3-2-2",
+    "PAPER-CARAIANI-NEWTON-23/gma-structure",
+    "PAPER-CARAIANI-NEWTON-23/prop-3-2-3",
+    "PAPER-CARAIANI-NEWTON-23/prop-3-2-4"
+   ],
+   "reason": "IHG.1 owns Cayley–Hamilton algebras, generalized matrix algebras, reducibility ideals and 'the lattice constructions used by congruence arguments'. §3.2 is such a construction: an idempotent lifted over a Henselian base cuts a 2n-dimensional determinant into two blocks compatibly with a local sub-representation, producing an integral local lift of the torsion representation (Prop. 3.2.4)."
+  },
+  {
+   "route": "source",
+   "roadmap": "ArithmeticLocallySymmetricSpaces",
+   "stages": [
+    "ArithmeticLocallySymmetricSpaces:ALS.3",
+    "ArithmeticLocallySymmetricSpaces:ALS.6"
+   ],
+   "items": [
+    "PAPER-CARAIANI-NEWTON-23/adelic-limit-spaces",
+    "PAPER-CARAIANI-NEWTON-23/equivariant-local-systems-hecke",
+    "PAPER-CARAIANI-NEWTON-23/prop-2-1-3",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-1-4",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-1-5",
+    "PAPER-CARAIANI-NEWTON-23/completed-cohomology-at-S",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-1-7",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-1-8",
+    "PAPER-CARAIANI-NEWTON-23/lem-2-1-9"
+   ],
+   "reason": "ALS.3 owns Hecke correspondences on complexes with their derived coherence and ALS.6 the tower API for completed cohomology. §2.1 sets these up with the adelic groups carrying their locally profinite topology (the limit spaces 𝔛̄_G with free actions of good subgroups), compares this with the discrete set-up of Newton–Thorne (Lemma 2.1.5), and proves the projection formulas (Lemmas 2.1.8, 2.1.9) that make completed cohomology independent of the weight."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E1",
+   "kind": "misprint",
+   "locator": "Theorem 3.3.3 (1), (3) and (5), p.52, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "The source gives the following criterion for ζ : R^□_{ρ̄_v} → B, an O-algebra map, to factor through R^{st,λ_v}_{ρ̄_v}: ρ^{univ}_v ⊗_{R^{st,λ_v}_{ρ̄_v},ζ} B must be semistable of p-adic Hodge type v_{λ_v}. Parts (3) and (5) repeat this subscript.",
+   "correction": "ρ^{univ}_v ⊗_{R^□_{ρ̄_v},ζ} B",
+   "reason": "ζ is a map from R^□_{ρ̄_v}, the ring over which ρ^{univ}_v is defined; the tensor product must be taken along ζ over R^□. (Also 'if and only' for 'if and only if'.)",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
+    "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E2",
+   "kind": "misprint",
+   "locator": "§3.3.5, p.52, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "R^{△,λ_v,ψ}_{ρ̄_v} = R^{cris,λ_v}_{ρ̄_v} ⊗_{R^□_{ρ̄_v}} R^{□,ψ}_{ρ̄_v}",
+   "correction": "R^{△,λ_v,ψ}_{ρ̄_v} = R^{△,λ_v}_{ρ̄_v} ⊗_{R^□_{ρ̄_v}} R^{□,ψ}_{ρ̄_v}",
+   "reason": "As printed the two fixed-determinant rings coincide; Lemma 3.3.6 and §5.3.1 use R^{△,λ_v,ψ} as the fixed-determinant quotient of the semistable-ordinary ring.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
+    "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E3",
+   "kind": "misprint",
+   "locator": "Lemma 3.1.3, second part, p.44, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "The source requires a permutation σ ∈ S_n together with some index 1 ≤ j ≤ m − 1.",
+   "correction": "σ ∈ S_m",
+   "reason": "r is m-dimensional and σ permutes the m Frobenius slopes v₁,…,v_m.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
+    "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E4",
+   "kind": "misprint",
+   "locator": "Propositions 6.1.5 (3) and 6.1.6 (3), pp.89–90, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "The source asserts good ordinary reduction for E_{F_w} when v ∈ S^ord_5, for every place v|5 of F and w|v of L. Proposition 6.1.6 makes the analogous assertion with 3.",
+   "correction": "E_{L_w}",
+   "reason": "E is an elliptic curve over L, so its reduction type is that of E_{L_w}; the proof itself speaks of E_{L_w}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
+    "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E5",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 7.1.2, last paragraph, p.93, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "The source states X(s3,b5)(Q) ≅ Z/2Z × Z/4Z. It invokes [Kwo97, Theorem 1] to claim that F = Q(√5) is the unique quadratic field satisfying X₀(15)(Q) ⊊ X₀(15)(F)^{tors}.",
+   "correction": "the only quadratic field F with X(s3,b5)(Q) ⊊ X(s3,b5)(F)^{tors} is F = Q(√5)",
+   "reason": "The paragraph is about X(s3,b5) (Legendre form y² = x(x+1)(x+16)); for X₀(15) the previous paragraph lists both Q(√−1) and Q(√5).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
+    "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E6",
+   "kind": "misprint",
+   "locator": "Lemma 2.2.16, statement, p.31, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "K_{λ̃_τ} := ker(V_{λ̃_τ} → V_{λ_τ̃} ⊗ V_{λ−w_{0,n}λ_{τ̃c}})",
+   "correction": "V_{λ_τ̃} ⊗ V_{−w_{0,n}λ_{τ̃c}}",
+   "reason": "The target of evaluation at the identity is V_{λ_τ̃} ⊗ V_{−w_{0,n}λ_{τ̃c}} (Lemma 2.1.12); the extra λ in the subscript is a slip.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
+    "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E7",
+   "kind": "misprint",
+   "locator": "Proposition 2.1.14, p.18, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "The source identifies S : H(G̃(F⁺_v), G̃(O_{F⁺_v})) → H(G(F⁺_v), G(O_{F⁺_v})) as the homomorphism introduced in the closing passage of §2.1.1.",
+   "correction": "defined at the end of §2.1.2",
+   "reason": "The unnormalised Satake transform 𝒮 = r_M ∘ r_P is defined on p.15, at the end of §2.1.2, just before §2.1.11; §2.1.1 is about locally symmetric spaces.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
+    "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E8",
+   "kind": "misprint",
+   "locator": "§2.1.13, p.21, rescaled action for G, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "The source defines the action of Δ^{Q_v̄} on V_λ after rescaling by the rule g ·_λ x = α^{Q_v̄}_λ(x)^{−1} g · x.",
+   "correction": "g ·_λ x = α^{Q_v̄}_λ(g)^{−1} g · x",
+   "reason": "α_λ is a character of the monoid, evaluated at g, as in (2.1.7) for G̃.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
+    "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E9",
+   "kind": "misprint",
+   "locator": "Proposition 7.4.4 (3) and proof of Proposition 7.4.5, pp.100–101, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "10(Jac_{C₂}(Q)) ⊂ ⟨5G₁, Jac_{C₂}(Q)[2]⟩ … G = ⟨5G₁, Jac_{C₂}(Q)[2]⟩",
+   "correction": "⟨5G₂, Jac_{C₂}(Q)[2]⟩",
+   "reason": "G_i = ⟨π_i^* D⟩ ⊂ Jac_{C_i}(Q); for the curve C₂ the relevant subgroup is G₂ (G₁ lies in Jac_{C₁}).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
+    "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E10",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 4.2.5, even case, p.62, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "For even d, the source asserts the inequalities d − q ≤ d/2 ≤ Σ_{v̄∉S̄} n²[F⁺_{v̄″} : Q_p].",
+   "correction": "Σ_{v̄∉S̄} n²[F⁺_{v̄} : Q_p]",
+   "reason": "The summation index is v̄; v̄″ is a leftover from the notation of Proposition 4.2.6.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
+    "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-CARAIANI-NEWTON-23/E11",
+   "kind": "misprint",
+   "locator": "(2.1.6), p.18, in arXiv:2301.10509v3 (27 March 2025); page image checked",
+   "printed": "P̃_v(X) = X^{2n} − T̃_{v,1}X^{2n−1} + ⋯ + (−1)^j q_v^{j(j−1)/2} T̃_{v,j} + …",
+   "correction": "(−1)^j q_v^{j(j−1)/2} T̃_{v,j} X^{2n−j}",
+   "reason": "The general term of a polynomial of degree 2n needs the power X^{2n−j}, as in (2.1.5).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the arXiv listing of 2301.10509 shows v3 (27 March 2025) as the latest version.",
+    "2026-09-29: Caraiani's papers page (https://www.ma.imperial.ac.uk/~acaraian/papers.php) lists the paper with a PDF and arXiv link and no journal; a Crossref bibliographic search found no published version or erratum.",
+    "Not an exhaustive novelty claim."
+   ]
+  }
+ ]
+}
