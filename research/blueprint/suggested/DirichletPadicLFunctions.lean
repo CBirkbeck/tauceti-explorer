@@ -7072,3 +7072,100 @@ example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
       (⟨fun u : (ℤ_[2])ˣ => (u : ℚ_[2]),by fun_prop⟩ : C((ℤ_[2])ˣ,ℚ_[2]))≠
         eisensteinAwayMoment 2 a ha 1 (eisensteinAwayConstant 2 a) := sorry
 end SuggestedEisensteinObstructionTests
+
+/-! ## The inverse-coordinate character and the localization boundary
+
+This nontrivial integral character annihilates every shifted smoothing
+denominator. Its integral-measure evaluation has no ring-map extension to
+these Away localizations or the total quotient. This is not a pole theorem.
+-/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "S" => (fun u : U => Localization.Away (2*eisensteinTwistedDenominator p u))
+
+def eisensteinInverseCharacter : ContinuousMonoidHom U Z := sorry
+lemma eisensteinInverseCharacter_def :
+    eisensteinInverseCharacter p =
+      (primePowerArithmeticCharacter p 0 (1 : DirichletCharacter Z (p^0)) 1).comp
+        (ContinuousMonoidHom.inv U) := sorry
+lemma eisensteinInverseCharacter_apply (u : U) :
+    eisensteinInverseCharacter p u=(↑(u⁻¹) : Z) := sorry
+lemma eisensteinInverseCharacter_mul (u : U) :
+    (u : Z)*eisensteinInverseCharacter p u=1 := sorry
+lemma eisensteinInverseCharacter_ne_one : eisensteinInverseCharacter p≠1 := sorry
+def eisensteinInverseMomentHom : M →+* ℚ_[p] := sorry
+lemma eisensteinInverseMomentHom_def :
+    eisensteinInverseMomentHom p=(algebraMap Z ℚ_[p]).comp
+      (characterIntegralAlgHom (eisensteinInverseCharacter p)).toRingHom := sorry
+lemma eisensteinInverseMomentHom_apply (μ : M) :
+    eisensteinInverseMomentHom p μ=(μ (eisensteinInverseCharacter p).toContinuousMap : ℚ_[p]) := sorry
+lemma eisensteinInverseMomentHom_dirac (u : U) :
+    eisensteinInverseMomentHom p (dirac Z u)=((↑(u⁻¹) : Z) : ℚ_[p]) := sorry
+lemma eisensteinInverseMomentHom_denominator (u : U) :
+    eisensteinInverseMomentHom p (2*eisensteinTwistedDenominator p u)=0 := sorry
+theorem eisensteinInverseMomentHom_no_away_extension (u : U) :
+    ¬∃ F : S u →+* ℚ_[p], ∀ μ : M,
+      F (algebraMap M (S u) μ)=eisensteinInverseMomentHom p μ := sorry
+theorem eisensteinInverseMomentHom_no_fraction_extension :
+    ¬∃ F : Q →+* ℚ_[p], ∀ μ : M,
+      F (algebraMap M Q μ)=eisensteinInverseMomentHom p μ := sorry
+end DirichletPadic
+
+namespace SuggestedInverseCharacterTests
+open scoped AbstractMeasure
+open AbstractMeasure DirichletPadic
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "S" => (fun u : U => Localization.Away (2*eisensteinTwistedDenominator p u))
+-- inverse_character_identity
+example : eisensteinInverseCharacter p 1=1 := sorry
+-- inverse_character_negative_identity
+example : eisensteinInverseCharacter p (-1)= -1 := sorry
+-- inverse_character_nontrivial
+example : eisensteinInverseCharacter p≠1 := sorry
+-- inverse_character_ternary_two
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3])=2) :
+    2*eisensteinInverseCharacter 3 u=1 := sorry
+-- inverse_moment_unit
+example : eisensteinInverseMomentHom p 1=1 := sorry
+-- inverse_moment_sign_atom
+example : eisensteinInverseMomentHom p (dirac Z (-1 : U))= -1 := sorry
+-- inverse_moment_ordinary_factor
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3])=4) :
+    eisensteinInverseMomentHom 3 (dirac ℤ_[3] u-1)= -3/4 := sorry
+-- inverse_moment_all_integral_measures
+example (μ : M) : eisensteinInverseMomentHom p μ=
+    (μ (eisensteinInverseCharacter p).toContinuousMap : ℚ_[p]) := sorry
+-- inverse_shifted_identity_zero
+example : eisensteinInverseMomentHom p (2*eisensteinTwistedDenominator p 1)=0 := sorry
+-- inverse_shifted_dyadic_canonical_zero
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    eisensteinInverseMomentHom 2 (2*eisensteinTwistedDenominator 2 a)=0 := sorry
+-- inverse_no_parameter_away_extension
+example (u : U) : ¬∃ F : S u →+* ℚ_[p], ∀ μ : M,
+    F (algebraMap M (S u) μ)=eisensteinInverseMomentHom p μ := sorry
+-- inverse_no_dyadic_total_extension
+example : ¬∃ F : FractionRing D((ℤ_[2])ˣ,ℤ_[2]) →+* ℚ_[2],
+    ∀ μ : D((ℤ_[2])ˣ,ℤ_[2]), F (algebraMap _ _ μ)=eisensteinInverseMomentHom 2 μ := sorry
+-- inverse_no_ternary_total_extension
+example : ¬∃ F : FractionRing D((ℤ_[3])ˣ,ℤ_[3]) →+* ℚ_[3],
+    ∀ μ : D((ℤ_[3])ˣ,ℤ_[3]), F (algebraMap _ _ μ)=eisensteinInverseMomentHom 3 μ := sorry
+end SuggestedInverseCharacterTests
