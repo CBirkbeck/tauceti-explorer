@@ -38,6 +38,9 @@ theorem serre_strong (ρ̄ : GaloisRep ℚ (F̄ p) 2) (hodd : IsOdd ρ̄) (hirr 
       Nonempty (residualRep f λ ≃ ρ̄) ∧ det ρ̄ = f.character.reduce λ * cyclotomic p ^ (serreWeight ρ̄ - 1)
 -- R33.2/dihedral-local-type-at-n
 def levelTwoCharacter (q N : ℕ) (hq : q ∣ N + 1) : (Gal ℚ_[N]² →* (ℤ̄_[q])ˣ) := …
+-- normalised to be trivial on the Frobenius attached to N, so that the image of the induction is
+-- dihedral of order 2q (without it the image has order 2q²; review of 2026-09-29)
+theorem levelTwoCharacter_artin (q N : ℕ) (hq : q ∣ N + 1) : levelTwoCharacter q N hq (artin N) = 1
 def dihedralType (q N : ℕ) (hq : q ∣ N + 1) : GaloisRep ℚ_[N] ℤ̄_[q] 2 := induced (levelTwoCharacter q N hq)
 -- R33.4/dp-odd-characteristic-assembly
 theorem serre_weak_odd {p : ℕ} (hp : p ≠ 2) (ρ̄ : GaloisRep ℚ (F̄ p) 2) (hodd : IsOdd ρ̄)
