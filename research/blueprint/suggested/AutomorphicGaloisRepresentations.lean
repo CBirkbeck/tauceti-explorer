@@ -157,6 +157,22 @@ example : [((1 : ℤ), (-2 : ℤ)), (-2, 1), (0, 3), (0, -3), (6, -6), (-6, 3), 
 example : 11 * 2 ^ 2 = 44 ∧ ((0 : ZMod 3) ^ 2 + 2 * 0 + 2 ≠ 0) := by
   decide
 
+/-! ## R19.1 — the S-integral structure (`AutomorphicGaloisRepresentations:R19.1/integral-structure-of-the-newform-premotive`)
+
+`IntegralPremotive`, `IntegralPremotive.kernel`, `integralParabolic`, `integralParabolic_filTop`,
+`integralParabolic_heckeDuality`, `integralNewformPremotive`, `integralNewformPremotive_rational`: not stated; they
+need the S-integral realisations of the modular curve with coefficients (ModularCurvesPartII R14.3) and
+Fontaine–Laffaille modules (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3).
+-/
+
+-- Test `integralNewformPremotive_level_eleven`, `integralNewformPremotive_rational_test`,
+-- `integralParabolic_filTop_scalar`: not stated; they need `𝓜_g`.
+
+/-- Test `integralParabolic_bad_set` (its arithmetic): for `N = 11`, `k = 2` the excluded primes are those dividing
+`N · k! = 22`, namely `2` and `11`; at `ℓ = 2` Faltings' condition `k − 1 ≤ ℓ − 2` fails, at `ℓ = 3` it holds. -/
+example : 11 * Nat.factorial 2 = 2 * 11 ∧ Nat.Prime 2 ∧ Nat.Prime 11 ∧ ¬ (2 - 1 ≤ 2 - 2) ∧ (2 - 1 ≤ 3 - 2) :=
+  ⟨by simp [Nat.factorial], Nat.prime_two, by decide, by decide, by decide⟩
+
 /-! ## Theorems needing objects of other roadmaps
 
 * `…:R19.1/lambda-adic-representation-of-a-weight-k-eigenform`, `…:R19.1/weight-one-artin-representation`,
