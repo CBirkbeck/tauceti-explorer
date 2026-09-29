@@ -5,9 +5,12 @@ import Mathlib.Topology.ContinuousMap.Basic
 import Mathlib.Topology.Algebra.Group.Basic
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.RepresentationTheory.Homological.ContCohomology.Basic
+import Mathlib.Topology.Algebra.RestrictedProduct.Basic
+import Mathlib.RepresentationTheory.Homological.TateCohomology.Basic
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
 
 /-!
-# Suggested declarations: global Galois duality and compact coefficients, layer R02.1
+# Suggested declarations: global Galois duality and compact coefficients, layers R02.1, R02.3, R02.4
 
 This file is a prototype in the form of upstream's `Suggested.lean`. Every proof is `sorry`; the
 statements elaborate against Mathlib at the pinned commit. The complete targets are in the
@@ -235,3 +238,241 @@ example : letI : TopologicalSpace (ZMod 2) := ⊥
 end SuggestedTest
 
 end TauCeti.CompactCoefficients
+
+/-! # Layers R02.3 and R02.4: restricted ramification and Poitou–Tate duality
+
+Source: Milne, *Arithmetic Duality Theorems*, Chapter I §§1, 2, 4, 5. The arithmetic carriers
+(`K_S`, the S-idele classes, class formations, local duality) live in Tau Ceti's
+`ProfiniteCohomology` and `ClassFieldTheory` roadmaps, which are not part of Mathlib; their
+signatures are sketched in comments below. What is stated here elaborates against Mathlib alone:
+* the compositum of the finite subextensions satisfying a predicate (the shape of `K_S`);
+* restricted products of local cohomology groups, the map `β` and `Ш = ker β`;
+* exact annihilators and the duality of restricted products;
+* the numerical form of the global Euler characteristic, with the test of Milne's footnote 13;
+* the modified archimedean groups as Tate cohomology of `ℤ/2`, with their unit tests.
+-/
+
+namespace TauCeti.RestrictedRamification
+
+variable (K Ω : Type*) [Field K] [Field Ω] [Algebra K Ω]
+
+/-- **`R02.3/restricted-ramification-group`**, abstract form: the compositum of the finite
+subextensions of `Ω/K` satisfying `good`. With `good L` the statement that `L/K` is unramified at
+every finite place outside `S`, this is `K_S`. -/
+def maxSubfieldOf (good : IntermediateField K Ω → Prop) : IntermediateField K Ω :=
+  ⨆ (L : IntermediateField K Ω) (_ : FiniteDimensional K L ∧ good L), L
+
+variable {K Ω}
+
+/-- API: every good finite subextension lies in the compositum. -/
+theorem le_maxSubfieldOf {good : IntermediateField K Ω → Prop} {L : IntermediateField K Ω}
+    (hL : FiniteDimensional K L) (hg : good L) : L ≤ maxSubfieldOf K Ω good := sorry
+
+/-- API (`mem_maxUnramifiedOutside_iff`): if `good` is closed under composita of finite
+subextensions and passes to subextensions, a finite `L` lies in the compositum exactly when it is
+good. -/
+theorem le_maxSubfieldOf_iff {good : IntermediateField K Ω → Prop}
+    (hsup : ∀ L₁ L₂ : IntermediateField K Ω, FiniteDimensional K L₁ → FiniteDimensional K L₂ → good L₁ → good L₂ →
+      good (L₁ ⊔ L₂))
+    (hle : ∀ L₁ L₂ : IntermediateField K Ω, L₁ ≤ L₂ → FiniteDimensional K L₂ → good L₂ → good L₁)
+    {L : IntermediateField K Ω} (hL : FiniteDimensional K L) :
+    L ≤ maxSubfieldOf K Ω good ↔ good L := sorry
+
+/-! Signatures on the arithmetic carriers (sketched):
+
+```
+/-- R02.3/restricted-ramification-group -/
+def maxUnramifiedOutside (K) [NumberField K] (S : Set (Place K)) : IntermediateField K Kˢ
+def galoisGroupS K S : ProfiniteGrp := Gal(K_S/K)
+theorem mem_maxUnramifiedOutside_iff [FiniteDimensional K L] :
+    L ≤ K_S ↔ ∀ v ∉ S, v.IsFinite → IsUnramifiedAt v L
+theorem cyclotomic_le_maxUnramifiedOutside (hℓ : ∀ v ∣ ℓ, v ∈ S) : K(μ_{ℓ^∞}) ≤ K_S
+
+/-- R02.3/hermite-unramified-outside-finite -/
+theorem finite_unramifiedOutside (hS : S.Finite) (n : ℕ) :
+    {L : IntermediateField K Kˢ | finrank K L ≤ n ∧ L.IsUnramifiedOutside S}.Finite
+
+/-- R02.3/h1-finite -/
+theorem finite_H1 (hS : S.Finite) (M : DiscreteRep ℤ G_S) [Finite M] : Finite (H¹(G_S, M))
+
+/-- R02.3/localisation-maps: Tate cohomology at archimedean places -/
+def localCohomology (v : Place K) (r : ℕ) (M) :=
+  if v.IsInfinite then tateCohomology (M restricted to G_v) r else H^r(G_v, M)
+def locMap (v) : H^r(G_S, M) →+ localCohomology v r M
+theorem locMap_indep (ι ι' : Kˢ →ₐ[K] K_vˢ) : locMap ι = locMap ι'
+
+/-- R02.3/s-idele-class-modules, R02.3/s-idele-class-sequence -/
+def sIdeleClasses S : DiscreteRep ℤ G_S      -- C_S = colim_F J_{F,S}/E_{F,S}
+theorem H_units_eq_zero (r ≥ 1) : H^r(G_S, U_S) = 0
+theorem sIdeleClasses_invariants : (C_S)^{Gal(K_S/F)} ≃ C_F ⧸ U_{F,S}
+
+/-- R02.3/p-class-formation, R02.3/s-class-formation -/
+structure PClassFormation (P : Set ℕ) (G) (C : DiscreteRep ℤ G) where
+  inv (U : OpenSubgroup G) : H²(U, C) →+ ℚ ⧸ ℤ
+  inv_injective, H1_eq_zero, inv_res, inv_layer_bijective, inv_primary_bijective (ℓ ∈ P)
+def sClassFormation K S : PClassFormation (primesDividingDegree K_S) G_S C_S
+
+/-- R02.3/s-unit-kummer-sequence (m a unit in R_{K,S}) -/
+theorem kummer_exact : 0 → (Set.unit K S) ⧸ m → H¹(G_S, μ_m) → (ClassGroup R_{K,S})[m] → 0
+```
+-/
+
+end TauCeti.RestrictedRamification
+
+namespace TauCeti.PoitouTate
+
+open Filter RestrictedProduct
+
+/-! ## Restricted products of local cohomology and `Ш` -/
+
+section RestrictedCohomology
+
+variable {ι : Type*} (H : ι → Type*) [∀ v, AddCommGroup (H v)] (Hun : ∀ v, AddSubgroup (H v))
+
+/-- **`R02.4/restricted-product-cohomology`**: `P_S = ∏′_{v ∈ S} (H^r(K_v, M), H^r_un(K_v, M))`. -/
+abbrev RestrictedCohomology : Type _ := Πʳ v, [H v, Hun v]_[cofinite]
+
+variable {H Hun} {A : Type*} [AddCommGroup A]
+
+/-- **`R02.4/restricted-product-cohomology`**: `β`, built from localisations that are unramified
+at almost every place (Milne, Lemma 4.8). -/
+def beta (loc : ∀ v, A →+ H v) (hloc : ∀ a, ∀ᶠ v in cofinite, loc v a ∈ Hun v) :
+    A →+ RestrictedCohomology H Hun where
+  toFun a := ⟨fun v => loc v a, hloc a⟩
+  map_zero' := sorry
+  map_add' := sorry
+
+/-- **`R02.4/restricted-product-cohomology`**: `Ш = ker β`. -/
+def sha (loc : ∀ v, A →+ H v) (hloc : ∀ a, ∀ᶠ v in cofinite, loc v a ∈ Hun v) : AddSubgroup A :=
+  (beta loc hloc).ker
+
+/-- API: a class is in `Ш` iff it is locally trivial everywhere. -/
+theorem mem_sha_iff (loc : ∀ v, A →+ H v) (hloc : ∀ a, ∀ᶠ v in cofinite, loc v a ∈ Hun v)
+    (a : A) : a ∈ sha loc hloc ↔ ∀ v, loc v a = 0 := sorry
+
+/-- API: for finitely many places the restricted product is the full product. -/
+theorem restrictedCohomology_equiv_pi [Finite ι] :
+    Nonempty (RestrictedCohomology H Hun ≃+ ∀ v, H v) := sorry
+
+end RestrictedCohomology
+
+/-! ## Exact annihilators and the duality of restricted products -/
+
+section Annihilators
+
+variable {M N T : Type*} [AddCommGroup M] [AddCommGroup N] [AddCommGroup T]
+
+/-- `A ≤ M` and `B ≤ N` are exact annihilators of each other under `b`. -/
+def IsExactAnnihilator (b : M →+ N →+ T) (A : AddSubgroup M) (B : AddSubgroup N) : Prop :=
+  (∀ n, n ∈ B ↔ ∀ m ∈ A, b m n = 0) ∧ ∀ m, m ∈ A ↔ ∀ n ∈ B, b m n = 0
+
+/-- A pairing is perfect on both sides (nondegenerate, for finite groups). -/
+def IsPerfect (b : M →+ N →+ T) : Prop :=
+  (∀ m, (∀ n, b m n = 0) → m = 0) ∧ ∀ n, (∀ m, b m n = 0) → n = 0
+
+/-- **`R02.4/unramified-exact-annihilators`**, counting form: in a perfect pairing of finite
+groups, orthogonal subgroups whose orders multiply to the order of `M` are exact annihilators. -/
+theorem isExactAnnihilator_of_card [Finite M] [Finite N] (b : M →+ N →+ T) (hb : IsPerfect b)
+    (A : AddSubgroup M) (B : AddSubgroup N) (horth : ∀ m ∈ A, ∀ n ∈ B, b m n = 0)
+    (hcard : Nat.card A * Nat.card B = Nat.card M) : IsExactAnnihilator b A B := sorry
+
+variable {ι : Type*} {H H' : ι → Type*} [∀ v, AddCommGroup (H v)] [∀ v, AddCommGroup (H' v)]
+  {Hun : ∀ v, AddSubgroup (H v)} {Hun' : ∀ v, AddSubgroup (H' v)}
+
+/-- **`R02.4/restricted-product-self-duality`**, algebraic form: placewise perfect pairings of
+finite groups for which the unramified subgroups are exact annihilators at almost every place
+give a perfect pairing of the restricted products, equal to the finite sum of the local pairings. -/
+theorem exists_restrictedCohomology_pairing [∀ v, Finite (H v)] [∀ v, Finite (H' v)]
+    (b : ∀ v, H v →+ H' v →+ T) (hb : ∀ v, IsPerfect (b v))
+    (hun : ∀ᶠ v in cofinite, IsExactAnnihilator (b v) (Hun v) (Hun' v)) :
+    ∃ B : RestrictedCohomology H Hun →+ RestrictedCohomology H' Hun' →+ T,
+      IsPerfect B ∧ ∀ x y (s : Finset ι), (∀ v ∉ s, b v (x v) (y v) = 0) →
+        B x y = ∑ v ∈ s, b v (x v) (y v) := sorry
+
+end Annihilators
+
+/-! ## The global Euler characteristic, numerically -/
+
+section Euler
+
+/-- `χ(G_S, M) = #H⁰ · #H² / #H¹` (ordinary cohomology). -/
+def eulerChar (h0 h1 h2 : ℕ) : ℚ := (h0 * h2 : ℚ) / h1
+
+/-- The archimedean factor `#H⁰(G_v, M) / |#M|_v`: `|m|_v = m` at a real place and `m²` at a
+complex place, and `H⁰` is ordinary (not Tate) cohomology. -/
+def archFactor (isComplex : Bool) (h0 m : ℕ) : ℚ :=
+  (h0 : ℚ) / (if isComplex then (m : ℚ) ^ 2 else m)
+
+/-- **`R02.4/global-euler-characteristic`**: the right-hand side `∏_{v arch} #H⁰(G_v, M)/|#M|_v`
+for a list of archimedean places, each recorded as (complex?, `#H⁰(G_v, M)`). -/
+def archProduct (places : List (Bool × ℕ)) (m : ℕ) : ℚ :=
+  (places.map fun p => archFactor p.1 p.2 m).prod
+
+end Euler
+
+/-! Signatures on the arithmetic carriers (sketched):
+
+```
+/-- R02.4/discrete-module-ext -/
+instance : IsGrothendieckAbelian (DiscreteRep ℤ G)
+abbrev Ext (M N : DiscreteRep ℤ G) (r : ℕ) := Abelian.Ext M N r
+def extIntEquivCohomology : Ext (trivial ℤ) N r ≃+ H^r(G, N)
+def yonedaPairing : Ext M C r →+ H^s(G, M) →+ H^{r+s}(G, C)
+
+/-- R02.4/class-formation-ext-duality, R02.4/tate-global-duality -/
+def alpha (F : PClassFormation P G C) (M) (r) : Ext M C r →+ Module.Dual ℤ (H^{2-r}(G, M))
+theorem alpha_primary_bijective (hℓ : ℓ ∈ P) (hr : 2 ≤ r) : Bijective (alpha F M r).primary ℓ
+theorem tate_global_duality (hℓ : ℓ ∈ P) (hr : 1 ≤ r) : Bijective (alpha (sClassFormation K S) M r).primary ℓ
+
+/-- R02.4/finite-module-dual -/
+def dual (M) : DiscreteRep ℤ G_S := InternalHom G_S M (E_S)
+def doubleDualEquiv (hM : IsUnit (#M : R_{K,S})) : M ≃ dual (dual M)
+
+/-- R02.4/poitou-tate -/
+theorem sha_pairing_perfect (hM) : IsPerfect (shaPairing : Ш¹_S(K, M) →+ Ш²_S(K, dual M) →+ ℚ⧸ℤ)
+theorem nineTerm_exact (hM) : the nine-term sequence of locally compact groups is exact
+theorem beta_bijective_of_three_le (hr : 3 ≤ r) : Bijective (β^r : H^r(G_S, M) → ⊕_{v real} H^r(K_v, M))
+
+/-- R02.4/global-finiteness, R02.4/cohomological-dimension-bound -/
+theorem finite_H (hS : S.Finite) (hM) (r) : Finite (H^r(G_S, M))
+theorem cd_le_two (hℓ : IsUnit (ℓ : R_{K,S})) (h : Odd ℓ ∨ IsTotallyComplex K) : cd_ℓ G_S ≤ 2
+
+/-- R02.4/units-cohomology-high-degree -/
+theorem H3_units_eq_zero (K) [NumberField K] : H³(G_K, Kˢˣ) = 0
+
+/-- R02.4/global-euler-characteristic -/
+theorem eulerChar_eq (hS : S.Finite) (hM) :
+    eulerChar #H⁰(G_S, M) #H¹(G_S, M) #H²(G_S, M) = archProduct (archimedean places, #H⁰(G_v, M)) #M
+```
+-/
+
+/-! ## Unit tests -/
+
+namespace SuggestedTest
+
+/-- Milne's footnote 13: `M = ℤ/2` gives the factor `1` at a real place ... -/
+example : archFactor false 2 2 = 1 := by norm_num [archFactor]
+
+/-- ... and `1/2` at a complex place, so `χ(G_S, ℤ/2) = 2^{-s}`. -/
+example : archFactor true 2 2 = 1 / 2 := by norm_num [archFactor]
+
+/-- The whole product over `r` real and `s` complex places is `2^{-s}`. -/
+example (r s : ℕ) :
+    archProduct (List.replicate r (false, 2) ++ List.replicate s (true, 2)) 2 = 1 / 2 ^ s := sorry
+
+/-- Modified archimedean groups: `Ĥ⁰(ℤ/2, ℤ/3) = 0`, whereas the invariants are `ℤ/3`. -/
+example : Subsingleton (tateCohomology (Rep.trivial ℤ (Multiplicative (ZMod 2)) (ZMod 3)) 0) :=
+  sorry
+
+/-- `Ĥ⁰(ℤ/2, ℤ/2) = ℤ/2` at a real place. -/
+example : Nontrivial (tateCohomology (Rep.trivial ℤ (Multiplicative (ZMod 2)) (ZMod 2)) 0) := sorry
+
+/-- A class of `A` in `Ш` of a single place with zero localisation. -/
+example {A H : Type*} [AddCommGroup A] [AddCommGroup H] (loc : A →+ H) (a : A) (ha : loc a = 0) :
+    a ∈ sha (H := fun _ : Unit => H) (Hun := fun _ => ⊤) (fun _ => loc)
+      (fun _ => Filter.Eventually.of_forall fun _ => trivial) :=
+  (mem_sha_iff _ _ a).2 fun _ => ha
+
+end SuggestedTest
+
+end TauCeti.PoitouTate
