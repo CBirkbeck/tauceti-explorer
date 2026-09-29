@@ -5256,3 +5256,197 @@ end Five
 end SuggestedPrimePowerCommonValueTests
 end
 end DirichletPadic
+
+/-! ## Arithmetic characters on units and the actual smoothing numerator -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure BigOperators
+open AbstractMeasure
+section ArithmeticUnitCharacters
+variable (p : ℕ) [Fact p.Prime]
+variable {R : Type*} [NormedCommRing R] [Algebra ℤ_[p] R] [IsBoundedSMul ℤ_[p] R]
+
+def primePowerArithmeticCharacter (n : ℕ) (χ : DirichletCharacter R (p^n)) (w : ℕ) :
+    ContinuousMonoidHom (ℤ_[p])ˣ R := sorry
+
+lemma primePowerArithmeticCharacter_apply (n : ℕ) (χ : DirichletCharacter R (p^n))
+    (w : ℕ) (u : (ℤ_[p])ˣ) :
+    primePowerArithmeticCharacter p n χ w u = primePowerCharacter p n χ (u : ℤ_[p]) *
+      (algebraMap ℤ_[p] R (u : ℤ_[p]))^w := sorry
+
+lemma primePowerArithmeticCharacter_nat (n : ℕ) (χ : DirichletCharacter R (p^n))
+    (w a : ℕ) (u : (ℤ_[p])ˣ) (hu : (u : ℤ_[p]) = (a : ℤ_[p])) :
+    primePowerArithmeticCharacter p n χ w u = χ (a : ZMod (p^n))*(a : R)^w := sorry
+
+lemma primePowerArithmeticCharacter_neg_one (n : ℕ) (χ : DirichletCharacter R (p^n))
+    (w : ℕ) : primePowerArithmeticCharacter p n χ w (-1) = χ (-1)*(-1 : R)^w := sorry
+
+lemma primePowerArithmeticCharacter_zero_weight (n : ℕ) (χ : DirichletCharacter R (p^n)) :
+    (primePowerArithmeticCharacter p n χ 0).toContinuousMap =
+      (primePowerCharacter p n χ).comp (⟨Units.val,Units.continuous_val⟩ : C((ℤ_[p])ˣ,ℤ_[p])) := sorry
+
+lemma primePowerArithmeticCharacter_zero_level (χ : DirichletCharacter R (p^0))
+    (w : ℕ) (u : (ℤ_[p])ˣ) :
+    primePowerArithmeticCharacter p 0 χ w u = (algebraMap ℤ_[p] R (u : ℤ_[p]))^w := sorry
+
+lemma primePowerArithmeticCharacter_one_add_pow (n : ℕ) (χ : DirichletCharacter R (p^n))
+    (w : ℕ) (u : (ℤ_[p])ˣ) (hu : (u : ℤ_[p]) = (1+p^(n+1) : ℕ)) :
+    primePowerArithmeticCharacter p n χ w u = ((1+p^(n+1) : ℕ) : R)^w := sorry
+
+theorem primePowerArithmeticCharacter_ne_one [Nontrivial R] [CharZero R]
+    (n : ℕ) (χ : DirichletCharacter R (p^n)) (w : ℕ) (hw : 0<w) :
+    primePowerArithmeticCharacter p n χ w ≠ 1 := sorry
+
+variable [IsUltrametricDist R] [CompleteSpace R]
+
+theorem extend_intrinsicSmoothedNumerator_character (n : ℕ) (hn : 1≤n)
+    (χ : DirichletCharacter R (p^n)) (a : ℕ) (ha : ¬p∣a) (w : ℕ) (hw : 1≤w) :
+    extendIntegralUnitCoefficients (R := R) (intrinsicSmoothedNumerator p a ha)
+      (primePowerArithmeticCharacter p n χ w).toContinuousMap =
+    twistedSmoothedMeasure p n χ a ha
+      (((ContinuousMap.id ℤ_[p]) • (1 : C(ℤ_[p],R)))^(w-1)) := sorry
+
+theorem extend_twoDirac_arithmeticCharacter (n : ℕ) (χ : DirichletCharacter R (p^n))
+    (w a : ℕ) (u : (ℤ_[p])ˣ) (hu : (u : ℤ_[p]) = (a : ℤ_[p])) :
+    extendIntegralUnitCoefficients (R := R)
+      (dirac ℤ_[p] u-dirac ℤ_[p] (1 : (ℤ_[p])ˣ))
+      (primePowerArithmeticCharacter p n χ w).toContinuousMap =
+    χ (a : ZMod (p^n))*(a : R)^w-1 := sorry
+end ArithmeticUnitCharacters
+
+section CommonNumeratorValues
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [Algebra ℤ_[p] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[p] K]
+  [CharZero K] [Algebra ℚ K]
+variable {E : Type*} [Field E] [CharZero E] [Algebra ℚ E]
+variable (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter E (p^n))
+  (ιC : E →+* ℂ) (ιK : E →+* K)
+  (hχ : DirichletCharacter.IsPrimitive (χ.ringHomComp ιK))
+  (ε : K) (hε : IsPrimitiveRoot ε (p^n))
+  (hG : gaussSum (χ.ringHomComp ιK)⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+  (hD : IsUnit ((p^n : ℕ) : K))
+include hn hχ hε hG hD
+
+theorem intrinsicSmoothedNumerator_common_character_value (a : ℕ) (ha : ¬p∣a)
+    (w : ℕ) (hw : 1≤w) :
+    let b : E := (χ (a : ZMod (p^n))*(a : E)^w-1) *
+      (-((p^n : ℕ) : E)^(w-1)/w * ∑ r : ZMod (p^n), χ r *
+        algebraMap ℚ E ((Polynomial.bernoulli w).eval (r.val/(p^n) : ℚ)))
+    ιC b = ((χ.ringHomComp ιC) (a : ZMod (p^n))*(a : ℂ)^w-1) *
+      DirichletCharacter.LFunction (χ.ringHomComp ιC) (1-(w : ℂ)) ∧
+    ιK b = extendIntegralUnitCoefficients (R := K) (intrinsicSmoothedNumerator p a ha)
+      (primePowerArithmeticCharacter p n (χ.ringHomComp ιK) w).toContinuousMap := sorry
+
+theorem intrinsicSmoothedNumerator_quotient_common_character_value
+    (a : ℕ) (ha : ¬p∣a) (w : ℕ) (hw : 1≤w)
+    (hd : χ (a : ZMod (p^n))*(a : E)^w-1 ≠ 0) :
+    let b : E := -((p^n : ℕ) : E)^(w-1)/w * ∑ r : ZMod (p^n), χ r *
+      algebraMap ℚ E ((Polynomial.bernoulli w).eval (r.val/(p^n) : ℚ))
+    ιC b = DirichletCharacter.LFunction (χ.ringHomComp ιC) (1-(w : ℂ)) ∧
+    ιK b = extendIntegralUnitCoefficients (R := K) (intrinsicSmoothedNumerator p a ha)
+      (primePowerArithmeticCharacter p n (χ.ringHomComp ιK) w).toContinuousMap /
+      ((χ.ringHomComp ιK) (a : ZMod (p^n))*(a : K)^w-1) := sorry
+end CommonNumeratorValues
+
+namespace SuggestedArithmeticCharacterTests
+section General
+variable (p : ℕ) [Fact p.Prime]
+variable {R : Type*} [NormedCommRing R] [Algebra ℤ_[p] R] [IsBoundedSMul ℤ_[p] R]
+-- character_identity
+example (n w : ℕ) (χ : DirichletCharacter R (p^n)) :
+    primePowerArithmeticCharacter p n χ w 1 = 1 := sorry
+-- level_zero_weight_zero
+example (χ : DirichletCharacter R (p^0)) : primePowerArithmeticCharacter p 0 χ 0 = 1 := sorry
+-- level_zero_square
+example (χ : DirichletCharacter R (p^0)) (u : (ℤ_[p])ˣ) :
+    primePowerArithmeticCharacter p 0 χ 2 u = (algebraMap ℤ_[p] R (u : ℤ_[p]))^2 := sorry
+-- positive_weight_nontrivial
+example [Nontrivial R] [CharZero R] :
+    primePowerArithmeticCharacter p 1 (1 : DirichletCharacter R (p^1)) 1 ≠ 1 := sorry
+variable [IsUltrametricDist R] [CompleteSpace R]
+-- numerator_one_parameter
+example (n w : ℕ) (χ : DirichletCharacter R (p^n)) (ha : ¬p∣1) :
+    extendIntegralUnitCoefficients (R := R) (intrinsicSmoothedNumerator p 1 ha)
+      (primePowerArithmeticCharacter p n χ w).toContinuousMap = 0 := sorry
+-- denominator_identity
+example (n w : ℕ) (χ : DirichletCharacter R (p^n)) :
+    extendIntegralUnitCoefficients (R := R)
+      (dirac ℤ_[p] (1 : (ℤ_[p])ˣ)-dirac ℤ_[p] (1 : (ℤ_[p])ˣ))
+      (primePowerArithmeticCharacter p n χ w).toContinuousMap = 0 := sorry
+-- denominator_trivial_weight
+example (n : ℕ) (u : (ℤ_[p])ˣ) :
+    extendIntegralUnitCoefficients (R := R) (dirac ℤ_[p] u-dirac ℤ_[p] 1)
+      (primePowerArithmeticCharacter p n (1 : DirichletCharacter R (p^n)) 0).toContinuousMap = 0 := sorry
+end General
+
+section Ternary
+variable [IsBoundedSMul ℤ_[3] ℚ_[3]]
+-- principal_sign
+example : primePowerArithmeticCharacter 3 1 (1 : DirichletCharacter ℚ_[3] (3^1)) 1 (-1) = -1 := sorry
+-- quadratic_weight_one_sign
+example (χ : DirichletCharacter ℚ_[3] (3^1)) (h2 : χ 2 = -1) :
+    primePowerArithmeticCharacter 3 1 χ 1 (-1) = 1 := sorry
+-- quadratic_weight_zero_sign
+example (χ : DirichletCharacter ℚ_[3] (3^1)) (h2 : χ 2 = -1) :
+    primePowerArithmeticCharacter 3 1 χ 0 (-1) = -1 := sorry
+-- principal_numerator_second
+example : extendIntegralUnitCoefficients (R := ℚ_[3]) (intrinsicSmoothedNumerator 3 2 (by norm_num))
+    (primePowerArithmeticCharacter 3 1 (1 : DirichletCharacter ℚ_[3] (3^1)) 2).toContinuousMap = 1/2 := sorry
+-- level_zero_shift_fails
+example : extendIntegralUnitCoefficients (R := ℚ_[3]) (intrinsicSmoothedNumerator 3 2 (by norm_num))
+    (primePowerArithmeticCharacter 3 0 (1 : DirichletCharacter ℚ_[3] (3^0)) 1).toContinuousMap = 0 ∧
+    twistedSmoothedMeasure 3 0 (1 : DirichletCharacter ℚ_[3] (3^0)) 2 (by norm_num) 1 = 1/2 := sorry
+-- ternary_denominator
+example (χ : DirichletCharacter ℚ_[3] (3^1)) (h2 : χ 2 = -1)
+    (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = 2) :
+    extendIntegralUnitCoefficients (R := ℚ_[3]) (dirac ℤ_[3] u-dirac ℤ_[3] 1)
+      (primePowerArithmeticCharacter 3 1 χ 1).toContinuousMap = -3 := sorry
+end Ternary
+
+section Dyadic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- dyadic_quadratic_sign
+example (χ : DirichletCharacter ℚ_[2] (2^2)) (h3 : χ 3 = -1) :
+    primePowerArithmeticCharacter 2 2 χ 1 (-1) = 1 := sorry
+-- dyadic_one_add_pow
+example (χ : DirichletCharacter ℚ_[2] (2^1)) (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2]) = 5) :
+    primePowerArithmeticCharacter 2 1 χ 2 u = 25 := sorry
+-- dyadic_positive_zero_level
+example : primePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1 ≠ 1 := sorry
+-- dyadic_denominator
+example (χ : DirichletCharacter ℚ_[2] (2^2)) (h3 : χ 3 = -1)
+    (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2]) = 3) :
+    extendIntegralUnitCoefficients (R := ℚ_[2]) (dirac ℤ_[2] u-dirac ℤ_[2] 1)
+      (primePowerArithmeticCharacter 2 2 χ 1).toContinuousMap = -4 := sorry
+end Dyadic
+
+section CommonThree
+variable {K : Type*} [NormedField K] [Algebra ℤ_[3] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[3] K]
+  [CharZero K] [Algebra ℚ K]
+variable (χ : DirichletCharacter ℚ 3) (h2 : χ 2 = -1)
+  (hχ : DirichletCharacter.IsPrimitive (χ.ringHomComp (algebraMap ℚ K)))
+  (ε : K) (hε : IsPrimitiveRoot ε 3)
+  (hG : gaussSum (χ.ringHomComp (algebraMap ℚ K))⁻¹ (AddChar.zmodChar 3 hε.pow_eq_one) ≠ 0)
+include h2 hχ hε hG
+-- numerator_quadratic_weight_one
+example : extendIntegralUnitCoefficients (R := K) (intrinsicSmoothedNumerator 3 4 (by norm_num))
+    (primePowerArithmeticCharacter 3 1 (χ.ringHomComp (algebraMap ℚ K)) 1).toContinuousMap = 1 := sorry
+-- numerator_quadratic_weight_three
+example : extendIntegralUnitCoefficients (R := K) (intrinsicSmoothedNumerator 3 4 (by norm_num))
+    (primePowerArithmeticCharacter 3 1 (χ.ringHomComp (algebraMap ℚ K)) 3).toContinuousMap = -14 := sorry
+-- common_numerator_zero_value
+example : (algebraMap ℚ ℂ) 1 =
+    3*DirichletCharacter.LFunction (χ.ringHomComp (algebraMap ℚ ℂ)) 0 ∧
+    (algebraMap ℚ K) 1 = extendIntegralUnitCoefficients (R := K) (intrinsicSmoothedNumerator 3 4 (by norm_num))
+      (primePowerArithmeticCharacter 3 1 (χ.ringHomComp (algebraMap ℚ K)) 1).toContinuousMap := sorry
+-- common_numerator_quotient
+example : (algebraMap ℚ ℂ) (1/3) =
+    DirichletCharacter.LFunction (χ.ringHomComp (algebraMap ℚ ℂ)) 0 ∧
+    (algebraMap ℚ K) (1/3) = extendIntegralUnitCoefficients (R := K) (intrinsicSmoothedNumerator 3 4 (by norm_num))
+      (primePowerArithmeticCharacter 3 1 (χ.ringHomComp (algebraMap ℚ K)) 1).toContinuousMap / 3 := sorry
+end CommonThree
+end SuggestedArithmeticCharacterTests
+end
+end DirichletPadic
