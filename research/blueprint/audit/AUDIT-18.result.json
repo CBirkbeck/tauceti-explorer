@@ -567,7 +567,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Over any finite commutative ring with a primitive additive character: g(χ,ψ)g(χ⁻¹,ψ⁻¹) = #R for χ ≠ 1, g² = χ(−1)#F for quadratic χ, and J(χ,φ) = g(χ)g(φ)/g(χφ) when χφ ≠ 1. The trivial-character cases are separate lemmas; |g|² = q is two lines from these, not a named lemma."
+       "note": "gaussSum is defined over any finite commutative ring, but the identities are proved only for a finite field F with a primitive additive character ψ: g(χ,ψ)g(χ⁻¹,ψ⁻¹) = #F for χ ≠ 1 and g(χ,ψ)² = χ(−1)#F for nontrivial quadratic χ (values in a domain), J(χ,φ) = g(χ)g(φ)/g(χφ) for χφ ≠ 1 (values in a field in which #F ≠ 0), and g(χ)ⁿ = χ(−1)#F·∏ J(χ,χⁱ) for χ of order n ≥ 2 (values in a domain). There is no norm identity over ZMod N for composite N: the Dirichlet-character Gauss-sum lemmas there (DirichletCharacter/GaussSum.lean) are not norm identities. The trivial-character cases are separate lemmas; |g|² = q is two lines from these, not a named lemma."
       },
       {
        "target": "Quadratic reciprocity for Legendre and Jacobi symbols, with the supplementary laws at −1 and 2",
@@ -2349,13 +2349,17 @@
       {
        "layer": "FiniteFieldsAndCharacterSums:FF.0",
        "note": "FF.0 builds normal bases of finite-field extensions, the finite-field case of CA.7's normal-basis maps."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
+       "note": "Layer 11 owns orders in number fields (NumberFieldOrder, conductor, invertible proper fractional ideals, Pic and NarrowPic), and ClassFieldTheory layer 13 routes orders there. This is the commutative case of CA.7's ℤ-orders, so CA.7's order carrier for semisimple ℚ-algebras must specialise to it. The locally free class group of a noncommutative order such as ℤ[G] is not a Picard or narrow class group, so only the commutative case overlaps."
       }
      ]
     }
    }
   },
   "AdicCoefficientsAndComparisons": {
-   "summary": "The libraries contain only foundations for this roadmap: Mathlib's classical adic completion and regular sequences, the small étale and pro-étale sites of a scheme with a definition of pro-étale ℓ-adic cohomology, the limit lemmas for qcqs schemes with affine transition maps (nonemptiness, affineness at a stage, factorization of maps to schemes locally of finite presentation), scheme-theoretic images, relative normalization and generic smoothness over perfect fields; Tau Ceti adds Spa of Huber pairs and the packaging of models and numerical types for stable reduction. Genuinely missing: derived completeness, adic coefficient categories and ∞-categorical presentability; v-sheaves, diamonds and marked untilts; absolute noetherian approximation, Nagata compactification, scheme Rf_! and topological invariance of the étale site; blowups, de Jong's alterations, cohomological descent and local purity; and every ECD 27 comparison theorem.",
+   "summary": "The libraries contain only foundations for this roadmap: Mathlib's classical adic completion and regular sequences, the small étale and pro-étale sites of a scheme with a definition of pro-étale ℓ-adic cohomology, the limit lemmas for qcqs schemes with affine transition maps (nonemptiness, affineness at a stage, factorization of maps to schemes locally of finite presentation), scheme-theoretic images, relative normalization, finiteness of integral closures in the separable case (Mathlib) and the purely inseparable polynomial case (Tau Ceti), and generic smoothness over perfect fields; Tau Ceti adds Spa of Huber pairs and the packaging of models and numerical types for stable reduction. Genuinely missing: derived completeness, adic coefficient categories and ∞-categorical presentability; v-sheaves, diamonds and marked untilts; absolute noetherian approximation, Nagata compactification, scheme Rf_! and topological invariance of the étale site; blowups, de Jong's alterations, cohomological descent and local purity; and every ECD 27 comparison theorem.",
    "layers": {
     "AdicCoefficientsAndComparisons:L0": {
      "verdict": "not built",
@@ -2971,7 +2975,7 @@
      ]
     },
     "AdicCoefficientsAndComparisons:L5": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Normalization of schemes under the applicable excellence hypotheses",
@@ -2985,21 +2989,35 @@
          "fit": "exact"
         },
         {
-         "name": "AlgebraicGeometry.Scheme.Hom.normalizationDesc",
+         "name": "IsIntegralClosure.finite",
          "library": "mathlib",
-         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
-         "line": 373,
-         "fit": "exact"
+         "file": "Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean",
+         "line": 175,
+         "fit": "special case"
         },
         {
-         "name": "AlgebraicGeometry.Scheme.Hom.normalizationPullback",
+         "name": "exists_finite_inj_algHom_of_fg",
          "library": "mathlib",
-         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
-         "line": 584,
-         "fit": "exact"
+         "file": "Mathlib/RingTheory/NoetherNormalization.lean",
+         "line": 287,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsIntegralClosure.finite_mvPolynomial_of_isPurelyInseparable",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/IntegralClosure/PurelyInseparable.lean",
+         "line": 167,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.IsIntegralClosure.finite_of_injective",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/IntegralClosure/Transfer.lean",
+         "line": 65,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib constructs the relative normalization of a qcqs morphism with its universal property among integral factorizations and compatibility with smooth base change. Missing: finiteness of normalization (no excellent, Nagata or Japanese rings in either library)."
+       "note": "Mathlib constructs the relative normalization of a qcqs morphism with its universal property among integral factorizations (Scheme.Hom.normalizationDesc, Normalization.lean:373) and compatibility with smooth base change (Scheme.Hom.normalizationPullback, Normalization.lean:584). Present towards finiteness: the integral closure of a noetherian normal domain in a finite separable extension of its fraction field is finite, and Noether normalization (Mathlib); the integral closure of k[X_1..X_r] in a finite purely inseparable extension of its fraction field is finite, and finiteness descends along an injective map of the top rings (Tau Ceti, Stacks 032O and 032N). Tau Ceti also proves Krull–Akizuki (TauCeti.IsIntegralClosure.isNoetherianRing, IntegralClosure/NormalizationFinite.lean:400), which is noetherianity of the integral closure, not its module finiteness. Missing: the Japanese, Nagata and excellent notions, the assembled theorem that finite-type algebras over a field (and over a complete DVR) are N-2, and so finiteness of the relative normalization of finite-type schemes."
       },
       {
        "target": "Blowups, strict transforms and flattening by blowup",
@@ -3017,17 +3035,24 @@
       },
       {
        "target": "Generic smoothness",
-       "library": "mathlib",
+       "library": "partial",
        "declarations": [
         {
          "name": "AlgebraicGeometry.Scheme.Hom.dense_smoothLocus_of_perfectField",
          "library": "mathlib",
          "file": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
          "line": 352,
-         "fit": "exact"
+         "fit": "special case"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.genericPoint_mem_smoothLocus_of_perfectField",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+         "line": 333,
+         "fit": "special case"
         }
        ],
-       "note": "A reduced scheme locally of finite presentation over a perfect field has dense (open) smooth locus, the form used over perfect base fields; a relative generic-smoothness theorem for morphisms is not stated."
+       "note": "Mathlib proves only the absolute case: a reduced scheme locally of finite presentation over a perfect field has dense smooth locus, and an integral one is smooth at its generic point. Missing: relative generic smoothness, that a dominant morphism f : X → Y of integral schemes, locally of finite presentation, with separably generated function-field extension K(X)/K(Y), is smooth on a dense open subset of X. This is the input of the curve fibrations in de Jong's proof. It does not follow from the absolute case, since K(Y) is imperfect in characteristic p, and without the separability hypothesis it does not give smooth generic fibres or smooth fibres over a dense open of Y."
       },
       {
        "target": "Compactification of pairs and induction on dimension",
@@ -3136,6 +3161,22 @@
       {
        "layer": "EnhancedDerivedSheaves:E2",
        "note": "E2 constructs hypercovers and cohomological descent, which L5 needs for proper hypercovers by alterations."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.5",
+       "note": "M.5 plans to develop geometric existence and alteration results for the norm-residue proof. The common geometric alterations are L5's de Jong target, which M.5 should import under its own characteristic restrictions."
+      },
+      {
+       "layer": "PadicDifferentialEquationsAndRigidCohomology:RD.5",
+       "note": "RD.5 uses alterations and descent in Kedlaya's finiteness proof. Only the geometric alterations are shared with L5; RD.5's descent is for rigid cohomology of overconvergent F-isocrystals, not L5's étale-coefficient descent, and stays separate."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+       "note": "Supplier: layer 9 extends generic markings to disjoint sections after finite base change and blowups and proves stable pointed reduction, the proved marked-curve supplier that L5's curve-fibration task consumes where its hypotheses agree. It is not a second construction and does not give alterations in arbitrary dimension."
+      },
+      {
+       "layer": "EtaleDualityAndPerverseSheaves:EDC.3",
+       "note": "EDC.3 constructs smooth-pair purity i^!Λ_X ≅ Λ_Z(−c)[−2c] over a field, the smooth-strata purity component of L5's local calculations; L5's Kummer, nearby-cycle and normal-crossing calculations are not in EDC.3."
       }
      ]
     },
@@ -3181,7 +3222,7 @@
          "fit": "related"
         }
        ],
-       "note": "Inertia subgroups of valuation subrings, |inertia| = e for finite Galois extensions with perfect residue fields and lower ramification groups for places of function fields exist; the tame quotient of absolute inertia, its identification with ∏ ℤ_ℓ(1) and its cohomology are absent."
+       "note": "Inertia subgroups of valuation subrings, |inertia| = e for finite Galois extensions with perfect residue fields and lower ramification groups for places of function fields exist; the tame quotient of absolute inertia, its identification with ∏ ℤ_ℓ(1) and its cohomology are absent. Supplier: tauceti:TauCetiRoadmap/LocalFieldsRamification layer 4 owns the tame quotient I_K/P_K ≅ lim μ_m = Ẑ^(p')(1) ≅ ∏_{ℓ≠p} ℤ_ℓ(1) with its cyclotomic equivariance. L6 imports it and proves here only the extension to the perfect-residue-field generality its O needs (layer 4's Iwasawa presentation assumes a finite residue field and does not transfer without that hypothesis) and the cohomology calculation. LefschetzPencilsAndVanishingCycles:LPV.1 builds the tame character t_ℓ on the same supplier and is a compatibility partner, not a second construction."
       },
       {
        "target": "ECD 27.7: constructible full faithfulness for schemes locally of finite type over O with prime-to-p coefficients",
@@ -3200,7 +3241,7 @@
    }
   },
   "ClassicalAdicEtaleCohomology": {
-   "summary": "Nothing in either library works on adic spaces beyond Tau Ceti's foundations: Spa of Huber pairs as a topological space, rational subsets, valuation spectra, Tate algebras and microbial valuations. Mathlib supplies the general sheaf theory these stages would build on — points of sites and conservative families, the small étale site of a scheme with its geometric points, enough injectives and right derived functors on D⁺, sheaf cohomology as Ext with Mayer–Vietoris (and a long exact sequence in Tau Ceti) — together with henselian pairs and inertia and decomposition subgroups of valuation subrings. Genuinely missing: the étale site and étale cohomology of adic spaces, constructible sheaves and supports, strict henselization, formal schemes and Huber's specialization and formal comparison theorems, nearby cycles over valuation bases and pro-p wild inertia, proper support, trace and Poincaré duality for curves, cohomology of discs and annuli, analytification with its comparison theorems, and Lütkebohmert's compactification.",
+   "summary": "Nothing in either library works on adic spaces beyond Tau Ceti's foundations: Spa of Huber pairs as a topological space, rational subsets, valuation spectra, Tate algebras and microbial valuations. Mathlib supplies the general sheaf theory these stages would build on — points of sites and conservative families, the small étale site of a scheme with its geometric points, enough injectives and right derived functors on D⁺, sheaf cohomology as Ext with Mayer–Vietoris (and a long exact sequence in Tau Ceti) — together with henselian pairs and inertia and decomposition subgroups of valuation subrings. Genuinely missing: the étale site and étale cohomology of adic spaces, constructible sheaves, sections with support and i^! (only the abstract restriction/extension-by-zero adjunction of a slice site exists), strict henselization, formal schemes and Huber's specialization and formal comparison theorems, nearby cycles over valuation bases and pro-p wild inertia, proper support, trace and Poincaré duality for curves, cohomology of discs and annuli, analytification with its comparison theorems, and Lütkebohmert's compactification.",
    "layers": {
     "ClassicalAdicEtaleCohomology:H0": {
      "verdict": "not built",
@@ -3252,13 +3293,6 @@
          "fit": "more general"
         },
         {
-         "name": "CategoryTheory.Sheaf.isGrothendieckAbelian_of_essentiallySmall",
-         "library": "mathlib",
-         "file": "Mathlib/CategoryTheory/Abelian/GrothendieckAxioms/Sheaf.lean",
-         "line": 77,
-         "fit": "more general"
-        },
-        {
          "name": "CategoryTheory.Functor.rightDerivedFunctorPlus",
          "library": "mathlib",
          "file": "Mathlib/Algebra/Homology/DerivedCategory/RightDerivedFunctorPlus.lean",
@@ -3273,18 +3307,25 @@
          "fit": "related"
         },
         {
-         "name": "CategoryTheory.Functor.sheafPushforwardContinuous",
+         "name": "CategoryTheory.Sheaf.Γ",
          "library": "mathlib",
-         "file": "Mathlib/CategoryTheory/Sites/Continuous.lean",
-         "line": 362,
+         "file": "Mathlib/CategoryTheory/Sites/GlobalSections.lean",
+         "line": 64,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Functor.rightDerived",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Abelian/RightDerived.lean",
+         "line": 109,
+         "fit": "more general"
         }
        ],
-       "note": "Sheaf categories on essentially small sites are Grothendieck abelian with enough injectives, every additive functor between abelian categories with enough injectives has a total right derived functor on D⁺ (its triangulated structure is a TODO), and sheaf cohomology is defined as Ext from the constant sheaf ℤ. Missing: RΓ and Rf_* as functors on D⁺ of sheaves and the identification of Sheaf.H with R^nΓ."
+       "note": "Sheaf categories on essentially small sites are Grothendieck abelian (Sheaf.isGrothendieckAbelian_of_essentiallySmall, GrothendieckAxioms/Sheaf.lean:77) with enough injectives, every additive functor between abelian categories with enough injectives has a total right derived functor on D⁺ (its triangulated structure is a TODO), and sheaf cohomology is defined as Ext from the constant sheaf ℤ. RΓ = (Sheaf.Γ J A).rightDerivedFunctorPlus and Rf_* = (F.sheafPushforwardContinuous A J K).rightDerivedFunctorPlus (Functor.sheafPushforwardContinuous, Sites/Continuous.lean:362) are obtained by instantiation where the hypotheses hold: Γ needs the constant-sheaf functor to have a right adjoint (for example on a small site with a terminal object) and is additive as the right adjoint of the additive constantSheaf (constantSheafΓAdj, Sites/Abelian.lean:51, Adjunction/Additive.lean:38); the pushforward needs an Additive instance supplied from the pointwise maps; R^nΓ is Functor.rightDerived. Missing: the triangulated structure of rightDerivedFunctorPlus (a Mathlib TODO), the identification of Sheaf.H F n with R^nΓ(F), the geometric packaging of these functors, and the composition (Leray) comparison Rg_*∘Rf_* ≅ R(gf)_*."
       },
       {
        "target": "Torsion local systems, constructible sheaves in the analytic sense, Tate twists and supports (extension by zero, sections with support)",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "CategoryTheory.constantSheaf",
@@ -3306,9 +3347,23 @@
          "file": "TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean",
          "line": 107,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Functor.sheafPullback",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Pullback.lean",
+         "line": 55,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.GrothendieckTopology.overPullback",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Over.lean",
+         "line": 279,
+         "fit": "related"
         }
        ],
-       "note": "Only constant sheaves, the sheafified free abelian sheaf ℤ_U on a representable (Hom(ℤ_U, F) = F(U)) and μₙ(K^sep) as a Galois module exist. No locally constant or constructible Λ-sheaves, μₙ^{⊗r} sheaves, j_!, i^! or Γ_Z."
+       "note": "Only constant sheaves, the sheafified free abelian sheaf ℤ_U on a representable (Hom(ℤ_U, F) = F(U)) and μₙ(K^sep) as a Galois module exist. For an object X of a site, Mathlib has restriction to J.over X (GrothendieckTopology.overPullback) and, when it exists, its left adjoint (Over.forget X).sheafPullback (adjunction at Sites/Pullback.lean:59); with abelian coefficients this is extension by zero j_! for the slice site (Stacks 03DH, 03DI). It gives j_! for étale U → X of adic spaces once the adic étale site identifies X_ét/U with U_ét, which is missing, and it is not a general Rf_!. No locally constant or constructible Λ-sheaves, μₙ^{⊗r} sheaves or Tate twists, and no i^!, Γ_Z, closed-complement supports or stalk description of j_!."
       },
       {
        "target": "Geometric points Spa(C,C⁺) → X and geometric stalks, the stalk formula over strict localization and affine-local descriptions",
@@ -3555,9 +3610,16 @@
          "file": "TauCeti/FieldTheory/Galois/AbsoluteGaloisGroup.lean",
          "line": 230,
          "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.isGrothendieckAbelian_sheaf_smallEtaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/AffineEtale.lean",
+         "line": 149,
+         "fit": "related"
         }
        ],
-       "note": "Searched nearby cycles, vanishing cycles, RΨ: nothing; there are no étale sheaves on schemes over valuation rings to apply i*, Rj_* and j* to."
+       "note": "Searched nearby cycles, vanishing cycles, RΨ: nothing. Mathlib has étale sheaves on any scheme, including the spectrum of a valuation ring (Scheme.smallEtaleTopology, Etale.lean:50), and their abelian and module sheaf categories are Grothendieck abelian, hence have enough injectives and D⁺ derived functors. Missing: the morphisms of small étale sites for the closed and open points of the valuation spectrum packaged as geometric functors i^*, Rj_*, j^* (the generic categorical sheaf pushforward and pullback exist and must be reused), their Galois actions and base-change comparisons, and nearby cycles themselves."
       },
       {
        "target": "Hub96 4.2.4 base change for a Cartesian change of valuation bases (torsion prime to the residue characteristic) and 4.2.5 constructibility of RⁿΨ_L",
@@ -3840,9 +3902,16 @@
          "file": "TauCeti/FieldTheory/Galois/AbsoluteGaloisGroup.lean",
          "line": 230,
          "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.isGrothendieckAbelian_sheaf_smallEtaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/AffineEtale.lean",
+         "line": 149,
+         "fit": "related"
         }
        ],
-       "note": "Searched nearby cycles, vanishing cycles, RΨ: nothing; there are no étale sheaves on schemes over valuation rings to apply i*, Rj_* and j* to."
+       "note": "Searched nearby cycles, vanishing cycles, RΨ: nothing. Mathlib has étale sheaves on any scheme, including the spectrum of a valuation ring (Scheme.smallEtaleTopology, Etale.lean:50), and their abelian and module sheaf categories are Grothendieck abelian, hence have enough injectives and D⁺ derived functors. Missing: the morphisms of small étale sites for the closed and open points of the valuation spectrum packaged as geometric functors i^*, Rj_*, j^* (the generic categorical sheaf pushforward and pullback exist and must be reused), their Galois actions and base-change comparisons, and nearby cycles themselves."
       },
       {
        "target": "Hub96 4.2.4 base change for a Cartesian change of valuation bases (torsion prime to the residue characteristic) and 4.2.5 constructibility of RⁿΨ_L",
@@ -4017,14 +4086,10 @@
        "target": "Henselian comparison, local residue/trace computations and formal-model transfer from the scheme trace and pairing",
        "library": "absent",
        "declarations": [],
-       "note": "Absent together with its inputs (scheme trace and purity, formal models)."
+       "note": "Absent together with its inputs (scheme trace and purity, formal models). The scheme trace, relative purity and Poincaré pairing are supplied by EtaleDualityAndPerverseSheaves:EDC.2, which H3 requires; EDC.2 states them for schemes and H3 transfers them to analytic curves."
       }
      ],
      "duplicates": [
-      {
-       "layer": "EtaleDualityAndPerverseSheaves:EDC.2",
-       "note": "H3's own description names EDC.2 as the owner of the scheme trace, relative purity and Poincaré pairing it transfers; EDC.2 states the same trace normalization, perfect pairing and nondegeneracy targets for schemes."
-      },
       {
        "layer": "DiamondSixOperations:S1",
        "note": "S1 constructs Rf_! = R f̄_* j_! from the canonical compactification with base change, composition, the projection formula and the cohomological-dimension estimate — H3's proper-support and dimension-bound targets in the diamond setting."
@@ -4070,7 +4135,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti has the closed polydisc Spa(A⟨T⟩, A⟨T⟩°) as a set and field-level Kummer theory (Kˣ/(Kˣ)ⁿ ↪ H¹(G_K, μₙ)); Mathlib has Kummer extensions. No étale cohomology of any disc or annulus."
+       "note": "Tau Ceti has the closed polydisc Spa(A⟨T⟩, A⟨T⟩°) as a set and field-level Kummer theory (Kˣ/(Kˣ)ⁿ ↪ H¹(G_K, μₙ)); Mathlib has Kummer extensions. No étale cohomology of any disc or annulus. DiamondEtaleCohomology:C6 consumes these annulus and open-ball calculations (it requires H4); it does not construct them."
       },
       {
        "target": "Transfer of these calculations to perfectoid limits and cohomological continuity",
@@ -4083,10 +4148,6 @@
       {
        "layer": "DiamondEtaleCohomology:C1",
        "note": "C1's reduction to strictly totally disconnected bases proves the geometric-field, relative-ball approximation and extension-by-zero assertions (ECD 16.2–16.5), the same relative-ball approximation over an approximating base as H4's first target."
-      },
-      {
-       "layer": "DiamondEtaleCohomology:C6",
-       "note": "C6 is ECD 19.5 and says it uses 'the annulus/open-ball calculations in H4', the prime-to-p cohomology of discs, punctured discs and annuli that H4's second target computes."
       }
      ]
     },
@@ -4161,7 +4222,7 @@
    }
   },
   "DeligneWeightsAndPurity": {
-   "summary": "The libraries contain the linear algebra and some analytic and Hodge-theoretic analogues this roadmap would use, but none of its ℓ-adic mathematics: Mathlib has characteristic polynomials, generalized eigenspace decompositions and perfect pairings, and Tau Ceti adds Landau's theorem for nonnegative Dirichlet series, the 3-4-1 positivity inequality for Euler factors, sl₂ decompositions, symplectic cap invariance, mixed Hodge structures with strictness, and elliptic-curve point-count infrastructure (deg(1 − π_q) = #E(F_q), a conditional Hasse bound). Genuinely missing: Weil numbers and weights, Frobenius on abelian varieties, the Rosati involution and Tate modules, the Hasse and Weil bounds, Lefschetz pencils, Chebotarev for function fields, lisse and mixed sheaves, monodromy filtrations and quasi-unipotence, Künneth, Leray and weak Lefschetz, every Weil I and Weil II theorem, geometric semisimplicity and hard Lefschetz.",
+   "summary": "The libraries contain the linear algebra and some analytic and Hodge-theoretic analogues this roadmap would use, but none of its ℓ-adic mathematics beyond the carriers: Mathlib supplies the small étale site of a scheme with its geometric points, Grothendieck-abelian étale sheaves with sheaf cohomology Sheaf.H, and pro-étale Hⁿ(X, ℤ_ℓ), though no curve comparison, constructibility, Frobenius purity or Leray. Mathlib also has characteristic polynomials, generalized eigenspace decompositions and perfect pairings, and Tau Ceti adds Landau's theorem for nonnegative Dirichlet series, the 3-4-1 positivity inequality for Euler factors, sl₂ decompositions, symplectic cap invariance, mixed Hodge structures with strictness, and elliptic-curve point-count infrastructure (deg(1 − π_q) = #E(F_q), a conditional Hasse bound). Genuinely missing: Weil numbers and weights, Frobenius on abelian varieties, the Rosati involution and Tate modules, the Hasse and Weil bounds, Lefschetz pencils, Chebotarev for function fields, lisse and mixed sheaves, monodromy filtrations and quasi-unipotence, Künneth, Leray and weak Lefschetz, every Weil I and Weil II theorem, geometric semisimplicity and hard Lefschetz.",
    "layers": {
     "DeligneWeightsAndPurity:DWP.0": {
      "verdict": "not built",
@@ -4480,7 +4541,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib only defines pro-étale Hⁿ(X, ℤ_ℓ); Tau Ceti identifies the points of an elliptic curve with Cl⁰ of its function field and proves #ker[n] = n² over an algebraically closed field with n invertible. No Tate module, Jacobian variety or H¹ comparison."
+       "note": "Mathlib defines pro-étale Hⁿ(X, ℤ_ℓ) and étale sheaf cohomology Sheaf.H, but no comparison with a Tate module; Tau Ceti identifies the points of an elliptic curve with Cl⁰ of its function field and proves #ker[n] = n² over an algebraically closed field with n invertible. No Tate module, Jacobian variety or H¹ comparison."
       },
       {
        "target": "H⁰/H² weights, the Weil bound |#C(F_{qⁿ}) − qⁿ − 1| ≤ 2g q^{n/2} for all n, and compatibility with finite base extension, including disconnected curves via components and permutation Frobenius",
@@ -4868,7 +4929,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib defines spectral sequences abstractly; there is no Leray spectral sequence, blowup or étale cohomology."
+       "note": "Mathlib defines spectral sequences abstractly and étale cohomology only as sheaf cohomology Sheaf.H on the small étale site; there is no Leray spectral sequence, no blowup and no cohomology comparison for blowups."
       },
       {
        "target": "Descent and extension of the projective embedding, pencil and vanishing cycles after a finite extension, with transfer back by powers of Frobenius",
@@ -5030,8 +5091,37 @@
       {
        "target": "Weil II 3.2.3: for j : U₀ ↪ C₀ with C₀ smooth proper and F₀ lisse punctually ι-pure of weight w, Hⁱ(C, j_*F) is pure of weight w + i",
        "library": "absent",
-       "declarations": [],
-       "note": "No étale cohomology of curves with coefficients exists."
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.smallEtaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Sheaf.H",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.isGrothendieckAbelian_sheaf_smallEtaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/AffineEtale.lean",
+         "line": 149,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CategoryTheory.Sheaf.H.δ",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Sites/SheafCohomology/LongExactSequence.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Hⁱ(C_ét, F) for an abelian étale sheaf F is definable as Sheaf.H on smallEtaleTopology, whose sheaf categories are Grothendieck abelian (Mathlib), with a long exact sequence (Tau Ceti). There are no lisse ℚ_ℓ-sheaves, no packaged geometric j_* for U₀ ↪ C₀ (only the generic sheaf pushforward along a continuous functor), no Frobenius action and no finiteness or purity."
       },
       {
        "target": "Reduction via finite covers to the tame/unipotent case with trace splitting and the resulting direct-summand statements over ℚ_ℓ",
@@ -5146,7 +5236,7 @@
          "fit": "related"
         }
        ],
-       "note": "No constructible derived category or dualizing complex exists; only abstract t-structures."
+       "note": "No constructible derived category or dualizing complex exists: there are only abstract t-structures and the derived category of the Grothendieck abelian category of étale sheaves, with no constructible subcategory."
       },
       {
        "target": "Stability of mixed complexes under the six operations with the directional weight estimates (f*, Rf_! preserve upper weights; f^!, Rf_* lower; duality reverses; tensor adds), and preservation of purity by proper direct image",
@@ -5561,7 +5651,7 @@
       },
       {
        "target": "Finite-level ordinary duals over the self-injective rings ℤ/ℓⁿ and derived duals with Ext terms over ℤ_ℓ",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "Module.injective_of_isSemisimpleRing",
@@ -5576,9 +5666,23 @@
          "file": "TauCeti/Algebra/Module/Injective/SelfInjective.lean",
          "line": 133,
          "fit": "related"
+        },
+        {
+         "name": "MonoidHom.domRestrict_surjective",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/FiniteAbelian/Duality.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "CommGroup.monoidHomMonoidHomEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/FiniteAbelian/Duality.lean",
+         "line": 151,
+         "fit": "related"
         }
        ],
-       "note": "Every module over a semisimple ring is injective (covering ℤ/ℓ), and Tau Ceti proves self-injectivity of algebras over a field with an associative perfect bilinear form; self-injectivity of ℤ/ℓⁿ for n ≥ 2 is not stated."
+       "note": "Every module over a semisimple ring is injective (covering ℤ/ℓ), and Tau Ceti proves self-injectivity of algebras over a field with an associative perfect bilinear form; self-injectivity of ℤ/ℓⁿ for n ≥ 2 is not stated. Mathlib proves duality for finite commutative groups with values in a monoid with enough roots of unity for the exponent: characters extend from subgroups (MonoidHom.domRestrict_surjective) and evaluation into the double dual is an isomorphism (CommGroup.monoidHomMonoidHomEquiv). With values in ℂ and μ_{ℓⁿ} ≅ ℤ/ℓⁿ this is finite-level ordinary duality for finite ℤ/ℓⁿ-modules in character form, and character extension on the ideals of ℤ/ℓⁿ with Baer's criterion (Module.Baer.injective, Algebra/Module/Injective.lean:401) would give self-injectivity of ℤ/ℓⁿ. Missing: that transport to the ℤ/ℓⁿ-linear statement and the Baer instantiation (not formalized), duality for complexes of sheaves, and the derived dual with Ext terms over ℤ_ℓ."
       }
      ],
      "duplicates": [
@@ -5715,7 +5819,7 @@
       },
       {
        "target": "Finite-level ordinary duals over the self-injective rings ℤ/ℓⁿ and derived duals with Ext terms over ℤ_ℓ",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "Module.injective_of_isSemisimpleRing",
@@ -5730,9 +5834,23 @@
          "file": "TauCeti/Algebra/Module/Injective/SelfInjective.lean",
          "line": 133,
          "fit": "related"
+        },
+        {
+         "name": "MonoidHom.domRestrict_surjective",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/FiniteAbelian/Duality.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "CommGroup.monoidHomMonoidHomEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/FiniteAbelian/Duality.lean",
+         "line": 151,
+         "fit": "related"
         }
        ],
-       "note": "Every module over a semisimple ring is injective (covering ℤ/ℓ), and Tau Ceti proves self-injectivity of algebras over a field with an associative perfect bilinear form; self-injectivity of ℤ/ℓⁿ for n ≥ 2 is not stated."
+       "note": "Every module over a semisimple ring is injective (covering ℤ/ℓ), and Tau Ceti proves self-injectivity of algebras over a field with an associative perfect bilinear form; self-injectivity of ℤ/ℓⁿ for n ≥ 2 is not stated. Mathlib proves duality for finite commutative groups with values in a monoid with enough roots of unity for the exponent: characters extend from subgroups (MonoidHom.domRestrict_surjective) and evaluation into the double dual is an isomorphism (CommGroup.monoidHomMonoidHomEquiv). With values in ℂ and μ_{ℓⁿ} ≅ ℤ/ℓⁿ this is finite-level ordinary duality for finite ℤ/ℓⁿ-modules in character form, and character extension on the ideals of ℤ/ℓⁿ with Baer's criterion (Module.Baer.injective, Algebra/Module/Injective.lean:401) would give self-injectivity of ℤ/ℓⁿ. Missing: that transport to the ℤ/ℓⁿ-linear statement and the Baer instantiation (not formalized), duality for complexes of sheaves, and the derived dual with Ext terms over ℤ_ℓ."
       }
      ],
      "duplicates": [
@@ -6486,6 +6604,10 @@
       {
        "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
        "note": "ET.5 imports EDC.8's correspondences and proves the contracting-boundary Lefschetz–Verdier/Fujiwara trace theorem for them, overlapping EDC.8's trace-class target."
+      },
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+       "note": "GS.3 establishes cohomological correspondences and adjunction maps on the shtuka cohomology colimit with only GS.2 as input, overlapping EDC.8's general correspondence API; GS.3 should consume EDC.8 for that common part. Its stack and shtuka setting, bounded truncations, transition maps and filtered-colimit compatibility with coefficient and support control remain GS.3's own work."
       }
      ]
     }
