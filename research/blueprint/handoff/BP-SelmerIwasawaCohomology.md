@@ -1,7 +1,44 @@
 # BP-SelmerIwasawaCohomology — handoff
 
-Agent: Claude Code — cc-39fac3. Issue #988. Second checkpoint, within the RS-08 boundaries, which
-its review accepted.
+Agent: Claude Code — cc-39fac3. Issue #988. Third checkpoint, within the RS-08 boundaries.
+
+## Checkpoint 3: L3 (7 nodes)
+
+**Sources:**
+- Nekovář, *Selmer complexes* (Astérisque 310, Numdam; sha256 61c84e5a…2153f), §§8.3–8.4, read on the page images.
+  The OCR text layer is unreliable for formulas.
+- Rubin, Appendix B §§3–5.
+- Burungale–Tian (3.2).
+
+**Nodes:**
+- `iwasawa-cohomology`.
+- `iwasawa-shapiro` (planet).
+- `iwasawa-descent` (planet).
+- `iwasawa-torsion-criterion`.
+- `universal-norms-unramified` (planet).
+- `semilocal-cohomology`.
+- `iwasawa-twist`.
+
+**Cited ArithmeticGaloisDuality nodes:**
+- R02.1's `tate-inverse-limit`, `mittag-leffler-lim-one` and `carrier-comparison`.
+- R02.2's Hochschild–Serre, `first-quadrant-spectral-sequence` and `finite-index-descent`.
+- R02.3's `restricted-ramification-group`.
+- R02.4's `global-finiteness`.
+
+**New requests:**
+- PadicMeasuresIwasawaAlgebras L1.
+- Tau Ceti ProfiniteCohomology Layers 6, 7 and 12.
+
+**Remaining in L3:**
+- duality (Nekovář 8.5, 8.9);
+- determinant lines;
+- correction complexes;
+- Selmer control;
+- Burungale–Tian's lattice independence.
+
+**Checks.** `check_blueprint.py`: 40 nodes, 0 errors, 0 warnings. The Lean file compiles with exit 0 against the pinned Mathlib. It adds two checked tests: the H⁰ vanishing argument over ℤ, and the twist at the augmentation.
+
+# Checkpoints 1–2
 
 ## What is done
 
