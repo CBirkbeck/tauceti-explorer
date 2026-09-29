@@ -1,0 +1,851 @@
+{
+ "paper": "PAPER-LAWRENCE-VENKATESH-20",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "agent": "Claude Code",
+ "session": "cc-39fac3",
+ "source": {
+  "title": "Diophantine problems and p-adic period mappings",
+  "authors": "Brian Lawrence and Akshay Venkatesh",
+  "venue": "Inventiones Mathematicae 221 (2020), no. 3, 893–999",
+  "doi": "10.1007/s00222-020-00966-7",
+  "arxiv": "1807.02721v3",
+  "url": "https://arxiv.org/abs/1807.02721v3",
+  "sha256": "e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b",
+  "version": "arXiv v3 (25 October 2019, 76 pages), read completely; the published article is not openly available and was not collated.",
+  "readSections": [
+   "2026-09-29: arXiv:1807.02721v3, all 76 pages: §§1–12 and references; page images checked at the source issues."
+  ]
+ },
+ "summary": "Lawrence and Venkatesh give a new proof of Faltings's theorem: a curve of genus ≥ 2 over a number field has finitely many rational points. Families with good reduction have finitely many possible Galois representations (Faltings's finiteness lemma); p-adic Hodge theory turns them into filtered φ-modules, whose variation is a p-adic period map that has the same power series as the complex one, so big monodromy forces Zariski density. Frobenius centralizers are kept small by semilinearity over large unramified extensions, obtained from an abelian-by-finite Kodaira–Parshin family of Aff(q)-covers, and semisimplicity is controlled by purity of Hodge weights at friendly places. The S-unit theorem is a warm-up. In higher dimension, with the Bakker–Tsimerman Ax–Schanuel theorem, integral points on bases of families with large monodromy and spread-out adjoint Hodge numbers are not Zariski dense (Theorem 10.1), which applies to hypersurfaces in P^n of large dimension and degree. The draft roadmap MordellLawrenceVenkatesh plans the whole curve case (LV.0–LV.11); the higher-dimensional part is routed to the Part II that Lawrence–Sawin's extraction proposes.",
+ "items": [
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/hermite-minkowski",
+   "kind": "theorem",
+   "name": "Hermite–Minkowski finiteness",
+   "statement": "There are finitely many number fields of bounded degree unramified outside a finite set of primes (equivalently of bounded discriminant).",
+   "locator": "arXiv:1807.02721v3, proof of Lemma 2.3; §4.1 (finitely many Kummer fields K(t^{1/m}))",
+   "status": "library",
+   "library": [
+    "mathlib:NumberField.finite_of_discr_bdd"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/dirichlet",
+   "kind": "theorem",
+   "name": "Dirichlet's theorem on primes in progressions",
+   "statement": "For coprime a, m there are infinitely many primes p ≡ a mod m; used to choose the prime q in the proof of Theorem 5.4.",
+   "locator": "arXiv:1807.02721v3, proof of Theorem 5.4, p. 26",
+   "status": "library",
+   "library": [
+    "mathlib:Nat.forall_exists_prime_gt_and_eq_mod"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/grassmannian",
+   "kind": "construction",
+   "name": "Grassmannians",
+   "statement": "The Grassmannian of rank-k quotients (equivalently subspaces) of a finite free module, the ambient variety of the flag and Lagrangian period domains.",
+   "locator": "arXiv:1807.02721v3, §3.4, §4.3 (Gr(2m, m)), §6 (Gr(V_v, g))",
+   "status": "library",
+   "library": [
+    "mathlib:Module.Grassmannian"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-1",
+   "kind": "theorem",
+   "name": "Lemma 2.1: centralizer of a semilinear automorphism",
+   "statement": "For σ an automorphism of E of finite order e with fixed field F and φ a σ-semilinear automorphism of a d-dimensional E-vector space V, Z(φ) = {f E-linear, fφ = φf} is an F-space with dim_F Z(φ) = dim_E Z(φ^e) ≤ d².",
+   "locator": "arXiv:1807.02721v3, §2.1, Lemma 2.1 and proof, p. 9",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-3",
+   "kind": "theorem",
+   "name": "Lemma 2.3 (Faltings): finiteness of pure integral Galois representations",
+   "statement": "For fixed w, d, K and S there are, up to conjugation, finitely many semisimple ρ: G_K → GL_d(Q_p) unramified outside S, pure of weight w, with integral Frobenius characteristic polynomials.",
+   "locator": "arXiv:1807.02721v3, §2.3, Lemma 2.3, pp. 9–10",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/friendly-places",
+   "kind": "definition",
+   "name": "Definition 2.7: friendly places",
+   "statement": "If K has a CM subfield, with maximal CM subfield E and E⁺ its totally real subfield, a place of K is friendly if it is unramified over Q and lies above a place of E⁺ inert in E; otherwise every place unramified over Q is friendly.",
+   "locator": "arXiv:1807.02721v3, §2.4, Definition 2.7, p. 12",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-8",
+   "kind": "theorem",
+   "name": "Lemma 2.8: pure characters at friendly places",
+   "statement": "For v friendly above p and η: G_K → Q_p^× finitely ramified, pure of weight w and locally algebraic above p, η²|_{K_v^×} = χ·Norm^w_{K_v/Q_p} with χ of finite order; w is even and the Hodge–Tate weight of η at v is w/2.",
+   "locator": "arXiv:1807.02721v3, §2.4, Lemma 2.8 and proof, pp. 12–13",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-9",
+   "kind": "theorem",
+   "name": "Lemma 2.9: Hodge weight of a pure crystalline representation",
+   "statement": "For v friendly and V a G_K-representation crystalline above p and pure of weight w, the weight of the Hodge filtration on D_cris(V|_{G_{K_v}}) is w/2.",
+   "locator": "arXiv:1807.02721v3, §2.5, Lemma 2.9, p. 13",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-10",
+   "kind": "theorem",
+   "name": "Lemma 2.10: weights over the places above a friendly place",
+   "statement": "For L/K finite and ρ: G_L → GL_n(Q_p) crystalline above p and pure of weight w with Hodge weights a_u(ρ) at u | p, Σ_{u|v} [L_u : K_v] a_u(ρ) = [L : K] w/2 for every friendly v of K.",
+   "locator": "arXiv:1807.02721v3, §2.5, Lemma 2.10 and proof, pp. 13–14",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/affine-group",
+   "kind": "definition",
+   "name": "The affine group Aff(q) and Lemma 2.11",
+   "statement": "Aff(q) = F_q ⋊ F_q^× ≤ Sym(F_q) for a prime q ≥ 3. For f(g) = Π[g_i, g_i′] on Aff(q)^{2s}, the tuples with f(g) ≠ 0 that generate Aff(q) map onto the 2s-tuples generating F_q^×, with fibres of equal size q^{2s−1}(q−1).",
+   "locator": "arXiv:1807.02721v3, §2.6, Lemma 2.11 and proof, p. 14",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-12",
+   "kind": "theorem",
+   "name": "Lemma 2.12: algebraic Goursat for products of symplectic groups",
+   "statement": "An algebraic subgroup G ≤ Sp(V)^N surjecting onto each factor, such that for all i, j some g ∈ G has π_i(g), π_j(g) unipotent with fixed spaces of different dimensions, is all of Sp(V)^N.",
+   "locator": "arXiv:1807.02721v3, §2.7, Lemma 2.12, p. 14",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.0",
+    "MordellLawrenceVenkatesh:LV.10"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemmas-2-13-2-14",
+   "kind": "theorem",
+   "name": "Lemmas 2.13–2.14: transvection generation",
+   "statement": "For v₁, v₂ with ⟨v₁, v₂⟩ ≠ 0 the Zariski closure of ⟨T_{v₁}, T_{v₂}⟩ contains T_v for all v in their span; if the non-orthogonality graph on a set S is connected, the closure of ⟨T_v : v ∈ S⟩ contains T_w for all w in span(S).",
+   "locator": "arXiv:1807.02721v3, §2.7, Lemmas 2.13–2.14 and proofs, p. 15",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.0"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/good-model-gm",
+   "kind": "construction",
+   "name": "Good models and Gauss–Manin transport on residue disks",
+   "statement": "For π: X → Y smooth proper over O with locally free Hodge and de Rham sheaves and Gauss–Manin connection (after enlarging S), formal horizontal sections have coefficients in O_(v) and converge v-adically for |z_i|_v < |p|^{1/(p−1)} and complexly near y₀; they identify H^q_dR of nearby fibres over K_v (3.7) and over C (3.8), compatibly with crystalline cohomology of the reduction (3.9) and its Frobenius.",
+   "locator": "arXiv:1807.02721v3, §§3.1–3.3, (3.1)–(3.9), pp. 15–17",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/monodromy-group",
+   "kind": "definition",
+   "name": "Algebraic monodromy group Γ and full monodromy",
+   "statement": "Γ is the Zariski closure of the image of π₁(Y_C, y₀) in GL(V_C) (3.5). An abelian-by-finite family has full monodromy if the closure contains Π Sp(H¹_B(X_ỹ), ω) over the points ỹ above y₀ (5.1).",
+   "locator": "arXiv:1807.02721v3, §3.2 (3.5); §5 (5.1), pp. 16, 25",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-3-1",
+   "kind": "theorem",
+   "name": "Lemma 3.1: monodromy orbit in the complex period image",
+   "statement": "Γ · h₀^ι is contained in the Zariski closure of Φ_C(Ω_C) in H_C.",
+   "locator": "arXiv:1807.02721v3, §3.4, Lemma 3.1, p. 18",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-3-2",
+   "kind": "theorem",
+   "name": "Lemma 3.2: common Zariski closure of p-adic and complex series",
+   "statement": "For power series B₀, …, B_N ∈ K⟦z⟧ convergent without common zero on a v-adic and a complex disk, one K-subscheme Z ⊂ P^N gives both Zariski closures of the images after base change.",
+   "locator": "arXiv:1807.02721v3, §3.4, Lemma 3.2 and proof, pp. 18–19",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-3-3",
+   "kind": "theorem",
+   "name": "Lemma 3.3: dimension of the p-adic period image",
+   "statement": "dim of the Zariski closure of Φ_v(Ω_v) ≥ dim_C Γ·h₀^ι; hence the preimage of a Zariski closed set of smaller dimension is contained in a proper K_v-analytic subset of the residue disk.",
+   "locator": "arXiv:1807.02721v3, §3.4, Lemma 3.3, p. 19",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/crystalline-transport",
+   "kind": "theorem",
+   "name": "Crystalline comparison on the residue disk",
+   "statement": "For y in the residue disk of y₀, ρ_y|_{G_{K_v}} is crystalline and corresponds to (H^q_dR(X_y/K_v), φ_v, Hodge filtration) ≅ (V_v, φ_v, Φ_v(y)) in the category of filtered φ-modules (Faltings's comparison, [8, 9.1.9]).",
+   "locator": "arXiv:1807.02721v3, §3.5, (3.12) and following, p. 19",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.4"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/prop-3-4",
+   "kind": "theorem",
+   "name": "Proposition 3.4: preliminary finiteness criterion",
+   "statement": "If dim_{K_v} Z(φ_v^{[K_v:Q_p]}) < dim_C Γ·h₀^ι, then {y ∈ Y(O) : y ≡ y₀ mod v, ρ_y semisimple} lies in a proper K_v-analytic subvariety of the residue disk.",
+   "locator": "arXiv:1807.02721v3, §3.5, Proposition 3.4 and proof, pp. 19–20",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.4"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/s-unit-theorem",
+   "kind": "theorem",
+   "name": "Theorem 4.1: the S-unit theorem",
+   "statement": "{t ∈ O_S^× : 1 − t ∈ O_S^×} is finite.",
+   "locator": "arXiv:1807.02721v3, §4, Theorem 4.1, p. 20",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.6"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-4-2",
+   "kind": "theorem",
+   "name": "S-unit reductions and Lemma 4.2",
+   "statement": "After enlarging K and S (μ₈ ⊂ K, primes above 2 in S) it suffices to bound U₁ = the non-square solutions; U ⊂ ∪ U₁^{2^j}; the Kummer fields K(t^{1/m}) are among finitely many cyclic L; for v with Frobenius generating Gal(L/K) (inert), {t ∈ U_{1,L} : t ≡ t₀ mod v} is finite.",
+   "locator": "arXiv:1807.02721v3, §4.1, Lemma 4.2, pp. 20–21",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.6"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/legendre-variant",
+   "kind": "construction",
+   "name": "The variant Legendre family",
+   "statement": "X → Y′ = P¹ − {0, μ_m, ∞} → Y = P¹ − {0, 1, ∞}, u ↦ u^m, with X → Y′ the Legendre family y² = x(x−1)(x−t); its fibre over t is the union of the curves E_z, z^m = t, with H¹_dR a free rank-2 K(t^{1/m})-module.",
+   "locator": "arXiv:1807.02721v3, §4.2, pp. 21–22",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.6"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-4-3",
+   "kind": "theorem",
+   "name": "Lemma 4.3: big monodromy of the variant family",
+   "statement": "The Zariski closure of π₁(C − {0,1}) acting on ⊕_{z^m = t₀} H¹_B(E_z, Q) contains Π_z SL(H¹_B(E_z, Q)).",
+   "locator": "arXiv:1807.02721v3, §4.3–4.4, Lemma 4.3 and proof, pp. 21, 24",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.6"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-4-4",
+   "kind": "theorem",
+   "name": "Lemma 4.4: generic simplicity for Legendre curves",
+   "statement": "For L a number field and p > 2 unramified in L, only finitely many z ∈ L with z, 1 − z p-units have T_p(E_z) non-simple as a G_L-representation.",
+   "locator": "arXiv:1807.02721v3, §4.4, Lemma 4.4 and proof, pp. 22, 24",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.6"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/abelian-by-finite",
+   "kind": "definition",
+   "name": "Definition 5.1: abelian-by-finite families and good models",
+   "statement": "X → Y′ → Y with Y′ → Y finite étale and X → Y′ a polarized abelian scheme; a good model over O is an O-family of the same shape satisfying the assumptions of §3.1.",
+   "locator": "arXiv:1807.02721v3, §5, Definition 5.1, p. 25",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.2"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/size-v",
+   "kind": "definition",
+   "name": "Definition 5.2: size_v and monotonicity",
+   "statement": "For a G_K-set E unramified at v, size_v(E) is the proportion of elements in Frob_v-orbits of size < 8; size_v(E) ≤ size_v(E′) for E → E′ with equal fibres (5.3).",
+   "locator": "arXiv:1807.02721v3, §5, Definition 5.2 and (5.3), p. 25",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.7"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/prop-5-3",
+   "kind": "theorem",
+   "name": "Proposition 5.3: rational points on the base of an abelian-by-finite family",
+   "statement": "For Y a curve of genus ≥ 2, X → Y′ → Y abelian-by-finite with full monodromy, relative dimension d, a good model over O, and v ∉ S friendly, {y ∈ Y(K) : size_v(π^{-1}(y)) < 1/(d+1)} is finite.",
+   "locator": "arXiv:1807.02721v3, §5, Proposition 5.3, p. 26; proof §6, pp. 28–33",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.7"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-6-1",
+   "kind": "theorem",
+   "name": "Lemma 6.1 and the Sublemma: generic simplicity",
+   "statement": "Outside a finite set, each y in the residue disk with size_v small has (y′, w) above (y, v) with [K(y′)_w : K_v] ≥ 8 and ρ_{y′} simple. The Sublemma: a bad y has (y′, w) of local degree ≥ 8 and a nonzero proper φ-stable W with dim F¹W ≥ dim W/2, by Lemma 2.10 and the counting (6.9)–(6.11).",
+   "locator": "arXiv:1807.02721v3, §6, Lemma 6.1, Sublemma and proofs, pp. 30–32",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.7"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-6-2",
+   "kind": "theorem",
+   "name": "Lemma 6.2: Galois representations vary in the family",
+   "statement": "For fixed K′_v of degree ≥ 8 over K_v and ρ′, only finitely many y in the residue disk have (y′, w) as in Lemma 6.1 with (K(y′)_w, ρ_{y′,w}) ≅ (K′_v, ρ′); the centralizer has K_v-dimension ≤ 4d² < dim H_{(y′₀,w₀)} = [K(y′)_w : K_v]·d(d+1)/2.",
+   "locator": "arXiv:1807.02721v3, §6, Lemma 6.2 and proof, p. 31",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.7"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-6-3",
+   "kind": "theorem",
+   "name": "Lemma 6.3: Frobenius-stable subspaces avoid a generic Lagrangian",
+   "statement": "For L_w/K_v unramified of degree r ≥ 8, (V, ω) symplectic of dimension 2d and φ semilinear bijective, there is a Zariski open A ⊆ Res LGr(V, ω) whose K_v-points F admit no φ-invariant W with dim(F ∩ W) ≥ dim W/2.",
+   "locator": "arXiv:1807.02721v3, §6, Lemma 6.3 and proof, p. 33",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.7"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-6-4",
+   "kind": "theorem",
+   "name": "Lemma 6.4: general position of Lagrangians",
+   "statement": "For r ≥ 8 (indeed r ≥ 5) the r-tuples of Lagrangians admitting a proper nonzero W with dim(F_j ∩ W) ≥ dim W/2 for all j lie in a proper Zariski closed subset of LGr(V, ω)^r.",
+   "locator": "arXiv:1807.02721v3, §6, Lemma 6.4 and proof, pp. 33–34",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.7"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/theorem-5-4",
+   "kind": "theorem",
+   "name": "Theorem 5.4: Faltings's theorem (Mordell's conjecture)",
+   "statement": "A curve of genus ≥ 2 over a number field K has finitely many K-points. The proof chooses q (4 ∤ q−1, no odd prime < 8[K:Q] or dividing disc K divides q−1, 8·2^{g+1}/(q−1)^g < 1/((g−½)(q−1)+1)) and a friendly v with (q_v, q−1) = 1 and q_v of order ≥ 8 mod each odd r | q−1, and bounds size_v by the Weil-pairing count |ker(T^i − 1)| ≤ 2^g(q−1)^g.",
+   "locator": "arXiv:1807.02721v3, §5, Theorem 5.4 and proof, pp. 26–28",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.11"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/prop-7-1",
+   "kind": "theorem",
+   "name": "Proposition 7.1 and Lemma 7.4: Hurwitz spaces of singly branched G-covers",
+   "statement": "For Y of genus ≥ 2 over K and G centre-free finite, there is Y′ → Y finite étale with π^{-1}(y) = G-conjugacy classes of surjections π₁^geom(Y − y) ↠ G nontrivial around y (G_K-equivariantly), and a relative curve Z → Y′ with a G-action making Z → Y′ × Y a G-cover away from the graph. Proved over C by Riemann existence and GAGA, and descended via the group-theoretic Lemma 7.4.",
+   "locator": "arXiv:1807.02721v3, §7.1 and §7.3, Proposition 7.1, Lemma 7.4 and proofs, pp. 34–39",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.8"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/kodaira-parshin",
+   "kind": "construction",
+   "name": "Definitions 7.2–7.3: the Kodaira–Parshin family and the reduced Prym",
+   "statement": "Z_q → Y′_q → Y from Proposition 7.1 with G = Aff(q), and X_q = the relative identity component of Pic⁰_{Z_q/Y′_q}[e″], e″ = #Aff(q)(1 − e), e = (1/#H_q)Σ_{H_q} h − (1/#Aff(q))Σ g; its fibres are isogenous to the reduced Prym of the degree-q cover, of dimension (2g−1)(q−1)/2.",
+   "locator": "arXiv:1807.02721v3, §§7.1–7.2, Definitions 7.2–7.3, pp. 35–36 (notation misprint E3)",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.8"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/theorem-8-1",
+   "kind": "theorem",
+   "name": "Theorem 8.1: Zariski-dense monodromy of Kodaira–Parshin families",
+   "statement": "Mon: π₁(Y, y)⁰ → Π_i Sp(H₁^Pr(Z_i, Y)) has Zariski-dense image, over representatives Z_i of the singly ramified Aff(q)-covers; this is the full monodromy of the Kodaira–Parshin family (§8.2.3).",
+   "locator": "arXiv:1807.02721v3, §8.2.2–8.2.3, Theorem 8.1, pp. 41; proof §§8.5–8.6",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.10"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/affine-covers",
+   "kind": "definition",
+   "name": "Aff(q)-covers, primitive homology and lifted monodromy",
+   "statement": "Aff(q)-covers of a surface, singly ramified covers of genus gq − (q−1)/2, primitive homology H₁^Pr(Z, Y) = ker π_* with its symplectic form, and the lift MCG(Y)_Z → MCG(Z) defining Mon (8.2)–(8.3).",
+   "locator": "arXiv:1807.02721v3, §8.2, pp. 39–40",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.9"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemmas-8-2-8-3",
+   "kind": "theorem",
+   "name": "Lemmas 8.2–8.3: preimage classes and cycle type",
+   "statement": "The preimages of a simple closed curve e are linearly independent with span of dimension k − 1 in primitive homology; the rank of Mon(D_e^M) − Id determines the cycle type of Cov(e).",
+   "locator": "arXiv:1807.02721v3, §8.3, Lemmas 8.2–8.3 and proofs, p. 42",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.9"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/liftable-curves",
+   "kind": "definition",
+   "name": "Liftable curves and the intersection formula (8.6)",
+   "statement": "A simple closed curve is liftable if Cov(e) maps to a generator of F_q^×; D_e induces the transvection with centre ẽ, and ẽ_A · ẽ_B = (A⁺ · B⁺) − q^{-1}(A · B).",
+   "locator": "arXiv:1807.02721v3, §8.3, (8.6), pp. 42–43",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.9"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-8-4",
+   "kind": "theorem",
+   "name": "Lemma 8.4: MCG surjects onto Sp(V, b)",
+   "statement": "For Y of genus g with two boundary components, MCG(Y) → Sp(V, b) is surjective, where V = H₁(Y, Z) has rank 2g + 1 with the degenerate form whose radical is spanned by a boundary class b.",
+   "locator": "arXiv:1807.02721v3, §8.4, Lemma 8.4 and proof, pp. 44–45",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.9"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/prop-8-5",
+   "kind": "theorem",
+   "name": "Proposition 8.5: normal form for Aff(q)-covers",
+   "statement": "Y = S_{g−1} # T with the ramification point in T°, the cover split over S°_{g−1} and extending over T, and monodromy sending β₁ to an element over a generator of F_q^× and β₂ to a nonzero translation.",
+   "locator": "arXiv:1807.02721v3, §8.4, Proposition 8.5, pp. 45–46",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.9"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-8-11",
+   "kind": "theorem",
+   "name": "Lemma 8.11: the curves γ_j on the torus",
+   "statement": "There are q + 1 simple closed curves γ_j on T° (0 ≤ j ≤ q) with monodromy over a fixed generator of F_q^×, fixing exactly j mod q, whose lifts span the homology of T̃° modulo its boundary (via Schreier generators of the point stabilizer), with a common orientation at p.",
+   "locator": "arXiv:1807.02721v3, §8.6, Lemma 8.11 and proof, pp. 48–50",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.9"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemmas-8-6-8-10",
+   "kind": "theorem",
+   "name": "Lemmas 8.6–8.10: the proof of Theorem 8.1",
+   "statement": "Lemma 8.6: the point-push monodromy is noncentral on each factor. Lemma 8.7: density on the product (from Lemmas 8.8, 8.9 and 2.12). Lemma 8.8: non-isomorphic covers differ in cycle type along some simple closed curve. Lemma 8.9: density on each factor. Lemma 8.10: a connected spanning system of liftable curves A(w, j) = γ_j·w^{±1}.",
+   "locator": "arXiv:1807.02721v3, §§8.5–8.6, Lemmas 8.6–8.10 and proofs, pp. 46–51 (Lemma 8.6's proof left to the reader, with an algebro-geometric alternative in footnote 6)",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.10"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/mapping-class-inputs",
+   "kind": "theorem",
+   "name": "Mapping class group inputs (Farb–Margalit)",
+   "statement": "Birman exact sequence 0 → π₁(Y, y) → MCG(Y − y) → MCG(Y) → 0, surjectivity of MCG onto the symplectic group, capping, change of coordinates and representation of primitive classes by simple closed curves.",
+   "locator": "arXiv:1807.02721v3, §8, (8.4), proofs of Lemma 8.4 and §8.4 ([17, Theorem 4.6, Prop. 3.19, Theorem 6.4, Prop. 6.2])",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.5"
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/bakker-tsimerman",
+   "kind": "theorem",
+   "name": "Theorem 9.1 (Bakker–Tsimerman): Ax–Schanuel for period maps",
+   "statement": "For V ⊂ Y × H* algebraic, W the image of Ỹ in Y × H and U ⊂ V ∩ W irreducible analytic with codim U < codim V + codim W in Y × H*, the projection of U to Y lies in a proper weak Mumford–Tate subvariety.",
+   "locator": "arXiv:1807.02721v3, §9.1, Theorem 9.1, p. 52",
+   "status": "planned",
+   "planned": [
+    "LogicAndDefinabilityInNumberTheory:LD.6"
+   ],
+   "note": "LD.6 plans o-minimality and takes Ax–Schanuel theorems as independently acquired functional-transcendence inputs; PAPER-LAWRENCE-SAWIN-25 records the same status for this input."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-2",
+   "kind": "theorem",
+   "name": "Lemma 2.2: induction preserves semisimplicity",
+   "statement": "For H ≤ G of finite index and ρ a semisimple representation of H over a field of characteristic 0, Ind_H^G ρ is semisimple (a representation is semisimple iff its restriction to a finite-index normal subgroup is).",
+   "locator": "arXiv:1807.02721v3, §2.2, Lemma 2.2 and proof, p. 9",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/g-semisimplification",
+   "kind": "definition",
+   "name": "G-irreducible, G-completely reducible and G-semisimplification",
+   "statement": "For G reductive over K of characteristic 0 and ρ: Γ → G(K): G-ir means the image lies in no proper K-parabolic; G-c.r. means every K-parabolic containing the image has a K-Levi containing it; ρ^ss is the projection to a Levi of a minimal parabolic containing the image, well defined up to G-conjugacy, with reductive Zariski closure (Serre).",
+   "locator": "arXiv:1807.02721v3, §2.3, p. 10",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemmas-2-4-2-5",
+   "kind": "theorem",
+   "name": "Lemmas 2.4–2.5: semisimple parts and tori in parabolics",
+   "statement": "ρ^ss(γ) and ρ(γ) have conjugate semisimple parts; a K-torus in P = MU is U(K)-conjugate to its projection to M, so a cocharacter G_m → P is P(K)-conjugate to its projection to M.",
+   "locator": "arXiv:1807.02721v3, §2.3, Lemmas 2.4–2.5 and proofs, p. 10",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-6",
+   "kind": "theorem",
+   "name": "Lemma 2.6: Faltings finiteness with reductive target",
+   "statement": "For G ⊂ GL_n reductive, there are finitely many G(Q_p)-conjugacy classes of ρ^ss for ρ: G_K → G(Q_p) S-unramified, pure of weight w and integral; indeed finitely many pairs (Q, ρ) with Q a parabolic and ρ irreducible in its Levi quotient. Uses Richardson's theorem and finiteness of H¹(Q_p, S).",
+   "locator": "arXiv:1807.02721v3, §2.3, Lemma 2.6 and proof, p. 11",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/transcendence-corollary",
+   "kind": "theorem",
+   "name": "Corollary 9.2: transcendence of period maps",
+   "statement": "If Z ⊂ H* is algebraic with codim Z ≥ dim Y, every irreducible component of Φ^{-1}(Z) lies in the preimage of a proper subvariety of Y.",
+   "locator": "arXiv:1807.02721v3, §9.1, Corollary 9.2 and proof, p. 52",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/padic-transcendence",
+   "kind": "theorem",
+   "name": "Lemma 9.3: p-adic transfer of the transcendence property",
+   "statement": "For X → Y over Z[S^{-1}], p ∉ S, y₀ ∈ Y(Z_p) and Z ⊂ H*_{Q_p} with codim Z ≥ dim Y, Φ_p^{-1}(Z) on the residue disk is not Zariski dense in Y. The proof uses a minimal-prime analysis in the Tate algebra, the complex expansion via Q̄_p ≅ C, the local analytic Nullstellensatz and Krull's intersection theorem.",
+   "locator": "arXiv:1807.02721v3, §9.2, Lemma 9.3 and proof, pp. 52–55",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/adjoint-hodge-numbers",
+   "kind": "definition",
+   "name": "Adjoint Hodge numbers and the function T",
+   "statement": "h^p = dim of the (p, −p) part of the weight-zero Hodge structure on Lie GAut(V₀, ⟨,⟩) ≅ C ⊕ Sym²V₀ or C ⊕ ∧²V₀; T(E) = sum of the top E adjoint Hodge numbers, extended piecewise linearly with slopes p_max, p_max − 1, … (10.3).",
+   "locator": "arXiv:1807.02721v3, §10.1, (10.2)–(10.3), p. 55",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/theorem-10-1",
+   "kind": "theorem",
+   "name": "Theorem 10.1: integral points with large monodromy are not Zariski dense",
+   "statement": "For π: X → Y smooth proper over Z[S^{-1}] with geometrically connected fibres of dimension d, monodromy Zariski dense in the identity component of Aut(V₀, ⟨,⟩), Σ_{p>0} h^p ≥ h⁰ + dim Y and Σ_{p>0} p h^p > T(h⁰ + dim Y) + T(3h⁰/2 + dim Y), Y(Z[S^{-1}]) is not Zariski dense; if every subvariety also has large monodromy, it is finite.",
+   "locator": "arXiv:1807.02721v3, §10.1, Theorem 10.1, p. 56; proof §§10.3–10.5",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/hypersurface-application",
+   "kind": "theorem",
+   "name": "Proposition 10.2: hypersurfaces in projective space",
+   "statement": "There are n₀ and D₀(n) such that (10.4) and (10.5) hold for the universal family of degree-d hypersurfaces in P^n when n ≥ n₀ and d ≥ D₀(n); so the smooth hypersurfaces with good reduction outside S lie in a proper Zariski closed subset of the moduli space.",
+   "locator": "arXiv:1807.02721v3, §10.2, Proposition 10.2 and proof, pp. 56–59; §1.1",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/hypersurface-hodge-asymptotics",
+   "kind": "theorem",
+   "name": "Hodge numbers of hypersurfaces and the Eulerian distribution",
+   "statement": "h^{pq}(d) ∼ (d^n/n!) A(n, p) as d → ∞ (p + q = n − 1, A the Eulerian numbers); the adjoint numbers satisfy h^p ∼ d^{2n} β_p/2 with β_p = Σ_{p₁−p₂=p} α_{p₁}α_{p₂}; dim Y/h⁰ → 0 (10.8).",
+   "locator": "arXiv:1807.02721v3, §10.2, (10.6)–(10.8), pp. 56–57 (proof of (10.6) omitted in the source; dimension formula corrected by E1)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/eulerian-statistics",
+   "kind": "theorem",
+   "name": "Eulerian statistics and Lemma 10.3",
+   "statement": "For X(n) the centred ascent count of a random permutation, Var X = (n+1)/12 (10.9); the self-convolution X′ has Var = (n+1)/6 and law β_p; X(n)/√n → N(0, 1/12) (Chatterjee–Diaconis); Σ_{p>0} pβ_p > A√n; by log-concavity of Eulerian numbers, β₀ < 40/√n for large n (Lemma 10.3).",
+   "locator": "arXiv:1807.02721v3, §10.2, (10.9)–(10.12), Lemma 10.3 and proof, pp. 57–58",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/hypersurface-monodromy",
+   "kind": "theorem",
+   "name": "Large monodromy of universal hypersurface families (Beauville)",
+   "statement": "The monodromy of the universal family of smooth degree-d hypersurfaces in P^n on primitive middle cohomology is Zariski dense in the orthogonal or symplectic group of the intersection form (with Beauville's exceptions).",
+   "locator": "arXiv:1807.02721v3, §10.2, p. 56 ([4])",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/katz-messing",
+   "kind": "theorem",
+   "name": "Katz–Messing: crystalline and ℓ-adic Frobenius agree",
+   "statement": "For a smooth proper variety over F_ℓ, the characteristic polynomial of crystalline Frobenius equals that of geometric Frobenius on p-adic étale cohomology for p ≠ ℓ (also on primitive parts).",
+   "locator": "arXiv:1807.02721v3, §10.3, p. 59; proof of Lemma 10.4, p. 62 ([22])",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/hodge-torus-in-galois-image",
+   "kind": "theorem",
+   "name": "The Hodge torus lies in the p-adic Galois image",
+   "statement": "The Zariski closure of ρ_{y,p}(G_{Q_p}) contains a Q_p-torus S which, under Q̄_p ≅ C, is conjugate to the Hodge torus (the closure of the image of φ₀) in G′; proved by Sen for GL_n, and for G′ via Wintenberger's splitting of the Hodge filtration and Pink's method (footnote 10).",
+   "locator": "arXiv:1807.02721v3, §10.4, proof of Lemma 10.4 and footnote 10, pp. 61–62",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-10-4",
+   "kind": "theorem",
+   "name": "Lemma 10.4: a small Frobenius centralizer below an absolute bound",
+   "statement": "There is L such that every y ∈ Y(Z[S^{-1}]) has a prime ℓ ≤ L, ℓ ∉ S, with dim Z((F^crys,ℓ_y)^ss) ≤ dim Z_{G′(C)}(φ₀). Proof: very regular elements of the reductive image, Chebotarev, the Hodge torus in the image and Katz–Messing.",
+   "locator": "arXiv:1807.02721v3, §10.4, Lemma 10.4 and proof, pp. 60–62",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-10-5",
+   "kind": "theorem",
+   "name": "Lemma 10.5: fibres of the semisimplification map are not dense",
+   "statement": "Given ℓ ∉ S and y₀ with small crystalline Frobenius centralizer, {y ≡ y₀ mod ℓ : ρ^ss_{y,ℓ} ≅ ρ^ss_{y₀,ℓ}} is not Zariski dense, via self-dual semisimplification flags, their de Rham counterparts, Proposition 10.6 and Lemma 9.3.",
+   "locator": "arXiv:1807.02721v3, §10.5, Lemma 10.5 and proof, pp. 62–63",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/prop-10-6",
+   "kind": "theorem",
+   "name": "Proposition 10.6: codimension of bad filtrations",
+   "statement": "For V with a form, φ ∈ GAut(V), fixed filtered φ-modules A₁, …, A_m and z = dim Z(φ^ss): if the number of positive adjoint Hodge numbers is ≥ z + e and their sum exceeds T(z + e) + T(h⁰/2 + z + e), the self-dual filtrations admitting a φ-stable self-dual f with balanced induced weights and graded pieces ≅ A_j have codimension ≥ e.",
+   "locator": "arXiv:1807.02721v3, §10.5, Proposition 10.6, p. 64; proof §11.6",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/reductive-filtrations",
+   "kind": "definition",
+   "name": "Filtrations, weights and Levi splittings for reductive groups",
+   "statement": "A filtration of G is a Pλ-conjugacy class of rational cocharacters λ; for GL(V) and GAut(V) these are (self-dual) filtrations (11.2)–(11.3); wt(F) ∈ a_S = X_*(Z_S) ⊗ Q; for a Levi N the map a_G → a_N splits canonically (11.4).",
+   "locator": "arXiv:1807.02721v3, §§11.1–11.2, pp. 66–67",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/induced-filtration",
+   "kind": "theorem",
+   "name": "Lemmas 11.1–11.2: the filtration induced on a Levi quotient",
+   "statement": "Fixed points of a cocharacter χ on a Q-homogeneous variety are conjugate under its centralizer (Lemma 11.1); a filtration F has representatives χ_P valued in P, unique up to P ∩ Q, and their projection to M defines a well-defined filtration F_M (Lemma 11.2).",
+   "locator": "arXiv:1807.02721v3, §11.3, Lemmas 11.1–11.2 and proofs, pp. 67–69",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/balanced-filtrations",
+   "kind": "definition",
+   "name": "Balanced filtrations",
+   "statement": "F is balanced with respect to P if wt(F) ∈ a_G maps to wt(F_M) ∈ a_M; then ⟨ψ, χ_P⟩ = 0 for characters ψ of P trivial on Z_G (11.7); X(F) is the P-stable variety of balanced G-conjugates, with fibres of F ↦ F_M on a P-orbit of dimension dim U − dim(Q ∩ U) (11.10).",
+   "locator": "arXiv:1807.02721v3, §11.4, pp. 69–70",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/prop-11-3",
+   "kind": "theorem",
+   "name": "Proposition 11.3 and Lemma 11.4: codimension via double cosets",
+   "statement": "With Hodge numbers ⟨μ, γ⟩ and a₀ = dim of the Levi of Q, if the sum of positive Hodge numbers exceeds the top-e sum plus the top-(a₀/2 + e) sum, every fibre of X(F) → {filtrations of M} has codimension > e in G/Q; proof by the decomposition G = P W^{PQ} Q, the modular-character identity (11.14) and the bijection of Lemma 11.4.",
+   "locator": "arXiv:1807.02721v3, §11.5, Proposition 11.3, Lemma 11.4 and proofs, pp. 70–72",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/prop-10-6-proof",
+   "kind": "theorem",
+   "name": "Conclusion of Proposition 10.6 (§11.6)",
+   "statement": "Reduction to φ semisimple; the pairs (P, F_M) with φ ∈ P and fixed conjugacy data form a family of dimension ≤ z = dim Z(φ) (11.18); combined with Proposition 11.3 applied with z + e, the bad filtrations have codimension ≥ e.",
+   "locator": "arXiv:1807.02721v3, §11.6, pp. 72–73",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-12-1",
+   "kind": "theorem",
+   "name": "Lemma 12.1: bounding the Frobenius centralizer by point counts",
+   "statement": "For a smooth hypersurface of degree d and dimension n ≥ 2 over F_q with b = dim H^n_prim, the centralizer of the semisimplified Frobenius has dimension ≤ 3b²/N, where N is the largest integer with q^{(n/2+1)·2N} < b/3 (corrected; the source prints q^{(n/2+1)N} < b/3, see E2).",
+   "locator": "arXiv:1807.02721v3, §12, Lemma 12.1 and proof, pp. 73–74 (corrected by E2)",
+   "status": "missing"
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "B. Bakker and J. Tsimerman, The Ax–Schanuel conjecture for variations of Hodge structures, Invent. Math. 217 (2019), 77–94",
+   "link": "doi:10.1007/s00222-019-00863-8",
+   "why": "Theorem 9.1, the transcendence input of §§9–10."
+  },
+  {
+   "citation": "A. Beauville, Le groupe de monodromie des familles universelles d'hypersurfaces et d'intersections complètes, LNM 1194 (1986), 8–18",
+   "link": "doi:10.1007/BFb0076991",
+   "why": "Large monodromy of universal hypersurface families (Proposition 10.2)."
+  },
+  {
+   "citation": "N. Katz and W. Messing, Some consequences of the Riemann hypothesis for varieties over finite fields, Invent. Math. 23 (1974), 73–77",
+   "link": "doi:10.1007/BF01405203",
+   "why": "Equality of crystalline and ℓ-adic Frobenius characteristic polynomials (§10.3, Lemma 10.4)."
+  },
+  {
+   "citation": "S. Sen, Lie algebras of Galois groups arising from Hodge–Tate modules, Ann. of Math. 97 (1973), 160–170",
+   "link": "doi:10.2307/1970879",
+   "why": "The Hodge torus in the Zariski closure of the Galois image (proof of Lemma 10.4)."
+  },
+  {
+   "citation": "J.-P. Wintenberger, Un scindage de la filtration de Hodge pour certaines variétés algébriques sur les corps locaux, Ann. of Math. 119 (1984), 511–548",
+   "link": "doi:10.2307/2007084",
+   "why": "Functorial splitting of the Hodge filtration used in footnote 10."
+  },
+  {
+   "citation": "R. Pink, ℓ-adic algebraic monodromy groups, cocharacters, and the Mumford–Tate conjecture, J. reine angew. Math. 495 (1998), 187–237",
+   "link": "doi:10.1515/crll.1998.018",
+   "why": "The method of footnote 10 for reductive targets."
+  },
+  {
+   "citation": "B. Mazur, Frobenius and the Hodge filtration (estimates), Ann. of Math. 98 (1973), 58–95",
+   "link": "doi:10.2307/1970906",
+   "why": "Theorem 7.6, locating the image of the p-adic period map in a residue disk (Lemma 9.3)."
+  },
+  {
+   "citation": "S. Chatterjee and P. Diaconis, A central limit theorem for a new statistic on permutations, Indian J. Pure Appl. Math. 48 (2017), 561–573",
+   "link": "doi:10.1007/s13226-017-0246-3",
+   "why": "The central limit theorem for ascents (10.11) and references."
+  },
+  {
+   "citation": "J.-P. Serre, Complète réductibilité, Séminaire Bourbaki 932 (2003/04), Astérisque 299",
+   "link": "http://www.numdam.org/item/SB_2003-2004__46__195_0/",
+   "why": "G-irreducibility, G-complete reducibility and G-semisimplification (§2.3)."
+  }
+ ],
+ "routes": [
+  {
+   "route": "part-ii",
+   "parent": "MordellLawrenceVenkatesh",
+   "roadmap": "MordellLawrenceVenkateshPartII",
+   "title": "The Mordell conjecture after Lawrence and Venkatesh, Part II: non-density of integral points in higher dimension",
+   "area": "arithmeticgeometry",
+   "items": [
+    "PAPER-LAWRENCE-VENKATESH-20/g-semisimplification",
+    "PAPER-LAWRENCE-VENKATESH-20/lemmas-2-4-2-5",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-2-6",
+    "PAPER-LAWRENCE-VENKATESH-20/transcendence-corollary",
+    "PAPER-LAWRENCE-VENKATESH-20/padic-transcendence",
+    "PAPER-LAWRENCE-VENKATESH-20/adjoint-hodge-numbers",
+    "PAPER-LAWRENCE-VENKATESH-20/theorem-10-1",
+    "PAPER-LAWRENCE-VENKATESH-20/hypersurface-application",
+    "PAPER-LAWRENCE-VENKATESH-20/hypersurface-hodge-asymptotics",
+    "PAPER-LAWRENCE-VENKATESH-20/eulerian-statistics",
+    "PAPER-LAWRENCE-VENKATESH-20/hypersurface-monodromy",
+    "PAPER-LAWRENCE-VENKATESH-20/katz-messing",
+    "PAPER-LAWRENCE-VENKATESH-20/hodge-torus-in-galois-image",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-10-4",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-10-5",
+    "PAPER-LAWRENCE-VENKATESH-20/prop-10-6",
+    "PAPER-LAWRENCE-VENKATESH-20/reductive-filtrations",
+    "PAPER-LAWRENCE-VENKATESH-20/induced-filtration",
+    "PAPER-LAWRENCE-VENKATESH-20/balanced-filtrations",
+    "PAPER-LAWRENCE-VENKATESH-20/prop-11-3",
+    "PAPER-LAWRENCE-VENKATESH-20/prop-10-6-proof",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-12-1"
+   ],
+   "brief": "Coalesce with MordellLawrenceVenkateshPartII, proposed by PAPER-LAWRENCE-SAWIN-25 (design DESIGN-MordellLawrenceVenkateshPartII); do not open a second Part II. Lawrence–Sawin's non-density theorem (their Theorem 8.17) and p-adic Bakker–Tsimerman theorem (their Theorem 6.4) generalize the higher-dimensional half of this paper, which the Part II should contain as its first instance. Final theorems from this paper: Theorem 10.1 (for X → Y smooth proper over Z[S^{-1}] with monodromy dense in the identity component of Aut(V₀, ⟨,⟩), Σ_{p>0} h^p ≥ h⁰ + dim Y and Σ_{p>0} p h^p > T(h⁰ + dim Y) + T(3h⁰/2 + dim Y) imply Y(Z[S^{-1}]) not Zariski dense), and Proposition 10.2 (the universal family of degree-d hypersurfaces in P^n satisfies both inequalities for n ≥ n₀, d ≥ D₀(n)). Layers: G-irreducibility, G-complete reducibility and G-semisimplification with Lemmas 2.4–2.5 and Faltings finiteness for reductive targets (Lemma 2.6), shared with Lawrence–Sawin's disconnected-group version; Corollary 9.2 and the p-adic transfer Lemma 9.3, importing Bakker–Tsimerman from LogicAndDefinabilityInNumberTheory LD.6 and period maps and Gauss–Manin transport from MordellLawrenceVenkatesh LV.2–LV.3; adjoint Hodge numbers and T; the Frobenius-centralizer Lemma 10.4 (very regular elements, Chebotarev from Tau Ceti's Chebotarev roadmap, the Hodge torus in the Galois image after Sen, Wintenberger and Pink, and Katz–Messing); Lemma 10.5 and Proposition 10.6 with the reductive-group combinatorics of §11 (filtrations as cocharacter classes, induced filtrations on Levi quotients, balanced filtrations, Proposition 11.3 and Lemma 11.4); and for the hypersurface application, Beauville's monodromy theorem, the Eulerian asymptotics of Hodge numbers (whose proof the source omits), the variance and central limit statements for ascents, log-concavity and Lemma 10.3. Include §12's point-count bound in its corrected form (E2) as an alternative supplier to Lemma 10.4. Use the corrected parameter-space dimension C(n+d, d) − 1 (E1).",
+   "reason": "MordellLawrenceVenkatesh plans exactly the curve case (§§2–8, Theorem 5.4) and the S-unit warm-up; the higher-dimensional method of §§9–12 is beyond it but in its direction, and Lawrence–Sawin's accepted Part II proposal already develops the same machinery in greater generality. Routing to the same roadmap id lets the design job merge the two sources, with this paper's Theorem 10.1 and Proposition 10.2 as the first applications and Lawrence–Sawin's as the general version."
+  },
+  {
+   "route": "source",
+   "roadmap": "MordellLawrenceVenkatesh",
+   "stages": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "items": [
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-2-2"
+   ],
+   "reason": "LV.1 plans the Galois-representation inputs of §2.3–2.5 (Faltings's finiteness lemma, friendly places, Hodge weights of induced representations) but not Lemma 2.2, the elementary fact that induction from a finite-index subgroup preserves semisimplicity in characteristic 0. It belongs beside those inputs; the paper is its source."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/E1",
+   "kind": "error",
+   "locator": "arXiv:1807.02721v3 (25 Oct 2019), §10.2, dimension of the parameter space before (10.8), p. 57; page image checked",
+   "printed": "Next, note that the dimension of the moduli space of degree d hypersurfaces in P^n is given by (n+d choose d−1) − 1 = d(d+1)…(d+n)/(n+1)! − 1 ∼ d^{n+1}/(n+1)!",
+   "correction": "(n+d choose d) − 1 = (d+1)(d+2)…(d+n)/n! − 1 ∼ d^n/n!.",
+   "reason": "Degree-d forms in the n+1 homogeneous coordinates of P^n form a space of dimension (n+d choose d); the printed binomial is d/(n+1) times too large (for n = 1 it gives d(d+1)/2 − 1 instead of d). (10.8) still holds: h⁰ grows like d^{2n}, faster than either d^n or d^{n+1} for n ≥ 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:1807.02721 v3 (25 Oct 2019), the last arXiv version; the published article (Invent. Math. 221 (2020), 893–999, doi:10.1007/s00222-020-00966-7) is not openly available (Crossref lists only the Springer TDM licence) and was not collated.",
+    "2026-09-29: Crossref records no correction or erratum relation for the published article; web search for an erratum found none. Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/E2",
+   "kind": "error",
+   "locator": "arXiv:1807.02721v3 (25 Oct 2019), §12, proof of Lemma 12.1, p. 74; page image checked",
+   "printed": "∫ g_N(t − θ) dµ(θ) = Σ_{r=−N}^{N} (2N + 1 − |r|) Σ_{s=1}^{b} e(r(t − θ_s)). … bounded in absolute value by (2N + 1)[b + 2 Σ_{r=1}^{N} q^{(n/2+1)|r|}] … Choose N the largest integer with q^{(n/2+1)N} < b/3; we get dim(Z) ⩽ 3b²/N.",
+   "correction": "The sum runs over |r| ≤ 2N, since g_N = (Σ_{|r|≤N} e(rt))² = Σ_{|r|≤2N} (2N+1−|r|) e(rt) as printed just before. The bound is (2N+1)[b + 3q^{(n/2+1)2N}], so N must be the largest integer with q^{(n/2+1)·2N} < b/3; then dim Z ≤ b²(1+1)²·3/(4N) = 3b²/N. With the printed N the argument gives only about 6b²/N.",
+   "reason": "The Fourier expansion of g_N stated in the proof has frequencies up to 2N, and the triangle-inequality bound needs (12.2) for all 1 ≤ |r| ≤ 2N. The tail q^{(n/2+1)2N} is controlled only if the exponent in the choice of N is doubled; (2N+1)²/((2N+1)² + 2Σ_{i≤2N} i²) = 3(2N+1)/(8N²+8N+3) ≤ 3/(4N) is correct. Lemma 12.1 is not used elsewhere in the paper.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:1807.02721 v3 (25 Oct 2019), the last arXiv version; the published article (Invent. Math. 221 (2020), 893–999, doi:10.1007/s00222-020-00966-7) is not openly available (Crossref lists only the Springer TDM licence) and was not collated.",
+    "2026-09-29: Crossref records no correction or erratum relation for the published article; web search for an erratum found none. Not an exhaustive novelty claim."
+   ]
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/E3",
+   "kind": "misprint",
+   "locator": "arXiv:1807.02721v3 (25 Oct 2019), §7.2, p. 35; page image checked",
+   "printed": "the Prym variety of C′₁ → C₂ is isogenous to cokernel of the map connected component of Pic⁰(C₁)^{G_q} → connected component of Pic⁰(C₁)^{H_q}.",
+   "correction": "Pic⁰(C₁)^{Aff(q)}: the invariants under the whole Galois group Aff(q).",
+   "reason": "G_q is not defined in the paper; the preceding sentence identifies the image of Pic⁰(C₂) with the connected component of the Aff(q)-invariants, and the idempotent e below uses Aff(q).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: arXiv:1807.02721 v3 (25 Oct 2019), the last arXiv version; the published article (Invent. Math. 221 (2020), 893–999, doi:10.1007/s00222-020-00966-7) is not openly available (Crossref lists only the Springer TDM licence) and was not collated.",
+    "2026-09-29: Crossref records no correction or erratum relation for the published article; web search for an erratum found none. Not an exhaustive novelty claim."
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1807.02721v3",
+   "read": "2026-09-29",
+   "sha256": "e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b",
+   "citation": "arXiv:1807.02721v3, read completely."
+  }
+ ],
+ "gaps": [
+  {
+   "id": "published-version",
+   "title": "published text not collated",
+   "remaining": "The Inventiones version (2020) was not accessible; collate E1–E3 when a copy is available.",
+   "items": [
+    "PAPER-LAWRENCE-VENKATESH-20/hypersurface-hodge-asymptotics",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-12-1",
+    "PAPER-LAWRENCE-VENKATESH-20/kodaira-parshin"
+   ]
+  }
+ ]
+}
