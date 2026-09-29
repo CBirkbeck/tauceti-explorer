@@ -9309,7 +9309,8 @@
    ],
    "avoidAccountOf": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01",
    "prompt": "research/blueprint/prompts/REV-PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4511"
   },
   {
    "id": "PAPER-RODRIGUES-JACINTO-WILLIAMS-23",
@@ -46968,8 +46969,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3964"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3964",
+   "finishedAt": "2026-09-29T19:46:45Z"
   },
   {
    "id": "RT-AREA-iwasawa-2",
