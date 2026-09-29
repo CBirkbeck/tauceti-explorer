@@ -9124,7 +9124,8 @@
    ],
    "avoidAccountOf": "PAPER-GROSS-ZAGIER-86",
    "prompt": "research/blueprint/prompts/REV-PAPER-GROSS-ZAGIER-86.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4499"
   },
   {
    "id": "PAPER-KOLYVAGIN-90",
@@ -9161,8 +9162,9 @@
    ],
    "avoidAccountOf": "PAPER-KOLYVAGIN-90",
    "prompt": "research/blueprint/prompts/REV-PAPER-KOLYVAGIN-90.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4501"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4501",
+   "finishedAt": "2026-09-29T21:50:03Z"
   },
   {
    "id": "PAPER-SCHOLZE-15",
