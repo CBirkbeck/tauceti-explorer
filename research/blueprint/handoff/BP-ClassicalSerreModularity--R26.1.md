@@ -1,8 +1,29 @@
-# BP-ClassicalSerreModularity--R26.1: checkpoint 2 (Claude Code cc-39fac3)
+# BP-ClassicalSerreModularity--R26.1: checkpoint 3 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 29 September 2026. Refs #694; the bot confirmed the claim. **Status: partial.**
 - R26.1–R26.4, R26.6, R27.1 and R27.2 are `source_decomposed`.
 - R26.5 is `partial`.
+
+## Checkpoint 3: Skinner–Wiles 2001 and Skinner's correction
+
+1. **Wired to the new supplier.** `R26.4/level-one-lifting-lemma` and `R26.4/degenerate-branches` now cite
+   OrdinaryAutomorphicFormsAndModularityLifting `R21.5/nearly-ordinary-irreducible-lifting-over-q` (Skinner–Wiles 2001,
+   planned in PR #3873). Their residually irreducible branches, ρ̄ reducible over ℚ(√((−1)^{(p−1)/2}p)), use it.
+   `degenerate-branches` also cites `R21.5/theorem-a-over-q`. The request to R21.6 carries a note saying which parts
+   are served.
+2. **The dihedral CM case.**
+   - OrdinaryAutomorphicFormsAndModularityLifting/E11 shows that Skinner–Wiles 2001's Lemma 2.2 bound fails for
+     dihedral residual representations from a CM field split above p. The plan there excludes imaginary quadratic
+     fields.
+   - For p ≡ 3 mod 4 the branch here has ρ̄ induced from ℚ(√−p). p ramifies there, so the problem may not arise, but it
+     waits on E11.
+   - KW I (preprint pp. 3, 16) cite C. Skinner, *Nearly ordinary deformations of residually dihedral
+     representations* ("to appear"; a 2009 preprint), as "a correction to [40]". It is unpublished, and a new gap
+     records it for the four nodes that rely on it.
+3. **Private-library references removed.** The source edition and gaps 1–4 named files of a private reference library.
+   They now describe the sources and what was or was not read.
+
+**Totals.** 26 nodes, 7 planets, 10 requests and 5 gaps. `check_blueprint.py`: 0 errors, 0 warnings.
 
 ## Checkpoint 2: alignment with PotentialModularityAndCompatibleSystems part R24.3
 
@@ -84,4 +105,6 @@ tests. It compiles with 0 errors, 0 warnings and no `sorry`.
 ## What a continuation should do
 
 1. **R26.5:** optionally, split the §6.1 rows into per-row nodes. This is the only `partial` stage left.
+2. **The dihedral branch:** once OrdinaryAutomorphicFormsAndModularityLifting/E11 is resolved for fields ramified above p,
+   or Skinner's correction is readable, remove the p ≡ 3 mod 4 caveat.
 2. Items 1 and 2 of checkpoint 1's list (R27.1 insertion; KW II) are done: see checkpoint 2.
