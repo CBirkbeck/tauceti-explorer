@@ -1,0 +1,37 @@
+{
+ "paper": "PAPER-DELIGNE-80",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. DWP.5–DWP.8 and DWP.10 were written for Weil II (local weights and 1.8.4, pure local systems on curves, the direct-image theorem, mixed complexes and semisimplicity); the missing items are the steps those stages rely on without naming them (Weil sheaves and groups, determinantal weights, the Hadamard–de la Vallée-Poussin argument, the ι-real reductions)."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. LPV.1 owns the monodromy operator and needs the linear algebra of the monodromy filtration of (1.6)–(1.7), (1.9); §4's pencil theory (p = 2 even local formula, transverse pencils, integral vanishing cycles, the Kazhdan–Margulis and pgcd theorems) extends LPV.2, LPV.3, LPV.5 and LPV.7's invariant cycles."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. (3.7) is the family form of Weil I (8.4): lissity of R^i f_! of the Artin–Schreier sheaf over the space of polynomials with smooth leading form, which FF.2's trace-function bounds use."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. (4.1.6) is the Z_ℓ refinement of the weak Lefschetz theorem that EDC.4 plans."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. The §0 conventions and the filtered derived category of (1.1.2) are site-theoretic background owned by SF.2."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept, with the brief corrected in place. Nothing in the atlas plans ℓ-adic homotopy types of varieties, Sullivan minimal models built from étale hypercovers, or weight gradings on them; the only nearby roadmap, Tau Ceti DGAInfinity, covers A∞ minimal models and formality, not Sullivan models of varieties, and a Tau Ceti roadmap is never re-planned, so a new roadmap is right. The brief states Theorem 5.3.4 and its companions exactly and names its imports. It referred to 'the atlas's Hodge-theory owner'; that owner is tauceti:TauCetiRoadmap/HodgeStructures, whose L2 covers only abstract mixed Hodge structures, so the brief now says so and records that the mixed Hodge structure on the cohomology of complex varieties used in (5.3.3) has no owner."
+  }
+ ],
+ "notes": "Independent review by Claude Code, session cc-fb70e5 (29 September 2026), of the extraction by Claude Code cc-f805bf (PR #4559, issue #4495); cc-fb70e5 appears nowhere in its files. The Numdam scan (117 pp., SHA-256 b06eea61…cc71, matching the recorded hash) was used. All 123 numbered statement headers found in the scan appear in item locators (the one apparent miss, 'Lemme (4.4.25)', is the OCR of (4.4.2^s), which is covered), and a script confirmed the page of the 114 locators that cite a numbered statement. Items checked against the page images include Théorème (3.3.1), Théorème (3.4.1)(i)–(iii) and Théorème (1.8.4). The seven declarations cited by the five library items exist at the pins, and two were opened at Tau Ceti f790474 (finite_ker_degreeClass, Sl2Std.existsUnique_nonempty_lieModuleEquiv). All 71 sourceIssues were checked on page images at their locators (E14, E15, E33, E38, E40, E47, E50, E51, E57 with the arithmetic redone) and confirmed; E72 (the sign of E38 repeated on p. 211) was added. Route 6's brief was corrected to name the Hodge-theory import. Not read in full: every proof of the 116 pages; the review read the pages at every issue and the statements of the numbered results."
+}

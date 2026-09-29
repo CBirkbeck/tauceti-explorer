@@ -5915,7 +5915,7 @@
    "reason": "Nothing in the atlas plans the ℓ-adic homotopy type of a variety, Sullivan-style models built from étale hypercovers, or weights on them. The Tau Ceti DGAInfinity roadmap supplies DG algebras, A∞ minimal models, Massey products and formality, but not Sullivan's graded-commutative minimal models, their construction from varieties, or the weight theory. A Tau Ceti roadmap is never re-planned, and this is a different direction: arithmetic geometry of homotopy types rather than algebra of A∞ structures. So §5 becomes a new roadmap that imports DGAInfinity's DG-algebra theory.",
    "title": "ℓ-adic homotopy types of varieties and their weights",
    "area": "etale",
-   "brief": "Design a roadmap for the ℓ-adic homotopy type of an algebraic variety and its weights, following Deligne, Weil II §5. (1) Construct the Grothendieck–Miller divided-power de Rham complex: the ring Z{t} of divided-power polynomials, the simplicial graded-commutative DG algebra Ω of polynomial divided-power forms on the standard simplices (5.1.1–5.1.6), Ω(X, A) = Hom(X, Ω ⊗ A) for a simplicial set X (5.1.8), the computation of its cohomology (5.1.4.2), and the comparison with Sullivan's rational de Rham complex Ω_DRS (5.1.5, 5.1.9). (2) For a filtering projective system of simplicial sets 𝐗 satisfying the finiteness condition (F), define Ω(𝐗, Z_ℓ) and the Q_ℓ-DG algebra A(𝐗), and prove H*A(𝐗) = H*(𝐗, Q_ℓ) (5.2.1). For a variety X over an algebraically closed field k, define A(X) through countable étale hypercovers and prove H*A(X) ≅ H*(X, Q_ℓ) (5.2.2), with its Galois action when X is defined over a subfield (5.2.3). For k = C, prove that the minimal models of A(X) are the Q_ℓ-scalar extensions of Sullivan's minimal model of X(C) (5.2.4–5.2.5). (3) Weights: for X defined over a finite field, state and prove Theorem 5.3.4 exactly as printed, with the index corrected as in the paper's sourceIssues: the minimal model of A(X) admits weight gradings, and any two are conjugate. Include the generalized-eigenspace grading of 𝓜 ⊗ K̄ (5.3.1), Lemma 5.3.5 on a common filtration (left to the reader in the paper; prove it), the splitting of the Hodge weight filtration (5.3.3), the arbitrary-base-field version (5.3.6), formality of A(X) for X proper and smooth (5.3.7, the ℓ-adic analogue of Deligne–Griffiths–Morgan–Sullivan), and the analogue of Morgan's theorem for normal X (5.3.8). Record (5.3.9)–(5.3.10) as open questions, not targets. Import, never re-plan: DG algebras, homological transfer (A∞ minimal models), Massey products and formality from the Tau Ceti roadmap on DG and A∞ algebras (tauceti:TauCetiRoadmap/DGAInfinity, layers 1, 3 and 8). Sullivan's graded-commutative minimal models (existence, uniqueness up to non-unique isomorphism, homotopies) are not planned there and belong to this roadmap; étale cohomology with Z_ℓ and Q_ℓ coefficients and hypercovers from SchemeAndStackFoundations (SF.2); Frobenius weights, Weil numbers and the weight bounds of Weil II Theorem 1 from DeligneWeightsAndPurity (DWP.0, DWP.7); purity for proper smooth X from DWP.4/WeilConjectures; mixed Hodge theory for the complex comparison from the atlas's Hodge-theory owner; divided-power algebras from Mathlib (DividedPowerAlgebra). Acceptance tests: the circle and a torus (formal, weights 1 and 2 on H¹ and H²); P¹ minus three points over F_q, where A(X) has weight-2 generators in degree 1; and a proper smooth curve of genus ≥ 1, which is formal."
+   "brief": "Design a roadmap for the ℓ-adic homotopy type of an algebraic variety and its weights, following Deligne, Weil II §5. (1) Construct the Grothendieck–Miller divided-power de Rham complex: the ring Z{t} of divided-power polynomials, the simplicial graded-commutative DG algebra Ω of polynomial divided-power forms on the standard simplices (5.1.1–5.1.6), Ω(X, A) = Hom(X, Ω ⊗ A) for a simplicial set X (5.1.8), the computation of its cohomology (5.1.4.2), and the comparison with Sullivan's rational de Rham complex Ω_DRS (5.1.5, 5.1.9). (2) For a filtering projective system of simplicial sets 𝐗 satisfying the finiteness condition (F), define Ω(𝐗, Z_ℓ) and the Q_ℓ-DG algebra A(𝐗), and prove H*A(𝐗) = H*(𝐗, Q_ℓ) (5.2.1). For a variety X over an algebraically closed field k, define A(X) through countable étale hypercovers and prove H*A(X) ≅ H*(X, Q_ℓ) (5.2.2), with its Galois action when X is defined over a subfield (5.2.3). For k = C, prove that the minimal models of A(X) are the Q_ℓ-scalar extensions of Sullivan's minimal model of X(C) (5.2.4–5.2.5). (3) Weights: for X defined over a finite field, state and prove Theorem 5.3.4 exactly as printed, with the index corrected as in the paper's sourceIssues: the minimal model of A(X) admits weight gradings, and any two are conjugate. Include the generalized-eigenspace grading of 𝓜 ⊗ K̄ (5.3.1), Lemma 5.3.5 on a common filtration (left to the reader in the paper; prove it), the splitting of the Hodge weight filtration (5.3.3), the arbitrary-base-field version (5.3.6), formality of A(X) for X proper and smooth (5.3.7, the ℓ-adic analogue of Deligne–Griffiths–Morgan–Sullivan), and the analogue of Morgan's theorem for normal X (5.3.8). Record (5.3.9)–(5.3.10) as open questions, not targets. Import, never re-plan: DG algebras, homological transfer (A∞ minimal models), Massey products and formality from the Tau Ceti roadmap on DG and A∞ algebras (tauceti:TauCetiRoadmap/DGAInfinity, layers 1, 3 and 8). Sullivan's graded-commutative minimal models (existence, uniqueness up to non-unique isomorphism, homotopies) are not planned there and belong to this roadmap; étale cohomology with Z_ℓ and Q_ℓ coefficients and hypercovers from SchemeAndStackFoundations (SF.2); Frobenius weights, Weil numbers and the weight bounds of Weil II Theorem 1 from DeligneWeightsAndPurity (DWP.0, DWP.7); purity for proper smooth X from DWP.4/WeilConjectures; abstract mixed Hodge structures from tauceti:TauCetiRoadmap/HodgeStructures (milestone L2, which covers only the linear algebra of Théorie de Hodge II §§1–2); the mixed Hodge structure on the cohomology of complex varieties, which (5.3.3) uses, has no atlas owner, so the design must plan it or take it as a prerequisite; divided-power algebras from Mathlib (DividedPowerAlgebra). Acceptance tests: the circle and a torus (formal, weights 1 and 2 on H¹ and H²); P¹ minus three points over F_q, where A(X) has weight-2 generators in degree 1; and a proper smooth curve of genus ≥ 1, which is formal."
   }
  ],
  "sourceIssues": [
@@ -5932,7 +5932,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 139 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E2",
@@ -5947,7 +5952,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 138 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E3",
@@ -5962,7 +5972,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 146 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E4",
@@ -5977,7 +5992,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 152 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E5",
@@ -5992,7 +6012,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 157 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E6",
@@ -6007,7 +6032,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 157 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E7",
@@ -6022,7 +6052,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 158 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E8",
@@ -6037,7 +6072,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 159 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E9",
@@ -6052,7 +6092,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 160 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E10",
@@ -6067,7 +6112,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 160 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E11",
@@ -6082,7 +6132,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 161-162 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E12",
@@ -6097,7 +6152,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 166 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E13",
@@ -6112,7 +6172,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 166 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E14",
@@ -6127,7 +6192,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 169: the identities are stated 'pour i ≥ 0' with G = Gr^W_j, j ≤ 0, so the printed 'k−2i−2 ≥ k' is false; k−2i−2 ≥ −k ≥ 2j−k is what the factorisation of N^{k−j} needs.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E15",
@@ -6142,7 +6212,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 170: with the convention of (1.6.14) (𝔑 of weight −2, visible in (1.6.14.4) and (1.6.14.5), whose weights balance), the printed P_{−j}((i+j)/2) has weight −i−2j, while Deligne's own mnemonic below requires weight i; P_{−j}(−(i+j)/2) balances.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E16",
@@ -6157,7 +6232,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 169 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E17",
@@ -6172,7 +6252,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 168 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E18",
@@ -6187,7 +6272,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 171 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E19",
@@ -6202,7 +6292,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 171 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E20",
@@ -6217,7 +6312,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 176 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E21",
@@ -6232,7 +6332,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 177 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E22",
@@ -6247,7 +6352,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 179 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E23",
@@ -6262,7 +6372,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 180 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E24",
@@ -6277,7 +6392,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 182 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E25",
@@ -6292,7 +6412,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 183 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E26",
@@ -6307,7 +6432,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 183 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E27",
@@ -6322,7 +6452,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 184 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E28",
@@ -6337,7 +6472,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 184 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E29",
@@ -6352,7 +6492,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 185 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E30",
@@ -6367,7 +6512,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 185 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E31",
@@ -6382,7 +6532,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 186 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E32",
@@ -6397,7 +6552,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 187 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E33",
@@ -6412,7 +6572,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page images of pp. 190–191: b) gives Re τ ≥ (1−ε₁)τ(e) on V and ∫_{G−V}|ρ₀|² ≤ ε₂∫|ρ₀|², while off V only τ ≥ −τ(e) is available; the bound obtained is (1−ε₁)(1−ε₂)−ε₂, which ε₁+ε₂ < ε does not make ≥ 1−ε.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E34",
@@ -6427,7 +6592,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 191 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E35",
@@ -6442,7 +6612,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 192 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E36",
@@ -6457,7 +6632,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 193 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E37",
@@ -6472,7 +6652,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 194 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E38",
@@ -6487,7 +6672,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page images of pp. 194–195: (2.2.7) sets ω₁(g) = q^{−deg g} and the geometric Frobenius of a closed point has positive degree, so |τ(F_x)| = q^{−ℛ(τ) deg x} and the weight is −2ℛ(τ) (τ = ω₁ gives Q_ℓ(1)). The same sign is repeated on p. 211; the review records it as E72.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E39",
@@ -6502,7 +6692,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 195 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E40",
@@ -6517,7 +6712,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page images of pp. 192, 195: the argument of (2.1.13) gives geometric decay of q^{−n}#X₀(F_{qⁿ}) when there is no pole at q^{−1}, i.e. #X₀(F_{qⁿ}) = o(qⁿ), not boundedness.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E41",
@@ -6532,7 +6732,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 202 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E42",
@@ -6547,7 +6752,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 202 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E43",
@@ -6562,7 +6772,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 203 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E44",
@@ -6577,7 +6792,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 203 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E45",
@@ -6592,7 +6812,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 206 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E46",
@@ -6607,7 +6832,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 209 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E47",
@@ -6622,7 +6852,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page images of pp. 207, 210: (3.4.1)(iii) assumes ℱ₀ lisse and X₀ normal, and its proof (3.4.5) uses the surjection π₁(U₀) → π₁(X₀), which needs normality. The nodal-cubic example (unipotent monodromy through the loop, Frobenius acting trivially) is lisse, pure of weight 0 and not geometrically semisimple.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E48",
@@ -6637,7 +6872,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 211 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E49",
@@ -6652,7 +6892,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 212 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E50",
@@ -6667,7 +6912,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 212: the printed measure (1/2π) sin²θ dθ has mass 1/4 on [0, π]; the Weyl integration formula for SU(2) gives (2/π) sin²θ dθ.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E51",
@@ -6682,7 +6932,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 212: #E_x(F_{qⁿ}) = 1 − Tr(F, H¹) + qⁿ = 1 − 2cos θ(x)·q^{n/2} + qⁿ; the printed '+' is wrong. The limit measure is symmetric under θ ↦ π − θ.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E52",
@@ -6697,7 +6952,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 215 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E53",
@@ -6712,7 +6972,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 216 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E54",
@@ -6727,7 +6992,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 216 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E55",
@@ -6742,7 +7012,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 220 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E56",
@@ -6757,7 +7032,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 227 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E57",
@@ -6772,7 +7052,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page images of pp. 230–231: for reflections with (δ,δ) = (δ′,δ′) = 2ε, Tr(s_δ s_δ′) = dim − 2 − 2 + (δ,δ′)² (δ′ = δ gives dim); the printed 'dim Ev(Y) − 2' and the following '+ 2' are off by 2.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E58",
@@ -6787,7 +7072,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 231 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E59",
@@ -6802,7 +7092,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 232 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E60",
@@ -6817,7 +7112,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 225 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E61",
@@ -6832,7 +7132,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 235 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E62",
@@ -6847,7 +7152,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 237 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E63",
@@ -6862,7 +7172,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 238 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E64",
@@ -6877,7 +7192,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 238 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E65",
@@ -6892,7 +7212,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 239 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E66",
@@ -6907,7 +7232,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 240 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E67",
@@ -6922,7 +7252,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 241 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E68",
@@ -6937,7 +7272,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 241: Lemme (5.3.5) is announced with 'dont la vérification un peu pénible est laissée au lecteur', and the text before it proves uniqueness only among gradings respecting the 𝓜_n.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E69",
@@ -6952,7 +7292,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 244 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E70",
@@ -6967,7 +7312,12 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 247 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   },
   {
    "id": "PAPER-DELIGNE-80/E71",
@@ -6982,7 +7332,31 @@
     "Numdam article page for Publ. Math. IHÉS 52 (1980) 137–252 and later IHÉS volumes (no erratum listed)",
     "N. Katz, 'L-functions and monodromy: four lectures on Weil II' (Adv. Math. 160, 2001) and Kiehl–Weissauer, Weil conjectures, perverse sheaves and ℓ-adic Fourier transform (2001), which re-prove the main results",
     "web search for errata/corrections to 'La conjecture de Weil II' (29 September 2026)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 249 of the Numdam scan: the printed text reads as quoted, and the correction follows from the surrounding text.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
+  },
+  {
+   "id": "PAPER-DELIGNE-80/E72",
+   "kind": "error",
+   "locator": "§3, (3.5.1), p. 211, first sentence (published text, Numdam scan); page image checked",
+   "printed": "Citing (2.2.8), the source asserts that every irreducible representation τ of G_𝐑 gives a sheaf ℱ(τ_ℓ) that is pointwise ι-pure of weight 2ℛ(τ).",
+   "correction": "… ponctuellement ι-pur de poids −2ℛ(τ).",
+   "reason": "The same sign as E38, repeated when (2.2.8) is quoted in (3.5.1): with ω₁(g) = q^{−deg g} (2.2.7) and Frobenius of positive degree, |τ(F_x)| = N(x)^{−ℛ(τ)}. The conclusions drawn in (3.5.1) (a meromorphic L(τ) with a simple pole at τ = ω_N for ℛ(τ) > N − 1/2) are those of the corrected sign.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam article page for Publ. Math. IHÉS 52: no erratum listed (as for E1–E71)",
+    "2026-09-29, found by the independent review"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found by the review on the page image of p. 211.",
+    "by": "REV-PAPER-DELIGNE-80"
+   }
   }
  ]
 }
