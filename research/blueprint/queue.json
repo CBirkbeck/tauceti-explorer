@@ -34928,8 +34928,9 @@
     "REV-PAPER-KOENIGSMANN-16"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KOENIGSMANN-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4524"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4524",
+   "finishedAt": "2026-09-29T22:27:07Z"
   },
   {
    "id": "REV-RT-PAPER-KOENIGSMANN-16",
@@ -35898,7 +35899,8 @@
     "REV-PAPER-XIE-YUAN-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-XIE-YUAN-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4526"
   },
   {
    "id": "REV-RT-PAPER-XIE-YUAN-22",
