@@ -57,7 +57,7 @@
     },
     "HabiroCohomologyFoundations:HQ.1": {
       "action": "narrow",
-      "keeps": "Global arithmetic q-de Rham gluing over the admitted perfectly covered bases, rational/p-complete comparisons, coherent chart independence and descent; retain PLAN-HABIRO q-connection/module applications. Until QWittVectors is in the atlas, HQ.1 also keeps the uncompleted framed q-de Rham complex of a framed smooth algebra that it glues (then QW.6), and imports Lambda-rings from HR.1, their holder until QW.1 exists.",
+      "keeps": "Global arithmetic q-de Rham gluing over the admitted perfectly covered bases, rational/p-complete comparisons, coherent chart independence and descent; retain PLAN-HABIRO q-connection/module applications. Until QWittVectors is in the atlas, HQ.1 also keeps the (q-1)-complete framed q-de Rham and q-Hodge complexes over R[[q-1]] used in these comparisons (then QW.6); these are distinct from HQ.4's uncompleted complex over the framed Habiro ring, and imports Lambda-rings from HR.1, their holder until QW.1 exists.",
       "suppliedBy": [
         "QWittVectors:QW.1",
         "QWittVectors:QW.6",
@@ -65,7 +65,7 @@
         "HabiroCyclotomicCompletions:HC.1",
         "PrismaticCohomology:PR.6"
       ],
-      "reason": "Import Lambda/Frobenius and elementary q formulas, the uncompleted framed complex from QW.6, and the independent p-complete q-prismatic calculation from PR.6; prove their comparison, with ideal [p]_q rather than q-1."
+      "reason": "Import Lambda/Frobenius and elementary q formulas, the (q-1)-complete framed complexes from QW.6, and the independent p-complete q-prismatic calculation from PR.6; prove their comparison, with ideal [p]_q rather than q-1."
     },
     "HabiroCohomologyFoundations:HQ.2": {
       "action": "keep",
@@ -77,7 +77,7 @@
     },
     "HabiroCohomologyFoundations:HQ.4": {
       "action": "narrow",
-      "keeps": "The framed Habiro ring H_(R,square) and the uncompleted framed q-Habiro-Hodge complex of PLAN-HABIRO §6.5 as constructions: its Koszul model, its examples and the framed no-go applications, with the distinction between the uncompleted Habiro complex and its (q-1)-completion. It precedes HQ.3 (the atlas edge HQ.4 -> HQ.3 stays) and neither applies HQ.3's descent theorem nor compares with HQ.3; HQ.3 does both. Until QWittVectors is in the atlas, HQ.4 also keeps the positive-degree q-de Rham-Witt complex with its comparison to ordinary de Rham-Witt (CR.4), the smooth derived-to-underived comparison of q-Hodge v2 Corollary 3.31 and the positive-degree ghost-map and no-restriction statements, importing degree-zero q-Witt rings from HR.4 as the atlas does now; these then pass to QW.5, QW.7 and QW.2.",
+      "keeps": "The framed Habiro ring H_(R,square) and the uncompleted framed q-Habiro-Hodge complex of PLAN-HABIRO §6.5 as constructions: its Koszul model, its examples and the framed no-go applications, with the distinction between the uncompleted Habiro complex and its (q-1)-completion. It precedes HQ.3 (the atlas edge HQ.4 -> HQ.3 stays) and neither applies HQ.3's descent theorem nor compares with HQ.3; HQ.3 does both. Until QWittVectors is in the atlas, HQ.4 also keeps the positive-degree q-de Rham-Witt complex with its comparison to ordinary de Rham-Witt (CR.4), the smooth derived-to-underived comparison of q-Hodge v2 Corollary 3.31 and the positive-degree ghost-map and no-restriction statements, importing degree-zero q-Witt rings from HR.4 as the atlas does now; the positive-degree constructions and ghost maps then pass to QW.5, and the animated comparison to QW.7. The degree-zero ghost square and restriction obstruction are imported from HR.4 until QW.2 exists; the positive-degree restriction-free operator system belongs to QW.5.",
       "suppliedBy": [
         "QWittVectors:QW.2",
         "QWittVectors:QW.5",
@@ -88,7 +88,7 @@
         "HabiroRings:HR.5",
         "HabiroCohomologyFoundations:HQ.3"
       ],
-      "reason": "Positive-degree q-de Rham-Witt and the ordinary comparison move to QW.5, animation and the smooth Corollary 3.31 to QW.7, and ghost/no-restriction statements to QW.2, once QWittVectors is installed. The cyclotomic descent application and the comparison of the framed complex with the q-Hodge construction move to HQ.3, which already follows HQ.4. HQ.3 is named in suppliedBy as the destination of that transfer, not as a supplier of HQ.4, so no HQ.3 -> HQ.4 link is proposed (it would close a cycle with HQ.4 -> HQ.3). The atlas edges CR.4 -> HQ.4 and HR.4 -> HQ.4 stay: PROTOCOL §15 has no removal field, and both are genuine inputs while HQ.4 holds the q-Witt targets above; afterwards they are coarse but acyclic."
+      "reason": "Positive-degree q-de Rham-Witt and the ordinary comparison move to QW.5, animation and the smooth Corollary 3.31 to QW.7, positive-degree ghost maps and the restriction-free differential operator system to QW.5, and the degree-zero ghost square and restriction obstruction to QW.2, once QWittVectors is installed. The cyclotomic descent application and the comparison of the framed complex with the q-Hodge construction move to HQ.3, which already follows HQ.4. HQ.3 is named in suppliedBy as the destination of that transfer, not as a supplier of HQ.4, so no HQ.3 -> HQ.4 link is proposed (it would close a cycle with HQ.4 -> HQ.3). The atlas edges CR.4 -> HQ.4 and HR.4 -> HQ.4 stay: PROTOCOL §15 has no removal field, and both are genuine inputs while HQ.4 holds the q-Witt targets above; afterwards they are coarse but acyclic."
     },
     "HabiroCohomologyFoundations:HQ.5": {
       "action": "narrow",
@@ -584,12 +584,12 @@
     {
       "source": "QWittVectors:QW.6",
       "target": "HabiroCohomologyFoundations:HQ.1",
-      "reason": "Import the framed q-complex and its completion comparison from the single staged owner."
+      "reason": "Import the (q-1)-complete framed q-complexes and their comparison from the single staged owner."
     },
     {
       "source": "QWittVectors:QW.6",
       "target": "HabiroCohomologyFoundations:HQ.4",
-      "reason": "Import the framed q-complex and its completion comparison from the single staged owner."
+      "reason": "Import the (q-1)-complete framed q-complexes and their comparison from the single staged owner."
     },
     {
       "source": "QWittVectors:QW.7",
@@ -634,17 +634,17 @@
     {
       "source": "QWittVectors:QW.1",
       "target": "HabiroCohomologyFoundations:HQ.2",
-      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.2 relied on HQ.1, which now takes Lambda-rings, Adams operations and perfectly covered bases from QW.1, so HQ.2 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.1 still holds it."
+      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.2 relied on HQ.1, which now takes Lambda-rings, Adams operations and perfectly covered bases from QW.1, so HQ.2 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HR.1 holds this theory and supplies it to HQ.1 and its consumers."
     },
     {
       "source": "QWittVectors:QW.1",
       "target": "HabiroCohomologyFoundations:HQ.8",
-      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.8 relied on HQ.1, which now takes Lambda-rings, Adams operations and perfectly covered bases from QW.1, so HQ.8 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.1 still holds it."
+      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.8 relied on HQ.1, which now takes Lambda-rings, Adams operations and perfectly covered bases from QW.1, so HQ.8 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HR.1 holds this theory and supplies it to HQ.1 and its consumers."
     },
     {
       "source": "QWittVectors:QW.6",
       "target": "HabiroCohomologyFoundations:HQ.2",
-      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.2 relied on HQ.1, which now takes the uncompleted framed q-de Rham and q-Hodge complexes from QW.6, so HQ.2 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.1 still holds it."
+      "reason": "Section 15 forwarding for the narrowed HQ.1: HQ.2 relied on HQ.1, which now takes the (q-1)-complete framed q-de Rham and q-Hodge complexes from QW.6, so HQ.2 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.1 still holds it."
     },
     {
       "source": "QWittVectors:QW.6",
@@ -684,37 +684,37 @@
     {
       "source": "QWittVectors:QW.2",
       "target": "HabiroCohomologyFoundations:HQ.3",
-      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.3 relied on HQ.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HQ.3 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.3 relied on HQ.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HQ.3 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HR.4 holds this degree-zero theory and supplies it through the retained HR.4 -> HQ.4 prerequisite. Positive-degree ghost maps remain in HQ.4 until QW.5 exists."
     },
     {
       "source": "QWittVectors:QW.2",
       "target": "HabiroCohomologyFoundations:HQ.5",
-      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.5 relied on HQ.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HQ.5 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.5 relied on HQ.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HQ.5 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HR.4 holds this degree-zero theory and supplies it through the retained HR.4 -> HQ.4 prerequisite. Positive-degree ghost maps remain in HQ.4 until QW.5 exists."
     },
     {
       "source": "QWittVectors:QW.2",
       "target": "HabiroCohomologyFoundations:HQ.8",
-      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.8 relied on HQ.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HQ.8 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.8 relied on HQ.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HQ.8 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HR.4 holds this degree-zero theory and supplies it through the retained HR.4 -> HQ.4 prerequisite. Positive-degree ghost maps remain in HQ.4 until QW.5 exists."
     },
     {
       "source": "QWittVectors:QW.2",
       "target": "HabiroRings:HR.6",
-      "reason": "Section 15 forwarding for the narrowed HQ.4: HR.6 relied on HQ.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HR.6 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HR.6 relied on HQ.4, which now takes absolute q-Witt rings, ghost maps and the no-restriction obstruction from QW.2, so HR.6 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HR.4 holds this degree-zero theory and supplies it through the retained HR.4 -> HQ.4 prerequisite. Positive-degree ghost maps remain in HQ.4 until QW.5 exists."
     },
     {
       "source": "QWittVectors:QW.6",
       "target": "HabiroCohomologyFoundations:HQ.3",
-      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.3 relied on HQ.4, which now takes the uncompleted framed q-de Rham and q-Hodge complexes from QW.6, so HQ.3 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.3 relied on HQ.4, which now takes the (q-1)-complete framed q-de Rham and q-Hodge complexes from QW.6, so HQ.3 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.1 holds these framed complexes, supplied through the retained HQ.1 -> HQ.2 -> HQ.4 prerequisites."
     },
     {
       "source": "QWittVectors:QW.6",
       "target": "HabiroCohomologyFoundations:HQ.5",
-      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.5 relied on HQ.4, which now takes the uncompleted framed q-de Rham and q-Hodge complexes from QW.6, so HQ.5 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HQ.5 relied on HQ.4, which now takes the (q-1)-complete framed q-de Rham and q-Hodge complexes from QW.6, so HQ.5 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.1 holds these framed complexes, supplied through the retained HQ.1 -> HQ.2 -> HQ.4 prerequisites."
     },
     {
       "source": "QWittVectors:QW.6",
       "target": "HabiroRings:HR.6",
-      "reason": "Section 15 forwarding for the narrowed HQ.4: HR.6 relied on HQ.4, which now takes the uncompleted framed q-de Rham and q-Hodge complexes from QW.6, so HR.6 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.4 still holds it."
+      "reason": "Section 15 forwarding for the narrowed HQ.4: HR.6 relied on HQ.4, which now takes the (q-1)-complete framed q-de Rham and q-Hodge complexes from QW.6, so HR.6 imports it from there directly. Takes effect once QWittVectors is in the atlas; until then HQ.1 holds these framed complexes, supplied through the retained HQ.1 -> HQ.2 -> HQ.4 prerequisites."
     },
     {
       "source": "HabiroRings:HR.3",
@@ -987,7 +987,7 @@
       ]
     },
     {
-      "target": "Absolute q-Witt rings, ghost maps and restriction obstruction (held by HR.4 in degree zero and by HQ.4 in positive degrees until QWittVectors is in the atlas)",
+      "target": "Absolute q-Witt rings, degree-zero ghost maps and restriction obstruction (held by HR.4 until QWittVectors is in the atlas; HQ.4 imports this degree-zero theory)",
       "owner": "QWittVectors:QW.2",
       "formerly": [
         "HabiroRings:HR.4",
@@ -1009,7 +1009,7 @@
       ]
     },
     {
-      "target": "Positive-degree q-de Rham–Witt and classical comparison (held by HQ.4 until QWittVectors is in the atlas)",
+      "target": "Positive-degree q-de Rham–Witt, its ghost maps and restriction-free operator system, and classical comparison (held by HQ.4 until QWittVectors is in the atlas)",
       "owner": "QWittVectors:QW.5",
       "formerly": [
         "HabiroCohomologyFoundations:HQ.4"
@@ -1053,10 +1053,14 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-RS-10",
-    "date": "2026-09-23",
-    "notes": "The ownership analysis is sound: all 26 evidence pairs are resolved (19 by owner entries, 7 as explained non-duplicates), and every member stage has an entry. But the proposal cannot be applied as written. (1) Its report requires removing seven existing atlas edges, among them HQ.4 -> HQ.3. PROTOCOL §15 has no removal field and scripts/restructure.py never removes edges, so the proposed link HQ.3 -> HQ.4 is skipped as a cycle and the new HQ.3/HQ.4 split (HQ.3 owns the descent theorem that HQ.4 applies and compares with) cannot be represented. (2) 65 supplier -> consumer links required by §15 for the eleven narrowed layers are missing. (3) HQ.1, HQ.4, HR.1, HR.2 and HR.4 hand theory to the draft roadmaps QWittVectors and SolidAnalyticRings, which are not yet in the atlas, so their 26 links are skipped and those targets would have no atlas owner until the drafts are accepted. No correction was made in place, because (1) needs a design choice. See REV-RS-10.md for the required changes.",
-    "corrections": []
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-10~2",
+    "date": "2026-09-29",
+    "notes": "Independently checked the five member documents and all 38 atlas stage descriptions, the 26 evidence pairs, 18 ownership records, 11 narrowed scopes, all nine external exports, section-15 format and application against the current atlas. Round 2 resolves the prior cycle, forwarding and absent-draft-owner objections. Corrected completion terminology, interim-owner explanations and the degree-zero/positive-degree ghost boundary; see REV-RS-10~2.md. Acceptance concerns restructuring, not proof completion or installation of the staged roadmaps.",
+    "corrections": [
+      "HQ.1 keeps/reason and all QW.6 link reasons now identify the (q-1)-complete framed q-de Rham and q-Hodge complexes over R[[q-1]], as in QW.6 and Wagner q-Witt 4.7; distinguish them from the uncompleted framed Habiro complex retained by HQ.4.",
+      "Forwarding reasons now consistently name HR.1 as interim owner of QW.1 theory, HR.4 as interim owner of QW.2 degree-zero theory, and HQ.1 as interim owner of QW.6 framed complexes; retained prerequisite paths supply the intervening users.",
+      "HQ.4 keeps/reason and the QW.2/QW.5 ownership entries now put degree-zero ghosts and the ring-level restriction obstruction in QW.2, and positive-degree ghost maps and the restriction-free differential operator system in QW.5. Interim owners are HR.4 and HQ.4 respectively."
+    ]
   }
 }
