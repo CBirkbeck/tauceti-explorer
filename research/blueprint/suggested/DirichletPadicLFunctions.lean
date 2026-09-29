@@ -6731,3 +6731,101 @@ example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) (F G : PowerSeries ℚ)
     (hG : G.map (algebraMap ℚ ℂ)=UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein 2 8 (by decide)))
     (n : ℕ) : ‖algebraMap ℚ ℚ_[2] (G.coeff n-F.coeff n)‖≤256 := sorry
 end SuggestedEisensteinPrecisionTests
+
+/-! ## Independence of the regular smoothing parameter
+
+All-unit shifted clearing is proved on the actual integral numerator measures.
+Regularity is required only when a new representative is formed in the total quotient.
+-/
+namespace DirichletPadic
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "Δ" => (fun u : U => 2*eisensteinTwistedDenominator p u)
+local notation "S" => (fun u : U => Localization.Away (Δ u))
+
+lemma eisensteinWeightedNumerator_cross (u v : U) :
+    eisensteinTwistedDenominator p v*eisensteinWeightedNumerator p u =
+      eisensteinTwistedDenominator p u*eisensteinWeightedNumerator p v := sorry
+lemma localizedEisensteinConstant_clearing_all (u : U) :
+    algebraMap M Q (Δ u)*localizedEisensteinConstant p =
+      algebraMap M Q (eisensteinWeightedNumerator p u) := sorry
+lemma localizedEisensteinConstant_regular_fraction (u : U) (hu : Δ u ∈ nonZeroDivisors M) :
+    IsLocalization.mk' Q (eisensteinWeightedNumerator p u) ⟨Δ u,hu⟩ =
+      localizedEisensteinConstant p := sorry
+lemma clearedEisensteinSeries_toFraction_all (u : U) :
+    (clearedEisensteinSeries p u).map (algebraMap M Q) =
+      PowerSeries.C (algebraMap M Q (Δ u))*totalEisensteinSeries p := sorry
+
+def regularEisensteinAwayToFraction (u : U) (hu : Δ u ∈ nonZeroDivisors M) : S u →+* Q := sorry
+lemma regularEisensteinAwayToFraction_def (u : U) (hu : Δ u ∈ nonZeroDivisors M) :
+    regularEisensteinAwayToFraction p u hu = IsLocalization.Away.lift (Δ u)
+      (IsLocalization.map_units Q (⟨Δ u,hu⟩ : nonZeroDivisors M)) := sorry
+lemma regularEisensteinAwayToFraction_algebraMap (u : U) (hu : Δ u ∈ nonZeroDivisors M) (μ : M) :
+    regularEisensteinAwayToFraction p u hu (algebraMap M (S u) μ)=algebraMap M Q μ := sorry
+lemma regularEisensteinAwayToFraction_injective (u : U) (hu : Δ u ∈ nonZeroDivisors M) :
+    Function.Injective (regularEisensteinAwayToFraction p u hu) := sorry
+lemma regularEisensteinAwayToFraction_canonical (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    regularEisensteinAwayToFraction p a (eisensteinTwistedDenominator_double_regular p a ha)=
+      eisensteinAwayToFraction p a ha := sorry
+lemma regularEisensteinAwayToFraction_constant (u : U) (hu : Δ u ∈ nonZeroDivisors M) :
+    regularEisensteinAwayToFraction p u hu (eisensteinAwayConstant p u)=localizedEisensteinConstant p := sorry
+lemma regularEisensteinAwaySeries_toFraction (u : U) (hu : Δ u ∈ nonZeroDivisors M) :
+    (eisensteinAwaySeries p u).map (regularEisensteinAwayToFraction p u hu)=totalEisensteinSeries p := sorry
+end DirichletPadic
+
+namespace SuggestedEisensteinParameterTests
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open AbstractMeasure DirichletPadic
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "Δ" => (fun u : U => 2*eisensteinTwistedDenominator p u)
+local notation "S" => (fun u : U => Localization.Away (Δ u))
+-- shifted_cross_orientation
+example (u v : U) :
+    eisensteinTwistedDenominator p v*eisensteinWeightedNumerator p u =
+      eisensteinTwistedDenominator p u*eisensteinWeightedNumerator p v := sorry
+-- all_parameter_identity_clearing
+example : algebraMap M Q (Δ 1)*localizedEisensteinConstant p=0 := sorry
+-- torsion_parameter_annihilates_constant
+example : algebraMap M Q (Δ (-1))*localizedEisensteinConstant p=0 := sorry
+-- canonical_fraction_comparison
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    IsLocalization.mk' Q (eisensteinWeightedNumerator p a)
+      ⟨Δ a,eisensteinTwistedDenominator_double_regular p a ha⟩=localizedEisensteinConstant p := sorry
+-- all_parameter_full_clearing
+example (u : U) : (clearedEisensteinSeries p u).map (algebraMap M Q) =
+    PowerSeries.C (algebraMap M Q (Δ u))*totalEisensteinSeries p := sorry
+-- regular_map_integral_coefficients
+example (u : U) (hu : Δ u ∈ nonZeroDivisors M) (μ : M) :
+    regularEisensteinAwayToFraction p u hu (algebraMap M (S u) μ)=algebraMap M Q μ := sorry
+-- regular_map_preserves_one
+example (u : U) (hu : Δ u ∈ nonZeroDivisors M) : regularEisensteinAwayToFraction p u hu 1=1 := sorry
+-- regular_map_canonical_compatibility
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    regularEisensteinAwayToFraction p a (eisensteinTwistedDenominator_double_regular p a ha)=
+      eisensteinAwayToFraction p a ha := sorry
+-- regular_constant_image
+example (u : U) (hu : Δ u ∈ nonZeroDivisors M) :
+    regularEisensteinAwayToFraction p u hu (eisensteinAwayConstant p u)=localizedEisensteinConstant p := sorry
+-- regular_full_family_image
+example (u : U) (hu : Δ u ∈ nonZeroDivisors M) :
+    (eisensteinAwaySeries p u).map (regularEisensteinAwayToFraction p u hu)=totalEisensteinSeries p := sorry
+end SuggestedEisensteinParameterTests
