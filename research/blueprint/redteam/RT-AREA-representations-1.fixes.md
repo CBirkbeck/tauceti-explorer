@@ -5,11 +5,7 @@ Fixer: Claude Code, session `cc-e94dc5`, 29 September 2026 (issue #3983).
 - Verdicts: `RT-AREA-representations-1.review.json`.
 - Three findings, all confirmed.
 
-**Files edited:**
-- `research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json` (/2);
-- `research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json` (/3).
-
-Both keep their original serialization and pass `scripts/check_paper.py`. Finding /1 names an upstream Tau Ceti roadmap document, `content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md`. Under PROTOCOL.md §15 that document is not re-planned here, so /1 is a note for the Tau Ceti maintainer.
+**File edited:** `research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json` (/2), the one extraction this job may change. It keeps its original serialization and passes `scripts/check_paper.py`. The /3 title correction to `PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json` is not a deliverable of this job, so it is given below as an exact edit for the maintainer. Finding /1 names an upstream Tau Ceti roadmap document, `content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md`. Under PROTOCOL.md §15 that document is not re-planned here, so /1 is a note for the Tau Ceti maintainer.
 
 ## /1 (medium, error): ClassicalGroups cites RootSystems for the Weyl character and dimension formulas
 
@@ -63,8 +59,15 @@ The fix keeps RootSystems cited for what it owns, the Weyl group and the positiv
 
 **Checked.** PROTOCOL.md §15 requires "<existing roadmap>, Part II: …". The parent's atlas title is "Root systems, Weyl groups, and the Cartan-Killing classification". PAPER-LE-LEHUNG-LEVIN-ETAL-23 titled the shared id "Root systems, Part II: dominance, affine orders and admissible pairs", giving it a second name. The review recommends medium severity for this half.
 
-**Change.**
-- `PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json`: the route's title is now identical to the four agreeing records, since one roadmap id carries one title.
-- The Kisin–Zhou title ("Root systems, Part II: integral dominance steps") disappears with the consolidation in /2; that route now carries the shared title.
+**Change.** The Kisin–Zhou title ("Root systems, Part II: integral dominance steps") disappears with the consolidation in /2; that route now carries the shared title.
+
+**Edit for the maintainer.** In `research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json` (origin/main `59da8e9a`, line 25786), the Part II route with `"parent": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"` and brief "Reuse RootSystemsPartIIDominanceAndDemazure, …":
+
+```diff
+-      "title": "Root systems, Part II: dominance, affine orders and admissible pairs",
++      "title": "Root systems, Weyl groups, and the Cartan-Killing classification, Part II: dominant subtraction and Demazure reduction",
+```
+
+That makes it identical to the four agreeing records, since one roadmap id carries one title. Nothing else in the route changes.
 
 **Kept.** Everything else in both routes: items, briefs and reasons, apart from the /2 changes to Kisin–Zhou.
