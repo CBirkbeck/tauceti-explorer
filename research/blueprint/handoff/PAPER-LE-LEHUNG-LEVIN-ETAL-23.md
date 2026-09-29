@@ -1,5 +1,29 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (U-outline step).
+**Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 116 findings,
+12 gaps. No Lean deliverable or compilation. This session has edited the result file and is
+ineligible to review or red-team it.
+
+## Completed here
+
+- **The U queue of the no-outline families is done.** The 26 §3 theorem items (U05–U45) now carry
+  source-level `proofSteps`, `prerequisites` (60 new internal edges; the graph stays acyclic at
+  1,290 edges) and `proofProvenance`. They were read from the published PDF55–80 with E7–E12 applied.
+- §3 was re-read in full; no new finding.
+
+## Resume from here
+
+1. **The other no-outline queues.** These theorem items have no `proofSteps`: A (56), G (39), B (28),
+   K (4), P (1) and Z (1). The L items (138) are library citations and need none.
+2. **The remaining gaps**, as listed in the Q03 step below: rank-one downstream boundaries,
+   Section 2 suppliers, regularity and analytic suppliers, closure-external inputs, global descent
+   atoms and the auxiliary projector input.
+
+---
+
+# Previous checkpoint (cc-58621d, Q03 step)
+
 Claude Code — cc-58621d; issue 1254; 29 September 2026 (Q03 step).
 **Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes,
 116 findings (E114–E116 are new), 12 gaps (`appendix-certificates` closed). No Lean deliverable or
