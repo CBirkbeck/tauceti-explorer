@@ -2,11 +2,12 @@
 
 This blueprint covers stages L0–L4. The first checkpoint decomposes **L0**, the Euler system of
 cyclotomic units and its χ-twist. The second plans **L1**'s finite-level class-group bound, the third plans **L2**'s
-Iwasawa-theoretic divisibility, and the fourth plans **L3**, the main conjecture for odd p. It follows:
+Iwasawa-theoretic divisibility, the fourth plans **L3**, the main conjecture for odd p, and the fifth starts **L4**
+(Greither, all p). It follows:
 - Rubin, *Euler systems*, Chapter III §2.1–2.4, with the Chapter I–II definitions they use;
 - Rodrigues Jacinto–Williams (RJW), *An introduction to p-adic L-functions*, §10.2 and §10.5.
 
-L1 and L3 are partial, L2 is source-decomposed, and L4 is not yet read.
+L1, L3 and L4 are partial, and L2 is source-decomposed.
 
 ## Purpose
 
@@ -319,6 +320,29 @@ and char(X_∞⁺) = I(Γ⁺)ζ_p for every odd p. In χ-parts this is char(Z_�
 - The local-unit theorem (RJW 12.23) is requested from ColemanPowerSeries L4.
 - The Vandiver isomorphism (RJW 13.11) is not asserted.
 
+## Layer L4: all abelian fields and p = 2 (partial)
+
+Checkpoint 5 plans Greither, *Class groups of abelian fields, and the main conjecture* (Ann. Inst. Fourier 42 (1992)),
+§§1–3.
+
+**Definition: χ-parts for all p** (node `greither-chi-parts`). M_χ = M ⊗_{ℤ_p[Δ]} ℤ_p(χ) is only right exact when
+p | |Δ|. Property (g) handles minus modules at p = 2.
+
+**Theorem: semilocal units** (node `greither-semilocal-units`; Theorem 2.13, Corollary 2.14).
+- (U_∞/C_∞)_ρ has the characteristic ideal of Λ/(G_p(T, ρ))*(1) after ⊗ℚ_p.
+- The two are isomorphic when χ(p) ≠ 1.
+- The Coleman theory is requested from ColemanPowerSeries L4.
+
+**Theorem: the real main conjecture** (node `greither-real-main-conjecture`; Theorem 3.1). char(X_ρ) divides
+char((E_∞/C_∞)_ρ) for every even ρ ≠ 1, including at p = 2.
+- At p = 2 Greither modifies Rubin's Chebotarev step (Theorem 3.7), losing only a factor 2^{c+2}.
+- μ = 0 and Leopoldt remove the accumulated factors.
+
+**Lemma: Kummer duality** (node `greither-kummer-duality`; Lemma 3.3, Proposition 3.4).
+
+**Theorem: the main conjecture for all p** (node `greither-main-conjecture-all-p`; planet; Theorem 3.2). For every odd
+χ ≠ ω, char(X_χ) = (½G_p(T, χ̌)). The ½ matters only at p = 2.
+
 ## Dependencies
 
 **Inside this roadmap.** L0 feeds L1: Theorem III.2.3 takes c_ℚ, C_{L,χ} and the Kummer classes.
@@ -362,8 +386,8 @@ and char(X_∞⁺) = I(Γ⁺)ζ_p for every odd p. In χ-parts this is char(Z_�
   requests (Iwasawa's rank-one theorem for Y_∞^χ, Leopoldt for real abelian fields).
 - **L3 (partial, checkpoint 4):** the main conjecture is planned. Remaining: the finite-layer stabilisation of Corollary
   III.2.8 (gap), and the odd-character/class-group and Greenberg Selmer formulations (RJW §13.5).
-- **L4:** Greither, *Class groups of abelian fields, and the main conjecture*, §§1–4, including
-  p = 2.
+- **L4 (partial, checkpoint 5):** Greither §§1–3 are planned. Remaining: §2's lemmas and Coleman theory in detail,
+  §3's Lemmas 3.11–3.13, and §4 (Theorems A, B, C on χ-parts of class groups, and the Gras conjecture).
 
 ## Sources
 

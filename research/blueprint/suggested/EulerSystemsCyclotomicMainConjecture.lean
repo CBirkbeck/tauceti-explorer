@@ -480,6 +480,10 @@ example {R : Type*} [CommRing R] [IsDomain R] (e x u : R) (he : e ≠ 0) (h : e 
   have : e * x = e * u := by rw [h, mul_comm]
   exact mul_left_cancel₀ he this
 
+/-- `L4/greither-chi-parts`, test `chiPart.test_not_exact`: for `p = 2` and `Δ = ℤ/2`, the χ-part of the trivial module
+`ℤ₂` is `ℤ₂/(1 + 1) = ℤ/2`, and the map to `ℤ₂[Δ]_χ ≅ ℤ₂` sends `1` to `1 + δ ↦ 1 + (−1) = 0`. -/
+example : (1 : ℤ) + (-1) = 0 ∧ ¬ IsUnit (2 : ℤ) := ⟨by norm_num, by decide⟩
+
 end SuggestedTest
 
 end TauCeti.CyclotomicEulerSystem
