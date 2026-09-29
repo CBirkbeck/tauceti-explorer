@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -7215,7 +7215,8 @@
    ],
    "avoidAccountOf": "PAPER-MERKURJEV-SCAVIA-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1409"
   },
   {
    "id": "PAPER-SCHOLZE-26",
@@ -8422,8 +8423,9 @@
    ],
    "avoidAccountOf": "PAPER-LAWRENCE-VENKATESH-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-LAWRENCE-VENKATESH-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2163"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2163",
+   "finishedAt": "2026-09-29T13:02:58Z"
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21",
