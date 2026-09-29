@@ -14519,9 +14519,9 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/BP-AbelianSchemesAndArithmeticModuli.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #666"
+   "note": "claimed on GitHub issue #666"
   },
   {
    "id": "REV-AbelianSchemesAndArithmeticModuli",
@@ -16492,9 +16492,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-DeligneWeightsAndPurity--DWP.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #706"
+   "note": "released on GitHub issue #706"
   },
   {
    "id": "REV-DeligneWeightsAndPurity--DWP.0",
