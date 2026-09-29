@@ -1,7 +1,7 @@
 # Potential modularity and compatible systems — part R24.3: prescribed lifts, the lifting interface and compatible systems — blueprint
 
 This part covers stages R24.3–R24.6 of PotentialModularityAndCompatibleSystems, including the operations sub-layer
-R24.5:operations. After the fourth checkpoint:
+R24.5:operations. After the fifth checkpoint:
 
 | Stage | Coverage |
 |---|---|
@@ -128,6 +128,22 @@ Khare's paper with Böckle's appendix ([26]).
     conjugate self-dual ℛ, a constituent of r_λ|_{G_{F′}} descends to a CM field F″ ⊆ F′ and stays essentially conjugate
     self-dual (totally odd if r_λ is).
 
+- **Checkpoint 5: BLGGT arXiv v4** (the last arXiv version before the Annals paper; ModularityAndLanglandsExtensions ML.0 has the v1 → v4 register).
+  - **`system-l-functions`** now uses v4's archimedean factors.
+    - Real v: Γ_ℝ(s − w/2)^{d+}Γ_ℝ(s + 1 − w/2)^{d−}∏_{h<w/2}Γ_ℂ(s − h)/Γ_ℂ(s − w/2), with ε_v = i^{d− + Σ|h − w/2|}.
+    - Complex v: the analogous product over the two embeddings.
+    - There is no separate Hodge factor. v1's Hodge factor is undefined for odd weight (E2).
+    - New test: for an elliptic curve over ℚ, L_∞ = Γ_ℂ(s) and ε_∞ = −1.
+  - **`larsen-rational-system-groups`** (construction; v4 §5.2). G_l, G⁰_l, Z_l, C_l, G^sc_l, H_l, Γ^Z_l, Γ^C_l, Γ^H_l, the constants A(n) and B(n), and Serre's θ_l.
+  - **`serre-theta-uniform-bounds`** (v4 Lemma 5.2.1). θ_l is surjective, agrees with the Galois side on all of O^× for l ∉ S, and has l-independent bounds C(ℛ) and D(ℛ).
+  - **`larsen-good-primes`** (v4 Proposition 5.2.2). For a density-one set of l:
+    - G⁰_l is unramified;
+    - Γ^H_l = G̃^sc_l(ℤ_l) × Γ^Z_l;
+    - the actions extend to H̃_l;
+    - invariant lattices exist;
+    - the isotypic decomposition of every H̃_l-lattice holds, with distinct absolutely irreducible reductions.
+  - `residual-irreducibility-density-one` now runs through `larsen-good-primes` (v4 Proposition 5.3.2).
+
 ## Layer R24.5: compatible systems from potential modularity
 
 - **`brauer-induction-system`** (construction; planet "Compatible systems by Brauer induction"). The system is
@@ -172,6 +188,17 @@ Khare's paper with Böckle's appendix ([26]).
 KW II themselves correct an earlier claim (Wintenberger, Documenta 2006) that the systems are strictly compatible. The
 packet records only almost strict compatibility.
 
+**E2 (BLGGT arXiv v1, §5.1, pp. 52–53, error, affects a stated result).**
+- The Hodge factor L({H_τ}, s) is undefined for odd weight: its product has |h − w/2| factors.
+- The real factor Γ_ℂ(s − w/2)^{n/2} then gives Γ_ℂ(s − 1/2), not Γ_ℂ(s), for an elliptic curve.
+- So v1 Corollary 5.3.2(2) is not defined for odd-weight systems.
+- Corrected in arXiv v4 §5.1.
+
+**E3 (BLGGT arXiv v4, §5.2, misprints).**
+- "r_l mod G⁰_l" should be "r_l mod G^der_l".
+- "G̃_l" should be G̃^sc_l.
+- "V_{Λ,i}" should be V_{λ,i}.
+
 ## Remaining work
 
 - **R24.5:operations:** BLGGT §5.3 (Theorem 5.3.1 to Proposition 5.3.4) and Theorems 5.4.1–5.4.3 follow from potential
@@ -197,6 +224,6 @@ packet records only almost strict compatibility.
 - L. V. Dieulefait and A. M. Pacetti, *A simplified proof of Serre's conjecture*, arXiv:2108.07577v2 (2022).
 - A. Snowden, *On two dimensional weight two odd representations of totally real fields*, arXiv:0905.4266v1 (2009).
 - T. Barnet-Lamb, T. Gee, D. Geraghty and R. Taylor, *Potential automorphy and change of weight*, Ann. of Math. 179
-  (2014), 501–609 (arXiv:1010.2561v1).
+  (2014), 501–609 (arXiv:1010.2561v1; and arXiv:1010.2561v4, 9 December 2013, sha256 c953df6…, for checkpoint 5).
 - R. Taylor, *On the meromorphic continuation of degree two L-functions*, Documenta Math. Extra Volume Coates (2006),
   729–779.
