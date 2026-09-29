@@ -9457,8 +9457,9 @@
    ],
    "avoidAccountOf": "PAPER-SCHOLZE-WEINSTEIN-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHOLZE-WEINSTEIN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4541"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4541",
+   "finishedAt": "2026-09-29T17:09:28Z"
   },
   {
    "id": "PAPER-FARGUES-FONTAINE-18",
