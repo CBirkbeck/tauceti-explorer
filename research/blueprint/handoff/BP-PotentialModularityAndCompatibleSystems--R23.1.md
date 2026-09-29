@@ -1,9 +1,74 @@
-# BP-PotentialModularityAndCompatibleSystems--R23.1: checkpoint 1 (Claude Code cc-39fac3)
+# BP-PotentialModularityAndCompatibleSystems--R23.1: checkpoint 2 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 29 September 2026. Refs #976; the bot confirmed the claim. **Status: partial.**
 - R23.1, R23.4, R23.5, R23.6, R24.1 and R24.2 are `source_decomposed`.
-- R23.3 is `partial`.
-- R23.2 is `not_read`.
+- R23.2 and R23.3 are `partial`.
+
+## Checkpoint 2: Taylor's moduli problem and potential modularity (10 nodes)
+
+**Carried from EXT-12.** Ten draft nodes, each re-verified on the page images:
+- Taylor 2002 (fm.pdf, sha e00ebd5…), §1, printed pp. 6–16;
+- Taylor 2006 (Documenta, sha 6ec26bf…), pp. 755–763, 770–771 and 776–777.
+
+Every excerpt was found on its stated page by a letters-only match, because the 2002 text layer drops digits and Greek.
+
+**R23.2 (6 nodes):**
+- `taylor-auxiliary-data-p-L-psi-N-M` (construction, 5 API items, 4 tests);
+- Lemma 1.1;
+- Lemma 1.2;
+- Lemmas 1.3–1.4;
+- the local points and the Moret-Bailly point over E;
+- `taylor-2006-lemmas-4-4-4-5-descent-and-the-cm-point`, the draft's twisted-moduli node recast as a lemma.
+
+**R23.3 (4 nodes):**
+- Lemma 1.5;
+- the modularity of the auxiliary abelian variety and its transfer to ρ̄;
+- Theorem 1.6 with Corollary 1.7 (planet);
+- Taylor 2006 Proposition 4.1, Corollary 4.6 and Theorem 5.7 (planet).
+
+KW II Theorem 6.1 and KW Annals Theorem 2.1 now cite them.
+
+**Not carried (RS-23).** The draft's M-HBAV definition and the moduli spaces X and X_{R,ψ} belong to
+HilbertModularVarietiesAndShimuraCurves H6, which "retains the twisted moduli/local-point input" for R23.2. A request
+to H6 lists what is needed, including quasi-projectivity, which Taylor does not state.
+
+**Taylor and Skinner–Wiles 2001.**
+- Taylor 2002 (p. 15) applies SW 2001 Theorem 5.1 to a residual representation induced from the CM field LE, split
+  above p.
+- Taylor 2006 (pp. 762–763) does the same with FM, split at p₁.
+- Both are exactly the case where SW 2001's Lemma 2.2 fails (OrdinaryAutomorphicFormsAndModularityLifting/E11, PR
+  #3873), so this is recorded as a gap.
+- Taylor 2006 names an alternative route through SW 1999, its Theorem 3.3 and descent.
+
+**Source issues (Taylor's 2000 preprint):**
+- **E4:** Lemma 1.5's proof ends "χ₁|_{I_x} = ω" for ω^{−1}. The excluded case is n = 1, checked in Lean.
+- **E5:** ψ_x for ψ_y in Lemma 1.1's proof.
+- **E6:** λ for λ₀ (p. 7), and End(A/k(v)) and ℚ(α) for End(A₀/k(v)) and ℚ(β_v) (p. 11).
+
+**New requests:**
+- HilbertModularVarietiesAndShimuraCurves H6 (the moduli);
+- OrdinaryAutomorphicFormsAndModularityLifting R21.5 (SW 2001 Theorem 5.1).
+
+The R17.5 request now also covers automorphic induction and the soluble branch.
+
+**Gaps:**
+- the SW 2001/E11 dependency;
+- Lemma 1.3 and Corollary 1.7 have no printed proof;
+- the "not yet carried" gap is removed.
+
+Checkpoint 1's source editions carried the draft's private catalogue ids. They are removed here.
+
+**Totals.** 29 nodes, 8 planets, 8 requests, 7 gaps and source issues E2–E6. `check_blueprint.py`: 0 errors,
+0 warnings.
+
+## What a continuation should do (after checkpoint 2)
+
+1. Revisit the SW 2001 gap once OrdinaryAutomorphicFormsAndModularityLifting/E11 is settled. The two nodes already cite
+   `R21.5/nearly-ordinary-irreducible-lifting`, merged in #3873. Alternatively, plan Taylor 2006's route through SW 1999.
+2. Read Taylor 2006 Lemmas 5.1–5.6 and Khare's Lemma 2.2 (the p = 3 extension used by KW II).
+3. Compare the published JIMJ numbering with the preprint, if a readable copy exists.
+
+## Checkpoint 1
 
 ## What this checkpoint did
 
@@ -59,8 +124,7 @@ correct it.
 
 It compiles with 0 errors, 0 warnings and no `sorry`.
 
-## What a continuation should do
+## What checkpoint 1 left (done in checkpoint 2 and #977 checkpoint 2)
 
-1. **Carry the draft's R23.2 (8) and remaining R23.3 (4) Taylor nodes,** re-verifying the excerpts on page images of
-   `virtualmath1.stanford.edu/~rltaylor/fm.pdf` (sha e00ebd5…) and the Documenta 2006 paper (EMS Press, sha 6ec26bf…).
-2. **Fix part R24.3's attribution** of the §5.2 Remark (issue #977).
+1. Carry the draft's Taylor nodes (done above).
+2. Fix part R24.3's attribution of the §5.2 Remark (done in #3869).
