@@ -142,3 +142,51 @@ The file gains a `TauCeti.AlgebraicGeometry.Quadric` section:
   nonsplit quadric surfaces.
 
 It was compiled with `lake env lean` against Mathlib 082e2d3: exit 0, with 3 `sorry` warnings.
+
+# Checkpoint 3 (SGA 7 XV §2: cones and the standard quadratic degeneration)
+
+Agent: Claude Code, session cc-fb70e5. Refs #768.
+
+## State
+
+- The packet has 47 nodes, 9 requests and 12 source issues. The checker reports no errors and no warnings.
+- Exposé XV §2 (pp. 13–23, PDF pages 185–195) was read in full on page images, and every excerpt was transcribed from
+  the rendered page.
+
+## Planned in this checkpoint (eight LPV.2 nodes)
+
+- The homotopy invariance of étale cohomology (Lemma 2.1.3).
+- The cohomology of a cone and of its henselisation at the vertex (2.1.2 and 2.1.4).
+- The Gysin sequence of the punctured cone and its local analogue (2.1.5–2.1.7).
+- The anticommutative boundary diagram, Lemma "2.7.8" (read 2.1.8).
+- Standard quadratic degenerations (2.2.1–2.2.2), a definition node with API and tests.
+- The nearby cycles of a standard degeneration (2.2.3–2.2.5 A–C).
+- The variation (2.2.5 D–F): in even dimension φ(δ) = (−1)^m·2δ′, σδ = ε(σ)δ and
+  Var(σ) = ((ε(σ) − 1)/2)(−1)^m (·, δ)δ; in odd dimension Var(σ)(a) = λ_X ε(σ)(a, δ)δ.
+- The local description of the vanishing cycle through the primitive quotient of the tangent-cone quadric (2.2.6–2.2.7).
+
+The carried XV 3.x nodes and the Weil I local-theory nodes now depend on these. The checkpoint 1 gap "XV §2 local
+computation unread" is closed. A new gap records XIII 2.1.9–2.1.13, which XV 2.2.3–2.2.5 cite and which is still unread.
+
+## Mistakes in the source (sourceIssues E9–E12)
+
+1. **E9, misprint.** XV §2.1 numbers two items 2.1.3 and prints "Lemme 2.7.8" for 2.1.8; the proof of 2.2.7 cites 2.1.8.
+2. **E10, misprint.** (2.2.5.9) prints D(σ) for Var(σ).
+3. **E11, error.** 2.2.6 says (δ, δ) = (−1)^m·2 characterises ±δ whenever 2 ∤ k. For k = 15, u = 4 has u² ≡ 1, so 4δ
+   also satisfies it. The characterisation holds when k is a power of one odd prime.
+4. **E12, misprint.** 2.2.2 puts the exceptional case at "n + 1 pair". It is n + 1 odd (n even), as 1.2.8 and 2.2.6 say.
+
+All four are also recorded in the local published-errata log.
+
+## What remains
+
+- **LPV.2:**
+  - step (C) onward of the proof of XV 3.3.5–3.3.6, and XIV 2.1/3.2.11, which fix λ_X;
+  - the characteristic-2 even case, excluded by Weil I.
+- **LPV.0:** XIII 2.1.9–2.1.13 and §§2.2–2.4.
+- **LPV.1 and LPV.3–LPV.6:** as after checkpoint 1. SGA 7 XVII begins at PDF page 220 and XVIII at PDF page 262.
+
+## Suggested Lean file
+
+The file gains two proved tests: the sign ((ε − 1)/2)(−1)^m = (−1)^{m+1} at ε = −1, and the E11 counterexample in
+ℤ/15 (4² = 1, 4 ≠ ±1). It was compiled with `lake env lean` against Mathlib 082e2d3: exit 0, with 3 `sorry` warnings.
