@@ -9091,7 +9091,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GROSS-ZAGIER-86.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4498"
   },
   {
    "id": "REV-PAPER-GROSS-ZAGIER-86",
@@ -9161,7 +9162,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SCHOLZE-15.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4502"
   },
   {
    "id": "REV-PAPER-SCHOLZE-15",
@@ -9307,8 +9309,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-RODRIGUES-JACINTO-WILLIAMS-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4512"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4512",
+   "finishedAt": "2026-09-29T15:30:27Z"
   },
   {
    "id": "REV-PAPER-RODRIGUES-JACINTO-WILLIAMS-23",
@@ -9484,8 +9487,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SCHOLZE-12.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4544"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4544",
+   "finishedAt": "2026-09-29T15:30:33Z"
   },
   {
    "id": "REV-PAPER-SCHOLZE-12",
