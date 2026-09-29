@@ -1,6 +1,6 @@
 # Noncommutative and equivariant Iwasawa theory — blueprint
 
-This blueprint covers stages NE.0–NE.7. After the seventh checkpoint:
+This blueprint covers stages NE.0–NE.7. After the eighth checkpoint:
 - **NE.1 is source-decomposed.**
 - **NE.0 is partial.**
 - **NE.2 is partial:** CFKSV §§3–4 — the localisation sequence and characteristic elements.
@@ -9,7 +9,8 @@ This blueprint covers stages NE.0–NE.7. After the seventh checkpoint:
   L-function and the main conjecture (checkpoint 4).
 - **NE.6 is partial.** Kakde is read in full, and the proof of his main theorem (Theorem 11) is decomposed end to end
   (checkpoints 5–7). Ritter–Weiss and the coverage table remain.
-- **NE.7 is not yet read.**
+- **NE.7 is partial:** Burns–Venjakob §§2–4. This covers Bockstein maps, semisimplicity, leading terms at
+  representations, generalised Euler characteristics and the Fukaya–Kato zeta isomorphism (checkpoint 8).
 
 The accepted restructuring RS-16 moves the construction of completed group algebras, with restriction, induction and
 augmentation, to PadicMeasuresIwasawaAlgebras L1. NE.0 therefore keeps only:
@@ -523,6 +524,54 @@ Milestones 8–10.
 - an incorrect congruence modulo r_P in the proofs of Propositions 116–117 (E7, repaired);
 - the unargued admissibility and μ = 0 for F̃_∞ (E10).
 
+### NE.2 and NE.7, Milestone 11: leading terms (Burns–Venjakob §§2–4, checkpoint 8)
+
+Source: Burns–Venjakob, arXiv:math/0511672v2, pp. 1–21. Library modules:
+`TauCeti/NumberTheory/NoncommIwasawa/LocalizedK1` and `…/LeadingTerms`.
+
+**Construction: determinant functors** (node `NE.2/determinant-functor`). d_R : (C^p(R), quasi) → 𝒞_R has properties
+d)–i), with Aut(1_R) = K_1(R), Remark 2.3 (d(φ)^{−1}) and Remark 2.4 (ord = length). The construction (Deligne's virtual
+objects) is requested from GeneralAlgebraicKTheory K.4.
+
+**Construction: the localized K₁** (node `NE.2/localized-k1`). K_1(R, Σ) by generators [C, a] and relations (0)–(3),
+and ch_{R,Σ_S} : K_1(R, Σ_S) ≅ K_1(R_S) (Fukaya–Kato 1.3.7, cited).
+
+**Construction: Bockstein maps** (node `NE.7/bockstein-homomorphism`). θ ∈ Hom(G, ℤ_p), the extension E_θ, and
+B_i : Tor_i → Tor_{i−1}; for G = Γ, B_i factors through κ : H^Γ → H_Γ (Lemma 3.1).
+
+**Definition: semisimplicity** (node `NE.7/semisimple-complexes`).
+- The Bockstein complex has torsion cohomology (Definitions 3.2, 3.11), finiteness at ρ (3.12), and r_G(A·)(ρ).
+- The DVR normal form is Lemma 3.9, and the reduction to Λ_𝒪(Γ) is Lemma 3.13.
+- *Unit tests:*
+  - [Λ --T--> Λ] (r = −1);
+  - [Λ --f--> Λ] with f(0) ≠ 0 (finite);
+  - the E11 extension is not semisimple.
+
+**Construction: the Bockstein trivialisation** (node `NE.7/canonical-trivialization`). t(A·), multiplicative on
+triangles (Lemma 3.6).
+
+**Definition: leading terms** (node `NE.7/leading-term`; planet). (A·, a)^*(ρ) = (−1)^{r}·(t ∘ (L^n ⊗ a)) ∈ L^×
+(Definitions 3.7, 3.14), and the value when A· is finite at ρ (Remark 3.15).
+- *Unit tests* (the stage's acceptance):
+  - a pole with leading term ε(0);
+  - its shift, a zero with its Bockstein determinant;
+  - a finite value;
+  - the non-semisimple E11 complex.
+
+**Theorems:**
+- The leading coefficient of the characteristic series (node `NE.7/leading-term-characteristic-series`, Proposition 3.8).
+- Its extension to the canonical localisation (node `NE.7/leading-term-canonical-localization`, Proposition 3.16).
+- The derivative in the cyclotomic direction (node `NE.7/partial-derivative-interpretation`, Lemma 3.17).
+- Generalised Euler–Poincaré characteristics (node `NE.7/generalized-euler-characteristic`; planet;
+  Proposition 3.19). This recovers CFKSV Theorem 3.6.
+
+**Definition: the Fukaya–Kato zeta isomorphism** (node `NE.7/fukaya-kato-zeta-isomorphism`; planet). Conjecture 4.1,
+with the fundamental line and the period-regulators as explicit conjectural inputs, stated as a proposition.
+
+**Finding E11** (error). BV state that the extension-closed Σ_{A·} lies in Σ^{ss}. It does not:
+[Λ² --((T,1),(0,T))--> Λ²] is an extension of two copies of [Λ --T--> Λ], but its H⁰ is Λ/T², which is not
+semisimple. The repair is to use closure under direct sums (iv′), as BV's own weakening intends.
+
 ## Dependencies
 
 - **NE.0 imports:**
@@ -571,13 +620,16 @@ Milestones 8–10.
     and Hilbert Eisenstein series from AutomorphicPadicLFunctions L3);
   - Ritter–Weiss;
   - the source-by-source coverage table.
-- **NE.7.** Burns–Venjakob leading terms.
+- **NE.7 (partial).** Still to do:
+  - Burns–Venjakob §5 (the p-adic Stark conjecture for Tate motives);
+  - Burns–Venjakob §6 (critical motives, heights);
+  - exceptional zeros and noncommutative Fitting invariants.
 
 ## Sources
 
 - **Coates, Fukaya, Kato, Sujatha, Venjakob,** Publ. Math. IHÉS 101 (2005), Numdam. Read §§2–3 in full and p. 192.
 - **Lazard,** Publ. Math. IHÉS 26 (1965), Numdam. Read II.2.2 and V.2.2.
 - **Ardakov–Brown,** arXiv math/0511345v1. Read §§2–4.
-- **Burns–Venjakob,** arXiv math/0511672v2. Read §2.
+- **Burns–Venjakob,** arXiv math/0511672v2. Read §§1–4 (pp. 1–21).
 - **Kakde,** arXiv:1008.0142v3. Read in full (pp. 1–90).
 - **Schneider–Venjakob,** *A splitting for K₁ of completed group rings*, arXiv:1006.1493v1. Read Proposition 2.3 (p. 11).
