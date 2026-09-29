@@ -1,7 +1,7 @@
 /-
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Codex (codex-a71f92), Codex (codex-hjdg0j)
+Authors: Codex (codex-a71f92), Codex (codex-hjdg0j), Claude Code (cc-39fac3)
 -/
 import Mathlib.Analysis.Fourier.ZMod
 import Mathlib.NumberTheory.DirichletCharacter.Orthogonality
@@ -25,6 +25,21 @@ import Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds
 import Mathlib.Analysis.Real.Pi.Bounds
 import Mathlib.NumberTheory.ZetaValues
 import Mathlib.Algebra.Order.Round
+import Mathlib.NumberTheory.PrimeCounting
+import Mathlib.NumberTheory.Primorial
+import Mathlib.NumberTheory.ArithmeticFunction.Moebius
+import Mathlib.Data.Nat.Totient
+import Mathlib.Data.Nat.Nth
+import Mathlib.Data.Fin.Tuple.NatAntidiagonal
+import Mathlib.Analysis.Asymptotics.Defs
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.Calculus.ContDiff.Defs
+import Mathlib.Analysis.Calculus.FDeriv.Basic
+import Mathlib.MeasureTheory.Integral.Bochner.Basic
+import Mathlib.MeasureTheory.Constructions.Pi
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
+import Mathlib.MeasureTheory.Function.LpSeminorm.Defs
 
 /-!
 # Suggested finite sieve, Gram-row and taper signatures
@@ -37,6 +52,9 @@ Reuse the pinned BoundingSieve and SelbergSieve carriers, their weighted sums,
 multiplicative density and remainder. No competing sieve or bound predicate is defined.
 The finite Gram results reuse the existing inner-product and matrix APIs; the
 inner product is conjugate-linear in its first argument. No completeness is assumed.
+The final namespaces SieveDistribution (SV.3), SieveSelberg (SV.1) and SieveMaynard (SV.4)
+follow Maynard's *Small gaps between primes*: level of distribution, admissible tuples,
+multidimensional sieve weights, the variational quantity `M_k` and the bounded-gap theorems.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 -/
@@ -907,3 +925,666 @@ example : (∑ i ∈ Finset.range 3,
 example : 5 ≤ 2*2^2 ∧ 2*2^2 ≤ 2*5 ∧ ¬5 ≤ 2*2^1 := by sorry
 
 end SieveCharacters
+
+/-!
+## SV.1, SV.3 and SV.4: Maynard's multidimensional sieve
+
+Checkpoint by Claude Code (cc-39fac3), following Maynard, *Small gaps between primes*,
+Ann. of Math. 181 (2015), 383–413 (arXiv:1311.4600v3), Goldston–Graham–Pintz–Yıldırım,
+arXiv:math/0609615v1, Lemmas 3–4, and Kedlaya's Chapter 18, Theorem 18.4. Error terms are
+stated with explicit constants `C` and thresholds `N₀`; the source's implied constants may
+depend on `k`, the tuple, `θ` and `δ`, but not on `N`, `y` or `F`.
+-/
+
+namespace SieveDistribution
+
+open Filter Asymptotics
+
+/-- SV.3/level-of-distribution, data: `π(x; q, a)`, the number of primes `p ≤ x` with
+`p ≡ a (mod q)`. -/
+def primeCountAP (x : ℝ) (q a : ℕ) : ℕ :=
+  ((Finset.range (⌊x⌋₊ + 1)).filter (fun p => p.Prime ∧ p ≡ a [MOD q])).card
+
+/-- SV.3/level-of-distribution, data: `max_{(a,q)=1} |π(x;q,a) − π(x)/φ(q)|`. -/
+def discrepancy (x : ℝ) (q : ℕ) : ℝ :=
+  ⨆ a : {a : Fin q // Nat.Coprime a q},
+    |(primeCountAP x q a.1 : ℝ) - (Nat.primeCounting ⌊x⌋₊ : ℝ) / (q.totient : ℝ)|
+
+/-- SV.3/level-of-distribution. Maynard (1.3): the primes have level of distribution `θ`. -/
+def PrimesHaveLevel (θ : ℝ) : Prop :=
+  ∀ A : ℝ, 0 < A →
+    (fun x : ℝ => ∑ q ∈ Finset.Icc 1 ⌊x ^ θ⌋₊, discrepancy x q) =O[atTop]
+      fun x : ℝ => x / Real.log x ^ A
+
+/-- SV.3/level-of-distribution, API: the Elliott–Halberstam conjecture, a named hypothesis. -/
+def ElliottHalberstam : Prop :=
+  ∀ θ : ℝ, θ < 1 → PrimesHaveLevel θ
+
+/-- SV.3/level-of-distribution, API: Maynard's window error `E(N, q)` of (5.16). -/
+def windowError (N q : ℕ) : ℝ :=
+  1 + ⨆ a : {a : Fin q // Nat.Coprime a q},
+    |(((Finset.Ico N (2 * N)).filter (fun n => n.Prime ∧ n ≡ a.1 [MOD q])).card : ℝ) -
+      (((Finset.Ico N (2 * N)).filter Nat.Prime).card : ℝ) / (q.totient : ℝ)|
+
+/-- SV.3/level-of-distribution, API: the modulus one contributes nothing. -/
+theorem discrepancy_one (x : ℝ) : discrepancy x 1 = 0 := by
+  sorry
+
+/-- SV.3/level-of-distribution, API: a smaller level is implied. -/
+theorem PrimesHaveLevel.mono {θ θ' : ℝ} (h : θ' ≤ θ) (hθ : PrimesHaveLevel θ) :
+    PrimesHaveLevel θ' := by
+  sorry
+
+/-- SV.3/level-of-distribution, API: nonpositive levels hold trivially. -/
+theorem primesHaveLevel_of_nonpos {θ : ℝ} (hθ : θ ≤ 0) : PrimesHaveLevel θ := by
+  sorry
+
+/-- SV.3/level-of-distribution, API: the window form used in Maynard (5.20). -/
+theorem PrimesHaveLevel.sum_windowError {θ θ' : ℝ} (hθ : PrimesHaveLevel θ) (h' : θ' < θ)
+    (h1 : θ < 1) (A : ℝ) (hA : 0 < A) :
+    (fun N : ℕ => ∑ q ∈ Finset.Icc 1 ⌊(N : ℝ) ^ θ'⌋₊, windowError N q) =O[atTop]
+      fun N : ℕ => (N : ℝ) / Real.log N ^ A := by
+  sorry
+
+example : discrepancy 10 3 = 1 := by
+  sorry
+
+example : PrimesHaveLevel 0 := by
+  sorry
+
+example {θ : ℝ} (hθ : 1 < θ) : ¬ PrimesHaveLevel θ := by
+  sorry
+
+example (x : ℝ) : primeCountAP x 1 0 = Nat.primeCounting ⌊x⌋₊ := by
+  sorry
+
+/-- SV.3/bombieri-vinogradov-level. Bombieri–Vinogradov: every level `θ < 1/2` holds. -/
+theorem primesHaveLevel_of_lt_half {θ : ℝ} (hθ : θ < 1 / 2) : PrimesHaveLevel θ := by
+  sorry
+
+end SieveDistribution
+
+namespace SieveSelberg
+
+open Filter Topology
+
+/-- SV.1/selberg-diagonal-sum-dimension-one. GGPY Lemma 3 with `κ = 1`: under `(Ω₁)` and
+`(Ω₂(1, L))`, `∑_{d<z} μ²(d) g(d) = c_γ log z (1 + O(L / log z))`, where
+`g(d) = ∏_{p ∣ d} γ(p)/(p − γ(p))` and `c_γ = ∏_p (1 − γ(p)/p)⁻¹ (1 − 1/p)`. The constant
+`C` depends only on `A₁` and `A₂`. -/
+theorem abs_sum_squarefree_diagonal_sub_le (A₁ A₂ : ℝ) (hA₁ : 1 < A₁) (hA₂ : 0 ≤ A₂) :
+    ∃ C : ℝ, ∀ (γ : ℕ → ℝ) (L : ℝ), 1 ≤ L →
+      (∀ p : ℕ, p.Prime → 0 ≤ γ p / p ∧ γ p / p ≤ 1 - 1 / A₁) →
+      (∀ w z : ℝ, 2 ≤ w → w ≤ z →
+        -L ≤ (∑ p ∈ (Finset.Ico ⌈w⌉₊ ⌈z⌉₊).filter Nat.Prime, γ p * Real.log p / p) -
+            Real.log (z / w) ∧
+          (∑ p ∈ (Finset.Ico ⌈w⌉₊ ⌈z⌉₊).filter Nat.Prime, γ p * Real.log p / p) -
+            Real.log (z / w) ≤ A₂) →
+      ∃ c : ℝ, Tendsto (fun y : ℕ => ∏ p ∈ Nat.primesBelow y, (1 - γ p / p)⁻¹ * (1 - 1 / (p : ℝ)))
+          atTop (𝓝 c) ∧
+        ∀ z : ℝ, 2 ≤ z →
+          |(∑ d ∈ (Finset.range ⌈z⌉₊).filter Squarefree,
+              ∏ p ∈ d.primeFactors, γ p / ((p : ℝ) - γ p)) - c * Real.log z| ≤ C * c * L := by
+  sorry
+
+/-- SV.1/selberg-smooth-diagonal-sum. GGPY Lemma 4 with `κ = 1` (Maynard Lemma 6.1): the
+same sum weighted by `G(log d / log z)` for a `C¹` function `G`, with
+`G_max = sup (|G| + |G'|)` on `[0, 1]`. -/
+theorem abs_sum_squarefree_diagonal_smooth_sub_le (A₁ A₂ : ℝ) (hA₁ : 1 < A₁) (hA₂ : 0 ≤ A₂) :
+    ∃ C : ℝ, ∀ (γ : ℕ → ℝ) (L : ℝ), 1 ≤ L →
+      (∀ p : ℕ, p.Prime → 0 ≤ γ p / p ∧ γ p / p ≤ 1 - 1 / A₁) →
+      (∀ w z : ℝ, 2 ≤ w → w ≤ z →
+        -L ≤ (∑ p ∈ (Finset.Ico ⌈w⌉₊ ⌈z⌉₊).filter Nat.Prime, γ p * Real.log p / p) -
+            Real.log (z / w) ∧
+          (∑ p ∈ (Finset.Ico ⌈w⌉₊ ⌈z⌉₊).filter Nat.Prime, γ p * Real.log p / p) -
+            Real.log (z / w) ≤ A₂) →
+      ∀ (G : ℝ → ℝ) (Gmax : ℝ), ContDiff ℝ 1 G →
+        (∀ t ∈ Set.Icc (0 : ℝ) 1, |G t| + |deriv G t| ≤ Gmax) →
+        ∃ c : ℝ, Tendsto (fun y : ℕ => ∏ p ∈ Nat.primesBelow y, (1 - γ p / p)⁻¹ * (1 - 1 / (p : ℝ)))
+            atTop (𝓝 c) ∧
+          ∀ z : ℝ, 2 ≤ z →
+            |(∑ d ∈ (Finset.range ⌈z⌉₊).filter Squarefree,
+                (∏ p ∈ d.primeFactors, γ p / ((p : ℝ) - γ p)) * G (Real.log d / Real.log z)) -
+              c * Real.log z * ∫ x in (0 : ℝ)..1, G x| ≤ C * c * L * Gmax := by
+  sorry
+
+end SieveSelberg
+
+namespace SieveMaynard
+
+open Filter Topology MeasureTheory SieveDistribution
+open scoped ArithmeticFunction.Moebius
+
+/-! ### Admissible tuples and the prime k-tuples conjecture -/
+
+/-- SV.4/admissible-tuple. `H` misses a residue class modulo every prime. -/
+def IsAdmissible (H : Finset ℕ) : Prop :=
+  ∀ p : ℕ, p.Prime → ∃ a : ℕ, ∀ h ∈ H, ¬ h ≡ a [MOD p]
+
+/-- SV.4/admissible-tuple, API: only primes `p ≤ #H` need checking. -/
+theorem isAdmissible_iff_card_image_lt (H : Finset ℕ) :
+    IsAdmissible H ↔ ∀ p : ℕ, p.Prime → p ≤ H.card → (H.image (· % p)).card < p := by
+  sorry
+
+/-- SV.4/admissible-tuple, API: subsets of admissible sets are admissible. -/
+theorem IsAdmissible.mono {H H' : Finset ℕ} (hH : IsAdmissible H) (h : H' ⊆ H) :
+    IsAdmissible H' := by
+  sorry
+
+/-- SV.4/admissible-tuple, API: admissibility is invariant under translation. -/
+theorem IsAdmissible.map_add {H : Finset ℕ} (hH : IsAdmissible H) (c : ℕ) :
+    IsAdmissible (H.map (addRightEmbedding c)) := by
+  sorry
+
+/-- SV.4/admissible-tuple, API: no element divisible by a prime `p ≤ #H` suffices. -/
+theorem isAdmissible_of_forall_not_dvd (H : Finset ℕ)
+    (hH : ∀ h ∈ H, ∀ p : ℕ, p.Prime → p ≤ H.card → ¬ p ∣ h) : IsAdmissible H := by
+  sorry
+
+example : IsAdmissible {0, 2} := by
+  sorry
+
+example : ¬ IsAdmissible {0, 2, 4} := by
+  sorry
+
+example : IsAdmissible {0, 2, 6, 8, 12} := by
+  sorry
+
+example : IsAdmissible ∅ := by
+  sorry
+
+example : ¬ IsAdmissible {0, 1} := by
+  sorry
+
+/-- SV.4/prime-tuples-conjecture, data: the `n` for which every `n + h` is prime. -/
+def primeTranslates (H : Finset ℕ) : Set ℕ :=
+  {n | ∀ h ∈ H, (n + h).Prime}
+
+/-- SV.4/prime-tuples-conjecture. Every admissible `H` has infinitely many prime translates.
+A named statement, never assumed. -/
+def PrimeTuplesConjecture : Prop :=
+  ∀ H : Finset ℕ, IsAdmissible H → (primeTranslates H).Infinite
+
+/-- SV.4/prime-tuples-conjecture, API: admissibility is necessary. -/
+theorem isAdmissible_of_infinite_primeTranslates {H : Finset ℕ}
+    (h : (primeTranslates H).Infinite) : IsAdmissible H := by
+  sorry
+
+/-- SV.4/prime-tuples-conjecture, API: the singleton case is the set of primes. -/
+theorem primeTranslates_singleton_zero : primeTranslates {0} = {p | p.Prime} := by
+  sorry
+
+/-- SV.4/prime-tuples-conjecture, API: the conjecture implies the twin prime conjecture. -/
+theorem PrimeTuplesConjecture.infinite_twin (h : PrimeTuplesConjecture) :
+    {p : ℕ | p.Prime ∧ (p + 2).Prime}.Infinite := by
+  sorry
+
+example : (primeTranslates {0}).Infinite := by
+  sorry
+
+example : primeTranslates {0, 1} = {2} := by
+  sorry
+
+example : primeTranslates {0, 2, 4} = {3} := by
+  sorry
+
+example : primeTranslates ∅ = Set.univ := by
+  sorry
+
+/-! ### The W-trick -/
+
+/-- SV.4/w-trick-residue, data: `W = ∏_{p ≤ D₀} p`. -/
+def wModulus (D₀ : ℝ) : ℕ :=
+  primorial ⌊D₀⌋₊
+
+/-- SV.4/w-trick-residue. The least `v₀ < W` with every `v₀ + h` coprime to `W`, or `0`
+when none exists. -/
+def wResidue (H : Finset ℕ) (D₀ : ℝ) : ℕ := by
+  classical
+  exact if h : ∃ v, v < wModulus D₀ ∧ ∀ x ∈ H, Nat.Coprime (v + x) (wModulus D₀) then
+    Nat.find h else 0
+
+/-- SV.4/w-trick-residue, API: for admissible `H` every shifted residue is coprime to `W`. -/
+theorem wResidue_coprime {H : Finset ℕ} (hH : IsAdmissible H) (D₀ : ℝ) :
+    ∀ h ∈ H, Nat.Coprime (wResidue H D₀ + h) (wModulus D₀) := by
+  sorry
+
+/-- SV.4/w-trick-residue, API: the residue is reduced modulo `W`. -/
+theorem wResidue_lt (H : Finset ℕ) (D₀ : ℝ) : wResidue H D₀ < wModulus D₀ := by
+  sorry
+
+/-- SV.4/w-trick-residue, API: `W ≤ 4 ^ D₀`. -/
+theorem wModulus_le (D₀ : ℝ) (h : 0 ≤ D₀) : (wModulus D₀ : ℝ) ≤ 4 ^ D₀ := by
+  sorry
+
+/-- SV.4/w-trick-residue, API: with `D₀ = log log log N`, `W ≤ (log log N)²` eventually. -/
+theorem eventually_wModulus_le :
+    ∀ᶠ N : ℝ in atTop,
+      (wModulus (Real.log (Real.log (Real.log N))) : ℝ) ≤ Real.log (Real.log N) ^ 2 := by
+  sorry
+
+example : wModulus 3 = 6 := by
+  sorry
+
+example : wResidue {0, 2} 3 = 5 := by
+  sorry
+
+example : wModulus 1 = 1 := by
+  sorry
+
+example : ¬ ∃ v : ℕ, ∀ x ∈ ({0, 1} : Finset ℕ), Nat.Coprime (v + x) (wModulus 2) := by
+  sorry
+
+/-! ### Maynard's sieve weights -/
+
+/-- SV.4/maynard-sieve-weights, data: the support condition of (5.7): `∏ rᵢ` squarefree,
+coprime to `W` and less than `R`. -/
+def IsMaynardSupport (k W : ℕ) (R : ℝ) (r : Fin k → ℕ) : Prop :=
+  Squarefree (∏ i, r i) ∧ Nat.Coprime (∏ i, r i) W ∧ ((∏ i, r i : ℕ) : ℝ) < R
+
+/-- SV.4/maynard-sieve-weights, data: the smooth choice (6.3) of `y`. -/
+def maynardY (k W : ℕ) (R : ℝ) (F : (Fin k → ℝ) → ℝ) (r : Fin k → ℕ) : ℝ := by
+  classical
+  exact if IsMaynardSupport k W R r then F (fun i => Real.log (r i) / Real.log R) else 0
+
+/-- SV.4/maynard-sieve-weights, data: the inverse change of variables (5.8),
+`λ_d = ∏ μ(dᵢ) dᵢ · ∑_{dᵢ ∣ rᵢ} y_r / ∏ φ(rᵢ)`. -/
+def maynardLambdaOfY (k : ℕ) (R : ℝ) (y : (Fin k → ℕ) → ℝ) (d : Fin k → ℕ) : ℝ :=
+  (∏ i, (μ (d i) : ℝ) * d i) *
+    ∑ r ∈ Fintype.piFinset (fun i => (Finset.range ⌈R⌉₊).filter (d i ∣ ·)),
+      y r / ∏ i, ((r i).totient : ℝ)
+
+/-- SV.4/maynard-sieve-weights. The weights of Proposition 4.1 attached to `F`. -/
+def maynardLambda (k W : ℕ) (R : ℝ) (F : (Fin k → ℝ) → ℝ) : (Fin k → ℕ) → ℝ :=
+  maynardLambdaOfY k R (maynardY k W R F)
+
+/-- SV.4/maynard-sieve-weights, data: the weight `w_n = (∑_{dᵢ ∣ n + hᵢ} λ_d)²` of (2.4). -/
+def maynardWeight (k : ℕ) (lam : (Fin k → ℕ) → ℝ) (h : Fin k → ℕ) (n : ℕ) : ℝ :=
+  (∑ d ∈ Fintype.piFinset (fun i => (n + h i).divisors), lam d) ^ 2
+
+/-- SV.4/maynard-sieve-weights, data: `S₁` of (4.2). -/
+def sieveSumS1 (k W v₀ : ℕ) (lam : (Fin k → ℕ) → ℝ) (h : Fin k → ℕ) (N : ℕ) : ℝ :=
+  ∑ n ∈ (Finset.Ico N (2 * N)).filter (· ≡ v₀ [MOD W]), maynardWeight k lam h n
+
+/-- SV.4/maynard-sieve-weights, data: `S₂⁽ᵐ⁾` of (5.14); `S₂ = ∑ₘ S₂⁽ᵐ⁾`. -/
+def sieveSumS2 (k W v₀ : ℕ) (m : Fin k) (lam : (Fin k → ℕ) → ℝ) (h : Fin k → ℕ)
+    (N : ℕ) : ℝ :=
+  ∑ n ∈ (Finset.Ico N (2 * N)).filter (· ≡ v₀ [MOD W]),
+    (if (n + h m).Prime then (1 : ℝ) else 0) * maynardWeight k lam h n
+
+/-- SV.4/maynard-sieve-weights, data: the totally multiplicative `g` with `g(p) = p − 2`. -/
+def maynardG (n : ℕ) : ℝ :=
+  ∏ p ∈ n.primeFactors, ((p : ℝ) - 2) ^ n.factorization p
+
+/-- SV.4/maynard-sieve-weights, data: `y⁽ᵐ⁾` of (5.23). -/
+def maynardYm (k : ℕ) (m : Fin k) (R : ℝ) (lam : (Fin k → ℕ) → ℝ) (r : Fin k → ℕ) : ℝ :=
+  (∏ i, (μ (r i) : ℝ) * maynardG (r i)) *
+    ∑ d ∈ (Fintype.piFinset (fun i => (Finset.range ⌈R⌉₊).filter (r i ∣ ·))).filter
+        (fun d => d m = 1),
+      lam d / ∏ i, ((d i).totient : ℝ)
+
+/-- SV.4/maynard-sieve-weights, API: `λ_d = 0` off the support. -/
+theorem maynardLambdaOfY_eq_zero {k W : ℕ} {R : ℝ} {y : (Fin k → ℕ) → ℝ}
+    (hy : ∀ r, ¬ IsMaynardSupport k W R r → y r = 0) {d : Fin k → ℕ}
+    (hd : ¬ IsMaynardSupport k W R d) : maynardLambdaOfY k R y d = 0 := by
+  sorry
+
+/-- SV.4/maynard-sieve-weights, API: the change of variables (5.7) inverts (5.8). -/
+theorem maynardY_eq_sum_lambda {k W : ℕ} {R : ℝ} {y : (Fin k → ℕ) → ℝ}
+    (hy : ∀ r, ¬ IsMaynardSupport k W R r → y r = 0) {r : Fin k → ℕ}
+    (hr : IsMaynardSupport k W R r) :
+    y r = (∏ i, (μ (r i) : ℝ) * (r i).totient) *
+      ∑ d ∈ Fintype.piFinset (fun i => (Finset.range ⌈R⌉₊).filter (r i ∣ ·)),
+        maynardLambdaOfY k R y d / ∏ i, (d i : ℝ) := by
+  sorry
+
+/-- SV.4/maynard-sieve-weights, API: the weights are nonnegative. -/
+theorem maynardWeight_nonneg (k : ℕ) (lam : (Fin k → ℕ) → ℝ) (h : Fin k → ℕ) (n : ℕ) :
+    0 ≤ maynardWeight k lam h n := by
+  sorry
+
+/-- SV.4/maynard-sieve-weights, API: in dimension one the weight is Mathlib's `Λ²` sieve. -/
+theorem maynardWeight_one_eq_sum_lambdaSquared (lam : (Fin 1 → ℕ) → ℝ) (h : Fin 1 → ℕ)
+    (n : ℕ) (hn : n + h 0 ≠ 0) :
+    maynardWeight 1 lam h n =
+      ∑ e ∈ (n + h 0).divisors, BoundingSieve.lambdaSquared (fun d => lam (fun _ => d)) e := by
+  sorry
+
+example (k W : ℕ) (R : ℝ) (d : Fin k → ℕ) : maynardLambda k W R (fun _ => 0) d = 0 := by
+  sorry
+
+example (k W : ℕ) (F : (Fin k → ℝ) → ℝ) (h : Fin k → ℕ) (n : ℕ)
+    (hn : ∀ i, n + h i ≠ 0) :
+    maynardWeight k (maynardLambda k W 2 F) h n = F 0 ^ 2 := by
+  sorry
+
+example (W : ℕ) (R : ℝ) (F : (Fin 2 → ℝ) → ℝ) :
+    maynardLambda 2 W R F ![2, 2] = 0 := by
+  sorry
+
+/-! ### Maynard's variational problem -/
+
+/-- SV.4/maynard-functionals, data: the simplex `ℛ_k`. -/
+def maynardSimplex (k : ℕ) : Set (Fin k → ℝ) :=
+  {t | (∀ i, 0 ≤ t i) ∧ ∑ i, t i ≤ 1}
+
+/-- SV.4/maynard-functionals, data: `I_k(F) = ∫_{[0,1]^k} F²`. -/
+def maynardI (k : ℕ) (F : (Fin k → ℝ) → ℝ) : ℝ :=
+  ∫ t in Set.univ.pi (fun _ : Fin k => Set.Icc (0 : ℝ) 1), F t ^ 2
+
+/-- SV.4/maynard-functionals, data: `J_k⁽ᵐ⁾(F) = ∫ (∫₀¹ F dtₘ)²`; the outer integral runs over
+the cube, on which the integrand does not depend on `tₘ`. -/
+def maynardJ (k : ℕ) (m : Fin k) (F : (Fin k → ℝ) → ℝ) : ℝ :=
+  ∫ t in Set.univ.pi (fun _ : Fin k => Set.Icc (0 : ℝ) 1),
+    (∫ s in (0 : ℝ)..1, F (Function.update t m s)) ^ 2
+
+/-- SV.4/maynard-functionals, data: the class `𝒮_k`, with square integrability in place of
+Riemann integrability (the supremum is unchanged, by SV.4/ratio-smooth-approximation). -/
+def IsMaynardAdmissible (k : ℕ) (F : (Fin k → ℝ) → ℝ) : Prop :=
+  (∀ t, t ∉ maynardSimplex k → F t = 0) ∧
+    MemLp F 2 (volume.restrict (Set.univ.pi fun _ : Fin k => Set.Icc (0 : ℝ) 1)) ∧
+    maynardI k F ≠ 0 ∧ ∀ m, maynardJ k m F ≠ 0
+
+/-- SV.4/maynard-functionals, data: the ratio `∑ₘ J_k⁽ᵐ⁾(F) / I_k(F)`. -/
+def maynardRatio (k : ℕ) (F : (Fin k → ℝ) → ℝ) : ℝ :=
+  (∑ m, maynardJ k m F) / maynardI k F
+
+/-- SV.4/maynard-functionals. `M_k = sup_{F ∈ 𝒮_k} ∑ₘ J_k⁽ᵐ⁾(F) / I_k(F)`. -/
+def maynardM (k : ℕ) : ℝ :=
+  sSup {r | ∃ F, IsMaynardAdmissible k F ∧ r = maynardRatio k F}
+
+/-- SV.4/maynard-functionals, data: `G_{b,j}(x)` of Lemma 8.1, with the `r = 0` term
+(`G_{0,j} = 1`) that the printed formula omits (finding E31). -/
+def simplexG (b j x : ℕ) : ℚ :=
+  (b.factorial : ℚ) * ∑ r ∈ Finset.range (b + 1), (x.choose r : ℚ) *
+    ∑ c ∈ (Finset.Nat.antidiagonalTuple r b).filter (fun c => ∀ i, 1 ≤ c i),
+      ∏ i, ((j * c i).factorial : ℚ) / (c i).factorial
+
+/-- SV.4/maynard-functionals, API: the ratio is unchanged by a nonzero scalar. -/
+theorem maynardRatio_smul (k : ℕ) (F : (Fin k → ℝ) → ℝ) {c : ℝ} (hc : c ≠ 0) :
+    maynardRatio k (c • F) = maynardRatio k F := by
+  sorry
+
+/-- SV.4/maynard-functionals, API: for symmetric `F`, `J_k⁽ᵐ⁾` does not depend on `m`. -/
+theorem maynardJ_eq_of_symmetric (k : ℕ) (F : (Fin k → ℝ) → ℝ)
+    (hF : ∀ σ : Equiv.Perm (Fin k), ∀ t, F (t ∘ σ) = F t) (m m' : Fin k) :
+    maynardJ k m F = maynardJ k m' F := by
+  sorry
+
+/-- SV.4/maynard-functionals, API: Cauchy–Schwarz gives `J_k⁽ᵐ⁾ ≤ I_k`, hence `M_k ≤ k`. -/
+theorem maynardM_le (k : ℕ) : maynardM k ≤ k := by
+  sorry
+
+/-- SV.4/maynard-functionals, API: every admissible ratio is at most `M_k`. -/
+theorem maynardRatio_le_maynardM {k : ℕ} {F : (Fin k → ℝ) → ℝ}
+    (hF : IsMaynardAdmissible k F) : maynardRatio k F ≤ maynardM k := by
+  sorry
+
+/-- SV.4/maynard-functionals, API: the radial case recovers the GPY integrals (Maynard,
+remark after Lemma 6.3). -/
+theorem maynardI_J_radial (k : ℕ) (hk : 2 ≤ k) (G : ℝ → ℝ) (hG : Continuous G) (m : Fin k) :
+    maynardI k ((maynardSimplex k).indicator fun t => G (∑ i, t i)) =
+        (∫ t in (0 : ℝ)..1, G t ^ 2 * t ^ (k - 1)) / (k - 1).factorial ∧
+      maynardJ k m ((maynardSimplex k).indicator fun t => G (∑ i, t i)) =
+        (∫ t in (0 : ℝ)..1, (∫ v in t..1, G v) ^ 2 * t ^ (k - 2)) / (k - 2).factorial := by
+  sorry
+
+example : maynardM 1 = 1 := by
+  sorry
+
+example :
+    maynardI 2 ((maynardSimplex 2).indicator 1) = 1 / 2 ∧
+      maynardJ 2 0 ((maynardSimplex 2).indicator 1) = 1 / 3 := by
+  sorry
+
+example (k : ℕ) : ¬ IsMaynardAdmissible k (fun _ => 0) := by
+  sorry
+
+example :
+    ¬ IsMaynardAdmissible 2 (fun _ => 1) ∧ maynardRatio 2 (fun _ => 1) = 2 := by
+  sorry
+
+example : simplexG 0 2 5 = 1 := by
+  sorry
+
+/-- SV.4/ratio-smooth-approximation. A smooth function supported in `ℛ_k` comes within `δ`
+of any admissible ratio. -/
+theorem exists_smooth_maynardRatio_gt {k : ℕ} {F : (Fin k → ℝ) → ℝ}
+    (hF : IsMaynardAdmissible k F) {δ : ℝ} (hδ : 0 < δ) :
+    ∃ F₁ : (Fin k → ℝ) → ℝ, ContDiff ℝ ⊤ F₁ ∧ IsMaynardAdmissible k F₁ ∧
+      0 < maynardI k F₁ ∧ maynardRatio k F - δ < maynardRatio k F₁ := by
+  sorry
+
+/-! ### Selberg sieve manipulations (Section 5) -/
+
+/-- SV.4/gpy-positivity-criterion. If `∑ₙ (#{i : n + hᵢ prime} − ρ) wₙ > 0` with `wₙ ≥ 0`,
+some `n ∈ [N, 2N)` has more than `ρ` of the `n + hᵢ` prime. -/
+theorem exists_card_prime_gt_of_sum_pos (H : Finset ℕ) (N : ℕ) (w : ℕ → ℝ)
+    (hw : ∀ n, 0 ≤ w n) (ρ : ℝ)
+    (hpos : 0 < ∑ n ∈ Finset.Ico N (2 * N),
+      (((H.filter fun h => (n + h).Prime).card : ℝ) - ρ) * w n) :
+    ∃ n ∈ Finset.Ico N (2 * N), ρ < ((H.filter fun h => (n + h).Prime).card : ℝ) := by
+  sorry
+
+/-- SV.4/lambda-max-bound. Maynard (5.9): `λ_max ≤ y_max ∑_{u<R} μ²(u) τ_k(u)/φ(u)`. -/
+theorem abs_maynardLambdaOfY_le {k W : ℕ} {R : ℝ} {y : (Fin k → ℕ) → ℝ}
+    (hy : ∀ r, ¬ IsMaynardSupport k W R r → y r = 0) (ymax : ℝ) (hmax : ∀ r, |y r| ≤ ymax)
+    (d : Fin k → ℕ) :
+    |maynardLambdaOfY k R y d| ≤
+      ymax * ∑ u ∈ (Finset.range ⌈R⌉₊).filter Squarefree,
+        ((Fintype.piFinset fun _ : Fin k => u.divisors).filter
+          (fun c => ∏ i, c i = u)).card / (u.totient : ℝ) := by
+  sorry
+
+/-- SV.4/s1-diagonalization. Maynard Lemma 5.1. -/
+theorem sieveSumS1_diagonal (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injective h)
+    (hH : IsAdmissible (Finset.univ.image h)) (θ δ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
+    (hδ : 0 < δ) :
+    ∃ C N₀ : ℝ, ∀ N : ℕ, N₀ ≤ N → ∀ (D₀ R : ℝ) (W v₀ : ℕ),
+      D₀ = Real.log (Real.log (Real.log N)) → W = wModulus D₀ →
+      v₀ = wResidue (Finset.univ.image h) D₀ → R = (N : ℝ) ^ (θ / 2 - δ) →
+      ∀ (y : (Fin k → ℕ) → ℝ) (ymax : ℝ), (∀ r, ¬ IsMaynardSupport k W R r → y r = 0) →
+        (∀ r, |y r| ≤ ymax) →
+        |sieveSumS1 k W v₀ (maynardLambdaOfY k R y) h N -
+            N / W * ∑ r ∈ Fintype.piFinset (fun _ : Fin k => Finset.range ⌈R⌉₊),
+              y r ^ 2 / ∏ i, ((r i).totient : ℝ)| ≤
+          C * ymax ^ 2 * (W.totient : ℝ) ^ k * N * Real.log R ^ k / (W ^ (k + 1) * D₀) := by
+  sorry
+
+/-- SV.4/s2-diagonalization. Maynard Lemma 5.2; the only place the level of distribution
+enters. -/
+theorem sieveSumS2_diagonal (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injective h)
+    (hH : IsAdmissible (Finset.univ.image h)) (θ δ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
+    (hδ : 0 < δ) (hk : 2 ≤ k) (hlevel : PrimesHaveLevel θ) (m : Fin k) (A : ℝ) (hA : 0 < A) :
+    ∃ C N₀ : ℝ, ∀ N : ℕ, N₀ ≤ N → ∀ (D₀ R : ℝ) (W v₀ : ℕ),
+      D₀ = Real.log (Real.log (Real.log N)) → W = wModulus D₀ →
+      v₀ = wResidue (Finset.univ.image h) D₀ → R = (N : ℝ) ^ (θ / 2 - δ) →
+      ∀ (y : (Fin k → ℕ) → ℝ) (ymax ymmax : ℝ),
+        (∀ r, ¬ IsMaynardSupport k W R r → y r = 0) → (∀ r, |y r| ≤ ymax) →
+        (∀ r, |maynardYm k m R (maynardLambdaOfY k R y) r| ≤ ymmax) →
+        |sieveSumS2 k W v₀ m (maynardLambdaOfY k R y) h N -
+            N / (W.totient * Real.log N) *
+              ∑ r ∈ Fintype.piFinset (fun _ : Fin k => Finset.range ⌈R⌉₊),
+                maynardYm k m R (maynardLambdaOfY k R y) r ^ 2 / ∏ i, maynardG (r i)| ≤
+          C * (ymmax ^ 2 * (W.totient : ℝ) ^ (k - 2) * N * Real.log N ^ (k - 2) /
+              (W ^ (k - 1) * D₀) + ymax ^ 2 * N / Real.log N ^ A) := by
+  sorry
+
+/-- SV.4/y-m-relation. Maynard Lemma 5.3: if `rₘ = 1`,
+`y⁽ᵐ⁾_r = ∑_{aₘ} y_{r[m ↦ aₘ]}/φ(aₘ) + O(y_max φ(W) log R/(W D₀))`. -/
+theorem maynardYm_sub_sum_le (k : ℕ) (m : Fin k) (θ δ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
+    (hδ : 0 < δ) :
+    ∃ C N₀ : ℝ, ∀ N : ℕ, N₀ ≤ N → ∀ (D₀ R : ℝ) (W : ℕ),
+      D₀ = Real.log (Real.log (Real.log N)) → W = wModulus D₀ → R = (N : ℝ) ^ (θ / 2 - δ) →
+      ∀ (y : (Fin k → ℕ) → ℝ) (ymax : ℝ), (∀ r, ¬ IsMaynardSupport k W R r → y r = 0) →
+        (∀ r, |y r| ≤ ymax) → ∀ r : Fin k → ℕ, r m = 1 →
+        |maynardYm k m R (maynardLambdaOfY k R y) r -
+            ∑ a ∈ Finset.range ⌈R⌉₊, y (Function.update r m a) / (a.totient : ℝ)| ≤
+          C * ymax * W.totient * Real.log R / (W * D₀) := by
+  sorry
+
+/-! ### Smooth choice of `y` (Section 6) -/
+
+/-- SV.4/s1-asymptotic. Maynard Lemma 6.2. -/
+theorem sieveSumS1_smooth (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injective h)
+    (hH : IsAdmissible (Finset.univ.image h)) (θ δ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
+    (hδ : 0 < δ) :
+    ∃ C N₀ : ℝ, ∀ N : ℕ, N₀ ≤ N → ∀ (D₀ R : ℝ) (W v₀ : ℕ),
+      D₀ = Real.log (Real.log (Real.log N)) → W = wModulus D₀ →
+      v₀ = wResidue (Finset.univ.image h) D₀ → R = (N : ℝ) ^ (θ / 2 - δ) →
+      ∀ (F : (Fin k → ℝ) → ℝ) (Fmax : ℝ), ContDiff ℝ 1 F →
+        (∀ t, t ∉ maynardSimplex k → F t = 0) →
+        (∀ t ∈ Set.univ.pi (fun _ : Fin k => Set.Icc (0 : ℝ) 1),
+          |F t| + ∑ i, |fderiv ℝ F t (Pi.single i 1)| ≤ Fmax) →
+        |sieveSumS1 k W v₀ (maynardLambda k W R F) h N -
+            (W.totient : ℝ) ^ k * N * Real.log R ^ k / W ^ (k + 1) * maynardI k F| ≤
+          C * Fmax ^ 2 * (W.totient : ℝ) ^ k * N * Real.log R ^ k / (W ^ (k + 1) * D₀) := by
+  sorry
+
+/-- SV.4/s2-asymptotic. Maynard Lemma 6.3. -/
+theorem sieveSumS2_smooth (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injective h)
+    (hH : IsAdmissible (Finset.univ.image h)) (θ δ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
+    (hδ : 0 < δ) (hlevel : PrimesHaveLevel θ) (m : Fin k) :
+    ∃ C N₀ : ℝ, ∀ N : ℕ, N₀ ≤ N → ∀ (D₀ R : ℝ) (W v₀ : ℕ),
+      D₀ = Real.log (Real.log (Real.log N)) → W = wModulus D₀ →
+      v₀ = wResidue (Finset.univ.image h) D₀ → R = (N : ℝ) ^ (θ / 2 - δ) →
+      ∀ (F : (Fin k → ℝ) → ℝ) (Fmax : ℝ), ContDiff ℝ 1 F →
+        (∀ t, t ∉ maynardSimplex k → F t = 0) →
+        (∀ t ∈ Set.univ.pi (fun _ : Fin k => Set.Icc (0 : ℝ) 1),
+          |F t| + ∑ i, |fderiv ℝ F t (Pi.single i 1)| ≤ Fmax) →
+        |sieveSumS2 k W v₀ m (maynardLambda k W R F) h N -
+            (W.totient : ℝ) ^ k * N * Real.log R ^ (k + 1) / (W ^ (k + 1) * Real.log N) *
+              maynardJ k m F| ≤
+          C * Fmax ^ 2 * (W.totient : ℝ) ^ k * N * Real.log R ^ k / (W ^ (k + 1) * D₀) := by
+  sorry
+
+/-- SV.4/maynard-sum-asymptotics. Maynard Proposition 4.1. -/
+theorem tendsto_sieveSums (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injective h)
+    (hH : IsAdmissible (Finset.univ.image h)) (θ δ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
+    (hδ : 0 < δ) (hlevel : PrimesHaveLevel θ) (F : (Fin k → ℝ) → ℝ) (hF : ContDiff ℝ ⊤ F)
+    (hsupp : ∀ t, t ∉ maynardSimplex k → F t = 0) (hI : maynardI k F ≠ 0)
+    (hJ : ∀ m, maynardJ k m F ≠ 0) (W v₀ : ℕ → ℕ) (R : ℕ → ℝ)
+    (hW : ∀ N : ℕ, W N = wModulus (Real.log (Real.log (Real.log N))))
+    (hv : ∀ N : ℕ, v₀ N = wResidue (Finset.univ.image h) (Real.log (Real.log (Real.log N))))
+    (hR : ∀ N : ℕ, R N = (N : ℝ) ^ (θ / 2 - δ)) :
+    Tendsto (fun N : ℕ => sieveSumS1 k (W N) (v₀ N) (maynardLambda k (W N) (R N) F) h N /
+        ((W N).totient ^ k * N * Real.log (R N) ^ k / (W N) ^ (k + 1) * maynardI k F))
+        atTop (𝓝 1) ∧
+      ∀ m : Fin k, Tendsto (fun N : ℕ =>
+        sieveSumS2 k (W N) (v₀ N) m (maynardLambda k (W N) (R N) F) h N /
+          ((W N).totient ^ k * N * Real.log (R N) ^ (k + 1) /
+            ((W N) ^ (k + 1) * Real.log N) * maynardJ k m F)) atTop (𝓝 1) := by
+  sorry
+
+/-- SV.4/maynard-many-primes. Maynard Proposition 4.2: at least `⌈θ M_k / 2⌉` of the
+`n + hᵢ` are prime for infinitely many `n`. -/
+theorem infinite_many_primes_of_level (θ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
+    (hlevel : PrimesHaveLevel θ) (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injective h)
+    (hH : IsAdmissible (Finset.univ.image h)) :
+    {n : ℕ | ⌈θ * maynardM k / 2⌉ ≤
+      ((Finset.univ.filter fun i => (n + h i).Prime).card : ℤ)}.Infinite := by
+  sorry
+
+/-- SV.4/clustered-primes-to-gaps. Infinitely many `n` with `r` prime `n + h` give
+`liminf (p_{n+r-1} − p_n) ≤ max H − min H`. -/
+theorem frequently_nth_prime_sub_le (H : Finset ℕ) (hne : H.Nonempty) (r : ℕ) (hr : 1 ≤ r)
+    (hinf : {n : ℕ | r ≤ (H.filter fun h => (n + h).Prime).card}.Infinite) :
+    ∃ᶠ n in atTop,
+      Nat.nth Nat.Prime (n + (r - 1)) - Nat.nth Nat.Prime n ≤ H.max' hne - H.min' hne := by
+  sorry
+
+/-! ### Lower bounds for `M_k` (Sections 7 and 8) -/
+
+/-- SV.4/maynard-large-k-lower-bound. Maynard Proposition 4.3(3). -/
+theorem eventually_log_sub_lt_maynardM :
+    ∀ᶠ k : ℕ in atTop,
+      Real.log k - 2 * Real.log (Real.log k) - 2 < maynardM k := by
+  sorry
+
+/-- SV.4/simplex-dirichlet-moment. Maynard (8.2) and (8.5): the moments of `1 − P₁` and
+`P_j` on `ℛ_k`, in the multinomial form that includes `b = 0`. -/
+theorem integral_simplex_moment (k a b j : ℕ) :
+    (∫ t in maynardSimplex k, (1 - ∑ i, t i) ^ a * (∑ i, t i ^ j) ^ b) =
+      (a.factorial * b.factorial : ℝ) / (k + a + j * b).factorial *
+        ∑ c ∈ Finset.Nat.antidiagonalTuple k b,
+          ∏ i, ((j * c i).factorial : ℝ) / (c i).factorial := by
+  sorry
+
+/-- SV.4/symmetric-polynomial-quadratic-forms. Maynard Lemma 8.2 for
+`P = ∑ᵢ aᵢ (1 − P₁)^{bᵢ} P₂^{cᵢ}` on `ℛ_k`, with the corrected `G` (findings E31, E32). -/
+theorem maynardI_J_symmetricPoly (k d : ℕ) (hk : 2 ≤ k) (a : Fin d → ℝ) (b c : Fin d → ℕ)
+    (m : Fin k) :
+    let P : (Fin k → ℝ) → ℝ := (maynardSimplex k).indicator fun t =>
+      ∑ i, a i * (1 - ∑ j, t j) ^ b i * (∑ j, t j ^ 2) ^ c i
+    maynardI k P = ∑ i, ∑ i', a i * a i' * ((b i + b i').factorial *
+        (simplexG (c i + c i') 2 k : ℝ) / (k + b i + b i' + 2 * c i + 2 * c i').factorial) ∧
+      maynardJ k m P = ∑ i, ∑ i', a i * a i' *
+        ∑ c₁ ∈ Finset.range (c i + 1), ∑ c₂ ∈ Finset.range (c i' + 1),
+          ((c i).choose c₁ * (c i').choose c₂ : ℝ) *
+            ((b i).factorial * (b i').factorial * (2 * c i - 2 * c₁).factorial *
+              (2 * c i' - 2 * c₂).factorial *
+              (b i + b i' + 2 * c i + 2 * c i' - 2 * c₁ - 2 * c₂ + 2).factorial /
+              ((b i + 2 * c i - 2 * c₁ + 1).factorial * (b i' + 2 * c i' - 2 * c₂ + 1).factorial)) *
+            (simplexG (c₁ + c₂) 2 (k - 1) : ℝ) /
+              (k + b i + b i' + 2 * c i + 2 * c i' + 1).factorial := by
+  sorry
+
+/-- SV.4/m5-lower-bound. Maynard Proposition 4.3(1): (8.16) gives `M₅ ≥ 1417255/708216`. -/
+theorem maynardM_five_ge : (1417255 / 708216 : ℝ) ≤ maynardM 5 := by
+  sorry
+
+/-- SV.4/m105-lower-bound. Maynard Proposition 4.3(2). -/
+theorem four_lt_maynardM_105 : 4 < maynardM 105 := by
+  sorry
+
+/-! ### Admissible tuples of small diameter and the main theorems -/
+
+/-- SV.4/engelsma-admissible-105-tuple. Engelsma's tuple, quoted by Maynard (footnote 2). -/
+theorem engelsma_tuple_admissible :
+    let H : Finset ℕ := {0, 10, 12, 24, 28, 30, 34, 42, 48, 52, 54, 64, 70, 72, 78, 82, 90,
+      94, 100, 112, 114, 118, 120, 124, 132, 138, 148, 154, 168, 174, 178, 180, 184, 190, 192,
+      202, 204, 208, 220, 222, 232, 234, 250, 252, 258, 262, 264, 268, 280, 288, 294, 300, 310,
+      322, 324, 328, 330, 334, 342, 352, 358, 360, 364, 372, 378, 384, 390, 394, 400, 402, 408,
+      412, 418, 420, 430, 432, 442, 444, 450, 454, 462, 468, 472, 478, 484, 490, 492, 498, 504,
+      510, 528, 532, 534, 538, 544, 558, 562, 570, 574, 580, 582, 588, 594, 598, 600}
+    H.card = 105 ∧ IsAdmissible H ∧ 0 ∈ H ∧ 600 ∈ H ∧ ∀ x ∈ H, x ≤ 600 := by
+  sorry
+
+/-- SV.4/first-primes-above-k-admissible. The first `k` primes above `k` form an admissible
+set whose diameter is `O(k log k)`. -/
+theorem firstPrimesAbove_admissible :
+    (∀ k : ℕ, IsAdmissible ((Finset.range k).image
+      fun i => Nat.nth Nat.Prime (Nat.primeCounting k + i))) ∧
+    ∃ C : ℝ, ∀ k : ℕ, 2 ≤ k →
+      ((Nat.nth Nat.Prime (Nat.primeCounting k + k - 1) -
+        Nat.nth Nat.Prime (Nat.primeCounting k) : ℕ) : ℝ) ≤ C * k * Real.log k := by
+  sorry
+
+/-- SV.4/bounded-gaps-600. Maynard Theorem 1.3: `liminf (p_{n+1} − p_n) ≤ 600`. -/
+theorem frequently_nth_prime_succ_sub_le_600 :
+    ∃ᶠ n in atTop, Nat.nth Nat.Prime (n + 1) - Nat.nth Nat.Prime n ≤ 600 := by
+  sorry
+
+/-- SV.4/elliott-halberstam-gaps. Maynard Theorem 1.4. -/
+theorem elliottHalberstam_gaps (hEH : ElliottHalberstam) :
+    (∃ᶠ n in atTop, Nat.nth Nat.Prime (n + 1) - Nat.nth Nat.Prime n ≤ 12) ∧
+      ∃ᶠ n in atTop, Nat.nth Nat.Prime (n + 2) - Nat.nth Nat.Prime n ≤ 600 := by
+  sorry
+
+/-- SV.4/m-primes-bounded-intervals. Maynard Theorem 1.1:
+`liminf (p_{n+m} − p_n) ≪ m³ e^{4m}`. -/
+theorem exists_frequently_nth_prime_sub_le :
+    ∃ C : ℝ, ∀ m : ℕ, 1 ≤ m →
+      ∃ᶠ n in atTop, ((Nat.nth Nat.Prime (n + m) - Nat.nth Nat.Prime n : ℕ) : ℝ) ≤
+        C * m ^ 3 * Real.exp (4 * m) := by
+  sorry
+
+/-- SV.4/positive-proportion-prime-tuples. Maynard Theorem 1.2, for sets of natural numbers
+(integer sets reduce to this by translation). -/
+theorem positive_proportion_prime_tuples (m : ℕ) (hm : 1 ≤ m) :
+    ∃ (r₀ : ℕ) (c : ℝ), 0 < c ∧ ∀ A : Finset ℕ, r₀ ≤ A.card →
+      c * (A.card.choose m : ℝ) ≤
+        (({B | B ∈ A.powersetCard m ∧ (primeTranslates B).Infinite} : Set (Finset ℕ)).ncard : ℝ) := by
+  sorry
+
+end SieveMaynard
