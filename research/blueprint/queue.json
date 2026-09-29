@@ -46818,7 +46818,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3963"
   },
   {
    "id": "RT-AREA-automorphic-2",
@@ -48666,8 +48667,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-pde.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3986"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3986",
+   "finishedAt": "2026-09-29T18:49:17Z"
   },
   {
    "id": "RT-AREA-probability",
