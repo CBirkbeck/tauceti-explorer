@@ -63656,9 +63656,10 @@
     "COL-BINYAMINI-22"
    ],
    "avoidAccountOf": "COL-BINYAMINI-22",
-   "state": "pending",
+   "state": "external",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-COL-BINYAMINI-22.md"
+   "prompt": "research/blueprint/prompts/REV-COL-BINYAMINI-22.md",
+   "note": "claimed on GitHub issue #3643"
   },
   {
    "id": "COL-BOXER-CALEGARI-GEE-ETAL-25",
@@ -63728,10 +63729,11 @@
     "COL-GAN-HARRIS-SAWIN-ETAL-24"
    ],
    "avoidAccountOf": "COL-GAN-HARRIS-SAWIN-ETAL-24",
-   "state": "external",
+   "state": "done",
    "timeout": 14400,
    "prompt": "research/blueprint/prompts/REV-COL-GAN-HARRIS-SAWIN-ETAL-24.md",
-   "note": "claimed on GitHub issue #3722"
+   "note": "deliverables arrived from an external worker on issue #3722",
+   "finishedAt": "2026-09-29T21:33:43Z"
   },
   {
    "id": "COL-LEMKEOLIVER-WANG-WOOD-25",
