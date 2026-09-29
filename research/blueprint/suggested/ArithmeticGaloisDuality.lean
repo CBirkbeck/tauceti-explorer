@@ -8,9 +8,10 @@ import Mathlib.RepresentationTheory.Homological.ContCohomology.Basic
 import Mathlib.Topology.Algebra.RestrictedProduct.Basic
 import Mathlib.RepresentationTheory.Homological.TateCohomology.Basic
 import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+import Mathlib.RepresentationTheory.Homological.GroupCohomology.Basic
 
 /-!
-# Suggested declarations: global Galois duality and compact coefficients, layers R02.1, R02.3, R02.4
+# Suggested declarations: global Galois duality and compact coefficients, layers R02.1, R02.2, R02.3, R02.4
 
 This file is a prototype in the form of upstream's `Suggested.lean`. Every proof is `sorry`; the
 statements elaborate against Mathlib at the pinned commit. The complete targets are in the
@@ -238,6 +239,67 @@ example : letI : TopologicalSpace (ZMod 2) := ⊥
 end SuggestedTest
 
 end TauCeti.CompactCoefficients
+
+/-! # Layer R02.2: Hochschild–Serre and descent
+
+Source: Neukirch–Schmidt–Wingberg, *Cohomology of Number Fields*, Chapter II §§1, 2, 4, and Rubin,
+*Euler systems*, Proposition B.2.5. The spectral sequence of a first-quadrant double complex is built on
+Mathlib's spectral objects (`HomotopyCategory.spectralObjectMappingCone`,
+`Triangulated.SpectralObject.mapHomologicalFunctor`, `Abelian.SpectralObject.spectralSequence`); its
+abutment and the Hochschild–Serre statements are sketched in comments. What elaborates against
+Mathlib alone is the algebraic core of finite-index descent (NSW (1.6.2)) and the arithmetic of
+`cor ∘ res`.
+-/
+
+namespace TauCeti.HochschildSerre
+
+/-- **`R02.2/finite-index-descent`**, algebraic core (NSW (1.6.2)): if multiplication by `#G` is
+bijective on `A`, the cohomology of the finite group `G` with coefficients in `A` vanishes in positive
+degrees. Applied to `G/U` and `B = Hᵠ(U, A)`, this collapses Hochschild–Serre to its left column. -/
+theorem subsingleton_groupCohomology_of_bijective {G : Type} [Group G] [Fintype G] (A : Rep ℤ G)
+    (hA : Function.Bijective fun a : A => (Fintype.card G : ℤ) • a) (n : ℕ) (hn : 0 < n) :
+    Subsingleton (groupCohomology A n) := sorry
+
+/-- API (`finite-index-descent` (iii)): an element killed by `n` in a group on which `n` is injective
+is zero; with `cor ∘ res = n` this is the injectivity of restriction for prime-to-`n` torsion. -/
+theorem eq_zero_of_nsmul_eq_zero {M : Type*} [AddCommGroup M] {n : ℕ}
+    (hn : Function.Injective fun m : M => n • m) {x : M} (hx : n • x = 0) : x = 0 :=
+  hn (by simpa using hx)
+
+/-! Signatures on the continuous-cohomology carrier (sketched):
+
+```
+/-- R02.2/first-quadrant-spectral-sequence -/
+def DoubleComplex.spectralSequence (A : HomologicalComplex₂ Ab (.up ℕ) (.up ℕ)) :
+    SpectralSequence Ab (fun r => ComplexShape.spectralSequenceNat ⟨r, 1 - r⟩) 2
+theorem DoubleComplex.eInftyIsoGr : E_∞^{p,q} ≅ F^p H^{p+q}(Tot A) ⧸ F^{p+1} H^{p+q}(Tot A)
+theorem DoubleComplex.fiveTerm_exact : 0 → E₂^{1,0} → H¹ → E₂^{0,1} → E₂^{2,0} → H² exact
+
+/-- R02.2/hochschild-serre-spectral-sequence (G profinite, H ⊴ G closed, A discrete) -/
+def spectralSequence (G H A) : E₂^{p,q} = H^p(G ⧸ H, H^q(H, A)) ⇒ continuousCohomology (p+q) A
+theorem edgeBottom_eq_inflation, edgeLeft_eq_restriction
+
+/-- R02.2/five-term-transgression, R02.2/transgression-cup-product -/
+theorem d₂_zero_one_eq_transgression : d₂^{0,1} = ProfiniteCohomology.transgression
+theorem d₂_eq_neg_cup (hH : IsOpen H) (htriv : ∀ h ∈ H, ∀ a, h • a = a) : d₂ x = -(u ∪ x)
+
+/-- R02.2/finite-index-descent -/
+theorem res_bijective_of_coprime (hU : U.Normal) (hn : Nat.Coprime (G : U).index ℓ)
+    [IsPrimaryTorsion ℓ A] : Bijective (res : H^i(G, A) → H^i(U, A)^{G ⧸ U})
+```
+-/
+
+namespace SuggestedTest
+
+/-- The injectivity step of descent: `n • x = 0` with `n` injective forces `x = 0` (here `n = 3` on
+`ℤ`). -/
+example (x : ℤ) (hx : 3 • x = 0) : x = 0 :=
+  eq_zero_of_nsmul_eq_zero (M := ℤ) (n := 3)
+    (fun a b h => by simpa using (mul_left_cancel₀ (by norm_num : (3 : ℤ) ≠ 0) h)) hx
+
+end SuggestedTest
+
+end TauCeti.HochschildSerre
 
 /-! # Layers R02.3 and R02.4: restricted ramification and Poitou–Tate duality
 

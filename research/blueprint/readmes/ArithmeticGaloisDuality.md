@@ -1,7 +1,7 @@
 # Global Galois duality and compact coefficients — blueprint
 
 This blueprint covers stages R02.1–R02.6, D7 and D8, within the boundaries RS-08 accepted. It has
-two checkpoints so far.
+three checkpoints so far.
 - **R02.1**, the passage from finite discrete coefficients to compact p-adic ones, follows Rubin,
   *Euler systems*, Appendix B §2 and Chapter I §2; the Stacks Project (derived limits); and
   Harpaz–Wittenberg, *The Massey vanishing conjecture for number fields*, Lemma 5.5, which the
@@ -10,7 +10,10 @@ two checkpoints so far.
   Chapter I §§1, 2, 4 and 5, with Harpaz–Wittenberg §3 Remark 3.1 and §7 for the items the
   maintainer added to R02.4.
 
-R02.2, R02.5, R02.6, D7 and D8 are not yet read.
+- **R02.2** follows Neukirch–Schmidt–Wingberg, *Cohomology of Number Fields*, Chapter II §§1, 2 and 4,
+  with Rubin's Proposition B.2.5 for compact coefficients.
+
+R02.5, R02.6, D7 and D8 are not yet read.
 
 ## Purpose
 
@@ -204,6 +207,78 @@ cochain computation; no Ext interpretation is claimed.
 
 **Lemma: the finitely generated case** (node `discrete-hom-finitely-generated`). For finitely
 generated C, the printed Lemma 5.5 holds with discrete Hom.
+
+## R02.2. Hochschild–Serre and descent
+
+Module `TauCeti/RepresentationTheory/Homological/ContCohomology/HochschildSerre`, namespace
+`TauCeti.HochschildSerre`. The double-complex spectral sequence is in
+`TauCeti/Algebra/Homology/DoubleComplexSpectralSequence`. RS-08 keeps here:
+- the full spectral sequence, its convergence and its edge maps;
+- arithmetic restriction descent.
+
+ProfiniteCohomology supplies the discrete change of groups and the five-term special case, and
+excludes the spectral sequence from its own scope.
+
+**Construction: the spectral sequence of a first-quadrant double complex** (node
+`first-quadrant-spectral-sequence`). Built from Mathlib's spectral objects:
+- the column filtration gives a spectral object through mapping cones;
+- the homology functor makes it abelian;
+- `coreE₂CohomologicalNat` gives the E₂ pages.
+
+What is new is the abutment. E_r = E_∞ for r > max(p, q + 1), and E_∞ is the graded piece of
+H^n(Tot).
+
+*API.*
+- `e2Iso`: E₂ ≅ H_I H_II.
+- The edge maps.
+- `fiveTerm_exact`, the vanishing-rows sequence, and the exact-rows lemma (NSW (2.1.1), (2.1.2),
+  (2.2.4)).
+
+*Unit tests.*
+- A one-row or one-column double complex degenerates.
+- An acyclic square has E₂ = 0.
+- H⁰ = E₂^{00}.
+
+**Construction: the Hochschild–Serre spectral sequence** (node `hochschild-serre-spectral-sequence`;
+planet). E₂^{pq} = H^p(G/H, H^q(H, A)) ⇒ H^{p+q}(G, A), for G profinite, H closed normal and A
+discrete (NSW (2.4.1)).
+- The edge maps are inflation and restriction.
+- Restriction and corestriction are morphisms of spectral sequences.
+- Cup products satisfy the Leibniz rule.
+
+*Unit tests.*
+- H = 1 and H = G.
+- A direct product degenerates (NSW (2.4.6)).
+- Non-example: for G = ℤ/4, H = 2ℤ/4 and A = 𝔽₂, d₂^{0,1} ≠ 0.
+
+**Theorem: the five-term sequence** (node `five-term-transgression`; planet). d₂^{0,1} is
+ProfiniteCohomology's transgression (NSW (2.4.3)), and the low-degree sequence is its
+inflation–restriction–transgression sequence.
+
+**Theorem: d₂ = −u ∪** (node `transgression-cup-product`; planet). For H acting trivially on A,
+d₂^{p−1,1}(x) = −u ∪ x, where u is the class of G/H′ (NSW (2.4.4)). This is Harpaz–Wittenberg's
+d₂^{1,1}[β] = [β ∪ f] (extraction item 148).
+
+**Theorem: degeneration** (node `hochschild-serre-degeneration`).
+- H-acyclic coefficients.
+- Split extensions: the differentials into the bottom row vanish.
+- Direct products degenerate.
+- If H^q(H, A) = 0 for q > 1, a long exact sequence; if cd(G/H) ≤ 1, short exact sequences.
+
+The last case is what SelmerIwasawaCohomology's unramified dimension count uses.
+
+**Theorem: finite-index descent** (node `finite-index-descent`; planet).
+- cor ∘ res = n.
+- For n invertible on A, res : H^i(G, A) ≅ H^i(U, A)^{G/U}.
+- Prime-to-ℓ injectivity.
+- The arithmetic form, for L/K of degree prime to ℓ, with discrete, lattice and rational
+  coefficients.
+
+This serves the maintainer's Harpaz–Wittenberg item for R02.2.
+
+**Theorem: compact five-term sequence** (node `compact-five-term`). Rubin Proposition B.2.5: the
+sequence for finitely generated ℤ_p-modules and ℚ_p-spaces, under finiteness of H¹ and H² of finite
+p-primary modules. The full compact spectral sequence (Jannsen) is not claimed.
 
 ## R02.3. Global finiteness and cohomology with restricted ramification
 
@@ -476,6 +551,9 @@ rescoping the two stages accordingly.
 
 **Served by this checkpoint:**
 - GlobalGaloisDeformations: R04.2's Φ_p by `h1-finite`; R04.3–R04.5, G7 and G8 by `poitou-tate`.
+- ClassicalAdicEtaleCohomology H0, DiamondEtaleCohomology C8 and ExcursionOperatorsAndSpectralAction
+  ES7: Hochschild–Serre for discrete torsion coefficients with its edge maps, by
+  `hochschild-serre-spectral-sequence`.
 - OrdinaryAutomorphicFormsAndModularityLifting: R21.3 by `global-euler-characteristic`.
 - SelmerIwasawaCohomology: L0 by `s-unit-kummer-sequence`, and L2 by
   `restricted-ramification-group` and `localisation-maps`.
@@ -500,9 +578,10 @@ rescoping the two stages accordingly.
 - **R02.1:** completed tensor products of coefficients with exactness hypotheses, for Iwasawa
   algebras.
 - **R02.2:**
-  - continuous Hochschild–Serre (Rubin Proposition B.2.5; Jannsen);
-  - restriction/corestriction for compact coefficients;
-  - Harpaz–Wittenberg's Remark 3.4 inputs.
+  - the full compact-coefficient spectral sequence (Jannsen §§2–3; the digitisation was unreachable
+    on 2026-09-29);
+  - Harpaz–Wittenberg items 149–150 (Laurent residues, Witt's decomposition; Gille–Szamuely §§6.3,
+    6.8).
 - **R02.3:** compactly supported cohomology as the fibre of localisation with the modified
   archimedean terms. Milne Chapter I has no cochain-level version; read Nekovář, *Selmer complexes*,
   §5, or Milne Chapter II §2.
@@ -521,5 +600,8 @@ rescoping the two stages accordingly.
 - The Stacks Project, tags 0594, 0598, 07KW, 07KX, 07KY.
 - Y. Harpaz and O. Wittenberg, *The Massey vanishing conjecture for number fields*, author final
   version (§5; §3 Remark 3.1; §7, Lemmas 7.6–7.7).
+- J. Neukirch, A. Schmidt and K. Wingberg, *Cohomology of Number Fields*, second edition, electronic
+  version 2.3, https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf, read 2026-09-29: Chapter I
+  §§5–6, Chapter II §§1, 2, 4, 7.
 - J. S. Milne, *Arithmetic Duality Theorems*, second edition, author PDF (version 01.07.06),
   https://www.jmilne.org/math/Books/ADTnot.pdf, read 2026-09-29: Chapter I §§0–2, 4, 5.

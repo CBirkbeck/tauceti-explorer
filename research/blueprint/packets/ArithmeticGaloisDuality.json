@@ -13,7 +13,7 @@
   "ArithmeticGaloisDuality:R02.6"
  ],
  "status": "partial",
- "summary": "Second checkpoint of the blueprint for global Galois duality and compact coefficients, within RS-08's boundaries. R02.1 (first checkpoint) plans compact and rational coefficients: derived limits, the Milnor sequence, Tate's inverse-limit theorem, rationalisation and Harpaz–Wittenberg's corrected splitting torsor. This checkpoint adds R02.3 and the finite-module part of R02.4 from Milne, Arithmetic Duality Theorems I §§1, 2, 4, 5: the group G_{K,S}, Hermite finiteness and finiteness of H¹, localisation maps with the modified archimedean groups, S-ideles and S-idele classes, P-class formations and (G_S, C_S), the S-unit Kummer sequence; Ext of discrete modules, Tate's duality for a class formation, global duality, the dual module, local duality at the archimedean places, unramified annihilators, restricted products and Ш, Poitou–Tate duality with the nine-term sequence, and its consequences (finiteness, cohomological dimension, surjectivity of H², H³ of the S-units, Tate's global Euler characteristic with the modular induction lemma). Three source findings in Milne are recorded (two misprints, and Theorem 4.6(b)'s known gap). R02.2, R02.5, R02.6, D7 and D8 are not yet read.",
+ "summary": "Second checkpoint of the blueprint for global Galois duality and compact coefficients, within RS-08's boundaries. R02.1 (first checkpoint) plans compact and rational coefficients: derived limits, the Milnor sequence, Tate's inverse-limit theorem, rationalisation and Harpaz–Wittenberg's corrected splitting torsor. This checkpoint adds R02.3 and the finite-module part of R02.4 from Milne, Arithmetic Duality Theorems I §§1, 2, 4, 5: the group G_{K,S}, Hermite finiteness and finiteness of H¹, localisation maps with the modified archimedean groups, S-ideles and S-idele classes, P-class formations and (G_S, C_S), the S-unit Kummer sequence; Ext of discrete modules, Tate's duality for a class formation, global duality, the dual module, local duality at the archimedean places, unramified annihilators, restricted products and Ш, Poitou–Tate duality with the nine-term sequence, and its consequences (finiteness, cohomological dimension, surjectivity of H², H³ of the S-units, Tate's global Euler characteristic with the modular induction lemma). Three source findings in Milne are recorded (two misprints, and Theorem 4.6(b)'s known gap). The third checkpoint adds R02.2 from Neukirch–Schmidt–Wingberg II §§1, 2, 4: the convergent spectral sequence of a first-quadrant double complex on Mathlib's spectral objects, Hochschild–Serre with edge maps, restriction/corestriction morphisms and cup products, d₂^{0,1} = transgression, d₂ = −u ∪, the degeneration criteria, finite-index descent, and Rubin's five-term sequence for compact coefficients. R02.5, R02.6, D7 and D8 are not yet read.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -213,6 +213,48 @@
     "module": "TauCeti/RepresentationTheory/Induction/Artin/Basic.lean",
     "provides": "Artin's induction theorem: #G times a virtual character is a combination of characters induced from cyclic subgroups.",
     "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:HomotopyCategory.spectralObjectMappingCone",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Homology/HomotopyCategory/SpectralObject.lean",
+    "provides": "The spectral object in the homotopy category defined by mapping cones, indexed by cochain complexes; any filtered complex gives a spectral object by precomposition.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Triangulated.SpectralObject.mapHomologicalFunctor",
+    "kind": "def",
+    "module": "Mathlib/CategoryTheory/Triangulated/SpectralObject.lean",
+    "provides": "A homological functor turns a triangulated spectral object into an abelian one.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Abelian.SpectralObject.IsFirstQuadrant",
+    "kind": "class",
+    "module": "Mathlib/Algebra/Homology/SpectralObject/HasSpectralSequence.lean",
+    "provides": "The vanishing conditions giving a first-quadrant E₂ cohomological spectral sequence.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Abelian.SpectralObject.coreE₂CohomologicalNat",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Homology/SpectralObject/HasSpectralSequence.lean",
+    "provides": "The data for an E₂ cohomological spectral sequence indexed by ℕ × ℕ from a spectral object indexed by EInt.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Abelian.SpectralObject.spectralSequence",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Homology/SpectralObject/SpectralSequence.lean",
+    "provides": "The spectral sequence of a spectral object.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:HomologicalComplex₂.total",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Homology/TotalComplex.lean",
+    "provides": "The total complex of a double complex.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
    }
   ]
  },
@@ -226,7 +268,8 @@
    "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50",
    "readSections": [
     "Chapter I §2 (Example 2.1, Lemma 2.2)",
-    "Appendix B §2 (Definition 2.1, Remark 2.2, Propositions 2.3–2.5, 2.7, Lemma 2.8)"
+    "Appendix B §2 (Definition 2.1, Remark 2.2, Propositions 2.3–2.5, 2.7, Lemma 2.8)",
+    "Appendix B §2, Proposition 2.5 (read again for R02.2)"
    ]
   },
   {
@@ -268,6 +311,19 @@
     "Chapter I §4: Lemma 4.1 to Corollary 4.21, with footnotes 9–11",
     "Chapter I §5: Theorem 5.1, Remark 5.2, Lemmas 5.3, 5.4, with footnote 13"
    ]
+  },
+  {
+   "id": "NSW-CNF",
+   "title": "Cohomology of Number Fields",
+   "authors": "Jürgen Neukirch; Alexander Schmidt; Kay Wingberg",
+   "edition": "Second edition, electronic version 2.3 (May 2020), free for non-commercial use, with the authors' errata file; printed page = PDF page − 14",
+   "url": "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf",
+   "sha256": "abbb7cdefc9ecb3350286c3cba36fe36a90c103257ff8f64173e09a50afdcb91",
+   "readSections": [
+    "Chapter I §5 (1.5.2–1.5.7), §6 (1.6.1–1.6.2, 1.6.6–1.6.7)",
+    "Chapter II §1 (2.1.1–2.1.3), §2 (2.2.1–2.2.4), §4 (2.4.1–2.4.6 and Exercises 1–5)",
+    "Chapter II §7 (2.7.1–2.7.12), for the compact-coefficient conventions"
+   ]
   }
  ],
  "sourceVersions": [
@@ -291,6 +347,13 @@
    "citation": "J. S. Milne, Arithmetic Duality Theorems, second edition (BookSurge, 2006), author PDF",
    "read": "2026-09-29",
    "sha256": "2c6195ec76a974f3f336c77cb71cc3845b018aad2d43136716b3477a3bc5fb31"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf",
+   "citation": "J. Neukirch, A. Schmidt, K. Wingberg, Cohomology of Number Fields, 2nd ed., electronic version 2.3 (May 2020)",
+   "read": "2026-09-29",
+   "sha256": "abbb7cdefc9ecb3350286c3cba36fe36a90c103257ff8f64173e09a50afdcb91"
   }
  ],
  "nodes": [
@@ -2965,38 +3028,518 @@
    "planet": {
     "name": "Tate's global Euler characteristic formula"
    }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.2/first-quadrant-spectral-sequence",
+   "parentStageId": "ArithmeticGaloisDuality:R02.2",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.2"
+   ],
+   "title": "The spectral sequence of a first-quadrant double complex",
+   "kind": "construction",
+   "statement": "For a first-quadrant double complex A^{••} of abelian groups (A^{pq} = 0 for p < 0 or q < 0, with anticommuting differentials d′, d″), the column filtration F^p Tot^n = ⊕_{i≥p} A^{i,n−i} of the total complex is biregular and gives a cohomological spectral sequence E_2^{pq} = H^p_I(H^q_{II}(A)) ⇒ E^n = H^n(Tot A). It converges: E_r^{pq} = E_∞^{pq} for r > max(p, q + 1), and E_∞^{pq} ≅ F^pE^{p+q}/F^{p+1}E^{p+q}. It has edge morphisms E_2^{n,0} → E^n → E_2^{0,n}, the five-term exact sequence 0 → E_2^{1,0} → E^1 → E_2^{0,1} → E_2^{2,0} → E^2, and, if E_2^{pq} = 0 for 0 < q < n, isomorphisms E_2^{m,0} ≅ E^m for m < n and an exact sequence 0 → E_2^{n,0} → E^n → E_2^{0,n} → E_2^{n+1,0} → E^{n+1}. If every row A^{0q} → A^{1q} → ⋯ is exact in positive degrees, then E^n = H^n(ker(A^{0•} → A^{1•})).",
+   "hypotheses": [
+    "First-quadrant double complexes of abelian groups (or of modules over a ring)."
+   ],
+   "proofSteps": [
+    "Mathlib builds a spectral object from any functor into cochain complexes, by mapping cones (HomotopyCategory.spectralObjectMappingCone); apply it to the column-truncation filtration indexed by EInt, and pass to an abelian spectral object with the homology functor (Triangulated.SpectralObject.mapHomologicalFunctor).",
+    "The first-quadrant vanishing (Abelian.SpectralObject.IsFirstQuadrant) holds because A^{pq} = 0 outside the quadrant; Mathlib's spectralSequence for coreE₂CohomologicalNat gives the E₂ pages and differentials.",
+    "Identify E_2^{pq} with H^p_I(H^q_{II}(A)): the E₁ page is the vertical cohomology and d₁ is induced by d′ (NSW (2.2.1)).",
+    "Convergence: the filtration is finite in each degree, so the pages stabilise for r > max(p, q + 1) and E_∞ is the associated graded of H^n(Tot).",
+    "Edge morphisms and the five-term sequence from the definition of the filtration (NSW (2.1.1), (2.1.2)); the exact-rows statement from the transposed double complex (NSW (2.2.4))."
+   ],
+   "acceptance": [
+    "The convergence to H^n(Tot A) with its filtration is stated, not only the pages: Mathlib's spectral sequence of a spectral object does not yet record its abutment."
+   ],
+   "prerequisites": [
+    "mathlib:HomotopyCategory.spectralObjectMappingCone",
+    "mathlib:CategoryTheory.Triangulated.SpectralObject.mapHomologicalFunctor",
+    "mathlib:CategoryTheory.Abelian.SpectralObject.IsFirstQuadrant",
+    "mathlib:CategoryTheory.Abelian.SpectralObject.coreE₂CohomologicalNat",
+    "mathlib:CategoryTheory.Abelian.SpectralObject.spectralSequence",
+    "mathlib:HomologicalComplex₂.total"
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/Homology/DoubleComplexSpectralSequence",
+    "namespace": "TauCeti.DoubleComplex"
+   },
+   "sources": [
+    {
+     "sourceId": "NSW-CNF",
+     "locator": "Chapter II, §1, Proposition 2.1.1, printed p. 99 (PDF p. 113)",
+     "excerpt": "For any ﬁrst quadrant E_2-spectral sequence the sequence",
+     "match": "The five-term sequence, with Lemma 2.1.2 and the convergence statement on the same page."
+    },
+    {
+     "sourceId": "NSW-CNF",
+     "locator": "Chapter II, §2, Lemma 2.2.4, printed p. 105 (PDF p. 119)",
+     "excerpt": "Assume that for each q ≥ 0 the horizontal complex A^{0q} → A^{1q} → A^{2q} → ··· is exact",
+     "match": "The exact-rows lemma, used for the abutment of Hochschild–Serre."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.DoubleComplex.spectralSequence",
+     "role": "constructor",
+     "statement": "The E₂ spectral sequence of a first-quadrant double complex, from Mathlib's spectral objects."
+    },
+    {
+     "name": "TauCeti.DoubleComplex.e2Iso",
+     "role": "equivalence",
+     "statement": "E_2^{pq} ≅ H^p_I(H^q_{II}(A))."
+    },
+    {
+     "name": "TauCeti.DoubleComplex.abutmentFiltration",
+     "role": "data",
+     "statement": "The column filtration F^pH^n(Tot A)."
+    },
+    {
+     "name": "TauCeti.DoubleComplex.eInftyIsoGr",
+     "role": "characterisation",
+     "statement": "E_∞^{pq} ≅ F^pH^{p+q}/F^{p+1}H^{p+q}."
+    },
+    {
+     "name": "TauCeti.DoubleComplex.page_eq_eInfty",
+     "role": "simp",
+     "statement": "E_r^{pq} = E_∞^{pq} for r > max(p, q + 1)."
+    },
+    {
+     "name": "TauCeti.DoubleComplex.edgeBottom",
+     "role": "constructor",
+     "statement": "E_2^{n,0} → H^n(Tot A)."
+    },
+    {
+     "name": "TauCeti.DoubleComplex.edgeLeft",
+     "role": "constructor",
+     "statement": "H^n(Tot A) → E_2^{0,n}."
+    },
+    {
+     "name": "TauCeti.DoubleComplex.fiveTerm_exact",
+     "role": "structure",
+     "statement": "The five-term exact sequence (NSW (2.1.1))."
+    },
+    {
+     "name": "TauCeti.DoubleComplex.exact_of_rows_vanish",
+     "role": "relation",
+     "statement": "Vanishing rows 0 < q < n give the extended sequence (NSW (2.1.2))."
+    },
+    {
+     "name": "TauCeti.DoubleComplex.totalCohomology_of_exact_rows",
+     "role": "relation",
+     "statement": "Exact rows give H^n(Tot A) = H^n(ker(A^{0•} → A^{1•})) (NSW (2.2.4))."
+    },
+    {
+     "name": "TauCeti.DoubleComplex.spectralSequence_map",
+     "role": "functoriality",
+     "statement": "Natural in the double complex."
+    }
+   ],
+   "tests": [
+    {
+     "name": "one_row",
+     "kind": "value",
+     "statement": "A^{pq} = 0 for q > 0: E_2^{p0} = H^p(A^{•0}) = H^p(Tot A), and all differentials vanish."
+    },
+    {
+     "name": "one_column",
+     "kind": "value",
+     "statement": "A^{pq} = 0 for p > 0: E_2^{0q} = H^q(A^{0•}) = H^q(Tot A)."
+    },
+    {
+     "name": "acyclic_square",
+     "kind": "value",
+     "statement": "A^{00} = A^{10} = ℤ with d′ = id and all else 0: E_2 = 0 and H(Tot A) = 0."
+    },
+    {
+     "name": "low_degree",
+     "kind": "value",
+     "statement": "H^0(Tot A) = E_2^{00} for every first-quadrant double complex."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
+     "how": "the double complex C^{pq} of NSW (2.4.1)"
+    },
+    {
+     "where": "SelmerIwasawaCohomology:L2/unramified-dimension-count",
+     "how": "the degenerate two-column case"
+    }
+   ]
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
+   "parentStageId": "ArithmeticGaloisDuality:R02.2",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.2"
+   ],
+   "title": "The Hochschild–Serre spectral sequence",
+   "kind": "construction",
+   "statement": "Let G be a profinite group, H a closed normal subgroup and A a discrete G-module. There is a first-quadrant spectral sequence E_2^{pq} = H^p(G/H, H^q(H, A)) ⇒ H^{p+q}(G, A), natural in A, whose edge morphisms H^n(G/H, A^H) → H^n(G, A) → H^n(H, A)^{G/H} are inflation and restriction. For an open subgroup G′ with H′ = H ∩ G′, restriction and corestriction are morphisms of spectral sequences between E(G, H, A) and E(G′, H′, A); a pairing A × B → C gives cup products E_r^{pq}(A) × E_r^{p′q′}(B) → E_r^{p+p′,q+q′}(C) with d_r(α ∪ β) = d_rα ∪ β + (−1)^{p+q} α ∪ d_rβ.",
+   "hypotheses": [
+    "G profinite, H closed and normal, A discrete. Compact coefficients: see compact-five-term."
+   ],
+   "proofSteps": [
+    "Apply H⁰(H, −) to the standard resolution A → X^•(G, A) of induced modules, and form the double complex C^{pq} = C^p(G/H, H⁰(H, X^q)) with d′ the cochain differential and d″ = (−1)^p times the differential of X^• (first-quadrant-spectral-sequence).",
+    "C^p(G/H, −) is exact, so the vertical cohomology is C^p(G/H, H^q(H, A)) and E_2^{pq} = H^p(G/H, H^q(H, A)). The rows are exact in positive degrees because each H⁰(H, X^q) is an induced G/H-module (ProfiniteCohomology Layer 7), so the abutment is H^n(X^•(G, A)^G) = H^n(G, A) by the exact-rows lemma.",
+    "H^n(G, A) here is the homogeneous continuous-cochain cohomology; it is Mathlib's continuousCohomology for discrete A (ProfiniteCohomology Layers 3 and 10).",
+    "Edge maps, the morphisms along (G′, H′), and the cup products are checked on the double complex (NSW II §4, Exercises 1, 3 and 5)."
+   ],
+   "acceptance": [
+    "Stated for discrete coefficients, with the edge maps identified with inflation and restriction; no compact-coefficient spectral sequence is claimed here (see compact-five-term)."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.2/first-quadrant-spectral-sequence",
+    "mathlib:continuousCohomology"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/HochschildSerre",
+    "namespace": "TauCeti.HochschildSerre"
+   },
+   "sources": [
+    {
+     "sourceId": "NSW-CNF",
+     "locator": "Chapter II, §4, Theorem 2.4.1, printed p. 111 (PDF p. 125)",
+     "excerpt": "Let G be a proﬁnite group, H a closed normal subgroup and A a G-module. Then there exists a ﬁrst quadrant spectral sequence",
+     "match": "Theorem 2.4.1 and its proof (pp. 111–112)."
+    },
+    {
+     "sourceId": "NSW-CNF",
+     "locator": "Chapter II, §4, Exercises 1, 3, 5, printed p. 119 (PDF p. 133)",
+     "excerpt": "Show that in the Hochschild-Serre spectral sequence, the edge morphisms",
+     "match": "The edge maps, the morphisms for restriction and corestriction, and the cup products."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.HochschildSerre.spectralSequence",
+     "role": "constructor",
+     "statement": "E(G, H, A) with E_2^{pq} = H^p(G/H, H^q(H, A))."
+    },
+    {
+     "name": "TauCeti.HochschildSerre.abutmentIso",
+     "role": "equivalence",
+     "statement": "The abutment is H^n(G, A) (continuousCohomology)."
+    },
+    {
+     "name": "TauCeti.HochschildSerre.edgeBottom_eq_inflation",
+     "role": "compatibility",
+     "statement": "The bottom edge map is inflation."
+    },
+    {
+     "name": "TauCeti.HochschildSerre.edgeLeft_eq_restriction",
+     "role": "compatibility",
+     "statement": "The left edge map is restriction."
+    },
+    {
+     "name": "TauCeti.HochschildSerre.map",
+     "role": "functoriality",
+     "statement": "Natural in the discrete G-module A."
+    },
+    {
+     "name": "TauCeti.HochschildSerre.res",
+     "role": "functoriality",
+     "statement": "Restriction E(G, H, A) → E(G′, H′, A) for G′ open."
+    },
+    {
+     "name": "TauCeti.HochschildSerre.cor",
+     "role": "functoriality",
+     "statement": "Corestriction E(G′, H′, A) → E(G, H, A)."
+    },
+    {
+     "name": "TauCeti.HochschildSerre.cup",
+     "role": "structure",
+     "statement": "Cup products on every page, with the Leibniz rule."
+    }
+   ],
+   "tests": [
+    {
+     "name": "trivial_subgroup",
+     "kind": "value",
+     "statement": "H = 1: E_2^{p0} = H^p(G, A) and E_2^{pq} = 0 for q > 0."
+    },
+    {
+     "name": "whole_group",
+     "kind": "value",
+     "statement": "H = G: E_2^{0q} = H^q(G, A) and E_2^{pq} = 0 for p > 0."
+    },
+    {
+     "name": "product_degenerates",
+     "kind": "value",
+     "statement": "G = G₁ × H with G₁ acting trivially on A: the sequence degenerates at E₂ (NSW (2.4.6))."
+    },
+    {
+     "name": "z4_nondegenerate",
+     "kind": "non-example",
+     "statement": "G = ℤ/4, H = 2ℤ/4, A = 𝔽₂: d₂^{0,1} : H¹(H, 𝔽₂) → H²(G/H, 𝔽₂) is nonzero, since it is minus the class of the non-split extension 0 → ℤ/2 → ℤ/4 → ℤ/2 → 0 (transgression-cup-product); so E₂ ≠ E_∞."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/prime-to-p-cohomology-through-tame-quotient",
+     "how": "Hochschild–Serre for the wild inertia with discrete torsion coefficients, edge map inflation"
+    },
+    {
+     "where": "DiamondEtaleCohomology:C8/extension-cd-bound",
+     "how": "the all-degree sequence for a closed normal subgroup"
+    },
+    {
+     "where": "ExcursionOperatorsAndSpectralAction:ES7",
+     "how": "the general construction, applied to a geometric quotient"
+    },
+    {
+     "where": "SelmerIwasawaCohomology:L2/unramified-dimension-count",
+     "how": "Hochschild–Serre for inertia at ℓ ≠ p"
+    }
+   ],
+   "planet": {
+    "name": "Hochschild–Serre spectral sequence"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.2/five-term-transgression",
+   "parentStageId": "ArithmeticGaloisDuality:R02.2",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.2"
+   ],
+   "title": "The five-term sequence and the transgression",
+   "kind": "theorem",
+   "statement": "In the Hochschild–Serre spectral sequence the differential d₂^{0,1} : H¹(H, A)^{G/H} → H²(G/H, A^H) is the transgression, so the five-term exact sequence 0 → H¹(G/H, A^H) → H¹(G, A) → H¹(H, A)^{G/H} → H²(G/H, A^H) → H²(G, A) of the spectral sequence is the inflation–restriction–transgression sequence of ProfiniteCohomology Layer 5. If H^i(H, A) = 0 for 0 < i < n, then H^m(G/H, A^H) ≅ H^m(G, A) for m < n and 0 → H^n(G/H, A^H) → H^n(G, A) → H^n(H, A)^{G/H} → H^{n+1}(G/H, A^H) → H^{n+1}(G, A) is exact.",
+   "hypotheses": [
+    "G profinite, H closed normal, A discrete."
+   ],
+   "proofSteps": [
+    "The five-term sequence is first-quadrant-spectral-sequence's, with edge maps inflation and restriction (hochschild-serre-spectral-sequence).",
+    "d₂^{0,1} = tg: an element of H¹(H, A)^{G/H} is an H-invariant 1-cocycle x of the resolution; G/H-invariance gives b with d(b_{σ,ρ}) = ρx − σx, which may be taken G-invariant, normalised and factoring through G/H × G/H; the cocycle ∂b represents d₂^{0,1}, and y_σ = x_{1,σ} + b_{1,σ}(σ) has the properties defining tg, with ∂y = ∂b (NSW (2.4.3), proof of Moser and Stix).",
+    "The extended sequence is the vanishing-rows case of first-quadrant-spectral-sequence."
+   ],
+   "acceptance": [
+    "The identification is with ProfiniteCohomology's explicit transgression (transgression, fiveTerm_exact_H1N, fiveTerm_exact_H2Q), not a second definition."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
+    "ArithmeticGaloisDuality:R02.2/first-quadrant-spectral-sequence"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/HochschildSerre",
+    "namespace": "TauCeti.HochschildSerre"
+   },
+   "sources": [
+    {
+     "sourceId": "NSW-CNF",
+     "locator": "Chapter II, §4, Theorem 2.4.3, printed p. 113 (PDF p. 127)",
+     "excerpt": "is the transgression tg as deﬁned in (1.6.6).",
+     "match": "Theorem 2.4.3; the five-term sequence and its extension are on p. 112."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Five-term sequence and transgression"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.2/transgression-cup-product",
+   "parentStageId": "ArithmeticGaloisDuality:R02.2",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.2"
+   ],
+   "title": "d₂ as cup product with the extension class",
+   "kind": "theorem",
+   "statement": "Let H be an open normal subgroup of the profinite group G acting trivially on A, H′ the closure of the commutator subgroup of H, and u ∈ H²(G/H, H^ab) the class of 1 → H^ab → G/H′ → G/H → 1. Under H¹(H, A) = Hom(H^ab, A), the differential d₂^{p−1,1} : H^{p−1}(G/H, H¹(H, A)) → H^{p+1}(G/H, A) is x ↦ −u ∪ x for p > 0; in particular tg(x) = −u ∪ x. The same holds for a closed normal H with u the continuous class in H²_cts(G/H, H^ab).",
+   "hypotheses": [
+    "H acts trivially on A. For closed H, u lives in continuous cohomology with the profinite coefficient H^ab."
+   ],
+   "proofSteps": [
+    "For finite G: the projection H → H^ab is a G/H-invariant class ε, and tg(ε) = −u by a cochain computation with a section s of G → G/H.",
+    "d₂^{p,1} = δ ∘ δ for the two short exact sequences cut from 0 → A^H → X⁰(G, A)^H → Z → H¹(H, A) → 0, and cup products with ε commute with both δ's, so d₂(z) = δδ(ε ∪ z) = −u ∪ z.",
+    "General G: pass to the finite quotients G/W for open normal W ⊆ H, using the compatibility of cup products with inflation and H¹(H, A) = colim_W H¹(H/W, A) (ProfiniteCohomology Layers 4 and 12).",
+    "Closed H: the same argument with the continuous class u of R02.1's cohomology with compact coefficients."
+   ],
+   "acceptance": [
+    "The sign −u is recorded; Harpaz–Wittenberg's d₂^{1,1}[β] = [β ∪ f] (extraction item 148) is this identity for their extension, up to the sign they call harmless."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
+    "ArithmeticGaloisDuality:R02.2/five-term-transgression",
+    "ArithmeticGaloisDuality:R02.1/carrier-comparison"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/HochschildSerre",
+    "namespace": "TauCeti.HochschildSerre"
+   },
+   "sources": [
+    {
+     "sourceId": "NSW-CNF",
+     "locator": "Chapter II, §4, Theorem 2.4.4, printed p. 114 (PDF p. 128)",
+     "excerpt": "are the same up to sign, i.e. d_2(x) = −u ∪ x.",
+     "match": "Theorem 2.4.4, its proof (pp. 115–117) and the remark on closed H."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Transgression as cup product"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.2/hochschild-serre-degeneration",
+   "parentStageId": "ArithmeticGaloisDuality:R02.2",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.2"
+   ],
+   "title": "Degeneration of the Hochschild–Serre spectral sequence",
+   "kind": "theorem",
+   "statement": "(i) If H^q(H, A) = 0 for all q > 0, then H^n(G/H, A^H) ≅ H^n(G, A). (ii) If 1 → H → G → G/H → 1 splits and H acts trivially on A, inflation H^*(G/H, A) → H^*(G, A) is a split injection and every differential into the bottom row vanishes. (iii) If G = G₁ × H with G₁ acting trivially on the H-module A, the sequence degenerates at E₂ and H^n(G, A) ≅ ⊕_{p+q=n} H^p(G₁, H^q(H, A)) (non-canonically). (iv) If H^q(H, A) = 0 for q > 1, there is a long exact sequence ⋯ → H^n(G/H, A^H) → H^n(G, A) → H^{n−1}(G/H, H¹(H, A)) → H^{n+1}(G/H, A^H) → ⋯; if cd(G/H) ≤ 1, then 0 → H¹(G/H, H^{n−1}(H, A)) → H^n(G, A) → H^n(H, A)^{G/H} → 0 is exact for n ≥ 1.",
+   "hypotheses": [
+    "As in hochschild-serre-spectral-sequence."
+   ],
+   "proofSteps": [
+    "(i) All rows but q = 0 vanish.",
+    "(ii) The splitting makes the bottom edge maps split injections, so E_2^{*,0} = E_∞^{*,0} and the differentials d_r^{*,r−1} into it are zero (NSW (2.4.5)).",
+    "(iii) For trivial G₁-coefficients C^•(G₁, B) ≅ C^•(G₁, ℤ) ⊗ B, so the double complex is a tensor product with a complex of flat ℤ-modules; the Künneth argument degenerates it (NSW (2.4.6), after Jannsen).",
+    "(iv) Two nonzero rows, or two nonzero columns when cd(G/H) ≤ 1 (ProfiniteCohomology Layer 11), in first-quadrant-spectral-sequence (NSW II §4, Exercise 4; Lemma 2.1.3)."
+   ],
+   "acceptance": [
+    "Each degeneration is stated with its hypothesis; (iii)'s splitting is not claimed to be functorial in A."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
+    "ArithmeticGaloisDuality:R02.2/first-quadrant-spectral-sequence"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/HochschildSerre",
+    "namespace": "TauCeti.HochschildSerre"
+   },
+   "sources": [
+    {
+     "sourceId": "NSW-CNF",
+     "locator": "Chapter II, §4, Theorem 2.4.6, printed p. 118 (PDF p. 132)",
+     "excerpt": "In case of a direct product, the Hochschild-Serre spectral sequence degenerates at E_2.",
+     "match": "Corollary 2.4.2 (p. 112), Proposition 2.4.5, Theorem 2.4.6 and Exercise 4 (p. 119)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.2/finite-index-descent",
+   "parentStageId": "ArithmeticGaloisDuality:R02.2",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.2"
+   ],
+   "title": "Restriction and corestriction descent for finite index",
+   "kind": "theorem",
+   "statement": "Let G be a profinite group, U an open subgroup of index n and A a discrete G-module. (i) cor ∘ res = n on H^i(G, A). (ii) If U is normal and multiplication by every prime dividing n is an automorphism of A (for example A ℓ-primary with ℓ ∤ n), then res : H^i(G, A) → H^i(U, A)^{G/U} is an isomorphism for every i. (iii) If A is ℓ-primary and ℓ ∤ n, res : H^i(G, A) → H^i(U, A) is injective. Arithmetically: for a finite extension L/K of degree prime to ℓ and an ℓ-primary discrete G_K-module M, H^i(K, M) → H^i(L, M) is injective, with image H^i(L, M)^{Gal(L/K)} when L/K is Galois; the same holds for ℤ_ℓ-lattices T and for V = T ⊗ ℚ_ℓ with continuous cohomology.",
+   "hypotheses": [
+    "n = (G : U) prime to the primes of A's torsion, where stated."
+   ],
+   "proofSteps": [
+    "(i) is ProfiniteCohomology's cor ∘ res = (G : U) in all degrees (NSW (1.5.7)).",
+    "(ii) The finite group G/U has Ĥ^p(G/U, B) = 0 for p ≥ 1 when multiplication by the primes dividing n is bijective on B (NSW (1.6.2)); applied to B = H^q(U, A), all columns p > 0 of Hochschild–Serre vanish (hochschild-serre-degeneration) and the edge map res is an isomorphism onto H^q(U, A)^{G/U}.",
+    "(iii) From (i): n kills the kernel of res, and n is injective on A's ℓ-primary cohomology.",
+    "For T and V: pass to the limit over T/ℓ^m (Tate's inverse-limit theorem, R02.1) and tensor with ℚ_ℓ (rationalization)."
+   ],
+   "acceptance": [
+    "Serves the maintainer's Harpaz–Wittenberg item for R02.2 (finite-extension restriction and corestriction descent with prime-to-p injectivity)."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
+    "ArithmeticGaloisDuality:R02.2/hochschild-serre-degeneration",
+    "ArithmeticGaloisDuality:R02.1/tate-inverse-limit",
+    "ArithmeticGaloisDuality:R02.1/rationalization"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/HochschildSerre",
+    "namespace": "TauCeti.HochschildSerre"
+   },
+   "sources": [
+    {
+     "sourceId": "NSW-CNF",
+     "locator": "Chapter I, §5, Corollary 1.5.7, printed p. 51 (PDF p. 65)",
+     "excerpt": "If U is an open subgroup of G, then cor^U_G ◦ res^G_U = (G : U).",
+     "match": "Corollary 1.5.7, with Proposition 1.6.2 (p. 60) for the vanishing."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Descent along finite extensions"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.2/compact-five-term",
+   "parentStageId": "ArithmeticGaloisDuality:R02.2",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.2"
+   ],
+   "title": "Inflation–restriction for compact and rational coefficients",
+   "kind": "theorem",
+   "statement": "Let H be a closed normal subgroup of the profinite group G and T a topological G-module that is discrete, a finitely generated ℤ_p-module or a finite-dimensional ℚ_p-vector space. (i) 0 → H¹(G/H, T^H) → H¹(G, T) → H¹(H, T) is exact. (ii) If moreover H¹(G, S), H²(G, S) and H¹(H, S) are finite for every G-module (resp. H-module) S of finite p-power order, then 0 → H¹(G/H, T^H) → H¹(G, T) → H¹(H, T)^{G/H} → H²(G/H, T^H) → H²(G, T) is exact.",
+   "hypotheses": [
+    "The finiteness hypotheses of (ii), for all finite p-primary modules."
+   ],
+   "proofSteps": [
+    "(i) is the cochain proof of the discrete case (ProfiniteCohomology Layer 5), which uses no discreteness.",
+    "(ii) For T finitely generated over ℤ_p, apply five-term-transgression to the discrete modules T/p^mT; the hypotheses make every term finite, so the inverse limit over m is exact, and Tate's inverse-limit theorem (R02.1/tate-inverse-limit) identifies the limits with the cohomology of T.",
+    "For a ℚ_p-space V, choose a G-stable lattice T₀, and tensor the sequence for T₀ with ℚ_p (R02.1/rationalization)."
+   ],
+   "acceptance": [
+    "The full Hochschild–Serre spectral sequence for compact coefficients is not claimed; only the five-term part, under these finiteness hypotheses."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.2/five-term-transgression",
+    "ArithmeticGaloisDuality:R02.1/tate-inverse-limit",
+    "ArithmeticGaloisDuality:R02.1/rationalization",
+    "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/HochschildSerre",
+    "namespace": "TauCeti.HochschildSerre"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Appendix B, §2, Proposition 2.5, printed p. 152 (PDF p. 162)",
+     "excerpt": "If T is discrete, or T is a ﬁnitely generated Zp-module, or T is a ﬁnite dimensional Qp-vector space, then there is a Hochschild-Serre exact sequence",
+     "match": "Proposition B.2.5 and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
   {
    "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
-   "need": "The comparison of Mathlib's continuousCohomology with explicit inhomogeneous continuous cochains for discrete modules, with the dehomogenisation map, which carrier-comparison extends to compact and rational coefficients.",
+   "need": "The comparison of Mathlib's continuousCohomology with explicit inhomogeneous continuous cochains for discrete modules, with the dehomogenisation map, which carrier-comparison extends to compact and rational coefficients. Also: the homogeneous standard-complex cohomology used to build Hochschild–Serre is continuousCohomology for discrete modules.",
    "neededBy": [
-    "ArithmeticGaloisDuality:R02.1/carrier-comparison"
+    "ArithmeticGaloisDuality:R02.1/carrier-comparison",
+    "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence"
    ],
    "status": "open",
    "note": ""
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
-   "need": "Continuous cohomology of discrete modules commutes with filtered colimits of coefficients. Also: the finite-quotient colimit description in all degrees, used to compute H^r(G_S, U_S) level by level.",
+   "need": "Continuous cohomology of discrete modules commutes with filtered colimits of coefficients. Also: the finite-quotient colimit description in all degrees, used to compute H^r(G_S, U_S) level by level. Also: H¹(H, A) = colim_W H¹(H/W, A), for the reduction of d₂ = −u ∪ to finite quotients.",
    "neededBy": [
     "ArithmeticGaloisDuality:R02.1/discrete-quotient-colimit",
-    "ArithmeticGaloisDuality:R02.3/s-idele-class-sequence"
+    "ArithmeticGaloisDuality:R02.3/s-idele-class-sequence",
+    "ArithmeticGaloisDuality:R02.2/transgression-cup-product"
    ],
    "status": "open",
    "note": ""
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
-   "need": "The discrete long exact sequence and its connecting maps, for agreement with continuous-section-long-exact on discrete terms. Also: inflation–restriction in degree one and the long exact sequences used for finiteness of H¹, the S-idele classes, the S-unit Kummer sequence and the Euler characteristic.",
+   "need": "The discrete long exact sequence and its connecting maps, for agreement with continuous-section-long-exact on discrete terms. Also: inflation–restriction in degree one and the long exact sequences used for finiteness of H¹, the S-idele classes, the S-unit Kummer sequence and the Euler characteristic. Also: the explicit five-term sequence (transgression, fiveTerm_exact_H1N, fiveTerm_exact_H2Q) that Hochschild–Serre's low-degree sequence is identified with, and inflation–restriction for compact coefficients.",
    "neededBy": [
     "ArithmeticGaloisDuality:R02.1/continuous-section-long-exact",
     "ArithmeticGaloisDuality:R02.3/h1-finite",
     "ArithmeticGaloisDuality:R02.3/s-idele-class-sequence",
     "ArithmeticGaloisDuality:R02.3/s-unit-kummer-sequence",
     "ArithmeticGaloisDuality:R02.4/h1-localisation-proper",
-    "ArithmeticGaloisDuality:R02.4/euler-characteristic-additivity"
+    "ArithmeticGaloisDuality:R02.4/euler-characteristic-additivity",
+    "ArithmeticGaloisDuality:R02.2/five-term-transgression",
+    "ArithmeticGaloisDuality:R02.2/compact-five-term"
    ],
    "status": "open",
    "note": ""
@@ -3012,23 +3555,25 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
-   "need": "Conjugation acts trivially on continuous cohomology, and maps along compatible pairs, so that localisation at a place does not depend on the embedding K^s ↪ K_v^s.",
+   "need": "Conjugation acts trivially on continuous cohomology, and maps along compatible pairs, so that localisation at a place does not depend on the embedding K^s ↪ K_v^s. Also: cor ∘ res = (G : U) in all degrees.",
    "neededBy": [
-    "ArithmeticGaloisDuality:R02.3/localisation-maps"
+    "ArithmeticGaloisDuality:R02.3/localisation-maps",
+    "ArithmeticGaloisDuality:R02.2/finite-index-descent"
    ],
    "status": "open",
    "note": ""
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
-   "need": "Coinduced discrete modules are acyclic and Shapiro's lemma holds in every degree (with finite-index subgroups and decomposition groups).",
+   "need": "Coinduced discrete modules are acyclic and Shapiro's lemma holds in every degree (with finite-index subgroups and decomposition groups). Also: induced modules X^q(G, A) and their H-invariants are acyclic, so the rows of the Hochschild–Serre double complex are exact.",
    "neededBy": [
     "ArithmeticGaloisDuality:R02.3/s-idele-class-sequence",
     "ArithmeticGaloisDuality:R02.3/s-unit-kummer-sequence",
     "ArithmeticGaloisDuality:R02.4/discrete-module-ext",
     "ArithmeticGaloisDuality:R02.4/class-formation-ext-duality",
     "ArithmeticGaloisDuality:R02.4/ext-units-ideles",
-    "ArithmeticGaloisDuality:R02.4/global-euler-characteristic"
+    "ArithmeticGaloisDuality:R02.4/global-euler-characteristic",
+    "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence"
    ],
    "status": "open",
    "note": ""
@@ -3044,34 +3589,39 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-   "need": "Continuous cohomology in all degrees as a universal δ-functor on discrete modules, effaceable by coinduced modules, with inflation and inflation–restriction in all degrees.",
+   "need": "Continuous cohomology in all degrees as a universal δ-functor on discrete modules, effaceable by coinduced modules, with inflation and inflation–restriction in all degrees. Also: all-degree inflation, restriction and corestriction, for the edge maps and the morphisms of Hochschild–Serre spectral sequences.",
    "neededBy": [
     "ArithmeticGaloisDuality:R02.3/localisation-maps",
     "ArithmeticGaloisDuality:R02.3/p-class-formation",
-    "ArithmeticGaloisDuality:R02.4/discrete-module-ext"
+    "ArithmeticGaloisDuality:R02.4/discrete-module-ext",
+    "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
+    "ArithmeticGaloisDuality:R02.2/finite-index-descent"
    ],
    "status": "open",
    "note": ""
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
-   "need": "cd_p with its dévissage criterion (cd_p G ≤ n iff H^{n+1}(G, A) = 0 for every simple discrete p-torsion A), and cd(Ẑ) = 1.",
+   "need": "cd_p with its dévissage criterion (cd_p G ≤ n iff H^{n+1}(G, A) = 0 for every simple discrete p-torsion A), and cd(Ẑ) = 1. Also: cd(G/H) ≤ 1 for the two-column degeneration.",
    "neededBy": [
     "ArithmeticGaloisDuality:R02.3/localisation-maps",
     "ArithmeticGaloisDuality:R02.4/unramified-exact-annihilators",
-    "ArithmeticGaloisDuality:R02.4/cohomological-dimension-bound"
+    "ArithmeticGaloisDuality:R02.4/cohomological-dimension-bound",
+    "ArithmeticGaloisDuality:R02.2/hochschild-serre-degeneration"
    ],
    "status": "open",
    "note": ""
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
-   "need": "The graded cup product in all degrees, compatible with inflation and connecting maps, and its agreement with the Yoneda product of Ext classes.",
+   "need": "The graded cup product in all degrees, compatible with inflation and connecting maps, and its agreement with the Yoneda product of Ext classes. Also: cup products compatible with inflation, for the multiplicative structure of Hochschild–Serre and d₂ = −u ∪.",
    "neededBy": [
     "ArithmeticGaloisDuality:R02.4/class-formation-ext-duality",
     "ArithmeticGaloisDuality:R02.4/unramified-exact-annihilators",
     "ArithmeticGaloisDuality:R02.4/poitou-tate",
-    "ArithmeticGaloisDuality:R02.4/global-euler-characteristic"
+    "ArithmeticGaloisDuality:R02.4/global-euler-characteristic",
+    "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
+    "ArithmeticGaloisDuality:R02.2/transgression-cup-product"
    ],
    "status": "open",
    "note": ""
@@ -3282,9 +3832,10 @@
   },
   {
    "stageId": "ArithmeticGaloisDuality:R02.2",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Build the continuous Hochschild–Serre spectral sequence for compact lattice and rational coefficients with its convergence hypotheses (Rubin Proposition B.2.5 for the five-term part; Jannsen, Continuous étale cohomology, §3), restriction/corestriction identities for R02.1's coefficients, finite-extension descent, and the Harpaz–Wittenberg Remark 3.4 inputs routed here."
+    "The full continuous Hochschild–Serre spectral sequence for compact lattice and rational coefficients, with its convergence hypotheses (Jannsen, Continuous étale cohomology, §§2–3), beyond the five-term sequence planned in compact-five-term. The Göttingen digitisation of Jannsen's paper timed out on 2026-09-29, so it was not read.",
+    "Harpaz–Wittenberg items 149–150: the Laurent-series residue and Witt's decomposition (Gille–Szamuely §§6.3, 6.8, not read). They follow from hochschild-serre-degeneration (iv) for the split extension 1 → I → G_{F((t))} → G_F → 1, where cd I ≤ 1, together with Kummer theory. Item 148 is covered by transgression-cup-product."
    ]
   },
   {
