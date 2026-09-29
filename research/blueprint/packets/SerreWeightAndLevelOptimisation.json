@@ -3,7 +3,7 @@
  "protocol": "blueprint-v1",
  "part": null,
  "status": "partial",
- "summary": "Blueprint for the conditional level and weight optimisation of an already modular residual representation, following the RS-06 narrowings (accepted by REV-RS-06 with no corrections). This first pass closes no layer and plans the two layers RS-06 keeps whole, R20.2 and R20.5, together with the integral algebra of R20.1 that they consume and the Bennett–Siksek exports of R20.6 that the maintainer added to this roadmap. 14 nodes: the prime-to-ℓ Serre level as a full Artin conductor, Mazur's Principle, Ribet's Theorem 1.5, the twisting step, the iterated descent that must terminate at N(ρ̄) and not at its radical, the integral old/new exact sequence and congruence module that separate the integral theory from the library's complex old/new decomposition, Buzzard's mod 2 Theorem 2.8 with its Q(i)-induced exclusion, the register of the dyadic scalar obstruction, Carayol's nebentypus theorem, and the three Bennett–Siksek items. R20.3 is left not_read because its binding source, Edixhoven 1992, could not be obtained; that and the Khare–Wintenberger paywall are recorded as gaps rather than worked around. A third checkpoint adds Ribet's §3 (the twist to small weight and the four level sets for ℓ ≥ 5) and Buzzard's §2 (multiplicity one mod 2, the auxiliary prime q ≡ 3 mod 4, and Carayol's lemma mod 2).",
+ "summary": "Blueprint for the conditional level and weight optimisation of an already modular residual representation, following the RS-06 narrowings (accepted by REV-RS-06 with no corrections). This first pass closes no layer and plans the two layers RS-06 keeps whole, R20.2 and R20.5, together with the integral algebra of R20.1 that they consume and the Bennett–Siksek exports of R20.6 that the maintainer added to this roadmap. 14 nodes: the prime-to-ℓ Serre level as a full Artin conductor, Mazur's Principle, Ribet's Theorem 1.5, the twisting step, the iterated descent that must terminate at N(ρ̄) and not at its radical, the integral old/new exact sequence and congruence module that separate the integral theory from the library's complex old/new decomposition, Buzzard's mod 2 Theorem 2.8 with its Q(i)-induced exclusion, the register of the dyadic scalar obstruction, Carayol's nebentypus theorem, and the three Bennett–Siksek items. R20.3 is left not_read because its binding source, Edixhoven 1992, could not be obtained; that and the Khare–Wintenberger paywall are recorded as gaps rather than worked around. A third checkpoint adds Ribet's §3 (the twist to small weight and the four level sets for ℓ ≥ 5) and Buzzard's §2 (multiplicity one mod 2, the auxiliary prime q ≡ 3 mod 4, and Carayol's lemma mod 2). The fourth checkpoint adds the R20.6 case table: seven cases, by residue characteristic and dyadic local type, each with the theorem that gives Serre's weight and level from modularity. R20 covers the non-scalar dyadic cases, ℓ ≥ 5 and most of ℓ = 3. ClassicalSerreModularity supplies the scalar non-dihedral dyadic case (KW I Theorem 1.2(2)) and odd conductor at ℓ = 3. A lemma shows a scalar dyadic restriction is unramified.",
  "scope": [
   "SerreWeightAndLevelOptimisation:R20.1",
   "SerreWeightAndLevelOptimisation:R20.2",
@@ -108,7 +108,8 @@
     "§3 Deduction of the full level-lowering conjecture where multiplicity one is known",
     "§1 Proposition 1.1 with its four-step proof, Lemma 1.2, Proposition 1.3 (pp. 2–4)",
     "§3 Theorems 3.1 and 3.2 with proofs and remarks (pp. 9–10) (Claude Code cc-fb70e5)",
-    "§2, Definitions 2.1–2.2, Lemma 2.3, Proposition 2.4, Lemma 2.5, Corollaries 2.6–2.7 with proofs (pp. 4–6) (Claude Code cc-fb70e5, third checkpoint)"
+    "§2, Definitions 2.1–2.2, Lemma 2.3, Proposition 2.4, Lemma 2.5, Corollaries 2.6–2.7 with proofs (pp. 4–6) (Claude Code cc-fb70e5, third checkpoint)",
+    "§0 introduction (the weak/strong equivalence for odd ℓ and the scalar case), p. 1; the Hasse-invariant step in Proposition 1.3's proof, p. 4; §3 Remark after Theorem 3.2, p. 10 (cc-fb70e5, fourth checkpoint)"
    ],
    "accessed": "2026-09-24",
    "sha256": "39d48668b1a223d1167ec139ef01d6f4d48f76194f36c8d4c0b9d4a894685d0e"
@@ -152,7 +153,8 @@
    "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
    "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
    "readSections": [
-    "§1 Introduction, pp. 2–3"
+    "§1 Introduction, pp. 2–3",
+    "§2 Definition 2.1, §3 (hypotheses (L_r), (W_r), Theorems 3.1–3.4 and the remark), pp. 4–6; §9 Hypothesis (H) and Theorem 9.1 with its proof, pp. 18–19 (cc-fb70e5, fourth checkpoint)"
    ],
    "accessed": "2026-09-29"
   },
@@ -2505,6 +2507,116 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.6/scalar-dyadic-restriction-is-unramified",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.6",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.6"
+   ],
+   "title": "A mod 2 representation that is scalar at 2 is unramified at 2, so its Serre weight is 2",
+   "kind": "lemma",
+   "statement": "Let ρ̄ : Gal(Q̄/Q) → GL(2, F̄₂) be continuous and suppose ρ̄(D₂) consists of scalar matrices, D₂ a decomposition group at 2. Then ρ̄|_{D₂} = χ·Id for a character χ : D₂ → F̄₂^× that is unramified. Hence ρ̄ is unramified at 2, finite at 2, and k(ρ̄) = 2.",
+   "hypotheses": [
+    "ArithmeticGaloisRepresentations R01.6 supplies Serre's k(ρ̄) at p = 2 (2 if finite at 2, 4 otherwise) and local class field theory for ℚ₂."
+   ],
+   "proofSteps": [
+    "Scalar image means ρ̄|_{D₂} = χ·Id for a continuous χ : D₂ → F̄₂^×. Its image is finite and of odd order, since every element of F̄₂^× has odd order.",
+    "χ factors through D₂^{ab}, the profinite completion of ℚ₂^× = 2^ℤ × {±1} × (1 + 4ℤ₂). A finite quotient of odd order kills {±1} × (1 + 4ℤ₂) = ℤ₂^×, which is {±1} times a pro-2 group, so χ factors through ℚ₂^×/ℤ₂^× ≅ 2^ℤ.",
+    "Hence χ is unramified, and ρ̄ is unramified at 2. An unramified representation is finite at 2 (it comes from an étale group scheme), so k(ρ̄) = 2."
+   ],
+   "acceptance": [
+    "This is why KW I's Theorem 1.2(2), a statement about k(ρ̄) = 2, covers the whole scalar dyadic case.",
+    "The lemma says nothing about Edixhoven's weight-one refinement, which KW record as open at 2."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisRepresentations:R01.6"
+   ],
+   "sources": [
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§0 Introduction, the scalar case, p. 1",
+     "match": "The scalar dyadic case singled out by Buzzard."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "§1, after Theorem 1.2, p. 2",
+     "match": "KW's Theorem 1.2(2), the weight-two case, fills this case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.6/strong-form-case-table",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.6",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.6"
+   ],
+   "title": "The case table: from modularity to Serre's weight and level, and where the dyadic completion comes from",
+   "kind": "comparison",
+   "statement": "Let ρ̄ : Gal(Q̄/Q) → GL(2, F) be of S-type (continuous, absolutely irreducible, odd) in characteristic p, and assume ρ̄ is modular. The table below shows, case by case, which theorem gives that ρ̄ arises from S_{k(ρ̄)}(Γ₁(N(ρ̄))), and with what hypotheses. 'R20' means this roadmap's optimisation nodes; 'R27' means ClassicalSerreModularity. Modularity itself (the weak conjecture) is R27's (KW I Theorems 1.2 and 9.1, with Kisin's Hypothesis (H)).\n(1) p ≥ 5, any N(ρ̄). R20: level by R20.2/descend-to-serre-level, R20.2/twist-away-ramified-character and R20.4/strip-ell-power-from-level; character by R20.4/nebentypus-congruent-character; weight by R20.3/edixhoven-weight-theorem with R20.3/ribet-four-level-sets.\n(2) p = 3. R20 supplies the level (Mazur's principle, Theorem 1.5 and the stripping step are valid for odd ℓ) and the weight (Edixhoven), but not Carayol's character step or Ribet's Theorems 2.2 and 3.3, which need ℓ ≥ 5 or N > 3. For N(ρ̄) odd, R27 supplies the refined form directly (KW I Theorem 1.2(1)). For N(ρ̄) even, the character at ℓ = 3 remains an R20 obligation (see the hypotheses).\n(3) p = 2, ρ̄|_{D₂} not scalar, not induced from ℚ(i), k(ρ̄) = 2. R20: Buzzard's Theorem 3.2 (multiplicity one by his Proposition 2.4) gives weight 2 and level N(ρ̄), with Serre's character by Corollary 2.7.\n(4) p = 2, ρ̄|_{D₂} not scalar, not induced from ℚ(i), k(ρ̄) = 4. R20: Buzzard's Theorem 3.2 gives weight 3 and level N(ρ̄); multiplying by the Hasse invariant (weight p − 1 = 1) gives weight 4, Serre's original k(ρ̄). Modularity is R27.5's input (KW I §9, Kisin).\n(5) p = 2, ρ̄ induced from ℚ(i). R20: Buzzard's §3 theta-series branch (R20.5/buzzard-weight-and-level-mod-two).\n(6) p = 2, ρ̄|_{D₂} scalar, projective image dihedral. Wiese's weight-one theorem, an R20.5 obligation.\n(7) p = 2, ρ̄|_{D₂} scalar, projective image not dihedral. Here k(ρ̄) = 2 by the previous node. R27 supplies it: KW I Theorem 1.2(2) (R27.4). This is the dyadic completion.\nNot in the table: Edixhoven's refinement at p = 2 (ρ̄ unramified at 2 iff it arises from a Katz form of weight 1), which KW record as not known.",
+   "hypotheses": [
+    "RS-06 asks for this as a manifest with per-case hypotheses, not as a proof edge. Accordingly the R27 rows are not prerequisites of this node: rows (2) (odd N), (4) (modularity) and (7) name R27 as supplier, and no export of this roadmap depends on them. This keeps R20 → R27 acyclic.",
+    "Row (2): Buzzard's introduction says the weak and strong conjectures are equivalent for every odd ℓ, which includes ℓ = 3, citing 'the work of many people'. The planned R20 nodes cover ℓ = 3 only for level and weight. The character step at ℓ = 3 (Diamond's refinement) is not read, so it is recorded as an R20 obligation.",
+    "Row (6): Wiese's theorem is R20.5's recorded obligation (the public version was not pinned)."
+   ],
+   "proofSteps": [
+    "Rows (1), (3), (4) and (5): the named R20 nodes apply, with the hypotheses listed. Row (4) also uses the Hasse-invariant step of Proposition 1.3's proof: a mod 2 Katz form of weight 3 times the Hasse invariant has weight 4 and the same q-expansion, and it lifts to characteristic 0 (Edixhoven's Lemma 1.9).",
+    "Row (7): by the scalar lemma, ρ̄ is unramified at 2 and k(ρ̄) = 2, so KW I Theorem 1.2(2) applies. It gives S₂(Γ₁(N(ρ̄))) directly, without multiplicity one.",
+    "Row (2) with N(ρ̄) odd: KW I Theorem 1.2(1) gives S_{k(ρ̄)}(Γ₁(N(ρ̄))) directly.",
+    "Completeness: every S-type ρ̄ has p ≥ 5, p = 3 or p = 2. For p = 2 it is either induced from ℚ(i), or not; if not, ρ̄|_{D₂} is either scalar (rows (6), (7), by projective image) or not (rows (3), (4), by k(ρ̄) ∈ {2, 4}). Rows (3) and (4) need multiplicity one, which Buzzard's Proposition 2.4 provides exactly when ρ̄|_{D₂} is not scalar."
+   ],
+   "acceptance": [
+    "Test: p = 2 and ρ̄ = E[2] for E = X₀(11) (11a1). E has no rational 2-torsion and discriminant −11⁵, which is not a square, so ρ̄ has image S₃ and is absolutely irreducible; it is induced from ℚ(√−11), not ℚ(i). E has good supersingular reduction at 2 (a₂ = −2), so ρ̄|_{I₂} acts through the level-2 fundamental character (order 3) and is not scalar. It is finite at 2, so k(ρ̄) = 2, and N(ρ̄) = 11 (2 ∤ ord₁₁(Δ) = 5). Row (3) applies and gives the newform of X₀(11) in S₂(Γ₀(11)).",
+    "Rows (6) and (2) with even N(ρ̄) are the only cases left as R20 obligations; the table says so."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.6/scalar-dyadic-restriction-is-unramified",
+    "SerreWeightAndLevelOptimisation:R20.2/descend-to-serre-level",
+    "SerreWeightAndLevelOptimisation:R20.2/twist-away-ramified-character",
+    "SerreWeightAndLevelOptimisation:R20.4/strip-ell-power-from-level",
+    "SerreWeightAndLevelOptimisation:R20.4/nebentypus-congruent-character",
+    "SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem",
+    "SerreWeightAndLevelOptimisation:R20.3/ribet-four-level-sets",
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-weight-and-level-mod-two",
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-multiplicity-one",
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-carayol-lemma-mod-two",
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-removing-two-from-the-level",
+    "SerreWeightAndLevelOptimisation:R20.5/dyadic-scalar-multiplicity-one-obstruction"
+   ],
+   "sources": [
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "§1, Theorem 1.2 and the remark after it, p. 2",
+     "match": "The dyadic completion."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "§1, the strong form in the sense of Edixhoven, p. 3",
+     "match": "What is not claimed at 2."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "§3, Theorem 3.4 and its remark, p. 6",
+     "match": "(D_r) and the cases it yields."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "§9, Theorem 9.1, p. 18",
+     "match": "Modularity for p = 2, k = 4 and for p odd, N even."
+    },
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§1, proof of Proposition 1.3, p. 4",
+     "match": "The weight 3 to weight 4 step."
+    },
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§3, Remark after Theorem 3.2, p. 10",
+     "match": "Serre's weight 4 against weight 3 at p = 2."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "coverage": [
@@ -2562,10 +2674,11 @@
    "stageId": "SerreWeightAndLevelOptimisation:R20.6",
    "status": "partial",
    "remaining": [
-    "The case table showing how the classical Serre roadmap supplies the dyadic completion. RS-06 requires it as a manifest that is not a proof prerequisite of the early exports, so it must be written as a table with per-case hypotheses rather than as an edge.",
     "The conditional cases needed inside the downstream stages R22, R26, R27 and R33, each to be stated with the hypotheses that consumer has proved.",
-    "The comparison of the reduced level M₀ with the prime-to-ℓ Artin conductor, stated as an obligation in the M₀ node's api but not yet proved; the paper extraction's own note warns they need not agree when ℓ divides the elliptic conductor."
-   ]
+    "The comparison of the reduced level M₀ with the prime-to-ℓ Artin conductor, stated as an obligation in the M₀ node's api but not yet proved; the paper extraction's own note warns they need not agree when ℓ divides the elliptic conductor.",
+    "Two rows of R20.6/strong-form-case-table rest on unread inputs: (2) the character step at ℓ = 3 for even N(ρ̄) (Diamond's refinement), and (6) Wiese's weight-one theorem for the dihedral scalar dyadic case."
+   ],
+   "notes": "Checkpoint (fourth, cc-fb70e5) adds the case table (R20.6/strong-form-case-table) with seven rows and their suppliers, and the lemma that a scalar dyadic restriction is unramified (so k(ρ̄) = 2 there, which is why KW I Theorem 1.2(2) covers the whole scalar case)."
   }
  ],
  "requests": [
@@ -2644,6 +2757,13 @@
    "need": "The weight-one theta series of an odd-order character of Gal(Q̄/ℚ(i)) with values in Q̄₂^×: the induced representation arises from a classical weight-1 cusp form of level 4N (Buzzard, proof of Theorem 3.2).",
    "neededBy": [
     "SerreWeightAndLevelOptimisation:R20.5/buzzard-weight-and-level-mod-two"
+   ]
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:R01.6",
+   "need": "Serre's weight k(ρ̄) at p = 2 (2 if ρ̄ is finite at 2, 4 otherwise) and local class field theory for ℚ₂ (D₂^{ab} as the completion of ℚ₂^×, with ℤ₂^× = {±1} × (1 + 4ℤ₂)).",
+   "neededBy": [
+    "SerreWeightAndLevelOptimisation:R20.6/scalar-dyadic-restriction-is-unramified"
    ]
   }
  ],

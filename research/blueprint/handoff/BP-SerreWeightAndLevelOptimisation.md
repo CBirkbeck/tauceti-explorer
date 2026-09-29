@@ -1,3 +1,41 @@
+# Checkpoint by Claude Code cc-fb70e5 (29 September 2026, fourth): the R20.6 case table
+
+Issue #989. This checkpoint adds 2 nodes, bringing the packet to 43.
+
+**Sources.**
+- Khare–Wintenberger I: §2, §3 (Theorems 3.1–3.4 and the remark on (D_r)) and §9 (Hypothesis (H), Theorem 9.1), in addition to §1. The same preprint, SHA-256 3c389dc3…, fetched without certificate verification and checked against the hash.
+- Buzzard: §0, the Hasse-invariant step of Proposition 1.3, and the Remark after Theorem 3.2 (the same DVI, 39d48668…).
+
+**Nodes:**
+- `R20.6/scalar-dyadic-restriction-is-unramified`: if ρ̄(D₂) is scalar, then ρ̄|_{D₂} = χ·Id with χ of odd order. By local class field theory χ is unramified (ℤ₂^× is {±1} times a pro-2 group), so ρ̄ is unramified at 2 and k(ρ̄) = 2. This is why KW I Theorem 1.2(2) covers the whole scalar dyadic case.
+- `R20.6/strong-form-case-table` (comparison): seven rows, by residue characteristic and dyadic local type, each with its supplier of Serre's weight and level. It is also rendered as a table in the readme.
+  - R20 covers p ≥ 5, most of p = 3, and the non-scalar and ℚ(i)-induced dyadic cases (Buzzard, with the Hasse invariant for weight 4).
+  - R27 supplies the scalar non-dihedral dyadic case (KW I 1.2(2)) and odd conductor at p = 3 (KW I 1.2(1)).
+  - It is a manifest, not an edge: the R27 rows are not prerequisites, so R20 → R27 stays acyclic.
+  - It is tested on E[2] for X₀(11).
+
+This closes the R20.6 remaining item "the case table".
+
+**Two rows rest on unread inputs:**
+- (2), the ℓ = 3 character step for even N(ρ̄) (Diamond);
+- (6), Wiese's dihedral scalar dyadic case.
+
+Both are listed as R20.6 remaining work.
+
+**Checks.**
+- `check_blueprint --index`: 0 errors, 0 warnings.
+- `check-files`: 0 problems.
+- Every new excerpt was checked by script against its page's text (PDF pages of KW I, DVI pages of Buzzard).
+- One new Lean check, that |𝔽_{2^n}^×| is odd; it compiled with exit code 0 as a separate Mathlib-only file. The suggested file imports Tau Ceti modules and is not compiled here.
+
+**Still open:**
+- R20.6: the conditional cases for R22, R26, R27 and R33; M₀ against the Artin conductor; rows (2) and (6).
+- R20.5: Wiese's weight-one theorem, and Gross's Proposition 8.18.
+- R20.3: Gross 1990 and Coleman–Voloch.
+- R20.2: the §7 proof of Ribet's Theorem 1.5.
+
+---
+
 # Checkpoint by Claude Code cc-fb70e5 (29 September 2026, third): Ribet §3 and Buzzard §2
 
 Issue #989. This checkpoint adds 5 nodes, bringing the packet to 41.

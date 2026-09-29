@@ -572,4 +572,11 @@ example (q : ℕ) (h : q % 4 = 3) : (q - 1) / 2 % 2 = 1 := by omega
 /-- `R20.3/ribet-four-level-sets`: the level `N ℓ²` of `N₄` for `N = 11`, `ℓ = 5`. -/
 example : 11 * 5 ^ 2 = 275 := by norm_num
 
+/-- `R20.6/scalar-dyadic-restriction-is-unramified`: `|𝔽_{2^n}^×| = 2^n − 1` is odd, so every character of `D₂`
+with values in `F̄₂^×` has odd order and factors through the unramified quotient. -/
+example (n : ℕ) (hn : 1 ≤ n) : Odd (2 ^ n - 1) := by
+  have h2 : Even (2 ^ n) := Nat.even_pow.mpr ⟨even_two, by omega⟩
+  have h1 : 1 ≤ 2 ^ n := Nat.one_le_two_pow
+  exact Nat.Even.sub_odd h1 h2 odd_one
+
 end TauCeti.SerreWeightLevel.BuzzardAuxTest
