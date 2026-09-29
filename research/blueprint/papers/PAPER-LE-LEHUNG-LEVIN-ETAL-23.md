@@ -1,3 +1,45 @@
+# LLHLM23 continuation: proof steps for K45–K48, P17 and Z01
+
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (third step). This takes the three smallest
+no-outline queues: K45–K48, P17 and Z01. Census unchanged: 779 items, 26 routes, 116 findings, 12
+gaps.
+
+## What was added
+
+- **K45** ("1-generic implies regular" for GL_n). The paper only cites LLHLM20 Remark 2.2.4, so the
+  steps give a direct proof from (2.12) (PDF46):
+  - each character is ω_{fr}^{e_i}, where e_i is a base-p expansion whose digits are entries of the
+    μ_j + η_j;
+  - 1-depth makes those entries distinct, with spread below p − 1;
+  - so two exponents differ by a nonzero amount smaller than p^{fr} − 1 in absolute value, and the
+    characters are distinct.
+- **K46** (multiplicity-free tame inertia gives semisimplicity). Clifford theory: G_K permutes the
+  isotypic lines of V|_{I_K}, and the sum over each Frobenius orbit is simple.
+- **K47** (generic tame representations are semisimple). K45 and K46, with descent of semisimplicity
+  along a separable extension: rad(A ⊗ F′) = rad(A) ⊗ F′. Averaging over Gal(F′/F) would not work in
+  characteristic p.
+- **K48** (the repaired semisimple step of Corollary 5.5.8, E19). A characteristic-zero point gives a
+  residual Kisin lattice; K44 with m = h + 1 makes ρ 1-generic; K47 makes it semisimple; K41 then
+  applies. As codex-c83e7a arranged, K44 rests on K58, so there is no circularity.
+- **P17** (Remark 6.2.5). For n ≥ 2, n-depth forces p > n² + n − 1 > 2n; for n = 1 the remark fails,
+  as the recorded source issue says.
+- **Z01** (Boixeda Alvarez, Theorem 3.1). Outlined from the source's main text (arXiv:1910.04780v3,
+  PDF4–5): the upper bound from G(C[[t]])-orbit closures; attracting neighbourhoods detect fixed
+  points; reduction to W_f-minimal y; the determinant/monomial argument. Its combinatorial Appendix B
+  was not read in detail, and the item remains an imported theorem.
+
+There are four new prerequisite edges (K45 → N15, K47 → K37, P17 → N15 and N52). The graph stays
+acyclic, with 1,294 edges.
+
+## Changes and scope
+
+- **Changed:** proof steps, prerequisites and provenance on the six items;
+  `validation.ccC58621dKPZOutlines`; the summary.
+- **Unchanged:** statuses, routes and findings. No Lean file.
+- **Still without proof steps:** the A (56), G (39) and B (28) theorem items.
+
+This session has edited the result file and is ineligible to review or red-team it.
+
 # LLHLM23 continuation: proof steps for the §3 items (U05–U45)
 
 Claude Code — cc-58621d; issue 1254; 29 September 2026 (second step). This takes the U queue of the
