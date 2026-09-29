@@ -1840,6 +1840,54 @@
    "link": "https://arxiv.org/abs/2412.04241",
    "note": "One of the papers the original Modern Number Theory Campaign roadmaps were built to cover. The Habiro roadmaps (HabiroCohomologyFoundations, HabiroCyclotomicCompletions, HabiroNahmSeries, HabiroNumberFields) were built around it: route to them.",
    "batch": 5
+  },
+  {
+   "id": "PAPER-SCHOLZE-17",
+   "short": "Scholze: Étale cohomology of diamonds",
+   "citation": "Scholze, \"Étale cohomology of diamonds\" (arXiv:1709.07343)",
+   "link": "https://arxiv.org/abs/1709.07343",
+   "note": "One of the foundational sources the campaign's diamond roadmaps were built from. The diamond roadmaps formalize it (DiamondsAndVStacks, DiamondEtaleCohomology, DiamondSixOperations, VStackSheavesAndLisseCategories): route to them, and propose a Part II only for what they lack. It is long: checkpoint by chapter.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-SCHOLZE-WEINSTEIN-20",
+   "short": "Scholze–Weinstein: Berkeley lectures on p-adic geometry",
+   "citation": "Scholze and Weinstein, \"Berkeley lectures on p-adic geometry\", Annals of Mathematics Studies 207, Princeton University Press (2020)",
+   "link": "https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf",
+   "note": "One of the foundational sources the campaign's diamond roadmaps were built from. Lecture notes developing diamonds, the Fargues–Fontaine curve and local shtukas from perfectoid spaces: route to PerfectoidSpaces, DiamondsAndVStacks, FarguesFontaineDiamonds and HeckeStacksAndLocalShtukas.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-FARGUES-FONTAINE-18",
+   "short": "Fargues–Fontaine: Courbes et fibrés vectoriels en théorie de Hodge p-adique",
+   "citation": "Fargues and Fontaine, \"Courbes et fibrés vectoriels en théorie de Hodge p-adique\", Astérisque 406 (2018)",
+   "link": "https://www.imo.universite-paris-saclay.fr/~fontaine/courbe.pdf",
+   "note": "One of the foundational sources the campaign's diamond roadmaps were built from. The curve, its vector bundles and their classification: route to FarguesFontaineDiamonds, VectorBundlesAndIsocrystals and RelativeFarguesFontaine.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-SCHOLZE-12",
+   "short": "Scholze: Perfectoid spaces",
+   "citation": "Scholze, \"Perfectoid spaces\", Publications mathématiques de l'IHÉS 116 (2012), 245–313",
+   "link": "https://arxiv.org/abs/1111.4914",
+   "note": "One of the foundational sources the campaign's diamond roadmaps were built from. Perfectoid fields and spaces, tilting and almost purity: route to PerfectoidSpaces and the adic-space roadmaps it rests on.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-KEDLAYA-LIU-15",
+   "short": "Kedlaya–Liu: Relative p-adic Hodge theory: foundations",
+   "citation": "Kedlaya and Liu, \"Relative p-adic Hodge theory: foundations\", Astérisque 371 (2015)",
+   "link": "https://arxiv.org/abs/1301.0792",
+   "note": "One of the foundational sources the campaign's diamond roadmaps were built from. Perfectoid rings, relative Robba rings and relative Fargues–Fontaine curves: route to PerfectoidSpaces, RelativeFarguesFontaine and VectorBundlesAndIsocrystals.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-SCHOLZE-13",
+   "short": "Scholze: p-adic Hodge theory for rigid-analytic varieties",
+   "citation": "Scholze, \"p-adic Hodge theory for rigid-analytic varieties\", Forum of Mathematics, Pi 1 (2013), e1",
+   "link": "https://people.mpim-bonn.mpg.de/scholze/pAdicHodgeTheory.pdf",
+   "note": "One of the foundational sources the campaign's diamond roadmaps were built from. The pro-étale site and the primitive and de Rham comparison theorems: route to PadicHodgeTheory and AdicEtaleGeometry.",
+   "batch": 5
   }
  ],
  "guides": [
@@ -1946,7 +1994,7 @@
   "2": "Six journals (Inventiones, Duke, Forum of Mathematics Pi, JAMS, Publications de l'IHÉS, Acta), issues from 21 September 2016 to 21 September 2026, the same scope as batch 1: the maintainer's working catalogue, not exhaustive (Duke, JAMS, earlier Inventiones and recent Acta are incomplete). Three of its papers were already covered and are not queued: Lawrence–Venkatesh (DESIGN-LV), Boxer–Calegari–Gee–Pilloni 2021 (DESIGN-BCGP18) and Pan's first paper (the foundation of DESIGN-PAN).",
   "3": "The seven papers the maintainer gave as routing guides (21 September 2026), queued for extraction on 23 September 2026 at the maintainer's request: their routes are already decided and applied, so each extraction reads the paper in full and routes its items into the roadmap its guide entry names.",
   "4": "Seven of the held papers, chosen by the maintainer on 23 September 2026: the direct summand conjecture (André and Bhatt), purity in chromatically localized K-theory, the orbit method, topological cyclic homology, Macaulayfication, and Stevenhagen's conjecture. The rest of the held list stands.",
-  "5": "The papers the original Modern Number Theory Campaign roadmaps were built to cover: the maintainer's list behind that campaign, reconstructed on 29 September 2026 from its README and input packs and confirmed by the maintainer. Four of its papers were already in batch 1: the ten-author potential-automorphy paper, Caraiani–Scholze (compact and non-compact) and Bhatt–Scholze."
+  "5": "The papers the original Modern Number Theory Campaign roadmaps were built to cover: the maintainer's list behind that campaign, reconstructed on 29 September 2026 from its README and input packs and confirmed by the maintainer. Four of its papers were already in batch 1: the ten-author potential-automorphy paper, Caraiani–Scholze (compact and non-compact) and Bhatt–Scholze. Six foundational sources of the diamond roadmaps were added the same day at the maintainer's request: Scholze's Étale cohomology of diamonds, Perfectoid spaces and p-adic Hodge theory for rigid-analytic varieties, Scholze–Weinstein's Berkeley lectures, Fargues–Fontaine's Courbes et fibrés vectoriels, and Kedlaya–Liu's Relative p-adic Hodge theory."
  },
  "held": [
   {
