@@ -89,3 +89,43 @@ It was compiled with `lake env lean` against Mathlib 082e2d3 (exit 0, 4 `sorry` 
   nonreduced bases, the dual abelian scheme, quotients by finite flat subgroups) is still to be chosen.
 - **Stage prerequisites.** The A6 nodes use A1–A4 as stage prerequisites: the theorem of the cube, [n] of rank n^{2g},
   factorization through [n], the Weil pairings, and T_ℓ at field level. These are what A1–A4 must supply first.
+
+# Checkpoint 2 (A6: Weil restriction)
+
+Agent: Claude Code, session cc-fb70e5. Refs #666.
+
+- The packet now has 21 nodes. The checker reports no errors and no warnings, and A6 has 6 planets, the maximum.
+- Sources, as the atlas specifies:
+  - Poonen, *Rational Points on Varieties*, §4.6 and Exercises 4.7–4.9 (the author's online version, printed page = PDF
+    page − 14);
+  - Stacks Project Tags 05YF and 05YC (and 05Y8, Section 97.11).
+  Every excerpt was matched against its page. For the Stacks tags, the match was against the served HTML text.
+
+## What checkpoint 2 plans (A6)
+
+- `weil-restriction-functor` (construction, planet): the fppf sheaf, compatibility with base change, and the
+  algebraic space (imported from R09.3).
+- `weil-restriction-of-quasi-projective-schemes`: Poonen 4.6.3 and 4.6.5, with Bosch–Lütkebohmert–Raynaud's criterion
+  requested and not read.
+- `weil-restriction-over-a-separable-extension-splits`: Poonen Exercise 4.7.
+- `finite-etale-weil-restriction-of-abelian-schemes`. This is the étale-splitting descent proof, through A2's
+  algebraic-space-to-scheme theorem, with the negative example Res_{k[ε]/k}(E) = E × Lie(E) (Poonen 4.6.8).
+- `tate-module-of-a-weil-restriction`: T_ℓ(Res A) ≅ Ind T_ℓA. As the atlas warns, it implies nothing about good
+  reduction at ramified places.
+
+## Why A0–A5 remain unplanned
+
+Van der Geer–Moonen's *Abelian Varieties* chapters (public on Moonen's page) were checked. They treat abelian varieties
+over fields and group schemes over bases, but never abelian schemes over a base. The relative A1–A3 statements (rigidity
+over nonreduced bases, the dual abelian scheme, fppf quotients by finite flat subgroups of abelian schemes) still need a
+public source.
+
+## Requests (new)
+
+- AlgebraicModuliForArithmeticGeometry R09.3: representability, including BLR §7.6.
+- ArithmeticGaloisRepresentations G7 and R01.6.
+
+## Suggested Lean file
+
+It adds the Weil restriction signatures and a `linear_combination` check of Poonen's Example 4.6.2. It was compiled with
+`lake env lean` (exit 0, 4 `sorry` warnings).
