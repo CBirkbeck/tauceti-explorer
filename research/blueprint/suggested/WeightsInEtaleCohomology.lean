@@ -1,6 +1,6 @@
 /-
 Suggested Lean prototypes for the roadmap "Weights and purity in étale cohomology" (WeightsInEtaleCohomology); this
-checkpoint plans stage R34.1 and the H¹-versus-Tate-module adapter of stage R34.2.
+checkpoints 1–2 plan stages R34.1 and R34.2.
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/WeightsInEtaleCohomology.md` is definitive. The statements below suggest Lean forms so that
@@ -24,6 +24,7 @@ Suggested signatures on the Galois carrier:
 -/
 
 import Mathlib.Algebra.Group.Nat.Even
+import Mathlib.Data.ZMod.Basic
 import Mathlib.FieldTheory.IsAlgClosed.Basic
 import Mathlib.LinearAlgebra.Charpoly.Basic
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
@@ -71,5 +72,22 @@ theorem pow_ne_four_of_odd {q : ℕ} (hq : Odd q) (w : ℕ) : q ^ w ≠ 4 := by
 whose characteristic polynomial is `T² − 1 = P_u(1, T²)`. -/
 theorem charpoly_swap : (!![(0 : ℚ), 1; 1, 0]).charpoly = X ^ 2 - 1 := by
   sorry
+
+/-! ## Good reduction (`WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction`,
+`…/good-reduction-point-counts-and-traces`)
+
+Suggested signatures on the carriers of ArithmeticGaloisRepresentations R01.6 and NeronModels R11.5:
+
+  theorem AbelianVariety.h1_isPureOutside (A : AbelianVariety K) (T) (hT : A.GoodReductionOutside T) (p : ℕ) :
+      (A.h1 p).IsPureOutside (T ∪ placesAbove p) 1 ∧ (A.h1 p).HasIntegralFrobOutside (T ∪ placesAbove p)
+  theorem AbelianVariety.frobCharpoly_h1 (hv : v ∉ T ∪ placesAbove p) :
+      (A.h1 p).frobCharpoly v = (End.charpoly (A.reduction v).frobenius).map (Int.castRingHom ℚ_[p])
+-/
+
+/-- The point count used in the acceptance of `good-reduction-point-counts-and-traces`: `y² = x³ − x` has `8` points
+over `𝔽₅` (seven affine points and the point at infinity), so `a₅ = 5 + 1 − 8 = −2`. -/
+theorem card_points_y2_eq_x3_sub_x_F5 :
+    ((Finset.univ : Finset (ZMod 5 × ZMod 5)).filter (fun P => P.2 ^ 2 = P.1 ^ 3 - P.1)).card + 1 = 8 := by
+  decide
 
 end TauCeti.Weights

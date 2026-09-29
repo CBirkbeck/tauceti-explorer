@@ -4,11 +4,16 @@
 
 This roadmap applies Deligne's weights to the arithmetic objects that its consumers use: Galois representations of number fields, Tate modules of abelian varieties, degenerations, pencils, and the cohomology of Kuga–Sato varieties and modular Jacobians (R34.1–R34.6).
 
-This first checkpoint plans R34.1 in full. R34.1 is the representation-convention adapter: arithmetic and geometric Frobenius, and Galois representations that are pure and integral outside a finite set, with their stability properties, as MordellLawrenceVenkatesh LV.1 requests. The checkpoint also plans R34.2's comparison of Frobenius on V_ℓA with Frobenius on H¹ for abelian varieties over finite fields.
+Checkpoint 1 plans R34.1, the representation-convention adapter. Checkpoint 2 completes R34.2, the curve and abelian-variety adapter over DeligneWeightsAndPurity DWP.1. It shows that H^i of abelian varieties and curves with good reduction is pure and integral, and it records point counts and traces at good places, with the genus-one agreement: the export that FaltingsFinitenessAndIsogenyTheorems R28.4 requests.
 
 ## Scope and boundaries
 
-RS-17 is accepted. It makes this roadmap Part II of DeligneWeightsAndPurity and narrows every stage to an adapter. Weil numbers, ι-weights and their linear algebra are DeligneWeightsAndPurity DWP.0's, and R34.1 imports them unchanged. The sheaf predicates are DWP.5's and the mixed complexes DWP.8's. The Weil II theorems that the integrated decomposition listed under R34.5 are DWP.7–DWP.8's. The Weil estimate for abelian varieties is DWP.1's, and R34.2 adapts it.
+RS-17 is accepted. It makes this roadmap Part II of DeligneWeightsAndPurity and narrows every stage to an adapter.
+
+- Weil numbers, ι-weights and their linear algebra are DWP.0's, and R34.1 imports them unchanged.
+- The Weil estimate for abelian varieties and curves is DWP.1's, and R34.2 transports it.
+- Néron–Ogg–Shafarevich is NeronModelsAndSemistableAbelianVarieties R11.5's.
+- The sheaf predicates are DWP.5's, the mixed complexes DWP.8's, and the Weil II theorems DWP.7–DWP.8's.
 
 ## Conventions
 
@@ -283,9 +288,68 @@ Let A be an abelian variety of dimension g over 𝔽_q, π_A its q-Frobenius end
 - Abelian Varieties, Chapter II, §1, proof of Theorem 1.1, p. 76: “Recall (10.20) that a1; :::; a2g can be interpreted as the eigenvalues of” The roots of P_π are the eigenvalues of π on T_ℓA.
 - Abelian Varieties, Chapter I, Remark 12.5, p. 56: “is compatible with the natural actions of Gal” The comparison with H¹ is Galois-equivariant.
 
-### What is missing
+#### Theorem. Tate modules and H^i of abelian varieties and curves with good reduction are pure and integral
 
-- The H¹-versus-Tate-module adapter is planned. Still to be planned: the all-power point-count bounds |#A(𝔽_{q^m}) − q^{mg}| ≤ 2g·q^{m(g−1/2)} + (2^{2g} − 2g − 1)q^{m(g−1)} (Milne II.1.1) and the genus-one agreement, importing DWP.1's weight once DWP.1 is planned; and the export to FaltingsFinitenessAndIsogenyTheorems R28.4.
+*Module* `TauCeti/Weights/AbelianVariety/GoodReduction.lean`. *Node* `WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction`.
+
+Let A be an abelian variety of dimension g over a number field K with good reduction outside a finite set T of finite places, and p a prime. Then ρ = H¹(A_K̄, ℚ_p) = (V_pA)^∨ is pure of weight 1 outside T ∪ {v | p} with integral Frobenius polynomials. At v ∉ T ∪ {v | p}, P_v(ρ, X) = P_{π_{A_v}}(X), the characteristic polynomial of the Frobenius endomorphism of the reduction A_v, independently of p. V_pA itself is pure of weight −1 there and not integral. For 0 ≤ i ≤ 2g, H^i(A_K̄, ℚ_p) = ∧^i H¹ is pure of weight i and integral, with P_v the characteristic polynomial of π_{A_v} on ∧^i. The same holds for H¹ of a smooth projective geometrically connected curve over K with good reduction outside T, through its Jacobian.
+
+*Hypotheses.*
+
+- Good reduction at v ∤ p means that A has an abelian scheme model over O_v (the Néron model, Milne I.17). Néron–Ogg–Shafarevich then makes V_pA unramified at v; the criterion and the specialization isomorphism are NeronModelsAndSemistableAbelianVarieties R11.5's.
+- Geometric convention (R34.1). The dual V_pA has weight −1 and Frobenius polynomials with denominators q_v, which is the H¹-versus-Tate-dual distinction that RS-17 asks R34.2 to keep.
+- This is the export to FaltingsFinitenessAndIsogenyTheorems R28.4 that RS-17 names, with no Weil II input and no decomposition theorem.
+
+*Proof.*
+
+1. Unramifiedness: at v ∉ T with v ∤ p, A has good reduction, so V_pA is unramified at v (Néron–Ogg–Shafarevich, NeronModelsAndSemistableAbelianVarieties R11.5).
+2. Specialization: the reduction map gives a D_v-equivariant isomorphism V_pA ≅ V_p(A_v), under which Frob_v^arith acts as π_{A_v} (R11.5, with the finite-field conventions of the node frobenius-on-tate-modules-and-first-cohomology).
+3. So the geometric Frobenius on H¹ has characteristic polynomial P_{π_{A_v}} ∈ ℤ[X] (AbelianSchemesAndArithmeticModuli A6/characteristic-polynomial-of-an-endomorphism), whose roots are Weil q_v-numbers of weight 1 (DeligneWeightsAndPurity DWP.1/weil-estimate-for-abelian-varieties). It is independent of p, since P_{π_{A_v}} is defined without p.
+4. V_pA = (H¹)^∨: weight −1 (R34.1 purity-under-linear-algebra-operations, duals); the roots q_v^{−1/2}·(unit) are not algebraic integers.
+5. ∧^i H¹ = H^i(A) (Milne I.12.1): a subquotient of the tensor power H¹^{⊗i}, pure of weight i and integral (R34.1).
+6. Curves: H¹(C) = H¹(J) Galois-equivariantly, and J has good reduction outside T when C does (DeligneWeightsAndPurity DWP.1/weights-of-the-cohomology-of-curves).
+
+*Acceptance.*
+
+- E/ℚ: y² = x³ − x has good reduction outside {2}. At ℓ = 3, P_3(H¹, X) = X² + 3: weight 1, integral. On V_pE the polynomial is X² + 1/3.
+- det H¹(A) = ∧^{2g}H¹ = ℚ_p(−g): weight 2g, with P_v = X − q_v^g.
+
+*Uses.* `WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology`, `WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations`, `WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations`, `DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties`, `DeligneWeightsAndPurity:DWP.1/weights-of-the-cohomology-of-curves`, `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism`, `NeronModelsAndSemistableAbelianVarieties:R11.5`.
+
+*Planet:* Purity of Tate modules.
+
+*Sources.*
+
+- Diophantine problems and p-adic period mappings, §3.1, (3.2), p. 16: “we denote by ρy the representation of the” The Galois representation on the étale cohomology of a fibre.
+- Abelian Varieties, Chapter II, Remark 1.6(a), p. 78: “We have actually proved the following” The characteristic polynomials of π on ∧^r T_ℓA.
+- Abelian Varieties, Chapter I, Remark 17.2, p. 70: “is called the N´eron model of A” Good reduction through the Néron model.
+
+#### Theorem. Point counts and traces of Frobenius at good places, and the genus-one agreement
+
+*Module* `TauCeti/Weights/AbelianVariety/GoodReduction.lean`. *Node* `WeightsInEtaleCohomology:R34.2/good-reduction-point-counts-and-traces`.
+
+Let A/K and T be as in purity-of-tate-modules-with-good-reduction, v ∉ T ∪ {v | p} with residue field of size q_v, and α_1, …, α_{2g} the roots of P_v(H¹, X). Then #A_v(𝔽_{q_v^m}) = ∏_i(1 − α_i^m) for all m ≥ 1, and |#A_v(𝔽_{q_v^m}) − q_v^{mg}| ≤ 2g·q_v^{m(g−1/2)} + (2^{2g} − 2g − 1)q_v^{m(g−1)}. For an elliptic curve E/K, Tr(Frob_v^geom | H¹) = a_v := q_v + 1 − #E_v(k_v), and |a_v| ≤ 2√q_v, in agreement with the Hasse bound of Tau Ceti EllipticCurves Layer 3.
+
+*Hypotheses.*
+
+- The point counts are those of the reduction A_v over k_v. They are imported from DeligneWeightsAndPurity DWP.1 (point-counts-of-abelian-varieties, compatibility-with-the-hasse-bound), not reproved.
+- The trace a_v is of the geometric Frobenius on H¹. On V_pE the trace is a_v/q_v.
+
+*Proof.*
+
+1. P_v(H¹, X) = P_{π_{A_v}}(X) (node purity-of-tate-modules-with-good-reduction).
+2. DWP.1/point-counts-of-abelian-varieties applied to A_v over k_v gives the counts and the bound.
+3. For g = 1: P_{π}(X) = X² − a_vX + q_v with a_v = q_v + 1 − #E_v(k_v) (DWP.1/compatibility-with-the-hasse-bound), and the trace of the geometric Frobenius on H¹ is a_v.
+
+*Acceptance.*
+
+- E/ℚ: y² = x³ − x at ℓ = 5: #E(𝔽_5) = 8, so a_5 = −2 and |−2| ≤ 2√5.
+
+*Uses.* `WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction`, `DeligneWeightsAndPurity:DWP.1/point-counts-of-abelian-varieties`, `DeligneWeightsAndPurity:DWP.1/compatibility-with-the-hasse-bound`.
+
+*Sources.*
+
+- Abelian Varieties, Chapter II, proof of Theorem 1.1, p. 76: “The Riemann hypothesis shows that each term” The bound on #A(𝔽_{q^m}).
 
 ## R34.3 Nearby and vanishing cycles
 
@@ -326,6 +390,7 @@ No nodes yet.
 - `ArithmeticGaloisRepresentations:R01.6` — The ℓ-adic Tate module T_ℓA of an abelian variety over a finite field, with its Galois action, and the Frobenius endomorphism π_A acting on it. Needed by `frobenius-on-tate-modules-and-first-cohomology`.
 - `AbelianSchemesAndArithmeticModuli:A4` — For an abelian variety A over a field k and ℓ ≠ char k: the Galois-equivariant isomorphism H¹_ét(A_{k^sep}, ℤ_ℓ) ≅ Hom(T_ℓA, ℤ_ℓ) (Milne, Abelian Varieties, 12.1 and 12.5). Needed by `frobenius-on-tate-modules-and-first-cohomology`.
 - `DeligneWeightsAndPurity:DWP.1` — The Weil estimate for abelian varieties over 𝔽_q: every root of P_{π_A} has absolute value q^{1/2} at every complex embedding (H¹ pure of weight 1). Needed by `frobenius-on-tate-modules-and-first-cohomology`.
+- `NeronModelsAndSemistableAbelianVarieties:R11.5` — The Néron–Ogg–Shafarevich criterion (an abelian variety over a number field with good reduction at v ∤ p has V_pA unramified at v), and the D_v-equivariant specialization isomorphism V_pA ≅ V_p(A_v), under which the arithmetic Frobenius acts as the Frobenius endomorphism of A_v. Needed by `purity-of-tate-modules-with-good-reduction`.
 
 ## Library baseline
 
@@ -337,8 +402,8 @@ No nodes yet.
 
 - Pierre Deligne, *La conjecture de Weil. I*. Publ. Math. IHÉS 43 (1974), 273–307; Numdam scan with OCR (printed page = PDF page + 271). https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf (SHA-256 `8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5`). Read: cc-fb70e5, 2026-09-29: §1 (1.13)–(1.15), pp. 278–279.
 - Pierre Deligne, *La conjecture de Weil. II*. Publ. Math. IHÉS 52 (1980), 137–252; Numdam scan with OCR (printed page = PDF page + 135). https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf (SHA-256 `b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71`). Read: cc-fb70e5, 2026-09-29: (1.1.10)–(1.1.15), pp. 151–153; §1.2 (1.2.1)–(1.2.8), pp. 153–155.
-- Brian Lawrence and Akshay Venkatesh, *Diophantine problems and p-adic period mappings*. arXiv:1807.02721v3 (25 Oct 2019; published in Invent. Math. 221 (2020)); printed page = PDF page. https://arxiv.org/abs/1807.02721 (SHA-256 `e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b`). Read: cc-fb70e5, 2026-09-29: §2.3–§2.5, pp. 9–14 (Lemmas 2.3–2.10).
-- J. S. Milne, *Abelian Varieties*. Course notes, version 2.00 (March 16, 2008); printed page = PDF page − 6. https://www.jmilne.org/math/CourseNotes/AV.pdf (SHA-256 `f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef`). Read: cc-fb70e5, 2026-09-29: Chapter I §12, pp. 54–56; Chapter II §1, pp. 75–78.
+- Brian Lawrence and Akshay Venkatesh, *Diophantine problems and p-adic period mappings*. arXiv:1807.02721v3 (25 Oct 2019; published in Invent. Math. 221 (2020)); printed page = PDF page. https://arxiv.org/abs/1807.02721 (SHA-256 `e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b`). Read: cc-fb70e5, 2026-09-29: §2.3–§2.5, pp. 9–14 (Lemmas 2.3–2.10); cc-fb70e5, 2026-09-29 (checkpoint 2): §3.1–§3.2, pp. 15–16.
+- J. S. Milne, *Abelian Varieties*. Course notes, version 2.00 (March 16, 2008); printed page = PDF page − 6. https://www.jmilne.org/math/CourseNotes/AV.pdf (SHA-256 `f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef`). Read: cc-fb70e5, 2026-09-29: Chapter I §12, pp. 54–56; Chapter II §1, pp. 75–78; cc-fb70e5, 2026-09-29 (checkpoint 2): Chapter I §17, pp. 69–71.
 
 ## Non-goals
 
