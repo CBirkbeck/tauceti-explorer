@@ -1,3 +1,42 @@
+# BP-AnalyticNumberTheory--AN.0 — checkpoint 2 (Claude Code cc-39fac3)
+
+Claude Code, session `cc-39fac3`, 29 September 2026. Refs #1021; the bot confirmed the claim (comment 5884836949). **Status: partial.**
+
+## Checkpoint 2: AN.4 on top of AL.1
+
+AutomorphicLFunctionsAndLocalFactors AL.1 now plans Tate's thesis (#3918), so AN.4 imports it.
+
+**Sources.**
+- Kedlaya, *Notes on analytic number theory* (same sha256 7a934f…): §§3.3–3.4 (Lemma 3.6, Theorems 3.7–3.11), Exercises 3.6.1–3.6.5 and Chapter 22.
+- Tate's thesis §§4.4–4.5, read on page images for AL.1.
+
+**New AN.4 nodes (6).**
+- `dedekind-zeta-continuation-and-residue` (planet "Analytic class number formula"). Continuation of Mathlib's `NumberField.dedekindZeta`, its residue κ = `dedekindZeta_residue`, Λ_K(1 − s) = Λ_K(s), and ζ_K(−2) = 0.
+- `hecke-primitive-functional-equation` (planet). An identity of meromorphic functions; imprimitive factors are multiplied in, never divided.
+- `landau-nonnegative-logarithm`. Kedlaya's Lemma 3.6, whose proof he leaves as an exercise, planned via 3 + 4cos θ + cos 2θ = 2(1 + cos θ)².
+- `ray-class-product-nonvanishing`.
+- `hecke-nonvanishing-on-line-one` (planet). Kedlaya's Theorems 3.8, 3.10 and 3.11 for ray class characters.
+- `mth-root-gluing`.
+
+**Rewired.**
+- `hecke-L-function-euler-product-comparison` now imports AL.1/global-zeta-integral and completed-hecke-l-function.
+- `artin-induction-versus-artin-holomorphy` now uses the nonvanishing, root-gluing and Dedekind nodes.
+- The gaps "Hecke comparison construction and completed functional equation" and "Hecke nonvanishing and local root gluing" are closed, and removed from AN.4's remaining list.
+- The AL.1 request records which AL.1 nodes are imported.
+
+**Lean.** Six checked examples were added to the suggested file:
+- the 3-4-1 identity and inequality;
+- the two local factors of Kedlaya's ψ;
+- κ(ℚ(i)) = π/4.
+
+The file elaborates against Mathlib 082e2d3 with 0 errors; the only warnings are the 20 existing placeholders.
+
+**Checks.** `check_blueprint.py`: 0 errors, 0 warnings (17 nodes). `intake.py check-files`: 0 problems. Unit tests pass.
+
+**Continue with:**
+- AN.4's Artin Euler-factor carrier: the remaining gap "Artin arithmetic Euler factors and induction adapter".
+- The AN.2 and AN.3 proof decompositions.
+
 # BP-AnalyticNumberTheory--AN.0 — partial checkpoint
 
 Author: Codex — codex-a71f92. Refs #1021.
