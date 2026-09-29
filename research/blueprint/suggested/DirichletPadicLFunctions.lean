@@ -4843,3 +4843,125 @@ example : twistedSmoothedMeasure 2 2 χ 3 (by norm_num)
 end QuadraticFour
 end SuggestedPrimePowerMomentTests
 end DirichletPadic
+
+/-! ## The smoothed complex character kernel -/
+namespace DirichletPadic
+noncomputable section
+open Set Filter Asymptotics
+open scoped BigOperators
+variable {D : ℕ} [NeZero D]
+
+def smoothedCharacterKernel (χ : DirichletCharacter ℂ D) (a : ℕ) (t : ℝ) : ℂ :=
+  -tameComplexKernel χ t + (a : ℂ)*χ (a : ZMod D)*tameComplexKernel χ ((a : ℝ)*t)
+
+lemma smoothedCharacterKernel_def (χ : DirichletCharacter ℂ D) (a : ℕ) (t : ℝ) :
+    smoothedCharacterKernel χ a t =
+      -tameComplexKernel χ t + (a : ℂ)*χ (a : ZMod D)*tameComplexKernel χ ((a : ℝ)*t) := rfl
+
+lemma smoothedCharacterKernel_zero (χ : DirichletCharacter ℂ D) (a : ℕ) :
+    smoothedCharacterKernel χ a 0 = ((a : ℂ)*χ (a : ZMod D)-1) *
+      (-(D : ℂ)⁻¹ * ∑ b : ZMod D, χ b * b.val) := sorry
+
+lemma smoothedCharacterKernel_one (χ : DirichletCharacter ℂ D) :
+    smoothedCharacterKernel χ 1 = fun _ => 0 := sorry
+
+lemma smoothedCharacterKernel_zero_parameter (χ : DirichletCharacter ℂ D) (t : ℝ) :
+    smoothedCharacterKernel χ 0 t = -tameComplexKernel χ t := sorry
+
+theorem smoothedCharacterKernel_analyticAt (χ : DirichletCharacter ℂ D)
+    (a : ℕ) (t : ℝ) : AnalyticAt ℝ (smoothedCharacterKernel χ a) t := sorry
+
+theorem smoothedCharacterKernel_contDiff (χ : DirichletCharacter ℂ D) (a : ℕ) :
+    ContDiff ℝ (⊤ : ℕ∞) (smoothedCharacterKernel χ a) := sorry
+
+theorem smoothedCharacterKernel_iteratedDeriv (χ : DirichletCharacter ℂ D)
+    (a k : ℕ) (t : ℝ) :
+    iteratedDeriv k (smoothedCharacterKernel χ a) t =
+      -iteratedDeriv k (tameComplexKernel χ) t +
+        (a : ℂ)^(k+1)*χ (a : ZMod D)*iteratedDeriv k (tameComplexKernel χ) ((a : ℝ)*t) := sorry
+
+theorem smoothedCharacterKernel_iteratedDeriv_zero_eq_LFunction
+    (χ : DirichletCharacter ℂ D) (hχ : χ ≠ 1) (a k : ℕ) :
+    iteratedDeriv k (smoothedCharacterKernel χ a) 0 =
+      (χ (a : ZMod D)*(a : ℂ)^(k+1)-1)*χ.LFunction (-(k : ℂ)) := sorry
+
+theorem smoothedCharacterKernel_iteratedDerivWithin_zero_eq_LFunction
+    (χ : DirichletCharacter ℂ D) (hχ : χ ≠ 1) (a k : ℕ) :
+    iteratedDerivWithin k (smoothedCharacterKernel χ a) (Ici 0) 0 =
+      (χ (a : ZMod D)*(a : ℂ)^(k+1)-1)*χ.LFunction (-(k : ℂ)) := sorry
+
+theorem smoothedCharacterKernel_within_decay (χ : DirichletCharacter ℂ D)
+    (hχ : χ ≠ 1) (a : ℕ) (ha : 0<a) (k : ℕ) :
+    iteratedDerivWithin k (smoothedCharacterKernel χ a) (Ici 0) =O[atTop]
+      (fun t : ℝ => Real.exp (-t)) := sorry
+
+theorem smoothedCharacterKernel_eq_gauss (p : ℕ) [Fact p.Prime]
+    (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter ℂ (p^n)) (hχ : χ.IsPrimitive)
+    (ε : ℂ) (hε : IsPrimitiveRoot ε (p^n))
+    (hG : gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+    (a : ℕ) (ha : ¬p∣a) (t : ℝ) :
+    smoothedCharacterKernel χ a t =
+      (gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one))⁻¹ *
+      ∑ c : ZMod (p^n), χ⁻¹ c *
+        ((ε^c.val*(Real.exp t : ℂ)-1)⁻¹ -
+          (a : ℂ)*((ε^c.val)^a*(Real.exp ((a : ℝ)*t) : ℂ)-1)⁻¹) := sorry
+
+namespace SuggestedSmoothedComplexTests
+-- kernel_level_one
+example (t : ℝ) : smoothedCharacterKernel (1 : DirichletCharacter ℂ 1) 3 t = 0 := sorry
+-- kernel_quadratic_three_mass
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    smoothedCharacterKernel χ 4 0 = 1 := sorry
+-- kernel_quadratic_four_mass
+example (χ : DirichletCharacter ℂ 4) (hχ : χ 3 = -1) :
+    smoothedCharacterKernel χ 3 0 = -2 := sorry
+-- kernel_one_parameter
+example (χ : DirichletCharacter ℂ D) : smoothedCharacterKernel χ 1 = fun _ => 0 := sorry
+-- kernel_zero_parameter
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    smoothedCharacterKernel χ 0 0 = -1/3 := sorry
+-- regularity_principal_origin
+example : AnalyticAt ℝ (smoothedCharacterKernel (1 : DirichletCharacter ℂ 3) 2) 0 := sorry
+-- derivative_order_zero
+example (χ : DirichletCharacter ℂ D) (a : ℕ) (t : ℝ) :
+    iteratedDeriv 0 (smoothedCharacterKernel χ a) t =
+      -tameComplexKernel χ t + (a : ℂ)*χ (a : ZMod D)*tameComplexKernel χ ((a : ℝ)*t) := sorry
+-- derivative_one_parameter
+example (χ : DirichletCharacter ℂ D) (k : ℕ) :
+    iteratedDeriv k (smoothedCharacterKernel χ 1) = fun _ => 0 := sorry
+-- derivative_quadratic_three_second
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    iteratedDeriv 2 (smoothedCharacterKernel χ 4) 0 = -14 := sorry
+-- derivative_quadratic_four_second
+example (χ : DirichletCharacter ℂ 4) (hχ : χ 3 = -1) :
+    iteratedDeriv 2 (smoothedCharacterKernel χ 3) 0 = 14 := sorry
+-- derivative_even_character_first
+example (χ : DirichletCharacter ℂ 5) (hχ : χ 2 = -1) :
+    iteratedDeriv 1 (smoothedCharacterKernel χ 6) 0 = -14 := sorry
+-- decay_one_parameter
+example (χ : DirichletCharacter ℂ D) (k : ℕ) :
+    iteratedDerivWithin k (smoothedCharacterKernel χ 1) (Ici 0) =O[atTop]
+      (fun t : ℝ => Real.exp (-t)) := sorry
+-- decay_quadratic_three
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    Tendsto (smoothedCharacterKernel χ 4) atTop (nhds 0) := sorry
+-- gauss_one_parameter
+example (p : ℕ) [Fact p.Prime] (n : ℕ) (χ : DirichletCharacter ℂ (p^n))
+    (ε : ℂ) (hε : IsPrimitiveRoot ε (p^n)) (t : ℝ) :
+    (gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one))⁻¹ *
+      ∑ c : ZMod (p^n), χ⁻¹ c *
+        ((ε^c.val*(Real.exp t : ℂ)-1)⁻¹ -
+          (1 : ℂ)*((ε^c.val)^1*(Real.exp ((1 : ℝ)*t) : ℂ)-1)⁻¹) = 0 := sorry
+-- gauss_zero_residue
+example (χ : DirichletCharacter ℂ 3) (a : ℕ) (t : ℝ) :
+    χ⁻¹ (0 : ZMod 3) * ((Real.exp t-1 : ℂ)⁻¹-
+      (a : ℂ)*(Real.exp ((a : ℝ)*t)-1 : ℂ)⁻¹) = 0 := sorry
+-- kernel_quadratic_three_log_two
+example (χ : DirichletCharacter ℂ 3) (hχ : χ 2 = -1) :
+    smoothedCharacterKernel χ 4 (Real.log 2) = -2/39 := sorry
+-- kernel_quadratic_four_log_two
+example (χ : DirichletCharacter ℂ 4) (hχ : χ 3 = -1) :
+    smoothedCharacterKernel χ 3 (Real.log 2) = -10/13 := sorry
+end SuggestedSmoothedComplexTests
+end
+end DirichletPadic
