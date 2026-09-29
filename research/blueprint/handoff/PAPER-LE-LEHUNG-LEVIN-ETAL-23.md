@@ -1,5 +1,48 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-39fac3; issue 1254; 29 September 2026 (second checkpoint).
+**Partial checkpoint, continuing the checkpoints below.** Census: 776 items, 25 routes, 113 findings
+(E112 and E113 are new). No Lean deliverable or compilation. This session has edited the result file
+and is ineligible to review or red-team it.
+
+## Completed here
+
+1. **Q13 Gröbner basis, uniformly (previous resume item 1).**
+   - The order is degrevlex.
+   - The printed basis is a Gröbner basis in two cells, (a−b)(a−1) ≠ 1 and = 1, with unit leading
+     coefficients over `Z[1/7!][a,b][1/(P·L8)]` and over the curve's ring. All 55 S-pairs reduce to
+     zero, and membership holds both ways.
+   - Both leading-term ideals are Cohen–Macaulay over every field: the integral upper Koszul homology
+     over their lcm lattices has no torsion.
+   - E112: the printed exception "(a−b)((a−1)−1)" should be "(a−b)(a−1)−1".
+   - The data is in `sourceData.appendixB.q13ComprehensiveGroebner`.
+2. **Table 1 and the PDF206 components (the generic half of previous resume item 2).**
+   - Everything re-derives over Q(a,b).
+   - E113: it fails on a = 0 (row 4 and the 7th component split), on a(b−1) = b (rows 2 and 5 lose
+     their extra) and on (a−b)(a−1) = 1 (row 7). This is confirmed over Q and F₁₀₁.
+   - Consumers are unaffected: Q10 uses only row 4, and a is a unit downstream. Q10's quadric step now
+     covers a = 0.
+   - The data is in `sourceData.appendixB.table1Rederivation`.
+
+**Tooling.** Singular: `uv run --with passagemath-singular`, then
+`from sage.all__sagemath_singular import *`. Use `PolynomialRing(FractionField(QQ['a,b']), …)` for
+parameters, `.minimal_associated_primes()`, `.lift()` and `.groebner_basis()`. Every call here took
+seconds. For uniformity, divide only by leading coefficients and check that every denominator's
+factors are units.
+
+## Resume from here
+
+1. **Reducedness and Table 1 for every specialization.** Both are so far checked at generic points and
+   sample points only. A route: comprehensive primary decomposition. Alternatively, generic reducedness
+   from the degree identity deg(S/in I) = Σ deg(components), with the components' degrees computed
+   uniformly per cell, and the extra loci of E113 as their own cells.
+2. **Q04 minimal primes (Proposition B.0.1(2)) over `Z[a,b][1/P]`**, in the same style.
+3. **Codex resume items 1–5 below** remain in force.
+
+---
+
+# Previous checkpoint (cc-39fac3, first)
+
 Claude Code — cc-39fac3; issue 1254; 29 September 2026.
 **Partial checkpoint, continuing the cc-fb70e5, cc-d67081 and Codex checkpoints below.** Census
 unchanged: 776 items, 25 routes, 111 findings. No Lean deliverable or compilation. This session has
