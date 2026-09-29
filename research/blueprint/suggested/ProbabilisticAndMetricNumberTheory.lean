@@ -5,7 +5,7 @@ import Mathlib.Data.ZMod.QuotientRing
 /-
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: GPT-6 Astra Pro (astra-20260926-pm-83c1), Codex (codex-a71f92), Claude Code (cc-fb70e5)
+Authors: GPT-6 Astra Pro (astra-20260926-pm-83c1), Codex (codex-a71f92), Claude Code (cc-fb70e5), Claude Code (cc-39fac3)
 -/
 import Mathlib.NumberTheory.ArithmeticFunction.Misc
 import Mathlib.Data.Nat.Factorization.Basic
@@ -32,6 +32,13 @@ import Mathlib.Probability.Distributions.Uniform
 import Mathlib.Analysis.Real.Sqrt
 import Mathlib.Algebra.Ring.Periodic
 import Mathlib.Data.Matrix.Mul
+import Mathlib.NumberTheory.WellApproximable
+import Mathlib.NumberTheory.Real.Irrational
+import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+import Mathlib.Order.LiminfLimsup
+import Mathlib.Data.Nat.Totient
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
 
 /-!
 # Suggested finite arithmetic probability signatures
@@ -1584,3 +1591,573 @@ end TorusContinuation
 end Continuation
 
 end TauCeti.Equidistribution
+
+/-!
+## PM.3: metric Diophantine approximation — the Duffin–Schaeffer theorem
+
+Checkpoint by Claude Code (cc-39fac3), following Koukoulopoulos–Maynard, *On the
+Duffin–Schaeffer conjecture*, Ann. of Math. 192 (2020), 251–307 (arXiv:1907.04593v3).
+This section imports Mathlib only; Gallagher's zero-one law is Mathlib's
+`AddCircle.addWellApproximable_ae_empty_or_univ`, and Borel–Cantelli is
+`MeasureTheory.measure_limsup_atTop_eq_zero`.
+-/
+
+namespace TauCeti.DuffinSchaeffer
+
+open MeasureTheory Filter Topology
+open scoped ENNReal
+
+/-! ### Approximation sets -/
+
+/-- PM.3/duffin-schaeffer-sets. `𝒜_q = [0,1] ∩ ⋃_{1≤a≤q, (a,q)=1} [a/q − ψ(q)/q, a/q + ψ(q)/q]`,
+Koukoulopoulos–Maynard (1.3). -/
+def dsSet (ψ : ℕ → ℝ) (q : ℕ) : Set ℝ :=
+  Set.Icc 0 1 ∩ ⋃ a ∈ (Finset.Icc 1 q).filter (fun a => Nat.Coprime a q),
+    Set.Icc ((a : ℝ) / q - ψ q / q) ((a : ℝ) / q + ψ q / q)
+
+/-- PM.3/duffin-schaeffer-sets, data: `𝒜 = limsup 𝒜_q` (1.4). -/
+def dsLimsup (ψ : ℕ → ℝ) : Set ℝ :=
+  limsup (dsSet ψ) atTop
+
+/-- PM.3/duffin-schaeffer-sets, data: Khinchin's `𝒦_q` of (1.2), with every `0 ≤ a ≤ q`. -/
+def khinchinSet (ψ : ℕ → ℝ) (q : ℕ) : Set ℝ :=
+  Set.Icc 0 1 ∩ ⋃ a ∈ Finset.range (q + 1),
+    Set.Icc ((a : ℝ) / q - ψ q / q) ((a : ℝ) / q + ψ q / q)
+
+/-- PM.3/duffin-schaeffer-sets, data: `𝒦 = limsup 𝒦_q`. -/
+def khinchinLimsup (ψ : ℕ → ℝ) : Set ℝ :=
+  limsup (khinchinSet ψ) atTop
+
+/-- PM.3/duffin-schaeffer-sets, API: the union bound `λ(𝒜_q) ≤ 2φ(q)ψ(q)/q`. -/
+theorem volume_dsSet_le (ψ : ℕ → ℝ) (hψ : ∀ q, 0 ≤ ψ q) (q : ℕ) :
+    volume (dsSet ψ q) ≤ ENNReal.ofReal (2 * q.totient * ψ q / q) := by
+  sorry
+
+/-- PM.3/duffin-schaeffer-sets, API: `λ(𝒜_q) ≥ φ(q)ψ(q)/q` when `ψ(q) ≤ 1/2`. -/
+theorem le_volume_dsSet (ψ : ℕ → ℝ) (q : ℕ) (hq : 1 ≤ q) (h0 : 0 ≤ ψ q) (h1 : ψ q ≤ 1 / 2) :
+    ENNReal.ofReal (q.totient * ψ q / q) ≤ volume (dsSet ψ q) := by
+  sorry
+
+/-- PM.3/duffin-schaeffer-sets, API: monotone in `ψ`. -/
+theorem dsSet_mono {ψ ψ' : ℕ → ℝ} (h : ∀ q, ψ q ≤ ψ' q) (q : ℕ) : dsSet ψ q ⊆ dsSet ψ' q := by
+  sorry
+
+/-- PM.3/duffin-schaeffer-sets, API: reduced fractions are among all fractions. -/
+theorem dsSet_subset_khinchinSet (ψ : ℕ → ℝ) (q : ℕ) : dsSet ψ q ⊆ khinchinSet ψ q := by
+  sorry
+
+/-- PM.3/duffin-schaeffer-sets, API: Mathlib's open-ball well-approximable set on the circle,
+pulled back to `[0,1]`, lies in `𝒜`. -/
+theorem mem_dsLimsup_of_mem_addWellApproximable (ψ : ℕ → ℝ) {x : ℝ} (hx : x ∈ Set.Icc 0 1)
+    (h : (x : UnitAddCircle) ∈ addWellApproximable UnitAddCircle (fun n => ψ n / n)) :
+    x ∈ dsLimsup ψ := by
+  sorry
+
+/-- PM.3/duffin-schaeffer-sets, API: an irrational point of `𝒜` is `2ψ`-well-approximable on
+the circle. -/
+theorem mem_addWellApproximable_of_mem_dsLimsup (ψ : ℕ → ℝ) {x : ℝ} (hx : Irrational x)
+    (h : x ∈ dsLimsup ψ) :
+    (x : UnitAddCircle) ∈ addWellApproximable UnitAddCircle (fun n => 2 * ψ n / n) := by
+  sorry
+
+example : dsSet (fun _ => 1 / 2) 1 = Set.Icc (1 / 2) 1 := by
+  sorry
+
+example : dsSet (fun _ => 1 / 2) 2 = Set.Icc (1 / 4) (3 / 4) := by
+  sorry
+
+example (q : ℕ) : volume (dsSet (fun _ => 0) q) = 0 := by
+  sorry
+
+example : (0 : ℝ) ∈ khinchinSet (fun _ => 1 / 2) 2 ∧ (0 : ℝ) ∉ dsSet (fun _ => 1 / 2) 2 := by
+  sorry
+
+/-! ### The main theorems -/
+
+/-- PM.3/duffin-schaeffer-convergence. (1.5): convergence gives measure zero. -/
+theorem volume_dsLimsup_eq_zero (ψ : ℕ → ℝ) (hψ : ∀ q, 0 ≤ ψ q)
+    (hsum : Summable fun q : ℕ => (q.totient : ℝ) * ψ q / q) : volume (dsLimsup ψ) = 0 := by
+  sorry
+
+/-- PM.3/duffin-schaeffer-theorem. Koukoulopoulos–Maynard Theorem 1. -/
+theorem volume_dsLimsup_eq_one (ψ : ℕ → ℝ) (hψ : ∀ q, 0 ≤ ψ q)
+    (hdiv : ¬ Summable fun q : ℕ => (q.totient : ℝ) * ψ q / q) : volume (dsLimsup ψ) = 1 := by
+  sorry
+
+/-- PM.3/catlin-theorem. Koukoulopoulos–Maynard Theorem 2 (Catlin's conjecture), with
+`ψ*(q) = φ(q) sup_{q ∣ n} ψ(n)/n` valued in `[0, ∞]`. -/
+theorem catlin (ψ : ℕ → ℝ) (hψ : ∀ q, 0 ≤ ψ q) :
+    let ψstar : ℕ → ℝ≥0∞ := fun q =>
+      (q.totient : ℝ≥0∞) * ⨆ n : ℕ, ⨆ (_ : 0 < n ∧ q ∣ n), ENNReal.ofReal (ψ n / n)
+    ((∑' q, ψstar q) < ∞ → volume (khinchinLimsup ψ) = 0) ∧
+      ((∑' q, ψstar q) = ∞ → volume (khinchinLimsup ψ) = 1) := by
+  sorry
+
+/-- PM.3/catlin-reduction. (2.2): with `ξ(q)/q = max_{q ∣ n} ψ(n)/n`, the reduced-fraction
+limsup for `ξ` and the Khinchin limsup for `ψ` agree off the rationals, when `ψ ≤ 1/2`. -/
+theorem catlin_reduction (ψ ξ : ℕ → ℝ) (hψ : ∀ q, 0 ≤ ψ q ∧ ψ q ≤ 1 / 2)
+    (hξ : ∀ q, 0 < q → IsGreatest {r | ∃ n, 0 < n ∧ q ∣ n ∧ r = ψ n / n} (ξ q / q)) :
+    dsLimsup ξ \ Set.range ((↑) : ℚ → ℝ) = khinchinLimsup ψ \ Set.range ((↑) : ℚ → ℝ) := by
+  sorry
+
+/-- PM.3/decreasing-series-comparison. If `ψ ≥ 0` is decreasing and `∑ ψ(q) = ∞`, then
+`∑ φ(q)ψ(q)/q = ∞`. -/
+theorem not_summable_totient_mul_of_antitone (ψ : ℕ → ℝ) (hψ : ∀ q, 0 ≤ ψ q)
+    (hanti : Antitone ψ) (hdiv : ¬ Summable ψ) :
+    ¬ Summable fun q : ℕ => (q.totient : ℝ) * ψ q / q := by
+  sorry
+
+/-- PM.3/khinchin-theorem. Khinchin's theorem for `qψ(q)` decreasing. -/
+theorem khinchin (ψ : ℕ → ℝ) (hψ : ∀ q, 0 ≤ ψ q)
+    (hmono : ∀ q r : ℕ, 1 ≤ q → q ≤ r → (r : ℝ) * ψ r ≤ q * ψ q) :
+    (Summable ψ → volume (khinchinLimsup ψ) = 0) ∧
+      (¬ Summable ψ → volume (khinchinLimsup ψ) = 1) := by
+  sorry
+
+/-! ### Section 5: reduction to a second-moment bound -/
+
+/-- PM.3/second-moment-union-bound. For a finite family, `λ(⋃ Aᵢ) · ∑ λ(Aᵢ ∩ Aⱼ) ≥ (∑ λ(Aᵢ))²`
+(Cauchy–Schwarz applied to the counting function). -/
+theorem sq_sum_volume_le (s : Finset ℕ) (A : ℕ → Set ℝ) (hA : ∀ i, MeasurableSet (A i))
+    (hfin : ∀ i, volume (A i) ≠ ∞) :
+    (∑ i ∈ s, volume (A i)) ^ 2 ≤
+      volume (⋃ i ∈ s, A i) * ∑ i ∈ s, ∑ j ∈ s, volume (A i ∩ A j) := by
+  sorry
+
+/-- PM.3/duffin-schaeffer-large-values. Koukoulopoulos–Maynard Lemma 5.2 (Pollington–Vaughan
+Theorem 2): the conjecture when every nonzero value of `ψ` is at least `1/2`. -/
+theorem volume_dsLimsup_eq_one_of_large (ψ : ℕ → ℝ) (hψ : ∀ q, ψ q = 0 ∨ 1 / 2 ≤ ψ q)
+    (hdiv : ¬ Summable fun q : ℕ => (q.totient : ℝ) * ψ q / q) : volume (dsLimsup ψ) = 1 := by
+  sorry
+
+/-- PM.3/overlap-estimate. Koukoulopoulos–Maynard Lemma 5.3 (Pollington–Vaughan), with the
+indicator corrected to `2M(q,r) ≥ gcd(q,r)` (finding E10). -/
+theorem volume_dsSet_inter_le :
+    ∃ C : ℝ, ∀ (ψ : ℕ → ℝ), (∀ q, 0 ≤ ψ q ∧ ψ q ≤ 1 / 2) → ∀ q r : ℕ, 1 ≤ q → 1 ≤ r → q ≠ r →
+      let M : ℝ := max (r * ψ q) (q * ψ r)
+      (volume (dsSet ψ q ∩ dsSet ψ r)).toReal ≤
+        C * (volume (dsSet ψ q)).toReal * (volume (dsSet ψ r)).toReal *
+          (if (Nat.gcd q r : ℝ) ≤ 2 * M then
+            ∏ p ∈ (q * r / Nat.gcd q r ^ 2).primeFactors.filter (fun p : ℕ => M / Nat.gcd q r < (p : ℝ)),
+              (1 + 1 / (p : ℝ)) else 0) := by
+  sorry
+
+/-- PM.3/second-moment-bound. Koukoulopoulos–Maynard Proposition 5.4, with
+`L_t(v,w) = ∑_{p ∣ vw/gcd(v,w)², p ≥ t} 1/p`. -/
+theorem second_moment_bound :
+    ∃ C : ℝ, ∀ (ψ : ℕ → ℝ), (∀ q, 0 ≤ ψ q ∧ ψ q ≤ 1 / 2) → ∀ X Y : ℕ, 1 ≤ X → X ≤ Y →
+      1 ≤ (∑ q ∈ Finset.Icc X Y, ψ q * q.totient / q) →
+      (∑ q ∈ Finset.Icc X Y, ψ q * q.totient / q) ≤ 2 → ∀ t : ℝ, 1 ≤ t →
+      (∑ vw ∈ (Finset.Icc X Y ×ˢ Finset.Icc X Y).filter (fun vw : ℕ × ℕ =>
+          max (vw.1 * ψ vw.2) (vw.2 * ψ vw.1) ≤ t * Nat.gcd vw.1 vw.2 ∧
+          10 ≤ ∑ p ∈ (vw.1 * vw.2 / Nat.gcd vw.1 vw.2 ^ 2).primeFactors.filter
+            (fun p : ℕ => t ≤ (p : ℝ)), 1 / (p : ℝ)),
+        (vw.1.totient * ψ vw.1 / vw.1) * (vw.2.totient * ψ vw.2 / vw.2)) ≤ C / t := by
+  sorry
+
+/-! ### Section 6: GCD graphs -/
+
+/-- PM.3/gcd-graph. Koukoulopoulos–Maynard Definition 6.1: a weighted bipartite graph on finite
+sets of positive integers with multiplicative data `(P, f, g)`. The set of primes is finite, as
+it is throughout the iteration. -/
+structure GCDGraph where
+  μ : ℕ → ℝ
+  μ_nonneg : ∀ n, 0 ≤ μ n
+  V : Finset ℕ
+  W : Finset ℕ
+  E : Finset (ℕ × ℕ)
+  E_subset : E ⊆ V ×ˢ W
+  pos_of_mem_V : ∀ v ∈ V, 0 < v
+  pos_of_mem_W : ∀ w ∈ W, 0 < w
+  P : Finset ℕ
+  prime_of_mem_P : ∀ p ∈ P, p.Prime
+  f : ℕ → ℕ
+  g : ℕ → ℕ
+  pow_dvd_V : ∀ p ∈ P, ∀ v ∈ V, p ^ f p ∣ v
+  pow_dvd_W : ∀ p ∈ P, ∀ w ∈ W, p ^ g p ∣ w
+  factorization_gcd : ∀ p ∈ P, ∀ e ∈ E, (Nat.gcd e.1 e.2).factorization p = min (f p) (g p)
+  factorization_V : ∀ p ∈ P, f p ≠ g p → ∀ v ∈ V, v.factorization p = f p
+  factorization_W : ∀ p ∈ P, f p ≠ g p → ∀ w ∈ W, w.factorization p = g p
+
+namespace GCDGraph
+
+variable (G : GCDGraph)
+
+/-- PM.3/gcd-graph, data: `μ(𝒮) = ∑_{n ∈ 𝒮} μ(n)`. -/
+def vertexMeasure (S : Finset ℕ) : ℝ := ∑ n ∈ S, G.μ n
+
+/-- PM.3/gcd-graph, data: `μ(𝒩) = ∑_{(n₁,n₂) ∈ 𝒩} μ(n₁)μ(n₂)`. -/
+def edgeMeasure (N : Finset (ℕ × ℕ)) : ℝ := ∑ e ∈ N, G.μ e.1 * G.μ e.2
+
+/-- PM.3/gcd-graph, data: Definition 6.2, `μ(ℰ) > 0`. -/
+def IsNontrivial : Prop := 0 < G.edgeMeasure G.E
+
+/-- PM.3/gcd-graph, data: Definition 6.4, `G' ⪯ G`. -/
+def IsSubgraph (G' : GCDGraph) : Prop :=
+  G'.μ = G.μ ∧ G'.V ⊆ G.V ∧ G'.W ⊆ G.W ∧ G'.E ⊆ G.E ∧ G.P ⊆ G'.P ∧
+    ∀ p ∈ G.P, G'.f p = G.f p ∧ G'.g p = G.g p
+
+/-- PM.3/gcd-graph-quality, data: the edge density `δ(G)`, zero when a vertex set has
+measure zero. -/
+def edgeDensity : ℝ :=
+  if G.vertexMeasure G.V = 0 ∨ G.vertexMeasure G.W = 0 then 0
+  else G.edgeMeasure G.E / (G.vertexMeasure G.V * G.vertexMeasure G.W)
+
+/-- PM.3/gcd-graph-quality, data: the neighbourhood of `v ∈ 𝒱`. -/
+def nbhdV (v : ℕ) : Finset ℕ := (G.W).filter (fun w => (v, w) ∈ G.E)
+
+/-- PM.3/gcd-graph-quality, data: the neighbourhood of `w ∈ 𝒲`. -/
+def nbhdW (w : ℕ) : Finset ℕ := (G.V).filter (fun v => (v, w) ∈ G.E)
+
+/-- PM.3/gcd-graph-quality, data: `ℛ(G)`, primes outside `𝒫` dividing the gcd of an edge. -/
+def R : Finset ℕ :=
+  (G.E.biUnion fun e => (Nat.gcd e.1 e.2).primeFactors).filter (fun p => p ∉ G.P)
+
+/-- PM.3/gcd-graph-quality, data: `𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}`. -/
+def Vpow (p k : ℕ) : Finset ℕ := (G.V).filter (fun v => v.factorization p = k)
+
+/-- PM.3/gcd-graph-quality, data: `𝒲_{p^k}`. -/
+def Wpow (p k : ℕ) : Finset ℕ := (G.W).filter (fun w => w.factorization p = k)
+
+/-- PM.3/gcd-graph-quality, data: `ℛ♯(G)`, primes of `ℛ(G)` for which one exact power `p^k`
+holds on a proportion at least `1 − 10⁴⁰/p` of both vertex sets. -/
+def RSharp : Finset ℕ :=
+  G.R.filter (fun p => ∃ k ≤ (G.V ∪ G.W).sup id,
+    (1 - 10 ^ 40 / (p : ℝ)) * G.vertexMeasure G.V ≤ G.vertexMeasure (G.Vpow p k) ∧
+    (1 - 10 ^ 40 / (p : ℝ)) * G.vertexMeasure G.W ≤ G.vertexMeasure (G.Wpow p k))
+
+/-- PM.3/gcd-graph-quality, data: `ℛ♭(G) = ℛ(G) \ ℛ♯(G)`. -/
+def RFlat : Finset ℕ := G.R \ G.RSharp
+
+/-- PM.3/gcd-graph-quality. Definition 6.6(d): the quality
+`q(G) = δ¹⁰ μ(𝒱) μ(𝒲) ∏_{p ∈ 𝒫} p^{|f(p) − g(p)|} / ((1 − 𝟙_{f(p)=g(p)≥1}/p)² (1 − p^{−31/30})¹⁰)`. -/
+def quality : ℝ :=
+  G.edgeDensity ^ 10 * G.vertexMeasure G.V * G.vertexMeasure G.W *
+    ∏ p ∈ G.P, (p : ℝ) ^ (Int.natAbs ((G.f p : ℤ) - G.g p)) /
+      ((1 - (if G.f p = G.g p ∧ 1 ≤ G.f p then 1 / (p : ℝ) else 0)) ^ 2 *
+        (1 - (p : ℝ) ^ (-(31 / 30 : ℝ))) ^ 10)
+
+/-- PM.3/gcd-graph, API: Lemma 6.7(a), the subgraph relation is transitive. -/
+theorem IsSubgraph.trans {G₁ G₂ G₃ : GCDGraph} (h₁ : G₂.IsSubgraph G₁) (h₂ : G₃.IsSubgraph G₂) :
+    G₃.IsSubgraph G₁ := by
+  sorry
+
+/-- PM.3/gcd-graph, API: every GCD graph is a subgraph of itself. -/
+theorem IsSubgraph.refl : G.IsSubgraph G := by
+  sorry
+
+/-- PM.3/gcd-graph, API: Lemma 6.7(b), `ℛ` is monotone along subgraphs. -/
+theorem R_subset_of_isSubgraph {G' : GCDGraph} (h : G.IsSubgraph G') : G'.R ⊆ G.R := by
+  sorry
+
+/-- PM.3/gcd-graph, API: Lemma 6.7(c), a non-trivial graph has vertex sets of positive
+measure. -/
+theorem vertexMeasure_pos_of_isNontrivial (h : G.IsNontrivial) :
+    0 < G.vertexMeasure G.V ∧ 0 < G.vertexMeasure G.W := by
+  sorry
+
+/-- PM.3/gcd-graph-quality, API: Lemma 6.7(d), non-trivial iff positive density iff positive
+quality. -/
+theorem isNontrivial_iff : (G.IsNontrivial ↔ 0 < G.edgeDensity) ∧
+    (G.IsNontrivial ↔ 0 < G.quality) := by
+  sorry
+
+/-- PM.3/gcd-graph-quality, API: the remark after Definition 6.6,
+`q(G) = μ(ℰ)¹⁰/(μ(𝒱)⁹ μ(𝒲)⁹) ∏ …` when both vertex sets have positive measure. -/
+theorem quality_eq (hV : 0 < G.vertexMeasure G.V) (hW : 0 < G.vertexMeasure G.W) :
+    G.quality = G.edgeMeasure G.E ^ 10 / (G.vertexMeasure G.V ^ 9 * G.vertexMeasure G.W ^ 9) *
+      ∏ p ∈ G.P, (p : ℝ) ^ (Int.natAbs ((G.f p : ℤ) - G.g p)) /
+        ((1 - (if G.f p = G.g p ∧ 1 ≤ G.f p then 1 / (p : ℝ) else 0)) ^ 2 *
+          (1 - (p : ℝ) ^ (-(31 / 30 : ℝ))) ^ 10) := by
+  sorry
+
+/-- PM.3/gcd-graph-quality, API: `δ ≤ 1` when `μ` weights are at most the vertex measures,
+here for the edge sets inside `𝒱 × 𝒲`. -/
+theorem edgeDensity_le_one : G.edgeDensity ≤ 1 := by
+  sorry
+
+/-- PM.3/gcd-graph-special-subgraph. Definition 6.5(c): `G_{p^k,p^ℓ}`, restricting to
+`𝒱_{p^k}`, `𝒲_{p^ℓ}` and recording `f(p) = k`, `g(p) = ℓ`. -/
+def restrictPow (p k ℓ : ℕ) (hp : p.Prime) (hpP : p ∉ G.P) : GCDGraph where
+  μ := G.μ
+  μ_nonneg := G.μ_nonneg
+  V := G.Vpow p k
+  W := G.Wpow p ℓ
+  E := G.E.filter (fun e => e.1 ∈ G.Vpow p k ∧ e.2 ∈ G.Wpow p ℓ)
+  E_subset := by sorry
+  pos_of_mem_V := by sorry
+  pos_of_mem_W := by sorry
+  P := insert p G.P
+  prime_of_mem_P := by sorry
+  f := Function.update G.f p k
+  g := Function.update G.g p ℓ
+  pow_dvd_V := by sorry
+  pow_dvd_W := by sorry
+  factorization_gcd := by sorry
+  factorization_V := by sorry
+  factorization_W := by sorry
+
+/-- PM.3/gcd-graph-special-subgraph, API: `G_{p^k,p^ℓ} ⪯ G`. -/
+theorem restrictPow_isSubgraph (p k ℓ : ℕ) (hp : p.Prime) (hpP : p ∉ G.P) :
+    G.IsSubgraph (G.restrictPow p k ℓ hp hpP) := by
+  sorry
+
+/-- PM.3/gcd-graph-special-subgraph, API: `p` joins the primes and leaves `ℛ`. -/
+theorem R_restrictPow (p k ℓ : ℕ) (hp : p.Prime) (hpP : p ∉ G.P) :
+    (G.restrictPow p k ℓ hp hpP).R ⊆ G.R.erase p := by
+  sorry
+
+/-- PM.3/special-subgraph-quality-ratio. Koukoulopoulos–Maynard Lemma 11.1, for any prime
+`p ∉ 𝒫` (the source assumes `p ∈ ℛ(G)`; see finding E13). -/
+theorem quality_restrictPow (p k ℓ : ℕ) (hp : p.Prime) (hpP : p ∉ G.P) (hG : G.IsNontrivial)
+    (hV : 0 < G.vertexMeasure (G.Vpow p k)) (hW : 0 < G.vertexMeasure (G.Wpow p ℓ)) :
+    (G.restrictPow p k ℓ hp hpP).quality / G.quality =
+      ((G.restrictPow p k ℓ hp hpP).edgeMeasure (G.restrictPow p k ℓ hp hpP).E /
+          G.edgeMeasure G.E) ^ 10 *
+        (G.vertexMeasure G.V / G.vertexMeasure (G.Vpow p k)) ^ 9 *
+        (G.vertexMeasure G.W / G.vertexMeasure (G.Wpow p ℓ)) ^ 9 *
+        ((p : ℝ) ^ (Int.natAbs ((k : ℤ) - ℓ)) /
+          ((1 - (if k = ℓ ∧ 1 ≤ k then 1 / (p : ℝ) else 0)) ^ 2 *
+            (1 - (p : ℝ) ^ (-(31 / 30 : ℝ))) ^ 10)) := by
+  sorry
+
+example (hE : G.E = {(2, 3)}) (hμ : G.μ = fun _ => 1) : G.edgeMeasure G.E = 1 := by
+  sorry
+
+example (hE : G.E = ∅) : ¬ G.IsNontrivial := by
+  sorry
+
+example : ∀ p ∈ G.P, ∀ e ∈ G.E, ¬ p ^ (min (G.f p) (G.g p) + 1) ∣ Nat.gcd e.1 e.2 := by
+  sorry
+
+example (hE : G.E = ∅) : G.quality = 0 := by
+  sorry
+
+example (hP : G.P = ∅) (hV : 0 < G.vertexMeasure G.V) (hW : 0 < G.vertexMeasure G.W) :
+    G.quality = G.edgeDensity ^ 9 * G.edgeMeasure G.E := by
+  sorry
+
+example (hcop : ∀ e ∈ G.E, Nat.gcd e.1 e.2 = 1) : G.R = ∅ := by
+  sorry
+
+example (hp : (2 : ℕ).Prime) (hpP : 2 ∉ G.P) :
+    (G.restrictPow 2 0 0 hp hpP).V = G.V.filter (fun v => ¬ 2 ∣ v) := by
+  sorry
+
+example (p : ℕ) (hp : p.Prime) (hpP : p ∉ G.P) (k ℓ : ℕ) (hkℓ : k ≠ ℓ) :
+    ∀ v ∈ (G.restrictPow p k ℓ hp hpP).V, v.factorization p = k := by
+  sorry
+
+example (p k ℓ : ℕ) (hp : p.Prime) (hpP : p ∉ G.P) (hV : G.Vpow p k = ∅) :
+    (G.restrictPow p k ℓ hp hpP).quality = 0 := by
+  sorry
+
+/-! ### Section 7: reduction to a good GCD subgraph -/
+
+/-- PM.3/edge-set-bound. Koukoulopoulos–Maynard Proposition 6.3, with `μ(v) = ψ(v)φ(v)/v`,
+trivial primes and `ℰ ⊆ ℰ_t`. -/
+theorem edgeMeasure_le_of_Et :
+    ∃ C : ℝ, ∀ (G : GCDGraph) (ψ : ℕ → ℝ) (t : ℝ), 1 ≤ t → G.P = ∅ → G.W = G.V →
+      (∀ v, G.μ v = ψ v * v.totient / v) → G.vertexMeasure G.V ≤ 2 →
+      (∀ e ∈ G.E, max (e.1 * ψ e.2) (e.2 * ψ e.1) ≤ t * Nat.gcd e.1 e.2 ∧
+        10 ≤ ∑ p ∈ (e.1 * e.2 / Nat.gcd e.1 e.2 ^ 2).primeFactors.filter (fun p : ℕ => t ≤ (p : ℝ)),
+          1 / (p : ℝ)) →
+      G.edgeMeasure G.E ≤ C / t := by
+  sorry
+
+/-- PM.3/multiplicative-function-bound. The case of Koukoulopoulos–Maynard Lemma 7.2 used in
+Lemma 7.3: `f` multiplicative with `f(p^ν) = f(p) ≥ 1` for `ν ≥ 1`. -/
+theorem sum_le_mul_exp_of_const_on_powers (f : ℕ → ℝ) (hf1 : f 1 = 1)
+    (hmul : ∀ m n, Nat.Coprime m n → f (m * n) = f m * f n)
+    (hpow : ∀ p ν, p.Prime → 1 ≤ ν → f (p ^ ν) = f p) (hge : ∀ p, p.Prime → 1 ≤ f p)
+    (x : ℕ) :
+    ∑ n ∈ Finset.Icc 1 x, f n ≤
+      x * Real.exp (∑ p ∈ (Finset.Icc 1 x).filter Nat.Prime, (f p - 1) / p) := by
+  sorry
+
+/-- PM.3/few-integers-many-large-primes. Koukoulopoulos–Maynard Lemma 7.3. -/
+theorem card_many_large_prime_factors_le :
+    ∃ C : ℝ, ∀ (x t c : ℝ), 1 ≤ x → 1 ≤ t → 1 ≤ c → c ≤ 10 →
+      (((Finset.Icc 1 ⌊x⌋₊).filter (fun n : ℕ =>
+          c ≤ ∑ p ∈ n.primeFactors.filter (fun p : ℕ => t ≤ (p : ℝ)), 1 / (p : ℝ))).card : ℝ) ≤
+        C * x * Real.exp (-(t ^ Real.exp (c - 1))) := by
+  sorry
+
+/-- PM.3/good-gcd-subgraph. Koukoulopoulos–Maynard Proposition 7.1. -/
+theorem exists_good_subgraph :
+    ∃ C : ℝ, 0 < C ∧ ∀ (G : GCDGraph) (t : ℝ), G.P = ∅ → 0 < G.edgeDensity →
+      (∀ e ∈ G.E, 10 ≤ ∑ p ∈ (e.1 * e.2 / Nat.gcd e.1 e.2 ^ 2).primeFactors.filter
+        (fun p : ℕ => t ≤ (p : ℝ)), 1 / (p : ℝ)) →
+      10 * G.edgeDensity ^ (-(1 / 50 : ℝ)) ≤ t → 10 ^ 2000 < t →
+      ∃ G' : GCDGraph, G.IsSubgraph G' ∧ 0 < G'.edgeDensity ∧ G'.R = ∅ ∧
+        (∀ v ∈ G'.V, 9 * G'.edgeDensity / 10 * G'.vertexMeasure G'.W ≤
+          G'.vertexMeasure (G'.nbhdV v)) ∧
+        (∀ w ∈ G'.W, 9 * G'.edgeDensity / 10 * G'.vertexMeasure G'.V ≤
+          G'.vertexMeasure (G'.nbhdW w)) ∧
+        (C * G.edgeDensity * t ^ 50 * G.quality ≤ G'.quality ∨
+          (C * G.quality ≤ G'.quality ∧ ∀ e ∈ G'.E,
+            let v' := e.1 / ∏ p ∈ G'.P, p ^ G'.f p
+            let w' := e.2 / ∏ p ∈ G'.P, p ^ G'.g p
+            4 ≤ ∑ p ∈ (v' * w' / Nat.gcd v' w' ^ 2).primeFactors.filter (fun p : ℕ => t ≤ (p : ℝ)),
+              1 / (p : ℝ))) := by
+  sorry
+
+/-! ### Section 8: the iterative propositions -/
+
+/-- PM.3/iteration-flat-primes. Koukoulopoulos–Maynard Proposition 8.1. -/
+theorem exists_subgraph_of_RFlat_nonempty (G : GCDGraph) (hδ : 0 < G.edgeDensity)
+    (hR : ∀ p ∈ G.R, 10 ^ 2000 < p) (hflat : G.RFlat.Nonempty) :
+    ∃ G' : GCDGraph, G.IsSubgraph G' ∧ 0 < G'.edgeDensity ∧ G.P ⊂ G'.P ∧
+      G'.P ⊆ G.P ∪ G.R ∧ G'.R ⊂ G.R ∧
+      (2 : ℝ) ^ ((G'.P \ G.P).filter (fun p => G'.f p ≠ G'.g p)).card ≤
+        min 1 (G'.edgeDensity / G.edgeDensity) * (G'.quality / G.quality) := by
+  sorry
+
+/-- PM.3/iteration-sharp-primes. Koukoulopoulos–Maynard Proposition 8.2. -/
+theorem exists_subgraph_of_RFlat_empty (G : GCDGraph) (hδ : 0 < G.edgeDensity)
+    (hR : ∀ p ∈ G.R, 10 ^ 2000 < p) (hflat : G.RFlat = ∅) (hsharp : G.RSharp.Nonempty) :
+    ∃ G' : GCDGraph, G.IsSubgraph G' ∧ G.P ⊂ G'.P ∧ G'.P ⊆ G.P ∪ G.R ∧ G'.R ⊂ G.R ∧
+      G.quality ≤ G'.quality := by
+  sorry
+
+/-- PM.3/iteration-small-primes. Koukoulopoulos–Maynard Proposition 8.3. -/
+theorem exists_subgraph_small_primes (G : GCDGraph) (hδ : 0 < G.edgeDensity) (hP : G.P = ∅) :
+    ∃ G' : GCDGraph, G.IsSubgraph G' ∧ 0 < G'.edgeDensity ∧ (∀ p ∈ G'.P, p ≤ 10 ^ 2000) ∧
+      (∀ p ∈ G'.R, 10 ^ 2000 < p) ∧
+      1 / (10 : ℝ) ^ (10 ^ 3000 : ℕ) ≤
+        min 1 (G'.edgeDensity / G.edgeDensity) * (G'.quality / G.quality) := by
+  sorry
+
+/-- PM.3/remove-R-from-anatomy. Koukoulopoulos–Maynard Lemma 8.4. -/
+theorem exists_subgraph_remove_R (G : GCDGraph) (t : ℝ) (ht : 300 ≤ t)
+    (hflat : G.RFlat = ∅) (hδ : (10 / t) ^ 50 ≤ G.edgeDensity)
+    (hE : ∀ e ∈ G.E, 10 ≤ ∑ p ∈ (e.1 * e.2 / Nat.gcd e.1 e.2 ^ 2).primeFactors.filter
+      (fun p : ℕ => t ≤ (p : ℝ)), 1 / (p : ℝ)) :
+    ∃ G' : GCDGraph, G.IsSubgraph G' ∧ G'.V = G.V ∧ G'.W = G.W ∧ G'.P = G.P ∧
+      G.quality / 2 ≤ G'.quality ∧ 0 < G'.quality ∧
+      ∀ e ∈ G'.E, 5 ≤ ∑ p ∈ (e.1 * e.2 / Nat.gcd e.1 e.2 ^ 2).primeFactors.filter
+        (fun p : ℕ => t ≤ (p : ℝ) ∧ p ∉ G.R), 1 / (p : ℝ) := by
+  sorry
+
+/-- PM.3/high-degree-subgraph. Koukoulopoulos–Maynard Lemma 8.5. -/
+theorem exists_high_degree_subgraph (G : GCDGraph) (hδ : 0 < G.edgeDensity) :
+    ∃ G' : GCDGraph, G.IsSubgraph G' ∧ G'.P = G.P ∧ 0 < G'.edgeDensity ∧
+      G.quality ≤ G'.quality ∧ G.edgeDensity ≤ G'.edgeDensity ∧
+      (∀ v ∈ G'.V, 9 * G'.edgeDensity / 10 * G'.vertexMeasure G'.W ≤
+        G'.vertexMeasure (G'.nbhdV v)) ∧
+      ∀ w ∈ G'.W, 9 * G'.edgeDensity / 10 * G'.vertexMeasure G'.V ≤
+        G'.vertexMeasure (G'.nbhdW w) := by
+  sorry
+
+/-- PM.3/degree-or-increment. Koukoulopoulos–Maynard Lemma 10.1. -/
+theorem high_degree_or_increment (G : GCDGraph) (hδ : 0 < G.edgeDensity) :
+    ((∀ v ∈ G.V, 9 * G.edgeDensity / 10 * G.vertexMeasure G.W ≤ G.vertexMeasure (G.nbhdV v)) ∧
+      ∀ w ∈ G.W, 9 * G.edgeDensity / 10 * G.vertexMeasure G.V ≤ G.vertexMeasure (G.nbhdW w)) ∨
+    ∃ G' : GCDGraph, G.IsSubgraph G' ∧ G'.P = G.P ∧ G.edgeDensity ≤ G'.edgeDensity ∧
+      G.quality ≤ G'.quality ∧ (G'.V ⊂ G.V ∨ G'.W ⊂ G.W) := by
+  sorry
+
+/-! ### Section 11: preparatory lemmas -/
+
+/-- PM.3/partition-pigeonhole. Koukoulopoulos–Maynard Lemma 11.2. -/
+theorem exists_part_subgraph (G : GCDGraph) (hδ : 0 < G.edgeDensity) (I J : ℕ)
+    (Vs : Fin I → Finset ℕ) (Ws : Fin J → Finset ℕ)
+    (hV : (Finset.univ : Finset (Fin I)).biUnion Vs = G.V)
+    (hVd : Set.PairwiseDisjoint (Set.univ : Set (Fin I)) Vs)
+    (hW : (Finset.univ : Finset (Fin J)).biUnion Ws = G.W)
+    (hWd : Set.PairwiseDisjoint (Set.univ : Set (Fin J)) Ws) :
+    ∃ G' : GCDGraph, G.IsSubgraph G' ∧ G'.P = G.P ∧ 0 < G'.edgeDensity ∧
+      G.quality / ((I : ℝ) * J) ^ 10 ≤ G'.quality ∧
+      G.edgeDensity / ((I : ℝ) * J) ≤ G'.edgeDensity ∧
+      (∃ i, G'.V = Vs i) ∧ (∃ j, G'.W = Ws j) ∧ G'.E = G.E.filter (fun e => e.1 ∈ G'.V ∧ e.2 ∈ G'.W) := by
+  sorry
+
+/-- PM.3/unbalanced-sets-few-edges. Koukoulopoulos–Maynard Lemma 11.3 (and, by symmetry,
+Lemma 11.4), for a prime `p ∉ 𝒫`. -/
+theorem restrictPow_increment_or_few_edges (G : GCDGraph) (hδ : 0 < G.edgeDensity)
+    (p : ℕ) (hp : p.Prime) (hpP : p ∉ G.P) (r k : ℕ) (hr : 1 ≤ r)
+    (hpr : (10 : ℝ) ^ 2000 < (p : ℝ) ^ r)
+    (hW : (1 - 10 ^ 40 / (p : ℝ)) * G.vertexMeasure G.W ≤ G.vertexMeasure (G.Wpow p k)) :
+    (∃ ℓ : ℕ, r + 1 ≤ Int.natAbs ((ℓ : ℤ) - k) ∧
+      2 * G.quality < (G.restrictPow p k ℓ hp hpP).quality ∧
+      2 * G.edgeDensity * G.quality <
+        (G.restrictPow p k ℓ hp hpP).edgeDensity * (G.restrictPow p k ℓ hp hpP).quality) ∨
+    ∀ L : Finset ℕ, (∀ ℓ ∈ L, r + 1 ≤ Int.natAbs ((ℓ : ℤ) - k)) →
+      ∑ ℓ ∈ L, (G.restrictPow p k ℓ hp hpP).edgeMeasure (G.restrictPow p k ℓ hp hpP).E ≤
+        G.edgeMeasure G.E / (4 * (p : ℝ) ^ (31 / 30 : ℝ)) := by
+  sorry
+
+/-- PM.3/small-sets-few-edges. Koukoulopoulos–Maynard Lemma 11.5. -/
+theorem few_edges_small_sets_or_increment (G : GCDGraph) (hδ : 0 < G.edgeDensity) (η : ℝ)
+    (hη0 : 0 < η) (hη1 : η < 1) :
+    (∀ A ⊆ G.V, ∀ B ⊆ G.W, G.vertexMeasure A ≤ η * G.vertexMeasure G.V →
+      G.vertexMeasure B ≤ η * G.vertexMeasure G.W →
+      G.edgeMeasure (G.E.filter (fun e => e.1 ∈ A ∧ e.2 ∈ B)) ≤ η ^ (9 / 5 : ℝ) * G.edgeMeasure G.E) ∨
+    ∃ G' : GCDGraph, G.IsSubgraph G' ∧ G'.P = G.P ∧ G.quality < G'.quality ∧
+      G'.V ⊂ G.V ∧ G'.W ⊂ G.W := by
+  sorry
+
+/-- PM.3/small-sets-subgraph. Koukoulopoulos–Maynard Lemma 11.6. -/
+theorem exists_subgraph_few_edges_small_sets (G : GCDGraph) (hδ : 0 < G.edgeDensity) (η : ℝ)
+    (hη0 : 0 < η) (hη1 : η < 1) :
+    ∃ G' : GCDGraph, G.IsSubgraph G' ∧ G'.P = G.P ∧ 0 < G'.edgeDensity ∧
+      G.quality ≤ G'.quality ∧
+      ∀ A ⊆ G'.V, ∀ B ⊆ G'.W, G'.vertexMeasure A ≤ η * G'.vertexMeasure G'.V →
+        G'.vertexMeasure B ≤ η * G'.vertexMeasure G'.W →
+        G'.edgeMeasure (G'.E.filter (fun e => e.1 ∈ A ∧ e.2 ∈ B)) ≤
+          η ^ (9 / 5 : ℝ) * G'.edgeMeasure G'.E := by
+  sorry
+
+/-! ### Sections 12–14: proofs of the iterative propositions -/
+
+/-- PM.3/edge-distribution-bound. Koukoulopoulos–Maynard Lemma 12.1. -/
+theorem exists_heavy_restriction (G : GCDGraph) (hδ : 0 < G.edgeDensity) (p : ℕ) (hp : p.Prime)
+    (hpP : p ∉ G.P) :
+    ∃ k ℓ : ℕ, 0 < G.vertexMeasure (G.Vpow p k) ∧ 0 < G.vertexMeasure (G.Wpow p ℓ) ∧
+      let α := fun j => G.vertexMeasure (G.Vpow p j) / G.vertexMeasure G.V
+      let β := fun j => G.vertexMeasure (G.Wpow p j) / G.vertexMeasure G.W
+      (if k = ℓ then (α k * β k) ^ (9 / 10 : ℝ)
+        else (α k * (1 - β k) + β k * (1 - α k) + α ℓ * (1 - β ℓ) + β ℓ * (1 - α ℓ)) /
+          ((2 : ℝ) ^ ((Int.natAbs ((k : ℤ) - ℓ) : ℝ) / 20) * 1000)) * G.edgeMeasure G.E ≤
+        (G.restrictPow p k ℓ hp hpP).edgeMeasure (G.restrictPow p k ℓ hp hpP).E := by
+  sorry
+
+/-- PM.3/large-prime-increment. Koukoulopoulos–Maynard Lemma 12.2. -/
+theorem restrictPow_increment_or_concentrated (G : GCDGraph) (hδ : 0 < G.edgeDensity) (p : ℕ)
+    (hp : p.Prime) (hpP : p ∉ G.P) (hp40 : (10 : ℝ) ^ 40 < p) :
+    (∃ k ℓ : ℕ, 0 < (G.restrictPow p k ℓ hp hpP).edgeDensity ∧
+      (2 : ℝ) ^ (if k = ℓ then 0 else 1) ≤
+        min 1 ((G.restrictPow p k ℓ hp hpP).edgeDensity / G.edgeDensity) *
+          ((G.restrictPow p k ℓ hp hpP).quality / G.quality)) ∨
+    ∃ k : ℕ, (1 - 10 ^ 40 / (p : ℝ)) * G.vertexMeasure G.V ≤ G.vertexMeasure (G.Vpow p k) ∧
+      (1 - 10 ^ 40 / (p : ℝ)) * G.vertexMeasure G.W ≤ G.vertexMeasure (G.Wpow p k) := by
+  sorry
+
+/-- PM.3/any-prime-bounded-loss. Koukoulopoulos–Maynard Lemma 13.1. -/
+theorem restrictPow_bounded_loss_or_concentrated (G : GCDGraph) (hδ : 0 < G.edgeDensity)
+    (p : ℕ) (hp : p.Prime) (hpP : p ∉ G.P) :
+    (∃ k ℓ : ℕ, 0 < (G.restrictPow p k ℓ hp hpP).edgeDensity ∧
+      1 / (10 : ℝ) ^ 40 ≤ min 1 ((G.restrictPow p k ℓ hp hpP).edgeDensity / G.edgeDensity) *
+          ((G.restrictPow p k ℓ hp hpP).quality / G.quality)) ∨
+    ∃ k : ℕ, 9 / 10 * G.vertexMeasure G.V ≤ G.vertexMeasure (G.Vpow p k) ∧
+      9 / 10 * G.vertexMeasure G.W ≤ G.vertexMeasure (G.Wpow p k) := by
+  sorry
+
+/-- PM.3/add-small-prime. Koukoulopoulos–Maynard Lemma 13.2. -/
+theorem exists_subgraph_add_small_prime (G : GCDGraph) (hδ : 0 < G.edgeDensity) (p : ℕ)
+    (hp : p ∈ G.R) (hp2000 : p ≤ 10 ^ 2000) :
+    ∃ G' : GCDGraph, G.IsSubgraph G' ∧ G'.P = insert p G.P ∧ G'.R ⊆ G.R.erase p ∧
+      0 < G'.edgeDensity ∧
+      1 / (10 : ℝ) ^ 50 ≤ min 1 (G'.edgeDensity / G.edgeDensity) * (G'.quality / G.quality) := by
+  sorry
+
+/-- PM.3/sharp-prime-increment. Koukoulopoulos–Maynard Lemma 14.1. -/
+theorem exists_subgraph_add_large_prime (G : GCDGraph) (hδ : 0 < G.edgeDensity) (p : ℕ)
+    (hp : p ∈ G.R) (hp2000 : 10 ^ 2000 ≤ p) :
+    ∃ G' : GCDGraph, G.IsSubgraph G' ∧ G'.P = insert p G.P ∧ G'.R ⊆ G.R.erase p ∧
+      G.quality ≤ G'.quality ∧ 0 < G'.quality := by
+  sorry
+
+end GCDGraph
+
+end TauCeti.DuffinSchaeffer

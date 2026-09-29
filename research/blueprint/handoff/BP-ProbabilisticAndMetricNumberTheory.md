@@ -242,3 +242,63 @@ in the suggested file. Nothing was compiled, as before.
 **Next for PM.2:** Exercise 1.1.22, the recurrence Exercise 1.1.8 and the multidimensional theory
 (Definition 1.1.10, Exercises 1.1.9–1.1.15) from the same section; then discrepancy and normal numbers,
 which need a source; and any single-scale material that ES or AC consumers ask for.
+
+# Continuation — 29 September 2026: PM.3, the Duffin–Schaeffer theorem (Claude Code, cc-39fac3)
+
+Refs #1041. Claim comment 5885708387. Base e9755191d6ba79bb8684998b263393f7b507d4fe. Partial checkpoint; all inherited nodes are unchanged.
+
+## Delivered
+
+Thirty-four PM.3 nodes decompose Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture*, Ann. of Math. 192 (2020), 251–307. The published PDF was read completely (SHA-256 d41eb092…); the finding locators were checked against arXiv:1907.04593v3.
+
+- **Sets and main theorems.**
+  - The approximation sets 𝒜_q, 𝒜, 𝒦_q and 𝒦, with measure bounds and a translation to Mathlib's circle `addWellApproximable`.
+  - The convergence half (1.5).
+  - Theorem 1 (Duffin–Schaeffer).
+  - Catlin's reduction (2.2) and Theorem 2 (Catlin's conjecture).
+  - Khinchin's theorem, derived from Theorem 2 through a worker-derived comparison of Σψ with Σφψ/q for decreasing ψ.
+- **Section 5.**
+  - The second-moment union bound.
+  - Lemmas 5.2 and 5.3, imported from Pollington–Vaughan (gap). Lemma 5.3 is recorded with its indicator corrected (E10).
+  - Proposition 5.4.
+- **Section 6.** GCD graphs and subgraphs, their quality, the special subgraphs G_{p^k,p^ℓ}, and Lemma 11.1.
+- **Sections 7–14.**
+  - Propositions 6.3, 7.1 and 8.1–8.3.
+  - Lemma 7.3, and the case of Lemma 7.2 it needs, proved elementarily.
+  - Lemmas 8.4, 8.5, 10.1, 11.2–11.6, 12.1, 12.2, 13.1, 13.2 and 14.1.
+- **Planets (6):** Duffin–Schaeffer approximation sets, Duffin–Schaeffer theorem, Catlin's conjecture, Khinchin's theorem, GCD graph, Quality of a GCD graph.
+- **Suppliers.** Gallagher's zero-one law and Borel–Cantelli come from Mathlib and are not replanned. The Mathlib file WellApproximable.lean says the Koukoulopoulos–Maynard theorem is not formalized there.
+- **Request.** Mertens' theorems, with Rosser–Schoenfeld's effective error, from AnalyticNumberTheory:AN.2.
+
+## Findings
+
+Five new, unreviewed findings, E10–E14, are recorded against the published text. Each is also present in arXiv v3.
+
+- **E10 (error).** Lemma 5.3's indicator should be 𝟙_{2M ≥ gcd}.
+  - Exact counterexample: q = 2, r = 3, ψ ≡ 3/10 gives λ(𝒜₂ ∩ 𝒜₃) = 1/6 with M = 9/10 < 1.
+  - Theorem 1 is unaffected.
+- **E11 (misprint).** (1.4) is cited for (1.3).
+- **E12 (error, harmless).** Lemma 14.1 Case 1 claims a quality equality where only ≥ holds.
+- **E13 (gap).** Lemmas 13.2 and 14.1 use lemmas that assume p ∈ ℛ(G) after p may have left ℛ.
+  - Repaired by stating those lemmas for p ∉ 𝒫.
+- **E14 (misprint).** k+1 is printed for k−1 at the end of Lemma 14.1.
+
+## Checks
+
+- check_blueprint.py with the pinned declaration index: 0 errors, 0 warnings, 129 nodes.
+- intake.py check-files: no problems.
+- Unit tests pass.
+- The new Lean section (namespace TauCeti.DuffinSchaeffer, Mathlib imports only) elaborates on Lean 4.34.0-rc2 against Mathlib 082e2d3 with no errors and only proof-placeholder warnings. This holds both standalone and with the file-level opens.
+- The whole suggested file imports Tau Ceti modules and was not elaborated: there is no pinned Tau Ceti build on this machine.
+- Every excerpt is contained, letters only, in the text layer of the published PDF.
+
+## Resume for PM.3
+
+Two inputs remain open:
+- the Pollington–Vaughan proofs behind Lemmas 5.2 and 5.3, which need an open source;
+- the Mertens request to AN.2.
+
+Beyond Koukoulopoulos–Maynard, PM.3 still needs:
+- Corollary 3 (the Hausdorff dimension, via Beresnevich–Velani mass transference);
+- Jarník–Besicovitch;
+- the higher-dimensional Pollington–Vaughan theorem.
