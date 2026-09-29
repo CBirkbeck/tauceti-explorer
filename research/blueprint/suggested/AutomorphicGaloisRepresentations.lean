@@ -28,6 +28,9 @@ import Mathlib.LinearAlgebra.Dimension.Finrank
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Algebra.Polynomial.Basic
 import Mathlib.RingTheory.Polynomial.Basic
+import Mathlib.GroupTheory.SpecificGroups.Alternating
+import Mathlib.Data.Fintype.Perm
+import Mathlib.Algebra.BigOperators.Fin
 
 namespace TauCeti.ModularGalois
 
@@ -173,6 +176,32 @@ Fontaine–Laffaille modules (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3)
 example : 11 * Nat.factorial 2 = 2 * 11 ∧ Nat.Prime 2 ∧ Nat.Prime 11 ∧ ¬ (2 - 1 ≤ 2 - 2) ∧ (2 - 1 ≤ 3 - 2) :=
   ⟨by simp [Nat.factorial], Nat.prime_two, by decide, by decide, by decide⟩
 
+/-! ## R19.2 — Carayol's construction and proof (`AutomorphicGaloisRepresentations:R19.2/carayol-*`)
+
+`Carayol.sigmaLambda`, `Carayol.sigmaLambda_finrank`, `Carayol.sigmaLambda_level_indep` and
+`Carayol.cohomology_decomposition`: not stated; they need the Shimura curves `M_K`, the λ-adic sheaves `F_λ` and
+their étale cohomology (HilbertModularVarietiesAndShimuraCurves R18.4). The tests
+`Carayol.sigmaLambda_finrank_two` and `Carayol.parabolic_needed_over_Q` need the same objects. Theorems (A) and (B)
+and the local statements need Weil–Deligne representations, local Langlands and base change
+(GL2AutomorphicRepresentationsAndTransfer R16.3, R17.3–R17.5). -/
+
+/-- Test `Carayol.coefficient_rank` (its arithmetic): `dim W = ∏ᵢ (kᵢ − 1)`; for `(k₁, k₂, k₃) = (2, 3, 4)` it is
+`6`, and with every `kᵢ = 2` it is `1`. -/
+example : (∏ i : Fin 3, (![2, 3, 4] i - 1)) = 6 ∧ (∏ _i : Fin 3, (2 - 1)) = 1 := by decide
+
+/-- Acceptance (`…:R19.2/carayol-sigma-lambda-construction`): the exponent `(w − kᵢ + 2)/2` of `τᵢ ∘ ν` is an integer
+because `kᵢ` and `w` have the same parity. -/
+example (w k : ℤ) (h : Even (w - k)) : ∃ m, w - k + 2 = 2 * m := by
+  obtain ⟨r, hr⟩ := h
+  exact ⟨r + 1, by omega⟩
+
+/-- Acceptance (`…:R19.2/carayol-primitive-restriction-lemma`): a `2`-Sylow subgroup of `S₄` (order `8`) has index
+`3`, and the Klein group (order `4`) has index `3` in `A₄`, which has `12` elements. -/
+example : Nat.factorial 4 / 8 = 3 ∧ Fintype.card (alternatingGroup (Fin 4)) = 12 ∧ 12 / 4 = 3 := by
+  refine ⟨by decide, ?_, by decide⟩
+  rw [card_alternatingGroup, Fintype.card_fin]
+  decide
+
 /-! ## Theorems needing objects of other roadmaps
 
 * `…:R19.1/lambda-adic-representation-of-a-weight-k-eigenform`, `…:R19.1/weight-one-artin-representation`,
@@ -186,7 +215,8 @@ example : 11 * Nat.factorial 2 = 2 * 11 ∧ Nat.Prime 2 ∧ Nat.Prime 11 ∧ ¬ 
   algebra over a totally real field, their Hecke algebras (OrdinaryAutomorphicFormsAndModularityLifting R21.1) and
   Jacquet–Langlands (GL2AutomorphicRepresentationsAndTransfer R17.3).
 * `…:R19.2/wiles-ordinary-hilbert-representation`, `…:R19.4/nearly-ordinary-hilbert-compatibility-away-from-p`: not
-  stated; they need nearly ordinary Hilbert modular forms (OrdinaryAutomorphicFormsAndModularityLifting R21.2).* `…:R19.6/hecke-algebra-representation-classical`, `…:R19.6/reduced-hecke-algebra-as-a-localisation`: not stated;
+  stated; they need nearly ordinary Hilbert modular forms (OrdinaryAutomorphicFormsAndModularityLifting R21.2).
+* `…:R19.6/hecke-algebra-representation-classical`, `…:R19.6/reduced-hecke-algebra-as-a-localisation`: not stated;
   they need the newforms of weight two with their λ-adic representations, the full Hecke algebra of `Γ₀(N_Σ)` and
   the universal deformation ring `R_Σ` (GlobalGaloisDeformations R04.3).
 -/

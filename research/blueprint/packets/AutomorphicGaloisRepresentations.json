@@ -75,7 +75,8 @@
       "readSections": [
         "0 Introduction et notations, 0.1-0.11 (including the normalization 0.4, the Hecke correspondence 0.5, Theoreme (A), the Corollaire on Weil curves, Theoreme (B), Theoreme (B') and the description of the geometric method), pp. 409-412",
         "Section headings and numbered statements of 1.2.2, 1.4.1, 1.5.3, 1.7.5, 8.3, 12.3 (locations only, statements not all read)",
-        "Reviewer (REVIEW-EXT-10-EXT-07): 0.1-0.11 and the plan (pp. 409-412) on page images"
+        "Reviewer (REVIEW-EXT-10-EXT-07): 0.1-0.11 and the plan (pp. 409-412) on page images",
+        "2026-09-29 (cc-fb70e5, checkpoint 5), on the Numdam PDF (sha256 d4a5fb6b…, printed page = PDF page + 407), with a pdftotext text layer and page images for the formulas of 2.1.1, 3.1–3.3, 6.6–6.7 and 11.2–11.3: §1 (the summary of [Ca 3]); §2; §3; §4.1–4.8; §5.1–5.6; 6.4–6.7; 10.1–10.6; 11.1–11.4; 12.1–12.3. Not read: §§7–9 (Drinfeld's deformations), 11.5–11.10 (the Picard–Lefschetz computation), and the Appendix by Brylinski."
       ],
       "accessed": "2026-09-16"
     },
@@ -751,20 +752,28 @@
         "sigma_lambda(pi_p) is formed with the HECKE correspondence, not the Langlands correspondence"
       ],
       "proofSteps": [
-        "The source proves a weakened Theorem (B) first: with a fixed finite place v where pi_v is essentially square-integrable (when d is even), the conclusion holds at every finite place p different from v where pi_p is not 'cuspidale extraordinaire' (which can only occur at residue characteristic 2).",
-        "Theorem (B) is transferred by Jacquet-Langlands to Theorem (B') for the quaternion algebra B over F split at tau_1, ramified at tau_2,...,tau_d and split at all finite places except v when d is even; G = Res_{F/Q}(B^*).",
-        "The system is constructed from the projective system of Shimura curves M_K(G, X) equipped with l-adic sheaves F_lambda, decomposing H^1(M_K tensor Fbar, F_lambda) - parabolic cohomology when F = Q, where the curves are not proper - under the Hecke operators; the source calls this construction well known ([Oh], [R.T]) and, for F = Q, attributes the proof of Theorem (B') to Deligne [D.2] following Langlands [L.1].",
-        "The method rests on knowing the (possibly bad) reduction of the Shimura curves, which the source had established in its companion paper on bad reduction of Shimura curves.",
-        "Theorem (A) is deduced from Theorem (B) by base change arguments for GL(2)."
+        "Theorem (B) (R19.2/carayol-theorem-b) proves the conclusion at every 𝔭 ≠ v where π_𝔭 is not extraordinary cuspidal. When d is even, v is a fixed finite place where π_v is essentially square-integrable.",
+        "12.3.1, extraordinary cuspidal π_𝔭 (residue characteristic 2), 𝔭 ≠ v₀. Choose a cubic extension of F_𝔭 over which σ(π_𝔭) becomes monomial (R19.2/carayol-primitive-restriction-lemma). Realise it as L ⊗ F_𝔭 for a global cubic L/F that is totally real, split above v₀, and has a single place 𝔭′ above 𝔭.",
+        "Let Π be the base change of π to L (Langlands, or Jacquet–Piatetski-Shapiro–Shalika). It satisfies the hypotheses of Theorem (B), with the auxiliary place one of the three places above v₀. Let Σ be its λ-adic representation.",
+        "At almost every pair (w, w′), Σ_{w′} = Res σ_w, because base change is restriction for principal series. By Čebotarev, Σ = Res σ, so Σ_{𝔭′} = Res σ_𝔭.",
+        "By R19.2/carayol-cubic-base-change-of-extraordinary, σ(Π_{𝔭′}) = Res σ(π_𝔭), which is irreducible, so Π_{𝔭′} is ordinary cuspidal. Theorem (B) for Π gives σ(Π_{𝔭′}) = Σ_{𝔭′}, so Res σ(π_𝔭) ≅ Res σ_𝔭.",
+        "Since det σ(π_𝔭) = det σ_𝔭 (5.6.1, R19.2/carayol-twisting-and-determinant), the lemma of 12.1.3 gives σ_𝔭 ≅ σ(π_𝔭).",
+        "12.3.2, 𝔭 = v where v is the only finite place with π_v essentially square-integrable. Carayol leaves this 'au lecteur'. Take a totally real quadratic L/F split at v. The base change Π has two essentially square-integrable places w₁, w₂ above v, so the previous steps apply to Π at w₁ with w₂ as auxiliary place. Since L_{w₁} = F_v and Σ = Res σ by Čebotarev, σ_v ≅ Σ_{w₁} ≅ σ(Π_{w₁}) = σ(π_v)."
       ],
       "acceptance": [
         "Check that the parity/auxiliary-place hypothesis of 0.3 is carried in every downstream use, since neither Theorem (A) nor Theorem (B) removes it",
-        "Check that the excluded 'cuspidale extraordinaire' case at residue characteristic 2 is treated only by the base-change step, not by the geometric construction"
+        "Check that the excluded 'cuspidale extraordinaire' case at residue characteristic 2 is treated only by the base-change step, not by the geometric construction",
+        "The case 𝔭 = v with a unique discrete-series place is proved by quadratic base change split at v; the source leaves it to the reader."
       ],
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:R18.4",
         "HilbertModularVarietiesAndShimuraCurves:R18.2",
-        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation"
+        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-primitive-restriction-lemma",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-cubic-base-change-of-extraordinary",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4"
       ],
       "sources": [
         {
@@ -784,11 +793,517 @@
           "locator": "0.11, printed p. 412",
           "excerpt": "en considérant le système projectif des courbes de Shimura MK(G, X) associé au groupe G, en le munissant d'un système de faisceaux /-adiques ^\\, et en décomposant sous l'action des opérateurs de Hecke la cohomologie H^(M^ ® F, J^\\) (cohomologie « parabolique » dans le cas F=Q où les courbes M^ ne sont pas propres).",
           "match": "The geometric realization, including the need for parabolic cohomology exactly when F = Q."
+        },
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "12.3.1, p. 459",
+          "excerpt": "par application du lemme 12.1.3",
+          "match": "The end of the extraordinary case."
+        },
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "12.3.2, p. 459",
+          "excerpt": "que nous laissons au lecteur, permet de conclure",
+          "match": "The case 𝔭 = v, left to the reader and written out here."
         }
       ],
       "planet": {
         "name": "Carayol's theorem"
       },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.2",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "title": "Carayol's construction of σ_λ(π) from the cohomology of Shimura curves (§2)",
+      "kind": "construction",
+      "statement": "Let B/F be the quaternion algebra split at τ₁, ramified at τ₂, …, τ_d, and split at every finite place except v when d is even; G = Res_{F/ℚ}(B^×). Let M_K (K ⊂ G(𝔸^f) compact open, small) be its Shimura curves over F, and E ⊂ ℂ a finite Galois extension of ℚ containing F and splitting B. Let ξ = ⊗_{i∈[1,d]} [(τ_i ∘ ν)^{(w−k_i+2)/2} · Sym^{k_i−2}(ξ_i)] be the algebraic representation of G on W = ⊗_E W_i, where ν is the reduced norm and ξ_i : B^× → GL₂(E) comes from B ⊗_{F,τ_i} E ≅ M₂(E). A central z ∈ Z(ℚ) = F^× acts on W by N_{F/ℚ}(z)^w. Let F_λ be the λ-adic sheaf on M_K defined by ξ (2.1.3–2.1.4). Let C be the set of automorphic representations π of G(𝔸) with π_{τ₁} ≅ D_{k₁,w} and π_{τ_i} ≅ D^H_{k_i,w} (i ≥ 2). For π ∈ C, K small enough that π_f^K ≠ 0, and E ⊇ ℚ(π), define σ_λ(π) = Hom_{H(G(𝔸^f),K)}(π_f^K, H¹(M_K ⊗_F F̄, F_λ)). Then σ_λ(π) is a two-dimensional E_λ-representation of Gal(F̄/F), independent of K. The limit H¹ = lim_K H¹(M_K ⊗ F̄, F_λ) ⊗ Ē_λ decomposes as ⊕_{π∈C} π^f ⊗ σ(π) as a G(𝔸^f) × Gal(F̄/F)-representation. For F = ℚ the curves are not proper, and H¹ is replaced by parabolic (intersection) cohomology H¹_!.",
+      "hypotheses": [
+        "The Shimura curves M_K, the sheaves F_λ (2.1.2–2.1.4) and the Hecke action on H¹ are requested from HilbertModularVarietiesAndShimuraCurves R18.4.",
+        "The dimension count uses Matsushima's formula and (𝔤, K_∞)-cohomology: H¹(𝔤, K_∞, π_∞ ⊗ W) is non-zero exactly for π_∞ as in C, and then has dimension 2 (Borel–Wallach), requested with R18.4.",
+        "Theorem (B) for GL₂ is equivalent to Theorem (B') for G by the global Jacquet–Langlands correspondence (GL2AutomorphicRepresentationsAndTransfer R17.3)."
+      ],
+      "proofSteps": [
+        "Fix E splitting B, λ | l, and an embedding ℚ̄ → Ē_λ compatible with E ⊂ ℂ (2.3).",
+        "Form F_λ from ξ: the analytic sheaf G(ℚ)∖G(𝔸^f) × X × W_λ/K, trivial on the limit M(ℂ), descends to a λ-adic étale sheaf through an 𝒪_λ-lattice W°_λ and the finite étale covers M_{K′} → M_K (2.1.4).",
+        "H¹_K = H¹(M_K ⊗ F̄, F_λ) is a finite E_λ-space with commuting Gal(F̄/F) and H(G(𝔸^f), K) actions, and the transition maps are injective (2.2.2).",
+        "Compute H¹_K ⊗ ℂ by de Rham cohomology and (𝔤, K_∞)-cohomology. Each π ∈ C occurs with a two-dimensional multiplicity space (2.2.4).",
+        "Define σ(π) as the π^f-isotypic multiplicity space (2.2.3, 2.3)."
+      ],
+      "acceptance": [
+        "All k_i = 2 (so w is even): W is one-dimensional, and F_λ is a rank-one twist of the constant sheaf.",
+        "F = ℚ: the full H¹ of the non-proper modular curve contains Eisenstein classes; parabolic cohomology removes them."
+      ],
+      "prerequisites": [
+        "HilbertModularVarietiesAndShimuraCurves:R18.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ModularGalois.Carayol.sigmaLambda",
+          "role": "constructor",
+          "statement": "σ_λ(π) = Hom_{H(G(𝔸^f),K)}(π_f^K, H¹(M_K ⊗ F̄, F_λ)) for π ∈ C."
+        },
+        {
+          "name": "TauCeti.ModularGalois.Carayol.sigmaLambda_finrank",
+          "role": "characterisation",
+          "statement": "dim_{E_λ} σ_λ(π) = 2."
+        },
+        {
+          "name": "TauCeti.ModularGalois.Carayol.sigmaLambda_level_indep",
+          "role": "characterisation",
+          "statement": "σ_λ(π) does not depend on K with π_f^K ≠ 0."
+        },
+        {
+          "name": "TauCeti.ModularGalois.Carayol.cohomology_decomposition",
+          "role": "relation",
+          "statement": "lim_K H¹(M_K ⊗ F̄, F_λ) ⊗ Ē_λ ≅ ⊕_{π∈C} π^f ⊗ σ(π) as G(𝔸^f) × Gal(F̄/F)-modules."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ModularGalois.Carayol.sigmaLambda_finrank_two",
+          "kind": "value",
+          "statement": "For every π ∈ C, σ_λ(π) has dimension 2."
+        },
+        {
+          "name": "TauCeti.ModularGalois.Carayol.coefficient_rank",
+          "kind": "value",
+          "statement": "dim_E W = ∏_i (k_i − 1); with all k_i = 2 it is 1."
+        },
+        {
+          "name": "TauCeti.ModularGalois.Carayol.parabolic_needed_over_Q",
+          "kind": "non-example",
+          "statement": "For F = ℚ, using the full H¹ of the open modular curve adds Eisenstein classes, so σ(π) must be taken in parabolic cohomology."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "2.2.3, p. 420",
+          "excerpt": "l'espace des entrelacements",
+          "match": "The definition of σ_λ(π)."
+        },
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "2.2.4, p. 420",
+          "excerpt": "est de dimension 2 (d'où il résulte que cette représentation est indépendante du choix de K)",
+          "match": "Dimension two and independence of K."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant",
+          "how": "the object whose twists and determinant are computed"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b",
+          "how": "the representation whose local components are identified"
+        }
+      ],
+      "planet": {
+        "name": "Galois representations from Shimura curves"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.2",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "title": "Twisting and the determinant of σ(π) (§3 and 5.5)",
+      "kind": "lemma",
+      "statement": "For an integer u let c_u be the set of Grössencharaktere of 𝔸_F^× whose components at τ₁, …, τ_d restrict to t ↦ t^{−u} on ℝ^{*+}. Twisting π ↦ χ·π by χ ∈ c_u is a bijection C_w → C_{w+2u}. Then: (i) σ(χ·π) = χ^{−1}·σ(π) for χ ∈ c_u and π ∈ C_w, with χ seen as a Galois character by class field theory; (ii) det σ(π) = χ_π^{−1}·ω^{−1}, where χ_π ∈ c_w is the central character of π and ω ∈ c_{−1} is the Grössencharakter whose local components ω_𝔭 are fixed in (0.4). §3 proves (ii) only up to a character of order 2, (det σ(π))² = χ_π^{−2}ω^{−2}. The exact equality is 5.6.1: 5.5 shows that α = det σ(π)·χ_π·ω, a Grössencharakter of order at most 2, is trivial.",
+      "hypotheses": [
+        "(i) uses H⁰(M_K ⊗ F̄, L^u) = ⊕_{χ∈c_u} χ ⊗ χ^{−1}, computed through the reciprocity law of the connected components (1.1.2), and F_w ⊗ L^u ≅ F_{w+2u} (3.4).",
+        "(ii) uses Poincaré duality between H¹_w and H¹_{−w}(1), under which the adjoint of a Hecke operator is its image by g ↦ g^{−1}, and π_f^∨ ≅ χ_π^{−1}·π_f (3.6). For F = ℚ one uses intersection cohomology (3.7)."
+      ],
+      "proofSteps": [
+        "Cup product H¹_w × H⁰(L^u) → H¹_{w+2u}, with (3.5), gives (i).",
+        "Duality gives σ(π)·χ_π·ω ≅ σ(π)^∨, hence (det σ(π))² = χ_π^{−2}ω^{−2} (3.6).",
+        "5.5: at almost every 𝔭, π_𝔭 = Ind(ξ₁, ξ₂) is spherical and σ_𝔭(π) is one of three explicit two-dimensional forms (5.4). Comparing determinants gives α_𝔭 = 1 or ξ₁/ξ₂ = α_𝔭|·|^{±1}, so α_𝔭π_𝔭 ≅ π_𝔭 and, globally, α·π ≅ π. By (i), α·σ(π) ≅ σ(π), which forces σ_𝔭(π) to be the expected form almost everywhere, and so α = 1."
+      ],
+      "acceptance": [
+        "χ of finite order (u = 0): σ(χπ) = χ^{−1}σ(π).",
+        "§3 alone leaves det σ(π) undetermined up to a quadratic character; 5.5 is needed."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
+        "HilbertModularVarietiesAndShimuraCurves:R18.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "3.3, Proposition, p. 422",
+          "excerpt": "Cela va résulter des propriétés du cup-produit",
+          "match": "The proof of (i) and (ii) up to order 2."
+        },
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "5.5, p. 429",
+          "excerpt": "Le grôssencharakter a est donc en définitive trivial",
+          "match": "The exact determinant."
+        },
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "5.6.1, p. 429",
+          "excerpt": "RÉSUMÉ DES RÉSULTATS OBTENUS JUSQU'À PRÉSENT",
+          "match": "The summary that records det σ(π)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b",
+          "how": "5.6.1 in the special case (b) and in 12.3.1"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+          "how": "det σ_𝔭 = det σ(π_𝔭) in the primitive case"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.2/carayol-vanishing-cycle-filtration",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.2",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "title": "The vanishing-cycle filtration of σ_𝔭(π) and the principal-series criterion (§§4–5)",
+      "kind": "lemma",
+      "statement": "Fix a finite place 𝔭 ≠ v of F with residue characteristic p ≠ l, and levels K = K_𝔭^n × H. The vanishing-cycle exact sequence for M_{n,H} ⊗ 𝒪^{nr}_𝔭 with the sheaf F_λ (4.2–4.5) is G(𝔸^f) × W(F̄_𝔭/F_𝔭)-equivariant. It gives, for each π ∈ C, a filtration 0 → σ₁(π) → σ_𝔭(π) → σ₂(π) → 0 of the restriction σ_𝔭(π) of σ(π) to the Weil group. Here σ₁ comes from the cohomology of the special fibre and σ₂ from the vanishing cycles at the supersingular points. In σ₁ there is an exact sequence 0 → ˢσ₁(π) → σ₁(π) → σ̃₁(π) → 0, with σ̃₁ from the normalised special fibre. Then: (5.6.2) if σ̃₁(π) ≠ 0, π_𝔭 is an irreducible principal series; (5.6.3) if dim σ̃₁(π) = 2, then σ_𝔭(π) = σ̃₁(π) = σ(π_𝔭) under the Hecke correspondence; (4.6) if π_𝔭 is an unramified principal series, M_{0,H} is smooth over 𝒪_𝔭, and σ_𝔭(π) is unramified with σ_𝔭(π) = σ(π_𝔭).",
+      "hypotheses": [
+        "The integral models M_{n,H}, the Drinfeld level structures, the congruence relation 1.6.4 and the description of the supersingular orbit 1.7.5 are the results of Carayol's companion paper [Ca 3], summarised in §1 and requested from HilbertModularVarietiesAndShimuraCurves R18.2.",
+        "The extension of F_λ to a lisse sheaf on M_{0,H} (4.1) uses that M_{0,H′} → M_{0,H} is étale.",
+        "The residual term A (4.3–4.5) involves only characters of G(𝔸^f) through ν, so no cusp form contributes; it vanishes unless all k_i = 2."
+      ],
+      "proofSteps": [
+        "Write the vanishing-cycle sequence 0 → H¹(special fibre) → H¹(generic fibre) → ⊕_{x∈S} RΦ¹ → A → 0 at each level, and pass to the limit (4.2–4.3).",
+        "The normalised special fibre is the disjoint union of the components (M_{n,H} ⊗ κ)_{A_n} indexed by ℙ¹(𝒪_𝔭/𝔭^n) (1.6.3), permuted by GL₂(𝒪_𝔭). So H̃¹ = Ind_P^{GL₂(F_𝔭)} H¹_A (5.3).",
+        "By the congruence relation, the unipotent radical of P acts trivially on H¹_A, and the Frobenius acts through characters (5.2). Comparing with the decomposition of 5.1 gives 5.6.2 and the three possible shapes of σ_𝔭 (5.4). 5.5 selects the expected one (R19.2/carayol-twisting-and-determinant)."
+      ],
+      "acceptance": [
+        "π_𝔭 unramified: good reduction, σ_𝔭 unramified with the Hecke characteristic polynomial (4.6).",
+        "π_𝔭 special or supercuspidal: σ̃₁(π) = 0 by 5.6.2."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant",
+        "HilbertModularVarietiesAndShimuraCurves:R18.2",
+        "LefschetzPencilsAndVanishingCycles:LPV.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "5.6, p. 429",
+          "excerpt": "RÉSUMÉ DES RÉSULTATS OBTENUS JUSQU'À PRÉSENT",
+          "match": "5.6.1–5.6.3."
+        },
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "11.1, p. 449",
+          "excerpt": "Combinant ces résultats, on trouve que",
+          "match": "How 5.6.2–5.6.3 enter the proof of Theorem (B)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b",
+          "how": "cases (a) and (b)"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.2/carayol-special-places",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.2",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "title": "Special local components: σ_𝔭(π) is the special representation (6.7 and 11.4)",
+      "kind": "theorem",
+      "statement": "Let 𝔭 ≠ v, of residue characteristic p ≠ l, and π ∈ C with π_𝔭 ≅ χ·Sp special. Then σ_𝔭(π) is the special representation χ^{−1}·Sp(2) of the Weil–Deligne group attached to π_𝔭 by the Hecke correspondence, that is, the unique indecomposable extension 1 → χ^{−1} → χ^{−1}·Sp(2) → χ^{−1}·ω^{−1} → 1. Its parts: ˢσ₁(π) ≠ 0 if and only if π_𝔭 is special, and then ˢσ₁(π) = χ^{−1} is the one-dimensional subrepresentation (6.7); σ̃₁(π) = 0; σ₂(π) is the one-dimensional quotient (Remark after 6.7, using det σ_𝔭 from 5.6.1); the extension does not split (11.4).",
+      "hypotheses": [
+        "6.4–6.6: the supersingular part ˢH̃₁ ⊗ ℂ is ⊕ π̃^{f,𝔭} ⊗ (π̃_𝔭·Sp) ⊗ π̃_𝔭^{−1} over automorphic π̃ of the definite group Ḡ (B changed at 𝔭 and τ₁) with one-dimensional component at 𝔭. The global Jacquet–Langlands correspondence matches those π̃ that are not characters with the π ∈ C with π_𝔭 special (GL2AutomorphicRepresentationsAndTransfer R17.3).",
+        "Non-splitting uses the semistable reduction theorem (4.8) and Picard–Lefschetz for a stable curve: the monodromy logarithm N maps H¹(X_η̄, F)(1) onto ker(H¹(X̃_s, F) → H¹(X_s, F)) (11.4, proved in 11.5–11.10). For F = ℚ this is Langlands [L.1]. Requested from LefschetzPencilsAndVanishingCycles LPV.7."
+      ],
+      "proofSteps": [
+        "6.4–6.7: identify ˢH̃₁ with functions on the supersingular orbit, via 1.7.5, and compare with the Hecke decomposition. This gives ˢσ₁(π) ≠ 0 exactly for special π_𝔭, with ˢσ₁ = χ^{−1}.",
+        "5.6.1 and 6.7: σ_𝔭 and σ(π_𝔭) have the same semisimplification.",
+        "11.4: after a finite extension R of 𝒪_𝔭 the minimal model of M_{n,H} ⊗ R is stable, and H¹ of the normalised special fibre injects into its analogue there (4.8). The monodromy N maps onto ˢH̃₁, so σ_𝔭 is not split."
+      ],
+      "acceptance": [
+        "π_𝔭 = Sp (χ = 1): σ_𝔭(π) is a non-split extension of ω^{−1} (the quotient σ₂) by the trivial character (the subrepresentation ˢσ₁).",
+        "A split extension of the same two characters is excluded by 11.4."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.2/carayol-vanishing-cycle-filtration",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+        "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves"
+      ],
+      "sources": [
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "6.7, Proposition, p. 432",
+          "excerpt": "est une représentation spéciale",
+          "match": "ˢσ₁(π) ≠ 0 exactly at special places."
+        },
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "6.7, Remarque, p. 432",
+          "excerpt": "Cela résultera de la formule de Picard-Lefschetz",
+          "match": "Non-splitting postponed to Picard–Lefschetz."
+        },
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "11.4, Proposition, p. 451",
+          "excerpt": "Le morphisme N envoie",
+          "match": "The surjectivity of the monodromy."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b",
+          "how": "case (b)"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.2/carayol-local-fundamental-representation",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.2",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "title": "The vanishing part σ₂(π) depends only on π_𝔭 (§10)",
+      "kind": "theorem",
+      "statement": "Let 𝔭 ≠ v, of residue characteristic p ≠ l, and π ∈ C. Then σ₂(π) ≠ 0 if and only if π_𝔭 is essentially square-integrable (special or cuspidal). In that case σ₂(π) is computed locally. Let 𝒰 be the local fundamental representation of W(F̄_𝔭/F_𝔭) × GL₂(F_𝔭) × B̄_𝔭^× on the vanishing cycles at the supersingular points (10.3). Then π_𝔭 ⊗ σ₂(π)_ℂ ≅ 𝒰_ℂ(π̄_𝔭^∨), the isotypic component of 𝒰_ℂ for the contragredient of the representation π̄_𝔭 of B̄_𝔭^× attached to π_𝔭 by Jacquet–Langlands (10.5–10.6). In particular σ₂(π) depends only on π_𝔭.",
+      "hypotheses": [
+        "The vanishing cycles at a supersingular point are the cohomology of the geometric generic fibre of the completed strict henselisation (Brylinski, Appendix, Theorem 1). Through Drinfeld's universal deformation of the formal 𝒪_𝔭-module of height 2 with level structure (§§7–9), they become the fibres Φ(δ) of a sheaf on the orbit Δ. §§7–9 and the Appendix are not read here; they are requested from HilbertModularVarietiesAndShimuraCurves R18.5.",
+        "The comparison uses the global Jacquet–Langlands bijection between π ∈ C with π_𝔭 essentially square-integrable and the non-character automorphic representations of Ḡ (GL2AutomorphicRepresentationsAndTransfer R17.3)."
+      ],
+      "proofSteps": [
+        "10.4: using the supersingular orbit (9.4) and Proposition 8.4, identify the vanishing cohomology with sections of the bundle G(ℚ)∖[(Δ/K_𝔭 × W) × Γ/H] of the Φ(δ).",
+        "10.5: after extending scalars to ℂ this is the space of B̄_𝔭^×-invariants in L_w ⊗ 𝒰_ℂ, which decomposes as ⊕_{π′} π′^f ⊗ 𝒰_ℂ(π′_𝔭).",
+        "10.6: compare with H₂ = ⊕ π^f ⊗ σ₂(π) and apply Jacquet–Langlands."
+      ],
+      "acceptance": [
+        "π_𝔭 principal series: σ₂(π) = 0.",
+        "π_𝔭 special: σ₂(π) is the one-dimensional quotient of the special representation (6.7, Remark)."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.2/carayol-vanishing-cycle-filtration",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+        "HilbertModularVarietiesAndShimuraCurves:R18.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "10.6, Proposition, pp. 448–449",
+          "excerpt": "ne dépend que de la composante locale",
+          "match": "σ₂(π) depends only on π_𝔭."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b",
+          "how": "cases (a) and (c)"
+        },
+        {
+          "where": "AutomorphicGaloisRepresentations:R19.2/carayol-ordinary-cuspidal-places",
+          "how": "transfer of σ_𝔭 from π′ to π"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.2/carayol-ordinary-cuspidal-places",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.2",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "title": "Ordinary cuspidal local components, by a CM form with the same local component (11.2–11.3)",
+      "kind": "theorem",
+      "statement": "Let 𝔭 ≠ v, of residue characteristic p ≠ l, and π ∈ C with π_𝔭 ordinary cuspidal, π_𝔭 ≅ 𝒲(L_𝔭, ξ_𝔭) for a quadratic extension L_𝔭/F_𝔭 and a character ξ_𝔭 of L_𝔭^×. Then σ_𝔭(π) ≅ Ind_{W_{L_𝔭}}^{W_{F_𝔭}}(ξ_𝔭^{−1}ω_𝔭^{−1/2}) = σ(π_𝔭) under the Hecke correspondence.",
+      "hypotheses": [
+        "There is a pair (L, ξ), with L/F quadratic imaginary (CM) and ξ a Grössencharakter of 𝔸_L^×, such that: (a) L ⊗_F F_𝔭 ≅ L_𝔭 and ξ has component ξ_𝔭 at 𝔭; (b) ξ_{τ_i} ≅ ζ_{k_i,w}; (c) L/F is not split at v, and ξ_v does not factor through the norm L_v^× → F_v^×. Carayol calls this standard; it is requested with automorphic induction (GL2AutomorphicRepresentationsAndTransfer R17.5).",
+        "The automorphic induction π′ = 𝒲(L, ξ) satisfies the hypotheses of Theorem (B) and has π′_𝔭 ≅ π_𝔭."
+      ],
+      "proofSteps": [
+        "By R19.2/carayol-vanishing-cycle-filtration, R19.2/carayol-special-places and R19.2/carayol-local-fundamental-representation, σ_𝔭 depends only on π_𝔭 when π_𝔭 is cuspidal (11.1(c)). So σ_𝔭(π) = σ_𝔭(π′).",
+        "The Grössencharakter ξ^{−1}ω^{−1/2} gives, by global class field theory, λ-adic characters α of Gal(L̄/L); Ind α is a two-dimensional system for Gal(F̄/F).",
+        "At almost every place w, π′_w is a principal series, and σ_w(π′) ≅ (Ind α)_w by case (a) of Theorem (B). By Čebotarev, σ(π′) ≅ Ind α, so σ_𝔭(π′) ≅ Ind(ξ_𝔭^{−1}ω_𝔭^{−1/2})."
+      ],
+      "acceptance": [
+        "Residue characteristic 2 with π_𝔭 primitive (extraordinary) is not covered: no such L_𝔭 exists (R19.2/carayol-primitive-restriction-lemma)."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.2/carayol-local-fundamental-representation",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-vanishing-cycle-filtration",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "11.3, p. 450",
+          "excerpt": "Cela prouve le théorème (B) en une place",
+          "match": "The conclusion at ordinary cuspidal places."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b",
+          "how": "case (c)"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.2",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "title": "Carayol's Theorem (B): the local components at every 𝔭 ≠ v that is not extraordinary cuspidal",
+      "kind": "theorem",
+      "statement": "Let π be as in (0.3). When d is even, fix a finite place v where π_v is essentially square-integrable. Then the system σ_λ(π) of R19.2/carayol-sigma-lambda-construction, transferred from G by Jacquet–Langlands, satisfies σ_λ(π)|W_{F_𝔭} ≅ σ(π_𝔭) under the Hecke correspondence at every finite 𝔭 ≠ v whose residue characteristic is not that of λ and where π_𝔭 is not extraordinary cuspidal. Extraordinary cuspidal means that the corresponding Weil representation is primitive, which happens only in residue characteristic 2.",
+      "hypotheses": [
+        "Theorem (B) and Theorem (B') are equivalent by the global Jacquet–Langlands correspondence (GL2AutomorphicRepresentationsAndTransfer R17.3)."
+      ],
+      "proofSteps": [
+        "(a) π_𝔭 principal series: σ₂ = 0 by 10.6, and ˢσ₁ = 0 by 6.7, so σ_𝔭 = σ̃₁ has dimension 2 and equals σ(π_𝔭) by 5.6.3.",
+        "(b) π_𝔭 special: R19.2/carayol-special-places.",
+        "(c) π_𝔭 cuspidal: σ_𝔭 = σ₂ depends only on π_𝔭 by 5.6.2, 6.7 and 10.6. In the ordinary case, R19.2/carayol-ordinary-cuspidal-places."
+      ],
+      "acceptance": [
+        "Excluded by (B), and handled in the proof of Theorem (A): 𝔭 = v, and extraordinary cuspidal π_𝔭 (residue characteristic 2 only)."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.2/carayol-vanishing-cycle-filtration",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-special-places",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-local-fundamental-representation",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-ordinary-cuspidal-places",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "11.1, p. 449",
+          "excerpt": "Combinant ces résultats, on trouve que",
+          "match": "The case split (a)–(c)."
+        },
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "11.3, p. 450",
+          "excerpt": "Cela prouve le théorème (B) en une place",
+          "match": "Case (c) for ordinary cuspidal π_𝔭."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+          "how": "the weakened theorem that base change extends"
+        }
+      ],
+      "planet": {
+        "name": "Carayol's Theorem (B)"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.2/carayol-primitive-restriction-lemma",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.2",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "title": "Primitive local Galois representations are determined by a cubic restriction and the determinant (12.1)",
+      "kind": "lemma",
+      "statement": "Let σ be an irreducible two-dimensional representation of W_{F_𝔭} that is primitive (not induced), so the residue characteristic is 2. Its projective image is A₄ (tetrahedral) or S₄ (octahedral), because local Weil groups are solvable and A₅ is excluded. A 2-Sylow subgroup H of the projective image has index 3. Its inverse image in W_{F_𝔭} defines a cubic extension L/F_𝔭, Galois in the tetrahedral case and not in the octahedral case, and σ|W_L is irreducible and monomial. Lemma: if σ′ is another two-dimensional representation of W_{F_𝔭} with σ′|W_L ≅ σ|W_L and det σ′ = det σ, then σ′ ≅ σ.",
+      "hypotheses": [
+        "The finite subgroups of PGL₂(ℂ) ≅ SO(3) are cyclic, dihedral, A₄, S₄ or A₅ (12.1.1).",
+        "In A₄ the 2-Sylow subgroup Z/2 × Z/2 is normal and is the unique subgroup of index 3. In S₄ there are three conjugate 2-Sylow subgroups (stabilisers of the axes Ox, Oy, Oz), and every element is conjugate into H ∪ A₄ (12.1.2)."
+      ],
+      "proofSteps": [
+        "Tetrahedral: Ind_{W_L}^{W_F}(σ|W_L) = σ ⊕ σχ ⊕ σχ², with χ a character of order 3 cutting out L (12.1.4 (a)).",
+        "Octahedral: a character computation using that every element of S₄ is conjugate into H ∪ A₄ (12.1.4 (b))."
+      ],
+      "acceptance": [
+        "A dihedral (monomial) σ is not primitive: its projective image is dihedral, not A₄ or S₄.",
+        "Tetrahedral case: the determinant condition cannot be dropped. σ and σ ⊗ η, for a non-trivial cubic character η trivial on W_L, have the same restriction but determinants differing by η²."
+      ],
+      "prerequisites": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "12.1.3, p. 456",
+          "excerpt": "Le lemme suivant joue un rôle crucial dans notre démonstration du théorème (A)",
+          "match": "The lemma."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+          "how": "the last step of 12.3.1"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.2/carayol-cubic-base-change-of-extraordinary",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.2",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "title": "Base change of degree at most 3 is restriction for extraordinary cuspidal representations (12.2.2)",
+      "kind": "theorem",
+      "statement": "Let L/F_𝔭 be an extension of p-adic fields of degree at most 3, and π an extraordinary cuspidal representation of GL₂(F_𝔭), with Weil representation σ (irreducible, primitive). Then the local base-change lift Π = π_L corresponds to the restriction Σ = σ|W_L, which is irreducible. Here the lift is Langlands' for cyclic L/F_𝔭, and that of Jacquet–Piatetski-Shapiro–Shalika for non-Galois cubic L/F_𝔭. The same holds with the Hecke correspondence in place of the Langlands correspondence.",
+      "hypotheses": [
+        "Carayol writes that he knows no reference for the general principle that the base-change lift corresponds to restriction of the Weil–Deligne representation. He says it follows from the definitions for principal series, and is checked 'sans trop de mal' for special and ordinary cuspidal π. The request to GL2AutomorphicRepresentationsAndTransfer R17.4 asks for this compatibility with proof.",
+        "Tunnell's globalisation ([Tu. 1], Theorem 1.3), the Artin conjecture for tetrahedral (Langlands [L.2]) and octahedral (Tunnell [Tu. 2]) representations, and Jacquet–Langlands chapter 12 are requested from GL2AutomorphicRepresentationsAndTransfer R17.5."
+      ],
+      "proofSteps": [
+        "After an unramified twist, π has central character of finite order, so σ has finite image.",
+        "Globalise: a number field 𝔈 with a place v₀, 𝔈_{v₀} ≅ F_𝔭, and a tetrahedral or octahedral Galois representation σ̃ of Gal(𝔈̄/𝔈) with σ̃_{v₀} ≅ σ ([Tu. 1]).",
+        "The Artin conjecture gives a cuspidal π̃ with π̃_v ↔ σ̃_v at every v, so π̃_{v₀} ≅ π.",
+        "Choose 𝔏/𝔈 with 𝔏 ⊗ F_𝔭 ≅ L. The restriction σ̃|Gal(𝔏̄/𝔏) also satisfies the Artin conjecture, with automorphic Π̃. At almost all places Π̃ is the lift of π̃ (principal series), hence everywhere, so Π̃_{w₀} = π_L corresponds to Σ."
+      ],
+      "acceptance": [
+        "L = F_𝔭: trivial.",
+        "Ordinary cuspidal and principal-series π: the same compatibility, which Carayol asserts without a reference (see the hypothesis)."
+      ],
+      "prerequisites": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "12.2.2, Proposition, p. 457",
+          "excerpt": "Malheureusement, je ne connais pas de référence pour cette affirmation",
+          "match": "Carayol's remark that the general principle lacks a reference."
+        },
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "12.2.2, Proposition, p. 457",
+          "excerpt": "Le cas qui nous intéresse ici est le cas cuspidal extraordinaire",
+          "match": "The case he proves."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+          "how": "12.3.1"
+        }
+      ],
       "implementationStatus": "unchecked"
     },
     {
@@ -1786,21 +2301,26 @@
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility",
         "AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical",
-        "AutomorphicGaloisRepresentations:R19.4/nearly-ordinary-hilbert-compatibility-away-from-p"
+        "AutomorphicGaloisRepresentations:R19.4/nearly-ordinary-hilbert-compatibility-away-from-p",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-primitive-restriction-lemma",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-cubic-base-change-of-extraordinary"
       ]
     },
     {
       "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.4",
       "need": "Shimura curves attached to quaternion algebras over totally real fields split at one real place, with the ℓ-adic sheaves F_λ and the Hecke decomposition of their cohomology used by Carayol (§§1–10).",
       "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A"
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant"
       ]
     },
     {
       "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.2",
       "need": "Carayol's integral models of Shimura curves and their bad reduction (Compositio 59, 1986), on which Theorem (B) depends.",
       "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A"
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-vanishing-cycle-filtration"
       ]
     },
     {
@@ -1837,7 +2357,11 @@
       "need": "The Jacquet–Langlands correspondence between automorphic representations of (D ⊗ A_F)^× and cuspidal representations of GL_2(A_F) that are discrete series at the ramification places of D, with local functoriality at every place (one-dimensional representations of D_v^× ↔ unramified twists of Steinberg), as used by KW II §7 and Taylor.",
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-quaternionic",
-        "AutomorphicGaloisRepresentations:R19.4/quaternionic-sigma-place-local-form"
+        "AutomorphicGaloisRepresentations:R19.4/quaternionic-sigma-place-local-form",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-special-places",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-local-fundamental-representation",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b"
       ]
     },
     {
@@ -1875,6 +2399,43 @@
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.6/reduced-hecke-algebra-as-a-localisation"
       ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.5",
+      "need": "The supersingular locus of Carayol's Shimura curves at 𝔭 ≠ v through Drinfeld's formal 𝒪_𝔭-modules of height 2 with level structure (Carayol §§7–9: the formalism, the universal deformation with level structure, and the supersingular orbit revisited), and Brylinski's appendix identifying the vanishing cycles with the cohomology of the generic fibre of the completed strict henselisation. These give the local fundamental representation 𝒰 of W(F̄_𝔭/F_𝔭) × GL₂(F_𝔭) × B̄_𝔭^× (10.3).",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.2/carayol-local-fundamental-representation"
+      ]
+    },
+    {
+      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "need": "The vanishing-cycle exact sequence for a proper curve over a strictly henselian discrete valuation ring with a lisse coefficient sheaf, and its compatibility with finite étale covers and group actions, as Carayol uses it in 4.2–4.5.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.2/carayol-vanishing-cycle-filtration"
+      ]
+    },
+    {
+      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "need": "Picard–Lefschetz for a stable curve X over a strictly henselian discrete valuation ring (after the Deligne–Mumford semistable reduction theorem): the monodromy logarithm N maps H¹(X_η̄, F)(1) onto ker(H¹(X̃_s, F) → H¹(X_s, F)), X̃_s the normalisation, for a lisse F (Carayol 11.4–11.10, Langlands [L.1] for F = ℚ).",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.2/carayol-special-places"
+      ]
+    },
+    {
+      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+      "need": "Local and global base change for GL₂ along extensions of degree at most 3: Langlands for cyclic extensions and Jacquet–Piatetski-Shapiro–Shalika for non-Galois cubic ones, with the compatibility 'the lift corresponds to restriction of the Weil–Deligne representation' for principal series, special and ordinary cuspidal π, which Carayol (12.2.2) asserts without a reference.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.2/carayol-cubic-base-change-of-extraordinary",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A"
+      ]
+    },
+    {
+      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+      "need": "Automorphic induction 𝒲(L, ξ) from a CM quadratic extension L/F with prescribed local component, archimedean types and behaviour at v (Carayol 11.2); Tunnell's globalisation of primitive local representations ([Tu. 1], Theorem 1.3); and the Artin conjecture for tetrahedral (Langlands) and octahedral (Tunnell) representations, with Jacquet–Langlands chapter 12.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.2/carayol-ordinary-cuspidal-places",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-cubic-base-change-of-extraordinary"
+      ]
     }
   ],
   "coverage": [
@@ -1892,11 +2453,11 @@
     {
       "stageId": "AutomorphicGaloisRepresentations:R19.2",
       "status": "partial",
-      "note": "Carayol's Theorem (A) is carried over from the reviewed decomposition. Wiles' representations of nearly ordinary Hilbert forms (Skinner–Wiles (3.2)) are planned.",
+      "note": "Carayol's Theorem (A) is carried over from the reviewed decomposition. Wiles' representations of nearly ordinary Hilbert forms (Skinner–Wiles (3.2)) are planned. Checkpoint 5 decomposes the proof of Carayol's Theorems (B) and (A) into 8 nodes: the construction of σ_λ(π), twisting and the determinant, the vanishing-cycle filtration, the special, supersingular-part and ordinary cuspidal places, Theorem (B), and the primitive-restriction lemma and cubic base change for the extraordinary places.",
       "remaining": [
-        "Only Carayol's introduction (0.1-0.11) was read. Sections 1-12, which contain the construction of the Shimura curves, their bad reduction, the sheaves F_lambda, the Hecke decomposition and the proof of Theorem (B'), were not read. Next source action: read Carayol sections 1-2 (the curves and the universal object), section 10 (the decomposition of cohomology) and section 12.3 (the proof of Theorem (A) from (B)).",
-        "The base-change step deducing Theorem (A) from Theorem (B) was not read; it is at 12.3, located but not inspected.",
-        "The companion paper on bad reduction of Shimura curves (R02_SS_CarayolBadReduction.pdf, in the library) was not read, although Theorem (B) depends on it crucially.",
+        "Carayol §§7–9 (Drinfeld's deformations with level structure) and Brylinski's appendix are not read; they are requested from HilbertModularVarietiesAndShimuraCurves R18.5.",
+        "The Picard–Lefschetz computation 11.5–11.10 is not read; it is requested from LefschetzPencilsAndVanishingCycles LPV.7.",
+        "The companion paper on bad reduction of Shimura curves (Carayol, Compositio 59, 1986) was not read, although Theorem (B) depends on it crucially; §1 summarises it (requested from R18.2).",
         "Wiles 1988 [W2] is quoted through Skinner–Wiles, not read."
       ]
     },
@@ -1954,9 +2515,11 @@
     {
       "title": "Carayol's Theorem (B) depends on his companion paper on bad reduction, which was not read",
       "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A"
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-vanishing-cycle-filtration",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-special-places"
       ],
-      "detail": "Verified: Carayol's statement that the method 'utilise de facon cruciale les resultats que nous avons obtenus au prealable sur la (mauvaise) reduction de ces courbes', and that his section 1 is a summary of those results. Not verified: any of the bad-reduction results. The companion paper IS in the supplied library as references/papers/R02_SS_CarayolBadReduction.pdf ('Sur la mauvaise reduction des courbes de Shimura', Compositio Math. 59 (1986), 151-230) with extracted text at references/text/R02_SS_CarayolBadReduction.txt. Next source action: read its main theorems on the integral models and their special fibres at the ramified places, and check them against HilbertModularVarietiesAndShimuraCurves R18.4 (owned by EXT-11)."
+      "detail": "Verified: Carayol's statement that the method 'utilise de facon cruciale les resultats que nous avons obtenus au prealable sur la (mauvaise) reduction de ces courbes', and that his section 1 is a summary of those results. Not verified: any of the bad-reduction results. The companion paper IS in the supplied library as references/papers/R02_SS_CarayolBadReduction.pdf ('Sur la mauvaise reduction des courbes de Shimura', Compositio Math. 59 (1986), 151-230) with extracted text at references/text/R02_SS_CarayolBadReduction.txt. Next source action: read its main theorems on the integral models and their special fibres at the ramified places, and check them against HilbertModularVarietiesAndShimuraCurves R18.4 (owned by EXT-11). Checkpoint 5 read Carayol's §1, which summarises those results (good reduction 1.2.2, the extension of the divisible groups 1.4.1, Drinfeld bases 1.5.1, the congruence relation 1.6.4, the supersingular orbit 1.7.5), and planned §§2–6 and 10–12 against it. The proofs of those results remain unread and are requested from HilbertModularVarietiesAndShimuraCurves R18.2."
     },
     {
       "title": "Chenevier's Theorem B has an algebraically-closed-residue-field hypothesis that a Hecke algebra does not satisfy",
