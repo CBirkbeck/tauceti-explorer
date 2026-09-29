@@ -1,3 +1,104 @@
+# LLHLM23 continuation: Q03 settled — the appendix's parameter sign, and E114–E116
+
+Claude Code — cc-58621d; issue 1254; 29 September 2026. This takes the first resume item of the
+previous handoff: Q03, Proposition B.0.1(1), whose three chart equations F1–F3 two earlier attempts
+could not re-derive. They are right, but for the opposite sign of the monodromy parameter, and only
+where a is invertible. Census: 779 items, 26 routes, 116 findings (E114–E116 are new), 12 gaps (the
+`appendix-certificates` gap is closed).
+
+## Source check
+
+- **Published PDF.** Freshly read at PDF55–65 (§§3.1–3.3: the charts U(z̃), Proposition 3.2.8, the
+  monodromy condition (3.1), Lemma 3.3.1, Remark 3.3.2, Proposition 3.3.4, Definition 3.3.6) and
+  PDF201–203 (Appendix B set-up, Proposition B.0.1 and its proof). The equations were read on the page
+  image of PDF202.
+- **arXiv v2.** PDF147–148, page image read. It has the same (3.1), a = (a, b, 0), P and F1–F3, but
+  prints the constant c12 in the matrix A.
+- The chart used is Proposition 3.2.8's for z̃ = (23)t^(2,1,1). Its (1,2) entry is the constant c12,
+  not the printed vc12 (E116; the cc-39fac3 checkpoint had already seen this from U(z̃)'s definition).
+
+## The sign of the parameter (E114)
+
+The chart was set up in Singular (passagemath-singular 10.8.12) with these conditions:
+- det A = −(v − t)^4;
+- λ = (3,1,0): every 2×2 minor of A vanishes at v = t;
+- (3.1) with t inverted, where the Iwahori condition is vacuous: (v·dA/dv + A·D)·adj A ≡ 0 mod
+  (v − t)^3.
+
+After saturating in t, the ideal has a 4-dimensional component, the λ-cell, and a 3-dimensional one
+from a smaller Schubert cell, which Definition 3.3.6 discards.
+
+- **With D = Diag(a, b, 0), as the appendix states,** none of F1–F3 vanishes on the λ-component. This
+  holds at (a, b) = (5, −4), (11, 5), (7, −6), (13, 3) and (−9, 17). Over Q(a, b), the generic point of
+  V(F1, F2, F3) fails 18 of the 19 chart equations.
+- **With D = Diag(−a, −b, 0),** the elimination ideal of the λ-component is exactly (F1, F2, F3) at
+  all five points. The generic point of V(F1, F2, F3) satisfies every chart equation. It is
+  parametrized by t, c12, c22, d33, since F1, F3 and F2 are linear in c13, d21 and d31.
+
+The paper writes + g·Diag(a)·g^{−1} in (3.1), Lemma 3.3.1, (3.2) and §§5–7, so the sign change is the
+appendix's own. Every explicit formula of Appendix B is therefore in the negated parameters; to read
+one in (3.1)'s normalization, replace (a, b) by (−a, −b). The earlier certificates (Q04–Q13) are
+about the ring R = Z[…][1/P]/(F1, F2, F3) and stand as they are.
+
+Downstream nothing changes. At the specializations of Theorem 7.3.2 and Corollary B.0.5, a, b and
+a − b are ≡ ±⟨μ + η, α^∨⟩ for positive roots α (E111). So once μ is 2-deep, every factor of
+a·P(a, b)·P(−a, −b) is a unit, whichever sign is read.
+
+## The six eliminated coefficients, and a proof of B.0.1(1)
+
+The source asserts but does not display the elimination. With the sign of E114, it is:
+
+- c11 = c12·c31;
+- d11 = c12·d31 + t/(a − 1);
+- c23 = ((a − b − 2)·c22·d33 − (a − b)·t)/(a − 2);
+- c21 = ((1 − b)·t·d21 + (b + 1)·c22·d31)/a;
+- c33 = ((a − b − 1)/(b − 1))·(c12·d31·d33 − c13·d31) − ((a + b − 1)/((b − 1)(a − 1)))·t·d33;
+- c31 = −b((a − b)(a − 1) − 1)/((a − b)(a − 1)a)·t·d21·d33 + b(a − b − 1)/((a − b)a)·c22·d31·d33
+  + (2a − b − 2)/((a − b)(a − 1))·t·d31.
+
+These are unique on their monomial supports, and c11 = c12·c31 agrees with the Gröbner-basis
+representative modulo (F1, F2, F3). The proof of B.0.1(1) over V_a = Spec Z[1/7!][a, b][1/(aP)] then
+has four steps:
+
+1. **Certificate.** Substituted into the 41 chart equations, the solved forms leave 39 nonzero
+   polynomials, each an explicit combination of F1, F2, F3. The cofactors have no integer
+   denominators, and their polynomial denominators divide
+   a(a − 1)^3(a − 2)^2(b − 1)(a − b)^2(a − b − 2)^2. So V(F1, F2, F3) ⊂ chart over V_a
+   (`sourceData.appendixB.q03Resolution.certificate`). As an independent check, all 1,443
+   identities held exactly at 37 random rational points in plain Python; this checks points, and is
+   not a symbolic proof.
+2. **Primality.** (F1, F2, F3) is prime over Q(a, b). Since R_a is flat over X × V_a (Q05), it is a
+   domain, and its generic point is that of the λ-cell.
+3. **Integrality.** U(z̃, λ, ∇) ×_{A²} V_a is the closure of the smooth irreducible λ-cell
+   (Proposition 3.3.4, with 3! invertible), so it is integral, of the same dimension as Spec R_a.
+4. **Equality.** Spec R_a is a closed integral subscheme of it of the same dimension, so the two are
+   equal.
+
+## Where the presentation fails: a = 0 (E115)
+
+The formulas for c21 and c31 have the pole a = 0, and a does not divide P. On a = 0 the presentation
+is wrong. E111's point, t = 1, c12 = c13 = c22 = d21 = d33 = 1, d31 = (b − 1)/(b + 1), satisfies
+F1–F3, but no values of the six coefficients put it on the chart: in those unknowns the chart
+equations generate the unit ideal, for either sign, at b = 5, −3 and 7. So (1) must be stated over
+Z[a, b][1/(aP)], as E111 already does for (4). Items (2) and (3), certified for R over all of V, are
+statements about U(z̃, λ, ∇) only where aP is invertible. E111's downstream argument applies
+unchanged: a is a unit at every specialization used.
+
+## Changes and scope
+
+- **Findings:** E114 (the parameter sign), E115 ((1) needs a invertible) and E116 (vc12 for c12), all
+  new. Crossref, the author page and arXiv v2 show no correction.
+- **Q03:** statement, proof steps and note rewritten; status unchanged (`missing`, routed as before).
+- **Data:** `sourceData.appendixB.q03Resolution`, with the conventions, sample points, generic
+  check, solved forms, cofactor certificate, primality, the a = 0 test and the vc12 test.
+  `sourceData.appendixB.verificationStatus` is updated.
+- **Also:** `validation.ccC58621dQ03`, `source.continuationReadings` and the summary. The
+  `appendix-certificates` gap is removed: every Appendix B claim is now certified over
+  Z[a, b][1/(aP)] or corrected (E111–E116).
+- **Unchanged:** other items, statuses and routes. No Lean file.
+
+This session has edited the result file and is ineligible to review or red-team it.
+
 # LLHLM23 continuation: the Kummer-tower field inputs (Z143–Z145)
 
 Claude Code — cc-39fac3; issue 1254; 29 September 2026. This step resolves the gap

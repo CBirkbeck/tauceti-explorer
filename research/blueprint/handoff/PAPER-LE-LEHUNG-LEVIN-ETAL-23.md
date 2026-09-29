@@ -1,5 +1,54 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (Q03 step).
+**Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes,
+116 findings (E114–E116 are new), 12 gaps (`appendix-certificates` closed). No Lean deliverable or
+compilation. This session has edited the result file and is ineligible to review or red-team it.
+
+## Completed here
+
+- **Q03 (Proposition B.0.1(1)) is settled; this was resume item 1 below.** F1–F3 are the chart's
+  equations when the monodromy term of (3.1) is g·Diag(−a, −b, 0)·g^{−1}. The appendix says
+  a = (a, b, 0), and (3.1) has + g·Diag(a)·g^{−1}, so the appendix's parameter is the negative of
+  (3.1)'s (**E114**). With that sign, the λ-component's elimination ideal equals (F1, F2, F3)
+  exactly at five sample points. With the printed sign, none of F1–F3 holds.
+- The previous attempt's set-up is the one used here: the chart with c12, the λ-condition, and
+  (3.1) mod (v − t)^3 saturated in t. With the parameter Diag(−a, −b, 0) it reproduces F1–F3
+  exactly. That note also records an unsuccessful search over signs and orderings, but not in
+  enough detail to say why the search missed.
+- **The six eliminated coefficients are explicit** (`sourceData.appendixB.q03Resolution.solvedForms`).
+  A cofactor certificate shows that they satisfy all 41 chart equations modulo (F1, F2, F3) over
+  Z[a, b][1/(aP)]. (F1, F2, F3) is prime over Q(a, b). With Q05's flatness and Proposition 3.3.4,
+  this proves B.0.1(1) over Z[1/7!][a, b][1/(aP)].
+- **E115.** The formulas for c21 and c31 have the pole a = 0, and at a = 0 the presentation is false:
+  E111's point satisfies F1–F3 but is not on the chart for any values of the six coefficients.
+- **E116.** The displayed matrix has vc12 for the constant c12; arXiv v2 prints c12.
+- The `appendix-certificates` gap is removed. Every Appendix B claim is now certified over
+  Z[a, b][1/(aP)] or corrected (E111–E116).
+- **Tooling.** Singular via `uv run --with passagemath-singular` worked in this session; each
+  computation took seconds. Over a transcendental field Q(a, b), saturating the 13-variable chart
+  ideal did not finish in 10 minutes. Work at sample points, or through the rational
+  parametrization of V(F1, F2, F3), as in q03Resolution.
+
+## Resume from here
+
+1. **The remaining gaps and the Codex resume items 1–5 below**, which are the non-computational bulk:
+   - `rank-one-downstream-boundaries` through §§7.3–9;
+   - `section2-source-suppliers` (Jantzen, Deligne–Lusztig, Haines–Ngô, Schneider–Zink, Pyvovarov);
+   - the regularity and analytic suppliers (`analytic-regularity-suppliers`,
+     `approximation-and-tensor-adapter-closure`);
+   - `closure-external-inputs`;
+   - `global-descent-supplier-atoms` and `auxiliary-projector-global-input`;
+   - the U/G/B/Z/P outline queues.
+2. **Optional.** A symbolic recheck of the Q03 cofactor identities outside Singular. Here they were
+   rechecked only at 37 random rational points with exact fractions, because a SymPy expansion with
+   rational-function coefficients did not finish in 25 minutes. Clearing the denominators
+   a(a − 1)^3(a − 2)^2(b − 1)(a − b)^2(a − b − 2)^2 first should make it fast.
+
+---
+
+# Previous checkpoint (cc-e94dc5, Z143 source step)
+
 Claude Code — cc-e94dc5; issue 1254; 29 September 2026 (Z143 source step).
 **Partial checkpoint, continuing the checkpoints below.** Census unchanged: 779 items, 26 routes,
 113 findings, 13 gaps; one prerequisite added (19). No Lean deliverable or compilation. This session
