@@ -3,13 +3,12 @@
   "roadmaps": {
     "AutomorphicGaloisRepresentations": {
       "action": "keep",
-      "reason": "Keep the explicit classical/Hilbert geometric rank-two development, its weight-one branch, full local comparisons and integral-Hecke realization. None is replaced by an abstract rank-n existence theorem or its weaker nonselfdual compatibility."
+      "reason": "Keep the explicit classical/Hilbert geometric rank-two development, its weight-one branch, full local comparisons and integral-Hecke realization. None is replaced by an abstract rank-n existence theorem or its weaker nonselfdual compatibility. It is not the base of an extension: through ET.6 its local-Langlands and local Jacquet-Langlands inputs (R16.3 for R19.1/R19.4, R17.1-R17.3 for R19.2) depend on the raw compact-unitary cohomology AG2.1a of AutomorphicGaloisRepresentationsPartII, while that roadmap's later layers import R19's exact rank-two special cases. The two roadmaps supply each other stage by stage; neither starts where the other stops."
     },
     "AutomorphicGaloisRepresentationsPartII": {
-      "action": "extend",
-      "extends": "AutomorphicGaloisRepresentations",
-      "title": "Galois representations attached to modular and Hilbert modular forms, Part II: arbitrary-rank polarized and nonselfdual systems",
-      "reason": "Make the already-stated dimension-general continuation precise: begin the public scope beyond the existing classical/Hilbert construction and reuse its exact special cases through late comparison links. Retain the early raw-cohomology prelude shared with ET.6; a folder-wide R19-to-AG2.0 prerequisite creates the explicit cycle documented in the report. New CM rank-two cases, general ranks, discrete parameters and the nonselfdual route all remain, with no duplicate public GL2 carrier."
+      "action": "keep",
+      "title": "Galois representations attached to regular algebraic automorphic representations of GL_n",
+      "reason": "Round 3 replaces the declared extension, which both reviews rejected, by a kept general-rank roadmap under the fifth rule of PROTOCOL section 15: a general theory that subsumes special cases builds on them, cites them, proves its general statements compatible with them and does not construct them again. The narrowed AG2.3/AG2.5/AG2.6 and the late R19-to-AG2.3/5/6/7 links implement exactly that. An extension is impossible here, not merely inconvenient: AG2.0 and AG2.1a lie upstream of all six R19 layers by two independent routes, AG2.1a -> ET.6 -> R16.3 -> R16.6 -> R19.1 and AG2.1a -> ET.6 -> R17.1 -> R17.2 -> R17.3 -> R19.2. Removing R16.6 -> R19.1, or R16.3 -> R16.6 as well, still leaves R19.2-R19.6 downstream of AG2.1a. Both routes are genuine: R19.4 proves compatibility with the local Langlands correspondence and R19.2 uses global Jacquet-Langlands, and the atlas takes both local correspondences from ET.6, whose Scholze/Harris-Taylor proof consumes the raw compact-unitary cohomology of AG2.1a. No other layer of the atlas plans that cohomology, and it is the geometric object AG2.1b and AG2.2 continue to work on, so AG2.1a keeps it. Moving it into the rank-two base or into EndoscopicTransferAndUnitaryTraceComparison (family RS-19, accepted with ET kept) is the alternative the report records for the maintainer. No stage id changes; AG2.1b-AG2.7 reach no R19 layer, and no R19 layer reaches AG2.0 or AG2.1a, so the union with the proposed links stays acyclic. The new title drops 'Part II' and names the general theory; the roadmap id is unchanged. The roadmap's introduction, which calls it the dimension-general continuation of R19, should say instead that its early geometric layers are a foundation of ET's local correspondences and its later layers compare with R19's rank-two cases."
     }
   },
   "layers": {
@@ -44,7 +43,7 @@
     },
     "AutomorphicGaloisRepresentationsPartII:AG2.0": {
       "action": "keep",
-      "reason": "Keep the branch-specific automorphic weight/coefficient-field data, finite realization/descent checks and the early Frobenius/cyclotomic/Satake dictionary. Reuse AF.4 for algebraic/rational structures, R01/G7 for actual representations and polarizations, and IHG.3 for integral spherical normalization. The rec comparison belongs to AG2.5 after ET.6, not to this early raw-cohomology input. The explicit imports are deliberate handoffs, not new versions of their carriers."
+      "reason": "Keep the branch-specific automorphic weight/coefficient-field data, finite realization/descent checks and the early Frobenius/cyclotomic/Satake dictionary. Reuse AF.4 for algebraic/rational structures, R01/G7 for actual representations and polarizations, and IHG.3 for integral spherical normalization. The rec comparison belongs to AG2.5 after ET.6, not to this early raw-cohomology input. The explicit imports are deliberate handoffs, not new versions of their carriers. Round 3: AG2.0 stays early and rec-free, because it precedes ET.6 through AG2.1a. The AG2.0 checkpoint-1 packet places three statements after that frontier, and its next checkpoint must move them. The source-normalization comparison (AG2.0/the-normalization-dictionary-fixed-by-the-sources, stated with rec) goes to AG2.5. The forward requirement of AG2.0/frobenius-polynomial-and-conventions on AG2.5 becomes a consumer link from AG2.0 to AG2.5. The Arthur-Clozel base-change clause of AG2.0/galois-representation-attached-at-good-places, requested from ET.7, which lies downstream of AG2.0 via AG2.1a -> ET.6 -> ET.7a, goes to AG2.2. The rec-free definition by Hecke polynomials stays."
     },
     "AutomorphicGaloisRepresentationsPartII:AG2.1": {
       "action": "keep",
@@ -52,7 +51,7 @@
     },
     "AutomorphicGaloisRepresentationsPartII:AG2.1a": {
       "action": "keep",
-      "reason": "Keep the compact PEL unitary/similitude raw cohomology with actual algebraic projectors, coefficients, parity, twists, commuting actions, finite-dimensionality, continuity, isotypic summands and geometric trace/nearby-cycle identities. This supplies ET.6/ET.6a without an established local correspondence or a completed global Galois realization. No R19 endpoint, late Igusa concentration, torsion interpolation or potential-automorphy theorem is added as a prerequisite."
+      "reason": "Keep the compact PEL unitary/similitude raw cohomology with actual algebraic projectors, coefficients, parity, twists, commuting actions, finite-dimensionality, continuity, isotypic summands and geometric trace/nearby-cycle identities. This supplies ET.6/ET.6a without an established local correspondence or a completed global Galois realization. No R19 endpoint, late Igusa concentration, torsion interpolation or potential-automorphy theorem is added as a prerequisite. Round 3: this layer is the sole owner of the raw compact-unitary cohomology; no other layer of the atlas plans it. It is a shared foundation of ET.6/ET.6a and of AG2.1b, and through ET.6 of the rank-two base, which is why AutomorphicGaloisRepresentationsPartII is kept rather than declared an extension. The decomposition node AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris states the completed Shin/Chenevier-Harris theorem with local-global conclusions, so the blueprint must place it in AG2.1b/AG2.2 (existence) and AG2.5/AG2.6 (local conclusions) and keep only the raw geometric inputs here."
     },
     "AutomorphicGaloisRepresentationsPartII:AG2.1b": {
       "action": "keep",
@@ -141,7 +140,7 @@
     {
       "source": "AutomorphicGaloisRepresentations:R19.2",
       "target": "AutomorphicGaloisRepresentationsPartII:AG2.7",
-      "reason": "Use the existing Hilbert representation in the final overlapping GL2 export and verify coefficient/normalization transport; new CM rank-two cases remain in Part II."
+      "reason": "Use the existing Hilbert representation in the final overlapping GL2 export and verify coefficient/normalization transport; new CM rank-two cases remain in AutomorphicGaloisRepresentationsPartII."
     },
     {
       "source": "AutomorphicGaloisRepresentations:R19.3",
