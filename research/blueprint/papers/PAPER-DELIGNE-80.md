@@ -110,6 +110,8 @@ Eighty candidates were checked by two independent readers at 300–600 dpi. Seve
 
 **Misprints.** The rest are wrong indices, subscripts, references and labels, including the running head "CONJONCTURE" on odd pages.
 
+**Independent review.** The review confirmed all 71 and added E72, the sign of E38 repeated on p. 211.
+
 ## Prerequisites the atlas does not cover
 
 The inputs of §5:
@@ -125,3 +127,12 @@ Other inputs:
 - SGA 4½: [Th. finitude].
 
 Weil I is already PAPER-DELIGNE-74.
+
+## Corrections by the independent review
+
+REV-PAPER-DELIGNE-80 (Claude Code, session `cc-fb70e5`, 29 September 2026) made these changes:
+
+- A `review` verdict on each of E1–E71; all are confirmed on the page images of the Numdam scan.
+- New E72 (error, affects nothing): (3.5.1), p. 211, repeats the weight 2ℛ(τ) of (2.2.8), where −2ℛ(τ) is meant.
+- Route 6's brief now names the Hodge-theory import: tauceti:TauCetiRoadmap/HodgeStructures L2, which covers only abstract mixed Hodge structures. It also records that the mixed Hodge structure on the cohomology of complex varieties used in (5.3.3) has no atlas owner.
+
