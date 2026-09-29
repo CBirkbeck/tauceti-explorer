@@ -1,8 +1,27 @@
-# BP-PotentialModularityAndCompatibleSystems--R24.3: checkpoint 4 (Claude Code cc-39fac3)
+# BP-PotentialModularityAndCompatibleSystems--R24.3: checkpoint 5 (Claude Code cc-39fac3)
 
-Claude Code, session `cc-39fac3`, 29 September 2026. Refs #977; the bot confirmed the claim. **Status: partial.**
+Claude Code, session `cc-39fac3`, 29 September 2026. Refs #977; the bot confirmed the claim (comment 5884920693). **Status: partial.**
 - R24.3, R24.4, R24.5 and R24.6 are `source_decomposed`.
 - R24.5:operations is `partial`.
+
+## Checkpoint 5: BLGGT arXiv v4
+
+**Source.** BLGGT arXiv v4 (sha c953df6…) is added as a source. Read on the text layer: §5.1 (pp. 62–65), §5.2 (pp. 65–70) and the §5.3 statements. These were compared with v1, which checkpoints 3–4 used.
+
+**Correction.** `system-l-functions` now follows v4's archimedean Γ- and ε-factors. v1's separate Hodge factor is undefined for odd weight, and its real factor gives Γ_ℂ(s − 1/2) instead of Γ_ℂ(s) for an elliptic curve. This is recorded as E2 (an error, known: corrected in v4). The API and tests are updated; `hodgeFactor` becomes `archimedeanD`, and there is a new elliptic-curve test.
+
+**New nodes (3), from v4 §5.2.**
+- `larsen-rational-system-groups` (construction, with API and tests).
+- `serre-theta-uniform-bounds` (v4 Lemma 5.2.1).
+- `larsen-good-primes` (v4 Proposition 5.2.2).
+
+`residual-irreducibility-density-one` depends on `larsen-good-primes`. The Larsen gap now names exactly the results used: Larsen 3.17 and §§1.12–1.13, LP92 8.9, BT84 5.1.40 and 5.2.8, and CCO09 6.3.
+
+**Findings.** E3 records three misprints in v4 §5.2.
+
+**Lean.** New checked examples: the elliptic-curve real factor Γ_ℝ(s − ½)Γ_ℝ(s + ½)Γ_ℂ(s)/Γ_ℂ(s − ½) = Γ_ℂ(s), and i² = −1. The suggested file elaborates with 0 errors and 0 warnings.
+
+**Checks.** `check_blueprint.py`: 0 errors, 0 warnings (33 nodes). `intake.py check-files`: 0 problems. Unit tests pass.
 
 ## Checkpoint 4: L-functions, residual irreducibility and the Grothendieck ring (R24.5:operations, 4 nodes)
 

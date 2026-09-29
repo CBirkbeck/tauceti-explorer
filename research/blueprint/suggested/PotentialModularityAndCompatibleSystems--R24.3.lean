@@ -126,4 +126,15 @@ example {K : Type*} [Field K] (p x : K) (hp : p ≠ 0) (hx : x ≠ 0) (h : x - p
     linear_combination h0
   field_simp
 
+/-- Checkpoint 5, `R24.5/system-l-functions` in BLGGT v4's form: for an elliptic curve over `ℚ`
+(`n = 2`, `w = 1`, `H = {0, 1}`, `d± = 1`) the real factor
+`Γ_ℝ(s - 1/2) Γ_ℝ(s + 1/2) · Γ_ℂ(s) / Γ_ℂ(s - 1/2)` is `Γ_ℂ(s)`, and `ε_∞ = i^{1 + 1/2 + 1/2} = -1`. -/
+example (s : ℂ) (h : Complex.Gammaℂ (s - 1 / 2) ≠ 0) :
+    Complex.Gammaℝ (s - 1 / 2) * Complex.Gammaℝ (s + 1 / 2) *
+      (Complex.Gammaℂ s / Complex.Gammaℂ (s - 1 / 2)) = Complex.Gammaℂ s := by
+  have hs : s + 1 / 2 = (s - 1 / 2) + 1 := by ring
+  rw [hs, Complex.Gammaℝ_mul_Gammaℝ_add_one, mul_div_left_comm, div_self h, mul_one]
+
+example : Complex.I ^ 2 = -1 := Complex.I_sq
+
 end TauCeti.CompatibleSystems.SuggestedTest
