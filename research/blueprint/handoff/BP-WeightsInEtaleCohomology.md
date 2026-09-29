@@ -60,3 +60,33 @@ sign between the two, so the convention is fixed here, as geometric.
   FaltingsFinitenessAndIsogenyTheorems R28.4.
 - **R34.3–R34.6.** Not planned. They are the degeneration, pencil, arithmetic-realization and eigenform adapters, over
   the RS-17 suppliers.
+
+# Checkpoint 2 (R34.2 completed)
+
+Agent: Claude Code, session cc-fb70e5. Refs #1004.
+
+- The packet now has 9 nodes and 4 planets.
+- The checker reports no errors and no warnings. The run used a check root with origin/main's DeligneWeightsAndPurity
+  and AbelianSchemesAndArithmeticModuli packets, whose DWP.1 and A6 nodes are imported.
+- R34.2 is `source_decomposed`.
+
+## What checkpoint 2 plans
+
+- `purity-of-tate-modules-with-good-reduction` (planet). H^i(A_K̄, ℚ_p) = ∧^i H¹ is pure of weight i and integral
+  outside T ∪ {v | p}, with P_v = P_{π_{A_v}} independent of p; V_pA has weight −1 and is not integral. The same holds
+  for curves, through the Jacobian. This is the export to FaltingsFinitenessAndIsogenyTheorems R28.4.
+- `good-reduction-point-counts-and-traces`: point counts and bounds at good places, and a_v = Tr(Frob_v^geom | H¹),
+  compatible with Tau Ceti's Hasse bound. These are imported from DWP.1 and not reproved.
+
+## Requests (new)
+
+- NeronModelsAndSemistableAbelianVarieties R11.5: Néron–Ogg–Shafarevich and the specialization isomorphism.
+
+## Suggested Lean file
+
+It adds the signatures for the good-reduction statements and a `decide` proof that y² = x³ − x has 8 points over
+𝔽₅. It was compiled with `lake env lean` (exit 0, 3 `sorry` warnings).
+
+## What remains
+
+- **R34.3–R34.6.** The degeneration, pencil, arithmetic-realization and eigenform adapters, over their RS-17 suppliers.
