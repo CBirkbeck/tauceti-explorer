@@ -486,13 +486,6 @@
          "fit": "special case"
         },
         {
-         "name": "TauCeti.CommHopfAlgCat.quotientKernelHopfIdealAlgEquiv",
-         "library": "tauceti",
-         "file": "TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Quotient/Kernel/BaseChange.lean",
-         "line": 59,
-         "fit": "related"
-        },
-        {
          "name": "TauCeti.CommHopfAlgCat.IsCentralIsogeny.kernelFiniteLocallyFree",
          "library": "tauceti",
          "file": "TauCeti/Algebra/AlgebraicGroup/Isogeny/Kernel.lean",
@@ -507,35 +500,14 @@
          "fit": "related"
         },
         {
-         "name": "AlgebraicGeometry.instCartesianMonoidalCategoryOverScheme",
-         "library": "mathlib",
-         "file": "Mathlib/AlgebraicGeometry/Pullbacks.lean",
-         "line": 711,
-         "fit": "related"
-        },
-        {
-         "name": "CategoryTheory.Over.instBraidedPullback",
-         "library": "mathlib",
-         "file": "Mathlib/CategoryTheory/Monoidal/Cartesian/Over.lean",
-         "line": 198,
-         "fit": "related"
-        },
-        {
          "name": "TauCeti.GroupScheme.baseChangePointMulEquiv",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/BaseChange.lean",
          "line": 142,
          "fit": "related"
-        },
-        {
-         "name": "TauCeti.GroupScheme.baseChangePointMulEquiv_pointMap",
-         "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/BaseChange.lean",
-         "line": 185,
-         "fit": "related"
         }
        ],
-       "note": "For affine group schemes over Spec R, Tau Ceti builds the kernel as the closed subgroup cut out by the kernel Hopf ideal, with the pullback square against the identity section and coordinate ring K ⊗_H R. The kernel of a central isogeny over a noetherian base is shown finite locally free. Over any base S, Grp (Over S) has pullbacks created by the forgetful functor (Mathlib). So the kernel of an arbitrary homomorphism f, including E ⟶ E′, exists as the pullback of f along the unit section, with underlying scheme G ×_H S. Base change is (Over.pullback g).mapGrp, and Tau Ceti identifies point groups before and after arbitrary base change, compatibly with homomorphisms. None of this makes an arbitrary kernel finite locally free. Missing: a named kernel with its fibre-over-the-unit description, and a stated base-change isomorphism."
+       "note": "For affine group schemes over Spec R, Tau Ceti builds the kernel as the closed subgroup cut out by the kernel Hopf ideal, with the pullback square against the identity section and coordinate ring K ⊗_H R. The kernel of a central isogeny over a noetherian base is shown finite locally free. Over any base S, Grp (Over S) has pullbacks created by the forgetful functor (Mathlib). So the kernel of an arbitrary homomorphism f, including E ⟶ E′, exists as the pullback of f along the unit section, with underlying scheme G ×_H S. Base change is (Over.pullback g).mapGrp, and Tau Ceti identifies point groups before and after arbitrary base change, compatibly with homomorphisms. None of this makes an arbitrary kernel finite locally free. Missing: a named kernel with its fibre-over-the-unit description, and a stated base-change isomorphism. Further related declarations (not listed above because of the five-entry limit): TauCeti.CommHopfAlgCat.quotientKernelHopfIdealAlgEquiv (TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Quotient/Kernel/BaseChange.lean:59); AlgebraicGeometry.instCartesianMonoidalCategoryOverScheme (Mathlib/AlgebraicGeometry/Pullbacks.lean:711); CategoryTheory.Over.instBraidedPullback (Mathlib/CategoryTheory/Monoidal/Cartesian/Over.lean:198); TauCeti.GroupScheme.baseChangePointMulEquiv_pointMap (TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/BaseChange.lean:185)."
       },
       {
        "target": "fppf quotient G/C by a closed finite locally free subgroup, representable under 0C's hypotheses, with an fppf-exact sequence",
@@ -591,13 +563,6 @@
          "fit": "special case"
         },
         {
-         "name": "TauCeti.ConstantGroup.isFinite_groupScheme",
-         "library": "tauceti",
-         "file": "TauCeti/Algebra/AlgebraicGroup/ConstantGroup/Scheme.lean",
-         "line": 225,
-         "fit": "special case"
-        },
-        {
          "name": "TauCeti.ConstantGroup.etale_groupScheme",
          "library": "tauceti",
          "file": "TauCeti/Algebra/AlgebraicGroup/ConstantGroup/Scheme.lean",
@@ -619,7 +584,7 @@
          "fit": "related"
         }
        ],
-       "note": "Over Spec R and for a finite group G, Tau Ceti has the constant group scheme, its coordinate ring identified with functions G → R, and finiteness and étaleness. Over Spec R, Mathlib's sigmaSpec (an isomorphism for finite index sets) together with functionAlgEquiv identifies the underlying scheme with ∐_{g∈G} Spec R by composition, though no lemma states it. Missing: the construction over a non-affine base S, and the coproduct description there."
+       "note": "Over Spec R and for a finite group G, Tau Ceti has the constant group scheme, its coordinate ring identified with functions G → R, and finiteness and étaleness. Over Spec R, Mathlib's sigmaSpec (an isomorphism for finite index sets) together with functionAlgEquiv identifies the underlying scheme with ∐_{g∈G} Spec R by composition, though no lemma states it. Missing: the construction over a non-affine base S, and the coproduct description there. Further related declarations (not listed above because of the five-entry limit): TauCeti.ConstantGroup.isFinite_groupScheme (TauCeti/Algebra/AlgebraicGroup/ConstantGroup/Scheme.lean:225)."
       },
       {
        "target": "Diagonalizable group scheme D_S(M) = Spec 𝒪_S[M], and μ_N = D_S(ℤ/N)",
@@ -1214,13 +1179,6 @@
          "fit": "related"
         },
         {
-         "name": "AlgebraicGeometry.Scheme.preservesColimit_yoneda",
-         "library": "mathlib",
-         "file": "Mathlib/AlgebraicGeometry/AffineTransitionLimit.lean",
-         "line": 1336,
-         "fit": "related"
-        },
-        {
          "name": "Algebra.Presentation.tensorModelOfHasCoeffsEquiv",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Extension/Presentation/Core.lean",
@@ -1242,7 +1200,7 @@
          "fit": "related"
         }
        ],
-       "note": "For a cofiltered limit of qcqs schemes with affine transition maps, Mathlib shows that morphisms to a locally finitely presented target factor through a finite stage, and that two morphisms agreeing on the limit agree at a finite stage. Mathlib also spreads out affine objects. A finitely presented algebra has a finitely presented model over any subring containing the coefficients of a presentation, with the scalar-extension comparison. Smooth and étale algebras have smooth, resp. étale, models over finitely generated subalgebras of the ground ring, with the ℤ case by specialization. Missing: models at a finite stage of the non-affine data, namely the polarised relative curve and the group law, subgroup and level data on it."
+       "note": "For a cofiltered limit of qcqs schemes with affine transition maps, Mathlib shows that morphisms to a locally finitely presented target factor through a finite stage, and that two morphisms agreeing on the limit agree at a finite stage. Mathlib also spreads out affine objects. A finitely presented algebra has a finitely presented model over any subring containing the coefficients of a presentation, with the scalar-extension comparison. Smooth and étale algebras have smooth, resp. étale, models over finitely generated subalgebras of the ground ring, with the ℤ case by specialization. Missing: models at a finite stage of the non-affine data, namely the polarised relative curve and the group law, subgroup and level data on it. Further related declarations (not listed above because of the five-entry limit): AlgebraicGeometry.Scheme.preservesColimit_yoneda (Mathlib/AlgebraicGeometry/AffineTransitionLimit.lean:1336)."
       },
       {
        "target": "The agreement locus of two finitely presented morphisms is representable and contains the original base after enlargement",
@@ -2299,24 +2257,10 @@
        "library": "partial",
        "declarations": [
         {
-         "name": "Ideal.finrank_fiber_eq_finrank",
-         "library": "mathlib",
-         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
-         "line": 392,
-         "fit": "related"
-        },
-        {
          "name": "Ideal.sum_ramification_inertia_eq_finrank",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/RamificationInertia/Basic.lean",
          "line": 72,
-         "fit": "related"
-        },
-        {
-         "name": "TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable",
-         "library": "tauceti",
-         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Fundamental.lean",
-         "line": 77,
          "fit": "related"
         },
         {
@@ -2341,13 +2285,6 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.Isogeny.moduleFinite_intermediateRing_of_isElliptic",
-         "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Finite.lean",
-         "line": 144,
-         "fit": "related"
-        },
-        {
          "name": "IsDedekindDomain.flat_iff_torsion_eq_bot",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Flat/TorsionFree.lean",
@@ -2355,7 +2292,7 @@
          "fit": "related"
         }
        ],
-       "note": "The ring-level core is in Mathlib: for a finite flat algebra over a domain the fibre dimension at every prime equals the generic rank, and Σ e·f equals that rank. Tau Ceti has Σ e·f = [F′:F] for separable function-field extensions. The scheme-level statement for curves is absent. For isogenies φ: W₁ → W₂ of Weierstrass curves over a field, Tau Ceti proves the affine-chart ring-level form without any separability hypothesis, so the inseparable [N] and Frobenius are included. The ring of functions on W₁ regular away from φ⁻¹(O₂) is module-finite over W₂.CoordinateRing for elliptic source curves. It has rank deg φ under the compatible algebra and scalar-tower structures, and is projective over the Dedekind coordinate ring. Σ e·f = deg φ holds under the finite-flat prime-fibre hypotheses of that theorem. Mathlib's torsion-free-implies-flat criterion over Dedekind domains supplies flatness. This is neither an unconditional projectivity statement for singular equations nor the finite-flat theorem for smooth projective curves."
+       "note": "The ring-level core is in Mathlib: for a finite flat algebra over a domain the fibre dimension at every prime equals the generic rank, and Σ e·f equals that rank. Tau Ceti has Σ e·f = [F′:F] for separable function-field extensions. The scheme-level statement for curves is absent. For isogenies φ: W₁ → W₂ of Weierstrass curves over a field, Tau Ceti proves the affine-chart ring-level form without any separability hypothesis, so the inseparable [N] and Frobenius are included. The ring of functions on W₁ regular away from φ⁻¹(O₂) is module-finite over W₂.CoordinateRing for elliptic source curves. It has rank deg φ under the compatible algebra and scalar-tower structures, and is projective over the Dedekind coordinate ring. Σ e·f = deg φ holds under the finite-flat prime-fibre hypotheses of that theorem. Mathlib's torsion-free-implies-flat criterion over Dedekind domains supplies flatness. This is neither an unconditional projectivity statement for singular equations nor the finite-flat theorem for smooth projective curves. Further related declarations (not listed above because of the five-entry limit): Ideal.finrank_fiber_eq_finrank (Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean:392); TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable (TauCeti/FieldTheory/FunctionField/Place/Extension/Fundamental.lean:77); TauCeti.Isogeny.moduleFinite_intermediateRing_of_isElliptic (TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Finite.lean:144)."
       },
       {
        "target": "Curve-flatness lemma: a finite morphism between S-smooth relative curves whose geometric fibres all have the same length is finite locally free (local flatness criterion and noetherian approximation); applied to [N]",

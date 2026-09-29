@@ -101,3 +101,22 @@ The only edited deliverable is `research/blueprint/audit/AUDIT-12.result.json`. 
 - The unit suite passes.
 - The JSON keeps its one-space indentation.
 - No other roadmap in the file changed, and no layer verdict changed.
+
+## Correction (29 September 2026, same session)
+
+The audit job specification allows up to five `declarations` per target. The first submission of this fix left four targets over that limit:
+
+| Target | Declarations |
+|---|---|
+| 0B kernel | 9 |
+| 2A finite morphism | 8 |
+| 0B constant group scheme | 6 |
+| 0E spreading out | 6 |
+
+Each now lists five, keeping the most direct evidence. The remaining declarations are named in the target's note with their files and lines, so no evidence is lost:
+- 0B kernel: `quotientKernelHopfIdealAlgEquiv`, `instCartesianMonoidalCategoryOverScheme`, `Over.instBraidedPullback` and `baseChangePointMulEquiv_pointMap`;
+- 2A: `Ideal.finrank_fiber_eq_finrank`, the separable `Place` formula and `moduleFinite_intermediateRing_of_isElliptic`;
+- 0B constant group scheme: `isFinite_groupScheme`;
+- 0E: `preservesColimit_yoneda`.
+
+No status, verdict or other note changed.
