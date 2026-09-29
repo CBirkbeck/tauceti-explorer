@@ -1,3 +1,83 @@
+# LLHLM23 continuation: proof steps for §8 (the B queue), and E117–E118
+
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (fourth step). This takes the B queue: the 28
+§8 theorem items without proof steps. Census: 779 items, 26 routes, 118 findings (E117 and E118 are
+new), 12 gaps.
+
+## What was added
+
+All 28 items now carry `proofSteps`, `prerequisites` and `proofProvenance`. They were read from the
+published PDF163–180 with E21, E41 and E75–E83 applied, and the page images of PDF173 and 176–179 were
+checked. The items fall into four groups.
+
+- **§§8.1–8.2, the two conjectures (B52–B54, B08, B10, B11).**
+  - B10 (Lemma 8.2.2) spells out what [75, Tag 0DRD] is cited for. Each component of a versal ring
+    lies over exactly one component of X_{n,red}. Pullbacks of distinct components share no component.
+    The pullback of a component is reduced, because X_{n,red} is excellent. So the lemma also gives
+    integrality of rational cycles, which the proof of Theorem 8.3.5(2) needs.
+  - B54 (Remark 8.2.4) uses smooth points, where the versal ring is a power series ring.
+  - B53 (Remark 8.1.6(2)) compares Conjecture 8.1.5 with the paper's own rendering of [23],
+    Conjecture 1.5.1. The converse direction needs the [23] cycles to be supported on Spec R^alg; that
+    holds when the equations determine them.
+- **§8.3, the abstract patching theorem (B15–B17, B38, B44).** These follow the printed proof with E75
+  (sums over Ŝ) and E83 (the rank bound for types in Ŝ ∖ S) applied. In B38 the uniqueness of the
+  conjectural cycles comes from Ŝ_elim being a Breuil–Mézard system.
+- **§8.4, the tame generic case (B20, B21, B23–B26, B29, B39–B42).**
+  - B20 rests on the proof of [56, Corollary 4.2.4], an external input that the paper does not
+    reproduce.
+  - B39 names Lemma 8.4.2 at the step where the printed proof uses it without citing it.
+  - B24 derives rank exactly one from three facts: R_∞(λ,τ) is a domain, M_∞(σ°(λ,τ)) is nonzero
+    exactly when R_∞(λ,τ) is, and a maximal Cohen–Macaulay module over an O-flat domain has no
+    p-torsion.
+  - B25 records the conclusions that Theorem 8.4.10(2) omits (E82). It also proves the uniqueness
+    claim for cycles supported on the weights σ covers.
+- **§§8.5–8.6 (B31–B33, B35, B37, B55).**
+  - B32 (Proposition 8.6.1) makes explicit that the chosen ρ̄ lies in P_ss. The computation is that of
+    Lemma 8.4.9, from a type in S_{{0},t}.
+  - B37 (Proposition 8.6.5) notes that the tame points used are (6n−2)-generic, so the defect induction
+    applies. The printed proof does not say this.
+  - B55 (Remark 8.6.6) records how Q would be built and what a blueprint must still fix.
+
+There are 147 new prerequisite edges. The graph stays acyclic, with 1,441 edges.
+
+## New findings
+
+- **E117 (error; affects the proof).** The last paragraph of the proof of Corollary 8.5.2 (PDF176)
+  splits into two cases over points x ∈ P_ss.
+  - The first case never occurs: Z_{η,τ′} ≥ C_σ, and P_ss meets C_σ.
+  - In the second case the paragraph applies Lemma 8.5.1 at x. But x is only (6n−2)-generic, while
+    the lemma needs the residual type to be P^η_{P,Λ,e}-generic. Only ρ̄ is assumed to be.
+  - The argument never uses ρ̄, and it would show that no type outside S_{P,Λ,t} has a generic
+    constituent.
+
+  The repair works at ρ̄ itself. If i^*_ρ̄(Z_σ) ≠ 0, then also i^*_{ρ̄^ss}(Z_σ) ≠ 0, and ρ̄^ss ∈ P_ss.
+  Then M_∞(σ) ≠ 0 for a minimal patching functor at ρ̄^ss. By exactness M_∞(σ°(λ,τ)) ≠ 0, and the
+  support axiom gives R^{λ+η,τ}_{ρ̄^ss} ≠ 0. This contradicts the vanishing proved just before. The
+  corollary stands.
+- **E118 (gap; affects the proof).** The proof of Lemma 8.4.9 (PDF173) cites Remark 7.4.3(3) to place
+  every component of X^{λ+η,τ}_F among the C_σ with σ ∈ JH(σ̄(λ,τ)). That remark needs 2(h+1)-depth,
+  with h = h_{λ+η}. S_{Λ,t} only gives (6n−2+h)-genericity, which is enough exactly when h ≤ 6n−4, and
+  Λ is arbitrary. There are two repairs:
+  - add the depth condition to S_{Λ,t}, which is allowed since the polynomial of Theorem 7.3.2(2) can
+    be enlarged; or
+  - derive the first sentence of the lemma from its second (E78). A component contains the
+    semisimplification of each of its points, and that semisimplification is a tame point of
+    X^{λ+η,τ}, hence (6n−2)-generic.
+
+Both were compared with arXiv v2 (PDF127 and PDF130), which prints the same text. Crossref lists no
+correction.
+
+## Changes and scope
+
+- **Changed:**
+  - proof steps, prerequisites and provenance on the 28 items;
+  - E117 and E118 in `sourceIssues`;
+  - `validation.ccC58621dBOutlines`;
+  - a continuation reading in `source`;
+  - the summary.
+- **Unchanged:** statuses, routes and the other findings. No Lean file.
+- **Still without proof steps:** the A (56) and G (39) theorem items. The L items are library citations.
+
 # LLHLM23 continuation: proof steps for K45–K48, P17 and Z01
 
 Claude Code — cc-58621d; issue 1254; 29 September 2026 (third step). This takes the three smallest
