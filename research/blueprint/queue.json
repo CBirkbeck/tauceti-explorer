@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -20199,7 +20199,7 @@
    ],
    "avoidAccountOf": "RS-23",
    "prompt": "research/blueprint/prompts/REV-RS-23.md",
-   "state": "pending",
+   "state": "external",
    "note": "claimed on GitHub issue #845"
   },
   {
@@ -47295,7 +47295,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3968"
   },
   {
    "id": "RT-AREA-langlands-3",
@@ -48894,8 +48895,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-topology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3990"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3990",
+   "finishedAt": "2026-09-29T19:20:25Z"
   },
   {
    "id": "RT-AREA-diffgeom",
