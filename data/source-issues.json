@@ -153240,7 +153240,7 @@
    ],
    "owner": "SelmerIwasawaCohomology",
    "file": "research/blueprint/packets/SelmerIwasawaCohomology.json",
-   "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2 (19 December 2024); the version in Essential Number Theory 4 (2025) was not accessed",
+   "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2 (19 December 2024); the published version (Essential Number Theory 4 (2025), 101–216) was compared at the loci of E4 and E5",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -153261,7 +153261,7 @@
    ],
    "owner": "SelmerIwasawaCohomology",
    "file": "research/blueprint/packets/SelmerIwasawaCohomology.json",
-   "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2 (19 December 2024); the version in Essential Number Theory 4 (2025) was not accessed",
+   "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2 (19 December 2024); the published version (Essential Number Theory 4 (2025), 101–216) was compared at the loci of E4 and E5",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -153282,6 +153282,48 @@
    "owner": "SelmerIwasawaCohomology",
    "file": "research/blueprint/packets/SelmerIwasawaCohomology.json",
    "citation": "Karl Rubin, Euler systems, Author draft of Annals of Mathematics Studies 147 (2000), 1999 Arizona Winter School; printed page = PDF page − 10",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SelmerIwasawaCohomology/E4",
+   "kind": "error",
+   "locator": "§10.5, the norm relations for c_m, p. 52 (arXiv v2); published p. 171",
+   "printed": "The source gives the norm N_{Q(µ_{mℓ})/Q(µ_m)}(c_{mℓ}) as c_m when ℓ | m, and as (1 − ℓ^{−1})c_m when ℓ ∤ m.",
+   "correction": "For ℓ ∤ m, N(c_{mℓ}) = c_m^{1 − Frob_ℓ^{−1}} = c_m / Frob_ℓ^{−1}(c_m), with Frob_ℓ ∈ Gal(ℚ(μ_m)/ℚ); after the Kummer map this gives the displayed cores(z_{mℓ}) = (1 − Frob_ℓ^{−1})z_m.",
+   "reason": "With ζ_{mℓ}^ℓ = ζ_m and ℓ ∤ m, the conjugates of ζ_{mℓ} over ℚ(μ_m) are ζ_m^{ℓ^{−1}}η for the primitive ℓth roots η, so N(1 − ζ_{mℓ}) = (1 − ζ_m)/(1 − Frob_ℓ^{−1}(ζ_m)). The factor is the Frobenius operator acting on the unit, not the scalar 1 − ℓ^{−1}. The justification that \"Frob_ℓ acts on ℤ_p(1) by ℓ\" does not apply to classes over ℚ(μ_m).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page: v2 (19 December 2024) is the latest version and has the same text.",
+    "Published version (Essential Number Theory 4 (2025)): same text at printed pp. 171 and 197.",
+    "The MSP article page https://msp.org/ent/2025/4-1/p03.xhtml links no erratum (checked 2026-09-29)."
+   ],
+   "owner": "SelmerIwasawaCohomology",
+   "file": "research/blueprint/packets/SelmerIwasawaCohomology.json",
+   "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2 (19 December 2024); the published version (Essential Number Theory 4 (2025), 101–216) was compared at the loci of E4 and E5",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SelmerIwasawaCohomology/E5",
+   "kind": "misprint",
+   "locator": "§13.5.2, step (3), p. 71 (arXiv v2); published p. 197",
+   "printed": "The source declares the local condition at p empty when n ≥ 1, while for n ≥ 0 it requires σ to be unramified also at p.",
+   "correction": "for n ≤ 0 the local condition at p means σ is also unramified at p. In steps (3)–(4) the Selmer group written H^1_{L^Gr}(F_∞, W_n) is the one over F = F_∞^+ (as in Example 13.22).",
+   "reason": "The display just above gives L^Gr_{v_p} = H^1_ur(K_∞^+, W_n) exactly for n ≤ 0; for n ≥ 1 it is all of H^1. The equivariance under {±1} used in step (4) only makes sense over F_∞^+.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page: v2 (19 December 2024) is the latest version and has the same text.",
+    "Published version (Essential Number Theory 4 (2025)): same text at printed pp. 171 and 197.",
+    "The MSP article page https://msp.org/ent/2025/4-1/p03.xhtml links no erratum (checked 2026-09-29)."
+   ],
+   "owner": "SelmerIwasawaCohomology",
+   "file": "research/blueprint/packets/SelmerIwasawaCohomology.json",
+   "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2 (19 December 2024); the published version (Essential Number Theory 4 (2025), 101–216) was compared at the loci of E4 and E5",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
