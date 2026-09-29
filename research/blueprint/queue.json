@@ -45092,8 +45092,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4015"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4015",
+   "finishedAt": "2026-09-29T17:02:34Z"
   },
   {
    "id": "RT-AUDIT-21",
