@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -47212,8 +47212,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3967"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3967",
+   "finishedAt": "2026-09-29T19:09:24Z"
   },
   {
    "id": "RT-AREA-langlands-2",
