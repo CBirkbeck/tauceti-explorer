@@ -1,11 +1,11 @@
 # Euler systems and the unconditional cyclotomic main conjecture — blueprint
 
-This blueprint covers stages L0–L4. This first checkpoint decomposes **L0**, the Euler system of
-cyclotomic units and its χ-twist. It follows:
+This blueprint covers stages L0–L4. The first checkpoint decomposes **L0**, the Euler system of
+cyclotomic units and its χ-twist. The second plans **L1**'s finite-level class-group bound. It follows:
 - Rubin, *Euler systems*, Chapter III §2.1–2.4, with the Chapter I–II definitions they use;
 - Rodrigues Jacinto–Williams (RJW), *An introduction to p-adic L-functions*, §10.2 and §10.5.
 
-Stages L1–L4 are not yet read.
+L1 is partial, and stages L2–L4 are not yet read.
 
 ## Purpose
 
@@ -248,6 +248,31 @@ H¹(ℚ, T^*) ≅ (L^×)^χ, the twist c_ℚ corresponds to ∏_{δ∈Gal(ℚ(μ
 **Lemma: generation** (`span_cQUnit`; node `twisted-class-generates`). If χ(p) ≠ 1, c_ℚ generates
 C_{L,χ}.
 
+## Layer L1: the class-group bound (partial)
+
+Checkpoint 2 plans Rubin's Theorem III.2.3 and its proof. Throughout, p > 2 and χ is even, nontrivial, of order prime to
+p, with χ(p) ≠ 1. Rubin's Theorem II.2.2, the error-tolerant Euler-system bound, is imported from
+EulerSystemsAndKolyvaginSystems ES.4.
+
+**Lemma: hypotheses and error terms** (node `cyclotomic-hypotheses-and-error-terms`).
+- T* = O_{χ^{−1}}(1) has rank one, so Hyp(ℚ, T*) holds with τ = 1.
+- Ω = L(μ_{p^∞}).
+- Both error terms vanish by Lemma III.1.1: χ ≠ 1, and the even χ is not congruent to the odd cyclotomic character.
+
+**Lemma: rank-one units and the index** (node `chi-units-rank-one-and-index`).
+- E_L^χ is free of rank one over O (the Galois-module unit theorem; requested).
+- Since L^×/E_L is torsion-free, ind_O(c) = ℓ_O(E_L^χ/C_{L,χ}).
+
+**Lemma: the Selmer group** (node `selmer-is-class-group`). H¹_f(ℚ_p, W) = 0 because χ(p) ≠ 1. By Proposition I.6.1,
+S_{Σ_p}(ℚ, W) = S(ℚ, W) ≅ Hom_O(A_L^χ, D).
+
+**Theorem: Kolyvagin's bound** (node `kolyvagin-class-group-divisibility`; planet; Rubin III.2.3). |A_L^χ| divides
+[E_L^χ : C_{L,χ}].
+
+**Theorem: the equality** (node `mazur-wiles-chi-equality`; Corollary III.2.4). Rubin cites [Ru3] Theorem 4.2. The
+class-number-formula argument needs the bound for every even ψ ≠ 1 of Δ, and ψ(p) = 1 is covered only through the main
+conjecture (Remark 2.5). This is recorded as a gap.
+
 ## Dependencies
 
 **Inside this roadmap.** L0 feeds L1: Theorem III.2.3 takes c_ℚ, C_{L,χ} and the Kummer classes.
@@ -283,13 +308,10 @@ C_{L,χ}.
 
 ## Remaining work
 
-- **L1:** Rubin III §2.3–2.4 with Chapters IV–V:
-  - Hyp(ℚ, T^*) with τ = 1;
-  - vanishing of the error lengths by Lemma III.1.1;
-  - ind_O(c) = ℓ_O(E_L^χ/C_{L,χ});
-  - H¹_f(ℚ_p, W) = 0 for χ(p) ≠ 1;
-  - |A_L^χ| ∣ [E_L^χ : C_{L,χ}];
-  - Corollary 2.4.
+- **L1 (partial, checkpoint 2):** Theorem III.2.3 and its proof are planned. Remaining:
+  - the explicit derivative classes of the cyclotomic Euler system and their local conditions (Rubin IV–V applied
+    to c);
+  - Corollary III.2.4, which depends on [Ru3] or on L3 for the ψ(p) = 1 components (gap).
 - **L2:** Rubin II §3 and III §2.5–2.7, with the augmentation correction when χ(p) = 1.
 - **L3:** Rubin III §2.8–2.10 and RJW §13 (Theorem 13.8, Proposition 13.13, Corollary 13.14).
 - **L4:** Greither, *Class groups of abelian fields, and the main conjecture*, §§1–4, including

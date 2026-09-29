@@ -1,5 +1,32 @@
 # BP-EulerSystemsCyclotomicMainConjecture — handoff
 
+## Checkpoint 2 (Claude Code, session cc-fb70e5, 29 September 2026): L1 planned (5 nodes)
+
+Refs #725; the bot confirmed the claim. **Status: partial.** L0 is `source_decomposed`, L1 is `partial`, and L2–L4 are `not_read`.
+
+**Source.** Rubin, *Euler systems* (the same PDF, SHA-256 de47655d…, printed page = PDF page − 10). Read: Chapter I Lemma 3.2 and Proposition 6.1; Chapter II §2 (Hypotheses, Definition 2.1, Theorems 2.2–2.3, Remarks 2.4–2.9); Chapter III Lemma 1.1 and §2.1–2.5.
+
+**New L1 nodes:**
+- `cyclotomic-hypotheses-and-error-terms`: Hyp(ℚ, T*) with τ = 1, Ω = L(μ_{p^∞}), and n_{W*} = n*_{W*} = 0 by Lemma III.1.1.
+- `chi-units-rank-one-and-index`: E_L^χ free of rank one, and ind_O(c) = ℓ_O(E_L^χ/C_{L,χ}).
+- `selmer-is-class-group`: H¹_f(ℚ_p, W) = 0, and S_{Σ_p}(ℚ, W) = Hom_O(A_L^χ, D).
+- `kolyvagin-class-group-divisibility` (planet): Theorem III.2.3.
+- `mazur-wiles-chi-equality`: Corollary III.2.4, with a gap. It is cited to [Ru3], and the class-number argument needs ψ(p) = 1 through L3.
+
+**New requests:** EulerSystemsAndKolyvaginSystems ES.4 (Theorem II.2.2 with ES.1/ES.3), and SelmerIwasawaCohomology L2 (Selmer groups and Proposition I.6.1). The IntegralIwasawaTheory L0 request now also asks for the Galois-module unit theorem and the ψ-parts of the class number formula.
+
+**Findings.** No new source issues. Corollary III.2.4 as printed ("with hypotheses as in Theorem 2.3") relies on its cited proof for the characters ψ with ψ(p) = 1. It is recorded as a planning gap, not as a mistake.
+
+**Lean.** Two new checked examples: 1 ≠ −1 in 𝔽_p for p > 2, and the length-to-order divisibility. The file compiles with exit 0; the 60 `sorry` warnings are the existing planned stubs.
+
+**Checks.** `check_blueprint --index`: 0 errors, 0 warnings. `check-files`: 0 problems. Every new excerpt was checked by script against its page's text.
+
+**Next.**
+- L1: the explicit derivative classes for cyclotomic units (Rubin IV–V).
+- L2: Rubin II §3 and III §2.5–2.7.
+
+## Checkpoint 1 (cc-39fac3)
+
 Agent: Claude Code — cc-39fac3. Issue #725. First checkpoint.
 
 ## What is done
