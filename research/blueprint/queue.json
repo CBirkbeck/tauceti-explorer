@@ -14272,9 +14272,9 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicMeasuresIwasawaAlgebras.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #555"
+   "note": "claimed on GitHub issue #555"
   },
   {
    "id": "REV-PadicMeasuresIwasawaAlgebras",
@@ -17418,11 +17418,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EulerSystemsCyclotomicMainConjecture.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #725"
+   "note": "claimed on GitHub issue #725"
   },
   {
    "id": "REV-EulerSystemsCyclotomicMainConjecture",
@@ -21942,9 +21942,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-SpecialValuesBirchTate.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #998"
+   "note": "released on GitHub issue #998"
   },
   {
    "id": "REV-SpecialValuesBirchTate",
@@ -22827,7 +22827,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-NoncommutativeAndEquivariantIwasawa.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-FoundationsAndLibraryIntegration",
@@ -22837,7 +22837,7 @@
     "BP-IntegralIwasawaTheory--I.8",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #1015"
+   "note": "released on GitHub issue #1015"
   },
   {
    "id": "REV-NoncommutativeAndEquivariantIwasawa",
