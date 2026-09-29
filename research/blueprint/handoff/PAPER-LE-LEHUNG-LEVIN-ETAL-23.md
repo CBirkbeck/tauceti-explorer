@@ -1,5 +1,33 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-39fac3; issue 1254; 29 September 2026 (fourth checkpoint).
+**Partial checkpoint, continuing the checkpoints below.** Census: 776 items, 25 routes, 113 findings.
+No Lean deliverable or compilation. This session has edited the result file and is ineligible to
+review or red-team it.
+
+## Completed here
+
+Table 1 (Q09) is certified at every point of V off a·(a(b−1)−b)·((a−b)(a−1)−1) = 0, in every
+characteristic > 7. The certificate is containment lifts plus radical membership of the products
+of the listed ideals' Gröbner elements (powers ≤ 2), over `Z[1/7!][a,b][1/(P·a·M·L8)]`. Primality,
+dimensions and the extra components follow from the explicit forms. The data is in
+`sourceData.appendixB.table1Rederivation.uniform`.
+
+## Resume from here
+
+1. **Q03 (B.0.1(1)), the last Appendix B item.** Set up the universal matrix A of Proposition 3.2.8
+   (PDF202). Impose det A = −(v−t)⁴, the λ = (3,1,0) minor-divisibility conditions (all 2×2 minors
+   divisible by v − t), and the monodromy condition (3.1) with a = (a, b, 0): that is,
+   (v A′ + A·Diag(a))·adj A ≡ 0 mod (v−t)³ after clearing det A. Then solve c11, d11, c21, c23, c31
+   and c33 over `Z[a,b][1/P]` after saturating by t, and certify with Singular as in the previous
+   checkpoints. Check the exact form of the conditions on PDF202 and in §3.2–3.3 first.
+2. **The Codex resume items 1–5 below**, which remain in force; they are the non-computational
+   bulk of the job.
+
+---
+
+# Previous checkpoint (cc-39fac3, third)
+
 Claude Code — cc-39fac3; issue 1254; 29 September 2026 (third checkpoint).
 **Partial checkpoint, continuing the checkpoints below.** Census: 776 items, 25 routes, 113 findings.
 No Lean deliverable or compilation. This session has edited the result file and is ineligible to

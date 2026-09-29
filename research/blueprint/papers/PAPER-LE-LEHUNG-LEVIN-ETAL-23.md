@@ -1,3 +1,55 @@
+# LLHLM23 continuation: Table 1 certified off the E113 curves
+
+Claude Code — cc-39fac3; issue 1254; 29 September 2026 (fourth checkpoint). This takes the first
+resume item of the previous handoff: Table 1 (Proposition B.0.2(3), Q09) for every specialization. No
+finding is added; the census stays at 776 items, 25 routes and 113 findings.
+
+## The certificate
+
+Let `B = Z[1/7!][a,b][1/(P·a·M·L8)]`, with M = a(b−1) − b and L8 = (a−b)(a−1) − 1; so B leaves out
+exactly the three curves of E113. For each row k, write J = Ī + P_k for the preimage of the k-th
+special-fibre component, and T'_j = Ī + T_j for the ideals Table 1 lists (in the quotient ring, as
+its convention says). Checked in Singular (passagemath-singular 10.8.12) with denominators tested
+against B:
+
+- **Containment.** J ⊆ T'_j for every listed ideal. Each T'_j has a monic degrevlex Gröbner basis
+  with coefficients in B, and the generators of J lift along it with cofactors over B.
+- **Radical containment.** Every product of one Gröbner-basis element from each listed ideal has its
+  first or second power in J, with cofactors over B. So V(J) = ∪ V(T'_j) at every point of B.
+- **Primality and dimension**, from the explicit forms with unit coefficients:
+  - rows 2, 3, 5 and 6 have Gröbner bases made of coordinate substitutions;
+  - rows 1 and 7 are graphs of polynomial maps;
+  - row 4 is (c22, c13, c12) plus the quadric, whose discriminant is a non-square for a ≠ 0.
+- **The extras are components.** Each lower-dimensional ideal lies outside the main one, because one
+  generator of the main ideal becomes a unit multiple of a free coordinate modulo the extra. The
+  unit is (a−1)/(b−1) in row 1, M in rows 2 and 5, and L8 in row 7. These are exactly the
+  collapses E113 records on M = 0 and L8 = 0.
+
+So Table 1 lists the irreducible components of every preimage at every point of V off the three
+curves, in every characteristic > 7, with the first ideal the unique one of dimension 3.
+
+## Where Appendix B now stands
+
+Every Macaulay2 claim of Appendix B is now either certified or corrected (E111–E113):
+- B.0.1(2): Q04;
+- B.0.1(3): flatness, Q05;
+- B.0.1(4): Q06 over V_a;
+- B.0.2(2): the Gröbner basis, Cohen–Macaulayness and reducedness (Q13);
+- B.0.2(3): Table 1 off the curves (Q09).
+
+The exception is Q03, where B.0.1(1)'s elimination of c11, d11, c21, c23, c31 and c33 is neither
+displayed in the source nor certified here.
+
+## Changes and scope
+
+- **Q09:** statement and a certificate step.
+- **Data:** `sourceData.appendixB.table1Rederivation.uniform`.
+- **Also updated:** the `appendix-certificates` gap, `validation.appendixChecks`, the new
+  `validation.cc39fac3AppendixBTable1` and the summary.
+- **Unchanged:** statuses, routes and findings. No Lean file.
+
+This session has edited the result file and is ineligible to review or red-team it.
+
 # LLHLM23 continuation: Q04 and Q05 certified over V; the normalization's special fibre is reduced
 
 Claude Code — cc-39fac3; issue 1254; 29 September 2026 (third checkpoint). This continuation takes the
