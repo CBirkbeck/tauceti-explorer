@@ -7215,8 +7215,9 @@
    ],
    "avoidAccountOf": "PAPER-MERKURJEV-SCAVIA-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1409"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1409",
+   "finishedAt": "2026-09-29T13:17:03Z"
   },
   {
    "id": "PAPER-SCHOLZE-26",
@@ -31675,7 +31676,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BURUNGALE-TIAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3973"
   },
   {
    "id": "RT-PAPER-YUAN-26",
