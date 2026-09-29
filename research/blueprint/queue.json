@@ -34647,7 +34647,8 @@
     "REV-PAPER-TEMKIN-17"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-TEMKIN-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4522"
   },
   {
    "id": "REV-RT-PAPER-TEMKIN-17",
@@ -35899,8 +35900,9 @@
     "REV-PAPER-XIE-YUAN-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-XIE-YUAN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4526"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4526",
+   "finishedAt": "2026-09-29T22:48:40Z"
   },
   {
    "id": "REV-RT-PAPER-XIE-YUAN-22",
