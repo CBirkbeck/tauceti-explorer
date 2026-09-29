@@ -20935,12 +20935,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R24.3.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #977"
+   "note": "released on GitHub issue #977"
   },
   {
    "id": "REV-PotentialModularityAndCompatibleSystems--R24.3",
@@ -23830,7 +23830,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ModularityAndLanglandsExtensions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -23838,7 +23838,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-PotentialAutomorphyInfrastructure"
    ],
-   "note": "released on GitHub issue #1033"
+   "note": "claimed on GitHub issue #1033"
   },
   {
    "id": "REV-ModularityAndLanglandsExtensions",
