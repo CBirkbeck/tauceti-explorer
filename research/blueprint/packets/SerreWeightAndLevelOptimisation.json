@@ -3,7 +3,7 @@
  "protocol": "blueprint-v1",
  "part": null,
  "status": "partial",
- "summary": "Blueprint for the conditional level and weight optimisation of an already modular residual representation, following the RS-06 narrowings (accepted by REV-RS-06 with no corrections). This first pass closes no layer and plans the two layers RS-06 keeps whole, R20.2 and R20.5, together with the integral algebra of R20.1 that they consume and the Bennett–Siksek exports of R20.6 that the maintainer added to this roadmap. 14 nodes: the prime-to-ℓ Serre level as a full Artin conductor, Mazur's Principle, Ribet's Theorem 1.5, the twisting step, the iterated descent that must terminate at N(ρ̄) and not at its radical, the integral old/new exact sequence and congruence module that separate the integral theory from the library's complex old/new decomposition, Buzzard's mod 2 Theorem 2.8 with its Q(i)-induced exclusion, the register of the dyadic scalar obstruction, Carayol's nebentypus theorem, and the three Bennett–Siksek items. R20.3 is left not_read because its binding source, Edixhoven 1992, could not be obtained; that and the Khare–Wintenberger paywall are recorded as gaps rather than worked around.",
+ "summary": "Blueprint for the conditional level and weight optimisation of an already modular residual representation, following the RS-06 narrowings (accepted by REV-RS-06 with no corrections). This first pass closes no layer and plans the two layers RS-06 keeps whole, R20.2 and R20.5, together with the integral algebra of R20.1 that they consume and the Bennett–Siksek exports of R20.6 that the maintainer added to this roadmap. 14 nodes: the prime-to-ℓ Serre level as a full Artin conductor, Mazur's Principle, Ribet's Theorem 1.5, the twisting step, the iterated descent that must terminate at N(ρ̄) and not at its radical, the integral old/new exact sequence and congruence module that separate the integral theory from the library's complex old/new decomposition, Buzzard's mod 2 Theorem 2.8 with its Q(i)-induced exclusion, the register of the dyadic scalar obstruction, Carayol's nebentypus theorem, and the three Bennett–Siksek items. R20.3 is left not_read because its binding source, Edixhoven 1992, could not be obtained; that and the Khare–Wintenberger paywall are recorded as gaps rather than worked around. A third checkpoint adds Ribet's §3 (the twist to small weight and the four level sets for ℓ ≥ 5) and Buzzard's §2 (multiplicity one mod 2, the auxiliary prime q ≡ 3 mod 4, and Carayol's lemma mod 2).",
  "scope": [
   "SerreWeightAndLevelOptimisation:R20.1",
   "SerreWeightAndLevelOptimisation:R20.2",
@@ -89,9 +89,11 @@
     "§5 Diamond's theorem",
     "§6 Character groups and component groups",
     "§7 Proof of Theorem 1.5",
-    "§8 Mazur's Principle"
+    "§8 Mazur's Principle",
+    "2026-09-29 (cc-fb70e5): §3, (3.1)–(3.3) with proofs (pp. 7–8), for the new R20.3 nodes; sha256 computed from the author's PDF"
    ],
-   "accessed": "2026-09-24"
+   "accessed": "2026-09-24",
+   "sha256": "cb7bc437d287346994488a8e4cf7bfa8be8f36a7c22574577c1597026e6a953b"
   },
   {
    "id": "buzzard2000",
@@ -105,7 +107,8 @@
     "§2 Multiplicity one and the main level-lowering theorem (Theorem 2.8 and its remarks)",
     "§3 Deduction of the full level-lowering conjecture where multiplicity one is known",
     "§1 Proposition 1.1 with its four-step proof, Lemma 1.2, Proposition 1.3 (pp. 2–4)",
-    "§3 Theorems 3.1 and 3.2 with proofs and remarks (pp. 9–10) (Claude Code cc-fb70e5)"
+    "§3 Theorems 3.1 and 3.2 with proofs and remarks (pp. 9–10) (Claude Code cc-fb70e5)",
+    "§2, Definitions 2.1–2.2, Lemma 2.3, Proposition 2.4, Lemma 2.5, Corollaries 2.6–2.7 with proofs (pp. 4–6) (Claude Code cc-fb70e5, third checkpoint)"
    ],
    "accessed": "2026-09-24",
    "sha256": "39d48668b1a223d1167ec139ef01d6f4d48f76194f36c8d4c0b9d4a894685d0e"
@@ -721,7 +724,9 @@
     "SerreWeightAndLevelOptimisation:R20.1/congruence-module",
     "SerreWeightAndLevelOptimisation:R20.1/eigensystem-level-descent",
     "ModularCurvesPartII:R13.6",
-    "ModularCurvesPartII:R14.4"
+    "ModularCurvesPartII:R14.4",
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-multiplicity-one",
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-auxiliary-prime"
    ],
    "sources": [
     {
@@ -907,7 +912,7 @@
    "hypotheses": [
     "multiplicity one is assumed in both branches",
     "the modularity of the induced representation from ℚ(i) is classical (weight-one theta series of a Hecke character), requested from GL2AutomorphicRepresentationsAndTransfer R17.5",
-    "the character statement uses Buzzard's Corollary 2.7, which is not planned as a node"
+    "the character statement uses Buzzard's Corollary 2.7 (R20.5/buzzard-carayol-lemma-mod-two)"
    ],
    "proofSteps": [
     "ℚ(i)-induced branch: lift the character, take the weight-1 form of level 4N, and apply Proposition 1.3 (R20.5/buzzard-removing-two-from-the-level).",
@@ -921,7 +926,8 @@
     "SerreWeightAndLevelOptimisation:R20.5/buzzard-removing-two-from-the-level",
     "SerreWeightAndLevelOptimisation:R20.5/buzzard-level-lowering-to-the-conductor",
     "AlgebraicModularFormsAndSerreWeights:R15.4/edixhoven-weight-k-rho-and-its-comparison-with-serre-k",
-    "GL2AutomorphicRepresentationsAndTransfer:R17.5"
+    "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-carayol-lemma-mod-two"
    ],
    "sources": [
     {
@@ -2203,6 +2209,302 @@
    "planet": {
     "name": "Weight two at level Nℓ"
    }
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.3/ribet-twist-to-small-weight",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.3",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.3"
+   ],
+   "title": "A cyclotomic twist arises in weight at most ℓ + 1 (Ribet, Corollary 3.2)",
+   "kind": "lemma",
+   "statement": "Let ρ̄ : Gal(Q̄/Q) → GL(2, F) be irreducible, F of characteristic ℓ, and suppose ρ̄ arises from Γ₁(N) with N prime to ℓ, that is, from an eigenform in S_k(Γ₁(N)) for some k ≥ 2. Then there is a power χ^i of the mod ℓ cyclotomic character such that ρ̄ ⊗ χ^i arises from S_k(Γ₁(N)) for some k ≤ ℓ + 1. More precisely, k = k(ρ̄ ⊗ χ^i), with 2 ≤ k(ρ̄ ⊗ χ^i) ≤ ℓ + 1.",
+   "hypotheses": [
+    "Twisting by χ corresponds to the operator θ = q d/dq on mod ℓ modular forms of level N prime to ℓ (AlgebraicModularFormsAndSerreWeights R15.3), so ρ̄ arises from Γ₁(N) if and only if every twist ρ̄ ⊗ χ^i does.",
+    "That some twist has 2 ≤ k(ρ̄ ⊗ χ^i) ≤ ℓ + 1 is Edixhoven's Theorem 3.4 and the discussion after it (AlgebraicModularFormsAndSerreWeights R15.4)."
+   ],
+   "proofSteps": [
+    "ρ̄ arises from Γ₁(N) if and only if ρ̄_i = ρ̄ ⊗ χ^i does, by applying θ i times.",
+    "Choose i with 2 ≤ k(ρ̄_i) ≤ ℓ + 1.",
+    "By Edixhoven's Theorem 3.1 of Ribet (R20.3/edixhoven-weight-theorem), ρ̄_i arises from S_{k(ρ̄_i)}(Γ₁(N))."
+   ],
+   "acceptance": [
+    "i = 0 when k(ρ̄) ≤ ℓ + 1 already.",
+    "The twist changes the weight, not the level N: θ preserves the level."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem",
+    "AlgebraicModularFormsAndSerreWeights:R15.3/theta-operator-filtration-and-hecke-commutation",
+    "AlgebraicModularFormsAndSerreWeights:R15.4/edixhoven-weight-k-rho-and-its-comparison-with-serre-k"
+   ],
+   "sources": [
+    {
+     "sourceId": "ribet1994",
+     "locator": "§3, (3.2) Corollary, p. 8 of the author's copy",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "ribet1994",
+     "locator": "§3, proof of (3.2), p. 8 of the author's copy",
+     "match": "The choice of the twist."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SerreWeightAndLevelOptimisation:R20.3/ribet-four-level-sets",
+     "how": "the inclusion N₂ ⊆ N₄"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.3/ribet-four-level-sets",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.3",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.3"
+   ],
+   "title": "The four sets of levels coincide for ℓ ≥ 5 (Ribet, Theorem 3.3)",
+   "kind": "theorem",
+   "statement": "Let ℓ ≥ 5 and ρ̄ : Gal(Q̄/Q) → GL(2, F) irreducible. Consider the sets of N prime to ℓ: N₁ = {N | ρ̄ arises from S_{k(ρ̄)}(Γ₁(N))}; N₂ = {N | ρ̄ arises from Γ₁(N)}; N₃ = {N | ρ̄ arises from Γ₁(Nℓ^α) for some α ≥ 0}; N₄ = {N | ρ̄ arises from S₂(Γ₁(Nℓ²))}. These four sets are equal, and Ribet writes 𝒩(ρ̄) for their common value. So for ℓ ≥ 5 the weight aspect of Serre's refined conjecture disappears: the question becomes whether N(ρ̄) ∈ 𝒩(ρ̄) (Ribet's (4.1)).",
+   "hypotheses": [
+    "ℓ ≥ 5 is used through Ribet's (2.2) (R20.4/weight-two-at-level-n-ell), which needs ℓ > 3 or N > 3.",
+    "Twisting a form of level Nℓ by a character of ℓ-power conductor gives a form of level Nℓ² (Atkin–Li, Invent. Math. 48 (1978), Proposition 3.1, Ribet's [1]). This is cited, not planned."
+   ],
+   "proofSteps": [
+    "N₁ = N₂: Edixhoven's theorem (R20.3/edixhoven-weight-theorem, Ribet's (3.1)).",
+    "N₂ = N₃: Ribet's (2.1) (R20.4/strip-ell-power-from-level).",
+    "N₄ ⊆ N₃ is clear.",
+    "N₂ ⊆ N₄: choose i with ρ̄ ⊗ χ^i arising from S_k(Γ₁(N)), 2 ≤ k ≤ ℓ + 1 (R20.3/ribet-twist-to-small-weight). By (2.2) it arises from S₂(Γ₁(Nℓ)). Untwisting by χ^{−i}, a Dirichlet twist of ℓ-power conductor that keeps the weight, gives S₂(Γ₁(Nℓ²)) by Atkin–Li."
+   ],
+   "acceptance": [
+    "ℓ = 3 is not covered: (2.2) needs ℓ > 3 or N > 3, and Ribet states (3.3) for ℓ ≥ 5.",
+    "N₄ fixes the weight at 2, at the cost of ℓ² in the level; N₁ fixes the weight at k(ρ̄) with level prime to ℓ."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem",
+    "SerreWeightAndLevelOptimisation:R20.3/ribet-twist-to-small-weight",
+    "SerreWeightAndLevelOptimisation:R20.4/strip-ell-power-from-level",
+    "SerreWeightAndLevelOptimisation:R20.4/weight-two-at-level-n-ell"
+   ],
+   "sources": [
+    {
+     "sourceId": "ribet1994",
+     "locator": "§3, (3.3) Theorem, p. 8 of the author's copy",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "ribet1994",
+     "locator": "§3, proof of (3.3), p. 8 of the author's copy",
+     "match": "The chain of inclusions."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SerreWeightAndLevelOptimisation:R20.2/descend-to-serre-level",
+     "how": "reduces the refined conjecture to the level question (4.1)"
+    }
+   ],
+   "planet": {
+    "name": "Ribet's four level sets"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.5/buzzard-multiplicity-one",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.5",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.5"
+   ],
+   "title": "Multiplicity one for mod 2 representations (Buzzard, Definitions 2.1–2.2, Lemma 2.3, Proposition 2.4)",
+   "kind": "definition",
+   "statement": "Let Γ₁(M) ⊆ Γ ⊆ Γ₀(M), J(Γ) the Jacobian of X(Γ), 𝕋 ⊂ End J(Γ) the Hecke algebra generated by the T_n and ⟨d⟩_M, and 𝔪 ⊂ 𝕋 a maximal ideal containing 2. Then 𝔪 satisfies multiplicity one if J(Γ)[𝔪] has 𝕋/𝔪-dimension 2 (Definition 2.1). An irreducible modular ρ̄ : Gal(Q̄/Q) → GL₂(F̄₂) satisfies multiplicity one if every such 𝔪 with ρ̄_𝔪 ≅ ρ̄ does, where M ranges over odd integers if ρ̄ is finite at 2, and over integers exactly divisible by 2 otherwise (Definition 2.2). By Lemma 2.3 it suffices to take Γ = Γ₁(M). Proposition 2.4: if ρ̄ is irreducible and modular and ρ̄ restricted to a decomposition group at 2 is not scalar, then ρ̄ satisfies multiplicity one.",
+   "hypotheses": [
+    "Lemma 2.3: Gal(Q̄/Q) acts on ker(J(Γ) → J₁(M)) through an abelian quotient (Ling–Oesterlé, Proposition 6). So an irreducible ρ̄ sees no difference between Γ and Γ₁(M).",
+    "Proposition 2.4, non-finite case: Mazur–Ribet's Proposition 18, with R generated by the T_n (n odd) and w₂ = −U₂ on 2-new forms, and the Eisenstein property of the relevant component group (Ribet, Invent. Math. 100, pp. 672–673). Finite case: Edixhoven's Theorem 9.2 (2)–(3), and, when ρ̄ is unramified at 2 with ρ̄(Frob₂) not diagonalisable, the non-split sequence (9.2.1). Mazur–Ribet and Ling–Oesterlé are cited, not planned.",
+    "The scalar case is not covered and is registered in R20.5/dyadic-scalar-multiplicity-one-obstruction."
+   ],
+   "proofSteps": [
+    "Define multiplicity one for 𝔪 by dim_{𝕋/𝔪} J(Γ)[𝔪] = 2, and for ρ̄ by quantifying over the admissible levels M (odd, or exactly divisible by 2, by Proposition 1.3).",
+    "Reduce to Γ = Γ₁(M) by Lemma 2.3.",
+    "Prove Proposition 2.4 in the two cases, finite and not finite at 2, as in the hypotheses."
+   ],
+   "acceptance": [
+    "Buzzard knows of no irreducible modular ρ̄ failing multiplicity one.",
+    "Scalar ρ̄|D₂ is exactly the case left open."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-removing-two-from-the-level",
+    "ModularCurvesPartII:R14.2",
+    "SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/SerreConjecture/ModTwo",
+    "namespace": "TauCeti.SerreModTwo"
+   },
+   "api": [
+    {
+     "name": "MaxIdeal.multiplicityOne",
+     "role": "data",
+     "statement": "finrank (𝕋 ⧸ 𝔪) J(Γ)[𝔪] = 2."
+    },
+    {
+     "name": "multiplicityOne",
+     "role": "data",
+     "statement": "ρ̄ satisfies multiplicity one: every 𝔪 with ρ̄_𝔪 ≅ ρ̄ at the admissible levels (Definition 2.2) satisfies it."
+    },
+    {
+     "name": "multiplicityOne_iff_gammaOne",
+     "role": "characterisation",
+     "statement": "For irreducible ρ̄ it suffices to test Γ = Γ₁(M) (Lemma 2.3)."
+    },
+    {
+     "name": "multiplicityOne_of_not_scalar",
+     "role": "characterisation",
+     "statement": "ρ̄ irreducible, modular, ρ̄|D₂ not scalar ⇒ multiplicityOne ρ̄ (Proposition 2.4)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "multiplicityOne.test_dim_two",
+     "kind": "value",
+     "statement": "The condition is dim J(Γ)[𝔪] = 2, the dimension of ρ̄ itself; a larger kernel fails it."
+    },
+    {
+     "name": "multiplicityOne.test_levels",
+     "kind": "degenerate",
+     "statement": "If ρ̄ is not finite at 2, only levels M with 2 ∥ M are tested, since ρ̄ never arises in weight 2 at odd level."
+    },
+    {
+     "name": "multiplicityOne.test_scalar_excluded",
+     "kind": "non-example",
+     "statement": "ρ̄|D₂ scalar is not covered by Proposition 2.4 (R20.5/dyadic-scalar-multiplicity-one-obstruction)."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§2, Definition 2.1, p. 4 of the DVI",
+     "match": "Definition 2.1."
+    },
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§2, Definition 2.2 and Lemma 2.3, p. 5 of the DVI",
+     "match": "The reduction to Γ₁(M)."
+    },
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§2, Proposition 2.4, p. 5 of the DVI",
+     "match": "Proposition 2.4."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SerreWeightAndLevelOptimisation:R20.5/buzzard-mod-two-level-lowering",
+     "how": "the multiplicity-one hypothesis of Theorem 2.8"
+    },
+    {
+     "where": "SerreWeightAndLevelOptimisation:R20.5/dyadic-scalar-multiplicity-one-obstruction",
+     "how": "the case Proposition 2.4 leaves open"
+    }
+   ],
+   "planet": {
+    "name": "Multiplicity one mod 2"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.5/buzzard-auxiliary-prime",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.5",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.5"
+   ],
+   "title": "An auxiliary prime q ≡ 3 mod 4 with non-zero trace, and removing it from the level (Buzzard, Lemma 2.5 and Corollary 2.6)",
+   "kind": "lemma",
+   "statement": "Let ρ̄ : Gal(Q̄/Q) → GL₂(F̄₂) be irreducible and not induced from Q(i). (Lemma 2.5) There is a prime q > 3, q ≡ 3 mod 4, at which ρ̄ is unramified with tr ρ̄(Frob_q) ≠ 0. (Corollary 2.6) For such q: if M is prime to q and f ∈ S₂(Γ₁(Mq); Q̄₂) is a normalised eigenform giving rise to ρ̄, then there is a normalised eigenform g ∈ S₂(Γ₁(M); Q̄₂) giving rise to ρ̄ with a₂(g) ≡ a₂(f) mod λ.",
+   "hypotheses": [
+    "Corollary 2.6 uses Diamond's Lemma 2.2 of 'The refined conjecture of Serre', with m = q > 3, to make the character at M of odd order, and local Langlands at q for the special case. Diamond's lemma is cited, not planned."
+   ],
+   "proofSteps": [
+    "Lemma 2.5. Let G be the image of ρ̄ ⊕ ω, ω the mod 4 cyclotomic character, and H the kernel of ω; Frob_q ∈ H iff q ≡ 1 mod 4. Case ρ̄(H) = ρ̄(G): if every trace outside H vanished, all of ρ̄(G) would have trace 0, which forces ρ̄(G) abelian. Case ρ̄(H) of index 2: a 2-Sylow element outside ρ̄(H) has order 2, so it is conjugate to (0 1; 1 0). If the lemma failed, every ρ̄(h), h ∈ H, would be symmetric, and a group of symmetric matrices in GL₂(F₂) is abelian (XY = (XY)^t = YX). So ρ̄|H would be reducible and ρ̄ induced from Q(i), a contradiction.",
+    "Corollary 2.6. By Diamond's lemma with m = q, get f′ of level Mq with a₂(f′) ≡ a₂(f) and odd-order character at M. Weight 2 forces χ′_q(−1) = 1, and q ≡ 3 mod 4 makes χ′_q of odd order, hence trivial mod 2, hence trivial. f′ is not unramified special at q, because then ρ̄|D_q would have semisimplification two copies of one unramified character, contradicting tr ρ̄(Frob_q) ≠ 0. So f′ is old at q, and g is the level-M form."
+   ],
+   "acceptance": [
+    "q ≡ 3 mod 4 is what makes an even character at q of odd order.",
+    "For ρ̄ induced from Q(i), every trace at q ≡ 3 mod 4 vanishes, and the lemma fails; §3 treats that case."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-multiplicity-one",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.6"
+   ],
+   "sources": [
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§2, Lemma 2.5, p. 6 of the DVI",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§2, proof of Lemma 2.5, p. 6 of the DVI",
+     "match": "The key step of case 2."
+    },
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§2, Corollary 2.6 and its proof, p. 6 of the DVI",
+     "match": "The end of the proof of Corollary 2.6."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SerreWeightAndLevelOptimisation:R20.5/buzzard-carayol-lemma-mod-two",
+     "how": "the auxiliary prime"
+    },
+    {
+     "where": "SerreWeightAndLevelOptimisation:R20.5/buzzard-mod-two-level-lowering",
+     "how": "the proof of Theorem 2.8 passes to level Mqp and back"
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.5/buzzard-carayol-lemma-mod-two",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.5",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.5"
+   ],
+   "title": "Carayol's lemma mod 2: changing the character within its residue class (Buzzard, Corollary 2.7)",
+   "kind": "theorem",
+   "statement": "Let ρ̄ : Gal(Q̄/Q) → GL₂(F̄₂) be irreducible and not induced from Q(i), arising from a characteristic-zero form f of weight 2, level M and character χ. Let ψ be a character of (Z/MZ)^× with ψ(−1) = 1 and ψ ≡ χ mod λ. Then there is a characteristic-zero form g of weight 2, level M and character ψ giving rise to ρ̄, with a₂(g) ≡ a₂(f) mod λ. This is the ℓ = 2 counterpart of R20.4/nebentypus-congruent-character, whose statement needs ℓ ≥ 5.",
+   "hypotheses": [
+    "The hypothesis 'not induced from Q(i)' enters only through the auxiliary prime of Lemma 2.5.",
+    "Diamond's Lemma 2.2 of 'The refined conjecture of Serre' (with m = q) is cited, not planned."
+   ],
+   "proofSteps": [
+    "Choose q as in Lemma 2.5 (R20.5/buzzard-auxiliary-prime).",
+    "Diamond's lemma with m = q gives f′ of level Mq with character ψ at M and a₂(f′) ≡ a₂(f).",
+    "The character of f′ at q has odd order, so, as in Corollary 2.6, f′ is old at q, and its level-M oldform is g."
+   ],
+   "acceptance": [
+    "ψ = χ: trivially g = f.",
+    "For ℓ = 2 the character must be even (ψ(−1) = 1), matching weight 2."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.5/buzzard-auxiliary-prime",
+    "SerreWeightAndLevelOptimisation:R20.4/nebentypus-congruent-character"
+   ],
+   "sources": [
+    {
+     "sourceId": "buzzard2000",
+     "locator": "§2, Corollary 2.7, p. 6 of the DVI",
+     "match": "The statement."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SerreWeightAndLevelOptimisation:R20.5/buzzard-level-lowering-to-the-conductor",
+     "how": "adjusting the character in the ℓ = 2 level-lowering"
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "coverage": [
@@ -2232,10 +2534,10 @@
     "Gross, \"A tameness criterion for Galois representations associated to modular forms (mod p)\" (Duke 1990), on which Theorems 2.5, 2.6 (via §6), 2.9 and the minimality step depend, is not read; for p > 2 the source's note says Coleman–Voloch remove its unverified compatibilities, and Coleman–Voloch is not read either.",
     "Mazur's Eisenstein-ideal paper §6 (Theorem 2.8) is not read; the p = 2 adaptation is taken from Edixhoven.",
     "The \"case by case\" check that ends the minimality proof is not displayed in the source.",
-    "Ribet's §3 'Adjustment of the weight' (ribet1994) is read but has no node; it gives the weight statements in the form Ribet uses for level lowering.",
-    "Whether the Coleman–Voloch note is present in the 1992 printing was not checked (the note is in the author's DVI)."
+    "Whether the Coleman–Voloch note is present in the 1992 printing was not checked (the note is in the author's DVI).",
+    "Atkin–Li's twisting of level (Invent. Math. 48, Proposition 3.1), used in Ribet's (3.3), is cited, not planned."
    ],
-   "note": "Planned from Edixhoven's author DVI: the local forms of eigenforms of weight 2 ≤ k ≤ p + 1, Mazur's weight-p + 1 theorem, weight-one unramifiedness, Gross's companion forms, and Theorem 4.5 with its full proof; the recipe, θ-cycles and weight reduction are imported from AlgebraicModularFormsAndSerreWeights R15.3–R15.4."
+   "note": "Planned from Edixhoven's author DVI: the local forms of eigenforms of weight 2 ≤ k ≤ p + 1, Mazur's weight-p + 1 theorem, weight-one unramifiedness, Gross's companion forms, and Theorem 4.5 with its full proof; the recipe, θ-cycles and weight reduction are imported from AlgebraicModularFormsAndSerreWeights R15.3–R15.4. The third checkpoint adds Ribet's §3: the twist to weight at most ℓ + 1 (3.2) and the equality of the four level sets for ℓ ≥ 5 (3.3)."
   },
   {
    "stageId": "SerreWeightAndLevelOptimisation:R20.4",
@@ -2252,8 +2554,9 @@
     "Wiese's assigned weight-one theorem, for the comparison RS-06 asks for. The public Wiese paper obtained ('Dihedral Galois representations and Katz modular forms', arXiv:math/0402163) extracted only partially and the weight-one theorem to compare against has not been pinned.",
     "The exact list of weak-to-classical-strong implications that this layer is to assemble.",
     "Khare–Wintenberger I §1's exception is now read and cited in R20.5/dyadic-scalar-multiplicity-one-obstruction (ρ̄|_{D₂} scalar with non-dihedral projective image).",
-    "Buzzard's Corollary 2.7 (Serre's predicted character in the finite, non-Q(i)-induced case) and Proposition 2.4 (the mildness of multiplicity one) are cited, not planned as nodes; Gross's Proposition 8.18, behind Lemma 1.2, is not read."
-   ]
+    "Gross's Proposition 8.18, behind Buzzard's Lemma 1.2, is not read. The inputs of Proposition 2.4 (Mazur–Ribet Proposition 18, Ling–Oesterlé Proposition 6) and Diamond's Lemma 2.2, used in Corollaries 2.6–2.7, are cited, not planned."
+   ],
+   "note": " The third checkpoint adds Buzzard's §2 infrastructure: multiplicity one (Definitions 2.1–2.2, Lemma 2.3, Proposition 2.4), the auxiliary prime (Lemma 2.5, Corollary 2.6) and Carayol's lemma mod 2 (Corollary 2.7)."
   },
   {
    "stageId": "SerreWeightAndLevelOptimisation:R20.6",
@@ -2272,7 +2575,7 @@
   },
   {
    "supplier": "ModularCurvesPartII:R14.2",
-   "need": "The integral cuspidal Hecke module of X₁(M,p) with its Hecke action, as a module over the integral Hecke algebra, together with the integral structure needed to state saturation. R20.1 consumes this rather than constructing it; the library supplies only the complex cusp-form spaces."
+   "need": "The integral cuspidal Hecke module of X₁(M,p) with its Hecke action, as a module over the integral Hecke algebra, together with the integral structure needed to state saturation. R20.1 consumes this rather than constructing it; the library supplies only the complex cusp-form spaces. R20.5/buzzard-multiplicity-one also uses the Hecke algebra of J(Γ) for Γ₁(M) ⊆ Γ ⊆ Γ₀(M)."
   },
   {
    "supplier": "ModularCurvesPartII:R14.3",
@@ -2316,7 +2619,7 @@
   },
   {
    "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.6",
-   "need": "Langlands's local-global compatibility at a prime q where the automorphic representation is special, in the form π = α ⊗ sp with α unramified and ρ_λ|D_q an extension of α by αχ̃, whose residual semisimplification is ᾱ ⊕ ᾱχ. This is what gives the easy direction of Diamond's level-raising criterion and is applied rather than proved here."
+   "need": "Langlands's local-global compatibility at a prime q where the automorphic representation is special, in the form π = α ⊗ sp with α unramified and ρ_λ|D_q an extension of α by αχ̃, whose residual semisimplification is ᾱ ⊕ ᾱχ. This is what gives the easy direction of Diamond's level-raising criterion and is applied rather than proved here. R20.5/buzzard-auxiliary-prime uses it at the auxiliary prime q."
   },
   {
    "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.3",
