@@ -7,7 +7,7 @@ Extraction by Claude Code (session `cc-f805bf`), 29 September 2026, issue #4548.
 
 - **The article.** I read the whole published article, pp. 1–77 (Cambridge Core open access). Every formula quoted in an item was checked on page images.
 - **The corrigendum.** I read the whole four-page corrigendum. Its corrections are applied to the items.
-- **The preprint.** A word-level comparison of the published text with arXiv:1205.3463v2 (3 November 2012) found only copyediting and an expanded introductory overview; no statement changed.
+- **The preprint.** A word-level comparison of the published text with arXiv:1205.3463v2 (3 November 2012) found only copyediting and an expanded introductory overview; no statement changed. (The independent review adds one numbering difference: the published version inserts Lemma 5.8, on completely continuous maps, so published 5.9–5.12 are arXiv v2's 5.8–5.11. Blueprint packets cite the arXiv numbers.)
 - **Hash.** Cambridge stamps every download, so `sourceVersions` records the SHA-256 of the text with the stamp lines removed, together with the arXiv file hash.
 
 ## What the paper proves
@@ -46,11 +46,11 @@ The atlas was designed from this paper. The layers that cite it or its corrigend
 - **AdicEtaleGeometry A1 and DiamondsAndVStacks D0.** The corrected pro-étale covers and the site axioms.
 - **PerfectoidSpaces P0 and P1.** The almost category, and θ with its kernel.
 
-Of 254 items, 58 are `planned` and 5 are in Mathlib. The Mathlib items are the ring-level period rings (`WittVector.fontaineTheta`, `BDeRhamPlus`, `BDeRham`) and Bézout ideals of valuation rings. The remaining 191 are `missing`. Tau Ceti's adic-space library has no perfectoid or pro-étale material at the pinned commit that states any of them.
+Of 254 items, 58 were marked `planned` and 5 are in Mathlib (after the independent review: 168 planned, 81 missing; see the last section). The Mathlib items are the ring-level period rings (`WittVector.fontaineTheta`, `BDeRhamPlus`, `BDeRham`) and Bézout ideals of valuation rings. The remaining 191 are `missing`. Tau Ceti's adic-space library has no perfectoid or pro-étale material at the pinned commit that states any of them.
 
 ## Routes
 
-The 191 missing items are the steps between the layers' headline targets. All of them go to existing layers as sources, and no new roadmap or Part II is proposed.
+The 191 items marked missing are the steps between the layers' headline targets; the independent review found 110 of them already planned by blueprint packets, and moved 19 integral statements to a fifth route. All of them go to existing layers as sources, and no new roadmap or Part II is proposed.
 
 1. **PadicHodgeTheory (P8, P8:local-rational). 93 items.** They are:
    - the K(π,1) theorems (1.2, 4.9) and Lemma 4.12;
@@ -59,7 +59,7 @@ The 191 missing items are the steps between the layers' headline targets. All of
    - the §7 functor and de Rham lisse sheaves;
    - the remaining parts of §8, notably the B⁺_dR comparison 8.4(a) and the lisse Ẑ_p-sheaves of Definition 8.1 and Proposition 8.2.
 
-   Accepted extractions sent the same material here: PAPER-ZAVYALOV-25, PAPER-HEUER-25 and PAPER-CARAIANI-SCHOLZE-17. So this paper should be P8's principal source. The route's reason suggests that the P8 planning job split its proper-comparison suffix into three stages: primitive comparison and finiteness, the §7 functor, and the §8 comparisons.
+   Accepted extractions sent the same material here: PAPER-ZAVYALOV-25 and PAPER-BHATT-MORROW-SCHOLZE-18 (the primitive comparison and finiteness) and PAPER-CARAIANI-SCHOLZE-17 (the §7 functor); PAPER-HEUER-25's route is awaiting review. So this paper should be P8's principal source. The route's reason suggests that the P8 planning job split its proper-comparison suffix into three stages: primitive comparison and finiteness, the §7 functor, and the §8 comparisons.
 2. **PerfectoidSpaces (P0, P2, P6). 60 items.**
    - The §2 theory of almost finitely generated modules (≈_ε, γ_M, almost finitely presented modules), which extends P0.
    - The §4 structure sheaves on X_proét, affinoid perfectoid objects, the perfectoid torus, the basis results and almost acyclicity, which belong to P2 and P6.
@@ -106,3 +106,19 @@ Thirty-four candidates were checked by an independent reader at 300 dpi. Twenty-
 - **Köpf (1974).** Relative GAGA over affinoids.
 
 Scholze's *Perfectoid spaces* is already PAPER-SCHOLZE-12 in the batch list.
+
+## Corrections by the independent review
+
+REV-PAPER-SCHOLZE-13 (Claude Code, session `cc-fb70e5`, 29 September 2026) made these changes:
+
+- **110 items are now planned.** Blueprint packets merged before this extraction state them node by node, citing this paper:
+  - `PadicHodgeTheory--P7.json` for §§6–8 and Theorem 4.9, in stages P8 and P8:local-rational, with R06.1 for the period rings;
+  - `AdicEtaleGeometry.json` (A1) for §3's pro-étale site, with `ClassicalAdicEtaleCohomology--H0.json` (H0) for Proposition 3.7(iii), Lemma 3.16, Corollary 3.17 and the Tate twist;
+  - `PerfectoidSpaces--P0.json`, P6 for Definition 4.3(i), Example 4.4 and Lemmas 4.5(i) and 4.6, and P0 for Definition 2.3 and Lemma 2.13;
+  - `AdicSpacesPartII.json`, R3 for Theorem 9.1 and Proposition 9.2(ii), and R0 for locally noetherian adic spaces.
+
+  Each note names the node. The counts are now 5 library, 168 planned, 81 missing.
+- **Route 5 is new**, a source route to AInfCohomology AI.3. It takes 19 integral statements: Lemmas 3.18, 4.2(iii), 4.10 and 5.5, the tilted sheaf of Lemma 5.11, the basis results 4.7 and 4.8, Û, and the integral cases of Theorem 6.5 and Corollary 6.6. The PadicHodgeTheory packet requests exactly these from AI.3, and AI.3 owns the completed integral structure sheaf, its tilt and A_inf,X. They are removed from routes 1–3, and route 2's stages are now P0 and P6.
+- **Route reasons.** The reasons of routes 1–4 are rewritten to say what the packets already plan.
+- **Numbering.** `source.readSections` records the §5 renumbering.
+- **Mistakes.** All 21 source issues are confirmed on review.
