@@ -10,7 +10,7 @@
   "SelmerIwasawaCohomology:L4"
  ],
  "status": "partial",
- "summary": "First checkpoint of the blueprint for Selmer groups, continuous integral cohomology and Iwasawa cohomology, within RS-08's boundaries. L0: the p-adic completion of a multiplicative group and its comparison with the tensor product (true for global units and S-units, false for local multiplicative groups and for F^×), the Kummer maps along the μ_{p^m} tower, the Mittag-Leffler bookkeeping, the identification H^1(G_K, ℤ_p(1)) ≅ lim K^×/(K^×)^{p^m} and its S-unit form H^1(G_{F,S}, ℤ_p(1)) ≅ ℤ_p ⊗ 𝓞_{F,S}^×. L2: the generic Selmer-kernel API (local conditions, strict and relaxed modifications, change of conditions, functoriality, propagation, the passage V → T, W with saturation), the unramified and Greenberg conditions, Galois Selmer groups, Pontryagin duals and coranks, and the elliptic p^∞-Selmer group. Two new findings in RJW are recorded. Second checkpoint: L1's parametric pairing lemmas (orthogonal complements, compatibility of the local pairings for T, V, W, W_M), and in L2 the dual Selmer structure, the unramified dimension count and bad-prime comparison terms, local duality for the finite conditions on V, T and W_M, Selmer groups as limits, and Poitou–Tate for Selmer groups (Rubin Theorem 7.3, Corollary 7.5), built on ArithmeticGaloisDuality R02.4's Poitou–Tate.",
+ "summary": "First checkpoint of the blueprint for Selmer groups, continuous integral cohomology and Iwasawa cohomology, within RS-08's boundaries. L0: the p-adic completion of a multiplicative group and its comparison with the tensor product (true for global units and S-units, false for local multiplicative groups and for F^×), the Kummer maps along the μ_{p^m} tower, the Mittag-Leffler bookkeeping, the identification H^1(G_K, ℤ_p(1)) ≅ lim K^×/(K^×)^{p^m} and its S-unit form H^1(G_{F,S}, ℤ_p(1)) ≅ ℤ_p ⊗ 𝓞_{F,S}^×. L2: the generic Selmer-kernel API (local conditions, strict and relaxed modifications, change of conditions, functoriality, propagation, the passage V → T, W with saturation), the unramified and Greenberg conditions, Galois Selmer groups, Pontryagin duals and coranks, and the elliptic p^∞-Selmer group. Two new findings in RJW are recorded. Second checkpoint: L1's parametric pairing lemmas (orthogonal complements, compatibility of the local pairings for T, V, W, W_M), and in L2 the dual Selmer structure, the unramified dimension count and bad-prime comparison terms, local duality for the finite conditions on V, T and W_M, Selmer groups as limits, and Poitou–Tate for Selmer groups (Rubin Theorem 7.3, Corollary 7.5), built on ArithmeticGaloisDuality R02.4's Poitou–Tate. Third checkpoint: L3 from Nekovář, Selmer complexes, 8.3–8.4 and Rubin Appendix B §§3–5: Iwasawa cohomology by corestriction, Shapiro's lemma over Λ with the inverse action, descent and control spectral sequences, the torsion criterion, universal norms, semilocal cohomology and the cyclotomic twist.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -209,7 +209,8 @@
     "Chapter I §3.1 Corollary 3.3; §3.2 Remarks 3.6–3.7, Lemma 3.8, Corollary 3.10",
     "Chapter I §4 (Theorem 4.1, Propositions 4.2–4.3, Definition 4.4, Lemmas 4.5, 4.7)",
     "Chapter I §5 (Lemma 5.4, Remark 5.5, Proposition 5.6, Lemma 5.7)",
-    "Chapter I §7 (Remark 7.1, Definition 7.2, Theorem 7.3, Remark 7.4, Corollary 7.5)"
+    "Chapter I §7 (Remark 7.1, Definition 7.2, Theorem 7.3, Remark 7.4, Corollary 7.5)",
+    "Appendix B §2 Remark 2.6, Proposition 2.7, Lemma 2.8; §3 (Lemmas 3.1–3.2, Proposition 3.3, Corollaries 3.4–3.5); §4 (Definition 4.1, Proposition 4.2, Corollary 4.4, Proposition 4.5); §5 (Proposition 5.1, Corollaries 5.2–5.3)"
    ]
   },
   {
@@ -247,7 +248,19 @@
    "readSections": [
     "§1.0.1–1.0.3 (pp. 1–2)",
     "§2.2 (pp. 4–5, including footnote 3)",
-    "§3.1 (p. 6)"
+    "§3.1 (p. 6)",
+    "§2.2.3 and (3.2), read again 2026-09-29 for L3"
+   ]
+  },
+  {
+   "id": "NEKOVAR-SC",
+   "title": "Selmer complexes",
+   "authors": "Jan Nekovář",
+   "edition": "Astérisque 310 (2006), Numdam open-access PDF (568 PDF pages; printed page = PDF page − 9)",
+   "url": "https://www.numdam.org/item/AST_2006__310__R1_0.pdf",
+   "sha256": "61c84e5ad3252a2e520747215ac57a282addc2b58c824a3637bcd77bbe02153f",
+   "readSections": [
+    "Chapter 8, §8.3 (8.3.1–8.3.6), §8.4.1–8.4.4 (8.4.4.1–8.4.4.3), §8.4.8 (8.4.8.1–8.4.8.5), pp. 202–216, on the page images; the contents list of Chapters 0–12."
    ]
   }
  ],
@@ -279,6 +292,13 @@
    "citation": "A. A. Burungale and Y. Tian, A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin, arXiv:2506.03465v2",
    "read": "2026-09-28",
    "sha256": "cbb8284a13ed40bd15df9713001485724bc4d2a3b5c38d8fd83f9b6f3f3e4664"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/AST_2006__310__R1_0.pdf",
+   "citation": "J. Nekovář, Selmer complexes, Astérisque 310 (2006)",
+   "read": "2026-09-29",
+   "sha256": "61c84e5ad3252a2e520747215ac57a282addc2b58c824a3637bcd77bbe02153f"
   }
  ],
  "nodes": [
@@ -2346,6 +2366,362 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+   "parentStageId": "SelmerIwasawaCohomology:L3",
+   "realises": [
+    "SelmerIwasawaCohomology:L3"
+   ],
+   "title": "Iwasawa cohomology",
+   "kind": "construction",
+   "statement": "Let R be a complete local noetherian ring with finite residue field of characteristic p, G a profinite group, H a closed normal subgroup, Γ = G/H, 𝒰 the open subgroups U ⊇ H, and M an ind-admissible R[G]-module; M_U = M ⊗_R R[G/U]. RΓ_Iw(G, H; M) is the complex lim_U C^•_cont(G, M_U) of R̄-modules, R̄ = R⟦Γ⟧, and H^i_Iw(G, H; M) its cohomology. There is a spectral sequence E₂^{ij} = lim^{(i)}_{U,cor} H^j_cont(U, M) ⇒ H^{i+j}_Iw(G, H; M); if M is of finite type over R and G satisfies (F) (finite cohomology of finite modules on open subgroups), then H^j_Iw(G, H; M) = lim_{U,cor} H^j_cont(U, M). If moreover 𝒰 has a cofinal chain and p^∞ divides the pro-finite order of Γ, then H⁰_Iw(G, H; M) = 0.",
+   "hypotheses": [
+    "R complete local noetherian; M of finite type over R for the corestriction-limit description; condition (F), which G_{K,S} and local Galois groups satisfy (ArithmeticGaloisDuality R02.4/global-finiteness)."
+   ],
+   "proofSteps": [
+    "The transition maps C^•_cont(G, M_V) → C^•_cont(G, M_U) are surjective, so the projective system is weakly flabby and the first hypercohomology spectral sequence for lim collapses (Jannsen); the second is the stated one, with corestriction transitions by Shapiro's lemma at finite level (ProfiniteCohomology Layer 7).",
+    "Under (F) the terms are finite-length R-modules, so the higher derived limits vanish (ArithmeticGaloisDuality R02.1/mittag-leffler-lim-one).",
+    "H⁰: M^{U_n} stabilises to N, and the corestrictions N → N are multiplication by [U_n : U_{n′}], whose p-part tends to infinity; so the limit vanishes (Rubin, Lemma B.3.2)."
+   ],
+   "acceptance": [
+    "H⁰_Iw = 0 is a consequence of p^∞ | #Γ, not an assumption; torsion of H²_Iw is not asserted here (see iwasawa-torsion-criterion)."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L2/galois-selmer-group",
+    "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one",
+    "ArithmeticGaloisDuality:R02.1/tate-inverse-limit",
+    "ArithmeticGaloisDuality:R02.4/global-finiteness"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Iwasawa",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "Chapter 8, 8.3.4–8.3.5, p. 203 (Numdam PDF p. 212)",
+     "match": "The definition 8.3.4 and Proposition 8.3.5 (i)–(iii)."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Appendix B, §3, Lemmas 3.1–3.2, printed p. 154 (PDF p. 164)",
+     "match": "The H¹ limit through T/p^n (Lemma 3.1) and the vanishing of norm-compatible invariants (Lemma 3.2)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Selmer.iwasawaComplex",
+     "role": "constructor",
+     "statement": "RΓ_Iw(G, H; M) = lim_U C^•_cont(G, M_U)."
+    },
+    {
+     "name": "TauCeti.Selmer.iwasawaCohomology",
+     "role": "constructor",
+     "statement": "H^i_Iw(G, H; M), an R⟦Γ⟧-module."
+    },
+    {
+     "name": "TauCeti.Selmer.iwasawaCohomology_equiv_limit",
+     "role": "equivalence",
+     "statement": "Under (F): H^j_Iw(G, H; M) ≅ lim_{U,cor} H^j_cont(U, M) (Nekovář 8.3.5(ii))."
+    },
+    {
+     "name": "TauCeti.Selmer.iwasawaCohomology_zero_eq_bot",
+     "role": "simp",
+     "statement": "H⁰_Iw(G, H; M) = 0 when p^∞ divides #Γ (8.3.5(iii); Rubin B.3.2)."
+    },
+    {
+     "name": "TauCeti.Selmer.iwasawaCohomology_one_equiv",
+     "role": "equivalence",
+     "statement": "lim_F H¹(F, T) = lim_n H¹(F_n, T/p^nT) along a tower (Rubin, Lemma B.3.1)."
+    },
+    {
+     "name": "TauCeti.Selmer.iwasawaCohomology_map",
+     "role": "functoriality",
+     "statement": "Natural in M and exact on distinguished triangles."
+    }
+   ],
+   "tests": [
+    {
+     "name": "finite_gamma",
+     "kind": "value",
+     "statement": "Γ = 1: H^i_Iw(G, G; M) = H^i_cont(G, M)."
+    },
+    {
+     "name": "h0_vanishes",
+     "kind": "value",
+     "statement": "Cyclotomic ℤ_p-extension, M = ℤ_p(1): H⁰_Iw = 0 although every H⁰(F_n, ℤ_p(1)) is μ_{p^∞}(F_n)-torsion-free of rank 0; the transitions are norms."
+    },
+    {
+     "name": "kato_convention",
+     "kind": "agreement",
+     "statement": "Burungale–Tian §2.2.3: Kato's H^q(T) = lim_n H^q(ℤ[ζ_{p^n}, 1/p], T) with corestrictions is this construction for G = G_{ℚ,S}, S = {p, ∞} ∪ {bad primes}, once Kato's étale convention (j_*) is matched with Galois cohomology of G_{ℚ,S}."
+    },
+    {
+     "name": "restriction_limit_nonexample",
+     "kind": "non-example",
+     "statement": "With restriction instead of corestriction transitions, lim H⁰(F_n, ℚ_p/ℤ_p) = ℚ_p/ℤ_p ≠ 0: the transition maps are part of the definition."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SelmerIwasawaCohomology:L3/iwasawa-shapiro",
+     "how": "the object identified with Λ-adic cohomology"
+    },
+    {
+     "where": "KatoEulerSystems:L2",
+     "how": "Kato's H¹_Iw and the Beilinson–Kato class"
+    },
+    {
+     "where": "ModularIwasawaMainConjectures:L0",
+     "how": "Kato's étale Iwasawa cohomology"
+    }
+   ]
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L3/iwasawa-shapiro",
+   "parentStageId": "SelmerIwasawaCohomology:L3",
+   "realises": [
+    "SelmerIwasawaCohomology:L3"
+   ],
+   "title": "Shapiro's lemma for Iwasawa cohomology",
+   "kind": "theorem",
+   "statement": "With 𝓕_Γ(M) = lim_U M_U: for M of finite type over R there are canonical R̄[G]-isomorphisms 𝓕_Γ(M) ≅ (M ⊗_R R̄) ⟨−1⟩ and 𝓕_Γ(M)^ι ≅ (M ⊗_R R̄^ι)⟨−1⟩ ≅ (M ⊗_R R̄)⟨1⟩, where ⟨n⟩ twists the G-action by χ_Γ^n, χ_Γ : G → Γ ⊂ R̄^× the tautological character, and ι is the involution γ ↦ γ^{−1}; 𝓕_Γ(M) is of finite type over R̄. The canonical morphism C^•_cont(G, 𝓕_Γ(M)) → lim_U C^•_cont(G, M_U) is an isomorphism, so RΓ_cont(G, 𝓕_Γ(M)) ≅ RΓ_Iw(G, H; M).",
+   "hypotheses": [
+    "M ind-admissible of finite type over R; Γ abelian, Γ ≅ Γ₀ × Δ with Γ₀ ≅ ℤ_p^r and Δ finite."
+   ],
+   "proofSteps": [
+    "N ⊗_R R̄ = N ⊗_R lim R_U ≅ lim (N ⊗_R R_U) for N of finite type; on 𝓕_Γ(M), x ∈ R̄ acts by id ⊗ ι(x) and g ∈ G by g ⊗ χ_Γ(g), which gives the two isomorphisms (Nekovář 8.4.4.1).",
+    "The two projective-limit topologies on 𝓕_Γ(M), the m̄-adic and the (U, n)-adic, coincide, because {m̄^N} and {J_U + m^n R̄} are cofinal (J_U = ker(R̄ → R[G/U])); so continuous cochains commute with the limit (8.4.4.2)."
+   ],
+   "acceptance": [
+    "The inverse action is explicit: with the tautological character the Galois action on T ⊗ Λ is g ⊗ χ_Γ(g)^{−1}, as the stage and Burungale–Tian's items require; the opposite convention is 𝓕_Γ(M)^ι."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+    "ArithmeticGaloisDuality:R02.1/carrier-comparison",
+    "PadicMeasuresIwasawaAlgebras:L1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Iwasawa",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "Chapter 8, Proposition 8.4.4.1, p. 206 (Numdam PDF p. 215)",
+     "match": "Proposition 8.4.4.1 (i)–(iii) and its proof."
+    },
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "Chapter 8, Proposition 8.4.4.2, p. 207 (Numdam PDF p. 216)",
+     "match": "Proposition 8.4.4.2 and 8.4.4.3."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Shapiro's lemma over Λ"
+   }
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L3/iwasawa-descent",
+   "parentStageId": "SelmerIwasawaCohomology:L3",
+   "realises": [
+    "SelmerIwasawaCohomology:L3"
+   ],
+   "title": "Descent and control for Iwasawa cohomology",
+   "kind": "theorem",
+   "statement": "(i) For M supported at the maximal ideal there is the Hochschild–Serre spectral sequence E₂^{ij} = H^i_cont(Γ, H^j_cont(H, M)) ⇒ H^{i+j}_cont(G, M). (ii) If Γ ≅ ℤ_p^r, then RΓ_Iw(G, H; T) ⊗^L_{R̄} R ≅ RΓ_cont(G, T), with a homological spectral sequence E²_{ij} = H_{i,cont}(Γ, H^{−j}_Iw(G, H; T)) ⇒ H^{−i−j}_cont(G, T), each term of finite type over R when G satisfies (F). If Γ ≅ ℤ_p it degenerates into 0 → H^j_Iw(G, H; T)_Γ → H^j_cont(G, T) → H^{j+1}_Iw(G, H; T)^Γ → 0; and if cd_p(G) = e < ∞ and τ_{≤n}T ≅ T, then H^{e+n}_Iw(G, H; T)_Γ ≅ H^{e+n}_cont(G, T). (iii) For a closed Γ′ ≅ ℤ_p^{r′} in Γ with preimage H′, RΓ_Iw(G, H; T) ⊗^L R⟦Γ/Γ′⟧ ≅ RΓ_Iw(G, H′; T), with the analogous spectral sequence and, for Γ′ ≅ ℤ_p, the analogous short exact sequences.",
+   "hypotheses": [
+    "Γ ≅ ℤ_p^r (or Γ′ ≅ ℤ_p^{r′}); T a bounded-below complex of finite type over R."
+   ],
+   "proofSteps": [
+    "(i) is ArithmeticGaloisDuality's Hochschild–Serre spectral sequence (R02.2).",
+    "(ii) γ₁ − 1, …, γ_r − 1 is a regular sequence in R̄ with R̄/x ≅ R; tensoring the exact sequences 0 → R̄_{i−1} → R̄_{i−1} → R̄_i → 0 with T and applying iwasawa-shapiro gives the isomorphism; the Koszul filtration gives the spectral sequence (Nekovář 8.4.8.1).",
+    "For r = 1 the spectral sequence has two columns (8.4.8.2); (iii) replaces x by the generators of Γ′ (8.4.8.3–8.4.8.4)."
+   ],
+   "acceptance": [
+    "The control statements carry their error terms (coinvariants and invariants); no isomorphism H^j_Iw(G, H; T)_Γ ≅ H^j(G, T) is claimed in general."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L3/iwasawa-shapiro",
+    "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
+    "ArithmeticGaloisDuality:R02.2/first-quadrant-spectral-sequence",
+    "PadicMeasuresIwasawaAlgebras:L1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Iwasawa",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "Chapter 8, Proposition 8.4.8.1, p. 214 (Numdam PDF p. 223)",
+     "match": "Proposition 8.4.8.1 and its proof (pp. 214–215)."
+    },
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "Chapter 8, Corollary 8.4.8.2 and Proposition 8.4.8.3, p. 215 (Numdam PDF p. 224)",
+     "match": "Corollaries 8.4.8.2, 8.4.8.4 and Proposition 8.4.8.3."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Descent and control for Iwasawa cohomology"
+   }
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L3/iwasawa-torsion-criterion",
+   "parentStageId": "SelmerIwasawaCohomology:L3",
+   "realises": [
+    "SelmerIwasawaCohomology:L3"
+   ],
+   "title": "A criterion for torsion Iwasawa cohomology",
+   "kind": "theorem",
+   "statement": "Assume Γ ≅ ℤ_p^r, G satisfies (F) and cd_p(G) < ∞. Let 𝔭 ∈ Spec(R) and 𝔭̄ ∈ Spec(R̄) its preimage under the augmentation R̄ → R. If T ∈ D^b of finite type over R has RΓ_cont(G, T)_𝔭 ≅ 0, then RΓ_cont(G, 𝓕_Γ(T))_𝔭̄ ≅ 0.",
+   "hypotheses": [
+    "The vanishing of the specialised complex at 𝔭 is a hypothesis."
+   ],
+   "proofSteps": [
+    "iwasawa-descent (ii) localised at 𝔭 gives E²_{ij} = H_{i,cont}(Γ, H^{−j})_𝔭 ⇒ H^{−i−j}_cont(G, T)_𝔭 = 0, with finitely many nonzero terms.",
+    "If E²_{0,j} = 0 then all E²_{i,j} = 0 (Nekovář 7.2.7 and Lemma 8.10.5); by induction on j, (H^{−j})_𝔭̄/J = 0 for the augmentation ideal J ⊆ 𝔭̄, and Nakayama's lemma gives H^{−j}_𝔭̄ = 0."
+   ],
+   "acceptance": [
+    "This is the form in which torsion of H²_Iw and of Selmer duals is proved; it is a separate conclusion from a specialisation hypothesis, never a default (the stage's warning)."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L3/iwasawa-descent",
+    "SelmerIwasawaCohomology:L3/iwasawa-shapiro"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Iwasawa",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "NEKOVAR-SC",
+     "locator": "Chapter 8, Proposition 8.4.8.5, p. 216 (Numdam PDF p. 225)",
+     "match": "Proposition 8.4.8.5 and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L3/universal-norms-unramified",
+   "parentStageId": "SelmerIwasawaCohomology:L3",
+   "realises": [
+    "SelmerIwasawaCohomology:L3"
+   ],
+   "title": "Universal norms are unramified away from p",
+   "kind": "theorem",
+   "statement": "Let T be finitely generated over ℤ_p. (i) If K/ℚ_ℓ is finite with ℓ ≠ p and K_∞ its unramified ℤ_p-extension, every norm-compatible {c_F} ∈ lim H¹(F, T) has c_F ∈ H¹_ur(F, T). (ii) If K is a number field, K_∞/K abelian with Gal(K_∞/K) ≅ ℤ_p^d, and λ ∤ p a prime of F whose decomposition group in Gal(K_∞/K) is infinite, then (c_F)_λ ∈ H¹_ur(F_λ, T). (iii) If S contains the primes where T is ramified, those above p, those with finite decomposition group in Gal(K_∞/K) and the infinite places, then lim_F H¹(F, T) = lim_F H¹(K_S/F, T).",
+   "hypotheses": [
+    "ℓ ≠ p in (i); d ≥ 1."
+   ],
+   "proofSteps": [
+    "(i) 0 → H¹_ur(F, T) → H¹(F, T) → H¹(I, T)^{G_F}, with H¹(I, T) finitely generated over ℤ_p (Rubin, Proposition B.2.7(iii)); the limit of the last terms vanishes by iwasawa-cohomology's H⁰ statement (Lemma B.3.2).",
+    "(ii) Choose F′ ⊆ F_∞ with Gal(F_∞/F′) ≅ ℤ_p undecomposed at λ̄ and apply (i); corestrict.",
+    "(iii) By (ii) the restriction of c_F to each inertia group outside S vanishes, so its cocycles factor through Gal(K_S/F)."
+   ],
+   "acceptance": [
+    "Only for primes not above p; the places above p and those that split finitely are kept in S."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+    "SelmerIwasawaCohomology:L2/unramified-condition",
+    "ArithmeticGaloisDuality:R02.3/restricted-ramification-group"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Iwasawa",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Appendix B, §3, Proposition 3.3, printed p. 154 (PDF p. 164)",
+     "match": "Proposition B.3.3, Corollaries B.3.4 and B.3.5 (pp. 154–155)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Universal norms are unramified"
+   }
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L3/semilocal-cohomology",
+   "parentStageId": "SelmerIwasawaCohomology:L3",
+   "realises": [
+    "SelmerIwasawaCohomology:L3"
+   ],
+   "title": "Semilocal cohomology and descent of local classes",
+   "kind": "theorem",
+   "statement": "Let K be a number field, q a prime of K, F/K finite and S the primes of F above q, with decomposition groups D_Q = g_Q^{−1} D g_Q. For a discrete G_K-module T and a D-submodule T′, H^i(F, Ind_D^{G_K}(T′)) ≅ ⊕_{Q∈S} H^i(F_Q, T′_Q); in particular H^i(G_F, Ind_D(T)) ≅ ⊕_Q H^i(F_Q, T) and H^i(G_F, Ind_D(T^I)) ≅ ⊕_Q H^i(F_Q, T^{I_Q}). For F/K finite Galois and T finitely generated over ℤ_p, restriction gives H¹(K_q, T) ≅ (⊕_{Q|q} H¹(F_Q, T))^{Gal(F/K)} if [F : K] is prime to p, and H¹(K_q, V) ≅ (⊕_{Q|q} H¹(F_Q, V))^{Gal(F/K)} always.",
+   "hypotheses": [
+    "T discrete for the induction statements; finitely generated over ℤ_p for the descent."
+   ],
+   "proofSteps": [
+    "D\\G_K/G_F ↔ S by D g G_F ↦ g^{−1}Q₀; the double-coset form of Shapiro's lemma (Rubin, Proposition B.4.2; ProfiniteCohomology Layers 6–7) gives the decomposition.",
+    "Descent: ArithmeticGaloisDuality R02.2/finite-index-descent applied to the semilocal module; for V, finite groups have no rational cohomology."
+   ],
+   "acceptance": [
+    "This is how infinite-level local conditions are defined: as limits of semilocal conditions, not as conditions over a 'completion' of K_∞."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+    "ArithmeticGaloisDuality:R02.2/finite-index-descent"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Iwasawa",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Appendix B, §5, Proposition 5.1, printed p. 157 (PDF p. 167)",
+     "match": "Proposition B.5.1 and Corollaries B.5.2–B.5.3; the double-coset Shapiro lemma is Proposition B.4.2 (p. 156)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SelmerIwasawaCohomology:L3/iwasawa-twist",
+   "parentStageId": "SelmerIwasawaCohomology:L3",
+   "realises": [
+    "SelmerIwasawaCohomology:L3"
+   ],
+   "title": "Twisting Iwasawa cohomology",
+   "kind": "theorem",
+   "statement": "For the cyclotomic Γ = Gal(ℚ(ζ_{p^∞})/ℚ) with compatible roots (ζ_{p^n}) fixed, κ the cyclotomic character and k ∈ ℤ, cup product with the norm-compatible system (ζ_{p^n}^{⊗k})_n gives a ℤ_p-linear isomorphism φ_k : H^q_Iw(T) ≅ H^q_Iw(T(k)) with φ_k(λx) = Tw_k(λ)φ_k(x), where Tw_k is the ring automorphism of Λ = 𝒪⟦Γ⟧ with Tw_k(σ) = κ(σ)^{−k}σ. Composing with the specialisation of iwasawa-descent at the augmentation gives H¹_Iw(V) → H¹(ℤ[1/p], T(k)) ⊗ ℚ, which factors through the localisation at ker(Λ → 𝒪, σ_c ↦ c^{−k}).",
+   "hypotheses": [
+    "Cyclotomic tower; compatible roots of unity fixed (they trivialise ℤ_p(1) over the tower)."
+   ],
+   "proofSteps": [
+    "The system (ζ_{p^n}^{⊗k}) is restriction-compatible, so by the projection formula cor(x ∪ res y) = cor(x) ∪ y the cup products are corestriction-compatible (ProfiniteCohomology Layer 12; ArithmeticGaloisDuality R02.2's cup products).",
+    "σ(x ∪ ζ^{⊗k}) = σx ∪ κ(σ)^kζ^{⊗k}, which is the Tw_k-semilinearity; the inverse is cup product with (ζ_{p^n}^{⊗−k}).",
+    "The specialisation is iwasawa-descent (ii); augmentation ∘ Tw_k sends σ_c to c^{−k}."
+   ],
+   "acceptance": [
+    "Semilinear, not Λ-linear for an unchanged action (Burungale–Tian's warning); changing the compatible roots changes coordinates, not the module."
+   ],
+   "prerequisites": [
+    "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+    "SelmerIwasawaCohomology:L3/iwasawa-descent",
+    "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
+    "PadicMeasuresIwasawaAlgebras:L1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Selmer/Iwasawa",
+    "namespace": "TauCeti.Selmer"
+   },
+   "sources": [
+    {
+     "sourceId": "BURUNGALE-TIAN-26",
+     "locator": "§3, (3.2), p. 6 (arXiv v2)",
+     "match": "The twist-and-specialise map (3.2), with the prime q of the proof of Theorem 3.1."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -2457,18 +2833,50 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
-   "need": "Naturality of the cup product in the coefficients, for the compatibility of the local pairings along T → V, V^* → W^*, T ↠ W_M and W^*_M ↪ W^*.",
+   "need": "Naturality of the cup product in the coefficients, for the compatibility of the local pairings along T → V, V^* → W^*, T ↠ W_M and W^*_M ↪ W^*. The projection formula cor(x ∪ res y) = cor(x) ∪ y, for the twisting isomorphism.",
    "neededBy": [
-    "SelmerIwasawaCohomology:L1/lattice-pairing-compatibility"
+    "SelmerIwasawaCohomology:L1/lattice-pairing-compatibility",
+    "SelmerIwasawaCohomology:L3/iwasawa-twist"
    ],
    "status": "open",
    "note": ""
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
-   "need": "For ℓ ≠ p, the inertia group has a unique maximal subgroup of pro-order prime to p, with quotient ℤ_p (the tame quotient).",
+   "need": "For ℓ ≠ p, the inertia group has a unique maximal subgroup of pro-order prime to p, with quotient ℤ_p (the tame quotient). Also: H¹(I, T) is finitely generated over ℤ_p for ℓ ≠ p (Rubin Proposition B.2.7(iii)).",
    "neededBy": [
-    "SelmerIwasawaCohomology:L2/unramified-dimension-count"
+    "SelmerIwasawaCohomology:L2/unramified-dimension-count",
+    "SelmerIwasawaCohomology:L3/universal-norms-unramified"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "PadicMeasuresIwasawaAlgebras:L1",
+   "need": "Iwasawa algebras R⟦Γ⟧ for Γ ≅ ℤ_p^r × Δ: the isomorphism with R⟦X₁, …, X_r⟧[Δ], the involution ι and the twists Tw_k, and the regular sequence γ_i − 1 (Nekovář 8.4.1, 8.4.8.1).",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L3/iwasawa-shapiro",
+    "SelmerIwasawaCohomology:L3/iwasawa-descent",
+    "SelmerIwasawaCohomology:L3/iwasawa-twist"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+   "need": "Double-coset (Mackey) form of restriction and corestriction, for the semilocal decomposition.",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L3/semilocal-cohomology"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+   "need": "Shapiro's lemma at finite level with corestriction transitions (Nekovář Lemma 8.1.5), and its double-coset form (Rubin Proposition B.4.2).",
+   "neededBy": [
+    "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+    "SelmerIwasawaCohomology:L3/semilocal-cohomology"
    ],
    "status": "open",
    "note": ""
@@ -2503,9 +2911,12 @@
   },
   {
    "stageId": "SelmerIwasawaCohomology:L3",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Iwasawa cohomology H^i_Iw(F, T) by corestriction and by the induced ℤ_p[[Γ]]-module (Rubin Appendix B §3, Nekovář Chapter 8), with Burungale–Tian's etale-iwasawa, lattice-independence and strict-selmer items and the tower form of units-kummer (Kato (15.6.1)); control theorems with explicit kernels and cokernels; determinant lines using PadicMeasuresIwasawaAlgebras:L5."
+    "Duality for Iwasawa cohomology (Nekovář 8.5, 8.9) and the determinant-line formulation for perfect Iwasawa complexes with characteristic ideals (PadicMeasuresIwasawaAlgebras L5).",
+    "Correction complexes in finite-slope and exceptional-zero situations, and infinite-level Selmer complexes (Nekovář 8.6–8.8, 8.10).",
+    "Burungale–Tian's lattice-independence item (Kato §12.2, not read) and the Beilinson–Kato items (KatoEulerSystems L2); the comparison of Kato's étale convention (j_*) with G_{ℚ,S}-cohomology is recorded as a test, not proved.",
+    "Control theorems for Selmer groups (Mazur, Greenberg) beyond the cohomological descent planned here."
    ]
   },
   {

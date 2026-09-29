@@ -487,6 +487,18 @@ example {R X X' Y : Type*} [CommRing R] [AddCommGroup X] [Module R X] [AddCommGr
 example (p : ℕ) [Fact p.Prime] :
     orthogonal (LinearMap.mul (ZMod p) (ZMod p)) ⊤ = ⊥ := sorry
 
+/-- `L3/iwasawa-cohomology` (H⁰ vanishing): along norms that multiply by `p` at each step, a norm-compatible
+system in a torsion-free group vanishes; here, if `x = p^n y_n` for all `n` in `ℤ`, then `x = 0`. -/
+example (x : ℤ) (h : ∀ n : ℕ, ∃ y : ℤ, x = 3 ^ n * y) : x = 0 := by
+  obtain ⟨y, hy⟩ := h x.natAbs
+  refine Int.eq_zero_of_dvd_of_natAbs_lt_natAbs ⟨y, hy⟩ ?_
+  rw [Int.natAbs_pow]
+  exact Nat.lt_pow_self (by norm_num)
+
+/-- `L3/iwasawa-twist`: the twist automorphism `σ ↦ κ(σ)^{-k} σ` composed with the augmentation sends `σ_c` to
+`c^{-k}`; for `k = 1`, `c = 2` in `ℚ`: `2^{-1} · 1 = 1/2`. -/
+example : ((2 : ℚ) ^ (-1 : ℤ)) * 1 = 1 / 2 := by norm_num
+
 end SuggestedTest
 
 end TauCeti.Selmer
