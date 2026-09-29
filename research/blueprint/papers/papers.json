@@ -1888,6 +1888,30 @@
    "link": "https://people.mpim-bonn.mpg.de/scholze/pAdicHodgeTheory.pdf",
    "note": "One of the foundational sources the campaign's diamond roadmaps were built from. The pro-étale site and the primitive and de Rham comparison theorems: route to PadicHodgeTheory and AdicEtaleGeometry.",
    "batch": 5
+  },
+  {
+   "id": "PAPER-KURINCZUK-SKODLERACK-STEVENS-21",
+   "short": "Kurinczuk–Skodlerack–Stevens: Endo-parameters for p-adic classical groups",
+   "citation": "Kurinczuk, Skodlerack and Stevens, \"Endo-parameters for p-adic classical groups\", Inventiones mathematicae 223 (2021), 597–723",
+   "link": "https://arxiv.org/abs/1611.02667",
+   "note": "In batch 2's scope (Inventiones) but missing from the catalogue it was built from. Cuspidal types intertwine only if conjugate (odd p); endo-parameters classify semisimple characters up to intertwining, with the conjectured bijection to wild Langlands parameters recorded as a conjecture, not a target. Route to SmoothRepresentationsOfLocalGroups; what it lacks (types and semisimple characters for classical groups, endo-parameters, L-packets of classical groups) is a Part II of it, reusing the local Langlands and parameter roadmaps where they apply.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-STEVENS-08",
+   "short": "Stevens: The supercuspidal representations of p-adic classical groups",
+   "citation": "Stevens, \"The supercuspidal representations of p-adic classical groups\", Inventiones mathematicae 172 (2008), 289–352",
+   "link": "https://arxiv.org/abs/math/0607622",
+   "note": "Cited as a prerequisite by Gan–Harris–Sawin–Beuzart-Plessis (every supercuspidal of a classical group, odd p, is induced from a type). Semisimple strata and characters, Bushnell–Kutzko types, and exhaustion. Route to SmoothRepresentationsOfLocalGroups; what it lacks (types and semisimple characters for classical groups, endo-parameters, L-packets of classical groups) is a Part II of it, reusing the local Langlands and parameter roadmaps where they apply.",
+   "batch": 5
+  },
+  {
+   "id": "PAPER-LUST-STEVENS-20",
+   "short": "Lust–Stevens: On depth zero L-packets for classical groups",
+   "citation": "Lust and Stevens, \"On depth zero L-packets for classical groups\", Proceedings of the London Mathematical Society 121 (2020), 1083–1120",
+   "link": "https://arxiv.org/abs/1611.08421",
+   "note": "Cited as a prerequisite by Newton–Thorne (reducibility points of depth-zero supercuspidals). Langlands parameters of depth-zero cuspidal representations of classical groups via reducibility points, and their L-packets. Route to SmoothRepresentationsOfLocalGroups; what it lacks (types and semisimple characters for classical groups, endo-parameters, L-packets of classical groups) is a Part II of it, reusing the local Langlands and parameter roadmaps where they apply.",
+   "batch": 5
   }
  ],
  "guides": [
@@ -1994,7 +2018,7 @@
   "2": "Six journals (Inventiones, Duke, Forum of Mathematics Pi, JAMS, Publications de l'IHÉS, Acta), issues from 21 September 2016 to 21 September 2026, the same scope as batch 1: the maintainer's working catalogue, not exhaustive (Duke, JAMS, earlier Inventiones and recent Acta are incomplete). Three of its papers were already covered and are not queued: Lawrence–Venkatesh (DESIGN-LV), Boxer–Calegari–Gee–Pilloni 2021 (DESIGN-BCGP18) and Pan's first paper (the foundation of DESIGN-PAN).",
   "3": "The seven papers the maintainer gave as routing guides (21 September 2026), queued for extraction on 23 September 2026 at the maintainer's request: their routes are already decided and applied, so each extraction reads the paper in full and routes its items into the roadmap its guide entry names.",
   "4": "Seven of the held papers, chosen by the maintainer on 23 September 2026: the direct summand conjecture (André and Bhatt), purity in chromatically localized K-theory, the orbit method, topological cyclic homology, Macaulayfication, and Stevenhagen's conjecture. The rest of the held list stands.",
-  "5": "The papers the original Modern Number Theory Campaign roadmaps were built to cover: the maintainer's list behind that campaign, reconstructed on 29 September 2026 from its README and input packs and confirmed by the maintainer. Four of its papers were already in batch 1: the ten-author potential-automorphy paper, Caraiani–Scholze (compact and non-compact) and Bhatt–Scholze. Six foundational sources of the diamond roadmaps were added the same day at the maintainer's request: Scholze's Étale cohomology of diamonds, Perfectoid spaces and p-adic Hodge theory for rigid-analytic varieties, Scholze–Weinstein's Berkeley lectures, Fargues–Fontaine's Courbes et fibrés vectoriels, and Kedlaya–Liu's Relative p-adic Hodge theory."
+  "5": "The papers the original Modern Number Theory Campaign roadmaps were built to cover: the maintainer's list behind that campaign, reconstructed on 29 September 2026 from its README and input packs and confirmed by the maintainer. Four of its papers were already in batch 1: the ten-author potential-automorphy paper, Caraiani–Scholze (compact and non-compact) and Bhatt–Scholze. Six foundational sources of the diamond roadmaps were added the same day at the maintainer's request: Scholze's Étale cohomology of diamonds, Perfectoid spaces and p-adic Hodge theory for rigid-analytic varieties, Scholze–Weinstein's Berkeley lectures, Fargues–Fontaine's Courbes et fibrés vectoriels, and Kedlaya–Liu's Relative p-adic Hodge theory. Three papers of Shaun Stevens and coauthors were added on 29 September 2026 at the maintainer's request: Kurinczuk–Skodlerack–Stevens (Inventiones 2021, missing from batch 2's catalogue), and the two that processed papers cite as prerequisites, Stevens (Inventiones 2008) and Lust–Stevens (Proc. LMS 2020)."
  },
  "held": [
   {
