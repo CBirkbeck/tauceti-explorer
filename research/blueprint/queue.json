@@ -34959,7 +34959,8 @@
     "REV-PAPER-KOENIGSMANN-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KOENIGSMANN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4523"
   },
   {
    "id": "RT-PAPER-TREUMANN-VENKATESH-16",
