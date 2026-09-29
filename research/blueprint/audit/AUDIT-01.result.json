@@ -32,9 +32,16 @@
          "file": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
          "line": 182,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Functor.rightDerived",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Abelian/RightDerived.lean",
+         "line": 109,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti defines only absolute cohomology H^i(X, M) of an O_X-module (Ext from the constant sheaf, with long exact and Mayer-Vietoris sequences) and Mathlib has pushforward/pullback of O_X-modules. There are no higher direct images, finiteness for proper morphisms, base-change maps, semicontinuity, Tor-amplitude or perfect complexes, although the README assumes relative coherent cohomology is supplied by the existing portfolio."
+       "note": "Tau Ceti defines only absolute cohomology H^i(X, M) of an O_X-module (Ext from the constant sheaf, with long exact and Mayer-Vietoris sequences) and Mathlib has pushforward/pullback of O_X-modules. Higher direct images exist only by instantiation: R^i f_* is (AlgebraicGeometry.Scheme.Modules.pushforward f).rightDerived i, because X.Modules is Grothendieck abelian (Mathlib/AlgebraicGeometry/Modules/Sheaf.lean:52, hence has enough injectives) and pushforward is additive (Sheaf.lean:198), and Rf_* on D⁺ is Functor.rightDerivedFunctorPlus (Mathlib/Algebra/Homology/DerivedCategory/RightDerivedFunctorPlus.lean:36) once derived-category instances are chosen. Beyond the generic derived-functor API there is no scheme-specific API for them and no comparison with Tau Ceti's absolute cohomology. There is no finiteness for proper morphisms, no base-change map, no semicontinuity, and no Tor-amplitude or perfect complexes, although the README assumes relative coherent cohomology is supplied by the existing portfolio."
       },
       {
        "target": "Relative degree-zero Picard functor and its representability criteria (algebraic space, effectivity)",
@@ -171,7 +178,7 @@
        "target": "Verification of the Artin inputs in every PEL application",
        "library": "absent",
        "declarations": [],
-       "note": "Application-level obligation; nothing exists because neither the PEL moduli functors nor the criterion are formalized."
+       "note": "Application-level obligation; nothing exists because neither the PEL moduli functors nor the criterion are formalized. PELModuli M2 and HilbertModularVarietiesAndShimuraCurves H1 plan this verification for their own moduli problems, and AbelianSchemesAndArithmeticModuli A0 assigns it to the consuming milestone, so the application checks belong to M2 and H1; this layer supplies only the criterion."
       },
       {
        "target": "Analytification of étale presentations and descent of local-isomorphism comparisons",
@@ -210,9 +217,16 @@
          "file": "TauCeti/RingTheory/IntegralClosure/NormalizationFinite.lean",
          "line": 400,
          "fit": "related"
+        },
+        {
+         "name": "IsIntegralClosure.finite_of_polynomial_model",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/IntegralClosure/FinitePolynomialModel.lean",
+         "line": 141,
+         "fit": "special case"
         }
        ],
-       "note": "Mathlib constructs the relative normalization of a qcqs morphism and proves finiteness of the integral closure of an integrally closed Noetherian domain in a finite separable extension; Tau Ceti adds the purely inseparable case over a polynomial ring over a field and Krull-Akizuki (Noetherian, not finite). Missing: excellent/Nagata (Japanese) rings and the theorem that the normalization of a reduced excellent scheme is finite."
+       "note": "Mathlib constructs the relative normalization of a qcqs morphism and proves finiteness of the integral closure of an integrally closed Noetherian domain in a finite separable extension; Tau Ceti adds the purely inseparable case over a polynomial ring over a field and Krull-Akizuki (Noetherian, not finite), and finiteness of the integral closure of R in L when L is finite separable over F(x) for some x ∈ L integral over R (a separating polynomial model). Missing: excellent/Nagata (Japanese) rings and the theorem that the normalization of a reduced excellent scheme is finite."
       }
      ],
      "duplicates": [
@@ -243,6 +257,26 @@
       {
        "layer": "ComplexComparisonPartII:C3",
        "note": "Also descends the analytic comparison through étale presentations of algebraic spaces with their analytification."
+      },
+      {
+       "layer": "PELModuli:M2",
+       "note": "Verifies the Artin representability inputs (algebraic diagonal/Isom functors, finite presentation, limits, deformation/obstruction spaces, effectivity, openness) for the PEL moduli functor, the application-level verification this layer also plans; the check belongs to M2, with this layer as supplier of the criterion."
+      },
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:H1",
+       "note": "Verifies the representability hypotheses for the Hilbert–Blumenthal moduli problem, the real-multiplication case of the same verification; the check belongs to H1, with this layer as supplier of the criterion."
+      },
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.6",
+       "note": "Also plans versality, algebraisation/effectivity (Grothendieck existence) and Artin representability with a proof or an assigned supplier; this layer, which proves the criterion itself, is that supplier, and no stage edge records it yet."
+      },
+      {
+       "layer": "SchemeAndStackFoundations:SF.4",
+       "note": "Also plans infinitesimal lifting and obstruction complexes, formal schemes and algebraization, the deformation/obstruction and algebraization inputs of the Artin criterion."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+       "note": "Plans the one-dimensional special case of finite normalization: k[X] Japanese/Nagata, i.e. the normalization of k[X] in every finite extension of k(X) is a finite k[X]-module. It may be proved directly there; this layer's excellence theorem should reuse it through an explicit comparison."
       }
      ]
     },
@@ -1051,9 +1085,23 @@
          "file": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Basic.lean",
          "line": 136,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.ModObj",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Mod.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.isPullback_fppfQuotientTorsor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean",
+         "line": 372,
+         "fit": "related"
         }
        ],
-       "note": "There are no group actions on schemes, quotient stacks or stacks of torsors; Tau Ceti's fppf quotient sheaves of affine groups by normal subgroups are the closest construction."
+       "note": "Group-scheme actions exist by instantiation, as Mathlib's ModObj G X for a GrpObj G in the cartesian monoidal category Over S (Mathlib/AlgebraicGeometry/Pullbacks.lean:711; Mathlib/AlgebraicGeometry/Group/Abelian.lean:132 already treats group schemes as GrpObj in Over S), inducing MulAction on generalised points (Mathlib/CategoryTheory/Monoidal/Cartesian/Mod.lean:62), with no scheme-specific API. For a normal Hopf ideal I, Tau Ceti proves that the sheafified fppf quotient projection G → G/V(I) of an affine group is a V(I)-torsor in kernel-pair form. There are no quotient stacks, stacks of torsors or algebraicity statements; Tau Ceti's fppf quotient sheaves of affine groups by normal subgroups are the closest construction."
       },
       {
        "target": "Algebraicity of moduli stacks of generalised elliptic curves and polarised abelian schemes",
@@ -1397,7 +1445,7 @@
          "fit": "related"
         }
        ],
-       "note": "As in A0-extension, only generic inputs exist (limit preservation of functors of points of locally finitely presented schemes, the representable-diagonal criterion for presheaves); the theorem itself is absent."
+       "note": "As in A0-extension, only generic inputs exist (limit preservation of functors of points of locally finitely presented schemes, the representable-diagonal criterion for presheaves); the theorem itself is absent. A0-extension, which proves the criterion, is the natural assigned supplier; R09.6 should import it rather than prove it again."
       }
      ],
      "duplicates": [
@@ -1416,6 +1464,10 @@
       {
        "layer": "AdicSpacesPartII:F0",
        "note": "Owns formal functions and formal GAGA in the proper finite-presentation setting, the algebraization input this layer restates."
+      },
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:A0-extension",
+       "note": "Proves the Artin criterion itself, with openness of versality and algebraization; it is the supplier of R09.6's Artin representability target, which R09.6 should import rather than prove again."
       }
      ]
     },
@@ -2720,7 +2772,7 @@
      ]
     },
     "ComplexComparisonPartII:C6": {
-     "verdict": "process",
+     "verdict": "not built",
      "targets": [
       {
        "target": "O(n) on projective space: analytic and algebraic cohomology and their comparison",
@@ -3491,9 +3543,16 @@
          "file": "Mathlib/CategoryTheory/Yoneda.lean",
          "line": 520,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Functor.relativelyRepresentable.diag_iff",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/MorphismProperty/Representable.lean",
+         "line": 670,
+         "fit": "more general"
         }
        ],
-       "note": "Mathlib has relatively representable morphisms of presheaves, P.relative for a morphism property P, and Zariski-local representability of a sheaf on Sch (Stacks 01JJ). Missing: representability of the diagonal of a sheaf or stack and its use to define algebraic spaces/stacks."
+       "note": "Mathlib has relatively representable morphisms of presheaves, P.relative for a morphism property P, and Zariski-local representability of a sheaf on Sch (Stacks 01JJ). Mathlib also proves the diagonal criterion (Functor.relativelyRepresentable.diag_iff, with of_diag at Representable.lean:588): for a full functor preserving binary products and pullbacks, such as Yoneda on Sch, the diagonal of X is relatively representable iff every morphism from a representable object to X is. This is a criterion, not a theorem that a given sheaf has a representable diagonal. Missing: the diagonal of a stack and its use to define algebraic spaces and stacks."
       },
       {
        "target": "Algebraic spaces and algebraic-space quotients (etale equivalence relations)",
@@ -4176,7 +4235,7 @@
       },
       {
        "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
-       "note": "Owns function-field divisors, genus, canonical class and Riemann–Roch."
+       "note": "Owns repartitions, Weil differentials, the canonical class, duality and Riemann–Roch."
       },
       {
        "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
@@ -4189,6 +4248,18 @@
       {
        "layer": "NeronModelsAndSemistableAbelianVarieties:R11.4",
        "note": "Also constructs Picard schemes of (semistable) curves and relates Jacobians to Néron models."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+       "note": "Supplier: owns constant field extensions: genus invariance and ℓ(Con A) = ℓ(A) for perfect k, degree behaviour, and the inseparable genus drop — the scalar-extension check of this layer."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+       "note": "Supplier: plans genus k W.toAffine.FunctionField = 1 for elliptic W, the missing piece of the genus-one check."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+       "note": "Supplier: owns function-field divisors, principal divisors, Cl and Cl⁰, L(D) and the genus."
       }
      ]
     },
@@ -4435,9 +4506,23 @@
          "file": "TauCeti/AlgebraicGeometry/Scheme/Regular.lean",
          "line": 98,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsIntegralClosure.isDedekindDomain",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/IntegralClosure.lean",
+         "line": 90,
+         "fit": "related"
+        },
+        {
+         "name": "isDedekindDomain_iff_isDiscreteValuationRing_atPrime",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Dvr.lean",
+         "line": 129,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has relative normalization of qcqs morphisms with its universal property (and compatibility with smooth base change) and regular local rings (IsRegularLocalRing); Tau Ceti has one-dimensional algebraic Hartogs. Missing: a scheme-level regular/normal predicate, the theorem that normalization resolves curves, and any resolution theorem for surfaces."
+       "note": "Mathlib has relative normalization of qcqs morphisms with its universal property (and compatibility with smooth base change) and regular local rings (IsRegularLocalRing); Tau Ceti has one-dimensional algebraic Hartogs. The ring-level ingredients of curve normalization are present: the integral closure of a Dedekind domain in a finite extension of its fraction field is Dedekind (Tau Ceti with no separability; Mathlib's IsIntegralClosure.isDedekindDomain, Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean:220, under separability), that is, Noetherian with DVR localizations at nonzero primes, of dimension at most one (exactly one for a curve). They are not a resolution theorem: identifying a curve's normalization with this integral closure, its module finiteness (which the inseparable Tau Ceti theorem does not give) and the scheme comparison need their own bridges. Missing: a scheme-level regular/normal predicate, the scheme-level statement that normalization resolves curves, and any resolution theorem for surfaces."
       },
       {
        "target": "Rational and birational maps",
@@ -4510,6 +4595,22 @@
       {
        "layer": "NeronModelsAndSemistableAbelianVarieties:R11.3",
        "note": "Owns semistable reduction of abelian varieties."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs",
+       "note": "Supplier: owns models over a DVR with generic and special fibres, the FiniteDVRExtension package with common refinements, and base-change functors of models — this layer's DVR-model target, including its missing base-change part."
+      },
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.7",
+       "note": "Supplier: owns characteristic-zero embedded resolution (Bierstone–Milman) for finite-type varieties, a named proved resolution setting with its own hypotheses."
+      },
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+       "note": "Supplier: constructs blowups by the Rees algebra with their universal property and transforms, the basic modifications."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+       "note": "Supplier: constructs blowups as relative Proj and proves Lipman-type resolution of normal proper models of curves over a DVR by normalized blowups, under that stage's arithmetic-surface hypotheses."
       }
      ]
     },
@@ -6226,6 +6327,10 @@
       {
        "layer": "FunctionFieldArithmetic:FA.0",
        "note": "Also constructs the normalization of a projective model of a function field."
+      },
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:A0-extension",
+       "note": "Also plans finite normalization under excellence; for the excellent ring k[X] this contains the Nagata/N-2 finiteness this layer's first two milestones need (the normalization of k[X] in every finite extension of k(X) is a finite k[X]-module), so the two stages must agree on one owner. This layer may prove its one-dimensional case directly, and the general theorem should reuse it through an explicit comparison."
       }
      ]
     },
@@ -8214,10 +8319,10 @@
        "library": "partial",
        "declarations": [
         {
-         "name": "IsDedekindDomain.HeightOneSpectrum.adicCompletion",
+         "name": "Valuation.Completion",
          "library": "mathlib",
-         "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
-         "line": 602,
+         "file": "Mathlib/Topology/Algebra/Valued/WithVal.lean",
+         "line": 477,
          "fit": "related"
         },
         {
@@ -8249,7 +8354,7 @@
          "fit": "related"
         }
        ],
-       "note": "For height-one primes of any Dedekind domain (so for places finite on an affine model, via TauCeti.Place.adic) with arbitrary residue field: Mathlib gives the completion with extended valuation, integers and a DVR instance; Tau Ceti adds R/v ≃ residue field of 𝒪_v, 𝔪^n = valuation filtration, uniformizers of valuation exp(−1), completeness/Henselianity. Missing: a completion attached to every TauCeti.Place (including places at infinity, independent of a chosen model) and a direct comparison with 𝒪_P, F_P and a chosen uniformizer of P."
+       "note": "For height-one primes of any Dedekind domain (so for places finite on an affine model, via TauCeti.Place.adic) with arbitrary residue field: Mathlib gives the completion with extended valuation, integers and a DVR instance; Tau Ceti adds R/v ≃ residue field of 𝒪_v, 𝔪^n = valuation filtration, uniformizers of valuation exp(−1), completeness/Henselianity. Mathlib already attaches a completion to every place, with no model: P.valuation.Completion (Valuation.Completion), whose extended valuation restricts to v_P (Valued.valuedCompletion_apply, Mathlib/Topology/Algebra/Valued/ValuedField.lean:566). IsDedekindDomain.HeightOneSpectrum.adicCompletion (Mathlib/RingTheory/DedekindDomain/AdicValuation.lean:602, displaced from the citations) wraps the same object, and RatFunc.CompletionAtInfty (Mathlib/FieldTheory/RatFunc/Valuation.lean:138) covers P_∞ of k(x). Missing: for a general place, the comparison of that completion's valuation ring with the completion of 𝒪_P (not 𝒪_P itself, which is not complete) via the dense injective map, of its maximal ideal with the valuation-filtration description of its powers, the residue-field equivalence with F_P, and preservation of a chosen uniformizer of P. Tau Ceti has these only for adicCompletion at height-one primes of a Dedekind model."
       },
       {
        "target": "Natural map A_F → FiniteAdeleRing of an affine model with dense image in the D-filtration sense",
@@ -9887,9 +9992,23 @@
          "file": "Mathlib/RingTheory/Unramified/Basic.lean",
          "line": 276,
          "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.differentIdeal_dvd_map_differentIdeal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/LinearDisjoint.lean",
+         "line": 83,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.differentIdeal_eq_differentIdeal_mul_differentIdeal_of_isCoprime",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/LinearDisjoint.lean",
+         "line": 130,
+         "fit": "related"
         }
        ],
-       "note": "Only Mathlib's general stability of formal unramifiedness under composition/base change; nothing at the level of places of function fields."
+       "note": "Mathlib has the Dedekind-level different of a linearly disjoint compositum: 𝔡(B/R₁) ∣ 𝔡(R₂/A)·B, and 𝔡(B/A) = 𝔡(B/R₁)·𝔡(B/R₂) when 𝔡(R₁/A)·B and 𝔡(R₂/A)·B are coprime. Their hypotheses go beyond linear disjointness: F₁ = Frac R₁ and F₂ = Frac R₂ linearly disjoint over K = Frac A with F₁ ⊔ F₂ = L, A integrally closed, R₁, R₂ and B Dedekind with B the integral closure of R₁ in L, F₂/K and L/F₁ separable, R₂ finite free over A with F₂ its localization, and for the product formula module finiteness of B over A, R₁ and R₂ and separability of Frac B over Frac A. With dvd_differentIdeal_iff (Mathlib/RingTheory/DedekindDomain/Different.lean:958) this makes a prime unramified in F₂ unramified in F₁F₂/F₁ in that setting. Mathlib also has stability of formal unramifiedness under composition and base change. Nothing is stated at the level of places, for general composita, or for the Galois closure."
       },
       {
        "target": "A rational place splitting completely in F₁ and F₂ splits completely in F₁F₂, constants staying exact (Cor. 3.9.7)",
@@ -10882,9 +11001,16 @@
          "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Projective.lean",
          "line": 41,
          "fit": "related"
+        },
+        {
+         "name": "OnePoint.instGLAction",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+         "line": 126,
+         "fit": "related"
         }
        ],
-       "note": "Ingredients only: [K(X) : K(f)] = max(deg num, deg denom), so automorphisms send X to Möbius transformations; PGL(n, R) is defined; Lüroth (RatFunc.Luroth.algEquiv, Mathlib/FieldTheory/RatFunc/Luroth.lean line 496, not in declarations.tsv: public modifier). No isomorphism Aut(k(x)/k) ≅ PGL₂(k) and no action of PGL₂ on RatFunc were found."
+       "note": "Ingredients only: [K(X) : K(f)] = max(deg num, deg denom), so automorphisms send X to Möbius transformations; PGL(n, R) is defined; Lüroth (RatFunc.Luroth.algEquiv, Mathlib/FieldTheory/RatFunc/Luroth.lean line 496, not in declarations.tsv: public modifier). No isomorphism Aut(k(x)/k) ≅ PGL₂(k) and no action of PGL₂ on RatFunc were found. Mathlib's GL(2,K) acts on OnePoint K by Möbius maps, but not on RatFunc K."
       },
       {
        "target": "elliptic F: translations form a normal subgroup ≅ Cl⁰(F) with finite quotient; Cl⁰ infinite over algebraically closed k (finite over finite k)",
@@ -10987,9 +11113,37 @@
          "file": "Mathlib/LinearAlgebra/Projectivization/Action.lean",
          "line": 96,
          "fit": "related"
+        },
+        {
+         "name": "OnePoint.instGLAction",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+         "line": 126,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.GeneralLinearGroup.fixpointPolynomial_aeval_eq_zero_iff",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+         "line": 174,
+         "fit": "related"
+        },
+        {
+         "name": "OnePoint.smul_infty_eq_self_iff",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+         "line": 145,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.GeneralLinearGroup.fixpointPolynomial_eq_zero_iff",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/FinTwo.lean",
+         "line": 233,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib only records 2-pretransitivity of GL on a projectivization. No sharp 3-transitivity or fixed-point rigidity for PGL₂ was found."
+       "note": "Mathlib has the Möbius action of GL(2,K) on OnePoint K ≅ ℙ¹(K) and the PGL action on ℙ(K²) (Mathlib/LinearAlgebra/Projectivization/Action.lean:247), besides 2-pretransitivity of GL on a projectivization. The finite fixed points of g are the roots of its fixed-point polynomial g₁₀X² + (g₁₁ − g₀₀)X − g₀₁, which vanishes iff g is scalar, and g fixes ∞ iff g 1 0 = 0. So a non-scalar element has at most two fixed points: if it fixes ∞ the quadratic coefficient vanishes and at most one finite point is fixed, otherwise at most two finite points are. Neither library states this rigidity (or sharp 3-transitivity)."
       },
       {
        "target": "finiteness of Aut(F/k̄) for g ≥ 2 over algebraically closed char-0 k (non-hyperelliptic and hyperelliptic cases)",
@@ -11205,7 +11359,7 @@
       },
       {
        "target": "12C acceptance: for W.FunctionField, isogenies ↔ scheme morphisms, with the place at O₁ restricting to the place at O₂",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.Isogeny",
@@ -11220,9 +11374,23 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/FunctionField.lean",
          "line": 163,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.isEquiv_comap_infinityPlace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/InfinityPlace.lean",
+         "line": 146,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CoordinatePullback.mapsInfinity_iff_isEquiv_comap_infinityPlace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/InfinityPlace.lean",
+         "line": 219,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti isogenies are coordinate-ring/function-field pullbacks sending infinity to infinity. There is no scheme-morphism side to compare them with."
+       "note": "The place clause is built on the function-field side, and the two InfinityPlace theorems prove exactly that clause (fit 'related' only because they are measured against the whole target). An isogeny's pullback restricts the place at infinity of W₁ to that of W₂, and an F-embedding F(W₂) → F(W₁) is pointed (MapsInfinity) iff it does so. The places at infinity are Mathlib valuations, not TauCeti.Place, so this is not a TauCeti.Place dictionary, and neither ellipticity nor separability is assumed. Missing: the scheme morphisms and their correspondence with isogenies, which need 12B–12C."
       },
       {
        "target": "12D: Weil divisors on a scheme (free abelian group on codimension-one points), principal divisors, linear equivalence, residue-degree-weighted degree, stated against Mathlib's cycle vocabulary",
