@@ -127379,6 +127379,48 @@
    "reviewReason": null
   },
   {
+   "id": "ArithmeticGaloisDuality/E5",
+   "kind": "misprint",
+   "locator": "§2.3, Theorem 2.19, p. 62 (author PDF revised 9 September 2007)",
+   "printed": "Theorem 2.19 asserts finiteness of H^1_L(G, M) and H^1_{L*}(G, M^*), then states a formula.",
+   "correction": "Then H^1_L(F, M) and H^1_{L*}(F, M^*) are finite and we have the formula",
+   "reason": "The theorem defines H^1_L(F, M) and H^1_{L*}(F, M^*) in the previous sentence and uses them in the displayed formula; no G is introduced (the groups are G_F and G_v).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Darmon's publication page (https://www.math.mcgill.ca/darmon/pub/pub.html), checked 2026-09-29: errata are listed for other papers, none for this one",
+    "research/errata/REGISTER.md: no entry for Darmon–Diamond–Taylor (only citations of it in Calegari–Geraghty entries)",
+    "the 1997 reprint was not accessed"
+   ],
+   "owner": "ArithmeticGaloisDuality",
+   "file": "research/blueprint/packets/ArithmeticGaloisDuality.json",
+   "citation": "Henri Darmon; Fred Diamond; Richard Taylor, Fermat's Last Theorem, Author PDF revised 9 September 2007 (167 pp., Darmon's page); first published in Current Developments in Mathematics 1995, reprinted in Elliptic curves, modular forms & Fermat's last theorem (1997), pp. 2–140 (not accessed); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticGaloisDuality/E6",
+   "kind": "misprint",
+   "locator": "§2.8, last line of the proof of Theorem 2.49, p. 84 (author PDF revised 9 September 2007)",
+   "printed": "The source justifies the choice using ψ(G_F) ⊄ (g − 1)ad^0 ρ̄(1).",
+   "correction": "This is possible because ψ(G_{F_n}) ⊄ (g − 1)ad^0 ρ̄(1).",
+   "reason": "The proof defines only the fields F_m (the extensions of ℚ(ζ_{ℓ^m}) cut out by ad⁰ρ̄) and chooses τ ∈ G_{F_n}; the preceding sentences establish that g fixes a nonzero element of ψ(G_{F_n}), which is what is needed. No field F occurs in the argument.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Darmon's publication page (https://www.math.mcgill.ca/darmon/pub/pub.html), checked 2026-09-29: errata are listed for other papers, none for this one",
+    "research/errata/REGISTER.md: no entry for Darmon–Diamond–Taylor (only citations of it in Calegari–Geraghty entries)",
+    "the 1997 reprint was not accessed"
+   ],
+   "owner": "ArithmeticGaloisDuality",
+   "file": "research/blueprint/packets/ArithmeticGaloisDuality.json",
+   "citation": "Henri Darmon; Fred Diamond; Richard Taylor, Fermat's Last Theorem, Author PDF revised 9 September 2007 (167 pp., Darmon's page); first published in Current Developments in Mathematics 1995, reprinted in Elliptic curves, modular forms & Fermat's last theorem (1997), pp. 2–140 (not accessed); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ArithmeticKTheory/E1",
    "kind": "misprint",
    "locator": "III.2.5 (Bass–Milnor–Serre), PDF p. 202 (book p. 194)",
