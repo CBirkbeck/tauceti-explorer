@@ -111,7 +111,19 @@ structures, and the twists X_{R,ψ} are requested from H6. The nodes below check
 - **`taylor-2006-potential-modularity-when-residually-irreducible-at-l`** (planet "Potential modularity with l split
   (Taylor 2006)").
   - Proposition 4.1, Corollary 4.6 and Theorem 5.7.
-  - Its use of Skinner–Wiles 2001 is again the E11 case. Taylor names an alternative through Skinner–Wiles 1999.
+  - Its use of Skinner–Wiles 2001 is again the E11 case. Taylor names an alternative: Skinner–Wiles' Duke base-change
+    paper ([SW1]), his crystalline Theorem 3.3 and descent. Checkpoint 2 misread [SW1] as the 1999 paper.
+  - Theorem 5.7 is now its own node (checkpoint 3).
+
+- **Checkpoint 3: Taylor 2006 §5 and the §1 lemmas it uses** (module `…/PotentialModularity/TaylorWeights`):
+  - `taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations`: Jacquet–Langlands for the definite algebra, and
+    ρ_𝔪 over non-Eisenstein Hecke algebras;
+  - `taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l`: the Fontaine–Laffaille shape at split x | l;
+  - `taylor-2006-lemma-5-1-corollary-5-2-weight-reduction`: Buzzard's trick with 𝐕_{ϖ_x}, from U₀(𝔫, l) with η̄^i to weight
+    i + 2;
+  - `taylor-2006-lemma-5-3-weight-shift`: multiplication by X^lY − XY^l raises the weight by l + 1;
+  - `taylor-2006-lemmas-5-4-5-6-weight-and-level`: weight 2, then level, then weight k;
+  - `taylor-2006-theorem-5-7-serre-weight-at-level-one` (planet "Potential modularity in Serre's weight (Taylor 2006)").
 
 KW II Theorem 6.1 and KW Annals Theorem 2.1 now cite these nodes.
 
@@ -163,7 +175,8 @@ None of E4–E6 is among the corrections Taylor lists in Documenta 2006, pp. 776
 
 - **R23.2:** the moduli spaces are requested from HilbertModularVarietiesAndShimuraCurves H6; Lemma 1.3 has no
   printed proof.
-- **R23.3:** Corollary 1.7 has no printed proof. Taylor's use of Skinner–Wiles 2001 is the E11 case of
+- **R23.3:** Corollary 1.7 has no printed proof. Khare's Lemma 2.2, Conrad–Diamond–Taylor 3.1.1 and 4.2.4, and
+  Skinner–Wiles' Duke paper (Taylor 2006 Corollary 5.5) are unread. Taylor's use of Skinner–Wiles 2001 is the E11 case of
   OrdinaryAutomorphicFormsAndModularityLifting.
 - **Gaps:**
   - Moret-Bailly's imported foundations (requested from AlgebraicModuliForArithmeticGeometry R09.3);
