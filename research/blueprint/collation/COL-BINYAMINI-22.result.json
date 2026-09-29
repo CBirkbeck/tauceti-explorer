@@ -1,0 +1,201 @@
+{
+  "paper": "PAPER-BINYAMINI-22",
+  "status": "partial",
+  "requiresManualReview": true,
+  "agent": "ChatGPT Pro",
+  "session": "cgpt-20260926-qseries-a91f",
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D8B743946064FC7DDE59131375AF9465/S2050508621000202a.pdf/point-counting-for-foliations-over-number-fields.pdf",
+      "citation": "Gal Binyamini, Point counting for foliations over number fields, Forum of Mathematics, Pi 10 (2022), e6, 1-39; doi:10.1017/fmp.2021.20.",
+      "read": "2026-09-26",
+      "identity": "Cambridge typeset version of record, not an accepted manuscript: first-page author, title, journal, volume, article number, pagination and DOI checked in the page image.",
+      "readScope": "All twelve batch locators and their nearby statement context, not a full-paper review.",
+      "pageImagesChecked": [
+        1,
+        2,
+        9,
+        10,
+        11,
+        12,
+        15,
+        18,
+        19,
+        30,
+        31,
+        35,
+        36,
+        37
+      ],
+      "access": "The batch URL failed, but the same Cambridge content identifier served the article at the URL recorded here. PDF text and page images were available. Binary download failed, so no new source SHA-256 was measured or copied from prior workers."
+    }
+  ],
+  "inputs": [
+    {
+      "path": "research/blueprint/collation/jobs/COL-BINYAMINI-22.json",
+      "blobSha": "f1d4001b31094b19ba4c47d51a828c57289f1322"
+    },
+    {
+      "path": "research/blueprint/papers/PAPER-BINYAMINI-22.result.json",
+      "blobSha": "e1be25805c1863924cbe7564ab20b6e98a7d8bdf"
+    }
+  ],
+  "comparisonMethod": "Compare the quoted fragments, in order, and the displayed mathematics after ordinary font, spacing and plain-text index rendering. Explicit ellipses may omit intervening text. Outside-quotation connecting commentary is not certified as literal source wording; its specified displays were inspected separately. Changing a superscript to a subscript is not silently normalised: see E15.",
+  "provenanceNote": "The batch readFrom label says preprint, whereas all twelve locators and the current input record describe published-version readings. This session independently checked the published copy. The failed arXiv v1 fetch is not recorded as a reading, and no preprint-to-print revision is inferred from the batch label.",
+  "mathematicalScope": "Quotation collation only. No sourceIssue correction, reason, mathematical review verdict or newness claim was changed or independently certified. A passage being present does not by itself prove that the passage is mathematically wrong.",
+  "findings": [
+    {
+      "id": "PAPER-BINYAMINI-22/E8",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        36,
+        37
+      ],
+      "evidence": "Published page images: Proposition 51, (155), and its proof; Theorem 9 read for context.",
+      "verdict": "The statement and proof fragments separated by the input ellipses match. This preserves the existing finding against the published text, without rechecking its counterexample."
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E9",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        9
+      ],
+      "evidence": "Published page images: Section 2, definition immediately preceding Proposition 7.",
+      "verdict": "The quoted multiplicity convention matches. This is a published-text comparison, not a new proof of the recorded misprint."
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E10",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        10
+      ],
+      "evidence": "Published page images: Lemma 11 proof, sentence concerning the resultant-fibre points.",
+      "verdict": "The complete quoted sentence matches after rendering the indices and vector font. The published lemma and proof were read together; the recorded counterexample was not re-derived."
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E11",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        15
+      ],
+      "evidence": "Published page images: Proposition 22 statement and (50).",
+      "verdict": "Both fragments separated by the ellipsis match. The intervening words were read, not interpreted as missing hypotheses. No correction at publication is established."
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E13",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        35
+      ],
+      "evidence": "Published page images: Definition (147), Lemma 48 and displays (149)-(150).",
+      "verdict": "The quoted jet formula matches. The unquoted matrix/radius description is reviewer commentary, not a purported source sentence; its indicated displays were also inspected. No revised mathematical statement is supplied."
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E14",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        30
+      ],
+      "evidence": "Published page images: Section 9.3, (125) and the following paragraph.",
+      "verdict": "The quoted segments, including the measure inequality and the two-thirds phrase, occur in the stated order. The ellipses abbreviate intervening source text; they do not assert its absence. No publication change is established."
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E15",
+      "outcome": null,
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        30,
+        31
+      ],
+      "evidence": "Published page images: Display (127), followed by the counting sentence on the next page.",
+      "classificationIssue": "input-index-transcription",
+      "literalQuotationMatches": false,
+      "published": "[Q(τ_σ):Q] ≤ 2n; Counting with g = 2n",
+      "verdict": "Both substantive assertions are present, but the stored first quotation uses τ^σ where (127) prints τ_σ. The second quotation matches. Do not label this preprint-only or absent: no version change is established. Nor certify the complete stored quotation as literally identical. Its outcome remains unresolved pending an authorised transcription repair.",
+      "repairProposal": {
+        "targetField": "sourceIssues[id=PAPER-BINYAMINI-22/E15].printed",
+        "operation": "Change only the tau index from superscript sigma to subscript sigma in the first quotation, and update the batch copy likewise. Keep both occurrences of 2n: changing them to 2^n would silently replace the published text with the proposed mathematical correction.",
+        "inputModified": false,
+        "afterRepair": "The repaired pair of quotations has been visually checked and matches the published passages. This is a conditional comparison, not an assigned outcome for the current input."
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E16",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        37
+      ],
+      "evidence": "Published page images: The paragraph following Theorem 9 and (163).",
+      "verdict": "The quoted formula matches. The unquoted reference to the inhomogeneous equation was checked against its surrounding paragraph. The existing finding is not independently re-adjudicated."
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E20",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        11,
+        12
+      ],
+      "evidence": "Published page images: Section 3 setup; Proposition 17 and (37).",
+      "verdict": "The two quoted fragments match. The accompanying alpha formula was checked separately as mathematical context rather than included in a literal prose quote."
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E21",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        19
+      ],
+      "evidence": "Published page images: Lemma 27, (69).",
+      "verdict": "The complete quoted inequality matches, including the powers and outer negative field-degree exponent. No changed coefficient factor is present in this comparison."
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E22",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        18
+      ],
+      "evidence": "Published page images: Lemma 26 opening and (62).",
+      "verdict": "Both separately quoted fragments match. The connecting words about the upper bound are reviewer commentary, not quoted text."
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E23",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        2,
+        11
+      ],
+      "evidence": "Published page images: Corollary 14, (32); section 1.1.4 read for the named convention.",
+      "verdict": "The quoted inequality matches. The unquoted description of the defining tuple agrees with the corollary setup. The existing normalization finding is left unchanged."
+    }
+  ],
+  "summaryCounts": {
+    "identical": 11,
+    "preprint-only": 0,
+    "absent": 0,
+    "unresolved": 1
+  },
+  "handoff": {
+    "done": "Every batch locator inspected visually. Eleven fragment/formula comparisons settled; E15 substantive content located and its stored-index mismatch isolated, with an exact input-only repair.",
+    "remaining": [
+      "Authorise and apply the E15 quotation repair to the input record and its batch; then classify the repaired quotation.",
+      "Run the full repository unittest suite in a complete checkout."
+    ],
+    "integration": "Draft checkpoint; do not ingest as a completed collation while E15 has no outcome. The only proposed input change is quotation typography, not the existing mathematical correction."
+  },
+  "validation": {
+    "local": "Eight scratch unittest cases passed: JSON round trip, exact batch IDs, outcome counts, unique explicit unresolved finding, page-image coverage, source metadata without an invented hash, preservation of both printed 2n factors, and protection against silently treating the sigma-index change as literal identity. These are structural checks, not an independent PDF extraction or mathematical verification.",
+    "repositorySuite": "Not run: a complete repository checkout could not be obtained; direct network requests from the command environment failed. GitHub submission CI is separate from the requested full unittest suite.",
+    "lean": "Not applicable; no Lean file changed."
+  }
+}
