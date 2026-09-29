@@ -1,10 +1,23 @@
-# BP-PotentialModularityAndCompatibleSystems--R24.3: checkpoint 1 (Claude Code cc-39fac3)
+# BP-PotentialModularityAndCompatibleSystems--R24.3: checkpoint 2 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 29 September 2026. Refs #977; the bot confirmed the claim. **Status: partial.**
 - R24.3, R24.4, R24.5 and R24.6 are `source_decomposed`.
 - R24.5:operations is `partial`.
 
-## What this checkpoint did
+## Checkpoint 2: a corrected attribution
+
+KW Annals' introduction says the minimal-lift method "has been suggested in Remark in §5.2 of [27]". [27] is
+Khare–Ramakrishna, *Finiteness of Selmer groups and deformation rings*, Invent. Math. 154 (2003) 179–198. It is not
+Khare's paper with Böckle's appendix, which is [26].
+
+Checkpoint 1 had written "Khare's Inventiones 154 (2003) paper" in `R24.3/kw-annals-minimal-lifts` and "Khare 2003" in
+the README; both are corrected. The node now also quotes KW Annals' reference [27] (printed p. 252). The error was found
+while carrying the draft EXT-12 in part R23.1 (#976, PR #3867). No other node is affected: Böckle's Theorem 1 correctly
+places the appendix in Khare's paper [26].
+
+`check_blueprint.py`: 0 errors, 0 warnings. The Lean file is unchanged.
+
+## Checkpoint 1
 
 1. **Started from the sources.** No integrated decomposition exists for this roadmap. The sources read are KW II (§§6, 8,
    9.2, 10), KW I (§§4–5), KW Annals (§§1–3), Böckle's appendix, Dieulefait–Pacetti (§§1.3–1.4) and Snowden (§7).
