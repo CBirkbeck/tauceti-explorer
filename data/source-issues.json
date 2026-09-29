@@ -130711,9 +130711,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
    "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre's modularity conjecture (I), Author's preprint (results.pdf) of the paper published as Invent. Math. 178 (2009), 485–504. Locators give the preprint's own page numbers (2–23), not the Inventiones pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.3",
+   "reviewReason": "Confirmed at KW I, proof of Theorem 9.1, p. 19 of results.pdf: Theorem 5.1(4) is applied at q = 2 to the mod-3 member, so the lifted representation is ρ̄₃; and the order-3 type at 2 that makes the new member flat over a cubic extension comes from Theorem 5.1(4) and almost strict compatibility, not from Theorem 5.1(2), which prescribes the type at p."
   },
   {
    "id": "ClassicalSerreModularity/E4",
@@ -130731,9 +130731,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
    "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2, 3 May 2022. Locators give the arXiv version's page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.3",
+   "reviewReason": "Confirmed at DP p. 11 (arXiv v2): the printed words are there; |𝔽_{N²}| = N² and |𝔽_{N²}^×| = N² − 1 = (N − 1)(N + 1), as the suggested Lean file checks at N = 5."
   },
   {
    "id": "ClassicalSerreModularity/E5",
@@ -130751,9 +130751,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
    "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2, 3 May 2022. Locators give the arXiv version's page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.3",
+   "reviewReason": "Confirmed at DP p. 11: κ is a character of G_{ℚ_{N²}} and its niveau refers to the inertia group of ℚ_N; q is the coefficient characteristic, so \"inertia group at q\" is a slip for N."
   },
   {
    "id": "ClassicalSerreModularity/E6",
@@ -130771,9 +130771,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
    "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2, 3 May 2022. Locators give the arXiv version's page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.3",
+   "reviewReason": "Confirmed at DP Remark 6, p. 13: a très ramifiée class becomes finite flat over ℚ₂(√x), of ramification index 2, so \"flat over an extension with even ramification index\" holds and contradicts nothing; the contradiction needs KW I's statement that it is flat over no extension of odd ramification index (KW I p. 19), which the correction supplies."
   },
   {
    "id": "ClassicalSerreModularity/E7",
@@ -130791,9 +130791,47 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
    "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2, 3 May 2022. Locators give the arXiv version's page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.3",
+   "reviewReason": "Confirmed at DP p. 6 and pp. 12–13: with the printed definition a lift may change the inertial type at N by a tame character of p-power order, which exists because N ≡ 1 mod p for the congruence primes p (at p = 2 it can make the image of inertia at N of even order, which Lemma 2.1's proof excludes), and Lemma 2.1's hypothesis on the type at N is then not inherited; KW I's minimal lifts (Theorem 5.1(1)–(2)) keep ρ(I_N) ≅ ρ̄(I_N)."
+  },
+  {
+   "id": "ClassicalSerreModularity/E8",
+   "kind": "misprint",
+   "locator": "Paso 2, p. 11 of arXiv:2108.07577v2",
+   "printed": "Take a crystalline lift ρ(2) q of weight 2 with such a dihedral image of order 2q at the prime N (whose existence is guaranteed by Theorem 1.9 (4)).",
+   "correction": "\"… a crystalline lift ρ^{(2)}_q of weight 2 whose inertial type at N is that of Ind κ\": then ρ^{(2)}_q(I_N) is cyclic of order q and the projective image of D_N is dihedral of order 2q, which is all that Lemma 2.1 uses (its hypothesis is stated for the inertial type).",
+   "reason": "The determinant of a weight-2 lift is ψχ_q with ψ of finite order, so det ρ^{(2)}_q(Frob_N) = ψ(N)·N, which is not a root of unity; hence ρ^{(2)}_q(D_N) is infinite and cannot be dihedral of order 2q. Even Ind κ has image of order 2q only when κ is trivial on the Frobenius attached to N. The proof of Lemma 2.1 speaks in the same way of \"a ramified character of order q\", where only its restriction to inertia has order q.",
+   "affects": "nothing",
+   "known": "new: present in arXiv v2; the arXiv listing records no journal reference",
+   "searched": [
+    "arXiv:2108.07577 listing, checked 2026-09-29 (v1 and v2, no journal reference); v2 read"
+   ],
+   "owner": "ClassicalSerreModularity",
+   "file": "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+   "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2, 3 May 2022. Locators give the arXiv version's page numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.3",
+   "reviewReason": "Added by the reviewer: the printed sentence is on p. 11 of v2; the determinant argument shows the image of D_N is infinite. The nodes R33.2/dihedral-local-type-at-n and R33.2/dp-lift-existence-and-good-dihedral-insertion use the corrected reading."
+  },
+  {
+   "id": "ClassicalSerreModularity/E9",
+   "kind": "gap",
+   "locator": "§3.2 (Proof of Theorem 1.2) and the Remark after Theorem 3.4, p. 6 of the author's preprint results.pdf (Invent. Math. 178 (2009) not compared)",
+   "printed": "Then by Theorem 3.4, and the remark after it, we get Theorem 1.2. … Remark: Note that by Theorem 3.4, (D0) implies Serre’s conjecture for ρ̄ of S-type in odd characteristic with N(ρ̄) odd, and for ρ̄ of S-type in characteristic 2 with k(ρ̄) = 2.",
+   "correction": "Theorem 3.4 gives only that ρ̄ is modular. The passage to weight k(ρ̄) and level N(ρ̄): if the projective image is dihedral, Lemma 6.2(i); otherwise Theorem 5.1(1) gives a lift minimally ramified away from p and crystalline of weight k(ρ̄) at p (k(ρ̄) = 2 when p = 2), Theorem 4.1 makes it modular, and its newform has weight k(ρ̄) and level N(ρ̄). This covers the dyadic scalar case that the introduction says Theorem 1.2(2) fills.",
+   "reason": "Theorem 3.4 concludes \"is modular\" and its proof (§8.4) lifts with Theorem 5.1(2), which gives weight 2 and a type at p, so the weight k(ρ̄) and level N(ρ̄) of Theorem 1.2 are asserted without an argument in the paper. The introduction (pp. 2–3) says Theorem 1.2(2) fills the missing case of the qualitative-implies-refined problem at 2 (ρ̄|_{D₂} scalar, projective image not dihedral), which is exactly the step not written out. Every ingredient is a theorem of the paper, so the result stands.",
+   "affects": "the proof",
+   "known": "new as far as found: not in the arXiv or preprint versions read; the published version was not compared",
+   "searched": [
+    "KW I preprint results.pdf (sha256 3c389dc3…): §§1–3 and 8.4 read, and no argument for the refined form was found elsewhere in it"
+   ],
+   "owner": "ClassicalSerreModularity",
+   "file": "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+   "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre's modularity conjecture (I), Author's preprint (results.pdf) of the paper published as Invent. Math. 178 (2009), 485–504. Locators give the preprint's own page numbers (2–23), not the Inventiones pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.3",
+   "reviewReason": "Added by the reviewer after comparing Theorem 3.4 and its proof (p. 6, §8.4) with Theorem 1.2 (p. 2). The blueprint author had noticed the step and supplied it in R27.4/strong-form-by-minimal-lifts without recording it; it is recorded here so that formalisers see that the published proof omits it."
   },
   {
    "id": "ColemanIntegration/E1",
