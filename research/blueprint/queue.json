@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -9097,8 +9097,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GROSS-ZAGIER-86.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4498"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4498",
+   "finishedAt": "2026-09-29T16:26:56Z"
   },
   {
    "id": "REV-PAPER-GROSS-ZAGIER-86",
