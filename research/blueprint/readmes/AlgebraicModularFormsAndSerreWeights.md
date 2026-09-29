@@ -1,6 +1,6 @@
 # Modular forms — Hecke theory, newforms, and L-functions, Part II: Geometric reduction, Serre weights and eigenvalue lifting
 
-**Base:** `tauceti:TauCetiRoadmap/ModularForms`. **Ownership:** accepted RS-06, reviewed in `REV-RS-06.md`. **Checkpoint:** partial, for issue #671. This document does not declare any of the six stages closed. It expands the algebraic core of R15.5; its stage-specific continuation requirements are part of the specification, not claims that the omitted proofs have been supplied.
+**Base:** `tauceti:TauCetiRoadmap/ModularForms`. **Ownership:** accepted RS-06, reviewed in `REV-RS-06.md`. **Checkpoint:** partial, for issue #671 (checkpoint 1: ChatGPT Pro, R15.5; checkpoint 2: Claude Code cc-fb70e5, R15.4 and R15.6). This document does not declare any of the six stages closed. It expands the algebraic core of R15.5; its stage-specific continuation requirements are part of the specification, not claims that the omitted proofs have been supplied.
 
 The reviewed decomposition remains the source register for the full roadmap. The node `AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma` keeps its identifier. Its new prerequisite nodes expose the algebra hidden inside the old single-node outline. The other reviewed nodes must be retained or explicitly refined on continuation; this checkpoint must not be promoted as a complete replacement of that decomposition.
 
@@ -37,6 +37,370 @@ The accepted scope still requires explicit Hasse q-expansion and theta-on-a-know
 Keep the full local residual representation, including its extension class when required. Equal semisimplified inertia does not imply the same weight recipe. The recipe is defined by the local case table, not by taking a minimum among weights of modular realizations. Separate the classical Serre weight from a Katz minimum; import the local finite-flat and ramification results from R07. Actual modular-weight optimization belongs to R20.3.
 
 Continuation must preserve the irreducible, reducible, scalar, extension-sensitive and twisting rows, coefficient/isomorphism invariance, and the dyadic weight-two/weight-four distinction. Required tests include two extensions with equal semisimplified inertia, the dyadic finite-flat and non-finite-flat branches, and an untwisted weight outside the familiar twist-normalized interval. These are explicit coverage requirements, not completed statements in the present Lean prototype.
+
+Checkpoint 2 carries the reviewed decomposition's nodes for this stage, with their prerequisites made explicit, and adds the nodes marked new.
+
+### Lemma. The two tame characters of a local residual representation are of level 1 or of level 2 and then conjugate
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.4/tame-inertia-characters-of-a-local-residual-representation`.
+
+Let rho_p: G_p -> GL(V) = GL_2(F_p-bar) be continuous, G_p = Gal(Qbar_p/Q_p), I its inertia subgroup, I_p the wild inertia (the maximal pro-p subgroup of I) and I_t = I/I_p the tame quotient. On the semisimplification V^{ss} of V as a G_p-module, I_p acts trivially, so I_t acts and the action is diagonalizable, given by two characters phi, phi' of I_t. These characters are of level 1 or of level 2; if they are of level 2 then phi' = phi^p and phi = phi'^p. When phi, phi' are of level 2, V is irreducible.
+
+*Hypotheses.*
+
+- V is 2-dimensional over F_p-bar and rho_p is continuous, so its image is finite
+- I_p acts trivially on V^{ss}: Serre cites [41], prop. 4 (Serre, Proprietes galoisiennes des points d'ordre fini des courbes elliptiques, Invent. Math. 15 (1972)) for this
+- the identification I_t = inverse limit of F_{p^n}^* is cited as [41], prop. 2
+- the fundamental characters and the identification of I_t are constructed in FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/tame-inertia-characters, which also restates this dichotomy; the node here is the form in which Serre's recipe uses it
+
+*Proof outline.*
+
+1. Choose s in G_p lifting the Frobenius x -> x^p of G_p/I = Gal(F_p-bar/F_p). Serre states ('on verifie facilement') that s u s^{-1} = u^p mod I_p for u in I, so conjugation by s acts on I_t by u -> u^p.
+2. Hence the set {phi, phi'} is stable under p-th power, giving the dichotomy: either phi^p = phi and phi'^p = phi' (both of level 1), or phi^p = phi', phi'^p = phi with phi different from phi' (both of level 2).
+3. In the level-2 case V is irreducible: a stable line would give a character of I_t extendable to G_p, hence of level 1.
+
+*Acceptance.*
+
+- Check that the tame characters of the p-torsion of a supersingular elliptic curve over Q_p are the two fundamental characters of level 2
+- Check that in the level-1 case the restriction of rho_p to I need not be semisimple, so the classification of V^{ss} does not by itself determine rho_p|I
+
+*Used by.*
+
+- AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases — the level-1/level-2 dichotomy selects the case of the recipe
+
+*Uses.* `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/tame-inertia-characters`, `ArithmeticGaloisRepresentations:R01.2`.
+
+*Sources.*
+
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), Proposition 1, section 2.1, printed p. 183: “Les caracteres p et p' donnant l'action de I t sur VS' sont de niveau 1 ou 2 . S'ils sont de niveau 2, ils sont conjugues : on a p' _ pp et p = p" .” Literal statement of Proposition 1; the OCR renders phi as 'p' and the exponents are lost, but the dichotomy and the conjugacy relation phi' = phi^p are the content quoted.
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), Proof of Proposition 1 and 2.2, printed p. 183: “La representation V est alors irreductible, car si elle contenait un sous-espace stable de dimension 1, l'action de It sur ce sous-espace se ferait par un caractere prolongeable a Gp , donc de niveau 1 .” The irreducibility argument in the level-2 case, retained as part of the node statement.
+
+### Definition. Serre's weight in the two tame cases, with the normalizations and the (0,0) shift
+
+*Module* `TauCeti/NumberTheory/ModularForms/SerreWeight.lean`. *Node* `AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases`.
+
+Level-2 case (Serre 2.2): if phi, phi' are of level 2, write phi = psi^{a+pb} = psi^a psi'^b uniquely with 0 <= a, b <= p-1 using the two fundamental characters psi, psi' = psi^p of level 2; then b is different from a (else phi would be (psi psi')^a = chi^a, of level 1), phi' = psi^b psi'^a, and after permuting phi and phi' one may assume 0 <= a < b <= p-1; set k = 1 + pa + b. By Remark 2 of 2.2, for a = 0 one has (phi, phi') = (psi^b, psi'^b) with 1 <= b <= p-1 and k = 1 + b, so 2 <= k <= p; writing rho_p = chi^a tensor rho_p' the pair attached to rho_p' is (0, b-a) with k' = 1 + b - a, whence (2.2.5) k = k' + a(p+1). Level-1 tame case (Serre 2.3): if I acts semisimply on V through chi^a and chi^b, normalize 0 <= a, b <= p-2 and a <= b; set k = 1 + pa + b if (a,b) is not (0,0), and k = p if (a,b) = (0,0). The value k = p in the unramified case is a deliberate shift by p-1 away from the formula's value 1, chosen by Serre to avoid weight-one forms. In both cases the smallest possible value is k = 2 (Remarks 1).
+
+*Hypotheses.*
+
+- the level-2 normalization is 0 <= a < b <= p-1; the level-1 normalization is 0 <= a <= b <= p-2 - the two ranges differ and must not be conflated
+- the level-1 case here assumes that the action of I on V is semisimple (I_p acts trivially), not merely that the tame characters of V^{ss} have level 1
+- the exceptional convention k = p applies exactly when I acts trivially, i.e. rho_p is unramified
+- the recipe depends only on ρ_p ⊗ F̄_p up to isomorphism: every clause refers to the characters of I_t on V^{ss} or to the semisimplicity of ρ_p|I, which do not change under extension of the coefficient field or conjugation
+
+*API.*
+
+- `TauCeti.SerreWeight.tameExponents` (*data*) — The normalised exponents (a, b) of Serre 2.2 (level 2, 0 ≤ a < b ≤ p − 1) or 2.3 (level 1, 0 ≤ a ≤ b ≤ p − 2) of a tamely ramified ρ_p.
+- `TauCeti.SerreWeight.serreWeight` (*constructor*) — k(ρ_p) = 1 + pa + b in the tame cases, with k = p when ρ_p is unramified.
+- `TauCeti.SerreWeight.serreWeight_twist` (*compatibility*) — In the level-2 case, k(χ^a ⊗ ρ′_p) = k(ρ′_p) + a(p + 1) (Serre (2.2.5)).
+- `TauCeti.SerreWeight.serreWeight_baseChange` (*extensionality*) — k(ρ_p) depends only on the isomorphism class of ρ_p ⊗ F̄_p.
+
+*Unit tests.*
+
+- `TauCeti.SerreWeight.serreWeight_supersingular` (example) — For the p-torsion of a supersingular elliptic curve over ℚ_p (characters ψ, ψ′ of level 2, a = 0, b = 1) k = 2.
+- `TauCeti.SerreWeight.serreWeight_unramified_shift` (degenerate) — For ρ_p unramified, (a, b) = (0, 0) and k = p, not the formula's value 1.
+- `TauCeti.SerreWeight.serreWeight_level_two_p5` (example) — p = 5, level 2 with (a, b) = (1, 3): k = 1 + 5 + 3 = 9 = k′ + a(p + 1) with k′ = 1 + (3 − 1) = 3.
+- `TauCeti.SerreWeight.serreWeight_normalisation_nonexample` (non-example) — Using the level-2 range 0 ≤ a < b ≤ p − 1 in the level-1 case would allow b = p − 1, whose character χ^{p−1} is trivial; the level-1 range stops at p − 2.
+
+*Construction.*
+
+1. Serre 2.2: uniqueness of the exponents (a,b) with 0 <= a,b <= p-1 for a level-2 character of I_t; the relation phi' = phi^p forces (2.2.2), so the pair is determined up to swapping phi and phi'.
+2. Serre 2.2 Remark 2 (level-2 case): for a = 0 the formula reduces to k = 1 + b with 2 <= k <= p, and the general case is reduced to that one by twisting by chi^a, giving (2.2.5) k = k' + a(p+1). The source states this twisting formula in the level-2 case only.
+3. Serre 2.3: the exponents a, b are only determined mod (p-1); the normalization 0 <= a, b <= p-2 and a <= b fixes them, and the (0,0) case is assigned k = p rather than k = 1.
+4. Serre 2.3 Remark 3: twisting by successive powers of chi makes the resulting k run through a Tate theta-cycle.
+
+*Acceptance.*
+
+- Check that Serre's (2.2.5), k = k' + a(p+1), matches the filtration shift of the twisted modular form, i.e. that theta raises weight by p+1 as in node theta-operator-filtration-and-hecke-commutation
+- Check a cyclotomic twist whose untwisted Serre weight lies outside [2, p+1], as required by the roadmap's conventions
+
+*Used by.*
+
+- AlgebraicModularFormsAndSerreWeights:R15.4/determinant-parity-and-weight-mod-p-minus-one — the weight k whose class mod p − 1 is read off from det ρ_p|I
+- AlgebraicModularFormsAndSerreWeights:R15.6/serre-conjecture-target-with-N-k-epsilon — k(ρ̄) in the refined conjecture
+- ClassicalSerreModularity R26–R27, R33 — Serre's weight k(ρ̄) in Khare–Wintenberger's and Dieulefait–Pacetti's statements
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.4/tame-inertia-characters-of-a-local-residual-representation`.
+
+*Planet:* Serre weight (tame cases).
+
+*Sources.*
+
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 2.2, formulas (2.2.1)-(2.2.5), printed pp. 183-184: “Ceci fait, l'entier k attache a pp est defini par : (2 .2 .4) k=1+pa+b .” The weight formula in the level-2 case under the normalization 0 <= a < b <= p-1 recorded just above it in the source.
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 2.3, Remark 2, printed p. 185: “La formule generale k =1 + pa + b donnerait alors k = 1 . Comme les formes modulaires de poids 1 ont un comportement quelque peu exceptionnel, j'ai prefere les eviter, et "decaler" k par p -1 ; d'ou la valeur k = p adoptee.” Serre's own explanation that k = p in the unramified case is a convention, not a computation - the exact point at which Edixhoven's k(rho) differs.
+
+### Definition. The wildly ramified case: the peu ramifie / tres ramifie dichotomy and the weight it produces
+
+*Module* `TauCeti/NumberTheory/ModularForms/SerreWeight.lean`. *Node* `AlgebraicModularFormsAndSerreWeights:R15.4/peu-et-tres-ramifie-and-the-wild-case-weight`.
+
+Suppose I_p acts nontrivially on V. Then D = V^{I_p} is a line, stable under G_p, and G_p acts on V/D by a character theta_1 and on D by theta_2. Write theta_1 = chi^alpha eps_1, theta_2 = chi^beta eps_2 with eps_i unramified and normalize 0 <= alpha <= p-2 and 1 <= beta <= p-1 (the two exponents do NOT play symmetric roles). Put a = min(alpha, beta), b = max(alpha, beta). If beta is not alpha+1, set k = 1 + pa + b. If beta = alpha+1, then Gal(K_t/K_0) = (Z/pZ)^* with K_t = K_0(zeta_p), K/K_t is elementary abelian of exponent p and by Kummer theory K = K_t(x_1^{1/p}, ..., x_m^{1/p}) with x_i in K_0^*/K_0^{*p}; rho_p is called peu ramifie if v_p(x_i) = 0 mod p for all i (the x_i can be chosen to be units) and tres ramifie otherwise. In the peu ramifie case (2.4.8) k = 1 + pa + b = 2 + alpha(p+1) (here a = alpha, b = alpha+1); in the tres ramifie case (2.4.9) one adds p-1 (resp. 2 if p = 2), giving k = (alpha+1)(p+1) for p different from 2 and k = 4 for p = 2. Serre's Remark (1) states that the tres ramifie case forces eps_1 = eps_2 and then m = 1 or 2; Edixhoven Prop. 8.5 gives m = 1 or 2 for p > 2 but m = 1, 2 or 3 for p = 2, so Serre's remark is incomplete at p = 2.
+
+*Hypotheses.*
+
+- I_p acts nontrivially; the line D = V^{I_p} being 1-dimensional and G_p-stable is what makes theta_1, theta_2 well defined
+- the normalization 0 <= alpha <= p-2, 1 <= beta <= p-1 is asymmetric and is part of the definition
+- the peu/tres dichotomy is a condition on the extension class, not on the semisimplification: it is read off from the valuations of the Kummer generators x_i in K_0^* = (Q_p^{nr})^*
+- for p = 2 the tres ramifie correction is +2, not +(p-1) = +1
+- the peu/très ramifiée dichotomy itself is defined in FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/peu-tres-ramifiee; this node adds the weight attached to each branch
+- Serre's Remark (1) that m = 1 or 2 in the très ramifiée case is false at p = 2, where m = 3 also occurs (Edixhoven Prop. 8.5; source issue AlgebraicModularFormsAndSerreWeights/E1); the weight does not depend on m
+
+*API.*
+
+- `TauCeti.SerreWeight.wildExponents` (*data*) — The exponents (α, β), 0 ≤ α ≤ p − 2, 1 ≤ β ≤ p − 1, of the characters on V/D and D = V^{I_p}.
+- `TauCeti.SerreWeight.IsPeuRamifiee` (*other*) — For β = α + 1: the Kummer generators x_i of K/K_t can be chosen among the units of K₀ (FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/peu-tres-ramifiee).
+- `TauCeti.SerreWeight.serreWeight_wild` (*characterisation*) — k = 1 + pa + b with a = min(α, β), b = max(α, β) if β ≠ α + 1; if β = α + 1, k = 2 + α(p + 1) when peu ramifiée and (α + 1)(p + 1) (p odd) or 4 (p = 2) when très ramifiée.
+
+*Unit tests.*
+
+- `TauCeti.SerreWeight.serreWeight_wild_same_ss` (non-example) — Two extensions of 1 by χ with the same semisimplification, one peu and one très ramifiée, receive the weights 2 and p + 1.
+- `TauCeti.SerreWeight.serreWeight_wild_generic` (example) — p = 5, α = 1, β = 3 (β ≠ α + 1): k = 1 + 5·1 + 3 = 9.
+- `TauCeti.SerreWeight.serreWeight_wild_p2` (degenerate) — At p = 2 (α = 0, β = 1) the très ramifiée correction is +2, giving k = 4, not +(p − 1) = +1.
+
+*Construction.*
+
+1. Serre 2.4 constructs D, theta_1, theta_2 and normalizes the exponents (2.4.2)-(2.4.3).
+2. In case beta = alpha+1 he identifies K_t = K_0(zeta_p) and asserts that the conjugation action of Gal(K_t/K_0) = (Z/pZ)^* on Gal(K/K_t) = rho_p(I_p) is the tautological one, then applies Kummer theory to obtain the generators x_i (2.4.6); neither step is argued in detail.
+3. Definition (2.4.7): peu ramifie means all v(x_i) are divisible by p.
+4. Formulas (2.4.8) and (2.4.9) give k in the two branches; Serre's Remark (1) derives eps_1 = eps_2 and m in {1,2} in the tres ramifie case from the conjugation action of G_p on rho_p(I_p); Remark (2) computes the conductors of the associated order-p characters in the two cases.
+5. Edixhoven Prop. 8.5 (stated without separate proof after the computation 8.4) confirms Serre's Remark (1) that eps_1 = eps_2 - the unramified parts of theta_1 and theta_2, not theta_1 and theta_2 themselves, which differ by chi when p is odd - adds that all x_i can be chosen in Q_p^*, and corrects the value of m at p = 2: m = 1 or 2 for p > 2 and m = 1, 2 or 3 for p = 2.
+
+*Acceptance.*
+
+- Run two local extensions with the same semisimplified inertia but different extension class through the definition and check that they receive different weights, as the roadmap requires
+- Check at p = 2 that the correction added in the tres ramifie case is 2 and not p-1 = 1, using Serre's explicit quadratic-field example
+
+*Used by.*
+
+- AlgebraicModularFormsAndSerreWeights:R15.4/weight-two-iff-finite-flat-at-p — the peu ramifiée branch with α = 0 is one of the k = 2 cases
+- AlgebraicModularFormsAndSerreWeights:R15.4/dyadic-weight-two-or-four — at p = 2 every wild ρ_p has α = 0, β = 1
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.4/tame-inertia-characters-of-a-local-residual-representation`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/peu-tres-ramifiee`.
+
+*Sources.*
+
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 2.4, (2.4.6)-(2.4.7), printed p. 186: “nous dirons que l'extension K (ou la representation pp ) est peu ramifiee si (2 .4 .7) v(x) = 0 (mod p) pour i = 1, . . ., m, i .e., si les x . peuvent etre choisis parmi les unites de K0 .” The literal definition of peu ramifie in terms of the p-divisibility of the valuations of the Kummer generators.
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 2.4 (ii_2), formula (2.4.9), printed p. 187: “On ajoute p -1(resp . 2 si p = 2) a ce que donnerait (2 .4 .8) :” The tres ramifie correction with its explicit p = 2 value 2, which the roadmap requires to be recorded separately.
+- The weight in Serre's conjectures on modular forms, Proposition 8.5, p. 27 of the DVI: “(Compare [26 ], S2.4, Remarques.) If #p is "tr`es ramifi'e" then #1 = #2 , all xi in [26 ], (2.4.6) can be chosen in Q*p and the integer m in [26 ], (2.4.6), equals 1 or 2 if p > 2 and 1 or 2 or 3 if p = 2.” Edixhoven's version of Serre's Remark (1): eps_1 = eps_2 for the unramified characters of (2.4.2), x_i in Q_p^*, and the extra value m = 3 at p = 2 that Serre's remark omits.
+
+### Lemma. det rho_p restricted to inertia is chi^{k-1}, and the global parity relation eps(-1) = (-1)^k
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.4/determinant-parity-and-weight-mod-p-minus-one`.
+
+For every case of Serre's recipe, det rho_p restricted to I equals chi^{k-1}; since chi restricted to I has order p-1, the class of k mod (p-1) is determined by det rho_p, and indeed by its restriction to inertia alone. Equivalently det rho_p = eps_p chi^{k-1} with eps_p an unramified F_p-bar^*-valued character of G_p, and when rho_p comes from a global rho the character eps_p is the p-component of eps, with eps_p(Frob_p) = eps(p). Globally, det rho is a character of (Z/pNZ)^*, decomposing as chi^h times eps with h = k-1 mod (p-1), det rho(Frob_l) = l^{k-1} eps(l) for l not dividing pN, and det rho(c) = (-1)^{k-1} eps(-1); the oddness hypothesis det rho(c) = -1 is therefore equivalent to eps(-1) = (-1)^k. For p = 2 oddness is automatic since -1 = 1.
+
+*Hypotheses.*
+
+- the identity det rho_p|I = chi^{k-1} is verified case by case in the source, explicitly for the level-2 case and asserted analogous in the others
+- the global decomposition of det rho uses that the conductor of det rho divides pN, which follows by comparing the conductor formulas of rho and det rho
+- c denotes complex conjugation for a chosen embedding of Qbar into C; its image in (Z/pNZ)^* is -1
+
+*Proof outline.*
+
+1. Serre 1.3 identifies det rho with a pair of characters (chi^h on (Z/pZ)^*, eps on (Z/NZ)^*) and derives (1.3.5) det(Frob_l) = l^h eps(l).
+2. Serre Prop. 2 (2.5.1) computes det rho_p|I = chi^{k-1} in the level-2 case from phi phi' = psi^{a+b} psi'^{a+b} = chi^{a+b} and k-1 = pa+b = a+b mod (p-1), and states that the other cases are analogous.
+3. Combining, h = k-1 mod (p-1), so (1.3.5) becomes (1.3.6) det(Frob_l) = l^{k-1} eps(l).
+4. (1.3.7) det rho(c) = (-1)^{k-1} eps(-1), so oddness (1.3.8) is equivalent to (1.3.9) eps(-1) = (-1)^k.
+
+*Acceptance.*
+
+- Check the parity rule eps(-1) = (-1)^k on a nebentype example with N > 1 and odd k
+- Check that the computation of det rho_p|I in the wild case beta = alpha+1 gives chi^{k-1} in both the peu and tres ramifie branches, i.e. that the tres ramifie shift by p-1 does not change the class mod p-1
+
+*Used by.*
+
+- AlgebraicModularFormsAndSerreWeights:R15.6/serre-conjecture-target-with-N-k-epsilon — ε(ρ̄) and the congruence det ρ̄ = ε χ̄^{k−1}
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases`, `AlgebraicModularFormsAndSerreWeights:R15.4/peu-et-tres-ramifie-and-the-wild-case-weight`.
+
+*Sources.*
+
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), Proposition 2 (2.5.1) with its proof, printed p. 187: “(Comme x est d'ordre p -1, cette formule montre que la classe de k mod(p - 1) est determinee par det pp , et meme seulement par la restriction de det pp au groupe d'inertie I.)” Literal statement that the determinant on inertia pins down k mod (p-1), which is the content of this node.
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 1.3, (1.3.7)-(1.3.9), printed p. 182: “Si p = 2, cette condition est automatiquement satisfaite, puisque -1 =1 .” Records that the oddness condition is vacuous at p = 2, a hypothesis distinction the roadmap's parity rule must keep.
+
+### Theorem. The Raynaud inputs to the k = 2 criterion, and why they degenerate exactly at p = 2
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.4/raynaud-prolongation-input-and-the-e-equals-p-minus-one-obstruction`.
+
+Let R be a discrete valuation ring of mixed characteristic with absolute ramification index e, fraction field K, residue characteristic p. (Prolongation and uniqueness, Raynaud Prop. 3.3.2) Let G be a K-scheme in F-vector spaces of rank q admitting a finite flat prolongation. (1) The maximal prolongation is characterized on equations of type (1) by v(delta_i) <= p-1 for all i and v(delta_i) < p-1 for some i. (2) If e < p-1 then the prolongation is unique up to isomorphism and is an F-vector space scheme. (3) If e = p-1, G is simple and R is henselian, then either the prolongation is unique or there are exactly two, one etale and one of multiplicative type, and in all cases they are F-vector space schemes. (Uniqueness for group schemes, Thm 3.3.3) If e < p-1, every finite commutative K-group scheme killed by a power of p has at most one finite flat prolongation over R. (Tame characters, Thm 3.4.1, Thm 3.4.3, Cor. 3.4.4, for R strictly henselian of mixed characteristic) Galois acts on an F-vector space scheme G(Kbar) of rank q by homotheties through a character psi = product psi_{i+j}^{v(delta)}; G prolongs to a finite flat group scheme over R if and only if psi = product psi_{i+j}^{n_j} with 0 <= n_j <= e for all j; and for a finite commutative K-group scheme killed by a power of p that prolongs, every Jordan-Holder quotient is an F-vector space scheme whose character has that form. By Remark 3.4.6 these results say nothing for e >= p-1, where every finite K-scheme in F-vector spaces prolongs. (Full faithfulness, Cor. 3.3.6) If e < p-1, every morphism of generic fibres of commutative finite flat R-group schemes killed by a power of p extends uniquely, the kernel and cokernel of the extension are flat over R, and Ext of finite flat group schemes injects into Ext of their generic fibres. Consequence for the Serre recipe: for R = Z_p^{nr} one has e = 1, so the constraint 0 <= n, n' <= 1 on the tame characters holds for every p (vacuously at p = 2), but the uniqueness statements 3.3.2(2) and 3.3.3 require 1 < p-1, i.e. p >= 3; at p = 2 one is exactly in the case e = p-1 of 3.3.2(3) and uniqueness of the finite flat model may fail.
+
+*Hypotheses.*
+
+- Standing hypotheses vary: 3.3 assumes R of unequal characteristics (Prop. 3.3.1); 3.4 assumes R strictly henselian of unequal characteristics (Thm 3.4.1, Thm 3.4.3); Prop. 3.2.1 and Cor. 3.3.7 assume R strictly henselian
+- Prop. 3.3.2(2) and Thm 3.3.3 need e < p-1; Prop. 3.3.2(3) covers e = p-1 and additionally requires G simple and R henselian
+- Cor. 3.4.4 needs only that the finite commutative p-power torsion G admits a finite flat prolongation (with R strictly henselian); the bound on the exponents is 0 <= n_j <= e, so it is informative only for e < p-1 (Remark 3.4.6)
+- Cor. 3.3.6 needs e < p-1 and both group schemes commutative, finite, flat and killed by a power of p
+- Raynaud's theorems are owned by FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 (raynaud-uniqueness, raynaud-boundary-case, raynaud-tame-inertia); this node records the consequences at e = 1 that the recipe uses
+
+*Proof outline.*
+
+1. Raynaud's Prop. 3.3.2.1 characterizes the maximal prolongation by the conditions v(delta_i) <= p-1 for all i and v(delta_i) < p-1 for some i on the equations of type (1); 2 and 3 follow by comparing the maximal and minimal F-vector space prolongations.
+2. Thm 3.4.1 computes the Galois action on G(Kbar) as a homothety through psi = psi_0^{v(delta_0)} ... psi_{r-1}^{v(delta_{r-1})}; Thm 3.4.3 turns prolongability into the condition 0 <= n_j <= e using Prop. 3.3.2 to extend the F-structure to the prolongation.
+3. Cor. 3.4.4 combines 3.2.1 (existence of a Jordan-Holder filtration with F-vector space quotients) with 3.4.3.
+4. Thm 3.3.3 is proved by reducing, via Prop. 2.2.2 and the devissage Prop. 3.2.1, to showing that a morphism between two prolongations of an F-vector space scheme that is the identity on the generic fibre is an isomorphism, which is Prop. 3.3.2(2); Cor. 3.3.6 is stated after it without separate proof.
+
+*Acceptance.*
+
+- Check that with e = 1 Cor. 3.4.4 yields exactly Serre's four possibilities 1, psi, psi', psi psi' = chi for the pair of tame characters of a finite-at-p representation
+- Check at p = 2, e = 1 that Prop. 3.3.2.3 permits two prolongations (one etale, one multiplicative), so that no uniqueness step of the p >= 3 argument transfers verbatim
+
+*Uses.* `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-uniqueness`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-boundary-case`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-tame-inertia`.
+
+*Sources.*
+
+- Schemas en groupes de type (p,...,p), Proposition 3.3.2, parts 2 and 3, printed p. 267: “2° Si e < p— 1, ^ est, a isomorphisme pres. Punique prolongement de G sur R et c'est un schema en F-vectoriels. 3° Si e == p— 1, si G est simple et R henselien, alors, ou bien ^ est Punique prolongement de G, ou bien il existe deux prolongements de G, l'un etale, l'autre de type multiplicatif.” The uniqueness hypothesis is e < p-1; the e = p-1 case admits two prolongations. With R = Z_p^{nr} (e = 1) this is p >= 3 versus p = 2, which is the precise reason Serre's proof of his Proposition 4 is written only for p different from 2.
+- Schemas en groupes de type (p,...,p), Corollary 3.4.4, printed p. 270: “Si F a pY elements, le caractere \|/ : 7^ —> F *, qui decrit l'action du groupe de Galois Gai (KjK) sur le F-vectoriel G^ (K) est alors de la forme v|/ = \|/^ . . . \)/^ avec 0 ^ Uj ^ e pour tout j.” The literal exponent bound 0 <= n_j <= e that Serre uses, with e = 1, to reduce to the four character possibilities in the proof of Proposition 4.
+- Schemas en groupes de type (p,...,p), Corollary 3.3.6, printed p. 268: “Supposons e < p-\, et soient ^ et ^ des R-schemas en groupes commutatifs, finis et plats, annules par une puissance de p. ... 1° Tout morphisme de G dans H se prolonge de maniere unique en un R-morphisme u : ^ —> e^f. De plus, Ker (u) et Coker (u) sont plats sur R. 2° L'application naturelle Ext^.gr (^, ^)—> Ext^.gr (G, H ) est injective.” Confirms verbatim the statement that FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 undertakes to prove, including the flatness of kernel and cokernel and the Ext-injectivity.
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), Proof of Proposition 4, printed p. 190: “Ce cas est traite dans Raynaud [35], th . 2 .4 .3 .” Serre's printed citation is to 'th. 2.4.3' (confirmed on the page image of p. 190). Raynaud's Bull. SMF 102 (1974), which is Serre's [35], has no section 2.4: its section 2 consists of 2.1-2.3 and its numbered results there are 2.2.2, 2.2.3 and 2.3.1. The theorem that treats exactly this case - prolongability of the F-vector space scheme attached to a character psi - is Theorem 3.4.3, p. 270, which is therefore the plausible intended referent.
+- Schemas en groupes de type (p,...,p), Theorem 3.3.3 and Remarks 3.3.4-3.3.5, printed p. 268: “Supposons R d'inegales caracteristiques et e < p-1. Alors tout K-schema en groupes fini, commutatif G, annule par une puissance de p, admet au plus un prolongement fini et plat sur R.” The uniqueness theorem cited by Edixhoven as [21], 3.3.3 in the p > 2 step of Prop. 8.2. Added by the reviewer.
+- Schemas en groupes de type (p,...,p), Remark 3.4.6, printed p. 271: “Faut-il souligner que le theoreme 3.4.1 et le corollaire 3.4.4 ne nous apprennent rien pour e >= p-1? Par contre, il resulte de 3.4.3 que si e >= p-1, tout K-schema en F-vectoriels fini, se prolonge en un R-schema en groupes fini.” At p = 2 (e = 1 = p-1 over Z_2^{nr}) the exponent bound is vacuous and every F-vector space scheme prolongs over a strictly henselian R. Added by the reviewer.
+
+### Comparison. For a residually reducible local representation with unramified diagonal twists, peu ramifie is equivalent to admitting a finite flat model
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.4/finite-at-p-equals-peu-ramifie`.
+
+Let F be a finite extension of F_p and rho_p: G_p -> GL_2(F) continuous of the form (8.1.1) rho_p = (chi eps_2, *; 0, eps_1) with eps_1 and eps_2 unramified F^*-valued characters of G_p (Edixhoven's notation; this packet earlier wrote theta_i for eps_i). Let V_{Q_p} be the F-vector space scheme over Q_p attached to rho_p and D the integral closure of Z_p in the maximal unramified extension K of Q_p inside Qbar_p. Then (Prop. 8.2, for every prime p including p = 2) the following are equivalent: rho_p is peu ramifie in Serre's sense (2.4.7); V_{Q_p} extends to a finite flat F-vector space scheme over D; over Z_p; extends to a finite flat group scheme over D; over Z_p. When these hold one says rho_p is finite. Moreover (8.4) the Frobenius-compatibility of the extension class forces, for the valuations alpha_{i,j} of the Kummer classes, either all alpha_{i,j} = 0 (peu ramifie) or lambda = 1 and eps = eps_1 eps_2^{-1} trivial; hence (Prop. 8.5) tres ramifie forces eps_1 = eps_2. In the peu ramifie case with p > 2 (Prop. 8.6), with lambda = (eps_1 eps_2^{-1})(Frob_p), s = [F_p(lambda):F_p], n the order of lambda and f the minimal polynomial of lambda, the Kummer classes satisfy [x_{i,j}] = (sigma^#)^i [x_{0,j}] and their images y under D^*/D^{*p} = U/U^p = F_p-bar satisfy f(Frob_p)(y) = 0, an equation all of whose p^s solutions lie in F_{p^n}; conversely any such data come from a peu ramifie rho_p.
+
+*Hypotheses.*
+
+- rho_p is of the specific shape (8.1.1): upper triangular with diagonal characters chi eps_2 and eps_1, both eps_i unramified - Serre's case beta = alpha+1 after twisting to alpha = 0
+- the equivalence of the five conditions holds for all p; the explicit description 8.6 assumes p > 2 because it uses D^*/D^{*p} = U/U^p
+- the proof of (4) => (2),(3),(5) uses the maximal finite flat prolongation cited as [21], 2.2.3 (Raynaud 1974, Cor. 2.2.3, not read) and the unique extension of the F-action and of the Galois descent data to it; the proof of (1) <=> (2) uses, for p > 2, Raynaud [21], 3.3.3 (at most one finite flat prolongation when e < p-1) and, for p = 2, a separate functoriality argument
+
+*Proof outline.*
+
+1. Edixhoven Prop. 8.2: the implications (3) => (2) => (4) and (3) => (5) => (4) are obvious; given (4), the maximal ([21], 2.2.3) finite flat extension V_D of V_K carries unique extensions of the F-action and of the descent data from K to Q_p, giving (2), (3), (5).
+2. Lemma 8.3 identifies extensions of the constant F-vector space scheme F_S by an F-vector space scheme W with torsors under the underlying additive group of W.
+3. End of 8.3 (the proof of (1) <=> (2)): V_K sits in 0 -> F^D_K -> V_K -> F_K -> 0 (8.3.1); after choosing an F_p-basis of F, Lemma 8.3, the Kummer sequence and Pic(K) = 0 classify such extensions by H^1_fppf(K, F^D) = direct sum of r copies of K^*/K^{*p}, and extensions of F_D by F^D_D by r copies of D^*/D^{*p}; so V_K extends to an extension of F_D by F^D_D iff all v(x_i) = 0 mod p, i.e. iff rho_p is peu ramifie. For p > 2 every extension V_D as in (2) is automatically such an extension by [21], 3.3.3; for p = 2 the functoriality of Ext and a nonzero morphism F_D -> F^D_D produce such an extension from any V_D as in (2).
+4. 8.4 is not part of the proof of 8.2: from sigma^* V_{K,1} = V_{K,1}[lambda_1 lambda_2^{-1}] (8.4.1) it derives the equations 8.4.2 on the Kummer classes [x_{i,j}]; taking valuations gives 8.4.3, whence either all alpha_{i,j} vanish (peu ramifie) or lambda = 1 and eps is trivial, which yields Prop. 8.5.
+5. Prop. 8.6 then solves the equations 8.4.2 explicitly in the peu ramifie case for p > 2, using D^*/D^{*p} = U/U^p = F_p-bar.
+
+*Acceptance.*
+
+- Check that the count p^s of peu ramifie classes in Prop. 8.6 matches the size of the corresponding space of unramified Kummer classes in a small example, for instance F = F_p and lambda = 1 (s = 1, p classes)
+- Check that shape (8.1.1) is used in the proof: the exact sequence 8.3.1 with sub F^D and quotient F requires the characters on the diagonal to be chi eps_2 and eps_1 with eps_i unramified
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.4/peu-et-tres-ramifie-and-the-wild-case-weight`, `AlgebraicModularFormsAndSerreWeights:R15.4/raynaud-prolongation-input-and-the-e-equals-p-minus-one-obstruction`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/finite-flat-kummer-extensions`.
+
+*Sources.*
+
+- The weight in Serre's conjectures on modular forms, 8.1 and Proposition 8.2, p. 26 of the DVI: “with #1 and #2 unramified F* -valued characters of Gp . ... The following conditions are equivalent: 1. #p is "peu ramifi'e" (see [26 ], 2.4.7), 2. VQp can be extended to a finite flat F-vector space scheme VD over D,” The hypothesis that theta_1, theta_2 are unramified and the literal list of equivalent finiteness conditions.
+- The weight in Serre's conjectures on modular forms, 8.4, equations 8.4.3, p. 27 of the DVI: “From this we conclude that either #i,j = 0 for all (i, j) (i.e., #p is "peu ramifi'e") or 1 + as-1 + . . .+ a0 = 0 (i.e., # = 1 and # is trivial).” The valuation dichotomy of 8.4.3, which gives Prop. 8.5 (tres ramifie forces eps_1 = eps_2); the source writes 'lambda = 1 and eps is trivial', eps being the unramified character, not chi. The drafter's 'chi is trivial' and its use as the proof of 8.2 were corrected by the reviewer.
+- The weight in Serre's conjectures on modular forms, End of 8.3, p. 27 of the DVI: “For p > 2 any extension of V_K to V_D as in (2) is automatically an extension of F_D by F^D_D (see [21], 3.3.3). If p = 2 and an extension V_D as in (2) exists, the functoriality of Ext and a non-zero morphism F_D -> F^D_D give an extension V_D of F_D by F^D_D. This completes the proof of Proposition 8.2.” The actual location of the proof of (1) <=> (2), including the explicit p = 2 argument. Added by the reviewer.
+
+### Theorem. k = 2 if and only if det rho_p|I = chi and rho_p is finite at p
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.4/weight-two-iff-finite-flat-at-p`.
+
+Proposition 3 of the source: k = 2 holds exactly when rho_p restricted to I is either given by the two fundamental characters psi, psi' of level 2, or is upper triangular with diagonal (chi, 1) and with I_p acting trivially or peu ramifie. Proposition 4: for rho_p with values in GL_2(F_p), k = 2 if and only if (2.8.3) det rho_p|I = chi and (2.8.4) rho_p is finite at p, i.e. the etale (p,p)-type group scheme over Q_p defined by rho_p extends to a finite flat group scheme over Z_p. The condition (2.8.3) is equivalent to k = 2 mod (p-1). The general F_q-coefficient case requires Raynaud's F-vector-space schemes rather than group schemes of type (p,p).
+
+*Hypotheses.*
+
+- Proposition 4 as proved is stated for rho_p valued in GL_2(F_p); the source says that for general coefficients one must work with Raynaud F-vector space schemes
+- the implication (2.8.3) and (2.8.4) imply k = 2 uses Raynaud [35] cor. 3.4.4 to constrain the tame characters to psi^n psi'^{n'} with 0 <= n, n' <= 1, and Raynaud [35] prop. 3.3.2 for uniqueness of the finite flat prolongation
+- the converse implication (k = 2 implies finite at p) is written without a restriction on p; its level-2 branch cites 'Raynaud [35], th. 2.4.3', a result number that does not exist in Raynaud 1974 (plausibly Theorem 3.4.3, see node raynaud-prolongation-input-and-the-e-equals-p-minus-one-obstruction), and its level-1 branch is only sketched as a direct construction over a finite etale extension R of Z_p followed by descent
+- Serre restricts to p different from 2 only in case (ii) {phi, phi'} = {1, chi} of the direction (2.8.3) + (2.8.4) => k = 2, saying the p = 2 case is 'un peu different, mais se traite de facon analogue' without writing it out
+- the Galois-side finite-flat criterion is FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/finite-flat-weight-two-criterion (p odd); combined with Proposition 3 (the k = 2 rows of the recipe) it gives Proposition 4; the misprinted reference "th. 2.4.3" in Serre's proof is FiniteFlatGroupsAndIntegralPadicHodgeTheory/E12
+
+*Proof outline.*
+
+1. Proposition 3 is stated to follow immediately from the definitions of section 2 (no further proof is given).
+2. Serre reduces (2.8.3) plus finiteness to four possible pairs {phi, phi'} using Raynaud cor. 3.4.4 and the constraint phi phi' = chi, leaving the cases {psi, psi'} and {1, chi}.
+3. The case {psi, psi'} gives (2.8.1) directly.
+4. In the case {1, chi} one takes the unique finite flat prolongation J over Z_p (Raynaud prop. 3.3.2), which is reducible, and gets an exact sequence 0 -> A -> J -> B -> 0 of finite flat group schemes of order p with one of A, B etale and the other multiplicative; after a finite etale extension R of Z_p the sequence becomes 0 -> Z/pZ -> J -> mu_p -> 0 or 0 -> mu_p -> J -> Z/pZ -> 0.
+5. In the first case the identity component splits the extension and I_p acts trivially; in the second the Kummer sequence gives a class u in R^*/R^{*p} with u a unit, so K/K_t is unramified or peu ramifie; either way k = 2.
+6. For the converse, the level-2 branch is Raynaud [35] thm. 2.4.3 and the level-1 branch is a direct construction over an auxiliary finite etale extension R of Z_p followed by descent to Z_p.
+
+*Acceptance.*
+
+- Check that a tres ramifie extension of 1 by chi is not finite at p and has k = p+1 (p odd) or k = 4 (p = 2), so the criterion genuinely separates extension classes
+- Check the criterion against the p-torsion of an elliptic curve with good reduction at p, where finiteness is automatic and k = 2
+
+*Used by.*
+
+- ClassicalSerreModularity R26–R27 — k(ρ̄) = 2 iff finite at p with det|_{I_p} = χ̄ (Khare–Wintenberger and Dieulefait–Pacetti)
+- EllipticCurveModularity R29 — the weight of E[p] for p of good reduction
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases`, `AlgebraicModularFormsAndSerreWeights:R15.4/peu-et-tres-ramifie-and-the-wild-case-weight`, `AlgebraicModularFormsAndSerreWeights:R15.4/determinant-parity-and-weight-mod-p-minus-one`, `AlgebraicModularFormsAndSerreWeights:R15.4/raynaud-prolongation-input-and-the-e-equals-p-minus-one-obstruction`, `AlgebraicModularFormsAndSerreWeights:R15.4/finite-at-p-equals-peu-ramifie`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/finite-flat-weight-two-criterion`.
+
+*Planet:* Serre's weight-two criterion.
+
+*Sources.*
+
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), Proposition 4 and its proof, printed pp. 189-190: “On a k = 2 si et seulement si les deux conditions suivantes sont satisfaites : (2 .8 .3) det pp I = x ; (2 .8 .4) pp est finie en p .” Literal statement of the two conditions characterizing k = 2.
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), Proof of Proposition 4, printed p. 190: “Occupons-nous du cas (ii), en nous bornant, pour simplifier, au cas p != 2 (le cas p = 2 est un peu different, mais se traite de facon analogue).” The source does not write out the p = 2 case of case (ii); this packet records that as an unresolved boundary rather than as an available input. The inequality sign, lost in the text layer, was restored from the page image by the reviewer.
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 2.8, before Proposition 4, printed p. 189: “je me bornerai au cas ou pp prend ses valeurs dan GL 2 (Fp ), donc definit un schema en groupes (etale) de type (p, p ) sur le corps Q p (dans le cas general, il faudrait parler de "schemas en Fq vectoriels" au sens de Raynaud [35]) .” The coefficient hypothesis of Proposition 4 and the pointer to Raynaud F-vector space schemes for general F_q coefficients.
+
+### Comparison. Edixhoven's k(rho_p), its exact difference from Serre's k_rho, and the minimality theorem
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.4/edixhoven-weight-k-rho-and-its-comparison-with-serre-k`.
+
+Edixhoven defines k(rho_p) (Def. 4.3) by the same case division and the same normalizations as Serre, except in two places: in the tame level-1 case (rho_p|I_p trivial, rho_p|I = diag(chi^a, chi^b), 0 <= a <= b <= p-2, the same normalization as Serre's 2.3) he sets k(rho_p) = 1 + pa + b also for (a,b) = (0,0), so k(rho_p) = 1 for rho_p unramified; and in the wild case (0 <= alpha <= p-2, 1 <= beta <= p-1) the additional p-1 is added exactly when chi^{beta - alpha} = chi and rho_p tensor chi^{-alpha} is not finite at p (so at p = 2 the addition is 1, not Serre's 2). Remark 4.4: always k(rho) <= k_rho, and they differ in exactly two cases - (i) rho_p|I_p trivial with a = b = 0, where k(rho) = 1 and k_rho = p; (ii) p = 2, rho_p|I_p nontrivial, alpha = 0, beta = 1 and rho_p not finite at p, where k(rho) = 3 and k_rho = 4. Theorem 4.5 (whose proof is the obligation of SerreWeightAndLevelOptimisation:R20.3, 'Prove the Edixhoven/Serre weight theorem'; it is recorded here as the statement the local recipe is compared against): if rho is continuous irreducible odd and isomorphic to rho_g for some cusp form g of type (N, k, eps) with p not dividing N which is an eigenform for all T_l^*, then there is a cuspidal eigenform f of type (N, k_rho, eps) with the same T_l^* eigenvalues as g for l different from p and rho isomorphic to rho_f; if moreover rho is not exceptional (rho_p not an extension, split or not, of an unramified character by itself), there is an eigenform f of type (N, k(rho), eps) with the same eigenvalues for l different from p and rho isomorphic to rho_f, and no eigenform of level prime to p and weight less than k(rho) has associated representation rho.
+
+*Hypotheses.*
+
+- k(rho_p) is defined for a local representation and depends only on rho_p; the 'not finite at p' clause refers to the finiteness notion of section 8 of the source, i.e. existence of a finite flat model
+- Thm 4.5 assumes rho already modular of some type (N, k, eps) with p not dividing N; it is a weight-optimisation statement, not an existence statement
+- the minimality assertion and the k(rho) form of the conclusion require rho to be non-exceptional; the added end-of-introduction note states that for p > 2 the Coleman-Voloch result removes this condition
+- the proof depends on Gross [10] whose Hecke-equivariance compatibilities on pages 504-505 were, at the time of writing, unchecked; Coleman verified the map in (16.6)
+
+*Proof outline.*
+
+1. Edixhoven Def. 4.3 gives the case division; Remark 4.4 compares it with Serre's k_rho and isolates the two discrepancies.
+2. Proof of Thm 4.5: by Thm 3.4 there is alpha with rho tensor chi^{-alpha} isomorphic to rho_{f_1} for an eigenform f_1 of type (N, k_1, eps) with k_1 <= p+1 and w(f_1) = k_1; the local results Thms 2.5, 2.6, 2.8 and Prop. 2.7 then pin down k_1 and alpha in terms of rho|G_p.
+3. The desired f is obtained by untwisting: apply theta alpha times and divide by the Hasse invariant as often as possible.
+4. The main complication is that k_1 is not unique: a companion form of weight p+1-k_1 may exist (Gross, Thm 2.9) or f_1 may be a multiple of the Hasse invariant (only for k_1 = p or p+1; the k_1 = p+1 case is Mazur's Thm 2.8, which is where 'finite at p' enters).
+5. Minimality: given g of type (M, k, eps') with p not dividing M, the existence part gives f of type (M, k(rho), eps') with the same eigenvalues away from p; if T_p^* f = 0 = T_p^* g the q-expansions differ by a constant and k(rho) = w(f) = w(g) <= k; if T_p^* g is nonzero then k <= p+1 by Gross [10], Proposition 4.12 (not read) and 'a case by case check' (not displayed) gives k(rho) <= k.
+6. Existence in the tame level-1 case alpha = beta = 0 uses Gross's Thm 2.9 (companion forms) and the non-exceptional hypothesis; the added end-of-introduction note says that for p > 2 the Coleman-Voloch theorem removes the 'not exceptional' condition from all statements of Thm 4.5.
+
+*Acceptance.*
+
+- Check the two discrepancy cases of Remark 4.4 explicitly: an unramified rho_p (k(rho) = 1, k_rho = p) and a p = 2 non-finite extension with alpha = 0, beta = 1 (k(rho) = 3, k_rho = 4)
+- Check that the recipe is invariant under enlarging the coefficient field and under isomorphism of rho_p: every clause refers to rho_p|I, to rho_p|I_p, or to the finiteness at p of rho_p tensor chi^{-alpha}, which is a property of the G_p-representation
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases`, `AlgebraicModularFormsAndSerreWeights:R15.4/peu-et-tres-ramifie-and-the-wild-case-weight`, `AlgebraicModularFormsAndSerreWeights:R15.4/finite-at-p-equals-peu-ramifie`.
+
+*Sources.*
+
+- The weight in Serre's conjectures on modular forms, Definition 4.3 case 2(b), p. 10 of the DVI: “If ##-# = # and #p # #-# is not finite at p (see S8.1) then we set k(#p ) = 1 + pa + b + p - 1; otherwise we set k(#p ) = 1 + pa + b.” Literal statement of the extension-sensitive clause, phrased through 'finite at p' rather than through Serre's Kummer-valuation condition.
+- The weight in Serre's conjectures on modular forms, Remark 4.4.1, p. 10 of the DVI: “By comparing the definitions of k# and k(#) one sees that always k(#) # k# and that they differ only in two cases. In both cases # and ## are of level 1. In the first case #p |Ip is trivial and a = 0 = b: then k(#) = 1 and k# = p. In the second case p = 2, #p |Ip is non-trivial, # = 0, # = 1 and #p is not finite at p: then k(#) = 3 and k# = 4.” The exact comparison between the two weight recipes, including the p = 2 discrepancy, which the roadmap requires the local table to record.
+- The weight in Serre's conjectures on modular forms, Introduction, p. 2 of the DVI: “The remaining compatibilities (pages 504 and 505 of [10 ]) have not been checked.” Records the unverified Hecke-compatibility inputs from Gross that Theorem 4.5 depended on at the time of writing; the added note limits the damage to p = 2.
+
+### Theorem. At p = 2 Serre's weight is 2 or 4, and it is 4 exactly in the wild très ramifiée case
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.4/dyadic-weight-two-or-four`.
+
+Let ρ_2 : G_{ℚ₂} → GL₂(F̄₂) be continuous. Then Serre's weight k(ρ_2) is 2 or 4, and k = 4 exactly when I_2 acts nontrivially on V (the wild case) and ρ_2 is très ramifiée (Serre 2.6). Moreover: (a) if I_2 acts trivially on V then ρ_2 is unramified or its tame characters are the fundamental characters of level 2, and k = 2; (b) in the wild case, ρ_2 is finite at 2 if and only if it is peu ramifiée (Edixhoven Prop. 8.2, valid at p = 2), so k = 2 there iff ρ_2 is finite; (c) an unramified ρ_2 is finite (it comes from a finite étale group scheme). For ρ_2 = (1 u; 0 1) with u cutting out ℚ₂(√d): k = 2 for d ∈ {5, −1, −5} and k = 4 for d ∈ {±2, ±10}. Khare–Wintenberger state the full dichotomy "k(ρ̄) = 2 iff ρ̄ is finite at 2"; its level-2 tame case needs finiteness over ℤ₂ of the prolongation that Raynaud constructs over ℤ₂^nr, which is recorded as a gap.
+
+*Hypotheses.*
+
+- p = 2: χ̄ is trivial, so the level-1 tame characters are trivial and the wild normalisation forces α = 0, β = 1
+- the très ramifiée correction at p = 2 is +2 (Serre (2.4.9))
+- the level-2 tame case: Raynaud's prolongation (Theorem 3.4.3, over a strictly henselian base) and its descent to ℤ₂ when uniqueness can fail at e = p − 1 = 1 are not written in any source read (gap)
+
+*Proof outline.*
+
+1. Tame case: I_2 acts on V^{ss} through characters of I_t of level 1 or 2 (R15.4/tame-inertia-characters-of-a-local-residual-representation); level-1 characters are trivial at p = 2, and a tame action is semisimple, so either ρ_2 is unramified (k = p = 2 by the shift of 2.3) or the characters are ψ, ψ′ of level 2 with (a, b) = (0, 1) and k = 1 + 0 + 1 = 2.
+2. Wild case: 0 ≤ α ≤ p − 2 = 0 and 1 ≤ β ≤ p − 1 = 1 give α = 0, β = 1 = α + 1, so k = 2 + 0 = 2 if peu ramifiée and 4 if très ramifiée (R15.4/peu-et-tres-ramifie-and-the-wild-case-weight).
+3. Finiteness: in the wild case R15.4/finite-at-p-equals-peu-ramifie (Edixhoven 8.2 for every p); the unramified case is étale; the example is FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/dyadic-finite-flat-dichotomy and Serre's Exemple in 2.6.
+
+*Acceptance.*
+
+- Serre's example (2.6): ℚ₂(√5) unramified and ℚ₂(√−1), ℚ₂(√−5) of discriminant (4) give k = 2; ℚ₂(√±2), ℚ₂(√±10) of discriminant (8) give k = 4.
+- The 2-torsion of a supersingular elliptic curve with good reduction at 2 is the level-2 tame case, with k = 2 and a finite flat model (its Néron model).
+
+*Used by.*
+
+- ClassicalSerreModularity R27.5 — the dyadic weight claim k(ρ̄′₂) = 2 and Theorem 9.1
+- ClassicalSerreModularity R33.5 — the weight-2 lifts at p = 2 used by Dieulefait–Pacetti §3
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases`, `AlgebraicModularFormsAndSerreWeights:R15.4/peu-et-tres-ramifie-and-the-wild-case-weight`, `AlgebraicModularFormsAndSerreWeights:R15.4/finite-at-p-equals-peu-ramifie`, `AlgebraicModularFormsAndSerreWeights:R15.4/raynaud-prolongation-input-and-the-e-equals-p-minus-one-obstruction`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/dyadic-finite-flat-dichotomy`.
+
+*Planet:* Dyadic Serre weights 2 and 4.
+
+*Sources.*
+
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 2.6, printed p. 188: “Pour p = 2, on a k = 2 si l'action de Ip est triviale, ou peu ramifiée, et k = 4 si” The p = 2 values of the recipe and Serre's quadratic-field example.
+- Serre's modularity conjecture (I), §1, p. 2 (authors' preprint): “In the case of p = 2, the values of k(ρ̄) can either be 2 or 4, with the former if and only if ρ̄ is finite at 2.” The dichotomy as Khare–Wintenberger use it.
 
 ## R15.5 — The algebraic eigenvalue-lifting core
 
@@ -102,10 +466,196 @@ Reuse ModularForms Layer 8 and its weight-one sublayer 8W for their exact integr
 
 After R19.1 supplies the associated Galois representation, define the witness using its coefficient field, a prime over p, the eigenform and the isomorphism with the residual semisimplification. Use R01.5 for the finite-field descent input and R15.4 for the local weight recipe. Keep modularity-existence, weight optimization and the exceptional dyadic completion with their accepted owners. Continuation must type all maps and determinant comparisons; this checkpoint does not introduce an unspecified predicate standing for those constructions.
 
+Checkpoint 2 carries the reviewed decomposition's nodes for this stage, with their prerequisites made explicit, and adds the nodes marked new.
+
+### Definition. Residual modularity: mod p cusp forms of type (N, k, eps), the chosen place above p, and the field of coefficients
+
+*Module* `TauCeti/NumberTheory/ModularForms/ResidualModularity.lean`. *Node* `AlgebraicModularFormsAndSerreWeights:R15.6/residual-modularity-with-a-chosen-place-and-coefficient-field`.
+
+Fix N >= 1 prime to p, k >= 2 and a character eps: (Z/NZ)^* -> F_p-bar^* with eps(-1) = (-1)^k for p different from 2 and k even for p = 2. Embed Qbar in C and choose a place of Qbar above p, giving a reduction map from the ring of algebraic integers to F_p-bar; let eps_0 be the multiplicative (Teichmuller) lift of eps. A cusp form of type (N, k, eps) with coefficients in F_p-bar is a formal series f = sum_{n >= 1} a_n q^n that is the reduction of some classical cusp form F = sum A_n q^n of type (N, k, eps_0) with algebraic integer coefficients. The space S(N, k, eps) does not depend on the chosen p-adic place and has F_p-bar-dimension equal to the complex dimension of S(N, k, eps_0); it is stable under T_l (l not dividing pN) and U_l (l | pN), with U_p the reduction of T_p using k >= 2; a normalized eigenform is determined by its eigenvalues a_l through the usual Euler product. Serre's Remark (6) notes that Katz's definition [23] leads to an a priori larger space, and his footnote 2 that with Katz's definition every form of weight k is also of weight k+p-1, whereas with the reduction definition adopted here this holds for p >= 5 but fails for p = 2 and 3; Edixhoven records that in [27] Serre replaced the reduction definition by Katz's, which makes it natural to allow weight 1.
+
+*Hypotheses.*
+
+- N prime to p and k >= 2 in this definition; the level-p case is not excluded mathematically but yields no genuinely new mod p forms, at the cost of raising the weight
+- the parity condition eps(-1) = (-1)^k is imposed, and is automatic at p = 2 where instead k is required even
+- the reduction of T_p to U_p uses k >= 2 so that the term eps_0(p) p^{k-1} vanishes mod p
+- the dimension comparison 3.1.3 is imported from Shimura [51] Thm 3.52 (also Deligne-Serre [11] Prop. 2.7) and is not reproved in the source
+
+*API.*
+
+- `TauCeti.ResidualModularity.modpCuspForms` (*data*) — S(N, k, ε) ⊂ F̄_p[[q]]: reductions, at the chosen place above p, of cusp forms of type (N, k, ε₀) with algebraic-integer coefficients (N prime to p, k ≥ 2).
+- `TauCeti.ResidualModularity.modpCuspForms_finrank` (*characterisation*) — dim_{F̄_p} S(N, k, ε) = dim_ℂ S_k(N, ε₀), and S(N, k, ε) does not depend on the chosen place.
+- `TauCeti.ResidualModularity.modpHecke` (*constructor*) — The operators T_l (l ∤ pN) and U_l (l | pN) on S(N, k, ε), U_p being the reduction of T_p since k ≥ 2.
+- `TauCeti.ResidualModularity.normalisedEigenform_eq` (*extensionality*) — A normalised eigenform (a₁ = 1) is determined by its eigenvalues a_l.
+
+*Unit tests.*
+
+- `TauCeti.ResidualModularity.modpCuspForms_level_eleven` (example) — S(11, 2, 1) over F̄₃ is spanned by the reduction of 11a1, q − 2q² − q³ + 2q⁴ + ⋯ .
+- `TauCeti.ResidualModularity.katz_vs_reduction` (non-example) — At p = 2 or 3 a Katz form of weight k need not be a reduction of a characteristic-zero form of weight k + p − 1 in this definition (Serre's footnote 2).
+- `TauCeti.ResidualModularity.parity_p2` (degenerate) — At p = 2 the parity condition ε(−1) = (−1)^k is vacuous and k is required even instead.
+
+*Construction.*
+
+1. Serre 3.1 fixes the embeddings and the Teichmuller lift, then defines S(N, k, eps) as the space of reductions.
+2. 3.1.3: independence of the chosen place and the equality of dimensions, quoted from Shimura Thm 3.52.
+3. 3.1.4: stability under T_l and U_l with explicit q-expansion formulas; the U_p case uses k >= 2.
+4. 3.1.5: normalization a_1 = 1, commutation of Hecke operators, and the Euler product showing f is determined by the a_l.
+5. 3.1.6: every mod p eigensystem lifts to a characteristic-zero normalized eigenform, by the eigenvalue lifting lemma cited as [11] lemme 6.11 - i.e. the node deligne-serre-eigenvalue-lifting-lemma.
+6. 3.1.7: Deligne's theorem attaches to a normalized eigenform f a continuous semisimple rho_f, unramified outside pN, with Tr rho_f(Frob_l) = a_l and det rho_f(Frob_l) = eps(l) l^{k-1}.
+
+*Acceptance.*
+
+- Check that the two definitions (reduction of characteristic-zero forms versus Katz forms) can differ, and that every statement in the roadmap that uses weight 1 uses the Katz definition
+- Check that a mod p eigensystem determines f uniquely once normalized, using the Euler product of 3.1.5
+
+*Used by.*
+
+- AlgebraicModularFormsAndSerreWeights:R15.6/serre-conjecture-target-with-N-k-epsilon — the forms f in the qualitative and refined statements
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma`, `AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions`, `AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform`.
+
+*Planet:* Mod p cusp forms of type (N, k, ε).
+
+*Sources.*
+
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 3.1, (3.1.3), printed p. 194: “S(N, k, e) ne depend pas du choix de la place p-adique de Q utilisee pour le definir. De plus, sa dimension sur Fp est egale a la dimension de l'espace analogue S(N, k, e 0 ) sur C .” The independence-of-place and dimension statement that makes the definition of residual modularity well posed.
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 3.1, (3.1.6), printed pp. 194-195: “En effet, du fait que les operateurs T1 et U,, commutent entre eux, tout systeme commun de valeurs propres de ces operateurs dans Fp se releve en caracteristique 0 (cf. par exemple [11], lemme 6 .11)” The explicit use of Deligne-Serre Lemme 6.11 inside the definition chain, justifying the R15.5 -> R15.6 dependency.
+- The weight in Serre's conjectures on modular forms, 4.2 and the paragraph following it, pp. 9-10 of the DVI: “Later, in [27 ], Serre replaced this definition of modular form mod p by the definition that we are using in this article (i.e., Katz's definition). This change in definition makes it natural to allow forms of weight 1.” Records the change of definition that separates k_rho from k(rho) and licenses weight 1.
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 3.2, Remark (6) and footnote 2, printed p. 197: “toute forme de poids k est aussi de poids k + p - 1. Avec la definition adoptee ici, cet enonce est vrai pour p >= 5, mais est faux pour p = 2 ou 3.” A small-characteristic difference between the reduction definition and Katz's definition. Added by the reviewer.
+
+### Lemma. A semisimple representation over a finite field is realizable over the subfield generated by its characteristic polynomials
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.6/realizability-over-the-field-of-characteristic-polynomials`.
+
+Let phi: Phi -> GL_n(k') be a semisimple representation of a group Phi over a finite field k', and let k be a subfield of k' containing the coefficients of the polynomials det(1 - phi(s)T) for all s in Phi. Then phi is realizable over k, i.e. isomorphic to a representation Phi -> GL_n(k). The proof: it suffices that phi be isomorphic to sigma(phi) for every k-automorphism sigma of k', because the Brauer group of a finite field is trivial so there is no Schur index; and phi and sigma(phi) have the same characteristic polynomials and are semisimple, hence isomorphic by Curtis-Reiner Thm 30.16.
+
+*Hypotheses.*
+
+- k' finite and phi semisimple; both are used, semisimplicity through the character-determines-representation theorem and finiteness through the vanishing of the Brauer group
+- the hypothesis is on the coefficients of all characteristic polynomials det(1 - phi(s)T), not merely on traces
+- in Deligne-Serre's application the field k_f is generated by the eigenvalues a_p and the reductions of eps(p), and Cebotarev is used to see that every element of the image is a Frobenius
+
+*Proof outline.*
+
+1. Deligne-Serre 6.12 produces a semisimple mod-lambda representation phi whose characteristic polynomials have coefficients in k_f, by Cebotarev plus the definition of k_f.
+2. Lemme 6.13 then descends the field of definition: it suffices that phi be isomorphic to sigma(phi) for every k-automorphism sigma of k', because the Brauer group of a finite field is trivial (no Schur index); phi and sigma(phi) are semisimple with the same characteristic polynomials, hence isomorphic by [3] = Curtis-Reiner, Representation theory of finite groups and associative algebras, th. 30.16 (not read).
+
+*Acceptance.*
+
+- Check that a semisimple representation over F_4 with F_2-rational characteristic polynomials is conjugate into GL_n(F_2)
+- Check that semisimplicity cannot be dropped, using a non-split extension whose characteristic polynomials are rational over a proper subfield
+- Check that in characteristic 2 traces alone would not suffice for 2-dimensional representations, so that the hypothesis on full characteristic polynomials is needed (reviewer-suggested check; not a claim of the source)
+
+*Used by.*
+
+- AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular — invariance of 'arises from' under enlarging the coefficient field
+
+*Uses.* `ArithmeticGaloisRepresentations:R01.1`.
+
+*Sources.*
+
+- Formes modulaires de poids 1, Lemme 6.13 with proof, printed p. 523: “Soit k un sous-corps de k ' contenant les coefficients des polynomes det (l-(p (^)T), s e < S ) . Alors (p est realisable sur k,i.e. est isomorphe a une representation p : e>->GL^(A;).” Literal statement of the descent of the field of definition by characteristic polynomials.
+- Formes modulaires de poids 1, Proof of Lemme 6.13, printed p. 523: “cela provient de ce que le groupe de Brauer d'un corps fini est trivial, et qu'il n'y a donc pas " d'indice de Schur " a considerer.” The finiteness hypothesis is used exactly through the vanishing of the Brauer group.
+
+### Definition. S-type representations, "arises from a newform" and "modular", and their invariance under the coefficient field
+
+*Module* `TauCeti/NumberTheory/ModularForms/ResidualModularity.lean`. *Node* `AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular`.
+
+Let F be a finite field of characteristic p. A continuous ρ̄ : G_ℚ → GL₂(F) is of Serre type (S-type) if it is absolutely irreducible and odd, det ρ̄(c) = −1 for a complex conjugation c (a vacuous condition when p = 2). Its invariants are N(ρ̄), the prime-to-p Artin conductor (Serre 1.2), k(ρ̄), Serre's weight (R15.4), and ε(ρ̄), the character of (ℤ/N(ρ̄)ℤ)^× with det ρ̄ = ε(ρ̄)χ̄_p^{k(ρ̄)−1} (Serre 1.3, R15.4/determinant-parity-and-weight-mod-p-minus-one). Fix ι_p : ℚ̄ → ℚ̄_p. ρ̄ arises from a newform f (of some weight and level) if there is an integral model ρ : G_ℚ → GL₂(𝒪), 𝒪 the ring of integers of a finite extension of ℚ_p, of the p-adic representation ρ_f attached to f through ι_p, such that ρ̄ is isomorphic to the reduction of ρ modulo the maximal ideal of 𝒪, both considered over a common finite field; ρ̄ is modular if it arises from some newform; it arises from S_{k(ρ̄)}(Γ₁(N(ρ̄))) if it arises from a newform of weight k(ρ̄) and level N(ρ̄). For absolutely irreducible ρ̄ these notions, and N, k and ε, are unchanged when F is replaced by a finite extension F′ and ρ̄ by ρ̄ ⊗_F F′, and depend only on the isomorphism class of ρ̄ ⊗ F̄_p; in particular the choice of the common field in "isomorphic to the reduction" is immaterial.
+
+*Hypotheses.*
+
+- absolute irreducibility is part of S-type (Khare–Wintenberger); Serre's (3.2.1) asks only irreducibility over F̄_p, which is the same condition
+- the reduction of ρ modulo the maximal ideal is independent of the integral model up to semisimplification, and for absolutely irreducible ρ̄ the reduction is itself semisimple (AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform)
+- "arises from" is Khare–Wintenberger's formulation with a newform in characteristic 0; its relation with Serre's formulation through mod p eigenforms of type (N, k, ε) (R15.6/residual-modularity-with-a-chosen-place-and-coefficient-field) is not proved here
+
+*API.*
+
+- `TauCeti.ResidualModularity.IsSType` (*other*) — ρ̄ continuous, absolutely irreducible and odd.
+- `TauCeti.ResidualModularity.ArisesFrom` (*other*) — ρ̄ arises from the newform f through ι_p: an integral model of ρ_f reduces to ρ̄.
+- `TauCeti.ResidualModularity.IsModular` (*other*) — ∃ f, ArisesFrom ρ̄ f.
+- `TauCeti.ResidualModularity.isSType_baseChange` (*compatibility*) — IsSType ρ̄ ↔ IsSType (ρ̄ ⊗_F F′).
+- `TauCeti.ResidualModularity.arisesFrom_baseChange` (*compatibility*) — For absolutely irreducible ρ̄, ArisesFrom ρ̄ f ↔ ArisesFrom (ρ̄ ⊗_F F′) f.
+
+*Unit tests.*
+
+- `TauCeti.ResidualModularity.isSType_11a1_three` (example) — E[3] for 11a1 is of S-type with N = 11, k = 2, ε = 1, and arises from 11a1.
+- `TauCeti.ResidualModularity.not_isSType_11a1_five` (non-example) — E[5] for 11a1 is reducible, hence not of S-type.
+- `TauCeti.ResidualModularity.isSType_p2_odd` (degenerate) — At p = 2 oddness is automatic: det ρ̄(c) = 1 = −1 in F.
+
+*Construction.*
+
+1. Invariance of S-type: absolute irreducibility and oddness are properties of ρ̄ ⊗ F̄_p.
+2. Invariance of N, k, ε: each is defined from ρ̄ ⊗ F̄_p (the Artin conductor from the inertia action, the weight from ρ̄|G_p by R15.4/serre-weight-tame-cases, ε from det ρ̄).
+3. Invariance of "arises from": two absolutely irreducible representations over finite fields that become isomorphic over F̄_p are isomorphic over any common finite subfield, by Brauer–Nesbitt and R15.6/realizability-over-the-field-of-characteristic-polynomials (no Schur index over a finite field).
+
+*Acceptance.*
+
+- ρ̄ = E[3] for E = 11a1: absolutely irreducible (no rational 3-isogeny) and odd, so of S-type; N(ρ̄) = 11 (ramified at 11 with inertia of order 3), k(ρ̄) = 2 (good reduction at 3), ε = 1; it arises from the newform 11a1 of weight 2 and level 11, i.e. from S₂(Γ₁(11)).
+- Non-example: E[5] for E = 11a1 is reducible (ρ̄^{ss} ≅ 1 ⊕ χ̄₅), so not of S-type.
+
+*Used by.*
+
+- ClassicalSerreModularity R26–R27 — S-type, N(ρ̄), k(ρ̄), ε(ρ̄) and "arises from" in Khare–Wintenberger's theorems
+- ClassicalSerreModularity R33.6 — the notion against which Dieulefait–Pacetti's modularity is compared
+
+*Uses.* `AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation`, `AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform`, `AlgebraicModularFormsAndSerreWeights:R15.6/realizability-over-the-field-of-characteristic-polynomials`, `AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases`, `AlgebraicModularFormsAndSerreWeights:R15.4/peu-et-tres-ramifie-and-the-wild-case-weight`, `AlgebraicModularFormsAndSerreWeights:R15.4/determinant-parity-and-weight-mod-p-minus-one`, `ArithmeticGaloisRepresentations:R01.3`.
+
+*Planet:* S-type representations and "arises from".
+
+*Sources.*
+
+- Serre's modularity conjecture (I), §1, p. 2 (authors' preprint): “We say that such a representation is of Serre-type, or S-type, for short.” S-type: continuous, absolutely irreducible, two-dimensional and odd.
+- Serre's modularity conjecture (I), §1, p. 2 (authors' preprint): “By arises from f we mean that there is an integral model ρ : GQ → GL2 (O) of the p-adic representation ρf associated” "Arises from", "modular" and "arises from S_{k(ρ̄)}(Γ₁(N(ρ̄)))".
+
+### Theorem. The weight-and-level target: the statement to which the recipe is attached
+
+*Node* `AlgebraicModularFormsAndSerreWeights:R15.6/serre-conjecture-target-with-N-k-epsilon`.
+
+Let rho: G_Q -> GL(V) = GL_2(F_p-bar) be continuous with (3.2.1) rho irreducible and (3.2.2) det rho odd. The qualitative statement (3.2.3?) is that rho is isomorphic to rho_f for some mod p Hecke eigenform f; the refined statement (3.2.4?) is that f can be taken of type (N, k, eps) with N the prime-to-p Artin conductor of rho, k the weight of section 2 and eps the character of 1.3. For a normalized f this means Tr rho(Frob_l) = a_l and det rho(Frob_l) = eps(l) l^{k-1} for all l not dividing pN - and the trace identity on a set of l of density 1 already suffices. Serre further conjectures (3.2.6?) that for l dividing pN, a_l is nonzero exactly when rho restricted to the decomposition group at l has a 1-dimensional unramified quotient V/D, in which case a_l is the Frobenius eigenvalue on V/D; for l | N such a D is unique, and the same holds for l = p when rho is ramified at p, whereas for rho unramified at p (so k = p by Serre's convention) there are two possible a_p, the two Frobenius eigenvalues, with product eps(p).
+
+*Hypotheses.*
+
+- rho irreducible and det rho odd - both are hypotheses of the statement, not conclusions
+- N is the prime-to-p part of the Artin conductor: n(l, rho) = dim V/V^{G_0} + b(V) where b is the wild invariant, so N is a genuine conductor and not merely a ramification set
+- Serre's remark (5) that N and k are minimal is stated as probable, not proved, in the source; Edixhoven Thm 4.5 proves minimality, under the non-exceptional hypothesis, of his own weight k(rho) for Katz forms, which differs from Serre's k_rho in the two cases of his Remark 4.4
+- the a_p statements at l = p distinguish sharply between rho ramified and unramified at p
+- the labels (3.2.3?), (3.2.4?) and (3.2.6?) are Serre's own: he marks conjectural statements with a question mark
+
+*Proof outline.*
+
+1. Serre 1.2 defines n(l, rho) by (1.2.1) and rewrites it as (1.2.2) dim V/V^{G_0} + b(V), and deduces that n(l, rho) = 0 exactly when rho is unramified at l and n(l, rho) = dim V/V^{G_0} exactly when rho is tamely ramified at l.
+2. 3.2 states the conjecture in its qualitative and refined forms and translates the isomorphism rho = rho_f into the trace and determinant identities (3.2.5).
+3. Remarks (1)-(3) analyse the local eigenvalue a_l for l | pN: for l | N there is at most one line D; the bracketed claims that D exists iff v_l(N) = 1 or v_l(N) = v_l(cond eps) >= 2 ('Il n'est pas difficile de prouver') and that, when v_l(N) = 1 and v_l(cond eps) = 0, the Frobenius eigenvalue lambda on V/D satisfies lambda^2 = eps_prim(l) l^{k-2} ('on peut montrer') are asserted without proof; for l = p unramified the two eigenvalues lambda, mu with lambda mu = eps(p) may coincide.
+4. Remark (2) notes the consequent uniqueness of f, with coefficients generating the field of rationality of rho over F_p.
+
+*Acceptance.*
+
+- Check that N is prime to p by construction and that n(l, rho) = dim V/V^{G_0} exactly in the tame case
+- Check the density-1 sufficiency of the trace identity by a Cebotarev argument on the finite image of rho
+
+*Used by.*
+
+- ClassicalSerreModularity R27.6 — the strong form proved by Khare–Wintenberger
+
+*Uses.* `AlgebraicModularFormsAndSerreWeights:R15.6/residual-modularity-with-a-chosen-place-and-coefficient-field`, `AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular`, `AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases`, `AlgebraicModularFormsAndSerreWeights:R15.4/peu-et-tres-ramifie-and-the-wild-case-weight`, `AlgebraicModularFormsAndSerreWeights:R15.4/determinant-parity-and-weight-mod-p-minus-one`, `ArithmeticGaloisRepresentations:R01.3`.
+
+*Planet:* Serre's conjecture: the refined target.
+
+*Sources.*
+
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 3.2, (3.2.1)-(3.2.5), printed pp. 195-196: “(3 .2 .4,) La forme parabolique f de (3 .2 .3,) peut etre choisie de type (N, k, e), ou N, k et e sont les invariants de p definis au §1 et au §2 .” The refined statement that fixes the type (N, k, eps) to be the invariants of the recipe rather than any admissible type.
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 3.2, Remark (5), printed p. 197: “Il est probable que N et k sont minimaux pour rho, autrement dit que, si rho est isomorphe a rho_f', avec f' de type (N', k', eps'), N' premier a p, k' >= 2, alors N' est multiple de N et k' >= k.” The source itself only conjectures minimality; this packet does not record minimality as an established input. Transcribed from the page image by the reviewer (the text layer garbles the inequalities).
+- Sur les representations modulaires de degre 2 de Gal(Qbar/Q), 1.2, (1.2.2), printed p. 181: “n(l, p) = dimV/Ijo + b(V), ou b(V) est "l'invariant sauvage" du G o-module V” The Artin conductor exponent with its wild part, the definition of N used in the statement.
+
 ## Source and baseline record
 
 **DS:** Pierre Deligne and Jean-Pierre Serre, *Formes modulaires de poids 1*, Annales scientifiques de l'ENS, fourth series 7 (1974), 507–530, published Numdam scan, <https://www.numdam.org/article/ASENS_1974_4_7_4_507_0.pdf>. Section 6.8–6.11 on printed page 522 was read; Lemme 6.11 and its proof were checked in the page image on 26 September 2026. No new error is asserted for this checked passage. Unread source material is not certified by the empty source-issues list.
 
 The eight baseline declarations listed in the packet were read in their actual files at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` or Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. In particular, `IsDiscreteValuationRing.exists_lift_of_le_one` concerns bounded elements of an **existing fraction field**; it is not an existence theorem for a new DVR or a substitute for the normalization argument. No unchecked search hit is promoted to a verified baseline declaration.
 
-The suggested file is uncompiled. No mathematical implementation is claimed. The remaining exact-API, full-audit/link reconciliation, source and geometric/local construction obligations are recorded explicitly in the packet and handoff.
+**Checkpoint 2 sources.** Serre, *Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)*, Duke Math. J. 54 (1987); Edixhoven, *The weight in Serre's conjectures on modular forms* (author's DVI); Raynaud, *Schémas en groupes de type (p, …, p)*, Bull. SMF 102 (1974); and Khare–Wintenberger, *Serre's modularity conjecture (I)* (authors' preprint). Each was downloaded again and its SHA-256 matches the record. All 33 carried excerpts and the 4 new ones were compared with the extracted text: Edixhoven's text was extracted from the DVI, which renders Greek letters as placeholders. The excerpts match exactly or up to OCR and rendering, and they lie on the pages given. Serre's printed page is the PDF page + 178, and Raynaud's is the PDF page + 239.
+
+**Source issue E1.** Serre's Remark (1) in 2.4 (p. 186) says that m = 1 or 2 in the très ramifiée case. For p = 2, m = 3 also occurs (Edixhoven, Proposition 8.5). This correction is known. The weight does not depend on m.
+
+The suggested file imports a Tau Ceti module, so it cannot be compiled without a Tau Ceti build, and no build was run. The checks added in checkpoint 2 import Mathlib only. They were compiled as a separate file against Mathlib `082e2d3`, with no errors. No mathematical implementation is claimed. The remaining exact-API, full-audit/link reconciliation, source and geometric/local construction obligations are recorded explicitly in the packet and handoff.
