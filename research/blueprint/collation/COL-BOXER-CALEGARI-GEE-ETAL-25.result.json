@@ -1,0 +1,122 @@
+{
+  "paper": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+  "status": "partial",
+  "requiresManualReview": true,
+  "agent": "ChatGPT Pro",
+  "session": "cgpt-20260926-qseries-a91f",
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://spiral.imperial.ac.uk/server/api/core/bitstreams/affd572a-faa1-43bf-945a-0908968b9357/content",
+      "citation": "George Boxer, Frank Calegari, Toby Gee, James Newton and Jack A. Thorne, The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms, Forum of Mathematics, Pi 13 (2025), e10, 1–65; doi:10.1017/fmp.2024.29.",
+      "read": "2026-09-26",
+      "identity": "Institutionally deposited copy of the Cambridge typeset version of record, not an accepted manuscript. Page 1 visually identifies the journal, volume, article number, 1–65 pagination, title, five authors and DOI; the later inspected pages have the matching journal typography, pagination and publication footer. The CC BY 4.0 notice is present.",
+      "readScope": "Publication identity and all four batch locators with surrounding statement/proof context. Not a full-paper reading or a fresh mathematical review.",
+      "pageImagesChecked": [
+        1,
+        37,
+        41,
+        42,
+        48,
+        55,
+        56
+      ],
+      "access": "The DOI fetch failed; the Imperial repository supplied the complete 65-page published PDF to the browser, including text and page images. Binary download to scratch storage failed, so no independently calculated source SHA-256 is claimed. No previous worker’s hash was copied."
+    }
+  ],
+  "inputs": [
+    {
+      "path": "research/blueprint/collation/jobs/COL-BOXER-CALEGARI-GEE-ETAL-25.json",
+      "blobSha": "080a2c77529c68a09af35f2227f481831b25e3d5"
+    },
+    {
+      "path": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+      "blobSha": "35edb8f87588a79a4581e5007763b0bce3c9cb0a"
+    }
+  ],
+  "comparisonMethod": "Compare quoted passages word by word after normalising whitespace, mathematical font and ordinary plain-text rendering of indices. Explicit ellipses separate excerpts; they do not imply omitted hypotheses are absent. An omitted prose qualifier or a missing overbar is recorded, not silently normalised. Nonliteral inputs are not labelled preprint-only without a demonstrated version difference.",
+  "provenanceNote": "The batch says readFrom=preprint, but the current input record reports published-version extraction and review, with journal-page locators. This session independently inspected the published copy. It did not read a preprint or establish a preprint-to-print revision.",
+  "mathematicalScope": "Sentence collation only. Existing mathematical corrections, counterarguments, review verdicts and newness claims remain unchanged and are not independently certified. The recorded input-quotation defects do not establish new errors in the paper or retract its existing findings.",
+  "findings": [
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E7",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        37
+      ],
+      "evidence": "Page image of Lemma 4.2.4 and its proof. Both passages separated by the input’s bracketed ellipsis occur exactly after mathematical-font and index rendering. The exponents N−n, 1−N and 1−n were checked visually, together with the c-linear isomorphisms and final Schur’s lemma sentence.",
+      "verdict": "The quotation matches the published text. The existing finding therefore remains against the version of record; its proposed weight/exponent correction is not re-derived here."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E23",
+      "outcome": null,
+      "classificationIssue": "unmarked-prose-omission",
+      "literalQuotationMatches": false,
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        41,
+        42
+      ],
+      "published": "Proposition 4.4.2. With notation as above, T({Ū_{λ_i}}) is a geometrically irreducible smooth F-scheme.",
+      "evidence": "Page images of Definition 4.4.1(2), the representability paragraph and Proposition 4.4.2. The determinant-isomorphism fragment and representability sentence match. The proposition’s conclusion is also present, but the input omits the words With notation as above, immediately after its heading without marking that omission. The additional pairing data and functor conditions were read as context, not re-adjudicated.",
+      "verdict": "The underlying published statements are present. The whole stored quotation is not literal because of the omitted introductory qualifier. No preprint-only or absent conclusion follows; outcome remains unresolved until the input quotation is repaired or an explicit protocol decision permits this abbreviation.",
+      "repairProposal": {
+        "targetField": "sourceIssues[id=PAPER-BOXER-CALEGARI-GEE-ETAL-25/E23].printed",
+        "operation": "Insert With notation as above, after Proposition 4.4.2. in the final quoted segment, and update the matching batch quotation. Do not change the determinant or pairing data or apply the existing mathematical correction.",
+        "inputModified": false,
+        "afterRepair": "With that qualifier restored, all three stored excerpts match the published passages inspected here."
+      }
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E28",
+      "outcome": null,
+      "classificationIssue": "missing-character-overbar",
+      "literalQuotationMatches": false,
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        48,
+        55
+      ],
+      "published": "r̄_B ≅ Ind_{G_L}^{G_F} ψ̄ and r̄_B|_{G_{F(ζ_p)}} irreducible; The representation r̄_{CM,𝔯}|_{G_{F(ζ_r)}} is irreducible.",
+      "evidence": "Page images of Lemma 5.2.6 hypothesis (2) and Proposition 6.2.3(13). The first published fragment uses ψ̄, consistently with the character introduced earlier in that hypothesis; the stored quotation uses ψ. The second quotation matches. Both passages really say irreducible, not absolutely irreducible.",
+      "verdict": "Both irreducibility requirements occur in the published paper. The missing overbar is an input-transcription discrepancy, not an established publication change. Leave the current quotation’s outcome unresolved rather than declaring the finding preprint-only, absent or literally identical.",
+      "repairProposal": {
+        "targetField": "sourceIssues[id=PAPER-BOXER-CALEGARI-GEE-ETAL-25/E28].printed",
+        "operation": "Add the overbar to ψ in the first quotation and update the batch copy. Keep irreducible in both quotations: replacing it by absolutely irreducible would insert the proposed mathematical correction into the quoted source.",
+        "inputModified": false,
+        "afterRepair": "After this one-symbol transcription repair, both quoted fragments match the published text inspected here."
+      }
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E30",
+      "outcome": "identical",
+      "publishedStatementPresent": true,
+      "pagesChecked": [
+        55,
+        56
+      ],
+      "evidence": "Page image of Proposition 6.2.3(7) on p. 55: the full quoted sentence, including its numbering, matches. The later hypotheses (8)–(17) and proof on pp. 55–56 were read for context. The conclusion about a missing crystallinity hypothesis in the existing review is not independently re-proved by this reading.",
+      "verdict": "The quoted condition is present unchanged in the version of record. No added crystallinity clause occurs in this particular sentence. The existing gap finding remains attached to the published text without a new mathematical correctness verdict."
+    }
+  ],
+  "summaryCounts": {
+    "identical": 2,
+    "preprint-only": 0,
+    "absent": 0,
+    "unresolved": 2
+  },
+  "handoff": {
+    "done": "Resolved the earlier published-text access blocker using the Imperial deposit. All four source locations inspected visually; two complete literal comparisons settled, and two narrowly specified input-transcription repairs recorded.",
+    "remaining": [
+      "Authorise the E23 and E28 quotation repairs in the input record and batch, then classify the repaired inputs.",
+      "Run the full repository unittest suite in a complete checkout."
+    ],
+    "integration": "Partial checkpoint, not a completed collation. Keep the PR draft while two outcomes are null. Passing the generic submission check does not validate the quotations or authorise ingestion of unresolved outcomes."
+  },
+  "validation": {
+    "local": "Eight scratch unittest cases passed: JSON round trip; exact four batch IDs; outcome counts; exactly two explicitly unresolved findings; visual page coverage; metadata without fabricated source hashes; preservation of irreducible in the E28 published transcription; and presence of exact repair targets with no input edits. These structural checks are not an independent PDF parser or mathematical verification.",
+    "repositorySuite": "Not run: no complete runnable repository checkout was available. The requested full unittest command is separate from local scratch tests and from GitHub submission CI.",
+    "lean": "Not applicable; no Lean file changed."
+  }
+}
