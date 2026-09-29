@@ -17959,11 +17959,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R32.3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
-   ]
+   ],
+   "note": "claimed on GitHub issue #736"
   },
   {
    "id": "REV-GL2ModularityLifting--R32.3",
