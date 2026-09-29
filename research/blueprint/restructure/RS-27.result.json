@@ -242,6 +242,21 @@
    "source": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
    "target": "SchemeKTheoryOperations:S.5",
    "reason": "S.5 requested Rees-algebra blowups from R09.7a; the blowup with universal property, charts and flat base change is StableReduction layer 4's."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.2",
+   "reason": "Forwarding for the narrowed R09.1 (REV-RS-27 correction): the projective Hilbert and Quot constructions use relative ampleness, projective morphisms and relative Proj, which StableReduction layer 2 now owns; R09.1 keeps relative very ampleness, Hilbert polynomials and boundedness."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#1e-the-cubic-polarisation-and-elliptic-descent",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.4",
+   "reason": "Forwarding for the narrowed R09.3 (REV-RS-27 correction): the algebraicity of the moduli stack of elliptic curves uses effective descent of elliptic curves with their polarisation, group law and level structures, the stack condition, which Modular curves 1E now owns; R09.3 keeps the general algebraic-space theory and fppf descent of polarised projective schemes in all dimensions."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+   "reason": "Forwarding for the narrowed R09.7a (REV-RS-27 correction): the local invariant and maximal-contact argument works on Rees-algebra blowups and their affine charts, which StableReduction layer 4 now owns; R09.7a keeps the transforms and marked ideals."
   }
  ],
  "owners": [
@@ -367,5 +382,17 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
    ]
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-RS-27",
+  "date": "2026-09-29",
+  "notes": "Independent review by Claude Code, session cc-58621d, of the proposal by Claude Code session cc-fb70e5 (#3954), at main d62a8362. Read the member document in full, all twelve stages (nine listed in the proposal, R09.7b–R09.7d unchanged), the seventeen owner records, the thirty-one links, the family file and the report, and every anchor layer the proposal names (Modular curves 0C, 0E, 0F, 0G, 1E, 4A, 4C, 7B, 7D, 9A, 9D, 9E; Stable reduction layers 2 and 4). The keep decision is PROTOCOL section 15's rule for a general theory subsuming special cases; the anchors are unchanged; each narrowed layer states what it keeps and every moved piece has one anchor owner. The anchor layers do state what the owners claim: SR layer 2 proves cohomology and base change, Grauert and semicontinuity for proper morphisms over locally Noetherian bases before specializing to curves, SR layer 4 the Rees-algebra blowup as relative Proj, MC 0F the general finite-locally-free Weil restriction; MC 0G's Grassmannian is built for the Hopf algebra as a finite locally free module, the generality point the report already flags. On the current assembled atlas the links are acyclic and five already exist. Forwarding: for every consumer of a narrowed layer without a supplier link I checked for another path to the supplier and read its text; three later AM layers relied on moved pieces and lacked links (corrected below). The two links to MordellLawrenceVenkatesh LV.3 and LV.7 name a designed roadmap not yet in the atlas; restructure.py records them as skipped until it is promoted. check_restructure.py passes before and after the correction. Report: research/blueprint/reviews/REV-RS-27.md.",
+  "corrections": [
+   "Added the link StableReduction layer 2 -> R09.2: R09.2's projective Hilbert and Quot constructions use relative ampleness, projective morphisms and relative Proj, which R09.1 no longer owns.",
+   "Added the link Modular curves 1E -> R09.4: R09.4's algebraicity of the moduli stack of elliptic curves uses effective descent of elliptic curves, which R09.3 no longer owns.",
+   "Added the link StableReduction layer 4 -> R09.7b: R09.7b's local invariant works on the Rees-algebra blowups that R09.7a no longer owns.",
+   "Added this review object."
+  ]
+ }
 }
