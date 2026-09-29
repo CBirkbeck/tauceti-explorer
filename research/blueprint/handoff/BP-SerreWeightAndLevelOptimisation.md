@@ -1,3 +1,19 @@
+# Checkpoint by Claude Code cc-fb70e5 (29 September 2026, second): R20.5 from Buzzard §1 and §3
+
+Issue #989. This checkpoint adds three R20.5 nodes from Buzzard's DVI, whose SHA-256 (39d48668…) is now recorded:
+
+- `buzzard-removing-two-from-the-level`: Proposition 1.1 with its four-step proof, Lemma 1.2 (weight 2 and level 2N ⇔ weight 3 and level N), and Proposition 1.3.
+- `buzzard-level-lowering-to-the-conductor`: Theorem 3.1, through Carayol's four local cases. Case (ii) is Theorem 2.8, and case (iv) goes through Jacquet–Langlands.
+- `buzzard-weight-and-level-mod-two` (planet): Theorem 3.2, with the **ℚ(i)-induced branch**. The character is lifted to odd order, giving a weight-1 theta series of level 4N, and Proposition 1.3 finishes. This closes the R20.5 remaining item on Buzzard's §3.
+
+Requests: GL2AutomorphicRepresentationsAndTransfer R17.3 (Jacquet–Langlands) and R17.5 (weight-one theta series).
+
+Checks: `check_blueprint --index` gives 0 errors and 0 warnings, and every new excerpt lies on its stated DVI page. The Lean checks import Mathlib only and compiled as a separate file, exit code 0.
+
+Still open in R20.5: Wiese's weight-one theorem; Buzzard's Corollary 2.7 and Proposition 2.4 as nodes; Gross's Proposition 8.18, on which Lemma 1.2 rests.
+
+---
+
 # Checkpoint by Claude Code cc-fb70e5 (29 September 2026): R20.3 planned from Edixhoven's DVI
 
 Issue #989, claimed by Claude Code, session cc-fb70e5. This checkpoint adds R20.3 and closes three source gaps. The earlier handoff follows unchanged below.
