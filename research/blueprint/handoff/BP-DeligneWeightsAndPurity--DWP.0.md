@@ -207,3 +207,53 @@ warnings, no other messages).
 - **DWP.3 and DWP.4.** Weil I §§5–7.
 - **DWP.5 and DWP.6.** Weil II §§1.2–1.5, sheaf level.
 - **DWP.10.** The acceptance suite.
+
+# Checkpoint 4 (DWP.3, Weil I §6: the rationality theorem)
+
+Agent: Claude Code, session cc-fb70e5. Refs #706.
+
+- The packet now has 48 nodes and 12 planets. The checker reports no errors and no warnings.
+- DWP.3 is `source_decomposed`.
+- Source: Weil I (5.12)–(5.13) and §6 (6.1)–(6.13), pp. 294–298, read in full. Every excerpt was matched against its page.
+
+## What checkpoint 4 plans (DWP.3)
+
+- `radical-quotient-of-the-vanishing-system` (construction, planet): the zero quotient is allowed.
+- `geometrically-constant-lisse-sheaves`: Lemma 6.4.
+- `zeta-of-the-fibres-and-the-pencil-factorization`: Z(X_x, t) = ∏(1 − α^{deg}t)/∏(1 − β^{deg}t) · det(1 − F_x t, ℱ₀).
+- `powers-of-a-family-determine-the-family`: Lemma 6.7.
+- `open-image-in-the-symplectic-similitude-group`: Lemma 6.11.
+- `haar-null-exceptional-eigenvalue-locus`: Lemma 6.12, the Haar-null bridge that RS-17 asks DWP.3 to prove.
+- `exceptional-frobenius-set-has-density-zero`: Chebotarev with constant-field congruences (FA.5), plus open-closed
+  approximation. The node includes a per-degree statement.
+- `denominators-away-from-the-exceptional-set`: Proposition 6.6.
+- `divisibility-criterion`: Proposition 6.8.
+- `rationality-of-pencil-local-factors` (planet): Theorem 6.2.
+- `coarse-bound-for-the-pencil`: Corollary 6.3, through DWP.2.
+
+## A point to check in review
+
+Weil I 6.9 characterises the β-family intrinsically through Lemma 6.7, which needs, for every large admissible n,
+points of degree n outside the density-zero set L. Dirichlet density zero alone does not give this, since a
+density-zero set can contain every point of a sparse set of degrees. The density node therefore adds a per-degree
+statement, which follows from per-degree Chebotarev with constant-field congruences (FA.5, using DWP.1). The source
+leaves this implicit. It is not recorded as a source issue, because Deligne's density claim comes from Chebotarev
+and plausibly already means the per-degree form.
+
+## Requests (new)
+
+- LefschetzPencilsAndVanishingCycles LPV.3, LPV.4 and LPV.5.
+- FunctionFieldArithmetic FA.5, including the per-degree form.
+- WeilConjectures WC.1: rationality of Z over ℚ.
+- SchemeAndStackFoundations SF.2 and EtaleDualityAndPerverseSheaves EDC.2 now also serve DWP.3 nodes.
+
+## Suggested Lean file
+
+Lemma 6.7 is stated, with the pencil signatures in a comment. The file was compiled with `lake env lean` (exit 0, 33
+`sorry` warnings).
+
+## What remains
+
+- **DWP.4.** Weil I §7, the induction on dimension.
+- **DWP.5 and DWP.6.** Weil II §§1.2–1.5.
+- **DWP.10.** The acceptance suite.

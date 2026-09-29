@@ -13,7 +13,7 @@
     "DeligneWeightsAndPurity:DWP.6"
   ],
   "status": "partial",
-  "summary": "Deligne weights, purity and the Weil bounds, part DWP.0 (stages DWP.0–DWP.6 and DWP.10), checkpoints 1–3, in 37 nodes. Checkpoint 1 plans DWP.0, the weight linear algebra (Weil I §§1–2, Weil II §1.2). Checkpoint 2 plans DWP.2, Weil I §3's fundamental estimate. Checkpoint 3 plans DWP.1, the independent Weil estimate for abelian varieties and curves from Milne's Abelian Varieties II §1 and III §11. It covers the q-Frobenius endomorphism, π†π = q, absolute values from the Rosati involution, the Weil estimate and point counts for abelian varieties, the curve case through the Jacobian, the weights of H⁰, H¹ and H² of curves, compatibility with the Hasse bound, and compatibility with finite base extension. RS-17 (accepted) keeps DWP.0 whole and narrows DWP.1 and DWP.2; this packet follows it. DWP.3–DWP.6 and DWP.10 are not yet planned.",
+  "summary": "Deligne weights, purity and the Weil bounds, part DWP.0 (stages DWP.0–DWP.6 and DWP.10), checkpoints 1–4, in 48 nodes. DWP.0, DWP.1, DWP.2 and DWP.3 are planned. Checkpoint 4 plans DWP.3, Weil I §6's rationality theorem. It covers the radical quotient ℱ₀ = ℰ₀/(ℰ₀ ∩ ℰ₀^⊥) of a Lefschetz pencil, geometrically constant sheaves (6.4), the factorization of the fibres' zeta functions, Lemma 6.7, the open image in the symplectic similitude group (6.11), the Haar-null exceptional locus (6.12), the per-degree density-zero step through Chebotarev with constant-field congruences, Propositions 6.6 and 6.8, Theorem 6.2, and Corollary 6.3. RS-17 (accepted) keeps DWP.0 and narrows DWP.1–DWP.3; this packet follows it. DWP.4–DWP.6 and DWP.10 are not yet planned.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -198,7 +198,8 @@
       "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5",
       "readSections": [
         "cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 1): §1 (1.1)–(1.15), pp. 273–279, including the proof of (1.7) ⇒ (1.6); §2 (2.1)–(2.14), pp. 280–283; §3 (3.1)–(3.6), pp. 283–284",
-        "cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 2): §3 (3.1)–(3.9) in full, pp. 283–287, and Scholie (2.10), p. 282"
+        "cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 2): §3 (3.1)–(3.9) in full, pp. 283–287, and Scholie (2.10), p. 282",
+        "cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 4): (5.12)–(5.13) and §6 (6.1)–(6.13), pp. 294–298, in full"
       ],
       "accessed": "2026-09-29"
     },
@@ -2259,6 +2260,514 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.3/radical-quotient-of-the-vanishing-system",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.3",
+      "realises": [
+        "DeligneWeightsAndPurity:DWP.3"
+      ],
+      "title": "The radical quotient ℱ₀ = ℰ₀/(ℰ₀ ∩ ℰ₀^⊥) of the vanishing local system of a pencil",
+      "kind": "construction",
+      "statement": "Let X₀ ⊂ P₀ be a smooth projective variety over 𝔽_q, geometrically connected of even dimension n + 1 = 2m + 2, and (X_t)_{t ∈ D} a Lefschetz pencil of hyperplane sections defined over 𝔽_q, with axis A₀ of codimension 2, parameter line D₀, blow-up f : X̃₀ → D₀, singular set S₀ ⊂ D₀ and U₀ = D₀ − S₀. On U, R^n f_*ℚ_ℓ is lisse. Its vanishing part ℰ is π₁(U, u)-stable, is defined over 𝔽_q as a lisse subsheaf ℰ₀ ⊂ R^n f_*ℚ_ℓ|U₀, and cup product is an alternating form ψ : R^n f_*ℚ_ℓ ⊗ R^n f_*ℚ_ℓ → ℚ_ℓ(−n) (n odd). The radical quotient is ℱ₀ = ℰ₀/(ℰ₀ ∩ ℰ₀^⊥), on which ψ induces a perfect alternating pairing ℱ₀ ⊗ ℱ₀ → ℚ_ℓ(−n). ℱ₀ may be 0.",
+      "hypotheses": [
+        "The geometry (the pencil, R^n f_*, ℰ and ψ) is LefschetzPencilsAndVanishingCycles LPV.3–LPV.4's. This node only forms the radical quotient and records its descent to 𝔽_q, as RS-17 asks DWP.3 to instantiate it.",
+        "The zero quotient ℱ₀ = 0 (when ℰ ⊆ ℰ^⊥) is allowed. Theorem 6.2 is then vacuous and the pencil contributes only geometrically constant factors.",
+        "The coefficients stay ℚ_ℓ, a fixed model, as LPV.5 requires for its open-image theorem."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Weights.Pencil.vanishing",
+          "role": "constructor",
+          "statement": "Pencil.vanishing P : LisseSubsheaf (R^n f₀_* ℚ_ℓ) over U₀ (from LPV.4)."
+        },
+        {
+          "name": "TauCeti.Weights.Pencil.radicalQuotient",
+          "role": "constructor",
+          "statement": "radicalQuotient P := vanishing P ⧸ (vanishing P ⊓ (vanishing P)ᗮ)."
+        },
+        {
+          "name": "TauCeti.Weights.Pencil.radicalQuotient_pairing",
+          "role": "constructor",
+          "statement": "the perfect alternating pairing radicalQuotient P ⊗ radicalQuotient P ⟶ ℚ_ℓ(−n)."
+        },
+        {
+          "name": "TauCeti.Weights.Pencil.radicalQuotient_perfect",
+          "role": "characterisation",
+          "statement": "the induced pairing is perfect."
+        },
+        {
+          "name": "TauCeti.Weights.Pencil.radicalQuotient_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "radicalQuotient P = 0 ↔ vanishing P ≤ (vanishing P)ᗮ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DeligneWeightsAndPurity:DWP.3/rationality-of-pencil-local-factors",
+          "how": "Theorem 6.2 concerns det(1 − F_x t, ℱ₀)"
+        },
+        {
+          "where": "DeligneWeightsAndPurity:DWP.3/coarse-bound-for-the-pencil",
+          "how": "Theorem 3.2 applied to ℱ₀"
+        },
+        {
+          "where": "DeligneWeightsAndPurity:DWP.4",
+          "how": "the induction on dimension through H¹(D, j_*ℱ)"
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Weights.radicalQuotient_cubic_pencil",
+          "kind": "value",
+          "statement": "For a pencil of plane cubics, ℱ₀ has rank 2 and ψ is the Weil pairing."
+        },
+        {
+          "name": "TauCeti.Weights.radicalQuotient_zero",
+          "kind": "degenerate",
+          "statement": "If ℰ ⊆ ℰ^⊥, then ℱ₀ = 0 and Theorem 6.2 holds trivially."
+        },
+        {
+          "name": "TauCeti.Weights.not_perfect_on_E",
+          "kind": "non-example",
+          "statement": "ψ need not be perfect on ℰ itself when ℰ ∩ ℰ^⊥ ≠ 0; only the quotient carries a perfect pairing."
+        },
+        {
+          "name": "TauCeti.Weights.radicalQuotient_rank_even",
+          "kind": "characterisation",
+          "statement": "rank ℱ₀ is even, since ℱ₀ carries a perfect alternating pairing."
+        }
+      ],
+      "proofSteps": [
+        "R^n f_*ℚ_ℓ on U is the pullback of R^n f₀_*ℚ_ℓ on U₀ (proper base change, LPV.4). ℰ is spanned by the vanishing cycles and is stable under π₁(U, u), and also under the arithmetic π₁(U₀, u) because the set of vanishing cycles is Frobenius-stable. So ℰ descends to ℰ₀ (LPV.4).",
+        "ψ is Poincaré duality on the fibres, which are smooth of odd dimension n, so it is alternating with values in ℚ_ℓ(−n) (EtaleDualityAndPerverseSheaves EDC.2).",
+        "ℰ₀ ∩ ℰ₀^⊥ is the radical of ψ restricted to ℰ₀, a lisse subsheaf, so ψ is perfect on the quotient."
+      ],
+      "acceptance": [
+        "A Lefschetz pencil of plane cubics (X = ℙ², n = 1): ℰ = H¹ of the fibres, ℰ ∩ ℰ^⊥ = 0, and ℱ₀ is the rank-2 sheaf with its Weil pairing into ℚ_ℓ(−1)."
+      ],
+      "prerequisites": [
+        "LefschetzPencilsAndVanishingCycles:LPV.3",
+        "LefschetzPencilsAndVanishingCycles:LPV.4",
+        "EtaleDualityAndPerverseSheaves:EDC.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, (6.1), p. 295",
+          "excerpt": "La partie évanescente de la cohomologie",
+          "match": "The vanishing part ℰ, a local system on U."
+        },
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, (6.1), p. 295",
+          "excerpt": "Le cup-produit est une forme alternée",
+          "match": "The alternating cup-product ψ and the induced perfect pairing on ℰ₀/(ℰ₀ ∩ ℰ₀^⊥)."
+        },
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, (6.1), p. 295",
+          "excerpt": "On suppose que X est connexe de dimension paire",
+          "match": "X connected of even dimension n + 1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Radical quotient of a pencil"
+      }
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.3/geometrically-constant-lisse-sheaves",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.3",
+      "realises": [
+        "DeligneWeightsAndPurity:DWP.3"
+      ],
+      "title": "Weil I Lemma 6.4: geometrically constant lisse sheaves come from 𝔽_q",
+      "kind": "lemma",
+      "statement": "Let 𝒢₀ be a lisse ℚ_ℓ-sheaf on U₀ whose pullback 𝒢 to U is constant. Then there are ℓ-adic units α_i ∈ ℚ̄_ℓ with det(1 − F_x t^{deg x}, 𝒢₀) = ∏_i(1 − α_i^{deg x} t^{deg x}) for every x ∈ |U₀|. In fact 𝒢₀ is the pullback of its direct image to Spec 𝔽_q, a representation G₀ of Gal(𝔽̄_q/𝔽_q), and ∏(1 − α_i t) = det(1 − F t, G₀).",
+      "hypotheses": [
+        "The α_i are ℓ-adic units because Gal(𝔽̄_q/𝔽_q) is compact.",
+        "The lemma applies to R^i f_*ℚ_ℓ for i ≠ n, to R^n f_*ℚ_ℓ/ℰ₀ and to ℰ₀ ∩ ℰ₀^⊥, which are geometrically constant for a Lefschetz pencil (LefschetzPencilsAndVanishingCycles LPV.4)."
+      ],
+      "proofSteps": [
+        "𝒢₀ corresponds to a representation of π₁(U₀, u) trivial on π₁(U, u), so it factors through π₁(U₀)/π₁(U) = Gal(𝔽̄_q/𝔽_q).",
+        "The Frobenius at x maps to F^{deg x} in Gal(𝔽̄_q/𝔽_q), so its eigenvalues are the α_i^{deg x} (DWP.0/finite-field-base-extension-of-weights)."
+      ],
+      "acceptance": [
+        "The Tate twist ℚ_ℓ(−1) on U₀: α = q, and det(1 − F_x t^{deg x}) = 1 − q^{deg x} t^{deg x}."
+      ],
+      "prerequisites": [
+        "LefschetzPencilsAndVanishingCycles:LPV.4",
+        "DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, Lemme (6.4), p. 295",
+          "excerpt": "tel que son image réci-",
+          "match": "Lemma 6.4."
+        },
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, proof of (6.4), p. 296",
+          "excerpt": "est l'image réciproque d'un faisceau sur Spec",
+          "match": "𝒢₀ is a pullback from Spec 𝔽_q."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.3/zeta-of-the-fibres-and-the-pencil-factorization",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.3",
+      "realises": [
+        "DeligneWeightsAndPurity:DWP.3"
+      ],
+      "title": "The zeta functions of the fibres, split into a constant part and the ℱ₀ part",
+      "kind": "theorem",
+      "statement": "In the setting of radical-quotient-of-the-vanishing-system, there are ℓ-adic units α_1, …, α_N and β_1, …, β_M in ℚ̄_ℓ, with α_i ≠ β_j for all i and j, such that for every x ∈ |U₀|, Z(X_x, t) = [∏_i(1 − α_i^{deg x} t) / ∏_j(1 − β_j^{deg x} t)] · det(1 − F_x t, ℱ₀)^{(−1)^{n+1}}, where t is the variable for the residue field k(x). In particular the right-hand side lies in ℚ(t).",
+      "hypotheses": [
+        "Z(X_x, t) ∈ ℚ(t) is the rationality of the zeta function over ℚ (WeilConjectures WC.1). The cohomological formula is Weil I (1.5.4), requested from SchemeAndStackFoundations SF.2.",
+        "Common α_i = β_j can be cancelled, so they may be assumed distinct. This is the finite eigenvalue family bookkeeping RS-17 asks for, with no appeal to purity.",
+        "No Riemann hypothesis is used: the α and β are arbitrary ℓ-adic units."
+      ],
+      "proofSteps": [
+        "For x ∈ |U₀|, the fibre X_x is smooth projective over k(x), and H^i(X_x̄) is the stalk of R^i f_*ℚ_ℓ at a geometric point over x (proper base change, SF.2).",
+        "(1.5.4) over k(x): Z(X_x, t) = ∏_i det(1 − F_x t, R^i f_*ℚ_ℓ)^{(−1)^{i+1}}.",
+        "Filter R^n by ℰ ∩ ℰ^⊥ ⊆ ℰ ⊆ R^n: the factor splits as det(on R^n/ℰ)·det(on ℰ ∩ ℰ^⊥)·det(on ℱ₀) (DWP.0/characteristic-polynomial-in-short-exact-sequences).",
+        "Lemma geometrically-constant-lisse-sheaves on R^i (i ≠ n), R^n/ℰ₀ and ℰ₀ ∩ ℰ₀^⊥ gives the α and β factors. Cancel common values.",
+        "Z(X_x, t) ∈ ℚ(t) (WC.1)."
+      ],
+      "acceptance": [
+        "A pencil of plane cubics (n = 1): Z(X_x, t) = det(1 − F_x t, ℱ₀)/((1 − t)(1 − q_x t)). There are no α's, and β = (1, q), from H⁰ = ℚ_ℓ and H² = ℚ_ℓ(−1)."
+      ],
+      "prerequisites": [
+        "DeligneWeightsAndPurity:DWP.3/radical-quotient-of-the-vanishing-system",
+        "DeligneWeightsAndPurity:DWP.3/geometrically-constant-lisse-sheaves",
+        "DeligneWeightsAndPurity:DWP.0/characteristic-polynomial-in-short-exact-sequences",
+        "WeilConjectures:WC.1",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, (6.4), p. 296",
+          "excerpt": "écrit sous forme irréductible",
+          "match": "The factorization of Z(X_x, t)."
+        },
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§1, (1.5.4), p. 276",
+          "excerpt": "Cette formule est l'interprétation cohomologique de Grothendieck",
+          "match": "The cohomological formula for Z."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.3/powers-of-a-family-determine-the-family",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.3",
+      "realises": [
+        "DeligneWeightsAndPurity:DWP.3"
+      ],
+      "title": "Weil I Lemma 6.7: a family is determined by its n-th powers for enough n",
+      "kind": "lemma",
+      "statement": "Let K be a finite set of integers different from 1, and (δ_j)_{j ≤ Q}, (ε_j)_{j ≤ Q} two families of elements of a field. If, for all sufficiently large n divisible by no element of K, the families (δ_j^n) and (ε_j^n) agree up to order, then (δ_j) and (ε_j) agree up to order.",
+      "hypotheses": [
+        "K must exclude 1: every integer is divisible by 1.",
+        "The families are finite and counted with multiplicity."
+      ],
+      "proofSteps": [
+        "Induction on Q. For each j, the n with δ_0^n = ε_j^n form an ideal n_jℤ.",
+        "If δ_0 ≠ ε_j for all j, then all n_j ≠ 1, and there are arbitrarily large n divisible by no n_j and no element of K. Then δ_0^n ≠ ε_j^n for all j, contradicting the hypothesis. So δ_0 = ε_{j₀} for some j₀.",
+        "Remove δ_0 and ε_{j₀} and apply the induction hypothesis."
+      ],
+      "acceptance": [
+        "δ = (1, −1), ε = (−1, 1): equal. δ = (ζ₃), ε = (1): the cubes agree, but for n not divisible by 3 they differ, and with K = {3} the hypothesis fails, as it should."
+      ],
+      "prerequisites": [],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, proof of (6.7), p. 297",
+          "excerpt": "On procède par récurrence sur",
+          "match": "Induction on the size of the family."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.3",
+      "realises": [
+        "DeligneWeightsAndPurity:DWP.3"
+      ],
+      "title": "Weil I Lemma 6.11: the arithmetic monodromy of ℱ₀ is open in H",
+      "kind": "lemma",
+      "statement": "Let u ∈ U and ℱ = ℱ₀,u, with the perfect alternating ψ. π₁(U₀, u) acts through symplectic similitudes, ρ : π₁(U₀, u) → CSp(ℱ, ψ). Let χ : ℤ̂ → ℤ_ℓ^× be the character by which Gal(𝔽̄_q/𝔽_q) ≅ ℤ̂ acts on ℚ_ℓ(−n), and H = {(a, g) ∈ ℤ̂ × CSp(ℱ, ψ) : μ(g) = χ(a)}, where μ is the multiplier. Then (deg, ρ) : π₁(U₀, u) → H has open image H₁.",
+      "hypotheses": [
+        "The openness of the geometric monodromy in Sp(ℱ, ψ) is Weil I (5.10), which LefschetzPencilsAndVanishingCycles LPV.5 owns: open symplectic monodromy for the fixed ℚ_ℓ model.",
+        "ℱ₀ ≠ 0 is assumed. For ℱ₀ = 0 the statements are empty."
+      ],
+      "proofSteps": [
+        "ψ takes values in ℚ_ℓ(−n), so ρ(σ) multiplies ψ by χ(deg σ): the map lands in H.",
+        "π₁(U₀, u) maps onto ℤ̂ = Gal(𝔽̄_q/𝔽_q), because U₀ is geometrically connected.",
+        "The kernel of H → ℤ̂ is Sp(ℱ, ψ), and the image of π₁(U, u) there is open (LPV.5). An extension of an open subgroup of the kernel by a surjection onto the quotient is open."
+      ],
+      "acceptance": [
+        "Plane cubics: the image of π₁(U) is open in SL₂(ℚ_ℓ) = Sp₂."
+      ],
+      "prerequisites": [
+        "DeligneWeightsAndPurity:DWP.3/radical-quotient-of-the-vanishing-system",
+        "LefschetzPencilsAndVanishingCycles:LPV.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, (6.10), p. 297",
+          "excerpt": "par similitudes symplectiques",
+          "match": "π₁(U₀) acts by symplectic similitudes."
+        },
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, (6.10), p. 298",
+          "excerpt": "le sous-groupe défini par l'équation",
+          "match": "The group H."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.3",
+      "realises": [
+        "DeligneWeightsAndPurity:DWP.3"
+      ],
+      "title": "Weil I Lemma 6.12: the eigenvalue-δ^a locus is closed and Haar-null",
+      "kind": "lemma",
+      "statement": "Let δ be an ℓ-adic unit and ℱ ≠ 0. The set Z_δ of (a, g) ∈ H₁ such that δ^a is an eigenvalue of g is closed in the compact group H₁ and has Haar measure 0.",
+      "hypotheses": [
+        "δ^a for a ∈ ℤ̂ is defined because δ is an ℓ-adic unit.",
+        "This is the compact ℓ-adic Haar-null step that RS-17 asks DWP.3 to prove itself.",
+        "ℱ ≠ 0 is needed: for ℱ = 0 there are no eigenvalues and Z_δ = ∅."
+      ],
+      "proofSteps": [
+        "Closedness: (a, g) ↦ det(δ^a − g) is continuous, and Z_δ is its zero set.",
+        "Fibres: for fixed a, CSp_a = {g : μ(g) = χ(a)} is a homogeneous space under Sp(ℱ, ψ), an ℓ-adic analytic manifold. Z_{δ,a} = {g ∈ CSp_a : det(δ^a − g) = 0} is a proper Zariski-closed subset (some g ∈ CSp_a has no eigenvalue δ^a, because rank ℱ ≥ 2 and scaling a symplectic basis moves the eigenvalues), so it has measure 0 in CSp_a.",
+        "H₁ ∩ ({a} × Z_{δ,a}) is null in the fibre of H₁ over a, and Fubini for the projection H₁ → ℤ̂ gives measure 0."
+      ],
+      "acceptance": [
+        "ℱ of rank 2 and δ = 1: the set of g ∈ SL₂(ℤ_ℓ) with eigenvalue 1 (unipotent-type) is a proper analytic subset of measure 0."
+      ],
+      "prerequisites": [
+        "DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, Lemme (6.12), p. 298",
+          "excerpt": "est un fermé de mesure nulle",
+          "match": "Z is closed of measure zero."
+        },
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, proof of (6.12), p. 298",
+          "excerpt": "et on applique Fubini à la",
+          "match": "Fubini over the projection to ℤ̂."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.3",
+      "realises": [
+        "DeligneWeightsAndPurity:DWP.3"
+      ],
+      "title": "The Frobenius elements landing in a Haar-null set have density zero",
+      "kind": "lemma",
+      "statement": "Let δ_1, …, δ_Q be ℓ-adic units. The set L of x ∈ |U₀| such that some δ_j^{deg x} is an eigenvalue of F_x on ℱ₀ has Dirichlet density 0. More precisely, the proportion of the closed points of degree n that lie in L tends to 0 as n → ∞. In particular, for every sufficiently large n there are closed points of degree n outside L.",
+      "hypotheses": [
+        "The atlas's completion contract for DWP.3 splits this into two steps. The first is finite-quotient Chebotarev with constant-field degree congruences (imported from FunctionFieldArithmetic FA.5). The second is the approximation of the closed Haar-null set by open neighbourhoods of small measure, proved here. Topological density alone does not give density zero."
+      ],
+      "proofSteps": [
+        "Z = ∪_j Z_{δ_j} ⊂ H₁ is closed and Haar-null (Lemma 6.12). By regularity of Haar measure on the compact group H₁, for every ε > 0 there is an open-closed neighbourhood V ⊇ Z, a finite union of cosets of an open normal subgroup, with μ(V) < ε.",
+        "V is the preimage of a subset of a finite quotient G of H₁. Chebotarev for the finite Galois cover of U₀ with group G, including the constant-field degree congruences (FA.5), gives density(x : (deg x, ρ(F_x)) ∈ V) = μ(V) < ε.",
+        "x ∈ L means (deg x, ρ(F_x)) ∈ Z ⊆ V, so the upper density of L is below ε for every ε > 0.",
+        "Per degree: Chebotarev with constant-field congruences equidistributes the Frobenius elements of the degree-n points in the fibre of G over n, with an error that tends to 0 (FA.5, which uses the curve Weil estimate DWP.1). The fibre of V over n has relative measure below ε for n large, because Z has null fibres (Lemma 6.12). So the proportion of degree-n points in L is eventually below ε."
+      ],
+      "acceptance": [
+        "For the pencil of plane cubics and δ = 1: 1 is an eigenvalue of F_x on ℱ₀ = H¹(E_x) iff #E_x(k(x)) = det(1 − F_x | H¹) = 0. That is impossible, since E_x has a rational point, so L = ∅."
+      ],
+      "prerequisites": [
+        "DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus",
+        "DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group",
+        "FunctionFieldArithmetic:FA.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, (6.13), p. 298",
+          "excerpt": "théorème de densité de Gebotarev",
+          "match": "Density zero via Chebotarev."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.3/denominators-away-from-the-exceptional-set",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.3",
+      "realises": [
+        "DeligneWeightsAndPurity:DWP.3"
+      ],
+      "title": "Weil I Proposition 6.6: the denominator of (6.6.1) away from K and L",
+      "kind": "theorem",
+      "statement": "Let (γ_i)_{i ≤ P} and (δ_j)_{j ≤ Q} be families of ℓ-adic units with γ_i ≠ δ_j. There are a finite set K of integers different from 1 and a density-zero set L ⊂ |U₀| such that, for x ∉ L with deg x divisible by no element of K, the rational function det(1 − F_x t, ℱ₀)·∏_i(1 − γ_i^{deg x} t) / ∏_j(1 − δ_j^{deg x} t), written in lowest terms, has denominator ∏_j(1 − δ_j^{deg x} t).",
+      "hypotheses": [
+        "The two exceptional sets are exactly where cancellation can happen: δ_j^{deg x} equal to some γ_i^{deg x} (controlled by K), or δ_j^{deg x} an eigenvalue of F_x (controlled by L)."
+      ],
+      "proofSteps": [
+        "For each i and j, the n with γ_i^n = δ_j^n form n_{ij}ℤ with n_{ij} ≠ 1 (since γ_i ≠ δ_j). Let K = {n_{ij}}.",
+        "L = the x with some δ_j^{deg x} an eigenvalue of F_x on ℱ₀, of density 0 (lemma exceptional-frobenius-set-has-density-zero).",
+        "For x ∉ L with deg x divisible by no element of K, no factor 1 − δ_j^{deg x}t of the denominator cancels against the numerator."
+      ],
+      "acceptance": [
+        "γ = ∅, δ = (q): the denominator is 1 − q^{deg x} t unless q^{deg x} is an eigenvalue of F_x, which happens only on a density-zero set."
+      ],
+      "prerequisites": [
+        "DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero",
+        "DeligneWeightsAndPurity:DWP.3/powers-of-a-family-determine-the-family"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, Proposition (6.6), p. 296",
+          "excerpt": "écrit sous forme irréductible",
+          "match": "The denominator in lowest terms."
+        },
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, (6.13), p. 298",
+          "excerpt": "théorème de densité de Gebotarev",
+          "match": "The proof of (6.6)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.3/divisibility-criterion",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.3",
+      "realises": [
+        "DeligneWeightsAndPurity:DWP.3"
+      ],
+      "title": "Weil I Proposition 6.8: an intrinsic characterisation of the γ-polynomial",
+      "kind": "theorem",
+      "statement": "Let (γ_i)_{i ≤ P} and (δ_j)_{j ≤ Q} be families of ℓ-adic units, R(t) = ∏(1 − γ_i t) and S(t) = ∏(1 − δ_j t). If, for every x ∈ |U₀|, ∏_j(1 − δ_j^{deg x} t) divides ∏_i(1 − γ_i^{deg x} t)·det(1 − F_x t, ℱ₀), then S(t) divides R(t). Consequently R(t) is the least common multiple of the S(t) satisfying this hypothesis, which characterises the γ-family intrinsically from the polynomials ∏(1 − γ_i^{deg x}t)·det(1 − F_x t, ℱ₀).",
+      "hypotheses": [
+        "The divisibility is required for every x, but it is used only for x outside the exceptional sets of Proposition 6.6."
+      ],
+      "proofSteps": [
+        "Cancel common pairs γ_i = δ_j until the families are disjoint.",
+        "Proposition 6.6: for x outside K and L the denominator of (6.6.1) is ∏(1 − δ_j^{deg x}t). But by hypothesis (6.6.1) is a polynomial, so no δ remains after cancellation: S divides R."
+      ],
+      "acceptance": [
+        "γ = (q, q), δ = (q): S | R. δ = (q²) with γ = (q): the hypothesis fails at a generic x."
+      ],
+      "prerequisites": [
+        "DeligneWeightsAndPurity:DWP.3/denominators-away-from-the-exceptional-set"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, Proposition (6.8), p. 297",
+          "excerpt": "Cette proposition fournit une caractérisation intrinsèque de",
+          "match": "The intrinsic characterisation of R(t)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.3/rationality-of-pencil-local-factors",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.3",
+      "realises": [
+        "DeligneWeightsAndPurity:DWP.3"
+      ],
+      "title": "Weil I Theorem 6.2: the local factors of the radical quotient have rational coefficients",
+      "kind": "theorem",
+      "statement": "In the setting of radical-quotient-of-the-vanishing-system, for every x ∈ |U₀|, det(1 − F_x t, ℱ₀) ∈ ℚ[t].",
+      "hypotheses": [
+        "No Riemann hypothesis, no purity and no semisimplicity is assumed. The proof uses only the rationality of the fibres' zeta functions, geometric constancy of the other pieces, open symplectic monodromy and Chebotarev.",
+        "The statement holds trivially for ℱ₀ = 0."
+      ],
+      "proofSteps": [
+        "By the factorization theorem it suffices to show that ∏(1 − α_i t) and ∏(1 − β_j t) have rational coefficients, that is, that the α-family and the β-family are defined over ℚ (6.5).",
+        "With (γ, δ) = (α, β), the function (6.6.1) is Z(X_x, t) ∈ ℚ(t), since n is odd. By Proposition 6.6, for x ∉ L with deg x divisible by no element of K, the denominator of Z(X_x, t) in lowest terms is ∏(1 − β_j^{deg x}t). So the multiset (β_j^{deg x}) is stable under Gal(ℚ̄/ℚ), and each β_j is algebraic.",
+        "For σ ∈ Gal(ℚ̄/ℚ), the families (σβ_j) and (β_j) have the same n-th powers for every large n divisible by no element of K, because such n occur as degrees of points outside L (lemma exceptional-frobenius-set-has-density-zero). Lemma 6.7 gives (σβ_j) = (β_j), so ∏(1 − β_j t) ∈ ℚ[t] (6.9).",
+        "Then the polynomials ∏(1 − α_i^{deg x}t)·det(1 − F_x t, ℱ₀) = Z(X_x, t)·∏(1 − β_j^{deg x}t) lie in ℚ[t]. Proposition 6.8 characterises ∏(1 − α_i t) as the lcm of the S(t) dividing all of them, a Galois-stable characterisation, so ∏(1 − α_i t) ∈ ℚ[t].",
+        "Hence det(1 − F_x t, ℱ₀) = Z(X_x, t)·∏(1 − β_j^{deg x}t)/∏(1 − α_i^{deg x}t) ∈ ℚ(t), and being a polynomial it lies in ℚ[t]."
+      ],
+      "acceptance": [
+        "Plane cubics: det(1 − F_x t, ℱ₀) = 1 − a_x t + q_x t², with a_x = q_x + 1 − #E_x(k(x)) ∈ ℤ."
+      ],
+      "prerequisites": [
+        "DeligneWeightsAndPurity:DWP.3/zeta-of-the-fibres-and-the-pencil-factorization",
+        "DeligneWeightsAndPurity:DWP.3/denominators-away-from-the-exceptional-set",
+        "DeligneWeightsAndPurity:DWP.3/divisibility-criterion",
+        "DeligneWeightsAndPurity:DWP.3/powers-of-a-family-determine-the-family"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, Théorème (6.2), p. 295",
+          "excerpt": "est à coefficients rationnels",
+          "match": "Theorem 6.2: rational coefficients."
+        },
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, (6.9), p. 297",
+          "excerpt": "Prouvons (6.5) et donc (6.2) (modulo (6.6))",
+          "match": "The proof of 6.2 from 6.6–6.8."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Rationality theorem (Weil I 6.2)"
+      }
+    },
+    {
+      "id": "DeligneWeightsAndPurity:DWP.3/coarse-bound-for-the-pencil",
+      "parentStageId": "DeligneWeightsAndPurity:DWP.3",
+      "realises": [
+        "DeligneWeightsAndPurity:DWP.3"
+      ],
+      "title": "Weil I Corollary 6.3: the coarse bound on H¹(D, j_*ℱ)",
+      "kind": "theorem",
+      "statement": "Let j : U → D be the inclusion. Every eigenvalue α of F^* on H¹(D, j_*ℱ) is an algebraic number, and every complex conjugate satisfies q^{(n+1)/2 − 1/2} ≤ |α| ≤ q^{(n+1)/2 + 1/2}.",
+      "hypotheses": [
+        "This is where DWP.3 meets DWP.2. ℱ₀ satisfies the hypotheses of Theorem 3.2 with β = n: the pairing ψ from radical-quotient-of-the-vanishing-system, open symplectic monodromy (Weil I (5.10), LPV.5), and rational local factors (Theorem 6.2)."
+      ],
+      "proofSteps": [
+        "Theorem 3.2's hypotheses hold for ℱ₀ with β = n (Weil I (5.10) and (6.2)).",
+        "Apply DWP.2/coarse-bound-on-cohomology-of-the-projective-line (Corollary 3.9) with β = n: q^{(n+1)/2 − 1/2} ≤ |α| ≤ q^{(n+1)/2 + 1/2}."
+      ],
+      "acceptance": [
+        "Plane cubics (n = 1): the eigenvalues on H¹(D, j_*ℱ) satisfy q^{1/2} ≤ |α| ≤ q^{3/2}."
+      ],
+      "prerequisites": [
+        "DeligneWeightsAndPurity:DWP.3/rationality-of-pencil-local-factors",
+        "DeligneWeightsAndPurity:DWP.3/radical-quotient-of-the-vanishing-system",
+        "DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2",
+        "DeligneWeightsAndPurity:DWP.2/coarse-bound-on-cohomology-of-the-projective-line",
+        "LefschetzPencilsAndVanishingCycles:LPV.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "§6, Corollaire (6.3), p. 295",
+          "excerpt": "les hypothèses de (3.2) sont en effet vérifiées par",
+          "match": "Corollary 6.3 from (3.2) and (3.9)."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -2271,21 +2780,23 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "The Grothendieck–Lefschetz trace formula for lisse (and constructible) ℚ_ℓ-sheaves on a curve over 𝔽_q in the form of Weil I (1.14.3), Z(U₀, F₀, t) = ∏_i det(1 − F^*t, H^i_c(U, F))^{(−1)^{i+1}}, with finiteness of H^i_c. This is the CohomologicalPointCounting trace formula (TraceFormula Layer 14) that RS-17 names as DWP.2's supplier. The fixed-point formula for a curve and its Jacobian, #Fix(α) = (Γ_α · Δ) = 1 − Tr(α′ | T_ℓJ) + deg α (Milne, Abelian Varieties, III.11.2; RS-17 names it the curve and Jacobian trace comparison of TraceFormula Layer 8).",
+      "need": "The Grothendieck–Lefschetz trace formula for lisse (and constructible) ℚ_ℓ-sheaves on a curve over 𝔽_q in the form of Weil I (1.14.3), Z(U₀, F₀, t) = ∏_i det(1 − F^*t, H^i_c(U, F))^{(−1)^{i+1}}, with finiteness of H^i_c. This is the CohomologicalPointCounting trace formula (TraceFormula Layer 14) that RS-17 names as DWP.2's supplier. The fixed-point formula for a curve and its Jacobian, #Fix(α) = (Γ_α · Δ) = 1 − Tr(α′ | T_ℓJ) + deg α (Milne, Abelian Varieties, III.11.2; RS-17 names it the curve and Jacobian trace comparison of TraceFormula Layer 8). Proper base change for the pencil f : X̃ → D (the stalk of R^i f_*ℚ_ℓ at a geometric point over x is H^i(X_x̄)), and the trace formula (1.5.4) for the fibres.",
       "neededBy": [
         "DeligneWeightsAndPurity:DWP.1/weil-estimate-for-curves",
         "DeligneWeightsAndPurity:DWP.2/coarse-bound-on-compact-cohomology",
         "DeligneWeightsAndPurity:DWP.2/compact-cohomology-of-even-tensor-powers",
-        "DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves"
+        "DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves",
+        "DeligneWeightsAndPurity:DWP.3/zeta-of-the-fibres-and-the-pencil-factorization"
       ]
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.2",
-      "need": "Weil I (2.10): for a smooth connected curve X over an algebraically closed field and a lisse ℚ_ℓ-sheaf F, H⁰_c(X, F) = 0 when X is affine and H²_c(X, F) = (F_x)_{π₁(X, x)}(−1). Weil I (2.12): Poincaré duality H¹(X̄, j_*F) × H¹(X̄, j_*F^∨(1)) → ℚ_ℓ on a smooth projective curve, Frobenius-equivariantly.",
+      "need": "Weil I (2.10): for a smooth connected curve X over an algebraically closed field and a lisse ℚ_ℓ-sheaf F, H⁰_c(X, F) = 0 when X is affine and H²_c(X, F) = (F_x)_{π₁(X, x)}(−1). Weil I (2.12): Poincaré duality H¹(X̄, j_*F) × H¹(X̄, j_*F^∨(1)) → ℚ_ℓ on a smooth projective curve, Frobenius-equivariantly. Poincaré duality on the smooth fibres of the pencil, giving the alternating cup-product pairing into ℚ_ℓ(−n).",
       "neededBy": [
-        "DeligneWeightsAndPurity:DWP.2/compact-cohomology-of-even-tensor-powers",
+        "DeligneWeightsAndPurity:DWP.2/coarse-bound-on-cohomology-of-the-projective-line",
         "DeligneWeightsAndPurity:DWP.2/coarse-bound-on-compact-cohomology",
-        "DeligneWeightsAndPurity:DWP.2/coarse-bound-on-cohomology-of-the-projective-line"
+        "DeligneWeightsAndPurity:DWP.2/compact-cohomology-of-even-tensor-powers",
+        "DeligneWeightsAndPurity:DWP.3/radical-quotient-of-the-vanishing-system"
       ]
     },
     {
@@ -2338,6 +2849,43 @@
       "neededBy": [
         "DeligneWeightsAndPurity:DWP.1/compatibility-with-the-hasse-bound"
       ]
+    },
+    {
+      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.3",
+      "need": "A Lefschetz pencil of hyperplane sections of a smooth projective variety over 𝔽_q defined over 𝔽_q (after a Veronese embedding and a finite extension if necessary), with its axis, parameter line, blow-up f : X̃ → D and singular set S.",
+      "neededBy": [
+        "DeligneWeightsAndPurity:DWP.3/radical-quotient-of-the-vanishing-system"
+      ]
+    },
+    {
+      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.4",
+      "need": "The lisse sheaf R^n f_*ℚ_ℓ on U = D − S, the vanishing part ℰ as a π₁(U₀)-stable subsheaf defined over 𝔽_q, the cup-product pairing into ℚ_ℓ(−n), and geometric constancy of R^i f_*ℚ_ℓ (i ≠ n), R^n/ℰ and ℰ ∩ ℰ^⊥ (Weil I §5).",
+      "neededBy": [
+        "DeligneWeightsAndPurity:DWP.3/radical-quotient-of-the-vanishing-system",
+        "DeligneWeightsAndPurity:DWP.3/geometrically-constant-lisse-sheaves"
+      ]
+    },
+    {
+      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.5",
+      "need": "Weil I (5.10): for the fixed ℚ_ℓ model, the image of π₁(U, u) in Sp(ℰ/(ℰ ∩ ℰ^⊥), ψ) is open.",
+      "neededBy": [
+        "DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group",
+        "DeligneWeightsAndPurity:DWP.3/coarse-bound-for-the-pencil"
+      ]
+    },
+    {
+      "supplier": "FunctionFieldArithmetic:FA.5",
+      "need": "The function-field Chebotarev density theorem for finite Galois covers of a curve over 𝔽_q, with the constant-field degree congruences, and its per-degree form: the Frobenius elements of the degree-n points equidistribute in the fibre over n, with error tending to 0.",
+      "neededBy": [
+        "DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero"
+      ]
+    },
+    {
+      "supplier": "WeilConjectures:WC.1",
+      "need": "Rationality over ℚ of the zeta function Z(V, t) of a variety over a finite field, from the integral point-count series (Weil I §1, the Hankel-determinant and Fatou argument).",
+      "neededBy": [
+        "DeligneWeightsAndPurity:DWP.3/zeta-of-the-fibres-and-the-pencil-factorization"
+      ]
     }
   ],
   "coverage": [
@@ -2365,10 +2913,8 @@
     },
     {
       "stageId": "DeligneWeightsAndPurity:DWP.3",
-      "status": "not_read",
-      "remaining": [
-        "Not planned in checkpoint 1: Weil I §6 (rationality theorem), with the pencil geometry imported from LPV.3–LPV.5 and Chebotarev from FunctionFieldArithmetic FA.5, as RS-17 directs."
-      ]
+      "status": "source_decomposed",
+      "remaining": []
     },
     {
       "stageId": "DeligneWeightsAndPurity:DWP.4",
