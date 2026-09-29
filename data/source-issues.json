@@ -143623,6 +143623,63 @@
    "reviewReason": null
   },
   {
+   "id": "ModularityAndLanglandsExtensions/E4",
+   "kind": "misprint",
+   "locator": "Chapter 24, §24.4, printed p. 134, paragraph after Conjecture 24.4",
+   "printed": "The source calls E an elliptic curve with complex multiplication when its algebraic-group endomorphisms consist solely of maps given by multiplication by integers.",
+   "correction": "E has complex multiplication if it has endomorphisms other than multiplication by integers (End E ≠ ℤ); the printed condition defines not having CM.",
+   "reason": "The next parenthesis explains CM over ℂ by complex numbers multiplying the lattice into itself, i.e. non-integer endomorphisms; and Conjecture 24.4 is stated for E without CM, where End E = ℤ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the notes' HTML version was not collated for this chapter; no erratum list found on the author's page."
+   ],
+   "owner": "ModularityAndLanglandsExtensions",
+   "file": "research/blueprint/packets/ModularityAndLanglandsExtensions.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularityAndLanglandsExtensions/E5",
+   "kind": "error",
+   "locator": "Chapter 24, §24.5, Theorem 24.6 and the preceding sentence, printed p. 135",
+   "printed": "The source claims that j(E) ∉ Z implies holomorphic continuation to C for ∏p Pn(p−s)−1. It also deduces nonvanishing on Re(s) ≥ 3/2 from absolute convergence of this Euler product on Re(s) > 3/2.",
+   "correction": "The work of Clozel–Harris–Shepherd-Barron–Taylor gives meromorphic continuation, holomorphic and nonvanishing on Re s ≥ 1 + n/2, which suffices for Sato–Tate; holomorphy on all of ℂ was proved later (Newton–Thorne 2021, for all non-CM E). The Euler product converges absolutely for Re s > 1 + n/2, not 3/2, and the shift of the abscissa is n/2, not 1/2.",
+   "reason": "P_n has roots α_p^{n−j}ᾱ_p^j of absolute value p^{n/2}, so the abscissa of absolute convergence is 1 + n/2 (3/2 only for n = 1). Entireness of the symmetric power L-functions was open until Newton–Thorne (their Corollary C and NT II Corollary B), whose introductions state that only meromorphic continuation was previously known.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-29: author page and the notes' front matter (no erratum list); Newton–Thorne I introduction p. 2 confirms what was known before 2019."
+   ],
+   "owner": "ModularityAndLanglandsExtensions",
+   "file": "research/blueprint/packets/ModularityAndLanglandsExtensions.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularityAndLanglandsExtensions/E6",
+   "kind": "misprint",
+   "locator": "Chapter 24, Conjecture 24.3, printed p. 134",
+   "printed": "The conjecture assumes a constant c for which, for every n ∈ Z, the number of indices i satisfying N(xi) ≤ c is at most c.",
+   "correction": "at most c values of i with N(x_i) = n (bounded multiplicity of each norm).",
+   "reason": "The hypothesis is meant to bound how many x_i share a norm, as in the case of primes; the printed condition N(x_i) ≤ c bounds only finitely many terms and has no content for equidistribution.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: author page (no erratum list)."
+   ],
+   "owner": "ModularityAndLanglandsExtensions",
+   "file": "research/blueprint/packets/ModularityAndLanglandsExtensions.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "MordellLawrenceVenkatesh/E2",
    "kind": "misprint",
    "locator": "§2.3, Lemma 2.3: arXiv v3 p. 9, standing notation p. 8; published pp. 902–904. Applications in §§3.4, 4.3, 6.",
