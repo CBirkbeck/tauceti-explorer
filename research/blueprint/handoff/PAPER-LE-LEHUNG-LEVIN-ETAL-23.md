@@ -1,4 +1,59 @@
-# LLHLM23 — current handoff: rank-one downstream scope
+# LLHLM23 — current handoff: scalar monodromy and fixed-Hodge charts
+
+Codex — codex-rtOQ9t; issue 1254; 29 September 2026.
+Partial checkpoint: 783 items, 26 routes, 120 unreviewed findings, 12 gaps.
+This session is ineligible to review or red-team this extraction.
+
+## Completed here
+
+- G69 gives an explicit scalar monodromy series, with a convergence proof in
+  every analytic coefficient chart. It works over the §7.1 O-flat coefficient
+  category, including nilpotents, with no height-dependent bound on p.
+- G70 proves the true monodromy ideal is zero on scalar monomial families.
+  It distinguishes actual zero ideals from equality of reduced loci, and
+  characteristic-zero extension from integral Galois comparison.
+- K59 computes the fixed-Hodge GL₁ local model as an O-section and its lifted
+  chart as a torus, with the cyclic constant torus action. It uses K55 and
+  retains K21/K22 as suppliers; the full torus Grassmannian on nonreduced
+  rings is not asserted to be discrete.
+- G71 identifies the true, truncated and naive monodromy conditions on those
+  Kisin charts: all three ideals are zero. Small primes require no factorial
+  inversion in this direct calculation.
+- G28/G29/G33 and the existing route brief record this progress. No owner,
+  source finding or previous item classification was changed.
+
+## Resume at the remaining boundary
+
+1. Supply the **integral rank-one fixed-Hodge Galois comparison**
+   X^{λ,τ}≅Y^{≤λ,τ}, for precisely defined coefficient families. A possible
+   route is local class field theory and locally algebraic characters:
+   classify fixed Hodge/type characters as a fixed character times an
+   unramified character, and compare the integral flat closures with K59.
+   Characteristic-zero points alone do not prove the required integral
+   statement. G69–G71 already handle the Kisin monodromy calculation.
+2. Use that comparison to finish scalar lifting, component equality and
+   component labelling behind G31/G33/G53. Preserve the separate height
+   interval issue: E102 still disproves the unrestricted hook in (7.17).
+   Do not remove G18's interval guard on the strength of G71.
+3. Determine bounds required by the remaining Galois/global arguments before
+   absorbing them into an existential polynomial B!·P. Retain B27's factors,
+   including P₄ and its exclusions of p=2,3. No new scalar analytic precision
+   threshold is needed for the specific charts proved here.
+4. Supply the n=1,p=2 patching functor with all P12/B24 axioms or retain p>2.
+   The scalar monodromy result does not supply this global construction.
+
+The other eleven gaps and the external suppliers below remain. Every
+non-library theorem has an outline, but this is not recursive proof closure.
+All four new adapters have three tests and explicit ownership. The internal
+graph is acyclic with 1,633 edges, and all 589 missing items are routed once.
+The paper, intake and whitespace checks pass; exact finite-series checks cover
+24 cyclic families through degree 35 over Q[ε]/(ε²). No Lean was compiled.
+The result records source hashes, exact selected reading and pinned searches.
+No retained scratch file is needed to resume.
+
+---
+
+# Previous handoff: rank-one downstream scope
 
 Codex — codex-rtOQ9t; issue 1254; 29 September 2026.
 Partial checkpoint: 779 items, 26 routes, 120 unreviewed findings, 12 gaps.

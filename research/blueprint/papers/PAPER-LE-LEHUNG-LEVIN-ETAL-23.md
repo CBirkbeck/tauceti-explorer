@@ -1,3 +1,107 @@
+# LLHLM23 continuation: scalar monodromy and fixed-Hodge Kisin charts
+
+Codex — codex-rtOQ9t; issue 1254; 29 September 2026. Partial checkpoint:
+783 items, 26 routes, 120 unreviewed findings, 12 gaps. This continuation
+supplies four source-level adapters for the scalar monodromy boundary identified
+below. It retains the earlier full-paper reading attribution and the unresolved
+integral comparison with Galois representations.
+
+## The scalar calculation
+
+G69 solves the monodromy recurrence over the full §7.1 coefficient category:
+R is a p-adically complete, topologically finite type, O-flat commutative
+O-algebra, possibly with nilpotents. Frobenius fixes R and sends u to u^p.
+For the cyclic embedding indices j, put
+
+```text
+E = u^e′ + p,                 L = ∏_{a≥0} φ^a(E/p),
+C_j = g_j E^{k_j},            b_j = u g′_j/g_j,
+H_r = ∏_{0≤a<r} φ^a(E),       0 ≤ k_j ≤ h, h ≥ 1.
+
+N_j = L Σ_{r≥0} p^r φ^r(b_{j−r})
+      + (e′/p) Σ_{r≥0} k_{j−r} u^{e′p^r} H_r φ^{r+1}(L).
+```
+
+Here g_j is an invertible integral power series and j−r is cyclic. Scalar
+conjugation cancels from (7.3). Logarithmic differentiation and
+H_r φ^r(L)=p^r L give the displayed formula by finite iteration, then passage
+to the coefficientwise limit. The zero constant term and G38 give uniqueness;
+G65 identifies it with the canonical operator for a Breuil–Kisin family.
+
+The essential extra step is analyticity without inverting L. The unit sum
+belongs to uR[[u]] before multiplication by L. For the weight sum, fix m and
+let B_m be the image of R[[x,y]] under x↦u, y↦u^m/p. For sufficiently large r,
+φ^{r+1}(L) belongs to B_m: its factors are
+1+u^{e′p^a−m}y, a≥r+1. Moreover
+u^{e′p^r}/p=u^{e′p^r−m}y, with e′p^r−m≥r. Thus the tail converges in B_m;
+the finitely many initial terms belong to B_m[1/p]. Doing this for every m
+proves membership in the analytic coefficient ring. No norm on R, reducedness,
+root-depth assumption, or relation between p and h is used.
+
+G70 applies this to an actual scalar Breuil–Kisin family with tame descent.
+The canonical derivation preserves the analytic lattice. Multiplication by
+L^{h−1} gives a zero of order at least h−1 along E=0, so the derivative ideal
+over R[1/p] is zero, including its nilpotents. Its integral contraction is zero
+because R is O-flat. For h=1 the derivative index range is empty. The finite
+flat characteristic-zero potentially crystalline extension follows from G02;
+this does not establish an integral equivalence of Galois stacks.
+
+## The fixed-Hodge charts
+
+K59 specializes the existing Kisin/local-model owners to GL₁. The reduced
+generic Schubert variety through E^k is a point. Its closure is the closed
+O-section E^k, since the generic point of Spec O is schematically dense.
+The unique lifted shape chart is therefore T_O^J, with C_j=d_j(v+p)^{k_j}.
+K55 removes the power-series part of an eigenbasis change by scalar Frobenius
+contraction at every prime. The remaining action is
+d_j↦t_jd_jt_{j−1}^{−1}, giving the completed quotient [T_O^J/T_O^J].
+The K21/K22 fixed-Hodge flat-closure suppliers remain explicit prerequisites.
+This argument does not assert that the full torus affine Grassmannian is
+discrete on nonreduced test rings: 1+ε/v over F[ε]/(ε²) is a counterexample
+to that shortcut.
+
+G71 compares all three monodromy conditions on this same universal chart.
+G70 makes the true ideal zero. The truncated expression is
+PN=−e′k_j v(v+p)^{h−1}, whose derivatives through h−2 vanish at −p directly,
+without division by factorials. The naive differential expression is
+((k_j+a_j)v+a_jp)/(v+p), which satisfies (4.1) for every scalar a_j.
+Both formal charts are the whole completed torus, with the identity comparison;
+the equality descends under the constant torus action.
+
+G28, G29 and G33 now point to these adapters. The scalar analytic and precision
+obstruction is discharged on the Kisin side. The remaining obligation is an
+**integral fixed-Hodge comparison with X^{λ,τ}**, including families and
+component labelling. The two different height-interval lattices in E102 still
+have the same étale image. Neither G35's unrestricted interval hook nor the
+dyadic scalar patching functor is repaired by this chart calculation.
+
+## Sources, ownership and validation
+
+Fresh selected reading of the [published author-hosted PDF](https://math.rice.edu/~bl70/LocModels.pdf)
+covers PDF51–56, 80–81, 99–100, 102–104, 113–115 and 132–138. The four new
+items are derived adapters, not quotations of numbered source theorems. The
+source hash and reading scope are recorded in the result; no new source error
+is asserted. The upstream SemisimpleAlgebras and RootSystems documents, current
+L7/R08.3 scope and R03.5/R03.6 library audits were checked. The coverage file
+has no separate LocalGaloisDeformationRings entry. Searches at both pinned
+library commits found no scalar Kisin/monodromy declaration; no new library
+implementation is claimed.
+
+K59 belongs to the existing LocalGaloisDeformationRings owner; G69–G71 belong
+to its existing Part II monodromy owner. Every new item has proof steps,
+prerequisites and three regression/non-example specifications. Exact rational
+arithmetic over Q[ε]/(ε²) checks the finite recurrence against the formula
+through degree 35 in 24 cyclic families, including p=2 and unequal weights.
+These finite checks supplement the analytic proof; they do not certify it.
+
+The paper validator, three-file intake check and whitespace check pass. The
+graph has 1,633 internal edges and no cycles; all 589 missing items have exactly
+one route. The census is 146 library, 48 planned and 589 missing items. Twelve
+gaps remain, including the external suppliers and recursive API/library audit.
+There is no Lean deliverable or compilation.
+
+---
+
 # LLHLM23 continuation: rank-one scope in Sections 7–9
 
 Codex — codex-rtOQ9t; issue 1254; 29 September 2026. Partial checkpoint:
