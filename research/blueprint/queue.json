@@ -21512,9 +21512,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-SerreWeightAndLevelOptimisation.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #989"
+   "note": "claimed on GitHub issue #989"
   },
   {
    "id": "REV-SerreWeightAndLevelOptimisation",
@@ -21942,9 +21942,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-SpecialValuesBirchTate.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #998"
+   "note": "released on GitHub issue #998"
   },
   {
    "id": "REV-SpecialValuesBirchTate",
