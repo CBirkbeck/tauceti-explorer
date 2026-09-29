@@ -1061,10 +1061,10 @@
    }
   },
   "tauceti:Completed/IntegralLattices": {
-   "summary": "This completed roadmap is fully built in Tau Ceti (TauCeti/LinearAlgebra/IntegralLattice and FiniteBilinearModule, about 18,000 lines, sorry-free), on Mathlib's Submodule.IsLattice, BilinForm.dualSubmodule, sigPos/sigNeg, CharacterModule and Smith-normal-form quotient API. Every layer's targets are present: the bundled lattice with signature, definiteness, isometries, Gram invariants, scaling, sums and radical quotient; duality, the finite discriminant group and its Smith decomposition; finite bilinear and quadratic modules with double-perp and primary decomposition; Nikulin's overlattice correspondence with A_{L_H} = H^perp/H; and all ADE rows with D8+ = E8. The baseline also closes the three items the roadmap's STATUS.md still calls open: the Smith decomposition for all nondegenerate lattices, the bilinear H^perp/H comparison for odd overlattices, and its orthogonal-sum form. Nothing required is missing. The only optional pieces absent are a general root-datum-to-lattice bridge and an IsZLattice comparison.",
+   "summary": "This completed roadmap is built in Tau Ceti except for one Layer 1 item (TauCeti/LinearAlgebra/IntegralLattice and FiniteBilinearModule, about 18,000 lines, sorry-free), on Mathlib's Submodule.IsLattice, BilinForm.dualSubmodule, sigPos/sigNeg, CharacterModule and Smith-normal-form quotient API. Every other target is present, namely the bundled lattice with signature, definiteness, isometries, Gram invariants, integer scaling, sums and radical quotient; duality, the finite discriminant group and its Smith decomposition; finite bilinear and quadratic modules with double-perp and primary decomposition; Nikulin's overlattice correspondence with A_{L_H} = H^perp/H; and all ADE rows with D8+ = E8. The baseline also closes the three items the roadmap's STATUS.md still calls open: the Smith decomposition for all nondegenerate lattices, the bilinear H^perp/H comparison for odd overlattices, and its orthogonal-sum form. One required piece is missing, so Layer 1 is only partly built: scaling the form by a nonzero rational under an explicit integrality hypothesis, with its bundled invariants (only the integer action exists, and an unconditional rational action is impossible). The only optional pieces absent are a general root-datum-to-lattice bridge and an IsZLattice comparison.",
    "layers": {
     "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms": {
-     "verdict": "built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "Bundled integral symmetric lattice (carrier with IsLattice Q, symmetric rational form, integrality), coercions, ext, carrier basis/rank, constructors from a basis plus integral symmetric Gram matrix and from a full submodule",
@@ -1445,7 +1445,7 @@
        "note": "Constructed on V / ker B as required; the Mathlib QuadraticMap.lift route is not visible in the names but the statements match."
       },
       {
-       "target": "Form scaling, negation and orthogonal direct sums, with rank, determinant, discriminant, integrality, evenness, nondegeneracy, radical and signature behaviour, inclusions, projections, associativity/commutativity isometries and compatibility with isometries",
+       "target": "Integer form scaling (the Z-action), negation and orthogonal direct sums, with rank, determinant, discriminant, integrality, evenness, nondegeneracy, radical and signature behaviour, inclusions, projections, associativity/commutativity isometries and compatibility with isometries",
        "library": "tauceti",
        "declarations": [
         {
@@ -1484,7 +1484,42 @@
          "fit": "exact"
         }
        ],
-       "note": "Scaling.lean and OrthogonalSum.lean cover every listed invariant (for example determinant_smul, discriminant_neg, isEven_orthogonalSum_iff, radical_orthogonalSum, orthogonalSumInl/Fst, Isometry.orthogonalSumComm)."
+       "note": "Scaling.lean and OrthogonalSum.lean cover every listed invariant (for example determinant_smul, discriminant_neg, isEven_orthogonalSum_iff, radical_orthogonalSum, orthogonalSumInl/Fst, Isometry.orthogonalSumComm). The scaling is the integer action IntegralLattice.scale (Scaling.lean:74); rational scaling is the next target."
+      },
+      {
+       "target": "Form scaling by a nonzero rational r under the explicit integrality hypothesis (the carrier lies in its dual for r B): the bundled scaled lattice with its rank, determinant, discriminant, evenness, radical and signature behaviour (fixed or exchanged according to the sign of r) and transport along isometries",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.IntegralLattice.ofSubmodule",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Basic.lean",
+         "line": 164,
+         "fit": "related"
+        },
+        {
+         "name": "QuadraticForm.sigPos_smul_of_pos",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/Signature.lean",
+         "line": 82,
+         "fit": "more general"
+        },
+        {
+         "name": "QuadraticForm.sigPos_smul_of_neg",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/QuadraticForm/Signature.lean",
+         "line": 106,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.dualCarrier_smul",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Dual/Scaling.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "The roadmap asks for scaling by a nonzero rational. Tau Ceti has only the integer action: scale, signature_smul_of_neg and dualCarrier_smul all take an integer (the rational unit on the right of dualCarrier_smul does not act on bundled lattices), and Scaling.lean:20-23 defers rational scalars with an integrality hypothesis to a later development. The missing piece is small: build the scaled lattice with ofSubmodule under that hypothesis and read off the signature from the generic scalar lemmas for quadratic forms over an ordered field (with sigNeg_smul_of_pos, sigNeg_smul_of_neg, Signature.lean:96, :114). No unconditional rational action exists: on Z, (1/2)(2xy) = xy is integral but (1/2)xy is not. The integer action is not to be replanned."
       },
       {
        "target": "Acceptance examples: hyperbolic plane (even, unimodular, signature (1,0,1)), <-2> (signature (0,0,1)), affine A1~ (even, positive semidefinite, degenerate, (1,1,0)) with radical quotient A1 = <2>",
@@ -2457,7 +2492,7 @@
    }
   },
   "tauceti:TauCetiRoadmap/Chebotarev": {
-   "summary": "The group-theoretic and algebraic half of this roadmap is largely in Tau Ceti, sorry-free. That covers conjugacy-class powers, the Artin symbol with both tower laws, Frobenius prime sets partitioning the unramified primes, the Galois-character weight with orthogonality, the auxiliary prime, trivial cyclotomic intersections, the compositum splitting with Frobenius compatibility, tagged fibres and tagged fixed fields, the fixed-field residue-degree criterion, and the Frobenius von Mangoldt coefficient with psi_C, theta_C and all four discard estimates. Mathlib contributes the Dirichlet-density carriers, abelian cyclotomic Galois groups, autEquivPow, and the K = Q analytic inputs (Dirichlet L-function nonvanishing on Re s = 1, primes in progressions). Genuinely missing is the whole analytic spine: density normalization and calculus, ray-class characters and counts, continuation and nonvanishing for general K, an unsmoothed Wiener-Ikehara theorem, the prime ideal theorem, and every density or counting theorem (Layers 6, 9, 10, 12-14). Also missing are the fixed-field fibre count on E, the compositum ramification statements, and the named regression examples.",
+   "summary": "The group-theoretic and algebraic half of this roadmap is largely in Tau Ceti, sorry-free. That covers conjugacy-class powers, the Artin symbol with both tower laws, Frobenius prime sets partitioning the unramified primes, the Galois-character weight with orthogonality, the auxiliary prime, trivial cyclotomic intersections, the compositum splitting with Frobenius compatibility, tagged fibres and tagged fixed fields, the fixed-field residue-degree criterion, and the Frobenius von Mangoldt coefficient with psi_C, theta_C and all four discard estimates. Mathlib contributes the Dirichlet-density carriers, abelian cyclotomic Galois groups, autEquivPow, and the K = Q analytic inputs (Dirichlet L-function nonvanishing on Re s = 1, primes in progressions). Genuinely missing is the whole analytic spine: density normalization and calculus, ray-class characters and counts, continuation and nonvanishing for general K, an unsmoothed Wiener-Ikehara theorem, the prime ideal theorem, and every density or counting theorem (Layers 6, 9, 10, 12-14). Also missing are the fixed-field fibre count on E, the compositum ramification statement that new ramification lies above q (descent of unramifiedness follows from Mathlib's general tower lemma), and the named regression examples.",
    "layers": {
     "tauceti:TauCetiRoadmap/Chebotarev#layer-1-consumed-frobenius-classes-and-powers-of-conjugacy-classes": {
      "verdict": "built",
@@ -2864,9 +2899,23 @@
          "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
          "line": 266,
          "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.conductor",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 246,
+         "fit": "special case"
+        },
+        {
+         "name": "IsCyclotomicExtension.Rat.mem_intermediateFieldEquivSubgroupChar_iff_conductor_dvd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Galois.lean",
+         "line": 219,
+         "fit": "special case"
         }
        ],
-       "note": "Moduli and ray class groups exist in Tau Ceti, but no conductor of a cyclotomic extension or character is defined."
+       "note": "Over Q the foundations exist in Mathlib: the natural-number conductor of a Dirichlet character (the least level it factors through, with conductor_dvd_level and factorsThrough_conductor, Basic.lean:251, :253) and the cyclotomic field/character dictionary, under which Q(zeta_m) inside Q(zeta_n), m | n, corresponds to the characters whose conductor divides m. Moduli and ray class groups of an arbitrary number field exist in Tau Ceti. Missing is the target itself: the conductor of a cyclotomic extension or character of a general K as a GlobalNumberFields modulus (with its infinite component) and its comparison with those moduli; no general ray conductor is formalized."
       },
       {
        "target": "Canonical ideal weight of a character chi of Gal(F/K): chi(Frob p) at unramified p, 0 at ramified p, with Euler product",
@@ -3185,10 +3234,38 @@
        "note": "The splitting is stated as Gal(M/K) = Gal(L/K) x (ZMod m)^x under m coprime to disc L, derived by a degree count rather than from 7.3 and linear disjointness; for m = q unramified in L the hypotheses agree."
       },
       {
-       "target": "7.4 Ramification in the compositum: unramified in M implies unramified in both factors; primes ramified in M but not in L lie above q (finite)",
+       "target": "7.4 Ramification in the compositum (descent): a prime of K unramified in M is unramified in L and in K(zeta_q)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Algebra.IsUnramifiedAt.of_liesOver",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/RamificationInertia/Unramified.lean",
+         "line": 83,
+         "fit": "more general"
+        },
+        {
+         "name": "Ideal.nonempty_primesOver",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/GoingUp.lean",
+         "line": 334,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.RingOfIntegers.extension_algebra_isIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Basic.lean",
+         "line": 370,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's tower lemma descends unramifiedness over a fixed base R from a prime P of T to the prime p of S below it (essentially finite type over R, S Dedekind, T a domain torsion-free over S). With R = O_K, S = O_L or O_{K(zeta_q)} and T = O_M, the rings of integers supply these hypotheses, and integral lying-over (every prime of S has a prime of T above it) turns the primewise lemma into the statement for all primes of the intermediate field. That specialization and quantifier bridge is not stated. IsUnramifiedAt.of_restrictScalars changes the base instead and is not this result."
+      },
+      {
+       "target": "7.4 Ramification in the compositum (new ramification): primes of K ramified in M but not in L lie above q, hence form a finite set",
        "library": "absent",
        "declarations": [],
-       "note": "No such statements are in the Chebotarev or cyclotomic files."
+       "note": "No such statement is in the Chebotarev or cyclotomic files, and the Mathlib descent lemma cited for the previous target does not give it."
       },
       {
        "target": "7.5 Tagged fixed fields: Z cap (G x 1) = 1 when f | orderOf tau, M = E_tau(zeta_q) cyclotomic over E_tau with group of order orderOf tau, pairwise disjoint tagged fibres",
@@ -3626,7 +3703,7 @@
      "verdict": "not built",
      "targets": [
       {
-       "target": "12.1 Ramified Euler correction of L_1 (Dedekind zeta minus ramified factors), simple pole with the same residue, continuity of -L_1'/L_1 - 1/(s-1) on Re s >= 1",
+       "target": "12.1 Ramified Euler correction of L_1 = zeta_K P_S with P_S(s) = prod_{p in S} (1 - Np^(-s)) over the ramified primes S: simple pole at s = 1 with residue kappa_K prod_{p in S} (1 - 1/Np) (not kappa_K when S is nonempty); -L_1'/L_1 = -zeta_K'/zeta_K - P_S'/P_S has principal part 1/(s-1), since P_S'/P_S is regular at 1; continuity of -L_1'/L_1 - 1/(s-1) on Re s >= 1",
        "library": "partial",
        "declarations": [
         {
@@ -3634,6 +3711,13 @@
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
          "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.dedekindZeta_residue_pos",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 65,
          "fit": "related"
         },
         {
@@ -3651,7 +3735,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib has the residue along real s -> 1+ and Tau Ceti the Euler product and restriction away from a finite set; no continuation or boundary continuity of the logarithmic derivative is proved."
+       "note": "Mathlib has the residue kappa_K > 0 along real s -> 1+ and Tau Ceti the Euler product and restriction away from a finite set; no continuation or boundary continuity of the logarithmic derivative is proved. Correction (RT-AUDIT-03/1): deleting the ramified Euler factors multiplies the residue by P_S(1) = prod_{p in S} (1 - 1/Np), which lies strictly between 0 and 1 for nonempty S, so L_1 does not keep the residue of zeta_K (over Q, riemannZeta_residue_one, Mathlib/NumberTheory/LSeries/RiemannZeta.lean:242, gives residue 1 while (1 - 2^(-s)) zeta(s) has residue 1/2). The residue-one statement belongs to -L_1'/L_1, and the intended density constant kappa = 1/#Gal(F/K) is unchanged. The roadmap's own 12.1 text (\"inherits the simple pole with the same residue\") needs the same correction."
       },
       {
        "target": "12.2 Cyclotomic weighted theorem psi_sigma(x)/x -> 1/#Gal(F/K) via Wiener-Ikehara applied to the nonnegative Lambda_sigma, and psi_K(x)/x -> 1",
