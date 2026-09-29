@@ -1,3 +1,100 @@
+# LLHLM23 continuation: Q13's Gröbner basis over all of V, Table 1 re-derived, E112–E113
+
+Claude Code — cc-39fac3; issue 1254; 29 September 2026 (second checkpoint). This continuation takes
+the first resume item of the previous handoff, Q13's Gröbner basis uniformly over V, and the
+generic half of the second, re-deriving Table 1 (Q09).
+
+## Source check
+
+Read in the published PDF (SHA-256 as recorded in `source`):
+- Proposition B.0.2 and its proof, and Corollary B.0.4 (PDF203–208);
+- the ideal of the partial normalization (PDF204), the Gröbner basis display (PDF205) and Table 1
+  (PDF207), all checked on page images;
+- the same passage in arXiv v2 (PDF150–151), which agrees with the published text, misprint included.
+
+The eleven basis polynomials are transcribed in `sourceData.appendixB.q13ComprehensiveGroebner.basis`.
+
+## Q13: the printed Gröbner basis is right, uniformly over V
+
+**The order.** The source names only the variable order W > c12 > c13 > d21 > c22 > d31 > d33.
+Degrevlex is the only one of degrevlex, deglex and lex for which every printed leading term is the
+left-most term.
+
+**Two cells.** Write L8 = (a−b)(a−1) − 1. Every leading coefficient of the printed basis is a factor
+of P, except that of the 8th element, b·L8. So there are two cells:
+
+| Cell | Base ring | 8th leading term |
+|---|---|---|
+| L8 ≠ 0 | `Z[1/7!][a,b][1/(P·L8)]` | W·d21·d33 |
+| L8 = 0 (b = a − 1/(a−1)) | `Z[1/7!][a, 1/(a−1)][1/P]` | d21·d31·d33, the second monomial |
+
+In each cell, Singular (passagemath-singular 10.8.12) and a plain division routine show:
+- every leading coefficient is a unit;
+- all 55 S-polynomials reduce to zero by division that only inverts leading coefficients, with every
+  quotient coefficient in the base ring;
+- the seven generators reduce to zero;
+- each basis element lies in the ideal, with lift cofactors over the base ring.
+
+The denominator test rejects negative controls such as 1/(a+b), 1/11 and 1/(13(a−1)). These are
+standard representations with unit leading coefficients, so the printed list is a Gröbner basis of
+the special fibre at every (a,b) with P ≠ 0, in every characteristic > 7. This discharges Q13's
+recorded obligation for a comprehensive Gröbner system.
+
+**E112 (misprint).** The source gives the exception as "when (a − b)((a − 1) − 1) vanishes". That is
+(a−b)(a−2), a factor of P, which never vanishes on V. The 8th element's coefficient is
+b((a−b)(a−1) − 1), so the exception is L8 = 0, a curve that meets V, for example at (3, 5/2). The
+conclusion stands, as the second cell shows.
+
+**Cohen–Macaulayness in every characteristic.** Both leading-term ideals have dimension 3.
+- Generic cell: the ideal has Betti numbers 11, 24, 19, 5.
+- Special cell: 11, 24, 18, 4.
+
+These come from the integral homology of the upper Koszul complexes at every point of the lcm lattice
+(Miller–Sturmfels Thm 1.34; 75 and 73 points), none of which has torsion. So pd(S/in I) = 4 = codim
+over every field, and both monomial schemes are Cohen–Macaulay in every characteristic, as the source
+says.
+
+## Table 1 and the special-fibre components (Q09, Q13, Q10): right generically, not on three curves
+
+Over Q(a,b), Singular's minimal associated primes of the specialized ideal plus each special-fibre
+prime reproduce every row of Table 1, with the first ideal the unique one of dimension 3. The ideal is
+radical and equals the intersection of the seven components listed on PDF206. On three curves inside
+V this fails (**E113**, "a stated result"):
+
+| Curve | What changes |
+|---|---|
+| a = 0 | Row 4's preimage, and the 7th PDF206 component, split into (c22, c13, c12, (b−1)W + (b+1)d31) and (c22, c13, c12, W + d21d33). |
+| a(b−1) = b | In rows 2 and 5 the second (lower-dimensional) ideal lies inside the first; the preimage is irreducible. |
+| (a−b)(a−1) = 1 | The same happens in row 7. |
+
+These were checked at the generic point of each curve, and at (a,b) = (0,5), (3/2,3) and (3,5/2) over
+Q and over F₁₀₁, all with P ≠ 0. On 2a(b−1) = 2b−1, and at the control point (5,−4), all rows hold.
+
+The a = 0 split is explained by Corollary B.0.4(2)'s quadric W² + (γd21d33 + αd31)W + βd21d31d33.
+- Its discriminant is a square exactly when β = αγ, and
+  `β − αγ = a·b·(a−2)(a−b−1)/((a−1)²(a−b)²(b−1)²)` (SymPy).
+- On a = 0 the sheets are W = −d21d33 and W = −((b+1)/(b−1))d31.
+- The corollary's conclusion survives there, since two sheets still give two preimages off their
+  intersection, but its "irreducible quadric" step does not.
+
+**Consumers are unaffected.** Q10 uses only row 4 and the fibre over z̃. Every specialization used
+downstream has a a unit (the first checkpoint, via Lemma 7.3.1), so a = 0 never occurs. The failures
+on the other two curves are in rows that nothing consumes.
+
+## Changes and scope
+
+- **Items:** Q13 (the obligation step is discharged; two new steps on Cohen–Macaulayness and the
+  components), Q09 (a re-derivation step) and Q10 (step 4 now covers a = 0).
+- **Findings:** E112 and E113 are new; the census is now 113 findings.
+- **Data:** `sourceData.appendixB` gains `q13ComprehensiveGroebner` and `table1Rederivation`.
+- **Also updated:** the `appendix-certificates` gap, `validation.appendixChecks`, the new
+  `validation.cc39fac3AppendixBQ13` and the summary.
+- **Unchanged:** statuses and routes. Q09, Q10 and Q13 stay `missing`. Reducedness and the Table 1 rows
+  away from the exceptional curves are checked at the generic point and at sample points, not
+  certified for every specialization. No Lean file.
+
+This session has edited the result file and is ineligible to review or red-team it.
+
 # LLHLM23 continuation: Q06 over Z[a,b][1/(aP)], and E111 does not reach Corollary B.0.5
 
 Claude Code — cc-39fac3; issue 1254; 29 September 2026. This continuation takes the first two resume
