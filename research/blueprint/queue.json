@@ -4567,7 +4567,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-XIE-YUAN-22.md",
-   "state": "pending",
+   "state": "external",
    "note": "claimed on GitHub issue #1270"
   },
   {
@@ -8380,8 +8380,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LAWRENCE-VENKATESH-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2162"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2162",
+   "finishedAt": "2026-09-29T10:23:23Z"
   },
   {
    "id": "REV-PAPER-LAWRENCE-VENKATESH-20",
