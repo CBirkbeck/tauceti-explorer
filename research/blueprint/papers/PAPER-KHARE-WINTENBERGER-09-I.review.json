@@ -1,0 +1,27 @@
+{
+ "paper": "PAPER-KHARE-WINTENBERGER-09-I",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. KW I is the source ClassicalSerreModularity R26–R27 were written for. Every item on this route cites an existing node of the reviewed decomposition or packets at the layer named (all 54 cited node ids resolve on main): the good-dihedral definition and Lemmas 6.1–6.3, 8.2 at R27.1; (L_r), (W_r), (D_r), Theorem 3.2 and the §7 estimates at R27.2; Theorems 3.1, 3.3 and the double induction at R27.3; Theorems 3.4 and 1.2 at R27.4; (H) and Theorem 9.1 at R27.5; Theorem 10.1 at R27.6; Theorem 1.1 and Corollary 8.1 at R26.1/R26.6. No item is missing on this route, so it records the paper as their source."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. R24.3–R24.6 own the interface to KW II: minimal lifts, the four lift types of Theorem 5.1 (nodes theorem-5-1-part-1…4 exist at R24.3), almost strictly compatible systems (R24.5) and linked-system transfer (R24.6). The one missing item, the remark that a geometric lift with q ∥ N(ρ) is minimal at q when p ∤ q − 1 (/33), belongs with the minimal-lift definition at R24.3; I checked it: a character of I_q through (ℤ/q)^× has order prime to p, so it is the Teichmüller lift of its reduction, and a unipotent ρ̄|_{I_q} lifts only to a unipotent ρ|_{I_q} of conductor exponent 1."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. ML.1 'organize[s] Deligne-Serre Artin representations, weight-one modularity in proved cases' and keeps them apart from the weight-≥2 GL₂/ℚ endpoints. Corollary 10.2(ii), Langlands' conjecture for Artin representations (the statement it proves for odd two-dimensional ρ over ℚ) and Khare's weight-one descent are exactly that, and their inputs are planned elsewhere (R27.6, R20.3, R15.5, R19.1, R17.5, AN.4, with global Godement–Jacquet at AL.2)."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. No atlas layer plans the modularity of abelian varieties of GL₂-type (I searched the stage texts for GL₂-type, Ribet and generalised Shimura–Taniyama–Weil: R25.5 only defines GL₂(K)-type varieties for terminal cases, R14.5 builds A_f, ML.1 excludes weight-two GL₂/ℚ endpoints). Corollary 10.2(i) generalises EllipticCurveModularity R29's dimension-one theorem, so a Part II of that roadmap is the right home. The brief states Corollary 10.2(i) exactly, lists Ribet's reduction, Faltings' isogeny theorem and Carayol's conductor formula as the steps, and names its imports (R27.6, R25.5, R28.4, R14.5, R19.3–R19.4, A6, Tau Ceti JacobianChallenge). make_queue folds it with the other Part IIs of EllipticCurveModularity into DESIGN-EllipticCurveModularityPartII."
+  }
+ ],
+ "notes": "Independent review by Claude Code, session cc-fb70e5 (29 September 2026), of the extraction by Claude Code cc-48533a (PR #4553, issue #4505); cc-fb70e5 appears nowhere in its files. The author copy results.pdf (23 pp., SHA-256 3c389dc3…bad82, matching the recorded hash; fetched without certificate verification because the UCLA TLS chain is incomplete) was read completely. The 71 items were compared with the statements and proofs; every numbered statement appears in a locator and the locators give the right pages. The three library citations (Mathlib cyclotomicCharacter, modularCyclotomicCharacter, Nat.primeFactors) were opened at 082e2d3; all 54 cited packet node ids resolve on main, and the stage texts without nodes (R19.3, R17.5, AL.2, R16.5, R28.4, AN.4, R17.6, R20.5, Tau Ceti Chebotarev layer 10) plan what is claimed. Every missing item (/33, /59, /62, /65, /68, /70, /71) is routed once. E1–E4 confirmed on the page images; E5 (Theorem 5.1(2): nilpotent N in GL₂(ℚ̄)) and E6 ('Theorem 1.2(ii)') added and confirmed. Corrected in place: item /40 (the threshold is printed 1.46̄), notes on /29 and /53, the report's source-issue table and a section listing these changes. The eight prerequisite links resolve on Crossref. Not checked: the Springer version of record (client challenge)."
+}
