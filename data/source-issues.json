@@ -136468,6 +136468,145 @@
    "reviewReason": null
   },
   {
+   "id": "GL2ModularityLifting/E2",
+   "kind": "error",
+   "locator": "Lemma (1.7.5), last paragraph of the proof, p. 31, and Corollary (1.7.14), last sentence, p. 34, in the author's preprint (DVI)",
+   "printed": "The source describes (1.7.6) as a closed immersion, and says it is an isomorphism at each minimal prime of 𝔭. It further asserts formal smoothness of R^{□,ψ}_cr(k, τ, ρ̄) over 𝒪 except when both k = p holds and the representation has the form ρ̄ ∼ (μλ 0; 0 μλ′) ⊗ ω^m.",
+   "correction": "(1.7.6) is only a homeomorphism onto its image, an isomorphism over the generic points, and it may have non-reduced fibres. Delete the claim of Lemma (1.7.5) that the reduced ring of R^ord is formally smooth. In (1.7.14), replace 'unless ρ̄ ∼ (μλ 0; 0 μλ′) ⊗ ω^m' by 'unless ρ̄ ∼ (μλ ∗; 0 μλ′) ⊗ ω^m and either the class of ∗ is trivial, or λ = λ′'. The multiplicity μ_{n,m}(ρ̄) of (1.1.6) with n = p − 2 and λ = λ′ is 1, 2 or 4, as ∗ is non-trivial and ramified, non-trivial and unramified, or trivial (Sander).",
+   "reason": "The argument before the sentence shows that (1.7.6) is surjective and an isomorphism at the minimal primes, not that it is a closed immersion. Gee–Kisin B.1 locate the mistake at this sentence.",
+   "affects": "the proof",
+   "known": "Gee–Kisin, The Breuil–Mézard conjecture for potentially Barsotti–Tate representations, Appendix B, B.1 (arXiv:1208.3179v5, p. 38), which says the change does not affect the main theorems",
+   "searched": [
+    "Gee–Kisin, arXiv:1208.3179v5, Appendix B 'Errata for [Kis09a]', which corrects this item.",
+    "Kisin's preprint page (people.math.harvard.edu/~kisin/preprints.html), checked 2026-09-29: it links only the DVI, with no list of corrections."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Mark Kisin, The Fontaine–Mazur conjecture for GL₂, Author's preprint as a DVI file on Kisin's Harvard page (fmc.dvi), read through a text extraction of the DVI; printed page = DVI page. Published as J. Amer. Math. Soc. 22 (2009), no. 3, 641–690, which was not read. In §2.2 the DVI's (2.2.9), Lemma (2.2.10), Proposition (2.2.14), Corollary (2.2.16) and Theorem (2.2.17) are cited by Gee–Kisin, Hu–Tan and Tung as (2.2.10), (2.2.11), (2.2.15), (2.2.17) and (2.2.18).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2ModularityLifting/E3",
+   "kind": "gap",
+   "locator": "Proof of Lemma (1.7.4), p. 30, in the author's preprint (DVI)",
+   "printed": "The source considers framed deformations VA of V𝔽 admitting an A-line LA ⊂ VA stable under Gℚp, with Iℚp acting through ω1|Iℚp. It claims that ω1 ≠ ω2 ensures uniqueness of LA whenever such a line exists.",
+   "correction": "Add the condition that G_{ℚ_p} acts on L_A ⊗_A 𝔽 via ω₁.",
+   "reason": "The hypothesis ω₁ω₂^{−1} ∉ {1, ω, ω^{−1}} allows ω₁ω₂^{−1} to be a non-trivial unramified character. Then ω₁|I = ω₂|I, and a line with inertia acting by ω₁|I need not be unique; the added condition restores uniqueness.",
+   "affects": "the proof",
+   "known": "Gee–Kisin, Appendix B, B.2 (arXiv:1208.3179v5, p. 38)",
+   "searched": [
+    "Gee–Kisin, arXiv:1208.3179v5, Appendix B 'Errata for [Kis09a]', which corrects this item.",
+    "Kisin's preprint page (people.math.harvard.edu/~kisin/preprints.html), checked 2026-09-29: it links only the DVI, with no list of corrections."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Mark Kisin, The Fontaine–Mazur conjecture for GL₂, Author's preprint as a DVI file on Kisin's Harvard page (fmc.dvi), read through a text extraction of the DVI; printed page = DVI page. Published as J. Amer. Math. Soc. 22 (2009), no. 3, 641–690, which was not read. In §2.2 the DVI's (2.2.9), Lemma (2.2.10), Proposition (2.2.14), Corollary (2.2.16) and Theorem (2.2.17) are cited by Gee–Kisin, Hu–Tan and Tung as (2.2.10), (2.2.11), (2.2.15), (2.2.17) and (2.2.18).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2ModularityLifting/E4",
+   "kind": "gap",
+   "locator": "§2.2, the conditions (1)–(4) (p. 38) and the character γ_v of (2.2.9) (p. 41), in the author's preprint (DVI); published (2.2.10)",
+   "printed": "For v ∤ p, the source chooses an unramified γv : GFv → 𝒪^× satisfying γv² = ψ|GFv and describes ρ̄|GFv as extending γv by γv(1).",
+   "correction": "Add to (2.2) the condition N(v) ≢ −1 (mod p) for v ∈ Σ; in the applications one can reach N(v) ≡ 1 (mod p) by base change.",
+   "reason": "If ρ̄|G_{F_v} ≅ γ̄ ⊕ γ̄ω and N(v) ≡ −1 (mod p), then ω(Frob_v)² = 1. So γ̄′ = γ̄ω also presents ρ̄|G_{F_v} as an extension of γ̄′ by γ̄′(1), and γ_v is not determined by the printed conditions.",
+   "affects": "the proof",
+   "known": "Gee–Kisin, Appendix B, B.3 (arXiv:1208.3179v5, p. 38)",
+   "searched": [
+    "Gee–Kisin, arXiv:1208.3179v5, Appendix B 'Errata for [Kis09a]', which corrects this item.",
+    "Kisin's preprint page (people.math.harvard.edu/~kisin/preprints.html), checked 2026-09-29: it links only the DVI, with no list of corrections."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Mark Kisin, The Fontaine–Mazur conjecture for GL₂, Author's preprint as a DVI file on Kisin's Harvard page (fmc.dvi), read through a text extraction of the DVI; printed page = DVI page. Published as J. Amer. Math. Soc. 22 (2009), no. 3, 641–690, which was not read. In §2.2 the DVI's (2.2.9), Lemma (2.2.10), Proposition (2.2.14), Corollary (2.2.16) and Theorem (2.2.17) are cited by Gee–Kisin, Hu–Tan and Tung as (2.2.10), (2.2.11), (2.2.15), (2.2.17) and (2.2.18).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2ModularityLifting/E5",
+   "kind": "gap",
+   "locator": "Proof of Proposition (2.2.14), p. 45, in the author's preprint (DVI); published (2.2.15)",
+   "printed": "The source attributes both irreducibility and generic reducedness of R̄^i_∞ to (1.7.14).",
+   "correction": "Also prove that for v ∈ Σ the rings R̄^{□,ψ}_v/π are irreducible and generically reduced. The proof is that of Lemma (1.7.5), using the formal smoothness of Kisin's Annals Lemma 2.6.3 and the fact that the representation at a generic point of Spec R̄^{□,ψ}_v/π is not scalar.",
+   "reason": "R̄^i_∞ is a completed tensor product that includes the factors R̄_v for v ∈ Σ, and (1.7.14) concerns only the factors at v | p.",
+   "affects": "the proof",
+   "known": "Gee–Kisin, Appendix B, B.4 (arXiv:1208.3179v5, p. 39)",
+   "searched": [
+    "Gee–Kisin, arXiv:1208.3179v5, Appendix B 'Errata for [Kis09a]', which corrects this item.",
+    "Kisin's preprint page (people.math.harvard.edu/~kisin/preprints.html), checked 2026-09-29: it links only the DVI, with no list of corrections."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Mark Kisin, The Fontaine–Mazur conjecture for GL₂, Author's preprint as a DVI file on Kisin's Harvard page (fmc.dvi), read through a text extraction of the DVI; printed page = DVI page. Published as J. Amer. Math. Soc. 22 (2009), no. 3, 641–690, which was not read. In §2.2 the DVI's (2.2.9), Lemma (2.2.10), Proposition (2.2.14), Corollary (2.2.16) and Theorem (2.2.17) are cited by Gee–Kisin, Hu–Tan and Tung as (2.2.10), (2.2.11), (2.2.15), (2.2.17) and (2.2.18).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2ModularityLifting/E6",
+   "kind": "error",
+   "locator": "Lemma (2.2.1) and its proof, pp. 38–39, in the author's preprint (DVI)",
+   "printed": "The source takes any g′ ∈ G satisfying (2.2.2), with distinct eigenvalues for ρ̄(g), and claims that gg′ shares this property. It also says ω is non-trivial on at least one of g′ and gg′.",
+   "correction": "Lemma (2.2.1) is false for some ρ̄ with small image. Either (p > 3) require that p split completely in F, drop (2.1.2), and take U_v maximal compact at every v, so that (2.2)(4) is vacuous; or (any p) keep (2.1.2), weaken (2.2)(4) to '1 − N(v) ∈ 𝔽^× and the eigenvalue ratio is not N(v)^{±1}', and count ranks 2^{|R|} (Gee–Kisin Lemmas B.5.1–B.5.2). The printed 'ρ̄(g)' in the quoted sentence should be ρ̄(g′).",
+   "reason": "ρ̄(g) = z is central, so tr ρ̄(gg′)²/det ρ̄(gg′) = tr ρ̄(g′)²/det ρ̄(g′). The left side of (2.2.2) is unchanged, but the right side (1 + ω(gg′))²/ω(gg′) changes with ω(g). So (2.2.2) for g′ does not give it for gg′.",
+   "affects": "the proof",
+   "known": "Gee–Kisin, Appendix B, B.5 (arXiv:1208.3179v5, pp. 39–40), which gives both repairs",
+   "searched": [
+    "Gee–Kisin, arXiv:1208.3179v5, Appendix B 'Errata for [Kis09a]', which corrects this item.",
+    "Kisin's preprint page (people.math.harvard.edu/~kisin/preprints.html), checked 2026-09-29: it links only the DVI, with no list of corrections."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Mark Kisin, The Fontaine–Mazur conjecture for GL₂, Author's preprint as a DVI file on Kisin's Harvard page (fmc.dvi), read through a text extraction of the DVI; printed page = DVI page. Published as J. Amer. Math. Soc. 22 (2009), no. 3, 641–690, which was not read. In §2.2 the DVI's (2.2.9), Lemma (2.2.10), Proposition (2.2.14), Corollary (2.2.16) and Theorem (2.2.17) are cited by Gee–Kisin, Hu–Tan and Tung as (2.2.10), (2.2.11), (2.2.15), (2.2.17) and (2.2.18).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2ModularityLifting/E7",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1.4, p. 4, arXiv:2108.07577v2",
+   "printed": "The source says that [Eme11, Theorem 1.2.1] and [Paš15, Theorem 1.1] remove the second hypothesis, concerning compatibility of classical with p-adic local Langlands as described in [Kis09a], Hypothesis (1.2.6).",
+   "correction": "Emerton's result that removes Kisin's Hypothesis (1.2.6) is his Theorem 3.3.22 (the locally algebraic vectors of B(V) for de Rham V with distinct weights), used through Kisin's argument, as Emerton's Remark 1.2.5 explains. Theorem 1.2.1 is his local–global compatibility for promodular V, and is not needed.",
+   "reason": "Emerton's Remark 1.2.5 says that Kisin's theorem follows from the p-adic local Langlands correspondence with the compatibility of (1.2.6), and that Theorem 3.3.22 supplies the missing potentially crystalline, non-crystabelline case. Theorem 1.2.1 has hypotheses (V promodular, V̄|G_{ℚ_p} ≇ χ ⊗ (1 ∗; 0 ε)) that Kisin's theorem does not.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The arXiv abstract page of 2108.07577, checked 2026-09-29: versions v1 and v2 only, and no journal reference.",
+    "Emerton's preprint, Remark 1.2.5 and Theorem 3.3.22 (pp. 5, 28)."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2 (3 May 2022); printed page = PDF page. The same file as ClassicalSerreModularity, OrdinaryAutomorphicFormsAndModularityLifting and GL2ModularityLifting part R32.3.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2ModularityLifting/E8",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1.4, p. 4, arXiv:2108.07577v2",
+   "printed": "The source derives the general case from [Kis09a], also referring to the theorem on its second page. It says its precise statement includes [HT15, Theorem 1.4], removing Kisin’s other hypothesis for p ≥ 5, and the main theorem of [Tun21a], removing it for p = 3.",
+   "correction": "Cite the forms that assume ρ̄ modular: Kisin's Theorem (2.2.18) (the DVI's (2.2.17)), Hu–Tan's Theorem 6.3 and Tung's Theorem 4.7. The cited introduction theorems assume only that ρ̄ is odd, and take its modularity from Khare–Wintenberger.",
+   "reason": "Kisin's introduction says that by Khare–Wintenberger the hypothesis that ρ̄ is odd implies that it is modular. Hu–Tan's proof of Theorem 1.4 says that for it one needs only that ρ̄ is modular, which is the main result of Khare–Wintenberger. A proof of Serre's conjecture can use only the forms that assume ρ̄ modular, and Theorem 1.4 as stated assumes it, so the conclusion stands.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The arXiv abstract page of 2108.07577, checked 2026-09-29: versions v1 and v2 only, and no journal reference."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2 (3 May 2022); printed page = PDF page. The same file as ClassicalSerreModularity, OrdinaryAutomorphicFormsAndModularityLifting and GL2ModularityLifting part R32.3.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GeneralAlgebraicKTheory/E1",
    "kind": "misprint",
    "locator": "IV.10.3 (Corollary 10.3), printed p. 349 (PDF p. 357); identical in the chapter file Kbook.IV.pdf of 17 August 2012",
