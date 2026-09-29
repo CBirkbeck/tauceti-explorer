@@ -1,5 +1,55 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-39fac3; issue 1254; 29 September 2026.
+**Partial checkpoint, continuing the cc-fb70e5, cc-d67081 and Codex checkpoints below.** Census
+unchanged: 776 items, 25 routes, 111 findings. No Lean deliverable or compilation. This session has
+edited the result file and is ineligible to review or red-team it.
+
+## Completed here — cc-fb70e5 resume items 1 and 2
+
+1. **Downstream of E111: settled, and E111 does not propagate.** The Appendix B coordinates are
+   a = a₁ − a₃ and b = a₂ − a₃ (Remark 3.3.2, PDF62). At the specialization of Theorem 7.3.2,
+   `a_τ ≡ s⁻¹(μ+η) mod ϖ` (Lemma 7.3.1, PDF150). So a, b and a − b are ≡ ±⟨μ+η, α∨⟩ for positive
+   roots, and they are units whenever μ is m-deep in C₀ with m ≥ 0 (Definition 2.1.10, PDF33).
+   - All of P is a unit from 2-depth on.
+   - Corollary B.0.5 (5-generic, μ 10-deep) lives in `V_a = Spec Z[a,b][1/(aP)]`.
+   - Proposition 3.3.9's proof only uses `t^r ∈ H + J` after base change along g, so it applies over
+     X × V_a with r = 3.
+2. **Q06 certified over `Z[a,b][1/(aP)]`.**
+   - Over Q the denominator ideal is exactly `(H + (F) : t³) ∩ Q[a,b] = (a(a−2)²(a−b)(b−1))`
+     (Singular, all twenty minors).
+   - Lifting against F1–F3 and the six minors gives
+     `2·a·(a−2)²·(a−b)·(b−1)·t³ = Σ h_g·g` with integer cofactors, rechecked in SymPy.
+   - It is stored as `sourceData.appendixB.q06CertificateAP`; the old record is marked superseded.
+   - `t² ∉ H` over `Q[a,b][1/(aP)]`.
+
+**Tooling note.** Singular runs on this kind of server via `uv run --with passagemath-singular`
+(10.8.12; `from sage.all__sagemath_singular import *`). The Q06 Gröbner computations each take under
+three seconds. This makes the remaining Appendix B certificates practical.
+
+## Resume from here
+
+1. **Q13's Gröbner basis (proof of Proposition B.0.2(2), PDF205), uniformly.** Show that the eleven
+   printed polynomials form a Gröbner basis of the reduced normalization ideal for every field of
+   characteristic > 7 and every (a,b) with P ≠ 0, for the order W > c12 > c13 > d21 > c22 > d31 > d33.
+   This is a parametric (comprehensive) Gröbner computation. Its steps:
+   - membership of each listed polynomial, with cofactors over Z[a,b][1/P];
+   - reduction of the seven generators to zero;
+   - S-pairs reducing to zero with unit leading coefficients.
+
+   Mind the 8th generator. Its first coefficient is `b((a−b)(a−1)−1)`, which is not a factor of P
+   and can vanish on V. The paper's exception "(a−b)((a−1)−1)" (PDF205) should be compared with this
+   on the page image before anything is recorded. Then comes the Cohen–Macaulay claim for the monomial
+   scheme. Preserve E91.
+2. **Q04 minimal primes (B.0.1(2)) and Q09's Table 1 rows, uniformly over V.** Singular's
+   `minAssGTZ` or primary decomposition over Q(a,b), then a specialization analysis of the
+   denominators, in the same style as the Q06 denominator ideal.
+3. **Codex resume items 1–5 below** remain in force as written.
+
+---
+
+# Previous checkpoint (cc-fb70e5)
+
 Claude Code — cc-fb70e5; issue 1254; 29 September 2026.
 **Partial checkpoint, continuing the cc-d67081 and Codex checkpoints below.** Census 776 items,
 25 routes, 111 findings (E111 is new). No Lean deliverable or compilation. This session has edited
