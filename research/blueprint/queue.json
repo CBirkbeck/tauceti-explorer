@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -9721,7 +9721,8 @@
    ],
    "avoidAccountOf": "PAPER-LUST-STEVENS-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-LUST-STEVENS-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4590"
   },
   {
    "id": "DESIGN-LV",
@@ -45560,7 +45561,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4019"
   },
   {
    "id": "RT-AUDIT-27",
@@ -46619,8 +46621,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-arithmeticgeometry-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3962"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3962",
+   "finishedAt": "2026-09-29T17:52:14Z"
   },
   {
    "id": "RT-AREA-arithmeticgeometry-3",
@@ -47355,8 +47358,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3969"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3969",
+   "finishedAt": "2026-09-29T17:52:17Z"
   },
   {
    "id": "RT-AREA-modeltheory",
@@ -48322,7 +48326,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-representations-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3983"
   },
   {
    "id": "RT-AREA-representations-2",
@@ -48584,7 +48589,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-analysis.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3985"
   },
   {
    "id": "RT-AREA-pde",
@@ -48925,7 +48931,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-diffgeom.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3992"
   },
   {
    "id": "ERRATA-PAPER-BURUNGALE-TIAN-26",
