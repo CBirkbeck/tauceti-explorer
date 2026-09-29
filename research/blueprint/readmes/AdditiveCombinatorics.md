@@ -4,6 +4,8 @@
 
 This document specifies the finite-character normalization interface in AC.0
 and its quantitative large-spectrum and Bohr-set continuation into AC.1.
+It also plans, in AC.1, Gowers–Green–Manners–Tao's proof of Marton's conjecture (the
+polynomial Freiman–Ruzsa conjecture) in characteristic 2, with the Shannon-entropy carrier it needs.
 The roadmap also owns AC.1–AC.5: additive structure, density progressions and
 removal, higher uniformity and nilsequences, transference, and linear patterns
 in primes. Their outstanding mathematical contracts are stated below. This
@@ -729,7 +731,9 @@ uses a floating-point tolerance or establishes the unrestricted theorem alone.
 
 AC.1 needs complete selected proofs for BSG, source-scoped Freiman theorems,
 Bohr size/regularity, progression extraction and density increments, with
-ambient-group and torsion hypotheses. The finite Fourier containment above
+ambient-group and torsion hypotheses. The entropic route to Marton's conjecture in
+characteristic 2 is now planned (last part of this document); the combinatorial BSG
+theorem, Freiman over ℤ and in bounded torsion, and the PFR corollaries remain. The finite Fourier containment above
 does not close those targets. A Bohr-to-progression proof using Minkowski's second theorem
 requests the exact statement from GN.1; Minkowski's first theorem does not
 replace it. Apply the handoff's source corrections before using the inspected
@@ -1656,3 +1660,542 @@ For finite subsets A, B of an abelian group, E(A, B) ≤ |A|² |B| and E(A, B) �
 - Sumsets, additive energy and the Plünnecke–Ruzsa, Ruzsa triangle and Ruzsa covering inequalities are baseline citations, listed by name through their multiplicative declarations (the pinned index has only those; the additive twins are named in provides).
 - The checks the handoff lists for AC.0 — quotient fibre-cardinality, the cyclic constructor, the one-dimensional Peter–Weyl identification (fourier_eq_haarIntegral) and the coding/ER.4 specialisations — are not done; the nodes carry those interfaces as the worksheet states them.
 - The source's count of large coefficients (3), |{ξ : |χ̂_A(ξ)| ≥ εc}| ≤ ε⁻²c⁻¹, belongs to AC.1's large-spectrum layer (worksheet largeSpectrum_indicator_card_mul_sq_le) and is not an AC.0 node.
+
+## AC.1: entropy and Marton's conjecture (Gowers–Green–Manners–Tao)
+
+The source is Gowers, Green, Manners and Tao, *On a conjecture of Marton* (Ann. of Math. 201 (2025), 515–549). It was read in the authors' accepted manuscript, which is CC BY and held on the Oxford Research Archive, and collated with arXiv:2311.05762v2. The paper proves the polynomial Freiman–Ruzsa conjecture in 𝔽₂ⁿ with C = 12: a set A with |A + A| ≤ K|A| is covered by 2K¹² cosets of a subgroup of size at most |A|.
+
+The proof works entirely with Shannon entropy.
+- The entropic Ruzsa distance d[X; Y] = H[X′ − Y′] − ½H[X′] − ½H[Y′] replaces the doubling constant.
+- The entropic PFR theorem (Theorem 1.8) comes from minimizing a penalized distance τ.
+- If a minimizer had positive distance, sums and fibres of independent copies would give a smaller τ. This uses the fibring lemma, the two estimates of Sections 5–6, and an endgame that applies entropic Balog–Szemerédi–Gowers to a triple summing to zero, which is the one essential use of characteristic 2.
+- Appendix B converts the entropic statement into the covering statement by the Ruzsa covering lemma.
+
+Mathlib has no Shannon entropy of random variables, so AC.1 plans that carrier at the level of distributions on finite types. AC.0 is already at its planet budget. The names follow the complete Lean 4 formalization of this paper (teorth.github.io/pfr), which is not a pinned library, so a later port can reuse them.
+
+### Entropy and the entropic Ruzsa calculus
+
+#### `shannon-entropy` — Shannon entropy, conditional entropy and mutual information
+
+*definition* · planet **Shannon entropy and mutual information** · proposed `TauCeti.EntropicPFR.entropy`
+
+For a random variable X with values in a finite type, H[X] = Σ_x p_X(x) log(1/p_X(x)) (natural logarithm), computed from the distribution. H[X|Y] = Σ_y p_Y(y) H[X|Y=y], I[X : Y] = H[X] + H[Y] − H[X,Y], and I[X : Y|Z] = Σ_z p_Z(z) I[(X|Z=z) : (Y|Z=z)].
+
+**Hypotheses.**
+- All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.
+- Mathlib has only the binary entropy function; this node is the general carrier, built on Real.negMulLog and ProbabilityTheory.cond. The planned names follow the Lean formalization of this paper (teorth.github.io/pfr), which is not a pinned library.
+
+**Construction or proof, in steps.**
+1. Define measureEntropy μ = Σ_s negMulLog(μ{s}) for a measure on a finite type, entropy X μ = measureEntropy(μ.map X), and the conditional and mutual versions as displayed.
+2. Jensen (concavity of negMulLog): H[X] ≤ log|S| with equality exactly for the uniform distribution (A.1); and max_x p_X(x) ≥ e^{−H[X]} (A.2).
+3. Chain rule H[X,Y] = H[X|Y] + H[Y] (A.3), by expanding p_{X,Y} = p_Y·p_{X|Y}.
+4. I[X : Y] ≥ 0 with equality iff X, Y are independent (Jensen), giving (A.4)–(A.5). Conditioning and summing gives submodularity H[X|Y,Z] ≤ H[X|Z] (A.6)–(A.7), and I[X : Y|Z] ≥ 0 with the formula (A.9).
+5. Invariance of entropy under injective relabelling, and H[U_s] = log|s| for the uniform distribution on a finite set.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `TauCeti.EntropicPFR.measureEntropy` | data | The entropy Σ_s −μ{s} log μ{s} of a measure on a finite type. |
+| `TauCeti.EntropicPFR.condEntropy` | data | H[X∣Y] = Σ_y p_Y(y) H[X∣Y=y]. |
+| `TauCeti.EntropicPFR.mutualInfo` | data | I[X : Y] = H[X] + H[Y] − H[X,Y]. |
+| `TauCeti.EntropicPFR.condMutualInfo` | data | I[X : Y∣Z] = Σ_z p_Z(z) I[(X∣Z=z) : (Y∣Z=z)]. |
+| `TauCeti.EntropicPFR.entropy_le_log_card` | other | (A.1): H[X] ≤ log∣S∣. |
+| `TauCeti.EntropicPFR.measureEntropy_eq_log_card_iff` | characterisation | (A.1): equality iff the distribution is uniform. |
+| `TauCeti.EntropicPFR.exists_measure_singleton_ge` | other | (A.2): some value has probability at least e^{−H}. |
+| `TauCeti.EntropicPFR.entropy_pair_eq_condEntropy_add` | relation | (A.3): the chain rule. |
+| `TauCeti.EntropicPFR.condEntropy_le_entropy` | relation | (A.5): conditioning does not increase entropy. |
+| `TauCeti.EntropicPFR.entropy_pair_eq_add_iff` | characterisation | (A.4): H[X,Y] = H[X] + H[Y] iff X and Y are independent. |
+| `TauCeti.EntropicPFR.condEntropy_pair_le` | relation | (A.6): submodularity. |
+| `TauCeti.EntropicPFR.condMutualInfo_nonneg` | other | (A.8): I[X : Y∣Z] ≥ 0. |
+| `TauCeti.EntropicPFR.entropy_comp_of_injective` | simp | Injective relabelling preserves entropy. |
+| `TauCeti.EntropicPFR.measureEntropy_uniformOn` | simp | The uniform distribution on a nonempty finite set s has entropy log∣s∣. |
+
+**Unit tests.**
+
+- `shannon-entropy.entropy_const` (degenerate) — A constant random variable has entropy 0.
+- `shannon-entropy.entropy_uniform_bool` (computation) — The uniform distribution on Bool has entropy log 2.
+- `shannon-entropy.mutualInfo_self` (characterisation) — I[X : X] = H[X]: a variable carries all of its own information.
+- `shannon-entropy.mutualInfo_indep` (compatibility) — Independent X, Y (Mathlib's IndepFun) have I[X : Y] = 0.
+
+**Where it is used.**
+- entropic-ruzsa-distance — The entropic Ruzsa distance is a combination of entropies.
+- Gowers–Green–Manners–Tao §§2–7 and Appendix A — Every estimate is an entropy inequality.
+
+**Acceptance.**
+- The source recalls these facts in Appendix A and uses them throughout; none is specific to additive combinatorics.
+
+**Dependencies.**
+- On the pinned libraries: `mathlib:Real.negMulLog`, `mathlib:ProbabilityTheory.cond`, `mathlib:MeasureTheory.Measure.map`, `mathlib:ProbabilityTheory.IndepFun`, `mathlib:Real.concaveOn_negMulLog`, `mathlib:ProbabilityTheory.uniformOn`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — Appendix A, (A.1)–(A.9), pp. 27–28 (AAM). The definitions and standard inequalities.
+
+#### `entropic-ruzsa-distance` — Entropic Ruzsa distance
+
+*definition* · planet **Entropic Ruzsa distance** · proposed `TauCeti.EntropicPFR.rdist`
+
+For probability distributions μ, ν on a finite abelian group G, d[μ; ν] = H[X′ − Y′] − ½H[X′] − ½H[Y′], where X′ ∼ μ and Y′ ∼ ν are independent (1.1). For random variables d[X; Y] = d[p_X; p_Y] depends only on the two distributions. The conditional distance is d[X|Z; Y|W] = Σ_{z,w} p_Z(z)p_W(w) d[(X|Z=z); (Y|W=w)] (A.14).
+
+**Hypotheses.**
+- All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.
+- X and Y need not be independent, or even defined on the same space.
+
+**Construction or proof, in steps.**
+1. Define rdist(μ, ν) from the distribution of p.1 − p.2 under μ ⊗ ν, and condRdist as displayed.
+2. Symmetry: X′ − Y′ and Y′ − X′ have the same entropy. Nonnegativity and |H[X] − H[Y]| ≤ 2d[X; Y] follow from max(H[X], H[Y]) ≤ H[X − Y] for independent X, Y (A.10)–(A.12).
+3. For independent X, Y on one space, d[X; Y] = H[X − Y] − ½H[X] − ½H[Y]; for independent copies, the conditional distance is H[X′ − Y′|Z′, W′] − ½H[X′|Z′] − ½H[Y′|W′] (A.15).
+4. Translation invariance, and d[U_H; U_H] = 0 because U_H − U_H′ is again uniform on H.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `TauCeti.EntropicPFR.condRdist` | data | The conditional distance (A.14). |
+| `TauCeti.EntropicPFR.rdist_symm` | relation | d[μ; ν] = d[ν; μ]. |
+| `TauCeti.EntropicPFR.rdist_nonneg` | other | d[μ; ν] ≥ 0. |
+| `TauCeti.EntropicPFR.abs_measureEntropy_sub_le` | other | (A.12): ∣H[μ] − H[ν]∣ ≤ 2d[μ; ν]. |
+| `TauCeti.EntropicPFR.rdist_map_eq_of_indepFun` | characterisation | For independent X, Y on one space, d[X; Y] = H[X − Y] − ½H[X] − ½H[Y]. |
+| `TauCeti.EntropicPFR.rdist_map_add_const` | simp | Translating one distribution does not change the distance. |
+| `TauCeti.EntropicPFR.rdist_uniformOn_self` | example | d[U_H; U_H] = 0 for a subgroup H. |
+
+**Unit tests.**
+
+- `entropic-ruzsa-distance.rdist_dirac_zero` (degenerate) — Two point masses at 0 are at distance 0.
+- `entropic-ruzsa-distance.rdist_cosets` (characterisation) — Uniform distributions on two cosets a + H, b + H are at distance 0 although they differ: the distance is not a metric on distributions.
+- `entropic-ruzsa-distance.rdist_three_points` (non-example) — X uniform on {0, e₁, e₂} ⊂ 𝔽₂² has d[X; X] = (2/3)log(3/2) > 0: a 'distance' of a variable from itself need not vanish. (Checked numerically: 0.2703…)
+
+**Where it is used.**
+- Gowers–Green–Manners–Tao Theorem 1.8 and §§2–7 — The quantity decreased by the compression argument.
+- tau-functional — τ is built from three distances.
+
+**Acceptance.**
+- d[X; X] = 0 only when X is uniform on a coset of a subgroup (Lemma 2.2), and d[X; Y] = 0 can hold for different distributions (p. 4).
+
+**Dependencies.**
+- In this packet: `shannon-entropy`
+- On the pinned libraries: `mathlib:MeasureTheory.Measure.prod`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §1, (1.1) and the following remarks, p. 4 (AAM). The definition and its basic properties.
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — Appendix A, (A.10)–(A.15), pp. 29–30 (AAM). The conditional distance and the standard inequalities.
+
+#### `entropic-ruzsa-triangle` — Entropic Ruzsa triangle inequality (A.13)
+
+*theorem* · proposed `TauCeti.EntropicPFR.rdist_triangle`
+
+For probability distributions on a finite abelian group, d[X; Y] ≤ d[X; Z] + d[Z; Y]; equivalently H[X − Y] ≤ H[X − Z] + H[Z − Y] − H[Z] for independent X, Y, Z.
+
+**Hypotheses.**
+- All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.
+
+**Proof, in steps.**
+1. Submodularity (A.6): H[Y − Z|X − Y] ≥ H[Y − Z|X − Y, Y] = H[Z|X, Y] = H[Z], using independence.
+2. H[Y − Z|X − Y] = H[X − Z, Y − Z] − H[X − Y] ≤ H[X − Z] + H[Y − Z] − H[X − Y] by (A.5). Combine; the half-entropies in d cancel.
+
+**Acceptance.**
+- The independence of X and Y is not used (source remark, after [9]).
+
+**Dependencies.**
+- In this packet: `entropic-ruzsa-distance`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — Appendix A, (A.13) and its proof, pp. 29–30 (AAM). The inequality and its proof.
+
+#### `madiman-inequality` — Madiman's inequality (Lemma A.1)
+
+*lemma* · proposed `TauCeti.EntropicPFR.entropy_add_add_sub_le`
+
+For independent X, Y, Z in a finite abelian group, H[X + Y + Z] − H[X + Y] ≤ H[Y + Z] − H[Y].
+
+**Hypotheses.**
+- All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.
+- An entropy analogue of Plünnecke's inequality; it generalizes Kaimanovich–Vershik.
+
+**Proof, in steps.**
+1. By (A.9), I[X : Z|X+Y+Z] = H[X, X+Y+Z] + H[Z, X+Y+Z] − H[X, Z, X+Y+Z] − H[X+Y+Z].
+2. By independence (A.4): H[X, X+Y+Z] = H[X] + H[Y+Z], H[Z, X+Y+Z] = H[Z] + H[X+Y], and H[X, Z, X+Y+Z] = H[X] + H[Y] + H[Z]. The claim becomes I[X : Z|X+Y+Z] ≥ 0 (A.8).
+
+**Acceptance.**
+- Z = 0 gives an equality.
+
+**Dependencies.**
+- In this packet: `shannon-entropy`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — Appendix A, Lemma A.1 and proof, p. 30 (AAM); (5.5), p. 20. The lemma and its proof.
+
+#### `entropic-bsg` — Entropic Balog–Szemerédi–Gowers lemma (Lemma A.2)
+
+*theorem* · planet **Entropic Balog–Szemerédi–Gowers lemma** · proposed `TauCeti.EntropicPFR.sum_rdist_cond_le`
+
+Let (A, B) be a G²-valued random variable and Z = A + B. Then Σ_z p_Z(z) d[(A|Z=z); (B|Z=z)] ≤ 3I[A : B] + 2H[Z] − H[A] − H[B].
+
+**Hypotheses.**
+- All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.
+- A, B are jointly distributed, not assumed independent; 2H[Z] − H[A] − H[B] is not 2d[A; B].
+
+**Proof, in steps.**
+1. Take (A₁, B₁), (A₂, B₂) conditionally independent trials of (A, B) relative to Z; then H[A₁, B₁, A₂, B₂] = 2H[A,B] − H[Z] (A.17), and the left side is H[A₁ − B₂|Z] − ½H[A₁|Z] − ½H[B₂|Z] (A.18).
+2. Submodularity (A.19): H[A₁ − B₂] + H[A₁ − B₂, A₁, B₁] ≤ H[A₁ − B₂, A₁] + H[A₁ − B₂, B₁]. The second term is 2H[A,B] − H[Z]; each term on the right is at most H[A] + H[B], using A₁ − B₂ = A₂ − B₁ (A.20)–(A.22).
+3. So H[A₁ − B₂|Z] ≤ H[A₁ − B₂] ≤ 2I[A : B] + H[Z], and H[A₁|Z] = H[B₂|Z] = H[A] + H[B] − I[A : B] − H[Z].
+
+**Acceptance.**
+- The source improves the constants of Tao's entropic BSG [37, Lemma 3.3].
+
+**Dependencies.**
+- In this packet: `shannon-entropy`, `entropic-ruzsa-distance`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — Appendix A, Lemma A.2 and proof, pp. 30–32 (AAM). The lemma and its proof.
+
+#### `fibring-lemma` — The fibring lemma (Proposition 4.1)
+
+*theorem* · planet **Fibring lemma** · proposed `TauCeti.EntropicPFR.rdist_eq_fibring`
+
+Let π: H → H′ be a homomorphism of finite abelian groups and Z₁, Z₂ H-valued random variables. Then d[Z₁; Z₂] ≥ d[π(Z₁); π(Z₂)] + d[Z₁|π(Z₁); Z₂|π(Z₂)]. If Z₁, Z₂ are independent, the difference is I[Z₁ − Z₂ : (π(Z₁), π(Z₂)) | π(Z₁ − Z₂)] (4.1).
+
+**Hypotheses.**
+- All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.
+
+**Proof, in steps.**
+1. Take Z₁, Z₂ independent. By (A.15), d[Z₁|π(Z₁); Z₂|π(Z₂)] = H[Z₁ − Z₂|π(Z₁), π(Z₂)] − ½H[Z₁|π(Z₁)] − ½H[Z₂|π(Z₂)] ≤ H[Z₁ − Z₂|π(Z₁ − Z₂)] − … by submodularity.
+2. H[Z₁ − Z₂|π(Z₁ − Z₂)] = H[Z₁ − Z₂] − H[π(Z₁ − Z₂)] and H[Zᵢ|π(Zᵢ)] = H[Zᵢ] − H[π(Zᵢ)], so the bound is d[Z₁; Z₂] − d[π(Z₁); π(Z₂)].
+3. The slack is H[A|B] − H[A|B,C] = I[A : C|B] with A = Z₁ − Z₂, B = π(Z₁ − Z₂), C = (π(Z₁), π(Z₂)), and C determines B.
+
+**Acceptance.**
+- π = 0 gives d[Z₁|0; Z₂|0] = d[Z₁; Z₂]; π = id gives d[Z₁; Z₂] ≥ d[Z₁; Z₂] + 0.
+
+**Dependencies.**
+- In this packet: `entropic-ruzsa-distance`, `shannon-entropy`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §4, Proposition 4.1 and proof, pp. 16–17 (AAM). The proposition, with its explicit error term.
+
+#### `fibring-corollary` — Fibring for four independent variables (Corollary 4.2)
+
+*lemma* · proposed `TauCeti.EntropicPFR.fibring_four`
+
+For independent Y₁, Y₂, Y₃, Y₄ in a finite abelian group, d[Y₁ − Y₃; Y₂ − Y₄] + d[Y₁|Y₁ − Y₃; Y₂|Y₂ − Y₄] + I[Y₁ − Y₂ : Y₂ − Y₄ | Y₁ − Y₂ − Y₃ + Y₄] = d[Y₁; Y₂] + d[Y₃; Y₄].
+
+**Hypotheses.**
+- All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.
+- In characteristic 2 every sign may be replaced by + (Remark 4.3).
+
+**Proof, in steps.**
+1. Apply Proposition 4.1 with H = G × G, H′ = G, π(x, y) = x − y, Z₁ = (Y₁, Y₃), Z₂ = (Y₂, Y₄); by independence d[Z₁; Z₂] = d[Y₁; Y₂] + d[Y₃; Y₄].
+2. Once π(Z₁) = Y₁ − Y₃ is fixed, Z₁ and Y₁ determine each other; so d[Z₁|π(Z₁); Z₂|π(Z₂)] = d[Y₁|Y₁ − Y₃; Y₂|Y₂ − Y₄].
+3. The conditioning variable in (4.1) is π(Z₁ − Z₂) = π(Z₁) − π(Z₂) = Y₁ − Y₂ − Y₃ + Y₄; the source prints π(Z₁) + π(Z₂) (E5). Given it, Y₁ − Y₂ determines Y₃ − Y₄, and Y₂ − Y₄ determines Y₁ − Y₃.
+
+**Acceptance.**
+- (Y₁, Y₂, Y₃, Y₄) = (X₁, X₂, X̃₂, X̃₁) gives (5.1); (X₂, X₁, X̃₂, X̃₁) gives the identity of §6.
+
+**Dependencies.**
+- In this packet: `fibring-lemma`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §4, Corollary 4.2 and proof, p. 17 (AAM). The corollary; the conditioning sign is corrected (E5).
+
+#### `conditional-distance-bound` — Conditioning costs at most half the mutual information (Lemma 5.2)
+
+*lemma* · proposed `TauCeti.EntropicPFR.condRdist_le`
+
+d[X|Z; Y|W] ≤ d[X; Y] + ½I[X : Z] + ½I[Y : W].
+
+**Hypotheses.**
+- All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.
+
+**Proof, in steps.**
+1. With independent copies, d[X|Z; Y|W] = H[X′ − Y′|Z′, W′] − ½H[X′|Z′] − ½H[Y′|W′] ≤ H[X′ − Y′] − ½H[X′|Z′] − ½H[Y′|W′] by (A.5), which is d[X′; Y′] + ½I[X′ : Z′] + ½I[Y′ : W′].
+
+**Acceptance.**
+- Z, W constant gives equality.
+
+**Dependencies.**
+- In this packet: `entropic-ruzsa-distance`, `shannon-entropy`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §5, Lemma 5.2 and proof, p. 19 (AAM). The lemma and its proof.
+
+#### `distance-sum-bounds` — Distances to sums and to fibres (Lemma 5.3)
+
+*lemma* · proposed `TauCeti.EntropicPFR.rdist_sub_sub_le`
+
+For Y, Z independent: d[X; Y − Z] − d[X; Y] ≤ ½(H[Y − Z] − H[Y]) = ½d[Y; Z] + ¼H[Z] − ¼H[Y] (5.6), and d[X; Y|Y − Z] − d[X; Y] ≤ ½(H[Y − Z] − H[Z]) = ½d[Y; Z] + ¼H[Y] − ¼H[Z] (5.7).
+
+**Hypotheses.**
+- All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.
+
+**Proof, in steps.**
+1. (5.6): take X independent of (Y, Z); then d[X; Y − Z] − d[X; Y] = H[X − Y + Z] − H[X − Y] − ½H[Y − Z] + ½H[Y], and Madiman's inequality with Y replaced by −Y bounds the first difference by H[Y − Z] − H[Y].
+2. (5.7): I[Y : Y − Z] = H[Y − Z] − H[Z]; apply Lemma 5.2 to (X, trivial) and (Y, Y − Z).
+
+**Acceptance.**
+- The source thanks Floris van Doorn for a sign correction to this statement found in the Lean formalization (footnote 7).
+
+**Dependencies.**
+- In this packet: `madiman-inequality`, `conditional-distance-bound`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §5, Lemma 5.3 and proof, pp. 20–21 (AAM). The lemma and its proof.
+
+#### `distance-fibre-sum-bound` — Distance to a fibre of a double sum (Lemma 7.1)
+
+*lemma* · proposed `TauCeti.EntropicPFR.condRdist_sub_sub_le`
+
+For Y, Z, Z′ independent: d[X; Y − Z|Y − Z − Z′] − d[X; Y] ≤ ½(H[Y − Z − Z′] + H[Y − Z] − H[Y] − H[Z′]).
+
+**Hypotheses.**
+- All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.
+
+**Proof, in steps.**
+1. (5.7) with Y ↦ Y − Z and Z ↦ Z′ gives d[X; Y − Z|Y − Z − Z′] − d[X; Y − Z] ≤ ½(H[Y − Z − Z′] − H[Z′]); add (5.6).
+
+**Acceptance.**
+- Used six times in (7.3).
+
+**Dependencies.**
+- In this packet: `distance-sum-bounds`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §7, Lemma 7.1 and proof, p. 23 (AAM). The lemma and its proof.
+
+#### `hundred-percent-case` — Distance zero means cosets of one subgroup (Lemma 2.2)
+
+*lemma* · proposed `TauCeti.EntropicPFR.exists_subgroup_of_rdist_eq_zero`
+
+If d[X₁; X₂] = 0, there is a subgroup H ≤ G such that p_{X₁} and p_{X₂} are translates of U_H; in particular d[X₁; U_H] = d[X₂; U_H] = 0.
+
+**Hypotheses.**
+- All random variables take values in finite types; Ω is a probability space and conditioning on an event of probability zero contributes zero weight.
+- G is any finite abelian group; the source states it for G = 𝔽₂ⁿ.
+
+**Proof, in steps.**
+1. For independent copies, H[X₁′ − X₂′] ≥ H[X₁′ − X₂′|X₂′] = H[X₁′] and likewise H[X₂′]; averaging gives d ≥ 0, so equality holds in both, and X₁′ − X₂′ is independent of X₂′ and of X₁′. Hence p_{X₁ − s₂} = p_{X₁ − X₂} = p_{s₁ − X₂} for s₁, s₂ in the supports (2.4).
+2. Let H = Sym(X₁) = Sym(X₂) = Sym(X₁ − X₂), the stabilizer of the distribution under translation; it is a subgroup contained in S − S. From (2.4), S₁ − S₁ = S₂ − S₂ = H.
+3. H[X₁] = H[X₁ + U_H] ≥ log|H| by (A.11), while H[X₁] ≤ log|S₁| ≤ log|S₁ − S₁| = log|H|. Equality throughout forces X₁ uniform on S₁ = a₁ + H; likewise X₂.
+
+**Acceptance.**
+- A Dirac mass is uniform on a coset of the trivial subgroup.
+
+**Dependencies.**
+- In this packet: `entropic-ruzsa-distance`, `shannon-entropy`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §2, Lemma 2.2 and proof, pp. 7–8 (AAM). The lemma and its proof.
+
+### The τ-minimization argument and the theorems
+
+#### `tau-functional` — The functional τ and its minimizers
+
+*definition* · proposed `TauCeti.EntropicPFR.tau`
+
+For η > 0 and fixed reference distributions X₁⁰, X₂⁰ on G = 𝔽₂ⁿ, τ[X₁; X₂] = d[X₁; X₂] + ηd[X₁⁰; X₁] + ηd[X₂⁰; X₂] (2.1). A τ-minimizer is a pair of probability distributions minimizing τ; the source uses η = 1/9.
+
+**Hypotheses.**
+- τ depends only on the distributions of X₁, X₂; the references are never modified.
+- In Lean, G is a finite ℤ/2-module; the definition makes sense for any finite abelian group.
+
+**Construction or proof, in steps.**
+1. Define tau and IsTauMinimizer on probability measures.
+2. Existence: the pairs of probability distributions on the finite set G form a compact set, and d is continuous, so τ attains its minimum.
+3. (2.3): τ[X₂⁰; X₁⁰] = (1 + 2η)d[X₁⁰; X₂⁰], by symmetry of d.
+4. The conditioned form (3.15): minimality gives d[X₁′|Y₁; X₂′|Y₂] ≥ k − η(d[X₁⁰; X₁′|Y₁] − d[X₁⁰; X₁]) − η(d[X₂⁰; X₂′|Y₂] − d[X₂⁰; X₂]), by applying (3.12) to each pair of fibres and averaging.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `TauCeti.EntropicPFR.IsTauMinimizer` | data | (μ₁, μ₂) are probability measures minimizing τ. |
+| `TauCeti.EntropicPFR.MinimizerSetup` | data | The setting of Sections 5–7: a τ-minimizer (μ₁, μ₂) for η = 1/9 with four independent variables X₁, X₂, X̃₁, X̃₂ of laws μ₁, μ₂, μ₁, μ₂ on one probability space. |
+| `TauCeti.EntropicPFR.exists_isTauMinimizer` | other | A minimizer exists. |
+| `TauCeti.EntropicPFR.tau_swap` | example | (2.3): τ[X₂⁰; X₁⁰] = (1 + 2η)d[X₁⁰; X₂⁰]. |
+| `TauCeti.EntropicPFR.IsTauMinimizer.condRdist_ge` | relation | (3.15): minimality in conditioned form. |
+
+**Unit tests.**
+
+- `tau-functional.tau_uniform_self` (computation) — With every distribution equal to U_H, τ = 0.
+- `tau-functional.not_isTauMinimizer_zero` (non-example) — The zero measure is not a minimizer: minimizers are probability measures, and the formula would otherwise give junk values.
+- `tau-functional.tau_nonneg` (characterisation) — τ ≥ 0 for probability measures and η ≥ 0.
+
+**Where it is used.**
+- tau-decrement — Proposition 2.1 is stated for τ-minimizers.
+- entropic-pfr — Theorem 1.8 is deduced by taking a τ-minimizer.
+
+**Acceptance.**
+- The argument is not constructive because of the compactness step; Remark 2.3 sketches an algorithmic variant with worse constants.
+
+**Dependencies.**
+- In this packet: `entropic-ruzsa-distance`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §2, (2.1)–(2.3) and the proof of Theorem 1.8, pp. 6–9 (AAM). The functional and its minimizers.
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §3, (3.12) and (3.15), pp. 14–15 (AAM). The conditioned form of minimality.
+
+#### `first-estimate` — First estimate: I₁ ≤ 2ηk (Section 5)
+
+*lemma* · proposed `TauCeti.EntropicPFR.first_estimate`
+
+In the minimizer setting, I₁ = I[X₁ + X₂ : X̃₁ + X₂ | S] ≤ 2ηk (3.13), and H[S] ≤ ½H[X₁] + ½H[X₂] + (2 + η)k − I₁ (5.8).
+
+**Hypotheses.**
+- G is an elementary abelian 2-group (a finite ℤ/2-module, i.e. 𝔽₂ⁿ); η = 1/9; ρ₁, ρ₂ are the reference distributions X₁⁰, X₂⁰; (μ₁, μ₂) minimizes τ; X₁, X₂, X̃₁, X̃₂ are independent with X₁, X̃₁ ∼ μ₁ and X₂, X̃₂ ∼ μ₂; k = d[X₁; X₂] and S = X₁ + X₂ + X̃₁ + X̃₂.
+
+**Proof, in steps.**
+1. Corollary 4.2 with (Y₁, Y₂, Y₃, Y₄) = (X₁, X₂, X̃₂, X̃₁) gives d[X₁ + X̃₂; X₂ + X̃₁] + d[X₁|X₁ + X̃₂; X₂|X₂ + X̃₁] + I₁ = 2k (5.1).
+2. Minimality (3.12), (3.15) bounds each distance below by k − η(…) (5.2). Lemma 5.3 bounds each bracket: the four differences are ½k ± ¼(H[X₂] − H[X₁]), and they add in pairs to k (5.3), (5.4). So I₁ ≤ 2ηk.
+3. Subtracting (5.2) from (5.1) and using (5.4) gives d[X₁ + X̃₂; X₂ + X̃₁] ≤ (1 + η)k − I₁, which is (5.8) because H[X₁ + X̃₂] = H[X₂ + X̃₁] = k + ½H[X₁] + ½H[X₂].
+
+**Acceptance.**
+- Only I₁ = O(ηk) is needed for some constant in Theorem 1.8 (Remark 5.1).
+
+**Dependencies.**
+- In this packet: `fibring-corollary`, `tau-functional`, `distance-sum-bounds`, `conditional-distance-bound`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §5, (5.1)–(5.8), pp. 18–21 (AAM). The estimate and the entropy bound (5.8).
+
+#### `second-estimate` — Second estimate: the bound (3.14) on I₂ (Section 6)
+
+*lemma* · proposed `TauCeti.EntropicPFR.second_estimate`
+
+In the minimizer setting, I₂ = I[X₁ + X₂ : X₁ + X̃₁ | S] ≤ 2ηk + 2η(2ηk − I₁)/(1 − η).
+
+**Hypotheses.**
+- G is an elementary abelian 2-group (a finite ℤ/2-module, i.e. 𝔽₂ⁿ); η = 1/9; ρ₁, ρ₂ are the reference distributions X₁⁰, X₂⁰; (μ₁, μ₂) minimizes τ; X₁, X₂, X̃₁, X̃₂ are independent with X₁, X̃₁ ∼ μ₁ and X₂, X̃₂ ∼ μ₂; k = d[X₁; X₂] and S = X₁ + X₂ + X̃₁ + X̃₂.
+- By symmetry I₃ = I[X̃₁ + X₂ : X₁ + X̃₁ | S] equals I₂.
+
+**Proof, in steps.**
+1. Corollary 4.2 with (X₂, X₁, X̃₂, X̃₁) gives d[X₁ + X̃₁; X₂ + X̃₂] + d[X₁|X₁ + X̃₁; X₂|X₂ + X̃₂] + I₂ = 2k.
+2. Minimality and Lemma 5.3 (each bracket at most ½d[Xᵢ; Xᵢ]) give I₂ ≤ η(d[X₁; X₁] + d[X₂; X₂]) (6.4) and d[X₁ + X̃₁; X₂ + X̃₂] ≥ k − (η/2)(d[X₁; X₁] + d[X₂; X₂]) (6.5).
+3. Expanding the same distance and using (5.8) gives d[X₁ + X̃₁; X₂ + X̃₂] ≤ (2 + η)k − ½(d[X₁; X₁] + d[X₂; X₂]) − I₁; with (6.5), d[X₁; X₁] + d[X₂; X₂] ≤ 2k + 2(2ηk − I₁)/(1 − η) (6.6), and (6.4) concludes.
+
+**Acceptance.**
+- The Ruzsa triangle inequality would give the weaker bound 4ηk.
+
+**Dependencies.**
+- In this packet: `fibring-corollary`, `tau-functional`, `distance-sum-bounds`, `first-estimate`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §6, (6.1)–(6.6), pp. 21–23 (AAM). The estimate and its proof.
+
+#### `endgame-lemma` — The endgame construction (Lemma 7.2)
+
+*lemma* · proposed `TauCeti.EntropicPFR.exists_endgame_pair`
+
+Let G = 𝔽₂ⁿ and (T₁, T₂, T₃) be G³-valued with T₁ + T₂ + T₃ = 0, and δ = Σ_{i<j} I[Tᵢ : Tⱼ]. Then there are T₁′, T₂′ with d[T₁′; T₂′] + η(d[X₁⁰; T₁′] − d[X₁⁰; X₁]) + η(d[X₂⁰; T₂′] − d[X₂⁰; X₂]) ≤ δ + (η/3)(δ + Σ_{i=1}^{2} Σ_{j=1}^{3} (d[Xᵢ⁰; Tⱼ] − d[Xᵢ⁰; Xᵢ])).
+
+**Hypotheses.**
+- The source writes I[Tᵢ; Tⱼ] in (7.5) for the mutual information I[Tᵢ : Tⱼ] (E6).
+- η ≥ 0 and the references X₁⁰, X₂⁰ and X₁, X₂ are as in the τ setting.
+
+**Proof, in steps.**
+1. Entropic BSG with (A, B) = (T₁, T₂) (so A + B = T₃): Σ_t p_{T₃}(t) d[(T₁|T₃=t); (T₂|T₃=t)] ≤ 3I[T₁ : T₂] + 2H[T₃] − H[T₁] − H[T₂] = δ, because each pair of the Tᵢ determines the third.
+2. Lemma 5.2: d[X₁⁰; T₁|T₃] − d[X₁⁰; X₁] ≤ d[X₁⁰; T₁] − d[X₁⁰; X₁] + ½I[T₁ : T₃], and likewise for T₂.
+3. Choose t₃ minimizing ψ[(T₁|T₃=t₃); (T₂|T₃=t₃)] (7.7). Do the same for all six permutations and average: each Tⱼ occurs twice in each position, and the mutual-information terms average to δ/3.
+
+**Acceptance.**
+- If δ = 0 the Tᵢ are pairwise independent and two of them already work, by (3.9).
+
+**Dependencies.**
+- In this packet: `entropic-bsg`, `conditional-distance-bound`, `entropic-ruzsa-distance`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §7, Lemma 7.2 and proof, pp. 25–26 (AAM). The lemma and its proof; (7.5) notation corrected (E6).
+
+#### `tau-decrement` — A τ-minimizer has distance zero (Proposition 2.1)
+
+*lemma* · proposed `TauCeti.EntropicPFR.rdist_eq_zero_of_isTauMinimizer`
+
+Let η = 1/9. If (X₁, X₂) minimizes τ, then d[X₁; X₂] = 0. Equivalently (Proposition 2.1), if d[X₁; X₂] > 0 there are X₁′, X₂′ with τ[X₁′; X₂′] < τ[X₁; X₂].
+
+**Hypotheses.**
+- G is an elementary abelian 2-group (a finite ℤ/2-module, i.e. 𝔽₂ⁿ); η = 1/9; ρ₁, ρ₂ are the reference distributions X₁⁰, X₂⁰; (μ₁, μ₂) minimizes τ; X₁, X₂, X̃₁, X̃₂ are independent with X₁, X̃₁ ∼ μ₁ and X₂, X̃₂ ∼ μ₂; k = d[X₁; X₂] and S = X₁ + X₂ + X̃₁ + X̃₂.
+
+**Proof, in steps.**
+1. Set U = X₁ + X₂, V = X̃₁ + X₂, W = X₁ + X̃₁; then I₁ = I[U : V|S], I₂ = I[W : U|S], I₃ = I[V : W|S], and by the two estimates their sum is at most 6ηk − ((1 − 5η)/(1 − η))(2ηk − I₁) (7.2).
+2. Six applications of Lemma 7.1 and (5.8) give Σ_{i,A∈{U,V,W}} (d[Xᵢ⁰; A|S] − d[Xᵢ⁰; Xᵢ]) ≤ (6 − 3η)k + 3(2ηk − I₁) (7.3); for W the distance to X₂⁰ is computed through W′ = X₂ + X̃₂ = W + S.
+3. Characteristic 2: U + V + W = 0 (7.4). Apply Lemma 7.2 to (U, V, W | S = s), then minimality (3.12), and average over s: k ≤ δ̃ + (η/3)(δ̃ + Σ(…)) (7.8).
+4. Combine: k ≤ (8η + η²)k − c(2ηk − I₁) with c ≥ 0 when η(2η + 17) ≤ 3, and 2ηk − I₁ ≥ 0 by (3.13). For η = 1/9, 8η + η² = 73/81 < 1, so k = 0.
+
+**Acceptance.**
+- Over ℤ the statement fails: discrete Gaussians are near-minimal (p. 14); the characteristic-2 identity (7.4) is essential.
+
+**Dependencies.**
+- In this packet: `first-estimate`, `second-estimate`, `endgame-lemma`, `distance-fibre-sum-bound`, `tau-functional`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §2, Proposition 2.1, p. 7; §7, pp. 23–27 (AAM). The proposition and the endgame computation.
+
+#### `entropic-pfr` — Entropic polynomial Freiman–Ruzsa theorem (Theorem 1.8)
+
+*theorem* · planet **Entropic polynomial Freiman–Ruzsa theorem** · proposed `TauCeti.EntropicPFR.entropic_pfr`
+
+Let G = 𝔽₂ⁿ and X₁⁰, X₂⁰ G-valued random variables. There is a subgroup H ≤ G with d[X₁⁰; U_H] + d[X₂⁰; U_H] ≤ 11d[X₁⁰; X₂⁰]; moreover each of d[X₁⁰; U_H], d[X₂⁰; U_H] is at most 6d[X₁⁰; X₂⁰].
+
+**Hypotheses.**
+- U_H is the uniform distribution on H. In Lean, G is a finite ℤ/2-module.
+
+**Proof, in steps.**
+1. Take a τ-minimizer (X₁, X₂) (compactness). By Proposition 2.1, d[X₁; X₂] = 0, so Lemma 2.2 gives H with d[X₁; U_H] = d[X₂; U_H] = 0.
+2. The triangle inequality gives d[Xᵢ⁰; U_H] = d[Xᵢ⁰; Xᵢ], so η(d[X₁⁰; U_H] + d[X₂⁰; U_H]) = τ[X₁; X₂] ≤ τ[X₂⁰; X₁⁰] = (1 + 2η)d[X₁⁰; X₂⁰] (2.3). With η = 1/9 this is 11d[X₁⁰; X₂⁰].
+3. |d[X₁⁰; U_H] − d[X₂⁰; U_H]| ≤ d[X₁⁰; X₂⁰] by the triangle inequality, so each is at most 6d[X₁⁰; X₂⁰].
+
+**Acceptance.**
+- X₁⁰ = X₂⁰ uniform on a subgroup H gives H itself, with all distances 0.
+
+**Dependencies.**
+- In this packet: `tau-functional`, `tau-decrement`, `hundred-percent-case`, `entropic-ruzsa-triangle`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §1, Theorem 1.8, p. 5; §2, its proof, pp. 8–9 (AAM). The theorem and its deduction from Proposition 2.1.
+
+#### `marton-conjecture` — Marton's conjecture in characteristic 2 (Theorem 1.2)
+
+*theorem* · planet **Marton's conjecture in characteristic 2** · proposed `TauCeti.EntropicPFR.pfr`
+
+If A ⊆ 𝔽₂ⁿ is nonempty with |A + A| ≤ K|A|, then A is covered by at most 2K¹² cosets of some subgroup H ≤ 𝔽₂ⁿ of size at most |A|.
+
+**Hypotheses.**
+- C = 12 comes from C′ = 11 in Theorem 1.8. Liao's refinement (C = 11, then 9) is not planned.
+
+**Proof, in steps.**
+1. With U_A uniform on A, H[U_A] = log|A| and H[U_A + U_A′] ≤ log|A + A|, so d[U_A; U_A] ≤ log K. Theorem 1.8 gives H with d[U_A; U_H] ≤ ½C′ log K (B.1), hence |log|H| − log|A|| ≤ C′ log K (B.2).
+2. (B.1) says H[U_A − U_H] ≤ ½log(|A||H|) + ½C′ log K; by (A.2) some x₀ has |A ∩ (H + x₀)| ≥ K^{−C′/2}|A|^{1/2}|H|^{1/2}.
+3. Ruzsa covering (Mathlib ruzsa_covering_mul, additive form) covers A by at most K|A|/|A ∩ (H + x₀)| ≤ K^{C′/2+1}(|A|/|H|)^{1/2} translates of (A ∩ (H + x₀)) − (A ∩ (H + x₀)) ⊆ H.
+4. If |H| ≤ |A| this is at most K^{C′+1} by (B.2). Otherwise cover H by at most 2|H|/|A| cosets of a subgroup H′ with |H′| ≤ |A|, giving at most 2K^{C′/2+1}(|H|/|A|)^{1/2} ≤ 2K^{C′+1} cosets.
+
+**Acceptance.**
+- If A is a subgroup, K = 1 and one coset suffices.
+- Conversely, a cover by r cosets of H with |H| ≤ |A| gives |A + A| ≤ (r(r−1)/2 + 1)|A|, so the theorem is polynomially sharp (p. 1).
+- The factor 2 is needed when A is most of a subgroup (footnote 1).
+
+**Dependencies.**
+- In this packet: `entropic-pfr`, `entropic-ruzsa-distance`, `shannon-entropy`
+- On the pinned libraries: `mathlib:Finset.ruzsa_covering_mul`
+
+**Sources.**
+- Gowers–Green–Manners–Tao, *On a conjecture of Marton* (accepted manuscript) — §1, Conjecture 1.1 and Theorem 1.2, pp. 1–2; Appendix B, pp. 32–33 (AAM). The theorem and the deduction from Theorem 1.8.
+
+### Source findings
+
+Two new, unreviewed misprints were found. Both appear in the accepted manuscript and in arXiv v2; the published text was not read.
+- **E5.** The proof of Corollary 4.2 conditions on π(Z₁) + π(Z₂) where π(Z₁) − π(Z₂) = π(Z₁ − Z₂) is meant. Corollary 4.2 is stated for general abelian groups; in characteristic 2 the two agree.
+- **E6.** (7.5) writes I[Tᵢ; Tⱼ] for the mutual information I[Tᵢ : Tⱼ].
+
+Every other computation was rechecked while planning the nodes and holds. This includes the constants 11 and 6, the conditions η(2η + 17) ≤ 3 and 8η + η² < 1 for η = 1/9, the identities (6.6) and (7.2), and the Appendix B arithmetic.
+
+### Remaining in AC.1
+
+- The combinatorial Balog–Szemerédi–Gowers theorem, Freiman's theorem over ℤ, Bohr-set regularity and density increments.
+- The bounded-torsion version of Marton's conjecture (GGMT [6]).
+- Liao's constants.
+- The consequences Theorem 1.3 and Corollaries 1.4–1.7, which the source proves by reference (gap).
+
+### Verification of the Marton checkpoint
+
+- The new `TauCeti.EntropicPFR` Lean section imports Mathlib only.
+  - Standalone, on Lean 4.34.0-rc2 against Mathlib 082e2d3, it elaborates with no errors and only proof-placeholder warnings.
+  - The whole suggested file also imports a Tau Ceti module, and no pinned Tau Ceti build is available here, so the full file was not elaborated.
+- The value d[X; X] = (2/3)·log(3/2) for X uniform on {0, e₁, e₂} was checked numerically.
+- The official checker passes with only the six inherited excerpt-length warnings of AC.4, as do the intake check and the unit tests.

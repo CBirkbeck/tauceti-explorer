@@ -437,3 +437,49 @@ same six warnings on inherited excerpts. `intake.py check-files` gives 0 problem
 **Next for AC.0:** the handoff's item-3 checks (quotient fibre-cardinality, cyclic constructor,
 one-dimensional Peter–Weyl identification, coding/ER.4). The large-coefficient count (3) belongs to
 AC.1. Beyond AC.0, the second pass's list still stands.
+
+# Continuation — 29 September 2026 (Claude Code, cc-39fac3): AC.1, Marton's conjecture in characteristic 2
+
+Refs #1037. Claim comment 5886748853. Base 6697027d39fb787560e88e9f254e76db214b153b. All 23 inherited nodes are unchanged.
+
+## Delivered
+
+Eighteen AC.1 nodes plan Gowers–Green–Manners–Tao, *On a conjecture of Marton* (Ann. of Math. 201 (2025)).
+
+- **Source.** The published text is subscriber-only, so the authors' accepted manuscript was read completely (Oxford Research Archive, CC BY; SHA-256 9f1a17d6…) and collated with arXiv:2311.05762v2.
+- **Carriers (new, because Mathlib has no Shannon entropy).**
+  - Shannon entropy, conditional entropy and (conditional) mutual information, with the Appendix A inequalities as API.
+  - The entropic Ruzsa distance and its conditional form.
+  - The functional τ, its minimizers and the minimizer setting of Sections 5–7.
+- **Lemmas.**
+  - The entropic Ruzsa triangle inequality and Madiman's inequality.
+  - Entropic BSG (Lemma A.2).
+  - The fibring lemma (Proposition 4.1) and Corollary 4.2.
+  - Lemmas 5.2, 5.3 and 7.1, and the 100% case (Lemma 2.2).
+  - The first and second estimates (Sections 5–6), the endgame Lemma 7.2 and Proposition 2.1.
+- **Theorems.** Theorem 1.8 (entropic PFR, constants 11 and 6) and Theorem 1.2 (C = 12).
+- **Planets (6).** Shannon entropy and mutual information; Entropic Ruzsa distance; Entropic Balog–Szemerédi–Gowers lemma; Fibring lemma; Entropic polynomial Freiman–Ruzsa theorem; Marton's conjecture in characteristic 2.
+- **Naming.** The names follow the Lean formalization at teorth.github.io/pfr, which is not a pinned library.
+
+## Findings
+
+Two new, unreviewed misprints, E5 and E6, were found. Both are in the accepted manuscript and arXiv v2, and both were checked on page images.
+- **E5.** The proof of Corollary 4.2 conditions on π(Z₁) + π(Z₂) where π(Z₁) − π(Z₂) is meant.
+- **E6.** (7.5) writes I[Tᵢ; Tⱼ] for I[Tᵢ : Tⱼ].
+
+Every other computation was rechecked while planning.
+
+## Checks
+
+- check_blueprint.py with the pinned declaration index: 0 errors, and only the six inherited AC.4 excerpt-length warnings, which are also present on origin/main.
+- intake.py check-files: no problems. Unit tests pass.
+- The new Lean section (TauCeti.EntropicPFR, Mathlib imports only) elaborates standalone on Lean 4.34.0-rc2 against Mathlib 082e2d3 with no errors and only proof-placeholder warnings.
+- The whole suggested file imports a Tau Ceti module and was not elaborated here.
+
+## Resume for AC.1
+
+- The combinatorial BSG theorem and Freiman over ℤ, from an open source.
+- Bohr-set size and regularity (the readme's Bohr-set material still has no packet nodes).
+- The bounded-torsion Marton theorem (GGMT, arXiv:2404.02244).
+- Theorem 1.3 and Corollaries 1.4–1.7 (gap: proofs by reference).
+
