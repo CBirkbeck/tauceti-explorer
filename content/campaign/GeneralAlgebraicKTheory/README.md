@@ -25,7 +25,7 @@ Prove that `π₁ NQ(C)` is the existing `ExactK0`, preserving the class of each
 
 <a id="stage-K.2:plus"></a>
 
-**Early ring/plus model (K.2:plus).** Construct the essentially small exact category `Proj_fg(A)` from the existing module category and projectivity/finiteness predicates. Show that scalar extension along every unital ring homomorphism preserves these objects and their split exact sequences, without imposing unnecessary flatness. Construct `K(A)` functorially.
+**Early ring/plus model (K.2:plus).** Import `Proj_fg(A) = (TauCeti.finiteProjectiveModules A).FullSubcategory`, its existing essentially-small instance and `TauCeti.finiteProjectiveModulesExactStructure`. The pinned theorem `finiteProjectiveModulesExactStructure_eq_split` identifies that structure with the split one; do not rebuild these carriers. Show that scalar extension along every unital ring homomorphism preserves these objects and their split exact sequences, without imposing unnecessary flatness. Construct the early connective functor `K(A) = ΩBQ(Proj_fg(A))`, with identity/composition for ring maps, finite-product compatibility and filtered-colimit compatibility via finite idempotent matrices. This applies to unital associative rings. The pinned commutative scalar-extension API does not supply the arbitrary noncommutative bimodule tensor functor; that remains an explicit interface obligation before its use.
 
 Compare the loop space of `Q(Proj_fg(A))` with direct-sum group completion of the maximal subgroupoid, identify its components with K₀(A), and identify its zero component naturally with `BGL(A)⁺`. After choosing component representatives obtain the space-level product description `K₀(A) × BGL(A)⁺`, without claiming a natural product splitting of infinite-loop spaces. Prove the cofinality statement that every finitely generated projective has a projective complement making it free. This is why the stable free-module group detects the higher groups even when projectives are not free.
 
@@ -39,21 +39,21 @@ Prove additivity for the exact category of conflations: the source-and-quotient 
 
 Prove dévissage for an appropriate full abelian subcategory closed under subobjects and quotients, with a finite filtration of every object by objects of the subcategory. Prove the resolution theorem for a full exact resolving subcategory, with closure and finite-resolution hypotheses stated. Construct the alternating-resolution inverse in degree zero and compare it to the existing K₀ resolution theorem.
 
-Prove Quillen localisation for a Serre subcategory of a small abelian category and its quotient. Do not assert localisation for arbitrary exact subcategories without the additional hypotheses needed by the chosen exact-category localisation theorem. Supply cofinality with the correct degree-zero correction: idempotent completion may change K₀ even when positive K-groups agree.
+Prove Quillen localisation for a Serre subcategory of a small abelian category and its quotient. Do not assert localisation for arbitrary exact subcategories without the additional hypotheses needed by the chosen exact-category localisation theorem. The general cofinality proof uses the later Waldhausen fibration theorem. Place it in the late `K.3:cofinality` extension after K.4, preserving the correct degree-zero correction: idempotent completion may change K₀ even when positive K-groups agree. Early K.3 additivity, resolution, dévissage and abelian localisation use K.1 and H.1/H.2, without importing all of K.4. The stage split still requires maintainer integration.
 
 ## K.4 — Waldhausen's S-construction
 
 <a id="stage-K.4:construction"></a>
 
-**Early S-construction (K.4:construction).** Define a Waldhausen category with zero object, cofibrations, weak equivalences, the required pushouts and gluing axiom. Define exact functors preserving this data. Construct the categories `S_n C` of filtered objects with specified quotient squares and the simplicial identities. Define their weak-equivalence subcategories and iterate S to form the spectrum.
+**Early S-construction (K.4:construction).** Define a Waldhausen category with zero object, cofibrations, weak equivalences, the required pushouts and gluing axiom. Define exact functors preserving this data. Construct the categories `S_n C` of filtered objects with specified quotient squares and the simplicial identities. Define their weak-equivalence subcategories. In this early prefix prove Waldhausen additivity, construct the relative S-construction and prove its homotopy fibration; then derive the natural iterated delooping maps. Check the precise H.2 realization-fibration hypotheses, which remain an explicit source/proof obligation. H.5:S-delooping consumes those maps and assembles the connective spectrum. Generic smash products belong to H.5:spectra, and K-theory pairings to K.7. The early prefix needs H.1/H.2, independently of EDS E5:abstract and spectrum assembly.
 
-Prove additivity and the delooping theorem. Prove the fibration theorem with cylinder, saturation and extension assumptions as required by the adopted version. Prove approximation and the comparison with the Q-construction for exact categories. Spell out the induced cofibrations on diagram categories; objectwise cofibrations alone do not automatically give every required pushout condition.
+**Late comparison and localisation (K.4).** Import that prefix and the assembled spectrum. Prove the fibration theorem with cylinder, saturation and extension assumptions as required by the adopted version. Prove approximation and the comparison with the Q-construction for exact categories. Spell out the induced cofibrations on diagram categories; objectwise cofibrations alone do not automatically give every required pushout condition.
 
 For bounded complexes of projectives, use quasi-isomorphisms and the appropriate degreewise split cofibrations. Prove the Gillet–Waldhausen comparison with `Proj_fg(A)`. Do not confuse quasi-isomorphism and arbitrary chain homotopy equivalence in categories where they differ.
 
 ## K.5 — Relative and nonunital theories
 
-For a ring map or exact functor define relative K-theory as the homotopy fibre, with the actual map to the source theory and connecting homomorphisms. Treat a pair `(A,I)` by the map `A → A/I`; distinguish this from support K-theory for a localisation `A → S⁻¹A`.
+Import the actual early K.2:plus ring functor and maps (including the projective carrier from Z.1), and the relative S-fibration from K.4:construction and late K.4 comparison when required. For a ring map or exact functor define relative K-theory as the homotopy fibre, with the actual map to the source theory and connecting homomorphisms. Treat a pair `(A,I)` by the map `A → A/I`; distinguish this from support K-theory for a localisation `A → S⁻¹A`.
 
 For a nonunital ring use a specified unitisation and the corresponding relative theory. Prove the comparison with the usual unital theory. Ordinary algebraic K-theory does not satisfy unrestricted excision for every ideal: prove excision under the hypotheses of the adopted theorem and provide a counterexample or explanatory test preventing an unconditional instance.
 
@@ -65,9 +65,13 @@ Identify negative groups of rings with Bass's construction. Prove localisation i
 
 ## K.7 — Invariance, products and universal interfaces
 
-Prove Morita invariance, finite-product compatibility, filtered-colimit compatibility for rings, and equivalence invariance at the enhanced categorical level. Derived Morita invariance uses enhanced perfect categories, not a naked triangulated equivalence.
+Apply the early exact-equivalence interface to Morita bimodules, and import finite-product and filtered-colimit compatibility through the early projective-category functor. Extend these interfaces to the nonconnective and enhanced models, with comparison to the early maps. Derived Morita invariance uses enhanced perfect categories, not a naked triangulated equivalence.
 
 Construct external products from biexact functors and their associativity, unit and symmetry homotopies. For commutative rings obtain graded-commutative K-groups. Prove compatibility with relative groups, localisation boundaries and transfers. Export the comparison with tensor products on K₀ and multiplication of units on K₁.
+
+## Resolution acceptance example
+
+Use the affine **plane** with doubled origin: glue two copies of `Spec(k[x,y])` along the punctured plane. The intended example has `K₀(VB(X)) ≅ ℤ` and `G₀(X) ≅ K₀(Perf(X)) ≅ ℤ²` (Weibel II.8.2.4 and II.Ex.9.10(d)). The author-copy wording in V.3.4.2 says line; the packet records that discrepancy with its exact source version. On the doubled-origin line, transition functions `t^m` give `Pic(X) ≅ ℤ`, so determinant already rules out the claimed rank-only K₀.
 
 ## Tests and completion
 
@@ -113,7 +117,7 @@ These additions refine the existing stage IDs. They are construction and review 
 | Stage | Ordered construction and theorem contract |
 | --- | --- |
 | `K.1` | Build the equivalence relation on admissible spans and the pullback-composition congruence first; then compare the zero-component loops with the existing ExactK0 class map. |
-| `K.4:construction` | Specify the weak-equivalence and cofibration structures on every S_n category and prove their compatibility with face maps. Separate the construction from the additivity and delooping proofs. |
+| `K.4:construction` | Specify the weak-equivalence and cofibration structures on every S_n category and prove their compatibility with face maps. Prove additivity and the relative S-fibration here before the iterated delooping maps; H.5:S-delooping subsequently assembles the spectrum. The realization-fibration criterion remains an H.2 proof obligation. |
 | `K.6` | Carry the connective-to-nonconnective transformation through suspension and idempotent completion; export an actual comparison on nonnegative groups on the stated idempotent-complete inputs. |
 
 **Producer–consumer handoff.** SchemeKTheoryOperations S.3 requires a nonconnective fibre sequence, while low-degree field calculations use the connective comparison. Neither consumer may substitute the other model without that natural transformation.
