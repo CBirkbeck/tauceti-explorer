@@ -8946,8 +8946,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FARGUES-SCHOLZE-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4487"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4487",
+   "finishedAt": "2026-09-29T16:37:46Z"
   },
   {
    "id": "REV-PAPER-FARGUES-SCHOLZE-21",
@@ -43500,7 +43501,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-06.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4001"
   },
   {
    "id": "RT-AUDIT-07",
