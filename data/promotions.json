@@ -305,6 +305,17 @@
     "data/blueprints/ClassicalSerreModularity--R27.3.md"
    ]
   },
+  "research/blueprint/packets/ClassicalSerreModularity--R33.5.json": {
+   "promotedAt": "2026-09-29T01:15:02Z",
+   "review": "de2bc1e65f261e7b",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-ClassicalSerreModularity--R33.5",
+   "sha256": "24fc11d47100b27cd2f9e7f5ed687098d9290cd4d4af365e04bdeea44bcceddc",
+   "to": [
+    "data/blueprints/ClassicalSerreModularity--R33.5.json",
+    "data/blueprints/ClassicalSerreModularity--R33.5.md"
+   ]
+  },
   "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.6.json": {
    "promotedAt": "2026-09-28T13:45:03Z",
    "review": "918a718d825d5efb",
