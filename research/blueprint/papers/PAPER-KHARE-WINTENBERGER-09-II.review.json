@@ -1,0 +1,62 @@
+{
+ "paper": "PAPER-KHARE-WINTENBERGER-09-II",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. R03.1–R03.4 own the commutative algebra of CNL_𝒪-algebras (coefficient categories, completed tensor products, hulls, dimension and regularity, characteristic-zero points); the ten missing items (relative tangent spaces, Proposition 2.1 for non-Schur ρ̄, Corollary 2.3, the Matsumura/EGA regularity and Jacobson inputs, Chevalley's comparison of topologies) are general facts those layers need."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. Lemma 3.8 is the algebraisation step in the ordinary rings of Proposition 3.6; it belongs with R08.4/R08.6, and its Weierstrass inputs are in Mathlib."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. R06.4 plans 'the ordinary and crystalline criteria actually invoked'; Lemma 3.5(ii) is that criterion for unramified F_v, extending its ℚ_p node."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. Kummer theory over F^nr defines the finite cocycles Z¹_f of §3.2.5, a local condition in R02.5's sense."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. R01.4 is to 'Isolate characteristic two' among the finite-subgroup facts of GL₂/PGL₂; Lemma 4.3(5)(i)–(ii) are those facts for SL₂(𝔽_{2^r})."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. Lemma 4.3(4) is used in counting the dyadic Taylor–Wiles primes of Lemma 5.10(g), R04.5's content."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept. Khare's Lemmas 2.2 and 4.2 and the dihedral-image step are inputs R23.3, R23.5 and R24.1 use without stating."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accept. IG.4 plans embedding problems and solvable realizations; Grunwald–Wang is the local–global statement for cyclic embedding problems, and GlobalGaloisDeformations already assigns it there."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "Accept. R18.3 owns definite quaternionic forms; Taylor's neatness lemma is a property of those spaces used in §§7–8."
+  },
+  {
+   "route": 10,
+   "verdict": "accept",
+   "reason": "Accept. R22.1 constructs the Hecke modules 'with the required local type and determinant' (the characters ψ of §8.1, Lemma 7.10), and R22.4 adds and removes ramification 'under the exact level-change theorems' (Kisin's Corollary 3.1.11)."
+  },
+  {
+   "route": 11,
+   "verdict": "accept",
+   "reason": "Accept. R20.6 is to 'Supply the optimisation inputs used inside KW'; Theorems 8.2, 8.4 and Lemma 8.3 are the totally real versions it needs."
+  }
+ ],
+ "notes": "Independent review by Claude Code, session cc-fb70e5 (29 September 2026), of the extraction by Claude Code cc-48533a (PR #4560, issue #4507); cc-fb70e5 appears nowhere in its files. The authors' copy proofs.pdf (98 pp., SHA-256 53f45f8b…6ed4, matching the recorded hash; fetched without certificate verification, the UCLA chain being incomplete) was used. All 59 numbered theorems, propositions, lemmas and corollaries and the Definitions 2.4, 3.4, 4.2, 7.9 appear in item locators, and a script confirmed each locator lies within two pages of the statement; statements of the main results (Propositions 4.1, 4.5, 5.11, Theorems 8.2, 9.7, 10.1 and others) were compared with the text. The seven library items' twelve declarations exist in the pinned index and three were opened at Mathlib 082e2d3 (H1InfRes_exact, relIndex_dvd_index_of_normal, HenselianLocalRing). Every missing item is routed once; the stage texts behind the eleven source routes contain the phrases their reasons quote. Each of the 32 sourceIssues was checked at its locator (E12, E13, E18 on page images): 31 confirmed, E13 rejected (the bar on R̄ is printed as an overline). Not read in full: every proof of the 98 pages; the review checked the passages at each issue and the statements of the numbered results. Not checked: the Springer version of record."
+}
