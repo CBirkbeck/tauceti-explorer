@@ -4311,8 +4311,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -9432,7 +9432,8 @@
    ],
    "avoidAccountOf": "PAPER-SCHOLZE-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHOLZE-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4539"
   },
   {
    "id": "PAPER-SCHOLZE-WEINSTEIN-20",
@@ -9508,8 +9509,9 @@
    ],
    "avoidAccountOf": "PAPER-FARGUES-FONTAINE-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-FARGUES-FONTAINE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4543"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4543",
+   "finishedAt": "2026-09-29T21:42:11Z"
   },
   {
    "id": "PAPER-SCHOLZE-12",
@@ -23455,12 +23457,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -63657,10 +63659,11 @@
     "COL-BINYAMINI-22"
    ],
    "avoidAccountOf": "COL-BINYAMINI-22",
-   "state": "external",
+   "state": "done",
    "timeout": 14400,
    "prompt": "research/blueprint/prompts/REV-COL-BINYAMINI-22.md",
-   "note": "claimed on GitHub issue #3643"
+   "note": "deliverables arrived from an external worker on issue #3643",
+   "finishedAt": "2026-09-29T21:42:15Z"
   },
   {
    "id": "COL-BOXER-CALEGARI-GEE-ETAL-25",
