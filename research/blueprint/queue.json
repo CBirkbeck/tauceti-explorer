@@ -9080,8 +9080,9 @@
    ],
    "avoidAccountOf": "PAPER-DELIGNE-80",
    "prompt": "research/blueprint/prompts/REV-PAPER-DELIGNE-80.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4496"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4496",
+   "finishedAt": "2026-09-29T16:18:36Z"
   },
   {
    "id": "PAPER-GROSS-ZAGIER-86",
@@ -9524,7 +9525,8 @@
    ],
    "avoidAccountOf": "PAPER-SCHOLZE-12",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHOLZE-12.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4545"
   },
   {
    "id": "PAPER-KEDLAYA-LIU-15",
