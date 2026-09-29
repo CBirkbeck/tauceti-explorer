@@ -111702,6 +111702,66 @@
    "reviewReason": "Checked on the images of pp. 737–739: [17] reads 'Colliot-Thélène et, J.-L., Sansuc, J.-J.:', [19] reads 'Colliot-Thélène, J.-L., Harari et, D. Skorobogatov, A.N.:' (with no comma after 'D.'), and [53] reads 'Schinzel et, A., Sierpiński, W.:'. The arXiv v3 TeX has 'J.-L. Colliot-Thélène et J.-J. Sansuc', 'D. Harari et A.N. Skorobogatov' and 'A. Schinzel et W. Sierpiński'. The French 'et' was read as part of a surname when the references were converted to the publisher's style. The slip is in the published version only, and the authors are recognisable."
   },
   {
+   "id": "PAPER-TEMKIN-17/E1",
+   "kind": "gap",
+   "locator": "Ann. of Math. 186 (2017), Theorem 4.2.1 and Step 4 of its proof, pp. 121–122; page image checked",
+   "printed": "The source assumes universal P-resolvability of S for primes P satisfying char(X) ⊆ P. In Step 4 it invokes Theorem 3.3.6 to enlarge a so that its factorization consists of S̄ → S′, a tame Galois covering, followed by a : S′ → S, a P-alteration.",
+   "correction": "Either assume char(S) ⊆ P, which is how Theorem 4.3.1 uses the theorem, or keep char(X) ⊆ P and run Step 4 over S₀ := S minus the fibres over char(S) ∖ char(X) (finitely many, as in §4.3.2), which contains f(X) and has char(S₀) = char(X). Apply Theorem 3.3.6 to S̄ ×_S S₀ → S₀, obtaining a P-alteration and a Galois covering that is tame over S₀. Extend to S by normalization and closure of the modification, and resolve with the P-resolvability of S. Tameness is needed only over f(X), since X̄ lies over S₀ and Step 10 uses tameness of the action on X̄.",
+   "reason": "Theorem 3.3.6 yields a P^w_{S̄/S}-alteration, where P^w_{S̄/S} is the wild primes set of S̄ → S, a subset of char(S). With only char(X) ⊆ P it may contain primes outside P, at which S̄ → S can be wildly ramified although X is empty there. Then 'a P-alteration' does not follow as written. The paper's main results apply the theorem only through Theorem 4.3.1, where char(S) ⊆ P.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the Annals article is freely available at annals.math.princeton.edu (SHA-256 1f4ac06f…) and was read; arXiv:1508.06255v2 (21 Feb 2017, 'final version') was compared: same statements and numbering, and E1–E3 are present in both.",
+    "2026-09-29: the Annals page and Crossref list no erratum. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-TEMKIN-17",
+   "file": "research/blueprint/papers/PAPER-TEMKIN-17.result.json",
+   "citation": "Michael Temkin, \"Tame distillation and desingularization by p-alterations\", Annals of Mathematics 186 (2017), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-TEMKIN-17/E2",
+   "kind": "misprint",
+   "locator": "Ann. of Math. 186 (2017), proof of Lemma 3.3.7, p. 120; page image checked",
+   "printed": "The source calls the direct implication immediate and proves the inverse. It places the induced valuations on L_i in S′ for every K-isomorphism L_i = L, concludes that each L_i/K is tame, and identifies L with the composite of L₁, …, L_n to deduce tameness of L/K.",
+   "correction": "The inverse implication is obvious, so let us prove the direct one. … hence the induced valuations on L_i lie in S … and since L′ is the composite of L₁, …, L_n, the extension L′/K is tame too.",
+   "reason": "'L′/K is S′-tame ⇒ L/K is S-tame' is the obvious direction, since subextensions of tame extensions are tame. The argument shows 'L/K S-tame ⇒ L′/K S′-tame', and the composite of the conjugates L_i is the Galois closure L′, not L. The same text is in arXiv v2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the Annals article is freely available at annals.math.princeton.edu (SHA-256 1f4ac06f…) and was read; arXiv:1508.06255v2 (21 Feb 2017, 'final version') was compared: same statements and numbering, and E1–E3 are present in both.",
+    "2026-09-29: the Annals page and Crossref list no erratum. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-TEMKIN-17",
+   "file": "research/blueprint/papers/PAPER-TEMKIN-17.result.json",
+   "citation": "Michael Temkin, \"Tame distillation and desingularization by p-alterations\", Annals of Mathematics 186 (2017), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-TEMKIN-17/E3",
+   "kind": "misprint",
+   "locator": "Ann. of Math. 186 (2017), proof of Theorem 2.6.6, p. 112; page image checked",
+   "printed": "The source cites Corollary 2.5.6(ii) for d = 1 and then restricts attention to d > 1.",
+   "correction": "The case d = 1 is covered by Corollary 2.5.6, …",
+   "reason": "Corollary 2.5.6 has a single assertion, that p-closed valued fields of height one are tame; there is no part (ii). Also in arXiv v2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-29: the Annals article is freely available at annals.math.princeton.edu (SHA-256 1f4ac06f…) and was read; arXiv:1508.06255v2 (21 Feb 2017, 'final version') was compared: same statements and numbering, and E1–E3 are present in both.",
+    "2026-09-29: the Annals page and Crossref list no erratum. Not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-TEMKIN-17",
+   "file": "research/blueprint/papers/PAPER-TEMKIN-17.result.json",
+   "citation": "Michael Temkin, \"Tame distillation and desingularization by p-alterations\", Annals of Mathematics 186 (2017), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-TREUMANN-VENKATESH-16/E1",
    "kind": "misprint",
    "locator": "arXiv:1407.2346v1 (9 July 2014), §12.3 (the extraction says §12.2), the second unnumbered Proposition after Proposition 12.3, part (2), p. 52 of the PDF; not in the published version",
