@@ -147322,11 +147322,12 @@
    "correction": "ρ(σ)Nρ(σ)^{−1} = N𝔭^{−n(σ)}N, and σN = N𝔭^{−n(σ)}Nσ since Nφ = pφN.",
    "reason": "Fontaine's B_st satisfies Nφ = pφN (on u = log[p̃]: N(φu) = −p = pφ(Nu)), which gives F N F^{−1} = N𝔭^{−1}N for a geometric Frobenius F; this is Deligne's relation and the one forced by Grothendieck's ℓ-adic monodromy theorem. Saito's own Theorem 2 (p. 13: weight w − 2 on ker N, w on coker N; N: Gr_1^W(1) ≅ Gr_{−1}^W) also requires F N F^{−1} = N𝔭^{−1}N. The two printed relations are reversed consistently, so the construction and the theorems are unaffected.",
    "affects": "nothing",
-   "known": "new",
+   "known": "partly known: the reviewer of the AutomorphicGaloisRepresentations decomposition flagged the Weil–Deligne half (gap \"Hecke normalizations and Weil-Deligne sign conventions across Carayol, Saito and Deligne are not reconciled\", with a computation agreeing with Deligne, LNM 349, 8.2); the φN = pNφ half and the conflict with Saito's own Theorem 2 are new",
    "searched": [
     "arXiv:math/0612077 (v2 read; v1 not compared)",
     "The Compositio Math. 145 (2009) text was not seen",
-    "T. Saito's page (ms.u-tokyo.ac.jp/~t-saito/pp/h.pdf) hosts the same preprint"
+    "T. Saito's page (ms.u-tokyo.ac.jp/~t-saito/pp/h.pdf) hosts the same preprint",
+    "data/decompositions/AutomorphicGaloisRepresentations.json, the reviewer's gaps (checked 2026-09-29)"
    ],
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory--R06.5.json",
