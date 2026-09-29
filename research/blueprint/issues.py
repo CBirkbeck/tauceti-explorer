@@ -359,27 +359,31 @@ def main():
             if len(text) > 65536:
                 # GitHub refuses it outright; retrying only waits (about 20 minutes per job).
                 print("failed (body of %d characters; GitHub allows 65,536)" % len(text), job["id"], flush=True); continue
+            url = None
             for attempt in range(6):
                 result = subprocess.run(["gh", "issue", "create", "--title", title(job, roadmaps), "--body", text,
                                          *sum((["--label", label] for label in labels_for(job, roadmaps, by_id)), [])],
                                         capture_output=True, text=True, cwd=REPO)
-                if result.returncode == 0 or "Body is too long" in result.stderr:
+                if "Body is too long" in result.stderr:
                     break
-                print("retry", job["id"], result.stderr.strip()[:160], flush=True)
+                if result.returncode == 0:
+                    url = result.stdout.strip()
+                    if re.search(r"/issues/\d+$", url):
+                        break
+                    # gh can exit 0 without printing an address, as it did for the whole of
+                    # GitHub's secondary (content-creation) rate limit on 2026-09-29. Look for
+                    # the issue among the newest (listed directly, not through the lagging search
+                    # index) so a retry never duplicates it; if it is not there, wait and retry.
+                    newest = subprocess.run(["gh", "issue", "list", "--state", "all", "--limit", "30", "--json", "number,title"],
+                                            capture_output=True, text=True, cwd=REPO)
+                    found = [i["number"] for i in json.loads(newest.stdout or "[]") if i["title"] == title(job, roadmaps)]
+                    if found:
+                        url = f"/issues/{found[0]}"; break
+                    url = None
+                print("retry", job["id"], (result.stderr.strip() or "no issue was created")[:160], flush=True)
                 time.sleep(60 * (attempt + 1))
-            if result.returncode != 0:
+            if not url:
                 print("failed", job["id"], result.stderr.strip()[:200], flush=True); continue
-            url = result.stdout.strip()
-            if not re.search(r"/issues/\d+$", url):
-                # gh can report success without printing the new issue's address. Look for it
-                # among the newest issues (listed directly, not through the lagging search
-                # index) before calling it failed, so that a rerun never duplicates it.
-                newest = subprocess.run(["gh", "issue", "list", "--state", "all", "--limit", "30", "--json", "number,title"],
-                                        capture_output=True, text=True, cwd=REPO)
-                found = [i["number"] for i in json.loads(newest.stdout or "[]") if i["title"] == title(job, roadmaps)]
-                if not found:
-                    print("failed", job["id"], "gh printed no issue address and no such issue exists", flush=True); continue
-                url = f"/issues/{found[0]}"
             mapping[job["id"]] = int(url.rsplit("/", 1)[-1])
             mapping_path.write_text(json.dumps(mapping, indent=1) + "\n")
             print("created", job["id"], mapping[job["id"]], flush=True)
