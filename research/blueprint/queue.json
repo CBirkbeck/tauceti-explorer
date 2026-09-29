@@ -9396,8 +9396,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SCHOLZE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4538"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4538",
+   "finishedAt": "2026-09-29T16:20:56Z"
   },
   {
    "id": "REV-PAPER-SCHOLZE-17",
@@ -9468,7 +9469,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FARGUES-FONTAINE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4542"
   },
   {
    "id": "REV-PAPER-FARGUES-FONTAINE-18",
