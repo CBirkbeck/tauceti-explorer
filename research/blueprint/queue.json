@@ -2864,7 +2864,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KOENIGSMANN-16.md",
-   "state": "pending",
+   "state": "external",
    "note": "claimed on GitHub issue #1174"
   },
   {
@@ -19545,9 +19545,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-LefschetzPencilsAndVanishingCycles--LPV.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #768"
+   "note": "claimed on GitHub issue #768"
   },
   {
    "id": "REV-LefschetzPencilsAndVanishingCycles--LPV.0",
@@ -24078,13 +24078,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-AdditiveCombinatorics.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ClassicalArithmeticCompletion",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "claimed on GitHub issue #1037"
+   "note": "released on GitHub issue #1037"
   },
   {
    "id": "REV-AdditiveCombinatorics",
@@ -44913,10 +44913,11 @@
     "research/blueprint/collation/COL-ATOBE-KONDO-YASUDA-22.result.json"
    ],
    "after": [],
-   "state": "external",
+   "state": "done",
    "timeout": 18000,
    "prompt": "research/blueprint/prompts/COL-ATOBE-KONDO-YASUDA-22.md",
-   "note": "claimed on GitHub issue #2856"
+   "note": "deliverables arrived from an external worker on issue #2856",
+   "finishedAt": "2026-09-29T08:56:42Z"
   },
   {
    "id": "REV-COL-ATOBE-KONDO-YASUDA-22",
@@ -44947,10 +44948,11 @@
     "research/blueprint/collation/COL-BINYAMINI-22.result.json"
    ],
    "after": [],
-   "state": "external",
+   "state": "done",
    "timeout": 18000,
    "prompt": "research/blueprint/prompts/COL-BINYAMINI-22.md",
-   "note": "claimed on GitHub issue #2853"
+   "note": "deliverables arrived from an external worker on issue #2853",
+   "finishedAt": "2026-09-29T08:56:44Z"
   },
   {
    "id": "REV-COL-BINYAMINI-22",
@@ -44981,10 +44983,11 @@
     "research/blueprint/collation/COL-BOXER-CALEGARI-GEE-ETAL-25.result.json"
    ],
    "after": [],
-   "state": "external",
+   "state": "done",
    "timeout": 18000,
    "prompt": "research/blueprint/prompts/COL-BOXER-CALEGARI-GEE-ETAL-25.md",
-   "note": "claimed on GitHub issue #2855"
+   "note": "deliverables arrived from an external worker on issue #2855",
+   "finishedAt": "2026-09-29T08:56:45Z"
   },
   {
    "id": "REV-COL-BOXER-CALEGARI-GEE-ETAL-25",
@@ -45015,10 +45018,11 @@
     "research/blueprint/collation/COL-GAN-HARRIS-SAWIN-ETAL-24.result.json"
    ],
    "after": [],
-   "state": "external",
+   "state": "done",
    "timeout": 18000,
    "prompt": "research/blueprint/prompts/COL-GAN-HARRIS-SAWIN-ETAL-24.md",
-   "note": "claimed on GitHub issue #2854"
+   "note": "deliverables arrived from an external worker on issue #2854",
+   "finishedAt": "2026-09-29T08:56:46Z"
   },
   {
    "id": "REV-COL-GAN-HARRIS-SAWIN-ETAL-24",
