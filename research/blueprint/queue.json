@@ -46235,8 +46235,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-finitefields.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3958"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3958",
+   "finishedAt": "2026-09-29T18:16:54Z"
   },
   {
    "id": "RT-AREA-analytic",
@@ -48329,8 +48330,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-representations-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3983"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3983",
+   "finishedAt": "2026-09-29T18:16:59Z"
   },
   {
    "id": "RT-AREA-representations-2",
@@ -48657,7 +48659,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-pde.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3986"
   },
   {
    "id": "RT-AREA-probability",
