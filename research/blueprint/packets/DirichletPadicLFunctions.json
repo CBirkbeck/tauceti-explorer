@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all395 predecessor nodes whole. Eight L4 nodes assemble the full denominator-localized and total-quotient Eisenstein series, compare their images and admissible specializations, and realize the entire classical and arithmetic q-expansions through one rational power series. The existing integral-coefficient evaluator API is promoted unchanged. All16 findings and three requests remain whole; seven gaps and zero closed stages remain.",
+  "summary": "Partial continuation preserving all403 predecessor nodes whole. Nine L4 nodes construct the integral numerator series of the full Eisenstein family, prove its uniform clearing identities and uniqueness in the total quotient, and construct its integral arithmetic specializations with their exact field comparison. The existing away-constant clearing API is promoted unchanged. All16 findings and three requests remain whole; seven gaps and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -26861,6 +26861,575 @@
       "acceptance": [
         "This is a coefficient identity. No new generic Hecke operator or modular-form carrier is defined."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-away-constant-clearing",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Clearing the constant in its denominator localization",
+      "kind": "lemma",
+      "statement": "For every u∈U, alg(Δ_u)A₀,u^away=alg(n_u) in S_u.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the native carriers with the supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient without a domain or field assumption.",
+        "For u∈U write d_u=eisensteinTwistedDenominator p u, Δ_u=2d_u and n_u=eisensteinWeightedNumerator p u. The native localization is S_u=Localization.Away(Δ_u). The preceding full series are E_u^away∈S_u[[q]] and E∈Q[[q]]. Their positive coefficients come from the existing A_n=positiveEisensteinMeasure p n; degree0 is their actual localized constant.",
+        "The continuous coordinate is j(u)=u. Canonical a means its underlying Z-value is p+1. Only this canonical parameter is used for the map into Q and the admissible evaluator E_(a,k):S_a→Q_p."
+      ],
+      "proofSteps": [
+        "Promote the existing away-constant clearing API without changing its suggested signature.",
+        "Unfold the defining native fraction and apply IsLocalization.mk′_spec′ at the denominator subtype whose certificate is Submonoid.mem_powers. This equality holds even when the localization is the zero ring; it does not assert an admissible field map for such a parameter."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/eisenstein-away-constant",
+        "mathlib:IsLocalization.mk'_spec'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinClearing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinAwayConstant_clearing"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
+          "excerpt": "power series",
+          "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinClearingTests.away_constant_clearing_all_parameters",
+          "kind": "characterisation",
+          "statement": "The constant clearing equality holds for every unit parameter, including1."
+        }
+      ],
+      "acceptance": [
+        "Regularity is unnecessary for this equality in the native away localization. Canonical-parameter hypotheses remain explicit in the subsequent maps."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-cleared-eisenstein-series",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The integral numerator series of the full Eisenstein family",
+      "kind": "construction",
+      "statement": "Define N_u∈M[[q]] with coefficient0=n_u and positive coefficient n equal to Δ_u A_n, where multiplication is the existing convolution multiplication of M.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the native carriers with the supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient without a domain or field assumption.",
+        "For u∈U write d_u=eisensteinTwistedDenominator p u, Δ_u=2d_u and n_u=eisensteinWeightedNumerator p u. The native localization is S_u=Localization.Away(Δ_u). The preceding full series are E_u^away∈S_u[[q]] and E∈Q[[q]]. Their positive coefficients come from the existing A_n=positiveEisensteinMeasure p n; degree0 is their actual localized constant.",
+        "The continuous coordinate is j(u)=u. Canonical a means its underlying Z-value is p+1. Only this canonical parameter is used for the map into Q and the admissible evaluator E_(a,k):S_a→Q_p."
+      ],
+      "proofSteps": [
+        "Use native PowerSeries.mk on the coefficient function that chooses the existing integral n_u at0 and the convolution product Δ_u A_n when0<n. The positive branch uses the native positive natural index.",
+        "Native coeff_mk proves the all-index formula, promoted below, and its zero and positive specializations. Native PowerSeries.ext proves uniqueness from all coefficients.",
+        "The first coefficient is Δ_u, since the one-divisor construction of A_1 is the convolution identity δ_1. For u=1, d_1=0 from its two-Dirac definition and n_1=0 from the existing weighted-numerator construction, so the whole series is0.",
+        "Every coefficient is an actual integral unit measure. The product Δ_u A_n is convolution, not pointwise multiplication of measures. No division by2 occurs in M."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/weighted-eisenstein-numerator",
+        "DirichletPadicLFunctions:L4/twisted-eisenstein-denominator",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-measure",
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinClearing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.clearedEisensteinSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
+          "excerpt": "power series",
+          "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinClearingTests.integral_cleared_constant",
+          "kind": "characterisation",
+          "statement": "Coefficient0 is the existing integral weighted numerator n_u."
+        },
+        {
+          "name": "SuggestedEisensteinClearingTests.integral_cleared_first",
+          "kind": "computation",
+          "statement": "Coefficient1 is the entire doubled denominator Δ_u."
+        },
+        {
+          "name": "SuggestedEisensteinClearingTests.identity_parameter_zero_series",
+          "kind": "degenerate",
+          "statement": "The integral series at u=1 is0."
+        }
+      ],
+      "acceptance": [
+        "The integral coefficient carrier is M, before either localization or arithmetic specialization. The scalar factor2 is retained at p=2."
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.clearedEisensteinSeries_coeff",
+          "role": "data",
+          "statement": "Coefficient n equals Δ_u A_n if0<n, and n_u otherwise. Promoted to integral-cleared-eisenstein-coefficients."
+        },
+        {
+          "name": "DirichletPadic.clearedEisensteinSeries_coeff_zero",
+          "role": "simp",
+          "statement": "Coefficient0 equals n_u."
+        },
+        {
+          "name": "DirichletPadic.clearedEisensteinSeries_coeff_pos",
+          "role": "simp",
+          "statement": "For each positive n, coefficient n equals Δ_u A_n."
+        },
+        {
+          "name": "DirichletPadic.clearedEisensteinSeries_unique_coefficients",
+          "role": "characterisation",
+          "statement": "These constant and positive coefficients uniquely determine N_u."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Theorem8.2 and Remark8.3",
+          "how": "Provides a single integral series obtained by clearing the actual common denominator of the full source family."
+        },
+        {
+          "where": "Integral full-series congruences",
+          "how": "Its integral measures are the coefficient functionals to which integral test congruences can later be applied."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-cleared-eisenstein-coefficients",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Coefficients of the integral numerator series",
+      "kind": "lemma",
+      "statement": "For every natural n, coeff_n(N_u)=Δ_u A_n when0<n, and coeff_0(N_u)=n_u.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the native carriers with the supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient without a domain or field assumption.",
+        "For u∈U write d_u=eisensteinTwistedDenominator p u, Δ_u=2d_u and n_u=eisensteinWeightedNumerator p u. The native localization is S_u=Localization.Away(Δ_u). The preceding full series are E_u^away∈S_u[[q]] and E∈Q[[q]]. Their positive coefficients come from the existing A_n=positiveEisensteinMeasure p n; degree0 is their actual localized constant.",
+        "The continuous coordinate is j(u)=u. Canonical a means its underlying Z-value is p+1. Only this canonical parameter is used for the map into Q and the admissible evaluator E_(a,k):S_a→Q_p."
+      ],
+      "proofSteps": [
+        "Unfold the coefficient constructor and use native PowerSeries.coeff_mk. The dependent positive-natural index is independent of its positivity proof.",
+        "This promotes the coefficient API without changing its signature, so later clearing and moment proofs cite an actual node."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-cleared-eisenstein-series",
+        "mathlib:PowerSeries.coeff_mk"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinClearing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.clearedEisensteinSeries_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
+          "excerpt": "power series",
+          "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinClearingTests.cleared_all_index_formula",
+          "kind": "compatibility",
+          "statement": "For every positive native index the coefficient is precisely the convolution product Δ_u A_n."
+        }
+      ],
+      "acceptance": [
+        "The zero branch is retained separately; no positive-divisor convention at n=0 is used."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-away-clearing",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Uniform denominator clearing in the away localization",
+      "kind": "theorem",
+      "statement": "For every u∈U, PowerSeries.map(alg)(N_u)=C(alg Δ_u)E_u^away in S_u[[q]].",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the native carriers with the supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient without a domain or field assumption.",
+        "For u∈U write d_u=eisensteinTwistedDenominator p u, Δ_u=2d_u and n_u=eisensteinWeightedNumerator p u. The native localization is S_u=Localization.Away(Δ_u). The preceding full series are E_u^away∈S_u[[q]] and E∈Q[[q]]. Their positive coefficients come from the existing A_n=positiveEisensteinMeasure p n; degree0 is their actual localized constant.",
+        "The continuous coordinate is j(u)=u. Canonical a means its underlying Z-value is p+1. Only this canonical parameter is used for the map into Q and the admissible evaluator E_(a,k):S_a→Q_p."
+      ],
+      "proofSteps": [
+        "Use native PowerSeries.ext, coeff_map and coeff_C_mul to reduce the equality to a coefficient identity.",
+        "At0, use the promoted away-constant clearing equality and the exact coefficient formulas for the two series.",
+        "At a positive index, the left coefficient is alg(Δ_u A_n), while the right coefficient is alg(Δ_u)alg(A_n); multiplicativity of the coefficient ring map identifies them.",
+        "The proof uses no inverse inside M and requires no regularity of Δ_u. A complete native constructor and clearing lemma check the same coefficient argument for arbitrary commutative coefficient rings."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-cleared-eisenstein-coefficients",
+        "DirichletPadicLFunctions:L4/full-eisenstein-away-coefficients",
+        "DirichletPadicLFunctions:L4/eisenstein-away-constant-clearing",
+        "mathlib:PowerSeries.ext",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_C_mul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinClearing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.clearedEisensteinSeries_toAway"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
+          "excerpt": "power series",
+          "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinClearingTests.whole_away_clearing",
+          "kind": "compatibility",
+          "statement": "The equality holds for the entire native power series and every unit parameter."
+        }
+      ],
+      "acceptance": [
+        "One factor clears every coefficient at once. This equality does not require a geometric modular-family construction."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-total-clearing",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Uniform denominator clearing in the total quotient",
+      "kind": "theorem",
+      "statement": "For canonical a, PowerSeries.map(i)(N_a)=C(i Δ_a)E in Q[[q]], where i:M→Q is the canonical total-quotient map.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the native carriers with the supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient without a domain or field assumption.",
+        "For u∈U write d_u=eisensteinTwistedDenominator p u, Δ_u=2d_u and n_u=eisensteinWeightedNumerator p u. The native localization is S_u=Localization.Away(Δ_u). The preceding full series are E_u^away∈S_u[[q]] and E∈Q[[q]]. Their positive coefficients come from the existing A_n=positiveEisensteinMeasure p n; degree0 is their actual localized constant.",
+        "The continuous coordinate is j(u)=u. Canonical a means its underlying Z-value is p+1. Only this canonical parameter is used for the map into Q and the admissible evaluator E_(a,k):S_a→Q_p."
+      ],
+      "proofSteps": [
+        "Apply native PowerSeries.ext, coeff_map and coeff_C_mul. For positive indices use the integral coefficient formula and the actual total-series coefficient construction.",
+        "At degree0 use the existing localized-eisenstein-clearing node, which states 2i(d_a)A₀=i(n_a). Preservation of2 and multiplication by i rewrites its left side as i(Δ_a)A₀.",
+        "This directly identifies the integral numerator series of the actual source total-quotient series. It uses no chosen inverse in M and no field structure on Q."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-cleared-eisenstein-coefficients",
+        "DirichletPadicLFunctions:L4/full-eisenstein-total-series",
+        "DirichletPadicLFunctions:L4/localized-eisenstein-clearing",
+        "mathlib:PowerSeries.ext",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:PowerSeries.coeff_mk"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinClearing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.clearedEisensteinSeries_toFraction"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
+          "excerpt": "power series",
+          "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinClearingTests.whole_total_quotient_clearing",
+          "kind": "compatibility",
+          "statement": "The actual total-quotient family clears by the image of Δ_a into the actual integral series N_a."
+        }
+      ],
+      "acceptance": [
+        "The canonical parameter guarantees the constant is the previously chosen A₀. This is an integral lift of a multiplied series, not an assertion that E itself has integral coefficients."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-integral-lift-unique",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Uniqueness of the integral numerator series",
+      "kind": "lemma",
+      "statement": "For canonical a, if F∈M[[q]] satisfies PowerSeries.map(i)(F)=C(i Δ_a)E, then F=N_a.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the native carriers with the supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient without a domain or field assumption.",
+        "For u∈U write d_u=eisensteinTwistedDenominator p u, Δ_u=2d_u and n_u=eisensteinWeightedNumerator p u. The native localization is S_u=Localization.Away(Δ_u). The preceding full series are E_u^away∈S_u[[q]] and E∈Q[[q]]. Their positive coefficients come from the existing A_n=positiveEisensteinMeasure p n; degree0 is their actual localized constant.",
+        "The continuous coordinate is j(u)=u. Canonical a means its underlying Z-value is p+1. Only this canonical parameter is used for the map into Q and the admissible evaluator E_(a,k):S_a→Q_p."
+      ],
+      "proofSteps": [
+        "The total-clearing theorem identifies the specified image with PowerSeries.map(i)(N_a).",
+        "Native IsFractionRing.injective makes i injective for this total quotient of a commutative ring, without assuming M is a domain.",
+        "Native PowerSeries.map_injective lifts this injectivity coefficientwise and yields F=N_a. A complete native lemma checks uniqueness of such an integral lift."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-total-clearing",
+        "mathlib:IsFractionRing.injective",
+        "mathlib:PowerSeries.map_injective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinClearing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.clearedEisensteinSeries_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
+          "excerpt": "power series",
+          "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinClearingTests.integral_lift_unique",
+          "kind": "characterisation",
+          "statement": "Every integral series mapping to the cleared source series equals the constructed N_a."
+        }
+      ],
+      "acceptance": [
+        "Uniqueness uses injectivity of the total-quotient map, not injectivity of an arbitrary away localization."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-cleared-eisenstein-moment",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Integral moments of the cleared full series",
+      "kind": "construction",
+      "statement": "For every u∈U and k≥0, define N_(u,k)∈Z[[q]] by mapping N_u through the ring map underlying the supplied characterIntegralAlgHom at κ_(0,1,k).",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the native carriers with the supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient without a domain or field assumption.",
+        "For u∈U write d_u=eisensteinTwistedDenominator p u, Δ_u=2d_u and n_u=eisensteinWeightedNumerator p u. The native localization is S_u=Localization.Away(Δ_u). The preceding full series are E_u^away∈S_u[[q]] and E∈Q[[q]]. Their positive coefficients come from the existing A_n=positiveEisensteinMeasure p n; degree0 is their actual localized constant.",
+        "The continuous coordinate is j(u)=u. Canonical a means its underlying Z-value is p+1. Only this canonical parameter is used for the map into Q and the admissible evaluator E_(a,k):S_a→Q_p."
+      ],
+      "proofSteps": [
+        "Use the existing primePowerArithmeticCharacter at level0 with the trivial Dirichlet character and exponent k. Its promoted coordinate formula identifies its continuous test with j^k.",
+        "The supplied matching-coefficient characterIntegralAlgHom is an actual Z-algebra homomorphism M→Z. Forget to its underlying ring map and apply native PowerSeries.map to N_u. No coefficient-field extension or localization is needed.",
+        "Native coeff_map gives coeff_n(N_(u,k))=coeff_n(N_u)(j^k), promoted below. In degree0 this is n_u(j^k). For positive n, multiplicativity of the character integral evaluates Δ_u A_n as 2(u^(k+1)−1)A_n(j^k), using the existing shifted-denominator moment theorem.",
+        "The constructor and coefficient formula give uniqueness by native PowerSeries.ext. At exponent0 its first coefficient is2(u−1). At p=2,u=3,k=3 its constant is−14/3 in Z_2 and its first coefficient is160, distinguishing the integral numerator from the original rational series and from a missing-half normalization."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-cleared-eisenstein-coefficients",
+        "DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-moment",
+        "DirichletPadicLFunctions:L4/weighted-eisenstein-numerator-moment",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-measure",
+        "DirichletPadicLFunctions:L2/arithmetic-character-zero-level",
+        "PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom",
+        "mathlib:PowerSeries.map",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinClearing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralClearedEisensteinMoment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
+          "excerpt": "power series",
+          "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinClearingTests.integral_moment_zero_exponent",
+          "kind": "degenerate",
+          "statement": "At k=0 the first coefficient is2(u−1) in Z."
+        },
+        {
+          "name": "SuggestedEisensteinClearingTests.integral_moment_dyadic_constant",
+          "kind": "computation",
+          "statement": "At p=2,u=3,k=3, three times the constant is−14 in Z_2. Since3 is a unit, this specifies the integral value conventionally written−14/3."
+        },
+        {
+          "name": "SuggestedEisensteinClearingTests.integral_moment_dyadic_first",
+          "kind": "computation",
+          "statement": "At the same data the first coefficient is160 in Z_2."
+        },
+        {
+          "name": "SuggestedEisensteinClearingTests.integral_moment_retains_double",
+          "kind": "non-example",
+          "statement": "The same first coefficient is not80; dropping the doubled denominator changes the series."
+        }
+      ],
+      "acceptance": [
+        "The moment series genuinely has coefficients in Z, including at p=2. The general supplied character integration owns multiplicativity; this node only forms the arithmetic coefficient map."
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.integralClearedEisensteinMoment_def",
+          "role": "constructor",
+          "statement": "N_(u,k) is PowerSeries.map of the supplied level-zero character integral applied to N_u."
+        },
+        {
+          "name": "DirichletPadic.integralClearedEisensteinMoment_coeff",
+          "role": "data",
+          "statement": "Coefficient n is coeff_n(N_u)(j^k). Promoted to integral-cleared-eisenstein-moment-coefficients."
+        },
+        {
+          "name": "DirichletPadic.integralClearedEisensteinMoment_coeff_zero",
+          "role": "simp",
+          "statement": "Coefficient0 is n_u(j^k) in Z."
+        },
+        {
+          "name": "DirichletPadic.integralClearedEisensteinMoment_coeff_pos",
+          "role": "compatibility",
+          "statement": "The positive coefficient n is2(u^(k+1)−1)A_n(j^k) in Z."
+        },
+        {
+          "name": "DirichletPadic.integralClearedEisensteinMoment_unique",
+          "role": "characterisation",
+          "statement": "The integral moment formula at every natural index uniquely determines N_(u,k)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Remark8.3, arithmetic weight variation",
+          "how": "Places the numerator moments in the integral coefficient ring where divisibility expresses congruence."
+        },
+        {
+          "where": "Full admissible specialization",
+          "how": "Supplies the integral preimage of the explicit denominator times the full p-adic series."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-cleared-eisenstein-moment-coefficients",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "All integral coefficients of the cleared specialization",
+      "kind": "lemma",
+      "statement": "For every u∈U and k,n≥0, coeff_n(N_(u,k))=coeff_n(N_u)(j^k) in Z.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the native carriers with the supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient without a domain or field assumption.",
+        "For u∈U write d_u=eisensteinTwistedDenominator p u, Δ_u=2d_u and n_u=eisensteinWeightedNumerator p u. The native localization is S_u=Localization.Away(Δ_u). The preceding full series are E_u^away∈S_u[[q]] and E∈Q[[q]]. Their positive coefficients come from the existing A_n=positiveEisensteinMeasure p n; degree0 is their actual localized constant.",
+        "The continuous coordinate is j(u)=u. Canonical a means its underlying Z-value is p+1. Only this canonical parameter is used for the map into Q and the admissible evaluator E_(a,k):S_a→Q_p."
+      ],
+      "proofSteps": [
+        "Unfold the arithmetic coefficient-map constructor and use native PowerSeries.coeff_map.",
+        "The defining underlying map of characterIntegralAlgHom evaluates a measure on its character test. The existing level-zero arithmetic character formula identifies this continuous test pointwise with j^k.",
+        "Promote the all-coefficient API unchanged. This statement will allow future integral test congruences to be applied to the actual coefficient measures, uniformly including the constant."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-cleared-eisenstein-moment",
+        "DirichletPadicLFunctions:L2/arithmetic-character-zero-level",
+        "PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom",
+        "mathlib:PowerSeries.coeff_map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinClearing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralClearedEisensteinMoment_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
+          "excerpt": "power series",
+          "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinClearingTests.integral_moment_every_coefficient",
+          "kind": "characterisation",
+          "statement": "The equality holds inside Z for every natural coefficient index, including0."
+        }
+      ],
+      "acceptance": [
+        "The integral coefficient is not replaced by a quotient in Q_p. Any precision statement must first be made on these integral values."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/full-eisenstein-cleared-specialization",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The integral lift of the full admissible specialization",
+      "kind": "comparison",
+      "statement": "For canonical a and every k≥0, PowerSeries.map(Z→Q_p)(N_(a,k))=C(2(a^(k+1)−1))·PowerSeries.map(E_(a,k))(E_a^away) in Q_p[[q]].",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the native carriers with the supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient without a domain or field assumption.",
+        "For u∈U write d_u=eisensteinTwistedDenominator p u, Δ_u=2d_u and n_u=eisensteinWeightedNumerator p u. The native localization is S_u=Localization.Away(Δ_u). The preceding full series are E_u^away∈S_u[[q]] and E∈Q[[q]]. Their positive coefficients come from the existing A_n=positiveEisensteinMeasure p n; degree0 is their actual localized constant.",
+        "The continuous coordinate is j(u)=u. Canonical a means its underlying Z-value is p+1. Only this canonical parameter is used for the map into Q and the admissible evaluator E_(a,k):S_a→Q_p."
+      ],
+      "proofSteps": [
+        "Map the uniform away-clearing identity through the actual admissible evaluator E_(a,k). Native coefficient maps preserve multiplication and constant series.",
+        "The promoted all-integral-coefficient evaluator agreement identifies the composite M→S_a→Q_p with the Z→Q_p image of μ↦μ(j^k). Apply coefficient extensionality and the promoted integral-moment coefficient theorem to identify the mapped numerator series.",
+        "For the mapped denominator, use the same all-integral-coefficient agreement and the existing shifted-denominator moment theorem. Linearity and the convolution identity show the doubled denominator evaluates to2(a^(k+1)−1). Native preservation of casts identifies its integral and field versions.",
+        "The resulting equality retains the exact weight-dependent factor. At k=0 it is2p, and at p=2,a=3,k=3 it is160. The coefficient at the prime index also survives, with value160 in that example.",
+        "A complete native lemma checks the commutation of denominator clearing with coefficient maps; another checks integral coefficient-map composition. This result alone does not cancel a nonunit denominator in an integral congruence."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-away-clearing",
+        "DirichletPadicLFunctions:L4/integral-cleared-eisenstein-moment-coefficients",
+        "DirichletPadicLFunctions:L4/eisenstein-away-integral-evaluation",
+        "DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-moment",
+        "mathlib:PowerSeries.map",
+        "mathlib:PowerSeries.map_C",
+        "mathlib:PowerSeries.map_comp",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinClearing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralClearedEisensteinMoment_specialize"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
+          "excerpt": "power series",
+          "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinClearingTests.field_specialization_dyadic_four",
+          "kind": "compatibility",
+          "statement": "At p=2,a=3,k=3 the included integral moment series is160 times the actual full admissible series."
+        },
+        {
+          "name": "SuggestedEisensteinClearingTests.field_specialization_zero_exponent",
+          "kind": "degenerate",
+          "statement": "At exponent0 the multiplier is2p; the theorem includes this exponent."
+        },
+        {
+          "name": "SuggestedEisensteinClearingTests.field_specialization_prime_index_survives",
+          "kind": "non-example",
+          "statement": "At p=2,a=3,k=3 the coefficient at q² is160, not0."
+        }
+      ],
+      "acceptance": [
+        "The equality specifies the factor that must be kept when translating integral full-series congruences. It neither evaluates all of Q nor assumes an unchanged precision after dividing by2(a^(k+1)−1)."
+      ]
     }
   ],
   "requests": [
@@ -26923,7 +27492,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "The full arithmetic family is now assembled over the native denominator localization, its coefficientwise image is the actual total-quotient series, and every even-weight specialization at least4 agrees with the actual classical p-stabilized q-expansion through a unique rational series. Next expose uniform denominator clearing of the whole family by Δ_(p+1), and the resulting precisely qualified constant/full-series congruence statements. The PMIA generic character-twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. Smoothing independence beyond the canonical parameter, actual pole and ordinary-pseudomeasure exclusion, the tame-character family and full source extraction remain explicit work; PadicFamilies owns geometric realization.",
+        "The full family now has a unique actual integral numerator series after multiplication by the explicit doubled shifted denominator, and its integral arithmetic moment series maps to the exact denominator times the full admissible specialization. Next prove coefficientwise integral test congruences for these actual measure coefficients and arithmetic weight congruences with the full modulus p^(r−1)(p−1); record the denominator precision loss before any cancellation. The PMIA generic twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. Smoothing independence beyond the canonical parameter, actual pole and ordinary-pseudomeasure exclusion, the tame-character family and full source extraction remain explicit work; PadicFamilies owns geometric realization.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -26954,7 +27523,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "The full arithmetic family is now assembled over the native denominator localization, its coefficientwise image is the actual total-quotient series, and every even-weight specialization at least4 agrees with the actual classical p-stabilized q-expansion through a unique rational series. Next expose uniform denominator clearing of the whole family by Δ_(p+1), and the resulting precisely qualified constant/full-series congruence statements. The PMIA generic character-twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. Smoothing independence beyond the canonical parameter, actual pole and ordinary-pseudomeasure exclusion, the tame-character family and full source extraction remain explicit work; PadicFamilies owns geometric realization. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "The full family now has a unique actual integral numerator series after multiplication by the explicit doubled shifted denominator, and its integral arithmetic moment series maps to the exact denominator times the full admissible specialization. Next prove coefficientwise integral test congruences for these actual measure coefficients and arithmetic weight congruences with the full modulus p^(r−1)(p−1); record the denominator precision loss before any cancellation. The PMIA generic twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. Smoothing independence beyond the canonical parameter, actual pole and ordinary-pseudomeasure exclusion, the tame-character family and full source extraction remain explicit work; PadicFamilies owns geometric realization. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -27255,45 +27824,45 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 findings and sourceVersions remain whole; the previously corrected external E54 boundary persists. No new source finding or independent verdict.",
+    "sourceIssues": "All16 source findings and sourceVersions remain whole, with no new source finding or independent verdict. The external confirmed E54 boundary remains explicit.",
     "validation": {
-      "nodes": 403,
+      "nodes": 412,
       "kinds": {
         "definition": 1,
-        "lemma": 182,
-        "construction": 47,
-        "theorem": 106,
-        "comparison": 67
+        "lemma": 186,
+        "construction": 49,
+        "theorem": 108,
+        "comparison": 68
       },
-      "api": 374,
-      "packetTests": 631,
-      "definitionConstructionTests": 213,
-      "typedExamples": 634,
+      "api": 383,
+      "packetTests": 647,
+      "definitionConstructionTests": 220,
+      "typedExamples": 650,
       "planets": 24,
       "baseline": 429,
-      "preservedWholeNodes": 395,
-      "preservedBaseline": 427,
+      "preservedWholeNodes": 403,
+      "preservedBaseline": 429,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 8,
-      "newNamedDeclarations": 14,
+      "newNodes": 9,
+      "newNamedDeclarations": 15,
       "newTypedTests": 16,
       "requests": 3,
       "gaps": 7,
       "closedStages": 0,
-      "reachableNodes": 578,
-      "dependencyEdges": 2735,
+      "reachableNodes": 587,
+      "dependencyEdges": 2783,
       "acyclic": true,
       "baselineLeaves": 546,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 167403,
+      "readerWords": 171438,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1233,
+      "compilerWarnings": 1264,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -27303,21 +27872,20 @@
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 1,
-      "scratchCompleteLemmas": 5,
-      "scratchMathlibModules": 1138,
+      "scratchCompleteLemmas": 7,
+      "scratchMathlibModules": 1193,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "fullCoefficientComparisons": 2925,
-        "constantComparisons": 45,
-        "positiveIntegralCoefficients": 2880,
-        "uniformClearingIntegrality": 2925,
-        "indexInvariance": 1485,
-        "primeCoefficientSurvival": 45,
-        "wrongWeightShiftControls": 45,
-        "omittedConstantControls": 45,
-        "erasedPrimeCoefficientControls": 45
+        "clearedCoefficients": 10920,
+        "pIntegralCoefficients": 10920,
+        "constantFactorizations": 168,
+        "firstCoefficientFactors": 168,
+        "missingDoubleControls": 168,
+        "primeIndexSurvival": 168,
+        "identityParameterZero": 168,
+        "dyadicPrecisionLoss": 1
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": []
@@ -27325,14 +27893,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1233,
-      "sha256": "c90b004dfddff69476249fa2abd1c6822f0216ad553cda8a8573298fa3072c0f",
+      "warnings": 1264,
+      "sha256": "04d914758f7c61801c6bc12cd3a3f216849779cb9559b39e908f578064d3a584",
       "nativeProbe": {
-        "completeLemmas": 5,
+        "completeLemmas": 7,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "b1d439e47217493de15c1bfe2365a589f43ed167b851daab9bf15cffd5214bbf"
+        "sha256": "8a68551dcb3bac9787ca0624d77ada5b303021ae13a980ed2ad131676d0b820f"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -27401,16 +27969,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "52f0897d9e363485d058a8dc2eebca4c003c7e3f4e056760d0ba06a06bd5d2f1",
+          "sourceSha256": "c90b004dfddff69476249fa2abd1c6822f0216ad553cda8a8573298fa3072c0f",
           "modules": 3568,
-          "warnings": 1203,
+          "warnings": 1233,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "674ee48cf0e3ad062e3e5029caf075a450ad5a77",
+      "base": "2de163a3055031b4e7e99a65dc0407e1a5771837",
       "unchangedInputs": 57,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -32154,6 +32722,44 @@
         "erasedPrimeCoefficientControls": 45
       },
       "numericalMethod": "Exact rational Bernoulli recurrence and integer divisor sums. For each of45 even-weight/prime pairs, compare all65 coefficients from0 through64 with the classical p-stabilization formula and check integrality after the explicit common denominator. Negative controls omit the constant, erase the coefficient at p, or use weight instead of weight minus1. These finite truncations do not prove the general full-series theorem or geometric-family assertions."
+    },
+    "fullEisensteinClearing": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4685,
+      "previousHead": "6afa28125f74b8719d2ae7b6c047efb30434796b",
+      "previousMerge": "545176c005a50a7d78ef8ccdd006cc16f84df968",
+      "preservedWholeNodes": 403,
+      "preservedBaseline": 429,
+      "preservedFindings": 16,
+      "newNodes": 9,
+      "reading": "The complete published159–160, including Theorem8.2 and Remark8.3, was read again with confirmed correction E54. The reviewed L0–L4 library audit was reread. The exact existing numerator, denominator, localized constant, full series and moment-map interfaces were read. The supplier character-integral algebra-hom node was read whole. Native PowerSeries coefficient multiplication, coefficient maps, map composition, map injectivity, IsFractionRing.injective and IsLocalization.mk′_spec′ were read with their ambient hypotheses at the pinned commit. No new baseline declaration is needed.",
+      "boundary": "The full family now has a unique actual integral numerator series after multiplication by the explicit doubled shifted denominator, and its integral arithmetic moment series maps to the exact denominator times the full admissible specialization. Next prove coefficientwise integral test congruences for these actual measure coefficients and arithmetic weight congruences with the full modulus p^(r−1)(p−1); record the denominator precision loss before any cancellation. The PMIA generic twist equivalence, completed-algebra comparison and general coefficient-field evaluator requests remain open. Smoothing independence beyond the canonical parameter, actual pole and ordinary-pseudomeasure exclusion, the tame-character family and full source extraction remain explicit work; PadicFamilies owns geometric realization.",
+      "inputBase": "087d5e9abeec55ae117e7d261380a6e41e2a3ebf",
+      "sourceBoundary": "All16 source findings and sourceVersions remain whole, with no new source finding or independent verdict. The external confirmed E54 boundary remains explicit.",
+      "publication": {
+        "base": "2de163a3055031b4e7e99a65dc0407e1a5771837",
+        "unchangedInputs": 57,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "clearedCoefficients": 10920,
+        "pIntegralCoefficients": 10920,
+        "constantFactorizations": 168,
+        "firstCoefficientFactors": 168,
+        "missingDoubleControls": 168,
+        "primeIndexSurvival": 168,
+        "identityParameterZero": 168,
+        "dyadicPrecisionLoss": 1
+      },
+      "numericalMethod": "Exact rational Bernoulli recurrence and integer divisor sums. Positive cleared coefficients are computed independently by evaluating the convolution (2a δ_a−2δ_1) times the divisor Dirac sum; compare with the explicit denominator times the original coefficient. All168 prime/exponent pairs use65 coefficients, including0. P-integrality means the reduced rational denominator is prime to p. A finite dyadic precision control compares exponents3 and7, congruent modulo4, and records valuations before and after clearing. These are exact finite computations, not a proof of general congruences."
     }
   },
   "requestResolutions": [
