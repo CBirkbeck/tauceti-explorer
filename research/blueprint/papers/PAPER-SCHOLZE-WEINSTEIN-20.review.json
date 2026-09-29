@@ -1,0 +1,67 @@
+{
+ "paper": "PAPER-SCHOLZE-WEINSTEIN-20",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. The candidate PrismaticCohomologyPartIIPrismaticDieudonneTheory has the same id, title and parent, and PAPER-ANSCHUTZ-LEBRAS-23 route 1 and PAPER-CESNAVICIUS-SCHOLZE-24 route 6 were accepted on review; DESIGN-PrismaticCohomologyPartII is pending. No layer or packet node classifies p-divisible groups over O_C or integral perfectoid rings: AI.2 stops at Fargues' equivalence for BKF modules with (T, Ξ), T0 builds on FiniteFlatGroups R07.1–R07.2, and R07.2 constructs Dieudonné modules over perfect residue fields. The perfectoid case is the base of the prismatic classification, so joining that Part II is right. The brief states Theorems 17.5.2, 14.4.1, 12.1.5, 14.4.2/15.2.3 and 14.4.3 as printed, with E1 corrected, and every import exists in the atlas."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. The candidate from PAPER-KISIN-PAPPAS-ZHOU-26 route 6, accepted, has the same id and title, and its item I01 is Proposition 18.4.1; DESIGN-DiamondsAndVStacksPartII is pending. D6 glues X^♦ only for analytic adic spaces and says explicitly that it is not full faithfulness on all analytic adic spaces. No packet node states Propositions 10.2.1, 10.2.3, 18.3.1 or 18.4.1, or Lemmas 18.1.1–18.1.2. The brief's proof outline (10.2.3 for the generic fibre, 18.3.1 for (𝔛_red)^perf, closures of classical points for sp) matches Lecture 18."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. The candidate from PAPER-KISIN-PAPPAS-18 route 7, accepted and continued by the accepted KZ25, KPZ26 and GLX26 routes, has the same id, title, parent and area; DESIGN-GeometricSatakeAndFusionPartII is pending. GS0 builds Gr_{𝒢,Spd ℤ_p} and its bounded properness from Lecture 21, but no stage or node states Conjecture 21.4.1, Propositions 21.4.3 and 21.5.1, the EL/PEL lattice-chain groups or the naive local models. ReductiveGroupsPartII and PELModuli exist in the atlas."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept, with one import named. The candidate from PAPER-KISIN-PAPPAS-ZHOU-26 route 7, accepted and continued by the accepted VANHOFTEN-24, ZHU-17 and GLX-26 routes, has the same id, title and parent; DESIGN-HeckeStacksAndLocalShtukasPartII is pending. HS2 defines local shtuka moduli as Hecke fibres and asks only to 'match the Hecke-fibre description with known local Shimura moduli in examples', saying 'do not restrict general local shtukas to classical Rapoport–Zink spaces'. No node states Rapoport–Zink representability, Theorem 24.2.5, the EL/PEL moduli problems or the integral models of Lecture 25. The brief now names the prismatic Dieudonné Part II it imports by id."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept, with the reason and imports corrected. The candidate from PAPER-ZAVYALOV-25 route 1, accepted, has the same id, title, parent and area; DESIGN-ClassicalAdicEtaleCohomologyPartII is pending. The reason said mod-p finiteness is planned nowhere, but the absolute case is routed to PadicHodgeTheory P8 by accepted routes (ZAVYALOV-25 route 7, BHATT-MORROW-SCHOLZE-18 route 14, SCHOLZE-13 route 1), and the Zavyalov candidate imports it from P8. Only the relative Theorem 10.5.1 and its almost-coherence argument (Proposition 10.5.2, Lemmas 10.5.3–10.5.9, Proposition 10.5.10) are unowned. The reason now says so, and the brief imports P8."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. VB3 owns Banach–Colmez spaces as section sheaves; Colmez's abstract category (Definition 15.2.1) and Le Bras's theorem belong with it. VB4 owns the equivalence of slope-zero bundles with pro-étale local systems, and its integral forms (Theorem 12.3.4, Propositions 22.3.2 and 22.6.1) and the simple connectivity of X_FF (Theorem 13.5.7) extend that layer. No packet node states them: the VectorBundlesAndIsocrystals decomposition's Banach–Colmez nodes are Fargues–Scholze's II.2–II.3 statements."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept. RF0:integral-Y constructs 𝒴_S = Spa W(R⁺) ∖ V([ϖ]) with sheafy rational charts. Proposition 13.1.1, sheafiness on the whole analytic locus of Spa A_inf, and Kedlaya's noetherian and PID results are properties of those charts."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accept. HS2 owns the local shtuka moduli. The lattice functors Latt with their admissible loci (Corollary 22.3.3, Theorem 22.6.2) and Rapoport's criterion Sht_{G,b,μ,K} ≠ ∅ iff b ∈ B(G, μ^{-1}) (Proposition 24.1.2) are statements about them that no node states. The planned items it names are for reference."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "Accept. The route names planned items only; AI.2 plans Fargues' equivalence from BMS1 §4, and Lectures 11–14 give its proof in the shtuka language."
+  },
+  {
+   "route": 10,
+   "verdict": "accept",
+   "reason": "Accept. The route names planned items only; the PerfectoidSpaces packet plans nearly all of them, with nodes citing Lectures 6–8."
+  },
+  {
+   "route": 11,
+   "verdict": "accept",
+   "reason": "Accept. The route names planned items only, nearly all planned in DiamondsAndVStacks D0–D6."
+  },
+  {
+   "route": 12,
+   "verdict": "accept",
+   "reason": "Accept. The route names planned items only, planned in FarguesFontaineDiamonds F0, F1 and F4 and in RelativeFarguesFontaine."
+  }
+ ],
+ "notes": "Source: the author copy https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf, whose SHA-256 225505171ef8…bffc matches the recorded hash; printed page = PDF page − 10. Items: all 451 numbered statements of the text (Theorem, Proposition, Lemma, Corollary, Definition, Remark, Example and the rest) are cited directly by some item's locator or name. Library: the 21 cited declarations are all in the pinned index; AdicCompletion.pow_smul_top_eq_ker_eval and AdicCompletion.isAdicComplete (Mathlib/RingTheory/AdicCompletion/Completeness.lean:154, 184, both requiring I.FG) and TauCeti.Huber.PadicInt.not_isTateRing were opened and provide their items. Statuses: all 115 packet node names cited in notes exist; for the 39 missing items no packet node cites their statement numbers, and a keyword search (p-divisible groups over O_C, BKF, A_crys, Rapoport–Zink, local models, Banach–Colmez, seminormal, perfect schemes, integral Robba, admissible locus) found no node that states them. Routes: all 12 accepted; the five Part IIs join candidates whose DESIGN jobs are pending, and each candidate's original route was accepted on review. Two corrections: route 5's reason and imports, and route 4's naming of the prismatic Dieudonné Part II. sourceIssues: all six confirmed at their pages, E1 recomputed; none added. The ten prerequisite DOIs resolve on Crossref to the titles given, and arXiv:1711.06903 is Lourenço's paper. check_paper.py passes."
+}

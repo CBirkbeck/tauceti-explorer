@@ -2522,7 +2522,7 @@
     "PAPER-SCHOLZE-WEINSTEIN-20/179",
     "PAPER-SCHOLZE-WEINSTEIN-20/180"
    ],
-   "brief": "Coalesces with the candidate of the same id proposed by PAPER-KISIN-PAPPAS-ZHOU-26 and continued by PAPER-VANHOFTEN-24, PAPER-ZHU-17 and PAPER-GLEASON-LIM-XU-26 (whose continuation plans 'the open-closed RZ comparison'); this route supplies Scholze–Weinstein's definitions and comparison theorems that those papers use. Final theorems, as stated. Theorem 24.2.2 (Rapoport–Zink): for a p-divisible group 𝕏 over 𝔽̄_p, Def_𝕏 (deformations up to quasi-isogeny) is represented by a formal scheme 𝔐_𝕏 over Spf Z̆_p, formally smooth and locally formally of finite type, with special-fibre components proper; Proposition 24.2.4 describes 𝔐_{𝕏,Q̆_p} by sheafifying colim_{R_0 ⊂ R⁺} Def_𝕏(R_0); Theorem 24.2.5 (Scholze–Weinstein): 𝔐^♦_{𝕏,Q̆_p} ≅ Sht_{(GL_n,b,μ)} at level GL_n(ℤ_p). EL/PEL chains of O_B-p-divisible groups, M^{loc,naive}-admissibility (the determinant condition), the moduli problem 𝔐_D, its closed immersion into ∏𝔐_{𝕏_{b,Λ}} (Definitions 24.3.1–24.3.3, Proposition 24.3.4) and 𝔐_{D,Ĕ} ≅ M_{G,b,μ,𝒢(ℤ_p)} (Corollary 24.3.5), assuming b ∈ B(G, μ^{-1}). Definition 25.1.1: the integral model M^int_{(𝒢,b,μ)} over Spd Ŏ as a v-sheaf of 𝒢-shtukas with one leg bounded by the local model M^loc_{(𝒢,μ)}; Theorem 25.1.2 and Corollary 25.1.3: 𝔐^♦_𝕏 ≅ M^int_{(GL_n,b,μ)} and 𝔐^♦_D ≅ M^int_{(𝒢,b,μ)}; Proposition 25.2.1 (tori: M^int_{(𝒯,1,0)} = T(ℚ_p)/𝒯(ℤ_p) and torsors under it); Assumption 25.3.1 and Proposition 25.3.2 (non-parahoric 𝒢: the generic fibre is M_{G,b,μ,𝒢(ℤ_p)} when H^1(ℤ_p, 𝒢) → H^1(ℚ_p, G) is injective); Theorems 25.4.1 and 25.5.2 (the RZ17 and KRZ conjectures: 𝔐^0_D ≅ 𝔐^0_Dr ×_{Ŏ_F} Ŏ_E, resp. ×_{Ŏ_{F_0}} Ŏ_E, with Lemma 25.5.1 verifying Assumption 25.3.1). Imports: HeckeStacksAndLocalShtukas HS2 (Sht_{𝒢,b,{μ_i}}, local Shimura varieties), GeometricSatakeLocalModelsPartII (local models and the RZ naive local models), DiamondsAndVStacksIntegralPartII (Proposition 18.4.1), FiniteFlatGroupsAndIntegralPadicHodgeTheory (p-divisible groups, quasi-isogenies, Grothendieck–Messing via R07.6), the prismatic Dieudonné Part II (p-divisible groups over perfectoid rings, Theorem 17.5.2), BunGAndNewtonStrata BG1 (B(G, μ^{-1})). Tests: the Lubin–Tate case (d = 1), the Drinfeld case, a torus, and an EL case with disconnected 𝒢.",
+   "brief": "Coalesces with the candidate of the same id proposed by PAPER-KISIN-PAPPAS-ZHOU-26 and continued by PAPER-VANHOFTEN-24, PAPER-ZHU-17 and PAPER-GLEASON-LIM-XU-26 (whose continuation plans 'the open-closed RZ comparison'); this route supplies Scholze–Weinstein's definitions and comparison theorems that those papers use. Final theorems, as stated. Theorem 24.2.2 (Rapoport–Zink): for a p-divisible group 𝕏 over 𝔽̄_p, Def_𝕏 (deformations up to quasi-isogeny) is represented by a formal scheme 𝔐_𝕏 over Spf Z̆_p, formally smooth and locally formally of finite type, with special-fibre components proper; Proposition 24.2.4 describes 𝔐_{𝕏,Q̆_p} by sheafifying colim_{R_0 ⊂ R⁺} Def_𝕏(R_0); Theorem 24.2.5 (Scholze–Weinstein): 𝔐^♦_{𝕏,Q̆_p} ≅ Sht_{(GL_n,b,μ)} at level GL_n(ℤ_p). EL/PEL chains of O_B-p-divisible groups, M^{loc,naive}-admissibility (the determinant condition), the moduli problem 𝔐_D, its closed immersion into ∏𝔐_{𝕏_{b,Λ}} (Definitions 24.3.1–24.3.3, Proposition 24.3.4) and 𝔐_{D,Ĕ} ≅ M_{G,b,μ,𝒢(ℤ_p)} (Corollary 24.3.5), assuming b ∈ B(G, μ^{-1}). Definition 25.1.1: the integral model M^int_{(𝒢,b,μ)} over Spd Ŏ as a v-sheaf of 𝒢-shtukas with one leg bounded by the local model M^loc_{(𝒢,μ)}; Theorem 25.1.2 and Corollary 25.1.3: 𝔐^♦_𝕏 ≅ M^int_{(GL_n,b,μ)} and 𝔐^♦_D ≅ M^int_{(𝒢,b,μ)}; Proposition 25.2.1 (tori: M^int_{(𝒯,1,0)} = T(ℚ_p)/𝒯(ℤ_p) and torsors under it); Assumption 25.3.1 and Proposition 25.3.2 (non-parahoric 𝒢: the generic fibre is M_{G,b,μ,𝒢(ℤ_p)} when H^1(ℤ_p, 𝒢) → H^1(ℚ_p, G) is injective); Theorems 25.4.1 and 25.5.2 (the RZ17 and KRZ conjectures: 𝔐^0_D ≅ 𝔐^0_Dr ×_{Ŏ_F} Ŏ_E, resp. ×_{Ŏ_{F_0}} Ŏ_E, with Lemma 25.5.1 verifying Assumption 25.3.1). Imports: HeckeStacksAndLocalShtukas HS2 (Sht_{𝒢,b,{μ_i}}, local Shimura varieties), GeometricSatakeLocalModelsPartII (local models and the RZ naive local models), DiamondsAndVStacksIntegralPartII (Proposition 18.4.1), FiniteFlatGroupsAndIntegralPadicHodgeTheory (p-divisible groups, quasi-isogenies, Grothendieck–Messing via R07.6), the prismatic Dieudonné Part II (PrismaticCohomologyPartIIPrismaticDieudonneTheory, route 1; p-divisible groups over perfectoid rings, Theorem 17.5.2), BunGAndNewtonStrata BG1 (B(G, μ^{-1})). Tests: the Lubin–Tate case (d = 1), the Drinfeld case, a torus, and an EL case with disconnected 𝒢.",
    "reason": "HS2 plans the moduli of local shtukas and asks only to 'match the Hecke-fibre description with known local Shimura moduli in examples'; no layer plans Rapoport–Zink spaces themselves, their comparison with shtuka spaces, or integral models of local Shimura varieties. These are the direction of the pending HeckeStacksAndLocalShtukasIntegralPartII, which the KPZ26/GLX26 continuations already build on Scholze–Weinstein's integral models; the items join it."
   },
   {
@@ -2536,8 +2536,8 @@
     "PAPER-SCHOLZE-WEINSTEIN-20/73",
     "PAPER-SCHOLZE-WEINSTEIN-20/74"
    ],
-   "brief": "Coalesces with the candidate of the same id from PAPER-ZAVYALOV-25, which plans duality with p-torsion coefficients for smooth proper rigid spaces over C and needs the finiteness of their mod-p cohomology. This route adds the relative finiteness theorem of the appendix to Lecture 10. Final theorem, as stated: for C complete algebraically closed over ℚ_p and f : X → Y a proper smooth map of rigid-analytic spaces over C, R^if_*𝕃 is an étale 𝔽_p-local system on Y for every étale 𝔽_p-local system 𝕃 on X (Theorem 10.5.1), removing the extra hypothesis of Scholze's p-adic Hodge theory for rigid-analytic varieties, Theorem 1.10; the ℤ_p version follows. Cover the proof: the primitive comparison (Scholze 2013, Theorem 1.1) as the absolute case; coherence of R⁺/ϖ over a totally disconnected perfectoid Spa(R, R⁺) and almost coherence (Proposition 10.5.2); almost finitely generated/presented R⁺/p-modules and their local constancy on constructible stratifications of Spa(R, R⁺) (Remark 10.5.5); the reduction to strictly totally disconnected S → Y (Lemma 10.5.3, using that étale sheaves on S are sheaves on |S|); the Cartan–Serre argument with nested affinoid covers relative to S (Lemmas 10.5.8–10.5.9) and the spectral sequence lemma 10.5.6; and Proposition 10.5.10. Record Remark 10.5.7: Scholze, On the p-adic cohomology of the Lubin–Tate tower, Lemma 8.8 should assert only that the map factors over an almost finitely presented module (Corollary 8.9 there is unaffected). Imports: PerfectoidSpaces P0 (almost mathematics), P5–P6 (limits, pro-étale presentations), DiamondsAndVStacks D1 (strictly totally disconnected spaces), DiamondEtaleCohomology C0 (quasi-pro-étale site), AdicEtaleGeometry A1–A2 (étale and smooth maps of rigid spaces). Tests: Y a point (Scholze's finiteness), f the identity, an abelian scheme family, and a non-proper map where local constancy fails.",
-   "reason": "ClassicalAdicEtaleCohomology plans Huber's theory with torsion prime to p; mod-p finiteness for proper smooth rigid spaces and its relative version are planned nowhere. The pending Part II from Zavyalov's mod-p duality paper is the atlas's p-torsion continuation of that roadmap and consumes exactly this finiteness, so the items join it."
+   "brief": "Coalesces with the candidate of the same id from PAPER-ZAVYALOV-25, which plans duality with p-torsion coefficients for smooth proper rigid spaces over C and needs the finiteness of their mod-p cohomology. This route adds the relative finiteness theorem of the appendix to Lecture 10. Final theorem, as stated: for C complete algebraically closed over ℚ_p and f : X → Y a proper smooth map of rigid-analytic spaces over C, R^if_*𝕃 is an étale 𝔽_p-local system on Y for every étale 𝔽_p-local system 𝕃 on X (Theorem 10.5.1), removing the extra hypothesis of Scholze's p-adic Hodge theory for rigid-analytic varieties, Theorem 1.10; the ℤ_p version follows. Cover the proof: the primitive comparison (Scholze 2013, Theorem 1.1) as the absolute case; coherence of R⁺/ϖ over a totally disconnected perfectoid Spa(R, R⁺) and almost coherence (Proposition 10.5.2); almost finitely generated/presented R⁺/p-modules and their local constancy on constructible stratifications of Spa(R, R⁺) (Remark 10.5.5); the reduction to strictly totally disconnected S → Y (Lemma 10.5.3, using that étale sheaves on S are sheaves on |S|); the Cartan–Serre argument with nested affinoid covers relative to S (Lemmas 10.5.8–10.5.9) and the spectral sequence lemma 10.5.6; and Proposition 10.5.10. Record Remark 10.5.7: Scholze, On the p-adic cohomology of the Lubin–Tate tower, Lemma 8.8 should assert only that the map factors over an almost finitely presented module (Corollary 8.9 there is unaffected). Imports: P-adic Hodge theory and geometric comparison (PadicHodgeTheory) P8 (Scholze's primitive comparison and finiteness, the absolute case, as the PAPER-ZAVYALOV-25 candidate already imports); PerfectoidSpaces P0 (almost mathematics), P5–P6 (limits, pro-étale presentations), DiamondsAndVStacks D1 (strictly totally disconnected spaces), DiamondEtaleCohomology C0 (quasi-pro-étale site), AdicEtaleGeometry A1–A2 (étale and smooth maps of rigid spaces). Tests: Y a point (Scholze's finiteness), f the identity, an abelian scheme family, and a non-proper map where local constancy fails.",
+   "reason": "ClassicalAdicEtaleCohomology plans Huber's theory with torsion prime to p; the absolute mod-p finiteness of proper smooth rigid spaces (Scholze's primitive comparison) is routed to PadicHodgeTheory P8 by accepted extractions (PAPER-ZAVYALOV-25 route 7, PAPER-BHATT-MORROW-SCHOLZE-18 route 14, PAPER-SCHOLZE-13 route 1), and the Part II imports it from there, but its relative version for proper smooth maps (Theorem 10.5.1) is planned nowhere. The pending Part II from Zavyalov's mod-p duality paper is the atlas's p-torsion continuation of that roadmap and consumes exactly this finiteness, so the items join it."
   },
   {
    "route": "source",
@@ -2715,7 +2715,12 @@
     "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): the book is listed without erratum (an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties')",
     "Crossref records of doi:10.1515/9780691202150 and doi:10.23943/princeton/9780691202082.001.0001: no update or erratum relation",
     "the publisher's page (De Gruyter): not reachable (bot challenge)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read at p. 100 (author copy, PDF p. 110): 'let i = dim_C H − 1'. Redone: for W a ℚ_p-rational line, H = {W} has dimension 0 and the group is μ_{p^∞} ⊕ (ℚ_p/ℤ_p)^{h−1}, so i = 1; for W in no rational hyperplane, H = P^{h−1} and the special fibre is G_h, so i = h. Both need i = dim_C H + 1; the printed formula gives −1 and h − 2.",
+    "by": "REV-PAPER-SCHOLZE-WEINSTEIN-20"
+   }
   },
   {
    "id": "PAPER-SCHOLZE-WEINSTEIN-20/E2",
@@ -2730,7 +2735,12 @@
     "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): the book is listed without erratum (an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties')",
     "Crossref records of doi:10.1515/9780691202150 and doi:10.23943/princeton/9780691202082.001.0001: no update or erratum relation",
     "the publisher's page (De Gruyter): not reachable (bot challenge)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read at p. 112: 'by Proposition 13.2.1 this is the same as (B⁺)^{φ=pⁿ}'. The book's 13.2.1 is a theorem (pp. 109–111, extending φ-modules over x_L), and no Proposition 13.2.1 exists. The equality of φ = pⁿ sections over Y_(0,∞) and Y_(0,∞] is Proposition 13.3.2 (p. 110; FF18, Proposition 4.1.3) applied to O(n).",
+    "by": "REV-PAPER-SCHOLZE-WEINSTEIN-20"
+   }
   },
   {
    "id": "PAPER-SCHOLZE-WEINSTEIN-20/E3",
@@ -2745,7 +2755,12 @@
     "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): the book is listed without erratum (an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties')",
     "Crossref records of doi:10.1515/9780691202150 and doi:10.23943/princeton/9780691202082.001.0001: no update or erratum relation",
     "the publisher's page (De Gruyter): not reachable (bot challenge)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read at p. 123: 'The goal of this appendix is to establish Proposition 14.4.3.' The statement is Theorem 14.4.3 (p. 121), and no Proposition 14.4.3 exists.",
+    "by": "REV-PAPER-SCHOLZE-WEINSTEIN-20"
+   }
   },
   {
    "id": "PAPER-SCHOLZE-WEINSTEIN-20/E4",
@@ -2760,7 +2775,12 @@
     "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): the book is listed without erratum (an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties')",
     "Crossref records of doi:10.1515/9780691202150 and doi:10.23943/princeton/9780691202082.001.0001: no update or erratum relation",
     "the publisher's page (De Gruyter): not reachable (bot challenge)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read at p. 193: Theorem 21.2.2 says 'necessarily uniquely by the Tannakian formalism and Theorem 14.2.3'. The extension of bundles over Spec A_inf ∖ {𝔪} is Lemma 14.2.3 (p. 117), and no Theorem 14.2.3 exists.",
+    "by": "REV-PAPER-SCHOLZE-WEINSTEIN-20"
+   }
   },
   {
    "id": "PAPER-SCHOLZE-WEINSTEIN-20/E5",
@@ -2775,7 +2795,12 @@
     "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): the book is listed without erratum (an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties')",
     "Crossref records of doi:10.1515/9780691202150 and doi:10.23943/princeton/9780691202082.001.0001: no update or erratum relation",
     "the publisher's page (De Gruyter): not reachable (bot challenge)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read at p. 149: Definition 17.1.1 chooses 'some finite subset I_V ⊂ I' and then writes 'for i ∈ I_U' and 'V = ⋃_{i∈I_U} f_i(U_i)'; I_U is not defined there.",
+    "by": "REV-PAPER-SCHOLZE-WEINSTEIN-20"
+   }
   },
   {
    "id": "PAPER-SCHOLZE-WEINSTEIN-20/E6",
@@ -2790,7 +2815,12 @@
     "the author's papers page (people.mpim-bonn.mpg.de/scholze/papers.html): the book is listed without erratum (an erratum is listed only for 'p-adic Hodge theory for rigid-analytic varieties')",
     "Crossref records of doi:10.1515/9780691202150 and doi:10.23943/princeton/9780691202082.001.0001: no update or erratum relation",
     "the publisher's page (De Gruyter): not reachable (bot challenge)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read at pp. 186–190: Definitions 20.4.1–20.4.2 and 20.5.1 concern m untilts S♯_1, …, S♯_m and torsors P_1, …, P_m, yet 20.4.2 writes 'for i = 2, …, n', and 20.4.4 and 20.5.3 write 'for all i = 1, …, n'; Definition 20.5.1 writes 'i = 2, …, m'.",
+    "by": "REV-PAPER-SCHOLZE-WEINSTEIN-20"
+   }
   }
  ]
 }

@@ -150,3 +150,11 @@ No erratum is listed on the author's page or in the Crossref records. The publis
 - Zhu (PAPER-ZHU-17);
 - Caraiani–Scholze (PAPER-CARAIANI-SCHOLZE-17);
 - Scholze 2013 (PAPER-SCHOLZE-13).
+
+## Corrections by the independent review
+
+REV-PAPER-SCHOLZE-WEINSTEIN-20 (Claude Code, session `cc-fb70e5`, 29 September 2026) made these changes:
+
+- **Route 5.** The reason no longer says the finiteness of mod-p cohomology is planned nowhere. The absolute case, Scholze's primitive comparison, is routed to PadicHodgeTheory P8 by accepted extractions (PAPER-ZAVYALOV-25 route 7, PAPER-BHATT-MORROW-SCHOLZE-18 route 14, PAPER-SCHOLZE-13 route 1). The route is still needed: only the relative version, Theorem 10.5.1, has no owner. The brief now imports P8 for the absolute case, as the Zavyalov candidate already does.
+- **Route 4.** The brief names the prismatic Dieudonné Part II it imports by its id.
+- **Mistakes.** All six source issues are confirmed.
