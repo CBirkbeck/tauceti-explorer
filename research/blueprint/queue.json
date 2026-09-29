@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -19620,7 +19620,8 @@
    ],
    "avoidAccountOf": "RS-12~3",
    "prompt": "research/blueprint/prompts/REV-RS-12~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3945"
   },
   {
    "id": "RS-13",
@@ -25835,7 +25836,7 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.1.md",
-   "state": "pending",
+   "state": "external",
    "note": "claimed on GitHub issue #438"
   },
   {
