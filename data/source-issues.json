@@ -145032,6 +145032,25 @@
    "reviewReason": null
   },
   {
+   "id": "NoncommutativeAndEquivariantIwasawa/E11",
+   "kind": "error",
+   "locator": "§2.2, last paragraph, p. 6 (arXiv v2), used in Definition 3.14, p. 14 (\"Since Σ_{A·} ⊂ Σ^{ss−ρ}\")",
+   "printed": "Σ is equal to smallest full subcategory Σ_{A·} of Cp(R) that contains A· and also satisﬁes the conditions (i), (ii), (iii) and (iv) that are described above. (With this deﬁnition, it is easily seen that Σ_{A·} ⊂ Σ^{ss}).",
+   "correction": "Take Σ_{A·} to be the smallest full subcategory containing A· that satisfies (i), (ii), (iii) and (iv′) (closure under direct sums, not extensions). It lies in Σ^{ss−ρ} whenever A· does, and Definition 3.14 and Propositions 3.16–3.19 go through with this domain.",
+   "reason": "Σ^{ss} is not closed under extensions (the source itself notes it fails (iv), Remark 3.5). For R = Λ(Γ) and A· = [R --T--> R] (semisimple, the example in the proof of Proposition 3.8), B· = [R² --M--> R²] with M = ((T, 1), (0, T)) is an extension 0 → A· → B· → A· → 0, so B· ∈ Σ_{A·}; but H^0(B·) ≅ R/T², κ_0 : (R/T²)^Γ → (R/T²)_Γ is zero, and the Bockstein complex of B· is ℤ_p in degrees 0 and 1 with zero differential, so B· ∉ Σ^{ss}.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv math/0511672: v2 (20 January 2006) is the version read; the published version (Documenta Math. Extra Volume Coates (2006), 165–209) was not compared."
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E1",
    "kind": "misprint",
    "locator": "§3.2, paragraph before Lemma 3.10, p. 41 (Numdam PDF page 38)",
