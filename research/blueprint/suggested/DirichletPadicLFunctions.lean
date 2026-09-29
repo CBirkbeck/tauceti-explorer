@@ -6956,3 +6956,119 @@ example (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2])=5) (h : 2*((u : ℚ_[2])^4-1)≠0)
       F.map (algebraMap ℚ ℚ_[2])=
         (eisensteinAwaySeries 2 u).map (admissibleEisensteinAwayMoment 2 u 3 h) := sorry
 end SuggestedAdmissibleEisensteinTests
+
+/-! ## Ordinary-pseudomeasure and bounded-measure obstructions
+
+The source constant has shifted clearing relations. Its ordinary clearing
+factor at negative identity fails integrality, including in residue prime2.
+All arithmetic evaluation below stays on the canonical Away localization.
+-/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local notation "t" => (ContinuousMap.mk (fun u : U => (u : ℚ_[p])) (by fun_prop) : C(U,ℚ_[p]))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "i" => algebraMap M Q
+local notation "δ" => (diracHom (G := U) (R := Z))
+
+lemma eisensteinAwayMoment_double_constant (a : U) (ha : (a : Z)=(p+1 : ℕ)) (e : ℕ) :
+    2*eisensteinAwayMoment p a ha e (eisensteinAwayConstant p a)=
+      positivePseudoMoment p (e+1) (by omega) (kubotaLeopoldtPseudomeasure p) := sorry
+lemma localizedEisensteinConstant_clearing_candidate (g : U) (μ : M)
+    (hμ : i μ=i (dirac Z g-1)*localizedEisensteinConstant p)
+    (a : U) (ha : (a : Z)=(p+1 : ℕ)) (e : ℕ) :
+    (μ (j^e) : ℚ_[p])=((g : ℚ_[p])^e-1)*
+      eisensteinAwayMoment p a ha e (eisensteinAwayConstant p a) := sorry
+lemma localizedEisensteinConstant_sign_candidate (μ : M)
+    (hμ : i μ=i (dirac Z (-1 : U)-1)*localizedEisensteinConstant p)
+    (k : ℕ) (hk : 0<k) :
+    (μ (j^(2*k-1)) : ℚ_[p])=
+      -positivePseudoMoment p (2*k) (by omega) (kubotaLeopoldtPseudomeasure p) := sorry
+theorem localizedEisensteinConstant_sign_not_integral :
+    i (dirac Z (-1 : U)-1)*localizedEisensteinConstant p ∉ Set.range i := sorry
+theorem localizedEisensteinConstant_not_pseudomeasure :
+    localizedEisensteinConstant p ∉ Iwasawa.pseudomeasures δ Q := sorry
+theorem localizedEisensteinConstant_not_integral :
+    localizedEisensteinConstant p ∉ Set.range i := sorry
+theorem eisensteinAwayConstant_no_field_measure (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    ¬∃ μ : D(U,ℚ_[p]), ∀ e : ℕ,
+      μ (t^e)=eisensteinAwayMoment p a ha e (eisensteinAwayConstant p a) := sorry
+end DirichletPadic
+
+namespace SuggestedEisensteinObstructionTests
+open scoped AbstractMeasure
+open AbstractMeasure DirichletPadic
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local notation "t" => (ContinuousMap.mk (fun u : U => (u : ℚ_[p])) (by fun_prop) : C(U,ℚ_[p]))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "i" => algebraMap M Q
+local notation "δ" => (diracHom (G := U) (R := Z))
+-- double_constant_dyadic
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    2*eisensteinAwayMoment 2 a ha 3 (eisensteinAwayConstant 2 a)= -7/120 := sorry
+-- double_constant_ternary
+example (a : (ℤ_[3])ˣ) (ha : (a : ℤ_[3])=4) :
+    2*eisensteinAwayMoment 3 a ha 1 (eisensteinAwayConstant 3 a)=1/6 := sorry
+-- double_constant_zero_exponent
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    2*eisensteinAwayMoment p a ha 0 (eisensteinAwayConstant p a)=0 := sorry
+-- identity_clearing_candidate_moments
+example (μ : M) (hμ : i μ=i (dirac Z (1 : U)-1)*localizedEisensteinConstant p) (e : ℕ) :
+    (μ (j^e) : ℚ_[p])=0 := sorry
+-- arbitrary_clearing_candidate_moments
+example (g : U) (μ : M) (hμ : i μ=i (dirac Z g-1)*localizedEisensteinConstant p)
+    (a : U) (ha : (a : Z)=(p+1 : ℕ)) (e : ℕ) :
+    (μ (j^e) : ℚ_[p])=((g : ℚ_[p])^e-1)*
+      eisensteinAwayMoment p a ha e (eisensteinAwayConstant p a) := sorry
+-- sign_candidate_second_shift
+example (μ : M) (hμ : i μ=i (dirac Z (-1 : U)-1)*localizedEisensteinConstant p) :
+    (μ j : ℚ_[p])= -positivePseudoMoment p 2 (by omega) (kubotaLeopoldtPseudomeasure p) := sorry
+-- sign_candidate_even_test_zero
+example (μ : M) (hμ : i μ=i (dirac Z (-1 : U)-1)*localizedEisensteinConstant p)
+    (e : ℕ) (he : Even e) : (μ (j^e) : ℚ_[p])=0 := sorry
+-- sign_clearing_dyadic_not_integral
+example : algebraMap D((ℤ_[2])ˣ,ℤ_[2]) (FractionRing D((ℤ_[2])ˣ,ℤ_[2]))
+    (dirac ℤ_[2] (-1 : (ℤ_[2])ˣ)-1)*localizedEisensteinConstant 2 ∉
+      Set.range (algebraMap D((ℤ_[2])ˣ,ℤ_[2]) (FractionRing D((ℤ_[2])ˣ,ℤ_[2]))) := sorry
+-- sign_clearing_ternary_not_integral
+example : algebraMap D((ℤ_[3])ˣ,ℤ_[3]) (FractionRing D((ℤ_[3])ˣ,ℤ_[3]))
+    (dirac ℤ_[3] (-1 : (ℤ_[3])ˣ)-1)*localizedEisensteinConstant 3 ∉
+      Set.range (algebraMap D((ℤ_[3])ˣ,ℤ_[3]) (FractionRing D((ℤ_[3])ˣ,ℤ_[3]))) := sorry
+-- dyadic_not_ordinary_pseudomeasure
+example : localizedEisensteinConstant 2 ∉
+    Iwasawa.pseudomeasures (diracHom (G := (ℤ_[2])ˣ) (R := ℤ_[2]))
+      (FractionRing D((ℤ_[2])ˣ,ℤ_[2])) := sorry
+-- ternary_not_ordinary_pseudomeasure
+example : localizedEisensteinConstant 3 ∉
+    Iwasawa.pseudomeasures (diracHom (G := (ℤ_[3])ˣ) (R := ℤ_[3]))
+      (FractionRing D((ℤ_[3])ˣ,ℤ_[3])) := sorry
+-- constant_not_any_integral_image
+example (μ : M) : i μ≠localizedEisensteinConstant p := sorry
+-- field_measure_fails_some_exponent
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) (μ : D(U,ℚ_[p])) :
+    ∃ e : ℕ, μ (t^e)≠eisensteinAwayMoment p a ha e (eisensteinAwayConstant p a) := sorry
+-- dyadic_identity_atom_fails
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    dirac ℚ_[2] (1 : (ℤ_[2])ˣ)
+      (⟨fun u : (ℤ_[2])ˣ => (u : ℚ_[2]),by fun_prop⟩ : C((ℤ_[2])ˣ,ℚ_[2]))≠
+        eisensteinAwayMoment 2 a ha 1 (eisensteinAwayConstant 2 a) := sorry
+end SuggestedEisensteinObstructionTests
