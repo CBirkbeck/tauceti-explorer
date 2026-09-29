@@ -635,6 +635,17 @@
     "data/restructure/RS-22.md"
    ]
   },
+  "research/blueprint/restructure/RS-23.result.json": {
+   "promotedAt": "2026-09-29T19:29:01Z",
+   "review": "7addabbfafa64452",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-23",
+   "sha256": "412e0a564dc41e311e8913fe8591f7ca0c91393da200885a3c7b988f6342747d",
+   "to": [
+    "data/restructure/RS-23.result.json",
+    "data/restructure/RS-23.md"
+   ]
+  },
   "research/blueprint/restructure/RS-24.result.json": {
    "promotedAt": "2026-09-23T12:31:20Z",
    "review": "6f6935d2c8cf7d74",
