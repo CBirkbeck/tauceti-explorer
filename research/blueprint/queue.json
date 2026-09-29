@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -42725,7 +42725,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-09.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4004"
   },
   {
    "id": "RT-AUDIT-10",
@@ -42806,8 +42807,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-10.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4005"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4005",
+   "finishedAt": "2026-09-29T13:37:11Z"
   },
   {
    "id": "RT-AUDIT-11",
@@ -44639,7 +44641,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-computational.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3956"
   },
   {
    "id": "RT-AREA-finitefields",
@@ -46695,7 +46698,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-grouptheory.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3982",
+   "finishedAt": "2026-09-29T13:37:15Z"
   },
   {
    "id": "RT-AREA-representations-1",
