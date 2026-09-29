@@ -4733,7 +4733,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 6): the converse needs injectivity of Sp_C(𝔽[ε]) → Sp_B(𝔽[ε]), i.e. of t_C → t_B, which makes the cotangent map surjective; Nakayama then gives B ↠ C.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E2",
@@ -4747,7 +4752,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 7): §2.2 works with an arbitrary profinite G, and the next sentence writes ρ_vers : G → GL_d(R).",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E3",
@@ -4761,7 +4771,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 9): K is not defined in §2 (the coefficient field is E), and the statement that follows is Corollary 2.3.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E4",
@@ -4775,7 +4790,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (pp. 16–17): condition (2) of a smooth resolution is the closed immersion on generic fibres; the smooth algebraization (ℛ₀, 𝒴₀) is condition (4).",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E5",
@@ -4789,7 +4809,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 19): the Contents list only 3.1–3.3 and section 3 has no §3.6; the choice of character is made in §3.2.2(ii) (p. 23).",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E6",
@@ -4803,7 +4828,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 21): R_∞^{□,ψ} is the completion of the local ring of the closed subscheme M(X² − 1) ⊂ M₂, so Spec(R_∞^{□,ψ}) → M₂ is not flat; since f₀ lands in M(X² − 1), flatness over M(X² − 1) gives the conclusion.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E7",
@@ -4817,7 +4847,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 22): the two sentences 'M has a non-trivial subobject N such that Fil¹(N) = 0' are verbatim identical, so 'It follows that' derives the statement from itself; the correction's reading (mod p module, then the unit-root summand) is the evident intent.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E8",
@@ -4831,7 +4866,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 23): the same page says that an unramified ρ̄_v has k = p, and an unramified ρ̄_v is finite flat; for p > 2 its weight-2 lifts have inertial type ω_p^{p−2} ⊕ 1 ≠ trivial, so 'which can occur only when k = 2' is false and the crystallinity condition must be restricted to ramified finite flat ρ̄_v.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E9",
@@ -4845,7 +4885,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 31): cancelling in v_Z(a) = η₁(F)η₂(F)⁻¹v_Z(a) needs v_Z(a) to be a unit; 'v_Z(A)' is printed.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E10",
@@ -4859,7 +4904,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (pp. 18–19): Proposition 2.2(ii) assumes domains with 𝒪-points, while Theorem 3.1 gives the inertia-rigid rings only as flat with 'each component of relative dimension 3'. The reduction to components is routine but not given.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E11",
@@ -4873,7 +4923,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (pp. 35–36). ρ(F) = (−1 z; 0 1) is an involution swapping e₁ + λe₂ and ρ(F)(e₁ + λe₂); the relation FσF⁻¹ = σ^q forces the eigenvalue ε^q on ρ(F)(e₁ + λe₂). The printed ε⁻¹ agrees only if ε^{q+1} = 1, which (for p = 2) fails for every level-2 character of 2-power order when q ≡ 1 mod 4 (e.g. q = 5, ε of order 8). In the application (KW I Theorem 5.1(4), with its parity condition i + j even) only q ≡ 3 mod 4 occurs, where the printed choice is right.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E12",
@@ -4887,7 +4942,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 30: the base is printed (ℙ₁)_𝔽 with a blackboard 𝔽, the residue field; the p = 2 case two lines on is over ℙ¹_𝒪.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E13",
@@ -4901,7 +4961,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "Rejected. The page image of p. 39 (zoomed at 300 dpi) shows R̄^{□,ψ}_v with a bar in the second bullet, typeset as \\overline (a drawn rule, wider than the \\bar accents in the other bullets). A rule is not a glyph, which is why it is absent from the PDF text layer and content-stream glyphs; the printed text is correct.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E14",
@@ -4915,7 +4980,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 44): lifts g̃_v(1 + h_v) have h_v ∈ M₂(𝔽) (the proof itself takes h_v ∈ Ad), the cup product is defined only for Ad⁰-valued cochains, and for p = 2 a trace-one h_v is not a trace-zero element plus a scalar. The repair via the class of δ(h_v) in L_v and x_v ∈ L_v^⊥ is correct.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E15",
@@ -4929,7 +4999,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 49): the text layer keeps the '+' of M⁺_{n₀} on the same page but prints F M_{n₀+1}; since M⁺_{n+1} = M⁺_n(√y_n) (p. 48), F(√y_{n₀}) = F M⁺_{n₀+1}, while F M_{n₀+1} contains i.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E16",
@@ -4943,7 +5018,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (pp. 48, 52–53): κ_n is defined in §5.5.1 by the Kummer map (p. 48); §5.6 (p. 53) is 'Action of inertia of auxiliary primes' and does not mention κ_n.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E17",
@@ -4957,7 +5037,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (pp. 54, 57): (iii) b) allows every ℓ_i ≠ p, while the proof covers 'ℓ_i ≠ 2, p' only; Theorem 10.1 uses the case ℓ_i = 2 for odd p.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E18",
@@ -4971,7 +5056,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the page image of p. 68: case (ii) fixes k = 2, so the printed (ω_p^{k−2}χ_p ∗; 0 1) has determinant χ_p on I_v, but π_v^{U₁(v)} ≠ 0 = π_v^{U₀(v)} makes the nebentypus at v non-trivial.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E19",
@@ -4985,7 +5075,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (pp. 60–61): if ρ̄ is unramified at v and N(v) ≡ −1 mod p, γ and γη (η the unramified quadratic character) give the same residual eigenvalues {γ̄(Frob_v), −γ̄(Frob_v)}, so the residual representation does not fix γ_{v,f}; the Hecke algebra has no operator at v ∈ Σ to fix it.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E20",
@@ -4999,7 +5094,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (pp. 60–61): Lemma 7.2 allows v ∈ Σ above p when k = 2, and [10], [61] (Carayol, Taylor) give local–global compatibility only away from the residue characteristic.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E21",
@@ -5013,7 +5113,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 64): the 𝒪-module is S_{W_k(χ),ψ}(U′_Q, 𝒪), of level U′_Q, and its reduction lies in S_{k,ψ}(U′_Q, 𝔽), not in S_{k,ψ}(U, 𝔽).",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E22",
@@ -5027,7 +5132,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 68): §7.6.2 takes ρ̄ : G_ℚ → GL₂(𝔽), so 'im(ρ̄) = im(ρ̄|F′)' compares with the image of G_ℚ, while the sufficient condition given next (linear disjointness from the field cut out by ρ̄|F) yields only im(ρ̄|G_F′) = im(ρ̄|G_F).",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E23",
@@ -5041,7 +5151,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (pp. 58, 60, 66): Lemma 7.1 is stated for open compact U, while §7 allows U_v = D_v^× for v ∈ Σ′ when p = 2 and Corollary 7.5's proof applies Lemma 7.1 at such levels; the argument of Lemma 7.1 does not use compactness.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E24",
@@ -5055,7 +5170,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 66): at v ∈ Σ with U_v = D_v^× the reduced norm of u_v can have odd valuation, so 'χ unramified outside Q_n' does not give χ(Nm(u_v)) = 1; the needed fact, that χ is split at S, holds by construction of F^S_{Q_n}.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E25",
@@ -5069,7 +5189,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (pp. 75–76): every other bullet of Theorem 8.4 concerns ρ_{π′}, and no ρ_F is introduced in the statement.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E26",
@@ -5083,7 +5208,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 74): τ appears without its index, the product is over embeddings of F″ written with F, and the index set is written J_w and J_{w_{i+1}}.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E27",
@@ -5097,7 +5227,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (pp. 80–84): §9 has Lemma 9.1, Propositions 9.2, 9.3, Lemmas 9.4–9.6 and Theorem 9.7; 'Proposition 9.1' is printed in Propositions 9.2(III), 9.3(III) and the proof of 9.2.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E28",
@@ -5111,7 +5246,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (pp. 54, 91): the clause about completions of F at the ℓ_i containing F_{ℓ_i} is Theorem 6.1(iii) b); (iii) c) is the splitting at p.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E29",
@@ -5125,7 +5265,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 91): R̄^{ψ_F}_F classifies deformations unramified outside p, while points of R̄^ψ_{ℚ,S} with a semistable (N ≠ 0) local condition at ℓ ∈ S stay ramified at primes above ℓ over every finite extension; the fourth bullet makes only the mod-p universal representation unramified over F. The maps β and α therefore exist only after reduction mod p, which suffices for the finiteness argument.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E30",
@@ -5139,7 +5284,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed (p. 95): the entry ends '1962/196.'; LNM 152 appeared in 1970.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E31",
@@ -5153,7 +5303,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed: the arXiv API gives the title of math/0612077 as 'Hilbert modular forms and p-adic Hodge theory' (29 September 2026).",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/E32",
@@ -5167,7 +5322,12 @@
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0206-6 and the Crossref 'updates' filter, 29 September 2026: no erratum or correction registered",
     "the sourceIssues of every atlas packet and decomposition citing KW II (source ids KW2-2009, kw2-2009, KW2-ESI-2007, KhareWintenberger-SerreII, kw-serre-modularity-II, KW-II-POINTS)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the authors' own citation: KW I, reference [24] (Invent. Math. 178, 485–504), gives Duke Math. J. 134 (2006), 557–589; Crossref has no page range for doi:10.1215/S0012-7094-06-13434-8 and Project Euclid served a challenge page.",
+    "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
+   }
   }
  ],
  "sourceVersions": [
