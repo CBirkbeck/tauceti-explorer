@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.PowerSeries.Log
 import Mathlib.RingTheory.Localization.Away.Basic
 import Mathlib.Topology.Algebra.ContinuousMonoidHom
 import Mathlib.NumberTheory.LSeries.DirichletContinuation
@@ -7169,3 +7170,104 @@ example : ¬∃ F : FractionRing D((ℤ_[2])ˣ,ℤ_[2]) →+* ℚ_[2],
 example : ¬∃ F : FractionRing D((ℤ_[3])ˣ,ℤ_[3]) →+* ℚ_[3],
     ∀ μ : D((ℤ_[3])ˣ,ℤ_[3]), F (algebraMap _ _ μ)=eisensteinInverseMomentHom 3 μ := sorry
 end SuggestedInverseCharacterTests
+
+/-! ## Normalized formal logarithmic primitives
+
+Only formal power series are constructed here. Zero constant fixes the formal
+primitive; the source logarithm's constant, convergence and distribution
+comparison require separate results, with the confirmed conductor restrictions.
+-/
+namespace DirichletPadic
+open scoped BigOperators
+open PowerSeries
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+
+def tameNormalizedLogPrimitive (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) : PowerSeries K := sorry
+lemma tameNormalizedLogPrimitive_def (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) :
+    tameNormalizedLogPrimitive η ε hε =
+      -C ((gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹)*
+        ∑ a : ZMod D, C (η⁻¹ a)*rescale (ε^a.val/(ε^a.val-1)) (log K) := sorry
+lemma tameNormalizedLogPrimitive_constantCoeff (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) : constantCoeff (tameNormalizedLogPrimitive η ε hε)=0 := sorry
+lemma tameNormalizedLogPrimitive_coeff (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (n : ℕ) (hn : 0<n) :
+    coeff n (tameNormalizedLogPrimitive η ε hε)=
+      -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹*
+        algebraMap ℚ K ((-1 : ℚ)^(n+1)/n)*
+          ∑ a : ZMod D, η⁻¹ a*(ε^a.val/(ε^a.val-1))^n := sorry
+lemma tameNormalizedLogPrimitive_mahler (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1<D) (hDK : IsUnit (D : K)) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)≠0) :
+    mahlerDerivation K (tameNormalizedLogPrimitive η ε hε)=tameSeries η hDK := sorry
+lemma tameNormalizedLogPrimitive_unique (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1<D) (hDK : IsUnit (D : K)) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)≠0)
+    (F : PowerSeries K) (hF : mahlerDerivation K F=tameSeries η hDK)
+    (h0 : constantCoeff F=0) : F=tameNormalizedLogPrimitive η ε hε := sorry
+lemma tameNormalizedLogPrimitive_root_independent (η : DirichletCharacter K D)
+    (hη : η.IsPrimitive) (hD : 1<D) (hDK : IsUnit (D : K))
+    (ε ε' : K) (hε : IsPrimitiveRoot ε D) (hε' : IsPrimitiveRoot ε' D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)≠0)
+    (hG' : gaussSum η⁻¹ (AddChar.zmodChar D hε'.pow_eq_one)≠0) :
+    tameNormalizedLogPrimitive η ε hε=tameNormalizedLogPrimitive η ε' hε' := sorry
+theorem tameNormalizedLogPrimitive_all_primitives (η : DirichletCharacter K D)
+    (hη : η.IsPrimitive) (hD : 1<D) (hDK : IsUnit (D : K))
+    (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)≠0) (F : PowerSeries K) :
+    mahlerDerivation K F=tameSeries η hDK ↔
+      F=C (constantCoeff F)+tameNormalizedLogPrimitive η ε hε := sorry
+end DirichletPadic
+
+namespace SuggestedLogarithmicPrimitiveTests
+open scoped BigOperators
+open PowerSeries DirichletPadic
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+-- normalized_constant_zero
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    constantCoeff (tameNormalizedLogPrimitive η ε hε)=0 := sorry
+-- normalized_modulus_one
+example (hε : IsPrimitiveRoot (1 : K) 1) :
+    tameNormalizedLogPrimitive (1 : DirichletCharacter K 1) 1 hε=0 := sorry
+-- shifted_constant_not_normalized
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    constantCoeff (C 7+tameNormalizedLogPrimitive η ε hε)=7 := sorry
+-- full_mahler_primitive
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hD : 1<D)
+    (hDK : IsUnit (D : K)) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)≠0) :
+    mahlerDerivation K (tameNormalizedLogPrimitive η ε hε)=tameSeries η hDK := sorry
+-- zero_constant_unique
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hD : 1<D)
+    (hDK : IsUnit (D : K)) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)≠0)
+    (F : PowerSeries K) (hF : mahlerDerivation K F=tameSeries η hDK)
+    (h0 : constantCoeff F=0) : F=tameNormalizedLogPrimitive η ε hε := sorry
+-- primitive_root_choice_independent
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hD : 1<D)
+    (hDK : IsUnit (D : K)) (ε ε' : K) (hε : IsPrimitiveRoot ε D) (hε' : IsPrimitiveRoot ε' D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)≠0)
+    (hG' : gaussSum η⁻¹ (AddChar.zmodChar D hε'.pow_eq_one)≠0) :
+    tameNormalizedLogPrimitive η ε hε=tameNormalizedLogPrimitive η ε' hε' := sorry
+-- arbitrary_constant_remains
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hD : 1<D)
+    (hDK : IsUnit (D : K)) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)≠0) (c : K) :
+    mahlerDerivation K (C c+tameNormalizedLogPrimitive η ε hε)=tameSeries η hDK := sorry
+section Three
+variable (η : DirichletCharacter K 3) (hη : η.IsPrimitive) (h2 : η 2= -1)
+    (hDK : IsUnit (3 : K)) (ε : K) (hε : IsPrimitiveRoot ε 3)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar 3 hε.pow_eq_one)≠0)
+include hη h2 hDK hG
+-- cubic_character_first_coefficient
+example : coeff 1 (tameNormalizedLogPrimitive η ε hε)=1/3 := sorry
+-- cubic_character_second_coefficient
+example : coeff 2 (tameNormalizedLogPrimitive η ε hε)= -1/6 := sorry
+-- cubic_character_third_coefficient
+example : coeff 3 (tameNormalizedLogPrimitive η ε hε)=2/27 := sorry
+-- ordinary_derivative_is_different
+example : coeff 1 (derivative K (tameNormalizedLogPrimitive η ε hε))= -1/3 ∧
+    coeff 1 (tameSeries η hDK)=0 := sorry
+end Three
+end SuggestedLogarithmicPrimitiveTests
