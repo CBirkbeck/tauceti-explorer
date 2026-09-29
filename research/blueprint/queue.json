@@ -14966,9 +14966,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisDuality.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #675"
+   "note": "claimed on GitHub issue #675"
   },
   {
    "id": "REV-ArithmeticGaloisDuality",
@@ -21461,11 +21461,11 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-SelmerIwasawaCohomology.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #988"
+   "note": "released on GitHub issue #988"
   },
   {
    "id": "REV-SelmerIwasawaCohomology",
