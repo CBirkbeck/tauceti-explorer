@@ -9476,7 +9476,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SCHOLZE-12.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4544"
   },
   {
    "id": "REV-PAPER-SCHOLZE-12",
@@ -43870,8 +43871,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-11.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4006"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4006",
+   "finishedAt": "2026-09-29T14:55:27Z"
   },
   {
    "id": "RT-AUDIT-12",
