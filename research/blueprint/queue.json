@@ -48589,8 +48589,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-analysis.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3985"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3985",
+   "finishedAt": "2026-09-29T17:54:21Z"
   },
   {
    "id": "RT-AREA-pde",
@@ -48790,7 +48791,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-combinatorics.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3989"
   },
   {
    "id": "RT-AREA-topology",
