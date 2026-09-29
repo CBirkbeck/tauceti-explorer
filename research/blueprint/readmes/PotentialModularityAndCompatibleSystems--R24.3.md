@@ -39,8 +39,10 @@ These layers produce the lifts and compatible systems that the proofs of Serre's
 
 ## Layer R24.3: prescribed local lifts (`TauCeti/NumberTheory/CompatibleSystems/PrescribedLifts`)
 
-The roadmap pins the earlier input to Böckle's appendix and the Remark in §5.2 of Khare 2003, which KW Annals realise as
-Theorem 3.3.
+The roadmap pins the earlier input to Böckle's appendix and "KW Annals §5.2". The latter is the Remark in §5.2 of
+Khare–Ramakrishna, *Finiteness of Selmer groups and deformation rings* (Invent. Math. 154 (2003); KW Annals' [27]),
+which KW Annals cite for the method they carry out as Theorem 3.3. Checkpoint 2 corrects an earlier attribution to
+Khare's paper with Böckle's appendix ([26]).
 
 - **`bockle-presentation`.** R_X ≅ 𝒪⟦x₁, …, x_{n+d}⟧/(f₁, …, f_{n+Δ}) when the local rings are flat complete
   intersections of the stated relative dimensions. Oddness enters through the Euler characteristic.

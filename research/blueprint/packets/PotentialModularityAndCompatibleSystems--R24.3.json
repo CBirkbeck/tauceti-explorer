@@ -10,7 +10,7 @@
   "PotentialModularityAndCompatibleSystems:R24.6"
  ],
  "status": "partial",
- "summary": "Checkpoint 1 of the R24.3 part (Claude Code cc-39fac3). No integrated decomposition exists; RS-06 and RS-08 keep these stages and route their consumers (ClassicalSerreModularity R26–R33, SmallRamification R25.5). 22 nodes. R24.3: Böckle's presentation, his Lemma 2 (finite plus no more relations than variables gives a finite flat complete intersection) and Theorem 1, KW Annals Theorem 3.3, the lift types of KW I Theorem 5.1 (definition with API and tests) and its four constructions from KW II §10.3.1, the application table, and Snowden's prescribed-type lifts for the modern route. R24.4: KW I Theorem 4.1 from KW II §10.2. R24.5: the Brauer system through a potentially modular lift, its almost strict compatibility, KW I Theorem 5.1 and Dieulefait's families. R24.5:operations: compatible systems with separate strict/almost strict/plain predicates, and twist, restriction, induction. R24.6: residual members, what almost strictness gives at the coefficient prime, and linked systems. Finiteness (R24.1) and points (R24.2) belong to part R23.1. One source issue (a page range in KW II's bibliography).",
+ "summary": "Checkpoint 1 of the R24.3 part (Claude Code cc-39fac3). No integrated decomposition exists; RS-06 and RS-08 keep these stages and route their consumers (ClassicalSerreModularity R26–R33, SmallRamification R25.5). 22 nodes. R24.3: Böckle's presentation, his Lemma 2 (finite plus no more relations than variables gives a finite flat complete intersection) and Theorem 1, KW Annals Theorem 3.3, the lift types of KW I Theorem 5.1 (definition with API and tests) and its four constructions from KW II §10.3.1, the application table, and Snowden's prescribed-type lifts for the modern route. R24.4: KW I Theorem 4.1 from KW II §10.2. R24.5: the Brauer system through a potentially modular lift, its almost strict compatibility, KW I Theorem 5.1 and Dieulefait's families. R24.5:operations: compatible systems with separate strict/almost strict/plain predicates, and twist, restriction, induction. R24.6: residual members, what almost strictness gives at the coefficient prime, and linked systems. Finiteness (R24.1) and points (R24.2) belong to part R23.1. One source issue (a page range in KW II's bibliography). Checkpoint 2 corrects the attribution of the Remark in §5.2 that KW Annals cite: it is in [27] = Khare–Ramakrishna (Invent. Math. 154 (2003) 179–198), not in Khare's paper with Böckle's appendix [26] (found while carrying the draft EXT-12 in part R23.1).",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -250,11 +250,12 @@
    ],
    "title": "Minimally ramified lifts (Khare–Wintenberger, Annals, Theorem 3.3)",
    "kind": "theorem",
-   "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽) be of S-type with p > 2, ρ̄|_{ℚ(µ_p)} absolutely irreducible, 2 ≤ k(ρ̄) ≤ p + 1 and k(ρ̄) ≠ p. Then ρ̄ has a lift that is minimally ramified at every prime; when k(ρ̄) = p + 1 it may be chosen of crystalline type (Hodge–Tate weights (0, p)) or of semistable type (weight 2). Proof: the minimal deformation ring R^univ has a presentation with r ≥ s (Böckle, Proposition 3.4), is finite over W (Proposition 3.8: Lemma 3.6 reduces finiteness to finiteness of the universal mod-p image, which follows from Taylor's potential modularity and Fujiwara's R = T over a totally real F), hence is finite flat and a complete intersection (Theorem 3.7), so it has a point in characteristic zero. This is the method suggested in the Remark in §5.2 of Khare's Inventiones 154 (2003) paper, which the later KW II Theorem 5.1 generalises.",
+   "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽) be of S-type with p > 2, ρ̄|_{ℚ(µ_p)} absolutely irreducible, 2 ≤ k(ρ̄) ≤ p + 1 and k(ρ̄) ≠ p. Then ρ̄ has a lift that is minimally ramified at every prime; when k(ρ̄) = p + 1 it may be chosen of crystalline type (Hodge–Tate weights (0, p)) or of semistable type (weight 2). Proof: the minimal deformation ring R^univ has a presentation with r ≥ s (Böckle, Proposition 3.4), is finite over W (Proposition 3.8: Lemma 3.6 reduces finiteness to finiteness of the universal mod-p image, which follows from Taylor's potential modularity and Fujiwara's R = T over a totally real F), hence is finite flat and a complete intersection (Theorem 3.7), so it has a point in characteristic zero. This is the method suggested in the Remark in §5.2 of Khare–Ramakrishna, Finiteness of Selmer groups and deformation rings (Invent. Math. 154 (2003) 179–198, KW Annals' [27]; not Khare's paper with Böckle's appendix, which is [26]), which the later KW II Theorem 5.1 generalises.",
    "hypotheses": [
     "k(ρ̄) ≠ p: the local ring at p in that weight is not covered by the Fontaine–Laffaille and Ramakrishna/Taylor inputs used here",
     "at k(ρ̄) = p + 1 the crystalline local ring R_{p,crys} is formally smooth of dimension 1 (Böckle; KW Annals Proposition 3.5)",
-    "the rationality of the lifts is not controlled"
+    "the rationality of the lifts is not controlled",
+    "the roadmap's pin 'KW Annals §5.2' is the Remark in §5.2 of [27] cited in KW Annals' introduction; the lifting argument itself is KW Annals §3"
    ],
    "proofSteps": [
     "Local rings: flat complete intersections of the right dimension (Ramakrishna, Taylor; R_{p,crys} by Proposition 3.5).",
@@ -291,12 +292,17 @@
     {
      "sourceId": "kw-annals-2009",
      "locator": "Introduction, printed p. 231",
-     "match": "The pinned earlier input (Remark in §5.2 of Khare 2003)."
+     "match": "The pinned earlier input: the Remark in §5.2 of [27] = Khare–Ramakrishna 2003 (checkpoint 2 corrects an earlier attribution to Khare's paper [26])."
     },
     {
      "sourceId": "kw-annals-2009",
      "locator": "Lemma 3.6, printed p. 241",
      "match": "The finiteness criterion."
+    },
+    {
+     "sourceId": "kw-annals-2009",
+     "locator": "References, printed p. 252",
+     "match": "What \"[27]\" is."
     }
    ],
    "implementationStatus": "unchecked",
