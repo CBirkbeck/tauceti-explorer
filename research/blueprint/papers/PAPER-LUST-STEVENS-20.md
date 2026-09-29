@@ -7,12 +7,13 @@ Extraction by Claude Code (session `cc-f805bf`), 29 September 2026, issue #4589.
 
 - **The text.** I read the whole of arXiv v1 (2016; 36 pp.; SHA-256 recorded), the only arXiv version: §§1–9 and the references. Quoted formulas were checked on page images.
 - **The published version.** The PLMS text could not be fetched, because the publisher serves a bot challenge. Locators and findings therefore refer to arXiv v1, and some slips may be corrected in print.
+- **Added by the review.** The version of record is open access (CC BY 4.0), and the University of East Anglia repository serves it. The independent review read it and collated every finding with it (see the last section).
 
 ## What the paper proves
 
 Let G be a p-adic symplectic, special orthogonal or unitary group, with p odd. For π a depth-zero irreducible cuspidal representation of G, and ρ a self-dual cuspidal representation of some GL_n(F), let s_π(ρ) be the reducibility point of Ind ρ|det|^s ⊗ π. Mœglin's theory turns these reducibility points into the Jordan set Jord(π), and hence into the Langlands parameter. The main theorem (§1, p. 4) has three parts:
 
-- **(i)** Σ⌊s_π(ρ)²⌋ n_ρ = N_Ĝ.
+- **(i)** Σ⌊s_π(ρ)²⌋ n_ρ ⩾ N_Ĝ, the depth-zero terms alone summing to N_Ĝ (8.1). This is the printed statement (1.4); arXiv v1 claims the equality (1.3) (E33).
 - **(ii)** The multiset IRed(π) is computed explicitly from the compact-induction data of π.
 - **(iii)** The cuspidal representations with the same IRed are described and counted, matching one, two or four L-packets.
 
@@ -27,11 +28,11 @@ For symplectic groups this describes the cuspidal members of Π_φ ∪ Π_φ′ 
 
 ## What the atlas has
 
-Of 158 items, 4 are `planned` and 1 is in the libraries:
+Of 158 items, 4 are `planned` and, after the review, none is in the libraries:
 - **Planned.** Induction and the Bernstein subcategories (SmoothRepresentationsOfLocalGroups SR.2–SR.3), Witt theory (QuadraticFormInvariants layer 1, GN.2) and the local-field setup (LocalFieldsRamification layer 0).
-- **Library.** The Mackey formula, which is Tau Ceti's `Rep.mackeyDecomposition`.
+- **Library.** None. The extraction listed the Mackey formula (7.5) as Tau Ceti's `Rep.mackeyDecomposition`. The review made it missing, because (7.5) also needs the Harish-Chandra splitting, which neither library has.
 
-The other 153 items are `missing`. Nothing in the atlas plans any of the following:
+The other 154 items are `missing`. Nothing in the atlas plans any of the following:
 - depth-zero types and covers for classical groups;
 - Silberger's reducibility theory or Blondel's formula;
 - Deligne–Lusztig theory, Lusztig series or the Jordan decomposition;
@@ -84,12 +85,47 @@ Thirty-six candidates were checked at 300 dpi by an independent reader; 34 were 
 ## Prerequisites the atlas does not cover
 
 - **Mœglin (2003):** reducibility points and Jordan sets.
-- **Moy–Prasad (1996):** depth-zero cuspidals from parahorics.
+- **Moy–Prasad (1994), Invent. Math. 116:** unrefined minimal K-types, cited as [MP] in §3 (corrected by the review from the 1996 paper, which the text does not cite).
 - **Morris (1999):** level-zero types.
 - **Bushnell–Kutzko (1998):** covers.
 - **Miyauchi–Stevens (2014):** semisimple types for classical groups.
-- **Blondel (2005):** the Hecke parameters of covers.
+- **Blondel (2012), Ann. Inst. Fourier 62:** formula (5.1) for reducibility points from the Hecke parameters of covers (corrected by the review from the 2005 paper, which the text does not cite).
 - **Lusztig (1977):** representations of finite classical groups.
 - **Shahidi (1990):** reducibility points and Plancherel measures.
+- **Added by the review:**
+  - Howlett–Lehrer (1980): End(Ind τ) for cuspidal τ;
+  - Lusztig (1984): *Characters of reductive groups over a finite field*, Theorem 8.6;
+  - Silberger (1980): the uniqueness of the reducibility point.
 
 Stevens's 2008 supercuspidals paper and Bushnell–Henniart 2017 are already in the batch list.
+
+## Corrections by the independent review (REV-PAPER-LUST-STEVENS-20)
+
+Claude Code, session `cc-fb70e5`, 29 September 2026. The full report is `research/blueprint/reviews/REV-PAPER-LUST-STEVENS-20.md`.
+
+- **Version of record read.**
+  - Proc. London Math. Soc. (3) 121 (2020) 1083–1120 is CC BY 4.0. The review read it from the University of East Anglia repository (eprint 74421; SHA-256 `bd8295cf…4c55`), and `sourceVersions` records it.
+  - Print renumbers §7: [32, Lemma 8.9] becomes Lemma 7.3, and arXiv 7.3–7.10 move up by one. It adds Remark 8.2 and states result (i) as the inequality (1.4).
+  - Item locators still refer to arXiv v1, and `source.readSections` gives the correspondence.
+- **Route split.**
+  - The 52 finite-group items move to a new route 2, a `part-ii` route that coalesces with ModularRepresentationsOfFiniteReductiveGroups. These are all of §7; Green's classification, self-dual polynomials and Lusztig's classification from §3; and the full finite classical group and the Howlett–Lehrer parameter from §6.
+  - ModularRepresentationsOfFiniteReductiveGroups is the Part II of Tau Ceti's Reductive algebraic groups roadmap that builds Deligne–Lusztig representations, proposed by LLHLM20. SmoothRepresentationsPartII's accepted brief excludes Deligne–Lusztig classification, and PROTOCOL.md §15 wants one owner.
+  - Route 1 keeps the 102 p-adic items. Its brief now states result (i) as printed, adds the even orthogonal caveat to (iii), and imports §7 from route 2. It names its owners exactly: ReductiveGroupsPartII RG2.2–RG2.3 for parahorics, and GN.2 for hermitian Witt theory.
+- **Status.** s7-7.5-mackey-formula becomes missing. `Rep.mackeyDecomposition` gives only the general decomposition, not the Harish-Chandra splitting into ℓ ∈ {1, 2} constituents.
+- **Corrected statements.** The following items now use the corrected statements, not the printed ones:
+  - s1-main-thm-i;
+  - s3-depth-zero-gl-classification (E35);
+  - s7-lemma-7.4-i (E16);
+  - s7-7.7-unitary-parameter-formula (E24);
+  - s7-7.1-self-dual-root-criterion (E38);
+  - s9-def-E-e-e0 (E25);
+  - Examples 9.3, 9.4, 9.6, 9.7, 9.8 and 9.9 (E26–E28).
+- **Mistakes.**
+  - All 34 findings are confirmed, and each locator now gives the printed page.
+  - Print corrects E8, E12, E13, E14, E22, E32 and E33, and part of E21; their `known` fields say so.
+  - The review adds four:
+    - **E35:** "ρ self-dual iff τ self-dual" in §3 is false.
+    - **E36:** a sign in the IRed formula of print's new algorithm section.
+    - **E37:** a stray word in print's introduction.
+    - **E38:** the root criterion for self-dual polynomials ignores multiplicities.
+- **Prerequisites.** Moy–Prasad and Blondel now name the papers the text cites (1994 and 2012). Howlett–Lehrer, Lusztig (1984) and Silberger (1980) are added.
