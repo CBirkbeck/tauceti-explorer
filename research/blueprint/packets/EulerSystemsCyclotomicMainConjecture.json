@@ -10,7 +10,7 @@
   "EulerSystemsCyclotomicMainConjecture:L4"
  ],
  "status": "partial",
- "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read. Checkpoint 2 plans L1: Theorem III.2.3 (|A_L^χ| divides [E_L^χ : C_{L,χ}] for p > 2, χ(p) ≠ 1) from Theorem II.2.2, with its hypotheses, vanishing error terms, the index of divisibility and the class-group Selmer group, and Corollary III.2.4 with its dependence on the ψ(p) = 1 components recorded. Checkpoint 3 plans L2: the Iwasawa-theoretic divisibility char(A_∞^χ) | char(E_∞^χ/C_{∞,χ}) (Rubin III.2.7), from Theorem II.3.3, Proposition III.2.6 and the Λ-index, with the augmentation corrections when χ(p) = 1. Checkpoint 4 plans L3: the four-term sequence with the register's corrections, the trivial component, the componentwise equality and the main conjecture for odd p, with the local-unit theorem requested from ColemanPowerSeries L4 and the finite-layer stabilisation recorded as a gap. Checkpoint 5 starts L4 from Greither (Ann. Inst. Fourier 1992): χ-parts for all p, semilocal units modulo circular units, the real main conjecture for all p including 2, Kummer duality, and the main conjecture with the one-half normalisation. Checkpoint 6 plans Greither §4: Theorem B (= 4.1) at p = 2 through the χ(2) ≠ 1 case and the trivial-zero case (Lemma 4.2–Theorem 4.6 with the Gauss-sum computation), Theorem A (the Iwasawa–Leopoldt conjecture at p = 2), Theorems 4.11 and C for real fields, and the Gras conjecture (4.14–4.15). It records eight source issues, E4–E11. E5 is an error in the proof of Theorem 4.6: the Gauss sum lies in the decomposition field of 2, not in F, and its norm to F repairs the proof. E11 is a false sentence in the proof of Lemma 4.13 at p = 2 whose step survives. The rest are misprints.",
+ "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read. Checkpoint 2 plans L1: Theorem III.2.3 (|A_L^χ| divides [E_L^χ : C_{L,χ}] for p > 2, χ(p) ≠ 1) from Theorem II.2.2, with its hypotheses, vanishing error terms, the index of divisibility and the class-group Selmer group, and Corollary III.2.4 with its dependence on the ψ(p) = 1 components recorded. Checkpoint 3 plans L2: the Iwasawa-theoretic divisibility char(A_∞^χ) | char(E_∞^χ/C_{∞,χ}) (Rubin III.2.7), from Theorem II.3.3, Proposition III.2.6 and the Λ-index, with the augmentation corrections when χ(p) = 1. Checkpoint 4 plans L3: the four-term sequence with the register's corrections, the trivial component, the componentwise equality and the main conjecture for odd p, with the local-unit theorem requested from ColemanPowerSeries L4 and the finite-layer stabilisation recorded as a gap. Checkpoint 5 starts L4 from Greither (Ann. Inst. Fourier 1992): χ-parts for all p, semilocal units modulo circular units, the real main conjecture for all p including 2, Kummer duality, and the main conjecture with the one-half normalisation. Checkpoint 6 plans Greither §4: Theorem B (= 4.1) at p = 2 through the χ(2) ≠ 1 case and the trivial-zero case (Lemma 4.2–Theorem 4.6 with the Gauss-sum computation), Theorem A (the Iwasawa–Leopoldt conjecture at p = 2), Theorems 4.11 and C for real fields, and the Gras conjecture (4.14–4.15). It records eight source issues, E4–E11. E5 is an error in the proof of Theorem 4.6: the Gauss sum lies in the decomposition field of 2, not in F, and its norm to F repairs the proof. E11 is a false sentence in the proof of Lemma 4.13 at p = 2 whose step survives. The rest are misprints. Checkpoint 7 completes L3's formulations. The odd-character form follows from Theorem 13.8 by Kummer duality. The Tate-twisted Greenberg Selmer form (RJW §13.5) is planned for every n: Greenberg's corank statement for all n, and the characteristic ideals in the critical cases (even n ≥ 2 and odd n ≤ −1). For even n this includes the twisted augmentation factor that RJW's Example 13.22 leaves implicit. Two new misprints are recorded, E12 and E13.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -230,13 +230,14 @@
    "id": "RJW-PADIC-L",
    "title": "An introduction to p-adic L-functions",
    "authors": "Joaquín Rodrigues Jacinto; Chris Williams",
-   "edition": "arXiv:2309.15692v2 (19 December 2024); the version in Essential Number Theory 4 (2025) was not accessed",
+   "edition": "arXiv:2309.15692v2 (19 December 2024); for §13.5 also the version of record, Essential Number Theory 4 (2025) 101–216 (msp.org PDF), whose text there is unchanged",
    "url": "https://arxiv.org/abs/2309.15692v2",
    "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
    "readSections": [
     "§10.1–10.2, Theorem 10.2, Example 10.2 (c_n(a)) and Lemma 10.3 (pp. 47–48)",
     "§10.5, the Kummer map (10.5)–(10.7), the elements c_m, Definition 10.16 (pp. 52–53)",
-    "2026-09-29 (cc-fb70e5, checkpoint 4): §7 Theorem 7.1 and Lemma 7.2 (pp. 40–41); §11.2–11.3 (Proposition 11.5, Theorem 11.9; pp. 55–57); Theorem 12.23 (p. 64); §13.1–13.4 (Lemma 13.6, Theorem 13.8, Theorem 13.11, Definition 13.12, Proposition 13.13, Corollary 13.14; pp. 65–68), with the register's corrections PadicMeasuresIwasawaAlgebras/E5–E7"
+    "2026-09-29 (cc-fb70e5, checkpoint 4): §7 Theorem 7.1 and Lemma 7.2 (pp. 40–41); §11.2–11.3 (Proposition 11.5, Theorem 11.9; pp. 55–57); Theorem 12.23 (p. 64); §13.1–13.4 (Lemma 13.6, Theorem 13.8, Theorem 13.11, Definition 13.12, Proposition 13.13, Corollary 13.14; pp. 65–68), with the register's corrections PadicMeasuresIwasawaAlgebras/E5–E7",
+    "2026-09-29 (cc-fb70e5, checkpoint 7): Remark 13.9 (p. 67); §13.5 in full: Definitions 13.18–13.19, Remark 13.20, §13.5.2, Conjecture 13.21, Example 13.22, Remarks 13.23–13.24 (pp. 69–72); Appendix B.2.3 (p. 80). The same passages were compared in the published version (Essential Number Theory 4 (2025), msp.org PDF, pp. 196–198)."
    ]
   },
   {
@@ -278,6 +279,13 @@
    "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture, Ann. Inst. Fourier 42 (1992), 449–499 (Numdam scan)",
    "read": "2026-09-29",
    "sha256": "8e4db974556923a9532151657039d50b34028254f13fc2f1541f449bb50623da"
+  },
+  {
+   "kind": "published",
+   "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
+   "citation": "J. Rodrigues Jacinto and C. Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025) 101–216",
+   "read": "2026-09-29",
+   "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6"
   }
  ],
  "nodes": [
@@ -3357,6 +3365,125 @@
     "name": "Gras conjecture for real abelian fields (Greither)"
    },
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L3/odd-character-formulation",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L3",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L3"
+   ],
+   "title": "The odd-character form of the main conjecture at odd p",
+   "kind": "comparison",
+   "statement": "Let p be odd, F_∞ = ℚ(μ_{p^∞}), Δ = Gal(ℚ(μ_p)/ℚ), Γ = Gal(F_∞/ℚ(μ_p)) and Y_∞ = lim← A_p(ℚ(μ_{p^{n+1}})), the Galois group of the maximal unramified abelian pro-p extension of F_∞. For every odd character χ ≠ ω of Δ, char_{ℤ_p(χ)[[T]]}(Y_{∞,χ}) = (G_p(T, χ̌)) with χ̌ = ωχ^{−1}, and Y_{∞,ω} has characteristic ideal (1). This is equivalent to the even form char_{Λ(Γ^+)}(X_∞^+) = I(Γ^+)ζ_p (Theorem 13.8): each follows from the other by Kummer duality between the odd part of Y_∞ and the even part of X_∞.",
+   "hypotheses": [
+    "For odd p the χ-parts are exact, since p ∤ |Δ| = p − 1, and ½ is a unit, so Greither's normalisation agrees with the classical one."
+   ],
+   "proofSteps": [
+    "Even to odd. This is the case F = ℚ, p odd, of L4/greither-main-conjecture-all-p. Its proof passes from the real main conjecture (here Theorem 13.8, through the four-term sequence and the local-unit theorem) to the odd components by Kummer duality (Greither, Lemma 3.3 and Proposition 3.4).",
+    "Odd to even. Kummer duality is an equality V_ρ(X^+) ≅ V_χ(Y)^*(1) of ℚ_p-representations for ρ = ωχ^{−1}. Together with μ = 0 (Ferrero–Washington) it turns the odd characteristic ideals into the even ones componentwise. The χ = ω component corresponds to the trivial component of X_∞^+, which is treated in L3/trivial-character-component.",
+    "The χ-parts match RJW's Λ(Γ^+)-module X_∞^+ through the decomposition Λ(Γ^+) = ∏_ρ ℤ_p(ρ)[[T]] over the even characters ρ of Δ, which is valid because p ∤ |Δ|."
+   ],
+   "acceptance": [
+    "χ = ω is the component where Y_∞ is finite; its characteristic ideal is (1), matching the unit trivial component of I(Γ^+)ζ_p."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L3/cyclotomic-main-conjecture",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-kummer-duality",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "Remark 13.9, p. 67 (arXiv v2)",
+     "excerpt": "For a formulation of the Main Conjecture for odd Dirichlet characters, see [HK03].",
+     "match": "RJW leave the odd form to the literature."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§1, the Main Conjecture (= Theorem 3.2), p. 452",
+     "excerpt": "The correct formulation for the main",
+     "match": "The odd form; for odd p the factor ½ is a unit."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L3/tate-twisted-selmer-formulation",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L3",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L3"
+   ],
+   "title": "The main conjecture as Greenberg's conjecture for the Tate twists ℚ_p(n) (RJW §13.5)",
+   "kind": "theorem",
+   "statement": "Let p be odd, F = ℚ(μ_{p^∞})^+, Γ^+ = Gal(F/ℚ) and χ the cyclotomic character. For n ∈ ℤ let W_n = (ℚ_p/ℤ_p)(n), let S_n = H¹_{L_Gr}(F, W_n) be its Greenberg Selmer group, and S_n^∨ its Pontryagin dual, a finitely generated Λ(Γ^+)-module. The Greenberg condition is unramified away from p; at p it is the whole of H¹ for n ≥ 1 and the unramified subgroup for n ≤ 0. Let r_n be the order of the pole of L_∞(ℚ_p(n), s) = π^{−(s−n)/2}Γ((s−n)/2) at s = 1, and Tw_n the automorphism of Λ(Γ^+) with [g] ↦ χ(g)^n[g] (on measures, multiplication by x^n, RJW's ∂^n). Then:\n(a) Greenberg's Conjecture 13.21(i) holds for every n. S_n^∨ has Λ(Γ^+)-rank r_n, which is 1 for odd n ≥ 1 and 0 otherwise.\n(b) For even n ≥ 2, where r_n = r_{1−n} = 0: S_n^∨ ≅ X_∞^+(−n) and char(S_n^∨) = Tw_n(I(Γ^+)ζ_p) = Tw_n(I(Γ^+))·∂^nζ_p.\n(c) For odd n ≤ −1, where r_n = r_{1−n} = 0: S_n^∨ ≅ Y_∞^{c=−1}(−n), and char(S_n^∨) is the Tw_n-twist of the odd-character characteristic ideal.\n(d) For even n ≤ 0, r_{1−n} = 1, so Conjecture 13.21(ii) does not apply; this includes n = 0 (Remark 13.23).",
+   "hypotheses": [
+    "Definition 13.19 asks for a G_ℚ-invariant filtration. Greenberg's condition needs only a G_{ℚ_p}-stable one; this is SelmerIwasawaCohomology/E2, and the published version prints the same text. Here V = ℚ_p(n) is one-dimensional, so nothing changes.",
+    "RJW's Example 13.22 calls Greenberg's conjecture for ℚ_p(n) 'essentially' Theorem 13.8, with p-adic L-function ∂^nζ_p. That element has a pole at the even character x^{−n} and is not in Λ(Γ^+). The integral characteristic ideal carries the factor Tw_n(I(Γ^+)), the ideal of the character x^{−n}; part (b) states the precise identity."
+   ],
+   "proofSteps": [
+    "The identification of S_n. For n ≥ 1, S_n = Hom_cts((X_∞)^{c=(−1)^n}, W_n); for n ≤ 0, S_n = Hom_cts((Y_∞)^{c=(−1)^n}, W_n). Here X_∞ and Y_∞ are the Galois groups over F_∞ = ℚ(μ_{p^∞}) of the maximal abelian pro-p extensions unramified outside p and everywhere unramified, and (X_∞)^{c=1} ≅ X_∞^+ (RJW §13.5.2, requested from SelmerIwasawaCohomology L4). The Pontryagin dual of Hom_cts(M, W_n) is M(−n), with g acting as χ(g)^{−n}g. So char(M(−n)) = Tw_n(char M), since M(−n) is M pulled back along Tw_n^{−1}.",
+    "Gamma factors. The poles of Γ((s − n)/2) are at s = n − 2k, k ≥ 0, so r_n = 1 exactly when n is odd and n ≥ 1. The dual ℚ_p(n)^∨ = ℚ_p(1 − n) has r_{1−n} = 1 exactly when n is even and n ≤ 0. So (ii) applies exactly for even n ≥ 2 and odd n ≤ −1, the critical cases of Remark 13.23.",
+    "(a) X_∞^+ is torsion by Theorem 13.8, and Y_∞ is torsion. X_∞ has Λ(Γ)-rank r_2(ℚ(μ_p)) = (p − 1)/2, all of it on the c = −1 side (Iwasawa; requested from IntegralIwasawaTheory L1), which is rank one over the minus part of Λ(Γ). Twisting by an odd power of χ carries that minus part to Λ(Γ^+). So S_n^∨ has rank 1 for odd n ≥ 1 and is torsion otherwise.",
+    "(b) For even n ≥ 2, S_n^∨ = X_∞^+(−n), and Theorem 13.8 gives char = Tw_n(I(Γ^+)ζ_p) = Tw_n(I(Γ^+))·Tw_n(ζ_p). Tw_n(ζ_p) = ∂^nζ_p is RJW's twist of Kubota–Leopoldt.",
+    "(c) For odd n ≤ −1, S_n^∨ = Y_∞^{c=−1}(−n). The twist by the odd character χ^n turns Y_∞'s odd part into a Λ(Γ^+)-module, and the odd-character formulation gives its characteristic ideal componentwise.",
+    "(d) is the gamma-factor count."
+   ],
+   "acceptance": [
+    "p = 3: Γ^+ = ℤ_3^×/{±1} ≅ 1 + 3ℤ_3 and X_∞^+ = 0, since the only abelian 3-ramified pro-3 extension of ℚ is the cyclotomic ℤ_3-extension. So S_n = 0 for even n ≥ 2, and char(S_n^∨) = Λ = Tw_n(I(Γ^+)ζ_3), while ∂^nζ_3 alone has a pole at x^{−n}. This separates the precise identity from the 'essentially' of Example 13.22.",
+    "n = 0 is excluded from (ii), and n = 1 has corank 1, matching r_1 = 1."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L3/cyclotomic-main-conjecture",
+    "EulerSystemsCyclotomicMainConjecture:L3/odd-character-formulation",
+    "SelmerIwasawaCohomology:L2/greenberg-condition",
+    "SelmerIwasawaCohomology:L4",
+    "IntegralIwasawaTheory:L1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§13.5.1, Definition 13.19, p. 70 (arXiv v2)",
+     "excerpt": "approach assumes that the representation V is p-ordinary",
+     "match": "Greenberg's local condition."
+    },
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§13.5.2, p. 70 (arXiv v2)",
+     "excerpt": "We follow [Gre89, §1].",
+     "match": "X_∞ as a Greenberg Selmer group."
+    },
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§13.5.2(3), p. 71 (arXiv v2)",
+     "excerpt": "Thus if n ≥ 1, the local condition at p is empty, while for n ≥ 0 the local condition",
+     "match": "The local condition at p; 'n ≥ 0' should read n ≤ 0 (source issue E12)."
+    },
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "Conjecture 13.21 and Example 13.22, p. 71 (arXiv v2)",
+     "excerpt": "The following assertions hold.",
+     "match": "Greenberg's conjecture and the case of even n."
+    },
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "Remark 13.23, p. 72 (arXiv v2)",
+     "excerpt": "so the case n = 0 is not covered.",
+     "match": "n = 0; its gamma-factor identity is misprinted (source issue E13)."
+    }
+   ],
+   "planet": {
+    "name": "Greenberg Selmer form of the main conjecture"
+   },
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -3491,12 +3618,13 @@
   },
   {
    "supplier": "IntegralIwasawaTheory:L1",
-   "need": "Class field theory for Greither's §4 Iwasawa modules: for an abelian field F and its cyclotomic ℤ_p-extension, Gal(L/F_∞) ≅ X/D_∞ for the maximal unramified abelian p-extension L in which the primes above p split completely; the maximal abelian p-ramified pro-p extension of F_∞ with Galois group Y and, for real F, A′(F) ≅ Y/TY, where A′(F) = lim C_{(p^ν)}(F) is the limit of the p-parts of the ray class groups; the idèle class group C_2(F) = J_F/F^×·∏_{q∤2}U_q; the exact sequence 0 → E_{1−γ} → G/G′ → Γ → 0 (Washington, Lemma 13.14); and the ambiguous-class formula for cyclic extensions (Lang, Cyclotomic Fields II, Chapter 13 §4, (2)–(3)).",
+   "need": "Class field theory for Greither's §4 Iwasawa modules: for an abelian field F and its cyclotomic ℤ_p-extension, Gal(L/F_∞) ≅ X/D_∞ for the maximal unramified abelian p-extension L in which the primes above p split completely; the maximal abelian p-ramified pro-p extension of F_∞ with Galois group Y and, for real F, A′(F) ≅ Y/TY, where A′(F) = lim C_{(p^ν)}(F) is the limit of the p-parts of the ray class groups; the idèle class group C_2(F) = J_F/F^×·∏_{q∤2}U_q; the exact sequence 0 → E_{1−γ} → G/G′ → Γ → 0 (Washington, Lemma 13.14); and the ambiguous-class formula for cyclic extensions (Lang, Cyclotomic Fields II, Chapter 13 §4, (2)–(3)). Also Iwasawa's rank theorem for F_∞ = ℚ(μ_{p^∞}), p odd: X_∞ has Λ(Γ)-rank r_2(ℚ(μ_p)) = (p − 1)/2, carried by the c = −1 part, and Y_∞ is torsion.",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L4/greither-split-prime-divisor-classes",
     "EulerSystemsCyclotomicMainConjecture:L4/greither-split-units-quotient",
     "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-real-fields",
-    "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-transfer"
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-transfer",
+    "EulerSystemsCyclotomicMainConjecture:L3/tate-twisted-selmer-formulation"
    ],
    "status": "open"
   },
@@ -3528,6 +3656,14 @@
     "EulerSystemsCyclotomicMainConjecture:L4/greither-gras-conjecture"
    ],
    "status": "open"
+  },
+  {
+   "supplier": "SelmerIwasawaCohomology:L4",
+   "need": "RJW §13.5.2 for every n ∈ ℤ (the stage's remaining item 'X_∞^+ as a Greenberg Selmer group of Tate twists, with the parity restrictions'): for odd p, F = ℚ(μ_{p^∞})^+ and W_n = (ℚ_p/ℤ_p)(n) with Greenberg's conditions (L2/greenberg-condition with F^+W_n = W_n for n ≥ 1 and 0 for n ≤ 0), H¹_{L_Gr}(F, W_n) = Hom_cts((X_∞)^{c=(−1)^n}, W_n) for n ≥ 1 and Hom_cts((Y_∞)^{c=(−1)^n}, W_n) for n ≤ 0, as Λ(Γ^+)-modules; (X_∞)^{c=1} ≅ X_∞^+ and (Y_∞)^{c=1} ≅ Y_∞^+ (Coates–Sujatha, p. 6); and the Pontryagin dual of Hom_cts(M, W_n) is M(−n).",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L3/tate-twisted-selmer-formulation"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
@@ -3555,10 +3691,9 @@
    "stageId": "EulerSystemsCyclotomicMainConjecture:L3",
    "status": "partial",
    "remaining": [
-    "The finite-layer stabilisation in Corollary III.2.8 (see the gap): [MW] §1.6 and Lang's appendix are not read.",
-    "The equivalent odd-character/class-group formulation (reflection) and the Tate-twisted Greenberg Selmer formulation (RJW §13.5) are not yet planned."
+    "The finite-layer stabilisation in Corollary III.2.8 (see the gap): [MW] §1.6 and Lang's appendix are not read."
    ],
-   "notes": "Checkpoint 4 plans L3 in 4 nodes: the corrected four-term sequence (RJW 13.13–13.14 with register corrections E5–E6), the trivial-character component (the residue of ζ_p against the augmentation ideal), the componentwise equality (Rubin III.2.8, with its finite-layer stabilisation recorded as a gap), and the main conjecture char(X_∞^+) = I(Γ^+)ζ_p for every odd p (RJW 13.8, Rubin III.2.10), without the Vandiver statement 13.11. The local-unit theorem is requested from ColemanPowerSeries L4."
+   "notes": "Checkpoint 4 plans L3 in 4 nodes: the corrected four-term sequence (RJW 13.13–13.14 with register corrections E5–E6), the trivial-character component (the residue of ζ_p against the augmentation ideal), the componentwise equality (Rubin III.2.8, with its finite-layer stabilisation recorded as a gap), and the main conjecture char(X_∞^+) = I(Γ^+)ζ_p for every odd p (RJW 13.8, Rubin III.2.10), without the Vandiver statement 13.11. The local-unit theorem is requested from ColemanPowerSeries L4. Checkpoint 7 plans the equivalent formulations the stage asks for:\n- the odd-character form (from Theorem 13.8 by Kummer duality, the odd-p case of Greither 3.2);\n- the Tate-twisted Greenberg Selmer form for every n (RJW §13.5): corank r_n for all n, and the characteristic ideals for even n ≥ 2 (with the factor Tw_n(I(Γ^+)) that Example 13.22's 'essentially' leaves out) and for odd n ≤ −1.\nThe identification of the Selmer groups is requested from SelmerIwasawaCohomology L4. Source issues: E12–E13."
   },
   {
    "stageId": "EulerSystemsCyclotomicMainConjecture:L4",
@@ -3769,6 +3904,38 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E12",
+   "source": "RJW-PADIC-L",
+   "kind": "misprint",
+   "locator": "§13.5.2, item (3), p. 71 (arXiv v2); p. 197 in Essential Number Theory 4 (2025)",
+   "printed": "Thus if n ≥ 1, the local condition at p is empty, while for n ≥ 0 the local condition at p means σ is also unramified at p",
+   "correction": "… while for n ≤ 0 the local condition at p means σ is also unramified at p",
+   "reason": "The display just above gives L^Gr_{v_p} = H¹(K_∞^+, W_n) for n ≥ 1 and H¹_ur(K_∞^+, W_n) for n ≤ 0, as Definition 13.19 gives with Fil¹ℚ_p(n) = ℚ_p(n) for n ≥ 1 and 0 for n ≤ 0. The next display also uses n ≤ 0. As printed, n ≥ 1 would satisfy both clauses.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "research/errata/REGISTER.md and SelmerIwasawaCohomology's sourceIssues (E1–E2): no entry for these passages",
+    "arXiv 2309.15692: v2 is the latest version",
+    "version of record, Essential Number Theory 4 (2025) 101–216, msp.org PDF (SHA-256 78d0479b…), read at the same passages: the text is unchanged"
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E13",
+   "source": "RJW-PADIC-L",
+   "kind": "misprint",
+   "locator": "Remark 13.23, pp. 71–72 (arXiv v2); p. 198 in Essential Number Theory 4 (2025)",
+   "printed": "here ℚ_p^∨ = ℚ_p(1), so L_∞(ℚ_p^∨, s) = L_∞(ℚ_p, 1 − s), hence r_{ℚ_p^∨} = 1",
+   "correction": "L_∞(ℚ_p^∨, s) = L_∞(ℚ_p, s − 1)",
+   "reason": "With the notes' L_∞(ℚ_p(n), s) = π^{−(s−n)/2}Γ((s−n)/2) (p. 71), n = 1 gives π^{−(s−1)/2}Γ((s−1)/2) = L_∞(ℚ_p, s − 1). L_∞(ℚ_p, 1 − s) = π^{−(1−s)/2}Γ((1−s)/2) is a different function. Both have a pole at s = 1, so r_{ℚ_p^∨} = 1 stands.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "research/errata/REGISTER.md and SelmerIwasawaCohomology's sourceIssues (E1–E2): no entry for these passages",
+    "arXiv 2309.15692: v2 is the latest version",
+    "version of record, Essential Number Theory 4 (2025) 101–216, msp.org PDF (SHA-256 78d0479b…), read at the same passages: the text is unchanged"
    ]
   }
  ]

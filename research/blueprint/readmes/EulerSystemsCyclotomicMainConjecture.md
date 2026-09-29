@@ -3,7 +3,8 @@
 This blueprint covers stages L0–L4. The first checkpoint decomposes **L0**, the Euler system of
 cyclotomic units and its χ-twist. The second plans **L1**'s finite-level class-group bound, the third plans **L2**'s
 Iwasawa-theoretic divisibility, the fourth plans **L3**, the main conjecture for odd p, the fifth starts **L4**
-(Greither, all p), and the sixth plans Greither's class-group theorems (§4). It follows:
+(Greither, all p), the sixth plans Greither's class-group theorems (§4), and the seventh completes L3's equivalent
+formulations. It follows:
 - Rubin, *Euler systems*, Chapter III §2.1–2.4, with the Chapter I–II definitions they use;
 - Rodrigues Jacinto–Williams (RJW), *An introduction to p-adic L-functions*, §10.2 and §10.5.
 
@@ -320,6 +321,30 @@ and char(X_∞⁺) = I(Γ⁺)ζ_p for every odd p. In χ-parts this is char(Z_�
 - The local-unit theorem (RJW 12.23) is requested from ColemanPowerSeries L4.
 - The Vandiver isomorphism (RJW 13.11) is not asserted.
 
+Checkpoint 7 adds the equivalent formulations the stage asks for.
+
+**Comparison: the odd-character form** (node `odd-character-formulation`). For odd p, char(Y_{∞,χ}) = (G_p(T, χ̌)) for
+every odd χ ≠ ω, and Y_{∞,ω} has characteristic ideal (1). Kummer duality, V_ρ(X⁺) ≅ V_χ(Y)^*(1), turns this into
+Theorem 13.8 and back. It is the case F = ℚ of Greither's Theorem 3.2 (L4), where ½ is a unit.
+
+**Theorem: the Tate-twisted Selmer form** (node `tate-twisted-selmer-formulation`; planet). For W_n = (ℚ_p/ℤ_p)(n)
+over F = ℚ(μ_{p^∞})⁺ with Greenberg's conditions (RJW §13.5):
+- Greenberg's corank statement (Conjecture 13.21(i)) holds for every n. The dual Selmer group has rank 1 for odd n ≥ 1
+  and is torsion otherwise, matching the pole order r_n of π^{−(s−n)/2}Γ((s−n)/2) at s = 1.
+- Even n ≥ 2: the dual is X_∞⁺(−n), with characteristic ideal Tw_n(I(Γ⁺)ζ_p) = Tw_n(I(Γ⁺))·∂^nζ_p. RJW's Example
+  13.22 says 'essentially' ∂^nζ_p. That element has a pole at x^{−n}, and p = 3 (where X_∞⁺ = 0) shows the factor
+  Tw_n(I(Γ⁺)) is needed.
+- Odd n ≤ −1: the dual is Y_∞^{c=−1}(−n), with the twisted odd-character ideal.
+- Even n ≤ 0, including n = 0, is outside Conjecture 13.21(ii).
+
+The identification of the Selmer groups (RJW §13.5.2) is requested from SelmerIwasawaCohomology L4, which lists it as
+its own item. RJW's Definition 13.19 asks for a G_ℚ-invariant filtration; that is SelmerIwasawaCohomology/E2 and
+does not matter for the one-dimensional ℚ_p(n). New misprints:
+- E12: "for n ≥ 0" in §13.5.2(3) should read n ≤ 0.
+- E13: L_∞(ℚ_p^∨, s) = L_∞(ℚ_p, 1 − s) in Remark 13.23 should read s − 1.
+
+Both are unchanged in the published version.
+
 ## Layer L4: all abelian fields and p = 2 (partial)
 
 Checkpoint 5 plans Greither, *Class groups of abelian fields, and the main conjecture* (Ann. Inst. Fourier 42 (1992)),
@@ -438,8 +463,8 @@ exponent (E4); ℚ(ζ_5) shows it is needed.
   - Corollary III.2.4, which depends on [Ru3] or on L3 for the ψ(p) = 1 components (gap).
 - **L2 is source-decomposed** (checkpoint 3). It depends on the ES.8, SelmerIwasawaCohomology L3 and IntegralIwasawaTheory
   requests (Iwasawa's rank-one theorem for Y_∞^χ, Leopoldt for real abelian fields).
-- **L3 (partial, checkpoint 4):** the main conjecture is planned. Remaining: the finite-layer stabilisation of Corollary
-  III.2.8 (gap), and the odd-character/class-group and Greenberg Selmer formulations (RJW §13.5).
+- **L3 (partial, checkpoints 4 and 7):** the main conjecture and its odd-character and Tate-twisted Selmer
+  formulations are planned. Remaining: the finite-layer stabilisation of Corollary III.2.8 (gap).
 - **L4 (partial, checkpoints 5–6):** Greither §§1–4 are planned. Remaining:
   - §2's lemmas and Coleman theory in detail;
   - §3's Lemmas 3.11–3.13;
