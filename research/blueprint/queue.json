@@ -9040,8 +9040,9 @@
    ],
    "avoidAccountOf": "PAPER-DELIGNE-74",
    "prompt": "research/blueprint/prompts/REV-PAPER-DELIGNE-74.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4494"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4494",
+   "finishedAt": "2026-09-29T15:51:43Z"
   },
   {
    "id": "PAPER-DELIGNE-80",
@@ -9262,7 +9263,8 @@
    ],
    "avoidAccountOf": "PAPER-KHARE-WINTENBERGER-09-II",
    "prompt": "research/blueprint/prompts/REV-PAPER-KHARE-WINTENBERGER-09-II.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4509"
   },
   {
    "id": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01",
