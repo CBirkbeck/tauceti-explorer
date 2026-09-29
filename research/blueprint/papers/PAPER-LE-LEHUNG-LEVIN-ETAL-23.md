@@ -1,3 +1,56 @@
+# LLHLM23 continuation: proof steps for §7 (the G queue)
+
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (fifth step). This takes the G queue: the 39
+§7 theorem items without proof steps. Census unchanged: 779 items, 26 routes, 118 findings, 12 gaps.
+
+## What was added
+
+All 39 items now carry `proofSteps`, `prerequisites` and `proofProvenance`. They were read from the
+published PDF132–162, with E15, E20, E28, E32, E37, E64, E69–E74, E89 and E110 applied.
+
+- **§7.1, the monodromy condition in families.**
+  - Theorem 7.1.1 (G02) is the case R = Λ of Proposition 7.1.3(1) (G65), plus Kisin's stability
+    criterion with descent data.
+  - G38–G44 and G65 split Proposition 7.1.3 and the proof of Proposition 7.1.10 in the order the
+    note on G65 gives: uniqueness, the increment bound (7.4), convergence and analyticity, the
+    expansion (7.5), the descent-removed identity (7.6) with (7.8), the p-adic precision of the
+    Euler derivatives, and the conversion to ordinary derivatives.
+  - The reverse direction of Proposition 7.1.4 (G05) is spelled out: the vanishing propagates from
+    E = 0 to every φ^m(E) = 0 through (7.3).
+- **§7.2.** The imported parts of Theorem 7.2.2 (G15, G16, G45, G46) and the three point criteria
+  of Lemma 7.2.6 (G20, G47, G48, with E64). G19 (Lemma 7.2.5) goes through infinitesimal smoothness,
+  quasi-finiteness and the étale-monomorphism criterion.
+- **§7.3, Theorem 7.3.2.**
+  - G28 is the Elkik lifting of the mod-p map, noncanonical.
+  - G29 is the minimal-prime count that makes B ↠ A an isomorphism.
+  - G30 is the induction on (7.14) that makes versal rings at semisimple points domains.
+  - G31 is Lemma 7.3.5.
+
+  One implicit step is made explicit: the polynomial condition on μ is the product of Theorem
+  3.7.1's P over the finitely many s_j^{-1}(μ_j + η_j), because a_{τ,j} depends on the presentation
+  (Lemma 7.3.1).
+- **§7.4, the components.**
+  - Proposition 7.4.1 (G33), Lemma 7.4.4 (G53) and Corollary 7.4.5 (G54). The last uses E15's
+    repaired bound for Theorem 4.6.2, which max{2(h+1), 4n+h}-depth implies.
+  - Theorem 7.4.2 (G34, G35), with the flag comparison through Lemma 7.4.6 (G36) and Lemma
+    7.2.10(4). Lemma 7.4.6 itself is proved in full.
+  - Remark 7.4.3 in five parts:
+    - (1), G57: with E69's corrected display;
+    - (2), G58: it needs h ≥ n − 1, which regular λ ∈ [0, h]^n forces, to meet E15's bound;
+    - (3), G59: the upper bound;
+    - (4), G55: conditional on E70;
+    - (5), G56: the product labelling is assumed, not proved, in the source.
+  - Proposition 7.4.7 (G37, G60, G61), with E72–E74.
+
+There are 127 new prerequisite edges. The graph stays acyclic, with 1,568 edges.
+
+## Changes and scope
+
+- **Changed:** proof steps, prerequisites and provenance on the 39 items; `validation.ccC58621dGOutlines`;
+  a continuation reading in `source`; the summary.
+- **Unchanged:** statuses, routes and findings. §7 was re-read and yields no new finding. No Lean file.
+- **Still without proof steps:** the A (56) theorem items. The L items are library citations.
+
 # LLHLM23 continuation: proof steps for §8 (the B queue), and E117–E118
 
 Claude Code — cc-58621d; issue 1254; 29 September 2026 (fourth step). This takes the B queue: the 28
