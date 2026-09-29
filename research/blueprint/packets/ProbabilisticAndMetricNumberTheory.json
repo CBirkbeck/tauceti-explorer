@@ -11,7 +11,7 @@
     "ProbabilisticAndMetricNumberTheory:PM.5"
   ],
   "status": "partial",
-  "summary": "Preserves all 67 inherited arithmetic probability, finite residue/moment, cutoff, first repeated-factor mean and conditional law-transfer nodes. Adds nine PM.0 plans proving a finite positive-geometric Euler bound, a uniform exponential moment and every fixed repeated-factor moment, with explicit tail and scale bounds. The remaining general additive interfaces, source-specific growing-prime comparisons, CDF criterion and full arithmetic Gaussian/normal-order arguments stay open. No new carrier or implementation claim.",
+  "summary": "Preserves all 67 inherited arithmetic probability, finite residue/moment, cutoff, first repeated-factor mean and conditional law-transfer nodes. Adds nine PM.0 plans proving a finite positive-geometric Euler bound, a uniform exponential moment and every fixed repeated-factor moment, with explicit tail and scale bounds. The remaining general additive interfaces, source-specific growing-prime comparisons, CDF criterion and full arithmetic Gaussian/normal-order arguments stay open. No new carrier or implementation claim. PM.3 now decomposes Koukoulopoulos–Maynard's proof of the Duffin–Schaeffer conjecture (34 nodes: approximation sets, Theorems 1–2, Khinchin's theorem, GCD graphs and the quality-increment iteration), building on Mathlib's Gallagher and Borel–Cantelli theorems.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -867,6 +867,66 @@
         "module": "Mathlib.GroupTheory.OrderOfElement",
         "provides": "x has finite order. Its @[to_additive] twin IsOfFinAddOrder (m • x = 0 for some m ≥ 1, the source's 'rational' point of a torus) is the one the nodes use.",
         "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:Nat.totient",
+        "module": "Mathlib.Data.Nat.Totient",
+        "provides": "Euler's φ(n) = #{a < n : gcd(n,a) = 1}; φ(0) = 0.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-29."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.moebius",
+        "module": "Mathlib.NumberTheory.ArithmeticFunction.Moebius",
+        "provides": "The Möbius function μ as an integer-valued arithmetic function.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-29."
+      },
+      {
+        "ref": "mathlib:Nat.factorization",
+        "module": "Mathlib.Data.Nat.Factorization.Defs",
+        "provides": "n.factorization p is the p-adic valuation of n (0 for p not prime and for n = 0).",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-29."
+      },
+      {
+        "ref": "mathlib:Nat.primeFactors",
+        "module": "Mathlib.Data.Nat.PrimeFin",
+        "provides": "The finset of primes dividing n.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-29."
+      },
+      {
+        "ref": "mathlib:hasSum_zeta_two",
+        "module": "Mathlib.NumberTheory.ZetaValues",
+        "provides": "Σ 1/n² = π²/6.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-29."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.lintegral_indicator",
+        "module": "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+        "provides": "∫⁻ of an indicator of a measurable set is the restricted integral.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-29."
+      },
+      {
+        "ref": "mathlib:ENNReal.lintegral_mul_le_Lp_mul_Lq",
+        "module": "Mathlib.MeasureTheory.Integral.MeanInequalities",
+        "provides": "Hölder's inequality for lower Lebesgue integrals of a.e.-measurable ℝ≥0∞-valued functions.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-29."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.measure_limsup_atTop_eq_zero",
+        "module": "Mathlib.MeasureTheory.OuterMeasure.BorelCantelli",
+        "provides": "Borel–Cantelli: if Σ μ(sᵢ) ≠ ∞ then μ(limsup sᵢ) = 0.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-29."
+      },
+      {
+        "ref": "mathlib:AddCircle.addWellApproximable_ae_empty_or_univ",
+        "module": "Mathlib.NumberTheory.WellApproximable",
+        "provides": "Gallagher's ergodic theorem: for δ → 0, the points of the circle within δ(n) of infinitely many points of exact order n form an a.e.-empty or a.e.-full set (open balls).",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-29."
+      },
+      {
+        "ref": "mathlib:UnitAddCircle.mem_addWellApproximable_iff",
+        "module": "Mathlib.NumberTheory.WellApproximable",
+        "provides": "x ∈ addWellApproximable UnitAddCircle δ iff {n | ∃ m < n, gcd m n = 1 ∧ ‖x − m/n‖ < δ n} is infinite.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-29."
       }
     ]
   },
@@ -1096,6 +1156,20 @@
         "Compared, passage by passage, with the blog notes '254B, Notes 1: Equidistribution of polynomial sequences in tori' (28 March 2010), §1: the statements and proofs agree; the book numbers them (Proposition 1 = Proposition 1.1.2, Corollary 2 = 1.1.3, Exercise 5 = 1.1.5, Lemma 4 = 1.1.6, Corollary 5 = 1.1.7, Corollary 6 = 1.1.9) and adds to Exercise 1.1.1 the question of what happens without the null-boundary condition.",
         "Not read: Section 1.1.2 onwards (single-scale and ultralimit theory) beyond Remark 1.1.19.",
         "Second pass by cc-fb70e5 on 2026-09-28, same file and sha256: the doubly infinite definition and its footnote 2 (printed p. 4), Exercise 1.1.4 (p. 6), Proposition 1.1.5 with its proof and the remark after it (p. 7), Exercises 1.1.6–1.1.8 with the (√2 n, n²/3) example (p. 9), and the complexity of a subtorus with Exercise 1.1.22 (pp. 16–17)."
+      ]
+    },
+    {
+      "id": "KM-2020",
+      "title": "On the Duffin–Schaeffer conjecture",
+      "authors": "Dimitris Koukoulopoulos and James Maynard",
+      "edition": "Annals of Mathematics 192 (2020), no. 1, 251–307, doi:10.4007/annals.2020.192.1.5, publisher PDF (printed page = PDF page + 250). Collated at the finding locators with arXiv:1907.04593v3 (final version).",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n1-p05-s.pdf",
+      "sha256": "d41eb092839d28e5a5c613a035c6ec8a984fe570700d7bf5c82a08a013b0fc8f",
+      "accessed": "2026-09-29",
+      "readSections": [
+        "2026-09-29 (cc-39fac3): the whole paper, §§1–15, read in the published PDF. Every PM.3 node cites its printed pages.",
+        "Findings E10–E14 were checked on rendered page images (pp. 264–265, 302–303) and are present in arXiv v3. The exponent t^{e^{c−1}} of Lemma 7.3 was confirmed on the page image.",
+        "Cited inputs not read: Gallagher 1961 (replaced by Mathlib's formal theorem), Pollington–Vaughan 1990 (Lemmas 5.2–5.3; gap), Koukoulopoulos's book Th. 14.2 (Lemma 7.2; only an elementary special case is used), Rosser–Schoenfeld Th. 5 (requested from AN.2), Beresnevich–Velani (Corollary 3; not planned)."
       ]
     }
   ],
@@ -6045,10 +6119,1640 @@
         "module": "TauCeti.Probability.Equidistribution",
         "namespace": "TauCeti.Equidistribution"
       }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Duffin–Schaeffer approximation sets 𝒜_q, 𝒜, 𝒦_q and 𝒦",
+      "kind": "definition",
+      "statement": "For ψ: ℕ → ℝ_{≥0} and q ≥ 1 let 𝒜_q = [0,1] ∩ ⋃_{1≤a≤q, gcd(a,q)=1} [a/q − ψ(q)/q, a/q + ψ(q)/q] (1.3), and let 𝒜 = limsup_{q→∞} 𝒜_q, the set of α ∈ [0,1] lying in infinitely many 𝒜_q (1.4). Khinchin's 𝒦_q (1.2) uses every 0 ≤ a ≤ q, and 𝒦 = limsup 𝒦_q.",
+      "hypotheses": [
+        "ψ is arbitrary and nonnegative; the intervals are closed, as in the source.",
+        "Mathlib's addWellApproximable on UnitAddCircle is the open-ball version of 𝒜 on the circle. The two agree up to the choice of radius: the open version for ψ lies in 𝒜, and an irrational point of 𝒜 lies in the open version for 2ψ. Since Σφ(q)ψ(q)/q and Σφ(q)ψ(q)/(2q) diverge together, every statement of this layer transfers between the conventions."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.totient",
+        "mathlib:UnitAddCircle.mem_addWellApproximable_iff"
+      ],
+      "proofSteps": [
+        "Define 𝒜_q, 𝒦_q as finite unions of closed intervals intersected with [0,1], and 𝒜, 𝒦 as Filter.limsup along atTop.",
+        "Measure bounds: 𝒜_q is a union of φ(q) intervals of length 2ψ(q)/q, so λ(𝒜_q) ≤ 2φ(q)ψ(q)/q. When ψ(q) ≤ 1/2 the intervals around a/q with 1 ≤ a ≤ q−1 are disjoint up to endpoints and lie in [0,1], and for q = 1 half of the interval survives; so λ(𝒜_q) ≥ φ(q)ψ(q)/q.",
+        "Circle comparison: for x ∈ [0,1] and q ≥ 2, if the circle distance from x to a reduced m/q is less than δ, then some reduced a/q with 1 ≤ a ≤ q (m or its reflection q − m) is within δ of x on the line; q = 1 affects only one index. Conversely an irrational x in the closed interval of radius ψ(q)/q has ψ(q) > 0 and lies in the open interval of radius 2ψ(q)/q."
+      ],
+      "acceptance": [
+        "min{ψ(q), 1/2} ≤ λ(𝒦_q) ≤ 2 min{ψ(q), 1/2} (p. 252) follows in the same way; only the upper bound is used."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Sets",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "dsSet"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§1, (1.2)–(1.4), pp. 252–253",
+          "match": "The sets and the reason for reduced fractions."
+        },
+        {
+          "sourceId": "KM-2020",
+          "locator": "§1, (1.2), p. 252",
+          "match": "The measure bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.DuffinSchaeffer.dsLimsup",
+          "role": "data",
+          "statement": "𝒜 = limsup_{q→∞} 𝒜_q."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.khinchinSet",
+          "role": "data",
+          "statement": "Khinchin's 𝒦_q, over every 0 ≤ a ≤ q."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.khinchinLimsup",
+          "role": "data",
+          "statement": "𝒦 = limsup 𝒦_q."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.volume_dsSet_le",
+          "role": "other",
+          "statement": "λ(𝒜_q) ≤ 2φ(q)ψ(q)/q for ψ ≥ 0."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.le_volume_dsSet",
+          "role": "other",
+          "statement": "λ(𝒜_q) ≥ φ(q)ψ(q)/q for q ≥ 1 and 0 ≤ ψ(q) ≤ 1/2."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.dsSet_mono",
+          "role": "relation",
+          "statement": "𝒜_q is monotone in ψ."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.dsSet_subset_khinchinSet",
+          "role": "relation",
+          "statement": "𝒜_q ⊆ 𝒦_q."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.mem_dsLimsup_of_mem_addWellApproximable",
+          "role": "compatibility",
+          "statement": "For x ∈ [0,1], if the image of x on the circle is in Mathlib's addWellApproximable for δ(n) = ψ(n)/n, then x ∈ 𝒜."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.mem_addWellApproximable_of_mem_dsLimsup",
+          "role": "compatibility",
+          "statement": "An irrational x ∈ 𝒜 maps into addWellApproximable for δ(n) = 2ψ(n)/n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "dsSet_one_half",
+          "kind": "computation",
+          "statement": "With ψ ≡ 1/2, 𝒜_1 = [1/2, 1]: only the interval around 1/1 is present, cut at 1."
+        },
+        {
+          "name": "dsSet_two_half",
+          "kind": "computation",
+          "statement": "With ψ ≡ 1/2, 𝒜_2 = [1/4, 3/4]: only a = 1 is coprime to 2."
+        },
+        {
+          "name": "volume_dsSet_zero",
+          "kind": "degenerate",
+          "statement": "ψ ≡ 0 gives λ(𝒜_q) = 0: 𝒜_q is a finite set of reduced fractions."
+        },
+        {
+          "name": "khinchinSet_ne_dsSet",
+          "kind": "non-example",
+          "statement": "With ψ ≡ 1/2, 0 ∈ 𝒦_2 but 0 ∉ 𝒜_2: the non-reduced fraction 0/2 is used by Khinchin's set and not by the Duffin–Schaeffer set."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Koukoulopoulos–Maynard Theorem 1 and (1.5)",
+          "how": "The limsup set whose measure is determined."
+        },
+        {
+          "where": "Koukoulopoulos–Maynard Theorem 2 and Khinchin's theorem",
+          "how": "The non-reduced set 𝒦."
+        },
+        {
+          "where": "Mathlib AddCircle.addWellApproximable_ae_empty_or_univ",
+          "how": "Gallagher's zero-one law, transported to 𝒜 through the compatibility items."
+        },
+        {
+          "where": "DiophantineApproximationAndTranscendence:DT.0 (library audit duplicate note)",
+          "how": "Approximation exponents whose almost-everywhere behaviour these sets describe."
+        }
+      ],
+      "planet": {
+        "name": "Duffin–Schaeffer approximation sets"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-convergence",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "The convergence half (1.5)",
+      "kind": "lemma",
+      "statement": "If ψ ≥ 0 and Σ_q φ(q)ψ(q)/q < ∞, then λ(𝒜) = 0.",
+      "hypotheses": [
+        "No monotonicity or size condition on ψ."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets",
+        "mathlib:MeasureTheory.measure_limsup_atTop_eq_zero"
+      ],
+      "proofSteps": [
+        "λ(𝒜_q) ≤ 2φ(q)ψ(q)/q, so Σ λ(𝒜_q) < ∞.",
+        "Borel–Cantelli (Mathlib measure_limsup_atTop_eq_zero) gives λ(limsup 𝒜_q) = 0."
+      ],
+      "acceptance": [
+        "This is the 'easy' direction of the Duffin–Schaeffer conjecture (1.5)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Theorems",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "volume_dsLimsup_eq_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§1, (1.5), p. 253",
+          "match": "The statement and its one-line proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-theorem",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "The Duffin–Schaeffer theorem (Koukoulopoulos–Maynard Theorem 1)",
+      "kind": "theorem",
+      "statement": "Let ψ: ℕ → ℝ_{≥0} with Σ_{q≥1} ψ(q)φ(q)/q = ∞. Then the set 𝒜 of α ∈ [0,1] for which |α − a/q| ≤ ψ(q)/q has infinitely many coprime solutions a, q has Lebesgue measure 1.",
+      "hypotheses": [
+        "ψ is arbitrary. The proof below works with the open intervals of Mathlib's addWellApproximable (same measures, contained in 𝒜), which is enough since a set of measure 1 inside 𝒜 ⊆ [0,1] forces λ(𝒜) = 1."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets",
+        "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-large-values",
+        "ProbabilisticAndMetricNumberTheory:PM.3/overlap-estimate",
+        "ProbabilisticAndMetricNumberTheory:PM.3/second-moment-bound",
+        "ProbabilisticAndMetricNumberTheory:PM.3/second-moment-union-bound",
+        "mathlib:AddCircle.addWellApproximable_ae_empty_or_univ",
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "proofSteps": [
+        "Split ψ = ψ₁ + ψ₂ with ψ₁ = ψ·𝟙_{ψ>1/2}. If Σψ₁φ/q = ∞, Lemma 5.2 (PM.3/duffin-schaeffer-large-values) gives λ(𝒜(ψ₁)) = 1 and 𝒜(ψ₁) ⊆ 𝒜(ψ). Otherwise Σψ₂φ/q = ∞ and 𝒜(ψ₂) ⊆ 𝒜(ψ); so assume ψ ≤ 1/2.",
+        "Gallagher's zero-one law (Mathlib addWellApproximable_ae_empty_or_univ; ψ(q)/q → 0 because ψ ≤ 1/2) makes the open-interval limsup set null or full, so it suffices to show it has positive measure.",
+        "For large X pick Y minimal with Σ_{X≤q≤Y} φ(q)ψ(q)/q ∈ [1,2]; this exists because every term is at most 1/2. Since 𝒜 = ⋂_j ⋃_{q≥j} 𝒜_q, it suffices that λ(⋃_{X≤q≤Y} 𝒜_q) ≫ 1 uniformly in X (5.5).",
+        "By the second-moment union bound, λ(⋃𝒜_q)·Σ_{q,r} λ(𝒜_q ∩ 𝒜_r) ≥ (Σλ(𝒜_q))² ≥ 1, so it suffices that Σ_{X≤q,r≤Y} λ(𝒜_q ∩ 𝒜_r) ≪ 1 (5.6). The diagonal contributes at most 4.",
+        "Off the diagonal apply the overlap estimate (Lemma 5.3, with the indicator 1_{2M ≥ gcd}; E10). Pairs whose prime product ∏(1+1/p) is below e^{100} contribute at most 4e^{100}.",
+        "For the other pairs Σ_{p | qr/gcd²} 1/p ≥ 100. Let j be maximal with Σ_{p | qr/gcd², p ≥ exp exp j} 1/p ≥ 10. By Mertens' theorem (requested from AN.2), ∏_{p > M/gcd}(1+1/p) ≪ 1 if M/gcd ≥ exp exp j and ≪ e^j otherwise, and in the latter case (q,r) ∈ ℰ_{exp exp j}.",
+        "So (5.7) reduces to Σ_{j≥0} e^j Σ_{(q,r)∈ℰ_{exp exp j}} μ(q)μ(r) ≪ 1 (5.8), which follows from Proposition 5.4: the inner sum is O(1/exp exp j) and Σ e^j/exp exp j < ∞."
+      ],
+      "acceptance": [
+        "ψ(q) = 1/q (Dirichlet's theorem regime) gives Σφ(q)/q² = ∞ and λ(𝒜) = 1.",
+        "The convergence half is PM.3/duffin-schaeffer-convergence; together they give the zero-one dichotomy with an explicit criterion.",
+        "Mathlib's WellApproximable.lean records that this theorem is not formalized there."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Theorems",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "volume_dsLimsup_eq_one"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§1, Theorem 1, p. 253",
+          "match": "The theorem."
+        },
+        {
+          "sourceId": "KM-2020",
+          "locator": "§5, proof of Theorem 1 assuming Proposition 5.4, pp. 265–268",
+          "match": "The reduction; Lemma 5.1 is replaced by Mathlib's formal Gallagher theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Duffin–Schaeffer theorem"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/catlin-reduction",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Catlin's reduction to reduced fractions (2.2)",
+      "kind": "lemma",
+      "statement": "Let 0 ≤ ψ ≤ 1/2 and define ξ by ξ(q)/q = max_{n ∈ ℕ, q | n} ψ(n)/n. Then 𝒞 \\ ℚ = 𝒦 \\ ℚ, where 𝒞 = limsup 𝒞_q is the Duffin–Schaeffer set for ξ and 𝒦 is Khinchin's set for ψ.",
+      "hypotheses": [
+        "The maximum exists because ψ(n)/n ≤ 1/(2n) → 0."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets"
+      ],
+      "proofSteps": [
+        "If α ∈ 𝒞 \\ ℚ, pick infinitely many reduced aⱼ/qⱼ with |α − aⱼ/qⱼ| ≤ ξ(qⱼ)/qⱼ = ψ(nⱼ)/nⱼ for some multiple nⱼ of qⱼ. Then mⱼ = aⱼnⱼ/qⱼ satisfies |α − mⱼ/nⱼ| ≤ ψ(nⱼ)/nⱼ, and nⱼ ≥ qⱼ → ∞, so α ∈ 𝒦.",
+        "If α ∈ 𝒦 \\ ℚ, reduce mⱼ/nⱼ to aⱼ/qⱼ with qⱼ | nⱼ, so |α − aⱼ/qⱼ| ≤ ψ(nⱼ)/nⱼ ≤ ξ(qⱼ)/qⱼ. Infinitely many aⱼ/qⱼ are distinct, since otherwise |α − a/q| ≤ 1/(2nⱼ) → 0 forces α = a/q ∈ ℚ."
+      ],
+      "acceptance": [
+        "Rational α are excluded on both sides: they may lie in 𝒦 through infinitely many non-reduced representations."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Theorems",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "catlin_reduction"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§2, Case 2 and (2.2), pp. 257–258",
+          "match": "The reduction, following Catlin."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/catlin-theorem",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Catlin's conjecture (Koukoulopoulos–Maynard Theorem 2)",
+      "kind": "theorem",
+      "statement": "Let ψ: ℕ → ℝ_{≥0} and ψ*(q) = φ(q)·sup{ψ(n)/n : n ∈ ℕ, q | n} ∈ [0,∞]. Then (a) if Σ_q ψ*(q) < ∞, λ(𝒦) = 0; (b) if Σ_q ψ*(q) = ∞, λ(𝒦) = 1.",
+      "hypotheses": [
+        "ψ* takes values in [0,∞]: the supremum may be infinite, and then the series is ∞."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-theorem",
+        "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-convergence",
+        "ProbabilisticAndMetricNumberTheory:PM.3/catlin-reduction",
+        "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets"
+      ],
+      "proofSteps": [
+        "Case 1: ψ(qᵢ) ≥ 1/2 for infinitely many qᵢ. Pass to a subsequence with q_{i+1} ≥ 2qᵢ²; then 𝒦_{qᵢ} = [0,1], so 𝒦 = [0,1], and Σ_{q_{i−1}<q≤qᵢ} ψ*(q) ≥ (1/(2qᵢ))(Σ_{q|qᵢ} φ(q) − Σ_{q≤q_{i−1}} φ(q)) ≥ 1/4 (2.1), so Σψ* = ∞.",
+        "Case 2: finitely many q have ψ(q) ≥ 1/2. Replacing ψ by min{ψ, 1/2} changes neither 𝒦 nor the convergence of Σψ*, so assume ψ ≤ 1/2; the supremum is a maximum, and ψ*(q) = φ(q)ξ(q)/q with ξ as in the Catlin reduction.",
+        "By the reduction, λ(𝒦) = λ(𝒞). Now (a) is the convergence half for ξ and (b) is Theorem 1 for ξ."
+      ],
+      "acceptance": [
+        "For qψ(q) decreasing, ψ*(q) = φ(q)ψ(q)/q, and the theorem becomes the Duffin–Schaeffer dichotomy for ψ; with the series comparison it contains Khinchin's theorem."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Theorems",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "catlin"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§1, Theorem 2, p. 253",
+          "match": "The theorem."
+        },
+        {
+          "sourceId": "KM-2020",
+          "locator": "§2, pp. 256–258",
+          "match": "The deduction from Theorem 1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Catlin's conjecture"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/decreasing-series-comparison",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Totient weights do not change divergence for decreasing ψ",
+      "kind": "lemma",
+      "statement": "If ψ ≥ 0 is decreasing and Σ_q ψ(q) = ∞, then Σ_q φ(q)ψ(q)/q = ∞.",
+      "hypotheses": [
+        "Worker-derived: the source notes that Khinchin's theorem and the Duffin–Schaeffer conjecture agree for qψ(q) decreasing (Walfisz), which is the use made here."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.totient",
+        "mathlib:ArithmeticFunction.moebius",
+        "mathlib:hasSum_zeta_two"
+      ],
+      "proofSteps": [
+        "Φ(x) = Σ_{n≤x} φ(n)/n = Σ_{d≤x} μ(d)/d·⌊x/d⌋ ≥ x Σ_{d≤x} μ(d)/d² − Σ_{d≤x} 1/d ≥ (2 − ζ(2))x − 1 − log x, using φ(n)/n = Σ_{d|n} μ(d)/d and |Σ_{d≥2} μ(d)/d²| ≤ ζ(2) − 1 < 1. So Φ(x) ≥ x/4 for x ≥ x₀.",
+        "Abel summation with ψ decreasing: Σ_{q≤N} φ(q)ψ(q)/q = Σ_{q<N} (ψ(q) − ψ(q+1))Φ(q) + ψ(N)Φ(N) ≥ (1/4)Σ_{x₀≤q≤N} ψ(q) − O(1)."
+      ],
+      "acceptance": [
+        "ψ(q) = 1/(q log q) (q ≥ 2): both series diverge.",
+        "Without monotonicity the implication can fail, because φ(q)/q can be small on the support of ψ; this is why Duffin and Schaeffer passed to reduced fractions (p. 252)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Theorems",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "not_summable_totient_mul_of_antitone"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§1, p. 253",
+          "match": "The context; the comparison lemma itself is a worker derivation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/khinchin-theorem",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Khinchin's theorem",
+      "kind": "theorem",
+      "statement": "Let ψ: ℕ → [0,∞) with (qψ(q)) decreasing, and 𝒦 the set of α ∈ [0,1] for which |α − a/q| ≤ ψ(q)/q has infinitely many solutions (a,q) with 0 ≤ a ≤ q. (a) If Σψ(q) < ∞ then λ(𝒦) = 0. (b) If Σψ(q) = ∞ then λ(𝒦) = 1.",
+      "hypotheses": [
+        "(a) holds without monotonicity."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/catlin-theorem",
+        "ProbabilisticAndMetricNumberTheory:PM.3/decreasing-series-comparison",
+        "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets",
+        "mathlib:MeasureTheory.measure_limsup_atTop_eq_zero"
+      ],
+      "proofSteps": [
+        "(a): λ(𝒦_q) ≤ 2 min{ψ(q), 1/2} ≤ 2ψ(q); Borel–Cantelli.",
+        "(b): qψ(q) decreasing makes ψ(n)/n decreasing, so ψ*(q) = φ(q)ψ(q)/q. ψ is decreasing, so by the series comparison Σψ* = ∞, and Catlin's theorem (b) gives λ(𝒦) = 1."
+      ],
+      "acceptance": [
+        "ψ(q) = 1/(q log q): λ(𝒦) = 1. ψ(q) = 1/(q (log q)²): λ(𝒦) = 0.",
+        "This route replaces Khinchin's 1924 proof by the Koukoulopoulos–Maynard theorem, as the source notes (p. 253); Mathlib has only the Liouville-type special case of (a) (library audit)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Theorems",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "khinchin"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§1, Khinchin's theorem, p. 252",
+          "match": "The statement as the source gives it; the proof here goes through Theorem 2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Khinchin's theorem"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/second-moment-union-bound",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Second-moment lower bound for a finite union",
+      "kind": "lemma",
+      "statement": "For measurable sets A_i of finite measure and a finite index set s, (Σ_{i∈s} λ(A_i))² ≤ λ(⋃_{i∈s} A_i)·Σ_{i,j∈s} λ(A_i ∩ A_j).",
+      "hypotheses": [
+        "A general measure-theoretic inequality (Chung–Erdős form)."
+      ],
+      "prerequisites": [
+        "mathlib:MeasureTheory.lintegral_indicator",
+        "mathlib:ENNReal.lintegral_mul_le_Lp_mul_Lq"
+      ],
+      "proofSteps": [
+        "Let Q = Σ_i 1_{A_i}. Then ∫Q = Σλ(A_i), ∫Q² = Σ_{i,j} λ(A_i ∩ A_j), and Q vanishes off ⋃A_i.",
+        "Cauchy–Schwarz: (∫Q·1_{⋃A_i})² ≤ λ(⋃A_i)∫Q²."
+      ],
+      "acceptance": [
+        "Pairwise disjoint sets give equality."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/SecondMoment",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "sq_sum_volume_le"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§5, proof of Theorem 1, p. 266",
+          "match": "The inequality in the source's application."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-large-values",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Duffin–Schaeffer when ψ takes only large values (Lemma 5.2)",
+      "kind": "lemma",
+      "statement": "Let ψ: ℕ → ℝ_{≥0} with ψ(q) = 0 or ψ(q) ≥ 1/2 for every q, and Σψ(q)φ(q)/q = ∞. Then λ(𝒜) = 1.",
+      "hypotheses": [
+        "Imported: the source cites Pollington–Vaughan, Theorem 2, which was not read (gap)."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets"
+      ],
+      "proofSteps": [
+        "Pollington–Vaughan, Mathematika 37 (1990), Theorem 2; the proof is not decomposed here (gap 'Imported inputs of the Duffin–Schaeffer proof')."
+      ],
+      "acceptance": [
+        "It is only used for the part ψ₁ = ψ·𝟙_{ψ>1/2} in the proof of Theorem 1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/SecondMoment",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "volume_dsLimsup_eq_one_of_large"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§5, Lemma 5.2, p. 264",
+          "match": "The statement; the proof is cited."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/overlap-estimate",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Overlap estimate for 𝒜_q ∩ 𝒜_r (Lemma 5.3, corrected)",
+      "kind": "lemma",
+      "statement": "Let ψ: ℕ → [0,1/2] and M(q,r) = max{rψ(q), qψ(r)}. For q ≠ r, λ(𝒜_q ∩ 𝒜_r) ≪ λ(𝒜_q)λ(𝒜_r)·𝟙_{2M(q,r) ≥ gcd(q,r)}·∏_{p | qr/gcd(q,r)², p > M(q,r)/gcd(q,r)} (1 + 1/p). The printed indicator is 𝟙_{M(q,r) ≥ gcd(q,r)} (E10).",
+      "hypotheses": [
+        "Imported: the source cites Pollington–Vaughan, pp. 195–196, which was not read (gap).",
+        "The indicator: distinct reduced fractions satisfy |a/q − b/r| ≥ gcd(q,r)/(qr), so the intervals can meet only if rψ(q) + qψ(r) ≥ gcd(q,r), which needs 2M ≥ gcd, not M ≥ gcd."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets"
+      ],
+      "proofSteps": [
+        "Pollington–Vaughan, pp. 195–196; not decomposed here (gap).",
+        "The vanishing part is elementary: if 2M(q,r) < gcd(q,r) then every pair of centres is at distance at least gcd/(qr) > ψ(q)/q + ψ(r)/r."
+      ],
+      "acceptance": [
+        "q = 2, r = 3, ψ ≡ 3/10: M = 9/10 < 1 = gcd, yet λ(𝒜_2 ∩ 𝒜_3) = 1/6 (exact computation), so the printed indicator is wrong; the corrected indicator is 1 here.",
+        "The proof of Theorem 1 is unaffected: it only restricts the sum (5.7), and pairs with gcd/2 ≤ M < gcd lie in the sets ℰ_t used later."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/SecondMoment",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "volume_dsSet_inter_le"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§5, Lemma 5.3, p. 264",
+          "match": "The statement, with the indicator corrected (E10)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/second-moment-bound",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "The second-moment bound (Proposition 5.4)",
+      "kind": "lemma",
+      "statement": "Let ψ: ℕ → [0,1/2], Y ≥ X ≥ 1 with 1 ≤ Σ_{X≤q≤Y} ψ(q)φ(q)/q ≤ 2, and L_t(a,b) = Σ_{p | ab/gcd(a,b)², p ≥ t} 1/p. For t ≥ 1 let ℰ_t = {(v,w) ∈ [X,Y]² : gcd(v,w) ≥ t^{−1}M(v,w), L_t(v,w) ≥ 10}. Then Σ_{(v,w)∈ℰ_t} (φ(v)ψ(v)/v)(φ(w)ψ(w)/w) ≪ 1/t.",
+      "hypotheses": [
+        "The implied constant is absolute."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/edge-set-bound",
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph"
+      ],
+      "proofSteps": [
+        "Let μ(v) = ψ(v)φ(v)/v and 𝒱 = ℤ ∩ [X,Y], so μ(𝒱) ∈ [1,2].",
+        "The bipartite graph (𝒱, 𝒱, ℰ_t) with trivial multiplicative data is a GCD graph; Proposition 6.3 gives μ(ℰ_t) ≪ 1/t, which is the claim."
+      ],
+      "acceptance": [
+        "t = exp exp j is the case used in (5.8)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/SecondMoment",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "second_moment_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§5, Proposition 5.4, p. 265; §6, its proof from Proposition 6.3, p. 270",
+          "match": "The proposition and its translation into GCD graphs."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "GCD graph and GCD subgraph (Definitions 6.1, 6.2, 6.4)",
+      "kind": "definition",
+      "statement": "A GCD graph is G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) with μ a finite nonnegative weight on ℕ (extended to pairs by μ(𝒩) = Σ_{(n₁,n₂)∈𝒩} μ(n₁)μ(n₂)), 𝒱, 𝒲 finite sets of positive integers, ℰ ⊆ 𝒱 × 𝒲, 𝒫 a set of primes and f, g: 𝒫 → ℤ_{≥0} such that for p ∈ 𝒫: (i) p^{f(p)} | v for v ∈ 𝒱 and p^{g(p)} | w for w ∈ 𝒲; (ii) p^{min(f(p),g(p))} ∥ gcd(v,w) for (v,w) ∈ ℰ; (iii) if f(p) ≠ g(p) then p^{f(p)} ∥ v for all v ∈ 𝒱 and p^{g(p)} ∥ w for all w ∈ 𝒲. G is non-trivial if μ(ℰ) > 0. G' ⪯ G (a GCD subgraph) if μ' = μ, 𝒱' ⊆ 𝒱, 𝒲' ⊆ 𝒲, ℰ' ⊆ ℰ, 𝒫' ⊇ 𝒫 and f', g' extend f, g.",
+      "hypotheses": [
+        "𝒫 is finite here; in the source it starts empty and grows by one prime per step, so nothing is lost.",
+        "Condition (ii) is stated with p-adic valuations: the valuation of gcd(v,w) at p is min(f(p), g(p))."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.factorization",
+        "mathlib:Nat.primeFactors"
+      ],
+      "proofSteps": [
+        "Encode G as a structure with fields for the data and the conditions (i)–(iii), with f, g: ℕ → ℕ read only on 𝒫.",
+        "Define the vertex and edge measures, non-triviality and the subgraph relation.",
+        "Lemma 6.7: transitivity and reflexivity of ⪯, and ℛ monotone along ⪯ (ℛ of PM.3/gcd-graph-quality), are immediate from the definitions; non-trivial graphs have vertex sets of positive measure."
+      ],
+      "acceptance": [
+        "The graph of Proposition 5.4 (vertex sets two copies of ℤ ∩ [X,Y], edge set ℰ_t, trivial primes) is a GCD graph."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/GCDGraph",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "GCDGraph"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§6, Definitions 6.1, 6.2 and 6.4, pp. 269–270",
+          "match": "The definitions."
+        },
+        {
+          "sourceId": "KM-2020",
+          "locator": "§6, Lemma 6.7, p. 273",
+          "match": "The basic API."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.vertexMeasure",
+          "role": "data",
+          "statement": "μ(𝒮) = Σ_{n∈𝒮} μ(n)."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.edgeMeasure",
+          "role": "data",
+          "statement": "μ(𝒩) = Σ_{(n₁,n₂)∈𝒩} μ(n₁)μ(n₂)."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.IsNontrivial",
+          "role": "data",
+          "statement": "μ(ℰ) > 0 (Definition 6.2)."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.IsSubgraph",
+          "role": "data",
+          "statement": "The relation G' ⪯ G of Definition 6.4."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.IsSubgraph.trans",
+          "role": "relation",
+          "statement": "Lemma 6.7(a): ⪯ is transitive."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.IsSubgraph.refl",
+          "role": "relation",
+          "statement": "G ⪯ G."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.R_subset_of_isSubgraph",
+          "role": "relation",
+          "statement": "Lemma 6.7(b): G' ⪯ G implies ℛ(G') ⊆ ℛ(G)."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.vertexMeasure_pos_of_isNontrivial",
+          "role": "other",
+          "statement": "Lemma 6.7(c): a non-trivial G has μ(𝒱), μ(𝒲) > 0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "edgeMeasure_single_edge",
+          "kind": "computation",
+          "statement": "With ℰ = {(2,3)} and μ ≡ 1, μ(ℰ) = 1."
+        },
+        {
+          "name": "not_isNontrivial_of_empty",
+          "kind": "degenerate",
+          "statement": "An empty edge set gives a trivial graph."
+        },
+        {
+          "name": "not_pow_succ_dvd_gcd",
+          "kind": "characterisation",
+          "statement": "For p ∈ 𝒫 and (v,w) ∈ ℰ, p^{min(f(p),g(p))+1} does not divide gcd(v,w): condition (ii) is exact divisibility, not mere divisibility."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Koukoulopoulos–Maynard §§6–14",
+          "how": "Every step of the compression argument is a GCD subgraph with more multiplicative data."
+        },
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.3/edge-set-bound",
+          "how": "Proposition 6.3 is an edge-measure bound for a GCD graph with trivial primes."
+        }
+      ],
+      "planet": {
+        "name": "GCD graph"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Edge density, ℛ(G) and the quality of a GCD graph (Definition 6.6)",
+      "kind": "definition",
+      "statement": "For a GCD graph G: the edge density δ(G) = μ(ℰ)/(μ(𝒱)μ(𝒲)) (0 if a vertex set has measure 0); the neighbourhoods Γ_G(v), Γ_G(w); ℛ(G) = {p ∉ 𝒫 : p | gcd(v,w) for some (v,w) ∈ ℰ}; ℛ♯(G) = {p ∈ ℛ(G) : ∃k with μ(𝒱_{p^k})/μ(𝒱), μ(𝒲_{p^k})/μ(𝒲) ≥ 1 − 10⁴⁰/p}, ℛ♭(G) = ℛ(G) \\ ℛ♯(G); and the quality q(G) = δ¹⁰ μ(𝒱)μ(𝒲) ∏_{p∈𝒫} p^{|f(p)−g(p)|}/((1 − 𝟙_{f(p)=g(p)≥1}/p)²(1 − p^{−31/30})¹⁰).",
+      "hypotheses": [
+        "𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}; 𝒱_{p⁰} is the set of v coprime to p.",
+        "In ℛ♯ the exponent k can be bounded by the largest vertex without changing the set."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph"
+      ],
+      "proofSteps": [
+        "Define each quantity as displayed; ℛ(G) is a finite set because ℰ is finite.",
+        "Remark after Definition 6.6: when μ(𝒱), μ(𝒲) > 0, q(G) = μ(ℰ)¹⁰/(μ(𝒱)⁹μ(𝒲)⁹)·∏_{p∈𝒫}(…).",
+        "Lemma 6.7(d): non-trivial ⟺ δ > 0 ⟺ q(G) > 0, since the product over 𝒫 is positive.",
+        "δ ≤ 1 because ℰ ⊆ 𝒱 × 𝒲 and μ ≥ 0."
+      ],
+      "acceptance": [
+        "The factor ∏(1 − p^{−31/30})^{−10} lies in [1, ζ(31/30)¹⁰]; the factor ∏(1 − 𝟙_{f=g≥1}/p)^{−2} is what the φ(q)/q weights pay for (Section 15)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/GCDGraph",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "quality"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§6, Definition 6.6 and the remark after it, pp. 271–273",
+          "match": "The definitions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.edgeDensity",
+          "role": "data",
+          "statement": "δ(G) = μ(ℰ)/(μ(𝒱)μ(𝒲)), or 0."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.nbhdV",
+          "role": "data",
+          "statement": "Γ_G(v) = {w ∈ 𝒲 : (v,w) ∈ ℰ}."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.nbhdW",
+          "role": "data",
+          "statement": "Γ_G(w) = {v ∈ 𝒱 : (v,w) ∈ ℰ}."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.R",
+          "role": "data",
+          "statement": "ℛ(G), the primes outside 𝒫 dividing the gcd of an edge."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.Vpow",
+          "role": "data",
+          "statement": "𝒱_{p^k}."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.Wpow",
+          "role": "data",
+          "statement": "𝒲_{p^k}."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.RSharp",
+          "role": "data",
+          "statement": "ℛ♯(G)."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.RFlat",
+          "role": "data",
+          "statement": "ℛ♭(G) = ℛ(G) \\ ℛ♯(G)."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.isNontrivial_iff",
+          "role": "characterisation",
+          "statement": "Lemma 6.7(d): non-trivial ⟺ δ > 0 ⟺ q > 0."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.quality_eq",
+          "role": "characterisation",
+          "statement": "q(G) = μ(ℰ)¹⁰/(μ(𝒱)⁹μ(𝒲)⁹)·∏ when μ(𝒱), μ(𝒲) > 0."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.edgeDensity_le_one",
+          "role": "other",
+          "statement": "δ(G) ≤ 1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "quality_empty_edges",
+          "kind": "degenerate",
+          "statement": "ℰ = ∅ gives q(G) = 0."
+        },
+        {
+          "name": "quality_trivial_primes",
+          "kind": "computation",
+          "statement": "With 𝒫 = ∅ and μ(𝒱), μ(𝒲) > 0, q(G) = δ⁹μ(ℰ), the identity used in the proof of Proposition 6.3."
+        },
+        {
+          "name": "R_empty_of_coprime_edges",
+          "kind": "characterisation",
+          "statement": "If every edge has coprime ends then ℛ(G) = ∅."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.3/good-gcd-subgraph",
+          "how": "The conclusions of Proposition 7.1 are stated in terms of δ, Γ, ℛ and q."
+        },
+        {
+          "where": "Koukoulopoulos–Maynard §§8–14",
+          "how": "The iteration increases or boundedly loses q while shrinking ℛ."
+        }
+      ],
+      "planet": {
+        "name": "Quality of a GCD graph"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "The special GCD subgraphs G_{p^k,p^ℓ} (Definition 6.5)",
+      "kind": "construction",
+      "statement": "For a GCD graph G, a prime p ∉ 𝒫 and k, ℓ ≥ 0, G_{p^k,p^ℓ} = (μ, 𝒱_{p^k}, 𝒲_{p^ℓ}, ℰ ∩ (𝒱_{p^k} × 𝒲_{p^ℓ}), 𝒫 ∪ {p}, f_{p^k}, g_{p^ℓ}) with f_{p^k} extending f by k at p and g_{p^ℓ} extending g by ℓ. It is a GCD subgraph of G.",
+      "hypotheses": [
+        "The source requires only p ∉ 𝒫 for the definition."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph",
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality"
+      ],
+      "proofSteps": [
+        "Check (i)–(iii) at p: p^k ∥ v on 𝒱_{p^k}, p^ℓ ∥ w on 𝒲_{p^ℓ}, and the gcd of an edge has valuation min(k,ℓ) at p. At primes of 𝒫 the conditions are inherited.",
+        "The subgraph relation and ℛ(G_{p^k,p^ℓ}) ⊆ ℛ(G) \\ {p} are immediate."
+      ],
+      "acceptance": [
+        "G_{2⁰,2⁰} keeps the odd vertices on both sides."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/GCDGraph",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "restrictPow"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§6, Definition 6.5, p. 271",
+          "match": "The construction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.restrictPow_isSubgraph",
+          "role": "relation",
+          "statement": "G_{p^k,p^ℓ} ⪯ G."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.R_restrictPow",
+          "role": "relation",
+          "statement": "ℛ(G_{p^k,p^ℓ}) ⊆ ℛ(G) \\ {p}."
+        },
+        {
+          "name": "TauCeti.DuffinSchaeffer.GCDGraph.quality_restrictPow",
+          "role": "characterisation",
+          "statement": "Lemma 11.1, promoted to the node PM.3/special-subgraph-quality-ratio."
+        }
+      ],
+      "tests": [
+        {
+          "name": "restrictPow_two_zero_zero",
+          "kind": "computation",
+          "statement": "The vertex set of G_{2⁰,2⁰} is the set of odd elements of 𝒱."
+        },
+        {
+          "name": "restrictPow_exact_valuation",
+          "kind": "characterisation",
+          "statement": "For k ≠ ℓ every vertex v of G_{p^k,p^ℓ} on the left has v_p(v) = k exactly."
+        },
+        {
+          "name": "restrictPow_quality_zero",
+          "kind": "degenerate",
+          "statement": "If 𝒱_{p^k} = ∅ then q(G_{p^k,p^ℓ}) = 0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Koukoulopoulos–Maynard §§11–14",
+          "how": "Every step that adds a prime to 𝒫 passes to some G_{p^k,p^ℓ} or a union of them."
+        },
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.3/special-subgraph-quality-ratio",
+          "how": "The quality ratio formula."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/special-subgraph-quality-ratio",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Quality ratio of G_{p^k,p^ℓ} (Lemma 11.1)",
+      "kind": "lemma",
+      "statement": "If G is non-trivial, p ∉ 𝒫 and μ(𝒱_{p^k}), μ(𝒲_{p^ℓ}) > 0, then q(G_{p^k,p^ℓ})/q(G) = (μ(ℰ_{p^k,p^ℓ})/μ(ℰ))¹⁰(μ(𝒱)/μ(𝒱_{p^k}))⁹(μ(𝒲)/μ(𝒲_{p^ℓ}))⁹·p^{|k−ℓ|}/((1 − 𝟙_{k=ℓ≥1}/p)²(1 − p^{−31/30})¹⁰).",
+      "hypotheses": [
+        "The source assumes p ∈ ℛ(G); only p ∉ 𝒫 is needed (E13)."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph",
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality"
+      ],
+      "proofSteps": [
+        "Expand both qualities by the remark after Definition 6.6; the product over 𝒫 cancels and the factor at p remains."
+      ],
+      "acceptance": [
+        "k = ℓ = 0 gives the factor (1 − p^{−31/30})^{−10} > 1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/GCDGraph",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "quality_restrictPow"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§11, Lemma 11.1, p. 288",
+          "match": "The formula."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/edge-set-bound",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Edge-set bound (Proposition 6.3)",
+      "kind": "lemma",
+      "statement": "Let ψ: ℕ → ℝ_{≥0}, t ≥ 1, μ(v) = ψ(v)φ(v)/v, and G = (μ, 𝒱, 𝒱, ℰ, ∅, f_∅, g_∅) with 0 < μ(𝒱) ≪ 1 and ℰ ⊆ ℰ_t. Then μ(ℰ) ≪ 1/t.",
+      "hypotheses": [
+        "ℰ_t as in Proposition 5.4: gcd(v,w) ≥ M(v,w)/t and L_t(v,w) ≥ 10."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/good-gcd-subgraph",
+        "ProbabilisticAndMetricNumberTheory:PM.3/few-integers-many-large-primes",
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph",
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality"
+      ],
+      "proofSteps": [
+        "If δ ≤ 1/t or t ≤ 10²⁰⁰⁰, μ(ℰ) ≤ δμ(𝒱)² ≪ 1/t. Otherwise δ ≥ 1/t, t > 10²⁰⁰⁰ and t ≥ 10δ^{−1/50}; apply Proposition 7.1 to get G'.",
+        "With a = ∏_{p∈𝒫'} p^{f'(p)}, b = ∏ p^{g'(p)}: a | v, b | w, and gcd(v,w) = gcd(a,b) on ℰ' (ℛ(G') = ∅). Then ∏p^{|f'−g'|} = ab/gcd(a,b)² and ∏(1 − 𝟙/p)^{−2} ≤ ab/(φ(a)φ(b)), so q(G') ≪ δ'⁹μ(ℰ')(ab/gcd²)(ab/φ(a)φ(b)) (7.2).",
+        "From M ≤ t·gcd on edges, ψ(v) ≤ t·gcd(a,b)/w_max(v) and ψ(w) ≤ t·gcd(a,b)/v_max(w) (7.3). Restricting to the edges ℰ'' at the largest w₀ keeps μ(ℰ'') ≥ δ'μ(ℰ')/2 by the degree conditions, and φ(v)/v ≤ φ(a)/a, so q(G') ≪ t²ab Σ_{(v,w)∈ℰ'} 1/(v_max(w)w₀) (7.6).",
+        "Case (d)(i): the sum is ≤ 1/(ab), so q(G') ≪ t², and μ(ℰ) = δ^{−9}q(G) ≪ δ^{−10}t^{−50}q(G') ≪ 1/t.",
+        "Case (d)(ii): L_t(v',w') ≥ 4 forces Σ_{p|v',p≥t} 1/p ≥ 2 or the same for w'; Lemma 7.3 with c = 2 bounds the sum by ≪ 1/(ab t² e^t), so q(G') ≪ e^{−t} and μ(ℰ) ≪ t⁹e^{−t} ≪ 1/t."
+      ],
+      "acceptance": [
+        "The φ(v)/v factor in μ is what cancels ab/(φ(a)φ(b)) in (7.2); without it the argument fails (Section 15)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "edgeMeasure_le_of_Et"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§6, Proposition 6.3, p. 269; §7, its proof, pp. 275–279",
+          "match": "The proposition and its proof from Proposition 7.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/multiplicative-function-bound",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Rankin-type bound for multiplicative functions (case of Lemma 7.2)",
+      "kind": "lemma",
+      "statement": "Let f be multiplicative with f(p^ν) = f(p) ≥ 1 for every prime p and ν ≥ 1. Then Σ_{n≤x} f(n) ≤ x·exp(Σ_{p≤x} (f(p) − 1)/p).",
+      "hypotheses": [
+        "Lemma 7.2 in the source is the general bound for 0 ≤ f ≤ τ_k, cited to Koukoulopoulos's book (Theorem 14.2), which was not read. Only this case is used (in Lemma 7.3), and it has the elementary proof below."
+      ],
+      "prerequisites": [],
+      "proofSteps": [
+        "Write f = 1 * h with h multiplicative, h(p) = f(p) − 1 ≥ 0 and h(p^ν) = 0 for ν ≥ 2.",
+        "Σ_{n≤x} f(n) = Σ_{d≤x} h(d)⌊x/d⌋ ≤ x Σ_{d≤x} h(d)/d ≤ x ∏_{p≤x}(1 + h(p)/p) ≤ x exp(Σ_{p≤x} h(p)/p)."
+      ],
+      "acceptance": [
+        "f ≡ 1 gives ⌊x⌋ ≤ x.",
+        "Lemma 7.3 uses f(p^ν) = e^{2T/p} for p ≥ T and 1 otherwise."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "sum_le_mul_exp_of_const_on_powers"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§7, Lemma 7.2, p. 274",
+          "match": "The statement; the special case and its proof are worker-derived."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/few-integers-many-large-primes",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Few integers with many large prime factors (Lemma 7.3)",
+      "kind": "lemma",
+      "statement": "For x, t ≥ 1 and c ∈ [1,10], #{n ≤ x : Σ_{p|n, p≥t} 1/p ≥ c} ≪ x·exp(−t^{e^{c−1}}), with an absolute implied constant.",
+      "hypotheses": [
+        "The exponent is t^{e^{c−1}} (checked on the page image; the text layer is ambiguous)."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/multiplicative-function-bound",
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "proofSteps": [
+        "For bounded t the claim is trivial. Put T = t^{e^{c−1}}; by Mertens' theorem (requested from AN.2) Σ_{t≤p<T} 1/p ≤ c − 1/2 for large t, so the set lies in {n ≤ x : Σ_{p|n,p≥T} 1/p ≥ 1/2} (7.1).",
+        "Rankin: that set has at most e^{−T}Σ_{n≤x} ∏_{p|n,p≥T} e^{2T/p} elements. Apply the multiplicative-function bound with f(p^ν) = e^{2T/p} for p ≥ T and 1 for p < T.",
+        "Σ_{T≤p≤x} (e^{2T/p} − 1)/p = O(Σ_{p≥T} T/p²) = O(1), so the count is ≪ x e^{−T}."
+      ],
+      "acceptance": [
+        "c = 2 gives ≪ x exp(−t^e), used in Case (d)(ii) of Proposition 6.3."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer",
+        "name": "card_many_large_prime_factors_le"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§7, Lemma 7.3 and proof, pp. 274–275",
+          "match": "The lemma and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/good-gcd-subgraph",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Existence of a good GCD subgraph (Proposition 7.1)",
+      "kind": "lemma",
+      "statement": "Let G = (μ, 𝒱, 𝒲, ℰ, ∅, f_∅, g_∅) have edge density δ > 0, ℰ ⊆ {L_t ≥ 10}, t ≥ 10δ^{−1/50} and t > 10²⁰⁰⁰. Then there is G' ⪯ G with δ' > 0, ℛ(G') = ∅, μ(Γ_{G'}(v)) ≥ (9δ'/10)μ(𝒲') for v ∈ 𝒱', μ(Γ_{G'}(w)) ≥ (9δ'/10)μ(𝒱') for w ∈ 𝒲', and either (i) q(G') ≫ δt⁵⁰q(G), or (ii) q(G') ≫ q(G) and L_t(v',w') ≥ 4 for every edge, where v = v'∏_{p∈𝒫'}p^{f'(p)}, w = w'∏ p^{g'(p)}.",
+      "hypotheses": [
+        "The implied constants are absolute (explicitly, powers of 10^{10^{3000}})."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/iteration-flat-primes",
+        "ProbabilisticAndMetricNumberTheory:PM.3/iteration-sharp-primes",
+        "ProbabilisticAndMetricNumberTheory:PM.3/iteration-small-primes",
+        "ProbabilisticAndMetricNumberTheory:PM.3/remove-R-from-anatomy",
+        "ProbabilisticAndMetricNumberTheory:PM.3/high-degree-subgraph",
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality",
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph"
+      ],
+      "proofSteps": [
+        "It suffices to get (a) and (d); Lemma 8.5 then adds the degree conditions without changing 𝒫 or ℛ = ∅.",
+        "Stage 1: Proposition 8.3 gives G⁽¹⁾ with ℛ(G⁽¹⁾) ⊆ {p > 10²⁰⁰⁰} and q, δq losing at most 10^{10^{3000}} (8.1).",
+        "Stage 2: iterate Proposition 8.1 while ℛ♭ ≠ ∅ (ℛ strictly shrinks) to reach G⁽²⁾ with ℛ♭(G⁽²⁾) = ∅, gaining 2^N, N = #{p ∈ 𝒫⁽²⁾ \\ 𝒫⁽¹⁾ : f ≠ g} (8.3).",
+        "Case (a), q(G⁽²⁾)/q(G) ≥ (t/10)⁵⁰δ/10^{10^{3000}}: iterate Proposition 8.1 or 8.2 until ℛ = ∅; the quality never drops, giving (d)(i).",
+        "Case (b): δ⁽²⁾ ≥ (10/t)⁵⁰ and 2^N ≤ t⁵⁰. Lemma 8.4 gives G⁽³ᵇ⁾ with 𝒫 unchanged, q ≥ q/2, and Σ_{p | vw/gcd², p≥t, p∉ℛ(G⁽²⁾)} 1/p ≥ 5 (8.8). The primes of 𝒫⁽²⁾ with f ≠ g contribute at most N/t < 1, giving (8.10).",
+        "Stage 4b: iterate Propositions 8.1/8.2 to reach ℛ = ∅. Every prime p with p | vw/gcd² but p ∤ v'w' lies in 𝒫_diff⁽²⁾ ∪ ℛ(G⁽²⁾), so (8.10) gives L_t(v',w') ≥ 4, which is (d)(ii)."
+      ],
+      "acceptance": [
+        "The iteration terminates because ℛ strictly decreases and is finite."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "exists_good_subgraph"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§7, Proposition 7.1, p. 273; §8, its proof, pp. 280–284",
+          "match": "The proposition and its proof from Propositions 8.1–8.3 and Lemmas 8.4–8.5."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/iteration-flat-primes",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Iteration when ℛ♭(G) ≠ ∅ (Proposition 8.1)",
+      "kind": "lemma",
+      "statement": "If δ > 0, ℛ(G) ⊆ {p > 10²⁰⁰⁰} and ℛ♭(G) ≠ ∅, there is G' ⪯ G with δ' > 0, 𝒫 ⊊ 𝒫' ⊆ 𝒫 ∪ ℛ(G), ℛ(G') ⊊ ℛ(G) and min{1, δ'/δ}·q(G')/q(G) ≥ 2^N, N = #{p ∈ 𝒫' \\ 𝒫 : f'(p) ≠ g'(p)}.",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/large-prime-increment"
+      ],
+      "proofSteps": [
+        "Pick p ∈ ℛ♭(G); then p > 10²⁰⁰⁰ > 10⁴⁰. Conclusion (b) of Lemma 12.2 contradicts p ∉ ℛ♯(G), so conclusion (a) holds, with N = 𝟙_{f'(p)≠g'(p)}."
+      ],
+      "acceptance": [
+        "Only one prime is added per step."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "exists_subgraph_of_RFlat_nonempty"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§8, Proposition 8.1, p. 279; §12, proof, p. 295",
+          "match": "The proposition and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/iteration-sharp-primes",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Iteration when ℛ♭(G) = ∅ (Proposition 8.2)",
+      "kind": "lemma",
+      "statement": "If δ > 0, ℛ(G) ⊆ {p > 10²⁰⁰⁰}, ℛ♭(G) = ∅ and ℛ♯(G) ≠ ∅, there is G' ⪯ G with 𝒫 ⊊ 𝒫' ⊆ 𝒫 ∪ ℛ(G), ℛ(G') ⊊ ℛ(G) and q(G') ≥ q(G).",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/sharp-prime-increment"
+      ],
+      "proofSteps": [
+        "Any p ∈ ℛ(G) exceeds 10²⁰⁰⁰; apply Lemma 14.1."
+      ],
+      "acceptance": [
+        "The quality does not decrease; there is no increment."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "exists_subgraph_of_RFlat_empty"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§8, Proposition 8.2, p. 279; §14, proof, p. 304",
+          "match": "The proposition and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/iteration-small-primes",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Bounded quality loss for small primes (Proposition 8.3)",
+      "kind": "lemma",
+      "statement": "If G has trivial primes and δ > 0, there is G' ⪯ G with δ' > 0, 𝒫' ⊆ {p ≤ 10²⁰⁰⁰}, ℛ(G') ⊆ {p > 10²⁰⁰⁰} and min{1, δ'/δ}·q(G')/q(G) ≥ 10^{−10^{3000}}.",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/add-small-prime"
+      ],
+      "proofSteps": [
+        "If ℛ(G) has no prime ≤ 10²⁰⁰⁰, take G' = G. Otherwise apply Lemma 13.2 to such primes repeatedly; each step removes one small prime from ℛ and loses at most 10⁵⁰ in q and δq (13.3).",
+        "At most 10²⁰⁰⁰ steps occur, and (10⁵⁰)^{10²⁰⁰⁰} ≤ 10^{10^{3000}}."
+      ],
+      "acceptance": [
+        "The loss is enormous but independent of G and t."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "exists_subgraph_small_primes"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§8, Proposition 8.3, p. 279; §13, proof, pp. 299–300",
+          "match": "The proposition and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/remove-R-from-anatomy",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Removing the effect of ℛ(G) from L_t (Lemma 8.4)",
+      "kind": "lemma",
+      "statement": "Let t ≥ 300, ℛ♭(G) = ∅, δ ≥ (10/t)⁵⁰ and ℰ ⊆ {L_t ≥ 10}. Then there is G' = (μ, 𝒱, 𝒲, ℰ', 𝒫, f, g) ⪯ G with q(G') ≥ q(G)/2 > 0 and Σ_{p | vw/gcd(v,w)², p ≥ t, p ∉ ℛ(G)} 1/p ≥ 5 for every (v,w) ∈ ℰ'.",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality",
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "proofSteps": [
+        "Let S(v,w) = Σ_{p | vw/gcd², p ∈ ℛ(G), p ≥ t⁵⁰} 1/p. Every p ∈ ℛ(G) is in ℛ♯(G), so a p dividing vw/gcd² separates the two sides of a dominant class p^k, and μ{(v,w) ∈ ℰ : p | vw/gcd²} ≤ 2·10⁴⁰μ(𝒱)μ(𝒲)/p.",
+        "Hence Σ_ℰ μ(v)μ(w)S(v,w) ≤ 2·10⁴⁰μ(𝒱)μ(𝒲)/t⁵⁰ < μ(ℰ)/100, using δ ≥ (10/t)⁵⁰. Keep ℰ' = {S ≤ 1}: μ(ℰ') ≥ 0.99μ(ℰ) and q(G')/q(G) = (μ(ℰ')/μ(ℰ))¹⁰ ≥ 1/2.",
+        "Σ_{t≤p≤t⁵⁰} 1/p ≤ log 50 + 1/(log t)² ≤ 4 for t ≥ 300 (Rosser–Schoenfeld Theorem 5, requested from AN.2). So the primes of ℛ(G) contribute at most 5 to L_t on ℰ', leaving at least 5."
+      ],
+      "acceptance": [
+        "In the application t > 10²⁰⁰⁰, so any effective form of Mertens' second theorem suffices."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "exists_subgraph_remove_R"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§8, Lemma 8.4, p. 280; §9, proof, pp. 285–286",
+          "match": "The lemma and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/high-degree-subgraph",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Subgraph with high-degree vertices (Lemma 8.5)",
+      "kind": "lemma",
+      "statement": "If δ > 0, there is G' = (μ, 𝒱', 𝒲', ℰ', 𝒫, f, g) ⪯ G with δ' ≥ δ, q(G') ≥ q(G), and μ(Γ_{G'}(v)) ≥ (9δ'/10)μ(𝒲'), μ(Γ_{G'}(w)) ≥ (9δ'/10)μ(𝒱') for all vertices.",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/degree-or-increment"
+      ],
+      "proofSteps": [
+        "Apply Lemma 10.1 repeatedly; each application removes a vertex without lowering δ or q, so the process stops, at a graph satisfying the degree conditions."
+      ],
+      "acceptance": [
+        "The multiplicative data never change."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "exists_high_degree_subgraph"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§8, Lemma 8.5, p. 280; §10, proof, p. 287",
+          "match": "The lemma and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/degree-or-increment",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "High degree or a quality increment (Lemma 10.1)",
+      "kind": "lemma",
+      "statement": "If δ > 0, either every vertex has μ(Γ(v)) ≥ (9δ/10)μ(𝒲) and μ(Γ(w)) ≥ (9δ/10)μ(𝒱), or there is G' ⪯ G with the same multiplicative data, δ' ≥ δ, q(G') ≥ q(G), and 𝒱' ⊊ 𝒱 or 𝒲' ⊊ 𝒲.",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality"
+      ],
+      "proofSteps": [
+        "If v has μ(Γ(v)) < (9δ/10)μ(𝒲), delete v: μ(ℰ') = μ(ℰ) − μ(v)μ(Γ(v)) > μ(ℰ)/10 > 0.",
+        "δ' ≥ δ(1 + (μ(v)/10)/(μ(𝒱) − μ(v))), and by Bernoulli (δ')¹⁰μ(𝒱 \\ {v})μ(𝒲) ≥ δ¹⁰μ(𝒱)μ(𝒲), so q(G') ≥ q(G). The case of w is symmetric."
+      ],
+      "acceptance": [
+        "Deleting a vertex of zero weight changes nothing."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "high_degree_or_increment"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§10, Lemma 10.1 and proof, pp. 286–287",
+          "match": "The lemma and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/partition-pigeonhole",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "One part has limited quality loss (Lemma 11.2)",
+      "kind": "lemma",
+      "statement": "If δ > 0 and 𝒱 = 𝒱₁ ⊔ … ⊔ 𝒱_I, 𝒲 = 𝒲₁ ⊔ … ⊔ 𝒲_J, there are i, j such that G' = (μ, 𝒱ᵢ, 𝒲ⱼ, ℰ ∩ (𝒱ᵢ × 𝒲ⱼ), 𝒫, f, g) has δ' ≥ δ/(IJ) > 0 and q(G') ≥ q(G)/(IJ)¹⁰.",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality"
+      ],
+      "proofSteps": [
+        "Pigeonhole: some ℰ_{i,j} has μ(ℰ_{i,j}) ≥ μ(ℰ)/(IJ).",
+        "δ'/δ ≥ μ(ℰ_{i,j})/μ(ℰ) and q'/q ≥ (μ(ℰ_{i,j})/μ(ℰ))¹⁰, because the vertex ratios are at least 1."
+      ],
+      "acceptance": [
+        "I = J = 1 returns G."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "exists_part_subgraph"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§11, Lemma 11.2 and proof, p. 288",
+          "match": "The lemma and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/unbalanced-sets-few-edges",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Few edges between unbalanced sets (Lemmas 11.3 and 11.4)",
+      "kind": "lemma",
+      "statement": "Let δ > 0, p ∉ 𝒫 prime, r ≥ 1, k ≥ 0 with p^r > 10²⁰⁰⁰ and μ(𝒲_{p^k}) ≥ (1 − 10⁴⁰/p)μ(𝒲), and L_{k,r} = {ℓ : |ℓ − k| ≥ r + 1}. Then either (a) some ℓ ∈ L_{k,r} has q(G_{p^k,p^ℓ}) > 2q(G) and δ_{p^k,p^ℓ}q(G_{p^k,p^ℓ}) > 2δq(G), or (b) Σ_{ℓ∈L_{k,r}} μ(ℰ_{p^k,p^ℓ}) ≤ μ(ℰ)/(4p^{31/30}). Lemma 11.4 is the same with the roles of 𝒱 and 𝒲 exchanged.",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.",
+        "The source assumes p ∈ ℛ(G); p ∉ 𝒫 suffices (E13)."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/special-subgraph-quality-ratio"
+      ],
+      "proofSteps": [
+        "If (b) fails, some ℓ ∈ L_{k,r} has μ(ℰ_{p^k,p^ℓ}) > μ(ℰ)/(300·2^{|k−ℓ|/20}p^{31/30}), since Σ_j 2^{−|j|/20} ≤ 60.",
+        "μ(𝒲_{p^ℓ}) ≤ 10⁴⁰μ(𝒲)/p. By Lemma 11.1, q(G_{p^k,p^ℓ})/q(G) ≥ p^{−4/3}(p/2^{1/2})^{|k−ℓ|}/10³⁸⁵ ≥ p^{r/3}/(2^{4/3}·10³⁸⁵) > 2, using |k−ℓ| ≥ r + 1 ≥ 2r/3 + 4/3 and p^r > 10²⁰⁰⁰.",
+        "Likewise (δ'/δ)(q'/q) ≥ p^{−41/30}(p/2^{11/20})^{|k−ℓ|}/10⁴²⁸ ≥ (p^{9/20})^{19r/30}/(2^{41·11/600}·10⁴²⁸) > 2."
+      ],
+      "acceptance": [
+        "If p ≤ 10⁴⁰ the density hypothesis is vacuous."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "restrictPow_increment_or_few_edges"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§11, Lemmas 11.3 and 11.4, pp. 288–290",
+          "match": "The lemmas and the proof of 11.3."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/small-sets-few-edges",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Few edges between small sets (Lemma 11.5)",
+      "kind": "lemma",
+      "statement": "Let δ > 0 and η ∈ (0,1). Either every A ⊆ 𝒱, B ⊆ 𝒲 with μ(A) ≤ ημ(𝒱), μ(B) ≤ ημ(𝒲) has μ(ℰ ∩ (A × B)) ≤ η^{9/5}μ(ℰ), or there is G' ⪯ G with the same multiplicative data, q(G') > q(G), 𝒱' ⊊ 𝒱 and 𝒲' ⊊ 𝒲.",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality"
+      ],
+      "proofSteps": [
+        "If A, B violate the bound, G' = (μ, A, B, ℰ ∩ (A × B), 𝒫, f, g) is non-trivial, A ⊊ 𝒱 and B ⊊ 𝒲 (η < 1), and q(G')/q(G) > (η^{9/5})¹⁰/(η⁹η⁹) = 1."
+      ],
+      "acceptance": [
+        "The exponent 9/5 balances 10 against 9 + 9."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "few_edges_small_sets_or_increment"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§11, Lemma 11.5 and proof, p. 290",
+          "match": "The lemma and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/small-sets-subgraph",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Subgraph with few edges between small sets (Lemma 11.6)",
+      "kind": "lemma",
+      "statement": "Let δ > 0 and η ∈ (0,1). There is G' ⪯ G with the same multiplicative data, δ' > 0, q(G') ≥ q(G), and μ(ℰ' ∩ (A × B)) ≤ η^{9/5}μ(ℰ') whenever μ(A) ≤ ημ(𝒱'), μ(B) ≤ ημ(𝒲').",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/small-sets-few-edges"
+      ],
+      "proofSteps": [
+        "Iterate Lemma 11.5; the vertex sets strictly shrink, so the process stops, and the quality strictly increases along the way."
+      ],
+      "acceptance": [
+        "Used in Lemma 14.1 with η = 10⁴⁰/p."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "exists_subgraph_few_edges_small_sets"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§11, Lemma 11.6 and proof, pp. 291",
+          "match": "The lemma and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/edge-distribution-bound",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Some pair of prime-power classes carries many edges (Lemma 12.1)",
+      "kind": "lemma",
+      "statement": "Let p ∉ 𝒫 be prime, α_k = μ(𝒱_{p^k})/μ(𝒱), β_ℓ = μ(𝒲_{p^ℓ})/μ(𝒲). There are k, ℓ with α_k, β_ℓ > 0 and μ(ℰ_{p^k,p^ℓ})/μ(ℰ) ≥ (α_kβ_k)^{9/10} if k = ℓ, and ≥ (α_k(1−β_k) + β_k(1−α_k) + α_ℓ(1−β_ℓ) + β_ℓ(1−α_ℓ))/(2^{|k−ℓ|/20}·1000) if k ≠ ℓ.",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.",
+        "The source assumes p ∈ ℛ(G); p ∉ 𝒫 suffices (E13)."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph"
+      ],
+      "proofSteps": [
+        "Otherwise 1 = Σ_{(k,ℓ)} μ(ℰ_{p^k,p^ℓ})/μ(ℰ) < S₁ + S₂ with S₁ = Σ(α_kβ_k)^{9/10} and S₂ the off-diagonal sum.",
+        "Σ_{|j|≥1} 2^{−|j|/20} ≤ 100 gives S₂ ≤ (2/5)Σ_{k≠ℓ}α_kβ_ℓ ≤ (2/5)(1 − γ), γ = max α_kβ_k. Cauchy–Schwarz gives S₁ ≤ γ^{2/5}.",
+        "x^{2/5} + 2(1−x)/5 ≤ 1 on [0,1], a contradiction."
+      ],
+      "acceptance": [
+        "If all vertices have the same p-valuation k, the lemma returns (k,k) with the full edge set."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "exists_heavy_restriction"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§12, Lemma 12.1 and proof, pp. 291–293",
+          "match": "The lemma and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/large-prime-increment",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Quality increment unless a prime power divides almost all (Lemma 12.2)",
+      "kind": "lemma",
+      "statement": "Let δ > 0 and p ∉ 𝒫 a prime with p > 10⁴⁰. Either (a) some G' = G_{p^k,p^ℓ} has δ' > 0 and min{1, δ'/δ}·q(G')/q(G) ≥ 2^{𝟙_{k≠ℓ}}, or (b) some k has μ(𝒱_{p^k}) ≥ (1 − 10⁴⁰/p)μ(𝒱) and μ(𝒲_{p^k}) ≥ (1 − 10⁴⁰/p)μ(𝒲).",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.",
+        "The source assumes p ∈ ℛ(G); p ∉ 𝒫 suffices (E13). In case (a), 𝒫' = 𝒫 ∪ {p} and ℛ(G') ⊆ ℛ(G) \\ {p}."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/edge-distribution-bound",
+        "ProbabilisticAndMetricNumberTheory:PM.3/special-subgraph-quality-ratio"
+      ],
+      "proofSteps": [
+        "Take k, ℓ from Lemma 12.1. If k = ℓ, Lemma 11.1 gives q'/q ≥ 1 and δ'/δ ≥ (α_kβ_k)^{−1/10} ≥ 1.",
+        "If k ≠ ℓ, with S = α_k(1−β_k) + β_k(1−α_k) + α_ℓ(1−β_ℓ) + β_ℓ(1−α_ℓ) ≥ α_kβ_ℓ: min{q'/q, (δ'/δ)(q'/q)} ≥ S²/(1000¹¹α_kβ_ℓ)·(p/2^{11/20})^{|k−ℓ|} (12.3).",
+        "If (a) fails, S ≤ 10³⁴/p ≤ 1/5, and S ≥ (α_k + β_ℓ)(1 − max{α_ℓ, β_k}) with AM–GM gives max{α_ℓ, β_k} ≥ 1/2. If β_k ≥ 1/2 then 1 − α_k ≤ 2S and then 1 − β_k ≤ 2S, both ≤ 10⁴⁰/p; the other case is symmetric."
+      ],
+      "acceptance": [
+        "Case (b) is exactly p ∈ ℛ♯ when p ∈ ℛ(G)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "restrictPow_increment_or_concentrated"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§12, Lemma 12.2 and proof, pp. 293–295",
+          "match": "The lemma and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/any-prime-bounded-loss",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Small quality loss or a dominant prime power (Lemma 13.1)",
+      "kind": "lemma",
+      "statement": "Let δ > 0 and p ∉ 𝒫 prime. Either (a) some G' = G_{p^k,p^ℓ} has δ' > 0 and min{1, δ'/δ}·q(G')/q(G) ≥ 10^{−40}, or (b) some k has μ(𝒱_{p^k}) ≥ (9/10)μ(𝒱) and μ(𝒲_{p^k}) ≥ (9/10)μ(𝒲).",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5.",
+        "The source assumes p ∈ ℛ(G); p ∉ 𝒫 suffices (E13)."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/edge-distribution-bound",
+        "ProbabilisticAndMetricNumberTheory:PM.3/special-subgraph-quality-ratio"
+      ],
+      "proofSteps": [
+        "Proceed as in Lemma 12.2 up to (12.3), which does not use the size of p. If k = ℓ, (a) holds.",
+        "If k ≠ ℓ and (a) fails, S ≤ S²/(α_kβ_ℓ) ≤ 10^{−7}, so max{α_ℓ, β_k} ≥ 9/10; if β_k ≥ 9/10 then 1 − α_k ≤ 2S, so α_k ≥ 9/10. The other case is symmetric."
+      ],
+      "acceptance": [
+        "No lower bound on p is needed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "restrictPow_bounded_loss_or_concentrated"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§13, Lemma 13.1 and proof, p. 296",
+          "match": "The lemma and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/add-small-prime",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Adding a small prime to 𝒫 (Lemma 13.2)",
+      "kind": "lemma",
+      "statement": "Let δ > 0 and p ∈ ℛ(G) with p ≤ 10²⁰⁰⁰. There is G' ⪯ G with 𝒫' = 𝒫 ∪ {p}, ℛ(G') ⊆ ℛ(G) \\ {p}, δ' > 0 and min{1, δ'/δ}·q(G')/q(G) ≥ 10^{−50}.",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/degree-or-increment",
+        "ProbabilisticAndMetricNumberTheory:PM.3/any-prime-bounded-loss",
+        "ProbabilisticAndMetricNumberTheory:PM.3/large-prime-increment",
+        "ProbabilisticAndMetricNumberTheory:PM.3/unbalanced-sets-few-edges",
+        "ProbabilisticAndMetricNumberTheory:PM.3/partition-pigeonhole",
+        "ProbabilisticAndMetricNumberTheory:PM.3/special-subgraph-quality-ratio"
+      ],
+      "proofSteps": [
+        "Apply Lemma 10.1 until every v has μ(Γ(v)) ≥ (9δ⁽¹⁾/10)μ(𝒲⁽¹⁾); δ and q do not drop. (p may leave ℛ(G⁽¹⁾); the lemmas below need only p ∉ 𝒫, E13.)",
+        "Lemma 13.1: (a) finishes; otherwise some k has both classes of density ≥ 9/10. If p > 10⁴¹, Lemma 12.2 either finishes or gives a class of density ≥ 1 − 10⁴⁰/p, which must be the same k (13.2).",
+        "Fix r ≤ 6644 with p^r > 10²⁰⁰⁰ and apply Lemma 11.3: (a) finishes; (b) leaves at most μ(ℰ)/4 on classes |ℓ − k| > r. Restricting to 𝒱_{p^k} and the classes |ℓ − k| ≤ r keeps at least 56% of the edges, so δ and q lose at most 2 and 2¹⁰.",
+        "Lemma 11.2 on the at most 2·6644 + 1 ≤ 15000 classes gives some ℓ with q ≥ q/(15000¹⁰·2¹⁰) ≥ q/10⁵⁰ and δq ≥ δq/10⁵⁰; G_{p^k,p^ℓ} has at least this quality."
+      ],
+      "acceptance": [
+        "2^{6644} > 10²⁰⁰⁰, so r ≤ 6644 exists for every prime."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "exists_subgraph_add_small_prime"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§13, Lemma 13.2 and proof, pp. 297–299",
+          "match": "The lemma and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.3/sharp-prime-increment",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "title": "Quality increment even when a prime power divides almost all (Lemma 14.1)",
+      "kind": "lemma",
+      "statement": "Let δ > 0 and p ∈ ℛ(G) with p ≥ 10²⁰⁰⁰. There is G' ⪯ G with 𝒫' = 𝒫 ∪ {p}, ℛ(G') ⊆ ℛ(G) \\ {p} and q(G') ≥ q(G) > 0.",
+      "hypotheses": [
+        "G = (μ, 𝒱, 𝒲, ℰ, 𝒫, f, g) is a GCD graph (PM.3/gcd-graph) with edge density δ; μ(ℰ) = Σ_{(v,w)∈ℰ} μ(v)μ(w), 𝒱_{p^k} = {v ∈ 𝒱 : p^k ∥ v}, and G_{p^k,p^ℓ} is the special subgraph of Definition 6.5."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/small-sets-subgraph",
+        "ProbabilisticAndMetricNumberTheory:PM.3/large-prime-increment",
+        "ProbabilisticAndMetricNumberTheory:PM.3/unbalanced-sets-few-edges",
+        "ProbabilisticAndMetricNumberTheory:PM.3/special-subgraph-quality-ratio"
+      ],
+      "proofSteps": [
+        "By Lemma 11.6 with η = 10⁴⁰/p assume few edges between small sets (14.1); p may leave ℛ, which does not matter (E13). Lemma 12.2 either finishes or gives k with both classes of density ≥ 1 − 10⁴⁰/p.",
+        "Lemmas 11.3 and 11.4 with r = 1 either finish or bound the edges from class k to classes at distance ≥ 2 by μ(ℰ)/(4p^{31/30}) (14.3)–(14.4). With (14.2), the edge set ℰ* = ℰ(𝒱_{p^k}, 𝒲̃_{p^k}) ∪ ℰ(𝒱̃_{p^k}, 𝒲_{p^k}) keeps a proportion (1 − p^{−31/30})^{2/3}, so q(G*) ≥ (1 − p^{−31/30})^{20/3}q(G) (14.5).",
+        "Split ℰ* into G⁺ (classes k, k+1 with f(p) = g(p) = k) and G_{p^k,p^{k−1}}, G_{p^{k−1},p^k}. If k = 0 then q(G⁺) ≥ q(G*)/(1 − p^{−31/30})¹⁰ ≥ q(G); the source writes equality here (E12).",
+        "If k ≥ 1, write the (k−1)-classes as densities A/p, B/p with A, B ≤ 10⁴⁰. One of (14.13)–(14.15) holds because S < 1 (using 1 − x ≤ e^{−x} ≤ 1 − x + x²/2 and the weighted AM–GM (9A + 1)/10 ≥ A^{9/10}); the corresponding graph among G⁺, G_{p^k,p^{k−1}}, G_{p^{k−1},p^k} has q ≥ q(G). The source prints k+1 for k−1 here (E14)."
+      ],
+      "acceptance": [
+        "The factor (1 − 𝟙_{f=g≥1}/p)^{−2} in the quality is what makes G⁺ gain when k ≥ 1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/DuffinSchaeffer/Iteration",
+        "namespace": "TauCeti.DuffinSchaeffer.GCDGraph",
+        "name": "exists_subgraph_add_large_prime"
+      },
+      "sources": [
+        {
+          "sourceId": "KM-2020",
+          "locator": "§14, Lemma 14.1 and proof, pp. 300–304",
+          "match": "The lemma and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [],
-  "requests": [],
+  "requests": [
+    {
+      "supplier": "AnalyticNumberTheory:AN.2",
+      "need": "Mertens' theorems: Σ_{p≤x} 1/p = log log x + B + O(1/log x), with an effective error such as Rosser–Schoenfeld Theorem 5 (|error| ⩽ 1/(log x)² for x ⩾ 286), and its consequences Σ_{w≤p<z} 1/p = log(log z/log w) + O(1/log w) and ∏_{p≤x}(1 + 1/p) ≍ log x. Koukoulopoulos–Maynard use them in the proof of Theorem 1 ((5.8)), Lemma 7.3 and Lemma 8.4. Mathlib 082e2d3 has Chebyshev's bounds but no Mertens theorem.",
+      "neededBy": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-theorem",
+        "ProbabilisticAndMetricNumberTheory:PM.3/few-integers-many-large-primes",
+        "ProbabilisticAndMetricNumberTheory:PM.3/remove-R-from-anatomy"
+      ],
+      "status": "open"
+    }
+  ],
   "coverage": [
     {
       "stageId": "ProbabilisticAndMetricNumberTheory:PM.0",
@@ -6080,10 +7784,11 @@
     },
     {
       "stageId": "ProbabilisticAndMetricNumberTheory:PM.3",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Select exact Khintchine and Duffin-Schaeffer statements and full proofs, separate convergence and divergence and the coprimality/monotonicity assumptions.",
-        "Use the audited Borel-Cantelli and Gallagher results rather than rebuilding them; choose precise Lebesgue/Hausdorff scope."
+        "Koukoulopoulos–Maynard is decomposed: sets, the convergence half, Theorem 1 (Duffin–Schaeffer), Theorem 2 (Catlin), Khinchin's theorem via Theorem 2, and Sections 5–14 (GCD graphs, quality, Propositions 5.4–8.3, Lemmas 7.2–14.1).",
+        "Lemmas 5.2 and 5.3 rest on unread Pollington–Vaughan proofs (gap); Mertens' theorems are requested from AN.2.",
+        "Corollary 3 (Hausdorff dimension via Beresnevich–Velani) and other Hausdorff-measure versions remain unplanned."
       ]
     },
     {
@@ -6130,7 +7835,7 @@
       "neededBy": [
         "ProbabilisticAndMetricNumberTheory:PM.3"
       ],
-      "detail": "Select exact Khintchine and Duffin-Schaeffer statements and full proofs, separate convergence and divergence and the coprimality/monotonicity assumptions. Use the audited Borel-Cantelli and Gallagher results rather than rebuilding them; choose precise Lebesgue/Hausdorff scope."
+      "detail": "Koukoulopoulos–Maynard's proof of the Duffin–Schaeffer conjecture, Catlin's conjecture and, through them, Khinchin's theorem are now decomposed (34 nodes). Remaining in PM.3: Corollary 3 (Hausdorff dimension of 𝒜, via Beresnevich–Velani's mass transference principle), Jarník–Besicovitch and other Hausdorff-measure versions, the higher-dimensional Pollington–Vaughan theorem, and quasi-independence forms of the second Borel–Cantelli lemma as a general tool. Gallagher's zero-one law and Borel–Cantelli come from Mathlib."
     },
     {
       "title": "PM.4: source and proof completion",
@@ -6145,6 +7850,14 @@
         "ProbabilisticAndMetricNumberTheory:PM.5"
       ],
       "detail": "Acquire source-scoped short-interval and multiplicative-correlation proofs with explicit averaging and exceptional sets. Reconcile AN.3/AN.5/AC.5 ownership; state general Chowla/Sarnak only in a conjecture register and never as proved consequences of a random model."
+    },
+    {
+      "title": "Pollington–Vaughan inputs of the Duffin–Schaeffer proof not read",
+      "neededBy": [
+        "ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-large-values",
+        "ProbabilisticAndMetricNumberTheory:PM.3/overlap-estimate"
+      ],
+      "detail": "Koukoulopoulos–Maynard Lemma 5.2 (the conjecture when ψ takes only values 0 or ⩾ 1/2) and Lemma 5.3 (the overlap estimate for λ(𝒜_q ∩ 𝒜_r)) are cited to Pollington–Vaughan, Mathematika 37 (1990), Theorem 2 and pp. 195–196, which were not read. The overlap estimate is recorded with its indicator corrected (E10). An open source for both proofs must be read before these two nodes are decomposed; the source notes that related proofs appear in Harman's book Metric Number Theory (Theorems 2.5, 2.6 and 3.6), which is not freely available."
     }
   ],
   "sourceIssues": [
@@ -6289,9 +8002,84 @@
         "The maintained errata list (teorth.github.io/tao-web/higher-order-fourier-analysis.html, 20 items): not listed.",
         "The blog post's reader comments and corrections: not raised."
       ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E10",
+      "source": "KM-2020",
+      "kind": "error",
+      "locator": "Lemma 5.3, p. 264 (arXiv v3 p. 12)",
+      "printed": "Lemma 5.3 asserts λ(A_q ∩ A_r)/(λ(A_q)λ(A_r)) ≪ 1_{M(q,r) ⩾ gcd(q,r)} ∏_{p | qr/gcd(q,r)², p > M(q,r)/gcd(q,r)} (1 + 1/p), taking M(q,r) = max{rψ(q), qψ(r)}.",
+      "correction": "The indicator should be 1_{2M(q,r) ⩾ gcd(q,r)} (or omitted); the rest of the bound is as printed.",
+      "reason": "Distinct reduced fractions a/q, b/r satisfy |a/q − b/r| ⩾ gcd(q,r)/(qr), so A_q and A_r can meet when rψ(q) + qψ(r) ⩾ gcd(q,r), which allows M < gcd. Explicitly, q = 2, r = 3, ψ ≡ 3/10 ⩽ 1/2: A_2 = [0.35, 0.65], A_3 = [7/30, 13/30] ∪ [17/30, 23/30], λ(A_2 ∩ A_3) = 1/6 > 0, while M(2,3) = 9/10 < 1 = gcd(2,3), so the printed right-hand side is 0. The proof of Theorem 1 is unaffected: the indicator only restricts the sum (5.7), and pairs with gcd/2 ⩽ M < gcd satisfy the conditions of the later sets E_t.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:1907.04593 v3 (final) contains the passage unchanged.",
+        "2026-09-29: the Annals article page (annals.math.princeton.edu/2020/192-1/p05) lists no erratum. This is not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E11",
+      "source": "KM-2020",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 1 assuming Proposition 5.4, after (5.3), p. 265 (arXiv v3)",
+      "printed": "The source sets A = lim sup_{q→∞} A_q and cites (1.4) as the definition of A_q.",
+      "correction": "A_q is defined by (1.3); (1.4) defines A.",
+      "reason": "(1.3) defines A_q and (1.4) defines A = lim sup A_q; checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:1907.04593 v3 (final) contains the passage unchanged.",
+        "2026-09-29: the Annals article page (annals.math.princeton.edu/2020/192-1/p05) lists no erratum. This is not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E12",
+      "source": "KM-2020",
+      "kind": "error",
+      "locator": "Proof of Lemma 14.1, Case 1 (k = 0), p. 302 (arXiv v3)",
+      "printed": "The proof states V_{p^{k−1}} = W_{p^{k−1}} = ∅ in this case. It says G⁺ agrees with G* in every parameter except its prime set, which is P ∪ {p}, and deduces q(G⁺)/q(G*) = 1/(1 − 1/p^{31/30})^{10}.",
+      "correction": "The vertex sets of G⁺ are V⁺ = V_{p⁰} ∪ V_{p¹} ⊆ V and W⁺ ⊆ W, which can be proper; by the displayed quality formula q(G⁺)/q(G*) = (μ(V)/μ(V⁺))⁹(μ(W)/μ(W⁺))⁹/(1 − 1/p^{31/30})^{10} ⩾ 1/(1 − 1/p^{31/30})^{10}.",
+      "reason": "Vertices v with p² | v belong to V but not to V⁺; nothing in the hypotheses excludes them. The edge sets agree (every edge of E* has both ends in V⁺ × W⁺ when k = 0), but the vertex measures do not. Only the inequality is needed, and it holds.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:1907.04593 v3 (final) contains the passage unchanged.",
+        "2026-09-29: the Annals article page (annals.math.princeton.edu/2020/192-1/p05) lists no erratum. This is not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E13",
+      "source": "KM-2020",
+      "kind": "gap",
+      "locator": "Proofs of Lemma 13.2, pp. 297–298, and Lemma 14.1, p. 300",
+      "printed": "In Lemma 13.2, the proof invokes Lemma 13.1 and subsequently Lemma 12.2 for G(1). In Lemma 14.1, it replaces the working graph by G(1), invokes Lemma 12.2, and uses Lemmas 11.3 and 11.4 with r = 1.",
+      "correction": "Lemmas 11.1, 11.3, 11.4, 12.1, 12.2 and 13.1 hold for every prime p ∉ P, not only for p ∈ R(G): their proofs never use p ∈ R(G). With that weaker hypothesis the applications are valid, and R(G′) ⊆ R(G) \\ {p} still follows from G′ ⪯ G(1) ⪯ G and p ∈ P′.",
+      "reason": "G(1) is obtained from G by deleting vertices (Lemma 10.1) or restricting to smaller sets (Lemma 11.6), so R(G(1)) ⊆ R(G) may no longer contain p; the cited lemmas assume p ∈ R(G(1)). The planned nodes state these lemmas for p ∉ P.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:1907.04593 v3 (final) contains the passage unchanged.",
+        "2026-09-29: the Annals article page (annals.math.princeton.edu/2020/192-1/p05) lists no erratum. This is not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E14",
+      "source": "KM-2020",
+      "kind": "misprint",
+      "locator": "End of the proof of Lemma 14.1, p. 303 (arXiv v3)",
+      "printed": "The proof selects G′ ∈ {G⁺, G_{p^k,p^{k+1}}, G_{p^{k+1},p^k}} based on which inequalities among (14.13)–(14.15) are satisfied.",
+      "correction": "G′ ∈ {G⁺, G_{p^k,p^{k−1}}, G_{p^{k−1},p^k}}",
+      "reason": "(14.14) and (14.15), and the sentences just before, concern G_{p^k,p^{k−1}} and G_{p^{k−1},p^k}; the graphs with k+1 are not considered (the (k,k+1) edges are already in G⁺). Checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:1907.04593 v3 (final) contains the passage unchanged.",
+        "2026-09-29: the Annals article page (annals.math.princeton.edu/2020/192-1/p05) lists no erratum. This is not an exhaustive novelty claim."
+      ]
     }
   ],
-  "sourceIssueScope": "Three findings, not independently reviewed. E1 is checked against the published preview. E2-E3 are scoped to the acquired author copy and arXiv v1 because the corresponding published pages were inaccessible. Product notation in (16) is read in its intended conventional scope (G once), not reported as an additional error. This is not a source-wide correctness verdict. Continuation: E4 records a separate author-HTML evaluation-at-zero omission, not independently reviewed. The generic derivative theorem is not replanned here.",
+  "sourceIssueScope": "Three findings, not independently reviewed. E1 is checked against the published preview. E2-E3 are scoped to the acquired author copy and arXiv v1 because the corresponding published pages were inaccessible. Product notation in (16) is read in its intended conventional scope (G once), not reported as an additional error. This is not a source-wide correctness verdict. Continuation: E4 records a separate author-HTML evaluation-at-zero omission, not independently reviewed. The generic derivative theorem is not replanned here. E10–E14 are new, unreviewed findings of the cc-39fac3 checkpoint against Koukoulopoulos–Maynard (Ann. of Math. 192 (2020)); each is also present in arXiv v3. E10 corrects a stated lemma whose use in the paper is unaffected. No author contact and no exhaustive novelty claim.",
   "checks": {
     "leanCompiled": true,
     "officialCheckerRun": true,
@@ -6364,7 +8152,12 @@
       "rejectedMutations": 8,
       "scaledMomentChecks": 44000
     },
-    "regressionScope": "Current tests use exact fractions: sample sizes 1–800, moment orders 0–10 and five rational scales; finite Euler chains at 1–64,96,128; local geometric cutoffs 0–40 and primes up to 47; pointwise products for n=1–200 at N=n,n+1,n+7; prime-power exponent tuples in {0,1,2,3}^4 for primes 2,3,5,7. Alternating log-series and positive exp-series geometric tails give rational certificates for transcendental constants, without floating point. All other regression fields are historical and were not rerun."
+    "regressionScope": "Current tests use exact fractions: sample sizes 1–800, moment orders 0–10 and five rational scales; finite Euler chains at 1–64,96,128; local geometric cutoffs 0–40 and primes up to 47; pointwise products for n=1–200 at N=n,n+1,n+7; prime-power exponent tuples in {0,1,2,3}^4 for primes 2,3,5,7. Alternating log-series and positive exp-series geometric tails give rational certificates for transcendental constants, without floating point. All other regression fields are historical and were not rerun.",
+    "duffinSchaefferCheckpoint": {
+      "lean": "The new TauCeti.DuffinSchaeffer section elaborates standalone on Lean 4.34.0-rc2 against Mathlib 082e2d3 (Mathlib imports only) with no errors and only proof-placeholder warnings. The whole suggested file imports Tau Ceti modules and cannot be elaborated on this machine (no Tau Ceti build at the pin).",
+      "exactChecks": "The counterexample to printed Lemma 5.3 (q = 2, r = 3, ψ ≡ 3/10: λ(𝒜₂ ∩ 𝒜₃) = 1/6, M = 9/10 < 1) was computed in exact rational arithmetic. The unit-test values of the approximation-set tests were checked by hand.",
+      "excerpts": "Every new source excerpt is contained, letters only, in the text layer of the published PDF."
+    }
   },
   "provenance": {
     "issue": 1041,
@@ -6441,6 +8234,15 @@
         "ownership": "All six reviewed audit rows freshly read. Native geometric sums, CRT, finite sum/product identities, empirical measures, Markov and exp-series bounds are suppliers. No generic mean-value, independence, probability or arithmetic-function carrier is replanned.",
         "sourceAcquisition": "Tao 2014 Exercise 46 and neighboring specified passages freshly reread from unchanged author HTML. The positive geometric proof and constants are worker derivations. No new correction search or source finding.",
         "inputs": "All 60 prior consulted paths compared. Own files and 29 matching links unchanged. The changed GN3 supplier is exactly authored blob 291950f3560cff92d6798027ef4b81330a9a3716; ES supplier dd0138dfaf8f5c92f31f7de708c9c3fd0ff993fe was already fully considered during the SV5 input guard. No new dependency to either supplier. Two expected absences retained; binding documents unchanged and no AGENTS.md."
+      },
+      {
+        "agent": "Claude Code",
+        "session": "cc-39fac3",
+        "date": "2026-09-29",
+        "base": "e9755191d6ba79bb8684998b263393f7b507d4fe",
+        "claimComment": 5885708387,
+        "scope": "Thirty-four PM.3 nodes from Koukoulopoulos–Maynard (Ann. of Math. 2020), §§1–14; all inherited nodes preserved.",
+        "ownership": "Mathlib supplies Gallagher's zero-one law (AddCircle.addWellApproximable_ae_empty_or_univ), Borel–Cantelli and the totient; Mertens' theorems are requested from AN.2. The Duffin–Schaeffer theorem is explicitly not in Mathlib (WellApproximable.lean). No other roadmap plans it (DT.0 only defines approximation exponents)."
       }
     ]
   },
@@ -6493,6 +8295,20 @@
       "citation": "Tao, 254B Notes 1 (blog, 28 March 2010), §1, including its reader comments and the corrections acknowledged there. The page is dynamic, so the digest of the copy read identifies that copy only.",
       "read": "2026-09-28",
       "sha256": "103489bf62f90e3291f52208971265c85abc9e31b844c573a33340ee3ce5d7ec"
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n1-p05-s.pdf",
+      "read": "2026-09-29",
+      "sha256": "d41eb092839d28e5a5c613a035c6ec8a984fe570700d7bf5c82a08a013b0fc8f",
+      "citation": "Koukoulopoulos–Maynard, Ann. of Math. 192 (2020) 251–307, publisher PDF, read completely; findings E10–E14 are stated against it."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1907.04593v3",
+      "read": "2026-09-29",
+      "sha256": "916622bcdacda9a91cb6015282af9b8bc9bca8540ad813e52242786859294f6e",
+      "citation": "arXiv:1907.04593v3 ('Final version … to appear in Annals'), checked at the locators of E10–E14, all of which it contains."
     }
   ]
 }
