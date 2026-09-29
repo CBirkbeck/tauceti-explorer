@@ -1,5 +1,39 @@
 # BP-EulerSystemsCyclotomicMainConjecture — handoff
 
+## Checkpoint 7 (Claude Code, session cc-fb70e5, 29 September 2026): L3's equivalent formulations (2 nodes)
+
+Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`; L1, L3 and L4 are `partial`. L3's only remaining item is the finite-layer stabilisation gap.
+
+**Sources.**
+- RJW arXiv v2 (SHA-256 efa1e101…): Remark 13.9, §13.5 in full (pp. 69–72), and Appendix B.2.3.
+- The version of record (Essential Number Theory 4 (2025), msp.org PDF, SHA-256 78d0479b…), compared at the same passages.
+
+**New L3 nodes:**
+- `odd-character-formulation` (comparison): the odd-character main conjecture at odd p. It is equivalent to Theorem 13.8 by Kummer duality, and is the odd-p, F = ℚ case of Greither 3.2.
+- `tate-twisted-selmer-formulation` (planet): Greenberg's conjecture for ℚ_p(n), RJW §13.5.
+  - The corank statement holds for every n (rank 1 exactly for odd n ≥ 1).
+  - The characteristic ideals are given for even n ≥ 2 and odd n ≤ −1.
+  - For even n the node carries the factor Tw_n(I(Γ⁺)) that Example 13.22's "essentially" leaves out: ∂^nζ_p has a pole at x^{−n}. At p = 3, X_∞⁺ = 0 separates the two statements.
+
+**Source issues (new; unchanged in the published version):**
+- E12: §13.5.2(3), "for n ≥ 0" should read n ≤ 0.
+- E13: Remark 13.23, L_∞(ℚ_p^∨, s) = L_∞(ℚ_p, 1 − s) should read s − 1.
+
+Definition 13.19's G_ℚ-invariance is already SelmerIwasawaCohomology/E2. That entry's `searched` says the published version was not accessed; it has the same text (ENT p. 196).
+
+**Requests.**
+- New: SelmerIwasawaCohomology L4, for the identification of the Greenberg Selmer groups of W_n (RJW §13.5.2), which that stage lists as its own item.
+- Extended: IntegralIwasawaTheory L1, with Iwasawa's rank theorem for X_∞.
+
+**Lean.** One new checked example: the pole count, 1 = n − 2k for some k ≥ 0 iff n is odd and n ≥ 1. The file compiles with exit 0; the only warnings are the existing planned stubs.
+
+**Checks.** `check_blueprint --index`: 0 errors, 0 warnings. `check-files`: 0 problems. Every new excerpt was checked by script against its page's text.
+
+**Next.**
+- L1: the explicit derivative classes (Rubin IV–V).
+- L3: the finite-layer stabilisation gap ([MW] §1.6 or Lang's appendix).
+- L4: §2 and §3 details, and the (G2) gap.
+
 ## Checkpoint 6 (Claude Code, session cc-fb70e5, 29 September 2026): L4, Greither §4 planned (11 nodes)
 
 Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`; L1, L3 and L4 are `partial`.

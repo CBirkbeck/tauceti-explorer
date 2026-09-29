@@ -511,6 +511,17 @@ example : (⟨1, 0⟩ + ⟨2, 0⟩ * ⟨0, -1⟩ + ⟨3, 0⟩ * ⟨0, 1⟩ + ⟨
     Zsqrtd.norm (⟨-3, 1⟩ : ℤ√(-1)) = 10 := by
   decide
 
+/-- `L3/tate-twisted-selmer-formulation`: `Γ((s − n)/2)` has poles at `s = n − 2k` (`k ≥ 0`), so it has a pole at
+`s = 1` exactly when `n` is odd and `n ≥ 1`; this is the corank `r_n` of the Selmer group of `ℚ_p(n)`. -/
+example (n : ℤ) : (∃ k : ℕ, (1 : ℤ) = n - 2 * k) ↔ (Odd n ∧ 1 ≤ n) := by
+  constructor
+  · rintro ⟨k, hk⟩
+    exact ⟨⟨k, by omega⟩, by omega⟩
+  · rintro ⟨⟨m, hm⟩, h1⟩
+    refine ⟨m.toNat, ?_⟩
+    rw [Int.toNat_of_nonneg (by omega)]
+    omega
+
 end SuggestedTest
 
 end TauCeti.CyclotomicEulerSystem
