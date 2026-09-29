@@ -8981,7 +8981,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARAIANI-NEWTON-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4490"
   },
   {
    "id": "REV-PAPER-CARAIANI-NEWTON-23",
@@ -9016,7 +9017,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DELIGNE-74.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4492"
   },
   {
    "id": "REV-PAPER-DELIGNE-74",
@@ -9296,7 +9298,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-RODRIGUES-JACINTO-WILLIAMS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4512"
   },
   {
    "id": "REV-PAPER-RODRIGUES-JACINTO-WILLIAMS-23",
@@ -47697,8 +47700,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-representations-3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3984"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3984",
+   "finishedAt": "2026-09-29T14:42:34Z"
   },
   {
    "id": "RT-AREA-homological",
