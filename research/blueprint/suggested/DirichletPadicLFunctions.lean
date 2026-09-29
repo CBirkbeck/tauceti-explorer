@@ -5977,3 +5977,148 @@ end Dyadic
 end SuggestedIntegralUnitTests
 end
 end DirichletPadic
+
+/-! ## The localized Eisenstein constant, with its shifted denominator
+
+Theorem 8.2(a) is used with the confirmed correction E54: its constant is a
+character-twisted localized element. No membership in ordinary pseudomeasures
+is asserted. The factor 2 remains in a regular denominator, including at p=2.
+-/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+
+def eisensteinTwistedDenominator (u : U) : M := sorry
+lemma eisensteinTwistedDenominator_def (u : U) :
+    eisensteinTwistedDenominator p u = (u : Z) • dirac Z u-1 := sorry
+lemma eisensteinTwistedDenominator_apply (u : U) (f : C(U,Z)) :
+    eisensteinTwistedDenominator p u f = (u : Z)*f u-f 1 := sorry
+lemma eisensteinTwistedDenominator_one : eisensteinTwistedDenominator p 1 = 0 := sorry
+lemma eisensteinTwistedDenominator_moment (u : U) (k : ℕ) :
+    eisensteinTwistedDenominator p u (j^k) = (u : Z)^(k+1)-1 := sorry
+lemma eisensteinTwistedDenominator_double_regular (a : U)
+    (ha : (a : Z)=(p+1 : ℕ)) :
+    2*eisensteinTwistedDenominator p a ∈ nonZeroDivisors M := sorry
+
+def eisensteinWeightedNumerator (u : U) : M := sorry
+lemma eisensteinWeightedNumerator_def (u : U) :
+    eisensteinWeightedNumerator p u = weight j (padicIntrinsicNumerator p u) := sorry
+lemma eisensteinWeightedNumerator_apply (u : U) (f : C(U,Z)) :
+    eisensteinWeightedNumerator p u f = padicIntrinsicNumerator p u (j*f) := sorry
+lemma eisensteinWeightedNumerator_one : eisensteinWeightedNumerator p 1 = 0 := sorry
+lemma eisensteinWeightedNumerator_neg_one : eisensteinWeightedNumerator p (-1) = 0 := sorry
+lemma eisensteinWeightedNumerator_moment (u : U) (k : ℕ) :
+    (eisensteinWeightedNumerator p u (j^k) : ℚ_[p]) =
+      (1-(p : ℚ_[p])^k)*(1-(u : ℚ_[p])^(k+1))*
+      algebraMap ℚ ℚ_[p] (bernoulli (k+1)/(k+1)) := sorry
+
+def localizedEisensteinConstant : Q := sorry
+lemma localizedEisensteinConstant_eq_fraction (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    localizedEisensteinConstant p =
+      IsLocalization.mk' Q (eisensteinWeightedNumerator p a)
+        ⟨2*eisensteinTwistedDenominator p a,
+          eisensteinTwistedDenominator_double_regular p a ha⟩ := sorry
+lemma localizedEisensteinConstant_clearing (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    (2 : Q)*algebraMap M Q (eisensteinTwistedDenominator p a)*
+      localizedEisensteinConstant p = algebraMap M Q (eisensteinWeightedNumerator p a) := sorry
+lemma localizedEisensteinConstant_unique (a : U) (ha : (a : Z)=(p+1 : ℕ)) (z : Q)
+    (hz : (2 : Q)*algebraMap M Q (eisensteinTwistedDenominator p a)*z =
+      algebraMap M Q (eisensteinWeightedNumerator p a)) :
+    z=localizedEisensteinConstant p := sorry
+lemma localizedEisensteinConstant_double_twist (T : M ≃+* M)
+    (hT : ∀ μ : M, T μ=weight j μ) :
+    (2 : Q)*localizedEisensteinConstant p =
+      IsFractionRing.ringEquivOfRingEquiv (K := Q) (L := Q) T
+        (kubotaLeopoldtPseudomeasure p : Q) := sorry
+end DirichletPadic
+
+namespace SuggestedLocalizedEisensteinTests
+open scoped AbstractMeasure
+open AbstractMeasure DirichletPadic
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+-- inherited_numerator_identity
+example : padicIntrinsicNumerator 3 1 = 0 := sorry
+-- inherited_numerator_negative
+example : padicIntrinsicNumerator 3 (-1) = 0 := sorry
+-- denominator_identity
+example : eisensteinTwistedDenominator p 1 = 0 := sorry
+-- denominator_zero_test
+example (u : U) : eisensteinTwistedDenominator p u 0 = 0 := sorry
+-- denominator_mass_shift
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    eisensteinTwistedDenominator p a 1 = (p : Z) := sorry
+-- denominator_dyadic_first
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    eisensteinTwistedDenominator 2 a (⟨Units.val,Units.continuous_val⟩ : C((ℤ_[2])ˣ,ℤ_[2])) = 8 := sorry
+-- denominator_dyadic_cubic
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    eisensteinTwistedDenominator 2 a
+      ((⟨Units.val,Units.continuous_val⟩ : C((ℤ_[2])ˣ,ℤ_[2]))^3) = 80 := sorry
+-- regular_dyadic_double
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    2*eisensteinTwistedDenominator 2 a ∈ nonZeroDivisors D((ℤ_[2])ˣ,ℤ_[2]) := sorry
+-- regular_is_not_integral_division
+example : ¬IsUnit (2 : ℤ_[2]) := sorry
+-- numerator_identity
+example : eisensteinWeightedNumerator p 1 = 0 := sorry
+-- numerator_negative_identity
+example : eisensteinWeightedNumerator p (-1) = 0 := sorry
+-- numerator_all_tests
+example (u : U) (f : C(U,Z)) :
+    eisensteinWeightedNumerator p u f = padicIntrinsicNumerator p u (j*f) := sorry
+-- numerator_mass_zero
+example (u : U) : eisensteinWeightedNumerator p u 1 = 0 := sorry
+-- numerator_dyadic_first
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    (eisensteinWeightedNumerator 2 a
+      (⟨Units.val,Units.continuous_val⟩ : C((ℤ_[2])ˣ,ℤ_[2])) : ℚ_[2]) = 2/3 := sorry
+-- numerator_dyadic_cubic
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) :
+    (eisensteinWeightedNumerator 2 a
+      ((⟨Units.val,Units.continuous_val⟩ : C((ℤ_[2])ˣ,ℤ_[2]))^3) : ℚ_[2]) = -14/3 := sorry
+-- constant_fraction_canonical
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    localizedEisensteinConstant p = IsLocalization.mk' Q (eisensteinWeightedNumerator p a)
+      ⟨2*eisensteinTwistedDenominator p a,eisensteinTwistedDenominator_double_regular p a ha⟩ := sorry
+-- constant_representative_independent
+example (a b : U) (ha : (a : Z)=(p+1 : ℕ)) (hb : (b : Z)=(p+1 : ℕ)) :
+    IsLocalization.mk' Q (eisensteinWeightedNumerator p a)
+      ⟨2*eisensteinTwistedDenominator p a,eisensteinTwistedDenominator_double_regular p a ha⟩ =
+    IsLocalization.mk' Q (eisensteinWeightedNumerator p b)
+      ⟨2*eisensteinTwistedDenominator p b,eisensteinTwistedDenominator_double_regular p b hb⟩ := sorry
+-- constant_clearing_unique
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) (z : Q)
+    (hz : (2 : Q)*algebraMap M Q (eisensteinTwistedDenominator p a)*z =
+      algebraMap M Q (eisensteinWeightedNumerator p a)) :
+    z=localizedEisensteinConstant p := sorry
+-- clearing_keeps_two
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    algebraMap M Q (2*eisensteinTwistedDenominator p a)*localizedEisensteinConstant p =
+      algebraMap M Q (eisensteinWeightedNumerator p a) := sorry
+-- conditional_twist_keeps_two
+example (T : M ≃+* M) (hT : ∀ μ : M, T μ=weight j μ) :
+    (2 : Q)*localizedEisensteinConstant p =
+      IsFractionRing.ringEquivOfRingEquiv (K := Q) (L := Q) T
+        (kubotaLeopoldtPseudomeasure p : Q) := sorry
+end SuggestedLocalizedEisensteinTests

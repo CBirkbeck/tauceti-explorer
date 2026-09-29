@@ -12563,3 +12563,317 @@ Exact rational controls check 340 integral special values, 1020 coefficient resi
 Only the two global errata-register inputs changed during the checkpoint; all 16 Dirichlet findings were compared and remain identical. Every supplier and other captured input is unchanged. PMIA remains at 369 nodes with its preserved compiled 332-node interface; no new supplier declaration is called or compilation against the full 369-node source claimed. Three newly available paper-extraction/review files are added as guarded inputs and read to the stated scope.
 
 Confirmed source correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54 changes only the constant-coefficient terminology in 11 predecessor nodes and matching reader/coverage text. Exact before/after field receipts are retained. All mathematical positive-coefficient signatures, APIs, tests and dependencies remain unchanged. The localized A₀=Tw_x(ζ_p/2) has its possible pole at x⁻¹. For odd p its inverse x-twist is a pseudomeasure; at p=2 the required division by 2 remains an explicit open denominator obligation. E104 does not affect the existing finite-residue proof. The external finding and its review are cited without copying a review verdict into this packet.
+
+
+## The localized Eisenstein constant with its shifted denominator
+
+Partial continuation preserving all375 predecessor nodes whole. Eight L4 nodes construct the shifted denominator, integral weighted numerator and actual localized Eisenstein constant, prove its regular clearing relation, and compare conditionally with an actual character-twist ring equivalence. The factor2 remains explicit at p=2. All16 findings and earlier requests remain unchanged; the generic twist equivalence is a precise new supplier request. Two existing L1 boundary APIs are promoted to exact prerequisite nodes without changing their suggested signatures.
+
+Complete published129–130 and159–160 were freshly read from the hash-verified RJW PDF. The independently confirmed E54 and its correction were read in the immediately preceding checkpoint and preserved. Whole PMIA weight, positive-moment regularity, canonical-unit and convolution nodes and their exact suggested signatures were read, along with the existing all-unit numerator/moment and arithmetic-pseudomeasure fraction nodes. The native localization clearing/equality statements, total-quotient ring equivalence, algebraMap compatibility and unit-cancellation theorem were read with all ambient hypotheses.
+
+### The shifted Eisenstein clearing denominator
+
+`DirichletPadicLFunctions:L4/twisted-eisenstein-denominator` — `DirichletPadic.eisensteinTwistedDenominator`
+
+For u∈U define d_u=(u:Z)•δ_u−δ_1 in the existing integral convolution algebra M.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z with the supplied actual convolution ring and its commutativity theorem. Q is the native FractionRing M, the total quotient ring of a commutative ring, with its canonical injection i. No domain or field structure on M or Q is assumed. j∈C(U,Z) is the existing continuous unit coordinate. λ_u=padicIntrinsicNumerator p u is the existing all-unit integral arithmetic numerator. The notation for scalar multiplication in M is the native Z-module structure.
+
+**Proof:**
+
+1. Use the existing Dirac measure, scalar action and subtraction. The unit of the supplied convolution ring is δ_1, not a constant measure on the additive p-adic integers.
+2. Evaluate at an arbitrary continuous f to obtain d_u(f)=(u:Z)f(u)−f(1). This gives d_1=0 and the mass (u:Z)−1.
+3. The ordinary moment formula is promoted to the following node before its use for regularity. At the canonical a=p+1, the mass is p, although the denominator will be regular.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/convolution-algebra`, `mathlib:AbstractMeasure.dirac`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Uses:**
+
+- RJW Theorem8.2 proof, corrected by E54: The x-twist of the arithmetic clearing factor has this shifted denominator.
+- Localized Eisenstein constant below: Twice the canonical shifted denominator is the actual regular denominator.
+
+**API:**
+
+- `DirichletPadic.eisensteinTwistedDenominator_def` (constructor): d_u=(u:Z)•δ_u−1 in M.
+- `DirichletPadic.eisensteinTwistedDenominator_apply` (data): For f∈C(U,Z), d_u(f)=(u:Z)f(u)−f(1).
+- `DirichletPadic.eisensteinTwistedDenominator_one` (simp): d_1=0.
+- `DirichletPadic.eisensteinTwistedDenominator_moment` (compatibility): d_u(j^k)=(u:Z)^(k+1)−1 for all k≥0. Promoted to twisted-eisenstein-denominator-moment.
+
+**Tests:**
+
+- `SuggestedLocalizedEisensteinTests.denominator_identity` (degenerate): The identity parameter has d_1=0.
+- `SuggestedLocalizedEisensteinTests.denominator_zero_test` (degenerate): Every shifted denominator vanishes on the zero test.
+- `SuggestedLocalizedEisensteinTests.denominator_mass_shift` (computation): For a with value p+1, d_a(1)=p.
+
+**Acceptance:** The shift changes δ_u−1 to uδ_u−1. The coefficient u is indispensable. No claim that d_a is an integral unit is made.
+
+**Source:** Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54. Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted.
+
+### Moments of the shifted denominator
+
+`DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-moment` — `DirichletPadic.eisensteinTwistedDenominator_moment`
+
+For every u∈U and k≥0, d_u(j^k)=(u:Z)^(k+1)−1.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z with the supplied actual convolution ring and its commutativity theorem. Q is the native FractionRing M, the total quotient ring of a commutative ring, with its canonical injection i. No domain or field structure on M or Q is assumed. j∈C(U,Z) is the existing continuous unit coordinate. λ_u=padicIntrinsicNumerator p u is the existing all-unit integral arithmetic numerator. The notation for scalar multiplication in M is the native Z-module structure.
+
+**Proof:**
+
+1. Insert f=j^k into the preceding all-test evaluation, or unfold the finite two-Dirac expression and apply native dirac_apply directly.
+2. The unit coordinate is multiplicative and takes1 to1. Combine u·u^k=u^(k+1). This includes k=0; no positive-weight hypothesis is needed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Tests:**
+
+- `SuggestedLocalizedEisensteinTests.denominator_dyadic_first` (computation): At p=2,a=3 the first moment of d_a is8.
+- `SuggestedLocalizedEisensteinTests.denominator_dyadic_cubic` (computation): At p=2,a=3 the cubic moment is80.
+
+**Acceptance:** The denominator for a weight-k Eisenstein specialization is a^k−1 because the test exponent is k−1.
+
+**Source:** Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54. Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted.
+
+### A regular doubled Eisenstein denominator
+
+`DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-regular` — `DirichletPadic.eisensteinTwistedDenominator_double_regular`
+
+For a∈U with underlying value p+1, 2d_a belongs to native nonZeroDivisors M.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z with the supplied actual convolution ring and its commutativity theorem. Q is the native FractionRing M, the total quotient ring of a commutative ring, with its canonical injection i. No domain or field structure on M or Q is assumed. j∈C(U,Z) is the existing continuous unit coordinate. λ_u=padicIntrinsicNumerator p u is the existing all-unit integral arithmetic numerator. The notation for scalar multiplication in M is the native Z-module structure. a has value p+1; no topological-generator hypothesis is imposed, including at p=2.
+
+**Proof:**
+
+1. The supplied one-add-prime positive-power theorem gives a^(k+1)≠1 for every k≥0 in Z.
+2. Use the preceding moment formula and linearity: (2d_a)(j^k)=2(a^(k+1)−1). Multiplication by2 in the measure ring is addition twice and has the same action on tests as Z-scalar multiplication by2.
+3. Characteristic zero and the domain structure of native Z imply this value is nonzero. Apply the existing unit-moment-regularity criterion to the positive k. The proof does not infer that2 or d_a is an integral unit.
+4. Native localization therefore makes the displayed denominator invertible. The dyadic nonunit control explicitly retains the distinction between being regular and being a unit in Z.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-moment`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers`, `PadicMeasuresIwasawaAlgebras:L3/unit-moment-regularity`.
+
+**Tests:**
+
+- `SuggestedLocalizedEisensteinTests.regular_dyadic_double` (compatibility): The denominator2d_3 is regular in the actual dyadic unit-measure ring.
+- `SuggestedLocalizedEisensteinTests.regular_is_not_integral_division` (non-example): 2 is not a unit in Z_2.
+
+**Acceptance:** No coefficient inverse of2 in Z_2 and no integral half-measure are introduced.
+
+**Source:** Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54. Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted.
+
+### The integral numerator for the Eisenstein constant
+
+`DirichletPadicLFunctions:L4/weighted-eisenstein-numerator` — `DirichletPadic.eisensteinWeightedNumerator`
+
+For u∈U define n_u=weight(j)(λ_u) in the existing integral unit-measure module M.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z with the supplied actual convolution ring and its commutativity theorem. Q is the native FractionRing M, the total quotient ring of a commutative ring, with its canonical injection i. No domain or field structure on M or Q is assumed. j∈C(U,Z) is the existing continuous unit coordinate. λ_u=padicIntrinsicNumerator p u is the existing all-unit integral arithmetic numerator. The notation for scalar multiplication in M is the native Z-module structure.
+
+**Proof:**
+
+1. Apply the existing PMIA weight linear map to the actual all-unit arithmetic numerator. This defines an integral measure without division or a new carrier.
+2. The supplied weight-evaluation theorem gives n_u(f)=λ_u(jf) for every f. The identity and negative-identity parameters give zero because the existing λ_1 and λ_−1 are zero.
+3. The shift from test exponent k to k+1 in λ_u is promoted to the following Bernoulli-moment node. No ring-homomorphism property of the generic weight map is assumed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-intrinsic-numerator`, `PadicMeasuresIwasawaAlgebras:L2/weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `mathlib:Units.continuous_val`, `DirichletPadicLFunctions:L1/padic-intrinsic-identity`, `DirichletPadicLFunctions:L1/padic-intrinsic-negative-identity`.
+
+**Uses:**
+
+- RJW Theorem8.2 proof: Weighting by x produces the numerator for the source constant.
+- Localized Eisenstein constant: This actual integral measure is the numerator of the native fraction.
+
+**API:**
+
+- `DirichletPadic.eisensteinWeightedNumerator_def` (constructor): n_u=weight(j)(padicIntrinsicNumerator p u).
+- `DirichletPadic.eisensteinWeightedNumerator_apply` (data): n_u(f)=λ_u(jf) for all f∈C(U,Z).
+- `DirichletPadic.eisensteinWeightedNumerator_one` (simp): n_1=0.
+- `DirichletPadic.eisensteinWeightedNumerator_neg_one` (simp): n_−1=0.
+- `DirichletPadic.eisensteinWeightedNumerator_moment` (compatibility): Its k-th moment is the (k+1)-st λ moment. Promoted to weighted-eisenstein-numerator-moment.
+
+**Tests:**
+
+- `SuggestedLocalizedEisensteinTests.numerator_identity` (degenerate): n_1=0.
+- `SuggestedLocalizedEisensteinTests.numerator_negative_identity` (degenerate): n_−1=0, including p=2.
+- `SuggestedLocalizedEisensteinTests.numerator_all_tests` (characterisation): The value on every continuous unit test is λ_u(jf).
+
+**Acceptance:** The actual numerator is integral for every unit u. Twisting the total quotient remains a separate comparison.
+
+**Source:** Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54. Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted.
+
+### Bernoulli moments with the Eisenstein shift
+
+`DirichletPadicLFunctions:L4/weighted-eisenstein-numerator-moment` — `DirichletPadic.eisensteinWeightedNumerator_moment`
+
+For u∈U and every k≥0, the Q_p image of n_u(j^k) is (1−p^k)(1−u^(k+1))·ι_Q(B_(k+1)/(k+1)).
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z with the supplied actual convolution ring and its commutativity theorem. Q is the native FractionRing M, the total quotient ring of a commutative ring, with its canonical injection i. No domain or field structure on M or Q is assumed. j∈C(U,Z) is the existing continuous unit coordinate. λ_u=padicIntrinsicNumerator p u is the existing all-unit integral arithmetic numerator. The notation for scalar multiplication in M is the native Z-module structure.
+
+**Proof:**
+
+1. Expand weight evaluation and identify j·j^k with j^(k+1) by pointwise equality of continuous maps.
+2. Apply the existing all-unit intrinsic moment theorem at k+1≥1. Simplify (k+1)−1=k. The Bernoulli number and division are first taken over Q and only then mapped into Q_p.
+3. For k=0 the Euler factor vanishes, so every numerator has mass0. For even positive k the odd Bernoulli number vanishes. At p=2,a=3, the first and cubic moments are2/3 and−14/3.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/weighted-eisenstein-numerator`, `DirichletPadicLFunctions:L1/padic-intrinsic-moments`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`.
+
+**Tests:**
+
+- `SuggestedLocalizedEisensteinTests.numerator_mass_zero` (degenerate): Every n_u has mass0, including nontrivial u.
+- `SuggestedLocalizedEisensteinTests.numerator_dyadic_first` (computation): At p=2,a=3 the Q_2 image of the first moment is2/3.
+- `SuggestedLocalizedEisensteinTests.numerator_dyadic_cubic` (computation): At p=2,a=3 the cubic moment includes as−14/3.
+
+**Acceptance:** This is an equality of actual measure moments, not an evaluation map on arbitrary elements of Q.
+
+**Source:** Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54. Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted.
+
+### The Eisenstein constant in the total quotient
+
+`DirichletPadicLFunctions:L4/localized-eisenstein-constant` — `DirichletPadic.localizedEisensteinConstant`
+
+Choose the unique a∈U whose value is p+1 and define A₀=mk′_Q(n_a,2d_a) in the existing total quotient Q.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z with the supplied actual convolution ring and its commutativity theorem. Q is the native FractionRing M, the total quotient ring of a commutative ring, with its canonical injection i. No domain or field structure on M or Q is assumed. j∈C(U,Z) is the existing continuous unit coordinate. λ_u=padicIntrinsicNumerator p u is the existing all-unit integral arithmetic numerator. The notation for scalar multiplication in M is the native Z-module structure.
+
+**Proof:**
+
+1. The supplier provides existence of a with value p+1. Unit extensionality makes a unique; use the existing unit subtype and classical choice, not a new generator structure.
+2. The doubled shifted-denominator regularity theorem supplies the native denominator subtype required by IsLocalization.mk′. Its numerator is the preceding integral n_a.
+3. Every representative a with the same underlying value is equal by unit extensionality; proof irrelevance removes dependence on the regularity certificate. The fraction API therefore holds for every such a.
+4. The defining clearing equality and uniqueness are promoted to the next node. The zero constant in the old positive Eisenstein series is still a truncation convention; this new A₀ has its own native localized carrier.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator-regular`, `DirichletPadicLFunctions:L4/weighted-eisenstein-numerator`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`, `PadicMeasuresIwasawaAlgebras:L1/commutative-convolution`, `mathlib:IsLocalization.mk'`, `mathlib:IsLocalization.eq_mk'_iff_mul_eq`.
+
+**Uses:**
+
+- RJW Theorem8.2, corrected constant coefficient: Supplies an actual localized candidate with the required shifted numerator and denominator.
+- The positive Eisenstein family: Provides the missing constant carrier before its admissible coefficientwise specialization and full-series assembly.
+
+**API:**
+
+- `DirichletPadic.localizedEisensteinConstant_eq_fraction` (constructor): A₀=mk′_Q(n_a,2d_a) for every a with value p+1.
+- `DirichletPadic.localizedEisensteinConstant_clearing` (relation): 2i(d_a)A₀=i(n_a). Promoted to localized-eisenstein-clearing.
+- `DirichletPadic.localizedEisensteinConstant_unique` (universal-property): This clearing identity uniquely specifies A₀ in Q, since its denominator is regular.
+
+**Tests:**
+
+- `SuggestedLocalizedEisensteinTests.constant_fraction_canonical` (characterisation): For every a with value p+1, the native fraction with numerator n_a and denominator2d_a equals A₀.
+- `SuggestedLocalizedEisensteinTests.constant_representative_independent` (compatibility): Two native unit representatives with underlying value p+1 give the same fraction.
+- `SuggestedLocalizedEisensteinTests.constant_clearing_unique` (characterisation): A total-quotient element satisfying the displayed clearing equation equals A₀.
+
+**Acceptance:** No ordinary pseudomeasure membership, field structure on Q, chosen half in Z, or canonical evaluation of all fractions is asserted.
+
+**Source:** Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54. Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted.
+
+### Clearing the localized Eisenstein denominator
+
+`DirichletPadicLFunctions:L4/localized-eisenstein-clearing` — `DirichletPadic.localizedEisensteinConstant_clearing`
+
+For every a∈U with value p+1, 2i(d_a)A₀=i(n_a) in Q, and this equality determines A₀ uniquely.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z with the supplied actual convolution ring and its commutativity theorem. Q is the native FractionRing M, the total quotient ring of a commutative ring, with its canonical injection i. No domain or field structure on M or Q is assumed. j∈C(U,Z) is the existing continuous unit coordinate. λ_u=padicIntrinsicNumerator p u is the existing all-unit integral arithmetic numerator. The notation for scalar multiplication in M is the native Z-module structure.
+
+**Proof:**
+
+1. Substitute the defining native fraction and apply IsLocalization.mk′_spec′. The canonical ring map sends2d_a to2i(d_a).
+2. For any competing z, rewrite its clearing equation in the form of the native eq_mk′_iff_mul_eq. The denominator carries its exact non-zero-divisor certificate, so no domain cancellation assumption is needed.
+3. Two complete native proofs check clearing and uniqueness for an arbitrary commutative ring with regular denominator2d, exercising exactly the total-quotient API used here.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/localized-eisenstein-constant`, `mathlib:IsLocalization.mk'_spec'`, `mathlib:IsLocalization.eq_mk'_iff_mul_eq`.
+
+**Tests:**
+
+- `SuggestedLocalizedEisensteinTests.clearing_keeps_two` (compatibility): The clearing equation can equivalently be written i(2d_a)A₀=i(n_a).
+
+**Acceptance:** The factor2 remains visible even at odd p; its removal requires an explicitly justified inverse.
+
+**Source:** Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54. Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted.
+
+### Comparison with an actual character-twist equivalence
+
+`DirichletPadicLFunctions:L4/localized-eisenstein-twist-comparison` — `DirichletPadic.localizedEisensteinConstant_double_twist`
+
+Given an actual ring equivalence T:M≃+*M satisfying T(μ)=weight(j)(μ) for every μ, let T_Q be its native FractionRing extension. Then 2A₀=T_Q(ζ_p) in Q.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z with the supplied actual convolution ring and its commutativity theorem. Q is the native FractionRing M, the total quotient ring of a commutative ring, with its canonical injection i. No domain or field structure on M or Q is assumed. j∈C(U,Z) is the existing continuous unit coordinate. λ_u=padicIntrinsicNumerator p u is the existing all-unit integral arithmetic numerator. The notation for scalar multiplication in M is the native Z-module structure. T is the displayed bundled ring equivalence with its all-measure agreement. Its existence is the new precise PMIA L3 request, not an implicit consequence of the linear weighting operation. ζ_p is the existing actual arithmetic pseudomeasure, included in Q.
+
+**Proof:**
+
+1. Use the existing arithmetic-pseudomeasure regular-parameter formula at a=p+1. Its denominator δ_a−1 is regular by the supplied positive-moment theorem.
+2. The hypothesis on T identifies T(λ_a)=n_a. On δ_a−1, all-test weight evaluation and native Dirac evaluation identify T(δ_a−1)=d_a; preservation of1 follows from the actual ring-equivalence structure.
+3. Extend T by the native IsFractionRing.ringEquivOfRingEquiv, whose algebraMap formula is read at the pin. Apply this ring map to the original clearing equality to obtain i(d_a)T_Q(ζ_p)=i(n_a).
+4. The image of the old regular denominator is a unit in Q, because the extension is an actual ring equivalence. Compare with 2i(d_a)A₀=i(n_a) and cancel this unit. A complete native arbitrary-commutative-ring proof checks this argument.
+5. Retain the identity2A₀=T_Q(ζ_p) at all primes. It expresses the corrected source normalization without assuming an integral half or that T_Q preserves the ordinary pseudomeasure submodule. The pole shifts to the inverse coordinate character; admissible evaluation on the localized constant still needs its own construction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/localized-eisenstein-clearing`, `DirichletPadicLFunctions:L4/weighted-eisenstein-numerator`, `DirichletPadicLFunctions:L4/twisted-eisenstein-denominator`, `DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-regular-parameter`, `PadicMeasuresIwasawaAlgebras:L3/regular-one-add-prime-difference`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `mathlib:AbstractMeasure.dirac_apply`, `mathlib:IsFractionRing.ringEquivOfRingEquiv`, `mathlib:IsFractionRing.ringEquivOfRingEquiv_algebraMap`, `mathlib:IsLocalization.map_units`, `mathlib:IsUnit.mul_right_inj`, `PadicMeasuresIwasawaAlgebras:L3`.
+
+**Tests:**
+
+- `SuggestedLocalizedEisensteinTests.conditional_twist_keeps_two` (compatibility): For an actual T with the required action,2A₀ is its native total-quotient image of ζ_p.
+
+**Acceptance:** The supplied object must be a ring equivalence on the actual M. An arbitrary map, linear weight or character functional is not substituted for it. No homomorphism from all of Q to a coefficient field is claimed.
+
+**Source:** Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54. Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted.
+
+### Arithmetic numerator at the identity
+
+`DirichletPadicLFunctions:L1/padic-intrinsic-identity` — `DirichletPadic.padicIntrinsicNumerator_one`
+
+The actual integral numerator λ_1 is zero.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z with the supplied actual convolution ring and its commutativity theorem. Q is the native FractionRing M, the total quotient ring of a commutative ring, with its canonical injection i. No domain or field structure on M or Q is assumed. j∈C(U,Z) is the existing continuous unit coordinate. λ_u=padicIntrinsicNumerator p u is the existing all-unit integral arithmetic numerator. The notation for scalar multiplication in M is the native Z-module structure.
+
+**Proof:**
+
+1. Promote the existing constructor API with its original suggested signature unchanged. This gives a declaration-sized prerequisite for the weighted-numerator boundary API.
+2. Choose a with value p+1. The existing all-unit cross relation gives θ_a λ_u=θ_u λ_a. For u=1 the right side is zero by the Dirac identity; for u=−1 it is zero by the existing intrinsic-evenness theorem.
+3. The supplied regularity of θ_a means its annihilator is zero. Apply this defining property to conclude λ_u=0. This route uses exact named theorem nodes and avoids consuming another unpromoted boundary API.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-intrinsic-cross`, `DirichletPadicLFunctions:L1/padic-intrinsic-even`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`, `PadicMeasuresIwasawaAlgebras:L3/regular-one-add-prime-difference`.
+
+**Tests:**
+
+- `SuggestedLocalizedEisensteinTests.inherited_numerator_identity` (degenerate): At p=3 the existing numerator at 1 is zero.
+
+**Acceptance:** The original declaration, constructor API and earlier tests are preserved. This node exposes the boundary fact as a graph prerequisite.
+
+**Source:** Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026. Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted.
+
+### Arithmetic numerator at negative one
+
+`DirichletPadicLFunctions:L1/padic-intrinsic-negative-identity` — `DirichletPadic.padicIntrinsicNumerator_neg_one`
+
+The actual integral numerator λ_−1 is zero.
+
+**Hypotheses:** p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z with the supplied actual convolution ring and its commutativity theorem. Q is the native FractionRing M, the total quotient ring of a commutative ring, with its canonical injection i. No domain or field structure on M or Q is assumed. j∈C(U,Z) is the existing continuous unit coordinate. λ_u=padicIntrinsicNumerator p u is the existing all-unit integral arithmetic numerator. The notation for scalar multiplication in M is the native Z-module structure.
+
+**Proof:**
+
+1. Promote the existing constructor API with its original suggested signature unchanged. This gives a declaration-sized prerequisite for the weighted-numerator boundary API.
+2. Choose a with value p+1. The existing all-unit cross relation gives θ_a λ_u=θ_u λ_a. For u=1 the right side is zero by the Dirac identity; for u=−1 it is zero by the existing intrinsic-evenness theorem.
+3. The supplied regularity of θ_a means its annihilator is zero. Apply this defining property to conclude λ_u=0. This route uses exact named theorem nodes and avoids consuming another unpromoted boundary API.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-intrinsic-cross`, `DirichletPadicLFunctions:L1/padic-intrinsic-even`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`, `PadicMeasuresIwasawaAlgebras:L3/regular-one-add-prime-difference`.
+
+**Tests:**
+
+- `SuggestedLocalizedEisensteinTests.inherited_numerator_negative` (degenerate): At p=3 the existing numerator at −1 is zero.
+
+**Acceptance:** The original declaration, constructor API and earlier tests are preserved. This node exposes the boundary fact as a graph prerequisite.
+
+**Source:** Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026. Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted.
+
+**Supplier request — PadicMeasuresIwasawaAlgebras:L3:** For the existing compact-group measure algebra D(G,R), supply the generic character-twist algebra equivalence attached to an actual continuous unit-valued character, with pointwise weighting action on every measure, inverse-character law, coefficient compatibility and exact Dirac action. In the arithmetic specialization G=Z_pˣ,R=Z_p, export an actual T:D(G,R)≃+*D(G,R) with T(μ)=weight(Units.val)(μ). Use the native total-quotient equivalence and its algebraMap compatibility, and state precisely how clearing by δ_g−1 is transported to clearing by χ(g)δ_g−1; do not assert preservation of ordinary pseudomeasures. This is distinct from the earlier coefficient-field evaluation request. The consumer supplies the arithmetic numerator, doubled shifted denominator and native localized constant; the generic convolution compatibility and ring-equivalence structure belong to this owner.
+
+**Consumers:** `DirichletPadicLFunctions:L4/localized-eisenstein-twist-comparison`.
+
+**Remaining:** The actual localized constant A₀=mk′(n_(p+1),2d_(p+1)) and its unique clearing equation are now supplied in native FractionRing M, with no field or integral-half assumption. Its identity2A₀=T_Q(ζ_p) is conditional on the precise PMIA character-twist equivalence request. Next construct admissible evaluation through localization at the displayed denominator, prove the even-weight constant matches the existing rational and classical modular constant, and assemble the full Eisenstein series. Smoothing independence beyond different representatives of p+1, oddness and failure of ordinary pseudomeasure membership need explicit comparison proofs. Preserve the completed-algebra request, constant-term denominator/congruence obligations, tame-character extension and PadicFamilies ownership of geometric realization.
+
+### The localized Eisenstein constant with its shifted denominator validation
+
+All 375 predecessor nodes, 417 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 10 nodes, 17 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 560 reachable nodes, 2645 edges and 537 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3. Nine new routes end entirely in exact nodes and pinned declarations. Only the explicitly conditional twist-comparison route reaches the recorded PMIA L3 request.
+
+The full suggested module elaborates with zero errors and 1160 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Five complete native lemmas check clearing and uniqueness of a fraction with regular denominator2d, the doubled comparison under an actual ring equivalence of arbitrary commutative rings, and the facts that2 is nonzero but not a unit in Z_2. The probe elaborates against 1746 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact rational controls check168 denominator moments,168 nonzero doubled denominators,168 integral weighted numerator values and168 normalized constant ratios across seven primes and exponents0–23. Seven zero-mass boundaries,77 odd-weight vanishings,84 nonzero even-weight constants, one dyadic nonunit control and four explicit values also pass. Exact rational Bernoulli recurrence and integer arithmetic; tests the displayed numerator, shifted denominator and quotient normalization. These are finite controls, not a definition of evaluation on the total quotient ring or a proof of the general identities. The largest observed discrepancy is 0.
+
+The initial57-input capture had empty delta. During publication only the global source-issue JSON and errata register changed; the16 Dirichlet findings remain identical, and all supplier, source-review and other guarded inputs are unchanged. PMIA remains369 nodes with its preserved compiled332-node interface; no new supplier declaration is called or compilation of the full369-node source claimed.
