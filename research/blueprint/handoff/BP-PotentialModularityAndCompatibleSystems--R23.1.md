@@ -1,8 +1,41 @@
-# BP-PotentialModularityAndCompatibleSystems--R23.1: checkpoint 2 (Claude Code cc-39fac3)
+# BP-PotentialModularityAndCompatibleSystems--R23.1: checkpoint 3 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 29 September 2026. Refs #976; the bot confirmed the claim. **Status: partial.**
 - R23.1, R23.4, R23.5, R23.6, R24.1 and R24.2 are `source_decomposed`.
 - R23.2 and R23.3 are `partial`.
+
+## Checkpoint 3: Taylor 2006 §5 (6 nodes) and a correction
+
+**Read** on the page images of the Documenta paper (sha 6ec26bf…): §1 Lemmas 1.3–1.4 and Corollary 1.5 with the Hecke
+algebras (pp. 740–743), and §5 in full (pp. 763–771). This closes most of the gap "Taylor 2006 Lemmas 1.3, 5.3, 5.6 are
+unread".
+
+**R23.3 (6 nodes, module `…/TaylorWeights`):**
+- Lemma 1.3 (Jacquet–Langlands and ρ_𝔪);
+- Lemma 1.4 with Corollary 1.5 (Fontaine–Laffaille shape at split x | l);
+- Lemma 5.1 with Corollary 5.2 (a variant of Buzzard's argument via 𝐕_{ϖ_x});
+- Lemma 5.3 (weight shift by l + 1);
+- Lemmas 5.4–5.6 with Corollary 5.5;
+- Theorem 5.7, split out of the Proposition 4.1 node (planet).
+
+KW II Theorem 6.1 and KW Annals Theorem 2.1 cite Theorem 5.7.
+
+**Correction.** In Taylor 2006, [SW1] is Skinner–Wiles, *Base change and a problem of Serre* (Duke 2001), and [SW2] is
+their 2001 Toulouse paper. Checkpoint 2 read the alternative route "the main theorem of [SW1], theorem 3.3 of this paper
+and a standard descent argument" as going through SW 1999. The gap and the readme are fixed. The E11 gap now notes
+Skinner's unpublished correction (Khare–Wintenberger I [41]).
+
+**New gaps:**
+- Skinner–Wiles' Duke paper, used by Corollary 5.5;
+- the Taylor 2006 gap is reduced to Khare's Lemma 2.2 and Conrad–Diamond–Taylor 3.1.1 and 4.2.4.
+
+**New requests:**
+- GL2AutomorphicRepresentationsAndTransfer R17.3 (Jacquet–Langlands);
+- AutomorphicGaloisRepresentations R19.2 (Hilbert Galois representations and Wiles' ordinary shape).
+
+**Lean.** New checked tests: a⁵ = a in F₅, which the X^lY − XY^l identity uses, and the weight bookkeeping of Theorem 5.7.
+
+**Totals.** 35 nodes, 9 planets, 10 requests and 8 gaps. `check_blueprint.py`: 0 errors, 0 warnings.
 
 ## Checkpoint 2: Taylor's moduli problem and potential modularity (10 nodes)
 
@@ -38,7 +71,8 @@ to H6 lists what is needed, including quasi-projectivity, which Taylor does not 
 - Taylor 2006 (pp. 762–763) does the same with FM, split at p₁.
 - Both are exactly the case where SW 2001's Lemma 2.2 fails (OrdinaryAutomorphicFormsAndModularityLifting/E11, PR
   #3873), so this is recorded as a gap.
-- Taylor 2006 names an alternative route through SW 1999, its Theorem 3.3 and descent.
+- Taylor 2006 names an alternative route: [SW1], his Theorem 3.3 and descent. [SW1] is Skinner–Wiles' Duke base-change
+  paper, not SW 1999; checkpoint 3 corrects this.
 
 **Source issues (Taylor's 2000 preprint):**
 - **E4:** Lemma 1.5's proof ends "χ₁|_{I_x} = ω" for ω^{−1}. The excluded case is n = 1, checked in Lean.
@@ -63,8 +97,9 @@ Checkpoint 1's source editions carried the draft's private catalogue ids. They a
 
 ## What a continuation should do (after checkpoint 2)
 
-1. Revisit the SW 2001 gap once OrdinaryAutomorphicFormsAndModularityLifting/E11 is settled. The two nodes already cite
-   `R21.5/nearly-ordinary-irreducible-lifting`, merged in #3873. Alternatively, plan Taylor 2006's route through SW 1999.
+1. Revisit the SW 2001 gap once OrdinaryAutomorphicFormsAndModularityLifting/E11 is settled; Skinner's correction is
+   unpublished. The two nodes already cite `R21.5/nearly-ordinary-irreducible-lifting`, merged in #3873. Alternatively,
+   plan Taylor 2006's route through [SW1] (Skinner–Wiles' Duke base change) and his Theorem 3.3.
 2. Read Taylor 2006 Lemmas 5.1–5.6 and Khare's Lemma 2.2 (the p = 3 extension used by KW II).
 3. Compare the published JIMJ numbering with the preprint, if a readable copy exists.
 
