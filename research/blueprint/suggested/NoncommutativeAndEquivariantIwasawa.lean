@@ -28,6 +28,8 @@ import Mathlib.Topology.Algebra.ClopenNhdofOne
 import Mathlib.GroupTheory.PGroup
 import Mathlib.GroupTheory.Commutator.Basic
 import Mathlib.Data.ZMod.Basic
+import Mathlib.FieldTheory.Finite.Basic
+import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.Data.Rat.Init
 
 namespace TauCeti.NoncommIwasawa
@@ -224,5 +226,65 @@ example (a b : ℚ) : ((a + b) + (a - b)) / 2 = a ∧ ((a + b) - (a - b)) / 2 = 
 example : ∀ a : ZMod 9, a ^ 2 = 1 → a.val % 3 = 1 → a = 1 := by decide
 
 end NE6Tests
+
+/-
+NE.6 (checkpoint 6), Kakde §5 and §6.1, recorded as signatures because K₁ of Iwasawa algebras and twisted group rings
+are not in the pinned libraries. G is one-dimensional pro-p with G/H ≅ ℤ_p, Z ≤ G central open pro-cyclic, Ḡ = G/Z,
+U_P the preimage of P ≤ Ḡ, and 𝒪 unramified over ℤ_p.
+
+def TwistedGroupRing (R) (τ : P → P → Rˣ) := P →₀ R   -- with h̄ · h̄′ = τ h h′ • \overline{h h′}    -- twisted-group-ring-presentation
+theorem iwasawaAlgebra_equiv_twisted : Λ_𝒪(G) ≃ₐ Λ_𝒪(Z)[Ḡ]^τ                                          -- (Lemma 45)
+theorem localization_T_equiv_S : Λ_𝒪(G)_T ≃ Λ_𝒪(G)_S,  T = Λ_𝒪(Z) ∖ p Λ_𝒪(Z)                     -- (Lemma 37)
+def thetaMap : K′₁ Λ_𝒪(G) →* ∏ P ≤ Ḡ, Λ_𝒪(U_P^ab)ˣ                                                  -- congruence-group-phi
+def Phi : Subgroup (∏ P ≤ Ḡ, Λ_𝒪(U_P^ab)ˣ) := {x | M1 x ∧ M2 x ∧ M3 x ∧ M4 x}
+def beta : R[Conj Ḡ]^τ →ₗ[R] ∏ P ≤ Ḡ, R[P^ab]^τ ;  def Psi : Submodule R (∏ P ≤ Ḡ, R[P^ab]^τ)          -- additive-map-beta
+theorem beta_equiv_Psi : R[Conj Ḡ]^τ ≃ₗ[R] Psi                                                          -- additive-theorem
+def logRel (I ≤ J_R) : K₁(R[Ḡ]^τ, I) →+ (I ⧸ [R[Ḡ]^τ, I]) ⊗ ℚ_p                                      -- iwasawa-algebra-logarithm
+def integralLog : K′₁ Λ_𝒪(G) →+ Λ_𝒪(Z)[Conj Ḡ]^τ ;  exact 1 → μ(𝒪) × G^ab → K′₁ → Λ_𝒪(Z)[Conj Ḡ]^τ → G^ab → 1  -- integral-logarithm
+theorem beta_integralLog (x) : beta (integralLog x) = ℒ (thetaMap x)                                     -- theta-beta-relation
+theorem thetaMap_equiv_Phi : K′₁ Λ_𝒪(G) ≃* Phi                                                          -- main-algebraic-theorems
+theorem Phi_S_inf_units : Phi_S ⊓ ∏ Λ_𝒪(U_P^ab)ˣ = (thetaMap).range
+theorem k1Prime_injective_localization : Function.Injective (K′₁ Λ_𝒪(G) → K′₁ Λ_𝒪(G)_S)              -- k1-injects-localisation
+theorem mainConjecture_iff_mem_Phi_S : MC(F_∞/F) ↔ (ζ_P)_P ∈ Phi_S                                     -- main-conjecture-congruence-criterion
+-/
+
+/-! ## NE.6 (checkpoint 6): Kakde §5 -/
+
+namespace NE6AlgebraTests
+
+open Polynomial
+
+/-- `NE.6/congruence-group-phi` (Lemma 50, `p = 2`): the norm of `x = a + b·g` from `R[P′]` to `R[P]` with
+`[P′ : P] = 2` and `g² = c` is the determinant of multiplication by `x`, and it factors as the product of the
+two twists `x · ω(x)` once `c = s²`. -/
+example {R : Type*} [CommRing R] (a b s : R) :
+    Matrix.det !![a, b; s ^ 2 * b, a] = (a + s * b) * (a - s * b) := by
+  simp [Matrix.det_fin_two]
+  ring
+
+/-- `NE.6/congruence-group-phi` (non-example): `(x_{1}, x_{C₂}) = (1, g)` fails M1, since `nr(g) = g · (−g) = −1`
+for `p = 2` and `g² = 1`. -/
+example : Matrix.det !![(0 : ℤ), 1; 1, 0] = -1 := by
+  simp [Matrix.det_fin_two]
+
+/-- `NE.6/main-algebraic-theorems` (Theorem 52, `Ḡ = C₂`, finite level): for a unit `a + b·g` of `ℤ₂[C₂]`, the norm
+`nr = a² − b²` satisfies M4 at `{1}`, `nr² ≡ ϕ(nr) · ϕ(α(x)) = (a + b)²`, even modulo `8`. -/
+example : ∀ a b : ZMod 8, (a + b) ^ 2 = 1 → (a ^ 2 - b ^ 2) ^ 2 = (a + b) ^ 2 := by decide
+
+/-- `NE.6/additive-map-beta` (`η_P`): for a primitive `p`-th root of unity `ζ`, `Σ_{k<p} ζ^k = 0`, so
+`η_P(h) = h − (1/p) Σ_k ω_P^k(h)` keeps a generator `h` of `P` and kills `h ∈ P^p`. -/
+example {K : Type*} [Field K] (p : ℕ) (hp : 1 < p) (ζ : K) (hζ : IsPrimitiveRoot ζ p) :
+    ∑ k ∈ Finset.range p, ζ ^ k = 0 :=
+  hζ.geom_sum_eq_zero hp
+
+/-- `NE.6/integral-logarithm` (Lemma 72): over `𝔽_p` the Frobenius-twisted `p`-power map `ϕ` (here `X ↦ X^p`) agrees
+with `y ↦ y^p`, so `y^p / ϕ(y) ≡ 1 (mod p)`. -/
+example (p : ℕ) [Fact p.Prime] (f : Polynomial (ZMod p)) : expand (ZMod p) p f = f ^ p :=
+  ZMod.expand_card f
+
+/-- `NE.6/integral-logarithm` (Proposition 74, scalar case): `p^n ∣ v^{p^n} − v^{p^{n−1}}`, here `p = 3`, `n = 3`. -/
+example : ∀ v : ZMod 27, v ^ 27 = v ^ 9 := by decide
+
+end NE6AlgebraTests
 
 end TauCeti.NoncommIwasawa
