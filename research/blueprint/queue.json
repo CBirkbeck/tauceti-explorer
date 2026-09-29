@@ -15973,7 +15973,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalSerreModularity--R27.3",
    "prompt": "research/blueprint/prompts/REV-ClassicalSerreModularity--R27.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #370"
   },
   {
    "id": "BP-ClassicalSerreModularity--R33.5",
