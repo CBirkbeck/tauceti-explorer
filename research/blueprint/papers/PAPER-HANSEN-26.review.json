@@ -1,0 +1,22 @@
+{
+ "paper": "PAPER-HANSEN-26",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. ExcursionOperatorsAndSpectralActionStableCenter is a Part II of ExcursionOperatorsAndSpectralAction, and its title reproduces the parent's ('Excursion operators and the spectral action') verbatim before the colon. The id is free in data/atlas.json and reserved-ids.json, and no other extraction proposes a Part II of this parent. The parent's ES0–ES7 construct Ψ_G, its Hecke compatibility (ES1:spectral-center) and IX.7.2 (ES7:parabolic), but no stage mentions stable or very stable distributions or the stable-center conjectures of Haines and Scholze–Shin, so a Part II is justified. The brief states Theorems 1.1 and 1.4 and Corollaries 1.2–1.3 exactly, with Corollary 1.3's hypotheses (tame, p ∤ |W_G|). It names its imports; the review added ET.1 for the matching of stable orbital integrals in Theorem 1.4's last clause. The design job should carry E2's corrected μ_m."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. The items join SmoothRepresentationsCharactersPartII, the Part II of SmoothRepresentationsOfLocalGroups that PAPER-HANSEN-KALETHA-WEINSTEIN-22 proposed and whose route its review accepted; no second Part II is opened. The nine items are character-theoretic harmonic analysis: Kazhdan density, the constant term and r_M, Arthur's decompositions, elliptic tempered characters, Lemma 2.1, Arthur's instability criterion, stability of δ, local boundedness with the cuspidal Weyl integration formula, and the inner-form transfer. They belong with that Part II's characters and trace Paley–Wiener. The atlas stage EndoscopicTransferAndUnitaryTraceComparison:ET.1 already owns regular semisimple and stable orbital integrals and matching test functions, so the review changed the brief to import ET.1 rather than rebuild them."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. The single item, the HKW character formula in the inner-form generality Proposition 2.7 needs, is the central theorem of HeckeStacksAndLocalShtukasKottwitzPartII, proposed by PAPER-HANSEN-KALETHA-WEINSTEIN-22 and accepted by its review (route 1 there). The brief asks for both directions G ↔ G_b and records Fu's existence lemma (arXiv:2501.00652, Lemma 4.2.7) as an input."
+  }
+ ],
+ "notes": "Items. All 14 pages were read (the review's download has SHA-256 0b2c7340…; Cambridge Core stamps each download with IP and time, which explains the difference from the recorded 533628c9…, and sourceVersions now says so). Every numbered statement (Theorems 1.1, 1.4, Corollaries 1.2, 1.3, Lemmas 2.1–2.4, 2.6, Propositions 2.5, 2.7) and the displays (1)–(3) appear in item locators, and every statement was compared with the text. The proofs were checked line by line. The steps the paper leaves implicit hold: the cuspidal part of an unstable function is unstable; the factor |[[g]]| in Lemma 2.6's estimate is bounded in terms of G, so C absorbs it; the elliptic case of §2.4 passes from equality on G(E)_ell to equality after applying τ_G(z)·, because a difference vanishing on the elliptic set is parabolically induced and z· preserves induced characters; and every elliptic element of the inner form has a stable conjugate in the quasi-split form. Statuses. Six planned items were read against their stages: SR.3 constructs the Bernstein center, ES0/ES1:spectral-center the excursion algebra and Hecke compatibility, ES7:parabolic Ψ_G with IX.7.2, BG0 B(G) and inner twists, ET.0 stable conjugacy. All hold; a note on bernstein-center records that SR.3 does not state the distributional realization Lemma 2.3 uses. The 23 missing items were searched in Mathlib 082e2d3 and Tau Ceti f790474: nothing on Bernstein centers, orbital integrals, characters of p-adic groups or excursion operators exists (the only 'Bernstein' declarations are Tau Ceti's Bernstein functions in analysis). Mistakes. E1 confirmed on the page image. New E2, confirmed: μ_m = 4mρ_G is glossed with the roots of G, but must use the roots of Ĝ, as in Fu (arXiv:2501.00652v1, pp. 9, 18). Crossref records no update; no arXiv preprint of the paper exists by title search. The typographical '[[g]] ∩ U = 0' in Lemma 2.6 (for 'U meets no class in [[g]]') is noted here and not registered. check_paper.py passes on the corrected file."
+}
