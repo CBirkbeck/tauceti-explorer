@@ -31,16 +31,17 @@ The JSON records hashes, URLs and the precise read sections of each downloaded s
 
 | Route | Owner | Items / missing | Decision |
 | --- | --- | ---: | --- |
-| 1 | KatoEulerSystems L2–L4 | 10 / 1 | Reuse actual zeta classes, signs, reciprocity and Euler-system results. Add the precise rational H¹ rank-one freeness theorem to L4; do not put the reverse main-conjecture divisibility here. |
-| 2 | SelmerIwasawaCohomology L0/L2/L3/L4 | 8 / 1 | Keep general cohomology, local conditions and specialization with their owner. Add the general classical Kummer/Bloch–Kato rational comparison once, not a private CM replacement. |
-| 3 | ArithmeticStatistics ST.0/ST.5 | 5 / 4 | Add the exact squareclass height, squarefree half-density calculation, Smith corank input and BKLOS corank input. Broad existing statistical scope is not evidence that these exact theorems were already planned. |
+| 1 | KatoEulerSystems L2–L4 | 10 / 2 | Reuse actual zeta classes, signs, reciprocity and Euler-system results. Add the precise rational H¹ rank-one freeness theorem to L4 for non-CM f (L4's Euler-system bound does not apply to CM f; the CM case of Kato 12.4 is route 7's `cm-h2-torsion`); do not put the reverse main-conjecture divisibility here. |
+| 2 | SelmerIwasawaCohomology L0/L2/L3/L4 | 11 / 3 | Keep general cohomology, local conditions and specialization with their owner. Add the general classical Kummer/Bloch–Kato rational comparison once, not a private CM replacement. |
+| 3 | ArithmeticStatistics ST.0/ST.5 | 4 / 2 | Add the exact squareclass height, squarefree half-density calculation and BKLOS corank input. Smith's corank input moves to route 9. Broad existing statistical scope is not evidence that these exact theorems were already planned. |
 | 4 | IntegralIwasawaTheory I.1/I.2 | 5 / 0 | The paper is an additional source for cyclotomic arithmetic towers and norm-compatible unit/class modules. Their arithmetic carriers do not migrate into a second generic Selmer owner. |
-| 5 | RankZeroOneBSD BSD.0 | 2 / 2 | Supply the concrete congruent-number model and its root-number calculation inside the existing analytic/twist setup. |
-| 6 | ComplexMultiplicationAndExplicitReciprocity CM.1/CM.4 | 2 / 2 | Supply arbitrary-order elliptic CM L-factorization and the rational CM self-twist isogeny, using existing ideal actions and characters. |
-| 7 | CMAllPrimeMainConjectures, Part II of ModularIwasawaMainConjectures | 16 / 16 | Add the actual two-variable elliptic-unit theory, rational horizontal-prime equality, CM zeta comparison and all-prime descent to Kato's equality. |
-| 8 | CMRankZeroConverse, Part II of RankZeroOneBSD | 17 / 17 | Add the Selmer-to-analytic implication and its elliptic, descent and density applications; the parent supplies the opposite implication and its common setup. |
+| 5 | RankZeroOneBSD BSD.0 | 1 / 1 | Supply the concrete congruent-number model and its root-number calculation inside the existing analytic/twist setup. |
+| 6 | ComplexMultiplicationAndExplicitReciprocity CM.1/CM.4 | 4 / 3 | Supply arbitrary-order elliptic CM L-factorization and the rational CM self-twist isogeny, using existing ideal actions and characters. |
+| 7 | CMAllPrimeMainConjectures, Part II of ModularIwasawaMainConjectures | 23 / 23 | Add the actual two-variable elliptic-unit theory, rational horizontal-prime equality, CM zeta comparison and all-prime descent to Kato's equality. |
+| 8 | CMRankZeroConverse, Part II of RankZeroOneBSD | 23 / 23 | Add the Selmer-to-analytic implication and its elliptic, descent and density applications; the parent supplies the opposite implication and its common setup. |
+| 9 | ArithmeticStatisticsPartIISmithMethod, Part II of ArithmeticStatistics | 1 / 1 | Smith's 2∞-Selmer distribution and BT Theorem 3.3, coalescing with PAPER-KOYMANS-PAGANO's Smith-method Part II (red-team fix, finding 13). |
 
-The Part II titles use their parents' exact titles, and each parent is the first prerequisite. Both briefs state endpoints with hypotheses, distinguish imports from new work, prescribe the proof interfaces and specify tests for subsequent design/blueprint jobs.
+The Part II titles use their parents' exact titles, and each parent is the first prerequisite. Route 8's title keeps the pre-extension parent title until the maintainer settles the convention for Part IIs of RS-extended parents (red-team finding 25); its import clause gives the parent's current title. Both briefs state endpoints with hypotheses, distinguish imports from new work, prescribe the proof interfaces and specify tests for subsequent design/blueprint jobs.
 
 The ordinary and family branches in ModularIwasawaMainConjectures do not supply the unconditional all-prime CM equality. IntegralIwasawaTheory's totally-real determinant results and the scoped noncommutative/equivariant branches likewise are not the imaginary-quadratic elliptic-unit theorem. The existing rank-one-converse design is adjacent work, not a supplier of this rank-zero result.
 
@@ -80,6 +81,10 @@ The independent review (REV-PAPER-BURUNGALE-TIAN-26, `research/blueprint/reviews
 - **Routes:**
   - Route 5 carries only `congruent-root-number`.
   - Route 7's brief states the corrected Theorem 2.1 and the equality step, imports the ray-class and Siegel-unit suppliers, and asks for a single owner of the elliptic-unit foundations shared with the Burungale–Kobayashi–Ota designs.
-  - Route 8's area is now "iwasawa". Its brief asks for a single owner of `p-converse-property`, shared with Skinner's RankOneConverse design.
+  - Route 8's area is now "iwasawa". Its brief asks for a single owner of `p-converse-property`, shared with Skinner's RankOneConverse design. The review's suggested rename "the rank-one p-converse" is superseded by the title "… Part II: the p-converse to Gross–Zagier–Kolyvagin" (red-team finding 27).
 
-Where the text above counts items, the corrected JSON is authoritative. It has 92 items: 3 library, 48 planned and 41 missing.
+Where the text above counts items, the corrected JSON is authoritative. It has 118 items: 4 library, 56 planned and 58 missing.
+
+## Red-team fixes
+
+The fixes for RT-PAPER-BURUNGALE-TIAN-26 (all 28 findings confirmed) are recorded in `research/blueprint/redteam/RT-PAPER-BURUNGALE-TIAN-26.fixes.md`. They add items for Kato's CM case of Theorem 12.4, the λ-adic realization, induction and comparison maps, the ray-tower Iwasawa cohomology and the twisted equivariant equality, the integral two-variable main-conjecture layer in route 7's brief, the H¹_g = H¹_f step and duality inputs for route 8, and a ninth route to the Smith-method Part II.
