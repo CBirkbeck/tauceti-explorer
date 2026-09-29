@@ -132282,6 +132282,24 @@
    "reviewReason": null
   },
   {
+   "id": "DeligneWeightsAndPurity/E1",
+   "kind": "gap",
+   "locator": "Chapter III, proof of Proposition 11.2, p. 119 (footnote 6)",
+   "correction": "The degree of the pullback of L(J × Θ) along (1 × α) ∘ (f × f) ∘ Δ must be computed from the theta divisor's intersection with f(C) (Milne III.6.12, Lang 1959 IV §3). The step is incomplete as printed. The node weil-estimate-for-curves imports the fixed-point formula from its RS-17 supplier instead of relying on this proof.",
+   "reason": "The author marks the displayed identity with a footnote reading \"Needs fixing\"; the degree computation it records is not justified in the printed proof.",
+   "affects": "the proof",
+   "known": "Flagged by the author in the text (footnote 6); not on the author's errata page for v2.00.",
+   "searched": [
+    "the author's errata page for Abelian Varieties v2.00, https://www.jmilne.org/math/CourseNotes/errata.html, read 2026-09-29"
+   ],
+   "owner": "DeligneWeightsAndPurity",
+   "file": "research/blueprint/packets/DeligneWeightsAndPurity--DWP.0.json",
+   "citation": "J. S. Milne, Abelian Varieties, Course notes, version 2.00 (March 16, 2008); printed page = PDF page − 6",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DerivedDeRhamCohomology/E1",
    "kind": "misprint",
    "locator": "Proposition 2.3, printed/PDF p.5 in arXiv:1204.6560v1; checked on the rendered page",
