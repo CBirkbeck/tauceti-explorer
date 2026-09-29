@@ -9017,8 +9017,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DELIGNE-74.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4492"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4492",
+   "finishedAt": "2026-09-29T14:58:59Z"
   },
   {
    "id": "REV-PAPER-DELIGNE-74",
@@ -9547,7 +9548,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SCHOLZE-13.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4548"
   },
   {
    "id": "REV-PAPER-SCHOLZE-13",
