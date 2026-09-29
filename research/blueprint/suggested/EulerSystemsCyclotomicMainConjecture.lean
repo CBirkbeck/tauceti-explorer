@@ -8,6 +8,9 @@ import Mathlib.RingTheory.RootsOfUnity.Complex
 import Mathlib.RingTheory.RootsOfUnity.CyclotomicUnits
 import Mathlib.RepresentationTheory.Invariants
 import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+import Mathlib.GroupTheory.Index
+import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
+import Mathlib.NumberTheory.Zsqrtd.Basic
 
 /-!
 # Suggested declarations: Euler systems and the cyclotomic main conjecture, layer L0
@@ -483,6 +486,30 @@ example {R : Type*} [CommRing R] [IsDomain R] (e x u : R) (he : e ≠ 0) (h : e 
 /-- `L4/greither-chi-parts`, test `chiPart.test_not_exact`: for `p = 2` and `Δ = ℤ/2`, the χ-part of the trivial module
 `ℤ₂` is `ℤ₂/(1 + 1) = ℤ/2`, and the map to `ℤ₂[Δ]_χ ≅ ℤ₂` sends `1` to `1 + δ ↦ 1 + (−1) = 0`. -/
 example : (1 : ℤ) + (-1) = 0 ∧ ¬ IsUnit (2 : ℤ) := ⟨by norm_num, by decide⟩
+
+/-- `L4/greither-real-iwasawa-leopoldt`, the order of the part faithful on `Δ_p` (Solomon, Corollary II.1): if
+`α : A → B` is onto and `β : B → A` is injective, then `|A / βα(A)| · |B| = |A|`. With `βα = N_C` this is
+`|A′(F)_χ| = |A′(F)_{χ′}| / |A′(F₁)_{χ′}|`. -/
+example {A B : Type*} [AddCommGroup A] [AddCommGroup B] (α : A →+ B) (β : B →+ A)
+    (hα : Function.Surjective α) (hβ : Function.Injective β) :
+    Nat.card (A ⧸ (β.comp α).range) * Nat.card B = Nat.card A := by
+  have h : (β.comp α).range = β.range := by
+    rw [AddMonoidHom.range_comp, AddMonoidHom.range_eq_top.mpr hα, ← AddMonoidHom.range_eq_map]
+  rw [h, Nat.card_congr (AddMonoidHom.ofInjective hβ).toEquiv]
+  exact AddSubgroup.index_mul_card (H := β.range)
+
+/-- `L4/greither-real-iwasawa-leopoldt`: the norm element of the subgroup of order `p` of a cyclic group of order
+`p^{k+1}` is `Φ_{p^{k+1}}(σ)`, so the part faithful on `Δ_p` is the quotient by `N_C`. -/
+example {R : Type*} [CommRing R] {p k : ℕ} (hp : p.Prime) :
+    Polynomial.cyclotomic (p ^ (k + 1)) R = ∑ i ∈ Finset.range p, (Polynomial.X ^ p ^ k) ^ i :=
+  Polynomial.cyclotomic_prime_pow_eq_geom_sum hp
+
+/-- `L4/greither-iwasawa-leopoldt-two`, source issue E4: for `F = ℚ(ζ₅)` and `χ(2) = i`,
+`5·B_{1,χ⁻¹} = Σ_a a·χ⁻¹(a) = 1 − 2i + 3i − 4 = −3 + i`, of norm `10`. So `v₂(½B_{1,χ⁻¹}) = −1/2`, and the exponent
+`d(χ) = 2` is needed for `2·|½B|₂^{d(χ)} = 1` to be an order. -/
+example : (⟨1, 0⟩ + ⟨2, 0⟩ * ⟨0, -1⟩ + ⟨3, 0⟩ * ⟨0, 1⟩ + ⟨4, 0⟩ * ⟨-1, 0⟩ : ℤ√(-1)) = ⟨-3, 1⟩ ∧
+    Zsqrtd.norm (⟨-3, 1⟩ : ℤ√(-1)) = 10 := by
+  decide
 
 end SuggestedTest
 
