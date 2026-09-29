@@ -1,5 +1,28 @@
 # BP-EulerSystemsCyclotomicMainConjecture — handoff
 
+## Checkpoint 5 (Claude Code, session cc-fb70e5, 29 September 2026): L4 started from Greither §§1–3 (5 nodes)
+
+Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`; L1, L3 and L4 are `partial`.
+
+**Source.** Greither, Ann. Inst. Fourier 42 (1992), 449–499. This is the Numdam scan (SHA-256 8e4db974…; journal page = PDF page + 447), read on its OCR text layer, with the main-conjecture statement (p. 452) checked on the page image.
+
+**New L4 nodes:**
+- `greither-chi-parts` (definition; 4 API items, 3 tests): properties (a)–(g), with a non-exactness example at p = 2.
+- `greither-semilocal-units`: Theorem 2.13 and Corollary 2.14 (Coleman, requested).
+- `greither-real-main-conjecture`: Theorem 3.1 for all p, including the p = 2 Chebotarev modification (Theorem 3.7, Claims (a)–(c)).
+- `greither-kummer-duality`: Lemma 3.3 and Proposition 3.4.
+- `greither-main-conjecture-all-p` (planet): Theorem 3.2 with the one-half normalisation.
+
+**No new source issues.**
+
+**Lean.** One new checked example (the p = 2 χ-part computation). The file compiles with exit 0; the only warnings are the existing planned stubs.
+
+**Checks.** `check_blueprint --index`: 0 errors, 0 warnings. `check-files`: 0 problems. Every new excerpt was checked by script against its page's text.
+
+**Next for L4.**
+- §4: Theorem A (p = 2 Leopoldt–Iwasawa), Theorem B (= 4.1) and Theorem C (= 4.12), and the Gras conjecture (4.14–4.15).
+- §2's lemmas in detail.
+
 ## Checkpoint 4 (Claude Code, session cc-fb70e5, 29 September 2026): L3 planned (4 nodes)
 
 Refs #725. **Status: partial.** L0 and L2 are `source_decomposed`, L1 and L3 are `partial`, and L4 is `not_read`.
