@@ -147056,6 +147056,67 @@
    "reviewReason": null
   },
   {
+   "id": "PadicHodgeTheory/E48",
+   "kind": "misprint",
+   "locator": "§1.1.1, p. 669 (Ann. Sci. ÉNS 2004); checked on the page image",
+   "printed": "We recall that Mλ|Gp is crystalline if and only if WDp(Mλ) is unramified …, in which case WDp(Mλ) = Q_p^ur ⊗Qp Dcrys(Mλ) with Frobp acting via 1 ⊗ φ^{−1}.",
+   "correction": "With Frob_p the geometric Frobenius (p. 668), it acts via 1 ⊗ φ; equivalently the arithmetic Frobenius acts via 1 ⊗ φ^{−1}.",
+   "reason": "For V = Q_p(1), D_crys = Q_p t^{−1} with φ = p^{−1}, and the geometric Frobenius acts on the ℓ-adic Q_ℓ(1) by p^{−1}; with 1 ⊗ φ^{−1} it would act by p. For M_f, (18) gives the geometric Frobenius the characteristic polynomial X² − ψ(p)^{−1}a_pX + ψ(p)^{−1}p^{k−1}; with φ^{−1} this would make det φ of valuation 1 − k, while the Hodge jumps 0 and k − 1 force t_N = k − 1.",
+   "affects": "nothing",
+   "known": "corrected in the authors' arXiv version 2512.02348v2 (11 Dec 2025), §1.1, p. 6: Frob_p is geometric, φ_p = Frob_p^{−1}, and (ρ, N) with ρ(g) = gφ^{ν(g)}",
+   "searched": [
+    "arXiv:2512.02348v2 §1.1 (read)",
+    "Numdam page of the article (no erratum listed)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--R06.5.json",
+   "citation": "F. Diamond, M. Flach and L. Guo, The Tamagawa number conjecture of adjoint motives of modular forms, Ann. Sci. École Norm. Sup. (4) 37 (2004), 663–727, the Numdam copy (65 pages; printed page = PDF page + 662).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E49",
+   "kind": "misprint",
+   "locator": "§1.6.3, p. 684 (Ann. Sci. ÉNS 2004); checked on the page image",
+   "printed": "For λ not dividing p and p not dividing N, this is the Eichler–Shimura relation (18); for λ dividing p and p dividing N, this is due to Deligne, Langlands and Carayol [9]; for λ|p, p ∉ S, this is due to Scholl [75].",
+   "correction": "\"for λ not dividing p and p dividing N, this is due to Deligne, Langlands and Carayol\".",
+   "reason": "Carayol's theorem concerns λ ∤ p; and λ | p with p | N lies in the excluded set S = S_N (primes dividing Nk!, p. 673), so the printed case is outside the statement.",
+   "affects": "nothing",
+   "known": "corrected in arXiv:2512.02348v2, §5.5, p. 60: \"by Langlands, Deligne and Carayol [Ca0] for λ ∤ p, and by Scholl [Scho2] and Saito [Sai] in general\"",
+   "searched": [
+    "arXiv:2512.02348v2 §5.5 (read)",
+    "Numdam page of the article (no erratum listed)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--R06.5.json",
+   "citation": "F. Diamond, M. Flach and L. Guo, The Tamagawa number conjecture of adjoint motives of modular forms, Ann. Sci. École Norm. Sup. (4) 37 (2004), 663–727, the Numdam copy (65 pages; printed page = PDF page + 662).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E50",
+   "kind": "misprint",
+   "locator": "§2, p. 9 and p. 12 (arXiv v2); checked on the page images",
+   "printed": "p. 9: \"a nilpotent endomorphism N of V satisfying ρ(σ)Nρ(σ)^{−1} = N𝔭^{n(σ)}N. … n : W(F̄_𝔭/F_𝔭) → Z is the canonical surjection sending a geometric Frobenius … to 1.\" p. 12: \"satisfying σN = N𝔭^{n(σ)}Nσ since φN = pNφ.\"",
+   "correction": "ρ(σ)Nρ(σ)^{−1} = N𝔭^{−n(σ)}N, and σN = N𝔭^{−n(σ)}Nσ since Nφ = pφN.",
+   "reason": "Fontaine's B_st satisfies Nφ = pφN (on u = log[p̃]: N(φu) = −p = pφ(Nu)), which gives F N F^{−1} = N𝔭^{−1}N for a geometric Frobenius F; this is Deligne's relation and the one forced by Grothendieck's ℓ-adic monodromy theorem. Saito's own Theorem 2 (p. 13: weight w − 2 on ker N, w on coker N; N: Gr_1^W(1) ≅ Gr_{−1}^W) also requires F N F^{−1} = N𝔭^{−1}N. The two printed relations are reversed consistently, so the construction and the theorems are unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0612077 (v2 read; v1 not compared)",
+    "The Compositio Math. 145 (2009) text was not seen",
+    "T. Saito's page (ms.u-tokyo.ac.jp/~t-saito/pp/h.pdf) hosts the same preprint"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--R06.5.json",
+   "citation": "T. Saito, Hilbert modular forms and p-adic Hodge theory, arXiv:math/0612077v2 (11 Dec 2006); published in Compositio Math. 145 (2009), 1081–1113 (not seen).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PadicMeasuresIwasawaAlgebras/E1",
    "kind": "error",
    "locator": "Remark 3.35, published printed p. 130 / PDF 31; same assertion in arXiv v2 PDF 22.",
