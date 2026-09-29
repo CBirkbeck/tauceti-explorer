@@ -8378,8 +8378,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LAWRENCE-VENKATESH-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2162"
+   "state": "pending",
+   "note": "released on GitHub issue #2162"
   },
   {
    "id": "REV-PAPER-LAWRENCE-VENKATESH-20",
@@ -8648,8 +8648,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2182"
+   "state": "pending",
+   "note": "released on GitHub issue #2182"
   },
   {
    "id": "REV-PAPER-BHATT-18",
@@ -19545,9 +19545,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-LefschetzPencilsAndVanishingCycles--LPV.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #768"
+   "note": "released on GitHub issue #768"
   },
   {
    "id": "REV-LefschetzPencilsAndVanishingCycles--LPV.0",
@@ -26069,8 +26069,8 @@
     "REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1730"
+   "state": "pending",
+   "note": "released on GitHub issue #1730"
   },
   {
    "id": "RT-PAPER-BENNETT-SIKSEK-20",
@@ -30368,8 +30368,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-commutative.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1527"
+   "state": "pending",
+   "note": "released on GitHub issue #1527"
   },
   {
    "id": "REV-RT-AREA-commutative",
