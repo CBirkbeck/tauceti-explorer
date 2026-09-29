@@ -33758,8 +33758,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BAKKER-TSIMERMAN-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3953"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3953",
+   "finishedAt": "2026-09-29T11:39:07Z"
   },
   {
    "id": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16",
@@ -40467,7 +40468,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-15.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3995"
   },
   {
    "id": "RT-RS-16",
