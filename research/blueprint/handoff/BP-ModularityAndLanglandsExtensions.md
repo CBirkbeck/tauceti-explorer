@@ -1,3 +1,46 @@
+# BP-ModularityAndLanglandsExtensions — checkpoint 2 (Claude Code cc-39fac3)
+
+Claude Code, session `cc-39fac3`, 29 September 2026. Refs #1033; the bot confirmed the claim (comment 5884987608). **Status: partial.**
+
+## Checkpoint 2: ML.3 (symmetric powers and Sato–Tate)
+
+**Sources.**
+- Newton–Thorne I, arXiv:1912.11261v3 (sha 6d50b55…): the introduction and the theorem statements.
+- Newton–Thorne II, arXiv:2009.07180v2 (sha 0f08214…): the introduction, Theorem 2.1 with its reductions, Theorem 3.1 and Theorem A.1.
+- Kedlaya's notes, Chapter 24: text layer, and page images of pp. 134–135.
+
+**Nodes (16).**
+- `symmetric-power-lifting` (definition).
+- `accessible-regular-refinement` (definition).
+- NT I Theorem 2.33 (planet), Buzzard–Kilford, Theorem 3.1 (planet), Theorem 5.2, the level-raising package (Theorems 4.1, 6.1, 7.1), Theorems 7.6, 7.7 (planet), Proposition 8.3 and Theorem 8.1.
+- NT II Theorem 2.1 (planet), Theorem A (planet) and Theorem A.1.
+- The equidistribution criterion, and Sato–Tate for elliptic curves over ℚ (planet).
+
+**Requests.**
+- New: PadicFamilies L2 and AG2.3 (eigenvarieties), GL2AutomorphicRepresentationsAndTransfer R17.5 (weight one and CM), AnalyticNumberTheory AN.2 (the Tauberian theorem).
+- Extended: AL.2 (entireness), AL.3 (Jacquet–Shalika nonvanishing), AG2.2.
+
+**Gaps.** The Newton–Thorne proofs are recorded at statement level. ML.4's classification inputs are not planned.
+
+**Findings (Kedlaya Chapter 24).**
+- E4: the complex-multiplication definition is reversed.
+- E5: Theorem 24.6 claims holomorphic continuation (only meromorphic was known before Newton–Thorne) and a wrong abscissa.
+- E6: Conjecture 24.3's multiplicity condition is misprinted.
+
+**Lean.** Three new checked examples:
+- 577 is prime and ≡ 1 (mod 48·3!);
+- ∫₀^π sin²θ dθ = π/2 (the Sato–Tate density has mass one);
+- 2- versus 3-regularity for α/β = −1.
+
+The suggested file compiles with 0 errors and 0 warnings.
+
+**Checks.** `check_blueprint.py`: 0 errors, 0 warnings (48 nodes, 12 planets). `intake.py check-files`: 0 problems. Unit tests pass.
+
+**Continue with:**
+1. ML.4 (Arthur, Mok, KMSW), which unblocks ML.3's residual automorphy.
+2. ML.1 (weight one).
+3. Decompose NT I §2 (the infinitesimal R = T).
+
 # BP-ModularityAndLanglandsExtensions — checkpoint 1 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 29 September 2026. Refs #1033; the bot confirmed the claim (comment 5884639939). **Status: partial.** There was no earlier packet.

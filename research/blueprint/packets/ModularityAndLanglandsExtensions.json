@@ -11,7 +11,7 @@
     "ModularityAndLanglandsExtensions:ML.5"
   ],
   "status": "partial",
-  "summary": "Checkpoint 1 plans the potential-automorphy assembly ML.2 from Barnet-Lamb–Gee–Geraghty–Taylor (arXiv v4): polarized representations, adequacy, ı-ordinarity, the connecting relation and potential diagonalizability; the minimal, ordinary and potentially diagonalizable automorphy lifting theorems; the Dwork family and potential ordinary automorphy; change of weight and level; the potential automorphy theorem and its totally real and mod l forms; and the compatible-system consequences (potential automorphy, meromorphic continuation and functional equation, strict purity, irreducibility for density-one l, decomposition into irreducible systems). ML.0 gets the normalisation and version registers. ML.1 and ML.3–ML.5 are not read.",
+  "summary": "Checkpoint 1 plans the potential-automorphy assembly ML.2 from Barnet-Lamb–Gee–Geraghty–Taylor (arXiv v4): polarized representations, adequacy, ı-ordinarity, the connecting relation and potential diagonalizability; the minimal, ordinary and potentially diagonalizable automorphy lifting theorems; the Dwork family and potential ordinary automorphy; change of weight and level; the potential automorphy theorem and its totally real and mod l forms; and the compatible-system consequences (potential automorphy, meromorphic continuation and functional equation, strict purity, irreducibility for density-one l, decomposition into irreducible systems). ML.0 gets the normalisation and version registers. ML.1 and ML.3–ML.5 are not read. Checkpoint 2 (cc-39fac3) plans ML.3: symmetric power functoriality (Newton–Thorne I, II) and Sato–Tate for elliptic curves over ℚ.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -43,6 +43,42 @@
       "accessed": "2026-09-29",
       "readSections": [
         "2026-09-29 (cc-39fac3): §1.4 (pp. 24–29), §2.1–§2.4 (pp. 31–40), statements of §3.1–§3.3 (pp. 41–48) with the proofs of Proposition 3.1.1 and 3.2.1 (pp. 41, 45–46), §4.1 statement and proof of Proposition 4.1.1 (pp. 50–52), §4.2–§4.5 (pp. 53–61), §5.4–§5.5 (pp. 74–82), on the text layer. Compared against arXiv v1 (sha 697e2d3…)."
+      ]
+    },
+    {
+      "id": "newton-thorne-I",
+      "title": "Symmetric power functoriality for holomorphic modular forms",
+      "authors": "James Newton and Jack A. Thorne",
+      "edition": "arXiv:1912.11261v3 (27 September 2021), 101 pages; published in Publ. Math. IHÉS 134 (2021), 1–116 (not collated). Printed page = PDF page.",
+      "url": "https://arxiv.org/pdf/1912.11261v3",
+      "sha256": "6d50b558a6182a8d1515a6715529a33079807bf405c8db775e4ed252f5a2f379",
+      "accessed": "2026-09-29",
+      "readSections": [
+        "2026-09-29 (cc-39fac3): Introduction and notation pp. 1–8; statements of Definition 2.23, Theorems 2.24, 2.33, 3.1, 3.2, 4.1, 5.2, 6.1, 7.1, 7.6, 7.7, 8.1 and Propositions 7.4, 8.2, 8.3; the accessible-refinement definition p. 34. Proofs not decomposed."
+      ]
+    },
+    {
+      "id": "newton-thorne-II",
+      "title": "Symmetric power functoriality for holomorphic modular forms, II",
+      "authors": "James Newton and Jack A. Thorne",
+      "edition": "arXiv:2009.07180v2 (27 September 2021), 30 pages; published in Publ. Math. IHÉS 134 (2021), 117–152 (not collated).",
+      "url": "https://arxiv.org/pdf/2009.07180v2",
+      "sha256": "0f08214ebe03344c2e2851be76c49213dc4adf7928ff561610b674c423a2a6bf",
+      "accessed": "2026-09-29",
+      "readSections": [
+        "2026-09-29 (cc-39fac3): Introduction pp. 1–4; Theorem 2.1 with its preliminary reductions pp. 5–6; Theorem 3.1 and Definition 3.2 p. 20; Theorem A.1 p. 27."
+      ]
+    },
+    {
+      "id": "kedlaya-ant-2025",
+      "title": "Notes on analytic number theory",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages.",
+      "url": "https://kskedlaya.org/papers/ant-ptx.pdf",
+      "sha256": "7a934fce8272cedd36ad609f79bbe79af0056320bb1e0bc690c87af990f305be",
+      "accessed": "2026-09-29",
+      "readSections": [
+        "2026-09-29 (cc-39fac3): Chapter 24 (pp. 133–135), text layer and page images of printed pp. 134–135."
       ]
     }
   ],
@@ -1686,6 +1722,752 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "The symmetric power lifting Sym^{n−1}π",
+      "kind": "definition",
+      "statement": "For π cuspidal on GL₂(𝔸_ℚ) and n ≥ 1, a symmetric power lifting Sym^{n−1}π is an automorphic representation Π of GL_n(𝔸_ℚ) with rec(Π_v) ≅ Sym^{n−1} ∘ rec(π_v) for every place v (local Langlands for GL₂ and GL_n). For π regular algebraic and non-CM, Sym^{n−1}π exists as a regular algebraic cuspidal representation iff Sym^{n−1}r_{π,ι} is automorphic in the sense of ML.2/automorphic-galois-representation for one (equivalently every) p and ι : Q̄_p ≅ ℂ (strong multiplicity one, Chebotarev density and local–global compatibility); for CM π or weight-one π the lifting is isobaric and usually not cuspidal.",
+      "hypotheses": [
+        "π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 2."
+      ],
+      "proofSteps": [
+        "Galois criterion: an automorphic Π with r_{Π,ι} ≅ Sym^{n−1}r_{π,ι} has the right Satake parameters at almost all l, and local–global compatibility at the remaining l gives rec(Π_l) = Sym^{n−1}rec(π_l).",
+        "Cuspidality for non-CM π: Sym^{n−1}r_{π,ι} is irreducible because the Zariski closure of r_{π,ι}(G_ℚ) contains SL₂ (Ribet)."
+      ],
+      "acceptance": [
+        "Check the known small cases: n = 2 is π itself; n = 3 is Gelbart–Jacquet; n = 4, 5 are Kim–Shahidi (cited in Newton–Thorne's introduction)."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/Basic",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.SymPowerLift"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-I",
+          "locator": "Introduction, p. 1 (arXiv v3)",
+          "match": "The definition of the functorial lift along Sym^m and the history of small cases."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.3/level-one-symmetric-powers",
+          "how": "Theorem A"
+        },
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.3/non-cm-symmetric-powers",
+          "how": "NT II Theorem A"
+        },
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.3/sato-tate-elliptic-curves",
+          "how": "the L-functions L(Sym^nE, s)"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SymmetricPower.SymPowerLift",
+          "role": "structure",
+          "statement": "Π on GL_n(𝔸_ℚ) with rec(Π_v) ≅ Sym^{n−1} ∘ rec(π_v) at every v."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.SymPowerLift.of_galois",
+          "role": "characterisation",
+          "statement": "Sym^{n−1}r_{π,ι} automorphic ⇒ Sym^{n−1}π exists (regular algebraic, cuspidal for non-CM π)."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.SymPowerLift.unique",
+          "role": "extensionality",
+          "statement": "Unique up to isomorphism (strong multiplicity one)."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.SymPowerLift.twist",
+          "role": "compatibility",
+          "statement": "Sym^{n−1}(π ⊗ χ) = Sym^{n−1}π ⊗ χ^{n−1}."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.SymPowerLift.lFunction",
+          "role": "other",
+          "statement": "L(Sym^{n−1}π, s) = L(Π, s): entire for cuspidal Π (Godement–Jacquet)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.SymmetricPower.sym1",
+          "kind": "example",
+          "statement": "n = 2: Sym¹π = π."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.gelbart_jacquet",
+          "kind": "example",
+          "statement": "n = 3: Sym²π is the Gelbart–Jacquet lift (the adjoint lift twisted by the central character)."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.cm_not_cuspidal",
+          "kind": "example",
+          "statement": "π = automorphic induction of a Hecke character ψ of an imaginary quadratic K: Sym²π = Ind ψ² ⊞ (ψ|_{𝔸_ℚ^×}·η_K), not cuspidal."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.degenerate_n1",
+          "kind": "example",
+          "statement": "n = 1: Sym⁰π is the trivial character."
+        }
+      ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/accessible-regular-refinement",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "Accessible and n-regular refinements",
+      "kind": "definition",
+      "statement": "For a definite unitary group G_n over F⁺ and an automorphic π of G_n(𝔸_{F⁺}) with p-adic places S_p, an accessible refinement is a choice χ = (χ_v)_{v∈S_p} of smooth characters χ_v : T_n(F_ṽ) → Q̄_p^× occurring as subquotients of the normalised Jacquet module ι^{−1}r_{N_n}(π_v), equivalently with π_v ↪ i^{GL_n}_{B_n}ιχ_v. For n = 2 it is n-regular if (χ_{v,1}/χ_{v,2})^i ≠ 1 for 1 ≤ i ≤ n − 1 and every v ∈ S_p. For π on GL₂(𝔸_ℚ), π_l has an accessible refinement iff its Jacquet module is nonzero, iff π_l is not supercuspidal.",
+      "hypotheses": [
+        "G_n the definite unitary group of NT §1; T_n ⊂ B_n ⊂ GL_n diagonal torus and upper Borel."
+      ],
+      "proofSteps": [
+        "Definition; the equivalence with non-supercuspidality: an irreducible π_l embeds into a principal series iff its Jacquet module is nonzero."
+      ],
+      "acceptance": [
+        "Check that an n-regular refinement excludes the ratio being an i-th root of unity for i < n: the condition keeps Sym^{n−1} of the refinement regular."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/Eigenvariety",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.IsAccessibleRefinement"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-I",
+          "locator": "§2, p. 34, and Definition 2.23, p. 40 (arXiv v3)",
+          "match": "The definitions of accessible and n-regular refinements."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.3/eigenvariety-propagation",
+          "how": "the regularity hypotheses (1)–(2)"
+        },
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.3/non-supercuspidal-symmetric-powers",
+          "how": "Proposition 8.2 and 8.3"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SymmetricPower.IsAccessibleRefinement",
+          "role": "data",
+          "statement": "χ_v a subquotient of the normalised Jacquet module at each v ∈ S_p."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.IsNRegular",
+          "role": "data",
+          "statement": "(χ_{v,1}/χ_{v,2})^i ≠ 1 for 1 ≤ i ≤ n − 1."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.isAccessible_iff_not_supercuspidal",
+          "role": "characterisation",
+          "statement": "An accessible refinement exists iff π_l is not supercuspidal."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.isNRegular_mono",
+          "role": "relation",
+          "statement": "n-regular ⇒ m-regular for m ≤ n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.SymmetricPower.unramified_refinement",
+          "kind": "example",
+          "statement": "π_l unramified with Satake parameters {α, β}: the two refinements are (α, β) and (β, α); n-regular iff (α/β)^i ≠ 1 for i < n."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.steinberg_refinement",
+          "kind": "example",
+          "statement": "π_l a twist of Steinberg has exactly one accessible refinement."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.supercuspidal_none",
+          "kind": "example",
+          "statement": "π_l supercuspidal has no accessible refinement (the hypothesis of NT I Theorem B)."
+        },
+        {
+          "name": "TauCeti.SymmetricPower.not_regular_example",
+          "kind": "example",
+          "statement": "α/β = −1 is 2-regular but not 3-regular: (α/β)² = 1."
+        }
+      ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/eigenvariety-propagation",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "Automorphy of Sym^{n−1} is constant on eigencurve components (NT I Theorem 2.33)",
+      "kind": "theorem",
+      "statement": "Let (π₀, χ₀), (π′₀, χ′₀) be refined points of the eigencurve E₀ (tame level N, prime p) with corresponding points z₀, z′₀. Suppose either (1) χ₀ is numerically non-critical and n-regular, (2) χ′₀ is n-regular, (3) the Zariski closures of r_{π₀,ι}(G_{ℚ_p}) and r_{π′₀,ι}(G_{ℚ_p}) contain SL₂, (4) Sym^{n−1}r_{π₀,ι} is automorphic; or (1ord) χ₀ is ordinary, (2ord) π₀, π′₀ are not CM, (3ord) Sym^{n−1}r_{π₀,ι} is automorphic. If z₀, z′₀ lie on a common irreducible component of E_{0,ℂ_p}, then Sym^{n−1}r_{π′₀,ι} is automorphic.",
+      "hypotheses": [
+        "π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 2.",
+        "E₀ the Coleman–Mazur eigencurve and E_n the eigenvariety of a definite unitary group in n variables (PadicFamilies L2)."
+      ],
+      "proofSteps": [
+        "Transfer to definite unitary groups G₂ and G_n over a CM field (Theorem 2.24): the map σ_n ∘ i₂ sends E₂ into E_n near z₂ when an infinitesimal R = T holds.",
+        "The R = T theorem follows from vanishing of the adjoint Bloch–Kato Selmer group of Sym^{n−1} (Newton–Thorne 2020, cited; Kisin and Bellaïche–Chenevier's method).",
+        "Irreducible components: the locus where the image lies in E_n is Zariski closed and contains a neighbourhood of z₂, hence the component."
+      ],
+      "acceptance": [
+        "Check the ordinary variant: an ordinary refinement is automatically numerically non-critical, and Hida families replace eigencurve components."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting",
+        "ModularityAndLanglandsExtensions:ML.3/accessible-regular-refinement",
+        "PadicFamilies:L2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.3",
+        "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/Eigenvariety",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.automorphic_of_same_component"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-I",
+          "locator": "§2, Theorem 2.33, pp. 50–51 (arXiv v3)",
+          "match": "Theorem 2.33 (with Theorem 2.24 on p. 40)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Symmetric power automorphy along eigencurve components"
+      }
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/buzzard-kilford-eigencurve",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "The tame-level-one 2-adic eigencurve near the boundary (Buzzard–Kilford)",
+      "kind": "theorem",
+      "statement": "For p = 2 and N = 1, E₀ lies over the component W₀⁺ (χ(−1) = 1) of weight space, and w = χ_u(5) − 1 identifies W₀⁺ with {|w| < 1}. Over the annulus W₀(b) = {|8| < |w| < 1}, E₀(b) = κ^{−1}(W₀(b)) is a disjoint union ⊔_{i≥1}X_i of admissible opens with κ|_{X_i} an isomorphism onto W₀(b), and on X_i the slope is i·v₂(w).",
+      "hypotheses": [
+        "p = 2, tame level 1."
+      ],
+      "proofSteps": [
+        "Buzzard–Kilford 2005 (explicit overconvergence of U₂ in the boundary region; cited, not read)."
+      ],
+      "acceptance": [
+        "Check the consequence used: every irreducible component of E₀ meets κ^{−1}(W₀(b)), so it contains some X_i."
+      ],
+      "prerequisites": [
+        "PadicFamilies:L2"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/Eigenvariety",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.buzzardKilford"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-I",
+          "locator": "§3, Theorem 3.2, pp. 53–54 (arXiv v3)",
+          "match": "Theorem 3.2, quoting Buzzard–Kilford."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/level-one-ping-pong",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "Symmetric powers for one level-one form give them for all (NT I Theorem 3.1 = Theorem D)",
+      "kind": "theorem",
+      "statement": "Fix n ≥ 2. If π₀ is an everywhere unramified cuspidal π of weight k ≥ 2 with Sym^{n−1}r_{π₀,ι} automorphic for some (equivalently any) p and ι, then Sym^{n−1}r_{π,ι} is automorphic for every everywhere unramified cuspidal π of weight ≥ 2.",
+      "hypotheses": [
+        "π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 2."
+      ],
+      "proofSteps": [
+        "Work on the 2-adic tame-level-1 eigencurve E₀ (all points share the trivial residual representation).",
+        "By eigenvariety-propagation, automorphy of Sym^{n−1} is constant on components; each component contains some annulus X_i (buzzard-kilford-eigencurve).",
+        "Ping pong: a level-one f of weight k gives the two points (f, α), (f, β) on X_i, X_{i′} with i + i′ = (k − 1)/v₂(w(κ)); alternating swaps (f′, α′) ↔ (f′, β′) with moves inside annuli reach every X_i from a well-chosen starting point (classical points ramified at 2 are used to reach the boundary annulus)."
+      ],
+      "acceptance": [
+        "Check the key numerical identity v₂(α) + v₂(β) = k − 1 for the two roots of X² − a₂X + 2^{k−1}, which gives i + i′ = (k − 1)/v₂(w)."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.3/eigenvariety-propagation",
+        "ModularityAndLanglandsExtensions:ML.3/buzzard-kilford-eigencurve",
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/LevelOne",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.symPower_levelOne_propagate"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-I",
+          "locator": "§3, Theorem 3.1, p. 53; Introduction pp. 3–4 (arXiv v3)",
+          "match": "Theorem 3.1 (Theorem D) and the ping-pong strategy."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Level-one ping pong on the 2-adic eigencurve"
+      }
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/reducible-deformation-finiteness",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "Finiteness of ordinary deformation rings with reducible residual image (NT I Theorem 5.2)",
+      "kind": "theorem",
+      "statement": "In the setting of NT I §5 (a residually reducible r̄ = ⊕χ_i of G_F for F CM, ordinary deformation problems 𝒮_Σ with Σ a set of auxiliary places), suppose (1) p > 2n, (2) χ_i/χ_j|_{G_{F(ζ_p)}} has order > 2n for i < j (so r̄ is Schur), (3) [F(ζ_p) : F] = p − 1 and (4) Σ ≠ ∅. Then R_{𝒮_Σ} is a finite Λ-algebra.",
+      "hypotheses": [
+        "The notation and hypotheses of NT I §5."
+      ],
+      "proofSteps": [
+        "Controls the dimension of the locus of reducible deformations (used in §6 to find a generic prime of the ordinary Hecke algebra); proof in NT I §5 not decomposed here."
+      ],
+      "acceptance": [
+        "Check the role: finiteness gives the dimension bound needed to find a non-reducible point, not an R = T theorem."
+      ],
+      "prerequisites": [
+        "GlobalGaloisDeformations:G7/polarized-representability"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/LevelRaising",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.finite_reducibleDeformationRing"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-I",
+          "locator": "§5, Theorem 5.2, p. 66 (arXiv v3)",
+          "match": "Theorem 5.2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/steinberg-level-raising",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "Level raising to Steinberg for symmetric powers of theta series (NT I Theorems 4.1, 6.1, 7.1)",
+      "kind": "theorem",
+      "statement": "Let n ≥ 3, p ≡ 1 (mod 48·n!), q ≠ p, X₀ a finite set of places of K prime to 2pq and ω a de Rham character with ωω^c = ε³, unramified on X₀. Then there is a soluble CM F/K, X₀-split, and a RACSDC ι-ordinary Π on GL_n(𝔸_F) with r_{Π,ι} ≅ ω^{n−1}|_{G_F} ⊗ Sym^{n−1}r_{σ₀,ι}|_{G_F}, the same Hodge–Tate numbers, and Π_v an unramified twist of Steinberg at some v | q (Theorem 7.1; proved here for n odd, Proposition 7.4; for n even via Anastassiades–Thorne).",
+      "hypotheses": [
+        "σ₀ a theta series congruent to the chosen level-one form (NT I §7); K an imaginary quadratic field."
+      ],
+      "proofSteps": [
+        "Theorem 4.1: automorphic level raising with depth-zero types for unitary groups (for n = 3: the cuspidal unipotent representation of U₃(q) stays irreducible mod p when q is a primitive 6th root of unity mod p, Proposition 1.15).",
+        "Theorem 6.1: a Steinberg local component via the \"R_p = T_p\" theorem of Allen–Newton–Thorne for residually reducible representations, using reducible-deformation-finiteness.",
+        "Proposition 7.4 assembles these for odd n; Anastassiades–Thorne 2021 passes from Sym^{n−1} to Sym^{2n−1} (cited)."
+      ],
+      "acceptance": [
+        "Check the arithmetic condition p ≡ 1 (mod 48·n!) on a small case: for n = 3, 48·3! = 288 and p = 577 is a prime ≡ 1 (mod 288) (suggested file)."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.3/reducible-deformation-finiteness",
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting",
+        "ModularityAndLanglandsExtensions:ML.4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/LevelRaising",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.exists_steinberg_levelRaising"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-I",
+          "locator": "§7, Theorem 7.1, p. 82; §4 Theorem 4.1, p. 59; §6 Theorem 6.1, p. 75 (arXiv v3)",
+          "match": "The level-raising results and their assembly."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/one-level-one-symmetric-power",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "One level-one form with automorphic Sym^{n−1} (NT I Theorem 7.6 = Theorem E)",
+      "kind": "theorem",
+      "statement": "For every n ≥ 3 there is a cuspidal, everywhere unramified π of GL₂(𝔸_ℚ) of weight k ≥ 2 such that Sym^{n−1}r_{π,ι} is automorphic for every ι.",
+      "hypotheses": [
+        "π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 2."
+      ],
+      "proofSteps": [
+        "Choose a level-one form f congruent mod p to a theta series (r̄_{f,ι} ≅ Ind_{G_K}^{G_ℚ}ψ̄), so Sym^{n−1}r̄ restricted to G_K is a sum of characters, residually automorphic by the endoscopic classification (ML.4).",
+        "steinberg-level-raising provides a residually matching automorphic Π with a Steinberg component; the Allen–Newton–Thorne / Thorne automorphy lifting theorem for residually reducible representations (requiring a Steinberg component) makes Sym^{n−1}r_{f,ι}|_{G_F} automorphic; soluble descent."
+      ],
+      "acceptance": [
+        "Check that the strategy uses small residual image and large p, in contrast to Clozel–Thorne's large image and small p."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.3/steinberg-level-raising",
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting",
+        "ModularityAndLanglandsExtensions:ML.2/pd-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.2/automorphy-twist-and-soluble-base-change"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/LevelOne",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.exists_levelOne_symPower"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-I",
+          "locator": "§7, Theorem 7.6, p. 89; Introduction p. 4 (arXiv v3)",
+          "match": "Theorem 7.6 (Theorem E) and the theta-series strategy."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/level-one-symmetric-powers",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "Symmetric power functoriality in level one (NT I Theorem 7.7 = Theorem A)",
+      "kind": "theorem",
+      "statement": "For every n ≥ 2 and every regular algebraic cuspidal automorphic representation π of GL₂(𝔸_ℚ) of level 1, Sym^{n−1}π exists as a regular algebraic cuspidal automorphic representation of GL_n(𝔸_ℚ).",
+      "hypotheses": [
+        "π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 2.",
+        "π everywhere unramified."
+      ],
+      "proofSteps": [
+        "n = 2 is trivial; for n ≥ 3 combine one-level-one-symmetric-power with level-one-ping-pong, then symmetric-power-lifting (Galois criterion)."
+      ],
+      "acceptance": [
+        "Check on Δ (weight 12, level 1): Sym^{n−1}Δ exists for every n, so L(Sym^{n−1}Δ, s) is entire."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.3/one-level-one-symmetric-power",
+        "ModularityAndLanglandsExtensions:ML.3/level-one-ping-pong",
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/LevelOne",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.symPower_levelOne"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-I",
+          "locator": "Introduction, Theorem A, p. 2; §7, Theorem 7.7, p. 90 (arXiv v3)",
+          "match": "Theorem A and its proof as Theorem 7.7."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Symmetric power functoriality in level one"
+      }
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/n-regular-congruences",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "Congruences to n-regular forms (NT I Proposition 8.3)",
+      "kind": "lemma",
+      "statement": "Let π be non-CM of weight k ≥ 2 with π_l non-supercuspidal for every l. Then there are a prime p > max(2(n + 1), (n − 1)k), ι, and π′ of weight k with r̄_{π,ι}(G_ℚ) ⊇ a conjugate of SL₂(F_p), π_p and π′_p unramified, r̄_{π,ι} ≅ r̄_{π′,ι}, and π′_l non-supercuspidal with all accessible refinements n-regular wherever π′_l is ramified.",
+      "hypotheses": [
+        "π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 2."
+      ],
+      "proofSteps": [
+        "Choose p with large residual image (Ribet); change the level at each ramified l by level raising/lowering to reach n-regular refinements (NT I §8, not decomposed)."
+      ],
+      "acceptance": [
+        "Check the numerical bound p > (n − 1)k: it keeps Sym^{n−1} of the residual representation in the Fontaine–Laffaille range."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.3/accessible-regular-refinement",
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/HigherLevel",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.exists_nRegular_congruence"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-I",
+          "locator": "§8, Proposition 8.3, pp. 92–93 (arXiv v3)",
+          "match": "Proposition 8.3."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/non-supercuspidal-symmetric-powers",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "Symmetric powers when no local component is supercuspidal (NT I Theorem 8.1 = Theorem B, Corollary C)",
+      "kind": "theorem",
+      "statement": "Let π be a non-CM regular algebraic cuspidal π of GL₂(𝔸_ℚ) such that π_l has nonzero Jacquet module for every prime l. Then for every n ≥ 3, Sym^{n−1}r_{π,ι} is automorphic, so Sym^{n−1}π exists. In particular (Corollary C) for a semistable elliptic curve E/ℚ the completed Λ(Sym^nE, s) is entire.",
+      "hypotheses": [
+        "π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 2."
+      ],
+      "proofSteps": [
+        "Proposition 8.2 (all ramified refinements n-regular) by induction on the number of ramified primes, \"killing ramification\" along l-adic eigencurves (eigenvariety-propagation) down to level one (level-one-symmetric-powers).",
+        "General π: n-regular-congruences gives π′ satisfying 8.2 with r̄_{π,ι} ≅ r̄_{π′,ι} and large image; pd-automorphy-lifting (BLGGT Theorem 4.2.1) transfers automorphy of Sym^{n−1}r_{π′,ι} to Sym^{n−1}r_{π,ι}.",
+        "Corollary C: semistable E is modular (BCDT, Wiles) with Γ₀(N), N squarefree, so every π_l is unramified or Steinberg; Λ(Π, s) is entire for cuspidal Π (Godement–Jacquet, AL.2)."
+      ],
+      "acceptance": [
+        "Check that Γ₀(N) with N squarefree gives only unramified or Steinberg π_l, never supercuspidal."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.3/n-regular-congruences",
+        "ModularityAndLanglandsExtensions:ML.3/eigenvariety-propagation",
+        "ModularityAndLanglandsExtensions:ML.3/level-one-symmetric-powers",
+        "ModularityAndLanglandsExtensions:ML.2/pd-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting",
+        "AutomorphicLFunctionsAndLocalFactors:AL.2"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/HigherLevel",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.symPower_of_not_supercuspidal"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-I",
+          "locator": "§8, Theorem 8.1, p. 91; Introduction, Theorem B and Corollary C, p. 2 (arXiv v3)",
+          "match": "Theorem 8.1 (Theorem B) and Corollary C."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/symmetric-power-automorphy-lifting",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "Automorphy lifting for symmetric powers (NT II Theorem 2.1)",
+      "kind": "theorem",
+      "statement": "Let π, π′ be regular algebraic cuspidal on GL₂(𝔸_F), F totally real, such that π′ has weight 2 and is non-CM, r_{π′,ι}|_{G_{F_v}} is not ordinary for v | p, r̄_{π′,ι} ≅ r̄_{π,ι}, π_v is a twist of Steinberg iff π′_v is (v ∤ p), and Sym^{n−1}r_{π′,ι} is automorphic. Then Sym^{n−1}r_{π,ι} is automorphic. No irreducibility of Sym^{n−1}r̄ is required (p ≤ n allowed).",
+      "hypotheses": [
+        "π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 2.",
+        "F totally real."
+      ],
+      "proofSteps": [
+        "Reduce by soluble base change to conditions (6)–(11) of NT II p. 6, and pass to Π = π_K over a CM quadratic K.",
+        "Patch the map P → R from the pseudodeformation ring P of Sym^{n−1}r̄ to the deformation ring R of r̄: P_∞ → R_∞, with R_∞ a domain acting faithfully on patched rank-2 forms (Kisin).",
+        "Newton–Thorne 2020: Spec P is regular of dimension 0 at the pseudocharacter of Sym^{n−1}r_{π′,ι}, hence Spec P_∞ is regular there; so Spec R_∞ maps into the support of patched rank-n forms."
+      ],
+      "acceptance": [
+        "Check that the theorem avoids killing the dual Selmer group of Sym^{n−1}r̄, which fails when p ≤ n."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting",
+        "ModularityAndLanglandsExtensions:ML.2/minimal-automorphy-lifting",
+        "GlobalGaloisDeformations:G7/polarized-representability"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/Lifting",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.symPower_lifting"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-II",
+          "locator": "§2, Theorem 2.1 and proof, pp. 5–6 (arXiv v2)",
+          "match": "Theorem 2.1, the preliminary reductions and the patching argument sketched on pp. 2–3."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Automorphy lifting for symmetric powers"
+      }
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/non-cm-symmetric-powers",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "Symmetric power functoriality for all non-CM modular forms (NT II Theorem A, Corollary B)",
+      "kind": "theorem",
+      "statement": "Let π be a regular algebraic, cuspidal, non-CM automorphic representation of GL₂(𝔸_ℚ). Then for every n ≥ 1, Sym^nπ exists as a regular algebraic cuspidal automorphic representation of GL_{n+1}(𝔸_ℚ). In particular (Corollary B), for every elliptic curve E/ℚ without CM and n ≥ 2, Λ(Sym^nE, s) is entire.",
+      "hypotheses": [
+        "π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 2."
+      ],
+      "proofSteps": [
+        "Induction on #sc(π), the primes where π_p is supercuspidal; sc(π) = ∅ is non-supercuspidal-symmetric-powers.",
+        "Killing ramification: a \"seasoned\" good-dihedral π′ (with an auxiliary Steinberg prime r so that r_{π′,ι_q} has large image) congruent to π with sc(π′) = sc(π) ∖ {p}; symmetric-power-automorphy-lifting transfers automorphy (NT II Theorem 3.1, Propositions 3.7–3.11).",
+        "Corollary B: modularity of elliptic curves over ℚ (BCDT) and Godement–Jacquet."
+      ],
+      "acceptance": [
+        "Check the scope: CM forms and weight-one forms are excluded here and handled by cm-and-weight-one-symmetric-powers."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.3/non-supercuspidal-symmetric-powers",
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting",
+        "AutomorphicLFunctionsAndLocalFactors:AL.2"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/Lifting",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.symPower_nonCM"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-II",
+          "locator": "Introduction, Theorem A and Corollary B, pp. 1–2; §3, Theorem 3.1, p. 20 (arXiv v2)",
+          "match": "Theorem A (Theorem 3.1) and Corollary B."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Symmetric power functoriality for non-CM forms"
+      }
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/cm-and-weight-one-symmetric-powers",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "Symmetric powers of CM and weight-one forms (NT II Theorem A.1)",
+      "kind": "theorem",
+      "statement": "Let π be cuspidal on GL₂(𝔸_ℚ) with π_∞ a holomorphic limit of discrete series, or π the automorphic induction of a Hecke character of a quadratic field. Then Sym^nπ exists for every n ≥ 1 (usually not cuspidal).",
+      "hypotheses": [
+        "π as stated."
+      ],
+      "proofSteps": [
+        "CM case: Sym^n of an induced representation decomposes into inductions of characters and characters.",
+        "Weight one: the Artin image is dihedral, tetrahedral, octahedral or icosahedral; the icosahedral case uses Kim–Shahidi tensor-product and symmetric-power functoriality (Kim 2004, Theorem 6.4; cited)."
+      ],
+      "acceptance": [
+        "Check the CM decomposition for n = 2 (symmetric-power-lifting test cm_not_cuspidal)."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/Lifting",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.symPower_CM_weightOne"
+      },
+      "sources": [
+        {
+          "sourceId": "newton-thorne-II",
+          "locator": "Appendix A, Theorem A.1, p. 27 (arXiv v2)",
+          "match": "Theorem A.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/l-function-equidistribution-criterion",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "Equidistribution from L-functions (Kedlaya Theorem 24.2 and the Weyl criterion)",
+      "kind": "theorem",
+      "statement": "Let K be a compact group with conjugacy-class space X, x_i ∈ X with norms N(x_i) ≥ 2, such that ∏(1 − N(x_i)^{−s})^{−1} converges for Re s > 1 and continues to a neighbourhood of Re s ≥ 1 with no zeros or poles except a simple pole at 1, and for each irreducible ρ, L(s, ρ) = ∏ det(1 − ρ(x_i)N(x_i)^{−s})^{−1} continues likewise with no zeros or poles on Re s ≥ 1 except possibly at 1. Then #{i : N(x_i) ≤ n} ~ n/log n, Σ_{N(x_i)≤n}χ(x_i) = c(χ)n/log n + o(n/log n) with −c(χ) the order of vanishing of L(s, ρ) at 1; if at most boundedly many x_i share a norm, the x_i are Haar-equidistributed iff c(χ) = 0 for every nontrivial irreducible χ (Peter–Weyl/Weyl criterion).",
+      "hypotheses": [
+        "K a compact group (a compact Lie group in the application); ρ irreducible continuous representations."
+      ],
+      "proofSteps": [
+        "Prime-number-theorem argument for each L(s, ρ): logarithmic derivative, Wiener–Ikehara (AnalyticNumberTheory AN.2), Kedlaya Theorem 24.2.",
+        "Peter–Weyl: finite linear combinations of irreducible characters are dense in the continuous class functions; orthogonality gives the integrals."
+      ],
+      "acceptance": [
+        "Check the Chebotarev instance: K finite, ρ irreducible, recovering Kedlaya §22.5."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/SatoTate",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.equidistributed_of_lFunctions"
+      },
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "§§24.1–24.3, Theorem 24.1, Theorem 24.2 and Conjecture 24.3, printed pp. 133–134",
+          "match": "The equidistribution formalism (Conjecture 24.3 as printed is the criterion; see ModularityAndLanglandsExtensions/E6)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.3/sato-tate-elliptic-curves",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "title": "The Sato–Tate theorem for elliptic curves over ℚ",
+      "kind": "theorem",
+      "statement": "Let E/ℚ be an elliptic curve without complex multiplication, and for good p let α_p be the root of X² − a_pX + p with nonnegative imaginary part and θ_p = arg(α_p/√p) ∈ [0, π]. Then (θ_p) is equidistributed for (2/π)sin²θ dθ, the push-forward of Haar measure on SU(2).",
+      "hypotheses": [
+        "E/ℚ non-CM (End E = ℤ)."
+      ],
+      "proofSteps": [
+        "K = SU(2): classes are diag(e^{iθ}, e^{−iθ}), Haar measure is the Sato–Tate measure, and the irreducible representations are the Sym^n (Kedlaya §24.5).",
+        "L(s, Sym^n) = L(Sym^nE, s + n/2) (shift of the abscissa by n/2) is the L-function of the cuspidal Sym^nπ_E (non-cm-symmetric-powers), hence entire and nonvanishing on Re s ≥ 1 after the shift (Jacquet–Shalika, AL.3); for n ≥ 1 there is no pole, so c(χ) = 0.",
+        "Apply l-function-equidistribution-criterion. (Historically: Clozel–Harris–Shepherd-Barron–Taylor for non-integral j via potential automorphy; Barnet-Lamb–Geraghty–Harris–Taylor for all non-CM E over totally real fields.)"
+      ],
+      "acceptance": [
+        "Check the Haar-measure computation: the Weyl integration formula for SU(2) gives (2/π)sin²θ dθ on [0, π] (suggested file: the normalisation ∫₀^π sin²θ dθ = π/2).",
+        "Check that potential automorphy suffices: meromorphic continuation with no zeros or poles on Re s ≥ 1 (ML.2) already gives Sato–Tate; Newton–Thorne's entireness is not needed."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.3/l-function-equidistribution-criterion",
+        "ModularityAndLanglandsExtensions:ML.3/non-cm-symmetric-powers",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "ModularityAndLanglandsExtensions:ML.2/compatible-system-l-function-continuation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SymmetricPower/SatoTate",
+        "namespace": "TauCeti.SymmetricPower",
+        "declaration": "TauCeti.SymmetricPower.satoTate_elliptic"
+      },
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "§§24.4–24.5, Conjecture 24.4 and Theorems 24.5–24.6, printed pp. 134–135",
+          "match": "The Sato–Tate conjecture and its reduction to the symmetric power L-functions (with the corrections E4, E5)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Sato–Tate for elliptic curves over ℚ"
+      }
     }
   ],
   "requests": [
@@ -1702,10 +2484,11 @@
       "need": "BLGGT v4 Theorem 2.1.1: for regular algebraic cuspidal polarized (π, χ), a semisimple r_{l,ı}(π) with (r_{l,ı}(π), ε_l^{1−n}r_{l,ı}(χ)) totally odd polarized, local–global compatibility ıWD(r|_{G_{F_v}})^{F-ss} ≅ rec(π_v ⊗ |det|^{(1−n)/2}) pure of weight w at v ∤ l (Caraiani), de Rham with HT_τ = {a_{ıτ,i} + n − i}, and the same compatibility at v | l when π_v has Iwahori-fixed vectors; plus Geraghty's ordinarity comparisons (6)–(7).",
       "neededBy": [
         "ModularityAndLanglandsExtensions:ML.0/blggt-normalization-register",
-        "ModularityAndLanglandsExtensions:ML.2/iota-ordinary",
         "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation",
         "ModularityAndLanglandsExtensions:ML.2/compatible-system-l-function-continuation",
-        "ModularityAndLanglandsExtensions:ML.2/part-of-compatible-system"
+        "ModularityAndLanglandsExtensions:ML.2/iota-ordinary",
+        "ModularityAndLanglandsExtensions:ML.2/part-of-compatible-system",
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting"
       ],
       "status": "open"
     },
@@ -1721,9 +2504,10 @@
     },
     {
       "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.3",
-      "need": "For cuspidal π, π′ on GL_n, GL_{n′} with unitary twists, L^S(π × π′^∨, s) is meromorphic, holomorphic and nonzero at s = 1 unless π ≅ π′ ⊗ |det|^t, in which case it has a simple pole there (Jacquet–Shalika 1981, Shahidi 1981); used in BLGGT Theorem 5.5.2.",
+      "need": "For cuspidal π, π′ on GL_n, GL_{n′} with unitary twists, L^S(π × π′^∨, s) is meromorphic, holomorphic and nonzero at s = 1 unless π ≅ π′ ⊗ |det|^t, in which case it has a simple pole there (Jacquet–Shalika 1981, Shahidi 1981); used in BLGGT Theorem 5.5.2. Also: L(Π, s) ≠ 0 on Re s = 1 for cuspidal Π on GL_n (Jacquet–Shalika), used for Sato–Tate.",
       "neededBy": [
-        "ModularityAndLanglandsExtensions:ML.2/irreducibility-density-one"
+        "ModularityAndLanglandsExtensions:ML.2/irreducibility-density-one",
+        "ModularityAndLanglandsExtensions:ML.3/sato-tate-elliptic-curves"
       ],
       "status": "open"
     },
@@ -1731,7 +2515,42 @@
       "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.2",
       "need": "Godement–Jacquet: for cuspidal π on GL_n(𝔸_F), L^S(π, s) is entire (n ≥ 2) and satisfies the standard functional equation, with twists by finite-order characters; used through a Brauer-induction argument in BLGGT Corollary 5.4.3.",
       "neededBy": [
-        "ModularityAndLanglandsExtensions:ML.2/compatible-system-l-function-continuation"
+        "ModularityAndLanglandsExtensions:ML.2/compatible-system-l-function-continuation",
+        "ModularityAndLanglandsExtensions:ML.3/non-cm-symmetric-powers",
+        "ModularityAndLanglandsExtensions:ML.3/non-supercuspidal-symmetric-powers"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "PadicFamilies:L2",
+      "need": "Finite-slope eigenvarieties: the Coleman–Mazur eigencurve E for GL₂/ℚ (tame level N, prime p) with its weight map κ, slope map and the classical points (f, α); and eigenvarieties E_n for definite unitary groups in n variables with refined points (π, χ); with the Zariski density of classical points and irreducible components. Used by Newton–Thorne I §§2–3.",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.3/eigenvariety-propagation",
+        "ModularityAndLanglandsExtensions:ML.3/buzzard-kilford-eigencurve"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+      "need": "Definite-unitary finite-slope eigenvarieties with dense strongly regular classical points and their Galois pseudo-representations, as used for E_n in Newton–Thorne I §2.",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.3/eigenvariety-propagation"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+      "need": "Automorphic induction of Hecke characters of quadratic fields to GL₂ and the soluble (dihedral, tetrahedral, octahedral) Artin modularity for weight one, with the Kim–Shahidi inputs for the icosahedral case as they are recorded there; used for Newton–Thorne II Theorem A.1.",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.3/cm-and-weight-one-symmetric-powers"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AnalyticNumberTheory:AN.2",
+      "need": "The Wiener–Ikehara/Tauberian prime number theorem for Euler products continuing to a neighbourhood of Re s ≥ 1 with no zeros or poles except at s = 1: Σ_{N(x)≤n} χ(x) = c·n/log n + o(n/log n) with −c the order at 1 (Kedlaya Theorem 24.2).",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.3/l-function-equidistribution-criterion"
       ],
       "status": "open"
     }
@@ -1767,11 +2586,12 @@
     },
     {
       "stageId": "ModularityAndLanglandsExtensions:ML.3",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Newton–Thorne symmetric power functoriality I, II and the Hilbert extension; ACC+ Sato–Tate over CM fields; the Weyl-criterion analytic inputs (AL.2, AL.3, AN.4)."
+        "Decompose the Newton–Thorne proofs (see the gap); plan the ACC+ Sato–Tate over CM fields and the Hilbert-modular-form symmetric powers (Newton–Thorne, arXiv:2212.03595).",
+        "Clozel–Thorne's Sym^n for n ≤ 8 and Kim–Shahidi n = 3, 4 are cited as history, not planned."
       ],
-      "notes": "Not started."
+      "notes": "Checkpoint 2 (cc-39fac3): Newton–Thorne I and II at statement level (13 nodes), and Sato–Tate for elliptic curves over ℚ from Kedlaya Chapter 24 with the Weyl/Serre equidistribution criterion (2 nodes)."
     },
     {
       "stageId": "ModularityAndLanglandsExtensions:ML.4",
@@ -1822,6 +2642,26 @@
         "ModularityAndLanglandsExtensions:ML.2/part-of-compatible-system"
       ],
       "detail": "Clozel 1990 Theorem 3.13 (independence of ı), Harris–Shepherd-Barron–Taylor 2010 Theorem 4.2 (the Brauer argument for L-functions), Taylor 2012 (the parity statement of Corollary 5.4.3(3)) and Caraiani 2012a,b (purity) are cited from BLGGT and not read."
+    },
+    {
+      "title": "Newton–Thorne proofs are recorded at statement level",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.3/eigenvariety-propagation",
+        "ModularityAndLanglandsExtensions:ML.3/reducible-deformation-finiteness",
+        "ModularityAndLanglandsExtensions:ML.3/steinberg-level-raising",
+        "ModularityAndLanglandsExtensions:ML.3/one-level-one-symmetric-power",
+        "ModularityAndLanglandsExtensions:ML.3/n-regular-congruences",
+        "ModularityAndLanglandsExtensions:ML.3/symmetric-power-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.3/non-cm-symmetric-powers"
+      ],
+      "detail": "The proofs of NT I Theorems 2.24/2.33 (infinitesimal R = T on eigenvarieties, using Newton–Thorne 2020 on adjoint Bloch–Kato Selmer groups), 4.1 (depth-zero types), 5.2, 6.1 (Allen–Newton–Thorne residually reducible R_p = T_p), 7.1, 8.3 and NT II §§2–3 (patching with pseudodeformation rings; seasoned good-dihedral forms) are summarised from the introductions and statements, not decomposed. Cited and unread: Buzzard–Kilford 2005, Anastassiades–Thorne 2021, Allen–Newton–Thorne 2020, Newton–Thorne 2020, Kim 2004."
+    },
+    {
+      "title": "ML.4 classification inputs used by ML.3 are not planned",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.3/steinberg-level-raising"
+      ],
+      "detail": "The residual automorphy of Sym^{n−1} of a theta series uses the endoscopic classification for unitary groups (Mok; Kaletha–Mínguez–Shin–White) and Mœglin's packets, which belong to ML.4 and are not yet planned."
     }
   ],
   "sourceIssues": [
@@ -1866,6 +2706,48 @@
       "searched": [
         "2026-09-29: arXiv listing and a web search (no erratum found)."
       ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions/E4",
+      "source": "kedlaya-ant-2025",
+      "kind": "misprint",
+      "locator": "Chapter 24, §24.4, printed p. 134, paragraph after Conjecture 24.4",
+      "printed": "The source calls E an elliptic curve with complex multiplication when its algebraic-group endomorphisms consist solely of maps given by multiplication by integers.",
+      "correction": "E has complex multiplication if it has endomorphisms other than multiplication by integers (End E ≠ ℤ); the printed condition defines not having CM.",
+      "reason": "The next parenthesis explains CM over ℂ by complex numbers multiplying the lattice into itself, i.e. non-integer endomorphisms; and Conjecture 24.4 is stated for E without CM, where End E = ℤ.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: the notes' HTML version was not collated for this chapter; no erratum list found on the author's page."
+      ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions/E5",
+      "source": "kedlaya-ant-2025",
+      "kind": "error",
+      "locator": "Chapter 24, §24.5, Theorem 24.6 and the preceding sentence, printed p. 135",
+      "printed": "The source claims that j(E) ∉ Z implies holomorphic continuation to C for ∏p Pn(p−s)−1. It also deduces nonvanishing on Re(s) ≥ 3/2 from absolute convergence of this Euler product on Re(s) > 3/2.",
+      "correction": "The work of Clozel–Harris–Shepherd-Barron–Taylor gives meromorphic continuation, holomorphic and nonvanishing on Re s ≥ 1 + n/2, which suffices for Sato–Tate; holomorphy on all of ℂ was proved later (Newton–Thorne 2021, for all non-CM E). The Euler product converges absolutely for Re s > 1 + n/2, not 3/2, and the shift of the abscissa is n/2, not 1/2.",
+      "reason": "P_n has roots α_p^{n−j}ᾱ_p^j of absolute value p^{n/2}, so the abscissa of absolute convergence is 1 + n/2 (3/2 only for n = 1). Entireness of the symmetric power L-functions was open until Newton–Thorne (their Corollary C and NT II Corollary B), whose introductions state that only meromorphic continuation was previously known.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-29: author page and the notes' front matter (no erratum list); Newton–Thorne I introduction p. 2 confirms what was known before 2019."
+      ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions/E6",
+      "source": "kedlaya-ant-2025",
+      "kind": "misprint",
+      "locator": "Chapter 24, Conjecture 24.3, printed p. 134",
+      "printed": "The conjecture assumes a constant c for which, for every n ∈ Z, the number of indices i satisfying N(xi) ≤ c is at most c.",
+      "correction": "at most c values of i with N(x_i) = n (bounded multiplicity of each norm).",
+      "reason": "The hypothesis is meant to bound how many x_i share a norm, as in the case of primes; the printed condition N(x_i) ≤ c bounds only finitely many terms and has no content for equidistribution.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: author page (no erratum list)."
+      ]
     }
   ],
   "sourceVersions": [
@@ -1882,6 +2764,27 @@
       "read": "2026-09-29",
       "sha256": "697e2d318887d8eb940b914101bbcebcde9aaffb296ad95db45b328408df5fe6",
       "citation": "arXiv v1 (2010), compared for the version register."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1912.11261v3",
+      "read": "2026-09-29",
+      "sha256": "6d50b558a6182a8d1515a6715529a33079807bf405c8db775e4ed252f5a2f379",
+      "citation": "Newton–Thorne I, arXiv v3 (the version after refereeing, dated 27 September 2021); the IHÉS version was not collated."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2009.07180v2",
+      "read": "2026-09-29",
+      "sha256": "0f08214ebe03344c2e2851be76c49213dc4adf7928ff561610b674c423a2a6bf",
+      "citation": "Newton–Thorne II, arXiv v2; the IHÉS version was not collated."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://kskedlaya.org/papers/ant-ptx.pdf",
+      "read": "2026-09-29",
+      "sha256": "7a934fce8272cedd36ad609f79bbe79af0056320bb1e0bc690c87af990f305be",
+      "citation": "Kedlaya, Notes on analytic number theory (lecture notes, 21 December 2025)."
     }
   ]
 }
