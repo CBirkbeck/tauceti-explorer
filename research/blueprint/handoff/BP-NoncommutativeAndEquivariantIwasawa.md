@@ -1,6 +1,48 @@
-# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 6 (Claude Code cc-39fac3)
+# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 7 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 29 September 2026. Refs #1015; the bot confirmed the claim. **Status: partial.**
+
+## Checkpoint 7: Kakde §§6.2–6.13 and Theorem 11 (11 nodes)
+
+Read from the arXiv text layer: Kakde, arXiv:1008.0142v3 (sha256 5a05da0d…ea45c), pp. 69–90. Pages 74, 75, 84, 85 and
+89 were checked on the page images.
+
+**Nodes (all NE.6):**
+- `partial-zeta-values` (definition);
+- `deligne-ribet-approximation` (Definition 100, Lemma 101, Proposition 102);
+- `basic-congruence-reduction` (Lemma 103, Propositions 104 and 106–108);
+- `hilbert-eisenstein-toolkit` (§§6.6–6.11);
+- `transfer-image-not-generator` (Lemma 114);
+- `basic-congruence-values` (Propositions 113 and 115–117);
+- `basic-congruences` (Propositions 96–99);
+- `enlarged-extension` (§6.13.1–2, Lemma 118);
+- `m4-from-basic-congruences` (Lemma 119, §6.13.3);
+- `zeta-tuple-in-phi` (Theorem 94);
+- `kakde-main-theorem` (Theorem 11; planet, the sixth and last NE.6 planet).
+
+**The Kakde route is complete.** Every step of Kakde §§2–6 from the reductions to Theorem 11 is a node. This meets
+NE.6's acceptance clause for one completed theorem.
+
+**New request:** AutomorphicPadicLFunctions L3, for Deligne–Ribet's Eisenstein series, the q-expansion principle,
+Theorem 0.4, and Klingen–Siegel rationality.
+
+**Source findings:**
+- E5, E6, E8, E9: misprints.
+- E7: an error in the proofs of Propositions 116–117. The congruence modulo r_P is false for r_P = 15, p = 3; its
+  p-part suffices.
+- E10: a gap. F̃_∞'s admissibility and μ = 0 are not argued.
+
+**NE.6 remaining:**
+- Ritter–Weiss;
+- the source-by-source coverage table;
+- AE-ABELIAN2025.
+
+**Checks.** `check_blueprint.py`: 88 nodes, 0 errors, 0 warnings. The Lean file compiles with exit 0 against the pinned
+Mathlib. It adds four checked tests in `NE7Tests`:
+- L_{{3}}(1, −1) = 1/6 through ζ(−1);
+- the Fermat step;
+- the |V| = 9 congruence;
+- E7's counterexample and repair.
 
 ## Checkpoint 6: Kakde §5 and §6.1 (12 nodes)
 

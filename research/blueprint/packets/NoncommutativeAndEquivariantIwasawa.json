@@ -13,7 +13,7 @@
   "NoncommutativeAndEquivariantIwasawa:NE.7"
  ],
  "status": "partial",
- "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain. Checkpoint 4 (cc-39fac3) plans CFKSV §4's integrality conjecture 4.8 with Lemma 4.9 (NE.3) and §5: the dual Selmer module, Conjectures 5.1–5.2 and the 𝔐_H(G) criteria (NE.4), and Conjectures 5.7–5.8 with Corollaries 5.9–5.10 and the X₁(11) check (NE.5). Conjectures are stated as propositions, never assumed. Checkpoint 5 reads Kakde §§1–4: admissible extensions and μ = 0, the complex C(F_∞/F), SK₁ and K′₁, ∂ surjective with p-torsion, the totally real main conjecture, the abelian × prime-to-p case from Deligne–Ribet and Wiles, the Burns–Kato patching principle, and the reductions to dimension one, to ℚ_p-elementary groups, the l-elementary case and the reduction to Δ × pro-p. Checkpoint 6 (cc-39fac3) reads Kakde §5 and §6.1: Λ_𝒪(G) as a twisted group ring over Λ_𝒪(Z), the congruence groups Φ^G, the additive theorem R[Conj Ḡ]^τ ≅ ψ^G, the logarithm on relative K₁ and the integral logarithm, the relation between θ^G and β^G, Theorems 52–53 (K′₁(Λ_𝒪(G)) ≅ Φ^G), Corollary 90, and the reduction of the main conjecture to (ζ_P) ∈ Φ^G_S with M1–M2 proved.",
+ "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain. Checkpoint 4 (cc-39fac3) plans CFKSV §4's integrality conjecture 4.8 with Lemma 4.9 (NE.3) and §5: the dual Selmer module, Conjectures 5.1–5.2 and the 𝔐_H(G) criteria (NE.4), and Conjectures 5.7–5.8 with Corollaries 5.9–5.10 and the X₁(11) check (NE.5). Conjectures are stated as propositions, never assumed. Checkpoint 5 reads Kakde §§1–4: admissible extensions and μ = 0, the complex C(F_∞/F), SK₁ and K′₁, ∂ surjective with p-torsion, the totally real main conjecture, the abelian × prime-to-p case from Deligne–Ribet and Wiles, the Burns–Kato patching principle, and the reductions to dimension one, to ℚ_p-elementary groups, the l-elementary case and the reduction to Δ × pro-p. Checkpoint 6 (cc-39fac3) reads Kakde §5 and §6.1: Λ_𝒪(G) as a twisted group ring over Λ_𝒪(Z), the congruence groups Φ^G, the additive theorem R[Conj Ḡ]^τ ≅ ψ^G, the logarithm on relative K₁ and the integral logarithm, the relation between θ^G and β^G, Theorems 52–53 (K′₁(Λ_𝒪(G)) ≅ Φ^G), Corollary 90, and the reduction of the main conjecture to (ζ_P) ∈ Φ^G_S with M1–M2 proved. Checkpoint 7 (cc-39fac3) completes the Kakde route: Kakde §§6.2–6.13 — Deligne–Ribet approximations, the basic congruences via Hilbert Eisenstein series and the q-expansion principle, M4 through the enlarged extension, Theorem 94, and Theorem 11 (the main conjecture for totally real fields, p odd, μ = 0). Findings E5–E10.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -322,7 +322,8 @@
    "sha256": "5a05da0d58f2717422fb401510d9cad4aeeac707313929a796870b92e27ea45c",
    "readSections": [
     "2026-09-29 (cc-39fac3, checkpoint 5): §§1–4 in full (Definitions 1–8, Lemmas 5, 9, 15, 17, 19, 26, 28, 31, Theorems 11, 16, 18, 21, 25, 27, 33, 36, Propositions 30, 35, Corollary 20, Remarks 10, 12–14, 22, 32, 34), pp. 1–30.",
-    "2026-09-29 (cc-39fac3, checkpoint 6): §5 in full (Lemmas 37, 43, 45, 46, 50, 60, 62, 63, 65, 66, 71, 72, 76, 77, 79, 81, 82, 85–89, Definitions 41, 47–49, 51, 55–57, 61, 69, 70, 73, 78, 80, Theorems 52, 53, 58, Propositions 64, 67, 74, 84, Remarks 38, 42, 54, 59, 68, 75, 83, Corollary 90) and §6.1 (Notations 91, Lemma 92, Propositions 93 and 95, the statement of Theorem 94, checked on the page image), pp. 30–68."
+    "2026-09-29 (cc-39fac3, checkpoint 6): §5 in full (Lemmas 37, 43, 45, 46, 50, 60, 62, 63, 65, 66, 71, 72, 76, 77, 79, 81, 82, 85–89, Definitions 41, 47–49, 51, 55–57, 61, 69, 70, 73, 78, 80, Theorems 52, 53, 58, Propositions 64, 67, 74, 84, Remarks 38, 42, 54, 59, 68, 75, 83, Corollary 90) and §6.1 (Notations 91, Lemma 92, Propositions 93 and 95, the statement of Theorem 94, checked on the page image), pp. 30–68.",
+    "2026-09-29 (cc-39fac3, checkpoint 7): §§6.2–6.13 in full (Propositions 96–99, 102, 104, 106–108, 111, 113, 115–117, Definition 100, Lemmas 101, 103, 109, 110, 114, 118, 119, Remarks 105 and 112), pp. 69–90; pp. 74, 75, 84, 85, 89 checked on the page images for findings E5–E9."
    ]
   },
   {
@@ -5311,6 +5312,514 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/partial-zeta-values",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "Partial zeta values and the smoothed values Δ^u_P",
+   "kind": "definition",
+   "statement": "For j ≥ 0 and a coset x of Z^{p^j} in Δ × U_P^ab, δ(x) is its characteristic function and ζ(δ(x), s) = Σ_𝔞 δ(x)(g_𝔞)N𝔞^{−s} (Re s > 1, over integral ideals 𝔞 of F_P prime to Σ_P, g_𝔞 the Artin symbol) is the partial zeta function; by Klingen and Siegel it continues meromorphically with a simple pole at s = 1 only, and ζ(δ(x), 1 − k) ∈ ℚ for even k ≥ 2. For a locally constant ε = Σ ε(x)δ(x) with values in a ℚ-vector space V, L_{Σ_P}(ε, 1 − k) = Σ_x ε(x)ζ(δ(x), 1 − k) ∈ V (15); for a degree-one Artin character it is the Σ_P-truncated L-value. For ε locally constant ℚ_p-valued, u ∈ U_P^ab and k divisible by [F_∞(μ_p) : F_∞], Δ^u_P(ε, 1 − k) = L_{Σ_P}(ε, 1 − k) − κ(u)^k L_{Σ_P}(ε_u, 1 − k) with ε_u(g) = ε(ug) (16). These values are invariant under conjugation: Δ^u_P(δ(y), 1 − k) = Δ^u_{gPg^{−1}}(δ(gyg^{−1}), 1 − k) for u ∈ Z, g ∈ G (Lemma 103).",
+   "hypotheses": [
+    "F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91)."
+   ],
+   "proofSteps": [
+    "L_{Σ_P}(ε, 1 − k) is well defined: refining j splits δ(x) into the δ of its sub-cosets, and ζ is additive in δ.",
+    "Lemma 103: for Re s > 1, ζ(δ(gyg^{−1}), s) = Σ_𝔞 δ(y)(g_{𝔞^g})N(𝔞^g)^{−s} = ζ(δ(y), s) by reindexing 𝔞 ↦ 𝔞^g, and meromorphic continuation carries the equality to s = 1 − k; δ(y)_u = δ(u^{−1}y) and u ∈ Z is central."
+   ],
+   "acceptance": [
+    "The Klingen–Siegel rationality and continuation are cited inputs, requested with the Deligne–Ribet package from AutomorphicPadicLFunctions L3."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion",
+    "AutomorphicPadicLFunctions:L3",
+    "AnalyticNumberTheory:AN.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§6.3, (15)–(16), pp. 69–70, and Lemma 103, p. 73 (arXiv v3)",
+     "excerpt": "Deﬁne the partial zeta function by",
+     "match": "The definitions (15) and (16) of §6.3 and Lemma 103 of §6.5."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.partialZeta",
+     "role": "constructor",
+     "statement": "ζ(δ(x), s) for a coset x of Z^{p^j}."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.sigmaLValue",
+     "role": "constructor",
+     "statement": "L_{Σ_P}(ε, 1 − k) for locally constant ε with values in a ℚ-vector space."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.sigmaLValue_linear",
+     "role": "relation",
+     "statement": "ε ↦ L_{Σ_P}(ε, 1 − k) is ℚ-linear and compatible with refining j."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.smoothedValue",
+     "role": "constructor",
+     "statement": "Δ^u_P(ε, 1 − k) = L(ε, 1 − k) − κ(u)^k L(ε_u, 1 − k)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.smoothedValue_conj",
+     "role": "relation",
+     "statement": "Lemma 103: invariance under conjugation by G."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.sigmaLValue_character",
+     "role": "compatibility",
+     "statement": "For a degree-one Artin character, the Σ_P-truncated L-value at 1 − k."
+    }
+   ],
+   "tests": [
+    {
+     "name": "rational_value",
+     "kind": "value",
+     "statement": "F_P = ℚ, Σ = {3}, ε = 1 and k = 2: L_Σ(1, −1) = (1 − 3)ζ(−1) = (−2)(−1/12) = 1/6 (suggested file)."
+    },
+    {
+     "name": "zero_function",
+     "kind": "degenerate",
+     "statement": "ε ≡ 0 gives L_{Σ_P}(0, 1 − k) = 0."
+    },
+    {
+     "name": "trivial_u",
+     "kind": "degenerate",
+     "statement": "u = 1: κ(1) = 1 and ε_1 = ε, so Δ^1_P(ε, 1 − k) = 0; the smoothing needs u of infinite order."
+    },
+    {
+     "name": "odd_k",
+     "kind": "non-example",
+     "statement": "For F_P = ℚ and odd k ≥ 3, ζ(1 − k) = 0; the construction uses k divisible by [F_∞(μ_p) : F_∞], which is even."
+    }
+   ],
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/deligne-ribet-approximation",
+     "how": "the coefficients of the finite-level approximations of (1 − u)ζ_P"
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-reduction",
+     "how": "the value congruences (18), (22), (24), (28), (29)"
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/deligne-ribet-approximation",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "Finite-level approximations of the abelian zeta functions",
+   "kind": "lemma",
+   "statement": "Let f be such that κ^{p−1}(Z) = 1 + p^fℤ_p. For P normal in P′ let T_{P,P′,j} be the image of x ↦ Σ_{g∈P′/P} gxg^{−1} on ℤ_p[Δ × U_P^ab/Z^{p^j}]/(p^{f+j}), T_{P,j} = T_{P,N_ḠP,j} (Definition 100). Then Λ(Δ × U_P^ab) ≅ lim_j ℤ_p[Δ × U_P^ab/Z^{p^j}]/(p^{f+j}), and T_{P,P′} ≅ lim_j T_{P,P′,j} (Lemma 101). For u ∈ U_P^ab, j ≥ 0 and k divisible by [F_∞(μ_p) : F_∞], the image of (1 − u)ζ_P in ℤ_p[Δ × U_P^ab/Z^{p^j}]/(p^{f+j}) is Σ_x Δ^u_P(δ(x), 1 − k)κ(x)^{−k}x mod p^{f+j}; in particular the limit does not depend on k (Proposition 102, attributed to Ritter–Weiss).",
+   "hypotheses": [
+    "F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91)."
+   ],
+   "proofSteps": [
+    "Lemma 101: a compatible family (x_j) lifts canonically — for t ≥ j the images of x_t in ℤ_p[Δ × U^ab/Z^{p^j}]/(p^{f+t}) converge to x̃_j — and the x̃_j form an element of the limit; for T_{P,P′} pass to the limit in 0 → ker(tr_{P,P′,j}) → ℤ_p[…]/(p^{f+j}) → T_{P,P′,j} → 0, exact on the right because the groups are finite.",
+    "Step 1: the sums form an inverse system, since κ(x)^k ≡ κ(y)^k mod p^{f+j} when x ↦ y.",
+    "Step 2: independence of k is congruence (17), Δ^u_P(δ(x), 1 − k)κ(x)^{−k} ≡ Δ^u_P(δ(x), 1 − k′)κ(x)^{−k′} mod p^{f+j}; with η locally constant, η^{[F_∞(μ_p):F_∞]} ≡ κ^{[F_∞(μ_p):F_∞]} mod p^{f+j}, and ε_k = p^{−f−j}η^{−k}δ(x), the function ε_kκ^{k−1} − ε_{k′}κ^{k′−1} is ℤ_p-valued, so Deligne–Ribet Theorem 0.4 applies.",
+    "Step 3: ζ_u = lim_j(Σ_x Δ^u_P(δ(x), 1 − k)κ(x)^{−k}x) satisfies ζ_u(κ^kε) = Δ^u_P(ε, 1 − k) = (1 − u)ζ_P(κ^kε) for all locally constant ε, by the Deligne–Ribet construction of ζ_P; so (1 − u)ζ_P = ζ_u."
+   ],
+   "acceptance": [
+    "The Deligne–Ribet congruences (their Theorem 0.4) and the interpolation property of ζ_P are imported from AutomorphicPadicLFunctions L3."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/partial-zeta-values",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case",
+    "AutomorphicPadicLFunctions:L3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§6.4, Definition 100, Lemma 101 and Proposition 102, pp. 70–73 (arXiv v3)",
+     "excerpt": "(Ritter-Weiss) For any j ≥ 0 and any positive integer k divisible by [F∞(µp) : F∞], the natural surjection",
+     "match": "Definition 100, Lemma 101 and Proposition 102 with its three-step proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-reduction",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "Reduction of the basic congruences to congruences between values",
+   "kind": "lemma",
+   "statement": "The basic congruences follow from congruences between the smoothed values Δ, for all j, all cosets y of Z^{p^j}, all u ∈ Z and all k divisible by [F_∞(μ_p) : F_∞]: (10) follows from (18), Δ^{u^p}_P(δ(y), 1 − k) ≡ Δ^u_{P′}(δ(y)∘ver^{P′}_P, 1 − pk) mod pℤ_p for y fixed by P′ (Proposition 104); (11) from (22), Δ^{u^{d_P}}_P(δ(y), 1 − k) ≡ 0 mod |(W_ḠP)_y|ℤ_p for y whose image generates P (Proposition 106); (12) from (24), Δ^{u^{d_P}}_P(δ(y), 1 − k) ≡ Σ_{P′} Δ^{u^{d_P/p}}_{P′}(δ(y)∘ϕ, 1 − pk) mod |(W_ḠP)_y|ℤ_p over P′ ≠ P with P′^p = P (Proposition 107); (13) from (28), Δ^{u^{pd_{P′}}}_P(δ(y), 1 − k) ≡ Δ^{u^{d_{P′}}}_{P′}(δ(y)∘ϕ, 1 − pk) mod |(N_ḠP′/P)_y|ℤ_p (Proposition 108); and (14) from (29), Δ^{u^{p|Ḡ|}}_0(δ(y), 1 − k) ≡ Δ^{u^{|Ḡ|}}_{{1}}(δ(y)∘ϕ, 1 − pk) mod p|Ḡ|ℤ_p (Proposition 108).",
+   "hypotheses": [
+    "F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91)."
+   ],
+   "proofSteps": [
+    "Proposition 104: by Proposition 102, (1 − u^p)ζ_P and (1 − u^p)ver^{P′}_P(ζ_{P′}) have images (19) and (20) at level j; ver^{P′}_P is injective on Δ × U_{P′}^ab/V_{P,P′}Z^{p^{j−1}} with V_{P,P′} = ker ver and κ(V_{P,P′})^k = 1, and κ(y)^k = κ(x)^{pk} for y = ver(x). The difference (21) is summed over P′-orbits: a P′-fixed y contributes a multiple of py = tr(y) ∈ T_{P,P′,j} by (18), and a free orbit contributes (Δ − Δ)κ(y)^{−k}Σ_g gyg^{−1} ∈ T_{P,P′,j} by Lemma 103. Lemma 101 and the centrality of u give (10).",
+    "Remark 105: Propositions 106–108 follow the same pattern with ω^k_P, ϕ and the Weyl-group orbits: in 106 the W_ḠP-orbit of a y generating P contributes Δκ^{−k}Σ(gyg^{−1} − ω^k_P(gyg^{−1})) ∈ 𝔭T_{P,j} by (22); in 107 the orbit sum lies in T_{P,j}; in 108 the N_ḠP′/P-orbit sum lies in T_{P,N_ḠP′,j}."
+   ],
+   "acceptance": [
+    "The printed proofs contain misprints recorded as E5 and E6: the placement of ∘ver in (21), and 1 − p for 1 − k in the proof of Proposition 106."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/deligne-ribet-approximation",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/partial-zeta-values",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§6.5, Lemma 103, Propositions 104 and 106–108 and Remark 105, pp. 73–77 (arXiv v3)",
+     "excerpt": "To prove the congruence (10) in proposition (96) it is suﬃcient to prove the following",
+     "match": "Propositions 104, 106, 107 and 108 with their proofs, and Remark 105."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/hilbert-eisenstein-toolkit",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "Hilbert Eisenstein series, restriction along the diagonal and the q-expansion principle",
+   "kind": "lemma",
+   "statement": "For L totally real of degree r, Hilbert modular forms of weight k on Γ₀₀(𝔣) have standard q-expansions c(0, f) + Σ_μ c(μ, f)q^μ_L over totally positive μ ∈ 𝒪_L (§6.6). For L′ ⊇ L of degree r′, restriction along the diagonal R_{L′/L} maps M_k(Γ₀₀(𝔣𝒪_{L′})) to M_{r′k}(Γ₀₀(𝔣)) with c(μ, R_{L′/L}f) = Σ_{tr(ν)=μ} c(ν, f) (§6.7), and its constant term at the cusp of α is that of f at α^* (Lemma 109). For β ∈ 𝒪_L totally positive with 𝔣 ⊆ β𝒪_L, the Hecke operator U_β has c(μ, f|U_β) = c(μβ, f) (Lemma 110). Deligne–Ribet: for locally constant ε on Gal(L_Σ/L) and even k ≥ 2 there is G_{k,ε} ∈ M_k(Γ₀₀(𝔣)) with q-expansion 2^{−r}L(ε, 1 − k) + Σ_μ(Σ_{𝔞∋μ} ε(g_𝔞)N𝔞^{k−1})q^μ and constant term N^k((α))2^{−r}L(ε_g, 1 − k) at the cusp of α (Proposition 111); the q-expansion principle: if f ∈ M_k(Γ₀₀(𝔣), ℚ) has non-constant standard coefficients in ℤ_(p), then c(0, f) − N(α_p)^{−k}c(0, α, f) ∈ ℤ_p (§6.11); hence c(0, G_{k,ε}) − N(α_p)^{−k}c(0, α, G_{k,ε}) = 2^{−r}Δ^u(ε, 1 − k) when α has Artin symbol u (Remark 112).",
+   "hypotheses": [
+    "L totally real; Σ a finite set of finite primes containing those above p; 𝔣 an integral ideal supported on Σ."
+   ],
+   "proofSteps": [
+    "Lemma 109: (R_{L′/L}f)|α = R_{L′/L}(f|α^*), and constant terms are read off at τ → i∞.",
+    "Lemma 110: U_β is the double coset of diag(β, 1), f|U_β(τ) = N(β)^{k/2−1}Σ_b f|(1 b; 0 β), and the character sum Σ_b e^{2πi tr(μb/β)} is N(β) for μ ∈ β𝒪_L and 0 otherwise.",
+    "Proposition 111 and the q-expansion principle are Deligne–Ribet (Proposition 6.1, 2.22, 0.3 and 5.13–5.15); Remark 112 combines them with N((α))^kN(α_p)^{−k} = κ(u)^k."
+   ],
+   "acceptance": [
+    "Deligne–Ribet's Eisenstein series, their constant terms at cusps and the q-expansion principle are requested from AutomorphicPadicLFunctions L3, which the atlas makes their owner."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/partial-zeta-values",
+    "AutomorphicPadicLFunctions:L3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§§6.6–6.11, Lemmas 109–110, Proposition 111 and Remark 112, pp. 77–81 (arXiv v3)",
+     "excerpt": "This is the q-expansion principle of Deligne-Ribet",
+     "match": "The Hilbert-modular toolkit of §§6.6–6.11; Lemmas 109 and 110 are proved in the text, Proposition 111 and the q-expansion principle are cited to Deligne–Ribet."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/transfer-image-not-generator",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The transfer into a maximal cyclic subgroup misses its generators",
+   "kind": "lemma",
+   "statement": "Let P ∈ C(Ḡ) be such that no P′ ∈ C(Ḡ) has P′^p = P, and let P ⊊ N ≤ N_ḠP. Then the image of the transfer ver : N^ab → P is a proper subgroup of P (Lemma 114).",
+   "hypotheses": [
+    "Ḡ a finite p-group."
+   ],
+   "proofSteps": [
+    "With double coset representatives x_j of ⟨g⟩\\N/P and m the order of g, ver(g) = ∏_j x_j^{−1}g^mx_j.",
+    "If g ∉ P, g^m is not a generator of P by the hypothesis on P, so neither is ver(g).",
+    "If g ∈ P, ver(g) = ∏_{x∈N/P} x^{−1}gx; N acts trivially on the order-p subgroup of P, so ver(g)^{p^{r−1}} = ∏ g^{p^{r−1}} = g^{p^{r−1}[N:P]} = 1 for #⟨g⟩ = p^r, since p divides [N : P]."
+   ],
+   "acceptance": [
+    "Used in Proposition 115: nontrivial stabilisers kill δ(y)(g_𝔟)."
+   ],
+   "prerequisites": [
+    "mathlib:MonoidHom.transfer"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§6.12, Lemma 114, pp. 82–83 (arXiv v3)",
+     "excerpt": "Then the image of the transfer homomorphism ver : N^ab → P is a proper subgroup of P.",
+     "match": "Lemma 114 and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-values",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The value congruences via Hilbert Eisenstein series",
+   "kind": "theorem",
+   "statement": "The value congruences (18), (22), (24), (28) and (29) of basic-congruence-reduction hold (Propositions 113, 115, 116 and 117). In each case an Eisenstein combination E is formed: E = R_{F_P/F_{P′}}(G_{k,δ(y)})|U_p − G_{pk,δ(y)∘ver} for (18); E = R_{F_P/F_{W_ḠP}}(G_{k,δ(y)}) for (22); E = R_{F_P/F_{W_ḠP}}(G_{k,δ(y)})|U_{d_P} − Σ_{P′}R_{F_{P′}/F_{W_ḠP}}(G_{pk,δ(y)∘ϕ})|U_{d_P/p} for (24); and similarly for (28) and (29). Its constant-term difference is 2^{−r} times the required difference of Δ-values, and its non-constant coefficients lie in the required ideal, so the q-expansion principle gives the congruence.",
+   "hypotheses": [
+    "F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91)."
+   ],
+   "proofSteps": [
+    "Proposition 113 (M3): the non-constant coefficient of E at μ is Σ_{(𝔟,η)}δ(y)(g_𝔟)N𝔟^{k−1} − Σ_𝔞 δ(y)(g_{𝔞𝒪_{F_P}})N𝔞^{pk−1}; P′/P-fixed pairs come from 𝔞 with N𝔟 = N𝔞^p, contributing δ(y)(g_𝔟)(N𝔞^{p(k−1)} − N𝔞^{pk−1}) ∈ pℤ_(p) by Fermat; free orbits contribute p times a term; and 2^{−r_P} ≡ 2^{−r_{P′}} mod p.",
+    "Proposition 115: for E = R(G_{k,δ(y)}), (W_ḠP)_y acts on the pairs (𝔟, ν); a nontrivial stabiliser V gives δ(y)(g_𝔟) = 0 by transfer-image-not-generator, and free orbits contribute |(W_ḠP)_y| times a term.",
+    "Propositions 116–117: orbits with stabiliser V contribute |(W_ḠP)_y/V|δ(y)(g_𝔟)(N𝔠^{|V|(k−1)} − N𝔠^{|V|(pk−1)/p}) ∈ |(W_ḠP)_y|ℤ_(p), since N𝔠^{|V|} ≡ N𝔠^{|V|/p} mod |V|.",
+    "The comparison of 2^{−r_P} with 2^{−r_P/p} (116) and 2^{−r_{P′}} (117) holds modulo p^{v_p(r_P)}, because r_P − r_P/p is divisible by φ(p^{v_p(r_P)}); |(W_ḠP)_y| and |(N_ḠP′/P)_y| divide d_P, hence p^{v_p(r_P)}. The printed justification, modulo r_P, is false in general (E7)."
+   ],
+   "acceptance": [
+    "Checked numerically in the suggested file: the Fermat step for p = 3, the |V| = 9 congruence, and the counterexample r_P = 15, p = 3 to the printed step."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/hilbert-eisenstein-toolkit",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/transfer-image-not-generator",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-reduction",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/partial-zeta-values"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§6.12, Propositions 113 and 115–117, pp. 81–86 (arXiv v3)",
+     "excerpt": "The suﬃcient condition in proposition (104) for proving proposition (96) holds. Hence M3 holds.",
+     "match": "Propositions 113, 115, 116 and 117 with their proofs (the proof for (29) is said to be similar)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruences",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The basic congruences between abelian zeta functions",
+   "kind": "theorem",
+   "statement": "The tuple (ζ_P) satisfies (10) ver^{P′}_P(ζ_{P′}) ≡ ζ_P mod T_{P,P′,S} for [P′ : P] = p, which is M3 (Proposition 96); (11) ζ_P ≡ ω^k_P(ζ_P) mod 𝔭T_{P,S} for P ∈ C(Ḡ) not properly contained in a cyclic subgroup, 𝔭 the maximal ideal of ℤ_p[μ_p] (Proposition 97); (12) ζ_P ≡ Σ_{P′}ϕ(ζ_{P′}) mod T_{P,S} over P′ ≠ P with P′^p = P, when such P′ exist (Proposition 98); (13) ζ_P ≡ ϕ(ζ_{P′}) mod T_{P,N_ḠP′,S} for P′^p = P ≠ P′, and (14) ζ_0 ≡ ϕ(ζ_{1}) mod p|Ḡ| (Proposition 99).",
+   "hypotheses": [
+    "F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91)."
+   ],
+   "proofSteps": [
+    "Each congruence reduces to a value congruence (basic-congruence-reduction), and the value congruences hold (basic-congruence-values)."
+   ],
+   "acceptance": [
+    "These are the additive congruences that the Deligne–Ribet method reaches; M4 is multiplicative and is assembled from them in m4-from-basic-congruences."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-reduction",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-values",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§6.2, Propositions 96–99, p. 69 (arXiv v3)",
+     "excerpt": "In this section we state certain additive congruences which yield to the Deligne-Ribet method",
+     "match": "Propositions 96–99 and the remark that (10) is M3."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/enlarged-extension",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The auxiliary extension F̃_∞ and the trace-ideal bound",
+   "kind": "lemma",
+   "statement": "Choose a prime l ≡ 1 mod |Ḡ| with ℚ(μ_l) ∩ F_∞ = ℚ, let K ⊆ ℚ(μ_l) have degree |Ḡ| over ℚ, and put F̃ = KF, F̃_∞ = F̃F_∞. Then Gal(F̃_∞/F) = H̃ × Δ × G with H̃ cyclic of order |Ḡ|, and G̃/Z ≅ H̃ × Δ × Ḡ. For P ∈ C(G̃) let i_P = max{[P′ : P] : P ⊆ P′ ∈ C(G̃)}. If P ≠ {1} then T_P ⊆ p·i_P²·Λ(Δ × U_P), and T_{1} = |G̃|Λ(Δ × Z); the same holds for T_{P,S} and T̂_P (Lemma 118). The main conjecture for F̃_∞/F implies it for F_∞/F.",
+   "hypotheses": [
+    "F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91)."
+   ],
+   "proofSteps": [
+    "Case P ⊆ H̃: i_P = [H̃ : P] and N_{G̃}P = G̃ acts trivially on Λ(Δ × U_P), so T_P = [G̃ : P]Λ = |Ḡ|[H̃ : P]Λ ⊆ p·i_P²Λ since |Ḡ| ≥ p·i_P.",
+    "Case P ⊄ H̃: P = ⟨(h̃, h)⟩ with h ≠ 1; for P′ = ⟨(h̃₀, h₀)⟩ realising i_P, H̃ × ⟨h₀⟩ ⊆ N_{G̃}P acts trivially, so T_P ⊆ (|H̃||⟨h₀⟩|/|P|)Λ = |H̃|i_PΛ ⊆ p·i_P²Λ as |H̃| ≥ p·i_P.",
+    "Admissibility and μ = 0 for F̃_∞, which the source asserts without argument (E10): K is totally real because |Ḡ| is odd and divides (l − 1)/2, and μ = 0 passes from F_∞ to the finite p-extension F̃_∞ (the vanishing of μ is inherited by finite p-extensions, a theorem of Iwasawa, cited here).",
+    "Descent: MC for F̃_∞/F gives MC for its quotient F_∞/F by the compatibility of ∂, C and interpolation with the quotient map (as in reduction-to-dimension-one)."
+   ],
+   "acceptance": [
+    "The descent along G̃ → G uses Fukaya–Kato's base change for C, recorded in the gap on Fukaya–Kato."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-dimension-one",
+    "NoncommutativeAndEquivariantIwasawa:NE.4/admissible-extension"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§§6.13.1–6.13.2, Lemma 118, pp. 86–87 (arXiv v3)",
+     "excerpt": "Choose a prime l large enough such that l ≡ 1 (mod |G|) and Q(µl) ∩ F∞ = Q.",
+     "match": "The trick of §6.13, the field F̃_∞ and Lemma 118 with its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/m4-from-basic-congruences",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "M4 from the basic congruences",
+   "kind": "lemma",
+   "statement": "For the enlarged extension F̃_∞/F: for every P ∈ C(G̃) and 0 ≤ k ≤ p − 1, ζ_P − ω^k_P(ζ_P) ∈ 𝔭T_{P,S}/i_P, hence ζ_P^p/∏_kω^k_P(ζ_P) ∈ 1 + pT_{P,S}/i_P (Lemma 119); and the tuple (ζ_P) satisfies M4: ∏_{P′}ϕ(α_{P′}(ζ_{P′}))·(ζ_P^p/∏_kω^k_P(ζ_P))^{−1} ∈ 1 + pT_{P,S} for nontrivial P, and ∏_{P′}ϕ(α_{P′}(ζ_{P′}))·(ζ_{1}^p/ϕ(ζ_{1}))^{−1} ∈ 1 + pT_{{1},S} (§6.13.3).",
+   "hypotheses": [
+    "F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91).",
+    "Applied to F̃_∞/F (enlarged-extension)."
+   ],
+   "proofSteps": [
+    "Lemma 119 by reverse induction on |P|: for maximal cyclic P, i_P = 1 and (11) applies; otherwise (12) gives ζ_P − ω^k_P(ζ_P) ≡ Σ_{P′}ϕ(ζ_{P′} − ω^k_{P′}(ζ_{P′})) mod 𝔭T_{P,S} (34), the induction hypothesis puts each term in ϕ(𝔭T_{P′,S}/i_{P′}), and ϕ(Σ_x xT_{P′,S}x^{−1}) ⊆ T_{P,S}/p with i_P = p·i_{P′}; Galois invariance over ℚ_p(μ_p)/ℚ_p upgrades 𝔭 to p.",
+    "log(ω^k_P(ζ_P)/ζ_P) ≡ 1 − ω^k_P(ζ_P)/ζ_P mod (pT̂_P/i_P)², so log(∏_kω^k_P(ζ_P)/ζ_P^p) ≡ (pζ_P − Σ_kω^k_P(ζ_P))/ζ_P, and (pT̂_P/i_P)² ⊆ pT̂_P by Lemma 118.",
+    "Using (34), log(∏ϕ(α_{P′}(ζ_{P′}))/(ζ_P^p/∏ω^k_P(ζ_P))) ≡ Σ_{P′}(pϕ(ζ_{P′}) − Σ_kω^k_P(ϕ(ζ_{P′})))(ζ_P − ϕ(ζ_{P′}))/(ζ_Pϕ(ζ_{P′})) mod pT̂_P; the first factor lies in pϕ(T̂_{P′}/i_{P′}) by Lemma 119 and the second in T̂_{P,N_{G̃}P′} by (13), so the sum lies in pT̂_P.",
+    "log : 1 + pT̂_P ≅ pT̂_P, and (1 + pT̂_P) ∩ (1 + pT_{P,S}/i_P) = 1 + pT_{P,S}.",
+    "For P = {1}: ∏_kω^k_{1}(ζ_{1}) = ζ_0 (Lemma 50 or interpolation), and (14) with T_{{1},S} = |G̃|Λ(Δ × Z)_S replaces ζ_0 by ϕ(ζ_{1})."
+   ],
+   "acceptance": [
+    "The printed computation has a misprint recorded as E9 (ω^k_P(ζ_{P′}) for ω^k_P(ϕ(ζ_{P′})) in the second line on p. 89)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruences",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/enlarged-extension",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/iwasawa-algebra-logarithm"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§6.13.3, Lemma 119 and the completion of the proof, pp. 88–90 (arXiv v3)",
+     "excerpt": "Proof of M4. from the basic congruences.",
+     "match": "Lemma 119 and the logarithm computation of §6.13.3, including the case P = {1}."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/zeta-tuple-in-phi",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The abelian zeta functions satisfy M1–M4",
+   "kind": "theorem",
+   "statement": "For the enlarged extension F̃_∞/F, the tuple (ζ_P)_{P≤G̃/Z} lies in Φ^{G̃}_S: it satisfies M1 and M2 (Proposition 95), M3 (Proposition 96) and M4 (§6.13) — Theorem 94 for F̃_∞/F. Hence MC(F̃_∞/F) holds by the congruence criterion (Proposition 93).",
+   "hypotheses": [
+    "F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91)."
+   ],
+   "proofSteps": [
+    "M1 and M2: zeta-tuple-m1-m2. M3: basic-congruences (10). M4: m4-from-basic-congruences.",
+    "Proposition 93 (main-conjecture-congruence-criterion) turns (ζ_P) ∈ Φ^{G̃}_S into MC(F̃_∞/F)."
+   ],
+   "acceptance": [
+    "Theorem 94 is stated for F_∞/F but proved for F̃_∞/F; F_∞/F is reached by descent (enlarged-extension)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/zeta-tuple-m1-m2",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruences",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/m4-from-basic-congruences",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/enlarged-extension"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§6.1, Theorem 94, p. 67, with §6.13, pp. 86–90 (arXiv v3)",
+     "excerpt": "The tuple (ζP)P≤G in the set ∏P≤G Λ(∆ × Uab P)×S satisﬁes",
+     "match": "Theorem 94 (M1–M4, whose M4 display is a quotient, as the page image shows) and its proof assembled in §§6.2–6.13."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.6/kakde-main-theorem",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6"
+   ],
+   "title": "The main conjecture for totally real fields (Kakde)",
+   "kind": "theorem",
+   "statement": "Let p be odd and F_∞/F an admissible p-adic Lie extension satisfying μ = 0, with G = Gal(F_∞/F). There is a unique ζ(F_∞/F) ∈ K′₁(Λ(G)_S) with ∂(ζ(F_∞/F)) = −[C(F_∞/F)] and ζ(F_∞/F)(ρκ^r_F) = L_Σ(ρ, 1 − r) for every Artin character ρ of G and every r ≥ 1 divisible by [F_∞(μ_p) : F_∞] (Theorem 11). That is, MC(F_∞/F) of NE.5/totally-real-main-conjecture holds.",
+   "hypotheses": [
+    "p odd; F_∞/F admissible; μ = 0 (Definition 8, known when F_∞ is abelian over ℚ by Ferrero–Washington)."
+   ],
+   "proofSteps": [
+    "Reduce to dimension one (reduction-to-dimension-one), then to ℚ_p-elementary groups (reduction-to-qp-elementary).",
+    "The l-ℚ_p-elementary case for l ≠ p is l-elementary-case; the p-ℚ_p-elementary case reduces to Δ × G_p with G_p one-dimensional pro-p (reduction-to-p-elementary).",
+    "For Δ × G_p: MC holds for the enlarged extension (zeta-tuple-in-phi), hence for F_∞/F (enlarged-extension). The K′₁-injectivity hypotheses of the reductions are k1-injects-localisation, and the ℚ_p[Δ]-coefficients are handled by main-algebraic-theorems with 𝒪 = ℤ_p[Δ].",
+    "Uniqueness: two solutions differ by an element of K′₁(Λ(G)) (∂ = 0 and Corollary 90) with trivial evaluations, which is 1 by the diagram chases of the reductions."
+   ],
+   "acceptance": [
+    "This completes the Kakde route: every intermediate congruence and descent lemma of Kakde §§2–6 is a node, with Oliver's book, Fukaya–Kato §1, Deligne–Ribet and Wiles as cited inputs (gaps and requests). This meets NE.6's acceptance clause for one completed theorem.",
+    "Ritter–Weiss's independent route and the source-by-source coverage table remain."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/zeta-tuple-in-phi",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/enlarged-extension",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-dimension-one",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-qp-elementary",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/l-elementary-case",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-p-elementary",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/k1-injects-localisation",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/main-algebraic-theorems",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case",
+    "NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/TotallyReal",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "KAKDE-2011",
+     "locator": "§1, Theorem 11, p. 11 (arXiv v3); proof completed on p. 90",
+     "excerpt": "Let F∞/F be an admissible p-adic Lie extension satisfying the hypothesis µ = 0. Then there is a unique ζ(F∞/F) in",
+     "match": "Theorem 11, whose proof ends on p. 90 (\"This ﬁnishes proof of the main theorem 11\")."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Kakde's main conjecture for totally real fields"
+   }
   }
  ],
  "requests": [
@@ -5441,10 +5950,22 @@
    "need": "Inductivity of Σ-truncated Artin L-functions, L_{Σ_K}(Ind_K^F ρ, s) = L_{Σ_F}(ρ, s) for Σ_K the primes of K above Σ, at the negative integers s = 1 − r, for the interpolation in Kakde §6.1 (Propositions 93 and 95).",
    "neededBy": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion",
-    "NoncommutativeAndEquivariantIwasawa:NE.6/zeta-tuple-m1-m2"
+    "NoncommutativeAndEquivariantIwasawa:NE.6/zeta-tuple-m1-m2",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/partial-zeta-values"
    ],
    "status": "open",
    "note": ""
+  },
+  {
+   "supplier": "AutomorphicPadicLFunctions:L3",
+   "need": "The Deligne–Ribet toolkit behind Kakde §6: rationality and continuation of partial zeta values ζ(δ(x), 1 − k) (Klingen, Siegel); the Hilbert Eisenstein series G_{k,ε} with its standard q-expansion and constant terms at the cusps (Deligne–Ribet Proposition 6.1 and 2.22); the q-expansion principle (Deligne–Ribet 0.3, 5.13–5.15); and the congruences of Deligne–Ribet Theorem 0.4.",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/partial-zeta-values",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/deligne-ribet-approximation",
+    "NoncommutativeAndEquivariantIwasawa:NE.6/hilbert-eisenstein-toolkit"
+   ],
+   "status": "open",
+   "note": "The L3 description assigns Hilbert Eisenstein series, the integral q-expansion principle and the constant-term argument to L3; its packet has not read L3 yet."
   }
  ],
  "coverage": [
@@ -5510,11 +6031,10 @@
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.6",
    "status": "partial",
    "remaining": [
-    "Kakde §§6.2–6.13 (pp. 69–90): the basic congruences (Propositions 96–99), the partial zeta functions and the Deligne–Ribet q-expansion method through Hilbert modular forms, and M3 and M4 by enlarging F_∞ (Lemmas 118–119). They complete Theorem 94 and Kakde's main theorem (Theorem 11).",
     "Ritter–Weiss (arXiv 1004.2578) as the second route, and the coverage table comparing statements, uniqueness, p = 2 and μ-hypotheses source by source (the stage's acceptance).",
     "Newer unconditional abelian results (AE-ABELIAN2025) and the 2026 Ritter–Weiss audit."
    ],
-   "notes": "Checkpoint 5 plans Kakde §§1–4: the abelian case, Burns–Kato patching and the reductions to G = Δ × G_p. Checkpoint 6 plans Kakde §5 and §6.1 (12 nodes): the twisted-group-ring presentation, Φ^G with M1–M4, the additive theorem, the Iwasawa-algebra and integral logarithms, the θ–β relation, Theorems 52–53 (planet), Corollary 90, the criterion MC ⇔ (ζ_P) ∈ Φ^G_S (Proposition 93) and M1–M2 for the abelian zeta functions (Proposition 95)."
+   "notes": "Checkpoint 5 plans Kakde §§1–4: the abelian case, Burns–Kato patching and the reductions to G = Δ × G_p. Checkpoint 6 plans Kakde §5 and §6.1 (12 nodes): the twisted-group-ring presentation, Φ^G with M1–M4, the additive theorem, the Iwasawa-algebra and integral logarithms, the θ–β relation, Theorems 52–53 (planet), Corollary 90, the criterion MC ⇔ (ζ_P) ∈ Φ^G_S (Proposition 93) and M1–M2 for the abelian zeta functions (Proposition 95). Checkpoint 7 plans Kakde §§6.2–6.13 (11 nodes): the partial zeta values and their smoothing, the finite-level approximations (Proposition 102), the reduction of the basic congruences to value congruences, the Hilbert Eisenstein toolkit, Lemma 114, the value congruences via the q-expansion principle, Propositions 96–99, the enlarged extension with Lemma 118, M4 (Lemma 119), Theorem 94, and Theorem 11 (planet). The Kakde route is complete, meeting the acceptance clause for one completed theorem; the source findings are E5–E10."
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
@@ -5632,6 +6152,96 @@
    "printed": "Let G be a compact p-adic Lie group with a quotient isomorphic to Z_p and let O be the ring of integers in a finite unramified extension of Q_p. Then K′₁(Λ_O(G)) injects in K′₁(Λ_O(G)_S).",
    "correction": "No proof is printed; §6 begins directly after the statement. A proof: Theorems 52–53 give G pro-p of dimension one; the injectivity statements of Theorems 27, 33 and 36 give dimension one; Corollary 20 with the dimension-one case for each G/U gives the general case. The §4 reductions are written for O = Z_p only, so a larger unramified O needs them rerun over O.",
    "reason": "For G that is not pro-p of dimension one, the statement needs the §4 reductions and a limit argument, which the text does not spell out; the plan records the reconstruction in node NE.6/k1-injects-localisation.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E5",
+   "source": "KAKDE-2011",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 104, display (21) and the next line, p. 74 (arXiv v3)",
+   "printed": "(21) Σ_y (Δ^{u^p}_P(δ(y)∘ver^{P′}_P, 1 − k) − Δ^u_{P′}(δ(y), 1 − pk))κ(y)^{−k}y",
+   "correction": "Σ_y (Δ^{u^p}_P(δ(y), 1 − k) − Δ^u_{P′}(δ(y)∘ver^{P′}_P, 1 − pk))κ(y)^{−k}y, the difference of (19) and (20); the following line likewise needs δ(y)∘ver^{P′}_P in the P′-term.",
+   "reason": "(19) has Δ^{u^p}_P(δ(y), 1 − k) and (20) has Δ^u_{P′}(δ(y)∘ver^{P′}_P, 1 − pk); δ(y)∘ver^{P′}_P is a function on U_{P′}^ab, so it cannot be the argument of Δ_P. The orbit computation two lines later uses the corrected form.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E6",
+   "source": "KAKDE-2011",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 106, the W_GP-orbit sum, p. 75 (arXiv v3)",
+   "printed": "Σ_{g∈W_GP/(W_GP)_y} Δ^v_P(δ(gyg^{−1}), 1 − p)κ(gyg^{−1})^{−k}(gyg^{−1} − ω^k_P(gyg^{−1}))",
+   "correction": "Δ^v_P(δ(gyg^{−1}), 1 − k)",
+   "reason": "The terms come from (23), where the value is at 1 − k; the next line of the proof, after Lemma 103, has Δ^v_P(δ(y), 1 − k).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E7",
+   "source": "KAKDE-2011",
+   "kind": "error",
+   "locator": "Proofs of Propositions 116 (p. 84) and 117 (p. 85) (arXiv v3)",
+   "printed": "As 2^{−r_P} ≡ 2^{−r_P/p} (mod r_P) and r_P ≥ |(W_GP)_y|,",
+   "correction": "Use 2^{−r_P} ≡ 2^{−r_P/p} (mod p^{v_p(r_P)}), which holds because r_P − r_P/p = (r_P/p)(p − 1) is divisible by φ(p^{v_p(r_P)}), and the divisibility |(W_GP)_y| | p^{v_p(r_P)}, which holds because |(W_GP)_y| is a power of p dividing |W_GP|, which divides d_P = [F_P : F], which divides r_P. Proposition 117 needs the same repair with |(N_GP′/P)_y|.",
+   "reason": "The congruence modulo r_P fails when r_P has a prime factor other than p: for [F : ℚ] = 5, p = 3 and d_P = 3, r_P = 15 and 2^{−15} ≡ 2^{−5} (mod 15) would need 2^{10} ≡ 1 (mod 15), but 2^{10} ≡ 4. An inequality r_P ≥ |(W_GP)_y| does not give a congruence modulo |(W_GP)_y| in any case. The p-part version suffices for the conclusion.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E8",
+   "source": "KAKDE-2011",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 117, the constant-term identity, p. 85 (arXiv v3)",
+   "printed": "c(0, E) − N(α_p)^{−pd_{P′}}c(0, α, E) = 2^{−r_P}Δ^{u^{pd_{P′}}}_P(δ(y), 1 − k) − 2^{−r_{P′}}Δ^{u^{d_{P′}}}_{P′}(δ(y), 1 − pk)",
+   "correction": "N(α_p)^{−pd_{P′}k} in the exponent, and δ(y)∘ϕ in the P′-term: … − 2^{−r_{P′}}Δ^{u^{d_{P′}}}_{P′}(δ(y)∘ϕ, 1 − pk).",
+   "reason": "E has weight pd_{P′}k, and the second Eisenstein series in E is G_{pk,δ(y)∘ϕ}, as in the definition of E and in (28).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E9",
+   "source": "KAKDE-2011",
+   "kind": "misprint",
+   "locator": "§6.13.3, second congruence of the logarithm computation, p. 89 (arXiv v3)",
+   "printed": "Σ_{P′}((pϕ(ζ_{P′}) − Σ_{k=0}^{p−1}ω^k_P(ζ_{P′}))/ζ_P)",
+   "correction": "Σ_{P′}((pϕ(ζ_{P′}) − Σ_{k=0}^{p−1}ω^k_P(ϕ(ζ_{P′})))/ζ_P); in the next line Σ_{k−0} should read Σ_{k=0}.",
+   "reason": "The step replaces pζ_P − Σ_kω^k_P(ζ_P) using (34), whose right side involves ω^k_P(ϕ(ζ_{P′})); the third line combines the two fractions with numerator pϕ(ζ_{P′}) − Σ_kω^k_P(ϕ(ζ_{P′})).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1008.0142 abstract page: v3 (19 May 2011, \"Corrected revised version\") is the latest version",
+    "Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared"
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E10",
+   "source": "KAKDE-2011",
+   "kind": "gap",
+   "locator": "§6.13, the construction of F̃_∞ (pp. 86–87, arXiv v3)",
+   "printed": "we extend our ﬁeld slightly to F̃∞ ⊃ F∞ such that F̃∞/F is an admissible p-adic Lie extension satisfying µ = 0 hypothesis",
+   "correction": "Supply the two facts: K ⊆ ℚ(μ_l) of degree |Ḡ| is totally real, because |Ḡ| is odd and divides l − 1, hence divides (l − 1)/2; and μ = 0 for F̃_∞ follows from μ = 0 for F_∞, because the vanishing of μ is inherited by finite p-extensions (Iwasawa). The prime l must also be added to Σ.",
+   "reason": "§6.13.1 defines F̃ = KF and F̃_∞ = F̃F_∞ and states the Galois group, but gives no argument for admissibility (total reality of F̃) or for the μ = 0 hypothesis (Definition 8) for F̃_∞/F, both of which Proposition 93 needs.",
    "affects": "the proof",
    "known": "new",
    "searched": [
