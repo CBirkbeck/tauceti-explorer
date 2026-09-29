@@ -7174,8 +7174,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1408"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1408",
+   "finishedAt": "2026-09-29T10:26:51Z"
   },
   {
    "id": "REV-PAPER-MERKURJEV-SCAVIA-26",
