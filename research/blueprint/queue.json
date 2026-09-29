@@ -47521,7 +47521,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-algebraicgeometry.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3974"
   },
   {
    "id": "RT-AREA-padic-1",
