@@ -1,13 +1,66 @@
-# Handoff: BP-AutomorphicGaloisRepresentations (fourth checkpoint)
+# Handoff: BP-AutomorphicGaloisRepresentations (fifth checkpoint)
 
 Agent: Claude Code, session cc-fb70e5. Refs #685.
 
 - Stages R19.1–R19.6 are all partial. The checker reports no errors and no warnings.
 - RS-12 is still **needs_changes**, so the current structure is used.
-- Checkpoint 1 was merged in #3857 (13 nodes), checkpoint 2 in #3859 (18 nodes) and checkpoint 3 in #3866 (21 nodes). This
-  checkpoint adds 1 node in R19.1, for 22 nodes and 14 planets.
+- Checkpoints 1–4 were merged in #3857, #3859, #3866 and #3870. This checkpoint adds 8 nodes in R19.2, for 31 nodes
+  and 16 planets.
 
-## New in checkpoint 4
+## New in checkpoint 5: the proof of Carayol's Theorems (B) and (A)
+
+**Source.** Carayol, Ann. Sci. ÉNS 19 (1986), the Numdam PDF (sha256 d4a5fb6b…, the same file as before; printed page = PDF
+page + 407). It was read on its text layer, with the formulas of 2.1.1, 3.1–3.3, 6.6–6.7, 10.6 and 11.2–11.3 checked on the
+page images. Read: §1 (the summary of [Ca 3]), §2, §3, §4.1–4.8, §5, 6.4–6.7, §10, 11.1–11.4 and 12.1–12.3.
+
+**Nodes (R19.2):**
+- `carayol-sigma-lambda-construction` (construction, planet): ξ = ⊗[(τ_i∘ν)^{(w−k_i+2)/2}·Sym^{k_i−2}ξ_i], the sheaf F_λ,
+  σ_λ(π) = Hom_{H(G(𝔸^f),K)}(π_f^K, H¹(M_K ⊗ F̄, F_λ)) of dimension 2, and the decomposition of H¹.
+- `carayol-twisting-and-determinant`: σ(χπ) = χ^{−1}σ(π), and det σ(π) = χ_π^{−1}ω^{−1}. §3 gives this only up to a
+  quadratic character; 5.5 removes it.
+- `carayol-vanishing-cycle-filtration`: 0 → σ₁ → σ_𝔭 → σ₂ → 0 from the vanishing cycles, and 5.6.2–5.6.3.
+- `carayol-special-places`: 6.7, and Picard–Lefschetz non-splitting (11.4).
+- `carayol-local-fundamental-representation`: 10.6, π_𝔭 ⊗ σ₂(π)_ℂ ≅ 𝒰_ℂ(π̄_𝔭^∨).
+- `carayol-ordinary-cuspidal-places`: 11.2–11.3, through a CM form with the same local component.
+- `carayol-theorem-b` (planet): cases (a)–(c) of 11.1.
+- `carayol-primitive-restriction-lemma`: 12.1.3.
+- `carayol-cubic-base-change-of-extraordinary`: 12.2.2, through Tunnell's globalisation and the Artin conjecture.
+
+The Theorem (A) node now has 12.3's proof. The source leaves the case 𝔭 = v (only one discrete-series place) to the reader;
+it is written out by quadratic base change split at v.
+
+**Requests (new):**
+- HilbertModularVarietiesAndShimuraCurves R18.5: §§7–9 and Brylinski's appendix.
+- LefschetzPencilsAndVanishingCycles LPV.0: the vanishing-cycle sequence.
+- LefschetzPencilsAndVanishingCycles LPV.7:semistable-curves: Picard–Lefschetz for stable curves.
+- GL2AutomorphicRepresentationsAndTransfer R17.4: base change of degree ≤ 3, with its compatibility with restriction,
+  which Carayol asserts without a reference.
+- GL2AutomorphicRepresentationsAndTransfer R17.5: automorphic induction from CM fields, Tunnell's globalisation and the
+  Artin conjecture.
+
+The R18.4, R18.2, R17.3 and R16.3 requests gain the new nodes.
+
+**No new source issues.** Two places are not mistakes and are recorded as hypotheses:
+- 12.2.2 says the general "base change = restriction" principle has no reference;
+- 12.3.2 is left to the reader.
+
+**Lean.** Three new checked examples:
+- dim W = ∏(k_i − 1);
+- integrality of (w − k_i + 2)/2;
+- the index-3 subgroups of S₄ and A₄.
+
+A missing line break in the earlier comment block is fixed. The file compiles with exit 0; the only warnings are the four
+existing `sorry` stubs.
+
+**What remains in R19.2:**
+- Carayol §§7–9 and the appendix (R18.5).
+- 11.5–11.10 (LPV.7).
+- The companion paper [Ca 3] (R18.2).
+- Wiles 1988.
+
+The earlier gap notes that [Ca 3] is in the supplied library as references/papers/R02_SS_CarayolBadReduction.pdf.
+
+## Earlier in this job (checkpoint 4)
 
 - `R19.1/integral-structure-of-the-newform-premotive` (construction). Source: Diamond–Flach–Guo arXiv v2 §§1.2, 4.5 and 5.3–5.4.
   - The S-integral premotivic structure 𝓜(N, ψ)_{M,!} for S ⊇ {ℓ | Nk!}, with lattices in the Betti, de Rham, λ-adic and
