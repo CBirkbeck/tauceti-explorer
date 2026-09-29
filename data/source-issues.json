@@ -150182,7 +150182,7 @@
    ],
    "owner": "PotentialModularityAndCompatibleSystems",
    "file": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R23.1.json",
-   "citation": "Chandrashekhar Khare, Jean-Pierre Wintenberger, Serre's modularity conjecture (II), Author's preprint (proofs.pdf, 98 pages, own pagination) of the paper published in Invent. Math. 178 (2009), 505-586 (catalogue id SS_KW2). Locators are the preprint's printed page numbers; the Inventiones pagination was not compared.",
+   "citation": "Chandrashekhar Khare, Jean-Pierre Wintenberger, Serre's modularity conjecture (II), Author's preprint (proofs.pdf, 98 pages, own pagination) of the paper published in Invent. Math. 178 (2009), 505-586. Locators are the preprint's printed page numbers; the Inventiones pagination was not compared.",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -150201,7 +150201,67 @@
    ],
    "owner": "PotentialModularityAndCompatibleSystems",
    "file": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R23.1.json",
-   "citation": "Laurent Moret-Bailly, Groupes de Picard et problèmes de Skolem II, Ann. Sci. École Norm. Sup. (4) 22 (1989), no. 2, 181-194; Numdam scan with OCR text layer (catalogue id ADD_MORET_BAILLY_II). The OCR drops or mangles Sigma, Omega, script S and inequality signs; every displayed condition used below was re-read on page images. Locators are printed journal pages.",
+   "citation": "Laurent Moret-Bailly, Groupes de Picard et problèmes de Skolem II, Ann. Sci. École Norm. Sup. (4) 22 (1989), no. 2, 181-194; Numdam scan with OCR text layer. The OCR drops or mangles Sigma, Omega, script S and inequality signs; every displayed condition used below was re-read on page images. Locators are printed journal pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems/E4",
+   "kind": "misprint",
+   "locator": "proof of Lemma 1.5, printed p. 15 (PDF page 16), read on the page image",
+   "printed": "The proof says an ε^{−1}-action would give an ω^{−1}-action on a subquotient of A[℘], citing [CDT], appendix B. It deduces χ₁|_{I_x} = ω, which it says the assumptions rule out when A[λ] is semisimple as a G_x-module.",
+   "correction": "Hence χ₁|_{I_x} = ω^{−1} (that is, n = 1).",
+   "reason": "The proof has arranged χ₁|_{I_x} ∼ ε^{−n} and ψ₁|_{I_x} = ω^{−n} with ψ₂ unramified, so an action by ω^{−1} on a subquotient of A[℘] means n ≡ 1 mod (l − 1), i.e. n = 1 as 0 ≤ n < l − 1, and then χ₁|_{I_x} = ω^{−1}. The printed χ₁|_{I_x} = ω would mean n = l − 2, which the lemma does not exclude; the excluded case is n = 1 (checked in the suggested Lean file).",
+   "affects": "nothing",
+   "known": "new: not among the corrections Taylor lists in Documenta Extra Volume Coates (2006), pp. 776–777; the published version (J. Inst. Math. Jussieu 1 (2002)) was not obtained",
+   "searched": [
+    "Taylor, On the meromorphic continuation of degree two L-functions (2006), 'Corrections to [Tay4]', pp. 776–777",
+    "the author's preprint of 23 May 2000 (fm.pdf), the only version read"
+   ],
+   "owner": "PotentialModularityAndCompatibleSystems",
+   "file": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R23.1.json",
+   "citation": "Richard Taylor, Remarks on a conjecture of Fontaine and Mazur, Author's preprint dated May 23, 2000 (22-page PDF) of the paper published in J. Inst. Math. Jussieu 1 (2002), 125-143. The published numbering was NOT compared; KW II and KW Annals cite results of the published paper by numbers (Theorem G, Lemmas 1.2 and 1.5, Theorem 1.6) that agree with this preprint where checked. The text layer loses the fi/fl ligatures and all Greek letters, so every formula below was read on page images; locators are the preprint's printed page numbers (PDF page = printed page + 1).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems/E5",
+   "kind": "misprint",
+   "locator": "proof of Lemma 1.1, printed p. 8 (PDF page 9), read on the page image",
+   "printed": "The source asserts agreement with ψ_x on L_y^× at each y ∈ S_L.",
+   "correction": "coincides with ψ_y on L_y^× for y ∈ S_L.",
+   "reason": "The characters ψ_x are indexed by x ∈ S_L; the condition is at each y ∈ S_L separately, as in the preceding sentence 'restricts … to ψ_x on L_x^× for all x ∈ S_L'.",
+   "affects": "nothing",
+   "known": "new: not among the corrections Taylor lists in Documenta Extra Volume Coates (2006), pp. 776–777; the published version (J. Inst. Math. Jussieu 1 (2002)) was not obtained",
+   "searched": [
+    "Taylor, On the meromorphic continuation of degree two L-functions (2006), 'Corrections to [Tay4]', pp. 776–777",
+    "the author's preprint of 23 May 2000 (fm.pdf), the only version read"
+   ],
+   "owner": "PotentialModularityAndCompatibleSystems",
+   "file": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R23.1.json",
+   "citation": "Richard Taylor, Remarks on a conjecture of Fontaine and Mazur, Author's preprint dated May 23, 2000 (22-page PDF) of the paper published in J. Inst. Math. Jussieu 1 (2002), 125-143. The published numbering was NOT compared; KW II and KW Annals cite results of the published paper by numbers (Theorem G, Lemmas 1.2 and 1.5, Theorem 1.6) that agree with this preprint where checked. The text layer loses the fi/fl ligatures and all Greek letters, so every formula below was read on page images; locators are the preprint's printed page numbers (PDF page = printed page + 1).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PotentialModularityAndCompatibleSystems/E6",
+   "kind": "misprint",
+   "locator": "choice of α_w, printed p. 7 (PDF page 8), and the proof of Lemma 1.2, second case, printed p. 11 (PDF page 12), read on the page images",
+   "printed": "The source chooses a_w so that, modulo λ, α_w agrees with an eigenvalue of ρ̄(Frob_w). It also asserts an isomorphism i₀ : O_{ℚ(β_v)} ≅ End(A/k(v)) and gives O_N × O_N → O_{ℚ(α)}, (a, b) ↦ tr_{N/ℚ(α)}(ab^c).",
+   "correction": "modulo λ₀; End(A₀/k(v)); ℚ(β_v).",
+   "reason": "On p. 7 only λ₀ | l in N₀ has been chosen; λ | λ₀ in N is chosen on p. 10, and α_w ∈ N₀. On p. 11 the abelian variety is A₀ and no α is defined in this case; the pairing is the trace from N to ℚ(β_v), as i₀ and the tensor product O_N = O_{ℚ(β_v)} ⊗ … show.",
+   "affects": "nothing",
+   "known": "new: not among the corrections Taylor lists in Documenta Extra Volume Coates (2006), pp. 776–777; the published version (J. Inst. Math. Jussieu 1 (2002)) was not obtained",
+   "searched": [
+    "Taylor, On the meromorphic continuation of degree two L-functions (2006), 'Corrections to [Tay4]', pp. 776–777",
+    "the author's preprint of 23 May 2000 (fm.pdf), the only version read"
+   ],
+   "owner": "PotentialModularityAndCompatibleSystems",
+   "file": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R23.1.json",
+   "citation": "Richard Taylor, Remarks on a conjecture of Fontaine and Mazur, Author's preprint dated May 23, 2000 (22-page PDF) of the paper published in J. Inst. Math. Jussieu 1 (2002), 125-143. The published numbering was NOT compared; KW II and KW Annals cite results of the published paper by numbers (Theorem G, Lemmas 1.2 and 1.5, Theorem 1.6) that agree with this preprint where checked. The text layer loses the fi/fl ligatures and all Greek letters, so every formula below was read on page images; locators are the preprint's printed page numbers (PDF page = printed page + 1).",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
