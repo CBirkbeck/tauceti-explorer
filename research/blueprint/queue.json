@@ -9196,7 +9196,8 @@
    ],
    "avoidAccountOf": "PAPER-SCHOLZE-15",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHOLZE-15.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4504"
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I",
@@ -47707,8 +47708,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3976"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3976",
+   "finishedAt": "2026-09-29T20:28:53Z"
   },
   {
    "id": "RT-AREA-padic-3",
