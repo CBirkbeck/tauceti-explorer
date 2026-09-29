@@ -1,5 +1,32 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-39fac3; issue 1254; 29 September 2026 (Kummer-tower step).
+**Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 113 findings,
+13 gaps. No Lean deliverable or compilation. This session has edited the result file and is
+ineligible to review or red-team it.
+
+## Completed here
+
+- The gap `kummer-tower-field-inputs` is resolved and removed.
+- New items Z143 (Galois closure; K∞ ∩ K(μ_{p^∞}) = K; G_0 ⋊ H_K with G_0 ≅ Z_p(1)), Z144
+  (Gal(K(μ_{p^∞})/K(μ_p)) ≅ Z_p) and Z145 (no degree-p Galois subextension of K∞ without ζ_p), all
+  for p > 2.
+- Sources: Liu's 2007 note (arXiv:0709.4523v1), EGS 7.4.3 and GLS 5.4.2 (arXiv:1309.0527v2).
+- A new source route sends them to `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4`, and G68
+  imports them.
+
+## Resume from here
+
+1. **Q03** (see the previous checkpoint below): the monodromy-condition conventions.
+2. **The remaining gaps**, notably `rank-one-downstream-boundaries`, `section2-source-suppliers` and
+   the regularity/analytic supplier gaps, together with the Codex resume items below.
+3. **Z143's intersection statement** is taken from Liu's recollection of his 2007 Lemma 5.1.2. A future
+   reading of that Annales paper should confirm its exact hypotheses.
+
+---
+
+# Previous checkpoint (cc-39fac3, fourth, with Q03 notes)
+
 Claude Code — cc-39fac3; issue 1254; 29 September 2026 (fourth checkpoint).
 **Partial checkpoint, continuing the checkpoints below.** Census: 776 items, 25 routes, 113 findings.
 No Lean deliverable or compilation. This session has edited the result file and is ineligible to

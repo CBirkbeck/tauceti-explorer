@@ -1,3 +1,47 @@
+# LLHLM23 continuation: the Kummer-tower field inputs (Z143–Z145)
+
+Claude Code — cc-39fac3; issue 1254; 29 September 2026. This step resolves the gap
+`kummer-tower-field-inputs`. It asked for a source decomposition of the field theory behind the
+Kummer-tower restriction lemmas G68, G67 and G50: K̂ = K∞(μ_{p^∞}); the Kummer subgroup Z_p(1)
+with its cyclotomic conjugation action; and the absence of a cyclic degree-p subextension of K∞
+when ζ_p is absent. Census: 779 items (three new), 26 routes (one new), 113 findings, 13 gaps.
+
+## Sources read
+
+- **T. Liu, A note on lattices in semi-stable representations** (arXiv:0709.4523v1, PDF2 and PDF4).
+  For p > 2 it states K_{p^∞} ∩ K_∞ = K, Ĝ = G_0 ⋊ H_K and G_0 ≃ Z_p(1), citing Lemma 5.1.2 of
+  Liu's 2007 Annales ÉNS paper, which I did not read.
+- **Gee–Liu–Savitt, The weight part of Serre's conjecture for GL(2)** (arXiv:1309.0527v2, PDF35),
+  Lemma 5.4.2. It asserts without proof that a degree-p Galois subextension of K∞ forces ζ_p ∈ K.
+  The author-hosted copy returned a web challenge page and was not read.
+- **Emerton–Gee–Savitt, Lemma 7.4.3** (PDF48–49), re-read; the hash matches the recorded copy. It
+  uses G ≅ Z_p(1) and Gal(F(μ_{p^∞})/F(μ_p)) ≅ Z_p without proof.
+
+## New items
+
+- **Z143, Galois closure of the Kummer tower.**
+  - K̂ = ∪K(π_n, ζ_{p^n}) is Galois over K and is the Galois closure of K∞.
+  - K∞ ∩ K(μ_{p^∞}) = K, and Gal(K̂/K) = G_0 ⋊ H_K.
+  - The Kummer map gives G_0 ≅ Z_p(1), with H_K acting through the cyclotomic character.
+
+  The proof steps derive surjectivity of the Kummer map, and the semidirect product, from the
+  intersection statement. p > 2 is needed: for π = −2 in Q_2, √−2 = ζ_8 + ζ_8³ lies in K∞ ∩ K(μ_{2^∞}).
+- **Z144.** Gal(K(μ_{p^∞})/K(μ_p)) ≅ Z_p for p > 2, via the cyclotomic character (Mathlib's
+  `cyclotomicCharacter`, CyclotomicCharacter.lean:307), with trivial conjugation action.
+- **Z145.** For p > 2 and ζ_p ∉ K, K∞ has no Galois subextension of degree p. This is GLS 5.4.2's
+  assertion, derived here from Z143. A normal subgroup containing H_K contains the commutators
+  (χ(h) − 1)·G_0, and ζ_p ∉ K makes some χ(h) − 1 a unit. The hypothesis is sharp.
+
+All three are `missing`. They are routed by a new source route to
+`FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4`, which owns Breuil–Kisin theory over the Kisin
+base fields where K∞ and Ĝ live. They import Kummer theory from Tau Ceti ProfiniteCohomology
+Layer 9. G68 now lists them as prerequisites and names them in a proof step.
+
+The gap is removed, and its record is kept in `validation.cc39fac3KummerTower`. As the gap required,
+the explicit finite-length diagram chase of G67 was not used to close this boundary.
+
+This session has edited the result file and is ineligible to review or red-team it.
+
 # LLHLM23 continuation: Table 1 certified off the E113 curves
 
 Claude Code — cc-39fac3; issue 1254; 29 September 2026 (fourth checkpoint). This takes the first
