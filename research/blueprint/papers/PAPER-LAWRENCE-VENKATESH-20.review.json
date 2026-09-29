@@ -1,0 +1,17 @@
+{
+ "paper": "PAPER-LAWRENCE-VENKATESH-20",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. The higher-dimensional half of the paper (§§9–12: G-semisimplification, the p-adic transfer of Bakker–Tsimerman, Theorem 10.1, the hypersurface application and the filtration combinatorics of §11) is beyond MordellLawrenceVenkatesh, which plans the curve case (LV.0–LV.11), and it joins MordellLawrenceVenkateshPartII, proposed by PAPER-LAWRENCE-SAWIN-25 (route 1, accepted by its review) with the same id, parent and area; DESIGN-MordellLawrenceVenkateshPartII is pending. The brief states Theorem 10.1 and Proposition 10.2 exactly and names its imports (LD.6 for Bakker–Tsimerman, LV.2–LV.3, Tau Ceti Chebotarev). One inconsistency for the design job: the title given here ('…Part II: non-density of integral points in higher dimension') differs from Lawrence–Sawin's ('…Part II: the Shafarevich conjecture for hypersurfaces in abelian varieties') for the same id; the design should choose one covering both."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. LV.1 plans §§2.3–2.5's Galois-representation inputs; Lemma 2.2 (induction preserves semisimplicity in characteristic 0) is the elementary lemma beside them, and LV.1's Targets do not already list it."
+  }
+ ],
+ "notes": "Items. In arXiv v3 (SHA-256 e3013516… matches) this review read §§2–3 and §5 (pp. 8–20, 25–28), §7.2, §10.1–10.2 (pp. 55–58) and §12 line by line, including the counting in the proof of Theorem 5.4, Lemma 10.3's log-concavity argument and the variance (10.9); for §§6–9 and §11 it read the statement of every numbered result and the proof of Lemma 6.4 (which supports the item's 'indeed r ≥ 5') and compared them with the items; §1 and §4 were not re-read. All compared statements match their items. The published article (public journal PDF at bimsa.net, SHA-256 588e450a…) was collated at E1–E3. Statuses. The three library citations resolve at Mathlib 082e2d3 (NumberField.finite_of_discr_bdd, Nat.forall_exists_prime_gt_and_eq_mod, Module.Grassmannian). The 41 planned items cite MordellLawrenceVenkatesh LV.0–LV.11, whose packet (research/blueprint/roadmaps/MordellLawrenceVenkatesh.json) is this paper's curve case, and LD.6 for Bakker–Tsimerman; the stage Targets cover them. Mistakes. E1–E3 confirmed on both versions; E1's dimension, E2's Fourier bookkeeping and E3's Prym dimension were rechecked. The range '1 ⩽ i ⩽ 8' in the proof of Theorem 5.4 is a further slip, found independently, but it is already MordellLawrenceVenkatesh/E8 in research/blueprint/errata/MordellLawrenceVenkatesh.json, which records 28 mistakes in §§1–8 of this paper; to avoid a duplicate in the register the review records a gap pointing there instead of a new entry. check_paper.py passes."
+}
