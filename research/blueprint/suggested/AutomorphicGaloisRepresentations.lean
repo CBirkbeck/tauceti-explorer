@@ -130,6 +130,17 @@ example : ((-2 : ZMod 5) = 1 + 2) ∧ ((-1 : ZMod 5) = 1 + 3) ∧ ((-2 : ZMod 5)
   `…:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime`,
   `…:R19.6/determinants-and-representability-over-a-hecke-algebra`: not stated; they need continuous Galois
   representations of `G_ℚ` with coefficients, Weil–Deligne representations and local Langlands.
+* `…:R19.6/hecke-algebra-representation-quaternionic`, `…:R19.4/quaternionic-sigma-place-local-form`,
+  `…:R19.5/hilbert-local-behaviour-at-p`: not stated; they need quaternionic modular forms on a definite quaternion
+  algebra over a totally real field, their Hecke algebras (OrdinaryAutomorphicFormsAndModularityLifting R21.1) and
+  Jacquet–Langlands (GL2AutomorphicRepresentationsAndTransfer R17.3).
+* `…:R19.2/wiles-ordinary-hilbert-representation`, `…:R19.4/nearly-ordinary-hilbert-compatibility-away-from-p`: not
+  stated; they need nearly ordinary Hilbert modular forms (OrdinaryAutomorphicFormsAndModularityLifting R21.2).
 -/
+
+/-- Acceptance (`…:R19.4/quaternionic-sigma-place-local-form`): the unramified character `γ_v` at a place of `Σ`
+satisfies `γ_v² = ψ_v`; for trivial `ψ` its Frobenius value is a square root of `1`. -/
+example (γ : ℚ) (h : γ ^ 2 = 1) : γ = 1 ∨ γ = -1 := by
+  sorry
 
 end TauCeti.ModularGalois
