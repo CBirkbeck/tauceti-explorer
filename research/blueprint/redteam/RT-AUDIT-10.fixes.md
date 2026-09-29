@@ -65,3 +65,14 @@ The statement that T_n* = ⟨n⟩⁻¹T_n is not proved, the `related` citation,
 - `python3 research/blueprint/intake.py check-files` on both deliverables: 0 problems.
 - The unit suite passes.
 - The JSON keeps its original one-space indentation. Every edited string was changed by exact replacement, so nothing else moved.
+
+## Correction (29 September 2026, same session)
+
+The audit job specification allows up to five `declarations` per target. The first submission added one declaration each to two targets that already had five:
+
+| Target | Declaration added | Now named in the note |
+|---|---|---|
+| R12.5 target 3 | `heckeTCuspNat_levelRaise` | `diamondOp` |
+| C0 target 5 | `Submonoid.fg_eqLocusM` | `isClosedEmbedding_monomialEmbedding` |
+
+In each case the declaration most directly relevant to the finding stays listed, and the displaced one is named in the target's note with its file and line. No status, verdict or other note changed.

@@ -597,13 +597,6 @@
          "fit": "related"
         },
         {
-         "name": "diamondOp",
-         "library": "tauceti",
-         "file": "TauCeti/NumberTheory/ModularForms/DiamondOperators.lean",
-         "line": 148,
-         "fit": "related"
-        },
-        {
          "name": "CuspForm.trace",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/ModularForms/NormTrace.lean",
@@ -618,7 +611,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti has T_n, diamond and degeneracy (V_d) operators on cusp forms with the divisor-sum q-expansion formula a_m(T_n f) = Σ_{d|(m,n)} χ(d)d^{k−1}a_{mn/d²}(f), and proves T_p^(N) ∘ V_d = V_d ∘ T_p^(M) for d·M ∣ N and p prime with p ∤ N (HeckeRing.GL2.heckeTCuspNat_levelRaise; no bad-prime relation is supplied); Mathlib has the analytic trace of forms between levels. The geometric side (pullback/trace along correspondences on a curve) is absent."
+       "note": "Tau Ceti has T_n, diamond and degeneracy (V_d) operators on cusp forms with the divisor-sum q-expansion formula a_m(T_n f) = Σ_{d|(m,n)} χ(d)d^{k−1}a_{mn/d²}(f), and proves T_p^(N) ∘ V_d = V_d ∘ T_p^(M) for d·M ∣ N and p prime with p ∤ N (HeckeRing.GL2.heckeTCuspNat_levelRaise; no bad-prime relation is supplied); Mathlib has the analytic trace of forms between levels. The geometric side (pullback/trace along correspondences on a curve) is absent. Also related, not listed because of the five-entry limit: diamondOp (TauCeti/NumberTheory/ModularForms/DiamondOperators.lean:148)."
       }
      ],
      "duplicates": [
@@ -3324,13 +3317,6 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.Toric.isClosedEmbedding_monomialEmbedding",
-         "library": "tauceti",
-         "file": "TauCeti/Geometry/Toric/Analytic/AffinePoint.lean",
-         "line": 261,
-         "fit": "related"
-        },
-        {
          "name": "AddMonoidAlgebra.finiteType_iff_fg",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/FiniteType.lean",
@@ -3359,7 +3345,7 @@
          "fit": "related"
         }
        ],
-       "note": "Only the ℂ-points of Spec ℂ[S] for a monoid S, with an embedding-independent topology and a closed embedding into ℂʳ, exist; monoid algebras and their finite type are in Mathlib. The dual cone σ^∨ is in Mathlib. The equalizer / nonnegative-integer-solution form of Gordan's lemma is too: Submonoid.fg_eqLocusM and its additive form show that the equalizer of two maps from ℕ^r to a cancellative additive monoid is finitely generated, and its docstring names the ℕ^r/ℕ^s case as a version of Gordan's lemma. Still to be connected are the integral dual-character monoid σ^∨ ∩ M, its identification with such a solution monoid, and the cone-specific finite-generation and localization API. The chart of the zero cone, the split torus Spec R[M], exists over any commutative ring (Tau Ceti), and affine space over any base is in Mathlib, but neither is presented as a toric chart, and there is no affine toric scheme U_σ in general."
+       "note": "Only the ℂ-points of Spec ℂ[S] for a monoid S, with an embedding-independent topology and a closed embedding into ℂʳ, exist; monoid algebras and their finite type are in Mathlib. The dual cone σ^∨ is in Mathlib. The equalizer / nonnegative-integer-solution form of Gordan's lemma is too: Submonoid.fg_eqLocusM and its additive form show that the equalizer of two maps from ℕ^r to a cancellative additive monoid is finitely generated, and its docstring names the ℕ^r/ℕ^s case as a version of Gordan's lemma. Still to be connected are the integral dual-character monoid σ^∨ ∩ M, its identification with such a solution monoid, and the cone-specific finite-generation and localization API. The chart of the zero cone, the split torus Spec R[M], exists over any commutative ring (Tau Ceti), and affine space over any base is in Mathlib, but neither is presented as a toric chart, and there is no affine toric scheme U_σ in general. Also related, not listed because of the five-entry limit: TauCeti.Toric.isClosedEmbedding_monomialEmbedding (TauCeti/Geometry/Toric/Analytic/AffinePoint.lean:261)."
       },
       {
        "target": "Gluing of toric charts and torus embeddings relative to a torus torsor by descent",
