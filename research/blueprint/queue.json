@@ -4310,8 +4310,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -8697,7 +8697,8 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2183"
   },
   {
    "id": "PAPER-CESNAVICIUS-21",
@@ -20668,8 +20669,9 @@
    ],
    "avoidAccountOf": "RS-33",
    "prompt": "research/blueprint/prompts/REV-RS-33.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #865"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #865",
+   "finishedAt": "2026-09-29T21:18:15Z"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--P7",
@@ -25847,8 +25849,9 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #438"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #438",
+   "finishedAt": "2026-09-29T21:18:18Z"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.3",
@@ -63686,10 +63689,11 @@
     "COL-BOXER-CALEGARI-GEE-ETAL-25"
    ],
    "avoidAccountOf": "COL-BOXER-CALEGARI-GEE-ETAL-25",
-   "state": "external",
+   "state": "done",
    "timeout": 14400,
    "prompt": "research/blueprint/prompts/REV-COL-BOXER-CALEGARI-GEE-ETAL-25.md",
-   "note": "claimed on GitHub issue #3731"
+   "note": "deliverables arrived from an external worker on issue #3731",
+   "finishedAt": "2026-09-29T21:18:25Z"
   },
   {
    "id": "COL-GAN-HARRIS-SAWIN-ETAL-24",
