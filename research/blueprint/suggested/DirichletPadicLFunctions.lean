@@ -6655,3 +6655,79 @@ example : ‖(-10400/3 : ℚ_[2])‖ ≤ (1/8 : ℝ) := sorry
 -- uncleared_constant_precision_loss
 example : ‖(-113/480 : ℚ_[2])‖=32 := sorry
 end SuggestedEisensteinCongruenceTests
+
+/-! ## Explicit precision loss for the full admissible Eisenstein series -/
+namespace DirichletPadic
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "D" => (fun (a : U) (e : ℕ) => 2*((a : ℚ_[p])^(e+1)-1))
+
+lemma eisensteinAwaySeries_coeff_eq_integral_div (a : U) (ha : (a : Z)=(p+1 : ℕ)) (e n : ℕ) :
+    ((eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha e)).coeff n =
+      ((integralClearedEisensteinMoment p a e).coeff n : ℚ_[p])/D a e := sorry
+lemma eisensteinDenominator_weight_congr (a : U) (r e e' : ℕ) (hr : 0<r)
+    (he : Nat.ModEq (p^(r-1)*(p-1)) e e') :
+    ‖D a e'-D a e‖≤(p : ℝ)^(-(r : ℤ)) := sorry
+lemma eisensteinAwaySeries_coeff_norm_le (a : U) (ha : (a : Z)=(p+1 : ℕ)) (e n : ℕ) :
+    ‖((eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha e)).coeff n‖≤
+      1/‖D a e‖ := sorry
+theorem eisensteinAwaySeries_weight_precision (a : U) (ha : (a : Z)=(p+1 : ℕ))
+    (r e e' : ℕ) (hr : 0<r) (he : Nat.ModEq (p^(r-1)*(p-1)) e e') (n : ℕ) :
+    ‖((eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha e')).coeff n-
+      ((eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha e)).coeff n‖ ≤
+      (p : ℝ)^(-(r : ℤ))/(‖D a e‖*‖D a e'‖) := sorry
+lemma eisensteinDenominator_norm_eq (a : U) (r e e' : ℕ) (hr : 0<r)
+    (he : Nat.ModEq (p^(r-1)*(p-1)) e e')
+    (hsmall : (p : ℝ)^(-(r : ℤ))<‖D a e‖) : ‖D a e'‖=‖D a e‖ := sorry
+theorem eisensteinAwaySeries_local_weight_precision (a : U) (ha : (a : Z)=(p+1 : ℕ))
+    (r e e' : ℕ) (hr : 0<r) (he : Nat.ModEq (p^(r-1)*(p-1)) e e')
+    (hsmall : (p : ℝ)^(-(r : ℤ))<‖D a e‖) (n : ℕ) :
+    ‖((eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha e')).coeff n-
+      ((eisensteinAwaySeries p a).map (eisensteinAwayMoment p a ha e)).coeff n‖ ≤
+      (p : ℝ)^(-(r : ℤ))/‖D a e‖^2 := sorry
+theorem rationalEisensteinSeries_weight_precision (a : U) (ha : (a : Z)=(p+1 : ℕ))
+    (r w w' : ℕ) (hr : 0<r) (hw : 4≤w) (hw' : 4≤w') (hew : Even w) (hew' : Even w')
+    (he : Nat.ModEq (p^(r-1)*(p-1)) (w-1) (w'-1))
+    (F G : PowerSeries ℚ)
+    (hF : F.map (algebraMap ℚ ℂ)=UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein p w hw))
+    (hG : G.map (algebraMap ℚ ℂ)=UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein p w' hw'))
+    (n : ℕ) :
+    ‖algebraMap ℚ ℚ_[p] (G.coeff n-F.coeff n)‖ ≤
+      (p : ℝ)^(-(r : ℤ))/(‖2*((a : ℚ_[p])^w-1)‖*‖2*((a : ℚ_[p])^w'-1)‖) := sorry
+end DirichletPadic
+
+namespace SuggestedEisensteinPrecisionTests
+open scoped PowerSeries.WithPiTopology
+open DirichletPadic
+-- full_coefficient_quotient
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) (n : ℕ) :
+    ((eisensteinAwaySeries 2 a).map (eisensteinAwayMoment 2 a ha 3)).coeff n =
+      ((integralClearedEisensteinMoment 2 a 3).coeff n : ℚ_[2])/160 := sorry
+-- denominator_dyadic_variation
+example : ‖(13120-160 : ℚ_[2])‖≤(1/8 : ℝ) := sorry
+-- uniform_dyadic_bound
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) (n : ℕ) :
+    ‖((eisensteinAwaySeries 2 a).map (eisensteinAwayMoment 2 a ha 3)).coeff n‖≤32 := sorry
+-- dyadic_quotient_precision
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) (n : ℕ) :
+    ‖((eisensteinAwaySeries 2 a).map (eisensteinAwayMoment 2 a ha 7)).coeff n-
+      ((eisensteinAwaySeries 2 a).map (eisensteinAwayMoment 2 a ha 3)).coeff n‖≤256 := sorry
+-- distinct_denominator_norms
+example : ‖(160 : ℚ_[2])‖=1/32 ∧ ‖(13120 : ℚ_[2])‖=1/64 := sorry
+-- stable_ternary_denominator
+example : ‖(2*(4^10-1) : ℚ_[3])‖=‖(2*(4^4-1) : ℚ_[3])‖ := sorry
+-- strict_neighborhood_required
+example : ‖(126 : ℚ_[3])‖≠‖(6 : ℚ_[3])‖ := sorry
+-- local_ternary_precision
+example (a : (ℤ_[3])ˣ) (ha : (a : ℤ_[3])=4) (n : ℕ) :
+    ‖((eisensteinAwaySeries 3 a).map (eisensteinAwayMoment 3 a ha 57)).coeff n-
+      ((eisensteinAwaySeries 3 a).map (eisensteinAwayMoment 3 a ha 3)).coeff n‖≤(1/9 : ℝ) := sorry
+-- classical_rational_precision
+example (a : (ℤ_[2])ˣ) (ha : (a : ℤ_[2])=3) (F G : PowerSeries ℚ)
+    (hF : F.map (algebraMap ℚ ℂ)=UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein 2 4 (by decide)))
+    (hG : G.map (algebraMap ℚ ℂ)=UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein 2 8 (by decide)))
+    (n : ℕ) : ‖algebraMap ℚ ℚ_[2] (G.coeff n-F.coeff n)‖≤256 := sorry
+end SuggestedEisensteinPrecisionTests
