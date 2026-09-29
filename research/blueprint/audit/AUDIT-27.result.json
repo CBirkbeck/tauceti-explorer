@@ -1609,9 +1609,30 @@
          "file": "Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean",
          "line": 163,
          "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.selmerGroup.fromSUnitLift_injective",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/Basic.lean",
+         "line": 186,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.selmerGroup.ker_toClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/Basic.lean",
+         "line": 269,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.selmerGroup.range_toClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/Basic.lean",
+         "line": 296,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti builds the Kummer map K^x -> H^1(G_K, mu_n) for n invertible in K, computes it on cocycles, proves its kernel is (K^x)^n and hence that K^x/(K^x)^n injects into H^1(G_K, mu_n); its own docstring says surjectivity (Hilbert 90 for K^sep/K through the finite-quotient colimit) is the single missing input for the isomorphism at finite level. The p-adic limit over m, the Z_p(1) coefficient module and the comparison with a tensor-product expression for units and S-units are all absent. Mathlib's IsDedekindDomain.selmerGroup is the group K(S,n) of S-units mod n-th powers, the target of the S-restricted Kummer map."
+       "note": "Tau Ceti builds the Kummer map K^x -> H^1(G_K, mu_n) for n invertible in K, computes it on cocycles, proves its kernel is (K^x)^n and hence that K^x/(K^x)^n injects into H^1(G_K, mu_n); its own docstring says surjectivity (Hilbert 90 for K^sep/K through the finite-quotient colimit) is the single missing input for the isomorphism at finite level. The p-adic limit over m, the Z_p(1) coefficient module and the comparison with a tensor-product expression for units and S-units are all absent. Mathlib's IsDedekindDomain.selmerGroup is the group K(S,n) of power classes in K^x/(K^x)^n whose valuation is divisible by n at every height-one prime outside S; it is defined by this valuation condition, not by an S-unit representative. Tau Ceti proves the exact sequence 1 -> O_S^x/(O_S^x)^n -> K(S,n) -> Cl(O_S)[n] -> 1, exact on the right for n != 0 (IsDedekindDomain.selmerGroup.fromSUnitLift_injective, ker_toClassGroup, range_toClassGroup), so K(S,n) is the group of S-unit power classes exactly when Cl(O_S)[n] is trivial. These are algebraic statements: TauCeti.kummerClassMap goes from K^x/(K^x)^n into H^1(G_K, mu_n), and no comparison of K(S,n) with an S-restricted H^1 is stated."
       },
       {
        "target": "Which inverse-limit hypotheses hold for each tower (Mittag-Leffler bookkeeping)",
@@ -1856,7 +1877,7 @@
          "fit": "related"
         }
        ],
-       "note": "Corestriction in degrees 0, 1 and 2 exists in Tau Ceti and would be the transition map of the inverse system. Mathlib has the closest thing to the coefficient ring: abstract measures on Z_p with values in Q_p and the Amice transform identifying them with power series, which its own docstring calls the definition of the Iwasawa algebra - but as an analytic object, not as a completed group ring Z_p[[Gamma]], and with no module theory (no characteristic ideal, no structure theorem). There is no Z_p^d-extension, no inverse limit of cohomology groups along corestriction, and hence no Iwasawa cohomology."
+       "note": "Corestriction in degrees 0, 1 and 2 exists in Tau Ceti and would be the transition map of the inverse system. Mathlib has the closest thing to the coefficient ring: abstract measures on Z_p, with the Amice transform AbstractMeasure.amiceTransformEquiv : D(Z_p, Z_p) ≃ₗ[Z_p] Z_p[[X]] identifying Z_p-valued measures with power series (for general coefficients R only the R-linear map amiceTransform : D(Z_p, R) →ₗ[R] R[[X]] exists, so a Q_p-coefficient identification is not supplied), which its own docstring calls the definition of the Iwasawa algebra - but as an analytic object, not as a completed group ring Z_p[[Gamma]], and with no module theory (no characteristic ideal, no structure theorem). There is no Z_p^d-extension, no inverse limit of cohomology groups along corestriction, and hence no Iwasawa cohomology."
       },
       {
        "target": "Finite generation, base change, duality and specialization spectral sequences for Iwasawa cohomology",
