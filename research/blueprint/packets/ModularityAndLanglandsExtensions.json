@@ -1,0 +1,1887 @@
+{
+  "roadmapId": "ModularityAndLanglandsExtensions",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "ModularityAndLanglandsExtensions:ML.0",
+    "ModularityAndLanglandsExtensions:ML.1",
+    "ModularityAndLanglandsExtensions:ML.2",
+    "ModularityAndLanglandsExtensions:ML.3",
+    "ModularityAndLanglandsExtensions:ML.4",
+    "ModularityAndLanglandsExtensions:ML.5"
+  ],
+  "status": "partial",
+  "summary": "Checkpoint 1 plans the potential-automorphy assembly ML.2 from Barnet-Lamb–Gee–Geraghty–Taylor (arXiv v4): polarized representations, adequacy, ı-ordinarity, the connecting relation and potential diagonalizability; the minimal, ordinary and potentially diagonalizable automorphy lifting theorems; the Dwork family and potential ordinary automorphy; change of weight and level; the potential automorphy theorem and its totally real and mod l forms; and the compatible-system consequences (potential automorphy, meromorphic continuation and functional equation, strict purity, irreducibility for density-one l, decomposition into irreducible systems). ML.0 gets the normalisation and version registers. ML.1 and ML.3–ML.5 are not read.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Matrix.trace",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "The trace, for sl_n = ker(trace) and the scalar-matrix remark l | n ⇒ F̄_l·1_n ⊆ sl_n.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3)."
+      },
+      {
+        "ref": "mathlib:groupCohomology",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
+        "provides": "Group cohomology H^n(G, A) of a representation, for the vanishing conditions in adequacy.",
+        "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3)."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "blggt-2014-v4",
+      "title": "Potential automorphy and change of weight",
+      "authors": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor",
+      "edition": "arXiv:1010.2561v4 (9 December 2013), 93 pages; published in Ann. of Math. (2) 179 (2014), 501–609 (not collated). Printed page = PDF page.",
+      "url": "https://arxiv.org/pdf/1010.2561v4",
+      "sha256": "c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24",
+      "accessed": "2026-09-29",
+      "readSections": [
+        "2026-09-29 (cc-39fac3): §1.4 (pp. 24–29), §2.1–§2.4 (pp. 31–40), statements of §3.1–§3.3 (pp. 41–48) with the proofs of Proposition 3.1.1 and 3.2.1 (pp. 41, 45–46), §4.1 statement and proof of Proposition 4.1.1 (pp. 50–52), §4.2–§4.5 (pp. 53–61), §5.4–§5.5 (pp. 74–82), on the text layer. Compared against arXiv v1 (sha 697e2d3…)."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.0/blggt-normalization-register",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.0",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.0"
+      ],
+      "title": "BLGGT's normalisations of automorphic Galois representations",
+      "kind": "comparison",
+      "statement": "Register of the conventions BLGGT (arXiv v4) fixes, against which every ML.2 statement is read. (1) A polarized automorphic representation of GL_n(𝔸_F) is a pair (π, χ) with χ : 𝔸_{F⁺}^×/(F⁺)^× → ℂ^× continuous, χ_v(−1) independent of v | ∞, and π^c ≅ π^∨ ⊗ (χ ∘ N_{F/F⁺} ∘ det), with χ_v(−1) = (−1)^n for v | ∞ when F is imaginary; v4's \"polarized\" replaces v1's RAECSDC (F imaginary CM) and RAESDC (F totally real). (2) Weights a ∈ (ℤ^n)^{Hom(F,ℂ),+}: π has weight a if π_∞ has the infinitesimal character of Ξ_a^∨; then a ∈ (ℤ^n)_w for some w. (3) The Galois normalisation: (r_{l,ı}(π), ε_l^{1−n}r_{l,ı}(χ)) is totally odd polarized, HT_τ(r_{l,ı}(π)) = {a_{ıτ,1} + n − 1, …, a_{ıτ,n}}, and ıWD(r_{l,ı}(π)|_{G_{F_v}})^{F-ss} ≅ rec(π_v ⊗ |det|_v^{(1−n)/2}) for v ∤ l (and for v | l when π_v has Iwahori-fixed vectors). (4) HT_τ(ε_l) = {−1} and Art_K sends uniformisers to geometric Frobenius. (5) Being automorphic does not depend on ı (Clozel, Theorem 3.13).",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "Collect the definitions of BLGGT §2.1 and §1 (notation) and compare each with AG2.0's polarized case and AG2.2's realisation; the v1 → v4 renaming (RAECSDC/RAESDC → polarized) is recorded in blggt-version-register."
+      ],
+      "acceptance": [
+        "Check the parity condition on an example: for F imaginary CM and n = 2, χ_v(−1) = +1, so ε_l^{−1}r_{l,ı}(χ) is −1 on every complex conjugation (totally odd).",
+        "Check the Hodge–Tate normalisation on a weight-0 π: HT_τ = {n − 1, n − 2, …, 0}, n distinct integers."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Normalization",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.normalizationRegister"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§2.1, p. 32 (arXiv v4)",
+          "match": "The definition of polarized automorphic representations, with BLGGT's remark on the renaming."
+        },
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§2.1, Theorem 2.1.1, pp. 33–34 (arXiv v4)",
+          "match": "Theorem 2.1.1: the Galois representations r_{l,ı}(π) and their normalisations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.0/blggt-version-register",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.0",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.0"
+      ],
+      "title": "BLGGT source versions: arXiv v1 against v4 (Annals 2014)",
+      "kind": "comparison",
+      "statement": "ML binds its BLGGT statements to arXiv v4 (9 December 2013), the version preceding Ann. of Math. 179 (2014), 501–609. PotentialModularityAndCompatibleSystems part R24.3 cites arXiv v1 (2010). Correspondence: v1 §2.2 (minimal lifting, Theorem 2.2.1) = v4 §2.3 (Theorem 2.3.1); v1 §2.3 (ordinary lifting, Theorem 2.3.1) = v4 §2.4 (Theorem 2.4.1, now also for totally real F); v4 §2.2 (Lemmas 2.2.1–2.2.4 on automorphy) is new; v1 §5.2 (Lemma 5.2.1, Proposition 5.2.2) = v4 §5.3 (Lemma 5.3.1, Proposition 5.3.2); v1 Lemma 5.2.3 = v4 Lemma 5.4.5; v1 §5.3 (Theorem 5.3.1, Corollaries 5.3.2–5.3.3, Proposition 5.3.4) = v4 §5.4 (Theorem 5.4.1 with Corollary 5.4.2, Corollary 5.4.3, Corollary 5.4.4, Proposition 5.4.6); v1 §5.4 (Theorems 5.4.1–5.4.3) = v4 §5.5 (Theorems 5.5.1–5.5.3); v4 §5.2 (rational compatible systems) is new. v4 renames RAECSDC/RAESDC to \"polarized\" and \"essentially conjugate self-dual\" to \"polarized\", and states the lifting theorems for polarized (r, µ) with the \"potentially diagonalizably automorphic\" hypothesis.",
+      "hypotheses": [
+        "Both versions read on the text layer; theorem statements compared side by side."
+      ],
+      "proofSteps": [
+        "Compare section headings and theorem statements of arXiv v1 (sha 697e2d3…) and v4 (sha c953df6…)."
+      ],
+      "acceptance": [
+        "Check one renumbered pair: v1 Theorem 5.3.1 and v4 Theorem 5.4.1 both give potential automorphy of irreducible, regular, totally odd, polarized weakly compatible systems."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.0/blggt-normalization-register"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Normalization",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.versionRegister"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "title page and table of contents, p. 1 (arXiv v4)",
+          "match": "arXiv v4, dated 9 December 2013."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/polarized-galois-representation",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Polarized l-adic and mod l representations",
+      "kind": "definition",
+      "statement": "A polarized l-adic (resp. mod l) representation of G_F is a pair (r, µ), r : G_F → GL_n(Q̄_l) (resp. GL_n(F̄_l)), µ : G_{F⁺} → Q̄_l^× (resp. F̄_l^×) continuous, such that for some infinite place v of F⁺ there are ε_v ∈ {±1} and a non-degenerate pairing ⟨ , ⟩_v with ⟨x, y⟩_v = ε_v⟨y, x⟩_v and ⟨r(σ)x, r(c_vσc_v)y⟩_v = µ(σ)⟨x, y⟩_v for σ ∈ G_F; for F imaginary, additionally ε_v = −µ(c_v). It is totally odd if ε_v = 1 for all v | ∞; algebraic if r is unramified almost everywhere and de Rham above l; regular algebraic if moreover each HT_τ(r) has n distinct elements. For F imaginary, (r, µ) is polarized iff r extends to r̃ : G_{F⁺} → G_n(Q̄_l) with multiplier µ; for F totally real, iff r factors through GSp_n (µ(c_v) = −ε_v) or GO_n (µ(c_v) = ε_v) with multiplier µ.",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "Independence of v: ε_{v′} = µ(c_vc_{v′})ε_v and ⟨x, y⟩_{v′} = ⟨x, r(c_vc_{v′})y⟩_v.",
+        "The G_n-extension: send c to (A, µ(c))j with A the Gram matrix of ⟨ , ⟩_v (BLGGT §1.1; CHT Lemma 2.1.1).",
+        "Totally real case: ⟨x, y⟩ = ⟨x, r(c_v)y⟩_v is G_F-equivariant up to µ."
+      ],
+      "acceptance": [
+        "Check that the condition ε_v = −µ(c_v) can always be achieved by replacing µ by µδ_{F/F⁺} (BLGGT p. 31)."
+      ],
+      "prerequisites": [
+        "GlobalGaloisDeformations:G7/polarized-deformation-problem",
+        "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Basic",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.IsPolarized"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§2.1, p. 31 (arXiv v4)",
+          "match": "The definition and its three reformulations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.2/pd-automorphy-lifting",
+          "how": "the hypotheses of every lifting theorem"
+        },
+        {
+          "where": "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates",
+          "how": "essential conjugate self-duality of systems is member-wise polarization"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsPolarized",
+          "role": "structure",
+          "statement": "(r, µ) with the pairing condition at one (hence every) infinite place."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsPolarized.IsTotallyOdd",
+          "role": "data",
+          "statement": "ε_v = 1 for every v | ∞."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsPolarized.toGn",
+          "role": "equivalence",
+          "statement": "For F imaginary: polarized (r, µ) ≃ extensions r̃ : G_{F⁺} → G_n with ν ∘ r̃ = µ."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsPolarized.gsp_or_go",
+          "role": "characterisation",
+          "statement": "For F totally real: factors through GSp_n or GO_n with multiplier µ."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsRegularAlgebraic",
+          "role": "data",
+          "statement": "Unramified almost everywhere, de Rham above l, n distinct τ-Hodge–Tate numbers."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsPolarized.restrict",
+          "role": "functoriality",
+          "statement": "(r|_{G_{F′}}, µ|_{G_{F′⁺}}) is polarized for F′/F CM (resp. totally real)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PotentialAutomorphy.cyclotomic_polarized",
+          "kind": "computation",
+          "statement": "n = 1, F = ℚ: (ε_l^a, ε_l^{2a}) is polarized with ε_v = 1, and (1, 1) is totally odd."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.elliptic_curve_polarized",
+          "kind": "computation",
+          "statement": "r = H¹ of an elliptic curve over F⁺ totally real: (r, ε_l^{−1}) is totally odd polarized, factoring through GSp_2 = GL_2."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.trivial_rank_zero",
+          "kind": "degenerate",
+          "statement": "n = 0 is excluded: the pairing must be non-degenerate on a nonzero space."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.not_polarizable",
+          "kind": "non-example",
+          "statement": "F = ℚ, r = 1 ⊕ ε_l^{−1} ⊕ ε_l^{−5}: HT = {0, 1, 5} is not of the form {w − h : h ∈ HT} for any w, so r ≇ r^∨µ and r is not polarizable. (Every character of an imaginary CM field is polarizable, since ψψ^c extends to G_{F⁺}.)"
+        }
+      ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/adequate-subgroup",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Adequate subgroups of GL_n(F̄_l)",
+      "kind": "definition",
+      "statement": "A subgroup H ⊆ GL_n(F̄_l) is adequate if H¹(H, F̄_l) = 0 and H¹(H, sl_n(F̄_l)) = 0, H⁰(H, sl_n(F̄_l)) = 0, and the elements of H of order prime to l span M_n(F̄_l). This is equivalent to Thorne's Definition 2.3 (GHTT Lemma 1). If H is adequate, F̄_l^n is an irreducible H-module and l ∤ n.",
+      "hypotheses": [
+        "l a prime, n ≥ 1, H any subgroup (finite in applications)."
+      ],
+      "proofSteps": [
+        "Irreducibility from the third condition: an H-stable subspace is stable under the span M_n(F̄_l).",
+        "l ∤ n: if l | n then the scalars F̄_l·1_n lie in sl_n and are H-invariant, contradicting H⁰(H, sl_n) = 0."
+      ],
+      "acceptance": [
+        "Check the remark l ∤ n on the smallest case: in characteristic 3 the identity of M_3 has trace 0, so scalars lie in sl_3 (suggested file)."
+      ],
+      "prerequisites": [
+        "mathlib:groupCohomology",
+        "mathlib:Matrix.trace"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Adequate",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.IsAdequate"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§2.1, p. 35 (arXiv v4)",
+          "match": "The definition, the equivalence with Thorne's, and the consequences l ∤ n and irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.2/minimal-automorphy-lifting",
+          "how": "the residual image hypothesis (Thorne)"
+        },
+        {
+          "where": "GlobalGaloisDeformations:R04.5/image-hypotheses",
+          "how": "adequacy is one of the image hypotheses it keeps distinct"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsAdequate",
+          "role": "structure",
+          "statement": "The three conditions on H ⊆ GL_n(F̄_l)."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsAdequate.irreducible",
+          "role": "characterisation",
+          "statement": "F̄_l^n is an irreducible H-module."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsAdequate.not_dvd",
+          "role": "other",
+          "statement": "l ∤ n."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsAdequate.of_irreducible",
+          "role": "relation",
+          "statement": "The sufficient condition of ghtt-adequacy-criterion: irreducible and l ≥ 2(d + 1)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PotentialAutomorphy.adequate_trivial_fails",
+          "kind": "degenerate",
+          "statement": "H = {1} with n ≥ 2 is not adequate: its span is F̄_l·1 ≠ M_n."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.adequate_sl2",
+          "kind": "computation",
+          "statement": "H = SL_2(F_l), l ≥ 5, is adequate (ghtt-adequacy-criterion with d = 2)."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.scalars_in_sl",
+          "kind": "computation",
+          "statement": "l | n ⇒ trace(1_n) = 0 in F̄_l, so F̄_l·1_n ⊆ sl_n."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.reducible_not_adequate",
+          "kind": "non-example",
+          "statement": "A reducible H (e.g. upper-triangular) is not adequate."
+        }
+      ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/ghtt-adequacy-criterion",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Adequacy from irreducibility for large l (GHTT Theorem 9)",
+      "kind": "theorem",
+      "statement": "Let H ⊆ GL_n(F̄_l) be finite with irreducible tautological representation, H⁰ the subgroup generated by elements of l-power order, and d the maximal dimension of an irreducible H⁰-submodule of F̄_l^n. If l ≥ 2(d + 1), then H is adequate (BLGGT Proposition 2.1.2 = Guralnick–Herzig–Taylor–Thorne, Theorem 9).",
+      "hypotheses": [
+        "H finite; the tautological representation irreducible."
+      ],
+      "proofSteps": [
+        "Cited from GHTT10 Theorem 9 (not read; gap)."
+      ],
+      "acceptance": [
+        "Check the typical use: if r̄|_{G_{F(ζ_l)}} is irreducible and l ≥ 2(n + 1) then r̄(G_{F(ζ_l)}) is adequate (d ≤ n)."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/adequate-subgroup"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Adequate",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.isAdequate_of_irreducible"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§2.1, Proposition 2.1.2, p. 35 (arXiv v4)",
+          "match": "Proposition 2.1.2, quoted from GHTT."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/iota-ordinary",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "ı-ordinary automorphic representations",
+      "kind": "definition",
+      "statement": "Let π be regular algebraic of weight a, v | l a place, ϖ_v a uniformiser and Iw(v^{b,b}) ⊆ GL_n(O_{F_v}) the matrices unipotent upper-triangular mod v^b. On (ı^{−1}π_v)^{Iw(v^{b,b})} the operators U^{(j)}_{ϖ_v} = [Iw diag(ϖ_v 1_j, 1_{n−j}) Iw] are rescaled to U^{(j)}_{ı*a,ϖ_v} = (∏_{τ:F_v↪Q̄_l}∏_{i=1}^j τ(ϖ_v)^{−a_{ı∘τ|_F, n−i+1}})U^{(j)}_{ϖ_v}; the ordinary part is the largest invariant subspace on which every eigenvalue of every U^{(j)}_{ı*a,ϖ_v} is an l-adic unit, and π is ı-ordinary if for each v | l some b > 0 gives a nonzero ordinary part. This does not depend on ϖ_v; π is ı-ordinary iff π ⊗ (ψ ∘ det) is, for algebraic ψ; weight 0 with π_v Steinberg for all v | l implies ı-ordinary (Geraghty Lemma 5.1.5); ı-ordinary ⇒ r_{l,ı}(π)|_{G_{F_v}} ordinary; level potentially prime to l and r_{l,ı}(π) ordinary ⇒ ı-ordinary.",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08).",
+        "π a regular algebraic automorphic representation of GL_n(𝔸_F) of weight a."
+      ],
+      "proofSteps": [
+        "Changing ϖ_v to ϖ_v′ multiplies U^{(j)} by a commuting operator ⟨u⟩ with ⟨u⟩^b = 1, so the unit-eigenvalue condition is unchanged.",
+        "The Galois comparisons are Geraghty's Lemmas 5.1.5, 5.1.6 and 5.2.1 (cited; the twisting argument of BLGHT11 §1)."
+      ],
+      "acceptance": [
+        "Check the independence of the uniformiser on the rescaling factor: τ(ϖ_v u)^{−a} = τ(ϖ_v)^{−a}τ(u)^{−a}, a unit."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.0/blggt-normalization-register",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Ordinary",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.IsIotaOrdinary"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§2.1, p. 33 (arXiv v4)",
+          "match": "The definition of the rescaled U-operators, the ordinary part and ı-ordinarity, with remarks (6), (7) on p. 34."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.2/ordinary-automorphy-lifting",
+          "how": "the \"ordinarily automorphic\" hypothesis"
+        },
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.2/dwork-potential-ordinary-automorphy",
+          "how": "the output is ı-ordinary of weight 0"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsIotaOrdinary",
+          "role": "structure",
+          "statement": "For each v | l some Iw(v^{b,b})-level has nonzero ordinary part."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.rescaledU",
+          "role": "constructor",
+          "statement": "U^{(j)}_{ı*a,ϖ_v} on (ı^{−1}π_v)^{Iw(v^{b,b})}."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.isIotaOrdinary_twist",
+          "role": "compatibility",
+          "statement": "π ı-ordinary ⇔ π ⊗ (ψ ∘ det) ı-ordinary."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.isIotaOrdinary_of_steinberg",
+          "role": "other",
+          "statement": "Weight 0 and Steinberg at every v | l ⇒ ı-ordinary."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.ordinary_of_isIotaOrdinary",
+          "role": "relation",
+          "statement": "ı-ordinary ⇒ r_{l,ı}(π)|_{G_{F_v}} ordinary for v | l."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PotentialAutomorphy.ordinary_weight2",
+          "kind": "computation",
+          "statement": "n = 2, F = ℚ: a weight-2 newform with a_l an l-adic unit gives an ı-ordinary π."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.steinberg_weight0",
+          "kind": "computation",
+          "statement": "The Dwork-family forms of Theorem 3.1.2 (weight 0, Steinberg at l) are ı-ordinary."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.uniformizer_independent",
+          "kind": "degenerate",
+          "statement": "The ordinary part does not change when ϖ_v is replaced by ϖ_vu."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.supersingular_not_ordinary",
+          "kind": "non-example",
+          "statement": "A weight-2 newform with l | a_l (supersingular at l) is not ı-ordinary."
+        }
+      ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/connects-relation",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Connecting potentially crystalline lifts: ρ₁ ∼ ρ₂",
+      "kind": "definition",
+      "statement": "For continuous ρ₁, ρ₂ : G_K → GL_n(O_{Q̄_l}), ρ₁ connects to ρ₂ (ρ₁ ∼ ρ₂) iff ρ̄₁ ≅ ρ̄₂, both are potentially crystalline, HT_τ(ρ₁) = HT_τ(ρ₂) for every τ, and ρ₁, ρ₂ define points on the same irreducible component of Spec(R^□_{ρ̄₁,{HT_τ(ρ₁)},K′-cris} ⊗ Q̄_l) for all sufficiently large K′. It does not depend on the identification of the reductions or on GL_n(O)-conjugation; it is an equivalence relation; ρ₁ ∼ ρ₂ implies WD(ρ₁)|_{I_K} ≅ WD(ρ₂)|_{I_K}; it is preserved by restriction to G_{K′}, ⊕, ⊗ and duals; ρ₁ ∼ ρ₁ ⊗ µ for µ unramified with µ̄ = 1; and if ρ̄₁ is semisimple and Fil^i is an invariant filtration by direct summands then ρ₁ ∼ ⊕_i gr^iρ₁ (remarks (1)–(7)).",
+      "hypotheses": [
+        "K/Q_l finite (the case l = p of BLGGT §1.4); O the integers of a finite L/Q_l containing all embeddings of K; for multisets {H_τ} of n integers, R^□_{O,ρ̄,{H_τ},∗} is the reduced, l-torsion-free quotient of the lifting ring whose Q̄_l-points are the lifts that are de Rham with HT_τ = H_τ and have property ∗ ∈ {cris, ss, K′-cris, K′-ss, cr-ord, ss-ord}.",
+        "Existence, dimension 1 + n² + [K : Q_l]n(n − 1)/2 and formal smoothness of the generic fibres of the K′-cris rings are Kisin's (LocalGaloisDeformationRings R08.3)."
+      ],
+      "proofSteps": [
+        "Components: Spec R^□_{K′-cris} is a union of components of Spec R^□_{K″-cris} for K″ ⊇ K′, so \"sufficiently large K′\" is stable.",
+        "Equivalence relation: the generic fibre is formally smooth, so each point lies on a unique component.",
+        "Remarks (1), (4)–(7) as in BLGGT p. 26, with (7) proved like Lemma 1.3.5 (a one-parameter family scaling the off-diagonal blocks)."
+      ],
+      "acceptance": [
+        "Check reflexivity and that ∼ is an equivalence only because the generic fibre is smooth (a point on two components would break transitivity)."
+      ],
+      "prerequisites": [
+        "LocalGaloisDeformationRings:R08.3/pst-deformation-ring",
+        "LocalGaloisDeformationRings:R08.3/pcris-generic-smooth",
+        "LocalGaloisDeformationRings:R08.1/local-lifting-ring"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Local",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.Connects"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§1.4, p. 26 (arXiv v4)",
+          "match": "The definition of ∼ and remarks (1)–(7)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.2/potentially-diagonalizable",
+          "how": "diagonalizability is connecting to a sum of characters"
+        },
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.2/pd-lifts-with-local-conditions",
+          "how": "the local conditions r|_{G_{F_ṽ}} ∼ ρ_v"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PotentialAutomorphy.Connects",
+          "role": "data",
+          "statement": "ρ₁ ∼ ρ₂ on continuous O_{Q̄_l}-valued representations of G_K."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.Connects.equivalence",
+          "role": "relation",
+          "statement": "∼ is an equivalence relation on potentially crystalline lifts of a fixed ρ̄."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.Connects.wd_inertia",
+          "role": "characterisation",
+          "statement": "ρ₁ ∼ ρ₂ ⇒ WD(ρ₁)|_{I_K} ≅ WD(ρ₂)|_{I_K}."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.Connects.restrict",
+          "role": "functoriality",
+          "statement": "Preserved by restriction to G_{K′}."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.Connects.sum_tensor_dual",
+          "role": "compatibility",
+          "statement": "Preserved by ⊕, ⊗ and ∨."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.Connects.gr",
+          "role": "relation",
+          "statement": "ρ₁ ∼ ⊕ gr^iρ₁ for an invariant filtration by direct summands when ρ̄₁ is semisimple."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PotentialAutomorphy.connects_refl",
+          "kind": "degenerate",
+          "statement": "ρ ∼ ρ for every potentially crystalline ρ."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.connects_unramified_twist",
+          "kind": "computation",
+          "statement": "ρ ∼ ρ ⊗ µ for µ unramified with trivial reduction."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.not_connects_types",
+          "kind": "non-example",
+          "statement": "Two lifts with different WD(·)|_{I_K} (different inertial types) do not connect."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.not_connects_hodge",
+          "kind": "non-example",
+          "statement": "Lifts with different Hodge–Tate numbers do not connect, by definition."
+        }
+      ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/potentially-diagonalizable",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Diagonalizable and potentially diagonalizable representations",
+      "kind": "definition",
+      "statement": "ρ : G_K → GL_n(O_{Q̄_l}) is diagonalizable if it is crystalline and ρ ∼ χ₁ ⊕ ⋯ ⊕ χ_n for crystalline characters χ_i : G_K → O_{Q̄_l}^×; it is potentially diagonalizable if ρ|_{G_{K′}} is diagonalizable for some finite K′/K. Both are stable under restriction to finite extensions. By Lemma 1.4.1 potential diagonalizability depends only on the GL_n(Q̄_l)-conjugacy class, so it is defined for ρ : G_K → GL_n(Q̄_l); for a global r with irreducible r̄, \"r|_{G_{F_v}} is potentially diagonalizable\" refers to the lattice model r°, unique up to conjugation.",
+      "hypotheses": [
+        "K/Q_l finite (the case l = p of BLGGT §1.4); O the integers of a finite L/Q_l containing all embeddings of K; for multisets {H_τ} of n integers, R^□_{O,ρ̄,{H_τ},∗} is the reduced, l-torsion-free quotient of the lifting ring whose Q̄_l-points are the lifts that are de Rham with HT_τ = H_τ and have property ∗ ∈ {cris, ss, K′-cris, K′-ss, cr-ord, ss-ord}."
+      ],
+      "proofSteps": [
+        "Stability under restriction: remark (4) of connects-relation.",
+        "Lemma 1.4.1: reduce to ρ₁ = gρ₂g^{−1} with g = diag(d₁, …, d_n), d_n | ⋯ | d₁; over A = O⟨t_i, s_i⟩/(s_it_i − d_i/d_{i+1}) the family g̃ρ₂g̃^{−1}, g̃ = diag(t₁⋯t_{n−1}, …, t_{n−1}, 1), specialises to ρ₂ (t ↦ 1) and ρ₁ (s ↦ 1), after passing to K′ with ρ₂ ≡ 1 mod l d₁/d_n."
+      ],
+      "acceptance": [
+        "Check that a sum of crystalline characters is diagonalizable (connect to itself)."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/connects-relation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Local",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.IsPotentiallyDiagonalizable"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§1.4, pp. 26–27 (arXiv v4)",
+          "match": "The definitions, Lemma 1.4.1 and the \"important convention\" on p. 29."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.2/pd-automorphy-lifting",
+          "how": "the local hypothesis at l"
+        },
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-theorem",
+          "how": "the local hypothesis at l"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsDiagonalizable",
+          "role": "data",
+          "statement": "Crystalline and ∼ a sum of crystalline characters."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsPotentiallyDiagonalizable",
+          "role": "data",
+          "statement": "Diagonalizable after restriction to some finite K′/K."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsPotentiallyDiagonalizable.restrict",
+          "role": "functoriality",
+          "statement": "Stable under restriction to finite extensions."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.isPotentiallyDiagonalizable_conj",
+          "role": "characterisation",
+          "statement": "Invariant under GL_n(Q̄_l)-conjugation (Lemma 1.4.1), hence defined on Q̄_l-representations."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsPotentiallyDiagonalizable.sum",
+          "role": "compatibility",
+          "statement": "Stable under ⊕ (remark (5))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PotentialAutomorphy.diagonalizable_characters",
+          "kind": "computation",
+          "statement": "χ₁ ⊕ ⋯ ⊕ χ_n with crystalline χ_i is diagonalizable."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.pd_ordinary",
+          "kind": "computation",
+          "statement": "An ordinary representation is potentially diagonalizable (potential-diagonalizability-criteria (1))."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.pd_restrict_trivial",
+          "kind": "degenerate",
+          "statement": "n = 1: every potentially crystalline character is potentially diagonalizable."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.not_pd_not_pcris",
+          "kind": "non-example",
+          "statement": "A semistable non-crystalline (N ≠ 0) representation is not potentially crystalline, hence not potentially diagonalizable."
+        }
+      ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/potential-diagonalizability-criteria",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Ordinary and Fontaine–Laffaille representations are potentially diagonalizable (Lemma 1.4.3)",
+      "kind": "lemma",
+      "statement": "Let ρ : G_K → GL_n(Q̄_l) be potentially crystalline. (1) If ρ has a G_K-invariant filtration with one-dimensional graded pieces (in particular if it is ordinary), then ρ is potentially diagonalizable. (2) If K/Q_l is unramified, ρ is crystalline and HT_τ(ρ) ⊆ [a_τ, a_τ + l − 2] for each τ, then ρ is potentially diagonalizable.",
+      "hypotheses": [
+        "K/Q_l finite (the case l = p of BLGGT §1.4); O the integers of a finite L/Q_l containing all embeddings of K; for multisets {H_τ} of n integers, R^□_{O,ρ̄,{H_τ},∗} is the reduced, l-torsion-free quotient of the lifting ring whose Q̄_l-points are the lifts that are de Rham with HT_τ = H_τ and have property ∗ ∈ {cris, ss, K′-cris, K′-ss, cr-ord, ss-ord}."
+      ],
+      "proofSteps": [
+        "(1): pass to K′ with ρ̄ trivial and each gr^iρ crystalline; remark (7) gives ρ ∼ ⊕gr^iρ.",
+        "(2): twist to a_τ = 0; ρ̄|_{I_K} has one-dimensional irreducible subquotients, so over an unramified K′ with ρ̄(G_{K′}) = ρ̄(I_K) it has a filtration with one-dimensional pieces; Lemma 1.4.2 lifts that filtered Fontaine–Laffaille module to an l-torsion-free filtered object, giving a crystalline lift ρ₂ with the same Hodge–Tate numbers and a filtration; CHT Lemma 2.4.1 gives ρ|_{G_{K′}} ∼ ρ₂, and (1) applies to ρ₂."
+      ],
+      "acceptance": [
+        "Check (2) against the Fontaine–Laffaille range: weights in an interval of length l − 2, the range of FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/potentially-diagonalizable",
+        "ModularityAndLanglandsExtensions:ML.2/connects-relation",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-filtered-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Local",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.isPotentiallyDiagonalizable_of_ordinary"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§1.4, Lemmas 1.4.2–1.4.3, pp. 28–29 (arXiv v4)",
+          "match": "Lemma 1.4.2 (lifting filtered Fontaine–Laffaille modules) and Lemma 1.4.3 with proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Automorphic polarized representations and their levels",
+      "kind": "definition",
+      "statement": "(r, µ) (resp. (r̄, µ̄), r, r̄) is automorphic if there is a regular algebraic, cuspidal, polarized (π, χ) with (r, µ) ≅ (r_{l,ı}(π), r_{l,ı}(χ)ε_l^{1−n}) (resp. the reductions). It is automorphic of level prime to l, of level potentially prime to l, ordinarily automorphic, or potentially diagonalizably automorphic if some such (π, χ) has level prime to l, has level potentially prime to l, is ı-ordinary, or has level potentially prime to l with r_{l,ı}(π) potentially diagonalizable at all v | l. None of these depends on ı (Clozel, Theorem 3.13).",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08).",
+        "r_{l,ı}(π) as in blggt-normalization-register (AG2.2)."
+      ],
+      "proofSteps": [
+        "Definition; independence of ı from Clozel 1990 Theorem 3.13 (algebraic automorphic representations are defined over number fields, cited)."
+      ],
+      "acceptance": [
+        "Check that (r, µ) automorphic of level prime to l implies potentially diagonalizably automorphic when l is unramified in F and the Hodge–Tate numbers lie in a Fontaine–Laffaille range (potential-diagonalizability-criteria (2))."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.0/blggt-normalization-register",
+        "ModularityAndLanglandsExtensions:ML.2/polarized-galois-representation",
+        "ModularityAndLanglandsExtensions:ML.2/iota-ordinary",
+        "ModularityAndLanglandsExtensions:ML.2/potentially-diagonalizable",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Basic",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.IsAutomorphic"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§2.1, pp. 34–35 (arXiv v4)",
+          "match": "The definitions of automorphic and its four refinements."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.2/pd-automorphy-lifting",
+          "how": "the hypothesis and conclusion of the lifting theorems"
+        },
+        {
+          "where": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-theorem",
+          "how": "the conclusion over F′"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsAutomorphic",
+          "role": "data",
+          "statement": "∃ (π, χ) regular algebraic cuspidal polarized with (r, µ) ≅ (r_{l,ı}(π), r_{l,ı}(χ)ε_l^{1−n})."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsAutomorphic.levelPrime",
+          "role": "data",
+          "statement": "Automorphic of level prime to l."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsAutomorphic.ordinarily",
+          "role": "data",
+          "statement": "Ordinarily automorphic."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsAutomorphic.pdAutomorphic",
+          "role": "data",
+          "statement": "Potentially diagonalizably automorphic."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.isAutomorphic_indep_iota",
+          "role": "characterisation",
+          "statement": "Independent of ı : Q̄_l ≅ ℂ."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.IsAutomorphic.twist",
+          "role": "compatibility",
+          "statement": "automorphy-twist-and-soluble-base-change: (r, µ) automorphic ⇔ (r ⊗ ψ, µφ) automorphic."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PotentialAutomorphy.automorphic_newform",
+          "kind": "computation",
+          "statement": "F = ℚ, n = 2: (r_{l,ı}(f), ε_l^{1−k}) for a newform f of weight k ≥ 2 is automorphic of level prime to l when l ∤ N."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.automorphic_character",
+          "kind": "computation",
+          "statement": "n = 1: every algebraic Hecke character gives an automorphic (r_{l,ı}(χ), ·)."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.residual_vs_lift",
+          "kind": "degenerate",
+          "statement": "r̄ automorphic does not make a given lift r automorphic: that is the content of the lifting theorems."
+        },
+        {
+          "name": "TauCeti.PotentialAutomorphy.not_cuspidal",
+          "kind": "non-example",
+          "statement": "r = 1 ⊕ ε_l^{−1} over ℚ is the Galois representation of an Eisenstein series, not of a cuspidal π: not automorphic in this sense."
+        }
+      ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/automorphy-twist-and-soluble-base-change",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Automorphy under twisting and soluble base change (Lemmas 2.2.1–2.2.2)",
+      "kind": "lemma",
+      "statement": "(Lemma 2.2.1) For an algebraic character ψ of G_F, with φ = ψ ∘ transfer (F imaginary) or φ = ψ² (F totally real), (r, µ) is automorphic iff (r ⊗ ψ, µφ) is. (Lemma 2.2.2) If M/F is a soluble Galois extension with M CM (or totally real) and (r, µ) is polarized with r|_{G_M} irreducible, then (r, µ) is automorphic iff (r|_{G_M}, µ|_{G_{M⁺}}) is.",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "2.2.1: twist π by ψ ∘ det (algebraic Hecke character) and χ by φ.",
+        "2.2.2: as CHT Lemma 4.2.2 (and 4.3.2–4.3.3): induct on a cyclic step; base change and descent for GL_n along cyclic extensions (Arthur–Clozel, requested from ET.7a), with irreducibility of r|_{G_M} ensuring cuspidality."
+      ],
+      "acceptance": [
+        "Check the twist on n = 1: (ψ, ψψ^c-extension) is automorphic for every algebraic ψ, consistent with Lemma 2.2.1."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Basic",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.isAutomorphic_restrict_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§2.2, Lemmas 2.2.1–2.2.2, p. 35 (arXiv v4)",
+          "match": "Lemmas 2.2.1 and 2.2.2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/automorphy-descends-from-induction",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Automorphy of r from automorphy of Ind r (Lemmas 2.2.3–2.2.4)",
+      "kind": "lemma",
+      "statement": "(Lemma 2.2.3) An irreducible unitary admissible (gl_n(ℝ) ⊗ ℂ, O(n))- or (gl_n(ℂ) ⊗ ℂ, U(n))-module π with half-integral Harish-Chandra parameter satisfies π^c ≅ π^∨. (Lemma 2.2.4) Let M/F be a soluble Galois CM (or totally real) extension of degree m, r : G_M → GL_n(Q̄_l) irreducible and µ : G_{F⁺} → Q̄_l^× such that (Ind_{G_M}^{G_F} r, µ) is automorphic and polarized. Then (r, µ|_{G_{M⁺}}) is automorphic and polarized.",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "2.2.3: the Tadić–Vogan classification writes π as ⊞ of Speh-type blocks built from discrete series σ_i of GL_1(ℝ), GL_2(ℝ) or GL_1(ℂ); each has σ_i^∨ ≅ σ_i^c.",
+        "2.2.4: reduce to m prime; Π ⊗ (κ ∘ Art ∘ det) ≅ Π for κ generating Gal(M/F)^∨, so Arthur–Clozel (3.4.2, 3.5.1) and HT Lemma VII.2.6 give BC_{M/F}(Π) = π ⊞ π^σ ⊞ ⋯; the central character and 2.2.3 at ∞ force π^c ≅ π^∨ ⊗ (χ ∘ N ∘ det); compare r_{l,ı}(Π)|_{G_M} with ⊕ r^{σ^j}."
+      ],
+      "acceptance": [
+        "Check the weight bookkeeping 2wt(ψ) = n·wt(χ) for the central character ψ of π, and the twist ‖det‖^{n(1−m)/2} making π regular algebraic."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation",
+        "ModularityAndLanglandsExtensions:ML.2/automorphy-twist-and-soluble-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Basic",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.isAutomorphic_of_induced"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§2.2, Lemmas 2.2.3–2.2.4, pp. 36–37 (arXiv v4)",
+          "match": "Lemma 2.2.4 and its proof, with Lemma 2.2.3."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/minimal-automorphy-lifting",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Automorphy lifting: the minimal case (Theorem 2.3.1, after Thorne)",
+      "kind": "theorem",
+      "statement": "Let F be imaginary CM, l odd, ζ_l ∉ F and (r, µ) an n-dimensional algebraic polarized l-adic representation of G_F with r̄ irreducible and r̄(G_{F(ζ_l)}) adequate. Suppose (r, µ) ≅ (r_{l,ı}(π), r_{l,ı}(χ)ε_l^{1−n}) residually for a regular algebraic cuspidal polarized (π, χ) of level potentially prime to l with r_{l,ı}(π)|_{G_{F_v}} ∼ r|_{G_{F_v}} at every finite v. Then (r, µ) is automorphic of level potentially prime to l, and of level prime to l if π has level prime to l and r is crystalline above l. (Theorem 2.3.2, Thorne 10.1: the corresponding universal deformation ring R^univ_𝒮 is finite over O_L.)",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "Thorne Theorem 7.1 (Taylor–Wiles–Kisin patching with adequate image; cited, gap).",
+        "For v ∤ l, r_{l,ı}(π)|_{G_{F_v}} ⇝ r|_{G_{F_v}} by Lemma 1.3.2, since ıWD(r_{l,ı}(π)|_{G_{F_v}})^{F-ss} ≅ rec(π_v ⊗ |det|^{(1−n)/2}) and π_v is generic."
+      ],
+      "acceptance": [
+        "Check that the hypothesis ∼ at every finite v fixes the components of the local lifting rings: the \"minimal\" case in the sense of Taylor–Wiles."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation",
+        "ModularityAndLanglandsExtensions:ML.2/adequate-subgroup",
+        "ModularityAndLanglandsExtensions:ML.2/connects-relation",
+        "GlobalGaloisDeformations:G7/polarized-representability"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Lifting",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.isAutomorphic_of_minimal"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§2.3, Theorems 2.3.1–2.3.2, pp. 38–39 (arXiv v4)",
+          "match": "Theorem 2.3.1 as the output of Taylor–Wiles–Kisin, and Theorem 2.3.2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/ordinary-automorphy-lifting",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Automorphy lifting: the ordinary case (Theorem 2.4.1, after Geraghty and Thorne)",
+      "kind": "theorem",
+      "statement": "Let F be CM or totally real, l odd, and (r, µ) an n-dimensional algebraic polarized l-adic representation of G_F with r̄ irreducible, r̄(G_{F(ζ_l)}) adequate, ζ_l ∉ F, r ordinary at every prime above l, and (r̄, µ̄) ordinarily automorphic. Then (r, µ) is ordinarily automorphic, of level prime to l if r is crystalline (potentially prime to l if r is potentially crystalline) above l. (Theorem 2.4.2 = Thorne 10.2: the ss-ordinary universal ring is finite over O_L.)",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "F imaginary: Thorne Theorem 9.1 (Taylor–Wiles–Kisin with Taylor's level-changing and Hida theory, relaxing the bigness of Geraghty Theorem 5.3.2; cited, gap).",
+        "F totally real: base change to an imaginary CM quadratic extension and descend (automorphy-twist-and-soluble-base-change)."
+      ],
+      "acceptance": [
+        "Check that weights and levels may change: only the residual representation must be ordinarily automorphic."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation",
+        "ModularityAndLanglandsExtensions:ML.2/iota-ordinary",
+        "ModularityAndLanglandsExtensions:ML.2/adequate-subgroup",
+        "ModularityAndLanglandsExtensions:ML.2/automorphy-twist-and-soluble-base-change"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Lifting",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.isAutomorphic_of_ordinary"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§2.4, Theorem 2.4.1, p. 39 (arXiv v4)",
+          "match": "Theorem 2.4.1 and Theorem 2.4.2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/moret-bailly-galois-control",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Moret–Bailly with prescribed local Galois extensions (Proposition 3.1.1)",
+      "kind": "lemma",
+      "statement": "Let K^{(avoid)}/K/K₀ be number fields with K^{(avoid)}/K and K/K₀ Galois, S a finite set of places of K₀, and for v ∈ S_K a finite Galois L′_v/K_v with L′_{σv} = σL′_v. Let T/K be smooth and geometrically connected with non-empty Gal(L′_v/K_v)-invariant open Ω_v ⊆ T(L′_v). Then there are a finite Galois L/K and P ∈ T(L) with L/K₀ Galois, L linearly disjoint from K^{(avoid)} over K, and L_w ≅ L′_v with P ∈ Ω_v for w | v ∈ S_K.",
+      "hypotheses": [
+        "Places and extensions as stated."
+      ],
+      "proofSteps": [
+        "Enlarge S (Weil bounds and Hensel give K_v-points for almost all v) so that each simple Galois subextension of K^{(avoid)}/K is non-split at some v ∈ S_K with L′_v = K_v; this gives linear disjointness.",
+        "Reduce to L′_v = K_v by a soluble extension with prescribed completions (CHT Lemma 4.1.2) and its normal closure over K₀.",
+        "Apply Moret-Bailly's Théorème 1.3 and take the normal closure over K₀."
+      ],
+      "acceptance": [
+        "Check the role of Ω_v: the point lies in the prescribed open at every place above S, which is what the Dwork-family argument needs at l_i, l′ and ∞."
+      ],
+      "prerequisites": [
+        "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-theorem-incomplete-skolem-data-have-integral-points"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/PotentialOrdinary",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.exists_point_galois_control"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§3.1, Proposition 3.1.1, p. 41 (arXiv v4)",
+          "match": "Proposition 3.1.1 and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/dwork-potential-ordinary-automorphy",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Potential ordinary automorphy of symplectic mod l representations (Theorem 3.1.2)",
+      "kind": "theorem",
+      "statement": "Let F/F₀ be a finite Galois extension of totally real fields, I finite, and for i ∈ I let n_i be even, l_i odd, ı_i : Q̄_{l_i} ≅ ℂ and r̄_i : G_F → GSp_{n_i}(F̄_{l_i}) with open kernel and multiplier ε̄_{l_i}^{1−n_i}; let F^{(avoid)}/F be finite Galois. Then there are a finite totally real F′/F, Galois over F₀ and linearly disjoint from F^{(avoid)}, and regular algebraic cuspidal polarized (π_i, χ_i) of GL_{n_i}(𝔸_{F′}) with (r̄_{l_i,ı_i}(π_i), r̄_{l_i,ı_i}(χ_i)ε̄^{1−n_i}) ≅ (r̄_i|_{G_{F′}}, ε̄^{1−n_i}) and π_i ı_i-ordinary of weight 0.",
+      "hypotheses": [
+        "F totally real; n_i even."
+      ],
+      "proofSteps": [
+        "Follow BLGHT11 Theorem 6.3 (the Dwork family T₀ and its covers T_{r̄_i × r̄′_i}; not read, gap), with changes: choose N, cyclic M_i/ℚ of degree n_i, a prime q, characters φ_i, an auxiliary l′ and induced r′_i = Ind θ_i avoiding the ramification of F^{(avoid)}.",
+        "Find F′ and points t_i ∈ T₀^{(i)}(F′) with V[λ_i]_{t_i} ≅ r̄_i, V[λ′]_{t_i} ≅ r̄′_i, v(t_i) < 0 above l_i and > 0 above l′, by moret-bailly-galois-control with T = ∏T_{r̄_i × r̄′_i}.",
+        "Automorphy of V[λ′] (induced from characters) propagates along the motive to V[λ_i], which is ordinary (Steinberg) at l_i."
+      ],
+      "acceptance": [
+        "Check the conclusion's ordinarity: weight 0 with π_{i,v} Steinberg for v | l_i gives ı_i-ordinary (iota-ordinary)."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/moret-bailly-galois-control",
+        "ModularityAndLanglandsExtensions:ML.2/iota-ordinary",
+        "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation",
+        "ModularityAndLanglandsExtensions:ML.2/ordinary-automorphy-lifting"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/PotentialOrdinary",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.dwork_potential_automorphy"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§3.1, Theorem 3.1.2, pp. 41–44 (arXiv v4)",
+          "match": "Theorem 3.1.2 and the changes to BLGHT11 Theorem 6.3."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/ordinary-lifts-with-local-conditions",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Ordinary lifts with prescribed local behaviour (Proposition 3.2.1)",
+      "kind": "theorem",
+      "statement": "Let F be imaginary CM with ζ_l ∉ F, S a finite set of finite places of F⁺ split in F containing those above l, µ : G_{F⁺} → Q̄_l^× crystalline, unramified outside S, µ(c_v) = −1 for v | ∞ (so HT_τ(µ) = {w}), H_τ sets of n distinct integers with H_{τ∘c} = {w − h}, and r̄ : G_{F⁺} → G_n(F̄_l) unramified outside S with ν ∘ r̄ = µ̄ and r̄^{−1}G_n⁰ = G_F; lifts ρ_v of r̄̆|_{G_{F_ṽ}} for v ∈ S, v ∤ l. Assume r̄̆|_{G_{F(ζ_l)}} irreducible, l ≥ 2(d + 1), and ordinary crystalline lifts of r̄̆|_{G_{F_u}} with HT numbers H_τ for u | l. Then r̄ has a lift r : G_{F⁺} → G_n(O_{Q̄_l}) with ν ∘ r = µ, r̆|_{G_{F_u}} ordinary crystalline with HT numbers H_τ for u | l, r̆|_{G_{F_ṽ}} ∼ ρ_v for v ∤ l, and r unramified outside S.",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "Twist by a character ψ of G_F (Lemma A.2.5: crystalline above l with chosen HT numbers b_τ, unramified at S ∖ {v | l}, wildly ramified at an auxiliary v_q, ψψ^c = ε_l^{1−2n}µ^{−1}) and induce: I_ψ(r̄) : G_{F⁺} → GSp_{2n}(F̄_l) with multiplier ε̄_l^{1−2n}, irreducible on G_{F⁺(ζ_l)} and with adequate image (ghtt-adequacy-criterion).",
+        "dwork-potential-ordinary-automorphy makes I_ψ(r̄) ı-ordinarily automorphic over a totally real F₁⁺; after a further soluble F₂⁺, Thorne's finiteness (Theorem 2.4.2, in ordinary-automorphy-lifting) shows the ordinary deformation ring of r̄ over F₃ is finite over O.",
+        "Khare–Wintenberger: the global ring with ordinary crystalline conditions at l and the components of ρ_v elsewhere has Krull dimension ≥ 1 (CHT, Proposition 1.5.1) and is finite over the corresponding ring over F₃, so it has a Q̄_l-point."
+      ],
+      "acceptance": [
+        "Check the numerology: a totally odd µ and n distinct Hodge–Tate numbers are exactly what makes the lower bound dim R ≥ 1 of CHT hold."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/polarized-galois-representation",
+        "ModularityAndLanglandsExtensions:ML.2/connects-relation",
+        "ModularityAndLanglandsExtensions:ML.2/ordinary-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.2/dwork-potential-ordinary-automorphy",
+        "ModularityAndLanglandsExtensions:ML.2/ghtt-adequacy-criterion",
+        "GlobalGaloisDeformations:G7/polarized-representability"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/PotentialOrdinary",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.exists_ordinary_lift"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§3.2, Proposition 3.2.1, pp. 44–45 (arXiv v4)",
+          "match": "The setting of §3.2 and Proposition 3.2.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/potential-ordinary-automorphy",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Potential ordinary automorphy of polarized mod l representations (Proposition 3.3.1)",
+      "kind": "theorem",
+      "statement": "Let F/F₀ be finite Galois of imaginary CM fields, I finite, and for i ∈ I: l_i odd with ζ_{l_i} ∉ F; µ_i totally odd de Rham (HT {w_i}); r̄_i : G_F → GL_{n_i}(F̄_{l_i}) irreducible with (r̄_i, µ̄_i) totally odd polarized, r̄_i|_{G_{F(ζ_{l_i})}} irreducible and l_i ≥ 2(d_i + 1); sets H_{i,τ} of n_i distinct integers with H_{i,τ∘c} = {w_i − h}; a finite Galois-stable S ⊇ primes above l_i and ramification; lifts ρ_{i,v} (v ∤ l_i) with ρ^c_{i,cv} ≅ µ_iρ^∨_{i,v}; and F^{(avoid)}. Then there are F′/F finite CM, Galois over F₀ and linearly disjoint from F^{(avoid)}, and regular algebraic cuspidal polarized (π_i, χ_i) over F′ with r̄_{l_i,ı_i}(π_i) ≅ r̄_i|_{G_{F′}}, r_{l_i,ı_i}(χ_i)ε^{1−n_i} = µ_i|_{G_{F′⁺}}, π_i unramified above l_i and outside S, ı_i-ordinary, HT_τ(r_{l_i,ı_i}(π_i)) = H_{i,τ|_F}, and r_{l_i,ı_i}(π_i)|_{G_{F′_u}} ∼ ρ_{i,v}|_{G_{F′_u}} for u | v ∈ S, u ∤ l_i.",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "Combine dwork-potential-ordinary-automorphy (applied to a symplectic induction of r̄_i to the totally real subfield) with ordinary-lifts-with-local-conditions and ordinary-automorphy-lifting over the resulting extension."
+      ],
+      "acceptance": [
+        "Check that the output is ı-ordinary with prescribed Hodge–Tate numbers: the input needed by Theorem 4.5.1 to start the potentially diagonalizable lifting."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/dwork-potential-ordinary-automorphy",
+        "ModularityAndLanglandsExtensions:ML.2/ordinary-lifts-with-local-conditions",
+        "ModularityAndLanglandsExtensions:ML.2/ordinary-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.2/polarized-galois-representation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/PotentialOrdinary",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.potential_ordinary_automorphy"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§3.3, Proposition 3.3.1, pp. 47–48 (arXiv v4)",
+          "match": "Proposition 3.3.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/preliminary-pd-automorphy-lifting",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "A preliminary potentially diagonalizable lifting theorem (Proposition 4.1.1)",
+      "kind": "theorem",
+      "statement": "Let F be imaginary CM, l odd, ζ_l ∉ F, (r, µ) regular algebraic, irreducible, n-dimensional, polarized with r|_{G_{F_v}} potentially diagonalizable for v | l, r̄|_{G_{F(ζ_l)}} irreducible and l ≥ 2(d + 1). Suppose (r̄, µ̄) is automorphic of level prime to l, from (π, χ) with r_{l,ı}(π)|_{G_{F_v}} potentially diagonalizable for v | l, the set {h + h′ : h ∈ HT_τ(r), h′ ∈ HT_τ(r_{l,ı}(π))} of n² distinct elements for every τ, and r_{l,ı}(π)|_{G_{F_v}} ∼ r|_{G_{F_v}} for v ∤ l. Then (r, µ) is potentially diagonalizably automorphic.",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "Soluble CM base change (automorphy-twist-and-soluble-base-change) so that F/F⁺ is unramified, the relevant primes split, r and r_{l,ı}(π) are diagonalizable above l and π is unramified there; write r|_{G_{F_u}} ∼ ⊕ψ_i^{(u)} and r_{l,ı}(π)|_{G_{F_u}} ∼ ⊕φ_i^{(u)}.",
+        "Choose a cyclic CM M/F of degree n (Corollary A.2.3) and de Rham characters θ, θ′ of G_M with θ̄ = θ̄′, θθ^c = r_{l,ı}(χ)ε_l^{1−n}, θ′θ′^c = µ, Hodge–Tate numbers those of the φ_i resp. ψ_i, and ramification at an auxiliary q (Lemma A.2.5); then Ind θ ∼ ⊕φ_i and Ind θ′ ∼ ⊕ψ_i locally.",
+        "Over a soluble F₁: R = (r ⊗ Ind_{G_M}^{G_F}θ)|_{G_{F₁}} and R′ = (r_{l,ı}(π) ⊗ Ind θ′)|_{G_{F₁}} have R̄ ≅ R̄′, are polarized, R has adequate image (ghtt-adequacy-criterion, using l ∤ n), and R ∼ R′ at every place: at l both connect to (⊕ψ_i) ⊗ (⊕φ_j), regular by the n² condition.",
+        "R′ is automorphic of level prime to l: automorphic induction of BC(π) ⊗ φ′ (requested from ET.7a); minimal-automorphy-lifting makes R automorphic.",
+        "Recover (r, µ) from R = r ⊗ Ind θ by automorphy-descends-from-induction and a twist."
+      ],
+      "acceptance": [
+        "Check the n² regularity condition on n = 2: HT(r) = {0, 1}, HT(r_{l,ı}(π)) = {0, 2} give sums {0, 1, 2, 3}, four distinct (suggested file)."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/minimal-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.2/potentially-diagonalizable",
+        "ModularityAndLanglandsExtensions:ML.2/connects-relation",
+        "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation",
+        "ModularityAndLanglandsExtensions:ML.2/automorphy-twist-and-soluble-base-change",
+        "ModularityAndLanglandsExtensions:ML.2/automorphy-descends-from-induction",
+        "ModularityAndLanglandsExtensions:ML.2/ghtt-adequacy-criterion",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Lifting",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.isAutomorphic_of_pd_preliminary"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§4.1, Proposition 4.1.1, p. 50 (arXiv v4)",
+          "match": "Proposition 4.1.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/pd-automorphy-lifting",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Automorphy lifting for potentially diagonalizable representations (Theorem 4.2.1)",
+      "kind": "theorem",
+      "statement": "Let F be imaginary CM, l odd, and (r, µ) a regular algebraic, irreducible, n-dimensional polarized representation of G_F with d as above. Suppose r|_{G_{F_v}} is potentially diagonalizable for all v | l; r̄|_{G_{F(ζ_l)}} is irreducible, l ≥ 2(d + 1) and ζ_l ∉ F; and (r̄, µ̄) is ordinarily automorphic or potentially diagonalizably automorphic. Then (r, µ) is potentially diagonalizably automorphic (of level potentially prime to l). Condition (1) holds in the Fontaine–Laffaille case: l unramified in F, r crystalline above l with HT_τ(r) in some [a_τ, a_τ + l − 2].",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "After a soluble CM base change linearly disjoint from F̄^{ker r̄}(ζ_l) (automorphy-twist-and-soluble-base-change): F/F⁺ unramified, primes above l and ramification split over F⁺, ζ_l ∈ F_u and r̄, r̄_{l,ı}(π) trivial on G_{F_u} for u | l.",
+        "Choose m larger than all differences of Hodge–Tate numbers of r and r_{l,ı}(π), H_τ = {0, m, …, (n − 1)m}; ordinary-lifts-with-local-conditions gives r₁ (level of r, ordinary crystalline with HT H_τ) and, in the second case, r₂ (level of r_{l,ı}(π)).",
+        "Ordinary case: ordinary-automorphy-lifting makes r₁ automorphic of level prime to l; preliminary-pd-automorphy-lifting gives r.",
+        "PD case: preliminary-pd-automorphy-lifting makes r₂ automorphic; r₂ ordinary of level potentially prime to l makes it ordinarily automorphic (iota-ordinary); reduce to the first case."
+      ],
+      "acceptance": [
+        "Check the Fontaine–Laffaille remark against potential-diagonalizability-criteria (2).",
+        "Check that neither weight nor level of r need match π: the \"change of weight\" of the title."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/preliminary-pd-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.2/ordinary-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.2/ordinary-lifts-with-local-conditions",
+        "ModularityAndLanglandsExtensions:ML.2/potential-diagonalizability-criteria",
+        "ModularityAndLanglandsExtensions:ML.2/automorphy-twist-and-soluble-base-change",
+        "ModularityAndLanglandsExtensions:ML.2/iota-ordinary"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Lifting",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.isAutomorphic_of_pd"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§4.2, Theorem 4.2.1 and proof, pp. 53–54 (arXiv v4)",
+          "match": "Theorem 4.2.1, the remarks on its hypotheses, and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Potentially diagonalizable automorphy lifting"
+      }
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/pd-lifts-with-local-conditions",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Lifts with potentially diagonalizable local conditions (Theorem 4.3.1)",
+      "kind": "theorem",
+      "statement": "In the setting of §4.3 (F imaginary CM with ζ_l ∉ F, S split containing places above l, µ algebraic unramified outside S with µ(c_v) = −1, r̄ : G_{F⁺} → G_n(F̄_l) unramified outside S with ν ∘ r̄ = µ̄, lifts ρ_v of r̄̆|_{G_{F_ṽ}} for v ∈ S), assume r̄̆|_{G_{F(ζ_l)}} irreducible, l ≥ 2(d + 1), and for v | l that ρ_v is potentially diagonalizable with n distinct τ-Hodge–Tate numbers. Then r̄ has a lift r : G_{F⁺} → G_n(O_{Q̄_l}) with ν ∘ r = µ, r̆|_{G_{F_ṽ}} ∼ ρ_v for v ∈ S, unramified outside S.",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "As in Theorem 4.2.1: the deformation ring with the components of the ρ_v has dimension ≥ 1; potential automorphy of r̄ (potential-ordinary-automorphy) and pd-automorphy-lifting over the extension make it finite over O; so it has Q̄_l-points."
+      ],
+      "acceptance": [
+        "Check that this strengthens ordinary-lifts-with-local-conditions: ordinary crystalline ρ_v are potentially diagonalizable."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/pd-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.2/potential-ordinary-automorphy",
+        "ModularityAndLanglandsExtensions:ML.2/connects-relation",
+        "ModularityAndLanglandsExtensions:ML.2/potentially-diagonalizable",
+        "GlobalGaloisDeformations:G7/polarized-representability"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Lifting",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.exists_pd_lift"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§4.3, Theorem 4.3.1, p. 55 (arXiv v4)",
+          "match": "The setting of §4.3 and Theorem 4.3.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/change-of-weight-and-level",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Change of weight and level (Theorem 4.4.1)",
+      "kind": "theorem",
+      "statement": "Let F be imaginary CM, l > 2(n + 1) with ζ_l ∉ F and primes above l split over F⁺, S a finite split set of finite places of F⁺ containing those above l, µ algebraic, and r̄ : G_F → GL_n(F̄_l) with (r̄, µ̄) polarized, unramified outside S, ordinarily or potentially diagonalizably automorphic, and r̄|_{G_{F(ζ_l)}} irreducible. For v ∈ S let ρ_v be a lift of r̄|_{G_{F_ṽ}}, potentially diagonalizable with n distinct τ-Hodge–Tate numbers when v | l. Then there is a regular algebraic cuspidal polarized (π, χ) with r̄_{l,ı}(π) ≅ r̄, r_{l,ı}(χ)ε_l^{1−n} = µ, level potentially prime to l, unramified outside S, and ρ_v ∼ r_{l,ı}(π)|_{G_{F_ṽ}} for v ∈ S.",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08).",
+        "The statement is read with ρ_v a lift of r̄|_{G_{F_ṽ}}; see ModularityAndLanglandsExtensions/E3."
+      ],
+      "proofSteps": [
+        "pd-lifts-with-local-conditions gives a lift r with the local conditions ρ_v; pd-automorphy-lifting makes it automorphic; local–global compatibility (blggt-normalization-register (3)) gives ρ_v ∼ r_{l,ı}(π)|_{G_{F_ṽ}}."
+      ],
+      "acceptance": [
+        "Check the Serre-weight reading: r̄ is automorphic in every potentially diagonalizable weight and type it admits locally."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/pd-lifts-with-local-conditions",
+        "ModularityAndLanglandsExtensions:ML.2/pd-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.0/blggt-normalization-register"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Lifting",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.change_of_weight_and_level"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§4.4, Theorem 4.4.1, pp. 58–59 (arXiv v4)",
+          "match": "Theorem 4.4.1 and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Change of weight and level"
+      }
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-theorem",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Potential automorphy of potentially diagonalizable polarized representations (Theorem 4.5.1)",
+      "kind": "theorem",
+      "statement": "Let F/F₀ be finite Galois of imaginary CM fields, I finite, and for i ∈ I: n_i, d_i ≥ 1, l_i odd with l_i ≥ 2(d_i + 1) and ζ_{l_i} ∉ F, ı_i; (r_i, µ_i) a totally odd, regular algebraic, n_i-dimensional polarized l_i-adic representation of G_F with d_i the maximal dimension of an irreducible constituent of r̄_i restricted to the subgroup generated by the Sylow pro-l_i-subgroups; F^{(avoid)}/F finite Galois. Assume r_i is potentially diagonalizable at each prime of F above l_i and r̄_i|_{G_{F(ζ_{l_i})}} is irreducible. Then there are a finite CM F′/F, Galois over F₀ and linearly disjoint from F^{(avoid)} over F, and regular algebraic cuspidal polarized (π_i, χ_i) of GL_{n_i}(𝔸_{F′}), unramified above l_i, with (r_{l_i,ı_i}(π_i), r_{l_i,ı_i}(χ_i)ε_{l_i}^{1−n_i}) ≅ (r_i|_{G_{F′}}, µ_i|_{G_{(F′)⁺}}).",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08).",
+        "Read \"each prime v of F above l_i\" (the printed \"of F⁺\" is a misprint, ModularityAndLanglandsExtensions/E2)."
+      ],
+      "proofSteps": [
+        "potential-ordinary-automorphy gives F′ (Galois over F₀, disjoint from ∩ ker r̄_i · F^{(avoid)}(ζ_{∏l_i})) and ı_i-ordinary (π′_i, χ′_i) with r̄_{l_i,ı_i}(π′_i) ≅ r̄_i|_{G_{F′}}, unramified above l_i.",
+        "pd-automorphy-lifting over F′ (hypotheses preserved: potential diagonalizability restricts, and r̄_i|_{G_{F′(ζ_{l_i})}} stays irreducible by disjointness)."
+      ],
+      "acceptance": [
+        "Check the Fontaine–Laffaille special case: l_i unramified in F⁺, r_i crystalline above l_i with HT in [a_τ, a_τ + l − 2] (potential-diagonalizability-criteria (2)).",
+        "Check that the output is automorphy over F′ only: descent to F needs automorphy-twist-and-soluble-base-change and holds only for soluble F′/F."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/potential-ordinary-automorphy",
+        "ModularityAndLanglandsExtensions:ML.2/pd-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.2/polarized-galois-representation",
+        "ModularityAndLanglandsExtensions:ML.2/potentially-diagonalizable",
+        "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Potential",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.potential_automorphy"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§4.5, Theorem 4.5.1 and proof, pp. 59–60 (arXiv v4)",
+          "match": "Theorem 4.5.1 and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Potential automorphy theorem (BLGGT)"
+      }
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-totally-real",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Potential automorphy over totally real fields (Corollary 4.5.2)",
+      "kind": "theorem",
+      "statement": "Let F⁺ be totally real, l ≥ 2(n + 1), and (r, µ) a totally odd, regular algebraic, n-dimensional polarized l-adic representation of G_{F⁺}, potentially diagonalizable at each prime above l, with r̄|_{G_{F⁺(ζ_l)}} irreducible. Then there is a Galois totally real F^{+,′}/F⁺ such that (r|_{G_{F^{+,′}}}, µ|_{G_{F^{+,′}}}) is automorphic of level prime to l.",
+      "hypotheses": [
+        "F⁺ totally real."
+      ],
+      "proofSteps": [
+        "Choose an imaginary quadratic F/F⁺ in which primes above l split, disjoint from (F̄⁺)^{ker ad r̄}(ζ_l); apply potential-automorphy-theorem to r|_{G_F}; descend from the CM field F′ to (F′)⁺ by automorphy-twist-and-soluble-base-change."
+      ],
+      "acceptance": [
+        "Check against KW/Taylor over ℚ: for n = 2 this recovers potential modularity of odd regular 2-dimensional representations with PD local conditions."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-theorem",
+        "ModularityAndLanglandsExtensions:ML.2/automorphy-twist-and-soluble-base-change"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Potential",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.potential_automorphy_totallyReal"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§4.5, Corollary 4.5.2, p. 60 (arXiv v4)",
+          "match": "Corollary 4.5.2 and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-mod-l",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Potential automorphy of mod l representations with prescribed local lifts (Corollary 4.5.3)",
+      "kind": "theorem",
+      "statement": "In the situation of Theorem 4.5.1 but with r̄_i : G_F → GL_{n_i}(F̄_{l_i}) irreducible, (r̄_i, µ_i) polarized (µ_i totally odd de Rham), r̄_i|_{G_{F(ζ_{l_i})}} irreducible, S a Gal(F/F⁺)-stable finite set of primes containing those above l_i and the ramification, and lifts ρ_{i,v} (v ∈ S) with ρ^c_{i,cv} ≅ µ_iρ^∨_{i,v}, potentially diagonalizable with n_i distinct Hodge–Tate numbers when v | l_i: there are F′ (as in 4.5.1) and (π_i, χ_i) with r̄_{l_i,ı_i}(π_i) ≅ r̄_i|_{G_{F′}}, r_{l_i,ı_i}(χ_i)ε^{1−n_i} = µ_i|_{G_{F′⁺}}, level potentially prime to l_i, unramified outside S, and r_{l_i,ı_i}(π_i)|_{G_{F′_u}} ∼ ρ_{i,v}|_{G_{F′_u}} for u | v ∈ S.",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08).",
+        "Read ρ_{i,v}, n_i and ρ_{i,v}|_{G_{F′_u}} in (g) and (7) (misprints E2)."
+      ],
+      "proofSteps": [
+        "Reduce to S split over F⁺ as in potential-ordinary-automorphy; pd-lifts-with-local-conditions gives lifts r_i with r_i|_{G_{F_v}} ∼ ρ_{i,v}; apply potential-automorphy-theorem."
+      ],
+      "acceptance": [
+        "Check that it strengthens Proposition 3.3.1: the local conditions may be any potentially diagonalizable types, not only ordinary."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/pd-lifts-with-local-conditions",
+        "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-theorem"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/Potential",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.potential_automorphy_residual"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§4.5, Corollary 4.5.3, pp. 60–61 (arXiv v4)",
+          "match": "Corollary 4.5.3 and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/compatible-systems-potentially-automorphic",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Potential automorphy of compatible systems (Theorem 5.4.1, Corollary 5.4.2)",
+      "kind": "theorem",
+      "statement": "Let F/F₀ be finite Galois of CM (resp. totally real) fields and F^{(avoid)}/F finite Galois. If (ℛ_i, ℳ_i), i = 1, …, r, are totally odd, polarized weakly compatible systems of l-adic representations of G_F with each ℛ_i regular and irreducible, then there is a finite CM (resp. totally real) F′/F, linearly disjoint from F^{(avoid)} and Galois over F₀, such that each (ℛ_i|_{G_{F′}}, ℳ_i|_{G_{(F′)⁺}}) is automorphic. In particular (Corollary 5.4.2) a single such system becomes automorphic over a finite Galois CM (resp. totally real) F′/F.",
+      "hypotheses": [
+        "(ℛ, ℳ) a polarized weakly compatible system of G_F over M (PotentialModularityAndCompatibleSystems R24.5: members (r_λ, µ_λ) polarized); BLGGT v4 §5.1 conventions."
+      ],
+      "proofSteps": [
+        "Totally real case from the CM case by automorphy-twist-and-soluble-base-change, choosing F′ disjoint from the fields F_i¹ of Lemma 5.3.1 (rank-two-reducibility-independent-of-lambda) so that ℛ_i stays irreducible (Lemma A.2.1).",
+        "Take M common; L = ∩_i(L_{i,1} ∩ L_{i,2}) of density 1, with L_{i,1} from residual-irreducibility-density-one and L_{i,2} the primes where ℛ_i is irreducible (Lemma A.1.7).",
+        "Remove finitely many l: l ≥ 2(dim ℛ_i + 1), l unramified in F and not below the bad primes, Hodge–Tate numbers in some [a, a + l − 2].",
+        "potential-diagonalizability-criteria (2) makes r_{i,λ} potentially diagonalizable; apply potential-automorphy-theorem to the r_{i,λ} for one λ | l ∈ L."
+      ],
+      "acceptance": [
+        "Check the density-one bookkeeping: the intersection of finitely many density-one sets has density one.",
+        "Check the Fontaine–Laffaille step: for l large the Hodge–Tate range (fixed by the system) has length < l − 2."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-theorem",
+        "ModularityAndLanglandsExtensions:ML.2/potential-diagonalizability-criteria",
+        "ModularityAndLanglandsExtensions:ML.2/automorphy-twist-and-soluble-base-change",
+        "PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one",
+        "PotentialModularityAndCompatibleSystems:R24.5/rank-two-reducibility-independent-of-lambda",
+        "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
+        "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/CompatibleSystems",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.potential_automorphy_compatibleSystem"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§5.4, Theorem 5.4.1, Corollary 5.4.2 and proof, p. 74 (arXiv v4)",
+          "match": "Theorem 5.4.1 (v1 Theorem 5.3.1), Corollary 5.4.2 and the proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Potential automorphy of compatible systems"
+      }
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/compatible-system-l-function-continuation",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Meromorphic continuation, functional equation and purity for compatible systems (Corollary 5.4.3)",
+      "kind": "theorem",
+      "statement": "Under the hypotheses of Corollary 5.4.2: (1) for ı : M ↪ ℂ, L^S(ıℛ, s) converges uniformly absolutely on compact subsets of a right half plane and continues meromorphically to ℂ; (2) ℛ is strictly pure and Λ(ıℛ, s) = ε(ıℛ, s)Λ(ıℛ^∨, 1 − s); (3) if F is totally real, n is odd and v | ∞, then tr r_λ(c_v) = ±1 is independent of λ.",
+      "hypotheses": [
+        "(ℛ, ℳ) a polarized weakly compatible system of G_F over M (PotentialModularityAndCompatibleSystems R24.5: members (r_λ, µ_λ) polarized); BLGGT v4 §5.1 conventions."
+      ],
+      "proofSteps": [
+        "Strict purity: Theorem 5.4.1, Theorem 2.1.1 (purity of WD at v ∤ l for automorphic members) and Brauer's theorem as in the proof of part-of-compatible-system (the Grothendieck-ring argument of PM R24.5/galois-grothendieck-ring).",
+        "Continuation and functional equation: over each soluble F′/F_i in a Brauer decomposition 1 = Σ n_i Ind ψ_i the system is automorphic, so L^S(ıℛ, s) = ∏ L^S(π_i ⊗ ψ_i, s)^{n_i} (HSBT10 Theorem 4.2 argument), each factor entire with the standard functional equation (AL.2).",
+        "(3): reduce to the automorphic case, Taylor 2012 (the Calegari observation); cited."
+      ],
+      "acceptance": [
+        "Check that the Γ- and ε-factors are those of PM R24.5/system-l-functions, so (2) is the functional equation that node could not claim.",
+        "Check the example of an elliptic curve over a totally real field: L(E, s) continues and satisfies its functional equation (the system is regular, irreducible, polarized)."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/compatible-systems-potentially-automorphic",
+        "PotentialModularityAndCompatibleSystems:R24.5/system-l-functions",
+        "PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.2"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/CompatibleSystems",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.lFunction_meromorphic"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§5.4, Corollary 5.4.3 and proof, pp. 74–75 (arXiv v4)",
+          "match": "Corollary 5.4.3 (v1 Corollary 5.3.2) and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Meromorphic continuation of compatible-system L-functions"
+      }
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/multiple-product-l-functions",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Tensor products of non-CM modular forms (Corollary 5.4.4)",
+      "kind": "application",
+      "statement": "Let K ⊆ ℤ_{>0} be finite with the 2^{#K} partial sums of its elements distinct, and f_k (k ∈ K) non-CM newforms of weight k + 1 with automorphic π_k. Then there are a totally real Galois F/ℚ and a regular algebraic polarizable cuspidal Π on GL_{2^{#K}}(𝔸_F) with rec(Π_v|det|^{(1−2^{#K})/2}) = (⊗_k rec(π_{k,v|ℚ}|det|^{−1/2}))|_{W_{F_v}} for almost all v; in particular L(×_k π_k, s) continues meromorphically to ℂ.",
+      "hypotheses": [
+        "f_k non-CM; the partial-sum condition gives regularity of ⊗_k r_{k,λ}."
+      ],
+      "proofSteps": [
+        "Apply compatible-systems-potentially-automorphic to ⊗_K r_{k,λ}.",
+        "Irreducibility (Goursat): the Zariski closure H̄ of (∏ r_{k,λ})(G_ℚ) in PGL_2^K surjects onto each factor; as PGL_2 is simple with only inner automorphisms, H̄ = PGL_2^I with K = ⊔ K_i mapping diagonally; #K_i > 1 would give r_{k,λ} ≅ r_{k′,λ} ⊗ χ with χ de Rham, contradicting Hodge–Tate numbers; so H ⊇ SL_2^K, whose tensor representation is irreducible."
+      ],
+      "acceptance": [
+        "Check the partial-sum condition on K = {1, 2, 4}: the 8 subset sums 0, …, 7 are distinct; on K = {1, 2, 3} they are not (1 + 2 = 3) (suggested file)."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/compatible-systems-potentially-automorphic",
+        "ModularityAndLanglandsExtensions:ML.2/compatible-system-l-function-continuation",
+        "PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/CompatibleSystems",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.multipleProduct_meromorphic"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§5.4, Corollary 5.4.4 and proof, pp. 75–76 (arXiv v4)",
+          "match": "Corollary 5.4.4 (v1 Corollary 5.3.3) and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/constituents-potentially-automorphic",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Constituents of polarized systems are potentially automorphic (Proposition 5.4.6)",
+      "kind": "theorem",
+      "statement": "Let F be CM and (ℛ, ℳ) a totally odd, polarized weakly compatible system with ℛ pure and extremely regular; write r_λ = r_{λ,1} ⊕ ⋯ ⊕ r_{λ,j_λ} into irreducibles. There is a set L of rational primes of Dirichlet density 1 such that for λ | l ∈ L there is a finite CM Galois F′/F with each (r_{λ,α}|_{G_{F′}}, µ_λ|_{G_{(F′)⁺}}) irreducible and automorphic.",
+      "hypotheses": [
+        "(ℛ, ℳ) a polarized weakly compatible system of G_F over M (PotentialModularityAndCompatibleSystems R24.5: members (r_λ, µ_λ) polarized); BLGGT v4 §5.1 conventions."
+      ],
+      "proofSteps": [
+        "Lemma 5.4.5 (PM R24.5/constituents-essentially-self-dual, v1 Lemma 5.2.3): each (r_{λ,α}, µ_λ) is totally odd polarized.",
+        "L from residual-irreducibility-density-one, minus finitely many l (l ≥ 2(dim ℛ + 1), unramified, Fontaine–Laffaille range); potential-diagonalizability-criteria (2); potential-automorphy-theorem with F^{(avoid)} the compositum of the F̄^{ker r̄_{λ,α}}."
+      ],
+      "acceptance": [
+        "Check that irreducibility over F′ comes from the choice of F^{(avoid)}: r̄_{λ,α}|_{G_{F′}} stays irreducible, hence so does r_{λ,α}|_{G_{F′}}."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-theorem",
+        "ModularityAndLanglandsExtensions:ML.2/potential-diagonalizability-criteria",
+        "PotentialModularityAndCompatibleSystems:R24.5/constituents-essentially-self-dual",
+        "PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/CompatibleSystems",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.constituents_potentially_automorphic"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§5.4, Lemma 5.4.5 and Proposition 5.4.6, pp. 76–77 (arXiv v4)",
+          "match": "Lemma 5.4.5 and Proposition 5.4.6 (v1 Lemma 5.2.3, Proposition 5.3.4)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/part-of-compatible-system",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "A potentially diagonalizable polarized representation lies in a compatible system (Theorem 5.5.1)",
+      "kind": "theorem",
+      "statement": "Let F be CM, l ≥ 2(n + 1) with ζ_l ∉ F, and (r, µ) an n-dimensional totally odd regular algebraic polarized l-adic representation of G_F, potentially diagonalizable above l with r̄|_{G_{F(ζ_l)}} irreducible. Then r is part of a strictly pure compatible system of l-adic representations of G_F.",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "potential-automorphy-theorem gives F′/F Galois CM, disjoint from F⁰F̄^{ker r̄} (F⁰ cut out by the component group of the Zariski closure of r), and (π, χ) over F′ with r_{l,ı}(π) = r|_{G_{F′}}; soluble descent gives π(F″) for F′/F″ soluble.",
+        "For each (l′, ı′), decompose r_{l′,ı′}(π) into irreducibles; the component groups are independent of l′ (Lemma 5.3.1), so the pieces descend to each F″.",
+        "Brauer: 1 = Σ n_i Ind_{F′_i}ψ_i with F′/F′_i soluble; set A_{l′,ı′,α} = Σ n_i ind_{F′_i/F}([r_{l′,ı′}(π(F′_i))_α][ı′^{−1}ψ_i]) in Rep_{F,l′}; dim A = dim r_{l′,ı′}(π)_α and (A, A) = 1, so A = [r_{l′,ı′,α}] is a genuine irreducible representation (PM R24.5/galois-grothendieck-ring).",
+        "r_{l′,ı′} = ⊕_α r_{l′,ı′,α} has r_{l,ı} ≅ r; its Weil–Deligne representations are pure (Theorem 2.1.1, Lemma 1.3.6) and have l′-independent traces, so the system is strictly pure and compatible."
+      ],
+      "acceptance": [
+        "Check the Grothendieck-ring step: (A, A) = 1 with dim A ≥ 0 is exactly the criterion recorded in PM R24.5/galois-grothendieck-ring (4)."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-theorem",
+        "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-totally-real",
+        "ModularityAndLanglandsExtensions:ML.2/automorphy-twist-and-soluble-base-change",
+        "PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring",
+        "PotentialModularityAndCompatibleSystems:R24.5/rank-two-reducibility-independent-of-lambda",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/CompatibleSystems",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.exists_compatibleSystem"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§5.5, Theorem 5.5.1 and proof, pp. 79–81 (arXiv v4)",
+          "match": "Theorem 5.5.1 (v1 Theorem 5.4.1) and its Brauer-induction proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Potentially diagonalizable reps lie in compatible systems"
+      }
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/irreducibility-density-one",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Irreducibility of r_{l,ı}(π) for density-one l (Theorem 5.5.2)",
+      "kind": "theorem",
+      "statement": "Let F be CM and π a regular algebraic, polarizable, cuspidal automorphic representation of GL_n(𝔸_F) of extremely regular weight. Then there is a set L of rational primes of Dirichlet density 1 such that r_{l,ı}(π) is irreducible for every l ∈ L and ı : Q̄_l ≅ ℂ.",
+      "hypotheses": [
+        "F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08)."
+      ],
+      "proofSteps": [
+        "Apply constituents-potentially-automorphic to ℛ = {r_{l,ı}(π)}; for l ∈ L write r_{l,ı}(π) = ⊕_{α=1}^j r_{l,ı}(π)_α, each potentially automorphic.",
+        "ord_{s=1}L^S(ı(ℛ ⊗ ℛ^∨), s) = ord_{s=1}L^S(π × π^∨, s) = −1 (Jacquet–Shalika, Shahidi; requested from AL.3).",
+        "On the other hand, using the potential automorphy of the constituents and Brauer induction, the order is −j; hence j = 1."
+      ],
+      "acceptance": [
+        "Check the Rankin–Selberg input: L^S(π × π′^∨, s) has a simple pole at s = 1 exactly when π′ is a twist of π, and is holomorphic nonvanishing there otherwise."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/constituents-potentially-automorphic",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/CompatibleSystems",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.irreducible_density_one"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§5.5, Theorem 5.5.2 and proof, pp. 81–82 (arXiv v4)",
+          "match": "Theorem 5.5.2 (v1 Theorem 5.4.2) and the Rankin–Selberg facts it uses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions:ML.2/decomposition-into-irreducible-systems",
+      "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
+      "realises": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "title": "Splitting a polarized system into irreducible systems (Theorem 5.5.3)",
+      "kind": "theorem",
+      "statement": "Let F be CM and ℛ a pure, extremely regular, totally odd, polarizable weakly compatible system of G_F. Then ℛ = ℛ_1 ⊕ ⋯ ⊕ ℛ_s with each ℛ_i an irreducible, strictly pure, totally odd, polarizable compatible system.",
+      "hypotheses": [
+        "(ℛ, ℳ) a polarized weakly compatible system of G_F over M (PotentialModularityAndCompatibleSystems R24.5: members (r_λ, µ_λ) polarized); BLGGT v4 §5.1 conventions."
+      ],
+      "proofSteps": [
+        "Choose L of density 1 for residual-irreducibility-density-one and constituents-potentially-automorphic; pick λ | l ∈ L with l ≥ 2(n + 1), unramified, Fontaine–Laffaille Hodge–Tate range; decompose r_λ = ⊕ r_{λ,α}.",
+        "part-of-compatible-system puts each r_{λ,α} in a strictly pure compatible system ℛ_α; over F′ it is the system of an extremely regular π_α, so irreducibility-density-one makes ℛ_α irreducible on a density-one set.",
+        "Compare Frobenius polynomials: ⊕ℛ_α and ℛ agree at r_λ, hence everywhere."
+      ],
+      "acceptance": [
+        "Check the degenerate case s = 1: an irreducible system is its own decomposition, with the added conclusion of strict purity."
+      ],
+      "prerequisites": [
+        "ModularityAndLanglandsExtensions:ML.2/part-of-compatible-system",
+        "ModularityAndLanglandsExtensions:ML.2/irreducibility-density-one",
+        "ModularityAndLanglandsExtensions:ML.2/constituents-potentially-automorphic",
+        "PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/PotentialAutomorphy/CompatibleSystems",
+        "namespace": "TauCeti.PotentialAutomorphy",
+        "declaration": "TauCeti.PotentialAutomorphy.eq_sum_irreducible_systems"
+      },
+      "sources": [
+        {
+          "sourceId": "blggt-2014-v4",
+          "locator": "§5.5, Theorem 5.5.3 and proof, p. 82 (arXiv v4)",
+          "match": "Theorem 5.5.3 (v1 Theorem 5.4.3) and its proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "need": "Regular algebraic and polarized automorphic representations (π, χ) of GL_n(𝔸_F) for F CM or totally real, with BLGGT's conditions (χ_v(−1) independent of v | ∞, π^c ≅ π^∨ ⊗ (χ ∘ N ∘ det), χ_v(−1) = (−1)^n for F imaginary), weights a ∈ (ℤ^n)^{Hom(F,ℂ),+}_w and the level conditions (prime / potentially prime to l). ML.0 registers these conventions; it does not re-define them.",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.0/blggt-normalization-register"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AutomorphicGaloisRepresentationsPartII:AG2.2",
+      "need": "BLGGT v4 Theorem 2.1.1: for regular algebraic cuspidal polarized (π, χ), a semisimple r_{l,ı}(π) with (r_{l,ı}(π), ε_l^{1−n}r_{l,ı}(χ)) totally odd polarized, local–global compatibility ıWD(r|_{G_{F_v}})^{F-ss} ≅ rec(π_v ⊗ |det|^{(1−n)/2}) pure of weight w at v ∤ l (Caraiani), de Rham with HT_τ = {a_{ıτ,i} + n − i}, and the same compatibility at v | l when π_v has Iwahori-fixed vectors; plus Geraghty's ordinarity comparisons (6)–(7).",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.0/blggt-normalization-register",
+        "ModularityAndLanglandsExtensions:ML.2/iota-ordinary",
+        "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation",
+        "ModularityAndLanglandsExtensions:ML.2/compatible-system-l-function-continuation",
+        "ModularityAndLanglandsExtensions:ML.2/part-of-compatible-system"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "need": "Arthur–Clozel cyclic base change and descent for GL_n (Theorems 3.4.2, 3.5.1 of AC89) with Harris–Taylor Lemma VII.2.6, and automorphic induction from a cyclic CM extension, with the cuspidality criteria; used in BLGGT Lemmas 2.2.2, 2.2.4 and Proposition 4.1.1.",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.2/automorphy-twist-and-soluble-base-change",
+        "ModularityAndLanglandsExtensions:ML.2/automorphy-descends-from-induction",
+        "ModularityAndLanglandsExtensions:ML.2/preliminary-pd-automorphy-lifting"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "need": "For cuspidal π, π′ on GL_n, GL_{n′} with unitary twists, L^S(π × π′^∨, s) is meromorphic, holomorphic and nonzero at s = 1 unless π ≅ π′ ⊗ |det|^t, in which case it has a simple pole there (Jacquet–Shalika 1981, Shahidi 1981); used in BLGGT Theorem 5.5.2.",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.2/irreducibility-density-one"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "need": "Godement–Jacquet: for cuspidal π on GL_n(𝔸_F), L^S(π, s) is entire (n ≥ 2) and satisfies the standard functional equation, with twists by finite-order characters; used through a Brauer-induction argument in BLGGT Corollary 5.4.3.",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.2/compatible-system-l-function-continuation"
+      ],
+      "status": "open"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ModularityAndLanglandsExtensions:ML.0",
+      "status": "partial",
+      "remaining": [
+        "Register the normalisations of the ML.1, ML.3 and ML.4 sources (Newton–Thorne symmetric powers I, II and the Hilbert case; Arthur, Mok and Kaletha–Mínguez–Shin–White) and bind each theorem to a version.",
+        "The input \"FoundationsAndLibraryIntegration:LI.4\" is retired; its registry role is taken by the two register nodes here."
+      ],
+      "notes": "Checkpoint 1 (cc-39fac3): the BLGGT normalisation register and the v1 → v4 version register."
+    },
+    {
+      "stageId": "ModularityAndLanglandsExtensions:ML.1",
+      "status": "not_read",
+      "remaining": [
+        "Deligne–Serre and weight-one modularity in proved cases, and modularity over totally real and CM fields with source-scoped hypotheses; RS-21 moves soluble Artin modularity to GL2AutomorphicRepresentationsAndTransfer R17.5."
+      ],
+      "notes": "Not started. The unreviewed EXT-12 draft lists KW I Corollary 10.2 as a lead."
+    },
+    {
+      "stageId": "ModularityAndLanglandsExtensions:ML.2",
+      "status": "partial",
+      "remaining": [
+        "The ACC+ route (potential automorphy over CM fields via PotentialAutomorphyInfrastructure, e.g. ACC+ Theorem 7.1.11 for symmetric powers of elliptic curves over CM fields) is not planned.",
+        "BLGGT Appendix A (Lemmas A.1.7, A.2.1, A.2.3, A.2.5 on density, disjointness and characters with prescribed local behaviour) is used but not decomposed.",
+        "BLGGT v4 §5.2 (rational compatible systems, Lemma 5.2.1 and Proposition 5.2.2) is new relative to v1 and belongs with PotentialModularityAndCompatibleSystems R24.5:operations; not planned here.",
+        "The Thorne, GHTT and BLGHT11 proofs are cited (gaps)."
+      ],
+      "notes": "Checkpoint 1 (cc-39fac3): BLGGT arXiv v4 §§1.4, 2.1–2.4, 3.1–3.3, 4.1–4.5, 5.4–5.5 in 30 nodes, from the definitions (polarized, adequate, ı-ordinary, ∼, potentially diagonalizable, automorphic) through the lifting theorems, Theorem 4.5.1 and the compatible-system consequences."
+    },
+    {
+      "stageId": "ModularityAndLanglandsExtensions:ML.3",
+      "status": "not_read",
+      "remaining": [
+        "Newton–Thorne symmetric power functoriality I, II and the Hilbert extension; ACC+ Sato–Tate over CM fields; the Weyl-criterion analytic inputs (AL.2, AL.3, AN.4)."
+      ],
+      "notes": "Not started."
+    },
+    {
+      "stageId": "ModularityAndLanglandsExtensions:ML.4",
+      "status": "not_read",
+      "remaining": [
+        "Arthur, Mok and Kaletha–Mínguez–Shin–White classification inputs with their conditional hypotheses and proof-source owners."
+      ],
+      "notes": "Not started."
+    },
+    {
+      "stageId": "ModularityAndLanglandsExtensions:ML.5",
+      "status": "not_read",
+      "remaining": [
+        "Register of known transfers (cyclic base change and automorphic induction for GL_n from ET.7a; GL₂ transfers from R17.4–R17.5 by RS-21) and conditional frontier statements."
+      ],
+      "notes": "Not started."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Thorne 2012 and Geraghty's ordinary lifting are cited, not read",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.2/minimal-automorphy-lifting",
+        "ModularityAndLanglandsExtensions:ML.2/ordinary-automorphy-lifting"
+      ],
+      "detail": "BLGGT Theorems 2.3.1–2.3.2 and 2.4.1–2.4.2 are Thorne, J. Inst. Math. Jussieu 11 (2012), Theorems 7.1, 9.1, 10.1, 10.2 (Taylor–Wiles–Kisin with adequate image, Hida theory and Taylor's level changing, relaxing Geraghty's Theorem 5.3.2). Their patching arguments are the proofs of these nodes and were not read; the generic patching and polarized deformation problems are GlobalGaloisDeformations G7 and the patching owners."
+    },
+    {
+      "title": "GHTT Theorem 9 (adequacy) is cited, not read",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.2/ghtt-adequacy-criterion"
+      ],
+      "detail": "Guralnick–Herzig–Taylor–Thorne, Adequate subgroups (appendix to Thorne 2012), Lemma 1 and Theorem 9. Not read."
+    },
+    {
+      "title": "The Dwork family (BLGHT11 Theorem 6.3) is cited, not read",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.2/dwork-potential-ordinary-automorphy"
+      ],
+      "detail": "BLGGT Theorem 3.1.2 modifies Barnet-Lamb–Geraghty–Harris–Taylor, A family of Calabi–Yau varieties and potential automorphy II (Publ. RIMS 2011), Theorem 6.3, whose construction (the Dwork motives, their monodromy and the ordinary point) was not read."
+    },
+    {
+      "title": "Remaining BLGGT citations",
+      "neededBy": [
+        "ModularityAndLanglandsExtensions:ML.2/automorphic-galois-representation",
+        "ModularityAndLanglandsExtensions:ML.2/compatible-system-l-function-continuation",
+        "ModularityAndLanglandsExtensions:ML.2/irreducibility-density-one",
+        "ModularityAndLanglandsExtensions:ML.2/part-of-compatible-system"
+      ],
+      "detail": "Clozel 1990 Theorem 3.13 (independence of ı), Harris–Shepherd-Barron–Taylor 2010 Theorem 4.2 (the Brauer argument for L-functions), Taylor 2012 (the parity statement of Corollary 5.4.3(3)) and Caraiani 2012a,b (purity) are cited from BLGGT and not read."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "ModularityAndLanglandsExtensions/E1",
+      "source": "blggt-2014-v4",
+      "kind": "misprint",
+      "locator": "arXiv v4, §2.1, p. 32, definition of polarized automorphic representations",
+      "printed": "For imaginary F, the source additionally requires µv(−1) = (−1)^n at every v|∞. It says that substituting µδF/F+ for µ always makes this requirement hold.",
+      "correction": "χ_v(−1) = (−1)^n, achieved by replacing χ by χδ_{F/F⁺}: the definition concerns the pair (π, χ), and no µ occurs in it.",
+      "reason": "The paragraph defines (π, χ) with χ : 𝔸_{F⁺}^×/(F⁺)^× → ℂ^×; µ is the Galois-side multiplier of the preceding definition. v1 (p. 25) has \"χ_v(−1) = (−1)^n\" in its RAECSDC definition; the slip entered with v4's merged definition.",
+      "affects": "nothing",
+      "known": "new (arXiv v4 read; the Annals version was not collated)",
+      "searched": [
+        "2026-09-29: arXiv abstract page for 1010.2561 (versions v1–v4; no erratum listed); a web search for errata to BLGGT found none; the Annals of Mathematics article page is behind a paywall and was not read."
+      ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions/E2",
+      "source": "blggt-2014-v4",
+      "kind": "misprint",
+      "locator": "arXiv v4, §4.5, Theorem 4.5.1, its remark and proof, and Corollary 4.5.3, pp. 59–61",
+      "printed": "Theorem 4.5.1(1) requires potential diagonalizability at every prime v above li in F+. The remark invokes Lemma 1.4.2 for this hypothesis. The proof says π′i has no ramification above l. Corollary 4.5.3(g) requires n distinct elements in HTτ(ρv,i), and (7) gives rli,ıi(πi)|GF′u ∼ ρv|GF′u.",
+      "correction": "Read: each prime v of F above l_i (r_i is a representation of G_F); Lemma 1.4.3(2) (the Fontaine–Laffaille criterion; Lemma 1.4.2 lifts filtered modules); unramified above l_i; HT_τ(ρ_{i,v}) has n_i distinct elements; ∼ ρ_{i,v}|_{G_{F′_u}}.",
+      "reason": "Index and reference slips: the representations r_i and lifts ρ_{i,v} carry the index i throughout; the potential-diagonalizability criterion for the Fontaine–Laffaille case is Lemma 1.4.3(2), as in the proof of Theorem 5.4.1; Corollary 4.5.2 states the totally real version, where primes of F⁺ are right.",
+      "affects": "nothing",
+      "known": "new (arXiv v4 read; the Annals version was not collated)",
+      "searched": [
+        "2026-09-29: arXiv v1 has the same slips (plus \"πi is ıi-ordinary\", corrected to π′i in v4); no erratum found (arXiv listing, web search)."
+      ]
+    },
+    {
+      "id": "ModularityAndLanglandsExtensions/E3",
+      "source": "blggt-2014-v4",
+      "kind": "misprint",
+      "locator": "arXiv v4, §4.4, Theorem 4.4.1, pp. 58–59",
+      "printed": "The theorem chooses, for every v ∈ S, a map ρv : GF~v → GLn(OQl) lifting ¯rl,ı(π)|GF~v.",
+      "correction": "ρ_v is a lift of r̄|_{G_{F_ṽ}}.",
+      "reason": "In v4 the theorem starts from a mod l representation r̄ and produces π in its conclusion; no π exists at this point. v1 started from a given (π, χ), where r̄_{l,ı}(π) made sense; the phrase survived the rewrite.",
+      "affects": "nothing",
+      "known": "new (arXiv v4 read; the Annals version was not collated)",
+      "searched": [
+        "2026-09-29: arXiv listing and a web search (no erratum found)."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1010.2561v4",
+      "read": "2026-09-29",
+      "sha256": "c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24",
+      "citation": "arXiv v4, the last arXiv version before the Annals publication; the published version was not available and was not collated."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1010.2561v1",
+      "read": "2026-09-29",
+      "sha256": "697e2d318887d8eb940b914101bbcebcde9aaffb296ad95db45b328408df5fe6",
+      "citation": "arXiv v1 (2010), compared for the version register."
+    }
+  ]
+}
