@@ -534,6 +534,15 @@ example (x : ℚ) (N : ℕ) :
     push_cast
     ring
 
+/-- `L4/greither-real-main-conjecture`, the induction: the `(γ − 1)`-exponents `2, 2², …, 2^k` added at the
+steps `i = 2, …, k + 1`, together with the initial `2`, sum to `2^{k+1}`. -/
+example (k : ℕ) : (∑ i ∈ Finset.range k, 2 ^ (i + 1)) + 2 = 2 ^ (k + 1) := by
+  induction k with
+  | zero => simp
+  | succ n ih =>
+    rw [Finset.sum_range_succ, pow_succ 2 (n + 1)]
+    omega
+
 end SuggestedTest
 
 end TauCeti.CyclotomicEulerSystem

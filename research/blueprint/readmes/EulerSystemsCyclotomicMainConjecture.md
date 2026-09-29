@@ -4,7 +4,7 @@ This blueprint covers stages L0–L4. The first checkpoint decomposes **L0**, th
 cyclotomic units and its χ-twist. The second plans **L1**'s finite-level class-group bound, the third plans **L2**'s
 Iwasawa-theoretic divisibility, the fourth plans **L3**, the main conjecture for odd p, the fifth starts **L4**
 (Greither, all p), the sixth plans Greither's class-group theorems (§4), the seventh completes L3's equivalent
-formulations, and the eighth decomposes Greither §2. It follows:
+formulations, the eighth decomposes Greither §2, and the ninth the rest of §3. It follows:
 - Rubin, *Euler systems*, Chapter III §2.1–2.4, with the Chapter I–II definitions they use;
 - Rodrigues Jacinto–Williams (RJW), *An introduction to p-adic L-functions*, §10.2 and §10.5.
 
@@ -371,6 +371,18 @@ for Greither's forms. Source issues:
 The earlier L4 nodes wrote K_n = F(μ_{p^{n+1}}), which gives K_0 = F at p = 2. They now use Greither's
 K_n = F(ζ_{2p^{n+1}}), so K_0 = F(√−1) at p = 2.
 
+Checkpoint 9 decomposes the rest of §3 behind `greither-real-main-conjecture` (Theorem 3.1):
+- `greither-chebotarev-at-two` (Theorem 3.7, Corollary 3.8): Kolyvagin primes with prescribed class and Kummer symbol.
+  At p = 2 the factor is 2^{c+2}, or 4 at the layers K_n⁺, through Claims (a)–(c) about H ∩ K′, H ∩ K″ and the Kummer
+  cokernel.
+- `greither-finite-level-links` (Lemmas 3.9–3.11): maps E_{n,χ} → Λ_{n,χ} and A_{n,χ} → ⊕Λ_{n,χ}/(g_i) with constants
+  independent of n; γ − 1 on X has finite kernel and cokernel (Leopoldt).
+- `greither-kolyvagin-step` (Lemmas 3.12–3.13): the step after Rubin's Lemma 7.1, and the Maschke lift costing |Δ|.
+
+The Theorem 3.1 node now carries the induction. It proves g_1⋯g_k·v(κ) = |Δ|^{k+1}p^{k(2+c₂)+(2+c₁)}(γ − 1)^{2^{k+1}}H_χ,
+and then removes η by coprimality (Lemma 3.11 and μ = 0). Source issue E17: the module N is printed with exponent 2^t
+instead of 2^{i−1}.
+
 **Definition: χ-parts for all p** (node `greither-chi-parts`). M_χ = M ⊗_{ℤ_p[Δ]} ℤ_p(χ) is only right exact when
 p | |Δ|. Property (g) handles minus modules at p = 2.
 
@@ -486,8 +498,7 @@ exponent (E4); ℚ(ζ_5) shows it is needed.
   requests (Iwasawa's rank-one theorem for Y_∞^χ, Leopoldt for real abelian fields).
 - **L3 (partial, checkpoints 4 and 7):** the main conjecture and its odd-character and Tate-twisted Selmer
   formulations are planned. Remaining: the finite-layer stabilisation of Corollary III.2.8 (gap).
-- **L4 (partial, checkpoints 5, 6 and 8):** Greither §§1–4 are planned, §2 in detail. Remaining:
-  - §3's Lemmas 3.11–3.13;
+- **L4 (partial, checkpoints 5, 6, 8 and 9):** Greither §§1–4 are planned, with §§2–3 in detail. Remaining:
   - the Gross–Koblitz gap in (G2);
   - Theorem 4.1 for odd p, which Greither cites to Mazur–Wiles and Solomon.
 
