@@ -1,11 +1,13 @@
 # Noncommutative and equivariant Iwasawa theory — blueprint
 
-This blueprint covers stages NE.0–NE.7. After the third checkpoint:
+This blueprint covers stages NE.0–NE.7. After the fourth checkpoint:
 - **NE.1 is source-decomposed.**
 - **NE.0 is partial.**
 - **NE.2 is partial:** CFKSV §§3–4 — the localisation sequence and characteristic elements.
 - **NE.3 is partial:** CFKSV §3 — twists, Φ_ρ, evaluation at representations, Akashi series and Euler characteristics.
-- **NE.4–NE.7 are not yet read.**
+- **NE.4 and NE.5 are partial:** CFKSV §5 — the dual Selmer module, the 𝔐_H(G) conjecture, the conjectural p-adic
+  L-function and the main conjecture (checkpoint 4).
+- **NE.6 and NE.7 are not yet read.**
 
 The accepted restructuring RS-16 moves the construction of completed group algebras, with restriction, induction and
 augmentation, to PadicMeasuresIwasawaAlgebras L1. NE.0 therefore keeps only:
@@ -14,7 +16,7 @@ augmentation, to PadicMeasuresIwasawaAlgebras L1. NE.0 therefore keeps only:
 
 The sources are:
 - **CFKSV:** Coates–Fukaya–Kato–Sujatha–Venjakob, *The GL₂ main conjecture for elliptic curves without complex
-  multiplication*, Publ. Math. IHÉS 101 (2005), §§2–3. It is open access on Numdam; arXiv math/0404297 was compared.
+  multiplication*, Publ. Math. IHÉS 101 (2005), §§2–5. It is open access on Numdam; arXiv math/0404297 was compared.
 - **Lazard:** *Groupes analytiques p-adiques*, Publ. Math. IHÉS 26 (1965), Chap. II §2.2 and Chap. V §2.2. It is on
   Numdam.
 - **Ardakov–Brown:** *Ring-theoretic properties of Iwasawa algebras: a survey*, arXiv math/0511345, §§2–4. Used for the
@@ -315,6 +317,35 @@ for every Artin ρ, and it is nonzero iff the Euler characteristic is finite.
 **Application: X₁(11) at p = 5** (node `gl2-euler-example`). This is Proposition 3.11: χ(G, tw_{ρ₁}X) = 5³ and
 χ(G, tw_{ρ₂}X) = 5, from 5¹⁶/5⁴ and 5⁸/5⁴ by Theorem 3.10. The arithmetic inputs are a gap.
 
+### NE.3–NE.5, Milestone 7: the integrality conjecture and the GL₂ main conjecture (checkpoint 4)
+
+Source: CFKSV §4, from (91) to the end, and §5 in full, pp. 195–206, read on the page images. Every conjecture below is
+stated as a proposition; no node assumes one.
+
+**Definition: the integrality conjecture** (node `NE.3/characteristic-element-integrality-conjecture`). Conjecture 4.8 has
+four cases relating ξ ∈ α(…) to ξ(ρ) and Φ′_ρ(ξ). Lemma 4.9 gives (a) ⇒ (b) ⇔ (c) ⇒ (d), with the twisting identity (94).
+
+**Construction: the dual Selmer module** (node `NE.4/gl2-dual-selmer-module`). F_∞ = ℚ(E_{p^∞}), G, H and Γ, with 𝒮(E/L)
+and X(E/L) over Λ(Gal(L/F)). The hypotheses are p ≥ 5 and good ordinary reduction.
+
+**Definition: Conjectures 5.1–5.2** (node `NE.4/mh-conjecture-and-mazur`): X(E/F_∞) ∈ 𝔐_H(G), and Mazur's torsion
+conjecture.
+
+**Theorem: 𝔐_H(G) criteria** (node `NE.4/mh-criteria`): Lemmas 5.3–5.4, Corollary 5.5 (the CM case) and Proposition 5.6,
+with the conductor-11 isogeny class at p = 5. Its Coates–Howson, Venjakob and Schneps inputs are a gap.
+
+**Definition: the p-adic L-function** (node `NE.5/gl2-padic-l-function-conjecture`). Conjecture 5.7 gives ℒ_E ∈
+K₁(Λ_A(G)_{S(A)*}), with the interpolation (107), the periods Ω_±, the set R, f_ρ, and u and w, over the coefficient
+ring A.
+
+**Definition: the main conjecture** (node `NE.5/gl2-main-conjecture`). Conjecture 5.8 says i(ξ_E) ≡ ℒ_E modulo the image of
+K₁(Λ_A(G)).
+
+**Theorem: consequences** (node `NE.5/gl2-main-conjecture-consequences`): Corollaries 5.9–5.10, conditional on 5.8.
+
+**Application: X₁(11) at p = 5** (node `NE.5/gl2-main-conjecture-example-x1-11`). The data (108)–(115) are checked
+against Proposition 3.11. The valuations −1/2 + 3/2 + 2 = 3 and −3/2 + 5/2 = 1 give 5³ and 5.
+
 ## Dependencies
 
 - **NE.0 imports:**
@@ -354,8 +385,10 @@ for every Artin ρ, and it is nonzero iff the Euler characteristic is finite.
 - **NE.2.** CFKSV §3 onward (Akashi series, localisation sequence) and Burns–Venjakob §2.2.
 - **NE.3 (partial).** Still to do: reduced norms and SK₁, and what character evaluations determine (Ritter–Weiss, with the
   2026 uniqueness preprint); evaluation under induction and restriction.
-- **NE.4.** Equivariant Galois complexes.
-- **NE.5.** The formulation of zeta elements.
+- **NE.4 (partial).** Equivariant Galois complexes (Fukaya–Kato, Burns–Venjakob §3, Kakde, Ritter–Weiss). The inputs to
+  CFKSV §5 (Coates–Howson, Venjakob, Schneps) are a gap.
+- **NE.5 (partial).** Fukaya–Kato's formulation, and the abelian comparison with IntegralIwasawaTheory I.9. The
+  Dokchitser data are a gap.
 - **NE.6.** Kakde and Ritter–Weiss.
 - **NE.7.** Burns–Venjakob leading terms.
 
