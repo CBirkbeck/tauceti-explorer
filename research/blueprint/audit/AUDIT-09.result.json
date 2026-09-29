@@ -758,9 +758,23 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
          "line": 350,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.Hom.add_comp",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Add.lean",
+         "line": 282,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.End",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+         "line": 83,
+         "fit": "related"
         }
        ],
-       "note": "The endomorphism ring of a Weierstrass curve exists in Tau Ceti but is never identified with an order, and no algorithm or certificate computes it."
+       "note": "Tau Ceti's `Isogeny.Hom W W` is a monoid with zero under composition (no zero divisors) and an additive group, with only (g + g')∘f = g∘f + g'∘f proved (`add_comp`); left distributivity, hence a ring End(E), is not proved (the point map `toPointHom` is not built). Tau Ceti's ring `AbelianVariety.End` (with `instRing`, End/Basic.lean:168) is for abstract abelian varieties, and nothing at this baseline makes a Weierstrass curve an `AbelianVariety`, so it is not End(E). End(E) is neither a ring nor identified with an order, and no algorithm or certificate computes it."
       }
      ],
      "duplicates": [
@@ -3437,6 +3451,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
        "note": "That layer defines finite embedding problems and their solutions for profinite groups, IG.4’s embedding-problem vocabulary."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates",
+       "note": "Layer 6 certifies Galois labels over ℚ for explicit polynomials of degree ≤ 5, with worked realizations of C₃, C₄, D₄, C₅ and D₅ (x⁵ + x⁴ − 4x³ − 3x² + 3x + 1 for C₅, x⁵ − 5x − 12 for D₅): explicit low-degree instances of IG.4's cyclic and dihedral realizations over ℚ, not its general families."
       }
      ]
     },
@@ -3453,9 +3471,23 @@
          "file": "Mathlib/AlgebraicGeometry/Geometrically/Integral.lean",
          "line": 40,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.algebraicClosure_eq_bot_iff_isIntegrallyClosedIn",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/ConstantField.lean",
+         "line": 95,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.finrank_constantCompositum_eq_finrank_of_isSeparable",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/GeometricDegree.lean",
+         "line": 251,
+         "fit": "related"
         }
        ],
-       "note": "No Hurwitz space, Nielsen class or moduli of covers exists in either library, and regularity of a field extension is not defined; the nearest notion is Mathlib's scheme-theoretic geometric integrality of a morphism."
+       "note": "No Hurwitz space, Nielsen class or moduli of covers exists in either library, and regularity of a field extension is not a named predicate. Scheme-theoretically, regularity of F/k is Mathlib's geometric integrality of Spec F → Spec k, in every characteristic, with no bridge to field extensions. Its field-level content is available too: 'k algebraically closed in F' is Mathlib's `IsIntegrallyClosedIn k F`, which Tau Ceti identifies with algebraicClosure k F = ⊥ and shows gives the degree form [F·k′ : F] = [k′ : k] of linear disjointness from finite separable constant extensions k′/k; in characteristic 0, the setting of regular extensions of ℚ(T), this predicate is regularity (the BelyiMaps layer 9 stage uses it as the exact-constants hypothesis)."
       },
       {
        "target": "Tame covers in positive characteristic with p prime to the group order (Grothendieck specialization)",
@@ -3528,13 +3560,6 @@
          "fit": "related"
         },
         {
-         "name": "Polynomial.Monic.isSquare_discr_iff_range_le_alternatingGroup",
-         "library": "tauceti",
-         "file": "TauCeti/FieldTheory/GaloisGroups/Discriminant/Basic.lean",
-         "line": 144,
-         "fit": "related"
-        },
-        {
          "name": "Polynomial.Splits.surjective_toPermHom_of_iSup_inertia_eq_top",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Polynomial/Morse.lean",
@@ -3542,14 +3567,21 @@
          "fit": "related"
         },
         {
-         "name": "IsCyclotomicExtension.Rat.galEquivZMod",
+         "name": "NumberField.iSup_inertia_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Inertia.lean",
+         "line": 234,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.X_pow_sub_X_sub_one_irreducible_rat",
          "library": "mathlib",
-         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Galois.lean",
-         "line": 60,
-         "fit": "special case"
+         "file": "Mathlib/RingTheory/Polynomial/Selmer.lean",
+         "line": 69,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib proves that an irreducible rational polynomial of prime degree p with exactly two non-real roots has Galois group S_p, the Morse-polynomial criterion (a transitive group generated by inertia, acting on roots with at most one collision modulo each maximal ideal, is all of S_n; its number-field specialization and X^n − X − 1 are TODOs), and computes cyclotomic Galois groups; Tau Ceti has a Galois-group computation toolkit (orbits ↔ irreducible factors, blocks, the discriminant test for A_n, factor degrees of X⁵ − X − 1). No generic polynomials, cover maps or specialization conditions are exported."
+       "note": "Mathlib proves that an irreducible rational polynomial of prime degree p with exactly two non-real roots has Galois group S_p, the Morse-polynomial criterion (a transitive group generated by inertia, acting on roots with at most one collision modulo each maximal ideal, is all of S_n; Tau Ceti proves the number-field input, that the inertia subgroups of a number field Galois over ℚ generate its Galois group, so only the composition with the Morse criterion is unstated; Gal(X^n − X − 1) = S_n is absent, Mathlib proving only irreducibility of X^n − X − 1), and computes cyclotomic Galois groups (`IsCyclotomicExtension.Rat.galEquivZMod`, Mathlib/NumberTheory/NumberField/Cyclotomic/Galois.lean:60); Tau Ceti has a Galois-group computation toolkit (orbits ↔ irreducible factors, blocks, the discriminant test for A_n (`Polynomial.Monic.isSquare_discr_iff_range_le_alternatingGroup`, TauCeti/FieldTheory/GaloisGroups/Discriminant/Basic.lean:144), factor degrees of X⁵ − X − 1). No generic polynomials, cover maps or specialization conditions are exported."
       },
       {
        "target": "The arithmetic Galois action on Belyi pairs and dessins and its faithfulness, compared with peripheral inertia and the cyclotomic branch-cycle convention",
@@ -3621,6 +3653,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
        "note": "Layer 11 defines the conjugation action of Gal(ℚ̄/ℚ) on algebraic Belyi pairs, its open stabilizers, fields of moduli and fields of definition, IG.6's arithmetic Galois action on Belyi pairs with the field-of-moduli/definition distinction."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates",
+       "note": "HasGaloisLabel classification in degrees 3–4, sound quintic certificates in degree 5, with worked realizations over ℚ of every transitive group of degree 4 and 5, and of C₃ and S₃: checked polynomials with Galois-group identifications, part of IG.6's exports and list of solved families."
       }
      ]
     }
