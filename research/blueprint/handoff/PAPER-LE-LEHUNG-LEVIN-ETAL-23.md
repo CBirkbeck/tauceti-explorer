@@ -1,5 +1,34 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (G-outline step).
+**Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 118 findings,
+12 gaps. No Lean deliverable or compilation. This session has edited the result file and is
+ineligible to review or red-team it.
+
+## Completed here
+
+- **The G queue is done.** The 39 §7 theorem items without an outline now carry `proofSteps`,
+  `prerequisites` and `proofProvenance`, read from the published PDF132–162 with the recorded §7
+  findings applied. There are 127 new internal edges, and the graph stays acyclic at 1,568 edges.
+- §7 was re-read in full; no new finding.
+- Two implicit steps are recorded in the steps:
+  - Theorem 7.3.2(2)'s polynomial condition on μ, which must absorb the choice of presentation
+    (Lemma 7.3.1);
+  - Remark 7.4.3(2)'s use of h ≥ n − 1.
+
+## Resume from here
+
+1. **The last no-outline queue:** the A (56) theorem items without `proofSteps` (Appendix A and its
+   global inputs: Thorne, CHT, Labesse and the base-change suppliers). The L items (138) are library
+   citations.
+2. **The remaining gaps**, as listed in the Q03 step below.
+3. **External inputs** noted in the B step (B20, B31, B32), plus §7's imports: Kisin [48], [49];
+   Emerton–Gee [22] Theorems 4.8.12 and 4.8.14 and Proposition 4.8.10; and [56, Proposition 3.1.2].
+
+---
+
+# Previous checkpoint (cc-58621d, B-outline step)
+
 Claude Code — cc-58621d; issue 1254; 29 September 2026 (B-outline step).
 **Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 118 findings
 (E117 and E118 are new), 12 gaps. No Lean deliverable or compilation. This session has edited the
