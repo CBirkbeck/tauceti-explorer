@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5678 new mistakes confirmed · 1450 awaiting review · 703 already corrected in print · 88 rejected on review · 20 extractions and packets not yet checked.
+5678 new mistakes confirmed · 1451 awaiting review · 703 already corrected in print · 88 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -10379,6 +10379,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 ### Michael Lipnowski, Jacob Tsimerman, How large is A_g(F_q)?, Duke Math. J. 167 (2018), 3403–3453; read as arXiv 1511.02212v1 (6 Nov 2015) (`ArithmeticStatistics`)
 
 - **Misprint** at arXiv:1511.02212v1, proof of Lemma 5.9, p.32 (page image checked); published version not obtained. The source says `The source asserts that [0, ǫ]^k ∩ {x : Σ x_i = g} is a polyhedron with k(k + 1) extreme points.`; it should be `The polytope is [0, ǫg]^k ∩ {Σ x_i = g}, and its extreme points are the k(k − 1) permutations of (ǫg, (1 − ǫ)g, 0, …, 0).`. The coordinates are bounded by ǫg, not ǫ (for g > 1 the printed box misses the feasible set). An extreme point has at most one coordinate strictly between 0 and ǫg; since ǫ > 1/2 at most one equals ǫg, and the rest (1 − ǫ)g then sits on one other coordinate. Recorded as `ArithmeticStatistics/E642`; looked for an existing correction in: arXiv 1511.02212 abstract page, 2026-09-24: only v1; PAPER-LIPNOWSKI-TSIMERMAN-18 sourceIssues E1–E21 (the extraction's item note mentions the box typo; no sourceIssue records it).
+
+### C. Khare and J.-P. Wintenberger, Serre's modularity conjecture (II), Authors' final version (PDF dated 30 May 2009), 98 pages, on Khare's UCLA page; published as Invent. Math. 178 (2009), 505–586. The file matches the copy used by GL2ModularityLifting--R22.1 (same SHA-256). (`AutomorphicGaloisRepresentations`)
+
+- **Misprint** at References, [53], p. 97 (authors' final version, 30 May 2009). The source says `Reference [53] attributes to Takeshi Saito a preprint math.AG/0612077 under the title Modular forms and p-adic Hodge theory.`; it should be `[53] Takeshi Saito. Hilbert modular forms and p-adic Hodge theory. Preprint arXiv:math/0612077 (math.NT); Compositio Math. 145 (2009), 1081–1113.`. arXiv:math/0612077 is titled "Hilbert modular forms and p-adic Hodge theory" and is listed under math.NT; "Modular forms and p-adic Hodge theory" is Saito's 1997 Inventiones paper on elliptic modular forms. Lemma 7.7 concerns Hilbert modular forms, so the preprint is the intended reference. Recorded as `AutomorphicGaloisRepresentations/E2`; looked for an existing correction in: arXiv:math/0612077 abstract page (title and subject class); the published Invent. Math. 178 (2009) bibliography was not seen.
 
 ### P. Scholze, J. Weinstein, Moduli of p-divisible groups, arXiv:1211.6357v2 (`ClassicalAdicEtaleCohomology`)
 

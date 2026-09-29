@@ -129417,6 +129417,26 @@
    "reviewReason": null
   },
   {
+   "id": "AutomorphicGaloisRepresentations/E2",
+   "kind": "misprint",
+   "locator": "References, [53], p. 97 (authors' final version, 30 May 2009)",
+   "printed": "Reference [53] attributes to Takeshi Saito a preprint math.AG/0612077 under the title Modular forms and p-adic Hodge theory.",
+   "correction": "[53] Takeshi Saito. Hilbert modular forms and p-adic Hodge theory. Preprint arXiv:math/0612077 (math.NT); Compositio Math. 145 (2009), 1081–1113.",
+   "reason": "arXiv:math/0612077 is titled \"Hilbert modular forms and p-adic Hodge theory\" and is listed under math.NT; \"Modular forms and p-adic Hodge theory\" is Saito's 1997 Inventiones paper on elliptic modular forms. Lemma 7.7 concerns Hilbert modular forms, so the preprint is the intended reference.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0612077 abstract page (title and subject class)",
+    "the published Invent. Math. 178 (2009) bibliography was not seen"
+   ],
+   "owner": "AutomorphicGaloisRepresentations",
+   "file": "research/blueprint/packets/AutomorphicGaloisRepresentations.json",
+   "citation": "C. Khare and J.-P. Wintenberger, Serre's modularity conjecture (II), Authors' final version (PDF dated 30 May 2009), 98 pages, on Khare's UCLA page; published as Invent. Math. 178 (2009), 505–586. The file matches the copy used by GL2ModularityLifting--R22.1 (same SHA-256).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AutomorphicLFunctionsAndLocalFactors/E1",
    "kind": "misprint",
    "locator": "Published 2004 chapter, p.110, Section 1 conductor paragraph; also preprint p.2",
