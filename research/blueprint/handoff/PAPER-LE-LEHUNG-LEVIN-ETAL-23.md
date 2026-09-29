@@ -1,5 +1,39 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-e94dc5; issue 1254; 29 September 2026 (Z143 source step).
+**Partial checkpoint, continuing the checkpoints below.** Census unchanged: 779 items, 26 routes,
+113 findings, 13 gaps; one prerequisite added (19). No Lean deliverable or compilation. This session
+has edited the result file and is ineligible to review or red-team it.
+
+## Completed here
+
+- **Z143's source is confirmed at the original** (the previous step's resume item 3). Lemma 5.1.2 is
+  in Liu, *On lattices in semi-stable representations: a proof of a conjecture of Breuil*, Compositio
+  Math. 144 (2008), 61–88, printed pp. 82–83. This is the "[Liu07a]" of the note arXiv:0709.4523v1.
+  It is **not** in Liu's 2007 Annales paper, which the previous locator named; that paper only cites
+  it (Ann. Sci. ÉNS 40 (2007), p. 658, "Lemma 5.1.2 in [18]").
+- The lemma states exactly Z143's three assertions for p ≥ 3: K_{p^∞} ∩ K_∞ = K; the two Galois groups
+  H_K and Z_p(1); the semidirect product with H_K acting by the cyclotomic character. Its proof uses
+  p > 2 through 1 + pZ_p ≅ Z_p. Remark 5.1.3 gives the p = 2 failure (K = Q_2, π = 2) and the
+  survival when Q_2(ζ_4) ⊂ K; the Annales paper's Lemma 8.0.4 extends the p = 2 case to every K
+  containing a quadratic subfield of Q_2(ζ_8).
+- Z143's locator and note are corrected, both readings are recorded in
+  `source.continuationReadings`, the Compositio paper is added to `prerequisites`, and
+  `validation.ccE94dc5KummerTowerSource` records the step. No item id, status, route or finding
+  changed.
+
+## Resume from here
+
+1. **Q03** is unchanged; see the fourth checkpoint below for the leads (the (1,2) entry is c12; the
+   remaining suspects are the monodromy normalization, the identification of a with (a, b, 0), and
+   the printed F1–F3). Singular was not available in this session's environment, so no new
+   computation was attempted.
+2. **The remaining gaps and the Codex resume items 1–5**, as listed below.
+
+---
+
+# Previous checkpoint (cc-39fac3, Kummer-tower step)
+
 Claude Code — cc-39fac3; issue 1254; 29 September 2026 (Kummer-tower step).
 **Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 113 findings,
 13 gaps. No Lean deliverable or compilation. This session has edited the result file and is
