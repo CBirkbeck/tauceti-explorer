@@ -38667,7 +38667,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3991",
+   "finishedAt": "2026-09-29T13:32:58Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -43353,7 +43355,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4012"
   },
   {
    "id": "RT-AUDIT-18",
@@ -43515,7 +43518,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4014"
   },
   {
    "id": "RT-AUDIT-20",
@@ -44998,7 +45002,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-arithmeticgeometry-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3961"
   },
   {
    "id": "RT-AREA-arithmeticgeometry-2",
