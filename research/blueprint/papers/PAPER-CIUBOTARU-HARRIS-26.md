@@ -1,3 +1,53 @@
+# PAPER-CIUBOTARU-HARRIS-26: completion
+
+Dan Ciubotaru and Michael Harris, *On the generalized Ramanujan and Arthur conjectures over function fields*, Ann. of Math. 204 (2026), 545–601 ([doi](https://doi.org/10.4007/annals.2026.204.2.3), [arXiv:2311.15300](https://arxiv.org/abs/2311.15300v1)).
+
+Continuation by Claude Code, session `cc-39fac3`, 29 September 2026 (issue #1057). Status: **complete**. `check_paper.py` passes.
+
+The extraction now has:
+- 81 items: 1 library, 12 planned, 68 missing;
+- the same four routes;
+- 15 prerequisites;
+- 8 source issues.
+
+The earlier checkpoint's report follows below.
+
+## What this continuation did
+
+- **Reading.**
+  - arXiv v1 was re-downloaded (SHA-256 `7261083b…`, now recorded) and read completely.
+  - It is still the only arXiv version. The Annals revision (8 October 2025) is not accessible: the journal page links no PDF, and the conventional URL returns 404. So `published-version` stays open, and everything is scoped to v1.
+- **Itemization (17 new items).**
+  - Theorem 3.8(2)–(3) is planned: ExcursionOperatorsAndSpectralAction ES5 (the semisimple parameter assignment) and ES7:parabolic (compatibility with parabolic induction).
+  - GlobalShtukasPartIIRamanujanArthur receives:
+    - Li-Huerta's comparison of Genestier–Lafforgue with Fargues–Scholze;
+    - Proposition 3.10(1)–(4);
+    - Arthur's conjectures in Clozel's form, as the conjectural target;
+    - the stack-purity alternative (Expectation 5.9, Sketch 5.10, Sun's theorem);
+    - Xue's extension to finite-codimension Hecke quotients.
+  - SmoothRepresentationsPartIIUnitarySpherical receives the genericity and hermitian criteria, Lemmas 6.7–6.8, Theorem 6.9 and the ε = 0 reduction (6.11)–(6.13).
+  - LieHighestWeightPartIINilpotentOrbits receives Lemma 10.9's classical case (partitions and half-spin separation), the exceptional adjoint separation, and Tables 2–4.
+- **Computation: Tables 2–4 and Lemma 10.9 certified.**
+  - By Bala–Carter, the nilpotent orbits of a simple Lie algebra correspond to pairs (Levi subalgebra, distinguished parabolic of its derived algebra), and a 0/2 labelling is distinguished iff dim g₀ = dim g₂. Enumerating all subsets of simple nodes with exact rational arithmetic gives 5, 16, 21, 45 and 70 orbits for G2, F4, E6, E7 and E8 (distinct dominant h), and as many distinct adjoint gradings.
+  - **All 91 printed rows** of Tables 2–4 (70 for E8, 16 for F4, 5 for G2) equal the computed dim gr_i for the orbit with the printed label, with the right i_max. The rows are pairwise distinct, and each sums to dim ǧ.
+  - So the adjoint representation alone separates the nilpotent orbits of every exceptional type, **including E6 and E7**, which the paper did not tabulate.
+- **Source issues (§18).**
+  - The five findings of the reviewed errata job are copied verbatim with their review verdicts: E1–E4 misprints and E5 an error in Theorem 8.5's F4 B3 coordinate.
+  - Three findings are new, all checked on the page images:
+
+| id | kind | where | finding |
+|----|------|-------|---------|
+| E6 | gap | Appendix, proof of Lemma 10.9 | "If the claim holds for E8, it has to hold for all its Levi subalgebras, in particular for E6 and E7" does not follow as written. Equal gradings on a Levi's adjoint representation need not give equal gradings on e8. Even with all representations, restriction from E8 gives only E8-conjugacy: E7's (A5)′ and (A5)″ both become the E8 orbit A5. The conclusion holds by the direct computation above. |
+| E7 | misprint | §1.1, p. 3 | "As a corollary of Theorem 1.1" refers to a nonexistent theorem; it should be Theorem 5.4 (Corollary 5.7). |
+| E8 | misprint | Theorem 6.9, p. 18 | "the hermitian locus C₀" should be C_{0,h}. |
+
+- **Other updates.**
+  - **Prerequisites:** all five placeholder links pointed to the paper itself. They are replaced by 15 entries whose DOIs and arXiv ids were checked through Crossref and the arXiv API.
+  - **Library audit:** at Mathlib 082e2d3 and Tau Ceti f790474, IsSl2Triple remains the only library item. Mathlib's `LieAlgebra.IsKilling.exists_isSl2Triple_of_weight_isNonZero` gives root triples, not Jacobson–Morozov. Neither library has nilpotent orbits, Satake, Aubert–Zelevinsky or Weil numbers. All planned stages were reread and cover their citations.
+  - **Gaps:** the old `coverageGaps` are converted into `gaps` with statuses, and the old list is kept as `coverageGapsHistory`. Only `published-version` is open.
+
+---
+
 # Ciubotaru–Harris: extraction checkpoint
 
 **Job:** PAPER-CIUBOTARU-HARRIS-26, issue #1057. **Worker:** ChatGPT (GPT-6 Astra Pro), session `c0-5fbc06`. **Date:** 2026-09-21. **Status:** partial.

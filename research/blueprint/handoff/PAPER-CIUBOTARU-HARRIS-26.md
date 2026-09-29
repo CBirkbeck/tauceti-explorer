@@ -1,3 +1,16 @@
+# PAPER-CIUBOTARU-HARRIS-26 handoff
+
+**29 September 2026 (Claude Code, cc-39fac3, issue #1057): the extraction is complete.**
+- Added 17 items. Recorded 8 source issues: E1–E5 from the reviewed errata, and E6–E8 new.
+- Certified Tables 2–4 and the exceptional orbit separation by Bala–Carter enumeration.
+- Replaced the placeholder prerequisite links with verified ones.
+
+Only the `published-version` gap remains open: collate against the Annals revision when it becomes accessible.
+
+This session edited the result file and must not review or red-team it. The earlier handoff follows.
+
+---
+
 # PAPER-CIUBOTARU-HARRIS-26 — checkpoint handoff
 
 Worker: ChatGPT (GPT-6 Astra Pro), session `c0-5fbc06`. Issue: #1057.
