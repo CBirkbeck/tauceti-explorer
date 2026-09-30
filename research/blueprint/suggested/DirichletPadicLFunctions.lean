@@ -10353,3 +10353,123 @@ example : (∑' n : ℕ, ((-1 : ℚ_[p])^(n+1)/(n : ℚ_[p]))*(p : ℚ_[p])^n)�
 end AllPrimes
 end
 end SuggestedPrincipalLogarithmicTests
+
+/-! Conditional residue limits for an explicitly supplied character family.
+Continuity in C(U,Q_p), its value at1, and the derivative of its clearing factor
+are hypotheses. Constructing the canonical family remains with PMIA/LAD.
+The conclusions are punctured limits and a continuous-extension obstruction;
+they do not construct a meromorphic branch or assert an analytic pole order. -/
+namespace DirichletPadic
+noncomputable section
+open Filter AbstractMeasure
+open scoped Topology BigOperators
+variable (p : ℕ) [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]]
+local notation "Q" => ℚ_[p]
+local notation "U" => (ℤ_[p])ˣ
+variable (ha : ¬p∣p+1) (κ : ℚ_[p] → ContinuousMonoidHom ((ℤ_[p])ˣ) ℚ_[p])
+local notation "L" => (∑' n : ℕ, ((-1 : Q)^(n+1)/(n : Q))*(p : Q)^n)
+local notation "Nκ" => (fun s : Q => extendIntegralUnitCoefficients (R := Q)
+  (intrinsicSmoothedNumerator p (p+1) ha) (ContinuousMonoidHom.toContinuousMap (κ s)))
+
+theorem intrinsicSmoothedNumerator_family_continuity
+    (hcont : ContinuousAt (fun s => (κ s).toContinuousMap) 1) (hκ : κ 1=1) :
+    ContinuousAt Nκ 1 ∧ Nκ 1=
+      algebraMap ℤ_[p] Q (intrinsicSmoothedNumerator p (p+1) ha 1) := sorry
+
+theorem principalCharacterFamily_eventually_admissible
+    (u : U) (hu : (u : ℤ_[p])=(p+1 : ℕ)) (hκ : κ 1=1)
+    (hd : HasDerivAt (fun s : Q => κ s u-1) (-L) 1) :
+    ∀ᶠ s in 𝓝[≠] (1 : Q), κ s u-1≠0 := sorry
+
+theorem intrinsicSmoothedNumerator_family_residue_limit
+    (u : U) (hu : (u : ℤ_[p])=(p+1 : ℕ))
+    (hcont : ContinuousAt (fun s => (κ s).toContinuousMap) 1) (hκ : κ 1=1)
+    (hd : HasDerivAt (fun s : Q => κ s u-1) (-L) 1) :
+    Tendsto (fun s : Q => (s-1)*(Nκ s/(κ s u-1))) (𝓝[≠] (1 : Q))
+      (𝓝 (1-(p : Q)⁻¹)) ∧
+    ¬∃ g : Q → Q, ContinuousAt g 1 ∧
+      (fun s => Nκ s/(κ s u-1)) =ᶠ[𝓝[≠] (1 : Q)] g := sorry
+
+theorem intrinsicSmoothedNumerator_family_residue_coordinate
+    (u : U) (hu : (u : ℤ_[p])=(p+1 : ℕ))
+    (hcont : ContinuousAt (fun s => (κ s).toContinuousMap) 1) (hκ : κ 1=1)
+    (hd : HasDerivAt (fun s : Q => κ s u-1) (-L) 1)
+    (φ : Q → Q) (t₀ c : Q) (hφ : HasDerivAt φ c t₀) (hφ0 : φ t₀=1) (hc : c≠0) :
+    Tendsto (fun t : Q => (t-t₀)*(Nκ (φ t)/(κ (φ t) u-1)))
+      (𝓝[≠] t₀) (𝓝 ((1-(p : Q)⁻¹)/c)) := sorry
+end
+end DirichletPadic
+
+namespace SuggestedPrincipalResidueTests
+noncomputable section
+open Filter AbstractMeasure DirichletPadic
+open scoped Topology BigOperators
+section DyadicConstants
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- dyadic_constant_family_mass
+example : extendIntegralUnitCoefficients (R := ℚ_[2])
+    (intrinsicSmoothedNumerator 2 3 (by norm_num)) 1=
+    algebraMap ℤ_[2] ℚ_[2] (intrinsicSmoothedNumerator 2 3 (by norm_num) 1) := sorry
+-- dyadic_constant_family_continuity
+example : ContinuousAt (fun _ : ℚ_[2] => extendIntegralUnitCoefficients (R := ℚ_[2])
+    (intrinsicSmoothedNumerator 2 3 (by norm_num)) 1) 1 := sorry
+end DyadicConstants
+section General
+variable {p : ℕ} [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]]
+local notation "Q" => ℚ_[p]
+local notation "U" => (ℤ_[p])ˣ
+variable (ha : ¬p∣p+1) (κ : ℚ_[p] → ContinuousMonoidHom ((ℤ_[p])ˣ) ℚ_[p])
+local notation "L" => (∑' n : ℕ, ((-1 : Q)^(n+1)/(n : Q))*(p : Q)^n)
+local notation "Nκ" => (fun s : Q => extendIntegralUnitCoefficients (R := Q)
+  (intrinsicSmoothedNumerator p (p+1) ha) (ContinuousMonoidHom.toContinuousMap (κ s)))
+-- central_family_mass
+example (hκ : κ 1=1) : Nκ 1=
+    algebraMap ℤ_[p] Q (intrinsicSmoothedNumerator p (p+1) ha 1) := sorry
+-- principal_clearing_factor_zero
+example (u : U) (hκ : κ 1=1) : κ 1 u-1=0 := sorry
+-- constant_family_cannot_have_required_derivative
+example : ¬HasDerivAt (fun _ : Q => (0 : Q)) (-L) 1 := sorry
+-- regularized_ratio_nonzero_limit
+example : (1-(p : Q)⁻¹)≠0 := sorry
+-- critical_coordinate_excluded
+example : HasDerivAt (fun t : Q => 1+t^2) 0 0 := sorry
+variable (u : (ℤ_[p])ˣ) (hu : (u : ℤ_[p])=(p+1 : ℕ))
+variable (hcont : ContinuousAt (fun s => (κ s).toContinuousMap) 1) (hκ : κ 1=1)
+variable (hd : HasDerivAt (fun s : ℚ_[p] => κ s u-1)
+  (-(∑' n : ℕ, ((-1 : ℚ_[p])^(n+1)/(n : ℚ_[p]))*(p : ℚ_[p])^n)) 1)
+-- supplied_family_eventual_admissibility
+example : ∀ᶠ s in 𝓝[≠] (1 : Q), κ s u-1≠0 := by
+  have _ := hu; have _ := hκ; have _ := hd
+  sorry
+-- supplied_family_has_no_continuous_extension
+example : ¬ContinuousAt (fun s : Q => Nκ s/(κ s u-1)) 1 := by
+  have _ := hu; have _ := hcont; have _ := hκ; have _ := hd
+  sorry
+-- reversed_coordinate_changes_sign
+example : Tendsto (fun t : Q => t*(Nκ (1-t)/(κ (1-t) u-1)))
+    (𝓝[≠] (0 : Q)) (𝓝 (-(1-(p : Q)⁻¹))) := by
+  have _ := hu; have _ := hcont; have _ := hκ; have _ := hd
+  sorry
+end General
+section DyadicFamily
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+variable (κ : ℚ_[2] → ContinuousMonoidHom ((ℤ_[2])ˣ) ℚ_[2])
+variable (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2])=3)
+variable (hcont : ContinuousAt (fun s => (κ s).toContinuousMap) 1) (hκ : κ 1=1)
+variable (hd : HasDerivAt (fun s : ℚ_[2] => κ s u-1)
+  (-(∑' n : ℕ, ((-1 : ℚ_[2])^(n+1)/(n : ℚ_[2]))*(2 : ℚ_[2])^n)) 1)
+local notation "Nκ" => (fun s : ℚ_[2] => extendIntegralUnitCoefficients (R := ℚ_[2])
+  (intrinsicSmoothedNumerator 2 3 (by norm_num)) (ContinuousMonoidHom.toContinuousMap (κ s)))
+-- dyadic_weighted_limit
+example : Tendsto (fun s : ℚ_[2] => (s-1)*(Nκ s/(κ s u-1)))
+    (𝓝[≠] (1 : ℚ_[2])) (𝓝 (1/2 : ℚ_[2])) := by
+  have _ := hu; have _ := hcont; have _ := hκ; have _ := hd
+  sorry
+-- dyadic_double_coordinate_limit
+example : Tendsto (fun t : ℚ_[2] => t*(Nκ (1+2*t)/(κ (1+2*t) u-1)))
+    (𝓝[≠] (0 : ℚ_[2])) (𝓝 (1/4 : ℚ_[2])) := by
+  have _ := hu; have _ := hcont; have _ := hκ; have _ := hd
+  sorry
+end DyadicFamily
+end
+end SuggestedPrincipalResidueTests
