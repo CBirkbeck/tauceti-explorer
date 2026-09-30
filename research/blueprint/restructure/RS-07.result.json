@@ -725,14 +725,8 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-RS-07",
-    "date": "2026-09-21",
-    "notes": "Codex — codex-c83e7a independently read all member and anchor documents/layers, the family's 29 leads, reviewed library audits, both accepted decompositions (18 nodes), and the relevant supplier/consumer stages. Checked pinned declaration statements, all deleted-stage consumers, immutable anchors and the Part II boundary. Corrected quartic invariant/height ownership, the required Davenport contract and the ST.1/ST.4 comparison boundary. Accepted as an ownership proposal: inherited source/proof gaps remain open. See REV-RS-07.md for the integration/removal ledger, validation and queue deliverable mismatch.",
-    "corrections": [
-      "Explicitly preserve the accepted ST.0 quartic I/J, GL2 weights, discriminant, eligible pairs and height-normalization obligations; the elliptic curve-height carrier remains EC.8-owned.",
-      "Narrow ST.1 to import that named quartic interface from ST.0; add its existing prerequisite explicitly, a unique ST.0 owner entry, and consistent ST.0/ST.1 -> AN.8 descriptions. Resolve the EC.8 -> ST.1 link's former ST.1/ST.0 height-comparison ambiguity in favor of ST.0.",
-      "Specify Davenport's bounded semialgebraic multiset/projection-volume estimate at GN.4 and in GN.4 -> ST.2, preserving the stronger uniformity contract required by the accepted counting node.",
-      "Make ST.4 consume ST.1's orbit-to-Selmer comparison instead of listing it as another construction in its keeps field."
-    ]
+    "reviewer": "independent-review-REV-FIX-RT-RS-07",
+    "date": "2026-09-30",
+    "notes": "Independent review by Claude Code (cc-c2c06b) of FIX-RT-RS-07 (Claude Code cc-39fac3) for the one confirmed finding RT-RS-07/1; it follows REV-RS-07, whose acceptance of the target ownership stands. Checked against the verdict and the fix commit's diff: AnalyticNumberTheory:AN.3 is now 'keep' (no keeps or suppliedBy), its reason withholds the dependent narrowing and the reverse link SV.2 -> AN.3 until the edge replacement can be applied atomically, and keeps the obligations that do not depend on it (AN.6's RH/GRH register, Perron inversion from ADS Layer 6, Bombieri-Vinogradov with SV.3); SV.2's narrowing is unchanged (its suppliers are library addresses) and its reason no longer instructs a deletion the tool cannot perform; the link SV.2 -> AN.3 is removed (57 links); owners (32), roadmaps, family and the other layer decisions are unchanged, and no deletion key was invented. The owners rows are consistent with the withheld state: the large-sieve row names SV.2 as owner formerly ES.4, not AN.3. Re-ran scripts/restructure.py apply_restructurings read-only on data/atlas.json: with the promoted RS-07 it reproduces the finding (29 links among all promoted proposals, 17 skipped entries including the stage-to-stage [SV.2, AN.3], AN.3 narrowed, old edge present, new edge absent); with the fixed file, among all promoted proposals and alone (29 and 31 links), the 16 skipped entries are all UPSTREAM library addresses, no link between two stages is skipped, AN.3 is not narrowed, AN.3 -> SV.2 and SV.2's requires are intact, and the stage graph is acyclic. No correction was needed. check_restructure.py: ok."
   }
 }
