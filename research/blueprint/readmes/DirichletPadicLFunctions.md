@@ -17056,3 +17056,129 @@ Eight complete native lemmas check constant cancellation, preservation of the lo
 Exact controls check112 complement values at20 disc inputs,344 local logarithm expansions,132 point-series evaluations,448 constant-shift comparisons and832 affine orbit compositions. All20 root averages vanish and376 value comparisons pass at higher precision. All20 predecessor traces agree. Seventeen controls detect the wrong subtraction sign and15 detect misuse of the origin-only normalized formula. Exact cyclotomic modular arithmetic reuses the retained4729 logarithm implementation and4726 certified tail bound. Five tame character/prime cases have four disc inputs each. Input precision p^20 and output p^8 retain two guard digits for the nested normalized average. Direct logarithm values are compared with their normalized local series at each orbit point; every nested affine point is checked against its cyclic permutation. The finite complement agrees with the normalized H expression and the Euler expression, and its root average is zero. Four shifts of the supplied logarithm test cancellation of its induced constant at every point, including the principal character. All values are independently repeated three digits higher. The predecessor traces agree. Negative controls detect the wrong complement sign and misuse of the origin-only normalized formula at nonzero points. These are finite and convergent-series controls, not a LAD operator, support or L-value identification. The largest observed discrepancy is 0.
 
 The62-input capture at3402cdffd5703e37c0f90e4f1a0acd2272e4e15d has no changes relative to the predecessor inputs. All four predecessor outputs are preserved before assembly. Only existing pinned artifacts and the verified332-node PMIA artifact are used; no current369-node PMIA, LAD, Coleman or Polylogarithms compilation is claimed.
+
+
+## Inversion of the logarithmic disc complement
+
+Partial continuation preserving all518 predecessor nodes whole. Four L3 theorems give the exact trace inversion correction, its cancellation in the complement for every character, odd fixed-point zeros and the inverted coefficient HasSum. All16 findings, nine requests and13 gaps remain; zero stages are closed.
+
+Whole published151–155 was freshly read from the verified local RJW source. The exact previous point-defect node and all eight complete4722 native lemmas were read. Whole Coleman log-branch, local expansion, log-one-add-mul, branch-change and field-compatibility nodes were reread; their objects and exact hmul/hroot laws remain owned by Coleman. Native AddChar.map_neg_eq_inv was reread with its division-monoid hypotheses. Existing ZMod cardinality, range conversion and finite sum-permutation baselines are reused. The derived inversion identities are explicitly distinguished from the source’s named theorems.
+
+### The trace retains the exact inversion correction
+
+`DirichletPadicLFunctions:L3/logarithmic-disc-trace-inversion-defect` — `DirichletPadic.cyclotomicLogDiscTrace_inversion_defect`
+
+For ρ≠0, TrV(ρ⁻¹−1)=k·TrV(ρ−1)+k·G⁻¹·ℓ(ρ)·W.
+
+**Hypotheses:** K is a characteristic-zero field, D>0 with NeZero D, η:DirichletCharacter K D and ε primitive of order D. Use the actual V=cyclotomicLogValue, TrV=cyclotomicLogDiscTrace and U=cyclotomicLogDiscComplement. Put k=η(−1), G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one) and W=Σ_(a:ZMod D)η⁻¹(a). The finite results assume p>0, ξ^p=1 and the supplied laws hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0, and hroot:ℓ(z)=0 whenever z^n=1 with n>0. Inversion uses ρ≠0. No restriction is imposed on ℓ(0), and no multiplication law is applied at0. The finite statements allow all η, including principal or imprimitive characters, repeated roots, composite p, and totalized inverse G⁻¹ even if G=0. No norm, conductor coprimality, primitive ξ or Coleman finite distribution law is assumed. The odd fixed-point result additionally has η(−1)=−1. The convergent-series comparison adds a normed ultrametric field, p prime, ξ primitive of order p,‖p‖<1, D>1,‖D‖=1,‖t‖<1 and the exact supplied hlocal: HasSum(coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)) for x≠0,‖u‖<1. It still needs no nonprincipal hypothesis and no htrace.
+
+**Proof:**
+
+1. Use the complete preceding point-inversion theorem V(r⁻¹−1)=kV(r−1)+kG⁻¹ℓ(r)W. Its proof already treats a singular shifted logarithm argument separately, so it remains valid for arbitrary ℓ(0).
+2. Index the root sum by the native additive character ψ=AddChar.zmodChar p hξ on ZMod p. Its values have pth power1, hence are nonzero, and hroot gives ℓ(ψ(a))=0. Therefore hmul gives ℓ(ψ(a)ρ)=ℓ(ρ). The complete root_log lemma checks the nonzero and root-vanishing inputs.
+3. Reindex the trace at ρ⁻¹ by a↦−a. Native character negation gives ψ(−a)=ψ(a)⁻¹, so each argument is(ψ(a)ρ)⁻¹−1. The point theorem then gives k times the original summand plus the same correction kG⁻¹ℓ(ρ)W.
+4. The sum has exactly p terms by native ZMod.card. Multiplying by1/p cancels their count because characteristic zero and p>0 make(p:K) nonzero. Thus the trace retains exactly one copy of the point correction, not a copy divided by p.
+5. The complete zmod_trace_defect and range_trace_defect lemmas check the character reindexing, correction sign, scalar normalization and conversion to the constructor’s exact Finset.range p indexing.
+6. For the principal character modulo2 with ε=−1, k=W=1 and G=−1. Thus at p=3 the trace changes by−ℓ(ρ); the correction need not vanish. The exact controls detect omitting it.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-inversion-defect`, `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-trace`, `mathlib:AddChar.zmodChar`, `mathlib:AddChar.map_neg_eq_inv`, `mathlib:AddChar.zmodChar_apply'`, `mathlib:ZMod.card`, `mathlib:Equiv.prod_comp`, `mathlib:Fin.prod_univ_eq_prod_range`.
+
+**Tests:**
+
+- `SuggestedComplementInversionTests.principal_trace_correction` (non-example): For the principal character modulo2, ε=−1 and ξ³=1, the trace at ρ⁻¹−1 equals the trace at ρ−1 minusℓ(ρ), which can be nonzero.
+
+**Acceptance:** The correction has the same sign and size as the point correction. No nonprincipal cancellation is used.
+
+**Source:** Section6.2, finite logarithm expression and Lemmas6.4–6.5, published151–152/PDF52–53; Theorem6.1(ii) root trace and restriction complement, published153/PDF54. Whole published151–155 freshly reread. Worker-derived inversion refinement of the actual finite logarithm, trace and complement. These correction and cancellation identities are not attributed as named source theorems. The existing Coleman logarithm laws are imported; the prior pure-p-power convergence, primitive-character and L-value boundaries remain.
+
+### The complement has inversion parity for every character
+
+`DirichletPadicLFunctions:L3/logarithmic-disc-complement-inversion` — `DirichletPadic.cyclotomicLogDiscComplement_inversion`
+
+For every η and ρ≠0, U(ρ⁻¹−1)=η(−1)·U(ρ−1).
+
+**Hypotheses:** K is a characteristic-zero field, D>0 with NeZero D, η:DirichletCharacter K D and ε primitive of order D. Use the actual V=cyclotomicLogValue, TrV=cyclotomicLogDiscTrace and U=cyclotomicLogDiscComplement. Put k=η(−1), G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one) and W=Σ_(a:ZMod D)η⁻¹(a). The finite results assume p>0, ξ^p=1 and the supplied laws hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0, and hroot:ℓ(z)=0 whenever z^n=1 with n>0. Inversion uses ρ≠0. No restriction is imposed on ℓ(0), and no multiplication law is applied at0. The finite statements allow all η, including principal or imprimitive characters, repeated roots, composite p, and totalized inverse G⁻¹ even if G=0. No norm, conductor coprimality, primitive ξ or Coleman finite distribution law is assumed. The odd fixed-point result additionally has η(−1)=−1. The convergent-series comparison adds a normed ultrametric field, p prime, ξ primitive of order p,‖p‖<1, D>1,‖D‖=1,‖t‖<1 and the exact supplied hlocal: HasSum(coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)) for x≠0,‖u‖<1. It still needs no nonprincipal hypothesis and no htrace.
+
+**Proof:**
+
+1. Expand the actual complement as V−TrV at the two points. Apply the preceding exact point-inversion theorem and the newly promoted trace-inversion theorem.
+2. Both transformed terms contain exactly kG⁻¹ℓ(ρ)W. Subtracting cancels this term, leaving k(V(ρ−1)−TrV(ρ−1)). The complete complement_inversion proof checks this cancellation with the exact finite root sums.
+3. This improves the earlier correction-free theorem for V itself, which required η≠1. The complementary expression satisfies parity even for principal characters, because cancellation occurs between the value and its trace, not inside the character sum.
+4. The proof needs only ξ^p=1, so the p=4,ξ=−1 repeated-root sum is covered. At singular shifted arguments it inherits the preceding point theorem’s valid separate zero case.
+5. In the principal conductor2,p3 control, V and its trace each move by−ℓ(ρ), while U is unchanged. A separate exact D=p=3 model with ℓ(0)=1 and ℓ(nonzero)=0 checks the finite singular pairing; it satisfies hmul/hroot but is not claimed to satisfy hlocal.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-complement`, `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-inversion-defect`, `DirichletPadicLFunctions:L3/logarithmic-disc-trace-inversion-defect`.
+
+**Tests:**
+
+- `SuggestedComplementInversionTests.principal_complement_invariant` (compatibility): For the principal character modulo2, the p=3 complement is invariant under ρ↦ρ⁻¹ despite the individual logarithmic corrections.
+- `SuggestedComplementInversionTests.repeated_root_complement_pair` (degenerate): For p=4,ξ=−1, the same parity identity holds without primitive root indexing.
+
+**Acceptance:** The theorem is about the actual finite expression. It does not assert a parity identity for a yet-unidentified LAD distribution.
+
+**Source:** Section6.2, finite logarithm expression and Lemmas6.4–6.5, published151–152/PDF52–53; Theorem6.1(ii) root trace and restriction complement, published153/PDF54. Whole published151–155 freshly reread. Worker-derived inversion refinement of the actual finite logarithm, trace and complement. These correction and cancellation identities are not attributed as named source theorems. The existing Coleman logarithm laws are imported; the prior pure-p-power convergence, primitive-character and L-value boundaries remain.
+
+### Odd complements vanish at both inversion fixed points
+
+`DirichletPadicLFunctions:L3/logarithmic-disc-complement-odd-fixed-points` — `DirichletPadic.cyclotomicLogDiscComplement_odd_fixed_points`
+
+If η(−1)=−1, then U(0)=0 and U(−2)=0.
+
+**Hypotheses:** K is a characteristic-zero field, D>0 with NeZero D, η:DirichletCharacter K D and ε primitive of order D. Use the actual V=cyclotomicLogValue, TrV=cyclotomicLogDiscTrace and U=cyclotomicLogDiscComplement. Put k=η(−1), G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one) and W=Σ_(a:ZMod D)η⁻¹(a). The finite results assume p>0, ξ^p=1 and the supplied laws hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0, and hroot:ℓ(z)=0 whenever z^n=1 with n>0. Inversion uses ρ≠0. No restriction is imposed on ℓ(0), and no multiplication law is applied at0. The finite statements allow all η, including principal or imprimitive characters, repeated roots, composite p, and totalized inverse G⁻¹ even if G=0. No norm, conductor coprimality, primitive ξ or Coleman finite distribution law is assumed. The odd fixed-point result additionally has η(−1)=−1. The convergent-series comparison adds a normed ultrametric field, p prime, ξ primitive of order p,‖p‖<1, D>1,‖D‖=1,‖t‖<1 and the exact supplied hlocal: HasSum(coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)) for x≠0,‖u‖<1. It still needs no nonprincipal hypothesis and no htrace.
+
+**Proof:**
+
+1. In the complement inversion theorem set ρ=1 and ρ=−1. These are nonzero and self-inverse, with coordinateρ−1 equal to0 and−2 respectively.
+2. Odd character parity gives U(0)=−U(0) and U(−2)=−U(−2). Since2 is nonzero in a characteristic-zero field, both values vanish. The complete odd_fixed_points lemma proves both conclusions.
+3. This is a finite theorem, so no norm or D>1 assumption is required. In residue characteristic2,−2 lies inside the open unit disc and its analytic evaluation is also covered by the existing tame series theorem.
+4. Do not extend the zero conclusion to even or principal characters. Their inversion parity has sign+1 and imposes no zero at a fixed point.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/logarithmic-disc-complement-inversion`.
+
+**Tests:**
+
+- `SuggestedComplementInversionTests.odd_origin_and_negative_two` (computation): For the dyadic root index and odd η, both U(0) and U(−2) vanish for every supplied function satisfying hmul/hroot.
+
+**Acceptance:** The finite proof includes repeated roots and singular shifted arguments; analytic convergence remains a separate statement.
+
+**Source:** Section6.2, finite logarithm expression and Lemmas6.4–6.5, published151–152/PDF52–53; Theorem6.1(ii) root trace and restriction complement, published153/PDF54. Whole published151–155 freshly reread. Worker-derived inversion refinement of the actual finite logarithm, trace and complement. These correction and cancellation identities are not attributed as named source theorems. The existing Coleman logarithm laws are imported; the prior pure-p-power convergence, primitive-character and L-value boundaries remain.
+
+### The inverted complement series has the parity value
+
+`DirichletPadicLFunctions:L3/logarithmic-disc-complement-inversion-series` — `DirichletPadic.cyclotomicLogDiscComplement_inversion_hasSum`
+
+Under the tame local expansion hypotheses, the actual series coeff n(F)·(((1+t)⁻¹−1)^n−p⁻¹Σ_(j<p)(ξ^j(1+t)⁻¹−1)^n) has sum η(−1)U(t).
+
+**Hypotheses:** K is a characteristic-zero field, D>0 with NeZero D, η:DirichletCharacter K D and ε primitive of order D. Use the actual V=cyclotomicLogValue, TrV=cyclotomicLogDiscTrace and U=cyclotomicLogDiscComplement. Put k=η(−1), G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one) and W=Σ_(a:ZMod D)η⁻¹(a). The finite results assume p>0, ξ^p=1 and the supplied laws hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0, and hroot:ℓ(z)=0 whenever z^n=1 with n>0. Inversion uses ρ≠0. No restriction is imposed on ℓ(0), and no multiplication law is applied at0. The finite statements allow all η, including principal or imprimitive characters, repeated roots, composite p, and totalized inverse G⁻¹ even if G=0. No norm, conductor coprimality, primitive ξ or Coleman finite distribution law is assumed. The odd fixed-point result additionally has η(−1)=−1. The convergent-series comparison adds a normed ultrametric field, p prime, ξ primitive of order p,‖p‖<1, D>1,‖D‖=1,‖t‖<1 and the exact supplied hlocal: HasSum(coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)) for x≠0,‖u‖<1. It still needs no nonprincipal hypothesis and no htrace.
+
+**Proof:**
+
+1. The existing inversion-coordinate norm lemma gives‖(1+t)⁻¹−1‖=‖t‖<1. The same norm argument gives‖1+t‖=1, hence1+t≠0.
+2. Apply the preceding actual complement HasSum at t′=(1+t)⁻¹−1. Its shifted arguments simplify toξ^j(1+t)⁻¹−1 because1+t′=(1+t)⁻¹.
+3. Setρ=1+t in the new finite complement inversion theorem. It identifies U(t′)=η(−1)U(t), giving the displayed HasSum with its actual coefficient sequence.
+4. For the principal conductor2 character at p=3 and t=3, the inverse point is−3/4 and the shifted points areξ^j/4−1. The series has sum U(3), even though the corresponding unaveraged primitive values have a nonzero logarithmic correction.
+5. Only pointwise convergent evaluations are compared. No formal substitution equality, nonprincipal hypothesis, finite Coleman trace law or additional completeness assumption is inserted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/logarithmic-disc-complement-series`, `DirichletPadicLFunctions:L3/logarithmic-disc-complement-inversion`, `DirichletPadicLFunctions:L3/logarithmic-inversion-disc-coordinate`.
+
+**Tests:**
+
+- `SuggestedComplementInversionTests.principal_three_adic_inverse_series` (compatibility): The principal conductor2,p3 coefficient-complement series at−3/4 has sum U(3), under the exact tame local and logarithm laws.
+
+**Acceptance:** The existing coefficient HasSum and disc geometry are reused; no new generic inversion or analytic-function object is planned.
+
+**Source:** Section6.2, finite logarithm expression and Lemmas6.4–6.5, published151–152/PDF52–53; Theorem6.1(ii) root trace and restriction complement, published153/PDF54. Whole published151–155 freshly reread. Worker-derived inversion refinement of the actual finite logarithm, trace and complement. These correction and cancellation identities are not attributed as named source theorems. The existing Coleman logarithm laws are imported; the prior pure-p-power convergence, primitive-character and L-value boundaries remain.
+
+**Remaining:** The logarithmic complement now satisfies inversion parity for every character, including principal characters: its trace and point value have the same correction, which cancels. Odd complements vanish at0 and−2, and the exact inverted coefficient series has the parity value throughout the tame disc. Next retain this concrete finite/series package for the owned LAD operator, unit-support and distribution-to-L-value comparisons once the typed distribution/Amice/disc-evaluation interfaces are available. Do not introduce substitute carriers. All nine requests and13 gaps remain. The smoothed pure-p-power route, positive-weight comparisons with the corrected Teichmüller twist, pole/residue analysis and complete source extraction remain open. Preserve E44–E49 and the existing source corrections.
+
+### Inversion of the logarithmic disc complement validation
+
+All 518 predecessor nodes, 477 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 4 nodes, 4 named suggested declarations and 5 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 758 reachable nodes, 3599 edges and 648 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations. Each of the four new routes retains only the existing LAD L1 stage leaf through the owned logarithm interface. No new supplier request or generic averaging/inversion object is introduced.
+
+The full suggested module elaborates with zero errors and 1602 expected placeholder warnings. Source and artifact audits cover 3600 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Six complete native lemmas check exact ZMod/range conversion, nonzero root values and root logarithm vanishing, the normalized trace inversion correction, its range-indexed version, cancellation in the actual finite complement and the two odd fixed-point zeros. The probe elaborates against 2792 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact controls check21 trace defects and21 complement parities,114 pairs of root-shifted inverse points,608 local expansions and228 coefficient evaluations. Three principal-character controls detect omission of the trace correction. Four odd fixed-point checks,333 higher-precision comparisons and three exact singular finite-model checks pass. Exact cyclotomic modular logarithms in five tame character/prime cases, with four usual disc inputs and the extra dyadic fixed point−2. Input precision p^20, output p^8 plus one averaging digit, and an independent three-digit increase use the retained certified logarithm truncation from4726/4729. Direct finite values and local coefficient evaluations are computed at every root-shifted point and its inverse partner. Root logarithms vanish and the exact trace correction agrees with the point correction; subtraction cancels them for all characters. The principal conductor2,p3 case detects omission of the trace correction. Odd fixed points vanish. A separate exact D=p=3 model with ell(0)=1 and ell(nonzero)=0 checks singular finite complement pairing without a local expansion law or analytic claim. No LAD parity operator, formal substitution or L-value is identified. The largest observed discrepancy is 0.
+
+The62-input capture at4eab6fe60bfc010a0b63612c428487f4f0173b84 changed only the shared source-issue and errata register files; all16 Dirichlet findings and all four predecessor outputs are preserved. Independent review files are unchanged. Only existing pinned artifacts and the verified332-node PMIA artifact are used; no current369-node PMIA, LAD, Coleman or Polylogarithms compilation is claimed.
