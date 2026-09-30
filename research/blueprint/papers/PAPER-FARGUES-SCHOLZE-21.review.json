@@ -1,0 +1,67 @@
+{
+ "paper": "PAPER-FARGUES-SCHOLZE-21",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. RelativeFarguesFontaine owns the integral curve 𝒴_S, its untilts and Div¹ (RF0:integral-Y, RF2:integral-divisors, RF2:untilts, per RS-20). Seven classical-point statements are planned in the accepted VectorBundlesAndIsocrystals decomposition node VB2:classification/classical-points-and-principal-ideal-domains, and Div¹'s properness and smoothness and |X_S| → |S| in RF1/RF2 nodes, so they left the route. It now carries the classical points of 𝒴_C and their comparison with untilts (II.0.1(b), II.1.6–II.1.10), the tilting map, Lemma II.1.14, Remark II.1.20 and the openness and closedness of |X_S| → |S|. The consumers (VB2:classification, VB2:ampleness, VS1) lie downstream."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. Seventeen routed items are planned by nodes of the accepted VectorBundlesAndIsocrystals decomposition, and Remark II.2.18(ii) by DiamondEtaleCohomology:C4 (ECD Proposition 18.10); they left the route. It keeps the vanishing results of Proposition II.3.4 and the spatiality criteria of Lemma II.3.8 (consumed by VB3:general-BC), the punctured absolute Banach–Colmez remarks and Examples II.3.12–II.3.13, and gains the E^×-torsor over Div¹ and its local class field theory comparison, at VB3:positive-basic-examples."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. Chapter III is what BunGAndNewtonStrata plans. Its draft packet (not yet reviewed or promoted) states many of the route's items node by node; those nodes are recorded in the items' notes, but under PROTOCOL §6 a packet plans only once promoted, so the items stay missing here and the route names the layers the draft nodes use (BG0, BG1, BG2:uniformization, BG2:smooth-Artin, BG3, BG4). The route also carries the G-isocrystal stack and its stratification (cited), Viehmann's homeomorphism |Bun_G| ≅ B(G) as a cited statement (prerequisite added), the non-split decomposition of Gr_G, the examples, the quasi-split description of G̃_b, π₀(Bun_G) (IV.1.23, from route 4), Example V.3.4, and the comparison morphism from W_E-cohomology to étale cohomology of X_S (added in review)."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. Twenty-five routed items are planned by nodes of the accepted VStackSheavesAndLisseCategories decomposition and left the route. π₀(Bun_G) moved to route 3, Neeman's lemma to route 8 and the smooth dual to route 10. The route keeps the ULA lemmas and examples of §IV.2, the Quot charts on Bun_GL_n, D_lc, IV.6.14, and the Chapter V and VII remarks the VS nodes do not state, and gains Breen's functorial resolution (VS2)."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. Most routed items are planned by nodes of the accepted GeometricSatakeAndFusion decomposition (GS1, GS4:integral-dual-group), and the Bruhat order on W̃ by ReductiveGroupsPartII:RG2.4 through accepted routes; they left the route. It keeps Lemma VI.1.13 and Lemmas VI.3.2–VI.3.3, auxiliary lemmas the GS nodes cite without stating."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. The route's premise that §VIII.2 is unplanned is only half right: the accepted LanglandsParameterStacks decomposition plans Remark VIII.5.18 and Proposition VIII.5.19 (now planned), and the draft LP packet (review queued) states VIII.2.1–VIII.2.3, VIII.2.6–VIII.2.9, VIII.2.11 and the monodromy map. Those §VIII.2 items stay missing here, since the packet is not promoted, with the draft nodes recorded, and the route now names LP2:integral-invariants too. Problem I.11.1 moved to route 9. The Weil–Deligne items overlap PAPER-GAN-HARRIS-SAWIN-ETAL-24, whose LP0 route was rejected; the first review to settle them fixes the owner for both. Inputs with existing owners are imported (ArithmeticGaloisRepresentations R01.2, Tau Ceti DGAInfinity layer 8, DeformationAndDerivedPatchingAlgebra R03.3)."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. ML.5 names categorical Langlands only as an area and has no Bun_G or spectral-action inputs, so the Chapter X conjectures (X.1.4, X.1.6, X.1.7, X.2.2, X.3.5, with I.10.2 and X.1.5) and the statements around them are missing and recorded here as statements, not targets. The ES packets are not yet reviewed, so the elliptic parameter X.2.1, the pushout half of Lemma X.1.2 and the integral spectral action on D_lis(Bun_G) are routed here too. ES1:spectral-center records the ℓ-independence conjecture I.9.5; Haines' conjecture moved to route 11; Whittaker data are imported from SmoothRepresentationsOfLocalGroups, and only the Whittaker sheaf is constructed here."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accept. Added in review. Neeman's compact-generation criterion is PAPER-SCHOLZE-17 item 603, whose accepted route makes EnhancedDerivedSheaves its owner; VS1 lies downstream."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "Accept. Added in review. Problem I.11.1 concerns dimensions of Zariski closed subsets of perfectoid balls, not parameter stacks; C8 implements dim.trg and the cohomological bounds of [Sch17a, §21] and already records the analogous ECD question."
+  },
+  {
+   "route": 10,
+   "verdict": "accept",
+   "reason": "Accept. Added in review. The smooth dual and its derived functor are general smooth-representation theory, owned by SmoothRepresentationsOfLocalGroups SR.0."
+  },
+  {
+   "route": 11,
+   "verdict": "accept",
+   "reason": "Accept. Added in review. Haines' conjecture joins the accepted StableCenter Part II of PAPER-HANSEN-26 (same id, title, parent and area), which keeps one owner; the brief states the conjecture as FS print it."
+  },
+  {
+   "route": 12,
+   "verdict": "accept",
+   "reason": "Accept. Added in review. The Lubin–Tate formal group of height one and its logarithm join the accepted Part II LubinTateFormalModulesAndQuasiCanonicalLifts (BURUNGALE-KOBAYASHI-OTA-21 and ANDREATTA-GOREN-HOWARD-ETAL-18); the brief asks it to include equal characteristic."
+  }
+ ],
+ "notes": "Accept, corrected in place. Twelve parallel readers checked all 834 items, the 70 recorded mistakes, the seven routes and the prerequisites against arXiv:2102.13459v4 (TeX source and page images). 245 items were corrected and 13 added; the file now has 847 items (733 planned, 2 library, 112 missing) and 12 routes, all accepted. The extraction read only stage descriptions: many items it called missing are planned node by node in the accepted decompositions. Items planned only by draft, unpromoted packets (BunGAndNewtonStrata, the §VIII.2 part of LanglandsParameterStacks, ExcursionOperatorsAndSpectralAction) stay missing and are routed to the layers those packets name. All 70 recorded mistakes are confirmed (E57 and E69 kept as the body occurrences of E3 and E4); 59 more were found, notably a sign error in Lemmas IV.4.25–IV.4.26 and a false identification HH²(B/A) = Ext¹(L_{B/A}, B) in §VIII.2. Details in research/blueprint/reviews/REV-PAPER-FARGUES-SCHOLZE-21.md."
+}
