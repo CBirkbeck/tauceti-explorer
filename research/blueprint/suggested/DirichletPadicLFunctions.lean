@@ -8493,3 +8493,99 @@ example {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
       (cyclotomicLogDiscComplement 3 ξ (1 : DirichletCharacter K 2) (-1) hε ℓ 3) := sorry
 end SuggestedComplementInversionTests
 end
+
+/-! Negative moments of the actual tame arithmetic measures. The continuous
+inverse is the native unit inverse extended by zero, with its continuity supplied
+by PMIA. The branch comparison uses a supplied factorization; it does not build
+principal-unit families or identify a scalar analytic L-function. -/
+namespace DirichletPadic
+noncomputable section
+section NegativeCharacterMoments
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "I" => (ContinuousMap.mk (fun x : ℤ_[p] => algebraMap ℤ_[p] K (PadicInt.inv x))
+  (Continuous.comp (continuous_algebraMap ℤ_[p] K) PadicInt.continuous_inv) : C(ℤ_[p],K))
+
+theorem tameZetaMeasure_negative_moment_shift (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D)
+    (k : ℕ) (hk : 1≤k) :
+    tameZetaMeasure η hD hpD (primePowerCharacter p n χ*I^(k-1))=
+      AbstractMeasure.unitRestriction p K (twistedTameMeasure n χ η hD hpD) (I^k) := sorry
+
+theorem tameCharacterValue_negative_moment (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D)
+    (k : ℕ) (hk : 1≤k) (κ : (ℤ_[p])ˣ →ₜ* K)
+    (hκ : ∀ u : (ℤ_[p])ˣ, κ u=primePowerCharacter p n χ (u : ℤ_[p])*
+      (algebraMap ℤ_[p] K (↑u⁻¹ : ℤ_[p]))^(k-1)) :
+    tameCharacterValue η hD hpD κ=
+      AbstractMeasure.unitRestriction p K (twistedTameMeasure n χ η hD hpD) (I^k) := sorry
+
+theorem twistedTameMeasure_negative_moment_eq_zero [CharZero K]
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hη : η≠1) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D)
+    (k : ℕ) (hk : 1≤k) (hpar : η (-1)*χ (-1)=(-1 : K)^k) :
+    AbstractMeasure.unitRestriction p K (twistedTameMeasure n χ η hD hpD) (I^k)=0 := sorry
+
+theorem tameCharacterValue_positive_integer_branch (n : ℕ)
+    (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (k : ℕ) (hk : 1≤k)
+    (ω α : (ℤ_[p])ˣ → K) (hfactor : ∀ u : (ℤ_[p])ˣ, ω u*α u=algebraMap ℤ_[p] K (u : ℤ_[p]))
+    (κ : (ℤ_[p])ˣ →ₜ* K)
+    (hκ : ∀ u : (ℤ_[p])ˣ, κ u=primePowerCharacter p n χ (u : ℤ_[p])*
+      ((ω u)⁻¹)^(k-1)*((α u)⁻¹)^(k-1)) :
+    tameCharacterValue η hD hpD κ=
+      AbstractMeasure.unitRestriction p K (twistedTameMeasure n χ η hD hpD) (I^k) := sorry
+end NegativeCharacterMoments
+end
+end DirichletPadic
+
+namespace SuggestedNegativeMomentTests
+open DirichletPadic
+noncomputable section
+section General
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "I" => (ContinuousMap.mk (fun x : ℤ_[p] => algebraMap ℤ_[p] K (PadicInt.inv x))
+  (Continuous.comp (continuous_algebraMap ℤ_[p] K) PadicInt.continuous_inv) : C(ℤ_[p],K))
+-- first_negative_shift
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    tameZetaMeasure η hD hpD (primePowerCharacter p n χ)=
+      AbstractMeasure.unitRestriction p K (twistedTameMeasure n χ η hD hpD) I := sorry
+-- second_negative_shift
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    tameZetaMeasure η hD hpD (primePowerCharacter p n χ*I)=
+      AbstractMeasure.unitRestriction p K (twistedTameMeasure n χ η hD hpD) (I^2) := sorry
+-- untwisted_inverse_character
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D)
+    (κ : (ℤ_[p])ˣ →ₜ* K) (hκ : ∀ u : (ℤ_[p])ˣ, κ u=algebraMap ℤ_[p] K (↑u⁻¹ : ℤ_[p])) :
+    tameCharacterValue η hD hpD κ=
+      AbstractMeasure.unitRestriction p K (tameMeasure η hD hpD) (I^2) := sorry
+-- corrected_second_branch
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (ω α : (ℤ_[p])ˣ → K)
+    (hfactor : ∀ u : (ℤ_[p])ˣ, ω u*α u=algebraMap ℤ_[p] K (u : ℤ_[p]))
+    (κ : (ℤ_[p])ˣ →ₜ* K) (hκ : ∀ u : (ℤ_[p])ˣ,
+      κ u=primePowerCharacter p n χ (u : ℤ_[p])*(ω u)⁻¹*(α u)⁻¹) :
+    tameCharacterValue η hD hpD κ=
+      AbstractMeasure.unitRestriction p K (twistedTameMeasure n χ η hD hpD) (I^2) := sorry
+end General
+section Dyadic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+local notation "I" => (ContinuousMap.mk (fun x : ℤ_[2] => algebraMap ℤ_[2] ℚ_[2] (PadicInt.inv x))
+  (Continuous.comp (continuous_algebraMap ℤ_[2] ℚ_[2]) PadicInt.continuous_inv) : C(ℤ_[2],ℚ_[2]))
+-- odd_first_negative_moment
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2=-1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.unitRestriction 2 ℚ_[2] (tameMeasure η hD hpD) I=0 := sorry
+-- even_twist_second_negative_moment
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2=-1)
+    (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3=-1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.unitRestriction 2 ℚ_[2] (twistedTameMeasure 2 χ η hD hpD) (I^2)=0 := sorry
+end Dyadic
+end
+end SuggestedNegativeMomentTests
