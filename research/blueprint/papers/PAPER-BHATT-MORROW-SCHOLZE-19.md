@@ -178,3 +178,31 @@ item to a roadmap that the Clausen–Mathew–Morrow and Clausen–Mathew extrac
 same parent, instead of opening a rival. All **12 findings are confirmed**, two of them by computation —
 the boundary case is `n = i − 1`, as the display's `p^{i−1−n}V` shows, and the coefficient in Remark 10.6
 is `ξ^{i−j}`, since `μ = ξφ^{−1}(μ)`.
+
+## Fixes (FIX-RT-PAPER-BHATT-MORROW-SCHOLZE-19, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #5010. This fix applies the six medium findings of
+`RT-PAPER-BHATT-MORROW-SCHOLZE-19`, with the corrections of its verifier (Claude Code, cc-48533a). The full record is
+`research/blueprint/redteam/RT-PAPER-BHATT-MORROW-SCHOLZE-19.fixes.md`. Where the sections above disagree with this one,
+this one is current.
+
+- **Theorem 7.15's consequences (/1).** Z_p(0) = Z_p via K_0 (new item 115), Z_p(1) = T_pG_m (066) and K_* of
+  quasiregular semiperfect rings (089) move from RT.6 to the Part II of route 1.
+  - They rest on Theorem 7.15, which the Part II owns downstream of RT.6. Only the TC-internal part of Proposition
+    7.16 (065) stays at RT.6.
+  - The Part II imports RT.2, RT.3, RT.6, PR.4 and K.2:low-degree-comparisons.
+  - Proposition 7.21 (069) is proved at PR.4 by its direct proof.
+- **Stage links (/2, /4, /6).** The proofs of §§6–10 need the following links, recorded in the route reasons:
+  - CR.4 → DD.4, DD.5 → DD.4 and DD.4 → RT.6, for the derived de Rham–Witt package and Theorem 8.17;
+  - AI.0 → RT.6 and AI.4 → RT.6, for §9's AΩ and BMS1's twist;
+  - L.5 → RT.6, for the THH(F_p) inputs.
+
+  All are acyclic, singly and together with the pending PR.4 → RT.6. Items 084 and 097 drop PR.3 as a planner, and
+  item 023 (Bökstedt periodicity) is planned at L.5 only.
+- **PR.4 (/3).** Item 088 keeps only the statement Z_p(i)(S) = A_crys(S)^{φ=p^i}. The TC exact sequence is new item 116
+  at RT.6. Route 13 records CR.4 → PR.4, DD.4 → PR.4 and PR.6 → PR.4, and §10's AΩ input is PR.6's comparison.
+- **RT.1 (/5).** It needs DD.0 → RT.1 (a pending link). Items 015 and 045 drop RT.1 as a planner. Item 043 needs DD.3 →
+  DD.5.
+- **Lemma 2.5 (/6).** It uses Serre's finiteness of the stable stems (new item 117, requested from StableHomotopyKTheory
+  H.6), not Bökstedt's π_*THH(Z), which appears only in a footnote.
+- **Result:** 117 items (1 library, 56 planned, 60 missing), 14 routes.
