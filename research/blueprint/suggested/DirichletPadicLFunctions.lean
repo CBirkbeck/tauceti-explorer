@@ -15186,3 +15186,105 @@ example (A : ℤ_[2] → ℚ_[2]) (h : ∀ x, ‖x-1‖ ≤ (4 : ℝ)⁻¹ → �
 -- angular_mean_norm_exceeds_one
 example : ‖moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun x => (x : ℚ_[2]))‖ = 2 := by sorry
 end SuggestedAngularSampleTests
+
+/- Uniform finite means on the source principal disc. These native signatures use explicit
+pointwise norm and Lipschitz hypotheses. LAD owns their derivation from its analytic
+Gauss norm and the missing typed Taylor interface; no surrogate analytic carrier is defined. -/
+namespace DirichletPadic
+variable (p : ℕ) [Fact p.Prime]
+lemma moritaAngular_translate_norm (u v : ℤ_[p]ˣ) (z : ℤ_[p])
+    (h : (v : ℤ_[p]) = (u : ℤ_[p]) + moritaModulus p * z) :
+    ‖(moritaAngular p v : ℤ_[p]) - (moritaAngular p u : ℤ_[p])‖ =
+      ‖(v : ℤ_[p]) - (u : ℤ_[p])‖ := by sorry
+
+variable {K : Type*} [NormedField K]
+lemma moritaAngularSamples_shift_norm (A : ℤ_[p] → K) (L : ℝ) (hL : 0 ≤ L)
+    (hA : ∀ x y : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖A x-A y‖ ≤ L * ‖x-y‖)
+    (f n a z : ℕ) :
+    ‖moritaAngularSamples p A (a + moritaLevel p f n * z) - moritaAngularSamples p A a‖ ≤
+      L * ‖(moritaLevel p f n : ℤ_[p])‖ := by sorry
+
+variable [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] [CharZero K] {f : ℕ}
+lemma moritaAngularMean_shift_norm (χ : DirichletCharacter K f) (hf : 0 < f)
+    (A : ℤ_[p] → K) (L : ℝ) (hL : 0 ≤ L)
+    (hA : ∀ x y : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖A x-A y‖ ≤ L * ‖x-y‖)
+    (n z : ℕ) :
+    ‖moritaFiniteMean p χ n (fun a => moritaAngularSamples p A (a+moritaLevel p f n*z) - moritaAngularSamples p A a)‖ ≤ L := by sorry
+
+lemma moritaAngularMean_step_norm (χ : DirichletCharacter K f) (hf : 0 < f)
+    (A : ℤ_[p] → K) (L : ℝ) (hL : 0 ≤ L)
+    (hA : ∀ x y : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖A x-A y‖ ≤ L * ‖x-y‖)
+    (n : ℕ) : ‖moritaAngularMean p χ (n+1) A - moritaAngularMean p χ n A‖ ≤
+      ‖(moritaModulus p : K)⁻¹‖ * L := by sorry
+
+lemma moritaAngularMean_uniform_norm (χ : DirichletCharacter K f) (hf : 0 < f)
+    (A : ℤ_[p] → K) (B L : ℝ) (hB : 0 ≤ B) (hL : 0 ≤ L)
+    (hval : ∀ x : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖A x‖ ≤ B)
+    (hA : ∀ x y : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖A x-A y‖ ≤ L * ‖x-y‖)
+    (n : ℕ) : ‖moritaAngularMean p χ n A‖ ≤
+      max (‖(Nat.lcm f (moritaModulus p) : K)⁻¹‖ * B) (‖(moritaModulus p : K)⁻¹‖ * L) := by sorry
+
+lemma moritaAngularMean_gauss_uniform_norm (χ : DirichletCharacter K f) (hf : 0 < f)
+    (A : ℤ_[p] → K) (B : ℝ) (hB : 0 ≤ B)
+    (hval : ∀ x : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖A x‖ ≤ B)
+    (hA : ∀ x y : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖A x-A y‖ ≤ (B / ‖(moritaModulus p : ℤ_[p])‖) * ‖x-y‖)
+    (n : ℕ) : ‖moritaAngularMean p χ n A‖ ≤
+      max ‖(Nat.lcm f (moritaModulus p) : K)⁻¹‖ (‖(moritaModulus p : K)⁻¹‖ ^ 2) * B := by sorry
+
+end DirichletPadic
+namespace DirichletPadic.SuggestedAnalyticBoundTests
+-- angular_shift_isometry_dyadic
+example (u v : ℤ_[2]ˣ) (z : ℤ_[2]) (h : (v : ℤ_[2]) = (u : ℤ_[2]) + 4*z) :
+    ‖(moritaAngular 2 v : ℤ_[2]) - (moritaAngular 2 u : ℤ_[2])‖ = ‖4*z‖ := by sorry
+-- angular_zero_shift
+example (u : ℤ_[2]ˣ) : ‖(moritaAngular 2 u : ℤ_[2]) - (moritaAngular 2 u : ℤ_[2])‖ = 0 := by sorry
+-- sample_constant_shift
+example (c : ℚ_[2]) (n a z : ℕ) :
+    moritaAngularSamples 2 (fun _ => c) (a+moritaLevel 2 1 n*z) -
+      moritaAngularSamples 2 (fun _ => c) a = 0 := by sorry
+-- sample_identity_shift_bound
+example (n a z : ℕ) :
+    ‖moritaAngularSamples 2 (fun x => (x : ℚ_[2])) (a+moritaLevel 2 1 n*z) -
+      moritaAngularSamples 2 (fun x => (x : ℚ_[2])) a‖ ≤ ‖(moritaLevel 2 1 n : ℤ_[2])‖ := by sorry
+-- sample_nonunit_shift_zero
+example (A : ℤ_[2] → ℚ_[2]) (n z : ℕ) :
+    moritaAngularSamples 2 A (2+moritaLevel 2 1 n*z) = 0 := by sorry
+-- shifted_constant_zero
+example (c : ℚ_[2]) (n z : ℕ) : moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 1) n
+    (fun a => moritaAngularSamples 2 (fun _ => c) (a+moritaLevel 2 1 n*z) -
+      moritaAngularSamples 2 (fun _ => c) a) = 0 := by sorry
+-- shifted_quadratic_three
+example : moritaFiniteMean 3 (1 : DirichletCharacter ℚ_[3] 1) 0
+    (fun a => moritaAngularSamples 3 (fun x => (((x : ℚ_[3])-1)/3)^2) (a+3) -
+      moritaAngularSamples 3 (fun x => (((x : ℚ_[3])-1)/3)^2) a) = 4/3 := by sorry
+-- step_quadratic_two
+example : moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 1 (fun x => (((x : ℚ_[2])-1)/4)^2) -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun x => (((x : ℚ_[2])-1)/4)^2) = 5/2 := by sorry
+-- step_quadratic_three
+example : ‖moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) 1 (fun x => (((x : ℚ_[3])-1)/3)^2) -
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) 0 (fun x => (((x : ℚ_[3])-1)/3)^2)‖ = 9 := by sorry
+-- step_zero_function
+example (n : ℕ) : moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) (n+1) 0 -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n 0 = 0 := by sorry
+-- uniform_constant_two
+example (n : ℕ) : ‖moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun _ => 1)‖ ≤ 4 := by sorry
+-- uniform_deep_level_three
+example (n : ℕ) : ‖moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 81) n
+    (fun x => (((x : ℚ_[3])-1)/3)^2)‖ ≤ 81 := by sorry
+-- scaled_quadratic_two
+example (n : ℕ) : ‖moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n
+    (fun x => (((x : ℚ_[2])-1)/4)^2)‖ ≤ 16 := by sorry
+-- scaled_quadratic_three
+example (n : ℕ) : ‖moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n
+    (fun x => (((x : ℚ_[3])-1)/3)^2)‖ ≤ 9 := by sorry
+-- bounded_indicator_large_mean
+example : ‖moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 1
+    (fun x => if PadicInt.toZModPow 4 x = 1 then (1 : ℚ_[2]) else 0)‖ = 8 := by sorry
+-- bounded_indicator_fails_gauss_lipschitz
+example : ‖(1 : ℚ_[2])-0‖ > 4 * ‖(1 : ℤ_[2])-9‖ := by sorry
+end DirichletPadic.SuggestedAnalyticBoundTests
