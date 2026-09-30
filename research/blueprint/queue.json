@@ -39507,8 +39507,9 @@
     "REV-PAPER-PAN-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-PAN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4320"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4320",
+   "finishedAt": "2026-09-30T05:44:42Z"
   },
   {
    "id": "REV-RT-PAPER-PAN-26",
@@ -40150,7 +40151,8 @@
     "REV-PAPER-SCHOLZE-12"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SCHOLZE-12.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4604"
   },
   {
    "id": "REV-RT-PAPER-SCHOLZE-12",
