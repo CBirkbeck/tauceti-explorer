@@ -34861,7 +34861,8 @@
     "REV-PAPER-YUN-ZHANG-17"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-YUN-ZHANG-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4116"
   },
   {
    "id": "REV-RT-PAPER-YUN-ZHANG-17",
@@ -37056,8 +37057,9 @@
     "REV-PAPER-HANSEN-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HANSEN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4527"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4527",
+   "finishedAt": "2026-09-30T14:57:20Z"
   },
   {
    "id": "RT-PAPER-KISIN-PAPPAS-ZHOU-26",
@@ -42017,7 +42019,8 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-06.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4394"
   },
   {
    "id": "RT-RS-07",
