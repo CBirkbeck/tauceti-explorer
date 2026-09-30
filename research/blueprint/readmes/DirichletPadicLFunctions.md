@@ -22966,3 +22966,133 @@ Freshly re-elaborate the ten complete native scalar/valuation lemmas retained489
 Seventy-one exact tame/wild profiles, including36 dyadic profiles, pass1942 character-product checks,111 finite-unit exponent checks,1082 coefficient recoveries,4890 weighted wild-value membership checks,426 joint-moment comparisons and426 integral witnesses. Exact field spans have31 dimensions1,32 dimensions2 and8 dimensions4 over ℚ only;573 closure products and317 inverses are checked. There are71 weight-zero,78 level-zero,66 modulus-one and45 principal/quadratic-collapse controls, plus26 proper joint-field examples,131 failures of an incorrect tame-only range and224 failures of replacing the wild character by a principal one. Two hundred norm-valuation multiplication checks support the finite dyadic/triadic models. These are finite atomic controls, not actual arithmetic measure computations or local degree proofs. Exact Fraction arithmetic in Q(i,omega) with i²=−1 and omega²+omega+1=0. Character tables use genuine tame/wild levels: at p=3, tame levels1,4,5 and wild1,9; at p=2, tame1,3,7 and wild1,16, with the noncyclic unit group modulo16 enumerated as ±3^j. Exact Gaussian elimination constructs the rational spans of the two value fields and their native-style compositum; closure products and inverses are checked. Dyadic/triadic norm models use the ramified quadratic norm to the inert quadratic base, with multiplicativity controls. The displayed dimensions are over Q, not asserted as local p-adic degrees. Finite atomic weighted moments verify coefficient transport and integer witnesses; they are not the actual arithmetic tame measures. Wrong principal-wild replacement and incorrectly restricting to the tame field give negative controls. The largest observed discrepancy is 0 in every asserted exact identity.
 
 All66 captured inputs and four predecessor outputs are unchanged at capture49bd6af9b47786abbff6233f59440a6c4aa57c8e and remain guarded. The exact4905 partial prefix plus five declarations/twelve examples compiles against3582 pinned modules with2096 expected placeholder warnings and zero errors; the prefix still omits4777–4791. No import changes. Three existing API signatures are promoted without alteration. The full previous suggested body remains contiguous. Full-module compilation is unavailable because the compatible native TwistedDivisorSum artifact is absent. Fifteen native lemmas compile against2889 Mathlib modules with no errors, warnings or placeholders. The complete principal/quadratic-field proofs retain their verified4883 receipt; they were not separately recompiled in this checkpoint.
+
+
+## Prime level changes of the finite tame kernel
+
+Four L2 nodes give exact native character values and the finite character polynomial after adding one prime, the nonprincipal formal-series comparison, and repeated-prime invariance. All702 predecessor nodes remain whole. Four new signatures and ten tests keep nonunit, principal, repeated-prime and substitution boundaries explicit.
+
+Freshly read complete RJW published143–146, the reviewed L2 AUDIT24 entry, the existing finite numerator/series/generating nodes and exact signatures, and the native character level-change, nonunit, finite-sum, canonical residue, formal substitution and geometric-sum declarations with their hypotheses. The roadmap already owns the finite kernel; this adds only its prime-level comparison. PMIA owns generic measure dilation, whose existing Amice formula is integral-valued; it is not applied here to field-valued measures.
+
+### Character values after adding one prime level
+
+`DirichletPadicLFunctions:L2/tame-prime-level-character-value` — `DirichletPadic.changeLevel_prime_nat_value`
+
+For every a∈ℕ, (changeLevel η)(a modqM)=0 ifq∣a and equals η(a modM) otherwise.
+
+**Hypotheses:** R is a commutative ring, M>0 with NeZero M, q is prime (Fact q.Prime), and η:DirichletCharacter R M is the native zero-extended finite character. Use the native changeLevel along M∣qM, with q allowed to divide M.
+
+**Proof:**
+
+1. The target value is zero whenever a is a nonunit moduloqM, by native MulChar.map_nonunit. The native ZMod unit criterion identifies its unit condition with coprimality withqM.
+2. Ifq∣a, coprimality withqM is impossible. Ifq∤a, native Nat.Prime.coprime_iff_not_dvd shows that a is coprime toq. Split further on coprimality withM: if it fails, a is a nonunit at both levels and both values are zero.
+3. In the remaining case a is coprime toqM. Apply the native integer-cast changeLevel_eq_cast_of_dvd' and convert the natural coprimality proof to the corresponding integer statement. This is exactly where the native unit-only change-level rule is legitimate.
+4. The complete prime_nat_value and changeLevel_nat_unit native probe lemmas check all branches. No replacement of changeLevel by unrestricted residue evaluation is made, and the proof also covers principal characters andq∣M.
+
+**Prerequisites:** `mathlib:DirichletCharacter.changeLevel`, `mathlib:DirichletCharacter.changeLevel_eq_cast_of_dvd'`, `mathlib:MulChar.map_nonunit`, `mathlib:ZMod.isUnit_iff_coprime`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:Nat.isCoprime_iff_coprime`.
+
+**Tests:**
+
+- `SuggestedTamePrimeLevelTests.added_prime_zero` (computation): The lifted character takes the value0 atq.
+- `SuggestedTamePrimeLevelTests.unchanged_away_from_prime` (compatibility): At every natural a not divisible byq, the lifted value equals the original value, including zeros caused by other nonunits.
+- `SuggestedTamePrimeLevelTests.principal_lift_has_new_zero` (non-example): The principal character modulo3 lifted to6 vanishes at2, although the original character takes value1 there.
+
+**Acceptance:** The identity is about the actual native bundled character. No nonprincipal or coprime(q,M) restriction is imposed.
+
+**Source:** Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47; complete four pages freshly re-read on30September2026. Worker-derived prime-level comparison of the existing finite tame kernel, motivated by the primitive-conductor measure construction. The finite character identity follows the pinned native changeLevel definition; no equality with the primitive Gauss presentation or actual measure transport is assumed. Existing source findings and qualifications are preserved.
+
+### Finite character polynomial at one prime level
+
+`DirichletPadicLFunctions:L2/tame-prime-level-finite-sum` — `DirichletPadic.changeLevel_prime_finite_sum`
+
+For any commutative ring S, ring homomorphism φ:R→S and Y∈S, write Aη(Y)=Σ_(a<M)φ(η(a))Y^a. Then A_(changeLevel η)(Y)=Aη(Y)·Σ_(j<q)Y^(jM)−φ(η(q))·Aη(Y^q).
+
+**Hypotheses:** R is a commutative ring, M>0 with NeZero M, q is prime (Fact q.Prime), and η:DirichletCharacter R M is the native zero-extended finite character. Use the native changeLevel along M∣qM, with q allowed to divide M. All sums are finite natural ranges. The ring S need not be a domain, φ need not be injective, and Y is arbitrary. This includes evaluation in a formal power-series ring by the actual constant-coefficient ring map.
+
+**Proof:**
+
+1. Use the preceding character-value identity termwise. The lifted sum is the full sum Σ_(a<qM)φ(η(a modM))Y^a minus the same sum restricted to multiples ofq. This subtraction is valid for every native character, principal included.
+2. For the full sum, uniquely write a=jM+b withj<q andb<M. Native natural casts moduloM removejM, so η(a modM)=η(b modM), while Y^a=Y^(jM)Y^b. Distribute the two finite sums to obtain Aη(Y) times the geometric block sum.
+3. For the removed sum, a=qb gives a bijection fromb<M onto the multiples ofq belowqM, sinceq>0. Native multiplicativity and the ring-map laws give φ(η(qb))=φ(η(q))φ(η(b)); Y^(qb)=(Y^q)^b. This is exactly the second term.
+4. The complete prime_character_sum native probe proves the entire statement, including its arbitrary coefficient map, using the complete character_blocks and sum_multiples lemmas. These are finite reindexings; there is no infinite expansion inY=1+T or T-adic convergence assumption.
+5. When a later generating equation is indexed byZMod M, convert it to this natural range by the native Fin/ZMod identification and the native natCast_zmod_val identity. The complete sum_zmod_range probe proves that exact conversion without choosing a different residue representative.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-prime-level-character-value`, `mathlib:DirichletCharacter.changeLevel`, `mathlib:ZMod.finEquiv`, `mathlib:ZMod.natCast_zmod_val`.
+
+**Tests:**
+
+- `SuggestedTamePrimeLevelTests.principal_polynomial_mod_three_to_six` (computation): For the principal character modulo6 the polynomial isY+Y^5.
+- `SuggestedTamePrimeLevelTests.repeated_prime_finite_sum` (compatibility): Ifq∣M, η(q)=0 and the finite identity reduces to the geometric block product.
+
+**Acceptance:** Includes repeated primes and principal characters, even though the following series comparison requires nonprincipality. Exact controls compare every polynomial coefficient, including nonreal character values.
+
+**Source:** Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47; complete four pages freshly re-read on30September2026. Worker-derived prime-level comparison of the existing finite tame kernel, motivated by the primitive-conductor measure construction. The finite character identity follows the pinned native changeLevel definition; no equality with the primitive Gauss presentation or actual measure transport is assumed. Existing source findings and qualifications are preserved.
+
+### Tame series after adding one prime level
+
+`DirichletPadicLFunctions:L2/tame-series-prime-level-comparison` — `DirichletPadic.tameSeries_changeLevel_prime`
+
+F_(changeLevel η)(T)=Fη(T)−C(η(q))·PowerSeries.subst((1+T)^q−1)(Fη).
+
+**Hypotheses:** R is a commutative ring, M>0 with NeZero M, q is prime (Fact q.Prime), and η:DirichletCharacter R M is the native zero-extended finite character. Use the native changeLevel along M∣qM, with q allowed to divide M. R is an integral domain, η≠1, and the images of M andqM are supplied units hM andhN. No field, topology, characteristic-zero, p-adic prime or primitivity hypothesis is required for this formal algebra theorem. Fη=tameSeries η hM is the existing finite-numerator quotient. Put Y=1+T and Hq=Y^q−1; its constant coefficient is zero, so native PowerSeries.subst Hq is permitted. In the tame p-adic application one additionally has p∤M andq≠p, which supply the two unit images; that analytic application is separate.
+
+**Proof:**
+
+1. The positive target levelqM lets native changeLevel_eq_one_iff transfer η≠1 to the lifted character. Apply the existing tame-generating-equation to both levels: (1−Y^M)Fη=Aη(Y) and (1−Y^(qM))F_(changeLevel η)=A_(changeLevel η)(Y). Convert the residue sums by the finite range identification checked above.
+2. Specialize the preceding finite-sum theorem to S=R[[T]], φ=PowerSeries.C andY=1+T. Let S_q=Σ_(j<q)Y^(jM). Native mul_neg_geom_sum gives (1−Y^M)S_q=1−Y^(qM). Thus multiplying the first generating equation byS_q gives the required equation for the first term of the proposed difference.
+3. The constant coefficient ofHq=Y^q−1 is zero. Native HasSubst.of_constantCoeff_zero' therefore supplies the actual substAlgHom. ItsX andC identities, additivity and multiplicativity show that it sendsY toY^q, 1−Y^M to1−Y^(qM), andAη(Y) toAη(Y^q). Apply it to the original generating equation; this gives the required equation for the substituted term. The complete native substitution_one_add and substitution_denominator lemmas verify the exact orientation of substitution.
+4. The finite-sum identity now makes both the actual lifted series and the proposed difference solve the same equation with factor1−Y^(qM). This factor is nonzero: native coeff_one_pow computes its coefficient ofT as−qM, andhN makesqM nonzero in the nontrivial domain. Cancel it in R[[T]]. The complete denominator_ne_zero and cancellation_identity probe lemmas check the algebraic nonvanishing and cancellation steps.
+5. Taking constant coefficients gives the factor1−η(q), using the native constantCoeff_subst_of_constantCoeff_zero. This is a formal identity of the existing constructors, not yet a measure pushforward statement. For principal characters the generating equations used here do not hold; their regularized constructor must not be silently substituted into this proof.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-generating-equation`, `DirichletPadicLFunctions:L2/tame-prime-level-finite-sum`, `mathlib:DirichletCharacter.changeLevel_eq_one_iff`, `mathlib:mul_neg_geom_sum`, `mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'`, `mathlib:PowerSeries.substAlgHom`, `mathlib:PowerSeries.coe_substAlgHom`, `mathlib:PowerSeries.substAlgHom_X`, `mathlib:PowerSeries.subst_C`, `mathlib:PowerSeries.coeff_one_pow`, `mathlib:PowerSeries.constantCoeff_subst_of_constantCoeff_zero`.
+
+**Tests:**
+
+- `SuggestedTamePrimeLevelTests.nonprincipal_mass_factor` (compatibility): The constant coefficient of the lifted series is(1−η(q)) times the original constant coefficient.
+- `SuggestedTamePrimeLevelTests.principal_mass_counterexample` (non-example): The principal tame constructors at levels3 and9 have different constant coefficients overQ:−1 and−3. Since the principal level3 character takes value0 at3, the nonprincipal formula would incorrectly make them equal.
+- `SuggestedTamePrimeLevelTests.correct_zero_constant_substitution` (degenerate): The actual argument(1+T)^q−1 has zero constant coefficient, including all positive primeq.
+
+**Acceptance:** Uses the substitution(1+T)^q−1, notT^q, and the valueη(q), not its inverse or conjugate. Exact twelve-coefficient controls detect all of these mistakes. No primitive Gauss nonvanishing, p-adic measure dilation or interpolation theorem is assumed.
+
+**Source:** Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47; complete four pages freshly re-read on30September2026. Worker-derived prime-level comparison of the existing finite tame kernel, motivated by the primitive-conductor measure construction. The finite character identity follows the pinned native changeLevel definition; no equality with the primitive Gauss presentation or actual measure transport is assumed. Existing source findings and qualifications are preserved.
+
+### Tame series at repeated prime levels
+
+`DirichletPadicLFunctions:L2/tame-series-repeated-prime-level` — `DirichletPadic.tameSeries_changeLevel_prime_dvd`
+
+Ifq∣M, then F_(changeLevel η)=Fη as actual formal series.
+
+**Hypotheses:** R is a commutative ring, M>0 with NeZero M, q is prime (Fact q.Prime), and η:DirichletCharacter R M is the native zero-extended finite character. Use the native changeLevel along M∣qM, with q allowed to divide M. R is an integral domain, η≠1, and the images of M andqM are supplied units hM andhN. No field, topology, characteristic-zero, p-adic prime or primitivity hypothesis is required for this formal algebra theorem. Fη=tameSeries η hM is the existing finite-numerator quotient. Put Y=1+T and Hq=Y^q−1; its constant coefficient is zero, so native PowerSeries.subst Hq is permitted. In the tame p-adic application one additionally has p∤M andq≠p, which supply the two unit images; that analytic application is separate. q divides the original levelM.
+
+**Proof:**
+
+1. Native ZMod.isUnit_prime_iff_not_dvd shows thatq is a nonunit moduloM. Native MulChar.map_nonunit givesη(q)=0. The complete repeated_prime_value_zero probe verifies this with the actual bundled character.
+2. Insertη(q)=0 in tame-series-prime-level-comparison. The constant seriesC(0) and its product vanish, giving equality of the two existing formal series.
+3. This equality retains nonprincipality and both level-unit hypotheses from the comparison. It is the step that will remove repeated Euler factors in later conductor iteration. At principal level3→9 the equality is false; atM=1 there is no nonprincipal instance.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-series-prime-level-comparison`, `mathlib:ZMod.isUnit_prime_iff_not_dvd`, `mathlib:MulChar.map_nonunit`.
+
+**Tests:**
+
+- `SuggestedTamePrimeLevelTests.repeated_prime_character_value_zero` (computation): A native character vanishes at every prime dividing its level.
+- `SuggestedTamePrimeLevelTests.repeated_prime_series_coefficients` (compatibility): Every coefficient of the two existing series agrees whenq∣M andη is nonprincipal.
+
+**Acceptance:** The result includes nonprimitiveη, all powers of an existing prime, and dyadic tame applications with oddM andq. A comparison of actual measures andζ inverse weighting is still required before conductor iteration.
+
+**Source:** Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47; complete four pages freshly re-read on30September2026. Worker-derived prime-level comparison of the existing finite tame kernel, motivated by the primitive-conductor measure construction. The finite character identity follows the pinned native changeLevel definition; no equality with the primitive Gauss presentation or actual measure transport is assumed. Existing source findings and qualifications are preserved.
+
+**Remaining:** The nonprincipal tame formal series now has an exact one-prime level-change formula and repeated-prime invariance. Next transport it to the actual field-valued tame measure using native Amice coefficients and the existing finite PMIA Mahler-dilation identity; its integral-only Amice theorem cannot be applied directly. Then handle unit restriction and inverse weighting (which introduces η(q)/q forζ), iterate the genuinely new primes, and compare with the native primitive character. Primitive Gauss nonvanishing, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open.
+
+### Prime level changes of the finite tame kernel validation
+
+All 702 predecessor nodes, 589 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 4 nodes, 4 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 962 reachable nodes, 4837 edges and 771 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All four new routes end in native declarations and existing fine nodes, with no new stage-request leaf. Existing supplier requests remain open.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3603 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Sixteen complete native lemmas include the entire finite character-sum identity with an arbitrary coefficient map, its periodic-block and removed-multiple reindexings, canonical ZMod/range conversion, the actual pointwise changeLevel rule, preservation of nonprincipality, admissible substitution and its denominator, nonzero denominator, cancellation, and the formal mass calculation. The roadmap formal-series theorem still depends on its previously planned generating equation; no arithmetic measure theorem is proved by this probe. The separate probe compiles against 2814 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Nineteen exact quadratic/nonreal character profiles include imprimitive lifts. Seventy-six prime-level pairs check all2652finite polynomial coefficients;52nonprincipal pairs check624quotient-series coefficients and52mass identities. Fifteen repeated-prime and33dyadic tame pairs are included. The principal3→9 counterexample and four incorrect Euler/substitution formulas are detected. Exact rational-pair arithmetic in Q(i) and Q(omega), with validated multiplicative character tables and native-style unit-filtered lifts. Compare the whole finite polynomial coefficientwise. Independently compute twelve coefficients of the existing tame quotient by its binomial recurrence and compose with (1+T)^q−1. These are exact finite coefficients of the actual formal constructor, not numerical samples of an unconstructed measure or proof of an infinite identity. The largest observed discrepancy is 0 for every asserted exact identity.
+
+All66 inputs and four predecessor outputs are unchanged at capture and guarded. The partial signature file is the exact4916prefix plus four declarations/ten examples, still omitting4777–4791. This exact partial file elaborates with zero errors and2110expected placeholder warnings only. No new import is added. The full module remains NOT COMPILED because the compatible native TwistedDivisorSum artifact is absent; no library build occurs.
