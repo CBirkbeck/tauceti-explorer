@@ -234,7 +234,7 @@
       "statement": "Let π be a cuspidal automorphic representation of PGL2(A_F) that is unramified outside Σ and an unramified twist of the Steinberg representation at each x ∈ Σ, with Σ ∩ R = ∅. Put N = deg Σ = Σ_{x∈Σ}[k(x):k] and ρ = deg R. Then L(π,s) and L(π⊗η,s) are polynomials in q^{−s} of degrees 4g−4+N and 4g−4+2ρ+N (§2.6.1). Define ℒ(π,s+½) := q^{(2g−2+N/2)s}L(π,s+½) and ℒ(π⊗η,s+½) := q^{(2g−2+ρ+N/2)s}L(π⊗η,s+½). Each is an even or odd function of s according to the root number of π, resp. π⊗η.",
       "locator": "§1.1.1, p.395; §2.6.1, p.414 (N = deg Σ is defined only in §5.1.1, p.463)",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. Review (REV-PAPER-YUN-ZHANG-19): statement corrected against the paper: N is never defined in the statement. The paper also leaves it undefined in §§1–2: N = deg Σ is first stated on p.463 (see new issue). The statement also omits the degree facts that make the normalisation symmetric.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. Review (REV-PAPER-YUN-ZHANG-19): statement corrected against the paper: N is never defined in the statement. The paper also leaves it undefined in §§1–2: N = deg Σ is first stated on p.463 (see new issue). The statement also omits the degree facts that make the normalisation symmetric. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "api": [
         "Expose unnormalized value and conductor-dependent exponential factor.",
         "Differentiate after normalization; retain chosen complex realization of eigenvalues."
@@ -252,7 +252,7 @@
       "statement": "Define ℒtwo(s1,s2)=ℒπ(s1+s2+1/2)ℒπη(s1−s2+1/2), and ℒtwoAd=ℒtwo/L(π,Ad,1). The introduction uses the former; §2.6 reuses the same printed symbol for the latter.",
       "locator": "§1.1.1, p.395 (ℒ_{F′/F} without L(π,Ad,1)); §2.6.1, unnumbered display, p.414 (ℒ_{F′/F} divided by L(π,Ad,1)). The cited (2.30) is the test function f_{Σ±}, not this definition.",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "api": [
         "Name both normalizations and provide the explicit conversion.",
         "Specialize s2=0 and change variables t1=s1+s2,t2=s1−s2."
@@ -270,7 +270,7 @@
       "statement": "For f ∈ C_c^∞(G(A)), K_f(g1,g2) = Σ_{γ∈G(F)} f(g1^{−1}γg2) (2.1), and J(f,s1,s2) = ∫^{reg}_{[A]×[A]} K_f(h1,h2)|h1|^{s1+s2}|h2|^{s1−s2}η(h2) dh1 dh2 (2.2). The Haar measure on A(A) is normalised by vol(A(O)) = 1, and the regularisation is that of [YZ17, §§2.2–2.5]. For γ ∈ G(F), J(γ,f,s1,s2) = ∫_{A(A)×A(A)} f(h1^{−1}γh2)|h1h2|^{s1}|h1/h2|^{s2}η(h2) dh1 dh2. This integral is absolutely convergent when inv(γ) ∉ {0,∞}, where inv: G(F) → P^1(F)−{1} is as in [YZ17, (2.1)], and is regularised as in [YZ17, §2.5] when inv(γ) ∈ {0,∞}. All of these lie in C[q^{±s1},q^{±s2}]. Moreover J(f,s1,s2) = Σ_{γ∈A(F)\\G(F)/A(F)} J(γ,f,s1,s2) (2.3), and J(u,f,s1,s2) := Σ_{inv(γ)=u} J(γ,f,s1,s2) for u ∈ P^1(F)−{1} (2.4).",
       "locator": "§2.1 (2.1)–(2.4)",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. Review (REV-PAPER-YUN-ZHANG-19): statement corrected against the paper: The locator covers (2.1)–(2.4), but the statement omits the two-variable orbital integrals, the invariant map and the orbital expansion (2.3)–(2.4). Items 131–133 consume these as J(u, h_D^{Σ±}; s1, s2), and no other item defines them.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. Review (REV-PAPER-YUN-ZHANG-19): statement corrected against the paper: The locator covers (2.1)–(2.4), but the statement omits the two-variable orbital integrals, the invariant map and the orbital expansion (2.3)–(2.4). Items 131–133 consume these as J(u, h_D^{Σ±}; s1, s2), and no other item defines them. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "api": [
         "Keep Haar measures, degree truncations and the η-factor explicit.",
         "Export regular and singular orbit components and dependence on f."
@@ -306,7 +306,7 @@
       "statement": "Let S be a finite set of places, f^S ∈ I^S_Eis ⊂ H^S_G, and let f_S ∈ C_c^∞(G(A_S)) be left invariant under Iw_S = ∏_{x∈S} Iw_x. For f = f_S ⊗ f^S, K_f = K_{f,cusp} + K_{f,sp}, the projections of K_f to the cuspidal spectrum and to the residual spectrum of one-dimensional representations (Theorem 2.2). Consequently J(f,s1,s2) = Σ_π J_π(f,s1,s2), summed over cuspidal automorphic π of G(A), with J_π(f) = 0 for all but finitely many π (Lemma 2.3).",
       "locator": "§2.2, Theorem 2.2, p.404; §2.3.1, Lemma 2.3, p.405",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. Review (REV-PAPER-YUN-ZHANG-19): statement corrected against the paper: Theorem 2.2 does not say the kernel is purely cuspidal. It gives K_f = K_{f,cusp} + K_{f,sp}, and the residual (one-dimensional) part survives; only Lemma 2.3 removes it from J. The statement also omits Lemma 2.3's conclusion. Separately, the Iwahori hypothesis fails at R for h□_x, so the paper's application to f_{Σ±} needs the repair in the new issue.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. Review (REV-PAPER-YUN-ZHANG-19): statement corrected against the paper: Theorem 2.2 does not say the kernel is purely cuspidal. It gives K_f = K_{f,cusp} + K_{f,sp}, and the residual (one-dimensional) part survives; only Lemma 2.3 removes it from J. The statement also omits Lemma 2.3's conclusion. Separately, the Iwahori hypothesis fails at R for h□_x, so the paper's application to f_{Σ±} needs the repair in the new issue. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "proofSteps": [
         "Use the constant-term/Satake transform and the Iwahori condition; separately establish fixed-level cuspidal finiteness from FA.6."
       ]
@@ -318,7 +318,7 @@
       "statement": "Normalize local Whittaker pairings and the two toric linear forms as in §§2.3,2.5, with vol A(O)=1. The cuspidal summand factors as |ωX|^−1/(2L(π,Ad,1)) times the two unnormalized L-values and the normalized local spherical characters.",
       "locator": "§2.3.1–§2.3.2, (2.6)–(2.9), pp.405–406. (2.5) is the Eisenstein kernel in the proof of Theorem 2.2. Note: the local characters use the unnormalised Tamagawa measures d^×t_x = ζ_x(1)dt_x/|t_x|, and |ω_X|^{−1} in (2.9) converts from vol(A(O)) = 1 to vol(A(O)) = |ω_X|^{1/2}.",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "api": [
         "Expose ψ, Haar measure, local pairing and the unramified reference vector.",
         "Provide pure-tensor factorization and cancellation of changed local normalizations."
@@ -336,7 +336,7 @@
       "statement": "At x∈R, on integral 2×2 matrices with determinant valuation one set h̃#=½∏ij(1+χ(aij modϖ)) if all entries are units, and ∏ij(1+χ(aij modϖ)) otherwise; zero elsewhere. Push to PGL2 by the central integration convention.",
       "locator": "§2.4.1 (2.10)–(2.11)",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "api": [
         "Construct the matrix test and central pushforward separately.",
         "Evaluate from residue entries and distinguish the all-unit case."
@@ -354,7 +354,7 @@
       "statement": "h̃# counts matrices α over κx whose entrywise squares equal the residue matrix and whose determinant is zero, for an integral matrix of determinant valuation one.",
       "locator": "Lemma2.4",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "proofSteps": [
         "The nonzero rank-one residue matrix has compatible diagonal products; all-unit roots split equally by the sign of α11α22/(α12α21); zeros force determinant zero."
       ]
@@ -366,7 +366,7 @@
       "statement": "For x ∈ R, f̃□_x is supported on Mat2(O_x)_{v_x(det)=1}. There it equals η_x(ā11ā12) if a11,a12 ∈ O_x^×, equals η_x(ā21ā22) if a21,a22 ∈ O_x^×, and is 0 otherwise. The two formulas agree when all entries are units, because the residue matrix has rank one. f□_x := p_{x,*}f̃□_x.",
       "locator": "§2.4.2",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. Review (REV-PAPER-YUN-ZHANG-19): statement corrected against the paper: The support must be the integral matrices Mat2(O_x) with v_x(det) = 1. 'Determinant-valuation-one matrices' also admits non-integral matrices, whose second row need not be integral when the first row consists of units.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. Review (REV-PAPER-YUN-ZHANG-19): statement corrected against the paper: The support must be the integral matrices Mat2(O_x) with v_x(det) = 1. 'Determinant-valuation-one matrices' also admits non-integral matrices, whose second row need not be integral when the first row consists of units. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "api": [
         "Construct from either unit row; prove overlap independence.",
         "Export left GL2(O)-invariance and right A(O)-η equivariance."
@@ -384,7 +384,7 @@
       "statement": "The space of functions φ on GL2(F_x) such that (1) supp φ ⊂ Mat2(O_x)_{v_x(det)=1}, (2) φ is left GL2(O_x)-invariant and (3) φ(g·diag(a,d)) = η_x(a/d)φ(g) for diag(a,d) ∈ Ã(O_x) is one-dimensional and spanned by f̃□_x. Moreover f̃□_x = Σ_{u∈k(x)^×} η_x(u)·1_{GL2(O_x)[[1,u],[0,ϖ_x]]} (2.12), and both sides take the value 1 at [[1,1],[0,ϖ_x]].",
       "locator": "Lemma2.5",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. Review (REV-PAPER-YUN-ZHANG-19): statement corrected against the paper: The statement omits the integrality of the support, the exact eigencharacter, and the explicit formula (2.12), which Lemma 2.7 and Proposition 2.8 use.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. Review (REV-PAPER-YUN-ZHANG-19): statement corrected against the paper: The statement omits the integrality of the support, the exact eigencharacter, and the explicit formula (2.12), which Lemma 2.7 and Proposition 2.8 use. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "proofSteps": [
         "Identify left cosets with P1(κx); the right diagonal action has one relevant open orbit and forces vanishing at endpoints."
       ]
@@ -396,7 +396,7 @@
       "statement": "h#−f# is a sum of a right A(O)-invariant function and a left A(O)-η-eigenfunction; either component is killed by the appropriate ramified toric functional. Include the empty subset in the invariant part of the subset expansion.",
       "locator": "Lemma2.6 and Proposition2.8 proof",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "proofSteps": [
         "Expand the four factors into character monomials, pair central-odd terms, and classify even subsets including the empty set."
       ]
@@ -408,7 +408,7 @@
       "statement": "For unramified πx, ramified quadratic ηx and unramified ψx, Jπx(h#)=Jπx(f#)=vol(Kx)ζx(2)ηx(−1)ε(ηx,1/2,ψx)q_x^(s1−s2+1/2).",
       "locator": "Lemma2.7; Proposition2.8",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "proofSteps": [
         "Compute f#∨ applied to the spherical Whittaker vector, supported at valuation −1, then evaluate the two local periods.",
         "Handle coincident Satake parameters by the polynomial/limiting form of Casselman–Shalika, not division by zero."
@@ -421,7 +421,7 @@
       "statement": "For πx=Steinberg⊗unramified quadratic χx and unramified ηx, Jπx(1_Iw)=vol(Kx)ζx(2)q_x^−1.",
       "locator": "Proposition2.9(1)",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "proofSteps": [
         "Use W(diag(a,1))=χx(a)|a| for vx(a)≥0 and its Iwahori norm 1−q_x^−1."
       ]
@@ -433,7 +433,7 @@
       "statement": "For the same local data, Jπx(1_Iw w)=vol(Kx)ζx(2)ε(πx⊗ηx,1/2)q_x^(s1−s2−1).",
       "locator": "Proposition2.9(2)",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization.",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "proofSteps": [
         "Compute the Atkin–Lehner action on the Iwahori Whittaker line, retaining its sign and uniformizer power."
       ]
@@ -445,7 +445,7 @@
       "statement": "Let π be a cuspidal automorphic representation of G(A) that is ramified exactly at Σ and an unramified twist of Steinberg at each x ∈ Σ, with Σ ∩ R = ∅. Let Σ = Σ+ ⊔ Σ− be arbitrary, N± = deg Σ±, N = N+ + N−, ρ = deg R, and let λ_π: H^{Σ∪R}_G → C be the Hecke character of π. For f ∈ H^{Σ∪R}_G put f_{Σ±} = f ⊗ (⊗_{x∈R} h□_x) ⊗ (⊗_{x∈Σ} 1_{J_x}), with J_x = Iw_x for x ∈ Σ+ and J_x = Iw_x·w for x ∈ Σ−. Then q^{N+ s1 + N− s2} J_π(f_{Σ±},s1,s2) = ½ λ_π(f)·ε−(π⊗η)·|ω_X| q^{ρ/2−N} ℒ_{F′/F}(π,s1,s2). Here ε−(π⊗η) = ∏_{x∈Σ−} ε(π_x⊗η_x,½) is the Atkin–Lehner sign, and ℒ_{F′/F} is the §2.6.1 normalisation including 1/L(π,Ad,1), i.e. ℒtwoAd.",
       "locator": "Proposition2.10",
       "status": "missing",
-      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. Review (REV-PAPER-YUN-ZHANG-19): statement corrected against the paper: The statement omits the hypotheses on π and leaves the test functions at Σ± and the sign ε− undefined ('prescribed tests').",
+      "note": "Standing hypotheses and notation are pinned in the report; source defects are recorded separately. This item is not a formalization. Review (REV-PAPER-YUN-ZHANG-19): statement corrected against the paper: The statement omits the hypotheses on π and leaves the test functions at Σ± and the sign ε− undefined ('prescribed tests'). FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports.",
       "proofSteps": [
         "Multiply the local formulas and unramified factors, use conductor degrees and the global quadratic ε-product, and convert to ℒtwoAd.",
         "Keep f restricted away from R; §7's larger printed domain requires repair."
@@ -1711,7 +1711,7 @@
       "proofSteps": [
         "Use cycle-class/Gysin compatibility and proper correspondence pushforward, with the fixed-point stack and the scheme base distinguished."
       ],
-      "note": "Review note: Statement matches YZ17 Proposition A.12 (= PAPER-YUN-ZHANG-17/35). Status 'planned [EDC.8]' is not supported: EDC.8 plans cohomological correspondences and trace classes, but explicitly leaves Frobenius point counting to the TraceFormula roadmap and the contracting/Fujiwara application to ET.5. YZ17/35 is missing and source-routed to EDC.8 by an unreviewed route. Mark missing, citing YZ17/35 as owner. Review (REV-PAPER-YUN-ZHANG-19): status changed from planned (EtaleDualityAndPerverseSheaves:EDC.8) to missing. EDC.8 plans cohomological correspondences and trace classes but leaves Frobenius point counting to the trace-formula roadmap. The same statement is PAPER-YUN-ZHANG-17/35 (YZ17 Proposition A.12; missing, source-routed to EDC.8 by an unreviewed route); cite it as the owner. Routed to the EtaleDualityAndPerverseSheaves source route."
+      "note": "Review note: Statement matches YZ17 Proposition A.12 (= PAPER-YUN-ZHANG-17/35). Status 'planned [EDC.8]' is not supported: EDC.8 plans cohomological correspondences and trace classes, but explicitly leaves Frobenius point counting to the TraceFormula roadmap and the contracting/Fujiwara application to ET.5. YZ17/35 is missing and source-routed to EDC.8 by an unreviewed route. Mark missing, citing YZ17/35 as owner. Review (REV-PAPER-YUN-ZHANG-19): status changed from planned (EtaleDualityAndPerverseSheaves:EDC.8) to missing. EDC.8 plans cohomological correspondences and trace classes but leaves Frobenius point counting to the trace-formula roadmap. The same statement is PAPER-YUN-ZHANG-17/35 (YZ17 Proposition A.12; missing, source-routed to EDC.8 by an unreviewed route); cite it as the owner. Routed to the EtaleDualityAndPerverseSheaves source route. Current owner after FIX-RT-PAPER-YUN-ZHANG-17: EtaleDualityAndPerverseSheavesPartIIStacks, coalescing /120 with YZ17/35 and /227 with YZ17/56. Earlier EDC.8/cycle routing in the historical note is superseded."
     },
     {
       "id": "PAPER-YUN-ZHANG-19/121",
@@ -2100,7 +2100,7 @@
         "Via Satake use t^n+t^−n, extend linear functionals invariantly to the finite inverse-image scheme in Gm, and use independence of n^a z^n.",
         "Repeated Satake roots require the polynomial-exponential terms, not just evaluation at distinct points."
       ],
-      "note": "Review note: Statement matches YZ17 Lemma 9.1 (pp. 874–875). It is routed as a source to GrossZagierAndArithmeticHeights:GZ.5, but GZ.5's description (coherent theta kernels, the Waldspurger formula) does not plan it. This is a lemma about the spherical Hecke algebra H_x ≅ Q[h_x] and its Satake transform. It belongs with FunctionFieldArithmetic:FA.6 (Hecke correspondences and the unramified Satake dictionary) or in this paper's Part II route."
+      "note": "Review note: Statement matches YZ17 Lemma 9.1 (pp. 874–875). It is routed as a source to GrossZagierAndArithmeticHeights:GZ.5, but GZ.5's description (coherent theta kernels, the Waldspurger formula) does not plan it. This is a lemma about the spherical Hecke algebra H_x ≅ Q[h_x] and its Satake transform. It belongs with FunctionFieldArithmetic:FA.6 (Hecke correspondences and the unramified Satake dictionary) or in this paper's Part II route. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports."
     },
     {
       "id": "PAPER-YUN-ZHANG-19/150",
@@ -2685,7 +2685,7 @@
       "statement": "Let π be cuspidal on PGL2(A_F), unramified outside Σ and an unramified quadratic twist of Steinberg at each x ∈ Σ, with Σ ∩ R = ∅, N = deg Σ, ρ = deg R, and Σ = Σf ⊔ Σ∞ the split/inert decomposition. Then L(π,s) and L(π⊗η,s) are polynomials in q^{−s} of degrees 4g−4+N and 4g−4+2ρ+N. The root number of π_{F′} is (−1)^{#Σ∞}: each x ∈ Σf contributes +1, and each x ∈ Σ∞ contributes −1 because BC(π_x) is the Steinberg representation. Hence ℒ_{F′/F}(π,s1,s2) = (−1)^{#Σ∞}ℒ_{F′/F}(π,−s1,−s2), for both the §1.1.1 and the §2.6.1 normalisation. Consequently ℒ^{(r+,r−)}_{F′/F}(π) = 0 unless r+ + r− ≡ #Σ∞ mod 2.",
       "locator": "§1.1.1, p.395; §2.6.1, pp.414–415",
       "status": "missing",
-      "note": "Added by the review REV-PAPER-YUN-ZHANG-19 (coverage of the paper): The paper states and proves this (p.415), and it fixes the parity r ≡ #Σ∞ under which Theorems 1.2–1.3 and Conjecture 1.6 are non-vacuous. No item states it: item 12 only mentions even/odd, and item 13 only defines the function. Suggested owner: AutomorphicLFunctionsAndLocalFactors:AL.2 (generic global functional equation only) GL2AutomorphicRepresentationsAndTransfer:R16.2 (local ε-factors of St⊗χ) Route: GrossZagierAndArithmeticHeights."
+      "note": "Added by the review REV-PAPER-YUN-ZHANG-19 (coverage of the paper): The paper states and proves this (p.415), and it fixes the parity r ≡ #Σ∞ under which Theorems 1.2–1.3 and Conjecture 1.6 are non-vacuous. No item states it: item 12 only mentions even/odd, and item 13 only defines the function. Suggested owner: AutomorphicLFunctionsAndLocalFactors:AL.2 (generic global functional equation only) GL2AutomorphicRepresentationsAndTransfer:R16.2 (local ε-factors of St⊗χ) Route: GrossZagierAndArithmeticHeights. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports."
     },
     {
       "id": "PAPER-YUN-ZHANG-19/192",
@@ -2694,7 +2694,7 @@
       "statement": "Fix Σ = Σ+ ⊔ Σ−; later Σ± = Σ±(μ,μ′) of (4.5)–(4.6). Put N± = deg Σ±. For x ∈ Σ+, J_x = Iw_x = {g ∈ G(O_x): g ≡ [[*,*],[0,*]] mod m_x}. For x ∈ Σ−, J_x = Iw_x·w = {g ∈ G(O_x): g ≡ [[*,*],[*,0]] mod m_x}, with w = [[0,1],[−1,0]]. For f ∈ H^{Σ∪R}_G put f_{Σ±} = f ⊗ (⊗_{x∈R} h□_x) ⊗ (⊗_{x∈Σ} 1_{J_x}) ∈ C_c^∞(G(A)). Finally, ε−(π⊗η) := ∏_{x∈Σ−} ε(π_x⊗η_x,½), the product of the Atkin–Lehner eigenvalues of π⊗η at Σ−.",
       "locator": "§2.4.3, (2.15)–(2.16), p.410; §2.6.1, (2.30), p.415",
       "status": "missing",
-      "note": "Added by the review REV-PAPER-YUN-ZHANG-19 (coverage of the paper): The global test function f_{Σ±} is used in Proposition 2.10, Theorem 6.3 and Theorem 7.4 (items 26, 131–133, 148, 150), but no item defines it or the local sets J_x. Suggested owner:  Route: GrossZagierAndArithmeticHeights."
+      "note": "Added by the review REV-PAPER-YUN-ZHANG-19 (coverage of the paper): The global test function f_{Σ±} is used in Proposition 2.10, Theorem 6.3 and Theorem 7.4 (items 26, 131–133, 148, 150), but no item defines it or the local sets J_x. Suggested owner:  Route: GrossZagierAndArithmeticHeights. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports."
     },
     {
       "id": "PAPER-YUN-ZHANG-19/193",
@@ -2703,7 +2703,7 @@
       "statement": "Let x0 ∈ R and let φ ∈ C_c^∞(G(F_{x0})) be either right A(O_{x0})-invariant or left A(O_{x0})-η_{x0}-eigen. Then for every f′ ∈ C_c^∞(G(A^{x0})) and every γ, J(φ⊗f′,s1,s2) = 0, J(γ,φ⊗f′,s1,s2) = 0 and J_π(φ⊗f′,s1,s2) = 0. For the global J, translate h2 (resp. h1) by t ∈ A(O_{x0}) with η_{x0}(t) = −1; the degree regularisation is A(O)-invariant. Let f^□_{Σ±} be f_{Σ±} with every h□_x (x ∈ R) replaced by f□_x. Then J(f_{Σ±}) = J(f^□_{Σ±}) by Lemma 2.6. If moreover f ∈ I^{Σ∪R}_Eis, then J(f_{Σ±},s1,s2) = Σ_π J_π(f_{Σ±},s1,s2), a finite sum over cuspidal π, by Lemma 2.3 for f^□_{Σ±} (f□_x is left GL2(O_x)-invariant) and Proposition 2.8.",
       "locator": "Repair of Theorem 2.2/Lemma 2.3, pp.404–405, via Lemma 2.6, pp.408–409; used at (7.10), p.513",
       "status": "missing",
-      "note": "Added by the review REV-PAPER-YUN-ZHANG-19 (coverage of the paper): The spectral expansion J(f_{Σ±}) = Σ_π J_π(f_{Σ±}) that (7.10) uses does not follow from Lemma 2.3 as printed, because h□_x is not left Iw_x-invariant. The corrected argument needs its own node. Suggested owner:  Route: GrossZagierAndArithmeticHeights."
+      "note": "Added by the review REV-PAPER-YUN-ZHANG-19 (coverage of the paper): The spectral expansion J(f_{Σ±}) = Σ_π J_π(f_{Σ±}) that (7.10) uses does not follow from Lemma 2.3 as printed, because h□_x is not left Iw_x-invariant. The corrected argument needs its own node. Suggested owner:  Route: GrossZagierAndArithmeticHeights. FIX-RT-PAPER-YUN-ZHANG-17: moved from the old GZ.5 source route to the shared function-field analytic/cycle tranche. The prior route note is historical; generic FA.2/FA.6 and AL.2/AL.3 inputs remain imports."
     },
     {
       "id": "PAPER-YUN-ZHANG-19/194",
@@ -3013,7 +3013,7 @@
       "statement": "Let g: N → A be a proper morphism from a DM stack of finite type over k = F_q to a scheme, L a constructible Q_ℓ-sheaf on N, and a ∈ A(k). Then Σ_{Λ∈g^{-1}(a)(k)} Tr(Fr_Λ, L_Λ)/#Aut(Λ) = Tr(Fr_a, (Rg_!L)_a). Applied to g♭_d and L_d, whose trace function is η(L♮11)η(L♮12) by Proposition A.12, this gives Σ_{Λ∈N_{d,a}(k)} η(L♮11)η(L♮12)/#Aut(Λ) = Tr(Fr_a, (Rg♭_{d,!}L_d)_a).",
       "locator": "§6.2.4, last display, p. 502; §6.2.5, p. 503",
       "status": "missing",
-      "note": "Added by the review REV-PAPER-YUN-ZHANG-19 (coverage of the paper): Theorem 6.3 is obtained by applying a groupoid-weighted Grothendieck–Lefschetz formula for a proper map from a finite-type DM stack to a scheme, with a rank-one local system. Item 120 (YZ17 Proposition A.12) is the correspondence version with Q_ℓ coefficients and does not cover it. The scheme case belongs to the Tau Ceti TraceFormula roadmap (PR 196) that EDC.8 cites; the DM-stack weighting is not planned. Suggested owner:  Route: ShtukaSpecialCyclesAndHigherSiegelWeil."
+      "note": "Added by the review REV-PAPER-YUN-ZHANG-19 (coverage of the paper): Theorem 6.3 is obtained by applying a groupoid-weighted Grothendieck–Lefschetz formula for a proper map from a finite-type DM stack to a scheme, with a rank-one local system. Item 120 (YZ17 Proposition A.12) is the correspondence version with Q_ℓ coefficients and does not cover it. The scheme case belongs to the Tau Ceti TraceFormula roadmap (PR 196) that EDC.8 cites; the DM-stack weighting is not planned. Suggested owner:  Route: ShtukaSpecialCyclesAndHigherSiegelWeil. Current owner after FIX-RT-PAPER-YUN-ZHANG-17: EtaleDualityAndPerverseSheavesPartIIStacks, coalescing /120 with YZ17/35 and /227 with YZ17/56. Earlier EDC.8/cycle routing in the historical note is superseded."
     },
     {
       "id": "PAPER-YUN-ZHANG-19/228",
@@ -3213,34 +3213,6 @@
     },
     {
       "route": "source",
-      "roadmap": "GrossZagierAndArithmeticHeights",
-      "stages": [
-        "GrossZagierAndArithmeticHeights:GZ.5"
-      ],
-      "items": [
-        "PAPER-YUN-ZHANG-19/12",
-        "PAPER-YUN-ZHANG-19/13",
-        "PAPER-YUN-ZHANG-19/14",
-        "PAPER-YUN-ZHANG-19/16",
-        "PAPER-YUN-ZHANG-19/17",
-        "PAPER-YUN-ZHANG-19/18",
-        "PAPER-YUN-ZHANG-19/19",
-        "PAPER-YUN-ZHANG-19/20",
-        "PAPER-YUN-ZHANG-19/21",
-        "PAPER-YUN-ZHANG-19/22",
-        "PAPER-YUN-ZHANG-19/23",
-        "PAPER-YUN-ZHANG-19/24",
-        "PAPER-YUN-ZHANG-19/25",
-        "PAPER-YUN-ZHANG-19/26",
-        "PAPER-YUN-ZHANG-19/149",
-        "PAPER-YUN-ZHANG-19/191",
-        "PAPER-YUN-ZHANG-19/192",
-        "PAPER-YUN-ZHANG-19/193"
-      ],
-      "reason": "Follow the already proposed YZ17 GZ.5 toric-period/relative-trace source route: add the ramified h-sharp/f-sharp tests, Iwahori local factors, two-variable toric regularization and exact adjoint/measure normalization. Import generic automorphic spaces and fixed-level finiteness from FunctionFieldArithmetic FA.6, generic standard L-factors from AutomorphicLFunctionsAndLocalFactors AL.2, and adeles/Haar conventions from FA.2. Do not create a second automorphic or L-function foundation. The degree-spanning lemma is the algebraic analytic-comparison input; cycle intersections stay in the shared shtuka extension."
-    },
-    {
-      "route": "source",
       "roadmap": "SchemeAndStackFoundations",
       "stages": [
         "SchemeAndStackFoundations:SF.3"
@@ -3271,21 +3243,23 @@
         "SchemeAndStackFoundations:SF.5"
       ],
       "items": [
-        "PAPER-YUN-ZHANG-19/160",
-        "PAPER-YUN-ZHANG-19/116"
+        "PAPER-YUN-ZHANG-19/116",
+        "PAPER-YUN-ZHANG-19/160"
       ],
       "reason": "SF.1 owns quotient/root-stack geometry and infinitesimal fibres; use its existing Bresciani24 root-stack source lead rather than rebuilding roots inside geometric class field theory. SF.5 owns rational DM-stack Chow/refined-Gysin, support-filtered coherent K0 and the YZ17 octahedron contract. The ramified master diagram only supplies its particular instantiation. A_ d's root fibre and finite flat presentations must retain their stack hypotheses."
     },
     {
-      "route": "source",
-      "roadmap": "EtaleDualityAndPerverseSheaves",
-      "stages": [
-        "EtaleDualityAndPerverseSheaves:EDC.8"
-      ],
+      "route": "part-ii",
+      "parent": "EtaleDualityAndPerverseSheaves",
+      "roadmap": "EtaleDualityAndPerverseSheavesPartIIStacks",
+      "title": "Étale duality, cycle classes and perverse sheaves, Part II: Artin and Deligne–Mumford stacks",
+      "area": "etale",
       "items": [
-        "PAPER-YUN-ZHANG-19/120"
+        "PAPER-YUN-ZHANG-19/120",
+        "PAPER-YUN-ZHANG-19/227"
       ],
-      "reason": "The generic smooth-DM correspondence/Frobenius-graph identity is precisely the trace/cycle-class interface already sourced from YZ17. Retain its proper, representable-left-projection, smooth/separated-M and SCHEME-base hypotheses. The numerical application over A_d^flat is not another trace-formula foundation."
+      "reason": "EDC.8 supplies scheme correspondences, not the DM/Artin-stack operations required here. Coalesce with the existing RT-AREA-etale/3 stacks proposal and YZ19/120, /227; provisional ST.0–ST.6 are design keys, not atlas stages.",
+      "brief": "Coalesce with the shared stacks Part II of RT-AREA-etale/3 and the repaired PAPER-YUN-ZHANG-17 stacks route. Extend Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves) by the single stacks proposal in RT-AREA-etale/3. Import EDC.0–8 scheme theory, SF.1 stack geometry, SF.5 source-scoped Chow/Gysin operations (YZ17/44), and EnhancedDerivedSheaves descent/adic foundations. Follow that proposal’s Laszlo–Olsson, Liu–Zheng and Sun source obligations, with each theorem’s base, finiteness, representability, stabilizers, coefficient and boundedness conditions stated separately. Construct YZ17/56’s stack Künneth, perverse/intermediate-extension, correspondence and groupoid-weighted trace interfaces; YZ17/57’s smooth-DM duality, proper-cycle class map, truncation compatibility and trace; and YZ17/35’s exact Lemma A.11/Proposition A.12 compatibility with refined Gysin. Retain k finite, S a scheme, M smooth separated DM of pure dimension n, f:M→S proper, C DM and its left projection representable proper for the numerical Frobenius-correspondence application. Do not infer preservation of D_c^b for arbitrary Artin stacks or a general stack decomposition theorem; source the exact DM small-map consequence separately. Upstream PR196 supplies the scheme trace formula. Shtuka-specific colimits, Hecke support and truncations remain GS.3/cycle work. Test the scheme diagonal, finite quotient stacks with groupoid weights, disconnected smooth DM stacks (trace sums components), and BG_m’s unbounded cohomology. Suggested later file: TauCeti/AlgebraicGeometry/Stacks/EtaleTrace.lean. These are missing proof obligations awaiting the coordinated design, not implemented stages."
     },
     {
       "route": "part-ii",
@@ -3294,6 +3268,20 @@
       "title": "Global shtukas and Langlands over function fields, Part II: special cycles on shtuka moduli and the higher Siegel–Weil formula",
       "area": "functionfields",
       "items": [
+        "PAPER-YUN-ZHANG-19/12",
+        "PAPER-YUN-ZHANG-19/13",
+        "PAPER-YUN-ZHANG-19/14",
+        "PAPER-YUN-ZHANG-19/16",
+        "PAPER-YUN-ZHANG-19/17",
+        "PAPER-YUN-ZHANG-19/18",
+        "PAPER-YUN-ZHANG-19/19",
+        "PAPER-YUN-ZHANG-19/20",
+        "PAPER-YUN-ZHANG-19/21",
+        "PAPER-YUN-ZHANG-19/22",
+        "PAPER-YUN-ZHANG-19/23",
+        "PAPER-YUN-ZHANG-19/24",
+        "PAPER-YUN-ZHANG-19/25",
+        "PAPER-YUN-ZHANG-19/26",
         "PAPER-YUN-ZHANG-19/79",
         "PAPER-YUN-ZHANG-19/80",
         "PAPER-YUN-ZHANG-19/81",
@@ -3317,12 +3305,6 @@
         "PAPER-YUN-ZHANG-19/99",
         "PAPER-YUN-ZHANG-19/100",
         "PAPER-YUN-ZHANG-19/101",
-        "PAPER-YUN-ZHANG-19/185",
-        "PAPER-YUN-ZHANG-19/186",
-        "PAPER-YUN-ZHANG-19/187",
-        "PAPER-YUN-ZHANG-19/188",
-        "PAPER-YUN-ZHANG-19/189",
-        "PAPER-YUN-ZHANG-19/190",
         "PAPER-YUN-ZHANG-19/102",
         "PAPER-YUN-ZHANG-19/103",
         "PAPER-YUN-ZHANG-19/104",
@@ -3367,6 +3349,7 @@
         "PAPER-YUN-ZHANG-19/146",
         "PAPER-YUN-ZHANG-19/147",
         "PAPER-YUN-ZHANG-19/148",
+        "PAPER-YUN-ZHANG-19/149",
         "PAPER-YUN-ZHANG-19/150",
         "PAPER-YUN-ZHANG-19/151",
         "PAPER-YUN-ZHANG-19/152",
@@ -3374,6 +3357,15 @@
         "PAPER-YUN-ZHANG-19/154",
         "PAPER-YUN-ZHANG-19/155",
         "PAPER-YUN-ZHANG-19/183",
+        "PAPER-YUN-ZHANG-19/185",
+        "PAPER-YUN-ZHANG-19/186",
+        "PAPER-YUN-ZHANG-19/187",
+        "PAPER-YUN-ZHANG-19/188",
+        "PAPER-YUN-ZHANG-19/189",
+        "PAPER-YUN-ZHANG-19/190",
+        "PAPER-YUN-ZHANG-19/191",
+        "PAPER-YUN-ZHANG-19/192",
+        "PAPER-YUN-ZHANG-19/193",
         "PAPER-YUN-ZHANG-19/194",
         "PAPER-YUN-ZHANG-19/195",
         "PAPER-YUN-ZHANG-19/204",
@@ -3399,7 +3391,6 @@
         "PAPER-YUN-ZHANG-19/224",
         "PAPER-YUN-ZHANG-19/225",
         "PAPER-YUN-ZHANG-19/226",
-        "PAPER-YUN-ZHANG-19/227",
         "PAPER-YUN-ZHANG-19/228",
         "PAPER-YUN-ZHANG-19/229",
         "PAPER-YUN-ZHANG-19/230",
@@ -3407,8 +3398,8 @@
         "PAPER-YUN-ZHANG-19/232",
         "PAPER-YUN-ZHANG-19/233"
       ],
-      "reason": "Reuse exactly the Part II candidate already proposed by PAPER-YUN-ZHANG-17 and PAPER-FENG-YUN-ZHANG-24; this is an additional ramified/Iwahori toric branch of that proposal, not a second design. No atlas stage yet supplies these cycle/intersection identities. Generic GS, EDC, SF and ramified class-field foundations remain imported.",
-      "brief": "Extend the EXISTING ShtukaSpecialCyclesAndHigherSiegelWeil proposal, retaining both its even-leg unramified Yun–Zhang17 branch and its unitary Feng–Yun–Zhang24 higher Siegel–Weil branch. Add the ramified PGL2 branch of Yun–Zhang19, not a new parallel roadmap. Standing data: k=Fq, p≠2, X and X′ smooth projective geometrically connected, ν:X′→X of degree two with reduced ramification R of degreeρ; Σ disjoint from R, N=degΣ, Σ∞ the inert closed places and Σf the split ones. π is PGL2 cuspidal, unramified outside Σ and an unramified quadratic twist of Steinberg at Σ. Require r≥0 and r≡#Σ∞ mod2; # counts closed places, not their degrees. For μ,μ′∈T_(r,Σ), r± count agreeing/disagreeing leg signs and ε− is the product of π⊗η Atkin–Lehner signs at differing level places. Define ℒtwo=ℒπ(s1+s2+1/2)ℒπη(s1−s2+1/2), where normalization exponents are 2g−2+N/2 and 2g−2+N/2+ρ. The endpoint Theorem1.2 is C ε− ∂s1^r+∂s2^r−ℒtwo(0,0)=⟨Zπ^μ(ξ),Zπ^μ′(ξ)⟩, with C=q^−(2g−2)q^(ρ/2−N)/(2(−logq)^rL(π,Ad,1)). Theorem1.3 is C ℒπ^(r1)(1/2)ℒπη^(r−r1)(1/2)=⟨ε_r1Zπ^μ,ε_r1Zπ^μ⟩, with ε_r1=∏i≤r1(1+σi)/2∏j>r1(1−σj)/2. Corollary1.4 has the pushdown factor 2^(r−1), as item155 states. These are ordinary algebraic intersections over finite fields, not arithmetic-height/Arakelov formulas. Cover the torus quotient GROUPoid and Lang torsors, root-sensitive flags and AL maps, proper cycles and ξ-normalization, M_d/A_d/A_d^flat, signed incidence correspondences, ramified Hom description valid on nonreduced bases, the full octahedron master diagram, N_dquad with detψ_R=0 and degree cutoffs, weighted orbital groupoids and regular/singular trace identities, ordered Γ_d covers and normalized K_(d,i), smallness only for f_d, boundary IC estimates for g_d, eigenvalues B−2j/A−2i, the allowed-Hecke comparison and spectral projector, and the Walsh proof with C retained. Import Global shtukas and Langlands over function fields (GlobalShtukasAndFunctionFieldLanglands GS.0–3) for all moduli/Hecke/HN/spectral foundations; Scheme and stack foundations (SchemeAndStackFoundations SF.1/3/5) for roots, Picard geometry and refined Gysin/octahedron; Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves EDC.5/7/8) plus its IndConstructibles extension; Global function fields, reciprocity and automorphic foundations (FunctionFieldArithmetic FA.2/4/5/6) and its RamifiedGeometricClassFieldTheory extension; Gross–Zagier and arithmetic heights (GrossZagierAndArithmeticHeights GZ.5) for the normalized ramified toric comparison. Tests must include r=0, r=1 with an odd number of inert places, a degree-two inert place for the parity trap, all-ones residue root counts 8 versus16, d=2 ordered/symmetric cover degrees8 versus4, μ≠μ′ cross-pairings, r1=0/r projector endpoints, and the negative exponent/incidence sign. Gates G1–G7 are mandatory remaining proof work. Do not present (1.9), Conjecture1.6 or announced BSD applications as proved. Do not claim that r=1 is a specialization of the even-r first paper.\n\nCorrections from the review (REV-PAPER-YUN-ZHANG-19), to respect when stating the layers: Remark 4.5 is false when Σ∞ = ∅ (define the stack by square (4.3) or the §4.1.5 base change); the application of Theorem 2.2 / Lemma 2.3 in (7.10) needs a repair through Lemma 2.6, since h□ at R is not left Iwahori-invariant; 'Sht = ⋃ ≤κSht' fails when r < #Σ∞ (E10); (5.5) is not an open embedding when R ≠ ∅; Lemma 6.4 is false as printed (E23); and the extraction's repair of Theorem 7.5 (E28) must also exclude extra eigenspaces that agree with π away from R, which strong multiplicity one alone does not do."
+      "reason": "Reuse exactly the Part II candidate already proposed by PAPER-YUN-ZHANG-17 and PAPER-FENG-YUN-ZHANG-24; this is an additional ramified/Iwahori toric branch of that proposal, not a second design. No atlas stage yet supplies these cycle/intersection identities. Generic GS, EDC, SF and ramified class-field foundations remain imported. The cycle id is provisional under the current parent-grouping queue; the complete joint tranche is mandatory. The old GZ.5 analytic source assignment is removed because its number-field contract does not supply this function-field theorem.",
+      "brief": "Extend the shared, provisional ShtukaSpecialCyclesAndHigherSiegelWeil proposal, retaining both its even-leg unramified Yun–Zhang17 branch and its unitary Feng–Yun–Zhang24 higher Siegel–Weil branch. Add the ramified PGL2 branch of Yun–Zhang19, not a new parallel roadmap. Standing data: k=Fq, p≠2, X and X′ smooth projective geometrically connected, ν:X′→X of degree two with reduced ramification R of degreeρ; Σ disjoint from R, N=degΣ, Σ∞ the inert closed places and Σf the split ones. π is PGL2 cuspidal, unramified outside Σ and an unramified quadratic twist of Steinberg at Σ. Require r≥0 and r≡#Σ∞ mod2; # counts closed places, not their degrees. For μ,μ′∈T_(r,Σ), r± count agreeing/disagreeing leg signs and ε− is the product of π⊗η Atkin–Lehner signs at differing level places. Define ℒtwo=ℒπ(s1+s2+1/2)ℒπη(s1−s2+1/2), where normalization exponents are 2g−2+N/2 and 2g−2+N/2+ρ. The endpoint Theorem1.2 is C ε− ∂s1^r+∂s2^r−ℒtwo(0,0)=⟨Zπ^μ(ξ),Zπ^μ′(ξ)⟩, with C=q^−(2g−2)q^(ρ/2−N)/(2(−logq)^rL(π,Ad,1)). Theorem1.3 is C ℒπ^(r1)(1/2)ℒπη^(r−r1)(1/2)=⟨ε_r1Zπ^μ,ε_r1Zπ^μ⟩, with ε_r1=∏i≤r1(1+σi)/2∏j>r1(1−σj)/2. Corollary1.4 has the pushdown factor 2^(r−1), as item155 states. These are ordinary algebraic intersections over finite fields, not arithmetic-height/Arakelov formulas. Cover the torus quotient GROUPoid and Lang torsors, root-sensitive flags and AL maps, proper cycles and ξ-normalization, M_d/A_d/A_d^flat, signed incidence correspondences, ramified Hom description valid on nonreduced bases, the full octahedron master diagram, N_dquad with detψ_R=0 and degree cutoffs, weighted orbital groupoids and regular/singular trace identities, ordered Γ_d covers and normalized K_(d,i), smallness only for f_d, boundary IC estimates for g_d, eigenvalues B−2j/A−2i, the allowed-Hecke comparison and spectral projector, and the Walsh proof with C retained. Import Global shtukas and Langlands over function fields (GlobalShtukasAndFunctionFieldLanglands GS.0–3) for all moduli/Hecke/HN/spectral foundations; Scheme and stack foundations (SchemeAndStackFoundations SF.1/3/5) for roots, Picard geometry and refined Gysin/octahedron; Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves EDC.5/7/8) plus its IndConstructibles and shared EtaleDualityAndPerverseSheavesPartIIStacks extensions; Global function fields, reciprocity and automorphic foundations (FunctionFieldArithmetic FA.2/4/5/6) and its RamifiedGeometricClassFieldTheory extension; the generic harmonic/automorphic/local-factor suppliers FA.2/FA.6 and AL.2/AL.3, and prove the normalized ramified toric comparison in this joint function-field analytic tranche with YZ17 /7–9 and /12–14. GZ.5 is a comparison only. Tests must include r=0, r=1 with an odd number of inert places, a degree-two inert place for the parity trap, all-ones residue root counts 8 versus16, d=2 ordered/symmetric cover degrees8 versus4, μ≠μ′ cross-pairings, r1=0/r projector endpoints, and the negative exponent/incidence sign. Gates G1–G7 are mandatory remaining proof work. Do not present (1.9), Conjecture1.6 or announced BSD applications as proved. Do not claim that r=1 is a specialization of the even-r first paper.\n\nCorrections from the review (REV-PAPER-YUN-ZHANG-19), to respect when stating the layers: Remark 4.5 is false when Σ∞ = ∅ (define the stack by square (4.3) or the §4.1.5 base change); the application of Theorem 2.2 / Lemma 2.3 in (7.10) needs a repair through Lemma 2.6, since h□ at R is not left Iwahori-invariant; 'Sht = ⋃ ≤κSht' fails when r < #Σ∞ (E10); (5.5) is not an open embedding when R ≠ ∅; Lemma 6.4 is false as printed (E23); and the extraction's repair of Theorem 7.5 (E28) must also exclude extra eigenspaces that agree with π away from R, which strong multiplicity one alone does not do.\n\nThe 18 items formerly source-routed to GZ.5 now belong here, including the high-degree spanning lemma /149 (= YZ17/28), period/local-factor adapters and two-variable relative trace comparison. Keep their statements and gates unchanged; this move does not certify the repaired test identities. Ordinary multiplicity one in YZ17/46 is separate from /233 strong multiplicity one, and cuspidal/Eisenstein disjointness has its own source argument. The shared cycle id is provisional; the merged parent design must retain the joint YZ17/YZ19/FYZ24 tranche or supply a coordinated split. Import generic DM trace/duality from the shared stacks proposal, including /120 and /227 below, rather than reconstructing them in the cycle theory."
     },
     {
       "route": "part-ii",
@@ -3447,7 +3438,7 @@
         "PAPER-YUN-ZHANG-19/240"
       ],
       "reason": "FA.4 supplies arithmetic reciprocity and norm subgroups, not the root-Picard character SHEAF and all-degree Abel–Jacobi descent of AppendixA. SF.1 supplies generic root stacks but not this multiplicative local-system construction. A single reusable geometric class-field extension supplies the PGL2 comparison and future rank-one ramified consumers.",
-      "brief": "Start after Global function fields, reciprocity and automorphic foundations (FunctionFieldArithmetic), especially FA.2/4: import its adelic/idele and arithmetic reciprocity objects, without rebuilding them. Construct the geometric refinement in Yun–Zhang19 AppendixA for square-root ramification on a smooth projective geometrically connected curve over a finite field of odd characteristic. The final contracts are LemmaA.11's multiplicative rank-one local system L_Pic on the graded root-Picard stack, with unit, associativity and commutativity, and PropositionA.12's equality of its Frobenius trace with η_(F′/F) for a geometrically connected quadratic cover. The character-sheaf construction starts with ANY rank-one Qℓbar local system on the root curve, equivalently ramification monodromy of order dividing two; its global monodromy is not required to be quadratic. The quadratic specialization is an endpoint, not the definition of the general construction. Cover root-Picard objects (L,K_R,K_R²≅L|R), the square-action quotient and gerbe, root-Picard-with-section objects, root symmetric powers and their smoothness, addition and ordered maps, the modified-unit adelic GROUPoid, invariant tensor local systems L_d, collision descent, H^d=exterior^dH1 with all other degrees zero under geometric nontriviality, high-degree Abel–Jacobi descent for d≥ρ+max(2g−1,1), independent extension to every integer Picard degree, hat-space local systems by Abel–Jacobi PULLBACK, multiplicative coherence, the ramified norm and the two-categorical exact sequence (A.11). Import Scheme and stack foundations (SchemeAndStackFoundations SF.1/3) and upstream JacobianChallenge through SF.3 for generic root-stack, Picard/section and cohomology geometry; import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves EDC.5/7/8) for sheaf/descent/trace tools, and existing Mathlib exterior-power algebra. Do not place the generic nonreduced root-fibre calculation here: SF.1 supplies [SpecK[t]/t² /μ2], whose reduction alone is Bμ2. Tests: R=∅ recovers the unramified construction; a nontrivial unramified character of order three is allowed; d=0 gives the unit; exterior powers vanish above dimH1; degree-d Picard components are torsors; different auxiliary divisors give canonically identical extension; zero sections have rank-one hat stalks; root norms at R are squares of the upstairs fibre; double-coset stabilizers contribute 1/Aut. The root norm exact sequence must not be misread as injectivity of Pic groups. Resolve nonrepresentable 'finite' map conventions and all descent/coherence exercises in G4 before claiming closure. Export the character sheaf and trace/norm compatibility to ShtukaSpecialCyclesAndHigherSiegelWeil, not its specialized matrix stacks."
+      "brief": "Start after Global function fields, reciprocity and automorphic foundations (FunctionFieldArithmetic), especially FA.2/4: import its adelic/idele and arithmetic reciprocity objects, without rebuilding them. Construct the geometric refinement in Yun–Zhang19 AppendixA for square-root ramification on a smooth projective geometrically connected curve over a finite field of odd characteristic. The final contracts are LemmaA.11's multiplicative rank-one local system L_Pic on the graded root-Picard stack, with unit, associativity and commutativity, and PropositionA.12's equality of its Frobenius trace with η_(F′/F) for a geometrically connected quadratic cover. The character-sheaf construction starts with ANY rank-one Qℓbar local system on the root curve, equivalently ramification monodromy of order dividing two; its global monodromy is not required to be quadratic. The quadratic specialization is an endpoint, not the definition of the general construction. Cover root-Picard objects (L,K_R,K_R²≅L|R), the square-action quotient and gerbe, root-Picard-with-section objects, root symmetric powers and their smoothness, addition and ordered maps, the modified-unit adelic GROUPoid, invariant tensor local systems L_d, collision descent, H^d=exterior^dH1 with all other degrees zero under geometric nontriviality, high-degree Abel–Jacobi descent for d≥ρ+max(2g−1,1), independent extension to every integer Picard degree, hat-space local systems by Abel–Jacobi PULLBACK, multiplicative coherence, the ramified norm and the two-categorical exact sequence (A.11). Import Scheme and stack foundations (SchemeAndStackFoundations SF.1/3) and upstream JacobianChallenge through SF.3 for generic root-stack, Picard/section and cohomology geometry; import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves EDC.5/7/8) for sheaf/descent/trace tools, and existing Mathlib exterior-power algebra. Do not place the generic nonreduced root-fibre calculation here: SF.1 supplies [SpecK[t]/t² /μ2], whose reduction alone is Bμ2. Tests: R=∅ recovers the unramified construction; a nontrivial unramified character of order three is allowed; d=0 gives the unit; exterior powers vanish above dimH1; degree-d Picard components are torsors; different auxiliary divisors give canonically identical extension; zero sections have rank-one hat stalks; root norms at R are squares of the upstairs fibre; double-coset stabilizers contribute 1/Aut. The root norm exact sequence must not be misread as injectivity of Pic groups. Resolve nonrepresentable 'finite' map conventions and all descent/coherence exercises in G4 before claiming closure. Export the character sheaf and trace/norm compatibility to ShtukaSpecialCyclesAndHigherSiegelWeil, not its specialized matrix stacks.\n\nCoalesce the empty-ramification Picard/local-system and exterior-power inputs of YZ17/49 and /54 with /170 and /165 respectively. Import the shared EtaleDualityAndPerverseSheavesPartIIStacks for root-Picard stack operations; EDC’s scheme formalism alone is insufficient."
     },
     {
       "route": "part-ii",
@@ -5327,5 +5318,11 @@
     "status": "complete",
     "reading": "Published PDF re-fetched (hash matches); Definitions 5.7–5.11 and Conjecture 1.6 read; every numbered statement checked against the items.",
     "changes": "Definitions 5.7–5.11 and Conjecture 1.6 added; seven misprints reclassified to affect nothing; gate statuses recorded; status complete."
+  },
+  "repairReviewScope": {
+    "job": "FIX-RT-PAPER-YUN-ZHANG-17",
+    "date": "2026-09-30",
+    "note": "Routes and their numbering changed. The existing unassigned paper review records the earlier route set; do not treat its numeric approvals as approval of this repaired set. Independent fix review and maintainer reconciliation are required before the new routes feed accepted_routes. No self-approval is added.",
+    "relatedRecord": "The existing coverage, validation, completion and relatedExtractions fields record earlier work; their old item counts and EDC.8/GZ route statements are historical. The current repair changes only ownership/briefs as described above; the YZ19 Markdown reader is outside the assigned files and requires maintainer synchronization."
   }
 }
