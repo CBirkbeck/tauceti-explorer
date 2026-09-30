@@ -8,12 +8,13 @@ BP-HabiroCohomologyFoundations--HQ.1, rewritten by the independent review
 REV-HabiroCohomologyFoundations--HQ.1: partial prototype, implementationStatus =
 unchecked. Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 (no `TauCeti.*` module is
-imported: none of the objects below exists there). The file elaborates against the
-pinned Mathlib with `declaration uses 'sorry'` as its only warning.
+imported: none of the objects below exists there). The earlier independent review reported elaboration against the pinned Mathlib.
+FIX-RT-AREA-etale~2 adds signatures below without rerunning Lean: the shared checkout
+is at a different commit and no build/cache job was started. Current status: unchecked.
 
-Every definition, API item and named theorem of the packet (stages HQ.1 to HQ.7,
-including HQ.5-trace) is declared below under the packet's name, and every unit
-test is an `example` whose docstring names it. The packet prefixes the names of
+The earlier prototype represented the definitions, API items and named theorems of the packet (stages HQ.1 to HQ.7,
+including HQ.5-trace) under their packet names. The additions below explicitly say which laws and tests
+are represented and which constructions remain unstated; no completeness claim is made. The packet prefixes the names of
 some HQ.5 and HQ.6 items with `TauCeti.QHodge.`; they are declared here in
 `TauCeti.HabiroCohomology`, the namespace of this file, and their docstrings keep
 the packet's full name. The stages are sections in the order HQ.1, HQ.2, HQ.4,
@@ -71,6 +72,9 @@ Conventions fixed here and used throughout, matching the roadmap document:
   and no axiom is used. Where a statement cannot be expressed even in this form, the
   declaration is left out and a comment at that place says so.
 -/
+import Mathlib.Algebra.Module.Projective
+import Mathlib.Algebra.Module.Equiv.Defs
+import Mathlib.RingTheory.Finiteness.Defs
 import Mathlib.Algebra.Category.CommAlgCat.Basic
 import Mathlib.AlgebraicGeometry.Limits
 import Mathlib.CategoryTheory.Functor.ReflectsIso.Basic
@@ -1327,6 +1331,154 @@ example {𝒟dc ℰdc : Type*} [Category 𝒟dc] [Category ℰdc] [HasPullbacks 
     {K : QDeRhamContext A Λ Ani 𝒟 ℰ Mod} (D : DAlgContext K 𝒟dc ℰdc) :
     Nonempty ((qOmegaDAlg D).obj (SmoothAlg.of A) ≅ D.oneD) := by
   sorry
+
+
+/-! ### HQ.1 additions — framed and modified q-connections (FIX-RT-AREA-etale~2)
+
+Scholze §7 Definition 7.3 supplies the framed definition; Conjecture 7.5 is not
+a theorem. The relative definition below takes the coefficient operators from
+the existing framed prefix. Native module and semilinear-equivalence carriers
+are reused. The tensor, ordinary/modified comparison and derived quotient-stack
+construction remain API/proof obligations in the packet. In particular, commuting
+maps in a homotopy category do not encode coherent derived descent.
+-/
+section QConnectionProposal
+
+/-- HQ.1/modules-with-framed-q-connection. `B = A⟦h⟧`, `C = R⟦h⟧`.
+The maps `σ,D` are the existing framed coefficient operators; their construction,
+commutation and twisted Leibniz laws are supplied by that prefix. -/
+structure FramedQConnection (B C M : Type u) [CommRing B] [CommRing C]
+    [Algebra B C] [AddCommGroup M] [Module C M] [Module B M] [IsScalarTower B C M]
+    (d : ℕ) (σ : Fin d → C ≃ₐ[B] C) (D : Fin d → C →ₗ[B] C) where
+  finite : Module.Finite C M
+  projective : Module.Projective C M
+  nabla : Fin d → M →ₗ[B] M
+  leibniz : ∀ i f m, nabla i (f • m) = (σ i f) • nabla i m + (D i f) • m
+  commute : ∀ i j m, nabla i (nabla j m) = nabla j (nabla i m)
+
+/-- API `FramedQConnection.Hom`: horizontal maps, not arbitrary coefficient-linear maps. -/
+structure FramedQConnection.Hom {B C M N : Type u} [CommRing B] [CommRing C]
+    [Algebra B C] [AddCommGroup M] [Module C M] [Module B M] [IsScalarTower B C M]
+    [AddCommGroup N] [Module C N] [Module B N] [IsScalarTower B C N]
+    {d : ℕ} {σ : Fin d → C ≃ₐ[B] C} {D : Fin d → C →ₗ[B] C}
+    (P : FramedQConnection B C M d σ D) (Q : FramedQConnection B C N d σ D) where
+  toLinearMap : M →ₗ[C] N
+  horizontal : ∀ i m, toLinearMap (P.nabla i m) = Q.nabla i (toLinearMap m)
+
+/-- This abbreviation is Mathlib's semilinear equivalence with the inverse instances
+supplied by the ring automorphism, not a new carrier for semilinearity. -/
+abbrev QSemilinearAut (C M : Type u) [CommRing C] [AddCommGroup M] [Module C M]
+    (σ : C ≃+* C) :=
+  letI := RingHomInvPair.of_ringEquiv σ
+  letI := RingHomInvPair.symm (↑σ : C →+* C) (σ.symm : C →+* C)
+  M ≃ₛₗ[(↑σ : C →+* C)] M
+
+/-- HQ.1/modified-q-connections-on-a-torus. Instantiate C with the Laurent
+torus ring and σ with coordinate scaling. All modules give the descent heart;
+finite projectives are its vector-bundle subcategory. Invertibility is built in. -/
+structure ModifiedQConnection (C M : Type u) [CommRing C] [AddCommGroup M]
+    [Module C M] (d : ℕ) (σ : Fin d → C ≃+* C) where
+  gamma : (i : Fin d) → QSemilinearAut C M (σ i)
+  commute : ∀ i j m, gamma i (gamma j m) = gamma j (gamma i m)
+
+/-- API `ModifiedQConnection.partial`: no division by q−1. Coordinates are units. -/
+def ModifiedQConnection.partial {C M : Type u} [CommRing C] [AddCommGroup M]
+    [Module C M] {d : ℕ} {σ : Fin d → C ≃+* C}
+    (P : ModifiedQConnection C M d σ) (x : Fin d → Cˣ) (i : Fin d) (m : M) : M :=
+  ((x i)⁻¹ : Cˣ).val • (P.gamma i m - m)
+
+/-- API `ModifiedQConnection.recoverGamma`; unit test `modified_recover`.
+The only inverse used here is x_i^{-1}, not (q−1)^{-1}. -/
+theorem ModifiedQConnection.recoverGamma {C M : Type u} [CommRing C] [AddCommGroup M]
+    [Module C M] {d : ℕ} {σ : Fin d → C ≃+* C}
+    (P : ModifiedQConnection C M d σ) (x : Fin d → Cˣ) (i : Fin d) (m : M) :
+    m + (x i).val • P.partial x i m = P.gamma i m := by
+  sorry
+
+/-- The modified twisted Leibniz law on a torus. -/
+theorem ModifiedQConnection.partial_smul {C M : Type u} [CommRing C] [AddCommGroup M]
+    [Module C M] {d : ℕ} {σ : Fin d → C ≃+* C}
+    (P : ModifiedQConnection C M d σ) (x : Fin d → Cˣ) (i : Fin d) (f : C) (m : M) :
+    P.partial x i (f • m) = (σ i f) • P.partial x i m +
+      (((x i)⁻¹ : Cˣ).val * (σ i f - f)) • m := by
+  sorry
+
+/-- `modified_not_ordinary`: in the coefficient ring Q⟦h⟧, 2−1 is not h-divisible.
+The full non-example Γ(f)=2σ(f) acts on the completed Laurent ring in the packet. -/
+example : ¬ (PowerSeries.X : PowerSeries ℚ) ∣ (2 - 1) := by
+  sorry
+
+/-- `qConnection_not_linear_over_C`: the coefficient q-derivative is not C-linear. -/
+example : qDiff (2 : ℤ) (X : ℤ[X]) ≠ X * qDiff (2 : ℤ) (1 : ℤ[X]) := by
+  sorry
+
+
+/-- API `FramedQConnection.unit`: the coefficient module with its existing operators. -/
+def FramedQConnection.unit {B C : Type u} [CommRing B] [CommRing C] [Algebra B C]
+    {d : ℕ} (σ : Fin d → C ≃ₐ[B] C) (D : Fin d → C →ₗ[B] C)
+    (hD : ∀ i f g, D i (f * g) = σ i f * D i g + D i f * g)
+    (hcomm : ∀ i j f, D i (D j f) = D j (D i f)) :
+    FramedQConnection B C C d σ D := by sorry
+
+/-- API `FramedQConnection.modH`: descend the operators to M/hM. For the
+framed h=q−1, σ reduces to id and D to the usual partial derivative; the packet
+specifies this additional coefficient comparison, supplied by the framed prefix. -/
+def FramedQConnection.modH {B C M : Type u} [CommRing B] [CommRing C]
+    [Algebra B C] [AddCommGroup M] [Module C M] [Module B M] [IsScalarTower B C M]
+    {d : ℕ} {σ : Fin d → C ≃ₐ[B] C} {D : Fin d → C →ₗ[B] C}
+    (P : FramedQConnection B C M d σ D) (h : B) :
+    Fin d → (M ⧸ LinearMap.range (h • (LinearMap.id : M →ₗ[B] M))) →ₗ[B]
+      (M ⧸ LinearMap.range (h • (LinearMap.id : M →ₗ[B] M))) := by sorry
+
+/-- API `ModifiedQConnection.tensor`: semilinear action on the balanced tensor product. -/
+def ModifiedQConnection.tensor {C M N : Type u} [CommRing C] [AddCommGroup M]
+    [Module C M] [AddCommGroup N] [Module C N] {d : ℕ} {σ : Fin d → C ≃+* C}
+    (P : ModifiedQConnection C M d σ) (Q : ModifiedQConnection C N d σ) :
+    ModifiedQConnection C (TensorProduct C M N) d σ := by sorry
+
+/-- Unit test `modified_tensor_balance`: the action on pure tensors. The two
+balanced representatives (fm)⊗n and m⊗(fn) are already equal in TensorProduct. -/
+example {C M N : Type u} [CommRing C] [AddCommGroup M] [Module C M]
+    [AddCommGroup N] [Module C N] {d : ℕ} {σ : Fin d → C ≃+* C}
+    (P : ModifiedQConnection C M d σ) (Q : ModifiedQConnection C N d σ)
+    (i : Fin d) (f : C) (m : M) (n : N) :
+    (P.tensor Q).gamma i (TensorProduct.tmul C (f • m) n) =
+      TensorProduct.tmul C ((σ i f) • P.gamma i m) (Q.gamma i n) := by sorry
+
+/-- API `ModifiedQConnection.fromOrdinary`: the coordinate hypotheses on σ and D
+make Γ_i=id+h*x_i*∇_i semilinear and commuting. Completeness supplies the inverse
+by an h-adic series. This forward direction does not divide by h; the converse
+needs h-regularity and divisibility and is not asserted here. -/
+def ModifiedQConnection.fromOrdinary {B C M : Type u} [CommRing B] [CommRing C]
+    [Algebra B C] [AddCommGroup M] [Module C M] [Module B M] [IsScalarTower B C M]
+    {d : ℕ} {σ : Fin d → C ≃ₐ[B] C} {D : Fin d → C →ₗ[B] C}
+    (P : FramedQConnection B C M d σ D) (h : B) (x : Fin d → Cˣ)
+    [IsAdicComplete (Ideal.span ({algebraMap B C h} : Set C)) M]
+    (hσ : ∀ i f, σ i f = f + algebraMap B C h * (x i).val * D i f)
+    (hσx : ∀ i j, i ≠ j → σ i (x j).val = (x j).val)
+    (hDx : ∀ i j, i ≠ j → D i (x j).val = 0) :
+    ModifiedQConnection C M d (fun i => (σ i).toRingEquiv) := by sorry
+
+/-- Unit test `qConnection_unit`: polynomial coefficient operator. -/
+example : qDiff (2 : ℤ) ((X : ℤ[X]) ^ 3) = C 7 * X ^ 2 := by sorry
+
+/-- Unit test `qConnection_specialization`: coefficient operator at q=1. -/
+example (f : ℤ[X]) : qDiff (1 : ℤ) f = Polynomial.derivative f := by sorry
+
+/-- Unit test `qConnection_empty_frame`: no operator data for an empty frame. -/
+example {B C M : Type u} [CommRing B] [CommRing C] [Algebra B C]
+    [AddCommGroup M] [Module C M] [Module B M] [IsScalarTower B C M]
+    [Module.Finite C M] [Module.Projective C M]
+    (σ : Fin 0 → C ≃ₐ[B] C) (D : Fin 0 → C →ₗ[B] C) :
+    Nonempty (FramedQConnection B C M 0 σ D) := by sorry
+
+/-- Unit test `modified_unit`: (γ−id)/x on positive monomials is (q−1)D. -/
+example : qHodgeDiff (3 : ℤ) ((X : ℤ[X]) ^ 2) = C 8 * X := by sorry
+
+/- The coherent derived quotient-stack comparison remains unstated until its
+actual QCoh/descent interface is supplied. Framing independence and the unread
+V5A4 claims are not encoded as axioms or opaque propositions. -/
+end QConnectionProposal
 
 end HQ1
 
@@ -3599,6 +3751,73 @@ theorem twistedQOmega_commMonObj [MonoidalCategory 𝒞] [BraidedCategory 𝒞] 
 
 end DerivedQWitt
 
+
+/-! ### HQ.4 raw framed Habiro complex
+
+HQ.4/the-uncompleted-framed-habiro-koszul-complex imports its relative coefficient
+ring from HR.5. It does not depend on HQ.3. The following interface records the
+actual operator data needed by the existing `koszulDiff`; construction on the
+complete equaliser and the comparison with HQ.3 descent remain gaps. It is not
+a second definition of the relative Habiro ring. The full typed complex, its
+toric rescaling equivalence and its unit tests remain packet obligations.
+-/
+structure FramedHabiroOperators (B C : Type u) [CommRing B] [CommRing C]
+    [Algebra B C] (d : ℕ) where
+  coordinate : Fin d → C
+  gamma : Fin d → C ≃ₐ[B] C
+  partial : Fin d → C →ₗ[B] C
+  partial_spec : ∀ i f, coordinate i * partial i f = gamma i f - f
+  partial_commute : ∀ i j f, partial i (partial j f) = partial j (partial i f)
+
+/-- The differential of the uncompleted framed complex uses HQ.1's existing
+Koszul construction. `C` is HR.5's relative Habiro ring, not its h-completion. -/
+def FramedHabiroKoszul {B C : Type u} [CommRing B] [CommRing C] [Algebra B C]
+    {d : ℕ} (F : FramedHabiroOperators B C d) : AddMonoid.End (Finset (Fin d) → C) :=
+  koszulDiff (fun i => (F.partial i).toAddMonoidHom)
+
+/-- API `FramedHabiroKoszul.partial_spec`: h does not occur in the denominator. -/
+theorem FramedHabiroKoszul.partial_spec {B C : Type u} [CommRing B] [CommRing C] [Algebra B C]
+    {d : ℕ} (F : FramedHabiroOperators B C d) (i : Fin d) (f : C) :
+    F.coordinate i * F.partial i f = F.gamma i f - f := F.partial_spec i f
+
+
+/-- API `FramedHabiroKoszul.gamma`: lifted scalings on the imported HR.5 ring. -/
+def FramedHabiroKoszul.gamma {B C : Type u} [CommRing B] [CommRing C] [Algebra B C]
+    {d : ℕ} (F : FramedHabiroOperators B C d) : Fin d → C ≃ₐ[B] C := F.gamma
+
+/-- API `FramedHabiroKoszul.toricRescale`: underlying graded-module equivalence
+intertwining differentials. The actual typed complex is imported from the Koszul owner. -/
+theorem FramedHabiroKoszul.toricRescale {B C : Type u} [CommRing B] [CommRing C]
+    [Algebra B C] {d : ℕ} (F : FramedHabiroOperators B C d)
+    (hx : ∀ i, IsUnit (F.coordinate i))
+    (hfix : ∀ i j, i ≠ j → F.gamma i (F.coordinate j) = F.coordinate j) :
+    ∃ e : (Finset (Fin d) → C) ≃ₗ[B] (Finset (Fin d) → C),
+      ∀ f, e (FramedHabiroKoszul F f) =
+        koszulDiff (fun i => (F.gamma i).toLinearMap.toAddMonoidHom - AddMonoidHom.id C) (e f) := by
+  sorry
+
+/-- Unit test `framedHabiro_empty`: the empty-frame differential vanishes. -/
+example {B C : Type u} [CommRing B] [CommRing C] [Algebra B C]
+    (F : FramedHabiroOperators B C 0) : FramedHabiroKoszul F = 0 := by sorry
+
+/-- Unit test `framedHabiro_monomial`: cancel a regular coordinate to obtain
+the uncompleted difference formula, with no division by q−1. -/
+example {B C : Type u} [CommRing B] [CommRing C] [Algebra B C] [NoZeroDivisors C]
+    {d : ℕ} (F : FramedHabiroOperators B C d) (i : Fin d) (q : C) (n : ℕ)
+    (hx : F.coordinate i ≠ 0) (hγ : F.gamma i (F.coordinate i) = q * F.coordinate i) :
+    F.partial i (F.coordinate i ^ (n+1)) = (q^(n+1) - 1) * F.coordinate i ^ n := by sorry
+
+/-- Unit test `framedHabiro_toric_rescale`: the rank-one differential square. -/
+example {B C : Type u} [CommRing B] [CommRing C] [Algebra B C]
+    (F : FramedHabiroOperators B C 1) (f : C) :
+    F.coordinate 0 * F.partial 0 f = F.gamma 0 f - f := F.partial_spec 0 f
+
+/- Unit test `framedHabiro_not_completed` requires the actual relative Habiro
+ring, its separate completion functor and a nontrivial cyclotomic quotient. These
+are imported abstractly elsewhere in this prototype; a signature for this raw
+ring comparison is intentionally absent until those interfaces are reconciled.
+It is a recorded non-example, not a proof that arbitrary imported C differs from
+its completion. -/
 end HQ4
 
 /-! ## HQ.3 — q-Hodge filtrations, the q-Hodge complex and Habiro descent
@@ -4628,10 +4847,9 @@ def coordinateStep (S : Type u) [CommRing S] (d n : ℕ) :
 /-- **Comparison (HQ.3/the-coordinate-model-and-the-etale-case, Example 3.12).** For `S` smooth with
 an étale framing, the filtration `(q-1)^{max(n - *, 0)} qΩ*_{S/A,□}`, pulled back to the derived
 complex, is a q-Hodge filtration (`framedPair`; an `E_0`-algebra in pairs), and its q-Hodge complex
-is the coordinate q-Hodge complex (`qHodge.framed`). The source's explicit Koszul model of the
-Habiro–Hodge complex (the operators `(γ_i - id)/x_i` on the relative Habiro ring of `S` over
-`A[x_1, …, x_n]`, with its toric Λ-structure) is asserted without proof, used by no other node, and
-is not stated here; its consequence `H^*(qHabiroHodge/(q^m - 1)) = qW_m Ω_{S/A}` is
+is the coordinate q-Hodge complex (`qHodge.framed`). HQ.4 supplies the raw uncompleted framed Koszul model on the relative Habiro ring.
+HQ.3 owns its identification with this descent object, still asserted by the source without
+proof; the comparison is not stated here as a proved equivalence; its consequence `H^*(qHabiroHodge/(q^m - 1)) = qW_m Ω_{S/A}` is
 `qHabiroHodge_smoothCohomology_thm`. -/
 theorem framedPair_coordinate {S : Type u} [CommRing S] [Algebra A S] [Algebra.Smooth A S] {d : ℕ}
     (F : EtaleFraming A S d) (n : ℕ) :
@@ -5417,17 +5635,17 @@ example (Hs : HabiroSheafData.{w, w'} 𝒞) (T : QWittContext K H)
       qHodgeDiff (3 : ℤ) ((X : ℤ[X]) ^ 2) ≠ qDiff 3 ((X : ℤ[X]) ^ 2) := by
   sorry
 
-/-- **Theorem (HQ.5/perfectness-for-smooth-proper-schemes, paragraph 1.16), asserted by the source
-without proof (source issue E303).** For `N` divisible by every prime `p ≤ d` and `X` smooth and
-proper over `ℤ[1/N]` of relative dimension `d`, `RΓ(X, q-Hdg_{X/ℤ})` is a perfect (compact) complex
-over the Habiro completion of `H[1/N]` (the owner's category `𝒞N` of modules over that ring). -/
-theorem perfectness_smoothProper (Hs : HabiroSheafData.{w, w'} 𝒞) (T : QWittContext K H)
-    {𝒞N : Type*} [Category 𝒞N] (forgetN : 𝒞N ⥤ 𝒞) (N d : ℕ) (hN : ∀ p : ℕ, p.Prime → p ≤ d → p ∣ N)
-    (Y : Scheme.{0}) (f : Y ⟶ Spec (CommRingCat.of (Localization.Away (N : ℤ)))) [IsProper f]
-    [SmoothOfRelativeDimension d f] (hY : SmallPrimesInverted Y) :
-    ∃ M : 𝒞N, Nonempty (forgetN.obj M ≅ (Hs.RΓ Y).obj (algebraicHabiroCohomology Hs T Y hY)) ∧
-      IsFinitelyPresentable.{0} M := by
-  sorry
+/- HQ.5/perfectness-for-smooth-proper-schemes, paragraph 1.16, source issue E303.
+The source asserts perfectness over the Habiro completion of H[1/N] for smooth
+proper X/Z[1/N], with every prime ≤ relative dimension inverted. The previous
+prototype concluded `IsFinitelyPresentable` in an arbitrary category, which does
+not express this derived perfectness claim. That signature is withdrawn.
+
+Missing inputs are RΓ/reduction base change, finite-level proper-cohomology
+perfectness, uniform Tor-amplitude/finite presentation across the tower, and an
+applicable complete perfectness criterion. Appendix B's vanishing/completeness
+detection does not supply the last theorem. No Lean assertion is given before
+the actual module-category and perfect-object interface are supplied. -/
 
 /-- **Comparison (HQ.5/the-export-to-the-coefficient-roadmap).** For `R` étale over `A = ℤ` (for
 instance `O_F[1/Δ]`) the canonical section applies with no prime inverted and `q-Hdg_{R/ℤ}` is the
