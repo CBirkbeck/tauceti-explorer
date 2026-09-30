@@ -37956,7 +37956,8 @@
     "REV-PAPER-CESNAVICIUS-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CESNAVICIUS-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4193"
   },
   {
    "id": "RT-PAPER-WOOD-19",
@@ -40892,8 +40893,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -47088,8 +47089,9 @@
     "REV-K2SymbolsBrauer--T.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-K2SymbolsBrauer--T.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4451"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4451",
+   "finishedAt": "2026-09-30T22:37:53Z"
   },
   {
    "id": "RT-BP-HabiroNahmSeries",
