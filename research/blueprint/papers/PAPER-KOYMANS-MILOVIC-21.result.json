@@ -132,7 +132,7 @@
       "statement": "For every n ≥ 3 there is δ(n) > 0 such that for every ε > 0 there is C(n, ε) with |Σ_{M<m≤M+N}χ(m)| ≤ C(n, ε)Q^{(1−δ(n))/n+ε} for all integers M, all Q ≥ 3, all N ≤ Q^{1/n} and all real non-principal characters χ of modulus q ≤ Q.",
       "locator": "§2.5, p.7, after [FIMR, (9.4)], arXiv:1809.09597v1",
       "status": "missing",
-      "note": "A conjecture beyond Burgess (which gives n = 3 with δ = 1/48). Routed to AnalyticNumberTheory AN.6 (the conjecture register) as a source."
+      "note": "A conjecture beyond Burgess, which gives C_3 with δ = 1/48 (FIMR Corollary 9.1, r = 6); the general-modulus cases n ≥ 4 remain conjectural inputs here. Stated at ExponentialSumsAndCircleMethod ES.0 as a named hypothesis, not a theorem; items 14, 23, 24 and 28 assume it."
     },
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/12",
@@ -141,7 +141,7 @@
       "statement": "Assume Conjecture C_n. Then there is δ(n) > 0 such that for every ε > 0, all odd squarefree q > 1, all N ≤ q^{1/n} and all integers M, l, k with q ∤ k: |Σ_{M<m≤M+N, m≡l mod k}χ_q(m)| ≤ C(n, ε)q^{(1−δ(n))/n+ε}, with χ_q = (·/q).",
       "locator": "Corollary 2.2, p.7, citing [KM18a, Corollary 7], arXiv:1809.09597v1 (misprint E2)",
       "status": "missing",
-      "note": "Statement with the +ε restored (E2). Routed to AnalyticNumberTheory AN.6 as a source."
+      "note": "Statement with the +ε restored (E2). Derived from item 11 at ExponentialSumsAndCircleMethod ES.0: with d = gcd(q, k) < q, χ_d is constant on the progression and gcd(q/d, k) = 1, so the sum is a short sum of the non-principal character χ_{q/d}, bounded by C_n with Q = q."
     },
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/13",
@@ -362,7 +362,7 @@
         "PAPER-KOYMANS-MILOVIC-21/23",
         "PAPER-KOYMANS-MILOVIC-21/24"
       ],
-      "reason": "SV.5 owns advanced sieves as separate developments with their own bilinear and parity-breaking inputs, and asks that only the exact conclusion proved be transferred. Theorems 1–2 are prime-detecting results of exactly this kind. The Friedlander–Iwaniec type I/type II sieve for primes in a number field (FIMR Proposition 5.2) converts a linear estimate (§3, with Lemmas 3.1–3.2) and a bilinear estimate (§4, with Lemma 4.1 and (P1)–(P3)) into oscillation of joint spins of prime ideals. The spin definitions and class-group representatives are the data of this development; the fundamental domains are planned by Tau Ceti GlobalNumberFields Layer 3C (item 10). The atlas has no spin theory, and neither pinned library has any of it."
+      "reason": "SV.5 owns advanced sieves as separate developments with their own bilinear and parity-breaking inputs, and asks that only the exact conclusion proved be transferred. Theorems 1–2 are prime-detecting results of exactly this kind. The Friedlander–Iwaniec type I/type II sieve for primes in a number field (FIMR Proposition 5.2) converts a linear estimate (§3, with Lemmas 3.1–3.2) and a bilinear estimate (§4, with Lemma 4.1 and (P1)–(P3)) into oscillation of joint spins of prime ideals. The spin definitions and class-group representatives are the data of this development; the fundamental domains are planned by Tau Ceti GlobalNumberFields Layer 3C (item 10). The atlas has no spin theory, and neither pinned library has any of it. Conjecture C_{|S|n} (C_{tn}) and Corollary 2.2 enter items 14, 23 and 24 as explicit hypotheses imported from ES.0 (route 5)."
     },
     {
       "route": "source",
@@ -405,15 +405,15 @@
     },
     {
       "route": "source",
-      "roadmap": "AnalyticNumberTheory",
+      "roadmap": "ExponentialSumsAndCircleMethod",
       "stages": [
-        "AnalyticNumberTheory:AN.6"
+        "ExponentialSumsAndCircleMethod:ES.0"
       ],
       "items": [
         "PAPER-KOYMANS-MILOVIC-21/11",
         "PAPER-KOYMANS-MILOVIC-21/12"
       ],
-      "reason": "AN.6 maintains the statement register for conjectural analytic inputs (RH, GRH, prime tuples) exported to sieves and arithmetic statistics. Theorems 1–3 are conditional on FIMR's Conjecture C_n on short real character sums, which is stronger than Burgess except for n = 3. Its arithmetic-progression form, Corollary 2.2, follows from it. These belong in the register, so that consumers state the hypothesis exactly."
+      "reason": "ES.0 owns estimates for short character sums: completion of sums fed by the finite-field bounds of FF.2, and the Graham–Ringrose smooth-modulus estimate routed here by PAPER-BENNETT-SIKSEK-20. FIMR's Conjecture C_n (FIMR §9, (9.4)) is the conjectural extension of Burgess's bound to intervals of length Q^{1/n}; Burgess with r = 6 gives C_3 with δ = 1/48 (FIMR Corollary 9.1). For n ≥ 4 the general-modulus bounds used by this extraction remain explicit conjectural hypotheses. ES.0 states C_n as a named hypothesis, never as a theorem, and derives Corollary 2.2 from it. Its consumers carry it in their statements: the type I estimate and Theorems 1–2 at SV.5 (items 14, 23, 24) and Theorem 3 at ST.3 (item 28). This follows RS-07, which dropped AN.6 and moved each conjectural input to the owner of the matching unconditional theory."
     }
   ],
   "sourceIssues": [
@@ -576,6 +576,15 @@
         "reason": "Found by the reviewer and checked on PDF20.",
         "by": "REV-PAPER-KOYMANS-MILOVIC-21"
       }
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1809.09597v1",
+      "read": "2026-09-22",
+      "sha256": "d56a738ae1b1487dd01b92b7084dd6bd4b9a041a85efdd2fac66b86afd8af433",
+      "citation": "arXiv 1809.09597v1 (25 September 2018), read completely; the version of record, Duke Math. J. 170 (2021), no. 8, 1723–1755, doi 10.1215/00127094-2020-0068, was not accessible, so locators and source issues are scoped to arXiv v1."
     }
   ]
 }
