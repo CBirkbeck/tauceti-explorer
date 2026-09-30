@@ -1,0 +1,75 @@
+{
+ "redteam": "RT-PAPER-PAN-26",
+ "findings": [
+  {
+   "finding": "RT-PAPER-PAN-26/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed, and high is right: two open, claimable design jobs would build the same material. make_queue.paper_designs keys part-ii routes by parent alone (l. 423: 'key = (\"part-ii\", route[\"parent\"]) …'). So route 1's 206 items feed DESIGN-CompletedCohomologyAndLocalGlobalCompatibilityPartII (#3459), whose issue lists Pan's proposal beside four others. DESIGN-PAN (#950, roadmap LocallyAnalyticCompletedCohomology, PAN_BRIEF) is pending too, and its prompt never mentions PAPER-PAN-26.result.json. The job-id dedup on l. 925 lets both through, and even after DESIGN-PAN lands the grouped job keeps its own roadmap id. Correction on attribution: the extraction and its review followed the maintainer's papers.json instruction ('Do not re-route it'). The fault is in the queue script, not in the workers who wrote route 1. Adjusted fix: the substantive change is the maintainer's, since make_queue.py and queue.json are outside the swarm's output paths. Hand-coded designs should absorb part-ii routes with their roadmap id, PAN_BRIEF should point at the extraction, #3459 should be regenerated without Pan, and #3459 should not be claimed until then. The fix job only adds a sentence to route 1's reason saying the route is meant for DESIGN-PAN. It must not re-key the route: a 'new' route with that id would create a third job."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed. L0–L2 plan functions, Amice's transform and admissibility, while §2 (/100–/116) is locally analytic vectors of Banach and LB representations with R^i LA; no stage or node plans that. The accepted routes of PAPER-DING-25 (route 1) and PAPER-DOSPINESCU-LEBRAS-17 (route 3) own it in LocallyAnalyticRepresentationsOfLocalGroups. SR.2 is smooth induction, and route 9's reason concedes the locally analytic version. Adjustments. Key the new route exactly like Ding route 1 (title 'Locally analytic representations of p-adic reductive groups', area representations) and move /357 there too. The compact-operator and LB items /106–/110 have no owner, since DLB17's brief says to import that functional analysis, so the new route's brief must say it plans them. If a source route is kept for any of them, it should name L4, not L0. Route 1's 'What to import' needs the same correction. If the design has landed, use a source route to its layers."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Route 5's own reason says 'no layer of the atlas currently plans' Fontaine's almost de Rham classification, yet it is a source route to R06.1, which plans only the period rings. Under §16 this is part-ii material. The accepted PAPER-FARGUES-FONTAINE-18 route 5 carries B_dR-representations (item 941) to the PadicHodgeTheory Part II. Adjustments. The merge is wider than stated: Gleason–Lim–Xu route 14 and Guo–Reinecke route 2 feed DESIGN-PadicHodgeTheoryPartII too. Grouping is by parent, so any roadmap id joins that design. The brief must ask for Pan's Banach and LB generalisations (Props. 6.1.5, 6.1.8, 6.1.18, 6.1.20, Theorem 6.1.16), not only [Fon04], and cite P7/sen-module for the finite-dimensional Sen theory. Route 1's imports need the same correction. If the design has landed, route to its layers rather than open a Part III."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed. HodgeTateAndCanonicalSubgroups T6:log-sites and T6:comparison plan the pro-Kummer-étale site and 'the logarithmic structural de Rham period sheaves, their connections and filtrations, and … the logarithmic Poincaré lemma'. P8:local-rational says the log extension is that roadmap's. CP.3 and CP.0 construct no period sheaves. Adjustment: /494's Kodaira–Spencer clause is specific to modular curves and unplanned (see /6), so split it off, or note the dependency, before marking the rest planned at T6. Route 1's import list needs the same correction. The rest of the fix stands."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed. RD.4 explicitly separates the construction from finiteness ('a named finite-dimensional output type cannot replace the finiteness proof'), and RD.5's packet has Kedlaya's finiteness theorems. So /354 belongs at RD.5. The proof on p. 54 uses log-rigid cohomology of an overconvergent log F-isocrystal on compactified Igusa curves, which nothing plans; the nearest material is AG2.4's log de Rham complex. /433 and /437 are compactly supported de Rham cohomology of the Drinfeld tower, which the accepted PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B route 1 carries (4.1-thm-4-1, 5.3-thm-5-8, Serre duality). Refinement: /433's presentation via j_! is Pan's own, so it may stay on route 1 with a note citing CDN20-B. The fix stands otherwise."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/6",
+   "verdict": "confirmed",
+   "reason": "Confirmed. R15.2 (q-expansion, Hecke) and R15.5 (Deligne–Serre) plan none of /300 or /326. Correction: three owners are missed. AbelianSchemesAndArithmeticModuli A4 plans D_dR, the Hodge sequence and Gauss–Manin over X − C. AutomorphicBundles B3 plans the canonical extension with its log connection (B4 the GL₂ Hodge line). R15.1/hodge-bundle-with-tate-curve-normalization records the Kodaira–Spencer isomorphism with log poles, but only as a quoted input with no proof step. Nothing plans θ_{k+1} in characteristic 0 or overconvergent forms at infinite tame level. Adjusted fix: split /300 across A4, B3 and R15.1 (proof unowned), and send θ′_{k+1}, θ_{k+1} and /326 to route 1. Drop route 10, or correct its reason. No cycle results."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/7",
+   "verdict": "confirmed",
+   "reason": "Confirmed. ET.6a plans the Lubin–Tate and Drinfeld towers, their period morphisms and 'the infinite-level moduli description and duality isomorphism' via Scholze–Weinstein §§6–7. The accepted Colmez–Dospinescu–Nizioł extractions (20-B, 23) mark the same objects planned there. Nuance: ET.6 builds the finite-level deformation spaces, so it can stay cited in /361's note for representability. Keep Pan's contravariant-convention remark in the notes. The fix stands."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/8",
+   "verdict": "confirmed",
+   "reason": "Confirmed, with the Pan I part overstated. Emerton's local–global compatibility (R31.4), [LXZ12]/[Col14], Breuil's Σ(2, L) and [Sch13, Prop. 7.9] have no items, and route 1's imports omit R31.4 and PadicLocalLanglandsForGL2Qp. Corrections. Several Pan I results are already items, as Pan II restates them (/201, /237, /327, /545, /21). Only Theorems 4.4.6, 4.3.9, 4.2.2 and 5.1.8 lack items. [Sch13, Prop. 7.9] is not planned at P8, which plans period sheaves and the proper-smooth comparison but not Scholze's de Rham local-system comparison, so it is missing. Adjusted fix: add items for the four Pan I theorems (route 1; DESIGN-PAN's brief covers Pan I once /1 is resolved); Emerton's compatibility planned at R31.4 with its hypotheses; LXZ12/Col14, Σ(2, L) and Sch13 Prop. 7.9 missing. Add R31.4 and PadicLocalLanglandsForGL2Qp to route 1's imports."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/9",
+   "verdict": "confirmed",
+   "reason": "Confirmed. All the quotations on pp. 5 and 123–125 match. /554 drops 'if we further assume ρ|G_{Q_p} is absolutely irreducible' and the local–global step, /556 states a claimed and sketched equality as proved, /12 is not a statement and copies the wrong pointer, and /552 omits the Breuil–Strauch half. Corrections. /556 already carries k = 1 and absolute irreducibility; the defect is its concluding equality (with its note and gaps[0]). The fix's '(dual) Berger–Breuil–Emerton conjecture' should instead quote the paper: conjectured in [BB10, Conj. 5.3.7] and [Eme06a, Conj. 6.7.3], with the local form proved by [LXZ12] and [Col14]. /552's fix should separate the two uses of [DLB17, Théorème 1.4]. The rest of the fix stands."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/10",
+   "verdict": "confirmed",
+   "reason": "Confirmed. For a B⁺_dR/(t^k)-module, W_k = t^kW/t^{k+1}W = 0, so every Fontaine operator N_W : W_{0,0} → W_{k,−k} in Corollary 6.1.21 vanishes as printed. §§6.1.12, 6.1.17 and 6.1.19, and the application to B⁺_{dR,k+1} in §6.2.14, all work with /(t^{k+1}). /465 copies the misprint, and E1–E3 do not record it. Corrections. Only Corollary 6.1.21 is vacuous. Proposition 6.1.20 is meaningful as printed, but it misses the case the paper applies. The locator is pp. 91–92. The paper prints /(t^k) five times, and /465 once, plus its 'flat'. 'Affects nothing', matching this file's E2, fits as well as 'a stated result'. Either way the item uses t^{k+1} throughout. The fix stands otherwise."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/11",
+   "verdict": "confirmed",
+   "reason": "Confirmed for (a) and (c)–(e). /1 adds 'neat', which pp. 2 and 115 do not have; the level-N standing assumption appears only on p. 17. /202 should cite Remark 3.2.9. /551's page is 122, and /554's is 124. Correction: (b) is not a defect. The upgrade to GL₂(Q_p) is part of Theorem 1.1.7's own statement on p. 4, and /7's locator cites Remark 7.3.3, so the rewording is optional. The fix stands for (a) and (c)–(e)."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/12",
+   "verdict": "confirmed",
+   "reason": "Confirmed. All sixteen slips are in arXiv v1, E1–E3 record none of them, and the eleven item copies hold. (13) is right: [ε^{1/p}] − 1 maps to 0 in W(k̄)[1/p], so it is not a unit in A_inf[1/p]; there ker θ is generated by ξ, and [ε] − 1 generates it only in B⁺_dR. Adjustments. (6): /216 already corrects the left side; it copies the 1 + 2pZ_p form and the p = 2 failure. (12): the omitted twist ε^{−k}ε′_p^{k} is trivial on GL₂(Q_p), since ε′_p = ε|_{Q_p^×}. So Theorem 5.6.7 is right GL₂(Q_p)-equivariantly, and only its prime-to-p normalisation is off. (15): §7.3.1 uses M_{k+2} three times, and all three should be M_{k+1}. The entries should say the paywalled published text was not read and may already correct them. The fix stands otherwise."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/13",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Mathlib 082e2d3 has IsCompactOperator (Analysis/Normed/Operator/Compact/Basic.lean:71) with the unit-ball and bounded-set characterisations, composition and continuity (:189, :151, :276, :290, :364). It also has fontaineTheta (FontaineTheta.lean:165) and BDeRhamPlus/BDeRham (BDeRham.lean:77, :90). Adjustment: /106's definitional part becomes library as proposed, with the mod p^k finiteness criterion split off. But /450 states more than the library has (the extension of θ, the DVR property, t, the Galois action), so it stays planned, with the declarations cited in its note rather than its library list (§16)."
+  },
+  {
+   "finding": "RT-PAPER-PAN-26/14",
+   "verdict": "confirmed",
+   "reason": "Confirmed. R31.6 records Emerton's Theorems 1.2.3–1.2.4 under p > 2, residual absolute irreducibility and R31.4's local exclusions. Pan's Theorem 1.1.2 (p. 2) proves the classicality step for every p without them and without p-adic local Langlands (Remark 1.1.3). /2 and route 1's brief never mention R31.6. It is a missing cross-reference, not a duplicate, since the proofs differ. The fix stands."
+  }
+ ]
+}
