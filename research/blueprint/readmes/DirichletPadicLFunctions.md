@@ -25892,3 +25892,521 @@ Exact controls check258sign values258principal values66,564multiplicative pairs8
 The72captured inputs at7f9bbc92 are unchanged from the merged5233 checkpoint, including supplier packets and versioned source-review records. No new source finding is asserted. The possible dyadic qualification in KL1964 Satz3 remains an unverified scratch question, unused by these nodes; it requires exact formula/conductor review and a correction search before any sourceIssue is justified. Publication refresh at25f6c78f reviewed25changed registry records and the sole changed Polylogarithms node plus its two gap descriptions and one supplier request. BCGP E137/E140 strengthen avoidance/determinant wording; E160–163 record product nilpotence, finite ramification, non-Eisenstein localization and open-ideal patching repairs, awaiting review. DIT E1–14 switch to the paper-review records and refine operator, phase, spectral normalization, area, coding, Euler-factor, absolute-discriminant, sine/Bessel, Frobenius-uniqueness and projection-order corrections; confirmed status is the registry’s existing verdict, not ours. TV E54 corrects cyclotomic ideal-character inversion, and XY E16–19 repair Néron-model, descent, independence and normalization steps, awaiting review. Polylogarithms keeps tetrahedron volume ownership inP.2 and its proof gap open; no consumed Dirichlet input changes. The registry changes and ownership edits do not affect this dyadic coordinate. Own source findings and all other72-input capture entries remain unchanged; no independent source verification is claimed.
 
 The separate partial signature file also compiled with zero errors and2,447 expected placeholder warnings across3,582 pinned source modules. It includes all26new named declarations and25tests, and retains the documented4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1e94d34372c77d1a27977a4b9f51b658062ec13ce8f8e15933954ae2624f4d45.
+
+
+## Native Teichmüller coordinates and the source limit
+
+Seventeen L3 nodes transport the existing native Teichmüller lift to concrete p-adic integer units, supply the odd-prime angular coordinate and its norm/translation API, and prove its identification with Morita’s p-power limit with exact precision. All791predecessor nodes and661baseline records remain whole.
+
+The complete Morita1975 and KL1964 readings are retained. Morita published257–258 supplies the exact odd-prime limit and translated angular coordinate; the native probe now verifies their arithmetic identification. The complete pinned Tau Ceti Teichmuller file was reread, together with the native residue-field equivalence/naturality, kernel and subring comparison, SModEq power-precision theorem and geometric squeeze statements. The whole PMIA local-field integer comparison and earlier reduction-continuity nodes supply the two explicit adapters. RS-14 L3 retains the specific rational-field and integral dyadic constructions while LAD owns analytic components. Existing Teichmuller artifacts and all seven Tau dependencies were found and checked against their retained source/object hashes and empty compiler logs; no native build was run.
+
+### The native Teichmüller lift in p-adic integer units
+
+`DirichletPadicLFunctions:L3/padic-teichmuller` — `DirichletPadic.padicTeichmuller`
+
+Define τ_p:(ℤ/pℤ)ˣ→ℤ_pˣ by τ_p=E_*∘TauCeti.teichmuller(ℚ_p)∘(F⁻¹)_*, using native unit maps. This is solely the transport of the existing lift to the concrete arithmetic carriers.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. PMIA’s local-field-integers-comparison identifies the two integer subrings in the common field. Native RingEquiv.subringCongr givesE without a new carrier.
+2. Native IsLocalRing.ResidueField.mapEquiv transports residues alongE. Compose it with native PadicInt.residueField to obtainF. Apply the unit functor toEandF⁻¹ and compose with the existing Tau Ceti lift.
+3. The complete lift definition checks the construction for an explicit ring equivalenceE. The suggested declaration supplies the canonical PMIA equivalence; the probe neither assumes new Teichmüller properties nor reimplements Hensel lifting.
+4. One and multiplication follow from the native homomorphism structure. The scalar reduction theorem below makesτ_p a section and hence injective. Its torsion and uniqueness are separately promoted because the arithmetic coordinate uses them.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/local-field-integers-comparison`, `mathlib:RingEquiv.subringCongr`, `mathlib:IsLocalRing.ResidueField.mapEquiv`, `mathlib:PadicInt.residueField`, `mathlib:Units.map`, `tauceti:TauCeti.teichmuller`.
+
+**Uses:**
+
+- Morita1975 Section2, p257: Supplies the odd-prime multiplicative residue representative used to defineω.
+- L3 unit and character coordinate comparisons: Fixes the actual native integral/residue maps before quotient and continuity arguments.
+- Source p-power limit comparison: Its native torsion and residue uniqueness identify the source limit without constructing another Teichmüller lift.
+
+**API:**
+
+- `DirichletPadic.padicTeichmuller_native` (compatibility): Evaluation is precisely the transported native Tau Ceti lift.
+- `DirichletPadic.padicTeichmuller_one` (simp): τ_p(1)=1.
+- `DirichletPadic.padicTeichmuller_mul` (structure): τ_p(vw)=τ_p(v)τ_p(w).
+- `DirichletPadic.padicTeichmuller_injective` (characterisation): τ_p is injective because reduction is its left inverse.
+- `DirichletPadic.padicTeichmuller_reduction` (projection): The scalar reduction ofτ_p(v)isv; promoted below.
+- `DirichletPadic.padicTeichmuller_pow` (relation): τ_p(v)^(p−1)=1; promoted below.
+- `DirichletPadic.padicTeichmuller_unique` (universal-property): A unit killed byp−1with the same residue equalsτ_p(v); promoted below.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.teich_identity` (degenerate): τ_3(1)=1.
+- `SuggestedTeichmullerAngularTests.teich_negative` (computation): τ_3(−1)=−1.
+- `SuggestedTeichmullerAngularTests.teich_native_residue` (compatibility): The native scalar reduction ofτ_5(v)isv.
+- `SuggestedTeichmullerAngularTests.teich_not_integer_representative` (non-example): The Teichmüller lift of2modulo5is not the ordinary integer2inℤ₅.
+
+**Acceptance:** The finite character and lift already exist. Only their arithmetic carrier comparison is new.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### Reduction of the transported Teichmüller lift
+
+`DirichletPadicLFunctions:L3/padic-teichmuller-reduction` — `DirichletPadic.padicTeichmuller_reduction`
+
+For v∈(ℤ/pℤ)ˣ, toZMod(τ_p(v))=v after scalar projection.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Native residue naturality identifiestoZMod(E(x))withF(residue(x)); the complete residue_natural helper checks this exact composite.
+2. Apply native TauCeti.residue_teichmuller to the native lift of(F⁻¹)_*(v). The resulting residue isF⁻¹(v). ApplyingF cancels the inverse and givesv.
+3. The complete lift_reduction probe checks the unit/scalar coercions and inverse cancellation. The equality gives injectivity ofτ_p by applying reduction to any equality of its values.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/padic-teichmuller`, `mathlib:PadicInt.toZMod_eq_residueField_comp_residue`, `mathlib:IsLocalRing.ResidueField.map_residue`, `tauceti:TauCeti.residue_teichmuller`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.teich_residue_two` (computation): Atp=5, the lift of2reduces to2.
+
+**Acceptance:** There is no assertion thatτ_p(v)is the least integer representative ofv.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### The transported lift has prime-to-p order
+
+`DirichletPadicLFunctions:L3/padic-teichmuller-torsion` — `DirichletPadic.padicTeichmuller_pow`
+
+For every v, τ_p(v)^(p−1)=1 inℤ_pˣ.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. The finite residue equivalenceF identifies the native residue-field cardinality withp, using native Nat.card_congr and ZMod.card. The probe’s residue_card helper performs this cardinality transport; it is not a new planned cardinality theorem.
+2. Apply native TauCeti.teichmuller_pow before transport and rewrite its exponent using that cardinality equality.
+3. The native unit homomorphismE_* preserves powers and1. The complete lift_pow probe transports the equality, retaining the natural exponentp−1.
+4. Atp=2 the exponent is1, soτ₂ is identically1. This is a decisive boundary for the special dyadic conductor-four choice.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/padic-teichmuller`, `mathlib:Nat.card_congr`, `mathlib:ZMod.card`, `tauceti:TauCeti.teichmuller_pow`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.teich_order_four` (compatibility): Everyτ_5value has fourth power1.
+- `SuggestedTeichmullerAngularTests.teich_order_one_dyadic` (degenerate): Everyτ_2value is1.
+
+**Acceptance:** The order dividesp−1; no choice of a primitive generator is made.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### Uniqueness of the transported torsion lift
+
+`DirichletPadicLFunctions:L3/padic-teichmuller-unique` — `DirichletPadic.padicTeichmuller_unique`
+
+If u∈ℤ_pˣ satisfiesu^(p−1)=1 andtoZMod(u)=v, thenu=τ_p(v).
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Transportu back throughE⁻¹ to a unit of the native local-field integer ring. Powers and1transport, andF identifies the residue-field cardinality withp as above.
+2. ApplyF to the desired residue equality in the abstract residue field. Native residue naturality reduces it to the given scalar reduction equality; injectivity ofF then proves it.
+3. Apply native TauCeti.eq_teichmuller, which requires precisely this torsion equation and residue value. Map the equality throughE_*and cancelE_*∘(E⁻¹)_*.
+4. The complete lift_unique probe proves these transports, including the unit extensionality needed for the final cancellation. No second Hensel uniqueness argument is planned.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/padic-teichmuller`, `mathlib:Nat.card_congr`, `mathlib:ZMod.card`, `mathlib:PadicInt.toZMod_eq_residueField_comp_residue`, `mathlib:IsLocalRing.ResidueField.map_residue`, `tauceti:TauCeti.eq_teichmuller`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.teich_unique_minus_one` (computation): A unit inℤ₃with square1and residue−1equals−1.
+
+**Acceptance:** Both residue and torsion hypotheses are essential: a general lift of a residue need not beτ_p(v).
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### The Teichmüller coordinate of a p-adic unit
+
+`DirichletPadicLFunctions:L3/teichmuller-omega` — `DirichletPadic.teichmullerOmega`
+
+Defineω_p:U→U byω_p(u)=τ_p(r(u)), where r is the native unit map induced byPadicInt.toZMod. At oddp this is Morita’s root-of-unity coordinate; its identification with the source limit is proved below.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Compose the transported native liftτ_p with the native unit reductionr. This defines a monoid homomorphism with one, multiplication and inverse laws inherited from composition.
+2. Ifu^(p−1)=1, apply the transported uniqueness theorem to uand its own residue to obtainω_p(u)=u. For oddp, native Prime.even_sub_one makes−1such a torsion unit, givingω_p(−1)=−1.
+3. Atp=2 the transported torsion equation has exponent1, soω₂(u)=1. Keep this map distinct from the conductor-four dyadicOmega, whose value at−1is−1.
+4. Promote reduction, torsion and continuity below. The complete omega definition and omega_fixed probe check the actual composition and the fixed-point argument; the Frobenius-distance and limit nodes supply the precise source comparison.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/padic-teichmuller`, `DirichletPadicLFunctions:L3/padic-teichmuller-unique`, `DirichletPadicLFunctions:L3/padic-teichmuller-torsion`, `mathlib:PadicInt.toZMod`, `mathlib:Units.map`, `mathlib:Nat.Prime.even_sub_one`.
+
+**Uses:**
+
+- Morita1975 Section2, p257: Provides the odd-prime finite-order character in the angular coordinate and all character twists.
+- Morita1975 Section2, p258: Its constancy on residue classes fixes the inverse coefficient of translations.
+- The source limit definition: Torsion and residue data imply the exact Frobenius approximation bound and hence the source limit.
+
+**API:**
+
+- `DirichletPadic.teichmullerOmega_apply` (constructor): The transported lift applied to native reduction on units.
+- `DirichletPadic.teichmullerOmega_one` (simp): ω_p(1)=1.
+- `DirichletPadic.teichmullerOmega_mul` (structure): ω_p(uv)=ω_p(u)ω_p(v).
+- `DirichletPadic.teichmullerOmega_fixed` (characterisation): Units killed byp−1are fixed.
+- `DirichletPadic.teichmullerOmega_neg_one` (simp): At oddp, ω_p(−1)=−1.
+- `DirichletPadic.teichmullerOmega_two` (example): Atp=2, ω₂is identically1.
+- `DirichletPadic.teichmullerOmega_reduction` (compatibility): ω_p(u)has the same residue asu; promoted below.
+- `DirichletPadic.teichmullerOmega_pow` (relation): ω_p(u)^(p−1)=1; promoted below.
+- `DirichletPadic.continuous_teichmullerOmega` (structure): ω_p is continuous; promoted below.
+- `DirichletPadic.teichmullerOmega_translate` (relation): A scalar shift bypzgives the sameω_pvalue; promoted below.
+- `DirichletPadic.teichmullerOmega_frobenius_distance` (compatibility): The scalar distance fromu^(p^n)toω_p(u)is at mostp^(−n−1); promoted below.
+- `DirichletPadic.teichmullerOmega_frobenius_limit` (compatibility): The scalar powersu^(p^n)converge toω_p(u); promoted below.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.omega_three_identity` (degenerate): ω_3(1)=1.
+- `SuggestedTeichmullerAngularTests.omega_five_twentyfive` (computation): For scalaru=2atp=5, ω_5(u)reduces to7modulo25.
+- `SuggestedTeichmullerAngularTests.omega_native_lift` (compatibility): ω_3(u)is exactlyτ_3of the native unit reduction.
+- `SuggestedTeichmullerAngularTests.omega_dyadic_distinction` (non-example): ω_2(−1)=1differs fromdyadicOmega(−1)=−1.
+
+**Acceptance:** The ordinary integer representative2is already wrong modulo25in the p=5test.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### The torsion coordinate preserves the residue
+
+`DirichletPadicLFunctions:L3/teichmuller-omega-reduction` — `DirichletPadic.teichmullerOmega_reduction`
+
+For every u∈U, toZMod(ω_p(u))=toZMod(u) after scalar projection.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Unfold the composition with native unit reduction and apply padic-teichmuller-reduction to r(u).
+2. Native Units.map projection identifies the resulting finite-unit scalar withtoZMod(u). The complete omega_reduction probe proves the stronger equality of native finite units.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/teichmuller-omega`, `DirichletPadicLFunctions:L3/padic-teichmuller-reduction`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.omega_same_residue` (compatibility): Atp=3the scalar reductions ofω_3(u)and uagree.
+
+**Acceptance:** The conclusion is equality of residues, not equality of the original units.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### The finite order of the unit coordinate
+
+`DirichletPadicLFunctions:L3/teichmuller-omega-torsion` — `DirichletPadic.teichmullerOmega_pow`
+
+For every u∈U, ω_p(u)^(p−1)=1.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Apply padic-teichmuller-torsion to the finite unitr(u)and unfold the coordinate composition.
+2. The complete omega_pow probe checks this specialization. It supplies the bounded finite family of twists used by the source averaging argument at oddp.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/teichmuller-omega`, `DirichletPadicLFunctions:L3/padic-teichmuller-torsion`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.omega_prime_to_p_torsion` (compatibility): Atp=5every coordinate value has fourth power1.
+
+**Acceptance:** Atp=2this gives order1and is not the order2character of Morita’s dyadic branch.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### Continuity of the Teichmüller coordinate
+
+`DirichletPadicLFunctions:L3/teichmuller-omega-continuity` — `DirichletPadic.continuous_teichmullerOmega`
+
+The native unit-valued coordinateω_p is continuous.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Reuse PMIA integer-reduction-continuity at exponent1. Native ZMod.ringEquivCongr forp¹=p transports its finite discrete target toZModp.
+2. Identify this transported ring homomorphism withPadicInt.toZMod by native ZMod.ringHom_eq_of_ker_eq. The injective target equivalence preserves the kernel; native ker_toZModPow at1and ker_toZMod with maximalIdeal_eq_span_p give the same ideal(p). This is a routine native adapter, checked by the complete reduction_one helper.
+3. Native Continuous.units_map gives continuity ofr. The finite discrete source makesτ_p continuous by continuous_of_discreteTopology, regardless of its noncomputable construction. Compose these two maps.
+4. The complete continuous_red and omega_continuous probes take continuity of the native exponent-one scalar reduction as the explicit PMIA input. They prove the target transport and composition rather than assuming continuity of the Teichmüller coordinate.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/teichmuller-omega`, `PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity`, `mathlib:ZMod.ringEquivCongr`, `mathlib:ZMod.ringHom_eq_of_ker_eq`, `mathlib:RingHom.ker_comp_of_injective`, `mathlib:PadicInt.ker_toZModPow`, `mathlib:PadicInt.ker_toZMod`, `mathlib:PadicInt.maximalIdeal_eq_span_p`, `mathlib:Continuous.units_map`, `mathlib:continuous_of_discreteTopology`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.omega_native_continuity` (compatibility): The scalar projection ofω_3toℤ₃is continuous.
+
+**Acceptance:** The two finite residue constructors are compared explicitly, without pretending their codomains are definitionally identical.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### The principal-unit quotient of the Teichmüller coordinate
+
+`DirichletPadicLFunctions:L3/teichmuller-angular` — `DirichletPadic.teichmullerAngular`
+
+DefineA_p:U→U byA_p(u)=u/ω_p(u), using native homomorphism division. At oddp this is Morita’s angular coordinate. Its image lies in1+pℤ_p as proved below.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Divide the native identity homomorphism byω_p in the commutative unit group. One, multiplication and inverse follow from the native homomorphism structure, and cancellation givesω_p(u)A_p(u)=u.
+2. Ifu reduces to1thenω_p(u)=τ_p(1)=1by the constructor, soA_p fixesu. Its principal-unit image and continuity are promoted below.
+3. Atp=2, ω₂=1and thereforeA₂is the identity. In particularA₂(−1)=−1has distance1/2from1and does not lie in1+4ℤ₂. Morita’s dyadic coordinate remains the precedingdyadicAngular.
+4. The complete angular definition, angular_fixed and factorization probes check the native quotient, fixed points and product. These are arithmetic specializations of native group operations, not a construction of generic analytic character components.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/teichmuller-omega`, `mathlib:MonoidHom.div_apply`.
+
+**Uses:**
+
+- Morita1975 Section2, p257: Supplies the unit argument in the analytic disc of radius1/pat oddp.
+- Morita1975 Section2, p258: Its exact additive translation introduces the inverseωfactor in each Taylor term.
+- L3 arithmetic unit-coordinate comparison: Fixes the two canonical factors before the imported analytic character-space operations are used.
+
+**API:**
+
+- `DirichletPadic.teichmullerAngular_def` (constructor): The quotient of the identity homomorphism andω_p.
+- `DirichletPadic.teichmullerAngular_apply` (projection): A_p(u)=u/ω_p(u)as native units.
+- `DirichletPadic.teichmullerAngular_one` (simp): A_p(1)=1.
+- `DirichletPadic.teichmullerAngular_mul` (structure): A_p(uv)=A_p(u)A_p(v).
+- `DirichletPadic.teichmullerAngular_inv` (structure): A_p(u⁻¹)=A_p(u)⁻¹.
+- `DirichletPadic.teichmullerAngular_fixed` (characterisation): If the scalar residue ofu is1thenA_p(u)=u.
+- `DirichletPadic.teichmullerAngular_factorization` (relation): ω_p(u)A_p(u)=u.
+- `DirichletPadic.teichmullerAngular_two` (example): A₂is the identity onℤ₂ˣ.
+- `DirichletPadic.teichmullerAngular_reduction` (characterisation): The scalar residue ofA_p(u)is1; promoted below.
+- `DirichletPadic.teichmullerAngular_norm` (compatibility): ‖A_p(u)−1‖≤1/p; promoted below.
+- `DirichletPadic.continuous_teichmullerAngular` (structure): A_p is continuous; promoted below.
+- `DirichletPadic.teichmullerAngular_unique` (universal-property): Every prime-to-p torsion times principal-unit factorization has these factors; promoted below.
+- `DirichletPadic.teichmullerAngular_translate` (relation): A scalar shiftpzgives angular shiftω_p(u)⁻¹pz; promoted below.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.angular_three_identity` (degenerate): A_3(1)=1.
+- `SuggestedTeichmullerAngularTests.angular_odd_minus_one` (computation): A_3(−1)=1.
+- `SuggestedTeichmullerAngularTests.angular_five_twentyfive` (computation): For scalaru=2atp=5, A_5(u)reduces to11modulo25.
+- `SuggestedTeichmullerAngularTests.angular_native_quotient` (compatibility): The coordinate is division in the native p-adic unit group.
+- `SuggestedTeichmullerAngularTests.angular_dyadic_radius_failure` (non-example): A_2(−1)=−1fails the radius1/4bound required for Morita’s dyadic analytic disc.
+
+**Acceptance:** The all-prime definition is retained while its odd-prime source use is stated explicitly.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### The quotient is a principal unit
+
+`DirichletPadicLFunctions:L3/teichmuller-angular-reduction` — `DirichletPadic.teichmullerAngular_reduction`
+
+For every u∈U, toZMod(A_p(u))=1 after scalar projection; equivalently A_p(u)belongs to the native subgroupker(r).
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Apply the native unit reductionr to the defining quotientu/ω_p(u).
+2. The preceding coordinate-reduction lemma identifies the two reductions, so their quotient is1in the finite unit group. Project to the scalar residue ring.
+3. The complete angular_reduction probe proves the unit equality. Combined with the constructor’s fixed-point computation, it makesA_p a retraction onto the already existing reduction kernel.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/teichmuller-angular`, `DirichletPadicLFunctions:L3/teichmuller-omega-reduction`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.angular_native_kernel` (compatibility): A_3(u)belongs to the kernel of the native finite-unit reduction.
+- `SuggestedTeichmullerAngularTests.angular_native_retraction` (characterisation): A_5(A_5(u))=A_5(u).
+
+**Acceptance:** The principal subgroup is1+pℤ_p. Atp=2that is allℤ₂ˣand does not give Morita’s smaller subgroup.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### The principal coordinate lies in the radius-one-over-p disc
+
+`DirichletPadicLFunctions:L3/teichmuller-angular-norm` — `DirichletPadic.teichmullerAngular_norm`
+
+For every u∈U, ‖A_p(u)−1‖≤p^(−1)=1/p in the native p-adic norm.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Subtract1in the preceding scalar residue equality and use the ring homomorphism laws to putA_p(u)−1in the kernel oftoZMod.
+2. Native ker_toZMod identifies that kernel with the maximal ideal, and maximalIdeal_eq_span_p identifies it with(p). Apply norm_le_pow_iff_mem_span_pow at exponent1.
+3. The complete angular_norm probe checks the native ring-kernel and normalized-norm statements. This supplies the source disc condition at oddp. Atp=2 it yields only1/2, consistent withA₂(−1)=−1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/teichmuller-angular-reduction`, `mathlib:PadicInt.ker_toZMod`, `mathlib:PadicInt.maximalIdeal_eq_span_p`, `mathlib:PadicInt.norm_le_pow_iff_mem_span_pow`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.angular_odd_disc` (compatibility): A_3(u)is within1/3of1.
+- `SuggestedTeichmullerAngularTests.angular_dyadic_disc` (compatibility): The native all-prime map atp=2is within1/2of1, without asserting1/4.
+
+**Acceptance:** The dyadic source domain continues to come fromdyadicAngular_norm, not this weaker estimate.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### Continuity of the principal quotient
+
+`DirichletPadicLFunctions:L3/teichmuller-angular-continuity` — `DirichletPadic.continuous_teichmullerAngular`
+
+The native homomorphismA_p:U→U is continuous.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Apply native continuous group division to the identity map and the preceding continuousω_p.
+2. The complete angular_continuous probe checks the native unit-group topology and quotient. Its only continuity input is the PMIA exponent-one reduction theorem already used forω_p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/teichmuller-angular`, `DirichletPadicLFunctions:L3/teichmuller-omega-continuity`, `mathlib:Continuous.div'`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.angular_native_continuity` (compatibility): The scalar projection ofA_5intoℤ₅is continuous.
+
+**Acceptance:** This continuity theorem constructs no analytic character space or local power series.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### Uniqueness of the torsion and principal factors
+
+`DirichletPadicLFunctions:L3/teichmuller-angular-unique` — `DirichletPadic.teichmullerAngular_unique`
+
+If u,s,v∈U, s^(p−1)=1, toZMod(v)=1 andsv=u, thens=ω_p(u)andv=A_p(u). Together withω_p(u)A_p(u)=u and the preceding range equations, this specifies the canonical factors.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. The transported lift uniqueness, applied tosand its own residue, givesω_p(s)=s. Unfoldingω_p(v)and using the principal residue givesω_p(v)=1.
+2. Apply the homomorphismω_p tosv=u. Multiplicativity and those two evaluations identify the torsion factor.
+3. The defining angular quotient givesA_p(s)=1andA_p(v)=v. Apply its multiplicativity to the same equality to identify the principal factor.
+4. The complete unique_factors probe checks both conclusions. Existence is the defining group cancellation, with the torsion and principal range lemmas; no generic product-equivalence or analytic component carrier is reconstructed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/teichmuller-angular`, `DirichletPadicLFunctions:L3/padic-teichmuller-unique`, `DirichletPadicLFunctions:L3/teichmuller-omega-torsion`, `DirichletPadicLFunctions:L3/teichmuller-angular-reduction`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.teich_unique_factors` (computation): Atp=3, the factors of−vfor principalv are−1andv.
+- `SuggestedTeichmullerAngularTests.teich_factorization` (compatibility): The canonical factors multiply to every native unit atp=5.
+
+**Acceptance:** Atp=2the torsion factor is1and the principal factor isu; the nontrivial sign splitting is the preceding conductor-four theorem.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### The Teichmüller coordinate is constant on residue classes
+
+`DirichletPadicLFunctions:L3/teichmuller-omega-translation` — `DirichletPadic.teichmullerOmega_translate`
+
+If u,v∈U andz∈ℤ_p satisfy scalarv=u+pz, thenω_p(v)=ω_p(u).
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Apply native ring reduction to the scalar equality. Characteristicp makespz vanish, so native Units.ext givesr(v)=r(u).
+2. Apply the same transported liftτ_p to both sides. The complete omega_translate probe verifies the scalar reduction and unit transport.
+3. The multiplierp in the shift is essential. Atp=3, units of scalar values1and2have distinct coordinates. The statement retains the native unit witnesses ofuandv.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/teichmuller-omega`, `mathlib:PadicInt.toZMod`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.omega_translation_zero` (degenerate): The zero shift leaves the coordinate unchanged.
+- `SuggestedTeichmullerAngularTests.omega_translation_three` (computation): Atp=3, scalar2and5have the same coordinate.
+- `SuggestedTeichmullerAngularTests.omega_translation_one_fails` (non-example): Atp=3, scalar1and2have different coordinates.
+
+**Acceptance:** For Morita this is the odd-prime caseq=p. The dyadic case uses shifts by4and its separate character.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### The odd-prime angular translation identity
+
+`DirichletPadicLFunctions:L3/teichmuller-angular-translation` — `DirichletPadic.teichmullerAngular_translate`
+
+If u,v∈U andz∈ℤ_p satisfy scalarv=u+pz, then the scalar identityA_p(v)=A_p(u)+ω_p(u)⁻¹pz holds.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Project the native unit quotients defining both angular coordinates toℤ_p, leaving their inverse-unit scalar projections explicit.
+2. Use the preceding translation invariance ofω_p and substitute scalarv=u+pz. Distribute multiplication byω_p(u)⁻¹.
+3. The complete angular_translate probe proves the ring identity. Atp=3with scalaru=2andv=5, the common coordinate is−1and the angular increment is−3.
+4. Morita’s odd-prime Taylor expansion uses this identity before differentiation. The Taylor theorem, derivative estimates and interchange with averages remain with the separate analytic argument.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/teichmuller-angular`, `DirichletPadicLFunctions:L3/teichmuller-omega-translation`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.angular_translation_negative` (computation): Atp=3, the angular difference between scalar5and2is−3, not+3.
+
+**Acceptance:** The inverse coordinate must be retained in the translation coefficient.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### Frobenius approximation of the native coordinate
+
+`DirichletPadicLFunctions:L3/teichmuller-frobenius-distance` — `DirichletPadic.teichmullerOmega_frobenius_distance`
+
+For u∈U and n∈ℕ, ‖u^(p^n)−ω_p(u)‖≤p^(−(n+1)) after scalar projection.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. The coordinate reduction theorem givesu≡ω_p(u)modulo the native maximal idealI=(p). This is nativeSModEq, bysub_memandker_toZMod.
+2. The elementp lies inI by the native maximal-ideal description. Apply native SModEq.pow_pow_add_one to raise both sides to p^n and increase the ideal precision toI^(n+1). No new binomial-congruence theorem is planned.
+3. The preceding torsion equationω_p(u)^(p−1)=1andp≥2giveω_p(u)^p=ω_p(u). Induction onnthen givesω_p(u)^(p^n)=ω_p(u). The complete omega_frobenius and omega_frobenius_iterate helpers check these routine power identities.
+4. Native Ideal.span_singleton_pow rewritesI^(n+1)as(p^(n+1)), andnorm_le_pow_iff_mem_span_pow turns the difference congruence into the claimed norm bound. The complete frobenius_distance probe checks every coercion and precision.
+5. The case n=0recovers the original residue congruence. Atp=5,n=1, a scalar unit2therefore has coordinate congruent to2^5=32≡7modulo25, detecting the incorrect least-representative lift.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/teichmuller-omega-reduction`, `DirichletPadicLFunctions:L3/teichmuller-omega-torsion`, `mathlib:SModEq.pow_pow_add_one`, `mathlib:SModEq.sub_mem`, `mathlib:PadicInt.ker_toZMod`, `mathlib:PadicInt.maximalIdeal_eq_span_p`, `mathlib:Ideal.span_singleton_pow`, `mathlib:PadicInt.norm_le_pow_iff_mem_span_pow`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.frobenius_initial_precision` (degenerate): Atn=0,p=5the distance is at most1/5.
+- `SuggestedTeichmullerAngularTests.frobenius_next_precision` (compatibility): Atn=1,p=5the fifth-power approximation has error at most1/25.
+
+**Acceptance:** The exact exponentn+1is tracked; no source limit is assumed as an input to this estimate.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+### The native coordinate is Morita’s p-power limit
+
+`DirichletPadicLFunctions:L3/teichmuller-frobenius-limit` — `DirichletPadic.teichmullerOmega_frobenius_limit`
+
+For every u∈U, the scalar sequenceu^(p^n)converges toω_p(u)inℤ_p. At oddp this identifies the native construction with Morita’s limit definition.
+
+**Hypotheses:** p is prime andU=ℤ_pˣ uses its native unit topology. E:𝒪[ℚ_p]≃ℤ_p is the native subring equivalence from the already planned PMIA integer-subring equality. Its residue equivalenceF:𝓀[ℚ_p]≃ℤ/pℤ is native residue-field transport followed by PadicInt.residueField. The liftτ_p is the existing Tau Ceti Teichmüller map transported throughEandF; no Hensel proof or new local-field integer/residue carrier is planned. Putr=Units.map(PadicInt.toZMod). Principal units use the native kernel ofr, equivalently scalar units in1+pℤ_p. The native constructions make sense at every prime. Their use as Morita’s ωand angular coordinate is forp≠2. Atp=2 they giveω=1and⟨u⟩=u, whereas Morita’s conductor-four coordinate is the preceding dyadicOmega/dyadicAngular. All inverse factors are inverses in native unit groups.
+
+**Proof:**
+
+1. Sincep>1, the real geometric sequence(1/p)^(n+1)tends to0by the native power-limit theorem composed with the natural shift n↦n+1.
+2. Rewritep^(−(n+1))as that geometric sequence. Apply native squeeze_zero to the nonnegative distance and the preceding upper bound.
+3. Use native tendsto_iff_dist_tendsto_zero to recover convergence in the p-adic metric. The complete frobenius_limit probe establishes convergence in the actual native p-adic topology.
+4. Atp=2the same sequence tends to1for every unit. In particular powers of−1eventually equal1. This source comparison is used only for oddp because Morita defines its dyadic sign separately with conductor4.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/teichmuller-frobenius-distance`, `mathlib:squeeze_zero`, `mathlib:tendsto_iff_dist_tendsto_zero`, `mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one`, `mathlib:Filter.tendsto_add_atTop_nat`.
+
+**Tests:**
+
+- `SuggestedTeichmullerAngularTests.frobenius_morita_limit` (compatibility): Atp=3the native coordinate is the source p-power limit.
+- `SuggestedTeichmullerAngularTests.frobenius_dyadic_limit` (non-example): Atp=2, the powers of−1converge to1, so this limit is not the conductor-four sign−1.
+
+**Acceptance:** This closes the limit normalization comparison. It does not prove analyticity ofGamma or convergence of the character-weighted means.
+
+**Source:** Section2, published257–258/PDF3–4: the odd-prime limitω(x)=lim x^(p^n), x=ω(x)⟨x⟩, and the translated argument. Complete pages freshly read in the preceding checkpoint; complete paper255–266 read. The arithmetic adapter reuses the pinned local-field Teichmüller lift and proves its identification with the source limit. Its quotient and translation are Morita’s coordinate at oddp. The same native adapter is defined atp=2 but has trivial torsion coordinate there; Morita instead uses the preceding conductor-four sign and1+4ℤ₂. No analytic Taylor or averaging conclusion follows from these coordinate lemmas.
+
+**Remaining:** The continuous Morita Gamma foundation now has both arithmetic angular coordinates and their exact source normalization: conductor-four sign atp=2, and transported native Teichmüller lift with the p-power limit comparison at oddp. Both principal-unit norm bounds and translation identities are planned. The KL/Morita analytic averaging proof remains open: decompose finite character means, uniform operator bounds, finite twist family and Cauchy estimate; import LAD analytic/Taylor carriers and Coleman logarithm/exponential input and identify the actual Gamma on the source small disc. This disc ispℤ_p at oddp and8ℤ₂atp=2, not the full closed unit disc. Gross–Koblitz still requires complete proof reading, fixed additive character/compatibleπ, positive fractional parts and the negative Gauss convention, with a separate source for its dyadic use. Ferrero–Greenberg still requires proof reading andχ(p)=1, log_p(p)=0, character shift and derivative coordinate, with nonvanishing separate. New RJW assignments, analytic/distribution/special-value comparisons, fifteen gaps and eleven requests remain open.
+
+### Native Teichmüller coordinates and the source limit validation
+
+All 791 predecessor nodes, 661 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 17 nodes, 35 named suggested declarations and 35 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1067 reachable nodes, 5457 edges and 858 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. The new routes use native Mathlib/Tau Ceti declarations and exact PMIA supplier nodes, with no new stage-request leaf. Generic analytic spaces, character components and logarithms remain with their owners.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Three complete native definitions, two abbreviations for native residue/unit maps and24complete lemmas check actual Tau Ceti transport and uniqueness, exponent-one reduction compatibility, continuous coordinates, principal norm and factorization, translations, Frobenius precision and the source limit. The integer-ring equivalence and continuity of native exponent-one scalar reduction are explicit inputs from the already planned PMIA declarations. No Teichmüller property is assumed or reconstructed. The separate probe compiles against 2823 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. This probe imports the actual pinned Tau Ceti Teichmuller module and its six native dependencies from existing hash-verified artifacts. It does not import or replace the missing TwistedDivisorSum module, and it is not the full suggested file. General roadmap declarations remain unchecked.
+
+Exact modular controls check1,208lift values1,208principal values75,952multiplicative pairs13,288translations1,812Frobenius precision identities and92exhaustively enumerated finite torsion roots, withp=2,3,5,7,11. Exact modular integer arithmetic forp=2,3,5,7,11, precisions1through4 and input integers−40through40 prime top; all input pairs and shifts pz with−5≤z≤5. Exhaustively enumerate roots ofX^(p−1)−1 modulo every tested prime power, and check Frobenius precision forn=0through5. No floating-point arithmetic. Sampled controls supplement the general native proofs. The largest observed discrepancy is 0.
+
+All72captured inputs at837bf863 match the merged5238checkpoint; source registry, supplier packets and whole issue text are unchanged. All16own findings and source versions remain unchanged. The unverified KL dyadic interpolation question remains scratch-only and is not used by any node. Publication refresh at fca63212 checks 45 changed or removed registry records, with unchanged register metadata and unchanged Dirichlet findings. Benoist E1–24 refresh version searches and clarify incidence fibres, uniform evaluation and compatible deformation, and add five findings on omitted fibres, relative-pair transport, divisor order and restricted classes. Browning–Sawin E38 clarifies nonemptiness, duplicate E46 is removed with E35 retained, and E47 records the implicit coefficient-prime choice. He E1/E2/E3/E6/E8 and E14–17 refine Newton and distribution statements, field/general-ring boundaries, integral Iwahori–Weyl descent, twisted-support saturation, finite relations and central translations; their pending review statuses are retained. Schiffmann E4–12 separate a false exponent from a bracket slip, distinguish published corrections, and record degree, sign, twist, monodromy, bibliography and localization issues. These are readings of the changed registry records, not independent source-verification verdicts. None changes a consumed Dirichlet input or this coordinate construction; all other captured inputs are unchanged.
+
+The separate partial signature file also compiled with zero errors and2,514 expected placeholder warnings across3,600 pinned source modules. It includes all 35 new named declarations and 35 tests, and retains the documented4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8450a619e9852118cbf73ca3ab17499e95456efa8a4d3d07f91dc31eeb86d8c4.
