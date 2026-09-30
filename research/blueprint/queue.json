@@ -1773,8 +1773,8 @@
    ],
    "avoidAccountOf": "PAPER-LI-LIU-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-LI-LIU-21.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1116"
+   "state": "external",
+   "note": "claimed on GitHub issue #1116"
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -39535,8 +39535,9 @@
     "REV-PAPER-PAN-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-PAN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4319"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4319",
+   "finishedAt": "2026-09-30T05:59:08Z"
   },
   {
    "id": "RT-PAPER-SKINNER-20",
