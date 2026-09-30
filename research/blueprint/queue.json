@@ -23477,12 +23477,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -35492,7 +35492,8 @@
     "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LIU-WOOD-ZUREICKBROWN-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4136"
   },
   {
    "id": "REV-RT-PAPER-LIU-WOOD-ZUREICKBROWN-24",
@@ -35666,8 +35667,9 @@
     "REV-PAPER-HE-LI-SHI-ETAL-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HE-LI-SHI-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4144"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4144",
+   "finishedAt": "2026-09-30T15:18:03Z"
   },
   {
    "id": "REV-RT-PAPER-HE-LI-SHI-ETAL-23",
@@ -37237,7 +37239,8 @@
     "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LEMKEOLIVER-WANG-WOOD-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4209"
   },
   {
    "id": "RT-PAPER-FENG-24",
@@ -39689,8 +39692,9 @@
     "REV-PAPER-SKINNER-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SKINNER-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4322"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4322",
+   "finishedAt": "2026-09-30T15:18:09Z"
   },
   {
    "id": "REV-RT-PAPER-SKINNER-20",
