@@ -40887,8 +40887,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -42892,7 +42892,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5170"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -44756,7 +44757,8 @@
     "FIX-RT-RS-07"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-07.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5186"
   },
   {
    "id": "RT-RS-08",
@@ -51117,8 +51119,9 @@
     "FIX-RT-AREA-langlands-2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5142"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5142",
+   "finishedAt": "2026-09-30T21:51:40Z"
   },
   {
    "id": "REV-FIX-RT-AREA-langlands-2~2",
