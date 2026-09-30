@@ -36021,7 +36021,8 @@
     "REV-PAPER-GHOSH-SARNAK-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GHOSH-SARNAK-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4160"
   },
   {
    "id": "REV-RT-PAPER-GHOSH-SARNAK-22",
@@ -40901,8 +40902,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4360"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4360",
+   "finishedAt": "2026-09-30T11:37:45Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
