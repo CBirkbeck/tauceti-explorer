@@ -3975,8 +3975,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARO-PASTEN-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1235"
+   "state": "external",
+   "note": "claimed on GitHub issue #1235"
   },
   {
    "id": "REV-PAPER-CARO-PASTEN-23",
@@ -32885,7 +32885,8 @@
    ],
    "avoidAccountOf": "KEYDEF-algebraicnt",
    "prompt": "research/blueprint/prompts/REV-KEYDEF-algebraicnt.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5274"
   },
   {
    "id": "RT-PAPER-BURUNGALE-TIAN-26",
@@ -36521,8 +36522,9 @@
     "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LIU-WOOD-ZUREICKBROWN-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4135"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4135",
+   "finishedAt": "2026-09-30T22:53:47Z"
   },
   {
    "id": "RT-PAPER-GUO-REINECKE-24",
@@ -40896,8 +40898,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -42735,8 +42737,9 @@
     "REV-PAPER-LUST-STEVENS-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LUST-STEVENS-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5102"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5102",
+   "finishedAt": "2026-09-30T22:53:50Z"
   },
   {
    "id": "REV-RT-PAPER-LUST-STEVENS-20",
@@ -52500,7 +52503,8 @@
     "FIX-RT-AREA-geomlanglands~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-geomlanglands~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5161"
   },
   {
    "id": "RT-AREA-commutative",
