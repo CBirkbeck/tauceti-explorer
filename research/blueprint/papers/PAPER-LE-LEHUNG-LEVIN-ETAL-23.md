@@ -1,3 +1,155 @@
+# Current continuation: scalar bounds and smooth regularity
+
+Codex — codex-J6LwjP; issue #1254; 30 September 2026. **Partial extraction:** 809 items
+(149 library, 48 planned, 612 missing), 27 routes, 120 unreviewed source findings and 11 gaps.
+This session is ineligible to review or red-team this extraction.
+
+The scalar downstream-boundary gap is resolved **for the corrected extracted scope**. Full
+height-interval arguments retain their recorded bounds; the separate fixed-Hodge/component
+arguments work at every prime; the supplied patching construction retains `p > 2`. No dyadic
+patching theorem or repaired unrestricted height-interval hook is asserted. The eleven other
+supplier, API, library and ownership gaps remain open.
+
+Three derived items make the numerical choices explicit and stay in the existing
+`GenericGL3SerreWeightsAndLattices` route:
+
+- **B56:** take `n=1`, nonempty `J`, finite `Λ` containing zero, and `N=|Λ||J|`. Choose the
+  permissible fixed-Hodge local-model family `P_{λ,e}=1`. Define scalar width by
+  `max_i λ_{j,i} − min_i λ_{j,i}=0`; this supplies an explicit empty-root convention instead
+  of evaluating an undefined maximum. Then the printed equation (8.1) polynomial is
+  `24^N`, corrected `H` is `24^(N+1)`, corrected `Q` is `24^(N(N+1))`, and the Corollary
+  8.5.2 product `Q P₄` is `24^(N(N+1)+1)`. Every one has precisely the sufficient
+  nonvanishing locus `p > 3`.
+- **B57:** for that specified local polynomial family, the scalar dominance relation is
+  equality, every root-depth condition is vacuous, and `S_{ {0},t}=S̃_{ {0},t}` consists
+  of all scalar weight-zero tame types. Every scalar Serre weight is generic in Definition
+  8.4.6, including at 2 and 3. This conclusion depends on the chosen family: replacing
+  `1` by `6` can remove these systems at the small primes. It does not make the separate
+  sufficient polynomial `24` nonzero there.
+- **V17:** the scalar fixed-point family can also be chosen as `1` by M51. Consequently
+  the finite shifted `Q` in Lemma 9.1.9 is `1`; the prescribed sufficient product for
+  the global weight/support application is `P₄=24`. The corrected BM enlargements are
+  positive powers of the same constant and impose the same `p > 3` condition. V09 alone
+  has the sharper all-prime direct proof from G79. V15 needs no further scalar exclusion
+  once the chosen-family genericity in B57 is used. All global automorphy, adequacy,
+  local-field and functor hypotheses remain in place.
+
+The calculation is a proof, not an extrapolation from sample primes: in GL1 the Weyl orbit
+polytope has one lattice point, every shift preserves a constant, and
+`P_m = ∏_{j=1}^m(-j) = (-1)^m m!`. Both `7n−3` and `6n−2` are 4, and the scalar widths
+are zero, so the relevant constants have only the prime factors 2 and 3. Large positive or
+negative central Hodge exponents change none of these facts. These are new permissible scalar
+choices, not equalities asserted for every polynomial previously chosen in the general proof.
+
+The restriction `p ∤ 2n` now occurs in the extracted **statements** of P13, B25, B26 and B42,
+with their previous wording preserved as `sourceStatement`; P12 and B24 already retained it.
+At `n=1,p=3` the odd-prime patching condition holds while the displayed sufficient polynomial
+condition fails. At `p=2` the local comparison still applies while the supplied global
+construction does not. V12's condition `ζ_p ∉ F^{ker ad(r̄)}` also excludes `p=2`, since
+`ζ₂=−1` already belongs to F. Nothing here proves V12's remaining global lifting suppliers.
+
+`sourceData.rankOneScopeResolution` records the complete bound inventory and preserves the old
+gap as history. The older `rankOneProofBoundary` prose is preserved as `historicalDetail` and
+is explicitly superseded by the later fixed-Hodge/component continuations or by the retained
+prime restriction. In particular, G18/G25/G62 retain `p>h+2`, G21 retains `p>h+1`, G24 retains
+`p>max(h+1,2)` and G52's generic-adjoint argument retains `p>2`; an all-prime fixed-type proof
+does not enlarge any of those whole-interval arguments.
+
+Fresh sources: the author-hosted [published paper](https://math.rice.edu/~bl70/LocModels.pdf),
+SHA-256 `e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`, PDF33–35,
+129–130, 169–176, 181–189; PDF174 and184 were rendered to distinguish the tilde polynomial
+in §8.4.1 from the unadorned factor in Remark9.1.7. The earlier full-paper reading is inherited
+with its original attribution. At the Mathlib pin, [Factorial/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorial/Basic.lean)
+was read for `Nat.factorial_succ`, `factorial_pos` and `dvd_factorial`; these provide routine
+arithmetic, not the paper-specific theorem. The L7 local-model contract and the parent
+R15.4 contract/audit were checked; the latter's classical rank-two recipe does not replace the
+existing all-rank extension route. No inherited library classification changed.
+
+## The smooth-over-field regularity supplier
+
+The second part of this continuation replaces the unnamed standard-smooth step in **Z102**.
+It proves the required implication for any field, including imperfect fields, by using a
+rational point over the residue field. It does not require the general dimension-at-a-point
+comparison from [Stacks00TT](https://stacks.math.columbia.edu/tag/00TT).
+
+Three exact library imports were added after reading their pinned statements:
+
+- **L144:** `Algebra.IsSmoothAt.exists_notMem_isStandardSmooth` already supplies a
+  standard-smooth basic neighbourhood of a smooth prime in a finitely presented algebra.
+- **L145:** Tau Ceti's `Ideal.cotangentLocalizationEquiv`, its representative formula and
+  its residue-scalar formula already identify the cotangent spaces before and after
+  localization at a **maximal** ideal. No new localization theorem is planned.
+- **L146:** `IsLocalRing.CotangentSpace.span_image_eq_top_iff` already lifts spanning of
+  the cotangent space to generation of the maximal ideal in a Noetherian local ring.
+
+Four source-level adapters make the remaining argument explicit:
+
+1. **Z148, SF.0:** for `P=K[X₁,…,Xₙ]` and `a∈Kⁿ`, translate the evaluation ideal
+   `m=(X_i−a_i)` to the variables ideal. Modulo its square only the linear part remains,
+   so `[X_i−a_i]` is a basis and `[f]` has coordinates `((∂_i f)(a))`. The pinned
+   `MvPolynomial.mem_pow_idealOfVars_iff'` handles the degree cutoff; L145 transports the
+   basis to `P_m`. Polynomial regularity L116 and the existing criterion L19 give
+   `dim P_m=n`. No Nullstellensatz or division by factorials is needed.
+2. **Z149, R03.3:** extend independent cotangent classes in a regular local ring to a
+   basis with `Module.Basis.sumExtend`, lift the added vectors, and use L146 to obtain
+   minimal generators of the maximal ideal. Apply the existing **Z103** parameter-quotient
+   plan to the original first `c` elements. Their quotient is regular of dimension
+   `d−c`. This is an interface to Z103, not another regular-sequence theory.
+3. **Z150, SF.0:** at a rational point of a standard-smooth presentation, evaluation
+   preserves the unit Jacobian minor. Z148 identifies its rows with independent classes
+   of the relations in the ambient local cotangent space. Z149 makes the quotient
+   regular, and explicit localization/quotient universal maps identify that quotient
+   with the required local ring. L144 reduces a general rational smooth point to this
+   case. The conormal module `I/I²` is kept distinct from the maximal-ideal cotangent space.
+4. **Z151, SF.0:** for a prime `q` of `S`, put `K=κ(q)` and `T=K⊗_k S`. The map
+   `ε(a⊗s)=a·s̄` is surjective and its kernel `m` contracts to `q`. Tensor associativity
+   and flatness of the field extension prove `S→T` flat; the pinned localization
+   instance proves `S_q→T_m` flat once the scalar tower is constructed. Its maximal-ideal
+   contraction proves locality. No finite-degree or separability assumption is used.
+
+Z102 now applies smooth base change L60, rational-point regularity Z150, and flat local
+descent Z92 to that map. There is no need to take an algebraic closure: the explicitly
+constructed point is already rational over `κ(q)`. There is also no assertion that its
+local dimension equals that of the original point. For `S=k[X]`, `q=(0)` and `K=k(t)`,
+the comparison is from the field `k(X)` to `K[X]_(X−t)`, of dimensions zero and one.
+Likewise the converse cannot be used: for `k=F_p(t)`, the regular field
+`k[u]/(u^p−t)` becomes nonreduced after base change to itself. Other planned checks include
+empty variables/equations, a full parameter basis, the smooth equation `Y−X^p`, and the
+singular origin of `XY=0`.
+
+The underlying sources [00TS](https://stacks.math.columbia.edu/tag/00TS),
+[00TA](https://stacks.math.columbia.edu/tag/00TA),
+[00T7](https://stacks.math.columbia.edu/tag/00T7) and
+[00NQ](https://stacks.math.columbia.edu/tag/00NQ) were freshly read, together with the
+coordinate argument in 00T1. The result's `libraryAudit.codexJ6LwjPSmoothRegularity`
+records exact pinned paths, declaration names and hashes. The positive library matches
+include the standard-smooth conormal/differential bases, the polynomial differential
+formula, basis extension and flat localization. A bounded search of both pinned trees
+found no direct theorem completing Z102; it is not a replacement audit of all 799
+inherited items. AUDIT-01 SF.0/SF.1 and AUDIT-17 R03.3 and their existing stage contracts
+were checked; the 27 routes are unchanged.
+
+The source-level Z102 outline is now supplied. The four adapters and their existing
+dependencies still require implementation. The broader `analytic-regularity-suppliers`
+gap remains open: its next branch is characteristic-p formal fibres
+[07PR](https://stacks.math.columbia.edu/tag/07PR) and
+[07PU](https://stacks.math.columbia.edu/tag/07PU), with the finite complete-local
+normalization input [032D](https://stacks.math.columbia.edu/tag/032D). Those three outer
+proofs and 07PV were freshly reread to verify the handoff; their derivation-extension,
+finite completion/product, formal-smoothness and coefficient-ring suppliers have not
+been closed in this pass. The historical E60 correction to the characteristic-zero
+fibre sentence in 07PV remains in force.
+
+Validation: the paper checker passes. All 799 inherited IDs and statuses, all 120 source
+findings, the pinned libraries and Appendix B data are preserved. All 612 missing items are
+routed exactly once; the internal graph has 1,775 distinct edges and is acyclic. An exact
+800-case diagnostic computed the printed cyclic products at positive/negative central shifts,
+compared all four exponents and checked primes 2, 3, 5, 7, 11, 13, 17 and 19. The written
+argument establishes the general claim; these finite checks verify the formulas' bookkeeping.
+No Lean file was required or compiled.
+
+---
+
 # LLHLM23 continuation: scalar fixed-component diagrams and weights
 
 Codex — codex-rtOQ9t; issue 1254; 30 September 2026. Partial checkpoint:

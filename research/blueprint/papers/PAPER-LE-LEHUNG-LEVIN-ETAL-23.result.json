@@ -1468,6 +1468,27 @@
         "version": "Fresh published PDF at https://math.rice.edu/~bl70/LocModels.pdf; retrieved 10:32 UTC, SHA-256 e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd.",
         "readSections": "PDF37–38,52–53,84–85,91–98,156–159,161–162, with the exact central-lift and weight definitions, component construction and downstream diagram/implications. This is bounded continuation reading; inherited complete-paper readings retain attribution.",
         "scope": "Four derived scalar theorem adapters, no new source finding or independent verdict; no global patching claim."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-J6LwjP",
+        "date": "2026-09-30",
+        "main": "Published PDF33–35,129–130,169–176,181–189 freshly read; PDF174 and184 inspected as rendered images to distinguish the tilde polynomial in §8.4.1 from the unadorned factor in Remark9.1.7. PDF hash reverified. Earlier full-paper reading remains attributed to its original worker, not claimed again.",
+        "result": "Explicit scalar H/Q/global constant-polynomial bounds and retained patching-prime hypotheses; no new source issue or independent verdict."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-J6LwjP",
+        "date": "2026-09-30",
+        "main": "Freshly read Stacks00TT,00TS,00TA,00T7,00NQ in full, and the coordinate argument in00T1 Lemma10.137.4. Also read00FV, but the derived rational-point proof does not need Nullstellensatz. Read actual pinned declarations listed in the smoothRegularity audit.",
+        "result": "Z102 source-level standard-smooth frontier refined with three existing library imports and four derived adapters. No new source issue or claim of independent review."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-J6LwjP",
+        "date": "2026-09-30",
+        "main": "Stacks07PR,07PU,032D and07PV statements and complete outer proofs freshly reread to establish the next frontier; the deeper cited derivation, finite-completion, formal-smoothness and Cohen-structure suppliers remain unaudited.",
+        "result": "Precise handoff only; no added formal-fibre theorem, no claim of recursive closure, no source verdict."
       }
     ],
     "smoothLocusContinuation": {
@@ -1490,7 +1511,7 @@
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Partial extraction of LLHLM23: universal and differential local models, tame Breuil–Kisin moduli, monodromy comparisons, generic Breuil–Mézard cycles, Serre-weight applications and arbitrary-level patching. The 799 items comprise 146 library, 48 planned and 605 missing items; every missing item is assigned once among 27 existing-owner routes. There are 120 unreviewed source findings and 12 explicit gaps. All non-library theorem items have source-level outlines, but the graph is not recursively closed. The scalar fixed-Hodge comparison now includes residual characters, lifting, component labels, a fixed-component Cartesian diagram with central-lift compatibility and the equality of predicted/obvious weights with component membership at every prime. The full height-interval hook remains false. Other finite bounds, dyadic global patching, external source suppliers, definition APIs and library/owner audits remain obligations. No formal implementation or independent acceptance is asserted.",
+  "summary": "Partial extraction of LLHLM23: universal and differential local models, tame Breuil–Kisin moduli, monodromy comparisons, generic Breuil–Mézard cycles, Serre-weight applications and arbitrary-level patching. The 809 items comprise 149 library, 48 planned and 612 missing items; every missing item is assigned once among 27 existing-owner routes. There are 120 unreviewed source findings and 11 explicit gaps. All non-library theorem items have source-level outlines, but the graph is not recursively closed. The scalar fixed-Hodge comparison now includes residual characters, lifting, component labels, a fixed-component Cartesian diagram with central-lift compatibility and the equality of predicted/obvious weights with component membership at every prime. The full height-interval hook remains false. B56/B57/V17 now give explicit scalar sufficient polynomial bounds (powers of 24), chosen-family genericity and the all-prime local versus odd-prime patching distinction. The scalar downstream gap is closed for the corrected scope retaining p>2 in the supplied global construction; no dyadic extension is asserted. External source suppliers, definition APIs and library/owner audits remain obligations. No formal implementation or independent acceptance is asserted. The Z102 smooth-over-field regularity supplier is now explicit through L144–L146 and Z148–Z151, reusing standard-smooth neighbourhoods and cotangent localization; its characteristic-p formal-fibre successor and all other listed gaps remain open.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -10515,7 +10536,7 @@
       "kind": "theorem",
       "name": "Patched nonvanishing and admissibility criterion",
       "locator": "Proposition6.2.7, PDF129–130",
-      "statement": "For semisimple rho with4n-generic inertia, dominant effective lambda_j in[0,h]^n, tau with chosen max(2n,h+n-1)-generic presentation, a stable lattice sigma^circ(lambda,tau), and a weak detectable minimal functor, the following are equivalent: its patched module is nonzero; R_infinity(lambda,tau) is nonzero; R_rho^(lambda+eta,tau) is nonzero; rho admits a lambda-compatible presentation with w(tau)^-1 w(rho) in Adm(lambda+eta). Expand the equivalence into individual implications in the blueprint. No domain claim is involved.",
+      "statement": "Retain p ∤ 2n (in particular p>2 when n=1) for the supplied construction/proof. For semisimple rho with4n-generic inertia, dominant effective lambda_j in[0,h]^n, tau with chosen max(2n,h+n-1)-generic presentation, a stable lattice sigma^circ(lambda,tau), and a weak detectable minimal functor, the following are equivalent: its patched module is nonzero; R_infinity(lambda,tau) is nonzero; R_rho^(lambda+eta,tau) is nonzero; rho admits a lambda-compatible presentation with w(tau)^-1 w(rho) in Adm(lambda+eta). Expand the equivalence into individual implications in the blueprint. No domain claim is involved.",
       "status": "missing",
       "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
       "proofSteps": [
@@ -10528,7 +10549,8 @@
       ],
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P12"
-      ]
+      ],
+      "sourceStatement": "For semisimple rho with4n-generic inertia, dominant effective lambda_j in[0,h]^n, tau with chosen max(2n,h+n-1)-generic presentation, a stable lattice sigma^circ(lambda,tau), and a weak detectable minimal functor, the following are equivalent: its patched module is nonzero; R_infinity(lambda,tau) is nonzero; R_rho^(lambda+eta,tau) is nonzero; rho admits a lambda-compatible presentation with w(tau)^-1 w(rho) in Adm(lambda+eta). Expand the equivalence into individual implications in the blueprint. No domain claim is involved."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P14",
@@ -12151,9 +12173,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "G69–G71 now supply the missing scalar monodromy/precision calculation on the fixed-Hodge Kisin gauge charts of K59: both ideals vanish and the comparison is the identity, with no Elkik or prime threshold. The remaining rank-one step for the stated Galois chart is an integral fixed-Hodge comparison X^{λ,τ}≅Y^{≤λ,τ}. G18’s proof passes through a whole height interval and retains its actual prime bound; do not remove that bound from it using the new calculation. A scalar character classification/integral restriction argument must supply this fixed-Hodge equivalence separately. The earlier K21/K22 flat-closure suppliers remain within the inherited closure audit. K60/K61 now supply the fixed-Hodge forgetful monomorphism and closed immersion, including the first-projection closed immersion after base change. The integral equivalence still needs finite-DVR lifting and the second-projection arguments in the handoff.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: fixed-Hodge comparison at every prime via G75; G28/G29 are the identity scalar comparison and may use P=1, with G30 the corresponding domain statement. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "G69–G71 now supply the missing scalar monodromy/precision calculation on the fixed-Hodge Kisin gauge charts of K59: both ideals vanish and the comparison is the identity, with no Elkik or prime threshold. The remaining rank-one step for the stated Galois chart is an integral fixed-Hodge comparison X^{λ,τ}≅Y^{≤λ,τ}. G18’s proof passes through a whole height interval and retains its actual prime bound; do not remove that bound from it using the new calculation. A scalar character classification/integral restriction argument must supply this fixed-Hodge equivalence separately. The earlier K21/K22 flat-closure suppliers remain within the inherited closure audit. K60/K61 now supply the fixed-Hodge forgetful monomorphism and closed immersion, including the first-projection closed immersion after base change. The integral equivalence still needs finite-DVR lifting and the second-projection arguments in the handoff.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarIntegralContinuation": {
         "items": [
@@ -12207,9 +12230,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "An existential polynomial can be enlarged without changing the form of this theorem: once a finite prime threshold B depending only on the fixed Hodge data and e is established, replace P by B!·P. Nonvanishing modulo p then gives both P-genericity and p>B. This elementary observation does not by itself establish the rank-one G28/G31 inputs or determine B. Record those inputs first, including their height normalization and precision, then absorb their finitely many bounds. Do not replace a polynomial condition by a root-depth condition in rank one. The new G71 calculation removes the scalar monodromy/Elkik threshold on the fixed-Hodge Kisin side. The unresolved input is now the integral Galois-to-Kisin identification, not analyticity of scalar monodromy. K60/K61 now supply the fixed-Hodge forgetful monomorphism and closed immersion, including the first-projection closed immersion after base change. The integral equivalence still needs finite-DVR lifting and the second-projection arguments in the handoff.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: fixed-Hodge comparison at every prime via G75; G28/G29 are the identity scalar comparison and may use P=1, with G30 the corresponding domain statement. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "An existential polynomial can be enlarged without changing the form of this theorem: once a finite prime threshold B depending only on the fixed Hodge data and e is established, replace P by B!·P. Nonvanishing modulo p then gives both P-genericity and p>B. This elementary observation does not by itself establish the rank-one G28/G31 inputs or determine B. Record those inputs first, including their height normalization and precision, then absorb their finitely many bounds. Do not replace a polynomial condition by a root-depth condition in rank one. The new G71 calculation removes the scalar monodromy/Elkik threshold on the fixed-Hodge Kisin side. The unresolved input is now the integral Galois-to-Kisin identification, not analyticity of scalar monodromy. K60/K61 now supply the fixed-Hodge forgetful monomorphism and closed immersion, including the first-projection closed immersion after base change. The integral equivalence still needs finite-DVR lifting and the second-projection arguments in the handoff.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarIntegralContinuation": {
         "items": [
@@ -12259,9 +12283,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "Use K58 for rank-one semisimplicity rather than silently appealing to the higher-rank proof of K41. The uniqueness comparison still requires the K29/G18 prime range, and the chart identification is conditional on the completed G29 rank-one proof. Semisimplicity alone does not repair height-interval uniqueness.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: fixed-Hodge comparison at every prime via G75; G28/G29 are the identity scalar comparison and may use P=1, with G30 the corresponding domain statement. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "Use K58 for rank-one semisimplicity rather than silently appealing to the higher-rank proof of K41. The uniqueness comparison still requires the K29/G18 prime range, and the chart identification is conditional on the completed G29 rank-one proof. Semisimplicity alone does not repair height-interval uniqueness.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarComponentContinuation": {
         "items": [
@@ -12296,9 +12321,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The source statement is retained as a target. The comparison from a crystalline point to its unique shape uses G18 (sufficient range n≥2 or p>h′+2), and the use of P13 imports the standing p ∤ 2n restriction of §6.2. Neither follows from (4n+h′)-depth at n=1. A scalar fixed-Hodge lift and its shape comparison are the missing rank-one replacement; a numerical genericity assertion is not that replacement.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: fixed-Hodge comparison at every prime via G75; G28/G29 are the identity scalar comparison and may use P=1, with G30 the corresponding domain statement. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The source statement is retained as a target. The comparison from a crystalline point to its unique shape uses G18 (sufficient range n≥2 or p>h′+2), and the use of P13 imports the standing p ∤ 2n restriction of §6.2. Neither follows from (4n+h′)-depth at n=1. A scalar fixed-Hodge lift and its shape comparison are the missing rank-one replacement; a numerical genericity assertion is not that replacement.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarComponentContinuation": {
         "items": [
@@ -12401,9 +12427,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "G71 proves that the scalar fixed-Hodge naive and true-monodromy equations vanish identically, so this part of the rank-one factorization no longer needs an m-depth precision estimate. What remains is the integral map from the Galois stack to this Kisin chart: G18 only supplies its stated height/prime range. Supply the fixed-Hodge scalar comparison before exporting the unqualified rank-one Galois factorization. K60/K61 now supply the fixed-Hodge forgetful monomorphism and closed immersion, including the first-projection closed immersion after base change. The integral equivalence still needs finite-DVR lifting and the second-projection arguments in the handoff.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: fixed-component comparison and scalar labels at every prime via G77/G78; no assertion restores G35's false full-interval hook. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "G71 proves that the scalar fixed-Hodge naive and true-monodromy equations vanish identically, so this part of the rank-one factorization no longer needs an m-depth precision estimate. What remains is the integral map from the Galois stack to this Kisin chart: G18 only supplies its stated height/prime range. Supply the fixed-Hodge scalar comparison before exporting the unqualified rank-one Galois factorization. K60/K61 now supply the fixed-Hodge forgetful monomorphism and closed immersion, including the first-projection closed immersion after base change. The integral equivalence still needs finite-DVR lifting and the second-projection arguments in the handoff.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarIntegralContinuation": {
         "items": [
@@ -12446,9 +12473,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The component equality depends on G54 and therefore inherits its rank-one lifting/comparison obligations. This audit gives no counterexample to the equality itself; the counterexample in G35 concerns the larger interval map occurring in the second part of the source theorem.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: fixed-component comparison and scalar labels at every prime via G77/G78; no assertion restores G35's false full-interval hook. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The component equality depends on G54 and therefore inherits its rank-one lifting/comparison obligations. This audit gives no counterexample to the equality itself; the counterexample in G35 concerns the larger interval map occurring in the second part of the source theorem.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarComponentContinuation": {
         "items": [
@@ -12490,9 +12518,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The lower component bound uses G53, including its rank-one lifting boundary. The upper bound uses G33, including height/prime and monodromy precision. The displayed numerical depth does not automatically discharge those boundaries in rank one. Keep both inputs visible before exporting the equality.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: fixed-component comparison and scalar labels at every prime via G77/G78; no assertion restores G35's false full-interval hook. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The lower component bound uses G53, including its rank-one lifting boundary. The upper bound uses G33, including height/prime and monodromy precision. The displayed numerical depth does not automatically discharge those boundaries in rank one. Keep both inputs visible before exporting the equality.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarComponentContinuation": {
         "items": [
@@ -12605,9 +12634,10 @@
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "sourceStatement": "Theorem 7.4.2(2), under the hypotheses of Theorem 7.4.2 (G34). For each sigma in JH(W(lambda-eta) ⊗ sigmabar(tau)) there is a local model diagram (7.17). Its top row is Ctilde_sigma ↪ Xtilde^{<=lambda,tau}_F ↪ Mtilde^nv_J(<=lambda, nabla_{a_tau})_F ↪ Mtilde_J(<=lambda)_F ↪ Fltilde^{[0,h]}_{J,wtilde*(tau)}, the last arrow being r_{wtilde*(tau)}. An isomorphism Ctilde_sigma ≅ Ctilde^zeta_sigma is compatible with the closed immersion Ctilde^zeta_sigma ↪ Fltilde^{[0,h]}_{J,wtilde*(tau)}. The bottom row is C_sigma ↪ X^{<=lambda,tau}_F ↪ Y^{<=lambda,tau}_F ↪ [Fltilde^{[0,h]}_{J,wtilde*(tau)} / T^{vee,J}_F-conj] ↪ Phi-Mod^{et,n}_{K,F}. The vertical maps are Ctilde_sigma -> C_sigma, Xtilde^{<=lambda,tau}_F -> X^{<=lambda,tau}_F, pi_{(s,mu)}: Mtilde_J(<=lambda)_F -> Y^{<=lambda,tau}_F, and Fltilde -> [Fltilde/T^{vee,J}_F-conj]. The diagram satisfies three conditions. First, Ctilde_sigma is defined so that all rectangles are Cartesian and all vertical arrows are T^{vee,J}_F-torsors. Second, all hooked arrows are closed immersions. Third, the bottom diagonal map is the canonical composition C_sigma ↪ X_n -> Phi-Mod^{et,n}_{K,F}. Here wtilde*(tau) = s^{-1} t_{mu+eta}, Xtilde^{<=lambda,tau}_F is the pullback of X^{<=lambda,tau}_F along pi_{(s,mu)}, and Ctilde^zeta_sigma is the pullback to Fltilde of C^zeta_sigma (Definition 4.6.1). Proof: C_sigma is a component of X^{<=lambda,tau}_red, so Ctilde_sigma is a top-dimensional component of Mtilde^nv. By Theorem 4.6.2 it therefore equals Ctilde^zeta_{sigma'} wtilde*(tau)^{-1} for some sigma' in JH(W(lambda-eta) ⊗ sigmabar(tau)). Choose a point of Ctilde_sigma of the form (7.15) that lies over U^zeta_{sigma'} (Lemma 7.4.6). By Lemma 7.2.10(2) and (4), its G_{K_infty}-flag is G_K-stable, which gives kappa - kappa' in (p - pi)X^0(T) and hence sigma' = sigma.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "At n=1, K=Q_p, τ trivial and h=p−1, the quotient of the bounded-height affine-flag chart in (7.17) contains the distinct scalar Frobenius objects 1 and v^(p−1), which become isomorphic after inverting v. Its displayed hooked map to Φ-Mod_et is therefore not a monomorphism. All root-depth assumptions are vacuous; choose the regular rank-one Hodge weight λ=h and compatible central character. This disproves the whole diagram assertion as printed, independently of whether its fixed-Hodge component assertions hold. Restoring a rank-one diagram requires an actual height/prime restriction (the earlier G18 range p>h+2 is sufficient for that comparison), plus verification of the other component and monodromy inputs. A fixed-Hodge scalar proof cannot make the whole unrestricted height-interval hook injective. For the labelling step, G49 requires p>2, while a rank-one flag can instead be handled directly; neither observation repairs the interval hook.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: fixed-component comparison and scalar labels at every prime via G77/G78; no assertion restores G35's false full-interval hook. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "At n=1, K=Q_p, τ trivial and h=p−1, the quotient of the bounded-height affine-flag chart in (7.17) contains the distinct scalar Frobenius objects 1 and v^(p−1), which become isomorphic after inverting v. Its displayed hooked map to Φ-Mod_et is therefore not a monomorphism. All root-depth assumptions are vacuous; choose the regular rank-one Hodge weight λ=h and compatible central character. This disproves the whole diagram assertion as printed, independently of whether its fixed-Hodge component assertions hold. Restoring a rank-one diagram requires an actual height/prime restriction (the earlier G18 range p>h+2 is sufficient for that comparison), plus verification of the other component and monodromy inputs. A fixed-Hodge scalar proof cannot make the whole unrestricted height-interval hook injective. For the labelling step, G49 requires p>2, while a rank-one flag can instead be handled directly; neither observation repairs the interval hook.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarDiagramContinuation": {
         "items": [
@@ -12700,9 +12730,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The proof imports the component identification from G35 and the lifts from P14. Retain the interval-comparison and p ∤ 2n hypotheses or provide a direct scalar fixed-Hodge argument. The specialisation λ=η has η=0 for n=1; if G18 is applied with h=1 to meet its h≥1 convention, it requires p>3. A separate height-zero comparison might sharpen that sufficient restriction, but has not been supplied here.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: fixed-component comparison and scalar labels at every prime via G77/G78; no assertion restores G35's false full-interval hook. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The proof imports the component identification from G35 and the lifts from P14. Retain the interval-comparison and p ∤ 2n hypotheses or provide a direct scalar fixed-Hodge argument. The specialisation λ=η has η=0 for n=1; if G18 is applied with h=1 to meet its h≥1 convention, it requires p>3. A separate height-zero comparison might sharpen that sufficient restriction, but has not been supplied here.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarDiagramContinuation": {
         "items": [
@@ -12751,9 +12782,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The upper component bound still uses G33 and the restriction/flag argument G51. G49 gives cyclotomic freeness from depth only for n≥2 or p>2. In rank one the unique flag can be handled without G49, but G33 remains an independent comparison/precision obligation. This is not a proof that the component bound is false.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: fixed-component comparison and scalar labels at every prime via G77/G78; no assertion restores G35's false full-interval hook. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The upper component bound still uses G33 and the restriction/flag argument G51. G49 gives cyclotomic freeness from depth only for n≥2 or p>2. In rank one the unique flag can be handled without G49, but G33 remains an independent comparison/precision obligation. This is not a proof that the component bound is false.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarDiagramContinuation": {
         "items": [
@@ -12823,9 +12855,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The common reduction to the affine component uses G58 with λ=η and a type τ(1,κ). Its numerical 2n-genericity gives no prime bound when n=1. Retain G58’s explicit comparison/lifting boundary. In G60 an arbitrary fixed-point polynomial P_w must not be assumed to contain a factorial factor: either verify such a factor, enlarge the existential polynomial where allowed, or supply the scalar proof. No counterexample to this Serre-weight implication is asserted.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: direct all-prime scalar equivalence via N83/M51/G79, using fixed-point polynomial 1 when needed. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The common reduction to the affine component uses G58 with λ=η and a type τ(1,κ). Its numerical 2n-genericity gives no prime bound when n=1. Retain G58’s explicit comparison/lifting boundary. In G60 an arbitrary fixed-point polynomial P_w must not be assumed to contain a factorial factor: either verify such a factor, enlarge the existential polynomial where allowed, or supply the scalar proof. No counterexample to this Serre-weight implication is asserted.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarDiagramContinuation": {
         "items": [
@@ -12866,9 +12899,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The common reduction to the affine component uses G58 with λ=η and a type τ(1,κ). Its numerical 2n-genericity gives no prime bound when n=1. Retain G58’s explicit comparison/lifting boundary. In G60 an arbitrary fixed-point polynomial P_w must not be assumed to contain a factorial factor: either verify such a factor, enlarge the existential polynomial where allowed, or supply the scalar proof. No counterexample to this Serre-weight implication is asserted.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: direct all-prime scalar equivalence via N83/M51/G79, using fixed-point polynomial 1 when needed. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The common reduction to the affine component uses G58 with λ=η and a type τ(1,κ). Its numerical 2n-genericity gives no prime bound when n=1. Retain G58’s explicit comparison/lifting boundary. In G60 an arbitrary fixed-point polynomial P_w must not be assumed to contain a factorial factor: either verify such a factor, enlarge the existential polynomial where allowed, or supply the scalar proof. No counterexample to this Serre-weight implication is asserted.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarDiagramContinuation": {
         "items": [
@@ -12908,9 +12942,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The common reduction to the affine component uses G58 with λ=η and a type τ(1,κ). Its numerical 2n-genericity gives no prime bound when n=1. Retain G58’s explicit comparison/lifting boundary. In G60 an arbitrary fixed-point polynomial P_w must not be assumed to contain a factorial factor: either verify such a factor, enlarge the existential polynomial where allowed, or supply the scalar proof. No counterexample to this Serre-weight implication is asserted.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: direct all-prime scalar equivalence via N83/M51/G79, using fixed-point polynomial 1 when needed. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The common reduction to the affine component uses G58 with λ=η and a type τ(1,κ). Its numerical 2n-genericity gives no prime bound when n=1. Retain G58’s explicit comparison/lifting boundary. In G60 an arbitrary fixed-point polynomial P_w must not be assumed to contain a factorial factor: either verify such a factor, enlarge the existential polynomial where allowed, or supply the scalar proof. No counterexample to this Serre-weight implication is asserted.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarDiagramContinuation": {
         "items": [
@@ -14060,7 +14095,14 @@
           "kind": "non-example",
           "statement": "A 2n-generic tame τ that is not (6n−2+h_η)-generic gives (η,τ) ∈ S̃_{{0},t} ∖ S_{{0},t}, so the systems differ."
         }
-      ]
+      ],
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B57"
+        ],
+        "detail": "With the explicitly chosen scalar local-model family 1, the type system is computed by B57; keep the height interval distinct from the singleton dominance condition."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B20",
@@ -14198,7 +14240,14 @@
           "kind": "computation",
           "statement": "For GL₂, covering between 3-deep weights is equality (N45), so σ is generic iff it occurs in some σ̄(τ) with (η,τ) ∈ S_{{0},t} and in no σ̄(τ′) with (η,τ′) ∈ S̃_{{0},t} ∖ S_{{0},t}."
         }
-      ]
+      ],
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B57"
+        ],
+        "detail": "Every scalar Serre weight is generic for that chosen family by B57; no conclusion about other enlarged polynomial families is asserted."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B23",
@@ -14310,9 +14359,14 @@
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review.",
       "sourceStatement": "For semisimple (6n-2)-generic rho there exists a minimal patching functor for S_{Lambda,t}, and its module cycles satisfy the versal BM equations. The domain theorem and detectability upgrade generic rank at most one to rank exactly one.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The unqualified source statement is preserved in sourceStatement. No counterexample to existence is asserted at n=1,p=2: the cited construction P12 simply does not cover that case. The additional prime hypothesis repairs this particular invocation; the rank-one local-model/domain input G30 still carries its separate proof boundary. Construct a dyadic rank-one patching functor with the required exactness, maximal Cohen–Macaulay and generic-rank axioms before restoring the omitted source scope. The rank of its module over R_∞ is distinct from the representation dimension n.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved by retaining the explicit p∤2n hypothesis in the extracted statement. The n=1,p=2 extension is outside this corrected scope; no counterexample to a possible dyadic construction is claimed. B56/V17 separately compute the sufficient polynomial p>3 locus.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The unqualified source statement is preserved in sourceStatement. No counterexample to existence is asserted at n=1,p=2: the cited construction P12 simply does not cover that case. The additional prime hypothesis repairs this particular invocation; the rank-one local-model/domain input G30 still carries its separate proof boundary. Construct a dyadic rank-one patching functor with the required exactness, maximal Cohen–Macaulay and generic-rank axioms before restoring the omitted source scope. The rank of its module over R_∞ is distinct from the representation dimension n.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
+      },
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "scope": "Use P12 under p>2, G30/G75 for the all-prime fixed-Hodge domain input and B57 for the chosen scalar systems. The minimal functor construction is not supplied at p=2; this is an explicit restriction of the corrected extraction, not an unresolved assertion that depth excludes p=2."
       }
     },
     {
@@ -14320,7 +14374,7 @@
       "kind": "theorem",
       "name": "Generic geometric BM cycles and support",
       "locator": "Theorem8.4.10(2) PDF173–174",
-      "statement": "For each generic sigma there is a unique cycle with support among C_kappa covered by sigma and pullbacks equal to all chosen minimal patching cycles at P_ss. These cycles are effective by the preceding abstract theorem.",
+      "statement": "Retain p ∤ 2n (in particular p>2 when n=1) for the supplied construction/proof. For each generic sigma there is a unique cycle with support among C_kappa covered by sigma and pullbacks equal to all chosen minimal patching cycles at P_ss. These cycles are effective by the preceding abstract theorem.",
       "status": "missing",
       "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
       "proofSteps": [
@@ -14341,9 +14395,15 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The supplied proof chooses the minimal patching functors supplied by B24, now explicitly assuming p ∤ 2n. For n=1,p=2, numerical (6n−2)-genericity alone does not supply those functors. The abstract cycle implications remain conditional on their stated patching-functor hypotheses; no new contradiction to the Breuil–Mézard cycle identities is claimed. Polynomial-generic applications can impose an actual prime bound separately.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved by retaining the explicit p∤2n hypothesis in the extracted statement. The n=1,p=2 extension is outside this corrected scope; no counterexample to a possible dyadic construction is claimed. B56/V17 separately compute the sufficient polynomial p>3 locus.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The supplied proof chooses the minimal patching functors supplied by B24, now explicitly assuming p ∤ 2n. For n=1,p=2, numerical (6n−2)-genericity alone does not supply those functors. The abstract cycle implications remain conditional on their stated patching-functor hypotheses; no new contradiction to the Breuil–Mézard cycle identities is claimed. Polynomial-generic applications can impose an actual prime bound separately.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
+      },
+      "sourceStatement": "For each generic sigma there is a unique cycle with support among C_kappa covered by sigma and pullbacks equal to all chosen minimal patching cycles at P_ss. These cycles are effective by the preceding abstract theorem.",
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "scope": "Use P12 under p>2, G30/G75 for the all-prime fixed-Hodge domain input and B57 for the chosen scalar systems. The minimal functor construction is not supplied at p=2; this is an explicit restriction of the corrected extraction, not an unresolved assertion that depth excludes p=2."
       }
     },
     {
@@ -14351,7 +14411,7 @@
       "kind": "theorem",
       "name": "Generic BM cycles are independent of the patching functors",
       "locator": "Theorem 8.4.10(3), PDF 173; proof PDF 174; alternative proof §8.6.1, PDF 177–179",
-      "statement": "Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0, with S_{Λ,t} and P_ss as in §8.4. For each x ∈ P_ss choose a minimal patching functor M^x_∞ for x and S_{Λ,t} (these exist by Theorem 8.4.10(1)), and for generic σ let Z_σ be the cycle of Theorem 8.4.10(2). For generic σ, the cycle Z_σ does not depend on the choice of the patching functors M^x_∞ for x ∈ P_ss. For generic σ and semisimple (6n−2)-generic ρ̄ with minimal patching functor M^ρ̄_∞ for ρ̄ and S_{Λ,t}, Z(M^ρ̄_∞(σ)) depends only on the versal ring R_∞ (i.e., it is the pullback to R_∞ of a cycle that is independent of M^ρ̄_∞).",
+      "statement": "Retain p ∤ 2n (in particular p>2 when n=1) for the supplied construction/proof. Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0, with S_{Λ,t} and P_ss as in §8.4. For each x ∈ P_ss choose a minimal patching functor M^x_∞ for x and S_{Λ,t} (these exist by Theorem 8.4.10(1)), and for generic σ let Z_σ be the cycle of Theorem 8.4.10(2). For generic σ, the cycle Z_σ does not depend on the choice of the patching functors M^x_∞ for x ∈ P_ss. For generic σ and semisimple (6n−2)-generic ρ̄ with minimal patching functor M^ρ̄_∞ for ρ̄ and S_{Λ,t}, Z(M^ρ̄_∞(σ)) depends only on the versal ring R_∞ (i.e., it is the pullback to R_∞ of a cycle that is independent of M^ρ̄_∞).",
       "status": "missing",
       "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
       "proofSteps": [
@@ -14367,9 +14427,15 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The supplied proof chooses the minimal patching functors supplied by B24, now explicitly assuming p ∤ 2n. For n=1,p=2, numerical (6n−2)-genericity alone does not supply those functors. The abstract cycle implications remain conditional on their stated patching-functor hypotheses; no new contradiction to the Breuil–Mézard cycle identities is claimed. Polynomial-generic applications can impose an actual prime bound separately.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved by retaining the explicit p∤2n hypothesis in the extracted statement. The n=1,p=2 extension is outside this corrected scope; no counterexample to a possible dyadic construction is claimed. B56/V17 separately compute the sufficient polynomial p>3 locus.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The supplied proof chooses the minimal patching functors supplied by B24, now explicitly assuming p ∤ 2n. For n=1,p=2, numerical (6n−2)-genericity alone does not supply those functors. The abstract cycle implications remain conditional on their stated patching-functor hypotheses; no new contradiction to the Breuil–Mézard cycle identities is claimed. Polynomial-generic applications can impose an actual prime bound separately.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
+      },
+      "sourceStatement": "Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0, with S_{Λ,t} and P_ss as in §8.4. For each x ∈ P_ss choose a minimal patching functor M^x_∞ for x and S_{Λ,t} (these exist by Theorem 8.4.10(1)), and for generic σ let Z_σ be the cycle of Theorem 8.4.10(2). For generic σ, the cycle Z_σ does not depend on the choice of the patching functors M^x_∞ for x ∈ P_ss. For generic σ and semisimple (6n−2)-generic ρ̄ with minimal patching functor M^ρ̄_∞ for ρ̄ and S_{Λ,t}, Z(M^ρ̄_∞(σ)) depends only on the versal ring R_∞ (i.e., it is the pullback to R_∞ of a cycle that is independent of M^ρ̄_∞).",
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "scope": "Use P12 under p>2, G30/G75 for the all-prime fixed-Hodge domain input and B57 for the chosen scalar systems. The minimal functor construction is not supplied at p=2; this is an explicit restriction of the corrected extraction, not an unresolved assertion that depth excludes p=2."
       }
     },
     {
@@ -14377,7 +14443,7 @@
       "kind": "theorem",
       "name": "Generic BM cycles agree with any conjectural BM cycles",
       "locator": "Theorem 8.4.10(4), PDF 173; proof PDF 174",
-      "statement": "Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0, let S_{Λ,t}, P_ss and Ŝ_{Λ,t,elim} be as in §8.4, and for generic σ let Z_σ be the cycle of Theorem 8.4.10(2) (built from minimal patching functors M^x_∞ for x ∈ P_ss and S_{Λ,t}). Assume Conjecture 8.1.1 holds for a Breuil–Mézard system containing Ŝ_{Λ,t,elim}. Then the above cycles Z_σ (for generic σ) coincide with those from Conjecture 8.1.1.",
+      "statement": "Retain p ∤ 2n (in particular p>2 when n=1) for the supplied construction/proof. Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0, let S_{Λ,t}, P_ss and Ŝ_{Λ,t,elim} be as in §8.4, and for generic σ let Z_σ be the cycle of Theorem 8.4.10(2) (built from minimal patching functors M^x_∞ for x ∈ P_ss and S_{Λ,t}). Assume Conjecture 8.1.1 holds for a Breuil–Mézard system containing Ŝ_{Λ,t,elim}. Then the above cycles Z_σ (for generic σ) coincide with those from Conjecture 8.1.1.",
       "status": "missing",
       "note": "Split from B26. The proof is 'Items (2), (3), and (4) follow from Theorem 8.3.5 (and the previous lemmas in this section)'. For (4) this means Theorem 8.3.5(4) (B38) with P = P_ss, S = S_{Λ,t}, Ŝ = Ŝ_{Λ,t} and Ŝ_elim the given Breuil–Mézard system S′. The hypotheses come from: Theorem 8.4.10(1) (B24) for the minimal patching functors; Lemma 8.4.9 (B40) for P_ss meeting all components; Lemma 8.4.4 (B39) plus monotonicity of irrelevance in S_elim (Definition 8.3.1, used without comment) for (P_ss, S′)-Breuil–Mézard; and S′ ⊇ Ŝ_{Λ,t,elim} ⊇ Ŝ_{Λ,t}. Lemma 8.4.8 (B23) makes each generic σ (S_{Λ,t}, Ŝ_{Λ,t})-generic.",
       "uses": [
@@ -14401,9 +14467,15 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The supplied proof chooses the minimal patching functors supplied by B24, now explicitly assuming p ∤ 2n. For n=1,p=2, numerical (6n−2)-genericity alone does not supply those functors. The abstract cycle implications remain conditional on their stated patching-functor hypotheses; no new contradiction to the Breuil–Mézard cycle identities is claimed. Polynomial-generic applications can impose an actual prime bound separately.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved by retaining the explicit p∤2n hypothesis in the extracted statement. The n=1,p=2 extension is outside this corrected scope; no counterexample to a possible dyadic construction is claimed. B56/V17 separately compute the sufficient polynomial p>3 locus.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The supplied proof chooses the minimal patching functors supplied by B24, now explicitly assuming p ∤ 2n. For n=1,p=2, numerical (6n−2)-genericity alone does not supply those functors. The abstract cycle implications remain conditional on their stated patching-functor hypotheses; no new contradiction to the Breuil–Mézard cycle identities is claimed. Polynomial-generic applications can impose an actual prime bound separately.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
+      },
+      "sourceStatement": "Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0, let S_{Λ,t}, P_ss and Ŝ_{Λ,t,elim} be as in §8.4, and for generic σ let Z_σ be the cycle of Theorem 8.4.10(2) (built from minimal patching functors M^x_∞ for x ∈ P_ss and S_{Λ,t}). Assume Conjecture 8.1.1 holds for a Breuil–Mézard system containing Ŝ_{Λ,t,elim}. Then the above cycles Z_σ (for generic σ) coincide with those from Conjecture 8.1.1.",
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "scope": "Use P12 under p>2, G30/G75 for the all-prime fixed-Hodge domain input and B57 for the chosen scalar systems. The minimal functor construction is not supplied at p=2; this is an explicit restriction of the corrected extraction, not an unresolved assertion that depth excludes p=2."
       }
     },
     {
@@ -14534,7 +14606,14 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N76",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N80"
       ],
-      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. Existing E79–E81 are applied, not independently reviewed."
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. Existing E79–E81 are applied, not independently reviewed.",
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B56"
+        ],
+        "detail": "The corrected sufficient H specializes to 24^(N+1), so p>3 explicitly supplies its scalar polynomial hypothesis."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B43",
@@ -14568,7 +14647,15 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B51"
       ],
-      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. Existing E79–E81 are applied, not independently reviewed."
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. Existing E79–E81 are applied, not independently reviewed.",
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B56",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B57"
+        ],
+        "detail": "The scalar H-generic locus is exactly p>3, which supplies the retained p>2 construction requirement of B24/B25."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B29",
@@ -14636,7 +14723,14 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K45",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P04"
       ],
-      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review."
+      "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF163–180 (page images of PDF173 and 176–179 checked); not a Lean proof or independent review.",
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B56"
+        ],
+        "detail": "Use the explicit scalar width 0 instead of an undefined maximum over no roots: m=4, and QP_m=24^(N(N+1)+1). This sufficient condition implies p>3. Monodromy on a one-dimensional Weil–Deligne representation is zero, so no nonzero-monodromy scalar branch is inferred."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B32",
@@ -15372,7 +15466,14 @@
         "Lemma 9.1.10 computes that nonvanishing set for a detectable functor: it equals W?(r-bar_p restricted to inertia), and among generic weights equals W^BM_gen(r-bar_p).",
         "Chaining the two identifies W(r-bar) with W?(r-bar_p|I), and Lemma 9.1.9 identifies the latter with W^g_gen(r-bar_p), giving the three-way equality in the statement; the generic clause is the second half of 9.1.10.",
         "Record the genericity polynomial explicitly, as Remark 9.1.7(1) does: P may be taken to be the product of P_{6n-2}, P_{2 eta, e}, P_{eta_0 eta, e} and the Q of Lemma 9.1.9. The theorem is only as effective as that product, which is not made explicit in rank n."
-      ]
+      ],
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V17"
+        ],
+        "detail": "The scalar sufficient polynomial is 24, retaining every global hypothesis; the corrected BM polynomial enlargements have the same unit locus."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V08",
@@ -15473,7 +15574,15 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V08"
       ],
-      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. Existing E79–E81 are applied, not independently reviewed."
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. Existing E79–E81 are applied, not independently reviewed.",
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B57",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V17"
+        ],
+        "detail": "For the chosen scalar local-model family 1 every scalar Serre weight is already generic, so no additional polynomial exclusion is needed beyond the retained global sufficient bound p>3."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V16",
@@ -15511,7 +15620,14 @@
         "Build the polynomial. Fix a set R of representatives for the finite quotient W-tilde^+_1 / X_0(T) and set Q(X_1, ..., X_n) to be the product, over w-tilde in R, over w-tilde_2 with w-tilde_2 up-arrow w-tilde and w-tilde_2 in W-tilde^+, and over w in W, of P_{w-tilde}(X + w w-tilde_2^{-1}(0)), where P_{w-tilde} is the fixed-point polynomial of Proposition 4.7.3 and w w-tilde_2^{-1}(0) is read in Z^n under X^*(T) = Z^n. The product is finite because the quotient is.",
         "Reverse inclusion. If rho restricted to I_K has a Q-generic lowest alcove presentation (s, mu - eta), then for sigma in W?(rho|I_K) the compatible presentation supplied by Proposition 2.6.2 satisfies the hypothesis of Proposition 7.4.7(2), whence rho lies in C_sigma, i.e. sigma lies in W^g_gen(rho).",
         "Take P = Q P_{4n}, the second factor securing the 4n-genericity that the first inclusion needed. Note that P depends on n but not on p, which is what makes the statement uniform in p."
-      ]
+      ],
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V17"
+        ],
+        "detail": "G79 directly proves the scalar local equality with polynomial 1 at every prime; the printed QP_4 choice 24 is a sufficient weaker choice."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V10",
@@ -15586,7 +15702,14 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P09",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P13",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V09"
-      ]
+      ],
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V17"
+        ],
+        "detail": "The scalar sufficient polynomial is 24. This computes support only for a functor satisfying the stated axioms and does not construct that functor."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V12",
@@ -15601,7 +15724,12 @@
         "What Theorem 7.3.2 supplies is the local input: for a P_{lambda+eta,e}-generic tame tau, the potentially crystalline deformation ring R^{lambda+eta,tau}_rho is a domain (and normal, Cohen-Macaulay). That is the hypothesis a Taylor-Wiles patching argument needs in order to conclude that the patched module is supported on the whole of the local deformation space.",
         "The blueprint obligation is therefore the standard chain, stated in full and not deferred: solvable base change to a setting where the relevant level is mild and r-bar remains adequate; construction of the patched module for the definite unitary group of section 9.1; the support argument using the domain property; and the descent back to automorphy of r with the stated weight and K-type.",
         "Carry all the hypotheses of the statement without weakening: the polarization r^c = r^vee epsilon^{1-n}, semisimplicity of r-bar locally above p, adequacy of r-bar on G_{F(zeta_p)} with zeta_p not in F^{ker ad r-bar}, and the residual RACSDC automorphic lift of matching weight and type. Remark 9.2.2(2) itself records that the inexplicit P_{lambda+eta,e} makes the theorem impractical to apply, which a blueprint should not hide."
-      ]
+      ],
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "items": [],
+        "detail": "The scalar local-model factor can be 1 by G29/G75. Keep the global lifting suppliers and the ζ_p∉F^{ker ad(rbar)} hypothesis: at p=2, ζ_2=−1 lies in F, so that hypothesis already excludes the dyadic case. A local polynomial of 1 does not prove global automorphy."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V13",
@@ -15620,7 +15748,14 @@
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V12"
-      ]
+      ],
+      "scalarBoundContinuation": {
+        "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V17"
+        ],
+        "detail": "For the scalar change-of-weight step an explicit sufficient added factor is 24, keeping V12 and all global source suppliers. No arbitrary-rank polynomial is made effective by this computation."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A01",
@@ -25391,11 +25526,18 @@
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L113",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L60",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z92"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z92",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z150",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z151"
       ],
       "implementationStatus": "unchecked",
-      "note": "",
+      "note": "The former unnamed standard-smooth/cotangent-dimension step is replaced by L144–L146 and Z148–Z151, using the existing R03.3 parameter theorem Z103. This closes that source-level step, not the implementation or all other G-ring/regular-map suppliers. Codex — codex-J6LwjP, 30 September 2026. Source-level supplier continuation, not independent review or Lean elaboration.",
       "proofSteps": [
+        "Use L113 for Noetherianity. For each q∈Spec S set K=κ(q), T=K⊗_k S and m=ker(a⊗s↦a·s̄). Z151 constructs the flat local comparison S_q→T_m and verifies its scalar tower, contraction and Noetherian hypotheses. If S is the zero algebra there are no primes and this condition is vacuous.",
+        "L60 makes T smooth over K. Its point ε:T→K is K-rational, so Z150 proves T_m regular from L144 and the explicit Z148/Z149 parameter argument. Apply Z92 to the flat local map to deduce S_q regular. This proves the existing IsRegularRing predicate for S.",
+        "No equality between dim S_q and dim T_m is used, and K/k may be transcendental or inseparable. The formula dim_κ Ω⊗κ=dim_x Spec S in00TT is not silently replaced by dim S_q. Z151 gives both the generic-point dimension check and the imperfect-field counterexample to the converse."
+      ],
+      "historicalProofSteps": [
         "After extending to an algebraically closed field and choosing a geometric point over a given prime, smoothness remains true by L60. In a standard smooth presentation the invertible Jacobian minor makes the cotangent dimension equal the local dimension; the corresponding local ring is regular.",
         "The map from the original local ring to that geometric local ring is flat local. Apply Z92 to descend regularity. The standard-smooth Jacobian and finite-type dimension inputs are shared with Z41–Z44 and remain in the source/declaration audit queue. This is not the converse asserting that every regular algebra over an imperfect field is smooth."
       ]
@@ -25620,9 +25762,10 @@
       ],
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
-        "gap": "rank-one-downstream-boundaries",
-        "detail": "The dense crystalline lifts use P15/P16 from §6.2, where p ∤ 2n is a standing assumption. In rank one this requires p>2 or an independent scalar lifting argument; (4n+h)-depth is vacuous. This is a gap in the imported proof, not a counterexample to the fixed-Hodge component inclusion.",
-        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+        "detail": "Resolved at the corrected extracted scope: fixed-component comparison and scalar labels at every prime via G77/G78; no assertion restores G35's false full-interval hook. Historical boundary text below is superseded by the named continuations; their general source suppliers remain subject to the separate recursive audit gaps.",
+        "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof.",
+        "historicalDetail": "The dense crystalline lifts use P15/P16 from §6.2, where p ∤ 2n is a standing assumption. In rank one this requires p>2 or an independent scalar lifting argument; (4n+h)-depth is vacuous. This is a gap in the imported proof, not a counterexample to the fixed-Hodge component inclusion.",
+        "resolvedBy": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
       },
       "scalarComponentContinuation": {
         "items": [
@@ -28347,6 +28490,328 @@
       ],
       "implementationStatus": "unchecked",
       "proofProvenance": "Codex — codex-rtOQ9t, 30 September 2026. Derived scalar adapter, not a verbatim source theorem, Lean proof or independent review."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B56",
+      "kind": "theorem",
+      "name": "Explicit scalar polynomial bounds for the BM applications",
+      "locator": "Derived scalar specialization of Remark2.1.11 and equation(8.1), Lemma8.4.11, Corollaries8.4.12/8.5.2; published PDF34,174–176; corrected B27/B30 formulas.",
+      "status": "missing",
+      "statement": "Let n=1, J be a nonempty finite embedding set, and Λ⊂Z^J be finite and contain 0; put N=|Λ||J|≥1. Choose the permissible scalar local-model polynomials P_{λ,e}=1 from G29/G75 for every fixed Hodge tuple. Define scalar width by max_i λ_{j,i}−min_i λ_{j,i}=0, so h_Λ^sc=h_η^sc=0 and η=0; this explicitly extends the empty-root convention and does not assign a value to an undefined maximum. Then the printed equation(8.1) polynomial is 24^N. The corrected sufficient B27 polynomial, with this scalar width, is H^sc_{Λ,e}=24^(N+1), and B30 gives Q^sc_{Λ,e}=24^(N(N+1)). Corollary8.5.2 uses m=4 and Q^sc_{Λ,e}P_4=24^(N(N+1)+1). Each of these nonzero constant polynomials is generic on every parameter exactly for primes p>3. They are sufficient choices, not necessary restrictions on rank-one geometry; p=3 still satisfies the separate odd-prime patching condition.",
+      "note": "Owner: GenericGL3SerreWeightsAndLattices, using its existing all-rank pre-lattice BM route. No new polynomial or factorial foundation is requested. Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N80",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75"
+      ],
+      "proofSteps": [
+        "For GL1, η=0, W={1}, and Conv(Wω)∩Z={ω}. A positive or negative shift therefore leaves a constant polynomial unchanged. The local comparison G29/G75 permits 1 for each P_{λ,e}; this is a chosen scalar family, not a claim that an arbitrary earlier general-rank choice equals 1.",
+        "N80 gives P_m=(-1)^m m!. At n=1, both 7n−3 and 6n−2 are 4, and P_4=24. With the explicitly defined scalar widths zero, M_Λ=4 and the m in Corollary8.5.2 is 4. Central Hodge exponents do not affect width; no bounded-height interval is being enlarged.",
+        "There is one lattice point per shift and N outer pairs (λ,j). Equation(8.1) consequently multiplies N copies of 24. The corrected H includes one extra P_4 and N local-model factors equal to 1, giving exponent N+1. B30 multiplies N copies of H; the final P_m adds one to exponent N(N+1).",
+        "Since N≥1, all these powers have the same prime divisors as 24, namely 2 and 3. Thus their image in a characteristic-p field is a unit iff p>3, independently of parameters, e and the sizes of the central exponents. This general argument proves the bound; finite diagnostics only check its bookkeeping."
+      ],
+      "tests": [
+        {
+          "name": "B56.one_pair",
+          "kind": "computation",
+          "statement": "For |Λ|=|J|=1 the printed, corrected H, corrected Q and QP_4 values are 24, 24², 24² and 24³."
+        },
+        {
+          "name": "B56.central_shift",
+          "kind": "compatibility",
+          "statement": "Replacing any scalar λ_j or parameter μ_j by arbitrarily large positive or negative central integers leaves all four values and the p>3 criterion unchanged."
+        },
+        {
+          "name": "B56.odd_not_polynomial",
+          "kind": "non-example",
+          "statement": "At p=3 the odd-prime hypothesis of P12/B24 holds, but every displayed constant polynomial vanishes. At p=2 the local P_{λ,e}=1 remains a unit, but the patching construction is not supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "proofProvenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B57",
+      "kind": "theorem",
+      "name": "Scalar generic Serre weights for the permissible local polynomial family",
+      "locator": "Derived scalar specialization of §8.4 type systems and Definition8.4.6, published PDF171–172, using §2.2 and N83.",
+      "status": "missing",
+      "statement": "For n=1 and the chosen scalar local-model family P_{λ,e}=1, S_{Λ,t} consists of all pairs (λ,τ) with λ∈Λ and τ a tame scalar inertial type. In particular S_{ {0},t}=S_tilde_{ {0},t} is the set of all weight-zero tame scalar types, and every scalar Serre weight is generic in Definition8.4.6, at every prime. This is a statement about these explicitly chosen systems; enlarging the local polynomials can shrink a system. It does not assert that the separate sufficient equation(8.1) polynomial is nonvanishing or that a dyadic patching functor exists.",
+      "note": "Owner: GenericGL3SerreWeightsAndLattices; consumes the scalar character and local comparison interfaces. Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N83",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75"
+      ],
+      "proofSteps": [
+        "The coroot cone of GL1 is {0}, so dominant λ′≤λ means λ′=λ, while every scalar weight is dominant. All numerical root-depth inequalities are vacuous, and the chosen local-model polynomial 1 imposes no condition. These facts identify S_{Λ,t} directly from its definition.",
+        "For Λ={0}, adjoining all numerically 2-generic weight-zero types adds nothing. Thus S_tilde_{ {0},t} minus S_{ {0},t} is empty.",
+        "Every irreducible representation of the finite residue torus is a one-dimensional character. Its Teichmüller lift supplies τ with σ in JH(σ(τ)), exactly the scalar dictionary of N83. The first condition of Definition8.4.6 holds and the second is vacuous. This proves genericity without using a factorial/root-depth equivalence."
+      ],
+      "tests": [
+        {
+          "name": "B57.dyadic",
+          "kind": "degenerate",
+          "statement": "For K=Q_2 the unique scalar Serre character is generic with the chosen local polynomial 1, even though 24 vanishes modulo 2."
+        },
+        {
+          "name": "B57.central_dominance",
+          "kind": "non-example",
+          "statement": "For scalar λ=5, the dominance set {λ′:λ′≤λ} is {5}, not the height interval {0,...,5}."
+        },
+        {
+          "name": "B57.choice_dependence",
+          "kind": "non-example",
+          "statement": "Replacing the permissible polynomial 1 by 6 gives an empty S_{ {0},t} at p=2 or 3. Hence the conclusion must name the chosen family and cannot describe every enlarged polynomial family."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "proofProvenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V17",
+      "kind": "theorem",
+      "name": "Explicit scalar bounds in the global weight applications",
+      "locator": "Derived specialization of Theorem9.1.6, Remark9.1.7, Lemmas9.1.9–9.1.10 and A.1.1, published PDF183–188; uses scalar G79/M51 and B56/B57.",
+      "status": "missing",
+      "statement": "At n=1 choose P_{λ,e}=1 and P_{wtilde}=1 using the fixed-Hodge and fixed-point scalar results. The Q in Lemma9.1.9 is then 1, and the sufficient product in Remark9.1.7(1), Lemma9.1.10 and the detectability hypothesis of A.1.1(2) is the constant 24. For the corrected H/Q enlargements, the corresponding products are positive powers of 24, so they have exactly the same p>3 locus. Thus 24 is an explicit sufficient scalar genericity polynomial for V07/V11 under all their other standing hypotheses, including automorphy and adequate image where requested. In V09 alone the direct scalar weight/component calculation G79 allows the sharper polynomial 1 at every prime. This does not construct a dyadic global patching functor; P12/B24 and A.1.1 retain p>2. Under the chosen family B57 already makes all scalar weights generic, so V15 needs no additional scalar exclusion.",
+      "note": "Owner: GenericGL3SerreWeightsAndLattices. This computes the polynomial/prime scope of existing proofs and imports their global suppliers; it does not prove those suppliers. Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N80",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G79",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B56",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V08"
+      ],
+      "proofSteps": [
+        "M51 permits every scalar fixed-point polynomial to be 1. Every factor, shifted or otherwise, in the finite Q product of Lemma9.1.9 is therefore 1. G79 already identifies the unique predicted and component weight at all primes, and all scalar weights are numerically (3n−1)-deep, proving the sharper local V09 statement.",
+        "With η=0, the local-model P_{2η,e} and shifted P_{η,e}^{η_0} in Remark9.1.7(1) are 1. Its prescribed remaining factor P_{6n−2}=P_4 is 24. The same computation applies to Lemma9.1.10 and A.1.1(2). B56 shows that the corrected BM factors are powers of 24; finite shifts and further products preserve the set of excluded primes.",
+        "For p>3 these polynomial hypotheses all hold and p>2 holds as well. Apply the existing corrected global proof chain, with its automorphy, adequacy, definite-unitary, coefficient and local-field hypotheses retained. No claim infers a weak or detectable functor from local geometry alone.",
+        "B57 shows that all scalar weights are generic for the chosen systems, so the extra scalar generic-weight conclusion of V15 does not require an unspecified factorial or further prime bound. At p=3 the retained construction may still exist, but this particular sufficient polynomial argument makes no assertion. At p=2 the local G79 result remains valid while the supplied global construction does not apply."
+      ],
+      "tests": [
+        {
+          "name": "V17.small_primes",
+          "kind": "non-example",
+          "statement": "24 is zero modulo 2 and 3 and is a unit modulo 5. The local fixed-point polynomial 1 is a unit in all three characteristics."
+        },
+        {
+          "name": "V17.corrected_products",
+          "kind": "compatibility",
+          "statement": "For every positive a,b, the product 24^a·24^b and every integer translate of that constant have exactly the same unit locus as 24."
+        },
+        {
+          "name": "V17.global_hypotheses",
+          "kind": "non-example",
+          "statement": "A scalar local character at p=5 does not by itself supply the automorphic global representation or patching functor required in V07/V11; those hypotheses remain explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "proofProvenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L144",
+      "kind": "theorem",
+      "name": "Standard-smooth neighbourhood of a smooth point",
+      "statement": "For a finitely presented commutative R-algebra S and a prime q at which S is R-smooth, there exists g outside q such that S[1/g] is standard smooth over R.",
+      "locator": "Mathlib/RingTheory/Smooth/StandardSmoothOfFree.lean:104–152 at 082e2d37e8b0463410cdb532e111cd43d5a66174; Stacks00TA.",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:Algebra.IsSmoothAt.exists_notMem_isStandardSmooth"
+      ],
+      "note": "Statement and finite-presentation/prime/smooth-at hypotheses freshly read. This already supplies the neighbourhood; Z150 only assembles its regularity consequence. Codex — codex-J6LwjP, 30 September 2026. Source-level supplier continuation, not independent review or Lean elaboration."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L145",
+      "kind": "theorem",
+      "name": "Cotangent space survives localization at a maximal ideal",
+      "statement": "For a maximal ideal m of a commutative ring P and any localization A=P_m, the localization map induces an equivalence m/m² ≃ m_A/m_A², linear over P and semilinear for the canonical residue-field equivalence P/m ≃ A/m_A. A represented class [f] maps to [f/1].",
+      "locator": "TauCeti/RingTheory/Ideal/Cotangent/Localization.lean:76–126 at f790474821cf4256814db967cb154e7af3d0c369.",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:Ideal.cotangentLocalizationEquiv",
+        "tauceti:Ideal.cotangentLocalizationEquiv_toCotangent",
+        "tauceti:Ideal.cotangentLocalizationEquiv_smul"
+      ],
+      "note": "All three actual declarations and standing maximality/localization hypotheses read. The theorem is for a maximal ideal, not an arbitrary prime without residue scalar extension. Z148 applies it to an explicit rational evaluation kernel. Codex — codex-J6LwjP, 30 September 2026. Source-level supplier continuation, not independent review or Lean elaboration."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L146",
+      "kind": "theorem",
+      "name": "Cotangent spanning detects maximal-ideal generators",
+      "statement": "For a Noetherian local commutative ring A and a set s of elements of its maximal ideal m, the classes of s span m/m² over the residue field if and only if s spans m as an A-module.",
+      "locator": "Mathlib/RingTheory/Ideal/Cotangent.lean:326–343 at 082e2d37e8b0463410cdb532e111cd43d5a66174.",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:IsLocalRing.CotangentSpace.span_image_eq_top_iff"
+      ],
+      "note": "The exact residue-field versus ring scalar structures and Noetherian hypothesis were read. Use with the existing Module.Basis.sumExtend, not a new Nakayama theorem. Codex — codex-J6LwjP, 30 September 2026. Source-level supplier continuation, not independent review or Lean elaboration."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z148",
+      "kind": "theorem",
+      "name": "Polynomial first-order coordinates at a rational point",
+      "statement": "Let K be any field, n finite, P=K[X₁,…,Xₙ], a∈Kⁿ and m=ker(ev_a). Then m=(X_i−a_i), P/m≃K, and the classes of X_i−a_i form a K-basis of m/m². Under L145 they form a basis of the cotangent space of A=P_m. For f(a)=0 the coordinates of [f/1] are (∂_i f)(a). Thus dim A=n by L116 and L19. No algebraic-closure or perfection hypothesis is used.",
+      "locator": "Derived rational-point form of the coordinate step in Stacks00T1, Lemma10.137.4, and00TS; explicit proof below, using pinned polynomial and cotangent APIs.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L145",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L44",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L116",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19"
+      ],
+      "proofSteps": [
+        "Use the polynomial substitutions X_i↦X_i+a_i and X_i↦X_i−a_i as inverse K-algebra automorphisms, checking their compositions on coefficients and variables. Evaluation at a becomes constant coefficient after the first substitution. Its kernel becomes the variables ideal, so m is exactly the displayed ideal and evaluation gives P/m≃K. Maximality follows from this explicit quotient, without Nullstellensatz.",
+        "Modulo the square of the variables ideal, every polynomial has its constant and degree-one part only. The existing MvPolynomial.mem_pow_idealOfVars_iff' at exponent 2 proves that the higher-degree terms vanish and that a linear combination of the variables belongs to the square only when every coefficient is zero. Transport back along the translations to obtain the stated basis.",
+        "The coefficient of X_i in f(X+a) is (∂_i f)(a): prove this first for monomials, using the coefficient with exactly one selected variable, then add. No division by factorials occurs, so the formula holds in every characteristic. Equivalently evaluation of the existing L44 differential coordinates gives the same list.",
+        "Apply L145 at the now-proved maximal ideal, including its represented-class and residue-scalar formulas. L116 makes P regular and hence A regular; the n-element cotangent basis and L19 give dim A=n. For n=0, m=0, A=K and all bases and sums are empty."
+      ],
+      "tests": [
+        {
+          "name": "Z148.translation",
+          "kind": "computation",
+          "statement": "For f=X²+XY−6 at a=(2,1), f(a)=0 and its first-order class is 5[X−2]+2[Y−1], interpreted in the chosen field."
+        },
+        {
+          "name": "Z148.inseparable_derivative",
+          "kind": "degenerate",
+          "statement": "In characteristic p, the first-order class of (X−a)^p is zero for every a; the formula must not divide by p or p!."
+        },
+        {
+          "name": "Z148.empty",
+          "kind": "degenerate",
+          "statement": "For zero variables the evaluation kernel and cotangent space vanish and the local ring is K."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Existing owner: SchemeAndStackFoundations:SF.0. Codex — codex-J6LwjP, 30 September 2026. Source-level supplier continuation, not independent review or Lean elaboration."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z149",
+      "kind": "theorem",
+      "name": "Regular quotient from independent cotangent classes",
+      "statement": "Let A be a Noetherian regular local ring of dimension d, with maximal ideal m and residue field κ. If f₁,…,f_c∈m have κ-linearly independent classes in m/m², then c≤d and A/(f₁,…,f_c) is regular local of dimension d−c.",
+      "locator": "Derived interface to Stacks00NQ, Lemma10.106.3 (existing Z103); uses the pinned cotangent spanning criterion and basis extension.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L146",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z103"
+      ],
+      "proofSteps": [
+        "By L19 the finite-dimensional κ-vector space m/m² has dimension d. Extend the independent indexed c-tuple to a basis using the existing Module.Basis.sumExtend. Finiteness identifies the complementary index set with a set of d−c elements. In particular c≤d.",
+        "Keep the given f_i as the first lifts, and lift each remaining basis vector along the surjection m→m/m². L146 shows that these d lifts generate m. They are minimal: deleting any one would leave cotangent classes that fail to span.",
+        "Apply Z103 to this ordered minimal generating family and quotient by its first c elements. The ideal is exactly the original (f₁,…,f_c); no replacement equations or radical are substituted. The resulting quotient is regular of dimension d−c. The empty family gives A; c=d gives its residue field."
+      ],
+      "tests": [
+        {
+          "name": "Z149.nonzero_is_insufficient",
+          "kind": "non-example",
+          "statement": "In A=K[X]_(X), f=X² is nonzero but has zero cotangent class; A/(X²) is not regular. Independence cannot be weakened to nonzeroness."
+        },
+        {
+          "name": "Z149.full_basis",
+          "kind": "degenerate",
+          "statement": "If the classes form a full basis, the quotient is the residue field and has dimension zero."
+        },
+        {
+          "name": "Z149.exact_ideal",
+          "kind": "compatibility",
+          "statement": "Changing the completing lifts does not change the output ideal generated by the original f₁,…,f_c."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Existing owner: DeformationAndDerivedPatchingAlgebra:R03.3, alongside Z103. Codex — codex-J6LwjP, 30 September 2026. Source-level supplier continuation, not independent review or Lean elaboration."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z150",
+      "kind": "theorem",
+      "name": "Regularity at a rational smooth point",
+      "statement": "Let K be any field, S a finitely presented K-algebra and ε:S→K a K-algebra homomorphism, with m=ker ε. If S is smooth at m, then S_m is regular. More specifically, a standard-smooth presentation S=K[X₁,…,Xₙ]/(f₁,…,f_c) with a unit c×c Jacobian minor has dim S_m=n−c at every such rational point.",
+      "locator": "Forward rational-point regularity in Stacks00TS, using00TA and00T7; derived parameter-quotient proof avoids the general point-dimension comparison.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L144",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L116",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z148",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z149"
+      ],
+      "proofSteps": [
+        "For a standard-smooth presentation, lift ε through the polynomial quotient to evaluation at a=(ε(x_i)). Each f_i(a)=0, and the inverse image of m in P is the evaluation ideal n=(X_i−a_i). Set A=P_n. It is regular of dimension n by Z148/L116.",
+        "Evaluate the specified Jacobian minor in K. Its determinant is a unit because a ring homomorphism takes the prescribed unit to a unit. Its rows are independent, hence the full derivative rows are independent. Z148 identifies these rows with the classes of the f_i in the cotangent space of A. This uses the existing SubmersivePresentation Jacobian carrier; it does not assert that I/I² is the maximal-ideal cotangent space.",
+        "Z149 gives A/(f₁,…,f_c) regular of dimension n−c. Construct its isomorphism to S_m via localization and quotient universal properties: a polynomial denominator outside n maps outside m, and every denominator outside m has a lift outside n. The maps agree on polynomials and inverse denominators, and the kernel is exactly the localized relation ideal. Transport regularity and dimension across this isomorphism.",
+        "For a general smooth rational point, use L144 to find g∉m such that S_g is standard smooth. Since ε(g)≠0, ε extends to S_g; localization at its kernel is canonically S_m. Apply the standard-smooth case to that presentation. The dimension formula names that presentation and its finite numbers of generators and relations; it is not a formula at a nonclosed prime of the original S.",
+        "The cases c=0 and c=n are respectively the regular polynomial localization and a regular zero-dimensional local ring (a field). The zero algebra has no augmentation to the nonzero field K, so no nonexistent point is selected."
+      ],
+      "tests": [
+        {
+          "name": "Z150.small_characteristic",
+          "kind": "computation",
+          "statement": "K[X,Y]/(Y−X^p) in characteristic p has Jacobian derivative 1 in Y; the local ring at any rational point is regular of dimension one."
+        },
+        {
+          "name": "Z150.singular_origin",
+          "kind": "non-example",
+          "statement": "K[X,Y]/(XY) at (0,0) has zero Jacobian row, so the adapter does not certify the singular origin."
+        },
+        {
+          "name": "Z150.invert_open",
+          "kind": "compatibility",
+          "statement": "For K[X,X⁻¹] at X=a≠0, adjoining the inverse yields two variables and one relation with nonzero derivative in the inverse variable; the resulting dimension is one."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Existing owner: SchemeAndStackFoundations:SF.0. Codex — codex-J6LwjP, 30 September 2026. Source-level supplier continuation, not independent review or Lean elaboration."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z151",
+      "kind": "theorem",
+      "name": "The residue-field rational point gives a flat local comparison",
+      "statement": "Let k be any field, S a finite-type k-algebra, q∈Spec S, K=κ(q), T=K⊗_k S and ε:T→K the K-algebra map ε(a⊗s)=a·s̄. Its kernel m is maximal, m∩S=q, and the induced map S_q→T_m is a flat local homomorphism of Noetherian local rings. If S is smooth over k, T is smooth over K.",
+      "locator": "Derived explicit residue-field version of the base-change/localization map used in Stacks00TT; smooth base change is existing L60, flat local descent is existing Z92.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L113",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L60"
+      ],
+      "proofSteps": [
+        "Construct ε by the tensor universal property from K and S→κ(q). It is surjective because a⊗1 maps to a. Thus T/m≃K and m is maximal. Pullback to S is q, since S→κ(q) has kernel q; this kernel statement also holds at a nonmaximal q.",
+        "The k-vector space K is free, hence flat. For any S-module M, tensor associativity identifies T⊗_S M with K⊗_k M, so tensoring with T preserves injectivity. Therefore S→T is flat; this argument uses no separability or finite degree of K/k.",
+        "Elements of S outside q map outside m, hence to units in T_m; the localization universal property constructs S_q→T_m. Its maximal-ideal contraction is qS_q, so it is a local homomorphism. The pinned flat-localization instance in Mathlib/RingTheory/Flat/Localization.lean:109–115 then gives flatness over S_q, with the just-constructed scalar tower.",
+        "L113 makes S and T Noetherian (T is finite type over K), and their localizations remain Noetherian. L60 supplies smoothness of T when S is smooth. The same construction uses K itself, without algebraic closure; this is sufficient because ε is already a rational point over K."
+      ],
+      "tests": [
+        {
+          "name": "Z151.generic_point",
+          "kind": "non-example",
+          "statement": "For S=k[X], q=(0), K=k(X), the point of T=K[X] is X=t. The regular local rings S_q and T_(X−t) have dimensions 0 and 1. Flat local descent applies without equating those dimensions."
+        },
+        {
+          "name": "Z151.imperfect_converse",
+          "kind": "non-example",
+          "statement": "For k=F_p(t) and S=k[u]/(u^p−t), S is a regular field but S⊗_k S≃S[v]/((v−u)^p) is nonreduced. Smoothness is essential; regularity alone cannot be substituted in Z102."
+        },
+        {
+          "name": "Z151.closed_rational",
+          "kind": "compatibility",
+          "statement": "At an already k-rational point K=k, the tensor algebra identifies with S and the local comparison is the identity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Existing owner: SchemeAndStackFoundations:SF.0. Codex — codex-J6LwjP, 30 September 2026. Source-level supplier continuation, not independent review or Lean elaboration."
     }
   ],
   "prerequisites": [
@@ -28768,9 +29233,12 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z140",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z141",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z142",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z147"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z147",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z148",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z150",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z151"
       ],
-      "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs. Z45–Z47 supply algebraic connectedness with a rational section without unnecessary normality; Z57–Z59/Z61–Z62 isolate the G-ring/regularity inputs consumed by AdicSpacesPartII. These are source-level additions to the existing owner, with deeper supplier gaps retained. Z67 and Z69–Z74 supply the descending ideal filtration and local Hilbert–Samuel comparisons. Import the shared graded Hilbert–Serre and homogeneous-rank suppliers Z68/Z75 from R09.1, reusing pinned length, Artin–Rees and rational Hilbert-series results. Z147 supplies the cyclic torus quotient as G_m×BG_m using the existing fppf quotient/descent owner; it retains stabilizers.",
+      "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs. Z45–Z47 supply algebraic connectedness with a rational section without unnecessary normality; Z57–Z59/Z61–Z62 isolate the G-ring/regularity inputs consumed by AdicSpacesPartII. These are source-level additions to the existing owner, with deeper supplier gaps retained. Z67 and Z69–Z74 supply the descending ideal filtration and local Hilbert–Samuel comparisons. Import the shared graded Hilbert–Serre and homogeneous-rank suppliers Z68/Z75 from R09.1, reusing pinned length, Artin–Rees and rational Hilbert-series results. Z147 supplies the cyclic torus quotient as G_m×BG_m using the existing fppf quotient/descent owner; it retains stabilizers. Z148/Z150/Z151 refine the existing Z102 smooth-over-field regularity obligation using rational polynomial coordinates and a residue-field point. Import L144/L145/L146 and R03.3 Z149/Z103; do not reconstruct standard-smooth, cotangent or regular-local carriers.",
       "stages": [
         "SchemeAndStackFoundations:SF.0",
         "SchemeAndStackFoundations:SF.1",
@@ -28821,9 +29289,10 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z136",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z137",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z138",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z139"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z139",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z149"
       ],
-      "reason": "Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the separately extracted original KWII theorem and its domain-only complete-DVR adapter; the affinoid completed product has its own AdicSpacesPartII route. Z15–Z24 refine the R03.1 coefficient-tensor argument. Keep its regular complete-local coordinate lemmas in the early foundational part; do not make this construction depend on later arithmetic patching. Z23 and Z28 import the existing upstream ModularCurves §4D local completion/dimension atom. Only general adic Noetherianity, finite-variable coefficient calculations and coefficient-preserving coordinate adapters are additional R03.1 obligations. Their algebraic dependency graph precedes the arithmetic and modular applications; no whole-roadmap cycle is introduced. Homological continuation: Z112–Z118,Z123–Z127 supply source refinements for R03.3, importing L120–L127, its existing depth/CM/regular-local plan and the P7 minimal-complex plan. Z122 imports only the finite Koszul precursor of DD.1, not its derived-completion output. No new roadmap is proposed.",
+      "reason": "Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the separately extracted original KWII theorem and its domain-only complete-DVR adapter; the affinoid completed product has its own AdicSpacesPartII route. Z15–Z24 refine the R03.1 coefficient-tensor argument. Keep its regular complete-local coordinate lemmas in the early foundational part; do not make this construction depend on later arithmetic patching. Z23 and Z28 import the existing upstream ModularCurves §4D local completion/dimension atom. Only general adic Noetherianity, finite-variable coefficient calculations and coefficient-preserving coordinate adapters are additional R03.1 obligations. Their algebraic dependency graph precedes the arithmetic and modular applications; no whole-roadmap cycle is introduced. Homological continuation: Z112–Z118,Z123–Z127 supply source refinements for R03.3, importing L120–L127, its existing depth/CM/regular-local plan and the P7 minimal-complex plan. Z122 imports only the finite Koszul precursor of DD.1, not its derived-completion output. No new roadmap is proposed. Z149 is the independent-cotangent-class interface to the already assigned Z103 parameter quotient, not a second regular-local theory.",
       "stages": [
         "DeformationAndDerivedPatchingAlgebra:R03.1",
         "DeformationAndDerivedPatchingAlgebra:R03.3",
@@ -28997,13 +29466,16 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B55",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V14",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V15",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V16"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B56",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V17"
       ],
       "reason": "Reuse and broaden the pre-lattice common stages of the LLHLM20 candidate to the all-rank generic Breuil–Mezard/Serre theory. Keep its specialized GL3 integral-lattice endpoint separate; the legacy candidate id does not restrict the shared foundation to rank three.",
       "parent": "AlgebraicModularFormsAndSerreWeights",
       "title": "Algebraic modular forms, reduction and Serre weights, Part II: generic Breuil–Mézard, Serre weights and GL3 lattices",
       "area": "automorphic",
-      "brief": "Reuse GenericGL3SerreWeightsAndLattices from LLHLM20, broadening its common pre-lattice foundation to LLHLM23 §§8–9 in arbitrary rank; retain its rank-three lattice conclusions with their own stronger hypotheses. Import finite-group constituents and covering from ModularRepresentationsOfFiniteReductiveGroups, representation stack components from WeightZeroCrystallineLiftingRings, local monodromy comparisons from LocalGaloisDeformationRingsPartIIMonodromyModels, generic-point-length cycles from SchemeAndStackFoundations SF.5, and the exact weak/minimal functors from the existing all-rank CEGGPS patching candidate. Build geometric and versal BM interfaces, component-meeting testing sets, irrelevant weights, relative spanning systems, truncation idempotents, rational inversion and effectivity descent. Theorem8.3.5 needs rank-one minimal patching and component-meeting points. Theorem8.4.10 gives canonical supported generic cycles via semisimple pullbacks; polynomial-type equations alone have uniqueness only in the stronger Proposition8.6.5 range. Corollary8.5.2 allows wild residual representations with sufficiently generic semisimplification, and virtual tame WD types with signed coefficients; it does not extend the tame domain theorem. For finite Lambda containing zero retain all shifted polynomial and depth bounds. Prove the unit leading coefficient, triangular integral basis and the corrected defect recursion excluding the target weight. Finally prove Theorem9.1.6 for automorphic residual definite-unitary data, F+ not Q, p not dividing 2n, split unramified p-places, adequate image over F(zeta_p), and tame polynomial-generic local parameters, allowing arbitrary away-from-p level. Separate general conjectures from these proved cases. Order common patching and generic BM before GL3 lattice consumers to avoid a globalization/lattice cycle. Suggested files: TauCeti/NumberTheory/Galois/GenericBreuilMezard.lean and TauCeti/NumberTheory/Automorphy/GenericSerreWeights.lean. Planets: Breuil–Mézard cycle; Minimal patching; Generic Serre weights; Defect recursion."
+      "brief": "Reuse GenericGL3SerreWeightsAndLattices from LLHLM20, broadening its common pre-lattice foundation to LLHLM23 §§8–9 in arbitrary rank; retain its rank-three lattice conclusions with their own stronger hypotheses. Import finite-group constituents and covering from ModularRepresentationsOfFiniteReductiveGroups, representation stack components from WeightZeroCrystallineLiftingRings, local monodromy comparisons from LocalGaloisDeformationRingsPartIIMonodromyModels, generic-point-length cycles from SchemeAndStackFoundations SF.5, and the exact weak/minimal functors from the existing all-rank CEGGPS patching candidate. Build geometric and versal BM interfaces, component-meeting testing sets, irrelevant weights, relative spanning systems, truncation idempotents, rational inversion and effectivity descent. Theorem8.3.5 needs rank-one minimal patching and component-meeting points. Theorem8.4.10 gives canonical supported generic cycles via semisimple pullbacks; polynomial-type equations alone have uniqueness only in the stronger Proposition8.6.5 range. Corollary8.5.2 allows wild residual representations with sufficiently generic semisimplification, and virtual tame WD types with signed coefficients; it does not extend the tame domain theorem. For finite Lambda containing zero retain all shifted polynomial and depth bounds. Prove the unit leading coefficient, triangular integral basis and the corrected defect recursion excluding the target weight. Finally prove Theorem9.1.6 for automorphic residual definite-unitary data, F+ not Q, p not dividing 2n, split unramified p-places, adequate image over F(zeta_p), and tame polynomial-generic local parameters, allowing arbitrary away-from-p level. Separate general conjectures from these proved cases. Order common patching and generic BM before GL3 lattice consumers to avoid a globalization/lattice cycle. Suggested files: TauCeti/NumberTheory/Galois/GenericBreuilMezard.lean and TauCeti/NumberTheory/Automorphy/GenericSerreWeights.lean. Planets: Breuil–Mézard cycle; Minimal patching; Generic Serre weights; Defect recursion. In rank one use the explicit scalar family P_{λ,e}=P_{wtilde}=1 and B56/B57/V17: the sufficient BM/global polynomial conditions reduce to p>3 via powers of 24, while the supplied minimal/global patching construction retains p>2. Do not restore the false whole-height-interval hook or promise dyadic patching from the all-prime local comparison."
     },
     {
       "route": "part-ii",
@@ -31651,9 +32123,12 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z127",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z134",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z136",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z140"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z140",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z102",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z150",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z151"
       ],
-      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and Hilbert–Samuel polynomial existence/dimension comparison (including the finite-length exact-sequence degree estimate). Z63–Z66 now expose the associated-graded construction, homogeneous-relation growth bound and regular-local proof; 00NO,00KQ,00K3 and00IP were freshly read. Their Hilbert–Samuel supplier chain still requires atom/declaration closure. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope. Hilbert–Samuel continuation codex-7e92bd: Z67–Z75 and L87–L99 now replace the unnamed polynomial-existence, finite-colength, exact-sequence-degree and dimension-comparison premises. Z64 includes a complete prime-chain/parameter induction with degree-zero and zero-module boundaries, and Z66 is a specialization of Z67. The generic graded supplier belongs to existing R09.1. This closes that source-proof branch, not the remaining regular-map/G-ring/flat-local-dimension or affinoid-topology branches and not Lean elaboration. Continuation codex-c83e7a: Z80–Z91 and pinned L102–L114 now supply the closed-ideal, quotient/presentation topology, finite-jet continuity and finite-level integral/generic completed-tensor comparisons. Z77 is corrected to the already pinned L12 height theorem; Z25 supplies completion Noetherianity. Z92–Z103 distinguish local-ring descent, regular-map descent and identical-completion comparison, and Z57 uses the right map theorem. Remaining explicit frontier: full depth/syzygy/projective-dimension suppliers of Z100/Z101, standard-smooth/cotangent dimension adapters of Z102, finite-separable regularity base change in Z99, and characteristic-p formal fibres/Cohen structure in Z79. These are not closed merely by naming the outer propositions. Ownership reconciliation: Z96 imports the same upstream ModularCurves §4D atom as Z23/Z28; Z100/Z101 import the existing R03.3 depth/projective-dimension node. Z103/Z104 are parameter-system refinements for R03.3. L119 already proves projective dimension of a regular-sequence quotient. Do not reconstruct the projective-dimension or regular-sequence carriers. Homological continuation codex-c83e7a: Z106–Z128 and L120–L127 now split the Z100/Z101 depth, syzygy, transfinite and residue-field bounds. Source statements and full cited proofs were read at 38 individual Stacks tags, plus the CM section. Pinned Rees and SES projective-dimension results are imported, not replanned. Further refinement: L128 imports regular-list permutation, L129 arbitrary direct-sum projectivity, and L130 quotient support. Z113 is already library via free_quotSMulTop_iff_free. Z129/Z130 supply the support cut and finite-length kernel. Z117 now records the elementwise exact-union argument, and Z127 gives the rank-preserving shifted induction rather than an unproved arbitrary base-change identity. Remaining homological declaration/assembly leaves: identify the generic finite Koszul construction and its module/category comparison at the shared owner; map the principal-cut parameter-chain argument and finite-length scalar restriction to exact declarations; assemble the necessary determinantal criterion with basis-independent fixed-size minor ideals. The source-level arguments are written out, but these Lean-facing assembly obligations are not silently classed as library results. These are precise obligations, not a claim of recursive homological closure. After them, continue finite-separable base change in Z99, standard-smooth/cotangent dimension in Z102, characteristic-p07PR/07PU and Cohen structure032D in Z79. Continuation codex-hjdg0j (24 September2026): the immediate homological assembly frontier is refined. Z129 is an exact pinned library match; Z130 now uses the already imported surjective-scalar length equality L89 and finite-length criterion L137. L133–L135 identify the module/category projectivity, exactness and homology interfaces. Z122/Z131–Z133 give the shared finite Koszul construction and its proof/transport contracts, owned by the finite precursor of DD.1. Z134–Z139 supply basis-independent fixed-size minor ideals, arbitrary base change, rank control and the split/faithful-family steps used in Z127. Z140–Z141 supply the finite-separable and characteristic-zero regularity step of Z99. These are explicit source-level plans and library imports, not Lean elaboration. Resume with Z102 standard-smooth/cotangent dimensions, then the characteristic-p07PR/07PU and Cohen-structure032D branches of Z79; the general0381 criterion still imports its cited field/smoothness suppliers."
+      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and Hilbert–Samuel polynomial existence/dimension comparison (including the finite-length exact-sequence degree estimate). Z63–Z66 now expose the associated-graded construction, homogeneous-relation growth bound and regular-local proof; 00NO,00KQ,00K3 and00IP were freshly read. Their Hilbert–Samuel supplier chain still requires atom/declaration closure. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope. Hilbert–Samuel continuation codex-7e92bd: Z67–Z75 and L87–L99 now replace the unnamed polynomial-existence, finite-colength, exact-sequence-degree and dimension-comparison premises. Z64 includes a complete prime-chain/parameter induction with degree-zero and zero-module boundaries, and Z66 is a specialization of Z67. The generic graded supplier belongs to existing R09.1. This closes that source-proof branch, not the remaining regular-map/G-ring/flat-local-dimension or affinoid-topology branches and not Lean elaboration. Continuation codex-c83e7a: Z80–Z91 and pinned L102–L114 now supply the closed-ideal, quotient/presentation topology, finite-jet continuity and finite-level integral/generic completed-tensor comparisons. Z77 is corrected to the already pinned L12 height theorem; Z25 supplies completion Noetherianity. Z92–Z103 distinguish local-ring descent, regular-map descent and identical-completion comparison, and Z57 uses the right map theorem. Remaining explicit frontier: full depth/syzygy/projective-dimension suppliers of Z100/Z101, standard-smooth/cotangent dimension adapters of Z102, finite-separable regularity base change in Z99, and characteristic-p formal fibres/Cohen structure in Z79. These are not closed merely by naming the outer propositions. Ownership reconciliation: Z96 imports the same upstream ModularCurves §4D atom as Z23/Z28; Z100/Z101 import the existing R03.3 depth/projective-dimension node. Z103/Z104 are parameter-system refinements for R03.3. L119 already proves projective dimension of a regular-sequence quotient. Do not reconstruct the projective-dimension or regular-sequence carriers. Homological continuation codex-c83e7a: Z106–Z128 and L120–L127 now split the Z100/Z101 depth, syzygy, transfinite and residue-field bounds. Source statements and full cited proofs were read at 38 individual Stacks tags, plus the CM section. Pinned Rees and SES projective-dimension results are imported, not replanned. Further refinement: L128 imports regular-list permutation, L129 arbitrary direct-sum projectivity, and L130 quotient support. Z113 is already library via free_quotSMulTop_iff_free. Z129/Z130 supply the support cut and finite-length kernel. Z117 now records the elementwise exact-union argument, and Z127 gives the rank-preserving shifted induction rather than an unproved arbitrary base-change identity. Remaining homological declaration/assembly leaves: identify the generic finite Koszul construction and its module/category comparison at the shared owner; map the principal-cut parameter-chain argument and finite-length scalar restriction to exact declarations; assemble the necessary determinantal criterion with basis-independent fixed-size minor ideals. The source-level arguments are written out, but these Lean-facing assembly obligations are not silently classed as library results. These are precise obligations, not a claim of recursive homological closure. After them, continue finite-separable base change in Z99, standard-smooth/cotangent dimension in Z102, characteristic-p07PR/07PU and Cohen structure032D in Z79. Continuation codex-hjdg0j (24 September2026): the immediate homological assembly frontier is refined. Z129 is an exact pinned library match; Z130 now uses the already imported surjective-scalar length equality L89 and finite-length criterion L137. L133–L135 identify the module/category projectivity, exactness and homology interfaces. Z122/Z131–Z133 give the shared finite Koszul construction and its proof/transport contracts, owned by the finite precursor of DD.1. Z134–Z139 supply basis-independent fixed-size minor ideals, arbitrary base change, rank control and the split/faithful-family steps used in Z127. Z140–Z141 supply the finite-separable and characteristic-zero regularity step of Z99. These are explicit source-level plans and library imports, not Lean elaboration. Resume with Z102 standard-smooth/cotangent dimensions, then the characteristic-p07PR/07PU and Cohen-structure032D branches of Z79; the general0381 criterion still imports its cited field/smoothness suppliers. Continuation codex-J6LwjP (30 September2026): Z102 is now assembled through the rational residue-field point. L144 imports the standard-smooth neighbourhood; L145 imports the existing Tau Ceti cotangent localization equivalence; L146 imports cotangent Nakayama. Z148–Z151 expose first-order polynomial coordinates, the independent-parameter quotient (at existing R03.3), rational-point regularity and the exact flat local map. The proof uses no perfect-field assumption or false equality of the original/geometric local dimensions. The former Z102 source-outline frontier is superseded, while these explicit adapters remain unimplemented. Next source frontier: characteristic-p07PR/07PU and Cohen-structure032D in Z79, retaining the general0381 cited suppliers and other topology/regular-map obligations."
     },
     {
       "id": "auxiliary-projector-global-input",
@@ -31715,37 +32190,6 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28"
       ],
       "detail": "The 46 Section2 theorem items now have explicit proofSteps and internal edges, but this is not recursive closure. Read and atomize the exact Jantzen linkage/Steinberg/translation suppliers; Deligne–Lusztig Theorem6.8 and its tensor-character identity; the full-root-datum adaptation behind N39; Schneider–Zink3.7, Pyvovarov1.2 and the depth-zero/covers inputs of N61; Haines–Ngô acute-cone inputs and admissible-to-permissible. Reconcile these with their existing shared owners before adding nodes. N37 has the bounded p=2,3 termination gap E92 and the separately missing GL_n (−1)-depth refinement. B28 now has the positive-shift, local-model and tensor-covering corrections E79–E81. V15’s explicit auxiliary-type assembly is no longer an unspecified polynomial gap; its remaining obligations are these named supplier inputs."
-    },
-    {
-      "id": "rank-one-downstream-boundaries",
-      "neededBy": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G18",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G21",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G24",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G25",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G28",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G33",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G52",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G62",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G17",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G29",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G30",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G31",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G34",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G35",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G37",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G53",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G54",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G58",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G59",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G60",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G61",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B24",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B25",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B26",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B42"
-      ],
-      "detail": "The downstream audit now reaches §§7.3–9. P17’s statement and B24’s use are corrected; E88 reaches the patching-existence proof. E102 gives an explicit counterexample to the whole bounded-height hook in (7.17), so G35 has conservative corrected scope n≥2. The original statement is retained as sourceStatement with the rank-one target and its false unrestricted interval portion distinguished. Each affected G/B proof names its remaining scalar comparison, lifting, flag or precision obligation in rankOneProofBoundary. Remaining: (1) scalar fixed-Hodge/true-monodromy and local-model comparison, including a convention for h_λ on the empty root set and the actual Elkik/contraction bounds; (2) a compatible rank-one version of the component diagram with a valid interval restriction; (3) dyadic scalar patching satisfying the full functor axioms, or retention of p>2; (4) propagate the resulting finite bounds into the existential polynomials. P_m=(-1)^m m! at n=1 is already proved in N80: the explicit P_4 factors in the §8/§9 applications exclude p=2,3, but do not prove arbitrary-height comparisons. No unrestricted rank-one main theorem or recursive closure is asserted. Scalar continuation: G69 proves an explicit analytic solution for C_j=g_jE^{k_j} over the full O-flat coefficient category, including nilpotents; G70 proves the actual true ideal zero. K59 and G71 compute the fixed-Hodge Kisin gauge charts and show true, truncated and naive monodromy agree there at every prime, without using h_λ or an empty-root maximum. The remaining local step is the integral fixed-Hodge Galois-to-Kisin equivalence (for example via locally algebraic rank-one characters and their residual deformation families); characteristic-zero extension from G02 is insufficient. The earlier bounded-height counterexample and dyadic patching boundary remain. K21/K22’s general flat-closure suppliers still belong to the inherited recursive closure audit. Continuation codex-5ebb6f: K60 kills nonconstant Laurent coefficients by finite p-divisibility recursion, including nilpotents; K61 proves the fixed-Hodge ε_τ is a closed immersion at every prime. Its pullback K^{λ,τ}→X^{λ,τ} is therefore a closed immersion. Remaining: establish finite-DVR lifting with exact source hypotheses, then the second projection/integral G_K extension and uniqueness for coefficient families. A universal parameter d over O[d,d^{-1}] is not automatically a continuous ordinary G_K character when its reduction has infinite order. No unqualified equivalence is claimed. Continuation codex-rtOQ9t (30 September): K62/G72 supply finite-DVR lifting and the first-projection isomorphism; Z146/G73 prove finite-flat integral extension with nilpotents through a weight-zero unramified twist; G74 supplies the finite-Artinian/full formal coefficient passage; G75 proves the scalar fixed-Hodge integral equivalence using the existing general suppliers. The next scalar work is lifting and component labelling (G31/G33/G53), followed by actual polynomial bounds and dyadic patching. The preceding sentences describe historical checkpoints; the new adapters resolve their integral-comparison boundary, not the twelve-gap recursive audit. Scalar component continuation (30 September): K63 computes residual inertia with the source embedding/duality conventions; G76 supplies exact fixed-type lifts at all primes; Z147 retains the diagonal stabilizer; G77 identifies the single Serre-labelled component. This resolves the scalar G31/G33/G53/G54/G34/G55 lifting/component adapter boundary. G28–G30 have direct fixed-chart arguments, with P=1 for this local scalar comparison. Remaining scalar frontier: the G35/G58 whole-interval or fixed-component replacement diagram, its G37/G60 consumers, actual finite bounds in other local/global uses, and a dyadic patching functor or an explicit p>2 restriction. General source suppliers remain imported and all twelve recursive-audit gaps are retained. Fixed-component continuation (30 September): N83/M51/G78/G79 now prove the scalar replacement diagram, its central-lift compatibility and all G37/G60/G61 weight implications, with local fixed-point polynomial 1. G56–G59 and G36 have explicit scalar branches. G35's unrestricted interval hook is still false (E102); no claim restores it. The remaining scalar frontier is the actual bounds in other local/global consumers and a dyadic patching functor or p>2 restriction, plus all inherited recursive source and library/owner audits."
     }
   ],
   "sourceData": {
@@ -32385,13 +32829,178 @@
         "obstruction": "Any integral rank-one isomorphism has a unit coefficient of v-valuation zero; Frobenius compatibility would require valuation 1."
       },
       "polynomialDistinction": "At n=1, translation does not change P_m=(-1)^m m!. Any product containing P_m can be nonzero modulo p only for p>m. After a finite threshold B is proved sufficient, multiplying an existential nonzero integral polynomial by B! imposes p>B and preserves its independence of p. This does not establish the missing threshold or scalar comparison.",
-      "scope": "No new item, route, library status or independent-review verdict. Original full statements are preserved where the extracted usable scope is narrowed; the rank-one obligations remain in the existing gap."
+      "scope": "No new item, route, library status or independent-review verdict. Original full statements are preserved where the extracted usable scope is narrowed; the rank-one obligations remain in the existing gap.",
+      "currentResolution": "Superseded at the corrected extracted scope by rankOneScopeResolution, B56/B57/V17; historical counterexample and numerical distinction retained."
     },
     "scalarMonodromyFormula": {
       "inputs": "R as in §7.1; E=u^e′+p; L=∏φ^a(E/p); C_j=g_jE^{k_j}; b_j=u g′_j/g_j; H_r=∏_{a<r}φ^a(E).",
       "formula": "N_j=LΣ_{r≥0}p^rφ^r(b_{j−r})+(e′/p)Σ_{r≥0}k_{j−r}u^{e′p^r}H_rφ^{r+1}(L).",
       "precisionMeaning": "Coefficientwise equality of infinite formal series and analyticity on every coefficient subring B_m[1/p], established separately. No root evaluation in arbitrary formal series.",
       "limits": "The factorization hypothesis and O-flat coefficient category are retained. Monodromy stability does not imply interval uniqueness or an integral Galois comparison."
+    },
+    "rankOneScopeResolution": {
+      "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+      "resolvedGap": "rank-one-downstream-boundaries",
+      "historicalGap": {
+        "id": "rank-one-downstream-boundaries",
+        "neededBy": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G18",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G21",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G24",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G25",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G28",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G33",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G52",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G62",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G17",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G29",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G30",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G31",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G34",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G35",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G37",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G53",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G54",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G58",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G59",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G60",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G61",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B24",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B25",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B26",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B42"
+        ],
+        "detail": "The downstream audit now reaches §§7.3–9. P17’s statement and B24’s use are corrected; E88 reaches the patching-existence proof. E102 gives an explicit counterexample to the whole bounded-height hook in (7.17), so G35 has conservative corrected scope n≥2. The original statement is retained as sourceStatement with the rank-one target and its false unrestricted interval portion distinguished. Each affected G/B proof names its remaining scalar comparison, lifting, flag or precision obligation in rankOneProofBoundary. Remaining: (1) scalar fixed-Hodge/true-monodromy and local-model comparison, including a convention for h_λ on the empty root set and the actual Elkik/contraction bounds; (2) a compatible rank-one version of the component diagram with a valid interval restriction; (3) dyadic scalar patching satisfying the full functor axioms, or retention of p>2; (4) propagate the resulting finite bounds into the existential polynomials. P_m=(-1)^m m! at n=1 is already proved in N80: the explicit P_4 factors in the §8/§9 applications exclude p=2,3, but do not prove arbitrary-height comparisons. No unrestricted rank-one main theorem or recursive closure is asserted. Scalar continuation: G69 proves an explicit analytic solution for C_j=g_jE^{k_j} over the full O-flat coefficient category, including nilpotents; G70 proves the actual true ideal zero. K59 and G71 compute the fixed-Hodge Kisin gauge charts and show true, truncated and naive monodromy agree there at every prime, without using h_λ or an empty-root maximum. The remaining local step is the integral fixed-Hodge Galois-to-Kisin equivalence (for example via locally algebraic rank-one characters and their residual deformation families); characteristic-zero extension from G02 is insufficient. The earlier bounded-height counterexample and dyadic patching boundary remain. K21/K22’s general flat-closure suppliers still belong to the inherited recursive closure audit. Continuation codex-5ebb6f: K60 kills nonconstant Laurent coefficients by finite p-divisibility recursion, including nilpotents; K61 proves the fixed-Hodge ε_τ is a closed immersion at every prime. Its pullback K^{λ,τ}→X^{λ,τ} is therefore a closed immersion. Remaining: establish finite-DVR lifting with exact source hypotheses, then the second projection/integral G_K extension and uniqueness for coefficient families. A universal parameter d over O[d,d^{-1}] is not automatically a continuous ordinary G_K character when its reduction has infinite order. No unqualified equivalence is claimed. Continuation codex-rtOQ9t (30 September): K62/G72 supply finite-DVR lifting and the first-projection isomorphism; Z146/G73 prove finite-flat integral extension with nilpotents through a weight-zero unramified twist; G74 supplies the finite-Artinian/full formal coefficient passage; G75 proves the scalar fixed-Hodge integral equivalence using the existing general suppliers. The next scalar work is lifting and component labelling (G31/G33/G53), followed by actual polynomial bounds and dyadic patching. The preceding sentences describe historical checkpoints; the new adapters resolve their integral-comparison boundary, not the twelve-gap recursive audit. Scalar component continuation (30 September): K63 computes residual inertia with the source embedding/duality conventions; G76 supplies exact fixed-type lifts at all primes; Z147 retains the diagonal stabilizer; G77 identifies the single Serre-labelled component. This resolves the scalar G31/G33/G53/G54/G34/G55 lifting/component adapter boundary. G28–G30 have direct fixed-chart arguments, with P=1 for this local scalar comparison. Remaining scalar frontier: the G35/G58 whole-interval or fixed-component replacement diagram, its G37/G60 consumers, actual finite bounds in other local/global uses, and a dyadic patching functor or an explicit p>2 restriction. General source suppliers remain imported and all twelve recursive-audit gaps are retained. Fixed-component continuation (30 September): N83/M51/G78/G79 now prove the scalar replacement diagram, its central-lift compatibility and all G37/G60/G61 weight implications, with local fixed-point polynomial 1. G56–G59 and G36 have explicit scalar branches. G35's unrestricted interval hook is still false (E102); no claim restores it. The remaining scalar frontier is the actual bounds in other local/global consumers and a dyadic patching functor or p>2 restriction, plus all inherited recursive source and library/owner audits."
+      },
+      "scope": "Resolved for the corrected extraction: retain actual bounds on full height intervals, use the proved fixed-Hodge/component scalar adapters at all primes, and retain p>2 on the supplied patching construction. A dyadic patching theorem remains an unclaimed extension, not a hidden premise. General recursive supplier, library and ownership gaps remain open.",
+      "bounds": [
+        {
+          "items": [
+            "G18",
+            "G25",
+            "G62"
+          ],
+          "scalarRange": "p>h+2 for the retained whole-height-interval proof; not removed by fixed-Hodge results"
+        },
+        {
+          "items": [
+            "G21"
+          ],
+          "scalarRange": "p>h+1 for the retained whole-height-interval first projection"
+        },
+        {
+          "items": [
+            "G24"
+          ],
+          "scalarRange": "p>max(h+1,2) for the retained whole-interval monomorphism proof"
+        },
+        {
+          "items": [
+            "G52"
+          ],
+          "scalarRange": "p>2 for its generic-adjoint proof; the separate fixed-Hodge G73 branch works at all primes"
+        },
+        {
+          "items": [
+            "G28",
+            "G29",
+            "G30",
+            "G31",
+            "G33",
+            "G34",
+            "G35",
+            "G37",
+            "G53",
+            "G54",
+            "G58",
+            "G59",
+            "G60",
+            "G61"
+          ],
+          "scalarRange": "all primes through the specifically named fixed-Hodge/component continuations; G35 only in its corrected fixed-component form"
+        },
+        {
+          "items": [
+            "P12",
+            "P13",
+            "B24",
+            "B25",
+            "B26",
+            "B42"
+          ],
+          "scalarRange": "p>2 retained; no dyadic global construction supplied"
+        },
+        {
+          "items": [
+            "B28",
+            "B30",
+            "B31",
+            "B43",
+            "V07",
+            "V11",
+            "V13"
+          ],
+          "scalarRange": "p>3 is an explicit sufficient polynomial bound, from B56/V17"
+        },
+        {
+          "items": [
+            "V09"
+          ],
+          "scalarRange": "all primes for the direct local result; the printed sufficient QP_4 is 24"
+        },
+        {
+          "items": [
+            "V12"
+          ],
+          "scalarRange": "local-model polynomial 1; ζ_p-not-in-fixed-field global hypothesis excludes p=2, with global lifting suppliers retained"
+        }
+      ]
+    },
+    "smoothRegularityContinuation": {
+      "provenance": "Codex — codex-J6LwjP, 30 September 2026. Source-level supplier continuation, not independent review or Lean elaboration.",
+      "suppliers": [
+        "L144",
+        "L145",
+        "L146",
+        "Z148",
+        "Z149",
+        "Z150",
+        "Z151"
+      ],
+      "scope": "Source-level regularity implication in Z102, using K=κ(q) directly and no assumption that k is perfect. Does not assert the converse regular⇒smooth, nor equidimensionality or equality of local dimensions across a flat map.",
+      "sources": [
+        {
+          "tag": "00TT",
+          "url": "https://stacks.math.columbia.edu/tag/00TT"
+        },
+        {
+          "tag": "00TS",
+          "url": "https://stacks.math.columbia.edu/tag/00TS"
+        },
+        {
+          "tag": "00TA",
+          "url": "https://stacks.math.columbia.edu/tag/00TA"
+        },
+        {
+          "tag": "00T7",
+          "url": "https://stacks.math.columbia.edu/tag/00T7"
+        },
+        {
+          "tag": "00NQ",
+          "url": "https://stacks.math.columbia.edu/tag/00NQ"
+        },
+        {
+          "tag": "00T1",
+          "url": "https://stacks.math.columbia.edu/tag/00T1"
+        }
+      ],
+      "owners": {
+        "Z148": "SchemeAndStackFoundations:SF.0",
+        "Z149": "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "Z150": "SchemeAndStackFoundations:SF.0",
+        "Z151": "SchemeAndStackFoundations:SF.0"
+      },
+      "next": "Characteristic-p07PR/07PU and Cohen-structure032D for Z79. All eleven extraction gaps remain except the separately resolved scalar scope gap; the job is still partial."
     }
   },
   "libraryAudit": {
@@ -35073,6 +35682,137 @@
       "read": "Read the full L7/R08.1/R08.3, R06.2 and R07.3 stage descriptions, R07.4 finite-height/full-faithfulness/semistable/coefficient packet statements, L7 finite-height and lattice-moduli nodes, and reviewed SF.0/SF.1/SF.4 and R09.3 audit rows. Direct reviewed audit rows for LocalGaloisDeformationRings and FiniteFlatGroupsAndIntegralPadicHodgeTheory are still absent from the layers map; the inherited audit gap remains.",
       "pinnedSearch": "git grep at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in Mathlib/NumberTheory, Mathlib/RepresentationTheory and WittVector/Isocrystal.lean, and TauCeti f790474821cf4256814db967cb154e7af3d0c369 in TauCeti, for Kisin|D_cris|crystalline|semistable.*representation returned no matches. This bounded negative search is not a whole-library audit and changes no earlier library classification.",
       "ownership": "Five scalar application adapters join the existing LocalGaloisDeformationRings source route. Z146 opens one source route to the existing PadicHodgeTheory:R06.2 owner; it does not propose a new roadmap. Existing period, lattice, scheme and formal-stack foundations are imported."
+    },
+    "codexJ6LwjPScalarBounds": {
+      "date": "2026-09-30",
+      "scope": "No inherited library status changed. New items are specific consequences of the existing missing scalar/BM interfaces and join the same existing extension route; no new factorial foundation. Re-read local L7 and the parent Serre-weight owner/audit scope, and retained the inherited pinned negative searches.",
+      "pinnedRead": {
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorial/Basic.lean",
+        "sha256": "7e74e5fe77931379299dc2f05ee98e7ede1cda2c58f3586cf5ef4884d989d6c3",
+        "statements": [
+          "Nat.factorial_succ",
+          "Nat.factorial_pos",
+          "Nat.dvd_factorial"
+        ],
+        "meaning": "Existing natural-number arithmetic only; these declarations do not supply the paper-specific polynomial or patching theorem."
+      }
+    },
+    "codexJ6LwjPSmoothRegularity": {
+      "provenance": "Codex — codex-J6LwjP, 30 September 2026. Source-level supplier continuation, not independent review or Lean elaboration.",
+      "imports": [
+        {
+          "library": "mathlib",
+          "path": "Mathlib/RingTheory/Smooth/StandardSmoothOfFree.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/StandardSmoothOfFree.lean",
+          "sha256": "f506fd8ab14bf158d31948cfe137d894129976ff6c1511db526bf7c9d77f4a9a",
+          "statementsRead": [
+            "Algebra.IsSmoothAt.exists_notMem_isStandardSmooth"
+          ]
+        },
+        {
+          "library": "mathlib",
+          "path": "Mathlib/RingTheory/Smooth/StandardSmoothCotangent.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/StandardSmoothCotangent.lean",
+          "sha256": "484477028ef466c9e2a713afa87f5280a90e6415f58a24c14906723dc5ab5708",
+          "statementsRead": [
+            "Algebra.SubmersivePresentation.basisCotangent",
+            "Algebra.SubmersivePresentation.basisKaehler",
+            "Algebra.SubmersivePresentation.rank_kaehlerDifferential"
+          ]
+        },
+        {
+          "library": "mathlib",
+          "path": "Mathlib/RingTheory/Extension/Presentation/Submersive.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Extension/Presentation/Submersive.lean",
+          "sha256": "bcbc755e7026f461750d868d742069026606895d9fb4eb3bbe6828dad81125f9",
+          "statementsRead": [
+            "Algebra.SubmersivePresentation",
+            "Algebra.SubmersivePresentation.basisDeriv",
+            "Algebra.SubmersivePresentation.linearIndependent_aeval_val_pderiv_relation"
+          ]
+        },
+        {
+          "library": "mathlib",
+          "path": "Mathlib/RingTheory/Ideal/Cotangent.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Cotangent.lean",
+          "sha256": "0968a385d15968a70f01e0cf5e363990305b23a95826f56b7a51da3d24b1a682",
+          "statementsRead": [
+            "IsLocalRing.CotangentSpace.span_image_eq_top_iff",
+            "Ideal.toCotangent_surjective"
+          ]
+        },
+        {
+          "library": "mathlib",
+          "path": "Mathlib/RingTheory/MvPolynomial/Ideal.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPolynomial/Ideal.lean",
+          "sha256": "76cd75dedb1ee476efad3574f942b2959f5f782e5c78e26e6d74303db04cea93",
+          "statementsRead": [
+            "MvPolynomial.mem_pow_idealOfVars_iff'"
+          ]
+        },
+        {
+          "library": "mathlib",
+          "path": "Mathlib/LinearAlgebra/Basis/VectorSpace.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Basis/VectorSpace.lean",
+          "sha256": "cdbe0fd512f13ea3e563290d2896c89e3882ed0040ecc7c3314676a8f278728a",
+          "statementsRead": [
+            "Module.Basis.sumExtend"
+          ]
+        },
+        {
+          "library": "mathlib",
+          "path": "Mathlib/RingTheory/Flat/Localization.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Localization.lean",
+          "sha256": "fc8269870f94101108ba2670a43304df250d16d55bfac2baa3eb4b19ee6ec27d",
+          "statementsRead": [
+            "IsLocalization.flat",
+            "unnamed flatness instance for compatible localizations at primes, lines109–115"
+          ]
+        },
+        {
+          "library": "mathlib",
+          "path": "Mathlib/RingTheory/Flat/Basic.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Basic.lean",
+          "sha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
+          "statementsRead": [
+            "Module.Flat.of_free",
+            "Module.Flat.lTensor_preserves_injective_linearMap"
+          ]
+        },
+        {
+          "library": "mathlib",
+          "path": "Mathlib/RingTheory/Kaehler/Polynomial.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Kaehler/Polynomial.lean",
+          "sha256": "43583c3ac7bef530c0b3cbfe6dc114d31d1a19b81ff88819ab7ad0165c02c799",
+          "statementsRead": [
+            "KaehlerDifferential.mvPolynomialBasis_repr_apply"
+          ]
+        },
+        {
+          "library": "tauceti",
+          "path": "TauCeti/RingTheory/Ideal/Cotangent/Localization.lean",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+          "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Ideal/Cotangent/Localization.lean",
+          "sha256": "2705dc35f235461f0b62a5c7d4542228658e70507409a90344cb9260366fec39",
+          "statementsRead": [
+            "Ideal.cotangentLocalizationEquiv",
+            "Ideal.cotangentLocalizationEquiv_toCotangent",
+            "Ideal.cotangentLocalizationEquiv_smul"
+          ]
+        }
+      ],
+      "coverage": "Read data/library-coverage.json AUDIT-01 SF.0/SF.1 and AUDIT-17 R03.3, and the corresponding existing stage contracts. Smooth morphisms and regular sequences/projective-dimension carriers are already present. Z149 remains beside Z103 at R03.3; Z148/Z150/Z151 refine existing SF.0 Z102.",
+      "searchScope": "Inspected pinned path metadata from both source trees, searched all 15 Mathlib Smooth files plus RegularLocalRing/Defs and Polynomial, Ideal/Cotangent and CotangentBaseChange, and six targeted Tau Ceti cotangent, regular-scheme, flat-quotient, differential and geometrically-reduced files. No direct smooth-over-field regularity theorem was found in that bounded search. The positive Tau Ceti localization match is imported, not planned. This is not a new complete audit of all inherited library items.",
+      "implementation": "All inherited status values preserved. Three exact library imports added; four assembly adapters remain missing/unchecked. No Lean build or language server used."
     }
   },
   "validation": {
@@ -36637,6 +37377,18 @@
       "gapsRetained": 12,
       "scope": "Four derived adapters and eleven scalar consumer branches. The full interval hook is not restored. Existing statements/statuses/locators and source findings preserved; no new library claim.",
       "checks": "Paper/intake validators, preserved old records, exact routing and DAG, explicit cyclic-gauge exponent diagnostic and whitespace. No Lean deliverable or compilation."
+    },
+    "codexJ6LwjPScalarBounds": {
+      "base": "78d6086",
+      "provenance": "Codex — codex-J6LwjP, 30 September 2026. Scalar numerical-scope continuation; derived proof plan, not a verbatim source theorem, independent review or Lean implementation.",
+      "scope": "Three derived scalar items, no new routes, E88 restriction propagated into P13/B25/B26/B42 statements, one gap closed at the corrected scope. All earlier item IDs/statuses and all 120 source findings retained. No Lean file required or compiled.",
+      "checks": "Paper/intake, preservation/routing/internal DAG, and exact constant-polynomial diagnostics are run before submission; counts recorded in report."
+    },
+    "codexJ6LwjPSmoothRegularity": {
+      "base": "78d6086",
+      "provenance": "Codex — codex-J6LwjP, 30 September 2026. Source-level supplier continuation, not independent review or Lean elaboration.",
+      "scope": "Three exact library imports and four source-level adapters refine Z102. All prior item statuses and source issues preserved; no additional route or source verdict.",
+      "checks": "Paper/intake, preservation, routing and internal DAG checked before submission; boundary examples are proof-plan tests, not claimed Lean tests."
     }
   },
   "definitionApiGroups": [
