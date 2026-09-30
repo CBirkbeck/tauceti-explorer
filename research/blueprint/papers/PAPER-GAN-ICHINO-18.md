@@ -210,3 +210,33 @@ The review, by Claude Code (session cc-39fac3), accepted the extraction and its 
   - The proof of Proposition 3.1 needs a non-vanishing input (E5).
   - Proposition A.2 is unproved as printed for n ≥ 2, because the cited Jiang–Soudry Th. 2.2(2) fails there (E7). The fix is to assume θ_{ψ_{v0}}(π_{v0}) supercuspidal, which holds in the only application.
   - Theorems 1.1 and 1.4 stand.
+
+## Fixes (FIX-RT-PAPER-GAN-ICHINO-18, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #4987. This fix applies the six medium findings of
+`RT-PAPER-GAN-ICHINO-18`, with the verifier's corrections. The full record is
+`research/blueprint/redteam/RT-PAPER-GAN-ICHINO-18.fixes.md`.
+
+- **/1: MP.3 no longer depends on its own Part II.**
+  - The local parabolic induction on the cover, with χ_ψ (`metaplectic-induction`), moves to MP.3 (route 2). The
+    adelic part stays in the Part II (`metaplectic-induction-adelic`).
+  - The unramified theta correspondence is restated in Satake data.
+  - The square-class clauses about packet labels and the global Ψ are split off into the Part II
+    (`rev-square-class-labelling`).
+- **/2: the L-function inputs.**
+  - New planned item `gl-global-functional-equation` (AL.2).
+  - L- and ε-compatibility is added to both local Langlands items for GL_n.
+  - New item `complete-l-function-mp`, the complete L_ψ(s, Π), with its continuation through L(s, Φ).
+- **/3: two items that were not really planned.**
+  - `selfdual-types` is now missing and routed to ML.4, with the square-L-function inputs named.
+  - `partial-l-function` keeps only its planned Euler-product definition. The convergence bound is the new
+    `mp-satake-exponent-bound`, which needs a proof independent of Theorem 1.1.
+- **/4: unitarity.** New item `unramified-unitarity`, the unitarity of π_{φ_v} that Corollary 4.2 needs. It follows
+  the verifier's outline, including the unramified quadratic twist. When real and twisted exponents occur together it
+  is recorded as an open obligation.
+- **/5: weak containment.** The Fell-closure statement is now `weak-containment-fell-closure`, owned by
+  SmoothRepresentationsPartIIUnitaryDual (route 7) in closure form. The Poincaré-series construction has one owner,
+  this Part II's globalization layer.
+- **/6: the Langlands quotient theorem for covers** goes to SR.3 (route 8). The Mp_2n standard modules stay in the
+  Part II (`mp-standard-modules`).
+- **Result:** 112 items (1 library, 21 planned, 90 missing), eight routes, and 49 prerequisites (Tadić [86] added).
