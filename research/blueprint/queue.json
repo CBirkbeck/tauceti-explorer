@@ -39119,8 +39119,9 @@
     "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4303"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4303",
+   "finishedAt": "2026-09-30T05:33:23Z"
   },
   {
    "id": "RT-PAPER-BHATT-MORROW-SCHOLZE-19",
@@ -39165,7 +39166,8 @@
     "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHATT-MORROW-SCHOLZE-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4305"
   },
   {
    "id": "RT-PAPER-KISIN-PAPPAS-18",
@@ -39439,8 +39441,9 @@
     "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4315"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4315",
+   "finishedAt": "2026-09-30T05:33:26Z"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
@@ -47888,8 +47891,8 @@
     "RT-AREA-padic-3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-padic-3.md",
-   "state": "pending",
-   "note": "reopened 2026-09-28: supplement #3016 added findings 2 and 3, which need independent verdicts"
+   "state": "external",
+   "note": "claimed on GitHub issue #1514"
   },
   {
    "id": "FIX-RT-AREA-padic-3",
