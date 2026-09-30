@@ -1,0 +1,33 @@
+{
+  "redteam": "RT-LINK-tauceti_Completed_OrthogonalL2Bases",
+  "findings": [],
+  "reviewer": "Codex — codex-rtOQ9t",
+  "date": "2026-09-30",
+  "inputRevision": "ef17f2a542f0c65ff5b4cbde83b8db890a1b62e3",
+  "summary": "The submitted red-team result contains zero findings, so there are zero finding verdicts. Independent checks support its narrow Hilbert-basis assembly and weight-positivity conclusions. The stronger clean-result interpretation is not supported: the B1-to-StandardDistributions dependency described as already recorded occurs only in an unreviewed sibling packet and is absent from the production graph. This newly discovered omission is recorded separately for independent follow-up; it is not a self-verified red-team finding and this review cannot automatically generate a fix job for it.",
+  "observations": [
+    {
+      "kind": "missing",
+      "suggestedSeverity": "medium",
+      "where": "research/blueprint/links/tauceti_Completed_OrthogonalL2Bases.json: alreadyRecorded[0]; research/blueprint/redteam/RT-LINK-tauceti_Completed_OrthogonalL2Bases.result.json: clean-result summary and StandardDistributions check",
+      "source": "tauceti:Completed/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy",
+      "target": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions",
+      "evidence": "At ef17f2a, scripts.build.assemble(require_distances=False) yields 2840 stages and 8007 edges. Both endpoints exist, but the edge, target requires entry and transitive path are absent. The only links entry across research/blueprint/links and data/links is in the unreviewed StandardDistributions research packet; promote.decide returns skip/no accepted review. merge_links reads links, not alreadyRecorded. An in-memory insertion into the accepted focal packet passes cycle detection and yields 8008 edges; repeated insertion remains at 8008.",
+      "proposedCorrection": "Record this as a new red-team finding and obtain independent verification. Then include the qualified B1-to-Layer-1 reuse edge in an accepted and promoted packet, preferably the focal packet with a renewed independent review; correct alreadyRecorded and the clean-result narrative. Do not approve the entire sibling packet, duplicate the moment theorem, or apply it without both finite-measure exponential-integrability hypotheses.",
+      "routing": "New evidence requiring independent follow-up, not an entry in the submitted result and not a confirmed finding of this verifier."
+    }
+  ],
+  "checks": {
+    "overlapQuotesMatch": true,
+    "productionGraph": {
+      "stages": 2840,
+      "edges": 8007,
+      "edgePresent": false,
+      "transitivePath": false,
+      "withRestoredEdge": 8008,
+      "repeatedInsertion": 8008
+    },
+    "targetSHA256": "34ad7cad18dde976767ba8df3183e3b3ec9586ddb040ecff1654dbdd2bec5a46",
+    "redteamSHA256": "081f08d4d9afb2bc3a5168917f6383b0e1d0a552c98da1a070037ee871ab9df3"
+  }
+}
