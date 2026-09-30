@@ -33107,8 +33107,9 @@
     "REV-PAPER-CHEN-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CHEN-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4046"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4046",
+   "finishedAt": "2026-09-30T10:52:36Z"
   },
   {
    "id": "REV-RT-PAPER-CHEN-24",
@@ -37677,7 +37678,8 @@
     "REV-PAPER-CHANG-CHEN-MISHIBA-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CHANG-CHEN-MISHIBA-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4234"
   },
   {
    "id": "REV-RT-PAPER-CHANG-CHEN-MISHIBA-23",
