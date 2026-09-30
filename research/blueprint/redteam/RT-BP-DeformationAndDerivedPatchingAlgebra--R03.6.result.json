@@ -1,5 +1,5 @@
 {
-  "redteam": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03",
+  "redteam": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6",
   "job": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6",
   "protocol": "redteam-v1",
   "status": "complete",
@@ -19,7 +19,7 @@
   ],
   "findings": [
     {
-      "id": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03/1",
+      "id": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6/1",
       "kind": "other",
       "severity": "low",
       "where": "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--R03.6.md:194-196, API of DeformationAndDerivedPatchingAlgebra:R03.6/supported-on-components",
