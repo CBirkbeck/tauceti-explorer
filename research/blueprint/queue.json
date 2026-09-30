@@ -37039,7 +37039,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GHOSH-SARNAK-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4999"
   },
   {
    "id": "REV-FIX-RT-PAPER-GHOSH-SARNAK-22",
@@ -41419,8 +41420,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-ANDRE-18-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5023"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5023",
+   "finishedAt": "2026-09-30T17:32:56Z"
   },
   {
    "id": "RT-PAPER-NELSON-VENKATESH-21",
