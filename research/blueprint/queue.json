@@ -42669,7 +42669,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
@@ -42910,7 +42911,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
@@ -43345,7 +43347,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_Completed_EffectiveBounds",
@@ -43635,7 +43638,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
@@ -43729,7 +43733,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
@@ -43823,7 +43828,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
@@ -43968,7 +43974,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
@@ -44164,7 +44171,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
@@ -44259,7 +44267,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
@@ -44404,7 +44413,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
@@ -44498,7 +44508,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-BP-K3BlochGroups",
