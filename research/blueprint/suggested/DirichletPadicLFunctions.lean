@@ -7852,3 +7852,90 @@ example {K : Type*} [NormedField K] [CharZero K] (ℓ : K → K) (b : K)
       HasSum (fun n : ℕ => coeff n (log K)*u^n) ((ℓ (x*(1+u))+b)-(ℓ x+b)) := sorry
 end SuggestedLogarithmicAverageTests
 end
+
+/-! Parity of the concrete root-point values. The finite symmetry permits a
+zero shifted argument: it is paired with zero directly. Only the final series
+corollary uses the tame norm and local expansion hypotheses. -/
+noncomputable section
+namespace DirichletPadic
+open scoped BigOperators
+open PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+
+theorem cyclotomicLogValue_root_reciprocity (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+    (ρ : K) (n : ℕ) (hn : 0<n) (hρ : ρ^n=1) :
+    cyclotomicLogValue η ε hε ℓ (ρ⁻¹-1)=
+      η (-1)*cyclotomicLogValue η ε hε ℓ (ρ-1) := sorry
+
+theorem cyclotomicLogAverage_odd (p : ℕ) (hp : 0<p) (ξ : K) (hξ : ξ^p=1)
+    (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (hodd : η (-1)=-1)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0) :
+    cyclotomicLogAverage p ξ η ε hε ℓ=0 := sorry
+
+lemma cyclotomicLogValue_odd_dyadic (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (hodd : η (-1)=-1)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0) :
+    cyclotomicLogValue η ε hε ℓ (-2)=0 := sorry
+
+theorem cyclotomicLogAverageComplement_odd (p : ℕ) (hp : 0<p) (ξ : K) (hξ : ξ^p=1)
+    (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (ℓ : K → K) (hodd : η (-1)=-1)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0) :
+    cyclotomicLogAverageComplement p ξ η ε hε ℓ=0 := sorry
+end Field
+
+theorem cyclotomicLogAverage_odd_hasSum {K : Type*} [NormedField K]
+    [IsUltrametricDist K] [CharZero K] {D : ℕ} [NeZero D]
+    (p : ℕ) (hp : p.Prime) (ξ : K) (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1)
+    (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hDK : ‖(D : K)‖=1) (ℓ : K → K) (hodd : η (-1)=-1)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+    (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x)) :
+    HasSum (fun n : ℕ => coeff n (tameLogPrimitive η ε hε ℓ)*
+      ((p : K)⁻¹*∑ j ∈ Finset.range p, (ξ^j-1)^n)) 0 := sorry
+end DirichletPadic
+
+namespace SuggestedLogarithmicParityTests
+open scoped BigOperators
+open DirichletPadic PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+variable (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+variable (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+variable (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+include hmul hroot
+-- cubic_inverse_pair
+example (ρ : K) (hρ : ρ^3=1) :
+    cyclotomicLogValue η ε hε ℓ (ρ⁻¹-1)=
+      η (-1)*cyclotomicLogValue η ε hε ℓ (ρ-1) := sorry
+-- odd_dyadic_average
+example (hodd : η (-1)=-1) : cyclotomicLogAverage 2 (-1) η ε hε ℓ=0 := sorry
+-- odd_dyadic_fixed_point
+example (hodd : η (-1)=-1) : cyclotomicLogValue η ε hε ℓ (-2)=0 := sorry
+-- odd_dyadic_complement
+example (hD : 1<D) (hodd : η (-1)=-1) :
+    cyclotomicLogAverageComplement 2 (-1) η ε hε ℓ=0 := sorry
+end Field
+-- odd_dyadic_coefficient_sum
+example {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+    {D : ℕ} [NeZero D] (η : DirichletCharacter K D) (hD : 1<D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (h2 : ‖(2 : K)‖<1) (ℓ : K → K) (hodd : η (-1)=-1)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+    (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x)) :
+    HasSum (fun n : ℕ => coeff n (tameLogPrimitive η ε hε ℓ)*
+      ((2 : K)⁻¹*((0 : K)^n+(-2 : K)^n))) 0 := sorry
+end SuggestedLogarithmicParityTests
+end
