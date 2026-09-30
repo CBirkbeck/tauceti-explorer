@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving645 nodes whole. Two comparison nodes assemble the actual tame constant and positive coefficients into a common full arithmetic series and identify it with a supplied classical p-stabilization. Classical existence remains an explicit input, with its exact owning construction described in the L4 gap.647 unchecked nodes, fifteen gaps, eleven requests and zero closed stages.",
+  "summary": "Documentation correction: L1 no longer lists regular-parameter independence or positive interpolation as missing after their declaration-level plans exist. It retains the genuinely separate completed-algebra, sign-quotient and qualified congruence comparisons. One interpolation statement now writes its scalar as ℚ rather than the conflicting symbol Q. No new node, declaration, test or stage closure;647 unchecked nodes, fifteen gaps and eleven requests.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -21145,7 +21145,7 @@
       ],
       "title": "Interpolation through a shared rational value",
       "kind": "theorem",
-      "statement": "For every k>0 there is a unique r∈Q whose complex image is (1−p^(k−1))ζ(1−k) and whose Q_p-image is M_k(ζ_p).",
+      "statement": "For every k>0 there is a unique r∈ℚ whose complex image is (1−p^(k−1))ζ(1−k) and whose ℚ_p-image is M_k(ζ_p).",
       "hypotheses": [
         "p is any prime, including2. Put Z=Z_p, U=Z^×, M=D(U,Z) with the exact existing commutative multiplicative convolution operations, Q=FractionRing M and PM=Iwasawa.pseudomeasures δ Q for the actual Dirac homomorphism. Let ζ_p be the preceding kubotaLeopoldtPseudomeasure p. For k>0 write M_k for the exact supplier positivePseudoMoment p k hk. B_k is the native ordinary Bernoulli convention B_1=−1/2. The rational expression r_(p,k)=−(1−p^(k−1))B_k/k is notation, not a new scalar carrier or definition. Its inclusions into C and Q_p are separate native rational casts."
       ],
@@ -42702,9 +42702,9 @@
       "stageId": "DirichletPadicLFunctions:L1",
       "status": "partial",
       "remaining": [
-        "The arithmetic pseudomeasure, positive interpolation and unbounded-moment obstruction remain established as planning nodes. The natural smoothing series now also has a finite geometric cancellation equation, used by the pure p-power additive rational expression in L2. Further work is listed in L2 and L3; completed-group-algebra comparison still awaits the exact PMIA L1 request. Full source extraction and the complete Eisenstein family remain open.",
-        "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
-        "The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
+        "Transport the arithmetic unit-measure algebra and its pseudomeasure to the completed group algebra through the exact existing PMIA L1 request. For odd primes, identify the sign-invariant arithmetic element with its object on the quotient by ±1, with the actual quotient maps and localization compatibility. Integral sign invariance is already planned for every prime; it alone supplies neither this quotient comparison nor a dyadic idempotent splitting.",
+        "Specify and derive the remaining character-component or denominator-cleared pseudomeasure Kummer statements required by the L1 target, retaining their exact denominator and coefficient hypotheses. The finite-combination, weight-period and integral-unit smoothing-denominator cases already have declaration-level nodes and must be reused. Do not infer an integral congruence for an arbitrary unsmoothed pseudomeasure.",
+        "Complete the further coefficient-field and descent comparisons required by the character and logarithmic applications, through their existing L2/L3 owner interfaces. The actual ℚ_p descent of the smoothing measure and intrinsic coefficient/inclusion square are already planned. The generic coefficient-field pseudomeasure evaluator, analytic branches and source extraction boundaries remain explicit in L2/L3."
       ]
     },
     {
@@ -42740,7 +42740,7 @@
     {
       "title": "L1 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The arithmetic pseudomeasure, positive interpolation and unbounded-moment obstruction remain established as planning nodes. The natural smoothing series now also has a finite geometric cancellation equation, used by the pure p-power additive rational expression in L2. Further work is listed in L2 and L3; completed-group-algebra comparison still awaits the exact PMIA L1 request. Full source extraction and the complete Eisenstein family remain open. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
+      "detail": "Transport the arithmetic unit-measure algebra and its pseudomeasure to the completed group algebra through the exact existing PMIA L1 request. For odd primes, identify the sign-invariant arithmetic element with its object on the quotient by ±1, with the actual quotient maps and localization compatibility. Integral sign invariance is already planned for every prime; it alone supplies neither this quotient comparison nor a dyadic idempotent splitting. Specify and derive the remaining character-component or denominator-cleared pseudomeasure Kummer statements required by the L1 target, retaining their exact denominator and coefficient hypotheses. The finite-combination, weight-period and integral-unit smoothing-denominator cases already have declaration-level nodes and must be reused. Do not infer an integral congruence for an arbitrary unsmoothed pseudomeasure. Complete the further coefficient-field and descent comparisons required by the character and logarithmic applications, through their existing L2/L3 owner interfaces. The actual ℚ_p descent of the smoothing measure and intrinsic coefficient/inclusion square are already planned. The generic coefficient-field pseudomeasure evaluator, analytic branches and source extraction boundaries remain explicit in L2/L3."
     },
     {
       "title": "L2 remaining source decomposition and interfaces",
@@ -43114,7 +43114,7 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 findings, existing sourceVersions, eleven requests and fifteen gaps remain. A hash-recorded author-hosted source is added for the primitive weight≥3 normalization. No new source finding or independent-review verdict. The attempted existence application is withheld because of the documented owner-stage checker defect; both published comparison theorems are conditional and need no such application.",
+    "sourceIssues": "All16 source findings, sourceVersions, three source records, eleven requests and fifteen gaps remain whole. The single statement correction resolves worker notation, not a mistake in a source. Every implementation status remains unchecked.",
     "validation": {
       "nodes": 647,
       "kinds": {
@@ -43130,13 +43130,13 @@
       "typedExamples": 1101,
       "planets": 24,
       "baseline": 557,
-      "preservedWholeNodes": 645,
+      "preservedWholeNodes": 646,
       "preservedBaseline": 557,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 2,
-      "newNamedDeclarations": 2,
-      "newTypedTests": 5,
+      "newNodes": 0,
+      "newNamedDeclarations": 0,
+      "newTypedTests": 0,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
@@ -43155,9 +43155,9 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 317435,
+      "readerWords": 318457,
       "scopedMutationCheck": true,
-      "correctedPredecessorNodes": 0,
+      "correctedPredecessorNodes": 1,
       "fullSuggestedCompiled": false,
       "compilerErrors": null,
       "compilerWarnings": null,
@@ -43201,14 +43201,17 @@
         "wrongEulerDetected": 36
       },
       "numericalControlsCertified": false,
-      "newRoutesStageLeaves": []
+      "newRoutesStageLeaves": [],
+      "nativeProofReceiptReusedFrom": 4831,
+      "finiteControlsReusedFrom": 4831,
+      "newLeanCompilerRuns": 0
     },
     "lean": {
       "status": "NOT COMPILED: required pinned native artifact unavailable",
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "62465995a41c8470eff5402a6fae6ff736ad6f1223c6e53886535f5c8b1ff395",
+      "sha256": "729a83402ac90b2819ad77845ee9dc30b85a413265949941a9e8370f8adfcec0",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -43314,7 +43317,7 @@
       }
     },
     "publication": {
-      "base": "027e81a8348ef01a096021b4cf85aa898ca076dc",
+      "base": "9cabc408c64a980f8ab36c07106d42a5d5a8b903",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -49849,6 +49852,63 @@
       "sourceBoundary": "All16 findings, existing sourceVersions, eleven requests and fifteen gaps remain. A hash-recorded author-hosted source is added for the primitive weight≥3 normalization. No new source finding or independent-review verdict. The attempted existence application is withheld because of the documented owner-stage checker defect; both published comparison theorems are conditional and need no such application.",
       "publication": {
         "base": "027e81a8348ef01a096021b4cf85aa898ca076dc",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "profiles": 36,
+        "wholeVectors": 432,
+        "coefficientComparisons": 21168,
+        "constantComparisons": 432,
+        "nonrealConstants": 27,
+        "residuePrecisionChecks": 432,
+        "principalWildLevelChecks": 72,
+        "positiveWildEulerVanishing": 144,
+        "parityCompatibleWeights": 72,
+        "wrongEulerDetected": 36
+      },
+      "numericalMethod": "Exact Gaussian-rational Bernoulli polynomials, divisor sums and q^p vectors under identity and conjugation coefficient embeddings. Independent finite residue moments check the doubled constant to p^r precision. Includes principal positive wild levels and nonreal quartic tame values. These are coefficient controls, not constructed modular forms or proofs of infinite identities.",
+      "fullSuggestedCompiled": false
+    },
+    "l1CoverageReconciliation": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4831,
+      "previousHead": "5be66885f9ab7d6780b7d32c49e758333ae503b9",
+      "previousMerge": "599f6e54de335dfe21cbf93b1bda86afbeabc82b",
+      "preservedWholeNodes": 646,
+      "preservedBaseline": 557,
+      "preservedFindings": 16,
+      "newNodes": 0,
+      "reading": "Freshly read the complete published RJW pages130–131 and136–139 from the retained hash-recorded PDF: Definition3.34 evaluation context, full Lemma3.36 proof, Lemma3.38 and §§4.1–4.3 through Theorem4.1, including the k=1 normalization correction already recorded. Read the whole L1 atlas target and its reviewed audit, eleven existing L1 nodes with their hypotheses/proofs/dependencies, their exact suggested declarations, and the PMIA regular-clearing, positive-evaluation and separation interfaces. No new source claim or independent review is made.",
+      "boundary": "Transport the arithmetic unit-measure algebra and its pseudomeasure to the completed group algebra through the exact existing PMIA L1 request. For odd primes, identify the sign-invariant arithmetic element with its object on the quotient by ±1, with the actual quotient maps and localization compatibility. Integral sign invariance is already planned for every prime; it alone supplies neither this quotient comparison nor a dyadic idempotent splitting. Specify and derive the remaining character-component or denominator-cleared pseudomeasure Kummer statements required by the L1 target, retaining their exact denominator and coefficient hypotheses. The finite-combination, weight-period and integral-unit smoothing-denominator cases already have declaration-level nodes and must be reused. Do not infer an integral congruence for an arbitrary unsmoothed pseudomeasure. Complete the further coefficient-field and descent comparisons required by the character and logarithmic applications, through their existing L2/L3 owner interfaces. The actual ℚ_p descent of the smoothing measure and intrinsic coefficient/inclusion square are already planned. The generic coefficient-field pseudomeasure evaluator, analytic branches and source extraction boundaries remain explicit in L2/L3.",
+      "inputBase": "9cabc408c64a980f8ab36c07106d42a5d5a8b903",
+      "sourceBoundary": "All16 source findings, sourceVersions, three source records, eleven requests and fifteen gaps remain whole. The single statement correction resolves worker notation, not a mistake in a source. Every implementation status remains unchecked.",
+      "notationCorrectedNodes": 1,
+      "auditedExistingNodes": [
+        "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-regular-parameter",
+        "DirichletPadicLFunctions:L1/arithmetic-positive-bernoulli",
+        "DirichletPadicLFunctions:L1/arithmetic-positive-interpolation",
+        "DirichletPadicLFunctions:L1/arithmetic-interpolation-unique",
+        "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-even",
+        "DirichletPadicLFunctions:L1/finite-smoothed-moments",
+        "DirichletPadicLFunctions:L1/generalized-smoothed-kummer",
+        "DirichletPadicLFunctions:L1/weight-period-smoothed-kummer",
+        "DirichletPadicLFunctions:L1/unit-denominator-kummer",
+        "DirichletPadicLFunctions:L1/smoothed-extension-integral-descent",
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-extension-inclusion"
+      ],
+      "noNewMathematicalDeclarations": true,
+      "nativeProofAndFiniteReceiptReusedFrom": 4831,
+      "publication": {
+        "base": "9cabc408c64a980f8ab36c07106d42a5d5a8b903",
         "unchangedInputs": 66,
         "unchangedOutputs": 4,
         "sameSessionFollowupAfterMerge": true,
