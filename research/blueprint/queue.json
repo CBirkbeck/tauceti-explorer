@@ -39283,7 +39283,8 @@
     "REV-PAPER-ESNAULT-GROECHENIG-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ESNAULT-GROECHENIG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4312"
   },
   {
    "id": "REV-RT-PAPER-ESNAULT-GROECHENIG-20",
@@ -40156,8 +40157,9 @@
     "REV-PAPER-SCHOLZE-12"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SCHOLZE-12.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4604"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4604",
+   "finishedAt": "2026-09-30T06:07:33Z"
   },
   {
    "id": "REV-RT-PAPER-SCHOLZE-12",
