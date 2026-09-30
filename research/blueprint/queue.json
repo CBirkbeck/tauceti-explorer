@@ -35621,8 +35621,9 @@
     "REV-PAPER-FENG-YUN-ZHANG-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FENG-YUN-ZHANG-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4142"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4142",
+   "finishedAt": "2026-09-30T15:14:12Z"
   },
   {
    "id": "REV-RT-PAPER-FENG-YUN-ZHANG-24",
@@ -35665,7 +35666,8 @@
     "REV-PAPER-HE-LI-SHI-ETAL-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HE-LI-SHI-ETAL-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4144"
   },
   {
    "id": "REV-RT-PAPER-HE-LI-SHI-ETAL-23",
