@@ -2,7 +2,7 @@
   "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Catalogue-wide Chebotarev link screen for 212 atlas roadmaps and six additional definitions. Fifteen new relationships (six incoming, nine outgoing) and three boundary overlaps are proposed. Thirty links in other packets and three Lawrence–Venkatesh requires edges are reused, not duplicated. Complete denotes the link screen only: source corrections, unregistered consumer references and proof-interface obligations remain explicit, and no implementation or independent approval is claimed.",
+  "summary": "Catalogue-wide Chebotarev link screen for 212 atlas roadmaps and six additional definitions, supplemented by FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev. Eighteen relationships (six incoming, twelve outgoing) and three boundary overlaps are proposed. Thirty links in other packets and three Lawrence–Venkatesh requires edges are reused, not duplicated. CH-L16–CH-L18 restore the Habiro and low-degree K-theory consumers confirmed by the red-team verification; their precise scope and fresh checks are recorded in the fixes report. Original worker, screen, validation and review metadata describe the historical screen/review. Complete denotes the link screen only: source corrections, unregistered consumer references and proof-interface obligations remain explicit, and no implementation or fresh independent approval is claimed.",
   "worker": "ChatGPT Pro — cgp-780fc5e50f71",
   "sessionId": "cgp-780fc5e50f71",
   "jobId": "LINK-tauceti_TauCetiRoadmap_Chebotarev",
@@ -332,6 +332,57 @@
         {
           "stageId": "PotentialAutomorphyInfrastructure:PA.4",
           "quote": "Construct Taylor–Wiles auxiliary sets using the existing Chebotarev and arithmetic duality roadmaps with the required residual image hypothesis."
+        }
+      ]
+    },
+    {
+      "id": "CH-L16",
+      "source": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+      "target": "HabiroNumberFields:HB.2",
+      "reason": "Import Layer 10 for HabiroNumberFields:HB.2/chebotarev-detection and HabiroNumberFields:HB.2/local-R-is-an-isomorphism, requested by the accepted, still partial HabiroNumberFields blueprint. CGZ, arXiv:1712.04887v3, Proposition 4.2 proof (pp. 22–23) and Lemma 5.4 proof (pp. 26–27), select primes by Frobenius in finite cyclotomic/Kummer extensions. Pass to the required finite Galois closure/compositum, prove that the simultaneous restrictions define a realizable conjugacy class, and remove the finite bad-prime set. Retain each consumer’s odd-prime-power and root-of-unity hypotheses, including the local-R proof’s q congruent to -1 modulo n but not modulo np where invoked; these conditions are not arbitrary independent specifications. Layer 10 supplies infinitude and finite-exception removal. Kummer detection, compatibility of the restrictions, the local-R isomorphism, and the finite-Chern-class comparison remain consumer arguments; neither a new density theorem nor an effective bound is planned here.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+          "quote": "Derive, rather than reprove, the density of split-completely primes, the non-Galois statement via\na Galois closure, infinitude of every Frobenius class, and the rational arithmetic-progression\ncase. State invariance under finite symmetric difference as a corollary."
+        },
+        {
+          "stageId": "HabiroNumberFields:HB.2",
+          "quote": "Establish CGZ's comparison with the finite Chern class under the precise good-n assumptions."
+        }
+      ]
+    },
+    {
+      "id": "CH-L17",
+      "source": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+      "target": "KTheoryLowDegrees:U.4",
+      "reason": "Import Layer 10 for KTheoryLowDegrees:U.4/idelic-density-theorem and KTheoryLowDegrees:U.4/primes-with-norm-not-one. The partial, unreviewed KTheoryLowDegrees--U.1 packet requests these interfaces; independently, Bass–Milnor–Serre, Appendix (A.5)–(A.8), pp. 82–83 (PDF pp. 25–26), derives infinitely many prime idele classes in each coset of an open finite-index subgroup using reciprocity/existence and abelian Chebotarev, and selects a nonidentity cyclotomic Frobenius when a primitive m-th root is absent from the number field K. Use a realizable Frobenius class in a finite Galois extension and exclude finitely many primes, including those dividing m (m >= 2). Reciprocity/existence, the ray-class/idele dictionary, and the translation of Frobenius into the requested coset are separate class-field consumer imports. For the norm condition also use CH-L18. This edge covers the number-field applications only; it supplies neither function-field (A.9) nor stable elementary generation or SK1 vanishing by itself, and does not accept the unreviewed packet.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+          "quote": "Derive, rather than reprove, the density of split-completely primes, the non-Galois statement via\na Galois closure, infinitude of every Frobenius class, and the rational arithmetic-progression\ncase. State invariance under finite symmetric difference as a corollary."
+        },
+        {
+          "stageId": "KTheoryLowDegrees:U.4",
+          "quote": "Use class-field-theory inputs with their actual statements where the argument requires them."
+        }
+      ]
+    },
+    {
+      "id": "CH-L18",
+      "source": "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters",
+      "target": "KTheoryLowDegrees:U.4",
+      "reason": "Import the arithmetic cyclotomic Frobenius formula for KTheoryLowDegrees:U.4/primes-with-norm-not-one (partial, unreviewed KTheoryLowDegrees--U.1; independently Bass–Milnor–Serre (A.8), pp. 82–83). For a number field K, m >= 2, and a primitive m-th root absent from K, choose a nonidentity automorphism of K(ζ_m)/K, then use CH-L17 to obtain infinitely many primes away from m with that Frobenius. The formula σ(ζ_m) = ζ_m^(absolute norm of the prime ideal) and primitivity imply that this absolute norm is not 1 modulo m; the exponent is not its inverse or the rational prime below it. Reuse the pinned Tau Ceti theorems AlgHom.IsArithFrobAt.apply_eq_pow_absNorm_of_pow_eq_one and AlgHom.IsArithFrobAt.autToPow_eq_absNorm in TauCeti/NumberTheory/NumberField/Cyclotomic/Frobenius.lean, transporting the chosen arithmetic Frobenius and an ideal lying above the base prime into their hypotheses. The prime-existence argument and the consumer’s norm-congruence deduction remain planned; this link does not certify all of Layer 4 or the K-theory packet.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters",
+          "quote": "Let `F/K` be generated by `m`-th roots of unity. Prove that for `𝔭 ∤ m` the arithmetic Frobenius\nsends `ζ_m` to `ζ_m ^ 𝔑𝔭`; over `ℚ` this corresponds to `𝔑𝔭 mod m`, not its inverse."
+        },
+        {
+          "stageId": "KTheoryLowDegrees:U.4",
+          "quote": "Use class-field-theory inputs with their actual statements where the argument requires them."
         }
       ]
     }
@@ -811,8 +862,8 @@
     },
     {
       "roadmapId": "HabiroNumberFields",
-      "result": "none",
-      "note": "No search match; full document not read."
+      "result": "links",
+      "note": "FIX-RT-LINK follow-up: full HB.2 endpoint and the two relevant nodes/import requests in the accepted, partial HabiroNumberFields packet read; CGZ v3 pp. 22–23 and 26–27 checked. CH-L16 supplies finite-Galois Frobenius prime selection under explicit consumer compatibility/Kummer hypotheses. See fixes report; no new full-roadmap review claimed."
     },
     {
       "roadmapId": "HabiroRings",
@@ -886,8 +937,8 @@
     },
     {
       "roadmapId": "KTheoryLowDegrees",
-      "result": "none",
-      "note": "No search match; full document not read."
+      "result": "links",
+      "note": "FIX-RT-LINK follow-up: full U.4 endpoint and the two relevant nodes/import requests in the partial, unreviewed KTheoryLowDegrees--U.1 packet read; BMS (A.5)–(A.8), pp. 82–83, checked independently. CH-L17 supplies prime selection; CH-L18 supplies arithmetic cyclotomic Frobenius with absolute ideal norm. Class-field and K-theory conclusions remain separate; no acceptance of the packet or full-roadmap review claimed."
     },
     {
       "roadmapId": "KatoEulerSystems",
