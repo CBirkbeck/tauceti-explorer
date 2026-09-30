@@ -32849,7 +32849,8 @@
    ],
    "avoidAccountOf": "KEYDEF-algebraicgeometry",
    "prompt": "research/blueprint/prompts/REV-KEYDEF-algebraicgeometry.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5272"
   },
   {
    "id": "KEYDEF-algebraicnt",
@@ -40904,8 +40905,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -45641,7 +45642,8 @@
     "REV-RS-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5116"
   },
   {
    "id": "RT-RS-24",
@@ -45851,7 +45853,8 @@
     "REV-RS-27"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-27.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5118"
   },
   {
    "id": "RT-RS-28",
@@ -52208,8 +52211,9 @@
     "FIX-RT-AREA-ktheory-1"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-ktheory-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5157"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5157",
+   "finishedAt": "2026-09-30T23:39:42Z"
   },
   {
    "id": "RT-AREA-ktheory-2",
