@@ -1,0 +1,33 @@
+{
+  "redteam": "RT-PAPER-LUST-STEVENS-20",
+  "findings": [
+    {
+      "finding": "RT-PAPER-LUST-STEVENS-20/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at the actual extraction item and visually in published §7.3 p.1102 (PDF20) and arXiv v1 p.19. For epsilon=-1 the printed rank-one matrix [[0,-1],[-1,0]] has determinant -1 and W^t J W=-J, so it is not symplectic in odd characteristic. Read Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, LinearAlgebra/SymplecticGroup.lean:101-102: the carrier uses A J A^t=J; the counterexample fails that convention too. The corrected exchanged-pair map w(e_i^-)=e_i^+, w(e_i^+)=epsilon e_i^- preserves the form and has determinant (-epsilon)^n. In the stated reversed lower-block basis it retains (g,h)->(mu(h)g^-T,h); keep the reversal matrices in the embedded Levi calculation. The accepted manuscript PDF21 also retains the same sign defect. Add a new sourceIssues record with these version locators and the rank-one test; do not change the parameter table just from the bad lift. Correction search on 2026-09-30 found no separate corrigendum in the inspected title/DOI, arXiv and UEA results; this is bounded search evidence."
+    },
+    {
+      "finding": "RT-PAPER-LUST-STEVENS-20/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The extraction exports the rational-primary-block stabilizer from arXiv v1 §7.3 p.17, whereas published p.1100 (PDF18) and the accepted manuscript PDF19 replace it by the minimal Frobenius-stable geometric Levi containing the semisimple centralizer. Independently checked the permitted example q=3, charpoly=(X-1)(X^4+X^3+X^2+X+1): the quartic is irreducible and self-reciprocal, a_P=1 with m_P=1, a_+=1 with m_+=0 and a_-=0 satisfy (7.2)(ii). Multiplication by an order-five root on F_81 preserves Q(x)=Tr_(F_9/F_3)(x*x^9), has determinant one, and after adding an identity line gives a regular SO_5 element with rank-two torus centralizer. The connected stabilizer of its rational 4+1 blocks contains SO_4 of dimension six; proper geometric Levi dimensions in SO_5 are four, four or two, so it is not a Levi. Apply the published construction and its general-linear/twisted-Frobenius plus residual-classical interface. Preserve the distinction that its parabolic need not be Frobenius-stable: the example's elliptic torus is a geometric Levi, not the Levi of a rational parabolic. Record this as a preprint error already repaired in print."
+    },
+    {
+      "finding": "RT-PAPER-LUST-STEVENS-20/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The exported s2-reductive-quotient-J statement still imposes the residue determinant-norm condition universally, although its note and confirmed E5 give the ramified correction. Independently take a ramified quadratic F/F_o of odd residue characteristic, the unitary line with h(e,e)=1, and L=O_F e. Using the paper's p_F-valued dual convention, L#=p_F L, so the first residue space is a symmetric line and the second is zero. The compact norm-one group reduces onto {+1,-1}=O_1(k_F), since both signs occur; the residue extension is trivial and the erroneous equation excludes -1. Branch by ramification: keep the condition in the trivial/unramified cases and use the full orthogonal/symplectic product in the ramified case, preserving the connected-component statement. Propagate to the target statement and route-1 brief. Reuse E5; this is an unapplied correction, not another new erratum. Primary locator: published pp.1089-1090, PDF7-8."
+    },
+    {
+      "finding": "RT-PAPER-LUST-STEVENS-20/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. s2-parahoric-Jo-properties still excludes every residual two-dimensional SO factor, while s2-maximal-parahoric-exceptions excludes split SO(1,1) with the ambient-dimension exception. Read published pp.1090-1091, PDF8-9, and visually checked the not-equal condition (N,N^an)!=(1,0) in the later case list. A concrete independent model over Q_3 is Q=x^2-2y^2-3z^2+6w^2: its quaternion-norm form is anisotropic, since nonzero unramified norms have even valuation while three times such norms have odd valuation. On O_3^4 the p-valued dual is 3O_3^2 plus O_3^2, and the two residual binary forms x^2-2y^2 and -z^2+2w^2 are anisotropic over F_3. The unique parahoric of this anisotropic group is maximal although both factors are two-dimensional SO groups. Replace the first maximality clause with the refined split criterion and retain the explicit case list and existing E6. Handle the independent normalizer defect separately under finding 5."
+    },
+    {
+      "finding": "RT-PAPER-LUST-STEVENS-20/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with the lattice-uniqueness wording restricted precisely to labels on subgroups or representations. For split SO(1,1)(F)=F^times, write L(a,b)=pi^a Oe_- plus pi^b Oe_+. The paper's p-valued dual has exponents (1-b,1-a), so L(0,0)#=pi L(0,0) and L(0,1)#=L(0,1). Both stabilizers are O^times, while the SO action changes (a,b) by (v(t),-v(t)) and preserves a+b; the lattices are not conjugate. Thus subgroup labels are not injective, but this does not refute the unique standard representative of each lattice orbit. The full normalizer of O^times is F^times and is noncompact. Compact induction from O^times is infinite-dimensional (valuation-indexed cosets), so it does not give a one-dimensional depth-zero character. Add G!=split SO(1,1) to the compact-normalizer, induction and injective-label statements and propagate through dependent local data, or supply a separate character-of-F^times branch using the full normalizer. Preserve any valid lattice-orbit statement. Reuse E7 and align route 1. Primary locators: published pp.1089-1092, PDF7-10, and the affected extraction statements and E7."
+    }
+  ],
+  "agent": "Codex",
+  "session": "codex-5ebb6f",
+  "date": "2026-09-30"
+}
