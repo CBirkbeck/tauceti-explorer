@@ -1,3 +1,116 @@
+# LLHLM23 continuation: scalar fixed-component diagrams and weights
+
+Codex — codex-rtOQ9t; issue 1254; 30 September 2026. Partial checkpoint:
+799 items, 27 routes, 120 unreviewed findings and 12 gaps. Four derived
+adapters give the scalar fixed-component diagram, its central-lift
+compatibility and all three weight/component implications at every prime.
+The full height-interval hook remains false. Other finite bounds, global
+patching and inherited recursive source/API/audit obligations remain open.
+
+## A point, its lift and the correct quotient
+
+M51 computes the scalar component in Definition 4.6.1 as the reduced point
+t_ζ and its lift as D_ζ={d_j v^{ζ_j}}≅G_m^J. The affine Weyl group and
+root groups are trivial; the reduced Schubert closure is one point. Its
+scalar logarithmic derivative satisfies the differential condition. This
+argument concerns the specified reduced component: the whole torus affine
+Grassmannian still has nontrivial nilpotent test points.
+
+For a presentation (w₁,ω)=(t_ν,ω), the source's equations (2.5)–(2.7)
+give ζ=ν+ω and the highest-weight representative κ=ω+pπ⁻¹ν. Thus
+κ−ζ=(p−π)π⁻¹ν. These are the same finite character, although their
+algebraic lifts need not agree. The reduced component has exactly its one
+torus-fixed point, so the existential polynomial in Proposition 4.7.3 can
+be chosen to be 1 in rank one. This does not identify any arbitrary
+polynomial from the general proof with 1.
+
+G78 uses λ=(k_j), τ=τ(1,μ), ζ=λ+μ and σ=F(ζ). It replaces the scalar
+part of diagram (7.17) by this Cartesian square:
+
+```text
+D_λ  ── right translation by v^μ ──>  D_ζ
+ │                                      │
+ │ T-torsor                             │ T-torsor
+ ▼                                      ▼
+X_F^{λ,τ}  ────────── ≅ ───────────>  [D_ζ/T]
+```
+
+Both upper schemes are tori, and both lower stacks are
+C_σ≅G_m×BG_m. The upper source also equals the scalar lifted component
+and both true and naive fixed-Hodge model charts. This uses K59/G71/G75/G77
+over coefficient families, not just geometric points. The action is
+(t·d)_j=t_j d_j/t_{j−1}; the diagonal stabilizer is retained. Its quotient
+atlas is a T-torsor even though the action on D is not free.
+
+The map [D_ζ/T]→Φ-Mod_et is closed by K61 on this fixed-Hodge stack and
+agrees with canonical Galois restriction by G75. No assertion is made
+that the whole bounded-height ambient quotient in the published diagram
+is a monomorphism. E102's colliding exponents 0 and p−1 still obstruct it.
+
+Central-lift compatibility is explicit. For ζ′=ζ+(p−π)ν, set
+g_j=v^(−ν_{j+1}), with cyclic indices and φ(v)=v^p. Then
+
+```text
+g_j (d_j v^{ζ_j}) φ(g_{j−1})⁻¹ = d_j v^{ζ_j+pν_j−ν_{j+1}}.
+```
+
+This gauge is natural over every residual coefficient algebra and commutes
+with the constant T-action. It identifies the étale images. Negative
+powers are allowed in the Laurent gauge; it does not identify the integral
+lattices or their Hodge types. G56–G59 and G35 receive the corresponding
+qualified scalar continuations, including the finite product statement.
+
+## The unique scalar weight
+
+N83 computes W^?(barτ)=W_obv(barτ)={F(ξ)} when
+barτ=∏barω_j^{ξ_j}. The finite Weyl group is trivial, η=0 and the Herzig
+operator is the identity. The torus Deligne–Lusztig type is a character
+with one constituent, and the obvious pair (1,1) realizes it. This avoids
+any generic-depth lemma whose scalar parameter is an empty maximum.
+Vacuous root depth still does not imply P_m-genericity: the scalar
+factorial obstruction recorded by N80 survives.
+
+G79 then gives barρ∈C_σ ⇔ σ∈W^?(barρ) ⇔ σ∈W_obv(barρ), for finite-field
+rank-one residual characters at every prime. Wild inertia has trivial
+image in the prime-to-p group of coefficient units. For a weight F(κ),
+choose λ=0 and τ=τ(1,κ); K63/G76/G77 identify its component exactly by
+that inertia, including every unramified twist. M51/G78 supply the
+fixed-component diagram and its unique torus point. The scalar flag is
+automatically unique. This proves the three implications of Proposition
+7.4.7 directly, without importing global patching or a numerical prime
+bound. G36/G37/G60/G61, M33 and K38 receive explicit scalar branches.
+
+## Sources, ownership and validation
+
+The published [LLHLM23 PDF](https://math.rice.edu/~bl70/LocModels.pdf) was
+downloaded afresh at 10:32 UTC; SHA-256
+`e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`.
+Bounded readings cover PDF 37–38, 52–53, 84–85, 91–98, 156–159 and
+161–162; diagram 7.17 and Proposition 7.4.7 were also read as rendered
+pages 158 and 162. The inherited full-paper reading retains its original
+attribution. These are derived source-level adapters, with no new source
+finding, independent review or formal implementation.
+
+N83 extends the existing ModularRepresentationsOfFiniteReductiveGroups
+route. M51/G78/G79 extend the existing monodromy-models route. The reviewed
+SF.1 quotient infrastructure and L7 packet supply their existing inputs.
+The adjoining owner material and coverage records were checked; absent
+reviewed audits remain gaps. Searches at both pinned library commits found
+no corresponding Herzig/Serre-weight/affine-Springer implementation; the
+Tau Ceti non-split-torus file only mentioned Deligne–Lusztig theory in a
+comment. No new library classification is claimed.
+
+The four adapters each have proof outlines and three tests. A 3,120-case
+integer diagnostic checked the cyclic Laurent-gauge identity, the
+κ−ζ formula and the weighted inertia congruence for p=2,3,5,7 and
+one to four embeddings. The universal formulas carry the proof; finite
+enumeration only checks conventions. All 605 missing items are routed
+exactly once, and the 1,742-edge internal graph is acyclic. Paper/intake,
+old-record preservation and whitespace checks pass. No Lean file was
+required or compiled. The extraction remains partial with all 12 gaps.
+
+---
+
 # LLHLM23 continuation: scalar lifting and Serre components
 
 Codex — codex-rtOQ9t; issue 1254; 30 September 2026. Partial checkpoint:
