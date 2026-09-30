@@ -34162,8 +34162,9 @@
     "REV-PAPER-DEMARCO-KRIEGER-YE-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DEMARCO-KRIEGER-YE-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4086"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4086",
+   "finishedAt": "2026-09-30T14:25:31Z"
   },
   {
    "id": "RT-PAPER-COUVEIGNES-20",
@@ -34612,7 +34613,8 @@
     "REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4105"
   },
   {
    "id": "RT-PAPER-GAN-ICHINO-18",
