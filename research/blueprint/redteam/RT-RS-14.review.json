@@ -1,0 +1,14 @@
+{
+ "redteam": "RT-RS-14",
+ "reviewer": "Claude Code — cc-c2c06b",
+ "date": "2026-09-30",
+ "inputRevision": "33e7226c",
+ "findings": [
+  {
+   "finding": "RT-RS-14/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed as a stale report, low severity. research/blueprint/restructure/RS-14.md:22–24 says 'The JSON gives exact retained contracts, 33 single-owner records and 161 explicit links, of which 144 are new to the inspected graph'. Line 49 says 'General Dirichlet continuation and conductor/Euler-factor interfaces import AnalyticNumberTheory AN.1'. The accepted RS-14.result.json, byte-identical to data/restructure/RS-14.result.json, has 34 owners and 169 distinct links. Its review.corrections record the change: AN.1, dropped by RS-07, is replaced in DirichletPadicLFunctions:L0.suppliedBy by UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions and UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality; the AN.1 owner entry is split into two; and each of the eight AN.1 links is replaced by two upstream links (33 − 1 + 2 = 34 owners, 161 − 8 + 16 = 169 links). AN.1 now occurs in the JSON only in those correction notes, not in any link, owner or suppliedBy. REV-RS-14.md:48–56 gives the same account. In the production assembly the 153 stage-to-stage links are live, and the 16 upstream links are recorded but not drawn, as intended. RS-14's restructurings record adds 136 edges, not the report's 144. The fix is right: update the report's totals, label the edge count with the graph it was measured on, replace the AN.1 sentence with the two upstream owners, and leave the JSON alone."
+  }
+ ],
+ "notes": "I also tested the clean part of the result. RS-14 has 15 layer decisions (12 narrow, 3 keep) over the 15 member stages, and 34 owners and 169 links. The 30 native edges from member stages to outside stages are all live in the production assembly (2840 stages, 8007 edges), and a depth-first search finds no cycle."
+}
