@@ -7939,3 +7939,86 @@ example {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
       ((2 : K)⁻¹*((0 : K)^n+(-2 : K)^n))) 0 := sorry
 end SuggestedLogarithmicParityTests
 end
+
+/-! Inversion of general nonzero multiplicative coordinates. The principal
+character correction is retained before using nontrivial character cancellation.
+The analytic comparison concerns pointwise sums, not formal substitution. -/
+noncomputable section
+namespace DirichletPadic
+open scoped BigOperators
+open PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+
+theorem cyclotomicLogValue_inversion_defect (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+    (ρ : K) (hρ : ρ≠0) :
+    cyclotomicLogValue η ε hε ℓ (ρ⁻¹-1)=
+      η (-1)*cyclotomicLogValue η ε hε ℓ (ρ-1)+
+        η (-1)*(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹*
+          ℓ ρ*(∑ a : ZMod D, η⁻¹ a) := sorry
+
+theorem cyclotomicLogValue_inversion (η : DirichletCharacter K D) (hη : η≠1)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+    (ρ : K) (hρ : ρ≠0) :
+    cyclotomicLogValue η ε hε ℓ (ρ⁻¹-1)=
+      η (-1)*cyclotomicLogValue η ε hε ℓ (ρ-1) := sorry
+end Field
+
+section Normed
+variable {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+variable {D : ℕ} [NeZero D]
+
+lemma cyclotomicLogValue_inversion_norm (t : K) (ht : ‖t‖<1) :
+    ‖(1+t)⁻¹-1‖=‖t‖ := sorry
+
+theorem tameLogPrimitive_eval_inversion (η : DirichletCharacter K D) (hη : η≠1)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (ℓ : K → K) (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+    (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x))
+    (t : K) (ht : ‖t‖<1) :
+    (∑' n : ℕ, coeff n (tameLogPrimitive η ε hε ℓ)*((1+t)⁻¹-1)^n)=
+      η (-1)*(∑' n : ℕ, coeff n (tameLogPrimitive η ε hε ℓ)*t^n) := sorry
+end Normed
+end DirichletPadic
+
+namespace SuggestedLogarithmicInversionTests
+open scoped BigOperators
+open DirichletPadic PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K]
+variable (ℓ : K → K) (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+variable (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+include hmul hroot
+-- principal_conductor_two_correction
+example (hε : IsPrimitiveRoot (-1 : K) 2) (ρ : K) (hρ : ρ≠0) :
+    cyclotomicLogValue (1 : DirichletCharacter K 2) (-1) hε ℓ (ρ⁻¹-1)=
+      cyclotomicLogValue (1 : DirichletCharacter K 2) (-1) hε ℓ (ρ-1)-ℓ ρ := sorry
+-- nonprincipal_point_pair
+example {D : ℕ} [NeZero D] (η : DirichletCharacter K D) (hη : η≠1)
+    (ε : K) (hε : IsPrimitiveRoot ε D) :
+    cyclotomicLogValue η ε hε ℓ ((2 : K)⁻¹-1)=
+      η (-1)*cyclotomicLogValue η ε hε ℓ 1 := sorry
+end Field
+-- dyadic_open_disc_coordinate
+example {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+    (h2 : ‖(2 : K)‖<1) : ‖(3 : K)⁻¹-1‖=‖(2 : K)‖ := sorry
+-- odd_dyadic_series_pair
+example {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+    {D : ℕ} [NeZero D] (η : DirichletCharacter K D) (hodd : η (-1)=-1)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (h2 : ‖(2 : K)‖<1) (ℓ : K → K)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+    (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x)) :
+    (∑' n : ℕ, coeff n (tameLogPrimitive η ε hε ℓ)*((-2 : K)/3)^n)=
+      -(∑' n : ℕ, coeff n (tameLogPrimitive η ε hε ℓ)*(2 : K)^n) := sorry
+end SuggestedLogarithmicInversionTests
+end

@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all491 predecessor nodes whole. Five L3 nodes establish actual root-point reciprocity, odd-character average vanishing, the dyadic fixed-point zero, the odd complementary zero and the tame averaged coefficient HasSum0. All16 findings, four requests and eight gaps remain; zero stages are closed.",
+  "summary": "Partial continuation preserving all496 predecessor nodes whole. Four L3 nodes give the exact correction for inversion of any nonzero multiplicative coordinate, nonprincipal cancellation, preservation of the open disc and reciprocity of the actual tame coefficient evaluations. All16 findings, four requests and eight gaps remain; zero stages are closed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3318,6 +3318,13 @@
         "module": "Mathlib/Data/Fintype/BigOperators.lean",
         "provides": "Finite-index and range products agree; its generated additive form supplies the finite sum/range equality, equivalently by specializing to Multiplicative(K,+).",
         "checked": "The complete declaration, ambient hypotheses and proof were read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. The complete native parity probe checks the concrete character sum, range conversion and root-average cancellation without placeholders."
+      },
+      {
+        "ref": "mathlib:IsUltrametricDist.norm_mul_eq_max_of_norm_ne_norm",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Normed/Group/Ultra.lean",
+        "provides": "In an ultrametric seminormed group, the product of elements of unequal norms has the maximum norm. The generated additive version, or Multiplicative(K,+), yields the unequal-norm sum formula used for1+t.",
+        "checked": "Complete native statement, section assumptions and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026 and matched to the unchanged index. The complete native coordinate norm proof elaborates without placeholders."
       }
     ]
   },
@@ -32408,6 +32415,210 @@
       "acceptance": [
         "The exact series statement elaborates; the roadmap theorem remains unchecked. Complete native proofs certify the finite symmetry and cancellation only, alongside the preceding checkpoint’s finite HasSum proof."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-inversion-defect",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exact correction under inversion of a general point",
+      "kind": "theorem",
+      "statement": "For every ρ≠0, V(ρ⁻¹−1)=k·V(ρ−1)+k·G⁻¹·ℓ(ρ)·W.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Use the actual preceding V(t)=cyclotomicLogValue(η,ε,ℓ)(t) and F=tameLogPrimitive(η,ε,ℓ). Write k=η(−1), w(a)=η⁻¹(a), G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one) and W=Σ_(a:ZMod D)w(a).",
+        "The supplied ℓ:K→K satisfies hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and hroot:ℓ(z)=0 if z^n=1 for n>0. They are explicit laws of the existing Coleman logarithm, whose suggested module imports this consumer. No condition is imposed on ℓ(0), and no multiplication law is applied at0.",
+        "The finite correction theorem takes any ρ≠0. The correction-free theorem adds η≠1. Neither requires ρ to be a root of unity, primitivity of η, G≠0, D>1, a norm, or conductor coprimality. All Gauss inverses are the original totalized field inverses.",
+        "The norm and analytic comparison use a normed ultrametric field. The coordinate lemma needs only ‖t‖<1. The series comparison additionally has η≠1, D>1, ‖(D:K)‖=1, and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). No prime p or root-of-unity averaging parameter is needed."
+      ],
+      "proofSteps": [
+        "The supplied laws give ℓ(1)=ℓ(−1)=0. For any r≠0, apply hmul to r·r⁻¹=1 to obtain ℓ(r⁻¹)=−ℓ(r). The complete native inverse lemma checks this sign.",
+        "For r≠1, factor r⁻¹−1=(−r⁻¹)(r−1); both factors are nonzero. The preceding inverse formula then yields ℓ(r⁻¹−1)=ℓ(r−1)−ℓ(r). For r=1 both arguments are0 and ℓ(1)=0, so the same equality holds directly for any ℓ(0). This separate branch prevents an invalid multiplication at0.",
+        "For z=ε^a.val, z is a nonzero root of unity, and hmul/hroot give ℓ(zρ)=ℓ(ρ). Reindex the actual finite V by a↦−a, using native additive-character negation and inverse-character parity from the preceding root-point proof.",
+        "The unnormalized reindexed sum is k(Σ_a w(a)ℓ(zρ−1)−ℓ(ρ)W). Multiplication by the original−G⁻¹ gives the displayed PLUS correction kG⁻¹ℓ(ρ)W. The complete native concrete-character lemma checks this exact sign and normalization, without dividing by W or G.",
+        "For a finite-order ρ the correction vanishes by hroot, recovering the previous root-point theorem. For the principal character at D=2 and ε=−1, k=W=1 and G=−1, so the exact formula is V(ρ⁻¹−1)=V(ρ−1)−ℓ(ρ). The p=3 controls detect the false correction-free formula."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-point-value",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-root-reciprocity",
+        "ColemanIntegration:L0/log-branch",
+        "mathlib:AddChar.map_neg_eq_inv",
+        "mathlib:MulChar.inv_apply_eq_inv'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogValue_inversion_defect"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2 finite logarithm expression, published151/PDF52; Lemmas6.4–6.5, published151–152/PDF52–53. Whole published151–153 was read in the immediately preceding parity checkpoint.",
+          "match": "Worker general-point inversion refinement of the actual logarithmic expression. The source motivates the expression and its local series evaluation; the correction formula and pointwise inversion comparison are derived here, not attributed as named source theorems. Existing Coleman logarithm laws and native character cancellation are imported, with the source E45 convergence boundary retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicInversionTests.principal_conductor_two_correction",
+          "kind": "non-example",
+          "statement": "For the principal character modulo2 and ε=−1, inversion changes V by−ℓ(ρ), which need not vanish."
+        }
+      ],
+      "acceptance": [
+        "The finite theorem includes singular shifted arguments and principal characters. No logarithm branch, generic distribution identity or Gauss theory is reconstructed."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-nonprincipal-inversion",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Nonprincipal logarithmic values satisfy inversion reciprocity",
+      "kind": "theorem",
+      "statement": "For η≠1 and every ρ≠0, V(ρ⁻¹−1)=η(−1)V(ρ−1).",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Use the actual preceding V(t)=cyclotomicLogValue(η,ε,ℓ)(t) and F=tameLogPrimitive(η,ε,ℓ). Write k=η(−1), w(a)=η⁻¹(a), G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one) and W=Σ_(a:ZMod D)w(a).",
+        "The supplied ℓ:K→K satisfies hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and hroot:ℓ(z)=0 if z^n=1 for n>0. They are explicit laws of the existing Coleman logarithm, whose suggested module imports this consumer. No condition is imposed on ℓ(0), and no multiplication law is applied at0.",
+        "The finite correction theorem takes any ρ≠0. The correction-free theorem adds η≠1. Neither requires ρ to be a root of unity, primitivity of η, G≠0, D>1, a norm, or conductor coprimality. All Gauss inverses are the original totalized field inverses.",
+        "The norm and analytic comparison use a normed ultrametric field. The coordinate lemma needs only ‖t‖<1. The series comparison additionally has η≠1, D>1, ‖(D:K)‖=1, and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). No prime p or root-of-unity averaging parameter is needed."
+      ],
+      "proofSteps": [
+        "The inverse character η⁻¹ is nonprincipal whenever η is: inversion is an involution in the native character group.",
+        "Apply native MulChar.sum_eq_zero_of_ne_one to η⁻¹ on the finite residue ring. Its field target is a domain, so W=Σ_aη⁻¹(a)=0. The complete native helper checks the exact inverse-character sum.",
+        "Substitute W=0 into the preceding correction theorem. This removes the correction for every nonzero ρ, without requiring ℓ(ρ)=0 or finite order of ρ.",
+        "An odd character is necessarily nonprincipal in characteristic0. Hence the formula is antisymmetric for odd η and symmetric for even nonprincipal η. Principal even characters remain subject to the preceding correction; evenness alone is insufficient.",
+        "Exact controls include both odd quadratic characters and an even nonprincipal conductor5 character, together with a principal conductor2 counterexample. The old root-point theorem remains stronger concerning the character hypothesis and is retained whole."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-inversion-defect",
+        "mathlib:MulChar.sum_eq_zero_of_ne_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogValue_inversion"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2 finite logarithm expression, published151/PDF52; Lemmas6.4–6.5, published151–152/PDF52–53. Whole published151–153 was read in the immediately preceding parity checkpoint.",
+          "match": "Worker general-point inversion refinement of the actual logarithmic expression. The source motivates the expression and its local series evaluation; the correction formula and pointwise inversion comparison are derived here, not attributed as named source theorems. Existing Coleman logarithm laws and native character cancellation are imported, with the source E45 convergence boundary retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicInversionTests.nonprincipal_point_pair",
+          "kind": "compatibility",
+          "statement": "For nonprincipal η, the values at T=1/2−1 and T=1 differ by exactly η(−1)."
+        }
+      ],
+      "acceptance": [
+        "Nonprimitivity is allowed; only nonprincipality kills the character sum. No norm or convergence claim enters this finite theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/logarithmic-inversion-disc-coordinate",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Inversion preserves the logarithmic evaluation disc",
+      "kind": "lemma",
+      "statement": "For ‖t‖<1 in an ultrametric normed field, ‖(1+t)⁻¹−1‖=‖t‖, so the transformed point remains in the open unit disc.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Use the actual preceding V(t)=cyclotomicLogValue(η,ε,ℓ)(t) and F=tameLogPrimitive(η,ε,ℓ). Write k=η(−1), w(a)=η⁻¹(a), G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one) and W=Σ_(a:ZMod D)w(a).",
+        "The supplied ℓ:K→K satisfies hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and hroot:ℓ(z)=0 if z^n=1 for n>0. They are explicit laws of the existing Coleman logarithm, whose suggested module imports this consumer. No condition is imposed on ℓ(0), and no multiplication law is applied at0.",
+        "The finite correction theorem takes any ρ≠0. The correction-free theorem adds η≠1. Neither requires ρ to be a root of unity, primitivity of η, G≠0, D>1, a norm, or conductor coprimality. All Gauss inverses are the original totalized field inverses.",
+        "The norm and analytic comparison use a normed ultrametric field. The coordinate lemma needs only ‖t‖<1. The series comparison additionally has η≠1, D>1, ‖(D:K)‖=1, and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). No prime p or root-of-unity averaging parameter is needed."
+      ],
+      "proofSteps": [
+        "The native ultrametric unequal-norm equality gives ‖1+t‖=max(1,‖t‖)=1. In particular1+t≠0.",
+        "The field identity(1+t)⁻¹−1=−t/(1+t) now follows by multiplication by the nonzero denominator. The complete native coordinate lemma verifies the equality.",
+        "Use multiplicativity of the norm to obtain‖−t/(1+t)‖=‖t‖/1. This proves the exact norm equality, rather than only a rough upper bound.",
+        "The transformation fixes t=0 and is an involution on the domain t≠−1. The exact controls check the involution at every sampled point. At residue characteristic2, t=−2 is also in the disc when‖2‖<1 and is the previously studied fixed point.",
+        "This node is the domain check for the actual Dirichlet logarithm evaluation, using an existing native norm theorem. It does not plan a general Möbius action, analytic automorphism or formal substitution object."
+      ],
+      "prerequisites": [
+        "mathlib:IsUltrametricDist.norm_mul_eq_max_of_norm_ne_norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogValue_inversion_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2 finite logarithm expression, published151/PDF52; Lemmas6.4–6.5, published151–152/PDF52–53. Whole published151–153 was read in the immediately preceding parity checkpoint.",
+          "match": "Worker general-point inversion refinement of the actual logarithmic expression. The source motivates the expression and its local series evaluation; the correction formula and pointwise inversion comparison are derived here, not attributed as named source theorems. Existing Coleman logarithm laws and native character cancellation are imported, with the source E45 convergence boundary retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicInversionTests.dyadic_open_disc_coordinate",
+          "kind": "computation",
+          "statement": "If‖2‖<1, the transformed point at t=2 is1/3−1 and has norm‖2‖."
+        }
+      ],
+      "acceptance": [
+        "The indexed native multiplicative-group norm theorem supplies its generated additive version, equivalently by application to Multiplicative(K,+). No rational-scalar norm bound or archimedean radius argument is used."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-logarithmic-evaluation-inversion",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The convergent logarithmic primitive respects point inversion",
+      "kind": "theorem",
+      "statement": "Under the nonprincipal tame local-law hypotheses, for every‖t‖<1, Σ′_n coeff n(F)((1+t)⁻¹−1)^n=η(−1)·Σ′_n coeff n(F)t^n.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Use the actual preceding V(t)=cyclotomicLogValue(η,ε,ℓ)(t) and F=tameLogPrimitive(η,ε,ℓ). Write k=η(−1), w(a)=η⁻¹(a), G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one) and W=Σ_(a:ZMod D)w(a).",
+        "The supplied ℓ:K→K satisfies hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and hroot:ℓ(z)=0 if z^n=1 for n>0. They are explicit laws of the existing Coleman logarithm, whose suggested module imports this consumer. No condition is imposed on ℓ(0), and no multiplication law is applied at0.",
+        "The finite correction theorem takes any ρ≠0. The correction-free theorem adds η≠1. Neither requires ρ to be a root of unity, primitivity of η, G≠0, D>1, a norm, or conductor coprimality. All Gauss inverses are the original totalized field inverses.",
+        "The norm and analytic comparison use a normed ultrametric field. The coordinate lemma needs only ‖t‖<1. The series comparison additionally has η≠1, D>1, ‖(D:K)‖=1, and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). No prime p or root-of-unity averaging parameter is needed."
+      ],
+      "proofSteps": [
+        "Use the preceding norm equality to put both t and t′=(1+t)⁻¹−1 in the open unit disc. Also1+t≠0 by its norm1.",
+        "Apply the existing actual tameLogPrimitive_hasSum separately at t and t′. The exact sums are V(t) and V(t′); retain the finite logarithm constant in F, rather than replacing it by the normalized primitive.",
+        "Set ρ=1+t in the preceding nonprincipal finite inversion theorem. Sinceρ−1=t, it gives V(t′)=η(−1)V(t). Native uniqueness/evaluation of the two HasSum statements gives the displayed equality of tsums.",
+        "For odd η in residue characteristic2 and t=2, the paired point is−2/3; the two actual series values are negatives. This is a pair of convergent evaluations, not a coefficientwise parity assertion.",
+        "Retain D>1, ‖D‖=1 and hlocal. The finite general-point identity does not imply convergence of the source unsmoothed pure-p-power series. No formal composition equality, LAD operator comparison, distribution relation or analytic L-value identification is inferred."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-logarithmic-series-point-evaluation",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-nonprincipal-inversion",
+        "DirichletPadicLFunctions:L3/logarithmic-inversion-disc-coordinate",
+        "mathlib:HasProd.tprod_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLogPrimitive_eval_inversion"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2 finite logarithm expression, published151/PDF52; Lemmas6.4–6.5, published151–152/PDF52–53. Whole published151–153 was read in the immediately preceding parity checkpoint.",
+          "match": "Worker general-point inversion refinement of the actual logarithmic expression. The source motivates the expression and its local series evaluation; the correction formula and pointwise inversion comparison are derived here, not attributed as named source theorems. Existing Coleman logarithm laws and native character cancellation are imported, with the source E45 convergence boundary retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicInversionTests.odd_dyadic_series_pair",
+          "kind": "compatibility",
+          "statement": "Under the tame dyadic local-law hypotheses for odd η, the actual primitive’s coefficient sums at−2/3 and2 are negatives."
+        }
+      ],
+      "acceptance": [
+        "The actual coefficient evaluation theorem is used at both points; merely equating two formal expressions would not establish convergence. No extra completeness hypothesis is needed beyond the supplied HasSum law."
+      ]
     }
   ],
   "requests": [
@@ -32469,7 +32680,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The concrete root-point values now satisfy parity reciprocity, and odd-character averages, dyadic fixed-point values and complementary values vanish. The corresponding tame coefficient-series HasSum is0. These finite odd branches are settled at the planning level, not the analytic L-value identification. Next collapse the general finite average to p⁻¹ times the powered logarithm constant using the existing Coleman weight-one distribution relation, then compare with LAD restriction. Importing the current generic Coleman node also reaches open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations requests; account for them or obtain a finer owned input, never silently omit them. LAD distribution-operations still has a coarse PMIA L0 leaf, and the exact discAnalytic/R+ comparison request remains open. Retain the smoothed pure-p-power route, E44–E48, positive-weight comparisons, pole/residue analysis and complete source extraction.",
+        "The finite logarithmic values now have an exact arbitrary-point inversion correction; nonprincipal character cancellation removes it. The same reciprocity holds for actual convergent tame coefficient evaluations on the open disc. General finite root-average collapse to p⁻¹ times the powered constant still needs the existing Coleman weight-one distribution relation, followed by LAD restriction. The current generic Coleman graph reaches additional open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations dependencies; account for them or obtain a finer owned input. LAD operations has a coarse PMIA L0 leaf. The exact discAnalytic/R+ comparison request, smoothed pure-p-power route, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Retain E44–E48 and do not infer a formal substitution or analytic L-value identity from these pointwise statements.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -32501,7 +32712,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The concrete root-point values now satisfy parity reciprocity, and odd-character averages, dyadic fixed-point values and complementary values vanish. The corresponding tame coefficient-series HasSum is0. These finite odd branches are settled at the planning level, not the analytic L-value identification. Next collapse the general finite average to p⁻¹ times the powered logarithm constant using the existing Coleman weight-one distribution relation, then compare with LAD restriction. Importing the current generic Coleman node also reaches open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations requests; account for them or obtain a finer owned input, never silently omit them. LAD distribution-operations still has a coarse PMIA L0 leaf, and the exact discAnalytic/R+ comparison request remains open. Retain the smoothed pure-p-power route, E44–E48, positive-weight comparisons, pole/residue analysis and complete source extraction. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The finite logarithmic values now have an exact arbitrary-point inversion correction; nonprincipal character cancellation removes it. The same reciprocity holds for actual convergent tame coefficient evaluations on the open disc. General finite root-average collapse to p⁻¹ times the powered constant still needs the existing Coleman weight-one distribution relation, followed by LAD restriction. The current generic Coleman graph reaches additional open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations dependencies; account for them or obtain a finer owned input. LAD operations has a coarse PMIA L0 leaf. The exact discAnalytic/R+ comparison request, smoothed pure-p-power route, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Retain E44–E48 and do not infer a formal substitution or analytic L-value identity from these pointwise statements. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -32818,44 +33029,44 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All16 source findings, sourceVersions and all four previous supplier requests remain whole. Confirmed external E44–E48 are retained; no new finding or independent verdict is added.",
     "validation": {
-      "nodes": 496,
+      "nodes": 500,
       "kinds": {
         "definition": 1,
-        "lemma": 214,
+        "lemma": 215,
         "construction": 62,
-        "theorem": 136,
+        "theorem": 139,
         "comparison": 83
       },
       "api": 454,
-      "packetTests": 785,
+      "packetTests": 789,
       "definitionConstructionTests": 262,
-      "typedExamples": 788,
+      "typedExamples": 792,
       "planets": 24,
-      "baseline": 472,
-      "preservedWholeNodes": 491,
-      "preservedBaseline": 469,
+      "baseline": 473,
+      "preservedWholeNodes": 496,
+      "preservedBaseline": 472,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 5,
-      "newNamedDeclarations": 5,
-      "newTypedTests": 5,
+      "newNodes": 4,
+      "newNamedDeclarations": 4,
+      "newTypedTests": 4,
       "requests": 4,
       "gaps": 8,
       "closedStages": 0,
-      "reachableNodes": 687,
-      "dependencyEdges": 3252,
+      "reachableNodes": 691,
+      "dependencyEdges": 3264,
       "acyclic": true,
-      "baselineLeaves": 613,
+      "baselineLeaves": 614,
       "stageRequestLeaves": [
         "LocallyAnalyticDistributions:L1",
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 214855,
+      "readerWords": 217264,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1532,
+      "compilerWarnings": 1540,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -32865,21 +33076,20 @@
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 11,
-      "scratchMathlibModules": 2794,
+      "scratchCompleteLemmas": 8,
+      "scratchMathlibModules": 2798,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "characterPrimeCases": 4,
-        "rootPointReciprocities": 25,
-        "localLogExpansions": 72,
-        "oddAverages": 3,
-        "oddComplements": 3,
-        "dyadicFixedPointZeros": 2,
-        "evenCounterexamples": 1,
-        "higherPrecisionPointComparisons": 25,
-        "singularFiniteProfileChecks": 3
+        "characterPrimeCases": 5,
+        "pointInversionIdentities": 20,
+        "localLogExpansions": 88,
+        "coefficientEvaluationIdentities": 40,
+        "nonprincipalReciprocities": 16,
+        "principalCorrectionCounterexamples": 3,
+        "higherPrecisionPointComparisons": 40,
+        "coordinateInvolutions": 20
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": [
@@ -32889,14 +33099,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1532,
-      "sha256": "f8dd04c4cf7066cb81259cf5ad831096b79270dae82e9723c2a10e3482ae0e33",
+      "warnings": 1540,
+      "sha256": "28eb25fbb7a77bd84f47f1d45f7b47349b97d4eb88189436edf7cc0dd30b7e13",
       "nativeProbe": {
-        "completeLemmas": 11,
+        "completeLemmas": 8,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "491d1b437315dae2d2b51ff53241cc46af1952a215475cd2cb9172f36bb6a509"
+        "sha256": "cffbfbc89fbebde8a0a61b1ebb79bb7fd1648e2d8dd630d2bcac21d6480ac97b"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -32965,16 +33175,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "839aa9b726aee663de97b9ee0bd52a8cd911c443c167c9ee8aa459f844d6f5c7",
+          "sourceSha256": "f8dd04c4cf7066cb81259cf5ad831096b79270dae82e9723c2a10e3482ae0e33",
           "modules": 3572,
-          "warnings": 1522,
+          "warnings": 1532,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "18e035de1d6245946d9f66006a6ec35060da4390",
+      "base": "00944d093e5039e2e6a9674315c3c18bb7d7814f",
       "unchangedInputs": 58,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -38257,6 +38467,44 @@
         "singularFiniteProfileChecks": 3
       },
       "numericalMethod": "Exact modular logarithms in Q_2(mu_3) and in ramified Q_p(mu_p) extensions at p=5,7,11. The dyadic case uses the unramified quadratic ring Phi_3, residue-unit exponent3 and ramification index1; odd split tame cases use exponent p-1 and ramification index p-1. Unit inverses are certified by modular Gaussian elimination. At input p^20, output p^8 plus an averaging digit is independently repeated three digits higher. Truncation N=max(p^2,2e(r+2)) uses principal-unit valuation>=1/e and v_p(n)<=n/(2e) for n>=p^2; all p-part divisions are checked with guard digits. Direct logarithm values and Taylor values satisfy root inversion parity, odd averages and complements vanish, and both dyadic fixed points vanish. The even conductor5 case has nonzero complement. A separate exact D=p=3 zero-off-zero profile with ell(0)=1 checks singular finite pairing and has no local-series law; it is not asserted to be an analytic logarithm. No analytic L-value or pure-p-power convergence is claimed."
+    },
+    "logarithmicInversion": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4719,
+      "previousHead": "6e82ef6d9c1791bf6a0dc401efc1d098b0adaf35",
+      "previousMerge": "1c7fa9ec8301082abf5f4034d2fb06ac45947501",
+      "preservedWholeNodes": 496,
+      "preservedBaseline": 472,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "The whole published151–153 reading and whole Coleman logarithm-node reading from the preceding checkpoints remain in use. Reread the complete native nonprincipal character-sum theorem and proof, its principal-character comparison, the ultrametric unequal-norm theorem with its ambient seminormed-group hypotheses, and the preceding complete native evaluation/parity probes. The correction identity is explicitly a worker refinement of the source expression, not a newly attributed source result.",
+      "boundary": "The finite logarithmic values now have an exact arbitrary-point inversion correction; nonprincipal character cancellation removes it. The same reciprocity holds for actual convergent tame coefficient evaluations on the open disc. General finite root-average collapse to p⁻¹ times the powered constant still needs the existing Coleman weight-one distribution relation, followed by LAD restriction. The current generic Coleman graph reaches additional open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations dependencies; account for them or obtain a finer owned input. LAD operations has a coarse PMIA L0 leaf. The exact discAnalytic/R+ comparison request, smoothed pure-p-power route, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Retain E44–E48 and do not infer a formal substitution or analytic L-value identity from these pointwise statements.",
+      "inputBase": "1c7fa9ec8301082abf5f4034d2fb06ac45947501",
+      "sourceBoundary": "All16 source findings, sourceVersions and all four previous supplier requests remain whole. Confirmed external E44–E48 are retained; no new finding or independent verdict is added.",
+      "publication": {
+        "base": "00944d093e5039e2e6a9674315c3c18bb7d7814f",
+        "unchangedInputs": 58,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "characterPrimeCases": 5,
+        "pointInversionIdentities": 20,
+        "localLogExpansions": 88,
+        "coefficientEvaluationIdentities": 40,
+        "nonprincipalReciprocities": 16,
+        "principalCorrectionCounterexamples": 3,
+        "higherPrecisionPointComparisons": 40,
+        "coordinateInvolutions": 20
+      },
+      "numericalMethod": "Exact modular arithmetic in Q₂(μ₃) and ramified Q_p(μ_p) for p=3,5,7,11. Unit inverses are product-checked. The same certified logarithm truncation as4719 uses input p^20, output p^8, then an independent three-digit increase; principal-unit valuation>=1/e and v_p(n)<=n/(2e) for n>=p² bound the discarded tail, with all p-part divisions guard-checked. Four open-disc inputs per case include0,p,p² and a non-root extension-field point. Actual finite logarithm values are compared with local coefficient expansions at both t and(1+t)^-1-1. The precise principal-character correction is tested, and omitting it fails in the D2,p3 control. Coordinate involutions and higher-precision values agree exactly. These controls do not assert a formal substitution identity, an analytic L-value or convergence at pure-p conductor."
     }
   },
   "requestResolutions": [
