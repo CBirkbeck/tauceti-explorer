@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Ten L3 nodes establish the continuous part of Morita’s translated difference function, with native uniform convergence and quantitative tails. All893 predecessor nodes,715 baseline records and16 findings remain whole; no new request, source finding or closed stage is introduced.",
+  "summary": "Six L3 nodes prove exact nonnegative-integer boundary identities and pass supplied actual quotient limits through the finite sum. All903 predecessor nodes,721 baseline records and16 findings remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -5061,6 +5061,13 @@
         "module": "Mathlib/Analysis/Normed/Group/FunctionSeries.lean",
         "provides": "A summable real uniform norm majorant gives uniform convergence of natural partial sums on a set in a complete normed additive group.",
         "checked": "Full statement, ambient hypotheses and the native additive generators read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. The complete MoritaShiftContinuityProbe exercises the isometry, uniform-convergence, continuity and actual summable tail comparisons."
+      },
+      {
+        "ref": "mathlib:tendsto_finsetProd",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Monoid.lean",
+        "provides": "Limits commute with a finite product under continuous multiplication. Its explicit additive generator tendsto_finsetSum is the finite-sum limit rule used here.",
+        "checked": "Full statement, ambient continuous-monoid hypotheses and additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. Complete MoritaIntegerBoundaryProbe exercises the actual finite boundary sums and support branches."
       }
     ]
   },
@@ -60895,6 +60902,351 @@
       "acceptance": [
         "Distinguish a linear coefficient sequence from the coefficients obtained by applying the character mean to A(u)=u."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-shifted-samples-natural",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Natural shifts agree with translated angular samples",
+      "kind": "lemma",
+      "statement": "If q divides the nonnegative integer z, then S_z(A)(a)=S(A)(a+z) at every natural index a.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise; χ is a native Dirichlet character of original level f in the normed field K. The averaging level is N_n=lcm(f,q)q^n, and the functions and finite means are the preceding actual constructions.",
+        "The shift z is a nonnegative integer. For the comparison of samples, q divides z. The character-weighted boundary formula additionally requires lcm(f,q) to divide z, so both support and character values have the required period.",
+        "The finite identities are algebraic and require neither analytic regularity nor completeness. The limit statements assume actual Tendsto witnesses for each normalized sampled difference quotient at the finitely many surviving indices a<z.",
+        "In Morita’s analytic application the quotient limit is Ω(a)^(−1)D_1A(α(a)), with the coefficient embedding applied to Ω(a)^(−1). Deriving that quotient limit from the actual Taylor/derivative data is a subsequent step; the present theorem does not silently replace it by a formal derivative symbol.",
+        "Only nonnegative integer shifts are covered here. The source negative oriented sum, the analytic supplier inputs and the logarithmic/Gamma identification remain open. All source and coefficient normalizations are retained."
+      ],
+      "proofSteps": [
+        "Write z=qk. At a p-unit, use the preceding angular-sample translation theorem at original level1 and depth0, whose averaging step is q.",
+        "At a nonunit both samples are zero: p divides q and therefore divides a+qk whenever it divides a.",
+        "The complete shifted_samples_nat proof identifies the actual unit witnesses and natural casts. At p=2 the condition is divisibility by4, not merely by2."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-shifted-samples",
+        "DirichletPadicLFunctions:L3/morita-angular-samples-translation",
+        "DirichletPadicLFunctions:L3/morita-modulus"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaIntegerBoundary",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaShiftedSamples_nat"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section2 p.259, reindexing the two translated sums, finite boundary sum and normalized difference quotient; Theorem2 pp.259–260.",
+          "excerpt": "Therefore we have",
+          "match": "The nonnegative-integer branch of the source argument is split into exact finite reindexing and a limit of finitely many actual sampled difference quotients. The derivative identification and the negative oriented branch are kept separate and open."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.natural_sample_dyadic",
+          "kind": "compatibility",
+          "statement": "At a=3,z=4 the shifted linear sample equals the ordinary angular sample at7."
+        },
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.natural_sample_nonunit",
+          "kind": "degenerate",
+          "statement": "The shifted sample at a=2 remains zero."
+        },
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.natural_sample_bad_shift",
+          "kind": "non-example",
+          "statement": "At p=2,z=2,a=1 the shifted linear value is3, while the ordinary angular sample at3 is−3; q-divisibility is necessary."
+        }
+      ],
+      "acceptance": [
+        "Use the actual Ω(a)^(−1) shift; plain translation of the principal coordinate is insufficient."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-shifted-mean-natural",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite mean of a natural translated sample",
+      "kind": "comparison",
+      "statement": "If q divides z, M^n_(χ,z)(A)=M^n_χ(a↦S(A)(a+z)).",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise; χ is a native Dirichlet character of original level f in the normed field K. The averaging level is N_n=lcm(f,q)q^n, and the functions and finite means are the preceding actual constructions.",
+        "The shift z is a nonnegative integer. For the comparison of samples, q divides z. The character-weighted boundary formula additionally requires lcm(f,q) to divide z, so both support and character values have the required period.",
+        "The finite identities are algebraic and require neither analytic regularity nor completeness. The limit statements assume actual Tendsto witnesses for each normalized sampled difference quotient at the finitely many surviving indices a<z.",
+        "In Morita’s analytic application the quotient limit is Ω(a)^(−1)D_1A(α(a)), with the coefficient embedding applied to Ω(a)^(−1). Deriving that quotient limit from the actual Taylor/derivative data is a subsequent step; the present theorem does not silently replace it by a formal derivative symbol.",
+        "Only nonnegative integer shifts are covered here. The source negative oriented sum, the analytic supplier inputs and the logarithmic/Gamma identification remain open. All source and coefficient normalizations are retained."
+      ],
+      "proofSteps": [
+        "Unfold the shifted mean as the existing mean of shifted samples.",
+        "Substitute the preceding exact equality of sampled functions. The complete shifted_mean_nat proof requires no character-period hypothesis yet, since the weight stays at a."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-shifted-mean",
+        "DirichletPadicLFunctions:L3/morita-shifted-samples-natural"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaIntegerBoundary",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaShiftedMean_nat"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section2 p.259, reindexing the two translated sums, finite boundary sum and normalized difference quotient; Theorem2 pp.259–260.",
+          "excerpt": "Therefore we have",
+          "match": "The nonnegative-integer branch of the source argument is split into exact finite reindexing and a limit of finitely many actual sampled difference quotients. The derivative identification and the negative oriented branch are kept separate and open."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.natural_mean_dyadic",
+          "kind": "computation",
+          "statement": "The dyadic shifted square at z=4 has finite depth-zero mean37/2."
+        },
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.natural_mean_odd",
+          "kind": "computation",
+          "statement": "The ternary shifted square at z=3 has mean41/3."
+        }
+      ],
+      "acceptance": [
+        "The extra divisibility by f enters only when the character-weighted summation interval is reindexed."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-finite-mean-integer-boundary",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Exact boundary telescoping for finite character means",
+      "kind": "lemma",
+      "statement": "For b=lcm(f,q) dividing z and every ordinary F:ℕ→K, M^n_χ(a↦F(a+z))−M^n_χ(F)=N_n^(−1)Σ_(a<z,p∤a)χ(a)(F(a+N_n)−F(a)).",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise; χ is a native Dirichlet character of original level f in the normed field K. The averaging level is N_n=lcm(f,q)q^n, and the functions and finite means are the preceding actual constructions.",
+        "The shift z is a nonnegative integer. For the comparison of samples, q divides z. The character-weighted boundary formula additionally requires lcm(f,q) to divide z, so both support and character values have the required period.",
+        "The finite identities are algebraic and require neither analytic regularity nor completeness. The limit statements assume actual Tendsto witnesses for each normalized sampled difference quotient at the finitely many surviving indices a<z.",
+        "In Morita’s analytic application the quotient limit is Ω(a)^(−1)D_1A(α(a)), with the coefficient embedding applied to Ω(a)^(−1). Deriving that quotient limit from the actual Taylor/derivative data is a subsequent step; the present theorem does not silently replace it by a formal derivative symbol.",
+        "Only nonnegative integer shifts are covered here. The source negative oriented sum, the analytic supplier inputs and the logarithmic/Gamma identification remain open. All source and coefficient normalizations are retained."
+      ],
+      "proofSteps": [
+        "Set G(a)=0 at p-multiples and χ(a)F(a) otherwise. Since b divides z, both the character weight and the p-unit support are unchanged by a↦a+z; the existing period lemmas at depth0 establish this.",
+        "Apply the native finite-range split twice to the sum up to N_n+z, once after z terms and once after N_n terms. Subtract to obtain Σ_(a<N_n)G(a+z)−Σ_(a<N_n)G(a)=Σ_(a<z)(G(a+N_n)−G(a)).",
+        "The existing period lemmas for N_n identify the weight and support in the right-hand boundary terms. Multiply by the actual inverse normalization N_n^(−1).",
+        "The complete finite_boundary proof uses the actual mean and a fully proved finite-sum helper. The native additive range-splitting declaration is generated by the recorded Finset.prod_range_add theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-finite-mean",
+        "DirichletPadicLFunctions:L3/morita-mean-character-period",
+        "DirichletPadicLFunctions:L3/morita-mean-support-period",
+        "mathlib:Finset.prod_range_add"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaIntegerBoundary",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaFiniteMean_integer_boundary"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section2 p.259, reindexing the two translated sums, finite boundary sum and normalized difference quotient; Theorem2 pp.259–260.",
+          "excerpt": "Therefore we have",
+          "match": "The nonnegative-integer branch of the source argument is split into exact finite reindexing and a limit of finitely many actual sampled difference quotients. The derivative identification and the negative oriented branch are kept separate and open."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.finite_boundary_quadratic",
+          "kind": "computation",
+          "statement": "At p=2,f=1,n=0,z=4 the raw quadratic mean difference is16."
+        },
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.finite_boundary_zero_shift",
+          "kind": "degenerate",
+          "statement": "At z=0 both the difference and empty boundary sum are zero."
+        },
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.finite_boundary_missing_character_period",
+          "kind": "non-example",
+          "statement": "For p=2,f=3,z=4 and F(a)=a, the true mean difference is4/3 while the unqualified boundary formula gives1."
+        }
+      ],
+      "acceptance": [
+        "The original character period cannot be discarded just because z is a multiple of q."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-shifted-mean-integer-boundary",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual shifted mean difference is a finite quotient sum",
+      "kind": "theorem",
+      "statement": "For b dividing z, M^n_(χ,z)(A)−M^n_(χ,ang)(A)=Σ_(a<z,p∤a)χ(a)N_n^(−1)(S(A)(a+N_n)−S(A)(a)).",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise; χ is a native Dirichlet character of original level f in the normed field K. The averaging level is N_n=lcm(f,q)q^n, and the functions and finite means are the preceding actual constructions.",
+        "The shift z is a nonnegative integer. For the comparison of samples, q divides z. The character-weighted boundary formula additionally requires lcm(f,q) to divide z, so both support and character values have the required period.",
+        "The finite identities are algebraic and require neither analytic regularity nor completeness. The limit statements assume actual Tendsto witnesses for each normalized sampled difference quotient at the finitely many surviving indices a<z.",
+        "In Morita’s analytic application the quotient limit is Ω(a)^(−1)D_1A(α(a)), with the coefficient embedding applied to Ω(a)^(−1). Deriving that quotient limit from the actual Taylor/derivative data is a subsequent step; the present theorem does not silently replace it by a formal derivative symbol.",
+        "Only nonnegative integer shifts are covered here. The source negative oriented sum, the analytic supplier inputs and the logarithmic/Gamma identification remain open. All source and coefficient normalizations are retained."
+      ],
+      "proofSteps": [
+        "Since q divides b and b divides z, replace the shifted samples by ordinary translated samples.",
+        "Apply the preceding character-weighted boundary identity to the actual function S(A).",
+        "Move the fixed normalization inside the finite sum, preserving the zero branch and the multiplication order. The complete shifted_boundary proof produces exactly the difference quotients whose limits the source uses."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-shifted-mean-natural",
+        "DirichletPadicLFunctions:L3/morita-finite-mean-integer-boundary",
+        "DirichletPadicLFunctions:L3/morita-angular-mean"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaIntegerBoundary",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaShiftedMean_integer_boundary"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section2 p.259, reindexing the two translated sums, finite boundary sum and normalized difference quotient; Theorem2 pp.259–260.",
+          "excerpt": "Therefore we have",
+          "match": "The nonnegative-integer branch of the source argument is split into exact finite reindexing and a limit of finitely many actual sampled difference quotients. The derivative identification and the negative oriented branch are kept separate and open."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.shifted_boundary_dyadic",
+          "kind": "computation",
+          "statement": "For A(u)=u²,z=4 the dyadic depth-zero difference is16."
+        },
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.shifted_boundary_odd",
+          "kind": "computation",
+          "statement": "For A(u)=u²,z=3 the ternary depth-zero difference is12."
+        }
+      ],
+      "acceptance": [
+        "The normalization is division by N_n, not by z or by q."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-shifted-mean-boundary-limit",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Pass the limit through the finite integer boundary sum",
+      "kind": "theorem",
+      "statement": "If each actual normalized sample quotient at a<z,p∤a tends to d(a), then the actual finite mean differences tend to Σ_(a<z,p∤a)χ(a)d(a).",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise; χ is a native Dirichlet character of original level f in the normed field K. The averaging level is N_n=lcm(f,q)q^n, and the functions and finite means are the preceding actual constructions.",
+        "The shift z is a nonnegative integer. For the comparison of samples, q divides z. The character-weighted boundary formula additionally requires lcm(f,q) to divide z, so both support and character values have the required period.",
+        "The finite identities are algebraic and require neither analytic regularity nor completeness. The limit statements assume actual Tendsto witnesses for each normalized sampled difference quotient at the finitely many surviving indices a<z.",
+        "In Morita’s analytic application the quotient limit is Ω(a)^(−1)D_1A(α(a)), with the coefficient embedding applied to Ω(a)^(−1). Deriving that quotient limit from the actual Taylor/derivative data is a subsequent step; the present theorem does not silently replace it by a formal derivative symbol.",
+        "Only nonnegative integer shifts are covered here. The source negative oriented sum, the analytic supplier inputs and the logarithmic/Gamma identification remain open. All source and coefficient normalizations are retained."
+      ],
+      "proofSteps": [
+        "Replace the actual mean difference by the preceding exact finite sum at every n.",
+        "At each excluded index the sequence is identically zero. At each surviving index multiply the supplied actual quotient Tendsto witness by the fixed character value.",
+        "Apply the native finite-sum limit theorem, generated by tendsto_finsetProd. The complete boundary_limit proof checks every support branch; there is no infinite-series interchange at this step."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-shifted-mean-integer-boundary",
+        "mathlib:Filter.Tendsto.const_mul",
+        "mathlib:tendsto_finsetProd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaIntegerBoundary",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaShiftedMean_boundary_limit"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section2 p.259, reindexing the two translated sums, finite boundary sum and normalized difference quotient; Theorem2 pp.259–260.",
+          "excerpt": "Therefore we have",
+          "match": "The nonnegative-integer branch of the source argument is split into exact finite reindexing and a limit of finitely many actual sampled difference quotients. The derivative identification and the negative oriented branch are kept separate and open."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.boundary_limit_quadratic_dyadic",
+          "kind": "computation",
+          "statement": "For A=u²,z=4 the dyadic difference tends to8; finite values are8+2N_n."
+        },
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.boundary_limit_quadratic_odd",
+          "kind": "computation",
+          "statement": "For A=u²,z=3 the ternary difference tends to6; finite values are6+2N_n."
+        }
+      ],
+      "acceptance": [
+        "The hypotheses are limits of the actual quotients, not an assumed identity for the final boundary value."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-shifted-mean-boundary-value",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Identify any actual translated difference limit with the boundary value",
+      "kind": "comparison",
+      "statement": "If the same mean-difference sequence tends to w and the preceding quotient limits hold, then w=Σ_(a<z,p∤a)χ(a)d(a).",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise; χ is a native Dirichlet character of original level f in the normed field K. The averaging level is N_n=lcm(f,q)q^n, and the functions and finite means are the preceding actual constructions.",
+        "The shift z is a nonnegative integer. For the comparison of samples, q divides z. The character-weighted boundary formula additionally requires lcm(f,q) to divide z, so both support and character values have the required period.",
+        "The finite identities are algebraic and require neither analytic regularity nor completeness. The limit statements assume actual Tendsto witnesses for each normalized sampled difference quotient at the finitely many surviving indices a<z.",
+        "In Morita’s analytic application the quotient limit is Ω(a)^(−1)D_1A(α(a)), with the coefficient embedding applied to Ω(a)^(−1). Deriving that quotient limit from the actual Taylor/derivative data is a subsequent step; the present theorem does not silently replace it by a formal derivative symbol.",
+        "Only nonnegative integer shifts are covered here. The source negative oriented sum, the analytic supplier inputs and the logarithmic/Gamma identification remain open. All source and coefficient normalizations are retained."
+      ],
+      "proofSteps": [
+        "The preceding finite-sum theorem supplies a second actual limit for the same sequence.",
+        "Apply native uniqueness of limits in the normed field. The complete boundary_value proof gives the desired identification without constructing a new limit carrier.",
+        "For the source application, the previous translated-difference comparison supplies w=F_v(z). Deriving d(a)=ι(Ω(a)^(−1))D_1A(α(a)) from the actual Taylor data remains the next step; no Gamma identity follows until that and the logarithmic comparison are established."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-shifted-mean-boundary-limit",
+        "mathlib:tendsto_nhds_unique"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaIntegerBoundary",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaShiftedMean_boundary_value"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section2 p.259, reindexing the two translated sums, finite boundary sum and normalized difference quotient; Theorem2 pp.259–260.",
+          "excerpt": "Therefore we have",
+          "match": "The nonnegative-integer branch of the source argument is split into exact finite reindexing and a limit of finitely many actual sampled difference quotients. The derivative identification and the negative oriented branch are kept separate and open."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.boundary_value_constant",
+          "kind": "degenerate",
+          "statement": "Any actual limit of the constant-one shifted mean differences is zero."
+        },
+        {
+          "name": "SuggestedMoritaIntegerBoundaryTests.boundary_value_zero_shift",
+          "kind": "degenerate",
+          "statement": "For any A, any actual limit of the zero-shift mean difference is zero."
+        }
+      ],
+      "acceptance": [
+        "Only the nonnegative-integer source branch is identified. The negative oriented sum remains explicit future work."
+      ]
     }
   ],
   "requests": [
@@ -61020,7 +61372,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The translated coefficient series now has native uniform convergence, continuity and a quantitative ultrametric tail bound on the entire closed shift disc. The actual difference function has zero/constant/linear/geometric normalization, its positive-power series and norm bound, and is identified with the limit of the real finite mean differences. The actual LAD analytic carrier, larger-radius derivative compatibility and coefficient convergence witnesses remain open. Next establish the finite integer boundary identity and its logarithmic/Gamma comparison on pℤ_p at odd p and8ℤ₂; analyticity is not inferred from continuity. Gross–Koblitz and Ferrero–Greenberg retain the recorded source-reading and normalization work. All17 gaps and13 requests remain open.",
+        "The exact finite boundary identity for nonnegative integer shifts divisible by lcm(f,q) is now planned and natively proved, with a conditional limit theorem for actual sampled difference quotients. Next derive the quotient limit Ω(a)^(−1)D_1A(α(a)) from the actual larger-radius Taylor bounds, identify the existing F_v at those integers, and supply the negative oriented branch and logarithmic/Gamma comparison on pℤ_p at odd p and8ℤ₂. The owned analytic carrier, derivative compatibility and coefficient-limit inputs remain open; continuity does not imply analyticity. Gross–Koblitz and Ferrero–Greenberg retain the recorded reading and normalization work. All17 gaps and13 requests remain open.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -61052,7 +61404,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The translated coefficient series now has native uniform convergence, continuity and a quantitative ultrametric tail bound on the entire closed shift disc. The actual difference function has zero/constant/linear/geometric normalization, its positive-power series and norm bound, and is identified with the limit of the real finite mean differences. The actual LAD analytic carrier, larger-radius derivative compatibility and coefficient convergence witnesses remain open. Next establish the finite integer boundary identity and its logarithmic/Gamma comparison on pℤ_p at odd p and8ℤ₂; analyticity is not inferred from continuity. Gross–Koblitz and Ferrero–Greenberg retain the recorded source-reading and normalization work. All17 gaps and13 requests remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The exact finite boundary identity for nonnegative integer shifts divisible by lcm(f,q) is now planned and natively proved, with a conditional limit theorem for actual sampled difference quotients. Next derive the quotient limit Ω(a)^(−1)D_1A(α(a)) from the actual larger-radius Taylor bounds, identify the existing F_v at those integers, and supply the negative oriented branch and logarithmic/Gamma comparison on pℤ_p at odd p and8ℤ₂. The owned analytic carrier, derivative compatibility and coefficient-limit inputs remain open; continuity does not imply analyticity. Gross–Koblitz and Ferrero–Greenberg retain the recorded reading and normalization work. All17 gaps and13 requests remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -61431,36 +61783,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 own source findings, sources and sourceVersions remain whole. The newly read unrelated awaiting-review registry entry is not promoted to an independent verdict.",
+    "sourceIssues": "All16 own source findings, sources and sourceVersions remain whole. No new source error or independent review verdict is claimed.",
     "validation": {
-      "nodes": 903,
+      "nodes": 909,
       "kinds": {
         "definition": 2,
-        "lemma": 370,
+        "lemma": 372,
         "construction": 98,
-        "theorem": 255,
-        "comparison": 178
+        "theorem": 257,
+        "comparison": 180
       },
       "api": 740,
-      "packetTests": 1669,
+      "packetTests": 1683,
       "definitionConstructionTests": 417,
-      "typedExamples": 1672,
+      "typedExamples": 1686,
       "planets": 24,
-      "baseline": 721,
-      "preservedWholeNodes": 893,
-      "preservedBaseline": 715,
+      "baseline": 722,
+      "preservedWholeNodes": 903,
+      "preservedBaseline": 721,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 10,
-      "newNamedDeclarations": 15,
-      "newTypedTests": 20,
+      "newNodes": 6,
+      "newNamedDeclarations": 6,
+      "newTypedTests": 14,
       "requests": 13,
       "gaps": 17,
       "closedStages": 0,
-      "reachableNodes": 1163,
-      "dependencyEdges": 5770,
+      "reachableNodes": 1169,
+      "dependencyEdges": 5787,
       "acyclic": true,
-      "baselineLeaves": 894,
+      "baselineLeaves": 895,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -61473,7 +61825,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 453631,
+      "readerWords": 456677,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -61500,32 +61852,30 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 20,
-      "scratchCompleteLemmas": 179,
+      "scratchCompleteLemmas": 188,
       "scratchMathlibModules": 2826,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "embeddingDistances": 50,
-        "coefficientBounds": 42,
-        "polynomialTails": 330,
-        "differenceNormalization": 60,
-        "differenceNorm": 70,
-        "geometricTails": 100,
-        "actualLinearMeanDifferences": 40
+        "naturalSamples": 1200,
+        "naturalMeans": 576,
+        "finiteBoundary": 576,
+        "angularBoundary": 576,
+        "pointwiseQuotients": 20,
+        "quadraticDifferenceLimits": 10,
+        "negativeControls": 2
       },
       "numericalControlsCertified": false,
-      "newRoutesStageLeaves": [
-        "LocallyAnalyticDistributions:L0"
-      ],
+      "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "c4285e2da7cc2989ff20129c81f2b9f8211f0ea2477ffefb1b3787de0adec11b",
+        "sourceSha256": "f8fca2eae8b15b0b23d37ab971bb718954da4692a538f3ffb1eff60806c669c8",
         "modules": 3600,
-        "warnings": 2868,
+        "warnings": 2888,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 2,868 expected placeholder warnings across 3,600 pinned source modules. It includes all 15 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c4285e2da7cc2989ff20129c81f2b9f8211f0ea2477ffefb1b3787de0adec11b.",
+        "scope": "The separate partial signature file also compiled with zero errors and 2,888 expected placeholder warnings across 3,600 pinned source modules. It includes all 6 new named declarations and 14 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f8fca2eae8b15b0b23d37ab971bb718954da4692a538f3ffb1eff60806c669c8.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -61535,7 +61885,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "82ea3247d6010b0f70a9d36c86e929e4d78af117a2504075bed02d7e163d2a39",
+      "sha256": "9d4ea0fb88157956e313604c4acae7e11484d7a7a98d3e858651ace57143d44f",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -61550,11 +61900,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 179,
+        "completeLemmas": 188,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "5c03e192eeebea21d13b0c39699a36b169581419d8b4ed3f3439a32768cb9bb5"
+        "sha256": "fea8f199bf360c111a4b9897290751e11e3d1cfcef5745469e5bfd03359f4b41"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -61692,17 +62042,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "c4285e2da7cc2989ff20129c81f2b9f8211f0ea2477ffefb1b3787de0adec11b",
+        "sourceSha256": "f8fca2eae8b15b0b23d37ab971bb718954da4692a538f3ffb1eff60806c669c8",
         "modules": 3600,
-        "warnings": 2868,
+        "warnings": 2888,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 2,868 expected placeholder warnings across 3,600 pinned source modules. It includes all 15 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c4285e2da7cc2989ff20129c81f2b9f8211f0ea2477ffefb1b3787de0adec11b.",
+        "scope": "The separate partial signature file also compiled with zero errors and 2,888 expected placeholder warnings across 3,600 pinned source modules. It includes all 6 new named declarations and 14 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f8fca2eae8b15b0b23d37ab971bb718954da4692a538f3ffb1eff60806c669c8.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "0b4172110f86a14331ddf065536514089abfc957",
+      "base": "73eb328c4d0babc95af3d5f62bbf8d555d95bb2e",
       "unchangedInputs": 72,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -70163,6 +70513,54 @@
         "warnings": 2868,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 2,868 expected placeholder warnings across 3,600 pinned source modules. It includes all 15 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c4285e2da7cc2989ff20129c81f2b9f8211f0ea2477ffefb1b3787de0adec11b.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "moritaIntegerBoundary": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5296,
+      "previousHead": "6a4502190e4e1a88ccd152063bc07412ab2c75d6",
+      "previousMerge": "d34f20aaf739f7586290841a35cd1f1d4815d808",
+      "preservedWholeNodes": 903,
+      "preservedBaseline": 721,
+      "preservedFindings": 16,
+      "newNodes": 6,
+      "reading": "Retains the full Morita1975/KL1964 readings, with Morita p.259 and Theorem2 pp.259–260 as the source branch. Reads the pinned finite-range split and finite-product-to-sum limit generator with full ambient hypotheses. Distinguishes q-periodicity of angular samples from the additional original-character period.",
+      "boundary": "The exact finite boundary identity for nonnegative integer shifts divisible by lcm(f,q) is now planned and natively proved, with a conditional limit theorem for actual sampled difference quotients. Next derive the quotient limit Ω(a)^(−1)D_1A(α(a)) from the actual larger-radius Taylor bounds, identify the existing F_v at those integers, and supply the negative oriented branch and logarithmic/Gamma comparison on pℤ_p at odd p and8ℤ₂. The owned analytic carrier, derivative compatibility and coefficient-limit inputs remain open; continuity does not imply analyticity. Gross–Koblitz and Ferrero–Greenberg retain the recorded reading and normalization work. All17 gaps and13 requests remain open.",
+      "inputBase": "02afbbd3b8b39106170820b394ceef20be24b50d",
+      "sourceBoundary": "All16 own source findings, sources and sourceVersions remain whole. No new source error or independent review verdict is claimed.",
+      "publication": {
+        "base": "73eb328c4d0babc95af3d5f62bbf8d555d95bb2e",
+        "unchangedInputs": 72,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "naturalSamples": 1200,
+        "naturalMeans": 576,
+        "finiteBoundary": 576,
+        "angularBoundary": 576,
+        "pointwiseQuotients": 20,
+        "quadraticDifferenceLimits": 10,
+        "negativeControls": 2
+      },
+      "numericalMethod": "Exact rational controls at p=2,3, eight original character cases (including nontrivial characters modulo3 and4), depths0–2, three nonnegative multiples of the common level, and degrees0–3. All finite telescoping and shifted-sample comparisons are exact. Two counterexamples distinguish the q-divisibility and character-period requirements. Quadratic pointwise quotients are exactly2a+N_n, and finite shifted mean differences equal8+2N_n at p=2 or6+2N_n at p=3; the previously proved N_n→0 explains the target limits. These controls do not certify a general derivative-quotient limit.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "f8fca2eae8b15b0b23d37ab971bb718954da4692a538f3ffb1eff60806c669c8",
+        "modules": 3600,
+        "warnings": 2888,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 2,888 expected placeholder warnings across 3,600 pinned source modules. It includes all 6 new named declarations and 14 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f8fca2eae8b15b0b23d37ab971bb718954da4692a538f3ffb1eff60806c669c8.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
