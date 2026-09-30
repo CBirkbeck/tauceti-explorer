@@ -34644,7 +34644,8 @@
     "REV-PAPER-GAN-ICHINO-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GAN-ICHINO-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4107"
   },
   {
    "id": "RT-PAPER-ZHU-17",
@@ -41135,8 +41136,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4368"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4368",
+   "finishedAt": "2026-09-30T13:17:17Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
@@ -41800,7 +41802,8 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-03.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4391"
   },
   {
    "id": "REV-RT-RS-03",
@@ -42503,7 +42506,8 @@
     "REV-RS-22"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4412"
   },
   {
    "id": "REV-RT-RS-22",
@@ -42605,8 +42609,9 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4416"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4416",
+   "finishedAt": "2026-09-30T13:17:22Z"
   },
   {
    "id": "REV-RT-RS-25",
