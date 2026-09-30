@@ -2772,6 +2772,18 @@
         "§2, Lemmas 2.24-2.26 with proofs (pp. 20-21)",
         "§4.1 setup paragraph (p. 28)"
       ]
+    },
+    {
+      "id": "Cesnavicius-PurityBrauer-2019",
+      "title": "Purity for the Brauer group",
+      "authors": "Kęstutis Česnavičius",
+      "edition": "Duke Mathematical Journal 168 (2019), no. 8, 1461–1486 (doi:10.1215/00127094-2018-0057); arXiv:1711.06456v4, the author's final version; printed page numbers of the arXiv PDF; accessed 30 September 2026",
+      "url": "https://arxiv.org/pdf/1711.06456v4",
+      "sha256": "a62a12bbe26595aec89d31d24d46774a1ee3eff73c08da0febf5a2b472118709",
+      "readSections": [
+        "§4, Lemma 4.7 with its proof (p. 8)",
+        "§5, Lemmas 5.1 and 5.2 with their proofs (pp. 11–12), and the use of both in the proof of Theorem 5.3 (p. 12)"
+      ]
     }
   ],
   "nodes": [
@@ -11884,6 +11896,16 @@
           "sourceId": "Kedlaya-AWSNotes-2017",
           "locator": "Kedlaya AWS notes, Remark 2.3.18, p. 57",
           "match": "Attribution of the Tate-ring case to Kedlaya–Liu II Theorem 3.3.8."
+        },
+        {
+          "sourceId": "ScholzeWeinstein-Berkeley-2020",
+          "locator": "Berkeley Lectures, Definition 6.2.9 and Lemma 6.2.10, p. 46",
+          "match": "The objects the classification is about, as RelativeFarguesFontaine RF2:untilts quotes them (RT-AREA-padic-1/8); read on the PDF of 27 March 2020."
+        },
+        {
+          "sourceId": "ScholzeWeinstein-Berkeley-2020",
+          "locator": "Berkeley Lectures, Theorem 6.2.11, p. 47",
+          "match": "The two functors of the equivalence, with the plus ring of the untilt."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12275,6 +12297,7 @@
       "kind": "lemma",
       "statement": "(a) (Gabber–Ramero, arXiv Lemma 6.5.9(i) = LNM 1800 Lemma 6.5.13(i); Sch12 Proposition 5.13(ii); Bhatt Proposition 6.1.4) Let A_0 → B be a map of F_p-algebras such that the relative Frobenius A_0(Φ) ⊗^L_{A_0} B → B(Φ) is an isomorphism in D(A_0). Then L_{B/A_0} ≃ 0. In particular L_{B/F_p} ≃ 0 for B perfect, and L_{B/A_0} ≃ 0 whenever A_0 → B is flat and relatively perfect. (b) The almost version holds over any basic setup (V, m) with V an F_p-algebra: if the relative Frobenius of a map of almost algebras is an isomorphism in the almost derived category, then the almost cotangent complex L^a (P0/almost-cotangent-complex) vanishes. (c) Let R be a perfectoid Tate ring, ϖ = (ϖ♭)♯ with compatible roots, and A a (R°/ϖ)^a-algebra which is (almost) flat over (R°/ϖ)^a with Φ: A/ϖ^{1/p} ≅ A. Then L^a_{A/(R°/ϖ)^a} ≃ 0. For R = K a perfectoid field this is Sch12 Corollary 5.16.",
       "hypotheses": [
+        "OPTIONAL ALTERNATIVE ROUTE (Scholze 2012's deformation-theoretic proof). No node of this packet needs it: the tilting equivalence (P1/tilting-equivalence-and-explicit-tilt) and the mod-ϖ equivalence (P1/perfectoid-mod-varpi-equivalence) are derived from P1/untilts-classified-by-primitive-ideals. Keep the node and its sources, but do not schedule it as a prerequisite (RT-AREA-padic-1/5).",
         "The hypothesis in (a) is on the derived relative Frobenius, not on Ω¹ alone.",
         "The classical cotangent complex, its simplicial description, transitivity and Tor-independent base change are requested from DerivedDeRhamCohomology:DD.0; the almost version is P0/almost-cotangent-complex."
       ],
@@ -12348,6 +12371,7 @@
       "kind": "theorem",
       "statement": "Let R be a perfectoid Tate ring and ϖ = (ϖ♭)♯ a pseudo-uniformizer with compatible roots. Reduction modulo ϖ, A ↦ A/ϖ, is an equivalence between (i) ϖ-adically complete R°a-algebras A that are (almost) flat over R°a with Φ: A/ϖ^{1/p} ≅ A/ϖ, and (ii) (almost) flat (R°/ϖ)^a-algebras B with Φ: B/ϖ^{1/p} ≅ B. Concretely B lifts uniquely, through the square-zero extensions (R°/ϖ^n)^a → (R°/ϖ^{n−1})^a, to a compatible system of flat (R°/ϖ^n)^a-algebras B_n with B_n/ϖ^{n−1} ≅ B_{n−1}, and A = lim B_n. For R = K a perfectoid field every perfectoid K°a-algebra is flat and this is Sch12 Theorem 5.10, the step K°a-Perf ≃ (K°a/ϖ)-Perf of Sch12 Theorem 5.2. Over a general base the flat objects form full subcategories; the full categories are compared, without deformation theory, in P1/perfectoid-mod-varpi-equivalence.",
       "hypotheses": [
+        "OPTIONAL ALTERNATIVE ROUTE (Scholze 2012's deformation-theoretic proof). No node of this packet needs it: the tilting equivalence (P1/tilting-equivalence-and-explicit-tilt) and the mod-ϖ equivalence (P1/perfectoid-mod-varpi-equivalence) are derived from P1/untilts-classified-by-primitive-ideals. Keep the node and its sources, but do not schedule it as a prerequisite (RT-AREA-padic-1/5).",
         "Flatness is over R°a (resp. (R°/ϖ)^a); ϖ is a nonzerodivisor on R° and ϖ^{n−1}R°/ϖ^nR° ≅ R°/ϖ is square-zero in R°/ϖ^n for n ≥ 2.",
         "Illusie–Gabber–Ramero deformation theory (obstructions in Ext², torsor under Ext¹, automorphisms Hom; lifting of morphisms) in the almost setting is P0/almost-deformation-theory."
       ],
@@ -12588,7 +12612,7 @@
         "Tilt side: R♭-Perf ≃ R♭°a-Perf (P1/almost-integral-dictionary for R♭) ≃ (R♭°a/ϖ♭)-Perf (P1/frobenius-inverse-limit-lifting-in-characteristic-p).",
         "(R°a/ϖ)-Perf = (R♭°a/ϖ♭)-Perf: the isomorphism R°/ϖ ≅ R♭°/ϖ♭ (P1/tilt-integral-subrings) carries ϖ^{1/p^n} to ϖ♭^{1/p^n} and R°°/ϖ to R♭°°/ϖ♭, so it matches the Λ-structures and almost setups (P1/perfectoid-almost-setup).",
         "Perf_R ≃ Perf_{R♭} (P1/tilting-equivalence-and-explicit-tilt), and the composite Perf_R → (R°a/ϖ)-Perf is S ↦ (S♭°/ϖ♭)^a ≅ (S°/ϖ)^a (P1/tilt-integral-subrings for S), hence an equivalence; with Perf_R ≃ R°a-Perf (P1/almost-integral-dictionary), reduction R°a-Perf → (R°a/ϖ)-Perf is an equivalence.",
-        "On the flat subcategories the inverse is also the deformation-theoretic lift of P1/deformation-lifting-of-perfectoid-mod-varpi-algebras."
+        "Optional comparison, not used by the proof: on the flat subcategories the inverse is also the deformation-theoretic lift of P1/deformation-lifting-of-perfectoid-mod-varpi-algebras, Scholze 2012's route (RT-AREA-padic-1/5)."
       ],
       "acceptance": [
         "For DiamondsAndVStacks:D3/effective-descent-affinoid-over-totally-disconnected, keep the totally disconnected hypothesis of ECD Proposition 9.3: Proposition 7.23 makes (S̃⁺/ϖ)^a flat over (R⁺/ϖ)^a, and faithfully flat descent preserves that base flatness. The field-to-general-base comparison still needs the proof recorded in the gap.",
@@ -12599,8 +12623,7 @@
         "PerfectoidSpaces:P1/frobenius-inverse-limit-lifting-in-characteristic-p",
         "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt",
         "PerfectoidSpaces:P1/tilt-integral-subrings",
-        "PerfectoidSpaces:P1/perfectoid-almost-setup",
-        "PerfectoidSpaces:P1/deformation-lifting-of-perfectoid-mod-varpi-algebras"
+        "PerfectoidSpaces:P1/perfectoid-almost-setup"
       ],
       "library": {
         "module": "TauCeti/RingTheory/Perfectoid/AlmostDictionary",
@@ -31473,6 +31496,125 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P7/regular-finite-flat-residue-tower",
+      "parentStageId": "PerfectoidSpaces:P7",
+      "realises": [
+        "PerfectoidSpaces:P7"
+      ],
+      "title": "Finite flat regular towers with algebraically closed residue field (Česnavičius 2019, Lemma 5.1)",
+      "kind": "theorem",
+      "statement": "Let (R, m) be a complete regular local ring with residue field k. There is a filtered direct system of finite flat R-algebras R_i such that each (R_i, mR_i) is a regular local ring and (lim→ R_i, m·lim→ R_i) is a regular local ring with algebraically closed residue field. If k is separably closed of characteristic p > 0, the R_i may be chosen of p-power rank over R. The colimit is Noetherian; it is not claimed to be complete.",
+      "hypotheses": [
+        "R complete regular local, of any characteristic. The proof uses the three Cohen presentations: R ≅ k⟦x_1, …, x_n⟧ (equal characteristic); R ≅ W⟦x_1, …, x_n⟧ with W a complete discrete valuation ring with uniformizer p (p ∈ m∖m²); R ≅ W⟦x_1, …, x_n⟧/(p − f) with f ∈ (p, x_1, …, x_n)² (p ∈ m²).",
+        "The Cohen structure theorem and regular local rings are not in the pinned libraries (gap).",
+        "The p-power clause needs k separably closed: then k̄/k is purely inseparable, and its finite subextensions have p-power degree."
+      ],
+      "proofSteps": [
+        "Equal characteristic: R ≅ k⟦x_1, …, x_n⟧ (Matsumura 29.7). Let k_i range over the finite subextensions of k̄/k and put R_i := k_i⟦x_1, …, x_n⟧, free of rank [k_i : k] over R. The m-adic completion of lim→ R_i is k̄⟦x_1, …, x_n⟧, so lim→ R_i is Noetherian (Stacks 033E, 05UU, 00MK), hence a regular local ring.",
+        "Mixed characteristic with p ∈ m∖m²: R ≅ W⟦x_1, …, x_n⟧. There is an integral extension W′/W of discrete valuation rings with uniformizer p and residue field k̄ (Matsumura, proof of 29.1). With W_i ranging over the finite discrete valuation ring subextensions of W′/W, put R_i := W_i⟦x_1, …, x_n⟧; as before, the colimit has completion Ŵ′⟦x_1, …, x_n⟧ and is regular local.",
+        "Mixed characteristic with p ∈ m²: R ≅ W⟦x_1, …, x_n⟧/(p − f) with f ∈ (p, x_1, …, x_n)² (Matsumura 29.3 and the proof of 29.8(ii)). Each R_i := W_i⟦x_1, …, x_n⟧/(p − f) is a finite flat R-algebra and a regular local ring. By the previous case lim→ W_i⟦x⟧ is regular local with regular system of parameters (p, x_1, …, x_n), so lim→ R_i is regular local with regular system of parameters (x_1, …, x_n).",
+        "p-power ranks: in all three cases rank_R R_i = [k_i : k] (= [W_i : W]); if k is separably closed of characteristic p, this is a power of p."
+      ],
+      "acceptance": [
+        "Non-example: the colimit is not complete. For R = 𝔽_p⟦x⟧ the colimit is lim→ 𝔽_{p^n}⟦x⟧, whose completion 𝔽̄_p⟦x⟧ is strictly larger.",
+        "The p-power clause needs k separably closed: for k = 𝔽_p the stages 𝔽_{p^n}⟦x⟧ have rank n.",
+        "Ramified case: R = ℤ_p⟦x⟧/(p − x²) = ℤ_p[√p] has p ∈ m², R_i = W(𝔽_{p^i})[√p] with i ranging over the positive integers ordered by divisibility, and the colimit is regular with parameter x = √p."
+      ],
+      "prerequisites": [
+        "mathlib:IsAdicComplete",
+        "mathlib:Module.Flat"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/RegularTower",
+        "namespace": "TauCeti.Perfectoid"
+      },
+      "sources": [
+        {
+          "sourceId": "Cesnavicius-PurityBrauer-2019",
+          "locator": "§5, Lemma 5.1, p. 11",
+          "match": "The statement, read on the arXiv v4 PDF."
+        },
+        {
+          "sourceId": "Cesnavicius-PurityBrauer-2019",
+          "locator": "§5, proof of Lemma 5.1, pp. 11–12",
+          "match": "The ramified case of the construction."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Česnavičius 2019, proof of Theorem 5.3 (PAPER-CESNAVICIUS-19 route 16)",
+          "how": "reduction of Brauer purity to an algebraically closed residue field"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidSpaces:P7/regular-finite-flat-perfectoid-tower",
+      "parentStageId": "PerfectoidSpaces:P7",
+      "realises": [
+        "PerfectoidSpaces:P7"
+      ],
+      "title": "Finite flat regular towers with perfectoid completion (Česnavičius 2019, Lemma 5.2)",
+      "kind": "theorem",
+      "statement": "Let (R, m) be a complete regular local ring of mixed characteristic (0, p) with perfect residue field k, and W := W(k). There is a tower {R_m}_{m≥0} of finite flat R-algebras R_m of p-power rank over R, each a regular local ring, such that the p-adic completion R̂_∞ of R_∞ := lim→_m R_m is perfectoid (integral perfectoid in the sense of BMS1 Definition 3.5, so R̂_∞[1/p] is a perfectoid Tate ring). Explicitly: if p ∈ m∖m², then R ≅ W⟦x_1, …, x_n⟧ and R_m := W[p^{1/p^m}]⟦x_1^{1/p^m}, …, x_n^{1/p^m}⟧; if p ∈ m², then R ≅ W⟦x_1, …, x_n⟧/(p − f) with f ∈ (p, x_1, …, x_n)² and R_m := W⟦x_1^{1/p^m}, …, x_n^{1/p^m}⟧/(p − f). The finite stages are not perfectoid, and R_∞ is not complete.",
+      "hypotheses": [
+        "k perfect, so W ≅ W(k) in the Cohen presentations of P7/regular-finite-flat-residue-tower; mixed characteristic (0, p).",
+        "The criterion used is Česnavičius's Lemma 4.7: for a p-torsion-free ring S with (ϖ^p) = (p) for some ϖ ∈ S, if S is integrally closed in S[1/p] then x ↦ x^p : S/ϖ → S/p is injective, and if moreover every element of S/p is a p-th power then the p-adic completion of S is perfectoid. PAPER-CESNAVICIUS-19 route 7 plans that lemma at PerfectoidQuotients Q0:integral-algebra, which is not upstream of P7, so step 1 proves the instance needed here."
+      ],
+      "proofSteps": [
+        "Criterion. If x ∈ S and x^p = ϖ^p s with s ∈ S, then x/ϖ ∈ S[1/ϖ] = S[1/p] satisfies (x/ϖ)^p = s, so x/ϖ ∈ S by integral closedness, that is x ∈ ϖS. Since Ŝ/ϖ ≅ S/ϖ and Ŝ/p ≅ S/p, Frobenius Ŝ/ϖ → Ŝ/p is bijective, and Ŝ is integral perfectoid; P1/perfectoid-tate-ring-from-integral-perfectoid gives the Tate ring.",
+        "Each R_m is regular local and finite free of p-power rank over R: in the first case it is a power series ring over the discrete valuation ring W[p^{1/p^m}] (rank p^{m(n+1)}), and in the second it is the quotient of the regular ring W⟦x^{1/p^m}⟧ by p − f, which is not in the square of its maximal ideal (rank p^{mn}). Being regular, each R_m is a normal domain, so R_∞ is a normal domain, integrally closed in R_∞[1/p], and p-torsion free.",
+        "p ∈ m∖m²: take ϖ := p^{1/p}. Every element of R_∞/p is a p-th power, since k is perfect and p and the x_i have compatible p-power roots in R_∞. Apply step 1.",
+        "p ∈ m²: by step 1 it suffices to find u ∈ R_∞^× with up a p-th power in R_∞, and then ϖ := (up)^{1/p}. Every element of R_∞/p is a p-th power and p ∈ m_∞², so p = Σ_i (s_i^p + p t_i)(s′_i^p + p t′_i) with s_i, s′_i ∈ m_∞ and t_i, t′_i ∈ R_∞. Hence p = s^p + pt with s, t ∈ m_∞, and u := 1 − t is a unit of the local ring R_∞ (Česnavičius follows Shimomoto's argument, [Shi16, 4.9])."
+      ],
+      "acceptance": [
+        "R = ℤ_p (n = 0): R_m = ℤ_p[p^{1/p^m}], and R̂_∞ is the p-adic completion of ℤ_p[p^{1/p^∞}], a perfectoid ring.",
+        "Non-example: no finite stage is perfectoid, since Frobenius is not surjective on R_m/p; for R = ℤ_p, p^{1/p^m} is not a p-th power modulo p in ℤ_p[p^{1/p^m}].",
+        "The residue field must be perfect: k is a quotient of R_∞/p, so if every element of R_∞/p is a p-th power, every element of k is one.",
+        "The completion is p-adic. R_∞ is not complete, and its m_∞-adic topology is not the one used."
+      ],
+      "prerequisites": [
+        "PerfectoidSpaces:P7/regular-finite-flat-residue-tower",
+        "PerfectoidSpaces:P1/perfectoid-tate-ring-from-integral-perfectoid",
+        "PerfectoidSpaces:P1/integral-perfectoid-comparison",
+        "mathlib:WittVector",
+        "mathlib:IsIntegrallyClosedIn",
+        "mathlib:IsAdicComplete"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/RegularTower",
+        "namespace": "TauCeti.Perfectoid"
+      },
+      "sources": [
+        {
+          "sourceId": "Cesnavicius-PurityBrauer-2019",
+          "locator": "§5, Lemma 5.2, p. 12",
+          "match": "The statement, read on the arXiv v4 PDF."
+        },
+        {
+          "sourceId": "Cesnavicius-PurityBrauer-2019",
+          "locator": "§5, proof of Lemma 5.2, p. 12",
+          "match": "The reduction of the ramified case to a unit multiple of p."
+        },
+        {
+          "sourceId": "Cesnavicius-PurityBrauer-2019",
+          "locator": "§4, Lemma 4.7, p. 8",
+          "match": "The criterion of step 1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Česnavičius 2019, proof of Theorem 5.3, mixed characteristic case (PAPER-CESNAVICIUS-19 route 16)",
+          "how": "the perfectoid cover R̂_∞[1/p] on which the p-primary Brauer group vanishes"
+        },
+        {
+          "where": "PAPER-CESNAVICIUS-SCHOLZE-24/037",
+          "how": "the same towers, with the presentation R ≅ W(k)⟦x_1, …, x_d⟧/(p − f)"
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -31724,7 +31866,7 @@
     {
       "stageId": "PerfectoidSpaces:P7",
       "status": "source_decomposed",
-      "note": "Narrowed by RS-05 to perfectoid tilde-limits (uniqueness and represented-functor comparison), Frobenius-controlled integral towers with completion/inversion and the uniformity bound, rational restriction, cofinality, étale base change and gluing; the general Huber tilde-limit carrier and classical continuity are imported from ClassicalAdicEtaleCohomology:H0/tilde-limits-and-cohomological-continuity. Every target of the narrowed stage is realised by a node; the Scholze 2012 §7 comparison is the kept node, generalised to locally noetherian index spaces over no perfectoid base field. Huber 1996 §§2.3–2.4 is not public: the two steps of Scholze 2012 7.16–7.19 that rest on it are gaps, and the open question whether a perfectoid diamond limit forces the density clause is a gap on PerfectoidSpaces:P7/represented-functor-comparison.",
+      "note": "Narrowed by RS-05 to perfectoid tilde-limits (uniqueness and represented-functor comparison), Frobenius-controlled integral towers with completion/inversion and the uniformity bound, rational restriction, cofinality, étale base change and gluing; the general Huber tilde-limit carrier and classical continuity are imported from ClassicalAdicEtaleCohomology:H0/tilde-limits-and-cohomological-continuity. Every target of the narrowed stage is realised by a node; the Scholze 2012 §7 comparison is the kept node, generalised to locally noetherian index spaces over no perfectoid base field. Huber 1996 §§2.3–2.4 is not public: the two steps of Scholze 2012 7.16–7.19 that rest on it are gaps, and the open question whether a perfectoid diamond limit forces the density clause is a gap on PerfectoidSpaces:P7/represented-functor-comparison. Česnavičius 2019, Lemmas 5.1–5.2 (finite flat regular towers with algebraically closed residue field, and with perfectoid completion) are P7/regular-finite-flat-residue-tower and P7/regular-finite-flat-perfectoid-tower, as the accepted PAPER-CESNAVICIUS-19 route 16 asks (RT-AREA-padic-1/7); the Cohen structure theorem they rest on is a gap.",
       "remaining": []
     }
   ],
@@ -31771,7 +31913,7 @@
         "PerfectoidSpaces:P1/cotangent-complex-vanishing-mod-varpi",
         "PerfectoidSpaces:P1/deformation-lifting-of-perfectoid-mod-varpi-algebras"
       ],
-      "detail": "Sch12 Theorems 5.11–5.12 cite Illusie III.2.1.2.3, III.2.2.2 and Gabber–Ramero Propositions 3.2.9, 3.2.16 (arXiv numbering; read as statements, Corollary 3.2.11 quoted); the almost cotangent complex and its transitivity triangle (\"Theorem 2.5.36\" of the book, not the arXiv 2.5.36) are P0/almost-cotangent-complex and P0/almost-deformation-theory, built on DD.0. The general-base equivalence P1/perfectoid-mod-varpi-equivalence does not use deformation theory."
+      "detail": "Sch12 Theorems 5.11–5.12 cite Illusie III.2.1.2.3, III.2.2.2 and Gabber–Ramero Propositions 3.2.9, 3.2.16 (arXiv numbering; read as statements, Corollary 3.2.11 quoted); the almost cotangent complex and its transitivity triangle (\"Theorem 2.5.36\" of the book, not the arXiv 2.5.36) are P0/almost-cotangent-complex and P0/almost-deformation-theory, built on DD.0. The general-base equivalence P1/perfectoid-mod-varpi-equivalence does not use deformation theory. Off the critical path of P1 since FIX-RT-AREA-padic-1: both P1 nodes are an optional alternative route. P0's own finite-étale lifting still uses P0/almost-deformation-theory (through P0/nilpotent-lifting-of-etale-almost-algebras and P0/finite-etale-lifting-along-complete-flat-almost-algebras), so P0 keeps the almost cotangent/deformation extension; this answers the question RT-AREA-padic-1/5 left to P0's blueprint."
     },
     {
       "title": "Sch12 Lemmas 6.4 and 6.5 over a perfectoid Tate base are not written out in any source",
@@ -31847,6 +31989,14 @@
         "PerfectoidSpaces:P1/perfectoid-mod-varpi-equivalence"
       ],
       "detail": "Added by REV-PerfectoidSpaces--P0. The original mod-ϖ node used Z[x^{1/p^∞}]/(x), over which its nonzero characteristic-p objects cannot be flat. The coefficient ring is corrected to F_p[x^{1/p^∞}]/(x), and the predicate is root-ideal almost flatness, matching the elementwise almost annihilator condition in the suggested file. Still supply a declaration-level proof of the equivalence between that criterion and almost flatness, its invariance under almost elements, and its comparison with flat K°a/ϖ-algebras for a perfectoid field K. A route is the flatness criterion on finitely generated ideals, which are generated by root monomials in the truncated root ring, followed by the almost scalar-restriction/base-change comparison. The cited field-base statements alone do not establish this generalization. For ECD Proposition 9.3 specifically, Proposition 7.23 already supplies flatness over the totally disconnected base; do not use arbitrary perfectoid quotients as counterexamples to that proposition."
+    },
+    {
+      "title": "The Cohen structure theorem and regular local rings are absent from the pinned libraries",
+      "neededBy": [
+        "PerfectoidSpaces:P7/regular-finite-flat-residue-tower",
+        "PerfectoidSpaces:P7/regular-finite-flat-perfectoid-tower"
+      ],
+      "detail": "Česnavičius's Lemmas 5.1–5.2 rest on the Cohen structure theorem for complete regular local rings (Matsumura 29.3, 29.7, and the proofs of 29.1 and 29.8(ii)) and on regular local rings with their regular systems of parameters. A search of the pinned declaration index finds neither (Mathlib has regular sequences, not regular local rings), and no atlas stage plans the Cohen structure theorem. Matsumura was not read here; the citations are Česnavičius's. Next action: find an owner in a commutative-algebra roadmap, or record the three presentations as imports (RT-AREA-padic-1/7)."
     }
   ],
   "restructure": [
