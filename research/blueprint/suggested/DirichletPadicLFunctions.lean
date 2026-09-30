@@ -10473,3 +10473,121 @@ example : Tendsto (fun t : ℚ_[2] => t*(Nκ (1+2*t)/(κ (1+2*t) u-1)))
 end DyadicFamily
 end
 end SuggestedPrincipalResidueTests
+
+/-! The principal residue along explicit positive integer weights.
+These statements use the existing numerator and the native Bernoulli numbers.
+They construct no analytic family, character-space chart or meromorphic branch.
+The general local logarithm and its multiplication law remain Coleman inputs. -/
+namespace DirichletPadic
+noncomputable section
+open Filter AbstractMeasure
+open scoped Topology BigOperators
+variable (p : ℕ) [Fact p.Prime]
+local notation "Q" => ℚ_[p]
+local notation "U" => (ℤ_[p])ˣ
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U, ℤ_[p]))
+local notation "w" => (fun r : ℕ => (p-1)*p^r)
+local notation "δ" => (fun r : ℕ => ((p+1 : ℕ) : Q)^(w r)-1)
+local notation "L" => (∑' n : ℕ, ((-1 : Q)^(n+1)/(n : Q))*(p : Q)^n)
+
+theorem intrinsicSmoothedNumerator_integer_weight_limit
+    [IsBoundedSMul ℤ_[p] ℚ_[p]] (ha : ¬p∣p+1) :
+    (∀ r : ℕ, ‖extendIntegralUnitCoefficients (R := Q)
+      (intrinsicSmoothedNumerator p (p+1) ha) ((j^(w r)) • (1 : C(U,Q)))-
+      algebraMap ℤ_[p] Q (intrinsicSmoothedNumerator p (p+1) ha 1)‖≤
+        (p : ℝ)^(-((r+1 : ℕ) : ℤ))) ∧
+    Tendsto (fun r : ℕ => extendIntegralUnitCoefficients (R := Q)
+      (intrinsicSmoothedNumerator p (p+1) ha) ((j^(w r)) • (1 : C(U,Q))))
+      atTop (𝓝 (algebraMap ℤ_[p] Q (intrinsicSmoothedNumerator p (p+1) ha 1))) := sorry
+
+theorem canonicalClearingFactor_integer_logarithm (r : ℕ) :
+    HasSum (fun n : ℕ => ((-1 : Q)^(n+1)/(n : Q))*(δ r)^n)
+      ((w r : Q)*L) := sorry
+
+theorem canonicalClearingFactor_integer_precision :
+    (∀ r : ℕ, ‖δ r/(w r : Q)-L‖≤(p : ℝ)^(-((r+1 : ℕ) : ℤ))) ∧
+    Tendsto (fun r : ℕ => δ r/(w r : Q)) atTop (𝓝 L) := sorry
+
+theorem intrinsicSmoothedNumerator_integer_rescaling
+    [IsBoundedSMul ℤ_[p] ℚ_[p]] (ha : ¬p∣p+1) (r : ℕ) :
+    -(w r : Q)*extendIntegralUnitCoefficients (R := Q)
+      (intrinsicSmoothedNumerator p (p+1) ha) ((j^(w r)) • (1 : C(U,Q)))/(δ r)=
+      (1-(p : Q)^(w r-1))*((bernoulli (w r) : ℚ) : Q) := sorry
+
+theorem intrinsicSmoothedNumerator_integer_residue_limit
+    [IsBoundedSMul ℤ_[p] ℚ_[p]] (ha : ¬p∣p+1) :
+    Tendsto (fun r : ℕ => -(w r : Q)*extendIntegralUnitCoefficients (R := Q)
+      (intrinsicSmoothedNumerator p (p+1) ha) ((j^(w r)) • (1 : C(U,Q)))/(δ r))
+      atTop (𝓝 (1-(p : Q)⁻¹)) := sorry
+
+theorem principal_bernoulli_residue_limit [IsBoundedSMul ℤ_[p] ℚ_[p]] :
+    Tendsto (fun r : ℕ => (1-(p : Q)^(w r-1))*((bernoulli (w r) : ℚ) : Q))
+      atTop (𝓝 (1-(p : Q)⁻¹)) := sorry
+end
+end DirichletPadic
+
+namespace SuggestedIntegerResidueTests
+noncomputable section
+open Filter AbstractMeasure DirichletPadic
+open scoped Topology BigOperators
+section DyadicMeasure
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+local notation "j₂" => (ContinuousMap.mk Units.val Units.continuous_val : C((ℤ_[2])ˣ,ℤ_[2]))
+local notation "μ₂" => extendIntegralUnitCoefficients (R := ℚ_[2])
+  (intrinsicSmoothedNumerator 2 3 (by norm_num))
+-- initial_dyadic_numerator_zero
+example : μ₂ (j₂ • (1 : C((ℤ_[2])ˣ,ℚ_[2])))=0 := sorry
+-- second_dyadic_numerator
+example : μ₂ ((j₂^2) • (1 : C((ℤ_[2])ˣ,ℚ_[2])))=(2/3 : ℚ_[2]) := sorry
+-- dyadic_numerator_precision
+example (r : ℕ) : ‖μ₂ ((j₂^(2^r)) • (1 : C((ℤ_[2])ˣ,ℚ_[2])))-
+    algebraMap ℤ_[2] ℚ_[2] (intrinsicSmoothedNumerator 2 3 (by norm_num) 1)‖≤
+    (2 : ℝ)^(-((r+1 : ℕ) : ℤ)) := sorry
+-- dyadic_rescaled_numerator_limit
+example : Tendsto (fun r : ℕ => -((2^r : ℕ) : ℚ_[2])*
+    μ₂ ((j₂^(2^r)) • (1 : C((ℤ_[2])ˣ,ℚ_[2])))/((3 : ℚ_[2])^(2^r)-1))
+    atTop (𝓝 (1/2 : ℚ_[2])) := sorry
+end DyadicMeasure
+
+-- initial_dyadic_power_logarithm
+example : HasSum (fun n : ℕ => ((-1 : ℚ_[2])^(n+1)/(n : ℚ_[2]))*(2 : ℚ_[2])^n)
+    (∑' n : ℕ, ((-1 : ℚ_[2])^(n+1)/(n : ℚ_[2]))*(2 : ℚ_[2])^n) := sorry
+-- second_dyadic_power_logarithm
+example : HasSum (fun n : ℕ => ((-1 : ℚ_[2])^(n+1)/(n : ℚ_[2]))*(8 : ℚ_[2])^n)
+    (2*∑' n : ℕ, ((-1 : ℚ_[2])^(n+1)/(n : ℚ_[2]))*(2 : ℚ_[2])^n) := sorry
+-- initial_ternary_power_logarithm
+example : HasSum (fun n : ℕ => ((-1 : ℚ_[3])^(n+1)/(n : ℚ_[3]))*(15 : ℚ_[3])^n)
+    (2*∑' n : ℕ, ((-1 : ℚ_[3])^(n+1)/(n : ℚ_[3]))*(3 : ℚ_[3])^n) := sorry
+
+-- initial_dyadic_denominator
+example : ((3 : ℚ_[2])^1-1)/1=2 := sorry
+-- second_dyadic_denominator
+example : ((3 : ℚ_[2])^2-1)/2=4 := sorry
+-- every_integer_clearing_factor_nonzero
+example (p : ℕ) [Fact p.Prime] (r : ℕ) :
+    ((p+1 : ℕ) : ℚ_[p])^((p-1)*p^r)-1≠0 := sorry
+
+-- initial_dyadic_bernoulli_rescaling
+example : (1-(2 : ℚ_[2])^0)*((bernoulli 1 : ℚ) : ℚ_[2])=0 := sorry
+-- second_dyadic_bernoulli_rescaling
+example : (1-(2 : ℚ_[2])^1)*((bernoulli 2 : ℚ) : ℚ_[2])=(-1/6 : ℚ_[2]) := sorry
+-- missing_weight_changes_rescaling
+example : -(2/3 : ℚ_[2])/(3^2-1)≠(-1/6 : ℚ_[2]) := sorry
+
+-- residue_sign_is_positive
+example : (1-(2 : ℚ_[2])⁻¹)≠(-1/2 : ℚ_[2]) := sorry
+-- dyadic_initial_value_is_not_limit
+example : (1-(2 : ℚ_[2])^0)*((bernoulli 1 : ℚ) : ℚ_[2])≠(1/2 : ℚ_[2]) := sorry
+
+-- dyadic_bernoulli_residue_limit
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] :
+    Tendsto (fun r : ℕ => (1-(2 : ℚ_[2])^(2^r-1))*((bernoulli (2^r) : ℚ) : ℚ_[2]))
+      atTop (𝓝 (1/2 : ℚ_[2])) := sorry
+-- ternary_bernoulli_residue_limit
+example [IsBoundedSMul ℤ_[3] ℚ_[3]] :
+    Tendsto (fun r : ℕ => (1-(3 : ℚ_[3])^(2*3^r-1))*((bernoulli (2*3^r) : ℚ) : ℚ_[3]))
+      atTop (𝓝 (2/3 : ℚ_[3])) := sorry
+-- omission_of_euler_factor_changes_weight_two
+example : ((bernoulli 2 : ℚ) : ℚ_[2])≠(-1/6 : ℚ_[2]) := sorry
+end
+end SuggestedIntegerResidueTests
