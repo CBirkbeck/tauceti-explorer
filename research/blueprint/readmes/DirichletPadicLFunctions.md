@@ -21291,3 +21291,157 @@ No Lean compiler or new numerical control was run for this documentation-only ch
 The exact finite controls and their receipts are retained unchanged from PR4831. They are historical evidence for the unchanged arithmetic comparison, not new checks of this coverage edit. Exact Gaussian-rational Bernoulli polynomials, divisor sums and q^p vectors under identity and conjugation coefficient embeddings. Independent finite residue moments check the doubled constant to p^r precision. Includes principal positive wild levels and nonreal quartic tame values. These are coefficient controls, not constructed modular forms or proofs of infinite identities. The largest observed discrepancy is 0 in exact identities; all residue precision bounds pass.
 
 The guarded predecessor and owner inputs are checked. All existing Lean declarations, examples and proofs remain byte-for-byte unchanged; only a coverage comment is appended. The PR4831 partial signature receipt is retained unchanged, not rerun:1951 placeholder warnings, zero errors, and the same exclusion of4777–4791. The full module remains uncompiled because the native TwistedDivisorSum artifact is unavailable.
+
+
+## Integral character twists on the actual unit group
+
+Five L2 nodes identify the existing ambient integral twist with weighting the existing intrinsic tame measure, then give its arithmetic moments and inverse cancellation. Integral arithmetic character products add weights; their level comparison includes zero on units. All647 predecessor nodes remain whole. No new constructor, source finding, supplier request or stage closure.
+
+Freshly read complete RJW published129 and144–146, including unit inclusion/retraction, the integral coefficient discussion, finite-character twist, restriction and the inverse-coordinate shift of Definition5.13. Read the whole L2 target and reviewed AUDIT24 entry. Checked the existing integral character/inclusion, pointwise formula, ambient twist/inverse and intrinsic measure/inclusion nodes and exact signatures; read the exact PMIA weight projection, evaluation, multiplication and intrinsic restriction section. Read native changeLevel and its unit-only evaluation, p-adic reduction/cast compatibility, native character multiplication/principal/nonunit laws, and actual measure map/evaluation at the pinned sources.
+
+### Changing the level of an integral unit character
+
+`DirichletPadicLFunctions:L2/integral-arithmetic-character-level` — `DirichletPadic.integralPrimePowerArithmeticCharacter_changeLevel`
+
+For every n≤m and w≥0, κO_(m,changeLevel(χ),w)=κO_(n,χ,w) as native continuous monoid homomorphisms U→O.
+
+**Hypotheses:** p is any prime, including2. K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Let O=Valuation.integer(NormedField.valuation(K)), U=(ℤ_p)ˣ with their native structures. κO_(n,χ,w) is the existing integralPrimePowerArithmeticCharacter, for n,w≥0 and native χ:DirichletCharacter K(p^n). No separately chosen ℤ_p-algebra on O, completeness, characteristic zero or primitivity is assumed for the character identities.
+
+**Proof:**
+
+1. Apply continuous-hom extensionality and then injectivity of O→K. The existing integral coefficient comparison and arithmetic pointwise formula reduce the assertion to equality of χ values at the two reductions of the same actual unit.
+2. Map u:U to v:Units(ZMod(p^m)) using Units.map(toZModPow m). Native changeLevel_eq_cast_of_dvd applies to this unit, and native cast_toZModPow identifies its further reduction with toZModPow n(u). The coordinate power is unchanged.
+3. This argument includes n=0 without a positive-conductor assumption. It never evaluates the native changed-level character formula at a nonunit.
+4. The complete native probe proves this level identity on actual units for any commutative coefficient monoid with zero. A separate native negative control proves the principal level-one and level-four functions differ at zero, preventing an invalid ambient function equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient`, `DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value`, `DirichletPadicLFunctions:L2/prime-power-character`, `mathlib:DirichletCharacter.changeLevel_eq_cast_of_dvd`, `mathlib:PadicInt.cast_toZModPow`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTwistTests.level_zero_to_positive` (degenerate): For every m,w, the principal arithmetic unit characters at levels p^m and1 agree.
+- `SuggestedIntegralUnitTwistTests.ambient_zero_boundary` (non-example): For p=2 the principal ambient functions at levels1 and4 have different values at0.
+
+**Acceptance:** The equality concerns native U-valued arguments. No false level-zero equality of ambient character functions is asserted.
+
+**Source:** Remark3.33, published129/PDF30; complete tame construction discussion on published144–146/PDF45–47, especially equation(5-5), restriction identity(5-6), Definition5.13 and the following interpolation identity. These complete pages freshly read on30September2026. Worker comparison of the already constructed integral ambient twist and intrinsic arithmetic unit characters. Uses the exact inverse-coordinate shift already present in the tame zeta measure. The source motivates the unit restriction and finite-character weighting; level/product/inverse compatibilities are deductions on the native unit group. No new general restriction, weighting or conductor construction is introduced; all recorded source corrections remain in force.
+
+### Products of integral arithmetic unit characters
+
+`DirichletPadicLFunctions:L2/integral-arithmetic-character-product` — `DirichletPadic.integralPrimePowerArithmeticCharacter_mul`
+
+At a fixed n and arbitrary e,f≥0, κO_(n,χψ,e+f)=κO_(n,χ,e)κO_(n,ψ,f) as continuous monoid homomorphisms U→O.
+
+**Hypotheses:** p is any prime, including2. K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Let O=Valuation.integer(NormedField.valuation(K)), U=(ℤ_p)ˣ with their native structures. κO_(n,χ,w) is the existing integralPrimePowerArithmeticCharacter, for n,w≥0 and native χ:DirichletCharacter K(p^n). No separately chosen ℤ_p-algebra on O, completeness, characteristic zero or primitivity is assumed for the character identities.
+
+**Proof:**
+
+1. Use native continuous-hom extensionality, the injective integer-ring inclusion and integral-arithmetic-character-coefficient.
+2. Expand each existing arithmetic pointwise formula. Native MulChar.mul_apply multiplies the finite-character values, and the ordinary power-addition identity splits the coordinate power. Commutativity of K rearranges the four factors.
+3. The complete native product calculation checks the exponent sum and factor order. Zero exponents are permitted; no inverse of a nonunit coefficient or division on O is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient`, `DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value`, `DirichletPadicLFunctions:L2/prime-power-character`, `mathlib:MulChar.mul_apply`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTwistTests.product_zero_weight` (degenerate): Multiplying a weight-zero finite character by a weight-w arithmetic character multiplies their finite factors and preserves w.
+- `SuggestedIntegralUnitTwistTests.product_positive_weights` (compatibility): Weights1 and2 multiply to weight3, with finite character χψ.
+
+**Acceptance:** Multiplication adds arithmetic weights; it does not discard or multiply their exponents.
+
+**Source:** Remark3.33, published129/PDF30; complete tame construction discussion on published144–146/PDF45–47, especially equation(5-5), restriction identity(5-6), Definition5.13 and the following interpolation identity. These complete pages freshly read on30September2026. Worker comparison of the already constructed integral ambient twist and intrinsic arithmetic unit characters. Uses the exact inverse-coordinate shift already present in the tame zeta measure. The source motivates the unit restriction and finite-character weighting; level/product/inverse compatibilities are deductions on the native unit group. No new general restriction, weighting or conductor construction is introduced; all recorded source corrections remain in force.
+
+### Restriction of an integral tame character twist
+
+`DirichletPadicLFunctions:L2/integral-tame-twist-unit-restriction` — `DirichletPadic.restrictUnits_integralTwistedTameZetaMeasure`
+
+r_U(νOχ)=weight(κO_(n,χ,0).toContinuousMap)(ζO^U) as actual O-valued measures on U, for every n≥0.
+
+**Hypotheses:** p is any prime, including2. K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Let O=Valuation.integer(NormedField.valuation(K)), U=(ℤ_p)ˣ with their native structures. κO_(n,χ,w) is the existing integralPrimePowerArithmeticCharacter, for n,w≥0 and native χ:DirichletCharacter K(p^n). No separately chosen ℤ_p-algebra on O, completeness, characteristic zero or primitivity is assumed for the character identities. For measure statements K is nontrivially normed and complete. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Write ζO=integralTameZetaMeasure η hD hpD, ζO^U=intrinsicIntegralTameZetaMeasure η hD hpD, νOχ=integralTwistedTameZetaMeasure n χ η hD hpD. The latter already equals weight(gχ)ζO, where gχ is the integral lift of primePowerCharacter on ℤ_p. Use the existing r_U=restrictUnits p O and j_U=AbstractMeasure.map(Units.val). D=1 retains the existing zero constructor. No nonprincipality or characteristic-zero assumption is added.
+
+**Proof:**
+
+1. Let gχ be the existing integral ambient multiplier in integral-tame-character-measure. By integral-arithmetic-character-coefficient and the arithmetic pointwise formula at weight0, its pullback along Units.val equals κO_(n,χ,0).toContinuousMap. Prove this equality through the injective subtype inclusion, with no new lift or multiplier constructor.
+2. Apply the existing PMIA weight-pushforward projection formula to ζO^U and gχ. The already promoted intrinsic-integral-tame-inclusion gives j_UζO^U=ζO, so the pushforward of the right side is weight(gχ)ζO, exactly the existing νOχ.
+3. Apply the existing intrinsic-unit-restriction-section r_Uj_U=id to this equality. This proves the stated equality of actual unit measures, including all continuous O-tests, without introducing a generic restriction-weight operator.
+4. The principal case is identity weighting on units at every level. The D=1 case is the existing zero tame measure. Both boundary tests are measure equalities, not just equalities on polynomial moments.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-character-measure`, `DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient`, `DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-inclusion`, `PadicMeasuresIwasawaAlgebras:L2/weight-pushforward`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTwistTests.restriction_all_tests` (characterisation): On every continuous f:U→O, r_UνOχ(f)=ζO^U(κO_(n,χ,0)f).
+- `SuggestedIntegralUnitTwistTests.restriction_principal` (compatibility): The restriction of every principal finite-character twist is exactly ζO^U.
+- `SuggestedIntegralUnitTwistTests.restriction_modulus_one` (degenerate): For D=1 the restricted twisted measure is zero.
+
+**Acceptance:** This identifies the pre-existing ambient twist with the pre-existing arithmetic unit character. The equality uses the native measure carrier and all continuous integer-valued tests. No convolution comparison is asserted.
+
+**Source:** Remark3.33, published129/PDF30; complete tame construction discussion on published144–146/PDF45–47, especially equation(5-5), restriction identity(5-6), Definition5.13 and the following interpolation identity. These complete pages freshly read on30September2026. Worker comparison of the already constructed integral ambient twist and intrinsic arithmetic unit characters. Uses the exact inverse-coordinate shift already present in the tame zeta measure. The source motivates the unit restriction and finite-character weighting; level/product/inverse compatibilities are deductions on the native unit group. No new general restriction, weighting or conductor construction is introduced; all recorded source corrections remain in force.
+
+### Arithmetic moments of the restricted integral twist
+
+`DirichletPadicLFunctions:L2/integral-tame-twist-arithmetic-moment` — `DirichletPadic.restrictUnits_integralTwistedTameZetaMeasure_character`
+
+For every n,w≥0 and χ,ψ modulo p^n, r_U(νOχ)(κO_(n,ψ,w))=ζO^U(κO_(n,χψ,w)) in O.
+
+**Hypotheses:** p is any prime, including2. K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Let O=Valuation.integer(NormedField.valuation(K)), U=(ℤ_p)ˣ with their native structures. κO_(n,χ,w) is the existing integralPrimePowerArithmeticCharacter, for n,w≥0 and native χ:DirichletCharacter K(p^n). No separately chosen ℤ_p-algebra on O, completeness, characteristic zero or primitivity is assumed for the character identities. For measure statements K is nontrivially normed and complete. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Write ζO=integralTameZetaMeasure η hD hpD, ζO^U=intrinsicIntegralTameZetaMeasure η hD hpD, νOχ=integralTwistedTameZetaMeasure n χ η hD hpD. The latter already equals weight(gχ)ζO, where gχ is the integral lift of primePowerCharacter on ℤ_p. Use the existing r_U=restrictUnits p O and j_U=AbstractMeasure.map(Units.val). D=1 retains the existing zero constructor. No nonprincipality or characteristic-zero assumption is added.
+
+**Proof:**
+
+1. Apply integral-tame-twist-unit-restriction and the supplied weight-evaluation formula on the actual unit group.
+2. Use integral-arithmetic-character-product with exponents0 andw. The product of the two continuous tests is exactly the arithmetic test of χψ at weightw; no coordinate shift remains to be inserted.
+3. The existing all-test coefficient inclusion transports the resulting O-value to the existing K-valued arithmetic character integral. For positive weights, the existing common-field interpolation formula can then be applied with its original nonprincipal tame, characteristic-zero and separate-embedding hypotheses. No degree-zero L-value formula follows from this identity.
+4. At p=2, η quadratic modulo3 and χ quadratic modulo4, evaluation on the principal arithmetic tests of weights2 and4 gives included values−2 and46. These retain the inverse-coordinate shift in ζO and detect an omitted finite twist or an off-by-one moment.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-twist-unit-restriction`, `DirichletPadicLFunctions:L2/integral-arithmetic-character-product`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-character-value`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTwistTests.moment_zero_weight` (degenerate): At w=0, evaluation is the actual integral of the product finite character, without a logarithmic value claim.
+- `SuggestedIntegralUnitTwistTests.quadratic_second_moment` (computation): The restricted quadratic twist at p=2,D=3 evaluated on the principal weight2 test includes as−2 in ℚ_2.
+- `SuggestedIntegralUnitTwistTests.quadratic_fourth_moment` (computation): For the same characters the principal weight4 test includes as46 in ℚ_2.
+
+**Acceptance:** χ and ψ use the same displayed level; different levels are compared by the preceding level theorem. The result is an O-valued integral before any coefficient inclusion.
+
+**Source:** Remark3.33, published129/PDF30; complete tame construction discussion on published144–146/PDF45–47, especially equation(5-5), restriction identity(5-6), Definition5.13 and the following interpolation identity. These complete pages freshly read on30September2026. Worker comparison of the already constructed integral ambient twist and intrinsic arithmetic unit characters. Uses the exact inverse-coordinate shift already present in the tame zeta measure. The source motivates the unit restriction and finite-character weighting; level/product/inverse compatibilities are deductions on the native unit group. No new general restriction, weighting or conductor construction is introduced; all recorded source corrections remain in force.
+
+### Inverse finite-character weighting on the unit group
+
+`DirichletPadicLFunctions:L2/integral-tame-twist-unit-inverse` — `DirichletPadic.inverse_weight_restrictUnits_integralTwistedTameZetaMeasure`
+
+weight(κO_(n,χ⁻¹,0).toContinuousMap)(r_UνOχ)=ζO^U for every n≥0.
+
+**Hypotheses:** p is any prime, including2. K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Let O=Valuation.integer(NormedField.valuation(K)), U=(ℤ_p)ˣ with their native structures. κO_(n,χ,w) is the existing integralPrimePowerArithmeticCharacter, for n,w≥0 and native χ:DirichletCharacter K(p^n). No separately chosen ℤ_p-algebra on O, completeness, characteristic zero or primitivity is assumed for the character identities. For measure statements K is nontrivially normed and complete. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Write ζO=integralTameZetaMeasure η hD hpD, ζO^U=intrinsicIntegralTameZetaMeasure η hD hpD, νOχ=integralTwistedTameZetaMeasure n χ η hD hpD. The latter already equals weight(gχ)ζO, where gχ is the integral lift of primePowerCharacter on ℤ_p. Use the existing r_U=restrictUnits p O and j_U=AbstractMeasure.map(Units.val). D=1 retains the existing zero constructor. No nonprincipality or characteristic-zero assumption is added.
+
+**Proof:**
+
+1. Replace r_UνOχ by the measure identified in integral-tame-twist-unit-restriction and apply the existing weight-multiplication identity.
+2. The integral arithmetic product lemma reduces the multiplier to κO_(n,χ⁻¹χ,0). At every actual unit, its K-value is1: native reduction preserves units, the native character group cancels χ⁻¹χ, and MulChar.one_apply gives1. Injectivity of O→K identifies the integral continuous test with1.
+3. The existing weighting operation by1 fixes the measure. Equivalently use its evaluation formula and continuous-dual extensionality; every continuous O-valued test f is recovered.
+4. The level theorem permits the twist to be raised before cancellation, including a change from level zero. There is no inverse-coordinate exponent here: only the finite character is inverted. No field structure or inverse operation on O is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-twist-unit-restriction`, `DirichletPadicLFunctions:L2/integral-arithmetic-character-product`, `DirichletPadicLFunctions:L2/integral-arithmetic-character-level`, `PadicMeasuresIwasawaAlgebras:L2/weight-multiplication`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `mathlib:MulChar.one_apply`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitTwistTests.inverse_all_tests` (characterisation): Weighting each continuous O-test by the inverse finite character recovers its original ζO^U integral.
+- `SuggestedIntegralUnitTwistTests.inverse_after_level_raise` (compatibility): The original inverse unit character cancels the twist even after raising its finite level.
+
+**Acceptance:** Cancellation holds on the native unit group and includes the zero-level boundary. The already owned ambient inverse theorem is preserved; this statement supplies its explicit intrinsic character interpretation.
+
+**Source:** Remark3.33, published129/PDF30; complete tame construction discussion on published144–146/PDF45–47, especially equation(5-5), restriction identity(5-6), Definition5.13 and the following interpolation identity. These complete pages freshly read on30September2026. Worker comparison of the already constructed integral ambient twist and intrinsic arithmetic unit characters. Uses the exact inverse-coordinate shift already present in the tame zeta measure. The source motivates the unit restriction and finite-character weighting; level/product/inverse compatibilities are deductions on the native unit group. No new general restriction, weighting or conductor construction is introduced; all recorded source corrections remain in force.
+
+**Remaining:** The existing ambient integral finite-character twist is now identified with weight(κO_(n,χ,0)) on the actual unit measure. Its arithmetic moments, finite-character inverse cancellation and level/product relations retain both zero boundaries. Connect the resulting unit-test congruences to the existing finite-character special-value congruences, with exact coefficient and denominator hypotheses. The separate canonical coefficient-field pseudomeasure evaluator remains the precise PMIA L3 request. Generic primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, logarithmic and degree-zero values, full source extraction and the original PMIA L1 completed-algebra comparison remain open.
+
+### Integral character twists on the actual unit group validation
+
+All 647 predecessor nodes, 557 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 5 nodes, 5 named suggested declarations and 12 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 908 reachable nodes, 4533 edges and 736 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All five new routes terminate in native or existing fine supplier nodes and have no stage-request leaf. Existing whole-packet requests remain open.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Seven complete Mathlib-only lemmas check level change on actual p-adic units, arithmetic products, inverse finite-character values on units, the ambient zero-level counterexample, native pushforward on product tests, subtype multiplication and propagation of integral test divisibility through an actually bounded measure. These supporting proofs do not prove the five new arithmetic roadmap declarations. The separate probe compiles against 2806 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact finite rational controls exercise finite-character products, level raising and inverse cancellation on all unit residues, finite weighted-measure evaluations on nonconstant test vectors, the zero-level ambient counterexample and dyadic Euler–Bernoulli values. Counts and method are recorded below. Exact Python Fraction arithmetic. Finite unit-residue measures use the existing rational tame residue mass multiplied by the inverse unit representative modulo p^r. Weighting, products, level raising and inverse cancellation are checked on whole finite test vectors; positive moments agree with independent Euler–Bernoulli sums modulo p^r. This checks finite models and rational specializations, not the general measure theorem or nonreal character fields. The largest observed discrepancy is 0 for exact identities; every residue error divisible by the displayed p^r.
+
+All66 captured inputs and four predecessor outputs are guarded. The separate partial signature check appends only these five declarations and twelve examples to the exact PR4831 signature prefix; it retains that prefix’s exclusion of4777–4791. The full current module remains uncompiled because the compatible native TwistedDivisorSum artifact is unavailable. The partial signature run has1968 expected placeholder warnings and zero errors, against3573 pinned source modules. Seven supporting native lemmas separately compile against2806 Mathlib modules without any warning or placeholder.
