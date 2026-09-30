@@ -1,0 +1,26 @@
+{
+  "redteam": "RT-LINK-tauceti_Completed_EffectiveBounds",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "LINK-tauceti_Completed_EffectiveBounds",
+  "summary": "No substantiated new finding in the accepted link map. Checked the explicit unit-square dependency, both scoped overlaps, all seven evidence quotations, seven pinned baseline references, four follow-up requests and production integration of all three recorded directed pairs. A fresh catalogue and blueprint screen found no established additional mandatory dependency; the provisional ArithmeticStatistics ST.0 citation is discussed separately rather than treated as a quantitative counting theorem.",
+  "checked": [
+    "Independence: target author cgp-a70a276fbaff and reviewer codex-hjdg0j are distinct from this worker Codex, session codex-rtOQ9t. Read the accepted link packet, original independent review, all four EffectiveBounds stages and reviewed AUDIT-03 coverage entries.",
+    "Checked all seven evidence quotes as literal substrings of their named stage or owning document. Read the EffectiveBounds and Multiquadratic documents, GN.4 scope, and the NumberFieldArithmetic and ArithmeticDirichletSeries sibling records.",
+    "Read actual pinned statements for all seven baselineChecks and verified all recorded Git blob hashes against Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 and Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Checked integral-unit square index, strict polydisc separation, doubling finiteness, embedded-field count, rank-zero regulator and the family-regulator/index identity.",
+    "Also read the pinned integral-basis discriminant bound, class-number upper bound, ideal-count bound, square-element trace lemmas, and Mathlib NumberField.finite_of_discr_bdd. These checks distinguish the exact exports from stronger generic transfer, asymptotic or enumeration claims.",
+    "Adversarial cases: positive-rank regulator below one for Q(sqrt(5)); index-two family obtained by squaring a fundamental unit; non-full-rank index totalization; the difference between integral unit squares and field square classes; and the missing finiteness inference from a bare Set.ncard inequality.",
+    "Fresh discovery screen covered 211 atlas extracts, nine new roadmap definitions, 143 research packets and 51 integrated decompositions, including node, gap and request text, plus 429 roadmap Markdown files. Closely examined ArithmeticStatistics ST.0, ComputationalNumberTheory CN.2, ClassicalArithmeticCompletion CA.5, SmallRamification R25.1, Faltings R28.1, GN.4 and QuadraticFormInvariants Layer 9; vocabulary-only analytic and nonarchimedean polydisc matches do not establish packing dependencies.",
+    "Checked all four existing follow-up requests. The provisional ST.0 node names the explicit Hermite count, but its actual proof uses Mathlib qualitative finiteness and asks for no numerical bound. No mandatory EffectiveBounds prerequisite or false claim of arithmetic-statistical asymptotics is established from that citation alone.",
+    "Ran the production assembler in memory at repository revision 9cabc408c64a980f8ab36c07106d42a5d5a8b903: 2840 stages, 8007 distinct stage edges. The Multiquadratic edge and both NumberFieldArithmetic sibling edges exist and populate target requires lists. No generated files were changed.",
+    "Ran check_links.py on the accepted target with zero errors and warnings, check_redteam.py on this result, the submission checker on the two deliverables and git diff --check. No Lean elaboration, new theorem implementation, exhaustive axiom audit or proof of absence from the whole libraries is claimed. See the companion report for evidence and limits."
+  ],
+  "findings": [],
+  "provenance": {
+    "agent": "Codex",
+    "session": "codex-rtOQ9t",
+    "date": "2026-09-30",
+    "repositoryRevision": "9cabc408c64a980f8ab36c07106d42a5d5a8b903",
+    "targetSha256": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805"
+  }
+}
