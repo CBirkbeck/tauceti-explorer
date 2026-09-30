@@ -13386,3 +13386,139 @@ example (η : DirichletCharacter K N) (hη : η ≠ 1)
     letI : NeZero η.conductor := ⟨η.conductor_ne_zero⟩
     tameZetaMeasure η hN hpN = tameZetaMeasure η.primitiveCharacter hF hpF := sorry
 end SuggestedTameLevelComparisonTests
+
+/-! Arbitrary tame level formulas on the native unit group and in the existing
+valuation integer ring. All unit and coefficient families below exist from the
+stated tame hypotheses; values outside the finite indexing set are irrelevant. -/
+namespace DirichletPadic
+section TameLevelIntegral
+variable {p M N : ℕ} [Fact p.Prime] [NeZero M] [NeZero N]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "S" => N.primeFactors \ M.primeFactors
+
+theorem intrinsicTameZetaMeasure_changeLevel (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ S, (u q : ℤ_[p]) = (q : ℤ_[p])) :
+    intrinsicTameZetaMeasure (η.changeLevel hMN) hN hpN =
+      ∑ t ∈ (S).powerset, ((-1 : K)^t.card * (η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K))) • AbstractMeasure.map
+        (⟨fun x : (ℤ_[p])ˣ => (∏ q ∈ t, u q)*x, by fun_prop⟩ : C((ℤ_[p])ˣ,(ℤ_[p])ˣ)) (intrinsicTameZetaMeasure η hM hpM) := sorry
+
+theorem integralTameMeasure_changeLevel (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (a : ZMod M → O) (ha : ∀ x, (a x : K) = η x) :
+    integralTameMeasure (η.changeLevel hMN) hN hpN =
+      ∑ t ∈ (S).powerset, ((-1 : O)^t.card * a ((∏ q ∈ t, q : ℕ) : ZMod M)) • AbstractMeasure.map
+        (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p])) (integralTameMeasure η hM hpM) := sorry
+
+theorem integralTameZetaMeasure_changeLevel (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (S).powerset, (c t : K) =
+      η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K)) :
+    integralTameZetaMeasure (η.changeLevel hMN) hN hpN =
+      ∑ t ∈ (S).powerset, ((-1 : O)^t.card * c t) • AbstractMeasure.map
+        (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p])) (integralTameZetaMeasure η hM hpM) := sorry
+
+theorem intrinsicIntegralTameZetaMeasure_changeLevel (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (S).powerset, (c t : K) =
+      η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K))
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ S, (u q : ℤ_[p]) = (q : ℤ_[p])) :
+    intrinsicIntegralTameZetaMeasure (η.changeLevel hMN) hN hpN =
+      ∑ t ∈ (S).powerset, ((-1 : O)^t.card * c t) • AbstractMeasure.map
+        (⟨fun x : (ℤ_[p])ˣ => (∏ q ∈ t, u q)*x, by fun_prop⟩ : C((ℤ_[p])ˣ,(ℤ_[p])ˣ)) (intrinsicIntegralTameZetaMeasure η hM hpM) := sorry
+end TameLevelIntegral
+end DirichletPadic
+
+namespace SuggestedTameLevelIntegralTests
+open DirichletPadic
+variable {p M N : ℕ} [Fact p.Prime] [NeZero M] [NeZero N]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "S" => N.primeFactors \ M.primeFactors
+-- actual_unit_family_exists
+example (hpN : ¬p ∣ N) :
+    ∃ u : ℕ → (ℤ_[p])ˣ, ∀ q ∈ S, (u q : ℤ_[p]) = (q : ℤ_[p]) := sorry
+-- unit_family_irrelevant_outside_support
+example (u v : ℕ → (ℤ_[p])ˣ)
+    (hu : ∀ q ∈ S, (u q : ℤ_[p]) = (q : ℤ_[p]))
+    (hv : ∀ q ∈ S, (v q : ℤ_[p]) = (q : ℤ_[p])) (t : Finset ℕ) (ht : t ∈ (S).powerset) :
+    (∏ q ∈ t, u q) = ∏ q ∈ t, v q := sorry
+-- actual_character_coefficient_family_exists
+example (η : DirichletCharacter K M) : ∃ a : ZMod M → O, ∀ x, (a x : K) = η x := sorry
+-- actual_subset_coefficient_family_exists
+example (η : DirichletCharacter K M) (hpN : ¬p ∣ N) :
+    ∃ c : Finset ℕ → O, ∀ t ∈ (S).powerset, (c t : K) =
+      η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K) := sorry
+-- intrinsic_field_all_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ S, (u q : ℤ_[p]) = (q : ℤ_[p])) (f : C((ℤ_[p])ˣ,K)) :
+    intrinsicTameZetaMeasure (η.changeLevel hMN) hN hpN f =
+      ∑ t ∈ (S).powerset, ((-1 : K)^t.card * (η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K))) * intrinsicTameZetaMeasure η hM hpM (f.comp (⟨fun x : (ℤ_[p])ˣ => (∏ q ∈ t, u q)*x, by fun_prop⟩ : C((ℤ_[p])ˣ,(ℤ_[p])ˣ))) := sorry
+-- intrinsic_field_same_prime_support
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N) (hs : N.primeFactors = M.primeFactors) :
+    intrinsicTameZetaMeasure (η.changeLevel hMN) hN hpN = intrinsicTameZetaMeasure η hM hpM := sorry
+-- integral_measure_all_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (a : ZMod M → O) (ha : ∀ x, (a x : K) = η x) (f : C(ℤ_[p],O)) :
+    integralTameMeasure (η.changeLevel hMN) hN hpN f =
+      ∑ t ∈ (S).powerset, ((-1 : O)^t.card * a ((∏ q ∈ t, q : ℕ) : ZMod M)) * integralTameMeasure η hM hpM (f.comp (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))) := sorry
+-- integral_measure_mass_sum
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (a : ZMod M → O) (ha : ∀ x, (a x : K) = η x) :
+    integralTameMeasure (η.changeLevel hMN) hN hpN 1 =
+      (∑ t ∈ (S).powerset, ((-1 : O)^t.card * a ((∏ q ∈ t, q : ℕ) : ZMod M))) * integralTameMeasure η hM hpM 1 := sorry
+-- integral_measure_same_prime_support
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N) (hs : N.primeFactors = M.primeFactors) :
+    integralTameMeasure (η.changeLevel hMN) hN hpN = integralTameMeasure η hM hpM := sorry
+-- integral_zeta_all_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (S).powerset, (c t : K) =
+      η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K)) (f : C(ℤ_[p],O)) :
+    integralTameZetaMeasure (η.changeLevel hMN) hN hpN f =
+      ∑ t ∈ (S).powerset, ((-1 : O)^t.card * c t) * integralTameZetaMeasure η hM hpM (f.comp (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))) := sorry
+-- integral_zeta_mass_sum
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (S).powerset, (c t : K) =
+      η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K)) :
+    integralTameZetaMeasure (η.changeLevel hMN) hN hpN 1 =
+      (∑ t ∈ (S).powerset, ((-1 : O)^t.card * c t)) * integralTameZetaMeasure η hM hpM 1 := sorry
+-- integral_zeta_same_prime_support
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N) (hs : N.primeFactors = M.primeFactors) :
+    integralTameZetaMeasure (η.changeLevel hMN) hN hpN = integralTameZetaMeasure η hM hpM := sorry
+-- intrinsic_integral_all_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (S).powerset, (c t : K) =
+      η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K))
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ S, (u q : ℤ_[p]) = (q : ℤ_[p])) (f : C((ℤ_[p])ˣ,O)) :
+    intrinsicIntegralTameZetaMeasure (η.changeLevel hMN) hN hpN f =
+      ∑ t ∈ (S).powerset, ((-1 : O)^t.card * c t) * intrinsicIntegralTameZetaMeasure η hM hpM (f.comp (⟨fun x : (ℤ_[p])ˣ => (∏ q ∈ t, u q)*x, by fun_prop⟩ : C((ℤ_[p])ˣ,(ℤ_[p])ˣ))) := sorry
+-- intrinsic_integral_mass_sum
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (S).powerset, (c t : K) =
+      η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K)) :
+    intrinsicIntegralTameZetaMeasure (η.changeLevel hMN) hN hpN 1 =
+      (∑ t ∈ (S).powerset, ((-1 : O)^t.card * c t)) * intrinsicIntegralTameZetaMeasure η hM hpM 1 := sorry
+-- intrinsic_integral_same_prime_support
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N) (hs : N.primeFactors = M.primeFactors) :
+    intrinsicIntegralTameZetaMeasure (η.changeLevel hMN) hN hpN = intrinsicIntegralTameZetaMeasure η hM hpM := sorry
+end SuggestedTameLevelIntegralTests
