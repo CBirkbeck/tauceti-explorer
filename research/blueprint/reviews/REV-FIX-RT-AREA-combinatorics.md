@@ -60,8 +60,8 @@ are in the declaration index at the cited places at Mathlib 082e2d3:
 
 `cornersTheoremBound` (Roth.lean:74) is defined through `triangleRemovalBound`, so "tower-type" is a fair description.
 
-**What AC.2 keeps.** AC.2's stage text asks for Roth/Szemerédi, arithmetic removal and a proved correspondence between the
-finite and infinite forms. The narrowing keeps everything the imports do not cover:
+**What AC.2 keeps.** AC.2's stage text asks for Roth/Szemerédi, arithmetic removal and a proved correspondence between
+the finite and infinite forms. The narrowing keeps everything the imports do not cover:
 - Szemerédi's theorem for k ≥ 4;
 - k = 3 bounds stronger than the imported one;
 - the Varnavides count and the correspondence. The index has no upper or Banach density at the pin, only Schnirelmann
