@@ -31,11 +31,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "893d477c5f9aa3c5",
-   "reviewDate": "2026-09-23",
-   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
-   "sha256": "a568f32f0eedd94ce7d555e5a64d78cc3076ffd949450db0156ed5c39b88e2e5",
+   "promotedAt": "2026-09-30T22:16:26Z",
+   "review": "034c50f4b51385d2",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
+   "sha256": "143b7451af2928e12c6b8862b9097ff467d9905ea53a8ef6958f2ba63a7602ac",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json"
    ]
@@ -61,11 +61,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_Chebotarev.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "ced583988a245548",
-   "reviewDate": "2026-09-23",
-   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_Chebotarev",
-   "sha256": "f9089ad78bff8c1f3820c4bc24e18ea07cb4daf0ca12ec3e799b4255d443de14",
+   "promotedAt": "2026-09-30T22:16:26Z",
+   "review": "cebf156a0ffb66c4",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev",
+   "sha256": "856f08405f06073ceee8e59c197504c41cb99fcf72bd113d476fd4bf7a352341",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_Chebotarev.json"
    ]
@@ -81,11 +81,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_EllipticCurves.json": {
-   "promotedAt": "2026-09-21T18:15:41Z",
-   "review": "9c96cb4c14c10829",
-   "reviewDate": "2026-09-21",
-   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
-   "sha256": "b674679a2cb220121617e8d4dcb192c4a1b14557ce1d32c61be2ccf4da73f438",
+   "promotedAt": "2026-09-30T22:03:16Z",
+   "review": "2ee3aa06e8ea8033",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+   "sha256": "2ae144cdedb20a3f6bf6b5b248111c8044d666139573af9772012c3275a7c9cc",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_EllipticCurves.json"
    ]
@@ -131,11 +131,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "5f032687ba34e94d",
-   "reviewDate": "2026-09-23",
-   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
-   "sha256": "28eda9a75a209959ed2575f52d6da5c8ceaecf4396477ff19dd82fb5fde18647",
+   "promotedAt": "2026-09-30T22:03:16Z",
+   "review": "67346e0af218e89b",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
+   "sha256": "c80f798705168c36347cd76fd5ee5f263eac49754c693eb1b726b230ecdf7469",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json"
    ]
@@ -295,14 +295,25 @@
    ]
   },
   "research/blueprint/packets/ArithmeticStatistics.json": {
-   "promotedAt": "2026-09-30T21:12:14Z",
-   "review": "f8c6c809e1576224",
+   "promotedAt": "2026-09-30T22:16:26Z",
+   "review": "488af3e879cf6656",
    "reviewDate": "2026-09-30",
-   "reviewer": "independent-review-REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
-   "sha256": "91eec9b4dd7122a64ca5d7f44fe60d747a615e534ab8c0637f606ef5640622c1",
+   "reviewer": "independent-review-REV-FIX-RT-PAPER-KOYMANS-PAGANO",
+   "sha256": "41c5edc3d527f2aea9e98881fa76b66a99998f3861a65ee77e95313e1bc0e880",
    "to": [
     "data/blueprints/ArithmeticStatistics.json",
     "data/blueprints/ArithmeticStatistics.md"
+   ]
+  },
+  "research/blueprint/packets/ClassicalArithmeticCompletion.json": {
+   "promotedAt": "2026-09-30T22:16:26Z",
+   "review": "726f435a60bc2f5d",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-PAPER-KOYMANS-PAGANO",
+   "sha256": "206b25f75094e6003dd6b374c99d84212a96fc438f8807efc817e128562d4d1d",
+   "to": [
+    "data/blueprints/ClassicalArithmeticCompletion.json",
+    "data/blueprints/ClassicalArithmeticCompletion.md"
    ]
   },
   "research/blueprint/packets/ClassicalSerreModularity--R27.3.json": {
@@ -504,11 +515,11 @@
    ]
   },
   "research/blueprint/restructure/RS-03.result.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "b0b476bc45b0904c",
-   "reviewDate": "2026-09-23",
-   "reviewer": "independent-review-REV-RS-03",
-   "sha256": "dd5f6b169fb584a1866c559cbd81b764502924c6abb6b5d3fb335c9d69f45e3d",
+   "promotedAt": "2026-09-30T22:16:26Z",
+   "review": "9ff04612d7551446",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics",
+   "sha256": "dcb0a773e02933a8ec6794f20d350f66191b82f9b5e283fcbe085b06a29bba83",
    "to": [
     "data/restructure/RS-03.result.json",
     "data/restructure/RS-03.md"

@@ -2,7 +2,7 @@
 
 **Accepted, with one normalization correction in an explanatory record.**
 Job `REV-FIX-RT-AREA-combinatorics~2`, issue #5165. Codex — `codex-J6LwjP`,
-30 September 2026; reviewed base `d0016c7`.
+30 September 2026; reviewed base `d0016c7`, integrated through `dbc75e4`.
 
 The follow-up fixer was Codex `codex-rtOQ9t` (PR #5210, commit `e306457`),
 not this session. The earlier fix was by Claude Code `cc-39fac3`; the
@@ -177,7 +177,10 @@ Read actual declarations at Mathlib
 
 The former top-level reviews `independent-review-REV-RS-03` and
 `independent-review-REV-EllipticRegulators` are preserved verbatim under
-`reviewHistory`, including their correction/node records. New top-level
+`reviewHistory`, including their correction/node records. RS-03 also retains
+the newly merged round-1 review `independent-review-REV-FIX-RT-AREA-combinatorics`
+verbatim in that history; it changed only review metadata and agrees with the
+retained /3, /14 and /16 decisions. New top-level
 objects name this review and delimit its scope. The separate later
 K-theory supplier fix `0ba7ef0` (PR #5265) is retained without certification
 by this job. Consequently the current EllipticRegulators packet has **14
@@ -201,7 +204,7 @@ Validation:
   These are regression diagnostics, not Lean proofs. They are reproducible
   by enumerating `(a,b)` modulo C and evaluating the displayed finite sums.
 - The packet has 154 internal edges and is acyclic. A read-only
-  `build.assemble(require_distances=False)` produced 2,868 stages and 8,298
+  `build.assemble(require_distances=False)` produced 2,907 stages and 8,322
   edges, with no ER.4-to-AC.0 path. No site or atlas output was written.
 
 No existing build at the required pins was found, including the Fourier

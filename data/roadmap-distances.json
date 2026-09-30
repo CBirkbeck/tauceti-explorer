@@ -77,7 +77,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.042
+  "declarationsVsDistance": -0.123
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -193,6 +193,10 @@
    "usedBy": [
     {
      "galaxy": "finitefields",
+     "roadmaps": 1
+    },
+    {
+     "galaxy": "ktheory",
      "roadmaps": 1
     }
    ]
@@ -1152,14 +1156,14 @@
     "depth": 28,
     "suppliers": 31,
     "declarationLevel": {
-     "source": "decomposition",
+     "source": "blueprint",
      "reviewed": true,
-     "declarations": 3,
-     "missingDeclarations": 3,
-     "depth": 2,
-     "layersCovered": 1,
+     "declarations": 333,
+     "missingDeclarations": 333,
+     "depth": 13,
+     "layersCovered": 6,
      "layers": 6,
-     "sourcePages": 9
+     "sourcePages": 310
     }
    },
    "measurement": 5.52,
@@ -1955,10 +1959,10 @@
    "structure": {
     "layers": 8,
     "missingOwn": 8.0,
-    "missingLayers": 659.0,
-    "missingTargets": 3025.0,
+    "missingLayers": 660.0,
+    "missingTargets": 3031.5,
     "depth": 95,
-    "suppliers": 111,
+    "suppliers": 113,
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
@@ -4057,10 +4061,10 @@
    "structure": {
     "layers": 10,
     "missingOwn": 10.0,
-    "missingLayers": 762.5,
-    "missingTargets": 3453.8,
+    "missingLayers": 763.0,
+    "missingTargets": 3454.3,
     "depth": 113,
-    "suppliers": 129
+    "suppliers": 130
    },
    "measurement": 9.47,
    "judgements": 10,
@@ -4699,10 +4703,10 @@
    "structure": {
     "layers": 8,
     "missingOwn": 7.5,
-    "missingLayers": 390.0,
-    "missingTargets": 1939.0,
+    "missingLayers": 391.0,
+    "missingTargets": 1945.5,
     "depth": 56,
-    "suppliers": 77
+    "suppliers": 79
    },
    "measurement": 7.32,
    "judgements": 11,
@@ -5504,7 +5508,7 @@
     "depth": 1,
     "suppliers": 0
    },
-   "measurement": 2.67,
+   "measurement": 2.68,
    "judgements": 7,
    "distance": 3.17,
    "low": 2.61,
@@ -7727,11 +7731,25 @@
        "consumer": "FiniteFieldsAndCharacterSums"
       }
      ]
+    },
+    {
+     "galaxy": "ktheory",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "AdditiveCombinatorics",
+       "consumer": "EllipticRegulators"
+      }
+     ]
     }
    ],
    "frontier": [
     {
      "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "ktheory",
      "roadmaps": 1
     },
     {
@@ -7739,7 +7757,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 2,
+   "frontierRoadmaps": 4,
    "upstreamOnly": false
   },
   "commutative": {
@@ -8058,6 +8076,10 @@
    "frontier": [
     {
      "galaxy": "iwasawa",
+     "roadmaps": 2
+    },
+    {
+     "galaxy": "ktheory",
      "roadmaps": 1
     },
     {
@@ -8065,7 +8087,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 2,
+   "frontierRoadmaps": 4,
    "upstreamOnly": false
   },
   "etale": {

@@ -18882,9 +18882,10 @@
       ],
       "title": "The ring ℤ√d inside the ring of integers of ℚ(√d)",
       "kind": "construction",
-      "statement": "For d ∈ ℤ and θ ∈ 𝓞_K with θ² = d, the ring homomorphism φ : ℤ√d → 𝓞_K, x + y√d ↦ x + yθ (Mathlib Zsqrtd.lift). Its image is ℤ[θ]; it is injective when d is not a square; for squarefree d with K = ℚ(θ) it is an isomorphism iff d ≢ 1 (mod 4); and it carries the norm form x² − dy² of ℤ√d to the field norm N_{K/ℚ}.",
+      "statement": "For d ∈ ℤ and θ ∈ 𝓞_K with θ² = d, the ring homomorphism φ : ℤ√d → 𝓞_K, x + y√d ↦ x + yθ (Mathlib Zsqrtd.lift). Its image is ℤ[θ]; it is injective when d is not a square; for squarefree d ≠ 0,1 with K = ℚ(θ) it is an isomorphism iff d ≢ 1 (mod 4); under these quadratic-field hypotheses it carries the norm form x² − dy² of ℤ√d to the field norm N_{K/ℚ}.",
       "hypotheses": [
-        "θ² = d; for the bijectivity and norm statements, d squarefree and θ generating K."
+        "d is an integer and θ in O_K satisfies θ²=d; no nonsquareness is needed just to define the ring map.",
+        "Injectivity assumes d is not an integer square. Bijectivity and the field-norm comparison assume d squarefree, d ≠ 0,1, and K=Q(θ), hence [K:Q]=2."
       ],
       "proofSteps": [
         "φ is Zsqrtd.lift applied to (θ, θ² = d).",
@@ -18949,12 +18950,12 @@
         {
           "name": "ZsqrtdToRingOfIntegers.bijective_iff",
           "role": "equivalence",
-          "statement": "For squarefree d and θ generating K: φ is bijective iff d ≢ 1 (mod 4)."
+          "statement": "For squarefree d ≠ 0,1 and K=Q(θ), φ is bijective if and only if d is not congruent to 1 modulo 4."
         },
         {
           "name": "ZsqrtdToRingOfIntegers.norm",
           "role": "compatibility",
-          "statement": "N_{K/ℚ}(φ(x)) = Zsqrtd.norm x."
+          "statement": "For squarefree d ≠ 0,1 and K=Q(θ), N_(K/Q)(φ(x))=Zsqrtd.norm x for every x in Zsqrtd."
         }
       ],
       "uses": [
@@ -18990,6 +18991,11 @@
           "name": "TauCeti.ClassicalArithmetic.zsqrtdToRingOfIntegers_norm_example",
           "kind": "compatibility",
           "statement": "N_{K/ℚ}(φ(3 + 2√d)) = 9 − 4d."
+        },
+        {
+          "name": "TauCeti.ClassicalArithmetic.zsqrtdToRingOfIntegers_degree_one_excluded",
+          "kind": "non-example",
+          "statement": "At d=1, θ=1 and K=Q, the ring map exists but is not injective: sqrt(1)-1 maps to zero. The field norm of φ(2)=2 differs from Zsqrtd.norm(2)=4, so the norm comparison requires the quadratic-field hypotheses."
         }
       ]
     },
@@ -19139,7 +19145,61 @@
         "module": "TauCeti/NumberTheory/NumberField/Quadratic/Presentation",
         "namespace": "TauCeti.ClassicalArithmetic"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "unit_mem_zsqrtd_of_mod_eight_eq_one",
+          "role": "structure",
+          "statement": "For squarefree d>1 with d congruent to 1 modulo 8, every unit of O_Q(sqrt(d)) belongs to the image of Zsqrtd."
+        },
+        {
+          "name": "unit_cube_mem_zsqrtd_of_mod_eight_eq_five",
+          "role": "structure",
+          "statement": "For squarefree d>1 with d congruent to 5 modulo 8, every unit has its cube in the image of Zsqrtd, with the displayed integral coordinates."
+        },
+        {
+          "name": "negativePell_iff_unit_norm_neg_one_mod_four_one",
+          "role": "equivalence",
+          "statement": "For squarefree d>1 congruent to 1 modulo 4, an integer solution of x^2-d*y^2=-1 exists if and only if the ring of integers has a unit of field norm -1."
+        },
+        {
+          "name": "unit_cube_norm",
+          "role": "compatibility",
+          "statement": "For a ring-of-integers unit u of norm nu in {1,-1}, the cube used in the order comparison has field norm nu^3=nu."
+        }
+      ],
+      "tests": [
+        {
+          "name": "negativePell_half_unit_five",
+          "kind": "non-example",
+          "statement": "For d=5, (1+sqrt(5))/2 is a unit of norm -1 outside Z[sqrt(5)], while its cube 2+sqrt(5) lies in that order. Direct membership cannot replace cubing."
+        },
+        {
+          "name": "negativePell_half_unit_thirteen",
+          "kind": "computation",
+          "statement": "For d=13, ((3+sqrt(13))/2)^3=18+5sqrt(13), and 18^2-13*5^2=-1."
+        },
+        {
+          "name": "negativePell_order_seventeen",
+          "kind": "computation",
+          "statement": "For d=17 congruent to 1 modulo 8, 4+sqrt(17) has norm -1 and lies in Z[sqrt(17)]; odd half-integral coordinates cannot have norm plus or minus one."
+        },
+        {
+          "name": "negativePell_positive_norm_twentyone",
+          "kind": "non-example",
+          "statement": "For d=21, ((5+sqrt(21))/2)^3=55+12sqrt(21) has norm +1, but negative Pell has no solution modulo 3. The mere existence of a unit is insufficient."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-KOYMANS-PAGANO/5 and /12, route 7",
+          "how": "Supply the missing converse from a ring-of-integers unit of norm -1 to an integral negative-Pell solution, for every odd squarefree d in the source family."
+        },
+        {
+          "where": "PAPER-KOYMANS-PAGANO/9, route 7",
+          "how": "Transport the norm -1 condition in the quadratic unit Galois-module description to the integral equation."
+        }
+      ]
     },
     {
       "id": "ClassicalArithmeticCompletion:CA.5/class-group-of-q-sqrt-minus-14",
@@ -27836,5 +27896,11 @@
       "intake": "four files, zero problems",
       "newIdsUnreserved": true
     }
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FIX-RT-PAPER-KOYMANS-PAGANO",
+    "date": "2026-09-30",
+    "notes": "Codex — codex-J6LwjP independently reviewed Claude Code cc-f805bf’s fix for confirmed medium findings /1-/5, following REV-RT-PAPER-KOYMANS-PAGANO. No prior top-level review object. Checked /5’s mod-8 order/unit bridge against the pinned declarations and fresh Conrad sources; added its named API, uses and unit tests, and excluded the degree-one d=1 case from the direct supplier’s norm/bijectivity clauses. Other extraction changes were checked read-only, including qualified library/planned status, Jutila/Smith attribution and route-7 separation. The extraction’s historical route-review verdicts remain untouched. Low findings /6-/13 were not part of the fix. Acceptance is for these scoped fixes and clear corrections, not proof closure of the partial packet. The report records source hashes, finite checks and all limitations; no Lean file was assigned or compiled."
   }
 }

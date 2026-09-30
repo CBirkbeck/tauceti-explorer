@@ -1,8 +1,8 @@
 {
   "roadmaps": 220,
-  "stages": 2926,
+  "stages": 2965,
   "originalStages": 2020,
-  "sourceRefinements": 906,
+  "sourceRefinements": 945,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -73,13 +73,6 @@
       "nodes": 18,
       "review": "accepted",
       "deferredLinks": 4
-    },
-    {
-      "roadmap": "ClassicalArithmeticCompletion",
-      "status": "partial",
-      "nodes": 3,
-      "review": "accepted",
-      "deferredLinks": 0
     },
     {
       "roadmap": "ClassicalSerreModularity",
@@ -354,14 +347,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 2825,
+  "mathematicalStars": 2864,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 58,
   "bibliographicSources": 46,
-  "roadmapEdges": 1724,
-  "stageEdges": 8347,
+  "roadmapEdges": 1732,
+  "stageEdges": 8371,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -392,7 +385,13 @@
       "file": "ArithmeticStatistics",
       "roadmap": "ArithmeticStatistics",
       "nodes": 415,
-      "reviewer": "independent-review-REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      "reviewer": "independent-review-REV-FIX-RT-PAPER-KOYMANS-PAGANO"
+    },
+    {
+      "file": "ClassicalArithmeticCompletion",
+      "roadmap": "ClassicalArithmeticCompletion",
+      "nodes": 333,
+      "reviewer": "independent-review-REV-FIX-RT-PAPER-KOYMANS-PAGANO"
     },
     {
       "file": "ClassicalSerreModularity--R27.3",
@@ -492,8 +491,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30297078,
-  "htmlSha256": "bd3f6cf5c171dbdcebf308390ed4d0ecb1f287c24aa1f5d0782c84c302b1d939",
+  "htmlBytes": 30383515,
+  "htmlSha256": "490465fbac2b436eafaa6c1d4e06b5c20abc07306c56087d225b639295373cb4",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -524,8 +523,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "0c3ad6dba07d5ffe0837076292f8e81de1681d3f061c2c760f1899406db769e8",
-    "data/galaxy-layout.json": "9a80ff2d6bde12d37b28204336258f1bb2c18ff526431cb7eddbafe062cddb7a",
+    "data/roadmap-distances.json": "76250f9e10179b300be41f1bee40726c109bc9fb30f480e85d8fa6d36e29d4d6",
+    "data/galaxy-layout.json": "dcee64b1ded09a57461632420dde9f5b7c1c2512531524b2fcf58ecda8b30b05",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -590,8 +589,10 @@
     "data/blueprints/ArithmeticKTheory--N.1.md": "d305a3727d30abf8bc426bd6b28f91d972d4ed6eb5c4dc406d8e83c0bf4ccc94",
     "data/blueprints/ArithmeticKTheory--N.7.json": "c2e15013d0254a01323d4e90056fce843ce340c3531a49ddfd0cec77b57a942d",
     "data/blueprints/ArithmeticKTheory--N.7.md": "35ccec306ac1e5a26abaebbf240c9643df611fb6bd35d2bab67411f06206ceb0",
-    "data/blueprints/ArithmeticStatistics.json": "91eec9b4dd7122a64ca5d7f44fe60d747a615e534ab8c0637f606ef5640622c1",
+    "data/blueprints/ArithmeticStatistics.json": "41c5edc3d527f2aea9e98881fa76b66a99998f3861a65ee77e95313e1bc0e880",
     "data/blueprints/ArithmeticStatistics.md": "b7d2294252e401efd7ca43a2a536f9d0fec4b8fd1bfe120614ac5959ff626866",
+    "data/blueprints/ClassicalArithmeticCompletion.json": "206b25f75094e6003dd6b374c99d84212a96fc438f8807efc817e128562d4d1d",
+    "data/blueprints/ClassicalArithmeticCompletion.md": "eaa6512cd30fe16e148b6e2f8d6607297174066d96839eacf97b3cb427e41b7d",
     "data/blueprints/ClassicalSerreModularity--R27.3.json": "b248659c4698e9ad2c0adc3439f688f82e104297b69292fdd3ae1008544bb074",
     "data/blueprints/ClassicalSerreModularity--R27.3.md": "065d11b977a14df5a67d62820bfeb223730332e27f3683fc66045ad5df0f503d",
     "data/blueprints/ClassicalSerreModularity--R33.5.json": "5763d16595d69e1a5f2f4a220c03127950801a2dc45bbf9f01cf741fa517276f",
@@ -627,17 +628,17 @@
     "data/links/tauceti_Completed_EffectiveBounds.json": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805",
     "data/links/tauceti_Completed_OrthogonalL2Bases.json": "34ad7cad18dde976767ba8df3183e3b3ec9586ddb040ecff1654dbdd2bec5a46",
     "data/links/tauceti_TauCetiRoadmap_AdicSpaces.json": "43ec8b83183c85b01f454cb423613b9dcf2ddfbeb56731f6502fc7479392a425",
-    "data/links/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json": "a568f32f0eedd94ce7d555e5a64d78cc3076ffd949450db0156ed5c39b88e2e5",
+    "data/links/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json": "143b7451af2928e12c6b8862b9097ff467d9905ea53a8ef6958f2ba63a7602ac",
     "data/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json": "9ca7bc21c683c2cf5732069f04ca4e06b54016dee418e663a090ae2a2bd327e5",
     "data/links/tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.json": "b9aebaab48508ccf646ab6cb80981d9427350530c1f59a1bc7266a8e45e380c4",
-    "data/links/tauceti_TauCetiRoadmap_Chebotarev.json": "f9089ad78bff8c1f3820c4bc24e18ea07cb4daf0ca12ec3e799b4255d443de14",
+    "data/links/tauceti_TauCetiRoadmap_Chebotarev.json": "856f08405f06073ceee8e59c197504c41cb99fcf72bd113d476fd4bf7a352341",
     "data/links/tauceti_TauCetiRoadmap_ClassFieldTheory.json": "e732ef18670fa399c08d1ac38d25de93daa9b87e1d0eb4d7a083a7c8d3f689db",
-    "data/links/tauceti_TauCetiRoadmap_EllipticCurves.json": "b674679a2cb220121617e8d4dcb192c4a1b14557ce1d32c61be2ccf4da73f438",
+    "data/links/tauceti_TauCetiRoadmap_EllipticCurves.json": "2ae144cdedb20a3f6bf6b5b248111c8044d666139573af9772012c3275a7c9cc",
     "data/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json": "d4886e72af1e327e4b7b2879d98bf43e9057f3fb00ca855909628efde951b481",
     "data/links/tauceti_TauCetiRoadmap_LocalFieldsRamification.json": "976784eb1ffbbb0942a42d54330a0f366d9533aac4d13290b9517a561e4d8c9d",
     "data/links/tauceti_TauCetiRoadmap_ModularCurves.json": "11d8d5795bf47cde850feba53d250e8b8c09c418022cb5c58218d1c461e86a7c",
     "data/links/tauceti_TauCetiRoadmap_Multiquadratic.json": "8cfa86728c5293ae69df72f5504bd18c192d3e0a4aa09b8334e26f9a36683445",
-    "data/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json": "28eda9a75a209959ed2575f52d6da5c8ceaecf4396477ff19dd82fb5fde18647",
+    "data/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json": "c80f798705168c36347cd76fd5ee5f263eac49754c693eb1b726b230ecdf7469",
     "data/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json": "d948a78f97a63bdc35786f237e0ecf76d3b25645d5622bb27b23ac7f537e69dd",
     "data/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json": "5257102d6493feb70a585e0ad03eb44acafa986e12e2e21db4c7c81d4e56f1ba",
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory.json": "25465cbe6da416772ffe36bd3acebeb50aad1a9f6095a73080b5f84dd62c16f9",
@@ -654,7 +655,7 @@
     "data/restructure/RS-02.md": "1878587f220cd63fbccffa73950790a123e203be1917722c0503a1fc2b775838",
     "data/restructure/RS-02.result.json": "31aabcb0086353ab033ea86e4574bea22b29c7a431ff678ba90247883a3f2d84",
     "data/restructure/RS-03.md": "7d07437e17f19237154b7dc516f509965becbf976b27aa5560ccfa350f0722e3",
-    "data/restructure/RS-03.result.json": "dd5f6b169fb584a1866c559cbd81b764502924c6abb6b5d3fb335c9d69f45e3d",
+    "data/restructure/RS-03.result.json": "dcb0a773e02933a8ec6794f20d350f66191b82f9b5e283fcbe085b06a29bba83",
     "data/restructure/RS-05.md": "06b1d8bf4b38c041fd808432d660638a4ba3167b194f27726e86b4504c5e17c2",
     "data/restructure/RS-05.result.json": "9870348ecccf53d79ee0a5a4afb4c00eeaaa8360f101670f721975df6932d150",
     "data/restructure/RS-06.md": "04a11c68e76534586b2171af090c298e7e04efd7ef403ed836019d09aff5b2d9",
