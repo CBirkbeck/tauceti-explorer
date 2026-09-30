@@ -39733,8 +39733,9 @@
     "REV-PAPER-LAND-MATHEW-MEIER-ETAL-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4329"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4329",
+   "finishedAt": "2026-09-30T02:28:21Z"
   },
   {
    "id": "RT-PAPER-ANDRE-18-B",
@@ -39779,7 +39780,8 @@
     "REV-PAPER-ANDRE-18-B"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-ANDRE-18-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4331"
   },
   {
    "id": "RT-PAPER-NELSON-VENKATESH-21",
