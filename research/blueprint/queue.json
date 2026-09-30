@@ -38142,7 +38142,8 @@
     "REV-PAPER-HE-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4253"
   },
   {
    "id": "RT-PAPER-MERKURJEV-SCAVIA-26",
@@ -40926,8 +40927,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4364"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4364",
+   "finishedAt": "2026-09-30T11:47:51Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
