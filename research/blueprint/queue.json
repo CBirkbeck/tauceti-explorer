@@ -23651,12 +23651,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -46203,8 +46203,9 @@
     "REV-ClassicalSerreModularity--R33.5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalSerreModularity--R33.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4432"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4432",
+   "finishedAt": "2026-09-30T15:37:25Z"
   },
   {
    "id": "RT-BP-EllipticCurveModularity",
