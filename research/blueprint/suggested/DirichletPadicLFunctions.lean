@@ -14002,3 +14002,122 @@ example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hpD : ¬p ∣ D) (
 example (ε : K) (hε : IsPrimitiveRoot ε 9) :
     gaussSum (1 : DirichletCharacter K 9) (AddChar.zmodChar 9 hε.pow_eq_one) = 0 := by sorry
 end SuggestedPrimitiveGaussTests
+
+/-! Tame logarithmic denominators and the integral ordinary derivative.
+The coefficient integer ring has only its native inclusion. The degree factor
+is essential; no integral normalized logarithm or fixed linear norm growth follows.
+-/
+noncomputable section
+namespace DirichletPadic
+open PowerSeries
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [CharZero K]
+  {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+
+theorem tameNormalizedLogPrimitive_coeff_norm_le_of_tame (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (n : ℕ) (hn : 0 < n) :
+    ‖coeff n (tameNormalizedLogPrimitive η ε hε)‖ ≤ ‖(n : K)‖⁻¹ := by sorry
+
+theorem tameNormalizedLogPrimitive_nat_mul_coeff_mem (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (n : ℕ) : (n : K) * coeff n (tameNormalizedLogPrimitive η ε hε) ∈ O := by sorry
+
+theorem tameNormalizedLogPrimitive_coeff_mem_of_not_dvd (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (n : ℕ) (hpn : ¬p ∣ n) : coeff n (tameNormalizedLogPrimitive η ε hε) ∈ O := by sorry
+
+theorem tameNormalizedLogPrimitive_derivative_integral (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hDK : IsUnit (D : K)) :
+    PowerSeries.map (O).subtype
+      (integralTameSeries η hDK hpD * PowerSeries.invOfUnit (1 + X : O⟦X⟧) (1 : Oˣ)) =
+      derivative K (tameNormalizedLogPrimitive η ε hε) := by sorry
+end DirichletPadic
+
+namespace SuggestedLogIntegralTests
+open DirichletPadic PowerSeries
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [CharZero K]
+  {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+
+-- first_coefficient_norm
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    ‖coeff 1 (tameNormalizedLogPrimitive η ε hε)‖ ≤ 1 := by sorry
+
+-- composite_conductor_norm
+example (η : DirichletCharacter K 9) (hη : η.IsPrimitive)
+    (hpD : ¬p ∣ 9) (ε : K) (hε : IsPrimitiveRoot ε 9) :
+    ∀ n : ℕ, 0 < n → ‖coeff n (tameNormalizedLogPrimitive η ε hε)‖ ≤ ‖(n : K)‖⁻¹ := by sorry
+
+-- dyadic_first_norm
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (hp : p = 2) :
+    ‖coeff 1 (tameNormalizedLogPrimitive η ε hε)‖ ≤ 1 := by sorry
+
+-- weighted_degree_zero
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    (0 : K) * coeff 0 (tameNormalizedLogPrimitive η ε hε) = 0 := by sorry
+
+-- weighted_degree_one
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    coeff 1 (tameNormalizedLogPrimitive η ε hε) ∈ O := by sorry
+
+-- weighted_dyadic_quadratic
+example (η : DirichletCharacter K 3) (hη : η.IsPrimitive)
+    (hpD : ¬p ∣ 3) (ε : K) (hε : IsPrimitiveRoot ε 3) (hp : p = 2) (h2 : η 2 = -1) :
+    (2 : K) * coeff 2 (tameNormalizedLogPrimitive η ε hε) = -1/3 ∧ (-1/3 : K) ∈ O := by sorry
+
+-- ordinary_derivative_coeff_integral
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (n : ℕ) :
+    coeff n (derivative K (tameNormalizedLogPrimitive η ε hε)) ∈ O := by sorry
+
+-- degree_one_integral
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    coeff 1 (tameNormalizedLogPrimitive η ε hε) ∈ O := by sorry
+
+-- prime_plus_one_integral
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    coeff (p+1) (tameNormalizedLogPrimitive η ε hε) ∈ O := by sorry
+
+-- odd_degree_dyadic_integral
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (hp : p = 2) (n : ℕ) (hn : Odd n) :
+    coeff n (tameNormalizedLogPrimitive η ε hε) ∈ O := by sorry
+
+-- included_derivative_coefficient
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : IsUnit (D : K)) (n : ℕ) :
+    ((coeff n (integralTameSeries η hDK hpD * PowerSeries.invOfUnit (1 + X : O⟦X⟧) (1 : Oˣ)) : O) : K) =
+      (n+1 : K) * coeff (n+1) (tameNormalizedLogPrimitive η ε hε) := by sorry
+
+-- included_derivative_mass
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : IsUnit (D : K)) :
+    ((constantCoeff (integralTameSeries η hDK hpD * PowerSeries.invOfUnit (1 + X : O⟦X⟧) (1 : Oˣ)) : O) : K) = constantCoeff (tameSeries η hDK) := by sorry
+
+-- derivative_root_independent
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : IsUnit (D : K)) (ε' : K) (hε' : IsPrimitiveRoot ε' D) :
+    derivative K (tameNormalizedLogPrimitive η ε hε) = derivative K (tameNormalizedLogPrimitive η ε' hε') := by sorry
+
+-- ordinary_derivative_not_mahler
+example (η : DirichletCharacter K 3) (hη : η.IsPrimitive)
+    (hpD : ¬p ∣ 3) (ε : K) (hε : IsPrimitiveRoot ε 3) (h2 : η 2 = -1) (hDK : IsUnit (3 : K)) :
+    coeff 1 (derivative K (tameNormalizedLogPrimitive η ε hε)) = -1/3 ∧ coeff 1 (tameSeries η hDK) = 0 := by sorry
+
+-- normalized_series_not_integral
+example (η : DirichletCharacter K 3) (hη : η.IsPrimitive)
+    (hpD : ¬p ∣ 3) (ε : K) (hε : IsPrimitiveRoot ε 3) (h2 : η 2 = -1) (hp : p = 2) :
+    coeff 2 (tameNormalizedLogPrimitive η ε hε) ∉ O := by sorry
+
+end SuggestedLogIntegralTests
+end

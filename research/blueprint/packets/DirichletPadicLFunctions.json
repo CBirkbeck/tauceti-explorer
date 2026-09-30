@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Four new arithmetic comparisons/certificates and one fine API promotion discharge the tame Gauss normalization in the coefficient field and its native integer ring. Four new suggested declarations and eighteen tests preserve all734predecessor nodes and the existing conditional formulas.",
+  "summary": "Four fine arithmetic logarithmic nodes and fifteen typed tests discharge the Gauss factor, clear the coefficient denominator by its degree, identify p-unit-degree integral coefficients and give an explicit integral preimage of the ordinary derivative. All739predecessor nodes and629baseline declarations remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -49459,6 +49459,282 @@
       "acceptance": [
         "No independent ℤ_p action on O is introduced and no measure-space or integral-ring carrier is duplicated."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-logarithmic-coefficient-bound-certified",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The tame logarithmic bound with normalization discharged",
+      "kind": "lemma",
+      "statement": "For every n>0, ‖coeff_n H‖≤‖(n:K)‖⁻¹.",
+      "hypotheses": [
+        "p is any prime, including2. K is a nontrivially normed ultrametric characteristic-zero field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Completeness is unnecessary. D>1, with NeZero D, p∤D and primitive η:DirichletCharacter K D. ε∈K is a native primitive Dth root.",
+        "H=tameNormalizedLogPrimitive(η,ε) is the existing normalized formal logarithmic series; G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). The preceding tame Gauss theorem derives ‖G‖=1. Neither a separate nonvanishing certificate nor an analytic logarithm branch is assumed.",
+        "O is exactly Valuation.integer(NormedField.valuation(K)), with its native inclusion into K. The coefficient index n is a natural number; the exact field norm of n is retained. Bounded scalar multiplication by ℤ_p does not assert that the norm on K is the normalized p-adic norm, so a fixed linear real growth estimate is not inferred."
+      ],
+      "proofSteps": [
+        "First derive ‖(D:K)‖=1. Native PadicInt.norm_natCast_eq_one_iff and PadicInt.isUnit_iff make D a unit of ℤ_p. The bounded scalar action sends both D and its native PadicInt.inv into elements of K of norm≤1: write the image as x acting on1 and use norm_smul_le and PadicInt.norm_le_one.",
+        "Map PadicInt.mul_inv into K. The product of these two images is1, so multiplicativity forces the norm of D to be1. This finite norm argument is the complete tame_nat_norm probe reused explicitly from the preceding checkpoint, not a new general arithmetic or norm carrier.",
+        "Apply the existing tame-logarithmic-coefficient-norm-bound node to the actual H with this norm(D) certificate. Its conclusion retains ‖G⁻¹‖·‖n‖⁻¹ and remains valid under its earlier more general character hypotheses.",
+        "The new tame-primitive-gauss-norm fine node gives ‖G‖=1, hence ‖G⁻¹‖=1. Substitute this into the earlier bound. The complete normalization_bound probe checks this last reduction independently of any analytic convergence statement.",
+        "The result includes composite tame conductors and p=2. It does not strengthen the earlier restrictedness result at radius1 or remove its explicit integer-growth parameter. In particular contractivity of the ℤ_p action is compatible with norms on K rescaled by a power greater than1."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-logarithmic-coefficient-norm-bound",
+        "DirichletPadicLFunctions:L2/tame-primitive-gauss-norm",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.mul_inv",
+        "mathlib:PadicInt.norm_le_one",
+        "mathlib:norm_smul_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameNormalizedLogPrimitive_coeff_norm_le_of_tame"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, display(6-2), Lemmas6.4–6.5 and Theorem6.1(ii), published149–153/PDF50–54, freshly read in full on30September2026; the tame Gauss unit normalization is Section5.2, Theorem5.7 and equation(5-3), published143–144.",
+          "excerpt": "formally",
+          "match": "Worker arithmetic consequences of the source tame logarithmic coefficient estimate and its formal Mahler derivative. The existing native norm-valuation integer ring and formal inverse of a series with unit constant are reused. The normalized constant is0; the analytic logarithm constant and the corrected pure-p-power boundary remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogIntegralTests.first_coefficient_norm",
+          "kind": "computation",
+          "statement": "At n=1 the normalized logarithmic coefficient has norm≤1."
+        },
+        {
+          "name": "SuggestedLogIntegralTests.composite_conductor_norm",
+          "kind": "computation",
+          "statement": "At primitive conductor9, every positive coefficient satisfies the same bound for all p∤9."
+        },
+        {
+          "name": "SuggestedLogIntegralTests.dyadic_first_norm",
+          "kind": "computation",
+          "statement": "At p=2 the first coefficient still has norm≤1."
+        }
+      ],
+      "acceptance": [
+        "No new logarithm, R+ algebra or growth predicate is constructed. The earlier exact bound, polynomial-growth and restrictedness nodes remain whole with their original hypotheses."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-logarithmic-weighted-integrality",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The degree clears the logarithmic denominator",
+      "kind": "lemma",
+      "statement": "For every n≥0, (n:K)·coeff_n H belongs to O.",
+      "hypotheses": [
+        "p is any prime, including2. K is a nontrivially normed ultrametric characteristic-zero field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Completeness is unnecessary. D>1, with NeZero D, p∤D and primitive η:DirichletCharacter K D. ε∈K is a native primitive Dth root.",
+        "H=tameNormalizedLogPrimitive(η,ε) is the existing normalized formal logarithmic series; G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). The preceding tame Gauss theorem derives ‖G‖=1. Neither a separate nonvanishing certificate nor an analytic logarithm branch is assumed.",
+        "O is exactly Valuation.integer(NormedField.valuation(K)), with its native inclusion into K. The coefficient index n is a natural number; the exact field norm of n is retained. Bounded scalar multiplication by ℤ_p does not assert that the norm on K is the normalized p-adic norm, so a fixed linear real growth estimate is not inferred."
+      ],
+      "proofSteps": [
+        "At n=0 the product is0, independently of the constant coefficient. At n>0, characteristic zero makes n nonzero in K.",
+        "Multiply the preceding norm bound by the nonnegative scalar ‖n‖. Multiplicativity and ‖n‖·‖n‖⁻¹=1 show that the product has norm≤1.",
+        "Native NormedField.valuation_apply identifies the norm-valuation integer-ring membership predicate with this bound. No new integral coefficient constructor is needed. The complete clear_denominator probe checks both the zero and positive cases.",
+        "Native coeff_derivative then shows every coefficient of the ordinary derivative H′ is integral: its nth coefficient is(n+1)coeff_(n+1)H. The explicit integral-series preimage is supplied by the separate derivative comparison below.",
+        "The degree multiplier is essential. For the primitive quadratic character modulo3 with η(2)=−1, coeff_2 H=−1/6 while2coeff_2 H=−1/3. At p=2 the latter is integral and the former is not:3 has norm1 and bounded ℤ_2 scalar action gives ‖2‖≤1/2."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-logarithmic-coefficient-bound-certified",
+        "mathlib:NormedField.valuation_apply",
+        "mathlib:PowerSeries.coeff_derivative",
+        "DirichletPadicLFunctions:L3/normalized-tame-logarithmic-coefficients"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameNormalizedLogPrimitive_nat_mul_coeff_mem"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, display(6-2), Lemmas6.4–6.5 and Theorem6.1(ii), published149–153/PDF50–54, freshly read in full on30September2026; the tame Gauss unit normalization is Section5.2, Theorem5.7 and equation(5-3), published143–144.",
+          "excerpt": "formally",
+          "match": "Worker arithmetic consequences of the source tame logarithmic coefficient estimate and its formal Mahler derivative. The existing native norm-valuation integer ring and formal inverse of a series with unit constant are reused. The normalized constant is0; the analytic logarithm constant and the corrected pure-p-power boundary remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogIntegralTests.weighted_degree_zero",
+          "kind": "degenerate",
+          "statement": "At degree0 the weighted coefficient is0."
+        },
+        {
+          "name": "SuggestedLogIntegralTests.weighted_degree_one",
+          "kind": "computation",
+          "statement": "At degree1 the coefficient itself belongs to O."
+        },
+        {
+          "name": "SuggestedLogIntegralTests.weighted_dyadic_quadratic",
+          "kind": "computation",
+          "statement": "For the quadratic character at conductor3 and p=2,2coeff_2 H=−1/3∈O."
+        },
+        {
+          "name": "SuggestedLogIntegralTests.ordinary_derivative_coeff_integral",
+          "kind": "compatibility",
+          "statement": "Every coefficient of the ordinary formal derivative H′ belongs to O."
+        }
+      ],
+      "acceptance": [
+        "This statement is coefficient integrality after multiplying by the actual degree. It does not assert that H itself is an O-valued series or the Amice transform of a bounded O-valued measure."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-logarithmic-prime-unit-integrality",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Logarithmic coefficients at degrees prime to p",
+      "kind": "lemma",
+      "statement": "If p∤n, then coeff_n H belongs to O.",
+      "hypotheses": [
+        "p is any prime, including2. K is a nontrivially normed ultrametric characteristic-zero field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Completeness is unnecessary. D>1, with NeZero D, p∤D and primitive η:DirichletCharacter K D. ε∈K is a native primitive Dth root.",
+        "H=tameNormalizedLogPrimitive(η,ε) is the existing normalized formal logarithmic series; G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). The preceding tame Gauss theorem derives ‖G‖=1. Neither a separate nonvanishing certificate nor an analytic logarithm branch is assumed.",
+        "O is exactly Valuation.integer(NormedField.valuation(K)), with its native inclusion into K. The coefficient index n is a natural number; the exact field norm of n is retained. Bounded scalar multiplication by ℤ_p does not assert that the norm on K is the normalized p-adic norm, so a fixed linear real growth estimate is not inferred.",
+        "The degree n need not be prime; p∤n implies n>0."
+      ],
+      "proofSteps": [
+        "Use the preceding weighted-integrality result. Native PadicInt.norm_natCast_eq_one_iff and PadicInt.isUnit_iff give an actual unit n of ℤ_p.",
+        "Its native PadicInt.inv maps to(n:K)⁻¹ by mapping the inverse identity and cancelling the nonzero field element n. The bounded scalar action places this inverse image in O, using norm_smul_le and PadicInt.norm_le_one.",
+        "Multiply the integral inverse by the integral weighted coefficient inside the existing subring O, then cancel n in K. The complete prime_unit_coefficient probe performs precisely this argument.",
+        "At n=1 and n=p+1 the divisibility hypothesis holds. At p=2 it holds at every odd degree. Degrees divisible by p are covered only by the weighted statement; the quadratic conductor3 degree2 example prevents deleting the condition."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-logarithmic-weighted-integrality",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.mul_inv",
+        "mathlib:PadicInt.norm_le_one",
+        "mathlib:norm_smul_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameNormalizedLogPrimitive_coeff_mem_of_not_dvd"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, display(6-2), Lemmas6.4–6.5 and Theorem6.1(ii), published149–153/PDF50–54, freshly read in full on30September2026; the tame Gauss unit normalization is Section5.2, Theorem5.7 and equation(5-3), published143–144.",
+          "excerpt": "formally",
+          "match": "Worker arithmetic consequences of the source tame logarithmic coefficient estimate and its formal Mahler derivative. The existing native norm-valuation integer ring and formal inverse of a series with unit constant are reused. The normalized constant is0; the analytic logarithm constant and the corrected pure-p-power boundary remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogIntegralTests.degree_one_integral",
+          "kind": "computation",
+          "statement": "The first logarithmic coefficient is integral."
+        },
+        {
+          "name": "SuggestedLogIntegralTests.prime_plus_one_integral",
+          "kind": "computation",
+          "statement": "The coefficient at degree p+1 is integral for every prime p."
+        },
+        {
+          "name": "SuggestedLogIntegralTests.odd_degree_dyadic_integral",
+          "kind": "compatibility",
+          "statement": "For p=2 every odd-degree logarithmic coefficient is integral."
+        }
+      ],
+      "acceptance": [
+        "The denominator is handled by the native p-adic integer unit, without choosing an independent ℤ_p action on O or a uniformizer."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-logarithmic-derivative-integral-series",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The ordinary derivative as an included integral series",
+      "kind": "comparison",
+      "statement": "The image in K[[T]] of integralTameSeries(η)·invOfUnit(1+T,1) is the ordinary derivative H′.",
+      "hypotheses": [
+        "p is any prime, including2. K is a nontrivially normed ultrametric characteristic-zero field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Completeness is unnecessary. D>1, with NeZero D, p∤D and primitive η:DirichletCharacter K D. ε∈K is a native primitive Dth root.",
+        "H=tameNormalizedLogPrimitive(η,ε) is the existing normalized formal logarithmic series; G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one). The preceding tame Gauss theorem derives ‖G‖=1. Neither a separate nonvanishing certificate nor an analytic logarithm branch is assumed.",
+        "O is exactly Valuation.integer(NormedField.valuation(K)), with its native inclusion into K. The coefficient index n is a natural number; the exact field norm of n is retained. Bounded scalar multiplication by ℤ_p does not assert that the norm on K is the normalized p-adic norm, so a fixed linear real growth estimate is not inferred.",
+        "hDK:IsUnit(D:K) is the certificate of the existing tameSeries and integralTameSeries constructors. The inverse is native PowerSeries.invOfUnit over the commutative ring O, using the unit1 as the constant coefficient of1+T."
+      ],
+      "proofSteps": [
+        "Derive G≠0 from the tame-primitive-gauss-norm theorem, then apply the earlier normalized-tame-logarithmic-derivative node. The fine supplier Mahler-derivation-value formula rewrites its conclusion as(1+T)H′=tameSeries η hDK.",
+        "The preceding promoted tame-integral-series-map node identifies tameSeries with the image of the existing integralTameSeries. The entire right-hand side therefore has a specified O-valued preimage, not just a coefficient bound.",
+        "Native mul_invOfUnit gives(1+T)invOfUnit(1+T,1)=1 inside O[[T]], since the constant coefficient is1. Map this identity through the native inclusion. Its ring-homomorphism laws and map_X identify the mapped factor1+T.",
+        "Multiply the mapped integral tame series by this mapped inverse. Substitute(1+T)H′, commute the factors and cancel their displayed product1. The complete derivative_lift probe checks this finite formal identity; no field inverse on O[[T]] is presumed.",
+        "Native coeff_map and coeff_derivative give the included coefficient(n+1)coeff_(n+1)H. The native derivative_lift_coefficient and derivative_integral_coefficients probes also recover weighted integrality directly from this explicit series, including n=0.",
+        "The image is independent of ε because its O-series preimage is fixed. Its constant coefficient is the constant coefficient of tameSeries. At quadratic modulus3 its degree1 coefficient is−1/3, while the degree1 coefficient of tameSeries is0: the ordinary and Mahler derivatives remain distinct.",
+        "This formal comparison needs neither completeness nor a compatible ℤ_p-algebra on O. It asserts no O-valued Amice comparison, logarithm branch, distribution identification or L(1)-value formula."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-primitive-gauss-norm",
+        "DirichletPadicLFunctions:L3/normalized-tame-logarithmic-derivative",
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value",
+        "DirichletPadicLFunctions:L2/tame-integral-series-map",
+        "mathlib:PowerSeries.invOfUnit",
+        "mathlib:PowerSeries.mul_invOfUnit",
+        "mathlib:PowerSeries.map_X",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_derivative"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameNormalizedLogPrimitive_derivative_integral"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, display(6-2), Lemmas6.4–6.5 and Theorem6.1(ii), published149–153/PDF50–54, freshly read in full on30September2026; the tame Gauss unit normalization is Section5.2, Theorem5.7 and equation(5-3), published143–144.",
+          "excerpt": "formally",
+          "match": "Worker arithmetic consequences of the source tame logarithmic coefficient estimate and its formal Mahler derivative. The existing native norm-valuation integer ring and formal inverse of a series with unit constant are reused. The normalized constant is0; the analytic logarithm constant and the corrected pure-p-power boundary remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogIntegralTests.included_derivative_coefficient",
+          "kind": "compatibility",
+          "statement": "The nth included coefficient of the displayed integral series is(n+1)coeff_(n+1)H."
+        },
+        {
+          "name": "SuggestedLogIntegralTests.included_derivative_mass",
+          "kind": "computation",
+          "statement": "Its included constant coefficient is the constant coefficient of tameSeries."
+        },
+        {
+          "name": "SuggestedLogIntegralTests.derivative_root_independent",
+          "kind": "characterisation",
+          "statement": "Ordinary derivatives from two primitive-root choices are equal."
+        },
+        {
+          "name": "SuggestedLogIntegralTests.ordinary_derivative_not_mahler",
+          "kind": "non-example",
+          "statement": "For the quadratic character modulo3, H′ has degree1 coefficient−1/3 whereas tameSeries has degree1 coefficient0."
+        },
+        {
+          "name": "SuggestedLogIntegralTests.normalized_series_not_integral",
+          "kind": "non-example",
+          "statement": "For the quadratic character modulo3 at p=2, coeff_2 H does not belong to O."
+        }
+      ],
+      "acceptance": [
+        "Only existing integral series and native ring operations occur. Generic analytic integration and logarithm branches retain Coleman ownership, and locally analytic distribution theory retains LAD ownership."
+      ]
     }
   ],
   "requests": [
@@ -49569,7 +49845,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The Euler-modified and unmodified Bernoulli sequences now have explicit sufficient precision cutoffs. The exact Euler-removal error is native arithmetic and closes no analytic stage. Constructing the canonical character family, proving scalar Mellin/derivative comparisons, identifying the analytic branch and establishing meromorphic pole order remain open with PMIA L0a and LAD L3 ownership. The seven existing mass-comparison supplier boundaries, eleven requests and fifteen gaps remain. Generalized Eisenstein constants, tame distribution-to-L-value identification, full source extraction and the missing pinned TwistedDivisorSum artifact remain separate work.",
+        "The tame normalized logarithmic coefficients now have an exact inverse-degree norm bound, degree-weighted integrality, p-unit-degree integrality and an explicit ordinary derivative in the image of the existing integral series. Next assess the normalized formal primitive under conductor changes, retaining its zero constant and the ordinary-versus-Mahler derivative distinction. The canonical character family, scalar Mellin/derivative comparisons, analytic branch identification, logarithm constant, distribution-to-L-value comparison and meromorphic pole order remain open with their existing PMIA, LAD and Coleman owners. The seven mass-comparison supplier boundaries, eleven requests, fifteen gaps, full source extraction and missing pinned TwistedDivisorSum artifact remain separate work.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -49601,7 +49877,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The Euler-modified and unmodified Bernoulli sequences now have explicit sufficient precision cutoffs. The exact Euler-removal error is native arithmetic and closes no analytic stage. Constructing the canonical character family, proving scalar Mellin/derivative comparisons, identifying the analytic branch and establishing meromorphic pole order remain open with PMIA L0a and LAD L3 ownership. The seven existing mass-comparison supplier boundaries, eleven requests and fifteen gaps remain. Generalized Eisenstein constants, tame distribution-to-L-value identification, full source extraction and the missing pinned TwistedDivisorSum artifact remain separate work. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The tame normalized logarithmic coefficients now have an exact inverse-degree norm bound, degree-weighted integrality, p-unit-degree integrality and an explicit ordinary derivative in the image of the existing integral series. Next assess the normalized formal primitive under conductor changes, retaining its zero constant and the ordinary-versus-Mahler derivative distinction. The canonical character family, scalar Mellin/derivative comparisons, analytic branch identification, logarithm constant, distribution-to-L-value comparison and meromorphic pole order remain open with their existing PMIA, LAD and Coleman owners. The seven mass-comparison supplier boundaries, eleven requests, fifteen gaps, full source extraction and missing pinned TwistedDivisorSum artifact remain separate work. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -49967,32 +50243,32 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All16findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole; no new source finding or independent verdict.",
     "validation": {
-      "nodes": 739,
+      "nodes": 743,
       "kinds": {
         "definition": 2,
-        "lemma": 275,
+        "lemma": 278,
         "construction": 72,
         "theorem": 224,
-        "comparison": 166
+        "comparison": 167
       },
       "api": 549,
-      "packetTests": 1308,
+      "packetTests": 1323,
       "definitionConstructionTests": 309,
-      "typedExamples": 1311,
+      "typedExamples": 1326,
       "planets": 24,
       "baseline": 629,
-      "preservedWholeNodes": 734,
-      "preservedBaseline": 625,
+      "preservedWholeNodes": 739,
+      "preservedBaseline": 629,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 5,
+      "newNodes": 4,
       "newNamedDeclarations": 4,
-      "newTypedTests": 18,
+      "newTypedTests": 15,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 997,
-      "dependencyEdges": 5167,
+      "reachableNodes": 1001,
+      "dependencyEdges": 5193,
       "acyclic": true,
       "baselineLeaves": 804,
       "stageRequestLeaves": [
@@ -50006,7 +50282,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 375828,
+      "readerWords": 378631,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -50033,8 +50309,8 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 12,
-      "scratchMathlibModules": 2825,
+      "scratchCompleteLemmas": 10,
+      "scratchMathlibModules": 2856,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
@@ -50052,13 +50328,22 @@
         "dyadicPlaces": 17,
         "integralInverseChecks": 164,
         "finiteRingInverseChecks": 492,
-        "gaussSeriesCoefficients": 145,
-        "integralSeriesCoefficients": 390,
+        "gaussSeriesCoefficients": 348,
+        "integralSeriesCoefficients": 936,
         "wrongInverseCharacterFailures": 18,
-        "wrongCoefficientSignFailures": 43,
+        "wrongCoefficientSignFailures": 147,
         "imprimitiveProductFailures": 31,
         "principalCompositeZeroGauss": 7,
-        "modulusOneChecks": 1
+        "modulusOneChecks": 1,
+        "logCoefficients": 348,
+        "weightedIntegralCoefficients": 1066,
+        "primeUnitIntegralCoefficients": 739,
+        "dyadicWeightedCoefficients": 221,
+        "derivativeCoefficientChecks": 348,
+        "finiteRingDerivativeChecks": 2952,
+        "wrongDerivativeFailures": 288,
+        "missingDegreeDivisionFailures": 298,
+        "coefficientCoordinateDenominatorCases": 178
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -50068,7 +50353,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "b026be83f366f51958e6af5fdea37db4b887cceee4f67217c2d6f5ff904f24fa",
+      "sha256": "9678f42f5943b5214f47998d9ca90990c00a009384e5589379af8755b0241372",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -50083,11 +50368,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 12,
+        "completeLemmas": 10,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "d87ff9a9158bfa8fcda7313453713b5f96e0a9531cfc78a0db3b4a6a2384b731"
+        "sha256": "e9ffa33dc2f6ba934d12dc859375864146a95b0352850870bda38426368b245e"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -50174,7 +50459,7 @@
       }
     },
     "publication": {
-      "base": "5792af9132e66ca3c1243e9f6d8546cbace1dcd0",
+      "base": "ac05b983af3d9cb88bc163fb68ba35f2b0ddee8d",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -57815,6 +58100,66 @@
         "modulusOneChecks": 1
       },
       "numericalMethod": "Exact rational cyclotomic quotient rings Q[z]/Phi_l for all characters at twelve moduli, with least-conductor primitivity checked independently. Gauss products, all-residue shifts and same-additive-character parity are exact. Source Gauss coefficients through degree4 are compared with an independent root-free finite numerator/divisor recurrence. Tame inverse integrality is checked by rational coordinates and reduction modulo p,p²,p³; this is sufficient only and does not identify the quotient with the full local integer ring or prove the general theorem.",
+      "fullSuggestedCompiled": false
+    },
+    "tameLogIntegrality": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5203,
+      "previousHead": "2cf6e6e77ead8fed47528cc414e615512639e997",
+      "previousMerge": "37300ff5c66f34b803b1f89bffed9f232a16d3a4",
+      "preservedWholeNodes": 739,
+      "preservedBaseline": 629,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "Freshly read complete RJW published149–153, the reviewed AUDIT-24 L3 record, the existing normalized primitive, coefficient, derivative, norm-bound and restrictedness nodes, the native formal inverse/derivative/map statements and their ambient ring hypotheses. Reused the preceding tame Gauss certificate and native p-adic integer inverse ingredients. The current input capture has no changed files among66inputs and preserves all4merged predecessor files.",
+      "boundary": "The tame normalized logarithmic coefficients now have an exact inverse-degree norm bound, degree-weighted integrality, p-unit-degree integrality and an explicit ordinary derivative in the image of the existing integral series. Next assess the normalized formal primitive under conductor changes, retaining its zero constant and the ordinary-versus-Mahler derivative distinction. The canonical character family, scalar Mellin/derivative comparisons, analytic branch identification, logarithm constant, distribution-to-L-value comparison and meromorphic pole order remain open with their existing PMIA, LAD and Coleman owners. The seven mass-comparison supplier boundaries, eleven requests, fifteen gaps, full source extraction and missing pinned TwistedDivisorSum artifact remain separate work.",
+      "inputBase": "ac05b983af3d9cb88bc163fb68ba35f2b0ddee8d",
+      "sourceBoundary": "All16findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole; no new source finding or independent verdict.",
+      "inputRefresh": "Publication registry refresh: fourteen changed records read. Skinner E5/E6 now record the Burungale–Skinner–Wan algebraic-point logarithm repair and retain the full published conclusions, with review reset rather than inherited confirmation; E12 corrects the Brooks transfer locator. Smith E1–E11 distinguish its uncollated published article from arXiv v2 and cover extremum direction, absolute values, nonnegative minima, total mass, zero logarithmic multipliers, one-point components, energy sign, convex-hull roots, interval/cofactor endpoints and the minimal-shift interval argument. Their changed extraction remains awaiting review; the separate errata ledger is not a verdict on it. The generated register changes corresponding entries and aggregates. None supplies this Dirichlet formal-series argument. All16Dirichlet findings,64other captured inputs and four predecessor outputs remain whole. No independent source review or upstream fix is claimed.",
+      "publication": {
+        "base": "ac05b983af3d9cb88bc163fb68ba35f2b0ddee8d",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "moduli": 12,
+        "characters": 61,
+        "primitiveCharacters": 30,
+        "compositePrimitiveCharacters": 20,
+        "gaussProductChecks": 30,
+        "sameAdditiveParityChecks": 30,
+        "allResidueShiftChecks": 339,
+        "nonunitShiftChecks": 160,
+        "primePlacePairs": 82,
+        "dyadicPlaces": 17,
+        "integralInverseChecks": 164,
+        "finiteRingInverseChecks": 492,
+        "gaussSeriesCoefficients": 348,
+        "integralSeriesCoefficients": 936,
+        "wrongInverseCharacterFailures": 18,
+        "wrongCoefficientSignFailures": 147,
+        "imprimitiveProductFailures": 31,
+        "principalCompositeZeroGauss": 7,
+        "modulusOneChecks": 1,
+        "logCoefficients": 348,
+        "weightedIntegralCoefficients": 1066,
+        "primeUnitIntegralCoefficients": 739,
+        "dyadicWeightedCoefficients": 221,
+        "derivativeCoefficientChecks": 348,
+        "finiteRingDerivativeChecks": 2952,
+        "wrongDerivativeFailures": 288,
+        "missingDegreeDivisionFailures": 298,
+        "coefficientCoordinateDenominatorCases": 178
+      },
+      "numericalMethod": "Current logarithmic coefficients through degree12 are independently checked from the explicit Gauss logarithm and the recursion (1+T)derivative(H)=F with H0=0; multiplication by n, p-unit degree integrality, and derivative convolution are tested at all tame prime/place pairs including2. Coordinate denominator cases are failures of that sufficient coordinate test only. The rational quadratic-conductor3 coefficient H2=-1/6 gives the genuine dyadic nonintegrality example, with2H2=-1/3 integral. Exact rational cyclotomic quotient rings Q[z]/Phi_l for all characters at twelve moduli, with least-conductor primitivity checked independently. Gauss products, all-residue shifts and same-additive-character parity are exact. Source Gauss coefficients through degree11 are compared with an independent root-free finite numerator/divisor recurrence. Tame inverse integrality is checked by rational coordinates and reduction modulo p,p²,p³; this is sufficient only and does not identify the quotient with the full local integer ring or prove the general theorem.",
       "fullSuggestedCompiled": false
     }
   },
