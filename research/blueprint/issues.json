@@ -3070,5 +3070,13 @@
  "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups": 5180,
  "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl": 5181,
  "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras": 5182,
- "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved": 5183
+ "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved": 5183,
+ "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective": 5184,
+ "REV-FIX-RT-RS-06": 5185,
+ "REV-FIX-RT-RS-07": 5186,
+ "REV-FIX-RT-RS-15": 5187,
+ "REV-FIX-RT-RS-28": 5188,
+ "FIX-RT-BP-ClassicalSerreModularity--R33.5": 5189,
+ "REV-FIX-RT-BP-ClassicalSerreModularity--R33.5": 5190,
+ "REV-FIX-RT-BP-EllipticCurveModularity": 5191
 }
