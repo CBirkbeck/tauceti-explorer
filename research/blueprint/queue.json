@@ -34095,7 +34095,8 @@
     "REV-PAPER-BROWNING-SAWIN-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BROWNING-SAWIN-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4084"
   },
   {
    "id": "RT-PAPER-DEMARCO-KRIEGER-YE-20",
