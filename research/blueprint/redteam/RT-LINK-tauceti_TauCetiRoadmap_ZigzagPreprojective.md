@@ -165,4 +165,3 @@ No Lean file is required or compiled; no library build or generated atlas edit o
 | `data/library-coverage.json` | `6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a` |
 | Liu–Wang PDF | `d2b6f7987aebae2e41659a0d0a4198107951afc36f6f9885b98d785af67390e7` |
 | Huerfano–Khovanov PDF | `fa1f2fbb4819ff2a2c8f81a0079ef870e1405c1eec57daa3b92d32b5a05567df` |
-
