@@ -1,0 +1,62 @@
+{
+  "redteam": "RT-AREA-motives",
+  "protocol": "redteam-v1",
+  "status": "partial",
+  "target": "MotivesAndAlgebraicCycles",
+  "summary": "Partial MC.5 countermodel audit after reading the roadmap and previous corrective reviews. Four concrete defects remain: the PairHomology interface admits the zero theory although singularRep_gm asserts rank one; the very-good-pair predicate excludes the degree-zero point and makes its point test vacuous; the cellular realisation contract has no comparison between the input representation and singular cohomology; and the generic generation predicate omits the zero object. Three high-severity findings and one medium-severity boundary-case finding. This is not a completed area-wide sweep, an exhaustive library-absence search, or a re-review of every source issue.",
+  "checked": [
+    "Read WORKERS.md, BROWSER_AGENTS.md, PROTOCOL.md, UPSTREAM_GUIDE.md, the expansion protocol and issue #1519 with its comments; claim gpt6-c84e12 was acknowledged by bot comment 5909840935.",
+    "Read content/campaign/MotivesAndAlgebraicCycles/README.md and all eight MC.0-MC.7 stage descriptions in research/blueprint/atlas/roadmaps/MotivesAndAlgebraicCycles.json. Read the existing REV-MotivesAndAlgebraicCycles, REV-AUDIT-35 and BP-MotivesAndAlgebraicCycles handoff as historical work, not fresh verification of their claims. Read the RS-08 roadmap-level decision; a complete cross-restructure search remains undone.",
+    "Frozen evidence snapshot: 9e5711ed24aed8212edb0430435098ad34932adc. Inspected the packet's header, relevant baseline and source entries, selected MC.0/MC.3/MC.4 nodes, the appended MC.5 finite-comodule, universality, generation, singular-cohomology, Basic Lemma and cellular-realisation nodes, and E30-E37 where relevant. Packet blob: 21b0e327e658538fe64f7ab9ec9ce307e1ce06b0. The whole 173-node packet was not read in this pass.",
+    "Read the suggested Lean file's header and relevant MC.4/MC.5 signatures, in particular Diagram and Rep (5480-5640), category.generation (5700-5860), rank-one extension and pair carriers (6070-6275), the entire PairHomology record, singularRep_gm and IsVeryGood (6270-6490), and CellularRealisation (6490-6640). Suggested-file blob: ec2f2f0926d4fd34845ad283851fcbe5609c1dd0. No Lean compilation or axiom audit was performed.",
+    "Read TauCeti/AlgebraicTopology/Singular/Relative.lean, lines 130-200 at f790474821cf4256814db967cb154e7af3d0c369: TopPair.singularHomology and its map/functor are concrete relative homology in natural degrees. Read Mathlib/CategoryTheory/Abelian/Basic.lean, lines 20-110 at 082e2d37e8b0463410cdb532e111cd43d5a66174: finite products and preadditivity supply a zero object. These are bounded declaration-level checks, not an exhaustive baseline search.",
+    "Consulted Huber-Mueller-Stach arXiv:1105.0865v5, as identified by the PDF header, particularly Definition 1.1, Proposition B.9 and Appendix D's very-good-pair and cellular-realisation discussion. The final screenshot rechecks failed; text remained accessible. No local PDF hash, published-version collation, or claim of a new published-source erratum is made. Finding 3 strengthens the repair needed at the packet's existing E31 locator.",
+    "The mathematical countermodels are given explicitly in RT-AREA-motives.md. Ran the unmodified repository check_redteam.py on this actual result file, with no input projection; it passed. No full atlas rebuild, Lean build, all-routed-papers inventory or cross-area completeness check was run. Remaining scope is recorded in the handoff."
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1105.0865",
+      "citation": "A. Huber and S. Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014 (version shown in the fetched PDF header)",
+      "read": "2026-09-30"
+    }
+  ],
+  "findings": [
+    {
+      "id": "RT-AREA-motives/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean: PairDiagram.PairHomology, singularRep, singularRep_gm, lines 6270-6490; packet MC.5/singular-cohomology-representation and MC.5/diagram-localisation",
+      "claim": "PairHomology is not tied to the concrete relative singular homology carrier and has no nonzero normalization. Its stated axioms admit the all-zero theory, but singularRep_gm asserts rank one for every PairHomology. Thus the suggested rank-one theorem is false under its actual parameters; the missing comparison is also a prerequisite for the Tate-localisation consumer.",
+      "evidence": "At snapshot 9e5711ed, the complete PairHomology record contains module/finite-dimensional structures, pushforwards, boundary maps, exactness, naturality and a conditional Kuenneth equivalence, but no comparison with actual singular homology or point/G_m normalization. Set every H(X,Y,j) to the zero Q-vector space and every map to its unique map: identities, composition, exactness, naturality and 0 = 0 tensor 0 all hold. singularRep takes Q-duals, so its G_m value is still zero and finrank is 0, not 1. The independently opened pinned Relative.lean:TopPair.singularHomology is a concrete topological-pair homology object in degree n : Nat, not an arbitrary record of these axioms. The packet itself specifies that actual carrier, whereas the suggested declaration does not.",
+      "fix": "Keep the concrete singular-cohomology adapter in MotivesAndAlgebraicCycles:MC.5, importing the existing TopPair carrier and the requested SF.2 complex-points/finite-dimensionality inputs. Supply natural comparison isomorphisms, compatible with pair maps and triple boundaries, including the extension from natural to integer degrees with negative degrees zero. State rank-one and normalization results only for the concrete theory or an explicitly compared theory. Prove the G_m/point calculations from those inputs, rather than assuming the desired conclusion or adding only a vague nontriviality condition. Add the zero-theory countermodel as a negative test of the weaker generic interface; thread the corrected hypotheses through diagram localisation and the MC.6 consumers."
+    },
+    {
+      "id": "RT-AREA-motives/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean: PairDiagram.IsVeryGood (6270-6490) and the CellularRealisation point example (6490-6640); packet MC.5/effective-pairs-diagram, MC.5/basic-lemma and MC.5/cellular-realisation-functor",
+      "claim": "IsVeryGood excludes (Spec Q, empty, 0), although this is the degree-zero base case required by the very-good filtration and point acceptance tests. The suggested point example assumes IsVeryGood Hs ptVertex, so it is vacuous instead of detecting this defect.",
+      "evidence": "The first alternative in the actual definition requires an n : Nat with v.i = n + 1; for ptVertex it requires 0 = n + 1. The second requires v.Y = top, whereas ptVertex has the empty closed subset of nonempty Spec Q. Both are impossible, independently of Hs. The packet's Basic Lemma acceptance explicitly includes n = 0 with Y empty; its cellular node requires the point in degree zero. HMS Definition 1.1(3)/D.1(3) and Corollary D.11 use the dimension-zero first step with empty preceding stratum. The existing prototype's point example instead takes the impossible goodness claim as a hypothesis.",
+      "fix": "Repair the MC.5 predicate with an explicit degree-zero case (X zero-dimensional and Y empty), or a dimension convention that represents the empty stratum consistently, while retaining the positive-dimensional and degenerate X = Y cases. Prove that ptVertex is very good for the concrete singular theory, then use that proof in an unconditional point acceptance test. Include a finite reduced zero-dimensional example as a second boundary check. Do not repair the test by retaining the impossible hypothesis or dropping the degree-zero filtration step."
+    },
+    {
+      "id": "RT-AREA-motives/3",
+      "kind": "missing",
+      "severity": "high",
+      "where": "research/blueprint/packets/MotivesAndAlgebraicCycles.json: MC.5/cellular-realisation-functor, especially its statement and fifth proof step; suggested/MotivesAndAlgebraicCycles.lean: CellularRealisation and cellularRealisation_forget, lines 6490-6640; related existing source issue E31",
+      "claim": "The cellular-realisation contract lacks the requirement that the given representation T lifts relative singular cohomology through f_A. Faithfulness and exactness of f_A alone cannot identify its composite with singular cohomology. The missing premise is in both the packet and the prototype, not merely an omitted proof step.",
+      "evidence": "The frozen declarations quantify over arbitrary T : (veryGood Hs).Rep A and a faithful exact additive functor f_A, without an equality or natural isomorphism T.comp f_A = H* on that diagram. Take Hs to be genuine singular homology, A to be the zero Q-linear abelian category, f_A its functor to finite-dimensional Q-vector spaces, and T the unique representation. This f_A is faithful (each relevant Hom set is a singleton) and exact, and D(A) is zero. Every possible realisation therefore has zero underlying cohomology, whereas cellularRealisation_forget at Spec Q in degree zero requires an isomorphism with Q. No such functor with the claimed comparison exists. HMS Proposition D.3 is the cited locator; the packet's E31 already records missing verification there but does not impose the missing lift condition. This is a precise countermodel to the roadmap's unqualified generic contract, not a claim that the intended Nori application is false.",
+      "fix": "At MC.5/cellular-realisation-functor require a specified isomorphism eta: f_A composed with T isomorphic to H* restricted to very good pairs, compatible with all functoriality and coboundary edges; use the actual/compared singular theory from finding 1. Carry eta through the cellular complexes, refinement comparisons, derived realisation and forgetful comparison, and state the coefficient-linear conditions needed of f_A. In the concrete Nori application instantiate eta from the diagram-category factorisation. Add the zero-category counterexample as a negative test. Refine the repair at existing E31 with version-scoped provenance rather than duplicating its historical issue or treating the counterexample as a new published-version allegation. Preserve the separately recorded proof and boundedness obligations."
+    },
+    {
+      "id": "RT-AREA-motives/4",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean: Diagram.category.generation, lines 5700-5860; Diagram.discrete and Rep, lines 5480-5640; packet MC.5/diagram-category-generation",
+      "claim": "The first conjunct of generation quantifies over predicates closed under binary biproducts, subobjects and quotients, but omits the zero object. It is false for the allowed empty diagram. The source and packet's closure under finite sums/full abelian subcategory must include the nullary case.",
+      "evidence": "Diagram.discrete permits the empty vertex type. For that diagram and its unique representation choose P(X) = False on category T. The generator premise is vacuous; binary-biproduct, subobject and quotient implications are all vacuous because they assume P somewhere. The conclusion then asserts False for every object. But category T is declared abelian, so it has a zero object: the pinned Mathlib Abelian/Basic.lean explicitly supplies this from finite products and preadditivity. Thus the displayed theorem implies False at that object. HMS Proposition B.9(1)'s abelian generation and the packet's finite-sum formulation do not make this mistake.",
+      "fix": "Keep the generic generation lemma in MC.5 and require P(0) in addition to binary-biproduct closure, or express closure under all finite biproducts including the empty index. Preserve the generic empty-diagram case rather than imposing an unnecessary Nonempty D hypothesis. Add an empty-diagram acceptance test: the generated abelian category contains the zero object and every object is zero; the empty predicate must not meet the corrected premises."
+    }
+  ]
+}
