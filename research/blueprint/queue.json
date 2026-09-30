@@ -40904,8 +40904,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -52010,7 +52010,8 @@
     "FIX-RT-AREA-etale~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-etale~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5156"
   },
   {
    "id": "RT-AREA-motives",
