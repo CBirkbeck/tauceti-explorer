@@ -20935,3 +20935,137 @@ Eleven complete native lemmas prove finite weighted and formal-series difference
 Exact finite controls check139 character pairs,4448 formal coefficients,26011 residue differences,55328 cyclic convolution equations,1668 full constants,40032 positive coefficients and41 stable unit witnesses. Scalar checks include82 nonintegral scalars;8750 negative controls reject using the nonprincipal residue formula for principal characters. The strict radius-one boundary and modulus-one zero kernel remain explicit. Exact rational arithmetic and p-adic valuations. Native rational kernels are expanded recursively. Finite residues are solved independently from the cyclic kernel equation and mass, then checked against every coefficient of the finite convolution equation; the nonprincipal weighted formula is never applied to a principal character. These finite controls are not a proof of the infinite measure assertions. The largest observed discrepancy is 0.
 
 All66 captured inputs have an empty predecessor delta and are guarded. The complete old Lean body is preserved. The separate signature check uses exact4773 plus only4793,4796,4799,4803,4808 and current additions;4777–4791 remain excluded. It is not the current full module. Four new declarations and twelve typed examples check with zero errors and1916 expected placeholder warnings. The supplied reference character and its value hypothesis are explicit parameters in every principal modulus-three example.
+
+
+## Complete dyadic tame scalar classification
+
+Partial continuation preserving all638 predecessor nodes whole. One L2 lemma supplies an actual nearby quadratic reference at every odd tame modulus greater than one. Three L4 theorems classify scalar integrality for every dyadic tame character, establish the exact modulus-one criterion at every prime, and identify modulus one as the sole dyadic level admitting an integral half.
+
+Freshly read the pinned finite-field quadratic-character definition, quadratic-value and nonprincipality theorems; native integer cast, character postcomposition, level change, injectivity and unit/nonunit evaluation; prime-divisor existence and the characteristic of ZMod. Read the complete preceding near-character scalar criterion and the modulus-one zero-measure node with its proof and prerequisites. Existing promoted doubled/positive coefficient interfaces and retained source passages provide the measure context. Eight complete native proofs check the full quadratic-reference construction and both directions of the doubled scalar criterion. No new whole-paper or independent review is claimed.
+
+### A nearby nonprincipal quadratic tame character
+
+`DirichletPadicLFunctions:L2/dyadic-tame-quadratic-reference` — `DirichletPadic.exists_dyadic_tame_quadratic_reference`
+
+For every odd D>1, there is χ:DirichletCharacter K D with χ≠1, χ.IsQuadratic, and ‖1_D(a)−χ(a)‖≤1/2 for every a∈ZMod D.
+
+**Hypotheses:** K is a normed field of characteristic zero with Algebra ℤ₂ K and IsBoundedSMul ℤ₂ K. D>0 with NeZero D, D≠1 and2∤D. Completeness, nontrivial norm and ultrametricity are not needed for this finite-character lemma. The symbol1_D is the native principal multiplicative character, zero on nonunits and one on units.
+
+**Proof:**
+
+1. Native Nat.exists_prime_and_dvd supplies a prime ℓ dividing D. Since2∤D, ℓ≠2. The native field ZMod ℓ has characteristic ℓ by ZMod.ringChar_zmod_n, so the existing quadraticChar(ZMod ℓ) is nonprincipal and quadratic. No new Legendre-symbol or quadratic-character constructor is planned.
+2. Postcompose this integer-valued character with Int.castRingHom K. Characteristic zero gives injectivity of the integer cast. Native MulChar.ringHomComp_ne_one_iff preserves nonprincipality, and IsQuadratic.comp preserves the values zero, one and minus one.
+3. Raise its level from ℓ to D using the existing changeLevel monoid homomorphism. Native changeLevel_eq_one_iff, with NeZero D, preserves nonprincipality. To check quadratic values, split a∈ZMod D into units and nonunits: the unit case uses changeLevel_eq_cast_of_dvd, and the nonunit case uses MulChar.map_nonunit. Complete quadratic_change_level and exists_quadratic_reference prove this full chain for all eligible D and K.
+4. At a nonunit both the principal and quadratic characters vanish. At a unit, apply_ne_zero_iff excludes the zero quadratic value, so the difference is zero or two. Complete quadratic_principal_distance proves its norm is at most ‖2:K‖ without any ultrametric hypothesis.
+5. The bounded ℤ₂ action gives ‖2:K‖≤‖2:ℤ₂‖‖1:K‖=1/2 by PadicInt.norm_p. Complete dyadic_two_norm checks the numeral and algebra-map identities. Complete nearby_reference assembles the required character with all three properties.
+6. The statement supplies its own reference character, removing the external χ(2)=−1 hypothesis of the earlier modulus-three tests. Moduli9 and15 test repeated-prime and multiple-prime level changes. Modulus one admits no nonprincipal character and is excluded explicitly.
+
+**Prerequisites:** `mathlib:Nat.exists_prime_and_dvd`, `mathlib:ZMod.ringChar_zmod_n`, `mathlib:quadraticChar`, `mathlib:quadraticChar_ne_one`, `mathlib:quadraticChar_isQuadratic`, `mathlib:Int.castRingHom`, `mathlib:Int.cast_injective`, `mathlib:MulChar.ringHomComp`, `mathlib:MulChar.ringHomComp_ne_one_iff`, `mathlib:MulChar.IsQuadratic`, `mathlib:MulChar.IsQuadratic.comp`, `mathlib:DirichletCharacter.changeLevel`, `mathlib:DirichletCharacter.changeLevel_eq_one_iff`, `mathlib:DirichletCharacter.changeLevel_eq_cast_of_dvd`, `mathlib:MulChar.map_nonunit`, `mathlib:MulChar.apply_ne_zero_iff`, `mathlib:MulChar.one_apply`, `mathlib:norm_smul_le`, `mathlib:PadicInt.norm_p`.
+
+**Tests:**
+
+- `SuggestedDyadicClassificationTests.reference_nine` (computation): An actual nonprincipal quadratic character at modulus9 is within1/2 of the principal character.
+- `SuggestedDyadicClassificationTests.reference_fifteen` (computation): The same existence statement holds at modulus15, including its additional nonunits.
+- `SuggestedDyadicClassificationTests.no_reference_one` (non-example): There is no nonprincipal native Dirichlet character at modulus one.
+
+**Acceptance:** Every character in the proof is an existing native construction. Unit surjectivity is supplied by the already proved native change-level injectivity theorem; no hidden lifting assumption is introduced.
+
+**Source:** Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein measures and coefficient variation, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained tame-series checkpoints. The native quadratic character, its nonprincipality and level-change interfaces were freshly read at the pinned Mathlib commit. Worker classification of scalar integrality for the existing doubled tame formal-series measure. Native quadratic characters supply the nearby nonprincipal reference required by the previous stability theorem. The exact modulus-one criterion and dyadic half-lift classification are derived here, not quoted from RJW. No source convention for the principal zeta pseudomeasure is identified with the zero tame kernel, and no classical modularity or analytic-family theorem is asserted.
+
+### Exact scalar integrality for every dyadic tame character
+
+`DirichletPadicLFunctions:L4/dyadic-all-tame-scalar-integrality` — `DirichletPadic.integralDoubledTameEisensteinSeries_dyadic_scalar_lift_iff`
+
+If D≠1, then for every η and s∈K an integral all-test scalar lift of sGη exists if and only if ‖s‖≤1.
+
+**Hypotheses:** D>0 with NeZero D and2∤D. K is a complete nontrivially normed ultrametric field of characteristic zero with Algebra ℤ₂ K and IsBoundedSMul ℤ₂ K. hD:IsUnit(D:K), η:DirichletCharacter K D, U=(ℤ₂)ˣ, and O is the native norm-valuation integer subring of K. Gη is the existing integralDoubledTameEisensteinSeries, valued in native PowerSeries O with its coefficientwise topology. An integral scalar lift means an actual M:AbstractMeasure U O (PowerSeries O) whose included value at every actual O-valued continuous test is s times the included value of Gη. No extension to all K-valued tests or norm on formal series is assumed. The dyadic statements allow every tame character, principal or nonprincipal and primitive or imprimitive. The modulus D is the given level, not silently replaced by the conductor. The tame modulus-one kernel is zero and is not the ordinary principal zeta pseudomeasure. Require D≠1. No nonprincipal hypothesis is imposed on η.
+
+**Proof:**
+
+1. Split on whether η is principal. For nonprincipal η, apply the existing exact scalar-integrality theorem, which already covers arbitrary tame modulus and imprimitive characters.
+2. For principal η, choose the actual nonprincipal quadratic reference at level D from the preceding lemma. Its pointwise distance bound is B=1/2, with0≤B<1. Apply the previous near-character scalar-integrality theorem with η0=1_D and this reference η1.
+3. Both branches give the identical necessary and sufficient bound ‖s‖≤1. The principal branch is an application of the actual measure and full-series variation bounds, including the constant coefficient; it does not apply a nonprincipal finite-residue formula to the principal character.
+4. The supplied coefficient field needs only a bounded ℤ₂ action. No assertion that it is isometric to ℚ₂ is made. The conclusion holds for every actual integral continuous test, not merely finite-order or arithmetic characters.
+5. At D=3 and D=9 the principal scalar criterion is now unconditional in the reference character. The zero scalar is still supplied by the native zero measure. Modulus one has the different criterion in the next node.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/dyadic-tame-quadratic-reference`, `DirichletPadicLFunctions:L4/tame-full-series-scalar-integrality`, `DirichletPadicLFunctions:L4/tame-near-character-scalar-integrality`.
+
+**Tests:**
+
+- `SuggestedDyadicClassificationTests.principal_three_unconditional` (computation): The principal modulus-three criterion requires no externally supplied nonprincipal character.
+- `SuggestedDyadicClassificationTests.principal_nine_unconditional` (computation): The principal modulus-nine criterion also has no supplied reference character.
+- `SuggestedDyadicClassificationTests.arbitrary_character_zero_scalar` (degenerate): For every actual tame character the zero measure lifts the zero scalar multiple.
+
+**Acceptance:** The conclusion covers all characters at every odd level greater than one. This is a scalar-integrality classification for the actual tame formal-series constructor, not a principal L-function identity.
+
+**Source:** Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein measures and coefficient variation, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained tame-series checkpoints. The native quadratic character, its nonprincipality and level-change interfaces were freshly read at the pinned Mathlib commit. Worker classification of scalar integrality for the existing doubled tame formal-series measure. Native quadratic characters supply the nearby nonprincipal reference required by the previous stability theorem. The exact modulus-one criterion and dyadic half-lift classification are derived here, not quoted from RJW. No source convention for the principal zeta pseudomeasure is identified with the zero tame kernel, and no classical modularity or analytic-family theorem is asserted.
+
+### The exact scalar criterion at tame modulus one
+
+`DirichletPadicLFunctions:L4/one-level-tame-scalar-integrality` — `DirichletPadic.integralDoubledTameEisensteinSeries_one_level_scalar_lift_iff`
+
+At D=1 and any prime p, an integral all-test scalar lift of sGη exists if and only if ‖2s‖≤1.
+
+**Hypotheses:** p is any prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Characteristic zero is not required for this node. η:DirichletCharacter K 1, hD:IsUnit(1:K), and p∤1. U=(ℤ_p)ˣ, O is the native norm-valuation integer subring, and E⁺=integralTwistedPositiveEisensteinSeries(p,1,η) is the existing integral positive-series measure. The scalar lift quantifies over actual integral formal-series-valued measures and all O-valued continuous tests. The result concerns the actual modulus-one tame constructor whose intrinsic zeta measure is zero. It does not provide the ordinary principal Eisenstein constant or replace the localized principal zeta theory.
+
+**Proof:**
+
+1. Use the promoted intrinsic-integral-tame-one-level theorem to make the constant zero. The promoted doubled-series and positive-series coefficient formulas then give Gη=2E⁺ by native PowerSeries.ext at each test. This derives the needed equality directly from promoted nodes, rather than depending on an unpromoted constructor API.
+2. For the constant integral test one, the first positive coefficient of E⁺ is one: the only divisor of1 is1, the unit test has value one, and both characters take value one there. This is a direct specialization of the existing finite divisor-Dirac evaluation and coefficient inclusion.
+3. If M is a scalar lift, extract coefficient one at the constant test. Its included coefficient equals2s. Its membership in O therefore gives ‖2s‖≤1. Complete double_scalar_lift_necessity verifies this native coefficient argument for any measure E with a first coefficient equal to one at an actual test.
+4. Conversely, the norm bound packages2s as an actual element a∈O. Set M=aE⁺. Coefficient inclusion and commutativity give map_ι(M(f))=s·map_ι(2E⁺(f)) for every test. Complete double_scalar_integral_lift constructs this actual native measure without dividing inside O.
+5. At p=2 over ℚ₂, s=1/2 is allowed even though s itself is not integral, while s=1/4 is excluded because2s=1/2 has norm2. No exact field norm for2 is needed in the general theorem. The same doubled criterion also holds in positive characteristic if the stated coefficient action exists.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-one-level`, `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-coeff`, `DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff`, `DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-coefficient`, `DirichletPadicLFunctions:L4/twisted-positive-eisenstein-evaluation`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.coeff_smul`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:Valuation.mem_integer_iff`, `mathlib:NormedField.valuation_apply`.
+
+**Tests:**
+
+- `SuggestedDyadicClassificationTests.one_half_lift` (computation): The actual modulus-one dyadic family has an integral half on all integral tests.
+- `SuggestedDyadicClassificationTests.one_quarter_no_lift` (non-example): Over ℚ₂ its quarter multiple has no such integral lift.
+- `SuggestedDyadicClassificationTests.one_half_scalar_is_not_integral` (non-example): The allowed scalar1/2 is not itself integral, while twice it has norm one.
+
+**Acceptance:** Both directions use the actual positive-series measure. The necessary coefficient is degree one, since the true tame modulus-one constant is zero.
+
+**Source:** Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein measures and coefficient variation, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained tame-series checkpoints. The native quadratic character, its nonprincipality and level-change interfaces were freshly read at the pinned Mathlib commit. Worker classification of scalar integrality for the existing doubled tame formal-series measure. Native quadratic characters supply the nearby nonprincipal reference required by the previous stability theorem. The exact modulus-one criterion and dyadic half-lift classification are derived here, not quoted from RJW. No source convention for the principal zeta pseudomeasure is identified with the zero tame kernel, and no classical modularity or analytic-family theorem is asserted.
+
+### Exactly when a dyadic tame integral half exists
+
+`DirichletPadicLFunctions:L4/dyadic-tame-half-classification` — `DirichletPadic.integralDoubledTameEisensteinSeries_dyadic_half_lift_iff`
+
+For every η at positive odd tame modulus D, an integral all-test lift of(1/2)Gη exists if and only if D=1.
+
+**Hypotheses:** D>0 with NeZero D and2∤D. K is a complete nontrivially normed ultrametric field of characteristic zero with Algebra ℤ₂ K and IsBoundedSMul ℤ₂ K. hD:IsUnit(D:K), η:DirichletCharacter K D, U=(ℤ₂)ˣ, and O is the native norm-valuation integer subring of K. Gη is the existing integralDoubledTameEisensteinSeries, valued in native PowerSeries O with its coefficientwise topology. An integral scalar lift means an actual M:AbstractMeasure U O (PowerSeries O) whose included value at every actual O-valued continuous test is s times the included value of Gη. No extension to all K-valued tests or norm on formal series is assumed. The dyadic statements allow every tame character, principal or nonprincipal and primitive or imprimitive. The modulus D is the given level, not silently replaced by the conductor. The tame modulus-one kernel is zero and is not the ordinary principal zeta pseudomeasure.
+
+**Proof:**
+
+1. If D=1, use the preceding exact modulus-one criterion. Characteristic zero ensures2≠0, hence2·2⁻¹=1 and the required norm is one. Equivalently the existing positive-series measure itself is the integral half.
+2. If D≠1, the all-character dyadic scalar criterion would force ‖2⁻¹‖≤1. The bounded ℤ₂ action gives ‖2‖≤1/2, while characteristic zero ensures a positive norm. Native multiplicativity of the inverse norm gives ‖2⁻¹‖≥2>1; complete dyadic_half_norm proves precisely this lower bound.
+3. The two cases are exhaustive at positive odd modulus, so the result is an equivalence with D=1. It covers every principal and nonprincipal character without a primitivity or supplied-reference hypothesis.
+4. The principal modulus-five and arbitrary modulus-fifteen tests retain composite-level behavior explicitly. The conclusion concerns integrality on every continuous integral test. Arithmetic moments alone cannot certify such a lift, and the theorem makes no assertion of classical modularity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/dyadic-all-tame-scalar-integrality`, `DirichletPadicLFunctions:L4/one-level-tame-scalar-integrality`, `mathlib:norm_smul_le`, `mathlib:PadicInt.norm_p`.
+
+**Tests:**
+
+- `SuggestedDyadicClassificationTests.principal_five_no_half` (non-example): The principal character modulo5 has no all-test integral half at p=2.
+- `SuggestedDyadicClassificationTests.every_fifteen_no_half` (non-example): Every actual character modulo15 has the same all-test half obstruction.
+
+**Acceptance:** The sole allowed positive odd level is exactly one. The proof keeps the principal tame-zero boundary separate from the source principal pseudomeasure convention.
+
+**Source:** Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein measures and coefficient variation, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained tame-series checkpoints. The native quadratic character, its nonprincipality and level-change interfaces were freshly read at the pinned Mathlib commit. Worker classification of scalar integrality for the existing doubled tame formal-series measure. Native quadratic characters supply the nearby nonprincipal reference required by the previous stability theorem. The exact modulus-one criterion and dyadic half-lift classification are derived here, not quoted from RJW. No source convention for the principal zeta pseudomeasure is identified with the zero tame kernel, and no classical modularity or analytic-family theorem is asserted.
+
+**Remaining:** Scalar integrality of the dyadic doubled tame family is now classified at every positive odd modulus and every character: at D>1 the criterion is ‖s‖≤1; at D=1 it is ‖2s‖≤1, the latter at every prime. A dyadic all-test integral half exists exactly when D=1. Further work includes exact scalar integrality for principal characters at odd p, general character-pair constants, classical character Eisenstein existence and normalization, and analytic weight-space comparisons. The tame zero constructor remains distinct from the localized principal zeta theory. Eleven requests, fifteen gaps and zero closed stages remain; missing pinned TwistedDivisorSum still prevents current full-module compilation.
+
+### Complete dyadic tame scalar classification validation
+
+All 638 predecessor nodes, 546 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 4 nodes, 4 named suggested declarations and 11 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 898 reachable nodes, 4464 edges and 734 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All four new routes end in native declarations and existing fine-grained owner nodes, with no stage-only leaves or new supplier requests.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Eight complete native lemmas verify quadratic values under level change, existence of a nonprincipal reference at every odd level greater than one, its distance from the principal character, the bounded dyadic norm, the combined nearby reference, both directions of the doubled scalar lift criterion on actual measures, and the inverse-two norm lower bound. The separate probe compiles against 2817 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact finite controls cover32 odd moduli,47904 multiplicativity equations,1088 character distances,1024 kernel coefficients,8952 residue differences,17904 convolution identities,64 unit witnesses,1152 scalar tests and128 half obstructions. The modulus-one criterion has44 scalar tests and2176 positive-coefficient checks at four primes, including an allowed nonintegral half and a rejected quarter. Exact rational arithmetic and p-adic valuations for all32 odd moduli from3 through65. The reference is the Legendre character at a prime divisor, extended by zero on nonunits at the larger modulus. Multiplicativity, nonprincipality and distance are checked exhaustively on finite residues. Principal/reference masses independently solve the finite kernel equation and mass and satisfy every convolution equation. These finite controls do not prove the infinite all-test measure statements. The largest observed discrepancy is 0.
+
+All66 captured inputs have an empty predecessor delta and remain guarded. The complete prior Lean body is preserved. The separate signature check uses exact4773 plus only4793,4796,4799,4803,4808,4813 and current additions;4777–4791 remain excluded. Four new declarations and eleven typed examples pass with zero errors and1931 expected placeholder warnings. This does not compile the full current module.

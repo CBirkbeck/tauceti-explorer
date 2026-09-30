@@ -11517,3 +11517,133 @@ example (χ : DirichletCharacter ℚ_[2] 3) (hχ : χ 2=-1)
 end Dyadic
 end
 end SuggestedTameVariationTests
+
+/-! Complete dyadic tame scalar classification, retaining the modulus-one boundary. -/
+namespace DirichletPadic
+noncomputable section
+open scoped PowerSeries.WithPiTopology
+section Reference
+variable {K : Type*} [NormedField K] [CharZero K]
+  [Algebra ℤ_[2] K] [IsBoundedSMul ℤ_[2] K] {D : ℕ} [NeZero D]
+
+theorem exists_dyadic_tame_quadratic_reference (hD : D≠1) (hodd : ¬2∣D) :
+    ∃ χ : DirichletCharacter K D, χ≠1 ∧ χ.IsQuadratic ∧
+      ∀ a, ‖(1 : DirichletCharacter K D) a-χ a‖≤1/2 := sorry
+end Reference
+
+section Dyadic
+variable {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CharZero K]
+  [Algebra ℤ_[2] K] [IsBoundedSMul ℤ_[2] K] [CompleteSpace K]
+  {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[2])ˣ
+
+theorem integralDoubledTameEisensteinSeries_dyadic_scalar_lift_iff
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬2∣D)
+    (hD1 : D≠1) (s : K) :
+    (∃ M : AbstractMeasure U O (PowerSeries O), ∀ f : C(U,O),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype (M f)=
+        s • PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+          (integralDoubledTameEisensteinSeries η hD hpD f)) ↔ ‖s‖≤1 := sorry
+end Dyadic
+
+section OneLevel
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [CompleteSpace K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[p])ˣ
+
+theorem integralDoubledTameEisensteinSeries_one_level_scalar_lift_iff
+    (η : DirichletCharacter K 1) (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p∣1) (s : K) :
+    (∃ M : AbstractMeasure U O (PowerSeries O), ∀ f : C(U,O),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype (M f)=
+        s • PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+          (integralDoubledTameEisensteinSeries η hD hpD f)) ↔ ‖(2 : K)*s‖≤1 := sorry
+end OneLevel
+
+section Half
+variable {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CharZero K]
+  [Algebra ℤ_[2] K] [IsBoundedSMul ℤ_[2] K] [CompleteSpace K]
+  {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[2])ˣ
+
+theorem integralDoubledTameEisensteinSeries_dyadic_half_lift_iff
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬2∣D) :
+    (∃ M : AbstractMeasure U O (PowerSeries O), ∀ f : C(U,O),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype (M f)=
+        (2 : K)⁻¹ • PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+          (integralDoubledTameEisensteinSeries η hD hpD f)) ↔ D=1 := sorry
+end Half
+end
+end DirichletPadic
+
+namespace SuggestedDyadicClassificationTests
+noncomputable section
+open DirichletPadic
+open scoped PowerSeries.WithPiTopology
+section Reference
+variable {K : Type*} [NormedField K] [CharZero K]
+  [Algebra ℤ_[2] K] [IsBoundedSMul ℤ_[2] K]
+-- reference_nine
+example : ∃ χ : DirichletCharacter K 9, χ≠1 ∧ χ.IsQuadratic ∧
+    ∀ a, ‖(1 : DirichletCharacter K 9) a-χ a‖≤1/2 := sorry
+-- reference_fifteen
+example : ∃ χ : DirichletCharacter K 15, χ≠1 ∧ χ.IsQuadratic ∧
+    ∀ a, ‖(1 : DirichletCharacter K 15) a-χ a‖≤1/2 := sorry
+-- no_reference_one
+example : ¬∃ χ : DirichletCharacter K 1, χ≠1 := sorry
+end Reference
+
+section Dyadic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+local notation "O" => Valuation.integer (NormedField.valuation (K := ℚ_[2]))
+local notation "U" => (ℤ_[2])ˣ
+-- principal_three_unconditional
+example (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2∣3) (s : ℚ_[2]) :
+    (∃ M : AbstractMeasure U O (PowerSeries O), ∀ f : C(U,O),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype (M f)=
+        s • PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+          (integralDoubledTameEisensteinSeries (1 : DirichletCharacter ℚ_[2] 3) hD hpD f)) ↔ ‖s‖≤1 := sorry
+-- principal_nine_unconditional
+example (hD : IsUnit (9 : ℚ_[2])) (hpD : ¬2∣9) (s : ℚ_[2]) :
+    (∃ M : AbstractMeasure U O (PowerSeries O), ∀ f : C(U,O),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype (M f)=
+        s • PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+          (integralDoubledTameEisensteinSeries (1 : DirichletCharacter ℚ_[2] 9) hD hpD f)) ↔ ‖s‖≤1 := sorry
+-- arbitrary_character_zero_scalar
+example {D : ℕ} [NeZero D] (η : DirichletCharacter ℚ_[2] D)
+    (hD : IsUnit (D : ℚ_[2])) (hpD : ¬2∣D) :
+    ∃ M : AbstractMeasure U O (PowerSeries O), ∀ f : C(U,O),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype (M f)=
+        (0 : ℚ_[2]) • PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+          (integralDoubledTameEisensteinSeries η hD hpD f) := sorry
+-- one_half_lift
+example (η : DirichletCharacter ℚ_[2] 1) (hD : IsUnit ((1 : ℕ) : ℚ_[2])) (hpD : ¬2∣1) :
+    ∃ M : AbstractMeasure U O (PowerSeries O), ∀ f : C(U,O),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype (M f)=
+        (2 : ℚ_[2])⁻¹ • PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+          (integralDoubledTameEisensteinSeries η hD hpD f) := sorry
+-- one_quarter_no_lift
+example (η : DirichletCharacter ℚ_[2] 1) (hD : IsUnit ((1 : ℕ) : ℚ_[2])) (hpD : ¬2∣1) :
+    ¬∃ M : AbstractMeasure U O (PowerSeries O), ∀ f : C(U,O),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype (M f)=
+        (4 : ℚ_[2])⁻¹ • PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+          (integralDoubledTameEisensteinSeries η hD hpD f) := sorry
+-- one_half_scalar_is_not_integral
+example : 1<‖(2 : ℚ_[2])⁻¹‖ ∧ ‖(2 : ℚ_[2])*(2 : ℚ_[2])⁻¹‖≤1 := sorry
+-- principal_five_no_half
+example (hD : IsUnit (5 : ℚ_[2])) (hpD : ¬2∣5) :
+    ¬∃ M : AbstractMeasure U O (PowerSeries O), ∀ f : C(U,O),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype (M f)=
+        (2 : ℚ_[2])⁻¹ • PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+          (integralDoubledTameEisensteinSeries (1 : DirichletCharacter ℚ_[2] 5) hD hpD f) := sorry
+-- every_fifteen_no_half
+example (η : DirichletCharacter ℚ_[2] 15) (hD : IsUnit (15 : ℚ_[2])) (hpD : ¬2∣15) :
+    ¬∃ M : AbstractMeasure U O (PowerSeries O), ∀ f : C(U,O),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype (M f)=
+        (2 : ℚ_[2])⁻¹ • PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+          (integralDoubledTameEisensteinSeries η hD hpD f) := sorry
+end Dyadic
+end
+end SuggestedDyadicClassificationTests
