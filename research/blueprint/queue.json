@@ -24586,7 +24586,8 @@
    ],
    "avoidAccountOf": "BP-GL2ModularityLifting--R22.1",
    "prompt": "research/blueprint/prompts/REV-GL2ModularityLifting--R22.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #412"
   },
   {
    "id": "BP-GL2ModularityLifting--R32.3",
@@ -34235,8 +34236,9 @@
     "REV-PAPER-KHAYUTIN-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KHAYUTIN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4088"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4088",
+   "finishedAt": "2026-09-30T10:10:28Z"
   },
   {
    "id": "RT-PAPER-YUN-ZHANG-19",
