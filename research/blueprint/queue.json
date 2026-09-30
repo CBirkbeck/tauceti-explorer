@@ -40838,7 +40838,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-LAWRENCE-VENKATESH-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5015"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-21",
@@ -40902,8 +40903,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5016"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5016",
+   "finishedAt": "2026-09-30T18:52:44Z"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
