@@ -1,6 +1,6 @@
 # KEYDEF-algebraicnt — Number fields and class field theory
 
-Complete survey by **Codex — codex-J6LwjP**, 2026-09-30. This is a definition/API survey under PROTOCOL §19, not a paper extraction, proof-closure certificate, or claim of Lean formalization.
+Complete input accounting by **Codex — codex-J6LwjP**, independently corrected by **Codex — codex-5ebb6f**, 2026-09-30. Review status: **needs_changes**; see [the review report](../reviews/REV-KEYDEF-algebraicnt.md) for the remaining account-independence certification and routing boundaries. This is a definition/API survey under PROTOCOL §19, not a paper extraction, proof-closure certificate, or claim of Lean formalization.
 
 The 382 input definitions/constructions from 44 papers were read in full. The whole catalogue index and all 207 paper item files were searched (28,537 items); matching definition/construction statements and their surrounding catalogue records were then read. This does **not** mean that all 207 papers or all their proofs were reread. Fresh primary-source reading was selective and is recorded below.
 
@@ -8,8 +8,8 @@ Fourteen notions survive the definition, substantial missing work, two-paper, im
 
 | Definition | Papers | Existing owner stages | Size |
 |---|---:|---|---|
+| Sequential derived inverse limits | 14 | `ArithmeticGaloisDuality:D7`; `ArithmeticGaloisDuality:R02.1`; `CompletedCohomologyPartII:CC.2` | XL |
 | Hermitian lattices and integral duality | 9 | `GeometryOfNumbersAndQuadraticArithmetic:GN.2` | L |
-| Sequential derived inverse limits | 8 | `ArithmeticGaloisDuality:D7`; `ArithmeticGaloisDuality:R02.1`; `CompletedCohomologyPartII:CC.2` | XL |
 | Local representation densities | 7 | `GeometryOfNumbersAndQuadraticArithmetic:GN.3` | XL |
 | Successive minima | 5 | `GeometryOfNumbersAndQuadraticArithmetic:GN.1` | L |
 | Quadratic lattices over local integer rings | 4 | `GeometryOfNumbersAndQuadraticArithmetic:GN.2` | L |
@@ -18,14 +18,14 @@ Fourteen notions survive the definition, substantial missing work, two-paper, im
 | Modified adelic zero-cycle complex | 2 | **Gap: no stage** | XL |
 | Generalized genus characters of binary quadratic forms | 2 | `GeometryOfNumbersAndQuadraticArithmetic:GN.2` | L |
 | Classical Grothendieck–Witt and symplectic K-theory | 2 | `GeometryOfNumbersAndQuadraticArithmetic:GN.6` | XL |
-| Continuous étale cohomology of adic sheaves | 2 | `ArithmeticGaloisDuality:D7` | XL |
+| Continuous étale cohomology of adic sheaves | 2 | **Gap: no stage** | XL |
 | Kato complexes | 2 | `HigherLocalFieldsAndHigherClassFieldTheory:HL.6` | XL |
 | Minkowski-reduced bases | 2 | `GeometryOfNumbersAndQuadraticArithmetic:GN.3` | L |
 | Geometric stabilizers with outer Galois action | 2 | **Gap: no stage** | XL |
 
 ## Coverage and decisions
 
-Exactly **50** distinct input items witness the retained entries, **49** are owned elsewhere, **136** are in the reasoned reserve, and **147** are routine: **382/382**, with no unaccounted item. The entries additionally cite **24** items outside the input, for 74 distinct evidence items. Every evidence item is a catalogue definition or construction, not a theorem used to inflate a count.
+Exactly **50** distinct input items witness the retained entries, **49** are owned elsewhere, **136** are in the reasoned reserve, and **147** are routine: **382/382**, with no unaccounted item. The entries additionally cite **32** items outside the input, for 82 distinct evidence items. Every evidence item is a catalogue definition or construction, not a theorem used to inflate a count.
 
 The JSON is the item-level ledger. Its reserve records criterion-specific reasons; “routine” follows §19 and includes single-paper specializations and technical proof constructions, not just easy proofs. In particular, routine classification does not certify a theorem, validate a source conjecture, or mark a library item as built.
 
@@ -57,15 +57,17 @@ The JSON is the item-level ledger. Its reserve records criterion-specific reason
 
 3. **Sequential derived limits:** D7 explicitly calls itself the sole generic owner and R02.1 develops its coefficient comparison. `CompletedCohomologyPartII:CC.2`, despite depending on D7/R02, also says to construct the derived inverse limit and Milnor sequence. The JSON records both roadmaps, producing the duplication warning. Resolve the textual overlap by making CC.2 instantiate/import the generic construction and prove its particular tower’s topology and Mittag–Leffler/control conditions; it should not build another generic Rlim.
 
-These are the checker’s three expected warnings, not unaccounted items. No upstream roadmap was edited. No other pending/promoted key-definition survey was present at the base; the remote main survey paths were rechecked before submission.
+4. **Continuous étale cohomology:** `owners: []`. D7 explicitly owns arithmetic/Galois coefficient constructions. Its text does not own continuous cohomology of arbitrary scheme étale sheaf systems, bounded-below complexes and continuous equivariant rational realizations. Analytic adic-space étale cohomology and v-derived diamond coefficients do not by themselves fill that scheme-system scope. Assign or extend one geometric supplier and let D7 consume its Galois comparison.
+
+These are the checker’s four expected warnings, not unaccounted items. No upstream roadmap was edited. At the review base, the pending `KEYDEF-algebraicgeometry` survey is also present. Its Chow/intersection, scheme Brauer and Galois-gerb entries are dependencies here, not rival constructions. Its discrete equivariant-sheaf entry does not supply the continuous profinite adic-system extension.
 
 Additional boundaries are recorded rather than hidden dependencies. The ordinary theta kernel belongs to `MetaplecticAutomorphicForms:MP.5`; GN.3 should supply arithmetic lattice/density interfaces. Generic Selmer mapping fibres belong to L2. Derived completion remains with `DerivedDeRhamCohomology:DD.1`; citing a completion definition here witnesses its Rlim prerequisite, not ownership of derived completion. MotivicEtaleKTheory:M.1 imports arithmetic continuous coefficients from D7; its KU checkpoints are aggregations and are not additional generic owners.
 
 ## Dependencies and size
 
-The JSON dependency graph names the other retained key definitions and existing Tau Ceti layers, with no cycles: local densities depend on local quadratic/hermitian lattices; Siegel series on densities; reduced bases on minima; Kato complexes on Kato coefficients; adic cohomology on derived limits. Field quadratic classification, Hilbert symbols, ordinary genus theory and discrete Galois/Kummer cohomology are upstream imports.
+The JSON dependency graph names the other retained key definitions and existing Tau Ceti layers, with no cycles: local densities depend on local quadratic/hermitian lattices; Siegel series on densities; reduced bases on minima; Kato complexes on Kato coefficients; adic cohomology on derived limits; the zero-cycle complex on the pending geometric Chow and scheme-Brauer suppliers; geometric stabilizers on the finite algebraic-kernel Galois-gerb interface; higher GW on upstream degree-zero field GW/W. Field quadratic classification, Hilbert symbols, ordinary genus theory and discrete Galois/Kummer cohomology are upstream imports.
 
-Several large prerequisites have no key-definition ID yet, so their existing supplier stages are recorded here rather than inventing unresolved `dependsOn` identifiers: logarithmic de Rham–Witt from `CrystallineCohomology:CR.4`; group completion and the spectrum foundation from `StableHomotopyKTheory:H.4/H.5`; scheme étale sheaves and derived global sections from the geometric étale suppliers; ordinary cycles/motivic complexes from `MotivicEtaleKTheory:M.4` and the cycle foundations. D7’s adic/equivariant extension must import the geometric site rather than construct a second one.
+Several large prerequisites have no key-definition ID yet, so their existing supplier stages are recorded here rather than inventing unresolved `dependsOn` identifiers: logarithmic de Rham–Witt from `CrystallineCohomology:CR.4`; group completion and the spectrum foundation from `StableHomotopyKTheory:H.4/H.5`; scheme étale sheaves and derived global sections from the geometric étale suppliers; ordinary cycles/motivic complexes from `MotivicEtaleKTheory:M.4` and the cycle foundations. The general adic/equivariant scheme-system owner is still missing; its eventual construction must import the geometric site and the enhanced-category machinery of `EnhancedDerivedSheaves:E0`. D7 then consumes its Galois comparison. Existing constant pro-étale Z_ell sheaves and cohomology must be reused.
 
 L means a carrier with its basic API and one or two missing prerequisites. XL records the multi-file sheaf, enhanced-derived, cycle, wild-coefficient or homotopy machinery. No M entry was forced merely because its informal notation fits on one line. This survey supplies discriminating API targets; it does not promise proof closure for all their prerequisites.
 
@@ -96,6 +98,8 @@ Mathlib was read at `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti at `f79
 | `mathlib:LinearMap.isSymm_iff_isHermitian_toMatrix` | [Mathlib/LinearAlgebra/SesquilinearForm/Star.lean:44](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/SesquilinearForm/Star.lean#L44) | Conjugate-linear first variable; swap arguments for the paper convention. |
 | `mathlib:continuousCohomology` | [Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean:131](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean#L131) | The actual pinned abbreviation takes n and a TopRep and returns TopModuleCat cohomology. |
 | `mathlib:WittVector` | [Mathlib/RingTheory/WittVector/Defs.lean:52](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Defs.lean#L52) | Coefficient sequences with the Witt-vector operations, not a differential/logarithmic complex. |
+| `mathlib:AlgebraicGeometry.Scheme.ellAdicSheaf` | [Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean:63](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean#L63) | Existing continuous-map Z_ell coefficient sheaf on the scheme pro-étale site. |
+| `mathlib:AlgebraicGeometry.Scheme.EllAdicCohomology` | [Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean:75](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean#L75) | Existing constant-coefficient pro-étale sheaf cohomology; arbitrary system and equivariant comparisons remain missing. |
 
 Declaration-name searches and full-source phrase searches for the retained notions found no additional implementation at these pins (including successive minima, reduced bases, local density/Siegel series, Kato complexes and GW). Searches are bounded evidence, not a theorem of absence: the precise adjacent declarations and missing interfaces above make the claim reviewable.
 
@@ -125,7 +129,26 @@ The attempted publisher path `annals-v202-n1-p01-p.pdf` for Kings–Sprang retur
 
 ## Validation
 
-- `scripts/check_keydefs.py research/blueprint/keydefs/KEYDEF-algebraicnt.json`, with the pinned declaration index: **0 errors, 3 expected warnings**, explained above.
+- `scripts/check_keydefs.py research/blueprint/keydefs/KEYDEF-algebraicnt.json`, with the pinned declaration index: **0 errors, 4 expected warnings**, explained above.
 - The input-accounting audit finds no missing item and no duplicate routine ID; entries are sorted by distinct cited-paper count. All library references resolve in the pinned declaration index.
 - Finite arithmetic spot checks enumerate the unramified hermitian line over Z/3^N with norm x²+y²: counts 4, 12, 36 for N=1,2,3, each giving 4/3 after normalization. The quadratic-line counts are 2 at p=3,5 and 4 at p=2 for N=3,4. The rank-one Siegel polynomials at valuations 0,1,3 give (value at 1, central derivative)=(1,0),(0,1),(0,2). The binary-form discriminants are 20,20,200. These are spot checks of worked values, not proofs of general API theorems.
 - Swarm deliverable/path validation and whitespace checks are run before submission. No Lean file is a deliverable for this survey, and no Lean compilation or new library build was performed.
+
+## Review corrections and additional source reading
+
+The review retains all fourteen entries and all 84 discriminating API targets. It adds eight catalogue IDs in six more papers to sequential derived limits, raising its count from eight to fourteen and sorting it first: Farb–Kisin–Wolfson24/033–034, Bhatt–Morrow–Scholze19/038, Colmez–Dospinescu–Niziol20-B/in-stein-spaces, Colmez–Dospinescu–Niziol21/2-zp-hat and /3-kummer-and-artin-schreier, Colmez–Niziol25/807, and Colmez–Niziol17/151. These witness a shared sequential-limit prerequisite; they do not transfer ownership of crystalline, syntomic, Stein or derived-completion constructions to D7. Limits over arbitrary sites, cosimplicial totalizations and finite homotopy pullbacks were not counted as sequential towers.
+
+The review also narrows the initial Kato complex and its functorial API to separated finite-type schemes over a field with invertible torsion, using closure dimension; the more general arithmetic and wild cases retain their additional hypotheses. Local quadratic lattices now specify characteristic F different from 2 while retaining residue characteristic 2. The density exponent refers to a nonempty generic representation space in the appropriate rank and residue-characteristic range. Degree-zero field GW/W remains upstream; GN.6 supplies the general-ring and higher extension. The two existing constant pro-étale ell-adic declarations above were missing from the submitted library account.
+
+The additional primary PDFs below were downloaded and the indicated passages read on **2026-09-30 UTC**. These are selected passages, not claims of full-paper reading.
+
+| Source | Selected passage | SHA-256 |
+|---|---|---|
+| [Farb–Kisin–Wolfson](https://arxiv.org/pdf/2110.05534v2) | PDF 9, §2.1.7: derived d-completion and completed base change | `f281f903f7a1836ef0eb7abe718c78e72f481d059cecb91dd237e6ecfe83b26b` |
+| [Bhatt–Morrow–Scholze](https://arxiv.org/pdf/1802.03261v2) | PDF 28, Definition 5.1 and Lemma 5.2: complete filtered derived category and its cofinal sequential limit | `b2338ef19714f39aeac2aaaa4e8d6bd708020815016bbe5541a74e4db3594038` |
+| [Colmez–Dospinescu–Niziol Drinfeld](https://www.ams.org/journals/jams/2020-33-02/S0894-0347-2019-00935-5/S0894-0347-2019-00935-5.pdf) | PDF 33, journal 343, Lemma 4.4: Stein exhaustion, R¹lim vanishing and continuous-cohomology comparison | `db810ee0b4017eba2f30801c8cc76df6d61f3b32a6ef07cb891586e4121f0a16` |
+| [Colmez–Dospinescu–Niziol integral](https://webusers.imj-prg.fr/~wieslawa.niziol/integral-Omega3.pdf) | PDF 10 and 13, §2.4 and §3.1: pro-étale derived-limit vanishing and the Kummer sequence | `0535b22d7a61aff68405a2b364ff4d6b62cb7928eb14479840989dd46db14d34` |
+| [Colmez–Niziol Cst](https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf) | PDF 52, §8.2.1: inverse-limit defects for a quasi-compact exhaustion | `bb1628cf1f4321243e6070be2abae99f72a41e237e70a7eb1ec1fc03cc2cd52a` |
+| [Colmez–Niziol syntomic](https://webusers.imj-prg.fr/~wieslawa.niziol/logvanishing6.pdf) | PDF 52–53, §5.1.1: absolute log-crystalline and syntomic holim_n | `161d72d919c0798bec4dcec88550bf38b09b9e5c8a5fc554177aadb214124db0` |
+
+The original fifteen primary PDFs were freshly retrieved for the review as well. The review report records the passages actually checked, including HW20 PDF 6 for the completed zero-cycle complex and FGV PDF 79–80 for the line-valued exclusion.

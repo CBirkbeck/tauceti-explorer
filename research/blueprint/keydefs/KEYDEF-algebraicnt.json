@@ -9,6 +9,142 @@
   },
   "definitions": [
     {
+      "id": "algebraicnt/sequential-derived-limits",
+      "name": "Sequential derived inverse limits",
+      "short": "Sequential derived inverse limits",
+      "define": "For a strict countable tower of cochain R-module complexes with maps f_n:K_(n+1)->K_n, form Delta=1-shift on the degreewise product and Rlim K=Cone(Delta)[-1]. Descend this functor to the derived category of towers; for modules, exact products identify it with the right derived inverse limit. Export the corresponding homotopy-limit construction in an enhanced category with countable products for the sheaf and animated-ring consumers. In a bare triangulated category a triangle only specifies an object up to nonunique isomorphism, not a chosen functor. Sheaf products must be derived when not exact; derived adic completion itself remains with its existing owner.",
+      "library": {
+        "has": [
+          "mathlib:CategoryTheory.Limits.limit",
+          "mathlib:CochainComplex.mappingCone",
+          "mathlib:CategoryTheory.Functor.IsMittagLeffler",
+          "mathlib:CategoryTheory.Pretriangulated"
+        ],
+        "missing": "Ordinary limits, mapping cones, the Mittag-Leffler predicate and triangulated structure exist separately. Missing are the product-difference tower functor, its localization, comparison with right derived lim, Milnor sequence and enhanced sheaf interface. A nonfunctorial choice of triangulated cone is insufficient."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-BHATT-18",
+          "items": [
+            "PAPER-BHATT-18/tower-roos"
+          ]
+        },
+        {
+          "paper": "PAPER-BHATT-MORROW-SCHOLZE-19",
+          "items": [
+            "PAPER-BHATT-MORROW-SCHOLZE-19/038"
+          ]
+        },
+        {
+          "paper": "PAPER-BHATT-SCHOLZE-22",
+          "items": [
+            "PAPER-BHATT-SCHOLZE-22/85"
+          ]
+        },
+        {
+          "paper": "PAPER-BOXER-PILLONI-26",
+          "items": [
+            "PAPER-BOXER-PILLONI-26/twists-and-derived-limit"
+          ]
+        },
+        {
+          "paper": "PAPER-CESNAVICIUS-SCHOLZE-24",
+          "items": [
+            "PAPER-CESNAVICIUS-SCHOLZE-24/106"
+          ]
+        },
+        {
+          "paper": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
+          "items": [
+            "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-stein-spaces"
+          ]
+        },
+        {
+          "paper": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21",
+          "items": [
+            "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21/2-zp-hat",
+            "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21/3-kummer-and-artin-schreier"
+          ]
+        },
+        {
+          "paper": "PAPER-COLMEZ-NIZIOL-17",
+          "items": [
+            "PAPER-COLMEZ-NIZIOL-17/151"
+          ]
+        },
+        {
+          "paper": "PAPER-COLMEZ-NIZIOL-25",
+          "items": [
+            "PAPER-COLMEZ-NIZIOL-25/807"
+          ]
+        },
+        {
+          "paper": "PAPER-DISEGNI-LIU-24",
+          "items": [
+            "PAPER-DISEGNI-LIU-24/43"
+          ]
+        },
+        {
+          "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+          "items": [
+            "PAPER-FARB-KISIN-WOLFSON-24/033",
+            "PAPER-FARB-KISIN-WOLFSON-24/034"
+          ]
+        },
+        {
+          "paper": "PAPER-KALETHA-16",
+          "items": [
+            "PAPER-KALETHA-16/P19"
+          ]
+        },
+        {
+          "paper": "PAPER-KINGS-SPRANG-25",
+          "items": [
+            "PAPER-KINGS-SPRANG-25/028"
+          ]
+        },
+        {
+          "paper": "PAPER-ZAVYALOV-25",
+          "items": [
+            "PAPER-ZAVYALOV-25/31"
+          ]
+        }
+      ],
+      "owners": [
+        "ArithmeticGaloisDuality:D7",
+        "ArithmeticGaloisDuality:R02.1",
+        "CompletedCohomologyPartII:CC.2"
+      ],
+      "dependsOn": [],
+      "size": "XL",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For the constant tower A with identity transitions, placed in degree zero, Rlim is A[0]; H^0=A and all other cohomology groups vanish."
+        },
+        {
+          "kind": "example",
+          "statement": "For A_n=Z/p^n and reduction transitions, H^0(Rlim A_n)=Z_p and H^1=0. For a tower with all transition maps zero, both groups vanish."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "For the tower Z with every transition multiplication by 2, lim is 0 but lim^1 is Z_2/Z and is nonzero. Thus ordinary lim in degree zero gives the wrong Rlim."
+        },
+        {
+          "kind": "theorem",
+          "statement": "For a tower of module complexes and every integer j, there is a natural exact sequence 0 -> lim^1 H^(j-1)(K_n) -> H^j(Rlim K_n) -> lim H^j(K_n) -> 0, with no unconditional deletion of the left term."
+        },
+        {
+          "kind": "theorem",
+          "statement": "A Mittag-Leffler tower of modules concentrated in degree zero has lim^1=0; strict tower maps induce maps on the product-difference cones preserving identities and composition."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "The enhanced homotopy limit yields the displayed distinguished triangle after passing to the homotopy category. Kings-Sprang Appendix B only needs the triangle and its Hom exact sequence; it does not license selecting cone fillers as a functor."
+        }
+      ]
+    },
+    {
       "id": "algebraicnt/hermitian-lattices",
       "name": "Hermitian lattices and integral duality",
       "short": "Hermitian lattices and integral duality",
@@ -116,108 +252,10 @@
       ]
     },
     {
-      "id": "algebraicnt/sequential-derived-limits",
-      "name": "Sequential derived inverse limits",
-      "short": "Sequential derived inverse limits",
-      "define": "For a strict countable tower of cochain R-module complexes with maps f_n:K_(n+1)->K_n, form Delta=1-shift on the degreewise product and Rlim K=Cone(Delta)[-1]. Descend this functor to the derived category of towers; for modules, exact products identify it with the right derived inverse limit. Export the corresponding homotopy-limit construction in an enhanced category with countable products for the sheaf and animated-ring consumers. In a bare triangulated category a triangle only specifies an object up to nonunique isomorphism, not a chosen functor. Sheaf products must be derived when not exact; derived adic completion itself remains with its existing owner.",
-      "library": {
-        "has": [
-          "mathlib:CategoryTheory.Limits.limit",
-          "mathlib:CochainComplex.mappingCone",
-          "mathlib:CategoryTheory.Functor.IsMittagLeffler",
-          "mathlib:CategoryTheory.Pretriangulated"
-        ],
-        "missing": "Ordinary limits, mapping cones, the Mittag-Leffler predicate and triangulated structure exist separately. Missing are the product-difference tower functor, its localization, comparison with right derived lim, Milnor sequence and enhanced sheaf interface. A nonfunctorial choice of triangulated cone is insufficient."
-      },
-      "papers": [
-        {
-          "paper": "PAPER-BHATT-18",
-          "items": [
-            "PAPER-BHATT-18/tower-roos"
-          ]
-        },
-        {
-          "paper": "PAPER-BHATT-SCHOLZE-22",
-          "items": [
-            "PAPER-BHATT-SCHOLZE-22/85"
-          ]
-        },
-        {
-          "paper": "PAPER-BOXER-PILLONI-26",
-          "items": [
-            "PAPER-BOXER-PILLONI-26/twists-and-derived-limit"
-          ]
-        },
-        {
-          "paper": "PAPER-CESNAVICIUS-SCHOLZE-24",
-          "items": [
-            "PAPER-CESNAVICIUS-SCHOLZE-24/106"
-          ]
-        },
-        {
-          "paper": "PAPER-DISEGNI-LIU-24",
-          "items": [
-            "PAPER-DISEGNI-LIU-24/43"
-          ]
-        },
-        {
-          "paper": "PAPER-KALETHA-16",
-          "items": [
-            "PAPER-KALETHA-16/P19"
-          ]
-        },
-        {
-          "paper": "PAPER-KINGS-SPRANG-25",
-          "items": [
-            "PAPER-KINGS-SPRANG-25/028"
-          ]
-        },
-        {
-          "paper": "PAPER-ZAVYALOV-25",
-          "items": [
-            "PAPER-ZAVYALOV-25/31"
-          ]
-        }
-      ],
-      "owners": [
-        "ArithmeticGaloisDuality:D7",
-        "ArithmeticGaloisDuality:R02.1",
-        "CompletedCohomologyPartII:CC.2"
-      ],
-      "dependsOn": [],
-      "size": "XL",
-      "api": [
-        {
-          "kind": "example",
-          "statement": "For the constant tower A with identity transitions, placed in degree zero, Rlim is A[0]; H^0=A and all other cohomology groups vanish."
-        },
-        {
-          "kind": "example",
-          "statement": "For A_n=Z/p^n and reduction transitions, H^0(Rlim A_n)=Z_p and H^1=0. For a tower with all transition maps zero, both groups vanish."
-        },
-        {
-          "kind": "counterexample",
-          "statement": "For the tower Z with every transition multiplication by 2, lim is 0 but lim^1 is Z_2/Z and is nonzero. Thus ordinary lim in degree zero gives the wrong Rlim."
-        },
-        {
-          "kind": "theorem",
-          "statement": "For a tower of module complexes and every integer j, there is a natural exact sequence 0 -> lim^1 H^(j-1)(K_n) -> H^j(Rlim K_n) -> lim H^j(K_n) -> 0, with no unconditional deletion of the left term."
-        },
-        {
-          "kind": "theorem",
-          "statement": "A Mittag-Leffler tower of modules concentrated in degree zero has lim^1=0; strict tower maps induce maps on the product-difference cones preserving identities and composition."
-        },
-        {
-          "kind": "compatibility",
-          "statement": "The enhanced homotopy limit yields the displayed distinguished triangle after passing to the homotopy category. Kings-Sprang Appendix B only needs the triangle and its Hom exact sequence; it does not license selecting cone fillers as a functor."
-        }
-      ]
-    },
-    {
       "id": "algebraicnt/local-representation-densities",
       "name": "Local representation densities",
       "short": "Local representation densities",
-      "define": "For integral quadratic or hermitian lattices L and M over a local integer ring, construct Rep(M,L), whose S-points are S-linear maps from L_S to M_S preserving the form. The first displayed argument is the target. Define finite-level and primitive counts and the limit with a recorded normalization datum. In the unramified hermitian case with base residue field of size q, ranks n=rank L and m=rank M, divide by q^(N n(2m-n)); for odd-residue orthogonal forms use q^(N n(2m-n-1)/2). Ramified, fractional and dyadic models retain their source-specific denominator and congruence level, not an assumed unramified formula. Prove existence only under the appropriate source hypotheses.",
+      "define": "For integral quadratic or hermitian lattices L and M over a local integer ring, construct Rep(M,L), whose S-points are S-linear maps from L_S to M_S preserving the form. The first displayed argument is the target. Define finite-level and primitive counts and the limit with a recorded normalization datum. For a nonempty generic representation space with n=rank L <= m=rank M, in the unramified hermitian case of residue characteristic different from 2 with base residue field of size q, divide by q^(N n(2m-n)); for odd-residue orthogonal forms use q^(N n(2m-n-1)/2). Ramified, fractional and dyadic models retain their source-specific denominator and congruence level, not an assumed unramified formula. Prove existence only under the appropriate source hypotheses.",
       "library": {
         "has": [
           "mathlib:QuadraticMap.Isometry",
@@ -301,7 +339,7 @@
         },
         {
           "kind": "compatibility",
-          "statement": "For unramified hermitian ranks n<=m, the dimension exponent is n(2m-n) over the base residue field, not over the quadratic residue field. Ramified He-Li-Shi counts must keep their level shift and denominator from Definition 5.1 before comparing to Li-Liu Definition 2.14."
+          "statement": "For a nonempty generic representation space of unramified hermitian ranks n<=m in the preceding residue-characteristic scope, the dimension exponent is n(2m-n) over the base residue field, not over the quadratic residue field. Ramified He-Li-Shi counts must keep their level shift and denominator from Definition 5.1 before comparing to Li-Liu Definition 2.14."
         }
       ]
     },
@@ -387,7 +425,7 @@
       "id": "algebraicnt/local-quadratic-lattices",
       "name": "Quadratic lattices over local integer rings",
       "short": "Quadratic lattices over local integer rings",
-      "define": "For a local field F and its integer DVR O, define full finite free integral quadratic lattices (L,q) in a nondegenerate quadratic space, their form-preserving maps, integral bilinear dual, Jordan constituents and maximal/vertex conditions. Retain q and its polar form b_q(x,y)=q(x+y)-q(x)-q(y). When 2 is a unit, a source's symmetric form B with q(x)=B(x,x) has b_q=2B, and either dual convention is explicitly identified. At residue characteristic 2 these are different data and rank-two Jordan blocks are necessary; do not infer integral classification from classification over F.",
+      "define": "For a local field F of characteristic different from 2 and its integer DVR O, define full finite free integral quadratic lattices (L,q) in a nondegenerate quadratic space, their form-preserving maps, integral bilinear dual, Jordan constituents and maximal/vertex conditions. Retain q and its polar form b_q(x,y)=q(x+y)-q(x)-q(y). When 2 is a unit, a source's symmetric form B with q(x)=B(x,x) has b_q=2B, and either dual convention is explicitly identified. At residue characteristic 2 these are different data and rank-two Jordan blocks are necessary; do not infer integral classification from classification over F. Residue characteristic 2, including Q_2, is retained; equal-characteristic-2 quadratic spaces and their distinct nonsingularity conventions are outside this initial entry.",
       "library": {
         "has": [
           "mathlib:Submodule.IsLattice",
@@ -630,7 +668,10 @@
         }
       ],
       "owners": [],
-      "dependsOn": [],
+      "dependsOn": [
+        "algebraicgeometry/chow-intersection",
+        "algebraicgeometry/scheme-brauer"
+      ],
       "size": "XL",
       "api": [
         {
@@ -723,13 +764,13 @@
       "id": "algebraicnt/classical-grothendieck-witt",
       "name": "Classical Grothendieck–Witt and symplectic K-theory",
       "short": "Classical Grothendieck–Witt and symplectic K-theory",
-      "define": "For a ring with involution and a specified duality, form the symmetric monoidal groupoid of nondegenerate forms on finite projective modules and take its E_infinity group completion to obtain the connective classical Grothendieck-Witt space/spectrum. Keep symmetric, quadratic and even/alternating sign conventions as separate inputs. Symplectic K-theory of Z is the group completion of perfect alternating forms on finite free Z-modules. Retain higher homotopy groups, finite-coefficient spectra, hyperbolic and forgetful maps; it is neither ordinary K_0 nor the Witt quotient.",
+      "define": "For a ring with involution and a specified duality, form the symmetric monoidal groupoid of nondegenerate forms on finite projective modules and take its E_infinity group completion to obtain the connective classical Grothendieck-Witt space/spectrum. Keep symmetric, quadratic and even/alternating sign conventions as separate inputs. Symplectic K-theory of Z is the group completion of perfect alternating forms on finite free Z-modules. Retain higher homotopy groups, finite-coefficient spectra, hyperbolic and forgetful maps; it is neither ordinary K_0 nor the Witt quotient. Import degree-zero field Grothendieck-Witt and Witt groups from QuadraticFormInvariants layer 4; this entry owns the general-ring and higher-spectrum extension and its comparison with that import.",
       "library": {
         "has": [
           "tauceti:TauCeti.ExactK0",
           "mathlib:LinearMap.BilinForm.IsAlt"
         ],
-        "missing": "Ordinary exact-category K_0 and the alternating bilinear predicate exist. The forms groupoid with duality, E_infinity group completion, higher classical GW/KSp spectrum and its hyperbolic/forgetful comparison are absent. Ordinary conflation relations do not construct the required spectrum."
+        "missing": "Ordinary exact-category K_0 and the alternating bilinear predicate exist. The forms groupoid with duality, E_infinity group completion, higher classical GW/KSp spectrum and its hyperbolic/forgetful comparison are absent. Ordinary conflation relations do not construct the required spectrum. The planned upstream degree-zero field GW/W construction is a dependency, not a second ownership claim."
       },
       "papers": [
         {
@@ -750,7 +791,9 @@
       "owners": [
         "GeometryOfNumbersAndQuadraticArithmetic:GN.6"
       ],
-      "dependsOn": [],
+      "dependsOn": [
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal"
+      ],
       "size": "XL",
       "api": [
         {
@@ -788,9 +831,11 @@
         "has": [
           "mathlib:continuousCohomology",
           "mathlib:CategoryTheory.Limits.limit",
-          "mathlib:HomologicalComplex"
+          "mathlib:HomologicalComplex",
+          "mathlib:AlgebraicGeometry.Scheme.ellAdicSheaf",
+          "mathlib:AlgebraicGeometry.Scheme.EllAdicCohomology"
         ],
-        "missing": "The cited continuousCohomology is continuous group cohomology of a TopRep, not etale cohomology of an inverse system of sheaves. Missing are the system category, derived global sections/inverse-limit comparison, equivariant adic realization and Milnor/continuous Hochschild-Serre interfaces."
+        "missing": "The pin already defines the constant pro-etale Z_ell sheaf U -> C(U,Z_ell) and its sheaf cohomology in nonnegative degrees. Reuse these objects and prove the comparison with the constant-system case. They do not construct continuous etale cohomology for arbitrary inverse systems of sheaves or bounded-below complexes, its equivariant rational realization, or the required derived-limit and admissibility comparisons. The cited continuousCohomology is group cohomology of a TopRep. D7 supplies the arithmetic/Galois comparison, not an explicitly owned general scheme-sheaf system construction."
       },
       "papers": [
         {
@@ -806,9 +851,7 @@
           ]
         }
       ],
-      "owners": [
-        "ArithmeticGaloisDuality:D7"
-      ],
+      "owners": [],
       "dependsOn": [
         "algebraicnt/sequential-derived-limits",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
@@ -845,7 +888,7 @@
       "id": "algebraicnt/kato-complexes",
       "name": "Kato complexes",
       "short": "Kato complexes",
-      "define": "For a finite-type scheme X with a dimension function and integers r,s>=0, define the homological Kato complex C^{r,s}(X,Z/n): its degree a term is the direct sum over points of dimension a of H^(r+a)(kappa(x),Z/n(s+a)). A differential is the sum of residue maps on the normalization of each codimension-one specialization followed by residue-field corestriction. Construct finite support and prove d squared zero through the coniveau E_1 complex. First implement n invertible on X; wild coefficients require the precise p-dimension and geometric hypotheses of Jannsen §4 or Dittmann-Pop §2, not unrestricted residue maps.",
+      "define": "Initially, for a separated finite-type scheme X over a field k, an integer n invertible in k, and integers r,s>=0, using the dimension of the closure of each point, define the homological Kato complex C^{r,s}(X,Z/n): its degree a term is the direct sum over points of dimension a of H^(r+a)(kappa(x),Z/n(s+a)). A differential is the sum of residue maps on the normalization of each codimension-one specialization followed by residue-field corestriction. Construct finite support and prove d squared zero through the coniveau E_1 complex. Extension to more general arithmetic schemes needs a separately justified dimension/coniveau framework; wild coefficients require the precise p-dimension and geometric hypotheses of Jannsen §4 or Dittmann-Pop §2, not unrestricted residue maps.",
       "library": {
         "has": [
           "mathlib:HomologicalComplex",
@@ -890,15 +933,15 @@
         },
         {
           "kind": "theorem",
-          "statement": "For torsion invertible on X in the coniveau construction, the sum of specialization residues has finite support and the composite of two successive differentials is zero."
+          "statement": "For X separated and of finite type over a field k and n invertible in k, the coniveau construction proves finite support for the specialization residues and that two successive differentials compose to zero."
         },
         {
           "kind": "theorem",
-          "statement": "Proper pushforward, defined using residue-field corestriction and the dimension convention, commutes with the differential; restriction to an open subscheme gives the compatible localization complex."
+          "statement": "For proper morphisms between separated finite-type k-schemes with n invertible in k, pushforward, using residue-field corestriction and the dimension convention, commutes with the differential; restriction to an open subscheme gives the compatible localization complex."
         },
         {
           "kind": "compatibility",
-          "statement": "For a d-dimensional regular scheme in Dittmann-Pop notation, the top term of C^{1,0} is H^(d+1)(k(X),Z/n(d)). This checks dimension indexing; substituting codimension without reversing degrees gives the wrong group."
+          "statement": "For a d-dimensional integral regular scheme in Dittmann-Pop notation, the top term of C^{1,0} is H^(d+1)(k(X),Z/n(d)). This checks dimension indexing; substituting codimension without reversing degrees gives the wrong group."
         }
       ]
     },
@@ -967,7 +1010,7 @@
       "id": "algebraicnt/outer-galois-stabilizers",
       "name": "Geometric stabilizers with outer Galois action",
       "short": "Geometric stabilizers with outer Galois action",
-      "define": "For a homogeneous space X under an algebraic group G over a characteristic-zero field k, choose a geometric point x with finite stabilizer H. Construct the extension 1->H->G_x->Gamma_k->1 where G_x consists of pairs (g,sigma) with g sigma(x)=x, and its continuous outer action Gamma_k->Out(H). Identify changes of geometric basepoint up to inner automorphism. Define outer-stable normal filtrations with cyclic quotients (outer supersolvability), the induced honest action on H^ab, and descent of these data. Do not replace this with an arbitrarily chosen honest action on H.",
+      "define": "For a homogeneous space X under an algebraic group G over a characteristic-zero field k, choose a geometric point x with finite stabilizer H. Construct the extension 1->H->G_x->Gamma_k->1 where G_x consists of pairs (g,sigma) with g sigma(x)=x, and its continuous outer action Gamma_k->Out(H). Identify changes of geometric basepoint up to inner automorphism. Define outer-stable normal filtrations with cyclic quotients (outer supersolvability), the induced honest action on H^ab, and descent of these data. Do not replace this with an arbitrarily chosen honest action on H. Import the finite algebraic-kernel Galois-gerb interface from algebraicgeometry/galois-gerbs; the new portion is its geometric-stabilizer realization, basepoint transport and outer-stable cyclic filtration.",
       "library": {
         "has": [
           "mathlib:MulAut.conj",
@@ -995,7 +1038,9 @@
         }
       ],
       "owners": [],
-      "dependsOn": [],
+      "dependsOn": [
+        "algebraicgeometry/galois-gerbs"
+      ],
       "size": "XL",
       "api": [
         {
@@ -1572,5 +1617,11 @@
     "PAPER-BENOIST-19/95",
     "PAPER-BENOIST-19/186",
     "PAPER-BENOIST-19/187"
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-KEYDEF-algebraicnt",
+    "date": "2026-09-30",
+    "notes": "Independent session codex-5ebb6f reviewed all 14 definitions, all 84 API statements, cited catalogue statements, the 382-item accounting, pinned declarations, owners and cross-survey dependencies. Corrected derived-limit evidence from 8 to 14 papers, added existing constant pro-etale ell-adic objects, restricted Kato and local quadratic/density hypotheses, imported upstream field GW/W and pending geometric suppliers, and removed the unsupported D7 ownership of general adic sheaf systems. Four checker warnings are explicit gaps/duplication. The reviewer and author sessions differ but use the shared CBirkbeck GitHub account: PROTOCOL section 19 requires a different account, so this is not an accepted promotion certificate. A qualifying account must independently verify the corrected survey before acceptance; general adic-sheaf ownership and the D7/CC.2 enhanced-limit boundary also need maintainer routing."
+  }
 }
