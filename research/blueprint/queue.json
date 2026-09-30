@@ -4323,8 +4323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -40807,7 +40807,8 @@
     "REV-LINK-tauceti_Completed_OrthogonalL2Bases"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_Completed_OrthogonalL2Bases.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4359"
   },
   {
    "id": "REV-RT-LINK-tauceti_Completed_OrthogonalL2Bases",
