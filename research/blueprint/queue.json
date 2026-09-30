@@ -34347,7 +34347,8 @@
     "REV-PAPER-GAO-HABEGGER-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GAO-HABEGGER-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4092"
   },
   {
    "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19",
@@ -37028,8 +37029,9 @@
     "REV-PAPER-HANSEN-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HANSEN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4528"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4528",
+   "finishedAt": "2026-09-30T14:47:11Z"
   },
   {
    "id": "REV-RT-PAPER-HANSEN-26",
@@ -38579,8 +38581,9 @@
     "REV-PAPER-HARPAZ-WITTENBERG-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4269"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4269",
+   "finishedAt": "2026-09-30T14:47:18Z"
   },
   {
    "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
@@ -42205,7 +42208,8 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-13.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4398"
   },
   {
    "id": "RT-RS-14",
@@ -42468,8 +42472,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4408"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4408",
+   "finishedAt": "2026-09-30T14:47:22Z"
   },
   {
    "id": "REV-RT-RS-18",
