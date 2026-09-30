@@ -33948,8 +33948,8 @@
     "REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1730"
+   "state": "external",
+   "note": "claimed on GitHub issue #1730"
   },
   {
    "id": "RT-PAPER-BENNETT-SIKSEK-20",
@@ -39782,8 +39782,9 @@
     "REV-PAPER-ANDRE-18-B"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-ANDRE-18-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4331"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4331",
+   "finishedAt": "2026-09-30T02:38:33Z"
   },
   {
    "id": "RT-PAPER-NELSON-VENKATESH-21",
