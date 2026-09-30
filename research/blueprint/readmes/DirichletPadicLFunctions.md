@@ -19917,3 +19917,107 @@ Sixteen complete native lemmas check the actual finite-unit congruence and its Q
 Exact rational controls cover24 prime-and-weight pairs,1,507 unit residues,228 ordinary logarithm terms and228 powered logarithm terms. All24 numerator/denominator precision checks and24 Bernoulli identities pass;17 indices check the derived residue precision. The controls detect23 wrong signs and23 missing weight factors and retain the dyadic initial zero. Exact rational Bernoulli recurrence through B_294, exact integer powers and finite unit residues, and logarithm truncations of length2(r+3). The actual moment formula supplies the rational N_r, while the planned mass/logarithm comparison identifies the infinite mass. Finite checks verify all displayed congruences and rescaling identities; they do not prove infinite logarithm multiplicativity or convergence of the actual measures. The largest observed discrepancy is 0 in the exact rescaling identities; every p-adic error satisfies its stated valuation bound; no floating-point arithmetic.
 
 The66-input capture has an empty predecessor delta. The entire predecessor Lean body is preserved. The complete native probe uses existing pinned artifacts. The full suggested module remains uncompiled because the real native TwistedDivisorSum artifact is unavailable. A separate signature check uses exactly the last fully compiled4773 body plus these six statements and eighteen examples: zero errors and1,827 expected placeholder warnings, with3,573 audited source modules. It excludes4777/4780/4786/4788 additions and does not validate the current full module.
+
+
+## Precision of the principal Bernoulli residue
+
+Partial continuation preserving all608 predecessor nodes whole. Three L3 nodes quantify the Euler–Bernoulli residue error, compute the exact error from removing the Euler factor using the native Bernoulli valuation, and give the unmodified Bernoulli sequence limit with the same precision bound. All16 findings, eleven requests and fifteen gaps remain; zero closed stages.
+
+Read the whole native Bernoulli von Staudt–Clausen section401–727, including the public valuation theorem and its proof, and the whole existing arithmetic-euler-value-norm node and its retained3305 native scalar probe. Read the exact native p-adic norm stability, nonarchimedean inequality, prime-power norm and rational-cast valuation declarations, prime-minus-one parity and eventual squeeze theorem. The source pages138–139 and153–158 and reviewed L3/PMIA audits were read during the preceding4790 checkpoint; its actual numerator, denominator, mass and logarithm statements are retained and reused. This is a quantitative deduction, not a new source extraction or independent verdict.
+
+### Precision of the Euler–Bernoulli residue sequence
+
+`DirichletPadicLFunctions:L3/principal-euler-bernoulli-residue-error` — `DirichletPadic.principalBernoulli_euler_residue_error`
+
+For r≥ell, ‖C_r−R‖≤p^(ell−r). In particular r≥ell+t gives error at most p^(−t).
+
+**Hypotheses:** p is any prime, including2. Put Q=ℚ_p, w_r=(p−1)p^r, R=1−p⁻¹ and ell=2 if p=2, otherwise1. Bernoulli numbers are native rational bernoulli values included canonically into Q. Let C_r=(1−p^(w_r−1))B_(w_r). These are expressions in existing objects, not new constructors. For the quotient estimate use the actual numerator λ at a=p+1, its included mass M and its existing Q-valued coefficient extension evaluated on u↦u^(w_r), denoted N_r. Put δ_r=(p+1)^(w_r)−1, D_r=δ_r/w_r and L=∑n (−1)^(n+1)p^n/n. The preceding actual comparisons give C_r=−N_r/D_r, M=−RL, ‖L‖=p^(−ell), and both numerator and normalized denominator errors at most p^(−r−1). Retain the bounded Z_p-action where these measure interfaces are used. The residue estimates require r≥ell. This makes the denominator error strictly smaller than ‖L‖. The exact Euler-removal estimate needs only r≥1, guaranteeing that w_r is positive and even, and at least2. The dyadic weight1 term is excluded from that estimate with natural subtraction w_r−2. Native Bernoulli.padicValRat_bernoulli already supplies v_p(B_(2k))=−1 for k>0 and p−1 dividing2k; its norm consequence was already used in L1/arithmetic-euler-value-norm. No general Bernoulli valuation, von Staudt–Clausen theorem, logarithm or character-family theory is re-planned. The final convergence is a natural-index sequence limit. It does not give a full punctured-neighbourhood limit, construct the canonical PMIA/LAD character family, or prove meromorphicity or pole order. All existing analytic supplier boundaries remain.
+
+**Proof:**
+
+1. The exact logarithm norm is p^(−ell): the odd-prime inverse norm and dyadic1/4 become this uniform formula by separate elementary simplifications. Since r≥ell, p^(−r−1)<p^(−ell). Apply native Padic.norm_eq_of_norm_sub_lt_right to D_r−L, obtaining ‖D_r‖=‖L‖. In particular D_r≠0. Complete denominator_norm_stable proves this implication.
+2. Use the actual mass identity M=−RL and the existing exact rescaling C_r=−N_r/D_r. The field identity C_r−R=[−(N_r−M)−R(D_r−L)]/D_r expresses the error in terms of the two known errors. Complete quotient_precision checks this identity and its norm estimate, retaining the nonzero denominator.
+3. The elementary equality R=(p−1)/p and native norm_natCast_p_sub_one/norm_p give ‖R‖=p. The ultrametric numerator bound is therefore at most max(p^(−r−1),p·p^(−r−1))=p^(−r). Divide by ‖D_r‖=p^(−ell), giving the displayed p^(ell−r). This explicitly accounts for the denominator precision loss.
+4. Native integer exponent monotonicity gives the cutoff r≥ell+t. Complete precision_cutoff verifies it. At p=2,r=0 the normalized denominator equals2 and has norm1/2, not the limiting norm1/4; the stabilization threshold is not silently applied there.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/integer-principal-numerator-limit`, `DirichletPadicLFunctions:L3/integer-principal-denominator-precision`, `DirichletPadicLFunctions:L3/integer-principal-rescaled-moment`, `DirichletPadicLFunctions:L3/principal-numerator-logarithmic-series`, `DirichletPadicLFunctions:L3/principal-logarithmic-series-norm`, `mathlib:Padic.norm_eq_of_norm_sub_lt_right`, `mathlib:Padic.norm_natCast_p_sub_one`, `mathlib:Padic.norm_p`, `mathlib:Padic.nonarchimedean`, `mathlib:zpow_le_zpow_right₀`.
+
+**Tests:**
+
+- `SuggestedBernoulliPrecisionTests.dyadic_euler_precision_cutoff` (compatibility): At p=2, r≥t+2 gives error at most2^(−t) for C_r−1/2.
+- `SuggestedBernoulliPrecisionTests.ternary_euler_precision_cutoff` (compatibility): At p=3, r≥t+1 gives error at most3^(−t) for C_r−2/3.
+- `SuggestedBernoulliPrecisionTests.dyadic_initial_denominator_norm_is_different` (non-example): At p=2,r=0, ‖(3^1−1)/1‖ is not1/4.
+
+**Acceptance:** The result is a sufficient precision bound, not a claim that every error has this exact norm or that the cutoff is optimal.
+
+**Source:** Proposition4.8, equations4-2/4-3 and Proposition4.11, published138–139/PDF39–40; Theorem7.1 and equations7-1 through7-8, published154–158/PDF55–59. Whole pages read in the immediately preceding integer-weight checkpoint and retained. Worker quantitative consequences of the actual integer-weight comparison, using the native Bernoulli valuation theorem. These precision bounds and the unmodified Bernoulli sequence limit are not separately stated in RJW. The logarithm and actual mass remain the previously identified owner inputs; no analytic branch or pole order is asserted.
+
+### Exact error from removing the Euler factor
+
+`DirichletPadicLFunctions:L3/principal-bernoulli-euler-removal` — `DirichletPadic.principalBernoulli_euler_removal_error`
+
+For r≥1, ‖B_(w_r)−C_r‖=p^(−(w_r−2)), with w_r−2 the nonnegative natural exponent.
+
+**Hypotheses:** p is any prime, including2. Put Q=ℚ_p, w_r=(p−1)p^r, R=1−p⁻¹ and ell=2 if p=2, otherwise1. Bernoulli numbers are native rational bernoulli values included canonically into Q. Let C_r=(1−p^(w_r−1))B_(w_r). These are expressions in existing objects, not new constructors. For the quotient estimate use the actual numerator λ at a=p+1, its included mass M and its existing Q-valued coefficient extension evaluated on u↦u^(w_r), denoted N_r. Put δ_r=(p+1)^(w_r)−1, D_r=δ_r/w_r and L=∑n (−1)^(n+1)p^n/n. The preceding actual comparisons give C_r=−N_r/D_r, M=−RL, ‖L‖=p^(−ell), and both numerator and normalized denominator errors at most p^(−r−1). Retain the bounded Z_p-action where these measure interfaces are used. The residue estimates require r≥ell. This makes the denominator error strictly smaller than ‖L‖. The exact Euler-removal estimate needs only r≥1, guaranteeing that w_r is positive and even, and at least2. The dyadic weight1 term is excluded from that estimate with natural subtraction w_r−2. Native Bernoulli.padicValRat_bernoulli already supplies v_p(B_(2k))=−1 for k>0 and p−1 dividing2k; its norm consequence was already used in L1/arithmetic-euler-value-norm. No general Bernoulli valuation, von Staudt–Clausen theorem, logarithm or character-family theory is re-planned. The final convergence is a natural-index sequence limit. It does not give a full punctured-neighbourhood limit, construct the canonical PMIA/LAD character family, or prove meromorphicity or pole order. All existing analytic supplier boundaries remain.
+
+**Proof:**
+
+1. For odd p, native Prime.even_sub_one makes p−1 even. For p=2 and r≥1, the factor2^r is even. Thus w_r=2k for some k>0, and p−1 divides w_r. Also r+1≤w_r, since r<p^r and p−1≥1. Complete weight_even and weight_lower_bound check these elementary index conditions.
+2. Apply the existing native Bernoulli.padicValRat_bernoulli at k. As in the preserved arithmetic-euler-value-norm proof, its nonzero rational Bernoulli value and the native rational-cast norm formula give ‖B_(w_r)‖=p. Complete integer_weight_bernoulli_norm specializes that existing theorem; it is not a new general roadmap node.
+3. The difference B_(w_r)−(1−p^(w_r−1))B_(w_r) is exactly p^(w_r−1)B_(w_r). Native norm_p_pow and multiplicativity give p^(−w_r+1)·p=p^(−w_r+2). Because w_r≥2, this is the stated natural-subtraction exponent. Complete euler_removal_error verifies the equality.
+4. At p=2,r=1 the error is1/3, of norm1. At p=3,r=1 the weight is6 and the error norm is3^(−4). At p=2,r=0, B_1−C_0=−1/2 has norm2; substituting the truncated natural exponent1−2=0 would incorrectly give1, so that index is excluded.
+
+**Prerequisites:** `mathlib:Bernoulli.padicValRat_bernoulli`, `mathlib:Padic.valuation_ratCast`, `mathlib:Padic.norm_eq_zpow_neg_valuation`, `mathlib:Padic.norm_p_pow`, `mathlib:Nat.Prime.even_sub_one`.
+
+**Tests:**
+
+- `SuggestedBernoulliPrecisionTests.dyadic_second_weight_euler_error` (computation): For p=2 and weight2 the exact Euler-removal error has norm1.
+- `SuggestedBernoulliPrecisionTests.ternary_sixth_weight_euler_error` (computation): For p=3 and weight6 the exact Euler-removal error has norm3^(−4).
+- `SuggestedBernoulliPrecisionTests.dyadic_first_weight_excluded_from_truncated_exponent` (non-example): For p=2 and weight1 the Euler-removal error has norm2, so the r≥1 restriction is necessary for the displayed natural-subtraction formula.
+
+**Acceptance:** This node depends only on native arithmetic and has no analytic supplier leaves. It uses the existing Bernoulli valuation rather than duplicating it.
+
+**Source:** Proposition4.8, equations4-2/4-3 and Proposition4.11, published138–139/PDF39–40; Theorem7.1 and equations7-1 through7-8, published154–158/PDF55–59. Whole pages read in the immediately preceding integer-weight checkpoint and retained. Worker quantitative consequences of the actual integer-weight comparison, using the native Bernoulli valuation theorem. These precision bounds and the unmodified Bernoulli sequence limit are not separately stated in RJW. The logarithm and actual mass remain the previously identified owner inputs; no analytic branch or pole order is asserted.
+
+### Precision and limit of the Bernoulli sequence
+
+`DirichletPadicLFunctions:L3/principal-unmodified-bernoulli-residue` — `DirichletPadic.principalBernoulli_residue_precision`
+
+For r≥ell, ‖B_(w_r)−(1−p⁻¹)‖≤p^(ell−r). The unmodified sequence B_(w_r) tends to1−p⁻¹ in Q.
+
+**Hypotheses:** p is any prime, including2. Put Q=ℚ_p, w_r=(p−1)p^r, R=1−p⁻¹ and ell=2 if p=2, otherwise1. Bernoulli numbers are native rational bernoulli values included canonically into Q. Let C_r=(1−p^(w_r−1))B_(w_r). These are expressions in existing objects, not new constructors. For the quotient estimate use the actual numerator λ at a=p+1, its included mass M and its existing Q-valued coefficient extension evaluated on u↦u^(w_r), denoted N_r. Put δ_r=(p+1)^(w_r)−1, D_r=δ_r/w_r and L=∑n (−1)^(n+1)p^n/n. The preceding actual comparisons give C_r=−N_r/D_r, M=−RL, ‖L‖=p^(−ell), and both numerator and normalized denominator errors at most p^(−r−1). Retain the bounded Z_p-action where these measure interfaces are used. The residue estimates require r≥ell. This makes the denominator error strictly smaller than ‖L‖. The exact Euler-removal estimate needs only r≥1, guaranteeing that w_r is positive and even, and at least2. The dyadic weight1 term is excluded from that estimate with natural subtraction w_r−2. Native Bernoulli.padicValRat_bernoulli already supplies v_p(B_(2k))=−1 for k>0 and p−1 dividing2k; its norm consequence was already used in L1/arithmetic-euler-value-norm. No general Bernoulli valuation, von Staudt–Clausen theorem, logarithm or character-family theory is re-planned. The final convergence is a natural-index sequence limit. It does not give a full punctured-neighbourhood limit, construct the canonical PMIA/LAD character family, or prove meromorphicity or pole order. All existing analytic supplier boundaries remain.
+
+**Proof:**
+
+1. Because ell≥1 and r≥ell, the exact Euler-removal formula applies. The elementary lower bound w_r≥r+1 gives −(w_r−2)≤ell−r. Thus the Euler-removal error is at most p^(ell−r).
+2. Write B_(w_r)−R=(B_(w_r)−C_r)+(C_r−R). The native ultrametric maximum inequality combines the two bounds without an extra factor2. Complete combined_bernoulli_precision checks the index inequalities and norm calculation.
+3. The real bound p^(ell−r) is p^ell times the geometric sequence(p⁻¹)^r, which tends to0. The bound holds eventually, namely for r≥ell. Apply the generated native squeeze_zero_norm′ theorem and translate by R. Complete residue_precision_tends_zero and limit_of_eventual_precision check both the geometric identity and the eventual filter argument.
+4. At odd primes r≥t+1 is sufficient for error at most p^(−t); at p=2 the sufficient cutoff is r≥t+2. The Bernoulli sequence has the same limiting coefficient as its Euler-modified counterpart, while their finite terms differ. No complex-to-p-adic map or analytic interpolation is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/principal-euler-bernoulli-residue-error`, `DirichletPadicLFunctions:L3/principal-bernoulli-euler-removal`, `mathlib:Padic.nonarchimedean`, `mathlib:zpow_le_zpow_right₀`, `mathlib:squeeze_one_norm'`, `mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one`.
+
+**Tests:**
+
+- `SuggestedBernoulliPrecisionTests.dyadic_unmodified_bernoulli_limit` (computation): The native Bernoulli sequence B_(2^r) tends to1/2 in Q_2.
+- `SuggestedBernoulliPrecisionTests.ternary_unmodified_bernoulli_limit` (computation): The native sequence B_(2·3^r) tends to2/3 in Q_3.
+- `SuggestedBernoulliPrecisionTests.unmodified_bernoulli_precision_cutoff` (compatibility): For every prime, r≥ell+t gives ‖B_(w_r)−(1−p⁻¹)‖≤p^(−t).
+
+**Acceptance:** The output has an explicit, uniform sufficient precision cutoff. It remains an arithmetic sequence theorem, with the existing logarithm/mass dependencies visible.
+
+**Source:** Proposition4.8, equations4-2/4-3 and Proposition4.11, published138–139/PDF39–40; Theorem7.1 and equations7-1 through7-8, published154–158/PDF55–59. Whole pages read in the immediately preceding integer-weight checkpoint and retained. Worker quantitative consequences of the actual integer-weight comparison, using the native Bernoulli valuation theorem. These precision bounds and the unmodified Bernoulli sequence limit are not separately stated in RJW. The logarithm and actual mass remain the previously identified owner inputs; no analytic branch or pole order is asserted.
+
+**Remaining:** The Euler-modified and unmodified Bernoulli sequences now have explicit sufficient precision cutoffs. The exact Euler-removal error is native arithmetic and closes no analytic stage. Constructing the canonical character family, proving scalar Mellin/derivative comparisons, identifying the analytic branch and establishing meromorphic pole order remain open with PMIA L0a and LAD L3 ownership. The seven existing mass-comparison supplier boundaries, eleven requests and fifteen gaps remain. Generalized Eisenstein constants, tame distribution-to-L-value identification, full source extraction and the missing pinned TwistedDivisorSum artifact remain separate work.
+
+### Precision of the principal Bernoulli residue validation
+
+All 608 predecessor nodes, 530 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 3 nodes, 3 named suggested declarations and 9 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 867 reachable nodes, 4213 edges and 711 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. The exact Euler-removal comparison ends entirely in native arithmetic. The quantitative residue and unmodified Bernoulli limit inherit exactly the seven existing analytic stage leaves of the principal mass route.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Eleven complete native lemmas specialize the existing Bernoulli valuation, verify weight parity and growth, prove the exact Euler-removal error, stabilize the normalized denominator norm, bound the quotient and combined errors, and transfer the eventual precision estimate to a sequence limit with the stated cutoff. The separate probe compiles against 2835 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact rational controls check24 prime-and-weight pairs,24 Bernoulli valuations,18 exact Euler-removal errors,17 denominator norms,17 bounds for each residue sequence and46 precision cutoffs. They detect18 omitted Bernoulli denominator factors and16 wrong limiting signs, and retain the excluded dyadic first-weight case. Exact rational Bernoulli recurrence through B_294, exact integer clearing factors and prime-adic valuations. The Euler-removal error is checked as an equality, while both residue errors are checked against r−ell and every supported precision cutoff. These finite checks do not prove the infinite actual mass/logarithm comparison or a character-space pole theorem. The largest observed discrepancy is 0 in every exact valuation equality; no violation of any stated bound; no floating-point arithmetic.
+
+All66 captured inputs have an empty predecessor delta. The whole predecessor Lean body is preserved. The full suggested module remains uncompiled because the matching native TwistedDivisorSum artifact is missing. A separate signature check uses the exact4773 body plus only the three new statements and nine examples: zero errors and1,815 expected placeholder warnings against3,573 audited source modules. It excludes4777/4780/4786/4788/4790 additions and does not validate the current full module. The prime-dependent precision threshold is written directly to avoid Lean local-notation quotation precheck failure.

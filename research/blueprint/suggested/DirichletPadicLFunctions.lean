@@ -10591,3 +10591,72 @@ example [IsBoundedSMul ℤ_[3] ℚ_[3]] :
 example : ((bernoulli 2 : ℚ) : ℚ_[2])≠(-1/6 : ℚ_[2]) := sorry
 end
 end SuggestedIntegerResidueTests
+
+/-! Quantitative residue estimates for the actual integer-weight sequence.
+The Bernoulli valuation is already native. These arithmetic consequences reuse
+it and the preceding numerator/denominator estimates; no logarithm or analytic
+character-family construction is duplicated. -/
+namespace DirichletPadic
+noncomputable section
+open Filter
+open scoped Topology
+variable (p : ℕ) [Fact p.Prime]
+local notation "Q" => ℚ_[p]
+local notation "w" => (fun r : ℕ => (p-1)*p^r)
+
+theorem principalBernoulli_euler_residue_error [IsBoundedSMul ℤ_[p] ℚ_[p]]
+    (r : ℕ) (hr : (if p=2 then 2 else 1 : ℕ)≤r) :
+    ‖(1-(p : Q)^(w r-1))*((bernoulli (w r) : ℚ) : Q)-(1-(p : Q)⁻¹)‖≤
+      (p : ℝ)^(((if p=2 then 2 else 1 : ℕ) : ℤ)-(r : ℤ)) := sorry
+
+theorem principalBernoulli_euler_removal_error (r : ℕ) (hr : 1≤r) :
+    ‖((bernoulli (w r) : ℚ) : Q)-
+      (1-(p : Q)^(w r-1))*((bernoulli (w r) : ℚ) : Q)‖=
+        (p : ℝ)^(-((w r-2 : ℕ) : ℤ)) := sorry
+
+theorem principalBernoulli_residue_precision [IsBoundedSMul ℤ_[p] ℚ_[p]] :
+    (∀ r : ℕ, (if p=2 then 2 else 1 : ℕ)≤r →
+      ‖((bernoulli (w r) : ℚ) : Q)-(1-(p : Q)⁻¹)‖≤
+      (p : ℝ)^(((if p=2 then 2 else 1 : ℕ) : ℤ)-(r : ℤ))) ∧
+    Tendsto (fun r : ℕ => ((bernoulli (w r) : ℚ) : Q)) atTop (𝓝 (1-(p : Q)⁻¹)) := sorry
+end
+end DirichletPadic
+
+namespace SuggestedBernoulliPrecisionTests
+noncomputable section
+open Filter DirichletPadic
+open scoped Topology
+-- dyadic_euler_precision_cutoff
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] (t r : ℕ) (hr : 2+t≤r) :
+    ‖(1-(2 : ℚ_[2])^(2^r-1))*((bernoulli (2^r) : ℚ) : ℚ_[2])-(1/2 : ℚ_[2])‖≤
+      (2 : ℝ)^(-(t : ℤ)) := sorry
+-- ternary_euler_precision_cutoff
+example [IsBoundedSMul ℤ_[3] ℚ_[3]] (t r : ℕ) (hr : 1+t≤r) :
+    ‖(1-(3 : ℚ_[3])^(2*3^r-1))*((bernoulli (2*3^r) : ℚ) : ℚ_[3])-(2/3 : ℚ_[3])‖≤
+      (3 : ℝ)^(-(t : ℤ)) := sorry
+-- dyadic_initial_denominator_norm_is_different
+example : ‖((3 : ℚ_[2])^1-1)/1‖≠(1/4 : ℝ) := sorry
+
+-- dyadic_second_weight_euler_error
+example : ‖((bernoulli 2 : ℚ) : ℚ_[2])-
+    (1-(2 : ℚ_[2])^1)*((bernoulli 2 : ℚ) : ℚ_[2])‖=1 := sorry
+-- ternary_sixth_weight_euler_error
+example : ‖((bernoulli 6 : ℚ) : ℚ_[3])-
+    (1-(3 : ℚ_[3])^5)*((bernoulli 6 : ℚ) : ℚ_[3])‖=(3 : ℝ)^(-4 : ℤ) := sorry
+-- dyadic_first_weight_excluded_from_truncated_exponent
+example : ‖((bernoulli 1 : ℚ) : ℚ_[2])-
+    (1-(2 : ℚ_[2])^0)*((bernoulli 1 : ℚ) : ℚ_[2])‖=2 := sorry
+
+-- dyadic_unmodified_bernoulli_limit
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] :
+    Tendsto (fun r : ℕ => ((bernoulli (2^r) : ℚ) : ℚ_[2])) atTop (𝓝 (1/2 : ℚ_[2])) := sorry
+-- ternary_unmodified_bernoulli_limit
+example [IsBoundedSMul ℤ_[3] ℚ_[3]] :
+    Tendsto (fun r : ℕ => ((bernoulli (2*3^r) : ℚ) : ℚ_[3])) atTop (𝓝 (2/3 : ℚ_[3])) := sorry
+-- unmodified_bernoulli_precision_cutoff
+example (p : ℕ) [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]] (t r : ℕ)
+    (hr : (if p=2 then 2 else 1)+t≤r) :
+    ‖((bernoulli ((p-1)*p^r) : ℚ) : ℚ_[p])-(1-(p : ℚ_[p])⁻¹)‖≤
+      (p : ℝ)^(-(t : ℤ)) := sorry
+end
+end SuggestedBernoulliPrecisionTests
