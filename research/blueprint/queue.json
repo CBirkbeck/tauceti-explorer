@@ -40887,8 +40887,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -44651,7 +44651,8 @@
     "FIX-RT-RS-06"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-06.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5185"
   },
   {
    "id": "RT-RS-07",
