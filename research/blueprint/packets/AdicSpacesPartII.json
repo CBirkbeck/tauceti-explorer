@@ -54520,7 +54520,7 @@
    "stageId": "AdicSpacesPartII:R5",
    "status": "source_decomposed",
    "remaining": [],
-   "note": "Every target of the RS-05 narrowing of R5 is realised: sousperfectoid rings (Berkeley 6.3.1) with their stability under rational localisation, finite étale and étale extensions and Tate algebras (6.3.3), stable uniformity and sheafiness (6.3.4), sousperfectoid adic spaces, products of perfectoid spaces with smooth rigid spaces over a perfectoid extension (BHW Corollary 3.4) and with polydiscs, CHJ's mixed completed tensor products and coefficient sheaves O_X ⊗̂ R with Tate acyclicity, flatness and Kiehl's theorem, and the rational/integral base change and local equalizer statements. Continuous torsor descent of modules is PerfectoidSpaces P9's. The stage is source-decomposed: the perfectoid inputs without a base field (PerfectoidSpaces P1–P3), the anchor's Layers 4–5, ClassicalAdicEtaleCohomology H0 and AdicEtaleGeometry A1 are requests, and the unread imports (SGA 3 VII_B, Ardakov–Wadsley, de Jong's Berthelot generic fibre paper, Huber 2.2.8) are recorded gaps."
+   "note": "Every target of the RS-05 narrowing of R5 is realised: sousperfectoid rings (Berkeley 6.3.1) with their stability under rational localisation, finite étale and étale extensions and Tate algebras (6.3.3), stable uniformity and sheafiness (6.3.4), sousperfectoid adic spaces, products of perfectoid spaces with smooth rigid spaces over a perfectoid extension (BHW Corollary 3.4) and with polydiscs, CHJ's mixed completed tensor products and coefficient sheaves O_X ⊗̂ R with Tate acyclicity, flatness and Kiehl's theorem, and the rational/integral base change and local equalizer statements. Continuous torsor descent of modules is PerfectoidSpaces P9's. The stage is source-decomposed: the perfectoid inputs without a base field (PerfectoidSpaces P1–P3), the anchor's Layers 4–5, ClassicalAdicEtaleCohomology H0 and AdicEtaleGeometry A1 are requests, and the unread imports (SGA 3 VII_B, Ardakov–Wadsley, de Jong's Berthelot generic fibre paper, Huber 2.2.8) are recorded gaps. The sousperfectoid prefix (19 nodes, listed in the restructure entry for R5:sousperfectoid) is to become the sub-stage AdicSpacesPartII:R5:sousperfectoid of RT-AREA-padic-1/9 once the atlas has it; only the rest of R5 needs H0."
   },
   {
    "stageId": "AdicSpacesPartII:F1",
@@ -55366,6 +55366,35 @@
       "AdicSpacesPartII:R0"
      ]
     }
+   ]
+  },
+  {
+   "action": "split",
+   "roadmaps": [
+    "AdicSpacesPartII"
+   ],
+   "detail": "RT-AREA-padic-1/9 (confirmed) splits R5 so that classical étale cohomology (ClassicalAdicEtaleCohomology H0) is not upstream of AdicEtaleGeometry A3, PerfectoidSpaces P6, DiamondsAndVStacks D1–D6, RelativeFarguesFontaine RF0 and BunGAndNewtonStrata BG0. The 19 nodes listed here are R5's sousperfectoid prefix: sousperfectoid rings and spaces, and perfectoid-times-smooth and perfectoid-times-polydisc products. Their prerequisite closure inside R5 is exactly these nodes, and their external prerequisites are R0, R3, AdicEtaleGeometry A1, PerfectoidSpaces P1–P3, Mathlib and the Tau Ceti Huber and ValuationSpectrum declarations (checked by FIX-RT-AREA-padic-1~2, 30 September 2026). The other 23 R5 nodes carry H0, D0, F0 or the coefficient sheaves.",
+   "proposal": "Create the atlas sub-stage AdicSpacesPartII:R5:sousperfectoid, with inputs R0, R3, AdicEtaleGeometry A1, PerfectoidSpaces P0 and P3 and the Tau Ceti AdicSpaces Layers 0 and 3–5, and outputs R5, AdicEtaleGeometry A3, PerfectoidSpaces P6 and P9, RelativeFarguesFontaine RF0:integral-Y and RF0:annuli and BunGAndNewtonStrata BG0 (RT-AREA-padic-1.fixes.md, /9 edits 1–3). Then set parentStageId and realises of these 19 nodes to it and add its coverage record (source_decomposed). Node ids stay, so the A3 and P9 references remain valid. Until the sub-stage exists the nodes stay under R5, because the checker accepts only atlas stages.",
+   "nodes": [
+    "AdicSpacesPartII:R5/sousperfectoid-ring",
+    "AdicSpacesPartII:R5/split-injection-completed-base-change",
+    "AdicSpacesPartII:R5/sousperfectoid-uniform",
+    "AdicSpacesPartII:R5/sousperfectoid-rational-localisation",
+    "AdicSpacesPartII:R5/sousperfectoid-finite-etale",
+    "AdicSpacesPartII:R5/sousperfectoid-finite-etale-descent",
+    "AdicSpacesPartII:R5/sousperfectoid-rings",
+    "AdicSpacesPartII:R5/sousperfectoid-annulus",
+    "AdicSpacesPartII:R5/sousperfectoid-p-adic-field",
+    "AdicSpacesPartII:R5/sousperfectoid-stably-uniform",
+    "AdicSpacesPartII:R5/sousperfectoid-sheafy",
+    "AdicSpacesPartII:R5/sousperfectoid-adic-space",
+    "AdicSpacesPartII:R5/sousperfectoid-etale-stability",
+    "AdicSpacesPartII:R5/sousperfectoid-stably-adic",
+    "AdicSpacesPartII:R5/sousperfectoid-etale-base-change",
+    "AdicSpacesPartII:R5/perfectoid-times-polydisc",
+    "AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product",
+    "AdicSpacesPartII:R5/stable-basis-covering-reduction",
+    "AdicSpacesPartII:R5/stable-basis-etale-vector-bundles"
    ]
   }
  ],
