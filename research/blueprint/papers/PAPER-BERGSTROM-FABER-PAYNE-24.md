@@ -5,10 +5,10 @@ Jonas Bergström, Carel Faber and Sam Payne, *Polynomial point counts and odd co
 Extraction by Claude Code, session `cc-39fac3`, 29 September 2026 (issue #1079). Status: **complete**. Every missing item is routed exactly once.
 
 The machine-readable extraction is [PAPER-BERGSTROM-FABER-PAYNE-24.result.json](PAPER-BERGSTROM-FABER-PAYNE-24.result.json). It has:
-- 80 items: 2 library, 6 planned, 72 missing;
-- 5 routes: one new roadmap, which coalesces with an existing proposal, and four source routes;
+- 80 items: 2 library, 6 planned, 72 missing (87 after the fixes at the end: 3 library, 7 planned, 77 missing);
+- 5 routes: one new roadmap, which coalesces with an existing proposal, and four source routes (nine after the fixes);
 - 19 prerequisite entries;
-- 6 source issues, all misprints.
+- 6 source issues, all misprints (seven after the fixes, the seventh an error in display (3)).
 
 ## Source read
 
@@ -46,23 +46,26 @@ arXiv:2206.07759v2 (17 October 2023, 31 pages; SHA-256 `36beb2d3…`), read comp
 
 ## What the atlas and libraries already have
 
-- **Library (2 items).**
+- **Library (3 items).**
   - Mathlib's quadratic character (`quadraticChar`, `quadraticChar_sum_zero`).
   - Mathlib's order of GL_n(F_q) (`Matrix.card_GL_field`).
+  - Tau Ceti's representation ring and its injective character map (`TauCeti.repRing`, `repRingCharacter`), added by the fixes.
 - **Planned (6 items).** The WeilConjectures roadmap and its inputs plan the following for varieties:
   - the Grothendieck–Lefschetz trace formula (SF.2, WC.1; ultimately the upstream Cohomological Point Counting roadmap);
   - the Hasse–Weil zeta function and its cohomological formula (WC.1);
   - multiplicativity (WC.1);
   - the étale–singular comparison in smooth proper families (WC.4);
-  - purity (WC.3).
-- **Not planned anywhere.** The atlas has no moduli of curves, no point counting on stacks, no Hasse–Weil sieve and no modular operads.
+  - purity (WC.6 and DWP.7, corrected by the fixes from WC.3);
+  - the Frobenius characteristic in a fixed degree (Tau Ceti SchurWeyl L7), added by the fixes.
+- **Moduli of curves.** The moduli stacks M̄_{g,n} are owned by the proposed StableReductionPartII (PAPER-YUAN-26 route 10, widened to 2g − 2 + n > 0 by FIX-RT-AREA-etale /4); this extraction imports them (route 6).
+- **Not planned anywhere.** The atlas has no point counting on stacks, no Hasse–Weil sieve and no modular operads.
 
 ## Routes
 
 1. **New roadmap `MotivicStructuresInModuliOfCurves`, "Tautological rings and motivic structures in the cohomology of moduli of stable curves" (49 items).**
    - Coalesced with PAPER-CANNING-LARSON-PAYNE-24's accepted proposal, keeping its id, title and area. DESIGN-MotivicStructuresInModuliOfCurves is pending.
    - That brief already names "the vanishing of the low-degree Borel–Moore homology of M_{g,n} proved by Bergström–Faber–Payne" as a layer, and this paper is the proof. Everything specific to moduli of curves goes here:
-     - the stacks and boundary strata;
+     - the boundary strata (the stacks themselves are imported from StableReductionPartII, route 6, since the fixes);
      - the Arbarello–Cornalba method, Harer's vcd, Church–Farb–Putman/Morita–Sakasai–Suzuki, Keel;
      - known lower-genus counts;
      - Proposition 4.2;
@@ -123,3 +126,33 @@ The review recomputed the following independently in exact arithmetic, and every
 - Remark 8.11's orbit-type formula.
 
 No status, statement or route changed.
+
+## Fixes (FIX-RT-PAPER-BERGSTROM-FABER-PAYNE-24, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #4973. This fix applies the two high and five medium findings of
+`RT-PAPER-BERGSTROM-FABER-PAYNE-24`, with the verifier's corrections. The full record is
+`research/blueprint/redteam/RT-PAPER-BERGSTROM-FABER-PAYNE-24.fixes.md`.
+
+- **/1: the moduli stacks have one owner.** `moduli-stacks` now states Knudsen's theorem for 2g − 2 + n > 0 and
+  goes, with `boggi-pikaart`, to StableReductionPartII (new route 6). The new item `boundary-strata` keeps the
+  stratification by stable graphs in route 1. Route 1 imports the stacks.
+- **/2: the weight spectral sequence carries a sign.** `weight-spectral-sequence` has E₁ with det E(G). The
+  paper's (3) omits it: new source issue E7, shown false by χ_c(M_{1,2}). It affects nothing. Route 1's brief says
+  that only the E₁ page is twisted.
+- **/3: Poincaré duality.** The scheme statement is the new `poincare-duality-equivariant` (WC.2). The DM-stack
+  statement, `poincare-duality-dm`, goes to the stacks Part II (new route 7), which also owns
+  CANNING-LARSON-PAYNE-24/14.
+- **/4: the squarefree count** stays at FF.3, now named as its owner. The ArithmeticStatistics ST.4 node should
+  import it.
+- **/5: purity.** `deligne-purity` is planned at WC.6 and DWP.7, not WC.3. The new `deligne-purity-dm`, routed to
+  WC.6, covers smooth proper DM stacks.
+- **/6: Lemma 2.6 and the pure-Tate remark.** Lemma 2.6 is derived from the weight spectral sequence. The pure-Tate
+  remark names its inputs, and the Hodge part is recorded as an import gap.
+- **/7: representation rings and symmetric functions.** Four new items:
+  - R(G) (library, Tau Ceti `repRing`);
+  - the fixed-degree Frobenius characteristic (planned, SchurWeyl L7);
+  - Λ with the stable characteristic and plethysm (new SchurWeyl Part II, route 8);
+  - plethystic Exp/Log (QM.0, route 9).
+
+  `local-systems` cites ClassicalGroups L3 and YU-23's ClassicalGroupsPartII.
+- **Result:** 87 items (3 library, 7 planned, 77 missing), nine routes and seven source issues.
