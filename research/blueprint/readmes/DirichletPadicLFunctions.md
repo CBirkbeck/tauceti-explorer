@@ -23944,3 +23944,145 @@ Eight complete native lemmas compile separately: four explicitly reused integral
 Exact controls retain130levels383prime/placepairs55dyadic and add checks of the nonzero primitive values at new bad primes, inverse integral correction coefficients and their reductions modulo p,p²,p³. All arithmetic residue/positive-moment formulas remain separate from atomic zeta models. New counts:343bad-prime pairs,792invertible integral subset coefficients and2,376finite-ring inverse checks. New primitive checks distinguish the zero imprimitive value from the nonzero primitive coefficient at each new bad prime and verify integral inverse coefficients, including reductions modulo p, p² and p³. Exact Q(i)/Q(omega) arithmetic with sufficient coefficientwise p-integrality (rational coordinate denominators prime to p). Finite reductions use (Z/p^r Z)[i] and (Z/p^r Z)[omega] at r=1,2,3; no identification with the full local integer ring is asserted. Intrinsic atomic checks restrict to the actual p-unit support and compare the same product dilations.  Native-style finite character tables determine the least positive inducing modulus by testing every divisor and unit fibre, then verify recovery of the actual imprimitive table. Actual residue formulas and quotient/Stirling moment formulas independently check the relative-level and primitive-conductor subset sums. Separately labelled finite atomic inverse-weight models check the zeta subset coefficients and mass factors; their masses are not arithmetic zeta masses. Controls detect repeated Euler factors, a missing inverse dilation factor, and evaluating the imprimitive character at a new bad prime. The principal modulus-one to modulus-three counterexample remains excluded by the nonprincipal hypothesis. The largest observed discrepancy is 0 in every asserted exact identity.
 
 Capture assessed the two changed PPG/SPC link maps and the subsequent unrelated three-record DeMarco registry addition. No used measure or conductor interface changed; all16Dirichlet findings and four predecessor outputs remain whole. Exact deltas and assessments are retained. No new suggested import. The partial file preserves the5124prefix and the documented4777–4791 omissions. Full module remains NOT COMPILED because the compatible native TwistedDivisorSum artifact is unavailable; no library build occurs. The partial signature check passes with zero errors and2,203 expected sorry warnings against3,582 pinned modules. The four new theorem bodies add no sorry; the fifteen new examples account for the warning increase. This does not validate omitted signatures or the full module. Publication refresh: SemisimpleAlgebras restores one research-only Wedderburn input into Quiver3, preserving the five previous links and three overlaps; neither endpoint is used here. Registry changes are exactly Fu E1–E10: seven earlier findings receive the published-edition provenance and revised descriptions, while E8–E10 add unreviewed radius-noetherianity, small-weight-strip and arbitrary-level passage gaps. All changed printed/corrected mathematical statements and reasons were read. These concern Bianchi forms and noncommutative distributions, not the tame Dirichlet measure identities or their unchanged supplier interfaces. All16Dirichlet findings and63other captured inputs remain unchanged; no independent validation of Fu is claimed.
+
+
+## Arithmetic-character Euler factors under tame level change
+
+Four L2 comparison nodes evaluate the actual intrinsic field and integral zeta measures at their existing arithmetic characters, for arbitrary tame level changes and native primitive conductors. Four signatures and fifteen boundary tests keep the inverse-prime factor at weight zero. All730 predecessor nodes remain whole.
+
+Read the complete existing arithmetic-character constructor/API, integral character and inclusion fine nodes, both exact pointwise formulas and all relevant level/primitive comparisons. Fresh native reads cover AbstractMeasure functional and pushforward definitions, Finset.prod_div_distrib and Nat.cast_prod. Complete RJW published143–146 was freshly reread in the immediately preceding checkpoint; positive-weight interpolation remains separate from the present weight-zero constructor formulas.
+
+### Tame level Euler factors for arithmetic-character moments
+
+`DirichletPadicLFunctions:L2/tame-arithmetic-moment-level` — `DirichletPadic.intrinsicTameZetaMeasure_changeLevel_arithmeticCharacter`
+
+ζU_(changeLevel η)(κ_n,χ,w)=Π_(q∈S)(1−η(q)χ(q)q^w/q) · ζU_η(κ_n,χ,w).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. M,N>0, M∣N, η:DirichletCharacter K M is nonprincipal; hM,hN are the exact unit-image constructor certificates and hpM,hpN assert that p divides neither level. n,w≥0 and χ:DirichletCharacter K(p^n) is arbitrary, possibly principal or imprimitive. κ=primePowerArithmeticCharacter p n χ w is the existing continuous monoid homomorphism U→K, with U=ℤ_pˣ. Set S=N.primeFactors\M.primeFactors. The quotient q^w/q is kept literally at w=0.
+
+**Proof:**
+
+1. Choose the actual unit family from the tame level condition, as in intrinsic-tame-zeta-arbitrary-level. For every subset t⊆S let d_t be its natural product and u_t the corresponding product of units. Native Units.coeHom gives the underlying value d_t; all unit choices agree on used indices.
+2. For any normed commutative coefficient ring R and continuous monoid hom κ:U→R, multiplicativity gives κ∘(u_t*·)=κ(u_t)•κ as continuous tests. Evaluate native AbstractMeasure.map using map_apply and linearity. The complete dilation_character_eval proof verifies the exact functional identity without adding a generic roadmap wrapper.
+3. Native monoid-hom preservation of finite products gives κ(u_t)=Π_(q∈t)κ(u_q). Character multiplicativity, Nat.cast_prod and Finset.prod_div_distrib write η(d_t)/d_t as Π_(q∈t)(η(q)/q). Therefore each signed subset term is ε_t Π_(q∈t)(η(q)κ(u_q)/q).
+4. Evaluate the finite measure sum using its actual additive/linear evaluation homomorphism; no sum/integral interchange for an infinite series occurs. Native Finset.prod_sub converts the signed subset sum to Π_(q∈S)(1−η(q)κ(u_q)/q). The complete finite_measure_euler probe verifies this entire deduction over any normed commutative coefficient ring.
+5. The existing arithmetic-character natural-unit API gives κ(u_q)=χ(q modp^n)q^w. Substitute this into the finite product. All n,w≥0 are permitted because q is a p-adic unit. At n=0 the finite character is1; at w=0 keep q^0/q=q⁻¹. Only for w=k+1 may this simplify to q^k. Complete native division probes check both boundaries.
+6. Equal prime support makes S empty and the factor1. Increasing powers of old primes contributes no new factor. The comparisons are for actual constructor moments; at positive weight the already separate source special-value comparison can be applied under its own common-field hypotheses. No logarithmic L(1) or analytic-family assertion is made at weight zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-tame-zeta-arbitrary-level`, `DirichletPadicLFunctions:L2/prime-power-arithmetic-character`, `DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value`, `DirichletPadicLFunctions:L2/prime-power-character-pointwise-value`, `mathlib:AbstractMeasure.map_apply`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:ContinuousMonoidHom`, `mathlib:Finset.prod_sub`, `mathlib:Finset.prod_div_distrib`, `mathlib:Nat.cast_prod`, `mathlib:Units.coeHom`.
+
+**Tests:**
+
+- `SuggestedTameMomentLevelTests.field_relative_weight_zero` (degenerate): At weight zero the factor retains η(q)χ(q)/q.
+- `SuggestedTameMomentLevelTests.field_relative_same_support` (degenerate): Equal prime support gives the same arithmetic-character moment.
+- `SuggestedTameMomentLevelTests.field_relative_positive_weight` (compatibility): At weight k+1 the quotient factor is η(q)χ(q)q^k.
+- `SuggestedTameMomentLevelTests.field_relative_level_zero` (degenerate): At n=0 the finite character disappears while the actual coordinate power remains.
+- `SuggestedTameMomentLevelTests.field_relative_trivial_mass` (computation): The n=w=0 specialization is the actual zeta mass factor Πq(1−η(q)/q).
+- `SuggestedTameMomentLevelTests.dyadic_quadratic_new_prime` (computation): At p=2, tame quadratic level3→15, wild quadratic modulo4 and weight0, the new-prime factor is6/5.
+
+**Acceptance:** The existing arithmetic-character constructions and APIs remain whole; no new generic character, measure or coefficient carrier is introduced. Integer-ring product statements are tested through their actual inclusion, and degree-zero constructor values remain separate from logarithmic interpolation.
+
+**Source:** Theorem5.7, Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47, completely reread during the immediately preceding primitive-conductor checkpoint on30September2026. Worker arithmetic-character evaluation of the existing actual level-comparison measures. The source positive-weight formula motivates the Euler factors; the weight-zero comparison is an equality of existing constructor integrals, with no extension of the source L-value interpolation to weight zero. Arithmetic powers use actual units, not finite residue representatives.
+
+### Integral Euler factors for arithmetic-character moments
+
+`DirichletPadicLFunctions:L2/integral-tame-arithmetic-moment-level` — `DirichletPadic.intrinsicIntegralTameZetaMeasure_changeLevel_arithmeticCharacter`
+
+ζO,U_(changeLevel η)(κO_n,χ,w)=Π_(q∈S)(1−c({q})κO_n,χ,w(u_q)) · ζO,U_η(κO_n,χ,w).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. M,N>0, M∣N, η:DirichletCharacter K M is nonprincipal; hM,hN are the exact unit-image constructor certificates and hpM,hpN assert that p divides neither level. n,w≥0 and χ:DirichletCharacter K(p^n) is arbitrary, possibly principal or imprimitive. κ=primePowerArithmeticCharacter p n χ w is the existing continuous monoid homomorphism U→K, with U=ℤ_pˣ. Set S=N.primeFactors\M.primeFactors. The quotient q^w/q is kept literally at w=0. For integral comparisons O is the existing norm-valuation integer ring and κO=integralPrimePowerArithmeticCharacter p n χ w. No separately chosen ℤ_p-algebra or completeness structure on O occurs. The given c:Finset ℕ→O has inclusion η(d_t)/d_t on t⊆S, and u:ℕ→U has underlying value q on q∈S; both exist from the previously proved tame coefficient/unit constructions.
+
+**Proof:**
+
+1. Choose the actual unit family from the tame level condition, as in intrinsic-tame-zeta-arbitrary-level. For every subset t⊆S let d_t be its natural product and u_t the corresponding product of units. Native Units.coeHom gives the underlying value d_t; all unit choices agree on used indices.
+2. For any normed commutative coefficient ring R and continuous monoid hom κ:U→R, multiplicativity gives κ∘(u_t*·)=κ(u_t)•κ as continuous tests. Evaluate native AbstractMeasure.map using map_apply and linearity. The complete dilation_character_eval proof verifies the exact functional identity without adding a generic roadmap wrapper.
+3. Use the actual O-valued comparison and κO, which is already a continuous monoid hom. For t⊆S, include c(t) and Π_(q∈t)c({q}) into K. The supplied coefficient equations and native product laws identify them; Subtype.ext reflects equality in O. The complete integral_subset_product probe verifies this for the entire used powerset, including the empty subset. Values of c outside that powerset are irrelevant.
+4. Apply the same finite_measure_euler proof in R=O with singleton coefficients c({q}) and unit family u. This yields Π_q(1−c({q})κO(u_q)) inside O, without dividing in O or assuming an independent Z_p action.
+5. For the coefficient test, the native subtype ring map preserves the finite product,1, subtraction and multiplication. The exact fine integral-arithmetic-character-coefficient node identifies the included κO value; the natural-unit formula then gives the displayed K-valued Euler product. Presentation independence follows by Units.ext and Subtype.ext on used indices.
+6. The existing arithmetic-character natural-unit API gives κ(u_q)=χ(q modp^n)q^w. Substitute this into the finite product. All n,w≥0 are permitted because q is a p-adic unit. At n=0 the finite character is1; at w=0 keep q^0/q=q⁻¹. Only for w=k+1 may this simplify to q^k. Complete native division probes check both boundaries.
+7. Equal prime support makes S empty and the factor1. Increasing powers of old primes contributes no new factor. The comparisons are for actual constructor moments; at positive weight the already separate source special-value comparison can be applied under its own common-field hypotheses. No logarithmic L(1) or analytic-family assertion is made at weight zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-arbitrary-level`, `DirichletPadicLFunctions:L2/integral-arithmetic-character`, `DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient`, `DirichletPadicLFunctions:L2/prime-power-arithmetic-character`, `DirichletPadicLFunctions:L2/tame-arithmetic-moment-level`, `mathlib:AbstractMeasure.map_apply`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:ContinuousMonoidHom`, `mathlib:Finset.prod_sub`, `mathlib:Finset.prod_div_distrib`, `mathlib:Nat.cast_prod`, `mathlib:Units.coeHom`.
+
+**Tests:**
+
+- `SuggestedTameMomentLevelTests.integral_relative_weight_zero` (degenerate): The integral weight-zero formula retains the integral inverse-prime coefficient.
+- `SuggestedTameMomentLevelTests.integral_relative_same_support` (degenerate): With no new prime, every integral arithmetic-character moment is unchanged.
+- `SuggestedTameMomentLevelTests.integral_relative_factor_inclusion` (compatibility): The actual O-valued Euler product includes as the specified K-valued product.
+
+**Acceptance:** The existing arithmetic-character constructions and APIs remain whole; no new generic character, measure or coefficient carrier is introduced. Integer-ring product statements are tested through their actual inclusion, and degree-zero constructor values remain separate from logarithmic interpolation.
+
+**Source:** Theorem5.7, Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47, completely reread during the immediately preceding primitive-conductor checkpoint on30September2026. Worker arithmetic-character evaluation of the existing actual level-comparison measures. The source positive-weight formula motivates the Euler factors; the weight-zero comparison is an equality of existing constructor integrals, with no extension of the source L-value interpolation to weight zero. Arithmetic powers use actual units, not finite residue representatives.
+
+### Primitive-conductor Euler factors for arithmetic moments
+
+`DirichletPadicLFunctions:L2/tame-arithmetic-moment-primitive` — `DirichletPadic.intrinsicTameZetaMeasure_primitiveCharacter_arithmeticCharacter`
+
+ζU_η(κ_n,χ,w)=Π_(q∈S)(1−η₀(q)χ(q)q^w/q) · ζU_η₀(κ_n,χ,w).
+
+**Hypotheses:** Use the preceding coefficient-field, p and arithmetic-character hypotheses. Now η has positive tame level N and is nonprincipal, f=η.conductor and η₀=η.primitiveCharacter are the existing native objects. hF and hpF are the derived conductor constructor certificates, and the local NeZero f instance is provided by conductor_ne_zero. S=N.primeFactors\f.primeFactors, κ and κO are unchanged by the tame conductor specialization. For the integral formula c(t) includes as η₀(d_t)/d_t and u(q) has underlying value q on S; existence and presentation independence were established in the preceding primitive-conductor comparisons.
+
+**Proof:**
+
+1. Use the exact primitive-conductor comparison at the current realization. Native conductor positivity, unit image, prime-to-p condition and primitive nonprincipality have already been established; native changeLevel_primitiveCharacter identifies the lifted primitive character with η.
+2. Apply the preceding relative moment formula with M=f and base character η₀, or equivalently evaluate the existing primitive measure comparison by the same finite argument. The wild character χ and its p-power level are unchanged because the underlying p-adic unit group is unchanged.
+3. At every new q the scalar uses η₀(q), which is nonzero; η(q)=0 there and is the wrong coefficient. Each q occurs once. Equal prime support collapses the product even when the original level contains additional powers of conductor primes.
+4. Keep q^w/q in the field expression and the actual c({q}) in O. Weight0 is a constructor equality, positive weight k+1 simplifies to exponentk, and all dyadic cases use the same proof. The primitive Gauss/common-field special-value prerequisites remain separately open.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-arithmetic-moment-level`, `DirichletPadicLFunctions:L2/intrinsic-tame-zeta-primitive-conductor`, `DirichletPadicLFunctions:L2/prime-power-arithmetic-character`, `mathlib:AbstractMeasure.map_apply`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:ContinuousMonoidHom`, `mathlib:Finset.prod_sub`, `mathlib:Finset.prod_div_distrib`, `mathlib:Nat.cast_prod`, `mathlib:Units.coeHom`.
+
+**Tests:**
+
+- `SuggestedTameMomentLevelTests.field_primitive_weight_zero` (degenerate): The primitive weight-zero comparison retains the inverse-prime factor.
+- `SuggestedTameMomentLevelTests.field_primitive_same_support` (degenerate): Conductor and level with the same prime support have identical moments.
+- `SuggestedTameMomentLevelTests.field_primitive_positive_weight` (compatibility): At weightk+1 use the primitive character in the exponentk Euler factor.
+
+**Acceptance:** The existing arithmetic-character constructions and APIs remain whole; no new generic character, measure or coefficient carrier is introduced. Integer-ring product statements are tested through their actual inclusion, and degree-zero constructor values remain separate from logarithmic interpolation.
+
+**Source:** Theorem5.7, Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47, completely reread during the immediately preceding primitive-conductor checkpoint on30September2026. Worker arithmetic-character evaluation of the existing actual level-comparison measures. The source positive-weight formula motivates the Euler factors; the weight-zero comparison is an equality of existing constructor integrals, with no extension of the source L-value interpolation to weight zero. Arithmetic powers use actual units, not finite residue representatives.
+
+### Primitive-conductor Euler factors for integral arithmetic moments
+
+`DirichletPadicLFunctions:L2/integral-tame-arithmetic-moment-primitive` — `DirichletPadic.intrinsicIntegralTameZetaMeasure_primitiveCharacter_arithmeticCharacter`
+
+ζO,U_η(κO_n,χ,w)=Π_(q∈S)(1−c({q})κO_n,χ,w(u_q)) · ζO,U_η₀(κO_n,χ,w).
+
+**Hypotheses:** Use the preceding coefficient-field, p and arithmetic-character hypotheses. Now η has positive tame level N and is nonprincipal, f=η.conductor and η₀=η.primitiveCharacter are the existing native objects. hF and hpF are the derived conductor constructor certificates, and the local NeZero f instance is provided by conductor_ne_zero. S=N.primeFactors\f.primeFactors, κ and κO are unchanged by the tame conductor specialization. For the integral formula c(t) includes as η₀(d_t)/d_t and u(q) has underlying value q on S; existence and presentation independence were established in the preceding primitive-conductor comparisons.
+
+**Proof:**
+
+1. Use the exact primitive-conductor comparison at the current realization. Native conductor positivity, unit image, prime-to-p condition and primitive nonprincipality have already been established; native changeLevel_primitiveCharacter identifies the lifted primitive character with η.
+2. Apply the preceding relative moment formula with M=f and base character η₀, or equivalently evaluate the existing primitive measure comparison by the same finite argument. The wild character χ and its p-power level are unchanged because the underlying p-adic unit group is unchanged.
+3. At every new q the scalar uses η₀(q), which is nonzero; η(q)=0 there and is the wrong coefficient. Each q occurs once. Equal prime support collapses the product even when the original level contains additional powers of conductor primes.
+4. Keep q^w/q in the field expression and the actual c({q}) in O. Weight0 is a constructor equality, positive weight k+1 simplifies to exponentk, and all dyadic cases use the same proof. The primitive Gauss/common-field special-value prerequisites remain separately open.
+5. Use the actual O-valued comparison and κO, which is already a continuous monoid hom. For t⊆S, include c(t) and Π_(q∈t)c({q}) into K. The supplied coefficient equations and native product laws identify them; Subtype.ext reflects equality in O. The complete integral_subset_product probe verifies this for the entire used powerset, including the empty subset. Values of c outside that powerset are irrelevant.
+6. Apply the same finite_measure_euler proof in R=O with singleton coefficients c({q}) and unit family u. This yields Π_q(1−c({q})κO(u_q)) inside O, without dividing in O or assuming an independent Z_p action.
+7. For the coefficient test, the native subtype ring map preserves the finite product,1, subtraction and multiplication. The exact fine integral-arithmetic-character-coefficient node identifies the included κO value; the natural-unit formula then gives the displayed K-valued Euler product. Presentation independence follows by Units.ext and Subtype.ext on used indices.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-arithmetic-moment-level`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-primitive-conductor`, `DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient`, `mathlib:AbstractMeasure.map_apply`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:ContinuousMonoidHom`, `mathlib:Finset.prod_sub`, `mathlib:Finset.prod_div_distrib`, `mathlib:Nat.cast_prod`, `mathlib:Units.coeHom`.
+
+**Tests:**
+
+- `SuggestedTameMomentLevelTests.integral_primitive_weight_zero` (degenerate): The primitive integral weight-zero moment keeps its actual integral correction coefficients.
+- `SuggestedTameMomentLevelTests.integral_primitive_same_support` (degenerate): Same prime support gives equality in the original integer ring.
+- `SuggestedTameMomentLevelTests.integral_primitive_factor_inclusion` (compatibility): The primitive integral product includes as the field product with η₀ values.
+
+**Acceptance:** The existing arithmetic-character constructions and APIs remain whole; no new generic character, measure or coefficient carrier is introduced. Integer-ring product statements are tested through their actual inclusion, and degree-zero constructor values remain separate from logarithmic interpolation.
+
+**Source:** Theorem5.7, Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47, completely reread during the immediately preceding primitive-conductor checkpoint on30September2026. Worker arithmetic-character evaluation of the existing actual level-comparison measures. The source positive-weight formula motivates the Euler factors; the weight-zero comparison is an equality of existing constructor integrals, with no extension of the source L-value interpolation to weight zero. Arithmetic powers use actual units, not finite residue representatives.
+
+**Remaining:** Actual arithmetic-character moments now have the relative-level and primitive-conductor Euler products in both K and its existing integer ring, including n=0,w=0,p=2 and repeated prime support. Next assess the exact remaining primitive Gauss/common-field special-value routes rather than extending degree-zero interpolation by analogy. Analytic branches, logarithmic degree zero, full source extraction and supplier pseudomeasure requests remain open.
+
+### Arithmetic-character Euler factors under tame level change validation
+
+All 730 predecessor nodes, 623 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 4 nodes, 4 named suggested declarations and 15 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 992 reachable nodes, 5139 edges and 800 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All four new routes use native declarations and existing fine nodes, without a new stage-request leaf. Existing requests remain open.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3603 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Six complete native lemmas prove multiplicative-test evaluation under dilation, the signed subset product, the full finite-measure Euler deduction, equality of integral subset coefficients with products of singleton coefficients, and both positive/zero exponent division rules. The finite-measure theorem assumes exactly the preceding actual measure comparison; it does not implement the arithmetic constructors. The integral product proof uses the native subtype inclusion and requires no Z_p algebra on the integer ring. The separate probe compiles against 2824 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact controls cover13profiles52levelpairs72prime/placepairs and522wild-character cases, including176dyadic and72level-zero cases. They check2088relative plus2088primitive positive arithmetic moments,8352integral moment values,5220atomic Euler tests and15660finite-ring reductions. Weight-zero models are explicitly atomic. Wrong weight-zero truncation is detected468times and omission of the wild character factor1084times. Exact Q(i)/Q(omega) models. Finite character tables at p^n include principal, quadratic and available cubic/quartic/sextic values, plus all four quadratic characters modulo8. Native-style least-conductor recovery compares relative and primitive formulas. Positive arithmetic zeta moments use independent finite mixed-character quotient/Stirling formulas, with the separate p-Euler factor only at n=0. Weight-zero checks are finite atomic inverse-weight models, never arithmetic mass values. Coordinatewise integrality and reductions modulo p,p²,p³ are sufficient finite models, not an identification of the full local integer ring. The largest observed discrepancy is 0 in every asserted exact identity.
+
+Captured inputs and predecessor outputs are guarded before publication. No new suggested import. The partial signature file is the exact5133prefix plus the new declarations/examples, retaining the documented4777–4791 omissions. The current full module remains NOT COMPILED because the native TwistedDivisorSum artifact is unavailable; no library build occurs. Nine captured input changes were assessed: two workflow documents, the source registry/register, and five unrelated corrected link maps. All16 Dirichlet findings, all57 other inputs and all four predecessor files are preserved. The partial signature check passed with zero errors and2222 expected placeholder warnings; six complete native lemmas passed without warnings or placeholders.

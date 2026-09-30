@@ -13711,3 +13711,178 @@ example (hpN : ¬p ∣ N) :
     (∀ t ∈ (S).powerset, (c t : K) = η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) /
       ((∏ q ∈ t, q : ℕ) : K)) := sorry
 end SuggestedTamePrimitiveIntegralTests
+
+/-! Arithmetic-character moments under tame level change. Quotients retain the
+inverse prime factor at weight zero; no logarithmic interpolation is inferred. -/
+namespace DirichletPadic
+section TameMomentLevel
+variable {p M N : ℕ} [Fact p.Prime] [NeZero M] [NeZero N]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+theorem intrinsicTameZetaMeasure_changeLevel_arithmeticCharacter (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) :
+    intrinsicTameZetaMeasure (η.changeLevel hMN) hN hpN (primePowerArithmeticCharacter p n χ w).toContinuousMap =
+      (∏ q ∈ N.primeFactors \ M.primeFactors, (1 - η ((q : ℕ) : ZMod M) * χ ((q : ℕ) : ZMod (p^n)) * (q : K)^w / (q : K))) * intrinsicTameZetaMeasure η hM hpM (primePowerArithmeticCharacter p n χ w).toContinuousMap := sorry
+theorem intrinsicIntegralTameZetaMeasure_changeLevel_arithmeticCharacter (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (N.primeFactors \ M.primeFactors).powerset, (c t : K) =
+      η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K))
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ N.primeFactors \ M.primeFactors, (u q : ℤ_[p]) = (q : ℤ_[p]))
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) :
+    intrinsicIntegralTameZetaMeasure (η.changeLevel hMN) hN hpN (integralPrimePowerArithmeticCharacter p n χ w).toContinuousMap =
+      (∏ q ∈ N.primeFactors \ M.primeFactors, (1 - c {q} * integralPrimePowerArithmeticCharacter p n χ w (u q))) * intrinsicIntegralTameZetaMeasure η hM hpM (integralPrimePowerArithmeticCharacter p n χ w).toContinuousMap := sorry
+end TameMomentLevel
+section TamePrimitiveMoment
+variable {p N : ℕ} [Fact p.Prime] [NeZero N]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+variable (η : DirichletCharacter K N)
+local instance : NeZero η.conductor := ⟨η.conductor_ne_zero⟩
+theorem intrinsicTameZetaMeasure_primitiveCharacter_arithmeticCharacter (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) :
+    intrinsicTameZetaMeasure η hN hpN (primePowerArithmeticCharacter p n χ w).toContinuousMap =
+      (∏ q ∈ N.primeFactors \ η.conductor.primeFactors, (1 - η.primitiveCharacter ((q : ℕ) : ZMod η.conductor) * χ ((q : ℕ) : ZMod (p^n)) * (q : K)^w / (q : K))) * intrinsicTameZetaMeasure η.primitiveCharacter hF hpF (primePowerArithmeticCharacter p n χ w).toContinuousMap := sorry
+theorem intrinsicIntegralTameZetaMeasure_primitiveCharacter_arithmeticCharacter (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (N.primeFactors \ η.conductor.primeFactors).powerset, (c t : K) =
+      η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) / ((∏ q ∈ t, q : ℕ) : K))
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ N.primeFactors \ η.conductor.primeFactors, (u q : ℤ_[p]) = (q : ℤ_[p]))
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) :
+    intrinsicIntegralTameZetaMeasure η hN hpN (integralPrimePowerArithmeticCharacter p n χ w).toContinuousMap =
+      (∏ q ∈ N.primeFactors \ η.conductor.primeFactors, (1 - c {q} * integralPrimePowerArithmeticCharacter p n χ w (u q))) * intrinsicIntegralTameZetaMeasure η.primitiveCharacter hF hpF (integralPrimePowerArithmeticCharacter p n χ w).toContinuousMap := sorry
+end TamePrimitiveMoment
+end DirichletPadic
+namespace SuggestedTameMomentLevelTests
+open DirichletPadic
+section Relative
+variable {p M N : ℕ} [Fact p.Prime] [NeZero M] [NeZero N]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+-- field_relative_weight_zero
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (n : ℕ) (χ : DirichletCharacter K (p^n))  :
+    intrinsicTameZetaMeasure (η.changeLevel hMN) hN hpN (primePowerArithmeticCharacter p n χ 0).toContinuousMap =
+      (∏ q ∈ N.primeFactors \ M.primeFactors, (1 - η ((q : ℕ) : ZMod M) * χ ((q : ℕ) : ZMod (p^n)) * (q : K)^0 / (q : K))) * intrinsicTameZetaMeasure η hM hpM (primePowerArithmeticCharacter p n χ 0).toContinuousMap := sorry
+-- field_relative_same_support
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) (hs : N.primeFactors = M.primeFactors) :
+    intrinsicTameZetaMeasure (η.changeLevel hMN) hN hpN (primePowerArithmeticCharacter p n χ w).toContinuousMap = intrinsicTameZetaMeasure η hM hpM (primePowerArithmeticCharacter p n χ w).toContinuousMap := sorry
+-- field_relative_positive_weight
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (k : ℕ) :
+    intrinsicTameZetaMeasure (η.changeLevel hMN) hN hpN (primePowerArithmeticCharacter p n χ (k+1)).toContinuousMap =
+      (∏ q ∈ N.primeFactors \ M.primeFactors, (1 - η ((q : ℕ) : ZMod M) * χ ((q : ℕ) : ZMod (p^n)) * (q : K)^k)) * intrinsicTameZetaMeasure η hM hpM (primePowerArithmeticCharacter p n χ (k+1)).toContinuousMap := sorry
+-- integral_relative_weight_zero
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (N.primeFactors \ M.primeFactors).powerset, (c t : K) =
+      η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K))
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ N.primeFactors \ M.primeFactors, (u q : ℤ_[p]) = (q : ℤ_[p]))
+    (n : ℕ) (χ : DirichletCharacter K (p^n))  :
+    intrinsicIntegralTameZetaMeasure (η.changeLevel hMN) hN hpN (integralPrimePowerArithmeticCharacter p n χ 0).toContinuousMap =
+      (∏ q ∈ N.primeFactors \ M.primeFactors, (1 - c {q} * integralPrimePowerArithmeticCharacter p n χ 0 (u q))) * intrinsicIntegralTameZetaMeasure η hM hpM (integralPrimePowerArithmeticCharacter p n χ 0).toContinuousMap := sorry
+-- integral_relative_same_support
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) (hs : N.primeFactors = M.primeFactors) :
+    intrinsicIntegralTameZetaMeasure (η.changeLevel hMN) hN hpN (integralPrimePowerArithmeticCharacter p n χ w).toContinuousMap = intrinsicIntegralTameZetaMeasure η hM hpM (integralPrimePowerArithmeticCharacter p n χ w).toContinuousMap := sorry
+-- integral_relative_factor_inclusion
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (N.primeFactors \ M.primeFactors).powerset, (c t : K) =
+      η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K))
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ N.primeFactors \ M.primeFactors, (u q : ℤ_[p]) = (q : ℤ_[p]))
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) :
+    (((∏ q ∈ N.primeFactors \ M.primeFactors, (1 - c {q} * integralPrimePowerArithmeticCharacter p n χ w (u q))) : O) : K) = (∏ q ∈ N.primeFactors \ M.primeFactors, (1 - η ((q : ℕ) : ZMod M) * χ ((q : ℕ) : ZMod (p^n)) * (q : K)^w / (q : K))) := sorry
+-- field_relative_level_zero
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N) (χ : DirichletCharacter K (p^0)) (w : ℕ) :
+    intrinsicTameZetaMeasure (η.changeLevel hMN) hN hpN (primePowerArithmeticCharacter p 0 χ w).toContinuousMap =
+      (∏ q ∈ N.primeFactors \ M.primeFactors, (1 - η (q : ZMod M) * (q : K)^w / (q : K))) *
+        intrinsicTameZetaMeasure η hM hpM (primePowerArithmeticCharacter p 0 χ w).toContinuousMap := sorry
+-- field_relative_trivial_mass
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N) :
+    intrinsicTameZetaMeasure (η.changeLevel hMN) hN hpN 1 =
+      (∏ q ∈ N.primeFactors \ M.primeFactors, (1 - η (q : ZMod M) / (q : K))) *
+        intrinsicTameZetaMeasure η hM hpM 1 := sorry
+end Relative
+section Primitive
+variable {p N : ℕ} [Fact p.Prime] [NeZero N]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+variable (η : DirichletCharacter K N)
+local instance : NeZero η.conductor := ⟨η.conductor_ne_zero⟩
+-- field_primitive_weight_zero
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (n : ℕ) (χ : DirichletCharacter K (p^n))  :
+    intrinsicTameZetaMeasure η hN hpN (primePowerArithmeticCharacter p n χ 0).toContinuousMap =
+      (∏ q ∈ N.primeFactors \ η.conductor.primeFactors, (1 - η.primitiveCharacter ((q : ℕ) : ZMod η.conductor) * χ ((q : ℕ) : ZMod (p^n)) * (q : K)^0 / (q : K))) * intrinsicTameZetaMeasure η.primitiveCharacter hF hpF (primePowerArithmeticCharacter p n χ 0).toContinuousMap := sorry
+-- field_primitive_same_support
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) (hs : N.primeFactors = η.conductor.primeFactors) :
+    intrinsicTameZetaMeasure η hN hpN (primePowerArithmeticCharacter p n χ w).toContinuousMap = intrinsicTameZetaMeasure η.primitiveCharacter hF hpF (primePowerArithmeticCharacter p n χ w).toContinuousMap := sorry
+-- field_primitive_positive_weight
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (k : ℕ) :
+    intrinsicTameZetaMeasure η hN hpN (primePowerArithmeticCharacter p n χ (k+1)).toContinuousMap =
+      (∏ q ∈ N.primeFactors \ η.conductor.primeFactors, (1 - η.primitiveCharacter ((q : ℕ) : ZMod η.conductor) * χ ((q : ℕ) : ZMod (p^n)) * (q : K)^k)) * intrinsicTameZetaMeasure η.primitiveCharacter hF hpF (primePowerArithmeticCharacter p n χ (k+1)).toContinuousMap := sorry
+-- integral_primitive_weight_zero
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (N.primeFactors \ η.conductor.primeFactors).powerset, (c t : K) =
+      η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) / ((∏ q ∈ t, q : ℕ) : K))
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ N.primeFactors \ η.conductor.primeFactors, (u q : ℤ_[p]) = (q : ℤ_[p]))
+    (n : ℕ) (χ : DirichletCharacter K (p^n))  :
+    intrinsicIntegralTameZetaMeasure η hN hpN (integralPrimePowerArithmeticCharacter p n χ 0).toContinuousMap =
+      (∏ q ∈ N.primeFactors \ η.conductor.primeFactors, (1 - c {q} * integralPrimePowerArithmeticCharacter p n χ 0 (u q))) * intrinsicIntegralTameZetaMeasure η.primitiveCharacter hF hpF (integralPrimePowerArithmeticCharacter p n χ 0).toContinuousMap := sorry
+-- integral_primitive_same_support
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) (hs : N.primeFactors = η.conductor.primeFactors) :
+    intrinsicIntegralTameZetaMeasure η hN hpN (integralPrimePowerArithmeticCharacter p n χ w).toContinuousMap = intrinsicIntegralTameZetaMeasure η.primitiveCharacter hF hpF (integralPrimePowerArithmeticCharacter p n χ w).toContinuousMap := sorry
+-- integral_primitive_factor_inclusion
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (N.primeFactors \ η.conductor.primeFactors).powerset, (c t : K) =
+      η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) / ((∏ q ∈ t, q : ℕ) : K))
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ N.primeFactors \ η.conductor.primeFactors, (u q : ℤ_[p]) = (q : ℤ_[p]))
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (w : ℕ) :
+    (((∏ q ∈ N.primeFactors \ η.conductor.primeFactors, (1 - c {q} * integralPrimePowerArithmeticCharacter p n χ w (u q))) : O) : K) = (∏ q ∈ N.primeFactors \ η.conductor.primeFactors, (1 - η.primitiveCharacter ((q : ℕ) : ZMod η.conductor) * χ ((q : ℕ) : ZMod (p^n)) * (q : K)^w / (q : K))) := sorry
+end Primitive
+-- dyadic_quadratic_new_prime
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η ≠ 1) (hη2 : η 2 = -1)
+    (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ3 : χ 3 = -1)
+    (h3 : IsUnit ((3 : ℕ) : ℚ_[2])) (h15 : IsUnit ((15 : ℕ) : ℚ_[2]))
+    (hp3 : ¬2 ∣ 3) (hp15 : ¬2 ∣ 15) :
+    intrinsicTameZetaMeasure (η.changeLevel (by decide : 3 ∣ 15)) h15 hp15
+      (primePowerArithmeticCharacter 2 2 χ 0).toContinuousMap =
+    (6/5 : ℚ_[2]) * intrinsicTameZetaMeasure η h3 hp3
+      (primePowerArithmeticCharacter 2 2 χ 0).toContinuousMap := sorry
+end SuggestedTameMomentLevelTests
