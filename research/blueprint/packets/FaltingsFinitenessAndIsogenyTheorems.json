@@ -443,6 +443,17 @@
     "REV-FaltingsFinitenessAndIsogenyTheorems: I §13, Proposition 13.2, 13.8, Remark 13.9, Corollary 13.10 and Theorem 13.12"
    ],
    "accessed": "2026-09-24"
+  },
+  {
+   "id": "tate-1967-p-divisible-groups",
+   "title": "p-Divisible groups",
+   "authors": "John T. Tate",
+   "edition": "Proceedings of a Conference on Local Fields (Driebergen, 1966), Springer, 1967, pp. 158–183; scanned copy on a Purdue course page (13 two-page PDF sheets), the same file as the FiniteFlatGroupsAndIntegralPadicHodgeTheory packet's source Tate67; accessed 30 September 2026",
+   "url": "https://www.math.purdue.edu/~tongliu/teaching/598/p-divisible.pdf",
+   "sha256": "720bf7128d4f048853435b083d18d0d863056c1f991942192a7f00daa7e424aa",
+   "readSections": [
+    "(4.2), pp. 181–182: the proof of Corollary 2 of Theorem 4, Proposition 12 and its proof on p. 182, and Serre's example (read by FIX-RT-AREA-padic-2~2 on the page image, for the shift argument that Faltings' erratum cites). Proposition 2, Theorem 2 and Theorem 3 were not read in this job; the FiniteFlat packet's Tate67 records them read."
+   ]
   }
  ],
  "nodes": [
@@ -1255,7 +1266,7 @@
     "for the consequence: an isogeny of semiabelian schemes over R_i whose kernel's finite part is Γ[l^n]"
    ],
    "proofSteps": [
-    "Tate's Proposition 2 ([13] in Faltings), in the form Faltings uses: the invariant differentials of Γ[l^n] form a free R_i/l^n R_i-module of rank d, so #s*(Ω¹_{Γ[l^n]/R_i}) = #(R_i/l^n R_i)^d = l^{n·m_i·d}. Imported: Tate's paper is not available (gap); the local term is requested from ArakelovGeometryAndAbelianHeights:R35.4, whose stage text supplies 'the inequalities and local terms that R28 uses'.",
+    "Tate's Proposition 2 ([13] in Faltings), in the form Faltings uses: the invariant differentials of Γ[l^n] form a free R_i/l^n R_i-module of rank d, so #s*(Ω¹_{Γ[l^n]/R_i}) = #(R_i/l^n R_i)^d = l^{n·m_i·d}. Imported from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 (requested). Tate's Proposition 2 is a discriminant formula; the count of invariant differentials is derived from it and its Lemma 1, as R07.1's invariant-differentials lemma (RT-AREA-padic-2/5).",
     "A quasi-finite separated flat group scheme G' over the henselian ring R_i is the disjoint union of an open and closed subgroup G'^f, finite over R_i and containing the unit section, and a part with empty special fibre; hence s*(Ω¹_{G'/R_i}) = s*(Ω¹_{G'^f/R_i}) (finite part: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1, requested).",
     "For the isogeny A → A' with kernel G', the cokernel of the pull-back on invariant differentials is s*(Ω¹_{A/A'}) = s*(Ω¹_{G'/R_i}) as in Lemma 5, so its order is #s*(Ω¹_{Γ[l^n]/R_i}) = l^{n·m_i·d}."
    ],
@@ -1267,7 +1278,6 @@
    ],
    "prerequisites": [
     "FaltingsFinitenessAndIsogenyTheorems:R28.2/height-change-under-an-isogeny-of-semiabelian-models",
-    "ArakelovGeometryAndAbelianHeights:R35.4",
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
     "tauceti:TauCeti.finiteLocallyFreeCommAffineGroupSchemeProperty"
    ],
@@ -1282,7 +1292,7 @@
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 359 (application of [13], Proposition 2)",
      "excerpt": "Nach [13], Proposition 2 kann man dies sofort ausrechnen: Sei d_i die Dimension der maximalen formalen Untergruppe von G_i. Dann ist #s*(Ω¹_{(G_i)_n/R_i})=l^{n·m_i·d_i}.",
-     "match": "Literal, page image p. 359; Tate's Proposition 2 itself is unread (gap)."
+     "match": "Literal, page image p. 359. Tate's Proposition 2 is a discriminant formula (Tate, (2.2), pp. 164–165, as the FiniteFlat packet reads it); the count used here is derived from it in R07.1 (RT-AREA-padic-2/5)."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1308,7 +1318,7 @@
     "Induction (ArithmeticGaloisRepresentations:R01.1): W̃ = Ind_π^π̃ T_l(G) ⊆ Ṽ = Ind_π^π̃ T_l(A) has rank mh, and π̃ acts on L = Λ^{mh}(W̃) through a continuous character χ: π̃ → ℤ_l^×.",
     "By the character lemma (Kronecker-Weber), χ = ⟨χ_0⟩^a·ε with a ∈ ℤ_l and ε of finite order, χ_0 the l-adic cyclotomic character (mathlib cyclotomicCharacter).",
     "By the determinant lemma at l, L ⊗_{ℤ_l} C ≅ C(Σ_i m_i d_i) as modules over the decomposition group D ≅ Gal(ℚ̄_l/ℚ_l), C the completion of ℚ̄_l.",
-    "Tate's Theorem 2 (PadicHodgeTheory:R06.2, requested): χ·χ_0^{−Σ m_i d_i} has finite image on the inertia group I ⊆ D. Since χ·χ_0^{−Σ m_i d_i} = ⟨χ_0⟩^{a − Σ m_i d_i}·(character of finite order) and ⟨χ_0⟩(I) is open in 1 + qℤ_l, this forces a = Σ m_i d_i, so χ·χ_0^{−Σ m_i d_i} has finite order on π̃, hence on D.",
+    "Tate's Theorem 2, the local Tate–Sen theorem (PadicHodgeTheory R06.1:tate-sen, requested from R06.1): χ·χ_0^{−Σ m_i d_i} has finite image on the inertia group I ⊆ D. Since χ·χ_0^{−Σ m_i d_i} = ⟨χ_0⟩^{a − Σ m_i d_i}·(character of finite order) and ⟨χ_0⟩(I) is open in 1 + qℤ_l, this forces a = Σ m_i d_i, so χ·χ_0^{−Σ m_i d_i} has finite order on π̃, hence on D. (The local theorem gives finiteness on inertia only; combined with the class-field-theory step of the character lemma it gives the global exponent. RT-AREA-padic-2/5, /20.)",
     "By the Frobenius-weight lemma, for almost all p, χ(F_p) is an algebraic number all of whose conjugates have absolute value p^{mh/2}. As χ_0(F_p) = p, χ(F_p) = ζ·p^{Σ m_i d_i} with ζ a root of unity; comparing absolute values gives Σ_i m_i d_i = mh/2."
    ],
    "acceptance": [
@@ -1322,7 +1332,7 @@
     "FaltingsFinitenessAndIsogenyTheorems:R28.2/l-adic-characters-of-the-absolute-galois-group-of-q-are-cyclotomic-up-to-finite-order",
     "FaltingsFinitenessAndIsogenyTheorems:R28.2/determinant-of-the-induced-tate-module-at-the-decomposition-group-of-l",
     "FaltingsFinitenessAndIsogenyTheorems:R28.2/frobenius-weights-on-the-induced-tate-module",
-    "PadicHodgeTheory:R06.2",
+    "PadicHodgeTheory:R06.1",
     "ArithmeticGaloisRepresentations:R01.1",
     "mathlib:cyclotomicCharacter"
    ],
@@ -1368,7 +1378,7 @@
    "proofSteps": [
     "The generic l-divisible group attached to W lies in H_i ⊗ K_i; the schematic closures G_{i,n} of its levels in the finite flat H_i[l^n] (equivalently in Â) are finite flat over the discrete valuation ring R_i, with G_{i,n} ⊆ G_{i,n+1} and multiplication by l mapping G_{i,n+1} into G_{i,n} (closure of a generic finite flat subgroup: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1, requested).",
     "The maps G_{i,n+1}/G_{i,n} → G_{i,n}/G_{i,n−1} are isomorphisms on generic fibres; the system is an l-divisible group exactly when they are isomorphisms over R_i for all n ≥ 1, which can fail at finitely many levels.",
-    "Faltings: 'lehrt eine Betrachtung der Diskriminanten, daß dies für große n der Fall ist', referring to Tate, p-divisible groups, p. 182. The erratum gives no further argument and Tate's paper is unread (gap), so the existence of n_0 is imported.",
+    "Faltings: 'lehrt eine Betrachtung der Diskriminanten, daß dies für große n der Fall ist', referring to Tate, p-divisible groups, p. 182. The erratum gives no further argument. The argument is Tate's proof of Proposition 12 (p. 182): the affine algebras D_i of E_{i+1}/E_i form an increasing sequence of orders in a finite separable K-algebra, so D_i = D_{i+1} for i ≥ i_0, and Γ_v = E_{i_0+v}/E_{i_0} is p-divisible. Imported from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 (requested), which plans Proposition 12 (RT-AREA-padic-2/5).",
     "Passing from A = A_0 to A_m (the global quotient by G_m, extended over R by Lemma 1), only the maps with n > m occur; for m ≥ n_0 the closures form an l-divisible group over R_i. This is the tail the R28.3 stage asks to construct."
    ],
    "acceptance": [
@@ -1400,6 +1410,12 @@
      "locator": "Erratum, p. 381, part a) (the shift)",
      "excerpt": "Der Übergang von A=A_0 zu A_m bedeutet, daß man diese Abbildungen nur für n>m betrachten muß. Dies Argument findet man schon bei Tate ([1], S. 182).",
      "match": "Literal, page image."
+    },
+    {
+     "sourceId": "tate-1967-p-divisible-groups",
+     "locator": "(4.2), proof of Proposition 12, p. 182",
+     "excerpt": "Let D_i be the affine algebra of E_{i+1}/E_i. Then all D_i ⊗_R K can be identified, and the D_i constitute an increasing sequence of orders in a finite separable K-algebra. Hence there is an i_0 such that D_i = D_{i+1} for i ≥ i_0. Put Γ_v = E_{i_0+v}/E_{i_0}.",
+     "match": "Literal, page image of the public scan, read 30 September 2026 (FIX-RT-AREA-padic-2~2). This is the page the erratum cites ('Dies Argument findet man schon bei Tate ([1], S. 182)')."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2138,13 +2154,13 @@
     "K/ℚ is unramified at l, so every completion K_v, v | l, has absolute ramification index e = 1 ≦ l − 1, as Raynaud's Théorème 4.1.1 requires",
     "G is finite flat over R_v for v | l and étale over the other places, so s^*(Ω^1_{G/R}) is supported above l and is a quotient of ω_{B_1/R}/l, whence 0 ≦ d ≦ gm",
     "Raynaud's section 4 works over a strictly henselian base of unequal characteristics (p. 271); the theorem is applied after base change to the strict henselization of R_v",
-    "the exponent in Raynaud is v(𝔇̄(𝒢)), the valuation of the absolute different (appendix, Définition 8, p. 279); its identification with the length of s^*(Ω^1_{G/R_v}) is not stated in either source (gap)"
+    "the exponent in Raynaud is v(𝔇̄(𝒢)), the valuation of the absolute different (appendix, Définition 8, p. 279); its identification with the length of s^*(Ω^1_{G/R_v}) is not stated in either source. It is requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 with Théorème 4.1.1 (RT-AREA-padic-2/5); no source for it has been read"
    ],
    "proofSteps": [
     "χ·ε^h is unramified outside l (node twisted-determinant-character-is-unramified-outside-l), hence χ·ε^h = χ_0^k for some k (node mod-l-characters-unramified-outside-l-are-cyclotomic-powers).",
     "Let I ⊆ π̃ be an inertia group at l. As K/ℚ is unramified at l, I fixes every coset of π̃/π, so by the transfer formula of the unramifiedness node χ·ε^h(σ) = ∏_t det(t⁻¹σt | W_l) for σ ∈ I, the product over coset representatives t; for each place v | l exactly f_v of the t⁻¹σt lie in an inertia group I_v of K at v.",
-    "Raynaud's Théorème 4.1.1, for G over the strict henselization of R_v (e = 1 ≦ l − 1), says that I_v acts on det(W_l) through the tame character τ_l^{v(𝔇̄(G_v))}, and τ_l is χ_0 restricted to inertia. Since χ_0 is a character of π̃, χ_0(t⁻¹σt) = χ_0(σ).",
-    "Hence χ·ε^h = χ_0^{d'} on I with d' = Σ_{v|l} f_v·v(𝔇̄(G_v)), and d' = log_l #s^*(Ω^1_{G/R}) = d once the absolute different of G_v is identified with the Fitting ideal of s^*(Ω^1_{G_v/R_v}) (gap).",
+    "Raynaud's Théorème 4.1.1 (imported from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1, requested), for G over the strict henselization of R_v (e = 1 ≦ l − 1), says that I_v acts on det(W_l) through the tame character τ_l^{v(𝔇̄(G_v))}, and τ_l is χ_0 restricted to inertia. Since χ_0 is a character of π̃, χ_0(t⁻¹σt) = χ_0(σ).",
+    "Hence χ·ε^h = χ_0^{d'} on I with d' = Σ_{v|l} f_v·v(𝔇̄(G_v)), and d' = log_l #s^*(Ω^1_{G/R}) = d once the absolute different of G_v is identified with the Fitting ideal of s^*(Ω^1_{G_v/R_v}) (requested from R07.1 with Théorème 4.1.1).",
     "χ_0 maps I onto 𝔽_l^* (ℚ(ζ_l)/ℚ is totally ramified at l), so χ_0^k = χ_0^d on I forces k ≡ d mod (l − 1): χ·ε^h = χ_0^d."
    ],
    "acceptance": [
@@ -2159,7 +2175,8 @@
     "ArithmeticGaloisRepresentations:R01.6",
     "tauceti:TauCeti.finiteLocallyFreeCommAffineGroupSchemeProperty",
     "mathlib:modularCyclotomicCharacter",
-    "mathlib:MonoidHom.transfer_eq_prod_quotient_orbitRel_zpowers_quot"
+    "mathlib:MonoidHom.transfer_eq_prod_quotient_orbitRel_zpowers_quot",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
    ],
    "sources": [
     {
@@ -2703,8 +2720,8 @@
     "C_i(k) = C_i ⊗_{ℤ_l} ℤ_l(k), with D_i acting diagonally and semilinearly"
    ],
    "proofSteps": [
-    "Tate's Hodge-Tate decomposition ([13], Theorem 3, Corollary 2): V_l(Γ_i) ⊗ C_i ≅ C_i^{h_i−d_i} ⊕ C_i(1)^{d_i} as D_i-modules (imported; requested from HodgeTateAndCanonicalSubgroups:T0).",
-    "U = V_l(G)/W_i injects D_i-equivariantly into V_l(A)/V_l(H_i), on which by Lemma 6 I_i acts trivially and D_i through a finite quotient; so D_i acts on U through a finite quotient, and U ⊗ C_i ≅ C_i^{h−h_i} (a representation with finite image is C_i-trivial: PadicHodgeTheory:R06.2, requested).",
+    "Tate's Hodge-Tate decomposition ([13], Theorem 3, Corollary 2): V_l(Γ_i) ⊗ C_i ≅ C_i^{h_i−d_i} ⊕ C_i(1)^{d_i} as D_i-modules (imported; requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1, which plans Tate's Theorem 3 and its corollaries, importing Tate–Sen; RT-AREA-padic-2/5).",
+    "U = V_l(G)/W_i injects D_i-equivariantly into V_l(A)/V_l(H_i), on which by Lemma 6 I_i acts trivially and D_i through a finite quotient; so D_i acts on U through a finite quotient, and U ⊗ C_i ≅ C_i^{h−h_i} (a representation with finite image is C_i-trivial: semilinear Hilbert 90 of PadicHodgeTheory R06.1:tate-sen, requested from R06.1).",
     "Determinants are multiplicative in 0 → W_i → V_l(G) → U → 0, so Λ^h V_l(G) ⊗ C_i ≅ Λ^{h_i}(W_i ⊗ C_i) ⊗ Λ^{h−h_i}(U ⊗ C_i) ≅ C_i(d_i)."
    ],
    "acceptance": [
@@ -2714,8 +2731,7 @@
    ],
    "prerequisites": [
     "FaltingsFinitenessAndIsogenyTheorems:R28.2/inertia-triviality-on-the-quotient-by-the-l-divisible-group-of-the-formal-completion",
-    "HodgeTateAndCanonicalSubgroups:T0",
-    "PadicHodgeTheory:R06.2",
+    "PadicHodgeTheory:R06.1",
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
     "mathlib:cyclotomicCharacter"
    ],
@@ -2796,7 +2812,7 @@
    "proofSteps": [
     "Mackey (ArithmeticGaloisRepresentations:R01.1, requested): Res_D Ind_π^π̃ T_l(G) ≅ ⊕_i Ind_{D_i}^D (T_l(G)|_{D_i}), with D_i = D ∩ g_i π g_i^{−1} ≅ Gal(K̄_{v_i}/K_{v_i}) of index m_i in D.",
     "Determinant of an induced representation: det Ind_{D_i}^D U = sgn_{D/D_i}^{dim U}·(det U ∘ Ver_{D→D_i}), with sgn the sign of the permutation action on D/D_i and Ver the transfer.",
-    "By the Hodge-Tate determinant lemma, det T_l(G)|_{D_i} = χ_0^{d_i}·η_i with η_i of finite image on the inertia of D_i (R06.2). χ_0|_{D_i} ∘ Ver = χ_0^{m_i}; the transfer maps the inertia of D into the inertia of D_i (inertia is normal in D), so η_i ∘ Ver and sgn have finite image on the inertia of D. Hence the character of D on L is χ_0^{Σ m_i d_i} times a character with finite image on inertia, and L ⊗ C ≅ C(Σ m_i d_i)."
+    "By the Hodge-Tate determinant lemma, det T_l(G)|_{D_i} = χ_0^{d_i}·η_i with η_i of finite image on the inertia of D_i (Tate–Sen: R06.1:tate-sen, requested from R06.1). χ_0|_{D_i} ∘ Ver = χ_0^{m_i}; the transfer maps the inertia of D into the inertia of D_i (inertia is normal in D), so η_i ∘ Ver and sgn have finite image on the inertia of D. Hence the character of D on L is χ_0^{Σ m_i d_i} times a character with finite image on inertia, and L ⊗ C ≅ C(Σ m_i d_i)."
    ],
    "acceptance": [
     "K = ℚ (m = 1): D_1 = D, no induction, and the lemma is the Hodge-Tate determinant lemma.",
@@ -2806,7 +2822,7 @@
    "prerequisites": [
     "FaltingsFinitenessAndIsogenyTheorems:R28.2/hodge-tate-determinant-of-the-tate-module-at-a-place-above-l",
     "ArithmeticGaloisRepresentations:R01.1",
-    "PadicHodgeTheory:R06.2",
+    "PadicHodgeTheory:R06.1",
     "mathlib:cyclotomicCharacter"
    ],
    "sources": [
@@ -3671,7 +3687,7 @@
   {
    "stageId": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
    "status": "source_decomposed",
-   "note": "Section 4: Lemma 5, the isogeny height formula, with the remark bounding the denominators of the height difference by primes dividing the isogeny degree; Lemma 6, the triviality of the inertia action on the quotient of the Tate module by the Tate module of the toric part, whose orthogonality input the reviewer located in SGA 7 I, Expose IX 7.4.3; the local differential computations Faltings imports from Tate; and the global determinant identity that forces the sum of the local multiplicities to be half the height. The audit records the layer as not built, with no Faltings height and no p-divisible group in either library."
+   "note": "Section 4: Lemma 5, the isogeny height formula, with the remark bounding the denominators of the height difference by primes dividing the isogeny degree; Lemma 6, the triviality of the inertia action on the quotient of the Tate module by the Tate module of the toric part, whose orthogonality input the reviewer located in SGA 7 I, Expose IX 7.4.3; the local differential computations Faltings imports from Tate, now requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 and, for Theorem 2, from PadicHodgeTheory R06.1:tate-sen (RT-AREA-padic-2/5, /20); and the global determinant identity that forces the sum of the local multiplicities to be half the height. The audit records the layer as not built, with no Faltings height and no p-divisible group in either library."
   },
   {
    "stageId": "FaltingsFinitenessAndIsogenyTheorems:R28.3",
@@ -3686,7 +3702,7 @@
   {
    "stageId": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
    "status": "source_decomposed",
-   "note": "Section 6: Satz 5, the finiteness of the isogeny classes with good reduction outside a finite set; the Weil bounds on exterior powers and the resulting choice of the auxiliary integer N; the determinant character of the kernel computed by Raynaud's Theoreme 4.1.1, which is the one imported result this job could read in the original and whose file hash was re-verified here; the finiteness of invariant lattices; Satz 6, Shafarevich finiteness; and the two applications, the finiteness of curves of genus at least two with good reduction outside S and the Mordell conjecture through the Parshin construction."
+   "note": "Section 6: Satz 5, the finiteness of the isogeny classes with good reduction outside a finite set; the Weil bounds on exterior powers and the resulting choice of the auxiliary integer N; the determinant character of the kernel computed by Raynaud's Theoreme 4.1.1, which is the one imported result this job could read in the original and whose file hash was re-verified here, and which is requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 (RT-AREA-padic-2/5); the finiteness of invariant lattices; Satz 6, Shafarevich finiteness; and the two applications, the finiteness of curves of genus at least two with good reduction outside S and the Mordell conjecture through the Parshin construction."
   },
   {
    "stageId": "FaltingsFinitenessAndIsogenyTheorems:R28.6",
@@ -3725,16 +3741,6 @@
    "detail": "Lemma 1's proof ('Da A_1 normal ist, muß pr_1 ein Isomorphismus sein') needs: a proper quasi-finite morphism is finite, and a finite birational morphism onto a normal integral scheme is an isomorphism. Mathlib has the first only over a locally Artinian target (AlgebraicGeometry.IsFinite.of_locallyQuasiFinite) and neither Tau Ceti nor Mathlib has the second; no atlas stage names Zariski's main theorem (the Tau Ceti ModularCurves roadmap uses 'projective plus quasi-finite implies finite' without owning it). Next action: identify a foundational owner (AlgebraicModuliForArithmeticGeometry or a scheme-foundations roadmap) or request it."
   },
   {
-   "title": "Tate's p-divisible groups paper (Driebergen 1966) is unread: the imports of §4 and of the erratum",
-   "neededBy": [
-    "FaltingsFinitenessAndIsogenyTheorems:R28.2/local-differential-computation-for-the-l-divisible-tower",
-    "FaltingsFinitenessAndIsogenyTheorems:R28.2/hodge-tate-determinant-of-the-tate-module-at-a-place-above-l",
-    "FaltingsFinitenessAndIsogenyTheorems:R28.2/global-determinant-identity-forcing-sum-m-i-d-i-equals-mh-over-two",
-    "FaltingsFinitenessAndIsogenyTheorems:R28.3/closure-tower-becomes-l-divisible-only-after-a-shift"
-   ],
-   "detail": "Faltings imports from [13] = Tate, p-divisible groups, Proceedings of a Conference on Local Fields (Driebergen 1966), Springer 1967, pp. 158-183: Proposition 2 (order of s*Ω¹ of the level-n piece, local differential count), Theorem 3 Corollary 2 (Hodge-Tate decomposition, Hodge-Tate determinant node), Theorem 2 (characters with C(ψ) ≅ C, determinant identity), and the erratum cites p. 182 for the discriminant argument of a). No public copy was found (web search, 24 September 2026; the Springer chapter is paywalled). The statements are routed as requests (R35.4 for Proposition 2, HodgeTateAndCanonicalSubgroups T0 for Theorem 3, PadicHodgeTheory R06.2 for Theorem 2), but the discriminant argument of p. 182 has no supplier: its existence of n_0 in erratum a) is imported unread. Next source action: obtain Tate's paper and read Proposition 2, Theorems 2-4 and p. 182."
-  },
-  {
    "title": "SGA 7 I, Exposé IX 7.4: orthogonality located and re-read; its proof through VIII 3.5 is unread",
    "neededBy": [
     "FaltingsFinitenessAndIsogenyTheorems:R28.2/inertia-triviality-on-the-quotient-by-the-l-divisible-group-of-the-formal-completion"
@@ -3761,13 +3767,6 @@
     "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-pi-invariant-lattices-from-semisimplicity"
    ],
    "detail": "The finite-lattice node reduces the finiteness of isomorphism classes of π-stable lattices in a semisimple ℚ_l[π]-module to two facts about orders in a finite-dimensional semisimple ℚ_l-algebra B: (1) every ℤ_l-order in B is contained in a maximal order; (2) over a maximal order M' in B (ℚ_l complete), two M'-lattices spanning isomorphic B-modules are isomorphic. Neither is in the pinned libraries, and no source read for this review proves them (Faltings p. 363 asserts the finiteness from semisimplicity; Milne's review, p. 160, asserts it without proof). Standard reference, not read: I. Reiner, Maximal Orders. The R28.1 stage text requires this finite-lattice theorem to be proved in this roadmap or its general-algebra owner identified; no atlas stage owns it."
-  },
-  {
-   "title": "Raynaud's Théorème 4.1.1 has no supplier stage, and the exponent in it is not identified with #s*(Ω¹)",
-   "neededBy": [
-    "FaltingsFinitenessAndIsogenyTheorems:R28.5/determinant-character-of-the-kernel-computed-by-raynaud"
-   ],
-   "detail": "Faltings' '[10], Théorème 4.11' is Raynaud's Théorème 4.1.1 (Bull. SMF 102 (1974), p. 272; read on the page image of the Numdam file, SHA-256 05cad2f5…edfe as recorded): for R strictly henselian of unequal characteristics (p. 271), 𝒢 finite flat commutative over R killed by p and e ≦ p − 1, Gal(K̄/K) acts on det(G) through the tame character τ_p^{v(𝔇̄(𝒢))}, where 𝔇̄(𝒢) is the absolute different (appendix, Définition 8, p. 279, read). Two inputs are missing: (1) a supplier for the theorem itself — FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1's stage text scopes Raynaud §§2–3 (Corollary 3.3.6, Theorems 3.4.1/3.4.3), not §4; (2) the identification v(𝔇̄(𝒢)) = length_R s*(Ω¹_{𝒢/R}) (the different of a finite flat group scheme over a discrete valuation ring equals the Fitting ideal of its co-Lie module), which Faltings uses tacitly to write the exponent as d with l^d = #s*(Ω¹_{G/R}); neither Faltings nor Raynaud states it. Checked cases: μ_p over ℤ_p^{ur} (different (p), co-Lie module ℤ_p/p, character χ_0) and ℤ/p (both trivial). Next action: extend R07.1 to Raynaud §4.1 or record the theorem as an import with its hypotheses, and source the different/Ω¹ identification (e.g. Tate, Finite flat group schemes, in Modular Forms and Fermat's Last Theorem)."
   },
   {
    "title": "Satz 7 and Bemerkung 1 belong to RP.4; the Parshin construction's implicit inputs",
@@ -3983,10 +3982,9 @@
   },
   {
    "supplier": "ArakelovGeometryAndAbelianHeights:R35.4",
-   "need": "Two things. (1) Faltings' Lemma 5 in the normalisation of this packet: for semiabelian A_1, A_2 over O_K with proper generic fibres and an isogeny φ: A_1 → A_2 (given over K and extended over O_K), φ is flat, G = Ker φ is a quasi-finite flat commutative group scheme killed by Grad(φ), φ*: ω_{A_2} → ω_{A_1} is injective with cokernel s*(Ω¹_{A_1/A_2}) = s*(Ω¹_{G/O_K}), φ* multiplies the Hodge norm (i/2)^g∫α∧ᾱ at every infinite place by Grad(φ) (the norm by Grad(φ)^{1/2}), hence h(A_2) = h(A_1) + ½ log Grad(φ) − [K:ℚ]^{-1} log #s*(Ω¹_{G/O_K}) for the height h = Grad(ω)/[K:ℚ] with e_v = 1, 2 at real and complex places. (2) The local term for primes dividing the degree (Tate, p-divisible groups, Proposition 2): for an l-divisible group Γ of dimension d over the valuation ring R_i of K_i/ℚ_l of degree m_i, s*(Ω¹_{Γ[l^n]/R_i}) ≅ (R_i/l^n)^d, so its order is l^{n m_i d}.",
+   "need": "Faltings' Lemma 5 in the normalisation of this packet: for semiabelian A_1, A_2 over O_K with proper generic fibres and an isogeny φ: A_1 → A_2 (given over K and extended over O_K), φ is flat, G = Ker φ is a quasi-finite flat commutative group scheme killed by Grad(φ), φ*: ω_{A_2} → ω_{A_1} is injective with cokernel s*(Ω¹_{A_1/A_2}) = s*(Ω¹_{G/O_K}), φ* multiplies the Hodge norm (i/2)^g∫α∧ᾱ at every infinite place by Grad(φ) (the norm by Grad(φ)^{1/2}), hence h(A_2) = h(A_1) + ½ log Grad(φ) − [K:ℚ]^{-1} log #s*(Ω¹_{G/O_K}) for the height h = Grad(ω)/[K:ℚ] with e_v = 1, 2 at real and complex places. The local term for primes dividing the degree (Tate's Proposition 2) is requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 instead (RT-AREA-padic-2/5).",
    "neededBy": [
-    "FaltingsFinitenessAndIsogenyTheorems:R28.2/height-change-under-an-isogeny-of-semiabelian-models",
-    "FaltingsFinitenessAndIsogenyTheorems:R28.2/local-differential-computation-for-the-l-divisible-tower"
+    "FaltingsFinitenessAndIsogenyTheorems:R28.2/height-change-under-an-isogeny-of-semiabelian-models"
    ]
   },
   {
@@ -4023,8 +4021,8 @@
    ]
   },
   {
-   "supplier": "PadicHodgeTheory:R06.2",
-   "need": "Tate's Theorem 2 and its converse for a finite extension F/ℚ_l with C the completion of F̄ and a continuous character ψ: Gal(F̄/F) → ℤ_l^×: C(ψ) ≅ C as semilinear modules if and only if ψ has finite image on inertia (equivalently H^0(Gal(F̄/F), C(ψ)) = 0 when ψ(I) is infinite); and a continuous ℚ_l-representation with finite image becomes trivial after ⊗C.",
+   "supplier": "PadicHodgeTheory:R06.1",
+   "need": "Tate's Theorem 2 and its converse for a finite extension F/ℚ_l with C the completion of F̄ and a continuous character ψ: Gal(F̄/F) → ℤ_l^×: C(ψ) ≅ C as semilinear modules if and only if ψ has finite image on inertia (equivalently H^0(Gal(F̄/F), C(ψ)) = 0 when ψ(I) is infinite); and a continuous ℚ_l-representation with finite image becomes trivial after ⊗C. Owner: the early sub-stage PadicHodgeTheory:R06.1:tate-sen proposed by RT-AREA-padic-2/20 (Tate–Sen theory of C_K; the criterion is its node R06.1:tate-sen/tate-character-criterion). That sub-stage is not yet an atlas stage, so this request names its parent R06.1, which contains it and is already upstream of R28.2. Re-point the supplier when the sub-stage is added.",
    "neededBy": [
     "FaltingsFinitenessAndIsogenyTheorems:R28.2/hodge-tate-determinant-of-the-tate-module-at-a-place-above-l",
     "FaltingsFinitenessAndIsogenyTheorems:R28.2/determinant-of-the-induced-tate-module-at-the-decomposition-group-of-l",
@@ -4032,8 +4030,8 @@
    ]
   },
   {
-   "supplier": "HodgeTateAndCanonicalSubgroups:T0",
-   "need": "Tate's Hodge-Tate decomposition (Tate, p-divisible groups, Theorem 3 and Corollary 2): for an l-divisible group Γ of height h and dimension d over the valuation ring of a finite extension F/ℚ_l, V_l(Γ) ⊗_{ℚ_l} C ≅ C^{h−d} ⊕ C(1)^d as semilinear Gal(F̄/F)-modules.",
+   "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "need": "Tate's Hodge-Tate decomposition (Tate, p-divisible groups, Theorem 3 and Corollary 2): for an l-divisible group Γ of height h and dimension d over the valuation ring of a finite extension F/ℚ_l, V_l(Γ) ⊗_{ℚ_l} C ≅ C^{h−d} ⊕ C(1)^d as semilinear Gal(F̄/F)-modules. R07.1 plans it (Tate's Theorem 3 and its corollaries, R07.1/hodge-tate-p-divisible in its draft packet), importing Tate–Sen from PadicHodgeTheory R06.1:tate-sen; HodgeTateAndCanonicalSubgroups T2 proves its pro-étale sequence compatible with it (RT-AREA-padic-2/5).",
    "neededBy": [
     "FaltingsFinitenessAndIsogenyTheorems:R28.2/hodge-tate-determinant-of-the-tate-module-at-a-place-above-l"
    ]
@@ -4115,6 +4113,21 @@
    "need": "The canonical principal polarization of the Jacobian (the theta divisor), compatible with isomorphisms of curves.",
    "neededBy": [
     "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-curves-of-genus-at-least-two-with-good-reduction-outside-S"
+   ]
+  },
+  {
+   "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "need": "Two consequences of Tate, p-divisible groups (1967), over the valuation ring R_i of a finite extension K_i/ℚ_l (RT-AREA-padic-2/5). (1) The invariant differentials of the levels: for an l-divisible group Γ of dimension d over R_i, s*(Ω¹_{Γ[l^n]/R_i}) ≅ (R_i/l^n R_i)^d, so its order is l^{n·m_i·d}. It is derived from Proposition 2 (a discriminant formula; R07.1/p-divisible-discriminant in the draft packet) and its Lemma 1, not a relabelling of Proposition 2. (2) Proposition 12 and its proof (p. 182): for a p-divisible group F over R_i and a Galois-stable direct summand M ⊆ T(F), the schematic closures E_v of the levels of the corresponding generic p-divisible subgroup satisfy: for some i_0, E_{i_0+v}/E_{i_0} is a p-divisible group with Tate module M (R07.1/closure-of-generic-p-divisible-subgroups in the draft packet).",
+   "neededBy": [
+    "FaltingsFinitenessAndIsogenyTheorems:R28.2/local-differential-computation-for-the-l-divisible-tower",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.3/closure-tower-becomes-l-divisible-only-after-a-shift"
+   ]
+  },
+  {
+   "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "need": "Raynaud, Schémas en groupes de type (p, …, p) (1974), §4.1, Théorème 4.1.1 (p. 272), under §4's standing hypothesis that R is strictly henselian of unequal characteristics and with e ≤ p − 1: for a finite, flat, commutative R-group scheme 𝒢 killed by p, Galois acts on det of its generic fibre through the tame character τ_p^{v(𝔇̄(𝒢))}, 𝔇̄ the absolute different of the appendix (Définition 8, p. 279). Together with the comparison v(𝔇̄(𝒢)) = length_R s*(Ω¹_{𝒢/R}) of the absolute different with the invariant differentials, which Faltings uses tacitly and neither source states; no source for it has been read (RT-AREA-padic-2/5).",
+   "neededBy": [
+    "FaltingsFinitenessAndIsogenyTheorems:R28.5/determinant-character-of-the-kernel-computed-by-raynaud"
    ]
   }
  ],
