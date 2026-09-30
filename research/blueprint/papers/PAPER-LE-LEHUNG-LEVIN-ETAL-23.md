@@ -1,3 +1,148 @@
+# LLHLM23 continuation: integral scalar fixed-Hodge comparison
+
+Codex — codex-rtOQ9t; issue 1254; 30 September 2026. Partial checkpoint:
+791 items, 27 routes, 120 unreviewed findings and 12 gaps. Six new theorem
+adapters establish the integral comparison for a single scalar Hodge tuple,
+including nilpotent coefficients and p=2, using the existing general suppliers.
+This closes the adapter left by K60/K61; the extraction remains recursively
+incomplete. All earlier item statements, classifications and source findings
+are preserved. The earlier full-paper reading keeps its original attribution.
+
+## First projection: finite-DVR lifting
+
+K62 lifts every O′-point of X^{λ,τ} to its fixed-Hodge Breuil–Kisin lattice,
+where O′ is the ring of integers of a finite extension of E. The existence,
+uniqueness and period functors come from the existing R07.4 owner, including
+its explicit use of Kisin's correction E.4 to integral full faithfulness.
+[Caraiani–Levin Proposition5.17](https://www.numdam.org/item/10.24033/asens.2354.pdf)
+provides the descent-data lifting statement. Its published page209 was checked
+as an image. The sign conversion follows LLHLM PDF148: use D_dR(V∨), with
+the cyclotomic character of V assigned weight +1. In rank one, dominance
+allows only the chosen k_j; it does not mean all integers below k_j.
+
+Coefficient projectivity is made explicit. Write p=cϖ′^e. In a split
+coefficient factor, if u′m=ϖ′n, then
+u′ϖ′^(e−1)m=c⁻¹pn. Since the underlying lattice is free over W(k′)[[u′]],
+u′ is injective modulo p. Thus ϖ′^(e−1)m=pz, whence n=cu′z and m=cϖ′z.
+Consequently M/ϖ′M is torsion-free over the residue power-series DVR and
+is free. Lifting a basis through the ϖ′-adic completion makes M free over
+O′[[u′]]. Projectivity descends from the finite unramified coefficient
+extension used to split the factors. This verifies the finite-DVR property
+in [Bartlett Remark2.2.16(2)](https://doi.org/10.1017/fms.2020.12)
+without appealing to G66, whose wider coefficient conclusion depends on the
+bounded-height comparison.
+
+The tame character idempotents give integral descent type τ from the rational
+τ∨ comparison. The filtered comparison identifies the Hodge exponents exactly.
+K61 already gives a closed immersion for the first projection; G15 supplies
+flatness and analytic unramifiedness of its target. G47 now applies, proving
+G72: K^{λ,τ}→X^{λ,τ} is an isomorphism.
+
+## Finite flat coefficients, including nilpotents
+
+The new period input Z146 is deliberately not a theorem about semisimple
+characters. A finite-dimensional crystalline Q_p-representation with only
+weight zero is unramified, without semisimplicity. For K=Q_p this is
+[Brinon–Conrad Proposition8.3.5](https://math.stanford.edu/~conrad/papers/notes.pdf),
+PDF119–120. For unramified K/Q_p, induce to G_Qp: the crystalline and de Rham
+period identifications show that the induction is crystalline of weight zero.
+It is therefore unramified, and restriction gives the result for V. This
+derived extension is distinguished from the source proposition's Q_p scope.
+The converse is the usual unramified period construction. The theorem applies
+to the full underlying Q_p-vector space of a module over a nonreduced finite
+Q_p-algebra; no reduction or semisimplification is taken.
+
+G73 chooses a reference character ψ using the scalar Kisin chart d_j=1.
+G70/G02 gives its rational potentially crystalline extension, with exact λ
+from the filtered comparison. A continuous E×-valued character has compact
+image, hence valuation zero, so it preserves its O-line. This establishes ψ
+without presuming the family comparison. A finite coefficient extension,
+if needed, is removed by faithfully flat descent.
+
+Let Λ be finite flat over O, allowing nilpotents, and let χ over Λ[1/p]
+have the fixed Hodge and inertial type. Tensor by ψ⁻¹. Finite Galois descent
+for period modules gives a crystalline representation of type1 and weight0.
+Z146 makes δ=χψ⁻¹ unramified on the entire underlying Q_p-representation.
+In particular this argument retains unipotent Frobenius, such as 1+ε over
+E[ε]/(ε²).
+
+The tower K∞/K is totally ramified, so G_{K∞} surjects onto the same
+profinite residue Galois group as G_K. For g∈G_K choose h∈G_{K∞} with the
+same residue image. Then δ(g)=δ(h). If χ on G_{K∞} preserves the Λ-line,
+δ(h) lies in Λ×; hence χ(g)=ψ(g)δ(h) preserves it too. This proves integral
+extension and fixed-type uniqueness, including at p=2. The period comparison
+and projectivity of Hodge graded pieces identify the exact λ of the rational
+extension supplied by G02/G71 for any M∈Y^{≤λ,τ}(Λ).
+
+This avoids the residual-adjoint cyclotomic-freeness step used in G52. Its
+original statement and guard remain intact. An arbitrary extension of a
+restricted character is not unique: a ramified quadratic twist in the dyadic
+tower is a useful control. Such a twist changes the fixed inertial type.
+
+## Passage to the formal stacks
+
+G74 first treats a local Artinian O-algebra A with finite residue field. A
+smooth chart of X^{λ,τ} is flat and reduced by G15. Bartlett Lemma4.1.2,
+PDF29–30, as used in G20, factors its sufficiently deep local Artinian
+quotients through finite flat O-algebras. Hence every A-point, locally for
+descent, comes from the preceding finite-flat calculation. Its ψ-untwist is
+unramified. Surjectivity onto the residue Galois group therefore identifies
+G_K- and G_{K∞}-equivariant isomorphisms, retaining scalar automorphisms and
+nilpotent directions.
+
+For arbitrary finite type O/ϖ^a-algebras, use the existing EG finite-type
+Isom-scheme supplier, exactly the representability input of G24. G19 upgrades
+the bijection on finite-residue Artinian points to an isomorphism of these
+schemes. Passing through all a proves formal full faithfulness. This does
+not attach an ordinary continuous character to the indeterminate unit in
+O[d,d⁻¹]. The topology issue in the previous checkpoint is addressed by the
+finite coefficient calculation and this Isom-scheme argument.
+
+G75 finishes the comparison. The second projection
+K^{λ,τ}→Y^{≤λ,τ} is a monomorphism by G74 and is essentially surjective
+over every finite flat Λ by G73. Its target is flat and analytically
+unramified by K21/K59. G20 identifies the second projection; G72 identified
+the first. Thus X^{λ,τ}≅Y^{≤λ,τ}, and G71 identifies this with the true
+monodromy locus scheme-theoretically. The scalar torus presentation keeps
+its diagonal G_m stabilizer.
+
+## Ownership, evidence and remaining work
+
+K62/G72–G75 join the existing LocalGaloisDeformationRings:L7 source route.
+Z146 belongs to PadicHodgeTheory:R06.2 and creates one source route to that
+existing roadmap. The general Kisin, period, approximation and stack theorems
+are imported. Their recursive closure is not asserted. In particular, the
+original Kisin downloads returned HTTP403: the current session read the
+existing corrected supplier packet and Conrad's survey, and does not claim
+a fresh reading of the unavailable original.
+
+The result records hashes and exact selected readings: LLHLM PDF141–149 and
+bibliography209–212; Caraiani–Levin7,29–34; Bartlett7–9,16–18,29–30;
+Conrad's Kisin survey21,28–31; Brinon–Conrad81,118–120,127,143–148.
+Conrad's local-character AppendixB was also read as an exploratory input;
+the proof above obtains ψ from an existing Kisin point instead. Only the
+Caraiani–Levin Proposition5.17 page was freshly checked as an image.
+
+The current L7/R08.1/R08.3 and R06.2 layers, relevant R07.4 packet statements,
+and reviewed SF.0/SF.1/SF.4 and R09.3 audit entries were read. Bounded searches
+at both pinned commits found no Kisin/crystalline representation declarations
+in the recorded directories. These searches do not replace the outstanding
+whole-library audit. The direct reviewed audit rows for the two integral
+Galois roadmaps are still absent.
+
+The next scalar tasks are the lifting and component labels in G31/G33/G53,
+followed by actual finite bounds and dyadic patching. E102 and all
+mixed-height guards remain: a fixed-Hodge equivalence cannot repair the
+counterexample on a union of Hodge components. The other eleven gaps remain.
+There is no new source finding or formalization claim.
+
+The paper validator, three-file intake validator, route uniqueness,
+dependency graph and preservation checks are recorded in the result and
+handoff. No Lean deliverable is required or compiled. Earlier symbolic
+computations are inherited evidence and were not rerun.
+
+---
+
 # LLHLM23 continuation: scalar fixed-Hodge full faithfulness
 
 Codex — codex-5ebb6f; issue 1254; 30 September 2026. Partial checkpoint:

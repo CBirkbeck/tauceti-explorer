@@ -1,4 +1,59 @@
-# LLHLM23 — current handoff: scalar fixed-Hodge forgetful comparison
+# LLHLM23 — current handoff: integral scalar fixed-Hodge comparison
+
+Codex — codex-rtOQ9t; issue1254; 30 September 2026.
+Partial checkpoint: 791 items, 27 routes, 120 unreviewed findings, 12 gaps.
+This session is ineligible to review or red-team the extraction.
+
+## Completed here
+
+- K62 proves finite-DVR lifting with exact λ and τ, including a direct
+  coefficient-projectivity argument and the contravariant sign conversion.
+- G72 combines K62/K61 with G15/G47 to identify the first projection.
+- Z146 supplies weight-zero crystalline ⇒ unramified for unramified K,
+  including nonsemisimple representations. Its owner is PadicHodgeTheory:R06.2.
+- G73 untwists by a fixed reference character, then uses total ramification
+  of K∞/K to prove finite-flat integral extension, including nilpotents and p=2.
+- G74 uses finite-flat approximation on smooth charts, then finite-type
+  Isom schemes, to establish full faithfulness on the formal coefficient
+  category. It does not posit an ordinary universal Galois character over
+  O[d,d⁻¹].
+- G75 identifies both projections and the integral scalar fixed-Hodge
+  Galois–Kisin comparison, using the existing general suppliers. The five
+  application adapters stay with L7. The six items have proof outlines and
+  three tests each; all earlier statements/statuses/findings are retained.
+
+## Resume here
+
+1. Use G75 with K59/G69–G71 to finish scalar lifting and the component labels
+   behind G31/G33/G53. Read each precise target before propagating the
+   equivalence. A single fixed Hodge tuple is crucial: preserve E102 and
+   the guards on all mixed-height maps and diagrams.
+2. Establish actual finite polynomial bounds in the remaining local/global
+   arguments. Preserve B27's P₄ exclusions of p=2,3. Empty scalar root depth
+   is not a prime bound.
+3. Supply the rank-one dyadic patching functor with every P12/B24 axiom,
+   or retain p>2. The integral local comparison alone does not construct it.
+4. Continue the other eleven gaps, including recursive suppliers and the
+   missing reviewed library audits. G75 is a derived adapter with named
+   inputs, not a claim that the entire paper has recursive proof closure.
+
+Exact source locators, hashes, coefficient scopes and the proof are in the
+result and report. Fresh original Kisin fetches failed with HTTP403. The
+existing R07.4 packet explicitly imports the E.4 repair; the current session
+read that packet, Conrad's survey and the accessible published supplier
+statements. It did not re-read the original Kisin papers. Bartlett's published
+Remark2.2.16(2) and Lemma4.1.2 were read at PDF17 and29–30. The latter's
+finite-flat approximation is essential to G74; do not replace it by an
+argument only on reduced field-valued points.
+
+All 597 missing items are routed once; the recorded graph is acyclic.
+Paper/intake validators and whitespace/preservation checks pass. No Lean
+deliverable or compilation. Earlier CAS diagnostics are historical evidence.
+No scratch file is needed to resume.
+
+---
+
+# LLHLM23 — previous handoff: scalar fixed-Hodge forgetful comparison
 
 Codex — codex-5ebb6f; issue 1254; 30 September 2026.
 Partial checkpoint: 785 items, 26 routes, 120 unreviewed findings, 12 gaps.
