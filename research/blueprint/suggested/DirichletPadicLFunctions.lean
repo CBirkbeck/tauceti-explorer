@@ -11863,3 +11863,141 @@ kubotaLeopoldtPseudomeasure_even is sign invariance, not yet a comparison with
 the completed algebra of the quotient by ±1. The current L1 coverage retains
 that quotient comparison and its denominator-qualified congruence work.
 No declaration or proof has changed in this coverage clarification. -/
+
+/-! ## Integral finite-character twists on the actual unit group
+The existing ambient twist is restricted using the existing PMIA operator.
+Level compatibility includes zero on units; the ambient finite-character
+functions still differ on nonunits at the zero-to-positive boundary. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure
+open AbstractMeasure
+section IntegralUnitCharacterRelations
+variable (p : ℕ) [Fact p.Prime] {K : Type*} [NormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+
+lemma integralPrimePowerArithmeticCharacter_changeLevel
+    (n m : ℕ) (h : n≤m) (χ : DirichletCharacter K (p^n)) (w : ℕ) :
+    integralPrimePowerArithmeticCharacter p m (χ.changeLevel (pow_dvd_pow p h)) w =
+      integralPrimePowerArithmeticCharacter p n χ w := sorry
+
+lemma integralPrimePowerArithmeticCharacter_mul
+    (n : ℕ) (χ ψ : DirichletCharacter K (p^n)) (e f : ℕ) :
+    integralPrimePowerArithmeticCharacter p n (χ*ψ) (e+f) =
+      integralPrimePowerArithmeticCharacter p n χ e *
+        integralPrimePowerArithmeticCharacter p n ψ f := sorry
+end IntegralUnitCharacterRelations
+
+section IntegralUnitTwist
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[p])ˣ
+
+theorem restrictUnits_integralTwistedTameZetaMeasure
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    restrictUnits p O (integralTwistedTameZetaMeasure n χ η hD hpD) =
+      weight (integralPrimePowerArithmeticCharacter p n χ 0).toContinuousMap
+        (intrinsicIntegralTameZetaMeasure η hD hpD) := sorry
+
+theorem restrictUnits_integralTwistedTameZetaMeasure_character
+    (n : ℕ) (χ ψ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) (w : ℕ) :
+    restrictUnits p O (integralTwistedTameZetaMeasure n χ η hD hpD)
+      (integralPrimePowerArithmeticCharacter p n ψ w).toContinuousMap =
+    intrinsicIntegralTameZetaMeasure η hD hpD
+      (integralPrimePowerArithmeticCharacter p n (χ*ψ) w).toContinuousMap := sorry
+
+theorem inverse_weight_restrictUnits_integralTwistedTameZetaMeasure
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    weight (integralPrimePowerArithmeticCharacter p n χ⁻¹ 0).toContinuousMap
+      (restrictUnits p O (integralTwistedTameZetaMeasure n χ η hD hpD)) =
+        intrinsicIntegralTameZetaMeasure η hD hpD := sorry
+end IntegralUnitTwist
+
+namespace SuggestedIntegralUnitTwistTests
+section General
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+
+-- level_zero_to_positive
+example (m w : ℕ) :
+    integralPrimePowerArithmeticCharacter p m (1 : DirichletCharacter K (p^m)) w =
+      integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) w := sorry
+-- product_zero_weight
+example (n w : ℕ) (χ ψ : DirichletCharacter K (p^n)) :
+    integralPrimePowerArithmeticCharacter p n χ 0 *
+      integralPrimePowerArithmeticCharacter p n ψ w =
+        integralPrimePowerArithmeticCharacter p n (χ*ψ) w := sorry
+-- product_positive_weights
+example (n : ℕ) (χ ψ : DirichletCharacter K (p^n)) :
+    integralPrimePowerArithmeticCharacter p n χ 1 *
+      integralPrimePowerArithmeticCharacter p n ψ 2 =
+        integralPrimePowerArithmeticCharacter p n (χ*ψ) 3 := sorry
+-- restriction_all_tests
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) (f : C((ℤ_[p])ˣ,O)) :
+    restrictUnits p O (integralTwistedTameZetaMeasure n χ η hD hpD) f =
+      intrinsicIntegralTameZetaMeasure η hD hpD
+        ((integralPrimePowerArithmeticCharacter p n χ 0).toContinuousMap*f) := sorry
+-- restriction_principal
+example (n : ℕ) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    restrictUnits p O (integralTwistedTameZetaMeasure n
+      (1 : DirichletCharacter K (p^n)) η hD hpD) =
+        intrinsicIntegralTameZetaMeasure η hD hpD := sorry
+-- restriction_modulus_one
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K 1)
+    (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p∣1) :
+    restrictUnits p O (integralTwistedTameZetaMeasure n χ η hD hpD)=0 := sorry
+-- moment_zero_weight
+example (n : ℕ) (χ ψ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    restrictUnits p O (integralTwistedTameZetaMeasure n χ η hD hpD)
+      (integralPrimePowerArithmeticCharacter p n ψ 0).toContinuousMap =
+    intrinsicIntegralTameZetaMeasure η hD hpD
+      (integralPrimePowerArithmeticCharacter p n (χ*ψ) 0).toContinuousMap := sorry
+-- inverse_all_tests
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) (f : C((ℤ_[p])ˣ,O)) :
+    restrictUnits p O (integralTwistedTameZetaMeasure n χ η hD hpD)
+      ((integralPrimePowerArithmeticCharacter p n χ⁻¹ 0).toContinuousMap*f) =
+        intrinsicIntegralTameZetaMeasure η hD hpD f := sorry
+-- inverse_after_level_raise
+example (n m : ℕ) (h : n≤m) (χ : DirichletCharacter K (p^n))
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    weight (integralPrimePowerArithmeticCharacter p n χ⁻¹ 0).toContinuousMap
+      (restrictUnits p O (integralTwistedTameZetaMeasure m
+        (χ.changeLevel (pow_dvd_pow p h)) η hD hpD)) =
+      intrinsicIntegralTameZetaMeasure η hD hpD := sorry
+end General
+
+section Dyadic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+local notation "O2" => Valuation.integer (NormedField.valuation (K := ℚ_[2]))
+-- ambient_zero_boundary
+example : primePowerCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 0 ≠
+    primePowerCharacter 2 2 (1 : DirichletCharacter ℚ_[2] (2^2)) 0 := sorry
+-- quadratic_second_moment
+example (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1)
+    (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2∣3) :
+    (restrictUnits 2 O2 (integralTwistedTameZetaMeasure 2 χ η hD hpD)
+      (integralPrimePowerArithmeticCharacter 2 2
+        (1 : DirichletCharacter ℚ_[2] (2^2)) 2).toContinuousMap : ℚ_[2]) = -2 := sorry
+-- quadratic_fourth_moment
+example (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1)
+    (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2∣3) :
+    (restrictUnits 2 O2 (integralTwistedTameZetaMeasure 2 χ η hD hpD)
+      (integralPrimePowerArithmeticCharacter 2 2
+        (1 : DirichletCharacter ℚ_[2] (2^2)) 4).toContinuousMap : ℚ_[2]) = 46 := sorry
+end Dyadic
+end SuggestedIntegralUnitTwistTests
+end
+end DirichletPadic
