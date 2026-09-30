@@ -231,11 +231,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "9545a51adea31e6d",
+   "promotedAt": "2026-09-30T16:04:33Z",
+   "review": "ac201af3bf74f230",
    "reviewDate": "2026-09-23",
    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
-   "sha256": "e753c513d03d5191f484342a954f519022c39daffd6c100db4082ba07de37dfe",
+   "sha256": "a934c23ef2b81aa62bb653bd65f1fb1b6315a75f4b04bc2d79f0c040560972cf",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json"
    ]
