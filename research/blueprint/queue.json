@@ -52878,8 +52878,9 @@
     "FIX-RT-AREA-combinatorics"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-combinatorics~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5163"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5163",
+   "finishedAt": "2026-09-30T17:27:21Z"
   },
   {
    "id": "REV-FIX-RT-AREA-combinatorics~2",
