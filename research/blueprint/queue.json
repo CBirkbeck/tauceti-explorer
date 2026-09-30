@@ -40653,8 +40653,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4348"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4348",
+   "finishedAt": "2026-09-30T14:04:15Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Chebotarev",
@@ -41768,7 +41769,8 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-02.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4389"
   },
   {
    "id": "REV-RT-RS-02",
