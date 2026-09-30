@@ -40904,8 +40904,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -42768,8 +42768,9 @@
     "REV-PAPER-LUST-STEVENS-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LUST-STEVENS-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5101"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5101",
+   "finishedAt": "2026-09-30T23:35:20Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
@@ -44933,7 +44934,8 @@
     "REV-RS-11"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-11.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5107"
   },
   {
    "id": "REV-RT-RS-11",
@@ -45611,8 +45613,9 @@
     "REV-RS-23"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5117"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5117",
+   "finishedAt": "2026-09-30T23:35:23Z"
   },
   {
    "id": "REV-RT-RS-23",
@@ -52010,8 +52013,9 @@
     "FIX-RT-AREA-etale~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-etale~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5156"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5156",
+   "finishedAt": "2026-09-30T23:35:28Z"
   },
   {
    "id": "RT-AREA-motives",
