@@ -9338,3 +9338,165 @@ example : ¬(25 : O5)∣
 end OddCounterexample
 end
 end SuggestedIntegralTwistedEisensteinTests
+
+/-! Finite unit-group coordinates of the actual integral weighted coefficients.
+The existing measure projection and unit reductions remain with their owner. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure BigOperators
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [IsUltrametricDist K] {D E : ℕ}
+local notation "U" => (ℤ_[p])ˣ
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+
+def integralTwistedEisensteinFinite (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (n : ℕ+) (r : ℕ) :
+    MonoidAlgebra O (ZMod (p^r))ˣ := sorry
+
+lemma integralTwistedEisensteinFinite_eq_projection (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (n : ℕ+) (r : ℕ) :
+    integralTwistedEisensteinFinite p ψ φ n r=
+      MonoidAlgebra.ofCoeff (AbstractMeasure.finiteProjection
+        (ContinuousMap.mk (PadicInt.unitToZModPow p r) (PadicInt.continuous_unitToZModPow p r))
+        (integralTwistedPositiveEisensteinMeasure p ψ φ n)) := sorry
+
+lemma integralTwistedEisensteinFinite_eq_sum (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (n : ℕ+) (r : ℕ) :
+    integralTwistedEisensteinFinite p ψ φ n r=
+      ∑ d∈(n : ℕ).divisors, if hd : ¬p∣d then
+        MonoidAlgebra.single (PadicInt.unitToZModPow p r
+          (PadicInt.isUnit_iff.mpr (PadicInt.norm_natCast_eq_one_iff.mpr
+            ((Fact.out : p.Prime).coprime_iff_not_dvd.mpr hd))).unit)
+          (⟨ψ ((n : ℕ)/d)*φ d, by
+            rw [Valuation.mem_integer_iff, NormedField.valuation_apply]
+            have hb : ‖ψ ((n : ℕ)/d)*φ d‖≤1 := by
+              rw [norm_mul]
+              calc
+                _ ≤ 1*1 := mul_le_mul (ψ.norm_le_one _) (φ.norm_le_one _)
+                  (norm_nonneg _) zero_le_one
+                _ = 1 := one_mul _
+            exact_mod_cast hb⟩ : O) else 0 := sorry
+
+lemma integralTwistedEisensteinFinite_coeff (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (n : ℕ+) (r : ℕ) (a : (ZMod (p^r))ˣ) :
+    (integralTwistedEisensteinFinite p ψ φ n r).coeff a=
+      ∑ d∈(n : ℕ).divisors, if hd : ¬p∣d then
+        if PadicInt.unitToZModPow p r
+          (PadicInt.isUnit_iff.mpr (PadicInt.norm_natCast_eq_one_iff.mpr
+            ((Fact.out : p.Prime).coprime_iff_not_dvd.mpr hd))).unit=a then
+          (⟨ψ ((n : ℕ)/d)*φ d, by
+            rw [Valuation.mem_integer_iff, NormedField.valuation_apply]
+            have hb : ‖ψ ((n : ℕ)/d)*φ d‖≤1 := by
+              rw [norm_mul]
+              calc
+                _ ≤ 1*1 := mul_le_mul (ψ.norm_le_one _) (φ.norm_le_one _)
+                  (norm_nonneg _) zero_le_one
+                _ = 1 := one_mul _
+            exact_mod_cast hb⟩ : O) else 0 else 0 := sorry
+
+theorem integralTwistedEisensteinFinite_transition (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (n : ℕ+) {r r' : ℕ} (hr : r'≤r) :
+    MonoidAlgebra.mapDomainRingHom O (ZMod.unitsMap (pow_dvd_pow p hr))
+      (integralTwistedEisensteinFinite p ψ φ n r)=
+        integralTwistedEisensteinFinite p ψ φ n r' := sorry
+
+theorem integralTwistedEisensteinFinite_apply {R : Type*} [CommRing R]
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (n : ℕ+) (r : ℕ) (c : O →+* R) (f : C(U,O)) (g : (ZMod (p^r))ˣ → R)
+    (hfg : ∀ u : U, c (f u)=g (PadicInt.unitToZModPow p r u)) :
+    c (integralTwistedPositiveEisensteinMeasure p ψ φ n f)=
+      ∑ a, c ((integralTwistedEisensteinFinite p ψ φ n r).coeff a)*g a := sorry
+
+lemma integralTwistedEisensteinFinite_one (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (r : ℕ) :
+    integralTwistedEisensteinFinite p ψ φ 1 r=MonoidAlgebra.single 1 1 := sorry
+
+lemma integralTwistedEisensteinFinite_zero_level (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (n : ℕ+) :
+    integralTwistedEisensteinFinite p ψ φ n 0=
+      MonoidAlgebra.single 1 (integralTwistedPositiveEisensteinMeasure p ψ φ n 1) := sorry
+
+variable [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+theorem integralTwistedEisensteinFinite_moment_precision
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+) (r e : ℕ) :
+    (p : O)^r∣integralTwistedPositiveEisensteinMeasure p ψ φ n
+      (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap-
+      ∑ a : (ZMod (p^r))ˣ, (integralTwistedEisensteinFinite p ψ φ n r).coeff a*
+        ((a : ZMod (p^r)).val : O)^e := sorry
+
+lemma integralTwistedEisensteinFinite_moment_mod
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (n : ℕ+) (r s e : ℕ) (h : s≤r) :
+    Ideal.Quotient.mk (Ideal.span {(p : O)^s})
+      (integralTwistedPositiveEisensteinMeasure p ψ φ n
+        (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap)=
+      ∑ a : (ZMod (p^r))ˣ,
+        Ideal.Quotient.mk (Ideal.span {(p : O)^s})
+          ((integralTwistedEisensteinFinite p ψ φ n r).coeff a)*
+        ((a : ZMod (p^r)).val : O ⧸ Ideal.span {(p : O)^s})^e := sorry
+end
+end DirichletPadic
+
+namespace SuggestedTwistedFiniteTests
+noncomputable section
+open scoped AbstractMeasure BigOperators
+open DirichletPadic
+section General
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K]
+  [IsUltrametricDist K] {D E : ℕ}
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+-- first_finite_coefficient
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (r : ℕ) :
+    integralTwistedEisensteinFinite p ψ φ 1 r=MonoidAlgebra.single 1 1 := sorry
+-- actual_integral_projection
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+) (r : ℕ) :
+    (integralTwistedEisensteinFinite p ψ φ n r).coeff=
+      AbstractMeasure.finiteProjection
+        (ContinuousMap.mk (PadicInt.unitToZModPow p r) (PadicInt.continuous_unitToZModPow p r))
+        (integralTwistedPositiveEisensteinMeasure p ψ φ n) := sorry
+-- trivial_group_remembers_mass
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+) :
+    (integralTwistedEisensteinFinite p ψ φ n 0).coeff 1=
+      integralTwistedPositiveEisensteinMeasure p ψ φ n 1 := sorry
+-- zero_coefficient_precision
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+) (r : ℕ) :
+    MonoidAlgebra.mapRingHom (ZMod (p^r))ˣ (Ideal.Quotient.mk (Ideal.span {(p : O)^0}))
+      (integralTwistedEisensteinFinite p ψ φ n r)=0 := sorry
+-- compatible_group_refinement
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+) :
+    MonoidAlgebra.mapDomainRingHom O (ZMod.unitsMap (pow_dvd_pow p (show 1≤2 by decide)))
+      (integralTwistedEisensteinFinite p ψ φ n 2)=integralTwistedEisensteinFinite p ψ φ n 1 := sorry
+end General
+
+section Dyadic
+variable (χ : DirichletCharacter ℚ_[2] 3) (hχ : χ 2=-1)
+include hχ
+local notation "O2" => Valuation.integer (NormedField.valuation (K := ℚ_[2]))
+-- dyadic_signed_separation
+example : integralTwistedEisensteinFinite 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5 3=
+    -MonoidAlgebra.single 1 1+
+      MonoidAlgebra.single (ZMod.unitOfCoprime 5 (by decide) : (ZMod (2^3))ˣ) 1 := sorry
+-- dyadic_signed_collision
+example : integralTwistedEisensteinFinite 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5 2=0 := sorry
+-- dyadic_prime_coefficient_survives
+example : integralTwistedEisensteinFinite 2 χ (1 : DirichletCharacter ℚ_[2] 1) 2 3=
+    -MonoidAlgebra.single 1 1 := sorry
+-- dyadic_distinct_levels
+example : integralTwistedEisensteinFinite 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5 3≠0 ∧
+    integralTwistedEisensteinFinite 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5 2=0 := sorry
+-- dyadic_residue_representative_moment
+example : (∑ a : (ZMod (2^3))ˣ,
+    (integralTwistedEisensteinFinite 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5 3).coeff a*
+      ((a : ZMod (2^3)).val : O2))=4 := sorry
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- dyadic_sufficient_precision
+example : Ideal.Quotient.mk (Ideal.span {(4 : O2)})
+    (integralTwistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap)=0 := sorry
+-- dyadic_insufficient_group_level
+example : Ideal.Quotient.mk (Ideal.span {(8 : O2)})
+    (integralTwistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap)≠0 := sorry
+end Dyadic
+end
+end SuggestedTwistedFiniteTests
