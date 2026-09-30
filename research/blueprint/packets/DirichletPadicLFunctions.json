@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all544 predecessor nodes whole. Three L3 nodes give the exact norm of the canonical first inverse moment, transfer it to the actual integral numerator mass, and exclude augmentation on every subalgebra containing the arithmetic pseudomeasure. All16 findings, nine requests and13 gaps remain; zero closed stages.",
+  "summary": "Partial continuation preserving all547 predecessor nodes whole. Five L4 nodes construct character-weighted positive coefficient measures and specify their actual test evaluation, finite arithmetic moments, left-character p-scaling and uniform precision bound. All16 findings, nine requests and13 gaps remain; zero closed stages.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3444,6 +3444,20 @@
         "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
         "provides": "The algebra map into a native subalgebra agrees, after coercion, with the algebra map into the ambient algebra. Used to transport the actual numerator relation inside A.",
         "checked": "Whole declaration, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026 and matched to the unchanged index. Used in the complete native probe."
+      },
+      {
+        "ref": "tauceti:DirichletCharacter.twistedDivisorSum",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/ArithmeticFunction/TwistedDivisorSum.lean",
+        "provides": "Existing arithmetic function of two-character divisor sums, with left characterψ on n/d and right characterφ on d. It is never reconstructed here.",
+        "checked": "Whole module and every declaration statement/proof read at pinned TauCetif790474821cf4256814db967cb154e7af3d0c369 on30September2026 and matched to the unchanged index. SourceSHAf7560366abaf20e8d7e2c8f1176c3a3510afae1f3f4ad90acdad676582b77421. Source-only native convention check; this checkpoint imports no new native artifact."
+      },
+      {
+        "ref": "tauceti:DirichletCharacter.twistedDivisorSum_apply",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ArithmeticFunction/TwistedDivisorSum.lean",
+        "provides": "Its existing native divisor formula isΣ_(d|n)ψ(n/d)φ(d)d^e. The new actual-measure moment uses this order with the p-prime divisor restriction.",
+        "checked": "Whole module and every declaration statement/proof read at pinned TauCetif790474821cf4256814db967cb154e7af3d0c369 on30September2026 and matched to the unchanged index. SourceSHAf7560366abaf20e8d7e2c8f1176c3a3510afae1f3f4ad90acdad676582b77421. Source-only native convention check; this checkpoint imports no new native artifact."
       }
     ]
   },
@@ -35531,6 +35545,363 @@
       "acceptance": [
         "A can be smaller than every smoothing localization. Its exact inclusion of z is essential. No scalar analytic L-function or new generic localization obstruction is constructed."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-measure",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Character-weighted positive Eisenstein coefficient measures",
+      "kind": "construction",
+      "statement": "Construct A_(ψ,φ,n)∈D(U,R) as the finite character-weighted divisor-Dirac sum above.",
+      "hypotheses": [
+        "p is any prime, including2. Z=ℤ_p and U=Zˣ have their native topology. Let R be a normed commutative ring, ψ:DirichletCharacter R D and φ:DirichletCharacter R E, and n:ℕ+ a positive coefficient index. Neither primitivity nor a parity hypothesis is needed for this finite arithmetic construction.",
+        "For a retained divisor d of n with p∤d let u(d)∈U be the same actual natural-cast unit used by positiveEisensteinMeasure, constructed with PadicInt.isUnit_iff and norm_natCast_eq_one_iff. Define A_(ψ,φ,n)=Σ_(d|n,p∤d)ψ(n/d)φ(d)·δ_u(d) in the native D(U,R). The left character is evaluated at the complementary divisor n/d and the right character at d.",
+        "Coordinate moments additionally take Algebra Z R and ContinuousSMul Z R. The test is u↦algebraMap Z R(u)^e for e≥0. In the classical weight-k application e=k−1; this arithmetic statement imposes no modularity assertion at exceptional weights.",
+        "The uniform test bound takes a normed coefficient field K with IsUltrametricDist K. It needs no complete-space or Z-algebra assumption. All coefficients and tests in this bound are K-valued.",
+        "The tame application has D,E>0 with p∤DE. The finite construction and identities also allow characters whose levels are divisible by p, with their native zero extension. Classical primitive-character Eisenstein forms, parity, raising level and exceptional-weight corrections remain in ModularForms Layer0; affinoid family realization remains in PadicFamilies. No coefficient at n=0 is supplied here."
+      ],
+      "proofSteps": [
+        "Use Nat.divisors of the positive index and retain exactly the divisors prime to p. For each retained d use the existing natural-unit construction from the unweighted coefficient measure. The unit value determines the unit uniquely, so neither its certificate nor n changes u(d).",
+        "Multiply each native Dirac measure byψ(n/d)φ(d) in R and take the finite sum in the existing AbstractMeasure module. No measure carrier, generic distribution, divisor-sum arithmetic function or new coefficient topology is introduced.",
+        "At n=1 the only divisor is1 and both characters take1 to1, givingδ_1. At n=p^r the only retained divisor is1; the result isψ(p)^rδ_1. This includes r=0 and the zero value when the left character vanishes at p.",
+        "For both characters of level1 and R=Z, every scalar is1. The result is exactly the existing positiveEisensteinMeasure. This uses the existing constructor, not a second untwisted family.",
+        "At p=2 and quadraticχ modulo3 withχ(2)=−1, the left-character coefficient at n=5 is−δ_1+δ_5, while the right-character coefficient isδ_1−δ_5. At n=2 the left-character coefficient is−δ_1, and at n=4 it isδ_1. These tests reject exchanging the character positions or discarding the whole q^p coefficient."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/positive-eisenstein-measure",
+        "mathlib:AbstractMeasure.dirac",
+        "mathlib:Nat.mem_divisors",
+        "mathlib:Nat.mem_divisors_prime_pow",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:IsUnit.unit",
+        "mathlib:IsUnit.unit_spec"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedEisensteinCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedPositiveEisensteinMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, freshly read completely. The atlas L4 tame-nebentypus extension is read with the existing ModularForms Layer0 character-Eisenstein target and the whole pinned TauCeti ArithmeticFunction/TwistedDivisorSum module.",
+          "match": "Worker extension of the positive divisor-Dirac construction to two existing native Dirichlet characters. The order of the characters is the pinned twistedDivisorSum conventionψ(n/d)φ(d), not an assertion that RJW states this two-character theorem. Generic twisted divisor sums and classical primitive-character Eisenstein forms retain their existing owners. This checkpoint constructs only actual positive coefficient measures and finite-sum moments, without a constant term or a geometric family."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedEisensteinTests.first_twisted_coefficient",
+          "kind": "computation",
+          "statement": "For every character pair A_1=δ_1."
+        },
+        {
+          "name": "SuggestedTwistedEisensteinTests.level_one_integral_comparison",
+          "kind": "compatibility",
+          "statement": "The level-one integral pair recovers the existing unweighted positive coefficient measure."
+        },
+        {
+          "name": "SuggestedTwistedEisensteinTests.dyadic_prime_sign",
+          "kind": "non-example",
+          "statement": "At p=2, left quadraticχ modulo3 and right principal level1, A_2=−δ_1."
+        },
+        {
+          "name": "SuggestedTwistedEisensteinTests.dyadic_square_sign",
+          "kind": "computation",
+          "statement": "For the same pair A_4=δ_1."
+        },
+        {
+          "name": "SuggestedTwistedEisensteinTests.character_positions_left",
+          "kind": "computation",
+          "statement": "For the same pair A_5=−δ_1+δ_5."
+        },
+        {
+          "name": "SuggestedTwistedEisensteinTests.character_positions_right",
+          "kind": "computation",
+          "statement": "Switching thatχ to the right position gives A_5=δ_1−δ_5."
+        }
+      ],
+      "acceptance": [
+        "The atomic weights use the pinned native twisted-divisor convention. Only positive coefficients are constructed; no claim about the constant or modularity is made."
+      ],
+      "uses": [
+        {
+          "where": "RJW Theorem8.2 and atlas L4 tame-nebentypus extension",
+          "how": "Interpolates the positive coefficient sums on the actual unit-measure domain."
+        },
+        {
+          "where": "Pinned DirichletCharacter.twistedDivisorSum",
+          "how": "Fixes the orderψ(n/d)φ(d) and the classical exponent e=k−1 without rebuilding the arithmetic function."
+        },
+        {
+          "where": "Integral q-expansion congruences and PadicFamilies input",
+          "how": "The uniform test bound supplies coefficientwise continuity and precision before any geometric family comparison."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.twistedPositiveEisensteinMeasure_eq_sum",
+          "role": "constructor",
+          "statement": "A_n is the finite sumψ(n/d)φ(d)δ_u(d) over d|n,p∤d, with the exact native unit term."
+        },
+        {
+          "name": "DirichletPadic.twistedPositiveEisensteinMeasure_apply",
+          "role": "data",
+          "statement": "A_n(f)=Σ_(d|n,p∤d)ψ(n/d)φ(d)f(u(d)). Promoted to twisted-positive-eisenstein-evaluation."
+        },
+        {
+          "name": "DirichletPadic.twistedPositiveEisensteinMeasure_one",
+          "role": "simp",
+          "statement": "A_1=δ_1 for every character pair."
+        },
+        {
+          "name": "DirichletPadic.twistedPositiveEisensteinMeasure_prime_pow",
+          "role": "simp",
+          "statement": "A_(p^r)=ψ(p)^rδ_1 for every r≥0."
+        },
+        {
+          "name": "DirichletPadic.twistedPositiveEisensteinMeasure_mul_p",
+          "role": "relation",
+          "statement": "A_(pn)=ψ(p)A_n. Promoted to twisted-positive-eisenstein-p-scaling."
+        },
+        {
+          "name": "DirichletPadic.twistedPositiveEisensteinMeasure_mass",
+          "role": "data",
+          "statement": "A_n(1)=Σ_(d|n,p∤d)ψ(n/d)φ(d)."
+        },
+        {
+          "name": "DirichletPadic.twistedPositiveEisensteinMeasure_moment",
+          "role": "compatibility",
+          "statement": "With a continuous Z-algebra structure, A_n(x^e)=Σ_(d|n,p∤d)ψ(n/d)φ(d)d^e. Promoted to twisted-positive-eisenstein-moment."
+        },
+        {
+          "name": "DirichletPadic.twistedPositiveEisensteinMeasure_modOne",
+          "role": "compatibility",
+          "statement": "For R=Z and both characters of level1, A_n equals the existing positiveEisensteinMeasure."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-evaluation",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Evaluation of character-weighted coefficients",
+      "kind": "lemma",
+      "statement": "For every native continuous f:U→R, A_(ψ,φ,n)(f)=Σ_(d|n,p∤d)ψ(n/d)φ(d)f(u(d)).",
+      "hypotheses": [
+        "p is any prime, including2. Z=ℤ_p and U=Zˣ have their native topology. Let R be a normed commutative ring, ψ:DirichletCharacter R D and φ:DirichletCharacter R E, and n:ℕ+ a positive coefficient index. Neither primitivity nor a parity hypothesis is needed for this finite arithmetic construction.",
+        "For a retained divisor d of n with p∤d let u(d)∈U be the same actual natural-cast unit used by positiveEisensteinMeasure, constructed with PadicInt.isUnit_iff and norm_natCast_eq_one_iff. Define A_(ψ,φ,n)=Σ_(d|n,p∤d)ψ(n/d)φ(d)·δ_u(d) in the native D(U,R). The left character is evaluated at the complementary divisor n/d and the right character at d.",
+        "Coordinate moments additionally take Algebra Z R and ContinuousSMul Z R. The test is u↦algebraMap Z R(u)^e for e≥0. In the classical weight-k application e=k−1; this arithmetic statement imposes no modularity assertion at exceptional weights.",
+        "The uniform test bound takes a normed coefficient field K with IsUltrametricDist K. It needs no complete-space or Z-algebra assumption. All coefficients and tests in this bound are K-valued.",
+        "The tame application has D,E>0 with p∤DE. The finite construction and identities also allow characters whose levels are divisible by p, with their native zero extension. Classical primitive-character Eisenstein forms, parity, raising level and exceptional-weight corrections remain in ModularForms Layer0; affinoid family realization remains in PadicFamilies. No coefficient at n=0 is supplied here."
+      ],
+      "proofSteps": [
+        "Apply evaluation to the actual finite sum of measures. The existing AbstractMeasure module inherits evaluation of finite sums and scalar multiples from its continuous linear map.",
+        "Native dirac_apply evaluates each retained atom at f(u(d)); the omitted divisors contribute0. The complete native atomic_apply proof uses precisely the existing continuous dual and scalar action.",
+        "Putting f=1 gives the weighted mass. Its summands can cancel: it is not a count of retained divisors, except for the unweighted level-one pair."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-measure",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedEisensteinCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedPositiveEisensteinMeasure_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, freshly read completely. The atlas L4 tame-nebentypus extension is read with the existing ModularForms Layer0 character-Eisenstein target and the whole pinned TauCeti ArithmeticFunction/TwistedDivisorSum module.",
+          "match": "Worker extension of the positive divisor-Dirac construction to two existing native Dirichlet characters. The order of the characters is the pinned twistedDivisorSum conventionψ(n/d)φ(d), not an assertion that RJW states this two-character theorem. Generic twisted divisor sums and classical primitive-character Eisenstein forms retain their existing owners. This checkpoint constructs only actual positive coefficient measures and finite-sum moments, without a constant term or a geometric family."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "acceptance": [
+        "All coefficients act by the existing R-module structure on actual measures. No replacement finite-measure carrier is used."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-moment",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Finite arithmetic moments with two characters",
+      "kind": "theorem",
+      "statement": "For e≥0, A_(ψ,φ,n)(u↦algebraMap(u)^e)=Σ_(d|n,p∤d)ψ(n/d)φ(d)d^e.",
+      "hypotheses": [
+        "p is any prime, including2. Z=ℤ_p and U=Zˣ have their native topology. Let R be a normed commutative ring, ψ:DirichletCharacter R D and φ:DirichletCharacter R E, and n:ℕ+ a positive coefficient index. Neither primitivity nor a parity hypothesis is needed for this finite arithmetic construction.",
+        "For a retained divisor d of n with p∤d let u(d)∈U be the same actual natural-cast unit used by positiveEisensteinMeasure, constructed with PadicInt.isUnit_iff and norm_natCast_eq_one_iff. Define A_(ψ,φ,n)=Σ_(d|n,p∤d)ψ(n/d)φ(d)·δ_u(d) in the native D(U,R). The left character is evaluated at the complementary divisor n/d and the right character at d.",
+        "Coordinate moments additionally take Algebra Z R and ContinuousSMul Z R. The test is u↦algebraMap Z R(u)^e for e≥0. In the classical weight-k application e=k−1; this arithmetic statement imposes no modularity assertion at exceptional weights.",
+        "The uniform test bound takes a normed coefficient field K with IsUltrametricDist K. It needs no complete-space or Z-algebra assumption. All coefficients and tests in this bound are K-valued.",
+        "The tame application has D,E>0 with p∤DE. The finite construction and identities also allow characters whose levels are divisible by p, with their native zero extension. Classical primitive-character Eisenstein forms, parity, raising level and exceptional-weight corrections remain in ModularForms Layer0; affinoid family realization remains in PadicFamilies. No coefficient at n=0 is supplied here."
+      ],
+      "proofSteps": [
+        "The native unit value map, continuous algebra map and natural power give the actual continuous coordinate test. Apply the promoted evaluation theorem.",
+        "For every retained divisor, the unit certificate has value d. Preservation of natural casts and powers gives algebraMap(u(d))^e=(d:R)^e. The complete actual_unit_coordinate proof checks this exact coefficient map.",
+        "The summands are exactly the pinned native twistedDivisorSum convention, with only p-prime divisors retained. The generic arithmetic function and its divisor formula already exist in Tau Ceti and are recorded as baseline declarations. This theorem states the explicit finite-sum moment; it introduces no duplicate arithmetic-function definition.",
+        "Classical weight k uses e=k−1. The left quadratic character at p=2,n=5 has exponent-one value4, whereas the same character in the right position has value−4. Neither arithmetic identity asserts the existence of a classical weight-two form.",
+        "A later Euler-deleted native-object comparison must retain the right-character factorφ(p)p^e and the explicit p|n branch. The existing classical owner supplies parity and exceptional-weight restrictions before a bundled modular-form comparison."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-evaluation",
+        "mathlib:IsUnit.unit_spec",
+        "mathlib:continuous_algebraMap",
+        "tauceti:DirichletCharacter.twistedDivisorSum",
+        "tauceti:DirichletCharacter.twistedDivisorSum_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedEisensteinCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedPositiveEisensteinMeasure_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, freshly read completely. The atlas L4 tame-nebentypus extension is read with the existing ModularForms Layer0 character-Eisenstein target and the whole pinned TauCeti ArithmeticFunction/TwistedDivisorSum module.",
+          "match": "Worker extension of the positive divisor-Dirac construction to two existing native Dirichlet characters. The order of the characters is the pinned twistedDivisorSum conventionψ(n/d)φ(d), not an assertion that RJW states this two-character theorem. Generic twisted divisor sums and classical primitive-character Eisenstein forms retain their existing owners. This checkpoint constructs only actual positive coefficient measures and finite-sum moments, without a constant term or a geometric family."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedEisensteinTests.dyadic_weight_two_left",
+          "kind": "computation",
+          "statement": "At p=2,n=5, left quadraticχ modulo3 gives the coordinate moment4."
+        },
+        {
+          "name": "SuggestedTwistedEisensteinTests.dyadic_weight_two_right",
+          "kind": "computation",
+          "statement": "The sameχ in the right position gives the coordinate moment−4."
+        }
+      ],
+      "acceptance": [
+        "The suggested signature uses the exact finite sum. The native Tau Ceti arithmetic function is source-checked, not copied or claimed newly compiled."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-p-scaling",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The left-character factor under multiplication by p",
+      "kind": "theorem",
+      "statement": "For every positive n, A_(ψ,φ,pn)=ψ(p)·A_(ψ,φ,n).",
+      "hypotheses": [
+        "p is any prime, including2. Z=ℤ_p and U=Zˣ have their native topology. Let R be a normed commutative ring, ψ:DirichletCharacter R D and φ:DirichletCharacter R E, and n:ℕ+ a positive coefficient index. Neither primitivity nor a parity hypothesis is needed for this finite arithmetic construction.",
+        "For a retained divisor d of n with p∤d let u(d)∈U be the same actual natural-cast unit used by positiveEisensteinMeasure, constructed with PadicInt.isUnit_iff and norm_natCast_eq_one_iff. Define A_(ψ,φ,n)=Σ_(d|n,p∤d)ψ(n/d)φ(d)·δ_u(d) in the native D(U,R). The left character is evaluated at the complementary divisor n/d and the right character at d.",
+        "Coordinate moments additionally take Algebra Z R and ContinuousSMul Z R. The test is u↦algebraMap Z R(u)^e for e≥0. In the classical weight-k application e=k−1; this arithmetic statement imposes no modularity assertion at exceptional weights.",
+        "The uniform test bound takes a normed coefficient field K with IsUltrametricDist K. It needs no complete-space or Z-algebra assumption. All coefficients and tests in this bound are K-valued.",
+        "The tame application has D,E>0 with p∤DE. The finite construction and identities also allow characters whose levels are divisible by p, with their native zero extension. Classical primitive-character Eisenstein forms, parity, raising level and exceptional-weight corrections remain in ModularForms Layer0; affinoid family realization remains in PadicFamilies. No coefficient at n=0 is supplied here."
+      ],
+      "proofSteps": [
+        "A positive divisor d of pn prime to p divides n: its coprimality with p allows native Nat.Coprime.dvd_mul_left. Conversely every divisor of n prime to p remains a divisor of pn. The complete filtered_divisors_mul_prime proof checks equality of the actual filtered native divisor finsets.",
+        "On that common set, (pn)/d=p(n/d) by exact divisibility. Native multiplicativity ofψ givesψ((pn)/d)=ψ(p)ψ(n/d); the factorφ(d), unit u(d) and test value remain the same.",
+        "Use the promoted evaluation formula and finite-sum scalar distributivity, then extensionality of the actual measures. The complete weighted_p_scaling proof verifies the native arithmetic identity with both character positions fixed.",
+        "Iterating gives the prime-power APIψ(p)^rδ_1. Ifψ(p)=0, every coefficient A_(pn) is zero. If the pair is tame,ψ(p) is a unit character value, but need not equal1.",
+        "For p=2 and left quadraticχ modulo3, A_10=−A_5. The unweighted relation A_(pn)=A_n is therefore not valid for a general tame pair."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-evaluation",
+        "mathlib:Nat.Coprime.dvd_mul_left",
+        "mathlib:Nat.Prime.coprime_iff_not_dvd",
+        "mathlib:Nat.mem_divisors"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedEisensteinCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedPositiveEisensteinMeasure_mul_p"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, freshly read completely. The atlas L4 tame-nebentypus extension is read with the existing ModularForms Layer0 character-Eisenstein target and the whole pinned TauCeti ArithmeticFunction/TwistedDivisorSum module.",
+          "match": "Worker extension of the positive divisor-Dirac construction to two existing native Dirichlet characters. The order of the characters is the pinned twistedDivisorSum conventionψ(n/d)φ(d), not an assertion that RJW states this two-character theorem. Generic twisted divisor sums and classical primitive-character Eisenstein forms retain their existing owners. This checkpoint constructs only actual positive coefficient measures and finite-sum moments, without a constant term or a geometric family."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedEisensteinTests.bad_left_character_annihilation",
+          "kind": "degenerate",
+          "statement": "Ifψ(p)=0 then A_(pn)=0 for every positive n."
+        },
+        {
+          "name": "SuggestedTwistedEisensteinTests.left_character_p_scaling",
+          "kind": "non-example",
+          "statement": "For p=2 and left quadraticχ modulo3, A_10=−A_5."
+        }
+      ],
+      "acceptance": [
+        "The scaling factor is the left characterψ(p). It differs from the right-character factor in the later Euler-deletion formula."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-test-bound",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Uniform precision for character-weighted coefficients",
+      "kind": "theorem",
+      "statement": "Over ultrametric K, ‖A_n(f)−A_n(g)‖≤‖f−g‖ for every n and every pair of continuous tests.",
+      "hypotheses": [
+        "p is any prime, including2. Z=ℤ_p and U=Zˣ have their native topology. Let R be a normed commutative ring, ψ:DirichletCharacter R D and φ:DirichletCharacter R E, and n:ℕ+ a positive coefficient index. Neither primitivity nor a parity hypothesis is needed for this finite arithmetic construction.",
+        "For a retained divisor d of n with p∤d let u(d)∈U be the same actual natural-cast unit used by positiveEisensteinMeasure, constructed with PadicInt.isUnit_iff and norm_natCast_eq_one_iff. Define A_(ψ,φ,n)=Σ_(d|n,p∤d)ψ(n/d)φ(d)·δ_u(d) in the native D(U,R). The left character is evaluated at the complementary divisor n/d and the right character at d.",
+        "Coordinate moments additionally take Algebra Z R and ContinuousSMul Z R. The test is u↦algebraMap Z R(u)^e for e≥0. In the classical weight-k application e=k−1; this arithmetic statement imposes no modularity assertion at exceptional weights.",
+        "The uniform test bound takes a normed coefficient field K with IsUltrametricDist K. It needs no complete-space or Z-algebra assumption. All coefficients and tests in this bound are K-valued.",
+        "The tame application has D,E>0 with p∤DE. The finite construction and identities also allow characters whose levels are divisible by p, with their native zero extension. Classical primitive-character Eisenstein forms, parity, raising level and exceptional-weight corrections remain in ModularForms Layer0; affinoid family realization remains in PadicFamilies. No coefficient at n=0 is supplied here."
+      ],
+      "proofSteps": [
+        "Native DirichletCharacter.norm_le_one bounds both character values, including zero values at nonunits of their finite levels. Thus every atomic scalarψ(n/d)φ(d) has norm at most1; the complete character_coefficient_bound proof verifies this product bound.",
+        "Subtract the two evaluations from the promoted finite-sum formula. Each summand is its atomic scalar times(f−g)(u(d)), whose norm is at most‖f−g‖ by the native continuous-map supremum bound on the compact unit group.",
+        "The native ultrametric finite-sum estimate bounds the whole sum by the same number. There is no factor counting divisors. The complete atomic_test_bound proof checks this exact inequality on native AbstractMeasure and continuous tests.",
+        "Taking g=0 gives‖A_n(f)‖≤‖f‖ uniformly in n and the character pair. Any pointwise/supremum test precision immediately transfers to coefficient precision. Completeness and a Z-algebra structure are not needed for this finite estimate.",
+        "The bound supplies arithmetic positive-coefficient continuity. Building an integer-ring realization, a whole formal-series-valued measure, denominator-qualified constant term or an analytic weight family remains separate work."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-evaluation",
+        "mathlib:DirichletCharacter.norm_le_one",
+        "mathlib:ContinuousMap.norm_coe_le_norm",
+        "mathlib:PadicInt.compactSpace",
+        "mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedEisensteinCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedPositiveEisensteinMeasure_test_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, freshly read completely. The atlas L4 tame-nebentypus extension is read with the existing ModularForms Layer0 character-Eisenstein target and the whole pinned TauCeti ArithmeticFunction/TwistedDivisorSum module.",
+          "match": "Worker extension of the positive divisor-Dirac construction to two existing native Dirichlet characters. The order of the characters is the pinned twistedDivisorSum conventionψ(n/d)φ(d), not an assertion that RJW states this two-character theorem. Generic twisted divisor sums and classical primitive-character Eisenstein forms retain their existing owners. This checkpoint constructs only actual positive coefficient measures and finite-sum moments, without a constant term or a geometric family."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedEisensteinTests.uniform_single_test_bound",
+          "kind": "compatibility",
+          "statement": "Every positive coefficient satisfies‖A_n(f)‖≤‖f‖."
+        },
+        {
+          "name": "SuggestedTwistedEisensteinTests.close_tests_close_coefficients",
+          "kind": "compatibility",
+          "statement": "If‖f−g‖≤b then the coefficient evaluations differ by norm at most b."
+        }
+      ],
+      "acceptance": [
+        "The norm is on the scalar value and the native continuous test, not a newly imposed norm on the weak measure carrier."
+      ]
     }
   ],
   "requests": [
@@ -35635,7 +36006,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "The nontrivial inverse-coordinate character now has an actual integral evaluator, and every shifted denominator has image0. There is no extension to any displayed smoothing Away localization or to the total quotient. These are algebraic nonextension results, not a proof of analytic pole order or residue. Generic coefficient-field evaluation, character-twist equivalence and completed-algebra supplier requests remain open. Actual scalar analytic branches, p-adic logarithmic degree-zero values, tame-character Eisenstein families and full source extraction remain explicit work; PadicFamilies owns geometric realization.",
+        "Character-weighted positive coefficient measures now have exact test/moment formulas, left-character p-scaling and uniform bounds. Next give their integer-ring realization, finite quotient coordinates, weight congruences and whole positive-series measure, then connect their native twisted-divisor/Euler-deletion identities with the already owned primitive-character modular forms. No constant coefficient is constructed for this pair; its normalization, denominator qualifications and actual scalar/analytic specializations remain open. Classical modular forms and exceptional weights stay with ModularForms Layer0, and geometric family realization with PadicFamilies. Existing requests, all source corrections, analytic pole/residue questions and full source extraction remain open.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -35666,7 +36037,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "The nontrivial inverse-coordinate character now has an actual integral evaluator, and every shifted denominator has image0. There is no extension to any displayed smoothing Away localization or to the total quotient. These are algebraic nonextension results, not a proof of analytic pole order or residue. Generic coefficient-field evaluation, character-twist equivalence and completed-algebra supplier requests remain open. Actual scalar analytic branches, p-adic logarithmic degree-zero values, tame-character Eisenstein families and full source extraction remain explicit work; PadicFamilies owns geometric realization. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "Character-weighted positive coefficient measures now have exact test/moment formulas, left-character p-scaling and uniform bounds. Next give their integer-ring realization, finite quotient coordinates, weight congruences and whole positive-series measure, then connect their native twisted-divisor/Euler-deletion identities with the already owned primitive-character modular forms. No constant coefficient is constructed for this pair; its normalization, denominator qualifications and actual scalar/analytic specializations remain open. Classical modular forms and exceptional weights stay with ModularForms Layer0, and geometric family realization with PadicFamilies. Existing requests, all source corrections, analytic pole/residue questions and full source extraction remain open. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -36009,36 +36380,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 findings, sourceVersions, nine requests and13 gaps remain. No new source finding, request or independent verdict is added. No analytic pole or residue is asserted.",
+    "sourceIssues": "All16 source findings, sourceVersions, nine requests and13 gaps remain. No source finding, request or independent verdict is added.",
     "validation": {
-      "nodes": 547,
+      "nodes": 552,
       "kinds": {
         "definition": 1,
-        "lemma": 227,
-        "construction": 65,
-        "theorem": 160,
+        "lemma": 228,
+        "construction": 66,
+        "theorem": 163,
         "comparison": 94
       },
-      "api": 477,
-      "packetTests": 860,
-      "definitionConstructionTests": 275,
-      "typedExamples": 863,
+      "api": 485,
+      "packetTests": 872,
+      "definitionConstructionTests": 281,
+      "typedExamples": 875,
       "planets": 24,
-      "baseline": 490,
-      "preservedWholeNodes": 544,
-      "preservedBaseline": 488,
+      "baseline": 492,
+      "preservedWholeNodes": 547,
+      "preservedBaseline": 490,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 3,
-      "newNamedDeclarations": 3,
-      "newTypedTests": 8,
+      "newNodes": 5,
+      "newNamedDeclarations": 10,
+      "newTypedTests": 12,
       "requests": 9,
       "gaps": 13,
       "closedStages": 0,
-      "reachableNodes": 785,
-      "dependencyEdges": 3751,
+      "reachableNodes": 790,
+      "dependencyEdges": 3775,
       "acyclic": true,
-      "baselineLeaves": 660,
+      "baselineLeaves": 662,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -36049,11 +36420,11 @@
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 247342,
+      "readerWords": 250694,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1672,
+      "compilerWarnings": 1694,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -36064,35 +36435,35 @@
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
       "scratchCompleteLemmas": 10,
-      "scratchMathlibModules": 2797,
+      "scratchMathlibModules": 2808,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "actualResidueSums": 22,
-        "insufficientDyadicZero": 1,
-        "missingInverseWeightCounterexamples": 21,
-        "higherLevelComparisons": 16,
-        "strictCertifiedNormChecks": 21,
-        "dyadicExactSecondLevel": 1,
-        "harmonicPairings": 5,
-        "oddUnitResidues": 5,
-        "knownOddValues": 2
+        "coefficientNormControls": 3000,
+        "pScalingChecks": 3000,
+        "finiteMomentChecks": 15000,
+        "swappedCharacterCounterexamples": 7008,
+        "wrongWeightShiftCounterexamples": 11200,
+        "wrongEulerCharacterCounterexamples": 2512,
+        "primePowerChecks": 400,
+        "badLeftChecks": 600,
+        "knownCharacterPositionChecks": 5
       },
-      "numericalControlsCertified": true,
+      "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
     },
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1672,
-      "sha256": "34c448a5cde7b296465bbcf90ee2b9c502591f8e63681491941b17b1eff457ed",
+      "warnings": 1694,
+      "sha256": "d668a6d3c11492d5ef99fd6039a6422c7187910b2effb6fdb4d99c4ddbd6d388",
       "nativeProbe": {
         "completeLemmas": 10,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "c523f9be119f667545f00da0270589eeaed1be6f1f3c14f23e66ff2622eb69d1"
+        "sha256": "05bc417791cee4aa35a84c72c5e86c2354d93b052dddfbcbce72bb18b40fbce4"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -36161,17 +36532,17 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "6a380ba62da241a720346dccb7559e3c8d2df7d2b0821d23da33bea08b07e2c9",
+          "sourceSha256": "34c448a5cde7b296465bbcf90ee2b9c502591f8e63681491941b17b1eff457ed",
           "modules": 3572,
-          "warnings": 1661,
+          "warnings": 1672,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "6f9232584c4622c8593c7b92c4d317f65e82888e",
-      "unchangedInputs": 62,
+      "base": "d93a6eada98ed97388163d658301007ce24947ba",
+      "unchangedInputs": 63,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
       "lastClaimConfirmation": 5854791937,
@@ -41860,6 +42231,45 @@
         "knownOddValues": 2
       },
       "numericalMethod": "Exact Fraction sums of the actual smoothing residue formula at a=p+1, six primes and levels1 through3 or4. The earlier actual-measure error bound p^(−m) makes each marked norm inference rigorous at its strict threshold; only the dyadic level1 sum is deliberately insufficient. Values are finite approximations, never asserted to equal the limiting integral. No logarithm or analytic pole calculation is used."
+    },
+    "twistedEisensteinCoefficients": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4749,
+      "previousHead": "9c2560baf3b51aec9a6f6261827a369f1ed9d422",
+      "previousMerge": "d93a6eada98ed97388163d658301007ce24947ba",
+      "preservedWholeNodes": 547,
+      "preservedBaseline": 490,
+      "preservedFindings": 16,
+      "newNodes": 5,
+      "reading": "Whole RJW published159–161, the exact atlas L4 description and ModularForms Layer0 character-Eisenstein target/conventions were freshly read. Whole pinned TauCeti TwistedDivisorSum module was read, including generic arithmetic-function, prime-power, bad-level and level-one APIs. Whole existing positive coefficient construction/API/tests, evaluation, moments, Euler-deleted moments and finite quotient nodes were read. Native measure Dirac/module evaluation, compactness of units, filtered divisor divisibility, character norm and ultrametric finite-sum estimates were checked. The63-input capture adds the exact ModularForms owner README and changes none of the62 predecessor inputs; the reviewed audit is unchanged.",
+      "boundary": "Character-weighted positive coefficient measures now have exact test/moment formulas, left-character p-scaling and uniform bounds. Next give their integer-ring realization, finite quotient coordinates, weight congruences and whole positive-series measure, then connect their native twisted-divisor/Euler-deletion identities with the already owned primitive-character modular forms. No constant coefficient is constructed for this pair; its normalization, denominator qualifications and actual scalar/analytic specializations remain open. Classical modular forms and exceptional weights stay with ModularForms Layer0, and geometric family realization with PadicFamilies. Existing requests, all source corrections, analytic pole/residue questions and full source extraction remain open.",
+      "inputBase": "d93a6eada98ed97388163d658301007ce24947ba",
+      "sourceBoundary": "All16 source findings, sourceVersions, nine requests and13 gaps remain. No source finding, request or independent verdict is added.",
+      "publication": {
+        "base": "d93a6eada98ed97388163d658301007ce24947ba",
+        "unchangedInputs": 63,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "coefficientNormControls": 3000,
+        "pScalingChecks": 3000,
+        "finiteMomentChecks": 15000,
+        "swappedCharacterCounterexamples": 7008,
+        "wrongWeightShiftCounterexamples": 11200,
+        "wrongEulerCharacterCounterexamples": 2512,
+        "primePowerChecks": 400,
+        "badLeftChecks": 600,
+        "knownCharacterPositionChecks": 5
+      },
+      "numericalMethod": "Exact integer/rational arithmetic for principal and quadratic native-character models at levels1,3,4,5,7; p=2,3,5,7, indices1 through30 and exponents0 through4. Finite atom coefficients retain zero weights. The divisor-sum convention is independently compared with its Euler-deleted expression using right factorφ(p), while index multiplication is checked with left factorψ(p). No modularity, constant term or analytic interpolation is inferred."
     }
   },
   "requestResolutions": [

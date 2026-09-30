@@ -9045,3 +9045,130 @@ example : ¬∃ f : (⊤ : Subalgebra M Q) →+* ℚ_[p], ∀ μ : M,
 end Subalgebra
 end
 end SuggestedPrincipalNumeratorTests
+
+/-! Character-weighted positive Eisenstein coefficient measures. Classical
+Eisenstein forms and the existing Tau Ceti twisted-divisor arithmetic function
+retain their owners. These signatures use explicit finite arithmetic sums. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure BigOperators
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+section Coefficients
+variable {R : Type*} [NormedCommRing R] {D E : ℕ}
+
+def twistedPositiveEisensteinMeasure (ψ : DirichletCharacter R D)
+    (φ : DirichletCharacter R E) (n : ℕ+) : D(U,R) := sorry
+
+lemma twistedPositiveEisensteinMeasure_eq_sum (ψ : DirichletCharacter R D)
+    (φ : DirichletCharacter R E) (n : ℕ+) :
+    twistedPositiveEisensteinMeasure p ψ φ n=
+      ∑ d∈(n : ℕ).divisors, if hd : ¬p∣d then
+        (ψ ((n : ℕ)/d)*φ d) • AbstractMeasure.dirac R
+          (PadicInt.isUnit_iff.mpr (PadicInt.norm_natCast_eq_one_iff.mpr
+            ((Fact.out : p.Prime).coprime_iff_not_dvd.mpr hd))).unit else 0 := sorry
+
+lemma twistedPositiveEisensteinMeasure_apply (ψ : DirichletCharacter R D)
+    (φ : DirichletCharacter R E) (n : ℕ+) (f : C(U,R)) :
+    twistedPositiveEisensteinMeasure p ψ φ n f=
+      ∑ d∈(n : ℕ).divisors, if hd : ¬p∣d then
+        ψ ((n : ℕ)/d)*φ d*f
+          (PadicInt.isUnit_iff.mpr (PadicInt.norm_natCast_eq_one_iff.mpr
+            ((Fact.out : p.Prime).coprime_iff_not_dvd.mpr hd))).unit else 0 := sorry
+
+lemma twistedPositiveEisensteinMeasure_one (ψ : DirichletCharacter R D)
+    (φ : DirichletCharacter R E) :
+    twistedPositiveEisensteinMeasure p ψ φ 1=AbstractMeasure.dirac R 1 := sorry
+
+lemma twistedPositiveEisensteinMeasure_prime_pow (ψ : DirichletCharacter R D)
+    (φ : DirichletCharacter R E) (r : ℕ) :
+    twistedPositiveEisensteinMeasure p ψ φ ⟨p^r,pow_pos (Fact.out : p.Prime).pos r⟩=
+      (ψ p)^r • AbstractMeasure.dirac R 1 := sorry
+
+theorem twistedPositiveEisensteinMeasure_mul_p (ψ : DirichletCharacter R D)
+    (φ : DirichletCharacter R E) (n : ℕ+) :
+    twistedPositiveEisensteinMeasure p ψ φ ⟨p*(n : ℕ),mul_pos (Fact.out : p.Prime).pos n.pos⟩=
+      ψ p • twistedPositiveEisensteinMeasure p ψ φ n := sorry
+
+lemma twistedPositiveEisensteinMeasure_mass (ψ : DirichletCharacter R D)
+    (φ : DirichletCharacter R E) (n : ℕ+) :
+    twistedPositiveEisensteinMeasure p ψ φ n 1=
+      ∑ d∈(n : ℕ).divisors, if ¬p∣d then ψ ((n : ℕ)/d)*φ d else 0 := sorry
+
+variable [Algebra ℤ_[p] R] [ContinuousSMul ℤ_[p] R]
+theorem twistedPositiveEisensteinMeasure_moment (ψ : DirichletCharacter R D)
+    (φ : DirichletCharacter R E) (n : ℕ+) (e : ℕ) :
+    twistedPositiveEisensteinMeasure p ψ φ n
+      (⟨fun u : U => (algebraMap Z R (u : Z))^e, by fun_prop⟩ : C(U,R))=
+      ∑ d∈(n : ℕ).divisors, if ¬p∣d then ψ ((n : ℕ)/d)*φ d*(d : R)^e else 0 := sorry
+end Coefficients
+
+lemma twistedPositiveEisensteinMeasure_modOne (n : ℕ+) :
+    twistedPositiveEisensteinMeasure p (1 : DirichletCharacter Z 1)
+      (1 : DirichletCharacter Z 1) n=positiveEisensteinMeasure p n := sorry
+
+theorem twistedPositiveEisensteinMeasure_test_bound {K : Type*} [NormedField K]
+    [IsUltrametricDist K] {D E : ℕ} (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (n : ℕ+) (f g : C(U,K)) :
+    ‖twistedPositiveEisensteinMeasure p ψ φ n f-twistedPositiveEisensteinMeasure p ψ φ n g‖≤
+      ‖f-g‖ := sorry
+end
+end DirichletPadic
+
+namespace SuggestedTwistedEisensteinTests
+noncomputable section
+open scoped AbstractMeasure
+open DirichletPadic AbstractMeasure
+section General
+variable {p : ℕ} [Fact p.Prime] {R : Type*} [NormedCommRing R] {D E : ℕ}
+-- first_twisted_coefficient
+example (ψ : DirichletCharacter R D) (φ : DirichletCharacter R E) :
+    twistedPositiveEisensteinMeasure p ψ φ 1=dirac R 1 := sorry
+-- level_one_integral_comparison
+example (n : ℕ+) : twistedPositiveEisensteinMeasure p (1 : DirichletCharacter ℤ_[p] 1)
+    (1 : DirichletCharacter ℤ_[p] 1) n=positiveEisensteinMeasure p n := sorry
+-- bad_left_character_annihilation
+example (ψ : DirichletCharacter R D) (φ : DirichletCharacter R E) (hψ : ψ p=0) (n : ℕ+) :
+    twistedPositiveEisensteinMeasure p ψ φ ⟨p*(n : ℕ),mul_pos (Fact.out : p.Prime).pos n.pos⟩=0 := sorry
+end General
+section Dyadic
+variable (χ : DirichletCharacter ℚ_[2] 3) (hχ : χ 2=-1)
+include hχ
+-- dyadic_prime_sign
+example : twistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 2=
+    -dirac ℚ_[2] 1 := sorry
+-- dyadic_square_sign
+example : twistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 4=
+    dirac ℚ_[2] 1 := sorry
+-- character_positions_left
+example (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2])=5) :
+    twistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5=
+      -dirac ℚ_[2] 1+dirac ℚ_[2] u := sorry
+-- character_positions_right
+example (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2])=5) :
+    twistedPositiveEisensteinMeasure 2 (1 : DirichletCharacter ℚ_[2] 1) χ 5=
+      dirac ℚ_[2] 1-dirac ℚ_[2] u := sorry
+-- left_character_p_scaling
+example : twistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 10=
+    -twistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5 := sorry
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- dyadic_weight_two_left
+example : twistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5
+    (⟨fun u : (ℤ_[2])ˣ => algebraMap ℤ_[2] ℚ_[2] (u : ℤ_[2]), by fun_prop⟩ : C((ℤ_[2])ˣ,ℚ_[2]))=4 := sorry
+-- dyadic_weight_two_right
+example : twistedPositiveEisensteinMeasure 2 (1 : DirichletCharacter ℚ_[2] 1) χ 5
+    (⟨fun u : (ℤ_[2])ˣ => algebraMap ℤ_[2] ℚ_[2] (u : ℤ_[2]), by fun_prop⟩ : C((ℤ_[2])ˣ,ℚ_[2]))=-4 := sorry
+end Dyadic
+section Bounds
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K] [IsUltrametricDist K]
+  {D E : ℕ} (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+-- uniform_single_test_bound
+example (n : ℕ+) (f : C((ℤ_[p])ˣ,K)) :
+    ‖twistedPositiveEisensteinMeasure p ψ φ n f‖≤‖f‖ := sorry
+-- close_tests_close_coefficients
+example (n : ℕ+) (f g : C((ℤ_[p])ˣ,K)) (b : ℝ) (h : ‖f-g‖≤b) :
+    ‖twistedPositiveEisensteinMeasure p ψ φ n f-twistedPositiveEisensteinMeasure p ψ φ n g‖≤b := sorry
+end Bounds
+end
+end SuggestedTwistedEisensteinTests
