@@ -19,9 +19,16 @@
    "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
    "read": "2026-09-29",
    "sha256": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2307.01303v3",
+   "read": "2026-09-30",
+   "sha256": "df8caac5ee92e8bcd5a4f9de8dcd5901d61d5f6f4f5c1c3c5bd6b65880e18943",
+   "note": "Read by the review (REV-PAPER-HEUER-25), since Springer served the review a JavaScript challenge instead of the PDF. arXiv v3 is dated 21 January 2025, three days before acceptance; E5–E13 are scoped to it."
   }
  ],
- "summary": "Heuer constructs a global p-adic Simpson correspondence: for any smooth proper rigid space X over a complete algebraically closed extension of Q_p, a B_dR^+/ξ²-lift of X and an exponential for K give an exact tensor equivalence between vector bundles on the pro-étale site and Higgs bundles, compatible with cohomology (RΓ_proét(V) = Dolbeault cohomology). This extends Faltings from curves to all dimensions and to rigid spaces, with weaker choices. The method twists by invertible modules over the spectral algebra B of a Higgs field: a multiplicative Hodge–Tate sequence 0 → Pic_{X′} → Pic_{B,proét} → H^0(X, B ⊗ Ω̃) ⊗ G_a → 0, a representable reduction of structure group, rigidifications at points, and the exponential of p-divisible rigid groups produce L_B with HTlog(L_B) = τ_B; Rodríguez Camargo's canonical Higgs field gives the inverse. The pro-étale site and Kiehl finiteness are planned; the Hodge–Tate comparison and Faltings extension go to PadicHodgeTheory P8, Kedlaya–Liu to DiamondsAndVStacks D2, rigid base change and formal models to AdicSpacesPartII, and the correspondence itself becomes a Part II of PadicHodgeTheory. Four mistakes are recorded, one a gap in the convergence radius of Lemma 5.7 for p ≥ 3.",
+ "summary": "Heuer constructs a global p-adic Simpson correspondence: for any smooth proper rigid space X over a complete algebraically closed extension of Q_p, a B_dR^+/ξ²-lift of X and an exponential for K give an exact tensor equivalence between vector bundles on the pro-étale site and Higgs bundles, compatible with cohomology (RΓ_proét(V) = Dolbeault cohomology). This extends Faltings from curves to all dimensions and to rigid spaces, with weaker choices. The method twists by invertible modules over the spectral algebra B of a Higgs field: a multiplicative Hodge–Tate sequence 0 → Pic_{X′} → Pic_{B,proét} → H^0(X, B ⊗ Ω̃) ⊗ G_a → 0, a representable reduction of structure group, rigidifications at points, and the exponential of p-divisible rigid groups produce L_B with HTlog(L_B) = τ_B; Rodríguez Camargo's canonical Higgs field gives the inverse. The pro-étale site, Kiehl finiteness, the Faltings extension (P8:local-rational), almost purity and the étale site of a diamond are planned; Scholze's R^nν_*Ô, the primitive comparison and pro-étale base change go to PadicHodgeTheory P8, Kedlaya–Liu to DiamondsAndVStacks D2, coherent base change and formal models to AdicSpacesPartII R2–R3, Higgs bundles to HodgeStructuresPartII, p-torsion proper base change to the mod-p Part II of ClassicalAdicEtaleCohomology, and the correspondence itself becomes a Part II of PadicHodgeTheory. Thirteen mistakes are recorded after review, all confirmed: a gap in the convergence radius of Lemma 5.7 for p ≥ 3 (E4) and twelve misprints, nine of them (E5–E13) found by the review in arXiv v3.",
  "items": [
   {
    "id": "PAPER-HEUER-25/1",
@@ -33,8 +40,9 @@
    "library": [],
    "planned": [
     "AdicSpacesPartII:R4",
-    "AInfCohomology:AI.3"
-   ]
+    "PadicHodgeTheory:P8:local-rational"
+   ],
+   "note": "AdicSpacesPartII R4 re-exports, for rigid spaces, the pro-étale site of Scholze [36, §3], which AdicEtaleGeometry A1 constructs. PadicHodgeTheory P8:local-rational plans the sheaves O_X, O_X^+, Ô_X^+ and Ô_X on X_proét and the affinoid perfectoid basis ([36, Cor. 4.7, Prop. 4.8]). AInfCohomology AI.3 builds these sheaves only on generic fibres of smooth formal schemes."
   },
   {
    "id": "PAPER-HEUER-25/2",
@@ -80,21 +88,25 @@
    "id": "PAPER-HEUER-25/6",
    "kind": "theorem",
    "name": "Scholze's Hodge–Tate comparison for smooth rigid spaces",
-   "statement": "For smooth X, R^nν_*Ô = Ω̃^n_X ([37, Prop. 3.23]); for smooth proper X, the primitive comparison H^n_ét(X, F_p) ⊗ O_K/p ≈ H^n(X, O^+/p) holds almost ([36, Thm. 5.1]), the étale cohomology H^1_ét(X, μ_p) is finite ([37, Thm. 3.17]), and a B_dR^+/ξ²-lift splits the Hodge–Tate spectral sequence into H^n_ét(X, Q_p) ⊗ K = ⊕_{i+j=n} H^i(X, Ω^j(−j)) ([37, Thm. 3.20]).",
+   "statement": "For smooth X, R^nν_*Ô = Ω̃^n_X = Ω^n_X(−n) ([37, Prop. 3.23]). For proper X, not necessarily smooth, H^n_ét(X, F_p) is finite and H^n_ét(X, F_p) ⊗ O_K/p → H^n_ét(X, O^+/p) is an almost isomorphism ([37, Thm. 3.17]); for smooth proper X this is the primitive comparison theorem [36, Thm. 5.1], giving RΓ(X_proét, Ô) = RΓ_ét(X, Q_p) ⊗_{Q_p} K. In particular H^1_ét(X′, μ_p) is finite for the possibly singular spectral variety X′ of Corollary 2.19.",
    "locator": "§1.2, (1), p. 263; proofs of Proposition 2.9(ii), p. 274, and Corollary 2.19, p. 279 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "Review: the finiteness is needed for the proper, possibly singular X′, which [37, Thm. 3.17] covers. The Hodge–Tate decomposition induced by a B_dR^+/ξ²-lift (§1.2, (1)) was removed from this item: it is the case V = O of Theorem 5.5 (item 43), and the Hodge–Tate spectral-sequence comparison is planned at CohomologyComparisons CP.3; keeping it here would make route 1 depend on the lifts of route 4. ZAVYALOV-25's accepted route 7 sends R^1ν_*Ô and the primitive comparison to P8."
   },
   {
    "id": "PAPER-HEUER-25/7",
    "kind": "theorem",
    "name": "The Faltings extension",
-   "statement": "0 → O → E → ν*Ω̃^1_X → 0 on X_proét ([36, Cor. 6.14]); for X with a model over a discretely valued L and 𝕏 its base change, the class of the Higgs–Tate torsor L_𝕏 is dual to it.",
+   "statement": "Faltings's extension 0 → O → E → ν*Ω̃^1_X → 0 on X_proét ([36, Cor. 6.14]).",
    "locator": "Remark 2.17, p. 278 (published version)",
-   "status": "missing",
+   "status": "planned",
    "library": [],
-   "planned": []
+   "planned": [
+    "PadicHodgeTheory:P8:local-rational"
+   ],
+   "note": "Review: planned at PadicHodgeTheory P8:local-rational, whose node poincare-lemma-and-faltings-extension states it for X smooth over a discretely valued field, the setting of Remark 2.17. The remark's duality with the class of the Higgs–Tate torsor L_𝕏 moved to item 21, where L_𝕏 is defined."
   },
   {
    "id": "PAPER-HEUER-25/8",
@@ -122,17 +134,18 @@
    "id": "PAPER-HEUER-25/10",
    "kind": "theorem",
    "name": "Rigid and pro-étale cohomology and base change",
-   "statement": "For X proper and Y smooth, H^0(X × Y, Ω̃_{X×Y} ⊗ B) = (H^0(X, Ω̃_X ⊗ B) ⊗ O(Y)) ⊕ (H^0(Y, Ω̃_Y) ⊗ B(X)) and π_{Y*}B = B(X) ⊗_K O_{Y_proét} (6) ([22, Cor. 3.10, Thm. 3.18(b),(c)]).",
+   "statement": "For X proper and Y smooth, H^0(X × Y, Ω̃_{X×Y} ⊗ B) = (H^0(X, Ω̃_X ⊗ B) ⊗ O(Y)) ⊕ (H^0(Y, Ω̃_Y) ⊗ B(X)) ([22, Cor. 3.10, Thm. 3.18(b)]).",
    "locator": "§2.3, pp. 274–275 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "Review: the pro-étale clause (6) of the extracted item is now item 44 (route 1), since the pro-étale site and Ô are downstream of R3."
   },
   {
    "id": "PAPER-HEUER-25/11",
    "kind": "theorem",
    "name": "Lemma 2.7: integral models of coherent algebras",
-   "statement": "A coherent O_X-module B has a finitely presented O^+_X-module B_0 with B_0[1/p] ≅ B, an O^+_X-algebra if B is an algebra (from finite formal models of finite morphisms, [7], [1, Prop. 5.9.17, Thm. 2.11.5, Prop. 4.8.18]); B^+ := B_0/B_0[p^∞].",
+   "statement": "Let X be a quasi-compact smooth rigid space over K and B a coherent O_X-module on X_an (the standing hypotheses of §2.3). There is a finitely presented O^+_X-module B_0 with B_0[1/p] ≅ B. It can be chosen to be an O^+_X-algebra when B is an O_X-algebra, using a finite formal model of the finite morphism Spa_{O_X}(B) → X ([7], [1, Prop. 5.9.17, Thm. 2.11.5]); for modules use [1, Prop. 4.8.18(ii)]. Set B^+ := B_0/B_0[p^∞], the image of B_0 → B on X_ét. Since B_0 may have unbounded p-torsion, B^+ need not be coherent.",
    "locator": "Lemma 2.7, p. 270 (published version)",
    "status": "missing",
    "library": [],
@@ -144,11 +157,10 @@
    "name": "Proposition 2.18: proper base change for the étale cohomology of a proper rigid space",
    "statement": "For g : Z → Spa(K) proper, R^mg_{ét*}(Z/nZ) = H^m_ét(Z, Z/nZ) as sheaves on Rig^sm_{K,ét} (rigid proper base change, [6, Thm. 3.15]).",
    "locator": "Proposition 2.18, p. 279 (published version)",
-   "status": "planned",
+   "status": "missing",
    "library": [],
-   "planned": [
-    "DiamondEtaleCohomology:C5"
-   ]
+   "planned": [],
+   "note": "Review: DiamondEtaleCohomology C5 plans proper base change only when the map is quasi-pro-étale or the coefficients have a prime-to-p annihilator, and the paper uses p-power coefficients (R^2π′_*μ_p in Corollary 2.19) for a proper map that is not quasi-pro-étale. No layer plans this case; it joins ZAVYALOV-25's mod-p Part II of ClassicalAdicEtaleCohomology (route 6)."
   },
   {
    "id": "PAPER-HEUER-25/13",
@@ -198,7 +210,7 @@
    "id": "PAPER-HEUER-25/17",
    "kind": "definition",
    "name": "Definition 2.2: the pro-étale Picard functor of a coherent algebra",
-   "statement": "For B a coherent commutative O_X-algebra on X_ét and B = ν*B, Pic_{B,proét} is the étale sheafification of S ↦ H^1_proét(X × S, B^×)/H^1_proét(S, π_{S,proét*}B^×) on Rig^sm_{K,ét}; X′ = Spa_{O_X}(B) → X is the associated finite cover (the spectral variety when B comes from a Higgs field).",
+   "statement": "For X a proper rigid space over K, B a (commutative) coherent O_X-algebra on X_ét and B = ν*B, Pic_{B,proét} is the étale sheafification of S ↦ H^1_proét(X × S, B^×)/H^1_proét(S, π_{S,proét*}B^×) on Rig^sm_{K,ét}; X′ = Spa_{O_X}(B) → X is the associated finite cover (the spectral variety when B comes from a Higgs field).",
    "locator": "Definition 2.2, pp. 268–269; §1.4, p. 265 (published version)",
    "status": "missing",
    "library": [],
@@ -238,8 +250,8 @@
    "id": "PAPER-HEUER-25/21",
    "kind": "construction",
    "name": "Definitions 2.12–2.14 and Lemmas 2.13, 2.16: the Higgs–Tate torsor",
-   "statement": "For a flat B_dR^+/ξ²-lift 𝕏, L_𝕏 ⊆ Hom(λ^{−1}O_𝕏, B_dR^+/ξ²) (lifts of λ^{−1}O_X → O) is a ν*Ω̃^∨-torsor on X_proét, natural in (X, 𝕏) (analogue of Abbes–Gros's Higgs–Tate torsor); pushing out along θ : Ω̃^∨ → B gives L_{𝕏,B,θ}. On a toric chart it is given by the cocycle γ ↦ Σ c_i(γ)∂_i.",
-   "locator": "§2.4, Definition 2.12–Lemma 2.16, pp. 275–278 (published version)",
+   "statement": "For a flat B_dR^+/ξ²-lift 𝕏, L_𝕏 ⊆ Hom(λ^{−1}O_𝕏, B_dR^+/ξ²) (lifts of λ^{−1}O_X → O) is a ν*Ω̃^∨-torsor on X_proét, natural in (X, 𝕏) (analogue of Abbes–Gros's Higgs–Tate torsor); pushing out along θ : Ω̃^∨ → B gives L_{𝕏,B,θ}. On a toric chart it is given by the cocycle γ ↦ Σ c_i(γ)∂_i. When X has a model X_0 over a discretely valued L ⊆ K with perfect residue field and 𝕏 = X_0 ×_L B_dR^+/ξ², the class of L_𝕏 is dual to the Faltings extension (item 7) (Remark 2.17, stated with a sketch).",
+   "locator": "§2.4, Definition 2.12–Lemma 2.16, pp. 275–278 (published version); Remark 2.17",
    "status": "missing",
    "library": [],
    "planned": []
@@ -318,7 +330,7 @@
    "id": "PAPER-HEUER-25/29",
    "kind": "theorem",
    "name": "Proposition 3.7 and Lemma 3.8",
-   "statement": "Pic_{B,proét}(S) = H^1_proét(X × S, B^×)/H^1_proét(S, π_*B^×) = H^0(S, R^1π_{S*}B^×) without sheafification; for rigidifying M the specialisation H^0(X × S, B) → ∏ B|_x ⊗ O(S) is injective and Q_M = (∏ B|_x ⊗ O)^×/H^0(X × S, B^×) is represented by G_a^r × G_m^s.",
+   "statement": "For B an O_X-torsion-free coherent O_X-algebra on the smooth proper rigid space X and S ∈ Rig^sm_K: Pic_{B,proét}(S) = H^1_proét(X × S, B^×)/H^1_proét(S, π_*B^×) = H^0(S, R^1π_{S*}B^×) without sheafification (Proposition 3.7); for a B-rigidifying multiset M the specialisation H^0(X × S, B) → ∏_{x∈M} B|_x ⊗ O(S) is injective, and Q_M = (∏_{x∈M} B|_x ⊗ O)^×/H^0(X × S, B^×) is a sheaf represented by G_a^r × G_m^s (Lemma 3.8).",
    "locator": "Proposition 3.7 and Lemma 3.8, p. 288 (published version)",
    "status": "missing",
    "library": [],
@@ -382,7 +394,8 @@
    "locator": "Definition 4.3, pp. 298–299 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "The toric chart itself is the setting of PadicHodgeTheory P8's node cohomology-of-graded-structural-de-rham-sheaf (an étale map to T^n composed of rational embeddings and finite étale maps), which the owner imports; the isomorphism ρ_f and the notion of smallness, which the paper only cites from Heuer's Moduli spaces in p-adic non-abelian Hodge theory, are what is missing (review)."
   },
   {
    "id": "PAPER-HEUER-25/36",
@@ -398,7 +411,7 @@
    "id": "PAPER-HEUER-25/37",
    "kind": "theorem",
    "name": "Lemma 4.6 and Proposition 4.7: the local correspondence as twisting",
-   "statement": "An invertible B-module L with HTlog(L) = τ is, étale-locally on toric charts, the module L_{τ,f} with Δ-action exp(ρ_{f,B}(τ)(γ)); and LS_f^{−1}(E, θ) ≅ ν*E ⊗_B L_{τ_θ, f} étale-locally.",
+   "statement": "Let B be a coherent O_X-algebra, B := ν*B, and L an invertible B-module on X_proét with τ := HTlog(L) ∈ H^0(X, Ω̃ ⊗ B). There is an étale cover of X by toric U with charts f such that ρ_f(τ|_U) : Δ → B(U) has image in 2pB^+(U), where exp converges, and L|_U is isomorphic to the invertible B-module L_{τ|U,f} obtained by descent along Ũ → U from B(Ũ) = O(Ũ) ⊗_{O(U)} B(U) with Δ-action γ·(a ⊗ x) = γ(a) ⊗ exp(ρ_{f,B}(τ|_U)(γ))x (Lemma 4.6). In the setting of Theorem 4.4, for a Higgs bundle (E, θ) with B = B_θ, there is, over an étale cover of U, a natural isomorphism LS_f^{-1}(E, θ) ≅ ν*E ⊗_B L_{τ_θ,f} (Proposition 4.7).",
    "locator": "Lemma 4.6 and Proposition 4.7, pp. 299–300 (published version)",
    "status": "missing",
    "library": [],
@@ -448,7 +461,7 @@
    "id": "PAPER-HEUER-25/42",
    "kind": "definition",
    "name": "Dolbeault cohomology of a Higgs bundle",
-   "statement": "C^*_Higgs(E, θ) = [E → E ⊗ Ω̃^1 → ··· → E ⊗ Ω̃^n] and RΓ_Higgs(X, (E, θ)) = RΓ(X_ét, C^*_Higgs) = Ext_{T_X}(O_X, E), computed by the Koszul resolution of O_X over T_X.",
+   "statement": "For a Higgs bundle (E, θ) on a smooth rigid space X of dimension d, C*_Higgs(E, θ) = [E → E ⊗ Ω̃^1 → ··· → E ⊗ Ω̃^d] with θ_k(e ⊗ w) = θ(e) ∧ w, and RΓ_Higgs(X, (E, θ)) := RΓ(X_ét, C*_Higgs(E, θ)). As complexes on X_ét, C*_Higgs(E, θ) = RHom_{T_X}(O_X, E) for the T_X-module structure given by θ, computed by the Koszul resolution K• of O_X over T_X; hence RΓ_Higgs(X, (E, θ)) = RΓ(X_ét, RHom_{T_X}(O_X, E)).",
    "locator": "Definition 5.4, pp. 306–307 (published version)",
    "status": "missing",
    "library": [],
@@ -463,6 +476,67 @@
    "status": "missing",
    "library": [],
    "planned": []
+  },
+  {
+   "id": "PAPER-HEUER-25/44",
+   "kind": "theorem",
+   "name": "Pro-étale base change for a coherent algebra over a proper space",
+   "statement": "For X proper, Y smooth and a coherent O_X-module B, π_{Y*}B = B(X) ⊗_K O_{Y_proét} on Y_proét ([22, Thm. 3.18(c)]), where π_Y : X × Y → Y.",
+   "locator": "§2.3, (6), pp. 274–275 (published version); arXiv v3 §2.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added in review, split from item 10: it is a statement on the pro-étale site with its completed structure sheaf, which is downstream of AdicSpacesPartII R3. PadicHodgeTheory P8 plans the analogous relative base change for gr^0 OB_dR (PAPER-SCHOLZE-13/s8-lem8.6)."
+  },
+  {
+   "id": "PAPER-HEUER-25/45",
+   "kind": "theorem",
+   "name": "The étale site of a rigid space and of its diamond",
+   "statement": "For a rigid space X, the functor Y ↦ Y^◇ induces an equivalence between the étale sites of X and of its diamond X^◇ ([38, Lemma 15.6]).",
+   "locator": "Proofs of Theorem 2.4(3) and Theorem 3.2 (arXiv v3; cited as [38, Lemma 15.6])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DiamondsAndVStacks:D6"
+   ],
+   "note": "Added in review. DiamondsAndVStacks D6 plans \"ECD Lemma 15.6 in full: … the étale and finite étale site comparisons\"."
+  },
+  {
+   "id": "PAPER-HEUER-25/46",
+   "kind": "theorem",
+   "name": "Continuous group cohomology on a toric chart",
+   "statement": "For a toric smooth affinoid U with toric chart f and a small pro-étale vector bundle V on U, the continuous cohomology of the toric Galois group Δ ≅ Z_p(1)^d computes pro-étale cohomology, H^n_cts(Δ, V(Ũ)) = H^n(U_proét, V), through the Cartan–Leray sequence for the pro-finite-étale Δ-torsor Ũ → U.",
+   "locator": "Proof of Lemma 5.7 (arXiv v3; the paper cites [21, Lemma 6.7])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added in review. The comparison of Koszul complexes in Lemma 5.7 rests on it and no item states it; P8 plans the case V = Ô."
+  },
+  {
+   "id": "PAPER-HEUER-25/47",
+   "kind": "theorem",
+   "name": "Almost purity",
+   "statement": "For a perfectoid affinoid K-algebra (R, R^+) and a finite étale R-algebra S, S is perfectoid and S°a is finite étale over R°a ([35, Thm. 7.9(iii)]); hence for a pro-finite-étale map Spa(D, D^+) → Spa(C, C^+) of affinoid perfectoids, C^+/p^k → D^+/p^k is a filtered colimit of almost finite étale maps.",
+   "locator": "Proof of Proposition 2.9(i) (arXiv v3; cited there as [35, Thm. 5.2], see E6)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Added in review. PerfectoidSpaces P3 plans ECD Theorem 6.1 (almost purity and étale tilting)."
+  },
+  {
+   "id": "PAPER-HEUER-25/48",
+   "kind": "theorem",
+   "name": "Pro-étale cohomology of pulled-back étale sheaves",
+   "statement": "For an abelian sheaf F on X_ét and a quasi-compact quasi-separated U = lim U_j in X_proét, H^i(U, ν^{-1}F) = colim_j H^i(U_j, F); consequently F → Rν_*ν^{-1}F is an isomorphism ([36, Lemma 3.16, Cor. 3.17]).",
+   "locator": "Proof of Lemma 2.8 (arXiv v3)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ClassicalAdicEtaleCohomology:H0"
+   ],
+   "note": "Added in review. PAPER-SCHOLZE-13 marks [36, Lemma 3.16] and Corollary 3.17 planned in ClassicalAdicEtaleCohomology H0 (continuity under cofiltered limits); this item follows it."
   }
  ],
  "prerequisites": [
@@ -472,19 +546,9 @@
    "why": "The curve case and the local correspondence."
   },
   {
-   "citation": "P. Scholze, p-adic Hodge theory for rigid-analytic varieties, Forum Math. Pi 1 (2013)",
-   "link": "10.1017/fmp.2013.1",
-   "why": "Pro-étale site, primitive comparison, Faltings extension."
-  },
-  {
    "citation": "P. Scholze, Perfectoid spaces: a survey, Current Developments in Mathematics 2012, 193–227",
    "link": "10.4310/cdm.2012.v2012.n1.a4",
    "why": "Rν_*Ô and the Hodge–Tate decomposition (Prop. 3.23, Thm. 3.20)."
-  },
-  {
-   "citation": "P. Scholze, Perfectoid spaces, Publ. Math. IHÉS 116 (2012), 245–313",
-   "link": "10.1007/s10240-012-0042-x",
-   "why": "Almost purity in Proposition 2.9."
   },
   {
    "citation": "L. Fargues, Groupes analytiques rigides p-divisibles, Math. Ann. 374 (2019), 723–791",
@@ -532,11 +596,6 @@
    "why": "The Higgs–Tate torsor."
   },
   {
-   "citation": "R. Liu and X. Zhu, Rigidity and a Riemann–Hilbert correspondence for p-adic local systems, Invent. Math. 207 (2017), 291–343",
-   "link": "10.1007/s00222-016-0671-7",
-   "why": "The arithmetic p-adic Simpson functor."
-  },
-  {
    "citation": "H. Guo, Hodge–Tate decomposition for non-smooth spaces, J. Eur. Math. Soc. 25 (2023), 1553–1625",
    "link": "10.4171/jems/1222",
    "why": "Existence of B_dR^+/ξ²-lifts."
@@ -566,9 +625,9 @@
    ],
    "items": [
     "PAPER-HEUER-25/6",
-    "PAPER-HEUER-25/7"
+    "PAPER-HEUER-25/44"
    ],
-   "reason": "P8 owns the relative period sheaves and their proper-smooth comparison suffix; Scholze's R^nν_*Ô = Ω̃^n, the primitive comparison and finiteness, the Hodge–Tate decomposition and the Faltings extension are that suffix's statements (PAPER-LIU-ZHU-17 routes the Faltings extension to P8 as well)."
+   "reason": "P8 owns the relative period sheaves and their proper-smooth comparison suffix: Scholze's R^nν_*Ô = Ω̃^n, the primitive comparison and finiteness (item 6), and the pro-étale base change of item 44. PAPER-ZAVYALOV-25's accepted route 7 (its items 58 and 116), PAPER-SCHOLZE-13's route 1 and PAPER-BHATT-MORROW-SCHOLZE-18's route 14 are the precedents. As corrected in review (REV-PAPER-HEUER-25), the Faltings extension (item 7) is planned at P8:local-rational and the Hodge–Tate decomposition at CohomologyComparisons CP.3; the clauses that need the B_dR^+/ξ²-lifts or the Higgs–Tate torsor, which route 4 builds on top of P8, moved to route 4. The earlier precedent, PAPER-LIU-ZHU-17, placed its Faltings extension in a route that its review rejected."
   },
   {
    "route": "source",
@@ -579,7 +638,7 @@
    "items": [
     "PAPER-HEUER-25/2"
    ],
-   "reason": "D2 owns the pro-étale and v-topologies with v-descent; Kedlaya–Liu's agreement of vector bundles across the pro-étale sites and the v-site is a descent statement of that layer."
+   "reason": "D2 owns the pro-étale and v-topologies with v-descent; Kedlaya–Liu's agreement of vector bundles across the pro-étale sites and the v-site is a descent statement of that layer. Review: the v-site of X should be taken as perfectoid spaces over X (Perf_K/X), which D2 builds; the diamond X^◇ is DiamondsAndVStacks D6's, and D6 requires D2."
   },
   {
    "route": "source",
@@ -592,7 +651,7 @@
     "PAPER-HEUER-25/10",
     "PAPER-HEUER-25/11"
    ],
-   "reason": "R2 owns formal models and R3 coherent sheaves with Kiehl-type finiteness; the finite formal models of coherent algebras and rigid (and pro-étale) cohomology and base change for proper spaces are statements of those layers."
+   "reason": "R2 owns formal models and R3 coherent sheaves with Kiehl-type finiteness, coherence and base change. Item 11 (Lemma 2.7) is an R3 statement on X_an using R2's finite formal models, and item 10 is coherent base change for proper spaces. As corrected in review (REV-PAPER-HEUER-25), the pro-étale clause of item 10 moved to route 1 (item 44), since the pro-étale site is downstream of R3; B^+ on X_ét and X_proét is item 18, in route 4."
   },
   {
    "route": "part-ii",
@@ -601,7 +660,6 @@
    "title": "P-adic Hodge theory and geometric comparison, Part II: the p-adic Simpson correspondence for smooth proper rigid spaces",
    "area": "padic",
    "items": [
-    "PAPER-HEUER-25/3",
     "PAPER-HEUER-25/4",
     "PAPER-HEUER-25/5",
     "PAPER-HEUER-25/8",
@@ -633,10 +691,35 @@
     "PAPER-HEUER-25/40",
     "PAPER-HEUER-25/41",
     "PAPER-HEUER-25/42",
-    "PAPER-HEUER-25/43"
+    "PAPER-HEUER-25/43",
+    "PAPER-HEUER-25/46"
    ],
-   "brief": "Extend P-adic Hodge theory and geometric comparison (PadicHodgeTheory) from the Hodge–Tate decomposition to non-abelian coefficients, following Heuer, A p-adic Simpson correspondence for smooth proper rigid varieties (Invent. Math. 240 (2025), 261–312). Final theorems: Theorem 5.1, for X smooth proper over a complete algebraically closed K ⊇ Q_p, a B_dR^+/ξ²-lift 𝕏 and an exponential Exp give an exact tensor equivalence between pro-étale vector bundles and Higgs bundles (θ : E → E ⊗ Ω^1(−1), θ ∧ θ = 0), natural in (X, 𝕏, K, Exp); Theorem 5.5, RΓ(X_proét, V) = RΓ_Higgs(X, S(V)); Proposition 5.3, a deformation from ν*E to V. Layers: (1) Higgs bundles, spectral algebras B_θ and the tautological section τ; (2) the pro-étale Picard functor of a coherent algebra and the multiplicative Hodge–Tate sequence (Theorem 2.4), through Lemma 2.8, Proposition 2.9, Corollary 2.11, the Higgs–Tate torsor of a lift (Proposition 2.15), proper base change and the vanishing of the boundary map; (3) the reduction P_𝕏 (Theorem 3.2) and rigidified Picard functors (Lemmas 3.3–3.17, Theorem 3.14); (4) Fargues's analytic p-divisible groups and the Heuer–Werner–Zhang exponential of rigid groups, giving L_B (Theorem 3.22); (5) the local correspondence on toric charts and the canonical Higgs field of Rodríguez Camargo (§4); (6) the equivalence and the cohomological comparison (§5), using a convergence radius strictly smaller than p^{−1/(p−1)} in Lemma 5.7 (PAPER-HEUER-25/E4). Import the pro-étale site and completed structure sheaf (AdicSpacesPartII R4, AInfCohomology AI.3), the Hodge–Tate comparison and Faltings extension (PadicHodgeTheory P8), Kedlaya–Liu v-descent (DiamondsAndVStacks D2), Kiehl finiteness, formal models and cohomology and base change (AdicSpacesPartII R2–R3), proper base change (DiamondEtaleCohomology C5), finite pushforward (ClassicalAdicEtaleCohomology H0) and algebraic Picard functors (AbelianSchemesAndArithmeticModuli A2). Compare with the arithmetic p-adic Simpson functor of Liu–Zhu, routed to HodgeTateAndCanonicalSubgroups T6:comparison by PAPER-LIU-ZHU-17, rather than rebuilding it.",
-   "reason": "No layer plans Higgs bundles in the p-adic setting or any p-adic Simpson correspondence beyond Liu–Zhu's arithmetic functor for Q_p-local systems (T6:comparison); the correspondence continues PadicHodgeTheory's Hodge–Tate comparison to non-abelian coefficients, so it is that roadmap's Part II."
+   "brief": "Extend P-adic Hodge theory and geometric comparison (PadicHodgeTheory) from the Hodge–Tate decomposition to non-abelian coefficients, following Heuer, A p-adic Simpson correspondence for smooth proper rigid varieties (Invent. Math. 240 (2025), 261–312). Final theorems: Theorem 5.1, for X smooth proper over a complete algebraically closed K ⊇ Q_p, a B_dR^+/ξ²-lift 𝕏 and an exponential Exp give an exact tensor equivalence between pro-étale vector bundles and Higgs bundles (θ : E → E ⊗ Ω^1(−1), θ ∧ θ = 0), natural in (X, 𝕏, K, Exp); Theorem 5.5, for V and (E, θ) = S_{𝕏,Exp}(V) there is a natural isomorphism Rν_*V = C^•_Higgs(E, θ) in D(X_ét), whose cohomology over X gives RΓ(X_proét, V) = RΓ_Higgs(X, (E, θ)); Proposition 5.3, there are a connected smooth rigid space S over K with two points 0, s ∈ S(K) and a pro-étale vector bundle N on X × S with N|_{X×{0}} ≅ ν*E and N|_{X×{s}} ≅ V. Layers: (1) Higgs bundles, spectral algebras B_θ and the tautological section τ; (2) the pro-étale Picard functor of a coherent algebra and the multiplicative Hodge–Tate sequence (Theorem 2.4), through Lemma 2.8, Proposition 2.9, Corollary 2.11, the Higgs–Tate torsor of a lift (Proposition 2.15), proper base change and the vanishing of the boundary map; (3) the reduction P_𝕏 (Theorem 3.2) and rigidified Picard functors (Lemmas 3.3–3.17, Theorem 3.14); (4) Fargues's analytic p-divisible groups and the Heuer–Werner–Zhang exponential of rigid groups, giving L_B (Theorem 3.22); (5) the local correspondence on toric charts and the canonical Higgs field of Rodríguez Camargo (§4); (6) the equivalence and the cohomological comparison (§5), using a convergence radius strictly smaller than p^{−1/(p−1)} in Lemma 5.7 (PAPER-HEUER-25/E4). Import the pro-étale site and its completed structure sheaf from Foundations of adic spaces, Part II (AdicSpacesPartII R4) and P-adic Hodge theory and geometric comparison (PadicHodgeTheory P8:local-rational, which also plans the Faltings extension); the primitive comparison, R^nν_*Ô and pro-étale base change from PadicHodgeTheory P8; the Hodge–Tate decomposition from CohomologyComparisons CP.3; Kedlaya–Liu v-descent from Pro-étale descent, diamonds and small v-stacks (DiamondsAndVStacks D2) and the étale site of a diamond from D6; Kiehl finiteness, formal models and coherent base change from AdicSpacesPartII R2–R3; finite pushforward and continuity from ClassicalAdicEtaleCohomology H0; proper base change with p-power coefficients from that roadmap's mod-p Part II (route 6); almost purity from PerfectoidSpaces P3; algebraic Picard functors from AbelianSchemesAndArithmeticModuli A2; and twisted Higgs bundles from HodgeStructuresPartII (route 5). PAPER-LIU-ZHU-17 proposed its arithmetic p-adic Simpson functor for HodgeTateAndCanonicalSubgroups T6:comparison in a route its review rejected; the comparison with it should be made once that extraction is re-routed.",
+   "reason": "No layer plans a p-adic Simpson correspondence or its ingredients: the multiplicative Hodge–Tate sequence, the reduction P_𝕏, rigidified Picard functors, the exponential of rigid groups, the local correspondence, the canonical Higgs field and the cohomological comparison. Twisted Higgs bundles, including the p-adic Ω^1(−1) instance, belong to the accepted HodgeStructuresPartII (PAPER-LIU-ZHU-17 route 14), which leaves the p-adic Simpson functor to others, so item 3 is routed there (route 5) and imported. The correspondence continues PadicHodgeTheory's Hodge–Tate comparison to non-abelian coefficients, so it is that roadmap's Part II; the queue groups it with the other accepted PadicHodgeTheory Part II proposals (FARGUES-FONTAINE-18 route 5, GLEASON-LIM-XU-26 route 14, GUO-REINECKE-24 route 2) in one design. As corrected in review (REV-PAPER-HEUER-25): the earlier reason credited Liu–Zhu's functor to HodgeTateAndCanonicalSubgroups T6:comparison, but T6:comparison plans logarithmic Riemann–Hilbert, and PAPER-LIU-ZHU-17's route 8 to it was rejected."
+  },
+  {
+   "route": "part-ii",
+   "parent": "tauceti:TauCetiRoadmap/HodgeStructures",
+   "roadmap": "HodgeStructuresPartII",
+   "title": "Hodge structures (pure, mixed, and polarized), Part II: variations, period maps and non-abelian Hodge theory",
+   "area": "algebraicgeometry",
+   "items": [
+    "PAPER-HEUER-25/3"
+   ],
+   "reason": "Added in review (REV-PAPER-HEUER-25). PAPER-LIU-ZHU-17's accepted route 14 proposes this Part II and defines twisted integrable Higgs bundles on ringed differential sites, noting that the p-adic instance uses Ω^1(−1); the parent, id, title and area are that route's, so the item joins its design.",
+   "brief": "The same Part II that PAPER-LIU-ZHU-17 proposes under this id. This paper adds the instance it needs: on a smooth rigid space X over a complete algebraically closed extension K of Q_p, with Ω̃_X := Ω^1_X(−1), a Higgs bundle is an analytic vector bundle E with an O_X-linear θ : E → E ⊗ Ω̃_X such that θ ∧ θ = 0, equivalently an O_X-algebra map Sym^•Ω̃^∨ → End(E) (Heuer, A p-adic Simpson correspondence for smooth proper rigid varieties, Definition 1.2(2)). The p-adic Simpson correspondence itself stays in PadicHodgeTheory's Part II (route 4), which imports this definition; build it on the general twisted Higgs bundles already planned here rather than as a separate notion."
+  },
+  {
+   "route": "part-ii",
+   "parent": "ClassicalAdicEtaleCohomology",
+   "roadmap": "ClassicalAdicEtaleCohomologyPartIIModPPoincareDuality",
+   "title": "The classical analytic cohomology inputs to diamonds, Part II: mod-p Poincaré duality for smooth proper rigid spaces",
+   "area": "padic",
+   "items": [
+    "PAPER-HEUER-25/12"
+   ],
+   "reason": "Added in review (REV-PAPER-HEUER-25). DiamondEtaleCohomology C5 plans proper base change only for quasi-pro-étale maps or prime-to-p coefficients, and no layer plans the p-torsion case for rigid spaces. PAPER-ZAVYALOV-25's accepted route 1 proposes this Part II for étale cohomology of rigid spaces with p-torsion coefficients; the parent, id, title and area are that route's, so the item joins its design.",
+   "brief": "The same Part II that PAPER-ZAVYALOV-25 proposes under this id, for mod-p étale cohomology of rigid spaces. This paper adds one input it uses: rigid-analytic proper base change with torsion coefficients, including p-power torsion, in the form of Bhatt–Hansen, The six functors for Zariski-constructible sheaves in rigid geometry, Theorem 3.15: for g : Z → Spa(K) proper and every n, m ∈ N, R^mg_{ét*}(Z/nZ) = H^m_ét(Z, Z/nZ) as sheaves on smooth rigid spaces over K (Heuer, Proposition 2.18). Heuer applies it with n a power of p in the Kummer sequences of §2.6. Build it with the other p-torsion finiteness and duality results of this Part II, importing Huber's proper-support theory from ClassicalAdicEtaleCohomology H3."
   }
  ],
  "sourceIssues": [
@@ -653,7 +736,12 @@
     "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
     "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
     "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in arXiv v3, whose §2.2 prints the same sentence and whose reference [7] is Bosch–Lütkebohmert, Formal and rigid geometry II (Math. Ann. 296 (1993)), a paper on flattening and formal models, which the paper uses correctly in Lemma 2.7. Néron Models is not in the bibliography, and the representability theorems of Grothendieck and Murre–Oort are there in §8.2. The misattribution stands. The published text was not re-read in review (Springer served a JavaScript challenge); checked in arXiv 2307.01303v3.",
+    "by": "REV-PAPER-HEUER-25"
+   }
   },
   {
    "id": "PAPER-HEUER-25/E2",
@@ -668,7 +756,12 @@
     "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
     "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
     "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in arXiv v3: the product runs over x ∈ X where x ∈ M is meant, and the same sentence ends \"for all x ∈ M\". The published text was not re-read in review (Springer served a JavaScript challenge); checked in arXiv 2307.01303v3.",
+    "by": "REV-PAPER-HEUER-25"
+   }
   },
   {
    "id": "PAPER-HEUER-25/E3",
@@ -683,7 +776,12 @@
     "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
     "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
     "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in arXiv v3: the proof ends \"θ_V = θ_{V′}\" where θ′_V, from the second chart, is meant. The published text was not re-read in review (Springer served a JavaScript challenge); checked in arXiv 2307.01303v3.",
+    "by": "REV-PAPER-HEUER-25"
+   }
   },
   {
    "id": "PAPER-HEUER-25/E4",
@@ -698,7 +796,201 @@
     "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
     "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
     "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in arXiv v3 and recomputed. §3.3 defines exp on the open disc p^α m_K with α = 1/(p−1), but the proof of Lemma 5.7 works in O_U⟨p^{−α}∂⟩, the closed disc. In y = p^{−α}∂ the coefficient of y^n in exp(∂) has valuation s_p(n)/(p − 1), which is 1/(p − 1) at n = p^k for every k, so exp(∂_i) is not in T_U; and with T = p^α z, log(1 + T)/T has the unit coefficient 1 at z^{p−1}, vanishing at T = ζ_p − 1 on that disc. For p = 2, α = 2 exceeds 1/(p − 1) and the argument works. Any radius |p|^β with β > 1/(p − 1) repairs it; Theorem 5.5 stands. The published text was not re-read in review (Springer served a JavaScript challenge); checked in arXiv 2307.01303v3.",
+    "by": "REV-PAPER-HEUER-25"
+   }
+  },
+  {
+   "id": "PAPER-HEUER-25/E5",
+   "kind": "misprint",
+   "locator": "§1.2, the sentence introducing (1) (arXiv v3; published text not compared)",
+   "printed": "By a result of Scholze [37, Thm. 3.20], … the datum of a B_dR^+/ξ²-lift 𝕏 of X induces an isomorphism (1) H^n_ét(X, Q_p) ⊗_{Q_p} K = ⊕_{i+j=n} H^i(X, Ω^j_X(−j))",
+   "correction": "The cited [37, Thm. 3.20] gives only the Hodge–Tate spectral sequence; the splitting induced by a lift needs another source, for instance Guo, Hodge–Tate decomposition for non-smooth spaces, which the paper cites for the existence of lifts.",
+   "reason": "The survey [37] (arXiv 1303.5948) was read: its Theorem 3.20 states only the spectral sequence, Remark 3.22 says the Hodge–Tate filtration is not canonically split, and lifts do not appear. The decomposition itself is true (it is also the case V = O of Theorem 5.5).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked",
+    "arXiv 2307.01303v3 (21 January 2025) read at the locator on 30 September 2026; the published text could not be re-read (Springer served a JavaScript challenge)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked against the survey's Theorem 3.20 and Remarks 3.21–3.22.",
+    "by": "REV-PAPER-HEUER-25"
+   }
+  },
+  {
+   "id": "PAPER-HEUER-25/E6",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.9(i) (arXiv v3; published text not compared)",
+   "printed": "by almost purity [35, Thm. 5.2]",
+   "correction": "by almost purity [35, Thm. 7.9]",
+   "reason": "In Scholze, Perfectoid spaces, Theorem 5.2 is the tilting equivalence and Theorem 7.9 is almost purity.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked",
+    "arXiv 2307.01303v3 (21 January 2025) read at the locator on 30 September 2026; the published text could not be re-read (Springer served a JavaScript challenge)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked against Perfectoid spaces (arXiv 1111.4914).",
+    "by": "REV-PAPER-HEUER-25"
+   }
+  },
+  {
+   "id": "PAPER-HEUER-25/E7",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 3.2, after the diagram (8) (arXiv v3; published text not compared)",
+   "printed": "The morphism on the left is locally on the target a finite étale H^1(X′, μ_{p^n})-torsor by Corollary 2.19",
+   "correction": "a finite étale H^1(X′, μ_p)-torsor",
+   "reason": "The vertical maps in (8) are multiplication by p on Pic_{X′,ét}, whose fibres are torsors under H^1(X′, μ_p) by the Kummer sequence; Corollary 2.19 is stated for μ_p.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked",
+    "arXiv 2307.01303v3 (21 January 2025) read at the locator on 30 September 2026; the published text could not be re-read (Springer served a JavaScript challenge)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the text of arXiv v3.",
+    "by": "REV-PAPER-HEUER-25"
+   }
+  },
+  {
+   "id": "PAPER-HEUER-25/E8",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.21 (arXiv v3; published text not compared)",
+   "printed": "That h is an étale surjection means that …",
+   "correction": "That H → Q is an étale surjection means that …",
+   "reason": "The lemma's statement introduces \"a surjection H → Q\" without naming it h.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked",
+    "arXiv 2307.01303v3 (21 January 2025) read at the locator on 30 September 2026; the published text could not be re-read (Springer served a JavaScript challenge)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the text of arXiv v3.",
+    "by": "REV-PAPER-HEUER-25"
+   }
+  },
+  {
+   "id": "PAPER-HEUER-25/E9",
+   "kind": "misprint",
+   "locator": "After Corollary 2.11 (arXiv v3; published text not compared)",
+   "printed": "Applying the Corollary to X × Y for any Y ∈ Rig^sm_{K,ét}, it follows that for varying Y, we obtain short exact sequences, functorial in X and Y",
+   "correction": "we obtain left-exact sequences",
+   "reason": "Corollary 2.11(2) gives a left-exact sequence 0 → H^1_ét(X, B^×) → H^1_proét(X, B^×) → H^0(X, Ω̃ ⊗ B); surjectivity of HTlog is not known at this point (it is what Theorem 2.4 later determines).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked",
+    "arXiv 2307.01303v3 (21 January 2025) read at the locator on 30 September 2026; the published text could not be re-read (Springer served a JavaScript challenge)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the text of arXiv v3.",
+    "by": "REV-PAPER-HEUER-25"
+   }
+  },
+  {
+   "id": "PAPER-HEUER-25/E10",
+   "kind": "misprint",
+   "locator": "Theorem 4.4 (arXiv v3; published text not compared)",
+   "printed": "It sends (E, θ) to the unique pro-étale vector bundle V for which …",
+   "correction": "Its inverse sends (E, θ) to the unique pro-étale vector bundle V for which …",
+   "reason": "LS_f goes from small pro-étale vector bundles to small Higgs bundles, so the sentence describes LS_f⁻¹.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked",
+    "arXiv 2307.01303v3 (21 January 2025) read at the locator on 30 September 2026; the published text could not be re-read (Springer served a JavaScript challenge)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the text of arXiv v3.",
+    "by": "REV-PAPER-HEUER-25"
+   }
+  },
+  {
+   "id": "PAPER-HEUER-25/E11",
+   "kind": "misprint",
+   "locator": "Lemma 4.6 (arXiv v3; published text not compared)",
+   "printed": "γ · (a ⊗ x) = γ(a) ⊗ exp(ρ_{f,B}(τ|_U)(γ))",
+   "correction": "γ · (a ⊗ x) = γ(a) ⊗ exp(ρ_{f,B}(τ|_U)(γ))x",
+   "reason": "The factor x is dropped; compare the formula of Theorem 4.4, γ · (a ⊗ x) = γ(a) ⊗ exp(ρ_f(θ)(γ))x.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked",
+    "arXiv 2307.01303v3 (21 January 2025) read at the locator on 30 September 2026; the published text could not be re-read (Springer served a JavaScript challenge)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the text of arXiv v3.",
+    "by": "REV-PAPER-HEUER-25"
+   }
+  },
+  {
+   "id": "PAPER-HEUER-25/E12",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.13 (arXiv v3; published text not compared)",
+   "printed": "HTlog(L_{τ_B,f} ⊗_B L^{−1}) = HTlog_B(L_{τ_B,f}) − HTlog_B(L^{−1}) = τ_B − τ_B = 0",
+   "correction": "= HTlog_B(L_{τ_B,f}) + HTlog_B(L^{−1}) = τ_B − τ_B = 0",
+   "reason": "HTlog is a homomorphism, so HTlog(A ⊗ L^{−1}) = HTlog(A) + HTlog(L^{−1}) = HTlog(A) − HTlog(L).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked",
+    "arXiv 2307.01303v3 (21 January 2025) read at the locator on 30 September 2026; the published text could not be re-read (Springer served a JavaScript challenge)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the text of arXiv v3.",
+    "by": "REV-PAPER-HEUER-25"
+   }
+  },
+  {
+   "id": "PAPER-HEUER-25/E13",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 5.1 (arXiv v3; published text not compared)",
+   "printed": "the invertible B_V := ν*B_V-module L_{B_V} satisfies HTlog(L_{B_V}) = τ_{B_v}",
+   "correction": "HTlog(L_{B_V}) = τ_{B_V}",
+   "reason": "A subscript slip: the tautological section is that of B_V.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-025-01321-4, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-025-01321-4)",
+    "arXiv 2307.01303: v1 (3 July 2023), v2 (17 June 2024) and v3 (21 January 2025, before publication on 10 February 2025); the published text, which was read, has the recorded passages",
+    "The Springer article page for Invent. Math. 240 (2025) 261–312, 29 September 2026: no correction notice linked",
+    "arXiv 2307.01303v3 (21 January 2025) read at the locator on 30 September 2026; the published text could not be re-read (Springer served a JavaScript challenge)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the text of arXiv v3.",
+    "by": "REV-PAPER-HEUER-25"
+   }
   }
  ]
 }
