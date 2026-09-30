@@ -15612,3 +15612,178 @@ Seven complete native lemmas verify residue/unit sum conversion, the normalized 
 Six primitive characters,22 root choices and five arbitrary root-value profiles check660 power eigenvalues,110 ramified zeros,660 Euler identities,660 nonzero factors,660 zero equivalences,110 integer-zero boundaries,110 integer-one boundaries,370 wrong-reciprocal controls and one exact imprimitive counterexample. Exact rational arithmetic in Q[X]/Phi_(ell^r), with roots and nonreal cubic-character values represented in the same cyclotomic field. The retained polynomial multiplication and exact inverse helpers from PR3309 are reused. Six primitive characters of conductors3,4,5,8,9, every primitive root, five arbitrary root-value profiles and six primes check the supplied power eigenvalue, ramified cancellation, reciprocal Euler formula and zero equivalence. The profiles are arbitrary functions, not asserted logarithms; the constructor comparisons require only the character-sum law. The principal character modulo3 is an exact imprimitive counterexample. No analytic trace, p-adic convergence or L-value is inferred. The largest observed discrepancy is 0.
 
 The initial58-input capture atfc4d60033fc3ffef70fdc68409dbff5a6105534e has empty delta. Coleman remains an explicit-law supplier because its suggested module imports this consumer. The verified332-node PMIA artifact is reused; no current369-node PMIA or Coleman-module compilation is claimed.
+
+
+## Convergence of the concrete tame logarithmic primitive
+
+Partial continuation preserving all473 predecessor nodes whole. Six L3 nodes prove norm-one cyclotomic arguments, exact coefficient and polynomial bounds, restrictedness of the normalized and constant-shifted series, and pointwise summability. They use native power series and the existing Coleman integer-growth input. All16 findings, four requests and eight gaps remain; zero stages are closed.
+
+Read the whole native DirichletCharacter.Bounds and PowerSeries.Restricted modules, finite-order norm statements, primitive-root geometric sums and coprime powers, formal log coefficients, geometric-polynomial limits and summability, and the eventual norm comparison theorem. Read the complete Coleman L0 ultrametric-natcast-bound node and its exact suggested signature. The complete native DirichletCharacter.GaussSum module was inspected; the general Gauss product theorem requires a finite field domain and cannot justify norm1 for arbitrary conductors. Complete source149–153 and external E44–E48 restrictions are retained from the preceding checkpoint of this continuation.
+
+### Tame cyclotomic logarithm arguments have norm one
+
+`DirichletPadicLFunctions:L3/tame-cyclotomic-logarithm-argument-norm` — `DirichletPadic.tameCyclotomicLogArgument_norm`
+
+For every u∈(ZMod D)×, put z=ε^(u.val). Then ‖z−1‖=1 and ‖z/(z−1)‖=1.
+
+**Hypotheses:** K is a normed field of characteristic0 with IsUltrametricDist K. D is a positive natural modulus with NeZero D and D>1, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Assume the stronger norm condition ‖(D:K)‖=1, not merely D≠0 or IsUnit(D:K). Write w=η⁻¹, G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one), H=tameNormalizedLogPrimitive(η,ε) and F=tameLogPrimitive(η,ε,ℓ). The coefficient bounds need neither primitivity of η nor G≠0; they concern the actual totalized finite construction. Its separate derivative identification retains those earlier hypotheses. The scalar ‖G⁻¹‖ is kept throughout. The native Gauss product theorem for finite fields is not applicable to a general residue ring ZMod D. For polynomial growth, restrictedness and summability, supply b:ℕ and the exact law hbound:∀n>0, ‖(n:K)‖⁻¹≤(n:ℝ)^b. ColemanIntegration:L0/ultrametric-natcast-bound supplies a real exponent for a nontrivially normed ultrametric characteristic-zero field; rounding it upward gives this law. In the normalized p-adic case b=1. These are explicit parameters because the Coleman suggested module imports this consumer. Completeness is required only for summability. The function ℓ:K→K and its finite constant are arbitrary here; convergence imposes no logarithm law.
+
+**Proof:**
+
+1. The native coprimality of a unit representative and the primitive-root power theorem show that z is again a primitive D-th root. Its finite multiplicative order gives ‖z‖=1.
+2. For any such z, induction on n in z^(n+1)−1=z(z^n−1)+(z−1), with the ultrametric inequality, gives ‖z^n−1‖≤‖z−1‖. This is checked in a complete native lemma.
+3. The native geometric-sum theorem for D>1 gives Σ_(i<D)z^i=0, hence Σ_(i<D)(1−z^i)=D. The finite ultrametric sum bound gives ‖D‖≤‖z−1‖. Since ‖D‖=1 and ‖z−1‖≤max(‖z‖,1)=1, equality follows. A complete native primitive-root lemma checks the argument.
+4. Multiplicativity and norm_div give the ratio norm1. Therefore multiplying an open-disc argument t by this ratio preserves its norm. No statement about a nonunit residue is needed: its character weight vanishes.
+5. This strengthens the earlier equality of unit-residue argument norms only under the extra norm(D)=1 hypothesis. It must not be applied to a pure p-power conductor in its p-adic norm.
+
+**Prerequisites:** `mathlib:IsPrimitiveRoot.pow_of_coprime`, `mathlib:ZMod.val_coe_unit_coprime`, `mathlib:IsOfFinOrder.norm_eq_one`, `mathlib:IsPrimitiveRoot.geom_sum_eq_zero`, `mathlib:IsUltrametricDist.isNonarchimedean_norm`.
+
+**Tests:**
+
+- `SuggestedLogarithmicConvergenceTests.unit_residue_argument_norm` (computation): At the unit residue1 the logarithm argument ε−1 has norm1.
+- `SuggestedLogarithmicConvergenceTests.rescaling_preserves_open_disc` (compatibility): For a unit residue, multiplication by ε^a/(ε^a−1) keeps every t of norm<1 inside the open disc.
+
+**Acceptance:** The complete proof treats arbitrary D>1, including composite conductors, using a primitive root rather than a finite-field Gauss identity.
+
+**Source:** Section6.2, display(6-2), Lemmas6.4–6.5 and Theorem6.1(ii), published149–153/PDF50–54. These complete pages were read in the preceding checkpoint of this continuation; confirmed external E44–E48 remain binding. Worker quantitative convergence argument for the actual normalized finite logarithmic primitive and its supplied constant. Native restricted power series and geometric decay are used. The norm(D)=1 condition protects the tame route from the confirmed pure-p-power convergence error E45; no distribution or L-value identification is inferred.
+
+### The exact inverse-integer coefficient bound
+
+`DirichletPadicLFunctions:L3/tame-logarithmic-coefficient-norm-bound` — `DirichletPadic.tameNormalizedLogPrimitive_coeff_norm_le`
+
+For every n>0, ‖coeff n H‖≤‖G⁻¹‖·‖(n:K)‖⁻¹.
+
+**Hypotheses:** K is a normed field of characteristic0 with IsUltrametricDist K. D is a positive natural modulus with NeZero D and D>1, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Assume the stronger norm condition ‖(D:K)‖=1, not merely D≠0 or IsUnit(D:K). Write w=η⁻¹, G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one), H=tameNormalizedLogPrimitive(η,ε) and F=tameLogPrimitive(η,ε,ℓ). The coefficient bounds need neither primitivity of η nor G≠0; they concern the actual totalized finite construction. Its separate derivative identification retains those earlier hypotheses. The scalar ‖G⁻¹‖ is kept throughout. The native Gauss product theorem for finite fields is not applicable to a general residue ring ZMod D. For polynomial growth, restrictedness and summability, supply b:ℕ and the exact law hbound:∀n>0, ‖(n:K)‖⁻¹≤(n:ℝ)^b. ColemanIntegration:L0/ultrametric-natcast-bound supplies a real exponent for a nontrivially normed ultrametric characteristic-zero field; rounding it upward gives this law. In the normalized p-adic case b=1. These are explicit parameters because the Coleman suggested module imports this consumer. Completeness is required only for summability. The function ℓ:K→K and its finite constant are arbitrary here; convergence imposes no logarithm law.
+
+**Proof:**
+
+1. Use the promoted exact positive coefficient formula: coeff n H=−G⁻¹·((-1)^(n+1)/n)·Σ_a w(a)(ε^a.val/(ε^a.val−1))^n. Its rational scalar is the native formal log coefficient, whose norm is ‖(n:K)‖⁻¹ by characteristic0.
+2. The existing native DirichletCharacter.norm_le_one applies directly to w. When w(a)≠0, the native character criterion gives IsUnit a, so the preceding argument-norm theorem applies to its unit representative. Otherwise the summand is0.
+3. Each weighted power has norm≤1. The ultrametric finite-sum estimate therefore bounds the sum by1, with no factor D or number of unit residues. The complete native weighted-powers and normalization lemmas check these two steps.
+4. Multiply by the exact normalization and logarithm coefficient norms. Retain ‖G⁻¹‖: neither this proof nor the general-conductor native library supplies a Gauss norm1 assertion.
+5. The norm(D)=1 condition is essential. For the primitive quadratic character modulo3 the actual first coefficient is1/3. At p=3 its norm squared is9, while ‖G⁻¹‖ squared is3 because G²=−3. Thus the n=1 bound would fail even with the retained Gauss factor if the conductor condition were omitted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-coefficients`, `DirichletPadicLFunctions:L3/tame-cyclotomic-logarithm-argument-norm`, `mathlib:DirichletCharacter.norm_le_one`, `mathlib:MulChar.apply_ne_zero_iff`, `mathlib:PowerSeries.coeff_log`, `mathlib:IsUltrametricDist.isNonarchimedean_norm`.
+
+**Tests:**
+
+- `SuggestedLogarithmicConvergenceTests.first_coefficient_bound` (computation): At n=1, ‖coeff1 H‖≤‖G⁻¹‖.
+
+**Acceptance:** Exact finite controls cover24 coefficients at all12 primitive root choices for conductors3,4,5,8 and primes2,3,5,7,11 prime to D. Their example-specific G² identity must not be promoted to a general library theorem.
+
+**Source:** Section6.2, display(6-2), Lemmas6.4–6.5 and Theorem6.1(ii), published149–153/PDF50–54. These complete pages were read in the preceding checkpoint of this continuation; confirmed external E44–E48 remain binding. Worker quantitative convergence argument for the actual normalized finite logarithmic primitive and its supplied constant. Native restricted power series and geometric decay are used. The norm(D)=1 condition protects the tame route from the confirmed pure-p-power convergence error E45; no distribution or L-value identification is inferred.
+
+### Polynomial growth of the concrete logarithm coefficients
+
+`DirichletPadicLFunctions:L3/tame-logarithmic-polynomial-growth` — `DirichletPadic.tameNormalizedLogPrimitive_coeff_polynomial_bound`
+
+For a supplied natural exponent b and hbound, every n>0 satisfies ‖coeff n H‖≤‖G⁻¹‖·n^b.
+
+**Hypotheses:** K is a normed field of characteristic0 with IsUltrametricDist K. D is a positive natural modulus with NeZero D and D>1, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Assume the stronger norm condition ‖(D:K)‖=1, not merely D≠0 or IsUnit(D:K). Write w=η⁻¹, G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one), H=tameNormalizedLogPrimitive(η,ε) and F=tameLogPrimitive(η,ε,ℓ). The coefficient bounds need neither primitivity of η nor G≠0; they concern the actual totalized finite construction. Its separate derivative identification retains those earlier hypotheses. The scalar ‖G⁻¹‖ is kept throughout. The native Gauss product theorem for finite fields is not applicable to a general residue ring ZMod D. For polynomial growth, restrictedness and summability, supply b:ℕ and the exact law hbound:∀n>0, ‖(n:K)‖⁻¹≤(n:ℝ)^b. ColemanIntegration:L0/ultrametric-natcast-bound supplies a real exponent for a nontrivially normed ultrametric characteristic-zero field; rounding it upward gives this law. In the normalized p-adic case b=1. These are explicit parameters because the Coleman suggested module imports this consumer. Completeness is required only for summability. The function ℓ:K→K and its finite constant are arbitrary here; convergence imposes no logarithm law.
+
+**Proof:**
+
+1. Import the precise existing ColemanIntegration L0 integer-inverse bound. It supplies a nonnegative real exponent s in a nontrivially normed ultrametric characteristic-zero field; this consumer does not repeat the owner’s residue-characteristic classification or valuation argument.
+2. Choose b=Nat.ceil s. For n≥1, monotonicity of the real power in its exponent gives n^s≤n^b. This converts the supplier conclusion to the exact natural-power hbound parameter in the suggested signatures. In a normalized p-adic field the supplier already gives b=1; with trivial norm one may independently supply b=0.
+3. Combine hbound with the preceding coefficient estimate by multiplying its inequality by the nonnegative real ‖G⁻¹‖. The coefficient0 is excluded from the growth hypothesis; H has constant0 anyway.
+4. The imported law is explicit because the current Coleman suggested module imports this Dirichlet consumer. The suggested file is not claimed to compile Coleman, and no artificial proposition or duplicate logarithm theory is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/tame-logarithmic-coefficient-norm-bound`, `ColemanIntegration:L0/ultrametric-natcast-bound`.
+
+**Tests:**
+
+- `SuggestedLogarithmicConvergenceTests.normalized_padic_linear_growth` (compatibility): With the supplied normalized p-adic integer bound b=1, the coefficient bound is linear in n.
+
+**Acceptance:** The exact growth hypothesis is visible in every dependent Lean signature; no unexplained uniform constant is hidden.
+
+**Source:** Section6.2, display(6-2), Lemmas6.4–6.5 and Theorem6.1(ii), published149–153/PDF50–54. These complete pages were read in the preceding checkpoint of this continuation; confirmed external E44–E48 remain binding. Worker quantitative convergence argument for the actual normalized finite logarithmic primitive and its supplied constant. Native restricted power series and geometric decay are used. The norm(D)=1 condition protects the tame route from the confirmed pure-p-power convergence error E45; no distribution or L-value identification is inferred.
+
+### Restrictedness on every smaller closed disc
+
+`DirichletPadicLFunctions:L3/normalized-tame-logarithmic-restrictedness` — `DirichletPadic.tameNormalizedLogPrimitive_isRestricted`
+
+For every real radius0≤r<1 and supplied b,hbound, the actual series H satisfies native PowerSeries.IsRestricted r H.
+
+**Hypotheses:** K is a normed field of characteristic0 with IsUltrametricDist K. D is a positive natural modulus with NeZero D and D>1, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Assume the stronger norm condition ‖(D:K)‖=1, not merely D≠0 or IsUnit(D:K). Write w=η⁻¹, G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one), H=tameNormalizedLogPrimitive(η,ε) and F=tameLogPrimitive(η,ε,ℓ). The coefficient bounds need neither primitivity of η nor G≠0; they concern the actual totalized finite construction. Its separate derivative identification retains those earlier hypotheses. The scalar ‖G⁻¹‖ is kept throughout. The native Gauss product theorem for finite fields is not applicable to a general residue ring ZMod D. For polynomial growth, restrictedness and summability, supply b:ℕ and the exact law hbound:∀n>0, ‖(n:K)‖⁻¹≤(n:ℝ)^b. ColemanIntegration:L0/ultrametric-natcast-bound supplies a real exponent for a nontrivially normed ultrametric characteristic-zero field; rounding it upward gives this law. In the normalized p-adic case b=1. These are explicit parameters because the Coleman suggested module imports this consumer. Completeness is required only for summability. The function ℓ:K→K and its finite constant are arbitrary here; convergence imposes no logarithm law.
+
+**Proof:**
+
+1. Use native PowerSeries.isRestricted_iff' to reduce the claim to ‖coeff n H‖r^n→0 as n tends to infinity.
+2. The polynomial-growth theorem bounds this nonnegative expression, eventually for n≥1, by ‖G⁻¹‖n^b r^n. Native tendsto_pow_const_mul_const_pow_of_lt_one gives n^b r^n→0, including r=0.
+3. Multiplication by the fixed scalar norm preserves this limit, and the squeeze theorem proves restrictedness. The complete native polynomial-growth-restricted lemma checks precisely this argument for a general native power series.
+4. This is a property of the already constructed series using an existing native predicate. It does not reconstruct the LAD R+ algebra, its topology, or a comparison from analytic functions to coefficient series. The radius1 boundary is not asserted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/tame-logarithmic-polynomial-growth`, `mathlib:PowerSeries.isRestricted_iff'`, `mathlib:tendsto_pow_const_mul_const_pow_of_lt_one`.
+
+**Tests:**
+
+- `SuggestedLogarithmicConvergenceTests.half_radius_restricted` (computation): The normalized primitive is restricted at real radius1/2.
+
+**Acceptance:** Convergence is proved for every smaller radius; no endpoint or pure-p-power extension is claimed.
+
+**Source:** Section6.2, display(6-2), Lemmas6.4–6.5 and Theorem6.1(ii), published149–153/PDF50–54. These complete pages were read in the preceding checkpoint of this continuation; confirmed external E44–E48 remain binding. Worker quantitative convergence argument for the actual normalized finite logarithmic primitive and its supplied constant. Native restricted power series and geometric decay are used. The norm(D)=1 condition protects the tame route from the confirmed pure-p-power convergence error E45; no distribution or L-value identification is inferred.
+
+### The logarithm constant preserves restrictedness
+
+`DirichletPadicLFunctions:L3/tame-logarithmic-constant-restrictedness` — `DirichletPadic.tameLogPrimitive_isRestricted`
+
+For every supplied function ℓ:K→K and every0≤r<1, F=C(cyclotomicLogConstant(η,ε,ℓ))+H satisfies native IsRestricted r F.
+
+**Hypotheses:** K is a normed field of characteristic0 with IsUltrametricDist K. D is a positive natural modulus with NeZero D and D>1, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Assume the stronger norm condition ‖(D:K)‖=1, not merely D≠0 or IsUnit(D:K). Write w=η⁻¹, G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one), H=tameNormalizedLogPrimitive(η,ε) and F=tameLogPrimitive(η,ε,ℓ). The coefficient bounds need neither primitivity of η nor G≠0; they concern the actual totalized finite construction. Its separate derivative identification retains those earlier hypotheses. The scalar ‖G⁻¹‖ is kept throughout. The native Gauss product theorem for finite fields is not applicable to a general residue ring ZMod D. For polynomial growth, restrictedness and summability, supply b:ℕ and the exact law hbound:∀n>0, ‖(n:K)‖⁻¹≤(n:ℝ)^b. ColemanIntegration:L0/ultrametric-natcast-bound supplies a real exponent for a nontrivially normed ultrametric characteristic-zero field; rounding it upward gives this law. In the normalized p-adic case b=1. These are explicit parameters because the Coleman suggested module imports this consumer. Completeness is required only for summability. The function ℓ:K→K and its finite constant are arbitrary here; convergence imposes no logarithm law.
+
+**Proof:**
+
+1. Use the existing actual tameLogPrimitive definition, whose constant is the finite cyclotomic logarithm expression. There is no estimate on ℓ or its constant to prove: a finite constant does not affect the coefficient tail.
+2. Native PowerSeries.isRestricted_C makes C(c) restricted at any real radius, and native isRestricted.add combines it with the preceding restrictedness of H.
+3. The same argument works for an arbitrary scalar c, which is recorded as the typed compatibility test. No logarithm branch law, root vanishing, primitivity or Gauss nonvanishing is needed for this convergence statement.
+4. The dependency through the supplied logarithm constant still retains the inherited Coleman disc-function/LAD coefficient comparison request. This theorem does not discharge that analytic comparison.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-restrictedness`, `DirichletPadicLFunctions:L3/tame-logarithmic-primitive-with-constant`, `mathlib:PowerSeries.isRestricted_C`, `mathlib:PowerSeries.isRestricted.add`.
+
+**Tests:**
+
+- `SuggestedLogarithmicConvergenceTests.arbitrary_constant_preserves_restrictedness` (compatibility): C(c)+H is restricted at every smaller radius for an arbitrary scalar c.
+
+**Acceptance:** The actual finite constant is preserved rather than reset to0. All inherited supplier requests remain open.
+
+**Source:** Section6.2, display(6-2), Lemmas6.4–6.5 and Theorem6.1(ii), published149–153/PDF50–54. These complete pages were read in the preceding checkpoint of this continuation; confirmed external E44–E48 remain binding. Worker quantitative convergence argument for the actual normalized finite logarithmic primitive and its supplied constant. Native restricted power series and geometric decay are used. The norm(D)=1 condition protects the tame route from the confirmed pure-p-power convergence error E45; no distribution or L-value identification is inferred.
+
+### Summability at every point of the open unit disc
+
+`DirichletPadicLFunctions:L3/tame-logarithmic-pointwise-summability` — `DirichletPadic.tameLogPrimitive_summable`
+
+If K is complete and ‖t‖<1, then Summable(n↦coeff n F·t^n), for the actual primitive F and supplied b,hbound.
+
+**Hypotheses:** K is a normed field of characteristic0 with IsUltrametricDist K. D is a positive natural modulus with NeZero D and D>1, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Assume the stronger norm condition ‖(D:K)‖=1, not merely D≠0 or IsUnit(D:K). Write w=η⁻¹, G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one), H=tameNormalizedLogPrimitive(η,ε) and F=tameLogPrimitive(η,ε,ℓ). The coefficient bounds need neither primitivity of η nor G≠0; they concern the actual totalized finite construction. Its separate derivative identification retains those earlier hypotheses. The scalar ‖G⁻¹‖ is kept throughout. The native Gauss product theorem for finite fields is not applicable to a general residue ring ZMod D. For polynomial growth, restrictedness and summability, supply b:ℕ and the exact law hbound:∀n>0, ‖(n:K)‖⁻¹≤(n:ℝ)^b. ColemanIntegration:L0/ultrametric-natcast-bound supplies a real exponent for a nontrivially normed ultrametric characteristic-zero field; rounding it upward gives this law. In the normalized p-adic case b=1. These are explicit parameters because the Coleman suggested module imports this consumer. Completeness is required only for summability. The function ℓ:K→K and its finite constant are arbitrary here; convergence imposes no logarithm law.
+
+**Proof:**
+
+1. For every n>0, the existing tameLogPrimitive coefficient API identifies coeff n F with coeff n H. Thus the polynomial-growth estimate applies to the positive tail of F, regardless of its constant.
+2. Norm multiplicativity gives ‖coeff n F·t^n‖≤‖G⁻¹‖n^b‖t‖^n for n≥1. The native geometric-polynomial summability theorem at the nonnegative real ratio ‖t‖<1 makes the right-hand side summable.
+3. Apply native Summable.of_norm_bounded_eventually_nat in the complete normed field K. Its eventual formulation absorbs the arbitrary constant coefficient. The complete native polynomial-growth-summable lemma checks this step.
+4. At t=0 only the degree0 term survives and the sum is the actual cyclotomic logarithm constant. This typed test guards against silently replacing F by the normalized H.
+5. The result supplies a convergent value but does not yet identify it with the finite logarithm expression at shifted arguments, a locally analytic distribution, the unit-restricted trace, or the p-adic L-value. Those comparisons must use their existing owners and retain the source errata.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/tame-logarithmic-polynomial-growth`, `DirichletPadicLFunctions:L3/tame-logarithmic-primitive-with-constant`, `mathlib:summable_pow_mul_geometric_of_norm_lt_one`, `mathlib:Summable.of_norm_bounded_eventually_nat`.
+
+**Tests:**
+
+- `SuggestedLogarithmicConvergenceTests.zero_point_sum` (computation): At t=0 the sum equals the finite cyclotomic logarithm constant, with no convergence hypothesis needed beyond the stated complete-field context.
+
+**Acceptance:** The sum uses native Summable and retains the arbitrary constant. Completeness and the strict norm bound are explicit.
+
+**Source:** Section6.2, display(6-2), Lemmas6.4–6.5 and Theorem6.1(ii), published149–153/PDF50–54. These complete pages were read in the preceding checkpoint of this continuation; confirmed external E44–E48 remain binding. Worker quantitative convergence argument for the actual normalized finite logarithmic primitive and its supplied constant. Native restricted power series and geometric decay are used. The norm(D)=1 condition protects the tame route from the confirmed pure-p-power convergence error E45; no distribution or L-value identification is inferred.
+
+**Remaining:** The actual tame logarithmic primitive now has explicit coefficient growth, native restrictedness at every smaller radius and pointwise summability in complete fields, under ‖D‖=1 and the exact Coleman-owned integer growth law. Next identify this convergent sum with the supplied local logarithm expression, then import the Coleman distribution relation and connect the finite powered constant to the LAD unit-restricted trace. No distribution or L-value identification is claimed here. The inherited discAnalytic/R+ comparison request remains open. Pure p-power conductors still require the smoothed primitive route under E45; retain E44 branch normalization, E46 plus sign, E47 full modulus and E48 n=1. Odd/dyadic analytic branches, pole/residue analysis and complete source extraction remain open.
+
+### Convergence of the concrete tame logarithmic primitive validation
+
+All 473 predecessor nodes, 452 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 6 named suggested declarations and 7 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 669 reachable nodes, 3180 edges and 602 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1. The first four new routes reach only native declarations; the last two retain the existing LAD L1 comparison leaf through the supplied logarithm constant.
+
+The full suggested module elaborates with zero errors and 1479 expected placeholder warnings. Source and artifact audits cover 3600 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Eight complete native lemmas verify finite ultrametric sums, power-difference bounds, primitive-root argument norm1, weighted-power and normalized coefficient estimates, the formal logarithm coefficient norm, polynomial-growth restrictedness and pointwise summability. The probe elaborates against 2839 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact cyclotomic arithmetic checks288 coefficients at12 primitive root choices for four quadratic characters,12 Gauss-square identities,1152 tame coefficient estimates,1152 linear growth bounds,192 root comparisons and two pure-p-power counterexamples. Exact rational arithmetic in Q[X]/Phi_D for quadratic primitive characters of conductors3,4,5,8 and all primitive root choices. Multiplication-matrix inverses are certified exactly. The24 positive coefficients at each root are rational and satisfy the inverse-integer and linear growth bounds at primes2,3,5,7,11 prime to D. The identity G^2=chi(-1)D proves norm(G)=1 only in these particular examples. For D=p=3 the first coefficient1/3 violates the proposed coefficient bound even with the inverse Gauss norm retained, showing the norm(D)=1 hypothesis is essential. Finite tests do not establish a radius or a general Gauss norm theorem; convergence is checked separately in the complete native probe. The largest observed discrepancy is 0.
+
+The initial58-input capture at a99e59baa1150e009ec67767f37b82fd33e528cc had empty delta. Main advanced during validation: only the global source-issue file and errata register changed among guarded inputs. The refresh at05c10d6390c711d93da0205e30a13cb6913fbb1e verified that all16 Dirichlet findings remain identical; every other guarded input and all four predecessor outputs remain unchanged. Coleman remains an explicit-law supplier because its suggested module imports this consumer. The verified332-node PMIA artifact is reused; no current369-node PMIA or Coleman-module compilation is claimed.

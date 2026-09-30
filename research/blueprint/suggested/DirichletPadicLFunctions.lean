@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.PowerSeries.Restricted
 import Mathlib.RingTheory.PowerSeries.Log
 import Mathlib.RingTheory.Localization.Away.Basic
 import Mathlib.Topology.Algebra.ContinuousMonoidHom
@@ -7516,4 +7517,92 @@ example (η : DirichletCharacter K D) : 1-η (2 : ZMod D)/(2 : K)≠0 := sorry
 -- integer_one_factor_zero
 example (η : DirichletCharacter K D) : 1-η (1 : ZMod D)/(1 : K)=0 := sorry
 end SuggestedLogarithmicEulerTests
+end
+
+/-! Concrete tame logarithmic convergence. The integer-growth law is supplied by
+ColemanIntegration L0; no reverse import of its suggested module is made. Native
+restricted power series are used directly. Summability alone does not identify
+the sum with a logarithm expression, a distribution, or an L-value. -/
+noncomputable section
+namespace DirichletPadic
+open scoped BigOperators
+open PowerSeries
+variable {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+variable {D : ℕ} [NeZero D]
+
+lemma tameCyclotomicLogArgument_norm (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hDK : ‖(D : K)‖=1) (u : (ZMod D)ˣ) :
+    ‖ε^(u : ZMod D).val-1‖=1 ∧
+      ‖ε^(u : ZMod D).val/(ε^(u : ZMod D).val-1)‖=1 := sorry
+
+lemma tameNormalizedLogPrimitive_coeff_norm_le (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (n : ℕ) (hn : 0<n) :
+    ‖coeff n (tameNormalizedLogPrimitive η ε hε)‖ ≤
+      ‖(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹‖*‖(n : K)‖⁻¹ := sorry
+
+lemma tameNormalizedLogPrimitive_coeff_polynomial_bound (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (b : ℕ) (hbound : ∀ n : ℕ, 0<n → ‖(n : K)‖⁻¹≤(n : ℝ)^b)
+    (n : ℕ) (hn : 0<n) :
+    ‖coeff n (tameNormalizedLogPrimitive η ε hε)‖ ≤
+      ‖(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹‖*(n : ℝ)^b := sorry
+
+theorem tameNormalizedLogPrimitive_isRestricted (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (b : ℕ) (hbound : ∀ n : ℕ, 0<n → ‖(n : K)‖⁻¹≤(n : ℝ)^b)
+    (r : ℝ) (hr : 0≤r) (hr1 : r<1) :
+    IsRestricted r (tameNormalizedLogPrimitive η ε hε) := sorry
+
+theorem tameLogPrimitive_isRestricted (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (b : ℕ) (hbound : ∀ n : ℕ, 0<n → ‖(n : K)‖⁻¹≤(n : ℝ)^b)
+    (ℓ : K → K) (r : ℝ) (hr : 0≤r) (hr1 : r<1) :
+    IsRestricted r (tameLogPrimitive η ε hε ℓ) := sorry
+
+theorem tameLogPrimitive_summable [CompleteSpace K] (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (b : ℕ) (hbound : ∀ n : ℕ, 0<n → ‖(n : K)‖⁻¹≤(n : ℝ)^b)
+    (ℓ : K → K) (t : K) (ht : ‖t‖<1) :
+    Summable (fun n : ℕ => coeff n (tameLogPrimitive η ε hε ℓ)*t^n) := sorry
+end DirichletPadic
+
+namespace SuggestedLogarithmicConvergenceTests
+open scoped BigOperators
+open DirichletPadic PowerSeries
+variable {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+variable {D : ℕ} [NeZero D]
+-- unit_residue_argument_norm
+example (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1) :
+    ‖ε-1‖=1 := sorry
+-- rescaling_preserves_open_disc
+example (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (u : (ZMod D)ˣ) (t : K) (ht : ‖t‖<1) :
+    ‖(ε^(u : ZMod D).val/(ε^(u : ZMod D).val-1))*t‖<1 := sorry
+-- first_coefficient_bound
+example (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hDK : ‖(D : K)‖=1) :
+    ‖coeff 1 (tameNormalizedLogPrimitive η ε hε)‖≤
+      ‖(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹‖ := sorry
+-- normalized_padic_linear_growth
+example (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hDK : ‖(D : K)‖=1) (hbound : ∀ n : ℕ, 0<n → ‖(n : K)‖⁻¹≤(n : ℝ))
+    (n : ℕ) (hn : 0<n) :
+    ‖coeff n (tameNormalizedLogPrimitive η ε hε)‖≤
+      ‖(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹‖*(n : ℝ) := sorry
+-- half_radius_restricted
+example (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hDK : ‖(D : K)‖=1) (b : ℕ) (hbound : ∀ n : ℕ, 0<n → ‖(n : K)‖⁻¹≤(n : ℝ)^b) :
+    IsRestricted (1/2) (tameNormalizedLogPrimitive η ε hε) := sorry
+-- arbitrary_constant_preserves_restrictedness
+example (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hDK : ‖(D : K)‖=1) (b : ℕ) (hbound : ∀ n : ℕ, 0<n → ‖(n : K)‖⁻¹≤(n : ℝ)^b)
+    (c : K) (r : ℝ) (hr : 0≤r) (hr1 : r<1) :
+    IsRestricted r (C c+tameNormalizedLogPrimitive η ε hε) := sorry
+-- zero_point_sum
+example [CompleteSpace K] (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    (∑' n : ℕ, coeff n (tameLogPrimitive η ε hε ℓ)*(0 : K)^n)=
+      cyclotomicLogConstant η ε hε ℓ := sorry
+end SuggestedLogarithmicConvergenceTests
 end
