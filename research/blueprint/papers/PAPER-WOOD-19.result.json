@@ -24,7 +24,8 @@
       "Inherited reading: Bhargava arXiv:1402.0031: Theorem 1.4 with context pp.3–4 and full proof §4.4 pp.23–25",
       "Inherited reading: Alberts JTNB32(3)(2020): Corollary 4.10 and Theorem 4.11 with proofs pp.656–657; original Lemmermeyer/Goldfeld–Hoffstein inputs remain prerequisites",
       "Inherited reading: 22 September continuation: Wood19 §§4.1–4.4 including complete Propositions4.1,4.4 and Theorems4.7,4.8 proofs; Theorem1.2 and Conjecture5.1; EVW12 §§8.6.2–8.7.3; Wood21 Theorem2.5 proof. Full previous reading is retained above.",
-      "Inherited reading: Seguin Fields of Definition of Components of Hurwitz Spaces, author PDF SHA256 bd2084d9af14256e1bbca39d085ebcb73d7a0f191d1d13b68e16e2059484712c: §§1–2, §§3.1–3.2, §6, with all displayed proofs there. Supplementary selected reading only, not a full-paper read; §4, §5 and original Cau/Seg24 proofs remain unread."
+      "Inherited reading: Seguin Fields of Definition of Components of Hurwitz Spaces, author PDF SHA256 bd2084d9af14256e1bbca39d085ebcb73d7a0f191d1d13b68e16e2059484712c: §§1–2, §§3.1–3.2, §6, with all displayed proofs there. Supplementary selected reading only, not a full-paper read; §4, §5 and original Cau/Seg24 proofs remain unread.",
+      "2026-09-30, Codex codex-rtOQ9t, FIX-RT-PAPER-WOOD-19: freshly fetched matching published PDF, reread Definition 3.1 (p.388) and conjecture context pp.410–411, and checked first/last content pagination plus blank final PDF page. Reread Seguin pp.4–9, 23 and bibliography p.25 from the matching author PDF. No new complete reading of either paper or new read of lifting.pdf; its sourceVersions entry normalizes historical evidence."
     ],
     "previousSourceRecord": {
       "title": "Nonabelian Cohen–Lenstra moments",
@@ -5228,12 +5229,27 @@
       "id": "PAPER-WOOD-19/298",
       "kind": "definition",
       "name": "Refined conjecture, generator form (corrected Conjecture 5.1)",
-      "statement": "Let Q be ℚ or F_q(t), G finite, G′≤G≀S₂ admissible and good, c the order-two elements of G′ outside ker π, L=Q(μ_{4|G̃′_c|}), and u a generator of μ_L. For every h∈H₂(G′,c)[|μ_Q|], the averages over tame imaginary (resp. real) quadratic K of #{ρ∈Sur(G_K^{un,∞},G) of type G′ with I_{G′,π,Q}(ρ,u)=h} (resp. of pairs (ρ,y) of type G′ with I((ρ,y),u)=h) tend to 1 as the discriminant bound X→∞. Equivalently, by /299, one may stratify by the Hom-valued invariant μ_L→H₂(G′,c)[|μ_Q|], u′↦I(ρ,u′).",
+      "statement": "Let Q be ℚ or F_q(t), G finite, G′≤G≀S₂ admissible and good, with char(Q)=0 or char(Q) not dividing |G′| (equivalently gcd(q,|G′|)=1 when Q=F_q(t)), c the order-two elements of G′ outside ker π, L=Q(μ_{4|G̃′_c|}), and u a generator of μ_L. For every h∈H₂(G′,c)[|μ_Q|], the averages over tame imaginary (resp. real) quadratic K of #{ρ∈Sur(G_K^{un,∞},G) of type G′ with I_{G′,π,Q}(ρ,u)=h} (resp. of pairs (ρ,y) of type G′ with I((ρ,y),u)=h) tend to 1 as the discriminant bound X→∞. Equivalently, by /299, one may stratify by the Hom-valued invariant μ_L→H₂(G′,c)[|μ_Q|], u′↦I(ρ,u′).",
       "locator": "Conjecture 5.1, p.26, corrected (the printed version allows any u∈μ_L)",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "A proposition being conjectured, not a theorem. It is the extraction's correction of /99, recorded in research/blueprint/errata/PAPER-WOOD-19.json (E7). It is not Wood's printed statement. It matches Theorem 4.8, where the function-field component invariants are evaluated at u_q∈Ẑ(1)^×, a generator. API: the conjecture as a Prop with G, G′, Q, u and h explicit; a test that for u=1 the printed variant /99 fails, via /144; a test that the generator choice does not change the family of counts, via /299."
+      "note": "A proposition being conjectured, not a theorem. It is the extraction's correction of /99, recorded in research/blueprint/errata/PAPER-WOOD-19.json (E7). It is not Wood's printed statement. It matches Theorem 4.8, where the function-field component invariants are evaluated at u_q∈Ẑ(1)^×, a generator. API: the conjecture as a Prop with G, G′, Q, u and h explicit; a test that for u=1 the printed variant /99 fails, via /144; a test that the generator choice does not change the family of counts, via /299. Form this conjectural Prop only in the global lifting-invariant context /34, with its prime-to-characteristic group-order hypothesis; tameness alone does not imply it. For G′=S3, F3(t) fails this domain check and F5(t) passes it. Passing the input check is not evidence for the conjectured limit.",
+      "prerequisites": [
+        "PAPER-WOOD-19/34"
+      ],
+      "unitTests": [
+        {
+          "name": "refinedConjecture_domain_F3_S3",
+          "kind": "negative",
+          "statement": "The function-field input F3(t), G′=S3 has gcd(3,6)=3 and is rejected before forming the lifting-invariant conjecture."
+        },
+        {
+          "name": "refinedConjecture_domain_F5_S3",
+          "kind": "example",
+          "statement": "The input F5(t), G′=S3 satisfies gcd(5,6)=1; this checks only the characteristic domain, while the other input data and the conjectural assertion remain separate."
+        }
+      ]
     },
     {
       "id": "PAPER-WOOD-19/299",
@@ -5525,7 +5541,7 @@
       "locator": "Seguin, Fields of Definition of Components of Hurwitz Spaces, §§2.2.3–2.3.3",
       "status": "missing",
       "prerequisites": [
-        "PAPER-WOOD-19/77",
+        "PAPER-WOOD-19/345",
         "PAPER-WOOD-19/255"
       ],
       "proofSteps": [
@@ -5533,7 +5549,7 @@
         "Use braid-invariance of concatenation and the product-one block interchange.",
         "Identify geometric components through the marked moduli scheme; do not assume Galois acts by monoid automorphisms."
       ],
-      "note": "This source uses an unramified marked point at infinity, unlike Wood's imaginary ramified-infinity locus."
+      "note": "This source uses an unramified marked point at infinity, unlike Wood's imaginary ramified-infinity locus. Its geometry, component comparison and continuous exact-subgroup-preserving action are supplied by /345 for arbitrary finite F, including proper-monodromy components and identity entries. The narrower /77 construction is not a prerequisite."
     },
     {
       "id": "PAPER-WOOD-19/316",
@@ -5543,6 +5559,7 @@
       "locator": "Seguin Theorem3.3(ii),(iii), binary nested-subgroup specialization",
       "status": "missing",
       "prerequisites": [
+        "PAPER-WOOD-19/345",
         "PAPER-WOOD-19/315"
       ],
       "proofSteps": [
@@ -5550,7 +5567,7 @@
         "Theorem3.3(i) identifies the monodromy-preserving conjugate-gluing set with the singleton {xy}.",
         "Cau's Galois-equivariance theorem for that set gives (ii); take fixed points for (iii)."
       ],
-      "note": "Seguin's complete proof was read; the original Cau2012 Theorem3.2 proof remains an explicit prerequisite, not a closed source dependency."
+      "note": "Seguin's complete proof was read; the original Cau2012 Theorem3.2 proof remains an explicit prerequisite, not a closed source dependency. Use /345 for the marked possibly disconnected geometric component/action interface; retain every exact monodromy subgroup, including the proper cyclic groups of the removed power blocks."
     },
     {
       "id": "PAPER-WOOD-19/317",
@@ -5560,6 +5577,7 @@
       "locator": "Seguin Proposition6.1 and its full preceding proof",
       "status": "missing",
       "prerequisites": [
+        "PAPER-WOOD-19/345",
         "PAPER-WOOD-19/315",
         "PAPER-WOOD-19/316"
       ],
@@ -5568,7 +5586,7 @@
         "Braid ord(g) copies into a product-one block while retaining one copy in the remainder, preserving its generated subgroup.",
         "Apply /316 and the abelian branch-cycle computation to the block, and iterate until the remainder has bounded degree."
       ],
-      "note": "Characteristic-zero result; no comparison with all finite-field Frobenius actions is asserted."
+      "note": "Characteristic-zero result; no comparison with all finite-field Frobenius actions is asserted. Use /345 for the marked possibly disconnected geometric component/action interface; retain every exact monodromy subgroup, including the proper cyclic groups of the removed power blocks."
     },
     {
       "id": "PAPER-WOOD-19/318",
@@ -5578,6 +5596,7 @@
       "locator": "Derived corollary of Seguin Proposition6.1",
       "status": "missing",
       "prerequisites": [
+        "PAPER-WOOD-19/345",
         "PAPER-WOOD-19/315",
         "PAPER-WOOD-19/317"
       ],
@@ -5586,7 +5605,7 @@
         "An element in the joint kernel fixes the bounded core and all power blocks in /317.",
         "Intersect the kernels to obtain a finite quotient; this does not show the quotient or its action is trivial."
       ],
-      "note": "Turning this quotient into a finite-field Frobenius computation requires the integral moduli/specialization comparison and actual small-component Galois action. No claim that the action depends only on q modulo exp(F)."
+      "note": "Turning this quotient into a finite-field Frobenius computation requires the integral moduli/specialization comparison and actual small-component Galois action. No claim that the action depends only on q modulo exp(F). Use /345 for the marked possibly disconnected geometric component/action interface; retain every exact monodromy subgroup, including the proper cyclic groups of the removed power blocks."
     },
     {
       "id": "PAPER-WOOD-19/319",
@@ -5596,6 +5615,7 @@
       "locator": "Derived restriction of Seguin Proposition6.1 and Corollary2.13(iii)",
       "status": "missing",
       "prerequisites": [
+        "PAPER-WOOD-19/345",
         "PAPER-WOOD-19/317",
         "PAPER-WOOD-19/318"
       ],
@@ -5604,7 +5624,7 @@
         "Cyclotomic powers fix every involution, so only the bounded core contributes Galois variation.",
         "Retaining one occurrence of each removed generator ensures full monodromy is preserved."
       ],
-      "note": "This addresses a characteristic-zero real/product-one candidate only. Appending Wood's imaginary boundary involution introduces a distinguished branch point, so applying the unrestricted product-one braid quotient would lose data."
+      "note": "This addresses a characteristic-zero real/product-one candidate only. Appending Wood's imaginary boundary involution introduces a distinguished branch point, so applying the unrestricted product-one braid quotient would lose data. Use /345 for the marked possibly disconnected geometric component/action interface; retain every exact monodromy subgroup, including the proper cyclic groups of the removed power blocks."
     },
     {
       "id": "PAPER-WOOD-19/320",
@@ -6528,6 +6548,93 @@
           "why": "Consumes the stated carrier and compatibility API."
         }
       ]
+    },
+    {
+      "id": "PAPER-WOOD-19/345",
+      "kind": "construction",
+      "name": "Marked possibly disconnected finite-group cover moduli and arithmetic components",
+      "statement": "For every finite constant group F and n >= 0, construct over Q the Hurwitz moduli scheme H*(F,n) of marked, possibly disconnected F-covers of P1, unramified above infinity, with a listed unordered divisor D of n distinct finite punctures and unramified outside D. Trivial monodromy at listed punctures is allowed: D need not be the exact ramification locus. In a family the cover is finite flat of degree |F| with smooth proper relative source, the F-action is simply transitive on each geometric unramified fiber, and the marking is a section over infinity; isomorphisms preserve the action and marking. The branch/puncture map to Conf_n is étale and its geometric fibers classify all marked covers with that configuration. Its complex analytification is the corresponding topological Hurwitz cover. Geometrically irreducible components are identified with B_n-orbits of all product-one tuples in F^n, without a generation requirement and without an additional simultaneous-conjugacy quotient. The subgroup generated by a tuple is the exact monodromy subgroup H <= F. Base change gives a continuous Gal(Qbar/Q)-action on the finite set of components in each degree, preserving that exact subgroup and the degree. No compatibility of this action with arbitrary concatenation is asserted.",
+      "locator": "Seguin, Fields of Definition of Components of Hurwitz Spaces, §§2.2.2–2.2.6 and §§2.3.1–2.3.3, pp.4–9; existence cited there from Emsalem (1995), Théorème 3, with Kanev (2024a,b) alternatives",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/76",
+        "PAPER-WOOD-19/255",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "proofSteps": [
+        "Use the existing configuration-space carrier /76 and the branch-cycle/fundamental-group foundations from IG.3 and IG.1. Define the relative pointed F-cover moduli problem, retaining proper monodromy subgroups and trivially ramified punctures.",
+        "Import the moduli/descent infrastructure from R09.4. Supply the marked-cover representability and étale branch-map theorem of the cited construction; marking is part of this theorem, not a license to apply /77 after deleting its hypotheses.",
+        "Use the based Riemann-existence comparison from IG.3: marked covers correspond to all homomorphisms from the punctured-sphere fundamental group to F. Unramified infinity imposes product one. Connectedness is equivalent to the image being F and is not assumed.",
+        "Transport the existing braid action /255 through the analytic comparison, proving the component bijection. Preserve exact generated subgroups; do not quotient them by conjugacy. Only the underlying braid-orbit construction is imported here (with c=F); the stable cancellation and localization conclusions of /255 are not assumptions of this comparison.",
+        "Use the arithmetic fundamental-group section at the rational unramified point infinity from IG.1. Galois precomposition preserves the exact image of a homomorphism. Descend this action through the component comparison, and prove open stabilizers from the finite-type Q-model of each fixed-degree component set."
+      ],
+      "api": [
+        {
+          "name": "markedFCoverModuli",
+          "role": "constructor",
+          "statement": "The moduli functor includes the finite puncture divisor, F-action, unramified marked section at infinity, and possibly disconnected relative source; source connectedness is an optional locus."
+        },
+        {
+          "name": "markedFCoverModuli_baseChange",
+          "role": "functoriality",
+          "statement": "Pullback preserves the marking, F-action, puncture divisor and unramifiedness; identity and composite base changes agree up to the canonical comparison."
+        },
+        {
+          "name": "markedFCoverModuli_points",
+          "role": "characterisation",
+          "statement": "For a characteristic-zero field K over Q, K-points classify marked K-F-covers with the listed punctures and K-rational point over infinity, up to marking-preserving F-equivariant isomorphism."
+        },
+        {
+          "name": "markedHurwitz_componentEquiv",
+          "role": "comparison",
+          "statement": "For each n, geometric components correspond to braid orbits of all product-one F-tuples; no connectedness or conjugacy quotient is silently added."
+        },
+        {
+          "name": "markedHurwitz_monodromy",
+          "role": "downstream",
+          "statement": "Each component has an exact subgroup of F; under the orbit comparison it is generated by the entries and equals F exactly on the geometrically connected-cover locus."
+        },
+        {
+          "name": "markedHurwitz_componentGalois",
+          "role": "naturality",
+          "statement": "The continuous fixed-degree Galois permutation action preserves exact monodromy subgroups and agrees with the action induced by the based arithmetic fundamental group. Concatenation equivariance requires /316’s additional hypotheses."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "markedHurwitz_empty_tuple",
+          "kind": "edge",
+          "statement": "At n=0 the empty tuple has product one and trivial monodromy, representing the marked trivial F-cover even for nontrivial F."
+        },
+        {
+          "name": "markedHurwitz_dummy_puncture",
+          "kind": "edge",
+          "statement": "At n=1 the tuple (1) is permitted, with a listed puncture but no actual ramification."
+        },
+        {
+          "name": "markedHurwitz_central_group",
+          "kind": "negative",
+          "statement": "F=C2 is allowed despite its nontrivial center; for its nontrivial g, (g,g) is a product-one component. A centerlessness precondition rejects this valid input."
+        },
+        {
+          "name": "markedHurwitz_proper_monodromy",
+          "kind": "example",
+          "statement": "Inside S3 the tuple ((12),(12)) has exact monodromy the proper subgroup generated by (12); keep it for /317’s power block."
+        },
+        {
+          "name": "markedHurwitz_no_conjugacy_quotient",
+          "kind": "negative",
+          "statement": "The S3 tuples ((12),(12)) and ((13),(13)) have different exact monodromy subgroups and separate B2-orbits. Do not identify them merely because their subgroups are conjugate."
+        },
+        {
+          "name": "markedHurwitz_galois_stabilizer",
+          "kind": "compatibility",
+          "statement": "Every fixed-degree component has an open Galois stabilizer and its exact subgroup remains unchanged under Galois. No test may assume equivariance of arbitrary concatenation."
+        }
+      ],
+      "note": "The single owner is InverseGaloisAndArithmeticFundamentalGroups:IG.5. This is the missing geometric supplier for /315–319, not a second braid theory or a second roadmap. /77 retains Wood’s centerless involution-generated construction and is not used as this supplier. Seguin’s cited construction contract and component/Galois comparison were read in §§2.2–2.3; Emsalem Théorème 3 and the two Kanev original proofs have not been read in this fix, so they are explicitly recorded prerequisite sources for the IG.5 blueprint. The current IG.5 packet coverage is not_read; deliver this contract and its API/tests to blueprint issue #1013. This characteristic-zero construction does not close finite-field specialization or Wood’s ramified-infinity comparison, and does not solve the existing G1/G2 gaps."
     }
   ],
   "prerequisites": [
@@ -6600,6 +6707,21 @@
       "citation": "Cau, 2012, Théorème3.2 (Galois action on degeneration-component sets), as cited in Seguin §3.1",
       "link": "https://beranger-seguin.fr/assets/pdf/articles/fielddef.pdf",
       "why": "Seguin Theorem3.3 imports this equivariance theorem; its source statement was read in Seguin, but the original proof was not obtained or read. Preserve this closure debt under IG.5 before treating /316–319 as source-closed."
+    },
+    {
+      "citation": "Michel Emsalem, Familles de revêtements de la droite projective, Bulletin de la Société Mathématique de France 123(1) (1995), 47–85, Théorème 3",
+      "link": "https://doi.org/10.24033/bsmf.2250",
+      "why": "Construction source for /345, cited through Seguin §2.2.6 and bibliography (pp.7,25). The citation and claimed marked-cover scope were read there on 2026-09-30; this original paper and its proof have not been read in this fix. IG.5 must verify the exact family/marking/disconnected-cover scope and prove the adapters using IG.3, IG.1 and R09.4. This is honest source debt, not library availability or a closed proof."
+    },
+    {
+      "citation": "Vassil Kanev, Hurwitz moduli varieties parameterizing Galois covers of an algebraic curve, Serdica Mathematical Journal 50(1) (2024), 47–102",
+      "link": "https://doi.org/10.55630/serdica.2024.50.47-102",
+      "why": "Construction source for /345, cited through Seguin §2.2.6 and bibliography (pp.7,25). The citation and claimed marked-cover scope were read there on 2026-09-30; this original paper and its proof have not been read in this fix. IG.5 must verify the exact family/marking/disconnected-cover scope and prove the adapters using IG.3, IG.1 and R09.4. This is honest source debt, not library availability or a closed proof."
+    },
+    {
+      "citation": "Vassil Kanev, Hurwitz moduli varieties parameterizing pointed covers of an algebraic curve with a fixed monodromy group (2024)",
+      "link": "https://arxiv.org/abs/2403.12756",
+      "why": "Construction source for /345, cited through Seguin §2.2.6 and bibliography (pp.7,25). The citation and claimed marked-cover scope were read there on 2026-09-30; this original paper and its proof have not been read in this fix. IG.5 must verify the exact family/marking/disconnected-cover scope and prove the adapters using IG.3, IG.1 and R09.4. This is honest source debt, not library availability or a closed proof."
     }
   ],
   "routes": [
@@ -6791,7 +6913,7 @@
         "PAPER-WOOD-19/326",
         "PAPER-WOOD-19/341"
       ],
-      "reason": "ST.3 explicitly owns field counts and class-group moments by discriminant/signature with fixed groups and automorphism weights. Add Wood as a concrete source, retaining conjectures, source-reported finite computations and empirical data as such. Import ordinary class fields and the reduced-multiplier supplier; do not construct them privately. The refined Conjecture 5.1 is carried in corrected generator form /298, with its justification /299. The literal printed statement /99 is carried only as the target of its refutation /144, which is routed to IG.4. The quotient-graph finite enumeration /321–323 imports existing Mathlib Goursat /320; diagonal transport /325 and good-type abstract invariance /326 support the existing finite table carrier."
+      "reason": "ST.3 explicitly owns field counts and class-group moments by discriminant/signature with fixed groups and automorphism weights. Add Wood as a concrete source, retaining conjectures, source-reported finite computations and empirical data as such. Import ordinary class fields and the reduced-multiplier supplier; do not construct them privately. The refined Conjecture 5.1 is carried in corrected generator form /298, with its justification /299. The literal printed statement /99 is carried only as the target of its refutation /144, which is routed to IG.4. The quotient-graph finite enumeration /321–323 imports existing Mathlib Goursat /320; diagonal transport /325 and good-type abstract invariance /326 support the existing finite table carrier. The /298 conjectural API imports /34: char(Q)=0 or char(Q) does not divide |G′|, hence gcd(q,|G′|)=1 over F_q(t). The generator condition and unproved conjectural status are retained."
     },
     {
       "route": "source",
@@ -6910,9 +7032,10 @@
         "PAPER-WOOD-19/316",
         "PAPER-WOOD-19/317",
         "PAPER-WOOD-19/318",
-        "PAPER-WOOD-19/319"
+        "PAPER-WOOD-19/319",
+        "PAPER-WOOD-19/345"
       ],
-      "reason": "IG.5 explicitly owns Hurwitz moduli, Nielsen/braid components and tame reduction. Add the centerless marked scheme, component classification and the fixed-degree uniform point estimate. Reuse AlgebraicModuliForArithmeticGeometry for representability and the canonical étale/weight suppliers. The exact EVW16 nonproper comparison has been read; coefficient-tower and invariant-descent adapters remain explicit inputs."
+      "reason": "IG.5 explicitly owns Hurwitz moduli, Nielsen/braid components and tame reduction. Add the centerless marked scheme, component classification and the fixed-degree uniform point estimate. Reuse AlgebraicModuliForArithmeticGeometry for representability and the canonical étale/weight suppliers. The exact EVW16 nonproper comparison has been read; coefficient-tower and invariant-descent adapters remain explicit inputs. Item /345 is the separate arbitrary-finite-group marked, possibly disconnected, unramified-infinity supplier needed by /315–319; it permits identity punctures and preserves exact monodromy subgroups. It imports IG.3 branch-cycle/comparison and IG.1 arithmetic fundamental groups plus R09.4 moduli/descent foundations. The original Emsalem/Kanev construction proofs are explicit source obligations for blueprint #1013, not newly certified proofs. /77 remains limited to Wood’s centerless involution-generated setting."
     },
     {
       "route": "part-ii",
@@ -7056,6 +7179,13 @@
       "session": "codex-c83e7a",
       "date": "2026-09-23",
       "scope": "Partial continuation of PR2037: preserves326 earlier items and all ten unreviewed source issues; imports the existing elementary two-quotient, transport, rank-nullity and finite-cardinality and abelianization APIs; derives affine parity kernels and a weight-enumerator formula for the stable orthant; computes actual reduced-cover parities for95 embedded candidates. No nonzero compatible obstruction was found in that scope. The whole-profile/boundary Galois limit and original-source debts remain open."
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-rtOQ9t",
+      "date": "2026-09-30",
+      "issue": 5137,
+      "work": "Fixed confirmed RT findings: restored /34 characteristic context in /298; added /345 general marked disconnected-cover supplier and rewired /315–319; corrected report pagination/pin metadata; normalized historical sourceVersions without replacing sourceIssues, previousSourceRecord or failed-fetch history. Blueprint construction/source-proof work is handed to existing IG.5 owner, issue #1013."
     }
   ],
   "continuationApi": [
@@ -20016,5 +20146,28 @@
     "status": "complete",
     "reading": "Published PDF re-fetched (hash matches); Theorems 1.2 and 4.8 with the proof on pp.406–409 re-read; every numbered statement (Duke small-caps headings) checked against the items.",
     "changes": "E1 rechecked; E7 and E9 reclassified to affect nothing; a gaps list added (G1 recorded, G2 deferred); status complete."
-  }
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://par.nsf.gov/servlets/purl/10152050",
+      "read": "2026-09-23",
+      "sha256": "154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d",
+      "citation": "Wood, Duke Math. J. 168(3) (2019), 377–427. Historical 2026-09-23 complete read and targeted collation recorded in source; fresh 2026-09-30 targeted reread is separately recorded in readSections."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1702.04644v2",
+      "read": "2026-09-22",
+      "sha256": "2eacf07f9c79a08a65bbfa332b964f0f9bd4ab5abb93e5db8be72e43669be1bd",
+      "citation": "arXiv:1702.04644v2. Historical full reread 2026-09-21 and targeted reread 2026-09-22, as distinguished by previousSourceRecord; no invented full sentence-level journal collation. Earlier failed NSF/Euclid fetches remain recorded there."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf",
+      "read": "2026-09-22",
+      "sha256": "9628210e96313805ceac89594c64e2eceb3aaebf044f617cee4d7f25ee7ef673",
+      "citation": "Companion paper: Wood, An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland (2021), 13-page author copy, the text used for E9/E10. Report records retrieval on 2026-09-21, an inherited full read, and a targeted proof/visual reread on 2026-09-22. This is not a version of the 2019 article and is not claimed collated against the companion journal publication."
+    }
+  ]
 }
