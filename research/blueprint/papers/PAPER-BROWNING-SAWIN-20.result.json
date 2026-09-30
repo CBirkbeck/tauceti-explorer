@@ -34,7 +34,7 @@
     },
     "continuationBase": "b703145bad0af63e582bb69039745e37d047a1da"
   },
-  "summary": "Browning and Sawin develop a geometric version of the Hardy–Littlewood circle method over F_q(T), with ℓ-adic analogues of the major and minor arcs, to control the compactly supported cohomology of spaces of rational curves on smooth hypersurfaces of low degree. They deduce that these spaces are irreducible of the expected dimension, and compare their Betti numbers with those of spaces of maps into the complex hypersurface. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and twenty-eight findings are recorded. The minor-arc bound behind Proposition 2.6 and its corollaries needs a repaired range (E1–E3), and Lemma 7.2 is false with the compact-open topology (E28). Not formalised. After the review (REV-PAPER-BROWNING-SAWIN-20) there are 149 items (11 library, 11 planned, 127 missing) and 46 source issues; every locator now gives the published version. The review confirmed the extraction's corrections and repairs, including its topology analysis showing that Lemma 7.2 fails for the compact-open reading of the germ space (so Conjecture 7.1 also fails there at j = 1).",
+  "summary": "Browning–Sawin develops a geometric function-field circle method for mapping-space compact-support cohomology. Complete extraction, not formalisation: 157 items (14 library,14 planned,129 missing), every missing item routed once. All 149 previous IDs remain. The FA.5 all-monic Euler product and FF.2 Lang–Weil/dimension contracts are imports; the topology consumer keeps only weighted formal adapters and configuration/cycle comparisons. Universal hypersurface O/Sp monodromy includes characteristic2, with its cubic-surface exception. Independent early geometry/counting/prime-choice prefixes feed ES.0 and late ES.5 without a backward dependency. All twelve confirmed red-team findings are repaired; rejected finding12 is unchanged. There are 46 active source findings: 45 retain recorded independent confirmation; E47 awaits review; duplicate E46 is archived under E35. The conservative minor-arc repairs E1–E3 and compact-open obstruction E28 remain; this fix does not certify sharp gates or cited supplier proof closure.",
   "conventions": {
     "geometry": "K a field; n≥2, k≥3; f∈K[x1,…,xn] has degree k, X={f=0} smooth affine, and its leading form f0 defines a smooth projective hypersurface Z⊂P^{n−1}. Fix a NONZERO vector x∈K^n with f0(x)=0, representing P∈Z. A chosen representative, not only the projective class, fixes the leading coefficients.",
     "ranges": "D=d(n−k), L=kd, K0=k−1, t=floor(d/K0), δ=n/2^k−k+1. Main range d≥K0≥2 and δ>0. Integer cohomological indices; thresholds are rational strict inequalities. Acyclic cohomological degree and dimension of an empty differencing locus are −∞, with extended arithmetic.",
@@ -71,14 +71,15 @@
       "status": "missing",
       "owner": "GCM",
       "dependsOn": [
-        "PAPER-BROWNING-SAWIN-20/mapping"
+        "PAPER-BROWNING-SAWIN-20/mapping",
+        "PAPER-BROWNING-SAWIN-20/rev-affine-dimension-theorem-for-intersections"
       ]
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/configuration",
       "kind": "definition",
       "name": "Ordered and unordered configurations of the affine line",
-      "statement": "PConf_m={ (a_1,…,a_m)∈A^m : a_i≠a_j for i≠j }; its S_m quotient is Conf_m, the open space of squarefree monic degree-m polynomials. The quotient map is a finite étale S_m-torsor, including m=0 as a point.",
+      "statement": "PConf_m over Z is the open complement of all pairwise diagonals in A^m; on A-valued points require a_i−a_j∈A×. Its S_m quotient is Conf_m, the open scheme of monic degree-m polynomials with invertible discriminant. The roots-to-coefficients map is a finite étale constant-S_m torsor, including m=0 as a point, and commutes with base change. Over a field this is the usual squarefree-polynomial model.",
       "locator": "§1, p.894; §3, proof of Lemma 3.9, p.919 (arXiv v3: p.2; p.24)",
       "status": "missing",
       "owner": "TOP",
@@ -91,9 +92,8 @@
         "PConf_0=Spec K, PConf_1=A1",
         "char K dividing m! does not prevent the constant S_m torsor from being étale"
       ],
-      "dependsOn": [
-        "PAPER-BROWNING-SAWIN-20/ordinarytopology"
-      ]
+      "dependsOn": [],
+      "note": "The algebraic prefix is supplied once by the pending ConfigurationSpacesAndRationalLoops design, using scheme/finite-quotient foundations. Ordinary topology is an input to its separate comparison interface, not to constructing the algebraic open/torsor. EVW/Wood retain their compactification and braid/basepoint work."
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/hypersurfmiddle",
@@ -155,7 +155,14 @@
         "PAPER-BROWNING-SAWIN-20/libchar",
         "PAPER-BROWNING-SAWIN-20/sixoperations"
       ],
-      "note": "Review (REV-PAPER-BROWNING-SAWIN-20): statement corrected against the paper: The paper takes ψ to be any non-trivial additive character of F_q (p.900: 'let ψ be a non-trivial additive character of F_q'; p.901: L_ψ 'associated to the character ψ on F_q'), not only a character of F_p. The item's construction along u ↦ u^p − u only produces the sheaves of characters of F_p (i.e. ψ0∘Tr). Harmless, since every ψ is x ↦ ψ0(Tr(ax)) and then L_ψ = [x↦ax]^*L_{ψ0∘Tr}, but the definition should say so or use the Lang torsor u ↦ u^q − u. Review note: Owner FF (source route to FiniteFieldsAndCharacterSums:FF.2) is reasonable; no atlas stage constructs L_ψ explicitly."
+      "note": "Import the field-valued construction and tensor/dual/base-change identities from FiniteFieldsAndCharacterSums:FF.2/artin-schreier-sheaf. That node fixes a finite extension E/Q_ℓ containing μ_p and uses ψ⁻¹ on the Lang torsor for geometric-Frobenius trace ψ(Tr(x)); match this convention. It does not cover every characteristic-zero E or all torsion/integral coefficients. This composite item retains its broader coefficient/API obligations.",
+      "noteHistory": [
+        {
+          "note": "Review (REV-PAPER-BROWNING-SAWIN-20): statement corrected against the paper: The paper takes ψ to be any non-trivial additive character of F_q (p.900: 'let ψ be a non-trivial additive character of F_q'; p.901: L_ψ 'associated to the character ψ on F_q'), not only a character of F_p. The item's construction along u ↦ u^p − u only produces the sheaves of characters of F_p (i.e. ψ0∘Tr). Harmless, since every ψ is x ↦ ψ0(Tr(ax)) and then L_ψ = [x↦ax]^*L_{ψ0∘Tr}, but the definition should say so or use the Lang torsor u ↦ u^q − u. Review note: Owner FF (source route to FiniteFieldsAndCharacterSums:FF.2) is reasonable; no atlas stage constructs L_ψ explicitly.",
+          "supersededBy": "FIX-RT-PAPER-BROWNING-SAWIN-20",
+          "date": "2026-09-30"
+        }
+      ]
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/fouriercomplex",
@@ -590,14 +597,21 @@
       "id": "PAPER-BROWNING-SAWIN-20/universalmonodromy",
       "kind": "theorem",
       "name": "Full universal hypersurface monodromy",
-      "statement": "Let k ≥ 3, r ≥ 2 and let p = char of the base field satisfy p ≠ ℓ and p odd (p > k suffices for the paper), with (r−1, k) ≠ (2, 3). Over the parameter space H_{r,k} of smooth degree-k hypersurfaces in P^r, the geometric (Zariski) monodromy group of Prim_{r,k} is Sp_N if r−1 is odd and the full orthogonal group O_N if r−1 is even (N = rank Prim_{r,k}) [Katz–Sarnak, Th. 11.4.9]. For k = 2 the primitive part has rank 0 or 1 and is treated directly.",
+      "statement": "Let k ≥ 3, r ≥ 2 and let p = char of the base field satisfy p ≠ ℓ, including p=2 and the characteristic-zero fibre, with (r−1, k) ≠ (2, 3). Over the parameter space H_{r,k} of smooth degree-k hypersurfaces in P^r, the geometric (Zariski) monodromy group of Prim_{r,k} is Sp_N if r−1 is odd and the full orthogonal group O_N if r−1 is even (N = rank Prim_{r,k}) [Katz–Sarnak, Th. 11.4.9]. For k = 2 the primitive part has rank 0 or 1 and is treated directly.",
       "locator": "§4, proof of Lemma 4.3, p.924, citing [17, Th. 11.4.9] (arXiv v3: p.29)",
       "status": "missing",
       "owner": "MON",
       "dependsOn": [
         "PAPER-BROWNING-SAWIN-20/primitive"
       ],
-      "note": "Review (REV-PAPER-BROWNING-SAWIN-20): statement corrected against the paper: 'Over every geometric characteristic ≠ ℓ' claims more than the paper uses or checks: Lemma 4.3 is applied only under the standing hypothesis p > k ≥ 3 (so p odd). The characteristic hypotheses of Katz–Sarnak 11.4.9, in particular p = 2 for even-dimensional hypersurfaces, must be read before the item is stated for all p ≠ ℓ. Review note: Missing is right: LefschetzPencilsAndVanishingCycles:LPV.5 proves only the odd-dimensional symplectic open image for a pencil, not the universal O/Sp statement."
+      "note": "Fresh matching-hash Katz–Sarnak author PDF, printed p.334 (PDF p.343) and its image, read 2026-09-30: Theorem 11.4.9 is on every geometric fibre over Z[1/ℓ]; there is no odd-characteristic condition. The full proof uses a sufficiently general Lefschetz pencil and Weil II 4.4.1; the even-dimensional finite-monodromy exclusion has n(d−2)≥4, including equality. Here hypersurface dimension is n=r−1, not ambient r. The circle-method application still assumes p>k; the cubic-surface exception is retained. This is source verification, not closure of all cited subsidiary proofs.",
+      "noteHistory": [
+        {
+          "note": "Review (REV-PAPER-BROWNING-SAWIN-20): statement corrected against the paper: 'Over every geometric characteristic ≠ ℓ' claims more than the paper uses or checks: Lemma 4.3 is applied only under the standing hypothesis p > k ≥ 3 (so p odd). The characteristic hypotheses of Katz–Sarnak 11.4.9, in particular p = 2 for even-dimensional hypersurfaces, must be read before the item is stated for all p ≠ ℓ. Review note: Missing is right: LefschetzPencilsAndVanishingCycles:LPV.5 proves only the odd-dimensional symplectic open image for a pencil, not the universal O/Sp statement.",
+          "supersededBy": "FIX-RT-PAPER-BROWNING-SAWIN-20",
+          "date": "2026-09-30"
+        }
+      ]
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/fundamentalsurject",
@@ -806,25 +820,45 @@
       "id": "PAPER-BROWNING-SAWIN-20/extensiondimension",
       "kind": "theorem",
       "name": "All-extension point bounds detect dimension",
-      "statement": "Let V be finite type over F_q. If one constant C satisfies #V(F_{q^r})≤C q^{rD} for every r≥1, then dim V≤D. Apply Lang–Weil on an irreducible component after its finite field of definition; a bound only over F_q is insufficient.",
+      "statement": "Let V be separated and finite type over F_q. If one constant C satisfies #V(F_{q^r})≤C q^{rD} for every r≥1, then dim V≤D. Apply Lang–Weil on an irreducible component after its finite field of definition; a bound only over F_q is insufficient.",
       "locator": "§5, Lemma 5.6 and proof, p. 932 (arXiv v3: p. 36)",
-      "status": "missing",
+      "status": "planned",
       "owner": "FF",
       "dependsOn": [
         "PAPER-BROWNING-SAWIN-20/langweil"
       ],
-      "note": "Review note: Missing; routed to FF.2 (source). The item generalises Lemma 5.6 (stated for V(G)) to any V of finite type over F_q. The generalisation is true and is exactly what the printed proof uses: a top-dimensional geometrically irreducible component is defined over some F_{q^{r0}}, and Lang–Weil over F_{q^{r0 r}} gives q^{r0 r·dim}(1+o(1)) ≤ C q^{r0 r D}."
+      "note": "Exact supplier FiniteFieldsAndCharacterSums:FF.2/dimension-from-point-counts. This is planned blueprint coverage, not library implementation. The paper’s V(G) is affine. A nonseparated generalisation would need a separate adapter.",
+      "planned": [
+        "FiniteFieldsAndCharacterSums:FF.2"
+      ],
+      "noteHistory": [
+        {
+          "note": "Review note: Missing; routed to FF.2 (source). The item generalises Lemma 5.6 (stated for V(G)) to any V of finite type over F_q. The generalisation is true and is exactly what the printed proof uses: a top-dimensional geometrically irreducible component is defined over some F_{q^{r0}}, and Lang–Weil over F_{q^{r0 r}} gives q^{r0 r·dim}(1+o(1)) ≤ C q^{r0 r D}.",
+          "supersededBy": "FIX-RT-PAPER-BROWNING-SAWIN-20",
+          "date": "2026-09-30"
+        }
+      ]
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/langweil",
       "kind": "theorem",
       "name": "Lang–Weil lower asymptotic needed by differencing",
-      "statement": "For geometrically irreducible finite-type V/F_Q of dimension e, #V(F_{Q^r})=Q^{re}+O_V(Q^{r(e−1/2)}) as r→∞ (with the zero-dimensional case separate). An irreducible geometric component descends to a finite extension. Only this input, not smooth-projective RH alone, proves extensiondimension.",
+      "statement": "For geometrically irreducible separated finite-type V/F_Q of dimension e, #V(F_{Q^r})=Q^{re}+O_V(Q^{r(e−1/2)}) as r→∞ (with the zero-dimensional case separate). An irreducible geometric component descends to a finite extension. Only this input, not smooth-projective RH alone, proves extensiondimension.",
       "locator": "§5, proof of Lemma 5.6, p. 932, citing [18] Lang–Weil, Amer. J. Math. 76 (1954), 819–827 (arXiv v3: p. 36)",
-      "status": "missing",
+      "status": "planned",
       "owner": "FF",
       "dependsOn": [],
-      "note": "Review note: Missing; routed to FF.2 (source). No stage of data/atlas.json names Lang–Weil (a search for 'Lang[–-]Weil|Lang and Weil' returns nothing), and FF.2's description (Weil and Deligne exponential-sum bounds) does not mention it. The FF.2 packet must therefore take it on explicitly. The statement is the standard Lang–Weil estimate."
+      "note": "Exact supplier FiniteFieldsAndCharacterSums:FF.2/lang-weil-estimate. This is planned blueprint coverage, not library implementation. The paper’s V(G) is affine. A nonseparated generalisation would need a separate adapter.",
+      "planned": [
+        "FiniteFieldsAndCharacterSums:FF.2"
+      ],
+      "noteHistory": [
+        {
+          "note": "Review note: Missing; routed to FF.2 (source). No stage of data/atlas.json names Lang–Weil (a search for 'Lang[–-]Weil|Lang and Weil' returns nothing), and FF.2's description (Weil and Deligne exponential-sum bounds) does not mention it. The FF.2 packet must therefore take it on explicitly. The statement is the standard Lang–Weil estimate.",
+          "supersededBy": "FIX-RT-PAPER-BROWNING-SAWIN-20",
+          "date": "2026-09-30"
+        }
+      ]
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/ddminor",
@@ -963,7 +997,8 @@
         "Spec K need not equal Spec Frac R"
       ],
       "dependsOn": [
-        "PAPER-BROWNING-SAWIN-20/constructibility"
+        "PAPER-BROWNING-SAWIN-20/constructibility",
+        "PAPER-BROWNING-SAWIN-20/fix-good-characteristic-for-fixed-coefficient-prime"
       ],
       "note": "Review note: REPAIR VERDICT: sound (the statement already carries the E24 correction). Missing; owner GCM; constructibility is planned in SchemeAndStackFoundations:SF.2. Print takes R to be the Z-algebra generated by the coefficients of f and says 'Spec K is the generic point of Spec R' (p. 906). Both corrections in the item are right: adjoin the leading vector x, and note that Spec K only maps to the generic point. The item keeps print's choice in characteristic zero of a prime p > k with ℓ of even order mod p (for example ℓ a quadratic non-residue)."
     },
@@ -1036,9 +1071,10 @@
         "PAPER-BROWNING-SAWIN-20/cohsupport",
         "PAPER-BROWNING-SAWIN-20/dimensionlower",
         "PAPER-BROWNING-SAWIN-20/comparisonsafe",
-        "PAPER-BROWNING-SAWIN-20/trace"
+        "PAPER-BROWNING-SAWIN-20/trace",
+        "PAPER-BROWNING-SAWIN-20/fix-coefficient-prime-for-fixed-characteristic"
       ],
-      "note": "Review note: REPAIR VERDICT: sound. When tδ > k−1 the conservative range i > −4(tδ − (k−1)) contains i = 0. Then H^{i+2D}_c = 0 for i > 0, because the bands of item 61 lie in i ≤ 0 (n > 3). H^{2D}_c ≅ E_∞^{0,0} = E_1^{0,0} is one-dimensional: no other (m,s) has m+s = 0, and no differential enters or leaves (0,0). Every component has dimension ≥ D (kd equations). So M_{K̄} has a unique irreducible component, of dimension D. δ > 0 follows from tδ > k−1, so n > 2^k(k−1) is implied. E3 is confirmed. Worth adding: at the printed endpoint tδ = 1, granting the sharp range, the dimension statement still holds. H^{2dn+1}_c(minor) = 0 makes H^{2D}_c(Mor) surject onto the one-dimensional E_∞^{0,0}, so M is nonempty and of pure dimension D; only irreducibility is left uncertified. The same holds at tδ = k−1 in the conservative range."
+      "note": "Review note: REPAIR VERDICT: sound. When tδ > k−1 the conservative range i > −4(tδ − (k−1)) contains i = 0. Then H^{i+2D}_c = 0 for i > 0, because the bands of item 61 lie in i ≤ 0 (n > 3). H^{2D}_c ≅ E_∞^{0,0} = E_1^{0,0} is one-dimensional: no other (m,s) has m+s = 0, and no differential enters or leaves (0,0). Every component has dimension ≥ D (kd equations). So M_{K̄} has a unique irreducible component, of dimension D. δ > 0 follows from tδ > k−1, so n > 2^k(k−1) is implied. E3 is confirmed. Worth adding: at the printed endpoint tδ = 1, granting the sharp range, the dimension statement still holds. H^{2dn+1}_c(minor) = 0 makes H^{2D}_c(Mor) surject onto the one-dimensional E_∞^{0,0}, so M is nonempty and of pure dimension D; only irreducibility is left uncertified. The same holds at tδ = k−1 in the conservative range. The ℓ-free geometric statement selects an admissible coefficient prime through /fix-coefficient-prime-for-fixed-characteristic. E47 records that implicit justification; it does not close the sharp minor-arc gates E1–E3."
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/smallcounter",
@@ -1319,9 +1355,17 @@
       "status": "missing",
       "owner": "ES",
       "dependsOn": [
-        "PAPER-BROWNING-SAWIN-20/polarlocus"
+        "PAPER-BROWNING-SAWIN-20/polarlocus",
+        "PAPER-BROWNING-SAWIN-20/rev-affine-dimension-theorem-for-intersections"
       ],
-      "note": "Review note: Missing; routed to ES.0–1. Correct. V ∩ Δ is the affine cone over Sing(Z) (by Euler's identity, since p > k), which is {0}. Every component of the multi-cone V contains 0, so the affine dimension theorem gives dim V ≤ (k−2)n. That theorem has no item; see coverage."
+      "note": "Keep the Weyl-differencing application at ES.0. Its explicit early geometric supplier is /rev-affine-dimension-theorem-for-intersections; import only that independent prefix, not the late mapping-space programme.",
+      "noteHistory": [
+        {
+          "note": "Review note: Missing; routed to ES.0–1. Correct. V ∩ Δ is the affine cone over Sing(Z) (by Euler's identity, since p > k), which is {0}. Every component of the multi-cone V contains 0, so the affine dimension theorem gives dim V ≤ (k−2)n. That theorem has no item; see coverage.",
+          "supersededBy": "FIX-RT-PAPER-BROWNING-SAWIN-20",
+          "date": "2026-09-30"
+        }
+      ]
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/polynomialbox",
@@ -1330,9 +1374,50 @@
       "statement": "For affine V⊂A^N over F_q(T), defined over F_q[T], of dimension e and degree Δ, the number of polynomial points with |u|<q^h is O_{Δ,N}(q^{he}) for integral h≥1, uniformly in q. The application is to W of bounded degree depending only on n,k; dimension zero and h=0 need separate elementary handling.",
       "locator": "§6, proof of Proposition 6.2, p. 939, citing [4, Lemma 2.8] = Browning–Vishe, GAFA 25 (2015), 671–732 (arXiv:1502.00772, p. 12) (arXiv v3: p. 43)",
       "status": "missing",
-      "owner": "ES",
-      "dependsOn": [],
-      "note": "Review note: Missing; routed to ES.0–1. Checked against BV15 Lemma 2.8 (arXiv:1502.00772, p. 12). Let V ⊂ A^n_K be affine, defined over O = F_q[t], of degree d ≥ 1 and dimension m ≥ 1. Then #{x ∈ V(O): |x| ≤ q^N} = O_{d,n}(q^{(N+1)m}), with the constant depending only on d and n. The item's form with strict |u| < q^h (h = N+1) is equivalent. The degree of W is bounded in terms of k and n (Bézout)."
+      "owner": "GCM-EARLY",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/rev-affine-dimension-theorem-for-intersections",
+        "PAPER-BROWNING-SAWIN-20/infinitynorm"
+      ],
+      "note": "The generic degree/ambient-dimension-uniform polynomial point bound belongs to an independent early arithmetic-geometric prefix of the pending GeometricCircleMethodAndMappingSpaces design, with no ES.0–5 or late mapping-space prerequisites. ES.0 minor arcs and late ES.5 uniform applications both consume this prefix. Do not import whole ES.5 into ES.0: ES.0→…→ES.5 would then cycle. BV15 Lemma2.8 is stated with |u|≤q^N and bound O_{Δ,M}(q^{(N+1)e}); strict h=N+1 is equivalent. Track coordinate projection, heights and every implicit constant in its original proof before claiming closure. For e=0 use the degree bound; h≤0 leaves only the zero polynomial vector, counted only when in V.",
+      "noteHistory": [
+        {
+          "note": "Review note: Missing; routed to ES.0–1. Checked against BV15 Lemma 2.8 (arXiv:1502.00772, p. 12). Let V ⊂ A^n_K be affine, defined over O = F_q[t], of degree d ≥ 1 and dimension m ≥ 1. Then #{x ∈ V(O): |x| ≤ q^N} = O_{d,n}(q^{(N+1)m}), with the constant depending only on d and n. The item's form with strict |u| < q^h (h = N+1) is equivalent. The degree of W is bounded in terms of k and n (Bézout).",
+          "supersededBy": "FIX-RT-PAPER-BROWNING-SAWIN-20",
+          "date": "2026-09-30"
+        }
+      ],
+      "api": [
+        {
+          "name": "polynomialBox_bound",
+          "role": "relation",
+          "statement": "Strict-height q-uniform bound with constant depending only on degree and ambient dimension."
+        },
+        {
+          "name": "polynomialBox_zero_dimensional",
+          "role": "relation",
+          "statement": "Finite degree-bounded points for e=0, with no positive-dimension projection assumption."
+        },
+        {
+          "name": "polynomialBox_nonpositive_height",
+          "role": "simp",
+          "statement": "For integral h≤0 only the zero vector is in the strict ball; membership in V decides its contribution."
+        }
+      ],
+      "unitTests": [
+        {
+          "case": "Affine linear e-space",
+          "expectation": "Exactly q^(he) vectors for h≥1, uniformly in q."
+        },
+        {
+          "case": "h=0 or negative",
+          "expectation": "Only the zero vector, not q^0 arbitrary constants."
+        },
+        {
+          "case": "e=0",
+          "expectation": "Use the degree bound; do not apply BV15’s m≥1 statement directly."
+        }
+      ]
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/localgerm",
@@ -1442,7 +1527,9 @@
       "dependsOn": [
         "PAPER-BROWNING-SAWIN-20/configuration",
         "PAPER-BROWNING-SAWIN-20/arrangementpure",
-        "PAPER-BROWNING-SAWIN-20/trace"
+        "PAPER-BROWNING-SAWIN-20/trace",
+        "PAPER-BROWNING-SAWIN-20/fix-frobenius-orbit-factors",
+        "PAPER-BROWNING-SAWIN-20/fix-frobenius-cycle-adapter"
       ],
       "note": "Review note: missing; debt G8 (CEF's imported arrangement cohomology)."
     },
@@ -1470,9 +1557,20 @@
       "owner": "TOP",
       "dependsOn": [
         "PAPER-BROWNING-SAWIN-20/configtrace",
-        "PAPER-BROWNING-SAWIN-20/mobiusEuler"
+        "PAPER-BROWNING-SAWIN-20/mobiusEuler",
+        "PAPER-BROWNING-SAWIN-20/rev-euler-products-for-squarefree-and",
+        "PAPER-BROWNING-SAWIN-20/fix-all-monic-euler-product",
+        "PAPER-BROWNING-SAWIN-20/fix-frobenius-orbit-factors",
+        "PAPER-BROWNING-SAWIN-20/fix-frobenius-cycle-adapter"
       ],
-      "note": "Review note: missing. The reviewer checked the Euler-product step by brute-force enumeration: the sum of ((−1)^{n−1}N)^{ω(f)}(−1)^{(n−1)m} over squarefree monic f of degree m over F_q equals (−1)^{(n−1)m}[U^m]∏(1−qU^k)^{−e_k(N)}. This was checked over F_2 and F_3 for m ≤ 4, n ∈ {4,5} and N ≤ 3. The proof also uses the F_q[t] Euler products and the character-of-invariants formula, which no item covers (see coverage)."
+      "note": "The recorded review enumerations are historical. The current spine explicitly imports the library orbit-factor theorem, missing full-cycle adapter, FA.5 all-monic Euler product and the weighted formal adapter; fixed roots count as cycles even though native cycleType omits them.",
+      "noteHistory": [
+        {
+          "note": "Review note: missing. The reviewer checked the Euler-product step by brute-force enumeration: the sum of ((−1)^{n−1}N)^{ω(f)}(−1)^{(n−1)m} over squarefree monic f of degree m over F_q equals (−1)^{(n−1)m}[U^m]∏(1−qU^k)^{−e_k(N)}. This was checked over F_2 and F_3 for m ≤ 4, n ∈ {4,5} and N ≤ 3. The proof also uses the F_q[t] Euler products and the character-of-invariants formula, which no item covers (see coverage).",
+          "supersededBy": "FIX-RT-PAPER-BROWNING-SAWIN-20",
+          "date": "2026-09-30"
+        }
+      ]
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/configdiagonal",
@@ -1861,7 +1959,14 @@
         "PAPER-BROWNING-SAWIN-20/schreier",
         "PAPER-BROWNING-SAWIN-20/sixoperations"
       ],
-      "note": "Review note: Missing is right: no atlas stage constructs the ℓ-adic Fourier–Deligne transform. Inversion FT∘FT ≅ [−1]^*(−1) is the only property fourierinput needs (see there)."
+      "note": "Import FiniteFieldsAndCharacterSums:FF.2/fourier-deligne-transform and FF.2/fourier-deligne-inversion for the E/Q_ℓ one-variable functor. The broader coefficient and precise middle-extension interfaces remain source/blueprint obligations; no private transform is reconstructed.",
+      "noteHistory": [
+        {
+          "note": "Review note: Missing is right: no atlas stage constructs the ℓ-adic Fourier–Deligne transform. Inversion FT∘FT ≅ [−1]^*(−1) is the only property fourierinput needs (see there).",
+          "supersededBy": "FIX-RT-PAPER-BROWNING-SAWIN-20",
+          "date": "2026-09-30"
+        }
+      ]
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/fourierinput",
@@ -2490,11 +2595,22 @@
     {
       "id": "PAPER-BROWNING-SAWIN-20/rev-euler-products-for-squarefree-and",
       "kind": "theorem",
-      "name": "Euler products for squarefree and all monic polynomials over F_q",
-      "statement": "In Z[[U]], with g running over the monic irreducible polynomials in F_q[t]: (1) Σ_{f monic} U^{deg f} = (1−qU)^{−1} = ∏_g (1−U^{deg g})^{−1}; (2) for every integer a, Σ_{f monic squarefree} a^{ω(f)}U^{deg f} = ∏_g(1+aU^{deg g}); (3) hence, if ∏_{k≥1}(1−T^k)^{−e_k} = 1+aT, then Σ_{f squarefree} a^{ω(f)}U^{deg f} = ∏_{k≥1}(1−qU^k)^{−e_k}.",
+      "name": "Weighted squarefree Euler product and formal factorisation adapter",
+      "statement": "In Z[[U]], with g ranging over monic irreducibles of F_q[t], for every integer a, Σ_{f monic squarefree}a^{ω(f)}U^{deg f}=∏_g(1+aU^{deg g}). If ∏_{k≥1}(1−T^k)^{−e_k}=1+aT with integral e_k, this equals ∏_{k≥1}(1−qU^k)^{−e_k}, importing the all-monic Euler product at each U^k. Infinite products and their interchange are coefficientwise finite in each U-degree.",
       "locator": "§7, proof of Lemma 7.4, p. 943 (arXiv v3: p. 45)",
       "status": "missing",
-      "note": "Added by the review REV-PAPER-BROWNING-SAWIN-20 (coverage of the paper): Lemma 7.4 uses Σ_{f squarefree} a^{ω(f)}U^{deg f} = ∏_g(1+aU^{deg g}) and ζ_{F_q[t]}(s) = (1−q^{1−s})^{−1}. Neither Mathlib (no count of monic irreducibles at 082e2d3) nor any atlas stage has them. Route: ConfigurationSpacesAndRationalLoops."
+      "note": "The all-monic arithmetic identity has been split into planned /fix-all-monic-euler-product at FA.5. Only the weighted-squarefree/formal-product adapters stay missing in the configuration consumer. FF.3 irreducible counts are arithmetic inputs, not a proof of the formal Euler product.",
+      "noteHistory": [
+        {
+          "note": "Added by the review REV-PAPER-BROWNING-SAWIN-20 (coverage of the paper): Lemma 7.4 uses Σ_{f squarefree} a^{ω(f)}U^{deg f} = ∏_g(1+aU^{deg g}) and ζ_{F_q[t]}(s) = (1−q^{1−s})^{−1}. Neither Mathlib (no count of monic irreducibles at 082e2d3) nor any atlas stage has them. Route: ConfigurationSpacesAndRationalLoops.",
+          "supersededBy": "FIX-RT-PAPER-BROWNING-SAWIN-20",
+          "date": "2026-09-30"
+        }
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/fix-all-monic-euler-product",
+        "PAPER-BROWNING-SAWIN-20/mobiusEuler"
+      ]
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/rev-invariant-dimensions-via-characters-for",
@@ -2513,6 +2629,238 @@
       "locator": "§7, Conjecture 7.1 and (7.1), p. 940 (arXiv v3: p. 43); reviewer's addition",
       "status": "missing",
       "note": "Added by the review REV-PAPER-BROWNING-SAWIN-20 (coverage of the paper): This shows that the intended topology on Hom_{d,P}(C,X) must be finer than compact-open, so the conjecture itself, not only Lemma 7.2, depends on it. It uses only checked items: windingnonzero and cohsupport. Route: GeometricCircleMethodAndMappingSpaces."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fix-all-monic-euler-product",
+      "kind": "theorem",
+      "name": "All-monic polynomial Euler product from FA.5",
+      "statement": "For F_q[t], closed points of A¹ correspond to monic irreducible polynomials with residue degree equal to polynomial degree. Removing the degree-one infinity factor from the P¹ zeta function gives, coefficientwise in Z[[U]], Σ_{f monic}U^{deg f}=(1−qU)^{−1}=∏_{g monic irreducible}(1−U^{deg g})^{−1}. Thus ζ_{F_q[t]}(s)=(1−q^{1−s})^{−1} in its convergence half-plane.",
+      "locator": "Published Lemma 7.4 proof p.943 (arXiv v3 p.45); FA.5 closed-point Euler-product contract",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "FunctionFieldArithmetic:FA.5"
+      ],
+      "dependsOn": [],
+      "unitTests": [
+        {
+          "case": "P¹ minus infinity",
+          "expectation": "Multiply its zeta function by 1−U, not by 1−qU."
+        },
+        {
+          "case": "Monic degree m",
+          "expectation": "Coefficient q^m, including m=0."
+        },
+        {
+          "case": "Fixed truncation",
+          "expectation": "Only irreducibles of degree ≤ truncation contribute."
+        }
+      ],
+      "note": "FA.5 owns the Euler product and the explicit closed-point/monic-polynomial and removal-of-infinity adapters. Additional arithmetic inputs are FiniteFieldsAndCharacterSums:FF.3/count-of-irreducible-polynomials and FF.3/gauss-product-formula; these do not replace FA.5’s Euler-product proof."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fix-configuration-comparison",
+      "kind": "construction",
+      "name": "Configuration analytification and interior-disc interface",
+      "statement": "The analytifications of the algebraic ordered/unordered configuration schemes over C are the corresponding topological configurations in C, with matching S_m actions and covering maps. A chosen homeomorphism from the interior of a disc D to C induces equivariant homeomorphisms of ordered configurations and their quotients. It does not by itself construct the boundary-basepoint, punctured-disc braid or genus-zero compactification interfaces.",
+      "locator": "Browning–Sawin pp.894,919; EVW published §2.1 pp.738–739 and §7.4–7.6 pp.767–768",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/configuration",
+        "PAPER-BROWNING-SAWIN-20/ordinarytopology"
+      ],
+      "unitTests": [
+        {
+          "case": "m=0,1",
+          "expectation": "Point/plane models and their quotient maps agree."
+        },
+        {
+          "case": "Disc map",
+          "expectation": "Choose an interior homeomorphism; it does not extend to a boundary point at infinity."
+        },
+        {
+          "case": "Characteristic dividing m!",
+          "expectation": "Algebraic torsor remains étale; this is not an averaging argument."
+        }
+      ],
+      "api": [
+        {
+          "name": "configurationAnalytification",
+          "role": "compatibility",
+          "statement": "Identify the diagonal-complement analytification and the finite quotient/cover."
+        },
+        {
+          "name": "configurationMapHomeomorph",
+          "role": "data",
+          "statement": "Lift a homeomorphism of ambient spaces to ordered configurations and quotients."
+        },
+        {
+          "name": "configurationComparison_equivariant",
+          "role": "relation",
+          "statement": "The identifications commute with S_m and the quotient map."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fix-frobenius-orbit-factors",
+      "kind": "theorem",
+      "name": "Frobenius orbits and monic irreducible factors",
+      "statement": "For a finite field F, a nonzero g∈F[X] and an algebraic splitting extension E/F, the Galois orbits on g.rootSet E correspond to its monic irreducible factors. They coincide with the orbits generated by the |F|-power Frobenius, and the cardinality of each orbit equals the degree of its corresponding factor. Squarefreeness is not a hypothesis of these library results.",
+      "locator": "Tau Ceti f790474, GaloisGroups/FrobeniusOrbits.lean:54,62,71 and Orbits.lean:323; published Lemma 7.4 proof p.942",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.FiniteField.image_val_orbit_gal_eq_orbit",
+        "tauceti:TauCeti.FiniteField.natCard_orbit_eq_natDegree_factor",
+        "tauceti:TauCeti.FiniteField.exists_orbit_eq_rootSet_factor",
+        "tauceti:TauCeti.orbitQuotientEquivFactors"
+      ],
+      "planned": [],
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fix-frobenius-cycle-adapter",
+      "kind": "theorem",
+      "name": "Squarefree roots-to-permutation cycle adapter",
+      "statement": "For monic squarefree f/F_q of degree m, identify its m distinct roots in a splitting field with Fin m. Transport q-Frobenius to a permutation σ. Its multiset of ALL orbit lengths, including fixed-point lengths 1, equals the multiset of irreducible-factor degrees, and its number of orbits is ω(f). Mathlib Equiv.Perm.cycleType records only nontrivial cycles; add one 1 per fixed point to obtain the full multiset. Consequently the tensor and sign characters use all cycles, not merely cycleType.card.",
+      "locator": "Published Lemma 7.4 proof p.942; Mathlib 082e2d3 Perm/Cycle/Type.lean:53,101,109",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/fix-frobenius-orbit-factors",
+        "PAPER-BROWNING-SAWIN-20/configuration"
+      ],
+      "unitTests": [
+        {
+          "case": "Split squarefree degree m",
+          "expectation": "Identity permutation has m full cycles but native cycleType is empty."
+        },
+        {
+          "case": "Irreducible degree m≥2",
+          "expectation": "One Frobenius orbit/cycle of length m."
+        },
+        {
+          "case": "Repeated factor",
+          "expectation": "Without squarefreeness the distinct-root count need not equal degree; reject this adapter."
+        }
+      ],
+      "api": [
+        {
+          "name": "fullFrobeniusCycleType",
+          "role": "data",
+          "statement": "Native nontrivial cycleType plus a singleton length for every fixed point."
+        },
+        {
+          "name": "fullCycleType_eq_factorDegrees",
+          "role": "relation",
+          "statement": "Prove equality of multisets through the orbit-factor equivalence."
+        },
+        {
+          "name": "fullCycleCount_eq_omega",
+          "role": "relation",
+          "statement": "All Frobenius orbits, including fixed roots, count distinct factors."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fix-dirichlet-library",
+      "kind": "theorem",
+      "name": "Primes above a bound in a unit residue class",
+      "statement": "For q>0 and a∈ZMod q with IsUnit a, every natural bound B admits a prime r>B with (r:ZMod q)=a.",
+      "locator": "Mathlib 082e2d3 LSeries/PrimesInAP.lean:442",
+      "status": "library",
+      "library": [
+        "mathlib:Nat.forall_exists_prime_gt_and_eq_mod"
+      ],
+      "planned": [],
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fix-reciprocity-library",
+      "kind": "theorem",
+      "name": "Reciprocity, supplementary law and CRT inputs",
+      "statement": "For distinct odd primes p,ℓ the product of Legendre symbols (ℓ/p)(p/ℓ) is (−1)^(floor(p/2)floor(ℓ/2)). For odd prime p, 2 is a square modulo p iff p≡1 or7 mod8. Coprime moduli m,n have ZMod(mn)≃ZMod m×ZMod n. In an odd-characteristic finite field, a unit is square iff its half-cardinality power is 1.",
+      "locator": "Mathlib 082e2d3 QuadraticReciprocity.lean:107,74; ZMod/Basic.lean:889; FieldTheory/Finite/Basic.lean:806",
+      "status": "library",
+      "library": [
+        "mathlib:legendreSym.quadratic_reciprocity",
+        "mathlib:ZMod.exists_sq_eq_two_iff",
+        "mathlib:ZMod.chineseRemainder",
+        "mathlib:FiniteField.unit_isSquare_iff"
+      ],
+      "planned": [],
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fix-coefficient-prime-for-fixed-characteristic",
+      "kind": "theorem",
+      "name": "Choose a coefficient prime for fixed odd characteristic",
+      "statement": "For a fixed odd prime p>k and any bound B, choose a prime ℓ>max(B,p) with ℓ≡−1 mod p. Its residue in F_p× has order exactly 2, so ℓ≠p and the spectral-sequence coefficient-prime condition is satisfied.",
+      "locator": "Implicit input to published Corollary 2.9 and proof pp.907–908 (arXiv v3 p.14)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/fix-dirichlet-library"
+      ],
+      "unitTests": [
+        {
+          "case": "p=5",
+          "expectation": "ℓ≡4 mod5 has order2."
+        },
+        {
+          "case": "p=2",
+          "expectation": "Excluded: −1=1 has order1."
+        },
+        {
+          "case": "Bound",
+          "expectation": "Choose above p and the supplied bound; no ℓ=p collision."
+        }
+      ],
+      "api": [
+        {
+          "name": "fix_coefficient_prime_for_fixed_characteristic",
+          "role": "relation",
+          "statement": "For a fixed odd prime p>k and any bound B, choose a prime ℓ>max(B,p) with ℓ≡−1 mod p. Its residue in F_p× has order exactly 2, so ℓ≠p and the spectral-sequence coefficient-prime condition is satisfied."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fix-good-characteristic-for-fixed-coefficient-prime",
+      "kind": "theorem",
+      "name": "Choose good residue characteristics for fixed coefficient prime",
+      "statement": "For a fixed prime ℓ, bounds B,k and a finite set of excluded bad primes, there are primes p above all bounds, outside the excluded set and distinct from ℓ, for which ℓ is a nonsquare modulo p and hence has even multiplicative order. For odd ℓ choose a nonzero nonsquare a modℓ and the unit CRT class p≡1 mod4, p≡a modℓ; Dirichlet and reciprocity give the conclusion. For ℓ=2 choose p≡5 mod8 and use the supplementary law. A nonsquare has even order by cyclicity of F_p×.",
+      "locator": "Published spreading-out proof pp.906–907 (arXiv v3 p.13)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/fix-dirichlet-library",
+        "PAPER-BROWNING-SAWIN-20/fix-reciprocity-library"
+      ],
+      "unitTests": [
+        {
+          "case": "ℓ=2",
+          "expectation": "p≡5 mod8 is nonsquare for 2, and p>max(B,k,2)."
+        },
+        {
+          "case": "Odd ℓ",
+          "expectation": "Choose a nonzero nonsquare, so the CRT class is a unit; reciprocity sign is +1."
+        },
+        {
+          "case": "Bad set",
+          "expectation": "Enlarge the bound above every excluded prime; infinitude is not a single witness."
+        }
+      ],
+      "api": [
+        {
+          "name": "fix_good_characteristic_for_fixed_coefficient_prime",
+          "role": "relation",
+          "statement": "For a fixed prime ℓ, bounds B,k and a finite set of excluded bad primes, there are primes p above all bounds, outside the excluded set and distinct from ℓ, for which ℓ is a nonsquare modulo p and hence has even multiplicative order. For odd ℓ choose a nonzero nonsquare a modℓ and the unit CRT class p≡1 mod4, p≡a modℓ; Dirichlet and reciprocity give the conclusion. For ℓ=2 choose p≡5 mod8 and use the supplementary law. A nonsquare has even order by cyclicity of F_p×."
+        }
+      ]
     }
   ],
   "routes": [
@@ -2532,10 +2880,9 @@
         "PAPER-BROWNING-SAWIN-20/Nbound",
         "PAPER-BROWNING-SAWIN-20/itershrink",
         "PAPER-BROWNING-SAWIN-20/shortzero",
-        "PAPER-BROWNING-SAWIN-20/polardimension",
-        "PAPER-BROWNING-SAWIN-20/polynomialbox"
+        "PAPER-BROWNING-SAWIN-20/polardimension"
       ],
-      "reason": "Polarization, coefficient-count identities, iterative shrinking and the uniform arithmetic minor-arc count are concrete function-field Weyl/counting interfaces inside ES.0–1. Import the nonarchimedean lattice theorem from the dedicated Part II below; do not reprove its general lattice API here."
+      "reason": "Polarization, coefficient-count identities, iterative shrinking and the uniform arithmetic minor-arc count are concrete function-field Weyl/counting interfaces inside ES.0–1. Import the nonarchimedean lattice theorem from the dedicated Part II below; do not reprove its general lattice API here. The generic polynomial-point bound is moved to the independent early prefix of the pending geometric Part II; ES.0 imports only that prefix and the independent intersection-dimension supplier. It does not import the late ES.5 application stage."
     },
     {
       "route": "source",
@@ -2551,7 +2898,7 @@
         "PAPER-BROWNING-SAWIN-20/fourierdeligne",
         "PAPER-BROWNING-SAWIN-20/fourierinput"
       ],
-      "reason": "Artin–Schreier coefficient objects and cancellation, the one-dimensional Fourier input, and Lang–Weil all-extension dimension detection are reusable geometric character-sum inputs. FF.2 already calls for ℓ-adic trace functions; these items supply its precise sheaf interfaces. Import EDC/SF operations and existing weight-theorem owners rather than creating a private six-functor or Weil-conjectures theory."
+      "reason": "Artin–Schreier coefficient objects and cancellation, the one-dimensional Fourier input, and Lang–Weil all-extension dimension detection are reusable geometric character-sum inputs. FF.2 already calls for ℓ-adic trace functions; these items supply its precise sheaf interfaces. Import EDC/SF operations and existing weight-theorem owners rather than creating a private six-functor or Weil-conjectures theory. /extensiondimension now imports FF.2/dimension-from-point-counts and /langweil imports FF.2/lang-weil-estimate, with separated finite-type hypotheses. These planned source items remain listed. The bounded-degree uniform node is a separate plan with unresolved proof inputs; it is not automatic coverage of Harpaz–Wittenberg’s uniform-family/Nisnevich and Chebotarev requirements. Maintainer: coordinate PAPER-BRIGHT-NEWTON-23/87 and PAPER-HARPAZ-WITTENBERG-16/24 with FF.2; their WC.5 routes are rejected, not accepted duplicate owners, and this handoff does not lift those review gates. Maintainer: PAPER-ABE-25/A19 imports the overlapping field-valued FF.2 Artin–Schreier prefix, with F_p base change and the geometric Frobenius/inverse-character convention. Its torsion rings and local regular finite Z_ℓ-algebras need a shared generalized torsor/character coefficient-change API commissioned at the supplier; do not mark all A19 planned from the E-valued node. Abe retains local Fourier, product pullback and zero extension."
     },
     {
       "route": "source",
@@ -2650,10 +2997,13 @@
         "PAPER-BROWNING-SAWIN-20/rev-closed-points-detect-constructible-supports",
         "PAPER-BROWNING-SAWIN-20/rev-affine-dimension-theorem-for-intersections",
         "PAPER-BROWNING-SAWIN-20/rev-analytic-polynomial-map-inclusion-into",
-        "PAPER-BROWNING-SAWIN-20/rev-conjecture-7-1-fails-for"
+        "PAPER-BROWNING-SAWIN-20/rev-conjecture-7-1-fails-for",
+        "PAPER-BROWNING-SAWIN-20/fix-coefficient-prime-for-fixed-characteristic",
+        "PAPER-BROWNING-SAWIN-20/fix-good-characteristic-for-fixed-coefficient-prime",
+        "PAPER-BROWNING-SAWIN-20/polynomialbox"
       ],
-      "reason": "ES.0–5 develops numerical oscillatory/counting estimates, not compact-support complexes, configuration-space E1 pages, odd-page monodromy or mapping-space comparison. These are genuinely new layers in the same circle-method direction.",
-      "brief": "Construct Mor_{d,x}, the phase e, S_{d,f}, the rank-Hankel arcs and their Padé strata, then prove Lemmas2.1 and3.1–3.12 with every affine shift, Tate twist and symmetric-group sign. The first endpoint is the Frobenius-equivariant E1^{m,s}=(H_c^{s+mn}(PConf_m,E)⊗H_c^{n−1}(X,E)^{⊗m}⊗sgn^{n−1})^{S_m}(kd−m−n(d−m)), 0≤m≤d, with d_r degree(r,1−r) and odd r zero. State d≥k−1≥2,n>2^k(k−1), smooth X and leading boundary, p>k and even order of ℓ modulo p; over general fields explicitly spread the pair. Import SchemeAndStackFoundations SF.2 and EtaleDualityAndPerverseSheaves EDC.0,2,4,6, not a private cohomology theory; import finite-filtration convergence from FoundationsAndLibraryIntegration LI.3, arithmetic shrinking from ExponentialSumsAndCircleMethod ES.0–1, coefficient sheaves from FiniteFieldsAndCharacterSums FF.2, monodromy and configuration/rational topology from the two companion Part IIs. Prove geometric Weyl differencing and conservative vanishing j>2dn+4(k−1)−4tδ. Its comparison endpoint is i>−4(tδ−(k−1)) for H_c^{i+2D}(Mor), and tδ>k−1 suffices for irreducibility and dimension D. The paper's exact targets use +4 rather than +4(k−1), i>−4(tδ−1), and tδ≥1; keep these as gated original targets until E1–E3 are resolved, not as axioms. Construct the germ mapping space and trace pairing, and prove only the conditional Theorem7.7. Conjectures1.3 and7.1 remain unproved propositions. Suggested modules: TauCeti/NumberTheory/CircleMethod/Geometric/{MappingScheme,MajorArcs,MonodromyParity,CohomologicalWeyl,Comparison}. Test the zero column, m=1, odd kd, nontrivial coefficient extension, and strict threshold equality. Continuation: first define the topology. The compact-open interpretation of Lemma7.2 is disproved by compactcounter. Include the escaping-phase and end-winding APIs and a fixed-radius controlled-collar straightening construction. Leave the global stronger-germ comparison and continuity of algebraic-map inclusion as explicit gates. Import the existing compact-open curry/evaluation and circle π1 computations. Suggested additional module TauCeti/NumberTheory/CircleMethod/Geometric/InfinityGerm.lean; suggested planets: Prescribed infinity germ, End winding, Compact-open obstruction, Controlled collar straightening."
+      "reason": "ES.0–5 develops numerical oscillatory/counting estimates, not compact-support complexes, configuration-space E1 pages, odd-page monodromy or mapping-space comparison. These are genuinely new layers in the same circle-method direction. The generic geometry/polynomial-counting and prime-choice inputs form independent early prefixes; the compact-support mapping-space stages are later consumers. This explicitly separates the early supplier from late ES.5 applications, rather than adding a backward whole-stage import.",
+      "brief": "Before the numerical minor arcs, split out independent early prefixes: (a) affine dimension/intersection and finite-projection/degree geometry, exporting /rev-affine-dimension-theorem-for-intersections; (b) generic polynomial point counting over F_q(T), exporting /polynomialbox with strict height, degree/ambient uniformity, zero-dimensional and boundary cases; (c) the two coefficient/residue-prime choice adapters. These prefixes import shared scheme/finite-field foundations, the available infinity-completion carrier and the actual Dirichlet/reciprocity library inputs; they must have no ES.0–5, late geometric-circle-method or configuration-cohomology prerequisites. ES.0 consumes only the early geometry/counting prefix; ES.5 consumes it for its later uniform applications. The late mapping-space stages then import ES.0–1 in the direction described below. Maintainer: make these separate stages in the pending design before blueprint promotion; a whole-roadmap GCM→ES.0 import or whole ES.5→ES.0 import is forbidden. Full BV15 finite-projection/height-uniformity proof audit remains open. Construct Mor_{d,x}, the phase e, S_{d,f}, the rank-Hankel arcs and their Padé strata, then prove Lemmas2.1 and3.1–3.12 with every affine shift, Tate twist and symmetric-group sign. The first endpoint is the Frobenius-equivariant E1^{m,s}=(H_c^{s+mn}(PConf_m,E)⊗H_c^{n−1}(X,E)^{⊗m}⊗sgn^{n−1})^{S_m}(kd−m−n(d−m)), 0≤m≤d, with d_r degree(r,1−r) and odd r zero. State d≥k−1≥2,n>2^k(k−1), smooth X and leading boundary, p>k and even order of ℓ modulo p; over general fields explicitly spread the pair. Import SchemeAndStackFoundations SF.2 and EtaleDualityAndPerverseSheaves EDC.0,2,4,6, not a private cohomology theory; import finite-filtration convergence from FoundationsAndLibraryIntegration LI.3, arithmetic shrinking from ExponentialSumsAndCircleMethod ES.0–1, coefficient sheaves from FiniteFieldsAndCharacterSums FF.2, monodromy and configuration/rational topology from the two companion Part IIs. Prove geometric Weyl differencing and conservative vanishing j>2dn+4(k−1)−4tδ. Its comparison endpoint is i>−4(tδ−(k−1)) for H_c^{i+2D}(Mor), and tδ>k−1 suffices for irreducibility and dimension D. The paper's exact targets use +4 rather than +4(k−1), i>−4(tδ−1), and tδ≥1; keep these as gated original targets until E1–E3 are resolved, not as axioms. Construct the germ mapping space and trace pairing, and prove only the conditional Theorem7.7. Conjectures1.3 and7.1 remain unproved propositions. Suggested modules: TauCeti/NumberTheory/CircleMethod/Geometric/{MappingScheme,MajorArcs,MonodromyParity,CohomologicalWeyl,Comparison}. Test the zero column, m=1, odd kd, nontrivial coefficient extension, and strict threshold equality. Continuation: first define the topology. The compact-open interpretation of Lemma7.2 is disproved by compactcounter. Include the escaping-phase and end-winding APIs and a fixed-radius controlled-collar straightening construction. Leave the global stronger-germ comparison and continuity of algebraic-map inclusion as explicit gates. Import the existing compact-open curry/evaluation and circle π1 computations. Suggested additional module TauCeti/NumberTheory/CircleMethod/Geometric/InfinityGerm.lean; suggested planets: Prescribed infinity germ, End winding, Compact-open obstruction, Controlled collar straightening."
     },
     {
       "route": "part-ii",
@@ -2686,7 +3036,7 @@
         "PAPER-BROWNING-SAWIN-20/rev-geometric-monodromy-group-of-a"
       ],
       "reason": "LPV.5 explicitly proves odd-dimensional symplectic open image and does not assert even-dimensional universal orthogonal monodromy. Katz–Sarnak's full O/Sp theorem and the simultaneous-product argument add this missing direction.",
-      "brief": "Import LefschetzPencilsAndVanishingCycles LPV.0–5, the shared scheme fundamental groups, and EDC.2–4. Construct the universal smooth degree-k projective hypersurface family and its primitive middle local system with the hyperplane-class splitting and pairing. The exact target is Katz–Sarnak11.4.9: for hypersurface dimension s≥1 and k≥3, excluding (s,k)=(2,3), geometric Zariski monodromy is Sp for odd s and full O for even s in every characteristic distinct from ℓ. Treat quadratic primitives separately and do not replace this with E-point openness. Decompose the even case's finite-monodromy exclusion, including its ordinary-hypersurface/Newton-polygon and Hodge-number inputs. Extend the existing abstract Goursat lemma to closed algebraic subgroups and prove the O_a×Sp_b product criterion with disconnected O, central quotients and the correct small-rank exceptional pairs (3,2),(5,4). The circle-method consumer specializes this supplier to two adjacent primitive systems and an extension; only eigenvalue −1 is needed, not a scalar splitting. Suggested files TauCeti/AlgebraicGeometry/Etale/UniversalHypersurface/{Primitive,Monodromy,Product}.lean. Test cubic surfaces as an excluded case and rank-zero symplectic factors."
+      "brief": "Import LefschetzPencilsAndVanishingCycles LPV.0–5, the shared scheme fundamental groups, and EDC.2–4. Construct the universal smooth degree-k projective hypersurface family and its primitive middle local system with the hyperplane-class splitting and pairing. The exact target is Katz–Sarnak11.4.9: for hypersurface dimension s≥1 and k≥3, excluding (s,k)=(2,3), geometric Zariski monodromy is Sp for odd s and full O for even s in every characteristic distinct from ℓ. Treat quadratic primitives separately and do not replace this with E-point openness. Decompose the even case's finite-monodromy exclusion, including its ordinary-hypersurface/Newton-polygon and Hodge-number inputs. Extend the existing abstract Goursat lemma to closed algebraic subgroups and prove the O_a×Sp_b product criterion with disconnected O, central quotients and the correct small-rank exceptional pairs (3,2),(5,4). The circle-method consumer specializes this supplier to two adjacent primitive systems and an extension; only eigenvalue −1 is needed, not a scalar splitting. Suggested files TauCeti/AlgebraicGeometry/Etale/UniversalHypersurface/{Primitive,Monodromy,Product}.lean. Test cubic surfaces as an excluded case and rank-zero symplectic factors. Export the characteristic-zero full O/Sp conclusion to MordellLawrenceVenkateshPartII through Betti/étale comparison and the actual parameter-space and primitive-pairing identifications, then deduce the identity-component condition used in LV §10.1–10.2. Do not claim integral monodromy or every Beauville exceptional case from this ℓ-adic theorem. Maintainer: coordinate PAPER-LAWRENCE-VENKATESH-20/hypersurface-monodromy with this pending supplier without lifting its other hypotheses or applications."
     },
     {
       "route": "part-ii",
@@ -2714,10 +3064,12 @@
         "PAPER-BROWNING-SAWIN-20/fermatjoin",
         "PAPER-BROWNING-SAWIN-20/fermatpi3",
         "PAPER-BROWNING-SAWIN-20/rev-euler-products-for-squarefree-and",
-        "PAPER-BROWNING-SAWIN-20/rev-invariant-dimensions-via-characters-for"
+        "PAPER-BROWNING-SAWIN-20/rev-invariant-dimensions-via-characters-for",
+        "PAPER-BROWNING-SAWIN-20/fix-configuration-comparison",
+        "PAPER-BROWNING-SAWIN-20/fix-frobenius-cycle-adapter"
       ],
       "reason": "Upstream AlgebraicTopology owns singular homology, products, duality, CW and ordinary homotopy; it does not provide configuration-representation Euler products, tame-fibre bouquets, Hilton decomposition or Sullivan rational H-space calculations. Extend it; do not source-route a replan of upstream stages.",
-      "brief": "Import all ordinary topology from tauceti:TauCetiRoadmap/AlgebraicTopology, including its products, duality and homotopy stages, and use Mathlib GenLoop plus Tau Ceti homotopy-shift equivalences. Construct ordered/unordered configurations, their finite-cover symmetric-group action and compact-cohomology support. Import EDC.6 for complex/étale comparison and FF.2/WeilConjectures for the trace supplier. Establish CEF3.3/3.7 and the signed Euler exponents e_r=−r^{-1}Σ_{a|r}μ(a)((−1)^n N)^{r/a}, reusing ArithmeticFunction Möbius inversion. Prove Lemma7.4 and the weighted-diagonal Corollary7.5, retaining d(n−3)≥j. Separately read and decompose Broughton Thm2, Hilton Cor4.10 and Sullivan p.311 to construct tame-fibre bouquets, rational sphere homotopy, wedge decompositions and connected H-space cohomology. The final Betti endpoint is dim H^j(Ω²X,Q)=[q^{-j}]∏_{r≥1}(1−(−q)^{1−r(n−2)})^{-e_r(N)} for n≥4, X smooth with smooth leading form, N=dim H^{n−1}(X,Q). Do not assert the printed n≥2 full-loop formula: n=3 has a component obstruction. Generic rational topology stays here; the special infinity-germ mapping equivalence and conjectural algebraic trace comparison stay in GeometricCircleMethodAndMappingSpaces. Suggested files TauCeti/Topology/{ConfigurationSpace/Cohomology,RationalHomotopy/Bouquet,DoubleLoop/Betti}.lean. Tests: m=0,1,2, N=0,1, both parities, and rejection of n=3. The special Fermat supplier now has a separate finite-join proof spine from Milnor9.2 and positive real scaling; import generic CW/cofibration/cellular approximation from upstream Stages4,8. This special calculation does not certify the general tame-fibre or rational H-space endpoints. Suggested module TauCeti/Topology/RationalHomotopy/FermatFibre.lean; planet: Fermat fibre join model."
+      "brief": "Import all ordinary topology from tauceti:TauCetiRoadmap/AlgebraicTopology, including its products, duality and homotopy stages, and use Mathlib GenLoop plus Tau Ceti homotopy-shift equivalences. Construct ordered/unordered configurations, their finite-cover symmetric-group action and compact-cohomology support. Import EDC.6 for complex/étale comparison and FF.2/WeilConjectures for the trace supplier. Establish CEF3.3/3.7 and the signed Euler exponents e_r=−r^{-1}Σ_{a|r}μ(a)((−1)^n N)^{r/a}, reusing ArithmeticFunction Möbius inversion. Prove Lemma7.4 and the weighted-diagonal Corollary7.5, retaining d(n−3)≥j. Separately read and decompose Broughton Thm2, Hilton Cor4.10 and Sullivan p.311 to construct tame-fibre bouquets, rational sphere homotopy, wedge decompositions and connected H-space cohomology. The final Betti endpoint is dim H^j(Ω²X,Q)=[q^{-j}]∏_{r≥1}(1−(−q)^{1−r(n−2)})^{-e_r(N)} for n≥4, X smooth with smooth leading form, N=dim H^{n−1}(X,Q). Do not assert the printed n≥2 full-loop formula: n=3 has a component obstruction. Generic rational topology stays here; the special infinity-germ mapping equivalence and conjectural algebraic trace comparison stay in GeometricCircleMethodAndMappingSpaces. Suggested files TauCeti/Topology/{ConfigurationSpace/Cohomology,RationalHomotopy/Bouquet,DoubleLoop/Betti}.lean. Tests: m=0,1,2, N=0,1, both parities, and rejection of n=3. The special Fermat supplier now has a separate finite-join proof spine from Milnor9.2 and positive real scaling; import generic CW/cofibration/cellular approximation from upstream Stages4,8. This special calculation does not certify the general tame-fibre or rational H-space endpoints. Suggested module TauCeti/Topology/RationalHomotopy/FermatFibre.lean; planet: Fermat fibre join model. Import the all-monic polynomial Euler product from FunctionFieldArithmetic FA.5, with the closed-point/monic-factor and removal-of-infinity adapters and FF.3 irreducible-count inputs. Prove only the weighted-squarefree and formal factorisation/interchange adapters here; do not reconstruct ζ_{F_q[t]}. Supply the basic algebraic diagonal complement, squarefree quotient and constant-S_m torsor once, then a distinct topological configuration and analytification/interior-disc interface. Export these prefixes to InverseGaloisAndArithmeticFundamentalGroups and its Hurwitz continuation. PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/66 and PAPER-WOOD-19/85 retain their shared IG.5 compactification obligation; EVW/8 retains boundary-basepoint and braid interfaces. A disc configuration is not itself a finite-étale algebraic torsor."
     }
   ],
   "prerequisites": [
@@ -3694,7 +4046,7 @@
       "locator": "§1, Remark 1.5, p.898 (arXiv v3: p.6)",
       "printed": "The source describes Mor_{d,(0:···:0)}(A^1, Y) as a locus with d(n − 2) variables, defined using k(d − 1) + 1 equations.",
       "correction": "The space of (n−2)-tuples of polynomials of degree ≤ d−1 (leading vector 0 at T^d) satisfying x3^k + ⋯ + xn^k + 1 = 0.",
-      "reason": "(0:⋯:0) is not a point of projective space. The intended meaning, with d(n−2) variables and k(d−1)+1 equations, is clear, and the dimension count is right (non-empty over K̄ via constant solutions). Same in arXiv v3 TeX.",
+      "reason": "(0:⋯:0) is not a point of projective space. The intended meaning, with d(n−2) variables and k(d−1)+1 equations, is clear, and the dimension count is right (non-empty over K̄ via constant solutions when n≥3; see E43 for n=2). Same in arXiv v3 TeX.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -3707,7 +4059,13 @@
         "verdict": "confirmed",
         "reason": "found and checked on the page image by the review",
         "by": "REV-PAPER-BROWNING-SAWIN-20"
-      }
+      },
+      "reasonHistory": [
+        {
+          "reason": "(0:⋯:0) is not a point of projective space. The intended meaning, with d(n−2) variables and k(d−1)+1 equations, is clear, and the dimension count is right (non-empty over K̄ via constant solutions). Same in arXiv v3 TeX.",
+          "supersededBy": "FIX-RT-PAPER-BROWNING-SAWIN-20"
+        }
+      ]
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/E39",
@@ -3857,25 +4215,17 @@
       }
     },
     {
-      "id": "PAPER-BROWNING-SAWIN-20/E46",
-      "kind": "misprint",
-      "locator": "§1, before Conjecture 1.3, p. 897 (arXiv v3 TeX: hard-coded '\\S~6'). Outside this reviewer's page range, recorded because it points to §7; the coordinator may deduplicate.",
-      "printed": "In Section 6 we shall investigate a potential space with this property for the sequence of Mor_{d,P}(A^1,X) over the complex numbers.",
-      "correction": "In Section 7",
-      "reason": "The mapping space Hom_{d,P}(C,X), Conjecture 7.1 and Theorem 7.7 are in §7, 'Topological interpretation'; §6 is 'The geometric minor arcs: arithmetic'. The TeX hard-codes §~6 instead of using \\ref.",
+      "id": "PAPER-BROWNING-SAWIN-20/E47",
+      "kind": "gap",
+      "locator": "Published Corollary 2.9 and proof pp.907–908; arXiv v3 p.14",
+      "printed": "The source invokes Corollary 1.2 to justify the case i > 0.",
+      "correction": "For positive characteristic p>k≥3 choose a coefficient prime ℓ≡−1 mod p by Dirichlet; then ℓ≠p and its order mod p is 2. In characteristic zero select good residue characteristics for the chosen ℓ as in the separate spreading-out adapter.",
+      "reason": "The corollary has no ℓ, while its invocation of Corollary 1.2 and Theorem 1.1 requires an admissible coefficient prime. The two quantifiers are different and are supplied by the separate adapters. This is an implicit prime-choice justification, not a counterexample to the geometric corollary; the independent conservative-range repairs remain necessary.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
-        "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
-        "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
-        "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
-      ],
-      "review": {
-        "verdict": "confirmed",
-        "reason": "found and checked on the page image by the review",
-        "by": "REV-PAPER-BROWNING-SAWIN-20"
-      }
+        "Codex codex-5ebb6f, 2026-09-30: matching-hash published pp.906–908 and arXiv v3 pp.13–14 freshly compared; both keep the ℓ-free corollary and the implicit coefficient-prime choice. The arXiv submission history lists v1,v2,v3 with v3 latest (19 February 2020); the Annals article page links no erratum. No correction of this implicit step was located in these public version checks."
+      ]
     }
   ],
   "gaps": [
@@ -4032,9 +4382,9 @@
     ]
   },
   "checks": {
-    "structural": "136 unique items; 116 missing routed exactly once, 11 library, 9 planned. All 115 inherited IDs and statuses retained; homloops explicitly narrowed after the counterexample. Every new definition/construction has API signatures and at least three structured tests. Inherited short-test/API debt is retained explicitly in G10.",
+    "structural": "157 unique items; 129 missing routed exactly once; 14 library, 14 planned. All 149 prior IDs retained. Historical finite certificates are not freshly rerun by this fix.",
     "finiteCertificate": "17,280 floor-remainder cases, rank-five odd-length Hankel example, strict equality endpoint, signed Euler-product truncations through degree12, and 120 directly enumerated squarefree-polynomial character sums: PASS.",
-    "limits": "No Lean file compiled; no theorem claimed formalised; no independent review. The inherited finite certificate is retained as prior evidence, not reported as freshly rerun.",
+    "limits": "No Lean compiled by this fix; no formalisation or supplier proof closure claimed. The original independent paper review is retained; independent REV-FIX is pending. Historical finite certificates are preserved as prior evidence, not freshly rerun.",
     "repository": [
       "python3 scripts/check_paper.py research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
       "python3 research/blueprint/intake.py check-files <three authorized deliverables>",
@@ -4051,5 +4401,230 @@
     "status": "complete",
     "reading": "arXiv v3 re-fetched (hash matches); the proofs of Lemmas 3.2 and 3.4 re-read; every numbered statement checked against the items.",
     "changes": "E11 and E12 reclassified to affect nothing; gap statuses recorded; status complete."
+  },
+  "sourceIssueHistory": [
+    {
+      "issue": {
+        "id": "PAPER-BROWNING-SAWIN-20/E46",
+        "kind": "misprint",
+        "locator": "§1, before Conjecture 1.3, p. 897 (arXiv v3 TeX: hard-coded '\\S~6'). Outside this reviewer's page range, recorded because it points to §7; the coordinator may deduplicate.",
+        "printed": "In Section 6 we shall investigate a potential space with this property for the sequence of Mor_{d,P}(A^1,X) over the complex numbers.",
+        "correction": "In Section 7",
+        "reason": "The mapping space Hom_{d,P}(C,X), Conjecture 7.1 and Theorem 7.7 are in §7, 'Topological interpretation'; §6 is 'The geometric minor arcs: arithmetic'. The TeX hard-codes §~6 instead of using \\ref.",
+        "affects": "nothing",
+        "known": "new",
+        "searched": [
+          "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+          "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+          "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+          "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+        ],
+        "review": {
+          "verdict": "confirmed",
+          "reason": "found and checked on the page image by the review",
+          "by": "REV-PAPER-BROWNING-SAWIN-20"
+        }
+      },
+      "inactive": true,
+      "duplicateOf": "PAPER-BROWNING-SAWIN-20/E35",
+      "reason": "Same printed sentence and Section 7 correction; removed from the active list by FIX-RT-PAPER-BROWNING-SAWIN-20, not a rejected finding."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p04-s.pdf",
+      "read": "2026-09-23",
+      "sha256": "f20c87e337c054e42134bf2daf577203ce4b391e0d22ff59b9425d1249c33c53",
+      "scope": "Historical full published reading recorded in source.publishedSource and the original continuation/review; fresh hash reproduction and targeted fix reading on 2026-09-30 are separate below."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1711.10451v3",
+      "read": "2026-09-23",
+      "sha256": "4518f88842e2bc19d2b2e0634f1df54c96d36164331e88fc30ef892f3c879072",
+      "scope": "Historical arXiv-v3 reading recorded in source; do not substitute the unsupported proposed date 2026-09-22. Fresh hash reproduction and selected pp.13–14 comparison by Codex codex-5ebb6f on 2026-09-30."
+    }
+  ],
+  "fixSourceChecks": {
+    "date": "2026-09-30",
+    "by": "Codex codex-5ebb6f",
+    "scope": "Targeted reading: published pp.897–901,906–908,932,939,942–943; arXiv v3 pp.13–14; Katz–Sarnak 11.4.8–11.4.9 theorem/full proof printed 333–334, image PDF343; BV15 pp.12–13 statement/proof context; EVW published pp.738–739,767–768. No new whole-paper/book reading claimed.",
+    "sources": [
+      {
+        "name": "published.pdf",
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p04-s.pdf",
+        "finalUrl": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p04-s.pdf",
+        "bytes": 605188,
+        "sha256": "f20c87e337c054e42134bf2daf577203ce4b391e0d22ff59b9425d1249c33c53",
+        "retrieved": "2026-09-30T18:19:27.744048+00:00"
+      },
+      {
+        "name": "preprint.pdf",
+        "url": "https://arxiv.org/pdf/1711.10451v3",
+        "finalUrl": "https://arxiv.org/pdf/1711.10451v3",
+        "bytes": 541929,
+        "sha256": "4518f88842e2bc19d2b2e0634f1df54c96d36164331e88fc30ef892f3c879072",
+        "retrieved": "2026-09-30T18:19:27.032989+00:00"
+      },
+      {
+        "name": "katz-sarnak.pdf",
+        "url": "https://web.math.princeton.edu/~nmk/RMFEM.pdf",
+        "finalUrl": "https://web.math.princeton.edu/~nmk/RMFEM.pdf",
+        "bytes": 7218196,
+        "sha256": "39beb011e5fab2737bb131611f054221108128fbebbb7f62ba2de9a56f755dd5",
+        "retrieved": "2026-09-30T18:19:30.206553+00:00"
+      },
+      {
+        "name": "bv15.pdf",
+        "url": "https://www.maths.dur.ac.uk/users/pankaj.vishe/fqt.pdf",
+        "finalUrl": "https://www.maths.dur.ac.uk/users/pankaj.vishe/fqt.pdf",
+        "bytes": 633473,
+        "sha256": "e9d68606875a5cff6dba50ab2956641c8ab60d1497f455bd97e6936a760d8de4",
+        "retrieved": "2026-09-30T18:19:27.242458+00:00"
+      },
+      {
+        "name": "annals.html",
+        "url": "https://annals.math.princeton.edu/2020/191-3/p04",
+        "finalUrl": "https://annals.math.princeton.edu/2020/191-3/p04",
+        "bytes": 76483,
+        "sha256": "c56496fc99b16cda5103a0e48aee76e94dfe7ed71a30b4c38149a9f869629fb6",
+        "retrieved": "2026-09-30T18:19:27.821061+00:00"
+      },
+      {
+        "name": "arxiv.html",
+        "url": "https://arxiv.org/abs/1711.10451",
+        "finalUrl": "https://arxiv.org/abs/1711.10451",
+        "bytes": 38442,
+        "sha256": "449f0a05a8f21949de05eb1571f5fa65c2ebc454b45dd11b7354ffc3d6a6ad82",
+        "retrieved": "2026-09-30T18:19:27.775965+00:00"
+      },
+      {
+        "name": "evw.pdf",
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p01-p.pdf",
+        "bytes": 759582,
+        "sha256": "6c10d770348c625ad9fe80d2c47093cde2a2ba05f39a28d547743f0f4993a7f6",
+        "retrieved": "2026-09-30T18:28:19.798210+00:00"
+      }
+    ],
+    "libraryPins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    }
+  },
+  "summaryHistory": [
+    {
+      "summary": "Browning and Sawin develop a geometric version of the Hardy–Littlewood circle method over F_q(T), with ℓ-adic analogues of the major and minor arcs, to control the compactly supported cohomology of spaces of rational curves on smooth hypersurfaces of low degree. They deduce that these spaces are irreducible of the expected dimension, and compare their Betti numbers with those of spaces of maps into the complex hypersurface. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and twenty-eight findings are recorded. The minor-arc bound behind Proposition 2.6 and its corollaries needs a repaired range (E1–E3), and Lemma 7.2 is false with the compact-open topology (E28). Not formalised. After the review (REV-PAPER-BROWNING-SAWIN-20) there are 149 items (11 library, 11 planned, 127 missing) and 46 source issues; every locator now gives the published version. The review confirmed the extraction's corrections and repairs, including its topology analysis showing that Lemma 7.2 fails for the compact-open reading of the germ space (so Conjecture 7.1 also fails there at j = 1).",
+      "stage": "Before red-team fix",
+      "date": "2026-09-30"
+    }
+  ],
+  "checksHistory": [
+    {
+      "checks": {
+        "structural": "136 unique items; 116 missing routed exactly once, 11 library, 9 planned. All 115 inherited IDs and statuses retained; homloops explicitly narrowed after the counterexample. Every new definition/construction has API signatures and at least three structured tests. Inherited short-test/API debt is retained explicitly in G10.",
+        "finiteCertificate": "17,280 floor-remainder cases, rank-five odd-length Hankel example, strict equality endpoint, signed Euler-product truncations through degree12, and 120 directly enumerated squarefree-polynomial character sums: PASS.",
+        "limits": "No Lean file compiled; no theorem claimed formalised; no independent review. The inherited finite certificate is retained as prior evidence, not reported as freshly rerun.",
+        "repository": [
+          "python3 scripts/check_paper.py research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+          "python3 research/blueprint/intake.py check-files <three authorized deliverables>",
+          "Continuation dependency, route and structured-new-test checks; exact/numerical regression script embedded in report."
+        ],
+        "continuationCertificate": "Exact rational tests of clamp endpoints, lift increments, pointwise tail bounds, escaping support, no uniform normalized germ and convex collar nonvanishing; separate floating checks of complex phase/Fermat cancellation. These regressions do not prove homotopy, smoothness, the source lemma or any cohomological theorem."
+      },
+      "stage": "Original continuation and review"
+    }
+  ],
+  "fixHistory": [
+    {
+      "job": "FIX-RT-PAPER-BROWNING-SAWIN-20",
+      "issue": 4980,
+      "date": "2026-09-30",
+      "by": "Codex codex-5ebb6f",
+      "base": "18bd19c",
+      "independentFixReview": "pending",
+      "report": "research/blueprint/redteam/RT-PAPER-BROWNING-SAWIN-20.fixes.md",
+      "disclosure": "This session previously verified the red-team report (PR4804). The present work is a repair, not a fresh independent review of its own fix."
+    }
+  ],
+  "fixValidation": {
+    "originalItems": 149,
+    "unchangedOriginalItems": 135,
+    "changedOriginalItems": [
+      2,
+      3,
+      6,
+      34,
+      48,
+      49,
+      58,
+      63,
+      80,
+      81,
+      87,
+      89,
+      113,
+      147
+    ],
+    "totalItems": 157,
+    "counts": {
+      "missing": 129,
+      "planned": 14,
+      "library": 14
+    },
+    "missingExactlyOnce": 129,
+    "originalSourceFindingsConfirmed": 45,
+    "newSourceFindingsAwaiting": 1,
+    "archivedDuplicate": "E46→E35",
+    "sourceHashesChecked": 7,
+    "extractionNodes": 157,
+    "extractionEdges": 255,
+    "baselineNodes": 2891,
+    "baselineEdges": 8258,
+    "independentEarlySplit": "acyclic",
+    "negativeES5ToES0": "cycle rejected",
+    "finitePrimeWitnesses": [
+      {
+        "fixedCharacteristic": 5,
+        "coefficientPrime": 109
+      },
+      {
+        "fixedCharacteristic": 7,
+        "coefficientPrime": 139
+      },
+      {
+        "fixedCharacteristic": 11,
+        "coefficientPrime": 109
+      },
+      {
+        "fixedCharacteristic": 13,
+        "coefficientPrime": 103
+      },
+      {
+        "fixedCoefficientPrime": 2,
+        "goodCharacteristic": 101
+      },
+      {
+        "fixedCoefficientPrime": 3,
+        "goodCharacteristic": 101
+      },
+      {
+        "fixedCoefficientPrime": 5,
+        "goodCharacteristic": 137
+      },
+      {
+        "fixedCoefficientPrime": 7,
+        "goodCharacteristic": 101
+      },
+      {
+        "fixedCoefficientPrime": 11,
+        "goodCharacteristic": 101
+      },
+      {
+        "fixedCoefficientPrime": 13,
+        "goodCharacteristic": 197
+      }
+    ],
+    "compiledLean": false
   }
 }
