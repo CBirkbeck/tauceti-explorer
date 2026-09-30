@@ -8703,3 +8703,123 @@ example (n : ℕ) (u : (ℤ_[p])ˣ) :
     primePowerCharacter p n (1 : DirichletCharacter K (p^n)) (u : ℤ_[p])-1=0 := sorry
 end
 end SuggestedSmoothedNegativeTests
+
+/-! Exact residue masses of the actual arithmetic smoothing measure, followed
+by finite inverse-moment approximation and its denominator-dependent precision. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure BigOperators
+open AbstractMeasure
+section SmoothedResidueMasses
+variable (p : ℕ) [Fact p.Prime] {K : Type*} [NormedField K]
+  [IsUltrametricDist K] [CompleteSpace K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+local notation "I" => (ContinuousMap.mk (fun x : ℤ_[p] => algebraMap ℤ_[p] K (PadicInt.inv x))
+  (Continuous.comp (continuous_algebraMap ℤ_[p] K) PadicInt.continuous_inv) : C(ℤ_[p],K))
+
+theorem extend_smoothedMeasure_translation_difference (a : ℕ) (ha : ¬p∣a) :
+    AbstractMeasure.map
+      (⟨fun x : ℤ_[p] => x+(a : ℤ_[p]), by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))
+      (extendIntegralCoefficients (R := K) (smoothedMeasure p a ha))-
+      extendIntegralCoefficients (R := K) (smoothedMeasure p a ha)=
+    (∑ i ∈ Finset.range a, dirac K (i : ℤ_[p]))-(a : K) • dirac K (0 : ℤ_[p]) := sorry
+
+theorem smoothedMeasure_residue_recurrence (a : ℕ) (ha : ¬p∣a) (m : ℕ)
+    (r : ZMod (p^m)) :
+    let red : C(ℤ_[p],ZMod (p^m)) :=
+      ⟨PadicInt.toZModPow m,PadicInt.continuous_toZModPow p m⟩
+    let c := finiteProjection red (extendIntegralCoefficients (R := K) (smoothedMeasure p a ha))
+    c (r-(a : ZMod (p^m)))-c r=
+      (∑ i ∈ Finset.range a, if (i : ZMod (p^m))=r then (1 : K) else 0)-
+        (a : K)*(if r=0 then 1 else 0) := sorry
+
+theorem smoothedMeasure_residue [CharZero K] (a : ℕ) (ha : ¬p∣a) (m : ℕ)
+    (u : (ZMod (p^m))ˣ) (hu : (u : ZMod (p^m))=(a : ZMod (p^m)))
+    (r : ZMod (p^m)) :
+    finiteProjection
+      (⟨PadicInt.toZModPow m,PadicInt.continuous_toZModPow p m⟩ : C(ℤ_[p],ZMod (p^m)))
+      (extendIntegralCoefficients (R := K) (smoothedMeasure p a ha)) r=
+    ((a : K)-1)/2+((r.val : K)-(a : K)*(((↑u⁻¹ : ZMod (p^m))*r).val : K))/
+      ((p^m : ℕ) : K) := sorry
+
+theorem twistedSmoothedMeasure_negative_residue_error
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (a : ℕ) (ha : ¬p∣a)
+    (k : ℕ) (hk : 1≤k) (m : ℕ) (hm : 1≤m) (hn : n≤m) :
+    let red : C(ℤ_[p],ZMod (p^m)) :=
+      ⟨PadicInt.toZModPow m,PadicInt.continuous_toZModPow p m⟩
+    let c := finiteProjection red (extendIntegralCoefficients (R := K) (smoothedMeasure p a ha))
+    ‖twistedSmoothedMeasure p n χ a ha (I^k)-
+      ∑ r : ZMod (p^m), c r*(primePowerCharacter p n χ (r.val : ℤ_[p])*I (r.val : ℤ_[p])^k)‖≤
+      ((p : ℝ)^m)⁻¹ := sorry
+
+theorem twistedSmoothedMeasure_negative_quotient_error
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (a : ℕ) (ha : ¬p∣a)
+    (k : ℕ) (hk : 1≤k) (m : ℕ) (hm : 1≤m) (hn : n≤m)
+    (hd : χ (a : ZMod (p^n))*((a : K)⁻¹)^(k-1)-1≠0) :
+    let red : C(ℤ_[p],ZMod (p^m)) :=
+      ⟨PadicInt.toZModPow m,PadicInt.continuous_toZModPow p m⟩
+    let c := finiteProjection red (extendIntegralCoefficients (R := K) (smoothedMeasure p a ha))
+    let d := χ (a : ZMod (p^n))*((a : K)⁻¹)^(k-1)-1
+    ‖twistedSmoothedMeasure p n χ a ha (I^k)/d-
+      (∑ r : ZMod (p^m), c r*(primePowerCharacter p n χ (r.val : ℤ_[p])*I (r.val : ℤ_[p])^k))/d‖≤
+      ((p : ℝ)^m)⁻¹/‖d‖ := sorry
+end SmoothedResidueMasses
+end
+end DirichletPadic
+
+namespace SuggestedSmoothedResidueTests
+noncomputable section
+open scoped AbstractMeasure BigOperators
+open AbstractMeasure DirichletPadic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]] [IsBoundedSMul ℤ_[3] ℚ_[3]]
+-- ternary_translation_difference
+example :
+    AbstractMeasure.map (⟨fun x : ℤ_[3] => x+2, by fun_prop⟩ : C(ℤ_[3],ℤ_[3]))
+      (extendIntegralCoefficients (R := ℚ_[3]) (smoothedMeasure 3 2 (by norm_num)))-
+      extendIntegralCoefficients (R := ℚ_[3]) (smoothedMeasure 3 2 (by norm_num))=
+    dirac ℚ_[3] (1 : ℤ_[3])-dirac ℚ_[3] (0 : ℤ_[3]) := sorry
+-- multiple_wrap_recurrence
+example :
+    let red : C(ℤ_[2],ZMod (2^1)) :=
+      ⟨PadicInt.toZModPow 1,PadicInt.continuous_toZModPow 2 1⟩
+    let c := finiteProjection red
+      (extendIntegralCoefficients (R := ℚ_[2]) (smoothedMeasure 2 5 (by norm_num)))
+    c 1-c 0= -2 := sorry
+-- ternary_three_cells
+example :
+    let red : C(ℤ_[3],ZMod (3^1)) :=
+      ⟨PadicInt.toZModPow 1,PadicInt.continuous_toZModPow 3 1⟩
+    let c := finiteProjection red
+      (extendIntegralCoefficients (R := ℚ_[3]) (smoothedMeasure 3 2 (by norm_num)))
+    c 0=1/2 ∧ c 1= -1/2 ∧ c 2=1/2 := sorry
+-- dyadic_four_cells
+example :
+    let red : C(ℤ_[2],ZMod (2^2)) :=
+      ⟨PadicInt.toZModPow 2,PadicInt.continuous_toZModPow 2 2⟩
+    let c := finiteProjection red
+      (extendIntegralCoefficients (R := ℚ_[2]) (smoothedMeasure 2 3 (by norm_num)))
+    c 0=1 ∧ c 1= -1 ∧ c 2=0 ∧ c 3=1 := sorry
+-- identity_parameter_cells
+example (p : ℕ) [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]] (h1 : ¬p∣1)
+    (m : ℕ) (r : ZMod (p^m)) :
+    finiteProjection
+      (⟨PadicInt.toZModPow m,PadicInt.continuous_toZModPow p m⟩ : C(ℤ_[p],ZMod (p^m)))
+      (extendIntegralCoefficients (R := ℚ_[p]) (smoothedMeasure p 1 h1)) r=0 := sorry
+-- dyadic_negative_first_approximation
+example :
+    let i : C(ℤ_[2],ℚ_[2]) :=
+      ⟨fun x => algebraMap ℤ_[2] ℚ_[2] (PadicInt.inv x),
+        (continuous_algebraMap ℤ_[2] ℚ_[2]).comp PadicInt.continuous_inv⟩
+    ‖twistedSmoothedMeasure 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 3
+      (by norm_num) i-(-2/3 : ℚ_[2])‖≤(1/4 : ℝ) := sorry
+-- ternary_negative_first_approximation
+example :
+    let i : C(ℤ_[3],ℚ_[3]) :=
+      ⟨fun x => algebraMap ℤ_[3] ℚ_[3] (PadicInt.inv x),
+        (continuous_algebraMap ℤ_[3] ℚ_[3]).comp PadicInt.continuous_inv⟩
+    ‖twistedSmoothedMeasure 3 0 (1 : DirichletCharacter ℚ_[3] (3^0)) 2
+      (by norm_num) i-(-1/4 : ℚ_[3])‖≤(1/3 : ℝ) := sorry
+-- small_smoothing_denominator_precision
+example (v s : ℚ_[3]) (h : ‖v-s‖≤(1/9 : ℝ)) :
+    ‖v/(-3/4 : ℚ_[3])-s/(-3/4 : ℚ_[3])‖≤(1/3 : ℝ) := sorry
+end
+end SuggestedSmoothedResidueTests

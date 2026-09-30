@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all526 predecessor nodes whole. Six L3 nodes specify negative moments of the actual smoothing numerator, cross-smoothing, denominator-qualified independence, a negative-weight admissible parameter and actual pseudomeasure numerator/evaluation comparisons. All16 findings, nine requests and13 gaps remain; zero closed stages.",
+  "summary": "Partial continuation preserving all532 predecessor nodes whole. Three L1 nodes give the actual translation difference, finite recurrence and exact smoothing masses; two L3 nodes give inverse-moment and admissible quotient error bounds. All16 findings, nine requests and13 gaps remain, with zero closed stages.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3388,6 +3388,20 @@
         "module": "Mathlib/Algebra/GroupWithZero/Units/Basic.lean",
         "provides": "For two explicitly nonzero denominators in a commutative group with zero, equality of quotients is equivalent to cross multiplication. Applied only after the arithmetic smoothing denominators are assumed nonzero.",
         "checked": "Whole declaration, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026 and matched to the unchanged declaration index. Used in the complete native probe."
+      },
+      {
+        "ref": "mathlib:Finset.prod_range_div",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "The indexed finite telescoping product declaration generates Finset.sum_range_sub by to_additive. Its additive statement telescopes successive differences in an additive commutative group; used for the actual finite translation identity.",
+        "checked": "Whole statement, surrounding hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026 and matched to the unchanged declaration index. The generated additive theorem is used only where explicitly identified."
+      },
+      {
+        "ref": "mathlib:Finset.sum_range_id_mul_two",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Intervals.lean",
+        "provides": "Twice the sum of natural representatives0 through q−1 is q(q−1). Casting this identity into a characteristic-zero field gives the total used in the residue mass formula.",
+        "checked": "Whole statement, surrounding hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026 and matched to the unchanged declaration index. The generated additive theorem is used only where explicitly identified."
       }
     ]
   },
@@ -35071,6 +35085,312 @@
       "acceptance": [
         "Canonical general coefficient-field evaluation remains an open PMIA request. Its absence is stated through the actual f and hf inputs; no new placeholder carrier conceals it."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-translation-difference",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "The translation difference of the smoothing measure",
+      "kind": "lemma",
+      "statement": "(τ_a)_*μ−μ=Σ_(i<a)δ_i−a·δ_0.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The natural smoothing parameter a satisfies p∤a. Write μ=extendIntegralCoefficients(smoothedMeasure p a ha), the actual previously constructed measure on Z=ℤ_p. τ_i(x)=x+i is the native continuous translation and δ_i the native Dirac measure.",
+        "For m≥0 put q=p^m, red_m=the native PadicInt.toZModPow m bundled using the existing PMIA continuity theorem, and c_m(r)=finiteProjection(red_m)(μ)(r). The residue r lies in native ZMod q, and r.val is its canonical natural representative. This notation introduces no new finite-measure carrier.",
+        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted.",
+        "For inverse moments let n≥0, χ:DirichletCharacter K(p^n), k≥1, and I∈C(Z,K) be the existing native inverse extended by zero, followed by algebraMap. Write M_a=twistedSmoothedMeasure p n χ a ha(I^k). The approximation uses m≥1 and n≤m. The finite sum is S_m=Σ_(r:ZMod q)c_m(r)·primePowerCharacter(p,n,χ)(r.val)·I(r.val)^k.",
+        "The quotient estimate uses d_a=χ(a)·((a:K)⁻¹)^(k−1)−1 and explicitly assumes d_a≠0. Its error is p^(−m)/‖d_a‖. It neither constructs a scalar L-function nor evaluates a pseudomeasure at a character with zero smoothing denominator."
+      ],
+      "proofSteps": [
+        "Start with the existing actual measure equality Σ_(i<a)(τ_i)_*μ=Σ_(i<a)Σ_(j<i)δ_j. Apply native pushforward alongτ_1 and subtract the original equality.",
+        "Native map_map, map_apply and continuity of addition identify τ_1∘τ_i withτ_(i+1). The left side telescopes to(τ_a)_*μ−μ.",
+        "Native map_dirac sendsδ_j toδ_(j+1). Each inner difference on the right telescopes toδ_i−δ_0, and summing givesΣ_iδ_i−aδ_0.",
+        "The native additive theorem Finset.sum_range_sub is generated by the indexed declaration Finset.prod_range_div; its full source and generated additive specification were checked. The complete telescope and triangular_telescope proofs verify both exact finite identities.",
+        "At a=2 the right side isδ_1−δ_0. At a=1 both sides vanish. Retain the negative zero-atom term: its sign determines the residue recurrence."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/smoothed-translation-sum",
+        "mathlib:AbstractMeasure.map_map",
+        "mathlib:AbstractMeasure.map_dirac",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:Finset.prod_range_div"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.extend_smoothedMeasure_translation_difference"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Finite quotient integration and Proposition3.16, published121–123/PDF22–24; Proposition4.4, Definition4.5 and Proposition4.6, published137/PDF38; the actual character twist in equation(5-1) and the smoothed transform, published140–141/PDF41–42; equation(6-2) and§7, published151–158/PDF52–59.",
+          "excerpt": "We now consider the case",
+          "match": "Worker finite-residue derivation for the actual smoothing measure, followed by quantitative inverse-moment approximation. These specific carry formulas and error estimates are derived here from existing arithmetic translation, finite-projection and boundedness statements; the paper does not state them as separate lemmas. No Bernoulli-distribution carrier, unsmoothed pure-p measure, new projective limit or Coleman primitive is constructed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedResidueTests.ternary_translation_difference",
+          "kind": "computation",
+          "statement": "At p=3,a=2, the difference between translation by2 and the actual measure isδ_1−δ_0."
+        }
+      ],
+      "acceptance": [
+        "The equality is on the actual arithmetic measure, using only existing pushforward. No additive convolution comparison or general translation operator is defined."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-residue-recurrence",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "The finite recurrence for smoothing masses",
+      "kind": "lemma",
+      "statement": "c_m(r−a)−c_m(r)=N_a(r)−a·[r=0], where N_a(r)=#{i<a : i≡r mod q}.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The natural smoothing parameter a satisfies p∤a. Write μ=extendIntegralCoefficients(smoothedMeasure p a ha), the actual previously constructed measure on Z=ℤ_p. τ_i(x)=x+i is the native continuous translation and δ_i the native Dirac measure.",
+        "For m≥0 put q=p^m, red_m=the native PadicInt.toZModPow m bundled using the existing PMIA continuity theorem, and c_m(r)=finiteProjection(red_m)(μ)(r). The residue r lies in native ZMod q, and r.val is its canonical natural representative. This notation introduces no new finite-measure carrier.",
+        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted.",
+        "For inverse moments let n≥0, χ:DirichletCharacter K(p^n), k≥1, and I∈C(Z,K) be the existing native inverse extended by zero, followed by algebraMap. Write M_a=twistedSmoothedMeasure p n χ a ha(I^k). The approximation uses m≥1 and n≤m. The finite sum is S_m=Σ_(r:ZMod q)c_m(r)·primePowerCharacter(p,n,χ)(r.val)·I(r.val)^k.",
+        "The quotient estimate uses d_a=χ(a)·((a:K)⁻¹)^(k−1)−1 and explicitly assumes d_a≠0. Its error is p^(−m)/‖d_a‖. It neither constructs a scalar L-function nor evaluates a pseudomeasure at a character with zero smoothing denominator."
+      ],
+      "proofSteps": [
+        "Evaluate the preceding measure translation difference on the actual continuous indicator of the residue fiber r. The existing finite-projection coefficient theorem identifies its integral with c_m(r).",
+        "Pullback byτ_a is the indicator of r−a because the native reduction is a ring homomorphism. Thus the translated coefficient is c_m(r−a), with the backward residue shift fixed explicitly.",
+        "Eachδ_i contributes1 exactly when its natural residue equals r; the zero Dirac contributes[r=0]. This gives the displayed finite count in K, without any division or characteristic-zero requirement.",
+        "Keep the whole count N_a(r), not only a single indicator. For p=2,a=5,m=1,r=0 it equals3, so the right side is3−5=−2. The case where a exceeds q is an essential carry test.",
+        "At m=0 there is one residue; N_a(0)=a and the difference is0. Total mass, rather than this recurrence alone, fixes that coefficient."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-translation-difference",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-coefficient",
+        "PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity",
+        "mathlib:PadicInt.toZModPow",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedMeasure_residue_recurrence"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Finite quotient integration and Proposition3.16, published121–123/PDF22–24; Proposition4.4, Definition4.5 and Proposition4.6, published137/PDF38; the actual character twist in equation(5-1) and the smoothed transform, published140–141/PDF41–42; equation(6-2) and§7, published151–158/PDF52–59.",
+          "excerpt": "We now consider the case",
+          "match": "Worker finite-residue derivation for the actual smoothing measure, followed by quantitative inverse-moment approximation. These specific carry formulas and error estimates are derived here from existing arithmetic translation, finite-projection and boundedness statements; the paper does not state them as separate lemmas. No Bernoulli-distribution carrier, unsmoothed pure-p measure, new projective limit or Coleman primitive is constructed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedResidueTests.multiple_wrap_recurrence",
+          "kind": "computation",
+          "statement": "At p=2,a=5 and modulus2, c(1)−c(0)=−2; the count includes all three even indices below5."
+        }
+      ],
+      "acceptance": [
+        "This is a recurrence for the existing finite coefficients. It does not construct a second measure or assert that a recurrence without total mass has a unique solution."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-residue-coefficients",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Exact residue masses of the smoothing measure",
+      "kind": "theorem",
+      "statement": "For CharZero K, c_m(r)=(a−1)/2+(r.val−a v_r)/q.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The natural smoothing parameter a satisfies p∤a. Write μ=extendIntegralCoefficients(smoothedMeasure p a ha), the actual previously constructed measure on Z=ℤ_p. τ_i(x)=x+i is the native continuous translation and δ_i the native Dirac measure.",
+        "For m≥0 put q=p^m, red_m=the native PadicInt.toZModPow m bundled using the existing PMIA continuity theorem, and c_m(r)=finiteProjection(red_m)(μ)(r). The residue r lies in native ZMod q, and r.val is its canonical natural representative. This notation introduces no new finite-measure carrier.",
+        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted.",
+        "For inverse moments let n≥0, χ:DirichletCharacter K(p^n), k≥1, and I∈C(Z,K) be the existing native inverse extended by zero, followed by algebraMap. Write M_a=twistedSmoothedMeasure p n χ a ha(I^k). The approximation uses m≥1 and n≤m. The finite sum is S_m=Σ_(r:ZMod q)c_m(r)·primePowerCharacter(p,n,χ)(r.val)·I(r.val)^k.",
+        "The quotient estimate uses d_a=χ(a)·((a:K)⁻¹)^(k−1)−1 and explicitly assumes d_a≠0. Its error is p^(−m)/‖d_a‖. It neither constructs a scalar L-function nor evaluates a pseudomeasure at a character with zero smoothing denominator."
+      ],
+      "proofSteps": [
+        "Let N=N_a(r), r′=(r−a).val and v′=((↑u⁻¹)(r−a)).val. The division algorithm gives the integer equalities r′−r.val=−a+qN and v′−v_r=−1+q·[r=0]. The second equality uses invertibility of u, so v_r=0 exactly when r=0. These formulas allow arbitrarily many wraps of a around q.",
+        "Substitute both equalities into the proposed coefficient difference. It equals N−a[r=0], exactly the preceding recurrence. The complete native carry_recurrence lemma verifies the field calculation, retaining q≠0.",
+        "Multiplication by u⁻¹ permutes ZMod q. Therefore Σ_r v_r=Σ_r r.val=q(q−1)/2, from the native finite sum of natural representatives. The complete inverse_unit_permutation proof checks the actual residue permutation, and candidate_mass checks that the proposed coefficients sum to(a−1)/2.",
+        "The actual coefficients have this same total. Apply coefficient extension and evaluation at1 to the existing reflection identity μ_a+(−id)_*μ_a=(a−1)δ_0; this gives2μ(1)=a−1. Divide by2 in the characteristic-zero field K and apply finite-projection-mass.",
+        "The difference of the proposed and actual coefficients is invariant under addition by a. Since u is a unit modulo q, every residue is a natural multiple of a; induction along those multiples makes the difference constant. Equal total masses give q times that constant equal to0. The complete cyclic_difference_unique proof verifies this finite argument on native ZMod q and cancels q only using characteristic zero.",
+        "At m=0 the formula is(a−1)/2. At a=1 it is0 on every residue. At p=3,a=2,m=1 the masses are1/2,−1/2,1/2; at p=2,a=3,m=2 they are1,−1,0,1. They obey the existing generic finite-projection refinement theorem.",
+        "Equivalently, the coefficient is(a−1)/2−floor(a v_r/q), since a v_r mod q=r.val. In the dyadic case a is odd and(a−1)/2 is an integer. The displayed equality in K remains valid uniformly and does not place1/2 or1/q inℤ_p."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-residue-recurrence",
+        "DirichletPadicLFunctions:L1/measure-reflection",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-mass",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-refinement",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-pushforward",
+        "mathlib:Nat.Prime.coprime_iff_not_dvd",
+        "mathlib:ZMod.unitOfCoprime",
+        "mathlib:ZMod.card",
+        "mathlib:Fin.prod_univ_eq_prod_range",
+        "mathlib:Finset.sum_range_id_mul_two"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedMeasure_residue"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Finite quotient integration and Proposition3.16, published121–123/PDF22–24; Proposition4.4, Definition4.5 and Proposition4.6, published137/PDF38; the actual character twist in equation(5-1) and the smoothed transform, published140–141/PDF41–42; equation(6-2) and§7, published151–158/PDF52–59.",
+          "excerpt": "We now consider the case",
+          "match": "Worker finite-residue derivation for the actual smoothing measure, followed by quantitative inverse-moment approximation. These specific carry formulas and error estimates are derived here from existing arithmetic translation, finite-projection and boundedness statements; the paper does not state them as separate lemmas. No Bernoulli-distribution carrier, unsmoothed pure-p measure, new projective limit or Coleman primitive is constructed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedResidueTests.ternary_three_cells",
+          "kind": "computation",
+          "statement": "At p=3,a=2 and modulus3, the actual masses are1/2,−1/2,1/2."
+        },
+        {
+          "name": "SuggestedSmoothedResidueTests.dyadic_four_cells",
+          "kind": "computation",
+          "statement": "At p=2,a=3 and modulus4, the actual masses are1,−1,0,1."
+        },
+        {
+          "name": "SuggestedSmoothedResidueTests.identity_parameter_cells",
+          "kind": "degenerate",
+          "statement": "The actual a=1 smoothing measure has zero mass on every residue fiber."
+        }
+      ],
+      "acceptance": [
+        "The formula refers to the actual finiteProjection of the actual arithmetic measure. Characteristic zero is needed to determine its constant from total mass. The half-integer expression is never interpreted as division in the integral coefficient ring."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/smoothed-negative-residue-approximation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite approximation of arithmetic inverse moments",
+      "kind": "theorem",
+      "statement": "For m≥1 and n≤m, ‖M_a−S_m‖≤p^(−m).",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The natural smoothing parameter a satisfies p∤a. Write μ=extendIntegralCoefficients(smoothedMeasure p a ha), the actual previously constructed measure on Z=ℤ_p. τ_i(x)=x+i is the native continuous translation and δ_i the native Dirac measure.",
+        "For m≥0 put q=p^m, red_m=the native PadicInt.toZModPow m bundled using the existing PMIA continuity theorem, and c_m(r)=finiteProjection(red_m)(μ)(r). The residue r lies in native ZMod q, and r.val is its canonical natural representative. This notation introduces no new finite-measure carrier.",
+        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted.",
+        "For inverse moments let n≥0, χ:DirichletCharacter K(p^n), k≥1, and I∈C(Z,K) be the existing native inverse extended by zero, followed by algebraMap. Write M_a=twistedSmoothedMeasure p n χ a ha(I^k). The approximation uses m≥1 and n≤m. The finite sum is S_m=Σ_(r:ZMod q)c_m(r)·primePowerCharacter(p,n,χ)(r.val)·I(r.val)^k.",
+        "The quotient estimate uses d_a=χ(a)·((a:K)⁻¹)^(k−1)−1 and explicitly assumes d_a≠0. Its error is p^(−m)/‖d_a‖. It neither constructs a scalar L-function nor evaluates a pseudomeasure at a character with zero smoothing denominator."
+      ],
+      "proofSteps": [
+        "Let F=cχ·I^k be the actual continuous inverse-moment test. Form its existing finite locally constant approximation g_m(x)=F((red_m x).val) by composing the finite discrete function with red_m. This is a local continuous-test abbreviation, not a new approximation operator.",
+        "The native reduction kernel and norm/ideal criterion imply ‖x−(red_m x).val‖≤p^(−m). The complete representative_distance proof uses those exact pinned declarations. The lower reduction identity makes cχ constant on each such fiber because n≤m.",
+        "Since m≥1, a fiber consists entirely of units or entirely of nonunits. On nonunits both inverse-power tests vanish, since k≥1. On units the native inverse distance formula, its power bound and the bounded coefficient map give ‖I(x)^k−I(r.val)^k‖≤p^(−m). The complete inverse_power_distance and bounded_coefficient_map proofs check these two bounds. Multiplication by the finite character preserves the bound by native DirichletCharacter.norm_le_one.",
+        "Thus ‖F−g_m‖≤p^(−m), using the native continuous-map supremum norm. The existing integral coefficient extension has evaluation bound‖μ(f)‖≤‖f‖. The complete measure_approximation proof transfers the pointwise bound through an actual native AbstractMeasure.",
+        "Existing finite-projection-pairing identifies μ(g_m) with S_m, and the actual twist evaluation givesμ(F)=M_a. The preceding exact mass formula makes this a fully explicit finite arithmetic sum whenever its characteristic-zero assumptions hold.",
+        "At p=2,a=3,n=0,k=1,m=2 the finite sum is−2/3 and the error is at most1/4. At p=3,a=2,n=0,k=1,m=1 it is−1/4 with error at most1/3. The theorem is a bound, not a declaration that either finite sum already equals the limiting moment."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-residue-coefficients",
+        "DirichletPadicLFunctions:L2/twisted-smoothed-measure",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-pairing",
+        "PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
+        "PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification",
+        "mathlib:PadicInt.ker_toZModPow",
+        "mathlib:PadicInt.norm_le_pow_iff_mem_span_pow",
+        "mathlib:PadicInt.zmod_cast_comp_toZModPow",
+        "mathlib:DirichletCharacter.norm_le_one",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:dist_inv_inv₀",
+        "mathlib:norm_smul_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedSmoothedMeasure_negative_residue_error"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Finite quotient integration and Proposition3.16, published121–123/PDF22–24; Proposition4.4, Definition4.5 and Proposition4.6, published137/PDF38; the actual character twist in equation(5-1) and the smoothed transform, published140–141/PDF41–42; equation(6-2) and§7, published151–158/PDF52–59.",
+          "excerpt": "We now consider the case",
+          "match": "Worker finite-residue derivation for the actual smoothing measure, followed by quantitative inverse-moment approximation. These specific carry formulas and error estimates are derived here from existing arithmetic translation, finite-projection and boundedness statements; the paper does not state them as separate lemmas. No Bernoulli-distribution carrier, unsmoothed pure-p measure, new projective limit or Coleman primitive is constructed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedResidueTests.dyadic_negative_first_approximation",
+          "kind": "computation",
+          "statement": "At p=2,a=3, the actual first inverse moment differs from−2/3 by norm at most1/4."
+        },
+        {
+          "name": "SuggestedSmoothedResidueTests.ternary_negative_first_approximation",
+          "kind": "computation",
+          "statement": "At p=3,a=2, the actual first inverse moment differs from−1/4 by norm at most1/3."
+        }
+      ],
+      "acceptance": [
+        "No root of unity, primitivity, Gauss sum or analytic Mellin transform is assumed. Generic finite projection and bounded coefficient extension are reused."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/smoothed-negative-quotient-precision",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Precision after division by a smoothing factor",
+      "kind": "lemma",
+      "statement": "For d_a≠0, ‖M_a/d_a−S_m/d_a‖≤p^(−m)/‖d_a‖.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The natural smoothing parameter a satisfies p∤a. Write μ=extendIntegralCoefficients(smoothedMeasure p a ha), the actual previously constructed measure on Z=ℤ_p. τ_i(x)=x+i is the native continuous translation and δ_i the native Dirac measure.",
+        "For m≥0 put q=p^m, red_m=the native PadicInt.toZModPow m bundled using the existing PMIA continuity theorem, and c_m(r)=finiteProjection(red_m)(μ)(r). The residue r lies in native ZMod q, and r.val is its canonical natural representative. This notation introduces no new finite-measure carrier.",
+        "The exact mass formula additionally assumes CharZero K and an explicit native unit u:(ZMod q)ˣ with ↑u=(a:ZMod q). Such u exists by the native unitOfCoprime and p∤a. Put v_r=((↑u⁻¹)r).val. Divisions by2 and q in that formula occur only in K; no integral inversion of p or2 is asserted.",
+        "For inverse moments let n≥0, χ:DirichletCharacter K(p^n), k≥1, and I∈C(Z,K) be the existing native inverse extended by zero, followed by algebraMap. Write M_a=twistedSmoothedMeasure p n χ a ha(I^k). The approximation uses m≥1 and n≤m. The finite sum is S_m=Σ_(r:ZMod q)c_m(r)·primePowerCharacter(p,n,χ)(r.val)·I(r.val)^k.",
+        "The quotient estimate uses d_a=χ(a)·((a:K)⁻¹)^(k−1)−1 and explicitly assumes d_a≠0. Its error is p^(−m)/‖d_a‖. It neither constructs a scalar L-function nor evaluates a pseudomeasure at a character with zero smoothing denominator."
+      ],
+      "proofSteps": [
+        "Rewrite the difference as(M_a−S_m)/d_a. Native norm_div and the preceding numerator estimate give the bound after division by the nonnegative real norm‖d_a‖. The complete quotient_precision proof checks the precise inequality.",
+        "Retain d_a≠0 as the arithmetic admissibility condition, even though totalized field division would mechanically yield an expression at zero. The existing negative-quotient independence theorem compares the actual target with any other admissible smoothing parameter.",
+        "For rational p-adic coefficients and v_p(d_a)=v, the bound is p^(v−m). To certify the quotient modulo p^R, take m≥R+v and compute the numerator to R+v digits. Coprimality of a with p does not imply‖d_a‖=1.",
+        "For p=3,a=4,n=0,k=2, d_a=−3/4 has norm1/3: a numerator error1/9 yields quotient error1/3. Exact arithmetic controls compare two smoothing parameters after this precision adjustment and detect failures when it is omitted.",
+        "At k=1 with a principal character the denominator is zero, while the actual inverse moment can be nonzero. The finite mass formula and approximation show this boundary directly; no quotient is formed there."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/smoothed-negative-residue-approximation",
+        "DirichletPadicLFunctions:L3/smoothed-negative-quotient-independent",
+        "mathlib:norm_div"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedSmoothedMeasure_negative_quotient_error"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Finite quotient integration and Proposition3.16, published121–123/PDF22–24; Proposition4.4, Definition4.5 and Proposition4.6, published137/PDF38; the actual character twist in equation(5-1) and the smoothed transform, published140–141/PDF41–42; equation(6-2) and§7, published151–158/PDF52–59.",
+          "excerpt": "We now consider the case",
+          "match": "Worker finite-residue derivation for the actual smoothing measure, followed by quantitative inverse-moment approximation. These specific carry formulas and error estimates are derived here from existing arithmetic translation, finite-projection and boundedness statements; the paper does not state them as separate lemmas. No Bernoulli-distribution carrier, unsmoothed pure-p measure, new projective limit or Coleman primitive is constructed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedResidueTests.small_smoothing_denominator_precision",
+          "kind": "non-example",
+          "statement": "Dividing by the ternary smoothing factor−3/4 changes a1/9 numerator bound into a1/3 quotient bound, losing one digit."
+        }
+      ],
+      "acceptance": [
+        "Precision belongs to the evaluated denominator in K. Neither a canonical K-valued pseudomeasure evaluator nor an analytic L-function is inferred."
+      ]
     }
   ],
   "requests": [
@@ -35167,7 +35487,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual negative smoothing numerator, cross relation, admissible quotient independence and conditional pseudomeasure specialization now provide the concrete arithmetic inputs expected by the existing Coleman owner. Canonical general K-valued character evaluation remains the open PMIA L3 request. Analytic character families and scalar Mellin/L-function comparisons remain with PMIA L0a and LAD L3. The tame logarithm/trace/complement package awaits the owned typed analytic-distribution comparisons; pure-p smoothing primitives and pole/residue comparisons must reuse the existing Coleman nodes. Full source extraction, the other recorded gaps and the remaining Eisenstein comparisons stay open. Preserve E44–E49 and all earlier corrections.",
+        "Exact arithmetic smoothing masses now turn inverse moments into explicit finite sums with a p^(−m) error bound. Admissible quotient precision accounts for the norm of the smoothing denominator. Canonical general K-valued character evaluation and analytic L-value identification remain with the existing PMIA and LAD requests; the conditional evalAt boundary is unchanged. The source-owned Coleman smoothed primitive and higher formulas must be imported, not reconstructed. Pole/residue comparisons, remaining Eisenstein work, all13 gaps and full source extraction remain open; preserve E44–E49 and all earlier findings.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -35199,7 +35519,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual negative smoothing numerator, cross relation, admissible quotient independence and conditional pseudomeasure specialization now provide the concrete arithmetic inputs expected by the existing Coleman owner. Canonical general K-valued character evaluation remains the open PMIA L3 request. Analytic character families and scalar Mellin/L-function comparisons remain with PMIA L0a and LAD L3. The tame logarithm/trace/complement package awaits the owned typed analytic-distribution comparisons; pure-p smoothing primitives and pole/residue comparisons must reuse the existing Coleman nodes. Full source extraction, the other recorded gaps and the remaining Eisenstein comparisons stay open. Preserve E44–E49 and all earlier corrections. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "Exact arithmetic smoothing masses now turn inverse moments into explicit finite sums with a p^(−m) error bound. Admissible quotient precision accounts for the norm of the smoothing denominator. Canonical general K-valued character evaluation and analytic L-value identification remain with the existing PMIA and LAD requests; the conditional evalAt boundary is unchanged. The source-owned Coleman smoothed primitive and higher formulas must be imported, not reconstructed. Pole/residue comparisons, remaining Eisenstein work, all13 gaps and full source extraction remain open; preserve E44–E49 and all earlier findings. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -35549,36 +35869,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 source findings, sourceVersions and all nine requests remain whole. All13 gaps and corrections E44–E49 remain. No new finding, request or independent verdict is added.",
+    "sourceIssues": "All16 source findings, sourceVersions, nine requests and13 gaps remain. No new source finding, request or independent verdict is added. The source sign and normalization corrections, including E44–E49, are unchanged.",
     "validation": {
-      "nodes": 532,
+      "nodes": 537,
       "kinds": {
         "definition": 1,
-        "lemma": 221,
+        "lemma": 224,
         "construction": 64,
-        "theorem": 155,
+        "theorem": 157,
         "comparison": 91
       },
       "api": 471,
-      "packetTests": 832,
+      "packetTests": 840,
       "definitionConstructionTests": 270,
-      "typedExamples": 835,
+      "typedExamples": 843,
       "planets": 24,
-      "baseline": 482,
-      "preservedWholeNodes": 526,
-      "preservedBaseline": 479,
+      "baseline": 484,
+      "preservedWholeNodes": 532,
+      "preservedBaseline": 482,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 6,
-      "newNamedDeclarations": 6,
-      "newTypedTests": 7,
+      "newNodes": 5,
+      "newNamedDeclarations": 5,
+      "newTypedTests": 8,
       "requests": 9,
       "gaps": 13,
       "closedStages": 0,
-      "reachableNodes": 769,
-      "dependencyEdges": 3655,
+      "reachableNodes": 775,
+      "dependencyEdges": 3695,
       "acyclic": true,
-      "baselineLeaves": 651,
+      "baselineLeaves": 654,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -35589,11 +35909,11 @@
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 237657,
+      "readerWords": 241063,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1625,
+      "compilerWarnings": 1638,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -35603,38 +35923,41 @@
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 11,
-      "scratchMathlibModules": 2800,
+      "scratchCompleteLemmas": 12,
+      "scratchMathlibModules": 2804,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "models": 9,
-        "moments": 414,
-        "crossComparisons": 1422,
-        "quotientComparisons": 900,
-        "zeroDenominators": 103,
-        "wrongScalarCounterexamples": 933,
-        "wrongShiftCounterexamples": 899,
-        "nonunitSupportComparisons": 414,
-        "identityParameterZeros": 54,
-        "firstPrincipalZeros": 46,
-        "negativePrincipalUnitChecks": 54
+        "residueCases": 60,
+        "recurrenceChecks": 3732,
+        "massChecks": 60,
+        "refinementChecks": 3732,
+        "wrongCarryCounterexamples": 2688,
+        "wrongSignCounterexamples": 163,
+        "formalMomentChecks": 72,
+        "negativeMoments": 72,
+        "higherLevelChecks": 72,
+        "higherPrecisionChecks": 72,
+        "quotientComparisons": 30,
+        "precisionLossCounterexamples": 25,
+        "zeroDenominatorNonzeroNumerators": 6,
+        "knownCellChecks": 9
       },
-      "numericalControlsCertified": false,
+      "numericalControlsCertified": true,
       "newRoutesStageLeaves": []
     },
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1625,
-      "sha256": "2d513d08f86d1e286eba1316a0af0ec517fa7289959d8fd57682948ff619bf50",
+      "warnings": 1638,
+      "sha256": "043ca5649e7bed028d86c80a08710a1f73af2109f421a456f7afcef8c40085d0",
       "nativeProbe": {
-        "completeLemmas": 11,
+        "completeLemmas": 12,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "146eef18bac427b4a9d13d360bf91437fcd18549725ce5d07825af7e7186d6d3"
+        "sha256": "18236bb12d59398a81b729d5010e71910c3313eb6def22c95f7adc70152e27a7"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -35703,16 +36026,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "5edb5125cc3c276256a83554014f7a95b593ef1992c1bab023473fb877e2c1f7",
+          "sourceSha256": "2d513d08f86d1e286eba1316a0af0ec517fa7289959d8fd57682948ff619bf50",
           "modules": 3572,
-          "warnings": 1612,
+          "warnings": 1625,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "a7b189fee115a700be02803b9d9fda3d574b8d2b",
+      "base": "5ecdcddee08f8e7f0232c96a87e943e3ed93a06a",
       "unchangedInputs": 62,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -41278,6 +41601,50 @@
         "negativePrincipalUnitChecks": 54
       },
       "numericalMethod": "Exact rational signed-atom models on integer points of Z_p. For a fixed explicit atomic measure B, construct mu_a=B-a*map(x->a*x,B) independently as atom dictionaries, then sum the actual unit inverse powers with level-zero, principal or quadratic finite-character weights. These concrete models satisfy the same cross-smoothing identity; nonunit atoms are retained and their inverse tests vanish. All eligible ratios are compared, zero denominators are counted and never divided, and incorrect exponents/scalars are tested. Arithmetic-shaped models are not the source arithmetic smoothedMeasure; no actual arithmetic moment, residue formula, approximation or analytic L-value is certified by these controls."
+    },
+    "smoothedResidueMasses": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4743,
+      "previousHead": "4654b0105cfdc733fcd2daf3f5d7d1b2ab24579d",
+      "previousMerge": "376f1bc9720f005266c60dfe3b2aa5b00c563ca0",
+      "preservedWholeNodes": 532,
+      "preservedBaseline": 482,
+      "preservedFindings": 16,
+      "newNodes": 5,
+      "reading": "Whole published121–123 and140–141 freshly read, with preceding whole137–139 and151–158 reading retained. Whole smoothing-denominator/series and their geometric cancellation, actual finite translation sum, reflection and tame-residue nodes were read. Whole Coleman smoothed-polylog-combination, all APIs/tests and ownership scope were checked: that primitive is already owned and is not reconstructed. Whole PMIA finite coefficient, pairing, mass/refinement and coefficient-extension APIs and signatures were checked. Native telescoping, finite natural sum, ZMod unit/permutation/cardinality, reduction kernel/lower reduction, p-adic norm/ideal criterion and continuous-map norm statements were read at the pin. The twelve complete native proofs cover the nontrivial finite-cycle uniqueness and precision steps.",
+      "boundary": "Exact arithmetic smoothing masses now turn inverse moments into explicit finite sums with a p^(−m) error bound. Admissible quotient precision accounts for the norm of the smoothing denominator. Canonical general K-valued character evaluation and analytic L-value identification remain with the existing PMIA and LAD requests; the conditional evalAt boundary is unchanged. The source-owned Coleman smoothed primitive and higher formulas must be imported, not reconstructed. Pole/residue comparisons, remaining Eisenstein work, all13 gaps and full source extraction remain open; preserve E44–E49 and all earlier findings.",
+      "inputBase": "376f1bc9720f005266c60dfe3b2aa5b00c563ca0",
+      "sourceBoundary": "All16 source findings, sourceVersions, nine requests and13 gaps remain. No new source finding, request or independent verdict is added. The source sign and normalization corrections, including E44–E49, are unchanged.",
+      "publication": {
+        "base": "5ecdcddee08f8e7f0232c96a87e943e3ed93a06a",
+        "unchangedInputs": 62,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "residueCases": 60,
+        "recurrenceChecks": 3732,
+        "massChecks": 60,
+        "refinementChecks": 3732,
+        "wrongCarryCounterexamples": 2688,
+        "wrongSignCounterexamples": 163,
+        "formalMomentChecks": 72,
+        "negativeMoments": 72,
+        "higherLevelChecks": 72,
+        "higherPrecisionChecks": 72,
+        "quotientComparisons": 30,
+        "precisionLossCounterexamples": 25,
+        "zeroDenominatorNonzeroNumerators": 6,
+        "knownCellChecks": 9
+      },
+      "numericalMethod": "Exact rational masses use the newly derived coefficient formula for the actual arithmetic smoothing measure. Every finite recurrence, mass and refinement is checked, including smoothing parameters larger than the modulus. Ordinary moments independently match the existing rational smoothing-series recurrence followed by iterated Mahler differentiation. Native inverse-power distance, residue-distance and measure approximation bounds certify unit inverse-moment sums modulo p^r at level m>=max(n,1,r). Each negative moment is recomputed at higher level and precision. For a nonzero smoothing denominator with valuation v, level and numerator precision increase to R+v before division; the resulting quotient is certified modulo p^R. Zero denominators are never divided, even when the numerator is nonzero. The calculation identifies actual arithmetic moment quotients, not a constructed scalar analytic L-function; the roadmap statements remain unchecked plans."
     }
   },
   "requestResolutions": [
