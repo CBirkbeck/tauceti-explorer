@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Four L2 comparison nodes evaluate the actual intrinsic field and integral zeta measures at their existing arithmetic characters, for arbitrary tame level changes and native primitive conductors. Four signatures and fifteen boundary tests keep the inverse-prime factor at weight zero. All730 predecessor nodes remain whole.",
+  "summary": "Four new arithmetic comparisons/certificates and one fine API promotion discharge the tame Gauss normalization in the coefficient field and its native integer ring. Four new suggested declarations and eighteen tests preserve all734predecessor nodes and the existing conditional formulas.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4389,6 +4389,34 @@
         "module": "Mathlib/Algebra/BigOperators/Ring/Finset.lean",
         "provides": "Natural casts preserve finite products into any commutative semiring.",
         "checked": "Complete declaration and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. The complete native product and subtype-reflection probes verify these exact uses."
+      },
+      {
+        "ref": "mathlib:AddChar.sum_mulShift",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+        "provides": "Additive orthogonality for a primitive additive character on any finite commutative ring, with domain coefficient ring.",
+        "checked": "Complete native statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; exact uses checked in the complete GaussProbe."
+      },
+      {
+        "ref": "mathlib:AddChar.zmodChar_primitive_of_primitive_root",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+        "provides": "A primitive root gives a primitive native additive character on the positive residue ring.",
+        "checked": "Complete native statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; exact uses checked in the complete GaussProbe."
+      },
+      {
+        "ref": "mathlib:AddChar.norm_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Normed/Ring/Finite.lean",
+        "provides": "An additive character on a finite left-cancellative monoid has norm1 in a normed ring with multiplicative norm and norm-one law.",
+        "checked": "Complete native statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; exact uses checked in the complete GaussProbe."
+      },
+      {
+        "ref": "mathlib:Valuation.Integers.isUnit_iff_valuation_eq_one",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Valuation/Integers.lean",
+        "provides": "For an integer ring of a valuation on a field, a subtype element is a unit exactly when its field image has valuation1.",
+        "checked": "Complete native statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; exact uses checked in the complete GaussProbe."
       }
     ]
   },
@@ -49102,6 +49130,335 @@
       "acceptance": [
         "The existing arithmetic-character constructions and APIs remain whole; no new generic character, measure or coefficient carrier is introduced. Integer-ring product statements are tested through their actual inclusion, and degree-zero constructor values remain separate from logarithmic interpolation."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-primitive-gauss-norm",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Norm of the tame primitive Gauss normalization",
+      "kind": "lemma",
+      "statement": "‖G‖=1 for the actual inverse-character Gauss normalization at every positive tame conductor.",
+      "hypotheses": [
+        "p is any prime, including2. K is a nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Completeness and local compactness are not needed. D>0 with NeZero D and p∤D.",
+        "η:DirichletCharacter K D is primitive; ε∈K is a native primitive Dth root. Let e=AddChar.zmodChar D hε.pow_eq_one and G=gaussSum(η⁻¹,e). These are existing native objects. No independent Gauss nonvanishing or complex embedding is assumed.",
+        "O is exactly Valuation.integer(NormedField.valuation(K)), included in K by its native subtype map. No independent ℤ_p-algebra action on O is chosen. The norm and unit results include D=1; only the subsequent tame Gauss-series comparisons require D>1."
+      ],
+      "proofSteps": [
+        "Native conductor_inv makes η⁻¹ primitive, and zmodChar_primitive_of_primitive_root makes e primitive. For a temporary primitive χ, the existing all-residue shift identity gives gaussSum(χ,e.mulShift(a))=χ⁻¹(a)gaussSum(χ,e), including every nonunit a.",
+        "Multiply that identity by e(−a) and sum over all a:ZMod D. Expanding only the finite Gauss sum and commuting the two finite sums gives Σ_x χ(x)Σ_a e(a(x−1)). Native AddChar.sum_mulShift makes the inner sum D at x=1 and0 otherwise. Thus the sum is D. This is direct finite algebra from the two listed native identities; no finite-field structure on ZMod D or additional generic Gauss theorem is assumed.",
+        "Factor the constant Gauss sum from the same expression. Native AddChar.inv_apply identifies the remaining sum with gaussSum(χ⁻¹,e⁻¹), so g(χ,e)g(χ⁻¹,e⁻¹)=D. Set χ=η⁻¹. Keep the inverse additive character in this product; the same-additive-character version has the parity factor η(−1). The complete weighted_shifts and primitive_product probes verify the exact manipulations.",
+        "Native DirichletCharacter.norm_le_one and AddChar.norm_apply bound every summand by1. Finite induction with the native ultrametric norm inequality bounds both Gauss sums by1. The probe uses the generated additive finite-sum bound from Mathlib/Analysis/Normed/Group/Ultra; the indexed prerequisite is the underlying nonarchimedean norm law, not a nonexistent indexed wrapper.",
+        "The bounded ℤ_p scalar action sends every p-adic integer into O. Native PadicInt.norm_natCast_eq_one_iff and isUnit_iff show D is a unit in ℤ_p; map its native PadicInt.inv into K. Both D and D⁻¹ have norm≤1 and their product is1, hence ‖D‖=1. These are the existing tame inverse-integrality ingredients, recompiled explicitly in the native probe.",
+        "Taking norms of the finite product gives ‖G‖‖Gdual‖=1. Since each factor is≤1, multiplicativity forces ‖G‖=1. Therefore G≠0 and ‖G⁻¹‖=1. This proves the arithmetic normalization required here; generic complex absolute-value, local ε-factor and modular-form translation theories retain their existing owners."
+      ],
+      "prerequisites": [
+        "mathlib:gaussSum",
+        "mathlib:gaussSum_mulShift_of_isPrimitive",
+        "mathlib:AddChar.sum_mulShift",
+        "mathlib:AddChar.zmodChar_primitive_of_primitive_root",
+        "mathlib:AddChar.norm_apply",
+        "mathlib:DirichletCharacter.conductor_inv",
+        "mathlib:DirichletCharacter.norm_le_one",
+        "mathlib:IsUltrametricDist.isNonarchimedean_norm",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:PadicInt.mul_inv",
+        "mathlib:norm_smul_le",
+        "DirichletPadicLFunctions:L2/tame-prime-correction-integrality"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameGauss",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameGauss_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section5.2, Theorem5.7 and equation(5-3) with its integrality paragraph, published143–144/PDF44–45; full published143–146/PDF44–47 freshly reread on30September2026.",
+          "excerpt": "the Gauss sum is a p-adic unit",
+          "match": "Worker verification of the exact tame normalization in the existing norm-valuation integer ring. The finite all-residue Fourier identity and additive orthogonality are native. The named finite-field Gauss-product theorem is not applied at composite modulus. The source inverse-character orientation and corrected alternating coefficient sign are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimitiveGaussTests.gauss_nonzero",
+          "kind": "compatibility",
+          "statement": "The actual normalization G is nonzero, derived from norm1."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.gauss_inverse_norm",
+          "kind": "compatibility",
+          "statement": "The actual field inverse also has norm1."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.gauss_modulus_one",
+          "kind": "degenerate",
+          "statement": "At D=1 the native principal Gauss sum is1."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.gauss_composite_norm",
+          "kind": "computation",
+          "statement": "For a primitive character at composite conductor9, p∤9 gives norm1."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.gauss_dyadic_norm",
+          "kind": "computation",
+          "statement": "At p=2 and conductor3 the same norm-one conclusion holds."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.same_additive_gauss_parity",
+          "kind": "compatibility",
+          "statement": "Using the same additive character on both factors gives g(η,e)g(η⁻¹,e)=η(−1)D."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.principal_composite_gauss_zero",
+          "kind": "non-example",
+          "statement": "The principal character modulo9 has Gauss sum0 for a primitive ninth-root additive character; primitivity cannot be dropped."
+        }
+      ],
+      "acceptance": [
+        "No new generic carrier or named generic Gauss-product node is commissioned. The proof is a finite manipulation of the already native all-residue Fourier and orthogonality statements. The separate complete probe has no placeholder. All roadmap implementation flags remain unchecked."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-primitive-gauss-unit",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The tame Gauss normalization is an integral unit",
+      "kind": "lemma",
+      "statement": "There exists u∈O× whose inclusion in K is G.",
+      "hypotheses": [
+        "p is any prime, including2. K is a nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Completeness and local compactness are not needed. D>0 with NeZero D and p∤D.",
+        "η:DirichletCharacter K D is primitive; ε∈K is a native primitive Dth root. Let e=AddChar.zmodChar D hε.pow_eq_one and G=gaussSum(η⁻¹,e). These are existing native objects. No independent Gauss nonvanishing or complex embedding is assumed.",
+        "O is exactly Valuation.integer(NormedField.valuation(K)), included in K by its native subtype map. No independent ℤ_p-algebra action on O is chosen. The norm and unit results include D=1; only the subsequent tame Gauss-series comparisons require D>1."
+      ],
+      "proofSteps": [
+        "Use the preceding norm-one result to give G its actual membership certificate in the native integer ring O. This is the existing subtype, not a new integral Gauss-sum definition.",
+        "Native NormedField.valuation_apply identifies its valuation with its nonnegative norm. Native Valuation.integer.integers and Integers.isUnit_iff_valuation_eq_one turn the norm-one equality into IsUnit of the subtype.",
+        "Take the unit already supplied by IsUnit and apply unit_spec. The native inclusion maps its inverse to G⁻¹. Units.ext and Subtype.ext make this presentation unique, so the normalization is independent of the membership or unit witness."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-primitive-gauss-norm",
+        "mathlib:NormedField.valuation_apply",
+        "mathlib:Valuation.Integers.isUnit_iff_valuation_eq_one",
+        "mathlib:Valuation.integer.integers",
+        "mathlib:Units.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameGauss",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameGauss_unit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section5.2, Theorem5.7 and equation(5-3) with its integrality paragraph, published143–144/PDF44–45; full published143–146/PDF44–47 freshly reread on30September2026.",
+          "excerpt": "the Gauss sum is a p-adic unit",
+          "match": "Worker verification of the exact tame normalization in the existing norm-valuation integer ring. The finite all-residue Fourier identity and additive orthogonality are native. The named finite-field Gauss-product theorem is not applied at composite modulus. The source inverse-character orientation and corrected alternating coefficient sign are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimitiveGaussTests.unit_inverse_coefficient",
+          "kind": "compatibility",
+          "statement": "The inverse of any unit presentation includes as the field inverse G⁻¹."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.unit_presentation_unique",
+          "kind": "characterisation",
+          "statement": "Two native integral units with inclusion G are equal."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.unit_coefficient_product",
+          "kind": "computation",
+          "statement": "Included unit and inverse multiply to1 in K."
+        }
+      ],
+      "acceptance": [
+        "The suggested proof completely reduces to the preceding norm theorem and native valuation API. No extra coefficient algebra or completeness assumption occurs."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-gauss-series-certified",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The tame Gauss formula with its normalization discharged",
+      "kind": "comparison",
+      "statement": "The existing tameSeries η hDK equals −C(G⁻¹)Σ_a C(η⁻¹(a))(C(ε^a.val)(1+T)−1)⁻¹ without a separate G≠0 hypothesis.",
+      "hypotheses": [
+        "p is any prime, including2. K is a nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Completeness and local compactness are not needed. D>0 with NeZero D and p∤D.",
+        "η:DirichletCharacter K D is primitive; ε∈K is a native primitive Dth root. Let e=AddChar.zmodChar D hε.pow_eq_one and G=gaussSum(η⁻¹,e). These are existing native objects. No independent Gauss nonvanishing or complex embedding is assumed.",
+        "O is exactly Valuation.integer(NormedField.valuation(K)), included in K by its native subtype map. No independent ℤ_p-algebra action on O is chosen. The norm and unit results include D=1; only the subsequent tame Gauss-series comparisons require D>1.",
+        "D>1 and hDK:IsUnit(D:K) is the certificate of the existing tameSeries constructor."
+      ],
+      "proofSteps": [
+        "Obtain G≠0 from tame-primitive-gauss-norm: G=0 would make its norm0, contradicting norm1.",
+        "Apply the exact earlier tame-gauss-series comparison with this derived certificate. All primitive-root, inverse-character and D>1 assumptions are retained. The four older conditional Gauss nodes remain whole and keep their greater field generality.",
+        "Coefficient extraction uses the earlier alternating Gauss formula with the same derived nonvanishing. The mass is its degree-zero coefficient; it is unrelated to a claim of weight-zero zeta interpolation. At quadratic level3 the cubic coefficient is+1/9.",
+        "Changing the primitive root changes both G and the finite fractions together. Both expressions equal the existing root-free tameSeries, which proves root independence without changing the character or adding a root-choice carrier."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-primitive-gauss-norm",
+        "DirichletPadicLFunctions:L2/tame-gauss-series",
+        "DirichletPadicLFunctions:L2/tame-gauss-coefficients"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameGauss",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameSeries_eq_gauss_of_tame"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section5.2, Theorem5.7 and equation(5-3) with its integrality paragraph, published143–144/PDF44–45; full published143–146/PDF44–47 freshly reread on30September2026.",
+          "excerpt": "the Gauss sum is a p-adic unit",
+          "match": "Worker verification of the exact tame normalization in the existing norm-valuation integer ring. The finite all-residue Fourier identity and additive orthogonality are native. The named finite-field Gauss-product theorem is not applied at composite modulus. The source inverse-character orientation and corrected alternating coefficient sign are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimitiveGaussTests.series_gauss_mass",
+          "kind": "computation",
+          "statement": "The constant coefficient is−G⁻¹Σ_aη⁻¹(a)/(ε^a.val−1)."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.series_gauss_positive_coefficient",
+          "kind": "compatibility",
+          "statement": "Every coefficient retains the factor(−1)^n and the actual inverse character."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.series_quadratic_cubic",
+          "kind": "computation",
+          "statement": "For quadratic level3 the cubic coefficient is+1/9, with no extra Gauss hypothesis."
+        }
+      ],
+      "acceptance": [
+        "This is the tame arithmetic specialization of the existing conditional comparison; totalized formal inverses and the nonunit zero weights keep their earlier meaning."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-integral-series-map",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Inclusion of the integral tame series",
+      "kind": "lemma",
+      "statement": "Mapping the existing integralTameSeries by the native inclusion gives tameSeries.",
+      "hypotheses": [
+        "p is any prime, including2. K is a nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Completeness and local compactness are not needed. D>0 with NeZero D and p∤D.",
+        "η may now be any character at D, hDK:IsUnit(D:K), and p∤D. No root or primitivity assumption is required. O is the existing norm-valuation integer ring."
+      ],
+      "proofSteps": [
+        "Promote the existing map_integralTameSeries API item to a fine prerequisite for the new comparison, as required by the protocol. Its suggested declaration already exists and is not redeclared.",
+        "Extensionality reduces to coefficients. Unfold the existing integralTameSeries coefficient subtype; native PowerSeries.coeff_map and coeff_mk identify the included coefficient definitionally with that of tameSeries. The prior constructor already establishes membership.",
+        "At modulus1 combine the equality with the existing tame-series zero case. This lemma does not require a ℤ_p-algebra on O, since only a ring-homomorphism map of formal series occurs."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-integral-series",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_mk"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameGauss",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.map_integralTameSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section5.2, Theorem5.7 and equation(5-3) with its integrality paragraph, published143–144/PDF44–45; full published143–146/PDF44–47 freshly reread on30September2026.",
+          "excerpt": "the Gauss sum is a p-adic unit",
+          "match": "Worker verification of the exact tame normalization in the existing norm-valuation integer ring. The finite all-residue Fourier identity and additive orthogonality are native. The named finite-field Gauss-product theorem is not applied at composite modulus. The source inverse-character orientation and corrected alternating coefficient sign are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimitiveGaussTests.integral_series_map_coefficient",
+          "kind": "compatibility",
+          "statement": "Every mapped coefficient equals the original tameSeries coefficient."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.integral_series_map_level_one",
+          "kind": "degenerate",
+          "statement": "The mapped integral series at modulus1 is0."
+        }
+      ],
+      "acceptance": [
+        "The old construction, its API and existing declaration are preserved whole; promotion adds the fine dependency record and two tests."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-integral-gauss-series-certified",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The integral tame series has the certified Gauss expression",
+      "kind": "comparison",
+      "statement": "The image of the actual integralTameSeries in K[[T]] is −C(G⁻¹)Σ_a C(η⁻¹(a))(C(ε^a.val)(1+T)−1)⁻¹, with G nonvanishing derived.",
+      "hypotheses": [
+        "p is any prime, including2. K is a nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Completeness and local compactness are not needed. D>0 with NeZero D and p∤D.",
+        "η:DirichletCharacter K D is primitive; ε∈K is a native primitive Dth root. Let e=AddChar.zmodChar D hε.pow_eq_one and G=gaussSum(η⁻¹,e). These are existing native objects. No independent Gauss nonvanishing or complex embedding is assumed.",
+        "O is exactly Valuation.integer(NormedField.valuation(K)), included in K by its native subtype map. No independent ℤ_p-algebra action on O is chosen. The norm and unit results include D=1; only the subsequent tame Gauss-series comparisons require D>1.",
+        "D>1 and hDK:IsUnit(D:K) is the actual constructor certificate."
+      ],
+      "proofSteps": [
+        "Use the promoted tame-integral-series-map fine node for the exact native inclusion, then compose with tame-gauss-series-certified. The suggested proof is this complete two-step transport.",
+        "Native coefficient mapping gives the integral coefficient and mass formulas after inclusion, retaining the corrected alternating sign. This is an equality for the already constructed integral series, not a new Gauss-based construction.",
+        "Two primitive-root presentations have the same image because both equal this fixed series. The new Gauss unit result supplies an actual integral inverse for the normalization scalar. Root-difference norm1 already belongs to the existing tame-cyclotomic-logarithm-argument-norm node and is not planned again.",
+        "The O-valued Amice transform requires the compatible ℤ_p-algebra action stated in tame-integral-amice. This coefficient-series comparison imposes no such extra action and does not assert an O-valued Amice identity without it. Existing measure and common-field special-value comparisons retain their exact assumptions."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-integral-series-map",
+        "DirichletPadicLFunctions:L2/tame-gauss-series-certified",
+        "DirichletPadicLFunctions:L2/tame-primitive-gauss-unit",
+        "mathlib:PowerSeries.coeff_map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameGauss",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.map_integralTameSeries_gauss_of_tame"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section5.2, Theorem5.7 and equation(5-3) with its integrality paragraph, published143–144/PDF44–45; full published143–146/PDF44–47 freshly reread on30September2026.",
+          "excerpt": "the Gauss sum is a p-adic unit",
+          "match": "Worker verification of the exact tame normalization in the existing norm-valuation integer ring. The finite all-residue Fourier identity and additive orthogonality are native. The named finite-field Gauss-product theorem is not applied at composite modulus. The source inverse-character orientation and corrected alternating coefficient sign are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrimitiveGaussTests.integral_gauss_mass",
+          "kind": "computation",
+          "statement": "The included integral constant coefficient equals the certified Gauss mass expression."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.integral_gauss_coefficients",
+          "kind": "compatibility",
+          "statement": "Every included integral coefficient is the alternating Gauss coefficient."
+        },
+        {
+          "name": "SuggestedPrimitiveGaussTests.integral_gauss_root_independence",
+          "kind": "characterisation",
+          "statement": "Both primitive-root Gauss expressions agree as K-valued formal series."
+        }
+      ],
+      "acceptance": [
+        "No independent ℤ_p action on O is introduced and no measure-space or integral-ring carrier is duplicated."
+      ]
     }
   ],
   "requests": [
@@ -49205,7 +49562,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "Actual arithmetic-character moments now have the relative-level and primitive-conductor Euler products in both K and its existing integer ring, including n=0,w=0,p=2 and repeated prime support. Next assess the exact remaining primitive Gauss/common-field special-value routes rather than extending degree-zero interpolation by analogy. Analytic branches, logarithmic degree zero, full source extraction and supplier pseudomeasure requests remain open."
+        "The actual tame primitive Gauss normalization is now planned with a complete native derivation of its norm-one and integral-unit certificates; its field/integral series comparisons no longer assume a separate nonzero Gauss scalar. Next apply the norm-one certificate to the existing quantitative logarithmic coefficient bounds, or assess the exact common-field special-value dependencies. Generic complex Gauss/local epsilon-factor theories, analytic branches, degree-zero interpolation and supplier pseudomeasure requests remain with their existing owners and remain open where previously recorded."
       ]
     },
     {
@@ -49239,7 +49596,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "Actual arithmetic-character moments now have the relative-level and primitive-conductor Euler products in both K and its existing integer ring, including n=0,w=0,p=2 and repeated prime support. Next assess the exact remaining primitive Gauss/common-field special-value routes rather than extending degree-zero interpolation by analogy. Analytic branches, logarithmic degree zero, full source extraction and supplier pseudomeasure requests remain open."
+      "detail": "The actual tame primitive Gauss normalization is now planned with a complete native derivation of its norm-one and integral-unit certificates; its field/integral series comparisons no longer assume a separate nonzero Gauss scalar. Next apply the norm-one certificate to the existing quantitative logarithmic coefficient bounds, or assess the exact common-field special-value dependencies. Generic complex Gauss/local epsilon-factor theories, analytic branches, degree-zero interpolation and supplier pseudomeasure requests remain with their existing owners and remain open where previously recorded."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -49608,36 +49965,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole; no new source finding or independent review verdict.",
+    "sourceIssues": "All16findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole; no new source finding or independent verdict.",
     "validation": {
-      "nodes": 734,
+      "nodes": 739,
       "kinds": {
         "definition": 2,
-        "lemma": 272,
+        "lemma": 275,
         "construction": 72,
         "theorem": 224,
-        "comparison": 164
+        "comparison": 166
       },
       "api": 549,
-      "packetTests": 1290,
+      "packetTests": 1308,
       "definitionConstructionTests": 309,
-      "typedExamples": 1293,
+      "typedExamples": 1311,
       "planets": 24,
-      "baseline": 625,
-      "preservedWholeNodes": 730,
-      "preservedBaseline": 623,
+      "baseline": 629,
+      "preservedWholeNodes": 734,
+      "preservedBaseline": 625,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 4,
+      "newNodes": 5,
       "newNamedDeclarations": 4,
-      "newTypedTests": 15,
+      "newTypedTests": 18,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 992,
-      "dependencyEdges": 5139,
+      "reachableNodes": 997,
+      "dependencyEdges": 5167,
       "acyclic": true,
-      "baselineLeaves": 800,
+      "baselineLeaves": 804,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -49649,7 +50006,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 373016,
+      "readerWords": 375828,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -49676,29 +50033,32 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 6,
-      "scratchMathlibModules": 2824,
+      "scratchCompleteLemmas": 12,
+      "scratchMathlibModules": 2825,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "profiles": 13,
-        "levelPairs": 52,
-        "primePlacePairs": 72,
-        "wildCharacterCases": 522,
-        "dyadicCases": 176,
-        "levelZeroCases": 72,
-        "weightZeroAtomicTests": 1044,
-        "positiveArithmeticMoments": 2088,
-        "primitiveArithmeticMoments": 2088,
-        "integralMomentValues": 8352,
-        "atomicEulerTests": 5220,
-        "integralAtomicReductions": 15660,
-        "subsetProductChecks": 5220,
-        "wrongWeightZeroExponentFailures": 468,
-        "wrongWildFactorFailures": 1084,
-        "sameSupportCases": 2840
+        "moduli": 12,
+        "characters": 61,
+        "primitiveCharacters": 30,
+        "compositePrimitiveCharacters": 20,
+        "gaussProductChecks": 30,
+        "sameAdditiveParityChecks": 30,
+        "allResidueShiftChecks": 339,
+        "nonunitShiftChecks": 160,
+        "primePlacePairs": 82,
+        "dyadicPlaces": 17,
+        "integralInverseChecks": 164,
+        "finiteRingInverseChecks": 492,
+        "gaussSeriesCoefficients": 145,
+        "integralSeriesCoefficients": 390,
+        "wrongInverseCharacterFailures": 18,
+        "wrongCoefficientSignFailures": 43,
+        "imprimitiveProductFailures": 31,
+        "principalCompositeZeroGauss": 7,
+        "modulusOneChecks": 1
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -49708,7 +50068,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "5c2ac72cc48b062edd27fb05533f90f910b7d026f47350abc340235dc2357a38",
+      "sha256": "b026be83f366f51958e6af5fdea37db4b887cceee4f67217c2d6f5ff904f24fa",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -49723,11 +50083,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 6,
+        "completeLemmas": 12,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "c2d123a395cf28e81d24ae97ce51f2fcd69ba6bd99411a4f56c4d79c76178ff3"
+        "sha256": "d87ff9a9158bfa8fcda7313453713b5f96e0a9531cfc78a0db3b4a6a2384b731"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -49814,7 +50174,7 @@
       }
     },
     "publication": {
-      "base": "7ea9ded5649a7f5ab519699ad2437b4e5cbd12de",
+      "base": "5792af9132e66ca3c1243e9f6d8546cbace1dcd0",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -57404,6 +57764,57 @@
         "sameSupportCases": 2840
       },
       "numericalMethod": "Exact Q(i)/Q(omega) models. Finite character tables at p^n include principal, quadratic and available cubic/quartic/sextic values, plus all four quadratic characters modulo8. Native-style least-conductor recovery compares relative and primitive formulas. Positive arithmetic zeta moments use independent finite mixed-character quotient/Stirling formulas, with the separate p-Euler factor only at n=0. Weight-zero checks are finite atomic inverse-weight models, never arithmetic mass values. Coordinatewise integrality and reductions modulo p,p²,p³ are sufficient finite models, not an identification of the full local integer ring.",
+      "fullSuggestedCompiled": false
+    },
+    "primitiveGauss": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5197,
+      "previousHead": "f906dddbfb738aa69801ccb2a828e92e623e9669",
+      "previousMerge": "0a4c04c1d2bfbcda1dd9e99070e3dc21ed541b56",
+      "preservedWholeNodes": 734,
+      "preservedBaseline": 625,
+      "preservedFindings": 16,
+      "newNodes": 5,
+      "reading": "Freshly read complete RJW published143–146, the native composite all-residue Fourier shift and additive orthogonality statements, primitive-root additive character and finite-character norm APIs, and valuation unit criteria. Rechecked AUDIT-24 L0, all older tame Gauss nodes, the integral series/Amice distinction and the existing cyclotomic argument norm node. Upstream ModularForms and the complete local-Gauss node in AutomorphicLFunctions were inspected to keep generic carrier, complex and local-factor ownership separate.",
+      "boundary": "The actual tame primitive Gauss normalization is now planned with a complete native derivation of its norm-one and integral-unit certificates; its field/integral series comparisons no longer assume a separate nonzero Gauss scalar. Next apply the norm-one certificate to the existing quantitative logarithmic coefficient bounds, or assess the exact common-field special-value dependencies. Generic complex Gauss/local epsilon-factor theories, analytic branches, degree-zero interpolation and supplier pseudomeasure requests remain with their existing owners and remain open where previously recorded.",
+      "inputBase": "f6566ba55699946c68e605859197170b4556415f",
+      "sourceBoundary": "All16findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole; no new source finding or independent verdict.",
+      "inputRefresh": "Publication workflow refresh: read the exact WORKERS and PROTOCOL Sections10/17 additions. Tau Ceti roadmaps and links between two Tau Ceti roadmaps are outside atlas planning/fix/review scope; noticed issues go to upstreamNotes. This checkpoint edits only the planned Dirichlet consumer and reuses pinned generic objects and identities. It creates no upstream roadmap/link/fix and no generic carrier. No upstream problem is asserted. All64 other captured inputs, all16Dirichlet findings and four predecessor outputs remain unchanged.",
+      "publication": {
+        "base": "5792af9132e66ca3c1243e9f6d8546cbace1dcd0",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "moduli": 12,
+        "characters": 61,
+        "primitiveCharacters": 30,
+        "compositePrimitiveCharacters": 20,
+        "gaussProductChecks": 30,
+        "sameAdditiveParityChecks": 30,
+        "allResidueShiftChecks": 339,
+        "nonunitShiftChecks": 160,
+        "primePlacePairs": 82,
+        "dyadicPlaces": 17,
+        "integralInverseChecks": 164,
+        "finiteRingInverseChecks": 492,
+        "gaussSeriesCoefficients": 145,
+        "integralSeriesCoefficients": 390,
+        "wrongInverseCharacterFailures": 18,
+        "wrongCoefficientSignFailures": 43,
+        "imprimitiveProductFailures": 31,
+        "principalCompositeZeroGauss": 7,
+        "modulusOneChecks": 1
+      },
+      "numericalMethod": "Exact rational cyclotomic quotient rings Q[z]/Phi_l for all characters at twelve moduli, with least-conductor primitivity checked independently. Gauss products, all-residue shifts and same-additive-character parity are exact. Source Gauss coefficients through degree4 are compared with an independent root-free finite numerator/divisor recurrence. Tame inverse integrality is checked by rational coordinates and reduction modulo p,p²,p³; this is sufficient only and does not identify the quotient with the full local integer ring or prove the general theorem.",
       "fullSuggestedCompiled": false
     }
   },

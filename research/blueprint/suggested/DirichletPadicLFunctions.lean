@@ -13886,3 +13886,119 @@ example (η : DirichletCharacter ℚ_[2] 3) (hη : η ≠ 1) (hη2 : η 2 = -1)
     (6/5 : ℚ_[2]) * intrinsicTameZetaMeasure η h3 hp3
       (primePowerArithmeticCharacter 2 2 χ 0).toContinuousMap := sorry
 end SuggestedTameMomentLevelTests
+
+/-! Tame primitive Gauss normalization. Generic characters, additive characters,
+Gauss sums and the integer ring are the existing native objects. The coefficient
+ring is a bounded Z_p algebra and p does not divide D. No independent Gauss
+nonvanishing parameter or Z_p algebra on the integer ring is supplied. -/
+namespace DirichletPadic
+section TamePrimitiveGauss
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+
+theorem tameGauss_norm (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    ‖gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)‖ = 1 := by sorry
+
+theorem tameGauss_unit (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    ∃ u : Oˣ, ((u : O) : K) = gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) := by
+  have hn := tameGauss_norm η hη hpD ε hε
+  let g : O := ⟨gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one), by
+    change ‖gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)‖₊ ≤ 1
+    exact_mod_cast hn.le⟩
+  have hu : IsUnit g := by
+    apply (Valuation.Integers.isUnit_iff_valuation_eq_one
+      (Valuation.integer.integers (NormedField.valuation (K := K)))).mpr
+    change ‖gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)‖₊ = 1
+    apply Subtype.ext
+    exact hn
+  refine ⟨hu.unit, ?_⟩
+  rw [hu.unit_spec]
+
+theorem tameSeries_eq_gauss_of_tame (η : DirichletCharacter K D)
+    (hη : η.IsPrimitive) (hD : 1 < D) (hDK : IsUnit (D : K))
+    (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    tameSeries η hDK = -C ((gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹) *
+      ∑ a : ZMod D, C (η⁻¹ a) * (C (ε^a.val)*(1+X : K⟦X⟧)-1)⁻¹ := by
+  apply tameSeries_eq_gauss η hη hD hDK ε hε
+  intro hzero
+  have hn := tameGauss_norm η hη hpD ε hε
+  rw [hzero, norm_zero] at hn
+  exact zero_ne_one hn
+
+theorem map_integralTameSeries_gauss_of_tame (η : DirichletCharacter K D)
+    (hη : η.IsPrimitive) (hD : 1 < D) (hDK : IsUnit (D : K))
+    (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    PowerSeries.map (O).subtype (integralTameSeries η hDK hpD) = -C ((gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹) *
+      ∑ a : ZMod D, C (η⁻¹ a) * (C (ε^a.val)*(1+X : K⟦X⟧)-1)⁻¹ := by
+  rw [map_integralTameSeries]
+  exact tameSeries_eq_gauss_of_tame η hη hD hDK hpD ε hε
+end TamePrimitiveGauss
+end DirichletPadic
+
+namespace SuggestedPrimitiveGaussTests
+open DirichletPadic
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+-- gauss_nonzero
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0 := by sorry
+-- gauss_inverse_norm
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    ‖(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹‖ = 1 := by sorry
+-- gauss_modulus_one
+example (ε : K) (hε : IsPrimitiveRoot ε 1) :
+    gaussSum (1 : DirichletCharacter K 1) (AddChar.zmodChar 1 hε.pow_eq_one) = 1 := by sorry
+-- gauss_composite_norm
+example (η : DirichletCharacter K 9) (hη : η.IsPrimitive) (hpD : ¬p ∣ 9) (ε : K) (hε : IsPrimitiveRoot ε 9) :
+    ‖gaussSum η⁻¹ (AddChar.zmodChar 9 hε.pow_eq_one)‖ = 1 := by sorry
+-- gauss_dyadic_norm
+example (η : DirichletCharacter K 3) (hη : η.IsPrimitive) (hp : p = 2) (ε : K) (hε : IsPrimitiveRoot ε 3) :
+    ‖gaussSum η⁻¹ (AddChar.zmodChar 3 hε.pow_eq_one)‖ = 1 := by sorry
+-- unit_inverse_coefficient
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (u : Oˣ) (hu : ((u : O) : K) = gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)) :
+    (((u⁻¹ : Oˣ) : O) : K) = (gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ := by sorry
+-- unit_presentation_unique
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (u v : Oˣ) (hu : ((u : O) : K) = gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)) (hv : ((v : O) : K) = gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)) :
+    u = v := by sorry
+-- unit_coefficient_product
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (u : Oˣ) (hu : ((u : O) : K) = gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one)) :
+    ((u : O) : K) * (((u⁻¹ : Oˣ) : O) : K) = 1 := by sorry
+-- series_gauss_mass
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (hD : 1 < D) (hDK : IsUnit (D : K)) :
+    coeff 0 (tameSeries η hDK) = -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ * ∑ a : ZMod D, η⁻¹ a / (ε^a.val-1) := by sorry
+-- series_gauss_positive_coefficient
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (hD : 1 < D) (hDK : IsUnit (D : K)) (n : ℕ) :
+    coeff n (tameSeries η hDK) = -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ * (-1 : K)^n * ∑ a : ZMod D, η⁻¹ a * (ε^a.val)^n / (ε^a.val-1)^(n+1) := by sorry
+-- series_quadratic_cubic
+example (η : DirichletCharacter K 3) (hη : η.IsPrimitive) (hquad : η 2 = -1) (hDK : IsUnit (3 : K)) (hpD : ¬p ∣ 3) (ε : K) (hε : IsPrimitiveRoot ε 3) :
+    coeff 3 (tameSeries η hDK) = 1/9 := by sorry
+-- integral_gauss_mass
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (hD : 1 < D) (hDK : IsUnit (D : K)) :
+    ((coeff 0 (integralTameSeries η hDK hpD) : O) : K) = -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ * ∑ a : ZMod D, η⁻¹ a / (ε^a.val-1) := by sorry
+-- integral_gauss_coefficients
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (hD : 1 < D) (hDK : IsUnit (D : K)) (n : ℕ) :
+    ((coeff n (integralTameSeries η hDK hpD) : O) : K) = -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ * (-1 : K)^n * ∑ a : ZMod D, η⁻¹ a * (ε^a.val)^n / (ε^a.val-1)^(n+1) := by sorry
+-- integral_gauss_root_independence
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) (hD : 1 < D) (hDK : IsUnit (D : K)) (δ : K) (hδ : IsPrimitiveRoot δ D) :
+    -C ((gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹) *
+      ∑ a : ZMod D, C (η⁻¹ a) * (C (ε^a.val)*(1+X : K⟦X⟧)-1)⁻¹ = -C ((gaussSum η⁻¹ (AddChar.zmodChar D hδ.pow_eq_one))⁻¹) *
+      ∑ a : ZMod D, C (η⁻¹ a) * (C (δ^a.val)*(1+X : K⟦X⟧)-1)⁻¹ := by sorry
+-- integral_series_map_coefficient
+example (η : DirichletCharacter K D) (hDK : IsUnit (D : K)) (hpD : ¬p ∣ D) (n : ℕ) :
+    coeff n (PowerSeries.map (O).subtype (integralTameSeries η hDK hpD)) = coeff n (tameSeries η hDK) := by sorry
+-- integral_series_map_level_one
+example (η : DirichletCharacter K 1) (hDK : IsUnit ((1 : ℕ) : K)) (hpD : ¬p ∣ 1) :
+    PowerSeries.map (O).subtype (integralTameSeries η hDK hpD) = 0 := by sorry
+-- same_additive_gauss_parity
+example (η : DirichletCharacter K D) (hη : η.IsPrimitive) (hpD : ¬p ∣ D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    gaussSum η (AddChar.zmodChar D hε.pow_eq_one) * gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) = η (-1) * (D : K) := by sorry
+-- principal_composite_gauss_zero
+example (ε : K) (hε : IsPrimitiveRoot ε 9) :
+    gaussSum (1 : DirichletCharacter K 9) (AddChar.zmodChar 9 hε.pow_eq_one) = 0 := by sorry
+end SuggestedPrimitiveGaussTests
