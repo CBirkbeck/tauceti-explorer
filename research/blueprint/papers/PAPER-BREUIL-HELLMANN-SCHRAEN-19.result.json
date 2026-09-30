@@ -22,11 +22,11 @@
       "The whole paper was read. Pages carrying a claim that turns on a sub- or superscript, an index or a font distinction were additionally read as images rendered at 200–500 dpi."
     ]
   },
-  "summary": "Breuil, Hellmann and Schraen describe the completed local rings of the **trianguline variety** X_tri(r̄) at points of integral weight in terms of the completed local rings of a scheme built from **Grothendieck’s simultaneous resolution**, and draw local and global consequences.\n\nThe local model is the scheme X = g̃ ×_g g̃, where g̃ = {(gB,ψ) : Ad(g⁻¹)ψ ∈ b} and q : g̃ → g is the simultaneous resolution. Its irreducible components X_w are indexed by the Weyl group; §2 proves they are reduced, Cohen–Macaulay (Bezrukavnikov–Riche) and — new here — **normal**, and computes cycles on the Steinberg variety through Beilinson–Bernstein and Kazhdan–Lusztig theory. The bridge is Fontaine’s theory of **almost de Rham** B_dR-representations: W ↦ (D_pdR(W), ν_W) is an equivalence onto pairs (vector space, nilpotent operator), Galois-stable B⁺_dR-lattices correspond to filtrations, and a trianguline (φ,Γ_K)-module supplies a second flag. A point of X_tri(r̄) therefore determines a triple (two flags, nilpotent operator), i.e. a point x_pdR of X, and the main local theorem (3.33) says that X̂_tri(r̄)_x and X̂_{w,x_pdR} agree up to formally smooth morphisms. Since the X_w are normal and Cohen–Macaulay, so is X_tri(r̄) at such points (Corollary 3.7.10), hence it is locally irreducible.\n\nThe local applications are: flatness of the character and weight maps, the accumulation property, a tangent-space bound that recovers and sharpens the authors’ earlier estimate, the determination of **all** local companion points in the crystalline case (Theorem 4.2.3: exactly the w with w_x ≼ w), and a locally analytic **Breuil–Mézard type** statement (Conjecture 4.3.4, proved for generic crystalline r in Theorem 4.3.8) expressing the cycle of the fibre of X_tri(r̄) over a character as a combination Σ_Π m_{δ,Π}C_{r,Π} with multiplicities from locally analytic principal series.\n\nGlobally, for a definite unitary group under the usual Taylor–Wiles hypotheses and via the patched eigenvariety, they prove (i) **classicality**: every generic crystalline strictly dominant point of the Hecke eigenvariety comes from a classical automorphic form; (ii) **companion constituents**: all constituents predicted by Breuil’s conjecture occur in the completed cohomology, so all expected companion points exist; and (iii) **singularities**: the eigenvariety is Cohen–Macaulay with flat weight map at such a point, and is singular there whenever w_xw_0 is not a product of distinct simple reflections. The last is the first systematic source of singular points on eigenvarieties.",
+  "summary": "Breuil, Hellmann and Schraen describe the completed local rings of the **trianguline variety** X_tri(r̄) at points of integral weight in terms of the completed local rings of a scheme built from **Grothendieck’s simultaneous resolution**, and draw local and global consequences.\n\nThe local model is the scheme X = g̃ ×_g g̃, where g̃ = {(gB,ψ) : Ad(g⁻¹)ψ ∈ b} and q : g̃ → g is the simultaneous resolution. Its irreducible components X_w are indexed by the Weyl group; §2 proves they are reduced, Cohen–Macaulay (Bezrukavnikov–Riche) and — new here — **normal**, and computes cycles on the Steinberg variety through Beilinson–Bernstein and Kazhdan–Lusztig theory. The bridge is Fontaine’s theory of **almost de Rham** B_dR-representations: W ↦ (D_pdR(W), ν_W) is an equivalence onto pairs (vector space, nilpotent operator), Galois-stable B⁺_dR-lattices correspond to filtrations, and a trianguline (φ,Γ_K)-module supplies a second flag. A point of X_tri(r̄) therefore determines a triple (two flags, nilpotent operator), i.e. a point x_pdR of X, and the main local theorem (3.33) says that X̂_tri(r̄)_x and X̂_{w,x_pdR} agree up to formally smooth morphisms. Since the X_w are normal and Cohen–Macaulay, so is X_tri(r̄) at such points (Corollary 3.7.10), hence it is locally irreducible.\n\nThe local applications are: flatness of the character and weight maps, the accumulation property, a tangent-space bound that recovers and sharpens the authors’ earlier estimate, the determination of **all** local companion points in the crystalline case (Theorem 4.2.3: exactly the w with w_x ≼ w), and a locally analytic **Breuil–Mézard type** statement (Conjecture 4.3.4, proved for generic crystalline r in Theorem 4.3.8) expressing the cycle of the fibre of X_tri(r̄) over a character as a combination Σ_Π m_{δ,Π}C_{r,Π} with multiplicities from locally analytic principal series.\n\nGlobally, for a definite unitary group under the usual Taylor–Wiles hypotheses and via the patched eigenvariety, they prove (i) **classicality**: every generic crystalline strictly dominant point of the Hecke eigenvariety comes from a classical automorphic form; (ii) **companion constituents**: all constituents predicted by Breuil’s conjecture occur in the completed cohomology, so all expected companion points exist; and (iii) **singularities**: the eigenvariety is Cohen–Macaulay with flat weight map at such a point, and is singular there whenever w_xw_0 is not a product of distinct simple reflections. The last is the first systematic source of singular points on eigenvarieties. FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (30 September 2026) corrected the codimension of the character-fibre cycles (E12) and recorded that Lemma 2.3.2 is false as printed (E13). The trianguline variety, Fontaine's almost de Rham theory, completed cohomology, the patched module and the locally analytic inputs now have one owner each. Category O and Kazhdan–Lusztig theory go to the LieHighestWeight Part II.",
   "conventions": {
     "K": "K/Q_p is finite with Galois group G_K, Γ_K the cyclotomic quotient, ε the cyclotomic character; L/Q_p is finite and splits K, Σ = Hom(K,L), and C_L is the category of local artinian L-algebras with residue field L.",
     "G": "G denotes Spec L ×_{Spec Q_p} Res_{K/Q_p}(GL_{n/K}) ≅ (GL_{n/L})^{[K:Q_p]}, with upper triangular Borel B, torus T, Weyl group S ≅ S_n^{[K:Q_p]}, longest element w_0, length lg and Bruhat order ≼.",
-    "cycles": "§4.3 carries two different families of cycles, distinguished in the printed text only by font: 𝖅_{w′}, 𝕮_{w′} of codimension [K:Q_p]n(n+1)/2 for the fibre over the weight, and 𝒵_{w′}, 𝒞_{w′} of codimension [K:Q_p]n(n+3)/2 for the fibre over the character. Any formalisation must name them apart.",
+    "cycles": "§4.3 carries two different families of cycles, distinguished in the printed text only by font: 𝖅_{w′}, 𝕮_{w′} of codimension [K:Q_p]n(n+1)/2 for the fibre over the weight, and 𝒵_{w′}, 𝒞_{w′} of codimension [K:Q_p]n(n+1)/2 + n for the fibre over the character (printed [K:Q_p]n(n+3)/2; E12). Any formalisation must name them apart.",
     "conjectures": "Conjecture 2.3.7, Conjecture 4.3.4, Conjecture 5.1.1, Conjecture 5.3.1 and Question 4.4.3 are conjectures, not theorems; the items record them as such and they must not be planned as targets."
   },
   "items": [
@@ -155,7 +155,7 @@
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/1-thm19-breuil-mezard",
       "kind": "theorem",
       "name": "Theorem 1.9: a locally analytic Breuil–Mézard type cycle decomposition",
-      "statement": "For any crystalline generic deformation r of ρ̄_v with distinct Hodge–Tate weights and any absolutely irreducible constituent Π of a locally Q_p-analytic principal series of GL_n(F⁺_v), there is a unique cycle 𝒞_{r,Π} of codimension [F⁺_v:Q_p]·n(n+3)/2 in Z(Spec R_r) such that for all locally Q_p-analytic characters δ, [Spec Ô_{X_tri(ρ̄_v)_δ,(r,δ)}] = Σ_Π m_{δ,Π} 𝒞_{r,Π}, where the left-hand side is 0 if (r,δ) ∉ X_tri(ρ̄_v) and m_{δ,Π} is the multiplicity of Π in the principal series induced from δ suitably normalised.",
+      "statement": "For any crystalline generic deformation r of ρ̄_v with distinct Hodge–Tate weights and any absolutely irreducible constituent Π of a locally Q_p-analytic principal series of GL_n(F⁺_v), there is a unique cycle 𝒞_{r,Π} of codimension [F⁺_v:Q_p]·n(n+1)/2 + n in Z(Spec R_r) (printed [F⁺_v:Q_p]·n(n+3)/2; E12) such that for all locally Q_p-analytic characters δ, [Spec Ô_{X_tri(ρ̄_v)_δ,(r,δ)}] = Σ_Π m_{δ,Π} 𝒞_{r,Π}, where the left-hand side is 0 if (r,δ) ∉ X_tri(ρ̄_v) and m_{δ,Π} is the multiplicity of Π in the principal series induced from δ suitably normalised.",
       "locator": "Theorem 1.9 (= Theorem 4.3.8), printed p. 305",
       "status": "missing"
     },
@@ -179,12 +179,14 @@
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.1-setting",
       "kind": "definition",
       "name": "Split reductive G in good characteristic, and the Schubert cells",
-      "statement": "G is a split connected reductive group over a field k of good characteristic (char k = 0, or char k > h with h the Coxeter number; only char k = 0 is used later), B ⊃ T a Borel and maximal torus, U the unipotent radical, W = N_G(T)/T with longest element w_0, length lg and Bruhat order ≼; g, b, t, u the Lie algebras and w·λ = w(λ+ρ) − ρ the dot action. G acts diagonally on G/B × G/B, and for w ∈ W with a lift ẇ, U_w := G·(1,ẇ)B×B is a locally closed subscheme, smooth of dimension dim G − dim B + lg(w), with G/B × G/B = ∐_w U_w.",
+      "statement": "G is a split connected reductive group over a field k of good characteristic (char k = 0, or char k > h with h the Coxeter number; only char k = 0 is used later), B ⊃ T a Borel and maximal torus, U the unipotent radical, W = N_G(T)/T with longest element w_0, length lg and Bruhat order ≼; g, b, t, u the Lie algebras and w·λ = w(λ+ρ) − ρ the dot action.",
       "locator": "§2.1, printed p. 310",
       "status": "planned",
       "planned": [
-        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat"
-      ]
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components"
+      ],
+      "note": "Corrected by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/9). The group-theoretic data (Borel subgroups, the Weyl group, the Bruhat decomposition) are Tau Ceti ReductiveGroups Layer 7, and the fppf quotient G/H is Layer 3, where its representability is a theorem with hypotheses. LieGroups Layer 8 is about complex flag manifolds, a different category. Library pointers, cited only as such: tauceti:CoxeterSystem.bruhatPartialOrder (TauCeti/GroupTheory/Coxeter/Bruhat.lean:240) on an abstract Coxeter system, and tauceti:TauCeti.longestElement (LinearAlgebra/RootSystem/LongestElement.lean:194) and tauceti:TauCeti.dotAction (LinearAlgebra/RootSystem/Weyl/DotAction.lean:108) on a root system's Weyl group, not N_G(T)/T. The scheme G/B and the orbits U_w are item 2.1-flag-variety."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.1-gtilde",
@@ -263,9 +265,10 @@
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.3.2-miracle-flatness",
       "kind": "theorem",
       "name": "Miracle flatness",
-      "statement": "Let f : Y → Z be a morphism of noetherian schemes with Z regular, Y Cohen–Macaulay and all fibres equidimensional of dimension dim Y − dim Z. Then f is flat.",
+      "statement": "Let f : Y → Z be a morphism of noetherian schemes with Z regular and Y Cohen–Macaulay, such that dim O_{Y,y} = dim O_{Z,f(y)} + dim O_{f⁻¹(f(y)),y} for every y ∈ Y. Then f is flat. The local equality holds when Y is equidimensional and f is a morphism of schemes of finite type over a field with Z irreducible; the paper's printed global hypothesis (all fibres equidimensional of dimension dim Y − dim Z) does not imply it in general (E13).",
       "locator": "Lemma 2.3.2, printed p. 315",
-      "status": "missing"
+      "status": "missing",
+      "note": "Corrected by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/10); cf. Matsumura, Commutative Ring Theory, Theorem 23.1, and EGA IV 6.1.5. Every use in the paper satisfies the corrected hypothesis: κ_{i,w} on the irreducible X_w (p. 316) and f₁ on V_w (p. 317), with X equidimensional; on p. 408 the lemma is applied to spectra of local rings, where the hypothesis at the closed fibre is the local equality."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.3.3-cm-flat",
@@ -344,13 +347,14 @@
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.4-category-O",
       "kind": "definition",
-      "name": "Category O, Verma modules and Kazhdan–Lusztig multiplicities",
-      "statement": "O is the BGG category of U(g)-modules attached to g ⊃ b ⊃ t, M(μ) = U(g) ⊗_{U(b)} k(μ) the Verma module of highest weight μ and L(μ) its unique irreducible quotient. The constituents of M(ww_0·0) are the L(w′w_0·0), with multiplicity P_{w_0w,w_0w′}(1), P_{x,y} the Kazhdan–Lusztig polynomials; P_{x,y} ≠ 0 iff x ≼ y and P_{x,x}(1) = 1, so L(w′w_0·0) occurs in M(ww_0·0) iff w′ ≼ w.",
+      "name": "Verma modules M(μ) and their irreducible quotients L(μ)",
+      "statement": "M(μ) = U(g) ⊗_{U(b)} k(μ) is the Verma module of highest weight μ, and L(μ) its unique irreducible quotient.",
       "locator": "§2.4, printed pp. 320–321",
       "status": "planned",
       "planned": [
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ"
-      ]
+      ],
+      "note": "Split by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/1). Tau Ceti LieHighestWeight Layer 3 plans PBW, Verma modules and L(λ); Tau Ceti has tauceti:TauCeti.VermaModule (TauCeti/Algebra/Lie/HighestWeight/Verma.lean:196) and tauceti:TauCeti.irreducibleQuotient (:416). Their limits: the file assumes a finite-dimensional Lie algebra with non-degenerate Killing form, and says that 'What is not proved here is that M(lam) is nonzero'; so the item stays planned, not library. Category O, the Kazhdan–Lusztig polynomials and the multiplicity theorem are items 2.4-category-O-block, 2.4-kl-polynomials and 2.4-kl-theorem (route 8); Layers 6 and 7 of LieHighestWeight exclude category O."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.4-BB",
@@ -391,7 +395,7 @@
       "statement": "(i) The families ([Z_w]), ([𝔐(ww_0·0)]) and ([𝔏(ww_0·0)]) are bases of Z⁰(Z). (ii) [𝔐(ww_0·0)] = Σ_{w′} P_{w_0w,w_0w′}(1)[𝔏(w′w_0·0)]. (iii) There are integers a_{w,w′} ∈ Z_{≥0} with [𝔏(ww_0·0)] = Σ_{w′} a_{w,w′}[Z_{w′}], a_{w,w} = 1, a_{w,w′} = 0 unless w′ ≼ w, and a_{w,w′} = 0 whenever w′ ≺ w and U_{w′} lies in the smooth locus of Ū_w. Consequently X̄_w contains every Z_{w′} with w′ ≼ w, in general with multiplicities.",
       "locator": "Theorem 2.4.7, printed pp. 322–323",
       "status": "missing",
-      "note": "Its proof prints \"P_{w,w′}(1) = 0 unless w′ ≼ w\", dropping the w₀ prefixes; see source issue E7."
+      "note": "Its proof prints \"P_{w,w′}(1) = 0 unless w′ ≼ w\", dropping the w₀ prefixes; see source issue E7. Part (ii) uses the Kazhdan–Lusztig multiplicity theorem, item 2.4-kl-theorem, imported from route 8 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/1)."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.4.8-Pw-invariance",
@@ -440,10 +444,8 @@
       "name": "B_dR-representations and almost de Rham representations",
       "statement": "A B_dR-representation of G_K is a finite dimensional B_dR-vector space with a continuous semilinear G_K-action; every one contains a G_K-stable B⁺_dR-lattice. W is almost de Rham if it contains a G_K-stable B⁺_dR-lattice W⁺ whose associated C-representation W⁺/tW⁺ has all Sen weights in Z; de Rham implies almost de Rham. The almost de Rham representations form a tannakian subcategory Rep_pdR(G_K) stable under kernels, cokernels and extensions.",
       "locator": "§3.1, printed p. 329",
-      "status": "planned",
-      "planned": [
-        "PadicHodgeTheory:P7"
-      ]
+      "status": "missing",
+      "note": "Corrected by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/3): missing. PadicHodgeTheory P7's packet has nothing on almost de Rham representations, B_pdR, D_pdR, G_a, B-pairs or W_dR. Routed to the PadicHodgeTheory Part II of PAPER-FARGUES-FONTAINE-18 route 5 (route 4). The Sen weights in its definition come from PadicHodgeTheory:P7/sen-module."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1-bpdr",
@@ -451,7 +453,8 @@
       "name": "The rings B⁺_pdR, B_pdR, the derivation ν and the functor D_pdR",
       "statement": "B⁺_pdR := B⁺_dR[log t] and B_pdR := B_dR ⊗_{B⁺_dR} B⁺_pdR, with G_K acting by g(log t) = log t + log ε(g); ν_{B_pdR} is the unique B_dR-derivation with ν(log t) = −1, preserving B⁺_pdR and commuting with G_K. D_pdR(W) := (B_pdR ⊗_{B_dR} W)^{G_K} is a K-vector space with dim_K D_pdR(W) ≤ dim_{B_dR} W, and W is almost de Rham precisely when equality holds.",
       "locator": "§3.1, printed p. 329",
-      "status": "missing"
+      "status": "missing",
+      "note": "Routed by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/3) with Fontaine's theory to the PadicHodgeTheory Part II (route 4)."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1.1-equivalence",
@@ -459,10 +462,8 @@
       "name": "Fontaine’s equivalence: almost de Rham representations are pairs (V, ν)",
       "statement": "For a field E of characteristic 0, Rep_E(G_a) is equivalent to the category of pairs (V, ν_V) with ν_V nilpotent. D_pdR, with the G_a-action induced by ν_{B_pdR} ⊗ 1, induces an equivalence Rep_pdR(G_K) ≅ Rep_K(G_a); a quasi-inverse is (V,ν_V) ↦ (B_pdR ⊗_K V)^{ν⊗1+1⊗ν_V=0}, both functors are exact, and there is a comparison isomorphism ρ_pdR : B_pdR ⊗_K D_pdR(W) ≅ B_pdR ⊗_{B_dR} W (3.2).",
       "locator": "Proposition 3.1.1 and Corollary 3.1.2, printed pp. 330–331",
-      "status": "planned",
-      "planned": [
-        "PadicHodgeTheory:P7"
-      ]
+      "status": "missing",
+      "note": "Corrected by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/3): missing. PadicHodgeTheory P7's packet has nothing on almost de Rham representations, B_pdR, D_pdR, G_a, B-pairs or W_dR. Routed to the PadicHodgeTheory Part II of PAPER-FARGUES-FONTAINE-18 route 5 (route 4)."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1.4-coefficients",
@@ -470,7 +471,8 @@
       "name": "The coefficient version of the equivalence",
       "statement": "For A a finite dimensional Q_p-algebra, an A⊗_{Q_p}B_dR-representation is a B_dR-representation with an A-action making it finite free over A⊗_{Q_p}B_dR. D_pdR induces an equivalence between the almost de Rham ones, Rep_{pdR,A}(G_K), and Rep_{A⊗_{Q_p}K}(G_a); in particular W is free over A⊗B_dR iff D_pdR(W) is free over A⊗K. Every A⊗B_dR-representation contains a B⁺_dR-lattice preserved by A.",
       "locator": "Lemma 3.1.4 with Remark 3.1.3, printed p. 331",
-      "status": "missing"
+      "status": "missing",
+      "note": "Routed by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/3) with Fontaine's theory to the PadicHodgeTheory Part II (route 4)."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1-deformation-groupoid",
@@ -517,10 +519,10 @@
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.2.2-filtered-equivalence",
       "kind": "theorem",
       "name": "The B⁺_dR-analogue of the coefficient equivalence",
-      "statement": "W⁺ ↦ (D_pdR(W⁺[1/t]), Fil^•_{W⁺}) is an equivalence between almost de Rham A⊗_{Q_p}B⁺_dR-representations of G_K and filtered A⊗_{Q_p}K-representations of G_a — pairs (V, Fil^•) with Fil^• decreasing, exhaustive and separated by subobjects with free graded pieces. Moreover for any finite type A-module M there is a natural isomorphism M ⊗_A gr^i_{Fil^•_{W⁺}}(D_pdR(W⁺[1/t])) ≅ gr^i_{Fil^•_{M⊗_AW⁺}}(D_pdR(M⊗_AW⁺[1/t])).",
+      "statement": "W⁺ ↦ (D_pdR(W⁺[1/t]), Fil^•_{W⁺}) is an equivalence between almost de Rham A⊗_{Q_p}B⁺_dR-representations of G_K and filtered A⊗_{Q_p}K-representations of G_a — pairs (V, Fil^•) with Fil^• decreasing, exhaustive and separated by subobjects whose graded pieces are finite projective A⊗_{Q_p}K-modules (for A in C_L: τ-components free A-modules of finite type). Moreover for any finite type A-module M there is a natural isomorphism M ⊗_A gr^i_{Fil^•_{W⁺}}(D_pdR(W⁺[1/t])) ≅ gr^i_{Fil^•_{M⊗_AW⁺}}(D_pdR(M⊗_AW⁺[1/t])).",
       "locator": "Lemma 3.2.2, printed pp. 337–340",
       "status": "missing",
-      "note": "The printed definition of a filtered representation requires the graded pieces to be free of rank one \"for i ∈ Z\", which is impossible for an exhaustive separated filtration; see source issue E8."
+      "note": "The printed definition of a filtered representation requires the graded pieces to be free of rank one \"for i ∈ Z\", which is impossible for an exhaustive separated filtration; see source issue E8. The corrected condition on the graded pieces is 'finite projective', not 'free', over A⊗_{Q_p}K (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/11)."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.2.3-constancy",
@@ -596,10 +598,8 @@
       "name": "The functors W⁺_dR and W_dR and their freeness",
       "statement": "W⁺_dR is Berger’s functor from (φ,Γ_K)-modules over R_K to B⁺_dR-representations, and W_dR(M) := B_dR ⊗_{B⁺_dR} W⁺_dR(D) for any D with M = D[1/t], independent of D. If D is of rank n over R_{A,K} then W⁺_dR(D) is finite free of rank n over A⊗_{Q_p}B⁺_dR, and if M is of rank n over R_{A,K}[1/t] then W_dR(M) is finite free of rank n over A⊗_{Q_p}B_dR. Both functors are exact.",
       "locator": "Lemma 3.3.5 with the following remark, printed pp. 344–345",
-      "status": "planned",
-      "planned": [
-        "PadicHodgeTheory:P7"
-      ]
+      "status": "missing",
+      "note": "Corrected by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/3): missing. PadicHodgeTheory P7's packet has nothing on almost de Rham representations, B_pdR, D_pdR, G_a, B-pairs or W_dR. Routed to the PadicHodgeTheory Part II of PAPER-FARGUES-FONTAINE-18 route 5 (route 4)."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.3.6-almost-dR-criterion",
@@ -713,7 +713,8 @@
       "name": "Deformations of a (φ,Γ_K)-module split into a t-inverted and a lattice part",
       "statement": "For D a (φ,Γ_K)-module over R_{L,K} with W⁺_dR(D) almost de Rham, the groupoid X_D of deformations of D is equivalent to X_{D[1/t]} ×_{X_{W_dR(D[1/t])}} X_{W⁺_dR(D)}. The proof rests on Berger’s equivalence between (φ,Γ_K)-modules over R_K and B-pairs, and on the rank-preserving equivalence between ΦΓ_{A,K} and A⊗_{Q_p}B_e-representations of G_K, B_e = B_cris^{φ=1}, given by M ↦ W_e(M) with quasi-inverse W_e ↦ D(W_e,W⁺_dR)[1/t].",
       "locator": "Proposition 3.5.1 and its proof, printed p. 355",
-      "status": "missing"
+      "status": "missing",
+      "note": "Its B-pair input is item 3.5-bpairs-berger (route 4; RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/3)."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.5.2-free-lattices",
@@ -791,13 +792,14 @@
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.6-galois-groupoids",
       "kind": "construction",
-      "name": "Galois deformation groupoids and the trianguline ones",
-      "statement": "For r : G_K → GL_n(L) continuous with associated representation V, X_r is the groupoid of deformations of r and X_V that of deformations of V; X_r → X_V is relatively representable and formally smooth of relative dimension n², and D_rig induces X_V ≅ X_D for D := D_rig(V). For V trianguline with a triangulation M_• of M := D[1/t], one sets X_{V,M_•} := X_V ×_{X_D} X_{D,M_•} and X_{r,M_•} := X_r ×_{X_V} X_{V,M_•}, with framed versions; the framing □ is on D_pdR(B_dR ⊗ V), not directly on the Galois deformation, and all automorphisms in these groupoids are trivial.",
+      "name": "The framed Galois deformation groupoid X_r",
+      "statement": "For r : G_K → GL_n(L) continuous with associated representation V, X_r is the groupoid of deformations of r and X_V that of deformations of V; X_r → X_V is relatively representable and formally smooth of relative dimension n².",
       "locator": "§3.6 with (3.27)–(3.28) and Remark 3.6.1, printed pp. 362–363",
       "status": "planned",
       "planned": [
         "LocalGaloisDeformationRings:R08.1"
-      ]
+      ],
+      "note": "Split by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/2). This matches LocalGaloisDeformationRings R08.1 only by analogy: R08.1's nodes treat a residual ρ̄ over O, and the identification of X_r with the completion X̂_{r̄,r} is Kisin's [53, Lemma 2.3.3, Proposition 2.3.5], which no node states. The trianguline groupoids are item 3.6-trianguline-galois-groupoids."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.6.2-main-structure",
@@ -829,10 +831,8 @@
       "name": "The trianguline variety",
       "statement": "T_reg ⊂ T_L is the complement of the z^{−k} and ε(z)z^k with k ∈ Z^Σ_{≥0}, and T^n_reg the locus where δ_i/δ_j ∈ T_reg for i ≠ j; T^n_0 ⊊ T^n_reg. For r̄ : G_K → GL_n(k_L) with framed deformation ring R_r̄ and 𝔛_r̄ := (Spf R_r̄)^rig, the trianguline variety X_tri(r̄) is the Zariski closure in 𝔛_r̄ × T^n_L of U_tri(r̄) := {(r,δ) ∈ 𝔛_r̄ × T^n_reg : r is trianguline of parameter δ} (3.29). It is reduced and equidimensional of dimension n² + [K:Q_p]n(n+1)/2, with U_tri(r̄) Zariski-open, and ω′ denotes the projection to T^n_L.",
       "locator": "§3.7, formula (3.29), printed p. 365",
-      "status": "planned",
-      "planned": [
-        "LocalGaloisDeformationRings:R08.3"
-      ]
+      "status": "missing",
+      "note": "Corrected by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/2): missing, and built in route 2. LocalGaloisDeformationRings R08.3 plans Kisin's potentially semistable rings only, and PhiGammaModulesAndIwasawaCohomology PG.7, whose global triangulation Propositions 3.7.1–3.7.2 need, is not among R08.3's ancestors."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.7.1-unique-triangulation",
@@ -944,7 +944,7 @@
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/4.3-cycles-setup",
       "kind": "construction",
       "name": "Cycles on the framed deformation ring and the two fibres",
-      "statement": "For r ∈ 𝔛_r̄(L), Ô_{𝔛_r̄,r} represents the framed deformations of r and has dimension n² + [K:Q_p]n². X_tri(r̄)_δ is the fibre of ω′ at δ and X_tri(r̄)_{wt(δ)} the fibre of the weight map. Taking completions in (3.33) and then fibres over 0 ∈ t gives the diagram (4.6), whose components are indexed by the components of the Steinberg variety through x_pdR; one obtains cycles 𝖅_{w′} of codimension [K:Q_p]n(n+1)/2 and 𝕮_{w′} := Σ_{w″} a_{w′,w″}𝖅_{w″} (4.7), independent of the framing. Taking instead the fibre at δ gives (4.11) and cycles 𝒵_{w′}, 𝒞_{w′} of codimension [K:Q_p]n(n+3)/2 (4.12).",
+      "statement": "For r ∈ 𝔛_r̄(L), Ô_{𝔛_r̄,r} represents the framed deformations of r and has dimension n² + [K:Q_p]n². X_tri(r̄)_δ is the fibre of ω′ at δ and X_tri(r̄)_{wt(δ)} the fibre of the weight map. Taking completions in (3.33) and then fibres over 0 ∈ t gives the diagram (4.6), whose components are indexed by the components of the Steinberg variety through x_pdR; one obtains cycles 𝖅_{w′} of codimension [K:Q_p]n(n+1)/2 and 𝕮_{w′} := Σ_{w″} a_{w′,w″}𝖅_{w″} (4.7), independent of the framing. Taking instead the fibre at δ gives (4.11) and cycles 𝒵_{w′}, 𝒞_{w′} of codimension [K:Q_p]n(n+1)/2 + n (4.12) (printed [K:Q_p]n(n+3)/2; E12).",
       "locator": "§4.3 with (4.6)–(4.7) and (4.11)–(4.12), printed pp. 377–382",
       "status": "missing",
       "note": "The two families of cycles are distinguished in the printed text only by font; any formalisation must name them apart."
@@ -970,7 +970,7 @@
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/4.3.4-conjecture",
       "kind": "theorem",
       "name": "The locally analytic Breuil–Mézard type conjecture",
-      "statement": "CONJECTURE (Conjecture 4.3.4, not proved in general). For every generic trianguline r ∈ 𝔛_r̄(L) and every absolutely irreducible constituent Π of a locally Q_p-analytic principal series of GL_n(K), there is a unique cycle C_{r,Π} of codimension [K:Q_p]n(n+3)/2 in Z(Spec Ô_{𝔛_r̄,r}) with [Spec Ô_{X_tri(r̄)_δ,(r,δ)}] = Σ_Π m_{δ,Π}C_{r,Π} for every δ, the left-hand side being 0 when (r,δ) ∉ X_tri(r̄). It implies that the fibre is equidimensional of dimension n² + [K:Q_p]n(n−3)/2 when non-zero, and determines which (r,δ) lie on X_tri(r̄).",
+      "statement": "CONJECTURE (Conjecture 4.3.4, not proved in general). For every generic trianguline r ∈ 𝔛_r̄(L) and every absolutely irreducible constituent Π of a locally Q_p-analytic principal series of GL_n(K), there is a unique cycle C_{r,Π} of codimension [K:Q_p]n(n+1)/2 + n in Z(Spec Ô_{𝔛_r̄,r}) with [Spec Ô_{X_tri(r̄)_δ,(r,δ)}] = Σ_Π m_{δ,Π}C_{r,Π} for every δ, the left-hand side being 0 when (r,δ) ∉ X_tri(r̄). It implies that the fibre is equidimensional of dimension n² − n + [K:Q_p]n(n−1)/2 when non-zero (printed codimension [K:Q_p]n(n+3)/2 and dimension n² + [K:Q_p]n(n−3)/2; E12), and determines which (r,δ) lie on X_tri(r̄).",
       "locator": "Conjecture 4.3.4 with Remark 4.3.5, printed p. 381",
       "status": "missing",
       "note": "A conjecture; only uniqueness (Proposition 4.3.6) and the generic crystalline case (Theorem 4.3.8) are proved."
@@ -989,7 +989,8 @@
       "name": "The cycle depends only on r and the constituent",
       "statement": "With the notation of (4.12), the cycle 𝒞_{w′} depends only on r and on the constituent Π_{w′}, not on the chosen triangulation. The proof uses that the components of the Steinberg variety occurring in the characteristic cycle are stabilised by the parabolic P_{w′} (Remark 2.4.9) together with Lemma 3.4.7.",
       "locator": "Proposition 4.3.7, printed pp. 383–384",
-      "status": "missing"
+      "status": "missing",
+      "note": "Its cycles are those of item 4.3-cycles-setup, whose codimension is corrected by E12 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/4)."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/4.3.8-theorem",
@@ -997,7 +998,8 @@
       "name": "The conjecture holds for generic crystalline r",
       "statement": "Assume r ∈ 𝔛_r̄(L) is generic crystalline with distinct τ-Sen weights for every τ — equivalently crystalline with distinct Hodge–Tate weights and φ_iφ_j^{−1} ∉ {1, p^{[K_0:Q_p]}} for i ≠ j. Then Conjecture 4.3.4 holds for r, with C_{r,Π_{w′}} := 𝒞_{w′}; the consistency across different characters uses Theorem 4.2.3, and the final identity [Spec Ô_{X_tri(r̄)_δ,(r,δ)}] = Σ_{w′} P_{w_0w,w_0w′}(1)𝒞_{w′} matches the multiplicities m_{δ,Π_{w′}} = P_{w_0w,w_0w′}(1). The constituents that occur are exactly the companion constituents of [15, §6].",
       "locator": "Theorem 4.3.8 with Remark 4.3.9, printed pp. 384–385",
-      "status": "missing"
+      "status": "missing",
+      "note": "Its cycles are those of item 4.3-cycles-setup, whose codimension is corrected by E12 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/4)."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.1-setting",
@@ -1010,14 +1012,17 @@
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.1-completed-cohomology",
       "kind": "construction",
-      "name": "Completed cohomology, the Hecke algebra and the deformation ring",
-      "statement": "For a tame level U^p, Ŝ(U^p,L) is the Banach space of continuous functions G(F⁺)\\G(A^∞_{F⁺})/U^p → L with the unitary G_p-action, Ŝ(U^p,L)^an its very strongly admissible locally Q_p-analytic vectors. S is a finite set of finite places split in F containing S_p and the places where U_v is not maximal, T^S the spherical Hecke algebra, and m^S a maximal ideal with Ŝ(U^p,L)^an_{m^S} ≠ 0; ρ̄ is the associated absolutely semisimple Galois representation, assumed absolutely irreducible, and R_{ρ̄,S} pro-represents the deformations unramified outside S satisfying ρ^∨∘c ≅ ρ ⊗ ε^{n−1}.",
+      "name": "Completed cohomology, its Hecke algebra and localisation",
+      "statement": "For a tame level U^p, Ŝ(U^p,L) is the Banach space of continuous functions G(F⁺)\\G(A^∞_{F⁺})/U^p → L with the unitary G_p-action. S is a finite set of finite places split in F containing S_p and the places where U_v is not maximal, T^S the spherical Hecke algebra, and m^S a maximal ideal with Ŝ(U^p,L)^an_{m^S} ≠ 0; ρ̄ is the associated absolutely semisimple Galois representation, assumed absolutely irreducible.",
       "locator": "§5.1, printed p. 386",
       "status": "planned",
       "planned": [
-        "CompletedCohomologyAndLocalGlobalCompatibility:R31.2"
+        "CompletedCohomologyPartII:CC.1",
+        "CompletedCohomologyPartII:CC.2",
+        "CompletedCohomologyPartII:CC.5",
+        "CompletedCohomologyPartII:CC.8"
       ],
-      "note": "The localised completed cohomology is printed as an inverse limit of O_L/m^s-valued functions, i.e. an O_L-module, where the L-Banach space is meant; see source issue E11."
+      "note": "The localised completed cohomology is printed as an inverse limit of O_L/m^s-valued functions, i.e. an O_L-module, where the L-Banach space is meant; see source issue E11. Corrected by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/5). CompletedCohomologyPartII owns completed cohomology in arbitrary reductive-group dimension: CC.1 the tame Hecke operators, CC.2 completion, CC.5 admissibility, CC.8 the unitary tower models, tame Hecke actions and localisation at a residual Hecke ideal. R31.2 plans locally algebraic vectors for GL₂/ℚ and imports all this from CC. The very strongly admissible locally analytic vectors are item 5.1-locally-analytic-vectors, and R_{ρ̄,S} is item 5.1-deformation-ring."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.1-eigenvariety",
@@ -1025,7 +1030,8 @@
       "name": "The Hecke eigenvariety and the map to the trianguline varieties",
       "statement": "Y(U^p,ρ̄) is the schematic support of the coherent sheaf (J_{B_p}(Ŝ(U^p,L)^an_{m^S}))^∨ on X_{ρ̄,S} × T̂_{p,L}, with J_{B_p} Emerton’s Jacquet functor: a reduced rigid variety of dimension n[F⁺:Q], closed in X_{ρ̄,S} × T̂_{p,L}, whose points are the (ρ,δ) with a non-zero Hom from δ into the Jacquet module. With the twist ι_v(δ_1,…,δ_n) := δ_{B_v}·(δ_1, δ_2ε, …, δ_nε^{n−1}) (5.1) there is a morphism Y(U^p,ρ̄) → X_tri(ρ̄_p) = ∏_{v∈S_p} X_tri(ρ̄_ṽ) (5.2).",
       "locator": "§5.1, formulas (5.1)–(5.2), printed pp. 386–387",
-      "status": "missing"
+      "status": "missing",
+      "note": "Corrected by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/7). A definite-unitary finite-slope eigenvariety is planned at AutomorphicGaloisRepresentationsPartII AG2.3, on PadicFamilies L2a, with rigid character and weight spaces from PadicMeasuresIwasawaAlgebras L0a (the torus T̂_{p,L} adds a G_m-type factor for the uniformiser). What this item needs is Emerton's Jacquet-module construction of Y(U^p,ρ̄), which also defines the patched eigenvariety and gives the point criterion of §§5.3–5.4; it imports Emerton's Jacquet functor (item 5.2-emerton-jacquet) and is compared with AG2.3's eigenvariety wherever the two are identified."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.1-classical",
@@ -1066,10 +1072,8 @@
       "name": "The patched eigenvariety and its component decomposition",
       "statement": "With R_∞ the maximal reduced Z_p-flat quotient of (⊗̂_{v∈S}R_{ρ̄_ṽ})[[x_1,…,x_g]] and X_∞ = X_{ρ̄^p} × X_{ρ̄_p} × U^g, the patched representation Π_∞ of [23] and the ideal a with Π_∞[a] ≅ Ŝ(U^p,L)_{m^S} give the patched eigenvariety X_p(ρ̄), the support of (J_{B_p}(Π_∞^{R_∞−an}))^∨ (5.7); Y(U^p,ρ̄) is the closed subspace cut out by a. For each irreducible component X^p of X_{ρ̄^p} there is a union X^{X^p−aut}_tri(ρ̄_p) of components of X_tri(ρ̄_p) with X_p(ρ̄) ≅ ⋃_{X^p}(X^p × ι(X^{X^p−aut}_tri(ρ̄_p)) × U^g) (5.8).",
       "locator": "§5.1, formulas (5.7)–(5.8), printed pp. 388–389",
-      "status": "planned",
-      "planned": [
-        "CompletedCohomologyAndLocalGlobalCompatibility:R31.5"
-      ]
+      "status": "missing",
+      "note": "Corrected by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/6): missing. R31.5 plans the patched completed module for GL₂/ℚ, not a GL_n patched module, a patched eigenvariety or Emerton's Jacquet functor, and no trianguline or Jacquet stage is upstream of it, so (5.8) cannot be proved there. This item keeps the patched eigenvariety X_p(ρ̄) and its decomposition (5.8); the patched module is item 5.1-patched-module. Routed to route 3."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.2-adjunction",
@@ -1077,7 +1081,8 @@
       "name": "The adjunction between Orlik–Strauch induction and Lie-algebra homomorphisms",
       "statement": "For Π^an very strongly admissible, M in category O and V a smooth representation of T_p, Hom_{G_p}(F^{G_p}_{B̄_p}(Hom(M,L)^{ū∞}, V(δ_{B_p}^{−1})), Π^an) ≅ Hom_{T_p⁺}(V, Hom_{U(g)}(M,Π^an)^{U_0}) functorially in M, where Hom_{U(g)}(M,Π^an)^{U_0} carries the Hecke action (5.9). Specialised to irreducible constituents and to Verma modules this gives Hom_{G_p}(F^{G_p}_{B̄_p}(L̄(−ν), 1[s]_smε_smδ_{B_p}^{−1}), Π^an) ≅ Hom_{U(g)}(L(ν),Π^an)^{U_0}[m^s_{ε_sm}] and the analogous statement for U(g)⊗_{U(b)}μ, the latter space being finite dimensional.",
       "locator": "Lemmas 5.2.1–5.2.3 with (5.9), printed pp. 390–392",
-      "status": "missing"
+      "status": "missing",
+      "note": "It is stated for any very strongly admissible Π^an (p. 390), and so are Lemmas 5.2.4–5.2.6; the Part II proves them in that general form, importing the Orlik–Strauch functor and Emerton's adjunction from route 6 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/8)."
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.2.4-finite-dimensional",
@@ -1170,6 +1175,135 @@
       "statement": "The same argument shows that if X_p(ρ̄) is singular at a companion point x_w then so is Y(U^p,ρ̄); which companion points are singular for w ≠ w_0 is left open and is related to Conjecture 2.3.7. Equality (5.39) shows that the tangent-space dimension of X_tri(ρ̄_ṽ) at the image of x is as predicted by [20, Conj. 2.8], so that conjecture holds at many points. When w_xw_0 is a product of distinct simple reflections, work of Bergdall leads one to expect that Y(U^p,ρ̄) is smooth at x; the method of this paper gives no information there.",
       "locator": "Remark 5.4.3, printed p. 409",
       "status": "missing"
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.4-category-O-block",
+      "kind": "definition",
+      "name": "The BGG category O and its block O(0)",
+      "statement": "O is the BGG category of finitely generated U(g)-modules attached to g ⊃ b ⊃ t that are t-semisimple and locally U(b)-finite; O(0) is its block of the trivial infinitesimal character, containing the M(ww_0·0) and L(ww_0·0) for w ∈ W.",
+      "locator": "§2.4, printed pp. 320–321",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/1). Planned nowhere: LieHighestWeight excludes full category O. Routed to the LieHighestWeight Part II of PAPER-BOXER-CALEGARI-GEE-PILLONI-25 route 3 (route 8), which plans algebraic category O but no Kazhdan–Lusztig theory."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.4-kl-polynomials",
+      "kind": "definition",
+      "name": "Kazhdan–Lusztig polynomials of the Weyl group",
+      "statement": "The Kazhdan–Lusztig polynomials P_{x,y} ∈ Z[q] of the Weyl group W, with P_{x,y} ≠ 0 if and only if x ≼ y in the Bruhat order, and P_{x,x} = 1.",
+      "locator": "§2.4, printed pp. 320–321",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/1). Routed to route 8."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.4-kl-theorem",
+      "kind": "theorem",
+      "name": "The Kazhdan–Lusztig multiplicity theorem",
+      "statement": "For w, w′ ∈ W, [M(ww_0·0) : L(w′w_0·0)] = P_{w_0w,w_0w′}(1); hence L(w′w_0·0) occurs in M(ww_0·0) if and only if w′ ≼ w (the Kazhdan–Lusztig conjecture, proved by Beilinson–Bernstein 1981 and Brylinski–Kashiwara 1981; Humphreys §8.4).",
+      "locator": "§2.4, printed pp. 320–321 (citing Humphreys [45, §8.4])",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/1). Theorem 2.4.7(ii), Corollary 2.5.6, Corollary 4.3.2 (4.9), Theorem 4.3.8 and the cycle identities (1.2)–(1.3) and (5.23)–(5.24) rest on it. No stage plans it; routed to route 8 as a stated input. Its proof by localisation needs the D-module foundations and Beilinson–Bernstein localisation that route 1 builds (items 2.4-dmodules, 2.4-BB), so the design jobs must order those layers before it, or keep the theorem as a stated input."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.4-dmodules",
+      "kind": "definition",
+      "name": "D-module foundations: coherent, holonomic and regular holonomic D-modules and characteristic cycles",
+      "statement": "For a smooth variety Y over a field of characteristic 0: coherent D_Y-modules, good filtrations, the characteristic variety and characteristic cycle ([44, Cor. 2.3.2]); holonomic and regular holonomic D-modules, and G-equivariant ones on G/B × G/B, as used for the Beilinson–Bernstein equivalence and the characteristic cycles of §2.4.",
+      "locator": "§2.4, printed pp. 320–322 (citing Hotta–Takeuchi–Tanisaki [44])",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/1). No stage plans D-modules; route 1 builds them, together with Beilinson–Bernstein localisation on G/B (item 2.4-BB) and characteristic cycles (item 2.4.4-char-cycles)."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.1-flag-variety",
+      "kind": "definition",
+      "name": "The flag variety G/B and the G-orbits on G/B × G/B",
+      "statement": "G/B is a smooth projective k-scheme. G acts diagonally on G/B ×_k G/B, and for w ∈ W with a lift ẇ, U_w := G·(1, ẇ)B × B is a locally closed subscheme, smooth of dimension dim G − dim B + lg(w), with G/B × G/B = ∐_w U_w; its closure is Ū_w = ∐_{w′≼w} U_{w′}. The smooth locus of Ū_w is the notion used in Theorem 2.4.7(iii).",
+      "locator": "§2.1, printed p. 310; used in Theorem 2.4.7(iii), Proposition 2.5.3 and Proposition 4.1.5",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/9). No stage plans G/B as a scheme or the orbit geometry: ReductiveGroups Layer 7 plans the group theory only. Routed with its consumer (route 1), as the verifier allows; a Part II of Tau Ceti ReductiveGroups, joining DESIGN-ReductiveGroupsPartIII (ShimuraData D3 builds flag varieties too), is the alternative for the maintainer."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.6-trianguline-galois-groupoids",
+      "kind": "construction",
+      "name": "The trianguline Galois deformation groupoids",
+      "statement": "D_rig induces X_V ≅ X_D for D := D_rig(V). For V trianguline with a triangulation M_• of M := D[1/t], X_{V,M_•} := X_V ×_{X_D} X_{D,M_•} and X_{r,M_•} := X_r ×_{X_V} X_{V,M_•}, with framed versions; the framing □ is on D_pdR(B_dR ⊗ V), not directly on the Galois deformation, and all automorphisms in these groupoids are trivial.",
+      "locator": "§3.6 with (3.27)–(3.28) and Remark 3.6.1, printed pp. 362–363",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/2), split from item 3.6-galois-groupoids: not planned at R08.1. Routed to route 2."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.5-bpairs-berger",
+      "kind": "theorem",
+      "name": "B-pairs and Berger's equivalence, with coefficients",
+      "statement": "A B-pair is (W_e, W⁺_dR) with W_e a B_e-representation of G_K, B_e = B_cris^{φ=1}, and W⁺_dR a G_K-stable B⁺_dR-lattice in B_dR ⊗_{B_e} W_e. Berger's theorem gives an equivalence between (φ,Γ_K)-modules over R_K and B-pairs; with coefficients in A, M ↦ W_e(M) is a rank-preserving equivalence between ΦΓ_{A,K} and A⊗_{Q_p}B_e-representations of G_K, with quasi-inverse W_e ↦ D(W_e, W⁺_dR)[1/t].",
+      "locator": "Proof of Proposition 3.5.1, printed p. 355 (citing Berger, Construction de (φ,Γ)-modules, Algebra & Number Theory 2 (2008))",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/3), taken out of item 3.5.1-fibre-product. PAPER-FARGUES-FONTAINE-18 routes B-pairs (its items 886, 1104) to the same PadicHodgeTheory Part II; routed there (route 4)."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.1-deformation-ring",
+      "kind": "definition",
+      "name": "The polarized global deformation ring R_{ρ̄,S}",
+      "statement": "R_{ρ̄,S} pro-represents the deformations of ρ̄ unramified outside S satisfying ρ^∨∘c ≅ ρ ⊗ ε^{n−1}.",
+      "locator": "§5.1, printed p. 386",
+      "status": "planned",
+      "planned": [
+        "GlobalGaloisDeformations:G7"
+      ],
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/5), split from item 5.1-completed-cohomology."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.1-locally-analytic-vectors",
+      "kind": "definition",
+      "name": "Very strongly admissible locally analytic vectors",
+      "statement": "For an admissible unitary Banach representation Π of G_p over L (here Ŝ(U^p,L)_{m^S}), the subspace Π^an of locally Q_p-analytic vectors is a very strongly admissible locally Q_p-analytic representation.",
+      "locator": "§5.1, printed p. 386; used in Lemmas 5.2.1–5.2.6",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/5), split from item 5.1-completed-cohomology. Planned by no stage; routed with the locally analytic representation theory (route 6)."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.1-patched-module",
+      "kind": "construction",
+      "name": "The patched module of Caraiani–Emerton–Gee–Geraghty–Paškūnas–Shin for GL_n",
+      "statement": "R_∞ is the maximal reduced Z_p-flat quotient of (⊗̂_{v∈S} R_{ρ̄_ṽ})[[x_1,…,x_g]], and the patched R_∞-module M_∞ carries the unitary G_p-representation Π_∞ of [23] for GL_n over the p-adic places of F, with an ideal a of R_∞ such that Π_∞[a] ≅ Ŝ(U^p,L)_{m^S}.",
+      "locator": "§5.1, printed pp. 388–389 (citing [23])",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/6), split from item 5.1-patched. PAPER-BOCKLE-IYENGAR-PASKUNAS-23 records the CEGGPS patched module as missing (its items 133–134) on its route 7, a Part II of the same parent, and the queue groups both into one design (issue #3459). Routed to route 3."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.2-orlik-strauch-functor",
+      "kind": "construction",
+      "name": "The Orlik–Strauch functor",
+      "statement": "For G split reductive over K with L splitting K, a parabolic P with Levi M_P, an object M of the parabolic category O and a smooth admissible representation V of M_P, the Orlik–Strauch functor gives a locally Q_p-analytic representation F^G_{P̄}(M, V) of G; in §5 it is applied to Verma modules and their simple quotients with P the Borel ((5.3)).",
+      "locator": "§5.1, printed pp. 386–388, and §5.2, printed pp. 390–393 (Orlik–Strauch [58])",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/8). PAPER-DING-25's new roadmap LocallyAnalyticRepresentationsOfLocalGroups owns the Orlik–Strauch functors (its brief (ii)); routed there (route 6)."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.2-orlik-strauch-jh",
+      "kind": "theorem",
+      "name": "The Orlik–Strauch irreducibility and Jordan–Hölder theorem",
+      "statement": "The Orlik–Strauch description of when F^G_{P̄}(M, V) is irreducible and of the Jordan–Hölder constituents of locally analytic principal series, in the form used for the multiplicities m_{δ,Π} of Conjecture 4.3.4 and Theorem 4.3.8 and for 'each constituent occurs with multiplicity one' in Proposition 4.3.6.",
+      "locator": "Conjecture 4.3.4, printed p. 381; Proposition 4.3.6; §5.2 (Orlik–Strauch [58])",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/8). Owned by LocallyAnalyticRepresentationsOfLocalGroups (PAPER-DING-25's brief (ii)); routed there (route 6)."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.2-emerton-jacquet",
+      "kind": "construction",
+      "name": "Emerton's locally analytic Jacquet functor",
+      "statement": "Emerton's locally Q_p-analytic Jacquet functor J_B with respect to a Borel subgroup, from essentially admissible locally analytic representations of G to essentially admissible locally analytic representations of the torus T, so that the continuous dual of J_B(Π) is a coherent sheaf on the character space T̂; Y(U^p,ρ̄) and X_p(ρ̄) are schematic supports of such duals.",
+      "locator": "§5.1, printed p. 386 (Emerton [32])",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/8). Owned by LocallyAnalyticRepresentationsOfLocalGroups (PAPER-DING-25's brief (iii)); routed there (route 6)."
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.2-emerton-adjunction",
+      "kind": "theorem",
+      "name": "Emerton's adjunction for the Jacquet functor",
+      "statement": "Emerton's adjunction theorem relating G-equivariant maps from locally analytic parabolic inductions into a very strongly admissible locally analytic representation Π with (balanced) T-equivariant maps into J_B(Π) (Emerton, Jacquet modules of locally analytic representations of p-adic reductive groups II: the relation to parabolic induction), in the generalisation to Orlik–Strauch representations through which Lemma 5.2.1 uses it (Breuil [16]).",
+      "locator": "§5.2, printed pp. 390–392",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/8). Owned by LocallyAnalyticRepresentationsOfLocalGroups (PAPER-DING-25's brief (iii)); routed there (route 6)."
     }
   ],
   "routes": [
@@ -1179,6 +1313,7 @@
       "area": "representations",
       "title": "The Grothendieck simultaneous resolution, the Steinberg variety and characteristic cycles",
       "items": [
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.1-flag-variety",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.1-gtilde",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.1.1-q-properties",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.2-X",
@@ -1207,10 +1342,11 @@
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.5-T",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.5.2-component-detect",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.5.3-tangent-bound",
-        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.5-completed-cycles"
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.5-completed-cycles",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.4-dmodules"
       ],
-      "reason": "Nothing in the atlas plans this geometry: no stage mentions the Springer or Grothendieck simultaneous resolution, the Steinberg variety or the nilpotent cone, and the nearest neighbours — EndoscopicTransferAndUnitaryTraceComparison ET.2 for perverse sheaves and Hitchin geometry, GeometricSatakeAndFusion for the Fargues–Fontaine curve — own quite different objects. The Tau Ceti roadmaps do own the inputs (Borel–Weil, flag manifolds and Bruhat in Lie groups Layer 8; enveloping algebras, Verma modules and L(λ) in Lie highest weight Layer 3), but a source route may not re-plan a Tau Ceti roadmap, so those are recorded as `planned` imports instead. A new roadmap is therefore the only route left, and the material justifies one: it is a self-contained piece of geometric representation theory used far beyond this paper.",
-      "brief": "Build, over a field of good characteristic, the variety g̃ = {(gB,ψ) : Ad(g⁻¹)ψ ∈ b} as a vector bundle over G/B and Grothendieck’s simultaneous resolution q : g̃ → g, with its properness, quasi-finiteness over the regular locus and étale degree |W| over the regular semisimple locus. Construct X = g̃ ×_g g̃ with its projections π, κ₁, κ₂, prove that V_w → U_w is a vector bundle, that X is a reduced local complete intersection whose irreducible components are the X_w, and that each projection restricts to a proper birational map X_w → g̃ which is an isomorphism over the regular locus. Prove the fibres of κ_i are equidimensional, deduce flatness by miracle flatness, and import Bezrukavnikov–Riche for Cohen–Macaulayness, including the passage from characteristic p > h to characteristic zero by spreading out. Then prove **normality of the X_w** (Theorem 2.3.6 of the paper, which the authors believe to be new) by Serre’s criterion, via the analysis of the codimension-one strata; this is the property the trianguline-variety roadmap consumes. Construct the Steinberg variety and its components, the group of top-dimensional cycles, the Beilinson–Bernstein equivalence onto regular holonomic G-equivariant D-modules on G/B × G/B, characteristic cycles and their additivity, and prove that the three families of classes form bases of Z⁰(Z) with the Kazhdan–Lusztig transition matrix. Record Conjecture 2.3.7 and the failure of the Kazhdan–Lusztig irreducibility conjecture for SL_n with n ≥ 8 as facts about the landscape, never as targets. Import category O, Verma modules and Kazhdan–Lusztig polynomials from the Tau Ceti representation-theory roadmaps rather than rebuilding them, and export the tangent-space bound of Proposition 2.5.3 and the completed cycle identities of §2.5, which are what the p-adic side actually uses."
+      "reason": "Nothing in the atlas plans this geometry: no stage mentions the Springer or Grothendieck simultaneous resolution, the Steinberg variety or the nilpotent cone, and the nearest neighbours — EndoscopicTransferAndUnitaryTraceComparison ET.2 for perverse sheaves and Hitchin geometry, GeometricSatakeAndFusion for the Fargues–Fontaine curve — own quite different objects. The Tau Ceti roadmaps own some inputs: Verma modules and L(λ) (LieHighestWeight Layer 3), and Borel subgroups, the Weyl group and the Bruhat decomposition (ReductiveGroups Layer 7, with quotients in Layer 3), recorded as `planned` imports. They do not own category O or Kazhdan–Lusztig theory, which go to the LieHighestWeight Part II of route 8, nor the flag variety G/B as a scheme with its orbit geometry, nor D-modules, which are built here (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/1, /9). A new roadmap is therefore the only route left, and the material justifies one: it is a self-contained piece of geometric representation theory used far beyond this paper.",
+      "brief": "Start from the flag variety G/B as a smooth projective scheme, the G-orbits U_w on G/B × G/B and their closures (item 2.1-flag-variety), importing Borel subgroups, the Weyl group and the Bruhat decomposition from Tau Ceti ReductiveGroups Layer 7. Build, over a field of good characteristic, the variety g̃ = {(gB,ψ) : Ad(g⁻¹)ψ ∈ b} as a vector bundle over G/B and Grothendieck’s simultaneous resolution q : g̃ → g, with its properness, quasi-finiteness over the regular locus and étale degree |W| over the regular semisimple locus. Construct X = g̃ ×_g g̃ with its projections π, κ₁, κ₂, prove that V_w → U_w is a vector bundle, that X is a reduced local complete intersection whose irreducible components are the X_w, and that each projection restricts to a proper birational map X_w → g̃ which is an isomorphism over the regular locus. Prove the fibres of κ_i are equidimensional, deduce flatness by miracle flatness, and import Bezrukavnikov–Riche for Cohen–Macaulayness, including the passage from characteristic p > h to characteristic zero by spreading out. Then prove **normality of the X_w** (Theorem 2.3.6 of the paper, which the authors believe to be new) by Serre’s criterion, via the analysis of the codimension-one strata; this is the property the trianguline-variety roadmap consumes. Construct the Steinberg variety and its components, the group of top-dimensional cycles, the Beilinson–Bernstein equivalence onto regular holonomic G-equivariant D-modules on G/B × G/B, characteristic cycles and their additivity, and prove that the three families of classes form bases of Z⁰(Z) with the Kazhdan–Lusztig transition matrix. Record Conjecture 2.3.7 and the failure of the Kazhdan–Lusztig irreducibility conjecture for SL_n with n ≥ 8 as facts about the landscape, never as targets. Build the D-module foundations used in §2.4 (coherent D-modules, good filtrations, characteristic varieties and cycles, holonomic and regular holonomic G-equivariant D-modules; item 2.4-dmodules) with Beilinson–Bernstein localisation on G/B. Import Verma modules and L(λ) from Tau Ceti LieHighestWeight Layer 3, and category O, its block O(0), the Kazhdan–Lusztig polynomials and the Kazhdan–Lusztig multiplicity theorem (a stated imported input, Beilinson–Bernstein and Brylinski–Kashiwara 1981) from the LieHighestWeight Part II of route 8, ordering the D-module layers before the layers that use that theorem, and export the tangent-space bound of Proposition 2.5.3 and the completed cycle identities of §2.5, which are what the p-adic side actually uses."
     },
     {
       "route": "new",
@@ -1218,8 +1354,6 @@
       "area": "padic",
       "title": "The trianguline variety and its local model",
       "items": [
-        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1-bpdr",
-        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1.4-coefficients",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1-deformation-groupoid",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1.6-Xsquare-g",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1.9-Xsquare-gtilde",
@@ -1284,10 +1418,12 @@
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/1-thm18-local-companions",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/1-cycles",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/1-thm19-breuil-mezard",
-        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/1-example-gl2"
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/1-example-gl2",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.7-xtri",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.6-trianguline-galois-groupoids"
       ],
-      "reason": "The trianguline variety is not planned anywhere in the atlas: the word \"trianguline\" occurs only as an adjective in hypotheses of CompletedCohomologyAndLocalGlobalCompatibility (Emerton’s local–global compatibility, the Kisin conjecture in the trianguline case) and in a GL₂(Q_p) block check, never as the geometric object X_tri(r̄). Its ambient space and its coefficients do have owners, which this roadmap imports rather than rebuilds: the Robba ring and (φ,Γ_K)-modules from PadicDifferentialEquationsAndRigidCohomology RD.0–RD.1, B_dR and Sen theory from PadicHodgeTheory P7, and the framed local deformation ring from LocalGaloisDeformationRings R08.1 and R08.3. What is new here is the comparison itself, so it needs its own roadmap rather than a Part II of any of those.",
-      "brief": "Construct almost de Rham B_dR-representations and Fontaine’s equivalence W ↦ (D_pdR(W), ν_W) with Rep_K(G_a), its coefficient version over an artinian base, and the bijection between Galois-stable B⁺_dR-lattices and filtrations of D_pdR(W); prove that regular lattices give complete flags. Build the deformation groupoids X_W, X_{W,F_•}, X_{W⁺} and their framed versions and identify them with the completions of g, g̃ and X at the point given by the two flags and the nilpotent operator — this is where the geometry of SpringerResolutionAndCharacteristicCycles enters. On the (φ,Γ_K) side, construct trianguline modules, triangulations and parameters, the character space T and the genericity locus T^n_0 (defined by \"δ_iδ_j⁻¹ **or** εδ_iδ_j⁻¹ algebraic for **some** i ≠ j\" — the printed text has \"and … for i ≠ j\", which would make T^n_0 everything; see sourceIssue E2), the (φ,γ_K)-cohomology and its comparison with Galois cohomology, and prove the key formal smoothness theorem 3.4.4. Then prove the structure theorem for the trianguline Galois deformation ring — reduced, equidimensional, with minimal primes in bijection with the Weyl-group elements w with x ∈ X_w — assemble the local model diagram (3.33), and deduce that the trianguline variety is normal, irreducible and Cohen–Macaulay at the points of Remark 3.7.9. Finally develop the local applications: flatness of the character and weight maps, the accumulation property, the tangent-space bound, the determination of all local companion points in the crystalline case, and the cycle formalism of §4.3 with the locally analytic Breuil–Mézard conjecture. Keep Conjecture 4.3.4 and Conjecture 2.3.7 as conjectures, and keep the two families of cycles of §4.3 — those of the weight fibre and those of the full character fibre — under distinct names, since the printed text distinguishes them only by font."
+      "reason": "The trianguline variety is not planned anywhere in the atlas: the word \"trianguline\" occurs only as an adjective in hypotheses of CompletedCohomologyAndLocalGlobalCompatibility (Emerton’s local–global compatibility, the Kisin conjecture in the trianguline case) and in a GL₂(Q_p) block check, never as the geometric object X_tri(r̄). Its ambient space and its coefficients do have owners, which this roadmap imports rather than rebuilds: the Robba ring and (φ,Γ_K)-modules from PadicDifferentialEquationsAndRigidCohomology RD.0–RD.1, B_dR from PadicHodgeTheory R06.1, Sen theory from P7 (P7/sen-module), almost de Rham theory, B-pairs and Berger's functors from the PadicHodgeTheory Part II (route 4), and the framed local deformation ring from LocalGaloisDeformationRings R08.1. The trianguline variety itself is built here: it was marked planned at R08.3, which plans only Kisin's potentially semistable rings (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/2, /3). What is new here is the comparison itself, so it needs its own roadmap rather than a Part II of any of those.",
+      "brief": "Import from the PadicHodgeTheory Part II (route 4) almost de Rham B_dR-representations, B_pdR and D_pdR, Fontaine’s equivalence W ↦ (D_pdR(W), ν_W) with Rep_K(G_a) and its coefficient version over an artinian base, B-pairs with Berger's equivalence, and Berger's W⁺_dR and W_dR with coefficients. Construct the bijection between Galois-stable B⁺_dR-lattices and filtrations of D_pdR(W), whose graded pieces are finite projective over A⊗_{Q_p}K (E8), and prove that regular lattices give complete flags. Build the deformation groupoids X_W, X_{W,F_•}, X_{W⁺} and their framed versions and identify them with the completions of g, g̃ and X at the point given by the two flags and the nilpotent operator — this is where the geometry of SpringerResolutionAndCharacteristicCycles enters. On the (φ,Γ_K) side, construct trianguline modules, triangulations and parameters, the character space T and the genericity locus T^n_0 (defined by \"δ_iδ_j⁻¹ **or** εδ_iδ_j⁻¹ algebraic for **some** i ≠ j\" — the printed text has \"and … for i ≠ j\", which would make T^n_0 everything; see sourceIssue E2), the (φ,γ_K)-cohomology and its comparison with Galois cohomology, and prove the key formal smoothness theorem 3.4.4. Construct the trianguline variety X_tri(r̄) ⊂ 𝔛_r̄ × T^n_L as the Zariski closure (3.29) of U_tri(r̄) over T^n_reg, and prove, following Breuil–Hellmann–Schraen, Math. Ann. 367 (2017), Th. 2.6, that it is reduced and equidimensional of dimension n² + [K:Q_p]n(n+1)/2 with U_tri(r̄) Zariski-open. Import the framed ring R_r̄ from LocalGaloisDeformationRings R08.1 (the identification of X_r with the completion of 𝔛_r̄ at r is Kisin's Lemma 2.3.3 and Proposition 2.3.5, which no node states), the global triangulation of Kedlaya–Pottharst–Xiao from PhiGammaModulesAndIwasawaCohomology PG.7, the character space T^n_L from PadicMeasuresIwasawaAlgebras L0a, and the rigid generic fibre (Spf R_r̄)^rig from the adic-spaces roadmaps. Build the trianguline Galois deformation groupoids X_{V,M_•}, X_{r,M_•} and X_V ≅ X_D (item 3.6-trianguline-galois-groupoids). Then prove the structure theorem for the trianguline Galois deformation ring — reduced, equidimensional, with minimal primes in bijection with the Weyl-group elements w with x ∈ X_w — assemble the local model diagram (3.33), and deduce that the trianguline variety is normal, irreducible and Cohen–Macaulay at the points of Remark 3.7.9. Finally develop the local applications: flatness of the character and weight maps, the accumulation property, the tangent-space bound, the determination of all local companion points in the crystalline case, and the cycle formalism of §4.3 with the locally analytic Breuil–Mézard conjecture. The cycles of the character fibre have codimension [K:Q_p]n(n+1)/2 + n, not the printed [K:Q_p]n(n+3)/2, and that fibre has dimension n² − n + [K:Q_p]n(n−1)/2 (E12). Keep Conjecture 4.3.4 and Conjecture 2.3.7 as conjectures, and keep the two families of cycles of §4.3 — those of the weight fibre and those of the full character fibre — under distinct names, since the printed text distinguishes them only by font."
     },
     {
       "route": "part-ii",
@@ -1322,49 +1458,55 @@
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/1-thm14-companions",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/1-patched-eigenvariety",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/1-thm17-normal-cm",
-        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/1-cycle-identities"
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/1-cycle-identities",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.1-patched",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.1-patched-module"
       ],
-      "reason": "The parent already owns the objects this section runs on — R31.1 towers and completed cohomology, R31.2 classical specialisations and locally algebraic vectors, R31.3 Hecke and deformation actions, R31.5 patched completed modules and support — but its stages are written for modular and Shimura curves, i.e. GL₂ over Q, and none of them plans an eigenvariety for a definite unitary group, the patched eigenvariety of Caraiani–Emerton–Gee–Geraghty–Paskunas–Shin, or companion constituents. This is the natural extension of that roadmap rather than a new one, and it consumes the local results through the map Y(U^p,ρ̄) → ∏_v X_tri(ρ̄_ṽ), so it must import TriangulineVarietyAndItsLocalModel rather than repeat it.",
-      "brief": "Extend the parent from modular and Shimura curves to a definite unitary group G over a totally real field, split by a CM quadratic extension at the places above p and compact at infinity. Construct the completed cohomology Ŝ(U^p,L), its very strongly admissible locally Q_p-analytic vectors, the spherical Hecke algebra and the deformation ring R_{ρ̄,S}; then the Hecke eigenvariety Y(U^p,ρ̄) as the support of the dual of Emerton’s Jacquet module, and the patched eigenvariety X_p(ρ̄) with its decomposition into components of 𝔛_{ρ̄^p} × ∏_v X_tri(ρ̄_ṽ) × U^g. Carry the Taylor–Wiles hypotheses explicitly and separately — p > 2, F/F⁺ unramified with no non-trivial p-th root of 1 in F, G quasi-split at the finite places, U_v hyperspecial at the inert places, ρ̄ absolutely irreducible with adequate image — and note that the paper records these same hypotheses as having been **omitted** from its authors’ two earlier papers. Develop the Orlik–Strauch functor and the adjunction of §5.2 with the exactness criteria on category O, then prove classicality of generic crystalline strictly dominant points, the existence of all expected companion constituents by the descending induction on the patched eigenvariety, and Cohen–Macaulayness, flatness of the weight map and singularity at sufficiently critical points. Conjecture 5.1.1 and Conjecture 5.3.1 are conjectures and stay so; the crystalline hypothesis is expected to be removable but is not removed here."
+      "reason": "Completed cohomology in arbitrary reductive-group dimension, with unitary tower models, tame Hecke actions and localisation, is owned by CompletedCohomologyPartII (CC.1, CC.2, CC.5, CC.8), which the parent imports; the parent's own stages are written for GL₂ over Q. A definite-unitary eigenvariety is planned at AutomorphicGaloisRepresentationsPartII AG2.3 on PadicFamilies L2a. What is new here is Emerton's Jacquet-module construction of Y(U^p,ρ̄) and of the patched eigenvariety X_p(ρ̄), the CEGGPS patched module for GL_n (beside PAPER-BOCKLE-IYENGAR-PASKUNAS-23's route 7 in the same Part II), and companion constituents (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/5–/7). This is the natural extension of that roadmap rather than a new one, and it consumes the local results through the map Y(U^p,ρ̄) → ∏_v X_tri(ρ̄_ṽ), so it must import TriangulineVarietyAndItsLocalModel rather than repeat it.",
+      "brief": "Extend the parent from modular and Shimura curves to a definite unitary group G over a totally real field, split by a CM quadratic extension at the places above p and compact at infinity. Import completed cohomology, its Hecke action and localisation from CompletedCohomologyPartII (CC.1, CC.2, CC.5, CC.8), the deformation ring R_{ρ̄,S} from GlobalGaloisDeformations G7, very strongly admissible locally analytic vectors, the Orlik–Strauch functor and Emerton's Jacquet functor and adjunction from LocallyAnalyticRepresentationsOfLocalGroups (route 6), and the trianguline variety from TriangulineVarietyAndItsLocalModel (route 2). A definite-unitary eigenvariety is planned at AutomorphicGaloisRepresentationsPartII AG2.3 on PadicFamilies L2a, with weights from PadicMeasuresIwasawaAlgebras L0a (T̂_{p,L} adds a G_m-type factor for the uniformiser): plan only Emerton's Jacquet-module construction of Y(U^p,ρ̄) and the properties of §5.1 it needs, with a comparison to AG2.3's eigenvariety wherever the two are identified. Construct the CEGGPS patched module R_∞, M_∞, Π_∞ for GL_n beside PAPER-BOCKLE-IYENGAR-PASKUNAS-23's CEGGPS items, and the patched eigenvariety X_p(ρ̄) with its decomposition (5.8) into components of 𝔛_{ρ̄^p} × ∏_v X_tri(ρ̄_ṽ) × U^g. Carry the Taylor–Wiles hypotheses explicitly and separately — p > 2, F/F⁺ unramified with no non-trivial p-th root of 1 in F, G quasi-split at the finite places, U_v hyperspecial at the inert places, ρ̄ absolutely irreducible with adequate image — and note that the paper records these same hypotheses as having been **omitted** from its authors’ two earlier papers. Prove Lemmas 5.2.1–5.2.6 in the general form of p. 390 (any very strongly admissible Π^an), then prove classicality of generic crystalline strictly dominant points, the existence of all expected companion constituents by the descending induction on the patched eigenvariety, and Cohen–Macaulayness, flatness of the weight map and singularity at sufficiently critical points. Conjecture 5.1.1 and Conjecture 5.3.1 are conjectures and stay so; the crystalline hypothesis is expected to be removable but is not removed here."
     },
     {
-      "route": "source",
-      "roadmap": "PadicHodgeTheory",
-      "stages": [
-        "PadicHodgeTheory:P7"
-      ],
+      "route": "part-ii",
+      "parent": "PadicHodgeTheory",
+      "roadmap": "PadicHodgeTheoryPartIIEquivariantBundlesOnTheCurve",
+      "title": "P-adic Hodge theory and geometric comparison, Part II: G_K-equivariant bundles on the Fargues–Fontaine curve and the curve proofs of 'weakly admissible implies admissible' and of the p-adic monodromy theorem",
+      "area": "padic",
       "items": [
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1-bdr-reps",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1-bpdr",
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1.1-equivalence",
-        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.3.5-WdR"
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.1.4-coefficients",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.3.5-WdR",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.5-bpairs-berger"
       ],
-      "reason": "P7 owns the Robba analytic foundations and the representation-theoretic handoffs of p-adic Hodge theory. The B_dR-representations of §3.1, the almost de Rham condition, Fontaine’s equivalence W ↦ (D_pdR(W), ν_W) and Berger’s functors W⁺_dR and W_dR with their freeness and exactness belong there; this paper is a source for the almost de Rham part in particular, which is the form of Fontaine’s theory the whole local model rests on."
+      "reason": "PadicHodgeTheory P7 plans the Robba foundations, Sen's D_Sen, Fontaine's D_dif and D_dR via ι_n and Wach modules, but none of B_dR-representations, almost de Rham representations, B_pdR, D_pdR, the G_a-equivalence, B-pairs or W_dR with coefficients (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/3). PAPER-FARGUES-FONTAINE-18 routes B_dR-representations (its item 941) and B-pairs (items 886, 1104) to this PadicHodgeTheory Part II, so they have one owner there.",
+      "brief": "This route coalesces with PadicHodgeTheoryPartIIEquivariantBundlesOnTheCurve, proposed by PAPER-FARGUES-FONTAINE-18 (route 5); keep its id, title, parent, area and brief, which already carries B_dR-representations and B-pairs and says it will export B-pairs and their Tannakian category to TriangulineVarietyAndItsLocalModel. Breuil–Hellmann–Schraen add, for K/Q_p finite, L splitting K and coefficients in a finite-dimensional Q_p-algebra A: almost de Rham B_dR-representations (Sen weights in Z, with Sen theory from P7/sen-module), the rings B⁺_pdR = B⁺_dR[log t] and B_pdR with the derivation ν and the functor D_pdR; Fontaine's equivalence Rep_pdR(G_K) ≅ Rep_K(G_a) (Proposition 3.1.1, Corollary 3.1.2) and its coefficient version (Lemma 3.1.4); Berger's equivalence between (φ,Γ_K)-modules over R_K and B-pairs, with coefficients (proof of Proposition 3.5.1); and Berger's W⁺_dR and W_dR on (φ,Γ_K)-modules over R_{A,K}, finite free and exact (Lemma 3.3.5). Consumer: TriangulineVarietyAndItsLocalModel."
     },
     {
       "route": "source",
       "roadmap": "LocalGaloisDeformationRings",
       "stages": [
-        "LocalGaloisDeformationRings:R08.1",
-        "LocalGaloisDeformationRings:R08.3"
+        "LocalGaloisDeformationRings:R08.1"
       ],
       "items": [
-        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.6-galois-groupoids",
-        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.7-xtri"
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.6-galois-groupoids"
       ],
-      "reason": "R08.1 owns the unrestricted framed local deformation rings and R08.3 the potentially semistable deformation spaces. The framed deformation groupoids of §3.6 and the ambient space 𝔛_r̄ of the trianguline variety in §3.7 are exactly those objects; the trianguline variety itself is a closed subvariety of 𝔛_r̄ × T^n_L and is routed to its own roadmap, but its ambient space should be imported from here rather than rebuilt."
+      "reason": "R08.1 owns the unrestricted framed local deformation rings, and the framed Galois deformation groupoid X_r of §3.6 is of that kind (item 3.6-galois-groupoids), though the identification of X_r with the completion of 𝔛_r̄ at r is Kisin's and no node states it. The trianguline variety and the trianguline groupoids are not planned at R08.1 or R08.3 and are built in route 2 (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/2)."
     },
     {
-      "route": "source",
-      "roadmap": "CompletedCohomologyAndLocalGlobalCompatibility",
-      "stages": [
-        "CompletedCohomologyAndLocalGlobalCompatibility:R31.2",
-        "CompletedCohomologyAndLocalGlobalCompatibility:R31.5"
-      ],
+      "route": "new",
+      "roadmap": "LocallyAnalyticRepresentationsOfLocalGroups",
+      "title": "Locally analytic representations of p-adic reductive groups",
+      "area": "representations",
       "items": [
-        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.1-completed-cohomology",
-        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.1-patched"
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.1-locally-analytic-vectors",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.2-orlik-strauch-functor",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.2-orlik-strauch-jh",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.2-emerton-jacquet",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/5.2-emerton-adjunction"
       ],
-      "reason": "R31.2 owns classical specialisations and locally algebraic vectors and R31.5 the patched completed modules and their support. The completed cohomology of §5.1 and the patched representation and eigenvariety of §5.1 are the definite-unitary-group analogues of what those stages plan for modular and Shimura curves; they are routed here as a source, while the new material — eigenvarieties for a definite unitary group, classicality, companion constituents and singularities — goes to the Part II of the same roadmap."
+      "reason": "PAPER-DING-25's new roadmap LocallyAnalyticRepresentationsOfLocalGroups owns the Orlik–Strauch functors with their irreducible constituents and Emerton's Jacquet functor with its adjunction (its brief (ii)–(iii)); this route joins it so that they have one owner (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/5, /8).",
+      "brief": "This route coalesces with LocallyAnalyticRepresentationsOfLocalGroups, proposed by PAPER-DING-25 (route 1); keep its id, title, area and brief, whose parts (ii) and (iii) own the Orlik–Strauch functors F^G_{P^-}(M, π) with the theorem describing their irreducible constituents and Emerton's locally analytic Jacquet functor J_B with its adjunction. Breuil–Hellmann–Schraen add: very strongly admissible locally Q_p-analytic vectors of admissible unitary Banach representations; the Orlik–Strauch Jordan–Hölder theorem in the form used for the multiplicities m_{δ,Π} of their Conjecture 4.3.4 and Theorem 4.3.8 and for multiplicity one in Proposition 4.3.6; and, as a genuine obligation, the extension of the Orlik–Strauch and Emerton results from G(K) with G split reductive over K and L splitting K to products G_1(K_1) × G_2(K_2) with K_1 ≠ K_2 and L splitting both, which their Remark 5.1.2 asserts follows from an examination of the proofs. Consumer: the Part II LocalGlobalCompatibilityPartIIEigenvarietyCompanions (§§5.1–5.4)."
     },
     {
       "route": "source",
@@ -1379,6 +1521,20 @@
         "PAPER-BREUIL-HELLMANN-SCHRAEN-19/3.3-cohomology"
       ],
       "reason": "PG.7 is written for exactly the setting of §3.3: « the affinoid/relative Robba category of Kedlaya–Pottharst–Xiao », with the relative Herr and Iwasawa complexes, their finiteness and base change, and — as data/restructure/RS-26 records when it keeps that stage — triangulation and exceptional loci. PG.3 owns the Herr three-term complex, which is the (φ,γ_K)-cohomology of this paper. The (φ,Γ_K)-modules over R_{A,K} and after inverting t, the characters with their weights and Lubin–Tate elements, and the cohomology with its comparison with Ext groups are therefore routed here rather than to the dagger-algebra stages: RD.0 owns the Robba ring as an analytic object and is cited alongside for the ring itself, but the (φ,Γ)-module theory and its cohomology belong to PG. This route was corrected after reading RS-26, which is also what surfaced the PG roadmap."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "roadmap": "LieHighestWeightPartIICompletedCategoryO",
+      "title": "Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas, Part II: completed category O and analytic localization",
+      "area": "representations",
+      "items": [
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.4-category-O-block",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.4-kl-polynomials",
+        "PAPER-BREUIL-HELLMANN-SCHRAEN-19/2.4-kl-theorem"
+      ],
+      "reason": "LieHighestWeight plans PBW, Verma modules and L(λ) (Layer 3) and excludes category O; no stage plans category O, Kazhdan–Lusztig polynomials or the Kazhdan–Lusztig theorem (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/1). PAPER-BOXER-CALEGARI-GEE-PILLONI-25 route 3 opens the Part II that extends LieHighestWeight to category O, the extension in that roadmap's own direction (PROTOCOL.md section 15).",
+      "brief": "This route coalesces with LieHighestWeightPartIICompletedCategoryO, proposed by PAPER-BOXER-CALEGARI-GEE-PILLONI-25 (route 3); keep its id, title, parent, area and brief, which plans algebraic category O but no Kazhdan–Lusztig theory. Breuil–Hellmann–Schraen add, for a split reductive Lie algebra g ⊃ b ⊃ t over a field of characteristic 0: the block O(0) of the trivial infinitesimal character; the Kazhdan–Lusztig polynomials P_{x,y} of the Weyl group W, with P_{x,y} ≠ 0 if and only if x ≼ y and P_{x,x} = 1; and the Kazhdan–Lusztig multiplicity theorem [M(ww₀·0) : L(w′w₀·0)] = P_{w₀w,w₀w′}(1) (Beilinson–Bernstein 1981, Brylinski–Kashiwara 1981; Humphreys §8.4), as a stated input. Its proof by localisation needs D-modules on G/B and the Beilinson–Bernstein equivalence, which SpringerResolutionAndCharacteristicCycles builds; the design jobs must order those layers before the theorem, or keep it as a stated input. Consumers: SpringerResolutionAndCharacteristicCycles (Theorem 2.4.7(ii) and the cycle identities) and, through it, TriangulineVarietyAndItsLocalModel."
     }
   ],
   "prerequisites": [
@@ -1486,6 +1642,11 @@
       "citation": "T. Kiehl and R. Weissauer, Weil conjectures, perverse sheaves and l-adic Fourier transform, Ergebnisse 42, Springer, 2001 [50]; P. Slodowy, Simple singularities and simple algebraic groups, LNM 815, Springer, 1980 [61]",
       "link": "https://zbmath.org/?q=an%3A0988.14009",
       "why": "Th. VI.8.3 and Th. VI.9.1 of [50] give the properness, quasi-finiteness and étale degree of Grothendieck’s simultaneous resolution (Proposition 2.1.1); [61, §II.4.7] is the standard reference for the resolution itself."
+    },
+    {
+      "citation": "J.-L. Brylinski and M. Kashiwara, Kazhdan–Lusztig conjecture and holonomic systems, Invent. Math. 64 (1981), 387–410",
+      "link": "https://doi.org/10.1007/BF01389272",
+      "why": "With Beilinson–Bernstein 1981, the proof of the Kazhdan–Lusztig multiplicity theorem (item 2.4-kl-theorem) that Theorem 2.4.7(ii) and the cycle identities rest on."
     }
   ],
   "sourceIssues": [
@@ -1649,8 +1810,8 @@
       "affects": "nothing",
       "locator": "§3.2, printed p. 337; §3.3, printed p. 348",
       "printed": "The source requires gr^i_{Fil^•}(V) := Fil^i(V)/Fil^{i+1}(V) to be rank 1 free modules over A⊗_{Q_p}K for i ∈ Z. It gives (3.16) δ_A = (δ_{A,i})_{i∈{1,…,n}} ↦ (wt(δ_{A,i}) − wt(δ_i)_{i∈{1,…,n}}) ∈ (A⊗_{Q_p}K)^n.",
-      "correction": "« free over A⊗_{Q_p}K »; and (wt(δ_{A,i}) − wt(δ_i))_{i∈{1,…,n}}.",
-      "reason": "A decreasing, exhaustive and separated filtration has gr^i = 0 for |i| large, so the graded pieces cannot all be free of rank one; and Lemma 3.2.2 asserts an equivalence with all almost de Rham A⊗B⁺_dR-representations, its proof concluding « W⁺ is finite free over A⊗B⁺_dR if and only if gr^• … is finite free over A⊗K ». Rank one is imposed later and separately, through regularity (Definition 3.2.4 and (3.9)). In (3.16) the tuple index must sit outside the difference, otherwise the displayed element is not in (A⊗K)^n.",
+      "correction": "« graded pieces that are finite projective A⊗_{Q_p}K-modules », i.e. (for A in C_L) whose τ-components gr^i_τ are finite free A-modules for every τ ∈ Σ; and (wt(δ_{A,i}) − wt(δ_i))_{i∈{1,…,n}}.",
+      "reason": "A decreasing, exhaustive and separated filtration has gr^i = 0 for |i| large, so the graded pieces cannot all be free of rank one; and Lemma 3.2.2 asserts an equivalence with all almost de Rham A⊗B⁺_dR-representations, its proof concluding « W⁺ is finite free over A⊗B⁺_dR if and only if gr^• … is finite free over A⊗K ». Nor can each gr^i be required to be free over A⊗_{Q_p}K ≅ ∏_τ A: a rank-one object with non-parallel weights (k_τ) has its τ-jump at −k_τ, so gr^{−k_τ} is non-zero in the τ-slot alone, and the paper handles such τ-dependent jumps throughout ((3.9), Corollary 3.2.3). Page 340 draws from Lemma 3.2.2 that the τ-components 'are all free A-modules of finite type'; the proof's criterion concerns the whole of gr^• (corrected by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19, RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/11). In (3.16) the tuple index must sit outside the difference, otherwise the displayed element is not in (A⊗K)^n.",
       "known": "new",
       "searched": [
         "Published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, SHA-256 34ffd69795468054b4caab7847d5ae90393826c889b187397dbe53e16993967a, 114 pp., printed page = PDF page + 298; every quotation below was located there and, where a glyph, an index or a font decides the matter, re-read on a page image rendered at 200–500 dpi.",
@@ -1661,7 +1822,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed as to the first element, which is the substantive one. Page 337 prints 'such that the graded pieces gr^i_{Fil^•}(V) := Fil^i(V)/Fil^{i+1}(V) are free of rank 1 over A ⊗_{Q_p} K for i ∈ Z'. A filtration is defined on p. 336 as decreasing, exhaustive and separated, so gr^i vanishes for |i| large and the pieces cannot all be free of rank one; 'free' is what is meant, rank zero included. The second element, the missing subtraction in (3.16), rests on the extraction. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "reason": "Confirmed as to the first element, which is the substantive one. Page 337 prints 'such that the graded pieces gr^i_{Fil^•}(V) := Fil^i(V)/Fil^{i+1}(V) are free of rank 1 over A ⊗_{Q_p} K for i ∈ Z'. A filtration is defined on p. 336 as decreasing, exhaustive and separated, so gr^i vanishes for |i| large and the pieces cannot all be free of rank one; 'free' is what is meant, rank zero included. The second element, the missing subtraction in (3.16), rests on the extraction. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026). [FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19, 30 September 2026: the correction 'free over A⊗_{Q_p}K' confirmed here is itself too strong, since graded pieces with τ-dependent jumps are not free over A⊗K; it is replaced by 'finite projective A⊗_{Q_p}K-modules' (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/11, confirmed).]",
         "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
       }
     },
@@ -1730,6 +1891,41 @@
         "reason": "Confirmed as to the first and principal element. Page 386 prints 'Ŝ(U^p, L)_{m^S} := lim←_s S(U^p, O_L/m^s_{O_L})_{m^S}', while the same page has already identified lim←_s S(U^p, O_L/m^s_{O_L}) with Ŝ(U^p, O_L), an O_L-module — the unit ball. So the right-hand side as printed is not an L-Banach space and the definition needs ⊗_{O_L} L, as the correction says. The second element, m_ρ for p_ρ in Remark 5.3.5(i), rests on the extraction. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
         "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
       }
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/E12",
+      "kind": "error",
+      "locator": "Theorem 1.9, printed p. 305; Conjecture 4.3.4 and Remark 4.3.5, printed p. 381; the cycle groups of (4.11)–(4.12), printed p. 382; proof of Theorem 4.3.8, printed pp. 382–384",
+      "printed": "Theorem 1.9 and Conjecture 4.3.4 place the cycles in Z^{[K:Q_p] n(n+3)/2}(Spec Ô_{𝔛_r̄,r}), with codimension [K:Q_p]·n(n+3)/2. Remark 4.3.5 gives n² + [K:Q_p]n(n−3)/2 as the common dimension of the fibre’s components.",
+      "correction": "The cycles of the character fibre have codimension [K:Q_p]·n(n+1)/2 + n, and the fibre has dimension n² − n + [K:Q_p]·n(n−1)/2.",
+      "reason": "Write d = [K:Q_p]. Spec Ô_{𝔛_r̄,r} is equidimensional of dimension n² + dn² (p. 377), and X_tri(r̄) has dimension n² + d·n(n+1)/2 (p. 365). The weight fibre Spec R_{r,M•} has codimension d·n(n+1)/2 (p. 379). The diagram (4.11) is obtained by 'taking the fibers over δ ∈ Spec Ô_{T^n_{L,wt(δ)},δ}' (p. 382). The character space of K^× has dimension d + 1, so the fibre T^n_{L,wt(δ)} of the weight map has dimension n (Lemma 3.5.5: wt − wt(δ) is formally smooth of relative dimension n), and by flatness (Proposition 4.1.1) the character fibre cuts n further dimensions: codimension d·n(n+1)/2 + n, i.e. dimension dim X_tri(r̄) − dim T^n_L. The printed d·n(n+3)/2 = d·n(n+1)/2 + dn cuts dn. Check n = 1, d = 2: the ring has dimension 3 and the fibre over δ is a point, of codimension 3 = d + 1, whereas the printed codimension is 4 and the printed fibre dimension is −1.",
+      "affects": "a stated result",
+      "impact": "Theorem 1.9, Conjecture 4.3.4 and Remark 4.3.5 state the wrong number, and (4.11)–(4.12), Proposition 4.3.7 and Theorem 4.3.8 use the same cycle groups. For K = Q_p the printed and corrected values agree, so the GL₂(Q_p) example on p. 305 is consistent. §5 uses only weight fibres (codimension [F⁺:Q]·n(n+1)/2, p. 399) and is unaffected.",
+      "known": "new",
+      "searched": [
+        "Crossref for doi:10.1007/s10240-019-00111-y, 30 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1702.02192, 30 September 2026: v1 only; its text has the same n(n+3) (checked by the verifier, cc-58621d)",
+        "the published Numdam PDF (sha256 34ffd697…3967a) re-read on 30 September 2026 at the locators",
+        "the searches recorded for E1–E11, including Z. Wu's follow-up paper: no correction found"
+      ],
+      "addedBy": "FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19, from confirmed RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/4"
+    },
+    {
+      "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/E13",
+      "kind": "error",
+      "locator": "Lemma 2.3.2, printed p. 315",
+      "printed": "The lemma asserts flatness of f : Y → Z for noetherian schemes when Z is regular, Y is Cohen-Macaulay, and every fibre is equidimensional with dimension dim Y − dim Z.",
+      "correction": "Assume instead that dim O_{Y,y} = dim O_{Z,f(y)} + dim O_{f⁻¹(f(y)),y} for every y ∈ Y (Matsumura, Commutative Ring Theory, Theorem 23.1; EGA IV 6.1.5). This follows from the printed hypothesis when Y is equidimensional and f is a morphism of schemes of finite type over a field with Z irreducible, which holds at every use.",
+      "reason": "The printed statement is false. Take Y = Spec k ⊔ A¹_k → Z = A¹_k, the isolated point mapping to 0 and A¹ by the identity. Z is regular, Y is Cohen–Macaulay of dimension 1, and every fibre is equidimensional of dimension 0 = dim Y − dim Z, but f is not flat at the isolated point, since k[t]_(t) → k, t ↦ 0, is not flat. The proof uses the local equality 'dim S/(f_1, …, f_d)S = dim S − d', which the global hypothesis does not give. Every use satisfies the local equality: κ_{i,w} on the irreducible X_w (p. 316), f₁ on V_w (p. 317), and on p. 408 the spectra of local rings, where the hypothesis at the closed fibre is exactly the local equality.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref for doi:10.1007/s10240-019-00111-y, 30 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1702.02192, 30 September 2026: v1 only; its text has the same n(n+3) (checked by the verifier, cc-58621d)",
+        "the published Numdam PDF (sha256 34ffd697…3967a) re-read on 30 September 2026 at the locators",
+        "the searches recorded for E1–E11, including Z. Wu's follow-up paper: no correction found"
+      ],
+      "addedBy": "FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19, from confirmed RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/10"
     }
   ],
   "gaps": [
@@ -1739,11 +1935,11 @@
     },
     {
       "id": "orlik-strauch-over-products",
-      "detail": "Remark 5.1.2 records that the results of Orlik–Strauch and Emerton used throughout §5 are stated in the literature for locally analytic representations of G(K) with G split reductive over K and L splitting K, whereas what is needed is the case of a product G_1(K_1) × G_2(K_2) with K_1 ≠ K_2; the authors assert that an examination of the proofs shows they extend with no change. A formalisation cannot take that on trust: the extension is a genuine obligation of the Part II route."
+      "detail": "Remark 5.1.2 records that the results of Orlik–Strauch and Emerton used throughout §5 are stated in the literature for locally analytic representations of G(K) with G split reductive over K and L splitting K, whereas what is needed is the case of a product G_1(K_1) × G_2(K_2) with K_1 ≠ K_2; the authors assert that an examination of the proofs shows they extend with no change. A formalisation cannot take that on trust: the extension is a genuine obligation, and it now belongs to LocallyAnalyticRepresentationsOfLocalGroups, which owns those results (route 6), not to the Part II (RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19/8)."
     },
     {
       "id": "two-cycle-families",
-      "detail": "§4.3 carries two families of cycles distinguished in the printed text only by font — 𝖅_{w′}, 𝕮_{w′} in codimension [K:Q_p]n(n+1)/2 for the fibre over the weight, and 𝒵_{w′}, 𝒞_{w′} in codimension [K:Q_p]n(n+3)/2 for the fibre over the character. They must be given distinct names before anything in §§4.3 and 5.3 is formalised."
+      "detail": "§4.3 carries two families of cycles distinguished in the printed text only by font — 𝖅_{w′}, 𝕮_{w′} in codimension [K:Q_p]n(n+1)/2 for the fibre over the weight, and 𝒵_{w′}, 𝒞_{w′} in codimension [K:Q_p]n(n+1)/2 + n for the fibre over the character (printed [K:Q_p]n(n+3)/2; E12). They must be given distinct names before anything in §§4.3 and 5.3 is formalised."
     },
     {
       "id": "source-issue-review",
