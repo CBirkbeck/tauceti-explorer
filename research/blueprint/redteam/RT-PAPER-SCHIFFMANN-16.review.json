@@ -1,0 +1,70 @@
+{
+  "redteam": "RT-PAPER-SCHIFFMANN-16",
+  "findings": [
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Published Corollary 1.4, p.301 (rendered PDF p.5), and v2 Corollary 1.9, p.5, print q^{2D} and H^D, D=1+(g-1)r^2; extraction /12 and E4 retain them. In rank one, Higgs=Pic^d(X) x A^g and Lambda=Pic^d(X), A=product_i(1-alpha_i), product_i alpha_i=q^g. Thus A(alpha^{-1})=q^{-g}A(alpha): the reciprocal count needs q^D, not q^{2D}. Also b_g(Pic)=binomial(2g,g), while b_{2g}=1=A(0). The general dimension 2D is explicitly confirmed on published p.352. Correct /12 to q^D A(alpha^{-1}) and top degree 2D, retaining the relevant coprimality/characteristic hypotheses and using geometric l-adic cohomology over finite fields, singular cohomology over C. Separate the substantive error from E4's index typos; E4's suggested bracket-only repair and its review must not continue to endorse q^{2D}. Coordinate fresh source-issue IDs with the etale-area fix; this review does not assign or edit them."
+    },
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. I compared v2 Corollaries 1.6-1.7, p.4, with the rendered published Corollary 1.3, p.300: the latter has (-1)^n in both sums, whereas extraction /11 still states the unsigned formula. For rank one, the unsigned compact-support polynomial is t^{2g}(1+t)^{2g}; the stated RHS is t^{2g}(1-t)^{2g}. Use sum_n (-1)^n b_c^n t^n=t^{2D}A(t,...,t), or use A(-t,...,-t) for the unsigned convention. Record the preprint error as corrected in print, with an exact version crosswalk, and retain finite-field p>C(r,d). The v2 p.4 dimension D also differs from the correct 2D on published p.352; it is not a reason to halve cohomological degrees."
+    },
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed as overlapping contracts, not literal equality of every theorem. Schiffmann route 1 and Yu route 12 both allocate Krull-Schmidt, stable Higgs coarse moduli, the Higgs/count comparison, universal bundle counting, purity/top weight and curve-Weil-tuple density (Yu /027,/036,/037,/046,/100,/131,/178). Yu route 7 already allocates /044 plethystic operations to QM.0; route 13 allocates /099 to ClassicalGroupsPartII. Both counting designs remain pending in the inspected queue, and REV-RT-PAPER-BERGSTROM-FABER-PAYNE-24 /7 explicitly flags the Exp/Log conflict. Reconcile one supplier and explicit imports in both route briefs, rather than claiming no prior extraction. Qualifications: Yu /046 uses Mellit's stronger all-degree theorem, not merely Schiffmann's 2016 result; preserve that dependency and any stronger characteristic range in Yu /037. Identify Schiffmann's Q[T_g]^W with the rationalization of the full GSp character ring, not Yu's smaller integral tensor-generated R_g. QM.0's received route is not evidence that a plethystic node already exists. Coordinate density with the pending LPV Part II direction in RT-AREA-etale.fixes.md /1, not DWP.0 alone; use real node IDs only after contracts exist. Choosing the supplier is the fix's coordination decision, not an additional change made by this review."
+    },
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Mellit arXiv:1707.04214v1, Theorem 1.1 p.2, states for g>=1,r>=1 and every d that A_{g,r,d}=H_{g,r}(q,1,alpha_1,...,alpha_g), where H is Laurent polynomial. I also read Theorem 1.1 and Corollary 1.2 in the published Inventiones 221 (2020), 301-327, DOI 10.1007/s00222-020-00950-1; the all-d assertion remains. Therefore /8 and the route brief must retain 'conjecture in Schiffmann 2016' only as historical provenance and import Mellit's theorem for the current target. Laurent regularity on the torus removes the q^l-1 localization in the untruncated counting polynomial, after the variable/Weyl-invariance comparison; it does not prove all proposed positivity assertions or parabolic/HN-refined regularity. State Mellit's g>=1 bound, handle genus zero separately if required, and do not confuse all-degree bundle independence with Corollary 1.2's coprime-degree moduli assertion."
+    },
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with different diagnoses for /54 and /55. Published Corollary 8.1 p.353 explicitly uses K_g, while v2 p.33 and extraction /55 use Q[T_g]^W; the extraction misses a published weakening. Use K_g as the source-faithful HN-refined contract. Theorem 7.1, pp.352-353 (v2 p.32), really states Q[T_g]^W even at N=0, but its proof only says it parallels Theorem 1.1, whose conclusion is K_g and whose introduction p.300 calls removal of localization conjectural. That is a proof/justification gap in this presentation, not a counterexample disproving the parabolic statement. Preserve the stronger printed assertion and flag its additional regularity obligation; use a K_g-level target for the indicated argument unless a separately checked later theorem supplies more. Mellit's unmarked theorem does not by itself settle every parabolic or slope-refined assertion."
+    },
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The actual ET.2b contract supplies sufficiently positive twisted Hitchin-stack machinery and an anisotropic proper quotient; GS.0 supplies Bun_G. Neither states canonical-twist stability, the coprime stable coarse space, or properness of its full Hitchin map. These are explicitly needed in published §§6.2 and 6.11, pp.336-337,351, and are promised by Schiffmann route 1(7) while the original route-4 review claims they are imported. Mark the unsupplied contract missing or split it from genuine imports, and select one owner coordinated with Yu /036 and GWZ-20 /62 (whose SL_n target is related, not identical). Correct the stack/coarse-space distinction as part of the contract: the stable stack is a G_m-gerbe over a smooth connected scheme, not itself that scheme. ET.2b gives no numerical meaning for 'sufficiently positive', so the evidence supports 'canonical twist not explicitly supplied', not an independently proved exclusion bound deg D>2g-2."
+    },
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the missing library attribution, with a necessary limitation to the proposed fix. At Tau Ceti f790474 I read DirectSum.lean:154, Indecomposable.lean:263, Existence.lean:181 and Uniqueness.lean:187: all four cited declarations exist, and Azumaya matching has finite index sets but no finite-length assumption on the ambient module. Mathlib 082e2d3 Artinian/Ring.lean:54 gives nilpotence of the Jacobson radical, and Artinian/Module.lean:650 with the following semiprimary instance gives the semisimple-quotient input. Cite these built prerequisites instead of describing their roadmap as wholly unbuilt. However their types are Module.End, Submodule and linear equivalences: they do not instantiate directly to Coh(X), which is not a finite-length module category. Retain /15 and the sheaf-specific /16 computation as missing. Spell out the Hom-finite, split-idempotent/category-to-module transfer (or prove the categorical exchange argument) and local-End argument; finite-dimensional End alone is not a type-correct application of the cited Fitting lemma to the sheaf."
+    },
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed after checking all 59 extracted items against the cited proof passages. Items /37-/42 stop short of the arbitrary-rank residue step (5.14)-(5.15), Jordan-type summation (5.16)-(5.18), truncated-count identity (5.21), and eventual-periodicity/residue passage (5.22), published pp.331-335. /19 mentions Galois orbits but does not state Lemma 2.6 and its descent obligations, pp.310-311. The separate d mod r argument (pp.299,334) and coprime indecomposable=>absolute with residue field k (pp.341,349) are also load-bearing, and /7 mentions but does not state the rank-two formula on p.305. Add explicit contracts/dependencies and the rank-two acceptance example. Fix qualifications: the torsion identity A_{0,d}=|X(F_{q^l})| is for d>0, not the zero sheaf; tensor-periodicity needs a degree-one line bundle over the base, not an assumed rational point. Descent must include effectivity/obstruction neutralization (the printed proof invokes H^2 as well as H^1), not claim H^1 alone proves existence. Exact rational low-genus evaluations corroborate, but do not prove, the universal rank-two formula."
+    },
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed as partial reuse, not full library coverage. I read Tau Ceti YoungDiagram.armLength/legLength and TauCeti.Quiver.Kronecker at f790474, and Mathlib Matrix.card_GL_field and Module.Grassmannian at 082e2d3. Add them as prerequisites to the indicated items while keeping the nilpotent-count, Quot geometry and quiver GIT obligations separate. Module.Grassmannian uses quotient rank: a b-dimensional subspace of k^a corresponds to quotient rank a-b, and its file explicitly leaves scheme representability TODO. QM.0/cauchy-q-binomial-theorem exists as a planned node with a=0 acceptance, but its statement lives in R[[q]] with constantCoeff(z)=0. Heine's identity here lives in a u-adic series ring with rational parameter v, later v=q^{-l}; arbitrary specialization of a q-adic series is not justified. Import the universal coefficient recurrence/rational-function identity and supply the characteristic-zero formal-log and specialization adapter explicitly. Do not mark /19 or /59 fully planned from this node alone."
+    },
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed. In published Lemma 6.1 p.338, (a) concerns semistable Higgs bundles, (c) destabilizing subsheaves, and (d) kernels. The uses on pp.340 and 347 respectively cite (b) and (d), so they must cite (a) and (c). Version-specific source issues are appropriate; do not change the mathematical conclusions. Correct the red-team evidence's v2 page locators: in the downloaded 38-page 1406.3839v2 PDF the lemma is p.23, the inclusion correctly cites condition (a) on p.24, and destabilization correctly cites (d) on p.29, not pp.26 and 30. The letter change is explained by the published reordering, not by a uniform letter substitution across versions."
+    },
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed as missing prerequisite provenance. I read the dependencies at published p.300 (MS14 and GPH13/GPHS14), p.314 (GPHS14 Proposition 3.1/Corollary 3.2 and MS14 Proposition 5.1), p.317 (HN75 Proposition 2.3.4 and the optional Hei12 alternative), and p.348 (chains/fixed loci), and checked the bibliography pp.359-361. These sources are absent from the extraction's prerequisites, and the named authors are absent from research/blueprint/papers/papers.json at the inspected base. Add the exact sources with those uses; add Mellit via /4 and coordinate Katz-Sarnak with the etale-area fix. Hei12, omitted from the proposed fix's final list despite appearing in the finding, should be included if that alternative proof is retained, or explicitly marked optional. A register search alone is not proof of no coverage anywhere in the atlas; relate each request to the actual absent contract. This verdict checks the dependency citations, not the full proofs of all the prerequisite papers."
+    },
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed. I read GS.0 and its packet node GS.0/harder-narasimhan-truncations: they construct G-bundle polygons/bounded opens, with a GL_r acceptance case, not the whole coherent-sheaf Euler pairing, torsion-inclusive slope categories, base-change/closure results and finite D(alpha) in published §2.1 pp.306-307. R09.2's actual contract includes Quot representability, projectivity, base change, universal flatness and Grassmannian boundedness, but not the strong-generation and tangent Hom(Ker phi,F) claims of /43, published §6.3 pp.337-338. Split the already planned subcontracts from the missing adapters or record precise supplier requests; the blanket planned statuses and /43 note are not justified by those stages. This is a coverage correction, not an assertion that no other mathematical source could prove these facts."
+    },
+    {
+      "finding": "RT-PAPER-SCHIFFMANN-16/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a current-provenance ambiguity and a formula typo. source.read and every E1-E4 locator/searched array retain statements that print could not be consulted, while publishedVersionCheck and the embedded reviews record its subsequent successful consultation; the generated REGISTER.md repeats this in the Schiffmann entries (e.g. E2). Preserve the dated initial access history, but label it explicitly historical and make current locators/search outcomes point to the published check, without overwriting who read what when. Regenerate the register through its normal owner/workflow after fixing the source metadata, not by hand in this review. The /10 note q^{dim}/2 is not the half-dimension factor: published p.352 gives dim Higgs=2(1+(g-1)r^2), hence q^{dim Higgs/2}=q^{1+(g-1)r^2}=q^{1-<alpha,alpha>}."
+    }
+  ]
+}
