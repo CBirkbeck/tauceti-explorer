@@ -15721,3 +15721,113 @@ example : ‖(1/2 : ℚ_[2])‖ ≤ moritaMeanBoundConstant (K:=ℚ_[2]) 2 1 := 
 -- limit_norm_odd_constant
 example : ‖(2/3 : ℚ_[3])‖ ≤ moritaMeanBoundConstant (K:=ℚ_[3]) 3 1 := by sorry
 end DirichletPadic.SuggestedMoritaDecayTests
+
+/- Laws of actual convergent angular means, without introducing an analytic carrier. -/
+namespace DirichletPadic
+noncomputable section
+open Filter
+open scoped Topology Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] {f : ℕ}
+
+lemma moritaAngularMean_limit_unique (χ : DirichletCharacter K f) (A : ℤ_[p] → K) (v w : K)
+    (hv : Tendsto (fun n => moritaAngularMean p χ n A) atTop (𝓝 v))
+    (hw : Tendsto (fun n => moritaAngularMean p χ n A) atTop (𝓝 w)) : v=w := by sorry
+
+lemma moritaAngularMean_limit_zero (χ : DirichletCharacter K f) :
+    Tendsto (fun n => moritaAngularMean p χ n (0 : ℤ_[p] → K)) atTop (𝓝 0) := by sorry
+
+lemma moritaAngularMean_limit_add (χ : DirichletCharacter K f) (A B : ℤ_[p] → K) (v w : K)
+    (hv : Tendsto (fun n => moritaAngularMean p χ n A) atTop (𝓝 v))
+    (hw : Tendsto (fun n => moritaAngularMean p χ n B) atTop (𝓝 w)) :
+    Tendsto (fun n => moritaAngularMean p χ n (A+B)) atTop (𝓝 (v+w)) := by sorry
+
+lemma moritaAngularMean_limit_sub (χ : DirichletCharacter K f) (A B : ℤ_[p] → K) (v w : K)
+    (hv : Tendsto (fun n => moritaAngularMean p χ n A) atTop (𝓝 v))
+    (hw : Tendsto (fun n => moritaAngularMean p χ n B) atTop (𝓝 w)) :
+    Tendsto (fun n => moritaAngularMean p χ n (A-B)) atTop (𝓝 (v-w)) := by sorry
+
+lemma moritaAngularMean_limit_smul (χ : DirichletCharacter K f) (A : ℤ_[p] → K) (v c : K)
+    (hv : Tendsto (fun n => moritaAngularMean p χ n A) atTop (𝓝 v)) :
+    Tendsto (fun n => moritaAngularMean p χ n (c • A)) atTop (𝓝 (c*v)) := by sorry
+
+lemma moritaAngularMean_limit_congr (χ : DirichletCharacter K f) (A B : ℤ_[p] → K) (v : K)
+    (h : ∀ x : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → A x=B x)
+    (hv : Tendsto (fun n => moritaAngularMean p χ n A) atTop (𝓝 v)) :
+    Tendsto (fun n => moritaAngularMean p χ n B) atTop (𝓝 v) := by sorry
+
+lemma moritaAngularMean_limit_constant [CharZero K] (c : K) :
+    Tendsto (fun n => moritaAngularMean p (1 : DirichletCharacter K 1) n (fun _ => c))
+      atTop (𝓝 (c*(1-(p : K)⁻¹))) := by sorry
+
+lemma moritaAngularMean_limit_twist_period (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f)
+    (A : ℤ_[p] → K) (m : ℕ) (v : K)
+    (hv : Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι χ (m % (moritaModulus p).totient)) n A) atTop (𝓝 v)) :
+    Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι χ m) n A) atTop (𝓝 v) := by sorry
+
+variable {L : Type*} [NormedField L]
+omit [Fact p.Prime] in
+lemma moritaFiniteMean_map (κ : K →+* L) (χ : DirichletCharacter K f) (n : ℕ) (F : ℕ → K) :
+    κ (moritaFiniteMean p χ n F) = moritaFiniteMean p (χ.ringHomComp κ) n (κ ∘ F) := by sorry
+
+lemma moritaAngularMean_map (κ : K →+* L) (χ : DirichletCharacter K f) (n : ℕ) (A : ℤ_[p] → K) :
+    κ (moritaAngularMean p χ n A) = moritaAngularMean p (χ.ringHomComp κ) n (κ ∘ A) := by sorry
+
+lemma moritaAngularMean_limit_map (κ : K →+* L) (hκ : Continuous κ) (χ : DirichletCharacter K f)
+    (A : ℤ_[p] → K) (v : K)
+    (hv : Tendsto (fun n => moritaAngularMean p χ n A) atTop (𝓝 v)) :
+    Tendsto (fun n => moritaAngularMean p (χ.ringHomComp κ) n (κ ∘ A)) atTop (𝓝 (κ v)) := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedMoritaLimitLawTests
+open scoped Topology
+-- limit_unique_constant
+example (v : ℚ_[2]) (h : Filter.Tendsto
+    (fun n => moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun _ => 1)) Filter.atTop (𝓝 v)) : v=1/2 := by sorry
+-- limit_zero_all_functions
+example : Filter.Tendsto (fun n => moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 4) n (fun _ => 0))
+    Filter.atTop (𝓝 0) := by sorry
+-- limit_add_dyadic
+example : Filter.Tendsto (fun n => moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun x => 1+(x : ℚ_[2])))
+    Filter.atTop (𝓝 0) := by sorry
+-- limit_add_odd
+example : Filter.Tendsto (fun n => moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n (fun x => 1+(x : ℚ_[3])))
+    Filter.atTop (𝓝 (1/3)) := by sorry
+-- limit_sub_dyadic
+example : Filter.Tendsto (fun n => moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun x => 1-(x : ℚ_[2])))
+    Filter.atTop (𝓝 1) := by sorry
+-- limit_scalar_dyadic
+example : Filter.Tendsto (fun n => moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun x => 3*(x : ℚ_[2])))
+    Filter.atTop (𝓝 (-3/2)) := by sorry
+-- limit_scalar_zero
+example (A : ℤ_[2] → ℚ_[2]) : Filter.Tendsto
+    (fun n => moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n ((0 : ℚ_[2]) • A)) Filter.atTop (𝓝 0) := by sorry
+-- limit_extension_independent
+example : Filter.Tendsto (fun n => moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n
+    (fun x => if PadicInt.toZModPow 2 x=1 then 1 else 37)) Filter.atTop (𝓝 (1/2)) := by sorry
+-- limit_constant_dyadic_three
+example : Filter.Tendsto (fun n => moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun _ => 3))
+    Filter.atTop (𝓝 (3/2)) := by sorry
+-- limit_constant_odd
+example : Filter.Tendsto (fun n => moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n (fun _ => 1))
+    Filter.atTop (𝓝 (2/3)) := by sorry
+-- limit_twist_period_dyadic
+example (A : ℤ_[2] → ℚ_[2]) (v : ℚ_[2])
+    (h : Filter.Tendsto (fun n => moritaAngularMean 2
+      (moritaCharacterTwist 2 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[2] 1) 1) n A) Filter.atTop (𝓝 v)) :
+    Filter.Tendsto (fun n => moritaAngularMean 2
+      (moritaCharacterTwist 2 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[2] 1) 3) n A) Filter.atTop (𝓝 v) := by sorry
+-- finite_mean_coefficient_map
+example : Rat.castHom ℚ_[2] (moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) 0 (fun a => (a : ℚ)^2)) =
+    moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun a => (a : ℚ_[2])^2) := by sorry
+-- angular_mean_coefficient_map
+example : Rat.castHom ℚ_[2] (moritaAngularMean 2 (1 : DirichletCharacter ℚ 1) 0 (fun _ => 2/3)) =
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun _ => 2/3) := by sorry
+-- limit_map_identity
+example : Filter.Tendsto (fun n => RingHom.id ℚ_[2]
+    (moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun _ => 1))) Filter.atTop (𝓝 (1/2)) := by sorry
+-- rational_embedding_not_continuous
+example : ¬Continuous (Rat.castHom ℚ_[2] : ℚ → ℚ_[2]) := by sorry
+end DirichletPadic.SuggestedMoritaLimitLawTests

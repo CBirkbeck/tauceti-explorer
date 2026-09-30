@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Fifteen L3 nodes turn the exact Taylor formula and uniform twist estimate into a geometric majorant, Cauchy property, complete-field limit and limit norm bound. All856 predecessor nodes,700 baseline records and16 findings remain whole. The analytic supplier hypotheses remain explicit and open.",
+  "summary": "Eleven L3 nodes give the actual laws of convergent angular mean values and distinguish finite algebraic coefficient change from continuous limit transport. All871 predecessor nodes,704 baseline records and16 findings remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4942,6 +4942,55 @@
         "module": "Mathlib/Topology/UniformSpace/Cauchy.lean",
         "provides": "A Cauchy sequence in a complete uniform space has a limit in that space.",
         "checked": "Full statement, ambient hypotheses and relevant additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. The complete MoritaDecayProbe checks the norm estimate, shifted geometric Cauchy criterion and actual complete-field limit with these native declarations."
+      },
+      {
+        "ref": "mathlib:Continuous.tendsto",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Continuous.lean",
+        "provides": "A continuous function sends the neighborhood filter at a point toward the neighborhood filter at its image.",
+        "checked": "Full statement, ambient hypotheses and any additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. Complete MoritaLimitLawsProbe checks the actual finite means and limit identities. The continuous-group div' theorem, not the field div theorem, supplies the additive subtraction rule."
+      },
+      {
+        "ref": "mathlib:Filter.Tendsto.comp",
+        "kind": "theorem",
+        "module": "Mathlib/Order/Filter/Tendsto.lean",
+        "provides": "Composition of actual filter-limit maps.",
+        "checked": "Full statement, ambient hypotheses and any additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. Complete MoritaLimitLawsProbe checks the actual finite means and limit identities. The continuous-group div' theorem, not the field div theorem, supplies the additive subtraction rule."
+      },
+      {
+        "ref": "mathlib:Filter.Tendsto.const_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Monoid/Defs.lean",
+        "provides": "Multiplication by a fixed scalar transports a limit under separately continuous multiplication.",
+        "checked": "Full statement, ambient hypotheses and any additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. Complete MoritaLimitLawsProbe checks the actual finite means and limit identities. The continuous-group div' theorem, not the field div theorem, supplies the additive subtraction rule."
+      },
+      {
+        "ref": "mathlib:Filter.Tendsto.div'",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Group/Defs.lean",
+        "provides": "Limit of division for a continuously divisible group; its explicit additive generator is Filter.Tendsto.sub, with no field-denominator hypothesis.",
+        "checked": "Full statement, ambient hypotheses and any additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. Complete MoritaLimitLawsProbe checks the actual finite means and limit identities. The continuous-group div' theorem, not the field div theorem, supplies the additive subtraction rule."
+      },
+      {
+        "ref": "mathlib:Filter.Tendsto.mul",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Monoid/Defs.lean",
+        "provides": "Limit of products for a continuous multiplication; its explicit additive generator is the addition rule used here.",
+        "checked": "Full statement, ambient hypotheses and any additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. Complete MoritaLimitLawsProbe checks the actual finite means and limit identities. The continuous-group div' theorem, not the field div theorem, supplies the additive subtraction rule."
+      },
+      {
+        "ref": "mathlib:map_inv₀",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/GroupWithZero/Units/Lemmas.lean",
+        "provides": "A homomorphism between groups with zero preserves inverses, including the inverse of zero.",
+        "checked": "Full statement, ambient hypotheses and any additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. Complete MoritaLimitLawsProbe checks the actual finite means and limit identities. The continuous-group div' theorem, not the field div theorem, supplies the additive subtraction rule."
+      },
+      {
+        "ref": "mathlib:map_prod",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
+        "provides": "A monoid homomorphism preserves finite products; its explicit additive generator map_sum is used for the finite mean.",
+        "checked": "Full statement, ambient hypotheses and any additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. Complete MoritaLimitLawsProbe checks the actual finite means and limit identities. The continuous-group div' theorem, not the field div theorem, supplies the additive subtraction rule."
       }
     ]
   },
@@ -58897,6 +58946,575 @@
       "acceptance": [
         "This is the value bound needed for the later actual analytic linear functional; it is not a bounded measure assertion on all continuous functions."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-limit-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Uniqueness of a convergent angular mean value",
+      "kind": "lemma",
+      "statement": "If the same finite angular mean sequence for A tends to v and to w, then v=w.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise. All angular means, samples and common-level inverse torsion twists are the preceding native constructions.",
+        "K is a normed field, χ is a native Dirichlet character at its original level f, and A,B are actual functions ℤ_p→K. Where v or w is called a limit, an actual Tendsto witness for the finite angular means is a hypothesis.",
+        "These are laws for limits that exist. The preceding Taylor/derivative theorem supplies existence under its explicit analytic hypotheses; no convergence for every ordinary or continuous function is asserted.",
+        "For coefficient change L is a normed field and κ:K→L is a unital ring homomorphism. Finite means commute with κ without a continuity hypothesis. The limit map theorem requires κ to be continuous for the chosen field topologies. Characteristic zero is required for the stated constant-value formula.",
+        "The source analytic carrier, its derivative/Taylor inputs and the resulting continuous linear functional remain with the existing LAD L0 request. No new carrier is introduced by these conditional value laws."
+      ],
+      "proofSteps": [
+        "A normed field is Hausdorff, and the natural atTop filter is nontrivial.",
+        "Apply native uniqueness of limits to the two actual Tendsto witnesses. The complete limit_unique proof uses that existing theorem rather than replanning uniqueness of topological limits."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean",
+        "mathlib:tendsto_nhds_unique"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaLimitLaws",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_limit_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.331–333, finite character means, Satz1 and its bounded-linear-functional conclusion after equation(9); Section1 coefficient/evaluation setup.",
+          "excerpt": "die Beschränktheit von",
+          "match": "The source limiting mean inherits linearity from its actual finite means. This checkpoint gives the value-level laws, principal-disc extension independence and continuous coefficient transport, keeping convergence hypotheses explicit until the owned analytic interface is supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaLimitLawTests.limit_unique_constant",
+          "kind": "computation",
+          "statement": "Any limit of the dyadic constant-one angular means is1/2."
+        }
+      ],
+      "acceptance": [
+        "A limit is unique when it exists; this node does not assert existence for arbitrary A."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-limit-zero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The zero angular mean has zero limit",
+      "kind": "lemma",
+      "statement": "For every χ, the finite means of the zero function tend to zero.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise. All angular means, samples and common-level inverse torsion twists are the preceding native constructions.",
+        "K is a normed field, χ is a native Dirichlet character at its original level f, and A,B are actual functions ℤ_p→K. Where v or w is called a limit, an actual Tendsto witness for the finite angular means is a hypothesis.",
+        "These are laws for limits that exist. The preceding Taylor/derivative theorem supplies existence under its explicit analytic hypotheses; no convergence for every ordinary or continuous function is asserted.",
+        "For coefficient change L is a normed field and κ:K→L is a unital ring homomorphism. Finite means commute with κ without a continuity hypothesis. The limit map theorem requires κ to be continuous for the chosen field topologies. Characteristic zero is required for the stated constant-value formula.",
+        "The source analytic carrier, its derivative/Taylor inputs and the resulting continuous linear functional remain with the existing LAD L0 request. No new carrier is introduced by these conditional value laws."
+      ],
+      "proofSteps": [
+        "Each finite angular mean is a native linear map and therefore sends zero to zero.",
+        "The resulting sequence is constant zero. Apply the native constant-sequence limit. The complete limit_zero proof verifies the actual function-space zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaLimitLaws",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_limit_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.331–333, finite character means, Satz1 and its bounded-linear-functional conclusion after equation(9); Section1 coefficient/evaluation setup.",
+          "excerpt": "die Beschränktheit von",
+          "match": "The source limiting mean inherits linearity from its actual finite means. This checkpoint gives the value-level laws, principal-disc extension independence and continuous coefficient transport, keeping convergence hypotheses explicit until the owned analytic interface is supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaLimitLawTests.limit_zero_all_functions",
+          "kind": "degenerate",
+          "statement": "At p=3 and original level4, the zero function has limit zero."
+        }
+      ],
+      "acceptance": [
+        "This is the zero law for the later actual analytic functional."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-limit-add",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Addition of convergent angular mean values",
+      "kind": "lemma",
+      "statement": "If the angular means of A and B tend to v and w, those of A+B tend to v+w.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise. All angular means, samples and common-level inverse torsion twists are the preceding native constructions.",
+        "K is a normed field, χ is a native Dirichlet character at its original level f, and A,B are actual functions ℤ_p→K. Where v or w is called a limit, an actual Tendsto witness for the finite angular means is a hypothesis.",
+        "These are laws for limits that exist. The preceding Taylor/derivative theorem supplies existence under its explicit analytic hypotheses; no convergence for every ordinary or continuous function is asserted.",
+        "For coefficient change L is a normed field and κ:K→L is a unital ring homomorphism. Finite means commute with κ without a continuity hypothesis. The limit map theorem requires κ to be continuous for the chosen field topologies. Characteristic zero is required for the stated constant-value formula.",
+        "The source analytic carrier, its derivative/Taylor inputs and the resulting continuous linear functional remain with the existing LAD L0 request. No new carrier is introduced by these conditional value laws."
+      ],
+      "proofSteps": [
+        "The preceding finite angular means are additive, so every term for A+B is the sum of the two original terms.",
+        "Apply the native addition rule for limits in the normed field. It is the explicit additive companion generated by Filter.Tendsto.mul; the full generator and hypotheses were read.",
+        "The complete limit_add proof rewrites the actual linear-map values. It does not assume a limiting linear functional as an input."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean",
+        "mathlib:Filter.Tendsto.mul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaLimitLaws",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_limit_add"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.331–333, finite character means, Satz1 and its bounded-linear-functional conclusion after equation(9); Section1 coefficient/evaluation setup.",
+          "excerpt": "die Beschränktheit von",
+          "match": "The source limiting mean inherits linearity from its actual finite means. This checkpoint gives the value-level laws, principal-disc extension independence and continuous coefficient transport, keeping convergence hypotheses explicit until the owned analytic interface is supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaLimitLawTests.limit_add_dyadic",
+          "kind": "computation",
+          "statement": "For p=2,f=1 the mean of A(x)=1+x tends to zero."
+        },
+        {
+          "name": "SuggestedMoritaLimitLawTests.limit_add_odd",
+          "kind": "computation",
+          "statement": "For p=3,f=1 the same function has limit1/3."
+        }
+      ],
+      "acceptance": [
+        "Retain the source angular coordinate: its linear-function mean is not the raw integer mean."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-limit-sub",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Subtraction of convergent angular mean values",
+      "kind": "lemma",
+      "statement": "Under the same convergence hypotheses, the angular means of A−B tend to v−w.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise. All angular means, samples and common-level inverse torsion twists are the preceding native constructions.",
+        "K is a normed field, χ is a native Dirichlet character at its original level f, and A,B are actual functions ℤ_p→K. Where v or w is called a limit, an actual Tendsto witness for the finite angular means is a hypothesis.",
+        "These are laws for limits that exist. The preceding Taylor/derivative theorem supplies existence under its explicit analytic hypotheses; no convergence for every ordinary or continuous function is asserted.",
+        "For coefficient change L is a normed field and κ:K→L is a unital ring homomorphism. Finite means commute with κ without a continuity hypothesis. The limit map theorem requires κ to be continuous for the chosen field topologies. Characteristic zero is required for the stated constant-value formula.",
+        "The source analytic carrier, its derivative/Taylor inputs and the resulting continuous linear functional remain with the existing LAD L0 request. No new carrier is introduced by these conditional value laws."
+      ],
+      "proofSteps": [
+        "Use the subtraction law of the preceding actual finite linear maps.",
+        "Apply the native continuous-subtraction limit theorem, generated from Filter.Tendsto.div' for a continuously divisible group. This is not the field-division theorem that would require a nonzero denominator.",
+        "The complete limit_sub proof checks the sign and topology of the difference."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean",
+        "mathlib:Filter.Tendsto.div'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaLimitLaws",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_limit_sub"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.331–333, finite character means, Satz1 and its bounded-linear-functional conclusion after equation(9); Section1 coefficient/evaluation setup.",
+          "excerpt": "die Beschränktheit von",
+          "match": "The source limiting mean inherits linearity from its actual finite means. This checkpoint gives the value-level laws, principal-disc extension independence and continuous coefficient transport, keeping convergence hypotheses explicit until the owned analytic interface is supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaLimitLawTests.limit_sub_dyadic",
+          "kind": "computation",
+          "statement": "For p=2,f=1 the angular means of1−x tend to1."
+        }
+      ],
+      "acceptance": [
+        "No inversion or nonzero condition belongs to the additive subtraction statement."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-limit-scalar",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Scalar multiplication of a convergent angular mean",
+      "kind": "lemma",
+      "statement": "If the angular means of A tend to v, then for any c∈K the means of cA tend to cv.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise. All angular means, samples and common-level inverse torsion twists are the preceding native constructions.",
+        "K is a normed field, χ is a native Dirichlet character at its original level f, and A,B are actual functions ℤ_p→K. Where v or w is called a limit, an actual Tendsto witness for the finite angular means is a hypothesis.",
+        "These are laws for limits that exist. The preceding Taylor/derivative theorem supplies existence under its explicit analytic hypotheses; no convergence for every ordinary or continuous function is asserted.",
+        "For coefficient change L is a normed field and κ:K→L is a unital ring homomorphism. Finite means commute with κ without a continuity hypothesis. The limit map theorem requires κ to be continuous for the chosen field topologies. Characteristic zero is required for the stated constant-value formula.",
+        "The source analytic carrier, its derivative/Taylor inputs and the resulting continuous linear functional remain with the existing LAD L0 request. No new carrier is introduced by these conditional value laws."
+      ],
+      "proofSteps": [
+        "Each finite angular mean is K-linear, so pull c out of its value.",
+        "Multiplication by a fixed scalar is continuous. Apply the native Filter.Tendsto.const_mul theorem, which also allows c=0.",
+        "The complete limit_smul proof checks the scalar action on the function space and the target multiplication."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean",
+        "mathlib:Filter.Tendsto.const_mul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaLimitLaws",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_limit_smul"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.331–333, finite character means, Satz1 and its bounded-linear-functional conclusion after equation(9); Section1 coefficient/evaluation setup.",
+          "excerpt": "die Beschränktheit von",
+          "match": "The source limiting mean inherits linearity from its actual finite means. This checkpoint gives the value-level laws, principal-disc extension independence and continuous coefficient transport, keeping convergence hypotheses explicit until the owned analytic interface is supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaLimitLawTests.limit_scalar_dyadic",
+          "kind": "computation",
+          "statement": "The dyadic mean of3x tends to−3/2."
+        },
+        {
+          "name": "SuggestedMoritaLimitLawTests.limit_scalar_zero",
+          "kind": "degenerate",
+          "statement": "For any ordinary A, the zero multiple has zero mean limit even without assuming convergence of A."
+        }
+      ],
+      "acceptance": [
+        "The scalar is fixed; no varying-parameter continuity theorem is being asserted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-limit-extension",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Limit values ignore extensions outside the principal disc",
+      "kind": "comparison",
+      "statement": "If A and B agree whenever ‖x−1‖≤‖q‖, and the angular means of A tend to v, then those of B also tend to v.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise. All angular means, samples and common-level inverse torsion twists are the preceding native constructions.",
+        "K is a normed field, χ is a native Dirichlet character at its original level f, and A,B are actual functions ℤ_p→K. Where v or w is called a limit, an actual Tendsto witness for the finite angular means is a hypothesis.",
+        "These are laws for limits that exist. The preceding Taylor/derivative theorem supplies existence under its explicit analytic hypotheses; no convergence for every ordinary or continuous function is asserted.",
+        "For coefficient change L is a normed field and κ:K→L is a unital ring homomorphism. Finite means commute with κ without a continuity hypothesis. The limit map theorem requires κ to be continuous for the chosen field topologies. Characteristic zero is required for the stated constant-value formula.",
+        "The source analytic carrier, its derivative/Taylor inputs and the resulting continuous linear functional remain with the existing LAD L0 request. No new carrier is introduced by these conditional value laws."
+      ],
+      "proofSteps": [
+        "Use the preceding exact principal-disc congruence theorem to identify every finite angular mean of A with that of B.",
+        "The sequences are equal term by term, so transport the supplied Tendsto witness. The complete limit_congr proof uses the actual domain restriction rather than an equality assumed on all ℤ_p."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean",
+        "DirichletPadicLFunctions:L3/morita-angular-samples-congr"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaLimitLaws",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_limit_congr"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.331–333, finite character means, Satz1 and its bounded-linear-functional conclusion after equation(9); Section1 coefficient/evaluation setup.",
+          "excerpt": "die Beschränktheit von",
+          "match": "The source limiting mean inherits linearity from its actual finite means. This checkpoint gives the value-level laws, principal-disc extension independence and continuous coefficient transport, keeping convergence hypotheses explicit until the owned analytic interface is supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaLimitLawTests.limit_extension_independent",
+          "kind": "compatibility",
+          "statement": "At p=2 the function equal to1 on the residue class1 modulo4 and37 elsewhere has the same mean limit1/2 as constant one."
+        }
+      ],
+      "acceptance": [
+        "This is the extension-independence needed to evaluate functions supplied only on the source principal disc."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-limit-constant",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exact limit of a constant angular function",
+      "kind": "lemma",
+      "statement": "In characteristic zero, for the level-one principal character the angular means of the constant c tend to c(1−1/p).",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise. All angular means, samples and common-level inverse torsion twists are the preceding native constructions.",
+        "K is a normed field, χ is a native Dirichlet character at its original level f, and A,B are actual functions ℤ_p→K. Where v or w is called a limit, an actual Tendsto witness for the finite angular means is a hypothesis.",
+        "These are laws for limits that exist. The preceding Taylor/derivative theorem supplies existence under its explicit analytic hypotheses; no convergence for every ordinary or continuous function is asserted.",
+        "For coefficient change L is a normed field and κ:K→L is a unital ring homomorphism. Finite means commute with κ without a continuity hypothesis. The limit map theorem requires κ to be continuous for the chosen field topologies. Characteristic zero is required for the stated constant-value formula.",
+        "The source analytic carrier, its derivative/Taylor inputs and the resulting continuous linear functional remain with the existing LAD L0 request. No new carrier is introduced by these conditional value laws."
+      ],
+      "proofSteps": [
+        "The preceding constant-mean theorem gives exactly c(1−1/p) at every finite depth.",
+        "Apply the native constant-sequence limit. The complete limit_constant proof retains the p-unit Euler-removal factor, including p=2."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean-constant"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaLimitLaws",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_limit_constant"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.331–333, finite character means, Satz1 and its bounded-linear-functional conclusion after equation(9); Section1 coefficient/evaluation setup.",
+          "excerpt": "die Beschränktheit von",
+          "match": "The source limiting mean inherits linearity from its actual finite means. This checkpoint gives the value-level laws, principal-disc extension independence and continuous coefficient transport, keeping convergence hypotheses explicit until the owned analytic interface is supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaLimitLawTests.limit_constant_dyadic_three",
+          "kind": "computation",
+          "statement": "At p=2,c=3 the limit is3/2."
+        },
+        {
+          "name": "SuggestedMoritaLimitLawTests.limit_constant_odd",
+          "kind": "computation",
+          "statement": "At p=3,c=1 the limit is2/3."
+        }
+      ],
+      "acceptance": [
+        "The source normalization is not a probability measure: the constant-one value is1−1/p."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-limit-twist-period",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite torsion period persists for limit values",
+      "kind": "lemma",
+      "statement": "If the angular means with twist exponent m mod φ(q) tend to v, the means with exponent m tend to the same v.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise. All angular means, samples and common-level inverse torsion twists are the preceding native constructions.",
+        "K is a normed field, χ is a native Dirichlet character at its original level f, and A,B are actual functions ℤ_p→K. Where v or w is called a limit, an actual Tendsto witness for the finite angular means is a hypothesis.",
+        "These are laws for limits that exist. The preceding Taylor/derivative theorem supplies existence under its explicit analytic hypotheses; no convergence for every ordinary or continuous function is asserted.",
+        "For coefficient change L is a normed field and κ:K→L is a unital ring homomorphism. Finite means commute with κ without a continuity hypothesis. The limit map theorem requires κ to be continuous for the chosen field topologies. Characteristic zero is required for the stated constant-value formula.",
+        "The source analytic carrier, its derivative/Taylor inputs and the resulting continuous linear functional remain with the existing LAD L0 request. No new carrier is introduced by these conditional value laws."
+      ],
+      "proofSteps": [
+        "The preceding native character identity identifies these two twists at the fixed common level.",
+        "Substitute that character equality into every term of the sequence and reuse the Tendsto witness. The complete limit_twist_period proof requires no independent conductor or primitive-character comparison."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-character-twist-period",
+        "DirichletPadicLFunctions:L3/morita-angular-mean"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaLimitLaws",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_limit_twist_period"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.331–333, finite character means, Satz1 and its bounded-linear-functional conclusion after equation(9); Section1 coefficient/evaluation setup.",
+          "excerpt": "die Beschränktheit von",
+          "match": "The source limiting mean inherits linearity from its actual finite means. This checkpoint gives the value-level laws, principal-disc extension independence and continuous coefficient transport, keeping convergence hypotheses explicit until the owned analytic interface is supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaLimitLawTests.limit_twist_period_dyadic",
+          "kind": "compatibility",
+          "statement": "For p=2, convergence with twist exponent1 gives the same value for exponent3."
+        }
+      ],
+      "acceptance": [
+        "The coefficient field and common level are fixed throughout this comparison."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-finite-mean-coefficient-map",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite character means commute with coefficient maps",
+      "kind": "comparison",
+      "statement": "For any unital ring homomorphism κ:K→L, κ(M^n_χ(F))=M^n_(κχ)(κ∘F), where κχ is the native ringHomComp character.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise. All angular means, samples and common-level inverse torsion twists are the preceding native constructions.",
+        "K is a normed field, χ is a native Dirichlet character at its original level f, and A,B are actual functions ℤ_p→K. Where v or w is called a limit, an actual Tendsto witness for the finite angular means is a hypothesis.",
+        "These are laws for limits that exist. The preceding Taylor/derivative theorem supplies existence under its explicit analytic hypotheses; no convergence for every ordinary or continuous function is asserted.",
+        "For coefficient change L is a normed field and κ:K→L is a unital ring homomorphism. Finite means commute with κ without a continuity hypothesis. The limit map theorem requires κ to be continuous for the chosen field topologies. Characteristic zero is required for the stated constant-value formula.",
+        "The source analytic carrier, its derivative/Taylor inputs and the resulting continuous linear functional remain with the existing LAD L0 request. No new carrier is introduced by these conditional value laws."
+      ],
+      "proofSteps": [
+        "Unfold the finite mean. The ring homomorphism preserves the natural denominator, its inverse, finite sums and products.",
+        "At an excluded p-multiple both terms are zero. At a surviving index the mapped character evaluation is by definition κ(χ(a)), and multiplicativity gives the mapped sample.",
+        "The complete mean_map proof checks both support branches. It uses the native map_inv₀ theorem for homomorphisms between groups with zero and the additive companion generated by map_prod.",
+        "This is a finite algebraic identity. It imposes no continuity requirement on κ and no extra norm compatibility."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-finite-mean",
+        "mathlib:MulChar.ringHomComp",
+        "mathlib:map_inv₀",
+        "mathlib:map_prod"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaLimitLaws",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaFiniteMean_map"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.331–333, finite character means, Satz1 and its bounded-linear-functional conclusion after equation(9); Section1 coefficient/evaluation setup.",
+          "excerpt": "die Beschränktheit von",
+          "match": "The source limiting mean inherits linearity from its actual finite means. This checkpoint gives the value-level laws, principal-disc extension independence and continuous coefficient transport, keeping convergence hypotheses explicit until the owned analytic interface is supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaLimitLawTests.finite_mean_coefficient_map",
+          "kind": "computation",
+          "statement": "For p=2,f=1,n=0 and F(a)=a², the rational mean5/2 maps to the identical mean in ℚ₂."
+        }
+      ],
+      "acceptance": [
+        "Do not infer a limit comparison from this finite identity without continuity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-mean-coefficient-map",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Angular sampling commutes with coefficient maps",
+      "kind": "comparison",
+      "statement": "For every κ, κ(M^n_(χ,ang)(A))=M^n_(κχ,ang)(κ∘A).",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise. All angular means, samples and common-level inverse torsion twists are the preceding native constructions.",
+        "K is a normed field, χ is a native Dirichlet character at its original level f, and A,B are actual functions ℤ_p→K. Where v or w is called a limit, an actual Tendsto witness for the finite angular means is a hypothesis.",
+        "These are laws for limits that exist. The preceding Taylor/derivative theorem supplies existence under its explicit analytic hypotheses; no convergence for every ordinary or continuous function is asserted.",
+        "For coefficient change L is a normed field and κ:K→L is a unital ring homomorphism. Finite means commute with κ without a continuity hypothesis. The limit map theorem requires κ to be continuous for the chosen field topologies. Characteristic zero is required for the stated constant-value formula.",
+        "The source analytic carrier, its derivative/Taylor inputs and the resulting continuous linear functional remain with the existing LAD L0 request. No new carrier is introduced by these conditional value laws."
+      ],
+      "proofSteps": [
+        "Use the preceding finite-mean coefficient identity after unfolding the angular mean as the finite mean of its samples.",
+        "Sampling at a p-unit evaluates A at the same source angular coordinate before and after κ. Sampling at a nonunit is zero, which κ preserves.",
+        "The complete angularMean_map proof establishes equality of these actual sampled functions. It changes coefficients and character values, not the source prime, angular coordinate or averaging level."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-finite-mean-coefficient-map",
+        "DirichletPadicLFunctions:L3/morita-angular-samples",
+        "DirichletPadicLFunctions:L3/morita-angular-mean"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaLimitLaws",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_map"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.331–333, finite character means, Satz1 and its bounded-linear-functional conclusion after equation(9); Section1 coefficient/evaluation setup.",
+          "excerpt": "die Beschränktheit von",
+          "match": "The source limiting mean inherits linearity from its actual finite means. This checkpoint gives the value-level laws, principal-disc extension independence and continuous coefficient transport, keeping convergence hypotheses explicit until the owned analytic interface is supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaLimitLawTests.angular_mean_coefficient_map",
+          "kind": "computation",
+          "statement": "The rational angular mean of constant2/3 at p=2 maps to1/3 in ℚ₂."
+        }
+      ],
+      "acceptance": [
+        "A ring homomorphism changes the codomain of A; it does not change its ℤ_p domain."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-limit-coefficient-map",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Continuous coefficient maps preserve angular mean limits",
+      "kind": "comparison",
+      "statement": "If κ is continuous and the angular means of A tend to v, then the angular means of κ∘A with character κχ tend to κ(v).",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise. All angular means, samples and common-level inverse torsion twists are the preceding native constructions.",
+        "K is a normed field, χ is a native Dirichlet character at its original level f, and A,B are actual functions ℤ_p→K. Where v or w is called a limit, an actual Tendsto witness for the finite angular means is a hypothesis.",
+        "These are laws for limits that exist. The preceding Taylor/derivative theorem supplies existence under its explicit analytic hypotheses; no convergence for every ordinary or continuous function is asserted.",
+        "For coefficient change L is a normed field and κ:K→L is a unital ring homomorphism. Finite means commute with κ without a continuity hypothesis. The limit map theorem requires κ to be continuous for the chosen field topologies. Characteristic zero is required for the stated constant-value formula.",
+        "The source analytic carrier, its derivative/Taylor inputs and the resulting continuous linear functional remain with the existing LAD L0 request. No new carrier is introduced by these conditional value laws."
+      ],
+      "proofSteps": [
+        "Continuity of κ gives a limit map at v. Compose it with the actual Tendsto witness for the original finite means.",
+        "Identify each mapped term with the new-field angular mean using the preceding finite coefficient comparison.",
+        "The complete limit_map proof checks this composition. A separate native rat_cast_not_continuous control proves why continuity cannot be omitted:2^(−n) tends to zero for the usual rational norm but its images in ℚ₂ have norms2^n≥1, contradicting a zero limit.",
+        "This counterexample concerns the usual Archimedean topology on ℚ, not the p-adic subspace topology used for rational elements of ℚ_p."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean-coefficient-map",
+        "mathlib:Continuous.tendsto",
+        "mathlib:Filter.Tendsto.comp"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaLimitLaws",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_limit_map"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.331–333, finite character means, Satz1 and its bounded-linear-functional conclusion after equation(9); Section1 coefficient/evaluation setup.",
+          "excerpt": "die Beschränktheit von",
+          "match": "The source limiting mean inherits linearity from its actual finite means. This checkpoint gives the value-level laws, principal-disc extension independence and continuous coefficient transport, keeping convergence hypotheses explicit until the owned analytic interface is supplied."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaLimitLawTests.limit_map_identity",
+          "kind": "degenerate",
+          "statement": "The identity map of ℚ₂ preserves the constant-one limit1/2."
+        },
+        {
+          "name": "SuggestedMoritaLimitLawTests.rational_embedding_not_continuous",
+          "kind": "non-example",
+          "statement": "The unital field embedding from ℚ with its usual norm to ℚ₂ is not continuous; finite coefficient comparison does not justify limit transport through it."
+        }
+      ],
+      "acceptance": [
+        "Continuity is a real hypothesis for the selected topologies, never inferred merely from the existence of a field homomorphism."
+      ]
     }
   ],
   "requests": [
@@ -59014,7 +59632,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The arithmetic convergence route is now planned: actual Taylor sums plus explicit divided-derivative value/Lipschitz bounds give a geometric difference majorant, a Cauchy sequence, a complete-field limit and its norm bound. The precise LAD L0 request still must provide those inputs on its actual closed-disc analytic space; a bounded linear functional there and its translated Taylor/derivative API are not yet constructed. Next compare that source mean with Morita’s translated logarithmic functional and the local Gamma identity on pℤ_p at odd p and8ℤ₂. Gross–Koblitz and Ferrero–Greenberg retain their full-proof reading and normalization work. All16 gaps and12 requests remain open.",
+        "Convergent angular mean values now have uniqueness, zero, addition, subtraction, scalar, principal-disc extension, constant and twist-period laws, with exact finite coefficient comparison and continuous limit transport. The actual LAD analytic carrier and source Taylor/divided-derivative inputs remain open; no placeholder functional is introduced. Next establish the source translated-mean Taylor formula and logarithmic/Gamma comparison on pℤ_p at odd p and8ℤ₂. Gross–Koblitz and Ferrero–Greenberg retain the recorded full-proof reading and normalization work. All16 gaps and12 requests remain open.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -59046,7 +59664,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The arithmetic convergence route is now planned: actual Taylor sums plus explicit divided-derivative value/Lipschitz bounds give a geometric difference majorant, a Cauchy sequence, a complete-field limit and its norm bound. The precise LAD L0 request still must provide those inputs on its actual closed-disc analytic space; a bounded linear functional there and its translated Taylor/derivative API are not yet constructed. Next compare that source mean with Morita’s translated logarithmic functional and the local Gamma identity on pℤ_p at odd p and8ℤ₂. Gross–Koblitz and Ferrero–Greenberg retain their full-proof reading and normalization work. All16 gaps and12 requests remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "Convergent angular mean values now have uniqueness, zero, addition, subtraction, scalar, principal-disc extension, constant and twist-period laws, with exact finite coefficient comparison and continuous limit transport. The actual LAD analytic carrier and source Taylor/divided-derivative inputs remain open; no placeholder functional is introduced. Next establish the source translated-mean Taylor formula and logarithmic/Gamma comparison on pℤ_p at odd p and8ℤ₂. Gross–Koblitz and Ferrero–Greenberg retain the recorded full-proof reading and normalization work. All16 gaps and12 requests remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -59417,36 +60035,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 source findings, sources and sourceVersions remain whole. No new source error or independent review verdict is claimed.",
+    "sourceIssues": "All16 source findings, sources and sourceVersions remain whole; no new source error or independent review verdict is claimed.",
     "validation": {
-      "nodes": 871,
+      "nodes": 882,
       "kinds": {
         "definition": 2,
-        "lemma": 351,
+        "lemma": 358,
         "construction": 95,
         "theorem": 250,
-        "comparison": 173
+        "comparison": 177
       },
       "api": 723,
-      "packetTests": 1612,
+      "packetTests": 1627,
       "definitionConstructionTests": 403,
-      "typedExamples": 1615,
+      "typedExamples": 1630,
       "planets": 24,
-      "baseline": 704,
-      "preservedWholeNodes": 856,
-      "preservedBaseline": 700,
+      "baseline": 711,
+      "preservedWholeNodes": 871,
+      "preservedBaseline": 704,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 15,
-      "newNamedDeclarations": 18,
-      "newTypedTests": 28,
+      "newNodes": 11,
+      "newNamedDeclarations": 11,
+      "newTypedTests": 15,
       "requests": 12,
       "gaps": 16,
       "closedStages": 0,
-      "reachableNodes": 1131,
-      "dependencyEdges": 5676,
+      "reachableNodes": 1142,
+      "dependencyEdges": 5700,
       "acyclic": true,
-      "baselineLeaves": 877,
+      "baselineLeaves": 884,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -59459,7 +60077,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 438567,
+      "readerWords": 443073,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -59486,38 +60104,31 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 17,
-      "scratchCompleteLemmas": 134,
+      "scratchCompleteLemmas": 146,
       "scratchMathlibModules": 2825,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "pointwiseTaylor": 10800,
-        "translatedMeans": 630,
-        "nextMeans": 180,
-        "differenceSeries": 180,
-        "zerothTerms": 180,
-        "powerSumBounds": 18,
-        "radiusChecks": 2,
-        "levelBounds": 48,
-        "derivativeValues": 600,
-        "derivativeLipschitz": 6000,
-        "coefficientBounds": 720,
-        "differenceBounds": 190,
-        "geometricDifferences": 180
+        "additivity": 144,
+        "subtraction": 144,
+        "scalars": 432,
+        "constants": 24,
+        "extensionIndependence": 144,
+        "twistPeriods": 864,
+        "coefficientNormalization": 2,
+        "noncontinuousEmbedding": 20
       },
       "numericalControlsCertified": false,
-      "newRoutesStageLeaves": [
-        "LocallyAnalyticDistributions:L0"
-      ],
+      "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "66ea44afda521d81e758723ed0d58a1fb912d9d372a477858f3d2995a371c8d9",
+        "sourceSha256": "c269c1f440540f61091cf3fd0877cfd4b3586ad3294e4d3c5801b3766756f97a",
         "modules": 3600,
-        "warnings": 2765,
+        "warnings": 2791,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 2,765 expected placeholder warnings across 3,600 pinned source modules. It includes all 18 new named declarations and 28 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 66ea44afda521d81e758723ed0d58a1fb912d9d372a477858f3d2995a371c8d9.",
+        "scope": "The separate partial signature file also compiled with zero errors and 2,791 expected placeholder warnings across 3,600 pinned source modules. It includes all 11 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c269c1f440540f61091cf3fd0877cfd4b3586ad3294e4d3c5801b3766756f97a.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -59527,7 +60138,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "b7a9844c1bf0de51551a941b4ee28b6be9841d98d6de37e4ed4c60a413fb2c2f",
+      "sha256": "f66e2cc2a31f2d5de6c9beda06fe1380745f562a9c51fa7efba29e89b9a2a2dc",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -59542,11 +60153,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 134,
+        "completeLemmas": 146,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "dda932ba8a75c1215987b261bd70e26d380a3bd36b6662fd670c1dcb9ec35769"
+        "sha256": "bb6b6bb86a5ccb05ba76f2411ac61147013f99b5dc6a5d59b4ad62b4f8ad3fd2"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -59684,17 +60295,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "66ea44afda521d81e758723ed0d58a1fb912d9d372a477858f3d2995a371c8d9",
+        "sourceSha256": "c269c1f440540f61091cf3fd0877cfd4b3586ad3294e4d3c5801b3766756f97a",
         "modules": 3600,
-        "warnings": 2765,
+        "warnings": 2791,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 2,765 expected placeholder warnings across 3,600 pinned source modules. It includes all 18 new named declarations and 28 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 66ea44afda521d81e758723ed0d58a1fb912d9d372a477858f3d2995a371c8d9.",
+        "scope": "The separate partial signature file also compiled with zero errors and 2,791 expected placeholder warnings across 3,600 pinned source modules. It includes all 11 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c269c1f440540f61091cf3fd0877cfd4b3586ad3294e4d3c5801b3766756f97a.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "fc73fe64e3dadce9a1432f023801ce79a1f1aa23",
+      "base": "e88303406dd3eaa2fa08e978c58f7f03a009df4b",
       "unchangedInputs": 72,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -68005,6 +68616,55 @@
         "warnings": 2765,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 2,765 expected placeholder warnings across 3,600 pinned source modules. It includes all 18 new named declarations and 28 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 66ea44afda521d81e758723ed0d58a1fb912d9d372a477858f3d2995a371c8d9.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "moritaMeanLimitLaws": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5280,
+      "previousHead": "4501ce7a5db7e6f205d0a8e0c7644b37f839ed88",
+      "previousMerge": "6580a4acbeec1f2a9322c92f169a80d7aabe5eff",
+      "preservedWholeNodes": 871,
+      "preservedBaseline": 704,
+      "preservedFindings": 16,
+      "newNodes": 11,
+      "reading": "Retains the complete KL1964/Morita1975 readings, with KL Satz1’s bounded-linear-functional conclusion as the source target. Reads the pinned product/addition and continuous-group division/subtraction generators, fixed multiplication, finite sum and inverse preservation, and continuity/composition of limits. A native negative control checks the topology distinction for ℚ→ℚ₂.",
+      "boundary": "Convergent angular mean values now have uniqueness, zero, addition, subtraction, scalar, principal-disc extension, constant and twist-period laws, with exact finite coefficient comparison and continuous limit transport. The actual LAD analytic carrier and source Taylor/divided-derivative inputs remain open; no placeholder functional is introduced. Next establish the source translated-mean Taylor formula and logarithmic/Gamma comparison on pℤ_p at odd p and8ℤ₂. Gross–Koblitz and Ferrero–Greenberg retain the recorded full-proof reading and normalization work. All16 gaps and12 requests remain open.",
+      "inputBase": "fcf1084355d53701bf8f278c8cb9cdf5a75d2729",
+      "sourceBoundary": "All16 source findings, sources and sourceVersions remain whole; no new source error or independent review verdict is claimed.",
+      "publication": {
+        "base": "e88303406dd3eaa2fa08e978c58f7f03a009df4b",
+        "unchangedInputs": 72,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "additivity": 144,
+        "subtraction": 144,
+        "scalars": 432,
+        "constants": 24,
+        "extensionIndependence": 144,
+        "twistPeriods": 864,
+        "coefficientNormalization": 2,
+        "noncontinuousEmbedding": 20
+      },
+      "numericalMethod": "Exact rational finite means at p=2,3, six original character levels and depths0–2; ordinary polynomials, scalar combinations, modifications outside the principal disc, inverse twist periods and constant normalization. The sequence2^(−n) records its decreasing ordinary rational norm and increasing2-adic norm, witnessing why the usual rational embedding does not satisfy the continuity hypothesis. Finite controls do not replace limit proofs.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "c269c1f440540f61091cf3fd0877cfd4b3586ad3294e4d3c5801b3766756f97a",
+        "modules": 3600,
+        "warnings": 2791,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 2,791 expected placeholder warnings across 3,600 pinned source modules. It includes all 11 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c269c1f440540f61091cf3fd0877cfd4b3586ad3294e4d3c5801b3766756f97a.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
