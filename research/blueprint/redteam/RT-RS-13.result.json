@@ -1,0 +1,34 @@
+{
+  "redteam": "RT-RS-13",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-13",
+  "summary": "One low-severity documentation error remains: the report directs retention of retired AN.1, already flagged by REV-RS-13. The JSON is unaffected. No high/medium ownership error, lost target or new cycle established after checking all 16 member contracts, three owners, seven links, supplier/consumer boundaries, selected Deligne pages and pinned-library declarations.",
+  "checked": [
+    "Read the complete family (six directed leads, three pairs), result, report, independent review and both member documents at d4afbc98a4f6b289d730897edbd18171f5cafb67.",
+    "Compared all 16 member stages, four explicit decisions, three owners and seven link reasons; PS.1 alone is narrowed, retaining actual motivic completion, criticality and period-comparison adapters.",
+    "Read all 16 member aggregate library-coverage entries; distinguished previous audit evidence from fresh declaration checks.",
+    "Read all 12 native outside consumer descriptions and AutomorphicPadicLFunctions L1/L2/L5; checked analytic versus motivic periods, finite versus completed values, local compatibility, coefficient/nonvanishing and exceptional-zero restrictions.",
+    "Read relevant accepted RS-07/RS-14/RS-21 decisions and review metadata, plus GlobalNumberFields Layers 9-10 and ModularForms Layer 0. Confirmed L0 owns the Dirichlet comparison rather than duplicating generalized Bernoulli construction.",
+    "Fresh Deligne 1979 public scan read visually on 30 September 2026: printed pages 318-326, focusing on 1.1-1.8, 2.1-2.10 and 3.1-3.2; retained general conjectural and independently sourced modular-form boundaries.",
+    "At Mathlib 082e2d3, read Gamma/Deligne.lean 40-80 and DirichletContinuation.lean 90-180 and 208-310; at Tau Ceti f790474, read ExteriorPower.lean 190-310 with ambient variables and namespace.",
+    "Actual check_restructure and apply_restructurings pass: seven resolvable links, four new, none skipped; all historical stages/edges/descriptions and upstream Tau Ceti stage objects preserved.",
+    "All proposed-edge return-path checks pass on native-plus-proposal (3512 edges), accepted/requires union (7108), and union retaining non-atlas endpoints (7255); not a global DAG certification.",
+    "PS.7 is the only recorded PS.1 consumer and receives all three direct supplier links. All 19 native outside exports to 12 stages in eight roadmaps survive.",
+    "Checked identity/status inventory of the partial unreviewed 42-node AL packet, all six coverage entries and eight gaps, and its single node exporting analytic factors to PS.1; all parent IDs remain valid. Other packet proofs not certified.",
+    "Searched packets/decompositions for exact PS.1 stage/node-prefix references and checked reserved member IDs; no additional consumer or reserved member node found.",
+    "Rechecked the previously reported stale AN.1 report instruction against accepted RS-07's drop and direct upstream replacement. Recorded it as low severity only.",
+    "Relevant inputs unchanged on refreshed main; validated check_redteam.py, intake for both files and diff whitespace. No Lean file requested, changed or compiled."
+  ],
+  "findings": [
+    {
+      "id": "RT-RS-13/1",
+      "kind": "error",
+      "severity": "low",
+      "where": "research/blueprint/restructure/RS-13.md:109, Consumers and exact replacement links",
+      "claim": "The report still directs retention of AN.1 -> PS.1 although accepted RS-07 retires AN.1. This was already noted by REV-RS-13 and remains a stale active-dependency instruction; RS-13's JSON does not contain the bad endpoint.",
+      "evidence": "At snapshot d4afbc98a4f6b289d730897edbd18171f5cafb67, RS-13.md:109 says 'Keep PS.0 → PS.1, AN.1 → PS.1 and PS.1 → PS.7.' The accepted RS-07.result.json layers[AnalyticNumberTheory:AN.1] has action drop; its UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions -> PeriodsAndSpecialValues:PS.1 link says 'Replace retired AN.1 by the actual completed Dirichlet/Tate formulas with gamma, conductor, parity and finite Euler corrections.' REV-RS-13.md, Questions for the orchestrator item 1, identifies the same issue. Read pinned Mathlib 082e2d3 DirichletContinuation.lean:150 LFunction_changeLevel and :284 IsPrimitive.completedLFunction_one_sub, confirming the actual upstream APIs and their hypotheses.",
+      "fix": "Replace the report sentence with an instruction to keep PS.0 -> PS.1 and PS.1 -> PS.7 while importing the classical Riemann/Dirichlet interface from RS-07's UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions supplier. Mention AN.1 only as historical provenance. Do not add an AN.1 edge or otherwise change the valid RS-13 JSON."
+    }
+  ]
+}

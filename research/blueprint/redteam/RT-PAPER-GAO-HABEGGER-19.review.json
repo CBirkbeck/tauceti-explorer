@@ -1,0 +1,50 @@
+{
+  "redteam": "RT-PAPER-GAO-HABEGGER-19",
+  "findings": [
+    {
+      "finding": "RT-PAPER-GAO-HABEGGER-19/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. I independently reproduced accepted-route grouping in papers.json order and read make_queue.py:paper_designs. Routes 6 and 7 are grouped by parent and generate AbelianSchemesAndArithmeticModuliPartII and HodgeStructuresPartII, not the aliases imported by routes 6/7/9. Kings–Sprang's Poincare continuation is the first of five members of the abelian-scheme group; DGH21 and GH19 follow it, then Lipnowski–Tsimerman and GGK26. queue.json has the merged design IDs and no alias jobs, and the heights design has after=[]. The permission to defer independent later directions leaves the Betti supplier unprotected. I checked the direct Theorem 5.1 -> Lemma 6.2 dependency in v3 p.31 and published p.563. Correct the IDs and import/export references throughout the affected routes/report, protect the joint Betti tranche, and request the queue dependency/anti-deferral repair in a maintainer note coordinated with BENOIST-19/1. This verifies a routing risk, not that the accepted mathematics has already been discarded; make_queue.py is not a worker-side fix."
+    },
+    {
+      "finding": "RT-PAPER-GAO-HABEGGER-19/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with a necessary correction to the fix. Item 15 bundles the mapping property with a subvariety/quotient exactness theorem that neither R11.1 nor R11.5 states. The actual application is over a smooth complex curve (v3 p.29; published p.561). I read BLR §7.5 Propositions 2–3 and Proposition 3's proof, printed pp.186–187, in the public Arizona scan. Proposition 3(a) assumes the residue characteristic does not divide the complementary isogeny's degree; the closed immersion and smooth map with the specified kernel yield exactness under good reduction. Proposition 2 assumes residue characteristic zero for extending a closed immersion. Therefore the proposed new item must put the characteristic-zero residue-field hypothesis on the WHOLE exact-sequence assertion, or retain BLR's precise local prime-to-degree condition. It is wrong to assert unrestricted exactness first and restrict only the final closed-immersion clause. Separate unrestricted good reduction from this stronger assertion. Split the item, keep the R11 owner, and coordinate with Xie–Yuan without exporting the characteristic-zero theorem to characteristic p. Also avoid a dependency R11.5 -> R11.1: the existing forward chain R11.1 -> R11.2 -> R11.3 -> R11.4 -> R11.5 makes that cyclic. Use an independent earlier proof or a later derived node."
+    },
+    {
+      "finding": "RT-PAPER-GAO-HABEGGER-19/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed with a status qualification. Published pp.558 and 596 (v3 pp.26 and 58) independently show the two Riemann-existence uses and the finite-generation/base-extension inputs. Item 22 only mentions them, and route 5 places the geometric theorem at IG.0. The stage contracts instead put analytic covering comparison downstream, at IG.3, along IG.0 -> IG.1 -> IG.3; the partial IG packet leaves IG.0/IG.3 not_read. Route the geometric bounded-cover consequence and its inputs downstream, reusing the curve/Belyi supplier. Do not adopt the suggested status planned for the full arbitrary-dimensional comparison just because IG.3 or CHEN-24/112 mentions a curve/stack variant: add the smooth quasi-projective higher-dimensional comparison needed here as missing and source-route it unless an exact supplier is verified. Record characteristic zero and geometric basepoints in the field-extension statement. Generic finite-generator profinite-group counting may remain upstream."
+    },
+    {
+      "finding": "RT-PAPER-GAO-HABEGGER-19/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The three slips are absent from sourceIssues E1–E27, while the notes already identify two and item 40 silently restores equivariance. Published p.544 says endomorphism; the zero map contradicts the fibre-isomorphism requirement. The p.556 image has the unrestricted Hom intersection; Deligne Hodge II (4.1.3.2), p.43, explicitly requires a morphism of local systems. A constant E inside E times a non-isotrivial elliptic family supplies a counterexample to arbitrary fibre-map extension at a fibre isomorphic to E; the fixed-part inclusion actually used remains equivariant. The Ax references are inconsistent with the paper's own introduction and bibliography: [3] is the algebraic-group reference. Register the three slips with precise version-specific locators and actual correction searches. Grothendieck is [24] in v3 but [23] in the published bibliography, so do not copy that citation number verbatim across versions."
+    },
+    {
+      "finding": "RT-PAPER-GAO-HABEGGER-19/5",
+      "verdict": "rejected",
+      "reason": "Rejected. The finding conflates two path requirements. The actual item 30 asks for a continuous definable path with semialgebraic first coordinates and a counted starting point; it does NOT impose analyticity on (0,1). Habegger–Pila's proof of Corollary 7.2 on v1 p.25 constructs exactly that version before its final reparametrization. Furthermore Gao–Habegger's special family admits an explicit repair of the coordinates after any reparametrization preserving y(0): by Corollary 7.2(iii), choose a counted (gamma', a') with y(0)=gamma'x-a', and replace gamma(s) by the constant gamma' and a(s) by gamma'x-y(s). The relation defining Z holds for all s; the path remains in GL_n(R) times R^n times X, and starts at gamma' in Gamma and a' in Z^n. It stays semialgebraic and is analytic whenever y is. In this family y is a fixed linear combination of the first coordinates, so Corollary 7.2(i) already gives its analyticity. Thus the observed loss of the original first coordinates does not establish an error in item 30 or a new gap in Lemma 5.2. The proposed alternative argument through gamma' is valid, but optional exposition does not warrant E31 as a confirmed source mistake. This comparison uses the public Habegger–Pila v1, not its unread published version."
+    },
+    {
+      "finding": "RT-PAPER-GAO-HABEGGER-19/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed as missing extraction inputs, with an ownership correction. The inventory has no separate items for the five results, whose uses I checked at §§5–6 in both versions. Targeted searches at the pinned baseline found no named invariance-of-domain, real constant-rank or topological good-cover theorem; closed-torus hits did not supply the integer-character classification. The C0 audit records the analytic-space gap. Baire is already supplied by Mathlib.nonempty_interior_of_iUnion_of_closed, whose actual BaireSpace, Nonempty, Countable and closed-cover hypotheses I read. Add the precise finite-dimensional/curve forms and analytic-space facts with irreducibility/reducedness/dimension assumptions. Do not duplicate the latter in a temporary Betti owner: draft CV.1 explicitly imports the analytic-space carrier and local analytic machinery from ComplexComparisonPartII:C0 and its extension. Use that owner for the missing facts and CV.1 as a consumer where appropriate. A name search is not an exhaustive absence proof; keep unresolved supplier checks explicit."
+    },
+    {
+      "finding": "RT-PAPER-GAO-HABEGGER-19/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed as partial library reuse. I read all three declarations at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. MeasureTheory.exists_pair_mem_lattice_not_disjoint_vadd (GeometryOfNumbers.lean:52) is a strict-volume, two-intersecting-translates theorem under a countable measurable action and invariant fundamental-domain measure. It is not the bounded measurable-set multiplicity conclusion used in published Proposition 7.2, p.575; the GN.1 contract/packet must still supply that deduction for nonconvex sets. IsDedekindDomain.flat_iff_torsion_eq_bot (TorsionFree.lean:138) is the affine module input, not the scheme theorem or its dimension conclusion. NumberField.absLogHeight₁ (NumberField.lean:146, with absMulHeight₁:137) gives normalized algebraic-element height, hence the affine [1:x] portion of P^1 after comparison, not the complete projective height package. Add the citations as baselines, retain the full planned/missing statuses and owners, and describe the needed adapters explicitly."
+    },
+    {
+      "finding": "RT-PAPER-GAO-HABEGGER-19/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Direct comparison of the fifteen prerequisites with items 31, 40 and 76 and a registry search finds none of Ax 1972, Grothendieck 1966 or Koizumi 1976. The first two are identified in the published paper's bibliography; Koizumi is the earlier review's explicitly added missing projective-normality input. Add linked bibliographic prerequisite records with these specific uses. This confirms missing metadata rather than certifying the complete proofs of those external papers. Deligne's existing prerequisite entry is not a substitute for identifying the named Grothendieck input."
+    },
+    {
+      "finding": "RT-PAPER-GAO-HABEGGER-19/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. source.readSections retains the extraction's claim that the journal text was not collated, contrary to the later review/report and published-version source-issue records. sourceVersions is absent. I downloaded both versions and reproduced the full recorded hashes, and independently ran collation.provenance (published by free-text fallback) and stated (empty). Add the two explicit version records and correct the reading history. Attribute the September 22 and 23 dates to the respective earlier workers; the fresh hash verification here is September 30. The passing heuristic/check does not repair the contradictory provenance."
+    }
+  ]
+}

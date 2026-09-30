@@ -1,0 +1,45 @@
+{
+  "redteam": "RT-PAPER-DEMARCO-KRIEGER-YE-20",
+  "findings": [
+    {
+      "finding": "RT-PAPER-DEMARCO-KRIEGER-YE-20/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/NumberTheory/Height/NumberField.lean:137-147: absMulHeight₁ normalizes the height in Q(x) by the inverse degree and absLogHeight₁ takes its logarithm, for an element of any characteristic-zero field. This includes algebraic elements in Qbar. Item 10 and the review's post-review paragraph incorrectly assert absence; PAPER-DEMARCO-MAVRAKI-YE-26/7 repeats it. Split off the scalar definition as proposed, retaining the P1 extension convention h(infinity)=0 explicitly. This is not a claim that a projective absolute-height comparison API already exists: keep the tuple height and weighted identity planned, importing the existing ArithmeticDynamics:DY.4/standard-adelic-height-is-the-weil-height and its DT.0 comparison prerequisite where needed."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-KRIEGER-YE-20/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed citation insufficiency. At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, DivisionPolynomial/ZSMul.lean:1071,1084 prove the two annihilation directions and :1128 characterizes order two. Mathlib DivisionPolynomial/Basic.lean:242 defines the univariate ΨSq; :338 proves the coordinate-ring square relation. Add these citations with the following limits: the annihilation results require a nonsingular affine point, n must be nonzero to infer torsion, the Jacobian/affine transport uses zsmul_fromAffine_eq_zero_iff, and the point at infinity is handled separately. The order-two lemma supplies the two-torsion characterization, not by itself the full degree-two branched-cover or Legendre j-invariant assertions in item 3. The scalar division-polynomial definition alone does not justify all of item 44."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-KRIEGER-YE-20/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the standard number-field admissible absolute values. At the pins, NumberField.logHeight₁_eq is unnormalized by [K:Q], Tau Ceti naiveHeight uses that height, and canonicalHeight is half its doubling limit. Consequently canonicalHeight_TC(P)=[K:Q] times the paper's absolute Neron-Tate height, or [K:Q]/2 times the dynamical height of x(P). Read the complete existing ArithmeticDynamics:DY.6/lattes-map-canonical-height node, which gives this relation explicitly. Keep the fixed-field quadratic and torsion-zero-locus library claims with their ellipticity and Northcott hypotheses; do not claim that the comparison node is already implemented (its implementationStatus is unchecked). Correct the review's unconditional normalization claim."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-KRIEGER-YE-20/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed on the rendered published p.990 and arXiv v2 p.41: the displayed scalar-height identity omits r_v. The paper fixes r_v=[K_v:Q_v]/[K:Q] on p.955. For K=Q(sqrt(2)), x=2, the two real weights are 1/2 each and the unique place over 2 has weight 1: the weighted absolute-log sum is 2 log(2), while the unweighted sum is 3 log(2). Product formula gives the proposed weighted identity for nonzero x. Item 10 already uses that correction; existing E5-E7 concern different errors on the same page. Register E14 as a misprint affecting no result, retaining accurate version and correction-search receipts rather than copying unperformed searches."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-KRIEGER-YE-20/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a minor literal overstatement on rendered published p.951 and v2 p.2. Unequal branch sets may be disjoint; e.g. branch sets {0,1,2,infinity} and {3,4,5,6} define two complex elliptic double covers with smooth fiber product. At a common branch value its local equation is u^2=v^2, a node; with only one map ramified the equation is u^2=v, which is smooth. The normalization is a connected degree-four cover with 8-m branch values, two simple ramification points over each, so 2g-2=-8+2(8-m), g=5-m, for m<4. Thus 'possibly singular' or the proposed exact branch-overlap condition is appropriate; the genus lower bound and the paper's three-overlap genus-two case remain correct. E15 is an editorial misprint, not a failed theorem."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-KRIEGER-YE-20/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed on rendered published p.997, using Proposition 9.1 on p.995. The proof chooses a lift in the ambient Jacobian but the conclusion requires membership in j_Q(X); item 53 silently adds that membership. Since Phi(j_Q(X)) is the fiber product and contains the chosen torsion pair T, choose w in j_Q(X) with Phi(w)=T. If d kills T and e kills the finite kernel, ed kills w; also ord(T) divides ord(w), giving ord(w)>=N. No generic count of sixteen preimages is needed, and that count must not be asserted at branch values. Register the omitted choice as E16; preferably use kind gap, affects the proof (the proposition remains true), rather than treating the missing membership argument as no proof impact. This section is absent from v2. Record only actual correction searches."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-KRIEGER-YE-20/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Published p.962, proof of Proposition 3.2, invokes FRL10 section 5.1 for total invariance and the tent map; p.965, proof of Proposition 3.5, adapts its calculation to residue characteristic two. Bibliography p.999 identifies Proc. Lond. Math. Soc. 100 (2010), 116-154, DOI 10.1112/plms/pdp022. V2 calls this distinct source FRL2; it is not FRL06. Read all twelve prerequisites and searched papers/papers.json and packet sources: no matching title, DOI, arXiv 0709.0092 or FRL10 entry. Add the proposed prerequisite and its concrete consumers; the public preprint is arXiv:0709.0092. This verification establishes the omitted dependency, not a complete independent proof audit of the FRL paper."
+    },
+    {
+      "finding": "RT-PAPER-DEMARCO-KRIEGER-YE-20/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed. source.readSections still says the published article was inaccessible and not collated; the original review records the published collation and added published-only items 52-53. sourceVersions is absent despite thirteen sourceIssues. Independently downloaded both PDFs: 53-page published SHA-256 7a4bd817bc7cc561363c68c3941b449af55fbf4cb1b3481bd0d601e84b9307df; 49-page v2 SHA-256 8fc51ac36f9fc4b406c7bb44cdeccf31386e81e0a471176a69e80a1a0766bab8. Update the historical reading summary and add PROTOCOL section 18 sourceVersions at top level. Attribute the proposed September 22/23 dates to the extraction/review receipts; this verifier read selected passages on September 30 and does not claim a new full-paper collation."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "redteam": "RT-RS-17",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-17",
+  "summary": "No new findings after an independent attack on all 37 stage decisions, ownership/forwarding coverage, early-versus-late dependencies, migration inventory and selected primary-source and pinned-library claims. The previously reported upstream-rendering limitation and pending source/decomposition corrections remain visible; this is not a certificate that the planned mathematics is implemented.",
+  "checked": [
+    "Independence: Codex session codex-rtOQ9t did neither RS-17 (Codex codex-a71f92) nor REV-RS-17 (Claude Code cc-442dc5). Attacked the accepted, corrected result at explorer 141668ab7524d09f3d2683618a200bfb478768b2; the research result and data/restructure mirror agree.",
+    "Read the four member READMEs and compared all 37 layer decisions (28 narrow, 9 keep), all 44 owner contracts and the 300 link endpoints/contract qualifications. Compared the 170 target entries of the reviewed AUDIT-18/AUDIT-19 coverage records for these stages. Both review corrections remain present.",
+    "Recomputed coverage of all 68 family evidence records (34 unordered pairs) and 62 native-audit overlap pairs: every pair has a common ownership decision. Confirmed every native stage survives, all supplier routes exist, and every old consumer receives the narrowed supplier directly or through an existing edge. Read all 16 external consumer stage descriptions, accounting for 25 base-atlas incoming uses.",
+    "Built the current atlas in memory: 2840 stages and 8007 unique directed stage edges. Added requires and accepted research link/restructuring edges without discarding cycle-closing proposals: 8252 unique edges. No RS-17 edge has a reverse path. Checked late-weight exclusion from R34.2/R34.3, LPV.6, the semistable child, early DWP.4 and the independent surface route. This does not certify unrelated graph components acyclic.",
+    "Checked migration inventory: all 29 decomposition IDs occur in the report; 39 links, 37 coverage rows and 15 gaps remain explicitly preserved. Inspected their parents, titles and incident links, including the R34 structure-node reparenting and the Huber comparison edge. Did not treat provenance edges as automatic stage prerequisites.",
+    "Read Mathlib LinearAlgebra/Charpoly/Basic.lean at 082e2d37e8b0463410cdb532e111cd43d5a66174, including the six declarations named in the proposal and their finite/free/rank/field hypotheses. They supply characteristic-polynomial algebra, not weights or etale theory. No new assertion that missing advanced mathematics is already implemented.",
+    "Fresh public-source spot checks: Deligne Weil I 3.2-3.9, 5.7-5.11 and the non-hard-Lefschetz passage in 7.1; Weil II 3.3.2-3.4.5 and 6.2.11-6.2.13. Visually checked the pole exponent on printed 285 and the valuation formula/diagram on printed 206. Source PDF hashes match the proposal. These are selected passages, not full paper re-extractions.",
+    "Read the relevant TraceFormula Layer 8, 13 and 14 contracts at PR196 head 4bd72379658126cbe9be935656396f0c9dac4de0. Checked the division between its finite-level Tate/Jacobian and zeta/L-function constructions and the retained arithmetic, integral-descent and surface-intersection work. Checked SF.5 and R01.6 directly.",
+    "Validation: check_restructure.py on the accepted target; check_redteam.py and intake.py check-files on this job; git diff --check. No Lean file is required or produced, and no Lean compilation or library build was run."
+  ],
+  "findings": []
+}

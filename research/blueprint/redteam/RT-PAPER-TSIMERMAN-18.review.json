@@ -1,0 +1,85 @@
+{
+ "redteam": "RT-PAPER-TSIMERMAN-18",
+ "reviewer": "Claude Code — cc-c2c06b",
+ "date": "2026-09-30",
+ "inputRevision": "a77917313548cb433723b25f7827d838cad9d4e9",
+ "sources": [
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf",
+   "read": "2026-09-30",
+   "sha256": "43259ca3cfedfb574bf1fe2f80e1023cb736ea299a76588536fd816340722abc"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1506.01466v5",
+   "read": "2026-09-30",
+   "sha256": "ccc5f8beb50e11fc46bdaf1f05ae5718d26280643698585dcca3ddb99dc3ee9c"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1206.2663",
+   "citation": "Pila–Tsimerman, Ax-Lindemann for A_g, arXiv:1206.2663v3 (18 Nov 2013); read for Lemma 7.4 (finding 7)",
+   "read": "2026-09-30",
+   "sha256": "f177111d725cd49ede64a1e577bf598e7cbb429bd6d9237980fbb0876dcb2a5d"
+  }
+ ],
+ "findings": [
+  {
+   "finding": "RT-PAPER-TSIMERMAN-18/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed as a duplicate. MPT19's item /2 (weakly special and special subvarieties, including 'the special subvarieties are the weakly special ones containing a special point') and item /8 (definability of the uniformization on a Siegel fundamental set) are missing items on route 1, a part-ii route to LogicAndDefinabilityPartII. That review was committed on 2026-09-23 at 14:44 UTC (#2323), about 2.5 hours before this extraction's review (17:11 UTC, #2409). Here, special-weakly-special, cm-promotes-special, uniformization-definability and hyperbolic-ax-lindemann are 'planned' at LD.6, so the same mathematics has two owners. MPT19 /2's note says so verbatim ('one owner must be chosen when these are designed'). The LD packet has 13 nodes, all at LD.4, and its LD.6 coverage is not_read. One nuance: LD.6's source route does list 'independent Galois-orbit and Ax-Lindemann/Ax-Schanuel inputs' among the primary proofs it acquires, so calling hyperbolic Ax–Lindemann unplanned there is a reading, not a fact. MPT19's accepted route-1 brief reads that sentence as a pointer to the Part II, and the duplicate stands on either reading. Neither LogicAndDefinabilityPartII nor its design exists yet, so moving the four items to that route now costs nothing. The fix is right: keep the arithmetic application items at LD.6 and derive hyperbolic Ax–Lindemann from the Part II's Ax–Schanuel."
+  },
+  {
+   "finding": "RT-PAPER-TSIMERMAN-18/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed. RS-07.result.json has layers['AnalyticNumberTheory:AN.0'].action = 'drop', with the Mathlib LSeries/Mellin and ArithmeticDirichletSeries layers 0–3 and 6 as suppliers. REV-RS-07 accepted it on 2026-09-21 (#947, 17:35 UTC). In the AN packet (AnalyticNumberTheory--AN.0.json), AN.0 has coverage 'closed' with the note 'Dropped by accepted RS-07 … No duplicate nodes'. PROTOCOL §15 says a dropped layer leaves the map and gets no nodes. Route 5 still lists AN.0 among its stages and its reason says 'AN.0 supplies coefficient/Euler-product comparison'. The route-9 brief says 'AnalyticNumberTheory AN.0/AN.4/AN.5'. ideal-coefficient-divisor-majorant is in route 5. The AN.5 divisor nodes exist (AN.5/uniform-divisor-subpower-bound, τ(n) ≤ C n^ε), so AN.5 is the natural home for the d_n generalisation. One correction: the sentence 'Its author, codex-c83e7a, is also the author of the review that accepted RS-07' is true of the route, not the review. REV-PAPER-TSIMERMAN-18 is by codex-hjdg0j. codex-c83e7a is the extraction contributor credited with 'routing', in #1663 (2026-09-21 23:35 UTC), six hours after that session accepted RS-07's drop. The fix is unaffected."
+  },
+  {
+   "finding": "RT-PAPER-TSIMERMAN-18/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed. On the p. 384 image the printed text is 'by Cauchy's theorem we can express L′(1,ρ̄) as an average of L(s,ρ̄) over an arbitrary small circle centered around 1 … using the standard convexity estimate for L(s,ρ̄) [10, (5.2)]'. arXiv v5 p. 5 has the same argument, and neither text gives any other justification. The objection is sound. Brauer writes L(s,ρ̄) = Π L(s,χ_i)^{n_i} with n_i ∈ ℤ, and some n_i can be negative. Unconditionally, zeros of the Hecke factors are excluded only from a region 1 − c/log(conductor), with a possible exceptional zero, and that region shrinks as |Disc(E)| grows. So no disc of fixed radius ε about 1 is known to be free of poles of L(s,ρ̄) uniformly in E. The convexity bound IK (5.2) is for L-functions with poles only at s = 0, 1. The corollary survives: after averaging, only L(s,η_{E/F}) is needed, and it is entire; the extraction's cm-hecke-cauchy-derivative uses exactly that. None of E1–E8 is on p. 384. The review says 'I do not certify a uniform general-Artin Cauchy contour' but records no issue. §18 requires the record. E9 as proposed (gap, affects the proof, new) is right, and so is restating artin-derivatives as a factorwise logarithmic-derivative bound."
+  },
+  {
+   "finding": "RT-PAPER-TSIMERMAN-18/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed. p. 384 image: Lemma 4.1 is stated for 'an abelian variety' and its proof says 'Since A equipped with a basis of A[3] is rigid, A is definable over ℚ(A)′'. The counterexample is correct. For A ∈ S(E,Φ) with g ≥ 2, O_E^× has rank g − 1 ≥ 1. The units ≡ 1 mod 3O_E form a finite-index subgroup, so it contains a non-torsion u. Then ι(u) − 1 = 3ι(v) kills A[3], and ι(u) is an automorphism of infinite order fixing every basis of A[3]. So (A, basis) is not rigid, and the Weil descent that rigidity was meant to supply fails as printed. For polarized A the step is Serre's lemma, since automorphisms of (A,λ) have finite order and one trivial on A[n], n ≥ 3, is the identity. S(E,Φ) is defined on p. 382 without polarizations. The proof of Theorem 4.2 on p. 385 applies Lemma 4.1 to A and B = A/T_I, and B has no chosen polarization. Theorem 1.2's A is polarized (footnote 1), which is why the repair is easy, but the printed step is false as applied to B. Lemma 4.1 is not in arXiv v5 ('rigid' does not occur there). level-three-descent and bounded-field-definition assume a polarized A, and cm-common-definition-field chooses a descended polarization on B, all without a source issue. That is a silent correction under §18. E10 (error, affects the proof, new) with the polarized restatement is right."
+  },
+  {
+   "finding": "RT-PAPER-TSIMERMAN-18/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed, with a correction to the search evidence. Route 11 sends to LD.6 four items stated in terms of mixed Shimura data: P = W ⋊ G, the pure part and π, special points, and Gao §13's neat level. No layer plans general mixed Shimura varieties. The atlas mentions them only in ShimuraCompactifications (C1's boundary data), as route 11's own reason concedes. The item-level search missed two hits. The first is this paper's mixed-special-point-order, whose note says 'mixed Shimura variety'. The second is PAPER-DIMITROV-GAO-HABEGGER-21/17, 'Real-coordinate uniformization of the universal abelian variety'. It constructs the mixed Shimura datum P_{2g,a} = V_{2g} ⋊ Sp_{2g} of the universal abelian variety over A_g. It is missing and routed part-ii to AbelianSchemesBettiMapsPartII. That item covers only one specific datum, not the general definitions (special subvarieties, the projection to the pure part, neat levels) that these items use, so the claim stands. But fix (a)'s new mixed-Shimura owner should import or absorb DGH21/17 rather than duplicate it. The paper uses the notion in its own statement on p. 380, and §16 makes every definition used an item. The fix, (a) or (b), and merging what stays at LD.6 into route 1, are sound."
+  },
+  {
+   "finding": "RT-PAPER-TSIMERMAN-18/6",
+   "verdict": "confirmed",
+   "reason": "Confirmed. p. 384 image: 'where c_g is a positive constant depending only on g'. The same wording is in v5 p. 4. That c_g is the lower bound of Theorem 2.1. The p. 381 image prints the unscaled metric |∫σ(ω∧ω̄)|, which is AGHMP's normalization. I recomputed the j = 0 example with the closed forms given: L(0,χ_{−3}) = 1/3 and L′(0,χ_{−3}) = −(1/3)log 3 + log Γ(1/3) − log Γ(2/3). That gives h = −½L′/L − ¼log 3 − ½log 2π = −1.66769, and adding ½log 2π gives −0.74875, the known minimum in Deligne's normalization. So the lower bound is negative in both normalizations, and only the word 'positive' is wrong; the inequality holds with the true c_g. bost-lower-bound ('need not be positive') and cm-height-average-to-individual correct it without a record. E11 (misprint, affects nothing) is right."
+  },
+  {
+   "finding": "RT-PAPER-TSIMERMAN-18/7",
+   "verdict": "confirmed",
+   "reason": "Confirmed. p. 387: 'an algebraic point y of degree bounded by 2g' and 'degree 2g algebraic points'. The same sentence is in arXiv v5 §6.2, and I read PT2014 arXiv:1206.2663v3 Lemma 7.4: 'Since all the co-ordinates of Z are algebraic of degree at most 2g'. I re-derived the red team's argument. Z depends only on the row space W_Φ of the period matrix. σ(W_Φ) = W_{σΦ}, and the 2g vectors v_φ are independent, so σ fixes Z exactly when σΦ = Φ. Hence ℚ(Z) is the reflex field, and an Sp_{2g}(ℤ) translate generates the same field. For a sextic CM field with generic Galois group (ℤ/2)^3 ⋊ S_3, the sign changes act simply transitively on the 8 CM types, so [E*:ℚ] = 8 > 6. The degree of each separate coordinate is only bounded by 2^g, and neither text proves 2g. The extraction's cm-lift-degree already keeps only a d_g, and its note flags the 2g/4g discrepancy, but no source issue records it. E12 (gap, affects nothing) with a d_g ≤ 2^g formulation is right."
+  },
+  {
+   "finding": "RT-PAPER-TSIMERMAN-18/8",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Route 2 sends cm-height-metric-normalization (h_YZ = h_T + (g/2)log 2π) to R35. AGHMP's route 11 brief for the same Part II says 'prove the adapter h_YZ=h_AGHMP+d log(2π)/2'. AGHMP's rev-metrized-hodge-volume-and-standard has ||s||² = |∫ s∧s̄|, which is Tsimerman's p. 381 metric, so h_T = h_AGHMP and the two adapters are one identity. The duplication is also inside this paper. Route 9's brief imports 'normalization' from R35.1–R35.6, but also says 'construct the normalization/application adapter here' and 'Include … both exact height normalizations'. RS-06 narrows R35.2 to keep 'product/dual normalization', so R35.2 is the right single owner."
+  },
+  {
+   "finding": "RT-PAPER-TSIMERMAN-18/9",
+   "verdict": "confirmed",
+   "reason": "Confirmed at the pin. Mathlib 082e2d3, Mathlib/NumberTheory/Height/NumberField.lean:137 defines `absMulHeight₁ {K} [Field K] [CharZero K] (x : K) : ℝ` as the finrank-th root of mulHeight₁ of the generator of ℚ⟮x⟯ for integral x. :146 defines absLogHeight₁. Both are in the baseline declarations.tsv. The coordinate height in algebraic-point-height is therefore library, and the tuple height is its maximum. The docstring slip is as stated: 'junk value of `0`', while the code returns 1. RS-03's RP.0 keeps 'comparison with the imported normalized absolute … heights', so what remains planned there is the field-extension and complex-to-real comparison. Adding the two library citations is right."
+  },
+  {
+   "finding": "RT-PAPER-TSIMERMAN-18/10",
+   "verdict": "confirmed",
+   "reason": "Confirmed. (a) LD.6 plans 'a source-complete Pila-Wilkie rational-point estimate'. pila-wilkie counts points of degree ≤ d, and its own note says the extension comes from Pila 2009, not the rational-point paper. PAPER-GAO-HABEGGER-19/30, the semi-rational extension, is missing and on route 4 to LD.6. So 'planned' overstates LD.6. (b) The 20 prerequisites include Pila–Wilkie 2006 and Pila 2011 but not Pila 2009 (Selecta Math. 15). (c) Shimura–Taniyama and Bost link to Tsimerman's own Annals PDF, and Rademacher links to the Thorner–Zaman PDF. The 'why' fields say these links go to the citing source, so they are deliberate. But a prerequisite link is how the maintainer adds the paper to a later batch (§16), and these would fetch the wrong document. The split and the three replacement citations are right."
+  },
+  {
+   "finding": "RT-PAPER-TSIMERMAN-18/11",
+   "verdict": "confirmed",
+   "reason": "Confirmed. The item statuses count 5 library, 30 planned and 66 missing, but validation.structuralChecks.statuses reads 5/28/68. The report and the review both say 5/30/66. Neither PAPER-TSIMERMAN-18.result.json nor errata/PAPER-TSIMERMAN-18.json has sourceVersions. §18 says the file records what was read alongside sourceIssues. check_errata.py enforces this only when a finding affects a stated result, and E1–E8 affect nothing or the proof, so the checker passes. The hashes the fix supplies are the ones I computed for the two PDFs I read (43259ca3… and ccc5f8be…)."
+  }
+ ],
+ "missed": "None beyond the corrections noted in findings 2 and 5."
+}

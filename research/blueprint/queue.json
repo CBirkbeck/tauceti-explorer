@@ -33602,7 +33602,9 @@
     "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4067",
+   "finishedAt": "2026-09-30T14:13:44Z"
   },
   {
    "id": "REV-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
@@ -33625,7 +33627,9 @@
     "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4066",
+   "finishedAt": "2026-09-30T14:35:37Z"
   },
   {
    "id": "RT-PAPER-DITTMANN-POP-23",
@@ -34134,7 +34138,9 @@
     "REV-PAPER-DEMARCO-KRIEGER-YE-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DEMARCO-KRIEGER-YE-20.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4087",
+   "finishedAt": "2026-09-30T14:10:17Z"
   },
   {
    "id": "REV-RT-PAPER-DEMARCO-KRIEGER-YE-20",
@@ -34157,7 +34163,9 @@
     "REV-PAPER-DEMARCO-KRIEGER-YE-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DEMARCO-KRIEGER-YE-20.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4086",
+   "finishedAt": "2026-09-30T14:25:31Z"
   },
   {
    "id": "RT-PAPER-COUVEIGNES-20",
@@ -34314,7 +34322,9 @@
     "REV-PAPER-GAO-HABEGGER-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GAO-HABEGGER-19.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4093",
+   "finishedAt": "2026-09-30T14:39:24Z"
   },
   {
    "id": "REV-RT-PAPER-GAO-HABEGGER-19",
@@ -34337,7 +34347,9 @@
     "REV-PAPER-GAO-HABEGGER-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GAO-HABEGGER-19.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4092",
+   "finishedAt": "2026-09-30T15:00:40Z"
   },
   {
    "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19",
@@ -34447,8 +34459,9 @@
     "REV-PAPER-TSIMERMAN-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4100"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4100",
+   "finishedAt": "2026-09-30T13:37:36Z"
   },
   {
    "id": "REV-RT-PAPER-TSIMERMAN-18",
@@ -34471,7 +34484,9 @@
     "REV-PAPER-TSIMERMAN-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-TSIMERMAN-18.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4099",
+   "finishedAt": "2026-09-30T13:57:06Z"
   },
   {
    "id": "RT-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
@@ -34577,7 +34592,9 @@
     "REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4106",
+   "finishedAt": "2026-09-30T14:19:38Z"
   },
   {
    "id": "REV-RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18",
@@ -34600,7 +34617,9 @@
     "REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4105",
+   "finishedAt": "2026-09-30T14:35:41Z"
   },
   {
    "id": "RT-PAPER-GAN-ICHINO-18",
@@ -34843,7 +34862,8 @@
     "REV-PAPER-YUN-ZHANG-17"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-YUN-ZHANG-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4116"
   },
   {
    "id": "REV-RT-PAPER-YUN-ZHANG-17",
@@ -35472,7 +35492,8 @@
     "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LIU-WOOD-ZUREICKBROWN-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4136"
   },
   {
    "id": "REV-RT-PAPER-LIU-WOOD-ZUREICKBROWN-24",
@@ -35601,7 +35622,9 @@
     "REV-PAPER-FENG-YUN-ZHANG-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FENG-YUN-ZHANG-24.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4142",
+   "finishedAt": "2026-09-30T15:14:12Z"
   },
   {
    "id": "REV-RT-PAPER-FENG-YUN-ZHANG-24",
@@ -35644,7 +35667,9 @@
     "REV-PAPER-HE-LI-SHI-ETAL-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HE-LI-SHI-ETAL-23.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4144",
+   "finishedAt": "2026-09-30T15:18:03Z"
   },
   {
    "id": "REV-RT-PAPER-HE-LI-SHI-ETAL-23",
@@ -36621,7 +36646,9 @@
     "REV-PAPER-KOYMANS-MILOVIC-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KOYMANS-MILOVIC-21.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4186",
+   "finishedAt": "2026-09-30T14:35:46Z"
   },
   {
    "id": "REV-RT-PAPER-KOYMANS-MILOVIC-21",
@@ -36644,7 +36671,9 @@
     "REV-PAPER-KOYMANS-MILOVIC-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KOYMANS-MILOVIC-21.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4185",
+   "finishedAt": "2026-09-30T14:54:19Z"
   },
   {
    "id": "RT-PAPER-BHATT-MATHEW-21",
@@ -36836,7 +36865,8 @@
     "REV-PAPER-WOOD-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-WOOD-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4196"
   },
   {
    "id": "REV-RT-PAPER-WOOD-19",
@@ -37008,7 +37038,9 @@
     "REV-PAPER-HANSEN-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HANSEN-26.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4528",
+   "finishedAt": "2026-09-30T14:47:11Z"
   },
   {
    "id": "REV-RT-PAPER-HANSEN-26",
@@ -37031,7 +37063,9 @@
     "REV-PAPER-HANSEN-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HANSEN-26.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4527",
+   "finishedAt": "2026-09-30T14:57:20Z"
   },
   {
    "id": "RT-PAPER-KISIN-PAPPAS-ZHOU-26",
@@ -37180,7 +37214,9 @@
     "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LEMKEOLIVER-WANG-WOOD-25.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4210",
+   "finishedAt": "2026-09-30T15:00:45Z"
   },
   {
    "id": "REV-RT-PAPER-LEMKEOLIVER-WANG-WOOD-25",
@@ -37203,7 +37239,8 @@
     "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LEMKEOLIVER-WANG-WOOD-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4209"
   },
   {
    "id": "RT-PAPER-FENG-24",
@@ -38228,8 +38265,9 @@
     "REV-PAPER-SCHOLZE-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SCHOLZE-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4256"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4256",
+   "finishedAt": "2026-09-30T13:53:17Z"
   },
   {
    "id": "REV-RT-PAPER-SCHOLZE-26",
@@ -38252,7 +38290,9 @@
     "REV-PAPER-SCHOLZE-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SCHOLZE-26.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4255",
+   "finishedAt": "2026-09-30T14:13:50Z"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-25",
@@ -38530,7 +38570,9 @@
     "REV-PAPER-HARPAZ-WITTENBERG-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4270",
+   "finishedAt": "2026-09-30T14:31:36Z"
   },
   {
    "id": "REV-RT-PAPER-HARPAZ-WITTENBERG-20",
@@ -38553,7 +38595,9 @@
     "REV-PAPER-HARPAZ-WITTENBERG-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4269",
+   "finishedAt": "2026-09-30T14:47:18Z"
   },
   {
    "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
@@ -38874,7 +38918,9 @@
     "REV-PAPER-RICHARD-YAFAEV-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-RICHARD-YAFAEV-25.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4289",
+   "finishedAt": "2026-09-30T15:04:39Z"
   },
   {
    "id": "REV-RT-PAPER-RICHARD-YAFAEV-25",
@@ -38897,7 +38943,8 @@
     "REV-PAPER-RICHARD-YAFAEV-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-RICHARD-YAFAEV-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4288"
   },
   {
    "id": "RT-PAPER-BHATT-ETAL-23",
@@ -39645,7 +39692,9 @@
     "REV-PAPER-SKINNER-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SKINNER-20.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4322",
+   "finishedAt": "2026-09-30T15:18:09Z"
   },
   {
    "id": "REV-RT-PAPER-SKINNER-20",
@@ -40293,8 +40342,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4340"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4340",
+   "finishedAt": "2026-09-30T13:37:43Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
@@ -40319,7 +40369,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4339",
+   "finishedAt": "2026-09-30T13:57:10Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
@@ -40616,8 +40668,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4349"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4349",
+   "finishedAt": "2026-09-30T13:53:23Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
@@ -40642,7 +40695,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4348",
+   "finishedAt": "2026-09-30T14:04:15Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Chebotarev",
@@ -41756,7 +41811,9 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-02.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4389",
+   "finishedAt": "2026-09-30T14:16:49Z"
   },
   {
    "id": "REV-RT-RS-02",
@@ -41782,7 +41839,9 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-02.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4388",
+   "finishedAt": "2026-09-30T14:22:23Z"
   },
   {
    "id": "RT-RS-03",
@@ -41845,8 +41904,9 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-03.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4390"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4390",
+   "finishedAt": "2026-09-30T13:40:50Z"
   },
   {
    "id": "RT-RS-05",
@@ -41938,7 +41998,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-06.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4395",
+   "finishedAt": "2026-09-30T14:54:25Z"
   },
   {
    "id": "REV-RT-RS-06",
@@ -41970,7 +42032,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-06.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4394",
+   "finishedAt": "2026-09-30T15:07:53Z"
   },
   {
    "id": "RT-RS-07",
@@ -42138,7 +42202,9 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-13.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4399",
+   "finishedAt": "2026-09-30T14:39:30Z"
   },
   {
    "id": "REV-RT-RS-13",
@@ -42164,7 +42230,9 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-13.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4398",
+   "finishedAt": "2026-09-30T14:51:10Z"
   },
   {
    "id": "RT-RS-14",
@@ -42187,7 +42255,9 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-14.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4401",
+   "finishedAt": "2026-09-30T15:00:52Z"
   },
   {
    "id": "REV-RT-RS-14",
@@ -42213,7 +42283,9 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-14.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4400",
+   "finishedAt": "2026-09-30T15:07:57Z"
   },
   {
    "id": "RT-RS-15",
@@ -42313,7 +42385,9 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-16.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4404",
+   "finishedAt": "2026-09-30T13:57:14Z"
   },
   {
    "id": "REV-RT-RS-16",
@@ -42341,7 +42415,9 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-16.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4403",
+   "finishedAt": "2026-09-30T14:13:54Z"
   },
   {
    "id": "RT-RS-17",
@@ -42366,7 +42442,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-17.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4406",
+   "finishedAt": "2026-09-30T14:10:24Z"
   },
   {
    "id": "REV-RT-RS-17",
@@ -42394,7 +42472,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-17.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4405",
+   "finishedAt": "2026-09-30T14:19:44Z"
   },
   {
    "id": "RT-RS-18",
@@ -42418,7 +42498,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-18.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4408",
+   "finishedAt": "2026-09-30T14:47:22Z"
   },
   {
    "id": "REV-RT-RS-18",
@@ -42445,7 +42527,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-18.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4407",
+   "finishedAt": "2026-09-30T14:51:14Z"
   },
   {
    "id": "RT-RS-19",
@@ -42468,7 +42552,9 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-19.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4410",
+   "finishedAt": "2026-09-30T14:31:44Z"
   },
   {
    "id": "REV-RT-RS-19",
@@ -42494,7 +42580,9 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-19.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4409",
+   "finishedAt": "2026-09-30T14:39:35Z"
   },
   {
    "id": "RT-RS-22",
@@ -43006,7 +43094,9 @@
     "REV-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4418",
+   "finishedAt": "2026-09-30T14:31:50Z"
   },
   {
    "id": "REV-RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -43031,7 +43121,8 @@
     "REV-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4417"
   },
   {
    "id": "RT-BP-HabiroCyclotomicCompletions",
@@ -43241,7 +43332,8 @@
     "REV-ArithmeticKTheory--N.7"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-ArithmeticKTheory--N.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4429"
   },
   {
    "id": "REV-RT-BP-ArithmeticKTheory--N.7",
