@@ -12,12 +12,77 @@
     "readSections": [
       "Read in full in the published version, the open-access PDF linked from the Annals article page for volume 191 (2020), issue 2, pages 329–354 (https://annals.math.princeton.edu/2020/191-2/p01), sha256 cfdfab6e62ac507be40d1f0bc8d9cb8371d95b42c5ae259fde054c70fb20c214, 26 pages, read 2026-09-23: §1 Introduction with Theorems A, A', B, C, D; §2 The proof of Theorem B (§2.1 Modular forms and abelian varieties, §2.2 Selmer groups, §2.3 More Galois cohomology, §2.4 The Heegner points P_K(f), §2.5 The Gross–Zagier theorem, §2.6 A p-adic L-function and a formal log of P_K(f), §2.7 Some Iwasawa theory for f and K, §2.8 An observation about hypothesis (irr_K), §2.9 Finishing the proof of Theorem B with Remark 2.9.1); §3 Theorem A follows from Theorem B; §4 A remark on the r = 0 case with Theorem E; and the references.",
       "The arXiv preprint 1405.7294v1 (28 May 2014, 23 pages, sha256 of the PDF 9e4650618c83394c400a10e990759f9fba42113eedc79fe2fcbe029d6c8381ff; e-print archive sha256 80518dbef19f9dcf86686421f8c59c76af0bb1b2d6e69481b306d893162c0099, one file GZconverse-arxivready.tex of 1464 lines) was read alongside it for the exact LaTeX of every statement. It is the only arXiv version and predates publication by six years: the Annals page records Received 1 August 2013, Revised 1 December 2019, Accepted 2 December 2019, Published online 13 February 2020.",
-      "The two versions were compared statement by statement. The 19 numbered statements and their numbers agree exactly: Theorems A, A', B, C, D, E and Lemmas 2.2.1, 2.2.2, 2.3.1, 2.3.2, 2.8.1, Propositions 2.5.1, 2.6.1, 2.7.2, 2.7.3, Corollaries 2.5.2, 2.6.2, Conjecture 2.7.1, Remark 2.9.1. The one mathematical difference is in §§2.6–2.7 and is recorded as source issue E1: the published version places the anticyclotomic p-adic L-function in O^ur[[Γ]] and states Conjecture 2.7.1 and Proposition 2.7.2 as statements about ideals of Λ^ur ⊗_O L, where Λ = O[[Γ]] and Λ^ur = O^ur[[Γ]], whereas the preprint uses O[[Γ]] and Λ ⊗_{Z_p} Q_p throughout. The published bibliography is also updated (Wan's paper is Algebra Number Theory 14 (2020), the citation is to its Theorem 1.2 rather than to part (2) of Theorem 1.1 of the 2013 preprint; Bhargava–Skinner and Brooks are published). Every item below states the published form.",
+      "The two versions were compared statement by statement. The 19 numbered statements and their numbers agree exactly: Theorems A, A', B, C, D, E and Lemmas 2.2.1, 2.2.2, 2.3.1, 2.3.2, 2.8.1, Propositions 2.5.1, 2.6.1, 2.7.2, 2.7.3, Corollaries 2.5.2, 2.6.2, Conjecture 2.7.1, Remark 2.9.1. The one mathematical difference is in §§2.6–2.7 and is recorded as source issue E1: the published version places the anticyclotomic p-adic L-function in O^ur[[Γ]] and states Conjecture 2.7.1 and Proposition 2.7.2 as statements about ideals of Λ^ur ⊗_O L, where Λ = O[[Γ]] and Λ^ur = O^ur[[Γ]], whereas the preprint uses O[[Γ]] and Λ ⊗_{Z_p} Q_p throughout. The published text cites Wan Theorem 1.2 rather than part (2) of Theorem 1.1 of the older preprint. Its bibliography [26] still says 2014, to appear in Algebra Number Theory, arXiv:1408.4044; the prerequisite record supplies the eventual journal metadata (Algebra Number Theory 14 (2020), 383–483). Bhargava–Skinner and Brooks have published entries. Every item below states the published form.",
       "The Annals article page lists no erratum or corrigendum for this paper, and arXiv has no version after v1.",
       "Review REV-PAPER-SKINNER-20 (Claude Code, cc-39fac3, 23 September 2026): the published PDF (same SHA-256) read in full again, and arXiv 1405.7294v1 for E1; every item checked against the published text."
-    ]
+    ],
+    "fixAudit": {
+      "agent": "Codex",
+      "session": "codex-rtOQ9t",
+      "date": "2026-09-30",
+      "issue": 5144,
+      "scope": "All six confirmed RT findings; source/ownership repair, not a new full extraction or independent review.",
+      "sources": [
+        {
+          "name": "skinner",
+          "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p01-s.pdf",
+          "finalUrl": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p01-s.pdf",
+          "retrievedAt": "2026-09-30T16:43:13.487945+00:00",
+          "bytes": 446260,
+          "sha256": "cfdfab6e62ac507be40d1f0bc8d9cb8371d95b42c5ae259fde054c70fb20c214",
+          "read": "Targeted rereading of published pp.329–331,337–341,343–344,346,350–354; selected formulas inspected as page images. The earlier complete readings in source.readSections are preserved."
+        },
+        {
+          "name": "bsw",
+          "url": "https://arxiv.org/pdf/2603.20886v2",
+          "finalUrl": "https://arxiv.org/pdf/2603.20886v2",
+          "retrievedAt": "2026-09-30T16:43:12.775085+00:00",
+          "bytes": 424753,
+          "sha256": "f2b4a020bf5dbcd33df3a4b30cbf27230dc0d0775312f5e543b03b2486f6a994",
+          "read": "Read pp.1–7 and 9–11, in particular §§1.2–1.4, 2.1.1, Theorem 2.3/Remark 2.4, §§3 and 4.1; page images of Theorem 1.1 and Theorem 3.2/proof. Only the unconditional rank-one theorem is used."
+        },
+        {
+          "name": "poonen-stoll",
+          "url": "https://math.mit.edu/~poonen/papers/sha.pdf",
+          "finalUrl": "https://math.mit.edu/~poonen/papers/sha.pdf",
+          "retrievedAt": "2026-09-30T16:43:13.495549+00:00",
+          "bytes": 509200,
+          "sha256": "3b9a619423358bc877fd2123b73a759157a728ec11e0f7b0aa48bd0333d7149a",
+          "read": "Read pp.1–2, §3 pp.6–8 and bibliography selections pp.31–32; the original Cassels/Tate publications were not acquired."
+        },
+        {
+          "name": "brooks",
+          "url": "https://infoscience.epfl.ch/server/api/core/bitstreams/c151dcd9-ff05-4c82-90d5-de19eec6f189/content",
+          "retrievedAt": "2026-09-30T16:46:15.307369+00:00",
+          "bytes": 409557,
+          "sha256": "90898527cf2e7e69bb6eba200dc7646e7f61837fa310299852ea2b958f925219",
+          "read": "Read published pp.4178,4180,4190–4192, especially §§2.7–2.8; not a full reading of this 65-page supplier."
+        }
+      ],
+      "libraryPins": {
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+      },
+      "atlasCommit": "9004628ecb7972449940926f85ed523e3c033bfc",
+      "checks": {
+        "items": 91,
+        "planned": 31,
+        "missing": 60,
+        "routes": 8,
+        "sourceIssues": 12,
+        "selectedItemDependencyEdges": 57,
+        "baseAtlasStages": 2840,
+        "baseAtlasEdges": 8258,
+        "proposedEdge": {
+          "source": "DiophantineApproximationAndTranscendence:DT.3",
+          "target": "GrossZagierAndArithmeticHeights:GZ.9",
+          "reversePathFound": false
+        },
+        "diagnosticAssertions": 60
+      }
+    }
   },
-  "summary": "Skinner proves the first converse to the theorem of Gross, Zagier and Kolyvagin in analytic rank one for non-CM forms. Let f ∈ S_2(Γ_0(N)) be a newform with trivial nebentypus and A_f the associated abelian variety, with M_f = End^0_Q(A_f). Theorem A says that if N is squarefree and either one odd prime ℓ has π_ℓ equal to the unramified quadratic twist of the special representation, or two odd primes have π_ℓ special, then rank_Z A_f(Q) = [M_f:Q] together with the finiteness of Ш(A_f) forces ord_{s=1}L(f,s) = 1; for a semistable elliptic curve (Theorem A') the hypothesis reads: non-split multiplicative reduction at one odd prime, or split multiplicative reduction at two. Theorem C replaces the arithmetic hypotheses by Sel_p(E) ≅ Z/pZ and a local condition at p, and Theorem E is the analogous rank-zero statement. All of these come from Theorem B, a p-adic criterion over an imaginary quadratic field K in which 2 and p split: under explicit ordinarity, irreducibility, ramification and discriminant hypotheses, if the Bloch–Kato Selmer group H^1_f(K,V) is one-dimensional and injects into the semilocal cohomology at p, then ord_{s=1}L(f,K,s) = 1 and A_f/K has rank [M_f:Q] with finite Ш.\n\nThe proof is p-adic and does not use a p-adic Gross–Zagier formula for a derivative or the non-degeneracy of p-adic heights. Hypothesis (e) and Nekovář's parity theorem give ε(f,K) = −1; the general Gross–Zagier formula of Yuan–Zhang–Zhang then reduces Theorem B to the non-vanishing of the Heegner point P_K(f) ∈ A_f(K) ⊗ M_f built from CM points on a modular or Shimura curve; the p-adic Gross–Zagier formula of Bertolini–Darmon–Prasanna and Brooks, L^S_𝔭(f,1) ≐ (log_ω P_K(f))², reduces that to the non-vanishing of an anticyclotomic p-adic L-value; and the Iwasawa–Greenberg divisibility proved by Wan on U(3,1) gives L^S_𝔭(f,1) = 0 ⟹ H^1_𝔭(K,V) ≠ 0, whose contrapositive applies because hypothesis (e) makes H^1_𝔭(K,V) = 0 by a short Galois-cohomological argument (Lemmas 2.3.1 and 2.3.2) that is where the splitting of p in K is used.\n\nThe paper needs: the Eichler–Shimura abelian variety and the λ-adic representation V with local–global compatibility; Bloch–Kato Selmer groups, Tate global duality and the global Euler characteristic formula; CM points on X_0(N) and on Shimura curves with their descent to the Hilbert class field, and the ε_f-normalised Heegner point; the Yuan–Zhang–Zhang height formula; the BDP/Brooks anticyclotomic p-adic L-function, its membership in the Iwasawa algebra over the completed maximal unramified extension, and the p-adic Gross–Zagier formula at the trivial character; Greenberg's Panchishkin formalism and Wan's two-variable divisibility; Nekovář's parity theorem; Friedberg–Hoffstein non-vanishing; Ribet's irreducibility and level-lowering theorems and Serre's density theorem; and, for the alternative route at rank zero, Kato's Euler system.",
+  "summary": "Skinner’s squarefree-level rank-one and rank-zero converses, Theorem B with explicit Selmer injectivity and the mod-p Selmer criterion: 91 items (31 planned, 60 missing), eight routes with every missing item assigned exactly once. Restore the original A/E statements using the public Burungale–Skinner–Wan eigenlogarithm repair; request the general input at DT.3 and the RM/Heegner application at GZ.9. Add the shared elliptic Cassels–Tate inputs at SelmerIwasawaCohomology L1–L2, separate indefinite curve/transfer/quotient/normalization owners, and keep the A′ assembly in RankOneConverse. Twelve source issues retain the repaired historical omissions and the published/preprint distinctions.",
   "items": [
     {
       "id": "PAPER-SKINNER-20/1",
@@ -69,10 +134,13 @@
       "id": "PAPER-SKINNER-20/5",
       "kind": "theorem",
       "name": "Theorem A: the p-converse for A_f of squarefree level",
-      "statement": "Theorem A as printed, with the note: 'as proved, for [M_f:Q] > 1 the proof also needs a prime p satisfying the conditions of §3 at which the λ-part of the restriction H^1_f(K,V) → H^1(K_𝔭,V) is non-zero. This holds, for example, when λ is the only prime of M_f above p.'",
+      "statement": "Let f ∈ S_2(Γ_0(N)) be a normalized weight-two cuspidal newform with trivial nebentypus, A_f/Q its modular abelian variety, M_f its totally real Hecke field, and π the cuspidal representation normalized by L(π,s−1/2)=L(f,s). Suppose N is squarefree and either an odd prime ℓ has π_ℓ equal to the twist of the special representation by the unique unramified quadratic character, or two distinct odd primes ℓ₁, ℓ₂ have π_{ℓ₁} and π_{ℓ₂} special. If rank_Z A_f(Q)=[M_f:Q] and Ш(A_f/Q) is finite, then ord_{s=1} L(f,s)=1.",
       "locator": "Theorem A (§1), with the Atkin–Lehner reformulation in the paragraph following it, Skinner, Ann. of Math. (2) 191 (2020), 329–354",
       "status": "missing",
-      "note": "Review (REV-PAPER-SKINNER-20): The statement is faithful to the paper. When [M_f:Q] > 1, however, the published proof (§3) takes hypothesis (e) of Theorem B from Lemma 2.2.2, whose injectivity conclusion is not justified in that case (new issue PAPER-SKINNER-20/new-1 (Lemma 2.2.2)). The proof is complete when M_f = Q, which covers Theorem A′."
+      "note": "The published Theorem A is retained under its original hypotheses. The historical omission in Lemma 2.2.2 is supplied by Burungale–Skinner–Wan (2026), Theorem 1.1, through items 81–82 and 20; E5 records that repair. No uniqueness of λ above p or extra logarithm assumption is imposed.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/59"
+      ]
     },
     {
       "id": "PAPER-SKINNER-20/6",
@@ -111,10 +179,13 @@
       "id": "PAPER-SKINNER-20/10",
       "kind": "theorem",
       "name": "Theorem E: the analogous statement in analytic rank zero",
-      "statement": "Theorem E as printed, with the note: 'for [M_f:Q] > 1 the proof needs the same extra input as Theorem A (λ-part of the restriction at 𝔭 non-zero on A_f^D(Q)); the choice of K in (iv)′ needs a non-vanishing theorem for first derivatives of quadratic twists (Bump–Friedberg–Hoffstein; Murty–Murty).'",
+      "statement": "Let f ∈ S_2(Γ_0(N)) be a normalized weight-two cuspidal newform with trivial nebentypus, A_f/Q its modular abelian variety, M_f its totally real Hecke field, and π the cuspidal representation normalized by L(π,s−1/2)=L(f,s). Suppose N is squarefree and either an odd prime ℓ has π_ℓ equal to the twist of the special representation by the unique unramified quadratic character, or two distinct odd primes ℓ₁, ℓ₂ have π_{ℓ₁} and π_{ℓ₂} special. If A_f(Q) and Ш(A_f/Q) are both finite, then ord_{s=1} L(f,s)=0 (equivalently L(f,1)≠0).",
       "locator": "Theorem E (§4) with the proof sketch following it, Skinner, Ann. of Math. (2) 191 (2020), 329–354",
       "status": "missing",
-      "note": "Review (REV-PAPER-SKINNER-20): The statement is faithful. Its proof sketch (§4) inherits new issue PAPER-SKINNER-20/new-1 (Lemma 2.2.2) when [M_f:Q] > 1, applied to A_f^D. It also inherits the uncited existence of K with ord_{s=1}L(f⊗χ_D,s) = 1 (new issue PAPER-SKINNER-20/new-7)."
+      "note": "The published Theorem E is retained. The logarithm input in its auxiliary-field proof is repaired by items 81–82 and 20. The separate derivative-nonvanishing input, item 76 and source issue E11, remains necessary; a root number alone does not supply it.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/62"
+      ]
     },
     {
       "id": "PAPER-SKINNER-20/11",
@@ -204,23 +275,29 @@
       "id": "PAPER-SKINNER-20/19",
       "kind": "definition",
       "name": "The p-power Selmer group of A_f and its relation to H^1_f(K,V)",
-      "statement": "Same statement, with 'H^1(K_𝔩,V_pA_f), H^1_f(K_𝔩,V_pA_f) and H^1_f(K_𝔩,W) all vanish for 𝔩 ∤ p', and with: for any finite S containing the primes above pN, Sel_{p^∞}(A_f/K) ⊂ H^1(G_{K,S},W) consists of the classes whose restriction lies in H^1_f(K_𝔩,W) for all 𝔩 ∈ S. The image of H^1(G_{K,S},V_pA_f) in H^1(G_{K,S},W) is the maximal divisible subgroup and has finite index.",
+      "statement": "Let A_f, p, K and V be as in §2.1, T_pA_f its Tate module and W=V_pA_f/T_pA_f≅A_f[p^∞]. Put Ш(A_f/K)=ker(H¹(K,A_f(K̄))→∏_v H¹(K_v,A_f(K̄_v))) and Sel_{p^∞}(A_f/K)=ker(H¹(K,W)→∏_v H¹(K_v,A_f(K̄_v))). For each place v let H¹_f(K_v,W) be the image of the local Kummer map A_f(K_v)⊗Q_p/Z_p→H¹(K_v,W); it is also the image of the Bloch–Kato subgroup H¹_f(K_v,V_pA_f). At v∤p the groups H¹(K_v,V_pA_f), H¹_f(K_v,V_pA_f) and H¹_f(K_v,W) vanish in this setting. There is an exact sequence 0→A_f(K)⊗Q_p/Z_p→Sel_{p^∞}(A_f/K)→Ш(A_f/K)[p^∞]→0. For finite S containing the primes above pN, Sel_{p^∞} lies in H¹(G_{K,S},W) and is cut out by restriction into H¹_f(K_v,W) for v∈S. The image of H¹(G_{K,S},V_pA_f) in H¹(G_{K,S},W) is the maximal divisible subgroup and has finite index. The maximal divisible subgroup of Sel_{p^∞} is the image of H¹_f(K,V_pA_f). The rational Kummer injection A_f(K)⊗Q_p→H¹_f(K,V_pA_f) has cokernel dimension equal to corank_{Z_p} Ш(A_f/K)[p^∞]. Writing M_{f,p}=M_f⊗Q_p and L=M_{f,λ} (or a finite extension), H¹_f(K,V)=H¹_f(K,V_pA_f)⊗_{M_{f,p}}L and H¹_f(K_v,V)=H¹_f(K_v,V_pA_f)⊗_{M_{f,p}}L.",
       "locator": "§2.2, 'Connections with the Selmer group of A_f', Skinner, Ann. of Math. (2) 191 (2020), 329–354",
       "status": "planned",
       "planned": [
         "SelmerIwasawaCohomology:L2",
         "SelmerIwasawaCohomology:L4"
       ],
-      "note": "L2 plans the Selmer group of a lattice and its rational and divisible comparisons, L4 the Bloch–Kato/Kummer comparison; the statement here is their instance for an abelian variety with real multiplication. Review (REV-PAPER-SKINNER-20): In 'all three groups vanish for 𝔩 ∤ p' only two groups have been named. The printed three are H^1(K_𝔩,V_pA_f), H^1_f(K_𝔩,V_pA_f) and H^1_f(K_𝔩,W)."
+      "note": "Restores the complete §2.2 contract. SelmerIwasawaCohomology L2 supplies lattice/divisible local conditions and L4 the Bloch–Kato/Kummer comparison. The vanishing concerns the three named local groups, not all of H¹(K_v,W). No finiteness of Ш is assumed in these definitions or the exact sequence."
     },
     {
       "id": "PAPER-SKINNER-20/20",
       "kind": "theorem",
       "name": "Lemma 2.2.2: rank one and finite Sha give hypothesis (e)",
-      "statement": "Lemma 2.2.2 (corrected). Suppose rank_Z A_f(K) = [M_f:Q] and #Ш(A_f/K)[p^∞] < ∞. Then dim_L H^1_f(K,V) = 1. Let P ∈ A_f(K) span A_f(K)⊗Q over M_f. For 𝔩 | p, the restriction H^1_f(K,V) → H^1(K_𝔩,V) is injective if and only if the image of P in the λ-component A_f(K_𝔩) ⊗_{O_{M_f}⊗Z_p} M_{f,λ} of H^1_f(K_𝔩,V_pA_f) is non-zero, that is, iff log_ω(P) ≠ 0 at 𝔩 for the λ-eigen 1-form ω. This holds whenever λ is the only prime of M_f above p, in particular when [M_f:Q] = 1.",
+      "statement": "Let f, A_f, M_f, p, λ, L and V be as in §2.1, and K the imaginary quadratic field of the paper. If rank_Z A_f(K)=[M_f:Q] and Ш(A_f/K)[p^∞] is finite, then dim_L H¹_f(K,V)=1 and restriction H¹_f(K,V)→H¹(K_v,V) is injective for every v|p. The same assertion holds with K replaced by Q.",
       "locator": "Lemma 2.2.2, Skinner, Ann. of Math. (2) 191 (2020), 329–354",
       "status": "missing",
-      "note": "Review (REV-PAPER-SKINNER-20): The injectivity conclusion is not justified when λ is not the only prime of M_f above p (new issue PAPER-SKINNER-20/new-1 (Lemma 2.2.2)). It holds as stated when [M_f:Q] = 1."
+      "note": "Published Lemma 2.2.2, with its Q-specialization used in §3. By item 19 the global space is the λ-component of the rank-one M_f-module A_f(K)⊗Q. Choose an actual non-torsion point spanning this module after clearing denominators. Item 81 makes its logarithm nonzero in every eigencomponent, for every embedding at v|p; the Kummer/logarithm comparison of item 77 then makes restriction injective on the one-dimensional L-space. This repairs E5 without a restriction on the number of primes above p.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/19",
+        "PAPER-SKINNER-20/77",
+        "PAPER-SKINNER-20/81",
+        "PAPER-SKINNER-20/82"
+      ]
     },
     {
       "id": "PAPER-SKINNER-20/21",
@@ -291,7 +368,7 @@
       "id": "PAPER-SKINNER-20/27",
       "kind": "theorem",
       "name": "Comparison of the normalisations of the Heegner divisor",
-      "statement": "With D^0_K = D_K − #Gal(H/K)·∞ and Q^0_K = [D^0_K] ∈ J(X)(K), and with ξ the normalised degree-one Hodge divisor of Yuan–Zhang–Zhang, D^ξ_K = D_K − #Gal(H/K)·ξ and Q^ξ_K = [D^ξ_K] ∈ J(X)(K) ⊗ Q, one has ε_f·Q^0_K = Q_K(f) = ε_f·Q^ξ_K, because the cusps are Eisenstein (T_ℓ·∞ = (1+ℓ)·∞) and, by the expression for the Hodge divisor in terms of the canonical divisor, ξ is Eisenstein as well. The same comparison holds in Case II.",
+      "statement": "With D^0_K = D_K − #Gal(H/K)·∞ and Q^0_K = [D^0_K] ∈ J(X)(K), and with ξ the normalised degree-one Hodge divisor of Yuan–Zhang–Zhang, D^ξ_K = D_K − #Gal(H/K)·ξ and Q^ξ_K = [D^ξ_K] ∈ J(X)(K) ⊗ Q, one has ε_f·Q^0_K = Q_K(f) = ε_f·Q^ξ_K, because the cusps are Eisenstein (T_ℓ·∞ = (1+ℓ)·∞) and, by the expression for the Hodge divisor in terms of the canonical divisor, ξ is Eisenstein as well. The Hodge-class identity ε_f·Q^ξ_K=Q_K(f) also holds in Case II; the cusp construction is only for Case I.",
       "locator": "§2.4, the paragraph on comparison with other constructions, Skinner, Ann. of Math. (2) 191 (2020), 329–354 (Yuan–Zhang–Zhang, §§1.2.2, 3.1.3)",
       "status": "missing"
     },
@@ -299,9 +376,16 @@
       "id": "PAPER-SKINNER-20/28",
       "kind": "construction",
       "name": "The Heegner point P_K(f) in Case II",
-      "statement": "In Case II, X is the Shimura curve over Q attached to the indefinite quaternion algebra B of discriminant N^- and an Eichler order O_{B,N^+} of level N^+ in a maximal order O_B, with an embedding K ↪ B such that K ∩ O_{B,N^+} = O_K. Replacing f by its Jacquet–Langlands transfer f_B, normalised as in Brooks §2.8 to be defined over M_f, and 𝔫 by an integral ideal 𝔫^+ of K of norm N^+, the constructions of Case I yield Q_K(f) = Q_K(f_B) ∈ J(X)(K) ⊗ M_f and P_K(f) = P_K(f_B) ∈ A_f(K) ⊗ M_f, and Q^ξ_K with ε_f·Q^ξ_K = Q_K(f).",
+      "statement": "In Case II, X is the Shimura curve over Q attached to the indefinite quaternion algebra B of discriminant N^- and an Eichler order O_{B,N^+} of level N^+ in a maximal order O_B, with an embedding K ↪ B such that K ∩ O_{B,N^+} = O_K. Replacing f by its Jacquet–Langlands transfer f_B, normalised as in Skinner’s citation of Brooks §2.8 (published Brooks §2.7 for the transfer normalization; see E12) to be defined over M_f, and 𝔫 by an integral ideal 𝔫^+ of K of norm N^+, the constructions of Case I yield Q_K(f) = Q_K(f_B) ∈ J(X)(K) ⊗ M_f and P_K(f) = P_K(f_B) ∈ A_f(K) ⊗ M_f, and Q^ξ_K with ε_f·Q^ξ_K = Q_K(f).",
       "locator": "§2.4, Case II, Skinner, Ann. of Math. (2) 191 (2020), 329–354",
-      "status": "missing"
+      "status": "missing",
+      "note": "Import the quaternionic CM points, rational Hodge class, denominator tracking and image under the modular quotient from HeegnerPointEulerSystems:HE.1. This missing item in RankOneConverse is the Skinner-specific ε_f normalization and its comparison with Brooks, through items 68 and 87–90; it is not a second construction of the curve or general CM points.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/68",
+        "PAPER-SKINNER-20/87",
+        "PAPER-SKINNER-20/89",
+        "PAPER-SKINNER-20/90"
+      ]
     },
     {
       "id": "PAPER-SKINNER-20/29",
@@ -410,10 +494,14 @@
       "id": "PAPER-SKINNER-20/39",
       "kind": "theorem",
       "name": "Corollary 2.6.2: non-vanishing of the Heegner point is non-vanishing of the p-adic L-value",
-      "statement": "Corollary 2.6.2 (corrected). Assume (sqf), (sgn), (ram), (flt) and (odd). If L^S_𝔭(f,1) ≠ 0 then P_K(f) ≠ 0. Conversely, if P_K(f) ≠ 0 and log_ω is non-zero on the f-isotypic line of A_f(K)⊗M_f then L^S_𝔭(f,1) ≠ 0. The second condition holds for example when [M_f:Q] = 1, when λ is the only prime of M_f above p, or under hypothesis (e) of Theorem B.",
+      "statement": "Let f be as in §2.1 and K an imaginary quadratic field of odd discriminant D. Assume N is squarefree, ε(f,K)=−1, p∤N and p=𝔭𝔭̄ splits in K. If (D,N)≠1, assume π_ℓ is the unramified quadratic twist of the special representation for every ℓ|(D,N), and every prime dividing N/(D,N) splits in K. With the normalized Heegner point and imprimitive p-adic L-function of §§2.4–2.6 (coefficient field enlarged as needed), P_K(f)≠0 if and only if L^S_𝔭(f,1)≠0, where S={ℓ:ℓ|pND}.",
       "locator": "Corollary 2.6.2, Skinner, Ann. of Math. (2) 191 (2020), 329–354",
       "status": "missing",
-      "note": "Review (REV-PAPER-SKINNER-20): The 'only if' direction (P_K(f) ≠ 0 ⟹ L^S_𝔭(f,1) ≠ 0) needs log_ω P_K(f) ≠ 0. This follows from P_K(f) ≠ 0 when [M_f:Q] = 1, but not in general (new issue PAPER-SKINNER-20/new-2). Only the 'if' direction is used in the proof of Theorem B."
+      "note": "Restores Corollary 2.6.2. Proposition 2.6.1 supplies the equivalence between the L-value and the squared logarithm. Item 82 proves nonvanishing of that logarithm for this projected rational divisor point, using item 81; it is not an assertion about arbitrary nonzero tensors or cohomology classes. Only L-value nonzero ⇒ point nonzero is needed for Theorem B.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/37",
+        "PAPER-SKINNER-20/82"
+      ]
     },
     {
       "id": "PAPER-SKINNER-20/40",
@@ -485,13 +573,13 @@
       "planned": [
         "AutomorphicCongruences:L2"
       ],
-      "note": "L2 plans exactly the U(3,1) Eisenstein/Rankin–Selberg families with the auxiliary imaginary quadratic field, its two-variable extension and the two-variable divisibility, including the exceptional height-one primes. Review (REV-PAPER-SKINNER-20): The item uses the preprint's notation 𝓛^{Σ,Hida}. The published text writes 𝓛^Σ_{f_0,𝒦,ξ} ∈ O^ur[[Γ_𝒦]], 'with Σ = S from [26, §7.5]'. The inclusion is not the statement of Wan's Theorem 1.2: the paper says 'The proof of [26, Th. 1.2] involves showing' it."
+      "note": "AutomorphicCongruences L2 plans the U(3,1) Eisenstein/Rankin–Selberg families and two-variable divisibility. This is the inclusion used in the proof of Wan’s Theorem 1.2, not a verbatim statement of that theorem. Published Skinner p.346 uses 𝓛^Σ_{f_0,K,ξ} and Wan §7.5 over O^ur[[Γ_K]]; arXiv v1 p.16 used 𝓛^{Σ,Hida}, an older theorem number and §6 over smaller coefficient rings. The published notation and unramified coefficient extension are used here."
     },
     {
       "id": "PAPER-SKINNER-20/47",
       "kind": "theorem",
       "name": "Proposition 2.7.2 and its deduction from Wan's theorem",
-      "statement": "Proposition 2.7.2. Under (sqf), (flt), (L-lrg), (irr_K), (sgn), (odd), (big), (ord), (spl) and (res), the ideal of Λ^ur ⊗_O L generated by Ch_Λ(f,K,S) is contained in the ideal generated by L^S_𝔭(f). The deduction: fix ψ_0 ∈ Σ^c_𝔭 of weight (−n_0,n_0) with n_0 > 6, let ψ^alg_0 be the associated algebraic Hecke character and ξ = ψ^alg_0 ω with ω the Teichmüller Hecke character; then π, the ordinary stabilisation f_0 of f, and ξ satisfy the hypotheses of Wan's theorem. Under the composition O^ur[[Γ_K]] → Λ^ur, γ ↦ ψ_0(γ)^{-1}γ, the function 𝓛^{Σ,Hida}_{f_0,K,ξ} maps to L^S_𝔭(f), and under the same base change Sel^Σ_{f_0,K,ξ} becomes Sel_∞(f,K,S) and X^Σ_{f_0,K,ξ} becomes X_∞(f,K,S); the inclusion of ideals then follows because the rings involved are unique factorisation domains and the characteristic ideals are principal.",
+      "statement": "Proposition 2.7.2. Under (sqf), (flt), (L-lrg), (irr_K), (sgn), (odd), (big), (ord), (spl) and (res), the ideal of Λ^ur ⊗_O L generated by Ch_Λ(f,K,S) is contained in the ideal generated by L^S_𝔭(f). The deduction: fix ψ_0 ∈ Σ^c_𝔭 of weight (−n_0,n_0) with n_0 > 6, let ψ^alg_0 be the associated algebraic Hecke character and ξ = ψ^alg_0 ω with ω the Teichmüller Hecke character; then π, the ordinary stabilisation f_0 of f, and ξ satisfy the hypotheses of Wan's theorem. Under the composition O^ur[[Γ_K]] → Λ^ur, γ ↦ ψ_0(γ)^{-1}γ, the function 𝓛^Σ_{f_0,K,ξ} maps to L^S_𝔭(f), and under the same base change Sel^Σ_{f_0,K,ξ} becomes Sel_∞(f,K,S) and X^Σ_{f_0,K,ξ} becomes X_∞(f,K,S); the inclusion of ideals then follows because the rings involved are unique factorisation domains and the characteristic ideals are principal.",
       "locator": "Proposition 2.7.2 with the two paragraphs explaining its deduction, Skinner, Ann. of Math. (2) 191 (2020), 329–354",
       "status": "missing"
     },
@@ -510,7 +598,7 @@
       "statement": "Proposition 2.7.3. If the hypotheses of Proposition 2.7.2 hold, then L^S_𝔭(f,1) = 0 implies H^1_𝔭(K,V) ≠ 0.",
       "locator": "Proposition 2.7.3, Skinner, Ann. of Math. (2) 191 (2020), 329–354",
       "status": "missing",
-      "note": "Review (REV-PAPER-SKINNER-20): The name repeats the '𝔭-relaxed' error. H^1_𝔭(K,V) is strict at 𝔭 and relaxed at 𝔭̄. The statement is correct."
+      "note": "H¹_𝔭(K,V) is the kernel of restriction at 𝔭: strict at 𝔭 and relaxed at 𝔭̄. The subscript names the strict prime (published p.339)."
     },
     {
       "id": "PAPER-SKINNER-20/50",
@@ -594,10 +682,23 @@
       "id": "PAPER-SKINNER-20/59",
       "kind": "theorem",
       "name": "The proof of Theorem A",
-      "statement": "As printed. For [M_f:Q] > 1, additionally choose p and λ so that the λ-part of the restriction of H^1_f(Q,V) to H^1(Q_p,V) is non-zero, for example with λ the only prime of M_f above p, or assume this.",
+      "statement": "Assume all hypotheses of Theorem A (item 5). Squarefree level implies f is non-CM (item 65). The density-one ordinary-prime result (54), residual irreducibility (55) and ramification for all sufficiently large p at every ℓ|N (56) give p≥5, p∤N, and λ|p such that f is λ-ordinary and the residual representation is irreducible and ramified at every ℓ|N. The rational Kummer comparison gives dim_L H¹_f(Q,V)=1 (78), and parity (18) gives ε(f)=−1. Choose an imaginary quadratic K of discriminant D with 2 and p split; if an odd ℓ has the unramified-quadratic-twist local component, make ℓ ramified and all other primes of N split; otherwise make the two selected special odd primes inert and all remaining primes of N split (57). The twist has sign +1, and Friedberg–Hoffstein (58) allows L(f⊗χ_D,1)≠0 with these local conditions. The rank-zero forward theorem (2, alternatively 60), and quadratic restriction/trace and Sha comparisons (66), give rank_Z A_f(K)=[M_f:Q] and finite Ш(A_f/K)[p^∞]. Lemma 2.2.2 as repaired by 81–82 (item 20) gives B(e). The chosen p, λ and K give B(a)–(d) with exactly the hypotheses in item 7. Theorem B gives ord_{s=1}L(f,K,s)=1; the factorization L(f,K,s)=L(f,s)L(f⊗χ_D,s) and the nonzero second central value imply ord_{s=1}L(f,s)=1.",
       "locator": "§3, Skinner, Ann. of Math. (2) 191 (2020), 329–354",
       "status": "missing",
-      "note": "Review (REV-PAPER-SKINNER-20): The step 'By Lemma 2.2.2, hypothesis (e) of Theorem B then also holds' is not justified when [M_f:Q] > 1 and λ is not the only prime of M_f above p (new issue PAPER-SKINNER-20/new-1 (Lemma 2.2.2)). It is fine for M_f = Q."
+      "note": "Complete published §3 deduction, with the omitted eigencomponent-logarithm proof now imported from Burungale–Skinner–Wan. No additional choice of a unique prime λ above p is needed.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/2",
+        "PAPER-SKINNER-20/7",
+        "PAPER-SKINNER-20/18",
+        "PAPER-SKINNER-20/20",
+        "PAPER-SKINNER-20/54",
+        "PAPER-SKINNER-20/55",
+        "PAPER-SKINNER-20/56",
+        "PAPER-SKINNER-20/57",
+        "PAPER-SKINNER-20/58",
+        "PAPER-SKINNER-20/66",
+        "PAPER-SKINNER-20/78"
+      ]
     },
     {
       "id": "PAPER-SKINNER-20/60",
@@ -619,7 +720,10 @@
       "statement": "Under the hypotheses of Theorem C: (a) and (b) give Sel_{p^∞}(E) ≅ Q_p/Z_p by the Cassels–Tate pairing, so dim H^1_f(Q,V) = 1; (c) makes H^1_f(Q,V) → H^1_f(Q_p,V) ≅ Q_p an isomorphism. By Ribet's level lowering, E[p] is ramified at some odd prime ℓ of bad reduction. Choose K inert or ramified at ℓ according as E has split or non-split reduction at ℓ, with the remaining conditions of Theorem B (2 and p split; sign −1; L(E^D,1) ≠ 0 by Friedberg–Hoffstein). Theorem B then applies as in §3.",
       "locator": "§3, final paragraph, Skinner, Ann. of Math. (2) 191 (2020), 329–354",
       "status": "missing",
-      "note": "Review (REV-PAPER-SKINNER-20): The sketch attributes H^1_f(Q,V) ≅ H^1_f(Q_p,V) to hypothesis (c) alone. It also needs (a) and (b) together with the Cassels–Tate pairing: (a) and (b) give Sel_{p^∞}(E) ≅ Q_p/Z_p. It also needs E(Q_p)[p^∞] = E(Q_p)[p] for p ≥ 5 of good reduction. See the new coverage item."
+      "note": "Review (REV-PAPER-SKINNER-20): The sketch attributes H^1_f(Q,V) ≅ H^1_f(Q_p,V) to hypothesis (c) alone. It also needs (a) and (b) together with the Cassels–Tate pairing: (a) and (b) give Sel_{p^∞}(E) ≅ Q_p/Z_p. It also needs E(Q_p)[p^∞] = E(Q_p)[p] for p ≥ 5 of good reduction. See the new coverage item. The missing Cassels–Tate prerequisites are now separate shared items 83–86, imported by 74; no global Sha finiteness is assumed at this stage.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/74"
+      ]
     },
     {
       "id": "PAPER-SKINNER-20/62",
@@ -628,7 +732,13 @@
       "statement": "The argument is that of Theorem A with two changes. First, the hypotheses give dim_L H^1_f(Q,V) = 0, so ε(f) = +1 by Nekovář. Second, K is chosen to satisfy (i), (ii), (iii) and (iv)′ ord_{s=1}L(f⊗χ_D,s) = 1. This is possible because ε(f⊗χ_D) = −1 and a derivative non-vanishing theorem for quadratic twists with prescribed local behaviour applies (Bump–Friedberg–Hoffstein, Invent. Math. 102 (1990); Murty–Murty, Ann. of Math. 133 (1991)). Theorem B then gives ord_{s=1}L(f,K,s) = 1, whence L(f,1) ≠ 0.",
       "locator": "§4, Skinner, Ann. of Math. (2) 191 (2020), 329–354",
       "status": "missing",
-      "note": "Review (REV-PAPER-SKINNER-20): The sentence 'This is possible as ε(f⊗χ_D) will equal −1' gives the sign as the reason. The sign is necessary but not sufficient: the existence of K satisfying (i)–(iii) with ord_{s=1}L(f⊗χ_D,s) = 1 needs a non-vanishing theorem for first derivatives of quadratic twists, which the paper does not cite (new issue PAPER-SKINNER-20/new-7). For [M_f:Q] > 1 the proof also inherits new issue PAPER-SKINNER-20/new-1 (Lemma 2.2.2)."
+      "note": "Theorem E uses item 76 for the sign −1 derivative-nonvanishing choice of K; E11 retains the omitted citation. The forward rank-one theorem for the twist gives rank_Z A_f(K)=[M_f:Q] and finite p-primary Ш; items 81–82 and 20 supply B(e). E5 is a repaired historical omission, not an extra hypothesis of E.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/7",
+        "PAPER-SKINNER-20/20",
+        "PAPER-SKINNER-20/76",
+        "PAPER-SKINNER-20/78"
+      ]
     },
     {
       "id": "PAPER-SKINNER-20/63",
@@ -650,11 +760,14 @@
       "name": "Theorem A′ from Theorem A",
       "statement": "Let E/Q be a semistable elliptic curve of conductor N. Then N is squarefree, and by the modularity theorem there is a newform f ∈ S_2(Γ_0(N)) with trivial character and M_f = Q such that A_f is Q-isogenous to E and L(E,s) = L(f,s). By the local-component dictionary, E has non-split (resp. split) multiplicative reduction at ℓ exactly when π_ℓ ≅ σ_ℓ⊗ξ_ℓ (resp. σ_ℓ). Rank and finiteness of Ш are isogeny invariants. Hence Theorem A for f is Theorem A′ for E.",
       "locator": "§1, the sentence before Theorem A′, p. 330",
-      "status": "planned",
-      "planned": [
-        "EllipticCurveModularity:R29.6"
-      ],
-      "note": "Added by the review REV-PAPER-SKINNER-20 (coverage of the published text): The deduction of A′ from A uses modularity, the reduction-type dictionary and the isogeny invariance of rank and Ш finiteness. Item 6 only states A′. Uses the new item on local components at ℓ || N."
+      "status": "missing",
+      "note": "The assembly uses modularity and the quotient/L-function comparison from R29.5–R29.6, the local-component dictionary from item 63, the explicit isogeny comparison in item 91, and Skinner’s Theorem A (5). It belongs to the existing RankOneConverse route; modularity alone does not supply the converse.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/1",
+        "PAPER-SKINNER-20/5",
+        "PAPER-SKINNER-20/63",
+        "PAPER-SKINNER-20/91"
+      ]
     },
     {
       "id": "PAPER-SKINNER-20/65",
@@ -690,15 +803,14 @@
     {
       "id": "PAPER-SKINNER-20/68",
       "kind": "theorem",
-      "name": "Jacquet–Langlands transfer to the Shimura curve of Case II",
-      "statement": "In Case II, let B be the indefinite quaternion algebra over Q of discriminant N^− (a product of an even number of primes), O_{B,N^+} an Eichler order of level N^+, and X the associated Shimura curve over Q. There is a weight-two cuspform f_B on X, unique up to scalar, whose Hecke eigenvalues at primes ℓ ∤ N are the a_ℓ(f). It can be normalised (Brooks §2.8) to be defined over M_f, and A_f is up to isogeny the corresponding quotient of J(X).",
+      "name": "Case II global Jacquet–Langlands transfer",
+      "statement": "In Case II, N=N⁻N⁺ with N⁻ a nontrivial product of an even number of primes inert in K and N⁺ supported on split primes. Let B/Q be the quaternion algebra of discriminant N⁻, split at the real place, and take an Eichler order of level N⁺. The global Jacquet–Langlands transfer of the weight-two newform f yields a weight-two quaternionic cuspform f_B with the same Hecke eigenvalues a_ℓ(f) for ℓ∤N, unique up to nonzero scalar.",
       "locator": "§2.4, Case II, p. 340; §1, p. 333 ('A_f is a quotient of the Jacobian of some Shimura curve')",
       "status": "planned",
       "planned": [
-        "GL2AutomorphicRepresentationsAndTransfer:R17.3",
-        "HilbertModularVarietiesAndShimuraCurves:R18.3"
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3"
       ],
-      "note": "Added by the review REV-PAPER-SKINNER-20 (coverage of the published text): The Case II Heegner point, item 28, is built from f_B. The transfer is a key input. Check the rational normalisation over M_f and the quotient statement against R17.3/R18."
+      "note": "R17.3 supplies global transfer and uniqueness with its local and parity hypotheses. The curve and cohomology are separate items 87–88, the quotient/differential realization is 89, and the precise Skinner/Brooks normalization comparison is missing item 90. R18.3’s definite finite class set is not the direct curve supplier."
     },
     {
       "id": "PAPER-SKINNER-20/69",
@@ -767,7 +879,14 @@
       "statement": "Let E/Q be an elliptic curve, p ≥ 5 a prime of good ordinary reduction with E[p] irreducible and Sel_p(E) ≅ Z/pZ. Then Sel_{p^∞}(E) ≅ Q_p/Z_p. (E(Q)[p] = 0 gives Sel_{p^∞}(E)[p] ≅ Sel_p(E). A finite non-zero cyclic Sel_{p^∞}(E) would equal Ш(E)[p^∞], contradicting the Cassels–Tate structure Ш(E)[p^∞] ≅ X ⊕ X.) Hence dim_{Q_p}H^1_f(Q,V_pE) = 1. If moreover the image of Sel_p(E) → E(Q_p)/pE(Q_p) is not contained in the image of E(Q_p)[p], then H^1_f(Q,V_pE) → H^1_f(Q_p,V_pE) ≅ Q_p is an isomorphism. This uses E(Q_p)[p^∞] = E(Q_p)[p] for p ≥ 5 of good reduction.",
       "locator": "§3, final paragraph, p. 351",
       "status": "missing",
-      "note": "Added by the review REV-PAPER-SKINNER-20 (coverage of the published text): This step of the deduction of Theorem C is not an item. It uses the Cassels–Tate pairing, which is not planned in the atlas. The Cassels–Tate pairing (alternating, non-degenerate on Ш/div) is itself missing from the atlas. Tau Ceti EllipticCurves Layer 7 has only Cassels' isogeny invariance, as a stretch goal. Route: the Part II."
+      "note": "The Selmer corank argument imports the shared pairing and structure results 83–86 from SelmerIwasawaCohomology L1–L2. If the cofinite-type p-primary Selmer group with p-torsion F_p were finite, it would be nonzero cyclic; the Kummer sequence would then identify it with finite Ш[p^∞], contradicting the paired elementary divisors in 86. Only that conditional p-primary finiteness is used. The remaining local non-torsion-image step and the good-reduction p-power torsion bound are as in the inherited statement. RankOneConverse owns this assembly, not the Cassels–Tate pairing.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/19",
+        "PAPER-SKINNER-20/83",
+        "PAPER-SKINNER-20/84",
+        "PAPER-SKINNER-20/85",
+        "PAPER-SKINNER-20/86"
+      ]
     },
     {
       "id": "PAPER-SKINNER-20/75",
@@ -800,7 +919,7 @@
       "planned": [
         "GrossZagierAndArithmeticHeights:GZ.9"
       ],
-      "note": "Added by the review REV-PAPER-SKINNER-20 (coverage of the published text): Proposition 2.6.1 and Corollary 2.6.2 are stated in terms of log_ω, which no item defines. Its relation to the Kummer map is the crux of new issues new-1 and new-2. GZ.9 plans the comparison of the logarithm with the Kummer class through the Bloch–Kato logarithm and the exact differential normalisation."
+      "note": "GZ.9 plans the formal/Bloch–Kato logarithm and exact differential/Kummer comparison. Algebraic-point eigencomponent nonvanishing is a separate missing input, items 81–82. It does not follow merely from a cohomology class being nonzero; GZ.9’s warning remains valid."
     },
     {
       "id": "PAPER-SKINNER-20/78",
@@ -810,13 +929,182 @@
       "locator": "§3, p. 350; §4, p. 352",
       "status": "missing",
       "note": "Added by the review REV-PAPER-SKINNER-20 (coverage of the published text): The Q-version is used twice and is not an item.  Route: the Part II."
+    },
+    {
+      "id": "PAPER-SKINNER-20/79",
+      "kind": "theorem",
+      "name": "p-adic analytic subgroup theorem for an algebraic point on an abelian variety",
+      "statement": "Fix an embedding Q̄→C_p. Let A/Q̄ be an abelian variety, x∈A(Q̄) non-torsion, and W⊆Lie(A) a Q̄-linear subspace. If log_A(x)∈W⊗_{Q̄}C_p, there are an abelian subvariety B⊆A and a nonzero integer m with Lie(B)⊆W and [m]x∈B(Q̄).",
+      "locator": "Burungale–Skinner–Wan, arXiv:2603.20886v2 (10 May 2026), Theorem 3.1 and the identity-component formulation, pp.9–10",
+      "status": "missing",
+      "note": "The non-torsion specialization needed here; the source first gives an algebraic subgroup containing x and then passes to its identity component. Proposed additional source at DT.3, not a claim that its current logarithmic-form contract already contains this theorem."
+    },
+    {
+      "id": "PAPER-SKINNER-20/80",
+      "kind": "theorem",
+      "name": "Endomorphism-stable p-adic analytic subgroup theorem",
+      "statement": "In item 79 suppose a number field F embeds in End⁰_{Q̄}(A) and W is F-stable. Then B can be chosen F-stable, with a compatible embedding F→End⁰_{Q̄}(B), Lie(B)⊆W and [m]x∈B(Q̄) for some nonzero integer m.",
+      "locator": "Burungale–Skinner–Wan, arXiv:2603.20886v2 (10 May 2026), Theorem 3.2, p.10",
+      "status": "missing",
+      "note": "Non-torsion specialization. The proof sums the images of the analytic subgroup under an integral basis of an endomorphism order and takes the identity component. The general transcendence input has one proposed owner at DT.3.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/79"
+      ]
+    },
+    {
+      "id": "PAPER-SKINNER-20/81",
+      "kind": "theorem",
+      "name": "Algebraic-point nonvanishing in every real-multiplication eigencomponent",
+      "statement": "Fix an embedding Q̄→C_p. Let A/Q̄ be an abelian variety with a number field F⊆End⁰_{Q̄}(A), dim A=[F:Q], and at least one real embedding of F. For every non-torsion x∈A(Q̄), every σ:F→Q̄, and every nonzero F-eigendifferential ω∈H⁰(A,Ω¹) with a*ω=σ(a)ω for all a∈F, one has log_ω(x)≠0.",
+      "locator": "Burungale–Skinner–Wan, arXiv:2603.20886v2 (10 May 2026), Theorem 1.1, p.3; Theorem 2.3/Remark 2.4, p.5; §4.1, p.10",
+      "status": "missing",
+      "note": "The field need only have a real embedding; M_f is totally real and so qualifies. A rank-one theorem independent of the structural-rank Conjecture 5.2. Proposed DT.3 source extension, importing existing abelian-variety and tangent carriers; no proof duplication in RankOneConverse.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/80"
+      ]
+    },
+    {
+      "id": "PAPER-SKINNER-20/82",
+      "kind": "theorem",
+      "name": "RM rational points and the ε_f Heegner projection have nonzero eigenlogarithms",
+      "statement": "For the modular A_f with totally real M_f and dim A_f=[M_f:Q], every actual non-torsion algebraic point has nonzero logarithm for each nonzero M_f-eigendifferential. In Skinner’s Cases I/II, let Q^ξ_K∈J(X)(K)⊗Q be the rational Hodge-divisor class, y=φ(Q^ξ_K)∈A_f(K)⊗Q, and P_K(f)=φ(ε_f Q^ξ_K). For the differential ω with φ*ω=ω_f (or the normalized f_B differential), functoriality and ε_f*ω_f=ω_f give log_ω P_K(f)=log_ω y. If P_K(f)≠0, then y≠0; choose a positive integer m with [m]y an actual point of A_f(K). It is non-torsion, so item 81 gives log_ω([m]y)≠0 and hence log_ω P_K(f)≠0. In Case I one may instead use Q⁰_K and its cusp comparison.",
+      "locator": "Skinner §§2.4–2.6, pp.340–344; Burungale–Skinner–Wan, arXiv:2603.20886v2 (10 May 2026), §§1.2–1.4 and Theorem 1.1",
+      "status": "missing",
+      "note": "Proposed missing application at GZ.9 of the DT.3 theorem. It explicitly passes through a rational divisor point before applying algebraic-point transcendence; it asserts nothing about an arbitrary nonzero M_f- or C_p-linear tensor, or arbitrary nonzero cohomology class. It uses the existing Heegner construction from HE.1 and the normalization comparison, not another construction.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/27",
+        "PAPER-SKINNER-20/38",
+        "PAPER-SKINNER-20/77",
+        "PAPER-SKINNER-20/81",
+        "PAPER-SKINNER-20/90"
+      ]
+    },
+    {
+      "id": "PAPER-SKINNER-20/83",
+      "kind": "construction",
+      "name": "The elliptic Cassels–Tate pairing",
+      "statement": "For an elliptic curve E over a number field F, let Ш(E/F) be the kernel of H¹(F,E)→∏_v H¹(F_v,E). The Cassels–Tate pairing, using the canonical principal polarization E≅E∨, is a canonical bilinear map ⟨ , ⟩_CT:Ш(E/F)×Ш(E/F)→Q/Z.",
+      "locator": "Poonen–Stoll, The Cassels–Tate pairing on polarized abelian varieties, corrected author version (23 August 2014), §1, p.2; general construction in §3",
+      "status": "missing",
+      "note": "Cassels’ original elliptic construction and Tate’s generalization, recalled and developed in this public source. Proposed shared source at SelmerIwasawaCohomology L1–L2. Import the actual local/global duality from ArithmeticGaloisDuality and the existing Sha carrier; do not reconstruct them. No finiteness assumption on Ш."
+    },
+    {
+      "id": "PAPER-SKINNER-20/84",
+      "kind": "theorem",
+      "name": "Cassels–Tate kernels and nondegeneracy modulo divisibility",
+      "statement": "For E/F as in item 83, the left and right kernels of ⟨ , ⟩_CT are the maximal divisible subgroup Ш(E/F)_div. Thus it induces a nondegenerate pairing on Ш(E/F)/Ш(E/F)_div in both variables.",
+      "locator": "Poonen–Stoll, The Cassels–Tate pairing on polarized abelian varieties, corrected author version (23 August 2014), §1, p.2",
+      "status": "missing",
+      "note": "Nondegeneracy modulo divisibility is unconditional; perfectness of a finite p-primary group is used only after that group’s finiteness is established.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/83"
+      ]
+    },
+    {
+      "id": "PAPER-SKINNER-20/85",
+      "kind": "theorem",
+      "name": "Alternation of the elliptic Cassels–Tate pairing",
+      "statement": "For E/F as in item 83 and every x∈Ш(E/F), ⟨x,x⟩_CT=0.",
+      "locator": "Poonen–Stoll, The Cassels–Tate pairing on polarized abelian varieties, corrected author version (23 August 2014), §1, p.2",
+      "status": "missing",
+      "note": "This is the elliptic theorem of Cassels. It is not unconditional alternation for an arbitrary principally polarized abelian variety; Poonen–Stoll explicitly distinguish those cases.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/83"
+      ]
+    },
+    {
+      "id": "PAPER-SKINNER-20/86",
+      "kind": "theorem",
+      "name": "Finite odd-primary Sha has paired elementary divisors",
+      "statement": "For an elliptic curve E over a number field F and an odd prime p, assume only that Ш(E/F)[p^∞] is finite. Its restricted Cassels–Tate pairing is perfect and alternating; consequently Ш(E/F)[p^∞]≅H⊕H for some finite abelian p-group H. In particular its order is a square, its p-torsion has even F_p-dimension, and it cannot be a nonzero cyclic p-group.",
+      "locator": "Poonen–Stoll, The Cassels–Tate pairing on polarized abelian varieties, corrected author version (23 August 2014), §1, p.2 and the finite alternating-pairing consequence used in Skinner §3, p.351",
+      "status": "missing",
+      "note": "Cross-primary pairings vanish and the p-primary part of the divisible kernel is zero under this finiteness assumption. Paired elementary divisors, not square cardinality alone, exclude a cyclic group (a cyclic group of order p² also has square cardinality). Global finiteness of Ш is not assumed.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/84",
+        "PAPER-SKINNER-20/85"
+      ]
+    },
+    {
+      "id": "PAPER-SKINNER-20/87",
+      "kind": "construction",
+      "name": "The Case II indefinite Shimura curve",
+      "statement": "In Skinner Case II, N=N⁻N⁺ as in item 68, B/Q is indefinite of discriminant N⁻, and an Eichler order has level N⁺. The associated quaternionic Shimura datum has a canonical curve X/Q with the specified level and complex uniformization, with level/stabilizer conventions retained.",
+      "locator": "Skinner §2.4, p.340; Brooks §§2.1–2.2",
+      "status": "planned",
+      "planned": [
+        "HilbertModularVarietiesAndShimuraCurves:R18.1"
+      ],
+      "note": "Indefinite curve owner. The definite class set of R18.3 is not this object."
+    },
+    {
+      "id": "PAPER-SKINNER-20/88",
+      "kind": "theorem",
+      "name": "Hecke-compatible cohomological realization on the Case II curve",
+      "statement": "In Skinner Case II, N=N⁻N⁺ as in item 68, B/Q is indefinite of discriminant N⁻, and an Eichler order has level N⁺. The Hecke action on the Betti and étale cohomology of the curve X is compatible with comparison and with the weight-two Jacquet–Langlands realization; its f-isotypic part is the realization having the Hecke eigenvalues of f away from N.",
+      "locator": "Skinner §2.4, pp.339–340 (realization input); R18.4 contract",
+      "status": "planned",
+      "planned": [
+        "HilbertModularVarietiesAndShimuraCurves:R18.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+      ],
+      "note": "Import the existing cohomology/Hecke comparison; normalization as a particular differential remains item 90.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/68",
+        "PAPER-SKINNER-20/87"
+      ]
+    },
+    {
+      "id": "PAPER-SKINNER-20/89",
+      "kind": "theorem",
+      "name": "The Case II modular abelian quotient and differential pullback",
+      "statement": "In Skinner Case II, N=N⁻N⁺ as in item 68, B/Q is indefinite of discriminant N⁻, and an Eichler order has level N⁺. Up to Q-isogeny the abelian variety A_f is the f-quotient of J(X), with a rational modular quotient φ and its compatible Hecke action. Pullback identifies the chosen eigendifferential on A_f with the weight-two f_B eigenline on X; the scalar depends on the choice of normalization.",
+      "locator": "Skinner §2.4, p.340 and §2.5, p.341",
+      "status": "planned",
+      "planned": [
+        "GrossZagierAndArithmeticHeights:GZ.3"
+      ],
+      "note": "GZ.3 already plans rational automorphic realizations, field of definition, quotient parametrizations and exact differential comparison on the existing curve. It does not fix the particular scalar of Skinner’s use of Brooks.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/68",
+        "PAPER-SKINNER-20/87",
+        "PAPER-SKINNER-20/88"
+      ]
+    },
+    {
+      "id": "PAPER-SKINNER-20/90",
+      "kind": "theorem",
+      "name": "Skinner–Brooks rational normalization adapter in Case II",
+      "statement": "In Skinner Case II, N=N⁻N⁺ as in item 68, B/Q is indefinite of discriminant N⁻, and an Eichler order has level N⁺. Choose the f_B eigenform over M_f using the rational realization of item 89, with the scalar convention compatible with Brooks’ transfer normalization. Choose ω on A_f with φ*ω=ω_{f_B}. The ε_f projection of the rational Hodge-divisor class then defines Skinner’s Q_K(f_B) and P_K(f_B), and their logarithmic comparison with Brooks Proposition 8.13 uses that same differential and the nonzero normalization scalar (including C(f,K)=α(f,f_GL2)^{-1}).",
+      "locator": "Skinner §2.4, p.340 (cites Brooks §2.8), §§2.6, pp.343–344; published Brooks §2.7, p.4190 and §2.8, pp.4190–4191; see E12",
+      "status": "missing",
+      "note": "Missing Skinner-specific adapter in RankOneConverse. Preserve the original §2.8 citation as provenance but use the published §2.7 transfer normalization. A generic rational transfer theorem or the definite class set does not by itself identify this scalar. Reuse HE.1’s CM/Hodge-point construction; do not assume a canonical normalization or scalar one.",
+      "dependsOn": [
+        "PAPER-SKINNER-20/68",
+        "PAPER-SKINNER-20/87",
+        "PAPER-SKINNER-20/88",
+        "PAPER-SKINNER-20/89"
+      ]
+    },
+    {
+      "id": "PAPER-SKINNER-20/91",
+      "kind": "theorem",
+      "name": "Elliptic rank and Sha-finiteness comparison under isogeny",
+      "statement": "Let E and E′ be elliptic curves over a number field F and φ:E→E′ an F-isogeny. Then φ induces E(F)⊗Q≅E′(F)⊗Q, so their Mordell–Weil ranks agree, and Ш(E/F) is finite if and only if Ш(E′/F) is finite.",
+      "locator": "Implicit in Skinner §1, pp.330–331, deduction of A′; EllipticCurves Layer 7 and RankZeroOneBSD BSD.1",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+        "RankZeroOneBSD:BSD.1"
+      ],
+      "note": "Reuse the existing isogeny-Selmer/dual-isogeny comparisons and transfer of Sha finiteness explicitly required by EllipticCurves Layer 7; BSD.1 imports them alongside its quadratic-descent comparisons. This is a planned input, not a consequence of modularity and not a library theorem."
     }
   ],
   "prerequisites": [
     {
       "citation": "Xin Wan, \"Iwasawa main conjecture for Rankin–Selberg p-adic L-functions\", Algebra & Number Theory 14 (2020), no. 2, 383–483",
       "link": "https://doi.org/10.2140/ant.2020.14.383",
-      "why": "Theorem 1.2 is the only source of the divisibility Ch_Λ(f,K,S) ⊆ (L^S_𝔭(f)) that makes Proposition 2.7.2 and hence the whole argument work. Its proof is the U(3,1) Eisenstein-congruence method of Skinner–Urban, with the two-variable p-adic L-function 𝓛^{Σ,Hida}_{f_0,K,ξ} over Γ_K ≅ Z_p²; its hypotheses are exactly (big), (ord), (spl), (res), (irr_K) and the squarefreeness of N. Nothing in this paper reproves it. The 2013 Columbia preprint cited in the arXiv version and the published paper are not interchangeable."
+      "why": "Theorem 1.2 is the only source of the divisibility Ch_Λ(f,K,S) ⊆ (L^S_𝔭(f)) that makes Proposition 2.7.2 and hence the whole argument work. Its proof is the U(3,1) Eisenstein-congruence method of Skinner–Urban, with the two-variable p-adic L-function 𝓛^Σ_{f_0,K,ξ} over Γ_K ≅ Z_p²; its hypotheses are exactly (big), (ord), (spl), (res), (irr_K) and the squarefreeness of N. Nothing in this paper reproves it. The 2013 Columbia preprint cited in the arXiv version and the published paper are not interchangeable. Published notation is from Skinner p.346/Wan §7.5 over O^ur[[Γ_K]]; the preprint’s Σ,Hida, §6 and older theorem number are a separate version, as item 46 explains."
     },
     {
       "citation": "Massimo Bertolini, Henri Darmon and Kartik Prasanna, \"p-adic Rankin L-series and rational points on CM elliptic curves\", Pacific J. Math. 260 (2012), no. 2, 261–303, and \"Generalized Heegner cycles and p-adic Rankin L-series\", Duke Math. J. 162 (2013), no. 6, 1033–1148",
@@ -826,7 +1114,8 @@
     {
       "citation": "Ernest Hunter Brooks, \"Shimura curves and special values of p-adic L-functions\", Int. Math. Res. Not. IMRN 2015, no. 12, 4177–4241",
       "link": "https://doi.org/10.1093/imrn/rnu062",
-      "why": "Proposition 8.13 is Proposition 2.6.1 in Case II, on the Shimura curve of discriminant N^- with an Eichler order of level N^+, together with the normalisation of the Jacquet–Langlands transfer f_B over M_f (§2.8) and the constant α(f,f_{GL_2})^{-1} that is C(f,K) here."
+      "why": "Proposition 8.13 is Proposition 2.6.1 in Case II, on the Shimura curve of discriminant N^- with an Eichler order of level N^+, together with the normalisation of the Jacquet–Langlands transfer f_B over M_f (Skinner cites §2.8; the published Brooks transfer normalization is §2.7, p.4190; see E12) and the constant α(f,f_{GL_2})^{-1} that is C(f,K) here.",
+      "publicCopy": "https://infoscience.epfl.ch/server/api/core/bitstreams/c151dcd9-ff05-4c82-90d5-de19eec6f189/content"
     },
     {
       "citation": "Xinyi Yuan, Shou-Wu Zhang and Wei Zhang, \"The Gross–Zagier Formula on Shimura Curves\", Annals of Mathematics Studies 184, Princeton University Press, 2013",
@@ -854,7 +1143,7 @@
       "why": "The first gives the irreducibility of ρ̄_{f,λ} for large p and the second the level-lowering theorem from which §3 deduces that ρ̄_{f,λ} is ramified at every prime dividing N for large p; hypothesis (b) of Theorem B is verified from them."
     },
     {
-      "citation": "Jean-Pierre Serre, \"Quelques applications du théorème de densité de Chebotarev\", Inst. Hautes Études Sci. Publ. Math. 54 (1981), 323–401",
+      "citation": "Jean-Pierre Serre, \"Quelques applications du théorème de densité de Chebotarev\", Inst. Hautes Études Sci. Publ. Math. 54 (1981), 123–201",
       "link": "http://www.numdam.org/item/PMIHES_1981__54__123_0/",
       "why": "§7.2, Corollary 2, the density zero of the set of primes with a_p(f) = 0 for a non-CM form, is what makes the set of admissible ordinary primes in §3 have density one."
     },
@@ -877,6 +1166,16 @@
       "citation": "Karl Rubin, \"p-adic L-functions and rational points on elliptic curves with complex multiplication\", Invent. Math. 107 (1992), no. 2, 323–350",
       "link": "https://doi.org/10.1007/BF01231893",
       "why": "Theorems 8.1 and 8.2 are the CM analogue of Theorem A, proved by a different route (Rubin's main conjecture, Perrin-Riou's p-adic Gross–Zagier formula, Bertrand's non-degeneracy); Theorem 9.5 is the CM analogue of Proposition 2.6.1, by which Remark 2.9.1(xii) says the present method also covers the CM case. The cases covered here are disjoint from Rubin's."
+    },
+    {
+      "citation": "Ashay Burungale, Christopher Skinner and Xin Wan, A refined non-vanishing of the p-adic logarithm of a rational point on an abelian variety, arXiv:2603.20886v2 (10 May 2026)",
+      "link": "https://arxiv.org/pdf/2603.20886v2",
+      "why": "§1.2 identifies and repairs Skinner Lemma 2.2.2. Theorem 1.1 and Theorems 3.1–3.2 supply items 79–82. Only the unconditional rank-one algebraic-point result is needed, not §5’s higher-rank structural-rank conjecture."
+    },
+    {
+      "citation": "Bjorn Poonen and Michael Stoll, The Cassels–Tate pairing on polarized abelian varieties, Annals of Mathematics 150 (1999), 1109–1149; corrected author version, 23 August 2014",
+      "link": "https://math.mit.edu/~poonen/papers/sha.pdf",
+      "why": "Public source for the Cassels elliptic pairing, Tate generalization, nondegeneracy modulo divisibility and the distinction between elliptic alternation and the general polarized case; §1 p.2 and §3. The original Cassels/Tate references are credited there; this reading is of the corrected Poonen–Stoll exposition, not a claim to have read the original proofs. Needed by 83–86 and shared with ArithmeticStatistics. Original references identified in that source: Cassels, Arithmetic on curves of genus 1, IV (1962); Tate, Duality theorems in Galois cohomology over number fields (1963)."
     }
   ],
   "routes": [
@@ -886,7 +1185,7 @@
       "roadmap": "RankOneConverse",
       "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory, Part II: the p-converse to Gross–Zagier–Kolyvagin",
       "area": "iwasawa",
-      "brief": "This coalesces with the RankOneConverse Part II of RankZeroOneBSD that the maintainer routed for this very paper (DESIGN-SKINNER, issue #951, area iwasawa) and that PAPER-CASTELLA-ETAL-22 already extended with the Eisenstein-prime branch; it keeps that job's final theorems and adds the source items of Skinner, Ann. of Math. (2) 191 (2020), 329-354, itself.\n\nFinal theorems. (A) For a newform f in S_2(Gamma_0(N)) of trivial nebentypus with N squarefree, if either some odd prime l has pi_l the twist of the special representation by the unramified quadratic character, or two odd primes l_1, l_2 have pi_{l_i} special, then rank_Z A_f(Q) = [M_f:Q] together with #Sha(A_f) finite implies ord_{s=1}L(f,s) = 1; equivalently (A') for a semistable elliptic curve with non-split multiplicative reduction at one odd prime or split multiplicative reduction at two. (B) The p-adic criterion over an imaginary quadratic field K of odd discriminant with hypotheses (a)-(e), whose conclusion is ord_{s=1}L(f,K,s) = 1, rank_Z A_f(K) = [M_f:Q] = ord_{s=1}L(A_f/K,s) and Sha(A_f/K) finite. (C) The mod-p Selmer criterion Sel_p(E) = Z/pZ plus the local condition at p. (E) The analogous rank-zero statement, an alternative proof of a special case of Skinner-Urban and Wan. Theorem D of the paper, the positive proportion of curves of rank one, is a consumer owned by ArithmeticStatistics.\n\nImport, never re-plan: RankZeroOneBSD BSD.0-BSD.4 for analytic L-functions, twists, quadratic descent, the Friedberg-Hoffstein non-vanishing and the forward Gross-Zagier-Kolyvagin direction; HeegnerPointEulerSystems HE.0-HE.1 and HE.7 for ring class fields, CM points and the classical descent; GrossZagierAndArithmeticHeights GZ.0, GZ.3, GZ.8 for the normalisations and the Yuan-Zhang-Zhang height identity, and GZ.9 for the BDP/Brooks p-adic L-function and the p-adic Waldspurger formula; AutomorphicCongruences L2 for Wan's two-variable U(3,1) divisibility; ModularIwasawaMainConjectures L0 for the Greenberg/Panchishkin formulation and L1, L5 for the rank-zero converse; SelmerIwasawaCohomology L1-L4 for Bloch-Kato and Greenberg Selmer groups, duality and control; PadicMeasuresIwasawaAlgebras L4-L5 for characteristic ideals; AutomorphicGaloisRepresentations R19.1, R19.4, R19.5 for the representation V; AutomorphicPadicLFunctions L0 for algebraic Hecke characters and their p-adic avatars; KatoEulerSystems L4 for the alternative rank-zero input.\n\nConstruct here: the two cases I and II for the pair (f,K) and the Heegner point P_K(f) in A_f(K) tensor M_f with its epsilon_f-normalisation and the comparison of the cusp, Hodge and epsilon_f normalisations; the hypotheses (sqf), (sgn), (ram), (flt), (odd), (L-lrg), (big), (ord), (spl), (res), (irr), (irr_K) and the implications among them, in particular Lemma 2.8.1; the strict and p-relaxed Selmer groups with Lemmas 2.3.1 and 2.3.2, which is where the splitting of p in K is used; the big Galois module M = T tensor Lambda^*(Psi^{-1}), its Selmer group, characteristic ideal and Conjecture 2.7.1, stated over Lambda^ur tensor_O L as in the published version; Proposition 2.7.2 and its deduction from Wan's theorem by specialising the two-variable objects along gamma to psi_0(gamma)^{-1}gamma; the control diagram giving (2.7.1) and (2.7.2) and hence Proposition 2.7.3; and the assembly of Theorem B, the choice of the auxiliary K in section 3 and the deductions of Theorems A, C and E.\n\nKeep the published hypotheses and coefficient rings: the arXiv preprint of 2014 places the anticyclotomic p-adic L-function in O[[Gamma]] and states Conjecture 2.7.1 and Proposition 2.7.2 in Lambda tensor Q_p, which the published version corrects (source issue E1). Wei Zhang's theorem on Kolyvagin's conjecture gives a comparable but incomparable statement, dropping the injectivity at p and adding Tamagawa hypotheses; the two should be stated separately and neither presented as subsuming the other. The review found that Lemma 2.2.2's injectivity at p, used in §3 for Theorem A and in §4 for Theorem E, is justified only when λ is the only prime of M_f above p (for instance [M_f:Q] = 1): in general it is the non-vanishing of the λ-component of the p-adic logarithm of a generator of A_f(K)⊗Q, which is not proved (sourceIssues). State Theorems A and E for [M_f:Q] > 1 with that hypothesis, or supply a proof; Theorems A′ and C are unaffected.",
+      "brief": "This coalesces with the RankOneConverse Part II of RankZeroOneBSD that the maintainer routed for this very paper (DESIGN-SKINNER, issue #951, area iwasawa) and that PAPER-CASTELLA-ETAL-22 already extended with the Eisenstein-prime branch; it keeps that job's final theorems and adds the source items of Skinner, Ann. of Math. (2) 191 (2020), 329-354, itself.\n\nFinal theorems. (A) For a newform f in S_2(Gamma_0(N)) of trivial nebentypus with N squarefree, if either some odd prime l has pi_l the twist of the special representation by the unramified quadratic character, or two odd primes l_1, l_2 have pi_{l_i} special, then rank_Z A_f(Q) = [M_f:Q] together with #Sha(A_f) finite implies ord_{s=1}L(f,s) = 1; equivalently (A') for a semistable elliptic curve with non-split multiplicative reduction at one odd prime or split multiplicative reduction at two. (B) The p-adic criterion over an imaginary quadratic field K of odd discriminant with hypotheses (a)-(e), whose conclusion is ord_{s=1}L(f,K,s) = 1, rank_Z A_f(K) = [M_f:Q] = ord_{s=1}L(A_f/K,s) and Sha(A_f/K) finite. (C) The mod-p Selmer criterion Sel_p(E) = Z/pZ plus the local condition at p. (E) The analogous rank-zero statement, an alternative proof of a special case of Skinner-Urban and Wan. Theorem D of the paper, the positive proportion of curves of rank one, is a consumer owned by ArithmeticStatistics.\n\nImport, never re-plan: RankZeroOneBSD BSD.0-BSD.4 for analytic L-functions, twists, quadratic descent, the Friedberg-Hoffstein non-vanishing and the forward Gross-Zagier-Kolyvagin direction; HeegnerPointEulerSystems HE.0-HE.1 and HE.7 for ring class fields, CM points and the classical descent; GrossZagierAndArithmeticHeights GZ.0, GZ.3, GZ.8 for the normalisations and the Yuan-Zhang-Zhang height identity, and GZ.9 for the BDP/Brooks p-adic L-function and the p-adic Waldspurger formula; AutomorphicCongruences L2 for Wan's two-variable U(3,1) divisibility; ModularIwasawaMainConjectures L0 for the Greenberg/Panchishkin formulation and L1, L5 for the rank-zero converse; SelmerIwasawaCohomology L1-L4 for Bloch-Kato and Greenberg Selmer groups, duality and control; PadicMeasuresIwasawaAlgebras L4-L5 for characteristic ideals; AutomorphicGaloisRepresentations R19.1, R19.4, R19.5 for the representation V; AutomorphicPadicLFunctions L0 for algebraic Hecke characters and their p-adic avatars; KatoEulerSystems L4 for the alternative rank-zero input.\n\nConstruct here: the two cases I and II for the pair (f,K) and the Skinner-specific epsilon_f-normalisation of the existing HE.1 Heegner points, with the cusp/Hodge/projector comparisons; the hypotheses (sqf), (sgn), (ram), (flt), (odd), (L-lrg), (big), (ord), (spl), (res), (irr), (irr_K) and the implications among them, in particular Lemma 2.8.1; the globally p-strict group and the group strict at 𝔭 and relaxed at 𝔭̄ with Lemmas 2.3.1 and 2.3.2, which is where the splitting of p in K is used; the big Galois module M = T tensor Lambda^*(Psi^{-1}), its Selmer group, characteristic ideal and Conjecture 2.7.1, stated over Lambda^ur tensor_O L as in the published version; Proposition 2.7.2 and its deduction from Wan's theorem by specialising the two-variable objects along gamma to psi_0(gamma)^{-1}gamma; the control diagram giving (2.7.1) and (2.7.2) and hence Proposition 2.7.3; and the assembly of Theorem B, the choice of the auxiliary K in section 3 and the deductions of Theorems A, C and E.\n\nKeep the published hypotheses and coefficient rings: the arXiv preprint of 2014 places the anticyclotomic p-adic L-function in O[[Gamma]] and states Conjecture 2.7.1 and Proposition 2.7.2 in Lambda tensor Q_p, which the published version corrects (source issue E1). Wei Zhang's theorem on Kolyvagin's conjecture gives a comparable but incomparable statement, dropping the injectivity at p and adding Tamagawa hypotheses; the two should be stated separately and neither presented as subsuming the other. The historical eigendifferential-logarithm omission in Lemma 2.2.2 is repaired by Burungale–Skinner–Wan (2026), Theorem 1.1. Keep Theorems A and E under their published hypotheses, and keep Theorem B(e) explicitly. Import the proposed DT.3 analytic-subgroup and algebraic-point logarithm results (79–81) through the GZ.9 RM/Heegner application (82), passing through an actual rational divisor point before its ε_f projection. This gives no nonvanishing assertion for an arbitrary nonzero cohomology class and uses no structural-rank conjecture. Import the shared elliptic Cassels–Tate pairing, its divisible kernels, alternation and finite odd-primary paired-elementary-divisor theorem (83–86) from SelmerIwasawaCohomology L1–L2 for the assembly of C; do not assume full Sha finiteness in advance. Import the Case II curve/cohomology (87–88), quotient (89) and HE.1 points, and prove only the Skinner–Brooks normalization adapter (90) here. The published Brooks transfer normalization is §2.7; retain Skinner’s §2.8 citation as version provenance (E12). The A′ assembly (64) additionally imports R29.5–R29.6, the actual local dictionary (63) and existing elliptic isogeny invariance (91), without making modularity a converse owner. Theorem E still imports the separate derivative-nonvanishing theorem (76).",
       "prerequisites": [
         "RankZeroOneBSD",
         "HeegnerPointEulerSystems",
@@ -896,7 +1195,11 @@
         "SelmerIwasawaCohomology",
         "PadicMeasuresIwasawaAlgebras",
         "AutomorphicGaloisRepresentations",
-        "AutomorphicPadicLFunctions"
+        "AutomorphicPadicLFunctions",
+        "DiophantineApproximationAndTranscendence",
+        "HilbertModularVarietiesAndShimuraCurves",
+        "GL2AutomorphicRepresentationsAndTransfer",
+        "EllipticCurveModularity"
       ],
       "reason": "The maintainer routed this paper to the Part II RankOneConverse of RankZeroOneBSD (DESIGN-SKINNER), and PAPER-CASTELLA-ETAL-22 already reused that candidate for the Eisenstein-prime branch of the same p-converse; the review of PAPER-BURUNGALE-TIAN-26 asked for a single owner of the p-converse property. This route therefore reuses the same id, title and area rather than proposing anything new. The parent proves the Gross–Zagier–Kolyvagin direction at BSD.3 and BSD.4 and has no layer for the converse, and BSD.5–BSD.9 plan leading-term formulas, not a Selmer-to-analytic implication.",
       "items": [
@@ -940,7 +1243,9 @@
         "PAPER-SKINNER-20/66",
         "PAPER-SKINNER-20/74",
         "PAPER-SKINNER-20/75",
-        "PAPER-SKINNER-20/78"
+        "PAPER-SKINNER-20/78",
+        "PAPER-SKINNER-20/64",
+        "PAPER-SKINNER-20/90"
       ]
     },
     {
@@ -975,10 +1280,11 @@
       "stages": [
         "GrossZagierAndArithmeticHeights:GZ.9"
       ],
-      "reason": "GZ.9 plans the BDP/Brooks p-adic L-function with its interpolation range, CM periods and removed Euler factors, and the p-adic Waldspurger identity at the weight-two point. This source adds the two facts about that function that Skinner's argument needs and that GZ.9 does not state. First, integrality: the functions of Bertolini–Darmon–Prasanna and of Brooks are a priori only continuous on Γ, and membership in the Iwasawa algebra O^ur[[Γ]] — without which the Iwasawa-theoretic argument of §2.7 cannot even be formulated — requires extending the interpolation formulas to characters ramified above p, as in Brakočević, or the constructions of Eischen–Harris–Li–Skinner and Wan. Second, the precise dictionary between the imprimitive L^S_𝔭(f) used here and the published L_p(f,χ): the character sets Σ^{(2)}_{cc}(𝔫) and Σ^{(2)}_{cc}(𝔫^+), the removal of the Euler factors at the primes of S not dividing p, and the identities relating C(f,χ,1), w(f,χ) and α(f,f_{GL_2})^{-1} to the constants used here. Both are comparison statements about the object GZ.9 owns.",
+      "reason": "GZ.9 plans the BDP/Brooks p-adic L-function with its interpolation range, CM periods and removed Euler factors, and the p-adic Waldspurger identity at the weight-two point. This source adds the two facts about that function that Skinner's argument needs and that GZ.9 does not state. First, integrality: the functions of Bertolini–Darmon–Prasanna and of Brooks are a priori only continuous on Γ, and membership in the Iwasawa algebra O^ur[[Γ]] — without which the Iwasawa-theoretic argument of §2.7 cannot even be formulated — requires extending the interpolation formulas to characters ramified above p, as in Brakočević, or the constructions of Eischen–Harris–Li–Skinner and Wan. Second, the precise dictionary between the imprimitive L^S_𝔭(f) used here and the published L_p(f,χ): the character sets Σ^{(2)}_{cc}(𝔫) and Σ^{(2)}_{cc}(𝔫^+), the removal of the Euler factors at the primes of S not dividing p, and the identities relating C(f,χ,1), w(f,χ) and α(f,f_{GL_2})^{-1} to the constants used here. Both are comparison statements about the object GZ.9 owns. Add item 82 as a missing RM/Heegner application of Burungale–Skinner–Wan, importing the proposed DT.3 general theorem. GZ.9’s current contract does not already assert this algebraic-point nonvanishing; its warning about arbitrary cohomology classes is retained.",
       "items": [
         "PAPER-SKINNER-20/35",
-        "PAPER-SKINNER-20/36"
+        "PAPER-SKINNER-20/36",
+        "PAPER-SKINNER-20/82"
       ]
     },
     {
@@ -1002,6 +1308,34 @@
         "PAPER-SKINNER-20/9"
       ],
       "reason": "Added by the review. ST.4 plans the Bhargava–Shankar orbit-counting Selmer theorems and their rank consequences. Theorem D (Bhargava–Skinner), a positive proportion of elliptic curves of algebraic and analytic rank one, is a rank consequence of that kind that also consumes the p-converse of this paper's Part II; the brief already names ArithmeticStatistics as its owner."
+    },
+    {
+      "route": "source",
+      "roadmap": "DiophantineApproximationAndTranscendence",
+      "stages": [
+        "DiophantineApproximationAndTranscendence:DT.3"
+      ],
+      "items": [
+        "PAPER-SKINNER-20/79",
+        "PAPER-SKINNER-20/80",
+        "PAPER-SKINNER-20/81"
+      ],
+      "reason": "Proposed source extension for the abelian p-adic analytic subgroup theorem, its endomorphism-stable variant, and BSW Theorem 1.1. DT.3 owns transcendence/logarithmic forms but does not currently state these results. Coordinate with its partial blueprint job #1027; import the existing abelian-variety/tangent/formal-logarithm carriers, rather than duplicating them. GZ.9 imports this theorem for the modular/Heegner application and RankOneConverse imports that application. No structural-rank conjecture is required."
+    },
+    {
+      "route": "source",
+      "roadmap": "SelmerIwasawaCohomology",
+      "stages": [
+        "SelmerIwasawaCohomology:L1",
+        "SelmerIwasawaCohomology:L2"
+      ],
+      "items": [
+        "PAPER-SKINNER-20/83",
+        "PAPER-SKINNER-20/84",
+        "PAPER-SKINNER-20/85",
+        "PAPER-SKINNER-20/86"
+      ],
+      "reason": "Proposed shared elliptic Cassels–Tate source extension: construct the pairing on the existing Sha carrier, identify both divisible kernels, prove elliptic alternation, and deduce the finite odd-primary paired-elementary-divisor theorem. Import ArithmeticGaloisDuality rather than rebuilding local/global duality. Coordinate ArithmeticStatistics.json’s existing gap “Cassels–Tate pairing and its isogeny adjointness”, needed by ST.5/three-isogeny-selmer-parity, and its L1 annihilator request. These four items do not claim to discharge the additional isogeny-adjointness request. RankOneConverse imports the shared result for 61/74. The existing L1–L2 contract has no Sha pairing theorem yet."
     }
   ],
   "sourceIssues": [
@@ -1090,19 +1424,27 @@
       "kind": "gap",
       "locator": "§2.2, Lemma 2.2.2 and the sentence introducing it, published p. 338 (page image checked); arXiv v1 p. 9. It propagates to §3, 'By Lemma 2.2.2, hypothesis (e) of Theorem B then also holds' (p. 351), and to §4 (Theorem E, p. 352), when [M_f:Q] > 1",
       "printed": "The source derives Lemma 2.2.2 from the preceding result and the freeness of A_f(K) ⊗ Q_p over M_{f,p}. The lemma asserts that rank_Z A_f(K) = [M_f : Q] together with #Ш(A_f/K)[p^∞] < ∞ imply dim_L H^1_f(K,V) = 1, with H^1_f(K,V) →res H^1(K_𝔩,V) injective for every 𝔩 | p.",
-      "correction": "The dimension statement is right. The injectivity holds when λ is the only prime of M_f above p (in particular when [M_f:Q] = 1, so Theorems A′ and C are unaffected). In general it is equivalent to the non-vanishing of the λ-component of the local Kummer image, i.e. log_ω(P) ≠ 0 at 𝔩, for P spanning A_f(K)⊗Q over M_f and ω the λ-eigen 1-form. That condition must be added as a hypothesis. For [M_f:Q] > 1, Theorems A and E as proved need a prime p satisfying §3's conditions for which it holds, for example λ the unique prime of M_f above p (possible only for suitable M_f).",
-      "reason": "Under the hypotheses, H^1_f(K,V_pA_f) = A_f(K)⊗Q_p = M_{f,p}·κ(P) is free of rank one. H^1_f(K_𝔩,V_pA_f) = A_f(K_𝔩)⊗Q_p ≅ Lie(A_f)(Q_p) is also free of rank one over M_{f,p} = ∏_{λ′|p}M_{f,λ′}. The restriction sends κ(P) to log(P) = (x_{λ′})_{λ′}. After ⊗_{M_{f,p}}L (projection to the λ-factor, an exact functor), the map on H^1_f(K,V) is injective iff x_λ ≠ 0. Freeness of A_f(K)⊗Q_p does not give this: P non-torsion only gives log(P) ≠ 0, not that each component is non-zero. x_λ = 0 means the M_f-line A_f(K)⊗Q lies in a proper O_{M_f}-stable p-adic analytic subgroup of A_f(K_𝔩). Excluding this is a p-adic linear-independence (Leopoldt-type) statement about p-adic logarithms, which is not known in general. The step is automatic only when the λ-factor is all of M_{f,p}. The same point is why Theorem B asks for injectivity as part of (e), and why the atlas's GZ.9 warns not to infer a non-zero logarithm from a non-zero class. Searched for an existing correction: the Annals article page (no erratum listed), arXiv 1405.7294 (v1 only), and a web search. No correction was found, so known: new.",
-      "affects": "a stated result",
-      "known": "new",
+      "correction": "Retain the full published Lemma 2.2.2 and Theorems A/E. Add the missing proof input: BSW Theorem 1.1 gives a nonzero logarithm in every M_f-eigendifferential for an actual non-torsion algebraic Mordell–Weil generator, since M_f is totally real and dim A_f=[M_f:Q]. Through the rational Kummer comparison and the Bloch–Kato logarithm this proves injectivity in every λ-component, for every v|p. No λ-uniqueness or additional logarithm hypothesis is needed.",
+      "reason": "Freeness of the global M_f⊗Q_p-module alone does not prove componentwise logarithm nonvanishing, so the printed deduction omitted an argument. BSW §1.2 explicitly acknowledges the missing proof and supplies it via p-adic transcendence. The generator is an algebraic point after clearing denominators; their real-embedding hypothesis applies. This is distinct from an arbitrary cohomology class, for which the logarithm warning remains valid. Theorem B retains hypothesis (e); the repaired lemma verifies it in the A/E applications.",
+      "affects": "the proof",
+      "known": "Repaired by Burungale–Skinner–Wan, arXiv:2603.20886v2 (10 May 2026), §1.2, Theorem 1.1, Theorem 2.3/Remark 2.4 and §§3,4.1. Public preprint repair; not an Annals erratum.",
       "searched": [
         "the Annals article page for Ann. of Math. 191 (2020), no. 2, 329–354, 23 September 2026: no erratum or corrigendum listed",
         "arXiv 1405.7294: only v1 (28 May 2014)",
-        "a web search for an erratum or a later correction of this passage, 23 September 2026: none found"
+        "a web search for an erratum or a later correction of this passage, 23 September 2026: none found",
+        "30 September 2026: freshly read arXiv:2603.20886v2 §§1.2–1.4, 2.1–2.2, 3 and 4.1, including page images of Theorem 1.1 and the subgroup argument; the explicit repair predates the 23 September review."
       ],
-      "review": {
+      "historicalReview": {
         "verdict": "confirmed",
         "reason": "found and checked on the page image by the review",
         "by": "REV-PAPER-SKINNER-20"
+      },
+      "historicalAssessment": {
+        "date": "2026-09-23",
+        "correction": "The dimension statement is right. The injectivity holds when λ is the only prime of M_f above p (in particular when [M_f:Q] = 1, so Theorems A′ and C are unaffected). In general it is equivalent to the non-vanishing of the λ-component of the local Kummer image, i.e. log_ω(P) ≠ 0 at 𝔩, for P spanning A_f(K)⊗Q over M_f and ω the λ-eigen 1-form. That condition must be added as a hypothesis. For [M_f:Q] > 1, Theorems A and E as proved need a prime p satisfying §3's conditions for which it holds, for example λ the unique prime of M_f above p (possible only for suitable M_f).",
+        "reason": "Under the hypotheses, H^1_f(K,V_pA_f) = A_f(K)⊗Q_p = M_{f,p}·κ(P) is free of rank one. H^1_f(K_𝔩,V_pA_f) = A_f(K_𝔩)⊗Q_p ≅ Lie(A_f)(Q_p) is also free of rank one over M_{f,p} = ∏_{λ′|p}M_{f,λ′}. The restriction sends κ(P) to log(P) = (x_{λ′})_{λ′}. After ⊗_{M_{f,p}}L (projection to the λ-factor, an exact functor), the map on H^1_f(K,V) is injective iff x_λ ≠ 0. Freeness of A_f(K)⊗Q_p does not give this: P non-torsion only gives log(P) ≠ 0, not that each component is non-zero. x_λ = 0 means the M_f-line A_f(K)⊗Q lies in a proper O_{M_f}-stable p-adic analytic subgroup of A_f(K_𝔩). Excluding this is a p-adic linear-independence (Leopoldt-type) statement about p-adic logarithms, which is not known in general. The step is automatic only when the λ-factor is all of M_{f,p}. The same point is why Theorem B asks for injectivity as part of (e), and why the atlas's GZ.9 warns not to infer a non-zero logarithm from a non-zero class. Searched for an existing correction: the Annals article page (no erratum listed), arXiv 1405.7294 (v1 only), and a web search. No correction was found, so known: new.",
+        "known": "new",
+        "supersededBy": "FIX-RT-PAPER-SKINNER-20; public BSW repair identified by RT-PAPER-SKINNER-20/1"
       }
     },
     {
@@ -1110,19 +1452,27 @@
       "kind": "gap",
       "locator": "§2.6, Corollary 2.6.2 and the sentence before it, published p. 344 (page image checked); arXiv v1 p. 14",
       "printed": "The source says that establishing log_ω P_K(f) ≠ 0, and thus L^S_𝔭(f,1) ≠ 0, suffices to prove P_K(f) ≠ 0 and positive rank for A_f(K). Corollary 2.6.2 asserts the equivalence of P_K(f) ≠ 0 and L^S_𝔭(f,1) ≠ 0.",
-      "correction": "'If L^S_𝔭(f,1) ≠ 0, then P_K(f) ≠ 0.' The converse holds when log_ω is non-zero on the f-isotypic line of A_f(K)⊗M_f: for example when [M_f:Q] = 1, when λ is the only prime of M_f above p, or under hypothesis (e) of Theorem B.",
-      "reason": "By Proposition 2.6.1, L^S_𝔭(f,1) ≠ 0 ⟺ log_ω P_K(f) ≠ 0, and log_ω P_K(f) ≠ 0 ⟹ P_K(f) ≠ 0. The reverse implication P_K(f) ≠ 0 ⟹ log_ω P_K(f) ≠ 0 is the λ-component non-vanishing discussed in the Lemma 2.2.2 finding. It is automatic for elliptic curves but not justified when [M_f:Q] > 1. Only the 'if' direction is used in the proof of Theorem B, so the main theorems are unaffected by this part.",
-      "affects": "a stated result",
-      "known": "new",
+      "correction": "Retain the full equivalence P_K(f)≠0 ⇔ L^S_𝔭(f,1)≠0 under the original §2.6 hypotheses. For the missing direction write P_K(f)=φ(ε_f Q^ξ_K) and y=φ(Q^ξ_K)∈A_f(K)⊗Q. If P_K(f)≠0 then y≠0; clear denominators and apply BSW Theorem 1.1 to the resulting actual non-torsion point. The eigenproperty of the differential gives log_ω y=log_ω P_K(f), and Proposition 2.6.1 finishes the argument.",
+      "reason": "The p-adic Waldspurger formula by itself gives the forward L-value-to-point implication, but it does not establish nonvanishing on every tensor. BSW proves the algebraic-point input. Skinner’s ε_f/Hodge comparison and differential pullback explicitly transfer that input to this particular Heegner tensor (item 82). No assumption of nonvanishing on an arbitrary isotypic tensor space is introduced. Only the L-value-to-point direction is used by Theorem B.",
+      "affects": "the proof",
+      "known": "Repaired by Burungale–Skinner–Wan, arXiv:2603.20886v2 (10 May 2026), §1.2, Theorem 1.1, Theorem 2.3/Remark 2.4 and §§3,4.1. Public preprint repair; not an Annals erratum.",
       "searched": [
         "the Annals article page for Ann. of Math. 191 (2020), no. 2, 329–354, 23 September 2026: no erratum or corrigendum listed",
         "arXiv 1405.7294: only v1 (28 May 2014)",
-        "a web search for an erratum or a later correction of this passage, 23 September 2026: none found"
+        "a web search for an erratum or a later correction of this passage, 23 September 2026: none found",
+        "30 September 2026: freshly read arXiv:2603.20886v2 §§1.2–1.4, 2.1–2.2, 3 and 4.1, including page images of Theorem 1.1 and the subgroup argument; the explicit repair predates the 23 September review."
       ],
-      "review": {
+      "historicalReview": {
         "verdict": "confirmed",
         "reason": "found and checked on the page image by the review",
         "by": "REV-PAPER-SKINNER-20"
+      },
+      "historicalAssessment": {
+        "date": "2026-09-23",
+        "correction": "'If L^S_𝔭(f,1) ≠ 0, then P_K(f) ≠ 0.' The converse holds when log_ω is non-zero on the f-isotypic line of A_f(K)⊗M_f: for example when [M_f:Q] = 1, when λ is the only prime of M_f above p, or under hypothesis (e) of Theorem B.",
+        "reason": "By Proposition 2.6.1, L^S_𝔭(f,1) ≠ 0 ⟺ log_ω P_K(f) ≠ 0, and log_ω P_K(f) ≠ 0 ⟹ P_K(f) ≠ 0. The reverse implication P_K(f) ≠ 0 ⟹ log_ω P_K(f) ≠ 0 is the λ-component non-vanishing discussed in the Lemma 2.2.2 finding. It is automatic for elliptic curves but not justified when [M_f:Q] > 1. Only the 'if' direction is used in the proof of Theorem B, so the main theorems are unaffected by this part.",
+        "known": "new",
+        "supersededBy": "FIX-RT-PAPER-SKINNER-20; public BSW repair identified by RT-PAPER-SKINNER-20/1"
       }
     },
     {
@@ -1224,6 +1574,56 @@
         "reason": "found and checked on the page image by the review",
         "by": "REV-PAPER-SKINNER-20"
       }
+    },
+    {
+      "id": "PAPER-SKINNER-20/E12",
+      "kind": "misprint",
+      "locator": "Published Skinner §2.4, p.340, Case II; Brooks citation [6, §2.8]",
+      "printed": "The source uses the normalization of [6, §2.8] to obtain a definition over M_f.",
+      "correction": "For the transfer normalization in the published Brooks article, read §2.7, p.4190. Retain §2.8, pp.4190–4191 as the adjacent standard-cohomology-class normalization, not as the location of the Jacquet–Langlands transfer paragraph.",
+      "reason": "The acquired 65-page published Brooks PDF labels §2.7 “The transfer” and §2.8 “Standard cohomology classes”; its introduction p.4180 also points to §2.7 for the normalized transfer. The exact M_f/differential comparison for Skinner remains the explicit adapter in item 90.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "30 September 2026: read Skinner published p.340 and Brooks published pp.4180,4190–4191, including the transfer/cohomology section headings. No separate correction is claimed; an earlier Brooks draft has not been collated."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p01-s.pdf",
+      "read": "2026-09-30",
+      "sha256": "cfdfab6e62ac507be40d1f0bc8d9cb8371d95b42c5ae259fde054c70fb20c214",
+      "extent": "Targeted rereading of published pp.329–331,337–341,343–344,346,350–354; selected formulas inspected as page images. The earlier complete readings in source.readSections are preserved."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1405.7294v1",
+      "read": "2026-09-23",
+      "sha256": "9e4650618c83394c400a10e990759f9fba42113eedc79fe2fcbe029d6c8381ff",
+      "extent": "Inherited full reading and collation by the original extraction/review; not redownloaded in this fix."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2603.20886v2",
+      "read": "2026-09-30",
+      "sha256": "f2b4a020bf5dbcd33df3a4b30cbf27230dc0d0775312f5e543b03b2486f6a994",
+      "extent": "Read pp.1–7 and 9–11, in particular §§1.2–1.4, 2.1.1, Theorem 2.3/Remark 2.4, §§3 and 4.1; page images of Theorem 1.1 and Theorem 3.2/proof. Only the unconditional rank-one theorem is used."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.mit.edu/~poonen/papers/sha.pdf",
+      "read": "2026-09-30",
+      "sha256": "3b9a619423358bc877fd2123b73a759157a728ec11e0f7b0aa48bd0333d7149a",
+      "extent": "Read pp.1–2, §3 pp.6–8 and bibliography selections pp.31–32; not the original Cassels/Tate publications."
+    },
+    {
+      "kind": "published",
+      "url": "https://infoscience.epfl.ch/server/api/core/bitstreams/c151dcd9-ff05-4c82-90d5-de19eec6f189/content",
+      "read": "2026-09-30",
+      "sha256": "90898527cf2e7e69bb6eba200dc7646e7f61837fa310299852ea2b958f925219",
+      "extent": "Read published pp.4178,4180,4190–4192, especially §§2.7–2.8; not a full reading of this 65-page supplier."
     }
   ]
 }
