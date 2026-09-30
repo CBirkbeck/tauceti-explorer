@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.Valuation.Extension
 import Mathlib.RingTheory.PowerSeries.Restricted
 import Mathlib.RingTheory.PowerSeries.Log
 import Mathlib.RingTheory.Localization.Away.Basic
@@ -9850,3 +9851,178 @@ example : integralTwistedEisensteinFinite 2
 end Dyadic
 end
 end SuggestedWildEisensteinTests
+
+/-! Coefficient change for the actual integral weighted Eisenstein objects.
+The integer-ring algebra map is supplied by native Valuation.HasExtension. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+variable (p : ℕ) [Fact p.Prime]
+variable {K L : Type*} [NormedField K] [NormedField L]
+  [IsUltrametricDist K] [IsUltrametricDist L] [Algebra K L] [ContinuousSMul K L]
+  [Valuation.HasExtension (NormedField.valuation (K := K)) (NormedField.valuation (K := L))]
+  {D E : ℕ}
+local notation "OK" => Valuation.integer (NormedField.valuation (K := K))
+local notation "OL" => Valuation.integer (NormedField.valuation (K := L))
+local notation "U" => (ℤ_[p])ˣ
+local notation "jMap" => (ContinuousMap.mk (algebraMap OK OL)
+  (Continuous.subtype_mk (Continuous.comp (continuous_algebraMap K L) continuous_subtype_val) _) : C(OK,OL))
+
+theorem integralTwistedPositiveEisensteinMeasure_baseChange
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+) (f : C(U,OK)) :
+    algebraMap OK OL (integralTwistedPositiveEisensteinMeasure p ψ φ n f)=
+      integralTwistedPositiveEisensteinMeasure p
+        (ψ.ringHomComp (algebraMap K L)) (φ.ringHomComp (algebraMap K L)) n
+        ((jMap).comp f) := sorry
+
+theorem integralTwistedEisensteinFinite_baseChange
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+) (r : ℕ) :
+    MonoidAlgebra.mapRingHom (ZMod (p^r))ˣ (algebraMap OK OL)
+      (integralTwistedEisensteinFinite p ψ φ n r)=
+      integralTwistedEisensteinFinite p
+        (ψ.ringHomComp (algebraMap K L)) (φ.ringHomComp (algebraMap K L)) n r := sorry
+
+theorem integralTwistedPositiveEisensteinSeries_baseChange
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (f : C(U,OK)) :
+    PowerSeries.map (algebraMap OK OL) (integralTwistedPositiveEisensteinSeries p ψ φ f)=
+      integralTwistedPositiveEisensteinSeries p
+        (ψ.ringHomComp (algebraMap K L)) (φ.ringHomComp (algebraMap K L))
+        ((jMap).comp f) := sorry
+
+theorem integralTwistedPositiveEisensteinSeries_baseChange_eq_iff
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (f g : C(U,OK)) :
+    integralTwistedPositiveEisensteinSeries p
+        (ψ.ringHomComp (algebraMap K L)) (φ.ringHomComp (algebraMap K L)) ((jMap).comp f)=
+      integralTwistedPositiveEisensteinSeries p
+        (ψ.ringHomComp (algebraMap K L)) (φ.ringHomComp (algebraMap K L)) ((jMap).comp g) ↔
+      integralTwistedPositiveEisensteinSeries p ψ φ f=
+        integralTwistedPositiveEisensteinSeries p ψ φ g := sorry
+
+theorem integralTwistedPositiveEisensteinSeries_baseChange_dvd_iff
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (f g : C(U,OK)) (b : OK) :
+    PowerSeries.C (algebraMap OK OL b)∣
+      integralTwistedPositiveEisensteinSeries p
+        (ψ.ringHomComp (algebraMap K L)) (φ.ringHomComp (algebraMap K L)) ((jMap).comp g)-
+      integralTwistedPositiveEisensteinSeries p
+        (ψ.ringHomComp (algebraMap K L)) (φ.ringHomComp (algebraMap K L)) ((jMap).comp f) ↔
+      PowerSeries.C b∣integralTwistedPositiveEisensteinSeries p ψ φ g-
+        integralTwistedPositiveEisensteinSeries p ψ φ f := sorry
+
+variable [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [Algebra ℤ_[p] L] [IsBoundedSMul ℤ_[p] L]
+theorem integralTwistedPositiveEisensteinMeasure_arithmetic_baseChange
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (t : ℕ) (χ : DirichletCharacter K (p^t)) (n : ℕ+) (e : ℕ) :
+    algebraMap OK OL (integralTwistedPositiveEisensteinMeasure p ψ φ n
+      (integralPrimePowerArithmeticCharacter p t χ e).toContinuousMap)=
+    integralTwistedPositiveEisensteinMeasure p
+      (ψ.ringHomComp (algebraMap K L)) (φ.ringHomComp (algebraMap K L)) n
+      (integralPrimePowerArithmeticCharacter p t (χ.ringHomComp (algebraMap K L)) e).toContinuousMap := sorry
+
+theorem integralTwistedPositiveEisensteinSeries_arithmetic_baseChange
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (t : ℕ) (χ : DirichletCharacter K (p^t)) (e : ℕ) :
+    PowerSeries.map (algebraMap OK OL) (integralTwistedPositiveEisensteinSeries p ψ φ
+      (integralPrimePowerArithmeticCharacter p t χ e).toContinuousMap)=
+    integralTwistedPositiveEisensteinSeries p
+      (ψ.ringHomComp (algebraMap K L)) (φ.ringHomComp (algebraMap K L))
+      (integralPrimePowerArithmeticCharacter p t (χ.ringHomComp (algebraMap K L)) e).toContinuousMap := sorry
+end
+end DirichletPadic
+
+namespace SuggestedEisensteinCoefficientChangeTests
+noncomputable section
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open DirichletPadic
+section General
+variable {p : ℕ} [Fact p.Prime]
+variable {K L : Type*} [NormedField K] [NormedField L]
+  [IsUltrametricDist K] [IsUltrametricDist L] [Algebra K L] [ContinuousSMul K L]
+  [Valuation.HasExtension (NormedField.valuation (K := K)) (NormedField.valuation (K := L))]
+  {D E : ℕ}
+local notation "OK" => Valuation.integer (NormedField.valuation (K := K))
+local notation "OL" => Valuation.integer (NormedField.valuation (K := L))
+local notation "U" => (ℤ_[p])ˣ
+local notation "jMap" => (ContinuousMap.mk (algebraMap OK OL)
+  (Continuous.subtype_mk (Continuous.comp (continuous_algebraMap K L) continuous_subtype_val) _) : C(OK,OL))
+-- first_coefficient_base_change
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (f : C(U,OK)) :
+    integralTwistedPositiveEisensteinMeasure p
+      (ψ.ringHomComp (algebraMap K L)) (φ.ringHomComp (algebraMap K L)) 1
+      ((jMap).comp f)=algebraMap OK OL (f 1) := sorry
+-- identity_coefficient_change
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+) (f : C(U,OK)) :
+    algebraMap OK OK (integralTwistedPositiveEisensteinMeasure p ψ φ n f)=
+      integralTwistedPositiveEisensteinMeasure p ψ φ n f := sorry
+-- finite_first_atom_base_change
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (r : ℕ) :
+    MonoidAlgebra.mapRingHom (ZMod (p^r))ˣ (algebraMap OK OL)
+      (integralTwistedEisensteinFinite p ψ φ 1 r)=MonoidAlgebra.single 1 1 := sorry
+-- identity_series_change
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (f : C(U,OK)) :
+    PowerSeries.map (algebraMap OK OK) (integralTwistedPositiveEisensteinSeries p ψ φ f)=
+      integralTwistedPositiveEisensteinSeries p ψ φ f := sorry
+-- extension_preserves_zero_constant
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (f : C(U,OK)) :
+    PowerSeries.coeff 0 (PowerSeries.map (algebraMap OK OL)
+      (integralTwistedPositiveEisensteinSeries p ψ φ f))=0 := sorry
+-- zero_series_descends
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (f : C(U,OK))
+    (h : integralTwistedPositiveEisensteinSeries p
+      (ψ.ringHomComp (algebraMap K L)) (φ.ringHomComp (algebraMap K L)) ((jMap).comp f)=0) :
+    integralTwistedPositiveEisensteinSeries p ψ φ f=0 := sorry
+-- zero_modulus_reflects_equality
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (f g : C(U,OK))
+    (h : PowerSeries.C (0 : OL)∣PowerSeries.map (algebraMap OK OL)
+      (integralTwistedPositiveEisensteinSeries p ψ φ g-
+        integralTwistedPositiveEisensteinSeries p ψ φ f)) :
+    integralTwistedPositiveEisensteinSeries p ψ φ g=
+      integralTwistedPositiveEisensteinSeries p ψ φ f := sorry
+variable [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [Algebra ℤ_[p] L] [IsBoundedSMul ℤ_[p] L]
+-- first_arithmetic_coefficient_base_change
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (t : ℕ) (χ : DirichletCharacter K (p^t)) (e : ℕ) :
+    algebraMap OK OL (integralTwistedPositiveEisensteinMeasure p ψ φ 1
+      (integralPrimePowerArithmeticCharacter p t χ e).toContinuousMap)=1 := sorry
+end General
+
+section Tower
+variable {p : ℕ} [Fact p.Prime] {K L M : Type*}
+  [NormedField K] [NormedField L] [NormedField M]
+  [IsUltrametricDist K] [IsUltrametricDist L] [IsUltrametricDist M]
+  [Algebra K L] [Algebra L M] [Algebra K M] [IsScalarTower K L M]
+  [Valuation.HasExtension (NormedField.valuation (K := K)) (NormedField.valuation (K := L))]
+  [Valuation.HasExtension (NormedField.valuation (K := L)) (NormedField.valuation (K := M))]
+  [Valuation.HasExtension (NormedField.valuation (K := K)) (NormedField.valuation (K := M))]
+  {D E : ℕ}
+local notation "OK" => Valuation.integer (NormedField.valuation (K := K))
+local notation "OL" => Valuation.integer (NormedField.valuation (K := L))
+local notation "OM" => Valuation.integer (NormedField.valuation (K := M))
+-- series_change_composes
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (f : C((ℤ_[p])ˣ,OK)) :
+    PowerSeries.map (algebraMap OL OM) (PowerSeries.map (algebraMap OK OL)
+      (integralTwistedPositiveEisensteinSeries p ψ φ f))=
+    PowerSeries.map (algebraMap OK OM) (integralTwistedPositiveEisensteinSeries p ψ φ f) := sorry
+-- finite_coordinate_change_composes
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+) (r : ℕ) :
+    MonoidAlgebra.mapRingHom (ZMod (p^r))ˣ (algebraMap OL OM)
+      (MonoidAlgebra.mapRingHom (ZMod (p^r))ˣ (algebraMap OK OL)
+        (integralTwistedEisensteinFinite p ψ φ n r))=
+    MonoidAlgebra.mapRingHom (ZMod (p^r))ˣ (algebraMap OK OM)
+      (integralTwistedEisensteinFinite p ψ φ n r) := sorry
+end Tower
+
+section Ramification
+local instance : Fact (Nat.Prime 3) := ⟨by decide⟩
+variable {L : Type*} [NormedField L] [IsUltrametricDist L] [Algebra ℚ_[3] L]
+  [Valuation.HasExtension (NormedField.valuation (K := ℚ_[3])) (NormedField.valuation (K := L))]
+local notation "OL" => Valuation.integer (NormedField.valuation (K := L))
+-- ramified_parameter_does_not_change_p_precision
+example (π : OL) (hπ : π^2=3) : ¬(9 : OL)∣π^2 := sorry
+-- field_divisibility_is_not_integral_precision
+example : (9 : L)∣3 ∧ ¬(9 : OL)∣3 := sorry
+end Ramification
+end
+end SuggestedEisensteinCoefficientChangeTests
