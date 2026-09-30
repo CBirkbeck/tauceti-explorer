@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all485 predecessor nodes whole. Six L3 nodes prove the averaging points lie in the convergence disc, construct the actual finite logarithm average and its complement, give the averaged HasSum, and eliminate the arbitrary primitive constant with independence under the exact local logarithm law. All16 findings, four requests and eight gaps remain; zero stages are closed.",
+  "summary": "Partial continuation preserving all491 predecessor nodes whole. Five L3 nodes establish actual root-point reciprocity, odd-character average vanishing, the dyadic fixed-point zero, the odd complementary zero and the tame averaged coefficient HasSum0. All16 findings, four requests and eight gaps remain; zero stages are closed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3297,6 +3297,27 @@
         "module": "Mathlib/RingTheory/RootsOfUnity/Lemmas.lean",
         "provides": "The product of1−ξ^k for1≤k<n equals n for a primitive n-th root; stated with n+1 to avoid a zero-order hypothesis.",
         "checked": "The whole RootsOfUnity.Lemmas module and the exact primitive-root power-surjectivity statement with its NeZero hypothesis were read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Complete native lemmas derive the cyclotomic norm equality and the strict open-disc bound for all powers, including p=2."
+      },
+      {
+        "ref": "mathlib:AddChar.map_neg_eq_inv",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "An additive character into a division monoid maps negation to inversion.",
+        "checked": "The complete declaration, ambient hypotheses and proof were read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. The complete native parity probe checks the concrete character sum, range conversion and root-average cancellation without placeholders."
+      },
+      {
+        "ref": "mathlib:AddChar.zmodChar_apply'",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+        "provides": "The native root character evaluated at a natural-number residue is exactly the corresponding power, without a representative mismatch.",
+        "checked": "The complete declaration, ambient hypotheses and proof were read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. The complete native parity probe checks the concrete character sum, range conversion and root-average cancellation without placeholders."
+      },
+      {
+        "ref": "mathlib:Fin.prod_univ_eq_prod_range",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Fintype/BigOperators.lean",
+        "provides": "Finite-index and range products agree; its generated additive form supplies the finite sum/range equality, equivalently by specializing to Multiplicative(K,+).",
+        "checked": "The complete declaration, ambient hypotheses and proof were read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. The complete native parity probe checks the concrete character sum, range conversion and root-average cancellation without placeholders."
       }
     ]
   },
@@ -32624,6 +32645,265 @@
       "acceptance": [
         "Both local laws are explicit in the suggested signature. No equality of constants or placeholder proposition is substituted for them."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-root-reciprocity",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Inverting the root point multiplies by character parity",
+      "kind": "theorem",
+      "statement": "For n>0 and ρ^n=1, V(ρ⁻¹−1)=η(−1)V(ρ−1).",
+      "hypotheses": [
+        "K is a characteristic-zero field; D is positive with NeZero D; η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write V(t)=cyclotomicLogValue(η,ε,ℓ)(t), c₀=cyclotomicLogConstant(η,ε,ℓ), F=tameLogPrimitive(η,ε,ℓ), A=cyclotomicLogAverage(p,ξ,η,ε,ℓ) and U=c₀−A. All these are the actual preceding constructions, with their original Gauss factor and totalized field inversion.",
+        "The supplied ℓ:K→K satisfies hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and hroot:ℓ(z)=0 whenever z^n=1 for some n>0. These are laws of the existing Coleman logarithm, kept explicit because its suggested module imports this consumer. No value is imposed on ℓ(0), and multiplicativity is never applied at0.",
+        "Root reciprocity requires ρ^n=1 for n>0. The finite average requires only p>0 and ξ^p=1, not prime p or primitive ξ. Odd conclusions require η(−1)=−1. They need no primitivity of η, nonzero Gauss hypothesis, coprimality of D and p, or norm hypothesis. The complement retains D>1 to use the preceding constant theorem unchanged.",
+        "Only the coefficient HasSum corollary adds a normed ultrametric field, p prime, ξ primitive of order p, ‖(p:K)‖<1, D>1, ‖(D:K)‖=1, and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). These analytic hypotheses remain essential; finite parity alone gives no pure-p-power convergence."
+      ],
+      "proofSteps": [
+        "Unfold the actual finite V and simplify1+(ρ−1)=ρ. Negation is a permutation of ZMod D. Native character multiplicativity and inverse evaluation give η⁻¹(−a)=η(−1)η⁻¹(a), since η(−1)²=1. This identity also holds at nonunits; no division by a character value is used.",
+        "The native additive character ψ=AddChar.zmodChar D hε.pow_eq_one gives ε^(−a).val=(ε^a.val)⁻¹ through map_neg_eq_inv. This avoids an informal congruence of exponents or a hidden choice of residues.",
+        "For z=ε^a.val, the product r=zρ satisfies r^(Dn)=1, hence is nonzero. If r=1, both r⁻¹−1 and r−1 are0, and their supplied ℓ-values agree directly, whatever ℓ(0) is.",
+        "If r≠1, factor r⁻¹−1=(−r⁻¹)(r−1). Both factors are nonzero, and(−r⁻¹)^(2Dn)=1. Apply hmul and hroot to get ℓ(r⁻¹−1)=ℓ(r−1). The complete native lemma separates the r=1 case before using multiplicativity.",
+        "Reindex a↦−a in the finite sum, apply the character and root identities, and factor out η(−1). Multiplying by the same−G⁻¹ proves the displayed formula, including G=0 under totalized inversion. The complete concrete native probe checks precisely this all-residue expression."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-point-value",
+        "ColemanIntegration:L0/log-branch",
+        "mathlib:MulChar.inv_apply_eq_inv'",
+        "mathlib:AddChar.zmodChar_apply",
+        "mathlib:AddChar.map_neg_eq_inv",
+        "mathlib:Fintype.prod_bijective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogValue_root_reciprocity"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(ii), odd-character observation, published149/PDF50; Section6.2 finite logarithm expression, published151/PDF52, and its root average, published153/PDF54. Whole published151–153 reread for this checkpoint; the earlier whole149 reading is retained.",
+          "excerpt": "Evaluating at T = 0",
+          "match": "Worker finite parity refinement of the source logarithmic expression and root average. Root inversion gives odd-character cancellation before invoking any distribution comparison. The dyadic fixed point and singular finite boundary are derived here, not asserted to be separately named results in the paper. The final HasSum is conditional on the already established tame local expansion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicParityTests.cubic_inverse_pair",
+          "kind": "compatibility",
+          "statement": "For every ρ with ρ³=1, the actual pair V(ρ⁻¹−1),V(ρ−1) differs by exactly η(−1)."
+        }
+      ],
+      "acceptance": [
+        "The finite symmetry applies even when a shifted logarithm argument is0. It does not extend a local Taylor expansion through that point. No generic logarithm theory is replanned."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-odd-average",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Odd-character root averages vanish",
+      "kind": "theorem",
+      "statement": "If p>0, ξ^p=1 and η(−1)=−1, then A_(p,ξ)(η,ε,ℓ)=0.",
+      "hypotheses": [
+        "K is a characteristic-zero field; D is positive with NeZero D; η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write V(t)=cyclotomicLogValue(η,ε,ℓ)(t), c₀=cyclotomicLogConstant(η,ε,ℓ), F=tameLogPrimitive(η,ε,ℓ), A=cyclotomicLogAverage(p,ξ,η,ε,ℓ) and U=c₀−A. All these are the actual preceding constructions, with their original Gauss factor and totalized field inversion.",
+        "The supplied ℓ:K→K satisfies hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and hroot:ℓ(z)=0 whenever z^n=1 for some n>0. These are laws of the existing Coleman logarithm, kept explicit because its suggested module imports this consumer. No value is imposed on ℓ(0), and multiplicativity is never applied at0.",
+        "Root reciprocity requires ρ^n=1 for n>0. The finite average requires only p>0 and ξ^p=1, not prime p or primitive ξ. Odd conclusions require η(−1)=−1. They need no primitivity of η, nonzero Gauss hypothesis, coprimality of D and p, or norm hypothesis. The complement retains D>1 to use the preceding constant theorem unchanged.",
+        "Only the coefficient HasSum corollary adds a normed ultrametric field, p prime, ξ primitive of order p, ‖(p:K)‖<1, D>1, ‖(D:K)‖=1, and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). These analytic hypotheses remain essential; finite parity alone gives no pure-p-power convergence."
+      ],
+      "proofSteps": [
+        "Give p its NeZero instance and identify the range p sum with the sum over ZMod p. The complete native helper proves this equality by the positive-modulus Fin presentation and the native Fin sum/range theorem. Primitivity of ξ is not needed: repeated root values are allowed.",
+        "The additive character ψ=AddChar.zmodChar p hξ has ψ(−a)=ψ(a)⁻¹ and ψ(a)^p=1. Apply the preceding actual root reciprocity with n=p to obtain V(ψ(−a)−1)=−V(ψ(a)−1).",
+        "Negation permutes ZMod p, so the unnormalized finite sum equals its negative. Thus twice the sum is0. Characteristic0 makes2 nonzero even when the residue characteristic is2, and the sum is0.",
+        "Multiply by(p:K)⁻¹ to obtain the actual average0. No logarithm distribution relation, convergence or LAD restriction is used. The p=1 case is allowed and agrees with the already constructed singleton average.",
+        "The complete native odd-root-average lemma checks both indexing and cancellation. Exact extension-field controls cover the odd quadratic characters of conductors3 and4, including conductor3 at p=2. An even conductor5 control has nonzero complement, so parity cannot be dropped."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-root-average",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-root-reciprocity",
+        "mathlib:AddChar.zmodChar_apply'",
+        "mathlib:AddChar.map_neg_eq_inv",
+        "mathlib:Fin.prod_univ_eq_prod_range"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogAverage_odd"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(ii), odd-character observation, published149/PDF50; Section6.2 finite logarithm expression, published151/PDF52, and its root average, published153/PDF54. Whole published151–153 reread for this checkpoint; the earlier whole149 reading is retained.",
+          "excerpt": "Evaluating at T = 0",
+          "match": "Worker finite parity refinement of the source logarithmic expression and root average. Root inversion gives odd-character cancellation before invoking any distribution comparison. The dyadic fixed point and singular finite boundary are derived here, not asserted to be separately named results in the paper. The final HasSum is conditional on the already established tame local expansion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicParityTests.odd_dyadic_average",
+          "kind": "computation",
+          "statement": "For every odd η and supplied logarithm with the stated laws, the actual p=2, ξ=−1 average vanishes."
+        }
+      ],
+      "acceptance": [
+        "The finite theorem includes p dividing D and composite p. Its analytic use still requires the later explicit tame hypotheses. The generated additive Fin.sum_univ_eq_sum_range is supplied by the indexed native multiplicative theorem through Multiplicative(K,+)."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-odd-dyadic-point",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The dyadic fixed point has zero odd-character value",
+      "kind": "lemma",
+      "statement": "If η(−1)=−1, then V(−2)=0.",
+      "hypotheses": [
+        "K is a characteristic-zero field; D is positive with NeZero D; η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write V(t)=cyclotomicLogValue(η,ε,ℓ)(t), c₀=cyclotomicLogConstant(η,ε,ℓ), F=tameLogPrimitive(η,ε,ℓ), A=cyclotomicLogAverage(p,ξ,η,ε,ℓ) and U=c₀−A. All these are the actual preceding constructions, with their original Gauss factor and totalized field inversion.",
+        "The supplied ℓ:K→K satisfies hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and hroot:ℓ(z)=0 whenever z^n=1 for some n>0. These are laws of the existing Coleman logarithm, kept explicit because its suggested module imports this consumer. No value is imposed on ℓ(0), and multiplicativity is never applied at0.",
+        "Root reciprocity requires ρ^n=1 for n>0. The finite average requires only p>0 and ξ^p=1, not prime p or primitive ξ. Odd conclusions require η(−1)=−1. They need no primitivity of η, nonzero Gauss hypothesis, coprimality of D and p, or norm hypothesis. The complement retains D>1 to use the preceding constant theorem unchanged.",
+        "Only the coefficient HasSum corollary adds a normed ultrametric field, p prime, ξ primitive of order p, ‖(p:K)‖<1, D>1, ‖(D:K)‖=1, and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). These analytic hypotheses remain essential; finite parity alone gives no pure-p-power convergence."
+      ],
+      "proofSteps": [
+        "Take ρ=−1 of order dividing2 in the actual reciprocity theorem. Its inverse is itself and its shifted point is−2.",
+        "The value therefore equals its negative. Cancel the nonzero characteristic-zero scalar2 to obtain0. This uses no invertibility of2 in an integral coefficient ring: all values and cancellations occur in K.",
+        "Together with the preceding c₀=V(0)=0 for odd η and D>1, this explains the two individual zeros in the p=2 average. At odd p, oddness generally cancels pairs and does not assert each root value is0.",
+        "The exact Q₂(μ₃) logarithm control checks both points for the conductor3 odd character. Its unramified quadratic coefficient ring uses residue-unit exponent3, not the odd-prime exponent p−1."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-root-reciprocity"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogValue_odd_dyadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(ii), odd-character observation, published149/PDF50; Section6.2 finite logarithm expression, published151/PDF52, and its root average, published153/PDF54. Whole published151–153 reread for this checkpoint; the earlier whole149 reading is retained.",
+          "excerpt": "Evaluating at T = 0",
+          "match": "Worker finite parity refinement of the source logarithmic expression and root average. Root inversion gives odd-character cancellation before invoking any distribution comparison. The dyadic fixed point and singular finite boundary are derived here, not asserted to be separately named results in the paper. The final HasSum is conditional on the already established tame local expansion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicParityTests.odd_dyadic_fixed_point",
+          "kind": "computation",
+          "statement": "The actual value at T=−2 vanishes for odd η, with no norm or coprimality hypothesis."
+        }
+      ],
+      "acceptance": [
+        "The complete native fixed-point cancellation and the dyadic field control agree. A separate singular D=p=3 finite profile has nonzero individual paired values, preventing the stronger false claim that all odd-character root values vanish."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-odd-complement",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Odd characters have zero complementary value",
+      "kind": "theorem",
+      "statement": "If D>1, p>0, ξ^p=1 and η(−1)=−1, then U_(p,ξ)(η,ε,ℓ)=0.",
+      "hypotheses": [
+        "K is a characteristic-zero field; D is positive with NeZero D; η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write V(t)=cyclotomicLogValue(η,ε,ℓ)(t), c₀=cyclotomicLogConstant(η,ε,ℓ), F=tameLogPrimitive(η,ε,ℓ), A=cyclotomicLogAverage(p,ξ,η,ε,ℓ) and U=c₀−A. All these are the actual preceding constructions, with their original Gauss factor and totalized field inversion.",
+        "The supplied ℓ:K→K satisfies hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and hroot:ℓ(z)=0 whenever z^n=1 for some n>0. These are laws of the existing Coleman logarithm, kept explicit because its suggested module imports this consumer. No value is imposed on ℓ(0), and multiplicativity is never applied at0.",
+        "Root reciprocity requires ρ^n=1 for n>0. The finite average requires only p>0 and ξ^p=1, not prime p or primitive ξ. Odd conclusions require η(−1)=−1. They need no primitivity of η, nonzero Gauss hypothesis, coprimality of D and p, or norm hypothesis. The complement retains D>1 to use the preceding constant theorem unchanged.",
+        "Only the coefficient HasSum corollary adds a normed ultrametric field, p prime, ξ primitive of order p, ‖(p:K)‖<1, D>1, ‖(D:K)‖=1, and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). These analytic hypotheses remain essential; finite parity alone gives no pure-p-power convergence."
+      ],
+      "proofSteps": [
+        "Use the actual defining equality U=c₀−A. The preceding cyclotomicLogConstant_odd, retained unchanged with its D>1 hypothesis, gives c₀=0.",
+        "The new finite odd-average theorem gives A=0. Subtract to obtain U=0 with exactly the same supplied logarithm, character, root and Gauss normalization.",
+        "This identifies the odd branch of the finite complementary expression, including p=2. The equality of U with the earlier reciprocal Euler candidate still awaits the general Coleman distribution comparison; identification with the analytic L-value additionally needs LAD restriction.",
+        "The exact even conductor5, p=11 control has nonzero U at the certified precision. Consequently the new vanishing cannot be generalized to all characters merely from the local logarithm law."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-average-complement",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-odd-zero",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-odd-average"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogAverageComplement_odd"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(ii), odd-character observation, published149/PDF50; Section6.2 finite logarithm expression, published151/PDF52, and its root average, published153/PDF54. Whole published151–153 reread for this checkpoint; the earlier whole149 reading is retained.",
+          "excerpt": "Evaluating at T = 0",
+          "match": "Worker finite parity refinement of the source logarithmic expression and root average. Root inversion gives odd-character cancellation before invoking any distribution comparison. The dyadic fixed point and singular finite boundary are derived here, not asserted to be separately named results in the paper. The final HasSum is conditional on the already established tame local expansion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicParityTests.odd_dyadic_complement",
+          "kind": "computation",
+          "statement": "For odd η with D>1, the actual p=2, ξ=−1 complementary value is0."
+        }
+      ],
+      "acceptance": [
+        "No analytic L-value equality or extra closed stage is inferred from this finite corollary."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-odd-average-series",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The odd averaged coefficient series sums to zero",
+      "kind": "theorem",
+      "statement": "Under the stated tame prime, norm, local logarithm, multiplicative and root-vanishing laws and odd η, HasSum(n↦coeff n(F)·((p:K)⁻¹Σ_(j<p)(ξ^j−1)^n))(0).",
+      "hypotheses": [
+        "K is a characteristic-zero field; D is positive with NeZero D; η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Write V(t)=cyclotomicLogValue(η,ε,ℓ)(t), c₀=cyclotomicLogConstant(η,ε,ℓ), F=tameLogPrimitive(η,ε,ℓ), A=cyclotomicLogAverage(p,ξ,η,ε,ℓ) and U=c₀−A. All these are the actual preceding constructions, with their original Gauss factor and totalized field inversion.",
+        "The supplied ℓ:K→K satisfies hmul:ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and hroot:ℓ(z)=0 whenever z^n=1 for some n>0. These are laws of the existing Coleman logarithm, kept explicit because its suggested module imports this consumer. No value is imposed on ℓ(0), and multiplicativity is never applied at0.",
+        "Root reciprocity requires ρ^n=1 for n>0. The finite average requires only p>0 and ξ^p=1, not prime p or primitive ξ. Odd conclusions require η(−1)=−1. They need no primitivity of η, nonzero Gauss hypothesis, coprimality of D and p, or norm hypothesis. The complement retains D>1 to use the preceding constant theorem unchanged.",
+        "Only the coefficient HasSum corollary adds a normed ultrametric field, p prime, ξ primitive of order p, ‖(p:K)‖<1, D>1, ‖(D:K)‖=1, and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). These analytic hypotheses remain essential; finite parity alone gives no pure-p-power convergence."
+      ],
+      "proofSteps": [
+        "The already planned cyclotomicLogAverage_hasSum places every shifted primitive root inside the open disc and gives this exact coefficient-series HasSum with target A. Retain all its prime, primitive-root, norm and local-law hypotheses.",
+        "Use p.Prime.pos and hξ.pow_eq_one to apply the new odd-average theorem, with the additional hmul, hroot and odd-character assumptions. Rewrite the target A as0.",
+        "This is a sum of the actual normalized finite average of coefficient evaluations, not the assertion that each coefficient is0. In particular, at p=2 the multiplier is(1/2)(0^n+(−2)^n), including n=0 with0^0=1.",
+        "The root-point finite theorem allowed singular pure-p data, but the present result retains ‖D‖=1 and D>1. It therefore does not bypass the source E45 convergence obstruction or replace the smoothed pure-p-power route."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-average-series",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-odd-average"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogAverage_odd_hasSum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(ii), odd-character observation, published149/PDF50; Section6.2 finite logarithm expression, published151/PDF52, and its root average, published153/PDF54. Whole published151–153 reread for this checkpoint; the earlier whole149 reading is retained.",
+          "excerpt": "Evaluating at T = 0",
+          "match": "Worker finite parity refinement of the source logarithmic expression and root average. Root inversion gives odd-character cancellation before invoking any distribution comparison. The dyadic fixed point and singular finite boundary are derived here, not asserted to be separately named results in the paper. The final HasSum is conditional on the already established tame local expansion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicParityTests.odd_dyadic_coefficient_sum",
+          "kind": "compatibility",
+          "statement": "Under the tame dyadic local-law hypotheses, HasSum(n↦coeff n(F)·(1/2)(0^n+(−2)^n))(0)."
+        }
+      ],
+      "acceptance": [
+        "The exact series statement elaborates; the roadmap theorem remains unchecked. Complete native proofs certify the finite symmetry and cancellation only, alongside the preceding checkpoint’s finite HasSum proof."
+      ]
     }
   ],
   "requests": [
@@ -32685,7 +32965,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual logarithm values now admit a root-average HasSum, and value-at0 minus that average depends only on the normalized primitive, eliminating every supplied integration constant. Next collapse the finite average to p⁻¹ times the powered logarithm constant using the existing Coleman weight-one distribution relation, then compare with LAD restriction. Importing the current generic Coleman node also reaches open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations requests; those dependencies must be accounted for or supplied by a finer owned input, never silently dropped. LAD distribution-operations currently has a coarse PMIA L0 leaf. Neither route is imported by this finite checkpoint, and no analytic L-value is identified. The existing discAnalytic/R+ comparison request remains open. Retain the smoothed pure-p-power route and E44–E48; odd/dyadic analytic branches, pole/residue analysis and complete source extraction remain open.",
+        "The concrete root-point values now satisfy parity reciprocity, and odd-character averages, dyadic fixed-point values and complementary values vanish. The corresponding tame coefficient-series HasSum is0. These finite odd branches are settled at the planning level, not the analytic L-value identification. Next collapse the general finite average to p⁻¹ times the powered logarithm constant using the existing Coleman weight-one distribution relation, then compare with LAD restriction. Importing the current generic Coleman node also reaches open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations requests; account for them or obtain a finer owned input, never silently omit them. LAD distribution-operations still has a coarse PMIA L0 leaf, and the exact discAnalytic/R+ comparison request remains open. Retain the smoothed pure-p-power route, E44–E48, positive-weight comparisons, pole/residue analysis and complete source extraction.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -32717,7 +32997,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual logarithm values now admit a root-average HasSum, and value-at0 minus that average depends only on the normalized primitive, eliminating every supplied integration constant. Next collapse the finite average to p⁻¹ times the powered logarithm constant using the existing Coleman weight-one distribution relation, then compare with LAD restriction. Importing the current generic Coleman node also reaches open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations requests; those dependencies must be accounted for or supplied by a finer owned input, never silently dropped. LAD distribution-operations currently has a coarse PMIA L0 leaf. Neither route is imported by this finite checkpoint, and no analytic L-value is identified. The existing discAnalytic/R+ comparison request remains open. Retain the smoothed pure-p-power route and E44–E48; odd/dyadic analytic branches, pole/residue analysis and complete source extraction remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The concrete root-point values now satisfy parity reciprocity, and odd-character averages, dyadic fixed-point values and complementary values vanish. The corresponding tame coefficient-series HasSum is0. These finite odd branches are settled at the planning level, not the analytic L-value identification. Next collapse the general finite average to p⁻¹ times the powered logarithm constant using the existing Coleman weight-one distribution relation, then compare with LAD restriction. Importing the current generic Coleman node also reaches open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations requests; account for them or obtain a finer owned input, never silently omit them. LAD distribution-operations still has a coarse PMIA L0 leaf, and the exact discAnalytic/R+ comparison request remains open. Retain the smoothed pure-p-power route, E44–E48, positive-weight comparisons, pole/residue analysis and complete source extraction. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -33034,44 +33314,44 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All16 source findings, sourceVersions and all four previous supplier requests remain whole. Confirmed external E44–E48 are retained; no new finding or independent verdict is added.",
     "validation": {
-      "nodes": 491,
+      "nodes": 496,
       "kinds": {
         "definition": 1,
-        "lemma": 213,
+        "lemma": 214,
         "construction": 62,
-        "theorem": 132,
+        "theorem": 136,
         "comparison": 83
       },
       "api": 454,
-      "packetTests": 780,
+      "packetTests": 785,
       "definitionConstructionTests": 262,
-      "typedExamples": 783,
+      "typedExamples": 788,
       "planets": 24,
-      "baseline": 469,
-      "preservedWholeNodes": 485,
-      "preservedBaseline": 467,
+      "baseline": 472,
+      "preservedWholeNodes": 491,
+      "preservedBaseline": 469,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 6,
-      "newNamedDeclarations": 15,
-      "newTypedTests": 10,
+      "newNodes": 5,
+      "newNamedDeclarations": 5,
+      "newTypedTests": 5,
       "requests": 4,
       "gaps": 8,
       "closedStages": 0,
-      "reachableNodes": 682,
-      "dependencyEdges": 3235,
+      "reachableNodes": 687,
+      "dependencyEdges": 3252,
       "acyclic": true,
-      "baselineLeaves": 610,
+      "baselineLeaves": 613,
       "stageRequestLeaves": [
         "LocallyAnalyticDistributions:L1",
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 211850,
+      "readerWords": 214855,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1522,
+      "compilerWarnings": 1532,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -33081,20 +33361,21 @@
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 8,
-      "scratchMathlibModules": 2838,
+      "scratchCompleteLemmas": 11,
+      "scratchMathlibModules": 2794,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
         "characterPrimeCases": 4,
-        "rootEvaluationComparisons": 26,
-        "localLogExpansions": 71,
-        "rootGeneratorAverages": 22,
-        "normalizedComplementIdentities": 4,
-        "arbitraryConstantCancellations": 16,
-        "higherPrecisionComparisons": 26,
-        "missingAverageNormalizationFailures": 2
+        "rootPointReciprocities": 25,
+        "localLogExpansions": 72,
+        "oddAverages": 3,
+        "oddComplements": 3,
+        "dyadicFixedPointZeros": 2,
+        "evenCounterexamples": 1,
+        "higherPrecisionPointComparisons": 25,
+        "singularFiniteProfileChecks": 3
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": [
@@ -33104,14 +33385,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1522,
-      "sha256": "839aa9b726aee663de97b9ee0bd52a8cd911c443c167c9ee8aa459f844d6f5c7",
+      "warnings": 1532,
+      "sha256": "f8dd04c4cf7066cb81259cf5ad831096b79270dae82e9723c2a10e3482ae0e33",
       "nativeProbe": {
-        "completeLemmas": 8,
+        "completeLemmas": 11,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "d6cdbe8e81acc9488a7aacfc200bef91a3cf60516caeb78cfa3734ca722c4e83"
+        "sha256": "491d1b437315dae2d2b51ff53241cc46af1952a215475cd2cb9172f36bb6a509"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -33180,16 +33461,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "4050678ce91c1dca8c54ca773b85ff26ea7f4bed09e08600c016931c5e4c556b",
+          "sourceSha256": "839aa9b726aee663de97b9ee0bd52a8cd911c443c167c9ee8aa459f844d6f5c7",
           "modules": 3572,
-          "warnings": 1497,
+          "warnings": 1522,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "d2323cdd6fb1598a185bcb00b991d01a02393a17",
+      "base": "18e035de1d6245946d9f66006a6ec35060da4390",
       "unchangedInputs": 58,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -38433,6 +38714,45 @@
         "missingAverageNormalizationFailures": 2
       },
       "numericalMethod": "Exact modular arithmetic in (Z/p^20 Z)[X]/Phi_p for p=3,5,7,11, with tame roots split in Q_p and all p-th roots represented in the ramified cyclotomic extension. The conductor2 principal character is deliberately allowed: these finite and local-series statements need no primitivity. Output precision is p^8 with one extra digit for averaging, independently repeated three digits higher. Direct unit logarithms are computed as log(x^(p-1))/(p-1) and compared with the actual constant plus the normalized Taylor series at xi^j-1. A principal-unit argument has valuation at least1/e, e=p-1. Truncation starts at N=max(p^2,2e(r+2)); for n>=N, v_p(n)<=n/(2e), hence floor(n/e)-v_p(n)>=r. Every term division by the p-part of n is checked coefficientwise with guard digits. Finite averages, generator permutations and cancellation of arbitrary added constants are exact modulo the output precision. Missing the1/p average factor is detected. These controls do not prove a general logarithm distribution identity, identify an LAD restriction or establish an analytic L-value."
+    },
+    "logarithmicParity": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4715,
+      "previousHead": "3c03420d1759c58bbbe3526561e5f3881b6f3c70",
+      "previousMerge": "9e65947beba16130d455c39e25c0fa0d11bf4610",
+      "preservedWholeNodes": 491,
+      "preservedBaseline": 469,
+      "preservedFindings": 16,
+      "newNodes": 5,
+      "reading": "Whole published151–153 was reread; earlier whole149, the confirmed external E44–E48 findings, and the whole Coleman L0 logarithm node remain in use. Read the complete native inverse-character evaluation, additive-character negation, root-character evaluation at residue and natural inputs, positive-modulus Fin presentation, and finite sum/range declaration with its proof. No new generic logarithm, distribution or Gauss theory is introduced.",
+      "boundary": "The concrete root-point values now satisfy parity reciprocity, and odd-character averages, dyadic fixed-point values and complementary values vanish. The corresponding tame coefficient-series HasSum is0. These finite odd branches are settled at the planning level, not the analytic L-value identification. Next collapse the general finite average to p⁻¹ times the powered logarithm constant using the existing Coleman weight-one distribution relation, then compare with LAD restriction. Importing the current generic Coleman node also reaches open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations requests; account for them or obtain a finer owned input, never silently omit them. LAD distribution-operations still has a coarse PMIA L0 leaf, and the exact discAnalytic/R+ comparison request remains open. Retain the smoothed pure-p-power route, E44–E48, positive-weight comparisons, pole/residue analysis and complete source extraction.",
+      "inputBase": "18e035de1d6245946d9f66006a6ec35060da4390",
+      "sourceBoundary": "All16 source findings, sourceVersions and all four previous supplier requests remain whole. Confirmed external E44–E48 are retained; no new finding or independent verdict is added.",
+      "publication": {
+        "base": "18e035de1d6245946d9f66006a6ec35060da4390",
+        "unchangedInputs": 58,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "characterPrimeCases": 4,
+        "rootPointReciprocities": 25,
+        "localLogExpansions": 72,
+        "oddAverages": 3,
+        "oddComplements": 3,
+        "dyadicFixedPointZeros": 2,
+        "evenCounterexamples": 1,
+        "higherPrecisionPointComparisons": 25,
+        "singularFiniteProfileChecks": 3
+      },
+      "numericalMethod": "Exact modular logarithms in Q_2(mu_3) and in ramified Q_p(mu_p) extensions at p=5,7,11. The dyadic case uses the unramified quadratic ring Phi_3, residue-unit exponent3 and ramification index1; odd split tame cases use exponent p-1 and ramification index p-1. Unit inverses are certified by modular Gaussian elimination. At input p^20, output p^8 plus an averaging digit is independently repeated three digits higher. Truncation N=max(p^2,2e(r+2)) uses principal-unit valuation>=1/e and v_p(n)<=n/(2e) for n>=p^2; all p-part divisions are checked with guard digits. Direct logarithm values and Taylor values satisfy root inversion parity, odd averages and complements vanish, and both dyadic fixed points vanish. The even conductor5 case has nonzero complement. A separate exact D=p=3 zero-off-zero profile with ell(0)=1 checks singular finite pairing and has no local-series law; it is not asserted to be an analytic logarithm. No analytic L-value or pure-p-power convergence is claimed."
     }
   },
   "requestResolutions": [
