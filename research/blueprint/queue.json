@@ -38906,8 +38906,9 @@
     "REV-PAPER-ATOBE-KONDO-YASUDA-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4244"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4244",
+   "finishedAt": "2026-09-30T15:46:06Z"
   },
   {
    "id": "REV-RT-PAPER-ATOBE-KONDO-YASUDA-22",
@@ -40928,8 +40929,9 @@
     "REV-PAPER-SKINNER-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SKINNER-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4321"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4321",
+   "finishedAt": "2026-09-30T15:46:11Z"
   },
   {
    "id": "RT-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
