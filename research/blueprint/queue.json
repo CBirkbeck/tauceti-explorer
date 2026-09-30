@@ -40811,8 +40811,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -51448,7 +51448,8 @@
     "FIX-RT-AREA-padic-1"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5150"
   },
   {
    "id": "REV-FIX-RT-AREA-padic-1~2",
@@ -51604,8 +51605,9 @@
     "FIX-RT-AREA-padic-2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5152"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5152",
+   "finishedAt": "2026-09-30T20:58:45Z"
   },
   {
    "id": "REV-FIX-RT-AREA-padic-2~2",
