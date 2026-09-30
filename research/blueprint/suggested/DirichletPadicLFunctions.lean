@@ -11405,3 +11405,115 @@ example (η : DirichletCharacter ℚ_[3] 4) (hη : η 3=-1)
 end Triadic
 end
 end SuggestedTameScalarTests
+
+/-! Variation of the actual tame character and stability of scalar integrality. -/
+namespace DirichletPadic
+noncomputable section
+open scoped PowerSeries.WithPiTopology
+section Coefficients
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  {D : ℕ} [NeZero D]
+
+theorem tameSeries_coeff_sub_norm_le (η0 η1 : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) (B : ℝ) (hB : 0≤B)
+    (hη : ∀ a, ‖η0 a-η1 a‖≤B) (n : ℕ) :
+    ‖PowerSeries.coeff n (tameSeries η0 hD)-
+      PowerSeries.coeff n (tameSeries η1 hD)‖≤B := sorry
+end Coefficients
+
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[p])ˣ
+
+theorem tameMeasure_sub_norm_le (η0 η1 : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) (B : ℝ) (hB : 0≤B)
+    (hη : ∀ a, ‖η0 a-η1 a‖≤B) :
+    ‖AbstractMeasure.toCLMEquiv (tameMeasure η0 hD hpD-tameMeasure η1 hD hpD)‖≤B := sorry
+
+theorem integralDoubledTameEisensteinSeries_character_bound
+    (η0 η1 : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (B : ℝ) (hB : 0≤B) (hη : ∀ a, ‖η0 a-η1 a‖≤B) (f : C(U,O)) (n : ℕ) :
+    ‖(PowerSeries.coeff (R := O) n (integralDoubledTameEisensteinSeries η0 hD hpD f) : K)-
+      (PowerSeries.coeff (R := O) n (integralDoubledTameEisensteinSeries η1 hD hpD f) : K)‖≤B*‖f‖ := sorry
+
+theorem integralDoubledTameEisensteinSeries_near_scalar_lift_iff [CharZero K]
+    (η0 η1 : DirichletCharacter K D) (hη1 : η1≠1)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) (B : ℝ) (hB : 0≤B) (hsmall : B<1)
+    (hη : ∀ a, ‖η0 a-η1 a‖≤B) (s : K) :
+    (∃ M : AbstractMeasure U O (PowerSeries O), ∀ f : C(U,O),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype (M f)=
+        s • PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+          (integralDoubledTameEisensteinSeries η0 hD hpD f)) ↔ ‖s‖≤1 := sorry
+end
+end DirichletPadic
+
+namespace SuggestedTameVariationTests
+noncomputable section
+open DirichletPadic AbstractMeasure
+open scoped PowerSeries.WithPiTopology
+section General
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[p])ˣ
+variable (η0 η1 : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+-- coefficient_self
+example (n : ℕ) : ‖PowerSeries.coeff n (tameSeries η0 hD)-
+    PowerSeries.coeff n (tameSeries η0 hD)‖=0 := sorry
+-- coefficient_level_one
+example (χ0 χ1 : DirichletCharacter K 1) (h1 : IsUnit ((1 : ℕ) : K)) (n : ℕ) :
+    PowerSeries.coeff n (tameSeries χ0 h1)-PowerSeries.coeff n (tameSeries χ1 h1)=0 := sorry
+-- measure_self
+example : ‖toCLMEquiv (tameMeasure η0 hD hpD-tameMeasure η0 hD hpD)‖=0 := sorry
+-- measure_evaluation
+example (B : ℝ) (hB : 0≤B) (hη : ∀ a, ‖η0 a-η1 a‖≤B) (f : C(ℤ_[p],K)) :
+    ‖tameMeasure η0 hD hpD f-tameMeasure η1 hD hpD f‖≤B*‖f‖ := sorry
+-- constant_variation
+example (B : ℝ) (hB : 0≤B) (hη : ∀ a, ‖η0 a-η1 a‖≤B) (f : C(U,O)) :
+    ‖(PowerSeries.coeff (R := O) 0 (integralDoubledTameEisensteinSeries η0 hD hpD f) : K)-
+      (PowerSeries.coeff (R := O) 0 (integralDoubledTameEisensteinSeries η1 hD hpD f) : K)‖≤B*‖f‖ := sorry
+-- first_coefficient_independent
+example (f : C(U,O)) :
+    PowerSeries.coeff 1 (integralDoubledTameEisensteinSeries η0 hD hpD f)=
+      PowerSeries.coeff 1 (integralDoubledTameEisensteinSeries η1 hD hpD f) := sorry
+-- zero_test
+example (n : ℕ) : PowerSeries.coeff n (integralDoubledTameEisensteinSeries η0 hD hpD 0)-
+    PowerSeries.coeff n (integralDoubledTameEisensteinSeries η1 hD hpD 0)=0 := sorry
+-- stable_unit_constant
+example [CharZero K] (hη1 : η1≠1) (B : ℝ) (hB : 0≤B) (hsmall : B<1)
+    (hη : ∀ a, ‖η0 a-η1 a‖≤B) : ∃ f : C(U,O),
+    ‖(PowerSeries.coeff (R := O) 0 (integralDoubledTameEisensteinSeries η0 hD hpD f) : K)‖=1 := sorry
+-- radius_one_not_enough
+example : ‖(0 : K)-(-1)‖≤1 ∧ ‖(0 : K)‖≠‖(-1 : K)‖ := sorry
+end General
+
+section Dyadic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+local notation "O2" => Valuation.integer (NormedField.valuation (K := ℚ_[2]))
+local notation "U2" => (ℤ_[2])ˣ
+-- principal_three_coefficient_bound
+example (χ : DirichletCharacter ℚ_[2] 3) (hχ : χ 2=-1)
+    (hD : IsUnit (3 : ℚ_[2])) (n : ℕ) :
+    ‖PowerSeries.coeff n (tameSeries (1 : DirichletCharacter ℚ_[2] 3) hD)-
+      PowerSeries.coeff n (tameSeries χ hD)‖≤1/2 := sorry
+-- principal_three_scalar_criterion
+example (χ : DirichletCharacter ℚ_[2] 3) (hχ : χ 2=-1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2∣3) (s : ℚ_[2]) :
+    (∃ M : AbstractMeasure U2 O2 (PowerSeries O2), ∀ f : C(U2,O2),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype (M f)=
+        s • PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+          (integralDoubledTameEisensteinSeries (1 : DirichletCharacter ℚ_[2] 3) hD hpD f)) ↔ ‖s‖≤1 := sorry
+-- principal_three_no_half
+example (χ : DirichletCharacter ℚ_[2] 3) (hχ : χ 2=-1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2∣3) :
+    ¬ ∃ M : AbstractMeasure U2 O2 (PowerSeries O2), ∀ f : C(U2,O2),
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype (M f)=
+        (2 : ℚ_[2])⁻¹ • PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+          (integralDoubledTameEisensteinSeries (1 : DirichletCharacter ℚ_[2] 3) hD hpD f) := sorry
+end Dyadic
+end
+end SuggestedTameVariationTests
