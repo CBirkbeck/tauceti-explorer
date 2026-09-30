@@ -306,11 +306,11 @@
    ]
   },
   "research/blueprint/packets/ClassicalSerreModularity--R27.3.json": {
-   "promotedAt": "2026-09-29T01:08:10Z",
-   "review": "35c322bf8f5b9499",
-   "reviewDate": "2026-09-29",
-   "reviewer": "independent-review-REV-ClassicalSerreModularity--R27.3",
-   "sha256": "68642dd5e684e9c699959155ce00ba73e549275161084de773980f1afbe7a4a6",
+   "promotedAt": "2026-09-30T21:17:38Z",
+   "review": "36c93802d3ce2abd",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I",
+   "sha256": "b248659c4698e9ad2c0adc3439f688f82e104297b69292fdd3ae1008544bb074",
    "to": [
     "data/blueprints/ClassicalSerreModularity--R27.3.json",
     "data/blueprints/ClassicalSerreModularity--R27.3.md"
