@@ -29711,3 +29711,279 @@ Exact rational controls pass1620 remainder identities,1620 remainder bounds,1620
 Post-merge capture 5f376c099bfc9f34533dca273bc8c902fd2a5cd0 preserves all72 captured inputs and the complete issue body. Policies, own16 source findings, the complete registry, analytic supplier packets, baseline and ownership links are unchanged from the predecessor capture. No fresh source finding or independent review verdict is claimed. Publication refresh reads the full ClassicalArithmeticCompletion/E507 registry change: the independent REV-FIX-RT-PAPER-GHOSH-SARNAK-22 review confirms the exceptional Markoff-orbit inequality correction, giving h_M(k)≥h⁺_M(k)+1 for exceptional k≥5. The review records the large-coordinate argument, k=5 counterexample and finite regressions, scoped to the cited preprint passages, without a published-text or blanket version claim. The register moves that unchanged finding into confirmed and adjusts counts. This records the external review verdict, not an independent source verification by this worker. Own findings, analytic suppliers, policies and proof sources are unchanged.
 
 The separate partial signature file also compiled with zero errors and 2,917 expected placeholder warnings across 3,600 pinned source modules. It includes all 9 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: d3db181fd3187c373920c9b87f4db536cc318afdd884296403626cc32c245980.
+
+
+## Negative integer boundary values and signed angular transport
+
+Ten L3 nodes prove the negative integer branch of the existing translated difference function, using exact finite orientation, actual shifted Taylor quotients and signed unit/character transport. All918 predecessor nodes,723 baseline records and16 findings remain whole.
+
+Retains full Morita1975/KL1964 readings; freshly reads Morita p.259 image for the negative starred sum and its endpoints. Reads full native Filter.Tendsto.inv generator with its ContinuousInv/additive hypotheses and PadicInt.norm_add_eq_max_of_ne with its actual norm specialization/proof.
+
+### Translation of the actual shifted samples
+
+`DirichletPadicLFunctions:L3/morita-shifted-samples-translation` — `DirichletPadic.moritaShiftedSamples_translate`
+
+For any p-adic shift w and natural q-multiple z, S_w(A)(a+z)=S_(w+z)(A)(a) at every natural a.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, b=lcm(f,q), N_n=bq^n. A and D_m are actual functions ℤ_p→K, with D_0=A. The source application retains D_m=A^(m)/m! from the owned LAD analytic request. Finite shift identities require only the stated divisibility and normed coefficient field. The negative shift is −z with z a natural integer; q|z preserves the angular factor, while b|z also preserves the character weight. For quotient limits, K is ultrametric of characteristic zero, f>0, ι:ℤ_p→K preserves norms, B≥0, R>r. Assume actual derivative bounds ‖D_m(x)‖≤B/R^m on the closed principal r-disc and actual Taylor HasSum at each such center for all increments of norm<R. The final F_v statement additionally retains the preceding complete normalized ℚ_p-coefficient field, derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. No analytic carrier or true derivative compatibility is supplied by these conditional statements. The source negative interval is reindexed by a↦a−z for0≤a<z. Its unit and character comparisons are established separately. Both endpoints −z and0 are p-nonunits when q|z, so the source’s starred endpoint convention agrees. The leading minus sign and shifted derivative center are mandatory.
+
+**Proof:**
+
+1. At a p-nonunit, adding z preserves the nonunit condition and both actual samples are zero.
+2. At a p-unit, construct the actual units represented by a and a+z. The existing Ω translation gives the same torsion factor; angular translation gives α(a+z)=α(a)+Ω(a)^(−1)z.
+3. Expand the actual shifted-sample definition and combine the two increments. The complete shifted_samples_translate proof permits arbitrary w and does not need Taylor data.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-samples`, `DirichletPadicLFunctions:L3/morita-omega-translation`, `DirichletPadicLFunctions:L3/morita-angular-translation`, `DirichletPadicLFunctions:L3/morita-mean-support-period`.
+
+**Tests:**
+
+- `SuggestedMoritaNegativeTests.shifted_translation_dyadic` (computation): At p=2,w=−4,z=4,a=3 and A=u³, shifted sampling at7 agrees with the zero-shift sample at3.
+- `SuggestedMoritaNegativeTests.shifted_translation_odd` (computation): At p=3,w=−3,z=3,a=2 and A=u², shifted sampling at5 agrees with the zero-shift sample at2.
+
+**Acceptance:** Keep the actual shifted sample; ordinary translation of the angular input is not valid without Ω^(−1).
+
+**Source:** Section2 p.259, negative-integer replacement of the starred boundary sum; Theorem2 pp.259–260. The source replaces the nonnegative boundary sum by the negative of the starred sum from z to0. Here its negative shift is written −z with z≥0 and its actual derivative summands are reindexed over0≤a<z, with explicit unit and character transport.
+
+### The negative shift cancels the natural reindexing
+
+`DirichletPadicLFunctions:L3/morita-shifted-samples-negative-cancel` — `DirichletPadic.moritaShiftedSamples_negative_cancel`
+
+For q|z, the function a↦S_(−z)(A)(a+z) equals S(A).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, b=lcm(f,q), N_n=bq^n. A and D_m are actual functions ℤ_p→K, with D_0=A. The source application retains D_m=A^(m)/m! from the owned LAD analytic request. Finite shift identities require only the stated divisibility and normed coefficient field. The negative shift is −z with z a natural integer; q|z preserves the angular factor, while b|z also preserves the character weight. For quotient limits, K is ultrametric of characteristic zero, f>0, ι:ℤ_p→K preserves norms, B≥0, R>r. Assume actual derivative bounds ‖D_m(x)‖≤B/R^m on the closed principal r-disc and actual Taylor HasSum at each such center for all increments of norm<R. The final F_v statement additionally retains the preceding complete normalized ℚ_p-coefficient field, derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. No analytic carrier or true derivative compatibility is supplied by these conditional statements. The source negative interval is reindexed by a↦a−z for0≤a<z. Its unit and character comparisons are established separately. Both endpoints −z and0 are p-nonunits when q|z, so the source’s starred endpoint convention agrees. The leading minus sign and shifted derivative center are mandatory.
+
+**Proof:**
+
+1. Apply the preceding exact shifted-sample translation with w=−z.
+2. Use −z+z=0 and the existing zero-shift comparison with the actual angular samples. The complete shifted_samples_cancel proof covers units, nonunits and z=0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-samples-translation`, `DirichletPadicLFunctions:L3/morita-shifted-samples`.
+
+**Tests:**
+
+- `SuggestedMoritaNegativeTests.negative_cancel_unit` (computation): At p=2, S_(−4)(u)(7)=−3, the ordinary sample at3.
+- `SuggestedMoritaNegativeTests.negative_cancel_nonunit` (degenerate): The negative-shifted sample of a constant at6 is zero.
+- `SuggestedMoritaNegativeTests.negative_cancel_bad_modulus` (boundary): Replacing the dyadic modulus4 by2 fails: S_(−2)(u)(3)=−1 while S(u)(1)=1.
+
+**Acceptance:** The cancellation requires q|z; merely p|z is insufficient at p=2.
+
+**Source:** Section2 p.259, negative-integer replacement of the starred boundary sum; Theorem2 pp.259–260. The source replaces the nonnegative boundary sum by the negative of the starred sum from z to0. Here its negative shift is written −z with z≥0 and its actual derivative summands are reindexed over0≤a<z, with explicit unit and character transport.
+
+### The negative finite boundary identity
+
+`DirichletPadicLFunctions:L3/morita-shifted-mean-negative-boundary` — `DirichletPadic.moritaShiftedMean_negative_boundary`
+
+For b|z, M_(χ,−z),n(A)−M_χ,n(A)=−Σ_(a<z,p∤a)χ(a)N_n^(−1)(S_(−z)(A)(a+N_n)−S_(−z)(A)(a)).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, b=lcm(f,q), N_n=bq^n. A and D_m are actual functions ℤ_p→K, with D_0=A. The source application retains D_m=A^(m)/m! from the owned LAD analytic request. Finite shift identities require only the stated divisibility and normed coefficient field. The negative shift is −z with z a natural integer; q|z preserves the angular factor, while b|z also preserves the character weight. For quotient limits, K is ultrametric of characteristic zero, f>0, ι:ℤ_p→K preserves norms, B≥0, R>r. Assume actual derivative bounds ‖D_m(x)‖≤B/R^m on the closed principal r-disc and actual Taylor HasSum at each such center for all increments of norm<R. The final F_v statement additionally retains the preceding complete normalized ℚ_p-coefficient field, derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. No analytic carrier or true derivative compatibility is supplied by these conditional statements. The source negative interval is reindexed by a↦a−z for0≤a<z. Its unit and character comparisons are established separately. Both endpoints −z and0 are p-nonunits when q|z, so the source’s starred endpoint convention agrees. The leading minus sign and shifted derivative center are mandatory.
+
+**Proof:**
+
+1. Apply the preceding general finite-boundary identity to the actual natural function F=S_(−z)(A).
+2. The negative cancellation rewrites F(a+z) as S(A)(a), so that finite identity gives the opposite mean difference.
+3. Negate it and distribute the actual inverse denominator into the finite sum. The complete negative_boundary proof derives the orientation algebraically and retains the original character period.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-samples-negative-cancel`, `DirichletPadicLFunctions:L3/morita-finite-mean-integer-boundary`, `DirichletPadicLFunctions:L3/morita-shifted-mean`.
+
+**Tests:**
+
+- `SuggestedMoritaNegativeTests.negative_finite_boundary_dyadic` (computation): For A=u²,p=2,z=4,n=0, the actual mean difference at−4 is0.
+- `SuggestedMoritaNegativeTests.negative_finite_boundary_odd` (computation): For A=u²,p=3,z=3,n=1, the actual difference at−3 is−12.
+
+**Acceptance:** Both the leading minus sign and the negative-shifted sample inside the quotient are necessary.
+
+**Source:** Section2 p.259, negative-integer replacement of the starred boundary sum; Theorem2 pp.259–260. The source replaces the nonnegative boundary sum by the negative of the starred sum from z to0. Here its negative shift is written −z with z≥0 and its actual derivative summands are reindexed over0≤a<z, with explicit unit and character transport.
+
+### Taylor quotients at the shifted angular center
+
+`DirichletPadicLFunctions:L3/morita-shifted-sample-quotient-limit` — `DirichletPadic.moritaShiftedSamples_quotient_tendsto`
+
+For ‖w‖≤r and p∤a, N_n^(−1)(S_w(A)(a+N_n)−S_w(A)(a)) tends to θ_ι(a)^(−1)S_w(D_1)(a).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, b=lcm(f,q), N_n=bq^n. A and D_m are actual functions ℤ_p→K, with D_0=A. The source application retains D_m=A^(m)/m! from the owned LAD analytic request. Finite shift identities require only the stated divisibility and normed coefficient field. The negative shift is −z with z a natural integer; q|z preserves the angular factor, while b|z also preserves the character weight. For quotient limits, K is ultrametric of characteristic zero, f>0, ι:ℤ_p→K preserves norms, B≥0, R>r. Assume actual derivative bounds ‖D_m(x)‖≤B/R^m on the closed principal r-disc and actual Taylor HasSum at each such center for all increments of norm<R. The final F_v statement additionally retains the preceding complete normalized ℚ_p-coefficient field, derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. No analytic carrier or true derivative compatibility is supplied by these conditional statements. The source negative interval is reindexed by a↦a−z for0≤a<z. Its unit and character comparisons are established separately. Both endpoints −z and0 are p-nonunits when q|z, so the source’s starred endpoint convention agrees. The leading minus sign and shifted derivative center are mandatory.
+
+**Proof:**
+
+1. The exact shifted-sample translation identifies the increment as Ω(a)^(−1)N_n at the center x=α(a)+Ω(a)^(−1)w.
+2. The existing shifted-disc theorem places this actual center in the principal r-disc. Apply the preceding point Taylor-quotient limit with unit Ω(a)^(−1), using the derivative bounds and Taylor HasSum there.
+3. Rewrite the target using the actual shifted sample of D_1 and the existing torsion-character evaluation. The complete shifted_sample_quotient_limit proof retains the shifted center and the inverse unit factor.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-samples-translation`, `DirichletPadicLFunctions:L3/morita-shifted-argument-disc`, `DirichletPadicLFunctions:L3/morita-angular-point-quotient-limit`, `DirichletPadicLFunctions:L3/morita-torsion-character-map`.
+
+**Tests:**
+
+- `SuggestedMoritaNegativeTests.shifted_quotient_square` (computation): At p=2,w=−4,a=3,A=u² the quotient tends to−2, since the shifted center is1.
+- `SuggestedMoritaNegativeTests.shifted_quotient_cubic` (computation): At the same point A=u³ gives limit−3, not the unshifted value−27.
+
+**Acceptance:** No supplied quotient-limit witness is used; the limit follows from actual Taylor data.
+
+**Source:** Section2 p.259, negative-integer replacement of the starred boundary sum; Theorem2 pp.259–260. The source replaces the nonnegative boundary sum by the negative of the starred sum from z to0. Here its negative shift is written −z with z≥0 and its actual derivative summands are reindexed over0≤a<z, with explicit unit and character transport.
+
+### Negative q-multiples lie in the shift disc
+
+`DirichletPadicLFunctions:L3/morita-negative-shift-disc` — `DirichletPadic.moritaNegativeShift_norm`
+
+If q divides the natural z, then ‖−z‖≤r.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, b=lcm(f,q), N_n=bq^n. A and D_m are actual functions ℤ_p→K, with D_0=A. The source application retains D_m=A^(m)/m! from the owned LAD analytic request. Finite shift identities require only the stated divisibility and normed coefficient field. The negative shift is −z with z a natural integer; q|z preserves the angular factor, while b|z also preserves the character weight. For quotient limits, K is ultrametric of characteristic zero, f>0, ι:ℤ_p→K preserves norms, B≥0, R>r. Assume actual derivative bounds ‖D_m(x)‖≤B/R^m on the closed principal r-disc and actual Taylor HasSum at each such center for all increments of norm<R. The final F_v statement additionally retains the preceding complete normalized ℚ_p-coefficient field, derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. No analytic carrier or true derivative compatibility is supplied by these conditional statements. The source negative interval is reindexed by a↦a−z for0≤a<z. Its unit and character comparisons are established separately. Both endpoints −z and0 are p-nonunits when q|z, so the source’s starred endpoint convention agrees. The leading minus sign and shifted derivative center are mandatory.
+
+**Proof:**
+
+1. Negation preserves the norm.
+2. Apply the already proved natural q-multiple norm estimate. The complete negative_shift_norm proof includes z=0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-natural-shift-disc`.
+
+**Tests:**
+
+- `SuggestedMoritaNegativeTests.negative_norm_boundary` (boundary): The dyadic negative shift−12 has norm1/4.
+- `SuggestedMoritaNegativeTests.negative_norm_zero` (degenerate): The zero shift lies in the ternary closed disc.
+
+**Acceptance:** The sign changes the boundary orientation, not the convergence radius.
+
+**Source:** Section2 p.259, negative-integer replacement of the starred boundary sum; Theorem2 pp.259–260. The source replaces the nonnegative boundary sum by the negative of the starred sum from z to0. Here its negative shift is written −z with z≥0 and its actual derivative summands are reindexed over0≤a<z, with explicit unit and character transport.
+
+### Limits pass through the oriented finite sum
+
+`DirichletPadicLFunctions:L3/morita-shifted-mean-negative-boundary-limit` — `DirichletPadic.moritaShiftedMean_negative_boundary_limit`
+
+If each actual negative-shifted quotient at a<z,p∤a tends to d(a), then the actual negative mean difference tends to −Σ_(a<z,p∤a)χ(a)d(a).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, b=lcm(f,q), N_n=bq^n. A and D_m are actual functions ℤ_p→K, with D_0=A. The source application retains D_m=A^(m)/m! from the owned LAD analytic request. Finite shift identities require only the stated divisibility and normed coefficient field. The negative shift is −z with z a natural integer; q|z preserves the angular factor, while b|z also preserves the character weight. For quotient limits, K is ultrametric of characteristic zero, f>0, ι:ℤ_p→K preserves norms, B≥0, R>r. Assume actual derivative bounds ‖D_m(x)‖≤B/R^m on the closed principal r-disc and actual Taylor HasSum at each such center for all increments of norm<R. The final F_v statement additionally retains the preceding complete normalized ℚ_p-coefficient field, derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. No analytic carrier or true derivative compatibility is supplied by these conditional statements. The source negative interval is reindexed by a↦a−z for0≤a<z. Its unit and character comparisons are established separately. Both endpoints −z and0 are p-nonunits when q|z, so the source’s starred endpoint convention agrees. The leading minus sign and shifted derivative center are mandatory.
+
+**Proof:**
+
+1. Rewrite the sequence with the exact negative finite-boundary identity.
+2. For each fixed index, multiply the actual quotient Tendsto by its character value; the p-nonunit term is constantly zero. Pass to the finite sum using the existing native finite-sum convergence theorem.
+3. Apply the native continuous-negation limit theorem, generated by indexed Filter.Tendsto.inv. Its full statement, hypotheses and additive generator were read. The complete negative_boundary_limit proof carries the minus sign to the limit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-mean-negative-boundary`, `mathlib:tendsto_finsetProd`, `mathlib:Filter.Tendsto.const_mul`, `mathlib:Filter.Tendsto.inv`.
+
+**Tests:**
+
+- `SuggestedMoritaNegativeTests.negative_limit_dyadic` (computation): The actual quadratic mean difference at−4 tends to8 in ℚ₂.
+- `SuggestedMoritaNegativeTests.negative_limit_odd` (computation): The actual quadratic mean difference at−3 tends to6 in ℚ₃.
+
+**Acceptance:** This intermediate finite-limit theorem takes actual quotient limits; the following comparison supplies them from Taylor data.
+
+**Source:** Section2 p.259, negative-integer replacement of the starred boundary sum; Theorem2 pp.259–260. The source replaces the nonnegative boundary sum by the negative of the starred sum from z to0. Here its negative shift is written −z with z≥0 and its actual derivative summands are reindexed over0≤a<z, with explicit unit and character transport.
+
+### The negative boundary value uses shifted derivatives
+
+`DirichletPadicLFunctions:L3/morita-shifted-mean-negative-derivative-value` — `DirichletPadic.moritaShiftedMean_negative_derivative_boundary`
+
+Under the actual Taylor data and b|z, every actual negative mean-difference limit v equals −Σ_(a<z,p∤a)χ(a)θ_ι(a)^(−1)S_(−z)(D_1)(a).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, b=lcm(f,q), N_n=bq^n. A and D_m are actual functions ℤ_p→K, with D_0=A. The source application retains D_m=A^(m)/m! from the owned LAD analytic request. Finite shift identities require only the stated divisibility and normed coefficient field. The negative shift is −z with z a natural integer; q|z preserves the angular factor, while b|z also preserves the character weight. For quotient limits, K is ultrametric of characteristic zero, f>0, ι:ℤ_p→K preserves norms, B≥0, R>r. Assume actual derivative bounds ‖D_m(x)‖≤B/R^m on the closed principal r-disc and actual Taylor HasSum at each such center for all increments of norm<R. The final F_v statement additionally retains the preceding complete normalized ℚ_p-coefficient field, derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. No analytic carrier or true derivative compatibility is supplied by these conditional statements. The source negative interval is reindexed by a↦a−z for0≤a<z. Its unit and character comparisons are established separately. Both endpoints −z and0 are p-nonunits when q|z, so the source’s starred endpoint convention agrees. The leading minus sign and shifted derivative center are mandatory.
+
+**Proof:**
+
+1. The negative-shift norm theorem gives ‖−z‖≤r because q|b|z.
+2. The shifted quotient theorem derives every quotient Tendsto used by the preceding finite-limit theorem.
+3. Uniqueness of limits in the normed field identifies its finite derivative sum with the supplied actual mean-difference limit. The complete negative_boundary_value proof checks this comparison without assuming the final value.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-sample-quotient-limit`, `DirichletPadicLFunctions:L3/morita-negative-shift-disc`, `DirichletPadicLFunctions:L3/morita-shifted-mean-negative-boundary-limit`, `mathlib:tendsto_nhds_unique`.
+
+**Tests:**
+
+- `SuggestedMoritaNegativeTests.negative_value_dyadic` (computation): Any actual quadratic mean-difference limit at−4 in ℚ₂ equals8.
+- `SuggestedMoritaNegativeTests.negative_value_zero` (degenerate): For arbitrary A, any actual mean-difference limit at the zero shift is0.
+
+**Acceptance:** Do not replace S_(−z)(D_1)(a) by S(D_1)(a). The quadratic example would change8 to−8.
+
+**Source:** Section2 p.259, negative-integer replacement of the starred boundary sum; Theorem2 pp.259–260. The source replaces the nonnegative boundary sum by the negative of the starred sum from z to0. Here its negative shift is written −z with z≥0 and its actual derivative summands are reindexed over0≤a<z, with explicit unit and character transport.
+
+### Morita’s negative integer formula for the existing difference function
+
+`DirichletPadicLFunctions:L3/morita-translated-difference-negative-integer` — `DirichletPadic.moritaTranslatedDifference_negative_integer`
+
+With the retained analytic mean hypotheses and b|z for z≥0, F_v(−z)=−Σ_(a<z,p∤a)χ(a)θ_ι(a)^(−1)S_(−z)(D_1)(a).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, b=lcm(f,q), N_n=bq^n. A and D_m are actual functions ℤ_p→K, with D_0=A. The source application retains D_m=A^(m)/m! from the owned LAD analytic request. Finite shift identities require only the stated divisibility and normed coefficient field. The negative shift is −z with z a natural integer; q|z preserves the angular factor, while b|z also preserves the character weight. For quotient limits, K is ultrametric of characteristic zero, f>0, ι:ℤ_p→K preserves norms, B≥0, R>r. Assume actual derivative bounds ‖D_m(x)‖≤B/R^m on the closed principal r-disc and actual Taylor HasSum at each such center for all increments of norm<R. The final F_v statement additionally retains the preceding complete normalized ℚ_p-coefficient field, derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. No analytic carrier or true derivative compatibility is supplied by these conditional statements. The source negative interval is reindexed by a↦a−z for0≤a<z. Its unit and character comparisons are established separately. Both endpoints −z and0 are p-nonunits when q|z, so the source’s starred endpoint convention agrees. The leading minus sign and shifted derivative center are mandatory.
+
+**Proof:**
+
+1. The actual negative shift belongs to the closed shift disc.
+2. The preceding translated-difference theorem supplies the actual mean-difference limit F_v(−z), using the retained derivative Lipschitz estimates and twisted coefficient limits.
+3. Apply the negative derivative-value comparison. The complete difference_negative_integer_value proof gives the negative integer branch of the already defined function.
+4. The unit and character transports below identify its reindexed summands with the starred source interval from−z to0. The owned analytic carrier and true derivative compatibility remain open.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-mean-negative-derivative-value`, `DirichletPadicLFunctions:L3/morita-negative-shift-disc`, `DirichletPadicLFunctions:L3/morita-translated-difference-limit`, `DirichletPadicLFunctions:L3/morita-negative-unit-transport`, `DirichletPadicLFunctions:L3/morita-negative-character-period`.
+
+**Tests:**
+
+- `SuggestedMoritaNegativeTests.negative_difference_quadratic_dyadic` (computation): The actual dyadic quadratic coefficient formula gives F_v(−4)=8.
+- `SuggestedMoritaNegativeTests.negative_difference_quadratic_odd` (computation): The actual ternary quadratic coefficient formula gives F_v(−3)=6.
+- `SuggestedMoritaNegativeTests.negative_difference_zero` (degenerate): The zero negative shift gives F_v(0)=0 and an empty boundary sum.
+
+**Acceptance:** This supplies the conditional negative branch, not analyticity or a logarithmic/Gamma identification.
+
+**Source:** Section2 p.259, negative-integer replacement of the starred boundary sum; Theorem2 pp.259–260. The source replaces the nonnegative boundary sum by the negative of the starred sum from z to0. Here its negative shift is written −z with z≥0 and its actual derivative summands are reindexed over0≤a<z, with explicit unit and character transport.
+
+### Actual units and angular factors at negative indices
+
+`DirichletPadicLFunctions:L3/morita-negative-unit-transport` — `DirichletPadic.moritaNegativeShift_unit_transport`
+
+For a unit u and natural q-multiple z, construct an actual unit v represented by u−z, with Ω(v)=Ω(u) and α(v)=α(u)+Ω(u)^(−1)(−z).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, b=lcm(f,q), N_n=bq^n. A and D_m are actual functions ℤ_p→K, with D_0=A. The source application retains D_m=A^(m)/m! from the owned LAD analytic request. Finite shift identities require only the stated divisibility and normed coefficient field. The negative shift is −z with z a natural integer; q|z preserves the angular factor, while b|z also preserves the character weight. For quotient limits, K is ultrametric of characteristic zero, f>0, ι:ℤ_p→K preserves norms, B≥0, R>r. Assume actual derivative bounds ‖D_m(x)‖≤B/R^m on the closed principal r-disc and actual Taylor HasSum at each such center for all increments of norm<R. The final F_v statement additionally retains the preceding complete normalized ℚ_p-coefficient field, derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. No analytic carrier or true derivative compatibility is supplied by these conditional statements. The source negative interval is reindexed by a↦a−z for0≤a<z. Its unit and character comparisons are established separately. Both endpoints −z and0 are p-nonunits when q|z, so the source’s starred endpoint convention agrees. The leading minus sign and shifted derivative center are mandatory.
+
+**Proof:**
+
+1. The negative shift has norm≤r<1 while u has norm1. The pinned PadicInt.norm_add_eq_max_of_ne theorem gives ‖u−z‖=1, so the existing unit criterion supplies an actual unit v.
+2. Write z=qk. Its represented value satisfies v=u+q(−k), and the existing exact Ω and angular translations give the claimed identities.
+3. The complete negative_unit_transport proof constructs the unit instead of assuming it. Taking u represented by a identifies the negative shifted sample with the actual angular value at a−z.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-negative-shift-disc`, `DirichletPadicLFunctions:L3/morita-radius-contracting`, `DirichletPadicLFunctions:L3/morita-omega-translation`, `DirichletPadicLFunctions:L3/morita-angular-translation`, `mathlib:PadicInt.norm_add_eq_max_of_ne`, `mathlib:PadicInt.isUnit_iff`.
+
+**Tests:**
+
+- `SuggestedMoritaNegativeTests.negative_unit_norm` (boundary): The negative dyadic integer−3 is a unit and lies in the principal1/4 disc.
+- `SuggestedMoritaNegativeTests.negative_unit_sign` (computation): At a=3,z=4 the negative shifted angular sample of u is1, consistent with the actual index−1 having Ω=−1.
+
+**Acceptance:** The shift stays a unit because its norm is strictly below1; the q-modulus remains4 at p=2.
+
+**Source:** Section2 p.259, negative-integer replacement of the starred boundary sum; Theorem2 pp.259–260. The source replaces the nonnegative boundary sum by the negative of the starred sum from z to0. Here its negative shift is written −z with z≥0 and its actual derivative summands are reindexed over0≤a<z, with explicit unit and character transport.
+
+### The character value survives signed reindexing
+
+`DirichletPadicLFunctions:L3/morita-negative-character-period` — `DirichletPadic.moritaCharacter_negative_period`
+
+For an integer a and natural b-multiple z, χ(a−z)=χ(a) after casting to ZMod f.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, b=lcm(f,q), N_n=bq^n. A and D_m are actual functions ℤ_p→K, with D_0=A. The source application retains D_m=A^(m)/m! from the owned LAD analytic request. Finite shift identities require only the stated divisibility and normed coefficient field. The negative shift is −z with z a natural integer; q|z preserves the angular factor, while b|z also preserves the character weight. For quotient limits, K is ultrametric of characteristic zero, f>0, ι:ℤ_p→K preserves norms, B≥0, R>r. Assume actual derivative bounds ‖D_m(x)‖≤B/R^m on the closed principal r-disc and actual Taylor HasSum at each such center for all increments of norm<R. The final F_v statement additionally retains the preceding complete normalized ℚ_p-coefficient field, derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. No analytic carrier or true derivative compatibility is supplied by these conditional statements. The source negative interval is reindexed by a↦a−z for0≤a<z. Its unit and character comparisons are established separately. Both endpoints −z and0 are p-nonunits when q|z, so the source’s starred endpoint convention agrees. The leading minus sign and shifted derivative center are mandatory.
+
+**Proof:**
+
+1. From f|b|z write z=fk.
+2. The cast of z to ZMod f is zero, so the two residues agree before character evaluation. The complete negative_character_period proof does not need primality or an assumption that a is a unit.
+3. Together with unit transport, this identifies the finite derivative sum indexed by a<z with the source’s negative interval indexed by a−z. Both starred endpoints are excluded as p-nonunits.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-mean-character-period`.
+
+**Tests:**
+
+- `SuggestedMoritaNegativeTests.negative_character_period_dyadic` (computation): Every level3 character has χ(−11)=χ(1).
+- `SuggestedMoritaNegativeTests.negative_character_period_odd` (computation): Every level4 character has χ(−7)=χ(1).
+
+**Acceptance:** Retain the full original character period f, not merely q.
+
+**Source:** Section2 p.259, negative-integer replacement of the starred boundary sum; Theorem2 pp.259–260. The source replaces the nonnegative boundary sum by the negative of the starred sum from z to0. Here its negative shift is written −z with z≥0 and its actual derivative summands are reindexed over0≤a<z, with explicit unit and character transport.
+
+**Remaining:** The existing difference function now has both nonnegative and negative integer boundary formulas under actual analytic inputs. The negative branch has the oriented minus sign, shifted derivative center, actual unit transport and character period required by the signed source sum. The owned analytic carrier and true derivative compatibility remain open; next specialize the derivative sum to the logarithm and compare it with the signed finite Gamma product, then use the supplied continuous Gamma and density on the stated local disc. Analyticity is not inferred from continuity. Gross–Koblitz and Ferrero–Greenberg retain their recorded source-reading and normalization work. All17 gaps and13 requests remain open.
+
+### Negative integer boundary values and signed angular transport validation
+
+All 918 predecessor nodes, 723 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 10 nodes, 10 named suggested declarations and 22 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1188 reachable nodes, 5845 edges and 898 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0. The nine conditional finite/Taylor/arithmetic nodes terminate in native declarations and prior exact nodes. The F_v application inherits only the existing LAD L0 leaf through its actual analytic mean limit; all13 requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite probe preserves20 definitions and197 lemmas from PR5307 verbatim and proves10 additional lemmas, deriving the negative finite identity and actual shifted quotient limits before identifying F_v. No placeholder is used. The separate probe compiles against 2826 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Existing PMIA integer-ring equivalence and seven hash-verified Teichmuller artifacts are reused without rebuilding native modules. No analytic carrier is introduced. Full suggested file remains NOT COMPILED because pinned TwistedDivisorSum has no compatible existing artifact. General roadmap declarations remain unchecked.
+
+Exact controls pass1920 shifted translations,480 cancellations,720 negative finite boundaries,3240 shifted quotient bounds,56 signed unit transports,543 signed character periods,240 direct signed derivative comparisons,10 quadratic formulas and3 counterexamples to incorrect sign/center/modulus. Exact rational identities and norm inequalities at p2/3, q4/3, polynomial degrees0–4, six character levels, principal and nontrivial quadratic characters at levels3/4, depths0–2 and shifts0,−b,−2b. Signed integer indices are checked independently of the nonnegative reindexing. No numerical limit is used: the explicit quotient error bound and finite quadratic formulas are exact. The largest observed discrepancy is 0 (all exact identities and inequalities).
+
+Post-merge capture 73a373c104ecaf22e364f5df165fb175c97fcaab preserves all72 tracked inputs, complete issue body and four predecessor deliverables. Policies, own16 findings, full source registry and analytic suppliers are unchanged from the predecessor publication refresh. No independent source review verdict is claimed. Publication refresh mechanically isolates83 changed registry rows, all PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24:67 prior rows gain the external confirmed review,16 new confirmed rows E68–E83 appear. Read every changed mathematical statement/correction/reason and locator field; the full83-row field diff is retained. This records REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24 verdicts, not an independent review of the paper or its83 review explanations. Material refinements distinguish the naive Habiro splitting from calligraphic gluing, require exact Coleman constants, correct localization/Gauss/series formulas and identify dyadic exp and root-of-unity exclusions. New rows also concern completed tensor products, descent/base change, Hensel hypotheses and finite-level notation. None changes the Morita boundary data, existing dyadic radius, owned analytic requests or own16 findings. Registry purpose/older/unchecked fields are unchanged; REGISTER is exactly the current renderer output.
+
+The separate partial signature file also compiled with zero errors and 2,949 expected placeholder warnings across 3,600 pinned source modules. It includes all 10 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2bed48ed7a5971f6c50dfa40f4ed399acb6d55f9b8ec6e128a6413cd658681ad.

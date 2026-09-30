@@ -16360,3 +16360,149 @@ example : moritaTranslatedDifference 3 PadicInt.Coe.ringHom (fun m => if m=0 the
 -- difference_integer_zero
 example (v : ℕ → ℚ_[2]) : moritaTranslatedDifference 2 PadicInt.Coe.ringHom v 0 = 0 := by sorry
 end DirichletPadic.SuggestedMoritaQuotientTests
+
+/- Exact negative integer boundaries, with the oriented sign and shifted derivative center. -/
+
+namespace DirichletPadic
+noncomputable section
+open Filter
+open scoped Topology
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] {f : ℕ}
+
+lemma moritaShiftedSamples_translate (A : ℤ_[p] → K) (w : ℤ_[p]) (z : ℕ)
+    (hz : moritaModulus p ∣ z) (a : ℕ) :
+    moritaShiftedSamples p w A (a+z) = moritaShiftedSamples p (w+z) A a := by sorry
+
+lemma moritaShiftedSamples_negative_cancel (A : ℤ_[p] → K) (z : ℕ) (hz : moritaModulus p ∣ z) :
+    (fun a => moritaShiftedSamples p (-(z : ℤ_[p])) A (a+z)) = moritaAngularSamples p A := by sorry
+
+lemma moritaShiftedMean_negative_boundary (χ : DirichletCharacter K f) (n : ℕ) (A : ℤ_[p] → K)
+    (z : ℕ) (hz : Nat.lcm f (moritaModulus p) ∣ z) :
+    moritaShiftedMean p χ n (-(z : ℤ_[p])) A-moritaAngularMean p χ n A =
+      -(∑ a ∈ Finset.range z, if p ∣ a then 0 else χ (a : ZMod f)*
+        ((moritaLevel p f n : K)⁻¹*(moritaShiftedSamples p (-(z : ℤ_[p])) A (a+moritaLevel p f n)-
+          moritaShiftedSamples p (-(z : ℤ_[p])) A a))) := by sorry
+
+lemma moritaShiftedSamples_quotient_tendsto [IsUltrametricDist K] [CharZero K]
+    (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (hD : D 0=A)
+    (f : ℕ) (hf : 0<f) (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus p : ℤ_[p])‖<R)
+    (hv : ∀ m x, ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖≤B/R^m)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (A (x+h)))
+    (w : ℤ_[p]) (hw : ‖w‖≤‖(moritaModulus p : ℤ_[p])‖) (a : ℕ) (ha : ¬p ∣ a) :
+    Tendsto (fun n => (moritaLevel p f n : K)⁻¹*
+      (moritaShiftedSamples p w A (a+moritaLevel p f n)-moritaShiftedSamples p w A a))
+      atTop (𝓝 ((moritaTorsionCharacterMap p ι (a : ZMod (moritaModulus p)))⁻¹*moritaShiftedSamples p w (D 1) a)) := by sorry
+
+lemma moritaNegativeShift_norm (z : ℕ) (hz : moritaModulus p ∣ z) :
+    ‖(-(z : ℤ_[p]))‖≤‖(moritaModulus p : ℤ_[p])‖ := by sorry
+
+lemma moritaShiftedMean_negative_boundary_limit (χ : DirichletCharacter K f) (A : ℤ_[p] → K)
+    (z : ℕ) (hz : Nat.lcm f (moritaModulus p) ∣ z) (d : ℕ → K)
+    (hd : ∀ a < z, ¬p ∣ a → Tendsto (fun n => (moritaLevel p f n : K)⁻¹*
+      (moritaShiftedSamples p (-(z : ℤ_[p])) A (a+moritaLevel p f n)-moritaShiftedSamples p (-(z : ℤ_[p])) A a)) atTop (𝓝 (d a))) :
+    Tendsto (fun n => moritaShiftedMean p χ n (-(z : ℤ_[p])) A-moritaAngularMean p χ n A)
+      atTop (𝓝 (-(∑ a ∈ Finset.range z, if p ∣ a then 0 else χ (a : ZMod f)*d a))) := by sorry
+
+lemma moritaShiftedMean_negative_derivative_boundary [IsUltrametricDist K] [CharZero K]
+    (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    (χ : DirichletCharacter K f) (hf : 0<f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (hD : D 0=A)
+    (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus p : ℤ_[p])‖<R)
+    (hv : ∀ m x, ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖≤B/R^m)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (A (x+h)))
+    (z : ℕ) (hz : Nat.lcm f (moritaModulus p) ∣ z) (v : K)
+    (hlim : Tendsto (fun n => moritaShiftedMean p χ n (-(z : ℤ_[p])) A-moritaAngularMean p χ n A) atTop (𝓝 v)) :
+    v = -(∑ a ∈ Finset.range z, if p ∣ a then 0 else χ (a : ZMod f)*
+      ((moritaTorsionCharacterMap p ι (a : ZMod (moritaModulus p)))⁻¹*moritaShiftedSamples p (-(z : ℤ_[p])) (D 1) a)) := by sorry
+
+lemma moritaTranslatedDifference_negative_integer [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] [CharZero K] [CompleteSpace K]
+     (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    {f : ℕ} (χ : DirichletCharacter K f) (hf : 0<f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (hD : D 0=A)
+    (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus p : ℤ_[p])‖<R)
+    (hval : ∀ m x, ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖≤B/R^m)
+    (hLip : ∀ m x y, ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖≤‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖≤(B/R^m/‖(moritaModulus p : ℤ_[p])‖)*‖x-y‖)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (A (x+h)))
+    (v : ℕ → K) (hv : ∀ m, Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m)) atTop (𝓝 (v m)))
+    (z : ℕ) (hz : Nat.lcm f (moritaModulus p) ∣ z) :
+    moritaTranslatedDifference p ι v (-(z : ℤ_[p])) =
+      -(∑ a ∈ Finset.range z, if p ∣ a then 0 else χ (a : ZMod f)*
+        ((moritaTorsionCharacterMap p ι (a : ZMod (moritaModulus p)))⁻¹*moritaShiftedSamples p (-(z : ℤ_[p])) (D 1) a)) := by sorry
+
+lemma moritaNegativeShift_unit_transport (u : ℤ_[p]ˣ) (z : ℕ) (hz : moritaModulus p ∣ z) :
+    ∃ v : ℤ_[p]ˣ, (v : ℤ_[p])=(u : ℤ_[p])-(z : ℤ_[p]) ∧
+      moritaOmega p v=moritaOmega p u ∧
+      (moritaAngular p v : ℤ_[p])=(moritaAngular p u : ℤ_[p])+
+        (↑((moritaOmega p u)⁻¹) : ℤ_[p])*(-(z : ℤ_[p])) := by sorry
+
+omit [Fact p.Prime] in
+lemma moritaCharacter_negative_period (χ : DirichletCharacter K f) (a : ℤ) (z : ℕ)
+    (hz : Nat.lcm f (moritaModulus p) ∣ z) :
+    χ ((a-(z : ℤ) : ℤ) : ZMod f)=χ (a : ZMod f) := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedMoritaNegativeTests
+open Filter
+open scoped Topology
+-- shifted_translation_dyadic
+example : moritaShiftedSamples 2 (-4) (fun x => (x : ℚ_[2])^3) 7 = moritaShiftedSamples 2 0 (fun x => (x : ℚ_[2])^3) 3 := by sorry
+-- shifted_translation_odd
+example : moritaShiftedSamples 3 (-3) (fun x => (x : ℚ_[3])^2) 5 = moritaShiftedSamples 3 0 (fun x => (x : ℚ_[3])^2) 2 := by sorry
+-- negative_cancel_unit
+example : moritaShiftedSamples 2 (-4) (fun x => (x : ℚ_[2])) 7 = (-3 : ℚ_[2]) := by sorry
+-- negative_cancel_nonunit
+example : moritaShiftedSamples 2 (-4) (fun _ => (7 : ℚ_[2])) 6 = 0 := by sorry
+-- negative_cancel_bad_modulus
+example : moritaShiftedSamples 2 (-2) (fun x => (x : ℚ_[2])) 3 ≠ moritaAngularSamples 2 (fun x => (x : ℚ_[2])) 1 := by sorry
+-- negative_finite_boundary_dyadic
+example : moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (-4) (fun x => (x : ℚ_[2])^2) -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun x => (x : ℚ_[2])^2) = 0 := by sorry
+-- negative_finite_boundary_odd
+example : moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) 1 (-3) (fun x => (x : ℚ_[3])^2) -
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) 1 (fun x => (x : ℚ_[3])^2) = -12 := by sorry
+-- shifted_quotient_square
+example : Tendsto (fun n => (moritaLevel 2 1 n : ℚ_[2])⁻¹*
+    (moritaShiftedSamples 2 (-4) (fun x => (x : ℚ_[2])^2) (3+moritaLevel 2 1 n)-moritaShiftedSamples 2 (-4) (fun x => (x : ℚ_[2])^2) 3)) atTop (𝓝 (-2)) := by sorry
+-- shifted_quotient_cubic
+example : Tendsto (fun n => (moritaLevel 2 1 n : ℚ_[2])⁻¹*
+    (moritaShiftedSamples 2 (-4) (fun x => (x : ℚ_[2])^3) (3+moritaLevel 2 1 n)-moritaShiftedSamples 2 (-4) (fun x => (x : ℚ_[2])^3) 3)) atTop (𝓝 (-3)) := by sorry
+-- negative_norm_boundary
+example : ‖(-12 : ℤ_[2])‖ = 1/4 := by sorry
+-- negative_norm_zero
+example : ‖(0 : ℤ_[3])‖ ≤ ‖(moritaModulus 3 : ℤ_[3])‖ := by sorry
+-- negative_limit_dyadic
+example : Tendsto (fun n => moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (-4) (fun x => (x : ℚ_[2])^2) -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun x => (x : ℚ_[2])^2)) atTop (𝓝 8) := by sorry
+-- negative_limit_odd
+example : Tendsto (fun n => moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) n (-3) (fun x => (x : ℚ_[3])^2) -
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n (fun x => (x : ℚ_[3])^2)) atTop (𝓝 6) := by sorry
+-- negative_value_dyadic
+example (w : ℚ_[2]) (hw : Tendsto (fun n => moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (-4) (fun x => (x : ℚ_[2])^2) -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun x => (x : ℚ_[2])^2)) atTop (𝓝 w)) : w=8 := by sorry
+-- negative_value_zero
+example (A : ℤ_[3] → ℚ_[3]) (w : ℚ_[3]) (hw : Tendsto (fun n => moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) n 0 A -
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n A) atTop (𝓝 w)) : w=0 := by sorry
+-- negative_difference_quadratic_dyadic
+example : moritaTranslatedDifference 2 PadicInt.Coe.ringHom (fun m => if m=0 then (-1/6 : ℚ_[2]) else if m=2 then 1/2 else 0) (-4) = 8 := by sorry
+-- negative_difference_quadratic_odd
+example : moritaTranslatedDifference 3 PadicInt.Coe.ringHom (fun m => if m=0 then (-1/3 : ℚ_[3]) else if m=2 then 2/3 else 0) (-3) = 6 := by sorry
+-- negative_difference_zero
+example (v : ℕ → ℚ_[2]) : moritaTranslatedDifference 2 PadicInt.Coe.ringHom v (-0) = 0 := by sorry
+-- negative_unit_norm
+example : IsUnit (-3 : ℤ_[2]) ∧ ‖(-3 : ℤ_[2])-1‖ ≤ 1/4 := by sorry
+-- negative_unit_sign
+example : moritaShiftedSamples 2 (-4) (fun x => (x : ℚ_[2])) 3 = 1 := by sorry
+-- negative_character_period_dyadic
+example (χ : DirichletCharacter ℚ_[2] 3) : χ (-11 : ZMod 3)=χ (1 : ZMod 3) := by sorry
+-- negative_character_period_odd
+example (χ : DirichletCharacter ℚ_[3] 4) : χ (-7 : ZMod 4)=χ (1 : ZMod 4) := by sorry
+end DirichletPadic.SuggestedMoritaNegativeTests
