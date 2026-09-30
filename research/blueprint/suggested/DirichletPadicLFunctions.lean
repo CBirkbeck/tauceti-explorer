@@ -15288,3 +15288,137 @@ example : ‖moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 1
 -- bounded_indicator_fails_gauss_lipschitz
 example : ‖(1 : ℚ_[2])-0‖ > 4 * ‖(1 : ℤ_[2])-9‖ := by sorry
 end DirichletPadic.SuggestedAnalyticBoundTests
+
+/- Source torsion Dirichlet characters and the common-level twist family. The zeroth
+character power is the native identity character, including its zero nonunit values. -/
+namespace DirichletPadic
+noncomputable section
+variable (p : ℕ) [Fact p.Prime]
+def moritaTorsionCharacter : DirichletCharacter ℤ_[p] (moritaModulus p) := by sorry
+lemma moritaTorsionCharacter_two :
+    moritaTorsionCharacter 2 = ZMod.χ₄.ringHomComp (Int.castRingHom ℤ_[2]) := by sorry
+lemma moritaTorsionCharacter_odd (h : p≠2) (a : ℕ) :
+    moritaTorsionCharacter p (a : ZMod (moritaModulus p)) =
+      MulChar.ofUnitHom (padicTeichmuller p) (a : ZMod p) := by sorry
+lemma moritaTorsionCharacter_one : moritaTorsionCharacter p 1 = 1 := by sorry
+lemma moritaTorsionCharacter_mul (a b : ZMod (moritaModulus p)) :
+    moritaTorsionCharacter p (a*b) = moritaTorsionCharacter p a * moritaTorsionCharacter p b := by sorry
+lemma moritaTorsionCharacter_nat_unit (a : ℕ) (ha : IsUnit (a : ℤ_[p])) :
+    moritaTorsionCharacter p (a : ZMod (moritaModulus p)) = (moritaOmega p ha.unit : ℤ_[p]) := by sorry
+lemma moritaTorsionCharacter_nonunit (a : ℕ) (ha : p ∣ a) :
+    moritaTorsionCharacter p (a : ZMod (moritaModulus p)) = 0 := by sorry
+lemma moritaTorsionCharacter_order : moritaTorsionCharacter p ^ (moritaModulus p).totient = 1 := by sorry
+
+variable {K : Type*} [Field K]
+def moritaTorsionCharacterMap (ι : ℤ_[p] →+* K) : DirichletCharacter K (moritaModulus p) :=
+  (moritaTorsionCharacter p).ringHomComp ι
+lemma moritaTorsionCharacterMap_apply (ι : ℤ_[p] →+* K) (a : ZMod (moritaModulus p)) :
+    moritaTorsionCharacterMap p ι a = ι (moritaTorsionCharacter p a) := by sorry
+lemma moritaTorsionCharacterMap_nat_unit (ι : ℤ_[p] →+* K) (a : ℕ) (ha : IsUnit (a : ℤ_[p])) :
+    moritaTorsionCharacterMap p ι (a : ZMod (moritaModulus p)) = ι (moritaOmega p ha.unit : ℤ_[p]) := by sorry
+lemma moritaTorsionCharacterMap_order (ι : ℤ_[p] →+* K) :
+    moritaTorsionCharacterMap p ι ^ (moritaModulus p).totient = 1 := by sorry
+lemma moritaTorsionCharacterMap_comp {L : Type*} [Field L] (ι : ℤ_[p] →+* K) (κ : K →+* L) :
+    moritaTorsionCharacterMap p (κ.comp ι) = (moritaTorsionCharacterMap p ι).ringHomComp κ := by sorry
+
+variable {f : ℕ}
+def moritaCharacterTwist (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) (m : ℕ) :
+    DirichletCharacter K (Nat.lcm f (moritaModulus p)) :=
+  DirichletCharacter.changeLevel (Nat.dvd_lcm_left f (moritaModulus p)) χ *
+    (DirichletCharacter.changeLevel (Nat.dvd_lcm_right f (moritaModulus p)) (moritaTorsionCharacterMap p ι))⁻¹ ^ m
+lemma moritaCharacterTwist_zero (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) :
+    moritaCharacterTwist p ι χ 0 = DirichletCharacter.changeLevel (Nat.dvd_lcm_left f (moritaModulus p)) χ := by sorry
+lemma moritaCharacterTwist_period (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) (m : ℕ) :
+    moritaCharacterTwist p ι χ m = moritaCharacterTwist p ι χ (m % (moritaModulus p).totient) := by sorry
+lemma moritaCharacterTwist_weight (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) (m a : ℕ) (ha : ¬p ∣ a) :
+    moritaCharacterTwist p ι χ m (a : ZMod (Nat.lcm f (moritaModulus p))) =
+      χ (a : ZMod f) * (moritaTorsionCharacterMap p ι (a : ZMod (moritaModulus p)))⁻¹ ^ m := by sorry
+lemma moritaCharacterTwist_omega_weight (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) (m a : ℕ)
+    (ha : IsUnit (a : ℤ_[p])) :
+    moritaCharacterTwist p ι χ m (a : ZMod (Nat.lcm f (moritaModulus p))) =
+      χ (a : ZMod f) * (ι (moritaOmega p ha.unit : ℤ_[p]))⁻¹ ^ m := by sorry
+omit [Fact p.Prime] in
+lemma moritaCharacterTwist_level (n : ℕ) :
+    moritaLevel p (Nat.lcm f (moritaModulus p)) n = moritaLevel p f n := by sorry
+lemma moritaAngularMean_twist (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) (m n : ℕ) (A : ℤ_[p] → K) :
+    moritaAngularMean p (moritaCharacterTwist p ι χ m) n A = moritaFiniteMean p χ n
+      (fun a => (moritaTorsionCharacterMap p ι (a : ZMod (moritaModulus p)))⁻¹ ^ m * moritaAngularSamples p A a) := by sorry
+
+section Norm
+variable {L : Type*} [NormedField L] [NormedAlgebra ℚ_[p] L] [IsUltrametricDist L] [CharZero L]
+lemma moritaCharacterTwist_uniform (ι : ℤ_[p] →+* L) (χ : DirichletCharacter L f) (hf : 0 < f)
+    (A : ℤ_[p] → L) (B : ℝ) (hB : 0 ≤ B)
+    (hval : ∀ x : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖A x‖ ≤ B)
+    (hA : ∀ x y : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖A x-A y‖ ≤ (B / ‖(moritaModulus p : ℤ_[p])‖) * ‖x-y‖)
+    (m n : ℕ) : ‖moritaAngularMean p (moritaCharacterTwist p ι χ m) n A‖ ≤
+      max ‖(Nat.lcm f (moritaModulus p) : L)⁻¹‖ (‖(moritaModulus p : L)⁻¹‖ ^ 2) * B := by sorry
+end Norm
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedMoritaTwistTests
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+-- torsion_identity
+example : moritaTorsionCharacter 2 1 = 1 := by sorry
+-- torsion_dyadic_three
+example : moritaTorsionCharacter 2 3 = -1 := by sorry
+-- torsion_nonunit_two
+example : moritaTorsionCharacter 2 2 = 0 := by sorry
+-- torsion_native_five
+example : PadicInt.toZModPow 2 (moritaTorsionCharacter 5 2) = 7 := by sorry
+-- torsion_odd_sign
+example : moritaTorsionCharacter 3 2 = -1 := by sorry
+-- torsion_inverse_orientation
+example : PadicInt.toZModPow 2 ((moritaTorsionCharacter 5)⁻¹ 2) = 18 := by sorry
+-- torsion_dyadic_order
+example : moritaTorsionCharacter 2 ^ 2 = 1 := by sorry
+-- torsion_order_nonunit_zero
+example : (moritaTorsionCharacter 2 ^ 2) 2 = 0 := by sorry
+-- torsion_dyadic_not_trivial
+example : moritaTorsionCharacter 2 ≠ 1 := by sorry
+-- mapped_torsion_identity
+example : moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom 1 = (1 : ℚ_[2]) := by sorry
+-- mapped_torsion_sign
+example : moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom 3 = (-1 : ℚ_[2]) := by sorry
+-- mapped_torsion_nonunit
+example : moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom 2 = (0 : ℚ_[2]) := by sorry
+-- mapped_torsion_comp_identity
+example : moritaTorsionCharacterMap 2 ((RingHom.id ℚ_[2]).comp PadicInt.Coe.ringHom) =
+    moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom := by sorry
+-- twist_zero_is_inflated
+example : moritaCharacterTwist 2 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[2] 1) 0 =
+    (1 : DirichletCharacter ℚ_[2] 4) := by sorry
+-- twist_zero_new_nonunit
+example : moritaCharacterTwist 2 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[2] 1) 0 2 = 0 ∧
+    (1 : DirichletCharacter ℚ_[2] 1) (2 : ZMod 1) = 1 := by sorry
+-- twist_one_dyadic_sign
+example : moritaCharacterTwist 2 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[2] 1) 1 3 = -1 := by sorry
+-- twist_same_level
+example (n : ℕ) : moritaLevel 2 (Nat.lcm 3 4) n = moritaLevel 2 3 n := by sorry
+-- twist_dyadic_period
+example (m : ℕ) : moritaCharacterTwist 2 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[2] 1) (m+2) =
+    moritaCharacterTwist 2 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[2] 1) m := by sorry
+-- twist_odd_period
+example (m : ℕ) : moritaCharacterTwist 5 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[5] 1) (m+4) =
+    moritaCharacterTwist 5 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[5] 1) m := by sorry
+-- twist_original_nonunit
+example : moritaCharacterTwist 2 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[2] 3) 1 3 = 0 := by sorry
+-- twist_unit_weight
+example : moritaCharacterTwist 2 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[2] 3) 1 7 = -1 := by sorry
+-- twist_constant_mean
+example : moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[2] 1) 1) 0
+    (fun _ => 1) = 0 := by sorry
+-- twist_linear_mean
+example : moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[2] 1) 1) 0
+    (fun x => (((x : ℚ_[2])-1)/4)) = 1/4 := by sorry
+-- twist_linear_mean_odd
+example : moritaAngularMean 3 (moritaCharacterTwist 3 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[3] 1) 1) 0
+    (fun x => (((x : ℚ_[3])-1)/3)) = 1/3 := by sorry
+-- twist_uniform_dyadic
+example (m n : ℕ) : ‖moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom
+    (1 : DirichletCharacter ℚ_[2] 1) m) n (fun x => (((x : ℚ_[2])-1)/4)^2)‖ ≤ 16 := by sorry
+-- twist_uniform_odd
+example (m n : ℕ) : ‖moritaAngularMean 3 (moritaCharacterTwist 3 PadicInt.Coe.ringHom
+    (1 : DirichletCharacter ℚ_[3] 1) m) n (fun x => (((x : ℚ_[3])-1)/3)^2)‖ ≤ 9 := by sorry
+end DirichletPadic.SuggestedMoritaTwistTests
