@@ -1,0 +1,59 @@
+{
+  "redteam": "RT-PAPER-GHOSH-SARNAK-22",
+  "findings": [
+    {
+      "finding": "RT-PAPER-GHOSH-SARNAK-22/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at v3 §1(d), p.5 ('h±_M(k) = |F±_k(Z)| … otherwise h_M(k) ≤ h±_M(k)'). The same sentence is in v1 (p.4) and v2 (p.5). The smallest counterexample is k = 5: (0, 1, 2) ∈ V_5(ℤ), so h_M(5) ≥ 1, while F⁺_5(ℤ) = ∅ because u₁² + u₂² + u₃² + u₁u₂u₃ ≥ 54 on u_j ≥ 3 (§8, p.22: 'the smallest value of the polynomial is 54'). So h⁺_M(5) = 0. The general argument also holds. In §4.1 (4.1), genericity is used only to make the brackets 2(k − 5) + (x_i² − 4)(x_j² − 4) positive, and they are positive whenever k ≥ 5 and |x_i|, |x_j| ≥ 3. The up-tree of an F⁺-root is then closed under Γ, so the F⁺-roots stay pairwise inequivalent, and no orbit through a point with a coordinate in {0, ±1, ±2} contains one of them. I reproduced the counts independently, enumerating every F⁺ value up to 100,800: 7,105 exceptional k ≥ 5 have F⁺_k(ℤ) = ∅, the last being 100,792, and k = 58 is among them; the generic Hasse-failure count is 7,630. One evidence slip: 7,630 is not an entry of Table 4, which starts at K = 6,552,000. It matches Table 3, where the 12.97620% at K = 100,800 is 7,630 of the 58,800 admissible k. The fix is right as stated: correct item 5 and add E21 (affects nothing, since (1.6) and §7 count h^±)."
+    },
+    {
+      "finding": "RT-PAPER-GHOSH-SARNAK-22/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The review accepted all five routes (PAPER-GHOSH-SARNAK-22.review.json, ee0136e2, 23 Sep). The paper is in papers.json, and make_queue.accepted_routes returns its four source routes, so ADDED_SOURCES would carry them. Yet the bodies of #1025, #1040, #1030, #1021 and #1022 contain no 'Ghosh'. #1025's added sources are Bennett–Siksek and Martin only. The issues' later updated_at dates come from label events: #1025's timeline after 23 Sep shows only claim, submit and release labels. Twelve papers have accepted source routes into ClassicalArithmeticCompletion, as stated. The ClassicalArithmeticCompletion packet marks CA.4 source_decomposed, and its fourteen Markoff nodes cover the coefficient-three triples, Vieta moves, tree, reduction mod p and strong approximation only. #3367 line 39 carries route 5's brief, which imports 'the fundamental sets of Ghosh–Sarnak Theorem 1.1' from CA.4. One evidence correction: the packet does mention 'Sarnak' ten times, always as Bourgain–Gamburd–Sarnak. It never cites Ghosh–Sarnak, so the point stands. Of the fix, regenerating the queue and refreshing the issue bodies is a maintainer action (workers do not edit issues). A fixer can reopen CA.4 coverage to partial, with the remaining items named, record #3367 as route 5's design job, and make the brief's CA.4 import conditional. Apply it once, together with RT-PAPER-CHEN-24/5 and RT-PAPER-GAMBURD-MAGEE-RONAN-19/7."
+    },
+    {
+      "finding": "RT-PAPER-GHOSH-SARNAK-22/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. RS-03.result.json narrows ClassicalArithmeticCompletion:CA.1 to higher reciprocity and power-residue/Hilbert-symbol extensions, keeping 'Gauss/Jacobi specializations by import and explicit comparison', with FiniteFieldsAndCharacterSums:FF.1 as supplier and the link FF.1 → CA.1. The review commit 780df618 (13:30 UTC, 23 Sep) came after this extraction's review, ee0136e2 (12:11 UTC). That review's §'Checks run' says 'no restructuring touches the other stages'. The ClassicalArithmeticCompletion packet's CA.1 coverage note already follows RS-03. Route 1's reason ('Lemma 6.4, which rests on CA.1 Gauss sums') is therefore stale. The fix is sound. mathlib:gaussSum_sq exists at 082e2d3 (Mathlib/NumberTheory/GaussSum.lean:222): for a nontrivial quadratic multiplicative character and a primitive additive character, gaussSum² = χ(−1)·#R, which is S_p(1)² = (−1/p)p."
+    },
+    {
+      "finding": "RT-PAPER-GHOSH-SARNAK-22/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Tau Ceti BelyiMaps Layer 4, item 4, states the Fricke identity only 'For A, B ∈ SL(2,ℝ)' (atlas extract tauceti_TauCetiRoadmap_BelyiMaps.json). Item 23's note asks that Tau Ceti blueprint to state it over any commutative ring, which §15 rules out. PAPER-CHEN-24/78 states it 'For any ring R' and is routed by accepted route 6 to the new roadmap NonabelianLevelStructures, whose DESIGN job is pending in queue.json. Lemma 6.2 needs it over ℤ/pⁿℤ. I re-ran the mitigating check: Corollary 6.3's explicit solution x₁ = 2 − (k − 4)c, x₂ = e + f, x₃ = e − f + f·x₁ satisfies M(x) ≡ k mod pⁿ in all 720 cases (p = 5, 7, 11, 13; n = 1, 2, 3; 0 ≤ k < 60). Low severity is right."
+    },
+    {
+      "finding": "RT-PAPER-GHOSH-SARNAK-22/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Theorem 1.2(i) reads '√K(log K)^{−1/4}' in v1 (p.4) and v2 (p.5), and '√K(log K)^{−1/2}' in v3 (p.5). Loughran–Mitankin arXiv 1807.10223v3, pp.2–3, says that '[GS17, Thm. 1.2.(i)] claims … B^{1/2}/(log B)^{1/4} … their method only gives the lower bound B^{1/2}/(log B)^{1/2}'. So E11's 'the statements listed persist in all of them' is false for this statement, and the exponent correction is already in print. E11's own point (constant 1 versus ≫) is untouched. Remark 1.3(a) (v3 p.7, 'of order of magnitude √K') is off by (log K)^{1/2} against LM Theorem 1.4 ('≍ B^{1/2}/(log B)^{1/2}'). The optional low source issue is warranted. All four PDF hashes in the red team's sourceVersions reproduce."
+    },
+    {
+      "finding": "RT-PAPER-GHOSH-SARNAK-22/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The result's keys are paper, protocol, status, source, summary, items, prerequisites, routes and sourceIssues, with no sourceVersions. Four source issues (E1, E11, E15, E18) have affects 'a stated result'. PROTOCOL.md §18 applies to paper extractions ('The file therefore records what was read, alongside sourceIssues'). check_paper.py does not enforce this; check_errata.py does, for errata files. That is why the omission passed the checks. The proposed entries meet check_errata's shape (kind, and a url or a citation)."
+    },
+    {
+      "finding": "RT-PAPER-GHOSH-SARNAK-22/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a cross-referencing gap, low. PAPER-GAMBURD-MAGEE-RONAN-19/1 is x₁² + … + x_n² = a·x₁⋯x_n + k with the moves m_j. Its n = 3, a = 1 case is exactly V_k and the Vieta involutions of items 3–4. GMR route 1 goes to ClassicalArithmeticCompletion:CA.4, and its review accepted it. CA.4 has the nodes markoff-root-generation and markoff-tree. One step of the evidence is misworded. It is not true that 'mod 3 the sum x₁² + x₂² + x₃² can vanish only when every x_j ≡ 0', since 1 + 1 + 1 ≡ 0. The correct argument goes through the product. If every x_j ≢ 0 (mod 3), the squares sum to 0 while x₁x₂x₃ ≢ 0. If some x_j ≡ 0, the product vanishes, so the squares force every x_j ≡ 0. So 3 | x, and x = 3y gives y₁² + y₂² + y₃² = 3y₁y₂y₃, as the finding says. The fix stands."
+    },
+    {
+      "finding": "RT-PAPER-GHOSH-SARNAK-22/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed. (a) v3 §10, p.34, says 'By the arguments in Sec. 7, … AHF(K) ≫ K^{1/2−ε}'. v3 §7 is 'The average of h±: counting lattice points', and the Hasse failures are built in §8. v1 reads 'Sec. 6', which was then its counting section (its §7 was 'Failures of the Hasse Principle'), so the slip predates the renumbering. (b) v3 §10, p.34, says 'The number of admissible k's (see Sec. 3)'. §3 (Bhargava cubes) never mentions admissibility, and v1 and v2 print the same sentence. (c) Proposition 8.1(ii) requires every prime factor of ν ≡ ±1 (mod 8), so 3 ∤ ν and only ν ≡ ±4 (mod 9) can occur. The instances below 50 are ν = 23, 31, 41, 49. k = 4 + 2·23² = 1062 is admissible, not exceptional, and has F⁺_{1062}(ℤ) = ∅ in my enumeration, so it is a Hasse failure."
+    },
+    {
+      "finding": "RT-PAPER-GHOSH-SARNAK-22/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. PAPER-GHOSH-SARNAK-22.md line 5 reads '63 items (4 library, 1 planned, 58 missing), 5 routes, 16 prerequisite entries and 19 recorded source issues'. The result file has 4 library, 2 planned and 57 missing items, and 20 source issues. Line 83's heading reads 'E1–E19', yet E20 appears in the report. Line 51 says the ArithmeticDynamicsPartIIMarkoff design job 'is pending', but queue.json marks it 'superseded' and folded into DESIGN-ArithmeticDynamicsPartII (#3367)."
+    }
+  ],
+  "reviewer": "Claude Code — cc-c2c06b",
+  "date": "2026-09-30",
+  "inputRevision": "561b3632a57c7768d7a0c5ca95403ff068c3393a",
+  "sources": [
+    {"kind": "preprint", "url": "https://arxiv.org/pdf/1706.06712v3", "read": "2026-09-30", "sha256": "e4ddc7a115ad4afd61f0063d0b931baf85792eee2267d1d5c232bece11d3163d"},
+    {"kind": "preprint", "url": "https://arxiv.org/pdf/1706.06712v2", "read": "2026-09-30", "sha256": "e4b2089d52504ad050660b757f7f567122bdd7c015fa4cd4b93d571769ae05a6"},
+    {"kind": "preprint", "url": "https://arxiv.org/pdf/1706.06712v1", "read": "2026-09-30", "sha256": "c40c3ab2c4e135134ece520a9ab16d51c4fc2d09d18bfea0b06f4365127993b6"},
+    {"kind": "preprint", "url": "https://arxiv.org/pdf/1807.10223v3", "read": "2026-09-30", "sha256": "a8ff60af529dbfa32884818b33846d32d07277707404960561b34444a31f7036"}
+  ]
+}
