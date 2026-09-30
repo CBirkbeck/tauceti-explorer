@@ -48921,8 +48921,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-probability.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3987"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3987",
+   "finishedAt": "2026-09-30T08:48:50Z"
   },
   {
    "id": "RT-AREA-combinatorics",
