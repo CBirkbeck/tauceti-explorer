@@ -137,6 +137,41 @@
         "ref": "tauceti:TauCeti.simpleClassBasis",
         "module": "TauCeti/RepresentationTheory/GrothendieckGroup/SimpleBasis.lean",
         "provides": "The Grothendieck group of finitely generated modules over an artinian ring is free on the simple classes, which is devissage in degree zero; K.3 states the theorem in every degree."
+      },
+      {
+        "ref": "tauceti:TauCeti.finiteProjectiveModules",
+        "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+        "provides": "Object property of finitely generated projective R-modules. Its full subcategory has an EssentiallySmall instance in this pinned file."
+      },
+      {
+        "ref": "tauceti:TauCeti.finiteProjectiveModulesExactStructure",
+        "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+        "provides": "Existing exact structure on the full subcategory of finitely generated projectives; import this carrier rather than reconstruct it."
+      },
+      {
+        "ref": "tauceti:TauCeti.finiteProjectiveModulesExactStructure_eq_split",
+        "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+        "provides": "The induced exact structure is equal to the split structure. This is the input that makes arbitrary scalar extension exact on projectives."
+      },
+      {
+        "ref": "tauceti:TauCeti.finiteProjectiveModulesExactStructure_conflation_iff",
+        "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+        "provides": "Conflations are exactly short exact sequences after inclusion in ModuleCat R."
+      },
+      {
+        "ref": "tauceti:TauCeti.ExactK0.of",
+        "module": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+        "provides": "Existing object-class map to ExactK0; the π₁ comparison must preserve this map."
+      },
+      {
+        "ref": "tauceti:TauCeti.ExactK0.of_conflation",
+        "module": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+        "provides": "Existing conflation-additivity relation for the class map."
+      },
+      {
+        "ref": "tauceti:TauCeti.ExactK0.liftEquiv",
+        "module": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+        "provides": "Existing universal property: conflation-additive invariants are additive homomorphisms out of ExactK0."
       }
     ]
   },
@@ -153,7 +188,8 @@
         "Downloaded and hashed on 24 September 2026; the hash reproduces the value recorded in the reviewed integrated decomposition of this roadmap, so this is the file its accepted review checked.",
         "§9.1, 9.1.1, 9.1.2, 9.1.3 and 9.1.8, pp. II.87 to II.88: categories with cofibrations (W0 to W2), Waldhausen categories with the gluing axiom, the saturation axiom, the Grothendieck group of a Waldhausen category, an exact category as a Waldhausen category, and exact functors.",
         "§9.2 and 9.3, pp. II.89 to II.92, read for the complex and extension examples that K.4 uses.",
-        "NOT read: the rest of the chapter, in particular §§1 to 8 on the Grothendieck group itself, which the other roadmaps and Tau Ceti's pinned ExactK0 own."
+        "NOT read: the rest of the chapter, in particular §§1 to 8 on the Grothendieck group itself, which the other roadmaps and Tau Ceti's pinned ExactK0 own.",
+        "FIX-RT-AREA-ktheory-1: independently re-fetched, SHA-256 matched, and read II.8.2.4 p.77 and II.Ex.9.10(d) p.100 on 2026-09-29. Earlier readSections are provenance of the earlier workers."
       ]
     },
     {
@@ -171,7 +207,8 @@
         "§7, pp. IV.61 to IV.65: Theorem 7.1, Corollary 7.2, Definition 7.3 with (7.3.1), and the exercises 7.6 to 7.10 that record the low-degree consequences. The proofs of Lemma 7.5, Proposition 7.6, Lemma 7.7 and Theorem 7.8 were read only in outline.",
         "§8, pp. IV.66 to IV.75: Definitions 8.1, 8.2 with the extension axiom 8.2.1, 8.3 with (8.3.0) and 8.3.1, Proposition 8.4 with its proof, Definition 8.5 with 8.5.1, the infinite loop structure 8.5.5, the cylinder functors 8.8, Waldhausen Cofinality 8.9 with 8.9.1, and the exercises 8.5 to 8.15.",
         "§10.1 to 10.4, pp. IV.79 to IV.80, read for the boundary with K.6 and not decomposed here.",
-        "NOT read: §§2 to 5, 9, 11 and 12."
+        "NOT read: §§2 to 5, 9, 11 and 12.",
+        "FIX-RT-AREA-ktheory-1: independently re-fetched, SHA-256 matched, and read IV.6.3–6.4 pp.54–56 and IV.8.5.3–8.5.5 p.69 on 2026-09-29. Earlier readSections are provenance of the earlier workers."
       ]
     },
     {
@@ -190,7 +227,8 @@
         "§4, pp. V.33 to V.34: the Devissage Theorem 4.1 with the opening of its proof, Open Problem 4.1.1, Corollary 4.2 and Applications 4.3 to 4.4.",
         "§5, pp. V.35 to V.38: the Abelian Localization Theorem 5.1 with (5.1.1) and the shape of its proof, Corollary 5.2, Open Problem 5.3 and Exercise 5.1.",
         "§7.1.1, p. V.52, for the caveat that the map of Grothendieck groups is not onto.",
-        "NOT read: §§6, 8, 9 and 10, and the detailed proofs of 2.1, 2.4 and 5.1, which the source itself in part refers to Waldhausen for."
+        "NOT read: §§6, 8, 9 and 10, and the detailed proofs of 2.1, 2.4 and 5.1, which the source itself in part refers to Waldhausen for.",
+        "FIX-RT-AREA-ktheory-1: independently re-fetched, SHA-256 matched, and read V.1.2–1.3 pp.2–4, V.1.7 p.8, and V.3.4.2 p.22 on 2026-09-29. Earlier readSections are provenance of the earlier workers."
       ]
     }
   ],
@@ -205,7 +243,7 @@
       "kind": "construction",
       "statement": "For an exact category A the category Q(A) has the objects of A; a morphism from A to B is an equivalence class of diagrams in which A is received by an admissible epimorphism out of a subobject of B and that subobject is an admissible monomorphism into B, two such diagrams being equivalent when an isomorphism between them is the identity on A and on B. Composition is by pullback of the two middle objects. Equivalently a morphism from A to B is an admissible subobject of B together with an admissible epimorphism from it onto A. Two kinds of morphism are distinguished, the admissible monomorphisms and the oppositely oriented admissible epimorphisms; both are closed under composition, every morphism factors as one of the second kind followed by one of the first, uniquely up to isomorphism, the morphisms from the zero object to B correspond to the admissible subobjects of B, and the isomorphisms of Q(A) correspond to the isomorphisms of A.",
       "hypotheses": [
-        "A is an exact category in the sense of Quillen: an additive category with a class of conflations satisfying the usual axioms, which is what the pinned TauCeti.ExactStructure records.",
+        "Import TauCeti.ExactStructure on a preadditive category with a zero object and binary biproducts. Its ConflationClass supplies kernel–cokernel pairs, and its E0/E1/E2 fields and their duals supply exactly the composition and base/cobase-change axioms used by Q. A dictionary to Quillen’s redundant cancellation axiom is a separate proof obligation if that axiom is invoked; it is not an extra exact-structure carrier.",
         "The equivalence classes of the defining diagrams must form a set; this is guaranteed for a small exact category, and the next node says how a small model is chosen.",
         "Composition uses the pullback of an admissible epimorphism along an arbitrary map, which exists and is again an admissible epimorphism by the base-change axiom; this is where the exactness axioms are used."
       ],
@@ -486,7 +524,8 @@
         "Identify the generators with the classes of objects through the two-edge loop, and show that the relation coming from a conflation is exactly the additivity relation of the Grothendieck group.",
         "Construct the inverse homomorphism from the universal property of the Grothendieck group, using the functor of the previous node that sends each inflation to the identity and each deflation to translation by the class of its kernel.",
         "Check that the two homomorphisms are mutually inverse, which completes the proof without any counting argument.",
-        "Compare with the pinned Tau Ceti group on objects and on conflations."
+        "Compare with the pinned Tau Ceti group on objects and on conflations.",
+        "Use ExactK0.liftEquiv to construct the inverse to the fundamental-group class map. Check both compositions on object classes and use the existing extensionality/universal property; the library has ExactK0 already but does not have this π₁(BQ) comparison."
       ],
       "acceptance": [
         "The class of an object corresponds to the two-edge loop, with the orientation fixed here.",
@@ -498,7 +537,10 @@
         "tauceti:TauCeti.ExactK0",
         "mathlib:CategoryTheory.nerve",
         "mathlib:SSet.toTop",
-        "mathlib:HomotopyGroup"
+        "mathlib:HomotopyGroup",
+        "tauceti:TauCeti.ExactK0.of",
+        "tauceti:TauCeti.ExactK0.of_conflation",
+        "tauceti:TauCeti.ExactK0.liftEquiv"
       ],
       "sources": [
         {
@@ -520,24 +562,23 @@
       ],
       "title": "The K-groups of an exact category",
       "kind": "definition",
-      "statement": "For a small exact category the K-theory space is the realisation of the nerve of Q(A) and the K-groups are its homotopy groups shifted by one: the n-th K-group is the (n+1)-st homotopy group of that space at the zero object, for every non-negative n. The groups are abelian, including in degree zero, where the definition agrees with the Grothendieck group by the previous node. The space and the groups are functors from exact categories and exact functors to spaces and to abelian groups, and isomorphic exact functors induce the same maps. For a ring the K-groups are those of the exact category of finitely generated projective modules; for a noetherian ring the G-groups are those of the finitely generated modules; for a quasi-projective scheme the K-groups are those of the vector bundles.",
+      "statement": "For a small exact category A, define BQ(A) as the realisation of the nerve of Q(A), and KSpace(A) = ΩBQ(A) based at the zero object. Define K_n(A) = π_n KSpace(A) = π_(n+1) BQ(A), for n ≥ 0. The groups are abelian, including degree zero by the preceding ExactK0 comparison. Exact functors give maps and naturally isomorphic exact functors give homotopic maps. Essentially small inputs use the preceding small-model transport. The ring specialisation and its scalar-extension functor belong to the early K.2:plus ring node; scheme specialisations belong to SchemeKTheoryOperations:S.2.",
       "hypotheses": [
         "A is small, or has a set of isomorphism classes and is replaced by a small model as in the earlier node.",
         "The basepoint is a zero object, and the choice does not matter.",
-        "The indexing is the one fixed here: the n-th K-group is the (n+1)-st homotopy group, so that degree zero is the fundamental group."
+        "Indexing: K_n(A) = π_n KSpace(A) = π_(n+1) BQ(A). Degree zero is π₀ of the loop space and π₁ of BQ, compared with ExactK0."
       ],
       "proofSteps": [
-        "Define the space as the realisation of the nerve and the groups as its homotopy groups with the stated shift.",
+        "Construct BQ(A), then its based loop space KSpace(A); define KGroup(A,n) as π_n of that loop space, equivalently π_(n+1) of BQ(A).",
         "Prove that the groups are abelian in every degree, in degree zero by the previous node and above by the standard argument for homotopy groups in degree at least two.",
         "Prove functoriality from the universal property, and that isomorphic exact functors give the same maps.",
-        "Record the three standing instances: the finitely generated projective modules over a ring, the finitely generated modules over a noetherian ring, and the vector bundles on a quasi-projective scheme.",
-        "Record the two transfer maps the source attaches to these instances, for a ring map making the target finitely generated projective and for a finite ring map, and note that they are not part of this node's construction but of K.3's.",
+        "Keep this node generic in exact categories; import the early ring specialisation in its consumers and leave scheme specialisations to S.2.",
         "Record what is pinned: the nerve of a category, the realisation of a simplicial set and the homotopy groups of a pointed space all exist in Mathlib, and no K-theory space is built from them."
       ],
       "acceptance": [
         "In degree zero the definition agrees with the Grothendieck group.",
         "The zero exact category has contractible K-theory, so all its groups vanish.",
-        "For a ring the groups are those of the category of finitely generated projective modules, which is the definition every later layer uses.",
+        "BQ(A) is connected even when ExactK0(A) is nonzero; KSpace(A) has π₀ = ExactK0(A). Confusing BQ with its loop space fails this test.",
         "The groups of a category and of its opposite agree."
       ],
       "prerequisites": [
@@ -551,12 +592,7 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Definition 6.3, p. IV.54",
-          "match": "The definition and the agreement in degree zero, verbatim."
-        },
-        {
-          "sourceId": "Weibel.KBook.IV",
-          "locator": "Definitions 6.3.2 to 6.3.4, p. IV.55",
-          "match": "The three standing instances, verbatim."
+          "match": "Formula in Definition 6.3; the preceding sentence defines KA as ΩBQA. The former packet transcription omitted Ω."
         }
       ],
       "implementationStatus": "unchecked",
@@ -567,12 +603,12 @@
         {
           "name": "KSpace",
           "role": "data",
-          "statement": "The K-theory space of a small exact category."
+          "statement": "The based loop space ΩBQ(A), whose π₀ is ExactK0(A)."
         },
         {
           "name": "KGroup",
           "role": "data",
-          "statement": "The n-th K-group, the (n+1)-st homotopy group of that space."
+          "statement": "π_n KSpace(A), equivalently π_(n+1) BQ(A)."
         },
         {
           "name": "KGroup.addCommGroup",
@@ -593,11 +629,6 @@
           "name": "KGroup.zero_eq_exactK0",
           "role": "relation",
           "statement": "In degree zero the group is the pinned Grothendieck group."
-        },
-        {
-          "name": "KGroup.ofRing",
-          "role": "example",
-          "statement": "The K-groups of a ring, through the finitely generated projective modules."
         }
       ],
       "uses": [
@@ -626,9 +657,9 @@
           "kind": "degenerate"
         },
         {
-          "name": "ring_case",
-          "statement": "For a ring the groups are those of the finitely generated projective modules.",
-          "kind": "computation"
+          "name": "loop_indexing",
+          "statement": "BQ(A) is connected but π₀ KSpace(A) = ExactK0(A); the two spaces must not be identified.",
+          "kind": "non-example"
         },
         {
           "name": "opposite",
@@ -645,7 +676,7 @@
       ],
       "title": "Elementary properties: opposites, finite products and filtered colimits",
       "kind": "theorem",
-      "statement": "The K-groups of an exact category and of its opposite agree, since the two Q-categories are isomorphic; the direct sum of two exact categories is exact with Q of the sum the product of the Q-categories, so the K-groups of a finite product are the products of the K-groups, and in particular those of a finite product of rings are the products of theirs; and the K-groups commute with filtered colimits of exact categories, because Q and the realisation both do. The direct sum makes the realisation a homotopy-commutative H-space, and the induced addition is the group operation.",
+      "statement": "The K-groups of an exact category and of its opposite agree, since the two Q-categories are isomorphic; the direct sum of two exact categories is exact with Q of the sum the product of the Q-categories, so the K-groups of a finite product are the products of the K-groups; and the K-groups commute with filtered colimits of exact categories, because Q and the realisation both do. The direct sum makes the realisation a homotopy-commutative H-space, and the induced addition is the group operation.",
       "hypotheses": [
         "The products are finite; the colimits are over small filtering categories.",
         "For rings the colimit statement is applied to the categories of finitely generated projective modules, which requires the model by idempotent matrices to make the assignment a functor.",
@@ -689,7 +720,8 @@
       "hypotheses": [
         "The ring map is unital and the rings need not be commutative; the extension of scalars is the tensor product over the source, taken on the correct side.",
         "No flatness is assumed. Flatness would be needed to preserve arbitrary exact sequences, and is not needed here because the exact structure on finitely generated projectives is the split one.",
-        "The pinned Mathlib base-change statements for projectivity and for finite generation are stated for an algebra over a commutative ring; for an arbitrary unital ring map the corresponding statements are part of this node."
+        "The pinned Mathlib base-change statements for projectivity and for finite generation are stated for an algebra over a commutative ring; for an arbitrary unital ring map the corresponding statements are part of this node.",
+        "Use the pinned finiteProjectiveModules R full subcategory, its EssentiallySmall instance, and finiteProjectiveModulesExactStructure_eq_split. Mathlib ModuleCat.extendScalars is cited only in its actual commutative scope; tensoring with the (S,R)-bimodule S for arbitrary unital noncommutative maps remains an explicit interface obligation, not a pinned claim."
       ],
       "proofSteps": [
         "Record the pinned material: the exact category of finitely generated projectives with the proof that its exact structure is the split one, the preservation of projectivity and of finiteness under base change, and the fact that every additive functor is exact for split structures.",
@@ -708,7 +740,11 @@
         "mathlib:Module.Finite.base_change",
         "mathlib:ModuleCat.extendScalars",
         "tauceti:TauCeti.ExactStructure.isConflationExact_split",
-        "tauceti:TauCeti.ExactStructure"
+        "tauceti:TauCeti.ExactStructure",
+        "tauceti:TauCeti.finiteProjectiveModules",
+        "tauceti:TauCeti.finiteProjectiveModulesExactStructure",
+        "tauceti:TauCeti.finiteProjectiveModulesExactStructure_eq_split",
+        "tauceti:TauCeti.finiteProjectiveModulesExactStructure_conflation_iff"
       ],
       "sources": [
         {
@@ -1066,33 +1102,31 @@
     },
     {
       "id": "GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring",
-      "parentStageId": "GeneralAlgebraicKTheory:K.2",
+      "parentStageId": "GeneralAlgebraicKTheory:K.2:plus",
       "realises": [
-        "GeneralAlgebraicKTheory:K.2"
+        "GeneralAlgebraicKTheory:K.2:plus"
       ],
-      "title": "The K-theory of a ring as a functor, and what the comparisons are natural in",
+      "title": "Early functorial connective K-theory of unital rings",
       "kind": "construction",
-      "statement": "Putting the previous nodes together: the assignment of the K-theory space to a ring is a functor on unital rings and ring homomorphisms, through the base-change functor on finitely generated projectives; it carries finite products of rings to products and commutes with filtered colimits; and the plus comparison is natural for ring maps and for block sum. This node is the aggregate the stage text asks for, and it is also where the limits of the naturality claim are fixed: the space-level product description depends on a choice of component representatives, and the translations between components are not natural, so no naturality is asserted for them.",
+      "statement": "For every unital, possibly noncommutative ring R, import P(R) = (TauCeti.finiteProjectiveModules R).FullSubcategory with its existing split exact structure and essentially small model. Set K(R) = ΩBQ(P(R)). Scalar extension along a unital map R → S induces K(R) → K(S), preserving identities and composition without flatness. In every n ≥ 0 the projection maps induce K_n(R × S) ≅ K_n(R) × K_n(S), and K_n commutes with filtered colimits of unital rings via descent of finite idempotent matrices. This early interface is independent of the plus comparison and nonconnective extension. Late K.7 imports it and proves only the additional enhanced/nonconnective statements.",
       "hypotheses": [
-        "The rings are unital and the maps are unital.",
-        "Naturality is asserted for ring maps and for the block-sum operation, and for nothing else.",
-        "The product description is at the level of spaces after a choice; the infinite-loop structure is not claimed to split."
+        "Unital associative rings and unital maps; commutativity is not a general hypothesis.",
+        "Use small-model transport of the existing essentially small projective category.",
+        "Filtered diagrams are small; finite idempotent matrices and their finitely many relations descend to a stage."
       ],
       "proofSteps": [
-        "Assemble the functor from the base-change node and record its compatibility with composition.",
-        "Record the finite-product and filtered-colimit statements from the elementary properties of K.1, in their ring form.",
-        "State the naturality of the plus comparison in ring maps and in block sum.",
-        "State explicitly what is not claimed: naturality of the translations between components, and any product splitting of the infinite-loop structure.",
-        "Record the consequence for the low-degree comparisons: they are natural for ring maps because both sides are."
+        "Import the existing projective exact category and apply K.1 to its small model; construct the maps through scalar extension and prove identity/composition via tensor associativity and unit isomorphisms.",
+        "For R × S, use its central complementary idempotents to decompose each finitely generated projective module and produce an exact equivalence P(R × S) ≃ P(R) × P(S). Apply the generic category-product theorem from K.1.",
+        "For filtered colimits, use finite idempotent-matrix objects rather than pretend the literal category P(R) strictly commutes with colimits. Objects, morphisms and equalities use finite data and descend; then import the generic classifying-space/filtered-colimit theorem.",
+        "Leave the plus-comparison naturality to its comparison node. K.5 relative ring theory uses this already-defined K(R) and the actual map K(f)."
       ],
       "acceptance": [
-        "The K-theory of a finite product of rings is the product of the K-theories.",
-        "The K-theory of a filtered colimit of rings is the colimit of the K-theories.",
-        "The plus comparison commutes with ring maps and with block sum.",
-        "Nothing is asserted about noncanonical translations between components."
+        "The two projections R × S → R,S give the product isomorphism in degree zero and every higher degree.",
+        "Identity and two composable ring maps give the same K-map as the corresponding tensor unit/associativity isomorphisms.",
+        "ℤ → ℤ/2 induces exact scalar extension on the split projective category although it is not flat on all modules.",
+        "An idempotent matrix over a filtered colimit and an equality between two maps descend at a sufficiently large stage."
       ],
       "prerequisites": [
-        "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
         "GeneralAlgebraicKTheory:K.2:plus/scalar-extension-and-functoriality",
         "GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups"
       ],
@@ -1126,9 +1160,14 @@
           "statement": "Compatibility with filtered colimits of rings."
         },
         {
-          "name": "plusComparison_natural",
-          "role": "compatibility",
-          "statement": "Naturality of the plus comparison in ring maps and block sum."
+          "name": "KSpace.ofRing_map_id",
+          "role": "functoriality",
+          "statement": "The identity ring homomorphism induces the identity, with the small-model comparison."
+        },
+        {
+          "name": "KSpace.ofRing_map_comp",
+          "role": "functoriality",
+          "statement": "Composition of unital ring maps induces composition of K-space maps up to the specified natural homotopy."
         }
       ],
       "uses": [
@@ -1148,23 +1187,23 @@
       "tests": [
         {
           "name": "product_ring",
-          "statement": "The K-groups of a product of two rings are the product of the K-groups.",
-          "kind": "computation"
+          "kind": "computation",
+          "statement": "The two projections R × S → R,S give the product isomorphism in degree zero and every higher degree."
         },
         {
-          "name": "colimit_ring",
-          "statement": "The K-groups of a filtered colimit are the colimit of the K-groups.",
-          "kind": "computation"
+          "name": "scalar_identity_composition",
+          "kind": "compatibility",
+          "statement": "Identity and two composable ring maps give the same K-map as the corresponding tensor unit/associativity isomorphisms."
         },
         {
-          "name": "natural_in_ring_maps",
-          "statement": "The plus comparison commutes with ring maps.",
-          "kind": "computation"
+          "name": "nonflat_projectives",
+          "kind": "non-example",
+          "statement": "ℤ → ℤ/2 induces exact scalar extension on the split projective category although it is not flat on all modules."
         },
         {
-          "name": "no_component_naturality",
-          "statement": "No naturality is claimed for translations between components; a formalisation that asserted it would be claiming more than the source.",
-          "kind": "computation"
+          "name": "filtered_idempotent_descent",
+          "kind": "computation",
+          "statement": "An idempotent matrix over a filtered colimit and an equality between two maps descend at a sufficiently large stage."
         }
       ]
     },
@@ -1266,7 +1305,7 @@
       "statement": "Let P be a full exact subcategory of an exact category H, closed under extensions and under kernels of admissible surjections in H, and suppose every object of H has a finite resolution by objects of P. Then the inclusion induces a homotopy equivalence of K-theory spaces and isomorphisms of all K-groups. The proof reduces to resolutions of length one by filtering H by the subcategories of objects with resolutions of bounded length, and the length-one case is handled by a comma-category argument. The standing instances are the finitely generated projectives inside the modules of finite projective dimension, and, for a regular noetherian ring, the finitely generated projectives inside all finitely generated modules, which gives the agreement of K-theory and G-theory.",
       "hypotheses": [
         "P is full in H, closed under extensions and under kernels of admissible surjections in H; finite resolutions exist for every object of H.",
-        "Regular means noetherian with every finitely generated module of finite projective dimension; for the scheme statement separatedness is required and the source gives a non-separated counterexample in degree zero.",
+        "For the ring instance, use the finite-projective-resolution hypotheses of the adopted regular noetherian theorem. The vector-bundle scheme comparison needs the global-resolution hypotheses of V.3.4; separatedness is part of that stated sufficient scope. The failure example is the doubled-origin affine plane, not the line.",
         "The closure under kernels of admissible surjections is essential and is what makes the filtration argument work."
       ],
       "proofSteps": [
@@ -1279,7 +1318,8 @@
       "acceptance": [
         "For a regular noetherian ring the K-groups and the G-groups agree in every degree.",
         "The pinned Tau Ceti resolution isomorphism in degree zero is the special case in which every resolving object is projective; the general statement is not pinned.",
-        "For a non-separated scheme the scheme statement fails already in degree zero, so separatedness is not decorative."
+        "For X obtained by gluing two affine planes along the punctured plane, K₀(VB(X)) ≅ ℤ while G₀(X) ≅ K₀(Perf(X)) ≅ ℤ² (II.8.2.4 and II.Ex.9.10(d)). This tests the distinction between vector-bundle and perfect-complex models.",
+        "For the doubled-origin affine line, gluing t^m produces Pic(X) ≅ ℤ, so rank and determinant forbid the assertion K₀(VB(X)) ≅ ℤ. Do not reuse V.3.4.2’s author-copy misprint as an acceptance test."
       ],
       "prerequisites": [
         "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories",
@@ -1291,12 +1331,20 @@
           "sourceId": "Weibel.KBook.V",
           "locator": "Resolution Theorem 3.1 with the opening of its proof, p. V.20",
           "match": "The theorem and the structure of its proof, verbatim."
+        },
+        {
+          "sourceId": "Weibel.KBook.II",
+          "locator": "Example 8.2.4, p. II.77; Exercise 9.10(d), p. II.100",
+          "match": "The exercise and dimension n ≥ 2 in Example 8.2.4 identify the intended scheme; see the scoped sourceIssues entry."
         }
       ],
       "implementationStatus": "unchecked",
       "planet": {
         "name": "The Resolution theorem"
-      }
+      },
+      "sourceIssues": [
+        "GeneralAlgebraicKTheory/E-double-origin"
+      ]
     },
     {
       "id": "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula",
@@ -1456,7 +1504,8 @@
       "hypotheses": [
         "The subcategory is exact, closed under extensions and cofinal, meaning every object of the ambient category has a complement making the sum lie in the subcategory.",
         "The Waldhausen form requires a cylinder functor satisfying the cylinder axiom, which K.4 defines.",
-        "The degree-zero group of the subcategory is a subgroup of the ambient one, and the inclusion is generally proper."
+        "The degree-zero group of the subcategory is a subgroup of the ambient one, and the inclusion is generally proper.",
+        "This is late cofinality content, provisionally housed under the existing K.3 id pending the maintainer’s K.3:cofinality split. ExactK0.ofLE_surjective compares exact structures on one category and does not prove cofinal-subcategory K₀ injectivity."
       ],
       "proofSteps": [
         "State the exact-category form and record that the source proves a special case and reduces the general one to Waldhausen cofinality.",
@@ -1471,9 +1520,9 @@
         "A statement of agreement in degree zero for a merely cofinal subcategory is false and may not be recorded."
       ],
       "prerequisites": [
-        "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories",
-        "mathlib:CategoryTheory.Idempotents.Karoubi",
-        "tauceti:TauCeti.ExactK0.ofLE_surjective"
+        "GeneralAlgebraicKTheory:K.4/fibration-theorem",
+        "GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum",
+        "mathlib:CategoryTheory.Idempotents.Karoubi"
       ],
       "sources": [
         {
@@ -1487,7 +1536,8 @@
           "match": "The Waldhausen form with the degree-zero correction, verbatim."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proposedParentStageId": "GeneralAlgebraicKTheory:K.3:cofinality"
     },
     {
       "id": "GeneralAlgebraicKTheory:K.4:construction/waldhausen-categories",
@@ -1905,13 +1955,13 @@
     },
     {
       "id": "GeneralAlgebraicKTheory:K.4/waldhausen-additivity",
-      "parentStageId": "GeneralAlgebraicKTheory:K.4",
+      "parentStageId": "GeneralAlgebraicKTheory:K.4:construction",
       "realises": [
-        "GeneralAlgebraicKTheory:K.4"
+        "GeneralAlgebraicKTheory:K.4:construction"
       ],
       "title": "Additivity for Waldhausen categories",
       "kind": "theorem",
-      "statement": "For a Waldhausen category the map from the weak-equivalence S-construction of the extension category to the product of two copies of that of the category, taking a cofibration sequence to its sub and quotient terms, is a homotopy equivalence. Equivalently, for a cofibration sequence of exact functors the middle induces the sum of the outer two. No saturation, extension or cylinder axiom is needed. This is the same theorem as K.3's additivity, stated for the larger class of categories, and the source proves both at once; with a cylinder functor satisfying the cylinder axiom it gives that the cone is null-homotopic and hence that suspension is a homotopy inverse on K-theory.",
+      "statement": "For a Waldhausen category the map from the weak-equivalence S-construction of the extension category to the product of two copies of that of the category, taking a cofibration sequence to its sub and quotient terms, is a homotopy equivalence. Equivalently, for a cofibration sequence of exact functors the middle induces the sum of the outer two. No saturation, extension or cylinder axiom is needed. This is the Waldhausen form; its simplicial proof is required here and is not deduced merely from the exact-category theorem; with a cylinder functor satisfying the cylinder axiom it gives that the cone is null-homotopic and hence that suspension is a homotopy inverse on K-theory.",
       "hypotheses": [
         "The category is a small Waldhausen category; the theorem needs none of the three extra axioms.",
         "A cofibration sequence of functors requires the canonical map out of the pushout to be a cofibration for every cofibration of the source, which is a condition on the functors, not only on their values.",
@@ -1931,7 +1981,8 @@
       ],
       "prerequisites": [
         "GeneralAlgebraicKTheory:K.4:construction/K-theory-space-of-a-waldhausen-category",
-        "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories"
+        "StableHomotopyKTheory:H.2/quillen-theorem-a",
+        "StableHomotopyKTheory:H.2/quillen-theorem-b"
       ],
       "sources": [
         {
@@ -1947,28 +1998,28 @@
     },
     {
       "id": "GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum",
-      "parentStageId": "GeneralAlgebraicKTheory:K.4",
+      "parentStageId": "GeneralAlgebraicKTheory:K.4:construction",
       "realises": [
-        "GeneralAlgebraicKTheory:K.4"
+        "GeneralAlgebraicKTheory:K.4:construction"
       ],
-      "title": "The relative S-construction, the delooping and the spectrum",
+      "title": "Relative S-construction fibration and iterated delooping",
       "kind": "theorem",
-      "statement": "For an exact functor of Waldhausen categories the relative construction gives a homotopy fibration from the realisation of the target's S-construction through that of the source to that of the relative one; in the case of the identity functor this is the delooping: the realisation of the S-construction is the loop space of the realisation of the iterated one, so the iterated realisations form a spectrum, and the K-theory space is its zeroth space. The delooping is proved from additivity, and the resulting spectrum is the connective K-theory spectrum that K.6 takes as input. The first structure map, from the realisation of the weak-equivalence subcategory, is a group completion and is NOT an equivalence; only the later ones are.",
+      "statement": "For an exact functor f:B → C of small Waldhausen categories, construct S.f by the simplicial path-object pullback. There is a natural homotopy-fibration sequence Ω|wS.(S.B)| → |wS.C| → |wS.(S.f)| → |wS.(S.B)|. For f = id the relative path object is contractible, giving |wS.C| ≃ Ω|wS.(S.C)|. Iteration supplies these comparison maps and equivalences in every positive S-level. H.5:S-delooping imports these maps and assembles the connective Ω-spectrum; this node does not re-plan spectrum assembly or products. The initial |wC| → Ω|wS.C| is a group completion, not generally an equivalence.",
       "hypotheses": [
         "The categories are small Waldhausen categories and the functor is exact.",
         "The proof uses additivity in the cofibration-sequence-of-functors form, and the fibration criterion for simplicial spaces with connected terms.",
-        "The relative K-theory space of the functor is the double loop space of the realisation of the relative construction, which is K.5's definition."
+        "The relative K-theory space of the functor is the double loop space of the realisation of the relative construction, which is K.5's definition.",
+        "The passage from termwise split fibrations to realization still requires the precise connected-base simplicial realization criterion. H.2 must provide its model and hypotheses; do not replace it by diagonal realization alone or claim this gap is closed."
       ],
       "proofSteps": [
         "Define the relative construction as the pullback of the path object, and record that the path object is simplicially contractible.",
         "Prove the fibration statement termwise, using additivity applied to the cofibration sequence of endofunctors that splits the relative term, and assemble by the realisation lemma.",
-        "Specialise to the identity functor to obtain the delooping, and iterate to obtain the spectrum.",
-        "Record that the K-theory space is the zeroth space of that spectrum and that this is the infinite-loop structure of the previous layer.",
+        "Specialise to the identity, use the explicit path-object contraction, and iterate the natural equivalence on S.^nC for n ≥ 1. Export the comparison maps to H.5:S-delooping, which alone assembles the spectrum.",
         "Record the non-example: the first map, from the realisation of the weak-equivalence subcategory to the loop space, is a group completion and not an equivalence.",
         "Record the degree-minus-one consequence the source gives, that the first homotopy group of the relative realisation is the cokernel of the map of Grothendieck groups, which is where negative K-theory first appears."
       ],
       "acceptance": [
-        "The realisation of the S-construction is the loop space of the iterated one, so the iterated realisations form a spectrum.",
+        "For every n ≥ 1 the natural map |wS.^n C| → Ω|wS.^(n+1) C| is an equivalence; these are the maps the spectrum-assembly owner consumes.",
         "The first structure map is a group completion, not an equivalence.",
         "The first homotopy group of the relative realisation is the cokernel of the map of Grothendieck groups."
       ],
@@ -1980,12 +2031,12 @@
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Proposition 1.7 with its proof, p. V.8",
-          "match": "The relative fibration with its proof from additivity, verbatim."
+          "match": "Displayed sequence in Proposition 1.7, p. V.8. Its first term is looped; the earlier transcription omitted Ω."
         },
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Infinite Loop Structure 8.5.5, p. IV.69",
-          "match": "The delooping and the spectrum, verbatim."
+          "match": "Natural delooping equivalence in IV.8.5.5, whose fibration input is V.1.7."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2447,21 +2498,27 @@
   "coverage": [
     {
       "stageId": "GeneralAlgebraicKTheory:K.1",
-      "status": "source_decomposed",
-      "remaining": [],
-      "note": "Six nodes. The Q-construction with its morphisms as equivalence classes of spans, composition by pullback, representative independence, associativity and identities, the subobject description and the factorisation of every morphism; the universal property, which the source does not state as a numbered result and which this packet assembles from the factorisation and from the functor built in the proof of Proposition 6.2, saying so in the node; the small-model target, with Tau Ceti's pinned transport and degree-zero invariance cited and the higher-degree independence stated, natural in exact functors; the identification of the fundamental group with the Grothendieck group, with the inverse built from the universal property of that group as the stage text requires and with the loop orientation fixed once; the definition of the K-groups with the stage text's indexing, their abelian structure in every degree including zero, the independence of the zero object and the three standing instances; and the elementary properties, opposites, finite products and filtered colimits, with the H-space structure identified with the group law. Every target of the stage text has a node. The pinned exact-structure input is cited, never re-planned."
+      "status": "partial",
+      "remaining": [
+        "Post-review corrections need independent review; source/proof gaps remain as recorded, and the stage-order proposal requires maintainer integration."
+      ],
+      "note": "Six nodes. The Q-construction with its morphisms as equivalence classes of spans, composition by pullback, representative independence, associativity and identities, the subobject description and the factorisation of every morphism; the universal property, which the source does not state as a numbered result and which this packet assembles from the factorisation and from the functor built in the proof of Proposition 6.2, saying so in the node; the small-model target, with Tau Ceti's pinned transport and degree-zero invariance cited and the higher-degree independence stated, natural in exact functors; the identification of the fundamental group with the Grothendieck group, with the inverse built from the universal property of that group as the stage text requires and with the loop orientation fixed once; the definition of the K-groups with the stage text's indexing, their abelian structure in every degree including zero, the independence of the zero object and the three standing instances; and the elementary properties, opposites, finite products and filtered colimits, with the H-space structure identified with the group law. Every target of the stage text has a node. The pinned exact-structure input is cited, never re-planned. FIX-RT-AREA-ktheory-1 revises ownership/indexing/imports; this earlier coverage description is historical and does not certify the revised prerequisite closure."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.2",
-      "status": "source_decomposed",
-      "remaining": [],
-      "note": "Two nodes of its own, aggregating its two parts. The first assembles the functor on rings from the scalar-extension node, records the finite-product and filtered-colimit statements in their ring form, and states exactly what the plus comparison is natural in: ring maps and block sum. The second is the non-example the stage text asks for by name: the product description of the K-theory space holds after a choice of component representatives, is not a splitting of infinite-loop spaces, and the translations between components are not natural, so a result proved in the zero component does not transport for free. The mathematical content of the layer is in its two parts, which are separately decomposed."
+      "status": "partial",
+      "remaining": [
+        "Post-review corrections need independent review; source/proof gaps remain as recorded, and the stage-order proposal requires maintainer integration."
+      ],
+      "note": "Two nodes of its own, aggregating its two parts. The first assembles the functor on rings from the scalar-extension node, records the finite-product and filtered-colimit statements in their ring form, and states exactly what the plus comparison is natural in: ring maps and block sum. The second is the non-example the stage text asks for by name: the product description of the K-theory space holds after a choice of component representatives, is not a splitting of infinite-loop spaces, and the translations between components are not natural, so a result proved in the zero component does not transport for free. The mathematical content of the layer is in its two parts, which are separately decomposed. FIX-RT-AREA-ktheory-1 revises ownership/indexing/imports; this earlier coverage description is historical and does not certify the revised prerequisite closure."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.2:plus",
-      "status": "source_decomposed",
-      "remaining": [],
-      "note": "Four nodes. Scalar extension along an ARBITRARY unital ring map, with the absence of a flatness hypothesis explained rather than merely asserted: the exact structure on finitely generated projectives is the split one and Tau Ceti's pinned lemma says every additive functor is exact for split structures, while Mathlib's two base-change statements give that the functor lands in finitely generated projectives. The contrast with all finitely generated modules, where flatness is genuinely needed, is a unit test. Then the extension category with its fibred functor to the Q-construction and the contractibility statements, with split exactness as an explicit hypothesis and the source's own note that the fibration criterion does not apply to the extension category directly; the plus-equals-Q theorem with its ring corollary; and cofinality, with Mathlib's retract statement cited and the K-theoretic consequence stated in positive degrees only. The pinned category of finitely generated projectives is cited, never re-planned."
+      "status": "partial",
+      "remaining": [
+        "Post-review corrections need independent review; source/proof gaps remain as recorded, and the stage-order proposal requires maintainer integration."
+      ],
+      "note": "Four nodes. Scalar extension along an ARBITRARY unital ring map, with the absence of a flatness hypothesis explained rather than merely asserted: the exact structure on finitely generated projectives is the split one and Tau Ceti's pinned lemma says every additive functor is exact for split structures, while Mathlib's two base-change statements give that the functor lands in finitely generated projectives. The contrast with all finitely generated modules, where flatness is genuinely needed, is a unit test. Then the extension category with its fibred functor to the Q-construction and the contractibility statements, with split exactness as an explicit hypothesis and the source's own note that the fibration criterion does not apply to the extension category directly; the plus-equals-Q theorem with its ring corollary; and cofinality, with Mathlib's retract statement cited and the K-theoretic consequence stated in positive degrees only. The pinned category of finitely generated projectives is cited, never re-planned. FIX-RT-AREA-ktheory-1 revises ownership/indexing/imports; this earlier coverage description is historical and does not certify the revised prerequisite closure."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
@@ -2471,21 +2528,27 @@
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.3",
-      "status": "source_decomposed",
-      "remaining": [],
-      "note": "Six nodes, one per theorem the stage text lists, plus the transfers that the resolution theorem produces. Additivity in the form that covers exact and Waldhausen categories at once, with the two corollaries; the resolution theorem with the filtration reduction and the standing instances, citing Tau Ceti's pinned degree-zero version and saying exactly how its hypothesis is stronger; transfers with the projection formula and the source's own vanishing example as a test; devissage, with the reason additivity does not prove it and with the source's open problem for Waldhausen categories recorded so that no such statement is asserted; Quillen's localisation theorem for a Serre subcategory of an ABELIAN category, with the boundary in degree one and its sign fixed here, and with the stage text's warning honoured by keeping localisation for exact and Waldhausen categories in K.4 where the hypotheses are stated; and cofinality with the degree-zero correction, with the idempotent completion as the witness that the zeroth group changes."
+      "status": "partial",
+      "remaining": [
+        "Post-review corrections need independent review; source/proof gaps remain as recorded, and the stage-order proposal requires maintainer integration."
+      ],
+      "note": "Six nodes, one per theorem the stage text lists, plus the transfers that the resolution theorem produces. Additivity in the form that covers exact and Waldhausen categories at once, with the two corollaries; the resolution theorem with the filtration reduction and the standing instances, citing Tau Ceti's pinned degree-zero version and saying exactly how its hypothesis is stronger; transfers with the projection formula and the source's own vanishing example as a test; devissage, with the reason additivity does not prove it and with the source's open problem for Waldhausen categories recorded so that no such statement is asserted; Quillen's localisation theorem for a Serre subcategory of an ABELIAN category, with the boundary in degree one and its sign fixed here, and with the stage text's warning honoured by keeping localisation for exact and Waldhausen categories in K.4 where the hypotheses are stated; and cofinality with the degree-zero correction, with the idempotent completion as the witness that the zeroth group changes. FIX-RT-AREA-ktheory-1 revises ownership/indexing/imports; this earlier coverage description is historical and does not certify the revised prerequisite closure."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.4",
-      "status": "source_decomposed",
-      "remaining": [],
-      "note": "Five nodes. Additivity for Waldhausen categories, with the suspension consequence under the cylinder axiom; the relative construction, the delooping and the resulting spectrum, with the non-example that the FIRST structure map is a group completion and not an equivalence, and with the cokernel of the map of Grothendieck groups appearing as the first negative group, which is the bridge to K.6; the fibration theorem with all four of its hypotheses named as hypotheses and with the source's caveat that the sequence stops because the map of Grothendieck groups is not onto; the approximation theorem with the source's own counterexample showing the cylinder hypothesis necessary, and with the standard models it produces; and Gillet-Waldhausen, with the closure hypothesis, the repaired statement without it, and the warning that quasi-isomorphisms are not chain homotopy equivalences. The comparison with the Q-construction is in the construction part."
+      "status": "partial",
+      "remaining": [
+        "Post-review corrections need independent review; source/proof gaps remain as recorded, and the stage-order proposal requires maintainer integration."
+      ],
+      "note": "Five nodes. Additivity for Waldhausen categories, with the suspension consequence under the cylinder axiom; the relative construction, the delooping and the resulting spectrum, with the non-example that the FIRST structure map is a group completion and not an equivalence, and with the cokernel of the map of Grothendieck groups appearing as the first negative group, which is the bridge to K.6; the fibration theorem with all four of its hypotheses named as hypotheses and with the source's caveat that the sequence stops because the map of Grothendieck groups is not onto; the approximation theorem with the source's own counterexample showing the cylinder hypothesis necessary, and with the standard models it produces; and Gillet-Waldhausen, with the closure hypothesis, the repaired statement without it, and the warning that quasi-isomorphisms are not chain homotopy equivalences. The comparison with the Q-construction is in the construction part. FIX-RT-AREA-ktheory-1 revises ownership/indexing/imports; this earlier coverage description is historical and does not certify the revised prerequisite closure."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.4:construction",
-      "status": "source_decomposed",
-      "remaining": [],
-      "note": "Four nodes. Waldhausen categories, with the three cofibration axioms and the gluing axiom in the definition and with saturation, the extension axiom and the cylinder axiom kept OUTSIDE it, each named by the theorem that uses it; the S-construction, with the faces, the degeneracies and the simplicial identities, the identification of the second term with the extension category, and the latching condition on its cofibrations stated as a hypothesis with the objectwise definition given as a non-example, which is exactly the stage text's warning; the K-theory space with the identification of the fundamental group that fixes the indexing, the H-space structure and the infinite-loop structure; and the comparison with the Q-construction, which records precisely which of its steps the source leaves as exercises and which it attributes to Waldhausen, whose paper the gaps record as unread."
+      "status": "partial",
+      "remaining": [
+        "Post-review corrections need independent review; source/proof gaps remain as recorded, and the stage-order proposal requires maintainer integration."
+      ],
+      "note": "Four nodes. Waldhausen categories, with the three cofibration axioms and the gluing axiom in the definition and with saturation, the extension axiom and the cylinder axiom kept OUTSIDE it, each named by the theorem that uses it; the S-construction, with the faces, the degeneracies and the simplicial identities, the identification of the second term with the extension category, and the latching condition on its cofibrations stated as a hypothesis with the objectwise definition given as a non-example, which is exactly the stage text's warning; the K-theory space with the identification of the fundamental group that fixes the indexing, the H-space structure and the infinite-loop structure; and the comparison with the Q-construction, which records precisely which of its steps the source leaves as exercises and which it attributes to Waldhausen, whose paper the gaps record as unread. FIX-RT-AREA-ktheory-1 revises ownership/indexing/imports; this earlier coverage description is historical and does not certify the revised prerequisite closure."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.5",
@@ -2532,6 +2595,14 @@
         "GeneralAlgebraicKTheory:K.5"
       ],
       "detail": "The criteria that excision in degree one is equivalent to the ring being idempotent, and that excision in degrees up to n is equivalent to the vanishing of the first n torsion groups over the unitisation, are quoted by the source from Suslin and from Suslin and Wodzicki without proof, and this packet quotes them the same way. The counterexample they yield, a square-zero ring, is therefore also conditional on them. NEXT SOURCE ACTION: read Suslin and Wodzicki, 'Excision in algebraic K-theory' (Annals 136, 1992), and Suslin's 1995 sequel, and decompose the proof of the criterion in degree one at least, which is the one the counterexample uses."
+    },
+    {
+      "title": "Noncommutative scalar-extension interface",
+      "neededBy": [
+        "GeneralAlgebraicKTheory:K.2:plus/scalar-extension-and-functoriality",
+        "GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring"
+      ],
+      "detail": "Pinned ModuleCat.extendScalars has commutative hypotheses. For arbitrary unital ring maps R → S, construct the (S,R)-bimodule tensor functor, show it carries retracts of finite free modules to retracts of finite free modules, and transport split conflations. Record its unit and associativity natural isomorphisms before using it to define functorial K(R). The K-book IV.6.3.2 states this arbitrary-ring scope; the commutative pinned declaration alone does not discharge it."
     }
   ],
   "requests": [
@@ -2545,7 +2616,7 @@
     },
     {
       "supplier": "StableHomotopyKTheory:H.5:S-delooping",
-      "need": "The statement that the iterated S-construction gives a connective spectrum after the delooping theorem. AUDIT-28 records this as duplicating K.4's delooping target; this packet proves the delooping and imports the spectrum-level statement."
+      "need": "Assemble the connective spectrum from the relative S-construction maps and all-level delooping equivalences supplied by early K.4:construction. Spectrum assembly consumes that prefix; it is not a prerequisite of additivity or its relative-fibration proof. Generic smash products belong to H.5:spectra; K-theory-specific pairings belong to K.7."
     },
     {
       "supplier": "KTheoryLowDegrees:U.6",
@@ -2570,6 +2641,10 @@
     {
       "supplier": "GeneralAlgebraicKTheory:K.6",
       "need": "The nonconnective spectrum and the negative K-groups. K.4's delooping node produces the cokernel of a map of Grothendieck groups as a first negative group, and K.4's fibration theorem and K.5's support node both stop because a map of zeroth groups is not surjective; all three point at K.6, which is decomposed in the companion packet."
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.2",
+      "need": "RT-AREA-ktheory-1/15: a precise realization theorem for the simplicial homotopy-fibration diagram in V.1.7, with connected bases and the proper/cofibrant or bisimplicial Kan hypotheses of the chosen model. Prove homotopy fibres agree after realization and verify the hypotheses for nerves of wS.(S_n f). Waldhausen 1978 Lemma 5.2 is a source lead, not read or established by this checkpoint."
     }
   ],
   "restructure": [
@@ -2579,188 +2654,242 @@
       "detail": "Every target this layer lists is owned by another roadmap, and AUDIT-28 names all four owners. The layer's real content is the combination: that the plus comparison of K.2:plus turns those three identifications into statements about the K-groups defined here, and that one of the four, Matsumoto's presentation, is field-specific while the others are not. The stage text should be narrowed to that, with the four owners named in it, so that a reader is not led to plan the identifications here. Nothing is dropped: the layer keeps two nodes and four requests."
     },
     {
-      "kind": "propose-split",
-      "title": "K.3 mixes two kinds of theorem and could be divided",
-      "detail": "Additivity, resolution and devissage are theorems about a single K-theory space and its comparison with another; localisation and cofinality produce exact sequences relating three of them, and both of those have Waldhausen counterparts in K.4 that this packet keeps there. As one layer, K.3 cannot record that its first three results are available for exact categories with no extra hypotheses while its last two need either abelianness or a cylinder functor. A division into a comparison-theorems layer and a localisation-and-cofinality layer would make the hypothesis boundary visible; the six nodes divide three to three along that line."
-    },
-    {
       "kind": "note-hypothesis-boundary",
       "title": "The localisation theorems of K.3 and K.4 are different theorems and should stay apart",
       "detail": "K.3's stage text warns against asserting localisation for arbitrary exact subcategories. This packet honours that by keeping Quillen's theorem, which is for a Serre subcategory of an abelian category, in K.3, and the Waldhausen theorem, which needs a cylinder functor with the cylinder axiom and saturation and extension for the larger class, in K.4. The two stage texts should each point at the other, because a reader who finds only one of them will be tempted to use it outside its hypotheses; that is exactly the error the K.3 text names."
+    },
+    {
+      "kind": "propose-split",
+      "title": "Early exact-category theorems and late cofinality have different prerequisite closures",
+      "detail": "RT-AREA-ktheory-1/20: K.3 additivity, resolution, dévissage and abelian localisation require K.1 and H.1/H.2, not all of K.4. Keep those in early K.3. Introduce a late K.3:cofinality stage after K.4 for the general cofinality proof via Waldhausen localisation; move the cofinality node there while retaining its stable id. Add K.4 → K.5 and K.2:plus → K.5. RT-AREA-ktheory-1/4: move Waldhausen additivity and relative S-fibration to K.4:construction, followed by H.5:S-delooping assembly and late K.4 localisation/approximation/comparisons. Delete EDS E5:abstract and H.5:spectra as prerequisites of the early S-construction; it only needs the homotopy-realization foundation H.1/H.2. Raw atlas snapshots are immutable; the maintainer must apply these stage changes."
     }
   ],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "GeneralAlgebraicKTheory/E-double-origin",
+      "source": "Weibel.KBook.V",
+      "kind": "misprint",
+      "locator": "Author chapter Kbook.V.pdf, Remark 3.4.2, p. V.22; version hashed in sourceVersions, read 2026-09-29",
+      "printed": "The source uses a line that is affine and has two origins.",
+      "correction": "Use the affine plane with a double origin: glue two copies of Spec(k[x,y]) along the punctured plane. Then K₀(VB(X)) ≅ ℤ and G₀(X) ≅ K₀(Perf(X)) ≅ ℤ². The cited II.8.2.4 explicitly assumes dimension n ≥ 2, and II.Ex.9.10(d) uses the plane.",
+      "reason": "The line has a nontrivial Picard group: transition units k[t,t⁻¹]× modulo the two copies of k[t]× give Pic(X) ≅ ℤ. Rank and determinant show that the class of a nontrivial line bundle cannot equal the class of O_X, so K₀(VB(X)) cannot be just the rank group ℤ. The plane is the actual example in both of the cited chapter-II locations. The equivalence of vector-bundle categories for the plane is quoted there from EGA IV(5.9); its proof is not claimed read or formalised here.",
+      "affects": "a stated result",
+      "known": "No correction located in the searches listed; novelty is not established. Scoped to the author chapter copy, not the published edition.",
+      "searched": [
+        "Weibel author K-book page and its errata link, checked 2026-09-29; the linked Kbook.errata.pdf returned HTTP 404 on both math.rutgers.edu host variants.",
+        "Author chapter II, Example 8.2.4 (p. II.77) and Exercise 9.10(d) (p. II.100), read 2026-09-29: both already give the correct dimension.",
+        "Public search for Weibel K-book errata and affine-line/double-origin correction, including AMS-domain results, 2026-09-29; no published correction located. The version of record was not obtained."
+      ]
+    }
+  ],
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-GeneralAlgebraicKTheory--K.1",
+      "date": "2026-09-28",
+      "notes": "Checked all 33 nodes against Weibel's chapter files II, IV and V (sha256 all three reproduced), by a word-run comparison of every one of the 54 excerpts with the source and by reading every flagged passage; baseline citations against the pinned index (check_blueprint --index: 0 errors). Mathematics: the plus-equals-Q and no-natural-product-splitting nodes said the realisation BQA is B(S⁻¹S), resp. K0(R) × BGL(R)+; the source has the LOOP SPACE ΩBQA (BQA is connected) — corrected, and the excerpts, which had dropped the Ω, re-pulled; the S-construction node said S1C is trivial (S1C = C) — corrected. Five paraphrased excerpts re-pulled verbatim. Page numbers were right throughout (chapter page = PDF page). Test kinds added. No mistake found in the cited source passages, so sourceIssues is empty (checked). Accepted after these corrections.",
+      "checked": [
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.1/exact-categories-and-Q-construction",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.1/Q-construction-universal-property",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.1/small-models-and-transport",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.1/pi1-BQ-equals-K0",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.2:plus/scalar-extension-and-functoriality",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.2:plus/extension-category-and-the-fibration",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
+          "verdict": "corrected",
+          "note": "corrected: the statement and the first acceptance test said the realisation BQA (resp. BQP(R)) is B(S⁻¹S) (resp. K0(R) × BGL(R)+); the source has the LOOP SPACE ΩBQA — BQA is connected with π1 = K0, so the unlooped statement is false. The excerpts had dropped the Ω; re-pulled verbatim (Theorem 7.1 and Corollary 7.2, pp. IV.61–62). The proof steps already had the loop space."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.2:plus/cofinality-of-projective-modules",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons/explicit-low-degree-models",
+          "verdict": "corrected",
+          "note": "corrected citation: the Corollary 7.2 excerpt had dropped the Ω; re-pulled."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons/matsumoto-is-field-specific",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.2/no-natural-product-splitting",
+          "verdict": "corrected",
+          "note": "corrected: 'the realisation of Q … is homotopy equivalent to K0 × BGL+' → its LOOP SPACE (the realisation is connected); excerpt re-pulled with the Ω."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.3/resolution-theorem",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula",
+          "verdict": "corrected",
+          "note": "verified; the p. V.25 excerpt was a paraphrase and belongs to the proof of Corollary 3.7.3, not to §3.5 — re-pulled and relabelled."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.3/devissage-theorem",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
+          "verdict": "corrected",
+          "note": "verified; Exercise 5.1 re-pulled verbatim (it runs over pp. V.37–38)."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.3/cofinality-degree-zero-correction",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.4:construction/waldhausen-categories",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.4:construction/S-construction",
+          "verdict": "corrected",
+          "note": "corrected: 'the zeroth and first terms are trivial' — S1C = C, only S0C = 0 (the source: 'the maps ∂0, ∂1 from C = S1C to 0 = S0C are trivial'); the paraphrased excerpts of 8.3.1 and of the low terms re-pulled verbatim."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.4:construction/K-theory-space-of-a-waldhausen-category",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.4:construction/iS-versus-Q",
+          "verdict": "corrected",
+          "note": "verified; the excerpt was a paraphrase stitched from §8.6 and the exercises — re-pulled verbatim from both."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.4/waldhausen-additivity",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.4/fibration-theorem",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.4/approximation-theorem",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.4/gillet-waldhausen",
+          "verdict": "corrected",
+          "note": "verified; Remark 2.2.1 excerpt re-pulled verbatim (it had been abridged)."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.5/relative-K-theory",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.5/relative-versus-support",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.5/nonunital-rings-and-unitisation",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.5/excision-and-its-failure",
+          "verdict": "verified",
+          "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
+        }
+      ]
+    }
+  ],
   "review": {
-    "status": "accepted",
-    "reviewer": "independent-review-REV-GeneralAlgebraicKTheory--K.1",
-    "date": "2026-09-28",
-    "notes": "Checked all 33 nodes against Weibel's chapter files II, IV and V (sha256 all three reproduced), by a word-run comparison of every one of the 54 excerpts with the source and by reading every flagged passage; baseline citations against the pinned index (check_blueprint --index: 0 errors). Mathematics: the plus-equals-Q and no-natural-product-splitting nodes said the realisation BQA is B(S⁻¹S), resp. K0(R) × BGL(R)+; the source has the LOOP SPACE ΩBQA (BQA is connected) — corrected, and the excerpts, which had dropped the Ω, re-pulled; the S-construction node said S1C is trivial (S1C = C) — corrected. Five paraphrased excerpts re-pulled verbatim. Page numbers were right throughout (chapter page = PDF page). Test kinds added. No mistake found in the cited source passages, so sourceIssues is empty (checked). Accepted after these corrections.",
-    "checked": [
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.1/exact-categories-and-Q-construction",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.1/Q-construction-universal-property",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.1/small-models-and-transport",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.1/pi1-BQ-equals-K0",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.2:plus/scalar-extension-and-functoriality",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.2:plus/extension-category-and-the-fibration",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
-        "verdict": "corrected",
-        "note": "corrected: the statement and the first acceptance test said the realisation BQA (resp. BQP(R)) is B(S⁻¹S) (resp. K0(R) × BGL(R)+); the source has the LOOP SPACE ΩBQA — BQA is connected with π1 = K0, so the unlooped statement is false. The excerpts had dropped the Ω; re-pulled verbatim (Theorem 7.1 and Corollary 7.2, pp. IV.61–62). The proof steps already had the loop space."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.2:plus/cofinality-of-projective-modules",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons/explicit-low-degree-models",
-        "verdict": "corrected",
-        "note": "corrected citation: the Corollary 7.2 excerpt had dropped the Ω; re-pulled."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons/matsumoto-is-field-specific",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.2/no-natural-product-splitting",
-        "verdict": "corrected",
-        "note": "corrected: 'the realisation of Q … is homotopy equivalent to K0 × BGL+' → its LOOP SPACE (the realisation is connected); excerpt re-pulled with the Ω."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.3/resolution-theorem",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula",
-        "verdict": "corrected",
-        "note": "verified; the p. V.25 excerpt was a paraphrase and belongs to the proof of Corollary 3.7.3, not to §3.5 — re-pulled and relabelled."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.3/devissage-theorem",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
-        "verdict": "corrected",
-        "note": "verified; Exercise 5.1 re-pulled verbatim (it runs over pp. V.37–38)."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.3/cofinality-degree-zero-correction",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.4:construction/waldhausen-categories",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.4:construction/S-construction",
-        "verdict": "corrected",
-        "note": "corrected: 'the zeroth and first terms are trivial' — S1C = C, only S0C = 0 (the source: 'the maps ∂0, ∂1 from C = S1C to 0 = S0C are trivial'); the paraphrased excerpts of 8.3.1 and of the low terms re-pulled verbatim."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.4:construction/K-theory-space-of-a-waldhausen-category",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.4:construction/iS-versus-Q",
-        "verdict": "corrected",
-        "note": "verified; the excerpt was a paraphrase stitched from §8.6 and the exercises — re-pulled verbatim from both."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.4/waldhausen-additivity",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.4/fibration-theorem",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.4/approximation-theorem",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.4/gillet-waldhausen",
-        "verdict": "corrected",
-        "note": "verified; Remark 2.2.1 excerpt re-pulled verbatim (it had been abridged)."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.5/relative-K-theory",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.5/relative-versus-support",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.5/nonunital-rings-and-unitisation",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.5/excision-and-its-failure",
-        "verdict": "verified",
-        "note": "verified: statement, prerequisites and locators checked against the chapter files; excerpts match the source up to elisions."
-      }
-    ]
-  }
+    "status": "pending",
+    "notes": "Post-review fix checkpoint; prior independent verdict is preserved in reviewHistory. Awaiting independent review of this revision."
+  },
+  "revision": {
+    "job": "FIX-RT-AREA-ktheory-1",
+    "agent": "Codex",
+    "session": "codex-5ebb6f",
+    "date": "2026-09-29",
+    "status": "awaiting independent review",
+    "note": "Earlier accepted review applies to the earlier text only. These planning corrections are not Lean proofs."
+  },
+  "sourceVersions": [
+    {
+      "source": "Weibel.KBook.II",
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.II.pdf",
+      "read": "2026-09-29",
+      "sha256": "529ea8a5853e9fa55279e7ad79047155409b10847bd924b56f708f0950ebc607"
+    },
+    {
+      "source": "Weibel.KBook.IV",
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+      "read": "2026-09-29",
+      "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248"
+    },
+    {
+      "source": "Weibel.KBook.V",
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf",
+      "read": "2026-09-29",
+      "sha256": "52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8"
+    }
+  ]
 }
