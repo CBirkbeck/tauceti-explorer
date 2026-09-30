@@ -40534,8 +40534,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4344"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4344",
+   "finishedAt": "2026-09-30T13:09:50Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
@@ -41131,7 +41132,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4368"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
