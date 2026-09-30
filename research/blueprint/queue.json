@@ -36893,7 +36893,8 @@
     "REV-PAPER-WOOD-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-WOOD-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4195"
   },
   {
    "id": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -38948,8 +38949,9 @@
     "REV-PAPER-RICHARD-YAFAEV-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-RICHARD-YAFAEV-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4288"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4288",
+   "finishedAt": "2026-09-30T15:25:21Z"
   },
   {
    "id": "RT-PAPER-BHATT-ETAL-23",
@@ -39722,7 +39724,8 @@
     "REV-PAPER-SKINNER-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SKINNER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4321"
   },
   {
    "id": "RT-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
@@ -43126,8 +43129,9 @@
     "REV-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4417"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4417",
+   "finishedAt": "2026-09-30T15:25:24Z"
   },
   {
    "id": "RT-BP-HabiroCyclotomicCompletions",
@@ -43432,8 +43436,9 @@
     "REV-ClassicalSerreModularity--R33.5"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-ClassicalSerreModularity--R33.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4433"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4433",
+   "finishedAt": "2026-09-30T15:25:27Z"
   },
   {
    "id": "REV-RT-BP-ClassicalSerreModularity--R33.5",
