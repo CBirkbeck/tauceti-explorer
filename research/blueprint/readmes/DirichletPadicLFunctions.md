@@ -23096,3 +23096,109 @@ Sixteen complete native lemmas include the entire finite character-sum identity 
 Nineteen exact quadratic/nonreal character profiles include imprimitive lifts. Seventy-six prime-level pairs check all2652finite polynomial coefficients;52nonprincipal pairs check624quotient-series coefficients and52mass identities. Fifteen repeated-prime and33dyadic tame pairs are included. The principal3→9 counterexample and four incorrect Euler/substitution formulas are detected. Exact rational-pair arithmetic in Q(i) and Q(omega), with validated multiplicative character tables and native-style unit-filtered lifts. Compare the whole finite polynomial coefficientwise. Independently compute twelve coefficients of the existing tame quotient by its binomial recurrence and compose with (1+T)^q−1. These are exact finite coefficients of the actual formal constructor, not numerical samples of an unconstructed measure or proof of an infinite identity. The largest observed discrepancy is 0 for every asserted exact identity.
 
 All66 inputs and four predecessor outputs are unchanged at capture and guarded. The partial signature file is the exact4916prefix plus four declarations/ten examples, still omitting4777–4791. This exact partial file elaborates with zero errors and2110expected placeholder warnings only. No new import is added. The full module remains NOT COMPILED because the compatible native TwistedDivisorSum artifact is absent; no library build occurs.
+
+
+## Prime level changes of actual tame measures
+
+Three L2 nodes transport the prime-level series formula to actual nativeK-valued tame measures, prove repeated-prime equality, and derive ordinary moment factors at every nonnegative weight. All706 predecessor nodes remain whole. Three signatures and nine tests retain all-continuous-test, total-mass, dyadic, repeated-prime and zero-weight boundaries.
+
+Read the complete native Amice transform, coefficient and injectivity declarations, native measure pushforward and its evaluation, the finite substitution coefficient/order/support statements, coefficient maps and the natural binomial-series specialization. Read the whole PMIA finite Mahler-dilation node and exact typed signature, retaining itsℤ_p coefficient field; the integral-only Amice comparison is not applied toK. Read complete RJW published128 and179–180, and re-use the freshly read complete143–146 source passage and reviewed L2 audit. Read the exact existing finite tame residue-mass node/signature for independent controls.
+
+### Tame measures after adding one prime level
+
+`DirichletPadicLFunctions:L2/tame-measure-prime-level-comparison` — `DirichletPadic.tameMeasure_changeLevel_prime`
+
+μ_(changeLevel η)=μ_η−η(q)•AbstractMeasure.map(d_q)(μ_η) as actual K-valued measures onℤ_p.
+
+**Hypotheses:** p andq are primes, including the dyadic p=2 case whenq is odd. K is a complete normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. No independent characteristic-zero, ℚ_p-algebra or nontrivially normed field hypothesis is added. M>0 with NeZero M; η:DirichletCharacter K M is nonprincipal but may be imprimitive. hM andhN certify that M andqM have unit images inK. hpM: p∤M andhpN: p∤qM are the exact tame hypotheses for the two actual constructors. In particular hpN impliesq≠p. Use the native character changeLevel alongM∣qM and the existing tameMeasure at each level. Put d_q(x)=q*x as the native continuous self-map ofℤ_p. The native AbstractMeasure.map is pushforward: it evaluates a testf by evaluating the original measure onf∘d_q. No new measure or dilation carrier is defined.
+
+**Proof:**
+
+1. Apply native AbstractMeasure.injective_amiceTransform. The existing tame-measure-amice node identifies both constructor transforms with their exact finite tame series. The preceding tame-series-prime-level-comparison reduces the goal to the transform of the single actual pushforward ofμ_η.
+2. For coefficientn, native coeff_amiceTransform andmap_apply express the pushed transform as μ_η applied to the K-valued Mahler test composed withd_q. Use precisely the supplier fine node PadicMeasuresIwasawaAlgebras:L2/mahler-dilation at the scalar(q:ℤ_p). Its finite ℤ_p-valued identity has terms k≤n; native binomialSeries_nat turns its argument intoH_Z=(1+T)^q−1.
+3. Apply the actual coefficient algebra mapℤ_p→K to that finite pointwise identity. It preserves finite sums and products. The continuous scalar-function action on the constant-oneK-valued test is exactly this coefficient map pointwise, so continuous-map extensionality gives a finite equality of actualK-valued tests. Linearity ofμ_η moves this finite sum and itsK scalars through the measure.
+4. Native PowerSeries.coeff_map and the series ring-map laws identify the images of coeff_n(H_Z^k) with coeff_n(H_K^k). The resulting coefficient is Σ_(k≤n)coeff_k(Aμ_η)·coeff_n(H_K^k). BecauseH_K has constant coefficient zero, native le_order_pow_of_constantCoeff_eq_zero andcoeff_of_lt_order kill every termk>n. The additive companion of native finprod_eq_prod_of_mulSupport_subset truncates coeff_subst' to this exact finite sum.
+5. Native series extensionality identifies the pushed transform with substH_K(Aμ_η). Native linearity ofamiceTransform sends the measure difference to the formal difference from the preceding checkpoint; native injectivity concludes. No integral-only Amice equivalence is applied toK-valued measures. The generic field-valued transform lemma is an internal coefficient calculation, not a separately replanned supplier theorem.
+6. The complete native proof probe checks the coefficient calculation conditional on the exact finite Mahler identity; the roadmap supplies that condition through the named PMIA node, with no assumed measure comparison. It also checks the final passage from exact transform identities to equality of the native measures. Those conditional checks do not claim that the supplier or arithmetic generating equations are implemented.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-series-prime-level-comparison`, `DirichletPadicLFunctions:L2/tame-measure-amice`, `PadicMeasuresIwasawaAlgebras:L2/mahler-dilation`, `mathlib:AbstractMeasure.amiceTransform`, `mathlib:AbstractMeasure.injective_amiceTransform`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:AbstractMeasure.map`, `mathlib:AbstractMeasure.map_apply`, `mathlib:PowerSeries.binomialSeries_nat`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.coeff_subst'`, `mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'`, `mathlib:PowerSeries.le_order_pow_of_constantCoeff_eq_zero`, `mathlib:PowerSeries.coeff_of_lt_order`, `mathlib:finprod_eq_prod_of_mulSupport_subset`, `mathlib:ContinuousMap.smul_apply'`.
+
+**Tests:**
+
+- `SuggestedTamePrimeMeasureTests.all_continuous_test_comparison` (compatibility): For every continuousK-valued testf, the actual new integral is μ(f)−η(q)μ(f∘d_q).
+- `SuggestedTamePrimeMeasureTests.mass_euler_factor` (computation): The actual total mass changes by1−η(q).
+- `SuggestedTamePrimeMeasureTests.characteristic_prime_excluded` (non-example): The required target tame hypothesisp∤qM excludesq=p.
+
+**Acceptance:** Equality holds on all continuous tests and preserves the native pushforward direction. The finite residue controls therefore useq^{-1}a for the mass at a, while test pullback usesf(qx). No source primitivity assumption is required for this finite-kernel route.
+
+**Source:** Section3.5.5, published128/PDF29; Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47. Complete pages freshly re-read on30September2026; inverse weighting in Proposition12.5, published179–180/PDF80–81, also read for the next step. Worker prime-level comparison of the existing tame measure from the finite-kernel identity and the existing supplier Mahler-dilation identity. The source motivates the native pushforward/substitution relation. It does not assert this exact imprimitive comparison; no primitive Gauss identity, Galois action or analytic interpolation at weight zero is inferred.
+
+### Tame measures at repeated prime levels
+
+`DirichletPadicLFunctions:L2/tame-measure-repeated-prime-level` — `DirichletPadic.tameMeasure_changeLevel_prime_dvd`
+
+Ifq∣M, μ_(changeLevel η)=μ_η as actual native measures.
+
+**Hypotheses:** p andq are primes, including the dyadic p=2 case whenq is odd. K is a complete normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. No independent characteristic-zero, ℚ_p-algebra or nontrivially normed field hypothesis is added. M>0 with NeZero M; η:DirichletCharacter K M is nonprincipal but may be imprimitive. hM andhN certify that M andqM have unit images inK. hpM: p∤M andhpN: p∤qM are the exact tame hypotheses for the two actual constructors. In particular hpN impliesq≠p. Use the native character changeLevel alongM∣qM and the existing tameMeasure at each level. Put d_q(x)=q*x as the native continuous self-map ofℤ_p. The native AbstractMeasure.map is pushforward: it evaluates a testf by evaluating the original measure onf∘d_q. No new measure or dilation carrier is defined. q divides the original levelM.
+
+**Proof:**
+
+1. The earlier tame-series-repeated-prime-level gives equality of the two actual finite tame series under the displayed nonprincipal and unit hypotheses.
+2. Use tame-measure-amice on each side and native AbstractMeasure.injective_amiceTransform. This transports the exact series equality directly to the existing measures, without a new construction or an assumption that the two continuous functionals agree.
+3. Equivalently the prime-level measure comparison has coefficientη(q)=0 becauseq is a nonunit moduloM. The direct Amice argument above needs only the already established repeated-prime series node.
+4. Evaluate the equality on any continuous test or ordinary monomial. The dyadic example raises a nonprincipal character from level3 to9 atp=2. Principal characters are still excluded: their regularized finite constructors do not satisfy the earlier repeated-prime series equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-series-repeated-prime-level`, `DirichletPadicLFunctions:L2/tame-measure-amice`, `mathlib:AbstractMeasure.injective_amiceTransform`.
+
+**Tests:**
+
+- `SuggestedTamePrimeMeasureTests.repeated_prime_all_tests` (compatibility): Every continuous test has exactly the same value under the two actual measures whenq∣M.
+- `SuggestedTamePrimeMeasureTests.repeated_prime_zero_test` (degenerate): The new actual measure sends the zero test to zero, including the principal constructor where it is defined.
+- `SuggestedTamePrimeMeasureTests.dyadic_repeated_prime` (computation): Atp=2, the actual measures for a nonprincipal character modulo3 and its native lift to9 coincide.
+
+**Acceptance:** This is equality of the native continuous duals, not merely equality of finite moments or residue samples. It will remove repeated factors during later primitive-conductor iteration.
+
+**Source:** Section3.5.5, published128/PDF29; Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47. Complete pages freshly re-read on30September2026; inverse weighting in Proposition12.5, published179–180/PDF80–81, also read for the next step. Worker prime-level comparison of the existing tame measure from the finite-kernel identity and the existing supplier Mahler-dilation identity. The source motivates the native pushforward/substitution relation. It does not assert this exact imprimitive comparison; no primitive Gauss identity, Galois action or analytic interpolation at weight zero is inferred.
+
+### Prime level factors of ordinary tame moments
+
+`DirichletPadicLFunctions:L2/tame-measure-prime-level-moments` — `DirichletPadic.tameMeasure_changeLevel_prime_moment`
+
+For every k≥0, the actual moment ofx^k under μ_(changeLevel η) equals(1−η(q)q^k) times its moment underμ_η, withx mapped toK by the givenℤ_p algebra.
+
+**Hypotheses:** p andq are primes, including the dyadic p=2 case whenq is odd. K is a complete normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. No independent characteristic-zero, ℚ_p-algebra or nontrivially normed field hypothesis is added. M>0 with NeZero M; η:DirichletCharacter K M is nonprincipal but may be imprimitive. hM andhN certify that M andqM have unit images inK. hpM: p∤M andhpN: p∤qM are the exact tame hypotheses for the two actual constructors. In particular hpN impliesq≠p. Use the native character changeLevel alongM∣qM and the existing tameMeasure at each level. Put d_q(x)=q*x as the native continuous self-map ofℤ_p. The native AbstractMeasure.map is pushforward: it evaluates a testf by evaluating the original measure onf∘d_q. No new measure or dilation carrier is defined. k is an arbitrary nonnegative integer. The test is the actual continuous functionx↦(algebraMap ℤ_p K x)^k.
+
+**Proof:**
+
+1. Evaluate tame-measure-prime-level-comparison on this continuous monomial. Native map_apply pulls it back alongx↦q*x.
+2. The ring algebra map sendsq*x to(q:K) times the image ofx, so the pulled-back monomial is the constant scalarq^k times the original test. Continuous-map extensionality identifies the tests and nativeK-linearity of the measure extractsq^k. The complete ordinary_dilation probe proves precisely this evaluation identity for any native measure.
+3. Combine the two terms as(1−η(q)q^k) times the old moment by ring algebra. Atk=0 the test is1 and this gives the total-mass factor1−η(q). Atk=1 the extra scalar isq, which distinguishes the ordinary moment formula from an incorrect reuse of the mass factor.
+4. Whenq∣M, the character valueη(q)=0 and every moment is unchanged, in agreement with the stronger equality of actual measures. These are constructor moments; no analytic interpolation statement or weight-zero logarithmic special value is invoked.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-measure-prime-level-comparison`, `mathlib:AbstractMeasure.map_apply`.
+
+**Tests:**
+
+- `SuggestedTamePrimeMeasureTests.weight_zero_is_mass` (degenerate): The actual weight-zero monomial integral is exactly the total mass.
+- `SuggestedTamePrimeMeasureTests.first_moment_euler_factor` (computation): The first ordinary moment has factor1−η(q)q.
+- `SuggestedTamePrimeMeasureTests.repeated_prime_all_moments` (compatibility): Whenq∣M, every nonnegative ordinary moment of the two actual measures agrees.
+
+**Acceptance:** Retainq^k rather thanq^(k−1): the laterζ inverse-coordinate weighting has a different exponent. The current statement has no analytic positive-weight restriction, because it only evaluates already defined measures.
+
+**Source:** Section3.5.5, published128/PDF29; Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47. Complete pages freshly re-read on30September2026; inverse weighting in Proposition12.5, published179–180/PDF80–81, also read for the next step. Worker prime-level comparison of the existing tame measure from the finite-kernel identity and the existing supplier Mahler-dilation identity. The source motivates the native pushforward/substitution relation. It does not assert this exact imprimitive comparison; no primitive Gauss identity, Galois action or analytic interpolation at weight zero is inferred.
+
+**Remaining:** The exact one-prime comparison now reaches the actual field-valued tame measures and all nonnegative ordinary moments, with repeated primes handled by measure equality. Next compare unit-restricted and inverse-weightedζ measures, retaining theη(q)/q factor introduced by inverse weighting, then iterate genuinely new primes and compare with the native primitive character. Integral-valued transport, primitive Gauss nonvanishing, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open.
+
+### Prime level changes of actual tame measures validation
+
+All 706 predecessor nodes, 595 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 3 nodes, 3 named suggested declarations and 9 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 967 reachable nodes, 4879 edges and 778 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All three new routes use native declarations and existing fine nodes, including the exact PMIA finite Mahler-dilation node, with no new stage-request leaf. Existing requests remain open.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3603 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Seven complete native lemmas prove coefficient truncation, coefficient-map compatibility, finite-test transport, its Amice equality conditional on the exact finite Mahler identity, passage from supplied transform identities to actual measure equality, and ordinary dilation of any native measure. The conditional finite-Mahler input is precisely the existing PMIA fine node used in the roadmap. Its proof and the arithmetic generating equations are not claimed as implemented by this native probe. The separate probe compiles against 2841 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Thirteen nonprincipal character profiles give52prime-level pairs and163eligible p-adic prime-place pairs. Exact known residue formulas check9967masses,2445residue-constant tests,2418refinements and978total masses over489finite levels;33dyadic pairs are included. Independent quotient-series/Stirling calculations check520ordinary moments, including52zero-weight cases. Wrong pushforward direction, sign, conjugate character value and missingq^k are detected. Exact Fraction-pair arithmetic in Q(i) and Q(omega). Independently evaluate the existing weighted residue-mass formula at levels p^0,p^1,p^2, with p=2,3,5,7,11 when prime to both character levels. Compare every new mass with the inverse-indexed dilation of the old mass, five residue-constant tests per level, total mass and refinement. Independently derive ten ordinary moments from quotient-series coefficients via Stirling numbers. These are controls of existing exact constructor formulas; finitely many levels do not prove equality of measures on all continuous tests. The largest observed discrepancy is 0 in every asserted exact identity.
+
+All66 inputs and four predecessor outputs are unchanged at capture and guarded. The partial signature file is the exact4927prefix plus three declarations/nine examples, still omitting4777–4791. This exact partial file elaborates with zero errors and2122expected placeholder warnings only; no new import is added. The full module remains NOT COMPILED because the compatible native TwistedDivisorSum artifact is absent; no library build occurs.
