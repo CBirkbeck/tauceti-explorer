@@ -8,7 +8,7 @@ preprint is [arXiv:1812.09269v3](https://arxiv.org/abs/1812.09269v3).
 
 Issue #2164 · Claude Code · session `cc-7b31c4` · 2026-09-23 · **complete**.
 
-332 items (3 library, 33 planned, 296 missing), 33 routes taking all 296 missing items exactly once, 159 recorded source issues, 19 prerequisites. No formalisation is claimed; no Lean file is part of this job.
+334 items (3 library, 33 planned, 298 missing), 34 routes taking all 298 missing items exactly once, 163 recorded source issues, 19 prerequisites. The numbers are those after the red-team fixes of 30 September 2026 (see the last section): items 264 and 265 were merged into items 144 and 259, and items 333–336, route 34 and source issues E160–E163 were added. No formalisation is claimed; no Lean file is part of this job.
 
 **Corrected in place by the independent review REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-21 (issue #2165).** The review corrected item statements and statuses, added the definitions and results the extraction missed, rebuilt the routes, fixed the prerequisites and recorded the mistakes it found. Every change is listed in `research/blueprint/reviews/REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-21.md`. The sections below that describe the routes and the source issues describe the corrected file.
 
@@ -102,32 +102,32 @@ formula (§1.4.1), and why genus `≥ 3` is out of reach and why Picard curves m
 
 | Route | Target | Items |
 | --- | --- | --- |
-| 1. part-ii | `HilbertSiegelModularVarieties` — *Hilbert Modular Varieties And Shimura Curves, Part II: Hilbert–Siegel modular varieties for GSp_4 over a totally real field* (`arithmeticgeometry`) | 19 |
-| 2. part-ii | `HigherHidaAndColemanTheory` — *Hida and Coleman families, period modules, and family L-functions, Part II: higher Hida and higher Coleman theory for coherent cohomology* (`padic`) | 86 |
+| 1. part-ii | `HilbertSiegelModularVarieties` — *Hilbert Modular Varieties And Shimura Curves, Part II: Hilbert–Siegel modular varieties for GSp_4 over a totally real field* (`arithmeticgeometry`) | 20 |
+| 2. part-ii | `HigherHidaAndColemanTheory` — *Hida and Coleman families, period modules, and family L-functions, Part II: higher Hida and higher Coleman theory for coherent cohomology* (`padic`) | 85 |
 | 3. new | `AbelianSurfacesPotentialModularity` — *Abelian surfaces over totally real fields are potentially modular* (`langlands`) | 60 |
 | 4. part-ii | `GSp4LocalLanglandsAndGaloisRepresentations` — *Modularity, automorphy and Langlands endpoint extensions, Part II: GSp_4, its local Langlands correspondence and Galois representations* (`langlands`) | 23 |
 | 5. part-ii | `IntegralCoherentHeckeComplexes` — *Automorphic bundles and classical automorphic forms, Part II: integral coherent cohomology and Hecke-equivariant perfect complexes* (`langlands`) | 9 |
 | 6. source | `LocalGaloisDeformationRings` — L7, L8, R08.1, R08.2 | 22 |
-| 7. source | `ArithmeticGaloisRepresentations` — G7, R01.1 | 15 |
-| 8. source | `ModularityAndLanglandsExtensions` — ML.0, ML.1, ML.4 | 8 |
+| 7. source | `ArithmeticGaloisRepresentations` — G7 | 15 |
+| 8. source | `ModularityAndLanglandsExtensions` — ML.0, ML.1, ML.4, ML.5 | 9 |
 | 9. source | `GlobalGaloisDeformations` — G7, R04.1, R04.2, R04.3, R04.5 | 7 |
 | 10. source | `AdicSpacesPartII` — R2, R3 | 4 |
 | 11. source | `AlgebraicModuliForArithmeticGeometry` — A0-extension | 4 |
 | 12. source | `DeformationAndDerivedPatchingAlgebra` — P7, P9, R03.1, R03.6 | 4 |
-| 13. source | `HodgeTateAndCanonicalSubgroups` — T0, T5 | 4 |
+| 13. source | `HodgeTateAndCanonicalSubgroups` — T0, T5 | 3 |
 | 14. source | `PeriodsAndSpecialValues` — PS.1 | 4 |
 | 15. source | `PotentialModularityAndCompatibleSystems` — R23.1, R23.2, R23.3, R23.5, R24.5:operations | 3 |
 | 16. source | `AutomorphicGaloisRepresentationsPartII` — AG2.5 | 2 |
 | 17. source | `GL2AutomorphicRepresentationsAndTransfer` — R16.2, R17.5 | 2 |
 | 18. source | `PadicFamilies` — L0a, L2a | 2 |
 | 19. source | `SchemeAndStackFoundations` — SF.2 | 2 |
-| 20. source | `ShimuraData` — D5 | 2 |
+| 20. source | `ShimuraData` — D5 | 1 |
 | 21. source | `SmoothRepresentationsOfLocalGroups` — SR.1, SR.2 | 2 |
 | 22. source | `AbelianSchemesAndArithmeticModuli` — A4 | 1 |
-| 23. source | `ArithmeticGaloisDuality` — R02.2, R02.4 | 1 |
+| 23. source | `ArithmeticGaloisDuality` — R02.2, R02.4 | 2 |
 | 24. source | `AutomorphicFormsOnReductiveGroups` — AF.1, AF.3, AF.4 | 1 |
-| 25. source | `AutomorphicSpectralTheory` — AS.4, AS.5 | 1 |
-| 26. source | `FaltingsFinitenessAndIsogenyTheorems` — R28.4 | 1 |
+| 25. source | `AutomorphicSpectralTheory` — AS.1, AS.2, AS.4, AS.5 | 2 |
+| 26. part-ii | `OpenImageTheoremsForAbelianVarieties` — *Faltings finiteness, semisimplicity and isogeny theorems, Part II: ℓ-adic and residual images of abelian varieties (Serre's open-image theorems)* (`arithmeticgeometry`) | 1 |
 | 27. source | `FiniteFlatGroupsAndIntegralPadicHodgeTheory` — R07.1 | 1 |
 | 28. source | `LocallyAnalyticDistributions` — L4 | 1 |
 | 29. source | `NeronModelsAndSemistableAbelianVarieties` — R11.5 | 1 |
@@ -135,6 +135,7 @@ formula (§1.4.1), and why genus `≥ 3` is out of reach and why Picard curves m
 | 31. source | `PerfectoidShimuraVarieties` — S1, S3 | 1 |
 | 32. source | `PotentialAutomorphyInfrastructure` — PA.5 | 1 |
 | 33. source | `ShimuraCompactifications` — C3, C5 | 1 |
+| 34. source | `ReductiveGroupsPartII` — RG2.5 | 1 |
 
 The review rebuilt the routes submitted with this extraction. What changed, and why:
 
@@ -187,24 +188,25 @@ add for this paper.
 * The automorphic side:
   * local Langlands for `GL_n` (EndoscopicTransferAndUnitaryTraceComparison ET.6, with R16.2 and R16.3 for
     `GL_2`);
-  * solvable base change, descent, isobaric sums and automorphic induction (R17.4, ET.7a, AG2.2,
+  * solvable base change, descent and automorphic induction (R17.4, ET.7a, AG2.2,
     ModularityAndLanglandsExtensions ML.5);
   * potential automorphy of rank-two compatible systems (ML.2);
-  * the Rankin–Selberg and exterior-square transfers (ML.5);
+  * the Rankin–Selberg transfer (ML.5);
   * standard L-functions of `GL_n` (AL.2);
   * Hilbert irreducibility (IG.2);
   * abstract Hecke algebras (SmoothRepresentationsOfLocalGroups SR.1).
 * Patching:
-  * the balanced-module criterion and the patching criterion of Proposition 7.10.1 (R03.5, P9);
+  * the balanced-module criterion and the patching criterion of Proposition 7.10.1 (R03.5, P8, P9);
   * Nakayama's lemma for complexes (P7, DD.1);
   * freeness of maximal Cohen–Macaulay patched modules (R03.3).
 
 ## Source issues
 
-`sourceIssues` records 159 mistakes: 119 misprints, 25 errors and 15 gaps. Of these, 11 affect a stated result, 17 affect a proof, and 131 affect nothing downstream. Each was checked at its locator in both arXiv v3 and the published version. No erratum to the paper is known. One issue, the gap E149 in Theorem 10.2.1, is already addressed in the authors' later paper (arXiv:2502.20645, Remark 9.4.4 and Lemma 9.3.7); the other 158 are new.
+`sourceIssues` records 163 mistakes: 119 misprints, 26 errors and 18 gaps. Of these, 14 affect a stated result, 18 affect a proof, and 131 affect nothing downstream. Each was checked at its locator in both arXiv v3 and the published version. No erratum to the paper is known. One issue, the gap E149 in Theorem 10.2.1, is already addressed in the authors' later paper (arXiv:2502.20645, Remark 9.4.4 and Lemma 9.3.7); the other 162 are new.
 
 - **E1–E3** were recorded by the extraction: a Lemma cited as a Theorem in the proof of Corollary 7.6.3, a missing superscript w⁻ in Corollary 6.4.3, and a missing hypothesis [F:Q] > 1 in Remark 5.8.5. The review confirmed all three.
 - **E4–E159** were found by the review. Each misprint was confirmed on the page images. Each error and gap was confirmed by two independent verifications, one of which tried to defend the paper under its own conventions and cited sources; where the two differed on kind, reach or correction, a third reading settled the record.
+- **E160–E163** were found by the red team RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-21 (findings /4–/7), confirmed by its verifier, and recorded by the fix of 30 September 2026. They have no review verdict yet.
 
 **Stated results affected.**
 - **Lemma 2.1.3** (p. 171): a semisimple GSp₄-valued representation is determined by its GL₄-valued composite and similitude only when char L ≠ 2 (E6).
@@ -212,7 +214,10 @@ add for this paper.
 - **Lemma 3.8.5** (pp. 219–221) needs #G invertible on S, and Proposition 3.8.3 then needs p ∤ #Δ(K^p), a hypothesis that must be carried to §4.2, Proposition 4.4.3 and §6.3.8 (E36).
 - **Lemma 4.2.20** (p. 255): the second identity for T̃_w is unproved at l_w = p + 1; it holds for l_w ≥ p + 2 (E46).
 - **Corollary 6.4.3** (pp. 338–339): the isomorphism for i = 1 is proved only for k_v − l_v ≥ 3N; its one use, in Proposition 6.6.2, can take that bound (E83).
-- **Lemma 9.1.10(3)** (pp. 457–458) asserts more than [ACC+18] gives: the image contains a conjugate of SL₂(F_l) (E136). **Proposition 9.1.12** (pp. 458–459) should assert only that L′/K′ is Galois (E137).
+- **Lemma 4.6.24** (p. 292): the per-place claim U_{w,2} ∈ p·End is proved only for F = Q; what the proof gives, and all that Lemma 4.6.25 uses, is ∏_{w|p} U_{w,2} ∈ p·End, hence U^I ∈ p·End (E160).
+- **Proposition 6.6.2 and Theorems 6.6.4–6.6.5** (pp. 353–355) are proved only after localizing at a non-Eisenstein maximal ideal, since the proof applies Theorem 3.10.1(2); every later use is localized (E162).
+- **Theorems 8.4.1 and 8.5.2** (pp. 452–454) need ρ unramified outside a finite set of places, which every application satisfies (E161).
+- **Lemma 9.1.10(3)** (pp. 457–458) asserts more than [ACC+18] gives: the image contains a conjugate of SL₂(F_l) (E136). **Proposition 9.1.12** (pp. 458–459) should assert that L′/K′ is Galois, with K/E linearly disjoint from E′F^(avoid)/E and L′/K′ linearly disjoint from K′F^(avoid)/K′ (E137, amended after the red team).
 - **Lemma 9.2.7** (pp. 462–463) is false as printed: the local data at the auxiliary prime q must be chosen differently. With the corrected choices Theorem 9.2.8 and the results drawn from it survive (E139).
 - **Theorem 9.3.4** (p. 466): its "more precisely" clause must exclude elliptic curves with End_K(E) ≠ Z (E144).
 - **Proposition 10.1.3** (pp. 473–474), and Proposition 10.1.1 and Theorem 10.1.4 with it: "unramified and ordinary" should read "ordinary"; with that change Theorem 1.1.7 and Theorem 10.1.4 still follow (E147).
@@ -273,3 +278,13 @@ The extraction's routing was validated by a script that checks:
 
 The review repeated these checks on the corrected file, and also checked the joined proposals' ids, parents
 and titles against the extractions that proposed them. No Lean deliverable is part of a paper job.
+
+## Fixes after the red team
+
+The red team RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-21 found 24 mistakes in this extraction, and its verifier confirmed all of them. The fix job FIX-RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-21 (30 September 2026) applied the high and medium findings, /1–/17, in the verifier's form; `research/blueprint/redteam/RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-21.fixes.md` lists each change. In short:
+
+* **Corrected statements in the items.** Items 13, 170, 58, 263, 127, 176, 174, 130, 132, 133, 178, 139, 134, 122, 46 and 61 now state the corrected results of their source issues (E6, E16, E46, E83, E139, E140, E137, E144, E147, E155, E156, E149, E136, E36), and cite them. So do items 41, 209, 211, 39, 68, 59, 243, 57, 232 and 64 (E29, E25, E26, E63, E52, E59, E42, E53, E57). Item 109 again states positive integers d′_η, with the argument of E126.
+* **New source issues.** E160 (Lemma 4.6.24 holds only in product form), E161 (Theorems 8.4.1 and 8.5.2 need ρ unramified outside a finite set), E162 (§6.6 holds after localizing at a non-Eisenstein ideal) and E163 (Proposition 7.10.1 is applied to ideals that are neither open nor nested). Items 246, 118, 119, 287–291, 150 and 324 use the corrected forms. E137's correction is amended so that it agrees with E140.
+* **Owners.** Item 192 (Patrikis's lifting) belongs to ArithmeticGaloisRepresentations G7, with Tate's H²(G_F, Q/Z) = 0 as the new item 334 at ArithmeticGaloisDuality R02.4 (route 23); route 7 no longer names R01.1. Item 160 (the root datum of GSp₄) moves to ReductiveGroupsPartII RG2.5 on the new route 34. Route 26 is now a join of the Part II OpenImageTheoremsForAbelianVarieties, re-pointed in place because item 196 is its only item; its review verdict must be given again. Isobaric sums are the new item 335 on route 25 (AutomorphicSpectralTheory AS.1–AS.2), and Kim's exterior square the new item 336 on route 8 (ML.5).
+* **Duplicates and omissions.** Items 264 and 265 are merged into 144 and 259. The integral minimal compactification and its G₁-quotient are the new item 333 on route 1. Route 3's brief makes AbelianSurfacesPotentialModularity the one owner of the Galois representations of ordinary parallel-weight-2 π, in the form of Theorem 1.8.17 of the 2025 paper.
+* **For the maintainer.** The duplicate design jobs, the grouping of Part II routes by parent, and the re-pointing of items in the Calegari–Geraghty (2020), Pilloni (2020), Allen et al. (2023) and Boxer–Calegari–Gee–Pilloni (2025) extractions are listed in the fixes report. The routes and items added or changed here (routes 7, 8, 25, 26 and 34; items 333–336) need the next review's verdicts.
