@@ -2,7 +2,7 @@
   "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Independently reviewed all 60 original links and 10 overlaps against their full endpoint stages; checked all eight focal layers and the current pinned NFA library audit. After four removals and five additions there are 61 links (18 explicit, 43 inferred) and 10 overlaps. Current LV consumers are LV.1, LV.6, LV.7 and LV.11, not topology LV.5 or monodromy LV.10. Removed the retired LI.4 process edge and the unsupported old LV.1 conjugation construction. Repaired nine one-sided explicit classifications, scope/hypothesis boundaries and already-landed ownership claims. Catalogue-wide completeness belongs to the original author's 212-roadmap examined ledger; this independent review spot-checks all eight focal stages across the current 2007-stage catalogue, rather than claiming a fresh full-catalogue review.",
+  "summary": "Confirmed-finding repair: 64 links (18 explicit, 46 inferred) and 10 overlaps. Three new input edges connect NFA1 finite unramified-compositum closure to ArithmeticGaloisDuality R02.3, and NFA4 discriminant assembly/NFA6 wild different bounds to Faltings R28.1's accepted restricted-ramification Hermite-Minkowski import. Neither infinite Galois/cohomological constructions nor the missing degree-and-S bound/finiteness assembly are claimed supplied. Original 61 links, ten overlaps and inherited catalogue coverage remain; two examined no-link notes are corrected. This revised dependency map awaits renewed independent review before promotion.",
   "links": [
     {
       "source": "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
@@ -1120,6 +1120,69 @@
         }
       ],
       "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
+    },
+    {
+      "id": "NFA-FIX-RT-1",
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary",
+      "target": "ArithmeticGaloisDuality:R02.3",
+      "confidence": "inferred",
+      "reason": "R02.3 constructs G_{F,S}, requiring the finite global extensions unramified at all finite places outside S to form a compositum-closed family. NFA1.5 supplies unramified-compositum closure prime by prime (as already recognized for IntegralIwasawaTheory:L1). This supplies finite arithmetic only. The consumer retains normal finite subextensions/conjugation, the union in a fixed algebraic closure, the Krull topology, the absolute-Galois quotient, and continuous cohomology, with the archimedean/p-adic places required by its theorem. No infinite Galois group is supplied by this edge; broader possible S conventions must be handled by the consumer.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary",
+          "quote": "`p` unramified in `L₁` and in `L₂` implies `p` unramified in `L₁L₂`.",
+          "sourcePath": "content/tau-ceti/NumberFieldArithmetic/README.md",
+          "locator": "lines 607-607"
+        },
+        {
+          "stageId": "ArithmeticGaloisDuality:R02.3",
+          "quote": "Define G_{F,S}, including the archimedean and p-adic places demanded by the theorem.",
+          "sourcePath": "content/campaign/ArithmeticGaloisDuality/README.md",
+          "locator": "lines 48-48"
+        }
+      ]
+    },
+    {
+      "id": "NFA-FIX-RT-2a",
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
+      "target": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+      "confidence": "inferred",
+      "reason": "The accepted integrated child R28.1/hermite-minkowski-finiteness-of-extensions-unramified-outside-S consumes a degree-and-S bound on the absolute discriminant in the descent/level-structure argument. NFA4.2 supplies relative/absolute discriminant assembly, including the tower formula already implemented as TauCeti.relDiscr_tower at the pin under top fraction-field separability. Import that theorem rather than replan it. The integrated child and its explicit Hermite-Minkowski restricted-ramification gap remain unresolved: bounding the discriminant uniformly in degree and S, applying bounded-discriminant finiteness, and counting extensions in a fixed algebraic closure are consumer/import obligations. This edge does not prove the completed restricted-ramification theorem; factor through a general owner if one is later assigned.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
+          "quote": "relDiscr A C = (relDiscr A B) ^ [M : L] · Ideal.relNorm A (relDiscr B C).",
+          "sourcePath": "content/tau-ceti/NumberFieldArithmetic/README.md",
+          "locator": "lines 1139-1139"
+        },
+        {
+          "stageId": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+          "quote": "Prove the descent and level-structure arguments needed to convert moduli points into isomorphism classes.",
+          "sourcePath": "content/campaign/FaltingsFinitenessAndIsogenyTheorems/README.md",
+          "locator": "lines 28-28"
+        }
+      ]
+    },
+    {
+      "id": "NFA-FIX-RT-2b",
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
+      "target": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+      "confidence": "inferred",
+      "reason": "The accepted integrated child R28.1/hermite-minkowski-finiteness-of-extensions-unramified-outside-S permits wild ramification inside S and needs a discriminant bound before bounded-discriminant finiteness can be applied. NFA6.4 supplies the global wild different bound for number fields; it imports local different theory and transports the different and natural-number valuation/multiplicity through NFA5.9 and its separate exponent bridge, with residue-degree-weighted discriminant assembly from NFA5.10. These are planned global inputs, not a built finiteness theorem. Keep the accepted gap for the degree-and-S uniform bound, bounded-discriminant application and fixed-closure counting. Do not substitute the tame equality or close the gap merely because this input is linked. Factor through a general restricted-ramification-finiteness owner if the completed theorem is later assigned.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
+          "quote": "`e ≤ v_P(𝔡) ≤ e − 1 + v_P(e)` when it is wildly ramified, with `v_P(e)` the multiplicity of\n  `P` in `span {(e : 𝓞 L)}`.",
+          "sourcePath": "content/tau-ceti/NumberFieldArithmetic/README.md",
+          "locator": "lines 1817-1818"
+        },
+        {
+          "stageId": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+          "quote": "Prove the descent and level-structure arguments needed to convert moduli points into isomorphism classes.",
+          "sourcePath": "content/campaign/FaltingsFinitenessAndIsogenyTheorems/README.md",
+          "locator": "lines 28-28"
+        }
+      ]
     }
   ],
   "overlaps": [
@@ -1283,8 +1346,8 @@
     },
     {
       "roadmapId": "ArithmeticGaloisDuality",
-      "result": "none",
-      "note": "All stages read. Poitou–Tate duality, G_{F,S} and restricted products; unramified local subgroups are local-Galois objects. No stage names an NFA output."
+      "result": "links",
+      "note": "Confirmed-finding fix: R02.3's G_{F,S} construction consumes NFA1.5 finite extensions unramified outside S and their compositum closure. Added the inferred Layer 1 -> R02.3 import. Normal closure/conjugation, the infinite union, Krull topology, Galois quotient and cohomology remain the consumer's work; local cohomological conditions do not replace this finite global arithmetic."
     },
     {
       "roadmapId": "ArithmeticGaloisRepresentations",
@@ -1523,8 +1586,8 @@
     },
     {
       "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
-      "result": "none",
-      "note": "All stages read. Height finiteness, isogeny estimates and Shafarevich finiteness; no stage states a use of an NFA output (MordellLawrenceVenkatesh's attribution of Hermite–Minkowski with ramification to R28.1 is not reflected in R28.1's text)."
+      "result": "links",
+      "note": "Confirmed-finding fix: read accepted data/decompositions/FaltingsFinitenessAndIsogenyTheorems.json, its R28.1 restricted-ramification Hermite-Minkowski child and explicit gap, alongside R28.1's descent contract. Added inferred NFA4 -> R28.1 discriminant assembly and NFA6 -> R28.1 global wild different inputs, importing the landed tower theorem. The degree-and-S discriminant bound, bounded-discriminant application and fixed-algebraic-closure counting remain unresolved consumer/import work; the existing gap is not closed."
     },
     {
       "roadmapId": "FarguesFontaineDiamonds",
@@ -2307,62 +2370,89 @@
     "command": "python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json"
   },
   "review": {
-    "status": "accepted",
-    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
-    "date": "2026-09-23",
-    "notes": "Accepted after repairs; every original edge/overlap reviewed, eight-layer completeness spot-check. Exact quotes, cycle checks and validation results are recorded in the report. Historical claims remain explicitly attributed to the original author.",
-    "removed": [
-      {
-        "originalIndex": 17,
-        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-        "target": "FoundationsAndLibraryIntegration:LI.4",
-        "reason": "Retired LI.4 is a process/integration stage, not a current mathematical consumer."
-      },
-      {
-        "originalIndex": 20,
-        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-        "target": "MordellLawrenceVenkatesh:LV.1",
-        "reason": "Current LV.1 no longer states the quoted fixed-field construction by products of complex conjugations; remaining CM vocabulary does not establish this specific dependency."
-      },
-      {
-        "originalIndex": 21,
-        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-        "target": "MordellLawrenceVenkatesh:LV.10",
-        "reason": "LV.10 is now monodromy, not the auxiliary-place arithmetic. Replaced by a newly evidenced edge to current LV.11."
-      },
-      {
-        "originalIndex": 23,
-        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-        "target": "MordellLawrenceVenkatesh:LV.5",
-        "reason": "LV.5 is now surface topology. The S-unit use is repaired at existing NFA 5 -> current LV.6, avoiding two copies of that pair."
+    "status": "pending",
+    "notes": "Confirmed red-team findings /1 and /2 add three scoped input links and correct two examined notes. A new independent review is required before promotion; the original acceptance is retained under reviewHistory. Faltings' existing restricted-ramification gap remains open."
+  },
+  "reviewHistory": [
+    {
+      "scope": "Accepted original 61-link revision before the confirmed omissions were repaired. This is historical acceptance, not acceptance of the three added links.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
+        "date": "2026-09-23",
+        "notes": "Accepted after repairs; every original edge/overlap reviewed, eight-layer completeness spot-check. Exact quotes, cycle checks and validation results are recorded in the report. Historical claims remain explicitly attributed to the original author.",
+        "removed": [
+          {
+            "originalIndex": 17,
+            "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+            "target": "FoundationsAndLibraryIntegration:LI.4",
+            "reason": "Retired LI.4 is a process/integration stage, not a current mathematical consumer."
+          },
+          {
+            "originalIndex": 20,
+            "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+            "target": "MordellLawrenceVenkatesh:LV.1",
+            "reason": "Current LV.1 no longer states the quoted fixed-field construction by products of complex conjugations; remaining CM vocabulary does not establish this specific dependency."
+          },
+          {
+            "originalIndex": 21,
+            "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+            "target": "MordellLawrenceVenkatesh:LV.10",
+            "reason": "LV.10 is now monodromy, not the auxiliary-place arithmetic. Replaced by a newly evidenced edge to current LV.11."
+          },
+          {
+            "originalIndex": 23,
+            "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+            "target": "MordellLawrenceVenkatesh:LV.5",
+            "reason": "LV.5 is now surface topology. The S-unit use is repaired at existing NFA 5 -> current LV.6, avoiding two copies of that pair."
+          }
+        ],
+        "added": [
+          {
+            "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+            "target": "MordellLawrenceVenkatesh:LV.11",
+            "reason": "LV.11 chooses a friendly auxiliary place through cyclotomic Frobenius in a compositum. NFA 2.4–2.6 supplies finite-level restriction and the arithmetic Frobenius/root-of-unity congruence, turning the chosen class into conditions on q_v modulo q-1. The general-base formula is already AlgHom.IsArithFrobAt.autToPow_eq_absNorm at the pinned library. Chebotarev existence, the Weil pairing (with its separate inverse convention), and the small-orbit count remain consumer work."
+          },
+          {
+            "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+            "target": "MordellLawrenceVenkatesh:LV.6",
+            "reason": "For LV.6's finite cyclic Kummer extension, Frobenius at an unramified place generates its decomposition group and has order the residue degree (NFA 2.3). Thus a Frobenius generating the entire cyclic Galois group makes that place inert. Chebotarev supplies existence, Kummer theory the cyclic extension and degree; neither follows from the Frobenius dictionary alone."
+          },
+          {
+            "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+            "target": "MordellLawrenceVenkatesh:LV.7",
+            "reason": "LV.7's size_v criterion indexes local terms by places w above v and weights them by [E_w:K_v]. Applying NFA 5.2–5.5 to each field factor of the finite etale algebra gives canonical completion factors, semilocal decomposition and degrees. Identification with Frobenius orbit lengths additionally uses the unramified hypothesis and Frobenius/decomposition theory; no ramified equality between orbit size and full e*f degree is asserted. The semilinear Frobenius/Lagrangian and finiteness arguments remain LV's."
+          },
+          {
+            "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+            "target": "KTheoryFiniteLocalFields:L.7",
+            "reason": "L.7 states compatibility of restriction/transfer and arithmetic operations with completion of a number field at a finite place. NFA 5.1–5.2 supplies the canonical local-field completion and extension map K_v -> L_w for a chosen place above v. This is the field-level input for completion squares; it supplies no K-theory transfer, Chern-class or trace naturality theorem, which remain L.7's responsibility."
+          },
+          {
+            "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+            "target": "SelmerIwasawaCohomology:L2",
+            "reason": "L2 forms the finite-extension Selmer global-to-local map using all places above each v and decomposition-stable local conditions. NFA 5.2 and 5.6 supply finite-level canonical completion extensions and the decomposition-group comparison, including conjugation compatibility; these underlie the local factors rather than selecting just one completion. Passage to separable closures, continuous Galois cohomology, local conditions, the cohomological direct-sum map and duality remain the Selmer roadmap's work."
+          }
+        ]
       }
+    }
+  ],
+  "fixes": {
+    "jobId": "FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
+    "issue": 5032,
+    "worker": "Codex — codex-5ebb6f",
+    "date": "2026-09-30",
+    "inputRevision": "76be6c69ad4983a46291121e301564ded720d44b",
+    "inputSha256": "28eda9a75a209959ed2575f52d6da5c8ceaecf4396477ff19dd82fb5fde18647",
+    "findings": [
+      "RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic/1",
+      "RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic/2"
     ],
-    "added": [
-      {
-        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-        "target": "MordellLawrenceVenkatesh:LV.11",
-        "reason": "LV.11 chooses a friendly auxiliary place through cyclotomic Frobenius in a compositum. NFA 2.4–2.6 supplies finite-level restriction and the arithmetic Frobenius/root-of-unity congruence, turning the chosen class into conditions on q_v modulo q-1. The general-base formula is already AlgHom.IsArithFrobAt.autToPow_eq_absNorm at the pinned library. Chebotarev existence, the Weil pairing (with its separate inverse convention), and the small-orbit count remain consumer work."
-      },
-      {
-        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-        "target": "MordellLawrenceVenkatesh:LV.6",
-        "reason": "For LV.6's finite cyclic Kummer extension, Frobenius at an unramified place generates its decomposition group and has order the residue degree (NFA 2.3). Thus a Frobenius generating the entire cyclic Galois group makes that place inert. Chebotarev supplies existence, Kummer theory the cyclic extension and degree; neither follows from the Frobenius dictionary alone."
-      },
-      {
-        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-        "target": "MordellLawrenceVenkatesh:LV.7",
-        "reason": "LV.7's size_v criterion indexes local terms by places w above v and weights them by [E_w:K_v]. Applying NFA 5.2–5.5 to each field factor of the finite etale algebra gives canonical completion factors, semilocal decomposition and degrees. Identification with Frobenius orbit lengths additionally uses the unramified hypothesis and Frobenius/decomposition theory; no ramified equality between orbit size and full e*f degree is asserted. The semilinear Frobenius/Lagrangian and finiteness arguments remain LV's."
-      },
-      {
-        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-        "target": "KTheoryFiniteLocalFields:L.7",
-        "reason": "L.7 states compatibility of restriction/transfer and arithmetic operations with completion of a number field at a finite place. NFA 5.1–5.2 supplies the canonical local-field completion and extension map K_v -> L_w for a chosen place above v. This is the field-level input for completion squares; it supplies no K-theory transfer, Chern-class or trace naturality theorem, which remain L.7's responsibility."
-      },
-      {
-        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-        "target": "SelmerIwasawaCohomology:L2",
-        "reason": "L2 forms the finite-extension Selmer global-to-local map using all places above each v and decomposition-stable local conditions. NFA 5.2 and 5.6 supply finite-level canonical completion extensions and the decomposition-group comparison, including conjugation compatibility; these underlie the local factors rather than selecting just one completion. Passage to separable closures, continuous Galois cohomology, local conditions, the cohomological direct-sum map and duality remain the Selmer roadmap's work."
-      }
-    ]
+    "addedLinks": [
+      "NFA-FIX-RT-1",
+      "NFA-FIX-RT-2a",
+      "NFA-FIX-RT-2b"
+    ],
+    "scope": "Rechecked the three suppliers/two consumers, accepted Faltings child/gap and three pinned declaration statements; no new full-catalogue or source-proof certification."
   }
 }
