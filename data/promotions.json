@@ -241,11 +241,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "657add8f5544ff3c",
+   "promotedAt": "2026-09-30T15:58:23Z",
+   "review": "a9b861e89b5361a1",
    "reviewDate": "2026-09-23",
    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
-   "sha256": "6c8de93ad421f59bff577fa558047627baa60ea47d152997e43dd24b14d7d78c",
+   "sha256": "a0cb77d38e12e53c186d2befbf5ebf88990e98188c5063b889d30aa20ae51301",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
    ]
