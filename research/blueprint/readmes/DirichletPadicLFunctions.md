@@ -19378,3 +19378,110 @@ Eight complete native lemmas prove the removed-divisor bijection, weighted remov
 Exact Gaussian-integer finite controls compare native-form divisor sums with retained divisor sums, right Euler subtraction and q^p coefficient expansion; they include quartic character values, nonprimitive zero extensions, n=0, e=0, wild right products and counterexamples to the left-factor or index-deletion alternatives. Exact unbounded integer arithmetic in Gaussian-integer pairs; explicit multiplicative character tables with native-style zero extensions. Every truncated coefficient is computed directly from finite divisors and compared with an independently assembled q^p expansion. No floating-point arithmetic or interval approximation is used; these finite checks do not prove the infinite identity or elaborate the native TauCeti module. The largest observed discrepancy is 0.
 
 The63-input capture has an empty predecessor delta. The real native TauCeti twisted-divisor import is prepended to the unchanged predecessor Lean body. The current full module was not compiled; the previously compiled332-node PMIA artifact and21 available Tau artifacts are checked only as partial available dependencies. No native library build is attempted.
+
+
+## Common coefficients for the conditional classical comparison
+
+Partial continuation preserving all592 predecessor nodes whole. Three L4 nodes compare native divisor sums under coefficient maps and, for a supplied actual classical form with its coefficient formula, give unique common algebraic positive and full fixed-weight series. The full comparison additionally requires a supplied algebraic constant. The missing primitive-character construction is not asserted. All16 findings, nine requests and13 gaps remain; zero closed stages. The full suggested file remains uncompiled.
+
+The reviewed library audit for Dirichlet L0–L4 and ModularForms Layer0, and the whole ModularForms Layer0 owner text259–337, were read. Relevant native Degeneracy definition/API, Γ₁ conjugation transport and full q-expansion proof, subgroup inclusion, native period1 and Mathlib q-expansion linearity statements were read. Native power-series map injectivity and constant expansion were read in context. RJW159–161 was read in4777. The pair-character modular-form construction and its generalized constants are owned by the upstream roadmap and remain unsupplied; only the conditional comparison is developed here.
+
+### Coefficient maps of native twisted divisor sums
+
+`DirichletPadicLFunctions:L4/twisted-divisor-coefficient-map` — `DirichletPadic.twistedDivisorSum_ringHomComp`
+
+For every ring homomorphism j:R→S of commutative rings, j(σ(e,ψ,φ)(n))=σ(e,ψ.ringHomComp(j),φ.ringHomComp(j))(n), including n=0.
+
+**Hypotheses:** R and S are commutative rings, j:R→S is a ring homomorphism, e,n are natural numbers, and ψ and φ are native R-valued Dirichlet characters of arbitrary given levels. The later tests use the indicated valued-field specialization.
+
+**Proof:**
+
+1. Rewrite both actual native arithmetic-function evaluations with their existing twistedDivisorSum_apply formula. The divisor set and arguments n/d and d are natural numbers and do not change with the coefficient ring.
+2. Commute the ring map through the finite sum, products and natural powers. Native ringHomComp evaluates each transported character by applying j to the original value, and j preserves natural casts. Complete weighted_sum_map proves this literal finite-sum equality.
+3. The same proof works for the p-prime divisor restriction by splitting the conditional; complete retained_sum_map checks it. No reinterpretation of nonreal values as rational numbers or primitive replacement of a character is made.
+4. The source-checked native Tau Ceti function is used by name in the suggested statement. Its missing matching artifact prevents compilation of the full file, while the two complete finite-sum lemmas are checked against available native libraries.
+
+**Prerequisites:** `tauceti:DirichletCharacter.twistedDivisorSum`, `tauceti:DirichletCharacter.twistedDivisorSum_apply`, `mathlib:MulChar.ringHomComp`.
+
+**Tests:**
+
+- `SuggestedClassicalTwistedTests.identity_preserves_native_divisor_sum` (compatibility): Transport by the identity ring homomorphism preserves the actual native divisor sum.
+- `SuggestedClassicalTwistedTests.embedding_preserves_native_zero` (degenerate): A coefficient embedding sends the native zero-index value to0.
+- `SuggestedClassicalTwistedTests.nonreal_prime_value_survives_embedding` (computation): For p=2, a quartic left character modulo5 with ψ(2)=i and i²=−1, right level1 and e=2, the actual integral prime moment includes as ι_K(i).
+
+**Acceptance:** This is a naturality lemma for the existing native object, not another arithmetic-function definition.
+
+**Source:** Definition8.1, Theorem8.2 and its full proof, Remark8.3, published159–161/PDF60–62, freshly read in4777; existing ModularForms roadmap Layer0, whole259–337, read this checkpoint. Worker-derived comparison through a common algebraic coefficient field, extending the source’s rational comparison. The classical form and its coefficient formula are explicit hypotheses. The primitive pair-character construction, Gauss-sum translation, generalized Bernoulli constants and exceptional weights remain with their existing ModularForms owner; these nodes prove no existence theorem for that input.
+
+### Common algebraic positive coefficients of classical and p-adic series
+
+`DirichletPadicLFunctions:L4/integral-twisted-classical-positive-comparison` — `DirichletPadic.integralTwistedPositiveEisensteinSeries_classical_positive`
+
+Given the actual classical form f and its positive coefficient formula as above, there is a unique Q⁺∈F[[q]] such that map(ι_C)(Q⁺)=qExpansion(g)−C(a_0(g)) and map(ι_K)(Q⁺)=map(O↪K)(E⁺_(ψ_K,φ_K)(κ^O_(0,1,k−1))).
+
+**Hypotheses:** p is any prime. F is a field with separate ring embeddings ι_C:F→ℂ and ι_K:F→K; existence of ι_C forces characteristic zero. No map from ℂ to K is chosen. K is normed ultrametric with Algebra ℤ_p K and IsBoundedSMul ℤ_p K, and O is its native norm-valuation integer ring. ψ and φ are native F-valued Dirichlet characters at their given levels D and E. Write ψ_K and φ_K for their native ringHomComp transports. Their zero extensions and order are retained. The arithmetic exponent is e=k−1 for natural weight k. The classical comparison takes an actual f:ModularForm(Γ₁(N),k), N≠0, and the explicit hypothesis a_n(f)=ι_C(σ(e,ψ,φ)(n)) for every n>0. This is a conditional comparison for a supplied form, not a theorem that any pair of characters produces f. For application to primitive character Eisenstein series, the existing ModularForms Layer0 owns the construction: positive levels D,E, primitive characters, parity ψ(−1)φ(−1)=(−1)^k, and DE dividingN (raising parameter1). Its ordinary k≥3 case supplies the intended input. Its weight1 case and weight2 trivial-pair correction stay separate; no existence at those weights is inferred from the conditional comparison. Set b=φ(p)p^e in F. The symbol g denotes the actual expression ofLe(f)−ι_C(b)·TauCeti.ModularForm.levelRaise(p,f) in ModularForm(Γ₁(pN),k), using native inclusion and conjugation maps. This notation is not a new generic stabilization constructor. The full fixed-weight comparison additionally takes c∈F and a_0(f)=ι_C(c) as an explicit hypothesis. It does not define c by a new generalized Bernoulli number, construct a constant measure or prove interpolation of constants.
+
+**Proof:**
+
+1. Let Fσ be the existing formal expression PowerSeries.mk(n↦σ(e,ψ,φ)(n)), and take Q⁺=Fσ−C(b)expand_p(Fσ). This explicitly specifies the common coefficients without proposing a new constructor. Its constant is0 because native σ(0)=0.
+2. Native Γ₁ level inclusion supplies ofLe(f), and native Gamma1_map_le_conjAct_scaleGL supplies levelRaise(p,f) at Γ₁(pN). The period1 lemmas allow the existing qExpansion_sub/smul and qExpansion_levelRaise APIs. Complete actual_level_raised_expansion checks this actual bundled modular-form expression, with no unproved modularity witness.
+3. The coefficient hypothesis identifies qExpansion(f)−C(a_0(f)) with map(ι_C)(Fσ). Complete positive_truncation proves this all-index assembly, including index0. The supplied form is used here; no theorem asserting its existence is invoked.
+4. Expansion preserves constant series, so subtracting the new constant commutes with the Euler operation: positive(g)=(1−C(ι_C(b))expand_p)positive(f). Complete euler_positive_truncation verifies the identity. Complete euler_map and the promoted native coefficient-map lemma identify this with map(ι_C)(Q⁺).
+5. For the p-adic image use the preserved native whole-series moment comparison and the same coefficient-map lemma. This gives precisely the actual integral series after inclusion into K, not a newly constructed measure.
+6. The field embedding ι_C is injective, and native PowerSeries.map_injective therefore determines Q⁺ from its complex image. Complete common_series_unique proves existence and uniqueness given the two established image equalities. The second embedding need not be topologically related to the complex one.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/twisted-divisor-coefficient-map`, `DirichletPadicLFunctions:L4/integral-twisted-series-native-moment`, `tauceti:ModularForm.ofLe`, `mathlib:ModularForm.qExpansion_sub`, `mathlib:ModularForm.qExpansion_smul`, `tauceti:TauCeti.ModularForm.levelRaise`, `tauceti:TauCeti.ModularForm.qExpansion_levelRaise`, `tauceti:CongruenceSubgroup.Gamma1_map_le_Gamma1_map_of_dvd`, `tauceti:TauCeti.Gamma1_map_le_conjAct_scaleGL`, `tauceti:TauCeti.one_mem_strictPeriods_Gamma1_map`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.map_injective`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.expand_C`.
+
+**Tests:**
+
+- `SuggestedClassicalTwistedTests.common_positive_zero_constant` (degenerate): Any common series whose complex image is the positive truncation of the actual form has coefficient0 equal to0.
+- `SuggestedClassicalTwistedTests.common_positive_first_coefficient` (computation): Any common series whose p-adic image is the actual principal arithmetic positive series has coefficient1 equal to1.
+- `SuggestedClassicalTwistedTests.one_embedding_already_determines_common_series` (characterisation): Equality after the complex coefficient embedding forces equality of two F-valued common series.
+
+**Acceptance:** The explicit classical-form hypothesis remains visible in the typed statement. This closes the comparison conditional on that input, not the upstream primitive-character construction or its coefficient formula. No new supplier existence result is claimed.
+
+**Source:** Definition8.1, Theorem8.2 and its full proof, Remark8.3, published159–161/PDF60–62, freshly read in4777; existing ModularForms roadmap Layer0, whole259–337, read this checkpoint. Worker-derived comparison through a common algebraic coefficient field, extending the source’s rational comparison. The classical form and its coefficient formula are explicit hypotheses. The primitive pair-character construction, Gauss-sum translation, generalized Bernoulli constants and exceptional weights remain with their existing ModularForms owner; these nodes prove no existence theorem for that input.
+
+### Fixed-weight comparison with a supplied algebraic constant
+
+`DirichletPadicLFunctions:L4/integral-twisted-classical-full-comparison` — `DirichletPadic.integralTwistedPositiveEisensteinSeries_classical_full`
+
+If additionally a_0(f)=ι_C(c), there is a unique Q∈F[[q]] whose complex image is qExpansion(g) and whose K-image is C(ι_K((1−φ(p)p^(k−1))c))+map(O↪K)(E⁺_(ψ_K,φ_K)(κ^O_(0,1,k−1))).
+
+**Hypotheses:** p is any prime. F is a field with separate ring embeddings ι_C:F→ℂ and ι_K:F→K; existence of ι_C forces characteristic zero. No map from ℂ to K is chosen. K is normed ultrametric with Algebra ℤ_p K and IsBoundedSMul ℤ_p K, and O is its native norm-valuation integer ring. ψ and φ are native F-valued Dirichlet characters at their given levels D and E. Write ψ_K and φ_K for their native ringHomComp transports. Their zero extensions and order are retained. The arithmetic exponent is e=k−1 for natural weight k. The classical comparison takes an actual f:ModularForm(Γ₁(N),k), N≠0, and the explicit hypothesis a_n(f)=ι_C(σ(e,ψ,φ)(n)) for every n>0. This is a conditional comparison for a supplied form, not a theorem that any pair of characters produces f. For application to primitive character Eisenstein series, the existing ModularForms Layer0 owns the construction: positive levels D,E, primitive characters, parity ψ(−1)φ(−1)=(−1)^k, and DE dividingN (raising parameter1). Its ordinary k≥3 case supplies the intended input. Its weight1 case and weight2 trivial-pair correction stay separate; no existence at those weights is inferred from the conditional comparison. Set b=φ(p)p^e in F. The symbol g denotes the actual expression ofLe(f)−ι_C(b)·TauCeti.ModularForm.levelRaise(p,f) in ModularForm(Γ₁(pN),k), using native inclusion and conjugation maps. This notation is not a new generic stabilization constructor. The full fixed-weight comparison additionally takes c∈F and a_0(f)=ι_C(c) as an explicit hypothesis. It does not define c by a new generalized Bernoulli number, construct a constant measure or prove interpolation of constants.
+
+**Proof:**
+
+1. Use the common positive series Q⁺ from the promoted conditional comparison and set Q=C((1−b)c)+Q⁺. This is an explicit expression, not a new family of measures or a new coefficient ring.
+2. The native expansion map preserves C(c). Hence the constant of the actual classical difference g is ι_C((1−b)c). Complete euler_constant_split proves the full formal identity (C(c)+F)−C(b)expand_p(C(c)+F)=C((1−b)c)+(F−C(b)expand_p(F)).
+3. Apply the two separate coefficient maps. The positive components agree by the previous comparison and both constant components agree by the supplied c and preservation of multiplication/subtraction. Injectivity of the complex embedding again gives uniqueness.
+4. At p=2,k=4 and the level-one arithmetic normalization c=1/240, the transformed constant is−7/240. It is nonzero and has2-adic norm16, so neither zero truncation nor integrality of positive coefficients supplies an integral constant term.
+5. The statement is pointwise in k with an explicitly supplied algebraic c. Generalized Bernoulli evaluation, admissible constant-term interpolation, pseudomeasure denominators, weight1/2 cases and geometric modular families remain open with the existing owners.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-twisted-classical-positive-comparison`, `mathlib:PowerSeries.expand_C`, `mathlib:PowerSeries.map_injective`, `mathlib:PowerSeries.C`, `mathlib:PowerSeries.coeff_C`.
+
+**Tests:**
+
+- `SuggestedClassicalTwistedTests.supplied_constant_has_euler_factor` (compatibility): The common full series has constant (1−φ(p)p^e)c, as forced by its K-valued comparison.
+- `SuggestedClassicalTwistedTests.fixed_weight_constant_can_be_nonintegral` (non-example): The level-one p=2,k=4 constant−7/240 has2-adic norm greater than1.
+- `SuggestedClassicalTwistedTests.zero_truncation_cannot_supply_full_constant` (non-example): An F=ℚ series with constant−7/240 differs from its positive truncation.
+
+**Acceptance:** The conclusion is a full fixed-weight q-expansion comparison conditional on c, not construction or interpolation of the missing generalized constant coefficient.
+
+**Source:** Definition8.1, Theorem8.2 and its full proof, Remark8.3, published159–161/PDF60–62, freshly read in4777; existing ModularForms roadmap Layer0, whole259–337, read this checkpoint. Worker-derived comparison through a common algebraic coefficient field, extending the source’s rational comparison. The classical form and its coefficient formula are explicit hypotheses. The primitive pair-character construction, Gauss-sum translation, generalized Bernoulli constants and exceptional weights remain with their existing ModularForms owner; these nodes prove no existence theorem for that input.
+
+**Remaining:** The conditional comparison now links supplied actual classical Γ₁ forms and their explicit native coefficient formulas to the integral p-adic positive series through a unique common coefficient-field series. A supplied algebraic constant gives a full fixed-weight comparison with the correct Euler factor. Instantiating the classical input requires the existing ModularForms Layer0 primitive-character Eisenstein construction, positive coefficient formula, parity and level hypotheses; its weight1/2 exceptions remain separate. Generalized constant measures, denominator-qualified interpolation and geometric families remain open. Full suggested elaboration remains unavailable until a compatible existing TwistedDivisorSum artifact is supplied. All source corrections, analytic pole/residue questions, owner requests and complete source extraction remain open.
+
+### Common coefficients for the conditional classical comparison validation
+
+All 592 predecessor nodes, 511 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 3 nodes, 3 named suggested declarations and 9 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 837 reachable nodes, 4019 edges and 690 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations. All three new conditional comparison routes end in native declarations and preserved interfaces. Their explicit classical-form and coefficient hypotheses are not promoted to an existence theorem; the primitive construction remains an open L4 boundary.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Nine complete native lemmas check weighted and retained divisor sums under ring maps, common-series uniqueness, positive truncation, Euler-operation naturality and constant splitting, the actual bundled Γ₁ level-raising q-expansion, and the nonzero rational constant−7/240. The separate probe compiles against 3428 pinned Mathlib modules and 19 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate native proof probe uses existing pinned Mathlib and 19 Tau Ceti artifacts, including the actual Degeneracy module. It does not import or replace the unavailable native TwistedDivisorSum module. General roadmap declarations remain unchecked.
+
+Exact Gaussian-rational coefficient-vector controls check both identity and conjugate coefficient embeddings, retained divisor coefficients, q^p expansion, positive truncation and the supplied full constant. Nonreal values and nonintegral constants are retained. Exact unbounded rational arithmetic in Gaussian-rational pairs. Identity and conjugation are distinct coefficient embeddings. Finite vectors are evaluated directly and compared with the Euler-transformed and constant-split expressions. They are algebraic controls only, not certified modular forms or an infinite-series proof. The largest observed discrepancy is 0.
+
+The64-input capture at 94e99d9637c8ff3fb856d9932c3ddf6d4dbd586a has an empty predecessor delta; the existing ModularForms owner atlas file is newly captured. The predecessor Lean body is preserved whole. The full suggested module remains uncompiled because the same required pinned TwistedDivisorSum artifact is missing. The separate probe uses actual existing modular-form artifacts, with no native build.
