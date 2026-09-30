@@ -233,3 +233,34 @@ The review, by Claude Code (session cc-39fac3), accepted the extraction and its 
   - Remark 9.2 needs H semisimple;
   - the preprint's Theorem 12.1(i)–(iii) are unproved.
   - Theorems 4.4, 5.8, 6.5 and 8.10 stand.
+
+## Fixes (FIX-RT-PAPER-TREUMANN-VENKATESH-16, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #4992. This fix applies the eight medium findings of
+`RT-PAPER-TREUMANN-VENKATESH-16`, with the corrections of its verifier (Codex, codex-rtOQ9t). The full record is
+`research/blueprint/redteam/RT-PAPER-TREUMANN-VENKATESH-16.fixes.md`.
+
+- **/1:** the Frobenius twist (item 2) and Tate cohomology of algebras (item 26) go to SheafTheoreticSmithTheory, the
+  owner PAPER-FENG-24 proposes (route 4). Route 1 imports them and keeps the topological Smith theory.
+- **/2:** nonabelian H¹ (item 3) is planned at Tau Ceti EllipticCurves Layer 5. Its cyclic descriptions are a
+  separate adapter, `cyclic-h1-descriptions`, in route 1.
+- **/3:** three suppliers are added:
+  - `lang-steinberg`, routed to RG2.3 like PAPER-LIPNOWSKI-TSIMERMAN-18's item (route 5);
+  - `twisted-class-closed` (Joyner), in route 1;
+  - `stable-borel-pair`, in route 2, in characteristic 0 as the verifier corrected it.
+
+  Steinberg (×2) and Joyner are added as prerequisites.
+- **/4:** item 16 is library for the algebra and for k[G/K] (Tau Ceti's LeftCosetModule). The general modules V^K and
+  k[X/K] are `hecke-modules-vk-and-kxk`, routed to SR.1.
+- **/5:** four status fixes:
+  - item 37 is missing and requested from AF.0 (route 6);
+  - item 43's properness theorem is split off to AA.3 (route 7);
+  - item 38's almost-all statement is isolated in `almost-all-places-good` (AA.1 with Lang's theorem);
+  - the singular-chain/correspondence comparison is `singular-chain-hecke-comparison`, in route 1.
+- **/6:** route 1's brief states Theorem 5.8 for connected reductive G and Theorem 6.5 for semisimple G, as the paper
+  does.
+- **/7:** canonical pseudoroot (b) uses the character sending 𝔭 to N𝔭^{-1}, and (9.3.1) stands with arithmetic
+  Frobenius. The printed character is recorded as source issue E54, an error affecting a stated result.
+- **/8:** the three transfer pairs state each σ-dual construction once, in its §9 item, and each global consequence
+  once, in its §1.2 item. The Sp_2n case needs n ≥ 2.
+- **Result:** 129 items (4 library, 14 planned, 111 missing), seven routes, 11 prerequisites and 54 source issues.
